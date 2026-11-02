@@ -81,6 +81,23 @@
    "bytes": 301021,
    "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
   },
+  "en-ar-glf": {
+   "file": "en-ar-glf/course.json",
+   "from": "en",
+   "to": "ar",
+   "dialect": "glf",
+   "title": "Gulf Arabic grammar",
+   "variety": "Saudi Arabic, Riyadh (Najdi) style",
+   "units": 4,
+   "lessons": 16,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 87441,
+   "sha256": "978d2af168e10518b1fb2f9b377f477b6ef988651ffdbebf76473c081d3eeb8e"
+  },
   "en-ar-lev": {
    "file": "en-ar-lev/course.json",
    "from": "en",

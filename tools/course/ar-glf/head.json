@@ -1,0 +1,8 @@
+{
+ "lang": "ar-glf",
+ "title": "Gulf Arabic basics",
+ "variety": "Saudi Arabic, Riyadh (Najdi) style",
+ "about": "Everyday Saudi words that Modern Standard Arabic doesn't have, counted in real Saudi Arabic (readers' comments on Al-Riyadh, Saudi TV transcripts, Najdi web text) and ranked by how often they are used, 50 to a unit. Every word's meaning is backed by a published dictionary. Words that are Standard Arabic, said differently or with dialect grammar are left out (the grammar course teaches those). Each word has one short sentence as people in Riyadh say it, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 89,
+ "voice": {"voice": "ar-SA-HamedNeural", "locale": "ar-SA", "name": "Hamed (Azure, Saudi Arabia)"}
+}

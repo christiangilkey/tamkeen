@@ -1,0 +1,5745 @@
+{
+ "dialect": "glf",
+ "note": "Made by tools/course/ar-glf/build-list.mjs. For each word: how often it is used in Saudi texts (count and per million words, in all the spellings listed), what published dictionaries say it means (with links), and real Saudi sentences that use it. Sources and licences: tools/course/ar-glf/README.md.",
+ "texts": {
+  "aoc": "Arabic Online Commentary, readers' comments on Al-Riyadh judged dialectal (Zaidan & Callison-Burch 2011): 260363 words",
+  "sada": "SADA 2022 Saudi TV transcripts, Najdi speakers (SDAIA, CC BY-NC-SA 4.0; only counted, and quoted briefly here): 903617 words",
+  "fineweb2": "FineWeb2, its Najdi Arabic part, the first of its 11 files (Hugging Face, ODC-By 1.0): 52006753 words"
+ },
+ "words": [
+  {
+   "n": 1,
+   "word": "بَسّ",
+   "meaning": "only, just; but; enough",
+   "counted": {
+    "forms": [
+     "بس",
+     "وبس",
+     "فبس",
+     "ووبس"
+    ],
+    "count": {
+     "aoc": 1825,
+     "sada": 6288,
+     "fineweb2": 218991
+    },
+    "perMillion": {
+     "aoc": 7009.4,
+     "sada": 6958.7,
+     "fineweb2": 4210.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "بس",
+     "gloss": "but, though",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "بس",
+     "gloss": "only, just",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "بس",
+     "gloss": "enough",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بس",
+     "gloss": "cat",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بس",
+     "gloss": "only, just",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بس",
+     "gloss": "enough",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بس",
+     "gloss": "but, though",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ، يْبِسّ",
+     "gloss": "to mix (ه = s.th., مع = with)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "enough (also with a pronoun suffix, like بَسَّك ) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "as soon as (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "provided that",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "but, however (conjunction)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "as soon as, just as (conjunction)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ ¦ [E-Gulf] بَسّ",
+     "gloss": "enough! stop it! stop! (as an interjection)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ",
+     "gloss": "halyard, tackle (collective noun)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ",
+     "gloss": "only",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ",
+     "gloss": "only (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَسّ",
+     "gloss": "only, just",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "اما مهندسين على بند الصيانة والتشغيل ؟ ؟ بس الاستفسار على رقم جوال ؟ ؟ تلقاه مقفل ؟ ؟",
+     "بس الله يفرجها ويستر عليكم"
+    ],
+    "sada": [
+     "وصورتها كذا صوره بس الى الحين ودي اصورها",
+     "حلوين بس استنى شويتين زيادة ماشي حتطول عملي عندي انا"
+    ],
+    "fineweb2": [
+     "بس لاجا الجد ياتحسين <-- قامت تراجع حساباتها",
+     "عجزت وانا اتكشخ واعصر نفسي بالتنانير والبناطيل عشان ارز المفاتن بس مااااااااش مهنا احدن يوحي لي ولا مفاتني"
+    ]
+   }
+  },
+  {
+   "n": 2,
+   "word": "وِشْ",
+   "meaning": "what",
+   "counted": {
+    "forms": [
+     "وش",
+     "ووش",
+     "فوش",
+     "ويش",
+     "وويش",
+     "فويش"
+    ],
+    "count": {
+     "aoc": 861,
+     "sada": 2906,
+     "fineweb2": 63913
+    },
+    "perMillion": {
+     "aoc": 3306.9,
+     "sada": 3216,
+     "fineweb2": 1228.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "وش",
+     "gloss": "what",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%B4#Najdi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "هل هذا عدل وش فرقهم عن بعض انصفوهم",
+     "ويش فيكم يا جماعة اللى سواها بنقالي والبنقال المساكين مايبون يحرجون عليهم"
+    ],
+    "sada": [
+     "وش اللي خلاص اخوي",
+     "تصدق انه حصل الغريب يا حماد وش هو"
+    ],
+    "fineweb2": [
+     "هذا وش دليل عليه ؟",
+     "كل ماحبيت واحد خسرته بسبب والا بدون والله اكبر يا نصيبي وانا وش بيدي ( فيسات ترقص سامري )"
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "word": "الْحِين",
+   "meaning": "now",
+   "note": "Not MSA حِين “time, while”.",
+   "counted": {
+    "forms": [
+     "الحين",
+     "والحين",
+     "فالحين",
+     "اللحين",
+     "واللحين",
+     "هالحين",
+     "وهالحين"
+    ],
+    "count": {
+     "aoc": 404,
+     "sada": 4322,
+     "fineweb2": 43173
+    },
+    "perMillion": {
+     "aoc": 1551.7,
+     "sada": 4783,
+     "fineweb2": 830.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "الحين",
+     "gloss": "now",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%84%D8%AD%D9%8A%D9%86#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "يعني لو الدوله اللحين سمحت بإنشاء مطار في مكة المكرمة يعني هل من المعقول اني اسافر من مكة للطائف واللا شلون ؟ ؟ ؟",
+     "الحين عندنا اللي زعلان من شي على طول يفكر في الانتحار"
+    ],
+    "sada": [
+     "اووه ايش فيك ياحوي اسمع خل نقوم نجهز الفطور هناك عشان الحين تشوف الشمس ايش لون تشوف",
+     "وصورتها كذا صوره بس الى الحين ودي اصورها"
+    ],
+    "fineweb2": [
+     "الحين اقولكم ..",
+     "مع تحسين العامل الباكستني العجوز جدا .. يعني الحين حتى راعي المغسلة حبيته وللحين قلبي اعزب"
+    ]
+   }
+  },
+  {
+   "n": 4,
+   "word": "عَشَان",
+   "meaning": "because (of); so that",
+   "counted": {
+    "forms": [
+     "عشان",
+     "وعشان",
+     "فعشان",
+     "عشانك",
+     "وعشانك",
+     "عشانه",
+     "وعشانه",
+     "عشانها",
+     "وعشانها"
+    ],
+    "count": {
+     "aoc": 436,
+     "sada": 3525,
+     "fineweb2": 55553
+    },
+    "perMillion": {
+     "aoc": 1674.6,
+     "sada": 3901,
+     "fineweb2": 1068.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عشان",
+     "gloss": "for, because of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عشان",
+     "gloss": "for the sake of",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عشان",
+     "gloss": "because",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عشان",
+     "gloss": "so that, in order to",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B4%D8%A7%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَشَان",
+     "gloss": "in order to, because",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B4%D8%A7%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَشَاْن / عَلَشَاْن / عَلَى شَاْن",
+     "gloss": "for the sake of",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B4%D8%A7%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَشَاْن / عَلَشَاْن / عَلَى شَاْن",
+     "gloss": "in order to",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B4%D8%A7%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَشَاْن / عَلَشَاْن / عَلَى شَاْن",
+     "gloss": "because",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B4%D8%A7%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "صدق مااعز من الولد الا ولد الولد الله يتغمدها بواسع رحمته ويسكنها فسيح جناته ويتقبلها مع الشهداء ضحت بحياتها عشان يعيش ولد ابنها",
+     "الله يرحمها ويغفر لها ياطيب قلبها ضحت بنفسها عشان حفيدها . ."
+    ],
+    "sada": [
+     "اووه ايش فيك ياحوي اسمع خل نقوم نجهز الفطور هناك عشان الحين تشوف الشمس ايش لون تشوف",
+     "ايه خلي يصحى عشان ننام مع بعض ونصحى مع بعض"
+    ],
+    "fineweb2": [
+     "المهم ماعلينا من حبيبي السابق شريف اللي تركته لانه أمترّت تسبدي من الفجل ماغير ارعى فيه رعي عشان ارضيه !",
+     "جعل الطاعون ينخر سرّك عشان تعرف معنى الرقص الصجي يابو صجي انت"
+    ]
+   }
+  },
+  {
+   "n": 5,
+   "word": "شَاف",
+   "meaning": "to see",
+   "note": "MSA شَافَ is a rare word for “to look down at”.",
+   "counted": {
+    "forms": [
+     "شاف",
+     "وشاف",
+     "فشاف",
+     "شفت",
+     "وشفت",
+     "فشفت",
+     "يشوف",
+     "ويشوف",
+     "اشوف",
+     "واشوف",
+     "فاشوف",
+     "تشوف",
+     "وتشوف",
+     "فتشوف",
+     "نشوف",
+     "ونشوف",
+     "فنشوف",
+     "شوف",
+     "وشوف",
+     "فشوف",
+     "شايف",
+     "وشايف",
+     "شفنا",
+     "وشفنا",
+     "شافوا",
+     "وشافوا",
+     "فشافوا"
+    ],
+    "count": {
+     "aoc": 580,
+     "sada": 2763,
+     "fineweb2": 64110
+    },
+    "perMillion": {
+     "aoc": 2227.7,
+     "sada": 3057.7,
+     "fineweb2": 1232.7
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شاف",
+     "gloss": "to see (to perceive with the eyes)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D8%A7%D9%81#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شوف",
+     "gloss": "second-person singular imperative of شاف (šāf)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%81#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شوف",
+     "gloss": "seeing, sight",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%81#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شَاف، يَشُوف",
+     "gloss": "to see",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D8%A7%D9%81&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شَاْف / چَاْف، يْشُوْف / يْچُوْف ¦ [E-Gulf] شَاْف / چَاْف، يْشُوْف / يْچُوْف",
+     "gloss": "to see, look (said with a چ or ش depending in dialect) (like the word \"see\" in English, this has a broad range of meanings, including \"to find out, figure out, see what is going on\"; \"to ecounter, experience\"; \"to consider, think, see a matter in a certain way\". Note when used to mean \"to consider, think\", it is often used as a verb instead of a participle, like شُو تْشُوف .) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D8%A7%D9%81&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "تستاهل وعقبال ما نشوف سعوديين كثير بمثل جائزة نوبل وغيره",
+     "ضعيف الايمان اللى يلجأ للأنتحار ، ، ويشوف أنه الحل الوحيد للتخلص من المشكلة ، ، أنه الضعف ؟ ؟ ؟"
+    ],
+    "sada": [
+     "اووه ايش فيك ياحوي اسمع خل نقوم نجهز الفطور هناك عشان الحين تشوف الشمس ايش لون تشوف",
+     "اي اشوف كم عدد الاشرطة اللي انباعت الى هالحين"
+    ],
+    "fineweb2": [
+     "هذا الباكستاني اشوف فيه رأفه الأب ورحمة الأخ وحنان الزوج <-- افااااا زوج !!!",
+     "وين خطير يادلخ, اجل لو تشوف قبعاتي وش تقول"
+    ]
+   }
+  },
+  {
+   "n": 6,
+   "word": "مُو",
+   "meaning": "not (with nouns and adjectives)",
+   "counted": {
+    "forms": [
+     "مو",
+     "ومو",
+     "فمو"
+    ],
+    "count": {
+     "aoc": 618,
+     "sada": 1731,
+     "fineweb2": 77985
+    },
+    "perMillion": {
+     "aoc": 2373.6,
+     "sada": 1915.6,
+     "fineweb2": 1499.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مو",
+     "gloss": "not",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو",
+     "gloss": "what (interrogative) (common in Omani dialects)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو",
+     "gloss": "not (note: conjugated for masculine singular)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو / مُوْب / مُب / مُهُوْب",
+     "gloss": "not, no (negation of nouns, adjectives, adverbs, predicates, phrases) (note مو",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو / مُوْب / مُب / مُهُوْب",
+     "gloss": "مُوْب كِذِي (چِذِي) : isn't it? isn't that right? (note that موب is assumed to be from مو",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "هو مو بس صلاحيات ؟ ؟ طرد الفاسدين المرتشين الخونه ؟ ؟",
+     "شي حلو مو فق لمدراى البلديات"
+    ],
+    "sada": [
+     "اتصلحين الكيكة اللي احبها وتخلين رائحتها تنتشر في المنزل وتحرميني اني اذوقها هذا مو عذاب اكبر عذاب",
+     "وايش اللي مو بصحيح كل شوي مو بصحيح مو بصحيح مو بصحيح"
+    ],
+    "fineweb2": [
+     "تلفون السنترال حلو و عيبه الوحيد لو انقطعت الكهرباء ما يشتغل بس مو مشكله في جوالات",
+     "مو فاكرة مين الاخت اللي سألت عن اماكن الافياش بس طبعا التحديد يعتمد على طريقه الفرش"
+    ]
+   }
+  },
+  {
+   "n": 7,
+   "word": "شْوَيّ",
+   "meaning": "a little, a bit",
+   "note": "Not MSA شَوَى “to grill”.",
+   "counted": {
+    "forms": [
+     "شوي",
+     "وشوي",
+     "فشوي",
+     "شويه",
+     "وشويه",
+     "ووشوي"
+    ],
+    "count": {
+     "aoc": 132,
+     "sada": 3758,
+     "fineweb2": 44861
+    },
+    "perMillion": {
+     "aoc": 507,
+     "sada": 4158.8,
+     "fineweb2": 862.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شوى",
+     "gloss": "to grill",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%89#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شوية",
+     "gloss": "a little, some, a bit",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%88%D9%8A%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْوَيّ / شْوَيَّة ¦ [E-Gulf] شْوَيَّة / شْوَيّ",
+     "gloss": "a little, some, a few (of), small amount, a bit (of) (noun)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%88%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْوَيّ / شْوَيَّة ¦ [E-Gulf] شْوَيَّة / شْوَيّ",
+     "gloss": "a short time, a little while (noun)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%88%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْوَيّ / شْوَيَّة ¦ [E-Gulf] شْوَيَّة / شْوَيّ",
+     "gloss": "a little, a bit, somewhat (adverb) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%88%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْوَيّ / شْوَيَّة ¦ [E-Gulf] شْوَيَّة / شْوَيّ",
+     "gloss": "a few, some (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%88%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ركز شوي يا سيادة المحرر الله يثيبك .",
+     "روقوا شوي و ادعو لهم بالهداية و بس"
+    ],
+    "sada": [
+     "تمام نحط شوي من هذه",
+     "انا بطلع حجرتي ارتاح شوية وانتو مسموح الشريط على مهلكم ثم عطوني رايكم فيه شبيب يا ذيب الفيافي ايوه اه عجيب"
+    ],
+    "fineweb2": [
+     ".... بغى الا شوي يتخوصر لي ويهز وسطه من الحماس وهو يتحلف في حسني ( فيس فيفي عبدة مركبة شنب ) !!!!",
+     "والله ياقلبك خضر ياراعية الموضوع كل شوي تحبين ..105 اجل وش خليتي للشحروره يقلع شكلك"
+    ]
+   }
+  },
+  {
+   "n": 8,
+   "word": "بَعْدَيْن",
+   "meaning": "later; then",
+   "counted": {
+    "forms": [
+     "بعدين",
+     "وبعدين",
+     "فبعدين",
+     "ووبعدين"
+    ],
+    "count": {
+     "aoc": 350,
+     "sada": 2232,
+     "fineweb2": 33991
+    },
+    "perMillion": {
+     "aoc": 1344.3,
+     "sada": 2470.1,
+     "fineweb2": 653.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "بعدين",
+     "gloss": "later",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بعدين",
+     "gloss": "later",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "بعدين",
+     "gloss": "after a while; later",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B9%D8%AF%D9%8A%D9%86#Najdi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَعْدَيْن ¦ [E-Gulf] بَعْدَيْن",
+     "gloss": "later, afterwards, later on [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B9%D8%AF%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَعْدَيْن",
+     "gloss": "then",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B9%D8%AF%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَعْدَيْن",
+     "gloss": "something else",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B9%D8%AF%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَعْدِين",
+     "gloss": "later",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B9%D8%AF%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والدنا توفي وأرسلنا أخونا لمالية جدة بالأوراق قبل سنتين وقالوا له بعدين نتصل بك وللحين ماورد أسم أبونا ! ! !",
+     "وبعدين تخفف من زحمه خط جده الى مكه"
+    ],
+    "sada": [
+     "لحظة يا اخوي لحظة خلي العيال يصحون بعدين اخذك معنا يلا",
+     "جيتك جيتك يا بابا ب اخذ رهينتي بعدين نتفاهم"
+    ],
+    "fineweb2": [
+     "9- وبعدين روحي لموقع التحميل بيصير فيه مربع مكتوب فيه إستعراض إضغطي عليه وإختاري الصورة الي تبين وبعدين أضغطي على تحميل",
+     "لاني وقعت في نفس مشكلة الاخت غلا الروح قال المهندس اللي تبغينه من فجوات قولي للمقاول بعدين, طبعا ما صار من اللي بغيته شى"
+    ]
+   }
+  },
+  {
+   "n": 9,
+   "word": "وَيْن",
+   "meaning": "where",
+   "counted": {
+    "forms": [
+     "وين",
+     "ووين",
+     "فوين",
+     "وينك",
+     "ووينك",
+     "وينه",
+     "ووينه",
+     "وينها",
+     "ووينها",
+     "وينكم",
+     "ووينكم"
+    ],
+    "count": {
+     "aoc": 601,
+     "sada": 1095,
+     "fineweb2": 38057
+    },
+    "perMillion": {
+     "aoc": 2308.3,
+     "sada": 1211.8,
+     "fineweb2": 731.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "وين",
+     "gloss": "where?",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D9%8A%D9%86#Najdi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "أَيْن / وَيْن / هَيْن / فَيْن ¦ [Om] وَيْن / هَيْن / فَيْن ¦ [E-Gulf] وَيْن",
+     "gloss": "where, what place [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَيْن",
+     "gloss": "where",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وين بحطونه ؟ ! ! مكة جدا زحمة واذا خارج الحرم فأتوقع مطار جدة قريب",
+     "وين وسائل السلامة يالدفاع المدني ؟ ؟"
+    ],
+    "sada": [
+     "انا بعرف شو اسوي بعرف وين اروح",
+     "لا يا ابو سليمان وين ارهن لك سيارتي الله يسلمك وتعرف ماخذ سيارتي تقسيط"
+    ],
+    "fineweb2": [
+     "مدري وين العيب يكمن واهم شي كلمة يكمن هو العيب فيهم والا في قلبي ،",
+     "وين خطير يادلخ, اجل لو تشوف قبعاتي وش تقول"
+    ]
+   }
+  },
+  {
+   "n": 10,
+   "word": "لَيْش",
+   "meaning": "why",
+   "counted": {
+    "forms": [
+     "ليش",
+     "وليش",
+     "فليش"
+    ],
+    "count": {
+     "aoc": 483,
+     "sada": 1134,
+     "fineweb2": 35875
+    },
+    "perMillion": {
+     "aoc": 1855.1,
+     "sada": 1255,
+     "fineweb2": 689.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ليش",
+     "gloss": "why?",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D8%B4#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "ليش",
+     "gloss": "why?",
+     "url": "https://en.wiktionary.org/wiki/%D9%84%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْش / لِوَيْش / إِلْوَيْش",
+     "gloss": "why, for what reason, what for [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لِيْش",
+     "gloss": "why",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لِيْش",
+     "gloss": "why",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْه / لَيْش",
+     "gloss": "why, for what",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْه / لَيْش",
+     "gloss": "exclamation particle",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "متوفي من عام 1410 ه والدفعه 14 واسمه مطلع ليش",
+     "مدري ليش العالم أول ماينزل المطر ركض ثاني يوم لأماكن السيل وتجمع الماء ! !"
+    ],
+    "sada": [
+     "وبعدين انت ليش ما مشيت",
+     "انت ليش دايما تطلعين لحالك"
+    ],
+    "fineweb2": [
+     "وليش نخفض سعره دام فيه اقبال عليه !!!الي قلو ها الكلام عندهم النوعين المارفييل والبوتشينو ولا وده اننا ناخذ الا مارفييل اربح له",
+     "بس اكيد إنك لاحظتي إنه ماقد حصل إن أحد جاوب جواب شافي وشامل إلا إن وحدة مثلاً تقول أنا اخترت كذا وكذا عارفة ليش ؟"
+    ]
+   }
+  },
+  {
+   "n": 11,
+   "word": "زَيّ",
+   "meaning": "like, the same as",
+   "note": "Not MSA زِيّ “uniform, costume”.",
+   "counted": {
+    "forms": [
+     "زي",
+     "وزي",
+     "فزي",
+     "فوزي",
+     "زيه",
+     "وزيه",
+     "زيك",
+     "وزيك",
+     "زيها",
+     "وزيها",
+     "زيي"
+    ],
+    "count": {
+     "aoc": 234,
+     "sada": 1546,
+     "fineweb2": 20836
+    },
+    "perMillion": {
+     "aoc": 898.7,
+     "sada": 1710.9,
+     "fineweb2": 400.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "زي",
+     "gloss": "like",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D9%8A#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "زي",
+     "gloss": "like, likeness; equals to; same as; similar to",
+     "url": "https://en.wiktionary.org/wiki/%D8%B2%D9%8A#Najdi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيّ",
+     "gloss": "like, in this fashion",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيّ",
+     "gloss": "زَيّْ",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيّ",
+     "gloss": "like, similar to",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "زي ماقال الاخ في رده ( التقرب الى الله بالعبادات والاستغفار وعرض المشاكل على المقربين ) هذاالحل",
+     "المقال من اوله الى اخره زي التحريضي على الحكم و انه الي انحكم عليه بانه ما يستخدم سيارته مظلوم"
+    ],
+    "sada": [
+     "طيب واللي حلتها زي حالتك وما عندها هواية ويش تساوي تنفجر",
+     "ولا تنسى الضرر المعنوي والنفسي اللي يعود عليك ويعود على الشباب اللي ظروفهم زي ظروفك"
+    ],
+    "fineweb2": [
+     "طبلون الكهرباء حددوا مكانه بحيث ما يكون في وسط الهول زي ما حصل مع البعض وشوه المنظر",
+     "ووضع الكابينه انا سمعت زيك والله اعلم"
+    ]
+   }
+  },
+  {
+   "n": 12,
+   "word": "يَلَّا",
+   "meaning": "come on; let's go",
+   "counted": {
+    "forms": [
+     "يلا",
+     "ويلا",
+     "فيلا",
+     "فويلا"
+    ],
+    "count": {
+     "aoc": 13,
+     "sada": 2170,
+     "fineweb2": 16489
+    },
+    "perMillion": {
+     "aoc": 49.9,
+     "sada": 2401.5,
+     "fineweb2": 317.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَللا / يَلَّا",
+     "gloss": "let's go, hurry up",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَللا / يَلَّا / يا الله",
+     "gloss": "Come on! hurry up! Let’s go!",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَللا / يَلَّا / يا الله",
+     "gloss": "يللا + فعل : let’s…",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَللا / يَلَّا / يا الله",
+     "gloss": "just, barely",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَللا / يَلَّا / يا الله",
+     "gloss": "until, till",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "يلا صوتو سالب مجرد حلم لااكثر",
+     "حدكم دور 16 ويلا مع الباب كما هو المعتاد"
+    ],
+    "sada": [
+     "اييه امم يلا يلا",
+     "لحظة يا اخوي لحظة خلي العيال يصحون بعدين اخذك معنا يلا"
+    ],
+    "fineweb2": [
+     "يلا خوذي 10 لقصة المحبة العظيمة هذي .. و10 لقصيدة المصيبه هذي",
+     "لدي أرض مساحتها 500 م أريد أن ابني عليها فيلا راقية جدا ً مع مسبح"
+    ]
+   }
+  },
+  {
+   "n": 13,
+   "word": "خَلَاص",
+   "meaning": "OK then; that's it; enough",
+   "note": "MSA خَلَاص means “rescue, salvation”.",
+   "counted": {
+    "forms": [
+     "خلاص",
+     "وخلاص",
+     "فخلاص"
+    ],
+    "count": {
+     "aoc": 131,
+     "sada": 1388,
+     "fineweb2": 24590
+    },
+    "perMillion": {
+     "aoc": 503.1,
+     "sada": 1536,
+     "fineweb2": 472.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَلَاْص",
+     "gloss": "way out, deliverance",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%84%D8%A7%D8%B5&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَلَاْص",
+     "gloss": "khalasa (kind of date)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%84%D8%A7%D8%B5&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَلَص / خَلَاْص ¦ [E-Gulf] خَلَاْص",
+     "gloss": "that's it, it's done, it's finished",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%84%D8%A7%D8%B5&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَلَص / خَلَاْص ¦ [E-Gulf] خَلَاْص",
+     "gloss": "it's done, there's nothing else to be said (interjection)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%84%D8%A7%D8%B5&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَلَص / خَلَاْص ¦ [E-Gulf] خَلَاْص",
+     "gloss": "enough!",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%84%D8%A7%D8%B5&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والجوازات للمقيمين وخلاص",
+     "خلاص انتها عذر \" مريض نفسي ويراجع المستشفى منذ عددة سنوات \""
+    ],
+    "sada": [
+     "وش اللي خلاص اخوي",
+     "خلاص الليلة الساعة تسعة"
+    ],
+    "fineweb2": [
+     "قلت : اكتفي بكلمه خلاص",
+     "والجاكوزي ممل ويبي له عنايه ونظافه وحوسه خليه بانيو ذوق وخلاص"
+    ]
+   }
+  },
+  {
+   "n": 14,
+   "word": "قَطّ",
+   "meaning": "to throw (away)",
+   "note": "Not MSA قَطَّ “to trim” or قِطّ “cat”.",
+   "counted": {
+    "forms": [
+     "قط",
+     "وقط",
+     "فقط",
+     "يقط",
+     "ويقط",
+     "قطيت",
+     "وقطيت",
+     "قطها",
+     "وقطها",
+     "قطه",
+     "وقطه",
+     "تقط",
+     "وتقط",
+     "اقط",
+     "واقط",
+     "قطوا"
+    ],
+    "count": {
+     "aoc": 230,
+     "sada": 278,
+     "fineweb2": 43971
+    },
+    "perMillion": {
+     "aoc": 883.4,
+     "sada": 307.7,
+     "fineweb2": 845.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "قط",
+     "gloss": "to throw",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%B7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "قط",
+     "gloss": "to throw away",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%B7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "قط",
+     "gloss": "to drop off",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%B7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "قط",
+     "gloss": "to jest in spontaneous manner",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%B7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "قط",
+     "gloss": "to throw shade",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D8%B7#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ، يْقِطّ / يْگِطّ ¦ [E-Gulf] قَطّ / گَطّ، يْقِطّ / يْگِطّ",
+     "gloss": "to throw (ه = s.th.) away, discard, toss (ه = s.th.) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ، يْقِطّ / يْگِطّ ¦ [E-Gulf] قَطّ / گَطّ، يْقِطّ / يْگِطّ",
+     "gloss": "to put, place, toss (ه = s.th.) (like if someone were to say in English, \"where do I put this\", and the response is \"toss / put it over there\")",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ، يْقِطّ / يْگِطّ ¦ [E-Gulf] قَطّ / گَطّ، يْقِطّ / يْگِطّ",
+     "gloss": "to drop off (ه = s.o.), to let off (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ",
+     "gloss": "throwing away, tossing out, discarding (maSdar)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ",
+     "gloss": "putting, placing",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ",
+     "gloss": "dropping off, causing to get off (maSdar)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَطّ / گَطّ / گَطْ",
+     "gloss": "ever, never, at all",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "نبغى نرهب بتقدمنا بصناعاتنا بحضارتنا مثل اليابان مو كل يومين وقطوا طالع لي ببيان ؟"
+    ],
+    "sada": [
+     "طيب على فكرة في طريقة في بعضهم يحطها بالفريزر طيب زي كده بعدين يقط ي يعني نفس هذي عشان تجمد اوكي يقصها بعدين يكورها انا الحين"
+    ],
+    "fineweb2": [
+     "فارس وهو يقط المخده على مشاري : اقول طس هالي قاصرني",
+     "مشعل وهو يقط الخياره على تركي : هي انت اسمه مشعل اصغر عيالك هو"
+    ]
+   }
+  },
+  {
+   "n": 15,
+   "word": "جَاب",
+   "meaning": "to bring",
+   "note": "Not MSA جَابَ “to roam, explore”.",
+   "counted": {
+    "forms": [
+     "جاب",
+     "وجاب",
+     "فجاب",
+     "جبت",
+     "وجبت",
+     "فجبت",
+     "يجيب",
+     "ويجيب",
+     "فيجيب",
+     "اجيب",
+     "واجيب",
+     "فاجيب",
+     "تجيب",
+     "وتجيب",
+     "فتجيب",
+     "نجيب",
+     "ونجيب",
+     "جيب",
+     "وجيب",
+     "فجيب",
+     "جابوا",
+     "وجابوا",
+     "فجابوا"
+    ],
+    "count": {
+     "aoc": 222,
+     "sada": 707,
+     "fineweb2": 19135
+    },
+    "perMillion": {
+     "aoc": 852.7,
+     "sada": 782.4,
+     "fineweb2": 367.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جاب",
+     "gloss": "to bring",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%A7%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جاب",
+     "gloss": "to give birth",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D8%A7%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "يجيب",
+     "gloss": "third-person masculine singular non-past of جاب (jāb)",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D8%AC%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جيب",
+     "gloss": "pocket",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جيب",
+     "gloss": "second-person masculine singular imperative of جاب (jāb)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جيب",
+     "gloss": "Jeep",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "جيب",
+     "gloss": "SUV, sport utility vehicle",
+     "url": "https://en.wiktionary.org/wiki/%D8%AC%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "جَاب، يِجِيب",
+     "gloss": "to bring",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AC%D8%A7%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "جَاْب / گَاْب / يَاْب، يْجِيْب / يْگِيْب / يِيْب ¦ [E-Gulf] جَاْب / يَاْب، يِجِيْب / يِيِيْب",
+     "gloss": "to bring (ه = s.th.), to get (ه = s.th.) (said with j or g or y) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AC%D8%A7%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "جَاْب / گَاْب / يَاْب، يْجِيْب / يْگِيْب / يِيْب ¦ [E-Gulf] جَاْب / يَاْب، يِجِيْب / يِيِيْب",
+     "gloss": "to give birth to, have (ه = a child) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AC%D8%A7%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "كيف اجيب خبرة ؟",
+     "هالقضاة عقولهم مدري شلون جايه لو نجيب بزر يحل المشكله افلح اكثر منهم"
+    ],
+    "sada": [
+     "دعج اسى اجيب الشاي يلا يلا روح شغلك اقول عاد روح لها انت لحرمتك ليت عذرتك",
+     "سن من تقصد لا لا لا فيصل ايه اشوى يا فيصل اجيب الشرشف واداريك وغير ملابسك هاهاها هاهاها"
+    ],
+    "fineweb2": [
+     "مجد ضحكني لما جاب كارولين حتى تاخذ علي وقعد يتمسخر عليها",
+     "ما في مثل الموسم الخامس لو تموت رولا ما تجيب ربع هذاك الموسم"
+    ]
+   }
+  },
+  {
+   "n": 16,
+   "word": "زَيْن",
+   "meaning": "good; fine, OK",
+   "note": "MSA زَيْن means “beauty, adornment”.",
+   "counted": {
+    "forms": [
+     "زين",
+     "وزين",
+     "فزين",
+     "زينه",
+     "وزينه"
+    ],
+    "count": {
+     "aoc": 164,
+     "sada": 849,
+     "fineweb2": 19969
+    },
+    "perMillion": {
+     "aoc": 629.9,
+     "sada": 939.6,
+     "fineweb2": 384
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن",
+     "gloss": "name of the letter ز",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن",
+     "gloss": "fine, good",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن، ج المؤنث: زَيْنَة ¦ [E-Gulf] زَيْن، ج زَيْنِيْن، المؤنث: زَيْنَة",
+     "gloss": "beautiful, pretty",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن، ج المؤنث: زَيْنَة ¦ [E-Gulf] زَيْن، ج زَيْنِيْن، المؤنث: زَيْنَة",
+     "gloss": "well, excellently (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن، ج المؤنث: زَيْنَة ¦ [E-Gulf] زَيْن، ج زَيْنِيْن، المؤنث: زَيْنَة",
+     "gloss": "beautiful person",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن، ج المؤنث: زَيْنَة ¦ [E-Gulf] زَيْن، ج زَيْنِيْن، المؤنث: زَيْنَة",
+     "gloss": "fine, good, nice [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيْن، ج المؤنث: زَيْنَة ¦ [E-Gulf] زَيْن، ج زَيْنِيْن، المؤنث: زَيْنَة",
+     "gloss": "well, good, okay, OK, all right, fine, good. (interjection of approval) (interjection) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيَّن، يْزَيَّن ¦ [E-Gulf] زَيَّن، يْزَيِّن",
+     "gloss": "to decorate, adorn, ornament (ه = s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيَّن، يْزَيَّن ¦ [E-Gulf] زَيَّن، يْزَيِّن",
+     "gloss": "to shave (ه = s.th.), give a shave to (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "زَيَّن، يْزَيَّن ¦ [E-Gulf] زَيَّن، يْزَيِّن",
+     "gloss": "to shave, get a shave",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B2%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ما ينزلون وظائف الا لما يحجزونهاا لقرايبهم . . والله عاد من زين الرواتب وطالبين خبره سنتين",
+     "عسى مديرتها زينه بس ؟"
+    ],
+    "sada": [
+     "زين جيت ما بغيت",
+     "بس بس انا اعرف عمج زين اعرف عمج زين عمج يهبل كل الناس يهبل كل الناس"
+    ],
+    "fineweb2": [
+     "على تبن .. زييييين",
+     "قل امين جعلي اشرذمك واهذيك للتسلاب يالجعري الابرص ، اجل تحبني عشان بطنك جعله الشقاق .. وتركته رغم انه كان يشق الوجه من زينه"
+    ]
+   }
+  },
+  {
+   "n": 17,
+   "word": "حِنَّا",
+   "meaning": "we",
+   "note": "Not حِنَّاء “henna”.",
+   "counted": {
+    "forms": [
+     "حنا",
+     "وحنا",
+     "فحنا"
+    ],
+    "count": {
+     "aoc": 233,
+     "sada": 679,
+     "fineweb2": 7557
+    },
+    "perMillion": {
+     "aoc": 894.9,
+     "sada": 751.4,
+     "fineweb2": 145.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "إِحَنَا / إِحْنِة / نِحْنَا / / نِحِن / نِحْنِ / حِنَّا",
+     "gloss": "we, us (first person plural stand alone pronoun)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AD%D9%86%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "حِنَّا ¦ [E-Gulf] حِنَّا / حِنَّة",
+     "gloss": "henna henna (reddish-orange cosmetic made from the henna plant).",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AD%D9%86%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "هذا اللي حنا شاطرين فيه",
+     "والله لو هذا عندنا ان تقولون ان حنا متخلفين وشعب همج"
+    ],
+    "sada": [
+     "الله يسلمك ويخليك فانا الحقيقة عارف ان صدرك وسيع وعارف حنا غفيناك",
+     "بصراحة الوقت يمر وحنا نحكي في مشروع من اولها فاشل"
+    ],
+    "fineweb2": [
+     "حنا بعد ما حطينا الاساسات جا المهندس واكتشف عمود ناقص",
+     "حنا الدرج دائري بدون عمود"
+    ]
+   }
+  },
+  {
+   "n": 18,
+   "word": "وِشْلُون",
+   "meaning": "how",
+   "remark": "وِشْلُون is وِشْ “what” + لُون; the dictionaries list the same word as شْلُون “how”.",
+   "counted": {
+    "forms": [
+     "وشلون",
+     "ووشلون",
+     "وشلونك",
+     "وشلونكم",
+     "شلون",
+     "فشلون",
+     "شلونك"
+    ],
+    "count": {
+     "aoc": 81,
+     "sada": 738,
+     "fineweb2": 13277
+    },
+    "perMillion": {
+     "aoc": 311.1,
+     "sada": 816.7,
+     "fineweb2": 255.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "شلون",
+     "gloss": "how?",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%84%D9%88%D9%86#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْلَوْن",
+     "gloss": "how",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%84%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْلَوْن",
+     "gloss": "how (supposedly in Gulf dialects this is more common in Bahrain and Kuwait) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%84%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْلَوْن",
+     "gloss": "why, for what reason",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%84%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْلَوْن",
+     "gloss": "what, what sort of, what kind",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%84%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْلَوْن",
+     "gloss": "شْلَوْن",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%84%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والله البلشه . . يعني من كل جهات البيت ارض للمدعى عليه ؟ وشلون تسلقط هو وبيته وسط هالارض",
+     "وحده ما اتحرمت نفسها وشلون تبيه يحترما . . اكيد بيغازلها ويقولها عبارات خادشه للحياء"
+    ],
+    "sada": [
+     "وشلون وايش همني",
+     "وشلون ما ماتت مثل في هذا"
+    ],
+    "fineweb2": [
+     "تبون تعرفون وشلون و كيف معنى كلمة عزباء القلب ؟",
+     "أم مشعل : وشلون نخليك وانتى ماعندك أحد"
+    ]
+   }
+  },
+  {
+   "n": 19,
+   "word": "هَلَا",
+   "meaning": "hi; welcome",
+   "note": "Not MSA هَلَّا “why not, won't you”.",
+   "counted": {
+    "forms": [
+     "هلا",
+     "وهلا",
+     "فهلا"
+    ],
+    "count": {
+     "aoc": 27,
+     "sada": 840,
+     "fineweb2": 15733
+    },
+    "perMillion": {
+     "aoc": 103.7,
+     "sada": 929.6,
+     "fineweb2": 302.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "هلا",
+     "gloss": "hi",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A7#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "هلا",
+     "gloss": "hey (greeting)",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D9%84%D8%A7#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هَلَا ¦ [E-Gulf] هَلَا",
+     "gloss": "Welcome! (a cordial greeting or hospitable reception given to an arriving person)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هَلَا / أَهَلًا",
+     "gloss": "Welcome!",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هللا / هَلَّا",
+     "gloss": "هَللا هللا : excatly! yes indeed!",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "هلا بالطيب الغالي",
+     "الف الف الف الف الف الف الف هلا وغلا باللاعب الكبير"
+    ],
+    "sada": [
+     "الو هلا طلال وينكم",
+     "ايوه ايه بعدين بعدين حياك الله يا هلا ومرحبا حياك"
+    ],
+    "fineweb2": [
+     "هلا اختي ام عزيز",
+     "مشعل: وعليكم السلام هلا ابو محمد أخبارك"
+    ]
+   }
+  },
+  {
+   "n": 20,
+   "word": "لَيْن",
+   "meaning": "until",
+   "note": "Not MSA لِين “softness”.",
+   "counted": {
+    "forms": [
+     "لين",
+     "ولين",
+     "فلين",
+     "الين",
+     "والين",
+     "فالين"
+    ],
+    "count": {
+     "aoc": 104,
+     "sada": 488,
+     "fineweb2": 20435
+    },
+    "perMillion": {
+     "aoc": 399.4,
+     "sada": 540.1,
+     "fineweb2": 392.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "إلين",
+     "gloss": "until",
+     "url": "https://en.wiktionary.org/wiki/%D8%A5%D9%84%D9%8A%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْن",
+     "gloss": "when [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْن",
+     "gloss": "اللَيْن : until now",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْن",
+     "gloss": "عَلَيْن : until (from ع + لين)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْن",
+     "gloss": "لَيْن",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيْن",
+     "gloss": "until, till",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "لَيِّن",
+     "gloss": "tender",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%84%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ومدري اشيلها فوق ظهري والا ادربيها لين اصل البيت !",
+     "طيب وش ظنكم يسوون الشباب اعمارهم وصلت ال 30 وهم لسى عزاب الين متى نصبر دام الغلا في كل مكان ."
+    ],
+    "sada": [
+     "خليك هنا لين يجي فهد خلي ها الكلام الفاضي",
+     "لا حول الله يا اخوي فهد جاء امس وقال لي خلي سعد يقعد لين اجي واخذه معي"
+    ],
+    "fineweb2": [
+     "وغيره وغيره وغيره . لين وقع اختياري على تحسين راعي المغسلة اللي ذكرته سابقا ، لبى هالتحسين ياشيخ",
+     "منال عقدت حواجبها ودخلت على جدها بالمطبخ: كم مره قلت لك لاتلمس شي لين أجي"
+    ]
+   }
+  },
+  {
+   "n": 21,
+   "word": "فْلُوس",
+   "meaning": "money",
+   "note": "MSA فُلُوس are “fils, small coins”.",
+   "counted": {
+    "forms": [
+     "فلوس",
+     "وفلوس",
+     "ففلوس",
+     "الفلوس",
+     "والفلوس",
+     "فالفلوس",
+     "فلوسي",
+     "وفلوسي",
+     "فلوسك",
+     "وفلوسك",
+     "فلوسه",
+     "وفلوسه"
+    ],
+    "count": {
+     "aoc": 181,
+     "sada": 376,
+     "fineweb2": 8566
+    },
+    "perMillion": {
+     "aoc": 695.2,
+     "sada": 416.1,
+     "fineweb2": 164.7
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "فلوس",
+     "gloss": "(plural only) money",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%84%D9%88%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "فلوس",
+     "gloss": "plural of فِلْس (“fils, a unit of currency equivalent to 1/1000th of a Kuwaiti and Bahraini Dinar”)",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%84%D9%88%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "فلوس",
+     "gloss": "money",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%84%D9%88%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "فلس",
+     "gloss": "a small-denomination coin, penny",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%84%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "فلس",
+     "gloss": "a subdivision of currency used in some Arab countries.",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%84%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "فِلْس، ج فْلُوْس / فُلُوْس",
+     "gloss": "fils, a small coin (coin, equal to 1/1000 of a dinar in Bahrain and 1/100 of a dirham in the UAE)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%81%D9%84%D9%88%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "فِلْس، ج فْلُوْس / فُلُوْس",
+     "gloss": "فلُوْس",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%81%D9%84%D9%88%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "فُلُوس",
+     "gloss": "money",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%81%D9%84%D9%88%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "فُلُوْس",
+     "gloss": "money",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%81%D9%84%D9%88%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وين ياحبيبي يدور لاعبين هذا اذا فيه في الخزنة غير الغبار . . سددوا الفلوس حق نادي الرياض وحق السهلاوي بعددين فكروا بلاعبين جدد . .",
+     "وين الفلوس شركة الكهرباء الي ينهبونه من المشتركين"
+    ],
+    "sada": [
+     "خ خلاص ذبحتنا ذبحتنا يا سيمون اسمر خلاص يا اخوي تبي ترجع لك فلوسك وعليها حبة خشم بعد",
+     "دومبي كريزي وادهى فلوسي وهذا شي تاني"
+    ],
+    "fineweb2": [
+     "للأسف نحن في زمن ألا بذكر الفلوس تطمئن النفوس",
+     "خلصت الفلوس الكاش اللي معاي ومحتاجة اسحب فلوس"
+    ]
+   }
+  },
+  {
+   "n": 22,
+   "word": "مُويَة",
+   "meaning": "water",
+   "counted": {
+    "forms": [
+     "مويه",
+     "ومويه",
+     "المويه",
+     "والمويه",
+     "فالمويه"
+    ],
+    "count": {
+     "aoc": 21,
+     "sada": 974,
+     "fineweb2": 5578
+    },
+    "perMillion": {
+     "aoc": 80.7,
+     "sada": 1077.9,
+     "fineweb2": 107.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "موية",
+     "gloss": "water",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88%D9%8A%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "موية",
+     "gloss": "body of water",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88%D9%8A%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "مويه",
+     "gloss": "water",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88%D9%8A%D9%87#Najdi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "سبحان الله كل ماشفت هالسلهام مع احترامي لشخصه بس يشبه حصان ابليس حق المويه لكن اعتقد انه افضل من القريني خلقا وادبا",
+     "يآزين ربعنآ قوآرير مويه ولا بعد ممنوع يدخلن المدرجآت"
+    ],
+    "sada": [
+     "عشان ناخذ اكثر كمية مويه منه",
+     "يعني لا تحطون على طول المويه"
+    ],
+    "fineweb2": [
+     "بالنسبه لسخانات المويه خلوه واحد مركزي في سطح البيت يتوزع لكامل الحمامات والمطابخ",
+     "الممسحة ام خيوط قطنيه طويله..... وتعبي الحوض مويه... بس غمسي الممسحة واعصريها في عصارة الحوض وامسحي"
+    ]
+   }
+  },
+  {
+   "n": 23,
+   "word": "رَبْع",
+   "meaning": "friends, the guys",
+   "note": "Not MSA رُبْع “quarter”.",
+   "counted": {
+    "forms": [
+     "ربع",
+     "وربع",
+     "فربع",
+     "الربع",
+     "والربع",
+     "ربعي",
+     "وربعي",
+     "ربعك",
+     "وربعك",
+     "ربعه",
+     "وربعه",
+     "ربعنا",
+     "وربعنا",
+     "يالربع",
+     "ويالربع"
+    ],
+    "count": {
+     "aoc": 108,
+     "sada": 510,
+     "fineweb2": 13222
+    },
+    "perMillion": {
+     "aoc": 414.8,
+     "sada": 564.4,
+     "fineweb2": 254.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ربع",
+     "gloss": "quarter, one fourth",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%A8%D8%B9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ربع",
+     "gloss": "(Kuwait) a quarter Kuwaiti Dinar, equivalent to 250 Fils",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%A8%D8%B9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ربع",
+     "gloss": "(plural only) friends",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D8%A8%D8%B9#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "الصلح زين يالربع وتراكم جيران ، والرسول محمد صلى الله علية وسلم وصى على سابع جار . . .",
+     "عشان تعرفون بس ربعنا فعلا حقين . . والا بلاشي"
+    ],
+    "sada": [
+     "من خلصت فلوسك هذا بيتك و ربعك وجماعتك",
+     "اي معقولة واكثر ابوي العالم قاموا تشتري في ذا العقل مشت عقلنا اخوي انا قايلنلك ربعنا حبيبين حبيبين يشترون كل شيء"
+    ],
+    "fineweb2": [
+     "واربطك جنب ديمه وانفيك آنس = حتى ولو جاك ربعّك صعب خلاسه",
+     "من كاسبين الوفاء لا ربعنا الخالي=لا عند دينيش ذاك الشاعر الطربال"
+    ]
+   }
+  },
+  {
+   "n": 24,
+   "word": "عِيَال",
+   "meaning": "kids, children",
+   "note": "MSA عِيَال means “dependents”.",
+   "counted": {
+    "forms": [
+     "عيال",
+     "وعيال",
+     "عيالي",
+     "وعيالي",
+     "فعيالي",
+     "العيال",
+     "والعيال",
+     "عيالك",
+     "وعيالك",
+     "فعيالك",
+     "عياله",
+     "وعياله",
+     "فعياله"
+    ],
+    "count": {
+     "aoc": 102,
+     "sada": 538,
+     "fineweb2": 10238
+    },
+    "perMillion": {
+     "aoc": 391.8,
+     "sada": 595.4,
+     "fineweb2": 196.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عِيَاْل ¦ [Om] يَاْل",
+     "gloss": "tribe",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%A7%D9%84&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيِّل، ج عِيَاْل / عْيَاْل ¦ [E-Gulf] عَيِّل، ج عْيَاْل",
+     "gloss": "child, kid [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%A7%D9%84&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيَّاْل، ج عَيَّاْلَة",
+     "gloss": "male dancer",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%A7%D9%84&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والله يقدرنا وعيال الديره انا نوصل لمستواك وأعلى منه ان شاء الله",
+     "والله الحين البنات صارو اجرى من العيال"
+    ],
+    "sada": [
+     "لحظة يا اخوي لحظة خلي العيال يصحون بعدين اخذك معنا يلا",
+     "يا حماد وانا اخوك هله وربعه وناسه وعياله تركوه وخلوه بالحاله"
+    ],
+    "fineweb2": [
+     "والدواليب حقت العيال حطيناها في سيبهم اللي يودي للحمام لانه طويل يعني الدواليب على يمين السيب وفي النهاية يكون الحمام تكرمون",
+     "يحبونه عيالي مره"
+    ]
+   }
+  },
+  {
+   "n": 25,
+   "word": "يُمَّه",
+   "meaning": "Mum! (calling your mother)",
+   "counted": {
+    "forms": [
+     "يمه",
+     "ويمه",
+     "فيمه",
+     "يما",
+     "ويما",
+     "فيما"
+    ],
+    "count": {
+     "aoc": 24,
+     "sada": 647,
+     "fineweb2": 18236
+    },
+    "perMillion": {
+     "aoc": 92.2,
+     "sada": 716,
+     "fineweb2": 350.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يُمَّا",
+     "gloss": "Mom!, Oh Mommy!, Mother! (form of address to one's mother, contraction of يا أُمّ )",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%85%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ياناس خوفونا بحسام يمه يمه جاء حسام",
+     "يمه ياويلنا من النثر"
+    ],
+    "sada": [
+     "يما انت ما عندك شيء جديد كنتي دايما تقوليلنا انك غلطانة بحق اخوك",
+     "يقولون يمه تخيلي يقولون اني جيت الظاهر اني جيت"
+    ],
+    "fineweb2": [
+     "والتقطت عدسة الكاميرا صورا من داخل السيارة، فيما كان الشباب يجلسون داخلها، وصورا أخرى من الخارج، بينما كانوا يبدلون عجلات السيارة.",
+     "مشعل: يمه أفهمينى الموضوع جاء بسرعه"
+    ]
+   }
+  },
+  {
+   "n": 26,
+   "word": "وَدَّى",
+   "meaning": "to take (someone or something somewhere)",
+   "note": "Not MSA وَدَى “to pay blood money”.",
+   "counted": {
+    "forms": [
+     "ودي",
+     "وودي",
+     "فودي",
+     "يودي",
+     "ويودي",
+     "اوديك",
+     "واوديك",
+     "وديته",
+     "ووديته",
+     "وديتها",
+     "ووديتها",
+     "فوديتها",
+     "ودوه",
+     "وودوه",
+     "وداني",
+     "ووداني",
+     "يوديني",
+     "ويوديني",
+     "توديني",
+     "وتوديني",
+     "بوديك",
+     "وبوديك",
+     "اوديه",
+     "واوديه",
+     "نوديه",
+     "ونوديه"
+    ],
+    "count": {
+     "aoc": 87,
+     "sada": 364,
+     "fineweb2": 11935
+    },
+    "perMillion": {
+     "aoc": 334.1,
+     "sada": 402.8,
+     "fineweb2": 229.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ودى",
+     "gloss": "(ditransitive, also figuratively) to take something or someone somewhere, to bring or deliver a person or thing to a location.",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%AF%D9%89#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "ودى",
+     "gloss": "to carry off, to send to, to bring to, to take to",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%AF%D9%89#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَدَّى، يْوَدِّي",
+     "gloss": "to send (ه = s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D8%AF%D9%89&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَدَّى، يْوَدِّي",
+     "gloss": "to take (ه = s.o. / s.th., ه / على = to s.wh.), convey (ه = s.o. / s.th., ه / على = to) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D8%AF%D9%89&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَدَّى، يْوَدِّي",
+     "gloss": "to send (على = for)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D8%AF%D9%89&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "يرجال امش بس اباشر لك من فلافول ابو عدنا وبعدها اوديك للمطار تروح لمظارب الصعايده حقتكم هناك",
+     "يعني اوديك للبحر واردك ضامي مااخذت مرادك !"
+    ],
+    "sada": [
+     "اخذت الغداء ووديته للعيال",
+     "ايش الكلام ذ الله يسترعليك وين وديت الجواز يعني يعني في ابا اوديه"
+    ],
+    "fineweb2": [
+     "اولاً افكوووورس بحضر الحين بسير اتمصلح مع ابوي عسب يوديني هع",
+     "حاولت امشطه لكن وش امشط ؟ شعره تعباااان و جاف و العقد كلها واصله للجلد يعني لازم حلاقه بس قلت راح انتظر الشتا يخلص وعلى طول اوديه"
+    ]
+   }
+  },
+  {
+   "n": 27,
+   "word": "سَالْفَة",
+   "meaning": "story; matter, thing",
+   "counted": {
+    "forms": [
+     "سالفه",
+     "وسالفه",
+     "فسالفه",
+     "السالفه",
+     "والسالفه",
+     "فالسالفه",
+     "سوالف",
+     "وسوالف",
+     "السوالف",
+     "والسوالف",
+     "فالسوالف"
+    ],
+    "count": {
+     "aoc": 95,
+     "sada": 283,
+     "fineweb2": 13335
+    },
+    "perMillion": {
+     "aoc": 364.9,
+     "sada": 313.2,
+     "fineweb2": 256.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "سولف",
+     "gloss": "to converse",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%88%D9%84%D9%81#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "سالفة",
+     "gloss": "a conversation, talk",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D8%A7%D9%84%D9%81%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "سالفة",
+     "gloss": "a story, narrative, account, tale",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D8%A7%D9%84%D9%81%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "سَاْلْفَة، ج سُوَاْلِف ¦ [E-Gulf] سَاْلْفَة، ج سُوَاْلِف",
+     "gloss": "story, tale, anecdote [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B3%D8%A7%D9%84%D9%81%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "سَاْلْفَة، ج سُوَاْلِف",
+     "gloss": "thing, something",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B3%D8%A7%D9%84%D9%81%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "سَاْلْفَة، ج سُوَاْلِف",
+     "gloss": "a matter, issue",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B3%D8%A7%D9%84%D9%81%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "السّالفه سالفة ستر . . . يعني لو ان البنت متستره ومحتشمه صدّقوني ما راح يضايقها الا المريض",
+     "ماخذين قرض ولا قطه ولا وش السالفه"
+    ],
+    "sada": [
+     "اها يعني يا فيصل ما عندك سالفة ما",
+     "اكيد ورا ورا ما راح اتركها بس طالت السالفة"
+    ],
+    "fineweb2": [
+     "أما سالفة إنها تفتح أنا لاحظت بس في فترة العلاج فتحت وجهي بس بعدين رجع لون وجهي أغمق من قبل بسبب الجفاف",
+     "احلى شي اميمه ههههههههه رايحه تقول السالفه لكريم ويهزون كل الاثنين بطريقه المصاريا"
+    ]
+   }
+  },
+  {
+   "n": 28,
+   "word": "مُوب",
+   "meaning": "not (also مُب, مَهُوب “he isn't”)",
+   "counted": {
+    "forms": [
+     "موب",
+     "وموب",
+     "مب",
+     "ومب",
+     "فمب",
+     "مهوب",
+     "ومهوب",
+     "مهب",
+     "ومهب"
+    ],
+    "count": {
+     "aoc": 135,
+     "sada": 59,
+     "fineweb2": 13064
+    },
+    "perMillion": {
+     "aoc": 518.5,
+     "sada": 65.3,
+     "fineweb2": 251.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "موب",
+     "gloss": "not",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%88%D8%A8#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو / مُوْب / مُب / مُهُوْب",
+     "gloss": "not, no (negation of nouns, adjectives, adverbs, predicates, phrases) (note مو is common before words that start with two consonants and in proverbs) (note that موب",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مُو / مُوْب / مُب / مُهُوْب",
+     "gloss": "مُوْب",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%88%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "موب إذا امطرت نتورط ويغرق المطار",
+     "مهب معقوله يابي يمشي رجل كل يوم . ."
+    ],
+    "sada": [
+     "طيب هاهاها غيرواضح الثانية رح اسوي معاكم شاي يانسون لكن راح اغيره هذه ايضا من وصفة جدتي الله يرحمها موب ويش هربان",
+     "خلنا من العقد يا رجال موب وقت عقد هالحين وانا مالنا علاقة علمني اولا بنوع المنتج وشو المنتج غيرواضح حنك واحكي زين خليك رجال"
+    ],
+    "fineweb2": [
+     "على انه يقول ياحبيبتي ياحياتي لو تبين اعطيك قلبي ماكفاك ولاوفاك .. ابد مهب يقول حمد الله والشكر والشرهه على اهلها اللي مهيتينها",
+     "سويرهالا الاماام كفخي ولطشي واعملي شو مابدك ياابعدي واللي موب عااجبه خله يتحرك ويتلحح ويطقهاا"
+    ]
+   }
+  },
+  {
+   "n": 29,
+   "word": "مَدْرِي",
+   "meaning": "I don't know",
+   "counted": {
+    "forms": [
+     "مدري",
+     "ومدري",
+     "فمدري"
+    ],
+    "count": {
+     "aoc": 129,
+     "sada": 98,
+     "fineweb2": 11918
+    },
+    "perMillion": {
+     "aoc": 495.5,
+     "sada": 108.5,
+     "fineweb2": 229.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مدري",
+     "gloss": "I don't know",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%AF%D8%B1%D9%8A#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "مدري ليش العالم أول ماينزل المطر ركض ثاني يوم لأماكن السيل وتجمع الماء ! !",
+     "هالقضاة عقولهم مدري شلون جايه لو نجيب بزر يحل المشكله افلح اكثر منهم"
+    ],
+    "sada": [
+     "في ناس وقت السلق تحط كمون في ناس تحط خل تقول لك مدري ايه ما اعرف كلنا ما في شي علمي مثبت في ناس مثلا اسهل ان احنا نقص",
+     "الزبدة تاكل زبدة الرزيتو ياكل زبدة شوفوا بس شوفوا كيف من تحت مدري واضح عندكم شوفوا ناظروا"
+    ],
+    "fineweb2": [
+     "مدري وين العيب يكمن واهم شي كلمة يكمن هو العيب فيهم والا في قلبي ،",
+     "مدري وش دخلك يالا لا لالي"
+    ]
+   }
+  },
+  {
+   "n": 30,
+   "word": "دِيرَة",
+   "meaning": "hometown; home country",
+   "counted": {
+    "forms": [
+     "ديره",
+     "وديره",
+     "فديره",
+     "الديره",
+     "والديره",
+     "فالديره",
+     "ديرتي",
+     "وديرتي",
+     "ديرتنا",
+     "وديرتنا"
+    ],
+    "count": {
+     "aoc": 30,
+     "sada": 536,
+     "fineweb2": 2833
+    },
+    "perMillion": {
+     "aoc": 115.2,
+     "sada": 593.2,
+     "fineweb2": 54.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ديرة",
+     "gloss": "place: a city, country, state, any place with shared culture, values, design, lifestyle etc.",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%8A%D8%B1%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ديرة",
+     "gloss": "(Kuwait) (with the definite article الديرة) Kuwait City",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%8A%D8%B1%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "ديرة",
+     "gloss": "(Gulf) place",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%8A%D8%B1%D8%A9#Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دِيْرَة ¦ [E-Gulf] دِيْرَة، ج دِيْرَاْت",
+     "gloss": "town, city [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%8A%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دِيْرَة ¦ [E-Gulf] دِيْرَة، ج دِيْرَاْت",
+     "gloss": "compass",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%8A%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دِيْرَة ¦ [E-Gulf] دِيْرَة، ج دِيْرَاْت",
+     "gloss": "homeland, country",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%8A%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دِيْرَة ¦ [E-Gulf] دِيْرَة، ج دِيْرَاْت",
+     "gloss": "district, region, area",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%8A%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دِيْرَّة",
+     "gloss": "homeland, country, hometown",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%8A%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والله يقدرنا وعيال الديره انا نوصل لمستواك وأعلى منه ان شاء الله",
+     "تراه ساكن في ديره مو في المزرع تراني عرف الرجال"
+    ],
+    "sada": [
+     "اللي ورطتنا وخلتنا نعيش في ذا المرار طلعتنا من الديرة وخلتنا ندور من بر ومن ديرة لديرة والمهم ان احنا ذحين نعيش في ورطة ورطة",
+     "اذا كان ممكن اني اقابل حد من عياله لاني جاي من ديرة بعيدة ومحتاجه في موضوع مهم"
+    ],
+    "fineweb2": [
+     "وجاء يوم الوطن يشهد وكل الناس له قرت =وكانت فرحة الديره ترف أعلامها بلوان",
+     "ع الراس خط ابن صالح باطرحه شقري=شرّف محلي وشرف ديرتي والدار"
+    ]
+   }
+  },
+  {
+   "n": 31,
+   "word": "بَرَّا",
+   "meaning": "outside",
+   "note": "Not MSA بَرًّا “by land”.",
+   "counted": {
+    "forms": [
+     "برا",
+     "وبرا",
+     "فبرا",
+     "بره",
+     "وبره",
+     "فبره"
+    ],
+    "count": {
+     "aoc": 53,
+     "sada": 293,
+     "fineweb2": 7554
+    },
+    "perMillion": {
+     "aoc": 203.6,
+     "sada": 324.3,
+     "fineweb2": 145.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "برا",
+     "gloss": "outside, outdoors",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%A7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "برا",
+     "gloss": "outside of, out of",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%A7#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "برة",
+     "gloss": "outside",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B1%D8%A9#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والاحسن انهم سافروا برا وعاشوا حياتهم بدل هالجهل اللي عايشين فيه ونمارسه يوميا بكل الاشكال",
+     "حنا اول دول ترفع السعر واذا انخفض برا قالو عندنا مخزون لازم نخلصه بس ودي اعرف من وين جا المخزون ( احتكار ) الله يعين"
+    ],
+    "sada": [
+     "ايش جابك هنا اطلع برا",
+     "صدق انك قليل حيا عاد اطلع برا ولا تخليني اشوف رقعة وجهك بها الشركة يله بره"
+    ],
+    "fineweb2": [
+     "واحط مغسلة فيه والا تكفي المغاسل اللي برا ؟؟",
+     "قال يمكن اتعشى برا"
+    ]
+   }
+  },
+  {
+   "n": 32,
+   "word": "عُقْبَال",
+   "meaning": "here's hoping (you're) next",
+   "counted": {
+    "forms": [
+     "عقبال",
+     "وعقبال"
+    ],
+    "count": {
+     "aoc": 149,
+     "sada": 7,
+     "fineweb2": 1519
+    },
+    "perMillion": {
+     "aoc": 572.3,
+     "sada": 7.7,
+     "fineweb2": 29.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عقبال",
+     "gloss": "used in wishes, usually a positive wish: may you..., hoping that...",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%82%D8%A8%D8%A7%D9%84#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "تستاهل وعقبال ما نشوف سعوديين كثير بمثل جائزة نوبل وغيره",
+     "عقبال الملاعب في الاحياء والممشى ؟ ؟ ؟"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "مرحبا صبايا دبدوبات ونحاف<< عقبال ماانظم لكم",
+     "عقبال اللي مو مخطوبين والمخطوبين ربي يتمم لهم على خير والمتزوجات ربي يسعدهم"
+    ]
+   }
+  },
+  {
+   "n": 33,
+   "word": "هَذُولَا",
+   "meaning": "these",
+   "counted": {
+    "forms": [
+     "هذولا",
+     "وهذولا",
+     "فهذولا",
+     "هذولي",
+     "وهذولي",
+     "هذول",
+     "وهذول",
+     "فهذول"
+    ],
+    "count": {
+     "aoc": 57,
+     "sada": 281,
+     "fineweb2": 2138
+    },
+    "perMillion": {
+     "aoc": 218.9,
+     "sada": 311,
+     "fineweb2": 41.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "هذا",
+     "gloss": "this",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B0%D8%A7#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "هذولا",
+     "gloss": "these",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B0%D9%88%D9%84%D8%A7#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هَذَوْل / هَذَوْلَا / ذَوْلَا / هَذَيْل / هَذَيْلَا / ذَيْل / ذَيْلَا / هَذِيْلَِيْن / هَذِلَيْن ¦ هَدَوْل / هَدَوْلَا / دَوْلَا / هَدَيْل / هَدَيْلَا / دَيْل / دَيْلَا / هَدِيْلَِيْن / هَدِلَيْن",
+     "gloss": "these, those (plural \"near\" demonstrative)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D8%B0%D9%88%D9%84%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ما شاء الله تبارك الله الله يوفقه ويكثر من أمثاله هذولا اللي يحتاجهم الوطن إلى الأمام يابو كريع . . .",
+     "وهذولا الله يهديهم بس"
+    ],
+    "sada": [
+     "هيا تعال تعال وامسح يديك بفهم بفانيل بفانيلته المعطرة نعم يا اخي والله يا اخي عيال اغنياء هذول عليهم حركات كذا وكذا",
+     "ما سمعت الابداع اللي سووه العباقرة هذول خصوصا هذي نفخة هذي نفخة"
+    ],
+    "fineweb2": [
+     "استغررربت اشلون جوسطا تبخ وتخربش وعلى مين اختي هذولا الثنتين يموتوووون على بعض",
+     "وهي منافسه قوية لكريستل وقت الرضاعه , هذولا الثنتين هم المجرمات بين المجموعه ^^"
+    ]
+   }
+  },
+  {
+   "n": 34,
+   "word": "أَبْشِر",
+   "meaning": "sure, consider it done",
+   "note": "MSA أَبْشِرْ means “rejoice, good news!”.",
+   "counted": {
+    "forms": [
+     "ابشر",
+     "وابشر",
+     "فابشر",
+     "ابشري",
+     "وابشري",
+     "فابشري",
+     "ابشروا",
+     "وابشروا",
+     "فابشروا"
+    ],
+    "count": {
+     "aoc": 14,
+     "sada": 353,
+     "fineweb2": 2747
+    },
+    "perMillion": {
+     "aoc": 53.8,
+     "sada": 390.7,
+     "fineweb2": 52.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Arab News: Nada Alturki, “Lost in translation: The Saudi words the English language can’t quite handle”, Riyadh, 23 September 2026",
+     "url": "https://www.arabnews.pk/saudi-arabia/lost-in-translation-the-saudi-words-the-english-language-cant-quite-handle-3002100",
+     "word": "أبشر",
+     "gloss": "literally “receive good news, be glad”, but said to mean “consider it done”: a willing, reassuring yes to a request (paraphrased)"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وابشر خل العداد يجي بعطيه كل المعلومات لعيناك لاعدمناك",
+     "ابشروا يالعيبه ال* شغلوا الاكواع والرفس لجنة الانحلال معكم"
+    ],
+    "sada": [
+     "فكر معنا ومع ضيفينا واستمع اجابتين وبعدين اختار اجابة ابشري ايش رايك",
+     "يعني تعجبكم واي اكلات كمان حابينها من عيوني ابشروا"
+    ],
+    "fineweb2": [
+     "منال ماقدرت تقول لا : أبشر اللي تبيه راح يصير",
+     "منال : ابشر ياغالي"
+    ]
+   }
+  },
+  {
+   "n": 35,
+   "word": "مَعْلِيش",
+   "meaning": "sorry; never mind",
+   "counted": {
+    "forms": [
+     "معليش",
+     "ومعليش",
+     "فمعليش",
+     "معلش",
+     "ومعلش"
+    ],
+    "count": {
+     "aoc": 35,
+     "sada": 194,
+     "fineweb2": 2252
+    },
+    "perMillion": {
+     "aoc": 134.4,
+     "sada": 214.7,
+     "fineweb2": 43.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "معليش",
+     "gloss": "pardon, sorry, excuse me",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B9%D9%84%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "معليش",
+     "gloss": "no problem, no worries",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B9%D9%84%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مَعَلِيْش",
+     "gloss": "nevermind",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D8%B9%D9%84%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "معليش ما اقدر احط الرقم ه",
+     "معليش يا اخت عبير"
+    ],
+    "sada": [
+     "يغلفها من ال احنا لما يعني معليش ناكل بهارات كذه قوية ترى حد مع انه هو طعمه قوي بس هو يغلف المعدة احنا نحس انه هو قوي بس هو بالعكس",
+     "معليش يا اخوي ريان"
+    ],
+    "fineweb2": [
+     "معليش اختي طلعت عن الموضوع",
+     "معليش طولو بالكم معاي شويييه:21_195:"
+    ]
+   }
+  },
+  {
+   "n": 36,
+   "word": "يُبَه",
+   "meaning": "Dad! (calling your father)",
+   "counted": {
+    "forms": [
+     "يبه",
+     "ويبه",
+     "فيبه",
+     "يبا",
+     "ويبا"
+    ],
+    "count": {
+     "aoc": 5,
+     "sada": 246,
+     "fineweb2": 5171
+    },
+    "perMillion": {
+     "aoc": 19.2,
+     "sada": 272.2,
+     "fineweb2": 99.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يُبَا ¦ [E-Gulf] يُبَا",
+     "gloss": "dad يا يُبَا",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D8%A8%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [
+     "حلمت حلم حلمت حلم يا يبه عجيب غريب",
+     "بسم الله عليش الرحمن الرحيم مافي شي عسى ما تعورتي مافي شي خلاص يبه"
+    ],
+    "fineweb2": [
+     "ام سعود : اشربلك شي يبه قبل ماتروح",
+     "جراح : انا يبه مسافر"
+    ]
+   }
+  },
+  {
+   "n": 37,
+   "word": "قِهَر",
+   "meaning": "to upset, frustrate",
+   "note": "MSA قَهَرَ means “to conquer, overpower”.",
+   "counted": {
+    "forms": [
+     "قهر",
+     "وقهر",
+     "فقهر",
+     "قهرني",
+     "وقهرني",
+     "يقهر",
+     "ويقهر",
+     "قاهرني",
+     "وقاهرني",
+     "قهرتني",
+     "وقهرتني",
+     "مقهور",
+     "ومقهور"
+    ],
+    "count": {
+     "aoc": 65,
+     "sada": 38,
+     "fineweb2": 4212
+    },
+    "perMillion": {
+     "aoc": 249.7,
+     "sada": 42.1,
+     "fineweb2": 81
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "قهر",
+     "gloss": "to cause wrath",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D9%87%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "قهر",
+     "gloss": "to cause frustration",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D9%87%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "قهر",
+     "gloss": "wrath",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D9%87%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "قهر",
+     "gloss": "frustration",
+     "url": "https://en.wiktionary.org/wiki/%D9%82%D9%87%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مقهور",
+     "gloss": "agitated",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%82%D9%87%D9%88%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مقهور",
+     "gloss": "frustrated",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%82%D9%87%D9%88%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مقهور",
+     "gloss": "foiled",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%82%D9%87%D9%88%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قِهَر، يِقْهَر",
+     "gloss": "to annoy irritate, upset (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D9%87%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قِهَر، يِقْهَر",
+     "gloss": "to sadden, grieve (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D9%87%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "قَهَر",
+     "gloss": "grief, sadness",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%82%D9%87%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "مظلوم الشاب يمسوكنه ويتصفق والبنت تروح بيت اهله كأن ما صار شيء شيء يقهر",
+     "عفواً علا الاطالة بس شي يقهر"
+    ],
+    "sada": [
+     "تدري ويش اللي قاهرني شو ايش اللي جالطني انه علي وناصر صاروا بصف مناحي امم اكيد عطاهم كم ريال ولعب عليهم",
+     "انا مو قاهرني اللي ذا ذا الاسم ابو كريم قاهرني قهر مو طبيعي كل يوم ناقل في حلوجنا ابي فلوسي ابي فلوسي ابي فلوسي ابي فلوسي"
+    ],
+    "fineweb2": [
+     "ون مات مقهور قد با نقبره=وبان وسد بقر بعده وقات",
+     "يشوف واحد من أولاد عمامي ينزلنا سيارته يقهر"
+    ]
+   }
+  },
+  {
+   "n": 38,
+   "word": "دَقّ",
+   "meaning": "to call (on the phone)",
+   "note": "In MSA دَقَّ only means “to knock, pound”.",
+   "counted": {
+    "forms": [
+     "دق",
+     "ودق",
+     "فدق",
+     "يدق",
+     "ويدق",
+     "فيدق",
+     "دقيت",
+     "ودقيت",
+     "فدقيت",
+     "دقي",
+     "ودقي",
+     "دقوا",
+     "ودقوا",
+     "تدق",
+     "وتدق",
+     "فتدق",
+     "ادق",
+     "وادق"
+    ],
+    "count": {
+     "aoc": 14,
+     "sada": 92,
+     "fineweb2": 10832
+    },
+    "perMillion": {
+     "aoc": 53.8,
+     "sada": 101.8,
+     "fineweb2": 208.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "to knock, to ring (a bell)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "to call someone by phone, to telephone",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "to nail (to drive a nail), to hammer",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "to grind, to pulverize, to powder",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "to play (an instrument)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "beating, grinding, crushing",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دق",
+     "gloss": "instrument playing",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "دق",
+     "gloss": "to call someone by phone; to telephone; to knock (usually the door)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D9%82#Najdi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ، يْدُقّ / يْدُگ",
+     "gloss": "to beat (for example, the drums)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ، يْدُقّ / يْدُگ",
+     "gloss": "to sound, honk (ه = a horn)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ، يْدُقّ / يْدُگ",
+     "gloss": "to ring (ه = s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ، يْدُقّ / يْدُگ",
+     "gloss": "to ring (intransitive)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "striking, beating",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "banging, rapping",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "ringing",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "beating (the drums)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "fast, quickly, right away (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَقّ / دَگّ",
+     "gloss": "intensely (in certain expressions with وُقَع / وُگَع ) (adverb)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [
+     "الحقيقة ان بعد ما شلتني فوق ودقيت بي على ذا الفقير عتيق في الحقيقة مستخف وتطلع عيونك ومربه"
+    ],
+    "fineweb2": [
+     "دقت على الدفاع المدني وقالت لهم انقذوا القطه , قالوا لها \"احنا مالنا دخل بهالأمور دقي عالبلديه\"",
+     "سمعت عن عيادة الحيوانات الأليفة المتقدمه دقيت عليهم وكلمت الدكتوره عشان اسألها لو يسوون التحاليل"
+    ]
+   }
+  },
+  {
+   "n": 39,
+   "word": "خَوِيّ",
+   "meaning": "friend, buddy",
+   "note": "Not MSA خُوَيّ “little brother”.",
+   "counted": {
+    "forms": [
+     "خوي",
+     "وخوي",
+     "خويي",
+     "وخويي",
+     "خويك",
+     "وخويك",
+     "خويه",
+     "وخويه"
+    ],
+    "count": {
+     "aoc": 10,
+     "sada": 171,
+     "fineweb2": 2666
+    },
+    "perMillion": {
+     "aoc": 38.4,
+     "sada": 189.2,
+     "fineweb2": 51.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَوِي، ج خْوَيَّاْن",
+     "gloss": "traveling companion",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D9%88%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "بعضهم يسحب على خويه بسبب فاجرة ماتسوى لها زنوبة تكرمون",
+     "اعوذ بالله بس ادخل خويي المستشفى واذبح ابوي الحمد لله على العافية بس . . ."
+    ],
+    "sada": [
+     "وش عليه من خوي ابو سعد مركب في الباص حقه مقطع من شريطك كل ما مر من عندي يطربوني اه اه اه",
+     "انتظار خوي متى بيصحى من الغيبوبة ويعترف بكل شي"
+    ],
+    "fineweb2": [
+     "من يلوم المفارق عقب فرقا خوية",
+     "مشى عنهم سلمان وركب سيارته وكان خويه ينتظره"
+    ]
+   }
+  },
+  {
+   "n": 40,
+   "word": "عَصَّب",
+   "meaning": "to get angry",
+   "note": "MSA عَصَّبَ means “to bandage”.",
+   "counted": {
+    "forms": [
+     "عصب",
+     "وعصب",
+     "فعصب",
+     "يعصب",
+     "ويعصب",
+     "تعصب",
+     "وتعصب",
+     "عصبت",
+     "وعصبت",
+     "فعصبت",
+     "معصب",
+     "ومعصب",
+     "معصبه",
+     "ومعصبه"
+    ],
+    "count": {
+     "aoc": 18,
+     "sada": 34,
+     "fineweb2": 7366
+    },
+    "perMillion": {
+     "aoc": 69.1,
+     "sada": 37.6,
+     "fineweb2": 141.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عصب",
+     "gloss": "to get angry",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D8%B5%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "معصب",
+     "gloss": "angry",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B9%D8%B5%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَصَب، ج أَعْصَاْب ¦ [E-Gulf] عَصَب، ج أَعْصَاْب",
+     "gloss": "nerve",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B5%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَصَّب، يْعَصُّب",
+     "gloss": "to be nervous",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B5%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَصَّب، يْعَصُّب",
+     "gloss": "to be angry, mad",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D8%B5%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ماتلاحظون الورقه حقت البلديه معفطه عصب عليها",
+     "والله ضحكتو الناس علينا اسلامنا صار باللحيه والثوب القصير والنقاب والعباة لكن الافعال خارجه عن الدين جاهليه وتعصب"
+    ],
+    "sada": [
+     "لو جاك لغز ما تعرف تحله تزعل تعصب",
+     "قماشة موديلات الشعر عصبت علي وكانت تبي تضربني"
+    ],
+    "fineweb2": [
+     "راحت منال لجدها وجلست جنبه وقلبها يزداد بخوف قبل لاتنام ماكان فيه شي وهالحين جدها معصب !!!!!!",
+     "منال عصبت : من زوجى ؟؟؟؟ مو على كيفه"
+    ]
+   }
+  },
+  {
+   "n": 41,
+   "word": "وَاجِد",
+   "meaning": "a lot (of); very",
+   "note": "Not MSA وَاجِد “finding”.",
+   "counted": {
+    "forms": [
+     "واجد",
+     "وواجد"
+    ],
+    "count": {
+     "aoc": 21,
+     "sada": 94,
+     "fineweb2": 2095
+    },
+    "perMillion": {
+     "aoc": 80.7,
+     "sada": 104,
+     "fineweb2": 40.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "وايد",
+     "gloss": "very",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%A7%D9%8A%D8%AF#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "وايد",
+     "gloss": "a lot of, much, many",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%A7%D9%8A%D8%AF#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "وايد",
+     "gloss": "too much",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%A7%D9%8A%D8%AF#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ابو متعب ابي قرض حسن لا هنت وترى الي ابيه مهب واجد بل هو نسبة ضئيلة جدا جدا من المبلغ اعلاه",
+     "يا أخوان إلي ياخذونة العمالة ماهو واجد ."
+    ],
+    "sada": [
+     "الله يسلمك هذا كان بانيه وتعبان عليه الحقيقة واجد بس تعرف العائلة كبرت ويبيلها تتوسع وكذا فقلنا نبنيلنا",
+     "اسبوع واجد يا طويل العمر"
+    ],
+    "fineweb2": [
+     "أنا أحبك حب واجد حدّ الهبالي",
+     "لا وصايرين التولاب يهرجون بالأديان واجد ونادين تدب بالرويال ياريتو صحه عئلبى"
+    ]
+   }
+  },
+  {
+   "n": 42,
+   "word": "حَيْل",
+   "meaning": "very much, a lot; hard",
+   "note": "MSA حَيْل means “strength”.",
+   "counted": {
+    "forms": [
+     "حيل",
+     "وحيل",
+     "فحيل",
+     "بالحيل",
+     "وبالحيل"
+    ],
+    "count": {
+     "aoc": 10,
+     "sada": 72,
+     "fineweb2": 5455
+    },
+    "perMillion": {
+     "aoc": 38.4,
+     "sada": 79.7,
+     "fineweb2": 104.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "حيل",
+     "gloss": "very, strongly, heavily, a lot",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%8A%D9%84#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "حيل",
+     "gloss": "power, strength (usually used in prepositional expressions with في (fī)+object)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%8A%D9%84#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "حيل",
+     "gloss": "power, strength",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%8A%D9%84#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "حيل",
+     "gloss": "willpower",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%8A%D9%84#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "حيل",
+     "gloss": "plural of حيلة (ḥīla, “trick, expedient”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%8A%D9%84#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "نعم حيل غبيه . . يعني الشاب يسوي نفسه شهم وبطل",
+     "ت ع ب ت بالحيل . . ! !"
+    ],
+    "sada": [
+     "ركزوا معي و افهموا كلامي ترى الموضوع مهم مهم بالحيل",
+     "بالرغم مني ما افهم في الفن الا ان لوحتك هذه عجبتني بالحيل حلوة حلوة بالمرة"
+    ],
+    "fineweb2": [
+     "منال : نوره أنا الى الأن مومستوعبه اللي صار وحاسه كنى بكابوس وخايفه حيييل",
+     "زوجي اعجبته حيييل حييل بالذات الهديه"
+    ]
+   }
+  },
+  {
+   "n": 43,
+   "word": "اسْتَانَس",
+   "meaning": "to have a good time, enjoy oneself",
+   "note": "MSA اِسْتَأْنَسَ means “to be sociable, become tame”.",
+   "counted": {
+    "forms": [
+     "استانس",
+     "واستانس",
+     "فاستانس",
+     "استانست",
+     "واستانست",
+     "يستانس",
+     "ويستانس",
+     "نستانس",
+     "ونستانس",
+     "تستانس",
+     "وتستانس",
+     "استانسنا",
+     "واستانسنا",
+     "مستانس",
+     "ومستانس",
+     "مستانسه",
+     "ومستانسه",
+     "مستانسين",
+     "ومستانسين"
+    ],
+    "count": {
+     "aoc": 18,
+     "sada": 77,
+     "fineweb2": 3328
+    },
+    "perMillion": {
+     "aoc": 69.1,
+     "sada": 85.2,
+     "fineweb2": 64
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "استانس",
+     "gloss": "to be happy, to be joyful",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "مستانس",
+     "gloss": "happy, glad, pleased",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B3%D8%AA%D8%A7%D9%86%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "مستانس",
+     "gloss": "enjoying oneself, having a good time",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%B3%D8%AA%D8%A7%D9%86%D8%B3#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "اْسْتَاْنَس، يِسْتَاْنِس ¦ [E-Gulf] اسْتَاْنَس، يِسْتَاْنِس",
+     "gloss": "to enjoy (s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "اْسْتَاْنَس، يِسْتَاْنِس ¦ [E-Gulf] اسْتَاْنَس، يِسْتَاْنِس",
+     "gloss": "to have a good time, enjoy o.s. [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "اْسْتَاْنَس، يِسْتَاْنِس ¦ [E-Gulf] اسْتَاْنَس، يِسْتَاْنِس",
+     "gloss": "to be happy (with s.th.) or comfortable (in a place)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%D8%B3&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "اصلا اللتون مستانس مع الوصل يا نصر",
+     "طبعا مستانس و رغم انفك يا زول"
+    ],
+    "sada": [
+     "بعدين شنو تروح معانا خليك هنا تنبسط معايا الحارة وتستانس وتلعب معاهم معانا طفش",
+     "راح نستانس وناخذ اسئلة واغاني وتسلية على قولتهم مع مهند وضيوفه وزيد وضيوفه لكن بعد الفاصل"
+    ],
+    "fineweb2": [
+     "وجوتشي ابداً ماكان عندها مانع بالعكس مستانسه لدرجة تطلع من البوكس وتخلي بيانكا مع الكيتنز وبالها مرتاح ^^",
+     "الكيتنز مستانسين على ديلبيرو , بس ما اظن ان الشعور متبادل :to1 (157):"
+    ]
+   }
+  },
+  {
+   "n": 44,
+   "word": "طَقّ",
+   "meaning": "to hit; to knock",
+   "note": "MSA طَقَّ means “to crack, snap”.",
+   "counted": {
+    "forms": [
+     "طق",
+     "وطق",
+     "يطق",
+     "ويطق",
+     "طقيت",
+     "وطقيت",
+     "طقه",
+     "وطقه",
+     "تطق",
+     "وتطق",
+     "طقني",
+     "وطقني"
+    ],
+    "count": {
+     "aoc": 23,
+     "sada": 73,
+     "fineweb2": 2483
+    },
+    "perMillion": {
+     "aoc": 88.3,
+     "sada": 80.8,
+     "fineweb2": 47.7
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "طق",
+     "gloss": "to hit",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%82#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "طق",
+     "gloss": "to acquire, to buy [with ل]",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%82#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "طق",
+     "gloss": "verbal noun of طق (ṭagg): hitting",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%82#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طق",
+     "gloss": "to crack, to cause a cracking sound",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طق",
+     "gloss": "(idiomatic) to not care",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%82#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to hit, knock, strike, beat (ه = s.o. / s.th.) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to pound, hammer (ه = s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to knock at (ه = the door)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to flog (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to steal (ه = s.th.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگّ، يِطِقّ / يِطِگّ ¦ [E-Gulf] طَقّ / طَگّ، يْطِقّ / يْطِگّ",
+     "gloss": "to throw away",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگ",
+     "gloss": "beating, flogging",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگ",
+     "gloss": "knocking at (the door)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگ",
+     "gloss": "hammering, pounding",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "طَقّ / طَگ",
+     "gloss": "stealing",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B7%D9%82&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "الي يبي الحلال يطق الباب",
+     "حسن خيرات له مستقبل كبير ان شاالله في خط الدفاع لكنهم يستاهلون وكل طقه بتعليمه عبى مايقولون وبالتوفيق للزعيم في كل المسابقات"
+    ],
+    "sada": [
+     "احنا الان ندور الف وحدة واخدناها طقة وحدة شوف احنا الان طقة ثانية نبغى نشوف لنا الاجهزة"
+    ],
+    "fineweb2": [
+     "يتزوج..وبعدين يطق الثالثة عليها او من غيرها..بعدها بنفس السيرة..وهذا عمرة 40 ومافوق..",
+     "مشعل بعبط : يمه انت الي انا طقيت ههههههههه ابي اطق وليد"
+    ]
+   }
+  },
+  {
+   "n": 45,
+   "word": "عَيْش",
+   "meaning": "rice",
+   "note": "MSA عَيْش means “living, life”.",
+   "remark": "The counts include العيش in its Standard sense “living”, which is spelled the same.",
+   "counted": {
+    "forms": [
+     "عيش",
+     "وعيش",
+     "العيش",
+     "والعيش"
+    ],
+    "count": {
+     "aoc": 28,
+     "sada": 35,
+     "fineweb2": 2555
+    },
+    "perMillion": {
+     "aoc": 107.5,
+     "sada": 38.7,
+     "fineweb2": 49.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "عيش",
+     "gloss": "rice",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "عيش",
+     "gloss": "to cause to live",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "عيش",
+     "gloss": "second-person masculine singular active imperative of عاش (ʕāš)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عيش",
+     "gloss": "bread",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عيش",
+     "gloss": "to cause to live",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "عيش",
+     "gloss": "second-person masculine singular imperative of عاش (ʕāš)",
+     "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيْش ¦ [E] عَيْش / أَيْش ¦ [E-Gulf] عَيْش",
+     "gloss": "rice [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيْش ¦ [E] عَيْش / أَيْش",
+     "gloss": "living, life, way of living, livelihood",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيْش",
+     "gloss": "bread (Hijazi / central and western Gulf usage)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيْش",
+     "gloss": "livelihood",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيْش",
+     "gloss": "rice (Najdi / Eastern Gulf usage)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَيَّش، يْعَيِّش",
+     "gloss": "to support, provide for (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%8A%D8%B4&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "7- اكل المطاعمَ لا يستهويني كثيرَ كثيرَ .. اذا ماقارنته مع العيشَ وغيرهَ من اكلات البيت :*",
+     "الملح ويا العيش ماله معك تأثير"
+    ]
+   }
+  },
+  {
+   "n": 46,
+   "word": "بَدْرِي",
+   "meaning": "early",
+   "counted": {
+    "forms": [
+     "بدري",
+     "وبدري"
+    ],
+    "count": {
+     "aoc": 23,
+     "sada": 49,
+     "fineweb2": 2665
+    },
+    "perMillion": {
+     "aoc": 88.3,
+     "sada": 54.2,
+     "fineweb2": 51.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بدري",
+     "gloss": "early",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%AF%D8%B1%D9%8A#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَدْرِي",
+     "gloss": "early",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%AF%D8%B1%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَدْرِي",
+     "gloss": "early",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%AF%D8%B1%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "نروح المدرسه بدري ونضحك داخل الطابور",
+     "أقول يازين التبطح والتعطيل بدري"
+    ],
+    "sada": [
+     "الله يهديك انتي بس يا خالتي انا توه الناس بدري على عقلي احتري ولدك يعقل بالاول هاهاها",
+     "ودائما في الحلويات خلي فرنك شغال من بدري هذه الوصفة يحتاج الفرن يكون عليها ثلاثمية وثمانين فهرنهايت"
+    ],
+    "fineweb2": [
+     "والواجههه ترها مهمه جدا وزين انك انتبهتي لها بدري لان الكتله الخارجيه للمبنى هي الي تحدد الشكل المبدئي للواجهه",
+     "بس روحي بدري من العصر لانهم ما يفتحون بعد صلات العشاء"
+    ]
+   }
+  },
+  {
+   "n": 47,
+   "word": "خَرَابِيط",
+   "meaning": "nonsense",
+   "counted": {
+    "forms": [
+     "خرابيط",
+     "وخرابيط",
+     "الخرابيط",
+     "والخرابيط",
+     "هالخرابيط",
+     "وهالخرابيط"
+    ],
+    "count": {
+     "aoc": 31,
+     "sada": 42,
+     "fineweb2": 1107
+    },
+    "perMillion": {
+     "aoc": 119.1,
+     "sada": 46.5,
+     "fineweb2": 21.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَرَاْبِيْط",
+     "gloss": "mess",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D8%B1%D8%A7%D8%A8%D9%8A%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَرَاْبِيْط",
+     "gloss": "confusion",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D8%B1%D8%A7%D8%A8%D9%8A%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَرَاْبِيْط",
+     "gloss": "nonsense",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D8%B1%D8%A7%D8%A8%D9%8A%D8%B7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "مو تنمي ثقافتها بالمخصر والكتف واللثمة والشورت والبرمودا والخرابيط الثان",
+     "طيب واحد رقمك وسولف معاكي وحب وغرام وخرابيط"
+    ],
+    "sada": [
+     "اترك عنك يا راشد خرابيط منيرة وكلامها ايه بس قاعدة تحاتي تحاتي حسن وين راح ومنين جا"
+    ],
+    "fineweb2": [
+     "اما الفلل تكون فيها شي بسيط يحليها ويفخمها مو لازم حفر كثير ونقش وخرابيط",
+     "قمت عالساعه 6 و رحت شوبينج , اخذت شيبسات و خرابيط لزوم البارتي هههه"
+    ]
+   }
+  },
+  {
+   "n": 48,
+   "word": "شَيْن",
+   "meaning": "bad; ugly",
+   "note": "MSA شَيْن means “disgrace”.",
+   "counted": {
+    "forms": [
+     "شين",
+     "وشين",
+     "شينه",
+     "وشينه"
+    ],
+    "count": {
+     "aoc": 31,
+     "sada": 25,
+     "fineweb2": 1852
+    },
+    "perMillion": {
+     "aoc": 119.1,
+     "sada": 27.7,
+     "fineweb2": 35.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "شين",
+     "gloss": "bad",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%8A%D9%86#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شِيْن",
+     "gloss": "name of the letter ش",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شِيْن",
+     "gloss": "bad",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شِيْن",
+     "gloss": "ugly,",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%8A%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "بس على حسب الي يعجبها لاصار شين قالت ماتربى هاذولي المعاكسين الانذال الذئاب الشرسه وصارت تصيح منه",
+     "وش رايك با ميسي تراه مهوب شين ون حصل ابن زيما خير وبركه"
+    ],
+    "sada": [
+     "وانتي لا تكلميني بنفس شينة ودي افهم السبب بس يعني"
+    ],
+    "fineweb2": [
+     "خصوصا عندما عرض أبو محمد الزواج عليه ,,توقعها شينه بس طلعت عكس توقعاته",
+     "- اذا تكلم اي احد كلمة شينه على قطوه او سوى لها شئ وهو مو قاصد مثلاً دعس على يدها يروح و يعتذر منها"
+    ]
+   }
+  },
+  {
+   "n": 49,
+   "word": "أَفَا",
+   "meaning": "oh no! (dismay, mild reproach)",
+   "counted": {
+    "forms": [
+     "افا",
+     "وافا",
+     "فافا"
+    ],
+    "count": {
+     "aoc": 12,
+     "sada": 87,
+     "fineweb2": 2057
+    },
+    "perMillion": {
+     "aoc": 46.1,
+     "sada": 96.3,
+     "fineweb2": 39.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "أَفَا",
+     "gloss": "shame! (on someone, usually in the form أَفَا يا + اسم or أَفَا على + اسم )",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A3%D9%81%D8%A7&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "افا كلهم على واحد مش مرجله والله الحمدلله على النعمه اللي احنا فيها وياسلام على مجلس الشورى والله يخليهم لنا",
+     "افا الله لايقولها صدق القيامةقربت الله يرحمنا برحمته"
+    ],
+    "sada": [
+     "افا عليك يا الطيب",
+     "افا ولد ولد قلي نبدا من اول الرقبة من انتم عياله"
+    ],
+    "fineweb2": [
+     "هذا الباكستاني اشوف فيه رأفه الأب ورحمة الأخ وحنان الزوج <-- افااااا زوج !!!",
+     "أبومحمد: أفااااااا والجامعه"
+    ]
+   }
+  },
+  {
+   "n": 50,
+   "word": "هَذَاك",
+   "meaning": "that (masculine)",
+   "counted": {
+    "forms": [
+     "هذاك",
+     "وهذاك",
+     "فهذاك"
+    ],
+    "count": {
+     "aoc": 15,
+     "sada": 63,
+     "fineweb2": 1555
+    },
+    "perMillion": {
+     "aoc": 57.6,
+     "sada": 69.7,
+     "fineweb2": 29.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هَذَاْك / ذَاْك / هَدَاْك / دَاْك",
+     "gloss": "this, that (male \"far\" demonstrative)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D8%B0%D8%A7%D9%83&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "اكيد بيتنازل ، هو جندي وإلا عريف وهذاك مقدم ، الله يستر من نظام الغاب اشوفه هالايام بدا يرجع",
+     "مبروك يا ابطال تستاهلون من هذاك اليوم : )"
+    ],
+    "sada": [
+     "وهذاك راس غيرواضح المهم",
+     "طحينة مو زي هذاك كثير شوي"
+    ],
+    "fineweb2": [
+     "يوووه كانت اياام حلوه اياام شاهي و السايكو الصح قويدر هذاك سايكو تحترمه",
+     "هذاك موسم يجنن اكشنات و فله و توسيع صدر و اصواات طبعا"
+    ]
+   }
+  },
+  {
+   "n": 51,
+   "word": "خَشْم",
+   "meaning": "nose",
+   "counted": {
+    "forms": [
+     "خشم",
+     "وخشم",
+     "خشمه",
+     "وخشمه",
+     "خشمك",
+     "وخشمك",
+     "فخشمك",
+     "خشوم"
+    ],
+    "count": {
+     "aoc": 25,
+     "sada": 30,
+     "fineweb2": 1382
+    },
+    "perMillion": {
+     "aoc": 96,
+     "sada": 33.2,
+     "fineweb2": 26.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "خشم",
+     "gloss": "nose",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B4%D9%85#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "خشم",
+     "gloss": "nose",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B4%D9%85#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "خشوم",
+     "gloss": "plural of خَشِم (“nose”)",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B4%D9%88%D9%85#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "خَشِم، ج خْشُوْم",
+     "gloss": "nose [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AE%D8%B4%D9%85&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "اقول ريح ياساامي من ورا خشمك تقبل القرار موب برضاك",
+     "وبالتوفيق للعالمي واتوقع بيدق خشم الهلال يوم الاحد 2 مايو"
+    ],
+    "sada": [
+     "خ خلاص ذبحتنا ذبحتنا يا سيمون اسمر خلاص يا اخوي تبي ترجع لك فلوسك وعليها حبة خشم بعد",
+     "ها يوبا وش فيك مالك ساد من خشمك"
+    ],
+    "fineweb2": [
+     "الى خشم حوان اخر لحظة اتودي =وشل ذي عا معه الله لا عاده",
+     "مهستر..حبتين عليك يبا خشمك"
+    ]
+   }
+  },
+  {
+   "n": 52,
+   "word": "رَهِيب",
+   "meaning": "awesome, great",
+   "note": "In MSA رَهِيب means “terrible, dreadful”.",
+   "counted": {
+    "forms": [
+     "رهيب",
+     "ورهيب",
+     "رهيبه",
+     "ورهيبه"
+    ],
+    "count": {
+     "aoc": 12,
+     "sada": 18,
+     "fineweb2": 4262
+    },
+    "perMillion": {
+     "aoc": 46.1,
+     "sada": 19.9,
+     "fineweb2": 82
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "رهيب",
+     "gloss": "great",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%87%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "رهيب",
+     "gloss": "amazing",
+     "url": "https://en.wiktionary.org/wiki/%D8%B1%D9%87%D9%8A%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "رَهِيْب، ج المؤنث: رَهِيْبِة",
+     "gloss": "terrific, magnificent, splendid, awesome",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B1%D9%87%D9%8A%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "بسراحه منظر رهيب مرة واحسن شي بالصورة البنوته الصغيرة ما شاء الله عليها الله يخليها لأهلها . . .",
+     "والله انك رهيب يا ابو الهل ."
+    ],
+    "sada": [],
+    "fineweb2": [
+     "ملف وااااااااايد رهيب وصلني على الإيميل,,وقلت لازم أحطه لكم عشان تستفادون",
+     "خالد : خلوا مشعل يشرحلكم عليه وصف رهيب"
+    ]
+   }
+  },
+  {
+   "n": 53,
+   "word": "سَوْلَف",
+   "meaning": "to chat",
+   "counted": {
+    "forms": [
+     "سولف",
+     "وسولف",
+     "يسولف",
+     "ويسولف",
+     "نسولف",
+     "ونسولف",
+     "تسولف",
+     "وتسولف",
+     "سولفت",
+     "وسولفت",
+     "سولفنا",
+     "وسولفنا"
+    ],
+    "count": {
+     "aoc": 9,
+     "sada": 51,
+     "fineweb2": 2810
+    },
+    "perMillion": {
+     "aoc": 34.6,
+     "sada": 56.4,
+     "fineweb2": 54
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "سولف",
+     "gloss": "to converse",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%88%D9%84%D9%81#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "سَوْلَف، يْسَوْلِف ¦ [E-Gulf] سَوْلَف، يْسَوْلِف",
+     "gloss": "to chat, talk together, carry on (casual / idle) conversation [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B3%D9%88%D9%84%D9%81&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "طيب واحد رقمك وسولف معاكي وحب وغرام وخرابيط",
+     "تسولف . . ما عرفوا أنها بنت"
+    ],
+    "sada": [
+     "مادام عقب ساعة اقعد خلنا نسولف",
+     "كم كم ميتين وخمسين شدعوة يوبا والله لو انك جايب لي الممثلين عندي في البيت وقاعدين نسولف انا وياهم ما صارت ميتين وخمسين"
+    ],
+    "fineweb2": [
+     "وفيها بعد طبع حلوو انها تسولف معانا ,, يعني لو اي احد يجي يكلمها ترد عليه مياو",
+     "قبل شوي و اختي رايحه للكليه جالسه انتظر معاها في الحوش لحد مايجي السواق و وجلسنا نسولف و كذا"
+    ]
+   }
+  },
+  {
+   "n": 54,
+   "word": "بِبَلَاش",
+   "meaning": "for free",
+   "counted": {
+    "forms": [
+     "ببلاش",
+     "وببلاش"
+    ],
+    "count": {
+     "aoc": 25,
+     "sada": 5,
+     "fineweb2": 796
+    },
+    "perMillion": {
+     "aoc": 96,
+     "sada": 5.5,
+     "fineweb2": 15.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "ببلاش",
+     "gloss": "free; (in context) for free; gratis.",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%A8%D9%84%D8%A7%D8%B4#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "قطر الكهرباء عندهم ببلاش والشركة ربحانه وفي السعوديه الفواتير الف والفين وخسرانه شلون الله اكبر",
+     "الله يعينكم يالنصراويين بس وش نقول احلمو دام الحلم \" ببلاش \""
+    ],
+    "sada": [],
+    "fineweb2": [
+     "طبعاَ ببلاش مو بفلوس لا تخافون",
+     "عشان كذا اليوم انا جبت لكم حل خوقااقي يخلي التوت عندكم بالألف وببلاش بعد"
+    ]
+   }
+  },
+  {
+   "n": 55,
+   "word": "وَنَاسَة",
+   "meaning": "fun, a good time",
+   "counted": {
+    "forms": [
+     "وناسه",
+     "ووناسه",
+     "الوناسه",
+     "والوناسه"
+    ],
+    "count": {
+     "aoc": 16,
+     "sada": 12,
+     "fineweb2": 2106
+    },
+    "perMillion": {
+     "aoc": 61.5,
+     "sada": 13.3,
+     "fineweb2": 40.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "وناسة",
+     "gloss": "joy, happiness",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D9%86%D8%A7%D8%B3%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَنَاْسَة",
+     "gloss": "entertaining, amusing",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D9%86%D8%A7%D8%B3%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "عادي : ) اهم شي الوناسة",
+     "معروفات بنات الطايف مثل شبابها يحبون الوناسة والفلة ويحبون عيال الراض مادري خلف"
+    ],
+    "sada": [
+     "يا حماد وانا اخوك هله وربعه وناسه وعياله تركوه وخلوه بالحاله",
+     "وناسة وش التعويسة"
+    ],
+    "fineweb2": [
+     "بس تدرون فيه حسنه وحيده من الانقطاع عن المنتدى ؟ لما اجي اقرا المذكرات بشوف تحديثات ورى بعض وناسه هههه",
+     "العيب ماهو بالزمن العيب بالناس الخون=كذاب من قال الزمن خاين وناسه فرطوان"
+    ]
+   }
+  },
+  {
+   "n": 56,
+   "word": "يَمّ",
+   "meaning": "next to, near; towards",
+   "note": "Not MSA يَمّ “sea”.",
+   "counted": {
+    "forms": [
+     "يم",
+     "ويم",
+     "فيم",
+     "يمك",
+     "ويمك",
+     "يمكم",
+     "يمهم",
+     "ويمهم"
+    ],
+    "count": {
+     "aoc": 4,
+     "sada": 45,
+     "fineweb2": 2286
+    },
+    "perMillion": {
+     "aoc": 15.4,
+     "sada": 49.8,
+     "fineweb2": 44
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "يم",
+     "gloss": "beside",
+     "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%85#Gulf_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَمّ",
+     "gloss": "beside, by, near, next to (presumably related to the word جَنْب, which is said jamb. The transformation to of j to y is common enough, making it yamb, and then the assimilation of the b in to the m is also common) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%85&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "يَمّ",
+     "gloss": "toward, towards [pronunciation: yamm]",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%85&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "· لو نثرت الشوق يمك ثار بالدنيا سحاب المطر رشة محبه والوله برق ورعود",
+     "عيون كل الناس تتخاطف عليك وصارحته المايحس يمك يحس الشمس بالنور فاقت عالنجوم وانته اذا موجود تلغيها الشمس"
+    ]
+   }
+  },
+  {
+   "n": 57,
+   "word": "سَلَامَات",
+   "meaning": "get well soon",
+   "counted": {
+    "forms": [
+     "سلامات",
+     "وسلامات"
+    ],
+    "count": {
+     "aoc": 18,
+     "sada": 19,
+     "fineweb2": 761
+    },
+    "perMillion": {
+     "aoc": 69.1,
+     "sada": 21,
+     "fineweb2": 14.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "سلامات",
+     "gloss": "get well soon",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%84%D8%A7%D9%85%D8%A7%D8%AA#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ليش سلامات وين الابو والاخو والام والزوج",
+     "اربعه فيه سلامات"
+    ],
+    "sada": [
+     "سلامات سلامات سلامات من اللي دايس الغنم"
+    ],
+    "fineweb2": [
+     "واهلي قاموا ينكتون (وش فايدة القطط ؟ وليه ماتاكله ؟) سلامات ! عايشين في البراري ؟ هههههه",
+     "منى حكتها بالي صار .. وحنان مشت لمرام وهي تقول بحنية : ياعمري سلاماااات والله"
+    ]
+   }
+  },
+  {
+   "n": 58,
+   "word": "بَزْر",
+   "meaning": "kid, little child",
+   "note": "Not MSA بِزْر “seed”.",
+   "counted": {
+    "forms": [
+     "بزر",
+     "وبزر",
+     "بزارين",
+     "وبزارين",
+     "البزارين",
+     "والبزارين"
+    ],
+    "count": {
+     "aoc": 15,
+     "sada": 18,
+     "fineweb2": 1204
+    },
+    "perMillion": {
+     "aoc": 57.6,
+     "sada": 19.9,
+     "fineweb2": 23.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بزر",
+     "gloss": "seed",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B2%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بزر",
+     "gloss": "kid",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D8%B2%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَزَّر، يْبَزِّر",
+     "gloss": "to go to seed",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B2%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بِزَر، يَبْزِر",
+     "gloss": "to sow seeds",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B2%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَزِر، ج بْزُوْر",
+     "gloss": "child, kid (used in Bahraini and Saudi dialects)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%B2%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "بعذره ابلشوه بهالحريم والبزارين وهو 28 سنة الله يرحمه . .",
+     "هالقضاة عقولهم مدري شلون جايه لو نجيب بزر يحل المشكله افلح اكثر منهم"
+    ],
+    "sada": [
+     "سبيده سبيده البلاء هذا كله سبيده وانا اقول انا اقول وش فيهم ذول البزارين يتمطمط يتمطمطم هذي السبيده وذي القرمشة يا ابو صالح"
+    ],
+    "fineweb2": [
+     "هنا كأنهم بالكوشه و فيه بزر بثر بالنص ههههه",
+     "طلال بخوف يوضح: ابتهال لا تفهمي خطأ هذه بزر"
+    ]
+   }
+  },
+  {
+   "n": 59,
+   "word": "دَبَّاب",
+   "meaning": "motorbike",
+   "note": "MSA دَبَّاب means “crawling”.",
+   "counted": {
+    "forms": [
+     "دباب",
+     "ودباب",
+     "الدباب",
+     "والدباب",
+     "دبابات",
+     "ودبابات"
+    ],
+    "count": {
+     "aoc": 18,
+     "sada": 5,
+     "fineweb2": 699
+    },
+    "perMillion": {
+     "aoc": 69.1,
+     "sada": 5.5,
+     "fineweb2": 13.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دباب",
+     "gloss": "motorcycle",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%A8%D8%A7%D8%A8#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دُبّ، ج ادْبَاْب / دْبَاْب",
+     "gloss": "bear",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D8%A8%D8%A7%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "دَبَّاْب / دُبَّاْب ¦ [E-Gulf] دَبَّاْب، ج دَبَّاْبَاْت",
+     "gloss": "motorcycle",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%AF%D8%A8%D8%A7%D8%A8&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ماعرفو انها بنت الا وهي راكبه الدباب",
+     "طيب وش دخل راعي الدباب مسكين الحين بيلعنون خير خيره وهو ماله ذنب"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "وارسل لك بضاعه سلف من سُكّر ومعدن وحب=اما الزيت لاتحسبه مسموحين بربع دباب",
+     "العفو راكبة دباب ومدعسة الشباب وكلك ذووق"
+    ]
+   }
+  },
+  {
+   "n": 60,
+   "word": "وَخَّر",
+   "meaning": "to move aside, get out of the way",
+   "counted": {
+    "forms": [
+     "وخر",
+     "ووخر",
+     "يوخر",
+     "ويوخر",
+     "وخري",
+     "وخروا",
+     "ووخروا"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 51,
+     "fineweb2": 861
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 56.4,
+     "fineweb2": 16.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "وخر",
+     "gloss": "to step aside",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%AE%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "وخر",
+     "gloss": "to remove",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%AE%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "وخر",
+     "gloss": "to move",
+     "url": "https://en.wiktionary.org/wiki/%D9%88%D8%AE%D8%B1#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَخَّر، يْوَخِّر",
+     "gloss": "to get out of the way, move aside",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D8%AE%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "وَخَّر، يْوَخِّر",
+     "gloss": "to get (ه = s.th.) out of the way, move (ه = s.th.) aside or back",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%88%D8%AE%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وخروا عن رونالدينو بس . . .",
+     "بس الله يخليك وخر الصاروخ شوي عن المسجد الاقصى لا تهدمه وتعمل معروف لإسرائيل"
+    ],
+    "sada": [
+     "وخر وخر عنك وخر عنك تفضل"
+    ],
+    "fineweb2": [
+     "ايفانكا لا جديد , لسى طالبه تزاوج و تروح تتمسح بـ ديل تبيه يعطيها وجه وهو يناظر فيها حسره احسه يقول ترى مابيدي شئ وخري عني ><",
+     "كأنه يقول \"وخري ولا بطب\" !"
+    ]
+   }
+  },
+  {
+   "n": 61,
+   "word": "طِفِش",
+   "meaning": "to get bored, fed up",
+   "note": "MSA طَفَشَ means “to run away”.",
+   "counted": {
+    "forms": [
+     "طفش",
+     "وطفش",
+     "طفشت",
+     "وطفشت",
+     "يطفش",
+     "ويطفش",
+     "طفشان",
+     "وطفشان",
+     "طفشانه",
+     "وطفشانه"
+    ],
+    "count": {
+     "aoc": 9,
+     "sada": 15,
+     "fineweb2": 1700
+    },
+    "perMillion": {
+     "aoc": 34.6,
+     "sada": 16.6,
+     "fineweb2": 32.7
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طفش",
+     "gloss": "boredom",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%81%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طفش",
+     "gloss": "to get bored",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%81%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طفش",
+     "gloss": "to cause boredom",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%81%D8%B4#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طفشان",
+     "gloss": "bored",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%81%D8%B4%D8%A7%D9%86#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "طفشت من العطاله حتى الموتر مثل العرب ماعندي",
+     "المواعيد فيه باالسنين وليسابالاشهر سياست طفش المريض"
+    ],
+    "sada": [
+     "بعدين شنو تروح معانا خليك هنا تنبسط معايا الحارة وتستانس وتلعب معاهم معانا طفش",
+     "حافظ على هاذيلا من عوامل التعرية حطيتهم داخل كوخ عشان ما يطحون طفشت"
+    ],
+    "fineweb2": [
+     "هو انا طفشانة بلحالي",
+     "هنا طفشت وراحت تتخبى عني داخل الشنطه"
+    ]
+   }
+  },
+  {
+   "n": 62,
+   "word": "سَنَع",
+   "meaning": "proper, well-mannered",
+   "counted": {
+    "forms": [
+     "سنع",
+     "وسنع"
+    ],
+    "count": {
+     "aoc": 15,
+     "sada": 11,
+     "fineweb2": 383
+    },
+    "perMillion": {
+     "aoc": 57.6,
+     "sada": 12.2,
+     "fineweb2": 7.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "سنع",
+     "gloss": "nice, good, well-behaved",
+     "url": "https://en.wiktionary.org/wiki/%D8%B3%D9%86%D8%B9#Gulf_Arabic"
+    },
+    {
+     "src": "Arab News: Nada Alturki, “Lost in translation: The Saudi words the English language can’t quite handle”, Riyadh, 23 September 2026",
+     "url": "https://www.arabnews.pk/saudi-arabia/lost-in-translation-the-saudi-words-the-english-language-cant-quite-handle-3002100",
+     "word": "السَّنع",
+     "gloss": "propriety, good conduct: knowing how to behave properly (hosting guests, respecting elders, conduct at gatherings), associated especially with Najd (paraphrased)"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "مافيه واحد سنع يعرف يحلق ذقنه بموس ! !",
+     "ياسر لاعب كبير مو محتاج القاب ماله سنع"
+    ],
+    "sada": [
+     "يا كثرالافكار وعلى غير سنع"
+    ],
+    "fineweb2": [
+     "واقول لي ال زلفة اتق الله في نفسك واترك عنك كلام الناس والديمقراطية اللي مالها سنع",
+     "الله من الهياط الي ماله سنع"
+    ]
+   }
+  },
+  {
+   "n": 63,
+   "word": "حَوْسَة",
+   "meaning": "mess",
+   "counted": {
+    "forms": [
+     "حوسه",
+     "وحوسه",
+     "الحوسه",
+     "والحوسه"
+    ],
+    "count": {
+     "aoc": 4,
+     "sada": 43,
+     "fineweb2": 625
+    },
+    "perMillion": {
+     "aoc": 15.4,
+     "sada": 47.6,
+     "fineweb2": 12
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "حوسة",
+     "gloss": "chaos, mess",
+     "url": "https://en.wiktionary.org/wiki/%D8%AD%D9%88%D8%B3%D8%A9#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "الدنيا كلها حوسه",
+     "وأفضل مطار في العالم والتخبطات التي فية لوفية مواقف زي الناس وإدارة منظمة ماتشوفون الحوسة"
+    ],
+    "sada": [
+     "انظف الحوسة وارجع لكم",
+     "اشيل الحوسة عني هنا"
+    ],
+    "fineweb2": [
+     "والجاكوزي ممل ويبي له عنايه ونظافه وحوسه خليه بانيو ذوق وخلاص",
+     "ثم نضيف خلطة الحليب المحموس بهذا الشكل اعذورني حوسة بس اهم شي الأخلاق"
+    ]
+   }
+  },
+  {
+   "n": 64,
+   "word": "شِمَاغ",
+   "meaning": "shemagh (red-checked headscarf)",
+   "counted": {
+    "forms": [
+     "شماغ",
+     "وشماغ",
+     "الشماغ",
+     "والشماغ"
+    ],
+    "count": {
+     "aoc": 10,
+     "sada": 16,
+     "fineweb2": 725
+    },
+    "perMillion": {
+     "aoc": 38.4,
+     "sada": 17.7,
+     "fineweb2": 13.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "شماغ",
+     "gloss": "shemagh",
+     "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%85%D8%A7%D8%BA#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "شْمَاْغ، ج شْمَاْغَاْت",
+     "gloss": "headdress",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B4%D9%85%D8%A7%D8%BA&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "لاول مره اشوف شماغ اسود غير يوم بدو يجددون بالمسلسلات",
+     "طب شماغ كل النجوم وين راح"
+    ],
+    "sada": [
+     "لضيفنا محمد العيسى كان واضع على الكتف الايسر شماغ ولا غترة",
+     "لا لا ما راح اتاخر اطق الشماغ وامشي على طول مع السلامة"
+    ],
+    "fineweb2": [
+     "كلها نعتمد النقوش اوف وايت والخلفيه بيج على بني مثل الصورة ام شماغ",
+     "ابي النقوش اوف وايت والخلفيه بيج مثل الصورى الي قبل الاخير لما العريس لابس شماغ"
+    ]
+   }
+  },
+  {
+   "n": 65,
+   "word": "هَذِيك",
+   "meaning": "that (feminine)",
+   "counted": {
+    "forms": [
+     "هذيك",
+     "وهذيك"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 36,
+     "fineweb2": 713
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 39.8,
+     "fineweb2": 13.7
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "هَذِيْك / هَذِيْچ / ذِيْك / ذِيْچ / هَدِيْك / هَدِيْچ / دِيْك / دِيْچ",
+     "gloss": "this, that (female \"far\" demonstrative) (said with a ك or چ depending on region)",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%87%D8%B0%D9%8A%D9%83&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وين ايام عدنان ولينا وهايدي ياحلو هذيك الايام",
+     "المنطقة هذيك من احلى المناطق السياحية واجملها"
+    ],
+    "sada": [
+     "هذيك يبغالها يعني عناية واهتمام لانه البصل والاشياء هذه تاخذ الشكاكين دائما لما نقطع الخضار بسكينة زي كده"
+    ],
+    "fineweb2": [
+     "اختي تقول خلينا ناخذ ابو ديلبيرو مره ثانيه (ذكر معروف بالمنتدى اسمه تايقر) طبعاً جبته هذيك الأيام لـ بيانكا ,,",
+     "انا ابي اصوووره بس تخيلوا للحين ماشفته الا هذيك المره لما لمحني و هرب"
+    ]
+   }
+  },
+  {
+   "n": 66,
+   "word": "بَاكِر",
+   "meaning": "tomorrow",
+   "note": "MSA بَاكِرًا means “early”.",
+   "counted": {
+    "forms": [
+     "باكر",
+     "وباكر"
+    ],
+    "count": {
+     "aoc": 5,
+     "sada": 30,
+     "fineweb2": 574
+    },
+    "perMillion": {
+     "aoc": 19.2,
+     "sada": 33.2,
+     "fineweb2": 11
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "بَاْكِر / بَاْچِر ¦ [E-Gulf] بَاْكِر / بَاْچِر",
+     "gloss": "tomorrow (synonym with غُدْوَة and بُكْرَا ) (also as a general reference to the near future) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%A8%D8%A7%D9%83%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ابن همام خذا جائزة افضل لاعب باسيا من حلق الاعب الكويتي بدر المطوع ونس فيها ولد اختة باكر شيسوي فينا يالسعودين ها",
+     "خوفي يكون بأكر أكبر بلد يستهلك المخدرات . . !"
+    ],
+    "sada": [
+     "الله مين درى وش باكر يطلع براسك",
+     "دخلت نوف المستشفى لين جانى اليوم خالد وقالى الموضوع بس طبعا ما اعطاني تفاصيل بس انا رح اروح باكر حق سارة بعرف منها"
+    ],
+    "fineweb2": [
+     "وبعد يا عازم صباح اترغب=اول طلوع الفجر باكر عاني",
+     "بيه . وباليوم التالي رحت انام باكر مع زوجتي بانتظار الموعد القادم للحمام في"
+    ]
+   }
+  },
+  {
+   "n": 67,
+   "word": "عَوَّر",
+   "meaning": "to hurt",
+   "note": "MSA عَوَّرَ means “to blind in one eye”.",
+   "counted": {
+    "forms": [
+     "عور",
+     "عورني",
+     "وعورني",
+     "يعور",
+     "ويعور",
+     "يعورني",
+     "ويعورني",
+     "عورت",
+     "وعورت",
+     "تعورني",
+     "وتعورني"
+    ],
+    "count": {
+     "aoc": 6,
+     "sada": 15,
+     "fineweb2": 1174
+    },
+    "perMillion": {
+     "aoc": 23,
+     "sada": 16.6,
+     "fineweb2": 22.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "أَعْوَر / عَوَر، ج عِوْرَاْن، المؤنث: عَوْرَا / عَوْرَة",
+     "gloss": "one-eyed, blind in one eye",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%88%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "أَعْوَر / عَوَر، ج عِوْرَاْن، المؤنث: عَوْرَا / عَوْرَة",
+     "gloss": "one-eyed person",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%88%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "عَوَّر، يْعَوِّر",
+     "gloss": "to injure, hurt (ه = s.o. / s.th.) [keyword]",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%B9%D9%88%D8%B1&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والله ما فهمت شي . . عبدالله سعودي وسميره اجنبيه والقضيه عدم تكافؤ النسب . . يا شيخ عورت مخي سلام",
+     "اخرتاها بتسمعينه كلام يرفع ضغطه راسى يعورنى اصبر اللين ارضع الولد الخ الخ . . ."
+    ],
+    "sada": [
+     "ليلى ليلى يعني لا تزعلين كذا ولا تعصبين ترى زعلتي كده انا انا قلبي يعورني قلبي يعورني يا قلبي"
+    ],
+    "fineweb2": [
+     "بطني يعورني من الضحك",
+     "وجلست احوووس على لعبة الفار اللي يحبها مالقيتها عورني قلبي هذي لعبته المفضله كيف يروح من دونها :("
+    ]
+   }
+  },
+  {
+   "n": 68,
+   "word": "يِمْدِي",
+   "meaning": "there's time to; can manage to",
+   "counted": {
+    "forms": [
+     "يمدي",
+     "ويمدي",
+     "يمديني",
+     "يمديك",
+     "ويمديك",
+     "فيمديك",
+     "يمدينا",
+     "ويمدينا",
+     "مداني",
+     "امداني"
+    ],
+    "count": {
+     "aoc": 2,
+     "sada": 27,
+     "fineweb2": 1072
+    },
+    "perMillion": {
+     "aoc": 7.7,
+     "sada": 29.9,
+     "fineweb2": 20.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Arabic)",
+     "word": "مدى",
+     "gloss": "To be able to (can) in Saudi Arabic. يمديني I can",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%AF%D9%89#Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "أَمْدَى، يِمْدِي",
+     "gloss": "أَمْدَى + ضمير : to be able to",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%8A%D9%85%D8%AF%D9%8A&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "فرصه بعض الناس يشتري روني ولا اقول شكله مصاب رونالدو احسن يمدي قبل الايااب",
+     "الدوخي شف ناقصك شي رواتب والا شي يمديك ترا الخميس والجمعة تلمح لهم . . . تراني جد أحكي هذا المعتاد واللي يحصل دائماً . . ."
+    ],
+    "sada": [
+     "حتى انا والله المكان اللي كنت فيه امس في زوايا جميلة امداني الحق عليها امس",
+     "مهند لا يزال عندكم فرصة انكم تعدلون الوضع بينما انت يمديك برضه تعزز صدارتك تاخذ نقاط اكثر لاننا وصلنا الى جولة جديدة بلهجتي"
+    ],
+    "fineweb2": [
+     "مشعل أنحرج لان جدها هو طلب منه يعرس بعد الاختبارات بسرعه:طيب يمديك شهرين",
+     "منال حست بشويه أرتياح: ايه يمدى مشكور"
+    ]
+   }
+  },
+  {
+   "n": 69,
+   "word": "فَحَّط",
+   "meaning": "to drift, spin a car's wheels",
+   "counted": {
+    "forms": [
+     "فحط",
+     "وفحط",
+     "يفحط",
+     "ويفحط",
+     "يفحطون",
+     "ويفحطون",
+     "تفحيط",
+     "وتفحيط"
+    ],
+    "count": {
+     "aoc": 7,
+     "sada": 9,
+     "fineweb2": 431
+    },
+    "perMillion": {
+     "aoc": 26.9,
+     "sada": 10,
+     "fineweb2": 8.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "فحط",
+     "gloss": "(colloquial, automotive) to drift (in a vehicle)",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D8%AD%D8%B7#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "كل مخالفاتهم تفحيط وتفتفه",
+     "وكل يوم نخليها عند واحد يفحط فيها لين يشوف عمدان الشارع متشابكة في عمود واحد زي الشمعدان : )"
+    ],
+    "sada": [
+     "احبه يعني من عشاقه فحط كمان يعني مو بس هذه الكمية كمان اخر شيء",
+     "ما يبي الوان فحط"
+    ],
+    "fineweb2": [
+     "فهد أنقهر وفحط ..",
+     "تركي مو من وعيه فحط لأن خلود الله يهديها هبلت في السيارة كلها .."
+    ]
+   }
+  },
+  {
+   "n": 70,
+   "word": "مَزْيُون",
+   "meaning": "good-looking, pretty",
+   "counted": {
+    "forms": [
+     "مزيون",
+     "ومزيون",
+     "مزيونه",
+     "ومزيونه"
+    ],
+    "count": {
+     "aoc": 8,
+     "sada": 5,
+     "fineweb2": 438
+    },
+    "perMillion": {
+     "aoc": 30.7,
+     "sada": 5.5,
+     "fineweb2": 8.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مَزْيُوْن، المؤنث: مَزْيُوْنَة ¦ [E-Gulf] مَزْيُوْن، ج مَزْيُوْنِيْن، المؤنث: مَزْيُوْنَة",
+     "gloss": "handsome, beautiful, pretty",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D8%B2%D9%8A%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مَزْيُوْن، المؤنث: مَزْيُوْنَة",
+     "gloss": "nice",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D8%B2%D9%8A%D9%88%D9%86&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "يابنات هاللي يغازلون كرَّهونا في الاسواق الله يقلعه ولا يردُّه لو هو مزيون وبغيناه كان تغلَّى علينا .",
+     "منشورة صورته على شان يقولون مزيون وليش تطلبون انه يطلقها"
+    ],
+    "sada": [
+     "انا ما تهمني الدراهم صراحة يعني اهم شي انه يكون شخص مزيون وفارس زي الفارس الملثم"
+    ],
+    "fineweb2": [
+     "بندر طارت عيونه: مالشيفه الا انتي وورجلك وليد(يبي يقهرها)وبعدين انا شيفه ياللي ماتستحين انا مزيون واهبل كلي ملح وقبله",
+     "- عربيه وللا فرنجيّه...البنت مزيونه..."
+    ]
+   }
+  },
+  {
+   "n": 71,
+   "word": "كَشْخَة",
+   "meaning": "smart, stylish",
+   "counted": {
+    "forms": [
+     "كشخه",
+     "وكشخه"
+    ],
+    "count": {
+     "aoc": 4,
+     "sada": 10,
+     "fineweb2": 925
+    },
+    "perMillion": {
+     "aoc": 15.4,
+     "sada": 11.1,
+     "fineweb2": 17.8
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "كشخة",
+     "gloss": "well-dressed, snazzy, stylish prestigious, cool",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AE%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "كشخة",
+     "gloss": "the quality of being well-dressed, snazzy, stylish prestigious",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AE%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "كشخة",
+     "gloss": "well-dressed",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AE%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "كشخة",
+     "gloss": "fancy",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AE%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "كَشْخَة",
+     "gloss": "showing off, bragging, boasting",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%83%D8%B4%D8%AE%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "كَشْخَة",
+     "gloss": "elegance",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%83%D8%B4%D8%AE%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ولوكانت كشخه بالاقساط",
+     "اها المرءة تغار من الكمرةه يمكن الكمرة كشخه او بيضاء الله اعلم ماندري لا تعليق"
+    ],
+    "sada": [
+     "انتي يا ريم انتي موبايلم كشخة وعندك سواق وسيارة",
+     "صار عندي بعدين ح نعصر الليمونة حتى الليمونة صارت حلوة كذا وكشخة دلعناها"
+    ],
+    "fineweb2": [
+     "بحكم إني ألبس طبيه فالعدسات شي ضروري وَ مستحيل ألبس نظاره مهما كانت غاليه أو كشخه ، لكل مقام مقال.",
+     "- ذبانه كشخه مبين عليها بنت عز"
+    ]
+   }
+  },
+  {
+   "n": 72,
+   "word": "انْسَدَح",
+   "meaning": "to lie down",
+   "counted": {
+    "forms": [
+     "انسدح",
+     "وانسدح",
+     "فانسدح",
+     "انسدحت",
+     "وانسدحت",
+     "فانسدحت",
+     "منسدح",
+     "ومنسدح",
+     "ينسدح",
+     "وينسدح",
+     "بنسدح"
+    ],
+    "count": {
+     "aoc": 1,
+     "sada": 8,
+     "fineweb2": 1385
+    },
+    "perMillion": {
+     "aoc": 3.8,
+     "sada": 8.9,
+     "fineweb2": 26.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "انسدح",
+     "gloss": "(transitive) to lie down, to recline",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D9%86%D8%B3%D8%AF%D8%AD#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [
+     "وانا بصراحة ابوي مرسلني اعزمكم هاها انتو هاللي اا منسدح ونايم اربع وعشرين ساعة شنو مصدوم عرس ابوي الليلة على رقية"
+    ],
+    "fineweb2": [
+     "مثلاً اثبته ويكون هادي بس احط المقص و ينتغز ويخربط كل شئ او ينسدح على جمبه ويرفس برجوله مجرررم",
+     "ولا اذا جيت بمشي يسبقني و ينسدح قدامي على ظهره ويسوي حركات"
+    ]
+   }
+  },
+  {
+   "n": 73,
+   "word": "ارْحَب",
+   "meaning": "welcome!",
+   "counted": {
+    "forms": [
+     "ارحب",
+     "وارحب",
+     "ارحبوا",
+     "وارحبوا",
+     "ارحبو",
+     "ارحبي",
+     "وارحبي"
+    ],
+    "count": {
+     "aoc": 4,
+     "sada": 9,
+     "fineweb2": 569
+    },
+    "perMillion": {
+     "aoc": 15.4,
+     "sada": 10,
+     "fineweb2": 10.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ارحبو",
+     "gloss": "welcome",
+     "url": "https://en.wiktionary.org/wiki/%D8%A7%D8%B1%D8%AD%D8%A8%D9%88#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "ارحبو ولله انكم لترحبو مراحيب المطر \" \" \""
+    ],
+    "sada": [
+     "سيدي صاحب السمو الملكي الامير محمد بن فهد بن عبد العزيز ارحب بك في حديث المجالس"
+    ],
+    "fineweb2": [
+     "جسوم..ارحبووووو",
+     "هي أخلاقي إن جيت أرحب"
+    ]
+   }
+  },
+  {
+   "n": 74,
+   "word": "غُتْرَة",
+   "meaning": "ghutra (white headscarf)",
+   "counted": {
+    "forms": [
+     "غتره",
+     "وغتره",
+     "الغتره",
+     "والغتره"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 13,
+     "fineweb2": 337
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 14.4,
+     "fineweb2": 6.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "غِتْرَة، ج غِتَر",
+     "gloss": "men's headcloth, headgear",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%BA%D8%AA%D8%B1%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "الظاهر عليه نصاب من الغترة . . ؟",
+     "نسينا الغتره والبحر وسجاده الي تصلي فيها"
+    ],
+    "sada": [
+     "لضيفنا محمد العيسى كان واضع على الكتف الايسر شماغ ولا غترة"
+    ],
+    "fineweb2": [
+     "وكان لابس غترة وثوب ..",
+     "بس ابغي اعرف شو لي احسن غترة رييايل و لا اشتري حزام من الصيدلية"
+    ]
+   }
+  },
+  {
+   "n": 75,
+   "word": "خَرْطِي",
+   "meaning": "rubbish, of bad quality",
+   "counted": {
+    "forms": [
+     "خرطي",
+     "وخرطي"
+    ],
+    "count": {
+     "aoc": 5,
+     "sada": 7,
+     "fineweb2": 173
+    },
+    "perMillion": {
+     "aoc": 19.2,
+     "sada": 7.7,
+     "fineweb2": 3.3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "خرطي",
+     "gloss": "of bad quality",
+     "url": "https://en.wiktionary.org/wiki/%D8%AE%D8%B1%D8%B7%D9%8A#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "دليل ان الاحصائيات خرطي في خرطي"
+    ],
+    "sada": [
+     "تقول على شعري خرطي مثل اللي كتبه واحد بجريدة الجاهل هذا"
+    ],
+    "fineweb2": [
+     "بس بالاخير اهم شي بالجنس المداعبات وبدونها الجنس خرطي ومطاريس",
+     "اما يفاضلونا مع جداره فهي خرطي خرطي يعني مافيه تثبيت"
+    ]
+   }
+  },
+  {
+   "n": 76,
+   "word": "مَقَاضِي",
+   "meaning": "groceries, shopping",
+   "counted": {
+    "forms": [
+     "مقاضي",
+     "ومقاضي",
+     "المقاضي",
+     "والمقاضي"
+    ],
+    "count": {
+     "aoc": 2,
+     "sada": 16,
+     "fineweb2": 219
+    },
+    "perMillion": {
+     "aoc": 7.7,
+     "sada": 17.7,
+     "fineweb2": 4.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "مقاضي",
+     "gloss": "groceries",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%82%D8%A7%D8%B6%D9%8A#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [
+     "هذه الاكلة حق ست البيت اذا ما عندها مقاضي طبعا ببلاد الشام يمونون يحطون هذه الجبنة العكاوي والجبنة المشللة المجدولة بموية وملح",
+     "عرفتوا كيف هي ما حتقعد وجبلها ربطة بقدونس وهي جاية وكيس مكرونة طبعا ما يحتاج مقاضي هذه اكلة اذا ما في مقاضي"
+    ],
+    "fineweb2": [
+     "* جدول مقاضي البيت.",
+     "ر:روحي جيبي المقاضي من السياره"
+    ]
+   }
+  },
+  {
+   "n": 77,
+   "word": "طَنَّش",
+   "meaning": "to ignore",
+   "counted": {
+    "forms": [
+     "طنش",
+     "وطنش",
+     "فطنش",
+     "يطنش",
+     "ويطنش",
+     "طنشت",
+     "وطنشت",
+     "فطنشت",
+     "طنشوا",
+     "وطنشوا",
+     "طنشني",
+     "وطنشني"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 2,
+     "fineweb2": 598
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 2.2,
+     "fineweb2": 11.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "طنش",
+     "gloss": "to ignore",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%86%D8%B4#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "والله اختاري على كيفك يا 3 ملاعق اكل او غرف طنش تعش تنتعش ذبحنا الرجيم اعوذ بالله من الشيطان الرجيم"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "طنشت الموضوع وصكتها نومه",
+     "اخاف طلعت نتايج القبول وتفوتني بليز لاحد يطنش والله الموضوع مررره هام بالنسبه لي"
+    ]
+   }
+  },
+  {
+   "n": 78,
+   "word": "تْسَبَّح",
+   "meaning": "to have a shower",
+   "counted": {
+    "forms": [
+     "تسبح",
+     "وتسبح",
+     "تسبحت",
+     "وتسبحت",
+     "يتسبح",
+     "ويتسبح",
+     "اتسبح",
+     "واتسبح",
+     "بتسبح"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 7,
+     "fineweb2": 757
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 7.7,
+     "fineweb2": 14.6
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "تسبح",
+     "gloss": "to swim, to bathe, to take a shower.",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D8%B3%D8%A8%D8%AD#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "لو حبك موت قلت ابية. لو عشقك موج تسبحت فية.ولو انت سجن والله لأعيش فية",
+     "رحت تسبحت ولبست افضل لبس عندي >تكشخ انت وخشتك"
+    ]
+   }
+  },
+  {
+   "n": 79,
+   "word": "تْوَهَّق",
+   "meaning": "to get into trouble, get stuck",
+   "counted": {
+    "forms": [
+     "توهق",
+     "وتوهق",
+     "توهقت",
+     "وتوهقت"
+    ],
+    "count": {
+     "aoc": 2,
+     "sada": 4,
+     "fineweb2": 358
+    },
+    "perMillion": {
+     "aoc": 7.7,
+     "sada": 4.4,
+     "fineweb2": 6.9
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "توهق",
+     "gloss": "to fall into trouble",
+     "url": "https://en.wiktionary.org/wiki/%D8%AA%D9%88%D9%87%D9%82#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "وتوهق ورحمة زينة ارحمو حزيز قوما ذل يعنى صارصغير وهوكان كبيرقررقرر كثير مسكين كثير"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "في الاخير توهقت:ss:",
+     "_<<<<<<<<<صار لي كذا وتوهقت:eek:"
+    ]
+   }
+  },
+  {
+   "n": 80,
+   "word": "بِيَالَة",
+   "meaning": "small tea glass",
+   "counted": {
+    "forms": [
+     "بياله",
+     "وبياله",
+     "البياله",
+     "بيالات",
+     "وبيالات"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 11,
+     "fineweb2": 336
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 12.2,
+     "fineweb2": 6.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "بيالة",
+     "gloss": "a small glass cup, usually used for tea.",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%8A%D8%A7%D9%84%D8%A9#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "بيالة",
+     "gloss": "a small glass cup, usually used for tea.",
+     "url": "https://en.wiktionary.org/wiki/%D8%A8%D9%8A%D8%A7%D9%84%D8%A9#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [
+     "مشاعل مشاعل اختي انا جوعان وبصراحة كلامك هذا يبغاله واحد رايق وفايق وشاربله خمس بيالات شاي"
+    ],
+    "fineweb2": [
+     "وعشيات وغدئ عام او خاصَ , خصوصا لما بالقهوهَ والجـائَ .. اهم يعطوني فنجال او بياله مستعمله !",
+     "بعدين تحطين مقدار من الماء عليه على حسب الكيس اللي انتي مختاره وغالبا الماء ما يتعدى البياله واقل بعد وقلت لك على حسب الكيس"
+    ]
+   }
+  },
+  {
+   "n": 81,
+   "word": "هَرْجَة",
+   "meaning": "talk, chatter",
+   "counted": {
+    "forms": [
+     "هرجه",
+     "وهرجه",
+     "الهرجه",
+     "والهرجه"
+    ],
+    "count": {
+     "aoc": 1,
+     "sada": 7,
+     "fineweb2": 332
+    },
+    "perMillion": {
+     "aoc": 3.8,
+     "sada": 7.7,
+     "fineweb2": 6.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "هرجة",
+     "gloss": "story, topic, talk",
+     "url": "https://en.wiktionary.org/wiki/%D9%87%D8%B1%D8%AC%D8%A9#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "زي مانقلتوا تايلاند للبحرين انقلوا البحرين هنا والاقتصاد سوف يتحسن وانااقول وين السيولة اللي في سوق الاسهم توني اكتشف الهرجة"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "وهرجه لقص تي قمل ونامس=بيقطع بالكبد تي قطع الامواس",
+     "وقد بيته خلي والطين جادس=وهرجه ذي نطق تخريف وافلاس"
+    ]
+   }
+  },
+  {
+   "n": 82,
+   "word": "غَثّ",
+   "meaning": "to annoy, get on someone's nerves",
+   "note": "MSA غَثّ means “thin, poor (meat)”.",
+   "counted": {
+    "forms": [
+     "غث",
+     "وغث",
+     "غثني",
+     "وغثني",
+     "يغث",
+     "ويغث",
+     "تغث",
+     "غثيت",
+     "غثيتني",
+     "غثنا"
+    ],
+    "count": {
+     "aoc": 2,
+     "sada": 5,
+     "fineweb2": 175
+    },
+    "perMillion": {
+     "aoc": 7.7,
+     "sada": 5.5,
+     "fineweb2": 3.4
+    }
+   },
+   "meanings": [
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "غَثّ، يْغِثّ",
+     "gloss": "to bother, upset, trouble (ه = s.o.)",
+     "url": "https://www.livingarabic.com/en/search?q=%D8%BA%D8%AB&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "راحت هالعلوم حارس مدرستنا غثني ياجماعة الخير يقول تعال شيلها بثيابها"
+    ],
+    "sada": [
+     "هو في غيره بدر كل شوي وهو متصل علي غثني",
+     "انا اشهد انه غثنا لكن لكن لازم اشوفلي حل انعدم معه"
+    ],
+    "fineweb2": [
+     "اعتقد انك تقصد جراااااند تغث اللي ما ينغث",
+     "هوبالكتكات لانه جنكي وكوكيز اند كريم يعني حده يغث ما تقدرين تكملينه"
+    ]
+   }
+  },
+  {
+   "n": 83,
+   "word": "طَعْس",
+   "meaning": "sand dune",
+   "counted": {
+    "forms": [
+     "طعس",
+     "وطعس",
+     "طعوس",
+     "وطعوس",
+     "الطعوس"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 1,
+     "fineweb2": 128
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 1.1,
+     "fineweb2": 2.5
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طعس",
+     "gloss": "sand dune",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%B9%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طعس",
+     "gloss": "(derogatory) brat, a child who is regarded as mischievous, unruly and spoiled.",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%B9%D8%B3#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "طعس",
+     "gloss": "(derogatory) bedouin",
+     "url": "https://en.wiktionary.org/wiki/%D8%B7%D8%B9%D8%B3#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "الا طعوس الثمامه اللي كلها عزابيه ونادار العوائل",
+     "فوق المبنى . . نخل و خيمة و طعس صغير و هبوب : $"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "كذلك من الافضل تقليل هواء الكفرات في الجيب إذا كانت كل المنطقه رمل و طعوس لسهولة مشي السياره .",
+     "نفطتها بوجها كنها طعس التحدي من كبرها :D"
+    ]
+   }
+  },
+  {
+   "n": 84,
+   "word": "فَنِيلَة",
+   "meaning": "undershirt, vest",
+   "counted": {
+    "forms": [
+     "فنيله",
+     "وفنيله",
+     "الفنيله",
+     "والفنيله"
+    ],
+    "count": {
+     "aoc": 3,
+     "sada": 0,
+     "fineweb2": 160
+    },
+    "perMillion": {
+     "aoc": 11.5,
+     "sada": 0,
+     "fineweb2": 3.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "فنيلة",
+     "gloss": "undershirt",
+     "url": "https://en.wiktionary.org/wiki/%D9%81%D9%86%D9%8A%D9%84%D8%A9#Hijazi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [
+     "كنت قائد داخل المستطيل والا قائد خارج المستطيل لبا قلبك يا ابو عبدالله لكن لا تأمل كثير لجنه الانضباط مغمظه عينه عن اي فنيله صفراء",
+     "على فنيلة فريق النصر شعار الاعلان STC وتعني"
+    ],
+    "sada": [],
+    "fineweb2": [
+     "• لا تلبس فنيله علاقي وانما البس فنيله ام نص كم عشان ما تلاحظ البنت سواد ........... من دون الثوب.",
+     "فقلت لاصدقائي بأن حشرة الحلمة تمص من دمي فلم يصدقو ففسخت لهم فنيلتي واذا بعدد منها داخل الفنيلة ولكنه ليس كثيرا دون الخمسة"
+    ]
+   }
+  },
+  {
+   "n": 85,
+   "word": "مَلْقُوف",
+   "meaning": "nosy",
+   "counted": {
+    "forms": [
+     "ملقوف",
+     "وملقوف",
+     "ملقوفه",
+     "وملقوفه"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 2,
+     "fineweb2": 267
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 2.2,
+     "fineweb2": 5.1
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ملقوف",
+     "gloss": "nosy",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%84%D9%82%D9%88%D9%81#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "ملقوف",
+     "gloss": "nosy",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D9%84%D9%82%D9%88%D9%81#Hijazi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "مَلْقُوف / مَلْگُوْف",
+     "gloss": "a nosy person, s.o. who butts in, interferes, a buttinsky",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%85%D9%84%D9%82%D9%88%D9%81&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "(ملقوفه ايش دخلني اصلا)",
+     "أم خالد :والله لو ما خلود ملقوفه وبتحرج البنيه كان زغرطت"
+    ]
+   }
+  },
+  {
+   "n": 86,
+   "word": "كَشْتَة",
+   "meaning": "desert picnic, outing",
+   "counted": {
+    "forms": [
+     "كشته",
+     "الكشته",
+     "والكشته",
+     "كشتات",
+     "وكشتات"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 2,
+     "fineweb2": 154
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 2.2,
+     "fineweb2": 3
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "كشتة",
+     "gloss": "a desert picnic",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AA%D8%A9#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "كشتة",
+     "gloss": "a desert picnic",
+     "url": "https://en.wiktionary.org/wiki/%D9%83%D8%B4%D8%AA%D8%A9#Najdi_Arabic"
+    },
+    {
+     "src": "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)",
+     "word": "كَشْتَة، ج كَشْتَاْت",
+     "gloss": "picnic, outing",
+     "url": "https://www.livingarabic.com/en/search?q=%D9%83%D8%B4%D8%AA%D8%A9&dc%5B%5D=6&st%5B%5D=1"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "ويتفقون على الكشته الحريمي",
+     "اليوم الجو جو كشته وشبة نار"
+    ]
+   }
+  },
+  {
+   "n": 87,
+   "word": "مَاصِخ",
+   "meaning": "bland; unfunny",
+   "counted": {
+    "forms": [
+     "ماصخ",
+     "ماصخه"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 1,
+     "fineweb2": 116
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 1.1,
+     "fineweb2": 2.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ماصخ",
+     "gloss": "(of food) saltless (lacking salt), insipid (lacking in taste in general)",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A7%D8%B5%D8%AE#Gulf_Arabic"
+    },
+    {
+     "src": "Wiktionary (Gulf Arabic)",
+     "word": "ماصخ",
+     "gloss": "boring, unfunny",
+     "url": "https://en.wiktionary.org/wiki/%D9%85%D8%A7%D8%B5%D8%AE#Gulf_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "عبد العزيز :- مدامتي وانا حر وش عندك يله شوي وجاي وبلا حركات ماصخة اعرفك ترى",
+     "بالبدايه مره تزبط ومرات يكون الاكل ماصخ ماينأكل"
+    ]
+   }
+  },
+  {
+   "n": 88,
+   "word": "دِرْكْسُون",
+   "meaning": "steering wheel",
+   "counted": {
+    "forms": [
+     "دركسون",
+     "ودركسون"
+    ],
+    "count": {
+     "aoc": 0,
+     "sada": 0,
+     "fineweb2": 113
+    },
+    "perMillion": {
+     "aoc": 0,
+     "sada": 0,
+     "fineweb2": 2.2
+    }
+   },
+   "meanings": [
+    {
+     "src": "Wiktionary (Hijazi Arabic)",
+     "word": "دركسون",
+     "gloss": "steering wheel",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%B1%D9%83%D8%B3%D9%88%D9%86#Hijazi_Arabic"
+    },
+    {
+     "src": "Wiktionary (Najdi Arabic)",
+     "word": "دركسون",
+     "gloss": "steering wheel",
+     "url": "https://en.wiktionary.org/wiki/%D8%AF%D8%B1%D9%83%D8%B3%D9%88%D9%86#Najdi_Arabic"
+    }
+   ],
+   "examples": {
+    "aoc": [],
+    "sada": [],
+    "fineweb2": [
+     "النظام في هونج كونج يشبه النظام في بريطانيا السيارات دركسون يمين",
+     "ومرايات جانبية كهرباء وزجاج نوافذ كهرباء وطبعاً دركسون هواء"
+    ]
+   }
+  }
+ ]
+}

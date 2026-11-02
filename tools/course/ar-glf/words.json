@@ -1,0 +1,856 @@
+{
+ "lang": "ar-glf",
+ "title": "Gulf Arabic basics",
+ "variety": "Saudi Arabic, Riyadh (Najdi) style",
+ "about": "Everyday Saudi words that Modern Standard Arabic doesn't have, counted in real Saudi Arabic (readers' comments on Al-Riyadh, Saudi TV transcripts, Najdi web text) and ranked by how often they are used, 50 to a unit. Every word's meaning is backed by a published dictionary. Words that are Standard Arabic, said differently or with dialect grammar are left out (the grammar course teaches those). Each word has one short sentence as people in Riyadh say it, with its English translation; ⟦ ⟧ marks the part that translates the word.",
+ "planned": 88,
+ "voice": {
+  "voice": "ar-SA-HamedNeural",
+  "locale": "ar-SA",
+  "name": "Hamed (Azure, Saudi Arabia)"
+ },
+ "words": [
+  {
+   "n": 1,
+   "rank": 9,
+   "word": "بَسّ",
+   "pos": "part",
+   "meaning": "only, just; but; enough",
+   "sentence": "أَبِي قَهْوَة ⟦بَسّ⟧.",
+   "translation": "I ⟦just⟧ want coffee."
+  },
+  {
+   "n": 2,
+   "rank": 23,
+   "word": "وِشْ",
+   "pos": "pron",
+   "meaning": "what",
+   "sentence": "⟦وِشْ⟧ اسْمِك؟",
+   "translation": "⟦What⟧'s your name?"
+  },
+  {
+   "n": 3,
+   "rank": 29,
+   "word": "الْحِين",
+   "pos": "adv",
+   "meaning": "now",
+   "sentence": "أَنَا مَشْغُول ⟦الْحِين⟧.",
+   "translation": "I'm busy ⟦now⟧.",
+   "note": "Not MSA حِين “time, while”."
+  },
+  {
+   "n": 4,
+   "rank": 32,
+   "word": "عَشَان",
+   "pos": "conj",
+   "meaning": "because (of); so that",
+   "sentence": "تَأَخَّرْت ⟦عَشَان⟧ الزَّحْمَة.",
+   "translation": "I was late ⟦because of⟧ the traffic."
+  },
+  {
+   "n": 5,
+   "rank": 33,
+   "word": "شَاف",
+   "pos": "verb",
+   "meaning": "to see",
+   "sentence": "⟦شِفْت⟧ أَحْمَد أَمْس.",
+   "translation": "I ⟦saw⟧ Ahmad yesterday.",
+   "form": "شِفْت",
+   "note": "MSA شَافَ is a rare word for “to look down at”."
+  },
+  {
+   "n": 6,
+   "rank": 37,
+   "word": "مُو",
+   "pos": "part",
+   "meaning": "not (with nouns and adjectives)",
+   "sentence": "الْأَكِل ⟦مُو⟧ حَارّ.",
+   "translation": "The food is ⟦not⟧ spicy."
+  },
+  {
+   "n": 7,
+   "rank": 40,
+   "word": "شْوَيّ",
+   "pos": "adv",
+   "meaning": "a little, a bit",
+   "sentence": "أَبِي ⟦شْوَيّ⟧ سُكَّر.",
+   "translation": "I want ⟦a little⟧ sugar.",
+   "note": "Not MSA شَوَى “to grill”."
+  },
+  {
+   "n": 8,
+   "rank": 54,
+   "word": "بَعْدَيْن",
+   "pos": "adv",
+   "meaning": "later; then",
+   "sentence": "أَكَلِّمِك ⟦بَعْدَيْن⟧.",
+   "translation": "I'll talk to you ⟦later⟧."
+  },
+  {
+   "n": 9,
+   "rank": 57,
+   "word": "وَيْن",
+   "pos": "adv",
+   "meaning": "where",
+   "sentence": "⟦وَيْن⟧ السَّيَّارَة؟",
+   "translation": "⟦Where⟧'s the car?"
+  },
+  {
+   "n": 10,
+   "rank": 65,
+   "word": "لَيْش",
+   "pos": "adv",
+   "meaning": "why",
+   "sentence": "⟦لَيْش⟧ مَا جِيت أَمْس؟",
+   "translation": "⟦Why⟧ didn't you come yesterday?"
+  },
+  {
+   "n": 11,
+   "rank": 85,
+   "word": "زَيّ",
+   "pos": "prep",
+   "meaning": "like, the same as",
+   "sentence": "وَلَدَه ⟦زَيّ⟧ أَبُوه.",
+   "translation": "His son is ⟦like⟧ his father.",
+   "note": "Not MSA زِيّ “uniform, costume”."
+  },
+  {
+   "n": 12,
+   "rank": 91,
+   "word": "يَلَّا",
+   "pos": "interj",
+   "meaning": "come on; let's go",
+   "sentence": "⟦يَلَّا⟧، تَأَخَّرْنَا!",
+   "translation": "⟦Come on⟧, we're late!"
+  },
+  {
+   "n": 13,
+   "rank": 105,
+   "word": "خَلَاص",
+   "pos": "interj",
+   "meaning": "OK then; that's it; enough",
+   "sentence": "⟦خَلَاص⟧، فِهِمْت.",
+   "translation": "⟦OK⟧, I get it.",
+   "note": "MSA خَلَاص means “rescue, salvation”."
+  },
+  {
+   "n": 14,
+   "rank": 126,
+   "word": "قَطّ",
+   "pos": "verb",
+   "meaning": "to throw (away)",
+   "sentence": "⟦قِطّ⟧ الزِّبَالَة بَرَّا.",
+   "translation": "⟦Throw⟧ the rubbish outside.",
+   "form": "قِطّ",
+   "note": "Not MSA قَطَّ “to trim” or قِطّ “cat”."
+  },
+  {
+   "n": 15,
+   "rank": 127,
+   "word": "جَاب",
+   "pos": "verb",
+   "meaning": "to bring",
+   "sentence": "⟦جِيب⟧ لِي مُويَة، الله يِعَافِيك.",
+   "translation": "⟦Bring⟧ me some water, please.",
+   "form": "جِيب",
+   "note": "Not MSA جَابَ “to roam, explore”."
+  },
+  {
+   "n": 16,
+   "rank": 130,
+   "word": "زَيْن",
+   "pos": "adj",
+   "meaning": "good; fine, OK",
+   "sentence": "الْأَكِل ⟦زَيْن⟧.",
+   "translation": "The food is ⟦good⟧.",
+   "note": "MSA زَيْن means “beauty, adornment”."
+  },
+  {
+   "n": 17,
+   "rank": 154,
+   "word": "حِنَّا",
+   "pos": "pron",
+   "meaning": "we",
+   "sentence": "⟦حِنَّا⟧ مِن الرِّيَاض.",
+   "translation": "⟦We⟧'re from Riyadh.",
+   "note": "Not حِنَّاء “henna”."
+  },
+  {
+   "n": 18,
+   "rank": 202,
+   "word": "وِشْلُون",
+   "pos": "adv",
+   "meaning": "how",
+   "sentence": "⟦وِشْلُون⟧ الشُّغُل مَعَك؟",
+   "translation": "⟦How⟧'s work going?"
+  },
+  {
+   "n": 19,
+   "rank": 204,
+   "word": "هَلَا",
+   "pos": "interj",
+   "meaning": "hi; welcome",
+   "sentence": "⟦هَلَا⟧ وَالله، تَفَضَّل!",
+   "translation": "⟦Hi⟧ there, come in!",
+   "note": "Not MSA هَلَّا “why not, won't you”."
+  },
+  {
+   "n": 20,
+   "rank": 205,
+   "word": "لَيْن",
+   "pos": "conj",
+   "meaning": "until",
+   "sentence": "انْتَظِرْنِي ⟦لَيْن⟧ أَجِي.",
+   "translation": "Wait for me ⟦until⟧ I come.",
+   "note": "Not MSA لِين “softness”."
+  },
+  {
+   "n": 21,
+   "rank": 221,
+   "word": "فْلُوس",
+   "pos": "noun",
+   "meaning": "money",
+   "sentence": "مَا عِنْدِي ⟦فْلُوس⟧.",
+   "translation": "I don't have any ⟦money⟧.",
+   "note": "MSA فُلُوس are “fils, small coins”."
+  },
+  {
+   "n": 22,
+   "rank": 224,
+   "word": "مُويَة",
+   "pos": "noun",
+   "meaning": "water",
+   "sentence": "عَطْنِي ⟦مُويَة⟧ بَارْدَة.",
+   "translation": "Give me some cold ⟦water⟧."
+  },
+  {
+   "n": 23,
+   "rank": 231,
+   "word": "رَبْع",
+   "pos": "noun",
+   "meaning": "friends, the guys",
+   "sentence": "طَالِع مَع ⟦رَبْع⟧ِي.",
+   "translation": "I'm going out with my ⟦friends⟧.",
+   "note": "Not MSA رُبْع “quarter”."
+  },
+  {
+   "n": 24,
+   "rank": 244,
+   "word": "عِيَال",
+   "pos": "noun",
+   "meaning": "kids, children",
+   "sentence": "عِنْدِي ثَلَاث ⟦عِيَال⟧.",
+   "translation": "I have three ⟦kids⟧.",
+   "note": "MSA عِيَال means “dependents”."
+  },
+  {
+   "n": 25,
+   "rank": 251,
+   "word": "يُمَّه",
+   "pos": "noun",
+   "meaning": "Mum! (calling your mother)",
+   "sentence": "⟦يُمَّه⟧، وَيْن جَوَّالِي؟",
+   "translation": "⟦Mum⟧, where's my phone?"
+  },
+  {
+   "n": 26,
+   "rank": 305,
+   "word": "وَدَّى",
+   "pos": "verb",
+   "meaning": "to take (someone or something somewhere)",
+   "sentence": "⟦بَوَدِّي⟧ك الْمَطَار بَاكِر.",
+   "translation": "I'll ⟦take⟧ you to the airport tomorrow.",
+   "form": "بَوَدِّي",
+   "note": "Not MSA وَدَى “to pay blood money”."
+  },
+  {
+   "n": 27,
+   "rank": 321,
+   "word": "سَالْفَة",
+   "pos": "noun",
+   "meaning": "story; matter, thing",
+   "sentence": "عِنْدِي ⟦سَالْفَة⟧ حِلْوَة لَك.",
+   "translation": "I've got a good ⟦story⟧ for you."
+  },
+  {
+   "n": 28,
+   "rank": 354,
+   "word": "مُوب",
+   "pos": "part",
+   "meaning": "not (also مُب, مَهُوب “he isn't”)",
+   "sentence": "هَذَا ⟦مُوب⟧ صَحِيح.",
+   "translation": "That's ⟦not⟧ true."
+  },
+  {
+   "n": 29,
+   "rank": 355,
+   "word": "مَدْرِي",
+   "pos": "interj",
+   "meaning": "I don't know",
+   "sentence": "⟦مَدْرِي⟧ وَيْن حَطَّيْت الْمِفْتَاح.",
+   "translation": "⟦I don't know⟧ where I put the key."
+  },
+  {
+   "n": 30,
+   "rank": 395,
+   "word": "دِيرَة",
+   "pos": "noun",
+   "meaning": "hometown; home country",
+   "sentence": "هَذِي ⟦دِيرَة⟧ أَهْلِي.",
+   "translation": "This is my family's ⟦hometown⟧."
+  },
+  {
+   "n": 31,
+   "rank": 457,
+   "word": "بَرَّا",
+   "pos": "adv",
+   "meaning": "outside",
+   "sentence": "الْجَوّ حَارّ ⟦بَرَّا⟧.",
+   "translation": "It's hot ⟦outside⟧.",
+   "note": "Not MSA بَرًّا “by land”."
+  },
+  {
+   "n": 32,
+   "rank": 513,
+   "word": "عُقْبَال",
+   "pos": "interj",
+   "meaning": "here's hoping (you're) next",
+   "sentence": "⟦عُقْبَال⟧ مَا نِفْرَح فِيك.",
+   "translation": "⟦Here's hoping⟧ we celebrate you next."
+  },
+  {
+   "n": 33,
+   "rank": 563,
+   "word": "هَذُولَا",
+   "pos": "pron",
+   "meaning": "these",
+   "sentence": "⟦هَذُولَا⟧ عِيَالِي.",
+   "translation": "⟦These⟧ are my children."
+  },
+  {
+   "n": 34,
+   "rank": 678,
+   "word": "أَبْشِر",
+   "pos": "interj",
+   "meaning": "sure, consider it done",
+   "sentence": "⟦أَبْشِر⟧، الْحِين أَجِيبَه لَك.",
+   "translation": "⟦Sure⟧, I'll bring it to you now.",
+   "note": "MSA أَبْشِرْ means “rejoice, good news!”."
+  },
+  {
+   "n": 35,
+   "rank": 873,
+   "word": "مَعْلِيش",
+   "pos": "interj",
+   "meaning": "sorry; never mind",
+   "sentence": "⟦مَعْلِيش⟧، مَا انْتَبَهْت.",
+   "translation": "⟦Sorry⟧, I didn't notice."
+  },
+  {
+   "n": 36,
+   "rank": 874,
+   "word": "يُبَه",
+   "pos": "noun",
+   "meaning": "Dad! (calling your father)",
+   "sentence": "⟦يُبَه⟧، تِسْمَح لِي أَطْلَع؟",
+   "translation": "⟦Dad⟧, can I go out?"
+  },
+  {
+   "n": 37,
+   "rank": 923,
+   "word": "قِهَر",
+   "pos": "verb",
+   "meaning": "to upset, frustrate",
+   "sentence": "كَلَامَه ⟦قِهَر⟧نِي.",
+   "translation": "What he said ⟦upset⟧ me.",
+   "note": "MSA قَهَرَ means “to conquer, overpower”."
+  },
+  {
+   "n": 38,
+   "rank": 943,
+   "word": "دَقّ",
+   "pos": "verb",
+   "meaning": "to call (on the phone)",
+   "sentence": "⟦دِقّ⟧ عَلَيّ إِذَا وَصَلْت.",
+   "translation": "⟦Call⟧ me when you arrive.",
+   "form": "دِقّ",
+   "note": "In MSA دَقَّ only means “to knock, pound”."
+  },
+  {
+   "n": 39,
+   "rank": 1285,
+   "word": "خَوِيّ",
+   "pos": "noun",
+   "meaning": "friend, buddy",
+   "sentence": "هُو ⟦خَوِيّ⟧ أَخُوي.",
+   "translation": "He's my brother's ⟦friend⟧.",
+   "note": "Not MSA خُوَيّ “little brother”."
+  },
+  {
+   "n": 40,
+   "rank": 1458,
+   "word": "عَصَّب",
+   "pos": "verb",
+   "meaning": "to get angry",
+   "sentence": "أَبُوي ⟦عَصَّب⟧ عَلَيّ.",
+   "translation": "My dad ⟦got angry⟧ with me.",
+   "note": "MSA عَصَّبَ means “to bandage”."
+  },
+  {
+   "n": 41,
+   "rank": 1624,
+   "word": "وَاجِد",
+   "pos": "adv",
+   "meaning": "a lot (of); very",
+   "sentence": "عِنْدِي شُغُل ⟦وَاجِد⟧.",
+   "translation": "I have ⟦a lot of⟧ work.",
+   "note": "Not MSA وَاجِد “finding”."
+  },
+  {
+   "n": 42,
+   "rank": 1636,
+   "word": "حَيْل",
+   "pos": "adv",
+   "meaning": "very much, a lot; hard",
+   "sentence": "تِعِبْت ⟦حَيْل⟧ الْيَوْم.",
+   "translation": "I got ⟦really⟧ tired today.",
+   "note": "MSA حَيْل means “strength”."
+  },
+  {
+   "n": 43,
+   "rank": 1683,
+   "word": "اسْتَانَس",
+   "pos": "verb",
+   "meaning": "to have a good time, enjoy oneself",
+   "sentence": "⟦اسْتَانَسْنَا⟧ فِي الْكَشْتَة.",
+   "translation": "We ⟦had a great time⟧ on the desert picnic.",
+   "form": "اسْتَانَسْنَا",
+   "note": "MSA اِسْتَأْنَسَ means “to be sociable, become tame”."
+  },
+  {
+   "n": 44,
+   "rank": 1697,
+   "word": "طَقّ",
+   "pos": "verb",
+   "meaning": "to hit; to knock",
+   "sentence": "لَا ⟦تِطِقّ⟧ أَخُوك!",
+   "translation": "Don't ⟦hit⟧ your brother!",
+   "form": "تِطِقّ",
+   "note": "MSA طَقَّ means “to crack, snap”."
+  },
+  {
+   "n": 45,
+   "rank": 1872,
+   "word": "عَيْش",
+   "pos": "noun",
+   "meaning": "rice",
+   "sentence": "الْغَدَا ⟦عَيْش⟧ وْلَحَم.",
+   "translation": "Lunch is ⟦rice⟧ and meat.",
+   "note": "MSA عَيْش means “living, life”."
+  },
+  {
+   "n": 46,
+   "rank": 1889,
+   "word": "بَدْرِي",
+   "pos": "adv",
+   "meaning": "early",
+   "sentence": "نِمْت ⟦بَدْرِي⟧ أَمْس.",
+   "translation": "I went to bed ⟦early⟧ yesterday."
+  },
+  {
+   "n": 47,
+   "rank": 1968,
+   "word": "خَرَابِيط",
+   "pos": "noun",
+   "meaning": "nonsense",
+   "sentence": "لَا تْصَدِّق هَالْ⟦خَرَابِيط⟧.",
+   "translation": "Don't believe this ⟦nonsense⟧."
+  },
+  {
+   "n": 48,
+   "rank": 2020,
+   "word": "شَيْن",
+   "pos": "adj",
+   "meaning": "bad; ugly",
+   "sentence": "هَالتَّصَرُّف ⟦شَيْن⟧.",
+   "translation": "That behaviour is ⟦bad⟧.",
+   "note": "MSA شَيْن means “disgrace”."
+  },
+  {
+   "n": 49,
+   "rank": 2024,
+   "word": "أَفَا",
+   "pos": "interj",
+   "meaning": "oh no! (dismay, mild reproach)",
+   "sentence": "⟦أَفَا⟧! لَيْش مَا قِلْت لِي؟",
+   "translation": "⟦Oh no⟧! Why didn't you tell me?"
+  },
+  {
+   "n": 50,
+   "rank": 2321,
+   "word": "هَذَاك",
+   "pos": "pron",
+   "meaning": "that (masculine)",
+   "sentence": "مِن ⟦هَذَاك⟧ الرِّجَّال؟",
+   "translation": "Who's ⟦that⟧ man?"
+  },
+  {
+   "n": 51,
+   "rank": 2340,
+   "word": "خَشْم",
+   "pos": "noun",
+   "meaning": "nose",
+   "sentence": "عِنْدَه ⟦خَشْم⟧ كْبِير.",
+   "translation": "He has a big ⟦nose⟧."
+  },
+  {
+   "n": 52,
+   "rank": 2469,
+   "word": "رَهِيب",
+   "pos": "adj",
+   "meaning": "awesome, great",
+   "sentence": "الْفِلْم ⟦رَهِيب⟧!",
+   "translation": "The film is ⟦awesome⟧!",
+   "note": "In MSA رَهِيب means “terrible, dreadful”."
+  },
+  {
+   "n": 53,
+   "rank": 2509,
+   "word": "سَوْلَف",
+   "pos": "verb",
+   "meaning": "to chat",
+   "sentence": "جِلَسْنَا ⟦نْسَوْلِف⟧ لَيْن الْفَجِر.",
+   "translation": "We sat ⟦chatting⟧ until dawn.",
+   "form": "نْسَوْلِف"
+  },
+  {
+   "n": 54,
+   "rank": 3097,
+   "word": "بِبَلَاش",
+   "pos": "adv",
+   "meaning": "for free",
+   "sentence": "الدُّخُول ⟦بِبَلَاش⟧.",
+   "translation": "Entry is ⟦free⟧."
+  },
+  {
+   "n": 55,
+   "rank": 3135,
+   "word": "وَنَاسَة",
+   "pos": "noun",
+   "meaning": "fun, a good time",
+   "sentence": "الطَّلْعَة كَانَت ⟦وَنَاسَة⟧.",
+   "translation": "The trip was ⟦fun⟧."
+  },
+  {
+   "n": 56,
+   "rank": 3284,
+   "word": "يَمّ",
+   "pos": "prep",
+   "meaning": "next to, near; towards",
+   "sentence": "الْبَقَّالَة ⟦يَمّ⟧ الْمَسْجِد.",
+   "translation": "The corner shop is ⟦next to⟧ the mosque.",
+   "note": "Not MSA يَمّ “sea”."
+  },
+  {
+   "n": 57,
+   "rank": 3442,
+   "word": "سَلَامَات",
+   "pos": "interj",
+   "meaning": "get well soon",
+   "sentence": "⟦سَلَامَات⟧! وِشْ فِيك؟",
+   "translation": "⟦Get well soon⟧! What's wrong?"
+  },
+  {
+   "n": 58,
+   "rank": 3582,
+   "word": "بَزْر",
+   "pos": "noun",
+   "meaning": "kid, little child",
+   "sentence": "لَا تْسَوِّي زَيّ الْ⟦بَزْر⟧!",
+   "translation": "Don't act like a ⟦kid⟧!",
+   "note": "Not MSA بِزْر “seed”."
+  },
+  {
+   "n": 59,
+   "rank": 4083,
+   "word": "دَبَّاب",
+   "pos": "noun",
+   "meaning": "motorbike",
+   "sentence": "شِرَى ⟦دَبَّاب⟧ جْدِيد.",
+   "translation": "He bought a new ⟦motorbike⟧.",
+   "note": "MSA دَبَّاب means “crawling”."
+  },
+  {
+   "n": 60,
+   "rank": 4226,
+   "word": "وَخَّر",
+   "pos": "verb",
+   "meaning": "to move aside, get out of the way",
+   "sentence": "⟦وَخِّر⟧ عَن الطَّرِيق!",
+   "translation": "⟦Move⟧ out of the way!",
+   "form": "وَخِّر"
+  },
+  {
+   "n": 61,
+   "rank": 4253,
+   "word": "طِفِش",
+   "pos": "verb",
+   "meaning": "to get bored, fed up",
+   "sentence": "⟦طِفِشْت⟧ مِن الْبَيْت.",
+   "translation": "I ⟦got bored⟧ of being at home.",
+   "form": "طِفِشْت",
+   "note": "MSA طَفَشَ means “to run away”."
+  },
+  {
+   "n": 62,
+   "rank": 4612,
+   "word": "سَنَع",
+   "pos": "adj",
+   "meaning": "proper, well-mannered",
+   "sentence": "هَذَا الْوَلَد ⟦سَنَع⟧.",
+   "translation": "This boy is ⟦well-mannered⟧."
+  },
+  {
+   "n": 63,
+   "rank": 4764,
+   "word": "حَوْسَة",
+   "pos": "noun",
+   "meaning": "mess",
+   "sentence": "الْغُرْفَة ⟦حَوْسَة⟧!",
+   "translation": "The room is a ⟦mess⟧!"
+  },
+  {
+   "n": 64,
+   "rank": 5060,
+   "word": "شِمَاغ",
+   "pos": "noun",
+   "meaning": "shemagh (red-checked headscarf)",
+   "sentence": "لِبَس ⟦شِمَاغ⟧ جْدِيد.",
+   "translation": "He put on a new ⟦shemagh⟧."
+  },
+  {
+   "n": 65,
+   "rank": 5419,
+   "word": "هَذِيك",
+   "pos": "pron",
+   "meaning": "that (feminine)",
+   "sentence": "⟦هَذِيك⟧ سَيَّارَة أَخُوي.",
+   "translation": "⟦That⟧'s my brother's car."
+  },
+  {
+   "n": 66,
+   "rank": 5555,
+   "word": "بَاكِر",
+   "pos": "adv",
+   "meaning": "tomorrow",
+   "sentence": "نِشُوفِك ⟦بَاكِر⟧ إِنْ شَاء الله.",
+   "translation": "See you ⟦tomorrow⟧, God willing.",
+   "note": "MSA بَاكِرًا means “early”."
+  },
+  {
+   "n": 67,
+   "rank": 5652,
+   "word": "عَوَّر",
+   "pos": "verb",
+   "meaning": "to hurt",
+   "sentence": "رَاسِي ⟦يْعَوِّر⟧نِي.",
+   "translation": "My head ⟦hurts⟧.",
+   "form": "يْعَوِّر",
+   "note": "MSA عَوَّرَ means “to blind in one eye”."
+  },
+  {
+   "n": 68,
+   "rank": 6002,
+   "word": "يِمْدِي",
+   "pos": "verb",
+   "meaning": "there's time to; can manage to",
+   "sentence": "⟦يِمْدِي⟧نَا نِلْحَق الْفِلْم؟",
+   "translation": "Do we ⟦have time to⟧ catch the film?"
+  },
+  {
+   "n": 69,
+   "rank": 7478,
+   "word": "فَحَّط",
+   "pos": "verb",
+   "meaning": "to drift, spin a car's wheels",
+   "sentence": "الشَّبَاب ⟦يْفَحِّطُون⟧ فِي الشَّارِع.",
+   "translation": "The young men are ⟦drifting⟧ in the street.",
+   "form": "يْفَحِّطُون"
+  },
+  {
+   "n": 70,
+   "rank": 7556,
+   "word": "مَزْيُون",
+   "pos": "adj",
+   "meaning": "good-looking, pretty",
+   "sentence": "وَلَدْكُم ⟦مَزْيُون⟧ مَا شَاء الله.",
+   "translation": "Your boy is ⟦handsome⟧, God bless him."
+  },
+  {
+   "n": 71,
+   "rank": 7594,
+   "word": "كَشْخَة",
+   "pos": "adj",
+   "meaning": "smart, stylish",
+   "sentence": "لِبْسَك الْيَوْم ⟦كَشْخَة⟧.",
+   "translation": "Your outfit is ⟦smart⟧ today."
+  },
+  {
+   "n": 72,
+   "rank": 8436,
+   "word": "انْسَدَح",
+   "pos": "verb",
+   "meaning": "to lie down",
+   "sentence": "تِعْبَان، ⟦بَنْسَدِح⟧ شْوَيّ.",
+   "translation": "I'm tired, I'll ⟦lie down⟧ for a bit.",
+   "form": "بَنْسَدِح"
+  },
+  {
+   "n": 73,
+   "rank": 9016,
+   "word": "ارْحَب",
+   "pos": "interj",
+   "meaning": "welcome!",
+   "sentence": "⟦ارْحَب⟧، حَيَّاك الله!",
+   "translation": "⟦Welcome⟧, come on in!"
+  },
+  {
+   "n": 74,
+   "rank": 9883,
+   "word": "غُتْرَة",
+   "pos": "noun",
+   "meaning": "ghutra (white headscarf)",
+   "sentence": "الْ⟦غُتْرَة⟧ الْبَيْضَا لِلصَّيْف.",
+   "translation": "The white ⟦ghutra⟧ is for summer."
+  },
+  {
+   "n": 75,
+   "rank": 10499,
+   "word": "خَرْطِي",
+   "pos": "adj",
+   "meaning": "rubbish, of bad quality",
+   "sentence": "هَالْجَوَّال ⟦خَرْطِي⟧.",
+   "translation": "This phone is ⟦rubbish⟧."
+  },
+  {
+   "n": 76,
+   "rank": 10701,
+   "word": "مَقَاضِي",
+   "pos": "noun",
+   "meaning": "groceries, shopping",
+   "sentence": "جِبْت ⟦مَقَاضِي⟧ الْبَيْت.",
+   "translation": "I got the ⟦groceries⟧ for the house."
+  },
+  {
+   "n": 77,
+   "rank": 12313,
+   "word": "طَنَّش",
+   "pos": "verb",
+   "meaning": "to ignore",
+   "sentence": "رَسَّلْت لَه، وْ⟦طَنَّش⟧نِي.",
+   "translation": "I texted him, and he ⟦ignored⟧ me."
+  },
+  {
+   "n": 78,
+   "rank": 13650,
+   "word": "تْسَبَّح",
+   "pos": "verb",
+   "meaning": "to have a shower",
+   "sentence": "⟦بَتْسَبَّح⟧ وْأَجِي.",
+   "translation": "I'll ⟦shower⟧ and come.",
+   "form": "بَتْسَبَّح"
+  },
+  {
+   "n": 79,
+   "rank": 15631,
+   "word": "تْوَهَّق",
+   "pos": "verb",
+   "meaning": "to get into trouble, get stuck",
+   "sentence": "⟦تْوَهَّقْت⟧ بِالشُّغُل الْيَوْم.",
+   "translation": "I ⟦got stuck⟧ with work today.",
+   "form": "تْوَهَّقْت"
+  },
+  {
+   "n": 80,
+   "rank": 15826,
+   "word": "بِيَالَة",
+   "pos": "noun",
+   "meaning": "small tea glass",
+   "sentence": "عَطْنِي ⟦بِيَالَة⟧ شَاهِي.",
+   "translation": "Give me a ⟦glass⟧ of tea."
+  },
+  {
+   "n": 81,
+   "rank": 16416,
+   "word": "هَرْجَة",
+   "pos": "noun",
+   "meaning": "talk, chatter",
+   "sentence": "كِلَّه ⟦هَرْجَة⟧ وْبَسّ.",
+   "translation": "It's all just ⟦talk⟧."
+  },
+  {
+   "n": 82,
+   "rank": 17487,
+   "word": "غَثّ",
+   "pos": "verb",
+   "meaning": "to annoy, get on someone's nerves",
+   "sentence": "صَوْت الْمُكَيِّف ⟦غَثّ⟧نِي.",
+   "translation": "The air conditioner's noise ⟦got on my nerves⟧.",
+   "note": "MSA غَثّ means “thin, poor (meat)”."
+  },
+  {
+   "n": 83,
+   "rank": 19022,
+   "word": "طَعْس",
+   "pos": "noun",
+   "meaning": "sand dune",
+   "sentence": "فِيه ⟦طَعْس⟧ كْبِير وَرَا الْمُخَيَّم.",
+   "translation": "There's a big ⟦dune⟧ behind the camp."
+  },
+  {
+   "n": 84,
+   "rank": 19521,
+   "word": "فَنِيلَة",
+   "pos": "noun",
+   "meaning": "undershirt, vest",
+   "sentence": "لِبِسْت ⟦فَنِيلَة⟧ تَحْت الثَّوْب.",
+   "translation": "I wore an ⟦undershirt⟧ under my thobe."
+  },
+  {
+   "n": 85,
+   "rank": 34571,
+   "word": "مَلْقُوف",
+   "pos": "adj",
+   "meaning": "nosy",
+   "sentence": "لَا تْصِير ⟦مَلْقُوف⟧!",
+   "translation": "Don't be ⟦nosy⟧!"
+  },
+  {
+   "n": 86,
+   "rank": 43403,
+   "word": "كَشْتَة",
+   "pos": "noun",
+   "meaning": "desert picnic, outing",
+   "sentence": "بِنْرُوح ⟦كَشْتَة⟧ يَوْم الْجُمْعَة.",
+   "translation": "We'll go on a ⟦desert picnic⟧ on Friday."
+  },
+  {
+   "n": 87,
+   "rank": 66190,
+   "word": "مَاصِخ",
+   "pos": "adj",
+   "meaning": "bland; unfunny",
+   "sentence": "الْأَكِل ⟦مَاصِخ⟧، يَبِي مِلِح.",
+   "translation": "The food is ⟦bland⟧, it needs salt."
+  },
+  {
+   "n": 88,
+   "rank": 77299,
+   "word": "دِرْكْسُون",
+   "pos": "noun",
+   "meaning": "steering wheel",
+   "sentence": "⟦دِرْكْسُون⟧ السَّيَّارَة ثَقِيل.",
+   "translation": "The car's ⟦steering wheel⟧ is heavy."
+  }
+ ]
+}

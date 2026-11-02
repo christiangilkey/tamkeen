@@ -1,0 +1,673 @@
+{
+  "from": "en",
+  "to": "ar",
+  "dialect": "glf",
+  "title": "Gulf Arabic grammar",
+  "variety": "Saudi Arabic, Riyadh (Najdi) style",
+  "about": "Only what Saudi Arabic does differently from Modern Standard Arabic, in 16 short lessons: how it sounds, the words for what, where and why, how to say “not”, “want”, “will” and “still”, the verb endings, numbers and “if”. Everything else works as in Standard Arabic, so the Arabic grammar course comes first. Every example is Arabic as people in Riyadh say it, with vowel marks and a reading in Latin letters that shows the Saudi sounds (g for ق), and you can tap it to hear it.",
+  "reading": "transliteration",
+  "units": [
+    {"n":1,"title":"Sounding Saudi"},
+    {"n":2,"title":"Everyday questions and answers"},
+    {"n":3,"title":"Doing things"},
+    {"n":4,"title":"Telling more"}
+  ],
+  "lessons": [
+    {
+      "id": "sound-saudi",
+      "unit": 1,
+      "level": "A1",
+      "title": "Sound like Riyadh",
+      "summary": "Say {{قَهْوَة}} “coffee” and {{قَال}} “he said” the way people in Riyadh do: the few sound changes that make Standard Arabic sound Saudi.",
+      "topic": "Sounds: {{ق}} said g, {{ض}} said like {{ظ}}, hamza dropped, short vowels squeezed out",
+      "blocks": [
+        {"goal":{"t":"قَال: أَبِي قَهْوَة.","r":"gāl: abi gahwah.","tr":"He said: I want coffee."}},
+        {"dialog":[{"who":"Fahad","t":"وِشْ تِبِي؟ قَهْوَة وِلَّا شَاهِي؟","r":"wesh tibi? gahwah willa shāhi?","tr":"What do you want? Coffee or tea?"},{"who":"Sara","t":"قَهْوَة، اللَّه يِعَافِيك.","r":"gahwah, allah yiʿāfīk.","tr":"Coffee, thank you."},{"who":"Fahad","t":"أَبْشِرِي، الْحِين أَجِيبْهَا.","r":"abshiri, al-ḥīn ajībha.","tr":"Sure, I'll bring it now."}]},
+        {"p":"This course builds on Standard Arabic (MSA). It teaches only what is **different** in the Arabic spoken in Saudi Arabia, in the style of Riyadh and the central region, Najd: the variety heard most on Saudi TV and in Saudi offices. Everything not mentioned here works as in MSA: the letters, the roots, most words, {{عِنْدِي}} “I have”, and the order of words."},
+        {"term":"dialect","means":"the everyday spoken Arabic of one region (here: Saudi Arabia, Riyadh style), as opposed to Modern Standard Arabic, the Arabic of books and the news."},
+        {"p":"**{{ق}} is said g.** In almost every everyday word, Saudis say {{ق}} like the g in “go”: {{قَال|gāl}} “he said”, {{قَهْوَة|gahwah}} “coffee”, {{قَرِيب|garīb}} “near”, {{قَلْب|galb}} “heart”. It is still **written** {{ق}}. Religious and formal words keep the standard q: {{الْقُرْآن|al-qurʾān}}, {{قَانُون|qānūn}} “law”."},
+        {"p":"**{{ث}} and {{ذ}} stay.** Unlike Cairo or Damascus, Saudis keep the “th” sounds of MSA: {{ثَلَاث|thalāth}} “three”, {{هَذَا|hādha}} “this”. **{{ض}} is said like {{ظ}}** (a heavy “dh”): {{أَبْيَض|abyaḍh}} “white”, {{ضَيْف|ḍhēf}} “guest”."},
+        {"p":"**Hamza mostly goes.** {{رَائِح}} becomes {{رَايِح|rāyiḥ}} “going”, {{جَاءَ}} becomes {{جَا|ja}} “he came”, {{سَمَاء}} becomes {{سَمَا|sama}} “sky”. And **short vowels drop out** where MSA has several in a row: {{كَتَبَتْ}} sounds {{كِتْبَت|kitbat}} “she wrote”, and {{يَكْتُبُ}} sounds {{يِكْتِب|yiktib}}. The ending {{ة}} is said -ah: {{سَاعَة|sāʿah}} “hour”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["he said","{{قَالَ|qāla}}","{{قَال|gāl}}"],
+          ["coffee","{{قَهْوَة|qahwa}}","{{قَهْوَة|gahwah}}"],
+          ["guest","{{ضَيْف|ḍayf}}","{{ضَيْف|ḍhēf}}"],
+          ["going","{{رَائِح|rāʾiḥ}}","{{رَايِح|rāyiḥ}}"],
+          ["he writes","{{يَكْتُبُ|yaktubu}}","{{يِكْتِب|yiktib}}"]
+        ] },
+        { "ex": [
+          {"t":"الْبَيْت قَرِيب.","r":"al-bēt garīb.","tr":"The house is near.","note":"{{ق}} said g; {{بَيْت}} said bēt"},
+          {"t":"عِنْدِي ضَيْف الْيَوْم.","r":"ʿindi ḍhēf al-yōm.","tr":"I have a guest today."},
+          {"t":"أَنَا رَايِح السُّوق.","r":"ana rāyiḥ as-sūg.","tr":"I'm going to the market."},
+          {"t":"ثَلَاث سَاعَات.","r":"thalāth sāʿāt.","tr":"Three hours."}
+        ] },
+        {"tip":"**Spelling.** Saudis write their dialect with ordinary Arabic letters, so a written word often looks just like MSA: only the sound changes. In this course the Latin reading under each example shows how it is said (g for {{ق}}, ē and ō for the vowels of {{بَيْت}} and {{يَوْم}})."}
+      ],
+      "mistakes": [
+        {"wrong":"قَهْوَة (said qahwa)","right":"قَهْوَة (said gahwah)","tr":"coffee","why":"In everyday words {{ق}} is said g."},
+        {"wrong":"أَنَا رَائِح.","right":"أَنَا رَايِح.","tr":"I'm going.","why":"The hamza of MSA becomes {{ي}} or disappears: {{رَايِح}}, {{جَا}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How does someone from Riyadh say {{قَال}} “he said”?","options":["qāla","gāl","ʾāl"],"answer":1,"why":"{{ق}} is said g, and the final vowel goes: gāl."},
+        {"type":"choice","q":"Which sound do Saudis **keep**, unlike Egyptians?","options":["the “th” of {{ثَلَاث}}","the q of {{قَهْوَة}}","the hamza of {{رَائِح}}"],"answer":0,"why":"Saudis keep {{ث}} and {{ذ}}: thalāth, hādha."},
+        {"type":"fill","q":"Choose the Saudi spelling.","t":"أَنَا ___ الْبَيْت.","r":"ana ___ al-bēt.","tr":"I'm going home.","options":["رَايِح","رَائِح"],"rs":["rāyiḥ","rāʾiḥ"],"answer":0,"why":"The hamza becomes {{ي}}: {{رَايِح}}."},
+        {"type":"order","q":"Put the words in order.","tr":"I want coffee.","words":["أَبِي","قَهْوَة."],"rs":["abi","gahwah."]},
+        {"type":"say","q":"Say “The house is near”, with a Saudi g.","answer":"الْبَيْت قَرِيب.","r":"al-bēt garīb."},
+        {"type":"free","q":"Your turn: say three words with {{ق}} the Saudi way, for example {{قَهْوَة}}, {{قَرِيب}}, {{قَال}}.","answers":[{"t":"قَهْوَة، قَرِيب، قَال.","r":"gahwah, garīb, gāl.","tr":"coffee, near, he said."}]}
+      ]
+    },
+    {
+      "id": "no-endings",
+      "unit": 1,
+      "level": "A1",
+      "title": "Drop the endings",
+      "summary": "Say {{بَيْت كْبِير}} “a big house” and {{رِيَالَيْن}} “two riyals” without the case endings and verb duals of MSA.",
+      "topic": "No case endings or nunation; the dual only on nouns; plural verbs and adjectives for two",
+      "blocks": [
+        {"goal":{"t":"عِنْدِي وَلَدَيْن، وْهُمْ فِي الْمَدْرَسَة.","r":"ʿindi waladēn, w-hum fi l-madrasah.","tr":"I have two boys, and they're at school."}},
+        {"dialog":[{"who":"Nora","t":"كَمْ وَلَد عِنْدِك؟","r":"kam walad ʿindik?","tr":"How many children do you have?"},{"who":"Abdullah","t":"عِنْدِي وَلَدَيْن وْبِنْت.","r":"ʿindi waladēn w-bint.","tr":"I have two boys and a girl."},{"who":"Nora","t":"مَا شَاء اللَّه! وَيْن هُمْ الْحِين؟","r":"māshāllah! wēn hum al-ḥīn?","tr":"How lovely! Where are they now?"},{"who":"Abdullah","t":"الْوَلَدَيْن رَاحُوا الْمَدْرَسَة.","r":"al-waladēn rāḥaw al-madrasah.","tr":"The two boys went to school."}]},
+        {"term":"case ending","means":"the short vowel at the end of an MSA word that shows its job in the sentence (-u, -a, -i, and -un, -an, -in): {{كِتَابٌ}}, {{كِتَابًا}}, {{كِتَابٍ}}."},
+        {"p":"**No case endings.** The dialect drops them all, and the -n of nunation too: MSA {{بَيْتٌ كَبِيرٌ}} is just {{بَيْت كْبِير|bēt kbīr}} “a big house”, whatever its place in the sentence. A few fixed words keep -an: {{شُكْرًا|shukran}} “thanks”, {{أَهْلًا|ahlan}} “hi”."},
+        {"p":"**The dual only on nouns.** Two of something is still -ēn ({{ـَيْن}}) on the noun: {{يَوْمَيْن|yōmēn}} “two days”, {{رِيَالَيْن|riyālēn}} “two riyals”, {{سَاعْتَيْن|sāʿtēn}} “two hours”. But verbs, adjectives and pronouns for two people are **plural**: {{الْوَلَدَيْن رَاحُوا|al-waladēn rāḥaw}} “the two boys went” (not {{ذَهَبَا}}), {{كِتَابَيْن حِلْوَيْن|kitābēn ḥilwīn}} “two nice books”."},
+        {"p":"**One ending, -ēn.** MSA has -āni and -ayni; Saudi Arabic has only -ēn, written {{ـَيْن}}: {{ثْنَيْن|thinēn}} “two”, {{شَهْرَيْن|shahrēn}} “two months”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["a big house","{{بَيْتٌ كَبِيرٌ}}","{{بَيْت كْبِير}}"],
+          ["two days","{{يَوْمَانِ}} / {{يَوْمَيْنِ}}","{{يَوْمَيْن}}"],
+          ["the two boys went","{{ذَهَبَ الْوَلَدَانِ}}","{{الْوَلَدَيْن رَاحُوا}}"]
+        ] },
+        { "ex": [
+          {"t":"جِلَسْت يَوْمَيْن فِي جِدَّة.","r":"jilast yōmēn fi jiddah.","tr":"I stayed two days in Jeddah."},
+          {"t":"هَذَا بَيْت كْبِير.","r":"hādha bēt kbīr.","tr":"This is a big house."},
+          {"t":"الْقَهْوَة بْرِيَالَيْن.","r":"al-gahwah b-riyālēn.","tr":"The coffee is two riyals."},
+          {"t":"الْبِنْتَيْن رَاحُوا السُّوق.","r":"al-bintēn rāḥaw as-sūg.","tr":"The two girls went to the market."}
+        ] },
+        {"tip":"Leaving the endings off is not careless speech: it is how every Arab speaks. Reading the news aloud, Saudis add the endings back; talking, they never do."}
+      ],
+      "mistakes": [
+        {"wrong":"عِنْدِي بَيْتٌ كْبِيرٌ.","right":"عِنْدِي بَيْت كْبِير.","tr":"I have a big house.","why":"No case endings or -un in the dialect."},
+        {"wrong":"الْوَلَدَيْن رَاحَا.","right":"الْوَلَدَيْن رَاحُوا.","tr":"The two boys went.","why":"The verb for two is plural: {{رَاحُوا}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Two hours” in Riyadh is…","options":["{{سَاعَتَانِ}}","{{سَاعْتَيْن}}","{{سَاعَات ثِنْتِين}}"],"answer":1,"why":"The dual ending is {{ـَيْن}} (-ēn) on the noun."},
+        {"type":"fill","q":"Choose the missing word.","t":"الْبِنْتَيْن ___ الْبَيْت.","r":"al-bintēn ___ al-bēt.","tr":"The two girls went home.","options":["رَاحُوا","رَاحَتَا"],"rs":["rāḥaw","rāḥatā"],"answer":0,"why":"For two people the verb is plural."},
+        {"type":"order","q":"Put the words in order.","tr":"This is a big house.","words":["هَذَا","بَيْت","كْبِير."],"rs":["hādha","bēt","kbīr."]},
+        {"type":"dialogue","q":"A colleague asks about your weekend.","lines":[{"who":"Colleague","t":"كَمْ يَوْم جِلَسْت فِي جِدَّة؟","r":"kam yōm jilast fi jiddah?","tr":"How many days did you stay in Jeddah?"},{"options":["جِلَسْت يَوْمَيْن.","جِلَسْت يَوْمَانِ."],"rs":["jilast yōmēn.","jilast yawmāni."],"answer":0,"why":"The dialect dual is {{ـَيْن}}: {{يَوْمَيْن}}."},{"who":"Colleague","t":"يَوْمَيْن بَسّ؟ قَلِيل!","r":"yōmēn bass? galīl!","tr":"Only two days? That's not much!"}]},
+        {"type":"free","q":"Your turn: say how many brothers and sisters you have, with the dual if it's two: {{عِنْدِي…}}","answers":[{"t":"عِنْدِي أَخُوَيْن وْأُخْت.","r":"ʿindi akhwēn w-ukht.","tr":"I have two brothers and a sister."},{"t":"عِنْدِي ثَلَاث خَوَات.","r":"ʿindi thalāth khawāt.","tr":"I have three sisters."}]}
+      ]
+    },
+    {
+      "id": "we-and-you",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say “we”, “you all” and “my, your”",
+      "summary": "Use the Saudi pronouns, above all {{حِنَّا}} “we”, and the endings for “my, your, his”.",
+      "topic": "The pronouns ({{حِنَّا}}, {{انْتُم}}, {{انْتِن}}, {{هِن}}) and the possessive endings ({{ـَه}} said -ah)",
+      "blocks": [
+        {"goal":{"t":"حِنَّا مِن الرِّيَاض، وِانْتُم؟","r":"ḥinna min ar-riyāḍh, w-intum?","tr":"We're from Riyadh, and you?"}},
+        {"dialog":[{"who":"Majid","t":"حِنَّا مِن الرِّيَاض. وِانْتُم مِن وَيْن؟","r":"ḥinna min ar-riyāḍh. w-intum min wēn?","tr":"We're from Riyadh. And where are you from?"},{"who":"Laura","t":"حِنَّا مِن أَسْتُرَالْيَا، بَسّ سَاكْنِين هِنَا.","r":"ḥinna min ustrālya, bass sāknīn hina.","tr":"We're from Australia, but we live here."},{"who":"Majid","t":"هَلَا وَاللَّه! هَذَا بَيْتْكُم؟","r":"hala wallah! hādha bētkum?","tr":"Welcome! Is this your house?"},{"who":"Laura","t":"إِيه، وْهَذِيك سَيَّارَة أَخُوي.","r":"ēh, w-hādhīk sayyārat akhūy.","tr":"Yes, and that's my brother's car."}]},
+        {"p":"**“We” is {{حِنَّا|ḥinna}}**, not {{نَحْنُ}}. You will also hear {{إِحْنَا|iḥna}} from other Saudis. The rest is close to MSA, without the final vowels: {{أَنَا|ana}}, {{انْتَ|inta}} (to a man), {{انْتِي|inti}} (to a woman), {{هُو|hu}}, {{هِي|hi}}."},
+        {"p":"**The plural keeps men and women apart.** Najdi Arabic still has a separate “you” and “they” for groups of women, like MSA: {{انْتُم|intum}} / {{انْتِن|intin}} “you all”, {{هُم|hum}} / {{هِن|hin}} “they”. There is no “you two” or “they two”: for two people, use the plural."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["I","{{أَنَا}}","{{أَنَا|ana}}"],
+          ["you (man / woman)","{{أَنْتَ}} / {{أَنْتِ}}","{{انْتَ|inta}} / {{انْتِي|inti}}"],
+          ["we","{{نَحْنُ}}","{{حِنَّا|ḥinna}}"],
+          ["you all (men / women)","{{أَنْتُمْ}} / {{أَنْتُنَّ}}","{{انْتُم|intum}} / {{انْتِن|intin}}"],
+          ["they (men / women)","{{هُمْ}} / {{هُنَّ}}","{{هُم|hum}} / {{هِن|hin}}"]
+        ] },
+        {"p":"**The endings for “my, your, his”** are MSA's, without their last vowel. Two to listen for: “his” {{ـَه}} is said **-ah** ({{بَيْتَه|bētah}} “his house”), and “your” to a woman is said -ik ({{بَيْتِك|bētik}}); older Najdis say it -its. “My brother” is {{أَخُوي|akhūy}}, “my father” {{أَبُوي|abūy}}."},
+        { "ex": [
+          {"t":"حِنَّا جِيرَانْكُم.","r":"ḥinna jīrānkum.","tr":"We're your neighbours."},
+          {"t":"هَذَا جَوَّالَه.","r":"hādha jawwālah.","tr":"This is his phone."},
+          {"t":"وَيْن بَيْتِك؟","r":"wēn bētik?","tr":"Where's your house?","note":"to a woman"},
+          {"t":"أَخُوي سَاكِن فِي الدَّمَّام.","r":"akhūy sākin fi d-dammām.","tr":"My brother lives in Dammam."},
+          {"t":"الْبَنَات رَاحَن الْمَدْرَسَة.","r":"al-banāt rāḥan al-madrasah.","tr":"The girls went to school.","note":"a verb for women only: -an"}
+        ] },
+        {"tip":"{{أَبُوي}} and {{أَخُوي}} come from {{أَبُو}} and {{أَخُو}} + -y. In the same way Saudis say {{يُبَه|yuba}} “Dad!” and {{يُمَّه|yummah}} “Mum!” when they call their parents."}
+      ],
+      "mistakes": [
+        {"wrong":"نَحْنُ مِن جِدَّة.","right":"حِنَّا مِن جِدَّة.","tr":"We're from Jeddah.","why":"In Saudi speech “we” is {{حِنَّا}}."},
+        {"wrong":"انْتُمَا رَاحَيْتُوا؟","right":"انْتُم رِحْتُوا؟","tr":"Did you (two) go?","why":"There is no “you two”: use the plural {{انْتُم}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“We” in Riyadh is…","options":["{{نَحْنُ}}","{{حِنَّا}}","{{هُم}}"],"answer":1,"why":"{{حِنَّا}} (ḥinna) is the Najdi “we”."},
+        {"type":"fill","q":"You're talking to a group of women. Choose the word.","t":"___ مِن وَيْن؟","r":"___ min wēn?","tr":"Where are you from?","options":["انْتِن","انْتُم","انْتِي"],"rs":["intin","intum","inti"],"answer":0,"why":"Najdi keeps a “you all” for women: {{انْتِن}}."},
+        {"type":"choice","q":"How is {{بَيْتَه}} “his house” said?","options":["bētuhu","bētah","bētu"],"answer":1,"why":"“His” is said -ah in Riyadh."},
+        {"type":"order","q":"Put the words in order.","tr":"We're from Riyadh.","words":["حِنَّا","مِن","الرِّيَاض."],"rs":["ḥinna","min","ar-riyāḍh."]},
+        {"type":"free","q":"Your turn: say where you and your family are from, with {{حِنَّا}}.","answers":[{"t":"حِنَّا مِن كَنَدَا.","r":"ḥinna min kanada.","tr":"We're from Canada."},{"t":"أَنَا مِن لَنْدَن، وْأَهْلِي مِن الْهِنْد.","r":"ana min landan, w-ahli min al-hind.","tr":"I'm from London, and my family is from India."}]}
+      ]
+    },
+    {
+      "id": "questions",
+      "unit": 2,
+      "level": "A1",
+      "title": "Ask what, why, where and how",
+      "summary": "Ask {{وِشْ}} “what”, {{لَيْش}} “why”, {{وَيْن}} “where” and {{وِشْلُون}} “how”, the Saudi question words.",
+      "topic": "Question words: {{وِشْ}}, {{لَيْش}}, {{وَيْن}}, {{وِشْلُون}} / {{كَيْف}}, {{مِنَيْن}}, {{مِن}}, {{مِتَى}}, {{كَمْ}}",
+      "blocks": [
+        {"goal":{"t":"وِشْ اسْمِك؟ وْمِن وَيْن انْتَ؟","r":"wesh ismak? w-min wēn inta?","tr":"What's your name? And where are you from?"}},
+        {"dialog":[{"who":"Turki","t":"السَّلَام عَلَيْكُم. وِشْ اسْمِك؟","r":"as-salām ʿalēkum. wesh ismak?","tr":"Hello. What's your name?"},{"who":"Tom","t":"وَعَلَيْكُم السَّلَام. اسْمِي تُوم.","r":"wa-ʿalēkum as-salām. ismi tōm.","tr":"Hello. My name's Tom."},{"who":"Turki","t":"وِشْلُونِك يَا تُوم؟ وَيْن سَاكِن؟","r":"weshlōnak ya tōm? wēn sākin?","tr":"How are you, Tom? Where do you live?"},{"who":"Tom","t":"زَيْن، الْحَمْد لِلَّه. سَاكِن فِي الْعُلَيَّا.","r":"zēn, al-ḥamdu lillah. sākin fi l-ʿulayya.","tr":"Fine, thank God. I live in Olaya."}]},
+        {"p":"**What: {{وِشْ|wesh}}.** The most Saudi word of all. It goes where the answer would go, usually first: {{وِشْ تِبِي؟|wesh tibi?}} “What do you want?”, {{وِشْ هَذَا؟|wesh hādha?}} “What's this?”. “What's wrong?” is {{وِشْ فِيك؟|wesh fīk?}}. You will also hear {{إِيش|ēsh}} from people from Jeddah."},
+        {"p":"**Why, where, how.** {{لَيْش|lēsh}} “why” (from {{لِأَيِّ شَيْء}} “for what thing”), {{وَيْن|wēn}} “where”, {{مِنَيْن|minēn}} or {{مِن وَيْن|min wēn}} “from where”. “How” is {{كَيْف|kēf}} or {{وِشْلُون|weshlōn}}; “How are you?” is {{وِشْلُونِك؟|weshlōnak?}} (to a man), {{وِشْلُونِك؟|weshlōnik?}} (to a woman)."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["what","{{مَاذَا}} / {{مَا}}","{{وِشْ|wesh}}"],
+          ["why","{{لِمَاذَا}}","{{لَيْش|lēsh}}"],
+          ["where","{{أَيْنَ}}","{{وَيْن|wēn}}"],
+          ["how","{{كَيْفَ}}","{{كَيْف|kēf}}, {{وِشْلُون|weshlōn}}"],
+          ["who","{{مَنْ}}","{{مِن|min}}"],
+          ["when / how much","{{مَتَى}} / {{كَمْ}}","{{مِتَى|mita}} / {{كَمْ|kam}}"]
+        ] },
+        {"p":"**No {{هَلْ}}.** A yes-or-no question is a statement said with a rising voice: {{انْتَ سْعُودِي؟|inta sʿūdi?}} “Are you Saudi?”"},
+        { "ex": [
+          {"t":"وِشْ تِسَوِّي الْحِين؟","r":"wesh tisawwi al-ḥīn?","tr":"What are you doing now?"},
+          {"t":"لَيْش مَا جِيت أَمْس؟","r":"lēsh ma jīt ams?","tr":"Why didn't you come yesterday?"},
+          {"t":"وَيْن الْمَطْعَم؟","r":"wēn al-maṭʿam?","tr":"Where's the restaurant?"},
+          {"t":"مِن هَذَا؟","r":"min hādha?","tr":"Who's this?"},
+          {"t":"بْكَمْ هَذَا؟","r":"b-kam hādha?","tr":"How much is this?"}
+        ] },
+        {"tip":"{{وِشْ}} can join the next word: {{وِشْلُون}} is {{وِشْ}} + {{لُون}} “colour”, “what colour (state) are you?”."}
+      ],
+      "mistakes": [
+        {"wrong":"مَاذَا تِبِي؟","right":"وِشْ تِبِي؟","tr":"What do you want?","why":"In speech, “what” is {{وِشْ}}."},
+        {"wrong":"هَلْ انْتَ سْعُودِي؟","right":"انْتَ سْعُودِي؟","tr":"Are you Saudi?","why":"No {{هَلْ}}: just raise your voice."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ الْمَطْعَم؟","r":"___ al-maṭʿam?","tr":"Where's the restaurant?","options":["وَيْن","وِشْ","لَيْش"],"rs":["wēn","wesh","lēsh"],"answer":0,"why":"{{وَيْن}} is “where”."},
+        {"type":"choice","q":"{{لَيْش مَا جِيت؟}} means…","options":["Where did you go?","Why didn't you come?","When will you come?"],"answer":1,"why":"{{لَيْش}} is “why”, {{مَا جِيت}} “you didn't come”."},
+        {"type":"dialogue","q":"You meet a neighbour in the lift.","lines":[{"who":"Neighbour","t":"هَلَا! وِشْلُونِك؟","r":"hala! weshlōnak?","tr":"Hi! How are you?"},{"options":["زَيْن، الْحَمْد لِلَّه. وِانْتَ؟","وِشْ اسْمِك؟"],"rs":["zēn, al-ḥamdu lillah. w-inta?","wesh ismak?"],"answer":0,"why":"{{وِشْلُونِك}} asks how you are: answer {{زَيْن}} “fine”."},{"who":"Neighbour","t":"زَيْن. وَيْن رَايِح؟","r":"zēn. wēn rāyiḥ?","tr":"Fine. Where are you going?"},{"options":["رَايِح الدَّوَام.","مِن الرِّيَاض."],"rs":["rāyiḥ ad-dawām.","min ar-riyāḍh."],"answer":0,"why":"{{وَيْن رَايِح}} is “where are you going?”: to work, {{الدَّوَام}}."}],"from":"sound-saudi"},
+        {"type":"order","q":"Put the words in order.","tr":"What are you doing now?","words":["وِشْ","تِسَوِّي","الْحِين؟"],"rs":["wesh","tisawwi","al-ḥīn?"]},
+        {"type":"say","q":"Ask a man: “What's your name?”","answer":"وِشْ اسْمِك؟","r":"wesh ismak?"},
+        {"type":"free","q":"Your turn: ask a new colleague three questions: their name, where they're from, where they live.","answers":[{"t":"وِشْ اسْمِك؟ مِن وَيْن انْتَ؟ وَيْن سَاكِن؟","r":"wesh ismak? min wēn inta? wēn sākin?","tr":"What's your name? Where are you from? Where do you live?"}]}
+      ]
+    },
+    {
+      "id": "this-and-that",
+      "unit": 2,
+      "level": "A1",
+      "title": "Point: this, that, these",
+      "summary": "Say {{هَذِي}} “this”, {{هَذُولَا}} “these”, {{هَذَاك}} “that”, and the short {{هَالـ}} “this”.",
+      "topic": "Demonstratives: {{هَذَا}}, {{هَذِي}}, {{هَذُولَا}}, {{هَذَاك}}, {{هَذِيك}}, {{هَذُولَاك}}, and {{هَالـ}} + noun",
+      "blocks": [
+        {"goal":{"t":"هَذِي حَقِّي، وْهَذِيك حَقِّك.","r":"hādhi ḥaggi, w-hādhīk ḥaggak.","tr":"This one's mine, and that one's yours."}},
+        {"dialog":[{"who":"Seller","t":"هَلَا، وِشْ تِبِي؟","r":"hala, wesh tibi?","tr":"Hello, what would you like?"},{"who":"Customer","t":"بْكَمْ هَذِي الشَّنْطَة؟","r":"b-kam hādhi sh-shanṭah?","tr":"How much is this bag?"},{"who":"Seller","t":"هَذِي بْمِيَّة. وْهَذِيك بْخَمْسِين.","r":"hādhi b-miyyah. w-hādhīk b-khamsīn.","tr":"This one's a hundred. And that one's fifty."},{"who":"Customer","t":"وْهَذُولَا؟","r":"w-hādhōla?","tr":"And these?"},{"who":"Seller","t":"هَذُولَا بْعِشْرِين، كِلْهَا.","r":"hādhōla b-ʿishrīn, kilha.","tr":"These are twenty, all of them."}]},
+        {"p":"**This:** {{هَذَا|hādha}} for a masculine noun, **{{هَذِي|hādhi}}** for a feminine one (not {{هَذِهِ}}). **These: {{هَذُولَا|hādhōla}}** (also {{هَذُولِي|hādhōli}}) for people and things, not {{هَؤُلَاءِ}}."},
+        {"p":"**That:** {{هَذَاك|hādhāk}} (masculine), {{هَذِيك|hādhīk}} (feminine), {{هَذُولَاك|hādhōlāk}} “those”. MSA's {{ذَلِكَ}} and {{تِلْكَ}} are not used in speech."},
+        { "table": [
+          ["","near","far"],
+          ["masculine","{{هَذَا|hādha}}","{{هَذَاك|hādhāk}}"],
+          ["feminine","{{هَذِي|hādhi}}","{{هَذِيك|hādhīk}}"],
+          ["plural","{{هَذُولَا|hādhōla}}","{{هَذُولَاك|hādhōlāk}}"]
+        ] },
+        {"p":"**{{هَالـ|hal-}} “this”.** In front of a noun, “this” is often just {{هَالـ}}, joined to it: {{هَالْبَيْت|hal-bēt}} “this house”, {{هَالْأَيَّام|hal-ayyām}} “these days”. It works for masculine, feminine and plural alike. The full form goes **before** a noun with {{الْـ}}: {{هَذَا الْبَيْت|hādha l-bēt}}."},
+        { "ex": [
+          {"t":"هَذِي سَيَّارْتِي.","r":"hādhi sayyārti.","tr":"This is my car."},
+          {"t":"هَذُولَا عِيَالِي.","r":"hādhōla ʿiyāli.","tr":"These are my children."},
+          {"t":"مِن هَذَاك الرِّجَّال؟","r":"min hādhāk ar-rijjāl?","tr":"Who's that man?"},
+          {"t":"هَالْأَيَّام الْجَوّ حَارّ.","r":"hal-ayyām al-jaww ḥārr.","tr":"These days the weather is hot."}
+        ] },
+        {"tip":"Short forms you will hear: {{ذَا|dha}} “this” and {{ذِي|dhi}} for {{هَذَا}} and {{هَذِي}}, as in {{وِشْ ذَا؟|wesh dha?}} “What's this?”."}
+      ],
+      "mistakes": [
+        {"wrong":"هَذِهِ سَيَّارْتِي.","right":"هَذِي سَيَّارْتِي.","tr":"This is my car.","why":"The Saudi feminine “this” is {{هَذِي}}."},
+        {"wrong":"هَؤُلَاءِ عِيَالِي.","right":"هَذُولَا عِيَالِي.","tr":"These are my children.","why":"“These” is {{هَذُولَا}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Those” is…","options":["{{هَذُولَا}}","{{هَذُولَاك}}","{{هَذَاك}}"],"answer":1,"why":"{{هَذُولَا}} is “these”; add -k for “those”: {{هَذُولَاك}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ الشَّنْطَة بْكَمْ؟","r":"___ sh-shanṭah b-kam?","tr":"How much is this bag?","options":["هَذِي","هَذَا"],"rs":["hādhi","hādha"],"answer":0,"why":"{{شَنْطَة}} is feminine: {{هَذِي}}."},
+        {"type":"order","q":"Put the words in order.","tr":"Who's that man?","words":["مِن","هَذَاك","الرِّجَّال؟"],"rs":["min","hādhāk","ar-rijjāl?"]},
+        {"type":"dialogue","q":"At a shop.","lines":[{"who":"Seller","t":"هَلَا، وِشْ تِبِي؟","r":"hala, wesh tibi?","tr":"Hello, what would you like?"},{"options":["بْكَمْ هَذَا؟","وَيْن هَذَا؟"],"rs":["b-kam hādha?","wēn hādha?"],"answer":0,"why":"“How much” is {{بْكَمْ}}."},{"who":"Seller","t":"هَذَا بْعِشْرِين.","r":"hādha b-ʿishrīn.","tr":"This one's twenty."}],"from":"questions"},
+        {"type":"say","q":"Say: “These days the weather is hot”, with {{هَالـ}}.","answer":"هَالْأَيَّام الْجَوّ حَارّ.","r":"hal-ayyām al-jaww ḥārr."},
+        {"type":"free","q":"Your turn: point at three things around you and say what they are: {{هَذَا…}}, {{هَذِي…}}, {{هَذُولَا…}}","answers":[{"t":"هَذَا جَوَّالِي، وْهَذِي قَهْوَتِي، وْهَذُولَا كُتُبِي.","r":"hādha jawwāli, w-hādhi gahwati, w-hādhōla kutubi.","tr":"This is my phone, this is my coffee, and these are my books."}]}
+      ]
+    },
+    {
+      "id": "not",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what isn't so",
+      "summary": "Say {{مَا أَدْرِي}} “I don't know”, {{مُو زَيْن}} “not good” and {{مَانِي فَاضِي}} “I'm not free”.",
+      "topic": "Negation: {{مَا}} with verbs, {{لَا}} in commands, {{مُو}} / {{مُوب}} / {{مَانِي}} with everything else",
+      "blocks": [
+        {"goal":{"t":"مَا أَدْرِي، وَاللَّه مُو مِتْأَكِّد.","r":"ma adri, wallah mū mitʾakkid.","tr":"I don't know, honestly I'm not sure."}},
+        {"dialog":[{"who":"Saad","t":"تِجِي مَعَنَا الْمَطْعَم؟","r":"tiji maʿana l-maṭʿam?","tr":"Are you coming to the restaurant with us?"},{"who":"Hind","t":"لَا، مَانِي فَاضْيَة الْيَوْم.","r":"lā, māni fāḍhyah al-yōm.","tr":"No, I'm not free today."},{"who":"Saad","t":"لَيْش؟ مُو زَيْن كِذَا!","r":"lēsh? mū zēn kidha!","tr":"Why? That's not fair!"},{"who":"Hind","t":"عِنْدِي شِغِل، وْمَا خَلَّصْتَه.","r":"ʿindi shighil, w-ma khallaṣtah.","tr":"I've got work, and I haven't finished it."}]},
+        {"p":"**With a verb: {{مَا|ma}}**, for the past and the present alike: {{مَا رِحْت|ma riḥt}} “I didn't go”, {{مَا أَدْرِي|ma adri}} “I don't know”. MSA's {{لَمْ}}, {{لَنْ}} and {{لَا}} + present are not used. **Commands** keep {{لَا|lā}}: {{لَا تْرُوح|lā trūḥ}} “don't go”."},
+        {"p":"**With everything else: {{مُو|mū}}** (also {{مُوب|mūb}}, {{مُب|mub}}) in place of {{لَيْسَ}}: {{مُو زَيْن|mū zēn}} “not good”, {{مُو هِنَا|mū hina}} “not here”. Najdi Arabic also joins {{مَا}} to an ending: {{مَانِي|māni}} “I'm not”, {{مَاهُو|māhu}} / {{مَهُوب|mahūb}} “he isn't”, {{مَاهِي|māhi}} “she isn't”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["I didn't go","{{لَمْ أَذْهَبْ}}","{{مَا رِحْت|ma riḥt}}"],
+          ["I don't know","{{لَا أَعْرِفُ}}","{{مَا أَدْرِي|ma adri}}"],
+          ["it isn't good","{{لَيْسَ جَيِّدًا}}","{{مُو زَيْن|mū zēn}}"],
+          ["I'm not free","{{لَسْتُ فَارِغًا}}","{{مَانِي فَاضِي|māni fāḍhi}}"]
+        ] },
+        {"p":"**Nobody, nothing, never.** {{مَحَد|maḥad}} “nobody” ({{مَا}} + {{أَحَد}}), {{وَلَا شَي|wala shay}} “nothing”, {{أَبَد|abad}} “not at all, never”. And “I don't know” has a short form everyone uses: {{مَدْرِي|madri}}."},
+        { "ex": [
+          {"t":"مَا شِفْتَه الْيَوْم.","r":"ma shiftah al-yōm.","tr":"I haven't seen him today."},
+          {"t":"لَا تْرُوح بْدُونِي.","r":"lā trūḥ bdūni.","tr":"Don't go without me."},
+          {"t":"الْأَكِل مُو حَارّ.","r":"al-akil mū ḥārr.","tr":"The food isn't spicy."},
+          {"t":"مَحَد جَا.","r":"maḥad ja.","tr":"Nobody came."},
+          {"t":"مَدْرِي وَيْن رَاح.","r":"madri wēn rāḥ.","tr":"I don't know where he went."}
+        ] },
+        {"tip":"Saudi negation has no extra -sh at the end as in Cairo: Riyadh says {{مَا شِفْتَه}}, never {{مَا شُفْتُوش}}."}
+      ],
+      "mistakes": [
+        {"wrong":"لَمْ رِحْت.","right":"مَا رِحْت.","tr":"I didn't go.","why":"The past is denied with {{مَا}}."},
+        {"wrong":"الْأَكِل مَا حَارّ.","right":"الْأَكِل مُو حَارّ.","tr":"The food isn't spicy.","why":"Without a verb, use {{مُو}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ زَيْن كِذَا.","r":"___ zēn kidha.","tr":"That's not good.","options":["مُو","مَا","لَا"],"rs":["mū","ma","lā"],"answer":0,"why":"No verb: {{مُو}}."},
+        {"type":"fill","q":"Choose the missing word.","t":"___ رِحْت الدَّوَام أَمْس.","r":"___ riḥt ad-dawām ams.","tr":"I didn't go to work yesterday.","options":["مَا","مُو","لَمْ"],"rs":["ma","mū","lam"],"answer":0,"why":"A verb in the past: {{مَا}}."},
+        {"type":"choice","q":"{{مَانِي فَاضِي}} means…","options":["I'm not free.","He isn't free.","Nobody is free."],"answer":0,"why":"{{مَانِي}} = {{مَا}} + -ni, “I'm not”."},
+        {"type":"dialogue","q":"A friend invites you out.","lines":[{"who":"Friend","t":"وَيْن انْتَ؟ تِجِي مَعَنَا؟","r":"wēn inta? tiji maʿana?","tr":"Where are you? Are you coming with us?"},{"options":["لَا وَاللَّه، مَانِي فَاضِي.","لَا وَاللَّه، لَسْتُ فَاضِي."],"rs":["lā wallah, māni fāḍhi.","lā wallah, lastu fāḍhi."],"answer":0,"why":"“I'm not” is {{مَانِي}} in Riyadh."},{"who":"Friend","t":"خَلَاص، مَرَّة ثَانْيَة.","r":"khalāṣ, marrah thānyah.","tr":"OK, another time."}],"from":"questions"},
+        {"type":"order","q":"Put the words in order.","tr":"Nobody came today.","words":["مَحَد","جَا","الْيَوْم."],"rs":["maḥad","ja","al-yōm."]},
+        {"type":"free","q":"Your turn: say two things you didn't do yesterday, with {{مَا}}.","answers":[{"t":"مَا رِحْت الدَّوَام، وْمَا شِفْت أَحَد.","r":"ma riḥt ad-dawām, w-ma shift aḥad.","tr":"I didn't go to work, and I didn't see anyone."}]}
+      ]
+    },
+    {
+      "id": "there-is",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what there is",
+      "summary": "Ask {{فِيه صَيْدَلِيَّة قَرِيبَة؟}} “Is there a chemist's nearby?” and answer {{إِيه فِيه}} or {{مَا فِيه}}.",
+      "topic": "“There is”: {{فِيه}} and {{مَا فِيه}}; “is anyone…?” {{فِيه أَحَد}}, {{مَحَد}}",
+      "blocks": [
+        {"goal":{"t":"فِيه صَيْدَلِيَّة قَرِيبَة؟","r":"fīh ṣaydaliyyah garībah?","tr":"Is there a chemist's nearby?"}},
+        {"dialog":[{"who":"Visitor","t":"لَوْ سَمَحْت، فِيه صَيْدَلِيَّة قَرِيبَة؟","r":"law samaḥt, fīh ṣaydaliyyah garībah?","tr":"Excuse me, is there a chemist's nearby?"},{"who":"Guard","t":"إِيه، فِيه وَحْدَة جَنْب الْبَقَّالَة.","r":"ēh, fīh waḥdah jamb al-baggālah.","tr":"Yes, there's one next to the corner shop."},{"who":"Visitor","t":"وْفِيه مُوَاقِف؟","r":"w-fīh mawāgif?","tr":"And is there parking?"},{"who":"Guard","t":"لَا، مَا فِيه. بَسّ فِيه قِدَّام الْمَسْجِد.","r":"lā, ma fīh. bass fīh giddām al-masjid.","tr":"No, there isn't. But there is in front of the mosque."}]},
+        {"p":"**{{فِيه|fīh}} “there is, there are”** replaces MSA {{هُنَاكَ}} and {{يُوجَدُ}}. It never changes: {{فِيه مُشْكِلَة|fīh mushkilah}} “there's a problem”, {{فِيه نَاس|fīh nās}} “there are people”. **“There isn't”: {{مَا فِيه|ma fīh}}**. As a question, just raise your voice: {{فِيه أَحَد؟|fīh aḥad?}} “Is anyone there?”"},
+        {"p":"Short answers: {{إِيه، فِيه|ēh, fīh}} “yes, there is”, {{لَا، مَا فِيه|lā, ma fīh}} “no, there isn't”. With people, {{مَحَد|maḥad}} “nobody” does the work of {{مَا فِيه أَحَد}}: {{مَحَد هِنَا|maḥad hina}} “nobody's here”."},
+        { "ex": [
+          {"t":"فِيه زَحْمَة الْيَوْم.","r":"fīh zaḥmah al-yōm.","tr":"There's traffic today."},
+          {"t":"مَا فِيه مُشْكِلَة.","r":"ma fīh mushkilah.","tr":"No problem."},
+          {"t":"فِيه أَحَد فِي الْبَيْت؟","r":"fīh aḥad fi l-bēt?","tr":"Is anyone at home?"},
+          {"t":"مَا فِيه حَلِيب فِي الثَّلَّاجَة.","r":"ma fīh ḥalīb fi th-thallājah.","tr":"There's no milk in the fridge."}
+        ] },
+        {"tip":"{{مَا فِيه مُشْكِلَة}} “no problem” and {{مَا فِيه دَاعِي|ma fīh dāʿi}} “there's no need” are among the phrases you'll hear most."}
+      ],
+      "mistakes": [
+        {"wrong":"هُنَاك مُشْكِلَة.","right":"فِيه مُشْكِلَة.","tr":"There's a problem.","why":"In speech, “there is” is {{فِيه}}."},
+        {"wrong":"لَا يُوجَد حَلِيب.","right":"مَا فِيه حَلِيب.","tr":"There's no milk.","why":"“There isn't”: {{مَا فِيه}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ مُوَاقِف قِدَّام الْمَسْجِد.","r":"___ mawāgif giddām al-masjid.","tr":"There's parking in front of the mosque.","options":["فِيه","هُنَاك","عِنْد"],"rs":["fīh","hunāk","ʿind"],"answer":0,"why":"{{فِيه}}: “there is”."},
+        {"type":"choice","q":"{{مَا فِيه مُشْكِلَة}} means…","options":["There's a problem.","No problem.","What's the problem?"],"answer":1,"why":"{{مَا فِيه}}: “there isn't”."},
+        {"type":"dialogue","q":"You knock at a friend's door.","lines":[{"who":"You","t":"فِيه أَحَد؟","r":"fīh aḥad?","tr":"Is anyone there?"},{"who":"Neighbour","t":"لَا، مَحَد هِنَا. رَاحُوا السُّوق.","r":"lā, maḥad hina. rāḥaw as-sūg.","tr":"No, nobody's here. They went to the market."},{"options":["زَيْن، أَجِي بَعْدَيْن.","زَيْن، فِيه بَعْدَيْن."],"rs":["zēn, aji baʿdēn.","zēn, fīh baʿdēn."],"answer":0,"why":"{{أَجِي بَعْدَيْن}}: “I'll come later”."}],"from":"not"},
+        {"type":"order","q":"Put the words in order.","tr":"There's no milk in the fridge.","words":["مَا","فِيه","حَلِيب","فِي","الثَّلَّاجَة."],"rs":["ma","fīh","ḥalīb","fi","th-thallājah."]},
+        {"type":"free","q":"Your turn: say what there is and isn't near your home, with {{فِيه}} and {{مَا فِيه}}.","answers":[{"t":"فِيه بَقَّالَة قَرِيبَة، بَسّ مَا فِيه مَطْعَم.","r":"fīh baggālah garībah, bass ma fīh maṭʿam.","tr":"There's a corner shop nearby, but there's no restaurant."}]}
+      ]
+    },
+    {
+      "id": "numbers",
+      "unit": 2,
+      "level": "A2",
+      "title": "Count, pay and tell your age",
+      "summary": "Say prices and ages: {{خَمْسْطَعَش رِيَال}} “fifteen riyals”, {{عِشْرِين سَنَة}} “twenty years”.",
+      "topic": "Numbers: {{ثْنَيْن}}, {{ثَمَان}}; 11–19 end in {{ـطَعَش}}; {{مِيَّة}}; no case endings after numbers",
+      "blocks": [
+        {"goal":{"t":"الْحِسَاب خَمْسْطَعَش رِيَال.","r":"al-ḥsāb khamsṭaʿash riyāl.","tr":"The bill is fifteen riyals."}},
+        {"dialog":[{"who":"Customer","t":"بْكَمْ الْقَهْوَة؟","r":"b-kam al-gahwah?","tr":"How much is the coffee?"},{"who":"Barista","t":"الصَّغِيرَة بِثْنَعَش، وِالْكْبِيرَة بِسِتَّعَش.","r":"aṣ-ṣaghīrah b-ithnaʿash, w-al-kbīrah b-sittaʿash.","tr":"The small one is twelve, the large one sixteen."},{"who":"Customer","t":"أَبِي ثِنْتَيْن صْغَار.","r":"abi thintēn ṣghār.","tr":"I want two small ones."},{"who":"Barista","t":"تَمَام، أَرْبَعَة وْعِشْرِين رِيَال.","r":"tamām, arbaʿah w-ʿishrīn riyāl.","tr":"OK, twenty-four riyals."}]},
+        {"p":"**One to ten** are MSA's, said the Saudi way, without case endings: {{وَاحِد|wāḥid}}, {{ثْنَيْن|thnēn}} (feminine {{ثِنْتَيْن|thintēn}}), {{ثَلَاث|thalāth}}, {{أَرْبَع|arbaʿ}}, {{خَمْس|khams}}, {{سِتّ|sitt}}, {{سَبْع|sabʿ}}, {{ثَمَان|thamān}}, {{تِسْع|tisʿ}}, {{عَشْر|ʿashr}}. Counting out loud, or with no noun after them, they take -ah: {{ثَلَاثَة|thalāthah}}, {{أَرْبَعَة|arbaʿah}}. Before a noun, the short form and the plural: {{ثَلَاث سَاعَات|thalāth sāʿāt}} “three hours”."},
+        {"p":"**Eleven to nineteen** are one word ending in **-ṭaʿash** ({{ـطَعَش}}), from MSA {{عَشَرَ}}. After them, and after 20 and up, the noun is **singular**, as in MSA but without -an: {{خَمْسْطَعَش رِيَال|khamsṭaʿash riyāl}}, {{عِشْرِين سَنَة|ʿishrīn sanah}}."},
+        { "table": [
+          ["","Riyadh","reading"],
+          ["11","{{إِحْدَعَش}}","iḥdaʿash"],
+          ["12","{{اثْنَعَش}}","ithnaʿash"],
+          ["13","{{ثَلَطَّعَش}}","thalaṭṭaʿash"],
+          ["14","{{أَرْبَعْطَعَش}}","arbaʿṭaʿash"],
+          ["15","{{خَمْسْطَعَش}}","khamsṭaʿash"],
+          ["16","{{سِتَّعَش}}","sittaʿash"],
+          ["17","{{سَبْعْطَعَش}}","sabʿṭaʿash"],
+          ["18","{{ثَمَنْطَعَش}}","thamanṭaʿash"],
+          ["19","{{تِسْعْطَعَش}}","tisʿṭaʿash"]
+        ] },
+        {"p":"**Tens and hundreds.** {{عِشْرِين|ʿishrīn}}, {{ثَلَاثِين|thalāthīn}}… as in MSA, with -īn only. A hundred is {{مِيَّة|miyyah}}, two hundred {{مِيتَيْن|mītēn}}, a thousand {{أَلْف|alf}}, two thousand {{أَلْفَيْن|alfēn}}. “And” goes between the parts, the units first: {{خَمْسَة وْعِشْرِين|khamsah w-ʿishrīn}} “25”."},
+        { "ex": [
+          {"t":"عُمْرِي ثَلَاثِين سَنَة.","r":"ʿumri thalāthīn sanah.","tr":"I'm thirty years old."},
+          {"t":"الْمِشْوَار عِشْرِين دَقِيقَة.","r":"al-mishwār ʿishrīn dagīgah.","tr":"The trip is twenty minutes."},
+          {"t":"عِنْدِي ثَلَاث خَوَات.","r":"ʿindi thalāth khawāt.","tr":"I have three sisters."},
+          {"t":"هَذَا بْمِيَّة وْخَمْسِين.","r":"hādha b-miyyah w-khamsīn.","tr":"This is a hundred and fifty."}
+        ] },
+        {"tip":"Prices are said with {{بْـ}} “for”: {{بْكَمْ؟|b-kam?}} “for how much?”, {{بْعَشْرَة|b-ʿashrah}} “for ten”. A riyal has 100 {{هَلَلَة|halalah}}."}
+      ],
+      "mistakes": [
+        {"wrong":"خَمْسَةَ عَشَرَ رِيَالًا","right":"خَمْسْطَعَش رِيَال","tr":"fifteen riyals","why":"11–19 are one word in {{ـطَعَش}}, and no -an on the noun."},
+        {"wrong":"اثْنَان","right":"ثْنَيْن","tr":"two","why":"“Two” is {{ثْنَيْن}} (feminine {{ثِنْتَيْن}})."}
+      ],
+      "practice": [
+        {"type":"choice","q":"“Seventeen” in Riyadh is…","options":["{{سَبْعْطَعَش}}","{{سَبْعَةَ عَشَرَ}}","{{سَبْعِين}}"],"answer":0,"why":"11–19 end in {{ـطَعَش}}; {{سَبْعِين}} is seventy."},
+        {"type":"fill","q":"Choose the missing word.","t":"عُمْرِي عِشْرِين ___.","r":"ʿumri ʿishrīn ___.","tr":"I'm twenty years old.","options":["سَنَة","سْنِين"],"rs":["sanah","snīn"],"answer":0,"why":"After 20, the noun is singular: {{سَنَة}}."},
+        {"type":"dialogue","q":"At the till.","lines":[{"who":"Cashier","t":"الْحِسَاب أَرْبَعْطَعَش رِيَال.","r":"al-ḥsāb arbaʿṭaʿash riyāl.","tr":"The bill is fourteen riyals."},{"options":["تَفَضَّل، هَذِي عِشْرِين.","تَفَضَّل، هَذِي عِشْرُونَ."],"rs":["tafaḍḍal, hādhi ʿishrīn.","tafaḍḍal, hādhi ʿishrūna."],"answer":0,"why":"Numbers have no case endings: {{عِشْرِين}}."},{"who":"Cashier","t":"وْهَذِي سِتَّة الْبَاقِي.","r":"w-hādhi sittah al-bāgi.","tr":"And here's six, your change."}],"from":"this-and-that"},
+        {"type":"order","q":"Put the words in order.","tr":"I have three sisters.","words":["عِنْدِي","ثَلَاث","خَوَات."],"rs":["ʿindi","thalāth","khawāt."]},
+        {"type":"free","q":"Your turn: say how old you are and how much your last coffee cost.","answers":[{"t":"عُمْرِي خَمْسَة وْعِشْرِين سَنَة، وِالْقَهْوَة كَانَت بْثَمَنْطَعَش رِيَال.","r":"ʿumri khamsah w-ʿishrīn sanah, w-al-gahwah kānat b-thamanṭaʿash riyāl.","tr":"I'm twenty-five, and the coffee was eighteen riyals."}]}
+      ]
+    },
+    {
+      "id": "want-can-must",
+      "unit": 2,
+      "level": "A2",
+      "title": "Say what you want, can and must do",
+      "summary": "{{أَبِي أَرُوح}} “I want to go”, {{مَا أَقْدَر}} “I can't”, {{لَازِم أَمْشِي}} “I have to leave”: with no {{أَنْ}} in between.",
+      "topic": "{{أَبِي}} / {{تِبِي}} “want”, {{وَدِّي}} “I'd like”, {{أَقْدَر}} “I can”, {{لَازِم}} “must”, straight before the verb",
+      "blocks": [
+        {"goal":{"t":"أَبِي أَرُوح، بَسّ لَازِم أَخَلِّص شُغْلِي.","r":"abi arūḥ, bass lāzim akhalliṣ shughli.","tr":"I want to go, but I have to finish my work."}},
+        {"dialog":[{"who":"Khalid","t":"تِبِي تِجِي مَعَنَا الْبَرّ؟","r":"tibi tiji maʿana l-barr?","tr":"Do you want to come with us to the desert?"},{"who":"Ryan","t":"وَدِّي، بَسّ مَا أَقْدَر الْيَوْم.","r":"waddi, bass ma agdar al-yōm.","tr":"I'd love to, but I can't today."},{"who":"Khalid","t":"لَيْش؟","r":"lēsh?","tr":"Why?"},{"who":"Ryan","t":"لَازِم أَوَدِّي أُمِّي الْمُسْتَشْفَى.","r":"lāzim awaddi ummi l-mustashfa.","tr":"I have to take my mother to the hospital."}]},
+        {"p":"**“Want”: {{أَبِي|abi}}**, from the verb {{بِغَى}}: {{أَبِي|abi}} “I want”, {{تِبِي|tibi}} “you want” (to a woman {{تِبِين|tibīn}}), {{يِبِي|yibi}} “he wants”, {{نِبِي|nibi}} “we want”, {{تِبُون|tibūn}} “you all want”, {{يِبُون|yibūn}} “they want”. With a thing: {{أَبِي مُويَة|abi mōyah}} “I want water”. (People from Jeddah say {{أَبْغَى|abgha}}.)"},
+        {"p":"**No {{أَنْ}}.** In MSA {{أُرِيدُ أَنْ أَذْهَبَ}}; in Saudi Arabic the second verb follows straight on, in its plain present form: {{أَبِي أَرُوح|abi arūḥ}} “I want to go”. The same after {{وَدِّي|waddi}} “I'd like” (literally “my wish”), {{أَقْدَر|agdar}} “I can”, {{لَازِم|lāzim}} “I must, I have to”, and {{الْمَفْرُوض|al-mafrūḍh}} “I'm supposed to”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["I want to go","{{أُرِيدُ أَنْ أَذْهَبَ}}","{{أَبِي أَرُوح}}"],
+          ["I'd like to travel","{{أَوَدُّ أَنْ أُسَافِرَ}}","{{وَدِّي أَسَافِر}}"],
+          ["I can't come","{{لَا أَسْتَطِيعُ أَنْ آتِيَ}}","{{مَا أَقْدَر أَجِي}}"],
+          ["you have to rest","{{يَجِبُ أَنْ تَرْتَاحَ}}","{{لَازِم تِرْتَاح}}"]
+        ] },
+        {"p":"**“Is there time?”** Saudis ask {{يِمْدِيك؟|yimdīk?}} “do you have time (to)?”, and answer {{مَا يِمْدِينِي|ma yimdīni}} “I won't make it”."},
+        { "ex": [
+          {"t":"وِشْ تِبِي تَاكِل؟","r":"wesh tibi tākil?","tr":"What do you want to eat?"},
+          {"t":"مَا أَبِي شَي، شُكْرًا.","r":"ma abi shay, shukran.","tr":"I don't want anything, thanks."},
+          {"t":"تِقْدَر تِسَاعِدْنِي؟","r":"tigdar tisāʿidni?","tr":"Can you help me?"},
+          {"t":"لَازِم نِمْشِي الْحِين.","r":"lāzim nimshi al-ḥīn.","tr":"We have to leave now."},
+          {"t":"وَدِّي أَزُور أَبْهَا.","r":"waddi azūr abha.","tr":"I'd like to visit Abha."}
+        ] },
+        {"tip":"{{أَبِي}} also means “my father” in MSA, but in a Saudi sentence it is almost always “I want”. “My father” is {{أَبُوي|abūy}}."}
+      ],
+      "mistakes": [
+        {"wrong":"أَبِي أَنْ أَرُوح.","right":"أَبِي أَرُوح.","tr":"I want to go.","why":"No {{أَنْ}} after {{أَبِي}}."},
+        {"wrong":"لَا أَقْدَر.","right":"مَا أَقْدَر.","tr":"I can't.","why":"A verb is denied with {{مَا}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ تَاكِل شَي؟","r":"___ tākil shay?","tr":"Do you want to eat something?","options":["تِبِي","أَبِي","يِبِي"],"rs":["tibi","abi","yibi"],"answer":0,"why":"Asking “you”: {{تِبِي}}."},
+        {"type":"choice","q":"{{لَازِم أَمْشِي}} means…","options":["I want to walk.","I have to leave.","I can walk."],"answer":1,"why":"{{لَازِم}}: must, have to."},
+        {"type":"order","q":"Put the words in order.","tr":"I can't come today.","words":["مَا","أَقْدَر","أَجِي","الْيَوْم."],"rs":["ma","agdar","aji","al-yōm."]},
+        {"type":"dialogue","q":"A colleague invites you to lunch.","lines":[{"who":"Colleague","t":"تِبِي تِتْغَدَّى مَعَنَا؟","r":"tibi titghadda maʿana?","tr":"Do you want to have lunch with us?"},{"options":["وَدِّي، بَسّ مَا يِمْدِينِي.","وَدِّي أَنْ، بَسّ مَا يِمْدِينِي."],"rs":["waddi, bass ma yimdīni.","waddi an, bass ma yimdīni."],"answer":0,"why":"No {{أَنْ}}: {{وَدِّي}} on its own is “I'd love to”."},{"who":"Colleague","t":"خَلَاص، مَرَّة ثَانْيَة.","r":"khalāṣ, marrah thānyah.","tr":"OK, another time."}],"from":"not"},
+        {"type":"say","q":"Say: “I want to visit Riyadh.”","answer":"أَبِي أَزُور الرِّيَاض.","r":"abi azūr ar-riyāḍh."},
+        {"type":"free","q":"Your turn: say one thing you want to do this week and one thing you have to do.","answers":[{"t":"أَبِي أَرُوح الْبَرّ، بَسّ لَازِم أَدْرِس.","r":"abi arūḥ al-barr, bass lāzim adris.","tr":"I want to go to the desert, but I have to study."}]}
+      ]
+    },
+    {
+      "id": "mine-and-yours",
+      "unit": 2,
+      "level": "A2",
+      "title": "Say whose it is: “It's mine”",
+      "summary": "{{السَّيَّارَة حَقِّي}} “The car is mine”, {{الْجَوَّال حَقّ أَخُوي}} “It's my brother's phone”.",
+      "topic": "{{حَقّ}} + ending: {{حَقِّي}}, {{حَقَّك}}, {{حَقَّه}}… “mine, yours, his”; also “for”",
+      "blocks": [
+        {"goal":{"t":"هَذَا الْجَوَّال حَقِّي، مُو حَقَّك.","r":"hādha l-jawwāl ḥaggi, mū ḥaggak.","tr":"This phone is mine, not yours."}},
+        {"dialog":[{"who":"Sara","t":"حَقّ مِن هَذِي الشَّنْطَة؟","r":"ḥagg min hādhi sh-shanṭah?","tr":"Whose is this bag?"},{"who":"Noura","t":"حَقّ أُخْتِي. وْهَذِيك حَقِّي.","r":"ḥagg ukhti. w-hādhīk ḥaggi.","tr":"My sister's. And that one's mine."},{"who":"Sara","t":"وِالْمِفْتَاح؟","r":"w-al-miftāḥ?","tr":"And the key?"},{"who":"Noura","t":"الْمِفْتَاح حَقّ السَّيَّارَة.","r":"al-miftāḥ ḥagg as-sayyārah.","tr":"The key is for the car."}]},
+        {"p":"**{{حَقّ|ḥagg}} “belonging to”.** MSA puts the owner straight after the thing ({{سَيَّارَةُ أَخِي}}); Saudi Arabic can do that too ({{سَيَّارَة أَخُوي|sayyārat akhūy}}), but very often uses {{حَقّ}} in between: {{السَّيَّارَة حَقّ أَخُوي|as-sayyārah ḥagg akhūy}}. With an ending it is “mine, yours…”: {{حَقِّي|ḥaggi}}, {{حَقَّك|ḥaggak}}."},
+        { "table": [
+          ["","Riyadh","reading"],
+          ["mine","{{حَقِّي}}","ḥaggi"],
+          ["yours (man / woman)","{{حَقَّك}} / {{حَقِّك}}","ḥaggak / ḥaggik"],
+          ["his / hers","{{حَقَّه}} / {{حَقْهَا}}","ḥaggah / ḥagha"],
+          ["ours","{{حَقْنَا}}","ḥagna"],
+          ["yours (all) / theirs","{{حَقْكُم}} / {{حَقْهُم}}","ḥagkum / ḥaghum"]
+        ] },
+        {"p":"**It is useful when the thing has “the”**, or when you answer “whose?”: {{حَقّ مِن؟|ḥagg min?}} “whose?”, {{حَقِّي|ḥaggi}} “mine”. And {{حَقّ}} also means **“for”**: {{هَذَا حَقَّك|hādha ḥaggak}} “this is for you”, {{الْمِفْتَاح حَقّ الْبَاب|al-miftāḥ ḥagg al-bāb}} “the key for the door”."},
+        { "ex": [
+          {"t":"الْقَلَم حَقِّي.","r":"al-galam ḥaggi.","tr":"The pen is mine."},
+          {"t":"هَذِي الْهَدِيَّة حَقِّك.","r":"hādhi l-hadiyyah ḥaggik.","tr":"This present is for you.","note":"to a woman"},
+          {"t":"وَيْن الشَّاحِن حَقّ الْجَوَّال؟","r":"wēn ash-shāḥin ḥagg al-jawwāl?","tr":"Where's the phone charger?"},
+          {"t":"الْبَيْت حَقْهُم كْبِير.","r":"al-bēt ḥaghum kbīr.","tr":"Their house is big."}
+        ] },
+        {"tip":"Kuwaitis and Emiratis say {{مَال|māl}} for the same thing ({{مَالِي|māli}} “mine”); in Riyadh you will mostly hear {{حَقّ}}."}
+      ],
+      "mistakes": [
+        {"wrong":"السَّيَّارَة لِي حَقِّي.","right":"السَّيَّارَة حَقِّي.","tr":"The car is mine.","why":"{{حَقِّي}} alone already means “mine”."},
+        {"wrong":"حَقِّي السَّيَّارَة.","right":"السَّيَّارَة حَقِّي.","tr":"The car is mine.","why":"The thing first, then {{حَقّ}} + owner."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الشَّنْطَة ___ أُخْتِي.","r":"ash-shanṭah ___ ukhti.","tr":"The bag is my sister's.","options":["حَقّ","حَقِّي","فِيه"],"rs":["ḥagg","ḥaggi","fīh"],"answer":0,"why":"{{حَقّ}} + the owner."},
+        {"type":"choice","q":"{{هَذَا حَقَّك}} can mean…","options":["This is yours / for you.","This is right.","This is mine."],"answer":0,"why":"{{حَقَّك}}: yours, for you."},
+        {"type":"dialogue","q":"You find a phone on the table.","lines":[{"who":"You","t":"حَقّ مِن هَذَا الْجَوَّال؟","r":"ḥagg min hādha l-jawwāl?","tr":"Whose is this phone?"},{"who":"Friend","t":"مَدْرِي، مُو حَقِّي.","r":"madri, mū ḥaggi.","tr":"I don't know, it's not mine."},{"options":["يِمْكِن حَقّ فَهَد.","يِمْكِن فَهَد حَقّ."],"rs":["yimkin ḥagg fahad.","yimkin fahad ḥagg."],"answer":0,"why":"{{حَقّ}} comes before the owner."}],"from":"not"},
+        {"type":"order","q":"Put the words in order.","tr":"This present is for you.","words":["هَذِي","الْهَدِيَّة","حَقَّك."],"rs":["hādhi","l-hadiyyah","ḥaggak."]},
+        {"type":"free","q":"Your turn: point at three things and say whose they are, with {{حَقّ}}.","answers":[{"t":"الْجَوَّال حَقِّي، وِالسَّيَّارَة حَقّ أَبُوي، وِالْكِتَاب حَقّ أُخْتِي.","r":"al-jawwāl ḥaggi, w-as-sayyārah ḥagg abūy, w-al-kitāb ḥagg ukhti.","tr":"The phone is mine, the car is my dad's, and the book is my sister's."}]}
+      ]
+    },
+    {
+      "id": "every-day",
+      "unit": 3,
+      "level": "A2",
+      "title": "Say what you do, and tell people what to do",
+      "summary": "{{أَشْرَب قَهْوَة كِلّ يَوْم}} “I drink coffee every day”, {{وِشْ تِسَوِّي؟}} “What do you do?”, {{تَعَال!}} “Come here!”",
+      "topic": "The present without endings or moods ({{يِكْتِب}}, {{تِكْتِبِين}}, {{يِكْتِبُون}}); {{سَوَّى}} “do”; commands and {{خَلّنَا}} “let's”",
+      "blocks": [
+        {"goal":{"t":"أَصْحَى بَدْرِي وْأَشْرَب قَهْوَة كِلّ يَوْم.","r":"aṣḥa badri w-ashrab gahwah kill yōm.","tr":"I get up early and drink coffee every day."}},
+        {"dialog":[{"who":"Hessa","t":"وِشْ تِسَوِّي فِي الصَّبَاح؟","r":"wesh tisawwi fi ṣ-ṣabāḥ?","tr":"What do you do in the morning?"},{"who":"Emma","t":"أَرُوح الدَّوَام، وْأَرْجِع السَّاعَة ثَلَاث.","r":"arūḥ ad-dawām, w-arjiʿ as-sāʿah thalāth.","tr":"I go to work, and I come back at three."},{"who":"Hessa","t":"وِبَعْدَيْن؟","r":"w-baʿdēn?","tr":"And then?"},{"who":"Emma","t":"أَتْغَدَّى وْأَرْتَاح. تَعَالِي عِنْدِي بَاكِر!","r":"atghadda w-artāḥ. taʿāli ʿindi bākir!","tr":"I have lunch and rest. Come over tomorrow!"}]},
+        {"p":"**The present is MSA's, without its last vowel.** The letter in front still says who: {{أَكْتِب|aktib}} “I write”, {{تِكْتِب|tiktib}} “you write”, {{يِكْتِب|yiktib}} “he writes”, {{نِكْتِب|niktib}} “we write”. In Riyadh the front vowel is i ({{يِـ}}, {{تِـ}}, {{نِـ}}), except a- for “I”. The endings {{ـِين}} (to a woman) and {{ـُون}} (plural) stay, and groups of women have {{ـِن}}: {{تِكْتِبِين|tiktibīn}}, {{يِكْتِبُون|yiktibūn}}, {{يِكْتِبِن|yiktibin}}."},
+        {"p":"**No moods.** MSA's -a and short forms ({{أَنْ يَكْتُبَ}}, {{لَمْ يَكْتُبْ}}) are gone: the same form is used everywhere. And unlike Cairo or Damascus, Riyadh puts **no {{بِـ}}** in front of the everyday present: {{بِـ}} means “will” (a later lesson)."},
+        {"p":"**“Do, make” is {{سَوَّى|sawwa}}**, present {{يِسَوِّي|yisawwi}}, not {{فَعَلَ}}: {{وِشْ تِسَوِّي؟|wesh tisawwi?}} “What are you doing?”, {{أَسَوِّي قَهْوَة|asawwi gahwah}} “I'm making coffee”."},
+        { "table": [
+          ["","go","come"],
+          ["to a man","{{رُوح|rūḥ}}","{{تَعَال|taʿāl}}"],
+          ["to a woman","{{رُوحِي|rūḥi}}","{{تَعَالِي|taʿāli}}"],
+          ["to a group","{{رُوحُوا|rūḥu}}","{{تَعَالُوا|taʿālu}}"],
+          ["don't…","{{لَا تْرُوح|lā trūḥ}}","{{لَا تْجِي|lā tji}}"]
+        ] },
+        {"p":"**Commands** are the present without its front letter: {{تِكْتِب}} → {{اكْتِب|iktib}} “write!”, {{تِشْرَب}} → {{اشْرَب|ishrab}} “drink!”. “Don't” is {{لَا}} + the present: {{لَا تِتْأَخَّر|lā titʾakhkhar}} “don't be late”. **“Let's”**: {{خَلّنَا|khallna}} + the “we” form, or {{يَلَّا|yalla}}: {{خَلّنَا نْرُوح|khallna nrūḥ}}, {{يَلَّا نِمْشِي|yalla nimshi}}."},
+        { "ex": [
+          {"t":"وَيْن تِشْتِغِل؟","r":"wēn tishtighil?","tr":"Where do you work?"},
+          {"t":"أُخْتِي تِدْرِس فِي الْجَامْعَة.","r":"ukhti tidris fi l-jāmʿah.","tr":"My sister studies at the university."},
+          {"t":"الْبَنَات يِلْعَبِن بَرَّا.","r":"al-banāt yilʿabin barra.","tr":"The girls are playing outside."},
+          {"t":"اقْعُد، تَفَضَّل.","r":"igʿud, tafaḍḍal.","tr":"Sit down, please."},
+          {"t":"خَلّنَا نْسَوِّي شَاهِي.","r":"khallna nsawwi shāhi.","tr":"Let's make some tea."}
+        ] },
+        {"tip":"{{تَفَضَّل|tafaḍḍal}} (to a woman {{تَفَضَّلِي}}) is the polite “please, go ahead, have some” that goes with any offer."}
+      ],
+      "mistakes": [
+        {"wrong":"بَشْرَب قَهْوَة كِلّ يَوْم.","right":"أَشْرَب قَهْوَة كِلّ يَوْم.","tr":"I drink coffee every day.","why":"In Riyadh {{بِـ}} means “will”; the everyday present has no {{بِـ}}."},
+        {"wrong":"وِشْ تَفْعَل؟","right":"وِشْ تِسَوِّي؟","tr":"What are you doing?","why":"“Do” is {{سَوَّى}} / {{يِسَوِّي}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"You're talking to a woman. Choose the word.","t":"وَيْن ___؟","r":"wēn ___?","tr":"Where do you work?","options":["تِشْتِغْلِين","تِشْتِغِل","تِشْتِغْلُون"],"rs":["tishtighlīn","tishtighil","tishtighlūn"],"answer":0,"why":"To a woman the present ends in {{ـِين}}."},
+        {"type":"choice","q":"How do you say “Let's go” in Riyadh?","options":["{{خَلّنَا نْرُوح}}","{{لِنَذْهَبْ}}","{{بِنْرُوح}}"],"answer":0,"why":"{{خَلّنَا}} + the “we” form."},
+        {"type":"fill","q":"Tell a group of friends to come. Choose the word.","t":"___ بِسُرْعَة!","r":"___ b-surʿah!","tr":"Come quickly!","options":["تَعَالُوا","تَعَالِي","تَعَال"],"rs":["taʿālu","taʿāli","taʿāl"],"answer":0,"why":"To a group: {{تَعَالُوا}}."},
+        {"type":"dialogue","q":"A neighbour asks about your day.","lines":[{"who":"Neighbour","t":"وِشْ تِسَوِّي الْيَوْم؟","r":"wesh tisawwi al-yōm?","tr":"What are you doing today?"},{"options":["أَرُوح السُّوق وْأَطْبَخ.","بَرُوح السُّوق أَمْس."],"rs":["arūḥ as-sūg w-aṭbakh.","barūḥ as-sūg ams."],"answer":0,"why":"The present, with no {{بِـ}}, for what you do."},{"who":"Neighbour","t":"زَيْن، لَا تِتْعَب حَيْل.","r":"zēn, lā titʿab ḥēl.","tr":"Good, don't wear yourself out."}],"from":"questions"},
+        {"type":"order","q":"Put the words in order.","tr":"Let's make some tea.","words":["خَلّنَا","نْسَوِّي","شَاهِي."],"rs":["khallna","nsawwi","shāhi."]},
+        {"type":"free","q":"Your turn: say three things you do every morning.","answers":[{"t":"أَصْحَى، وْأَشْرَب قَهْوَة، وْأَرُوح الدَّوَام.","r":"aṣḥa, w-ashrab gahwah, w-arūḥ ad-dawām.","tr":"I wake up, drink coffee and go to work."}]}
+      ]
+    },
+    {
+      "id": "doing-now",
+      "unit": 3,
+      "level": "A2",
+      "title": "Say what you're doing right now",
+      "summary": "{{قَاعِد أَطْبَخ}} “I'm cooking”, {{أَنَا رَايِح الْبَيْت}} “I'm going home”.",
+      "topic": "“-ing”: {{قَاعِد}} / {{قَاعْدَة}} / {{قَاعْدِين}} + present; {{رَايِح}} “going”, {{جَاي}} “coming”",
+      "blocks": [
+        {"goal":{"t":"مَا أَقْدَر أَكَلِّمِك الْحِين، قَاعِد أَسُوق.","r":"ma agdar akallmak al-ḥīn, gāʿid asūg.","tr":"I can't talk to you now, I'm driving."}},
+        {"dialog":[{"who":"Mum","t":"وَيْنِك؟ وِشْ قَاعِد تِسَوِّي؟","r":"wēnak? wesh gāʿid tisawwi?","tr":"Where are you? What are you doing?"},{"who":"Faisal","t":"قَاعِد أَذَاكِر فِي غُرْفَتِي.","r":"gāʿid adhākir fi ghurfati.","tr":"I'm studying in my room."},{"who":"Mum","t":"وْأَخُوك؟","r":"w-akhūk?","tr":"And your brother?"},{"who":"Faisal","t":"رَايِح الْمَسْجِد، وْجَاي بَعْد شْوَيّ.","r":"rāyiḥ al-masjid, w-jāy baʿd shway.","tr":"He's going to the mosque, and he's coming back in a bit."}]},
+        {"term":"participle","means":"a verb used like an adjective: {{رَايِح}} “going”, {{جَاي}} “coming”, {{قَاعِد}} “sitting”. It agrees with the person: -ah for a woman, -īn for a group."},
+        {"p":"**{{قَاعِد|gāʿid}} + present = “-ing”.** {{قَاعِد}} means “sitting”, and in front of a present verb it says the action is going on now: {{قَاعِد أَكْتِب|gāʿid aktib}} “I'm writing”. It agrees with the person: {{قَاعْدَة|gāʿdah}} (a woman), {{قَاعْدِين|gāʿdīn}} (a group). The plain present can also mean “-ing”: {{وِشْ تِسَوِّي؟|wesh tisawwi?}} “what are you doing?”. You'll also hear {{جَالِس|jālis}} in the same way."},
+        {"p":"**Going and coming** use a participle on its own: {{أَنَا رَايِح|ana rāyiḥ}} “I'm going”, {{هِي رَايْحَة|hi rāyḥah}} “she's going”, {{حِنَّا جَايِين|ḥinna jāyīn}} “we're coming”. Where to, with no {{إِلَى}}: {{رَايِح الْبَيْت|rāyiḥ al-bēt}} “going home”."},
+        { "table": [
+          ["","-ing","going"],
+          ["a man","{{قَاعِد أَكْتِب}}","{{رَايِح}}"],
+          ["a woman","{{قَاعْدَة أَكْتِب}}","{{رَايْحَة}}"],
+          ["a group","{{قَاعْدِين نِكْتِب}}","{{رَايْحِين}}"]
+        ] },
+        { "ex": [
+          {"t":"أُمِّي قَاعْدَة تِطْبَخ.","r":"ummi gāʿdah tiṭbakh.","tr":"My mum is cooking."},
+          {"t":"الْعِيَال قَاعْدِين يِلْعَبُون.","r":"al-ʿiyāl gāʿdīn yilʿabūn.","tr":"The kids are playing."},
+          {"t":"وَيْن رَايِح؟","r":"wēn rāyiḥ?","tr":"Where are you going?"},
+          {"t":"انْتَظِرْنِي، أَنَا جَاي.","r":"intaḍhirni, ana jāy.","tr":"Wait for me, I'm coming."}
+        ] },
+        {"tip":"{{قَاعِد}} + present can also mean “keeps doing”: {{قَاعِد يِتَّصِل كِلّ شْوَيّ|gāʿid yittaṣil kill shway}} “he keeps calling every five minutes”."}
+      ],
+      "mistakes": [
+        {"wrong":"أُمِّي قَاعِد تِطْبَخ.","right":"أُمِّي قَاعْدَة تِطْبَخ.","tr":"My mum is cooking.","why":"{{قَاعِد}} agrees: {{قَاعْدَة}} for a woman."},
+        {"wrong":"أَنَا رَايِح إِلَى الْبَيْت.","right":"أَنَا رَايِح الْبَيْت.","tr":"I'm going home.","why":"No {{إِلَى}} after {{رَايِح}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْعِيَال ___ يِلْعَبُون.","r":"al-ʿiyāl ___ yilʿabūn.","tr":"The kids are playing.","options":["قَاعْدِين","قَاعِد","قَاعْدَة"],"rs":["gāʿdīn","gāʿid","gāʿdah"],"answer":0,"why":"A group: {{قَاعْدِين}}."},
+        {"type":"choice","q":"{{حِنَّا جَايِين}} means…","options":["We're coming.","We came.","We're sitting."],"answer":0,"why":"{{جَايِين}}: coming (a group)."},
+        {"type":"dialogue","q":"A friend calls you.","lines":[{"who":"Friend","t":"هَلَا! وَيْنَك؟","r":"hala! wēnak?","tr":"Hi! Where are you?"},{"options":["أَنَا رَايِح الدَّوَام.","أَنَا رَايِح إِلَى الدَّوَامِ."],"rs":["ana rāyiḥ ad-dawām.","ana rāyiḥ ilā d-dawāmi."],"answer":0,"why":"{{رَايِح}} + the place, no {{إِلَى}}."},{"who":"Friend","t":"خَلَاص، أَكَلِّمِك بَعْدَيْن.","r":"khalāṣ, akallmak baʿdēn.","tr":"OK, I'll call you later."}],"from":"we-and-you"},
+        {"type":"order","q":"Put the words in order.","tr":"My mum is cooking.","words":["أُمِّي","قَاعْدَة","تِطْبَخ."],"rs":["ummi","gāʿdah","tiṭbakh."]},
+        {"type":"free","q":"Your turn: say what you and two people near you are doing right now.","answers":[{"t":"أَنَا قَاعِد أَدْرِس، وْأُخْتِي قَاعْدَة تِشُوف التِّلْفِزْيُون.","r":"ana gāʿid adris, w-ukhti gāʿdah tishūf at-tilifizyōn.","tr":"I'm studying, and my sister is watching TV."}]}
+      ]
+    },
+    {
+      "id": "plans",
+      "unit": 3,
+      "level": "A2",
+      "title": "Talk about your plans",
+      "summary": "{{بَرُوح بَاكِر}} “I'll go tomorrow”, {{بَتِّصِل فِيك}} “I'll call you”.",
+      "topic": "The future: {{بِـ}} + present ({{بَرُوح}}, {{بِيْجِي}}), also {{رَاح}}; “won't”: {{مَا}} + {{بِـ}}",
+      "blocks": [
+        {"goal":{"t":"بَتِّصِل فِيك بَاكِر، إِنْ شَاء اللَّه.","r":"battiṣil fīk bākir, in shāʾ allah.","tr":"I'll call you tomorrow, God willing."}},
+        {"dialog":[{"who":"Abdulaziz","t":"وِشْ بِتْسَوِّي فِي الْإِجَازَة؟","r":"wesh bitsawwi fi l-ijāzah?","tr":"What will you do in the holidays?"},{"who":"Daniel","t":"بَسَافِر الْعُلَا مَع رَبْعِي.","r":"basāfir al-ʿula maʿ rabʿi.","tr":"I'll travel to AlUla with my friends."},{"who":"Abdulaziz","t":"حِلْو! بِتْرُوحُون بِالسَّيَّارَة؟","r":"ḥilw! bitrūḥūn b-as-sayyārah?","tr":"Nice! Will you go by car?"},{"who":"Daniel","t":"لَا، بِنْرُوح بِالطَّيَّارَة.","r":"lā, binrūḥ b-aṭ-ṭayyārah.","tr":"No, we'll go by plane."}]},
+        {"p":"**{{بِـ|b-}} + present = “will”.** Instead of MSA {{سَـ}} or {{سَوْفَ}}, Riyadh puts {{بِـ}} in front of the present: {{تِرُوح}} → {{بِتْرُوح|bitrūḥ}} “you'll go”, {{نِرُوح}} → {{بِنْرُوح|binrūḥ}} “we'll go”, {{يِجِي}} → {{بِيْجِي|bīji}} “he'll come”. With “I” it joins the a-: {{أَرُوح}} → {{بَرُوح|barūḥ}} “I'll go”."},
+        { "table": [
+          ["","present","future"],
+          ["I","{{أَرُوح}}","{{بَرُوح|barūḥ}}"],
+          ["you","{{تِرُوح}}","{{بِتْرُوح|bitrūḥ}}"],
+          ["he","{{يِرُوح}}","{{بِيْرُوح|bīrūḥ}}"],
+          ["we","{{نِرُوح}}","{{بِنْرُوح|binrūḥ}}"],
+          ["they","{{يِرُوحُون}}","{{بِيْرُوحُون|bīrūḥūn}}"]
+        ] },
+        {"p":"**{{رَاح|rāḥ}}** + present means “will” too, especially among young people: {{رَاح أَسَافِر|rāḥ asāfir}}. **“Won't”** is {{مَا}} + the future: {{مَا بَرُوح|ma barūḥ}} or {{مَا رَاح أَرُوح|ma rāḥ arūḥ}} “I won't go”. There is no {{لَنْ}}."},
+        { "ex": [
+          {"t":"بِنْشُوفِك بَاكِر.","r":"binshūfak bākir.","tr":"We'll see you tomorrow."},
+          {"t":"مَتَى بِتِرْجَع؟","r":"mita bitirjaʿ?","tr":"When will you be back?"},
+          {"t":"مَا بَنْسَى هَالْيَوْم.","r":"ma bansa hal-yōm.","tr":"I won't forget this day."},
+          {"t":"رَاح يِكُون الْجَوّ حَارّ.","r":"rāḥ yikūn al-jaww ḥārr.","tr":"The weather will be hot."}
+        ] },
+        {"tip":"Plans almost always end with {{إِنْ شَاء اللَّه|in shāʾ allah}} “God willing”; Saudis say it whether or not they're sure."}
+      ],
+      "mistakes": [
+        {"wrong":"سَأُسَافِر بَاكِر.","right":"بَسَافِر بَاكِر.","tr":"I'll travel tomorrow.","why":"The future is {{بِـ}} + present, not {{سَـ}}."},
+        {"wrong":"لَنْ أَرُوح.","right":"مَا بَرُوح.","tr":"I won't go.","why":"“Won't” is {{مَا}} + the future."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ الرِّيَاض بَاكِر.","r":"___ ar-riyāḍh bākir.","tr":"We'll go to Riyadh tomorrow.","options":["بِنْرُوح","نِرُوح","رِحْنَا"],"rs":["binrūḥ","nirūḥ","riḥna"],"answer":0,"why":"{{بِـ}} + the “we” present: the future."},
+        {"type":"choice","q":"{{مَا بَنْسَى}} means…","options":["I didn't forget.","I won't forget.","Don't forget."],"answer":1,"why":"{{مَا}} + future: won't."},
+        {"type":"dialogue","q":"A friend asks about the weekend.","lines":[{"who":"Friend","t":"بِتْجِي الْعَشَا يَوْم الْخَمِيس؟","r":"bitji l-ʿasha yōm al-khamīs?","tr":"Will you come to dinner on Thursday?"},{"options":["إِيه، بَجِي إِنْ شَاء اللَّه.","إِيه، سَآتِي إِنْ شَاء اللَّه."],"rs":["ēh, baji in shāʾ allah.","ēh, saʾāti in shāʾ allah."],"answer":0,"why":"The Saudi future: {{بَجِي}}."},{"who":"Friend","t":"زَيْن! وْجِيب رَبْعِك مَعَك.","r":"zēn! w-jīb rabʿak maʿak.","tr":"Great! And bring your friends with you."}],"from":"every-day"},
+        {"type":"say","q":"Say: “I'll call you tomorrow.”","answer":"بَتِّصِل فِيك بَاكِر.","r":"battiṣil fīk bākir."},
+        {"type":"order","q":"Put the words in order.","tr":"When will you be back?","words":["مَتَى","بِتِرْجَع؟"],"rs":["mita","bitirjaʿ?"]},
+        {"type":"free","q":"Your turn: say two things you'll do this weekend and one you won't.","answers":[{"t":"بَزُور أَهْلِي، وْبِنْرُوح الْمَطْعَم، بَسّ مَا بَشْتَغِل.","r":"bazūr ahli, w-binrūḥ al-maṭʿam, bass ma bashtaghil.","tr":"I'll visit my family and we'll go to a restaurant, but I won't work."}]}
+      ]
+    },
+    {
+      "id": "what-happened",
+      "unit": 3,
+      "level": "B1",
+      "title": "Say what happened",
+      "summary": "{{رِحْت}} “I went”, {{جَا}} “he came”, {{كِتْبَت}} “she wrote”, {{شِفْتُوا}} “you all saw”: the Saudi past endings.",
+      "topic": "The past: endings without final vowels ({{ـْت}}, {{ـتِي}}, {{ـنَا}}, {{ـتُوا}}, {{ـُوا}}, {{ـِن}}); {{جَا}}, {{جِيت}}; object endings",
+      "blocks": [
+        {"goal":{"t":"أَمْس رِحْنَا الْبَرّ وْشِفْنَا الطُّعُوس.","r":"ams riḥna l-barr w-shifna ṭ-ṭuʿūs.","tr":"Yesterday we went to the desert and saw the dunes."}},
+        {"dialog":[{"who":"Reem","t":"وِشْ سَوَّيْتُوا أَمْس؟","r":"wesh sawwētu ams?","tr":"What did you all do yesterday?"},{"who":"Lina","t":"طِلَعْنَا كَشْتَة، وْجَات أُخْتِي مَعَنَا.","r":"ṭilaʿna kashtah, w-jat ukhti maʿana.","tr":"We went on a desert picnic, and my sister came with us."},{"who":"Reem","t":"حِلْو! اسْتَانَسْتُوا؟","r":"ḥilw! stānastu?","tr":"Nice! Did you have a good time?"},{"who":"Lina","t":"إِيه، بَسّ رِجَعْنَا مِتْأَخِّرِين.","r":"ēh, bass rijaʿna mitʾakhkhirīn.","tr":"Yes, but we got back late."}]},
+        {"p":"**The past works as in MSA, without the final vowels**, and three endings change. “You” to a woman is **-ti** ({{كِتَبْتِي|kitabti}}), “you all” is **-tu** ({{كِتَبْتُوا|kitabtu}}, not {{كَتَبْتُمْ}}), and “they” is **-u / -aw** ({{كِتْبُوا|kitbu}}). “I” and “you” to a man sound the same: {{كِتَبْت|kitabt}}. As in the present, groups of women have their own forms: {{كِتَبْتِن|kitabtin}} “you (women)”, {{كِتْبِن|kitbin}} “they (women)”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["I / you (man)","{{كَتَبْتُ}} / {{كَتَبْتَ}}","{{كِتَبْت|kitabt}}"],
+          ["you (woman)","{{كَتَبْتِ}}","{{كِتَبْتِي|kitabti}}"],
+          ["he / she","{{كَتَبَ}} / {{كَتَبَتْ}}","{{كِتَب|kitab}} / {{كِتْبَت|kitbat}}"],
+          ["we","{{كَتَبْنَا}}","{{كِتَبْنَا|kitabna}}"],
+          ["you all","{{كَتَبْتُمْ}}","{{كِتَبْتُوا|kitabtu}}"],
+          ["they","{{كَتَبُوا}}","{{كِتْبُوا|kitbu}}"]
+        ] },
+        {"p":"**Verbs with a long vowel** shorten it before an ending, as in MSA: {{رَاح|rāḥ}} “he went” → {{رِحْت|riḥt}} “I went”; {{شَاف|shāf}} → {{شِفْت|shift}}. “Come” has lost its hamza: {{جَا|ja}} “he came”, {{جَات|jat}} “she came”, {{جِيت|jīt}} “I came”, {{جَوْا|jaw}} “they came”. And “his” on a verb is -ah: {{شِفْتَه|shiftah}} “I saw him”."},
+        { "ex": [
+          {"t":"رِحْت السُّوق وْاشْتَرَيْت عَبَايَة.","r":"riḥt as-sūg w-ishtarēt ʿabāyah.","tr":"I went to the market and bought an abaya."},
+          {"t":"مَتَى جِيتُوا؟","r":"mita jītu?","tr":"When did you all arrive?"},
+          {"t":"سَارَة كِتْبَت لِي رِسَالَة.","r":"sārah kitbat li risālah.","tr":"Sarah wrote me a message."},
+          {"t":"مَا شِفْتَه مِن زَمَان.","r":"ma shiftah min zamān.","tr":"I haven't seen him for ages."},
+          {"t":"الضُّيُوف جَوْا وْتَعَشَّوْا.","r":"aḍh-ḍhuyūf jaw w-taʿashshaw.","tr":"The guests came and had dinner."}
+        ] },
+        {"tip":"{{سَوَّى}} “do” in the past: {{سَوَّيْت|sawwēt}} “I did”, {{سَوَّيْتُوا|sawwētu}} “you all did”: the ē of {{ـيْت}} is the Saudi vowel of {{بَيْت}}."}
+      ],
+      "mistakes": [
+        {"wrong":"وِشْ سَوَّيْتُم؟","right":"وِشْ سَوَّيْتُوا؟","tr":"What did you all do?","why":"“You all” ends in -tu: {{سَوَّيْتُوا}}."},
+        {"wrong":"جَاءَ أَخُوي.","right":"جَا أَخُوي.","tr":"My brother came.","why":"No hamza: {{جَا}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"You're asking a group. Choose the word.","t":"وِشْ ___ أَمْس؟","r":"wesh ___ ams?","tr":"What did you all do yesterday?","options":["سَوَّيْتُوا","سَوَّيْت","سَوَّوْا"],"rs":["sawwētu","sawwēt","sawwaw"],"answer":0,"why":"“You all”: -tu."},
+        {"type":"choice","q":"{{جِيت}} means…","options":["I came / you came.","He came.","They came."],"answer":0,"why":"{{جِيت}}: I or you (a man) came; “he came” is {{جَا}}."},
+        {"type":"dialogue","q":"A colleague asks about your weekend.","lines":[{"who":"Colleague","t":"وَيْن رِحْت فِي الْوِيكِنْد؟","r":"wēn riḥt fi l-wīkend?","tr":"Where did you go at the weekend?"},{"options":["رِحْت الْبَرّ مَع رَبْعِي.","بَرُوح الْبَرّ مَع رَبْعِي."],"rs":["riḥt al-barr maʿ rabʿi.","barūḥ al-barr maʿ rabʿi."],"answer":0,"why":"The past: {{رِحْت}}; {{بَرُوح}} would be “I'll go”."},{"who":"Colleague","t":"حِلْو! وِاسْتَانَسْت؟","r":"ḥilw! w-stānast?","tr":"Nice! Did you have a good time?"},{"options":["إِيه، وَاجِد.","إِيه، سَأَسْتَانِس."],"rs":["ēh, wājid.","ēh, saʾastānis."],"answer":0,"why":"{{وَاجِد}}: a lot."}],"from":"plans"},
+        {"type":"order","q":"Put the words in order.","tr":"I haven't seen him for ages.","words":["مَا","شِفْتَه","مِن","زَمَان."],"rs":["ma","shiftah","min","zamān."]},
+        {"type":"free","q":"Your turn: say three things you did yesterday.","answers":[{"t":"صِحِيت بَدْرِي، وْرِحْت الدَّوَام، وْتَعَشَّيْت مَع أَهْلِي.","r":"ṣiḥīt badri, w-riḥt ad-dawām, w-taʿashshēt maʿ ahli.","tr":"I woke up early, went to work and had dinner with my family."}]}
+      ]
+    },
+    {
+      "id": "just-still-not-yet",
+      "unit": 4,
+      "level": "B1",
+      "title": "Say “just”, “still”, “not yet” and “not any more”",
+      "summary": "{{تَوْنِي جِيت}} “I've just arrived”, {{لِلْحِين نَايِم}} “he's still asleep”, {{مَا عَاد}} “not any more”.",
+      "topic": "Time words: {{تَوّ}} + ending “just”, {{لِلْحِين}} / {{بَعَد}} “still”, {{لِلْحِين مَا}} “not yet”, {{مَا عَاد}} “no longer”",
+      "blocks": [
+        {"goal":{"t":"تَوْنِي صَاحِي، وْلِلْحِين مَا شِرِبْت قَهْوَتِي.","r":"tōni ṣāḥi, w-lil-ḥīn ma shiribt gahwati.","tr":"I've only just woken up, and I still haven't had my coffee."}},
+        {"dialog":[{"who":"Ali","t":"خَالِد وَصَل؟","r":"khālid waṣal?","tr":"Has Khalid arrived?"},{"who":"Saad","t":"لَا، لِلْحِين مَا وَصَل.","r":"lā, lil-ḥīn ma waṣal.","tr":"No, he hasn't arrived yet."},{"who":"Ali","t":"وْفَهَد؟","r":"w-fahad?","tr":"And Fahad?"},{"who":"Saad","t":"فَهَد تَوَّه طَالِع. مَا عَاد يِجْلِس مَعَنَا.","r":"fahad tawwah ṭāliʿ. ma ʿād yijlis maʿana.","tr":"Fahad has just left. He doesn't sit with us any more."}]},
+        {"p":"Najdi Arabic has a set of small words that place an action in time, where MSA uses {{قَدْ}}, {{مَا زَالَ}} or {{لَمْ… بَعْدُ}}. **“Just”: {{تَوّ|taww}} + an ending**, before a past verb or a participle: {{تَوْنِي جِيت|tōni jīt}} “I've just come”, {{تَوَّه رَاح|tawwah rāḥ}} “he's just gone”, {{تَوْهَا صَاحْيَة|tōha ṣāḥyah}} “she's just woken up”."},
+        {"p":"**“Still”: {{لِلْحِين|lil-ḥīn}}** (“up to now”) or {{بَعَد|baʿad}} + ending: {{لِلْحِين نَايِم|lil-ḥīn nāyim}}, {{بَعَدْه نَايِم|baʿadah nāyim}} “he's still asleep”. **“Not yet”: {{لِلْحِين مَا}}** or {{مَا بَعَد}} + past: {{لِلْحِين مَا جَا|lil-ḥīn ma ja}} “he hasn't come yet”. **“Not any more”: {{مَا عَاد|ma ʿād}}** + present: {{مَا عَاد أَدَخِّن|ma ʿād adakhkhin}} “I don't smoke any more”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["I've just arrived","{{وَصَلْتُ لِلتَّوِّ}}","{{تَوْنِي وَاصِل}}"],
+          ["he's still asleep","{{مَا زَالَ نَائِمًا}}","{{لِلْحِين نَايِم}}"],
+          ["he hasn't come yet","{{لَمْ يَأْتِ بَعْدُ}}","{{لِلْحِين مَا جَا}}"],
+          ["I don't smoke any more","{{لَمْ أَعُدْ أُدَخِّنُ}}","{{مَا عَاد أَدَخِّن}}"]
+        ] },
+        { "ex": [
+          {"t":"تَوْنَا مِتْغَدِّين.","r":"tōna mitghaddīn.","tr":"We've just had lunch."},
+          {"t":"لِلْحِين مَا خَلَّصْت الشُّغُل.","r":"lil-ḥīn ma khallaṣt ash-shughul.","tr":"I haven't finished the work yet."},
+          {"t":"أَبُوي لِلْحِين فِي الدَّوَام.","r":"abūy lil-ḥīn fi d-dawām.","tr":"My dad is still at work."},
+          {"t":"مَا عَاد أَحِبّ الْحَلَا.","r":"ma ʿād aḥibb al-ḥala.","tr":"I don't like sweets any more."}
+        ] },
+        {"tip":"{{تَوّ}} takes the endings of “my, his”: {{تَوْنِي|tōni}} “I just”, {{تَوَّك|tawwak}} “you just”, {{تَوَّه|tawwah}} “he just”, {{تَوْنَا|tōna}} “we just”. {{تَوَّك تِذْكُر؟|tawwak tidhkur?}} is a teasing “you've only just remembered?”."}
+      ],
+      "mistakes": [
+        {"wrong":"لَمْ يَصِل بَعْد.","right":"لِلْحِين مَا وَصَل.","tr":"He hasn't arrived yet.","why":"“Not yet” is {{لِلْحِين مَا}} + past."},
+        {"wrong":"مَا زَال نَايِم.","right":"لِلْحِين نَايِم.","tr":"He's still asleep.","why":"“Still” is {{لِلْحِين}} (or {{بَعَدْه}})."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ جِيت مِن الدَّوَام.","r":"___ jīt min ad-dawām.","tr":"I've just come back from work.","options":["تَوْنِي","لِلْحِين","مَا عَاد"],"rs":["tōni","lil-ḥīn","ma ʿād"],"answer":0,"why":"“Just”: {{تَوّ}} + -ni, {{تَوْنِي}}."},
+        {"type":"choice","q":"{{مَا عَاد يِجِي}} means…","options":["He doesn't come any more.","He hasn't come yet.","He has just come."],"answer":0,"why":"{{مَا عَاد}} + present: not any more."},
+        {"type":"dialogue","q":"Your mother asks about your brother.","lines":[{"who":"Mum","t":"أَخُوك صِحِي؟","r":"akhūk ṣiḥi?","tr":"Is your brother up?"},{"options":["لَا، لِلْحِين نَايِم.","لَا، مَا زَالَ نَائِمًا."],"rs":["lā, lil-ḥīn nāyim.","lā, mā zāla nāʾiman."],"answer":0,"why":"In Riyadh, “still” is {{لِلْحِين}}."},{"who":"Mum","t":"صَحِّه، تَأَخَّر!","r":"ṣaḥḥih, taʾakhkhar!","tr":"Wake him up, he's late!"}],"from":"doing-now"},
+        {"type":"order","q":"Put the words in order.","tr":"My dad is still at work.","words":["أَبُوي","لِلْحِين","فِي","الدَّوَام."],"rs":["abūy","lil-ḥīn","fi","d-dawām."]},
+        {"type":"free","q":"Your turn: say something you've just done, something you haven't done yet, and something you don't do any more.","answers":[{"t":"تَوْنِي مِتْغَدِّي، وْلِلْحِين مَا ذَاكَرْت، وْمَا عَاد أَشْرَب بِبْسِي.","r":"tōni mitghaddi, w-lil-ḥīn ma dhākart, w-ma ʿād ashrab bibsi.","tr":"I've just had lunch, I haven't studied yet, and I don't drink Pepsi any more."}]}
+      ]
+    },
+    {
+      "id": "if-and-links",
+      "unit": 4,
+      "level": "B1",
+      "title": "Join your ideas: if, because, until, when",
+      "summary": "{{لَوْ تِبِي، تَعَال}} “If you want, come”, {{اللِّي}} “who, which”, {{عَشَان}} “because”, {{لَيْن}} “until”, {{يَوْم}} “when”.",
+      "topic": "“If”: {{لَوْ}} and {{إِذَا}}; {{اللِّي}} for every “who / which / that”; {{عَشَان}}, {{لَيْن}}, {{يَوْم}}, {{بَسّ}}, {{وِلَّا}}",
+      "blocks": [
+        {"goal":{"t":"لَوْ تِبِي، تَعَال عِنْدَنَا يَوْم تِخَلِّص.","r":"law tibi, taʿāl ʿindana yōm tikhalliṣ.","tr":"If you want, come over when you finish."}},
+        {"dialog":[{"who":"Turki","t":"تِعْرِف الرِّجَّال اللِّي جَا أَمْس؟","r":"tiʿrif ar-rijjāl illi ja ams?","tr":"Do you know the man who came yesterday?"},{"who":"Majid","t":"إِيه، هَذَا خَوِيّ أَخُوي. لَيْش؟","r":"ēh, hādha khawi akhūy. lēsh?","tr":"Yes, he's my brother's friend. Why?"},{"who":"Turki","t":"نَسَى جَوَّالَه عِنْدِي. لَوْ تِشُوفَه، قُل لَه.","r":"nisa jawwālah ʿindi. law tishūfah, gul lah.","tr":"He left his phone at my place. If you see him, tell him."},{"who":"Majid","t":"أَبْشِر، بَدِقّ عَلَيْه الْحِين.","r":"abshir, badigg ʿalēh al-ḥīn.","tr":"Sure, I'll call him now."}]},
+        {"p":"**“If”: {{لَوْ|law}}** is used for real plans as well as for imagined ones, where MSA keeps {{إِذَا}} for real ones: {{لَوْ تِبِي، تَعَال|law tibi, taʿāl}} “if you want, come”. {{إِذَا|idha}} is heard too: {{إِذَا وَصَلْت دِقّ عَلَيّ|idha waṣalt digg ʿalayy}} “when you arrive, call me”. For something that didn't happen, {{لَوْ}} … {{كَان}}: {{لَوْ دِرِيت كَان جِيت|law dirīt kān jīt}} “if I'd known, I'd have come”."},
+        {"p":"**{{اللِّي|illi}} “who, which, that”**, the same word for everyone, in place of {{الَّذِي}}, {{الَّتِي}}, {{الَّذِينَ}}: {{الرِّجَّال اللِّي جَا|ar-rijjāl illi ja}} “the man who came”, {{الْبَنَات اللِّي شِفْتِهِن|al-banāt illi shifthin}} “the girls I saw”. On its own it means “what, whoever”: {{اللِّي تِبِيه|illi tibīh}} “whatever you want”."},
+        { "table": [
+          ["","MSA","Riyadh"],
+          ["because, so that","{{لِأَنَّ}} / {{لِكَيْ}}","{{عَشَان|ʿashān}}"],
+          ["until","{{حَتَّى}}","{{لَيْن|lēn}}"],
+          ["when (it happened)","{{عِنْدَمَا}}","{{يَوْم|yōm}}"],
+          ["but","{{لَكِنْ}}","{{بَسّ|bass}}"],
+          ["or","{{أَوْ}} / {{أَمْ}}","{{وِلَّا|willa}}"]
+        ] },
+        { "ex": [
+          {"t":"تَأَخَّرْت عَشَان الزَّحْمَة.","r":"taʾakhkhart ʿashān az-zaḥmah.","tr":"I was late because of the traffic."},
+          {"t":"انْتَظِرْنِي لَيْن أَجِي.","r":"intaḍhirni lēn aji.","tr":"Wait for me until I come."},
+          {"t":"يَوْم وَصَلْت، كَانُوا نَايْمِين.","r":"yōm waṣalt, kānu nāymīn.","tr":"When I arrived, they were asleep."},
+          {"t":"تِبِي شَاهِي وِلَّا قَهْوَة؟","r":"tibi shāhi willa gahwah?","tr":"Do you want tea or coffee?"},
+          {"t":"هَذَا الْكِتَاب اللِّي قِلْت لَك عَنَّه.","r":"hādha l-kitāb illi gilt lak ʿannah.","tr":"This is the book I told you about."}
+        ] },
+        {"tip":"{{يَوْم}} “day” works as “when” for the past: {{يَوْم كِنْت صْغِير|yōm kint ṣghīr}} “when I was little”."}
+      ],
+      "mistakes": [
+        {"wrong":"الرِّجَّال الَّذِي جَا","right":"الرِّجَّال اللِّي جَا","tr":"the man who came","why":"“Who, which” is always {{اللِّي}}."},
+        {"wrong":"انْتَظِرْنِي حَتَّى أَجِي.","right":"انْتَظِرْنِي لَيْن أَجِي.","tr":"Wait for me until I come.","why":"“Until” is {{لَيْن}} in Riyadh."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْبِنْت ___ شِفْتَهَا أُخْت سَعَد.","r":"al-bint ___ shiftaha ukht saʿad.","tr":"The girl I saw is Saad's sister.","options":["اللِّي","الَّتِي","عَشَان"],"rs":["illi","allati","ʿashān"],"answer":0,"why":"{{اللِّي}} for every “who, which, that”."},
+        {"type":"fill","q":"Choose the missing word.","t":"تِبِي شَاهِي ___ قَهْوَة؟","r":"tibi shāhi ___ gahwah?","tr":"Do you want tea or coffee?","options":["وِلَّا","لَيْن","يَوْم"],"rs":["willa","lēn","yōm"],"answer":0,"why":"“Or” in a question: {{وِلَّا}}."},
+        {"type":"choice","q":"{{لَوْ دِرِيت كَان جِيت}} means…","options":["If I'd known, I'd have come.","When I knew, I came.","I'll come if I know."],"answer":0,"why":"{{لَوْ}} … {{كَان}}: something that didn't happen."},
+        {"type":"dialogue","q":"A friend is waiting for you.","lines":[{"who":"Friend","t":"وَيْنَك؟ لَيْش تَأَخَّرْت؟","r":"wēnak? lēsh taʾakhkhart?","tr":"Where are you? Why are you late?"},{"options":["تَأَخَّرْت عَشَان الزَّحْمَة.","تَأَخَّرْت لِأَنَّ الزَّحْمَةُ."],"rs":["taʾakhkhart ʿashān az-zaḥmah.","taʾakhkhart li-anna z-zaḥmatu."],"answer":0,"why":"“Because of”: {{عَشَان}}."},{"who":"Friend","t":"خَلَاص، أَنْتَظِرَك لَيْن تُوصَل.","r":"khalāṣ, antaḍhirak lēn tūṣal.","tr":"OK, I'll wait for you until you get here."}],"from":"what-happened"},
+        {"type":"free","q":"Your turn: say what you'll do if you're free this weekend, and why.","answers":[{"t":"لَوْ أَنَا فَاضِي، بَرُوح الْبَرّ عَشَان الْجَوّ حِلْو.","r":"law ana fāḍhi, barūḥ al-barr ʿashān al-jaww ḥilw.","tr":"If I'm free, I'll go to the desert because the weather is nice."}]}
+      ]
+    }
+  ]
+}

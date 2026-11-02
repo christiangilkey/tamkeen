@@ -299,9 +299,9 @@
    "variety": "Saudi Arabic, Riyadh (Najdi) style",
    "words": 88,
    "planned": 88,
-   "bytes": 34301,
-   "audio_bytes": 1077235,
-   "sha256": "c7af3a575b167b49a798009f2f2d27bf803fee5dfd66f6d3b55b5445d1449bcf",
+   "bytes": 34295,
+   "audio_bytes": 1079127,
+   "sha256": "7e44cdbb834d491a983a3af4b0e1cc5117a3a3c5fceb8f9a529446718e4921a1",
    "voice": {
     "engine": "azure",
     "name": "Hamed (Azure, Saudi Arabia)",
