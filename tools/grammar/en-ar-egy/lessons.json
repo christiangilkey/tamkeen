@@ -1,0 +1,671 @@
+{
+  "from": "en",
+  "to": "ar",
+  "dialect": "egy",
+  "title": "Egyptian grammar",
+  "variety": "Egyptian Arabic (Cairo)",
+  "about": "Only what Egyptian Arabic does differently from Modern Standard Arabic, in 16 short lessons: the Cairo sounds, no case endings, the pronouns, the b- present, “right now”, the future with ha-, the past endings, saying “not” with ma…sh and mish, the question words, da, di and dōl, bitāʿ, illi, “want” and “must”, “there is”, numbers and “if”. It builds on the Arabic grammar course: whatever works as in MSA is left out. The examples are everyday Cairo speech, vowelled the way Cairenes say them, with a reading in Latin letters.",
+  "reading": "transliteration",
+  "units": [
+    {"n":1,"title":"Sounding Egyptian"},
+    {"n":2,"title":"Now, later and before"},
+    {"n":3,"title":"Saying no, asking and pointing"},
+    {"n":4,"title":"Wants, facts and conditions"}
+  ],
+  "lessons": [
+    {
+      "id": "cairo-sounds",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say it the Cairo way",
+      "summary": "Five letters and two vowel pairs sound different in Cairo. Learn them once, and thousands of MSA words become Egyptian.",
+      "topic": "{{ق}} said ʾ, {{ج}} said g, {{ث}} {{ذ}} {{ظ}} said t/s, d/z, ḍ/ẓ; ay → ē, aw → ō",
+      "blocks": [
+        {"goal":{"t":"عَايِز قَهْوَة، لَوْ سَمَحْت.","r":"ʿāyiz ʾahwa, law samaḥt.","tr":"I'd like a coffee, please."}},
+        {"dialog":[{"who":"Waiter","t":"تِشْرَب إِيه؟","r":"tishrab ē?","tr":"What would you like to drink?"},{"who":"Tom","t":"قَهْوَة، لَوْ سَمَحْت.","r":"ʾahwa, law samaḥt.","tr":"A coffee, please."},{"who":"Waiter","t":"حَاضِر. الْجَوّ جَمِيل النَّهَارْدَه!","r":"ḥāḍir. ig-gaww gamīl in-nahārda!","tr":"Right away. Lovely weather today!"},{"who":"Tom","t":"آهْ، جَمِيل جِدًّا.","r":"āh, gamīl giddan.","tr":"Yes, really lovely."}]},
+        {"p":"You know these words from MSA: {{قَهْوَة}} “coffee”, {{جَمِيل}} “beautiful”, {{جِدًّا}} “very”. Egyptians write them the same way but **say** them differently, as the readings show: {{قَهْوَة|ʾahwa}} starts with a catch in the throat instead of q, and {{جَمِيل|gamīl}} with a g as in “go”."},
+        { "table": [
+          ["Letter","In MSA","In Cairo","Example"],
+          ["{{ق}}","q","ʾ, a catch in the throat (the break in “uh-oh”)","{{قَلْب|ʾalb}} heart, {{قَال|ʾāl}} he said"],
+          ["{{ج}}","j","g, as in “go”","{{جِدِيد|gidīd}} new, {{رَاجِل|rāgil}} man"],
+          ["{{ث}}","th","t in everyday words, s in learned ones","{{تَلَاتَة|talāta}} three; {{ثَقَافَة|saqāfa}} culture"],
+          ["{{ذ}}","dh","d in everyday words, z in learned ones","{{دَهَب|dahab}} gold; {{ذَكِي|zaki}} clever"],
+          ["{{ظ}}","ẓ","ḍ in everyday words, ẓ in learned ones","{{ضَهْر|ḍahr}} back; {{ظَرِيف|ẓarīf}} nice"]
+        ] },
+        {"p":"In writing, Egyptians usually spell the everyday words the way they say them: {{تَلَاتَة}} for {{ثَلَاثَة}}, {{دَهَب}} for {{ذَهَب}}, {{ضَهْر}} for {{ظَهْر}}. Learned words (from school, the news, religion) keep their MSA spelling and only change the sound: {{ثَقَافَة|saqāfa}}."},
+        {"p":"**Two vowel pairs shrink**: ay becomes a long ē and aw a long ō. {{بَيْت|bēt}} house, {{عَيْن|ʿēn}} eye, {{يَوْم|yōm}} day, {{لَوْن|lōn}} colour. They are written as in MSA."},
+        { "ex": [
+          {"t":"الْقَهْوَة سُخْنَة.","r":"il-ʾahwa sukhna.","tr":"The coffee is hot."},
+          {"t":"الْجَوّ جَمِيل النَّهَارْدَه.","r":"ig-gaww gamīl in-nahārda.","tr":"The weather's lovely today."},
+          {"t":"عَنْدِي تَلَات قُطَط.","r":"ʿandi talat ʾuṭaṭ.","tr":"I've got three cats."},
+          {"t":"الْبَيْت قُرَيِّب.","r":"il-bēt ʾurayyib.","tr":"The house is close by."},
+          {"t":"الدَّهَب غَالِي.","r":"id-dahab ghāli.","tr":"Gold is expensive."}
+        ] },
+        {"tip":"A few words keep their q even in Cairo, mostly religious or formal ones: {{الْقُرْآن|il-qurʾān}}. And everyday Cairenes call their city {{مَصْر|maṣr}}, the same word as Egypt."}
+      ],
+      "mistakes": [
+        {"wrong":"عَنْدِي ثَلَاث قِطَط.","right":"عَنْدِي تَلَات قُطَط.","tr":"I've got three cats.","why":"Everyday words with {{ث}} are said, and usually written, with {{ت}} in Egyptian: {{تَلَات|talat}}."},
+        {"wrong":"الذَّهَب غَالِي.","right":"الدَّهَب غَالِي.","tr":"Gold is expensive.","why":"In an everyday word {{ذ}} becomes {{د}}: {{دَهَب|dahab}}."}
+      ],
+      "practice": [
+        {"type":"choice","q":"How does a Cairene say {{قَلْب}} “heart”?","options":["qalb","galb","ʾalb"],"answer":2,"why":"{{ق}} is a catch in the throat in Cairo: ʾalb."},
+        {"type":"choice","q":"How does a Cairene say {{جَمِيل}} “beautiful”?","options":["jamīl","gamīl","yamīl"],"answer":1,"why":"{{ج}} is g in Cairo: gamīl."},
+        {"type":"fill","q":"Choose the everyday Egyptian spelling.","t":"عَنْدِي ___ كُتُب.","tr":"I've got three books.","options":["ثَلَاث","تَلَات"],"answer":1,"why":"In everyday words {{ث}} becomes {{ت}}.","r":"ʿandi ___ kutub.","rs":["thalāth","talat"]},
+        {"type":"order","q":"Put the words in order.","tr":"The coffee is very hot.","words":["الْقَهْوَة","سُخْنَة","أَوِي."],"rs":["il-ʾahwa","sukhna","awi."]},
+        {"type":"free","q":"Your turn: order a drink in a Cairo café, the Cairo way.","answers":[{"t":"عَايِز شَاي، لَوْ سَمَحْت.","r":"ʿāyiz shāy, law samaḥt.","tr":"I'd like a tea, please."},{"t":"قَهْوَة مِن غَيْر سُكَّر، لَوْ سَمَحْتِي.","r":"ʾahwa min ghēr sukkar, law samaḥti.","tr":"A coffee without sugar, please. (to a woman)"}]}
+      ]
+    },
+    {
+      "id": "no-endings",
+      "unit": 1,
+      "level": "A1",
+      "title": "Drop the endings: one, two and more",
+      "summary": "No case endings, no -un, and a dual only on nouns: here Egyptian is simpler than MSA.",
+      "topic": "no case endings or {{ـٌ}}; the dual {{ـَيْن}} on nouns only; plural verbs and adjectives for two; no feminine plural",
+      "blocks": [
+        {"goal":{"t":"عَنْدِي أُخْتَيْن وِأَخّ وَاحِد.","r":"ʿandi ukhtēn wi-akh wāḥid.","tr":"I've got two sisters and one brother."}},
+        {"dialog":[{"who":"Mona","t":"عَنْدَك إِخْوَات؟","r":"ʿandak ikhwāt?","tr":"Have you got brothers or sisters?"},{"who":"Sam","t":"آهْ، عَنْدِي أُخْتَيْن وِأَخّ وَاحِد.","r":"āh, ʿandi ukhtēn wi-akh wāḥid.","tr":"Yes, two sisters and one brother."},{"who":"Mona","t":"وِأُخْتَك الْكِبِيرَة مِتْجَوِّزَة؟","r":"wi-ukhtak il-kibīra mitgawwiza?","tr":"And is your big sister married?"},{"who":"Sam","t":"آهْ، وِعَنْدَهَا وَلَدَيْن صُغَيَّرِين.","r":"āh, wi-ʿandaha waladēn ṣughayyarīn.","tr":"Yes, and she's got two little boys."}]},
+        {"p":"**No endings.** Egyptian never says the case endings -u, -a, -i or the -un of MSA: {{كِتَاب|kitāb}}, never kitābun; {{فِي الْبَيْت|fi l-bēt}}, never fī l-bayti. A word sounds the same whether it is the subject, the object or after a preposition."},
+        {"p":"**Two of something**: nouns take {{ـَيْن|-ēn}}, never {{ـَان|-ān}}: {{يَوْمَيْن|yomēn}} two days, {{أُخْتَيْن|ukhtēn}} two sisters. A word ending in {{ة}} changes it to {{ت}}: {{سَاعَة|sāʿa}}, {{سَاعْتَيْن|saʿtēn}} two hours. Verbs, adjectives and pronouns have no dual: two people are simply plural."},
+        { "table": [
+          ["","MSA","Egyptian"],
+          ["two days","{{يَوْمَانِ|yawmāni}}","{{يَوْمَيْن|yomēn}}"],
+          ["the two of them are tired","{{هُمَا تَعْبَانَانِ|humā taʿbānāni}}","{{هُمَّا تَعْبَانِين|humma taʿbanīn}}"],
+          ["they (women) write","{{هُنَّ يَكْتُبْنَ|hunna yaktubna}}","{{هُمَّا بِيِكْتِبُوا|humma biyiktibu}}"]
+        ] },
+        {"p":"There is no feminine plural for verbs, adjectives or pronouns either: a group of women takes the same plural as any group."},
+        { "ex": [
+          {"t":"اسْتَنَّيْت سَاعْتَيْن.","r":"istannēt saʿtēn.","tr":"I waited two hours."},
+          {"t":"عَنْدِنَا عَرَبِيتَيْن.","r":"ʿandina ʿarabitēn.","tr":"We've got two cars."},
+          {"t":"الْبِنْتَيْن دُول صُحَابِي.","r":"il-bintēn dōl ṣuḥābi.","tr":"Those two girls are my friends."},
+          {"t":"أَخُويَا وِمْرَاتُه تَعْبَانِين.","r":"akhūya wi-mrātu taʿbanīn.","tr":"My brother and his wife are tired."},
+          {"t":"السِّتَّات بِيِشْتَغَلُوا هِنَا.","r":"is-sittāt biyishtaghalu hina.","tr":"The women work here."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"عَنْدِي أُخْتَانِ.","right":"عَنْدِي أُخْتَيْن.","tr":"I've got two sisters.","why":"The Egyptian dual ends in {{ـَيْن|-ēn}}, never {{ـَان|-ān}}."},
+        {"wrong":"الْوَلَدَيْن تَعْبَانَيْن.","right":"الْوَلَدَيْن تَعْبَانِين.","tr":"The two boys are tired.","why":"Only nouns have a dual. The adjective for two people is plural: {{تَعْبَانِين}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"قَعَدْت فِي مَصْر ___.","tr":"I stayed in Cairo for two days.","options":["يَوْمَيْن","يَوْمَانِ"],"answer":0,"why":"Egyptian duals end in {{ـَيْن|-ēn}}.","r":"ʾaʿadt fi maṣr ___.","rs":["yomēn","yawmāni"]},
+        {"type":"choice","q":"“Two hours” is…","options":["{{سَاعَتَانِ}}","{{سَاعْتَيْن}}","{{سَاعَتَيْنِ}}"],"answer":1,"why":"-ēn, the {{ة}} becomes {{ت}}, and nothing after it: saʿtēn."},
+        {"type":"fill","q":"Choose the missing word.","t":"الْبِنْتَيْن ___.","tr":"The two girls are happy.","options":["مَبْسُوطِين","مَبْسُوطَتَيْن"],"answer":0,"why":"No dual for adjectives: two people take the plural, {{مَبْسُوطِين}}.","r":"il-bintēn ___.","rs":["mabsuṭīn","mabsuṭtēn"]},
+        {"type":"order","q":"Put the words in order.","tr":"I've got two cars.","words":["أَنَا","عَنْدِي","عَرَبِيتَيْن."],"rs":["ana","ʿandi","ʿarabitēn."]},
+        {"type":"free","q":"Your turn: say how many brothers and sisters you have, or how many days you're staying.","answers":[{"t":"عَنْدِي أَخّ وَاحِد وِأُخْتَيْن.","r":"ʿandi akh wāḥid wi-ukhtēn.","tr":"I've got one brother and two sisters."},{"t":"هَقْعُد هِنَا يَوْمَيْن بَسّ.","r":"haʾʿud hina yomēn bass.","tr":"I'll stay here just two days."}]}
+      ]
+    },
+    {
+      "id": "we-you-they",
+      "unit": 1,
+      "level": "A1",
+      "title": "Say we, you all, they, and my, your, his",
+      "summary": "The pronouns {{إِحْنَا}}, {{إِنْتُو}}, {{هُمَّا}}, and the endings that differ: {{ـُه}} “his”, {{ـكُو}} “your (all)”.",
+      "topic": "{{إِحْنَا}}, {{إِنْتِي}}, {{إِنْتُو}}, {{هُمَّا}}; the endings {{ـُه}}, {{ـِك}}, {{ـكُو}}, {{ـهُم}}",
+      "blocks": [
+        {"goal":{"t":"إِحْنَا مِن مَصْر، وِإِنْتُو مِنِين؟","r":"iḥna min maṣr, wi-intu minēn?","tr":"We're from Egypt, and where are you all from?"}},
+        {"dialog":[{"who":"Hany","t":"إِنْتُو مِنِين؟","r":"intu minēn?","tr":"Where are you from?"},{"who":"Anna","t":"إِحْنَا مِن أَلْمَانْيَا، وِدُول صُحَابْنَا مِن فَرَنْسَا.","r":"iḥna min almanya, wi-dōl ṣuḥabna min faransa.","tr":"We're from Germany, and these are our friends from France."},{"who":"Hany","t":"أَهْلًا بِيكُو! بَيْتْكُو قُرَيِّب مِن هِنَا؟","r":"ahlan bīku! betku ʾurayyib min hina?","tr":"Welcome! Is your place near here?"},{"who":"Anna","t":"آهْ، بَيْتْنَا فِي الزَّمَالِك.","r":"āh, betna fi z-zamālik.","tr":"Yes, our place is in Zamalek."}]},
+        {"p":"The pronouns that differ from MSA: {{إِحْنَا|iḥna}} we (MSA {{نَحْنُ}}), {{إِنْتُو|intu}} you all (MSA {{أَنْتُمْ}}), {{هُمَّا|humma}} they (MSA {{هُمْ}}), and {{إِنْتِي|inti}} you, to a woman. {{أَنَا|ana}}, {{إِنْتَ|inta}}, {{هُوَّ|huwwa}} and {{هِيَّ|hiyya}} are the MSA words with Cairo vowels. There is no dual ({{أَنْتُمَا}}) and no feminine plural ({{أَنْتُنَّ}}, {{هُنَّ}}): {{إِنْتُو}} and {{هُمَّا}} are for any group."},
+        { "table": [
+          ["","MSA","Egyptian","house: my, your…"],
+          ["I","{{أَنَا}}","{{أَنَا|ana}}","{{بَيْتِي|bēti}}"],
+          ["you (man)","{{أَنْتَ}}","{{إِنْتَ|inta}}","{{بَيْتَك|bētak}}"],
+          ["you (woman)","{{أَنْتِ}}","{{إِنْتِي|inti}}","{{بَيْتِك|bētik}}"],
+          ["he","{{هُوَ}}","{{هُوَّ|huwwa}}","{{بَيْتُه|bētu}}"],
+          ["she","{{هِيَ}}","{{هِيَّ|hiyya}}","{{بَيْتْهَا|betha}}"],
+          ["we","{{نَحْنُ}}","{{إِحْنَا|iḥna}}","{{بَيْتْنَا|betna}}"],
+          ["you all","{{أَنْتُمْ}}","{{إِنْتُو|intu}}","{{بَيْتْكُو|betku}}"],
+          ["they","{{هُمْ}}","{{هُمَّا|humma}}","{{بَيْتْهُم|bethum}}"]
+        ] },
+        {"p":"The endings for “my, your, his…” are the MSA ones without their last vowels, with two to learn: **his** is {{ـُه|-u}} (written {{ه}}, said u: {{بَيْتُه|bētu}}), and **your (all)** is {{ـكُو|-ku}} or {{ـكُم|-kum}}. The same endings mean “me, you, him…” after a verb: {{شُفْتُه|shuftu}} I saw him."},
+        { "ex": [
+          {"t":"إِحْنَا جَعَانِين.","r":"iḥna gaʿanīn.","tr":"We're hungry."},
+          {"t":"إِنْتُو رَايْحِين فِين؟","r":"intu rayḥīn fēn?","tr":"Where are you all going?"},
+          {"t":"هُمَّا صُحَابِي.","r":"humma ṣuḥābi.","tr":"They're my friends."},
+          {"t":"إِنْتِي مَصْرِيَّة؟","r":"inti maṣriyya?","tr":"Are you Egyptian? (to a woman)"},
+          {"t":"شُفْت أَخُوه امْبَارِح.","r":"shuft akhūh imbāriḥ.","tr":"I saw his brother yesterday."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"نَحْنُ مِن مَصْر.","right":"إِحْنَا مِن مَصْر.","tr":"We're from Egypt.","why":"“We” is {{إِحْنَا}} in Egyptian; {{نَحْنُ}} sounds like the news."},
+        {"wrong":"هُنَّ صُحَابِي.","right":"هُمَّا صُحَابِي.","tr":"They're my friends.","why":"Egyptian has no feminine plural: {{هُمَّا}} is “they” for women too."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ مِن مَصْر.","tr":"We're from Egypt.","options":["إِحْنَا","نَحْنُ","هُمَّا"],"answer":0,"why":"{{إِحْنَا}} is Egyptian “we”.","r":"___ min maṣr.","rs":["iḥna","naḥnu","humma"]},
+        {"type":"choice","q":"How do you say “his house”?","options":["{{بَيْتُهُ}} (baytuhu)","{{بَيْتُه}} (bētu)","{{بَيْتْهُم}} (bethum)"],"answer":1,"why":"“His” is said -u: bētu."},
+        {"type":"dialogue","q":"A neighbour greets you and your friends. Choose your replies.","lines":[{"who":"Neighbour","t":"إِنْتُو مِنِين؟","r":"intu minēn?","tr":"Where are you from?"},{"options":["إِحْنَا مِن إِنْجِلْتِرَا.","نَحْنُ مِن إِنْجِلْتِرَا."],"answer":0,"why":"{{إِحْنَا}} is Egyptian “we”.","rs":["iḥna min ingiltira.","naḥnu min ingiltira."]},{"who":"Neighbour","t":"وِبَيْتْكُو فِين؟","r":"wi-betku fēn?","tr":"And where's your place?"},{"options":["بَيْتْنَا فِي الْمَعَادِي.","بَيْتُنَا فِي الْمَعَادِي."],"answer":0,"why":"No final vowels: {{بَيْتْنَا|betna}} “our house”.","rs":["betna fi l-maʿādi.","baytunā fi l-maʿādi."]}]},
+        {"type":"say","q":"How do you ask a woman “Are you Egyptian?”","answer":"إِنْتِي مَصْرِيَّة؟","r":"inti maṣriyya?"},
+        {"type":"free","q":"Your turn: say where you and your family are from, and where they live.","answers":[{"t":"إِحْنَا مِن كَنَدَا، وِأَهْلِي عَايْشِين فِي تُورُنْتُو.","r":"iḥna min kanada, wi-ahli ʿayshīn fi toronto.","tr":"We're from Canada, and my family lives in Toronto."}]}
+      ]
+    },
+    {
+      "id": "every-day-b",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you do every day",
+      "summary": "Egyptian present verbs take {{بِـ}}: {{بَشْرَب قَهْوَة كُلّ يَوْم}} “I drink coffee every day”. Without it, the verb follows words like “want” and “must”.",
+      "topic": "{{بِـ}} + the present: {{بَكْتِب}}, {{بِتِكْتِب}}, {{بِيِكْتِب}}, {{بِنِكْتِب}}, {{بِيِكْتِبُوا}}; the plain present after {{عَايِز}}, {{لَازِم}}, {{مُمْكِن}}",
+      "blocks": [
+        {"goal":{"t":"بَشْرَب قَهْوَة كُلّ يَوْم الصُّبْح.","r":"bashrab ʾahwa kull yōm iṣ-ṣubḥ.","tr":"I drink coffee every morning."}},
+        {"dialog":[{"who":"Laila","t":"بِتِشْتَغَل فِين؟","r":"bitishtaghal fēn?","tr":"Where do you work?"},{"who":"Omar","t":"بَشْتَغَل فِي بَنْك فِي وِسْط الْبَلَد.","r":"bashtaghal fi bank fi wisṭ il-balad.","tr":"I work at a bank downtown."},{"who":"Laila","t":"وِبِتْرُوح الشُّغْل إِزَّاي؟","r":"wi-bitrūḥ ish-shughl izzāy?","tr":"And how do you get to work?"},{"who":"Omar","t":"بَرْكَب الْمِتْرُو كُلّ يَوْم.","r":"barkab il-mitro kull yōm.","tr":"I take the metro every day."}]},
+        {"p":"In MSA the present is {{أَكْتُبُ}}, {{يَكْتُبُ}}. Egyptian puts {{بِـ|bi-}} in front for anything that happens regularly or is going on: {{بِيِكْتِب|biyiktib}} he writes, he's writing. With “I”, the {{أَ}} merges into it: {{بَكْتِب|baktib}} I write."},
+        { "table": [
+          ["","MSA","Egyptian"],
+          ["I write","{{أَكْتُبُ}}","{{بَكْتِب|baktib}}"],
+          ["you write (man)","{{تَكْتُبُ}}","{{بِتِكْتِب|bitiktib}}"],
+          ["you write (woman)","{{تَكْتُبِينَ}}","{{بِتِكْتِبِي|bitiktibi}}"],
+          ["he writes","{{يَكْتُبُ}}","{{بِيِكْتِب|biyiktib}}"],
+          ["she writes","{{تَكْتُبُ}}","{{بِتِكْتِب|bitiktib}}"],
+          ["we write","{{نَكْتُبُ}}","{{بِنِكْتِب|biniktib}}"],
+          ["you all write","{{تَكْتُبُونَ}}","{{بِتِكْتِبُوا|bitiktibu}}"],
+          ["they write","{{يَكْتُبُونَ}}","{{بِيِكْتِبُوا|biyiktibu}}"]
+        ] },
+        {"p":"The plural ends in {{ـُوا|-u}}, without the {{ن}} of MSA, and the vowels are often i: {{يِكْتِب|yiktib}}, not yaktubu."},
+        {"p":"**Without {{بِـ}}**: after {{عَايِز}} “want”, {{لَازِم}} “must”, {{مُمْكِن}} “can” and {{عَشَان}} “so that”, the verb takes no {{بِـ}} and no {{أَنْ}}: {{عَايِز أَكْتِب|ʿāyiz aktib}} I want to write."},
+        { "ex": [
+          {"t":"بِيِشْتَغَل فِي مُسْتَشْفَى.","r":"biyishtaghal fi mustashfa.","tr":"He works in a hospital."},
+          {"t":"بِنِتْغَدَّى السَّاعَة اتْنَيْن.","r":"binitghadda s-sāʿa tnēn.","tr":"We have lunch at two."},
+          {"t":"بِتْحِبِّي الْكُشَرِي؟","r":"bitḥibbi l-kushari?","tr":"Do you like koshary? (to a woman)"},
+          {"t":"الْعِيَال بِيِلْعَبُوا بَرَّه.","r":"il-ʿiyāl biyilʿabu barra.","tr":"The kids are playing outside."},
+          {"t":"لَازِم أَمْشِي دِلْوَقْتِي.","r":"lāzim amshi dilwaʾti.","tr":"I have to go now."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"أَنَا أَشْرَب شَاي كُلّ يَوْم.","right":"أَنَا بَشْرَب شَاي كُلّ يَوْم.","tr":"I drink tea every day.","why":"Something you do regularly takes {{بِـ}}: {{بَشْرَب}}."},
+        {"wrong":"عَايِز بَاكُل.","right":"عَايِز آكُلْ.","tr":"I want to eat.","why":"After {{عَايِز}} the verb has no {{بِـ}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ فِي بَنْك.","tr":"I work in a bank.","options":["بَشْتَغَل","أَشْتَغِلُ","بِيِشْتَغَلُوا"],"answer":0,"why":"Every day, “I”: {{بَشْتَغَل}}.","r":"___ fi bank.","rs":["bashtaghal","ashtaghilu","biyishtaghalu"]},
+        {"type":"fill","q":"Choose the missing word.","t":"لَازِم ___ دِلْوَقْتِي.","tr":"I have to go now.","options":["أَمْشِي","بَمْشِي"],"answer":0,"why":"After {{لَازِم}}, no {{بِـ}}.","r":"lāzim ___ dilwaʾti.","rs":["amshi","bamshi"]},
+        {"type":"order","q":"Put the words in order.","tr":"The kids are playing outside.","words":["الْعِيَال","بِيِلْعَبُوا","بَرَّه."],"rs":["il-ʿiyāl","biyilʿabu","barra."]},
+        {"type":"choice","q":"Your friends, a group, speak Arabic. Which is Egyptian?","options":["{{إِنْتُو بِتِتْكَلِّمُوا عَرَبِي}}","{{أَنْتُمْ تَتَكَلَّمُونَ الْعَرَبِيَّةَ}}"],"answer":0,"why":"Egyptian: {{إِنْتُو}}, {{بِـ}}, and the plural {{ـُوا}} without {{ن}}.","from":"we-you-they"},
+        {"type":"free","q":"Your turn: say three things you do every day.","answers":[{"t":"بَصْحَى بَدْرِي، وِبَشْرَب شَاي، وِبَرُوح الشُّغْل.","r":"baṣḥa badri, wi-bashrab shāy, wi-barūḥ ish-shughl.","tr":"I get up early, drink tea and go to work."}]}
+      ]
+    },
+    {
+      "id": "right-now",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what's happening right now",
+      "summary": "{{بِـ}} also means “right now”; {{عَمَّال}} says “keeps on”; and words like {{رَايِح}} “going” and {{عَارِف}} “knowing” do the work of a verb.",
+      "topic": "{{بِـ}} for now; {{عَمَّال}} + present; doer words {{رَايِح}}, {{جَاي}}, {{عَارِف}}, {{فَاكِر}}, {{قَاعِد}}",
+      "blocks": [
+        {"goal":{"t":"أَنَا رَايِح الشُّغْل دِلْوَقْتِي.","r":"ana rāyiḥ ish-shughl dilwaʾti.","tr":"I'm on my way to work now."}},
+        {"dialog":[{"who":"Nour","t":"أَلُو، إِنْتَ فِين؟","r":"alō, inta fēn?","tr":"Hello, where are you?"},{"who":"Karim","t":"أَنَا جَاي فِي الطَّرِيق.","r":"ana gāy fi ṭ-ṭarīʾ.","tr":"I'm on my way."},{"who":"Nour","t":"عَمَّال تِتْأَخَّر كُلّ يَوْم!","r":"ʿammāl titʾakhkhar kull yōm!","tr":"You keep being late every day!"},{"who":"Karim","t":"مَعْلِش، الْمِتْرُو وَاقِف.","r":"maʿlish, il-mitro wāʾif.","tr":"Sorry, the metro's stopped."}]},
+        {"p":"{{بِـ}} covers both “I do” and “I'm doing”: {{بِتِعْمِل إِيه؟|bitiʿmil ē?}} is “What are you doing?” as well as “What do you do?”. The situation tells which."},
+        {"p":"**Keeps on**: {{عَمَّال|ʿammāl}} before a present verb says something goes on and on: {{عَمَّال يِتْكَلِّم|ʿammāl yitkallim}} he keeps talking. It agrees: {{عَمَّالَة|ʿammāla}} for a woman, {{عَمَّالِين|ʿammalīn}} for a group."},
+        {"p":"**Doer words** (the {{فَاعِل}} pattern of MSA) are used far more than in MSA, as the verb itself, for moving, knowing and staying: {{أَنَا رَايِح|ana rāyiḥ}} I'm going, {{هِيَّ جَايَّة|hiyya gayya}} she's coming, {{مِش عَارِف|mish ʿārif}} I don't know, {{فَاكِر؟|fākir?}} remember?. They change like adjectives:"},
+        { "table": [
+          ["","a man","a woman","a group"],
+          ["going","{{رَايِح|rāyiḥ}}","{{رَايْحَة|rayḥa}}","{{رَايْحِين|rayḥīn}}"],
+          ["coming","{{جَاي|gāy}}","{{جَايَّة|gayya}}","{{جَايِّين|gayyīn}}"],
+          ["knowing","{{عَارِف|ʿārif}}","{{عَارْفَة|ʿarfa}}","{{عَارْفِين|ʿarfīn}}"],
+          ["remembering","{{فَاكِر|fākir}}","{{فَاكْرَة|fakra}}","{{فَاكْرِين|fakrīn}}"],
+          ["sitting, staying","{{قَاعِد|ʾāʿid}}","{{قَاعْدَة|ʾaʿda}}","{{قَاعْدِين|ʾaʿdīn}}"]
+        ] },
+        { "ex": [
+          {"t":"هُوَّ نَايِم دِلْوَقْتِي.","r":"huwwa nāyim dilwaʾti.","tr":"He's asleep now."},
+          {"t":"إِنْتِي رَايْحَة فِين؟","r":"inti rayḥa fēn?","tr":"Where are you going? (to a woman)"},
+          {"t":"مِش فَاكِر اسْمَهَا.","r":"mish fākir ismaha.","tr":"I don't remember her name."},
+          {"t":"الْبِيبِي عَمَّال يِعَيَّط.","r":"il-bebi ʿammāl yiʿayyaṭ.","tr":"The baby keeps crying."},
+          {"t":"إِحْنَا قَاعْدِين فِي الْقَهْوَة.","r":"iḥna ʾaʿdīn fi l-ʾahwa.","tr":"We're sitting in the café."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"أَنَا أَذْهَبُ إِلَى الشُّغْل.","right":"أَنَا رَايِح الشُّغْل.","tr":"I'm going to work.","why":"Egyptian uses {{رَايِح}} “going” for where you're headed, with no {{إِلَى}} before the place."},
+        {"wrong":"هِيَّ رَايِح الْبَيْت.","right":"هِيَّ رَايْحَة الْبَيْت.","tr":"She's going home.","why":"Doer words agree like adjectives: {{رَايْحَة}} for a woman."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"هِيَّ ___ دِلْوَقْتِي.","tr":"She's coming now.","options":["جَاي","جَايَّة","جَايِّين"],"answer":1,"why":"A woman: {{جَايَّة}}.","r":"hiyya ___ dilwaʾti.","rs":["gāy","gayya","gayyīn"]},
+        {"type":"choice","q":"{{بِتِعْمِل إِيه؟}} can mean…","options":["only “What are you doing now?”","only “What do you do (for a living)?”","either: the situation tells"],"answer":2,"why":"{{بِـ}} covers both."},
+        {"type":"dialogue","q":"A friend calls you. Choose your replies.","from":"every-day-b","lines":[{"who":"Friend","t":"إِنْتَ فِين؟","r":"inta fēn?","tr":"Where are you?"},{"options":["أَنَا جَاي فِي الطَّرِيق.","أَنَا آتٍ فِي الطَّرِيقِ."],"answer":0,"why":"{{جَاي}} is Egyptian “coming”.","rs":["ana gāy fi ṭ-ṭarīʾ.","ana ātin fi ṭ-ṭarīqi."]},{"who":"Friend","t":"طَيِّب، بِتِعْمِل إِيه دِلْوَقْتِي؟","r":"ṭayyib, bitiʿmil ē dilwaʾti?","tr":"OK, what are you doing now?"},{"options":["بَشْتِرِي عِيش.","أَشْتَرِي عِيش."],"answer":0,"why":"Right now: {{بِـ}}, {{بَشْتِرِي}}.","rs":["bashtiri ʿēsh.","ashtari ʿēsh."]}]},
+        {"type":"say","q":"A man says “I don't know”. What does he say?","answer":"مِش عَارِف.","r":"mish ʿārif."},
+        {"type":"free","q":"Your turn: say where you're going today, and what someone near you keeps doing.","answers":[{"t":"أَنَا رَايِح السُّوق، وِأَخُويَا عَمَّال يِتْفَرَّج عَلَى الْمَاتْش.","r":"ana rāyiḥ is-sūʾ, wi-akhūya ʿammāl yitfarrag ʿala l-matsh.","tr":"I'm going to the market, and my brother keeps watching the match."}]}
+      ]
+    },
+    {
+      "id": "future-ha",
+      "unit": 2,
+      "level": "A1",
+      "title": "Talk about your plans",
+      "summary": "The future is {{هَـ}} in front of the present: {{هَرُوح بُكْرَة}} “I'll go tomorrow”.",
+      "topic": "{{هَـ}} (or {{حَـ}}) + the present: {{هَكْتِب}}, {{هَتِكْتِب}}, {{هَيِكْتِب}}; {{مِش هَـ}}",
+      "blocks": [
+        {"goal":{"t":"هَرُوح الْبَحْر بُكْرَة.","r":"harūḥ il-baḥr bukra.","tr":"I'll go to the seaside tomorrow."}},
+        {"dialog":[{"who":"Dina","t":"هَتِعْمِلُوا إِيه فِي الْأَجَازَة؟","r":"hatiʿmilu ē fi l-agāza?","tr":"What are you going to do on holiday?"},{"who":"Mark","t":"هَنْسَافِر إِسْكِنْدِرِيَّة.","r":"hansāfir iskindiriyya.","tr":"We'll go to Alexandria."},{"who":"Dina","t":"حِلْو! هَتُقْعُدُوا قَدّ إِيه؟","r":"ḥilw! hatuʾʿudu ʾadd ē?","tr":"Nice! How long will you stay?"},{"who":"Mark","t":"أُسْبُوع، وِمِش هَنِشْتَغَل خَالِص!","r":"usbūʿ, wi-mish hanishtaghal khāliṣ!","tr":"A week, and we won't work at all!"}]},
+        {"p":"MSA has {{سَـ}} and {{سَوْفَ}}. Egyptian puts {{هَـ|ha-}} (some people say {{حَـ|ḥa-}}) in front of the present, in place of {{بِـ}}: {{هَكْتِب|haktib}} I'll write, {{هَيِكْتِب|hayiktib}} he'll write, {{هَنِكْتِب|haniktib}} we'll write."},
+        { "table": [
+          ["","every day","tomorrow"],
+          ["I","{{بَرُوح|barūḥ}}","{{هَرُوح|harūḥ}}"],
+          ["you (man)","{{بِتْرُوح|bitrūḥ}}","{{هَتْرُوح|hatrūḥ}}"],
+          ["he","{{بِيْرُوح|biyrūḥ}}","{{هَيْرُوح|hayrūḥ}}"],
+          ["we","{{بِنْرُوح|binrūḥ}}","{{هَنْرُوح|hanrūḥ}}"],
+          ["they","{{بِيْرُوحُوا|biyrūḥu}}","{{هَيْرُوحُوا|hayrūḥu}}"]
+        ] },
+        {"p":"**Won't**: put {{مِش|mish}} in front: {{مِش هَرُوح|mish harūḥ}} I won't go. (The lesson on “not” shows the other way of saying it.)"},
+        { "ex": [
+          {"t":"هَكَلِّمَك بُكْرَة.","r":"hakallimak bukra.","tr":"I'll call you tomorrow."},
+          {"t":"هَتِيجِي الْحَفْلَة؟","r":"hatīgi l-ḥafla?","tr":"Will you come to the party?"},
+          {"t":"هَيُوصَلُوا السَّاعَة تَمَانْيَة.","r":"hayūṣalu s-sāʿa tamanya.","tr":"They'll arrive at eight."},
+          {"t":"مِش هَنِتْأَخَّر.","r":"mish hanitʾakhkhar.","tr":"We won't be late."},
+          {"t":"الْجَوّ هَيِبْقَى حَرّ.","r":"ig-gaww hayibʾa ḥarr.","tr":"The weather's going to be hot."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"سَأَرُوح بُكْرَة.","right":"هَرُوح بُكْرَة.","tr":"I'll go tomorrow.","why":"The Egyptian future is {{هَـ}}, not {{سَـ}}."},
+        {"wrong":"هَبَرُوح بُكْرَة.","right":"هَرُوح بُكْرَة.","tr":"I'll go tomorrow.","why":"{{هَـ}} takes the place of {{بِـ}}: never both."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"إِحْنَا ___ إِسْكِنْدِرِيَّة الْأُسْبُوع الْجَاي.","tr":"We'll go to Alexandria next week.","options":["هَنْرُوح","بِنْرُوح","سَنَذْهَبُ"],"answer":0,"why":"Next week: the future, {{هَـ}}.","r":"iḥna ___ iskindiriyya l-usbūʿ ig-gāy.","rs":["hanrūḥ","binrūḥ","sanadhhabu"]},
+        {"type":"fill","q":"Choose the missing word.","t":"مِش ___ الشُّغْل بُكْرَة.","tr":"I won't go to work tomorrow.","options":["هَرُوح","بَرُوح"],"answer":0,"why":"“Won't”: {{مِش}} + {{هَـ}}.","r":"mish ___ ish-shughl bukra.","rs":["harūḥ","barūḥ"]},
+        {"type":"order","q":"Put the words in order.","tr":"Will you come to the party?","words":["إِنْتَ","هَتِيجِي","الْحَفْلَة؟"],"rs":["inta","hatīgi","il-ḥafla?"]},
+        {"type":"choice","q":"A friend asks {{إِنْتَ فِين؟}}. You're on your way. You say…","options":["{{أَنَا جَاي}}","{{أَنَا هَاجِي}}","{{أَنَا بَاجِي}}"],"answer":0,"why":"On your way now: the doer word {{جَاي}}.","from":"right-now"},
+        {"type":"free","q":"Your turn: say three things you'll do this weekend.","answers":[{"t":"هَنَام كِتِير، وِهَقَابِل صُحَابِي، وِهَتْفَرَّج عَلَى فِيلْم.","r":"hanām kitīr, wi-haʾābil ṣuḥābi, wi-hatfarrag ʿala film.","tr":"I'll sleep a lot, meet my friends and watch a film."}]}
+      ]
+    },
+    {
+      "id": "past-endings",
+      "unit": 2,
+      "level": "A1",
+      "title": "Say what you did",
+      "summary": "The past works as in MSA, with shorter endings: {{كَتَبْت}} “I wrote, you wrote”, {{كَتَبُوا}} “they wrote”.",
+      "topic": "the past endings {{ـْت}}, {{ـْتِي}}, {{ـِت}}, {{ـْنَا}}, {{ـْتُوا}}, {{ـُوا}}",
+      "blocks": [
+        {"goal":{"t":"امْبَارِح رُحْت السِّينِمَا مَعَ صُحَابِي.","r":"imbāriḥ ruḥt is-sinima maʿa ṣuḥābi.","tr":"Yesterday I went to the cinema with my friends."}},
+        {"dialog":[{"who":"Salma","t":"عَمَلْت إِيه امْبَارِح؟","r":"ʿamalt ē imbāriḥ?","tr":"What did you do yesterday?"},{"who":"Ali","t":"رُحْت السِّينِمَا. وِإِنْتِي؟","r":"ruḥt is-sinima. wi-inti?","tr":"I went to the cinema. And you?"},{"who":"Salma","t":"قَعَدْت فِي الْبَيْت وِذَاكِرْت.","r":"ʾaʿadt fi l-bēt wi-zākirt.","tr":"I stayed home and studied."},{"who":"Ali","t":"وِأَخُوكِي؟","r":"wi-akhūki?","tr":"And your brother?"},{"who":"Salma","t":"هُوَّ وِصُحَابُه لِعْبُوا كُورَة.","r":"huwwa wi-ṣḥābu liʿbu kōra.","tr":"He and his friends played football."}]},
+        {"p":"The past is the MSA past without its final vowels. **I** and **you (man)** are the same: {{كَتَبْت|katabt}}. **You (woman)** adds -i: {{كَتَبْتِي|katabti}}. **She** is {{كَتَبِت|katabit}}. **We** {{كَتَبْنَا|katabna}}, **you all** {{كَتَبْتُوا|katabtu}}, **they** {{كَتَبُوا|katabu}}. There are no dual or feminine plural forms."},
+        { "table": [
+          ["","MSA","Egyptian"],
+          ["I wrote","{{كَتَبْتُ}}","{{كَتَبْت|katabt}}"],
+          ["you wrote (man)","{{كَتَبْتَ}}","{{كَتَبْت|katabt}}"],
+          ["you wrote (woman)","{{كَتَبْتِ}}","{{كَتَبْتِي|katabti}}"],
+          ["he wrote","{{كَتَبَ}}","{{كَتَب|katab}}"],
+          ["she wrote","{{كَتَبَتْ}}","{{كَتَبِت|katabit}}"],
+          ["we wrote","{{كَتَبْنَا}}","{{كَتَبْنَا|katabna}}"],
+          ["you all wrote","{{كَتَبْتُمْ}}","{{كَتَبْتُوا|katabtu}}"],
+          ["they wrote","{{كَتَبُوا}}","{{كَتَبُوا|katabu}}"]
+        ] },
+        {"p":"Many verbs that are {{فَعِلَ}} in MSA are said with i…i in Cairo: {{شِرِب|shirib}} he drank, {{فِهِم|fihim}} he understood, {{لِعِب|liʿib}} he played. Their endings are the same: {{شِرِبْت|shiribt}}, {{لِعْبُوا|liʿbu}}."},
+        { "ex": [
+          {"t":"شِرِبْت شَاي وِأَكَلْت سَنْدَوِتْش.","r":"shiribt shāy wi-akalt sandawitsh.","tr":"I drank tea and ate a sandwich."},
+          {"t":"هِيَّ وِصْلِت امْبَارِح بِاللَّيْل.","r":"hiyya wiṣlit imbāriḥ bi-l-lēl.","tr":"She arrived last night."},
+          {"t":"إِنْتِي فِهِمْتِي؟","r":"inti fihimti?","tr":"Did you understand? (to a woman)"},
+          {"t":"إِحْنَا اتْغَدَّيْنَا بَدْرِي.","r":"iḥna tghaddēna badri.","tr":"We had lunch early."},
+          {"t":"إِنْتُو رَكَنْتُوا الْعَرَبِيَّة فِين؟","r":"intu rakantu l-ʿarabiyya fēn?","tr":"Where did you all park the car?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"هِيَّ كَتَبَتْ.","right":"هِيَّ كَتَبِت.","tr":"She wrote.","why":"“She” ends in {{ـِت|-it}} in Egyptian."},
+        {"wrong":"إِنْتُو كَتَبْتُمْ.","right":"إِنْتُو كَتَبْتُوا.","tr":"You all wrote.","why":"“You all” ends in {{ـْتُوا|-tu}}, not -tum."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"امْبَارِح ___ السِّينِمَا.","tr":"Yesterday she went to the cinema.","options":["رَاحِت","رَاحَتْ","رُحْت"],"answer":0,"why":"“She”: {{ـِت}}, {{رَاحِت|rāḥit}}.","r":"imbāriḥ ___ is-sinima.","rs":["rāḥit","rāḥat","ruḥt"]},
+        {"type":"fill","q":"Choose the missing word.","t":"إِنْتِي ___ إِيه؟","tr":"What did you eat? (to a woman)","options":["أَكَلْتِي","أَكَلْت","أَكَلْتُوا"],"answer":0,"why":"To a woman: {{ـْتِي}}.","r":"inti ___ ē?","rs":["akalti","akalt","akaltu"]},
+        {"type":"choice","q":"“Yesterday I went, tomorrow I'll go.” Which is right?","options":["{{امْبَارِح رُحْت، وِبُكْرَة هَرُوح}}","{{امْبَارِح هَرُوح، وِبُكْرَة رُحْت}}"],"answer":0,"why":"Past: {{رُحْت}}; future: {{هَرُوح}}.","from":"future-ha"},
+        {"type":"order","q":"Put the words in order.","tr":"They played football.","words":["هُمَّا","لِعْبُوا","كُورَة."],"rs":["humma","liʿbu","kōra."]},
+        {"type":"free","q":"Your turn: say three things you did yesterday.","answers":[{"t":"صِحِيت بَدْرِي، وِرُحْت الشُّغْل، وِاتْعَشَّيْت مَعَ أَهْلِي.","r":"ṣiḥīt badri, wi-ruḥt ish-shughl, wi-tʿashshēt maʿa ahli.","tr":"I got up early, went to work and had dinner with my family."}]}
+      ]
+    },
+    {
+      "id": "saying-no",
+      "unit": 3,
+      "level": "A2",
+      "title": "Say no and not",
+      "summary": "Two ways to say “not”: {{مَا…ش}} round a verb ({{مَاشُفْتُوش}} “I didn't see him”) and {{مِش}} before everything else.",
+      "topic": "{{مَا…ش}} with past and present verbs and with {{عَنْد}}; {{مِش}} with the future, doer words, adjectives and nouns; {{مَفِيش}}",
+      "blocks": [
+        {"goal":{"t":"مَعْرَفْش، مَاشُفْتُوش النَّهَارْدَه.","r":"maʿrafsh, mashuftūsh in-nahārda.","tr":"I don't know, I haven't seen him today."}},
+        {"dialog":[{"who":"Mother","t":"شُفْت أَخُوك؟","r":"shuft akhūk?","tr":"Have you seen your brother?"},{"who":"Son","t":"لَأْ، مَاشُفْتُوش.","r":"laʾ, mashuftūsh.","tr":"No, I haven't seen him."},{"who":"Mother","t":"هُوَّ مِش فِي أُوضْتُه؟","r":"huwwa mish fi ʾoḍtu?","tr":"Isn't he in his room?"},{"who":"Son","t":"لَأْ، وِمَبِيْرُدِّش عَلَى التِّلِيفُون.","r":"laʾ, wi-mabiyruddish ʿala t-tilifōn.","tr":"No, and he isn't answering the phone."}]},
+        {"p":"MSA has {{لَا}}, {{لَمْ}}, {{لَنْ}}, {{مَا}} and {{لَيْسَ}}. Egyptian has two. **{{مَا…ش}}** wraps round a verb: {{مَا|ma-}} in front, {{ـْش|-sh}} at the end, written as one word: {{شُفْت}} → {{مَاشُفْتِش|mashuftish}} I didn't see; {{بَعْرَف}} → {{مَبَعْرَفْش|mabaʿrafsh}} I don't know."},
+        {"p":"An ending for “him, it, me” comes before the {{ش}}: {{شُفْتُه}} I saw him → {{مَاشُفْتُوش|mashuftūsh}} I didn't see him. {{ش}} also goes on {{عَنْد}} and {{فِيه}}: {{مَعَنْدِيش|maʿandīsh}} I haven't got, {{مَفِيش|mafīsh}} there isn't."},
+        {"p":"**{{مِش|mish}}** goes before everything that isn't a plain verb: the future ({{مِش هَرُوح}} I won't go), doer words ({{مِش عَارِف}} I don't know), adjectives ({{مِش غَالِي}} not expensive), nouns and places ({{مِش هِنَا}} not here). It does the work of MSA {{لَيْسَ}} and more."},
+        { "table": [
+          ["","yes","no"],
+          ["I went","{{رُحْت|ruḥt}}","{{مَارُحْتِش|maruḥtish}}"],
+          ["he knows","{{بِيِعْرَف|biyiʿraf}}","{{مَبِيِعْرَفْش|mabiyiʿrafsh}}"],
+          ["I've got","{{عَنْدِي|ʿandi}}","{{مَعَنْدِيش|maʿandīsh}}"],
+          ["I'll go","{{هَرُوح|harūḥ}}","{{مِش هَرُوح|mish harūḥ}}"],
+          ["I know (a man)","{{عَارِف|ʿārif}}","{{مِش عَارِف|mish ʿārif}}"],
+          ["expensive","{{غَالِي|ghāli}}","{{مِش غَالِي|mish ghāli}}"]
+        ] },
+        { "ex": [
+          {"t":"مَافِهِمْتِش.","r":"mafihimtish.","tr":"I didn't understand."},
+          {"t":"مَبَحِبِّش الْقَهْوَة.","r":"mabaḥibbish il-ʾahwa.","tr":"I don't like coffee."},
+          {"t":"الْمَطْعَم دَه مِش غَالِي.","r":"il-maṭʿam da mish ghāli.","tr":"This restaurant isn't expensive."},
+          {"t":"مَعَنْدِيش وَقْت النَّهَارْدَه.","r":"maʿandīsh waʾt in-nahārda.","tr":"I haven't got time today."},
+          {"t":"مَتِقْلَقْش!","r":"matiʾlaʾsh!","tr":"Don't worry!"}
+        ] },
+        {"tip":"Telling someone not to do something works the same way, on the present without {{بِـ}}: {{مَتِقْلَقْش|matiʾlaʾsh}} don't worry, {{مَتْرُوحِيش|matruḥīsh}} don't go (to a woman)."}
+      ],
+      "mistakes": [
+        {"wrong":"مِش رُحْت.","right":"مَارُحْتِش.","tr":"I didn't go.","why":"A plain verb takes {{مَا…ش}} round it, not {{مِش}}."},
+        {"wrong":"مَهَرُوحْش.","right":"مِش هَرُوح.","tr":"I won't go.","why":"The future takes {{مِش}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"أَنَا ___ عَارِف.","tr":"I don't know.","options":["مِش","مَا","لَا"],"answer":0,"why":"A doer word takes {{مِش}}.","r":"ana ___ ʿārif.","rs":["mish","ma","la"]},
+        {"type":"choice","q":"“I didn't eat” is…","options":["{{مِش أَكَلْت}}","{{مَاكَلْتِش}}","{{لَمْ آكُلْ}}"],"answer":1,"why":"A past verb: {{مَا…ش}} round it."},
+        {"type":"dialogue","q":"A waiter asks you things. Choose your replies.","from":"every-day-b","lines":[{"who":"Waiter","t":"تِشْرَب قَهْوَة؟","r":"tishrab ʾahwa?","tr":"Would you like a coffee?"},{"options":["لَأْ، شُكْرًا، مَبَشْرَبْش قَهْوَة.","لَأْ، شُكْرًا، لَا أَشْرَبُ الْقَهْوَةَ."],"answer":0,"why":"Egyptian: {{مَا…ش}} round the verb.","rs":["laʾ, shukran, mabashrabsh ʾahwa.","laʾ, shukran, lā ashrabu l-qahwata."]},{"who":"Waiter","t":"طَيِّب، عَايِز حَاجَة تَانْيَة؟","r":"ṭayyib, ʿāyiz ḥāga tanya?","tr":"OK, would you like anything else?"},{"options":["لَأْ، مِش عَايِز حَاجَة.","لَأْ، مَاعَايِزْش حَاجَة."],"answer":0,"why":"{{عَايِز}} is a doer word: {{مِش عَايِز}}.","rs":["laʾ, mish ʿāyiz ḥāga.","laʾ, maʿayizsh ḥāga."]}]},
+        {"type":"say","q":"How do you say “We won't go”?","answer":"مِش هَنْرُوح.","r":"mish hanrūḥ.","from":"future-ha"},
+        {"type":"free","q":"Your turn: say two things you don't like and one thing you didn't do yesterday.","answers":[{"t":"مَبَحِبِّش الزَّحْمَة وَلَا الدَّوْشَة، وِامْبَارِح مَارُحْتِش الشُّغْل.","r":"mabaḥibbish iz-zaḥma wala d-dawsha, wi-mbāriḥ maruḥtish ish-shughl.","tr":"I don't like crowds or noise, and yesterday I didn't go to work."}]}
+      ]
+    },
+    {
+      "id": "question-words",
+      "unit": 3,
+      "level": "A2",
+      "title": "Ask who, what, where and when",
+      "summary": "Egyptian question words are new words, and they like the end of the question: {{اسْمَك إِيه؟}} “What's your name?”",
+      "topic": "{{إِيه}}, {{مِين}}, {{فِين}}, {{إِمْتَى}}, {{إِزَّاي}}, {{لِيه}}, {{كَام}}, {{أَنْهِي}}, {{مِنِين}}, often at the end",
+      "blocks": [
+        {"goal":{"t":"اسْمَك إِيه؟ وِإِنْتَ مِنِين؟","r":"ismak ē? wi-inta minēn?","tr":"What's your name? And where are you from?"}},
+        {"dialog":[{"who":"Driver","t":"عَلَى فِين يَا بَاشَا؟","r":"ʿala fēn ya bāsha?","tr":"Where to, sir?"},{"who":"Passenger","t":"الزَّمَالِك. هَنُوصَل إِمْتَى؟","r":"iz-zamālik. hanūṣal imta?","tr":"Zamalek. When will we get there?"},{"who":"Driver","t":"عَشَر دَقَايِق.","r":"ʿashar daʾāyiʾ.","tr":"Ten minutes."},{"who":"Passenger","t":"وِالْأُجْرَة كَام؟","r":"wi-l-ugra kām?","tr":"And how much is the fare?"},{"who":"Driver","t":"خَمْسِين جِنَيْه.","r":"khamsīn ginē.","tr":"Fifty pounds."}]},
+        {"p":"The question words of MSA are replaced, and most of them go **where the answer would be**, often at the end: MSA {{مَا اسْمُكَ؟}}, Egyptian {{اسْمَك إِيه؟|ismak ē?}}, “your name is what?”; {{إِنْتَ رَايِح فِين؟|inta rāyiḥ fēn?}}, “you're going where?”."},
+        { "table": [
+          ["","MSA","Egyptian","Example"],
+          ["what","{{مَاذَا، مَا}}","{{إِيه|ē}}","{{بِتِعْمِل إِيه؟|bitiʿmil ē?}}"],
+          ["who","{{مَنْ}}","{{مِين|mīn}}","{{مِين دَه؟|mīn da?}}"],
+          ["where","{{أَيْنَ}}","{{فِين|fēn}}","{{الْحَمَّام فِين؟|il-ḥammām fēn?}}"],
+          ["where from","{{مِنْ أَيْنَ}}","{{مِنِين|minēn}}","{{إِنْتِي مِنِين؟|inti minēn?}}"],
+          ["when","{{مَتَى}}","{{إِمْتَى|imta}}","{{هَتِيجِي إِمْتَى؟|hatīgi imta?}}"],
+          ["how","{{كَيْفَ}}","{{إِزَّاي|izzāy}}","{{أَرُوح إِزَّاي؟|arūḥ izzāy?}}"],
+          ["why","{{لِمَاذَا}}","{{لِيه|lē}}","{{لِيه زَعْلَان؟|lē zaʿlān?}}"],
+          ["how much, how many","{{كَمْ}}","{{كَام|kām}}","{{بِكَام دَه؟|bi-kām da?}}"],
+          ["which","{{أَيّ}}","{{أَنْهِي|anhi}}","{{أَنْهِي وَاحِد؟|anhi wāḥid?}}"]
+        ] },
+        {"p":"{{لِيه}} and {{إِزَّاي}} often start the question; the others like the end. A yes-or-no question is just a sentence said with a rising voice: {{إِنْتَ مَصْرِي؟|inta maṣri?}}. Egyptian has no {{هَلْ}}."},
+        { "ex": [
+          {"t":"دِي شَنْطِة مِين؟","r":"di shanṭit mīn?","tr":"Whose bag is this?"},
+          {"t":"الْمِتْرُو فِين؟","r":"il-mitro fēn?","tr":"Where's the metro?"},
+          {"t":"إِنْتُو جِيتُوا إِمْتَى؟","r":"intu gītu imta?","tr":"When did you all come?"},
+          {"t":"إِزَّاي أَرُوح التَّحْرِير؟","r":"izzāy arūḥ it-taḥrīr?","tr":"How do I get to Tahrir?"},
+          {"t":"عَنْدَك كَام سَنَة؟","r":"ʿandak kām sana?","tr":"How old are you?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"هَلْ إِنْتَ مَصْرِي؟","right":"إِنْتَ مَصْرِي؟","tr":"Are you Egyptian?","why":"Egyptian has no {{هَلْ}}: just raise your voice."},
+        {"wrong":"مَا اسْمَك؟","right":"اسْمَك إِيه؟","tr":"What's your name?","why":"“What” is {{إِيه}}, at the end."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"اسْمَك ___؟","tr":"What's your name?","options":["إِيه","مِين","فِين"],"answer":0,"why":"“What”: {{إِيه}}.","r":"ismak ___?","rs":["ē","mīn","fēn"]},
+        {"type":"fill","q":"Choose the missing word.","t":"الْحَمَّام ___؟","tr":"Where's the toilet?","options":["فِين","إِمْتَى","لِيه"],"answer":0,"why":"“Where”: {{فِين}}.","r":"il-ḥammām ___?","rs":["fēn","imta","lē"]},
+        {"type":"order","q":"Put the words in order.","tr":"Where are you going?","words":["إِنْتَ","رَايِح","فِين؟"],"rs":["inta","rāyiḥ","fēn?"]},
+        {"type":"choice","q":"“When did you (all) arrive?” is…","options":["{{وِصِلْتُوا إِمْتَى؟}}","{{مَتَى وَصَلْتُمْ؟}}","{{هَتُوصَلُوا إِمْتَى؟}}"],"answer":0,"why":"The past for “you all”, {{وِصِلْتُوا}}, and {{إِمْتَى}} at the end.","from":"past-endings"},
+        {"type":"free","q":"Your turn: ask a new friend three questions.","answers":[{"t":"اسْمَك إِيه؟ إِنْتَ مِنِين؟ بِتِشْتَغَل فِين؟","r":"ismak ē? inta minēn? bitishtaghal fēn?","tr":"What's your name? Where are you from? Where do you work?"}]}
+      ]
+    },
+    {
+      "id": "this-and-that",
+      "unit": 3,
+      "level": "A2",
+      "title": "Point at this one and that one",
+      "summary": "{{دَه}}, {{دِي}} and {{دُول}} mean both “this” and “that”, and they come after the noun: {{الْكِتَاب دَه}}.",
+      "topic": "{{دَه}}, {{دِي}}, {{دُول}} after the noun: {{الْبِنْت دِي}}",
+      "blocks": [
+        {"goal":{"t":"عَايِز الْقَمِيص دَه، مِش دَه.","r":"ʿāyiz il-ʾamīṣ da, mish da.","tr":"I want this shirt, not that one."}},
+        {"dialog":[{"who":"Customer","t":"بِكَام الْقَمِيص دَه؟","r":"bi-kām il-ʾamīṣ da?","tr":"How much is this shirt?"},{"who":"Seller","t":"دَه بِمِيتَيْن جِنَيْه.","r":"da bi-mitēn ginē.","tr":"That one's two hundred pounds."},{"who":"Customer","t":"وِالْجَزْمَة دِي؟","r":"wi-g-gazma di?","tr":"And these shoes?"},{"who":"Seller","t":"دِي بِأَرْبَعْمِيَّة.","r":"di b-arbaʿmiyya.","tr":"Those are four hundred."}]},
+        {"p":"MSA has {{هَذَا}} and {{ذَلِكَ}}, {{هَذِهِ}} and {{تِلْكَ}}. Egyptian has one set for near and far: {{دَه|da}} for a masculine word, {{دِي|di}} for a feminine word and for things in the plural, {{دُول|dōl}} for people in the plural."},
+        {"p":"With “the”, it comes **after** the noun: {{الْكِتَاب دَه|il-kitāb da}} this book, {{الْبِنْت دِي|il-bint di}} this girl, {{الْكُتُب دِي|il-kutub di}} these books. At the start of a sentence it means “this is”: {{دَه كِتَابِي|da kitābi}} this is my book."},
+        { "table": [
+          ["","this, that","this… / that…"],
+          ["masculine","{{دَه|da}}","{{الْوَلَد دَه|il-walad da}}"],
+          ["feminine, and things in the plural","{{دِي|di}}","{{الْعَرَبِيَّة دِي|il-ʿarabiyya di}}"],
+          ["people in the plural","{{دُول|dōl}}","{{النَّاس دُول|in-nās dōl}}"]
+        ] },
+        { "ex": [
+          {"t":"مِين الرَّاجِل دَه؟","r":"mīn ir-rāgil da?","tr":"Who's that man?"},
+          {"t":"الشَّقَّة دِي وَاسْعَة.","r":"ish-shaʾʾa di wasʿa.","tr":"This flat is roomy."},
+          {"t":"دَه أَحْسَن مَطْعَم فِي الْحِتَّة.","r":"da aḥsan maṭʿam fi l-ḥitta.","tr":"This is the best restaurant around here."},
+          {"t":"الْعِيَال دُول بِتُوع مِين؟","r":"il-ʿiyāl dōl bitūʿ mīn?","tr":"Whose kids are those?"},
+          {"t":"إِيه دَه؟","r":"ē da?","tr":"What's this?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"دَه الْكِتَاب حِلْو.","right":"الْكِتَاب دَه حِلْو.","tr":"This book is good.","why":"For “this book”, {{دَه}} goes after the noun. {{دَه الْكِتَاب}} means “this is the book”."},
+        {"wrong":"الْعَرَبِيَّة دَه جْدِيدَة.","right":"الْعَرَبِيَّة دِي جْدِيدَة.","tr":"This car is new.","why":"{{عَرَبِيَّة}} is feminine: {{دِي}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْبِنْت ___ أُخْتِي.","tr":"That girl is my sister.","options":["دِي","دَه","دُول"],"answer":0,"why":"{{بِنْت}} is feminine: {{دِي}}.","r":"il-bint ___ ukhti.","rs":["di","da","dōl"]},
+        {"type":"choice","q":"“This book” is…","options":["{{هَذَا الْكِتَابُ}}","{{الْكِتَاب دَه}}","{{دَه كِتَاب}}"],"answer":1,"why":"After the noun: {{الْكِتَاب دَه}}. ({{دَه كِتَاب}} is “this is a book”.)"},
+        {"type":"order","q":"Put the words in order.","tr":"Who's that man?","words":["مِين","الرَّاجِل","دَه؟"],"rs":["mīn","ir-rāgil","da?"]},
+        {"type":"say","q":"In a shop, ask “How much is this?” about a bag ({{شَنْطَة}}, feminine).","answer":"بِكَام دِي؟","r":"bi-kām di?","from":"question-words"},
+        {"type":"free","q":"Your turn: point at three things around you and say something about each.","answers":[{"t":"الْكُبَّايَة دِي فَاضْيَة، وِالْكُرْسِي دَه مُرِيح.","r":"il-kubbāya di faḍya, wi-l-kursi da murīḥ.","tr":"This glass is empty, and this chair is comfortable."}]}
+      ]
+    },
+    {
+      "id": "whose-bitaa",
+      "unit": 3,
+      "level": "A2",
+      "title": "Say whose it is with {{بِتَاع}}",
+      "summary": "Besides the endings you know, Egyptian says “my, your” with {{بِتَاع}}: {{الْعَرَبِيَّة بِتَاعْتِي}} “my car”.",
+      "topic": "{{بِتَاع}}, {{بِتَاعِة}}, {{بِتُوع}} + an ending or a noun",
+      "blocks": [
+        {"goal":{"t":"دِي الشَّنْطَة بِتَاعْتِي، مِش بِتَاعْتَك.","r":"di sh-shanṭa btaʿti, mish btaʿtak.","tr":"That's my bag, not yours."}},
+        {"dialog":[{"who":"Hala","t":"الْمُوبَايِل دَه بِتَاعَك؟","r":"il-mobāyil da btāʿak?","tr":"Is this phone yours?"},{"who":"Ziad","t":"لَأْ، دَه بِتَاع أَخُويَا.","r":"laʾ, da btāʿ akhūya.","tr":"No, it's my brother's."},{"who":"Hala","t":"وِالْمَفَاتِيح دِي؟","r":"wi-l-mafatīḥ di?","tr":"And these keys?"},{"who":"Ziad","t":"دِي بِتَاعْتِي. مِيرْسِي!","r":"di btaʿti. mersi!","tr":"They're mine. Thanks!"}]},
+        {"p":"You can say {{عَرَبِيتِي|ʿarabiti}} “my car” with an ending, as in MSA. But Egyptians very often say {{الْعَرَبِيَّة بِتَاعْتِي|il-ʿarabiyya btaʿti}}, “the car belonging to me”. {{بِتَاع}} comes after a noun with “the”, and takes an ending or another noun: {{بِتَاع أَخُويَا|bitāʿ akhūya}} my brother's."},
+        {"p":"It agrees with the thing owned: {{بِتَاع|bitāʿ}} for a masculine word, {{بِتَاعِة|bitāʿit}} for a feminine word and for things in the plural ({{بِتَاعْت|bitaʿt-}} before an ending), {{بِتُوع|bitūʿ}} for people in the plural. On its own it means “mine, yours”: {{دَه بِتَاعِي|da btāʿi}} this is mine."},
+        { "table": [
+          ["","masculine","feminine and things","people"],
+          ["mine","{{بِتَاعِي|bitāʿi}}","{{بِتَاعْتِي|bitaʿti}}","{{بِتُوعِي|bitūʿi}}"],
+          ["yours (man)","{{بِتَاعَك|bitāʿak}}","{{بِتَاعْتَك|bitaʿtak}}","{{بِتُوعَك|bitūʿak}}"],
+          ["his","{{بِتَاعُه|bitāʿu}}","{{بِتَاعْتُه|bitaʿtu}}","{{بِتُوعُه|bitūʿu}}"],
+          ["ours","{{بِتَاعْنَا|bitaʿna}}","{{بِتَاعِتْنَا|bitaʿitna}}","{{بِتُوعْنَا|bitūʿna}}"]
+        ] },
+        {"p":"{{بِتَاع}} is for things you own, especially long or foreign words ({{الْمُوبَايِل بِتَاعِي}}). Family and the body keep the ending: {{أُمِّي}} my mother, never {{الْأُمّ بِتَاعْتِي}}."},
+        { "ex": [
+          {"t":"الْكِتَاب دَه بِتَاع مِين؟","r":"il-kitāb da btāʿ mīn?","tr":"Whose is this book?"},
+          {"t":"دِي الشَّقَّة بِتَاعِتْنَا.","r":"di sh-shaʾʾa btaʿitna.","tr":"This is our flat."},
+          {"t":"الْعِيَال دُول بِتُوع جَارْنَا.","r":"il-ʿiyāl dōl bitūʿ garna.","tr":"Those kids are our neighbour's."},
+          {"t":"اللَّابْتُوب بِتَاعِي بَايِظ.","r":"il-labtob btāʿi bāyiẓ.","tr":"My laptop is broken."},
+          {"t":"فِين الْمُفْتَاح بِتَاع الْعَرَبِيَّة؟","r":"fēn il-muftāḥ btāʿ il-ʿarabiyya?","tr":"Where's the car key?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"الشَّنْطَة بِتَاعِي.","right":"الشَّنْطَة بِتَاعْتِي.","tr":"the bag that's mine","why":"{{شَنْطَة}} is feminine: {{بِتَاعْتِي}}."},
+        {"wrong":"الْأُمّ بِتَاعْتِي تَعْبَانَة.","right":"أُمِّي تَعْبَانَة.","tr":"My mother is tired.","why":"Family keeps the ending: {{أُمِّي}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"الْعَرَبِيَّة ___ حَمْرَا.","tr":"My car is red.","options":["بِتَاعْتِي","بِتَاعِي","بِتُوعِي"],"answer":0,"why":"{{عَرَبِيَّة}} is feminine: {{بِتَاعْتِي}}.","r":"il-ʿarabiyya ___ ḥamra.","rs":["bitaʿti","bitāʿi","bitūʿi"]},
+        {"type":"choice","q":"“Is this yours?”, about a pen ({{قَلَم}}), to a man:","options":["{{دَه بِتَاعَك؟}}","{{دِي بِتَاعْتَك؟}}","{{دُول بِتُوعَك؟}}"],"answer":0,"why":"{{قَلَم}} is masculine: {{دَه}} and {{بِتَاعَك}}.","from":"this-and-that"},
+        {"type":"order","q":"Put the words in order.","tr":"This is our flat.","words":["دِي","الشَّقَّة","بِتَاعِتْنَا."],"rs":["di","ish-shaʾʾa","bitaʿitna."]},
+        {"type":"say","q":"Ask “Whose is this book?”","answer":"الْكِتَاب دَه بِتَاع مِين؟","r":"il-kitāb da btāʿ mīn?","from":"question-words"},
+        {"type":"free","q":"Your turn: say whose some things near you are.","answers":[{"t":"الْمُوبَايِل دَه بِتَاعِي، وِالشَّنْطَة دِي بِتَاعِة أُخْتِي.","r":"il-mobāyil da btāʿi, wi-sh-shanṭa di btaʿit ukhti.","tr":"This phone is mine, and this bag is my sister's."}]}
+      ]
+    },
+    {
+      "id": "who-which-illi",
+      "unit": 3,
+      "level": "A2",
+      "title": "Say “the one who…” with {{اللِّي}}",
+      "summary": "{{الَّذِي}}, {{الَّتِي}} and {{الَّذِينَ}} are all {{اللِّي}} in Egyptian.",
+      "topic": "{{اللِّي}} for who, which, that and what",
+      "blocks": [
+        {"goal":{"t":"فِين الْكِتَاب اللِّي اشْتَرَيْتُه امْبَارِح؟","r":"fēn il-kitāb illi shtarētu mbāriḥ?","tr":"Where's the book I bought yesterday?"}},
+        {"dialog":[{"who":"Rana","t":"مِين الْبِنْت اللِّي كَانِت مَعَاك؟","r":"mīn il-bint illi kānit maʿāk?","tr":"Who's the girl who was with you?"},{"who":"Hossam","t":"دِي سَلْمَى، اللِّي بِتِشْتَغَل مَعَايَا.","r":"di salma, illi bitishtaghal maʿāya.","tr":"That's Salma, who works with me."},{"who":"Rana","t":"آهْ، اللِّي حَكَيْتْلِي عَنْهَا؟","r":"āh, illi ḥakētli ʿanha?","tr":"Oh, the one you told me about?"},{"who":"Hossam","t":"بِالظَّبْط.","r":"bi-ẓ-ẓabṭ.","tr":"Exactly."}]},
+        {"p":"MSA changes the word: {{الَّذِي}}, {{الَّتِي}}, {{اللَّذَانِ}}, {{الَّذِينَ}}… Egyptian has one word for all of them, {{اللِّي|illi}}, and it never changes: {{الرَّاجِل اللِّي|ir-rāgil illi}}, {{السِّتّ اللِّي|is-sitt illi}}, {{النَّاس اللِّي|in-nās illi}}."},
+        {"p":"As in MSA, when the thing talked about is the object, the verb after {{اللِّي}} takes an ending for it: {{الْفِيلْم اللِّي شُفْتُه|il-film illi shuftu}} the film (that) I saw (it). On its own, {{اللِّي}} means “what” or “the one who”: {{اللِّي فَات مَات|illi fāt māt}} what's past is dead (let bygones be bygones)."},
+        { "ex": [
+          {"t":"مُرَاد هُوَّ اللِّي قَالِّي.","r":"murād huwwa lli ʾalli.","tr":"Murad's the one who told me."},
+          {"t":"خُد اللِّي إِنْتَ عَايْزُه.","r":"khud illi inta ʿayzu.","tr":"Take what you want."},
+          {"t":"دَه الْمَطْعَم اللِّي بَحِبُّه.","r":"da l-maṭʿam illi baḥibbu.","tr":"This is the restaurant I love."},
+          {"t":"النَّاس اللِّي جُم امْبَارِح لُطَاف.","r":"in-nās illi gum imbāriḥ luṭāf.","tr":"The people who came yesterday are nice."},
+          {"t":"فِين الْوَرَق اللِّي كَان هِنَا؟","r":"fēn il-waraʾ illi kān hina?","tr":"Where are the papers that were here?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"الْبِنْت الَّتِي بِتِشْتَغَل مَعَايَا.","right":"الْبِنْت اللِّي بِتِشْتَغَل مَعَايَا.","tr":"the girl who works with me","why":"Egyptian has only {{اللِّي}}."},
+        {"wrong":"الْفِيلْم اللِّي شُفْت.","right":"الْفِيلْم اللِّي شُفْتُه.","tr":"the film I saw","why":"The film is the object: the verb takes an ending for it, {{شُفْتُه}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"النَّاس ___ جُم امْبَارِح لُطَاف.","tr":"The people who came yesterday are nice.","options":["اللِّي","الَّذِينَ","الَّتِي"],"answer":0,"why":"Egyptian: {{اللِّي}} for everyone.","r":"in-nās ___ gum imbāriḥ luṭāf.","rs":["illi","alladhīna","allatī"]},
+        {"type":"fill","q":"Choose the missing word.","t":"فِين الْكِتَاب اللِّي ___؟","tr":"Where's the book I bought?","options":["اشْتَرَيْتُه","اشْتَرَيْت"],"answer":0,"why":"The book is the object: {{اشْتَرَيْتُه}} “I bought it”.","r":"fēn il-kitāb illi ___?","rs":["ishtarētu","ishtarēt"]},
+        {"type":"order","q":"Put the words in order.","tr":"Take what you want.","words":["خُد","اللِّي","إِنْتَ","عَايْزُه."],"rs":["khud","illi","inta","ʿayzu."]},
+        {"type":"choice","q":"“the girl who came yesterday” is…","options":["{{الْبِنْت اللِّي جَت امْبَارِح}}","{{الْبِنْت اللِّي جِيت امْبَارِح}}","{{الْبِنْتُ الَّتِي جَاءَتْ أَمْسِ}}"],"answer":0,"why":"“She came” is {{جَت}}, and “who” is {{اللِّي}}.","from":"past-endings"},
+        {"type":"free","q":"Your turn: describe two people you know with {{اللِّي}}.","answers":[{"t":"أَخُويَا هُوَّ اللِّي بِيُطْبُخ فِي الْبَيْت، وِصَاحِبْتِي هِيَّ اللِّي بِتْسَاعِدْنِي.","r":"akhūya huwwa lli biyuṭbukh fi l-bēt, wi-ṣaḥbiti hiyya lli bitsaʿidni.","tr":"My brother is the one who cooks at home, and my friend is the one who helps me."}]}
+      ]
+    },
+    {
+      "id": "want-and-must",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what you want, need and must do",
+      "summary": "{{عَايِز}} “want”, {{مِحْتَاج}} “need”, {{لَازِم}} “must” and {{نِفْسِي}} “I'd love to”, all with the plain present and no {{أَنْ}}.",
+      "topic": "{{عَايِز}}, {{عَايْزَة}}, {{عَايْزِين}} + the present without {{بِـ}}; {{لَازِم}}, {{مِحْتَاج}}, {{نِفْسِي}}, {{مُمْكِن}}",
+      "blocks": [
+        {"goal":{"t":"عَايِز أَتْعَلِّم مَصْرِي، وِلَازِم أَتْكَلِّم كُلّ يَوْم.","r":"ʿāyiz atʿallim maṣri, wi-lāzim atkallim kull yōm.","tr":"I want to learn Egyptian, and I have to speak every day."}},
+        {"dialog":[{"who":"Amr","t":"عَايْزَة تِيجِي مَعَانَا السِّينِمَا؟","r":"ʿayza tīgi maʿāna s-sinima?","tr":"Do you want to come to the cinema with us?"},{"who":"Mai","t":"نِفْسِي، بَسّ لَازِم أَذَاكِر.","r":"nifsi, bass lāzim azākir.","tr":"I'd love to, but I have to study."},{"who":"Amr","t":"مُمْكِن نِسْتَنَّاكِي.","r":"mumkin nistannāki.","tr":"We can wait for you."},{"who":"Mai","t":"لَأْ، مِش لَازِم. رُوحُوا إِنْتُو.","r":"laʾ, mish lāzim. rūḥu intu.","tr":"No, no need. You go."}]},
+        {"p":"MSA says {{أُرِيدُ أَنْ أَذْهَبَ}}. Egyptian drops {{أَنْ}}, and the verb after these words is the plain present, without {{بِـ}}: {{عَايِز أَرُوح|ʿāyiz arūḥ}} I want to go."},
+        {"p":"{{عَايِز}} is a doer word, so it agrees with whoever wants: {{عَايِز|ʿāyiz}} (a man), {{عَايْزَة|ʿayza}} (a woman), {{عَايْزِين|ʿayzīn}} (a group). It is also written {{عَاوِز}}. Before a noun it means “want” on its own: {{عَايِز شَاي|ʿāyiz shāy}} I want tea."},
+        { "table": [
+          ["","Egyptian","MSA"],
+          ["I want to go","{{عَايِز أَرُوح|ʿāyiz arūḥ}}","{{أُرِيدُ أَنْ أَذْهَبَ}}"],
+          ["I must go","{{لَازِم أَرُوح|lāzim arūḥ}}","{{يَجِبُ أَنْ أَذْهَبَ}}"],
+          ["I need to go","{{مِحْتَاج أَرُوح|miḥtāg arūḥ}}","{{أَحْتَاجُ أَنْ أَذْهَبَ}}"],
+          ["I'd love to go","{{نِفْسِي أَرُوح|nifsi arūḥ}}","{{أَتَمَنَّى أَنْ أَذْهَبَ}}"],
+          ["I can go","{{مُمْكِن أَرُوح|mumkin arūḥ}}","{{يُمْكِنُنِي أَنْ أَذْهَبَ}}"]
+        ] },
+        {"p":"{{نِفْسِي|nifsi}} is “my self”: {{نِفْسِي أَرُوح}}, “my self (longs) to go”. It takes the other endings too: {{نِفْسَك|nifsak}}, {{نِفْسَهَا|nifsaha}}. “Not”: {{مِش عَايِز}}, {{مِش لَازِم}} (no need), {{مَيِنْفَعْش}} (you can't, it's not allowed)."},
+        { "ex": [
+          {"t":"عَايْزِين نَاكُل حَاجَة.","r":"ʿayzīn nākul ḥāga.","tr":"We want to eat something."},
+          {"t":"لَازِم تِيجِي بَدْرِي.","r":"lāzim tīgi badri.","tr":"You have to come early."},
+          {"t":"مِحْتَاجَة أَنَام شُوَيَّة.","r":"miḥtāga anām shwayya.","tr":"I (a woman) need to sleep a bit."},
+          {"t":"نِفْسِي أَزُور أَسْوَان.","r":"nifsi azūr aswān.","tr":"I'd love to visit Aswan."},
+          {"t":"مُمْكِن تِسَاعِدْنِي؟","r":"mumkin tisaʿidni?","tr":"Can you help me?"}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"عَايِز أَنْ أَرُوح.","right":"عَايِز أَرُوح.","tr":"I want to go.","why":"No {{أَنْ}} in Egyptian."},
+        {"wrong":"هِيَّ عَايِز تِنَام.","right":"هِيَّ عَايْزَة تِنَام.","tr":"She wants to sleep.","why":"{{عَايِز}} agrees: {{عَايْزَة}} for a woman."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"إِحْنَا ___ نِسَافِر.","tr":"We want to travel.","options":["عَايْزِين","عَايِز","عَايْزَة"],"answer":0,"why":"A group: {{عَايْزِين}}.","r":"iḥna ___ nisāfir.","rs":["ʿayzīn","ʿāyiz","ʿayza"]},
+        {"type":"fill","q":"Choose the missing word.","t":"لَازِم ___ دِلْوَقْتِي.","tr":"You have to go now.","options":["تِمْشِي","بِتِمْشِي","هَتِمْشِي"],"answer":0,"why":"After {{لَازِم}}: the plain present.","r":"lāzim ___ dilwaʾti.","rs":["timshi","bitimshi","hatimshi"]},
+        {"type":"dialogue","q":"A friend invites you out, but you're busy. Choose your replies.","from":"saying-no","lines":[{"who":"Friend","t":"عَايِز تِيجِي مَعَانَا؟","r":"ʿāyiz tīgi maʿāna?","tr":"Do you want to come with us?"},{"options":["نِفْسِي، بَسّ لَازِم أَشْتَغَل.","نِفْسِي، بَسّ لَازِم أَنْ أَشْتَغَل."],"answer":0,"why":"No {{أَنْ}}.","rs":["nifsi, bass lāzim ashtaghal.","nifsi, bass lāzim an ashtaghal."]},{"who":"Friend","t":"طَيِّب، نِسْتَنَّاك؟","r":"ṭayyib, nistannāk?","tr":"OK, shall we wait for you?"},{"options":["لَأْ، مِش لَازِم.","لَأْ، مَلَازِمْش."],"answer":0,"why":"{{لَازِم}} isn't a verb: {{مِش لَازِم}}.","rs":["laʾ, mish lāzim.","laʾ, malazimsh."]}]},
+        {"type":"say","q":"A woman says “I need a taxi”. What does she say?","answer":"مِحْتَاجَة تَاكْسِي.","r":"miḥtāga taksi."},
+        {"type":"free","q":"Your turn: say one thing you want to do, one you must do and one you'd love to do.","answers":[{"t":"عَايِز أَتْعَشَّى، وِلَازِم أَكَلِّم أُمِّي، وِنِفْسِي أَشُوف الْأَهْرَامَات.","r":"ʿāyiz atʿashsha, wi-lāzim akallim ummi, wi-nifsi ashūf il-ahramāt.","tr":"I want to have dinner, I have to call my mother, and I'd love to see the pyramids."}]}
+      ]
+    },
+    {
+      "id": "there-is-fih",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what there is and isn't",
+      "summary": "{{فِيه}} “there is”, {{مَفِيش}} “there isn't”, and {{كَان فِيه}}, {{هَيِكُون فِيه}} for the past and the future.",
+      "topic": "{{فِيه}}, {{مَفِيش}}; {{كَان فِيه}}, {{مَكَانْش فِيه}}, {{هَيِكُون فِيه}}",
+      "blocks": [
+        {"goal":{"t":"فِيه صَيْدَلِيَّة قُرَيِّبَة مِن هِنَا؟","r":"fī ṣaydaliyya ʾurayyiba min hina?","tr":"Is there a pharmacy near here?"}},
+        {"dialog":[{"who":"Tourist","t":"لَوْ سَمَحْت، فِيه مَطْعَم كُوَيِّس هِنَا؟","r":"law samaḥt, fī maṭʿam kwayyis hina?","tr":"Excuse me, is there a good restaurant here?"},{"who":"Man","t":"فِيه وَاحِد فِي آخِر الشَّارِع، بَسّ النَّهَارْدَه مَقْفُول.","r":"fī wāḥid fi ākhir ish-shāriʿ, bass in-nahārda maʾfūl.","tr":"There's one at the end of the street, but it's closed today."},{"who":"Tourist","t":"وِمَفِيش حَاجَة تَانْيَة؟","r":"wi-mafīsh ḥāga tanya?","tr":"And there's nothing else?"},{"who":"Man","t":"فِيه عَرَبِيِّة فُول عَلَى النَّاصْيَة!","r":"fī ʿarabiyyit fūl ʿala n-naṣya!","tr":"There's a fuul cart on the corner!"}]},
+        {"p":"MSA has {{يُوجَدُ}} and {{هُنَاكَ}}. Egyptian says {{فِيه|fī}} “there is, there are”, and {{مَفِيش|mafīsh}} “there isn't” ({{مَا…ش}} round {{فِيه}}). A question is the same with a rising voice: {{فِيه مَيَّة؟|fī mayya?}} is there any water?"},
+        {"p":"**Before and later**: {{كَان فِيه|kān fī}} there was, {{مَكَانْش فِيه|makansh fī}} there wasn't; {{هَيِكُون فِيه|hayikūn fī}} there will be. {{فِيه}} doesn't change for one or many: {{فِيه نَاس كِتِير|fī nās kitīr}} there are lots of people."},
+        { "table": [
+          ["","yes","no"],
+          ["now","{{فِيه|fī}}","{{مَفِيش|mafīsh}}"],
+          ["before","{{كَان فِيه|kān fī}}","{{مَكَانْش فِيه|makansh fī}}"],
+          ["later","{{هَيِكُون فِيه|hayikūn fī}}","{{مِش هَيِكُون فِيه|mish hayikūn fī}}"]
+        ] },
+        { "ex": [
+          {"t":"فِيه زَحْمَة فِي الشَّارِع.","r":"fī zaḥma fi sh-shāriʿ.","tr":"There's traffic in the street."},
+          {"t":"مَفِيش مُشْكِلَة.","r":"mafīsh mushkila.","tr":"No problem."},
+          {"t":"كَان فِيه نَاس كِتِير فِي الْحَفْلَة.","r":"kān fī nās kitīr fi l-ḥafla.","tr":"There were lots of people at the party."},
+          {"t":"فِيه حَدّ هِنَا؟","r":"fī ḥadd hina?","tr":"Is anyone here?"},
+          {"t":"مَفِيش حَاجَة فِي التَّلَّاجَة.","r":"mafīsh ḥāga fi t-tallāga.","tr":"There's nothing in the fridge."}
+        ] },
+        {"tip":"{{فِيه}} “there is” is spelled like {{فِيه}} “in it”, and Egyptian uses both: {{فِيه سُكَّر فِيه؟}} is there sugar in it?"}
+      ],
+      "mistakes": [
+        {"wrong":"يُوجَدُ مَطْعَم هِنَا؟","right":"فِيه مَطْعَم هِنَا؟","tr":"Is there a restaurant here?","why":"Egyptian: {{فِيه}}."},
+        {"wrong":"مِش فِيه حَاجَة.","right":"مَفِيش حَاجَة.","tr":"There's nothing.","why":"“There isn't” is one word: {{مَفِيش}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ مُشْكِلَة.","tr":"No problem.","options":["مَفِيش","مِش فِيه","لَيْسَ"],"answer":0,"why":"{{مَفِيش}}: there isn't.","r":"___ mushkila.","rs":["mafīsh","mish fī","laysa"]},
+        {"type":"fill","q":"Choose the missing words.","t":"امْبَارِح ___ نَاس كِتِير.","tr":"Yesterday there were lots of people.","options":["كَان فِيه","فِيه","هَيِكُون فِيه"],"answer":0,"why":"Yesterday: {{كَان فِيه}}.","r":"imbāriḥ ___ nās kitīr.","rs":["kān fī","fī","hayikūn fī"]},
+        {"type":"order","q":"Put the words in order.","tr":"Is there a pharmacy near here?","words":["فِيه","صَيْدَلِيَّة","قُرَيِّبَة","مِن","هِنَا؟"],"rs":["fī","ṣaydaliyya","ʾurayyiba","min","hina?"]},
+        {"type":"choice","q":"You want to know where the pharmacy is. You ask…","options":["{{الصَّيْدَلِيَّة فِين؟}}","{{فِين فِيه الصَّيْدَلِيَّة؟}}","{{أَيْنَ الصَّيْدَلِيَّةُ؟}}"],"answer":0,"why":"{{فِين}}, at the end.","from":"question-words"},
+        {"type":"free","q":"Your turn: say what there is and isn't in your street.","answers":[{"t":"فِيه سُوبَر مَارْكِت وِقَهْوَة، بَسّ مَفِيش صَيْدَلِيَّة.","r":"fī super market wi-ʾahwa, bass mafīsh ṣaydaliyya.","tr":"There's a supermarket and a café, but there's no pharmacy."}]}
+      ]
+    },
+    {
+      "id": "numbers",
+      "unit": 4,
+      "level": "A2",
+      "title": "Count, shop and tell the time",
+      "summary": "The numbers lose their endings and change a little ({{تَلَاتَة}}, {{حِدَاشَر}}, {{مِيَّة}}), and the thing counted is simpler than in MSA.",
+      "topic": "1–10 the Cairo way; 11–19 in {{ـتَاشَر}}; {{تَلَات كُتُب}} but {{حِدَاشَر كِتَاب}}; {{بِكَام؟}}",
+      "blocks": [
+        {"goal":{"t":"عَايِز اتْنَاشَر بَيْضَة، لَوْ سَمَحْت. بِكَام؟","r":"ʿāyiz itnāshar bēḍa, law samaḥt. bi-kām?","tr":"I'd like twelve eggs, please. How much?"}},
+        {"dialog":[{"who":"Customer","t":"الْبُرْتُقَان بِكَام؟","r":"il-burtuʾān bi-kām?","tr":"How much are the oranges?"},{"who":"Seller","t":"الْكِيلُو بِعِشْرِين جِنَيْه.","r":"il-kīlo bi-ʿishrīn ginē.","tr":"Twenty pounds a kilo."},{"who":"Customer","t":"طَيِّب، إِدِّينِي تَلَاتَة كِيلُو.","r":"ṭayyib, iddīni talāta kīlo.","tr":"OK, give me three kilos."},{"who":"Seller","t":"يِبْقَى سِتِّين جِنَيْه.","r":"yibʾa sittīn ginē.","tr":"That makes sixty pounds."}]},
+        {"p":"The numbers are the MSA ones without endings, said the Cairo way: {{وَاحِد|wāḥid}}, {{اتْنَيْن|itnēn}}, {{تَلَاتَة|talāta}}, {{أَرْبَعَة|arbaʿa}}, {{خَمْسَة|khamsa}}, {{سِتَّة|sitta}}, {{سَبْعَة|sabʿa}}, {{تَمَانْيَة|tamanya}}, {{تِسْعَة|tisʿa}}, {{عَشَرَة|ʿashara}}."},
+        {"p":"**3 to 10 before a noun** drop their {{ة}}, and the noun is plural, as in MSA but with no gender rules: {{تَلَات بَنَات|talat banāt}} three girls, {{تَلَات وِلَاد|talat wilād}} three boys. **From 11 up** the noun is singular: {{حِدَاشَر سَنَة|ḥidāshar sana}} eleven years, {{عِشْرِين جِنَيْه|ʿishrīn ginē}} twenty pounds. Units like {{كِيلُو}} and {{جِنَيْه}} often stay singular after any number."},
+        { "table": [
+          ["","MSA","Egyptian"],
+          ["11","{{أَحَدَ عَشَرَ}}","{{حِدَاشَر|ḥidāshar}}"],
+          ["12","{{اثْنَا عَشَرَ}}","{{اتْنَاشَر|itnāshar}}"],
+          ["13","{{ثَلَاثَةَ عَشَرَ}}","{{تَلَتْتَاشَر|talattāshar}}"],
+          ["14","{{أَرْبَعَةَ عَشَرَ}}","{{أَرْبَعْتَاشَر|arbaʿtāshar}}"],
+          ["15","{{خَمْسَةَ عَشَرَ}}","{{خَمَسْتَاشَر|khamastāshar}}"],
+          ["16","{{سِتَّةَ عَشَرَ}}","{{سِتَّاشَر|sittāshar}}"],
+          ["17","{{سَبْعَةَ عَشَرَ}}","{{سَبَعْتَاشَر|sabaʿtāshar}}"],
+          ["18","{{ثَمَانِيَةَ عَشَرَ}}","{{تَمَنْتَاشَر|tamantāshar}}"],
+          ["19","{{تِسْعَةَ عَشَرَ}}","{{تِسَعْتَاشَر|tisaʿtāshar}}"],
+          ["100, 200","{{مِئَة، مِئَتَانِ}}","{{مِيَّة|miyya}}, {{مِيتَيْن|mitēn}}"]
+        ] },
+        {"p":"**Prices and time**: {{بِكَام؟|bi-kām?}} how much?; {{السَّاعَة كَام؟|is-sāʿa kām?}} what time is it?; {{السَّاعَة تَلَاتَة وِنُصّ|is-sāʿa talāta w-nuṣṣ}} half past three."},
+        { "ex": [
+          {"t":"عَنْدِي تَلَات إِخْوَات.","r":"ʿandi talat ikhwāt.","tr":"I've got three brothers and sisters."},
+          {"t":"اسْتَنَّيْت خَمَسْتَاشَر دِقِيقَة.","r":"istannēt khamastāshar diʾīʾa.","tr":"I waited fifteen minutes."},
+          {"t":"الْقَمِيص بِمِيتَيْن جِنَيْه.","r":"il-ʾamīṣ bi-mitēn ginē.","tr":"The shirt is two hundred pounds."},
+          {"t":"السَّاعَة كَام دِلْوَقْتِي؟","r":"is-sāʿa kām dilwaʾti?","tr":"What time is it now?"},
+          {"t":"بِنْتِي عَنْدَهَا اتْنَاشَر سَنَة.","r":"binti ʿandaha tnāshar sana.","tr":"My daughter is twelve."}
+        ] }
+      ],
+      "mistakes": [
+        {"wrong":"حِدَاشَر سِنِين.","right":"حِدَاشَر سَنَة.","tr":"eleven years","why":"From 11 up, the noun is singular."},
+        {"wrong":"تَلَاتَة بَنَات.","right":"تَلَات بَنَات.","tr":"three girls","why":"Before a noun, 3 to 10 drop their {{ة}}: {{تَلَات}}."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"عَنْدِي ___ وِلَاد.","tr":"I've got three boys.","options":["تَلَات","تَلَاتَة","تَلَتْتَاشَر"],"answer":0,"why":"Before a noun: {{تَلَات}}.","r":"ʿandi ___ wilād.","rs":["talat","talāta","talattāshar"]},
+        {"type":"fill","q":"Choose the missing word.","t":"اسْتَنَّيْت عِشْرِين ___.","tr":"I waited twenty minutes.","options":["دِقِيقَة","دَقَايِق"],"answer":0,"why":"From 11 up: singular.","r":"istannēt ʿishrīn ___.","rs":["diʾīʾa","daʾāyiʾ"]},
+        {"type":"choice","q":"How do you say 15?","options":["{{خَمَسْتَاشَر}}","{{خَمْسَةَ عَشَرَ}}","{{خَمْسِين}}"],"answer":0,"why":"11 to 19 end in {{ـتَاشَر}}; {{خَمْسِين}} is 50."},
+        {"type":"say","q":"Ask a baker how much the bread ({{الْعَيْش}}) is.","answer":"الْعَيْش بِكَام؟","r":"il-ʿēsh bi-kām?","from":"question-words"},
+        {"type":"free","q":"Your turn: say how old you are, and what something you bought cost.","answers":[{"t":"عَنْدِي تَلَاتِين سَنَة، وِاشْتَرَيْت جَزْمَة بِخُمْسُمِيَّة جِنَيْه.","r":"ʿandi talatīn sana, wi-shtarēt gazma bi-khumsumiyya ginē.","tr":"I'm thirty, and I bought a pair of shoes for five hundred pounds."}]}
+      ]
+    },
+    {
+      "id": "if-law",
+      "unit": 4,
+      "level": "A2",
+      "title": "Say what happens if",
+      "summary": "One word for every “if”: {{لَوْ}}. {{لَوْ جِيت بَدْرِي، هَنُخْرُج}} “If you come early, we'll go out.”",
+      "topic": "{{لَوْ}} + the past for what may happen; {{لَوْ كُنْت…، كُنْت…}} for what isn't so",
+      "blocks": [
+        {"goal":{"t":"لَوْ فَاضِي بُكْرَة، تَعَالَى نِتْغَدَّى سَوَا.","r":"law fāḍi bukra, taʿāla nitghadda sawa.","tr":"If you're free tomorrow, come and have lunch with us."}},
+        {"dialog":[{"who":"Yasmin","t":"لَوْ الْجَوّ حِلْو بُكْرَة، نِرُوح الْبَحْر؟","r":"law ig-gaww ḥilw bukra, nirūḥ il-baḥr?","tr":"If the weather's nice tomorrow, shall we go to the beach?"},{"who":"Adam","t":"أَكِيد. وِلَوْ مَطَّرِت، نُقْعُد فِي الْبَيْت.","r":"akīd. wi-law maṭṭarit, nuʾʿud fi l-bēt.","tr":"Sure. And if it rains, we'll stay home."},{"who":"Yasmin","t":"لَوْ كُنْت أَعْرَف، كُنْت جِبْت الْمَايُوه!","r":"law kunt aʿraf, kunt gibt il-mayōh!","tr":"If I'd known, I'd have brought my swimsuit!"},{"who":"Adam","t":"لِسَّه فِيه وَقْت. هَاتِيه بُكْرَة.","r":"lissa fī waʾt. hatīh bukra.","tr":"There's still time. Bring it tomorrow."}]},
+        {"p":"MSA has {{إِذَا}}, {{إِنْ}} and {{لَوْ}}. Egyptian uses {{لَوْ|law}} for all of them. For what may happen, {{لَوْ}} takes the past (or a doer word, an adjective, {{عَنْدَك}}…), and the result takes the future or a command: {{لَوْ جِيت بَدْرِي، هَنُخْرُج|law gīt badri, hanukhrug}} if you come early, we'll go out."},
+        {"p":"For what isn't so, or wasn't: {{لَوْ كُنْت…|law kunt…}} in the “if” part and {{كُنْت…|kunt…}} in the result: {{لَوْ كُنْت أَعْرَف، كُنْت جِيت|law kunt aʿraf, kunt gīt}} if I'd known, I'd have come."},
+        { "table": [
+          ["","Egyptian","English"],
+          ["may happen","{{لَوْ تَعْبَان، رُوح نَام|law taʿbān, rūḥ nām}}","If you're tired, go to bed."],
+          ["may happen","{{لَوْ اتْأَخَّرْت، كَلِّمْنِي|law itʾakhkhart, kallimni}}","If you're late, call me."],
+          ["isn't so","{{لَوْ كُنْت مَكَانَك، كُنْت قُلْتِلُه|law kunt makānak, kunt ʾultilu}}","If I were you, I'd have told him."]
+        ] },
+        { "ex": [
+          {"t":"لَوْ عَايِز تِيجِي، قُولِّي.","r":"law ʿāyiz tīgi, ʾulli.","tr":"If you want to come, tell me."},
+          {"t":"لَوْ مَطَّرِت، مِش هَنُخْرُج.","r":"law maṭṭarit, mish hanukhrug.","tr":"If it rains, we won't go out."},
+          {"t":"لَوْ عَنْدَك وَقْت، تَعَالَى.","r":"law ʿandak waʾt, taʿāla.","tr":"If you've got time, come over."},
+          {"t":"لَوْ كُنْت أَعْرَف، كُنْت جِيت.","r":"law kunt aʿraf, kunt gīt.","tr":"If I'd known, I'd have come."},
+          {"t":"لَوْ سَمَحْت، فِين الْمِتْرُو؟","r":"law samaḥt, fēn il-mitro?","tr":"Excuse me, where's the metro?"}
+        ] },
+        {"tip":"{{لَوْ سَمَحْت|law samaḥt}} “if you allow” is how Egyptians say “excuse me” and “please”: {{لَوْ سَمَحْتِي}} to a woman."}
+      ],
+      "mistakes": [
+        {"wrong":"إِذَا جِيت بَدْرِي، هَنُخْرُج.","right":"لَوْ جِيت بَدْرِي، هَنُخْرُج.","tr":"If you come early, we'll go out.","why":"Egyptian says {{لَوْ}} for every “if”."},
+        {"wrong":"لَوْ كُنْت أَعْرَف، جِيت.","right":"لَوْ كُنْت أَعْرَف، كُنْت جِيت.","tr":"If I'd known, I'd have come.","why":"What didn't happen takes {{كُنْت}} in both parts."}
+      ],
+      "practice": [
+        {"type":"fill","q":"Choose the missing word.","t":"___ جِيت بَدْرِي، هَنُخْرُج.","tr":"If you come early, we'll go out.","options":["لَوْ","إِذَا","إِنْ"],"answer":0,"why":"Egyptian: {{لَوْ}}.","r":"___ gīt badri, hanukhrug.","rs":["law","idhā","in"]},
+        {"type":"fill","q":"Choose the missing word.","t":"لَوْ كُنْت أَعْرَف، ___ جِيت.","tr":"If I'd known, I'd have come.","options":["كُنْت","مِش","لَوْ"],"answer":0,"why":"What didn't happen: {{كُنْت}} in both parts.","r":"law kunt aʿraf, ___ gīt.","rs":["kunt","mish","law"]},
+        {"type":"dialogue","q":"A friend makes plans with you. Choose your replies.","from":"future-ha","lines":[{"who":"Friend","t":"لَوْ فَاضِي بُكْرَة، نِتْغَدَّى سَوَا؟","r":"law fāḍi bukra, nitghadda sawa?","tr":"If you're free tomorrow, shall we have lunch together?"},{"options":["مَاشِي، لَوْ خَلَّصْت بَدْرِي هَكَلِّمَك.","مَاشِي، إِذَا أَنْهَيْتُ مُبَكِّرًا سَأَتَّصِلُ بِكَ."],"answer":0,"why":"Egyptian: {{لَوْ}} + the past, then {{هَـ}}.","rs":["māshi, law khallaṣt badri hakallimak.","māshi, idhā anhaytu mubakkiran sa-attaṣilu bik."]},{"who":"Friend","t":"وِلَوْ اتْأَخَّرْت؟","r":"wi-law itʾakhkhart?","tr":"And if you're late?"},{"options":["اسْتَنَّانِي شُوَيَّة.","هَسْتَنَّانِي شُوَيَّة."],"answer":0,"why":"Asking someone to do something: the command {{اسْتَنَّانِي}} “wait for me”.","rs":["istannāni shwayya.","hastannāni shwayya."]}]},
+        {"type":"say","q":"Say “If you want, come with us” (to a man).","answer":"لَوْ عَايِز، تَعَالَى مَعَانَا.","r":"law ʿāyiz, taʿāla maʿāna.","from":"want-and-must"},
+        {"type":"free","q":"Your turn: say what you'll do tomorrow if the weather is nice, and if it isn't.","answers":[{"t":"لَوْ الْجَوّ حِلْو، هَتْمَشَّى عَلَى النِّيل، وِلَوْ مِش حِلْو، هَقْعُد فِي الْبَيْت.","r":"law ig-gaww ḥilw, hatmashsha ʿala n-nīl, wi-law mish ḥilw, haʾʿud fi l-bēt.","tr":"If the weather's nice, I'll walk along the Nile, and if it isn't, I'll stay home."}]}
+      ]
+    }
+  ]
+}

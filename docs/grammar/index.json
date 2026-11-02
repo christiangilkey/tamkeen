@@ -81,6 +81,22 @@
    "bytes": 301021,
    "sha256": "34199545373d24384fe53288622e8ca8d1b768e9b7fbbfd6a1fc47c69f7e77d1"
   },
+  "en-ar-egy": {
+   "file": "en-ar-egy/course.json",
+   "from": "en",
+   "to": "ar",
+   "dialect": "egy",
+   "title": "Egyptian grammar",
+   "variety": "Egyptian Arabic (Cairo)",
+   "units": 4,
+   "lessons": 16,
+   "levels": [
+    "A1",
+    "A2"
+   ],
+   "bytes": 83273,
+   "sha256": "4073ee83d0634ee00659365bca269ab9295bcb07b781a30a0758dbc7d8cb7f34"
+  },
   "en-ar-glf": {
    "file": "en-ar-glf/course.json",
    "from": "en",
