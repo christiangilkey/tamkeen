@@ -6398,7 +6398,16 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   shows when the arena is bigger than the window. Clicks and taps go through the camera (`toWorld`); a finger or
   mouse held down keeps steering as the world scrolls under it. Words over the arena ("Failed"…) stay on their spot
   in the world. A move's line under its name shows its wait (clock + seconds) or why it can't be used, in place of
-  what it does. `runLiveBattle` takes `setup.map` (tests: a 90 x 54 arena) else generates one.
+  what it does. `runLiveBattle` takes `setup.map` (tests: a 90 x 54 arena) else generates one. The camera tells the
+  engine what it shows (`input(b, {sight})` from `fit()`), so the rival attacks from on screen.
+- **Move banners** (the owner sent a picture of a handheld monster battle's move list: "take some inspiration on these
+  for how the move selection section sould look"): each move is a banner in its element's colour (`.el-<element>`:
+  --c1 shine, --c2 body, --c3 deep; plain moves grey) with a round left end holding the button / key, a slanted right
+  end (`clip-path`, `--cut`), a 3 px dark outline and a light inner edge; the name big, white and outlined; under it a
+  pill with the element (or, for a plain move, its style) in capitals and, beside it, the move's power or its wait
+  (clock + seconds) / "Out of range" / uses left, where the picture shows PP; the move's icon by the slanted end. Wide
+  screens and sideways phones stack the four (as in the picture); an upright phone keeps them 2 x 2 (X Y over A B) and
+  drops the icon for room.
 - **Checked** in the browser pane (desktop server on a fresh scratch data folder, never signed in, 120 Spanish test
   words, three hatched creatures) at 1280 x 800, 390 x 844 and 844 x 390: real arenas of several themes with the real
   terrain and effects art, walking by keys, pretend-Xbox stick and D-pad, A/X starting moves and B/A answering,

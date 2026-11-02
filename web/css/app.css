@@ -1239,30 +1239,53 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-tag { display: inline-flex; align-items: center; gap: 1px; font-weight: 800; }
 .lb-tag.up { color: #7dffb0; }
 .lb-tag.down { color: #ff9a9a; }
+/* The four moves as banners (inspired by the owner's picture of a handheld monster battle's move list, in our pixel
+   style): each in its element's colour (--c1 the shine at the top, --c2 the body, --c3 the deep shade), a round left end
+   holding the controller's button or the key, a slanted right end, a thick dark outline with a light inner edge; the name
+   big and outlined, under it the element in a pill and the move's power, or its wait, or why it can't be used now. */
 .lb-moves { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; max-width: 640px; }
-.lb-move { position: relative; overflow: hidden; display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 8px 12px; border: 0; border-radius: 14px;
-  background: #2b2442; color: #fff; text-align: start; white-space: normal; }
-.lb-move:hover:not(:disabled) { background: #362d55; }
+.lb-move { --c1: #d4d4e2; --c2: #8b8a9e; --c3: #56556b; --cut: 16px;
+  position: relative; isolation: isolate; display: flex; align-items: center; gap: 8px; min-height: 60px; box-sizing: border-box;
+  padding: 6px calc(var(--cut) + 6px) 6px 9px; border: 0; border-radius: 999px 0 0 999px; background: #1b1420; color: #fff;
+  text-align: start; white-space: normal; clip-path: polygon(0 0, 100% 0, calc(100% - var(--cut)) 100%, 0 100%); }
+/* the fill, 3 px inside the outline: the element's colour, lighter at the top, with a thin light edge */
+.lb-move::before { content: ""; position: absolute; inset: 3px; z-index: -1; border-radius: 999px 0 0 999px;
+  clip-path: polygon(0 0, calc(100% - 1px) 0, calc(100% - var(--cut) + 1px) 100%, 0 100%);
+  background: linear-gradient(180deg, var(--c1) 0%, var(--c2) 40%, var(--c2) 72%, var(--c3) 100%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .5), inset 2px 0 0 rgba(255, 255, 255, .22), inset 0 -2px 0 rgba(0, 0, 0, .18); }
+.lb-move:hover:not(:disabled)::before { filter: brightness(1.1); }
+.lb-move:active:not(:disabled) { transform: translateY(1px); }
 .lb-move.empty { visibility: hidden; }
-/* while a move recharges, a dark cover over its button shrinks away (--cd: 1 just used, 0 ready) */
-.lb-move::after { content: ""; position: absolute; inset: 0; background: rgba(8, 6, 14, .6); transform-origin: right; transform: scaleX(var(--cd, 0)); pointer-events: none; }
-.lb-move.waiting { color: #c7c1d6; }
+/* while a move recharges, a dark cover over its banner shrinks away (--cd: 1 just used, 0 ready) */
+.lb-move::after { content: ""; position: absolute; inset: 3px; z-index: -1; border-radius: 999px 0 0 999px; background: rgba(8, 6, 14, .55);
+  clip-path: polygon(0 0, calc(100% - 1px) 0, calc(100% - var(--cut) + 1px) 100%, 0 100%);
+  transform-origin: right; transform: scaleX(var(--cd, 0)); pointer-events: none; }
+.lb-move.waiting::before { filter: saturate(.55) brightness(.82); }
 .lb-move.nope { animation: lb-nope .25s; }
 @keyframes lb-nope { 25% { transform: translateX(-3px); } 75% { transform: translateX(3px); } }
-.lb-mi { position: relative; flex: none; width: 32px; height: 32px; }
-.lb-mi .lb-mel { position: absolute; inset-inline-end: -7px; bottom: -6px; }
+/* our six elements */
+.lb-move.el-ember { --c1: #ffb784; --c2: #e1552b; --c3: #9a2b15; }
+.lb-move.el-tide { --c1: #a6d4ff; --c2: #3b80d8; --c3: #1d4b94; }
+.lb-move.el-grove { --c1: #b2ee94; --c2: #3e9f45; --c3: #1f6328; }
+.lb-move.el-spark { --c1: #fff4a6; --c2: #e2bb1e; --c3: #96760a; }
+.lb-move.el-stone { --c1: #e6cda4; --c2: #a17b4b; --c3: #62462a; }
+.lb-move.el-dusk { --c1: #c9adf2; --c2: #6c4bb0; --c3: #3a266e; }
+.lb-mi { flex: none; width: 32px; height: 32px; filter: drop-shadow(0 2px 0 rgba(27, 20, 32, .55)); }
 .lb-mt { display: flex; flex-direction: column; flex: 1; min-width: 0; }
-.lb-mt strong { font-size: 16px; line-height: 1.25; }
-.lb-mt .small { opacity: .75; }
-/* the line under a move's name: what it does, or (while there is one) its wait or why it can't be used now */
-.lb-cd { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.lb-move strong, .lb-pill, .lb-cd { text-shadow: -1px 0 #1b1420, 1px 0 #1b1420, 0 -1px #1b1420, 0 1px #1b1420, 1px 1px #1b1420, 0 2px #1b1420; }
+.lb-move strong { font-size: 18px; font-weight: 800; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-sub { display: flex; align-items: center; gap: 8px; min-width: 0; margin-top: 3px; }
+.lb-pill { flex: none; padding: 0 8px; border: 2px solid #1b1420; border-radius: 99px; background: var(--c3); font-size: 10.5px; font-weight: 800;
+  line-height: 1.5; letter-spacing: .06em; text-transform: uppercase; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3); }
+.lb-cd { display: inline-flex; align-items: center; gap: 4px; min-width: 0; overflow: hidden; font-size: 13px; font-weight: 800;
+  font-variant-numeric: tabular-nums; white-space: nowrap; text-overflow: ellipsis; }
 .lb-cd:empty { display: none; }
-.lb-cd img { width: 14px; height: 14px; }
-.lb-mt:has(.lb-cd:not(:empty)) .small { display: none; }
-.lb-move.far .lb-cd { color: #ffc6c6; font-weight: 600; }
-.lb-key { position: relative; z-index: 1; flex: none; display: inline-flex; }
+.lb-cd img { width: 14px; height: 14px; filter: drop-shadow(0 1px 0 #1b1420); }
+.lb-move.far .lb-cd { color: #ffd9d9; }
+.lb-key { flex: none; display: inline-flex; }
 .lb-key:empty { display: none; }
-.lb-key .pl-key { min-width: 24px; height: 24px; border-radius: 12px; font-size: 12px; }
+.lb-key .pl-key { min-width: 26px; height: 26px; border-radius: 13px; font-size: 12px; }
+.lb-move .lb-key .pl-key { border: 2px solid #1b1420; box-sizing: border-box; }
 .live-wrap .pl-key:not(.pl-a):not(.pl-b):not(.pl-x):not(.pl-y) { background: #45395f; color: #fff; border-color: #5a4c78; }
 .lb-extra:empty { display: none; }
 .lb-extra { display: flex; justify-content: center; }
@@ -1309,20 +1332,19 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   .lb-top { grid-column: 1 / -1; justify-self: center; }
   .lb-stage { grid-column: 1; grid-row: 2; }
   .lb-side { grid-column: 2; grid-row: 2; justify-content: center; }
-  .lb-moves { gap: 8px; }
-  .lb-move { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .lb-move .lb-key { position: absolute; inset-inline-end: 8px; top: 8px; }
+  .lb-moves { grid-template-columns: 1fr; gap: 8px; } /* the four banners stacked, one under another */
 }
 /* a phone held sideways: one column of smaller buttons */
 @media (orientation: landscape) and (max-height: 560px) {
   .lb { grid-template-columns: 1fr minmax(200px, 32%); gap: 6px 12px; }
   .lb-top { max-width: none; justify-self: stretch; }
   .lb-side { gap: 6px; }
-  .lb-moves { grid-template-columns: 1fr; gap: 6px; }
-  .lb-move { flex-direction: row; align-items: center; }
-  .lb-move .lb-key { position: relative; inset: auto; }
-  .lb-move { min-height: 48px; padding: 6px 10px; }
-  .lb-mt .small, .lb-help { display: none; }
+  .lb-moves { grid-template-columns: 1fr; gap: 5px; }
+  .lb-move { --cut: 12px; min-height: 46px; padding-block: 3px; }
+  .lb-move strong { font-size: 15px; }
+  .lb-mi { width: 24px; height: 24px; }
+  .lb-mi img { width: 24px; height: 24px; }
+  .lb-help { display: none; }
   .lb-quiz, .lb-end { place-items: center; }
   .lbq { gap: 6px; padding: 12px; }
   .lbq-prompt { font-size: 26px; }
@@ -1330,13 +1352,15 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 }
 @media (max-width: 600px) {
   .lb { gap: 6px; }
-  .lb-move { min-height: 64px; }
+  .lb-move { --cut: 12px; min-height: 58px; gap: 6px; padding-inline-start: 7px; }
   .lb-quiz, .lb-end { place-items: end center; padding: 10px; }
   .lbq, .lb-end-card { padding: 14px; gap: 8px; }
   .lbq-opt { min-height: 66px; font-size: 17px; padding: 10px 14px; }
-  .lb-move { gap: 8px; padding: 8px 10px; }
-  .lb-mt strong { font-size: 15px; }
-  .lb-mt .small { display: none; }
+  .lb-move strong { font-size: 15px; }
+  .lb-mi { display: none; } /* the colour and the pill say which it is; the name gets the room */
+  .lb-sub { gap: 5px; }
+  .lb-pill { padding: 0 6px; font-size: 9.5px; }
+  .lb-cd { font-size: 12px; }
 }
 
 /* ---------- creature game: friends page (league, raid, gifts) ---------- */

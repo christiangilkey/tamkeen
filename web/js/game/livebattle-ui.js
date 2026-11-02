@@ -10,7 +10,7 @@ import { controllerArea, controllerSetting, padInUse, padSteer, padStyle } from 
 import { fullMap, inputName } from "../padmap.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
-import { TYPES, moveById, moveIcon } from "./data.js";
+import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { answerQuestion, battleWords, finishBattle, pickQuestion } from "./rules.js";
 import { FRAME, composeCreature, icon, loadImage } from "./render.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
@@ -627,15 +627,20 @@ export function runLiveBattle(setup, vocab) {
     const me = b.mine[v.index.me];
     moveEls = PLACES.map((place) => {
       const id = me.moves[place.slot];
-      const btn = h(`<button type="button" class="lb-move"><span class="lb-key"></span><span class="lb-mi"></span>
-        <span class="lb-mt"><strong></strong><span class="small"></span><span class="lb-cd"></span></span></button>`);
+      // a banner in its element's colour: the button or key at its round end, the name, then the element in a pill and
+      // the move's power (or its wait, or why it can't be used now), its picture by the slanted end
+      const btn = h(`<button type="button" class="lb-move"><span class="lb-key"></span>
+        <span class="lb-mt"><strong></strong><span class="lb-sub"><span class="lb-pill"></span><span class="lb-cd"></span></span></span>
+        <span class="lb-mi"></span></button>`);
       if (!id) { btn.disabled = true; btn.classList.add("empty"); box.append(btn); return { btn, id: null, place }; }
       const m = moveById(id);
       const element = elementOf(m, me);
-      btn.querySelector(".lb-mi").innerHTML = icon(moveIcon(m), 32) + (element ? `<img class="px-icon lb-mel" width="16" height="16" alt="" src="${ART}icon/type_${element}.png">` : "");
+      if (element) btn.classList.add(`el-${element}`);
+      btn.querySelector(".lb-mi").innerHTML = icon(moveIcon(m), 32);
       btn.querySelector("strong").textContent = m.name;
-      btn.querySelector(".small").textContent = moveLine(m);
-      btn.title = moveHelp(m);
+      // the pill: the element's name (a move of no element: its style, "Guard", "Strike"...)
+      btn.querySelector(".lb-pill").textContent = element ? TYPES[element].name : MOVE_STYLES[m.style].name;
+      btn.title = `${moveLine(m)}. ${moveHelp(m)}`;
       btn.addEventListener("click", () => use(place.slot));
       box.append(btn);
       return { btn, id, place, last: "" };
@@ -657,11 +662,13 @@ export function runLiveBattle(setup, vocab) {
       m.btn.style.setProperty("--cd", String(share));
       m.btn.classList.toggle("waiting", !s.ready);
       m.btn.classList.toggle("far", s.ready && s.inRange === false);
-      // under the name, in place of what the move does: its wait (a clock and the seconds), or why it can't be used now
+      // beside the pill: its wait (a clock and the seconds), or why it can't be used now, or else its power
       const cd = m.btn.querySelector(".lb-cd");
+      const mv = moveById(m.id);
       if (s.why === "cooldown") cd.innerHTML = `${icon("clock")} ${Math.ceil(s.left)}`;
       else cd.textContent = WHY[s.why] !== undefined ? t(WHY[s.why]) || ""
-        : s.inRange === false ? t("Out of range") : s.uses !== null && s.uses !== undefined ? t("{0} left", s.uses) : "";
+        : s.inRange === false ? t("Out of range") : s.uses !== null && s.uses !== undefined ? t("{0} left", s.uses)
+          : mv.kind === "attack" ? t("Power {0}", mv.power) : "";
     }
   }
 
