@@ -29,16 +29,27 @@ BEASTS = {  # who stands at the starts in each sample, for scale
 def draw_map(m: dict, art: Art) -> Image.Image:
     """Ground in the dual grid from each tile's layer stack (as battlemap.js drawCorners does), then props
     and the two creatures sorted by their feet."""
-    g = [[st[-1][0] for st in row] for row in m["layers"]]
-    stacks = []
-    for y, row in enumerate(m["layers"]):
-        stacks.append([])
-        for x, st in enumerate(row):
-            names = [t for t, v, f in st]
-            if names[-1] in ("bridge", "bridge_v"):
-                names[-1] = bridge_axis(g, x, y)
-            stacks[-1].append(names)
-    canvas = render(None, m["base"], art=art, stacks=stacks)
+    if "corners" in m:  # exactly as the game: battlemap.js drawCorners() for every cell
+        P = T // 2
+        canvas = Image.new("RGBA", (m["cols"] * T + 2 * P, m["rows"] * T + 2 * P), (0, 0, 0, 255))
+        for cy, row in enumerate(m["corners"]):
+            for cx, cell in enumerate(row):
+                for terrain, mask, fill in cell:
+                    edges, fills = art.tiles(terrain)
+                    im = fills[fill % len(fills)] if mask == 15 else edges[mask]
+                    canvas.alpha_composite(im, (cx * T, cy * T))
+        canvas = canvas.crop((P, P, P + m["cols"] * T, P + m["rows"] * T))
+    else:  # work the corner masks out from each tile's layers
+        g = [[st[-1][0] for st in row] for row in m["layers"]]
+        stacks = []
+        for y, row in enumerate(m["layers"]):
+            stacks.append([])
+            for x, st in enumerate(row):
+                names = [t for t, v, f in st]
+                if names[-1] in ("bridge", "bridge_v"):
+                    names[-1] = bridge_axis(g, x, y)
+                stacks[-1].append(names)
+        canvas = render(None, m["base"], art=art, stacks=stacks)
     things = []
     for p in m["props"]:
         if p["id"] not in PROPS:
@@ -78,6 +89,8 @@ def decal_image(did, v):
         from decals import DECALS
     except ImportError:
         return None
+    if did not in DECALS:
+        did = "decal_" + did
     if did not in DECALS:
         return None
     if did not in _decals:
