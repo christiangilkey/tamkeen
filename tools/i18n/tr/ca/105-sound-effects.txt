@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	Efectes de so
+2ec068cb	Els sons i les melodies de les respostes, les recompenses i les batalles. Desactivat: tot funciona igual, en silenci.

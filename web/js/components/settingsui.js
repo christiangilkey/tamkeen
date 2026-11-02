@@ -63,6 +63,7 @@ export const FINDS = [
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
+  { s: "look", id: "sound", label: "Sound effects", words: "sounds chimes jingles mute silent quiet noise audio sfx" },
   { s: "controller", id: "padconnect", label: "Connect a game controller", words: "gamepad xbox playstation switch bluetooth usb joystick" },
   { s: "controller", id: "padhow", label: "How to connect a controller", words: "gamepad pair pairing bluetooth usb cable" },
   { s: "controller", id: "padvideo", label: "Controller buttons for videos", words: "gamepad map mapping play pause buttons" },

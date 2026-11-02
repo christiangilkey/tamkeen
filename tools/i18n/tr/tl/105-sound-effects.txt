@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	Mga sound effect
+2ec068cb	Ang mga tunog at himig para sa mga sagot, gantimpala at laban. Kapag naka-off: gumagana pa rin ang lahat, nang tahimik.

@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	เสียงเอฟเฟกต์
+2ec068cb	เสียงกริ๊งและเพลงสั้นๆ ตอนตอบ ได้รางวัล และต่อสู้ ปิดแล้ว: ทุกอย่างทำงานเหมือนเดิม แค่ไม่มีเสียง

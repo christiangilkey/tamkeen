@@ -683,6 +683,8 @@
 "Game features":"게임 기능",
 "The creature, XP and rewards, and the chimes when you study":"크리처, 경험치와 보상, 공부할 때 나는 효과음",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"끄기: 공부는 게임 없이 똑같이 돼요. 목표와 진행 막대는 남고, 다시 켤 때를 위해 크리처도 남아 있어요.",
+"Sound effects":"효과음",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"정답, 보상, 배틀의 차임과 짧은 음악. 끄면: 모든 것이 똑같이 작동하고 소리만 나지 않아요.",
 "No captions on YouTube":"유튜브에 자막이 없어요",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"유튜브 약관상 Tamkeen은 자막을 만들려고 동영상 소리를 내려받을 수 없지만, Google의 Gemini는 동영상을 직접 보고 자막을 쓸 수 있어요.",
 "Not now":"나중에",

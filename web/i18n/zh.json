@@ -683,6 +683,8 @@
 "Game features":"游戏功能",
 "The creature, XP and rewards, and the chimes when you study":"生物、经验值和奖励，以及学习时的提示音",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"关闭后：学习照常进行，只是没有任何游戏内容。你的目标和进度条会保留，你的生物也会保留，以便你重新开启。",
+"Sound effects":"音效",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"答题、奖励和对战时的提示音和小曲。关闭后：一切照常，只是没有声音。",
 "No captions on YouTube":"YouTube 上没有字幕",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"YouTube 的条款不允许 Tamkeen 下载视频的声音来制作字幕，但 Google 的 Gemini 可以自己观看视频并写出字幕。",
 "Not now":"以后再说",

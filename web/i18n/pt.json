@@ -683,6 +683,8 @@
 "Game features":"Recursos de jogo",
 "The creature, XP and rewards, and the chimes when you study":"A criatura, o XP e as recompensas, e os sons quando você estuda",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"Desativado: estudar funciona do mesmo jeito, sem nada do jogo. Suas metas e barras de progresso continuam, e sua criatura também, caso você ative de novo.",
+"Sound effects":"Efeitos sonoros",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"Os sons e melodias das respostas, recompensas e batalhas. Desligado: tudo funciona igual, em silêncio.",
 "No captions on YouTube":"Sem legendas no YouTube",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"Os termos do YouTube não permitem que o Tamkeen baixe o som de um vídeo para criar legendas, mas o Gemini do Google pode assistir ao vídeo sozinho e escrevê-las.",
 "Not now":"Agora não",

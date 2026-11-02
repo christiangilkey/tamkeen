@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	Soundeffekte
+2ec068cb	Die Klänge und Melodien bei Antworten, Belohnungen und Kämpfen. Aus: Alles funktioniert gleich, nur lautlos.

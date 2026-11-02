@@ -3425,6 +3425,16 @@
   "f": "web/js/components/gameswitch.js"
  },
  {
+  "id": "a41e30af",
+  "k": "Sound effects",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "2ec068cb",
+  "k": "The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
   "id": "79bce962",
   "k": "No captions on YouTube",
   "f": "web/js/components/geminicaptions.js"

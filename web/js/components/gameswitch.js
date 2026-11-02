@@ -10,7 +10,14 @@ export function gameOn() {
   return !(s && s.game_enabled === false);
 }
 
-/** Fill `box` (a Settings card) with the switch. */
+/** Whether the game's sound effects play (the setting `game_sound`; on unless switched off). */
+export function soundOn() {
+  const s = state.status && state.status.settings;
+  return !(s && s.game_sound === false);
+}
+
+/** Fill `box` (a Settings card) with the switches: the game, and its sound effects (game/game.js sfx,
+ * the review cards' chimes in pages/review.js), which only matter while the game is on. */
 export function gameSwitch(box) {
   box.append(h(`<div class="stack">
     <h2>Game features</h2>
@@ -18,6 +25,14 @@ export function gameSwitch(box) {
       <span>The creature, XP and rewards, and the chimes when you study</span></label>
     <div class="small muted">Off: studying works the same, without any of the game. Your goals and progress bars stay,
       and so does your creature, for if you switch it back on.</div>
+    <div class="stack" data-find="sound">
+      <label class="check"><input type="checkbox" class="game-sound" ${soundOn() ? "checked" : ""}>
+        <span>Sound effects</span></label>
+      <div class="small muted">The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.</div>
+    </div>
   </div>`));
-  box.querySelector(".game-on").onchange = (e) => saveSettings({ game_enabled: e.target.checked });
+  const sound = box.querySelector(".game-sound");
+  sound.disabled = !gameOn();
+  box.querySelector(".game-on").onchange = (e) => { sound.disabled = !e.target.checked; saveSettings({ game_enabled: e.target.checked }); };
+  sound.onchange = (e) => saveSettings({ game_sound: e.target.checked });
 }

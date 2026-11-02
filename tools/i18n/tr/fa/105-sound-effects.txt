@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	جلوه‌های صوتی
+2ec068cb	صداها و آهنگ‌های کوتاهِ پاسخ‌ها، جایزه‌ها و نبردها. خاموش: همه‌چیز همان‌طور کار می‌کند، بی‌صدا.

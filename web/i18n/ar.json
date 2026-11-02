@@ -683,6 +683,8 @@
 "Game features":"ميزات اللعبة",
 "The creature, XP and rewards, and the chimes when you study":"المخلوق ونقاط الخبرة والمكافآت، والأصوات أثناء الدراسة",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"عند الإيقاف: تعمل الدراسة كما هي، دون أي شيء من اللعبة. تبقى أهدافك وأشرطة تقدّمك، ويبقى مخلوقك أيضًا إن أعدت تشغيلها.",
+"Sound effects":"المؤثرات الصوتية",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"النغمات والألحان القصيرة للإجابات والمكافآت والمعارك. عند الإيقاف: يعمل كل شيء كما هو، بصمت.",
 "No captions on YouTube":"لا توجد ترجمة مكتوبة على يوتيوب",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"شروط يوتيوب لا تسمح لتمكين بتنزيل صوت الفيديو لكتابة الترجمة، لكن Gemini من Google يستطيع مشاهدة الفيديو بنفسه وكتابتها.",
 "Not now":"ليس الآن",

@@ -683,6 +683,8 @@
 "Game features":"ฟีเจอร์เกม",
 "The creature, XP and rewards, and the chimes when you study":"สัตว์ประจำตัว XP และรางวัล และเสียงกระดิ่งเมื่อคุณเรียน",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"ปิด: การเรียนเหมือนเดิมทุกอย่างแต่ไม่มีส่วนของเกม เป้าหมายและแถบความคืบหน้ายังอยู่ สัตว์ประจำตัวก็ยังอยู่ เผื่อคุณเปิดใช้อีกครั้ง",
+"Sound effects":"เสียงเอฟเฟกต์",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"เสียงกริ๊งและเพลงสั้นๆ ตอนตอบ ได้รางวัล และต่อสู้ ปิดแล้ว: ทุกอย่างทำงานเหมือนเดิม แค่ไม่มีเสียง",
 "No captions on YouTube":"ไม่มีคำบรรยายบน YouTube",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"ข้อกำหนดของ YouTube ไม่อนุญาตให้ Tamkeen ดาวน์โหลดเสียงของวิดีโอมาทำคำบรรยาย แต่ Gemini ของ Google ดูวิดีโอเองและเขียนคำบรรยายให้ได้",
 "Not now":"ไว้ทีหลัง",

@@ -683,6 +683,8 @@
 "Game features":"खेल की सुविधाएँ",
 "The creature, XP and rewards, and the chimes when you study":"जीव, XP और इनाम, और पढ़ाई के समय बजने वाली घंटियाँ",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"बंद: पढ़ाई वैसे ही चलती है, बिना खेल के। आपके लक्ष्य और प्रगति-पट्टियाँ बनी रहती हैं, और आपका जीव भी, ताकि आप इसे फिर से चालू कर सकें।",
+"Sound effects":"साउंड इफ़ेक्ट",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"जवाबों, इनामों और लड़ाइयों की घंटियाँ और धुनें। बंद होने पर: सब कुछ वैसे ही चलता है, बिना आवाज़ के।",
 "No captions on YouTube":"YouTube पर कैप्शन नहीं हैं",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"YouTube की शर्तें Tamkeen को कैप्शन बनाने के लिए वीडियो की आवाज़ डाउनलोड करने नहीं देतीं, लेकिन Google का Gemini ख़ुद वीडियो देखकर कैप्शन लिख सकता है।",
 "Not now":"अभी नहीं",

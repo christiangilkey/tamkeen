@@ -683,6 +683,8 @@
 "Game features":"بخش‌های بازی",
 "The creature, XP and rewards, and the chimes when you study":"موجود، امتیاز تجربه (XP) و جایزه‌ها، و صدای زنگ هنگام مطالعه",
 "Off: studying works the same, without any of the game. Your goals and progress bars stay, and so does your creature, for if you switch it back on.":"خاموش: مطالعه همان‌طور کار می‌کند، بدون هیچ بخشی از بازی. هدف‌ها و نوارهای پیشرفت می‌مانند، موجودتان هم، برای وقتی که دوباره روشنش کنید.",
+"Sound effects":"جلوه‌های صوتی",
+"The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.":"صداها و آهنگ‌های کوتاهِ پاسخ‌ها، جایزه‌ها و نبردها. خاموش: همه‌چیز همان‌طور کار می‌کند، بی‌صدا.",
 "No captions on YouTube":"زیرنویسی در یوتیوب نیست",
 "YouTube's terms don't let Tamkeen download a video's sound to make captions, but Google's Gemini can watch the video itself and write them.":"قوانین یوتیوب اجازه نمی‌دهد تمکین صدای ویدیو را برای ساختن زیرنویس دانلود کند، اما Gemini گوگل می‌تواند خودش ویدیو را ببیند و زیرنویس را بنویسد.",
 "Not now":"حالا نه",

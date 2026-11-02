@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	Mga sound effect
+2ec068cb	Ang mga tingog ug gagmayng tono para sa mga tubag, ganti ug away. Gipalong: ang tanan molihok gihapon, hilom lang.

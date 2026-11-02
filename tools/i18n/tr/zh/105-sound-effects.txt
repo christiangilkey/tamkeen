@@ -1,0 +1,3 @@
+# Settings → Game features: the Sound effects switch (web/js/components/gameswitch.js).
+a41e30af	音效
+2ec068cb	答题、奖励和对战时的提示音和小曲。关闭后：一切照常，只是没有声音。
