@@ -385,6 +385,10 @@ label.check input { margin-top: 3px; }
 .library.desk.courses-kind .lib-bar { display: none; } /* (on the phone it holds the kinds, which stay) */
 .library:not(.courses-kind) .lib-courses { display: none; }
 .lib-courses .vocab-tabs { margin-top: 4px; }
+/* Learning Arabic: which kind (Standard Arabic or a dialect), centred above the Grammar | Basics tabs. */
+.course-variety { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 10px 0 2px; font-weight: 600; }
+.course-variety[hidden] { display: none; }
+.course-variety select { min-width: 170px; max-width: 260px; flex: 0 1 260px; }
 .lib-head { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 12px; }
 .lib-head img { width: 88px; height: 88px; border-radius: 10px; object-fit: cover; flex: none; }
 .lib-head .meta { flex: 1; min-width: 0; }
@@ -2074,6 +2078,7 @@ html.sel-sheets select { pointer-events: none; }
 .cw-n { min-width: 26px; font-size: 12px; font-weight: 700; color: var(--muted); }
 .cw-word { font-family: var(--ar-font); font-size: clamp(26px, 7vw, 34px); font-weight: 650; line-height: 1.35; }
 .cw-meaning { color: var(--muted); font-size: 15px; }
+.cw-note { font-style: italic; } /* (a dialect word's note on the Standard word that looks the same) */
 .cw-sent { font-family: var(--ar-font); font-size: clamp(19px, 5vw, 23px); line-height: 1.8; }
 .cw-sent b, .cw-trans b { background: var(--hl); color: var(--hl-ink); border-radius: 6px; padding: 0 4px; font-weight: inherit; }
 .cw-trans { font-size: 14.5px; color: var(--muted); }
@@ -2283,16 +2288,32 @@ html.sel-sheets select { pointer-events: none; }
 /* ---------- game controllers (gamepad.js, components/controllerpanel.js) ----------
    The highlight the D-pad moves between buttons: a thick teal ring that shows on any background. */
 .pad-focus { outline: 3px solid var(--accent) !important; outline-offset: 3px !important; box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 25%, transparent) !important; border-radius: 10px; }
+/* Where something around the button would cut that ring off (a strip of tabs that scrolls sideways), it is drawn inside (gamepad.js ringClipped). */
+.pad-focus.pad-focus-in { outline-offset: -3px !important; box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--accent) 25%, transparent) !important; }
 /* The highlight inside text (padcursor.js): one word of a transcript, the captions, a reel or a book,
    ringed so it shows over the word being said (.cur) and words never seen (.new) alike. */
 .w.pad-word { outline: 2.5px solid var(--accent); outline-offset: 1px; border-radius: 5px; }
 .captions .w.pad-word, .reel-words .w.pad-word { outline-color: #fff; }
-/* The button guide (gamepad.js drawLegend): what A, B, X, Y… do on this screen, while a controller is in use. */
-.pad-legend { position: fixed; z-index: 2147483000; inset-inline-end: 14px; bottom: calc(14px + env(safe-area-inset-bottom));
-  display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 12px; max-width: min(640px, calc(100vw - 28px));
+/* The corner of the screen while a controller is connected (gamepad.js drawLegend): the button guide (what A, B,
+   X, Y… do on this screen, while the controller is in use) and the controller button that shows and hides it. */
+.pad-dock { position: fixed; z-index: 2147483000; inset-inline-end: 14px; bottom: calc(14px + env(safe-area-inset-bottom));
+  display: flex; align-items: flex-end; justify-content: flex-end; gap: 8px; max-width: calc(100vw - 28px); pointer-events: none; }
+.pad-dock[hidden] { display: none; }
+.pad-legend { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 12px; min-width: 0; max-width: 640px;
   padding: 8px 12px; border-radius: 14px; background: var(--surface); color: var(--text); border: 1px solid var(--border);
   font-size: 13.5px; line-height: 1.2; pointer-events: none; transition: opacity .3s; }
 .pad-legend[hidden] { display: none; }
+.pad-guide-btn { flex: none; pointer-events: auto; width: 38px; height: 38px; min-height: 0; min-width: 0; padding: 0; border-radius: 50%;
+  display: grid; place-items: center; background: var(--surface); color: var(--muted); border: 1px solid var(--border); transition: opacity .3s; }
+.pad-guide-btn:hover { color: var(--text); }
+.pad-guide-btn.on { color: var(--accent); }
+.pad-guide-btn.on .ic .fill { opacity: .22; }
+.pad-dock.idle .pad-guide-btn { opacity: .7; }
+.pad-dock.idle .pad-guide-btn:hover { opacity: 1; }
+/* The reviewer keeps a strip at its foot for them (gamepad.js makeRoom): they cover no card and no answer. */
+.pad-room .rv { padding-bottom: var(--pad-room, 0px); }
+.pad-room .rv-actions { padding-bottom: 6px; }
+.pad-room .pad-legend { max-width: none; }  /* (the strip is the screen's width: one row where it fits) */
 .pad-legend.idle { opacity: .55; }
 .pl-item { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
 .pl-key { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px;
@@ -2304,7 +2325,8 @@ html.sel-sheets select { pointer-events: none; }
 .pl-key.pl-y { background: #f2b705; color: #1f1a23; border-color: #f2b705; }
 /* (gamepad.js lifts it above a bar of buttons at the foot of the screen: the player's, the card's answers, the phone's tabs) */
 @media (max-width: 640px) {
-  .pad-legend { inset-inline: 10px; justify-content: center; margin: 0 auto; font-size: 12.5px; }
+  .pad-dock { inset-inline: 10px; max-width: none; }
+  .pad-legend { flex: 1; justify-content: center; font-size: 12.5px; }
 }
 /* Settings → Controller */
 .pad-list { display: grid; gap: 10px; }

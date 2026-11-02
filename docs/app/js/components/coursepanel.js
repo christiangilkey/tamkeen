@@ -15,13 +15,15 @@ import { api, esc, h, platform, saveVoice, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { markedSentenceHtml } from "../cardtext.js";
-import { cardOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
+import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* storage off */ } };
+// A word with its own audio (every word, except in a course built without any: build_course.py --voice none).
+const hasAudio = (w) => !!(w && w.audio && w.times);
 
-/** The courses there are ({courses: {lang: {...}}}), or null when they can't be reached. */
+/** The courses there are ({courses: {"ar": {...}, "ar-lev": {...}}}), or null when they can't be reached. */
 export async function courseIndex() {
   try {
     const r = await fetch(url("index.json"), { cache: "no-cache" });
@@ -36,10 +38,12 @@ export async function hasCourse(lang) {
 }
 
 /**
- * Draw the basics course of `lang` into `box`. `onCards` runs after words were added (the page reloads
- * its list and the Review counts). Returns a function that tidies up (stops the audio).
+ * Draw the basics course of `lang` into `box`: the language's own, or the one named by `course` (an Arabic
+ * dialect's, "ar-lev"). `onCards` runs after words were added (the page reloads its list and the Review
+ * counts). Returns a function that tidies up (stops the audio).
  */
-export function coursePanel(box, lang, { onCards = () => {} } = {}) {
+export function coursePanel(box, lang, { onCards = () => {}, course: courseId = "" } = {}) {
+  const id = courseId || lang; // the course's folder ("ar", "ar-lev")
   const player = new Audio();
   let stopAt = Infinity;
   player.addEventListener("timeupdate", () => { if (player.currentTime >= stopAt) player.pause(); });
@@ -50,7 +54,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
   async function load() {
     box.innerHTML = `<div class="course-note muted">Loading the course…</div>`;
     try {
-      const r = await fetch(url(`${lang}/course.json`), { cache: "no-cache" });
+      const r = await fetch(url(`${id}/course.json`), { cache: "no-cache" });
       if (!r.ok) throw new Error(r.status === 404 ? "none" : "unreachable");
       course = await r.json();
     } catch (e) {
@@ -62,7 +66,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     }
     await refreshCards();
     upgradeCards(); // (in the background: nothing on screen depends on it)
-    const open = Number(lsGet(`course:${lang}:unit`)) || 0;
+    const open = Number(lsGet(`course:${id}:unit`)) || 0;
     if (open && unitsOf(course).some((u) => u.n === open && u.ready)) drawUnit(open);
     else drawCourse();
   }
@@ -82,13 +86,15 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
 
   // ----- the course -----
   function drawCourse() {
-    lsSet(`course:${lang}:unit`, "");
+    lsSet(`course:${id}:unit`, "");
     const inCards = prog.have.size;
     const pct = Math.round((inCards / prog.planned) * 100);
     const next = prog.next;
     box.innerHTML = "";
     const head = h(`<section class="course-head">
-      <div class="ch-title"><h2 translate="no"></h2><span class="ch-sub"><span class="ch-variety" translate="no"></span><span>The ${prog.planned} most common words, 50 at a time</span></span></div>
+      <div class="ch-title"><h2 translate="no"></h2><span class="ch-sub"><span class="ch-variety" translate="no"></span><span>${course.dialect
+        ? `The ${prog.planned} most common words that aren't Standard Arabic, 50 at a time`
+        : `The ${prog.planned} most common words, 50 at a time`}</span></span></div>
       <div class="ch-bar" role="progressbar" aria-valuemin="0" aria-valuemax="${prog.planned}" aria-valuenow="${inCards}"><span style="width:${Math.max(pct, inCards ? 1 : 0)}%"></span></div>
       <div class="ch-stats">${inCards} of ${prog.planned} words in your cards</div>
       ${next ? `<button type="button" class="primary ch-go">${icon("play", 16)} <span>Continue: unit ${next.n}</span></button>` : ""}
@@ -110,7 +116,11 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       grid.append(tile);
     }
     box.append(grid);
-    box.append(h(`<p class="small muted course-credit">The audio is a computer voice (${esc(course.voice && course.voice.name ? course.voice.name : "text to speech")}).
+    box.append(h(course.voice
+      ? `<p class="small muted course-credit">The audio is a computer voice (${esc(course.voice.name || "text to speech")}).
+      Meanings and translations are in English for now.</p>`
+      // (a course without audio: no voice said it well enough, as for Moroccan)
+      : `<p class="small muted course-credit">This course has no audio: no computer voice says it well enough yet.
       Meanings and translations are in English for now.</p>`));
   }
 
@@ -118,7 +128,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
   function drawUnit(n) {
     const unit = unitsOf(course).find((u) => u.n === n);
     if (!unit) return drawCourse();
-    lsSet(`course:${lang}:unit`, String(n));
+    lsSet(`course:${id}:unit`, String(n));
     const missing = () => unit.words.filter((w) => !prog.have.has(w.n));
     box.innerHTML = "";
     const head = h(`<div class="cu-head">
@@ -142,17 +152,19 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       const sentence = markedSentenceHtml(w.sentence, w.word, esc); // the word where the sentence's ⟦ ⟧ marks say
       const row = h(`<li class="cw">
         <div class="cw-top"><span class="cw-n">${w.n}</span><span class="cw-word ar" ${attrs} translate="no"></span><span class="cw-meaning" translate="no"></span></div>
+        ${w.note ? `<div class="cw-note small muted" translate="no"></div>` : ""}
         <div class="cw-sent ar" ${attrs} translate="no">${sentence}</div>
         <div class="cw-trans" translate="no">${markedHtml(w.translation, esc)}</div>
         <div class="cw-actions">
-          <button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
-          <button type="button" class="ghost cw-play" data-part="sentence">${icon("sound", 15)} Sentence</button>
+          ${hasAudio(w) ? `<button type="button" class="ghost cw-play" data-part="word">${icon("sound", 15)} Word</button>
+          <button type="button" class="ghost cw-play" data-part="sentence">${icon("sound", 15)} Sentence</button>` : ""}
           <span class="spacer"></span>
           <button type="button" class="cw-add"></button>
         </div>
       </li>`);
       row.querySelector(".cw-word").textContent = w.word;
       row.querySelector(".cw-meaning").textContent = w.meaning;
+      if (w.note) row.querySelector(".cw-note").textContent = w.note; // (a dialect word that looks like a Standard one)
       for (const b of row.querySelectorAll(".cw-play")) b.onclick = () => play(w, b.dataset.part);
       row.querySelector(".cw-add").onclick = (e) => add([w], e.currentTarget);
       rows.set(w.n, row);
@@ -184,9 +196,11 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       for (const w of words) { const b = rows.get(w.n).querySelector(".cw-add"); b.disabled = true; b.textContent = "Adding…"; }
       try {
         const n = await addToCards(words);
-        if (n) earnXp({ type: "basics", keys: words.slice(0, n).map((w) => `${course.lang}:${w.n}`) }, anchor);
+        if (n) earnXp({ type: "basics", keys: words.slice(0, n).map((w) => `${courseIdOf(course)}:${w.n}`) }, anchor);
         await refreshCards();
-        toast(n === 1 ? "Added to your cards, with its audio." : `${n} words added to your cards, with their audio.`);
+        const voiced = words.some(hasAudio);
+        toast(n === 1 ? (voiced ? "Added to your cards, with its audio." : "Added to your cards.")
+          : voiced ? `${n} words added to your cards, with their audio.` : `${n} words added to your cards.`);
         onCards();
       } catch (e) {
         toast(e.message || String(e), { error: true });
@@ -218,12 +232,14 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
       (answer.cards || []).forEach((c, k) => made.push([c, part[k]]));
     }
     // Their audio, a few at a time. A word whose audio couldn't be kept is still a card (its voice
-    // then comes from Settings → Card voices, as for any card without one).
+    // then comes from Settings → Card voices, as for any card without one), as is a word of a course
+    // that has no audio.
     let failed = 0;
-    for (let i = 0; i < made.length; i += 4) {
-      await Promise.all(made.slice(i, i + 4).map(async ([card, w]) => {
+    const voiced = made.filter(([, w]) => hasAudio(w));
+    for (let i = 0; i < voiced.length; i += 4) {
+      await Promise.all(voiced.slice(i, i + 4).map(async ([card, w]) => {
         try {
-          const r = await fetch(url(`${course.lang}/${w.audio}`));
+          const r = await fetch(url(`${courseIdOf(course)}/${w.audio}`));
           if (!r.ok) throw new Error(`HTTP ${r.status}`);
           await saveVoice(card.id, await r.blob(), w.times);
         } catch { failed++; }
@@ -247,7 +263,7 @@ export function coursePanel(box, lang, { onCards = () => {} } = {}) {
     const t = w.times || {};
     const [from, to] = part === "word" ? [t.start, t.end] : [t.sent_start, t.sent_end];
     if (!Number.isFinite(from)) return;
-    const src = url(`${course.lang}/${w.audio}`);
+    const src = url(`${courseIdOf(course)}/${w.audio}`);
     try {
       if (player.dataset.src !== src) {
         player.src = src;

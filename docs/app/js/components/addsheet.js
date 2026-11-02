@@ -27,12 +27,23 @@ const WAYS = [
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
 ];
 
+/** The way to add that goes with each kind of thing the Library shows (its tabs on the left): the +
+ * button opens straight on it (the owner: "it should just bring the add content page that corresponds
+ * to the already selected content type tab"). Courses have none, so there it shows every way. */
+export const WAY_FOR_KIND = {
+  podcasts: "podcast", youtube: "youtube", netflix: "netflix", pages: "page", books: "book",
+  audiobooks: "audiobook", reels: "reels", videos: "video", audio: "audio",
+};
+
 /**
  * Open the sheet. `pickFile("video" | "audio")` starts choosing a file of your own, and
  * `addAudiobookFiles(files)` adds chosen files as one audiobook (the Library handles the upload and
- * shows its progress).
+ * shows its progress). `start` (a WAYS key) opens straight on that way, with "All the ways to add" to
+ * go back to the list; a way with no step of its own (a file, Reels, a web page) is gone straight to.
  */
-export function openAddSheet({ pickFile, addAudiobookFiles }) {
+export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
+  if (start === "video" || start === "audio") { pickFile(start); return; } // still inside the tap
+  if (start === "reels" || start === "page") { location.hash = start === "page" ? "#/sites" : "#/reels"; return; }
   const sheet = openModal({ title: "Add to your library" });
   const { body } = sheet;
   sheet.el.querySelector(".modal-box").classList.add("add-sheet");
@@ -229,6 +240,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles }) {
     };
   }
 
-  list();
+  if (WAYS.some((w) => w.key === start && w.step)) step(start);
+  else list();
   return sheet;
 }

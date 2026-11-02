@@ -22,6 +22,7 @@ import { askAi, definerConfig, noAi } from "../define-service.js";
 import { checkPrompt, cleanProgress, costCents, courseFor, finished, grammarUrl, listVersion, makeLesson, makeList, orderIsRight,
          optionOrder, plainText, progressOf, reviewQuestions, richHtml, shuffled } from "../grammardata.js";
 import { courseKey, keep, kept, lessonKey, listKey } from "../grammarstore.js";
+import { ARABIC_VARIETIES } from "../coursedata.js";
 import { sayText, stopSaying } from "../saytext.js";
 
 const AI_SETTINGS = "#/settings?s=words&show=key";
@@ -41,9 +42,11 @@ export async function grammarIndex() {
   } catch { return null; }
 }
 
-/** The grammar course for someone learning `lang` in the app's language: {course, made} or null. */
-export async function grammarFor(lang) {
-  return courseFor(uiLanguage(), lang, await grammarIndex());
+/** The grammar course for someone learning `lang` (or its `dialect`, "lev") in the app's language:
+ * {course, made, dialect} or null. `index`: the course list, when it has been fetched already. */
+export async function grammarFor(lang, dialect = "", index = undefined) {
+  const choice = courseFor(uiLanguage(), lang, index === undefined ? await grammarIndex() : index, dialect);
+  return choice && { ...choice, dialect };
 }
 
 /** The course as published, or the copy kept from the last time (no connection), or null. */
@@ -66,7 +69,8 @@ function aiMessage(e) {
 }
 
 /**
- * Draw the grammar course `choice` ({course: "en-ar", made: "zh" or null}) for language `lang` into `box`.
+ * Draw the grammar course `choice` ({course: "en-ar", made: "zh" or null, dialect: "" or an Arabic
+ * dialect, "lev", whose course is "en-ar-lev"}) for language `lang` into `box`.
  * Returns a function that tidies up.
  */
 export function grammarPanel(box, lang, choice) {
@@ -74,7 +78,9 @@ export function grammarPanel(box, lang, choice) {
   const into = choice.made;           // the learner's language, when the lessons can be made in it
   const modeKey = `grammar:${id}:${into}`;
   const attrs = langAttrs(lang);
-  const taught = (langInfo(lang) || {}).name || lang;
+  // (for the AI that puts lessons in the learner's language: "Arabic", or "Levantine Arabic")
+  const variety = choice.dialect ? (ARABIC_VARIETIES.find((v) => v.id === choice.dialect) || {}).name : "";
+  const taught = `${variety ? `${variety} ` : ""}${(langInfo(lang) || {}).name || lang}`;
   let course = null, list = null, progress = {};
   let making = null;                  // {stop: false} while "Make the rest now" runs
   let currentTopic = "";              // the grammar of the lesson on screen (for the AI's look at "your turn")

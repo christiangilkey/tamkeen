@@ -9,8 +9,9 @@
 // like the reels' ReelSurface) with the same five calls:
 //   open(id, lang, reload) -> {ok, reused, t}  show the title (or carry on with it; `reload`: afresh)
 //   place({x, y, w, h, vw, vh, visible})   where the stage is (CSS pixels) and whether it may show
-//   do(command, value)                     "play" | "pause" | "seek" (seconds) | "rate" | "continue"
-//   state() -> {t, d, paused, ended, rate, id, page, video, error, prompt, subs, audio, info}
+//   do(command, value)                     "play" | "pause" | "seek" (seconds) | "rate" | "continue" |
+//                                          "audio" | "text" (a track's key from state's `tracks`; "off")
+//   state() -> {t, d, paused, ended, rate, id, page, video, error, prompt, subs, audio, info, tracks, manual}
 //   release()                              the player page is gone
 // Netflix is asked where it is a few times a second; in between, the position is estimated from the
 // clock, which keeps the word highlight smooth.
@@ -231,6 +232,9 @@ export function createNetflixMedia(mount, id, { bridge, lang = "", duration = 0,
   };
   /** Netflix's "Are you still watching?": answer yes. */
   media.carryOn = () => send("continue");
+  /** Switch Netflix's soundtrack (`kind` "audio") or subtitles ("text"; key "off" turns them off) to
+   * the one whose key (in the state's `tracks`) is `key`: the player's Audio and Subtitles menus. */
+  media.chooseTrack = (kind, key) => (ready && (kind === "audio" || kind === "text") && key ? send(kind, String(key)) : Promise.resolve(null));
   /** Load the title afresh in Netflix's player (after signing in to Netflix, or an error). */
   media.reload = () => {
     if (disposed) return Promise.resolve();

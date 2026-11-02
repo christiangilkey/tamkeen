@@ -457,7 +457,7 @@ export async function render(view) {
         ${translation ? `<div class="vi-translation small"></div>` : ""}
         <input type="text" class="meaning" placeholder="Meaning" aria-label="Meaning">
         <textarea class="notes" rows="2" placeholder="Grammar notes (root, grammar, usage…)" aria-label="Grammar notes"></textarea>
-        <textarea class="memo" rows="1" placeholder="Personal notes (a mnemonic, where you heard it…)" aria-label="Personal notes"></textarea>
+        <textarea class="memo" rows="1" placeholder="Memorization notes (a mnemonic, where you heard it…)" aria-label="Memorization notes"></textarea>
         <div class="row vi-actions">
           <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
           <span class="spacer"></span>

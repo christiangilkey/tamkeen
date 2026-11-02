@@ -25,6 +25,7 @@ import {
   heldNow, isController, newTrust, pairName, pressesFrom, readInputs, settle, shortOf, standardize, STICK_AS_DPAD, trustNow,
 } from "./padmap.js";
 import { screenLayer } from "./padscreens.js";
+import { icon } from "./icons.js";
 import { openSelectSheet } from "./components/selectsheet.js";
 
 const SCROLL_SPEED = 1400;  // pixels a second, a stick pushed all the way
@@ -118,7 +119,10 @@ export function legendOn() {
 }
 export function setLegendOn(on) {
   try { localStorage.setItem("padLegend", on ? "on" : "off"); } catch { /* private window */ }
+  if (!on) peek = false;
   drawLegend();
+  // (Settings → Controller's tick box follows the controller button in the corner)
+  try { window.dispatchEvent(new CustomEvent("padlegend")); } catch { /* not in a page */ }
 }
 
 /**
@@ -192,7 +196,7 @@ function frame(now) {
   lastFrame = now;
   // nothing connected (or only devices that aren't controllers): stop looking; a controller of unknown
   // layout not yet used is still looked at, so its first real press can make it count
-  if (!pads.length && !capture && !mayBePads()) { lastFrame = 0; holding.clear(); setInUse(false); return; }
+  if (!pads.length && !capture && !mayBePads()) { lastFrame = 0; holding.clear(); setInUse(false); drawLegend(); return; }
   if (capture && now > capture.until) capture.resolve("");
   for (const p of pads) {
     const state = press.get(p.index) || newPressState();
@@ -209,7 +213,9 @@ function frame(now) {
       if (got) { rememberKind(p); capture.resolve(got); }
       continue;
     }
-    if (document.hidden) { pressesFrom(state, down, now); holding.clear(); continue; }
+    // (another window in front, such as the Netflix window with its own controller script, or a game:
+    // the presses are its, not this page's)
+    if (document.hidden || !windowInFront()) { pressesFrom(state, down, now); holding.clear(); continue; }
     const released = [...state.down].filter((id) => !down.has(id));
     const fired = pressesFrom(state, down, now, (id) => repeats(id));
     for (const id of released) letGo(id);
@@ -220,8 +226,13 @@ function frame(now) {
     }
     scrollHeld(heldNow(state, down), strength, dt);  // (never what has been held since it appeared)
   }
-  if (inUse && now - legendAt > LEGEND_MS) drawLegend();
+  if (now - legendAt > LEGEND_MS) drawLegend();  // (the controller button is there while one is connected, in use or not)
   loop();
+}
+
+/** Is this page's window the one in front (it, or a frame in it, has the focus)? */
+function windowInFront() {
+  try { return typeof document.hasFocus !== "function" || document.hasFocus(); } catch { return true; }
 }
 
 function rememberKind(p) {
@@ -288,7 +299,7 @@ function act(input) {
   // (where it was is kept: a button drawn again carries the highlight on from there, see nearSpot)
   if (highlighted && (!highlighted.isConnected || !padRoot().contains(highlighted))) {
     if (highlighted.isConnected && overlay()) parked = highlighted;  // behind a box: back on it when the box goes
-    highlighted.classList.remove("pad-focus");
+    highlighted.classList.remove("pad-focus", "pad-focus-in");
     highlighted = null;
   }
   // a box closed: the highlight is back where it was before it opened (as on Xbox)
@@ -526,14 +537,14 @@ function candidates(root = padRoot(), { include = "", offscreen = false } = {}) 
 let lastSpot = null;
 
 function unhighlight() {
-  if (highlighted) highlighted.classList.remove("pad-focus");
+  if (highlighted) highlighted.classList.remove("pad-focus", "pad-focus-in");
   highlighted = null;
   lastSpot = null;
   parked = null;
 }
 
 function highlight(el, { focus = true } = {}) {
-  if (highlighted && highlighted !== el) highlighted.classList.remove("pad-focus");
+  if (highlighted && highlighted !== el) highlighted.classList.remove("pad-focus", "pad-focus-in");
   highlighted = el;
   if (!el) return;
   el.classList.add("pad-focus");
@@ -542,7 +553,24 @@ function highlight(el, { focus = true } = {}) {
   // and the controller would be typing, not moving).
   if (focus && !isTextBox(el)) { try { el.focus({ preventScroll: true }); } catch { /* not focusable after all */ } }
   el.scrollIntoView({ block: "nearest", inline: "nearest" });
+  el.classList.toggle("pad-focus-in", ringClipped(el));
   spotOf(el);
+}
+
+const RING = 6;  // how far the ring reaches outside a button (app.css .pad-focus: 3px apart, 3px wide; its glow 6px)
+
+/** Would something around it cut off the ring drawn outside it (a strip of tabs that scrolls sideways)? Then it goes inside. */
+function ringClipped(el) {
+  const r = el.getBoundingClientRect();
+  for (let p = el.parentElement; p && p !== document.body && p !== document.documentElement; p = p.parentElement) {
+    const st = getComputedStyle(p);
+    if (st.overflowX === "visible" && st.overflowY === "visible") continue;
+    const c = p.getBoundingClientRect();
+    const cutX = st.overflowX !== "visible" && (r.left - RING < c.left + p.clientLeft || r.right + RING > c.left + p.clientLeft + p.clientWidth);
+    const cutY = st.overflowY !== "visible" && (r.top - RING < c.top + p.clientTop || r.bottom + RING > c.top + p.clientTop + p.clientHeight);
+    if (cutX || cutY) return true;
+  }
+  return false;
 }
 
 function spotOf(el) {
@@ -857,12 +885,18 @@ const SCREEN_TOOLS = { highlight, highlightMove, highlightedEl, pressHighlighted
 
 // ------------------------------------------------------------------- the button guide on screen
 
-let legendEl = null;
+let dockEl = null;     // the corner of the screen with the button guide and the controller button
+let legendEl = null;   // the button guide
+let guideBtn = null;   // the controller button, which shows and hides the guide
+let guideBtnOn = null;
+let peek = false;      // shown with that button (by mouse or finger): until the mouse, a finger or the keys are used elsewhere
 let legendAt = 0;
 let legendHtml = "";
 const LEGEND = [["b0"], ["b1"], ["b2"], ["b3"], ["b4", "b5"], ["b6", "b7"], ["b8"], ["b9"]];
 const FACE_CLASS = { b0: "a", b1: "b", b2: "x", b3: "y" };
 const FOOT_BARS = ".controls, .rv-actions, .book-foot, .reel-controls, .tabbar";
+// Full screens that keep a strip at their foot for the guide, so it covers none of them (the reviewer's card and answers)
+const ROOMY = ".rv";
 
 function setInUse(on) {
   if (on) lastInput = performance.now();
@@ -896,22 +930,48 @@ function legendItems() {
   return out.slice(0, 8);
 }
 
+function buildDock() {
+  dockEl = document.createElement("div");
+  dockEl.className = "pad-dock pad-skip";  // (the D-pad's highlight never lands on the controller button)
+  legendEl = document.createElement("div");
+  legendEl.className = "pad-legend";
+  legendEl.setAttribute("aria-hidden", "true");
+  guideBtn = document.createElement("button");
+  guideBtn.type = "button";
+  guideBtn.className = "pad-guide-btn";
+  guideBtn.innerHTML = icon("game", 20);
+  guideBtn.addEventListener("click", toggleGuide);
+  dockEl.append(legendEl, guideBtn);
+  document.body.append(dockEl);
+  legendHtml = "";
+  guideBtnOn = null;
+}
+
+/** The controller button: the guide on screen goes (and stays off); else it shows (and is on). */
+function toggleGuide() {
+  if (legendEl && !legendEl.hidden) { peek = false; setLegendOn(false); return; }
+  peek = true;
+  lastInput = performance.now();
+  setLegendOn(true);
+}
+
+/** Is this (what was pressed or clicked) the controller button or the guide? */
+const inDock = (el) => !!(dockEl && el && dockEl.contains(el));
+
 function drawLegend() {
   legendAt = performance.now();
   if (typeof document === "undefined" || !document.body) return;
-  const show = inUse && legendOn() && rawPads().length > 0 && !capture;
-  if (!show) {
-    if (legendEl) legendEl.hidden = true;
+  // The controller button is there while a controller is connected; the guide, while one is in use (and it is on).
+  if (!rawPads().length || capture) {
+    if (dockEl) dockEl.hidden = true;
+    peek = false;
+    makeRoom(0);
     return;
   }
-  if (!legendEl || !legendEl.isConnected) {
-    legendEl = document.createElement("div");
-    legendEl.className = "pad-legend";
-    legendEl.setAttribute("aria-hidden", "true");
-    document.body.append(legendEl);
-  }
+  if (!dockEl || !dockEl.isConnected) buildDock();
+  dockEl.hidden = false;
   const { kind, standard } = padStyle();
-  const items = legendItems();
+  const items = (inUse || peek) && legendOn() ? legendItems() : [];
   const html = items.map(({ inputs, label }) => {
     const keys = inputs.map((i) => {
       const colour = kind === "xbox" && FACE_CLASS[i] ? ` pl-${FACE_CLASS[i]}` : "";  // Xbox's green A, red B…
@@ -922,31 +982,58 @@ function drawLegend() {
   if (html !== legendHtml) { legendHtml = html; legendEl.innerHTML = html; }
   legendEl.hidden = !items.length;
   legendEl.classList.toggle("idle", performance.now() - lastInput > 5000);
-  // Just above a bar of buttons at the foot of the screen (the player's controls, the answers under a
-  // card, a book's page buttons, the phone's tabs), never over it.
-  let lift = 0;
-  for (const bar of document.querySelectorAll(FOOT_BARS)) {
-    if (!bar.getClientRects().length) continue;
-    const r = bar.getBoundingClientRect();
-    if (r.height && r.top > innerHeight / 2 && r.bottom >= innerHeight - 24) lift = Math.max(lift, innerHeight - r.top);
+  dockEl.classList.toggle("idle", !inUse && !peek);
+  const shown = !legendEl.hidden;
+  if (shown !== guideBtnOn) {  // (only when it changes: the page's translator puts the words in the learner's language)
+    guideBtnOn = shown;
+    guideBtn.classList.toggle("on", shown);
+    const label = shown ? "Hide the button guide" : "Show the button guide";
+    guideBtn.title = label;
+    guideBtn.setAttribute("aria-label", label);
   }
-  legendEl.style.bottom = lift ? `${Math.round(lift + 8)}px` : "";
-  legendEl.style.top = "";
+  placeDock();
+}
+
+function placeDock() {
+  const room = [...document.querySelectorAll(ROOMY)].some((el) => el.getClientRects().length);
+  // Just above a bar of buttons at the foot of the screen (the player's controls, a book's page buttons,
+  // the phone's tabs), never over it; on a screen that keeps a strip for it (the reviewer), in that strip.
+  let lift = 0;
+  if (!room) {
+    for (const bar of document.querySelectorAll(FOOT_BARS)) {
+      if (!bar.getClientRects().length) continue;
+      const r = bar.getBoundingClientRect();
+      if (r.height && r.top > innerHeight / 2 && r.bottom >= innerHeight - 24) lift = Math.max(lift, innerHeight - r.top);
+    }
+  }
+  dockEl.style.bottom = lift ? `${Math.round(lift + 8)}px` : "";
+  dockEl.style.top = "";
+  const boxes = () => [legendEl, guideBtn].filter((el) => !el.hidden).map((el) => el.getBoundingClientRect());
   // Never over a video's captions or a reel's words: then it goes to the top, under the player's title.
-  const at = legendEl.getBoundingClientRect();
+  const at = boxes();
   for (const words of document.querySelectorAll(".captions, .reel-words")) {
     const r = words.getBoundingClientRect();
     if (!r.width || !words.textContent.trim()) continue;
-    if (r.left < at.right && r.right > at.left && r.top < at.bottom && r.bottom > at.top) {
+    if (at.some((b) => r.left < b.right && r.right > b.left && r.top < b.bottom && r.bottom > b.top)) {
       let below = 0;  // under the app's top bar and the player's own one
       for (const head of document.querySelectorAll(".player-head, .reel-bar, .topbar")) {
         if (head.getClientRects().length) below = Math.max(below, head.getBoundingClientRect().bottom);
       }
-      legendEl.style.top = `${Math.round(below + 8)}px`;
-      legendEl.style.bottom = "auto";
+      dockEl.style.top = `${Math.round(below + 8)}px`;
+      dockEl.style.bottom = "auto";
       break;
     }
   }
+  makeRoom(room ? Math.ceil(innerHeight - Math.min(...boxes().map((b) => b.top)) + 6) : 0);
+}
+
+/** The strip kept at the foot of the reviewer for the guide and the controller button (app.css .pad-room). */
+function makeRoom(px) {
+  const root = document.documentElement;
+  if (!root) return;
+  root.classList.toggle("pad-room", px > 0);
+  if (px > 0) root.style.setProperty("--pad-room", `${px}px`);
+  else root.style.removeProperty("--pad-room");
 }
 
 const escapeHtml = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
@@ -965,17 +1052,27 @@ export function startGamepad() {
     if (pad && pad.mapping === "standard") rememberKind(pad);
     reloadControllerSetting();
     changed();
+    drawLegend();  // the controller button, at once
     loop();
   });
   window.addEventListener("gamepaddisconnected", (e) => {
     if (e.gamepad) { press.delete(e.gamepad.index); held.delete(e.gamepad.index); rests.delete(e.gamepad.index); trust.delete(e.gamepad.index); }
     if (!rawPads().length) { holding.clear(); setInUse(false); }  // (only real controllers: a speaker's knob leaving changes nothing)
     changed();
+    drawLegend();
   });
-  // The highlight and the button guide are for the controller: the mouse, a finger or the keyboard put them away.
-  const away = () => { unhighlight(); setInUse(false); };
-  window.addEventListener("pointerdown", (e) => { if (e.isTrusted) away(); }, true);
-  window.addEventListener("keydown", (e) => { if (e.isTrusted) away(); }, true);
+  // The highlight and the button guide are for the controller: the mouse, a finger or the keyboard put them away
+  // (not when they press the controller button in the corner, which shows and hides the guide).
+  const away = (e) => {
+    if (!e.isTrusted || inDock(e.target)) return;
+    unhighlight();
+    const peeked = peek;
+    peek = false;
+    setInUse(false);
+    if (peeked) drawLegend();
+  };
+  window.addEventListener("pointerdown", away, true);
+  window.addEventListener("keydown", away, true);
   window.addEventListener("hashchange", () => { unhighlight(); holding.clear(); });
   document.addEventListener("visibilitychange", () => { if (!document.hidden) { reloadControllerSetting(); if (mayBePads()) loop(); } });
   if (mayBePads()) loop();  // already connected (a page reload)

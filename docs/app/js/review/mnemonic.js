@@ -328,8 +328,17 @@ export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading
   return { pron, asked: keywords.length + parts.length, ...rankSuggestions({ pron, keywords, parts, ownSounds: own, avoid }) };
 }
 
-/** What Copy and "Keep" put in Personal notes: the keyword and its scene. */
+/** What "Use" puts in Memorization notes: the keyword and its scene. */
 export const noteText = (s) => (s.scene ? `${s.keyword} — ${s.scene}` : s.keyword);
+
+/** Memorization notes with `text` added: nothing the learner typed is lost, and a blank line keeps
+ * it apart from what was there. Text that is already in the notes isn't added twice. */
+export function addToNotes(notes, text) {
+  const now = String(notes || "");
+  if (!text || now.includes(text)) return now;
+  const had = now.replace(/\s+$/, "");
+  return had ? `${had}\n\n${text}` : text;
+}
 
 // ---------- keywords the learner turned down, kept on this device ----------
 const AVOID_KEY = "mnemonicAvoid";

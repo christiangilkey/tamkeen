@@ -3,7 +3,7 @@
 // Words only: the rules themselves are in rules.js and idle.js, and the numbers here are read from them.
 
 import { esc, h } from "../app.js";
-import { CATALOG, FOODS, GROWN, SHOP_MOVES, SPECIES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS } from "./data.js";
+import { CATALOG, FOODS, GROWN, SHOP_MOVES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS, beastById } from "./data.js";
 import { describe, isGrown, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
 import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, levelOf, variantOptions } from "./rules.js";
@@ -228,7 +228,7 @@ export function openEvolution(game, go) {
   const pct = (t) => Math.round((g.traits[t] || 0) * 100);
   const { body, close } = sheet("How your creature grows", "evolve");
 
-  const kind = `${TYPES[look.type].name} ${egg ? "egg" : SPECIES[look.species].name.toLowerCase()}`;
+  const kind = `${TYPES[look.type].name} ${egg ? "egg" : beastById(look.beast).name.toLowerCase()}`;
   body.append(h(`<p class="info-now">${esc(g.name || (egg ? "Your egg" : "Your creature"))} is a ${kind}. Creatures stay young and
     cute: they grow up to juveniles and never become adults.</p>`));
 
