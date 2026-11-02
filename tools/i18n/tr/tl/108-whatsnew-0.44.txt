@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Live na ang mga laban: patakbuhin ang iyong nilalang sa bagong arena tuwing laban gamit ang stick, mga key, mouse o daliri mo, at sagutin ang tanong sa salita sa loob ng 5 segundo para tumama ang bawat galaw
+9b18f5c9	May sariling itsurang sanggol ang mga bagong pisa
+39bdaf18	Pindutin nang matagal ang isang salita para markahan itong alam nang hindi binubuksan ang popup, o pindutin ang ? sa popup para manatili itong amber bilang hindi pa alam
+6248c447	Isang switch ng Mga sound effect sa Settings → Mga feature ng laro
+6b7f75f5	Ang pag-transcribe ay nagpapakita ng bar sa paghahanap ng pagsasalita at bar sa pagsusulat, bawat isa may porsiyento

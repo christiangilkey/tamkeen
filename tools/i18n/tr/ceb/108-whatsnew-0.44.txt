@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Live na karon ang mga away: padagana ang imong binuhat sa bag-ong arena matag higayon gamit ang stick, mga yawe, mouse o imong tudlo, ug tubaga ang pangutana sa pulong sulod sa 5 segundos aron maigo ang matag lihok
+9b18f5c9	Ang mga bag-ong napusa adunay kaugalingong dagway sa bata
+39bdaf18	Pugngi og dugay ang pulong aron markahan nga nahibal-an nga dili maablihan ang popup, o pinduta ang ? sa popup aron magpabilin kini nga amber nga wala pa nahibal-i
+6248c447	Usa ka switch sa Mga sound effect sa Settings → Mga feature sa dula
+6b7f75f5	Ang pag-transcribe nagpakita og bar sa pagpangita sa sinultian ug bar sa pagsulat, matag usa adunay porsiyento

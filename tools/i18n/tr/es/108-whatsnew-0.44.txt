@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Las batallas ahora son en directo: mueve a tu criatura por una arena nueva cada vez con el joystick, las teclas, el ratón o el dedo, y responde una pregunta de palabras en 5 segundos para acertar cada movimiento
+9b18f5c9	Las crías tienen su propio aspecto de bebé
+39bdaf18	Mantén pulsada una palabra para marcarla como sabida sin abrir la ventana, o pulsa ? en la ventana para que se quede en ámbar como aún no sabida
+6248c447	Un interruptor de Efectos de sonido en Ajustes → Funciones de juego
+6b7f75f5	La transcripción muestra una barra de búsqueda de voz y otra de escritura, cada una con su porcentaje

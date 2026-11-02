@@ -19435,6 +19435,31 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "528abc71",
+  "k": "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "9b18f5c9",
+  "k": "Hatchlings have a baby look of their own",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "39bdaf18",
+  "k": "Hold a word to mark it known without opening the popup, or press ? in the popup to keep it amber as not known yet",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6248c447",
+  "k": "A Sound effects switch in Settings → Game features",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6b7f75f5",
+  "k": "Transcribing shows a scan bar and a writing bar, each with its percentage",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "299fd793",
   "k": "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics",
   "f": "web/js/whatsnew.js"

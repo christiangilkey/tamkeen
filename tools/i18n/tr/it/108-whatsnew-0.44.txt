@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Le battaglie ora sono dal vivo: fai correre la tua creatura in un'arena nuova ogni volta con la levetta, i tasti, il mouse o il dito, e rispondi a una domanda sulle parole in 5 secondi per mettere a segno ogni mossa
+9b18f5c9	I cuccioli hanno un aspetto da piccoli tutto loro
+39bdaf18	Tieni premuta una parola per segnarla come conosciuta senza aprire la finestra, oppure premi ? nella finestra per lasciarla ambra come non ancora conosciuta
+6248c447	Un interruttore Effetti sonori in Impostazioni → Funzioni di gioco
+6b7f75f5	La trascrizione mostra una barra di ricerca del parlato e una di scrittura, ognuna con la sua percentuale

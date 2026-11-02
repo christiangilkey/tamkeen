@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Ara les batalles són en directe: mou la teva criatura per una arena nova cada vegada amb el joystick, les tecles, el ratolí o el dit, i respon una pregunta de paraules en 5 segons per encertar cada moviment
+9b18f5c9	Les cries tenen un aspecte de nadó propi
+39bdaf18	Mantén premuda una paraula per marcar-la com a sabuda sense obrir la finestra, o prem ? a la finestra perquè quedi ambre com a encara no sabuda
+6248c447	Un interruptor d'Efectes de so a Configuració → Funcions de joc
+6b7f75f5	La transcripció mostra una barra de cerca de veu i una d'escriptura, cadascuna amb el seu percentatge

@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Kämpfe laufen jetzt live: Lauf mit deinem Wesen jedes Mal durch eine neue Arena, mit dem Stick, den Tasten, der Maus oder dem Finger, und beantworte in 5 Sekunden eine Wortfrage, damit jede Attacke trifft
+9b18f5c9	Schlüpflinge haben ein eigenes Baby-Aussehen
+39bdaf18	Halte ein Wort gedrückt, um es als bekannt zu markieren, ohne das Fenster zu öffnen, oder tippe im Fenster auf ?, damit es bernsteinfarben als noch unbekannt bleibt
+6248c447	Ein Schalter für Soundeffekte unter Einstellungen → Spielfunktionen
+6b7f75f5	Beim Transkribieren zeigen ein Balken für die Sprachsuche und einer fürs Schreiben jeweils ihren Prozentwert

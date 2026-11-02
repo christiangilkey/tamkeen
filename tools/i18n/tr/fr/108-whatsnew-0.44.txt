@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	Les combats sont désormais en direct : faites courir votre créature dans une nouvelle arène à chaque fois avec le joystick, les touches, la souris ou le doigt, et répondez à une question de vocabulaire en 5 secondes pour réussir chaque attaque
+9b18f5c9	Les nouveau-nés ont leur propre allure de bébé
+39bdaf18	Maintenez un mot appuyé pour le marquer comme connu sans ouvrir la fenêtre, ou touchez ? dans la fenêtre pour le garder ambre, pas encore connu
+6248c447	Un interrupteur Effets sonores dans Réglages → Fonctions de jeu
+6b7f75f5	La transcription affiche une barre de recherche de la parole et une barre d'écriture, chacune avec son pourcentage

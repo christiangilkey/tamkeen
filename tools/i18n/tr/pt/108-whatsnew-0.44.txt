@@ -1,0 +1,6 @@
+# What's new in v0.44.0 (web/js/whatsnew.js).
+528abc71	As batalhas agora são ao vivo: corra com sua criatura por uma arena nova a cada vez com o analógico, as teclas, o mouse ou o dedo, e responda a uma pergunta de palavras em 5 segundos para acertar cada golpe
+9b18f5c9	Os filhotes têm uma aparência de bebê própria
+39bdaf18	Segure uma palavra para marcá-la como sabida sem abrir a janela, ou toque em ? na janela para mantê-la âmbar como ainda não sabida
+6248c447	Um botão de Efeitos sonoros em Configurações → Recursos de jogo
+6b7f75f5	A transcrição mostra uma barra de busca de fala e uma de escrita, cada uma com sua porcentagem

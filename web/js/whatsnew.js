@@ -10,6 +10,13 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.44.0",
+  "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
+  "Hatchlings have a baby look of their own",
+  "Hold a word to mark it known without opening the popup, or press ? in the popup to keep it amber as not known yet",
+  "A Sound effects switch in Settings → Game features",
+  "Transcribing shows a scan bar and a writing bar, each with its percentage");
+
 notes("0.43.0",
   "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics");
 
