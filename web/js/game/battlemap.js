@@ -198,14 +198,21 @@ export function canRepaint(map, tx, ty) {
 const WATERY = new Set(["shallows", "deep_water", "spring", "lava"]);
 /** Dry ground a bridge can end on. */
 const dryLand = (id) => TERRAIN[id].walk && !WATERY.has(id);
-/** The layers of one tile, bottom to top: the base ground, what the terrain sits on, the terrain. A bridge sits on
- * deep water, or on shallow water where it runs on over a river's bank (`map.under` says so, per tile). */
+/**
+ * The layers of one tile, bottom to top: the base ground, what the terrain sits on, the terrain. `map.under` (per
+ * tile, a list or null) gives what a patch was painted over (flowers on grass on sand, crystals on shadow, a bridge
+ * on the shallow bank); otherwise the terrain's own `under` (deep water on shallows, a bridge on deep water).
+ */
 function chainAt(map, tx, ty) {
   const id = tileAt(map, tx, ty);
   const own = map.under && map.under[ty * map.cols + tx];
-  const chain = [id];
-  for (let u = own || TERRAIN[id].under; u && u !== map.base; u = TERRAIN[u].under) chain.unshift(u);
-  if (id !== map.base) chain.unshift(map.base);
+  let chain;
+  if (own && own.length) chain = [...own, id];
+  else {
+    chain = [id];
+    for (let u = TERRAIN[id].under; u && u !== map.base; u = TERRAIN[u].under) chain.unshift(u);
+  }
+  if (chain[0] !== map.base) chain.unshift(map.base);
   return chain;
 }
 /** Which way a bridge tile runs: "h" (east-west) or "v", from the bridge tiles beside it, else the water. */
@@ -497,6 +504,20 @@ function field(ctx, scale, { octaves = 2, extra = null } = {}) {
   return out;
 }
 
+/**
+ * Paint one tile. A ground painted over another ground (not the base) keeps it beneath for drawing, so flowers
+ * on the oasis grass show grass round them, not the desert's sand. Terrains with their own layer beneath (deep
+ * water, bridges) and the base itself don't.
+ */
+function setTile(ctx, i, id) {
+  const prev = ctx.tiles[i];
+  if (prev === id) return;
+  const t = TERRAIN[prev];
+  const keepsBeneath = id !== ctx.base && !TERRAIN[id].under && prev !== ctx.base && t.walk && !t.fixed && !WATERY.has(prev);
+  ctx.under[i] = keepsBeneath ? [...(ctx.under[i] || []), prev].slice(-2) : null;
+  ctx.tiles[i] = id;
+}
+
 /** Paint `id` over about `cover` of the whole map, on the tiles of `on`, where the field is highest. */
 function patch(ctx, id, cover, scale, { on = [ctx.base], f = null, octaves = 2 } = {}) {
   if (cover <= 0) return null;
@@ -508,11 +529,11 @@ function patch(ctx, id, cover, scale, { on = [ctx.base], f = null, octaves = 2 }
   const vals = cand.map((i) => f[i]).sort((a, b) => b - a);
   const thr = vals[Math.min(vals.length, Math.max(1, Math.round(cover * ctx.n))) - 1];
   const was = new Map();
-  for (const i of cand) if (f[i] >= thr) { was.set(i, ctx.tiles[i]); ctx.tiles[i] = id; }
+  for (const i of cand) if (f[i] >= thr) { was.set(i, [ctx.tiles[i], ctx.under[i]]); setTile(ctx, i, id); }
   // most lone stray tiles go back (a few stay, as single tufts and stones)
   const key = ctx.k++;
   const lone = [...was.keys()].filter((i) => !around(ctx, i, N4).some((j) => ctx.tiles[j] === id));
-  for (const i of lone) if (tileRand(ctx, key, i) < 0.75) ctx.tiles[i] = was.get(i);
+  for (const i of lone) if (tileRand(ctx, key, i) < 0.75) [ctx.tiles[i], ctx.under[i]] = was.get(i);
   return f;
 }
 
@@ -537,14 +558,14 @@ function ring(ctx, of, id, { on = null, chance = 1 } = {}) {
     if (on ? !on.includes(t) : !TERRAIN[t].walk || TERRAIN[t].fixed) continue;
     if (around(ctx, i).some((j) => of.includes(ctx.tiles[j]))) add.push(i);
   }
-  for (const i of clumped(ctx, add, chance)) ctx.tiles[i] = id;
+  for (const i of clumped(ctx, add, chance)) setTile(ctx, i, id);
 }
 
 /** Lone tiles of `id` (no same neighbour, 4 ways) become `to`. */
 function despeckle(ctx, id, to) {
   const lone = [];
   for (let i = 0; i < ctx.n; i++) if (ctx.tiles[i] === id && !around(ctx, i, N4).some((j) => ctx.tiles[j] === id)) lone.push(i);
-  for (const i of lone) ctx.tiles[i] = to;
+  for (const i of lone) setTile(ctx, i, to);
 }
 
 /** Ponds and lakes: a core (deep water, lava) with a rim (shallow water, coals). */
@@ -577,14 +598,14 @@ function river(ctx, { core, bank = null, width = 1, bankChance = 1, crossing = n
     if (bMin > aMax) for (let x = aMax + 1; x <= bMin; x++) add(at(ctx, x, y));
     else for (let x = bMax; x < aMin; x++) add(at(ctx, x, y));
   }
-  for (const i of coreSet) if (!ctx.keep[i]) ctx.tiles[i] = core;
+  for (const i of coreSet) if (!ctx.keep[i]) setTile(ctx, i, core);
   if (bank) {
     const banks = [];
     for (let i = 0; i < ctx.n; i++) {
       if (coreSet.has(i) || TERRAIN[ctx.tiles[i]].fixed || (harmful(bank) && ctx.keep[i])) continue;
       if (around(ctx, i).some((j) => coreSet.has(j))) banks.push(i);
     }
-    for (const i of clumped(ctx, banks, bankChance)) ctx.tiles[i] = bank;
+    for (const i of clumped(ctx, banks, bankChance)) setTile(ctx, i, bank);
   }
   if (crossing) {
     const rows = [];
@@ -592,7 +613,7 @@ function river(ctx, { core, bank = null, width = 1, bankChance = 1, crossing = n
       const y = r.int(2, Math.max(2, Math.floor(H / 2) - 2));
       if (!rows.includes(y)) rows.push(y);
     }
-    for (const y of rows) for (const x of rowCols(y)) { const i = at(ctx, x, y); ctx.tiles[i] = crossing; ctx.tiles[R(i)] = crossing; }
+    for (const y of rows) for (const x of rowCols(y)) { const i = at(ctx, x, y); setTile(ctx, i, crossing); setTile(ctx, R(i), crossing); }
   }
   return true;
 }
@@ -618,7 +639,7 @@ function road(ctx, id, { on }) {
     cells.push(at(ctx, x, y));
   }
   cells.push(at(ctx, W - 1 - tx, ty)); // meet the other half
-  for (const i of cells) for (const j of [i, R(i)]) if (on.includes(ctx.tiles[j])) ctx.tiles[j] = id;
+  for (const i of cells) for (const j of [i, R(i)]) if (on.includes(ctx.tiles[j])) setTile(ctx, j, id);
 }
 
 /** A small spring: in the very middle, or a pair, one on each side. */
@@ -634,7 +655,7 @@ function spring(ctx) {
   }
   for (const i of spots.filter((k) => k >= 0)) for (const j of [i, R(i)]) {
     const t = TERRAIN[ctx.tiles[j]];
-    if (t.walk && !t.fixed && !ctx.keep[j]) ctx.tiles[j] = "spring";
+    if (t.walk && !t.fixed && !ctx.keep[j]) setTile(ctx, j, "spring");
   }
 }
 
@@ -707,7 +728,11 @@ function scatter(ctx, list, density, { on, scale = 4, clump = 1.2, near = null }
  */
 function symmetrize(ctx) {
   const a = ctx.starts[0];
-  for (let i = 0; i < ctx.n; i++) if (dist(ctx, i, a) <= ZONE) ctx.tiles[ctx.R(i)] = ctx.tiles[i];
+  for (let i = 0; i < ctx.n; i++) {
+    if (dist(ctx, i, a) > ZONE) continue;
+    ctx.tiles[ctx.R(i)] = ctx.tiles[i];
+    ctx.under[ctx.R(i)] = ctx.under[i] && [...ctx.under[i]];
+  }
 }
 
 const walkerOk = (ctx, i) => TERRAIN[ctx.tiles[i]].walk && !ctx.propTiles[i];
@@ -716,7 +741,7 @@ const walkerOk = (ctx, i) => TERRAIN[ctx.tiles[i]].walk && !ctx.propTiles[i];
 function clearStarts(ctx) {
   for (let i = 0; i < ctx.n; i++) {
     if (!ctx.keep[i]) continue;
-    if (harmful(ctx.tiles[i])) ctx.tiles[i] = ctx.base;
+    if (harmful(ctx.tiles[i])) setTile(ctx, i, ctx.base);
     if (ctx.propTiles[i]) removeProp(ctx, i);
   }
 }
@@ -732,7 +757,7 @@ function carve(ctx, i) {
   if (ctx.propTiles[i]) { removeProp(ctx, i); return; }
   const id = ctx.tiles[i];
   if (TERRAIN[id].walk) return;
-  ctx.tiles[i] = (ctx.theme.carve && ctx.theme.carve[id]) || ctx.base;
+  setTile(ctx, i, (ctx.theme.carve && ctx.theme.carve[id]) || ctx.base);
 }
 /** The cheapest line of tiles from a to b for an ordinary walker, counting blocked tiles as very dear. */
 function cheapestLine(ctx, a, b) {
@@ -768,7 +793,7 @@ function extendBridges(ctx) {
       let j = step(i, dx, dy);
       while (j >= 0 && t[j] === "shallows" && !ctx.propTiles[j] && run.length < 3) { run.push(j); j = step(j, dx, dy); }
       if (!run.length || j < 0 || ctx.propTiles[j] || !(dryLand(t[j]) || t[j] === "bridge")) continue;
-      for (const k of run) { t[k] = "bridge"; ctx.under[k] = "shallows"; }
+      for (const k of run) { t[k] = "bridge"; ctx.under[k] = ["shallows"]; }
     }
   }
 }
@@ -910,13 +935,13 @@ export const THEMES = {
       // the oasis in the middle: a spring in a pool, ringed with grass and flowers, palms around it
       const cx = (ctx.cols - 1) / 2, cy = (ctx.rows - 1) / 2;
       const d = (x, y) => Math.hypot(x - cx, (y - cy) * 1.2);
-      const f = field(ctx, 2.5);
+      const f = field(ctx, 2.5), bloom = field(ctx, 2);
       const pool = r.range(1.6, 2.6), green = r.range(3, 4.6);
       for (let i = 0; i < ctx.n; i++) {
         const di = d(X(ctx, i), Y(ctx, i));
-        if (di <= 1.0) ctx.tiles[i] = "spring";
-        else if (di <= pool + f[i] * 0.35) ctx.tiles[i] = "shallows";
-        else if (di <= green + f[i] * 0.6) ctx.tiles[i] = tileRand(ctx, 9, i) < 0.3 ? "flowers" : "grass";
+        if (di <= 1.0) setTile(ctx, i, "spring");
+        else if (di <= pool + f[i] * 0.35) setTile(ctx, i, "shallows");
+        else if (di <= green + f[i] * 0.6) { setTile(ctx, i, "grass"); if (bloom[i] > 0.6) setTile(ctx, i, "flowers"); }
       }
       scatter(ctx, [["palm", 1]], 0.22, { on: ["grass", "sand", "flowers"], near: (x, y) => d(x, y) <= green + 1.8 });
       scatter(ctx, [["cactus", 3], ["boulder", 1.5], ["rock_big", 1]], r.range(0.02, 0.035), { on: ["sand", "dirt"] });
@@ -964,7 +989,7 @@ export const THEMES = {
       const cx = (W - 1) / 2, cy = (H - 1) / 2;
       const rp = r.range(2.2, 3.6);
       const f = field(ctx, 2.5);
-      for (let i = 0; i < ctx.n; i++) if (Math.hypot(X(ctx, i) - cx, Y(ctx, i) - cy) <= rp + f[i] * 0.5) ctx.tiles[i] = "cobbles";
+      for (let i = 0; i < ctx.n; i++) if (Math.hypot(X(ctx, i) - cx, Y(ctx, i) - cy) <= rp + f[i] * 0.5) setTile(ctx, i, "cobbles");
       if (r.chance(0.7)) road(ctx, "cobbles", { on: ["grass", "tall_grass", "shadow", "dirt"] });
       // broken-down rooms, one side's and the other side's mirror image
       for (let k = r.int(1, 3); k > 0; k--) {
@@ -984,7 +1009,7 @@ export const THEMES = {
           const edge = x === x0 || y === y0 || x === x0 + w - 1 || y === y0 + h - 1;
           for (const j of [i, ctx.R(i)]) {
             if (ctx.keep[j]) continue;
-            if (edge && !doors.has(i)) { if (symRand(ctx, 11, i) < 0.8) ctx.tiles[j] = "wall"; } else if (paved && !edge) ctx.tiles[j] = "cobbles";
+            if (edge && !doors.has(i)) { if (symRand(ctx, 11, i) < 0.8) setTile(ctx, j, "wall"); } else if (paved && !edge) setTile(ctx, j, "cobbles");
           }
         }
       }
@@ -1034,7 +1059,7 @@ export const THEME_IDS = Object.keys(THEMES);
 /**
  * A random arena. Same seed (and options) = same map. `theme` is picked from the seed when not given.
  * Returns { seed, theme, cols, rows, width, height, base, light, symmetry, tiles, propTiles, under, props, starts }
- * (`under`: per tile, what a bridge stands on when it isn't deep water, else null; drawLayers reads it).
+ * (`under`: per tile, the grounds a patch was painted over, bottom to top, or null; drawLayers reads it).
  */
 export function generateMap(seed, { theme = null, cols = 30, rows = 18 } = {}) {
   const seedNum = seedNumber(seed);

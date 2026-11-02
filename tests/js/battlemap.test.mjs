@@ -225,7 +225,7 @@ test("drawing: base ground first, deep water on shallows, edge bits N1 E2 S4 W8,
   assert.deepEqual(bridge.map((l) => l.terrain), ["grass", "shallows", "deep_water", "bridge"]);
   assert.equal(edgeIndex(m, 1, 5), 2 | 4 | 8, "a bridge joins the next bridge tile and the dry ground at its end (and the map's edge)");
   assert.equal(edgeIndex(m, 2, 5), 4 | 8, "...but not the shallow water at its other end, nor the grass beside it");
-  m.under = m.tiles.map((t, i) => (i === 5 * 6 + 2 ? "shallows" : null));
+  m.under = m.tiles.map((t, i) => (i === 5 * 6 + 2 ? ["shallows"] : null));
   assert.deepEqual(drawLayers(m, 2, 5).map((l) => l.terrain), ["grass", "shallows", "bridge"], "a bridge over the bank sits on shallow water");
   assert.deepEqual(drawLayers(m, 1, 5).map((l) => l.terrain), ["grass", "shallows", "deep_water", "bridge"]);
   for (let y = 0; y < m.rows; y++) for (let x = 0; x < m.cols; x++) {
@@ -240,10 +240,10 @@ test("bridges run on over the shallow bank to dry ground, and mostly draw as str
   let overBank = 0, straight = 0, total = 0;
   for (const m of [...maps.meadow, ...maps.forest, ...maps.night]) {
     for (let i = 0; i < m.tiles.length; i++) {
-      if (m.tiles[i] !== "bridge") { assert.equal(m.under[i], null); continue; }
+      if (m.tiles[i] !== "bridge") continue;
       const x = i % m.cols, y = Math.floor(i / m.cols);
       const layers = drawLayers(m, x, y).map((l) => l.terrain);
-      if (m.under[i]) { overBank++; assert.deepEqual(layers, [m.base, "shallows", "bridge"]); }
+      if (m.under[i]) { overBank++; assert.deepEqual(m.under[i], ["shallows"]); assert.deepEqual(layers, [m.base, "shallows", "bridge"]); }
       else assert.deepEqual(layers, [m.base, "shallows", "deep_water", "bridge"]);
       const v = edgeIndex(m, x, y);
       total++;
@@ -252,6 +252,27 @@ test("bridges run on over the shallow bank to dry ground, and mostly draw as str
   }
   assert.ok(overBank > 0, "some bridges cross a bank");
   assert.ok(straight >= total * 0.85, `${straight} of ${total} bridge tiles are straight runs`);
+});
+
+test("a patch painted over another ground keeps it beneath: flowers on the oasis grass, not on the sand", () => {
+  const seen = {};
+  for (const m of all) {
+    for (let i = 0; i < m.tiles.length; i++) {
+      const x = i % m.cols, y = Math.floor(i / m.cols);
+      const layers = drawLayers(m, x, y).map((l) => l.terrain);
+      assert.equal(layers[0], m.base, "the base ground is always at the bottom");
+      assert.equal(layers[layers.length - 1], m.tiles[i], "the tile's own terrain is always on top");
+      assert.equal(new Set(layers).size, layers.length, "no layer twice");
+      assert.ok(layers.length <= 4);
+      for (const u of m.under[i] || []) assert.ok(TERRAIN[u] && TERRAIN[u].walk && u !== m.base, `${m.theme} ${m.seed}: ${u} beneath`);
+      const key = layers.join(">");
+      seen[key] = (seen[key] || 0) + 1;
+    }
+  }
+  for (const stack of ["sand>grass>flowers", "sand>grass>tall_grass", "cave_floor>shadow>crystals", "grass>tall_grass>dirt"]) {
+    assert.ok(seen[stack] > 0, `${stack} happens`);
+  }
+  assert.ok(!seen["sand>flowers"] || seen["sand>flowers"] < seen["sand>grass>flowers"] / 4, "desert flowers grow on the grass");
 });
 
 test("reading a map at a point: terrain, effects, standing, shots, repainting", () => {

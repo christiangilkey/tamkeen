@@ -6272,8 +6272,10 @@ contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tes
   drawLayers (base fill, then e.g. shallows under deep water, then the tile; edge bits N1 E2 S4 W8; edge tiles are
   transparent outside the shape), findPath (8-way, no corner cutting, prefers fast/safe ground, straightened, ends at
   the nearest reachable spot), terrainArtFiles() (56 files under `battle/terrain/`, for `artFiles()` once drawn).
-- Bridges run on over the shallow bank to dry ground (at the Terrain art chat's request): `map.under` marks those tiles,
-  so their stack is [ground, shallows, bridge]; a bridge joins dry ground only at its two ends.
+- `map.under` (per tile, a list or null): the grounds a patch was painted over, so drawLayers stacks e.g. [sand, grass,
+  flowers] at the oasis or [cave_floor, shadow, crystals] instead of letting the base show between two patches. Bridges
+  run on over the shallow bank to dry ground (Terrain art chat's request): [ground, shallows, bridge]; a bridge joins dry
+  ground only at its two ends. The Engine copies `under` with the tiles and clears it on a tile a terrain move repaints.
 - Some walkable gaps are one tile wide: the Engine should collide with the map using a small radius at the feet.
 - Names, HUD lines, prop and theme names translated into the 16 languages: `tools/i18n/tr/<code>/100-battle-map.txt`.
 - Checked: 2,700 generated maps (300 seeds x 9 themes): no errors, always a path, start areas identical, fairness ok;
@@ -6320,3 +6322,41 @@ loadout(), publicProfile() etc. are reused) until the Screen chat switches the b
 - **Balance** (scratch sim, 100 wild battles per row, the computer playing both sides on real generated arenas): 40 /
   60 / 80 / 95% right answers win 37 / 67 / 89 / 96%; at 80% a battle is ~45 s of play and ~22 questions; a player who
   never moves wins 53% at 80%. Not played by a person yet; numbers to tune are at the top of livebattle.js and in data.js.
+
+## Live battles: the battle screen and its controls (2026-11-01; "Live battles: battle screen and controls" chat)
+The owner wanted creatures to "run around with either the controller thumbsticks or pointing and clicking with the
+mouse, or tapping and dragging with your finger", a question that freezes the action with a 5-second bar, and "failed"
+shown when wrong or too slow. This is the screen; the rules are livebattle.js, the arena battlemap.js (sections above).
+- **Files**: `web/js/game/livebattle-ui.js` (new: `runLiveBattle(setup, vocab)`); `battle-ui.js` keeps the menu, rental
+  picker, friend challenge, `portrait`, `wordModePicker`, `battleDictionary` (now exported), `moveLine`/`moveHelp` (now
+  by `liveMove().form`: "Strike · Power 45 · Shot"); the old grid screen and its CSS are gone. Fighters go in unscaled
+  with `cards: {me: vocab.length, foe: friend's cards ?? known}`; `game.cards` is kept; the menu calls the mode
+  "All-time" (saved key still "unlimited"). CSS: "creature game: live battles" in app.css.
+- **Screen**: one column (cards with pixel HP bars and team pips, pause button; the arena canvas; the ground under your
+  creature with its line and + / − element icons; four move buttons in a 2 x 2 block shaped like the controller's face
+  buttons, X Y over A B; potion button in wild battles; a help line for the device in use). A phone held sideways puts
+  the moves beside the arena. `fit()` keeps whole device pixels per game pixel when there is room for 2 or more.
+  Canvas = arena (30 x 18 tiles) + a 36 px shaded strip on top for heads. Ground: `drawLayers` per tile, cached; moving
+  ground (`_anim` sheets, 200 ms, same frame everywhere) redrawn each frame; props and creatures and things in flight
+  sorted by y; `map.light` tints night/dim/warm. Creatures: `composeCreature` with walk 0-3 (130 ms), idle bob, act
+  lunge/hurt/faint (t in eighths), flipped when facing left, blinking while they can't be hit after stepping in.
+  Effects: battle/fx per its README (ms per frame, anchors; guard bubble holds while the guard lasts, delay hourglass
+  while slowed, charge loop during a wind-up, terrain swaps on frame 4, faint hides the creature from frame 3, trails
+  every 8 px, beams tiled every 16 px); warnings for areas, beams and wind-ups drawn on the ground (gold yours, red
+  theirs); damage numbers in ui/digits.png; "Failed", "Dodged!", "Strong hit!" float as text over the arena.
+- **Question**: a panel over everything (at the foot on phones): the move, the seconds left and a bar (teal, gold under
+  40%, red under 20%), the word, its sentence, four big answers in the same X Y / A B places (each wearing its button,
+  key or nothing on a phone), hint card. "Right!" or "Too slow: failed" / "Wrong answer: failed" with the right
+  answer marked; the battle waits 0.45 s / 1.3 s so it can be seen. `rules.answerQuestion` records every answer. A
+  question can't be paused, and leaving the app (page hidden) with one open counts as out of time.
+- **Controls**: controller screen **"battle"** in padmap.js (Settings → Controller lists "Creature battles"; also in
+  app/controller.py AREAS): A B X Y the four moves / answers, D-pad walks (remappable), LB hint, RB potion, View how to
+  play, Menu pause; the button guide names each move. `gamepad.js padSteer()` reads the left stick as far as it is
+  pushed (plus the walk buttons) for free movement. Keys: W A S D / arrows, U I J K or 1 2 3 4, H hint, P potion, Esc
+  pause. Mouse: click or hold and drag on the arena (the engine finds a path). Finger: drag, and the creature follows.
+- **Checked** in the browser pane (desktop server on a fresh scratch data folder, never signed in, 120 Spanish test
+  words, three hatched creatures) at 1280 x 800, 390 x 844 and 844 x 390: real arenas of several themes with the real
+  terrain and effects art, walking by keys, pretend-Xbox stick and D-pad, A/X starting moves and B/A answering,
+  questions right / wrong / timed out, a swap after a faint, a win with the end card and rewards. Not tried: a real
+  controller, a real phone, mouse-dragging and finger-dragging by hand (only by script), a friend battle between two
+  accounts, right-to-left languages by eye.
