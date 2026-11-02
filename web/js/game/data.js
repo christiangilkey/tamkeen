@@ -6,7 +6,7 @@
 // replaced file for file, same name and size. See game/ASSET_LIST.md for the artist's brief.
 
 import { BEASTS } from "./beasts.js";
-import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND } from "./battlemap.js";
+import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND, terrainArtFiles as arenaArtFiles } from "./battlemap.js";
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
@@ -590,6 +590,9 @@ export function artFiles() {
     if (g.anim) { extra(g.art.edges.replace(".png", "_anim.png"), [256, 64]); extra(g.art.fill.replace(".png", "_anim.png"), [64, 64]); }
   }
   for (const pr of Object.values(ARENA_PROPS)) extra(pr.art, pr.size);
+  // ...and anything else the arenas draw (the decals on the ground...), as battlemap.js lists it
+  const listed = new Set(out.map((f) => f.file));
+  for (const file of arenaArtFiles()) if (!listed.has(file)) { listed.add(file); extra(file, [16, 16]); }
   return out;
 }
 

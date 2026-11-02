@@ -16,6 +16,7 @@ import { FRAME, composeCreature, icon, loadImage } from "./render.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
+import * as arena from "./battlemap.js";
 import { PROPS, TERRAIN, drawLayers, generateMap } from "./battlemap.js";
 import { COMBO, answer, battleResult, input, newLiveBattle, step, usePotion, view } from "./livebattle.js";
 
@@ -155,6 +156,7 @@ export function runLiveBattle(setup, vocab) {
     if (tr.anim) { want(tr.art.edges.replace(".png", "_anim.png")); want(tr.art.fill.replace(".png", "_anim.png")); }
   }
   for (const p of map.props) if (PROPS[p.id]) want(PROPS[p.id].art);
+  for (const id of new Set((map.decals || []).map((d) => d.id))) if (arena.DECALS && arena.DECALS[id]) want(arena.DECALS[id].art);
   want("fx/shadow_m.png");
   want("ui/digits.png");
 
@@ -164,50 +166,77 @@ export function runLiveBattle(setup, vocab) {
   ground.height = H;
   let groundDirty = true;
   let moving = [];  // [{x, y, layers}] the tiles with a moving layer, from that layer up
-  function drawLayer(g, layer, tx, ty, now) {
+  // Two ways the ground can be cut. The "dual grid" (battlemap.drawCorners, with art drawn for it): cells offset by
+  // half a tile, each drawn with the mask of its four corners that hold a terrain (NW 1, NE 2, SW 4, SE 8), so shores
+  // run diagonally and corners round off. Without it, each tile with the mask of its four sides (drawLayers).
+  const DUAL = typeof arena.drawCorners === "function";
+  /** Draw one layer of a cell whose top left is at world (x, y). Its tile: `mask` (dual grid) or `variant`; 15 = a middle tile. */
+  function drawLayer(g, layer, x, y, now) {
     const tr = TERRAIN[layer.terrain];
     if (!tr) return;
-    const x = tx * TILE, y = ty * TILE;
-    const full = layer.variant === 15;
-    const v0 = layer.variant;
+    const v0 = DUAL ? layer.mask : layer.variant;
+    const full = v0 === 15;
+    const f = Math.floor(now / ANIM_MS) % 4;
     // Moving ground (battle/terrain/README.md): <id>_anim.png is the edge sheet once per frame side by side,
     // <id>_fill_anim.png a middle tile per row and a frame per column; without them, the plain sheets.
     if (tr.anim) {
-      const f = Math.floor(now / ANIM_MS) % 4;
       const moving = want((full ? tr.art.fill : tr.art.edges).replace(".png", "_anim.png"));
       if (moving) {
-        if (full) g.drawImage(moving, f * TILE, layer.fill * TILE, TILE, TILE, x, y, TILE, TILE);
+        if (full) g.drawImage(moving, f * TILE, (layer.fill % Math.max(1, Math.round(moving.height / TILE))) * TILE, TILE, TILE, x, y, TILE, TILE);
         else g.drawImage(moving, f * 4 * TILE + (v0 % 4) * TILE, Math.floor(v0 / 4) * TILE, TILE, TILE, x, y, TILE, TILE);
         return;
       }
     }
     const img = want(full ? tr.art.fill : tr.art.edges);
     if (img) {
-      const i = full ? (tr.anim ? Math.floor(now / ANIM_MS) % 4 : layer.fill) : v0;
+      // (a middle-tile strip may hold more than 4: groups of textures for big areas)
+      const i = full ? (tr.anim ? f : layer.fill) % Math.max(1, Math.round(img.width / TILE)) : v0;
       const sx = full ? i * TILE : (i % 4) * TILE;
       const sy = full ? 0 : Math.floor(i / 4) * TILE;
       g.drawImage(img, sx, sy, TILE, TILE, x, y, TILE, TILE);
       return;
     }
-    // no art yet: a plain colour, pulled back from the sides that border something else
-    const v = layer.variant;
-    const inset = (bit) => (v & bit ? 0 : 3);
+    // no art yet: a plain colour where the terrain is
     g.fillStyle = PLACEHOLDER[layer.terrain] || "#777";
-    g.fillRect(x + inset(8), y + inset(1), TILE - inset(8) - inset(2), TILE - inset(1) - inset(4));
-    if (tr.anim && Math.floor(now / ANIM_MS / 2 + tx + ty) % 4 === 0) { g.fillStyle = "rgba(255, 255, 255, .25)"; g.fillRect(x + 4, y + 6, 6, 1); }
+    if (DUAL) { // the quarters whose corner holds it
+      const q = TILE / 2;
+      if (v0 & 1) g.fillRect(x, y, q, q);
+      if (v0 & 2) g.fillRect(x + q, y, q, q);
+      if (v0 & 4) g.fillRect(x, y + q, q, q);
+      if (v0 & 8) g.fillRect(x + q, y + q, q, q);
+    } else { // pulled back from the sides that border something else
+      const inset = (bit) => (v0 & bit ? 0 : 3);
+      g.fillRect(x + inset(8), y + inset(1), TILE - inset(8) - inset(2), TILE - inset(1) - inset(4));
+    }
+  }
+  /** The flat things lying on the ground (pebbles, leaves, shells...): map.decals, drawn after the ground. */
+  function drawDecals(g) {
+    const kinds = arena.DECALS || {};
+    for (const d of map.decals || []) {
+      const info = kinds[d.id];
+      const img = info && want(info.art);
+      if (!img) continue;
+      const [w, hgt] = info.size || [16, 16];
+      if (d.flip) { g.save(); g.translate(d.x + w, d.y); g.scale(-1, 1); g.drawImage(img, (d.v || 0) * w, 0, w, hgt, 0, 0, w, hgt); g.restore(); }
+      else g.drawImage(img, (d.v || 0) * w, 0, w, hgt, d.x, d.y, w, hgt);
+    }
   }
   function paintGround(now) {
     const g = ground.getContext("2d");
     g.imageSmoothingEnabled = false;
     g.clearRect(0, 0, W, H);
     moving = [];
-    for (let ty = 0; ty < map.rows; ty++) for (let tx = 0; tx < map.cols; tx++) {
-      const layers = drawLayers(map, tx, ty);
+    // the dual grid has one more cell each way, offset by half a tile
+    const [nx, ny, off] = DUAL ? [map.cols + 1, map.rows + 1, -TILE / 2] : [map.cols, map.rows, 0];
+    for (let cy = 0; cy < ny; cy++) for (let cx = 0; cx < nx; cx++) {
+      const layers = DUAL ? arena.drawCorners(map, cx, cy) : drawLayers(map, cx, cy);
+      const x = cx * TILE + off, y = cy * TILE + off;
       const k = layers.findIndex((l) => TERRAIN[l.terrain] && TERRAIN[l.terrain].anim);
       const still = k < 0 ? layers : layers.slice(0, k);
-      for (const l of still) drawLayer(g, l, tx, ty, now);
-      if (k >= 0) moving.push({ tx, ty, layers: layers.slice(k) });
+      for (const l of still) drawLayer(g, l, x, y, now);
+      if (k >= 0) moving.push({ x, y, layers: layers.slice(k) });
     }
+    drawDecals(g); // (never on water, so the moving tiles drawn over the ground each frame don't hide any)
     groundDirty = false;
   }
 
@@ -286,8 +315,7 @@ export function runLiveBattle(setup, vocab) {
     const gx = Math.max(0, ox), gy = Math.max(0, oy);
     const gw = Math.min(W, ox + viewport.w) - gx, gh = Math.min(H, oy + viewport.h) - gy;
     if (gw > 0 && gh > 0) ctx.drawImage(ground, gx, gy, gw, gh, gx, gy, gw, gh);
-    const tx0 = Math.floor(ox / TILE) - 1, tx1 = Math.ceil((ox + viewport.w) / TILE), ty0 = Math.floor(oy / TILE) - 1, ty1 = Math.ceil((oy + viewport.h) / TILE);
-    for (const m of moving) if (m.tx >= tx0 && m.tx <= tx1 && m.ty >= ty0 && m.ty <= ty1) for (const l of m.layers) drawLayer(ctx, l, m.tx, m.ty, now);
+    for (const m of moving) if (m.x >= ox - TILE && m.x <= ox + viewport.w && m.y >= oy - TILE && m.y <= oy + viewport.h) for (const l of m.layers) drawLayer(ctx, l, m.x, m.y, now);
 
     // Where something is about to land, on the ground: a wind-up, a beam or an area warning (gold yours, red theirs).
     const pulse = 0.22 + 0.16 * Math.sin(now / 110);
