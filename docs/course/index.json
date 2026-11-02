@@ -322,6 +322,24 @@
    "sha256": "7efe43fb96e8ad743d93a302bf02452c596fa554a5e2dfcd325d5d3366536b93",
    "voice": null,
    "built": "2026-11-01"
+  },
+  "ar-egy": {
+   "file": "ar-egy/course.json",
+   "lang": "ar",
+   "dialect": "egy",
+   "title": "Egyptian basics",
+   "variety": "Egyptian Arabic (Cairo)",
+   "words": 150,
+   "planned": 150,
+   "bytes": 59064,
+   "audio_bytes": 1975382,
+   "sha256": "eb49a1ca3935ab0a170188fbbcb0b66ed322585a44a1f6d26d4fc2a244860bcb",
+   "voice": {
+    "engine": "azure",
+    "name": "Salma (Azure, Egypt)",
+    "synthetic": true
+   },
+   "built": "2026-11-01"
   }
  }
 }

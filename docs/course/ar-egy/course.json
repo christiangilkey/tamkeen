@@ -1,0 +1,2397 @@
+{
+ "format": 1,
+ "id": "ar-egy",
+ "lang": "ar",
+ "dialect": "egy",
+ "title": "Egyptian basics",
+ "variety": "Egyptian Arabic (Cairo)",
+ "about": "The commonest words of everyday Egyptian Arabic that are not Modern Standard Arabic, most common first, 50 to a unit. Counted in 7.4 million words of real Egyptian text (TV subtitles, novels and songs, newspaper readers’ comments, forum posts); every word passes the no-MSA rules (not in the MSA basics list or the 1,000 commonest Arabic words, not an MSA word said differently or with dialect endings, not given with the same meaning in Standard Arabic dictionaries), and every meaning is backed by a published dictionary. Each word has one short everyday Cairo sentence with its English translation; ⟦ ⟧ marks the part that translates the word. Words that only look like an MSA word carry a note.",
+ "planned": 150,
+ "unit": 50,
+ "voice": {
+  "engine": "azure",
+  "name": "Salma (Azure, Egypt)",
+  "synthetic": true
+ },
+ "built": "2026-11-01",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": true
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": true
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": true
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "دَه",
+   "pos": "pron",
+   "meaning": "this, that (masculine)",
+   "sentence": "⟦ده⟧ أخويا الكبير.",
+   "translation": "⟦This⟧ is my big brother.",
+   "note": "Feminine دي, plural دول. After a noun: الكتاب ده “this book”.",
+   "audio": "audio/0001.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.398,
+    "sent_start": 1.298,
+    "sent_end": 2.986
+   }
+  },
+  {
+   "n": 2,
+   "word": "بَسّ",
+   "pos": "conj",
+   "meaning": "but; only, just; enough",
+   "sentence": "عايز أروح، ⟦بس⟧ مش فاضي.",
+   "translation": "I want to go, ⟦but⟧ I'm not free.",
+   "note": "Also “stop!, that's enough!”.",
+   "audio": "audio/0002.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.442,
+    "sent_start": 1.342,
+    "sent_end": 3.848
+   }
+  },
+  {
+   "n": 3,
+   "word": "عَشان",
+   "pos": "conj",
+   "meaning": "because; so that; for",
+   "sentence": "مش جاي ⟦عشان⟧ تعبان.",
+   "translation": "I'm not coming ⟦because⟧ I'm tired.",
+   "note": "Also written علشان. Not MSA عُشّ (nest).",
+   "audio": "audio/0003.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.74,
+    "sent_start": 1.64,
+    "sent_end": 3.493
+   }
+  },
+  {
+   "n": 4,
+   "word": "كِدَه",
+   "pos": "adv",
+   "meaning": "like this, so; that way",
+   "sentence": "ليه بتعمل ⟦كده⟧؟",
+   "translation": "Why are you acting ⟦like this⟧?",
+   "note": "Also written كدا. Not MSA كَدّ (toil).",
+   "audio": "audio/0004.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.301,
+    "sent_start": 1.201,
+    "sent_end": 2.831
+   }
+  },
+  {
+   "n": 5,
+   "word": "عايِز",
+   "pos": "adj",
+   "meaning": "wanting: (I) want",
+   "sentence": "أنا ⟦عايز⟧ أشرب قهوة.",
+   "translation": "I ⟦want⟧ to drink coffee.",
+   "note": "Feminine عايزة, plural عايزين; also written عاوز. Not MSA عاوِز (needy).",
+   "audio": "audio/0005.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.73,
+    "sent_start": 1.63,
+    "sent_end": 3.483
+   }
+  },
+  {
+   "n": 6,
+   "word": "زَيّ",
+   "pos": "prep",
+   "meaning": "like, the same as",
+   "sentence": "هو طويل ⟦زي⟧ أبوه.",
+   "translation": "He's tall ⟦like⟧ his father.",
+   "note": "Not MSA زِيّ (uniform, costume).",
+   "audio": "audio/0006.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.47,
+    "sent_start": 1.37,
+    "sent_end": 3.207
+   }
+  },
+  {
+   "n": 7,
+   "word": "إِحْنا",
+   "pos": "pron",
+   "meaning": "we",
+   "sentence": "⟦إحنا⟧ ساكنين في الجيزة.",
+   "translation": "⟦We⟧ live in Giza.",
+   "note": "MSA: نَحْنُ.",
+   "audio": "audio/0007.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.617,
+    "sent_start": 1.517,
+    "sent_end": 3.476
+   }
+  },
+  {
+   "n": 8,
+   "word": "لِيه",
+   "pos": "adv",
+   "meaning": "why",
+   "sentence": "⟦ليه⟧ مجيتش امبارح؟",
+   "translation": "⟦Why⟧ didn't you come yesterday?",
+   "note": "MSA: لِمَاذَا.",
+   "audio": "audio/0008.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.583,
+    "sent_start": 1.483,
+    "sent_end": 3.313
+   }
+  },
+  {
+   "n": 9,
+   "word": "شَاف",
+   "pos": "verb",
+   "meaning": "to see (he saw)",
+   "sentence": "⟦شفت⟧ الفيلم ده قبل كده.",
+   "translation": "I've ⟦seen⟧ this film before.",
+   "note": "MSA: رَأَى. Present يشوف. MSA شَافَ is rare: “looked down at”.",
+   "audio": "audio/0009.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.68,
+    "sent_start": 1.58,
+    "sent_end": 3.634
+   }
+  },
+  {
+   "n": 10,
+   "word": "بِتاع",
+   "pos": "noun",
+   "meaning": "belonging to, of; thing, thingy",
+   "sentence": "فين المفتاح ⟦بتاع⟧ العربية؟",
+   "translation": "Where's the key ⟦for⟧ the car?",
+   "note": "Feminine بتاعة, plural بتوع: الكتاب بتاعي “my book”.",
+   "audio": "audio/0010.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.652,
+    "sent_start": 1.552,
+    "sent_end": 3.778
+   }
+  },
+  {
+   "n": 11,
+   "word": "كَمان",
+   "pos": "adv",
+   "meaning": "too, also; more; still",
+   "sentence": "وأنا ⟦كمان⟧ عايز أجي.",
+   "translation": "I want to come ⟦too⟧.",
+   "note": "Not MSA كَمَان (violin).",
+   "audio": "audio/0011.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.606,
+    "sent_start": 1.506,
+    "sent_end": 3.444
+   }
+  },
+  {
+   "n": 12,
+   "word": "جِه",
+   "pos": "verb",
+   "meaning": "to come (he came)",
+   "sentence": "أخويا ⟦جه⟧ من السفر امبارح.",
+   "translation": "My brother ⟦came⟧ back from his trip yesterday.",
+   "note": "MSA: جَاءَ. Present ييجي; coming: جاي.",
+   "audio": "audio/0012.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.477,
+    "sent_start": 1.377,
+    "sent_end": 3.724
+   }
+  },
+  {
+   "n": 13,
+   "word": "أَوِي",
+   "pos": "adv",
+   "meaning": "very",
+   "sentence": "الأكل ده حلو ⟦أوي⟧.",
+   "translation": "This food is ⟦very⟧ good.",
+   "note": "MSA قَوِيّ “strong”, with ق said as a glottal stop; in Egyptian it means “very”.",
+   "audio": "audio/0013.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.456,
+    "sent_start": 1.356,
+    "sent_end": 2.99
+   }
+  },
+  {
+   "n": 14,
+   "word": "شُوَيَّة",
+   "pos": "noun",
+   "meaning": "a little, a bit; a while",
+   "sentence": "استنى ⟦شوية⟧، أنا جاي.",
+   "translation": "Wait ⟦a bit⟧, I'm coming.",
+   "audio": "audio/0014.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.533,
+    "sent_start": 1.433,
+    "sent_end": 3.419
+   }
+  },
+  {
+   "n": 15,
+   "word": "لِسَّه",
+   "pos": "adv",
+   "meaning": "still; (not) yet; only just",
+   "sentence": "أنا ⟦لسه⟧ صاحي من النوم.",
+   "translation": "I've ⟦only just⟧ woken up.",
+   "note": "Also written لسا. With a “not”: “not yet”.",
+   "audio": "audio/0015.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.644,
+    "sent_start": 1.544,
+    "sent_end": 3.533
+   }
+  },
+  {
+   "n": 16,
+   "word": "مِين",
+   "pos": "pron",
+   "meaning": "who",
+   "sentence": "⟦مين⟧ اللي اتصل؟",
+   "translation": "⟦Who⟧ called?",
+   "note": "MSA: مَنْ. Not MSA مَيْن (lie).",
+   "audio": "audio/0016.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.539,
+    "sent_start": 1.439,
+    "sent_end": 2.713
+   }
+  },
+  {
+   "n": 17,
+   "word": "فِين",
+   "pos": "adv",
+   "meaning": "where",
+   "sentence": "المحطة ⟦فين⟧ لو سمحت؟",
+   "translation": "⟦Where's⟧ the station, please?",
+   "note": "MSA: أَيْنَ.",
+   "audio": "audio/0017.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.46,
+    "sent_start": 1.36,
+    "sent_end": 3.558
+   }
+  },
+  {
+   "n": 18,
+   "word": "راجِل",
+   "pos": "noun",
+   "meaning": "man",
+   "sentence": "فيه ⟦راجل⟧ بره عايزك.",
+   "translation": "There's a ⟦man⟧ outside who wants to see you.",
+   "note": "MSA: رَجُل (MSA رَاجِل means “on foot”).",
+   "audio": "audio/0018.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.658,
+    "sent_start": 1.558,
+    "sent_end": 3.645
+   }
+  },
+  {
+   "n": 19,
+   "word": "دِلْوَقْتِي",
+   "pos": "adv",
+   "meaning": "now",
+   "sentence": "أنا مشغول ⟦دلوقتي⟧.",
+   "translation": "I'm busy ⟦now⟧.",
+   "note": "MSA: الآنَ.",
+   "audio": "audio/0019.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.808,
+    "sent_start": 1.708,
+    "sent_end": 3.428
+   }
+  },
+  {
+   "n": 20,
+   "word": "آه",
+   "pos": "interj",
+   "meaning": "yes, yeah",
+   "sentence": "⟦آه⟧، فاهم قصدك.",
+   "translation": "⟦Yeah⟧, I get what you mean.",
+   "note": "Not MSA آهِ (ah!, a cry of pain).",
+   "audio": "audio/0020.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.38,
+    "sent_start": 1.28,
+    "sent_end": 3.331
+   }
+  },
+  {
+   "n": 21,
+   "word": "خَلاص",
+   "pos": "interj",
+   "meaning": "that's it; enough; OK, done",
+   "sentence": "⟦خلاص⟧، هنتقابل بكرة.",
+   "translation": "⟦OK then⟧, we'll meet tomorrow.",
+   "note": "Not MSA خَلَاص (salvation).",
+   "audio": "audio/0021.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.701,
+    "sent_start": 1.601,
+    "sent_end": 4.021
+   }
+  },
+  {
+   "n": 22,
+   "word": "كُوَيِّس",
+   "pos": "adj",
+   "meaning": "good, fine",
+   "sentence": "الجو ⟦كويس⟧ النهارده.",
+   "translation": "The weather's ⟦good⟧ today.",
+   "note": "MSA: جَيِّد.",
+   "audio": "audio/0022.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.653,
+    "sent_start": 1.553,
+    "sent_end": 3.836
+   }
+  },
+  {
+   "n": 23,
+   "word": "خَد",
+   "pos": "verb",
+   "meaning": "to take (he took)",
+   "sentence": "أخويا ⟦خد⟧ تاكسي للمطار.",
+   "translation": "My brother ⟦took⟧ a taxi to the airport.",
+   "note": "MSA: أَخَذَ. Present ياخد. Not MSA خَدّ (cheek).",
+   "audio": "audio/0023.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.38,
+    "sent_start": 1.28,
+    "sent_end": 3.464
+   }
+  },
+  {
+   "n": 24,
+   "word": "بَعْدِين",
+   "pos": "adv",
+   "meaning": "later; then; and besides",
+   "sentence": "هكلمك ⟦بعدين⟧.",
+   "translation": "I'll call you ⟦later⟧.",
+   "note": "MSA: بَعْدَ ذَلِكَ. Not MSA بُعْد (distance).",
+   "audio": "audio/0024.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.73,
+    "sent_start": 1.629,
+    "sent_end": 3.038
+   }
+  },
+  {
+   "n": 25,
+   "word": "إِزّاي",
+   "pos": "adv",
+   "meaning": "how",
+   "sentence": "⟦إزاي⟧ أروح وسط البلد؟",
+   "translation": "⟦How⟧ do I get downtown?",
+   "note": "MSA: كَيْفَ.",
+   "audio": "audio/0025.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.689,
+    "sent_start": 1.589,
+    "sent_end": 3.555
+   }
+  },
+  {
+   "n": 26,
+   "word": "ماتْش",
+   "pos": "noun",
+   "meaning": "match, game",
+   "sentence": "هنتفرج على ⟦الماتش⟧ سوا.",
+   "translation": "We'll watch the ⟦match⟧ together.",
+   "note": "From English “match”. MSA: مُبَارَاة.",
+   "audio": "audio/0026.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.546,
+    "sent_start": 1.446,
+    "sent_end": 3.525
+   }
+  },
+  {
+   "n": 27,
+   "word": "بَرْضُه",
+   "pos": "adv",
+   "meaning": "also, either; all the same",
+   "sentence": "وأنا ⟦برضه⟧ مش فاهم.",
+   "translation": "I don't understand ⟦either⟧.",
+   "note": "Also written برضو and بردو.",
+   "audio": "audio/0027.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.673,
+    "sent_start": 1.573,
+    "sent_end": 3.682
+   }
+  },
+  {
+   "n": 28,
+   "word": "أَيْوَه",
+   "pos": "interj",
+   "meaning": "yes",
+   "sentence": "⟦أيوه⟧، أنا مصري.",
+   "translation": "⟦Yes⟧, I'm Egyptian.",
+   "audio": "audio/0028.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.6,
+    "sent_start": 1.5,
+    "sent_end": 3.457
+   }
+  },
+  {
+   "n": 29,
+   "word": "هُمَّا",
+   "pos": "pron",
+   "meaning": "they",
+   "sentence": "⟦هما⟧ جايين بالليل.",
+   "translation": "⟦They're⟧ coming tonight.",
+   "note": "Not MSA هُمَا (they two): Egyptian “they” for any number.",
+   "audio": "audio/0029.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.47,
+    "sent_start": 1.37,
+    "sent_end": 2.986
+   }
+  },
+  {
+   "n": 30,
+   "word": "يارِيت",
+   "pos": "part",
+   "meaning": "I wish, if only",
+   "sentence": "⟦ياريت⟧ تيجي معانا.",
+   "translation": "⟦I wish⟧ you'd come with us.",
+   "note": "MSA: يَا لَيْتَ.",
+   "audio": "audio/0030.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.608,
+    "sent_start": 1.508,
+    "sent_end": 3.301
+   }
+  },
+  {
+   "n": 31,
+   "word": "إِنْتُو",
+   "pos": "pron",
+   "meaning": "you (plural)",
+   "sentence": "⟦إنتو⟧ رايحين فين؟",
+   "translation": "Where are ⟦you all⟧ going?",
+   "note": "MSA: أَنْتُمْ.",
+   "audio": "audio/0031.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.593,
+    "sent_start": 1.493,
+    "sent_end": 3.047
+   }
+  },
+  {
+   "n": 32,
+   "word": "جَاب",
+   "pos": "verb",
+   "meaning": "to bring (he brought)",
+   "sentence": "أبويا ⟦جاب⟧ فطار للكل.",
+   "translation": "My dad ⟦brought⟧ breakfast for everyone.",
+   "note": "Not MSA جَابَ (travelled through). Present يجيب.",
+   "audio": "audio/0032.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.553,
+    "sent_start": 1.453,
+    "sent_end": 3.686
+   }
+  },
+  {
+   "n": 33,
+   "word": "النَّهارْدَه",
+   "pos": "adv",
+   "meaning": "today",
+   "sentence": "⟦النهارده⟧ عيد ميلادي.",
+   "translation": "⟦Today⟧ is my birthday.",
+   "note": "From النهار ده “this day”. MSA: الْيَوْمَ.",
+   "audio": "audio/0033.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.98,
+    "sent_start": 1.88,
+    "sent_end": 3.942
+   }
+  },
+  {
+   "n": 34,
+   "word": "يَلَّا",
+   "pos": "interj",
+   "meaning": "come on, let's go",
+   "sentence": "⟦يلا⟧ بينا، اتأخرنا.",
+   "translation": "⟦Come on⟧, let's go, we're late.",
+   "note": "From يا الله. يلا بينا “let's go”.",
+   "audio": "audio/0034.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.563,
+    "sent_start": 1.463,
+    "sent_end": 3.572
+   }
+  },
+  {
+   "n": 35,
+   "word": "سِتّ",
+   "pos": "noun",
+   "meaning": "woman, lady",
+   "sentence": "⟦الست⟧ دي جارتنا.",
+   "translation": "That ⟦woman⟧ is our neighbour.",
+   "note": "Not MSA سِتّ (six).",
+   "audio": "audio/0035.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.366,
+    "sent_start": 1.266,
+    "sent_end": 2.823
+   }
+  },
+  {
+   "n": 36,
+   "word": "لِحَدّ",
+   "pos": "prep",
+   "meaning": "until; up to",
+   "sentence": "هستناك ⟦لحد⟧ الساعة خمسة.",
+   "translation": "I'll wait for you ⟦until⟧ five o'clock.",
+   "note": "From لِـ + حَدّ “limit”; not MSA لَحْد (grave). MSA: حَتَّى.",
+   "audio": "audio/0036.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.524,
+    "sent_start": 1.424,
+    "sent_end": 3.647
+   }
+  },
+  {
+   "n": 37,
+   "word": "خالِص",
+   "pos": "adv",
+   "meaning": "(not) at all; completely",
+   "sentence": "مش فاهم حاجة ⟦خالص⟧.",
+   "translation": "I don't understand anything ⟦at all⟧.",
+   "note": "Not MSA خَالِص (pure).",
+   "audio": "audio/0037.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.742,
+    "sent_start": 1.642,
+    "sent_end": 3.706
+   }
+  },
+  {
+   "n": 38,
+   "word": "بَصّ",
+   "pos": "verb",
+   "meaning": "to look (he looked)",
+   "sentence": "⟦بص⟧ وراه ومشافش حد.",
+   "translation": "He ⟦looked⟧ behind him and didn't see anyone.",
+   "note": "Present يبص. Not MSA بَصَّ (glittered).",
+   "audio": "audio/0038.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.468,
+    "sent_start": 1.368,
+    "sent_end": 3.405
+   }
+  },
+  {
+   "n": 39,
+   "word": "مَعْلِش",
+   "pos": "interj",
+   "meaning": "never mind; sorry",
+   "sentence": "⟦معلش⟧، اتأخرت عليك.",
+   "translation": "⟦Sorry⟧ I kept you waiting.",
+   "note": "From ما عليه شيء “there's nothing against him”.",
+   "audio": "audio/0039.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.674,
+    "sent_start": 1.574,
+    "sent_end": 3.989
+   }
+  },
+  {
+   "n": 40,
+   "word": "أَهُو",
+   "pos": "part",
+   "meaning": "here it is; there you are",
+   "sentence": "المفتاح ⟦أهو⟧ على الترابيزة.",
+   "translation": "⟦Here's⟧ the key, on the table.",
+   "note": "Feminine أهي, plural أهم.",
+   "audio": "audio/0040.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.496,
+    "sent_start": 1.396,
+    "sent_end": 3.632
+   }
+  },
+  {
+   "n": 41,
+   "word": "بَاي",
+   "pos": "interj",
+   "meaning": "bye",
+   "sentence": "⟦باي⟧، أشوفك بكرة.",
+   "translation": "⟦Bye⟧, see you tomorrow.",
+   "note": "From English “bye”.",
+   "audio": "audio/0041.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.713,
+    "sent_start": 1.613,
+    "sent_end": 3.578
+   }
+  },
+  {
+   "n": 42,
+   "word": "بَلاش",
+   "pos": "part",
+   "meaning": "don't, let's not; no need for",
+   "sentence": "⟦بلاش⟧ نروح النهارده.",
+   "translation": "⟦Let's not⟧ go today.",
+   "audio": "audio/0042.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.631,
+    "sent_start": 1.531,
+    "sent_end": 3.393
+   }
+  },
+  {
+   "n": 43,
+   "word": "جامِد",
+   "pos": "adj",
+   "meaning": "great, awesome; tough",
+   "sentence": "الفيلم ده ⟦جامد⟧ جدا.",
+   "translation": "This film is really ⟦great⟧.",
+   "note": "Not MSA جَامِد (solid, frozen).",
+   "audio": "audio/0043.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.701,
+    "sent_start": 1.601,
+    "sent_end": 3.693
+   }
+  },
+  {
+   "n": 44,
+   "word": "إِزَّيَّك",
+   "pos": "interj",
+   "meaning": "how are you?",
+   "sentence": "⟦إزيك⟧؟ عامل إيه؟",
+   "translation": "⟦How are you⟧? How's it going?",
+   "note": "To a woman also إزيك (izzayyik); to a group إزيكم.",
+   "audio": "audio/0044.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.478,
+    "sent_start": 1.378,
+    "sent_end": 3.844
+   }
+  },
+  {
+   "n": 45,
+   "word": "كَام",
+   "pos": "adv",
+   "meaning": "how many, how much",
+   "sentence": "عندك ⟦كام⟧ أخ؟",
+   "translation": "⟦How many⟧ brothers have you got?",
+   "note": "MSA: كَمْ. بكام؟ “how much is it?”.",
+   "audio": "audio/0045.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.49,
+    "sent_start": 1.39,
+    "sent_end": 2.68
+   }
+  },
+  {
+   "n": 46,
+   "word": "ماشِي",
+   "pos": "interj",
+   "meaning": "OK, fine, all right",
+   "sentence": "⟦ماشي⟧، أشوفك الساعة تمانية.",
+   "translation": "⟦OK⟧, see you at eight.",
+   "note": "Not MSA مَاشٍ (walking) or مَاشَى (walked beside).",
+   "audio": "audio/0046.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.63,
+    "sent_start": 1.53,
+    "sent_end": 4.454
+   }
+  },
+  {
+   "n": 47,
+   "word": "يِنْفَع",
+   "pos": "verb",
+   "meaning": "it's OK, it's appropriate; can, may",
+   "sentence": "⟦ينفع⟧ أقعد هنا؟",
+   "translation": "⟦Can⟧ I sit here?",
+   "note": "From MSA نَفَعَ “be of use”. ماينفعش “you can't, it won't do”.",
+   "audio": "audio/0047.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.694,
+    "sent_start": 1.594,
+    "sent_end": 3.205
+   }
+  },
+  {
+   "n": 48,
+   "word": "حِتَّة",
+   "pos": "noun",
+   "meaning": "piece; place, spot",
+   "sentence": "عايز ⟦حتة⟧ صغيرة بس.",
+   "translation": "I just want a small ⟦piece⟧.",
+   "note": "Also “area, neighbourhood”.",
+   "audio": "audio/0048.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.535,
+    "sent_start": 1.435,
+    "sent_end": 3.693
+   }
+  },
+  {
+   "n": 49,
+   "word": "وِشّ",
+   "pos": "noun",
+   "meaning": "face",
+   "sentence": "اغسل ⟦وشك⟧ وتعالى.",
+   "translation": "Wash your ⟦face⟧ and come.",
+   "note": "MSA: وَجْه.",
+   "audio": "audio/0049.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.431,
+    "sent_start": 1.331,
+    "sent_end": 3.196
+   }
+  },
+  {
+   "n": 50,
+   "word": "بُكْرَة",
+   "pos": "adv",
+   "meaning": "tomorrow",
+   "sentence": "⟦بكرة⟧ عندي امتحان.",
+   "translation": "I've got an exam ⟦tomorrow⟧.",
+   "note": "Not MSA بُكْرَة (early morning). MSA: غَدًا.",
+   "audio": "audio/0050.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.619,
+    "sent_start": 1.519,
+    "sent_end": 3.688
+   }
+  },
+  {
+   "n": 51,
+   "word": "وِحِش",
+   "pos": "adj",
+   "meaning": "bad",
+   "sentence": "الأكل ده ⟦وحش⟧ أوي.",
+   "translation": "This food is really ⟦bad⟧.",
+   "note": "Not MSA وَحْش (beast).",
+   "audio": "audio/0051.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.68,
+    "sent_start": 1.58,
+    "sent_end": 3.204
+   }
+  },
+  {
+   "n": 52,
+   "word": "حاضِر",
+   "pos": "interj",
+   "meaning": "OK, will do; right away",
+   "sentence": "⟦حاضر⟧ يا ماما، جاي حالا.",
+   "translation": "⟦OK⟧, Mum, I'm coming right now.",
+   "note": "Not MSA حَاضِر (present): said to agree to a request.",
+   "audio": "audio/0052.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.704,
+    "sent_start": 1.604,
+    "sent_end": 4.162
+   }
+  },
+  {
+   "n": 53,
+   "word": "أُمَّال",
+   "pos": "part",
+   "meaning": "so then?; then what about…?",
+   "sentence": "⟦أمال⟧ فين أخوك؟",
+   "translation": "⟦So⟧ where's your brother?",
+   "note": "Not MSA آمَال (hopes).",
+   "audio": "audio/0053.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.612,
+    "sent_start": 1.512,
+    "sent_end": 2.953
+   }
+  },
+  {
+   "n": 54,
+   "word": "لِعِّيب",
+   "pos": "noun",
+   "meaning": "player",
+   "sentence": "صلاح ⟦لعيب⟧ جامد جدا.",
+   "translation": "Salah is a really great ⟦player⟧.",
+   "note": "MSA: لَاعِب.",
+   "audio": "audio/0054.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.728,
+    "sent_start": 1.628,
+    "sent_end": 3.97
+   }
+  },
+  {
+   "n": 55,
+   "word": "إِمْتَى",
+   "pos": "adv",
+   "meaning": "when (asking)",
+   "sentence": "هتسافر ⟦إمتى⟧؟",
+   "translation": "⟦When⟧ are you travelling?",
+   "note": "MSA: مَتَى.",
+   "audio": "audio/0055.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.634,
+    "sent_start": 1.534,
+    "sent_end": 2.98
+   }
+  },
+  {
+   "n": 56,
+   "word": "أُوكِي",
+   "pos": "interj",
+   "meaning": "OK",
+   "sentence": "⟦أوكي⟧، أنا موافق.",
+   "translation": "⟦OK⟧, I agree.",
+   "note": "From English “OK”.",
+   "audio": "audio/0056.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.545,
+    "sent_start": 1.445,
+    "sent_end": 3.513
+   }
+  },
+  {
+   "n": 57,
+   "word": "غَلْبان",
+   "pos": "adj",
+   "meaning": "poor thing; hard up",
+   "sentence": "الراجل ده ⟦غلبان⟧ ومحتاج مساعدة.",
+   "translation": "That man is ⟦hard up⟧ and needs help.",
+   "audio": "audio/0057.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.865,
+    "sent_start": 1.765,
+    "sent_end": 5.113
+   }
+  },
+  {
+   "n": 58,
+   "word": "عَمَّال",
+   "pos": "adj",
+   "meaning": "keeps on (doing), still (doing)",
+   "sentence": "الولد ⟦عمال⟧ يعيط من الصبح.",
+   "translation": "The boy has ⟦kept⟧ crying since this morning.",
+   "note": "Not MSA عُمَّال (workers). Before a present verb.",
+   "audio": "audio/0058.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.737,
+    "sent_start": 1.637,
+    "sent_end": 4.306
+   }
+  },
+  {
+   "n": 59,
+   "word": "إِمْبارِح",
+   "pos": "adv",
+   "meaning": "yesterday",
+   "sentence": "شفته ⟦امبارح⟧ في النادي.",
+   "translation": "I saw him ⟦yesterday⟧ at the club.",
+   "note": "MSA: أَمْسِ.",
+   "audio": "audio/0059.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.721,
+    "sent_start": 1.621,
+    "sent_end": 3.794
+   }
+  },
+  {
+   "n": 60,
+   "word": "وَاد",
+   "pos": "noun",
+   "meaning": "boy, lad",
+   "sentence": "⟦الواد⟧ ده شاطر أوي.",
+   "translation": "That ⟦boy⟧ is really clever.",
+   "note": "Not MSA وَادٍ (valley). MSA: وَلَد.",
+   "audio": "audio/0060.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.536,
+    "sent_start": 1.436,
+    "sent_end": 3.124
+   }
+  },
+  {
+   "n": 61,
+   "word": "وِحِش",
+   "pos": "verb",
+   "meaning": "to be missed (by someone)",
+   "sentence": "⟦وحشتني⟧ أوي يا صاحبي.",
+   "translation": "I've ⟦missed you⟧ so much, my friend.",
+   "note": "Said of the one missed: وحشتني “I missed you” (you were missed by me).",
+   "audio": "audio/0061.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.68,
+    "sent_start": 1.58,
+    "sent_end": 3.478
+   }
+  },
+  {
+   "n": 62,
+   "word": "مِنِين",
+   "pos": "adv",
+   "meaning": "where from",
+   "sentence": "إنت ⟦منين⟧ في مصر؟",
+   "translation": "⟦Where are you from⟧ in Egypt?",
+   "note": "MSA: مِنْ أَيْنَ.",
+   "audio": "audio/0062.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.656,
+    "sent_start": 1.556,
+    "sent_end": 3.22
+   }
+  },
+  {
+   "n": 63,
+   "word": "بَدْرِي",
+   "pos": "adv",
+   "meaning": "early",
+   "sentence": "بصحى ⟦بدري⟧ كل يوم.",
+   "translation": "I get up ⟦early⟧ every day.",
+   "note": "MSA: مُبَكِّرًا.",
+   "audio": "audio/0063.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.622,
+    "sent_start": 1.522,
+    "sent_end": 3.325
+   }
+  },
+  {
+   "n": 64,
+   "word": "زَعْلان",
+   "pos": "adj",
+   "meaning": "upset, sad; cross",
+   "sentence": "إنت ⟦زعلان⟧ مني؟",
+   "translation": "Are you ⟦cross⟧ with me?",
+   "note": "Not MSA زَعْلان (an old word for “weary”).",
+   "audio": "audio/0064.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.885,
+    "sent_start": 1.785,
+    "sent_end": 3.319
+   }
+  },
+  {
+   "n": 65,
+   "word": "بْرافُو",
+   "pos": "interj",
+   "meaning": "well done, bravo",
+   "sentence": "⟦برافو⟧ عليك، إجابة صح.",
+   "translation": "⟦Well done⟧, that's the right answer.",
+   "audio": "audio/0065.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.674,
+    "sent_start": 1.574,
+    "sent_end": 4.317
+   }
+  },
+  {
+   "n": 66,
+   "word": "جُوَّه",
+   "pos": "adv",
+   "meaning": "inside",
+   "sentence": "الجو برد، تعالى ⟦جوه⟧.",
+   "translation": "It's cold, come ⟦inside⟧.",
+   "note": "Also written جوا. Not MSA جَوّ (air). MSA: دَاخِل.",
+   "audio": "audio/0066.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.491,
+    "sent_start": 1.391,
+    "sent_end": 3.494
+   }
+  },
+  {
+   "n": 67,
+   "word": "أُوعَى",
+   "pos": "interj",
+   "meaning": "watch out!; don't you dare",
+   "sentence": "⟦أوعى⟧ العربية!",
+   "translation": "⟦Watch out for⟧ the car!",
+   "note": "Not MSA أَوْعَى (more aware).",
+   "audio": "audio/0067.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.558,
+    "sent_start": 1.458,
+    "sent_end": 2.589
+   }
+  },
+  {
+   "n": 68,
+   "word": "أُوضَة",
+   "pos": "noun",
+   "meaning": "room",
+   "sentence": "⟦أوضتي⟧ صغيرة بس حلوة.",
+   "translation": "My ⟦room⟧ is small but nice.",
+   "note": "From Turkish oda. MSA: غُرْفَة.",
+   "audio": "audio/0068.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.533,
+    "sent_start": 1.433,
+    "sent_end": 3.546
+   }
+  },
+  {
+   "n": 69,
+   "word": "خَشّ",
+   "pos": "verb",
+   "meaning": "to go in, to enter (he went in)",
+   "sentence": "⟦خش⟧ اقعد جوه.",
+   "translation": "⟦Go in⟧ and sit down inside.",
+   "note": "MSA: دَخَلَ. Present يخش.",
+   "audio": "audio/0069.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.409,
+    "sent_start": 1.309,
+    "sent_end": 2.573
+   }
+  },
+  {
+   "n": 70,
+   "word": "عِيش",
+   "pos": "noun",
+   "meaning": "bread",
+   "sentence": "هات ⟦عيش⟧ وإنت جاي.",
+   "translation": "Bring some ⟦bread⟧ on your way.",
+   "note": "Not MSA عَيْش (life, living).",
+   "audio": "audio/0070.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.633,
+    "sent_start": 1.533,
+    "sent_end": 3.258
+   }
+  },
+  {
+   "n": 71,
+   "word": "وَيَّا",
+   "pos": "prep",
+   "meaning": "with, together with",
+   "sentence": "تعالى ⟦ويايا⟧ السوق.",
+   "translation": "Come to the market ⟦with⟧ me.",
+   "note": "MSA: مَعَ.",
+   "audio": "audio/0071.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.536,
+    "sent_start": 1.436,
+    "sent_end": 3.058
+   }
+  },
+  {
+   "n": 72,
+   "word": "عُقْبال",
+   "pos": "part",
+   "meaning": "may (you) have the same; here's hoping",
+   "sentence": "مبروك! ⟦عقبال⟧ عندك.",
+   "translation": "Congratulations! ⟦Here's hoping⟧ you're next.",
+   "audio": "audio/0072.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.766,
+    "sent_start": 1.666,
+    "sent_end": 4.846
+   }
+  },
+  {
+   "n": 73,
+   "word": "مِيرْسِي",
+   "pos": "interj",
+   "meaning": "thanks",
+   "sentence": "⟦ميرسي⟧ على الهدية.",
+   "translation": "⟦Thanks⟧ for the present.",
+   "note": "From French merci.",
+   "audio": "audio/0073.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.71,
+    "sent_start": 1.61,
+    "sent_end": 3.115
+   }
+  },
+  {
+   "n": 74,
+   "word": "عَرَبِيَّة",
+   "pos": "noun",
+   "meaning": "car",
+   "sentence": "⟦عربيتي⟧ عطلانة النهارده.",
+   "translation": "My ⟦car⟧ has broken down today.",
+   "note": "Not MSA عَرَبِيَّة (Arabic).",
+   "audio": "audio/0074.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.806,
+    "sent_start": 1.706,
+    "sent_end": 4.169
+   }
+  },
+  {
+   "n": 75,
+   "word": "بِتّ",
+   "pos": "noun",
+   "meaning": "girl",
+   "sentence": "⟦البت⟧ دي بنت خالتي.",
+   "translation": "That ⟦girl⟧ is my cousin.",
+   "note": "Not MSA بَتّ (decision). Casual: بنت is the polite word.",
+   "audio": "audio/0075.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.365,
+    "sent_start": 1.265,
+    "sent_end": 3.091
+   }
+  },
+  {
+   "n": 76,
+   "word": "جُوز",
+   "pos": "noun",
+   "meaning": "husband",
+   "sentence": "⟦جوزها⟧ دكتور.",
+   "translation": "Her ⟦husband⟧ is a doctor.",
+   "note": "Not MSA جَوْز (walnut); also “pair”. MSA: زَوْج.",
+   "audio": "audio/0076.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.615,
+    "sent_start": 1.515,
+    "sent_end": 2.858
+   }
+  },
+  {
+   "n": 77,
+   "word": "طَنْط",
+   "pos": "noun",
+   "meaning": "auntie; Mrs (to an older woman)",
+   "sentence": "أهلا يا ⟦طنط⟧، إزيك؟",
+   "translation": "Hello, ⟦auntie⟧, how are you?",
+   "note": "From French tante.",
+   "audio": "audio/0077.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.47,
+    "sent_start": 1.37,
+    "sent_end": 3.557
+   }
+  },
+  {
+   "n": 78,
+   "word": "جَدَع",
+   "pos": "adj",
+   "meaning": "decent, chivalrous (person)",
+   "sentence": "صاحبي ده ⟦جدع⟧ أوي.",
+   "translation": "My friend is a really ⟦decent guy⟧.",
+   "note": "Plural جدعان. Not MSA جَدَعَ (cut off).",
+   "audio": "audio/0078.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.661,
+    "sent_start": 1.561,
+    "sent_end": 3.367
+   }
+  },
+  {
+   "n": 79,
+   "word": "مَدام",
+   "pos": "noun",
+   "meaning": "Mrs; wife",
+   "sentence": "⟦المدام⟧ في البيت.",
+   "translation": "The ⟦wife⟧ is at home.",
+   "note": "From French madame; not MSA مُدَام (wine).",
+   "audio": "audio/0079.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.672,
+    "sent_start": 1.572,
+    "sent_end": 2.902
+   }
+  },
+  {
+   "n": 80,
+   "word": "جايِز",
+   "pos": "adv",
+   "meaning": "maybe",
+   "sentence": "⟦جايز⟧ يجي متأخر.",
+   "translation": "⟦Maybe⟧ he'll come late.",
+   "note": "Not MSA جَائِز (allowed).",
+   "audio": "audio/0080.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.675,
+    "sent_start": 1.575,
+    "sent_end": 3.327
+   }
+  },
+  {
+   "n": 81,
+   "word": "حَبَّة",
+   "pos": "noun",
+   "meaning": "a bit; a few",
+   "sentence": "عايز ⟦حبة⟧ مية لو سمحت.",
+   "translation": "I'd like ⟦a little⟧ water, please.",
+   "note": "Not MSA حَبَّة (grain, pill).",
+   "audio": "audio/0081.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.476,
+    "sent_start": 1.376,
+    "sent_end": 3.734
+   }
+  },
+  {
+   "n": 82,
+   "word": "فاضِل",
+   "pos": "adj",
+   "meaning": "left, remaining",
+   "sentence": "⟦فاضل⟧ خمس دقايق.",
+   "translation": "There are five minutes ⟦left⟧.",
+   "note": "Not MSA فَاضِل (virtuous).",
+   "audio": "audio/0082.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.656,
+    "sent_start": 1.556,
+    "sent_end": 3.305
+   }
+  },
+  {
+   "n": 83,
+   "word": "حَوالِين",
+   "pos": "prep",
+   "meaning": "around",
+   "sentence": "قعدنا ⟦حوالين⟧ الترابيزة.",
+   "translation": "We sat ⟦around⟧ the table.",
+   "note": "MSA: حَوْلَ.",
+   "audio": "audio/0083.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.791,
+    "sent_start": 1.691,
+    "sent_end": 3.746
+   }
+  },
+  {
+   "n": 84,
+   "word": "هَزَّر",
+   "pos": "verb",
+   "meaning": "to joke, to kid",
+   "sentence": "أنا ⟦بهزر⟧ معاك بس.",
+   "translation": "I'm only ⟦joking⟧ with you.",
+   "note": "Not MSA هَزَرَ (beat).",
+   "audio": "audio/0084.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.678,
+    "sent_start": 1.578,
+    "sent_end": 3.736
+   }
+  },
+  {
+   "n": 85,
+   "word": "يَامَا",
+   "pos": "part",
+   "meaning": "so often; so many",
+   "sentence": "⟦ياما⟧ قلتلك خد بالك.",
+   "translation": "⟦How often⟧ I've told you to be careful.",
+   "audio": "audio/0085.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.568,
+    "sent_start": 1.468,
+    "sent_end": 3.235
+   }
+  },
+  {
+   "n": 86,
+   "word": "أَبْلَة",
+   "pos": "noun",
+   "meaning": "big sister; Miss (to a teacher)",
+   "sentence": "⟦أبلة⟧ سعاد مدرسة العربي.",
+   "translation": "⟦Miss⟧ Soad is the Arabic teacher.",
+   "note": "Not MSA أَبْلَه (fool).",
+   "audio": "audio/0086.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.464,
+    "sent_start": 1.364,
+    "sent_end": 3.65
+   }
+  },
+  {
+   "n": 87,
+   "word": "دَوْشَة",
+   "pos": "noun",
+   "meaning": "noise, racket",
+   "sentence": "إيه ⟦الدوشة⟧ دي؟",
+   "translation": "What's all this ⟦racket⟧?",
+   "audio": "audio/0087.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.52,
+    "sent_start": 1.42,
+    "sent_end": 2.9
+   }
+  },
+  {
+   "n": 88,
+   "word": "سَوا",
+   "pos": "adv",
+   "meaning": "together",
+   "sentence": "نتغدى ⟦سوا⟧ بكرة؟",
+   "translation": "Shall we have lunch ⟦together⟧ tomorrow?",
+   "note": "Not MSA سَوَاء (alike). MSA: مَعًا.",
+   "audio": "audio/0088.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.541,
+    "sent_start": 1.441,
+    "sent_end": 2.972
+   }
+  },
+  {
+   "n": 89,
+   "word": "خِناقَة",
+   "pos": "noun",
+   "meaning": "fight, quarrel",
+   "sentence": "حصلت ⟦خناقة⟧ في الشارع.",
+   "translation": "There was a ⟦fight⟧ in the street.",
+   "note": "Not MSA خِنَاق (noose).",
+   "audio": "audio/0089.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.763,
+    "sent_start": 1.663,
+    "sent_end": 3.7
+   }
+  },
+  {
+   "n": 90,
+   "word": "أَنْهِي",
+   "pos": "pron",
+   "meaning": "which",
+   "sentence": "⟦أنهي⟧ واحد عايزه؟",
+   "translation": "⟦Which⟧ one do you want?",
+   "note": "Not MSA أَنْهَى (finished). MSA: أَيّ.",
+   "audio": "audio/0090.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.677,
+    "sent_start": 1.577,
+    "sent_end": 3.2
+   }
+  },
+  {
+   "n": 91,
+   "word": "شُغْلانَة",
+   "pos": "noun",
+   "meaning": "job, line of work",
+   "sentence": "دي ⟦شغلانة⟧ صعبة.",
+   "translation": "That's a hard ⟦job⟧.",
+   "audio": "audio/0091.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.746,
+    "sent_start": 1.646,
+    "sent_end": 3.352
+   }
+  },
+  {
+   "n": 92,
+   "word": "هَبَل",
+   "pos": "noun",
+   "meaning": "nonsense, silliness",
+   "sentence": "إيه ⟦الهبل⟧ ده؟",
+   "translation": "What's this ⟦nonsense⟧?",
+   "audio": "audio/0092.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.382,
+    "sent_start": 1.282,
+    "sent_end": 2.467
+   }
+  },
+  {
+   "n": 93,
+   "word": "قُصاد",
+   "pos": "prep",
+   "meaning": "opposite, facing",
+   "sentence": "البنك ⟦قصاد⟧ المحطة.",
+   "translation": "The bank is ⟦opposite⟧ the station.",
+   "audio": "audio/0093.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.692,
+    "sent_start": 1.592,
+    "sent_end": 3.489
+   }
+  },
+  {
+   "n": 94,
+   "word": "يادُوب",
+   "pos": "adv",
+   "meaning": "barely; only just",
+   "sentence": "⟦يادوب⟧ لحقت القطر.",
+   "translation": "I ⟦barely⟧ caught the train.",
+   "audio": "audio/0094.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.706,
+    "sent_start": 1.606,
+    "sent_end": 3.452
+   }
+  },
+  {
+   "n": 95,
+   "word": "بَاظ",
+   "pos": "verb",
+   "meaning": "to break down; to get ruined, go bad",
+   "sentence": "الموبايل ⟦باظ⟧ تاني.",
+   "translation": "The mobile has ⟦broken⟧ again.",
+   "note": "Not MSA بَاظَ (grew thin).",
+   "audio": "audio/0095.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.552,
+    "sent_start": 1.452,
+    "sent_end": 2.962
+   }
+  },
+  {
+   "n": 96,
+   "word": "فَرَح",
+   "pos": "noun",
+   "meaning": "wedding",
+   "sentence": "رايحين ⟦فرح⟧ صاحبنا بكرة.",
+   "translation": "We're going to our friend's ⟦wedding⟧ tomorrow.",
+   "note": "Not MSA فَرَح (joy).",
+   "audio": "audio/0096.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.509,
+    "sent_start": 1.409,
+    "sent_end": 3.921
+   }
+  },
+  {
+   "n": 97,
+   "word": "تُورْتَة",
+   "pos": "noun",
+   "meaning": "cake",
+   "sentence": "جبنا ⟦تورتة⟧ لعيد ميلادها.",
+   "translation": "We got a ⟦cake⟧ for her birthday.",
+   "note": "From Italian torta.",
+   "audio": "audio/0097.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.433,
+    "sent_start": 1.333,
+    "sent_end": 3.678
+   }
+  },
+  {
+   "n": 98,
+   "word": "تِيتَة",
+   "pos": "noun",
+   "meaning": "granny, grandma",
+   "sentence": "⟦تيتة⟧ عايشة معانا.",
+   "translation": "⟦Granny⟧ lives with us.",
+   "audio": "audio/0098.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.359,
+    "sent_start": 1.259,
+    "sent_end": 2.89
+   }
+  },
+  {
+   "n": 99,
+   "word": "زَوِّد",
+   "pos": "verb",
+   "meaning": "to add more; to increase",
+   "sentence": "⟦زود⟧ السكر شوية.",
+   "translation": "⟦Add⟧ a bit more sugar.",
+   "note": "Not MSA زَوَّدَ (supplied).",
+   "audio": "audio/0099.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.524,
+    "sent_start": 1.424,
+    "sent_end": 3.02
+   }
+  },
+  {
+   "n": 100,
+   "word": "هِزار",
+   "pos": "noun",
+   "meaning": "joking, kidding around",
+   "sentence": "ده كان ⟦هزار⟧ بس.",
+   "translation": "It was just a ⟦joke⟧.",
+   "audio": "audio/0100.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.592,
+    "sent_start": 1.492,
+    "sent_end": 3.325
+   }
+  },
+  {
+   "n": 101,
+   "word": "إِشْمِعْنَى",
+   "pos": "adv",
+   "meaning": "why (this one and not another)?",
+   "sentence": "⟦إشمعنى⟧ أنا اللي أروح؟",
+   "translation": "⟦Why⟧ should I be the one to go?",
+   "note": "From إيش معنى “what does it mean”.",
+   "audio": "audio/0101.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.768,
+    "sent_start": 1.668,
+    "sent_end": 3.414
+   }
+  },
+  {
+   "n": 102,
+   "word": "تَرابِيزَة",
+   "pos": "noun",
+   "meaning": "table",
+   "sentence": "حط الأكل على ⟦الترابيزة⟧.",
+   "translation": "Put the food on the ⟦table⟧.",
+   "note": "MSA: طَاوِلَة.",
+   "audio": "audio/0102.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.709,
+    "sent_start": 1.609,
+    "sent_end": 3.631
+   }
+  },
+  {
+   "n": 103,
+   "word": "فِراخ",
+   "pos": "noun",
+   "meaning": "chicken (meat)",
+   "sentence": "عاملين ⟦فراخ⟧ ورز على الغدا.",
+   "translation": "We've made ⟦chicken⟧ and rice for lunch.",
+   "note": "Singular فرخة. In MSA فِرَاخ are chicks.",
+   "audio": "audio/0103.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.671,
+    "sent_start": 1.571,
+    "sent_end": 4.292
+   }
+  },
+  {
+   "n": 104,
+   "word": "مُوبايِل",
+   "pos": "noun",
+   "meaning": "mobile phone",
+   "sentence": "⟦الموبايل⟧ بتاعي فاصل شحن.",
+   "translation": "My ⟦phone⟧ has run out of battery.",
+   "audio": "audio/0104.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.67,
+    "sent_start": 1.57,
+    "sent_end": 4.002
+   }
+  },
+  {
+   "n": 105,
+   "word": "عُزُومَة",
+   "pos": "noun",
+   "meaning": "invitation (to a meal)",
+   "sentence": "عندنا ⟦عزومة⟧ عند خالتي.",
+   "translation": "We've got a ⟦dinner invitation⟧ at my aunt's.",
+   "audio": "audio/0105.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.72,
+    "sent_start": 1.62,
+    "sent_end": 3.812
+   }
+  },
+  {
+   "n": 106,
+   "word": "جَزْمَة",
+   "pos": "noun",
+   "meaning": "shoe; pair of shoes",
+   "sentence": "اشتريت ⟦جزمة⟧ جديدة.",
+   "translation": "I bought new ⟦shoes⟧.",
+   "note": "Not MSA جَزْم (the jussive).",
+   "audio": "audio/0106.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.589,
+    "sent_start": 1.489,
+    "sent_end": 3.443
+   }
+  },
+  {
+   "n": 107,
+   "word": "هِيصَة",
+   "pos": "noun",
+   "meaning": "racket, fuss; celebration",
+   "sentence": "العيال عاملين ⟦هيصة⟧ في الشارع.",
+   "translation": "The kids are making a ⟦racket⟧ in the street.",
+   "audio": "audio/0107.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.64,
+    "sent_start": 1.54,
+    "sent_end": 4.225
+   }
+  },
+  {
+   "n": 108,
+   "word": "مَكْسُوف",
+   "pos": "adj",
+   "meaning": "embarrassed, shy",
+   "sentence": "أنا ⟦مكسوف⟧ أقوله.",
+   "translation": "I'm too ⟦embarrassed⟧ to tell him.",
+   "note": "Not MSA مَكْسُوف (eclipsed).",
+   "audio": "audio/0108.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.662,
+    "sent_start": 1.562,
+    "sent_end": 3.224
+   }
+  },
+  {
+   "n": 109,
+   "word": "رَوَّق",
+   "pos": "verb",
+   "meaning": "to relax, to calm down",
+   "sentence": "⟦روق⟧ كده ومتقلقش.",
+   "translation": "⟦Relax⟧ and don't worry.",
+   "note": "Not MSA رَوَّقَ (filtered, cleared).",
+   "audio": "audio/0109.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.495,
+    "sent_start": 1.395,
+    "sent_end": 3.676
+   }
+  },
+  {
+   "n": 110,
+   "word": "عَجَلَة",
+   "pos": "noun",
+   "meaning": "bicycle",
+   "sentence": "بروح الشغل ⟦بالعجلة⟧.",
+   "translation": "I go to work by ⟦bike⟧.",
+   "note": "Not MSA عَجَلَة (wheel; haste).",
+   "audio": "audio/0110.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.705,
+    "sent_start": 1.605,
+    "sent_end": 3.339
+   }
+  },
+  {
+   "n": 111,
+   "word": "بَطّال",
+   "pos": "adj",
+   "meaning": "no good, bad",
+   "sentence": "المطعم ده ⟦بطال⟧.",
+   "translation": "This restaurant is ⟦no good⟧.",
+   "note": "Not MSA بَطَّال (unemployed).",
+   "audio": "audio/0111.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.729,
+    "sent_start": 1.629,
+    "sent_end": 3.372
+   }
+  },
+  {
+   "n": 112,
+   "word": "جِيبَة",
+   "pos": "noun",
+   "meaning": "skirt",
+   "sentence": "لابسة ⟦جيبة⟧ زرقا.",
+   "translation": "She's wearing a blue ⟦skirt⟧.",
+   "note": "Not MSA جَيْب (pocket).",
+   "audio": "audio/0112.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.558,
+    "sent_start": 1.459,
+    "sent_end": 3.553
+   }
+  },
+  {
+   "n": 113,
+   "word": "بْلِيز",
+   "pos": "interj",
+   "meaning": "please",
+   "sentence": "⟦بليز⟧ ساعدني.",
+   "translation": "⟦Please⟧ help me.",
+   "note": "From English “please”.",
+   "audio": "audio/0113.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.547,
+    "sent_start": 1.447,
+    "sent_end": 2.746
+   }
+  },
+  {
+   "n": 114,
+   "word": "اتْكَسَف",
+   "pos": "verb",
+   "meaning": "to feel shy, to be embarrassed",
+   "sentence": "⟦اتكسفت⟧ أطلب منه.",
+   "translation": "I ⟦was too shy⟧ to ask him.",
+   "note": "Not MSA انْكَسَفَ (was eclipsed).",
+   "audio": "audio/0114.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.499,
+    "sent_start": 1.399,
+    "sent_end": 3.069
+   }
+  },
+  {
+   "n": 115,
+   "word": "بُقّ",
+   "pos": "noun",
+   "meaning": "mouth",
+   "sentence": "اقفل ⟦بقك⟧ وإنت بتاكل.",
+   "translation": "Close your ⟦mouth⟧ when you eat.",
+   "note": "Not MSA بَقّ (bedbugs).",
+   "audio": "audio/0115.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.303,
+    "sent_start": 1.203,
+    "sent_end": 3.52
+   }
+  },
+  {
+   "n": 116,
+   "word": "حَبَّايَة",
+   "pos": "noun",
+   "meaning": "pill, tablet",
+   "sentence": "خد ⟦حباية⟧ للصداع.",
+   "translation": "Take a ⟦pill⟧ for the headache.",
+   "audio": "audio/0116.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.664,
+    "sent_start": 1.564,
+    "sent_end": 3.465
+   }
+  },
+  {
+   "n": 117,
+   "word": "أَفَنْدِم",
+   "pos": "interj",
+   "meaning": "yes?, pardon?; sir, madam",
+   "sentence": "⟦أفندم⟧؟ مسمعتش.",
+   "translation": "⟦Pardon⟧? I didn't hear.",
+   "audio": "audio/0117.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.783,
+    "sent_start": 1.683,
+    "sent_end": 4.457
+   }
+  },
+  {
+   "n": 118,
+   "word": "اتْرَيَّق",
+   "pos": "verb",
+   "meaning": "to make fun of",
+   "sentence": "⟦اتريقوا⟧ عليه في المدرسة.",
+   "translation": "They ⟦made fun of⟧ him at school.",
+   "audio": "audio/0118.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.517,
+    "sent_start": 1.417,
+    "sent_end": 3.485
+   }
+  },
+  {
+   "n": 119,
+   "word": "مَناخِير",
+   "pos": "noun",
+   "meaning": "nose",
+   "sentence": "⟦مناخيري⟧ بتوجعني من البرد.",
+   "translation": "My ⟦nose⟧ hurts from the cold.",
+   "audio": "audio/0119.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.75,
+    "sent_start": 1.65,
+    "sent_end": 4.078
+   }
+  },
+  {
+   "n": 120,
+   "word": "مَزِّيكا",
+   "pos": "noun",
+   "meaning": "music",
+   "sentence": "بحب أسمع ⟦مزيكا⟧ وأنا بذاكر.",
+   "translation": "I like listening to ⟦music⟧ while I study.",
+   "audio": "audio/0120.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.744,
+    "sent_start": 1.644,
+    "sent_end": 4.386
+   }
+  },
+  {
+   "n": 121,
+   "word": "كُوبَّايَة",
+   "pos": "noun",
+   "meaning": "glass, cup",
+   "sentence": "عايز ⟦كوباية⟧ مية.",
+   "translation": "I'd like a ⟦glass⟧ of water.",
+   "audio": "audio/0121.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.5,
+    "sent_start": 1.4,
+    "sent_end": 2.728
+   }
+  },
+  {
+   "n": 122,
+   "word": "غاوِي",
+   "pos": "adj",
+   "meaning": "keen on, a fan of",
+   "sentence": "هو ⟦غاوي⟧ كورة من صغره.",
+   "translation": "He's been ⟦keen on⟧ football since he was little.",
+   "note": "Not MSA غَاوٍ (seducer).",
+   "audio": "audio/0122.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.573,
+    "sent_start": 1.473,
+    "sent_end": 3.45
+   }
+  },
+  {
+   "n": 123,
+   "word": "ساقِع",
+   "pos": "adj",
+   "meaning": "cold",
+   "sentence": "عايز حاجة ⟦ساقعة⟧ أشربها.",
+   "translation": "I want something ⟦cold⟧ to drink.",
+   "note": "MSA: بَارِد.",
+   "audio": "audio/0123.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.726,
+    "sent_start": 1.626,
+    "sent_end": 4.276
+   }
+  },
+  {
+   "n": 124,
+   "word": "مِيكْرُوباص",
+   "pos": "noun",
+   "meaning": "minibus",
+   "sentence": "ركبت ⟦ميكروباص⟧ للجامعة.",
+   "translation": "I took a ⟦minibus⟧ to university.",
+   "audio": "audio/0124.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 1.05,
+    "sent_start": 1.95,
+    "sent_end": 4.294
+   }
+  },
+  {
+   "n": 125,
+   "word": "زُرار",
+   "pos": "noun",
+   "meaning": "button",
+   "sentence": "دوس على ⟦الزرار⟧ ده.",
+   "translation": "Press this ⟦button⟧.",
+   "audio": "audio/0125.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.742,
+    "sent_start": 1.642,
+    "sent_end": 3.296
+   }
+  },
+  {
+   "n": 126,
+   "word": "هُدُوم",
+   "pos": "noun",
+   "meaning": "clothes",
+   "sentence": "لازم أغسل ⟦هدومي⟧.",
+   "translation": "I have to wash my ⟦clothes⟧.",
+   "audio": "audio/0126.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.747,
+    "sent_start": 1.647,
+    "sent_end": 3.294
+   }
+  },
+  {
+   "n": 127,
+   "word": "حَدُّوتَة",
+   "pos": "noun",
+   "meaning": "story, tale",
+   "sentence": "احكيلي ⟦حدوتة⟧ قبل ما أنام.",
+   "translation": "Tell me a ⟦story⟧ before I go to sleep.",
+   "note": "MSA: حِكَايَة.",
+   "audio": "audio/0127.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.717,
+    "sent_start": 1.617,
+    "sent_end": 4.151
+   }
+  },
+  {
+   "n": 128,
+   "word": "رِخِم",
+   "pos": "adj",
+   "meaning": "annoying, tiresome",
+   "sentence": "متبقاش ⟦رخم⟧ بقى!",
+   "translation": "Stop being so ⟦annoying⟧!",
+   "note": "Not MSA رَخُمَ (was gentle).",
+   "audio": "audio/0128.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.764,
+    "sent_start": 1.664,
+    "sent_end": 3.509
+   }
+  },
+  {
+   "n": 129,
+   "word": "مَكَرُونَة",
+   "pos": "noun",
+   "meaning": "pasta",
+   "sentence": "عايزين ناكل ⟦مكرونة⟧ بشاميل.",
+   "translation": "We want ⟦pasta⟧ with béchamel.",
+   "audio": "audio/0129.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.867,
+    "sent_start": 1.767,
+    "sent_end": 4.142
+   }
+  },
+  {
+   "n": 130,
+   "word": "بَجاحَة",
+   "pos": "noun",
+   "meaning": "cheek, insolence",
+   "sentence": "دي ⟦بجاحة⟧ بصراحة!",
+   "translation": "Honestly, that's real ⟦cheek⟧!",
+   "audio": "audio/0130.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.778,
+    "sent_start": 1.678,
+    "sent_end": 3.503
+   }
+  },
+  {
+   "n": 131,
+   "word": "قِزاز",
+   "pos": "noun",
+   "meaning": "glass (the material)",
+   "sentence": "الكوباية دي ⟦قزاز⟧.",
+   "translation": "This cup is made of ⟦glass⟧.",
+   "note": "MSA: زُجَاج.",
+   "audio": "audio/0131.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.564,
+    "sent_start": 1.464,
+    "sent_end": 3.324
+   }
+  },
+  {
+   "n": 132,
+   "word": "أُونْكِل",
+   "pos": "noun",
+   "meaning": "uncle; mister",
+   "sentence": "⟦أونكل⟧ أحمد جه.",
+   "translation": "⟦Uncle⟧ Ahmed has arrived.",
+   "audio": "audio/0132.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.659,
+    "sent_start": 1.559,
+    "sent_end": 2.946
+   }
+  },
+  {
+   "n": 133,
+   "word": "طازَة",
+   "pos": "adj",
+   "meaning": "fresh",
+   "sentence": "العيش ده ⟦طازة⟧.",
+   "translation": "This bread is ⟦fresh⟧.",
+   "audio": "audio/0133.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.46,
+    "sent_start": 1.36,
+    "sent_end": 2.773
+   }
+  },
+  {
+   "n": 134,
+   "word": "أَوَنْطَة",
+   "pos": "noun",
+   "meaning": "con, swindle",
+   "sentence": "العرض ده ⟦أونطة⟧.",
+   "translation": "This offer is a ⟦con⟧.",
+   "audio": "audio/0134.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.608,
+    "sent_start": 1.508,
+    "sent_end": 3.057
+   }
+  },
+  {
+   "n": 135,
+   "word": "أَشْطَة",
+   "pos": "interj",
+   "meaning": "great, fine, OK",
+   "sentence": "⟦أشطة⟧، نتقابل هناك.",
+   "translation": "⟦Cool⟧, let's meet there.",
+   "audio": "audio/0135.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.714,
+    "sent_start": 1.614,
+    "sent_end": 3.927
+   }
+  },
+  {
+   "n": 136,
+   "word": "لَخْبَط",
+   "pos": "verb",
+   "meaning": "to mix up, to muddle",
+   "sentence": "إنت ⟦لخبطت⟧ الورق كله.",
+   "translation": "You've ⟦mixed up⟧ all the papers.",
+   "audio": "audio/0136.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.741,
+    "sent_start": 1.641,
+    "sent_end": 3.815
+   }
+  },
+  {
+   "n": 137,
+   "word": "يِع",
+   "pos": "interj",
+   "meaning": "yuck!",
+   "sentence": "⟦يع⟧! الأكل ده بايظ.",
+   "translation": "⟦Yuck⟧! This food has gone off.",
+   "audio": "audio/0137.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.482,
+    "sent_start": 1.382,
+    "sent_end": 4.374
+   }
+  },
+  {
+   "n": 138,
+   "word": "كَنَبَة",
+   "pos": "noun",
+   "meaning": "sofa",
+   "sentence": "نام على ⟦الكنبة⟧.",
+   "translation": "He slept on the ⟦sofa⟧.",
+   "audio": "audio/0138.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.512,
+    "sent_start": 1.412,
+    "sent_end": 2.823
+   }
+  },
+  {
+   "n": 139,
+   "word": "قَفَش",
+   "pos": "verb",
+   "meaning": "to catch (in the act)",
+   "sentence": "أبوه ⟦قفشه⟧ وهو بيشرب سجاير.",
+   "translation": "His dad ⟦caught⟧ him smoking.",
+   "audio": "audio/0139.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.526,
+    "sent_start": 1.426,
+    "sent_end": 4.375
+   }
+  },
+  {
+   "n": 140,
+   "word": "كُشَرِي",
+   "pos": "noun",
+   "meaning": "koshary (rice, macaroni and lentils)",
+   "sentence": "بحب ⟦الكشري⟧ أوي.",
+   "translation": "I really love ⟦koshary⟧.",
+   "note": "A dish of rice, lentils and pasta with tomato sauce.",
+   "audio": "audio/0140.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.658,
+    "sent_start": 1.558,
+    "sent_end": 3.102
+   }
+  },
+  {
+   "n": 141,
+   "word": "شَاط",
+   "pos": "verb",
+   "meaning": "to kick (a ball)",
+   "sentence": "⟦شاط⟧ الكورة جامد.",
+   "translation": "He ⟦kicked⟧ the ball hard.",
+   "note": "Not MSA شَاطَ (got burnt).",
+   "audio": "audio/0141.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.589,
+    "sent_start": 1.489,
+    "sent_end": 3.04
+   }
+  },
+  {
+   "n": 142,
+   "word": "طَعْمِيَّة",
+   "pos": "noun",
+   "meaning": "falafel",
+   "sentence": "فطرنا فول و⟦طعمية⟧.",
+   "translation": "We had fuul and ⟦falafel⟧ for breakfast.",
+   "audio": "audio/0142.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.658,
+    "sent_start": 1.558,
+    "sent_end": 3.533
+   }
+  },
+  {
+   "n": 143,
+   "word": "بَلَكُونَة",
+   "pos": "noun",
+   "meaning": "balcony",
+   "sentence": "قاعدين في ⟦البلكونة⟧.",
+   "translation": "We're sitting on the ⟦balcony⟧.",
+   "audio": "audio/0143.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.825,
+    "sent_start": 1.725,
+    "sent_end": 3.257
+   }
+  },
+  {
+   "n": 144,
+   "word": "بَوَّظ",
+   "pos": "verb",
+   "meaning": "to ruin, to break",
+   "sentence": "مين ⟦بوظ⟧ التليفزيون؟",
+   "translation": "Who ⟦broke⟧ the TV?",
+   "audio": "audio/0144.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.37,
+    "sent_start": 1.27,
+    "sent_end": 2.911
+   }
+  },
+  {
+   "n": 145,
+   "word": "أُسْطَى",
+   "pos": "noun",
+   "meaning": "master (craftsman); boss (to a driver)",
+   "sentence": "على جنب يا ⟦أسطى⟧.",
+   "translation": "Pull over here, ⟦boss⟧.",
+   "note": "From Turkish usta.",
+   "audio": "audio/0145.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.508,
+    "sent_start": 1.408,
+    "sent_end": 2.912
+   }
+  },
+  {
+   "n": 146,
+   "word": "بَمْبِي",
+   "pos": "adj",
+   "meaning": "pink",
+   "sentence": "لابسة فستان ⟦بمبي⟧.",
+   "translation": "She's wearing a ⟦pink⟧ dress.",
+   "audio": "audio/0146.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.591,
+    "sent_start": 1.491,
+    "sent_end": 3.466
+   }
+  },
+  {
+   "n": 147,
+   "word": "اتْنَرْفِز",
+   "pos": "verb",
+   "meaning": "to get cross, to lose one's temper",
+   "sentence": "⟦اتنرفز⟧ عليا من غير سبب.",
+   "translation": "He ⟦lost his temper⟧ with me for no reason.",
+   "note": "From French nerveux.",
+   "audio": "audio/0147.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.985,
+    "sent_start": 1.885,
+    "sent_end": 4.249
+   }
+  },
+  {
+   "n": 148,
+   "word": "شِيشَة",
+   "pos": "noun",
+   "meaning": "hookah, water pipe",
+   "sentence": "بيشرب ⟦شيشة⟧ على القهوة.",
+   "translation": "He smokes ⟦shisha⟧ at the café.",
+   "audio": "audio/0148.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.459,
+    "sent_start": 1.359,
+    "sent_end": 3.616
+   }
+  },
+  {
+   "n": 149,
+   "word": "لِبّ",
+   "pos": "noun",
+   "meaning": "roasted seeds (to snack on)",
+   "sentence": "بناكل ⟦لب⟧ وإحنا بنتفرج.",
+   "translation": "We snack on ⟦seeds⟧ while we watch.",
+   "note": "Not MSA لُبّ (core).",
+   "audio": "audio/0149.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.402,
+    "sent_start": 1.302,
+    "sent_end": 3.541
+   }
+  },
+  {
+   "n": 150,
+   "word": "كَتْكُوت",
+   "pos": "noun",
+   "meaning": "chick (baby chicken)",
+   "sentence": "عندنا ⟦كتكوت⟧ صغير في البلكونة.",
+   "translation": "We've got a little ⟦chick⟧ on the balcony.",
+   "audio": "audio/0150.ogg",
+   "times": {
+    "start": 0.06,
+    "end": 0.686,
+    "sent_start": 1.586,
+    "sent_end": 4.32
+   }
+  }
+ ]
+}
