@@ -173,21 +173,17 @@ function nearestFit(b, f, x, y) {
 
 /**
  * Where a creature stepping in after a faint appears: near the fight rather than back at its start,
- * which on a big map can be far away. ENTER_GAP from the rival, toward its own start, on ground that
- * doesn't burn and from where it can walk to the rival; its start when that is nearer or nothing fits.
+ * which on a big map can be far away. About ENTER_GAP from the rival, toward its own start, on a tile with
+ * room round it that doesn't burn and from where it can walk to the rival (battlemap.safeSpotNear); its start
+ * when that is nearer, or when there is no such spot.
  */
 function entryPoint(b, f, o, side) {
   const s = b.starts[side];
-  if (!o || o.fainted || dist(o, s) <= ENTER_GAP) return s;
+  if (!o || o.fainted || dist(o, s) <= ENTER_GAP || !b.ground.safeSpotNear) return s;
   const u = unit(s.x - o.x, s.y - o.y);
-  for (const turn of [0, 0.4, -0.4, 0.8, -0.8, 1.2, -1.2]) for (const gap of [1, 1.25, 0.8]) {
-    const c = Math.cos(turn), sn = Math.sin(turn);
-    const p = { x: o.x + (u.x * c - u.y * sn) * ENTER_GAP * gap, y: o.y + (u.x * sn + u.y * c) * ENTER_GAP * gap };
-    if (p.x < 8 || p.y < 8 || p.x > b.width - 8 || p.y > b.height - 8 || !fits(b, f, p.x, p.y) || groundAt(b, f, p.x, p.y).burn > 0) continue;
-    const path = b.ground.findPath(b.map, p, { x: o.x, y: o.y }, who(f));
-    if (path && path.length && dist(path[path.length - 1], o) < 48) return p;
-  }
-  return s;
+  const x = Math.max(8, Math.min(b.width - 8, o.x + u.x * ENTER_GAP)), y = Math.max(8, Math.min(b.height - 8, o.y + u.y * ENTER_GAP));
+  const p = b.ground.safeSpotNear(b.map, x, y, who(f), { from: { x: o.x, y: o.y } });
+  return p && dist(p, o) > ENTER_GAP / 2 ? p : s;
 }
 
 function enter(b, side, atStart = false) {

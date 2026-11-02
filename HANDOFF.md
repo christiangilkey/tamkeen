@@ -6352,8 +6352,10 @@ loadout(), publicProfile() etc. are reused) until the Screen chat switches the b
   inside that view (30 px margin; beams and homing shots may come from just outside, their warning shows near the player),
   and every move reaches 260 px at most, so nothing comes from off screen unseen. A creature
   stepping in after a faint appears 200 px (ENTER_GAP) from the rival on its own side, not back at its far start.
-  Trials on 90 x 54 arenas: 0 of ~2,500 rival attacks from off screen (computer, upright and sideways phone views),
-  ~47 s of play and ~22 questions a battle at 80% right, about as on the small arenas.
+  Its spot comes from battlemap.safeSpotNear (room to move, no burning ground, can walk to the rival). Trials on the
+  committed 90 x 54 arenas (starts ~410 px apart), 60 wild battles a row: 40 / 60 / 80 / 95% right win 25 / 65 / 78 /
+  93%, ~45 s of play and ~22 questions at 80%, first hit ~4 s in; never moving wins 45% at 80%; no rival attack from
+  off screen except beams and homing shots (computer and phone views); no battle got stuck.
 
 ## Live battles: the battle screen and its controls (2026-11-01; "Live battles: battle screen and controls" chat)
 The owner wanted creatures to "run around with either the controller thumbsticks or pointing and clicking with the
