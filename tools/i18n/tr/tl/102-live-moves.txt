@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Tira
+8fe94656	Diretsong lumilipad papunta sa kabilang nilalang. Umalis ka sa daraanan nito.
+fd1d220f	Sinusundan ang kabilang nilalang. Mas mahina, at mahirap takasan.
+683b44f9	Sinag
+bd29a55a	Isang sinag sa isang tuwid na linya, matapos ang maikling babala. Umalis ka sa linya.
+69233e0a	Tinatamaan ang lahat sa paligid ng gumagamit, nang malapitan.
+0a088b31	Bagsak
+248047fd	Bumabagsak kung saan nakatayo ang kabilang nilalang, matapos ang bilog na babala. Umalis ka sa bilog.
+24942523	Sugod
+fa8e2303	Sumusugod ang gumagamit sa kabilang nilalang. Umiwas ka patagilid.
+143e94af	Lupa
+6c67da3e	Binabago ang lupa.
+a88a525e	Mas mahina, pero mas maagang handa ulit.
+22c392ea	Hinaharangan ang bahagi ng susunod na tama nang ilang segundo.
+5c26b588	Pinalalakas ang susunod mong tatlong atake, o pinabibilis ka, nang ilang sandali.
+86f2f8ee	Pinababagal ang kabilang nilalang at inaantala ang mga galaw nito.
+1a2291e2	Kinakansela ang galaw na nag-iipon pa ng lakas, at nahihilo ito sandali.
+1ceebf33	Napakalaking pinsala matapos mag-ipon ng lakas. Hindi ka makagalaw habang nag-iipon, at kinakansela ito ng isang pagputol.
+a62b81cb	Binabago ang lupa sa ilalim mo o ng kabilang nilalang.

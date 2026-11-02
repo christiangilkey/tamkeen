@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Tir
+8fe94656	Fonce droit sur l'autre créature. Écartez-vous de sa trajectoire.
+fd1d220f	Suit l'autre créature. Plus faible, et difficile à semer.
+683b44f9	Rayon
+bd29a55a	Un rayon en ligne droite, après un court avertissement. Sortez de la ligne.
+69233e0a	Frappe tout autour de l'utilisateur, de près.
+0a088b31	Chute
+248047fd	Tombe là où se trouvait l'autre créature, après un cercle d'avertissement. Sortez du cercle.
+24942523	Ruée
+fa8e2303	L'utilisateur fonce sur l'autre créature. Esquivez sur le côté.
+143e94af	Terrain
+6c67da3e	Modifie le terrain.
+a88a525e	Plus faible, mais de nouveau prête plus vite.
+22c392ea	Bloque une partie du prochain coup, pendant quelques secondes.
+5c26b588	Renforce vos trois prochaines attaques, ou vous rend plus rapide, pendant un moment.
+86f2f8ee	Ralentit l'autre créature et retarde ses attaques.
+1a2291e2	Annule une attaque en préparation et étourdit un instant.
+1ceebf33	Dégâts énormes après une préparation. Vous ne pouvez pas bouger pendant la préparation, et une interruption l'annule.
+a62b81cb	Modifie le terrain sous vous ou sous l'autre créature.

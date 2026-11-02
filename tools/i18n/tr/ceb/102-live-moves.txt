@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Tira
+8fe94656	Molupad diretso ngadto sa laing linalang. Likay sa agianan niini.
+fd1d220f	Mosunod sa laing linalang. Mas huyang, ug lisod ikalikay.
+683b44f9	Silaw
+bd29a55a	Usa ka silaw sa tul-id nga linya, human sa mubo nga pasidaan. Gawas sa linya.
+69233e0a	Moigo sa tanan palibot sa migamit, sa duol.
+0a088b31	Hulog
+248047fd	Mahulog kung asa nagbarog ang laing linalang, human sa lingin nga pasidaan. Gawas sa lingin.
+24942523	Dasmag
+fa8e2303	Modasmag ang migamit ngadto sa laing linalang. Likay patagilid.
+143e94af	Yuta
+6c67da3e	Mag-usab sa yuta.
+a88a525e	Mas huyang, apan mas sayo nga andam na usab.
+22c392ea	Mopugong sa bahin sa sunod nga igo sulod sa pipila ka segundo.
+5c26b588	Mopakusog sa imong sunod nga tulo ka atake, o mopapaspas nimo, sulod sa usa ka higayon.
+86f2f8ee	Mopahinay sa laing linalang ug moatras sa mga lihok niini.
+1a2291e2	Mokansela sa lihok nga gi-andam pa, ug mopalipong niini kadiyot.
+1ceebf33	Dakong danyos human sa pag-andam. Dili ka makalihok samtang nag-andam, ug ang pagbabag mokansela niini.
+a62b81cb	Mag-usab sa yuta ilalom nimo o sa laing linalang.

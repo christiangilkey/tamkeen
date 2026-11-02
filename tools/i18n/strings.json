@@ -9655,6 +9655,101 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "bfe6177c",
+  "k": "Shot",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "8fe94656",
+  "k": "Flies straight at the other creature. Step out of its way.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fd1d220f",
+  "k": "Follows the other creature. Softer, and hard to shake off.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "683b44f9",
+  "k": "Beam",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "bd29a55a",
+  "k": "A ray along a line, after a short warning. Leave the line.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "69233e0a",
+  "k": "Hits all around the user, up close.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "0a088b31",
+  "k": "Drop",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "248047fd",
+  "k": "Lands where the other creature stood, after a warning circle. Move off the circle.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "24942523",
+  "k": "Dash",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fa8e2303",
+  "k": "The user rushes at the other creature. Sidestep it.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "143e94af",
+  "k": "Ground",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "6c67da3e",
+  "k": "Changes the ground.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a88a525e",
+  "k": "Weaker, but ready again sooner.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "22c392ea",
+  "k": "Blocks part of the next hit, for a few seconds.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "5c26b588",
+  "k": "Makes your next three attacks stronger, or you faster, for a while.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "86f2f8ee",
+  "k": "Slows the other creature and holds its moves back.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "1a2291e2",
+  "k": "Cancels a move that is winding up, and stuns for a moment.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "1ceebf33",
+  "k": "Huge damage after a wind-up. You can't move while it winds up, and an interrupt cancels it.",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a62b81cb",
+  "k": "Changes the ground under you or the other creature.",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "4869ac12",
   "k": "Open week",
   "f": "web/js/game/data.js"

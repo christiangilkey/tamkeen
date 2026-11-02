@@ -211,13 +211,32 @@ export const VARIANTS = {
 // Battles are won by reviewing your own vocab, not by the size of your numbers: every creature
 // fights at the same level whatever its age. What studying adds is choice: more creatures, more
 // moves, more looks.
-export const CYCLE = ["ember", "grove", "stone", "spark", "tide", "dusk"]; // each is strong against the next
+// The type chart, like Pokemon's: each element hits two others hard (`strong`), two softly (`weak`, its
+// own element is always one of them) and the last two normally. It is balanced both ways: every element
+// is also hit hard by exactly two others and shrugs off exactly two, and no two elements are both strong
+// against each other. A plain move (no element) is normal against everything. The numbers are gentler
+// than Pokemon's x2 / x0.5 because a creature can't be swapped out at will: the next one only steps in
+// when one faints.
+export const STRONG = 1.5;
+export const WEAK = 0.67;
+export const TYPE_CHART = {
+  ember: { strong: ["grove", "dusk"], weak: ["ember", "tide"] },  // burns plants, lights up the dark; water puts it out
+  tide: { strong: ["ember", "stone"], weak: ["tide", "grove"] },  // puts out fire, wears rock away; plants drink it up
+  grove: { strong: ["tide", "spark"], weak: ["grove", "ember"] }, // soaks up water, tangles sparks; fire burns it
+  spark: { strong: ["tide", "dusk"], weak: ["spark", "stone"] },  // water carries it, light ends the dark; earth grounds it
+  stone: { strong: ["ember", "spark"], weak: ["stone", "dusk"] }, // smothers fire, grounds lightning; shadow slips through it
+  dusk: { strong: ["grove", "stone"], weak: ["dusk", "spark"] },  // plants wilt in the dark, shadows crack stone; light fades it
+};
+/** How hard a move of element `attack` hits a creature of element `defend`: STRONG, WEAK or 1. */
 export function matchup(attack, defend) {
-  if (!attack || attack === defend) return 1;
-  const i = CYCLE.indexOf(attack);
-  const j = CYCLE.indexOf(defend);
-  if (i < 0 || j < 0) return 1;
-  return (i + 1) % CYCLE.length === j ? 1.25 : (j + 1) % CYCLE.length === i ? 0.8 : 1;
+  const row = attack && TYPE_CHART[attack];
+  if (!row || !defend) return 1;
+  return row.strong.includes(defend) ? STRONG : row.weak.includes(defend) ? WEAK : 1;
+}
+/** The other side of the chart, for showing a creature's element: what hits it hard and what it shrugs off. */
+export function defenceOf(type) {
+  const ids = Object.keys(TYPE_CHART);
+  return { weakTo: ids.filter((a) => TYPE_CHART[a].strong.includes(type)), resists: ids.filter((a) => TYPE_CHART[a].weak.includes(type)) };
 }
 // Every body plan has the same total; they differ in where it sits.
 export const BASE_STATS = {
@@ -315,6 +334,72 @@ export const moveById = (id) => MOVES.find((m) => m.id === id) || MOVES[0];
 /** The art file of a move's icon (moves bought in the shop may use their style's icon). */
 export const moveIcon = (m) => (m.icon ? `icon/${m.icon}` : `icon/move/${m.id}`);
 export const SHOP_MOVES = MOVES.filter((m) => m.price);
+
+// ---------- live battles (livebattle.js) ----------
+// In live battles the creatures run around an arena, and every move takes a real-time form. Distances
+// are world pixels (a tile is 16), times are seconds. A move's form comes from its aim (line -> shot,
+// column -> drop, burst -> burst, homing -> homing, self -> self), unless LIVE_TUNING gives it another.
+export const LIVE_FORMS = {
+  shot: { name: "Shot", text: "Flies straight at the other creature. Step out of its way." },
+  homing: { name: "Homing", text: "Follows the other creature. Softer, and hard to shake off." },
+  beam: { name: "Beam", text: "A ray along a line, after a short warning. Leave the line." },
+  burst: { name: "Burst", text: "Hits all around the user, up close." },
+  drop: { name: "Drop", text: "Lands where the other creature stood, after a warning circle. Move off the circle." },
+  dash: { name: "Dash", text: "The user rushes at the other creature. Sidestep it." },
+  self: { name: "Itself", text: "It works on the creature using it" },
+  terrain: { name: "Ground", text: "Changes the ground." },
+};
+/** What each style does in a live battle (MOVE_STYLES' texts are about turns). */
+export const LIVE_STYLE_TEXT = {
+  strike: "Plain damage.",
+  quick: "Weaker, but ready again sooner.",
+  guard: "Blocks part of the next hit, for a few seconds.",
+  power: "Makes your next three attacks stronger, or you faster, for a while.",
+  heal: "Health back (twice a battle).",
+  delay: "Slows the other creature and holds its moves back.",
+  interrupt: "Cancels a move that is winding up, and stuns for a moment.",
+  charge: "Huge damage after a wind-up. You can't move while it winds up, and an interrupt cancels it.",
+  terrain: "Changes the ground under you or the other creature.",
+};
+// Seconds before a move can be used again, by style.
+export const LIVE_COOLDOWN = { strike: 2.2, quick: 1.2, delay: 3.5, interrupt: 4, charge: 7, guard: 7, power: 10, heal: 9, terrain: 9 };
+// Each form's numbers: `range` (how far it reaches), `speed` (px/s, things that fly or rush), `r` (radius
+// of a shot or an area), `warn` (seconds a beam or area is shown before it lands), `width` (a beam's),
+// `reach` (how far in front of the user a burst is centred), `turn` (how fast a homing shot turns,
+// radians/s), `size` (a terrain move repaints the tiles up to this many tiles from its centre).
+export const LIVE_FORM_STATS = {
+  shot: { range: 220, speed: 300, r: 5 },
+  homing: { range: 300, speed: 170, r: 5, turn: 2.4 },
+  beam: { range: 260, width: 10, warn: 0.3 },
+  burst: { range: 68, r: 44, reach: 24, warn: 0.2 },
+  drop: { range: 230, r: 28, warn: 0.55 },
+  dash: { range: 100, speed: 380 },
+  self: { range: 0 },
+  terrain: { range: 240, size: 1 },
+};
+// Moves that work differently from their aim's usual form, or with other numbers.
+export const LIVE_TUNING = {
+  pounce: { form: "dash", range: 110 },
+  dawn_ray: { form: "beam" },
+  charge: { form: "dash", range: 170, speed: 420 },
+  thunderhead: { form: "beam", width: 20, range: 300 },
+  meteor: { form: "drop", r: 44 },
+  quick_jab: { range: 150, speed: 340 },
+  bloom: { range: 0 },
+};
+// The live arena's ground (battlemap.js TERRAIN ids) that each terrain move lays.
+export const LIVE_TERRAIN = { spring: "spring", coals: "coals", puddle: "mud" };
+const LIVE_AIM_FORM = { line: "shot", column: "drop", burst: "burst", homing: "homing", self: "self" };
+/** How a move works in a live battle: {id, form, cooldown, windup (a charge's wind-up), range, ...form numbers, terrain}. */
+export function liveMove(m) {
+  const tuned = LIVE_TUNING[m.id] || {};
+  const form = tuned.form || (m.kind === "terrain" ? "terrain" : m.kind === "attack" ? LIVE_AIM_FORM[m.aim] || "shot" : "self");
+  return {
+    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * 1.5 : 0,
+    terrain: m.kind === "terrain" ? LIVE_TERRAIN[m.terrain] || m.terrain : null, where: m.where || null,
+    ...LIVE_FORM_STATS[form], ...tuned, form,
+  };
+}
 
 // A different rule each week keeps any one team from being "the answer".
 export const WEEKLY_RULES = [

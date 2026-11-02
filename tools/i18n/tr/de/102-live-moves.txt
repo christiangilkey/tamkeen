@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Schuss
+8fe94656	Fliegt geradewegs auf das andere Wesen zu. Geh ihm aus dem Weg.
+fd1d220f	Folgt dem anderen Wesen. Schwächer, und schwer abzuschütteln.
+683b44f9	Strahl
+bd29a55a	Ein Strahl entlang einer Linie, nach einer kurzen Warnung. Verlass die Linie.
+69233e0a	Trifft alles rund um den Anwender, aus der Nähe.
+0a088b31	Einschlag
+248047fd	Schlägt dort ein, wo das andere Wesen stand, nach einem Warnkreis. Geh aus dem Kreis.
+24942523	Ansturm
+fa8e2303	Der Anwender stürmt auf das andere Wesen zu. Weich zur Seite aus.
+143e94af	Gelände
+6c67da3e	Verändert das Gelände.
+a88a525e	Schwächer, aber früher wieder bereit.
+22c392ea	Blockt einige Sekunden lang einen Teil des nächsten Treffers.
+5c26b588	Stärkt eine Weile deine nächsten drei Angriffe oder macht dich schneller.
+86f2f8ee	Bremst das andere Wesen und hält seine Züge zurück.
+1a2291e2	Bricht einen Zug ab, der gerade aufgeladen wird, und betäubt kurz.
+1ceebf33	Riesiger Schaden nach dem Aufladen. Während des Aufladens kannst du dich nicht bewegen, und eine Unterbrechung bricht ihn ab.
+a62b81cb	Verändert das Gelände unter dir oder unter dem anderen Wesen.

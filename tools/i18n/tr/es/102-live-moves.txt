@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Disparo
+8fe94656	Vuela recto hacia la otra criatura. Apártate de su camino.
+fd1d220f	Sigue a la otra criatura. Más débil, y difícil de esquivar.
+683b44f9	Rayo
+bd29a55a	Un rayo en línea recta, tras un breve aviso. Sal de la línea.
+69233e0a	Golpea todo alrededor de quien lo usa, de cerca.
+0a088b31	Caída
+248047fd	Cae donde estaba la otra criatura, tras un círculo de aviso. Sal del círculo.
+24942523	Embestida
+fa8e2303	Quien lo usa se lanza contra la otra criatura. Esquívala de lado.
+143e94af	Terreno
+6c67da3e	Cambia el terreno.
+a88a525e	Más débil, pero vuelve a estar listo antes.
+22c392ea	Bloquea parte del siguiente golpe durante unos segundos.
+5c26b588	Hace más fuertes tus tres próximos ataques, o te hace más rápido, durante un rato.
+86f2f8ee	Frena a la otra criatura y retrasa sus movimientos.
+1a2291e2	Cancela un movimiento que se está preparando y aturde un momento.
+1ceebf33	Daño enorme tras una preparación. No puedes moverte mientras se prepara, y una interrupción lo cancela.
+a62b81cb	Cambia el terreno bajo ti o bajo la otra criatura.

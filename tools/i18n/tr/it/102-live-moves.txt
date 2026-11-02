@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Tiro
+8fe94656	Vola dritto verso l'altra creatura. Togliti dalla sua traiettoria.
+fd1d220f	Segue l'altra creatura. Più debole, e difficile da seminare.
+683b44f9	Raggio
+bd29a55a	Un raggio in linea retta, dopo un breve avviso. Esci dalla linea.
+69233e0a	Colpisce tutto intorno a chi la usa, da vicino.
+0a088b31	Caduta
+248047fd	Cade dove si trovava l'altra creatura, dopo un cerchio di avviso. Esci dal cerchio.
+24942523	Carica
+fa8e2303	Chi la usa si lancia contro l'altra creatura. Schivala di lato.
+143e94af	Terreno
+6c67da3e	Cambia il terreno.
+a88a525e	Più debole, ma di nuovo pronta prima.
+22c392ea	Blocca parte del prossimo colpo, per qualche secondo.
+5c26b588	Rende più forti i tuoi prossimi tre attacchi, o ti rende più veloce, per un po'.
+86f2f8ee	Rallenta l'altra creatura e trattiene le sue mosse.
+1a2291e2	Annulla una mossa in preparazione e stordisce per un attimo.
+1ceebf33	Danno enorme dopo una preparazione. Non puoi muoverti mentre si prepara, e un'interruzione la annulla.
+a62b81cb	Cambia il terreno sotto di te o sotto l'altra creatura.

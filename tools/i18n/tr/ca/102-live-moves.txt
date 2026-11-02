@@ -1,0 +1,20 @@
+# Live battles: how each move works in real time (data.js LIVE_FORMS, LIVE_STYLE_TEXT).
+bfe6177c	Tret
+8fe94656	Vola recte cap a l'altra criatura. Aparta't del seu camí.
+fd1d220f	Segueix l'altra criatura. Més feble, i difícil d'esquivar.
+683b44f9	Raig
+bd29a55a	Un raig en línia recta, després d'un breu avís. Surt de la línia.
+69233e0a	Colpeja tot al voltant de qui l'usa, de prop.
+0a088b31	Caiguda
+248047fd	Cau on era l'altra criatura, després d'un cercle d'avís. Surt del cercle.
+24942523	Envestida
+fa8e2303	Qui l'usa es llança contra l'altra criatura. Esquiva-la de costat.
+143e94af	Terreny
+6c67da3e	Canvia el terreny.
+a88a525e	Més feble, però torna a estar a punt abans.
+22c392ea	Bloqueja part del proper cop durant uns segons.
+5c26b588	Fa més forts els teus propers tres atacs, o et fa més ràpid, durant una estona.
+86f2f8ee	Alenteix l'altra criatura i endarrereix els seus moviments.
+1a2291e2	Cancel·la un moviment que s'està preparant i atordeix un moment.
+1ceebf33	Dany enorme després d'una preparació. No et pots moure mentre es prepara, i una interrupció el cancel·la.
+a62b81cb	Canvia el terreny sota teu o sota l'altra criatura.

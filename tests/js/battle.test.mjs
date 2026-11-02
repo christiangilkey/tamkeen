@@ -2,7 +2,7 @@
 // Growing up (no adult forms), special colourings, the vocab review that powers battles, and the battle engine.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { BASE_STATS, BATTLE_UNLOCK_WORDS, CYCLE, MOVES, TERRAIN, WEEKLY_RULES, matchup } from "../../web/js/game/data.js";
+import { BASE_STATS, BATTLE_UNLOCK_WORDS, MOVES, STRONG, TERRAIN, WEAK, WEEKLY_RULES, matchup } from "../../web/js/game/data.js";
 import { describe, formOf, isGrown, newGenome, rng } from "../../web/js/game/genome.js";
 import {
   FULLY_GROWN_COINS, MATURE_BOX, answerQuestion, checkBadges, dayNumber, earn, finishBattle, newState, normalize, pickQuestion,
@@ -199,15 +199,11 @@ test("a word becomes well known only over weeks of right answers; that pays best
   assert.notEqual(weekNumber(at("2026-10-18T23:00:00")), weekNumber(at("2026-10-19T00:30:00")), "weeks turn on Monday");
 });
 
-test("battle data: equal totals, a closed element cycle, every creature has moves", () => {
+test("battle data: equal totals, the type chart, every creature has moves", () => {
   const totals = Object.values(BASE_STATS).map((b) => b.hp / 5 + b.atk + b.def + b.spd);
   assert.ok(Math.max(...totals) - Math.min(...totals) <= 2, "no body plan is simply better");
-  for (let i = 0; i < CYCLE.length; i++) {
-    const next = CYCLE[(i + 1) % CYCLE.length];
-    assert.equal(matchup(CYCLE[i], next), 1.25);
-    assert.equal(matchup(next, CYCLE[i]), 0.8);
-    assert.equal(matchup(CYCLE[i], CYCLE[i]), 1);
-  }
+  assert.equal(matchup("tide", "ember"), STRONG); // the whole chart is checked in livebattle.test.mjs
+  assert.equal(matchup("ember", "tide"), WEAK);
   assert.equal(matchup(null, "ember"), 1);
   assert.equal(new Set(MOVES.map((m) => m.id)).size, MOVES.length);
   assert.equal(BATTLE_UNLOCK_WORDS, 100);
@@ -407,13 +403,13 @@ test("the squares: the same on both sides, and each one does what it says", () =
 test("moves do what they say; a team fights on; feats and rewards are settled", () => {
   const mk = (type, n = 1) => fighters(null, Array.from({ length: n }, (_, i) => ({ ...newGenome(600 + i, type), growth: 0.95 })));
   const strong = newBattle({ mine: mk("ember"), theirs: mk("grove"), rand: () => 0.5, tiles: plain() });
-  const weak = newBattle({ mine: mk("ember"), theirs: mk("dusk"), rand: () => 0.5, tiles: plain() });
+  const weak = newBattle({ mine: mk("ember"), theirs: mk("tide"), rand: () => 0.5, tiles: plain() });
   start(strong); start(weak);
   // (a faster foe may have moved first: line up with it, then find our own attack)
   const lineUp = (b) => { const me = current(b, "me"), foe = current(b, "foe"); if (me.pos.r !== foe.pos.r) moveTo(b, "me", { c: me.pos.c, r: foe.pos.r }); return b; };
   const mine = (events) => events.find((e) => e.kind === "attack" && e.side === "me");
-  assert.equal(mine(act(lineUp(strong), "cinder", "right")).mult, 1.25);
-  assert.equal(mine(act(lineUp(weak), "cinder", "right")).mult, 0.8);
+  assert.equal(mine(act(lineUp(strong), "cinder", "right")).mult, STRONG);
+  assert.equal(mine(act(lineUp(weak), "cinder", "right")).mult, WEAK);
 
   const b = newBattle({ mine: mk("stone", 2), theirs: mk("stone", 2), rand: () => 0.5, tiles: plain() });
   start(b);
@@ -499,6 +495,8 @@ test("word modes: the last 100 words for an even fight, or every word with creat
   s.roster[0].growth = 0.5;
   s.known = 321;
   assert.equal(publicProfile(s, null).team[0].known, 321, "friends' Unlimited battles use it");
+  s.cards = 640.4;
+  assert.equal(publicProfile(s, null).team[0].cards, 640, "and live battles' all-time mode uses the cards saved");
 
   // Moves are bought with coins, once, for every creature.
   const stock = moveStock(s, at("2026-10-30T10:00:00"));
