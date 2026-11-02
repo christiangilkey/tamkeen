@@ -148,8 +148,9 @@ export function runLiveBattle(setup, vocab) {
   };
   const ARENA_TERRAIN = new Set([...map.tiles, map.base, "spring", "coals", "mud"]);
   for (const id of [...ARENA_TERRAIN]) if (TERRAIN[id] && TERRAIN[id].under) ARENA_TERRAIN.add(TERRAIN[id].under);
+  if (arena.SHEETS && arena.SHEETS.bridge_v && ARENA_TERRAIN.has("bridge")) ARENA_TERRAIN.add("bridge_v");
   for (const id of ARENA_TERRAIN) {
-    const tr = TERRAIN[id];
+    const tr = (arena.SHEETS && arena.SHEETS[id] && { anim: arena.SHEETS[id].anim, art: arena.SHEETS[id] }) || TERRAIN[id];
     if (!tr) continue;
     want(tr.art.edges);
     want(tr.art.fill);
@@ -172,7 +173,10 @@ export function runLiveBattle(setup, vocab) {
   const DUAL = typeof arena.drawCorners === "function";
   /** Draw one layer of a cell whose top left is at world (x, y). Its tile: `mask` (dual grid) or `variant`; 15 = a middle tile. */
   function drawLayer(g, layer, x, y, now) {
-    const tr = TERRAIN[layer.terrain];
+    // its pictures: battlemap.SHEETS names them for every layer (a bridge running north-south is "bridge_v");
+    // without it, the terrain's own
+    const sh = arena.SHEETS && arena.SHEETS[layer.terrain];
+    const tr = sh ? { id: layer.terrain, anim: !!sh.anim, art: { edges: sh.edges, fill: sh.fill } } : TERRAIN[layer.terrain];
     if (!tr) return;
     const v0 = DUAL ? layer.mask : layer.variant;
     const full = v0 === 15;
@@ -197,7 +201,7 @@ export function runLiveBattle(setup, vocab) {
       return;
     }
     // no art yet: a plain colour where the terrain is
-    g.fillStyle = PLACEHOLDER[layer.terrain] || "#777";
+    g.fillStyle = PLACEHOLDER[layer.terrain] || PLACEHOLDER[String(layer.terrain).replace(/_v$/, "")] || "#777";
     if (DUAL) { // the quarters whose corner holds it
       const q = TILE / 2;
       if (v0 & 1) g.fillRect(x, y, q, q);

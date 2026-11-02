@@ -6425,6 +6425,12 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   (clock + seconds) / "Out of range" / uses left, where the picture shows PP; the move's icon by the slanted end. Wide
   screens and sideways phones stack the four (as in the picture); an upright phone keeps them 2 x 2 (X Y over A B) and
   drops the icon for room.
+- **Ground on the dual grid** (with the Map and Terrain art chats' variety round, e9089a82 / 7d14b128): when battlemap.js
+  has `drawCorners`, `paintGround` draws (cols+1) x (rows+1) cells at (cx*16-8, cy*16-8) with each layer's corner
+  `mask` (else per tile with `drawLayers`, as before); each layer's pictures come from `battlemap.SHEETS` (so a
+  north-south bridge, `bridge_v`, has its own); a middle-tile strip may hold several texture groups (`fill` modulo the
+  strip); `map.decals` are drawn flat into the ground cache; props at each image's own size. `artFiles()` adds every
+  `terrainArtFiles()` entry not listed already.
 - **Checked** in the browser pane (desktop server on a fresh scratch data folder, never signed in, 120 Spanish test
   words, three hatched creatures) at 1280 x 800, 390 x 844 and 844 x 390: real arenas of several themes with the real
   terrain and effects art, walking by keys, pretend-Xbox stick and D-pad, A/X starting moves and B/A answering,
