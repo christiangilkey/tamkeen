@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	Cercant la parla
+d8a8f61d	Transcrivint
+c091020f	La cerca troba on parla la gent; la transcripció escriu el que diuen. Toca per saber-ne més.
+52dec6cf	Què està passant
+aa234fdd	Primer, Tamkeen escolta tota la gravació per trobar on parla la gent i salta el silenci i la música del mig. En una gravació llarga com un audiollibre pot trigar uns minuts.
+185e5784	Després escriu el que es diu, una part rere l'altra, i aquesta barra avança a mesura que s'escriu cada part. Les gravacions llargues triguen una estona: pots continuar fent servir Tamkeen mentre treballa.
+1c07d4ba	Per què dos passos? Saltar les parts silencioses fa que la transcripció sigui més ràpida i evita que el model s'inventi paraules durant el silenci.

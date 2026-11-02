@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	말소리 찾는 중
+d8a8f61d	받아쓰는 중
+c091020f	찾기는 사람이 말하는 곳을 찾고, 받아쓰기는 그 말을 적습니다. 탭하면 더 알아볼 수 있어요.
+52dec6cf	무슨 일이 일어나고 있나요
+aa234fdd	먼저 Tamkeen이 녹음 전체를 들으며 사람이 말하는 곳을 찾고, 그 사이의 침묵과 음악은 건너뜁니다. 오디오북처럼 긴 녹음에서는 몇 분 걸릴 수 있어요.
+185e5784	그다음 말한 내용을 한 부분씩 적고, 부분이 적힐 때마다 이 막대가 움직입니다. 긴 녹음은 시간이 걸려요. 그동안 Tamkeen을 계속 사용할 수 있어요.
+1c07d4ba	왜 두 단계일까요? 조용한 부분을 건너뛰면 받아쓰기가 빨라지고, 침묵 중에 모델이 단어를 지어내는 것을 막아 줍니다.

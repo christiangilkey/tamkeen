@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	Buscando voz
+d8a8f61d	Transcribiendo
+c091020f	La búsqueda encuentra dónde habla la gente; la transcripción escribe lo que dicen. Toca para saber más.
+52dec6cf	Qué está pasando
+aa234fdd	Primero Tamkeen escucha toda la grabación para encontrar dónde habla la gente y se salta el silencio y la música de en medio. En una grabación larga, como un audiolibro, puede tardar unos minutos.
+185e5784	Luego escribe lo que se dice, parte por parte, y esta barra avanza a medida que se escribe cada parte. Las grabaciones largas llevan un rato: puedes seguir usando Tamkeen mientras trabaja.
+1c07d4ba	¿Por qué dos pasos? Saltarse las partes en silencio hace que transcribir sea más rápido y evita que el modelo se invente palabras durante el silencio.

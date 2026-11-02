@@ -111,12 +111,48 @@ export function statusInfo(ep) {
   switch (ep.status) {
     case "queued": return { cls: "queued", label: "Queued" };
     case "downloading": return { cls: "active", label: `Downloading ${p}%`, bar: p };
-    case "transcribing": return { cls: "active", label: `Transcribing ${p}%`, bar: p };
+    case "transcribing": {
+      // The computer's own model scans the recording for speech before it writes (jobs._process sends
+      // "scan", 0-100): two bars then, the scan's above the writing's.
+      if (typeof ep.scan !== "number") return { cls: "active", label: `Transcribing ${p}%`, bar: p };
+      // (The percentages are on the bars: the label only names the step.)
+      const s = Math.floor(ep.scan);
+      return { cls: "active", label: s < 100 ? "Scanning for speech" : "Transcribing", bar: p, scan: s };
+    }
     case "done": return { cls: "done", label: "Done" };
     case "failed": return { cls: "failed", label: "Failed" };
     // Asked for on the phone, for the computer to transcribe when it next syncs.
     default: return ep.transcribe_requested_at ? { cls: "queued", label: "Waiting for your computer" } : { cls: "", label: "Not started" };
   }
+}
+
+/**
+ * The progress bar(s) for a status from statusInfo: one plain bar, or, while the computer's model is at
+ * work, the scan for speech (purple) above the writing, each with its percentage. Pointing at them says
+ * what they are in a line; tapping or clicking them explains (a phone has no pointing).
+ */
+export function progressBars(st) {
+  if (st.bar === undefined) return null;
+  if (st.scan === undefined) return h(`<div class="progress"><i style="width:${st.bar}%"></i></div>`);
+  const box = h(`<button type="button" class="steps-bars" title="${esc(t("Scanning finds where people speak; transcribing writes down what they say. Tap to learn more."))}">
+      <span class="step-line"><span>Scanning for speech</span><b>${st.scan}%</b></span>
+      <span class="progress scan"><i style="width:${st.scan}%"></i></span>
+      <span class="step-line"><span>Transcribing</span><b>${st.bar}%</b></span>
+      <span class="progress"><i style="width:${st.bar}%"></i></span>
+    </button>`);
+  box.onclick = (e) => { e.stopPropagation(); explainSteps(); };
+  return box;
+}
+
+function explainSteps() {
+  const m = openModal({ title: "What's happening" });
+  m.body.append(h(`<div class="steps-explain">
+      <p><span class="step-dot scan"></span><strong>Scanning for speech</strong></p>
+      <p class="muted">First Tamkeen listens through the whole recording to find where people are talking, and skips the silence and music in between. On a long recording like an audiobook this can take a few minutes.</p>
+      <p><span class="step-dot"></span><strong>Transcribing</strong></p>
+      <p class="muted">Then it writes down what is said, one part at a time, and this bar moves as each part is written. Long recordings take a while: you can keep using Tamkeen while it works.</p>
+      <p class="muted">Why two steps? Skipping the quiet parts makes transcribing faster, and it stops the model from making up words during silence.</p>
+    </div>`));
 }
 
 export async function render(view, { feedId: routeFeed, query }) {
@@ -684,7 +720,8 @@ export async function render(view, { feedId: routeFeed, query }) {
       });
     }
     box.append(line);
-    if (st.bar !== undefined) box.append(h(`<div class="progress"><i style="width:${st.bar}%"></i></div>`));
+    const bars = progressBars(st);
+    if (bars) box.append(bars);
     if (ep.status === "failed" && ep.error) {
       const err = h(`<div class="err"></div>`);
       err.textContent = ep.error;

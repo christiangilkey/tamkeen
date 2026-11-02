@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	Sprache wird gesucht
+d8a8f61d	Wird transkribiert
+c091020f	Die Suche findet, wo gesprochen wird; die Transkription schreibt auf, was gesagt wird. Tippen für mehr.
+52dec6cf	Was gerade passiert
+aa234fdd	Zuerst hört Tamkeen die ganze Aufnahme durch, um zu finden, wo gesprochen wird, und überspringt Stille und Musik dazwischen. Bei einer langen Aufnahme wie einem Hörbuch kann das ein paar Minuten dauern.
+185e5784	Dann schreibt es Teil für Teil auf, was gesagt wird, und dieser Balken wächst mit jedem geschriebenen Teil. Lange Aufnahmen brauchen eine Weile: Du kannst Tamkeen währenddessen weiter nutzen.
+1c07d4ba	Warum zwei Schritte? Das Überspringen der stillen Stellen macht das Transkribieren schneller und verhindert, dass das Modell in der Stille Wörter erfindet.

@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	正在寻找语音
+d8a8f61d	正在转写
+c091020f	寻找会找出有人说话的地方，转写会写下说的内容。点按了解更多。
+52dec6cf	正在做什么
+aa234fdd	Tamkeen 先听完整段录音，找出有人说话的地方，跳过中间的静音和音乐。像有声书这样的长录音，这一步可能需要几分钟。
+185e5784	然后一段一段写下说的内容，每写完一段这条进度条就前进一点。长录音需要一些时间：在此期间你可以继续使用 Tamkeen。
+1c07d4ba	为什么分两步？跳过安静的部分能让转写更快，也能防止模型在静音时编造词语。

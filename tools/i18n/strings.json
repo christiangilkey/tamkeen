@@ -14025,6 +14025,41 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "746bf411",
+  "k": "Scanning for speech",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "d8a8f61d",
+  "k": "Transcribing",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "c091020f",
+  "k": "Scanning finds where people speak; transcribing writes down what they say. Tap to learn more.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "52dec6cf",
+  "k": "What's happening",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "aa234fdd",
+  "k": "First Tamkeen listens through the whole recording to find where people are talking, and skips the silence and music in between. On a long recording like an audiobook this can take a few minutes.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "185e5784",
+  "k": "Then it writes down what is said, one part at a time, and this bar moves as each part is written. Long recordings take a while: you can keep using Tamkeen while it works.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "1c07d4ba",
+  "k": "Why two steps? Skipping the quiet parts makes transcribing faster, and it stops the model from making up words during silence.",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "cddfd770",
   "k": "Check feeds for new episodes and sync with Google Drive (picks up anything queued on your phone)",
   "f": "web/js/pages/library.js"

@@ -418,6 +418,19 @@ label.check input { margin-top: 3px; }
 .ep .status .row { justify-content: flex-end; }
 .ep .err { color: var(--danger); font-size: 12px; max-width: 320px; text-align: right; }
 .ep .progress { width: 160px; }
+/* Transcribing on the computer: the scan for speech (the new-word purple) above the writing, each with
+   its percentage; the whole is a button that explains them (library.js progressBars). */
+.steps-bars { display: grid; gap: 3px; width: 190px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: start; cursor: pointer; box-shadow: none; }
+.steps-bars:hover, .steps-bars:focus-visible { background: none; }
+.steps-bars .progress { display: block; width: 100%; }
+.status-panel .steps-bars { width: min(320px, 100%); margin: 0 auto; }
+.step-line { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+.step-line b { color: var(--text); font-variant-numeric: tabular-nums; }
+.progress.scan > i { background: var(--new-word); }
+.step-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-inline-end: 8px; background: var(--accent); }
+.step-dot.scan { background: var(--new-word); }
+.steps-explain p { margin: 0 0 6px; }
+.steps-explain p.muted { margin-bottom: 14px; line-height: 1.45; }
 @media (max-width: 860px) {
   .library { grid-template-columns: 1fr; }
   .sidebar { border-right: none; border-bottom: 1px solid var(--border); max-height: 40vh; }

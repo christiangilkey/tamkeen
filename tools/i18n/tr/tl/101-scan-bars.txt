@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	Hinahanap ang pagsasalita
+d8a8f61d	Tina-transcribe
+c091020f	Hinahanap ng paghahanap kung saan nagsasalita ang mga tao; isinusulat ng pag-transcribe ang sinasabi nila. I-tap para malaman pa.
+52dec6cf	Ano ang nangyayari
+aa234fdd	Una, pinakikinggan ng Tamkeen ang buong recording para mahanap kung saan nagsasalita ang mga tao, at nilalaktawan ang katahimikan at musika sa pagitan. Sa mahabang recording gaya ng audiobook, maaari itong tumagal nang ilang minuto.
+185e5784	Pagkatapos, isinusulat nito ang sinasabi, isang bahagi bawat pagkakataon, at umuusad ang bar na ito habang naisusulat ang bawat bahagi. Matagal ang mahahabang recording: puwede mong ituloy ang paggamit ng Tamkeen habang gumagana ito.
+1c07d4ba	Bakit dalawang hakbang? Pinabibilis ng paglaktaw sa tahimik na bahagi ang pag-transcribe, at pinipigilan nito ang modelo na mag-imbento ng mga salita sa katahimikan.

@@ -1,0 +1,8 @@
+# Transcribing on the computer: the scan-for-speech and transcribing bars, and the popup that explains them.
+746bf411	Nangita og sinultihan
+d8a8f61d	Gi-transcribe
+c091020f	Ang pagpangita mangita kon asa nagsulti ang mga tawo; ang pag-transcribe mosulat sa ilang gisulti. Tuploka aron mahibal-an pa.
+52dec6cf	Unsay nahitabo
+aa234fdd	Una, paminawon sa Tamkeen ang tibuok recording aron makit-an kon asa nagsulti ang mga tawo, ug laktawan ang kahilom ug musika sa tunga. Sa taas nga recording sama sa audiobook, mahimong mokabat kini og pipila ka minuto.
+185e5784	Dayon isulat niini ang gisulti, usa ka bahin matag higayon, ug molihok kini nga bar samtang masulat ang matag bahin. Dugay ang tag-as nga recording: mahimo nimong padayon nga gamiton ang Tamkeen samtang nagtrabaho kini.
+1c07d4ba	Nganong duha ka lakang? Ang paglaktaw sa hilom nga bahin makapadali sa pag-transcribe, ug mopugong sa modelo sa paghimo-himo og mga pulong panahon sa kahilom.

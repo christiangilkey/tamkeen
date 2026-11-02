@@ -15,7 +15,7 @@ import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, sta
 import { saveProgress } from "../progress.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
-import { computerOnlyNotice, statusInfo, isVideo } from "./library.js";
+import { computerOnlyNotice, progressBars, statusInfo, isVideo } from "./library.js";
 import { createWordBubble, pauseAfterWord } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
@@ -81,7 +81,7 @@ function renderPending(view, ep) {
   const panel = h(`<div class="page"><div class="card status-panel stack">
       <h1 dir="auto"></h1>
       <p class="muted" id="st"></p>
-      <div class="progress" id="bar" hidden><i></i></div>
+      <div id="bar"></div>
       <p class="err" id="err" style="color:var(--danger)"></p>
       <div class="row" style="justify-content:center"><button class="primary" id="go" type="button"></button>
       <a class="btn" href="#/library">Back to library</a></div>
@@ -102,8 +102,8 @@ function renderPending(view, ep) {
   const paint = () => {
     const st = statusInfo(ep);
     panel.querySelector("#st").textContent = st.label;
-    panel.querySelector("#bar").hidden = st.bar === undefined;
-    panel.querySelector("#bar i").style.width = `${st.bar || 0}%`;
+    const bars = progressBars(st);
+    panel.querySelector("#bar").replaceChildren(...(bars ? [bars] : []));
     panel.querySelector("#err").textContent = ep.status === "failed" ? ep.error || "" : "";
     const go = panel.querySelector("#go");
     const busy = ["queued", "downloading", "transcribing"].includes(ep.status);

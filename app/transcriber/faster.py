@@ -5,7 +5,7 @@ from __future__ import annotations
 import logging
 import os
 import threading
-from collections.abc import Iterable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 from pathlib import Path
 
 import numpy as np
@@ -40,33 +40,91 @@ class FasterWhisperTranscriber:
         self.model = WhisperModel(str(model_path), device="cpu", compute_type="int8", cpu_threads=threads)
         self.device = "cpu"
 
+    # The Library shows two bars for this engine: the scan for speech, then the writing (jobs._process).
+    scans = True
+
     def transcribe(self, audio: np.ndarray, cancel: threading.Event | None = None,
-                   language: str = "ar") -> Iterator[Segment]:
-        segments, _info = self.model.transcribe(
-            audio,
-            language=whisper_code(language),
-            initial_prompt=INITIAL_PROMPTS.get(language) if self.prompt else None,
-            task="transcribe",
-            beam_size=self.beam_size,
-            word_timestamps=True,
-            vad_filter=True,
-            vad_parameters={"min_silence_duration_ms": 500},
-            # Prevents the repetition loops Whisper can fall into after music or long pauses.
-            # (hallucination_silence_threshold was tried too: it nearly doubles runtime and VAD
-            # already removes the silence it targets.)
-            condition_on_previous_text=False,
-        )
+                   language: str = "ar", on_scan: Callable[[float], None] | None = None) -> Iterator[Segment]:
+        """faster-whisper's own speech scan (vad_filter), done here a block at a time so it can say how far
+        it is (`on_scan`, 0-100): on an 11-hour audiobook the scan alone takes minutes. Then the speech is
+        written a batch at a time, so the first lines come within a minute and memory stays low."""
+        from faster_whisper.transcribe import restore_speech_timestamps
+
+        chunks = scan_speech(audio, cancel, on_scan)
 
         def converted() -> Iterator[Segment]:
-            for seg in segments:  # lazy generator: decoding happens as we iterate
+            for batch in batches(chunks):
                 if cancel is not None and cancel.is_set():
                     raise TranscriptionCancelled()
-                words = [Word(float(w.start), float(w.end), w.word.strip(), float(w.probability))
-                         for w in (seg.words or []) if w.word.strip()]
-                line = Segment(float(seg.start), float(seg.end), seg.text.strip(), words)
-                yield trim_invented(line) if self.trim else line
+                speech = np.concatenate([audio[c["start"]:c["end"]] for c in batch])
+                segments, _info = self.model.transcribe(
+                    speech,
+                    language=whisper_code(language),
+                    initial_prompt=INITIAL_PROMPTS.get(language) if self.prompt else None,
+                    task="transcribe",
+                    beam_size=self.beam_size,
+                    word_timestamps=True,
+                    vad_filter=False,  # scanned above
+                    # Prevents the repetition loops Whisper can fall into after music or long pauses.
+                    # (hallucination_silence_threshold was tried too: it nearly doubles runtime and VAD
+                    # already removes the silence it targets.)
+                    condition_on_previous_text=False,
+                )
+                # Times in the joined speech back to times in the recording, as faster-whisper does.
+                for seg in restore_speech_timestamps(segments, batch, SAMPLE_RATE):  # lazy: decodes as we go
+                    if cancel is not None and cancel.is_set():
+                        raise TranscriptionCancelled()
+                    words = [Word(float(w.start), float(w.end), w.word.strip(), float(w.probability))
+                             for w in (seg.words or []) if w.word.strip()]
+                    line = Segment(float(seg.start), float(seg.end), seg.text.strip(), words)
+                    yield trim_invented(line) if self.trim else line
 
         return regroup(converted())
+
+
+SAMPLE_RATE = 16000
+SCAN_BLOCK = 600 * SAMPLE_RATE   # samples scanned for speech at a time: 10 minutes (a multiple of the 512-sample window)
+BATCH_SPEECH = 600 * SAMPLE_RATE  # samples of speech written at a time, at most: 10 minutes
+
+
+def scan_speech(audio: np.ndarray, cancel: threading.Event | None = None,
+                on_scan: Callable[[float], None] | None = None) -> list[dict[str, int]]:
+    """Where people speak in `audio` ([{start, end}] in samples), found by faster-whisper's voice detector
+    a block at a time. A stretch of speech running over a block's edge is joined back into one."""
+    from faster_whisper.vad import VadOptions, get_speech_timestamps
+
+    options = VadOptions(min_silence_duration_ms=500)
+    total = len(audio)
+    chunks: list[dict[str, int]] = []
+    for start in range(0, total, SCAN_BLOCK):
+        if cancel is not None and cancel.is_set():
+            raise TranscriptionCancelled()
+        for c in get_speech_timestamps(audio[start:start + SCAN_BLOCK], options):
+            c = {"start": c["start"] + start, "end": c["end"] + start}
+            if chunks and c["start"] <= chunks[-1]["end"]:
+                chunks[-1]["end"] = max(chunks[-1]["end"], c["end"])
+            else:
+                chunks.append(c)
+        if on_scan is not None:
+            on_scan(round(100 * min(total, start + SCAN_BLOCK) / total, 1))
+    if on_scan is not None and not total:
+        on_scan(100.0)
+    return chunks
+
+
+def batches(chunks: list[dict[str, int]], limit: int = BATCH_SPEECH) -> Iterator[list[dict[str, int]]]:
+    """The stretches of speech in groups of at most `limit` samples of speech (a longer stretch alone)."""
+    group: list[dict[str, int]] = []
+    size = 0
+    for c in chunks:
+        n = c["end"] - c["start"]
+        if group and size + n > limit:
+            yield group
+            group, size = [], 0
+        group.append(c)
+        size += n
+    if group:
+        yield group
 
 
 def _letters(text: str) -> str:

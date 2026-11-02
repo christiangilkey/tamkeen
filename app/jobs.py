@@ -295,7 +295,21 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
         segments: list[Segment] = []
         last_emit = 0.0
         last_pct = -1.0
-        for seg in engine.transcribe(samples, cancel, language):
+        # An engine that scans for speech first (faster-whisper) says how far the scan is: the Library
+        # shows it as a bar of its own above the writing's ("scan", 0-100; not kept in the database).
+        scans = getattr(engine, "scans", False)
+        extra: dict[str, Any] = {"scan": 0.0} if scans else {}
+        if scans:
+            _episode_event(ep_id, status="transcribing", progress=0, scan=0.0)
+
+        def on_scan(pct: float) -> None:
+            _episode_event(ep_id, status="transcribing", progress=0, scan=pct)
+
+        stream = engine.transcribe(samples, cancel, language, on_scan=on_scan) if scans \
+            else engine.transcribe(samples, cancel, language)
+        if scans:
+            extra["scan"] = 100.0
+        for seg in stream:
             segments.append(seg)
             pct = min(99.9, round(100 * seg.end / duration, 1)) if duration else 0.0
             now = time.monotonic()
@@ -303,7 +317,7 @@ def _process(job: dict[str, Any], cancel: threading.Event) -> None:
                 last_emit, last_pct = now, pct
                 with db.session() as conn:
                     _set_episode(conn, ep_id, progress=pct)
-                _episode_event(ep_id, status="transcribing", progress=pct)
+                _episode_event(ep_id, status="transcribing", progress=pct, **extra)
         del samples
 
         if cancel.is_set():
