@@ -1,0 +1,2545 @@
+{
+ "format": 1,
+ "id": "ar-mor",
+ "lang": "ar",
+ "dialect": "mor",
+ "title": "Moroccan basics",
+ "variety": "Moroccan Arabic (Darija), as spoken in Casablanca and Rabat",
+ "about": "The most common words of Moroccan Arabic (Darija) that are not Standard Arabic: counted in 832,000 words of Darija (the Darija Open Dataset's sentences and the subtitles of Moroccan YouTube videos), most common first, 50 to a unit. It builds on the Arabic basics course: words you already know from Standard Arabic, even said a little differently (جا for جاء, هاد for هذا), are left out, and the grammar course teaches the patterns. Each word has a dictionary entry for its meaning (tools/course/ar-mor/EVIDENCE.md) and one short everyday sentence, written without vowel marks as Darija usually is, with its English translation; ⟦ ⟧ marks the part that translates the word. A note under a word says how it differs from a Standard Arabic word that looks the same. No recorded audio: no voice reads Darija well enough yet.",
+ "planned": 300,
+ "unit": 50,
+ "voice": null,
+ "built": "2026-11-01",
+ "units": [
+  {
+   "n": 1,
+   "from": 1,
+   "to": 50,
+   "ready": true
+  },
+  {
+   "n": 2,
+   "from": 51,
+   "to": 100,
+   "ready": true
+  },
+  {
+   "n": 3,
+   "from": 101,
+   "to": 150,
+   "ready": true
+  },
+  {
+   "n": 4,
+   "from": 151,
+   "to": 200,
+   "ready": true
+  },
+  {
+   "n": 5,
+   "from": 201,
+   "to": 250,
+   "ready": true
+  },
+  {
+   "n": 6,
+   "from": 251,
+   "to": 300,
+   "ready": true
+  }
+ ],
+ "words": [
+  {
+   "n": 1,
+   "word": "ديال",
+   "pos": "prep",
+   "meaning": "of, belonging to",
+   "sentence": "الطونوبيل ⟦ديال⟧ خويا زوينة.",
+   "translation": "My brother⟦'s⟧ car is nice."
+  },
+  {
+   "n": 2,
+   "word": "غادي",
+   "pos": "particle",
+   "meaning": "going to, will (before a verb)",
+   "sentence": "⟦غادي⟧ نمشي للسوق غدا.",
+   "translation": "I'm ⟦going to⟧ go to the market tomorrow."
+  },
+  {
+   "n": 3,
+   "word": "راه",
+   "pos": "particle",
+   "meaning": "look, (it) is (points to what is true now)",
+   "sentence": "⟦راه⟧ ناعس دابا.",
+   "translation": "⟦He's⟧ asleep right now."
+  },
+  {
+   "n": 4,
+   "word": "باش",
+   "pos": "conj",
+   "meaning": "so that, to; with what?",
+   "sentence": "جيت ⟦باش⟧ نشوفك.",
+   "translation": "I came ⟦to⟧ see you.",
+   "note": "Not MSA بَاشّ (cheerful)."
+  },
+  {
+   "n": 5,
+   "word": "بغا",
+   "pos": "verb",
+   "meaning": "to want; to love",
+   "sentence": "⟦بغيت⟧ نشرب أتاي.",
+   "translation": "I ⟦want⟧ to drink tea.",
+   "note": "Not MSA بَغَى (to wrong, to oppress)."
+  },
+  {
+   "n": 6,
+   "word": "واش",
+   "pos": "particle",
+   "meaning": "(starts a yes/no question)",
+   "sentence": "⟦واش⟧ نتا مغربي؟",
+   "translation": "⟦Are⟧ you Moroccan?"
+  },
+  {
+   "n": 7,
+   "word": "بزاف",
+   "pos": "adv",
+   "meaning": "a lot; very",
+   "sentence": "الماكلة زوينة ⟦بزاف⟧.",
+   "translation": "The food is ⟦very⟧ good."
+  },
+  {
+   "n": 8,
+   "word": "مشى",
+   "pos": "verb",
+   "meaning": "to go; to leave",
+   "sentence": "⟦مشيت⟧ للبحر البارح.",
+   "translation": "I ⟦went⟧ to the beach yesterday.",
+   "note": "In MSA مَشَى is \"to walk\"."
+  },
+  {
+   "n": 9,
+   "word": "هادشي",
+   "pos": "pron",
+   "meaning": "this (thing)",
+   "sentence": "⟦هادشي⟧ ماشي ديالي.",
+   "translation": "⟦This⟧ isn't mine."
+  },
+  {
+   "n": 10,
+   "word": "شاف",
+   "pos": "verb",
+   "meaning": "to see, to look",
+   "sentence": "⟦شفت⟧ صاحبك فالزنقة.",
+   "translation": "I ⟦saw⟧ your friend in the street.",
+   "note": "Not MSA شَافَ (to look down on); MSA says رَأَى."
+  },
+  {
+   "n": 11,
+   "word": "كاين",
+   "pos": "particle",
+   "meaning": "there is, there are",
+   "sentence": "واش ⟦كاين⟧ شي حانوت قريب؟",
+   "translation": "⟦Is there⟧ a shop nearby?",
+   "note": "Not MSA كَائِن (a being)."
+  },
+  {
+   "n": 12,
+   "word": "علاش",
+   "pos": "adv",
+   "meaning": "why",
+   "sentence": "⟦علاش⟧ ماجيتيش البارح؟",
+   "translation": "⟦Why⟧ didn't you come yesterday?"
+  },
+  {
+   "n": 13,
+   "word": "شنو",
+   "pos": "pron",
+   "meaning": "what",
+   "sentence": "⟦شنو⟧ كتدير؟",
+   "translation": "⟦What⟧ are you doing?"
+  },
+  {
+   "n": 14,
+   "word": "دابا",
+   "pos": "adv",
+   "meaning": "now",
+   "sentence": "أنا فالدار ⟦دابا⟧.",
+   "translation": "I'm at home ⟦now⟧.",
+   "note": "Not MSA دَأْب (habit)."
+  },
+  {
+   "n": 15,
+   "word": "بحال",
+   "pos": "prep",
+   "meaning": "like, as; the same as",
+   "sentence": "هو ⟦بحال⟧ باه.",
+   "translation": "He's ⟦like⟧ his father."
+  },
+  {
+   "n": 16,
+   "word": "شوية",
+   "pos": "adv",
+   "meaning": "a little, a bit",
+   "sentence": "عطيني ⟦شوية⟧ ديال الما.",
+   "translation": "Give me ⟦a little⟧ water."
+  },
+  {
+   "n": 17,
+   "word": "ديك",
+   "pos": "det",
+   "meaning": "that (feminine)",
+   "sentence": "⟦ديك⟧ البنت ختي.",
+   "translation": "⟦That⟧ girl is my sister.",
+   "note": "Not MSA دِيك (rooster)."
+  },
+  {
+   "n": 18,
+   "word": "داكشي",
+   "pos": "pron",
+   "meaning": "that (thing)",
+   "sentence": "⟦داكشي⟧ اللي قلت ليك.",
+   "translation": "⟦That⟧'s what I told you."
+  },
+  {
+   "n": 19,
+   "word": "مزيان",
+   "pos": "adj",
+   "meaning": "good; fine; well",
+   "sentence": "هاد الأتاي ⟦مزيان⟧.",
+   "translation": "This tea is ⟦good⟧."
+  },
+  {
+   "n": 20,
+   "word": "شحال",
+   "pos": "adv",
+   "meaning": "how much, how many",
+   "sentence": "⟦شحال⟧ هادي؟",
+   "translation": "⟦How much⟧ is this?"
+  },
+  {
+   "n": 21,
+   "word": "فاش",
+   "pos": "conj",
+   "meaning": "when (at the time that); in what",
+   "sentence": "⟦فاش⟧ توصل، صيفط ليا ميساج.",
+   "translation": "⟦When⟧ you get there, send me a text."
+  },
+  {
+   "n": 22,
+   "word": "ماشي",
+   "pos": "particle",
+   "meaning": "not (before nouns and adjectives)",
+   "sentence": "هادا ⟦ماشي⟧ مشكل.",
+   "translation": "That's ⟦not⟧ a problem.",
+   "note": "Not MSA مَاشٍ (walking)."
+  },
+  {
+   "n": 23,
+   "word": "آش",
+   "pos": "pron",
+   "meaning": "what",
+   "sentence": "⟦آش⟧ بغيتي تاكل؟",
+   "translation": "⟦What⟧ do you want to eat?",
+   "note": "Also spelled اش."
+  },
+  {
+   "n": 24,
+   "word": "جاب",
+   "pos": "verb",
+   "meaning": "to bring",
+   "sentence": "⟦جيب⟧ ليا كاس ديال الما.",
+   "translation": "⟦Bring⟧ me a glass of water.",
+   "note": "Not MSA جَابَ (to roam)."
+  },
+  {
+   "n": 25,
+   "word": "فين",
+   "pos": "adv",
+   "meaning": "where",
+   "sentence": "⟦فين⟧ ساكن؟",
+   "translation": "⟦Where⟧ do you live?"
+  },
+  {
+   "n": 26,
+   "word": "تسنا",
+   "pos": "verb",
+   "meaning": "to wait",
+   "sentence": "⟦تسنا⟧ شوية، أنا جاي.",
+   "translation": "⟦Wait⟧ a minute, I'm coming.",
+   "note": "Not MSA تَسَنَّى (to become possible)."
+  },
+  {
+   "n": 27,
+   "word": "بلاصة",
+   "pos": "noun",
+   "meaning": "place",
+   "sentence": "هادي ⟦بلاصة⟧ زوينة.",
+   "translation": "This is a nice ⟦place⟧."
+  },
+  {
+   "n": 28,
+   "word": "جوج",
+   "pos": "num",
+   "meaning": "two",
+   "sentence": "عندي ⟦جوج⟧ ديال الدراري.",
+   "translation": "I have ⟦two⟧ children."
+  },
+  {
+   "n": 29,
+   "word": "ولّى",
+   "pos": "verb",
+   "meaning": "to become; to come back",
+   "sentence": "الجو ⟦ولّى⟧ بارد.",
+   "translation": "The weather ⟦has turned⟧ cold.",
+   "note": "Not MSA وَلَّى (to turn away)."
+  },
+  {
+   "n": 30,
+   "word": "كيفاش",
+   "pos": "adv",
+   "meaning": "how",
+   "sentence": "⟦كيفاش⟧ داير؟",
+   "translation": "⟦How⟧ are you?"
+  },
+  {
+   "n": 31,
+   "word": "مورا",
+   "pos": "prep",
+   "meaning": "behind; after",
+   "sentence": "نتلاقاو ⟦مورا⟧ الخدمة.",
+   "translation": "Let's meet ⟦after⟧ work."
+  },
+  {
+   "n": 32,
+   "word": "ايلا",
+   "pos": "conj",
+   "meaning": "if",
+   "sentence": "⟦ايلا⟧ بغيتي، نمشيو معاك.",
+   "translation": "⟦If⟧ you want, we'll go with you.",
+   "note": "Not MSA إِلَّا (except)."
+  },
+  {
+   "n": 33,
+   "word": "داز",
+   "pos": "verb",
+   "meaning": "to pass, to go by",
+   "sentence": "الطوبيس ⟦داز⟧ دابا.",
+   "translation": "The bus has just ⟦gone past⟧."
+  },
+  {
+   "n": 34,
+   "word": "واخا",
+   "pos": "intj",
+   "meaning": "OK, all right; even if",
+   "sentence": "⟦واخا⟧، نتلاقاو غدا.",
+   "translation": "⟦OK⟧, see you tomorrow."
+  },
+  {
+   "n": 35,
+   "word": "زوين",
+   "pos": "adj",
+   "meaning": "nice, beautiful",
+   "sentence": "عندك دار ⟦زوينة⟧.",
+   "translation": "You have a ⟦lovely⟧ house."
+  },
+  {
+   "n": 36,
+   "word": "والو",
+   "pos": "pron",
+   "meaning": "nothing",
+   "sentence": "ماعندي ⟦والو⟧.",
+   "translation": "I have ⟦nothing⟧."
+  },
+  {
+   "n": 37,
+   "word": "ڭاع",
+   "pos": "adv",
+   "meaning": "all; (not) at all",
+   "sentence": "⟦ڭاع⟧ الناس جاو.",
+   "translation": "⟦All⟧ the people came."
+  },
+  {
+   "n": 38,
+   "word": "آه",
+   "pos": "intj",
+   "meaning": "yes",
+   "sentence": "⟦آه⟧، أنا جاي.",
+   "translation": "⟦Yes⟧, I'm coming.",
+   "note": "Not MSA آهٍ (ah!, a sigh)."
+  },
+  {
+   "n": 39,
+   "word": "حوايج",
+   "pos": "noun",
+   "meaning": "clothes; things",
+   "sentence": "⟦حوايج⟧ي فالباليزة.",
+   "translation": "My ⟦clothes⟧ are in the suitcase.",
+   "note": "Plural of حاجة; MSA حَوَائِج means \"needs\"."
+  },
+  {
+   "n": 40,
+   "word": "ملي",
+   "pos": "conj",
+   "meaning": "when (at the time that)",
+   "sentence": "⟦ملي⟧ كنت صغير، كنت ساكن فكازا.",
+   "translation": "⟦When⟧ I was little, I lived in Casablanca.",
+   "note": "Not MSA مَلِيّ (a long while)."
+  },
+  {
+   "n": 41,
+   "word": "كيسحاب",
+   "pos": "verb",
+   "meaning": "to think, to reckon (literally \"it seems to\")",
+   "sentence": "⟦كيسحاب⟧ ليا غادي تشتا.",
+   "translation": "⟦I think⟧ it's going to rain.",
+   "note": "From the verb تّسحاب; usually كيسحاب ليا \"it seems to me\"."
+  },
+  {
+   "n": 42,
+   "word": "صافي",
+   "pos": "intj",
+   "meaning": "OK, that's it, enough",
+   "sentence": "⟦صافي⟧، شبعت.",
+   "translation": "⟦That's enough⟧, I'm full.",
+   "note": "Not MSA صَافٍ (pure, clear)."
+  },
+  {
+   "n": 43,
+   "word": "سمية",
+   "pos": "noun",
+   "meaning": "name (of a person)",
+   "sentence": "⟦سميت⟧ي كريم.",
+   "translation": "My ⟦name⟧ is Karim.",
+   "note": "Not MSA سُمِّيَّة (toxicity)."
+  },
+  {
+   "n": 44,
+   "word": "دوك",
+   "pos": "det",
+   "meaning": "those",
+   "sentence": "شكون ⟦دوك⟧ الناس؟",
+   "translation": "Who are ⟦those⟧ people?"
+  },
+  {
+   "n": 45,
+   "word": "يالله",
+   "pos": "adv",
+   "meaning": "only just, a moment ago; come on",
+   "sentence": "⟦يالله⟧ وصلت.",
+   "translation": "I've ⟦only just⟧ arrived.",
+   "note": "Not MSA يَا اللهُ (O God)."
+  },
+  {
+   "n": 46,
+   "word": "دوّز",
+   "pos": "verb",
+   "meaning": "to spend (time); to get through",
+   "sentence": "⟦دوّزنا⟧ نهار زوين.",
+   "translation": "We ⟦spent⟧ a lovely day."
+  },
+  {
+   "n": 47,
+   "word": "سوّل",
+   "pos": "verb",
+   "meaning": "to ask",
+   "sentence": "⟦سوّل⟧ الشيفور على الطريق.",
+   "translation": "⟦Ask⟧ the driver the way.",
+   "note": "Not MSA سَوَّلَ (to tempt)."
+  },
+  {
+   "n": 48,
+   "word": "هضر",
+   "pos": "verb",
+   "meaning": "to talk, to speak",
+   "sentence": "⟦كيهضر⟧ الدارجة مزيان.",
+   "translation": "He ⟦speaks⟧ Darija well.",
+   "note": "Not MSA هَدَرَ (to waste)."
+  },
+  {
+   "n": 49,
+   "word": "راجل",
+   "pos": "noun",
+   "meaning": "man; husband",
+   "sentence": "⟦راجل⟧ها خدام فالفيرمة.",
+   "translation": "Her ⟦husband⟧ works on the farm.",
+   "note": "Not MSA رَاجِل (on foot)."
+  },
+  {
+   "n": 50,
+   "word": "شكون",
+   "pos": "pron",
+   "meaning": "who",
+   "sentence": "⟦شكون⟧ جا؟",
+   "translation": "⟦Who⟧ came?"
+  },
+  {
+   "n": 51,
+   "word": "سالى",
+   "pos": "verb",
+   "meaning": "to finish",
+   "sentence": "⟦ساليت⟧ الخدمة بكري.",
+   "translation": "I ⟦finished⟧ work early.",
+   "note": "Not MSA سَلَا (to forget, to find comfort)."
+  },
+  {
+   "n": 52,
+   "word": "ماكلة",
+   "pos": "noun",
+   "meaning": "food",
+   "sentence": "ال⟦ماكلة⟧ هنا بنينة.",
+   "translation": "The ⟦food⟧ here is delicious."
+  },
+  {
+   "n": 53,
+   "word": "حنا",
+   "pos": "pron",
+   "meaning": "we",
+   "sentence": "⟦حنا⟧ من الرباط.",
+   "translation": "⟦We⟧'re from Rabat.",
+   "note": "Not MSA حَنَا (bent over)."
+  },
+  {
+   "n": 54,
+   "word": "دوى",
+   "pos": "verb",
+   "meaning": "to talk, to speak",
+   "sentence": "⟦كندويو⟧ على الماتش.",
+   "translation": "We're ⟦talking⟧ about the match.",
+   "note": "Not MSA دَوَّى (to echo)."
+  },
+  {
+   "n": 55,
+   "word": "بنادم",
+   "pos": "noun",
+   "meaning": "person, human being",
+   "sentence": "هو ⟦بنادم⟧ مزيان.",
+   "translation": "He's a good ⟦person⟧."
+  },
+  {
+   "n": 56,
+   "word": "طونوبيل",
+   "pos": "noun",
+   "meaning": "car",
+   "sentence": "شريت ⟦طونوبيل⟧ جديدة.",
+   "translation": "I bought a new ⟦car⟧."
+  },
+  {
+   "n": 57,
+   "word": "هادو",
+   "pos": "pron",
+   "meaning": "these",
+   "sentence": "⟦هادو⟧ صحابي.",
+   "translation": "⟦These⟧ are my friends."
+  },
+  {
+   "n": 58,
+   "word": "هزّ",
+   "pos": "verb",
+   "meaning": "to lift, to carry",
+   "sentence": "⟦هزّ⟧ معايا هاد الطابلة.",
+   "translation": "⟦Lift⟧ this table with me.",
+   "note": "MSA هَزَّ is \"to shake\"."
+  },
+  {
+   "n": 59,
+   "word": "هوما",
+   "pos": "pron",
+   "meaning": "they",
+   "sentence": "⟦هوما⟧ جاو من فاس.",
+   "translation": "⟦They⟧ came from Fes.",
+   "note": "MSA هُمَا is \"the two of them\"."
+  },
+  {
+   "n": 60,
+   "word": "عيّط",
+   "pos": "verb",
+   "meaning": "to call (someone, on the phone)",
+   "sentence": "⟦عيّط⟧ لماماك.",
+   "translation": "⟦Call⟧ your mum.",
+   "note": "MSA عَيَّطَ is \"to scream\"."
+  },
+  {
+   "n": 61,
+   "word": "عفاك",
+   "pos": "intj",
+   "meaning": "please",
+   "sentence": "عطيني الما ⟦عفاك⟧.",
+   "translation": "Give me the water, ⟦please⟧."
+  },
+  {
+   "n": 62,
+   "word": "دراري",
+   "pos": "noun",
+   "meaning": "children, kids; young men",
+   "sentence": "ال⟦دراري⟧ مشاو للمدرسة.",
+   "translation": "The ⟦kids⟧ have gone to school."
+  },
+  {
+   "n": 63,
+   "word": "نعس",
+   "pos": "verb",
+   "meaning": "to sleep",
+   "sentence": "⟦نعست⟧ مزيان البارح.",
+   "translation": "I ⟦slept⟧ well last night.",
+   "note": "MSA نَعَسَ is \"to doze\"."
+  },
+  {
+   "n": 64,
+   "word": "اوا",
+   "pos": "intj",
+   "meaning": "well, so (then)",
+   "sentence": "⟦اوا⟧، شنو غادي نديرو؟",
+   "translation": "⟦So⟧, what are we going to do?",
+   "note": "Also spelled إيوا."
+  },
+  {
+   "n": 65,
+   "word": "خلّص",
+   "pos": "verb",
+   "meaning": "to pay",
+   "sentence": "⟦خلّصت⟧ الفاكتورة ديال الضو.",
+   "translation": "I ⟦paid⟧ the electricity bill.",
+   "note": "Not MSA خَلَّصَ (to rescue)."
+  },
+  {
+   "n": 66,
+   "word": "حيّد",
+   "pos": "verb",
+   "meaning": "to remove, to take off",
+   "sentence": "⟦حيّد⟧ صباطك قبل ما تدخل.",
+   "translation": "⟦Take off⟧ your shoes before you come in.",
+   "note": "Not MSA حَيَّدَ (to make neutral)."
+  },
+  {
+   "n": 67,
+   "word": "سيمانة",
+   "pos": "noun",
+   "meaning": "week",
+   "sentence": "غادي نسافر ال⟦سيمانة⟧ الجاية.",
+   "translation": "I'm travelling next ⟦week⟧."
+  },
+  {
+   "n": 68,
+   "word": "هضرة",
+   "pos": "noun",
+   "meaning": "talk, words; way of speaking",
+   "sentence": "ماعجباتنيش ال⟦هضرة⟧ ديالو.",
+   "translation": "I didn't like his ⟦words⟧.",
+   "note": "Not MSA هَدْر (waste)."
+  },
+  {
+   "n": 69,
+   "word": "ياك",
+   "pos": "particle",
+   "meaning": "right?, isn't it?",
+   "sentence": "⟦ياك⟧ لاباس؟",
+   "translation": "Everything's fine, ⟦isn't it⟧?"
+  },
+  {
+   "n": 70,
+   "word": "خايب",
+   "pos": "adj",
+   "meaning": "bad; ugly",
+   "sentence": "الجو ⟦خايب⟧ اليوم.",
+   "translation": "The weather is ⟦bad⟧ today.",
+   "note": "Not MSA خَائِب (disappointed)."
+  },
+  {
+   "n": 71,
+   "word": "منين",
+   "pos": "adv",
+   "meaning": "from where; when (since)",
+   "sentence": "⟦منين⟧ جيتي؟",
+   "translation": "⟦Where did you come from⟧?"
+  },
+  {
+   "n": 72,
+   "word": "مول",
+   "pos": "noun",
+   "meaning": "owner of, the one with",
+   "sentence": "⟦مول⟧ الحانوت راجل مزيان.",
+   "translation": "The ⟦owner⟧ of the shop is a nice man.",
+   "note": "Not MSA مَوَّلَ (to finance)."
+  },
+  {
+   "n": 73,
+   "word": "طيّح",
+   "pos": "verb",
+   "meaning": "to drop",
+   "sentence": "⟦طيّحت⟧ الساروت فالزنقة.",
+   "translation": "I ⟦dropped⟧ the key in the street."
+  },
+  {
+   "n": 74,
+   "word": "بصح",
+   "pos": "adv",
+   "meaning": "really, truly",
+   "sentence": "⟦بصح⟧؟ ماكنتش عارف.",
+   "translation": "⟦Really⟧? I didn't know."
+  },
+  {
+   "n": 75,
+   "word": "جبد",
+   "pos": "verb",
+   "meaning": "to pull; to take out",
+   "sentence": "⟦جبد⟧ الساروت من جيبو.",
+   "translation": "He ⟦took⟧ the key out of his pocket."
+  },
+  {
+   "n": 76,
+   "word": "فاق",
+   "pos": "verb",
+   "meaning": "to wake up",
+   "sentence": "⟦فقت⟧ بكري اليوم.",
+   "translation": "I ⟦woke up⟧ early today.",
+   "note": "Not MSA فَاقَ (to surpass)."
+  },
+  {
+   "n": 77,
+   "word": "واعر",
+   "pos": "adj",
+   "meaning": "great, impressive; tough",
+   "sentence": "هاد الفيلم ⟦واعر⟧.",
+   "translation": "This film is ⟦great⟧.",
+   "note": "Not MSA وَعْر (rugged)."
+  },
+  {
+   "n": 78,
+   "word": "عاوتاني",
+   "pos": "adv",
+   "meaning": "again",
+   "sentence": "قولها ⟦عاوتاني⟧ عفاك.",
+   "translation": "Say it ⟦again⟧, please."
+  },
+  {
+   "n": 79,
+   "word": "دغيا",
+   "pos": "adv",
+   "meaning": "quickly, right away",
+   "sentence": "جي ⟦دغيا⟧!",
+   "translation": "Come ⟦quickly⟧!"
+  },
+  {
+   "n": 80,
+   "word": "بلان",
+   "pos": "noun",
+   "meaning": "plan",
+   "sentence": "عندي ⟦بلان⟧ مزيان.",
+   "translation": "I've got a good ⟦plan⟧.",
+   "note": "Not MSA بَلَّان (bath attendant)."
+  },
+  {
+   "n": 81,
+   "word": "ورّى",
+   "pos": "verb",
+   "meaning": "to show",
+   "sentence": "⟦ورّي⟧ني التصاور.",
+   "translation": "⟦Show⟧ me the photos.",
+   "note": "Not MSA وَرَّى (to hide a meaning)."
+  },
+  {
+   "n": 82,
+   "word": "حبس",
+   "pos": "verb",
+   "meaning": "to stop",
+   "sentence": "⟦حبس⟧ هنا عفاك.",
+   "translation": "⟦Stop⟧ here, please.",
+   "note": "In MSA حَبَسَ is \"to imprison\"."
+  },
+  {
+   "n": 83,
+   "word": "لاح",
+   "pos": "verb",
+   "meaning": "to throw (away)",
+   "sentence": "⟦لاح⟧ الكورة بعيد.",
+   "translation": "He ⟦threw⟧ the ball a long way.",
+   "note": "Not MSA لَاحَ (to appear)."
+  },
+  {
+   "n": 84,
+   "word": "أتاي",
+   "pos": "noun",
+   "meaning": "tea (mint tea)",
+   "sentence": "بغيت كاس ديال ⟦أتاي⟧.",
+   "translation": "I'd like a glass of ⟦tea⟧.",
+   "note": "Not MSA اِتَّأَى (to be promised)."
+  },
+  {
+   "n": 85,
+   "word": "ناض",
+   "pos": "verb",
+   "meaning": "to get up",
+   "sentence": "⟦نوض⟧، راك معطّل!",
+   "translation": "⟦Get up⟧, you're late!"
+  },
+  {
+   "n": 86,
+   "word": "ماتش",
+   "pos": "noun",
+   "meaning": "match, game",
+   "sentence": "شفتي ال⟦ماتش⟧ البارح؟",
+   "translation": "Did you watch the ⟦match⟧ yesterday?"
+  },
+  {
+   "n": 87,
+   "word": "سبيتار",
+   "pos": "noun",
+   "meaning": "hospital",
+   "sentence": "مشا لل⟦سبيتار⟧ حيت مريض.",
+   "translation": "He went to the ⟦hospital⟧ because he's ill."
+  },
+  {
+   "n": 88,
+   "word": "بكري",
+   "pos": "adv",
+   "meaning": "early; long ago",
+   "sentence": "كنفيق ⟦بكري⟧ كل نهار.",
+   "translation": "I wake up ⟦early⟧ every day.",
+   "note": "Not MSA بُكْرَة (early morning)."
+  },
+  {
+   "n": 89,
+   "word": "تيق",
+   "pos": "verb",
+   "meaning": "to trust, to believe",
+   "sentence": "⟦كنتيق⟧ فيك.",
+   "translation": "I ⟦trust⟧ you."
+  },
+  {
+   "n": 90,
+   "word": "تفكّر",
+   "pos": "verb",
+   "meaning": "to remember",
+   "sentence": "⟦تفكّرت⟧ دابا سميتو.",
+   "translation": "I've just ⟦remembered⟧ his name.",
+   "note": "In MSA تَفَكَّرَ is \"to reflect\"."
+  },
+  {
+   "n": 91,
+   "word": "واجد",
+   "pos": "adj",
+   "meaning": "ready",
+   "sentence": "الماكلة ⟦واجدة⟧.",
+   "translation": "The food is ⟦ready⟧.",
+   "note": "Not MSA وَاجِد (finding)."
+  },
+  {
+   "n": 92,
+   "word": "عيا",
+   "pos": "verb",
+   "meaning": "to get tired",
+   "sentence": "⟦عييت⟧ بزاف اليوم.",
+   "translation": "I'm really ⟦tired⟧ today."
+  },
+  {
+   "n": 93,
+   "word": "زرب",
+   "pos": "verb",
+   "meaning": "to hurry",
+   "sentence": "⟦زرب⟧، الطوبيس جاي!",
+   "translation": "⟦Hurry⟧, the bus is coming!"
+  },
+  {
+   "n": 94,
+   "word": "نتوما",
+   "pos": "pron",
+   "meaning": "you (more than one)",
+   "sentence": "واش ⟦نتوما⟧ خوت؟",
+   "translation": "Are ⟦you⟧ brothers?"
+  },
+  {
+   "n": 95,
+   "word": "غوّت",
+   "pos": "verb",
+   "meaning": "to shout",
+   "sentence": "علاش ⟦كتغوّت⟧؟",
+   "translation": "Why are you ⟦shouting⟧?"
+  },
+  {
+   "n": 96,
+   "word": "لور",
+   "pos": "noun",
+   "meaning": "the back; behind",
+   "sentence": "رجع لل⟦لور⟧ شوية.",
+   "translation": "Move ⟦back⟧ a little.",
+   "note": "Not MSA لُور (whey cheese)."
+  },
+  {
+   "n": 97,
+   "word": "أشمن",
+   "pos": "det",
+   "meaning": "which",
+   "sentence": "⟦أشمن⟧ واحد بغيتي؟",
+   "translation": "⟦Which⟧ one do you want?"
+  },
+  {
+   "n": 98,
+   "word": "كحل",
+   "pos": "adj",
+   "meaning": "black",
+   "sentence": "شريت سروال ⟦كحل⟧.",
+   "translation": "I bought ⟦black⟧ trousers.",
+   "note": "Not MSA كُحْل (kohl)."
+  },
+  {
+   "n": 99,
+   "word": "عشية",
+   "pos": "noun",
+   "meaning": "afternoon",
+   "sentence": "نتلاقاو فال⟦عشية⟧.",
+   "translation": "Let's meet in the ⟦afternoon⟧.",
+   "note": "In MSA عَشِيَّة is \"evening\"."
+  },
+  {
+   "n": 100,
+   "word": "صيفط",
+   "pos": "verb",
+   "meaning": "to send",
+   "sentence": "⟦صيفط⟧ ليا ميساج.",
+   "translation": "⟦Send⟧ me a text."
+  },
+  {
+   "n": 101,
+   "word": "زهر",
+   "pos": "noun",
+   "meaning": "luck",
+   "sentence": "عندو ال⟦زهر⟧ بزاف.",
+   "translation": "He has a lot of ⟦luck⟧.",
+   "note": "Not MSA زَهْر (flowers)."
+  },
+  {
+   "n": 102,
+   "word": "خلع",
+   "pos": "verb",
+   "meaning": "to frighten",
+   "sentence": "⟦خلعتي⟧ني بزاف!",
+   "translation": "You really ⟦scared⟧ me!",
+   "note": "Not MSA خَلَعَ (to take off)."
+  },
+  {
+   "n": 103,
+   "word": "روينة",
+   "pos": "noun",
+   "meaning": "mess, chaos",
+   "sentence": "الدار فيها ⟦روينة⟧.",
+   "translation": "The house is a ⟦mess⟧."
+  },
+  {
+   "n": 104,
+   "word": "تهلّا",
+   "pos": "verb",
+   "meaning": "to take care (of); take care!, bye",
+   "sentence": "⟦تهلّا⟧ فراسك.",
+   "translation": "⟦Take care of⟧ yourself."
+  },
+  {
+   "n": 105,
+   "word": "زنقة",
+   "pos": "noun",
+   "meaning": "street",
+   "sentence": "ساكن ف⟦زنقة⟧ صغيرة.",
+   "translation": "I live on a small ⟦street⟧."
+  },
+  {
+   "n": 106,
+   "word": "شفر",
+   "pos": "verb",
+   "meaning": "to steal",
+   "sentence": "⟦شفرو⟧ ليه البزطام.",
+   "translation": "They ⟦stole⟧ his wallet.",
+   "note": "Not MSA شَفَّرَ (to encode)."
+  },
+  {
+   "n": 107,
+   "word": "شرجم",
+   "pos": "noun",
+   "meaning": "window",
+   "sentence": "حل ال⟦شرجم⟧ عفاك.",
+   "translation": "Open the ⟦window⟧, please."
+  },
+  {
+   "n": 108,
+   "word": "باراكا",
+   "pos": "intj",
+   "meaning": "enough!, stop it",
+   "sentence": "⟦باراكا⟧ من الهضرة!",
+   "translation": "⟦Enough⟧ talking!"
+  },
+  {
+   "n": 109,
+   "word": "طابلة",
+   "pos": "noun",
+   "meaning": "table",
+   "sentence": "حط الماكلة على ال⟦طابلة⟧.",
+   "translation": "Put the food on the ⟦table⟧."
+  },
+  {
+   "n": 110,
+   "word": "صاوب",
+   "pos": "verb",
+   "meaning": "to make, to fix",
+   "sentence": "⟦صاوب⟧ ليا أتاي.",
+   "translation": "⟦Make⟧ me some tea."
+  },
+  {
+   "n": 111,
+   "word": "عيالات",
+   "pos": "noun",
+   "meaning": "women",
+   "sentence": "ال⟦عيالات⟧ فالكوزينة.",
+   "translation": "The ⟦women⟧ are in the kitchen."
+  },
+  {
+   "n": 112,
+   "word": "كادو",
+   "pos": "noun",
+   "meaning": "present, gift",
+   "sentence": "جبت ليك ⟦كادو⟧.",
+   "translation": "I brought you a ⟦present⟧."
+  },
+  {
+   "n": 113,
+   "word": "تقدا",
+   "pos": "verb",
+   "meaning": "to do the shopping",
+   "sentence": "خاصني ⟦نتقدا⟧ اليوم.",
+   "translation": "I need ⟦to do the shopping⟧ today."
+  },
+  {
+   "n": 114,
+   "word": "عيان",
+   "pos": "adj",
+   "meaning": "tired",
+   "sentence": "أنا ⟦عيان⟧ بزاف.",
+   "translation": "I'm very ⟦tired⟧.",
+   "note": "Not MSA عِيَان (seeing with your own eyes)."
+  },
+  {
+   "n": 115,
+   "word": "بشوية",
+   "pos": "adv",
+   "meaning": "slowly, gently",
+   "sentence": "هضر ⟦بشوية⟧ عفاك.",
+   "translation": "Speak ⟦slowly⟧, please."
+  },
+  {
+   "n": 116,
+   "word": "معطّل",
+   "pos": "adj",
+   "meaning": "late",
+   "sentence": "سمح ليا، أنا ⟦معطّل⟧.",
+   "translation": "Sorry, I'm ⟦late⟧.",
+   "note": "In MSA مُعَطَّل is \"out of order\"."
+  },
+  {
+   "n": 117,
+   "word": "ميساج",
+   "pos": "noun",
+   "meaning": "text message",
+   "sentence": "صيفطت ليك ⟦ميساج⟧.",
+   "translation": "I sent you a ⟦text⟧."
+  },
+  {
+   "n": 118,
+   "word": "كليان",
+   "pos": "noun",
+   "meaning": "customer",
+   "sentence": "ال⟦كليان⟧ ديما عندو الحق.",
+   "translation": "The ⟦customer⟧ is always right."
+  },
+  {
+   "n": 119,
+   "word": "قرعة",
+   "pos": "noun",
+   "meaning": "bottle",
+   "sentence": "جيب ⟦قرعة⟧ ديال الما.",
+   "translation": "Bring a ⟦bottle⟧ of water.",
+   "note": "Not MSA قُرْعَة (a draw, a lottery)."
+  },
+  {
+   "n": 120,
+   "word": "بزربة",
+   "pos": "adv",
+   "meaning": "in a hurry, quickly",
+   "sentence": "مشا ⟦بزربة⟧.",
+   "translation": "He left ⟦in a hurry⟧."
+  },
+  {
+   "n": 121,
+   "word": "واقيلا",
+   "pos": "adv",
+   "meaning": "maybe, it seems",
+   "sentence": "⟦واقيلا⟧ غادي يجي غدا.",
+   "translation": "⟦Maybe⟧ he'll come tomorrow."
+  },
+  {
+   "n": 122,
+   "word": "قاسح",
+   "pos": "adj",
+   "meaning": "hard; tough",
+   "sentence": "هاد الخبز ⟦قاسح⟧.",
+   "translation": "This bread is ⟦hard⟧."
+  },
+  {
+   "n": 123,
+   "word": "موتور",
+   "pos": "noun",
+   "meaning": "motorbike",
+   "sentence": "جا فوق ⟦موتور⟧.",
+   "translation": "He came on a ⟦motorbike⟧."
+  },
+  {
+   "n": 124,
+   "word": "عافية",
+   "pos": "noun",
+   "meaning": "fire",
+   "sentence": "شعل ال⟦عافية⟧.",
+   "translation": "Light the ⟦fire⟧.",
+   "note": "In MSA عَافِيَة is \"good health\"."
+  },
+  {
+   "n": 125,
+   "word": "بيرو",
+   "pos": "noun",
+   "meaning": "office; desk",
+   "sentence": "أنا فال⟦بيرو⟧ دابا.",
+   "translation": "I'm at the ⟦office⟧ now."
+  },
+  {
+   "n": 126,
+   "word": "تران",
+   "pos": "noun",
+   "meaning": "train",
+   "sentence": "غادي نمشي لفاس فال⟦تران⟧.",
+   "translation": "I'm going to Fes by ⟦train⟧."
+  },
+  {
+   "n": 127,
+   "word": "فينما",
+   "pos": "adv",
+   "meaning": "wherever",
+   "sentence": "⟦فينما⟧ مشيتي، عيط ليا.",
+   "translation": "⟦Wherever⟧ you go, call me."
+  },
+  {
+   "n": 128,
+   "word": "بجوج",
+   "pos": "adv",
+   "meaning": "both, the two of",
+   "sentence": "⟦بجوج⟧ مزيانين.",
+   "translation": "⟦Both⟧ are good."
+  },
+  {
+   "n": 129,
+   "word": "شفّار",
+   "pos": "noun",
+   "meaning": "thief",
+   "sentence": "شدو ال⟦شفّار⟧.",
+   "translation": "They caught the ⟦thief⟧."
+  },
+  {
+   "n": 130,
+   "word": "قاس",
+   "pos": "verb",
+   "meaning": "to touch",
+   "sentence": "ما⟦تقيس⟧ش هادشي!",
+   "translation": "Don't ⟦touch⟧ that!",
+   "note": "Not MSA قَاسَ (to measure)."
+  },
+  {
+   "n": 131,
+   "word": "جردة",
+   "pos": "noun",
+   "meaning": "garden; park",
+   "sentence": "الدراري كيلعبو فال⟦جردة⟧.",
+   "translation": "The kids are playing in the ⟦park⟧.",
+   "note": "Not MSA جَرْدَة (bareness)."
+  },
+  {
+   "n": 132,
+   "word": "غبر",
+   "pos": "verb",
+   "meaning": "to disappear",
+   "sentence": "فين ⟦غبرتي⟧؟",
+   "translation": "Where have you ⟦disappeared to⟧?"
+  },
+  {
+   "n": 133,
+   "word": "ليمون",
+   "pos": "noun",
+   "meaning": "oranges",
+   "sentence": "عصرت ال⟦ليمون⟧ للدراري.",
+   "translation": "I squeezed ⟦oranges⟧ for the kids.",
+   "note": "In MSA لَيْمُون is \"lemon\"."
+  },
+  {
+   "n": 134,
+   "word": "ديسير",
+   "pos": "noun",
+   "meaning": "dessert",
+   "sentence": "شنو كاين فال⟦ديسير⟧؟",
+   "translation": "What's for ⟦dessert⟧?"
+  },
+  {
+   "n": 135,
+   "word": "حومة",
+   "pos": "noun",
+   "meaning": "neighbourhood",
+   "sentence": "كنعرف ڭاع الناس فال⟦حومة⟧.",
+   "translation": "I know everyone in the ⟦neighbourhood⟧.",
+   "note": "Not MSA حَوْمَة (the thick of a battle)."
+  },
+  {
+   "n": 136,
+   "word": "نوّض",
+   "pos": "verb",
+   "meaning": "to wake (someone) up; to get going",
+   "sentence": "⟦نوّض⟧ني على سبعة.",
+   "translation": "⟦Wake me up⟧ at seven."
+  },
+  {
+   "n": 137,
+   "word": "بالخف",
+   "pos": "adv",
+   "meaning": "quickly, fast",
+   "sentence": "الطونوبيل كتمشي ⟦بالخف⟧.",
+   "translation": "The car goes ⟦fast⟧."
+  },
+  {
+   "n": 138,
+   "word": "عزل",
+   "pos": "verb",
+   "meaning": "to choose, to pick out",
+   "sentence": "⟦عزل⟧ اللي بغيتي.",
+   "translation": "⟦Pick⟧ the one you want.",
+   "note": "Not MSA عَزَلَ (to isolate)."
+  },
+  {
+   "n": 139,
+   "word": "صونا",
+   "pos": "verb",
+   "meaning": "to ring",
+   "sentence": "التيليفون ⟦صونا⟧.",
+   "translation": "The phone ⟦rang⟧."
+  },
+  {
+   "n": 140,
+   "word": "عاق",
+   "pos": "verb",
+   "meaning": "to notice, to realise",
+   "sentence": "⟦عقت⟧ بيه ملي دخل.",
+   "translation": "I ⟦noticed⟧ him when he came in.",
+   "note": "Not MSA عَاقَ (to hinder)."
+  },
+  {
+   "n": 141,
+   "word": "كوزينة",
+   "pos": "noun",
+   "meaning": "kitchen",
+   "sentence": "الماكلة فال⟦كوزينة⟧.",
+   "translation": "The food is in the ⟦kitchen⟧."
+  },
+  {
+   "n": 142,
+   "word": "فوقاش",
+   "pos": "adv",
+   "meaning": "when?",
+   "sentence": "⟦فوقاش⟧ غادي تجي؟",
+   "translation": "⟦When⟧ are you coming?"
+  },
+  {
+   "n": 143,
+   "word": "زبل",
+   "pos": "noun",
+   "meaning": "rubbish, trash",
+   "sentence": "لوح ال⟦زبل⟧ عفاك.",
+   "translation": "Throw out the ⟦rubbish⟧, please.",
+   "note": "MSA زِبْل is \"dung\"."
+  },
+  {
+   "n": 144,
+   "word": "طواليط",
+   "pos": "noun",
+   "meaning": "toilet",
+   "sentence": "فين ال⟦طواليط⟧؟",
+   "translation": "Where's the ⟦toilet⟧?"
+  },
+  {
+   "n": 145,
+   "word": "ريسطورة",
+   "pos": "noun",
+   "meaning": "restaurant",
+   "sentence": "تعشينا ف⟦ريسطورة⟧ زوينة.",
+   "translation": "We had dinner at a nice ⟦restaurant⟧."
+  },
+  {
+   "n": 146,
+   "word": "تقلق",
+   "pos": "verb",
+   "meaning": "to get upset, to get angry",
+   "sentence": "⟦تقلقت⟧ بزاف من هادشي.",
+   "translation": "I got really ⟦upset⟧ about this.",
+   "note": "In MSA قَلِقَ is \"to be worried\"."
+  },
+  {
+   "n": 147,
+   "word": "توحّش",
+   "pos": "verb",
+   "meaning": "to miss (someone)",
+   "sentence": "⟦توحّشت⟧ك بزاف.",
+   "translation": "I ⟦missed⟧ you a lot.",
+   "note": "In MSA تَوَحَّشَ is \"to become wild\"."
+  },
+  {
+   "n": 148,
+   "word": "مقلق",
+   "pos": "adj",
+   "meaning": "angry, upset",
+   "sentence": "علاش نتا ⟦مقلق⟧؟",
+   "translation": "Why are you ⟦upset⟧?",
+   "note": "In MSA مُقْلِق is \"worrying\"."
+  },
+  {
+   "n": 149,
+   "word": "زعم",
+   "pos": "verb",
+   "meaning": "to dare",
+   "sentence": "⟦زعم⟧ وهضر معاها.",
+   "translation": "He ⟦got up the nerve⟧ and spoke to her.",
+   "note": "Not MSA زَعَمَ (to claim)."
+  },
+  {
+   "n": 150,
+   "word": "بلاتي",
+   "pos": "intj",
+   "meaning": "wait!, slowly",
+   "sentence": "⟦بلاتي⟧، ماتزربش!",
+   "translation": "⟦Slow down⟧, don't rush!"
+  },
+  {
+   "n": 151,
+   "word": "لهيه",
+   "pos": "adv",
+   "meaning": "over there",
+   "sentence": "الدار ديالي ⟦لهيه⟧.",
+   "translation": "My house is ⟦over there⟧."
+  },
+  {
+   "n": 152,
+   "word": "كار",
+   "pos": "noun",
+   "meaning": "coach (long-distance bus)",
+   "sentence": "مشيت لمراكش فال⟦كار⟧.",
+   "translation": "I went to Marrakech by ⟦coach⟧."
+  },
+  {
+   "n": 153,
+   "word": "طوبيس",
+   "pos": "noun",
+   "meaning": "bus",
+   "sentence": "كنشد ال⟦طوبيس⟧ كل صباح.",
+   "translation": "I take the ⟦bus⟧ every morning."
+  },
+  {
+   "n": 154,
+   "word": "تلف",
+   "pos": "verb",
+   "meaning": "to get lost",
+   "sentence": "⟦تلفت⟧ فالمدينة القديمة.",
+   "translation": "I ⟦got lost⟧ in the old town.",
+   "note": "In MSA تَلِفَ is \"to be damaged\"."
+  },
+  {
+   "n": 155,
+   "word": "كسيدة",
+   "pos": "noun",
+   "meaning": "accident",
+   "sentence": "وقعات ⟦كسيدة⟧ فالطريق.",
+   "translation": "There was an ⟦accident⟧ on the road."
+  },
+  {
+   "n": 156,
+   "word": "خشى",
+   "pos": "verb",
+   "meaning": "to put in, to push in",
+   "sentence": "⟦خشي⟧ الساروت فالباب.",
+   "translation": "⟦Put⟧ the key in the door.",
+   "note": "Not MSA خَشِيَ (to fear)."
+  },
+  {
+   "n": 157,
+   "word": "بنين",
+   "pos": "adj",
+   "meaning": "tasty, delicious",
+   "sentence": "الحريرة ⟦بنينة⟧ بزاف.",
+   "translation": "The harira is really ⟦tasty⟧.",
+   "note": "Not MSA بَنِين (sons)."
+  },
+  {
+   "n": 158,
+   "word": "صباط",
+   "pos": "noun",
+   "meaning": "shoes",
+   "sentence": "شريت ⟦صباط⟧ جديد.",
+   "translation": "I bought new ⟦shoes⟧."
+  },
+  {
+   "n": 159,
+   "word": "ساروت",
+   "pos": "noun",
+   "meaning": "key",
+   "sentence": "فين ال⟦ساروت⟧ ديال الدار؟",
+   "translation": "Where's the house ⟦key⟧?"
+  },
+  {
+   "n": 160,
+   "word": "ولّف",
+   "pos": "verb",
+   "meaning": "to get used to",
+   "sentence": "⟦ولّفت⟧ على الجو هنا.",
+   "translation": "I've ⟦got used to⟧ the weather here."
+  },
+  {
+   "n": 161,
+   "word": "ناموسية",
+   "pos": "noun",
+   "meaning": "bed",
+   "sentence": "دخل لل⟦ناموسية⟧ بكري.",
+   "translation": "He went to ⟦bed⟧ early.",
+   "note": "MSA نَامُوسِيَّة is \"mosquito net\"."
+  },
+  {
+   "n": 162,
+   "word": "شطح",
+   "pos": "verb",
+   "meaning": "to dance",
+   "sentence": "هي ⟦كتشطح⟧ مزيان.",
+   "translation": "She ⟦dances⟧ well.",
+   "note": "Not MSA شَطَحَ (to go too far)."
+  },
+  {
+   "n": 163,
+   "word": "شيفور",
+   "pos": "noun",
+   "meaning": "driver",
+   "sentence": "ال⟦شيفور⟧ كيسوق مزيان.",
+   "translation": "The ⟦driver⟧ drives well."
+  },
+  {
+   "n": 164,
+   "word": "ڭارو",
+   "pos": "noun",
+   "meaning": "cigarette",
+   "sentence": "عطيني ⟦ڭارو⟧.",
+   "translation": "Give me a ⟦cigarette⟧."
+  },
+  {
+   "n": 165,
+   "word": "فابور",
+   "pos": "adv",
+   "meaning": "free (of charge)",
+   "sentence": "الدخول ⟦فابور⟧.",
+   "translation": "Entry is ⟦free⟧."
+  },
+  {
+   "n": 166,
+   "word": "تيران",
+   "pos": "noun",
+   "meaning": "(sports) pitch, field",
+   "sentence": "الدراري فال⟦تيران⟧.",
+   "translation": "The boys are at the ⟦pitch⟧."
+  },
+  {
+   "n": 167,
+   "word": "موس",
+   "pos": "noun",
+   "meaning": "knife",
+   "sentence": "قطع الخبز بال⟦موس⟧.",
+   "translation": "Cut the bread with the ⟦knife⟧."
+  },
+  {
+   "n": 168,
+   "word": "بنان",
+   "pos": "noun",
+   "meaning": "bananas",
+   "sentence": "كنحماق على ال⟦بنان⟧.",
+   "translation": "I'm crazy about ⟦bananas⟧."
+  },
+  {
+   "n": 169,
+   "word": "العروبية",
+   "pos": "noun",
+   "meaning": "the countryside",
+   "sentence": "جدي ساكن ف⟦العروبية⟧.",
+   "translation": "My grandfather lives in ⟦the countryside⟧."
+  },
+  {
+   "n": 170,
+   "word": "حريرة",
+   "pos": "noun",
+   "meaning": "harira (a soup)",
+   "sentence": "كنشربو ال⟦حريرة⟧ فرمضان.",
+   "translation": "We have ⟦harira⟧ in Ramadan.",
+   "note": "Not MSA حَرِيرَة (a silk thread)."
+  },
+  {
+   "n": 171,
+   "word": "اينا",
+   "pos": "det",
+   "meaning": "which",
+   "sentence": "⟦اينا⟧ واحد فيهم؟",
+   "translation": "⟦Which⟧ one of them?"
+  },
+  {
+   "n": 172,
+   "word": "برزط",
+   "pos": "verb",
+   "meaning": "to bother, to annoy",
+   "sentence": "⟦كتبرزط⟧ني بالهضرة ديالك.",
+   "translation": "You're ⟦annoying⟧ me with your talk."
+  },
+  {
+   "n": 173,
+   "word": "بيسي",
+   "pos": "noun",
+   "meaning": "computer",
+   "sentence": "ال⟦بيسي⟧ ديالي خسر.",
+   "translation": "My ⟦computer⟧ has broken."
+  },
+  {
+   "n": 174,
+   "word": "فران",
+   "pos": "noun",
+   "meaning": "oven; bakery",
+   "sentence": "دي الخبز لل⟦فران⟧.",
+   "translation": "Take the bread to the ⟦bakery⟧.",
+   "note": "MSA فَرَّان is \"baker\"."
+  },
+  {
+   "n": 175,
+   "word": "قنت",
+   "pos": "noun",
+   "meaning": "corner",
+   "sentence": "تسناني فال⟦قنت⟧.",
+   "translation": "Wait for me at the ⟦corner⟧.",
+   "note": "Not MSA قَنَتَ (to be devout)."
+  },
+  {
+   "n": 176,
+   "word": "عنّق",
+   "pos": "verb",
+   "meaning": "to hug",
+   "sentence": "⟦عنّق⟧ يماك.",
+   "translation": "⟦Hug⟧ your mum.",
+   "note": "Not MSA عُنُق (neck)."
+  },
+  {
+   "n": 177,
+   "word": "عشير",
+   "pos": "noun",
+   "meaning": "close friend, mate",
+   "sentence": "هو ⟦عشير⟧ي.",
+   "translation": "He's my ⟦mate⟧."
+  },
+  {
+   "n": 178,
+   "word": "زيّر",
+   "pos": "verb",
+   "meaning": "to tighten, to squeeze",
+   "sentence": "⟦زيّر⟧ الروبيني مزيان.",
+   "translation": "⟦Tighten⟧ the tap properly.",
+   "note": "Not MSA زِير (womaniser)."
+  },
+  {
+   "n": 179,
+   "word": "مسالي",
+   "pos": "adj",
+   "meaning": "free, not busy",
+   "sentence": "واش نتا ⟦مسالي⟧ دابا؟",
+   "translation": "Are you ⟦free⟧ now?"
+  },
+  {
+   "n": 180,
+   "word": "تريكو",
+   "pos": "noun",
+   "meaning": "sweater",
+   "sentence": "لبس ⟦تريكو⟧، راه البرد.",
+   "translation": "Put on a ⟦sweater⟧, it's cold."
+  },
+  {
+   "n": 181,
+   "word": "خلصة",
+   "pos": "noun",
+   "meaning": "salary, pay",
+   "sentence": "ال⟦خلصة⟧ ماكافياش.",
+   "translation": "The ⟦salary⟧ isn't enough.",
+   "note": "Not MSA خُلَاصَة (summary)."
+  },
+  {
+   "n": 182,
+   "word": "كوميسارية",
+   "pos": "noun",
+   "meaning": "police station",
+   "sentence": "مشا لل⟦كوميسارية⟧.",
+   "translation": "He went to the ⟦police station⟧."
+  },
+  {
+   "n": 183,
+   "word": "كمى",
+   "pos": "verb",
+   "meaning": "to smoke",
+   "sentence": "واش ⟦كتكمي⟧؟",
+   "translation": "Do you ⟦smoke⟧?",
+   "note": "Not MSA كَمِيّ (brave)."
+  },
+  {
+   "n": 184,
+   "word": "ورّك",
+   "pos": "verb",
+   "meaning": "to press",
+   "sentence": "⟦ورّك⟧ على البوطون.",
+   "translation": "⟦Press⟧ the button.",
+   "note": "Not MSA وَرِك (hip)."
+  },
+  {
+   "n": 185,
+   "word": "نيشان",
+   "pos": "adv",
+   "meaning": "straight (ahead); directly",
+   "sentence": "سير ⟦نيشان⟧.",
+   "translation": "Go ⟦straight ahead⟧.",
+   "note": "Not MSA نِيشَان (medal; target)."
+  },
+  {
+   "n": 186,
+   "word": "خلعة",
+   "pos": "noun",
+   "meaning": "fright, scare",
+   "sentence": "عطاني ⟦خلعة⟧ كبيرة.",
+   "translation": "He gave me a big ⟦fright⟧."
+  },
+  {
+   "n": 187,
+   "word": "صاب",
+   "pos": "verb",
+   "meaning": "to find",
+   "sentence": "ما⟦صبت⟧ش الساروت.",
+   "translation": "I couldn't ⟦find⟧ the key.",
+   "note": "MSA صَابَ (old) is \"to hit the mark\"."
+  },
+  {
+   "n": 188,
+   "word": "تقاشر",
+   "pos": "noun",
+   "meaning": "socks",
+   "sentence": "لبس ال⟦تقاشر⟧ ديالك.",
+   "translation": "Put your ⟦socks⟧ on."
+  },
+  {
+   "n": 189,
+   "word": "كارطة",
+   "pos": "noun",
+   "meaning": "card (ID card, bank card)",
+   "sentence": "عطيني ال⟦كارطة⟧ ديالك.",
+   "translation": "Give me your ⟦card⟧."
+  },
+  {
+   "n": 190,
+   "word": "مكلخ",
+   "pos": "adj",
+   "meaning": "stupid",
+   "sentence": "ماتكونش ⟦مكلخ⟧.",
+   "translation": "Don't be ⟦stupid⟧."
+  },
+  {
+   "n": 191,
+   "word": "فيرمة",
+   "pos": "noun",
+   "meaning": "farm",
+   "sentence": "عندهم ⟦فيرمة⟧ كبيرة.",
+   "translation": "They have a big ⟦farm⟧."
+  },
+  {
+   "n": 192,
+   "word": "باطو",
+   "pos": "noun",
+   "meaning": "boat",
+   "sentence": "مشينا لطنجة فال⟦باطو⟧.",
+   "translation": "We went to Tangier by ⟦boat⟧."
+  },
+  {
+   "n": 193,
+   "word": "فرملي",
+   "pos": "noun",
+   "meaning": "nurse",
+   "sentence": "ال⟦فرملي⟧ عطاني الدوا.",
+   "translation": "The ⟦nurse⟧ gave me the medicine."
+  },
+  {
+   "n": 194,
+   "word": "مارشي",
+   "pos": "noun",
+   "meaning": "market",
+   "sentence": "شريت الخضرة من ال⟦مارشي⟧.",
+   "translation": "I bought the vegetables at the ⟦market⟧."
+  },
+  {
+   "n": 195,
+   "word": "فاكتورة",
+   "pos": "noun",
+   "meaning": "bill (to pay)",
+   "sentence": "خلصتي ال⟦فاكتورة⟧؟",
+   "translation": "Did you pay the ⟦bill⟧?"
+  },
+  {
+   "n": 196,
+   "word": "برهوش",
+   "pos": "noun",
+   "meaning": "kid, little one",
+   "sentence": "داك ال⟦برهوش⟧ ديما كيبكي.",
+   "translation": "That ⟦kid⟧ is always crying."
+  },
+  {
+   "n": 197,
+   "word": "ريجيم",
+   "pos": "noun",
+   "meaning": "diet (to lose weight)",
+   "sentence": "أنا دايرة ⟦ريجيم⟧.",
+   "translation": "I'm on a ⟦diet⟧."
+  },
+  {
+   "n": 198,
+   "word": "سانسور",
+   "pos": "noun",
+   "meaning": "lift, elevator",
+   "sentence": "ال⟦سانسور⟧ خاسر.",
+   "translation": "The ⟦lift⟧ is broken."
+  },
+  {
+   "n": 199,
+   "word": "كريدي",
+   "pos": "noun",
+   "meaning": "debt; credit",
+   "sentence": "شريتها بال⟦كريدي⟧.",
+   "translation": "I bought it on ⟦credit⟧."
+  },
+  {
+   "n": 200,
+   "word": "طليلة",
+   "pos": "noun",
+   "meaning": "a look, a glance",
+   "sentence": "دير ⟦طليلة⟧ على الدراري.",
+   "translation": "Have a ⟦look⟧ at the kids."
+  },
+  {
+   "n": 201,
+   "word": "صاك",
+   "pos": "noun",
+   "meaning": "bag",
+   "sentence": "فين ال⟦صاك⟧ ديالي؟",
+   "translation": "Where's my ⟦bag⟧?"
+  },
+  {
+   "n": 202,
+   "word": "ديريكت",
+   "pos": "adv",
+   "meaning": "directly, straight",
+   "sentence": "سير ⟦ديريكت⟧ للدار.",
+   "translation": "Go ⟦straight⟧ home."
+  },
+  {
+   "n": 203,
+   "word": "جلابة",
+   "pos": "noun",
+   "meaning": "djellaba (a long hooded robe)",
+   "sentence": "لبس ⟦جلابة⟧ للعيد.",
+   "translation": "He wore a ⟦djellaba⟧ for Eid."
+  },
+  {
+   "n": 204,
+   "word": "ستيلو",
+   "pos": "noun",
+   "meaning": "pen",
+   "sentence": "سلفني ⟦ستيلو⟧ عفاك.",
+   "translation": "Lend me a ⟦pen⟧, please."
+  },
+  {
+   "n": 205,
+   "word": "بوطة",
+   "pos": "noun",
+   "meaning": "gas bottle",
+   "sentence": "ال⟦بوطة⟧ سالات.",
+   "translation": "The ⟦gas bottle⟧ has run out."
+  },
+  {
+   "n": 206,
+   "word": "ريزو",
+   "pos": "noun",
+   "meaning": "network; phone signal",
+   "sentence": "ماكاينش ال⟦ريزو⟧ هنا.",
+   "translation": "There's no ⟦signal⟧ here."
+  },
+  {
+   "n": 207,
+   "word": "سربي",
+   "pos": "intj",
+   "meaning": "hurry up!",
+   "sentence": "⟦سربي⟧، راه الوقت فات!",
+   "translation": "⟦Hurry up⟧, it's late!"
+  },
+  {
+   "n": 208,
+   "word": "برية",
+   "pos": "noun",
+   "meaning": "letter (mail)",
+   "sentence": "جاتني ⟦برية⟧ من خويا.",
+   "translation": "I got a ⟦letter⟧ from my brother.",
+   "note": "Not MSA بَرِّيَّة (wilderness)."
+  },
+  {
+   "n": 209,
+   "word": "مروّن",
+   "pos": "adj",
+   "meaning": "upset, confused",
+   "sentence": "راسي ⟦مروّن⟧ اليوم.",
+   "translation": "My head is ⟦all over the place⟧ today."
+  },
+  {
+   "n": 210,
+   "word": "ميكا",
+   "pos": "noun",
+   "meaning": "plastic bag",
+   "sentence": "عطيني ⟦ميكا⟧ عفاك.",
+   "translation": "Give me a ⟦plastic bag⟧, please."
+  },
+  {
+   "n": 211,
+   "word": "رونديفو",
+   "pos": "noun",
+   "meaning": "appointment, date",
+   "sentence": "عندي ⟦رونديفو⟧ عند الطبيب.",
+   "translation": "I have an ⟦appointment⟧ at the doctor's."
+  },
+  {
+   "n": 212,
+   "word": "شلاضة",
+   "pos": "noun",
+   "meaning": "salad",
+   "sentence": "صاوبت ⟦شلاضة⟧ ديال الماطيشة.",
+   "translation": "I made a tomato ⟦salad⟧."
+  },
+  {
+   "n": 213,
+   "word": "كاميو",
+   "pos": "noun",
+   "meaning": "lorry, truck",
+   "sentence": "ال⟦كاميو⟧ واقف فالزنقة.",
+   "translation": "The ⟦lorry⟧ is parked in the street."
+  },
+  {
+   "n": 214,
+   "word": "جورنال",
+   "pos": "noun",
+   "meaning": "newspaper",
+   "sentence": "كنقرا ال⟦جورنال⟧ كل صباح.",
+   "translation": "I read the ⟦newspaper⟧ every morning."
+  },
+  {
+   "n": 215,
+   "word": "خنشة",
+   "pos": "noun",
+   "meaning": "sack",
+   "sentence": "جاب ⟦خنشة⟧ ديال الدقيق.",
+   "translation": "He brought a ⟦sack⟧ of flour."
+  },
+  {
+   "n": 216,
+   "word": "بيكالا",
+   "pos": "noun",
+   "meaning": "bicycle",
+   "sentence": "كنمشي للخدمة فال⟦بيكالا⟧.",
+   "translation": "I go to work by ⟦bike⟧."
+  },
+  {
+   "n": 217,
+   "word": "طرطق",
+   "pos": "verb",
+   "meaning": "to burst, to pop; to crack",
+   "sentence": "النفاخة ⟦طرطقات⟧.",
+   "translation": "The balloon ⟦popped⟧."
+  },
+  {
+   "n": 218,
+   "word": "حاولي",
+   "pos": "noun",
+   "meaning": "sheep",
+   "sentence": "شرينا ⟦حاولي⟧ للعيد.",
+   "translation": "We bought a ⟦sheep⟧ for Eid."
+  },
+  {
+   "n": 219,
+   "word": "سبرديلة",
+   "pos": "noun",
+   "meaning": "trainers, sneakers",
+   "sentence": "لبس ال⟦سبرديلة⟧ ديالك.",
+   "translation": "Put on your ⟦trainers⟧."
+  },
+  {
+   "n": 220,
+   "word": "سمطة",
+   "pos": "noun",
+   "meaning": "belt",
+   "sentence": "عطيني ال⟦سمطة⟧ ديالي.",
+   "translation": "Give me my ⟦belt⟧."
+  },
+  {
+   "n": 221,
+   "word": "ماتريال",
+   "pos": "noun",
+   "meaning": "equipment, gear, stuff",
+   "sentence": "جيب ال⟦ماتريال⟧ ديالك.",
+   "translation": "Bring your ⟦gear⟧."
+  },
+  {
+   "n": 222,
+   "word": "أوطيل",
+   "pos": "noun",
+   "meaning": "hotel",
+   "sentence": "نعسنا ف⟦أوطيل⟧ قريب للبحر.",
+   "translation": "We stayed in a ⟦hotel⟧ near the sea."
+  },
+  {
+   "n": 223,
+   "word": "فرماج",
+   "pos": "noun",
+   "meaning": "cheese",
+   "sentence": "بغيت الخبز بال⟦فرماج⟧.",
+   "translation": "I'd like bread with ⟦cheese⟧."
+  },
+  {
+   "n": 224,
+   "word": "معصب",
+   "pos": "adj",
+   "meaning": "angry, in a temper",
+   "sentence": "باه ديما ⟦معصب⟧.",
+   "translation": "His dad is always ⟦angry⟧."
+  },
+  {
+   "n": 225,
+   "word": "شارف",
+   "pos": "adj",
+   "meaning": "old (of a person)",
+   "sentence": "جدي ⟦شارف⟧ بزاف.",
+   "translation": "My grandfather is very ⟦old⟧.",
+   "note": "Not MSA شَارِف (looking out over)."
+  },
+  {
+   "n": 226,
+   "word": "ديجا",
+   "pos": "adv",
+   "meaning": "already",
+   "sentence": "كليت ⟦ديجا⟧.",
+   "translation": "I've ⟦already⟧ eaten."
+  },
+  {
+   "n": 227,
+   "word": "جلبانة",
+   "pos": "noun",
+   "meaning": "peas",
+   "sentence": "طيبت ال⟦جلبانة⟧ بالخيزو.",
+   "translation": "I cooked ⟦peas⟧ with carrots."
+  },
+  {
+   "n": 228,
+   "word": "قادوس",
+   "pos": "noun",
+   "meaning": "pipe, drain",
+   "sentence": "ال⟦قادوس⟧ مسدود.",
+   "translation": "The ⟦drain⟧ is blocked."
+  },
+  {
+   "n": 229,
+   "word": "شكارة",
+   "pos": "noun",
+   "meaning": "bag, sack",
+   "sentence": "حط الخبز فال⟦شكارة⟧.",
+   "translation": "Put the bread in the ⟦bag⟧."
+  },
+  {
+   "n": 230,
+   "word": "بوسطة",
+   "pos": "noun",
+   "meaning": "post office",
+   "sentence": "مشيت لل⟦بوسطة⟧ نصيفط برية.",
+   "translation": "I went to the ⟦post office⟧ to send a letter."
+  },
+  {
+   "n": 231,
+   "word": "براد",
+   "pos": "noun",
+   "meaning": "teapot",
+   "sentence": "عمّر ال⟦براد⟧ بالما.",
+   "translation": "Fill the ⟦teapot⟧ with water.",
+   "note": "Not MSA بَرَّاد (refrigerator)."
+  },
+  {
+   "n": 232,
+   "word": "كسكسو",
+   "pos": "noun",
+   "meaning": "couscous",
+   "sentence": "كناكلو ال⟦كسكسو⟧ نهار الجمعة.",
+   "translation": "We eat ⟦couscous⟧ on Fridays."
+  },
+  {
+   "n": 233,
+   "word": "كرموس",
+   "pos": "noun",
+   "meaning": "figs",
+   "sentence": "الصيف هو وقت ال⟦كرموس⟧.",
+   "translation": "Summer is the season for ⟦figs⟧."
+  },
+  {
+   "n": 234,
+   "word": "ڭادّ",
+   "pos": "adj",
+   "meaning": "able (to); up to it",
+   "sentence": "واش نتا ⟦ڭادّ⟧ تهزها؟",
+   "translation": "Are you ⟦able⟧ to lift it?"
+  },
+  {
+   "n": 235,
+   "word": "سخف",
+   "pos": "verb",
+   "meaning": "to faint",
+   "sentence": "⟦سخفات⟧ من السخانة.",
+   "translation": "She ⟦fainted⟧ from the heat.",
+   "note": "Not MSA سَخُفَ (to be silly)."
+  },
+  {
+   "n": 236,
+   "word": "حشومة",
+   "pos": "intj",
+   "meaning": "(it's) shameful!, shame on you",
+   "sentence": "⟦حشومة⟧ عليك!",
+   "translation": "⟦Shame⟧ on you!",
+   "note": "MSA حِشْمَة is \"modesty\"."
+  },
+  {
+   "n": 237,
+   "word": "طاسة",
+   "pos": "noun",
+   "meaning": "cup, glass",
+   "sentence": "شربت ⟦طاسة⟧ ديال الحليب.",
+   "translation": "I drank a ⟦cup⟧ of milk."
+  },
+  {
+   "n": 238,
+   "word": "بوطون",
+   "pos": "noun",
+   "meaning": "button",
+   "sentence": "ورّك على ال⟦بوطون⟧ الحمر.",
+   "translation": "Press the red ⟦button⟧."
+  },
+  {
+   "n": 239,
+   "word": "قبط",
+   "pos": "verb",
+   "meaning": "to catch, to grab",
+   "sentence": "البوليس ⟦قبطو⟧ الشفّار.",
+   "translation": "The police ⟦caught⟧ the thief."
+  },
+  {
+   "n": 240,
+   "word": "دابز",
+   "pos": "verb",
+   "meaning": "to fight, to quarrel",
+   "sentence": "الدراري ⟦تدابزو⟧ فالزنقة.",
+   "translation": "The boys ⟦got into a fight⟧ in the street."
+  },
+  {
+   "n": 241,
+   "word": "عنداك",
+   "pos": "intj",
+   "meaning": "watch out!, careful!",
+   "sentence": "⟦عنداك⟧ الطونوبيل!",
+   "translation": "⟦Watch out⟧, a car!"
+  },
+  {
+   "n": 242,
+   "word": "خيزو",
+   "pos": "noun",
+   "meaning": "carrots",
+   "sentence": "زيد ال⟦خيزو⟧ للشلاضة.",
+   "translation": "Add ⟦carrots⟧ to the salad."
+  },
+  {
+   "n": 243,
+   "word": "طبسيل",
+   "pos": "noun",
+   "meaning": "plate",
+   "sentence": "جيب ⟦طبسيل⟧ آخر.",
+   "translation": "Bring another ⟦plate⟧."
+  },
+  {
+   "n": 244,
+   "word": "بلاكة",
+   "pos": "noun",
+   "meaning": "sign, panel; number plate",
+   "sentence": "شفتي ال⟦بلاكة⟧ ديال الطونوبيل؟",
+   "translation": "Did you see the car's ⟦number plate⟧?"
+  },
+  {
+   "n": 245,
+   "word": "كيكا",
+   "pos": "noun",
+   "meaning": "cake",
+   "sentence": "صاوبت ⟦كيكا⟧ لعيد الميلاد.",
+   "translation": "I made a ⟦cake⟧ for the birthday."
+  },
+  {
+   "n": 246,
+   "word": "كونطرا",
+   "pos": "noun",
+   "meaning": "contract",
+   "sentence": "سنيت ال⟦كونطرا⟧ ديال الخدمة.",
+   "translation": "I signed the work ⟦contract⟧."
+  },
+  {
+   "n": 247,
+   "word": "قنية",
+   "pos": "noun",
+   "meaning": "rabbit",
+   "sentence": "عندنا ⟦قنية⟧ فالدار.",
+   "translation": "We have a ⟦rabbit⟧ at home."
+  },
+  {
+   "n": 248,
+   "word": "باليزة",
+   "pos": "noun",
+   "meaning": "suitcase",
+   "sentence": "وجّدتي ال⟦باليزة⟧؟",
+   "translation": "Have you packed the ⟦suitcase⟧?"
+  },
+  {
+   "n": 249,
+   "word": "تزعلل",
+   "pos": "verb",
+   "meaning": "to swing",
+   "sentence": "الدراري ⟦كيتزعللو⟧ فالجردة.",
+   "translation": "The kids are ⟦swinging⟧ in the park."
+  },
+  {
+   "n": 250,
+   "word": "غيس",
+   "pos": "noun",
+   "meaning": "mud",
+   "sentence": "صباطي عامر ⟦غيس⟧.",
+   "translation": "My shoes are covered in ⟦mud⟧."
+  },
+  {
+   "n": 251,
+   "word": "ستف",
+   "pos": "verb",
+   "meaning": "to arrange, to stack neatly",
+   "sentence": "⟦ستف⟧ الحوايج فالباليزة.",
+   "translation": "⟦Arrange⟧ the clothes in the suitcase."
+  },
+  {
+   "n": 252,
+   "word": "صغيور",
+   "pos": "adj",
+   "meaning": "tiny",
+   "sentence": "عندها دار ⟦صغيورة⟧.",
+   "translation": "She has a ⟦tiny⟧ house."
+  },
+  {
+   "n": 253,
+   "word": "بزطام",
+   "pos": "noun",
+   "meaning": "wallet",
+   "sentence": "ضاع ليا ال⟦بزطام⟧.",
+   "translation": "I've lost my ⟦wallet⟧."
+  },
+  {
+   "n": 254,
+   "word": "بلية",
+   "pos": "noun",
+   "meaning": "addiction, bad habit",
+   "sentence": "ال⟦بلية⟧ ديال الڭارو خايبة.",
+   "translation": "Smoking is a bad ⟦habit⟧.",
+   "note": "Not MSA بَلِيَّة (calamity)."
+  },
+  {
+   "n": 255,
+   "word": "شارجور",
+   "pos": "noun",
+   "meaning": "charger",
+   "sentence": "عندك ⟦شارجور⟧ ديال التيليفون؟",
+   "translation": "Do you have a phone ⟦charger⟧?"
+  },
+  {
+   "n": 256,
+   "word": "مانطة",
+   "pos": "noun",
+   "meaning": "blanket",
+   "sentence": "عطيني ⟦مانطة⟧، راني بردان.",
+   "translation": "Give me a ⟦blanket⟧, I'm cold."
+  },
+  {
+   "n": 257,
+   "word": "سرباية",
+   "pos": "noun",
+   "meaning": "waitress",
+   "sentence": "ال⟦سرباية⟧ جابت القهوة.",
+   "translation": "The ⟦waitress⟧ brought the coffee."
+  },
+  {
+   "n": 258,
+   "word": "صرفق",
+   "pos": "verb",
+   "meaning": "to slap",
+   "sentence": "ما⟦تصرفق⟧ش خوك!",
+   "translation": "Don't ⟦slap⟧ your brother!"
+  },
+  {
+   "n": 259,
+   "word": "فانيد",
+   "pos": "noun",
+   "meaning": "sweets, candy",
+   "sentence": "عطا للدراري ال⟦فانيد⟧.",
+   "translation": "He gave the kids ⟦sweets⟧."
+  },
+  {
+   "n": 260,
+   "word": "زلافة",
+   "pos": "noun",
+   "meaning": "bowl",
+   "sentence": "عطيني ⟦زلافة⟧ ديال الحريرة.",
+   "translation": "Give me a ⟦bowl⟧ of harira."
+  },
+  {
+   "n": 261,
+   "word": "تكشيطة",
+   "pos": "noun",
+   "meaning": "takchita (a long dress for parties)",
+   "sentence": "لبسات ⟦تكشيطة⟧ فالعرس.",
+   "translation": "She wore a ⟦takchita⟧ at the wedding."
+  },
+  {
+   "n": 262,
+   "word": "زعلولة",
+   "pos": "noun",
+   "meaning": "swing (for children)",
+   "sentence": "الدراري كيلعبو فال⟦زعلولة⟧.",
+   "translation": "The kids are playing on the ⟦swing⟧."
+  },
+  {
+   "n": 263,
+   "word": "تسارى",
+   "pos": "verb",
+   "meaning": "to go for a walk, to go sightseeing",
+   "sentence": "يالاه ⟦نتساراو⟧ شوية.",
+   "translation": "Let's ⟦go for a walk⟧."
+  },
+  {
+   "n": 264,
+   "word": "عطرية",
+   "pos": "noun",
+   "meaning": "spices",
+   "sentence": "زيد شوية ديال ال⟦عطرية⟧.",
+   "translation": "Add a bit of ⟦spice⟧."
+  },
+  {
+   "n": 265,
+   "word": "قميجة",
+   "pos": "noun",
+   "meaning": "shirt",
+   "sentence": "شريت ⟦قميجة⟧ بيضا.",
+   "translation": "I bought a white ⟦shirt⟧."
+  },
+  {
+   "n": 266,
+   "word": "ڭود",
+   "pos": "adv",
+   "meaning": "straight (ahead)",
+   "sentence": "سير ⟦ڭود⟧ وغادي تلقاها.",
+   "translation": "Go ⟦straight⟧ and you'll find it."
+  },
+  {
+   "n": 267,
+   "word": "روبيني",
+   "pos": "noun",
+   "meaning": "tap, faucet",
+   "sentence": "سد ال⟦روبيني⟧.",
+   "translation": "Turn off the ⟦tap⟧."
+  },
+  {
+   "n": 268,
+   "word": "فريز",
+   "pos": "noun",
+   "meaning": "strawberries",
+   "sentence": "كنبغي ال⟦فريز⟧ بزاف.",
+   "translation": "I really like ⟦strawberries⟧."
+  },
+  {
+   "n": 269,
+   "word": "فرماسيان",
+   "pos": "noun",
+   "meaning": "pharmacy",
+   "sentence": "شريت الدوا من ال⟦فرماسيان⟧.",
+   "translation": "I bought the medicine at the ⟦pharmacy⟧."
+  },
+  {
+   "n": 270,
+   "word": "برطمة",
+   "pos": "noun",
+   "meaning": "flat, apartment",
+   "sentence": "كريت ⟦برطمة⟧ فالرباط.",
+   "translation": "I rented a ⟦flat⟧ in Rabat."
+  },
+  {
+   "n": 271,
+   "word": "شياطة",
+   "pos": "noun",
+   "meaning": "leftovers, what's left over",
+   "sentence": "كلينا ال⟦شياطة⟧ ديال البارح.",
+   "translation": "We ate yesterday's ⟦leftovers⟧."
+  },
+  {
+   "n": 272,
+   "word": "شطّب",
+   "pos": "verb",
+   "meaning": "to sweep",
+   "sentence": "⟦شطّب⟧ الدار عفاك.",
+   "translation": "⟦Sweep⟧ the house, please.",
+   "note": "MSA شَطَبَ is \"to cross out\"."
+  },
+  {
+   "n": 273,
+   "word": "زڭل",
+   "pos": "verb",
+   "meaning": "to miss (a bus, a chance)",
+   "sentence": "⟦زڭلت⟧ الطوبيس.",
+   "translation": "I ⟦missed⟧ the bus."
+  },
+  {
+   "n": 274,
+   "word": "زردة",
+   "pos": "noun",
+   "meaning": "feast, big meal",
+   "sentence": "دارو ⟦زردة⟧ كبيرة.",
+   "translation": "They threw a big ⟦feast⟧."
+  },
+  {
+   "n": 275,
+   "word": "زعفان",
+   "pos": "adj",
+   "meaning": "upset, in a bad mood",
+   "sentence": "باه ⟦زعفان⟧ عليه.",
+   "translation": "His dad is ⟦cross⟧ with him."
+  },
+  {
+   "n": 276,
+   "word": "جدارمي",
+   "pos": "noun",
+   "meaning": "gendarme (country police officer)",
+   "sentence": "وقفنا ⟦جدارمي⟧ فالطريق.",
+   "translation": "A ⟦gendarme⟧ stopped us on the road."
+  },
+  {
+   "n": 277,
+   "word": "قشع",
+   "pos": "verb",
+   "meaning": "to make out, to see",
+   "sentence": "واش ⟦كتقشع⟧ شي حاجة؟",
+   "translation": "Can you ⟦see⟧ anything?",
+   "note": "Not MSA قَشَعَ (to clear away)."
+  },
+  {
+   "n": 278,
+   "word": "زليج",
+   "pos": "noun",
+   "meaning": "zellige (mosaic tiles)",
+   "sentence": "ال⟦زليج⟧ ديال هاد الدار زوين.",
+   "translation": "The ⟦tiles⟧ in this house are beautiful."
+  },
+  {
+   "n": 279,
+   "word": "كوش",
+   "pos": "noun",
+   "meaning": "nappy, diaper",
+   "sentence": "بدّل ليه ال⟦كوش⟧.",
+   "translation": "Change his ⟦nappy⟧.",
+   "note": "Not MSA كَوَّشَ (to grab)."
+  },
+  {
+   "n": 280,
+   "word": "جاكيطة",
+   "pos": "noun",
+   "meaning": "jacket",
+   "sentence": "نسيت ال⟦جاكيطة⟧ فالخدمة.",
+   "translation": "I left my ⟦jacket⟧ at work."
+  },
+  {
+   "n": 281,
+   "word": "طريطوار",
+   "pos": "noun",
+   "meaning": "pavement, sidewalk",
+   "sentence": "مشي على ال⟦طريطوار⟧.",
+   "translation": "Walk on the ⟦pavement⟧."
+  },
+  {
+   "n": 282,
+   "word": "حشمان",
+   "pos": "adj",
+   "meaning": "shy; ashamed",
+   "sentence": "هو ⟦حشمان⟧ شوية.",
+   "translation": "He's a bit ⟦shy⟧."
+  },
+  {
+   "n": 283,
+   "word": "تومة",
+   "pos": "noun",
+   "meaning": "garlic",
+   "sentence": "زيد ال⟦تومة⟧ للماكلة.",
+   "translation": "Add ⟦garlic⟧ to the food."
+  },
+  {
+   "n": 284,
+   "word": "فلبلاصة",
+   "pos": "adv",
+   "meaning": "right away, immediately",
+   "sentence": "جاوبني ⟦فلبلاصة⟧.",
+   "translation": "He answered me ⟦right away⟧."
+  },
+  {
+   "n": 285,
+   "word": "بيرمي",
+   "pos": "noun",
+   "meaning": "driving licence",
+   "sentence": "دوزت ال⟦بيرمي⟧ البارح.",
+   "translation": "I took my ⟦driving licence⟧ test yesterday."
+  },
+  {
+   "n": 286,
+   "word": "شطابة",
+   "pos": "noun",
+   "meaning": "broom",
+   "sentence": "جيب ال⟦شطابة⟧.",
+   "translation": "Bring the ⟦broom⟧."
+  },
+  {
+   "n": 287,
+   "word": "عروبي",
+   "pos": "noun",
+   "meaning": "country person",
+   "sentence": "باه ⟦عروبي⟧ من دكالة.",
+   "translation": "His dad is a ⟦country man⟧ from Doukkala."
+  },
+  {
+   "n": 288,
+   "word": "قهوي",
+   "pos": "adj",
+   "meaning": "brown",
+   "sentence": "عندها عينين ⟦قهويين⟧.",
+   "translation": "She has ⟦brown⟧ eyes."
+  },
+  {
+   "n": 289,
+   "word": "وقتاش",
+   "pos": "adv",
+   "meaning": "when?",
+   "sentence": "⟦وقتاش⟧ كيبدا الماتش؟",
+   "translation": "⟦When⟧ does the match start?"
+  },
+  {
+   "n": 290,
+   "word": "حجّام",
+   "pos": "noun",
+   "meaning": "barber",
+   "sentence": "مشيت عند ال⟦حجّام⟧.",
+   "translation": "I went to the ⟦barber⟧.",
+   "note": "MSA حَجَّام is \"cupper\"."
+  },
+  {
+   "n": 291,
+   "word": "خبع",
+   "pos": "verb",
+   "meaning": "to hide",
+   "sentence": "⟦خبعت⟧ الفلوس تحت المانطة.",
+   "translation": "I ⟦hid⟧ the money under the blanket."
+  },
+  {
+   "n": 292,
+   "word": "ماطيشة",
+   "pos": "noun",
+   "meaning": "tomatoes",
+   "sentence": "شري ال⟦ماطيشة⟧ من المارشي.",
+   "translation": "Buy ⟦tomatoes⟧ at the market."
+  },
+  {
+   "n": 293,
+   "word": "هبيل",
+   "pos": "adj",
+   "meaning": "crazy, mad",
+   "sentence": "واش نتا ⟦هبيل⟧؟",
+   "translation": "Are you ⟦crazy⟧?"
+  },
+  {
+   "n": 294,
+   "word": "دلاح",
+   "pos": "noun",
+   "meaning": "watermelon",
+   "sentence": "ال⟦دلاح⟧ بارد وبنين.",
+   "translation": "The ⟦watermelon⟧ is cold and tasty."
+  },
+  {
+   "n": 295,
+   "word": "حرايفي",
+   "pos": "adj",
+   "meaning": "skilful, good with one's hands",
+   "sentence": "هو ⟦حرايفي⟧ فالخدمة ديالو.",
+   "translation": "He's ⟦skilled⟧ at his work."
+  },
+  {
+   "n": 296,
+   "word": "سكويلة",
+   "pos": "noun",
+   "meaning": "school",
+   "sentence": "الدراري فال⟦سكويلة⟧.",
+   "translation": "The kids are at ⟦school⟧."
+  },
+  {
+   "n": 297,
+   "word": "صاية",
+   "pos": "noun",
+   "meaning": "skirt",
+   "sentence": "لبسات ⟦صاية⟧ زرقا.",
+   "translation": "She wore a blue ⟦skirt⟧."
+  },
+  {
+   "n": 298,
+   "word": "ضاية",
+   "pos": "noun",
+   "meaning": "pond, small lake",
+   "sentence": "عومنا فال⟦ضاية⟧.",
+   "translation": "We swam in the ⟦pond⟧."
+  },
+  {
+   "n": 299,
+   "word": "فاكية",
+   "pos": "noun",
+   "meaning": "dried fruit; fruit",
+   "sentence": "شرينا ال⟦فاكية⟧ للعيد.",
+   "translation": "We bought ⟦dried fruit⟧ for the holiday."
+  },
+  {
+   "n": 300,
+   "word": "لوطوروت",
+   "pos": "noun",
+   "meaning": "motorway",
+   "sentence": "خدينا ال⟦لوطوروت⟧ لمراكش.",
+   "translation": "We took the ⟦motorway⟧ to Marrakech."
+  }
+ ]
+}
