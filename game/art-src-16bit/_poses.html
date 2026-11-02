@@ -1,0 +1,48 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Creature poses</title>
+<style>
+  body { background: #2c2440; color: #ffd27a; font: 12px sans-serif; margin: 8px; }
+  .row { display: flex; gap: 4px; align-items: flex-end; margin-bottom: 6px; }
+  .row b { width: 90px; }
+  canvas { width: 132px; height: 132px; image-rendering: pixelated; background: #3a3256; }
+  #anim { width: 264px; height: 264px; }
+</style></head>
+<body>
+<p>The live battles' poses through render.js: walk 0-3, lunge, hurt, faint (grown, then baby). Animated: <canvas id="anim" width="88" height="88"></canvas></p>
+<div id="out"></div>
+<script type="module">
+import { BEASTS } from "../../web/js/game/data.js";
+import { composeCreature } from "../../web/js/game/render.js";
+const poses = [["walk 0", { walk: 0 }], ["walk 1", { walk: 1 }], ["walk 2", { walk: 2 }], ["walk 3", { walk: 3 }],
+  ["lunge .5", { act: "lunge", t: 0.5 }], ["hurt .1", { act: "hurt", t: 0.1 }], ["hurt .6", { act: "hurt", t: 0.6 }], ["faint .5", { act: "faint", t: 0.5 }]];
+const out = document.getElementById("out");
+const looks = [];
+for (const b of BEASTS) for (const size of ["m", "s"]) {
+  const look = { beast: b.id, stage: size === "s" ? "hatchling" : "juvenile", size, tint: null, equipped: {} };
+  looks.push(look);
+  const row = document.createElement("div");
+  row.className = "row";
+  row.innerHTML = `<b>${b.name}${size === "s" ? " (baby)" : ""}</b>`;
+  out.append(row);
+  for (const [, pose] of poses) {
+    const c = document.createElement("canvas");
+    c.width = c.height = 88;
+    row.append(c);
+    composeCreature(look, pose).then((f) => c.getContext("2d").drawImage(f, 0, 0));
+  }
+}
+// a live walk cycle, then a lunge, a hurt and a faint, for each creature in turn
+const anim = document.getElementById("anim").getContext("2d");
+let i = 0, f = 0;
+setInterval(async () => {
+  const look = looks[i % looks.length];
+  const n = f++;
+  const pose = n < 16 ? { walk: n % 4 } : n < 22 ? { act: "lunge", t: (n - 16) / 5 } : n < 28 ? { act: "hurt", t: (n - 22) / 5 } : { act: "faint", t: Math.min(1, (n - 28) / 5) };
+  if (n >= 34) { f = 0; i++; }
+  const fr = await composeCreature(look, pose);
+  anim.clearRect(0, 0, 88, 88);
+  anim.drawImage(fr, 0, 0);
+}, 140);
+window.posesReady = true;
+</script>
+</body></html>
