@@ -25,6 +25,10 @@ const poses = [
   ["champion", {}, { tint: { kind: "champion" } }],
   ["dressed", {}, { equipped: dressed }],
   ["dressed, walk 2", { step: 1, bob: 1 }, { equipped: dressed }],
+  ["hatchling", {}, { size: "s", stage: "hatchling" }],
+  ["hatchling walk 2", { step: 1, bob: 1 }, { size: "s", stage: "hatchling" }],
+  ["hatchling blink", { eyes: "blink" }, { size: "s", stage: "hatchling" }],
+  ["hatchling dressed", {}, { size: "s", stage: "hatchling", equipped: dressed }],
 ];
 const out = document.getElementById("out");
 for (const b of BEASTS) {

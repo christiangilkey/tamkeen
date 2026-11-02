@@ -1,0 +1,12 @@
+{
+  "id": "fluffball", "name": "Fluffball", "type": "ember", "set": "cyberpunk", "plan": "biped",
+  "art": "_hatch1.txt",
+  "palette": "4=#1a0b24 L=#ffc6e4 1=#ff8bc3 2=#f04aa0 3=#c02a90 M=#6e1862 c=#ffe8c8 y=#ffca86 o=#e8946a r=#c8584e a=#ffe14a W=#ffffff K=#12061a T=#3a3350 G=#5ff4ff",
+  "head": [[24, 27], [30, 23], [42, 19], [54, 19], [54, 36], [50, 40.5], [44, 43.5], [29, 44], [28, 39.5], [25.5, 37.5], [24, 36]],
+  "legs_back": [[41, 59], [49, 59], [49, 63], [41, 63]],
+  "legs_front": [[30, 59], [37, 59], [37, 64], [29.5, 64]],
+  "blink": [{"at": [39, 31], "rows": [".oooo.", "4cccc4"]}, {"at": [46, 32], "rows": ["yy", "44", "c."]}],
+  "sockets": {"hat": [40, 27], "face": [43, 32], "neck": [38, 44], "held": [37, 54], "back": [30, 48]},
+  "shirt": {"box": [29, 44, 47, 58], "letters": "L123M"},
+  "hover": 0
+}

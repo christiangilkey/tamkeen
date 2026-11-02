@@ -6188,7 +6188,12 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   `beastHeight(look)` places the habitat's bubbles/zzz; shadows use `shadow_m`. Names replace the plan name on the
   Creatures page, duel picker, friend bar, habitat line and info sheet; translated in `tools/i18n/tr/*/98-creatures.txt`
   ("Cat-ferret" via extra.txt: the extractor skips hyphenated words).
-- **Not done / follow-ups**: hatchlings look the same as juveniles (no baby art yet); mouths/expressions other than
+- **Hatchling looks** (2026-11-01, after v0.43.0): every creature also has a baby drawing `_hatch1.txt` (~65-72% of the
+  juvenile's height; brief in `creatures/HATCHLING_GUIDE.md`) cut by `rig_hatchling.json` into
+  `web/game-art/creature/beast/<id>/hatchling/` and `<id>_hatchling.aseprite`; beasts.js gives it as `young`.
+  `render.drawingOf(look)` picks it when `look.size === "s"` (a hatchling, or a juvenile kept looking like one).
+  Sheet: `creatures/_lineup_18_hatchlings.png`. Worn items are full size, so they look big on the babies.
+- **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.
   Checked in the browser on a fresh data folder: habitat (walking, dressed), Creatures page, Twin colouring; a battle

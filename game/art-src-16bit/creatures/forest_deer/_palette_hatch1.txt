@@ -1,0 +1,3 @@
+4=#10120c K=#0c0e08 W=#fffbe0 H=#d4de6a 1=#a6b62a 2=#788a14 3=#4c5c0e D=#2a340a R=#4e7c6a c=#f0d6a0 y=#bc9058 o=#7c5832 a=#ffe63c r=#3c2818 B=#a88658
+extra letters (not game slots): H D R B
+needs plant_ff_kit.py (scratchpad / notes folder) + draw2.py

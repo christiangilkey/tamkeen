@@ -1,0 +1,4 @@
+4=#030305 K=#020203 h=#465064 1=#2d3341 2=#20242d 3=#16191f d=#0d0f13 m=#4b6290 c=#e2ffe9 y=#3ff28a o=#14904c a=#a463ec r=#55208c W=#c8ccc6
+same palette as the juvenile (_ff4)
+pose: standing, tail up
+build needs draw.py, draw2.py and night_ff_kit.py (copied here as _night_ff_kit.py)

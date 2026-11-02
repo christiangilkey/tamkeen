@@ -1,0 +1,13 @@
+{
+  "id": "pebble", "name": "Moss boulder", "type": "stone", "set": "original", "plan": "blob",
+  "art": "_hatch1.txt",
+  "palette": "4=#1a120a K=#0c0806 h=#e2c088 1=#b89058 2=#8e6c3e 3=#664c2a d=#43301a c=#d8d4c4 y=#9e9a8c o=#66625a a=#9ccc3e r=#5a9420 m=#2e5c12 g=#ffb02a W=#fff4c8",
+  "head": [[37, 26], [60, 26], [60, 56], [37, 56]],
+  "legs_back": [[49, 54], [56, 54], [56, 64], [44, 64], [44, 55], [49, 55]],
+  "legs_front": [[[10, 54], [25, 54], [25, 64], [10, 64]],
+                 [[26, 53], [39, 53], [39, 54], [41, 54], [43, 57], [43, 64], [26, 64]]],
+  "blink": [{"at": [39, 41], "rows": ["KKKK.", "ddddd", ".KKKK"]}, {"at": [51, 41], "rows": [".KK", "ddd", ".KK"]}],
+  "sockets": {"hat": [46, 33], "face": [46, 42], "neck": [41, 52], "held": [34, 53], "back": [22, 46]},
+  "shirt": {"box": [10, 38, 36, 53], "letters": "h123d"},
+  "hover": 0
+}

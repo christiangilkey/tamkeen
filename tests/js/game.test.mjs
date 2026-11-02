@@ -223,6 +223,11 @@ test("every creature is drawn, cut into layers, with somewhere for each worn thi
       assert.ok(x >= 0 && y >= 0 && x < b.size[0] && y < b.size[1], `${b.id} ${slot} socket inside its drawing`);
     }
     for (const layer of beastLayers(b)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/${layer}.png`, import.meta.url)), `${b.id} ${layer}`);
+    // ...and a hatchling look of its own: smaller, with its own layers and sockets.
+    assert.ok(b.young, `${b.id} has a hatchling look`);
+    assert.ok(b.young.box[3] - b.young.box[1] < b.box[3] - b.box[1], `${b.id}'s hatchling is smaller`);
+    for (const slot of ["hat", "face", "neck", "held", "back"]) assert.ok(b.young.sockets[slot], `${b.id} hatchling ${slot}`);
+    for (const layer of beastLayers(b.young)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/hatchling/${layer}.png`, import.meta.url)), `${b.id} hatchling ${layer}`);
   }
 });
 

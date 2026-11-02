@@ -53,8 +53,9 @@ export const PART = {
 export { BEASTS };
 export const beastById = (id) => BEASTS.find((b) => b.id === id) || BEASTS[0];
 export const beastsOf = (type) => BEASTS.filter((b) => b.type === type);
-/** The layer files a creature has: body, head, head with shut eyes, its legs, and where a shirt goes. */
-export const beastLayers = (b) => ["body", "head", "blink", ...b.legs, ...(b.shirt ? ["shirt"] : [])];
+/** The layer files a look has (a creature, or its `young` hatchling look): body, head, head with shut eyes,
+ * its legs, and where a shirt goes. */
+export const beastLayers = (look) => ["body", "head", "blink", ...look.legs, ...(look.shirt ? ["shirt"] : [])];
 
 // Body plans: they set a creature's battle stats and one move. (`legs`/`arms`/`wings`/`hover` were for the
 // old part-built creatures; the drawings now carry their own limbs.)
@@ -417,6 +418,7 @@ export function artFiles() {
   // hand-made only, so the placeholder generator leaves it alone).
   for (const b of BEASTS) {
     for (const layer of beastLayers(b)) add(`creature/beast/${b.id}/${layer}.png`, b.size, "beast", { id: b.id });
+    if (b.young) for (const layer of beastLayers(b.young)) add(`creature/beast/${b.id}/hatchling/${layer}.png`, b.young.size, "beast", { id: b.id });
   }
   for (const t of TYPE_IDS) {
     add(`egg/${t}.png`, [32, 32], "egg", { type: t });

@@ -1,0 +1,2 @@
+4=#081820 K=#03090d h=#d8fff8 1=#8af3e2 2=#38d6c6 3=#1f9aa0 d=#145f6c c=#effffc y=#b4efe6 o=#6cbfbc a=#1b4c68 r=#0f2d44 g=#a8fcff e=#ff4fd8 W=#ffffff
+extra letters: h highlight, d deep shade, g cyan glow strip / rim light, e magenta glowing eyes

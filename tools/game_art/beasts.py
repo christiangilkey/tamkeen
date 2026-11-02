@@ -15,6 +15,9 @@ colour letters, `art`) and a rig.json that says how to cut it:
       "hover": 0                - pixels a floater stays off the ground
     }
 
+A creature may also have rig_hatchling.json (same fields, its baby drawing): the game shows it while the
+creature is a hatchling (game art in creature/beast/<id>/hatchling/).
+
 A polygon is a list of [x, y] corners in pixel units; a pixel belongs to it when its centre is inside.
 "head" etc. may also be a list of polygons.
 
@@ -51,9 +54,12 @@ def hexrgb(h: str) -> tuple[int, int, int]:
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
 
 
-def load(cid: str) -> tuple[dict, list[str], dict]:
+RIGS = {"juvenile": "rig.json", "hatchling": "rig_hatchling.json"}  # a creature's two looks: grown and baby
+
+
+def load(cid: str, form: str = "juvenile") -> tuple[dict, list[str], dict]:
     folder = SRC / cid
-    rig = json.loads((folder / "rig.json").read_text(encoding="utf-8"))
+    rig = json.loads((folder / RIGS[form]).read_text(encoding="utf-8"))
     rows = [r for r in (folder / rig["art"]).read_text(encoding="utf-8").split() if r]
     pal = {k: hexrgb(v) for k, v in (t.split("=") for t in rig["palette"].split())}
     missing = {ch for r in rows for ch in r if ch != "." and ch not in pal}
@@ -176,8 +182,8 @@ def bbox_of(layers) -> list[int]:
     return [min(p[0] for p in pts), min(p[1] for p in pts), max(p[0] for p in pts), max(p[1] for p in pts)]
 
 
-def preview(cid: str) -> Path:
-    rig, rows, pal = load(cid)
+def preview(cid: str, form: str = "juvenile") -> Path:
+    rig, rows, pal = load(cid, form)
     w, h = len(rows[0]), len(rows)
     layers = cut(rig, rows)
     item = lambda f: Image.open(ITEMS / f).convert("RGBA") if (ITEMS / f).exists() else None  # noqa: E731
@@ -212,14 +218,14 @@ def preview(cid: str) -> Path:
         d.line([x, 26 + FRAME * sc - 1, x + FRAME * sc - 1, 26 + FRAME * sc - 1], fill=(120, 110, 140, 255))
         sheet.alpha_composite(im.resize((FRAME * sc, FRAME * sc), Image.NEAREST), (x, 26))
         d.text((x, 6), label, fill=(255, 210, 120, 255), font=font)
-    out = SRC / cid / "_rig_preview.png"
+    out = SRC / cid / ("_rig_preview.png" if form == "juvenile" else f"_rig_preview_{form}.png")
     sheet.save(out)
     return out
 
 
 # ---------- the build ----------
 
-def lua_for(cid: str, layers, pal, w, h) -> list[str]:
+def lua_for(cid: str, layers, pal, w, h, form: str = "juvenile") -> list[str]:
     out = [f"do local spr = Sprite({w}, {h}, ColorMode.RGB)", "spr.layers[1].name = 'body'"]
     names = ["body", "legs_back", "legs_front", "head", "blink"]
     for i, name in enumerate(names):
@@ -233,54 +239,70 @@ def lua_for(cid: str, layers, pal, w, h) -> list[str]:
             out.append(f"img:drawPixel({x},{y},Color{{r={r},g={g},b={b},a=255}})")
     # the far legs go under the body in the stack
     out.append("spr.layers[2].stackIndex = 1")
-    path = (SRC / cid / f"{cid}.aseprite").as_posix()
+    path = (SRC / cid / (f"{cid}.aseprite" if form == "juvenile" else f"{cid}_{form}.aseprite")).as_posix()
     out.append(f'spr:saveAs("{path}") spr:close() end')
     return out
+
+
+def write_form(cid: str, form: str, aseprite: bool, lua: list) -> dict:
+    """Cut one look of a creature into its game layers; returns what beasts.js says about it."""
+    rig, rows, pal = load(cid, form)
+    w, h = len(rows[0]), len(rows)
+    layers = cut(rig, rows)
+    folder = OUT / cid if form == "juvenile" else OUT / cid / form
+    folder.mkdir(parents=True, exist_ok=True)
+    for name in ("body", "head", "blink", "legs_back", "legs_front"):
+        path = folder / f"{name}.png"
+        if layers[name] or name in ("body", "head", "blink"):
+            image(layers[name], pal, w, h).save(path)
+        elif path.exists():
+            path.unlink()
+    mask = shirt_mask(rig, layers)
+    if mask:
+        image({p: "x" for p in mask}, {"x": (255, 255, 255)}, w, h).save(folder / "shirt.png")
+    elif (folder / "shirt.png").exists():
+        (folder / "shirt.png").unlink()
+    if aseprite:
+        lua += lua_for(cid, layers, pal, w, h, form)
+    print(f"{cid} {form}: {', '.join(f'{n} {len(layers[n])}' for n in LAYERS)}")
+    return {"rig": rig, "pal": pal, "size": [w, h], "box": bbox_of(layers), "hover": rig.get("hover", 0),
+            "legs": [n for n in ("legs_back", "legs_front") if layers[n]], "shirt": bool(mask), "sockets": rig["sockets"]}
+
+
+def look_js(f: dict) -> str:
+    so = ", ".join(f"{k}: [{v[0]}, {v[1]}]" for k, v in f["sockets"].items())
+    return (f'size: [{f["size"][0]}, {f["size"][1]}], box: [{", ".join(map(str, f["box"]))}], hover: {f["hover"]}, '
+            f'legs: {json.dumps(f["legs"])}, shirt: {str(f["shirt"]).lower()},\n    sockets: {{ {so} }}')
 
 
 def build(aseprite: bool) -> None:
     ids = sorted(p.parent.name for p in SRC.glob("*/rig.json"))
     entries, lua = [], []
     for cid in ids:
-        rig, rows, pal = load(cid)
-        w, h = len(rows[0]), len(rows)
-        layers = cut(rig, rows)
-        folder = OUT / cid
-        folder.mkdir(parents=True, exist_ok=True)
-        for name in ("body", "head", "blink", "legs_back", "legs_front"):
-            path = folder / f"{name}.png"
-            if layers[name] or name in ("body", "head", "blink"):
-                image(layers[name], pal, w, h).save(path)
-            elif path.exists():
-                path.unlink()
-        mask = shirt_mask(rig, layers)
-        if mask:
-            image({p: "x" for p in mask}, {"x": (255, 255, 255)}, w, h).save(folder / "shirt.png")
-        if aseprite:
-            lua += lua_for(cid, layers, pal, w, h)
-        entries.append({
-            "id": cid, "name": rig["name"], "type": rig["type"], "set": rig["set"], "plan": rig["plan"],
-            "hue": body_hue(pal), "size": [w, h], "box": bbox_of(layers), "hover": rig.get("hover", 0),
-            "legs": [n for n in ("legs_back", "legs_front") if layers[n]], "shirt": bool(mask),
-            "sockets": rig["sockets"],
-        })
-        print(f"{cid}: {', '.join(f'{n} {len(layers[n])}' for n in LAYERS)}")
+        grown = write_form(cid, "juvenile", aseprite, lua)
+        young = write_form(cid, "hatchling", aseprite, lua) if (SRC / cid / RIGS["hatchling"]).exists() else None
+        if young is None and (OUT / cid / "hatchling").exists():
+            for f in (OUT / cid / "hatchling").glob("*.png"):
+                f.unlink()
+        rig = grown["rig"]
+        entries.append({"id": cid, "name": rig["name"], "type": rig["type"], "set": rig["set"], "plan": rig["plan"],
+                        "hue": body_hue(grown["pal"]), "grown": grown, "young": young})
     entries.sort(key=lambda e: (ORDER.index(e["type"]), SETS.index(e["set"])))
     lines = ["// Made by tools/game_art/beasts.py from game/art-src-16bit/creatures/*/rig.json: don't edit by hand.",
              "// One entry per creature: its name, element and look (original, cyberpunk or fantasy), its body plan",
-             "// (which sets its battle stats), the hue of its body, its drawing's size and the box its pixels fill,",
-             "// how high a floater hovers, which leg layers it has, whether it can wear a shirt, and where",
-             "// worn things sit (in its drawing's pixels).",
+             "// (which sets its battle stats), the hue of its body, and for its juvenile look (and `young`, its",
+             "// hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how",
+             "// high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things",
+             "// sit (in its drawing's pixels).",
              "export const BEASTS = ["]
     for e in entries:
-        so = ", ".join(f"{k}: [{v[0]}, {v[1]}]" for k, v in e["sockets"].items())
+        young = f"young: {{ {look_js(e['young'])} }}" if e["young"] else "young: null"
         lines.append(f'  {{ id: "{e["id"]}", name: "{e["name"]}", type: "{e["type"]}", set: "{e["set"]}", plan: "{e["plan"]}", '
-                     f'hue: {e["hue"]}, size: [{e["size"][0]}, {e["size"][1]}], box: [{", ".join(map(str, e["box"]))}], '
-                     f'hover: {e["hover"]}, legs: {json.dumps(e["legs"])}, shirt: {str(e["shirt"]).lower()},\n'
-                     f'    sockets: {{ {so} }} }},')
+                     f'hue: {e["hue"]},\n    {look_js(e["grown"])},\n    {young} }},')
     lines += ["];", ""]
     JS.write_text("\n".join(lines), encoding="utf-8")
-    print(f"{len(entries)} creatures -> {OUT.relative_to(ROOT)} and {JS.relative_to(ROOT)}")
+    print(f"{len(entries)} creatures ({sum(1 for e in entries if e['young'])} with a hatchling look) -> "
+          f"{OUT.relative_to(ROOT)} and {JS.relative_to(ROOT)}")
     if lua:
         script = SRC / "_build_aseprite.lua"
         script.write_text("\n".join(lua), encoding="utf-8")
@@ -291,8 +313,9 @@ def build(aseprite: bool) -> None:
 
 if __name__ == "__main__":
     if len(sys.argv) >= 3 and sys.argv[1] == "preview":
-        for c in sys.argv[2:]:
-            print(preview(c))
+        form = "hatchling" if "--hatchling" in sys.argv else "juvenile"
+        for c in [a for a in sys.argv[2:] if not a.startswith("--")]:
+            print(preview(c, form))
     elif len(sys.argv) >= 2 and sys.argv[1] == "build":
         build("--aseprite" in sys.argv)
     else:

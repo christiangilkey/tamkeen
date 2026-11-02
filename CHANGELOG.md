@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Hatchlings have a baby look of their own: each of the 18 creatures is also drawn as a baby (smaller, with a bigger head, shorter legs and little horns, wings, crests or antlers), which it keeps until it grows into a juvenile. Babies walk, blink, sleep and wear things just like the grown ones.
+
 ## v0.43.0 — 2026-11-01
 
 - **New:** Arabic dialect courses. When you're learning Arabic, Library → Courses has a Dialect menu above the Grammar and Basics tabs: Standard Arabic (MSA), Levantine, Egyptian, Gulf and Moroccan. Each dialect has its own Grammar lessons on what it does differently from Standard Arabic, and its own Basics list of its most common words that aren't Standard Arabic, with the same sentences, translations, Word and Sentence audio, Add to my cards and XP. Standard Arabic stays the default, and the app remembers your choice. A dialect appears in the menu once its course is published. The Moroccan words have no audio for now, because no computer voice says Darija well enough yet.

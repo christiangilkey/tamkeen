@@ -147,3 +147,17 @@ def scallops(cell=(5, 4), offset=(0, 0), lit_max=2):
             return k - 1
         return k
     return tex
+
+
+def settle(cv, bottom=63, centre_x=32):
+    """Move the drawing so its lowest pixel is on `bottom` and it is centred on `centre_x`."""
+    pts = [(x, y) for y in range(cv.h) for x in range(cv.w) if cv.g[y][x] != "."]
+    x0, x1 = min(p[0] for p in pts), max(p[0] for p in pts)
+    dy = bottom - max(p[1] for p in pts)
+    dx = centre_x - (x0 + x1 + 1) // 2
+    g = [["."] * cv.w for _ in range(cv.h)]
+    for x, y in pts:
+        if 0 <= x + dx < cv.w and 0 <= y + dy < cv.h:
+            g[y + dy][x + dx] = cv.g[y][x]
+    cv.g = g
+    return dx, dy

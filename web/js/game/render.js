@@ -100,13 +100,21 @@ const pixelsOf = (img) => {
   return g.getImageData(0, 0, img.width, img.height).data;
 };
 
+/** The drawing a creature is shown with: its hatchling look while it is a hatchling (if it has one), else its
+ * juvenile look. Both have a box, hover, legs, shirt and sockets; `dir` is where its layers are. */
+export function drawingOf(look) {
+  const b = beastById(look.beast);
+  if (look.size === "s" && b.young) return { ...b.young, id: b.id, dir: `creature/beast/${b.id}/hatchling/`, key: `${b.id}/s` };
+  return { ...b, dir: `creature/beast/${b.id}/`, key: b.id };
+}
+
 /** The body wearing a shirt: the shirt's pattern fills the pixels its mask marks (the coat of the torso). */
-async function shirted(body, beast, look) {
+async function shirted(body, form, look) {
   const shirt = look.equipped && look.equipped.shirt;
-  if (!body || !shirt || !beast.shirt) return body;
-  const id = `${beast.id}|shirt|${shirt}|${look.tint ? JSON.stringify(look.tint) : ""}`;
+  if (!body || !shirt || !form.shirt) return body;
+  const id = `${form.key}|shirt|${shirt}|${look.tint ? JSON.stringify(look.tint) : ""}`;
   if (layers.has(id)) return layers.get(id);
-  const [tile, mask] = await Promise.all([loadImage(`item/${shirt}.png`), loadImage(`creature/beast/${beast.id}/shirt.png`)]);
+  const [tile, mask] = await Promise.all([loadImage(`item/${shirt}.png`), loadImage(`${form.dir}shirt.png`)]);
   if (!tile || !mask) return body;
   const tp = pixelsOf(tile);
   const mp = pixelsOf(mask);
@@ -148,15 +156,15 @@ function goldEdge(ctx) {
 }
 
 /** Where a creature's drawing goes in the frame: centred, standing on the bottom edge (a floater above it). */
-export function beastOrigin(beast) {
-  const [x0, , x1, y1] = beast.box;
-  return [Math.round(FRAME / 2 - (x0 + x1 + 1) / 2), FRAME - (y1 + 1) - beast.hover];
+export function beastOrigin(form) {
+  const [x0, , x1, y1] = form.box;
+  return [Math.round(FRAME / 2 - (x0 + x1 + 1) / 2), FRAME - (y1 + 1) - form.hover];
 }
 
 /** How tall a creature stands, from the ground to the top of its head (for what is shown above it). */
 export function beastHeight(look) {
-  const b = beastById(look.beast);
-  return b.box[3] - b.box[1] + 1 + b.hover;
+  const f = drawingOf(look);
+  return f.box[3] - f.box[1] + 1 + f.hover;
 }
 
 const SHUT = new Set(["blink", "sleepy", "happy"]);
@@ -168,8 +176,8 @@ const SHUT = new Set(["blink", "sleepy", "happy"]);
  * Returns a canvas FRAME x FRAME with the creature facing right, feet at the bottom centre.
  */
 export async function composeCreature(look, pose = {}) {
-  const b = beastById(look.beast);
-  const dir = `creature/beast/${b.id}/`;
+  const b = drawingOf(look);
+  const dir = b.dir;
   const tint = look.tint || null;
   const step = pose.step ? 1 : 0;
   const bob = pose.bob || 0;

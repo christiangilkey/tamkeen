@@ -1,0 +1,4 @@
+4=#0a0814 K=#040309 h=#c08cff 1=#9a5ee6 2=#7a3ecc 3=#55219a d=#33106a k=#1b1029 m=#6f80d0 c=#f0eef6 y=#bdb8cc o=#7c7792 a=#ffa424 r=#b8560f W=#fff1cf
+same palette as the juvenile (_ff3)
+pose: hovering (as the juvenile), legs tucked
+build needs draw.py, draw2.py and night_ff_kit.py (copied here as _night_ff_kit.py)
