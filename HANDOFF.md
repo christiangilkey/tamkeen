@@ -6272,8 +6272,8 @@ four (section above): id `irq`, basics `ar-irq`, grammar `en-ar-irq`, Baghdad sp
   extract: tools/course/ar-irq/wikt.mjs), msa.mjs `SHIFTS` (گ -> ق ك, چ -> ك), candidates.mjs (no CAMeL dictionary
   for Iraqi, like Moroccan). Python file-name patterns already allowed any 3-letter dialect.
 - **Spelling**: گ for the Baghdad g, چ for ch, as Iraqi dictionaries and Wiktionary write them (online, Iraqis
-  mostly write ك and ج: counted in all spellings). Sent to the Decisions chat with the other option (ordinary ق/ك,
-  like the Gulf course); not blocked on it.
+  mostly write ك and ج: counted in all spellings). **The owner's choice** (2026-11-02, via the Decisions chat): "Use
+  the Iraqi spelling", with the Bassel voice, rather than ordinary ق/ك like the Gulf course.
 - **Voice**: Azure ar-IQ-BasselNeural. Azure's Iraqi voices (Bassel, Rana) **skip گ and چ silently**; given ق/ك
   they say q/k. With `<phoneme alphabet="ipa">` Bassel says g and tʃ (Rana turns g into dʒ; the IPA letter ɡ
   comes out silent, a plain g works). So **build_course.py** gained an opt-in: words.json `voice.ipa`
