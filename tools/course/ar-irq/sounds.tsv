@@ -1,0 +1,38 @@
+# How the course voice says each word written with گ (g) or چ (ch), letters Azure's Iraqi voice skips.
+# word as written, without vowel marks <TAB> its sound in IPA (Baghdad). make.mjs copies the ones the course
+# uses into words.json voice "ipa"; build_course.py has the voice say those words from their IPA. Written with a
+# plain g: Azure's Bassel says that as g (the IPA letter ɡ came out silent in the voice test). A g at the end of a
+# word, or before another consonant, is written double (gg) and a word starting with a vowel gets ʔ: said once, the
+# voice dropped them (checked with a phoneme recogniser, tools/course/ar-irq/README.md).
+چاي	tʃaːj
+هيچ	hiːtʃ
+تحچي	tiħtʃi
+شگد	ʃgadd
+للسوگ	lissuːg
+حچى	ħitʃa
+أحچي	aħtʃi
+باچر	baːtʃir
+ومرگ	wimarag
+گعدنا	gʕadna
+چا	tʃaː
+ذيچ	ðiːtʃ
+جگارة	dʒigaːra
+تريگ	trajjagg
+تريگت	trajjagit
+وگيمر	wiggeːmar
+طرگاعة	tˤirgaːʕa
+خاشوگة	xaːʃuːgga
+الخاشوگة	ilxaːʃuːga
+وگعت	wugʕat
+مگطوع	maggtˤuːʕ
+بنچر	pantʃar
+اگعد	ʔugʕud
+دوشگ	doːʃagg
+بالگاع	bilgaːʕ
+چطل	tʃatˤal
+وخاشوگة	wixaːʃuːgga
+مگرود	magruːd
+عگروگ	ʕagruːgg
+بالحديگة	bilħadiːgga
+چرخ	tʃarix
+چول	tʃoːl

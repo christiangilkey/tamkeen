@@ -114,6 +114,23 @@
    "bytes": 87441,
    "sha256": "978d2af168e10518b1fb2f9b377f477b6ef988651ffdbebf76473c081d3eeb8e"
   },
+  "en-ar-irq": {
+   "file": "en-ar-irq/course.json",
+   "from": "en",
+   "to": "ar",
+   "dialect": "irq",
+   "title": "Iraqi Arabic grammar",
+   "variety": "Iraqi Arabic, Baghdad style",
+   "units": 4,
+   "lessons": 16,
+   "levels": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "bytes": 85983,
+   "sha256": "2b51ede14e2ec333cfeabcebd520b084f4354f847de42969ff0b29f1e3c7cd5a"
+  },
   "en-ar-lev": {
    "file": "en-ar-lev/course.json",
    "from": "en",

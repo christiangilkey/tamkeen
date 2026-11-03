@@ -1,0 +1,102 @@
+# The Iraqi basics word list, written by hand (tools/course/ar-irq/README.md). One word a line:
+# word | pos | meaning | note | Wiktionary headwords (comma between) | Living Arabic headwords | forms counted in the texts | sentence | translation
+# `note`: how it differs from a Standard Arabic word spelled the same (rule 4). "headword~pattern": only the senses
+# whose meaning matches the pattern. The word as the sentence has it is the part marked ⟦ ⟧.
+بَسّ|adv|only, just; but|Not MSA بَسَّ (to crush).|بس|بس~only|بس|أَرِيد ⟦بَسّ⟧ چَاي.|I ⟦just⟧ want tea.
+هِيچ|adv|like this, like that, so||هيچ~thus|هيج~like this|هيچ هيج هيچي هيجي|لَيْش تِحْچِي ⟦هِيچ⟧؟|Why are you talking ⟦like that⟧?
+كُلِّش|adv|very||كلش|كلش~very|كلش كولش|الْأَكِل ⟦كُلِّش⟧ طَيِّب.|The food is ⟦very⟧ tasty.
+مُو|particle|not (before a noun, an adjective or a place)|Not MSA مُو (a plant). MSA says لَيْسَ.|مو~not|مو~not|مو|هَذَا ⟦مُو⟧ بَيْتِي.|This is ⟦not⟧ my house.
+شِنُو|pron|what?||شنو,شني|شنو|شنو شني اشنو|⟦شِنُو⟧ اسْمَك؟|⟦What's⟧ your name?
+هَاي|pron|this (for a feminine word)||هاي||هاي هايه|⟦هَاي⟧ بِنْتِي.|⟦This⟧ is my daughter.
+شْگَدّ|adv|how much? how many? how long?||شگد|شكد|شگد شكد شقد اشكد اشگد|⟦شْگَدّ⟧ سِعْرَه؟|⟦How much⟧ is it?
+هَسَّه|adv|now; just now||هسه,هسة|هسه|هسه هسا هسع|وَيْنَك ⟦هَسَّه⟧؟|Where are you ⟦now⟧?
+وِيَّا|prep|with||ويا|ويا|ويا وياك وياي وياه وياها ويانا ويانه وياكم وياهم وياج|تِجِي ⟦وِيَّاي⟧ لِلسُّوگ؟|Will you come to the market ⟦with me⟧?
+حِچَى|verb|to talk, to speak|MSA حَكَى means to tell, to narrate.|حچى|حجى~speak|حچى حجى حجيت حچيت يحجي يحچي تحجي تحچي احجي احچي نحجي نحچي يحجون يحچون تحجين تحچين تحجون|أَرِيد ⟦أَحْچِي⟧ وِيَّاك شْوَيَّة.|I want ⟦to talk⟧ to you for a bit.
+شَاف|verb|to see|In MSA شافَ only means “to look down at”.|شاف~see|شاف~see|شاف شافت شفت شافو شافوا يشوف تشوف اشوف نشوف شوف شوفي شوفو يشوفون تشوفين|⟦شِفِت⟧ أَخُوك الْبَارْحَة.|I ⟦saw⟧ your brother yesterday.
+أَكُو|particle|there is, there are||أكو|اكو|اكو|⟦أَكُو⟧ مَطْعَم زَيْن هْنَا.|⟦There's⟧ a good restaurant here.
+لَيْش|adv|why?|||ليش|ليش|⟦لَيْش⟧ مَا جِيت؟|⟦Why⟧ didn't you come?
+إِحْنَا|pron|we||احنا|احنا|احنا احنه|⟦إِحْنَا⟧ مِن بَغْدَاد.|⟦We're⟧ from Baghdad.
+شْلَوْن|adv|how?||شلون|شلون|شلون اشلون|⟦شْلَوْن⟧ رِحِت لِلشُّغُل؟|⟦How⟧ did you get to work?
+هْوَايَة|adv|a lot, many; very|Not MSA هِوَايَة (hobby).|هواية,هواي|هواية|هوايه هواي اهواي|أَحِبّ بَغْدَاد ⟦هْوَايَة⟧.|I love Baghdad ⟦a lot⟧.
+إِجَا|verb|to come|||اجا~come|اجا اجه اجت اجيت يجي تجي اجي نجي يجون تجين اجو اجوا|أَخُويَه ⟦إِجَا⟧ مِن الْبَصْرَة.|My brother ⟦came⟧ from Basra.
+وَيْن|adv|where?||وين|وين~where|وين|⟦وَيْن⟧ الْحَمَّام؟|⟦Where's⟧ the bathroom?
+مِنُو|pron|who?||منو|منو~who|منو|⟦مِنُو⟧ هَذَا؟|⟦Who's⟧ this?
+عَلَمُود|prep|for, for the sake of; so that||على مود|علمود|علمود علمودك علموده علمودي علمودج علمودكم|جِيت ⟦عَلَمُود⟧ أَشُوفَك.|I came ⟦so that⟧ I could see you.
+زَيْن|adj|good, fine; well|Not MSA زَيْن (beauty).|زين~good|زين~fine|زين زينه زينين|الْحَمْدُ لِلّٰه، آنِي ⟦زَيْن⟧.|Thank God, I'm ⟦fine⟧.
+شْوَكِت|adv|when?||شوكت|شوكت|شوكت اشوكت|⟦شْوَكِت⟧ تِرْجَع؟|⟦When⟧ are you coming back?
+لَعَد|particle|so then, in that case||لعد|لعد|لعد|⟦لَعَد⟧ خَلّ نْرُوح.|⟦Well then⟧, let's go.
+تْخَبُّل|adj|amazing, awesome (literally: it drives you crazy)|||تخبل~unbelievable|تخبل|الْأُغْنِيَة ⟦تْخَبُّل⟧!|The song is ⟦amazing⟧!
+يَمّ|prep|next to, beside; at (someone's place)|Not MSA يَمّ (sea).|يم|يم~beside|يم يمنا يمكم يمهم|الصَّيْدَلِيَّة ⟦يَمّ⟧ الْمَطْعَم.|The pharmacy is ⟦next to⟧ the restaurant.
+يَابَه|noun|Dad!; (to friends) mate, guys||يابا||يابه يابا|⟦يَابَه⟧، تَعَال شُوف!|⟦Mate⟧, come and look!
+شْوَيَّة|adv|a little, a bit|||شوية|شويه شوي|أَحْچِي عِرَاقِي ⟦شْوَيَّة⟧.|I speak Iraqi ⟦a little⟧.
+بَعْدَيْن|adv|later; then|||بعدين|بعدين|⟦بَعْدَيْن⟧ أَخَابْرَك.|I'll phone you ⟦later⟧.
+فَدّ|particle|a, one (before a noun)||فد||فد|عِنْدِي ⟦فَدّ⟧ سُؤَال.|I have ⟦a⟧ question.
+جَاب|verb|to bring|Not MSA جَابَ (to travel across).||جاب~bring|جاب جابت جبت جابو جابوا يجيب تجيب اجيب نجيب جيب جيبي يجيبون|⟦جِيب⟧ الْمَاي وِيَّاك.|⟦Bring⟧ the water with you.
+سَالْفَة|noun|story; what's going on|Not MSA سَالِفَة (former).||سالفة|سالفه السالفه سوالف السوالف|شِنُو ⟦السَّالْفَة⟧؟|What's ⟦going on⟧?
+نِطَى|verb|to give|||نطى~give|انطي ينطي تنطي نطي انطيني نطاني انطاني نطيت انطيت ينطون|⟦اِنْطِينِي⟧ التَّلَفَوْن.|⟦Give me⟧ the phone.
+خَطِيَّة|adj|poor thing!|Not MSA خَطِيئَة (sin).||خطية~poor|خطيه|⟦خَطِيَّة⟧، تَعْبَان هْوَايَة.|⟦Poor thing⟧, he's very tired.
+بَاوَع|verb|to look (at)||باوع|باوع|باوع اباوع تباوع يباوع نباوع باوعت باوعي باوعو باوعوا يباوعون تباوعين|⟦بَاوِع⟧ عَلَى هَذَا!|⟦Look⟧ at this!
+إِنْتُو|pron|you (talking to several people)|||انتو|انتو انتوا|⟦إِنْتُو⟧ شْتْرِيدُون؟|What do ⟦you all⟧ want?
+يَلَّا|interj|come on, let's go|||يلا~come on|يلا يله|⟦يَلَّا⟧، تْأَخَّرْنَا!|⟦Come on⟧, we're late!
+شَغْلَة|noun|thing, matter; job (to do)|||شغلة|شغله شغلات الشغله|عِنْدِي ⟦شَغْلَة⟧ لَازِم أَخَلُّصْهَا.|I have ⟦a job⟧ I need to finish.
+حَيْل|adv|very much; hard|Not MSA حَيْل (strength).||حيل~very|حيل|اشْتِغَلِت ⟦حَيْل⟧ الْيَوْم.|I worked ⟦hard⟧ today.
+خَوْش|adj|good, nice (before the noun)|Not the MSA verb خَوَّشَ (to countersink).|خوش|خوش~good|خوش|هَذَا ⟦خَوْش⟧ مَطْعَم.|This is a ⟦good⟧ restaurant.
+أَشُو|particle|it looks like, it seems|||اشو~seems|اشو|⟦أَشُو⟧ مَحَّد هْنَا.|⟦Looks like⟧ nobody's here.
+بَاچِر|adv|tomorrow|Not MSA بَاكِر (early).|باچر|باجر|باچر باجر|أَشُوفَك ⟦بَاچِر⟧.|See you ⟦tomorrow⟧.
+هَذَوْل|pron|these|||هذول|هذول هذوله هاذول|⟦هَذَوْل⟧ جِيرَانَّا.|⟦These⟧ are our neighbours.
+بَيْش|adv|for how much?|Not MSA بِيش (aconite, a plant).||بيش~how much|بيش بايش|⟦بَيْش⟧ الْكِيلُو؟|⟦How much⟧ is a kilo?
+بَلْكِي|adv|maybe, hopefully|||بلكي|بلكي بلكت بلكن|⟦بَلْكِي⟧ يِجِي بَاچِر.|⟦Maybe⟧ he'll come tomorrow.
+عَاف|verb|to leave (alone), to let go|MSA عافَ means to loathe (food).||عاف~leave|عاف عفت عافت يعوف تعوف اعوف عوف عوفه عوفني عوفيني|⟦عُوفْنِي⟧، مَا عِنْدِي وَكِت.|⟦Leave me alone⟧, I've got no time.
+ضَاج|verb|to get fed up, to get bored||ضاج|ضاج|ضاج ضايج ضايجه ضجت ضاجت يضوج اضوج|⟦ضِجِت⟧ مِن الْبَيْت.|I'm ⟦fed up⟧ with being at home.
+تِمَّن|noun|rice|Not MSA ثَمَن (price).|تمن|تمن|تمن التمن|أَكَلْنَا ⟦تِمَّن⟧ وِمَرَگ الْيَوْم.|We ate ⟦rice⟧ and stew today.
+مْنَيْن|adv|where from?||منين|منين|منين|⟦مْنَيْن⟧ إِنْتَ؟|⟦Where⟧ are you from?
+جَاهِل|noun|child, kid (plural جَهَّال)|Not MSA جَاهِل (ignorant).|جاهل~child|جاهل~child|جاهل جهال الجهال جهالي جهالك جهاله جهالنا الجاهل|⟦الْجَهَّال⟧ يِلْعَبُون بَرَّه.|⟦The kids⟧ are playing outside.
+سَوْلَف|verb|to chat|||سولف|سولف يسولف تسولف اسولف سولفت نسولف|گْعَدْنَا ⟦نْسَوْلِف⟧ لِلصُّبُح.|We sat ⟦chatting⟧ till morning.
+چَا|particle|so, then; well?||چا~then|جا~then|چا|⟦چَا⟧ شْتْرِيد؟|⟦So⟧ what do you want?
+دَزّ|verb|to send|||دز~send|دز يدز تدز ادز دزيت دزلي دزيته دزها|⟦دِزّلِي⟧ الصُّورَة.|⟦Send me⟧ the picture.
+هَلَا|interj|hello, welcome|Not MSA هَلَّا (why not).||هلا~welcome|هلا|⟦هَلَا⟧ بِيك!|⟦Welcome⟧!
+رَبُع|noun|friends, mates (your group)|Not MSA رُبْع (a quarter).||ربع~friends|ربعي ربعك ربعه ربعنا ربعج|طْلَعِت وِيَّا ⟦رَبْعِي⟧.|I went out with ⟦my friends⟧.
+طَوْبَة|noun|ball; football|Not MSA طَوْبَة (brick).|طوبة|طوبة|طوبه الطوبه|عِنْدَك ⟦طَوْبَة⟧؟ خَلّ نِلْعَب.|Have you got a ⟦ball⟧? Let's play.
+ذِيچ|pron|that (for a feminine word)|||ذيج~that|ذيچ ذيج|⟦ذِيچ⟧ السَّيَّارَة مَالْتِي.|⟦That⟧ car is mine.
+هَلَو|interj|hi!||هلو|هلو|هلو|⟦هَلَو⟧، شْلَوْنَك؟|⟦Hi⟧, how are you?
+جَوَّه|adv|under, down, downstairs||جوة~down|جوة~under|جوه|الْمِفْتَاح ⟦جَوَّه⟧ الْمَيْز.|The key is ⟦under⟧ the table.
+يَاهُو|pron|which one? who?|||ياهو|ياهو|⟦يَاهُو⟧ الْأَحْسَن؟|⟦Which one⟧ is better?
+لِزَم|verb|to catch, to grab|MSA لَزِمَ means to be necessary.||لزم~catch|لزمه لزمها لزمني لزمته لزمتها لزمتني الزمه الزمها الزمني|⟦اِلْزَم⟧ الطَّوْبَة!|⟦Catch⟧ the ball!
+زِلْمَة|noun|man, guy||زلمة|زلمة|زلمه الزلمه|هَذَا ⟦الزِّلْمَة⟧ جَارْنَا.|This ⟦man⟧ is our neighbour.
+مُطِي|noun|donkey; (as an insult) idiot||مطي|مطي~donkey|مطي المطي مطايه مطايا|جَدِّي عِنْدَه ⟦مُطِي⟧ بِالْمَزْرَعَة.|My grandad has a ⟦donkey⟧ on the farm.
+خَوْب|interj|well; all right then||خوب~well|خوب~thus|خوب|⟦خَوْب⟧، شْتْرِيد هَسَّه؟|⟦Well⟧, what do you want now?
+تْدَلَّل|interj|as you wish; make yourself at home|||تدلل~imperative|تدلل تدللين تدللون|⟦تْدَلَّل⟧، الْبَيْت بَيْتَك.|⟦Make yourself at home⟧, the house is yours.
+بَزُّون|noun|cat||بزون|بزون|بزون البزون بزونه بزازين البزازين|⟦الْبَزُّون⟧ يْحِبّ الْحَلِيب.|⟦The cat⟧ likes milk.
+جِگَارَة|noun|cigarette|||جكارة|جكاره جگاره الجكاره جكاير|⟦جِگَارَة⟧ وَحْدَة بَسّ.|Just one ⟦cigarette⟧.
+بِيبِي|noun|grandma|||بيبي~grandmother|بيبي|⟦بِيبِي⟧ تْسَوِّي أَطْيَب كُبَّة.|⟦Grandma⟧ makes the best kubba.
+تْرَيَّگ|verb|to have breakfast|||تريك~breakfast|تريك تريگ اتريك يتريك نتريك تريكت|⟦تْرَيَّگِت⟧ صَمُّون وِگَيْمَر.|I ⟦had breakfast⟧: bread and cream.
+خَابَر|verb|to phone|MSA خَابَرَ means to write to, to contact.||خابر~telephone|خابر يخابر اخابر خابرت خابرني|⟦خَابِرْنِي⟧ لَمَّن تُوصَل.|⟦Call me⟧ when you get there.
+صُفَن|verb|to zone out, to stare into space|Not MSA صَفَن (a part of the body).||صفن~space out|صفن صافن صفنت|لَيْش ⟦صَافِن⟧؟ شْبِيك؟|Why are you ⟦staring into space⟧? What's up?
+مَيْز|noun|table, desk|Not MSA مَيَّزَ (to tell apart).|ميز|ميز~table|ميز الميز|الْكُتُب عَلَى ⟦الْمَيْز⟧.|The books are on ⟦the table⟧.
+طِرْگَاعَة|noun|disaster, big trouble||طرگاعة|طركاعة~disaster|طركاعه طرگاعه|صَارَت ⟦طِرْگَاعَة⟧!|There's been ⟦a disaster⟧!
+شُمَر|verb|to throw|Not MSA شَمَّرَ (to tuck up).||شمر~throw|شمر يشمر تشمر شمرت اشمر شمره|لَا ⟦تِشْمُر⟧ الزِّبَالَة هْنَا.|Don't ⟦throw⟧ rubbish here.
+صَمُّون|noun|bread (Iraqi oval rolls)|||صمون~Iraqi|صمون الصمون صمونه صمونات|⟦الصَّمُّون⟧ حَارّ، هَسَّه طِلَع.|⟦The bread⟧ is hot, it's just come out.
+خَاشُوگَة|noun|spoon||خاشوقة,خاشوكة|خاشوكة|خاشوكه خاشوقه خاشوگه|⟦الْخَاشُوگَة⟧ وُگْعَت.|⟦The spoon⟧ fell.
+كَرْوَة|noun|fare (for a taxi or bus)||كروة|كروة~fare|كروه الكروه|⟦الْكَرْوَة⟧ خَمِس تَالَاف.|⟦The fare⟧ is five thousand.
+تَيْل|noun|wire, cable||تيل|تيل~wire|تيل التيل|⟦تَيْل⟧ الشَّاحِن مَگْطُوع.|The charger ⟦cable⟧ is broken.
+مَوْطَة|noun|ice cream||موطة~ice|موطة~ice|موطه الموطه|أَرِيد ⟦مَوْطَة⟧ بِالشُّكُولَاتَة.|I want chocolate ⟦ice cream⟧.
+بَنْكَة|noun|fan (electric, often on the ceiling)||بنكة,پنکه||بنكه البنكه پنكه|شَغِّل ⟦الْبَنْكَة⟧، الْجَوّ حَارّ.|Turn on ⟦the fan⟧, it's hot.
+سْبِلِت|noun|air conditioner (split unit)||سپلت||سبلت سپلت السبلت|⟦السْبِلِت⟧ مَا يِشْتُغُل.|⟦The air conditioner⟧ isn't working.
+بَايْسِكِل|noun|bicycle||بايسكل,پايسكل|بايسكل|بايسكل پايسكل|عِنْدِي ⟦بَايْسِكِل⟧ جِدِيد.|I've got a new ⟦bike⟧.
+كِتْلِي|noun|kettle||كتلي|كتلي|كتلي|حُطّ ⟦الْكِتْلِي⟧ عَلَى النَّار.|Put ⟦the kettle⟧ on.
+مَاطَوْر|noun|motor: a water pump, a generator; motorbike||ماطور|ماطور|ماطور|⟦مَاطَوْر⟧ الْمَاي عَاطِل.|The water ⟦pump⟧ is broken.
+بَنْچَر|noun|puncture, flat tyre||بنچر,پنچر||بنچر بنجر پنچر|السَّيَّارَة بِيهَا ⟦بَنْچَر⟧.|The car has a ⟦flat tyre⟧.
+قَنَفَة|noun|sofa||قنفة|قنفة|قنفه القنفه|اُگْعُد عَلَى ⟦الْقَنَفَة⟧.|Sit on ⟦the sofa⟧.
+دَوْشَگ|noun|mattress||دوشك|دوشك~mattress|دوشك دوشگ|نِمِت عَلَى ⟦دَوْشَگ⟧ بِالْگَاع.|I slept on a ⟦mattress⟧ on the floor.
+خَاوْلِي|noun|towel||خاولي|خاولي|خاولي|وَيْن ⟦الْخَاوْلِي⟧؟|Where's ⟦the towel⟧?
+اسْتِكَان|noun|small tea glass|Not MSA اسْتَكَانَ (to submit).||استكان|استكان استكانات|أَشْرَب ⟦اسْتِكَان⟧ چَاي.|I'll have a ⟦glass⟧ of tea.
+قَرْيَوْلَة|noun|bed||قريولة|قريولة|قريوله|⟦الْقَرْيَوْلَة⟧ زْغَيْرَة.|⟦The bed⟧ is small.
+چَطَل|noun|fork||چطل|جطل~fork|چطل جطل|اِنْطِينِي ⟦چَطَل⟧ وِخَاشُوگَة.|Give me a ⟦fork⟧ and a spoon.
+مَگْرُود|adj|poor (to be pitied), wretched|||مكرود|مكرود مگرود مكروده|⟦مَگْرُود⟧، مَا عِنْدَه أَحَد.|⟦Poor guy⟧, he has nobody.
+زَرْدُوم|noun|throat||زردوم|زردوم|زردوم زردومي|⟦زَرْدُومِي⟧ يَوْجَعْنِي.|⟦My throat⟧ hurts.
+عَگْرُوگ|noun|frog||عگروگ|عكروك|عكروك عگروگ|أَكُو ⟦عَگْرُوگ⟧ بِالْحَدِيگَة.|There's a ⟦frog⟧ in the garden.
+چَرِخ|noun|wheel||چرخ|جرخ~wheel|چرخ جرخ|⟦چَرِخ⟧ الْبَايْسِكِل مَكْسُور.|The bike's ⟦wheel⟧ is broken.
+شَفْقَة|noun|hat (with a brim)|Not MSA شَفَقَة (pity).||شفقة~hat|شفقه|اِلْبَس ⟦الشَّفْقَة⟧، الشَّمِس حَارَّة.|Put on ⟦your hat⟧, the sun's hot.
+خَشِم|noun|nose||خشم|خشم~nose|خشم خشمي خشمه خشمك|⟦خَشْمَه⟧ أَحْمَر مِن الْبَرْد.|⟦His nose⟧ is red from the cold.
+چَوْل|noun|desert, wasteland||چول|جول~desert|چول جول|كُلَّه ⟦چَوْل⟧، مَاكُو بُيُوت.|It's all ⟦desert⟧, there are no houses.
+أَدَبْسِز|adj|rude, ill-mannered||ادبسز|ادبسز|ادبسز|لَا تْصِير ⟦أَدَبْسِز⟧.|Don't be ⟦rude⟧.
