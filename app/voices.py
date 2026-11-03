@@ -78,7 +78,7 @@ VOICES: dict[str, list[dict[str, Any]]] = {
 }
 # No voice here, and why (shown in Settings): only non-commercial Piper voices, or none at all.
 NO_VOICE = {"hi": "noncommercial", "ko": "noncommercial", "ja": "noncommercial", "th": "noncommercial",
-            "zh": "unclear", "tl": "none", "ceb": "none"}
+            "zh": "unclear", "tl": "none", "ceb": "none", "la": "none"}
 
 # The silence round each part of a card's voice (seconds): the gap keeps the word and the sentence apart.
 LEAD, GAP, TAIL = 0.06, 0.9, 0.35

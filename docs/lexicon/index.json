@@ -130,6 +130,16 @@
    "forms": 0,
    "lexemes": 32124
   },
+  "la": {
+   "file": "la-lemmas.json.gz",
+   "bytes": 3070205,
+   "sha256": "2c335d186451e122bc93d18f34f619cc424375587689e6693882bb747b53e46b",
+   "title": "Latin word forms",
+   "db": "Wiktionary (kaikki.org) + Project Gutenberg's Latin books",
+   "license": "CC-BY-SA-4.0",
+   "forms": 983563,
+   "lexemes": 37451
+  },
   "lev": {
    "file": "ar-lev.json.gz",
    "bytes": 345050,
@@ -279,6 +289,16 @@
    "license": "CC-BY-SA-4.0",
    "words": 33321,
    "forms": 11535
+  },
+  "mean-la": {
+   "file": "la-meanings.json.gz",
+   "bytes": 8382481,
+   "sha256": "77b4c214cee4a1f40fc4a5a868b09d856aebf268e94d838da6abf0d8a952ad3f",
+   "title": "Latin meanings",
+   "db": "English Wiktionary (Wiktextract, kaikki.org)",
+   "license": "CC-BY-SA-4.0",
+   "words": 46030,
+   "forms": 730429
   },
   "mean-pt": {
    "file": "pt-meanings.json.gz",
@@ -458,6 +478,14 @@
    "sha256": "78c21276ab14c9bb734d83be1055d9fe5469a4e7e977c51ad385be5737e61126",
    "title": "Text reading: Korean",
    "db": "tessdata 4.0.0_best_int (@tesseract.js-data/kor 1.0.0)",
+   "license": "Apache-2.0"
+  },
+  "ocr-lat": {
+   "file": "ocr-lat.traineddata.gz",
+   "bytes": 1739234,
+   "sha256": "22101c28f8f9b3e0b08a526a3e7895bb319d1e876684a150901c2e8580060e31",
+   "title": "Text reading: Latin",
+   "db": "tessdata 4.0.0_best_int (@tesseract.js-data/lat 1.0.0)",
    "license": "Apache-2.0"
   },
   "ocr-por": {

@@ -11,7 +11,7 @@ import { cacheKey, define, markWord, schemaFor, systemPrompt, SCHEMA } from "../
 import { endsSentence, EDGE_PUNCT } from "../../web/js/wordlookup.js";
 
 test("sixteen languages, each with everything the screens need", () => {
-  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "pt", "ca", "ceb", "th", "de", "fa", "hi", "ko", "en"]);
+  assert.deepEqual(LANGUAGE_CODES, ["es", "ar", "fr", "ja", "zh", "ru", "it", "tl", "pt", "ca", "ceb", "th", "de", "fa", "hi", "ko", "la", "en"]);
   for (const code of LANGUAGE_CODES) {
     const L = LANGUAGES[code];
     for (const key of ["name", "native", "hello", "hi", "search", "word", "sample", "pageSample", "standard", "note"]) {

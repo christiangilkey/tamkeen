@@ -13,7 +13,10 @@
   "Hello World": "hello world",
   "ज़रूर": "जरूर",
   "हूँ": "हूं",
-  "फ़िल्म देखी": "फिल्म देखी"
+  "फ़िल्म देखी": "फिल्म देखी",
+  "Arma virumque canō, Trōiae quī prīmus": "arma virumque cano, troiae qui primus",
+  "RŌMAE": "romae",
+  "amō": "amo"
  },
  "spans": [
   [
@@ -71,6 +74,36 @@
     [
      9,
      12
+    ]
+   ]
+  ],
+  [
+   "Arma virumque canō, Trōiae quī prīmus ab ōrīs",
+   "troiae",
+   [
+    [
+     20,
+     26
+    ]
+   ]
+  ],
+  [
+   "Gallia est omnis dīvīsa",
+   "divisa",
+   [
+    [
+     17,
+     23
+    ]
+   ]
+  ],
+  [
+   "amō te",
+   "amo",
+   [
+    [
+     0,
+     4
     ]
    ]
   ]

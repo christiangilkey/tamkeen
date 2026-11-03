@@ -53,10 +53,11 @@ test("what is said: the word, and the part of its sentence the card shows", () =
 
 // ----- Azure: the voice per language and dialect, the request -----
 
-test("a sensible Azure voice for every language but Bisaya, and Arabic by the country chosen", () => {
+test("a sensible Azure voice for every language but Bisaya and Latin, and Arabic by the country chosen", () => {
   for (const code of LANGUAGE_CODES) {
     const v = azureVoiceFor(code);
     if (code === "ceb") assert.equal(v, null, "Azure has no Bisaya voice");
+    else if (code === "la") assert.equal(v, null, "Azure has no Latin voice (which voice should read Latin is the owner's to choose)");
     else assert.match(v, new RegExp(`^${code === "tl" ? "fil" : code}-[A-Z]{2}-\\w+Neural$`), code);
   }
   assert.equal(azureVoiceFor("ar"), "ar-SA-ZariyahNeural");

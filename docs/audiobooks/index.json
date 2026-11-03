@@ -63,6 +63,11 @@
    "file": "ko.json.gz",
    "bytes": 309
   },
+  "la": {
+   "count": 16,
+   "file": "la.json.gz",
+   "bytes": 970
+  },
   "pt": {
    "count": 107,
    "file": "pt.json.gz",

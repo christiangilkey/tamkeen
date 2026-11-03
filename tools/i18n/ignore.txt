@@ -417,3 +417,67 @@ cddb4c84  # Split it into short caption lines... (ytgemini.js: told to Gemini)
 08f257dd  # For each line give its start and end in seconds... (ytgemini.js: told to Gemini)
 5cec73aa  # Leave out music, sound effects... (ytgemini.js: told to Gemini)
 4d85db22  # Also give the spoken language as a two-letter ISO 639-1 code. (ytgemini.js: told to Gemini)
+# Latin (2026-11-02): YouTube search words, the seen-words example and the Latin podcast picks' names, makers and
+# Latin-language descriptions (web/js/podcast-picks.js): data, shown as written in every language
+9aabd3e9  # amō, amāvit, amātus
+dc3f6c45  # Ab ovo (usque ad mala)
+38a7d1ff  # Satura Lanx: Latin language and literature for beginners.
+337ed898  # Latinitium — Latin literature, history, and expressions
+dda597c9  # Litterae Latinae Simplices
+fa9308c5  # Sermones Raedarii
+2f29222d  # Alexander Veronensis
+129890d6  # Sermones Latini faciles.
+d3cad5fa  # Legio XIII
+601586fd  # Latinitas Animi Causa: Latin for Fun
+4e31aa7e  # Latinitas Animi Causa
+08870c0f  # Nuntii Latini
+1f03ce6f  # Discipuli Occidentalis Studiorum Universitatis Vasintoniensis
+a141bc3e  # Nuntii Latini Occidentalis Studiorum Universitatis Vasintoniensis
+080090da  # Quid Es Tu?
+aa05609e  # Levi Baus
+b4500bef  # de Acroamate: duo amici, Iosephus et Lebbaeus, Latine colloquuntur de 
+a3f584a6  # In Foro Romano
+b062204c  # Duae amicae quaque septimana de qua libet re latine loquuntur. Aliquan
+1c40fd46  # Litterae Christianae - Podcast
+e759fe56  # Podcast in Latin
+f1616b35  # Secunda Mensa
+812b8c2b  # Secunda Mensa est colloquium de cibis, coquendo, et rebus culinariis..
+c2d92f89  # Philologia Perennis
+b967984b  # Tom Keeline and Patrick Owens
+d30e4847  # Series sermonum in quibus de lingua Latina, de litteris Latinis, de re
+6414aee1  # Colloquia Facilia: Easy Latin Dialogues
+02f7df8b  # Salvi Sitis!
+004b99ab  # Matthew Jay
+2dd3c7ad  # Per hæc acroamata res epidemiologicæ præbentur Latine ut delectent et 
+811f5d79  # Colloquia apud Recentiores
+f8040c5e  # Jamie Banks
+9e657d78  # Haec series emissionum Latine facta tractat litteras Neo-Latinas quae 
+4e1dac41  # Musa Pedestris
+128a2274  # Latin languge podcast acroamata Latine edita, quibus de poematis deque
+cbb37853  # Aeneidis Libri XII by Virgil (70 BCE - 19 BCE)
+87af3bf3  # Lucia et Thomas Latine loquuntur
+84c9f5ef  # Lucia et Thomas
+3a5c5e4c  # Salvete sodales! Lucia, magistra tironum privatus, et Thomas, magister
+b7480837  # Fabellae Latinae
+81d5d28b  # Dani Wright
+c05d577a  # De Bello Gallico Libri Septem by Gaius Julius Caesar (100 - 44 BCE)
+43f42c13  # Alea Iacta Est: Acroama Latine Lusum
+dceed2f0  # Alea Iacta Est Pod
+b9cf23c3  # De Rerum Natura by Titus Lucretius Carus (c. 99 BCE - 55 BCE)
+981bf863  # Beginner Latin AudioBooks
+6ee32a97  # Tan Hui Chuin
+776e01e9  # Confessionum Libri Tredecim by Saint Augustine of Hippo (354 - 430)
+66de0e4d  # Epistulae Morales Selectae by Lucius Annaeus Seneca (4 BCE - 65)
+b7134362  # De Agricultura by Marcus Porcius Cato (236 BCE - 149 BCE)
+7c6b0c9f  # Georgica by Virgil (70 BCE - 19 BCE)
+fe4ea7bd  # Latine Loquimur
+b207fc62  # JANEZ ERAT
+29cbdfbd  # In hoc acroamate, textus simplices Latine recitabo. Legam ex diversis 
+d06fde90  # Fabulae Syrae
+5f96e137  # Eva Monzón
+f14f3cb9  # Fabulae Syrae recitata a Vivarii Novi libro et discipulis dicata.
+f29872fe  # nuntii Latini
+cedb93a0  # Gregorian chant Latin
+2eae7edf  # Spoken Latin Podcast
+9f7f09f9  # fabulae pueris Latine
+a6cd0ffa  # Lingua Latina per se illustrata

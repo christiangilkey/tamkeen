@@ -226,6 +226,24 @@ def test_korean_word_table_and_meanings(client):
     assert words["우리"][0][2][0].startswith("we"), "the everyday meaning first"
 
 
+def test_latin_word_table_and_meanings(client):
+    """Latin downloads a table of every form Wiktionary lists (tools/build_latin.py), keyed without macrons, j as i
+    and v as u, with each dictionary form written with its macrons; and for No AI its Wiktionary meanings."""
+    st = client.get("/api/lexicon/status?lang=la").json()
+    assert st["needed"] and st["names"] == ["la"] and not st["installed"] and 1_000_000 < st["bytes"] < 6_000_000
+    assert client.post("/api/lexicon/download", json={"lang": "la"}).json()["installed"]
+    data = client.get("/api/lexicon/data/la").json()
+    assert data["kind"] == "lemmas" and data["lang"] == "la" and data["ranked"] and data["lemmas"][0] == "sum"
+    form = lambda key: data["lemmas"][data["forms"][key]]  # noqa: E731
+    assert form("puellarum") == "puella" and form("amauisset") == "amō" and form("est") == "sum" and form("uiri") == "vir"
+    meanings = client.get("/api/lexicon/status?lang=la&kind=meanings").json()
+    assert meanings["names"] == ["mean-la"]
+    assert client.post("/api/lexicon/download", json={"lang": "la", "kind": "meanings"}).json()["installed"]
+    m = client.get("/api/lexicon/data/mean-la").json()
+    assert m["words"]["amo"][0][0] == "amō" and m["words"]["amo"][0][2][0].startswith("to love")
+    assert ["amo", "amāvit: third-person singular perfect active indicative of amō"] in m["forms"]["amauit"]
+
+
 def test_word_meanings_for_no_ai_are_a_separate_download(client):
     """No AI (Settings): each language's meanings file is downloaded on its own (kind=meanings)."""
     st = client.get("/api/lexicon/status?lang=es&kind=meanings").json()

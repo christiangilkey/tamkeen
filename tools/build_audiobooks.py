@@ -50,7 +50,7 @@ LANGUAGES = {
     "English": "en", "Spanish": "es", "French": "fr", "Italian": "it", "Russian": "ru", "Japanese": "ja",
     "Chinese": "zh", "Mandarin": "zh", "Arabic": "ar", "Tagalog": "tl", "Filipino": "tl", "Portuguese": "pt",
     "Catalan": "ca", "Cebuano": "ceb", "Bisaya": "ceb", "Thai": "th", "German": "de", "Persian": "fa",
-    "Farsi": "fa", "Persian/Farsi": "fa", "Bisaya/Cebuano": "ceb", "Hindi": "hi", "Korean": "ko",
+    "Farsi": "fa", "Persian/Farsi": "fa", "Bisaya/Cebuano": "ceb", "Hindi": "hi", "Korean": "ko", "Latin": "la",
 }
 
 def get_json(url: str, tries: int = 5) -> dict:

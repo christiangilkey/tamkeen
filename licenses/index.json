@@ -35,5 +35,6 @@
   {"name": "Figtree font (the app's text)", "license": "SIL Open Font License 1.1", "file": "figtree.txt"},
   {"name": "Rubik font (headings and numbers)", "license": "SIL Open Font License 1.1", "file": "rubik.txt"},
   {"name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)", "license": "CC BY-SA 4.0", "file": "korean-sources.txt"},
+  {"name": "Latin word forms and common words, from Wiktionary and Project Gutenberg counts (optional download)", "license": "CC BY-SA 4.0", "file": "latin-sources.txt"},
   {"name": "Piper and its voices: card voices made on this computer (optional download)", "license": "MIT; voices CC0 / CC BY / CC BY-SA / public domain; eSpeak NG GPL-3.0", "file": "piper.txt", "on": ["desktop"]}
 ]

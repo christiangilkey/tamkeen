@@ -32,7 +32,7 @@ const DATA_VERSION = "1.0.0";
 const LANGS = {
   ara: "Arabic", spa: "Spanish", fra: "French", jpn: "Japanese", chi_sim: "Chinese (simplified)", chi_tra: "Chinese (traditional)",
   rus: "Russian", ita: "Italian", tgl: "Tagalog", por: "Portuguese", cat: "Catalan", ceb: "Bisaya (Cebuano)", tha: "Thai",
-  deu: "German", fas: "Persian", hin: "Hindi", kor: "Korean", eng: "English",
+  deu: "German", fas: "Persian", hin: "Hindi", kor: "Korean", eng: "English", lat: "Latin",
 };
 const CORES = { "ocr-core": "tesseract-core-simd-lstm.wasm.js", "ocr-core-plain": "tesseract-core-lstm.wasm.js" };
 

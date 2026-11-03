@@ -125,6 +125,16 @@
   "f": "web/js/languages.js"
  },
  {
+  "id": "9bde795b",
+  "k": "Latin",
+  "f": "web/js/languages.js"
+ },
+ {
+  "id": "dbd9e637",
+  "k": "Matches ignore macrons (ā = a), so a word typed without them finds it written with them.",
+  "f": "web/js/languages.js"
+ },
+ {
   "id": "649df08a",
   "k": "English",
   "f": "web/js/languages.js"
@@ -1562,6 +1572,66 @@
  {
   "id": "e5b9046d",
   "k": "Persian Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "4af8e27b",
+  "k": "Easier: weekly world news in simple Latin, long vowels marked, with audio",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "54b030dd",
+  "k": "Easier: the year's news, one sentence each",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ae5fa967",
+  "k": "Daily world news in Latin, since 2004",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "09317e81",
+  "k": "Radio Bremen's monthly news in Latin (the page is in German)",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "a3891659",
+  "k": "Finnish radio's weekly news in Latin, 2012 to 2019",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "ad03c460",
+  "k": "The Latin academy, with short news in Latin",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "2d4d7166",
+  "k": "The Latin Wikipedia",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "79698bcc",
+  "k": "Latin Wikisource: free Latin texts",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "82c6c28c",
+  "k": "Latin Wiktionary, written in Latin",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "57626e8e",
+  "k": "Latin texts, from the classics to Neo-Latin",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "0f9f7a1a",
+  "k": "Latin texts from every age",
+  "f": "web/js/browser-home.js"
+ },
+ {
+  "id": "b34bb470",
+  "k": "Medieval and later Latin texts (University of Zurich)",
   "f": "web/js/browser-home.js"
  },
  {
@@ -12000,6 +12070,11 @@
   "f": "web/js/lexicon/seen.js"
  },
  {
+  "id": "95c3c311",
+  "k": "the inflection tables of English Wiktionary's Latin words (puellārum: puella, amāvit: amō), with words counted in Project Gutenberg's Latin books to choose between two words that share a form; macrons are ignored",
+  "f": "web/js/lexicon/seen.js"
+ },
+ {
   "id": "359544fb",
   "k": "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)",
   "f": "web/js/lexicon/seen.js"
@@ -17965,6 +18040,71 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "154552db",
+  "k": "Latinitium.com offers a podcast in Latin on various subjects, ranging from idiomatic expressions and literature to random curiosities. Visit Latinitium.com for more Latin audio, books, and guides for learning Latin well. Hosted on Acast. See acast.com/privacy for more information.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "dfc230f8",
+  "k": "Latin amp; Ancient Greek Language Podcast full archive of epsidose at: youtube.com/LegioXIII",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "9ee8ff1b",
+  "k": "In Latinitas Animi Causa, we speak in Latin and ancient Greek about whatever we (Andreas, Ilsa, and Clara) enjoy! Topics can range and vary from discussions of SLA Theory and language Pedagogy, to topics of daily life, to discussions of ancient authors and their texts. We aim to provide listeners with an authentic Latin language experience where we discuss all things in life, just in Latin. We love to hear from our listeners and learn more about what you all enjoy too so feel free to reach out to us! For more information about us, check out our website: habesnelac.com",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "134d8be9",
+  "k": "In this podcast, a production of Latinitas Animi Causa, we three chat about a chosen topic using simple Latin so Latin learners can benefit from comprehensible input in dialogue form! Enjoy these short, simple, and compelling dialogues to boost your Latin as a beginner!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "552b9b7a",
+  "k": "Aeneas flees the destruction of Troy, abandons Dido, queen of the Carthaginians, and wends his way to Latium in Italy, where slaying Turnus, leader of native resistance, he founds the future Rome. (Summary by Malone)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "8abee118",
+  "k": "Readings from Fabellae Latinae, the free supplement to Hans H. Ørberg’s “Lingua Latina per se Illustrata”.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e16d7d78",
+  "k": "In this book the famous Gaius Julius Caesar himself describes the seven years of his war in Gaul. When Caesar got proconsul of Gallia and Illyria in 58 B.C, the conquest of land in Gaul was an urgent need, both to improve his political standing and to calm his creditors in Rome. So Caesar claims his interest for a very large area already in the first sentence. His steps and measures always appear clear and logical, but this simplicity is the result of a strict discipline in style. Caesar really chooses his words, and the list of standard words that he never or rarely uses, is astonishing. E.g.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "be443013",
+  "k": "An exposition of Epicurus atomic theory and the ethical tenets based upon it. Drawing upon this materialist philosophy, Lucretius cites the fear of death as the cause of man's ills, and shows the way to freedom from that fear. (Summary by bropops4)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "92c85a36",
+  "k": "Foreign language texts and books read at beginner friendly speeds.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "e41db435",
+  "k": "Confessions (Latin: Confessiones) is the name of an autobiographical work, consisting of 13 books, by St. Augustine of Hippo, written between AD 397 and AD 398. Modern English translations of it are sometimes published under the title The Confessions of St. Augustine in order to distinguish the book from other books with similar titles. Its original title was \"Confessions in Thirteen Books\", and it was composed to be read out loud with each book being a complete unit. (Summary by Wikipedia)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "36e449a3",
+  "k": "Seneca is an important repository of Stoic doctrine. His reputation, based on the ancient testimony, has remained ambiguous down to the present day: he was a Stoic hero who attempted to advise Nero, he was a dissolute hypocrite, he was a Christian saint. That said, his letters provided a format for philosophical discourse that long remained valid for Western Europe. His musings always sprang from concrete situations: the games in the Coliseum, the noise from a public bath below his apartment. Montaigne admired the style of his Latin, which he called \"nerveux\": taut and full of energy. (Summary",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "d0c30e8b",
+  "k": "Noted for being the most extensive piece of early Latin prose, it abounds in archaic imperatives and shows an almost total lack of subordinate clauses. Its subject matter is the pedestrian business of managing a Roman farm in the second century BC. The simplicity, however, may be only partially genuine. For Cato had a strong political and social agenda, based on the rejection of foreign, i.e., Greek, influences and the fostering of traditional Roman values, for which the persona of the plain rustic speaker may have proved useful. (Summary by malone)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "0c4b454e",
+  "k": "Vergil's Georgica is the culmination of a long tradition in antiquity of poems about agriculture, beginning with Hesiod in the eighth c. BC. His poem is a rich admixture of allusion to that tradition: didactic poem, eulogium of Augustus, the neoteric epyllion about Orpheus, Epicurean philosophy as presented by his predecessor and model, Lucretius. Thomas Jefferson imagined his gentleman farmer tilling his fields with a copy of the Georgics between the handles of the plowshare. (Summary by Malone)",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "d9cc6b1c",
   "k": "{0}% read",
   "f": "web/js/progress.js"
@@ -19437,6 +19577,11 @@
  {
   "id": "3053ce37",
   "k": "Thai transcripts on your computer now use Pathumma, with about a quarter fewer mistakes on everyday talk",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2e7d372d",
+  "k": "Latin: learn it from podcasts, audiobooks, books and videos, with each word's dictionary form and meaning a tap away",
   "f": "web/js/whatsnew.js"
  },
  {

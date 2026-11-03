@@ -6490,3 +6490,96 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   questions right / wrong / timed out, a swap after a faint, a win with the end card and rewards. Not tried: a real
   controller, a real phone, mouse-dragging and finger-dragging by hand (only by script), a friend battle between two
   accounts, right-to-left languages by eye.
+
+## Latin (la): a language to learn (2026-11-02, on main; "Add Latin as a language to learn" chat)
+Owner: "lets also add the latin language". A **learning** language only: it is in `LANGUAGES` (web/js/languages.js,
+app/languages.py) but not in `UI_LANGUAGES`, so the app's own words are never shown in Latin (the first-run "Which
+language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). Code `la` everywhere, after `ko`.
+- **Core**: languages.js `la` (Latin, native Latīna, `reading: "replace"`: the word popup shows a word with its macrons
+  in place of the word, as Russian shows its stress; greetings, samples, search note), in LATIN_LANGUAGES; definer.js
+  TEACH.la (the AI writes `vocalized` with macrons, the lemma with principal parts / genitive and gender, the period:
+  Classical, Church, Medieval, Neo-Latin, modern spoken). Whisper knows Latin (`la`), so no Whisper code mapping;
+  stt.js / cloud.py name map "latin" → la.
+- **Matching** (web/js/lexicon/latin.js `latinKey`, twin `latin_key` in tools/build_latin.py and build_meanings.py):
+  no macrons, breves, accents or diaeresis (amō = amo, Dóminus = dominus, poëta = poeta), j as i, v as u (jam = iam,
+  uir = vir), æ œ as ae oe. `-que`, `-ne`, `-ve` come off a word the table doesn't know (senātusque, vidēsne, plūsve).
+  Seen-word keys use the dictionary form without macrons (`la|amo|x`), so liber "book" and līber "free" share a key.
+- **Word table** docs/lexicon/la-lemmas.json.gz (3.1 MB: 983,563 forms → 37,451 dictionary forms, commonest first),
+  made by **tools/build_latin.py** from kaikki.org's Latin Wiktionary (893k entries, 839k of them "form of" pages;
+  kept in `..\latin-data\kaikki\`, outside the repo) + word counts from 38 public-domain Latin books of Project
+  Gutenberg (`build_latin.py count <cache>`: 1.44 million words; Caesar, Cicero, Virgil, Ovid, Horace, Catullus,
+  Augustine, the Vulgate's books, Newton, Descartes, the Appleton/Newman/Goffaux/Avellanus readers; English note lines
+  dropped). 89.5% of the counted words are in the table. A participle or gerundive counts as its verb (amātus → amō);
+  a spelling two words share goes to the one whose other forms are commoner, its own headword counting double (treble
+  for a word with one form: ita "so" is not itō's command, quoque not quisque's form), names a third (terra before
+  Terra), Old Latin / rare readings a twentieth (duās is duo, not dō); then **OVERRIDES**, ~250 forms checked by hand
+  from `build_latin.py --review 600` (est → sum not edō, legī → lēx, locō → locus, fātō → fātum, sublātus → tollō,
+  sē/sibi → suī…). Wiktionary has nōs as ego's plural, so nōbīs counts as ego. Downloads: app/lexicon.py and
+  mobile/src/js/lexicon-store.js `la: ["la"]`; seen.js EXAMPLES/SOURCES/UPGRADES.
+- **No AI meanings** docs/lexicon/la-meanings.json.gz (8.4 MB: 46,030 words, 730,429 forms; `build_meanings.py
+  la=<kaikki file>`): shown spellings with macrons; each form row says how the form is spelled with them ("amāvit:
+  third-person singular perfect active indicative of amō": meaningdata.js `answerFrom` shows amāvit as the word and the
+  rest as Form); every reading of a form joined (puellae: "genitive/dative singular; nominative/vocative plural"); the
+  forms of inflection tables that have no page of their own added (197k: Trōiae, Galliam, participles' forms).
+  meaningdata.js: `matchKey` la, the enclitic-less word as a key, a form's dictionary word first (as Romance), and a
+  word the table reads as a name (Gallia, Rōma, Caesar) gets the name's entry first (`keys.name`).
+- **Search** (app/arabic.py, mobile shared-logic.js, parity cases in tests/fixtures/parity.json): a vowel with a macron
+  matches it without (ā = a), precomposed or as a combining mark. j/i and v/u are NOT folded in search (search knows
+  no language, and that would blur other languages' words).
+- **Transcription**: Whisper large-v3 on LibriVox's De Bello Gallico (Book I ch. 1–2, 186 words, language set to
+  Latin): **16.7% word errors**, nearly all spelling by ear (sepe for saepe, diferunt, Renum for Rhenum, quotidianis),
+  a few real (atque heard as ad). Asked to guess the language itself, it said Latin (0.84). In the app (desktop, test
+  folder) LibriVox's Vulgate Psalm 22 transcribed well ("Dominus pascit me, nihil mihi deerit…"; pasquis for pascuis).
+  YouTube's own captions: **only a person's Latin track counts** (ytcaptions.js `PERSON_ONLY`): YouTube's automatic
+  captions take Latin speech for Italian, and its translation into Latin is poor, so other videos get transcribed.
+- **Voices**: none yet. Azure, Piper and the devices have no Latin voice; the choice (A: an Italian voice reading
+  Latin, Church pronunciation, all versions; B: eSpeak NG's Latin, new install; C: no voice; D: the Italian Piper voice
+  with eSpeak NG's Latin rules, already in Piper's download, computer only, new code) was sent to the Decisions chat
+  (recommended A). Until then `NO_VOICE.la = "none"` (app/voices.py) and no AZURE_VOICES entry: Latin cards play only
+  the audio they were saved from.
+- **Podcasts**: no country's chart has a Latin show, so web/js/podcast-picks.js has 29 picks (**tools/build_podcast_picks.mjs
+  la**, which now rebuilds one language and keeps the others; per-language MEASURED and RATING_STORES): Ab ovo (Satura
+  Lanx, 169 ratings), Latinitium (its public Acast feed, ended 2021), Litterae Latinae Simplices, Sermones Raedarii,
+  Legio XIII, Latinitas Animi Causa, Nuntii Latini (WWU, weekly news), Secunda Mensa, Colloquia Facilia… and LibriVox's
+  Latin feeds. trending.js STOREFRONTS la ["us"] + LITTLE_WORDS.la (an English chart show never reads as Latin). Left
+  out: Satura Lanx's "Recitationes" (course members only: its description asks not to share it), Quomodo Dicitur (its
+  site is gone), Vatican News' Hebdomada Papae and Liturgia Horarum (its legal notes forbid linking without written
+  permission: the owner could decide otherwise), English talk about Latin. Research: side-session notes `latin-content.md`.
+- **Audiobooks**: 16 finished LibriVox Latin books (docs/audiobooks/la.json.gz, build_audiobooks.py LANGUAGES "Latin";
+  only the Latin file was written, the others untouched): Aeneid, Gallic War, Civitas Dei, Confessions, Imitatio
+  Christi, Lucretius, Seneca, Psalm 22, Boethius…
+- **YouTube** (youtube-home.js): no one word works (Latine, "in Latin" bring Spanish latina/latino); START is `"spoken
+  Latin"` in quotes, US, hl en, looking back a year (`START_WITHIN.la`, new); topics news "nuntii Latini", music
+  "Gregorian chant Latin", podcast "Spoken Latin Podcast", kids "fabulae pueris Latine", learn "Lingua Latina per se
+  illustrata" (TOPIC_WITHIN a year); comedy, food, travel, sport, science, gaming, vlog left out (next to nothing in
+  Latin). Countries US, GB, IT, DE.
+- **News** (browser-home.js, 12, all opened 2026-11-02): Nuntii Latini (WWU) and Vicipaedia: Nuntii marked Easier,
+  Ephemeris (now ephemerisnuntii.eu), Radio Bremen's Nuntii Latini mensis, Yle's archive, Academia Latinitati Fovendae,
+  Vicipaedia, Vicifons, Victionarium, The Latin Library, Bibliotheca Augustana, Corpus Corporum.
+- **Reels**: Latin search words (app/reels.py, reels-phone.js); expect very few reels actually spoken in Latin.
+- **Text in photos** (Add words → Scan): Tesseract's Latin data, docs/lexicon/ocr-lat.traineddata.gz (tools/build_ocr.mjs
+  `lat`; its run rewrote web/js/vendor/tesseract with LF endings only, which was put back).
+- **Books**: a Latin shelf from Project Gutenberg and Latin Wikisource (tools/build_books.py BOOKS["la"]) follows in its
+  own commit; see the line added there.
+- **Common words** web/js/wordlists/la.js (dictionary forms with macrons, from the table's counts: `make_wordlists.py
+  la=<la_lemma_counts.tsv>`, which build_latin.py writes).
+- **Interface text**: 29 strings in tools/i18n/tr/<code>/111-latin.txt for all 16 languages (the name, the search note,
+  the news notes, the word-table sentence, 13 podcasts' English descriptions, the What's new line); 62 data strings
+  (show names, makers, Latin-language descriptions, YouTube words, the seen-words example) in tools/i18n/ignore.txt.
+- Licences: licenses/latin-sources.txt (new, in index.json), wiktionary.txt; docs/lexicon/README.md, docs/index.html.
+- **Tests**: tests/js/latin.test.mjs (new: keys, forms, enclitics, seen keys, the popup with the real files), Latin cases
+  in languages/i18n/wordlists/youtube-home/youtube/cardvoice/trending JS tests, test_lexicon (download), test_languages,
+  test_arabic (macrons in search), parity.json.
+- **Checked in the browser pane**: the desktop server on a fresh scratch data folder (never signed in): Latin in the
+  learning picker (not in the "you speak" one), "Have you already started learning Latin?" with sum, et, in, quī…, the
+  3 MB table and 8 MB meanings downloaded from the repo, a Vicipaedia page imported and tapped (quārum → quī "genitive
+  feminine plural", tapping it turned quae white; incolunt → incolō), search for quārum finding quarum, Trending (29),
+  the YouTube menu, the Latin news list, the 16 LibriVox books, Psalm 22 added, transcribed with large-v3 and tapped
+  (animam → anima; ambulauero shown ambulāverō → ambulō). The web app (phone code) at 375×812, fresh origin, files from
+  a local copy through `lexicon_base`: "I've already started" (common words white), the table and meanings downloaded,
+  a page imported and hodiernae → hodiernus. **Not checked**: a real phone, the desktop window, the AI popup in Latin,
+  Scan on a photo of Latin. **The data files (docs/lexicon la-*, ocr-lat, docs/audiobooks/la.json.gz, docs/books/la)
+  must be on GitHub Pages before installed apps can download them.**
+- **Not done**: a Latin voice (the owner's decision), Latin courses (Basics and Grammar: none, the Library says "There are
+  no courses for this language yet"), Netflix (no Latin there). Macronizing a text that has none (showing amāvit over
+  amavit in running text) is only in the popup, not over the words.

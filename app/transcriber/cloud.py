@@ -203,7 +203,7 @@ _LANGUAGE_CODES = {"arabic": "ar", "spanish": "es", "french": "fr", "japanese": 
                    "russian": "ru", "english": "en", "turkish": "tr", "persian": "fa", "urdu": "ur", "hindi": "hi",
                    "german": "de", "italian": "it", "portuguese": "pt", "korean": "ko", "hebrew": "he",
                    "indonesian": "id", "dutch": "nl", "tagalog": "tl", "filipino": "tl", "catalan": "ca",
-                   "valencian": "ca", "thai": "th", "cebuano": "ceb", "bisaya": "ceb", "farsi": "fa"}
+                   "valencian": "ca", "thai": "th", "cebuano": "ceb", "bisaya": "ceb", "farsi": "fa", "latin": "la"}
 
 
 def language_code(name: Any) -> str | None:

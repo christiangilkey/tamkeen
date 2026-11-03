@@ -73,6 +73,8 @@ export const RANDOM_WORDS = {
        "erfahrung", "wissenswertes", "erklärt", "kochen", "fußball", "nachrichten", "podcast", "alltag", "familie", "kaffee"],
   fa: ["ولاگ", "آشپزی", "داستان", "توصیه", "طنز", "کمدی", "سوال", "چالش", "مصاحبه", "سفرنامه", "غذا", "خاطره",
        "تجربه", "دانستنی", "توضیح", "شیرینی", "ورزش", "خبر", "پادکست", "روزمرگی", "خانواده", "قهوه"],
+  la: ["latine", "lingualatina", "loquerelatine", "latinitas", "fabula", "sermo", "historia", "cottidie", "roma", "verba",
+       "carmen", "lectio", "grammatica", "vocabula", "cena", "familia", "iter", "nuntii", "podcast", "salve", "vita", "latinitium"],
 };
 
 const CODE = /^[A-Za-z0-9_-]{5,40}$/;

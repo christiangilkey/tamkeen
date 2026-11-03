@@ -37,6 +37,13 @@ test("captions written by a person beat automatic ones", () => {
   assert.deepEqual([pick.language, pick.auto, pick.kind], ["ar", false, "manual"]);
 });
 
+test("Latin: only captions a person wrote in Latin (YouTube hears Latin as Italian, and translates into it badly)", () => {
+  const tracks = [track("it", "asr"), track("en"), track("la")];
+  assert.deepEqual(captionChoices(tracks, "la", [...TAUGHT, "it", "la"]).map((c) => [c.track, c.kind]), [[tracks[2], "manual"]]);
+  assert.deepEqual(captionChoices([track("it", "asr"), track("en")], "la", [...TAUGHT, "it", "la"]), [],
+                   "no Latin track: nothing (the video is transcribed instead)");
+});
+
 test("automatic captions are used when nobody wrote any", () => {
   const pick = pickTrack([track("en"), track("ar", "asr")], "ar", TAUGHT);
   assert.deepEqual([pick.language, pick.auto, pick.kind], ["ar", true, "auto"]);

@@ -53,6 +53,9 @@ COMEDY_WORDS = {
     "en": ["comedy", "funny", "pranks", "standup"],
     "de": ["deutsche comedy", "witze", "lustig", "witzig"],
     "fa": ["طنز", "کمدی", "خنده", "سوتی"],
+    # Latin: few reels are spoken in Latin at all; these are the words its speakers tag them with (the language
+    # check that follows drops the many that only talk about Latin in another language).
+    "la": ["latine", "iocus", "facetiae", "ridiculum"],
 }
 
 # "Random reels": everyday words searched for, a few picked at random each time, so a batch is a
@@ -93,6 +96,8 @@ RANDOM_WORDS = {
            "erfahrung", "wissenswertes", "erklärt", "kochen", "fußball", "nachrichten", "podcast", "alltag", "familie", "kaffee"],
     "fa": ["ولاگ", "آشپزی", "داستان", "توصیه", "طنز", "کمدی", "سوال", "چالش", "مصاحبه", "سفرنامه", "غذا", "خاطره",
            "تجربه", "دانستنی", "توضیح", "شیرینی", "ورزش", "خبر", "پادکست", "روزمرگی", "خانواده", "قهوه"],
+    "la": ["latine", "lingualatina", "loquerelatine", "latinitas", "fabula", "sermo", "historia", "cottidie", "roma", "verba",
+           "carmen", "lectio", "grammatica", "vocabula", "cena", "familia", "iter", "nuntii", "podcast", "salve", "vita", "latinitium"],
 }
 RANDOM_SEARCHES = 8          # at most this many words are searched for in one batch
 

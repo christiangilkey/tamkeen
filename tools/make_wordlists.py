@@ -5,6 +5,7 @@ who says they have already started (web/js/commonwords.js).
     python tools/make_wordlists.py                       (every language wordfreq has)
     python tools/make_wordlists.py th=path/to/tnc_freq.txt ceb=path/to/ceb_freq.tsv ko=path/to/ko_lemma_counts.tsv
     python tools/make_wordlists.py de=path/to/lemmatization-de.txt,path/to/kaikki.org-dictionary-German.jsonl.gz
+    python tools/make_wordlists.py la=path/to/la_lemma_counts.tsv     (written by tools/build_latin.py table)
 
 Writes web/js/wordlists/<code>.js (one per language the app teaches), most common word first.
 
@@ -100,6 +101,7 @@ SCRIPT = {
     # Devanagari letters and signs, U+0900-0963 (not the full stops, digits or the abbreviation mark after them)
     "hi": re.compile("[{}-{}]+".format(chr(0x900), chr(0x963))),
     "ko": re.compile(r"[\uAC00-\uD7A3]+"),
+    "la": re.compile(r"[a-zāēīōūȳăĕĭŏŭäëïöüæœ]+"),  # (dictionary forms, with their macrons)
 }
 # German as wordfreq counts it -> as German writes it (main() fills it in from "de=list,wiktionary").
 GERMAN: dict[str, str] = {}
@@ -107,7 +109,7 @@ GERMAN: dict[str, str] = {}
 # ("\u06A9\u062A\u0627\u0628 \u0647\u0627", "\u0645\u06CC \u062E\u0648\u0627\u0647\u0645") gives; the app joins them back onto their word (languages.js persianJoins).
 FA_PIECES = {"\u0647\u0627", "\u0647\u0627\u06CC", "\u0647\u0627\u06CC\u06CC", "\u0645\u06CC", "\u0646\u0645\u06CC", "\u0627\u06CC", "\u0627\u0645", "\u0627\u0634", "\u0627\u062A", "\u0627\u0646\u062F", "\u0627\u06CC\u062F", "\u0627\u06CC\u0645", "\u062A\u0631\u06CC\u0646"}
 # Where a language's counts come from when wordfreq has none: "lang=path" on the command line.
-FROM_FILE = {"th", "ceb", "ko"}
+FROM_FILE = {"th", "ceb", "ko", "la"}
 
 _AR_MAP = str.maketrans({"آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي", "ـ": None})
 
@@ -118,6 +120,9 @@ def same_word_key(word: str, code: str) -> str:
     if code == "hi":
         from build_meanings import hindi_key  # (tools/build_meanings.py, the same folding as the app's)
         return hindi_key(word)
+    if code == "la":  # (with or without macrons, j or i, v or u: one word)
+        from build_meanings import latin_key
+        return latin_key(word)
     w = unicodedata.normalize("NFC", word).lower()
     if code == "ar":
         w = w.translate(_AR_MAP)
@@ -198,7 +203,8 @@ def build(code: str, source: str = "") -> list[str]:
 
 SOURCE_NOTE = {"th": "the Thai National Corpus word counts (PyThaiNLP, CC0)",
                "ceb": "Bisaya web text in OPUS NLLB (ODC-By 1.0)",
-               "ko": "Korean film and TV subtitles (OpenSubtitles via FrequencyWords, CC BY-SA 4.0), counted by dictionary form"}
+               "ko": "Korean film and TV subtitles (OpenSubtitles via FrequencyWords, CC BY-SA 4.0), counted by dictionary form",
+               "la": "Project Gutenberg's public-domain Latin books, counted by dictionary form (tools/build_latin.py)"}
 
 
 def main() -> None:

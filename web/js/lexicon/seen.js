@@ -239,7 +239,8 @@ const EXAMPLES = { ar: "كتب، يكتبون، سأكتبها", es: "hablo, hab
   de: "spreche, sprach, fängt … an",
   fa: "می‌خواهم، خواستم، نمی‌خواهید",
   hi: "करता, किया, करूँगा",
-  ko: "먹어요, 먹었어요, 먹고 싶어요" };
+  ko: "먹어요, 먹었어요, 먹고 싶어요",
+  la: "amō, amāvit, amātus" };
 // Japanese and Chinese: a dictionary that does more than the other languages' tables.
 const READERS = {
   ja: "For Japanese that needs a dictionary: it splits Japanese text into real words, so a tap lands on the whole word, gives each word's dictionary form, and shows furigana (small kana over kanji). It is IPADIC, from the Nara Institute of Science and Technology",
@@ -253,6 +254,7 @@ const SOURCES = {
   fa: "Wiktionary's Persian words and verb tables, with the wordfreq word counts",
   hi: "the inflection tables of English Wiktionary's Hindi words and the wordfreq word counts (करता, किया, करूँगा: करना), with Wiktionary's reading of the words the app's own reading rule gets wrong",
   ko: "the Korean words of Wiktionary with their verb stems, counted in Korean film and TV subtitles, which the app checks the dictionary forms it finds against (먹었어요: 먹다, 학교에서: 학교)",
+  la: "the inflection tables of English Wiktionary's Latin words (puellārum: puella, amāvit: amō), with words counted in Project Gutenberg's Latin books to choose between two words that share a form; macrons are ignored",
 };
 const WORD_LISTS = "open word lists (Michal Měchura's lemmatization lists and the wordfreq word counts)";
 
@@ -349,7 +351,8 @@ function onceReady(lang, dicts) {
 
 // Russian is converted twice: once for е/ё and stress marks (no table needed), once for its table.
 const UPGRADES = { es: "es:lemmas1", fr: "fr:lemmas1", it: "it:lemmas1", ru: "ru:lemmas1", en: "en:lemmas1", tl: "tl:lemmas1", ja: "ja:lemmas1", zh: "zh:lemmas1",
-  pt: "pt:lemmas1", ca: "ca:lemmas1", ceb: "ceb:lemmas1", de: "de:lemmas1", fa: "fa:lemmas1", hi: "hi:lemmas1", ko: "ko:lemmas1" };
+  pt: "pt:lemmas1", ca: "ca:lemmas1", ceb: "ceb:lemmas1", de: "de:lemmas1", fa: "fa:lemmas1", hi: "hi:lemmas1", ko: "ko:lemmas1",
+  la: "la:lemmas1" };
 const upgradeMark = (lang, dicts) => (lang === "ru" && !dicts.length ? "ru:yo1" : dicts.length ? UPGRADES[lang] : null);
 const upgrading = new Set();
 /** Seen words kept before a language had its word table were kept by spelling (es|hablas|x).

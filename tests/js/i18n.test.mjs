@@ -12,8 +12,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const strings = JSON.parse(readFileSync(join(root, "tools", "i18n", "strings.json"), "utf8"));
 const dictionary = (code) => JSON.parse(readFileSync(join(root, "web", "i18n", `${code}.json`), "utf8"));
 
-test("every language the app teaches can also be the language the app is shown in", () => {
-  for (const code of LANGUAGE_CODES) assert.ok(UI_LANGUAGES[code], code);
+test("every language the app teaches can also be the language the app is shown in, except Latin", () => {
+  // (Latin is taught, but nobody asked for the app's own words in Latin.)
+  for (const code of LANGUAGE_CODES) assert.equal(!!UI_LANGUAGES[code], code !== "la", code);
   assert.ok(UI_LANGUAGES.en);
   for (const code of UI_LANGUAGE_CODES) assert.ok(SPEAK_QUESTION[code], `the first box asks in ${code}`);
   assert.equal(UI_LANGUAGES.ar.dir, "rtl");

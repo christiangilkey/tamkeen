@@ -2,7 +2,7 @@
 // Where "Open YouTube" starts: this week's most-watched videos in the language being studied.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { START, filterCode, youtubeHome } from "../../web/js/youtube-home.js";
+import { START, START_WITHIN, THIS_WEEK, filterCode, youtubeHome } from "../../web/js/youtube-home.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
 
 test("the filter asks for videos from this week, most watched first", () => {
@@ -38,7 +38,7 @@ test("every taught language starts on a list in that language", () => {
     assert.equal(u.searchParams.get("search_query"), START[code][0]);
     assert.equal(u.searchParams.get("gl"), START[code][1]);
     assert.equal(u.searchParams.get("hl"), START[code][2], "titles are shown in the language, not translated");
-    assert.equal(u.searchParams.get("sp"), filterCode(START[code][3]));
+    assert.equal(u.searchParams.get("sp"), filterCode(START[code][3], { within: START_WITHIN[code] || THIS_WEEK }));
     assert.equal(u.searchParams.get("persist_hl"), "1");
   }
   assert.equal(new URL(youtubeHome("ar")).searchParams.get("search_query"), "في");
@@ -87,12 +87,14 @@ test("every taught language offers Popular now and every topic, each with its ow
   assert.equal(new Set(TOPICS.map((t) => t.label)).size, TOPICS.length);
   for (const t of TOPICS) assert.ok(ICON_NAMES.includes(t.icon), `${t.key}: icon ${t.icon}`);
   assert.equal(TOPICS.find((t) => t.key === "learn").label, "Learn {0}", "the language's name goes in");
-  // Bisaya leaves out the topics whose searches came back in Tagalog or English; every other language has them all.
-  const without = { ceb: ["travel", "sport", "science", "gaming"] };
+  // Bisaya leaves out the topics whose searches came back in Tagalog or English, Latin the ones with next to nothing
+  // spoken in Latin; every other language has them all.
+  const without = { ceb: ["travel", "sport", "science", "gaming"],
+    la: ["comedy", "food", "travel", "sport", "science", "gaming", "vlog"] };
   for (const code of LANGUAGE_CODES) {
     assert.deepEqual(topicsFor(code).map((t) => t.key), TOPICS.map((t) => t.key).filter((k) => !(without[code] || []).includes(k)),
                      `${code} has words for every topic it offers`);
-    assert.ok(topicsFor(code).length >= 9, `${code}: a real menu`);
+    assert.ok(topicsFor(code).length >= (code === "la" ? 6 : 9), `${code}: a real menu`);
     for (const [key, words] of Object.entries(TOPIC_WORDS[code])) {
       assert.ok(TOPICS.some((t) => t.key === key), `${code}: ${key} is a topic`);
       assert.ok(words.trim() && words.length <= 60, `${code} ${key}`);

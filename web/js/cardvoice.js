@@ -154,6 +154,7 @@ export const AZURE_VOICES = {
   pt: "pt-BR-FranciscaNeural", ca: "ca-ES-JoanaNeural", th: "th-TH-PremwadeeNeural", de: "de-DE-KatjaNeural",
   fa: "fa-IR-DilaraNeural", hi: "hi-IN-SwaraNeural", ko: "ko-KR-SunHiNeural", en: "en-US-JennyNeural",
   // ceb (Bisaya): Azure has no Bisaya voice, and a Tagalog one would say it wrongly.
+  // la (Latin): Azure has no Latin voice either; until the owner chooses one (an Italian voice reading Latin?), none.
 };
 
 /** A country's own voice, for the country the learner chose for the language (the same choice as

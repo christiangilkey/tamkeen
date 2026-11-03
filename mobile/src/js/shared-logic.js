@@ -35,9 +35,12 @@ const MAP = {
   // Persian (as app/arabic.py): ی ک match ي ك, ۀ matches ه, and the half space inside a word (ZWNJ) is ignored.
   "ی": "ي", "ک": "ك", "ۀ": "ه", "‌": "",
 };
-const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـیکۀ‌]/g, (c) => MAP[c]).replace(/\u{901}/gu, "\u{902}"); // (Hindi हूँ / हूं)
+// Latin: a vowel with a macron matches it without (amō / amo), as in app/arabic.py.
+[..."āēīōūȳĀĒĪŌŪȲ"].forEach((c, i) => { MAP[c] = "aeiouyAEIOUY"[i]; });
+const mapChars = (s) => s.replace(/[آأإٱٲٳةىؤئـیکۀ‌āēīōūȳĀĒĪŌŪȲ]/g, (c) => MAP[c]).replace(/\u{901}/gu, "\u{902}"); // (Hindi हूँ / हूं)
 // Hindi: the nukta (ज़ / ज) is left off too, as people often write without it (app/arabic.py does the same).
-const SEARCH_MARKS = new RegExp(`${DIACRITICS.source.slice(0, -1)}\u{93C}]`, "g");
+// (Latin's macron written as a mark of its own is left off as well.)
+const SEARCH_MARKS = new RegExp(`${DIACRITICS.source.slice(0, -1)}\u{93C}\u{304}]`, "g");
 
 export function normalize(text) {
   return mapChars(String(text || "").replace(SEARCH_MARKS, "")).replace(/\s+/g, " ").trim().toLowerCase();

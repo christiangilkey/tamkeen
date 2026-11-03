@@ -1,4 +1,5 @@
-"""Arabic text normalization for search matching (and Hindi's nukta and chandrabindu, written or not).
+"""Arabic text normalization for search matching (and Hindi's nukta and chandrabindu, written or not, and Latin's
+macrons: ā = a).
 
 Normalization is only ever applied to *copies* used for matching. Displayed text keeps
 Whisper's output exactly, diacritics included.
@@ -13,7 +14,8 @@ _DIACRITICS = re.compile(
     "[ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۨ-ۭ࣓-ࣿ]"
 )
 # Hindi: the nukta (ज़ / ज) is left off too, as people often write without it.
-_DIACRITICS = re.compile(_DIACRITICS.pattern[:-1] + "\N{DEVANAGARI SIGN NUKTA}]")
+# Latin's macron (ā ē ī ō ū: long vowels), which most Latin text leaves out, is left off too when it is a mark of its own.
+_DIACRITICS = re.compile(_DIACRITICS.pattern[:-1] + "\N{DEVANAGARI SIGN NUKTA}\N{COMBINING MACRON}]")
 _TATWEEL = "ـ"
 
 _CHAR_MAP = str.maketrans(
@@ -35,6 +37,8 @@ _CHAR_MAP = str.maketrans(
         "ک": "ك",  # ک -> ك
         "ۀ": "ه",  # ۀ -> ه
         "‌": None,
+        # Latin: a vowel with a macron matches it without (amō / amo); no other language taught writes these.
+        **dict(zip("āēīōūȳĀĒĪŌŪȲ", "aeiouyAEIOUY")),
         "\N{DEVANAGARI SIGN CANDRABINDU}": "\N{DEVANAGARI SIGN ANUSVARA}",  # Hindi हूँ / हूं: one way of writing
     }
 )

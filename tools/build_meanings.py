@@ -7,7 +7,7 @@ of speech, its meanings (the English glosses), how it is written in full (Arabic
 Russian with its stress), its reading (Japanese kana, Chinese pinyin), its Arabic root or Korean Hanja, and, for
 forms of a word ("hablo", "كتبت"), which word they are a form of. Read by web/js/meanings.js.
 
-    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th de fa hi ko)
+    python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th de fa hi ko la)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
@@ -43,7 +43,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 NAMES = {"ar": "Arabic", "es": "Spanish", "fr": "French", "it": "Italian", "ru": "Russian", "en": "English",
          "tl": "Tagalog", "ja": "Japanese", "zh": "Chinese", "pt": "Portuguese", "ca": "Catalan", "ceb": "Cebuano",
-         "th": "Thai", "de": "German", "fa": "Persian", "hi": "Hindi", "ko": "Korean"}
+         "th": "Thai", "de": "German", "fa": "Persian", "hi": "Hindi", "ko": "Korean", "la": "Latin"}
 URL = "https://kaikki.org/dictionary/{0}/kaikki.org-dictionary-{1}.jsonl.gz"
 # Arabic as spoken: Wiktionary's dialect words go in the Arabic file too, marked with their dialect.
 DIALECTS = {"arz": "Egyptian Arabic", "ajp": "South Levantine Arabic", "apc": "North Levantine Arabic",
@@ -105,7 +105,29 @@ def key(word: str, lang: str) -> str:
         return w.lower().replace("ß", "ss")
     if lang == "hi":
         return hindi_key(w)
+    if lang == "la":
+        return latin_key(w)
     return w.lower()
+
+
+LA_MARKS = re.compile("[̀-ͯ]")
+
+
+def latin_key(word: str) -> str:
+    """Latin without macrons, breves, accents or diaeresis (amō = amo, Dóminus = dominus, poëta = poeta), j as i and
+    v as u (jam = iam, uir = vir), æ œ as ae oe. As latin_key in tools/build_latin.py and latinKey() in
+    web/js/lexicon/latin.js."""
+    w = LA_MARKS.sub("", unicodedata.normalize("NFD", word.strip())).lower().replace("æ", "ae").replace("œ", "oe")
+    return unicodedata.normalize("NFC", w).replace("j", "i").replace("v", "u")
+
+
+def latin_spelling(word: str) -> str:
+    """A Latin spelling with only a dictionary's marks (macron, breve, diaeresis); a vowel marked both long and
+    short (egō̆) is written plain. "" if it has other marks (a scribe's abbreviation)."""
+    w = unicodedata.normalize("NFD", word).replace("̄̆", "").replace("̆̄", "")
+    if any(unicodedata.combining(c) and c not in "̄̆̈" for c in w):
+        return ""
+    return unicodedata.normalize("NFC", w)
 
 
 def hindi_key(word: str) -> str:
@@ -152,6 +174,10 @@ def shown_form(entry: dict, lang: str) -> str:
         for f in entry.get("forms") or []:
             if "canonical" in (f.get("tags") or []) and f.get("form"):
                 return f["form"]
+    if lang == "la":  # with its macrons: amō, rēgīna
+        for f in entry.get("forms") or []:
+            if "canonical" in (f.get("tags") or []) and " " not in f.get("form", " ") and latin_spelling(f["form"]):
+                return latin_spelling(f["form"])
     return entry.get("word", "")
 
 
@@ -246,7 +272,13 @@ def senses(entry: dict, lang: str):
             lemma = target[0]["word"]
             if lang == "de":  # "Formerly standard spelling of rau which was deprecated in the spelling reform"
                 lemma = re.sub(r" which was deprecated.*$", "", lemma)
-            form_of.append((lemma, clean(g[-1])))
+            what = clean(g[-1])
+            if lang == "la":  # how the form is said, with its macrons: "amāvit: third-person singular perfect … of amō"
+                lemma = latin_spelling(lemma) or lemma
+                said = shown_form(entry, lang)
+                if said != entry.get("word") and latin_key(said) == latin_key(entry.get("word", "")):
+                    what = f"{said}: {what}"
+            form_of.append((lemma, what))
             # Korean: "contraction of 나의 (na-ui): my" says what the word means, and the word it shortens
             # (나의 "of me") often has no entry: kept as a meaning, "my (contraction of 나의 (na-ui))".
             m = lang == "ko" and KO_SHORTENED.match(g[-1])
@@ -306,6 +338,8 @@ def build(lang: str, source: str) -> dict:
     if lang == "hi":
         hindi_postpositions(words)
         hindi_everyday_first(words)
+    if lang == "la":
+        latin_table_forms(forms)
     if lang == "zh":
         simplified_spellings(words, forms)
         everyday_reading_first(words)
@@ -679,8 +713,14 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
                 row = forms.setdefault(k, [])
                 if len(row) < 4 and all(r[0] != lk for r in row):
                     row.append([lk, what])
+                elif lang == "la":
+                    for r in row:
+                        if r[0] == lk:
+                            r[1] = latin_what(r[1], what)
         if lang == "hi" and glosses:
             hindi_table_forms(e, k, forms)
+        if lang == "la" and glosses:
+            LATIN_TABLES.append((e, k))
     print(f"  {lang}: read {n} entries from {source.rsplit('/', 1)[-1]}", flush=True)
 
 
@@ -712,6 +752,61 @@ def hindi_table_forms(entry: dict, k: str, forms: dict) -> None:
         row = forms.setdefault(fk, [])
         if len(row) < 4 and all(r[0] != k for r in row):
             row.append([k, f"{what} of {entry['word']}" if what else f"form of {entry['word']}"])
+
+
+def latin_what(had: str, what: str) -> str:
+    """Two ways a Latin form can be read as forms of one word, as one description: hodiernae is "genitive/dative
+    feminine singular; nominative/vocative feminine plural" of hodiernus. "Another spelling of" gives way to what
+    form it is (canēs: "nominative plural of canis")."""
+    split = lambda s: s.partition(": ")[::2] if re.match(r"^[^\s:]+: ", s) else ("", s)  # noqa: E731 ("canēs: …")
+    said, rest = split(what)
+    had_said, had_rest = split(had)
+    alternative = lambda s: s.startswith("alternative ")  # noqa: E731
+    if alternative(rest) and not alternative(had_rest):
+        return had
+    if alternative(had_rest) and not alternative(rest):
+        return what
+    if rest in had_rest or (said and had_said and said != had_said):
+        return had
+    return clean(f"{had}; {rest}")
+
+
+# Latin: Wiktionary has a page for most forms of a word, but not for every one (a name's: Trōiae, Galliam; many
+# adjectives' and participles'). The inflection table on the word's own page lists them all; the ones without a
+# page of their own are added from it, described by the table's labels ("genitive singular of Trōia"), once
+# every page has been read.
+LATIN_TABLES: list = []
+LATIN_TAG_ORDER = ["first-person", "second-person", "third-person", "nominative", "genitive", "dative", "accusative",
+                   "ablative", "vocative", "locative", "masculine", "feminine", "neuter", "singular", "plural", "present",
+                   "imperfect", "perfect", "pluperfect", "future", "future-perfect", "active", "passive", "indicative",
+                   "subjunctive", "imperative", "infinitive", "gerund", "supine"]
+LATIN_SKIP_TAGS = {"canonical", "table-tags", "inflection-template", "class", "romanization", "alternative", "clitic",
+                   "abbreviation", "obsolete", "archaic", "participle", "gerundive"}
+
+
+def latin_table_forms(forms: dict) -> None:
+    added = 0
+    for entry, k in LATIN_TABLES:
+        shown = shown_form(entry, "la")
+        for f in entry.get("forms") or []:
+            tags = set(f.get("tags") or [])
+            form = latin_spelling(unicodedata.normalize("NFC", f.get("form", "")))
+            if not form or " " in form or tags & LATIN_SKIP_TAGS or not tags & set(LATIN_TAG_ORDER):
+                continue
+            fk = key(form, "la")
+            if not fk or fk == k:
+                continue
+            row = forms.setdefault(fk, [])
+            if len(row) >= 4 or any(r[0] == k for r in row):
+                continue
+            what = " ".join(t for t in LATIN_TAG_ORDER if t in tags) + f" of {shown}"
+            row.append([k, f"{form}: {what}" if form != form.translate(LATIN_PLAIN) else what])
+            added += 1
+    LATIN_TABLES.clear()
+    print(f"  la: {added} forms added from the words' inflection tables", flush=True)
+
+
+LATIN_PLAIN = str.maketrans("āēīōūȳĀĒĪŌŪȲăĕĭŏŭäëïöü", "aeiouyAEIOUYaeiouaeiou")
 
 
 # Hindi's postpositions of more than one word (के लिए "for", के बाद "after", की तरह "like") are what a learner

@@ -22,6 +22,8 @@ from app import arabic
         ("Hello World", "hello world"),
         ("ज़रूर", "जरूर"),                         # Hindi: with or without the nukta
         ("हूँ", "हूं"),                            # Hindi: chandrabindu as anusvara
+        ("Rōmae amō", "romae amo"),                 # Latin: macrons left off
+        ("amo\u0304", "amo"),                      # (a macron written as a mark of its own)
     ],
 )
 def test_normalize(text, expected):
