@@ -69,7 +69,7 @@ def test_the_free_shelf_matches_its_index():
 
     folder = Path(__file__).resolve().parent.parent / "docs" / "books"
     index = json.loads((folder / "index.json").read_text(encoding="utf-8"))
-    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de", "hi", "ko"):
+    for lang in ("ar", "es", "fr", "it", "ru", "en", "tl", "ja", "zh", "pt", "ca", "th", "ceb", "de", "hi", "ko", "la"):
         shelf = index["books"][lang]
         assert len(shelf) >= 5, lang
         for row in shelf:
@@ -84,6 +84,20 @@ def test_the_free_shelf_matches_its_index():
             # (Korean Wikisource: its licence box, and the poems' first printing in letters no longer used)
             assert "퍼블릭 도메인" not in text and "Public domain" not in text, row["file"]
             assert not re.search("[ᄀ-ᇿꥠ-꥿ힰ-퟿]", text), row["file"]
+            if lang == "la":
+                # Latin: no printed line or page numbers ("amoris.  45", "{186}", "[23,7]"), pictures' captions or
+                # editors' notes; long vowels as macrons, not as the acute accents of Fabulae Faciles.
+                assert not any(re.search(r"\s\d{1,4}$", b["text"]) for b in data["blocks"] if b["kind"] == "p"), row["file"]
+                assert not re.search(r"\{\d+\}|\[\d+(,\d+)?\]|\[Image|Sidenote| \\ ", text), row["file"]
+                assert len(re.findall(r"\b(the|and|which)\b", text)) <= 3, row["file"]  # (a ship's English name in a novel)
+    latin = {row["id"]: row for row in index["books"]["la"]}
+    assert len(latin) >= 10 and "puer-romanus" not in latin  # (Appleton and Jones's: not free in Britain)
+    faciles = json.loads(gzip.decompress((folder / latin["fabulae-faciles"]["file"]).read_bytes()))["blocks"]
+    assert "Haec nārrantur ā poētīs dē Perseō." in faciles[2]["text"] and not re.search("[áéíóú]", json.dumps(faciles, ensure_ascii=False))
+    # A poem keeps a line of verse to a block, and its lines don't turn into headings ("parte tamen meliore mei…").
+    ovid = json.loads(gzip.decompress((folder / latin["metamorphoses"]["file"]).read_bytes()))["blocks"]
+    assert ovid[1] == {"kind": "p", "text": "In nova fert animus mūtātās dīcere fōrmās"}
+    assert [b["text"] for b in ovid if b["kind"] == "h2"] == [f"Liber {n}" for n in "I II III IV V VI VII VIII IX X XI XII XIII XIV XV".split()]
 
 
 def test_the_shelf_builder_tidies_a_book():
@@ -119,3 +133,11 @@ def test_the_shelf_builder_tidies_a_book():
     assert not bb._listing(["Es war einmal ein König,", "der hatte drei Töchter,", "die waren alle schön."])
     marked = bb.trim([{"kind": "p", "text": "Der Herausgeber an den Leser"}], {"headings": r"^Der Herausgeber an den Leser$"})
     assert marked[0]["kind"] == "h2"
+    # Latin: its own chapter words, with a number after them ("caput" is also a head), long vowels printed as acute
+    # accents become macrons, and a line of verse stays a line, never a heading, even when it starts with "parte".
+    assert all(bb.LA_HEADING.search(t) for t in ("Caput I.", "CAPUT (II.) SECUNDUM.", "Caput vīcēsimum.", "Liber XII", "Pars altera", "Praefatio"))
+    assert not any(bb.LA_HEADING.search(t) for t in ("Caput ephebi iam in rima evanuerat", "parte tamen meliore mei", "vix."))
+    assert bb.trim([{"kind": "p", "text": "Haec nárrantur á poétís"}], {"acutes": True})[0]["text"] == "Haec nārrantur ā poētīs"
+    verse = [{"kind": "h2", "text": "Liber XV"}, {"kind": "p", "text": "parte tamen meliore mei super alta perennis", "verse": True},
+             {"kind": "p", "text": "astra ferar, nomenque erit indelebile nostrum,", "verse": True}]
+    assert bb.clean(verse, "la") == [{"kind": b["kind"], "text": b["text"]} for b in verse]

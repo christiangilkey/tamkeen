@@ -12,7 +12,9 @@ them is docs/books/index.json (read by web/js/books.js). Sources:
                 its pages from first to last, put together ("mul" is the multilingual Wikisource)
 A source may end with a dict of the book's own cuts, where the general cleaning can't see them:
 "from" and "to" (regular expressions for the first block of the book and the first block after it),
-"drop" (blocks to leave out), "join_lines" (rejoin a scan's lines into paragraphs). See trim().
+"drop" (blocks to leave out), "join_lines" (rejoin a scan's lines into paragraphs). See trim(). Two more say how
+to read the book: "verse" (a poem: a line of verse to a block, never taken for a heading) and "names" (a list of
+Wikisource pages: each page's name is a heading, even over a heading of its own).
 
     BOOKS_CACHE=<folder> python tools/build_books.py --again   keeps the downloads, for tuning the cleaning
 
@@ -341,6 +343,66 @@ BOOKS: dict[str, list[tuple]] = {
         ("haneul-baram-byeol-si", "하늘과 바람과 별과 시", "윤동주", 1948, "Yun Dong-ju's poems, published after his death in a Japanese prison.", ("wikisource", "ko", "하늘과 바람과 별과 시 (1948년)")),
         ("mujeong", "무정", "이광수", 1917, "Korea's first modern novel: a young English teacher between two women.", ("wikisource", "ko", ["무정/1장~20장", "무정/21장~40장", "무정/41장~60장", "무정/61장~80장", "무정/81장~100장", "무정/101장~120장", "무정/121장~126장"])),
     ],
+    # Latin: easy readers made for learners first (long vowels marked in most), then Latin translations of novels,
+    # then the classics. Every author died before 1956, the books printed before 1931 (left out: Appleton and
+    # Jones's Puer Romanus and Pons Tironum, 1913: W. H. S. Jones died in 1963, so they are not free in Britain).
+    # The editors' English (introductions, summaries, notes, vocabularies) is cut; so are the margin's line numbers.
+    "la": [
+        ("fabulae-appleton", "Fabulae", "R. B. Appleton", 1914, "Greek myths and fairy tales retold in easy Latin, with every long vowel marked.",
+         ("gutenberg", 57615, {"from": r"^DĒ SĀGĪS$", "to": r"^INDEX VERBŌRUM$"})),
+        # (Kirtland's American edition: an English summary before each story, English titles over its 100 sections;
+        # the sections keep their numbers, the four stories' English names are put into Latin)
+        ("fabulae-faciles", "Fabulae Faciles", "Francis Ritchie", 1884, "Perseus, Hercules, the Argonauts and Ulysses in easy Latin, with the long vowels marked.",
+         ("gutenberg", 8997, {"from": [r"^PERSEUS$", 2], "to": r"^NOTES$", "acutes": True,
+                              "drop": r"^_?(Acrisius, an ancient king|Hercules, a Greek hero|The celebrated voyage of the Argonauts|Ulysses, a famous Greek hero)",
+                              "replace": [[r"^(\d+)\. [^a-zá-ý]+$", r"\1"], [r"^II\. THE ORACLE FULFILLED$", "11"],
+                                          [r"^THE ARGONAUTS$", "ARGONAUTAE"], [r"^ULYSSES$", "ULIXĒS"]],
+                              "headings": r"^(PERSEUS|HERCULES|ARGONAUTAE|ULIXĒS)$"})),
+        ("rebilius-cruso", "Rebilius Crūsō", "Francis W. Newman", 1884, "Robinson Crusoe retold in Latin for learners, with the long vowels marked.",
+         # (Newman's ⸤…⸥ coupling words that go together, and the marks of the glossary's notes, go)
+         ("gutenberg", 70468, {"from": r"^CAPUT PRĪMUM", "to": r"^GLOSSARY", "replace": [[r"[⸤⸥]|\[[A-Z]\]", ""]]})),
+        # (the file has the book twice, as printed and with the long vowels marked: the second)
+        ("robinson-crusoeus", "Rōbinson Crūsōeus", "F. J. Goffaux", 1825, "Robinson's shipwreck and his life alone on his island, in plain Latin with the long vowels marked.",
+         ("gutenberg", 73030, {"from": r"^Lēctōrī\.$", "to": r"^Transcriber’s notes", "headings": r"^Lēctōrī\.$",
+                               "drop": r"^Index capitum$|^—I\. Rōbinsōnis ortus|^Rōbinson Crūsōeus\.$"})),
+        ("viri-illustres", "De viris illustribus urbis Romae", "Charles François Lhomond", 1779, "Short lives of famous Romans, from Romulus to Augustus: the classic first reader.",
+         ("wikisource", "la", "De viris illustribus urbis Romae a Romulo ad Augustum")),
+        # (Caesar's second book made simpler, with the long vowels marked: its English section titles and the
+        # margin's Latin synonyms go, and Caesar's own text after it, which De Bello Gallico below has)
+        ("gate-to-caesar", "The Gate to Caesar", "Gaius Iulius Caesar (simplified by William C. Collar)", 1891, "Caesar's war with the Belgians, made simpler for learners, with the long vowels marked.",
+         ("gutenberg", 29645, {"from": r"^SIMPLIFIED TEXT\.$", "to": r"^C\. IULI CAESARIS$", "drop": r"^(?!\d+\. )"})),
+        ("evangelium-marci", "Evangelium secundum Marcum", "Vulgata Clementina", 1592, "The Gospel of Mark in the Latin of the Vulgate: short, plain sentences.",
+         ("wikisource", "la", "Vulgata Clementina/Evangelium Secundum Marcum")),
+        ("phaedrus", "Fabulae", "Phaedrus", 45, "Aesop's fables in short Latin verse: the wolf and the lamb, the fox and the grapes.",
+         ("wikisource", "la", [f"Fabulae (Phaedrus)/{part}" for part in ("Liber I", "Liber II", "Liber III", "Liber IV", "Liber V", "Appendix Perottina")],
+          # (the editor's brackets round the titles he supplied, and round lines he doubts, go)
+          {"verse": True, "names": True, "replace": [[r"\[PROLOGUS\]", "Prologus."], [r"\[EPILOGUS\]", "Epilogus."], [r"[\[\]]", ""]]})),
+        ("eutropius", "Breviarium historiae Romanae", "Eutropius", 370, "All of Roman history in ten short books, in simple Latin.",
+         ("wikisource", "la", ["Breviarium historiae romanae/Praefatio"] + [f"Breviarium historiae romanae/Liber {n}" for n in "I II III IV V VI VII VIII IX X".split()],
+          {"names": True})),
+        ("nepos", "De excellentibus ducibus exterarum gentium", "Cornelius Nepos", -34, "Short lives of great generals: Miltiades, Themistocles, Hannibal.",
+         ("wikisource", "la", [f"De viris illustribus (Cornelius Nepos)/Liber de excellentibus ducibus exterarum gentium/{n}" for n in (
+             "Praefatio", "Miltiades", "Themistocles", "Aristides", "Pausanias", "Cimon", "Lysander", "Alcibiades", "Thrasybulus", "Conon",
+             "Dion", "Iphicrates", "Chabrias", "Timotheus", "Datames", "Epaminondas", "Pelopidas", "Agesilaus", "Eumenes", "Phocion",
+             "Timoleon", "Reges", "Hamilcar", "Hannibal")], {"names": True, "replace": [[r"\[\d+(,\d+)?\]\s*(\(\d+\)\s*)?", ""]]})),
+        # --- novels translated into Latin (Avellanus died in 1935): the translator's notes at the chapters' ends go
+        ("insula-thesauraria", "Insula Thesauraria", "Robert Louis Stevenson (Latine: Arcadius Avellanus)", 1922, "Treasure Island in Latin.",
+         # (a note's lines after its first begin with a backslash; three verses quoted in notes are on their own)
+         ("gutenberg", 68935, {"from": r"^Pars prima", "to": r"^Transcriber’s notes",
+                               "drop": r"^\d+\. | \\ |^A subitanea et improvisa morte|M\. Val\. Martialis, i, 113|P\. Terentius Afer, Andria"})),
+        ("pericla-magonis", "Pericla Navarchi Magonis", "Léon Cahun (Latine: Arcadius Avellanus)", 1914, "A Phoenician captain's voyage a thousand years before Christ.",
+         ("gutenberg", 48681, {"from": r"^Caput I\.$", "to": r"^Finis\. Notæ auctoris", "drop": r"^\d+\. | \\ "})),
+        # --- the classics
+        ("de-bello-gallico", "De Bello Gallico I–IV", "Gaius Iulius Caesar", -50, "Caesar's own account of his war in Gaul.",
+         ("gutenberg", 218, {"from": r"^C\. IULI CAESARIS DE BELLO GALLICO COMMENTARIUS PRIMUS$"})),
+        ("metamorphoses", "Metamorphoses", "Publius Ovidius Naso", 8, "Ovid's myths of transformation, in fifteen books (the first two with the long vowels marked).",
+         ("wikisource", "la", "Metamorphoses (Ovidius)", {"verse": True})),
+        ("aeneis", "Aeneis", "Publius Vergilius Maro", -19, "Aeneas flees fallen Troy to found Rome.",
+         ("gutenberg", 227, {"verse": True, "drop": r"^(PUBLI VERGILI MARONIS|AENEIDOS)$"})),
+        ("catullus", "Carmina", "Gaius Valerius Catullus", -54, "Love poems, jokes and insults from the late Republic.",
+         ("gutenberg", 23294, {"from": r"^I$", "to": r"^INDEX NOMINVM$", "verse": True, "replace": [[r"^XIV\{b\}$", "XIVb"], [r"\s*\(\d+a\)$", ""]],
+                               "headings": r"^XIVb$"})),
+    ],
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
@@ -391,6 +453,15 @@ HEADING = re.compile(
     # preface and the end words; a chapter number in Devanagari digits on its own; "प्रथम अंक" (first act)
     r"|^(अध्याय|परिच्छेद|प्रकरण|भाग|खंड|खण्ड|अंक|दृश्य|सर्ग|प्रस्तावना|भूमिका|उपसंहार)(\s|$)|^[०-९]+\s*[.।]?$"
     r"|^\S+\s+(अंक|दृश्य|भाग|अध्याय|खंड|खण्ड|परिच्छेद)$", re.I)
+# Latin's headings, used for Latin instead of HEADING: its numbers (in capitals only: "vix" is a word), and Latin's own
+# words, "Caput I", "CAPUT (II.) SECUNDUM", "Liber primus", "Pars altera", "Praefatio". Not the other languages'
+# chapter words, some of which are Latin words too ("parte", "libro", "canto"); and a heading word needs a number
+# or an ordinal after it ("Caput ephebi iam in rima evanuerat" begins a sentence: caput is also a head).
+_LA_ORDINAL = (r"(?-i:[IVXLC]+)\b|\d+\b|\((?-i:[IVXLC]+)\.?\)|(pr[iī]m|sec[uū]nd|alter|terti|qu[aā]rt|qu[iī]nt|sext|septim|oct[aā]v|"
+               r"n[oō]n|decim|[uū]ndecim|du[oō]decim|tr[eē]decim|qu[aā]rtumdecim|qu[aā]ttuordecim|v[iī]c[eē]sim|tr[iī]c[eē]sim|ultim|postr[eē]m)\w*")
+LA_HEADING = re.compile(r"(?-i:^[IVXLC]+\.?$|^(?![LCDM]\.\s|[IVXLC]+\.\s[A-Z]\.)[IVXLC]+\.\s.{0,60}$|^-[IVXLC]+-$|^[IVXLC]+\s*[—–-]\s.{0,60}$)"
+                        rf"|^(caput|capitulum|liber|pars|fabula|carmen|epistula|epistola|commentarius|actus|sc[aeæ]+na)\s+({_LA_ORDINAL})"
+                        r"|^(praefatio|præfatio|prooemium|proœmium|prologus|epilogus)\b.{0,40}$", re.I)
 # A heading that starts with one of these words may run to two or three lines ("Capítulo primero. Que
 # trata de la condición y ejercicio del famoso hidalgo / don Quijote de la Mancha").
 HEADING_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|stave|cant|canto|tratado|kapitel)\b", re.I)
@@ -450,7 +521,9 @@ def _caption(m: re.Match) -> str:
     return f"\n\n{heading.group(1)}\n\n" if heading else ""
 
 
-def gutenberg(book_id: int, lang: str) -> list[dict]:
+def gutenberg(book_id: int, lang: str, opts: dict | None = None) -> list[dict]:
+    opts = opts or {}
+    heading = LA_HEADING if lang == "la" else HEADING
     raw = None
     for url in (f"https://www.gutenberg.org/cache/epub/{book_id}/pg{book_id}.txt",
                 f"https://www.gutenberg.org/files/{book_id}/{book_id}-0.txt"):
@@ -475,6 +548,13 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
     old_end = re.search(r"^\s*(End of (the |this )?(is )?(COPYRIGHTED )?Project Gutenberg|End of Project Gutenberg|Ende dieses Projekt Gutenberg)", text, re.M | re.I)
     if old_end and old_end.start() > len(text) // 2:
         text = text[:old_end.start()]
+    if lang == "la":
+        # A picture's caption goes ("[Image: PROMĒTHEUS ET AQUILA.]"), and a paragraph it cut in two is one again.
+        text = re.sub(r"\n\s*\n\[Image:[^\]]*\]\s*\n\s*\n(?=[a-zāēīōūȳæœ])", "\n", text)
+        text = re.sub(r"\[Image:[^\]]*\]", "", text)
+        # The printed line numbers in the margin, at a line's end ("coniugator amoris.      45"), and an
+        # editor's marks for a corrupt passage ("[+]et Heri[+]").
+        text = re.sub(r"(?<=\S)[ \t]{3,}\d{1,4}[ \t]*$", "", text, flags=re.M).replace("[+]", "")
     # A picture's caption goes, except a chapter heading printed in it ("[Illustration: ... Chapter I.]").
     text = re.sub(r"\[(Illustration|Ilustración|Illustrazione|Ilustração|Ilustració|Larawan|Patalastas|Abbildung|Bild)[^\]]*\]", _caption, text, flags=re.I)
     text = re.sub(r"^([#=])([^#=\n]{1,100})\1$", r"\2", text, flags=re.M)  # "#TITLE#", "=I.=": headings in some old files
@@ -555,7 +635,7 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
             # chapter's name): the headings just before the first paragraph are given back.
             twice = {e for e in map(_key, entries) if e and sum(1 for f in entries if _key(f) == e) >= 2}
             back = [j for j in range(max(t + 2, k - 3), k) if _short(paras[j])
-                    and (HEADING.search(paras[j][0]) or _key(" ".join(paras[j])) in twice)]
+                    and (heading.search(paras[j][0]) or _key(" ".join(paras[j])) in twice)]
             if back:
                 k = back[0]
         paras = paras[:t] + paras[k:]
@@ -586,9 +666,11 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
         one = re.sub(r"\[(\d+|\*)\]", "", one)
         if len(one) <= 150:
             one = re.sub(r"^[=#](.+?)[=#](\.?)$", r"\1\2", one)  # "=XXVII. SA PAGTATAKIPSILIM.=" over two lines
-        kind = "h2" if len(one) <= 80 and len(lines) <= 2 and any(HEADING.search(ln) for ln in lines) else "p"
-        if kind == "p" and len(one) <= 220 and len(lines) <= 3 and HEADING_WORD.search(lines[0]) and not _prose(one[60:]):
+        kind = "h2" if len(one) <= 80 and len(lines) <= 2 and any(heading.search(ln) for ln in lines) else "p"
+        if kind == "p" and lang != "la" and len(one) <= 220 and len(lines) <= 3 and HEADING_WORD.search(lines[0]) and not _prose(one[60:]):
             kind = "h2"
+        if opts.get("verse") and len(lines) >= 2:
+            kind = "p"  # (a poem's stanza: its lines are kept apart, below)
         if kind == "p" and _short(lines) and _key(one) in titles and not re.match(r"[\"“«„—-]", one):
             kind = "title"  # (a heading if the book has hardly any others: see below)
         # Some newer Gutenberg files mark their headings the Markdown way: "## I.", "# CAPÍTOL PRIMER".
@@ -599,6 +681,14 @@ def gutenberg(book_id: int, lang: str) -> list[dict]:
         if lang in CAPS_HEADINGS and kind == "p" and len(lines) <= 2 and len(one) <= 60 \
                 and re.search(r"[A-ZÀ-Ý]{3}", one) and not re.search(r"[a-zß-ÿ]", one):
             kind = "h2"
+        # (Latin: the same, with its long vowels marked, "DĒ SĀGĪS"; not in a poem, where a line in capitals
+        # names who speaks: "IVVENES", "VIRGINES")
+        if lang == "la" and kind == "p" and not opts.get("verse") and len(lines) <= 2 and len(one) <= 60 and one.isupper() and len(re.findall(r"[^\W\d_]", one)) >= 3:
+            kind = "h2"
+        if opts.get("verse") and kind == "p":
+            # A poem ("verse"): a line of verse to a block, as Wikisource gives a poem, not a stanza run together as prose.
+            blocks.extend({"kind": "p", "text": tidy(re.sub(r"\[(\d+|\*)\]", "", ln)), "verse": True} for ln in lines)
+            continue
         blocks.append({"kind": kind, "text": tidy(one) if lang not in NO_SPACES else one.strip()})
     # Story titles found through the contents list are headings in a book that has hardly any
     # others (a collection of stories); in a book with chapters they are only lines of the text.
@@ -619,11 +709,14 @@ class _Text(HTMLParser):
                             r"licenseContainer|hatnote|dablink|jamocomposed_block)\b")  # (the last: old Korean letters)
     BLOCKS = {"p", "h1", "h2", "h3", "h4", "h5", "dd", "li", "blockquote", "div", "center"}
 
-    def __init__(self, tables: bool = False):
+    def __init__(self, tables: bool = False, verse: bool = False):
         super().__init__(convert_charrefs=True)
         # Thai poems are laid out as plain tables, a couplet a row: with `tables`, a table without a
         # class (not a navigation or notice box) is read a row at a time. Other tables are left out.
         self.tables = tables
+        # A book of verse (a Latin poem set as paragraphs with a <br> after each line): with `verse`, every line
+        # is a block of its own, marked as verse, without the line number printed before it ("5  Calumniari…").
+        self.verse = verse
         self.blocks: list[dict] = []
         self.buf: list[str] = []
         self.kind = "p"
@@ -634,7 +727,10 @@ class _Text(HTMLParser):
 
     def flush(self):
         text = tidy("".join(self.buf))
-        if text:
+        if text and self.verse and self.kind == "p":
+            text = re.sub(r"^\d{1,4}\s+(?=\D)", "", text)
+            self.blocks.append({"kind": "p", "text": text, "verse": True})
+        elif text:
             self.blocks.append({"kind": self.kind, "text": text})
         self.buf = []
         self.kind = "p"
@@ -645,7 +741,7 @@ class _Text(HTMLParser):
         skip = bool(self.SKIP_CLASS.search(a.get("class", "") or "")) or tag in ("sup", "style", "script") \
             or (tag == "table" and not plain_table) or a.get("id") in ("toc", "headertemplate")
         if tag in ("br", "img", "hr", "wbr", "meta", "link", "input"):
-            if tag == "br" and not self.skip and self.poem:
+            if tag == "br" and not self.skip and (self.poem or self.verse):
                 self.flush()
             elif tag == "br" and not self.skip:
                 self.buf.append(" ")
@@ -713,12 +809,12 @@ def wiki_scan(lang: str, index: str, first: int, last: int) -> list[dict]:
     return blocks
 
 
-def wiki_page(lang: str, title: str) -> tuple[list[dict], list[str], str]:
+def wiki_page(lang: str, title: str, verse: bool = False) -> tuple[list[dict], list[str], str]:
     """(the page's text blocks, its links to its own subpages in the order they appear, the page
     its header calls the next one: chapters are often chained that way instead of listed)."""
     d = wiki_api(lang, action="parse", page=title, prop="text", redirects=1, disableeditsection=1)
     page_html = d["parse"]["text"]
-    parser = _Text(tables=lang in TABLE_POEMS)
+    parser = _Text(tables=lang in TABLE_POEMS, verse=verse)
     parser.feed(page_html)
     parser.flush()
     real = d["parse"]["title"]
@@ -756,15 +852,15 @@ def _own_heading(blocks: list[dict]) -> bool:
                for b in blocks[:3])
 
 
-def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> list[dict]:
-    blocks, subs, nxt = wiki_page(lang, title)
+def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True, verse: bool = False) -> list[dict]:
+    blocks, subs, nxt = wiki_page(lang, title, verse)
     words = sum(len(b["text"].split()) for b in blocks)
     if subs and (words < 600 or len(subs) >= 3) and depth < 2:
         editions = [s for s in subs if EDITION.search(s)]
         if editions and len(editions) == len(subs):
             # Different printings of the same work: the modern spelling (СО) if there is one.
             pick = next((s for s in editions if "СО" in s), editions[0])
-            return wikisource(lang, pick, depth + 1)
+            return wikisource(lang, pick, depth + 1, verse=verse)
         out = []
         for sub in subs:
             # A chapter inside a part also listed here is read with its part, not twice.
@@ -772,7 +868,7 @@ def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> lis
                 continue
             # (A page that links only to its first chapter has the chapters chained from there, each
             # header pointing to the next: निर्मला -> निर्मला/१ -> निर्मला/२ ... on the Hindi Wikisource.)
-            part = wikisource(lang, sub, depth + 1, chain=len(subs) == 1)
+            part = wikisource(lang, sub, depth + 1, chain=len(subs) == 1, verse=verse)
             if part:
                 name = sub[len(title) + 1:] if sub.startswith(title + "/") else sub.rsplit("/", 1)[-1]
                 if not _own_heading(part):
@@ -785,7 +881,7 @@ def wikisource(lang: str, title: str, depth: int = 0, chain: bool = True) -> lis
     seen = {title}
     while chain and depth > 0 and nxt and parent and nxt.startswith(parent + "/") and nxt not in seen and len(seen) < 300:
         seen.add(nxt)
-        more, _subs, after = wiki_page(lang, nxt)
+        more, _subs, after = wiki_page(lang, nxt, verse)
         name = nxt[len(parent) + 1:]
         if more and not _own_heading(more):
             blocks.append({"kind": "h2", "text": tidy(name)})
@@ -827,6 +923,7 @@ NOTES = re.compile(r"^(Примечания( редакторов Викитек
 
 NUMBER = re.compile(r"^((chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|глава|part|parte|livro|libro|book|अध्याय|परिच्छेद)\s+\S+"
                     r"|-?[IVXLC]+-?\.?|\d+\.?|[०-९]+\s*[.।]?)$", re.I)
+LA_NUMBER = re.compile(rf"^((caput|capitulum|liber|pars)\s+({_LA_ORDINAL})\S*(\s+\S+)?|(?-i:-?[IVXLC]+-?)\.?|\d+\.?)$", re.I)  # (the same, for Latin)
 
 
 HEAD_WORD = re.compile(r"^(chapter|capítulo|capitulo|chapitre|capitolo|capítol|kabanata|kapitulo|глава|libro|livre|livro|book|part|parte|partie)\s+", re.I)
@@ -846,10 +943,12 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
     """Drop lines with no letters (*** and the like), a heading repeated straight after itself, and
     the "Notes" headings left once the notes themselves are gone; join a chapter number to the title
     on the line after it ("CAPÍTULO I" + "O TREM": "CAPÍTULO I. O TREM")."""
+    heading, number = (LA_HEADING, LA_NUMBER) if lang == "la" else (HEADING, NUMBER)
     out: list[dict] = []
     for b in blocks:
         text = b["text"].strip()
-        if not re.search(r"\w", text) or (out and out[-1]["text"] == text):
+        # (A line of verse said twice running is the poem's refrain, not a repeat to drop.)
+        if not re.search(r"\w", text) or (out and out[-1]["text"] == text and not b.get("verse")):
             continue
         if re.search(r"\.(pdf|djvu)/\d+", text):
             continue  # links to scan pages not transcribed yet ("หน้า:….pdf/422")
@@ -858,7 +957,8 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
         kind = b["kind"]
         if len(text) <= 150:
             text = re.sub(r"^=+|=+(?=\.?$)", "", text).strip() or text  # what is left of "=I.=" bold marks
-        if kind == "p" and len(text) <= 60 and HEADING.search(text):  # "I", "Глава первая", "第一回" on a line of their own
+        # (not a line of verse: "parte tamen meliore mei super alta perennis")
+        if kind == "p" and len(text) <= 60 and heading.search(text) and not b.get("verse"):  # "I", "Глава первая", "第一回" on a line of their own
             kind = "h2"
         # (Not a line of text much longer than the heading: a poem named by its first line, as Persian
         # ghazals and quatrains are, starts with that line in full: "الا یا ایها الساقی…" + "… که عشق آسان نمود اوّل".)
@@ -873,11 +973,11 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
             prev = out[-1]["text"]
             if NOTES.match(prev):
                 out.pop()
-            elif len(prev) <= 30 and HEADING.search(prev) and not HEADING.search(text) and len(text) <= 100 \
+            elif len(prev) <= 30 and heading.search(prev) and not heading.search(text) and len(text) <= 100 \
                     and not (len(out) > 1 and out[-2]["kind"] == "h2"):
                 out[-1] = {"kind": "h2", "text": prev + (" " if prev[-1] in ".:—-" else ". ") + text}
                 continue
-        out.append({"kind": kind, "text": text})
+        out.append({"kind": kind, "text": text, **({"verse": True} if b.get("verse") else {})})
     # Three or more headings in a row near the start are a title page's lines in capitals, not headings.
     # (Not in Persian, which has no capitals: a Wikisource page's poems are named by their first lines.)
     i = 0 if lang not in UNCASED else len(out)
@@ -887,7 +987,7 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
             j += 1
         if j - i >= 3:
             for b in out[i:j]:
-                if NUMBER.match(b["text"]) or HEADING.search(b["text"]):
+                if number.match(b["text"]) or heading.search(b["text"]):
                     break  # (the first chapter's heading, after the title page)
                 b["kind"] = "p"
         i = j + 1
@@ -895,7 +995,7 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
     # heading near the start is one with text after it.
     for i in range(min(len(out), 60) if lang not in UNCASED else 0):
         b = out[i]
-        if b["kind"] == "h2" and not (NUMBER.match(b["text"]) or HEADING.search(b["text"])) \
+        if b["kind"] == "h2" and not (number.match(b["text"]) or heading.search(b["text"])) \
                 and not any(x["kind"] == "p" and len(x["text"]) > 150 for x in out[i + 1:i + 3]):
             b["kind"] = "p"
     # A bare number heading ("-I-", "CHAPTER I") followed by a short line with no full stop, and then
@@ -903,7 +1003,7 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
     for i in range(len(out) - 3, -1, -1):
         h, name, after = out[i], out[i + 1], out[i + 2]
         upper = name["text"].isupper()
-        if h["kind"] == "h2" and name["kind"] == "p" and after["kind"] == "p" and NUMBER.match(h["text"]) \
+        if h["kind"] == "h2" and name["kind"] == "p" and after["kind"] == "p" and number.match(h["text"]) and not name.get("verse") \
                 and len(name["text"]) <= (200 if upper else 70) and (len(after["text"]) > 200 or upper) \
                 and not re.search(r"[!?:;,…»\"”)]$" if upper else r"[.!?:;,…»\"”)]$", name["text"]) \
                 and not re.match(r"[\"“«„—–(\[-]", name["text"]):
@@ -926,13 +1026,17 @@ def clean(blocks: list[dict], lang: str = "") -> list[dict]:
         out = out[:k]
     while out and (NOTES.match(out[-1]["text"]) or out[-1]["kind"] == "h2"):
         out.pop()
-    return out
+    return [{"kind": b["kind"], "text": b["text"]} for b in out]  # (without the verse marks)
+
+
+ACUTE_TO_MACRON = str.maketrans("áéíóúýÁÉÍÓÚÝ", "āēīōūȳĀĒĪŌŪȲ")
 
 
 def trim(blocks: list[dict], opts: dict) -> list[dict]:
     """A book's own cuts, where the general cleaning can't see them: "from" (the first block of the
     book itself, a regular expression), "to" (the first block after its end), "drop" (blocks to leave out),
-    "headings" (blocks that are headings)."""
+    "replace" (a list of [pattern, replacement] for the blocks' text; a block left empty goes), "acutes" (long vowels
+    printed with acute accents, written with macrons), "headings" (blocks that are headings)."""
     if opts.get("from"):
         # ("from" may be [pattern, n]: the n-th block that matches, where a title page comes twice.)
         pattern, nth = (opts["from"], 1) if isinstance(opts["from"], str) else opts["from"]
@@ -947,6 +1051,19 @@ def trim(blocks: list[dict], opts: dict) -> list[dict]:
         blocks = blocks[:k]
     if opts.get("drop"):
         blocks = [b for b in blocks if not re.search(opts["drop"], b["text"])]
+    if opts.get("replace"):  # (an editor's English heading put into Latin: "THE ARGONAUTS" -> "ARGONAUTAE")
+        changed = []
+        for b in blocks:
+            text = b["text"]
+            for pattern, repl in opts["replace"]:
+                text = re.sub(pattern, repl, text).strip()
+            if text:
+                changed.append({**b, "text": text})
+        blocks = changed
+    if opts.get("acutes"):
+        # A Latin school book that marks a long vowel with an acute accent ("Haec nárrantur á poétís"): the
+        # macron a Latin reader expects ("Haec nārrantur ā poētīs").
+        blocks = [{**b, "text": unicodedata.normalize("NFC", b["text"]).translate(ACUTE_TO_MACRON)} for b in blocks]
     if opts.get("headings"):  # lines that are headings although nothing marks them so ("Der Herausgeber an den Leser")
         blocks = [{"kind": "h2", "text": b["text"]} if len(b["text"]) <= 120 and re.search(opts["headings"], b["text"]) else b
                   for b in blocks]
@@ -1000,24 +1117,25 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
             # lists شاهنامه (تصحیح ژول مل)/پادشاهی کیومرث…): the pages it links to whose names match, in its order.
             source = (kind, source[1], wiki_links(source[1], source[2], opts["pages"]))
         if kind == "gutenberg" and isinstance(source[1], list):  # a book Gutenberg has in volumes, one after the other
-            blocks = [b for volume in source[1] for b in gutenberg(volume, lang)]
+            blocks = [b for volume in source[1] for b in gutenberg(volume, lang, opts)]
             credit = "Project Gutenberg " + ", ".join(f"#{v} (https://www.gutenberg.org/ebooks/{v})" for v in source[1])
         elif kind == "gutenberg":
-            blocks = gutenberg(source[1], lang)
+            blocks = gutenberg(source[1], lang, opts)
             credit = f"Project Gutenberg #{source[1]} (https://www.gutenberg.org/ebooks/{source[1]})"
         elif kind == "wikisource" and isinstance(source[2], list):
             blocks = []
             for page in source[2]:
-                part = wikisource(source[1], page, depth=1, chain=False)
-                # (the page's name is its heading, unless it has one of its own in its first lines)
-                if part and not any(b["kind"].startswith("h") or (len(b["text"]) <= 80 and HEADING.search(b["text"])) for b in part[:3]):
+                part = wikisource(source[1], page, depth=1, chain=False, verse=bool(opts.get("verse")))
+                # (the page's name is its heading, unless it has one of its own in its first lines; with "names",
+                # always: a book's "Liber II" above the first fable's own "I. Lupus et agnus")
+                if part and (opts.get("names") or not any(b["kind"].startswith("h") or (len(b["text"]) <= 80 and HEADING.search(b["text"])) for b in part[:3])):
                     blocks.append({"kind": "h2", "text": tidy(page.rsplit("/", 1)[-1].split(" - ")[-1])})
                 blocks.extend(part)
                 time.sleep(0.2)
             first = source[2][0]
             credit = f"Wikisource (https://{source[1]}.wikisource.org/wiki/{urllib.parse.quote(first.replace(' ', '_'))})"
         elif kind == "wikisource":
-            blocks = wikisource(source[1], source[2])
+            blocks = wikisource(source[1], source[2], verse=bool(opts.get("verse")))
             credit = f"Wikisource (https://{source[1]}.wikisource.org/wiki/{urllib.parse.quote(source[2].replace(' ', '_'))})"
         elif kind == "wikisource-scan":
             blocks = wiki_scan(source[1], source[2], source[3], source[4])

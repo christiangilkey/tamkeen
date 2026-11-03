@@ -6559,8 +6559,17 @@ language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). C
 - **Reels**: Latin search words (app/reels.py, reels-phone.js); expect very few reels actually spoken in Latin.
 - **Text in photos** (Add words → Scan): Tesseract's Latin data, docs/lexicon/ocr-lat.traineddata.gz (tools/build_ocr.mjs
   `lat`; its run rewrote web/js/vendor/tesseract with LF endings only, which was put back).
-- **Books**: a Latin shelf from Project Gutenberg and Latin Wikisource (tools/build_books.py BOOKS["la"]) follows in its
-  own commit; see the line added there.
+- **Books** (docs/books/la, 16, tools/build_books.py BOOKS["la"]; downloads cached in `..\latin-data\books-cache`):
+  readers first: Appleton's *Fabulae* (macrons), Ritchie's *Fabulae Faciles* (its acute accents turned into macrons:
+  per-book option `acutes`), *Rebilius Crūsō* and *Rōbinson Crūsōeus* (macrons from a Gutenberg volunteer's edition),
+  Lhomond's *De viris illustribus*, Collar's simplified Book II from *The Gate to Caesar*, Mark's Gospel (Clementine
+  Vulgate), Phaedrus, Eutropius, Nepos; then Avellanus's *Insula Thesauraria* (Treasure Island) and *Pericla Navarchi
+  Magonis*, Caesar I–IV, Ovid's *Metamorphoses* (macrons in Books I–II only), the *Aeneid*, Catullus (Ellis: u for v).
+  Left out: Appleton & Jones's *Puer Romanus* and *Pons Tironum* (Jones died 1963: not public domain in Britain). New in
+  the builder, all only for Latin or per-book options only Latin uses: a Latin heading pattern (Caput/Liber/Pars only
+  with a number; lines in capitals), Gutenberg's [Image: …] captions and line numbers removed, `verse` (one line of
+  verse per block, never a heading or a repeat), `names` (a Wikisource page's name as its heading), `replace`. Other
+  languages' books checked byte-identical (188 committed books through clean()/trim(), 9 rebuilt from the same downloads).
 - **Common words** web/js/wordlists/la.js (dictionary forms with macrons, from the table's counts: `make_wordlists.py
   la=<la_lemma_counts.tsv>`, which build_latin.py writes).
 - **Interface text**: 29 strings in tools/i18n/tr/<code>/111-latin.txt for all 16 languages (the name, the search note,
