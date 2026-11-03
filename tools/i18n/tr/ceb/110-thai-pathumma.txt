@@ -1,0 +1,11 @@
+fc813db3 Ang Pathumma, Whisper large-v3 nga gibansay pag-usab sa Thai sa NECTEC: mga ikaupat nga bahin nga mas gamay ang sayop kaysa large-v3 sa adlaw-adlaw nga sinultihan nga Thai. Kung ma-download na, kini ang mosulat sa tanang transcript nga Thai niining kompyuter, bisan unsa pa ang modelo nga gipili sa ibabaw. Labing maayo kung naay GPU.
+07ae97d1 Thai (Pathumma)
+6f26cef9 Listening model alang sa Thai: Pathumma
+967d67c0 Pathumma, sa imong computer
+f80f6bed Ang Pathumma mao ang kaugalingong listening model sa Thai: Whisper large-v3 nga gibansay pag-usab sa Thai sa NECTEC, ang nasyonal nga sentro sa electronics ug computer technology sa Thailand. Sa adlaw-adlaw nga sulti, mga ikaupat nga bahin nga mas gamay ang sayop nga letra niini kon itandi sa Whisper large-v3, ang model nga gigamit sa Groq.
+6fa19dac Sa mga sentence nga gibasa og kusog, mas maayo gamay ang Whisper large-v3.
+212bd70c Gisukod sa Tamkeen sa usa ka computer, gamit ang kaugalingong transcription settings sa app, batok sa mga opisyal nga transcript: 90 ka clip nga tag-tunga sa minuto gikan sa mga talk show sa Thai TV (ang TVSpeech set, sa SCB 10X), ug FLEURS, usa ka publikong set sa mga sentence nga gibasa og kusog. Ang ikaduhang bar mao ang Whisper large-v3 nga gipadagan sa samang paagi: ang model nga gigamit sa Groq.
+c2832388 Aron magamit kini, i-download ang Pathumma sa imong computer (Settings → Pagpaminaw ug mga transcript → Model sa transcript) ug pilia ang Akong computer sa ibabaw. Molihok gihapon ang cloud provider alang sa Thai, diretso gikan niining phone, kon dili ka gusto maghulat sa imong computer.
+9f5abefb I-download ang Pathumma sa Model sa transcript, sa ubos ra. Kon ma-download na, isulat niini ang matag Thai nga transcript niining computer, bisan pa og may napili nga cloud provider.
+da261a03 Na-download na ang Pathumma: isulat niini ang matag Thai nga transcript niining computer, bisan pa og may napili nga cloud provider.
+3053ce37 Ang mga Thai nga transcript sa imong computer naggamit na sa Pathumma, nga mga ikaupat nga bahin nga mas gamay ang sayop sa adlaw-adlaw nga sulti

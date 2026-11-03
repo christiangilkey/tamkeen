@@ -54,19 +54,27 @@ LANGUAGE_MODELS: dict[str, dict[str, Any]] = {
                "files": {"config.json", "generation_config.json", "tokenizer.json", "preprocessor_config.json",
                          "model.safetensors"},
                "engines": {"faster-whisper"}, "approx_mb": 3090, "prompt": False},
-    # Typhoon Whisper Turbo, Whisper large-v3 turbo retrained on ~11,000 hours of Thai by SCB 10X (MIT
-    # licence). On Thai TV talk shows joined into 14 minutes of podcast-like audio (2026-10-19) it got
-    # 12.6% of characters wrong against large-v3's 27.1%, left out far less of what was said, and ran
-    # 2.6 times faster. Its weights are bfloat16 (convert.py turns them into float16). On a short clip
-    # ending in silence it can invent words after the speech; those come with no length, piled at the end,
-    # and `trim` has faster.py drop them (and runs of one phrase said over and over).
-    "typhoon": {"language": "th", "repo": "typhoon-ai/typhoon-whisper-turbo", "revision": "3c03fa84c26f172944422ceb8a4e88a2dbc08b10",
-                "files": {"config.json", "generation_config.json", "tokenizer.json", "preprocessor_config.json",
-                          "model.safetensors"},
-                # cloud providers know Thai (only less well): it keeps cloud transcription, the phone's only way
-                "engines": {"faster-whisper"}, "approx_mb": 1550, "prompt": False, "trim": True, "cloud_ok": True},
+    # Pathumma Whisper large-v3 (Th), Whisper large-v3 retrained on Thai by NECTEC (Thailand's national
+    # electronics and computer technology centre; Apache 2.0 licence, no other terms). On 90 half-minute
+    # clips of Thai TV talk (TVSpeech, CC-BY; 2026-10-19) it got 14.7% of characters wrong against
+    # large-v3's 20.5%; on sentences read aloud (FLEURS) 8.7% against 7.7%. On a clip ending in silence it
+    # can invent words after the speech; those come with no length, piled at the end, and `trim` has
+    # faster.py drop them (and runs of one phrase said over and over). It replaced Typhoon Whisper Turbo
+    # (RETIRED): the owner's rule is no terms-of-service breaches, and the OpenTyphoon terms forbid
+    # letting others use the model without written permission.
+    "pathumma": {"language": "th", "repo": "nectec/Pathumma-whisper-th-large-v3", "revision": "6d5e4f2fc7fc2c05447b3626dd346b1793682eb9",
+                 "files": {"config.json", "generation_config.json", "preprocessor_config.json", "model.safetensors"},
+                 # It has no tokenizer.json (convert.py needs one). Its vocab.json, merges.txt, added_tokens.json
+                 # and tokenizer_config.json are byte for byte Whisper large-v3's, so it is that model's.
+                 "borrow": {"repo": "openai/whisper-large-v3", "revision": "06f233fe06e710322aca913c1bc4249a0d71fce1",
+                            "files": {"tokenizer.json"}},
+                 # cloud providers know Thai (only less well): it keeps cloud transcription, the phone's only way
+                 "engines": {"faster-whisper"}, "approx_mb": 2945, "prompt": False, "trim": True, "cloud_ok": True},
 }
 APPROX_MB.update({name: m["approx_mb"] for name, m in LANGUAGE_MODELS.items()})
+
+# Language models no longer offered: a copy downloaded by an earlier version is deleted (forget_retired).
+RETIRED = ("typhoon",)
 
 _lock = threading.Lock()
 _cancel = threading.Event()
@@ -157,12 +165,17 @@ def _download(size: str, engine: str) -> None:
         sha, files = _file_list(repo, special and special["revision"])
         if special:
             files = [f for f in files if f["path"] in special["files"]]
-        total = sum(int(f["size"]) for f in files)
+        sources = [(repo, sha, f) for f in files]
+        borrow = special and special.get("borrow")
+        if borrow:  # a file the model lacks, from the model it was retrained from
+            b_sha, b_files = _file_list(borrow["repo"], borrow["revision"])
+            sources += [(borrow["repo"], b_sha, f) for f in b_files if f["path"] in borrow["files"]]
+        total = sum(int(f["size"]) for _, _, f in sources)
         target.mkdir(parents=True, exist_ok=True)
         _set(state="downloading", total=total)
         base = 0
         last_emit = 0.0
-        for f in files:
+        for from_repo, from_sha, f in sources:
             name = f["path"]
             size_bytes = int(f["size"])
             dest = target / name
@@ -179,7 +192,7 @@ def _download(size: str, engine: str) -> None:
                     _set(done=base + done)
 
             downloader.download(
-                f"{HF}/{repo}/resolve/{sha}/{name}", dest, prog,
+                f"{HF}/{from_repo}/resolve/{from_sha}/{name}", dest, prog,
                 expected_sha256=lfs.get("oid"), expected_size=size_bytes, cancel=_cancel,
             )
             if not lfs and f.get("oid") and downloader.git_blob_sha1(dest) != f["oid"]:
@@ -238,3 +251,14 @@ def delete(size: str) -> None:
 
     transcriber.unload()
     shutil.rmtree(model_dir(size), ignore_errors=True)
+
+
+def forget_retired() -> None:
+    """Delete the language models an earlier version downloaded that are no longer offered (RETIRED): the
+    app no longer uses or lists them, so nothing else would ever remove them. Run at startup."""
+    for engine in REPOS:
+        for name in RETIRED:
+            d = model_dir(name, engine)
+            if d.exists():
+                log.info("Removing the retired %s model (%s)", name, d)
+                shutil.rmtree(d, ignore_errors=True)

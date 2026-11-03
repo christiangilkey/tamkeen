@@ -1,0 +1,11 @@
+fc813db3 Pathumma, Whisper large-v3 na muling sinanay sa Thai ng NECTEC: mga isang-kapat na mas kaunti ang mali kaysa large-v3 sa pang-araw-araw na pananalitang Thai. Kapag na-download na, ito ang susulat ng lahat ng transcript sa Thai sa computer na ito, anuman ang modelong pinili sa itaas. Pinakamaganda kung may GPU.
+07ae97d1 Thai (Pathumma)
+6f26cef9 Listening model para sa Thai: Pathumma
+967d67c0 Pathumma, sa computer mo
+f80f6bed Ang Pathumma ang sariling listening model ng Thai: Whisper large-v3 na sinanay muli sa Thai ng NECTEC, ang pambansang sentro ng electronics at computer technology ng Thailand. Sa karaniwang usapan, mga isang-kapat na mas kaunti ang maling titik nito kumpara sa Whisper large-v3, ang model na ginagamit ng Groq.
+6fa19dac Sa mga pangungusap na binasa nang malakas, medyo mas magaling ang Whisper large-v3.
+212bd70c Sinukat ng Tamkeen sa isang computer, gamit ang sariling transcription settings ng app, laban sa mga opisyal na transcript: 90 clip na tig-kalahating minuto mula sa mga talk show sa Thai TV (ang TVSpeech set, ng SCB 10X), at FLEURS, isang pampublikong set ng mga pangungusap na binasa nang malakas. Ang ikalawang bar ay Whisper large-v3 na pinatakbo sa parehong paraan: ang model na ginagamit ng Groq.
+c2832388 Para magamit ito, i-download ang Pathumma sa computer mo (Settings → Pakikinig at mga transcript → Transcription model) at piliin ang Computer ko sa itaas. Gumagana pa rin ang cloud provider para sa Thai, diretso mula sa phone na ito, kapag ayaw mong hintayin ang computer mo.
+9f5abefb I-download ang Pathumma sa Transcription model, sa ibaba lang. Kapag na-download na, isinusulat nito ang bawat Thai transcript sa computer na ito, kahit may napiling cloud provider.
+da261a03 Na-download na ang Pathumma: isinusulat nito ang bawat Thai transcript sa computer na ito, kahit may napiling cloud provider.
+3053ce37 Gumagamit na ng Pathumma ang mga Thai transcript sa computer mo, na mga isang-kapat na mas kaunti ang mali sa karaniwang usapan

@@ -3149,11 +3149,11 @@ Owner: "On languages that require a custom whisper or listening model disable th
 transcription option in settings and explain why." Today that is Bisaya (ceb).
 - **Which languages**: `app/models_manager.py` `needs_own_model(code)`: a LANGUAGE_MODELS language, unless its
   entry has `"cloud_ok": True` (a model that is only *better* at a language cloud providers know, e.g. Thai's
-  Typhoon: Thai keeps the cloud). On the screens: `web/js/stt.js` `OWN_MODEL_LANGUAGES = { ceb: "Tagalog" }`
+  Pathumma: Thai keeps the cloud). On the screens: `web/js/stt.js` `OWN_MODEL_LANGUAGES = { ceb: "Tagalog" }`
   (each with what providers write instead) and `cloudBlocked(code)`; keep the two lists in step.
 - **Computer**: `transcriber/cloud.py` `config()` returns None while such a language is studied, so episodes,
   reels and `/api/status` (model_ready) all use this computer; `transcriber.get(language=…)` also never sends
-  such a language to the cloud, and a downloaded language model (Bisaya, Typhoon) still beats the cloud.
+  such a language to the cloud, and a downloaded language model (Bisaya, Pathumma) still beats the cloud.
 - **Screens** (both apps, `web/js/components/sttsetup.js`): `sttConfig()` gives `blocked`, `on: false`,
   `mode: "local"` for such a language; the "A cloud provider" choice is greyed out, the tag says "Off for this
   language", and a note says why (no provider knows it, they fail or write Tagalog; the computer writes it with
@@ -3162,22 +3162,29 @@ transcription option in settings and explain why." Today that is Bisaya (ceb).
   still worded for Bisaya only: generalise them if another such language is added.
 - Tests: tests/test_language_models.py, tests/js/stt.test.mjs. Translations: `tools/i18n/tr/<code>/36-cloud-off.txt`.
 
-## Thai speech model: Typhoon (2026-10-19)
+## Thai speech model: Pathumma (2026-10-19; Typhoon replaced 2026-11-02)
 
-Thai has a speech model of its own, like Bisaya: `models_manager.LANGUAGE_MODELS["typhoon"]`, Typhoon Whisper Turbo
-(typhoon-ai/typhoon-whisper-turbo, SCB 10X, MIT licence, pinned revision). It is downloaded from Typhoon's own page and
-converted in the app (`transcriber/convert.py`, which now reads bfloat16 weights; the result is byte for byte what
-CTranslate2's own converter makes). Settings → Listening shows it, marked Recommended, to Thai learners; once
-downloaded it writes every Thai transcript on the computer. `"cloud_ok": True`: cloud providers know Thai, so unlike
-Bisaya Thai keeps cloud transcription (the phone's only way); a downloaded Typhoon still wins on the computer.
-- **Why**: measured on this PC (scripts and data outside the repo, in `%TEMP%\tasr`), with the app's transcription
-  settings, against official transcripts: Thai TV talk shows (Typhoon's TVSpeech set) joined into 14 minutes of
-  podcast-like audio: large-v3 27.1% of characters wrong and about a fifth of the speech left out, Typhoon turbo
-  12.6% and 2.6x faster; Typhoon large-v3 16.3%. 90 half-minute clips: 20.5% against 9.4% (with the guard below).
-  Read sentences (FLEURS): large-v3 still a little better (7.7% against 12.6%), partly because Typhoon writes numbers
-  as words and English names in Latin letters. Also tried: Thonburian (biodatlab) and Pathumma (NECTEC), both worse.
+Thai has a speech model of its own, like Bisaya: `models_manager.LANGUAGE_MODELS["pathumma"]`, NECTEC's Pathumma
+Whisper large-v3 (nectec/Pathumma-whisper-th-large-v3, Apache 2.0, no other terms, pinned revision). It is downloaded
+from its own page and converted in the app (`transcriber/convert.py`). It has no tokenizer.json, so the download also
+takes that one file from openai/whisper-large-v3 (pinned; `"borrow"` in the entry): Pathumma's vocab.json, merges.txt,
+added_tokens.json and tokenizer_config.json are byte for byte Whisper large-v3's. ~2.9 GB. Settings → Listening shows
+it, marked Recommended, to Thai learners; once downloaded it writes every Thai transcript on the computer.
+`"cloud_ok": True`: cloud providers know Thai, so unlike Bisaya Thai keeps cloud transcription (the phone's only way);
+a downloaded Pathumma still wins on the computer.
+- **Typhoon is gone**: from v0.33 to the 2026-11-02 switch Thai used Typhoon Whisper Turbo (SCB 10X). Its page says the
+  OpenTyphoon Terms apply however the model is obtained and take priority over its MIT licence, and they forbid
+  letting third parties use it without written permission and benchmarking it without consent. The owner's rule is
+  no terms-of-service breaches, so the owner chose Pathumma (Decisions #17 and #33). `models_manager.RETIRED`
+  lists "typhoon"; `forget_retired()` (run at startup, `main.startup_checks`) deletes a copy an earlier version
+  downloaded. Run no further tests against Typhoon.
+- **Why Pathumma**: measured on this PC on 2026-10-19 (before the switch), with the app's transcription settings and
+  the guard below, against official transcripts: 90 half-minute clips of Thai TV talk (TVSpeech, CC-BY, by SCB 10X):
+  Pathumma 14.7% of characters wrong, large-v3 20.5%. Read sentences (FLEURS): 8.7% against 7.7% (large-v3 a little
+  better). No long-recording number for Pathumma. Also tried: Thonburian (biodatlab, Apache 2.0): best on read
+  sentences (6.1%) but worse than large-v3 on talk (21.5%) and often inventing text.
 - **Made-up words** (`faster.py` `trim_invented`, for models marked `"trim"`): after a clip ending in silence
-  Typhoon can finish the sentence and go on inventing; those pieces have next to no length and pile up at the end of
+  the Thai models (Typhoon, Pathumma) can finish the sentence and go on inventing; those pieces have next to no length and pile up at the end of
   a line far faster than speech (> 40 letters a second), and are cut, with a Latin word that leads them in. A phrase
   said over and over is kept once (a phrase of three letters or fewer, like ใช่, only after five times). The line's text
   is cut in step with its words, so `regroup` still matches them. Whisper's output is left exactly as it was.
@@ -3187,9 +3194,10 @@ Bisaya Thai keeps cloud transcription (the phone's only way); a downloaded Typho
   wisesight-1000) the device's word breaker does as well as PyThaiNLP's newmm (word-boundary F1 89% against 88%), and
   97% of the pieces of spoken Thai are real words. What was left: spoken particles cut in the wrong place
   (เนี่ | ยมัน → เนี่ย | มัน, บอ | กงี้ → บอก | งี้), mended; a bigger dictionary for rejoining did not help.
-- **Not done**: a Mac (MLX) version of Typhoon (none checked; Mac Thai learners keep large-v3), and a cloud service
+- **Not done**: a Mac (MLX) version of Pathumma (none checked; Mac Thai learners keep large-v3), and a cloud service
   better at Thai than Whisper (ElevenLabs Scribe would need a test with a key). Tests: `tests/test_thai_model.py`,
-  `tests/js/thai-words.test.mjs`. Translations: `tools/i18n/tr/<code>/33-thai-model.txt`.
+  `tests/js/thai-words.test.mjs`, `tests/js/stt.test.mjs`. Translations: `tools/i18n/tr/<code>/110-thai-pathumma.txt`
+  (the Settings panel's words and the model row; Typhoon's lines were removed).
 
 ## Small fixes from the owner's Notion notes (2026-10-20; committed, not pushed)
 - **"Your Google connection needs renewing" bar kept popping up** (web app): Google gives the web app an hour-long
@@ -4818,11 +4826,11 @@ losing any information." And, about More options → Model → "Another model…
   "Characters wrong, lower is better" (teal = the model on the computer, grey = Whisper large-v3, Groq's model; one scale
   per language, numbers at the bar ends; on phones each name sits over its bar), notes, what to do (phone: download it on
   the computer and choose My computer, the cloud still works for Thai; computer: download under Transcription model just
-  below / "Typhoon is downloaded: it writes every Thai transcript here even with a cloud provider chosen" — true, see
+  below / "Pathumma is downloaded: it writes every Thai transcript here even with a cloud provider chosen" — true, see
   transcriber.get; the computer passes `ownReady`/`onOwnChange` from /api/models and model_download events), and a
-  "How this was measured" fold. Numbers, all from this file's Typhoon/Bisaya sections: Thai podcast-like talk shows
-  12.6% vs 27.1% (+ large-v3 left out about a fifth, Typhoon 2.6x faster), 90 half-minute clips 9.4% vs 20.5%, FLEURS
-  read sentences 12.6% vs 7.7% (large-v3 better; numbers-as-words reason given); Bisaya FLEURS 5.9% vs 15.4% (published
+  "How this was measured" fold. Numbers, all from this file's Pathumma/Bisaya sections (Typhoon's until 2026-11-02):
+  Thai: 90 half-minute clips of talk 14.7% vs 20.5%, FLEURS read sentences 8.7% vs 7.7% (large-v3 better, said so);
+  Bisaya FLEURS 5.9% vs 15.4% (published
   with the model) + podcast clips 10% vs 5% Bisaya-only words, 1.1% vs 3.8% Tagalog-only. OpenAI whisper-1 and Groq's
   Turbo: "not measured". Every language in models_manager.LANGUAGE_MODELS needs an entry (pytest checks the two lists,
   and that `cloud` matches `cloud_ok`); `OWN_MODEL_LANGUAGES` is still the blocked list (JS test: same as `cloud: false`).
@@ -5448,7 +5456,7 @@ batch with Arabic first. This system will also be placed on a redesigned vocab p
 - **2026-10-24 evening (basics-course session)**: Arabic diacritics read word by word: 9 fixes (5c0bd0c; عَضِضْتُ,
   دُبَيَّ/تِكْسَاسَ without tanween, وَسَط, كُلَّمَا + past, لِيَ before ال, headword بَاقٍ), audio remade (7676355). Shared
   tools: `tools/course/LANGUAGES.md` (per-language brief, variety per voice), check_audio.py for zh/ja/th (letters) and
-  Thai/Bisaya models (Typhoon from `%TEMP%\tasr\models\typhoon-turbo-app`, BuzzASR), `--out`; optional `say` per
+  Thai/Bisaya models (Pathumma since 2026-11-02, Typhoon before; BuzzASR), `--out`; optional `say` per
   word (75f3093: text or Azure `<phoneme>` sapi/ipa) for words misread when said alone (pt o/e, ja は, ko 은/는).
   **16 language sessions** on branches `basics-<lang>` in worktrees `tamkeen-basics-<lang>` (all from basics-course;
   the app couldn't give them worktrees, they made them per LANGUAGES.md). 20-word samples checked: all 15 Azure

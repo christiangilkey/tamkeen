@@ -1,0 +1,11 @@
+fc813db3 Pathumma，由 NECTEC 用泰语重新训练的 Whisper large-v3：在日常泰语口语上比 large-v3 少约四分之一的错误。下载后，无论上面选了哪个模型，这台电脑上所有泰语转写都由它完成。配合 GPU 效果最佳。
+07ae97d1 泰语（Pathumma）
+6f26cef9 泰语听写模型：Pathumma
+967d67c0 Pathumma，在你的电脑上
+f80f6bed Pathumma 是泰语专用的听写模型：由泰国国家电子与计算机技术中心（NECTEC）用泰语对 Whisper large-v3 重新训练而成。在日常对话中，它的错误字符比 Whisper large-v3（Groq 使用的模型）少约四分之一。
+6fa19dac 在朗读的句子上，Whisper large-v3 稍好一些。
+212bd70c 由 Tamkeen 在一台电脑上、使用应用自己的转写设置测量，并与官方文字稿对比：泰国电视访谈节目中 90 段各半分钟的片段（SCB 10X 的 TVSpeech 数据集），以及 FLEURS（一个公开的朗读句子数据集）。第二条是以同样方式运行的 Whisper large-v3，也就是 Groq 使用的模型。
+c2832388 要使用它，请在你的电脑上下载 Pathumma（设置 → 听力与转写 → 转写模型），并在上方选择“我的电脑”。如果你不想等电脑，泰语仍然可以直接在这部手机上使用云服务转写。
+9f5abefb 在下方的“转写模型”中下载 Pathumma。下载后，即使选择了云服务，这台电脑上的所有泰语转写也都由它完成。
+da261a03 Pathumma 已下载：即使选择了云服务，这台电脑上的所有泰语转写也都由它完成。
+3053ce37 你电脑上的泰语转写现在使用 Pathumma，日常对话中的错误少了约四分之一

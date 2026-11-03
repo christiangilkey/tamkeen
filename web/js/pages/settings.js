@@ -187,7 +187,7 @@ function listening(body, status) {
     usage: () => api("/stt/usage"),
     onUsage: (fn) => on("stt", fn),
     changed: async () => { await loadStatus(); paintUnused(); },
-    // The study language's own model (Thai's Typhoon, Bisaya's), once downloaded, writes its transcripts here.
+    // The study language's own model (Thai's Pathumma, Bisaya's), once downloaded, writes its transcripts here.
     ownReady: async () => {
       const r = await api("/models");
       return r.models.some((m) => m.language && m.language === r.study_language && m.installed);

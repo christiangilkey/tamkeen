@@ -1,0 +1,11 @@
+fc813db3 Pathumma, Whisper large-v3 réentraîné sur le thaï par le NECTEC : environ un quart d'erreurs en moins que large-v3 sur le thaï parlé de tous les jours. Une fois téléchargé, il écrit toutes les transcriptions en thaï de cet ordinateur, quel que soit le modèle choisi ci-dessus. Idéal avec un GPU.
+07ae97d1 Thaï (Pathumma)
+6f26cef9 Modèle d'écoute pour le thaï : Pathumma
+967d67c0 Pathumma, sur votre ordinateur
+f80f6bed Pathumma est le modèle d'écoute propre au thaï : Whisper large-v3 réentraîné sur le thaï par le NECTEC, le centre national thaïlandais de technologie électronique et informatique. Sur la parole de tous les jours, il fait environ un quart d'erreurs de caractères en moins que Whisper large-v3, le modèle qu'utilise Groq.
+6fa19dac Sur les phrases lues à voix haute, Whisper large-v3 fait un peu mieux.
+212bd70c Mesuré par Tamkeen sur un ordinateur, avec les réglages de transcription de l'application, par rapport aux transcriptions officielles : 90 extraits d'une demi-minute de talk-shows de la télévision thaïe (le corpus TVSpeech, de SCB 10X) et FLEURS, un ensemble public de phrases lues à voix haute. La seconde barre est Whisper large-v3 lancé de la même manière : le modèle qu'utilise Groq.
+c2832388 Pour l'utiliser, téléchargez Pathumma sur votre ordinateur (Réglages → Écoute et transcriptions → Modèle de transcription) et choisissez Mon ordinateur ci-dessus. Un fournisseur cloud fonctionne toujours pour le thaï, directement depuis ce téléphone, quand vous préférez ne pas attendre votre ordinateur.
+9f5abefb Téléchargez Pathumma sous Modèle de transcription, juste en dessous. Une fois téléchargé, il écrit chaque transcription thaïe sur cet ordinateur, même si un fournisseur cloud est choisi.
+da261a03 Pathumma est téléchargé : il écrit chaque transcription thaïe sur cet ordinateur, même si un fournisseur cloud est choisi.
+3053ce37 Les transcriptions en thaï sur votre ordinateur utilisent maintenant Pathumma, avec environ un quart d'erreurs en moins sur la parole de tous les jours

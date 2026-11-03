@@ -18,7 +18,7 @@ _DTYPES = {"F16": np.float16, "F32": np.float32, "BF16": np.uint16}
 
 
 def _bf16(raw: np.ndarray) -> np.ndarray:
-    """bfloat16 weights (the Thai model's) as float16: a bfloat16 is the top half of a float32, so it is
+    """bfloat16 weights (as some retrained models come, Typhoon's did) as float16: a bfloat16 is the top half of a float32, so it is
     widened exactly and then rounded to float16 (what the model is saved as anyway)."""
     return (raw.astype(np.uint32) << 16).view(np.float32).astype(np.float16)
 

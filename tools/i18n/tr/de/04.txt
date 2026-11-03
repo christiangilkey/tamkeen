@@ -69,9 +69,7 @@ f0fbfe6e Am schnellsten. Gut für deutliche Sprache; mehr Fehler bei Dialekten, 
 19c91326 Ausgewogen zwischen Genauigkeit und Geschwindigkeit.
 d661998f In jeder Sprache am genauesten. Am besten mit einer GPU.
 58279c6f Whisper large-v3, von BuzzASR auf Bisaya (Cebuano) nachtrainiert: viel weniger Fehler im Bisaya. Einmal heruntergeladen, schreibt es jedes Bisaya-Transkript auf diesem Computer, egal welches Modell oben gewählt ist. Am besten mit einer GPU.
-03b9e92f Typhoon Whisper Turbo, von SCB 10X auf Thai nachtrainiert: etwa halb so viele Fehler wie large-v3 bei alltäglichem Thai, und schneller. Einmal heruntergeladen, schreibt es jedes Thai-Transkript auf diesem Computer, egal welches Modell oben gewählt ist. Am besten mit einer GPU.
 44514063 Bisaya
-9b953082 Thai (Typhoon)
 1763761d {0} verwenden
 ec890ad6 · heruntergeladen
 18e42f19 · teilweise heruntergeladen

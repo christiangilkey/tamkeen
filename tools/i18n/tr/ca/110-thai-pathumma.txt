@@ -1,0 +1,11 @@
+fc813db3 Pathumma, Whisper large-v3 reentrenat en tai per NECTEC: aproximadament una quarta part menys d'errors que large-v3 en el tai parlat de cada dia. Un cop baixat, escriu totes les transcripcions en tai d'aquest ordinador, sigui quin sigui el model triat a dalt. Millor amb una GPU.
+07ae97d1 Tai (Pathumma)
+6f26cef9 Model d'escolta per al tai: Pathumma
+967d67c0 Pathumma, al teu ordinador
+f80f6bed Pathumma és el model d'escolta propi del tai: Whisper large-v3 reentrenat en tai per NECTEC, el centre nacional de tecnologia electrònica i informàtica de Tailàndia. En la parla de cada dia comet aproximadament una quarta part menys d'errors de caràcters que Whisper large-v3, el model que fa servir Groq.
+6fa19dac Amb frases llegides en veu alta, Whisper large-v3 ho fa una mica millor.
+212bd70c Mesurat per Tamkeen en un ordinador, amb la configuració de transcripció de l'aplicació, en comparació amb les transcripcions oficials: 90 fragments de mig minut de tertúlies de la televisió tailandesa (el conjunt TVSpeech, de SCB 10X) i FLEURS, un conjunt públic de frases llegides en veu alta. La segona barra és Whisper large-v3 executat de la mateixa manera: el model que fa servir Groq.
+c2832388 Per fer-lo servir, baixa Pathumma al teu ordinador (Configuració → Escolta i transcripcions → Model de transcripció) i tria El meu ordinador a dalt. Un proveïdor al núvol continua funcionant per al tai, directament des d'aquest telèfon, quan prefereixis no esperar l'ordinador.
+9f5abefb Baixa Pathumma a Model de transcripció, just a sota. Un cop baixat, escriu totes les transcripcions en tai en aquest ordinador, encara que hagis triat un proveïdor al núvol.
+da261a03 Pathumma està baixat: escriu totes les transcripcions en tai en aquest ordinador, encara que hagis triat un proveïdor al núvol.
+3053ce37 Les transcripcions en tai al teu ordinador ara fan servir Pathumma, amb aproximadament una quarta part menys d'errors en la parla de cada dia

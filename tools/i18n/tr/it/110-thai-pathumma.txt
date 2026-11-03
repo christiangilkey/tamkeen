@@ -1,0 +1,11 @@
+fc813db3 Pathumma, Whisper large-v3 riaddestrato sul thai da NECTEC: circa un quarto di errori in meno di large-v3 sul thai parlato di tutti i giorni. Una volta scaricato, scrive tutte le trascrizioni in thai di questo computer, qualunque sia il modello scelto sopra. Ideale con una GPU.
+07ae97d1 Thai (Pathumma)
+6f26cef9 Modello di ascolto per il thailandese: Pathumma
+967d67c0 Pathumma, sul tuo computer
+f80f6bed Pathumma è il modello di ascolto proprio del thailandese: Whisper large-v3 riaddestrato sul thailandese da NECTEC, il centro nazionale thailandese per la tecnologia elettronica e informatica. Nel parlato di tutti i giorni sbaglia circa un quarto di caratteri in meno rispetto a Whisper large-v3, il modello usato da Groq.
+6fa19dac Con le frasi lette ad alta voce Whisper large-v3 va un po' meglio.
+212bd70c Misurato da Tamkeen su un computer, con le impostazioni di trascrizione dell'app, rispetto alle trascrizioni ufficiali: 90 spezzoni da mezzo minuto di talk show della TV thailandese (il set TVSpeech, di SCB 10X) e FLEURS, un insieme pubblico di frasi lette ad alta voce. La seconda barra è Whisper large-v3 eseguito allo stesso modo: il modello usato da Groq.
+c2832388 Per usarlo, scarica Pathumma sul tuo computer (Impostazioni → Ascolto e trascrizioni → Modello di trascrizione) e scegli Il mio computer qui sopra. Un servizio cloud funziona comunque per il thailandese, direttamente da questo telefono, quando preferisci non aspettare il computer.
+9f5abefb Scarica Pathumma in Modello di trascrizione, qui sotto. Una volta scaricato, scrive ogni trascrizione in thailandese su questo computer, anche se hai scelto un servizio cloud.
+da261a03 Pathumma è scaricato: scrive ogni trascrizione in thailandese su questo computer, anche se hai scelto un servizio cloud.
+3053ce37 Le trascrizioni in thailandese sul tuo computer ora usano Pathumma, con circa un quarto di errori in meno nel parlato di tutti i giorni

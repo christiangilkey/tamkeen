@@ -14,7 +14,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from . import audio, db, events, gpu_libs, jobs, paths, sync, tashkeel, voices
+from . import audio, db, events, gpu_libs, jobs, models_manager, paths, sync, tashkeel, voices
 from .api import router as api_router
 from .api.feeds import refresh_in_background
 from .version import APP_NAME, __version__
@@ -51,6 +51,10 @@ def startup_checks() -> None:
     gpu_libs.apply_pending_removal()
     if gpu_libs.installed():
         log.info("CUDA libraries loaded: %s", gpu_libs.load())
+    try:
+        models_manager.forget_retired()  # e.g. Typhoon, replaced by Pathumma for Thai
+    except Exception:
+        log.exception("Could not remove a retired model")
 
 
 @asynccontextmanager

@@ -283,18 +283,19 @@ test("a model name typed in by hand (the old \"Another model…\") means the pro
 test("which listening-model panel shows for which language", async () => {
   const { LANGUAGE_MODEL_INFO, OWN_MODEL_LANGUAGES, languageModelInfo } = await import("../../web/js/stt.js");
   const { ownModelPanel } = await import("../../web/js/components/ownmodel.js");
-  // Thai: Typhoon, the cloud stays available, with the advice beside it.
-  assert.equal(languageModelInfo("th").model, "typhoon");
+  // Thai: Pathumma, the cloud stays available, with the advice beside it.
+  assert.equal(languageModelInfo("th").model, "pathumma");
   assert.equal(languageModelInfo("th").cloud, true);
   const th = ownModelPanel("th", { phone: true });
-  assert.match(th, /data-model="typhoon"/);
-  for (const n of ["12.6%", "27.1%", "9.4%", "20.5%", "7.7%"]) assert.ok(th.includes(n), n);
+  assert.match(th, /data-model="pathumma"/);
+  for (const n of ["14.7%", "20.5%", "8.7%", "7.7%"]) assert.ok(th.includes(n), n);
+  assert.doesNotMatch(th, /Typhoon/, "Typhoon was replaced (its terms)");
   assert.match(th, /Characters wrong, lower is better/);
   assert.match(th, /whisper-1\) and Groq&#39;s Whisper Large v3 Turbo: not measured/, "OpenAI: not measured, not guessed");
   assert.ok(th.includes("Whisper large-v3 (Groq&#39;s model)"));
   assert.match(th, /choose My computer above/, "the phone says to transcribe on the computer");
-  assert.match(ownModelPanel("th"), /Download Typhoon under Transcription model, just below/, "the computer, model not downloaded");
-  assert.match(ownModelPanel("th", { ready: true }), /Typhoon is downloaded/, "the computer, model downloaded");
+  assert.match(ownModelPanel("th"), /Download Pathumma under Transcription model, just below/, "the computer, model not downloaded");
+  assert.match(ownModelPanel("th", { ready: true }), /Pathumma is downloaded/, "the computer, model downloaded");
   // Read sentences: large-v3's bar is the shorter one, shown as measured.
   const fleurs = LANGUAGE_MODEL_INFO.th.tests.find((x) => /FLEURS/.test(x.label));
   assert.ok(fleurs.cloud < fleurs.own);

@@ -1,0 +1,11 @@
+fc813db3 Pathumma, Whisper large-v3, von NECTEC auf Thai nachtrainiert: etwa ein Viertel weniger Fehler als large-v3 bei alltäglichem Thai. Einmal heruntergeladen, schreibt es jedes Thai-Transkript auf diesem Computer, egal welches Modell oben gewählt ist. Am besten mit einer GPU.
+07ae97d1 Thai (Pathumma)
+6f26cef9 Hörmodell für Thai: Pathumma
+967d67c0 Pathumma, auf deinem Computer
+f80f6bed Pathumma ist das eigene Hörmodell für Thai: Whisper large-v3, von NECTEC, Thailands nationalem Zentrum für Elektronik- und Computertechnologie, auf Thai nachtrainiert. Bei Alltagsgesprächen macht es etwa ein Viertel weniger Zeichenfehler als Whisper large-v3, das Modell, das Groq nutzt.
+6fa19dac Bei laut vorgelesenen Sätzen ist Whisper large-v3 etwas besser.
+212bd70c Von Tamkeen auf einem Computer gemessen, mit den eigenen Transkriptionseinstellungen der App, verglichen mit den offiziellen Transkripten: 90 halbminütige Ausschnitte aus thailändischen TV-Talkshows (das TVSpeech-Set von SCB 10X) und FLEURS, eine öffentliche Sammlung laut vorgelesener Sätze. Der zweite Balken ist Whisper large-v3, auf dieselbe Weise ausgeführt: das Modell, das Groq nutzt.
+c2832388 Um es zu nutzen, lade Pathumma auf deinem Computer herunter (Einstellungen → Hören & Transkripte → Transkriptionsmodell) und wähle oben „Mein Computer“. Ein Cloud-Anbieter funktioniert für Thai weiterhin, direkt von diesem Handy aus, wenn du nicht auf deinen Computer warten willst.
+9f5abefb Lade Pathumma unter „Transkriptionsmodell“ gleich darunter herunter. Danach schreibt es jedes Thai-Transkript auf diesem Computer, auch wenn ein Cloud-Anbieter gewählt ist.
+da261a03 Pathumma ist heruntergeladen: Es schreibt jedes Thai-Transkript auf diesem Computer, auch wenn ein Cloud-Anbieter gewählt ist.
+3053ce37 Thai-Transkripte auf deinem Computer nutzen jetzt Pathumma, mit etwa einem Viertel weniger Fehlern bei Alltagsgesprächen

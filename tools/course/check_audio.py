@@ -33,9 +33,8 @@ DATA = Path(os.environ.get("APPDATA", "")) / "ArabicPodcastStudio"
 MODELS = DATA / "models" / "faster-whisper"
 # Languages Whisper hears poorly, and the model of their own Tamkeen has for them (app/models_manager.py
 # LANGUAGE_MODELS), with the language to ask it for: Bisaya's is asked for Tagalog, as Tamkeen does.
-# Typhoon may also be where the 2026-10-19 Thai tests converted it (%TEMP%\tasr).
 LISTENERS = {
-    "th": ([MODELS / "typhoon", Path(os.environ.get("TEMP", "")) / "tasr" / "models" / "typhoon-turbo-app"], "th"),
+    "th": ([MODELS / "pathumma"], "th"),
     "ceb": ([MODELS / "bisaya"], "tl"),
 }
 

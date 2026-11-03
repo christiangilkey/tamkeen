@@ -8,10 +8,10 @@ const INFO = {
   medium: "Balanced accuracy and speed.",
   "large-v3": "Most accurate in every language. Best with a GPU.",
   bisaya: "Whisper large-v3 retrained on Bisaya (Cebuano) by BuzzASR: far fewer mistakes in Bisaya. Once downloaded it writes every Bisaya transcript on this computer, whichever model is picked above. Best with a GPU.",
-  typhoon: "Typhoon Whisper Turbo, retrained on Thai by SCB 10X: about half the mistakes of large-v3 on everyday Thai talk, and faster. Once downloaded it writes every Thai transcript on this computer, whichever model is picked above. Best with a GPU.",
+  pathumma: "Pathumma, Whisper large-v3 retrained on Thai by NECTEC: about a quarter fewer mistakes than large-v3 on everyday Thai talk. Once downloaded it writes every Thai transcript on this computer, whichever model is picked above. Best with a GPU.",
 };
 // Models made for one language (app/models_manager.py LANGUAGE_MODELS): not picked, used for their language.
-const NAME = { bisaya: "Bisaya", typhoon: "Thai (Typhoon)" };
+const NAME = { bisaya: "Bisaya", pathumma: "Thai (Pathumma)" };
 const BUSY = ["preparing", "downloading", "converting"];
 const name = (size) => NAME[size] || size;
 

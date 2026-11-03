@@ -1,0 +1,11 @@
+fc813db3 Pathumma, o Whisper large-v3 retreinado em tailandês pelo NECTEC: cerca de um quarto a menos de erros que o large-v3 no tailandês falado do dia a dia. Depois de baixado, ele escreve todas as transcrições em tailandês deste computador, seja qual for o modelo escolhido acima. Melhor com uma GPU.
+07ae97d1 Tailandês (Pathumma)
+6f26cef9 Modelo de escuta para tailandês: Pathumma
+967d67c0 Pathumma, no seu computador
+f80f6bed Pathumma é o modelo de escuta próprio do tailandês: o Whisper large-v3 retreinado em tailandês pelo NECTEC, o centro nacional de tecnologia eletrônica e de computação da Tailândia. Na fala do dia a dia, ele erra cerca de um quarto a menos de caracteres que o Whisper large-v3, o modelo que a Groq usa.
+6fa19dac Com frases lidas em voz alta, o Whisper large-v3 se sai um pouco melhor.
+212bd70c Medido pelo Tamkeen em um computador, com as próprias configurações de transcrição do app, em comparação com as transcrições oficiais: 90 trechos de meio minuto de talk shows da TV tailandesa (o conjunto TVSpeech, da SCB 10X) e o FLEURS, um conjunto público de frases lidas em voz alta. A segunda barra é o Whisper large-v3 rodado do mesmo jeito: o modelo que a Groq usa.
+c2832388 Para usá-lo, baixe o Pathumma no seu computador (Configurações → Escuta e transcrições → Modelo de transcrição) e escolha Meu computador acima. Um provedor na nuvem continua funcionando para o tailandês, direto deste celular, quando você preferir não esperar o computador.
+9f5abefb Baixe o Pathumma em Modelo de transcrição, logo abaixo. Depois de baixado, ele escreve todas as transcrições em tailandês neste computador, mesmo com um provedor na nuvem escolhido.
+da261a03 O Pathumma está baixado: ele escreve todas as transcrições em tailandês neste computador, mesmo com um provedor na nuvem escolhido.
+3053ce37 As transcrições em tailandês no seu computador agora usam o Pathumma, com cerca de um quarto a menos de erros na fala do dia a dia
