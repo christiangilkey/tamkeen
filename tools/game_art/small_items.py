@@ -1,12 +1,15 @@
-"""Hats for hatchlings: each hat at about three quarters of its size, so it fits a baby's smaller head.
+"""Worn things for hatchlings: every hat, pair of glasses, scarf or necklace, held thing and cape at about three
+quarters of its size, so it fits a baby's smaller body.
 
-Pixel art can't be resized smoothly without blurring, so each hat is shrunk by taking out the rows and
-columns that repeat their neighbours (flat areas), never its outline or one-pixel details. Hand fixes
-for single hats go in FIXES. The small hat is placed on the same 20x14 canvas with its bottom centre where
-the big one's is, so it sits on the same socket (render.js uses item/small/<slot>/<id>.png for hatchlings).
+Pixel art can't be resized smoothly without blurring, so each item is shrunk by taking out the rows and
+columns that repeat their neighbours (flat areas), never its outline or one-pixel details; rare colours (a
+skull, a gem, a lens glint) are the last to go. Items whose shapes don't survive that are drawn small by hand
+in DRAWN. A small item stays on its slot's canvas, placed so it sits on the same socket: a hat keeps its
+bottom centre; anything else shrinks toward its slot's anchor point (data.SLOTS). render.js uses
+item/small/<slot>/<id>.png for a creature shown with its hatchling look.
 
-    .venv/Scripts/python.exe tools/game_art/small_hats.py              write them, and a comparison sheet
-    .venv/Scripts/python.exe tools/game_art/small_hats.py --aseprite   also save .aseprite sources
+    .venv/Scripts/python.exe tools/game_art/small_items.py              write them, and a comparison sheet per slot
+    .venv/Scripts/python.exe tools/game_art/small_items.py --aseprite   also save .aseprite sources
 """
 
 from __future__ import annotations
@@ -18,10 +21,10 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / "web" / "game-art" / "item" / "hat"
-OUT = ROOT / "web" / "game-art" / "item" / "small" / "hat"
-ASE = ROOT / "game" / "art-src" / "item" / "hat_small"
-SHEET = ROOT / "game" / "art-src-16bit" / "creatures" / "_small_hats.png"
+ITEMS = ROOT / "web" / "game-art" / "item"
+# Each slot's canvas size and anchor (as data.SLOTS): the point that sits on the creature's socket.
+SLOTS = {"hat": ((20, 14), (10, 13)), "face": ((16, 8), (8, 4)), "neck": ((16, 10), (8, 1)),
+         "held": ((12, 12), (6, 11)), "back": ((20, 20), (14, 19))}
 ASEPRITE = "C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe"
 SCALE = 0.75
 # Rows/columns (in the cropped hat) that must stay, by hat: details the automatic choice would lose.
@@ -30,7 +33,21 @@ KEEP: dict[str, dict[str, set[int]]] = {}
 FIXES: dict[str, dict[tuple[int, int], tuple[int, int, int, int]]] = {}
 # Hats whose shapes don't survive taking lines out, drawn small by hand: (colours of the big hat, rows).
 DRAWN = {
-    "antlers": ("a=#2f1c40 b=#e0b89c c=#a8707c", [
+    "face/heart_glasses": ("a=#ff9ad5 b=#ff2a8a c=#a3156b", [
+        "ab.bb..ab.bb",
+        "bbbbcccbbbbc",
+        ".bbc....bbc.",
+        "..c......c..",
+    ]),
+    "neck/locket": ("a=#c2701c b=#fff3a0 c=#f9c80e", [
+        "a.......a",
+        ".a.....a.",
+        "..a...a..",
+        "...bcc...",
+        "...cca...",
+        "....a....",
+    ]),
+    "hat/antlers": ("a=#2f1c40 b=#e0b89c c=#a8707c", [
         ".a........a.",
         "aba.a..a.aba",
         "abbabaababba",
@@ -40,7 +57,7 @@ DRAWN = {
         "..aca..aca..",
         "...a....a...",
     ]),
-    "beret": ("a=#24124a b=#9d4edd c=#d9b8ff d=#5a2a9c", [
+    "hat/beret": ("a=#24124a b=#9d4edd c=#d9b8ff d=#5a2a9c", [
         "....aaa....",
         "..aabbbaa..",
         ".abcbbbbba.",
@@ -50,7 +67,7 @@ DRAWN = {
         ".adddddddaa",
         "..aaaaaaaa.",
     ]),
-    "pirate": ("a=#0d0e20 b=#262846 c=#3f4268 d=#f2f4ff e=#c4c8ea f=#f9c80e", [
+    "hat/pirate": ("a=#0d0e20 b=#262846 c=#3f4268 d=#f2f4ff e=#c4c8ea f=#f9c80e", [
         "......aaa......",
         "....aabbbaa....",
         "...abcbbbbbaa..",
@@ -61,7 +78,7 @@ DRAWN = {
         "abfffffffffffba",
         ".aaaaaaaaaaaaa.",
     ]),
-    "wizard": ("a=#24124a b=#d9b8ff c=#9d4edd d=#5a2a9c e=#f9c80e f=#fff3a0 g=#ff9ad5 h=#ff2a8a i=#a3156b", [
+    "hat/wizard": ("a=#24124a b=#d9b8ff c=#9d4edd d=#5a2a9c e=#f9c80e f=#fff3a0 g=#ff9ad5 h=#ff2a8a i=#a3156b", [
         "........aaa....",
         ".......abcca...",
         ".......abccda..",
@@ -74,7 +91,7 @@ DRAWN = {
         "addddddddddddda",
         ".aaaaaaaaaaaaa.",
     ]),
-    "graduation": ("a=#0d0e20 b=#3f4268 c=#f9c80e d=#262846 e=#181930 f=#fff3a0", [
+    "hat/graduation": ("a=#0d0e20 b=#3f4268 c=#f9c80e d=#262846 e=#181930 f=#fff3a0", [
         ".......a.......",
         ".....aabaa.....",
         "...aabbbbbaa...",
@@ -136,7 +153,7 @@ def thin(lines: list[tuple], drop: int, keep: set[int], rare: dict) -> list[int]
     return idx
 
 
-def shrink(name: str, im: Image.Image) -> Image.Image:
+def shrink(name: str, im: Image.Image, slot: str = "hat") -> Image.Image:
     box = im.getbbox()
     hat = im.crop(box)
     w, h = hat.size
@@ -159,42 +176,57 @@ def shrink(name: str, im: Image.Image) -> Image.Image:
                 small.putpixel((nx, ny), hat.getpixel((x, y)))
     for (x, y), c in FIXES.get(name, {}).items():
         small.putpixel((x, y), c)
-    # On the full 20x14 canvas: the same bottom-centre as the big hat's crop.
     out = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    cx = (box[0] + box[2]) / 2
-    out.alpha_composite(small, (round(cx - small.width / 2), box[3] - small.height))
+    if slot == "hat":  # a hat: the same bottom-centre as the big hat's crop
+        cx = (box[0] + box[2]) / 2
+        out.alpha_composite(small, (round(cx - small.width / 2), box[3] - small.height))
+        return out
+    # anything else: the crop's centre moves toward the slot's anchor as the item shrinks
+    ax, ay = SLOTS[slot][1]
+    cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
+    nx = ax + (cx - ax) * small.width / w
+    ny = ay + (cy - ay) * small.height / h
+    x0 = min(max(round(nx - small.width / 2), 0), im.width - small.width)
+    y0 = min(max(round(ny - small.height / 2), 0), im.height - small.height)
+    out.alpha_composite(small, (x0, y0))
     return out
 
 
 def main() -> None:
-    OUT.mkdir(parents=True, exist_ok=True)
-    pairs = []
-    for f in sorted(SRC.glob("*.png")):
-        im = Image.open(f).convert("RGBA")
-        small = shrink(f.stem, im)
-        small.save(OUT / f.name)
-        pairs.append((f.stem, im, small))
-    sc, cols = 6, 6
-    cw, ch = 20 * sc * 2 + 30, 14 * sc + 30
-    sheet = Image.new("RGBA", (cols * cw, ((len(pairs) + cols - 1) // cols) * ch), (48, 40, 66, 255))
-    d = ImageDraw.Draw(sheet)
-    font = ImageFont.truetype("arial.ttf", 13)
-    for i, (name, big, small) in enumerate(pairs):
-        x, y = (i % cols) * cw + 8, (i // cols) * ch + 20
-        d.text((x, y - 17), name, fill=(255, 210, 120, 255), font=font)
-        sheet.alpha_composite(big.resize((20 * sc, 14 * sc), Image.NEAREST), (x, y))
-        sheet.alpha_composite(small.resize((20 * sc, 14 * sc), Image.NEAREST), (x + 20 * sc + 10, y))
-    sheet.save(SHEET)
-    print(f"{len(pairs)} small hats -> {OUT.relative_to(ROOT)}; sheet {SHEET.relative_to(ROOT)}")
-    if "--aseprite" in sys.argv:
-        ASE.mkdir(parents=True, exist_ok=True)
-        lua = [f'do local s = app.open("{(OUT / f"{n}.png").as_posix()}") s:saveAs("{(ASE / f"{n}.aseprite").as_posix()}") s:close() end'
-               for n, _, _ in pairs]
-        script = ASE / "_save.lua"
+    lua = []
+    for slot, ((cw0, ch0), _) in SLOTS.items():
+        src, out = ITEMS / slot, ITEMS / "small" / slot
+        ase = ROOT / "game" / "art-src" / "item" / f"{slot}_small"
+        out.mkdir(parents=True, exist_ok=True)
+        pairs = []
+        for f in sorted(src.glob("*.png")):
+            im = Image.open(f).convert("RGBA")
+            small = shrink(f"{slot}/{f.stem}", im, slot)
+            small.save(out / f.name)
+            pairs.append((f.stem, im, small))
+        sc, cols = 6, 6
+        cw, ch = cw0 * sc * 2 + 30, ch0 * sc + 30
+        sheet = Image.new("RGBA", (cols * cw, ((len(pairs) + cols - 1) // cols) * ch), (48, 40, 66, 255))
+        d = ImageDraw.Draw(sheet)
+        font = ImageFont.truetype("arial.ttf", 13)
+        for i, (name, big, small) in enumerate(pairs):
+            x, y = (i % cols) * cw + 8, (i // cols) * ch + 20
+            d.text((x, y - 17), name, fill=(255, 210, 120, 255), font=font)
+            sheet.alpha_composite(big.resize((cw0 * sc, ch0 * sc), Image.NEAREST), (x, y))
+            sheet.alpha_composite(small.resize((cw0 * sc, ch0 * sc), Image.NEAREST), (x + cw0 * sc + 10, y))
+        path = ROOT / "game" / "art-src-16bit" / "creatures" / ("_small_hats.png" if slot == "hat" else f"_small_{slot}.png")
+        sheet.save(path)
+        print(f"{len(pairs)} small {slot} items -> {out.relative_to(ROOT)}; sheet {path.relative_to(ROOT)}")
+        if "--aseprite" in sys.argv:
+            ase.mkdir(parents=True, exist_ok=True)
+            lua += [f'do local s = app.open("{(out / f"{n}.png").as_posix()}") s:saveAs("{(ase / f"{n}.aseprite").as_posix()}") s:close() end'
+                    for n, _, _ in pairs]
+    if lua:
+        script = ITEMS / "small" / "_save.lua"
         script.write_text("\n".join(lua), encoding="utf-8")
         subprocess.run([ASEPRITE, "-b", "--script", str(script)], check=True)
         script.unlink()
-        print(f".aseprite sources in {ASE.relative_to(ROOT)}")
+        print(".aseprite sources in game/art-src/item/<slot>_small/")
 
 
 if __name__ == "__main__":

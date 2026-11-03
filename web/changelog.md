@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Hatchlings now wear smaller versions of glasses, scarves and necklaces, the things they hold, and capes and packs too, made to fit their smaller bodies, as their hats already were.
+
 ## v0.44.0 — 2026-11-02
 
 - **New:** Creature battles are now live. Your creature runs around a big arena made fresh for every battle: meadows, forests, shores, deserts, volcanoes, caves, ruins, night fields or snow, with rivers and bridges, lakes, trees, rocks and ruins. The screen follows your creature, an arrow at the edge points to the rival when it's out of sight, and a small map in the corner shows the whole arena. Move with the controller's stick or D-pad, W A S D or the arrow keys, by clicking or holding the mouse on the arena, or by dragging a finger. Pressing a move stops the action for a word question with a 5-second bar: answer right and the move lands (quick answers build a combo), answer wrong or too slowly and it's "Failed", and the move still has to wait before it can be used again. The ground matters: some slows you, some is slippery, burns, heals or helps one element, and some moves change the ground. Both creatures start on matching ground, so neither side gets the better spot.

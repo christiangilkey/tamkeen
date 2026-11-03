@@ -187,9 +187,9 @@ def preview(cid: str, form: str = "juvenile") -> Path:
     w, h = len(rows[0]), len(rows)
     layers = cut(rig, rows)
     item = lambda f: Image.open(ITEMS / f).convert("RGBA") if (ITEMS / f).exists() else None  # noqa: E731
-    hat = "small/hat/cap.png" if form == "hatchling" else "hat/cap.png"  # a baby wears the small hat, as in the game
-    dressed = {"hat": item(hat), "face": item("face/round_glasses.png"), "neck": item("neck/scarf.png"),
-               "held": item("held/book.png"), "back": item("back/cape_red.png")}
+    s = "small/" if form == "hatchling" else ""  # a baby wears the small versions, as in the game
+    dressed = {"hat": item(f"{s}hat/cap.png"), "face": item(f"{s}face/round_glasses.png"), "neck": item(f"{s}neck/scarf.png"),
+               "held": item(f"{s}held/book.png"), "back": item(f"{s}back/cape_red.png")}
     frames = [
         ("still", compose(rig, layers, pal, w, h)),
         ("walk: head dips", compose(rig, layers, pal, w, h, bob=1)),

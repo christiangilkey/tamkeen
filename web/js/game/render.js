@@ -208,8 +208,8 @@ export async function composeCreature(look, pose = {}) {
   const worn = {};
   for (const slot of Object.keys(SLOTS)) {
     const id = look.equipped && look.equipped[slot];
-    // A baby wears the small version of a hat (item/small/hat/<id>.png: tools/game_art/small_hats.py).
-    const file = b.baby && slot === "hat" ? `item/small/${id}.png` : `item/${id}.png`;
+    // A baby wears small versions of what it wears (item/small/<slot>/<id>.png: tools/game_art/small_items.py).
+    const file = b.baby ? `item/small/${id}.png` : `item/${id}.png`;
     worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(file) : null;
   }
 
@@ -229,7 +229,7 @@ export async function composeCreature(look, pose = {}) {
     if (!img) return;
     const it = itemById(look.equipped[slot]);
     const shift = (it && it.shift) || [0, 0];
-    const a = b.baby && slot === "hat" ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small hat's own drop
+    const a = b.baby ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small item's own nudge
     const o = (it && it.offset && it.offset[look.size]) || [0, 0];
     const [sx, sy] = b.sockets[slot];
     ctx.drawImage(img, ox + sx - SLOTS[slot].anchor[0] + a[0] + o[0], oy + sy - SLOTS[slot].anchor[1] + a[1] + o[1] + dy);

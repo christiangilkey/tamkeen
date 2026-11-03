@@ -6204,9 +6204,9 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   `web/game-art/creature/beast/<id>/hatchling/` and `<id>_hatchling.aseprite`; beasts.js gives it as `young`.
   `render.drawingOf(look)` picks it when `look.size === "s"` (a hatchling, or a juvenile kept looking like one).
   Sheet: `creatures/_lineup_18_hatchlings.png`. Hats: a baby wears `item/small/hat/<id>.png` (same 20x14 canvas and
-  bottom centre, ~75% size; item `shift` x0.75), made by `tools/game_art/small_hats.py` (takes out the rows/columns
+  bottom centre, ~75% size; item `shift` x0.75), made by `tools/game_art/small_items.py` (takes out the rows/columns
   that repeat their neighbours, rare colours protected; antlers, beret, pirate, wizard and graduation drawn by hand
-  in its DRAWN table; sources `game/art-src/item/hat_small/`). Glasses, neckwear, held things and capes stay full size.
+  in its DRAWN table; sources `game/art-src/item/hat_small/`). Since 2026-11-02 the same for glasses, neckwear, held things and capes: `tools/game_art/small_items.py` (was small_hats.py) makes `item/small/<slot>/<id>.png` for every slot but shirts (non-hat items shrink toward their slot anchor; heart glasses and locket hand-drawn in DRAWN), sources `game/art-src/item/<slot>_small/`.
 - **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.
