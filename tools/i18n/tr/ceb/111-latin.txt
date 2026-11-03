@@ -28,3 +28,15 @@ e41db435	Ang Confessions (sa Linatin: Confessiones) mao ang ngalan sa usa ka awt
 d0c30e8b	Nailhan isip labing taas nga obra sa karaang prosa sa Linatin, daghan kini og karaang mga porma sa pagmando ug halos walay subordinate clause. Ang hilisgutan niini mao ang ordinaryong buluhaton sa pagdumala og Romanong umahan sa ikaduhang siglo BC. Apan ang kayano niini tingali tinuod lang sa usa ka bahin. Kay si Cato adunay lig-on nga politikanhon ug sosyal nga tumong, nga gibase sa pagsalikway sa langyaw nga impluwensya, nga mao ang Griyego, ug sa pagpalambo sa tradisyonal nga mga mithi sa Roma, ug tingali nakatabang niini ang iyang pagpakita sa kaugalingon isip yano nga mag-uuma. (Sumaryo ni malone)
 0c4b454e	Ang Georgica ni Vergil mao ang kinatumyan sa taas nga tradisyon sa karaang panahon sa mga balak bahin sa panguma, nga nagsugod kang Hesiod sa ikawalong siglo BC. Ang iyang balak usa ka dato nga sagol sa mga pagtumong sa maong tradisyon: balak nga nagtudlo, pagdayeg kang Augusto, ang neoteric nga epyllion bahin kang Orpheus, ug ang pilosopiya ni Epicurus sumala sa gipresentar sa iyang gisundan ug modelo, si Lucretius. Gihunahuna ni Thomas Jefferson ang iyang sulondan nga gentleman farmer nga nagdaro sa iyang umahan nga may kopya sa Georgics taliwala sa mga gunitanan sa daro. (Sumaryo ni Malone)
 2e7d372d	Linatin: tun-i kini gikan sa mga podcast, audiobook, libro ug video, nga ang porma sa diksiyonaryo ug kahulogan sa matag pulong usa ra ka tuplok
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Italyanong tingog nga nagbasa og Latin
+74948670	Italyanong tingog nga nagbasa og Latin: paglitok sa Simbahan<0/><1>Walay tingog nga mosulti og Latin, mao nga usa ka Italyanong tingog ang mobasa sa mga Latin nga card nga walay recording, sumala sa paglitok sa Simbahan sa Latin: c sa wala pa ang e ug i sama sa “cello”, ae ingon og e. Kon gi-off: ang mga Latin nga card mopatugtog lang sa mga recording nga gigikanan niini.</1>
+bf0c81c3	Gi-off: dili basahon og kusog ang mga card nga {0} nga walay recording.
+4868ff06	Adunay tingog nga {0} kini nga device. Basahon niini ang mga card nga {1} nga walay recording.
+f7f8fcaf	Adunay tingog nga {0} kini nga device. Basahon niini ang mga card nga {1} nga walay recording hangtod mahimo ang ilang kaugalingon.
+a18609ea	Gi-off
+bde331d3	Sulayi ang key aron makapili sa tanang tingog nga {0} sa Azure.
+becae473	Pag-download og tingog nga {0}: dayon hatagan niini nga computer og kaugalingong recording ang matag card nga {1} nga walay audio, apil ang mga gi-save sa imong telepono.
+a2b6ca87	Ang mga card nga {0} gibasa sa tingog nga {1}. {2}
+52e201f0	Dili basahon og kusog ang mga card nga {0}: gi-off ang ilang tingog sa Settings → Mga tingog sa card.
+d61ad0a4	Gi-off ang tingog niini nga pinulongan.

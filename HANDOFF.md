@@ -6532,11 +6532,29 @@ language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). C
   folder) LibriVox's Vulgate Psalm 22 transcribed well ("Dominus pascit me, nihil mihi deerit…"; pasquis for pascuis).
   YouTube's own captions: **only a person's Latin track counts** (ytcaptions.js `PERSON_ONLY`): YouTube's automatic
   captions take Latin speech for Italian, and its translation into Latin is poor, so other videos get transcribed.
-- **Voices**: none yet. Azure, Piper and the devices have no Latin voice; the choice (A: an Italian voice reading
-  Latin, Church pronunciation, all versions; B: eSpeak NG's Latin, new install; C: no voice; D: the Italian Piper voice
-  with eSpeak NG's Latin rules, already in Piper's download, computer only, new code) was sent to the Decisions chat
-  (recommended A). Until then `NO_VOICE.la = "none"` (app/voices.py) and no AZURE_VOICES entry: Latin cards play only
-  the audio they were saved from.
+- **Voices: an Italian voice reads Latin** (the owner's choice, "38. A.", 2026-11-03, through the Decisions chat; B
+  eSpeak NG's Latin, C no voice, D the Italian Piper voice with eSpeak NG's Latin rules were not chosen; D may come
+  later). No service or device has a Latin voice, so cards without a recording are read by Azure's **it-IT-ElsaNeural**
+  (`AZURE_VOICES.la`; any other Italian Azure voice can be picked: `azurePrefix("la")` is "it"), the computer's Italian
+  Piper voice **Serena** (app/voices.py `VOICES["la"]` is a copy of `VOICES["it"]`, so one download serves both), or the
+  device's own Italian voice (`DEVICE_TAGS.la = "it-IT"`; no native change: the Android/iPhone speech plugins are asked
+  for it-IT). The twins **`READ_BY`** (web/js/cardvoice.js `{la: {by: "it", setting: "tts_latin"}}`, app/voices.py
+  `{"la": ("it", "tts_latin")}`) say so. Before the Italian voice gets the text, **`churchLatin`** / `church_latin`
+  spell it so Italian rules give the Church pronunciation: no macrons or breves; ae, oe, æ, œ → e (caelum → celum, said
+  "chelum") unless a mark says they are two vowels (āēr, aër, poēta) or the word is poeta/poema/poesis, Noe, aloe,
+  Israel, Michael; ph th rh → f t r; y, j → i; mihi, nihil → miki, nikil; ti before a vowel inside a word → zi (gratia →
+  grazia, not after s, t, x: ostium). Applied where text is said: makeAzureVoice (`lang`), devicevoice.speakDevice,
+  saytext.js (Azure), app/voices.py make_for and sample. Cases both twins pass: tests/fixtures/church_latin.json.
+  **Settings → Card voices** (only while learning Latin) has the switch **"Italian voice reading Latin: Church
+  pronunciation"** (`tts_latin`, "on" unless "off"; synced with the other card-voice settings in aikeys KEYS, app/db.py
+  and mobile store.js defaults; Settings search "church"/"latin" finds it: settingsui.js `latinvoice`). Off
+  (`voiceOff`): no Azure or computer voice is made for Latin, voiceHere says false (cards with nothing to play get no
+  Word/Sentence buttons), speakDevice refuses, waitingForComputer counts Latin as `without`, app/voices.py voice_for is
+  None. Cards saved from real recordings always play their own audio. Checked in the browser pane (desktop, fresh
+  test folder; web app at 375×812): the switch, its off/on text, the computer panel offering Serena for Latin, Azure's
+  "it-IT-ElsaNeural · usual", Word/Sentence hidden when off and shown when on, the settings search. **Not heard**: this
+  PC has no Italian system voice, no Azure key and no Piper download, so no Latin was actually spoken; Piper/Azure
+  making is covered by tests with stand-ins (tests/test_voices.py, tests/js/cardvoice.test.mjs).
 - **Podcasts**: no country's chart has a Latin show, so web/js/podcast-picks.js has 29 picks (**tools/build_podcast_picks.mjs
   la**, which now rebuilds one language and keeps the others; per-language MEASURED and RATING_STORES): Ab ovo (Satura
   Lanx, 169 ratings), Latinitium (its public Acast feed, ended 2021), Litterae Latinae Simplices, Sermones Raedarii,
@@ -6575,6 +6593,7 @@ language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). C
 - **Interface text**: 29 strings in tools/i18n/tr/<code>/111-latin.txt for all 16 languages (the name, the search note,
   the news notes, the word-table sentence, 13 podcasts' English descriptions, the What's new line); 62 data strings
   (show names, makers, Latin-language descriptions, YouTube words, the seen-words example) in tools/i18n/ignore.txt.
+  Then 11 more for the Italian voice reading Latin (the switch, its off/on lines), at the end of the same files.
 - Licences: licenses/latin-sources.txt (new, in index.json), wiktionary.txt; docs/lexicon/README.md, docs/index.html.
 - **Tests**: tests/js/latin.test.mjs (new: keys, forms, enclitics, seen keys, the popup with the real files), Latin cases
   in languages/i18n/wordlists/youtube-home/youtube/cardvoice/trending JS tests, test_lexicon (download), test_languages,
@@ -6589,6 +6608,6 @@ language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). C
   a page imported and hodiernae → hodiernus. **Not checked**: a real phone, the desktop window, the AI popup in Latin,
   Scan on a photo of Latin. **The data files (docs/lexicon la-*, ocr-lat, docs/audiobooks/la.json.gz, docs/books/la)
   must be on GitHub Pages before installed apps can download them.**
-- **Not done**: a Latin voice (the owner's decision), Latin courses (Basics and Grammar: none, the Library says "There are
+- **Not done**: Latin courses (Basics and Grammar: none, the Library says "There are
   no courses for this language yet"), Netflix (no Latin there). Macronizing a text that has none (showing amāvit over
   amavit in running text) is only in the popup, not over the words.

@@ -8,7 +8,7 @@
 
 import { makeComputerVoice, saveVoice, speechPlugin, state, toast } from "./app.js";
 import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, needsVoice,
-         pickedVoices, sayCard, voiceMode, voicesForLanguage, voicesOnSave, voiceLocale } from "./cardvoice.js";
+         pickedVoices, sayCard, voiceMode, voiceOff, voicesForLanguage, voicesOnSave, voiceLocale } from "./cardvoice.js";
 import { deviceHasVoice, speakDevice, stopDevice } from "./devicevoice.js";
 import { detectLanguage } from "./languages.js";
 
@@ -27,8 +27,10 @@ async function countryFor(lang) {
 
 const replaced = new Map(); // voice name Azure refused -> the region's own voice used instead (this run)
 
-/** The Azure voice for a card's language, or null when Azure has none for it. */
+/** The Azure voice for a card's language, or null when Azure has none for it (or it is switched off:
+ * the Italian voice reading Latin, cardvoice.js voiceOff). */
 export async function azureVoiceOf(lang, s = settings()) {
+  if (voiceOff(lang, s)) return null;
   const voice = azureVoiceFor(lang, { picked: pickedVoices(s), country: await countryFor(lang) });
   return voice && (replaced.get(voice) || voice);
 }
@@ -40,7 +42,7 @@ async function azureMaker(v, s) {
   const lang = cardLanguage(v);
   const voice = await azureVoiceOf(lang, s);
   if (!voice) return null;
-  const opts = { key: s.tts_key_azure, region: s.tts_region_azure, voice };
+  const opts = { key: s.tts_key_azure, region: s.tts_region_azure, voice, lang };
   try {
     return await makeAzureVoice(v, opts);
   } catch (e) {
@@ -62,6 +64,7 @@ export function voiceMaker(s = settings()) {
   }
   if (mode === "computer" && makeComputerVoice) {
     return (v) => ensureVoice(v, async (w) => {
+      if (voiceOff(cardLanguage(w), s)) return null;
       const row = await makeComputerVoice(w);
       let times = row && row.voice;
       try { times = typeof times === "string" ? JSON.parse(times) : times; } catch { times = null; }
@@ -156,6 +159,7 @@ const voiceKnown = new Map(); // lang -> true / false, once this device has said
  * device has one), false (no voice at all: a card with nothing it can play gets no buttons), or null
  * while that isn't known yet (the buttons are shown). Synchronous; learnVoices finds it out. */
 export function voiceHere(lang, s = settings()) {
+  if (voiceOff(lang, s)) return false;  // (the Italian voice reading Latin, switched off)
   const mode = voiceMode(s);
   if (mode === "azure" && azureReady(s) && AZURE_VOICES[lang]) return true;
   if (mode === "computer" && makeComputerVoice && LOCAL_VOICE_LANGUAGES.includes(lang)) return true;

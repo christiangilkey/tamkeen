@@ -28,3 +28,15 @@ e41db435	Confissões (em latim: Confessiones) é o nome de uma obra autobiográf
 d0c30e8b	Conhecida por ser a obra mais extensa da prosa latina arcaica, ela é cheia de imperativos arcaicos e quase não tem orações subordinadas. Seu assunto é a tarefa prosaica de administrar uma fazenda romana no século II a.C. A simplicidade, porém, talvez seja só em parte genuína. Afinal, Catão tinha uma forte agenda política e social, baseada na rejeição das influências estrangeiras, isto é, gregas, e no cultivo dos valores romanos tradicionais, e para isso a figura do camponês simples e franco pode ter sido útil. (Resumo de malone)
 0c4b454e	As Geórgicas de Virgílio são o ponto alto de uma longa tradição antiga de poemas sobre a agricultura, que começa com Hesíodo no século VIII a.C. O poema é uma rica mistura de alusões a essa tradição: poema didático, elogio a Augusto, o epílio neotérico sobre Orfeu, a filosofia epicurista apresentada por seu predecessor e modelo, Lucrécio. Thomas Jefferson imaginava seu ideal de fazendeiro cavalheiro arando os campos com um exemplar das Geórgicas entre os cabos do arado. (Resumo de Malone)
 2e7d372d	Latim: aprenda com podcasts, audiolivros, livros e vídeos, com a forma de dicionário e o significado de cada palavra a um toque
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Voz italiana lendo latim
+74948670	Voz italiana lendo latim: pronúncia eclesiástica<0/><1>Nenhuma voz fala latim, então uma voz italiana lê os cartões em latim que não têm gravação, do jeito que a Igreja pronuncia o latim: c antes de e e i como em “cello”, ae como e. Desligada: os cartões em latim tocam só as gravações de onde foram salvos.</1>
+bf0c81c3	Desligada: os cartões em {0:lower} sem gravação não são lidos em voz alta.
+4868ff06	Este aparelho tem uma voz em {0:lower}. Ela lê os cartões em {1:lower} que não têm gravação.
+f7f8fcaf	Este aparelho tem uma voz em {0:lower}. Ela lê os cartões em {1:lower} que não têm gravação até que a deles seja feita.
+a18609ea	Desligada
+bde331d3	Teste a chave para escolher entre todas as vozes do Azure em {0:lower}.
+becae473	Baixe uma voz em {0:lower}: assim este computador dá a cada cartão em {1:lower} sem áudio a própria gravação, inclusive aos salvos no seu celular.
+a2b6ca87	Os cartões em {0:lower} são lidos por uma voz em {1:lower}. {2}
+52e201f0	Os cartões em {0:lower} não são lidos em voz alta: a voz deles está desligada em Configurações → Vozes dos cartões.
+d61ad0a4	A voz deste idioma está desligada.

@@ -28,3 +28,15 @@ e41db435	Confessions (en llatí: Confessiones) és el nom d'una obra autobiogrà
 d0c30e8b	Coneguda per ser l'obra més extensa de la prosa llatina arcaica, és plena d'imperatius arcaics i gairebé no té oracions subordinades. El seu tema és la feina prosaica de portar una granja romana al segle II aC. Tanmateix, aquesta senzillesa potser només és autèntica en part. Perquè Cató tenia un programa polític i social ben ferm, basat en el rebuig de les influències estrangeres, és a dir, gregues, i en el foment dels valors romans tradicionals, i per a això potser li va ser útil presentar-se com un pagès senzill que parla clar. (Resum de malone)
 0c4b454e	Les Geòrgiques de Virgili són la culminació d'una llarga tradició antiga de poemes sobre l'agricultura, que comença amb Hesíode al segle VIII aC. El seu poema és una rica barreja d'al·lusions a aquesta tradició: poema didàctic, elogi d'August, l'epil·li neotèric sobre Orfeu, la filosofia epicúria tal com la presenta el seu predecessor i model, Lucreci. Thomas Jefferson imaginava el seu ideal de propietari rural llaurant els camps amb un exemplar de les Geòrgiques entre les manetes de l'arada. (Resum de Malone)
 2e7d372d	Llatí: aprèn-lo amb pòdcasts, audiollibres, llibres i vídeos, amb la forma de diccionari i el significat de cada paraula a un toc
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Veu italiana que llegeix llatí
+74948670	Veu italiana que llegeix llatí: pronunciació eclesiàstica<0/><1>Cap veu no parla llatí, així que una veu italiana llegeix les targetes en llatí que no tenen enregistrament, tal com l'Església pronuncia el llatí: c davant de e i i com a «cello», ae com a e. Desactivada: les targetes en llatí només reprodueixen els enregistraments d'on es van desar.</1>
+bf0c81c3	Desactivada: les targetes en {0:lower} sense enregistrament no es llegeixen en veu alta.
+4868ff06	Aquest dispositiu té una veu en {0:lower}. Llegeix les targetes en {1:lower} que no tenen enregistrament.
+f7f8fcaf	Aquest dispositiu té una veu en {0:lower}. Llegeix les targetes en {1:lower} que no tenen enregistrament fins que es fa la seva.
+a18609ea	Desactivada
+bde331d3	Prova la clau per triar entre totes les veus d'Azure en {0:lower}.
+becae473	Baixa una veu en {0:lower}: així aquest ordinador dona a cada targeta en {1:lower} sense àudio el seu enregistrament, també a les desades al telèfon.
+a2b6ca87	Les targetes en {0:lower} les llegeix una veu en {1:lower}. {2}
+52e201f0	Les targetes en {0:lower} no es llegeixen en veu alta: la seva veu està desactivada a Configuració → Veus de les targetes.
+d61ad0a4	La veu d'aquesta llengua està desactivada.

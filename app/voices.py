@@ -23,12 +23,14 @@ import json
 import logging
 import os
 import platform as _platform
+import re
 import shutil
 import subprocess
 import sys
 import tarfile
 import threading
 import time
+import unicodedata
 import zipfile
 from pathlib import Path
 from typing import Any
@@ -76,9 +78,17 @@ VOICES: dict[str, list[dict[str, Any]]] = {
     "en": [{"id": "en_US-ljspeech-medium", "name": "LJ (US)", "mb": 64, "licence": "public domain"},
            {"id": "en_GB-cori-medium", "name": "Cori (UK)", "mb": 64, "licence": "public domain"}],
 }
+# Languages no voice speaks, read by another language's voices: {lang: (that language, the setting that
+# switches it off)}. Latin is read by the Italian voice (the owner's choice, 2026-11-03), which gives the
+# Church pronunciation once church_latin() has spelled the text for it; "tts_latin" = "off" leaves Latin
+# cards with only their own recordings. web/js/cardvoice.js READ_BY is the twin.
+READ_BY = {"la": ("it", "tts_latin")}
+for _lang, (_by, _) in READ_BY.items():
+    VOICES[_lang] = [dict(v) for v in VOICES[_by]]
+
 # No voice here, and why (shown in Settings): only non-commercial Piper voices, or none at all.
 NO_VOICE = {"hi": "noncommercial", "ko": "noncommercial", "ja": "noncommercial", "th": "noncommercial",
-            "zh": "unclear", "tl": "none", "ceb": "none", "la": "none"}
+            "zh": "unclear", "tl": "none", "ceb": "none"}
 
 # The silence round each part of a card's voice (seconds): the gap keeps the word and the sentence apart.
 LEAD, GAP, TAIL = 0.06, 0.9, 0.35
@@ -144,8 +154,54 @@ def _picked() -> dict[str, str]:
         return {}
 
 
+def voice_off(lang: str | None) -> bool:
+    """Is the voice for `lang` switched off (only a language read by another's voice can be: Latin)?"""
+    r = READ_BY.get(lang or "")
+    return bool(r) and str(db.get_setting(r[1]) or "on") == "off"
+
+
+def _church_word(m: re.Match[str]) -> str:
+    w = m.group(0)
+
+    def diphthong(d: re.Match[str]) -> str:
+        at, v, e = d.start(), d.group(1), d.group(2)
+        after = w[at + 2:]
+        if after[:1] and "\u0300" <= after[0] <= "\u036f":
+            return d.group(0)                                        # āēr, aër, poēta: two vowels
+        if v in "oO" and (not after or (at == 1 and w[0] in "pP" and after[0] in "tmsTMS")):
+            return d.group(0)                                        # Noe, aloe; poeta, poema, poesis
+        if v in "aA" and at > 0 and after in ("l", "L"):
+            return d.group(0)                                        # Israel, Michael
+        return e.upper() if v.isupper() else e.lower()
+
+    w = re.sub(r"([aAoO])([eE])", diphthong, w)
+    w = re.sub("[\u0300-\u036f]", "", w)
+    w = re.sub(r"^([mMnN]i)h(i)", r"\1k\2", w)                       # mihi, nihil: k
+    w = re.sub(r"[pP][hH]", lambda p: "F" if p.group(0)[0] == "P" else "f", w)
+    w = re.sub(r"([tTrR])[hH]", r"\1", w)                              # ph th rh: f t r
+    w = w.replace("y", "i").replace("Y", "I").replace("j", "i").replace("J", "I")
+    return re.sub(r"(?<=[^\W\d_stxSTX])ti(?=[aeiou])", "zi", w)       # gratia: grazia (ostium stays)
+
+
+def church_latin(text: str) -> str:
+    """Latin spelled so that an Italian voice says it as the Church does: no macrons, breves or accents;
+    ae, oe, æ, œ as e; ph th rh as f t r; y and j as i; mihi, nihil with k; ti before a vowel as zi.
+    web/js/cardvoice.js churchLatin is the twin (tests/fixtures/church_latin.json)."""
+    t = unicodedata.normalize("NFD", str(text or ""))
+    t = t.replace("æ", "e").replace("œ", "e").replace("Æ", "E").replace("Œ", "E")
+    return unicodedata.normalize("NFC", re.sub(r"(?:[^\W\d_]|[\u0300-\u036f])+", _church_word, t))
+
+
+def spoken_text(text: str, lang: str | None) -> str:
+    """`text` as the voice for `lang` is given it (Latin spelled for the Italian voice)."""
+    return church_latin(text) if lang == "la" else str(text or "")
+
+
 def voice_for(lang: str | None) -> str | None:
-    """The downloaded voice used for language `lang`: the one picked here, else the first downloaded."""
+    """The downloaded voice used for language `lang`: the one picked here, else the first downloaded.
+    None when there is none, or when it is switched off (the Italian voice reading Latin)."""
+    if voice_off(lang):
+        return None
     items = VOICES.get(lang or "", [])
     picked = _picked().get(lang or "")
     ready = [v["id"] for v in items if voice_installed(v["id"])]
@@ -420,11 +476,14 @@ def make_for(vocab_id: int) -> dict[str, Any]:
     voice = voice_for(lang)
     if voice is None:
         name = languages.LANGUAGES.get(lang, lang)
-        raise VoiceError(f"No {name} voice is downloaded on this computer (Settings → Card voices).")
+        if voice_off(lang):
+            raise VoiceError(f"{name} cards aren't read out: their voice is switched off in Settings → Card voices.")
+        by = READ_BY.get(lang, (lang,))[0]  # (Latin: it's the Italian voice that is missing)
+        raise VoiceError(f"No {languages.LANGUAGES.get(by, by)} voice is downloaded on this computer (Settings → Card voices).")
     word, sentence = voice_text(row)
     if not word:
         raise VoiceError("This card has no word to say.")
-    data, times = card_audio(word, sentence, voice)
+    data, times = card_audio(spoken_text(word, lang), spoken_text(sentence, lang), voice)
     dest = engine.clip_path(row["uid"])
     tmp = dest.with_name(dest.name + ".part")
     tmp.write_bytes(data)
@@ -518,7 +577,8 @@ def summary() -> dict[str, Any]:
                            "voices": [{**v, "installed": voice_installed(v["id"])} for v in items]}
     runtime_mb = round(RUNTIMES[kind][1] / 1e6) if kind else None
     return {"mode": mode(), "supported": kind is not None, "runtime": {"installed": runtime_installed(), "mb": runtime_mb},
-            "languages": out_langs, "none": NO_VOICE, "download": status(), "waiting": waiting()}
+            "languages": out_langs, "none": NO_VOICE, "read_by": {k: v[0] for k, v in READ_BY.items()},
+            "download": status(), "waiting": waiting()}
 
 
 def sample(lang: str, text: str) -> bytes:
@@ -527,7 +587,7 @@ def sample(lang: str, text: str) -> bytes:
 
     voice = voice_for(lang)
     if voice is None or not text:
-        raise VoiceError("Download this language's voice first.")
-    pcm, rate = synth(text[:200], voice)
+        raise VoiceError("This language's voice is switched off." if voice_off(lang) else "Download this language's voice first.")
+    pcm, rate = synth(spoken_text(text[:200], lang), voice)
     return audio.encode_pcm_opus(np.concatenate([_trim(pcm, rate), np.zeros(int(0.2 * rate), np.int16)]), rate)
 

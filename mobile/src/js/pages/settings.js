@@ -94,7 +94,7 @@ function home(view) {
         if (cfg.mode === "cloud") return { text: "Cloud transcription needs a key", warn: true };
         return { text: "Your computer writes the transcripts" };
       },
-      voices: async () => voiceSummary(s, { waiting: waitingForComputer(await api("/vocab"), cardLanguage).count }),
+      voices: async () => voiceSummary(s, { waiting: waitingForComputer(await api("/vocab"), cardLanguage, s).count }),
       controller: () => controllerSummary(),
       look: () => [{ text: isWeb ? THEME_LINE.dark : THEME_LINE[s.theme] || THEME_LINE.system }, { text: gameOn() ? "Game features on" : "Game features off" }],
       account: () => {

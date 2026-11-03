@@ -506,6 +506,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "tts_region_azure": "",
     "tts_voices": "",               # {language: Azure voice} the user picked, as JSON ("" = the usual ones)
     "tts_on_save": "on",            # Azure: a word saved from something with no sound of its own gets its voice at once ("off": when first played)
+    "tts_latin": "on",              # an Italian voice reads Latin cards ("off": they play only their own recordings)
     "tts_local": "",                # {language: voice model id} picked on this computer, as JSON ("" = the first downloaded)
     # Google Drive sync.
     "google_refresh_token": "",

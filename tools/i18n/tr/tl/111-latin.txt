@@ -28,3 +28,15 @@ e41db435	Ang Confessions (sa Latin: Confessiones) ay pangalan ng isang awtobiyog
 d0c30e8b	Kilala bilang pinakamahabang akda ng sinaunang prosang Latin, puno ito ng mga makalumang pautos at halos walang sugnay na di-makapag-iisa. Ang paksa nito ay ang karaniwang gawain ng pamamahala ng isang bukid na Romano noong ikalawang siglo BC. Pero maaaring bahagya lang na totoo ang pagiging simple nito. Dahil may matibay na layuning pampulitika at panlipunan si Cato, batay sa pagtanggi sa mga dayuhang impluwensiya, ibig sabihin ay Griyego, at sa pagpapalaganap ng tradisyonal na mga pagpapahalagang Romano, at maaaring nakatulong dito ang pagpapakilala niya sa sarili bilang simpleng taga-bukid. (Buod ni malone)
 0c4b454e	Ang Georgica ni Vergil ang rurok ng mahabang tradisyon noong sinaunang panahon ng mga tula tungkol sa pagsasaka, na nagsimula kay Hesiod noong ikawalong siglo BC. Ang kanyang tula ay mayamang halo ng mga pagtukoy sa tradisyong iyon: tulang nagtuturo, papuri kay Augusto, ang neoteric na epyllion tungkol kay Orpheus, at ang pilosopiyang Epicurean ayon sa paglalahad ng kanyang hinalinhan at huwaran, si Lucretius. Inisip ni Thomas Jefferson ang kanyang huwarang ginoong magsasaka na nag-aararo ng bukid habang may kopya ng Georgics sa pagitan ng mga hawakan ng araro. (Buod ni Malone)
 2e7d372d	Latin: pag-aralan ito mula sa mga podcast, audiobook, libro at video, at isang tap lang ang anyo sa diksiyonaryo at kahulugan ng bawat salita
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Italyanong boses na nagbabasa ng Latin
+74948670	Italyanong boses na nagbabasa ng Latin: bigkas ng Simbahan<0/><1>Walang boses na nagsasalita ng Latin, kaya isang Italyanong boses ang nagbabasa ng mga Latin na card na walang recording, ayon sa bigkas ng Simbahan sa Latin: c bago ang e at i gaya ng sa “cello”, ae bilang e. Kapag naka-off: nagpapatugtog lang ang mga Latin na card ng mga recording na pinagmulan nila.</1>
+bf0c81c3	Naka-off: hindi binabasa nang malakas ang mga card na {0} na walang recording.
+4868ff06	May boses na {0} ang device na ito. Binabasa nito ang mga card na {1} na walang recording.
+f7f8fcaf	May boses na {0} ang device na ito. Binabasa nito ang mga card na {1} na walang recording hanggang magawa ang sarili nila.
+a18609ea	Naka-off
+bde331d3	Subukan ang key para makapili sa lahat ng boses na {0} ng Azure.
+becae473	Mag-download ng boses na {0}: saka bibigyan ng computer na ito ng sariling recording ang bawat card na {1} na walang audio, pati ang mga na-save sa telepono mo.
+a2b6ca87	Ang mga card na {0} ay binabasa ng boses na {1}. {2}
+52e201f0	Hindi binabasa nang malakas ang mga card na {0}: naka-off ang boses nila sa Settings → Mga boses ng card.
+d61ad0a4	Naka-off ang boses ng wikang ito.

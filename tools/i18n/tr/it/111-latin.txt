@@ -28,3 +28,15 @@ e41db435	Confessioni (in latino: Confessiones) è il nome di un'opera autobiogra
 d0c30e8b	Nota per essere l'opera più ampia della prima prosa latina, abbonda di imperativi arcaici e mostra una quasi totale assenza di proposizioni subordinate. Il suo argomento è la prosaica faccenda di gestire una fattoria romana nel II secolo a.C. La semplicità, tuttavia, potrebbe essere genuina solo in parte. Catone, infatti, aveva un deciso programma politico e sociale, basato sul rifiuto degli influssi stranieri, cioè greci, e sulla promozione dei valori romani tradizionali, per il quale la figura del semplice oratore di campagna può essersi rivelata utile. (Riassunto di malone)
 0c4b454e	Le Georgica di Virgilio sono il culmine di una lunga tradizione antica di poemi sull'agricoltura, che comincia con Esiodo nell'VIII secolo a.C. Il suo poema è un ricco intreccio di allusioni a quella tradizione: poema didattico, elogio di Augusto, l'epillio neoterico su Orfeo, la filosofia epicurea così come l'aveva presentata il suo predecessore e modello, Lucrezio. Thomas Jefferson immaginava il suo gentiluomo agricoltore che arava i campi con una copia delle Georgiche tra le stegole dell'aratro. (Riassunto di Malone)
 2e7d372d	Latino: imparalo con podcast, audiolibri, libri e video, con la forma del dizionario e il significato di ogni parola a portata di tocco
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Voce italiana che legge il latino
+74948670	Voce italiana che legge il latino: pronuncia ecclesiastica<0/><1>Nessuna voce parla latino, quindi una voce italiana legge le schede in latino senza registrazione, come la Chiesa pronuncia il latino: c davanti a e e i come in «cello», ae come e. Disattivata: le schede in latino riproducono solo le registrazioni da cui sono state salvate.</1>
+bf0c81c3	Disattivata: le schede in {0:lower} senza registrazione non vengono lette ad alta voce.
+4868ff06	Questo dispositivo ha una voce in {0:lower}. Legge le schede in {1:lower} senza registrazione.
+f7f8fcaf	Questo dispositivo ha una voce in {0:lower}. Legge le schede in {1:lower} senza registrazione finché non viene creata la loro.
+a18609ea	Disattivata
+bde331d3	Prova la chiave per scegliere tra tutte le voci di Azure in {0:lower}.
+becae473	Scarica una voce in {0:lower}: così questo computer dà a ogni scheda in {1:lower} senza audio la sua registrazione, anche a quelle salvate sul telefono.
+a2b6ca87	Le schede in {0:lower} sono lette da una voce in {1:lower}. {2}
+52e201f0	Le schede in {0:lower} non vengono lette ad alta voce: la loro voce è disattivata in Impostazioni → Voci delle schede.
+d61ad0a4	La voce di questa lingua è disattivata.

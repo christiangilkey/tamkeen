@@ -28,3 +28,15 @@ e41db435	Les Confessions (en latin : Confessiones) sont une œuvre autobiographi
 d0c30e8b	Connu pour être le plus long texte de la prose latine des origines, il abonde en impératifs archaïques et ne présente presque aucune proposition subordonnée. Son sujet est l'affaire très terre à terre de la gestion d'une ferme romaine au IIe siècle av. J.-C. Cette simplicité n'est pourtant peut-être qu'en partie authentique. Car Caton avait un programme politique et social affirmé, fondé sur le rejet des influences étrangères, c'est-à-dire grecques, et sur la promotion des valeurs romaines traditionnelles, pour lequel le personnage du simple orateur campagnard a pu se révéler utile. (Résumé de malone)
 0c4b454e	Les Georgica de Virgile sont l'aboutissement d'une longue tradition antique de poèmes sur l'agriculture, qui commence avec Hésiode au VIIIe siècle av. J.-C. Son poème est un riche mélange d'allusions à cette tradition : poème didactique, éloge d'Auguste, épyllion néotérique sur Orphée, philosophie épicurienne telle que l'avait présentée son prédécesseur et modèle, Lucrèce. Thomas Jefferson imaginait son gentleman-farmer labourant ses champs avec un exemplaire des Géorgiques entre les mancherons de la charrue. (Résumé de Malone)
 2e7d372d	Latin : apprends-le avec des podcasts, des livres audio, des livres et des vidéos, avec la forme du dictionnaire et le sens de chaque mot à portée de doigt
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Voix italienne lisant le latin
+74948670	Voix italienne lisant le latin : prononciation ecclésiastique<0/><1>Aucune voix ne parle latin, alors une voix italienne lit les cartes en latin qui n'ont pas d'enregistrement, comme l'Église prononce le latin : c devant e et i comme dans « cello », ae comme e. Désactivée : les cartes en latin ne jouent que les enregistrements dont elles viennent.</1>
+bf0c81c3	Désactivée : les cartes en {0:lower} sans enregistrement ne sont pas lues à voix haute.
+4868ff06	Cet appareil a une voix en {0:lower}. Elle lit les cartes en {1:lower} qui n'ont pas d'enregistrement.
+f7f8fcaf	Cet appareil a une voix en {0:lower}. Elle lit les cartes en {1:lower} qui n'ont pas d'enregistrement, jusqu'à ce que le leur soit créé.
+a18609ea	Désactivée
+bde331d3	Testez la clé pour choisir parmi toutes les voix d'Azure en {0:lower}.
+becae473	Téléchargez une voix en {0:lower} : cet ordinateur donnera alors à chaque carte en {1:lower} sans audio son propre enregistrement, y compris à celles enregistrées sur votre téléphone.
+a2b6ca87	Les cartes en {0:lower} sont lues par une voix en {1:lower}. {2}
+52e201f0	Les cartes en {0:lower} ne sont pas lues à voix haute : leur voix est désactivée dans Réglages → Voix des cartes.
+d61ad0a4	La voix de cette langue est désactivée.

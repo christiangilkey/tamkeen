@@ -59,6 +59,7 @@ export const FINDS = [
   { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
   { s: "voices", id: "voiceonsave", label: "Add the voice when a word is saved", words: "azure audio automatic netflix youtube save word sentence add audio" },
   { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
+  { s: "voices", id: "latinvoice", label: "Italian voice reading Latin", words: "church ecclesiastical pronunciation italian latin", langs: ["la"] },
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)

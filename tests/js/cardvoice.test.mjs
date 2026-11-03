@@ -4,14 +4,16 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  AZURE_VOICES, FAILED_FOR, audioFailed, audioKey, azureError, azureReady, azureVoiceFor, buildSsml, canSay, cleanAzureKey, cleanRegion,
+  AZURE_VOICES, FAILED_FOR, READ_BY, audioFailed, audioKey, azureError, azureReady, azureVoiceFor, buildSsml, canSay, cleanAzureKey, cleanRegion,
   clipTimes, ensureVoice, failedHere, forgetFailed, forgetMaking, hasOwnAudio, loadError, phoneCanReach, keepVoice, makeAzureVoice, needsVoice, pickDeviceVoice, pickedVoices, sayCard, voiceChars, voiceMode, voiceText,
   voiceTimes, voicesForLanguage, voicesOnSave, VOICE_SETTINGS, NO_AUDIO_KINDS, waitingForComputer, withPickedVoice,
+  churchLatin, deviceTag, readBy, spokenText, voiceOff,
 } from "../../web/js/cardvoice.js";
 import { joinOggOpus, opusPackets } from "../../web/js/oggjoin.js";
 import { oggOpusInfo } from "../../mobile/src/js/ogg-clip.js";
 import { KEYS } from "../../web/js/aikeys.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
+import { readFileSync } from "node:fs";
 
 // ----- which cards have audio they can play -----
 
@@ -53,13 +55,13 @@ test("what is said: the word, and the part of its sentence the card shows", () =
 
 // ----- Azure: the voice per language and dialect, the request -----
 
-test("a sensible Azure voice for every language but Bisaya and Latin, and Arabic by the country chosen", () => {
+test("a sensible Azure voice for every language but Bisaya, and Arabic by the country chosen", () => {
   for (const code of LANGUAGE_CODES) {
     const v = azureVoiceFor(code);
     if (code === "ceb") assert.equal(v, null, "Azure has no Bisaya voice");
-    else if (code === "la") assert.equal(v, null, "Azure has no Latin voice (which voice should read Latin is the owner's to choose)");
-    else assert.match(v, new RegExp(`^${code === "tl" ? "fil" : code}-[A-Z]{2}-\\w+Neural$`), code);
+    else assert.match(v, new RegExp(`^${code === "tl" ? "fil" : readBy(code)}-[A-Z]{2}-\\w+Neural$`), code);
   }
+  assert.equal(azureVoiceFor("la"), "it-IT-ElsaNeural", "Latin: the Italian Elsa (the owner's choice)");
   assert.equal(azureVoiceFor("ar"), "ar-SA-ZariyahNeural");
   assert.equal(azureVoiceFor("ar", { country: "EG" }), "ar-EG-SalmaNeural");
   assert.equal(azureVoiceFor("ar", { country: "ma" }), "ar-MA-MounaNeural");
@@ -99,7 +101,7 @@ test("the key, the region and Azure's answers, worded for the learner", () => {
   assert.equal(azureError(400).badVoice, true);
   assert.match(azureError(429).message, /free allowance/);
   assert.equal(voiceMode({ tts_mode: "nonsense" }), "device");
-  for (const k of ["tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save"]) assert.ok(KEYS.includes(k), `${k} syncs like the other keys`);
+  for (const k of ["tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin"]) assert.ok(KEYS.includes(k), `${k} syncs like the other keys`);
 });
 
 test("Azure's voice list is narrowed to the language's plain neural voices", () => {
@@ -111,6 +113,46 @@ test("Azure's voice list is narrowed to the language's plain neural voices", () 
   assert.deepEqual(voicesForLanguage(list, "ar").map((x) => x.name), ["ar-EG-SalmaNeural", "ar-SA-HamedNeural"]);
   assert.deepEqual(voicesForLanguage(list, "tl").map((x) => x.name), ["fil-PH-BlessicaNeural"]);
   assert.deepEqual(voicesForLanguage(list, "en"), [], "HD voices (charged more) are left out");
+});
+
+// ----- Latin, read by an Italian voice (the owner's choice, 2026-11-03) -----
+
+test("Latin is read by an Italian voice everywhere, and it can be switched off", () => {
+  assert.deepEqual(READ_BY, { la: { by: "it", setting: "tts_latin" } });
+  assert.equal(readBy("la"), "it");
+  assert.equal(readBy("es"), "es");
+  const list = [{ name: "it-IT-ElsaNeural", locale: "it-IT", type: "Neural" }, { name: "it-IT-DiegoNeural", locale: "it-IT", type: "Neural" },
+    { name: "es-ES-ElviraNeural", locale: "es-ES", type: "Neural" }];
+  assert.deepEqual(voicesForLanguage(list, "la").map((x) => x.name), ["it-IT-DiegoNeural", "it-IT-ElsaNeural"], "Azure's Italian voices are offered for Latin");
+  assert.equal(azureVoiceFor("la", { picked: { la: "it-IT-DiegoNeural" } }), "it-IT-DiegoNeural", "another Italian voice can be picked");
+  assert.equal(azureVoiceFor("la", { picked: { la: "es-ES-ElviraNeural" } }), "it-IT-ElsaNeural", "not a Spanish one");
+  assert.equal(deviceTag("la"), "it-IT", "the device is asked for its Italian voice");
+  assert.equal(pickDeviceVoice([{ lang: "en-US", name: "A" }, { lang: "it-IT", name: "Alice" }], "la").name, "Alice");
+  assert.equal(voiceOff("la", {}), false, "on unless switched off");
+  assert.equal(voiceOff("la", { tts_latin: "on" }), false);
+  assert.equal(voiceOff("la", { tts_latin: "off" }), true);
+  assert.equal(voiceOff("it", { tts_latin: "off" }), false, "Italian cards keep their voice");
+  assert.equal(voiceOff("la", null), false);
+  const words = [{ text: "amō", language: "la" }, { text: "ciao", language: "it" }];
+  assert.deepEqual(waitingForComputer(words), { count: 2, langs: { la: 1, it: 1 }, without: 0 }, "the computer's Italian voice makes Latin's");
+  assert.deepEqual(waitingForComputer(words, undefined, { tts_latin: "off" }), { count: 1, langs: { it: 1 }, without: 1 }, "switched off: none for Latin");
+});
+
+test("Latin is spelled so that the Italian voice says it as the Church does (the same cases as app/voices.py)", () => {
+  const { cases } = JSON.parse(readFileSync(new URL("../fixtures/church_latin.json", import.meta.url), "utf8"));
+  assert.ok(cases.length >= 30);
+  for (const [latin, said] of cases) assert.equal(churchLatin(latin), said, latin);
+  assert.equal(spokenText("puellae", "la"), "puelle");
+  assert.equal(spokenText("puellae", "it"), "puellae", "only Latin is respelled");
+});
+
+test("a Latin card's voice from Azure: the Italian voice is sent the Church spelling", async () => {
+  const asked = [];
+  const fetchFn = async (url, opts) => { asked.push(opts.body); return { ok: true, status: 200, arrayBuffer: async () => oggFile(50).buffer }; };
+  await makeAzureVoice({ text: "caelum", sentence: "Grātia caelī.", language: "la" }, { key: "k".repeat(32), region: "eastus", voice: "it-IT-ElsaNeural", fetchFn });
+  assert.match(asked[0], /xml:lang="it-IT"/);
+  assert.match(asked[0], />celum<\/voice>/);
+  assert.match(asked[1], />Grazia celi.<\/voice>/);
 });
 
 // ----- one file for the word and the sentence -----

@@ -5190,6 +5190,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "fb12747d",
+  "k": "Italian voice reading Latin",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "a797e309",
   "k": "Theme",
   "f": "web/js/components/settingsui.js"
@@ -5830,6 +5835,11 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
+  "id": "74948670",
+  "k": "Italian voice reading Latin: Church pronunciation<0/><1>No voice speaks Latin, so an Italian voice reads the Latin cards that have no recording, the way the Church says Latin: c before e and i as in “cello”, ae as e. Off: Latin cards play only the recordings they were saved from.</1>",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
   "id": "11266a50",
   "k": "Who reads cards without audio",
   "f": "web/js/components/voicesetup.js"
@@ -5955,6 +5965,11 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
+  "id": "bf0c81c3",
+  "k": "Switched off: {0} cards that have no recording aren't read out.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
   "id": "3f6cf33f",
   "k": "Open text-to-speech settings",
   "f": "web/js/components/voicesetup.js"
@@ -5962,6 +5977,16 @@
  {
   "id": "e185048c",
   "k": "Check again",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "4868ff06",
+  "k": "This device has a voice for {0}. It reads the {1} cards that have no recording.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "f7f8fcaf",
+  "k": "This device has a voice for {0}. It reads the {1} cards that have no recording until theirs is made.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -5990,6 +6015,11 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
+  "id": "a18609ea",
+  "k": "Switched off",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
   "id": "747715f4",
   "k": "No {0} voice on Azure",
   "f": "web/js/components/voicesetup.js"
@@ -6002,6 +6032,11 @@
  {
   "id": "8d0d41ba",
   "k": "· usual",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "bde331d3",
+  "k": "Test the key to choose from all of Azure's voices for {0}.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -6147,6 +6182,11 @@
  {
   "id": "ba2564f4",
   "k": "They are Piper voices (an open-source speech program that runs on this computer's processor, offline). Each voice's recordings carry the licence shown. Many were trained on top of Piper's English voice, whose own recordings were licensed for research; Piper publishes them under their own licences.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "becae473",
+  "k": "Download a voice for {0}: then this computer gives every {1} card without audio its own recording, also the ones saved on your phone.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -7368,6 +7408,16 @@
   "id": "f093a8da",
   "k": "Dictionary first",
   "f": "web/js/defsource.js"
+ },
+ {
+  "id": "a2b6ca87",
+  "k": "{0} cards are read by a voice for {1}. {2}",
+  "f": "web/js/devicevoice.js"
+ },
+ {
+  "id": "52e201f0",
+  "k": "{0} cards aren't read out: their voice is switched off in Settings → Card voices.",
+  "f": "web/js/devicevoice.js"
  },
  {
   "id": "174bac74",
@@ -22777,6 +22827,11 @@
  {
   "id": "899e00df",
   "k": "No {0} voice is downloaded on this computer (Settings → Card voices).",
+  "f": "app/voices.py"
+ },
+ {
+  "id": "d61ad0a4",
+  "k": "This language's voice is switched off.",
   "f": "app/voices.py"
  },
  {

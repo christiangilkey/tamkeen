@@ -28,3 +28,15 @@ e41db435	Bekenntnisse (lateinisch: Confessiones) ist der Name eines autobiografi
 d0c30e8b	Bekannt als das umfangreichste Werk der frühen lateinischen Prosa, ist es reich an archaischen Imperativen und zeigt einen fast völligen Mangel an Nebensätzen. Sein Gegenstand ist das nüchterne Geschäft, einen römischen Bauernhof im zweiten Jahrhundert v. Chr. zu führen. Die Einfachheit ist jedoch vielleicht nur zum Teil echt. Denn Cato verfolgte eine entschiedene politische und gesellschaftliche Agenda, die auf der Ablehnung fremder, d. h. griechischer, Einflüsse und der Pflege traditioneller römischer Werte beruhte, wofür sich die Rolle des schlichten ländlichen Sprechers als nützlich erwiesen haben mag. (Zusammenfassung von malone)
 0c4b454e	Vergils Georgica sind der Höhepunkt einer langen antiken Tradition von Gedichten über die Landwirtschaft, die mit Hesiod im 8. Jh. v. Chr. beginnt. Sein Gedicht ist eine reiche Mischung von Anspielungen auf diese Tradition: Lehrgedicht, Lobrede auf Augustus, das neoterische Epyllion über Orpheus, epikureische Philosophie, wie sie sein Vorgänger und Vorbild Lukrez dargelegt hatte. Thomas Jefferson stellte sich seinen Gentleman-Farmer vor, wie er seine Felder bestellt, mit einem Exemplar der Georgica zwischen den Griffen des Pflugs. (Zusammenfassung von Malone)
 2e7d372d	Latein: lerne es mit Podcasts, Hörbüchern, Büchern und Videos, mit Grundform und Bedeutung jedes Wortes nur einen Tipp entfernt
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Italienische Stimme liest Latein
+74948670	Italienische Stimme liest Latein: kirchliche Aussprache<0/><1>Keine Stimme spricht Latein, deshalb liest eine italienische Stimme die lateinischen Karten ohne Aufnahme vor, so wie die Kirche Latein ausspricht: c vor e und i wie in „cello“, ae wie e. Aus: Lateinische Karten spielen nur die Aufnahmen ab, aus denen sie gespeichert wurden.</1>
+bf0c81c3	Ausgeschaltet: Karten auf {0} ohne Aufnahme werden nicht vorgelesen.
+4868ff06	Dieses Gerät hat eine Stimme auf {0}. Sie liest die Karten auf {1} ohne Aufnahme vor.
+f7f8fcaf	Dieses Gerät hat eine Stimme auf {0}. Sie liest die Karten auf {1} ohne Aufnahme vor, bis ihre eigene gemacht ist.
+a18609ea	Ausgeschaltet
+bde331d3	Teste den Schlüssel, um aus allen Stimmen von Azure auf {0} zu wählen.
+becae473	Lade eine Stimme auf {0} herunter: Dann gibt dieser Computer jeder Karte auf {1} ohne Ton ihre eigene Aufnahme, auch den auf deinem Handy gespeicherten.
+a2b6ca87	Karten auf {0} liest eine Stimme auf {1} vor. {2}
+52e201f0	Karten auf {0} werden nicht vorgelesen: Ihre Stimme ist in Einstellungen → Kartenstimmen ausgeschaltet.
+d61ad0a4	Die Stimme dieser Sprache ist ausgeschaltet.

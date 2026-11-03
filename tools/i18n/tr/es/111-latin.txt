@@ -28,3 +28,15 @@ e41db435	Confesiones (en latín: Confessiones) es el nombre de una obra autobiog
 d0c30e8b	Conocida por ser la obra más extensa de la prosa latina temprana, abunda en imperativos arcaicos y muestra una ausencia casi total de oraciones subordinadas. Su tema es el asunto cotidiano de llevar una granja romana en el siglo II a. C. Sin embargo, esa sencillez quizá sea solo en parte auténtica. Porque Catón tenía un marcado programa político y social, basado en el rechazo de las influencias extranjeras, es decir, griegas, y en el fomento de los valores romanos tradicionales, para el cual el personaje del sencillo orador campesino pudo resultar útil. (Resumen de malone)
 0c4b454e	Las Georgica de Virgilio son la culminación de una larga tradición antigua de poemas sobre la agricultura, que empieza con Hesíodo en el siglo VIII a. C. Su poema es una rica mezcla de alusiones a esa tradición: poema didáctico, elogio de Augusto, el epilio neotérico sobre Orfeo, la filosofía epicúrea tal como la había presentado su predecesor y modelo, Lucrecio. Thomas Jefferson imaginaba a su caballero agricultor labrando sus campos con un ejemplar de las Geórgicas entre las manceras del arado. (Resumen de Malone)
 2e7d372d	Latín: apréndelo con pódcasts, audiolibros, libros y vídeos, con la forma de diccionario y el significado de cada palabra a un toque
+# The Italian voice reading Latin (Settings → Card voices; the owner's choice, 2026-11-03).
+fb12747d	Voz italiana que lee latín
+74948670	Voz italiana que lee latín: pronunciación eclesiástica<0/><1>Ninguna voz habla latín, así que una voz italiana lee las tarjetas en latín que no tienen grabación, como pronuncia el latín la Iglesia: c ante e e i como en «cello», ae como e. Desactivada: las tarjetas en latín solo reproducen las grabaciones de donde se guardaron.</1>
+bf0c81c3	Desactivada: las tarjetas en {0:lower} que no tienen grabación no se leen en voz alta.
+4868ff06	Este dispositivo tiene una voz en {0:lower}. Lee las tarjetas en {1:lower} que no tienen grabación.
+f7f8fcaf	Este dispositivo tiene una voz en {0:lower}. Lee las tarjetas en {1:lower} que no tienen grabación hasta que se haga la suya.
+a18609ea	Desactivada
+bde331d3	Prueba la clave para elegir entre todas las voces de Azure en {0:lower}.
+becae473	Descarga una voz en {0:lower}: así este ordenador da a cada tarjeta en {1:lower} sin audio su propia grabación, también a las guardadas en tu teléfono.
+a2b6ca87	Las tarjetas en {0:lower} las lee una voz en {1:lower}. {2}
+52e201f0	Las tarjetas en {0:lower} no se leen en voz alta: su voz está desactivada en Ajustes → Voces de las tarjetas.
+d61ad0a4	La voz de este idioma está desactivada.

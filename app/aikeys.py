@@ -16,9 +16,10 @@ from typing import Any
 
 KEYS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
         # Card voices (web/js/cardvoice.js): the Azure key and its region, which voice source the cards use,
-        # any Azure voice picked per language (JSON), and whether a word saved from something with no sound gets
-        # its voice at once ("on"/"off"). They follow the learner the same way.
-        "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save")
+        # any Azure voice picked per language (JSON), whether a word saved from something with no sound gets
+        # its voice at once ("on"/"off"), and whether the Italian voice reads Latin ("on"/"off"). They follow
+        # the learner the same way.
+        "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin")
 TIMES = "key_times"  # setting: {key name: when it last changed, on this device or another (whole seconds)}
 MAX_LENGTH = 2000
 

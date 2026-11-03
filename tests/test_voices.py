@@ -39,7 +39,7 @@ def _js_list(name: str) -> list[str]:
 def test_the_computer_and_the_page_agree_on_kinds_and_languages():
     assert tuple(_js_list("NO_AUDIO_KINDS")) == voices.NO_AUDIO_KINDS
     assert _js_list("LOCAL_VOICE_LANGUAGES") == list(voices.VOICES), "web/js/cardvoice.js and app/voices.py list the same languages"
-    for name in ("tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save"):
+    for name in ("tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin"):
         assert name in aikeys.KEYS, f"{name} follows the learner between devices"
     assert "tts_key_azure" in db.SECRET_SETTINGS, "the Azure key never goes into a backup"
 
@@ -50,8 +50,10 @@ def test_no_voice_offered_has_a_non_commercial_or_unknown_licence():
         for v in items:
             assert v["licence"].startswith(("CC0", "CC BY 4.0", "CC BY-SA", "Unlicense", "public domain", "not stated")), (lang, v)
             assert "NC" not in v["licence"], (lang, v)
-            assert v["id"].split("_")[0] == lang, "each voice is filed under its own language"
+            assert v["id"].split("_")[0] == voices.READ_BY.get(lang, (lang,))[0], "each voice is filed under its own language"
     assert set(voices.NO_VOICE).isdisjoint(voices.VOICES)
+    assert voices.READ_BY == {"la": ("it", "tts_latin")}, "Latin is read by the Italian voice (the owner's choice)"
+    assert [v["id"] for v in voices.VOICES["la"]] == [v["id"] for v in voices.VOICES["it"]]
 
 
 def _podcast_episode(language: str = "es") -> int:
@@ -154,6 +156,32 @@ def test_a_voice_survives_another_device_editing_the_card():
     assert kept["updated_at"] > 20.0, "and the voice goes back to the other device"
     assert engine.keep_voice({"voice": '{"start": 1, "end": 2}', "updated_at": 5}, local)["voice"] == '{"start": 1, "end": 2}'
     assert engine.keep_voice(newer_without, None) is newer_without
+
+
+def test_latin_is_spelled_for_the_italian_voice_as_the_page_does():
+    cases = json.loads((ROOT / "tests" / "fixtures" / "church_latin.json").read_text(encoding="utf-8"))["cases"]
+    assert len(cases) >= 30
+    for latin, said in cases:
+        assert voices.church_latin(latin) == said, latin
+    assert voices.spoken_text("puellae", "it") == "puellae", "only Latin is respelled"
+
+
+def test_latin_cards_get_the_italian_voice_unless_it_is_switched_off(client, monkeypatch):
+    calls: list[str] = []
+    monkeypatch.setattr(voices, "voice_installed", lambda vid: vid == "it_IT-serena-medium")
+    monkeypatch.setattr(voices, "runtime_installed", lambda: True)
+    monkeypatch.setattr(voices, "synth", lambda text, vid: (calls.append((text, vid)), (np.full(4000, 6000, np.int16), 22050))[1])
+    db.set_settings({"study_language": "la", "learning_languages": ["la"], "tts_latin": "off"})
+    word = client.post("/api/vocab", json={"text": "caelum", "sentence": "Grātia caelī.", "language": "la"}).json()
+    assert voices.voice_for("la") is None, "switched off"
+    r = client.post(f"/api/voices/make/{word['id']}")
+    assert r.status_code == 409 and "switched off" in r.json()["detail"]
+    db.set_settings({"tts_latin": "on"})
+    assert voices.voice_for("la") == "it_IT-serena-medium"
+    made = client.post(f"/api/voices/make/{word['id']}").json()
+    assert json.loads(made["voice"])["sent_start"] > 0
+    assert calls == [("celum", "it_IT-serena-medium"), ("Grazia celi.", "it_IT-serena-medium")], "the Church spelling is said"
+    assert voices.summary()["read_by"] == {"la": "it"}
 
 
 def test_card_audio_is_real_ogg_opus(monkeypatch):
