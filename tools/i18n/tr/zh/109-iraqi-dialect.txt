@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	伊拉克方言
+a067042e	伊拉克阿拉伯语课程：在“课程”中选择伊拉克方言，有自己的语法和基础词汇，带巴格达的 g 和 ch 发音

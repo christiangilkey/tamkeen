@@ -10,6 +10,9 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.45.0",
+  "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch");
+
 notes("0.44.0",
   "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
   "Hatchlings have a baby look of their own",

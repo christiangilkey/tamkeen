@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	इराक़ की
+a067042e	इराक़ी अरबी कोर्स: कोर्स में इराक़ की चुनें, उसका अपना व्याकरण और बुनियादी शब्द, बग़दाद के g और ch के साथ

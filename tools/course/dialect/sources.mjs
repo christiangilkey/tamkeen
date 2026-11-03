@@ -12,11 +12,15 @@
 //   glf  the same, comments on Al-Riyadh (Saudi Arabia)
 //   mor  Darija Open Dataset sentences (CC BY-NC 4.0), github.com/darija-open-dataset/dataset; subtitles of
 //        248 Moroccan YouTube videos (Bouaghad & Bourbouh, CC BY 4.0; in FILES)
+//   irq  Iraqi Arabic Dialect Corpus (factlogic 2026, CC BY-NC 4.0): Iraqis' YouTube comments and Telegram
+//        messages; its "high" and "medium" parts (3.7 million words, 99.4-100% Iraqi in blind human checks),
+//        downloaded by tools/course/ar-irq/texts.mjs, not by this file
 // Dictionaries:
 //   Wiktionary (CC BY-SA 4.0) as extracted by kaikki.org: its Egyptian, North and South Levantine, Gulf,
 //   Hijazi and Moroccan Arabic entries, and the senses of its Arabic entries labelled with a dialect or
 //   country; CAMeL Tools' Egyptian lexicon glosses (docs/lexicon/ar-camel-meanings.json.gz, GPL-2.0);
-//   the Darija Open Dataset's word lists (CC BY-NC 4.0).
+//   the Darija Open Dataset's word lists (CC BY-NC 4.0); Wiktionary's Iraqi Arabic entries, which kaikki.org
+//   doesn't extract (fetched by tools/course/ar-irq/wikt.mjs).
 import { createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { dirname, join } from "node:path";
@@ -27,7 +31,7 @@ import { arabicCore, Dictionary, matchForm } from "../../../web/js/lexicon/arabi
 const here = dirname(fileURLToPath(import.meta.url));
 export const ROOT = join(here, "..", "..", "..");
 export const SRC = join(ROOT, "tools", "course", "build", "dialect");
-export const DIALECTS = ["lev", "egy", "glf", "mor"];
+export const DIALECTS = ["lev", "egy", "glf", "mor", "irq"];
 
 const KAIKKI = (lang) => `https://kaikki.org/dictionary/${encodeURIComponent(lang)}/kaikki.org-dictionary-${lang.replace(/ /g, "")}.jsonl`;
 const FILES = {
@@ -64,6 +68,7 @@ export const TEXTS = {
   egy: ["aoc/dialect_youm7-segs.txt.norm"],
   glf: ["aoc/dialect_alriyadh-segs.txt.norm"],
   mor: ["doda/dataset-main/sentences/sentences.csv", "ytsubs/mor-youtube.txt"],
+  irq: ["irq/corpus-high.tsv", "irq/corpus-medium.tsv"],
 };
 
 // Which Wiktionary entries speak for which dialect: whole dictionaries of the dialect, and the senses of
@@ -73,6 +78,7 @@ const DICTS = {
   egy: { files: ["EgyptianArabic"], label: /egypt/i },
   glf: { files: ["GulfArabic", "HijaziArabic"], label: /gulf|saudi|najd|kuwait|bahrain|qatar|emirat|\buae\b|hijaz|hejaz|peninsul/i },
   mor: { files: ["MoroccanArabic"], label: /morocc|maghreb|maghrib|north africa/i },
+  irq: { files: [], label: /iraq|baghdad|mesopotam|basra|mosul/i },
 };
 
 /** The sentences of a dialect's texts, one string each. */
@@ -85,6 +91,9 @@ export function sentences(d) {
         // darija (Latin letters), eng, darija_ar: the Arabic-letter column is the last.
         const m = line.match(/,"?([^,"]*[؀-ۿ][^"]*)"?\s*$/);
         if (m) out.push(m[1].trim());
+      } else if (d === "irq") {
+        const text = line.split("	")[3]; // subset, source, city guess, text
+        if (text && text.trim()) out.push(text.trim());
       } else if (line.trim()) out.push(line.trim());
     }
   }
@@ -181,6 +190,12 @@ export async function dictionary(d) {
           if (c[ar] && c[en]) add(c[ar], { src: `Darija Open Dataset (${f.replace(/\.csv$/, "")})`, word: c[ar], pos: "", gloss: c[en] });
         }
       }
+    }
+  }
+  if (d === "irq") {
+    const wikt = join(SRC, "irq", "wikt-iraqi.json");
+    for (const [word, senses] of Object.entries(existsSync(wikt) ? JSON.parse(readFileSync(wikt, "utf8")) : {})) {
+      for (const s of senses) add(word, { src: "Wiktionary (Iraqi Arabic)", word, pos: s.pos, gloss: s.gloss });
     }
   }
   writeFileSync(cache, JSON.stringify(Object.fromEntries(out)));

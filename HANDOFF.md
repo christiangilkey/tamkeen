@@ -6263,6 +6263,51 @@ format (side-session notes `dialect-format.md` is the brief they were given).
   course's folder, the choice survives a reload, back to MSA. Phone build (mobile/www copy at 375 px, course fetches
   pointed at the fixture): same. Not checked: a real phone, real dialect content (none published yet).
 
+## Iraqi Arabic course (2026-11-02, on main; "Iraqi Arabic dialect course" chat)
+The owner's ask: "Lets add Iraqi dialect to our list of dialects in Tamkeen". A fifth dialect, built like the other
+four (section above): id `irq`, basics `ar-irq`, grammar `en-ar-irq`, Baghdad speech.
+- **Registered**: coursedata.js `ARABIC_VARIETIES` ("Iraqi", last), grammardata.js `DIALECTS`, build_course.py
+  `DIALECT_ID`, overlap.mjs `DIALECT_COURSES`, sources.mjs `DIALECTS`/`TEXTS.irq`/`DICTS.irq` (Arabic Wiktionary
+  senses labelled Iraq/Baghdad/Basra/Mosul, plus Wiktionary's Iraqi Arabic entries, which kaikki.org doesn't
+  extract: tools/course/ar-irq/wikt.mjs), msa.mjs `SHIFTS` (گ -> ق ك, چ -> ك), candidates.mjs (no CAMeL dictionary
+  for Iraqi, like Moroccan). Python file-name patterns already allowed any 3-letter dialect.
+- **Spelling**: گ for the Baghdad g, چ for ch, as Iraqi dictionaries and Wiktionary write them (online, Iraqis
+  mostly write ك and ج: counted in all spellings). Sent to the Decisions chat with the other option (ordinary ق/ك,
+  like the Gulf course); not blocked on it.
+- **Voice**: Azure ar-IQ-BasselNeural. Azure's Iraqi voices (Bassel, Rana) **skip گ and چ silently**; given ق/ك
+  they say q/k. With `<phoneme alphabet="ipa">` Bassel says g and tʃ (Rana turns g into dʒ; the IPA letter ɡ
+  comes out silent, a plain g works). So **build_course.py** gained an opt-in: words.json `voice.ipa`
+  ({word as written, no marks: IPA}) and `voice.unsaid` ("گچ"); `voiced()` wraps those words in phoneme tags,
+  in sentences too, and stops the build on an unlisted word with an unsaid letter; the fingerprint includes the
+  IPA used (other courses' fingerprints unchanged). IPA lives in tools/course/ar-irq/sounds.tsv.
+- **Tap-to-hear** (grammar examples, saytext.js): the card voice would drop گ/چ too, so grammardata.js
+  `sayable()` turns them into ق/ك for Arabic before any voice (Persian untouched).
+- **Texts**: Iraqi Arabic Dialect Corpus (factlogic 2026, Hugging Face, CC BY-NC 4.0), parts "high" + "medium",
+  3.67 M words of Iraqis' YouTube comments and Telegram messages, counted only. tools/course/ar-irq/texts.mjs
+  downloads the parquet files and reads them with **tools/course/ar-irq/parquet.mjs**, a small reader written
+  here (Thrift footer, PLAIN/dictionary pages, Snappy/gzip/zstd) so nothing had to be installed; Hugging Face's
+  JSON viewer was tried first and throttles hard (429s).
+- **Basics**: 98 words (tools/course/ar-irq/list.tsv -> make.mjs -> words.json, EVIDENCE.md; evidence.json from
+  evidence.mjs irq). Evidence: Wiktionary Iraqi Arabic + the Living Arabic Project's Iraqi dictionary (la.mjs,
+  la-iraqi.json kept). Strict rules as the others; out by rule 1: آني (= إني), هم, بعد, مال, بطل; out as MSA said
+  the Iraqi way: گال, چان, چبير, وكت, گعد...; out as fused: ماكو, شكو (the grammar teaches them). README.md has
+  the method and every word left out. A reviewer pass (a second agent reading as an Iraqi-Arabic linguist) fixed
+  21 points in the grammar and list before the build.
+- **Grammar**: 16 lessons in 4 units, A1-B1 (tools/grammar/en-ar-irq/lessons.json): sounds, endings, pronouns
+  (آني, -ich, -a), questions, this/that, أكو/ماكو, negation (ما/مو/لا, but ما عندي), numbers (-ʿash/-ṭaʿash),
+  want/can/must, مال and ويا, present (no b-), دا/گاعد, راح, the past (-it, -aw, چان), بعد/هسه/بطّل, if and links.
+- **Audio check**: Whisper (check_audio.py ar-irq, which now treats گ/چ as ق/ك for Arabic) 0.58 average; a phoneme-
+  recogniser check of the g/ch sounds: 30 of 43 word/sentence parts have every g and ch (final g written gg in
+  sounds.tsv after the first pass). Doubtful clips for a native listen are in tools/course/ar-irq/README.md.
+- **Translations**: tools/i18n/tr/<code>/109-iraqi-dialect.txt (the name "Iraqi" and the What's new line, 16 langs).
+- **Checked**: node --test tests/js (1326 pass, incl. tests/js/course-ar-irq.test.mjs), pytest (583 pass), i18n build --check,
+  overlap.mjs (none of the 98 is an MSA word). In the browser preview, on a fresh data folder never signed in to
+  Drive (desktop server from source, port 8851): the Dialect menu lists Iraqi; Iraqi Grammar (16 lessons, گ/چ
+  shown) and Iraqi Basics (98 words, 2 units, notes, credit "Bassel (Azure, Iraq)") open; Sentence plays
+  ar-irq/audio/0001.ogg; Add makes a card with its note, translation and audio times in the "Iraqi basics" folder,
+  with XP; the choice survives a reload; back to MSA works. Not checked: a phone, the web app build (both get the
+  files at the next release), and a native speaker's ear.
+
 ## Live battles: random terrain arenas (2026-11-01; "Live battles: random terrain arenas" chat, the Map part)
 Part of the real-time battles (shared plan: side-session note `live-battles-plan.md`, section "Terrain", which is the
 contract). `web/js/game/battlemap.js` (pure, no DOM, no Math.random), tests `tests/js/battlemap.test.mjs`.

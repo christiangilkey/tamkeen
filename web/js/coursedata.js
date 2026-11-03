@@ -126,6 +126,7 @@ export const ARABIC_VARIETIES = [
   { id: "egy", name: "Egyptian" },
   { id: "glf", name: "Gulf" },
   { id: "mor", name: "Moroccan" },
+  { id: "irq", name: "Iraqi" },
 ];
 export const VARIETY_KEY = "courseVariety:ar"; // (localStorage: the kind of Arabic chosen last on this device)
 

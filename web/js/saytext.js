@@ -8,6 +8,7 @@ import { platform, state, toast } from "./app.js";
 import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureSpeak, buildSsml, voiceMode } from "./cardvoice.js";
 import { azureVoiceOf } from "./voiceplay.js";
 import { speakDevice, stopDevice } from "./devicevoice.js";
+import { sayable } from "./grammardata.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 const made = new Map(); // "<voice>\u0000<text>" -> object URL of its sound (this run of the app)
@@ -67,7 +68,7 @@ async function computerUrl(text, lang, s) {
  */
 export async function sayText(text, lang) {
   const s = settings();
-  const clean = String(text || "").replace(/[⟦⟧]/g, "").trim();
+  const clean = sayable(String(text || "").replace(/[⟦⟧]/g, "").trim(), lang); // (Iraqi گ / چ: grammardata.js)
   if (!clean) return { ended: Promise.resolve() };
   for (const make of [azureUrl, computerUrl]) {
     try {

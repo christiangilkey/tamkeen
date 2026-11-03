@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	Árabe iraquí
+a067042e	Curso de árabe iraquí: elige iraquí en Cursos para su propia gramática y vocabulario básico, con la g y la ch de Bagdad

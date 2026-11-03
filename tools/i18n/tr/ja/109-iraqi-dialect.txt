@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	イラク方言
+a067042e	イラク・アラビア語コース：コースでイラク方言を選ぶと、バグダッドの g と ch の発音で文法と基本語彙が学べます

@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	이라크
+a067042e	이라크 아랍어 코스: 코스에서 이라크 방언을 골라 바그다드의 g와 ch 발음으로 문법과 기초 단어를 배우세요

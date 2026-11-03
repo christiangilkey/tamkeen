@@ -42,9 +42,12 @@ LISTENERS = {
 
 def norm(text: str, lang: str = "ar") -> list[str]:
     """Words compared the way a listener would: no capitals, punctuation, vowel marks or alef/ya/ta
-    marbuta spellings (Persian ی and ک count as ي and ك); letter by letter for zh, ja and th."""
+    marbuta spellings (Persian ی and ک count as ي and ك; in Arabic, the Iraqi گ and چ as the ق and ك they
+    come from, since a listener writes them either way); letter by letter for zh, ja and th."""
     t = MARKS.sub("", unicodedata.normalize("NFC", text)).casefold()
     t = re.sub("[آأإٱ]", "ا", t).replace("ى", "ي").replace("ی", "ي").replace("ک", "ك").replace("ة", "ه")
+    if lang.startswith("ar"):
+        t = t.replace("گ", "ق").replace("چ", "ك")
     t = PUNCT.sub(" ", t.replace("ํา", "ำ"))  # Thai ำ written as two characters
     return list(t.replace(" ", "")) if lang in NO_SPACES else t.split()
 

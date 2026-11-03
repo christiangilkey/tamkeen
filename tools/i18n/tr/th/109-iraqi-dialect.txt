@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	อิรัก
+a067042e	คอร์สภาษาอาหรับอิรัก: เลือกอิรักในคอร์ส เพื่อเรียนไวยากรณ์และคำพื้นฐานของถิ่นนี้ พร้อมเสียง g และ ch แบบแบกแดด

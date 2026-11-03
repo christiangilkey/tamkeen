@@ -6,7 +6,7 @@
 // A word written as alternatives ("هلّق / هلّأ") has each one checked; a phrase is compared as a whole.
 //
 //   node tools/course/dialect/overlap.mjs            every Arabic dialect course there is
-//   node tools/course/dialect/overlap.mjs ar-lev     one of them (lev, egy, glf, mor also work)
+//   node tools/course/dialect/overlap.mjs ar-lev     one of them (lev, egy, glf, mor, irq also work)
 //
 // Checks each course's word list (tools/course/ar-<d>/words.json) and, once built, its published course
 // (docs/course/ar-<d>/course.json). Prints every word that overlaps and ends with exit code 1, or says
@@ -19,7 +19,7 @@ import { normalize } from "../../../mobile/src/js/shared-logic.js";
 import MSA_COMMON from "../../../web/js/wordlists/ar.js";
 
 const ROOT = new URL("../../../", import.meta.url);
-export const DIALECT_COURSES = ["ar-lev", "ar-egy", "ar-glf", "ar-mor"];
+export const DIALECT_COURSES = ["ar-lev", "ar-egy", "ar-glf", "ar-mor", "ar-irq"];
 
 /** A word as the app's search compares it (⟦ ⟧ marks taken out too). */
 export const searchKey = (word) => normalize(String(word ?? "").replace(/[⟦⟧]/g, ""));
@@ -66,7 +66,7 @@ export function listsOf(id) {
 function main(args) {
   const ids = args.length ? args.map(courseId) : DIALECT_COURSES;
   if (ids.includes("")) {
-    console.error(`Which course? ${DIALECT_COURSES.join(", ")} (or lev, egy, glf, mor)`);
+    console.error(`Which course? ${DIALECT_COURSES.join(", ")} (or lev, egy, glf, mor, irq)`);
     process.exitCode = 2;
     return;
   }

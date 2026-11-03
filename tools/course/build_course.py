@@ -19,13 +19,18 @@ A word said alone can come out in the wrong reading (Chinese 的 as "dí", Japan
 (kana: "わ"), or its exact sound, {"alphabet": "sapi", "ph": "de 5"} (Azure's pinyin for zh-CN) or
 {"alphabet": "ipa", "ph": "u"}. The sentence is always voiced as written.
 
-An Arabic dialect course ("ar-lev", "ar-egy", "ar-glf", "ar-mor": Levantine, Egyptian, Gulf, Moroccan) is
+An Arabic dialect course ("ar-lev", "ar-egy", "ar-glf", "ar-mor", "ar-irq": Levantine, Egyptian, Gulf, Moroccan, Iraqi) is
 built the same way from tools/course/ar-<d>/words.json into docs/course/ar-<d>/. It builds on the Standard
 Arabic course, so it is shorter: words.json says how many words it will have ("planned": 300) and which
 Azure voice says it ("voice": {"voice": "ar-SY-AmanyNeural", "locale": "ar-SY", "name": "Amany (Azure,
 Syria)"}), and none of its words may be a Standard Arabic basics word (tools/course/dialect/overlap.mjs).
 Its course.json says "id": "ar-<d>", "lang": "ar", "dialect": "<d>". A word may carry a "note": one short
 line on how it differs from a Standard word that looks the same (shown under its meaning in the app).
+
+A dialect may be written with letters its voice skips: Iraqi گ (g) and چ (ch), which Azure's Iraqi voice leaves
+out. Its "voice" then also lists them ("unsaid": "گچ") and how to say every word that has one, in IPA ("ipa":
+{"چان": "tʃaːn"}, keyed by the word as written in the text, without vowel marks), and those words are voiced
+from the IPA, in the sentences too. A text with such a letter in a word not listed stops the build.
 
 A course no voice says well enough (Moroccan Darija: Azure's Moroccan voices read it like Standard Arabic)
 is built without audio: its words.json says "audio": false, and it is built with --voice none. Its words then
@@ -131,7 +136,7 @@ def plain(text: str) -> str:
 
 
 # Arabic dialect courses: id "ar-<d>". They teach Arabic ("lang": "ar"); the id names the folder.
-DIALECT_ID = re.compile(r"^(ar)-(lev|egy|glf|mor)$")
+DIALECT_ID = re.compile(r"^(ar)-(lev|egy|glf|mor|irq)$")
 
 
 def course_language(course_id: str) -> tuple[str, str]:
@@ -163,6 +168,13 @@ def load_words(lang: str) -> dict[str, Any]:
     voice = data.get("voice")
     if voice is not None and not (isinstance(voice, dict) and all(str(voice.get(k, "")).strip() for k in ("voice", "locale", "name"))):
         raise SystemExit('words.json: voice must be {"voice": "ar-SY-AmanyNeural", "locale": "ar-SY", "name": "Amany (Azure, Syria)"}')
+    if voice is not None and ("ipa" in voice or "unsaid" in voice):
+        ipa, unsaid = voice.get("ipa"), voice.get("unsaid")
+        if not (isinstance(ipa, dict) and ipa and all(isinstance(k, str) and isinstance(v, str) and k.strip() and v.strip()
+                                                      and plain(k) == k for k, v in ipa.items())):
+            raise SystemExit('words.json: voice "ipa" must be {"word as written, no vowel marks": "its IPA", ...}')
+        if not (isinstance(unsaid, str) and unsaid.strip()):
+            raise SystemExit('words.json: voice "unsaid" must be the letters the voice skips, e.g. "گچ"')
     return data
 
 
@@ -227,13 +239,39 @@ def azure_turn() -> None:
     _lock["file"] = f  # held until this program ends
 
 
+# A course's words its voice says from IPA (words.json voice "ipa" and "unsaid"): {"ipa": {...}, "unsaid": "گچ"}.
+SOUNDS: dict[str, dict[str, Any]] = {}
+WORD = re.compile(f"[{chr(0x0621)}-{chr(0x065F)}{chr(0x0670)}-{chr(0x06D3)}]+")  # Arabic letters and vowel marks (not its comma or question mark)
+
+
+def voiced(text: str, lang: str) -> str:
+    """The text as SSML: escaped, and each word with a letter the voice skips said from its IPA (SOUNDS)."""
+    sounds = SOUNDS.get(lang)
+    if not sounds:
+        return escape(text)
+    out, last = [], 0
+    for m in WORD.finditer(text):
+        token = m.group(0)
+        out.append(escape(text[last:m.start()]))
+        ipa = sounds["ipa"].get(plain(token))
+        if ipa:
+            out.append(f'<phoneme alphabet="ipa" ph="{escape(ipa, {chr(34): "&quot;"})}">{escape(token)}</phoneme>')
+        elif any(c in token for c in sounds["unsaid"]):
+            raise SystemExit(f"{lang}: the voice can't say {token} (in: {text}): add {plain(token)} to the voice's \"ipa\" in words.json")
+        else:
+            out.append(escape(token))
+        last = m.end()
+    out.append(escape(text[last:]))
+    return "".join(out)
+
+
 def azure_synth(text: str, lang: str, rate: str = "", ph: dict[str, str] | None = None) -> tuple[np.ndarray, int]:
     import httpx
 
     azure_turn()
     key, region = azure_key()
     v = AZURE[lang]
-    body = escape(text)
+    body = escape(text) if ph else voiced(text, lang)
     if ph:  # the exact sound: <phoneme alphabet="sapi" ph="de 5">的</phoneme>
         body = f'<phoneme alphabet="{escape(ph.get("alphabet", "ipa"), {chr(34): "&quot;"})}" ph="{escape(ph["ph"], {chr(34): "&quot;"})}">{body}</phoneme>'
     if rate:
@@ -362,6 +400,9 @@ def fingerprint(w: dict[str, Any], engine: str, lang: str) -> str:
     parts = [w["word"], unmarked(w["sentence"]), engine, AZURE.get(lang, {}).get("voice") if engine == "azure" else engine, SENTENCE_RATE]
     if w.get("say"):
         parts.append(w["say"])
+    if engine == "azure" and SOUNDS.get(lang):  # the IPA its words with unsaid letters are voiced from
+        said = SOUNDS[lang]["ipa"]
+        parts.append(sorted({plain(t): said[plain(t)] for t in WORD.findall(f"{w['word']} {w['sentence']}") if plain(t) in said}.items()))
     return hashlib.sha1(json.dumps(parts, ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
 
 
@@ -387,6 +428,8 @@ def main() -> None:
         raise SystemExit(f'{lang}: build a course whose words.json says "audio": false with --voice none, and only such a course.')
     if data.get("voice"):  # the course names its own voice (the dialect courses)
         AZURE[lang] = {k: str(data["voice"][k]) for k in ("voice", "locale", "name")}
+        if data["voice"].get("ipa"):
+            SOUNDS[lang] = {"ipa": dict(data["voice"]["ipa"]), "unsaid": data["voice"]["unsaid"]}
     if engine == "azure" and lang not in AZURE:
         raise SystemExit(f"No Azure voice chosen for {lang} yet (AZURE in this file, or \"voice\" in its words.json).")
     if engine == "mms" and lang not in MMS:

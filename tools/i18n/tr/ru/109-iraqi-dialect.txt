@@ -1,0 +1,3 @@
+# The Iraqi Arabic course: its name in the Library's Courses dialect picker, and its "What's new" line (v0.45.0).
+c60ce439	Иракский арабский
+a067042e	Курс иракского арабского: выберите в «Курсах» иракский — своя грамматика и основы, с багдадскими «г» и «ч»

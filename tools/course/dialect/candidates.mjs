@@ -4,7 +4,7 @@
 //   node tools/course/dialect/candidates.mjs lev     -> tools/course/build/dialect/lev-candidates.tsv (+ .json)
 //
 // Each line: rank, count per million words, the forms counted together (Levantine, Egyptian and Gulf
-// grouped by dictionary word with CAMeL's dialect dictionary; Moroccan by spelling), flags, what the
+// grouped by dictionary word with CAMeL's dialect dictionary; Moroccan and Iraqi by spelling), flags, what the
 // dictionaries say, and a real sentence from the texts.
 //   BASICS:n      spelled like MSA basics word n (rule 1: can't be in the list)
 //   SHIFT:word    an MSA basics word once a regular sound change is undone (rule 2)
@@ -21,7 +21,7 @@ const TOP = Number(process.argv[3] || 900);
 
 const { n, total } = counts(d);
 const msa = loadLexicon("msa");
-const own = d === "mor" ? null : loadLexicon(d);
+const own = ["lev", "egy", "glf"].includes(d) ? loadLexicon(d) : null; // (CAMeL has no Moroccan or Iraqi dictionary)
 const basics = msaBasics();
 const dict = await dictionary(d);
 const lines = sentences(d);

@@ -7080,6 +7080,11 @@
   "f": "web/js/coursedata.js"
  },
  {
+  "id": "c60ce439",
+  "k": "Iraqi",
+  "f": "web/js/coursedata.js"
+ },
+ {
   "id": "a13e07aa",
   "k": "AI is turned off (Settings → Word definitions → No AI), so this isn't available.",
   "f": "web/js/define-service.js"
@@ -19433,6 +19438,11 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
+ },
+ {
+  "id": "a067042e",
+  "k": "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "528abc71",

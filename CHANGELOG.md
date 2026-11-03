@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** An Iraqi Arabic course. Learning Arabic, pick **Iraqi** in Library → Courses → Dialect: 16 grammar lessons on what Baghdad Arabic does differently from Standard Arabic, and the Basics list of the 98 commonest Iraqi words that aren't Standard Arabic, each with a dictionary source, an everyday sentence, and audio by an Iraqi voice that says the Baghdad g (گ) and ch (چ).
 - **Improved:** Hatchlings now wear smaller versions of glasses, scarves and necklaces, the things they hold, and capes and packs too, made to fit their smaller bodies, as their hats already were.
 
 ## v0.44.0 — 2026-11-02
