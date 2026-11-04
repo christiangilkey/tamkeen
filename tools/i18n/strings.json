@@ -7765,8 +7765,23 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "3457f455",
+  "k": "Gyms",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "c7218f9d",
   "k": "To challenge a friend's team, open <0>Friends</0> in the game menu. This week's rule for friend battles: <1>{0}</1>. {1}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "fb0227a3",
+  "k": "All ten gym leaders beaten. Fight any of them again.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "41a883a4",
+  "k": "Ten leaders to beat in order, each harder than the last. {0} of 10 beaten.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -10705,6 +10720,151 @@
   "f": "web/js/game/garden.js"
  },
  {
+  "id": "0e6e70f6",
+  "k": "Ten gym leaders, each harder than the last: they react faster, dodge more, aim where you are going and give you less time for each question. Beat one to open the next.",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "6ec35393",
+  "k": "{0} of {1} beaten",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "08b2a7a4",
+  "k": "Beat {0} to open this gym.",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "a798882f",
+  "k": "Locked",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "ac2e0c64",
+  "k": "1 creature",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "25058467",
+  "k": "{0} creatures",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "1de52d20",
+  "k": "{0} seconds a question",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "ee1f1af3",
+  "k": "Wins against this leader: {0}",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "ca039c61",
+  "k": "First win: {0} coins and {1} XP",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "2c2d1610",
+  "k": "Fight",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "c7b437cf",
+  "k": "Meadow Keeper",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "c57c0af1",
+  "k": "A gentle first gym. Pip's one creature is slow to react and almost never dodges.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "04bf11a4",
+  "k": "Tide Caller",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "b91edf5f",
+  "k": "Two creatures now. Marin guards now and then, but still aims where you were, not where you are going.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "667b9c75",
+  "k": "Stone Mason",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "8b794317",
+  "k": "Tor's tough creatures like the cobbles of the ruins, and heal when they are hurt.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "4c28a250",
+  "k": "Crystal Spark",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "01317ac2",
+  "k": "Fast creatures in a crystal cave. Volta starts to aim a little ahead of you: keep changing direction.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "cefcb76b",
+  "k": "Ember Warden",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "5a85780b",
+  "k": "Three creatures and a volcano. Sola lays hot coals and fights from them, where Ember hits harder.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "7443de1a",
+  "k": "Night Walker",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "48a66c2f",
+  "k": "Umbra hides in the shadows, slows you down and cancels your big moves while they wind up.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "e6531d5c",
+  "k": "Old Grove",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "bc80dd4e",
+  "k": "An old hand in a deep forest, with a stone creature to cover Grove's weak spots. Rowan picks the right move for each of yours.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "d8a3c47f",
+  "k": "Frost Pair",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "fde3e713",
+  "k": "Tide and Stone on the ice, where you slide and they don't care. Hale dodges most of what you throw.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "8c8c3126",
+  "k": "Desert Storm",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "9aef8ac6",
+  "k": "Spark and Ember with beams and meteors. Mirage reads where you are running and lands it there.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
+  "id": "995542a6",
+  "k": "The champion: three elements that cover each other, on any arena. Quick, sharp, and 3.5 seconds a question.",
+  "f": "web/js/game/gyms.js"
+ },
+ {
   "id": "993750ae",
   "k": "Your creature's habitat",
   "f": "web/js/game/habitat.js"
@@ -11460,6 +11620,26 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "1e6753c3",
+  "k": "You beat {0}, the {1}!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "33c4f2e1",
+  "k": "Gym reward: {0} coins and {1} XP",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "392ab177",
+  "k": "{0}'s gym is open now.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "d33ad395",
+  "k": "You have beaten every gym leader.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "c308020b",
   "k": "Wild creature",
   "f": "web/js/game/livebattle-ui.js"
@@ -11555,6 +11735,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "c131e1d6",
+  "k": "The leader's creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "9fbc3550",
   "k": "Your rival's creature",
   "f": "web/js/game/livebattle-ui.js"
@@ -11615,13 +11800,18 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
-  "id": "a557926e",
-  "k": "Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.",
+  "id": "4d53d952",
+  "k": "Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
-  "id": "4d53d952",
-  "k": "Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.",
+  "id": "b3ac6518",
+  "k": "Use a move with its button: a question about one of your words comes up and the battle waits. Answer within {0} seconds or the move fails.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a557926e",
+  "k": "Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -19632,6 +19822,11 @@
  {
   "id": "2e7d372d",
   "k": "Latin: learn it from podcasts, audiobooks, books and videos, with each word's dictionary form and meaning a tap away",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "690c6c18",
+  "k": "Gyms: beat ten gym leaders in live battles, one after another, each quicker and sharper than the last",
   "f": "web/js/whatsnew.js"
  },
  {

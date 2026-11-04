@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Mga gym
+fb0227a3	Napildi na ang tanang napulo ka gym leader. Away-a pag-usab bisan kinsa kanila.
+41a883a4	Napulo ka leader nga pildihon sunod-sunod, matag usa mas lisod kaysa sa nauna. {0} sa 10 ang napildi.
+0e6e70f6	Napulo ka gym leader, matag usa mas lisod kaysa sa nauna: mas paspas sila motubag, mas kanunay molikay, motumong kung asa ka padulong ug mohatag kanimo og mas mubong oras sa matag pangutana. Pildiha ang usa aron maablihan ang sunod.
+6ec35393	{0} sa {1} ang napildi
+08b2a7a4	Pildiha si {0} aron maablihan kini nga gym.
+a798882f	Naka-lock
+ac2e0c64	1 ka linalang
+25058467	{0} ka linalang
+1de52d20	{0} ka segundo matag pangutana
+ee1f1af3	Midaog og {0} ka higayon
+ca039c61	Unang kadaugan: {0} ka coin ug {1} XP
+2c2d1610	Away
+c7b437cf	Magbalantay sa Sagbutan
+c57c0af1	Usa ka malumo nga unang gym. Ang usa ra ka linalang ni Pip hinay motubag ug halos dili gyud molikay.
+04bf11a4	Tigtawag sa Balud
+b91edf5f	Duha na ka linalang karon. Usahay mopugong si Marin, apan motumong gihapon siya kung asa ka kaniadto, dili kung asa ka padulong.
+667b9c75	Panday sa Bato
+8b794317	Ganahan ang lig-on nga mga linalang ni Tor sa batoon nga salog sa kagun-oban, ug mamaayo sila kung masakitan.
+4c28a250	Kristal nga Aligato
+01317ac2	Paspas nga mga linalang sa usa ka langob nga kristal. Nagsugod si Volta sa pagtumong og gamay sa imong unahan: padayon nga usba ang imong direksyon.
+cefcb76b	Magbalantay sa Baga
+5a85780b	Tulo ka linalang ug usa ka bulkan. Mobukhad si Sola og init nga baga ug moaway gikan didto, diin mas kusog moigo ang Baga.
+7443de1a	Manlalakaw sa Gabii
+48a66c2f	Motago si Umbra sa mga landong, mopahinay nimo ug mokansela sa imong dagkong lihok samtang giandam pa kini.
+e6531d5c	Karaang Kalasangan
+bc80dd4e	Usa ka batid sa lawom nga lasang, uban ang linalang nga Bato nga motabon sa mga kahuyang sa Kalasangan. Mopili si Rowan og sakto nga lihok sa matag lihok nimo.
+d8a3c47f	Pares sa Yelo
+fde3e713	Balud ug Bato sa yelo, diin madanlog ka ug wala ra sila maapektuhi. Malikayan ni Hale ang kadaghanan sa imong ilabay.
+8c8c3126	Unos sa Disyerto
+9aef8ac6	Aligato ug Baga nga adunay mga silaw ug bulalakaw. Mabasa ni Mirage kung asa ka modagan ug didto niya kini ipahulog.
+995542a6	Ang kampeon: tulo ka elemento nga nagtabon sa usag usa, sa bisan unsang arena. Paspas, hait, ug 3.5 ka segundo matag pangutana.
+1e6753c3	Napildi nimo si {0}, ang {1}!
+33c4f2e1	Ganti sa gym: {0} ka coin ug {1} XP
+392ab177	Abli na ang gym ni {0}.
+d33ad395	Napildi na nimo ang tanang gym leader.
+c131e1d6	Ang linalang sa leader
+b3ac6518	Gamita ang lihok pinaagi sa iyang button: mogawas ang pangutana bahin sa usa sa imong mga pulong ug maghulat ang sangka. Tubaga sulod sa {0} ka segundo o mapakyas ang lihok.
+690c6c18	Mga gym: pildiha ang napulo ka gym leader sa live nga mga sangka, sunod-sunod, matag usa mas paspas ug mas hait kaysa sa nauna

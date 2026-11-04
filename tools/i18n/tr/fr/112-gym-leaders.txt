@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Arènes
+fb0227a3	Vous avez battu les dix chefs d'arène. Affrontez-les à nouveau quand vous voulez.
+41a883a4	Dix chefs à battre dans l'ordre, chacun plus fort que le précédent. {0} sur 10 battus.
+0e6e70f6	Dix chefs d'arène, chacun plus fort que le précédent : ils réagissent plus vite, esquivent davantage, visent là où vous allez et vous laissent moins de temps pour chaque question. Battez-en un pour ouvrir le suivant.
+6ec35393	{0} sur {1} battus
+08b2a7a4	Battez {0} pour ouvrir cette arène.
+a798882f	Verrouillée
+ac2e0c64	1 créature
+25058467	{0} créatures
+1de52d20	{0} secondes par question
+ee1f1af3	Victoires : {0}
+ca039c61	Première victoire : {0} pièces et {1} XP
+2c2d1610	Combattre
+c7b437cf	Garde des Prés
+c57c0af1	Une première arène tout en douceur. L'unique créature de Pip réagit lentement et n'esquive presque jamais.
+04bf11a4	Voix des Marées
+b91edf5f	Deux créatures cette fois. Marin se protège de temps en temps, mais vise toujours là où vous étiez, pas là où vous allez.
+667b9c75	Taille-Pierre
+8b794317	Les créatures robustes de Tor aiment les pavés des ruines et se soignent quand elles sont blessées.
+4c28a250	Étincelle de Cristal
+01317ac2	Des créatures rapides dans une grotte de cristal. Volta commence à viser un peu devant vous : changez sans cesse de direction.
+cefcb76b	Garde des Braises
+5a85780b	Trois créatures et un volcan. Sola pose des braises ardentes et se bat dessus, là où Braise frappe plus fort.
+7443de1a	Rôdeur de Nuit
+48a66c2f	Umbra se cache dans l'ombre, vous ralentit et annule vos grosses attaques pendant qu'elles se préparent.
+e6531d5c	Vieux Bosquet
+bc80dd4e	Beaucoup d'expérience, une forêt profonde et une créature de Pierre pour couvrir les points faibles de Bosquet. Rowan choisit la bonne attaque contre chacune des vôtres.
+d8a3c47f	Duo de Givre
+fde3e713	Marée et Pierre sur la glace, où vous glissez et elles s'en moquent. Hale esquive presque tout ce que vous lancez.
+8c8c3126	Tempête du Désert
+9aef8ac6	Étincelle et Braise avec des rayons et des météores. Mirage devine où vous courez et frappe juste là.
+995542a6	Le Champion : trois éléments qui se couvrent les uns les autres, dans n'importe quelle arène. Rapide, précis, et 3,5 secondes par question.
+1e6753c3	Vous avez battu {0}, {1} !
+33c4f2e1	Récompense de l'arène : {0} pièces et {1} XP
+392ab177	L'arène de {0} est maintenant ouverte.
+d33ad395	Vous avez battu tous les chefs d'arène.
+c131e1d6	La créature du chef d'arène
+b3ac6518	Utilisez une attaque avec son bouton : une question sur l'un de vos mots apparaît et le combat attend. Répondez en {0} secondes ou l'attaque échoue.
+690c6c18	Arènes : battez dix chefs d'arène en combat en direct, l'un après l'autre, chacun plus rapide et plus précis que le précédent

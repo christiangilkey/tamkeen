@@ -6491,6 +6491,40 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   controller, a real phone, mouse-dragging and finger-dragging by hand (only by script), a friend battle between two
   accounts, right-to-left languages by eye.
 
+## Gym leaders: ten rivals in live battles, each harder than the last (2026-11-04; "Gym leaders" chat)
+Owner: 10 gym leaders to fight, each harder than the last; beating one opens the next; progress synced like the rest.
+- **Data** `web/js/game/gyms.js` (pure): `LEADERS` (pip, marin, tor, volta, sola, umbra, rowan, hale, mirage, zenith):
+  name (never translated: ignore.txt), title + blurb (translated), element, arena `theme` (meadow, shore, ruins, cave,
+  volcanic, night, forest, snow, desert, any), `team` (1, 2, 2, 3, then 3: beast id + growth + moves; `leaderGenome`
+  searches a seed that draws as that beast, `g.loadout` = its moves), `scale` (stats x0.8 .. x1.0), `form` (0.45 ..
+  0.93), `quiz` (seconds a question: 6, 6, 5.5, 5, 5, 5, 4.5, 4.5, 4, 3.5), `brain`, `reward` (first win: 15 .. 150
+  coins, 50 .. 500 XP). `gymSetup(leader)` = what newLiveBattle needs; `gymStatus` beaten / open / locked.
+- **Engine** (livebattle.js): `brainOf(skill, over)` = how the computer plays a side: react (s between thoughts; it
+  dodges only when it thinks), dodge, eager, pick (best move vs any), types (0..1 weight of the element chart in its
+  choice), ground (weight of helpful ground in `bestSpot`), lead (aims where a running target will be: `ahead()`),
+  interrupt, heal, extras, fast. Unset numbers follow foeForm exactly as before (same formulas), so wild, rental and
+  friend battles are unchanged. `newLiveBattle({ brain, quizSeconds })`; `b.quizS` (2..10, default QUIZ_S 5) times the
+  question; the pause box says the gym's seconds.
+- **Rules** (rules.js): `state.gyms = { beaten, wins: {id: n} }` (normalize clamps; old saves get it), synced with the
+  whole game state. `finishBattle` with mode "gym" calls `beatGym`: a win counts; the first win against the open leader
+  opens the next and adds its reward to the battle's own coins/XP (which still fade after the day's first battles).
+  Gyms don't move the skill rating, give no potion and no egg. A locked leader can't be skipped to.
+- **Screens**: Battles menu → **Gyms** (battle-ui.js; `sheet` now exported), `web/js/game/gyms-ui.js` (`openGyms(vocab)`
+  list: number, name, title, element icons, team portraits, blurb, creatures · seconds · reward or wins, Fight /
+  Rematch / lock; `fightLeader`: the player's team unscaled, like rentals; all-time mode gives the leader the player's
+  card count too, so only the words get harder). livebattle-ui.js: the rival card shows the leader's name, end card
+  lines (beat, reward, next open), "Battle again" goes back to the gym list (`setup.again`). CSS "creature game: gyms".
+  No new art: element icons, creature portraits, lock/check/trophy icons (leader portraits are a Decisions item).
+- **Trials** `tools/game_sim/gym-trials.mjs [n] [share right] [leader id]` (the computer plays the player too:
+  3 random fully grown creatures, autoSkill 0.7, answers 1-3 s, one in five up to 2 s slower; with a leader id every
+  leader gets that leader's team, stats and arena, so only its brain/form/time differ). 150 battles a leader:
+  60% right: 100 100 96 87 61 32 21 16 15 7%; 80%: 100 100 99 97 79 65 48 38 28 22%; 95%: 100 100 100 99 96 81 74 53 44 35%; same team as Sola, 80%:
+  100 99 99 94 79 67 50 41 18 16% (the AI alone). Battles 8-45 s. tests/js/gyms.test.mjs runs 24 a leader.
+- Checked in the browser pane (desktop server on a scratch data folder copied from the live-battle chat's, 120 Spanish
+  words, never signed in; and the phone build `mobile/www` in a plain tab): menu entry, list at 800x600 and 375x812, in
+  Spanish, Pip's battle with the 6-second bar, a win with the reward lines, "Battle again" → Pip beaten, Marin open,
+  progress kept after a reload (phone build). Not tried: a person playing the later gyms, a real phone, a controller.
+
 ## Latin (la): a language to learn (2026-11-02, on main; "Add Latin as a language to learn" chat)
 Owner: "lets also add the latin language". A **learning** language only: it is in `LANGUAGES` (web/js/languages.js,
 app/languages.py) but not in `UI_LANGUAGES`, so the app's own words are never shown in Latin (the first-run "Which

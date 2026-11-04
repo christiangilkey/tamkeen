@@ -12,6 +12,7 @@
 import { bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
+import { LEADERS } from "./gyms.js";
 
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -86,6 +87,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     raid: 0,                      // the week whose raid reward has been claimed
     rating: 1000, // battle skill, nothing to do with how much has been studied
     rivals: {},   // friend id -> {name, wins, losses}
+    gyms: { beaten: 0, wins: {} }, // gym leaders beaten in order (gyms.js LEADERS), and wins against each
     showcase: null, // seed of the favourite creature friends see next to my name (null = the one in the habitat)
     curious20: true, // curiosity is counted on its 20-times-longer scale (see normalize for saves from before)
     badges: [],
@@ -141,6 +143,9 @@ export function normalize(state) {
   }
   for (const k of ["owned", "attacks", "decor", "tags", "badges"]) if (!Array.isArray(s[k])) s[k] = [];
   for (const k of ["review", "rivals"]) if (!s[k] || typeof s[k] !== "object") s[k] = {};
+  const gyms = s.gyms && typeof s.gyms === "object" ? s.gyms : {};
+  s.gyms = { beaten: Math.max(0, Math.min(LEADERS.length, Math.floor(Number(gyms.beaten) || 0))),
+             wins: gyms.wins && typeof gyms.wins === "object" && !Array.isArray(gyms.wins) ? gyms.wins : {} };
   if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
   if (!["last100", "unlimited"].includes(s.battleMode)) s.battleMode = "last100";
@@ -742,7 +747,8 @@ export function finishBattle(state, result, ctx = {}) {
     if (result.comeback && grant(state, "comeback")) out.tags.push("comeback");
     if (result.mode === "wild" && state.roster.length < 6 && rand() < 0.15) out.egg = !!layEgg(state, rand);
   }
-  if (result.mode !== "wild") {
+  if (result.mode === "gym") out.gym = beatGym(state, result, out);
+  if (result.mode !== "wild" && result.mode !== "gym") {
     const theirs = (result.rival && result.rival.rating) || 1000;
     const expected = 1 / (1 + 10 ** ((theirs - state.rating) / 400));
     out.rating = Math.round(24 * ((result.won ? 1 : 0) - expected));
@@ -761,6 +767,32 @@ export function finishBattle(state, result, ctx = {}) {
   out.badges = checkBadges(state);
   state.updated_at = now.getTime() / 1000;
   return out;
+}
+
+/**
+ * A gym battle's result: a win counts against that leader; the first win against the leader that is open
+ * (the next to beat) opens the one after it and pays its reward on top of the battle's own (`out`).
+ * Returns {leader, won, first, coins, xp, next} (next = the leader now open, or null after the last).
+ */
+export function beatGym(state, result, out = { coins: 0, xp: 0 }) {
+  const id = result.rival && result.rival.gym;
+  const i = LEADERS.findIndex((l) => l.id === id);
+  if (i < 0) return null;
+  const leader = LEADERS[i];
+  const g = state.gyms;
+  const info = { leader: leader.id, won: !!result.won, first: false, coins: 0, xp: 0, next: null };
+  if (!result.won) return info;
+  g.wins[leader.id] = (Number(g.wins[leader.id]) || 0) + 1;
+  if (i === g.beaten) {
+    g.beaten = i + 1;
+    info.first = true;
+    info.coins = leader.reward.coins;
+    info.xp = leader.reward.xp;
+    out.coins += info.coins;
+    out.xp += info.xp;
+    info.next = LEADERS[i + 1] ? LEADERS[i + 1].id : null;
+  }
+  return info;
 }
 
 // ---------- friends: league, raid, gifts ----------

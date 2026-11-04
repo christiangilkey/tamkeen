@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Palestre
+fb0227a3	Hai battuto tutti e dieci i capipalestra. Sfida di nuovo chi vuoi.
+41a883a4	Dieci capipalestra da battere in ordine, ognuno più forte del precedente. {0} su 10 battuti.
+0e6e70f6	Dieci capipalestra, ognuno più forte del precedente: reagiscono più in fretta, schivano di più, mirano dove stai andando e ti danno meno tempo per ogni domanda. Battine uno per aprire il successivo.
+6ec35393	{0} su {1} battuti
+08b2a7a4	Batti {0} per aprire questa palestra.
+a798882f	Bloccata
+ac2e0c64	1 creatura
+25058467	{0} creature
+1de52d20	{0} secondi a domanda
+ee1f1af3	Vittorie: {0}
+ca039c61	Prima vittoria: {0} monete e {1} XP
+2c2d1610	Combatti
+c7b437cf	Custode dei Prati
+c57c0af1	Una prima palestra tranquilla. L'unica creatura di Pip reagisce lentamente e non schiva quasi mai.
+04bf11a4	Voce della Marea
+b91edf5f	Ora le creature sono due. Marin ogni tanto si protegge, ma mira ancora dove eri, non dove stai andando.
+667b9c75	Tagliapietre
+8b794317	Le creature robuste di Tor amano l'acciottolato delle rovine e si curano quando sono ferite.
+4c28a250	Scintilla di Cristallo
+01317ac2	Creature veloci in una grotta di cristallo. Volta inizia a mirare un po' davanti a te: continua a cambiare direzione.
+cefcb76b	Custode delle Braci
+5a85780b	Tre creature e un vulcano. Sola sparge braci ardenti e combatte da lì, dove Brace colpisce più forte.
+7443de1a	Viandante della Notte
+48a66c2f	Umbra si nasconde nell'ombra, ti rallenta e annulla le tue mosse forti mentre si caricano.
+e6531d5c	Bosco Antico
+bc80dd4e	Tanta esperienza, un bosco fitto e una creatura di Pietra a coprire i punti deboli di Bosco. Rowan sceglie la mossa giusta contro ognuna delle tue.
+d8a3c47f	Coppia di Gelo
+fde3e713	Marea e Pietra sul ghiaccio, dove tu scivoli e a loro non importa. Hale schiva quasi tutto quello che lanci.
+8c8c3126	Tempesta del Deserto
+9aef8ac6	Scintilla e Brace con raggi e meteore. Mirage capisce dove stai correndo e colpisce proprio lì.
+995542a6	Il campione: tre elementi che si coprono a vicenda, in qualsiasi arena. Veloce, preciso e 3,5 secondi a domanda.
+1e6753c3	Hai battuto {0}, {1}!
+33c4f2e1	Premio della palestra: {0} monete e {1} XP
+392ab177	La palestra di {0} ora è aperta.
+d33ad395	Hai battuto tutti i capipalestra.
+c131e1d6	La creatura del capopalestra
+b3ac6518	Usa una mossa con il suo pulsante: compare una domanda su una delle tue parole e la battaglia aspetta. Rispondi entro {0} secondi o la mossa fallisce.
+690c6c18	Palestre: batti dieci capipalestra in battaglie dal vivo, uno dopo l'altro, ognuno più rapido e preciso del precedente

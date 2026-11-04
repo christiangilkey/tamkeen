@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Gimnasos
+fb0227a3	Has derrotat els deu líders de gimnàs. Torna a lluitar contra qualsevol d'ells.
+41a883a4	Deu líders per derrotar en ordre, cadascun més difícil que l'anterior. N'has derrotat {0} de 10.
+0e6e70f6	Deu líders de gimnàs, cadascun més difícil que l'anterior: reaccionen més ràpid, esquiven més, apunten cap on vas i et donen menys temps per a cada pregunta. Derrota'n un per obrir el següent.
+6ec35393	{0} de {1} derrotats
+08b2a7a4	Derrota {0} per obrir aquest gimnàs.
+a798882f	Bloquejat
+ac2e0c64	1 criatura
+25058467	{0} criatures
+1de52d20	{0} segons per pregunta
+ee1f1af3	{0} victòries
+ca039c61	Primera victòria: {0} monedes i {1} XP
+2c2d1610	Lluita
+c7b437cf	Guarda del prat
+c57c0af1	Un primer gimnàs tranquil. L'única criatura de Pip reacciona a poc a poc i gairebé mai no esquiva.
+04bf11a4	Cridamarees
+b91edf5f	Ara dues criatures. Marin es protegeix de tant en tant, però encara apunta on eres, no cap on vas.
+667b9c75	Picapedrer
+8b794317	Les criatures resistents de Tor estimen els empedrats de les ruïnes i es curen quan estan ferides.
+4c28a250	Espurna de cristall
+01317ac2	Criatures ràpides en una cova de cristall. Volta comença a apuntar una mica per davant teu: canvia sovint de direcció.
+cefcb76b	Guarda de les brases
+5a85780b	Tres criatures i un volcà. Sola escampa brases enceses i lluita des d'allà, on Brasa colpeja més fort.
+7443de1a	Caminant de la nit
+48a66c2f	Umbra s'amaga a les ombres, et frena i cancel·la els teus moviments forts mentre es carreguen.
+e6531d5c	Bosc antic
+bc80dd4e	Un veterà en un bosc profund, amb una criatura de Pedra que cobreix els punts febles de Bosc. Rowan tria el moviment adequat per a cadascun dels teus.
+d8a3c47f	Parella de gel
+fde3e713	Marea i Pedra sobre el gel, on tu rellisques i a elles no els importa. Hale esquiva gairebé tot el que llances.
+8c8c3126	Tempesta del desert
+9aef8ac6	Espurna i Brasa amb raigs i meteors. Mirage llegeix cap on corres i t'encerta just allà.
+995542a6	El campió: tres elements que es cobreixen entre ells, en qualsevol arena. Ràpid, precís i 3,5 segons per pregunta.
+1e6753c3	Has derrotat {0} ({1})!
+33c4f2e1	Recompensa del gimnàs: {0} monedes i {1} XP
+392ab177	El gimnàs de {0} ja és obert.
+d33ad395	Has derrotat tots els líders de gimnàs.
+c131e1d6	La criatura del líder
+b3ac6518	Fes servir un moviment amb el seu botó: surt una pregunta sobre una de les teves paraules i la batalla s'espera. Respon en {0} segons o el moviment falla.
+690c6c18	Gimnasos: derrota deu líders de gimnàs en batalles en directe, un darrere l'altre, cadascun més ràpid i precís que l'anterior

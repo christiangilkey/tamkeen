@@ -481,3 +481,15 @@ cedb93a0  # Gregorian chant Latin
 2eae7edf  # Spoken Latin Podcast
 9f7f09f9  # fabulae pueris Latine
 a6cd0ffa  # Lingua Latina per se illustrata
+# Gym leaders' names (gyms.js): names, the same in every language; and an error only a programmer sees
+e59591dd  # no beast {0}
+9b0d5ac3  # Pip
+04784cc4  # Marin
+ed70888f  # Tor
+e04587c5  # Volta
+bc129abb  # Sola
+9151d630  # Umbra
+6056ddb4  # Rowan
+5cf4bb0d  # Hale
+18535f0c  # Mirage
+ddf50f50  # Zenith

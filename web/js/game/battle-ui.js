@@ -44,7 +44,7 @@ export function portrait(genome, size = 72) {
   return c;
 }
 
-function sheet(title) {
+export function sheet(title) {
   document.querySelector(".game-sheet-wrap")?.remove();
   const wrap = h(`<div class="game-sheet-wrap"><div class="game-sheet" role="dialog">
     <div class="game-sheet-head"><strong></strong><span class="spacer"></span>
@@ -139,6 +139,8 @@ export async function openBattleMenu() {
         <span class="small muted">Your own creatures against wild ones. Their age gives yours a small edge here only.</span></button>
       <button type="button" class="battle-mode" id="b-rental"><strong>Rental duel</strong>
         <span class="small muted">Pick three of this week's six shared creatures; your rival gets the rest. Always an even fight. Counts for your skill rating.</span></button>
+      <button type="button" class="battle-mode" id="b-gyms"><strong>Gyms</strong>
+        <span class="small muted"></span></button>
     </div>
     <p class="small muted">To challenge a friend's team, open <strong>Friends</strong> in the game menu. This week's rule for
       friend battles: <strong>${rule.name}</strong>. ${rule.text}</p>
@@ -155,6 +157,10 @@ export async function openBattleMenu() {
     runLiveBattle({ mine, theirs, mode: "wild", foeForm: 0.55 + rand() * 0.25, cards: { me: vocab.length } }, vocab);
   };
   body.querySelector("#b-rental").onclick = () => pickRental(wrap, body, vocab);
+  const beaten = Math.max(0, Number(game.gyms && game.gyms.beaten) || 0);
+  body.querySelector("#b-gyms span").textContent = beaten >= 10 ? t("All ten gym leaders beaten. Fight any of them again.")
+    : t("Ten leaders to beat in order, each harder than the last. {0} of 10 beaten.", String(beaten));
+  body.querySelector("#b-gyms").onclick = () => { wrap.remove(); import("./gyms-ui.js").then((m) => m.openGyms(vocab)); };
 }
 
 /**

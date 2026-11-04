@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Arenen
+fb0227a3	Alle zehn Arenaleiter besiegt. Fordere jeden von ihnen erneut heraus.
+41a883a4	Zehn Arenaleiter, die du der Reihe nach besiegst, jeder stärker als der vorige. {0} von 10 besiegt.
+0e6e70f6	Zehn Arenaleiter, jeder stärker als der vorige: Sie reagieren schneller, weichen öfter aus, zielen dorthin, wo du hinläufst, und geben dir weniger Zeit für jede Frage. Besiege einen, um den nächsten freizuschalten.
+6ec35393	{0} von {1} besiegt
+08b2a7a4	Besiege {0}, um diese Arena freizuschalten.
+a798882f	Gesperrt
+ac2e0c64	1 Wesen
+25058467	{0} Wesen
+1de52d20	{0} Sekunden pro Frage
+ee1f1af3	{0}-mal gewonnen
+ca039c61	Erster Sieg: {0} Münzen und {1} EP
+2c2d1610	Kämpfen
+c7b437cf	Wiesenhüter
+c57c0af1	Eine sanfte erste Arena. Pips einziges Wesen reagiert langsam und weicht fast nie aus.
+04bf11a4	Gezeitenrufer
+b91edf5f	Jetzt zwei Wesen. Marin blockt ab und zu, zielt aber immer noch dorthin, wo du warst, nicht dorthin, wo du hinläufst.
+667b9c75	Steinmetz
+8b794317	Tors zähe Wesen mögen das Kopfsteinpflaster der Ruinen und heilen sich, wenn sie verletzt sind.
+4c28a250	Kristallfunke
+01317ac2	Schnelle Wesen in einer Kristallhöhle. Volta zielt allmählich ein wenig vor dich: Wechsle ständig die Richtung.
+cefcb76b	Glutwächter
+5a85780b	Drei Wesen und ein Vulkan. Sola legt glühende Kohlen aus und kämpft von dort, wo Glut stärker trifft.
+7443de1a	Nachtwandler
+48a66c2f	Umbra versteckt sich in den Schatten, bremst dich und bricht deine großen Züge ab, während sie aufgeladen werden.
+e6531d5c	Alter Hain
+bc80dd4e	Ein alter Hase in einem tiefen Wald, mit einem Stein-Wesen, das die Schwächen von Hain abdeckt. Rowan wählt gegen jeden deiner Züge den passenden.
+d8a3c47f	Frostpaar
+fde3e713	Flut und Stein auf dem Eis, wo du rutschst und es ihnen egal ist. Hale weicht fast allem aus, was du wirfst.
+8c8c3126	Wüstensturm
+9aef8ac6	Funke und Glut mit Strahlen und Meteoren. Mirage liest, wohin du läufst, und trifft dich genau dort.
+995542a6	Der Champion: drei Elemente, die sich gegenseitig decken, in jeder Arena. Schnell, scharf und 3,5 Sekunden pro Frage.
+1e6753c3	Du hast {0} besiegt ({1})!
+33c4f2e1	Arena-Belohnung: {0} Münzen und {1} EP
+392ab177	Die Arena von {0} ist jetzt offen.
+d33ad395	Du hast alle Arenaleiter besiegt.
+c131e1d6	Das Wesen des Arenaleiters
+b3ac6518	Setze einen Zug mit seinem Knopf ein: Eine Frage zu einem deiner Wörter erscheint, und der Kampf wartet. Antworte innerhalb von {0} Sekunden, sonst schlägt der Zug fehl.
+690c6c18	Arenen: Besiege zehn Arenaleiter in Live-Kämpfen, einen nach dem anderen, jeder schneller und schärfer als der vorige

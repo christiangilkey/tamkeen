@@ -1,0 +1,40 @@
+# Gym leaders (web/js/game/gyms.js, gyms-ui.js) and the 0.45 What's new line.
+3457f455	Gimnasios
+fb0227a3	Has vencido a los diez líderes de gimnasio. Lucha otra vez contra el que quieras.
+41a883a4	Diez líderes que vencer en orden, cada uno más difícil que el anterior. {0} de 10 vencidos.
+0e6e70f6	Diez líderes de gimnasio, cada uno más difícil que el anterior: reaccionan más rápido, esquivan más, apuntan hacia donde vas y te dan menos tiempo para cada pregunta. Vence a uno para abrir el siguiente.
+6ec35393	{0} de {1} vencidos
+08b2a7a4	Vence a {0} para abrir este gimnasio.
+a798882f	Bloqueado
+ac2e0c64	1 criatura
+25058467	{0} criaturas
+1de52d20	{0} segundos por pregunta
+ee1f1af3	Victorias: {0}
+ca039c61	Primera victoria: {0} monedas y {1} XP
+2c2d1610	Luchar
+c7b437cf	Guardia del Prado
+c57c0af1	Un primer gimnasio tranquilo. La única criatura de Pip reacciona despacio y casi nunca esquiva.
+04bf11a4	Voz de la Marea
+b91edf5f	Ahora son dos criaturas. Marin se protege de vez en cuando, pero sigue apuntando a donde estabas, no a donde vas.
+667b9c75	Labrapiedras
+8b794317	A las duras criaturas de Tor les gustan los adoquines de las ruinas, y se curan cuando están heridas.
+4c28a250	Chispa de Cristal
+01317ac2	Criaturas rápidas en una cueva de cristal. Volta empieza a apuntar un poco por delante de ti: no dejes de cambiar de dirección.
+cefcb76b	Guardia de las Brasas
+5a85780b	Tres criaturas y un volcán. Sola deja brasas ardientes y lucha sobre ellas, donde Brasa pega más fuerte.
+7443de1a	Caminante de la Noche
+48a66c2f	Umbra se esconde en las sombras, te frena y cancela tus movimientos grandes mientras se preparan.
+e6531d5c	Arboleda Antigua
+bc80dd4e	Mucha experiencia, un bosque profundo y una criatura de Piedra que cubre los puntos débiles de Arboleda. Rowan elige el movimiento adecuado contra cada uno de los tuyos.
+d8a3c47f	Pareja de Escarcha
+fde3e713	Marea y Piedra sobre el hielo, donde tú resbalas y a ellas les da igual. Hale esquiva casi todo lo que lanzas.
+8c8c3126	Tormenta del Desierto
+9aef8ac6	Chispa y Brasa con rayos y meteoritos. Mirage adivina hacia dónde corres y lo lanza justo ahí.
+995542a6	El campeón: tres elementos que se cubren entre sí, en cualquier arena. Rápido, preciso y 3,5 segundos por pregunta.
+1e6753c3	¡Has vencido a {0}, {1}!
+33c4f2e1	Recompensa del gimnasio: {0} monedas y {1} XP
+392ab177	El gimnasio de {0} ya está abierto.
+d33ad395	Has vencido a todos los líderes de gimnasio.
+c131e1d6	La criatura del líder
+b3ac6518	Usa un movimiento con su botón: aparece una pregunta sobre una de tus palabras y la batalla espera. Responde en {0} segundos o el movimiento falla.
+690c6c18	Gimnasios: vence a diez líderes de gimnasio en batallas en directo, uno tras otro, cada uno más rápido y certero que el anterior

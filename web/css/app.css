@@ -1189,6 +1189,28 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 @media (max-width: 520px) { .hud-actions { grid-template-columns: repeat(2, 1fr); } }
 .battle-mode, .battle-mode span { white-space: normal; }
 
+/* ---------- creature game: gyms (game/gyms-ui.js) ---------- */
+/* One row a leader: its number, name, element icons, team and what it is like, and on the right its state:
+   a lock, or Fight / Rematch (a tick once beaten). Plain solid surfaces; a locked row is faded. */
+.gym-list { display: grid; gap: 8px; }
+.gym { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--surface-2); }
+.gym.locked { opacity: .55; }
+.gym.open { background: var(--hl); color: var(--hl-ink); }
+.gym.open .muted { color: inherit; opacity: .85; }
+.gym-num { font-size: 20px; font-weight: 700; text-align: center; }
+.gym-main { min-width: 0; display: grid; gap: 4px; }
+.gym-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.gym-head .name { font-size: 17px; }
+.gym-title { font-size: 13px; opacity: .8; }
+.gym-els { display: inline-flex; gap: 2px; }
+.gym-team { display: flex; gap: 4px; }
+.gym-team:empty { display: none; }
+.gym-blurb, .gym-facts { margin: 0; white-space: normal; }
+.gym-side { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.gym-side button { min-width: 88px; }
+.gym-done img { width: 24px; height: 24px; }
+@media (max-width: 420px) { .gym { grid-template-columns: 22px 1fr; } .gym-side { grid-column: 2; flex-direction: row; justify-content: flex-start; } }
+
 /* ---------- creature game: live battles (game/livebattle-ui.js) ---------- */
 /* One column: the two creatures' cards, the arena (the stage takes the room left; the canvas is fitted inside
    it by fit()), then the ground under your creature and your four moves in a 2 x 2 block shaped like the
