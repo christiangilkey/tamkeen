@@ -97,6 +97,7 @@ const SHARED = [
   "js/oggjoin.js",
   "js/components/voicesetup.js",
   "js/addwords.js",
+  "js/examples.js",
   "js/cardaudio.js",
   "js/components/wordbuilder.js",
   "js/components/wordscan.js",

@@ -1,0 +1,373 @@
+"""Build the free card helpers: example sentences and pronunciations per language, and the English
+keyword list of the free Mnemonic maker. Used when there is no AI key ("Add words" and the review
+card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
+
+1. docs/lexicon/<lang>-examples.json.gz, one per language taught, downloaded only when needed:
+   - example sentences with their English translation, from
+       * Tatoeba (https://tatoeba.org, sentences CC BY 2.0 FR; each keeps its Tatoeba number), short
+         ones first, a few for each word of the language so that most words have one;
+       * the English Wiktionary's usage examples (Wiktextract, https://kaikki.org, CC BY-SA 4.0),
+         each filed under the word whose entry it is in;
+   - each word's pronunciation in IPA, from Wiktionary (for the Mnemonic maker to match sounds).
+2. docs/lexicon/en-keywords.json.gz: English words a keyword can be, each with its US pronunciation
+   (the CMU Pronouncing Dictionary, already in en-lemmas.json.gz), what kind of thing it is (WordNet 3.0's
+   lexicographer files: an animal, a tool, a food...; Princeton's WordNet licence) and how common it is
+   (FrequencyWords' English subtitle counts by Hermit Dave, CC BY-SA 4.0), for picturable, common keywords.
+
+    python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
+    python tools/build_examples.py build <cache dir> <tatoeba dir> es de ...
+    python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt>
+
+<tatoeba dir> holds Tatoeba's per-language exports: <code>_sentences.tsv.bz2 and <code>-eng_links.tsv.bz2 for
+each language, and eng_sentences.tsv.bz2 (https://downloads.tatoeba.org/exports/per_language/).
+
+The examples file: {"kind": "examples", "lang", "sentences": [[text, english, source], ...],
+                    "words": {key: [sentence number, ...]}, "ipa": {key: ipa}}
+`source` is "t<number>" (Tatoeba's sentence number) or "w" (Wiktionary; "w:arz" a dialect's entry);
+`words` lists the Wiktionary examples of each word; `key` is meanings' key (tools/build_meanings.py key).
+"""
+
+from __future__ import annotations
+
+import bz2
+import collections
+import gzip
+import hashlib
+import json
+import re
+import sys
+import unicodedata
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_meanings import NAMES, DIALECTS, key, read_lines, url  # noqa: E402
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "docs" / "lexicon"
+
+# Tatoeba's codes for the languages taught (Arabic also its dialects; Persian is "pes").
+TATOEBA = {"ar": ["ara", "arz", "apc", "ajp", "acm", "ary"], "es": ["spa"], "fr": ["fra"], "it": ["ita"], "ru": ["rus"],
+           "tl": ["tgl"], "ja": ["jpn"], "zh": ["cmn"], "pt": ["por"], "ca": ["cat"], "ceb": ["ceb"], "th": ["tha"],
+           "de": ["deu"], "fa": ["pes"], "hi": ["hin"], "ko": ["kor"], "la": ["lat"]}
+# Characters only Cantonese writes ("did", "of", "not"...): Wiktionary's Chinese entries also give Cantonese examples.
+CANTONESE = re.compile("[咗㖞哗嘅唔佢嗰冇啲嘢噉咁喺喎嚟睇攞嗮哋㗎嘞]")
+NOT_MANDARIN_TAGS = {"Cantonese", "Classical-Chinese", "Literary-Chinese", "Hokkien", "Hakka"}
+DIALECT_OF = {"arz": "arz", "apc": "apc", "ajp": "ajp", "acm": "acm", "ary": "ary"}
+UNSPACED = {"ja", "zh", "th"}
+PER_WORD = 3          # Tatoeba sentences kept for each word form (the shortest, easiest first)
+MAX_SENTENCES = 40000 # Tatoeba sentences kept per language at most
+MAX_EXAMPLES = 3      # Wiktionary examples kept per word
+WORDS = re.compile(r"[\w'’-]+", re.UNICODE)
+
+
+def clean(text: str) -> str:
+    return re.sub(r"\s+", " ", unicodedata.normalize("NFC", str(text or ""))).strip()
+
+
+# ---------------------------------------------------------------- 1. Wiktionary, kept small
+
+def first_ipa(entry: dict, lang: str) -> str:
+    """The entry's first IPA, slashes and brackets off. Chinese: Mandarin's pinyin instead, as "py:<pinyin>"
+    (Wiktionary's Mandarin IPA is written in tone letters and mostly missing; the app reads pinyin itself)."""
+    if lang == "zh":
+        for s in entry.get("sounds") or []:
+            tags = set(s.get("tags") or [])
+            if s.get("zh_pron") and {"Mandarin", "Pinyin"} <= tags:
+                return "py:" + s["zh_pron"].split("(")[0].split(",")[0].strip()
+        return ""
+    if lang == "la":
+        # Church Latin, as the app's Latin cards are read (an Italian voice): Wiktionary's IPA not marked
+        # "Classical-Latin" (its Ecclesiastical one carries no mark).
+        for s in entry.get("sounds") or []:
+            if s.get("ipa") and "Classical-Latin" not in (s.get("tags") or []):
+                return s["ipa"].strip().strip("/[]").split(",")[0].strip()
+    for s in entry.get("sounds") or []:
+        ipa = s.get("ipa")
+        if not ipa:
+            continue
+        tags = set(s.get("tags") or [])
+        if lang == "zh" and not ({"Mandarin", "Standard-Chinese"} & tags or not tags):
+            continue
+        if lang == "zh" and "Sinological-IPA" in tags:
+            continue
+        return ipa.strip().strip("/[]").split(",")[0].strip()
+    return ""
+
+
+def extract(cache: Path, lang: str) -> None:
+    """kaikki.org's file of the language (a few hundred MB, read as it comes) down to what is needed here:
+    {"ipa": {key: ipa}, "examples": [[key, text, english, dialect]]}."""
+    sources = [(NAMES[lang], "")] + ([(name, code) for code, name in DIALECTS.items()] if lang == "ar" else [])
+    ipa: dict[str, str] = {}
+    examples: list[list[str]] = []
+    for name, dialect in sources:
+        print(f"  {lang}: reading {name}", flush=True)
+        n = 0
+        for line in read_lines(url(name)):
+            try:
+                e = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            word = e.get("word") or ""
+            if not word or e.get("pos") in ("name", "character", "symbol", "punct", "romanization", "syllable"):
+                continue
+            k = key(word, lang)
+            if not k:
+                continue
+            said = first_ipa(e, lang)
+            # Arabic and Persian are written without short vowels: one spelling is several words (قلم qalam
+            # "pen", qallama "to trim"). Each word's IPA is kept with its part of speech, "qalam|n;qallama|v",
+            # nouns first, so the app can take the verb's for a meaning like "to write".
+            if said and not dialect:
+                if lang in ("ar", "fa"):
+                    tag = "v" if e.get("pos") == "verb" else "n"
+                    have = [x for x in ipa.get(k, "").split(";") if x]
+                    if len(have) < 4 and not any(x.split("|")[0] == said for x in have):
+                        have.append(f"{said}|{tag}")
+                        have.sort(key=lambda x: x.endswith("|v"))
+                        ipa[k] = ";".join(have)
+                elif k not in ipa:
+                    ipa[k] = said
+            for sense in e.get("senses") or []:
+                if "form-of" in (sense.get("tags") or []):
+                    continue
+                for ex in sense.get("examples") or []:
+                    if ex.get("type") == "quotation" or ex.get("ref"):
+                        continue  # quotations from books: old, long, often literary
+                    text = clean(ex.get("text"))
+                    english = clean(ex.get("english") or ex.get("translation"))
+                    if not text or not english or len(text) > 140 or len(english) > 160:
+                        continue
+                    if lang == "zh" and (CANTONESE.search(text) or NOT_MANDARIN_TAGS & set(ex.get("tags") or [])):
+                        continue  # Mandarin only
+                    examples.append([k, text, english, dialect])
+                    n += 1
+        print(f"  {lang}: {name}: {n} examples so far", flush=True)
+    cache.mkdir(parents=True, exist_ok=True)
+    (cache / f"{lang}-wiktionary.json").write_text(json.dumps({"ipa": ipa, "examples": examples}, ensure_ascii=False), encoding="utf-8")
+    print(f"  {lang}: {len(ipa)} pronunciations, {len(examples)} examples", flush=True)
+
+
+# ---------------------------------------------------------------- 2. Tatoeba
+
+def read_tsv(path: Path):
+    with bz2.open(path, "rt", encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 3:
+                yield parts
+
+
+def english_sentences(tatoeba: Path, wanted: set[str]) -> dict[str, str]:
+    out = {}
+    for sid, _lang, text in read_tsv(tatoeba / "eng_sentences.tsv.bz2"):
+        if sid in wanted:
+            out[sid] = text
+    return out
+
+
+def tokens(text: str, lang: str) -> list[str]:
+    if lang in UNSPACED:
+        return []
+    return [key(w.strip("'’-"), lang) for w in WORDS.findall(text) if w.strip("'’-") and not w.isdigit()]
+
+
+def tatoeba_pairs(tatoeba: Path, lang: str) -> list[tuple[str, str, str]]:
+    """Each sentence of the language with its shortest English translation: [(text, english, source)]."""
+    pairs: dict[str, tuple[str, str]] = {}
+    links: dict[str, list[str]] = collections.defaultdict(list)
+    for code in TATOEBA[lang]:
+        sent = tatoeba / f"{code}_sentences.tsv.bz2"
+        link = tatoeba / f"{code}-eng_links.tsv.bz2"
+        if not sent.exists() or not link.exists():
+            continue
+        for sid, _l, text in read_tsv(sent):
+            pairs[sid] = (clean(text), DIALECT_OF.get(code, ""))
+        with bz2.open(link, "rt", encoding="utf-8") as f:
+            for line in f:
+                a, b = (line.rstrip("\n").split("\t") + [""])[:2]
+                if a in pairs and b:
+                    links[a].append(b)
+    english = english_sentences(tatoeba, {b for bs in links.values() for b in bs})
+    out = []
+    for sid, (text, dialect) in pairs.items():
+        options = sorted((clean(english[b]) for b in links.get(sid, []) if b in english), key=len)
+        if options:
+            out.append((text, options[0], f"t{sid}" + (f":{dialect}" if dialect else "")))
+    return out
+
+
+def good_length(text: str, lang: str) -> bool:
+    if lang in UNSPACED:
+        return 4 <= len(text) <= 32
+    n = len(WORDS.findall(text))
+    return 3 <= n <= 14 and len(text) <= 110
+
+
+def choose(pairs: list[tuple[str, str, str]], lang: str) -> list[tuple[str, str, str]]:
+    """A few short sentences for each word form, the easiest first (short, made of common words), at most
+    MAX_SENTENCES. Unspaced languages (no word forms to count): the shortest MAX_SENTENCES."""
+    pairs = [p for p in pairs if good_length(p[0], lang)]
+    if lang in UNSPACED:
+        return sorted(pairs, key=lambda p: (abs(len(p[0]) - 12), p[0]))[:MAX_SENTENCES]
+    counts = collections.Counter(t for p in pairs for t in set(tokens(p[0], lang)))
+    def hardness(p):
+        ts = tokens(p[0], lang)
+        rare = sum(1 for t in ts if counts[t] < 3)
+        return (rare, abs(len(ts) - 7), len(p[0]))
+    kept, have = [], collections.Counter()
+    for p in sorted(pairs, key=hardness):
+        ts = set(tokens(p[0], lang))
+        if any(have[t] < PER_WORD for t in ts):
+            kept.append(p)
+            have.update(ts)
+            if len(kept) >= MAX_SENTENCES:
+                break
+    return kept
+
+
+def build(cache: Path, tatoeba: Path, lang: str) -> None:
+    wik = cache / f"{lang}-wiktionary.json"
+    data = json.loads(wik.read_text(encoding="utf-8")) if wik.exists() else {"ipa": {}, "examples": []}
+    sentences: list[list[str]] = []
+    words: dict[str, list[int]] = {}
+    seen = set()
+    for k, text, english, dialect in data["examples"]:
+        if len(words.get(k, [])) >= MAX_EXAMPLES or text in seen:
+            continue
+        seen.add(text)
+        words.setdefault(k, []).append(len(sentences))
+        sentences.append([text, english, "w" + (f":{dialect}" if dialect else "")])
+    n_wik = len(sentences)
+    for text, english, src in choose(tatoeba_pairs(tatoeba, lang), lang):
+        if text not in seen:
+            seen.add(text)
+            sentences.append([text, english, src])
+    # Pronunciations of dictionary words only (not every form Wiktionary lists: Russian has 400,000).
+    ipa = data["ipa"]
+    if lang == "zh":
+        # Chinese: every word of CC-CEDICT (the app's Chinese dictionary, docs/lexicon/zh-cedict.json.gz) that
+        # people use, with its pinyin, where Wiktionary has none (most one-character words).
+        table = json.loads(gzip.decompress((OUT / "zh-cedict.json.gz").read_bytes()))
+        cedict = table["words"]
+        # (and traditional characters' simplified ones, so a word written in traditional characters is found)
+        t2s = {t: s for t, s in table.get("t2s", {}).items() if len(t) == 1 and len(s) == 1}
+        for word, (pinyin, count) in cedict.items():
+            if count and word not in ipa:
+                ipa[word] = "py:" + pinyin
+    meanings = OUT / f"{lang}-meanings.json.gz"
+    if meanings.exists() and lang != "zh":
+        heads = json.loads(gzip.decompress(meanings.read_bytes()))["words"]
+        ipa = {k: v for k, v in ipa.items() if k in heads}
+    pack = {"format": 1, "kind": "examples", "lang": lang,
+            "source": "Tatoeba (tatoeba.org) and the English Wiktionary (Wiktextract, kaikki.org)",
+            "license": "CC-BY-2.0-FR (Tatoeba sentences), CC-BY-SA-4.0 (Wiktionary)",
+            "sentences": sentences, "words": words, "ipa": ipa, **({"t2s": t2s} if lang == "zh" else {})}
+    name = f"{lang}-examples.json.gz"
+    write(name, f"ex-{lang}", pack, title=f"{NAMES[lang]} example sentences",
+          db="Tatoeba + English Wiktionary (Wiktextract)", license="CC-BY-2.0-FR + CC-BY-SA-4.0",
+          extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(ipa)})
+
+
+def write(name: str, entry: str, data: dict, title: str, db: str, license: str, extra: dict) -> None:
+    raw = json.dumps(data, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    packed = gzip.compress(raw, compresslevel=9, mtime=0)
+    (OUT / name).write_bytes(packed)
+    index_path = OUT / "index.json"
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    index["files"][entry] = {"file": name, "bytes": len(packed), "sha256": hashlib.sha256(packed).hexdigest(),
+                             "title": title, "db": db, "license": license, **extra}
+    index["files"] = dict(sorted(index["files"].items()))
+    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"  wrote {name}: {len(packed) / 1e6:.2f} MB, {extra}", flush=True)
+
+
+# ---------------------------------------------------------------- 3. English keywords
+
+# WordNet's lexicographer files (lexnames) by number, and the kind of picture each gives.
+LEXNAMES = {3: "", 4: "", 5: "animal", 6: "artifact", 7: "", 8: "body", 9: "", 10: "", 11: "", 12: "", 13: "food",
+            14: "", 15: "place", 16: "", 17: "object", 18: "person", 19: "nature", 20: "plant", 21: "", 22: "",
+            23: "", 24: "", 25: "", 26: "", 27: "substance", 28: ""}
+# Words never offered: function words and the like (they make no picture).
+STOP = set("""a an the and or but if of to in on at by for from with as is are was were be been am do does did have has had
+i me my you your he him his she her it its we us our they them their this that these those there here what which who whom
+whose when where why how not no yes so than then too very can could will would shall should may might must just also
+oh uh um ah eh hey okay ok yeah yep nope gonna wanna gotta let lets got get""".split())
+
+
+def wordnet(dict_dir: Path) -> tuple[dict[str, str], dict[str, str], set[str]]:
+    """{word: kind of its first noun sense}, {word: "n" / "v" / "a" / "r" (its part of speech with the most senses)}, and the
+    words WordNet writes with a capital (names: not offered)."""
+    kind: dict[str, str] = {}
+    pos: dict[str, tuple[str, int]] = {}
+    capital: set[str] = set()
+    lex_of: dict[str, int] = {}
+    plain: set[str] = set()
+    for line in (dict_dir / "data.noun").read_text(encoding="utf-8", errors="replace").splitlines():
+        if line.startswith(" "):
+            continue
+        parts = line.split(" ")
+        lex_of[parts[0]] = int(parts[1])
+        for i in range(int(parts[3], 16)):
+            w = parts[4 + 2 * i]
+            (capital if w[:1].isupper() else plain).add(w.lower())
+    for p, file in (("n", "index.noun"), ("v", "index.verb"), ("a", "index.adj"), ("r", "index.adv")):
+        for line in (dict_dir / file).read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.startswith(" "):
+                continue
+            parts = line.strip().split(" ")
+            w = parts[0]
+            if "_" in w:
+                continue
+            senses = int(parts[2])
+            if p == "n":
+                offsets = parts[-senses:]
+                kind[w] = LEXNAMES.get(lex_of.get(offsets[0], 0), "")
+            if w not in pos or senses > pos[w][1]:
+                pos[w] = (p, senses)
+    return kind, {w: p for w, (p, _n) in pos.items()}, capital - plain
+
+
+def keywords(dict_dir: Path, freq_file: Path) -> None:
+    table = json.loads(gzip.decompress((OUT / "en-lemmas.json.gz").read_bytes()))
+    ipa = table["ipa"]
+    rank: dict[str, int] = {}
+    for i, line in enumerate(freq_file.read_text(encoding="utf-8").splitlines()):
+        w = line.split(" ")[0]
+        rank.setdefault(w, i + 1)
+    kind, pos, capital = wordnet(dict_dir)
+    # Only dictionary words of English (the word-forms table's lemmas): subtitle counts also count foreign
+    # words ("te", "en") and interjections.
+    lemmas = set(table["lemmas"])
+    out = []
+    for w, r in sorted(rank.items(), key=lambda x: x[1]):
+        if r > 30000 or w in STOP or not re.fullmatch(r"[a-z]{3,14}", w) or w not in ipa or w not in pos or w not in lemmas:
+            continue
+        if w in capital and pos[w] == "n":
+            continue  # a name (Paris, Kevin), not a thing
+        out.append([w, ipa[w], pos[w], kind.get(w, "") if pos[w] == "n" else "", r])
+    # Adjectives too common to be keywords still say what a meaning is ("big", "red"): kept, marked.
+    # Adjectives, to tell a meaning that is a quality ("big") from a thing (any common one, keyword or not).
+    adjectives = sorted(w for w, r in rank.items() if r <= 20000 and pos.get(w) == "a" and re.fullmatch(r"[a-z]+", w))
+    data = {"format": 1, "kind": "keywords", "lang": "en", "adjectives": adjectives,
+            "source": "CMU Pronouncing Dictionary; WordNet 3.0 (Princeton University); FrequencyWords (Hermit Dave, OpenSubtitles 2018)",
+            "license": "CMUdict BSD-style; WordNet 3.0 licence; CC-BY-SA-4.0 (FrequencyWords)",
+            "fields": ["word", "ipa", "pos", "kind", "rank"], "words": out}
+    write("en-keywords.json.gz", "kw-en", data, title="English keywords for mnemonics",
+          db="CMUdict + WordNet 3.0 + FrequencyWords", license="CMUdict + WordNet + CC-BY-SA-4.0", extra={"words": len(out)})
+
+
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    if not args:
+        sys.exit(__doc__)
+    if args[0] == "extract":
+        for lang in args[2:]:
+            extract(Path(args[1]), lang)
+    elif args[0] == "build":
+        for lang in args[3:]:
+            build(Path(args[1]), Path(args[2]), lang)
+    elif args[0] == "keywords":
+        keywords(Path(args[1]), Path(args[2]))
+    else:
+        sys.exit(__doc__)

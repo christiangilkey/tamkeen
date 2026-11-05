@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Creala tu
+bf5f2da9	Nessuna mnemotecnica
+b8bf74bb	Una frase vera che usa la parola, da Tatoeba o Wiktionary, con la traduzione in inglese. <0>L'IA può scriverle al posto tuo</0>
+c8904665	Una frase vera che usa la parola, da Tatoeba o Wiktionary, con la traduzione in inglese. <0>Configura l'IA</0> per fartele scrivere.
+a19c2ced	Parole inglesi che suonano come la parola, ognuna con un'immagine del suo significato, nelle Note per memorizzare. Create su questo dispositivo, senza IA.
+44c0cba7	Facoltativo: grammatica, uso, dove l'hai sentita
+6edbf7bc	Trovata per te
+13a0f8ff	Una mnemotecnica fatta per te
+bea10c94	Una mnemotecnica, un'immagine
+dcf2ce6a	Non è stata trovata nessuna frase d'esempio per questa parola. Scrivine una o lascia vuoto.
+52e3278d	Parole inglesi che suonano come lei, trovate su questo dispositivo senza IA, ognuna con un'immagine del suo significato. Usa ne mette una nelle Note per memorizzare; il pollice verso lo scarta per sempre.
+7573a6d2	Il Generatore di mnemotecniche ha bisogno della sua lista di parole inglesi la prima volta (0,2 MB). Controlla la connessione e riprova.
+b498b54c	Non è stato possibile capire come suona la parola, quindi non sono state trovate parole chiave.
+9c4491f1	Mnemotecniche e frasi d'esempio senza chiave IA: parole inglesi dal suono simile, con un'immagine, e frasi vere da Tatoeba e Wiktionary

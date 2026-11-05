@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Paghimo og usa para nako
+bf5f2da9	Walay panumduman
+b8bf74bb	Usa ka tinuod nga sentence nga naggamit sa pulong, gikan sa Tatoeba o Wiktionary, uban ang hubad sa English. <0>Ang AI makasulat niini puli</0>
+c8904665	Usa ka tinuod nga sentence nga naggamit sa pulong, gikan sa Tatoeba o Wiktionary, uban ang hubad sa English. <0>I-set up ang AI</0> aron isulat kini para nimo.
+a19c2ced	Mga pulong sa English nga pareho og tingog sa pulong, matag usa adunay hulagway sa kahulogan niini, ibutang sa Mga nota sa pagsag-ulo. Gihimo dinhi sa device, walay AI.
+44c0cba7	Opsyonal: gramatika, paggamit, asa nimo kini nadungog
+6edbf7bc	Nakit-an para nimo
+13a0f8ff	Usa ka panumduman nga gihimo para nimo
+bea10c94	Usa ka panumduman, usa ka hulagway
+dcf2ce6a	Walay nakit-an nga pananglitan nga sentence para niini nga pulong. Pag-type og usa, o biyai nga blangko.
+52e3278d	Mga pulong sa English nga pareho og tingog, nakit-an dinhi sa device nga walay AI, matag usa adunay hulagway sa kahulogan. Ang Gamita mobutang og usa sa Mga nota sa pagsag-ulo; ang thumbs down motangtang niini hangtod sa kahangtoran.
+7573a6d2	Ang Mnemonic maker nagkinahanglan sa iyang lista sa mga pulong sa English sa unang higayon (0.2 MB). Susiha ang imong koneksyon ug sulayi pag-usab.
+b498b54c	Wala mahibaw-i kung giunsa paglitok ang pulong, busa walay nakit-an nga keyword.
+9c4491f1	Mga panumduman ug pananglitan nga sentence nga walay AI key: mga pulong sa English nga pareho og tingog nga adunay hulagway, ug tinuod nga mga sentence gikan sa Tatoeba ug Wiktionary

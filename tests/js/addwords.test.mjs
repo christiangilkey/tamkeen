@@ -93,7 +93,9 @@ test("what still needs filling in follows the choices", () => {
 
 test("choices kept on the device are made safe", () => {
   assert.deepEqual(cleanChoices(null), DEFAULT_CHOICES);
-  assert.deepEqual(cleanChoices({ meaning: "type", sentence: "none", audio: "own", folder: "d123" }), { meaning: "type", sentence: "none", audio: "own", folder: "d123" });
+  assert.deepEqual(cleanChoices({ meaning: "type", sentence: "none", audio: "own", mnemonic: "none", folder: "d123" }),
+    { meaning: "type", sentence: "none", audio: "own", mnemonic: "none", folder: "d123" });
+  assert.equal(cleanChoices({}).mnemonic, "auto", "a mnemonic is made unless the learner says not to");
   assert.deepEqual(cleanChoices({ meaning: "nonsense", audio: 3 }), DEFAULT_CHOICES);
   for (const [key, list] of Object.entries(CHOICES)) assert.ok(list.includes(DEFAULT_CHOICES[key]), key);
 });
@@ -203,9 +205,10 @@ test("the answer is matched to the words, by word first, then by place", () => {
 test("a row becomes the card the server saves", () => {
   const row = { text: " libro ", meaning: filled("book"), sentence: typed("Leo un libro."), translation: filled("I'm reading a ⟦book⟧."), notes: "m." };
   assert.deepEqual(cardOf(row, { choices: DEFAULT_CHOICES, folder: "d1" }),
-    { text: "libro", meaning: "book", sentence: "Leo un libro.", translation: "I'm reading a ⟦book⟧.", notes: "m.", folders: ["d1"] });
+    { text: "libro", meaning: "book", sentence: "Leo un libro.", translation: "I'm reading a ⟦book⟧.", notes: "m.", memo: "", folders: ["d1"] });
   assert.deepEqual(cardOf(row, { choices: { ...DEFAULT_CHOICES, sentence: "none" } }),
-    { text: "libro", meaning: "book", sentence: "", translation: "", notes: "m.", folders: [] }, "No sentence: none is saved");
+    { text: "libro", meaning: "book", sentence: "", translation: "", notes: "m.", memo: "", folders: [] }, "No sentence: none is saved");
+  assert.equal(cardOf({ ...row, memo: filled("POT — Picture a duck on a POT.") }).memo, "POT — Picture a duck on a POT.", "the mnemonic goes to Memorization notes");
 });
 
 test("work runs a few at a time, and one failing doesn't stop the rest", async () => {

@@ -256,3 +256,20 @@ def test_word_meanings_for_no_ai_are_a_separate_download(client):
     assert data["kind"] == "meanings" and "bahay" in data["words"]
     assert client.post("/api/lexicon/remove", json={"lang": "tl", "kind": "meanings"}).json()["installed"] is False
 
+
+
+def test_example_sentences_and_keywords_are_their_own_downloads(client):
+    """No AI key: "Add words" finds example sentences and the Mnemonic maker its English keywords in files of
+    their own (tools/build_examples.py), downloaded the first time they are needed (web/js/examples.js)."""
+    st = client.get("/api/lexicon/status?lang=es&kind=examples").json()
+    assert st["names"] == ["ex-es"] and not st["installed"]
+    assert client.get("/api/lexicon/status?lang=en&kind=examples").json()["needed"] is False  # (no English examples)
+    st = client.post("/api/lexicon/download", json={"lang": "ceb", "kind": "examples"}).json()
+    assert st["installed"]
+    data = client.get("/api/lexicon/data/ex-ceb").json()
+    assert data["kind"] == "examples" and any("balay" in s[0] for s in data["sentences"])
+    assert all(len(s) == 3 and s[2][0] in "tw" for s in data["sentences"])  # each says where it is from
+    kw = client.post("/api/lexicon/download", json={"lang": "en", "kind": "keywords"}).json()
+    assert kw["installed"] and kw["names"] == ["kw-en"]
+    words = client.get("/api/lexicon/data/kw-en").json()["words"]
+    assert ["pot", "ˈpɑt", "n", "artifact"] == next(w for w in words if w[0] == "pot")[:4]

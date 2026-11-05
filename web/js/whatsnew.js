@@ -18,6 +18,8 @@ notes("0.45.0",
   "Latin: learn it from podcasts, audiobooks, books and videos, with each word's dictionary form and meaning a tap away");
 notes("0.45.0",
   "Gyms: beat ten gym leaders in live battles, one after another, each quicker and sharper than the last");
+notes("0.45.0",
+  "No AI key needed for mnemonics and example sentences: English sound-alike keywords with a picture, and real sentences from Tatoeba and Wiktionary");
 
 notes("0.44.0",
   "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",

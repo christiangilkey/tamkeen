@@ -144,3 +144,17 @@ Arabic has a second meanings file, asked when Wiktionary lacks a word (or has it
 
 Rebuilt with `tools/build_arabic_glosses.py` (see the top of that file).
 
+
+## Example sentences and the free Mnemonic maker (no AI key)
+
+With no AI key, "Add words" fills in a real example sentence for a word and the review card's Mnemonic maker
+finds English words that sound like it (`web/js/examples.js`, `web/js/lexicon/exampledata.js`,
+`web/js/review/soundout.js`, `web/js/review/freemnemonic.js`). Their files are downloaded the first time they
+are needed:
+
+| File | Made from | Licence |
+|---|---|---|
+| `<lang>-examples.json.gz` (every language taught but English) | Short sentences from [Tatoeba](https://tatoeba.org) with their English translation, a few for each word, each keeping its Tatoeba number; the English Wiktionary's usage examples (Wiktextract, kaikki.org), filed under their word; each word's IPA from Wiktionary (Latin: the Church pronunciation; Arabic and Persian: every word a spelling can be, with its part of speech); Chinese also every CC-CEDICT word's pinyin | CC BY 2.0 FR (Tatoeba), CC BY-SA 4.0 (Wiktionary, CC-CEDICT): `LICENSE-card-helpers.txt` |
+| `en-keywords.json.gz` | 10,000 common English dictionary words with their US pronunciation (the CMU dictionary, from `en-lemmas.json.gz`), what kind of thing each names (WordNet 3.0's lexicographer files: animal, artifact, food...) and how common it is (FrequencyWords' OpenSubtitles counts), and 2,600 common adjectives | CMUdict, WordNet 3.0 licence, CC BY-SA 4.0: `LICENSE-card-helpers.txt` |
+
+Rebuilt with `tools/build_examples.py` (see the top of that file).

@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Fes-me'n una
+bf5f2da9	Sense mnemotècnia
+b8bf74bb	Una frase real que fa servir la paraula, de Tatoeba o Wiktionary, amb la traducció a l'anglès. <0>La IA les pot escriure</0>
+c8904665	Una frase real que fa servir la paraula, de Tatoeba o Wiktionary, amb la traducció a l'anglès. <0>Configura la IA</0> perquè te les escrigui.
+a19c2ced	Paraules angleses que sonen com la paraula, cadascuna amb una imatge del seu significat, a Notes per memoritzar. Es fan en aquest dispositiu, sense IA.
+44c0cba7	Opcional: gramàtica, ús, on la vas sentir
+6edbf7bc	Trobada per tu
+13a0f8ff	Una mnemotècnia feta per tu
+bea10c94	Una mnemotècnia, una imatge
+dcf2ce6a	No s'ha trobat cap frase d'exemple per a aquesta paraula. Escriu-ne una o deixa-ho buit.
+52e3278d	Paraules angleses que sonen com ella, trobades en aquest dispositiu sense IA, cadascuna amb una imatge del seu significat. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.
+7573a6d2	El Creador de mnemotècnies necessita la seva llista de paraules angleses la primera vegada (0,2 MB). Comprova la connexió i torna-ho a provar.
+b498b54c	No s'ha pogut saber com sona la paraula, així que no s'han trobat paraules clau.
+9c4491f1	Mnemotècnies i frases d'exemple sense clau d'IA: paraules angleses que sonen semblant, amb una imatge, i frases reals de Tatoeba i Wiktionary

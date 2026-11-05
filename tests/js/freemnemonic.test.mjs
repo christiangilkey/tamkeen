@@ -1,0 +1,150 @@
+// The free card helpers, with no AI key: how a word is said (review/soundout.js), English keywords that sound
+// like it with a picture line (review/freemnemonic.js), and example sentences (lexicon/exampledata.js), all
+// against the real files in docs/lexicon (tools/build_examples.py).
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { gunzipSync } from "node:zlib";
+import { kanaRomaji, pronunciationOf, spellingIpa, syllabify } from "../../web/js/review/soundout.js";
+import { KeywordList, findKeywords, makeFreeMnemonics, meaningPicture, sceneFor } from "../../web/js/review/freemnemonic.js";
+import { ExamplePack, markTranslation, sentenceKeys, sourceOf } from "../../web/js/lexicon/exampledata.js";
+import { noteText } from "../../web/js/review/mnemonic.js";
+
+const read = (name) => JSON.parse(gunzipSync(readFileSync(new URL(`../../docs/lexicon/${name}`, import.meta.url))));
+const list = new KeywordList(read("en-keywords.json.gz"));
+const packs = {};
+const pack = (lang) => (packs[lang] ||= new ExamplePack(read(`${lang}-examples.json.gz`), lang));
+const said = (word, lang, meaning = "") => pronunciationOf({ word, lang, ipa: pack(lang).ipaOf(word, { verb: /^to /.test(meaning) }) });
+const keywordsFor = (word, lang, meaning) => {
+  const r = makeFreeMnemonics({ text: word, meaning }, { pron: said(word, lang, meaning), list });
+  return [...r.items, ...r.parts];
+};
+
+// ----- how the word is said -----
+
+test("syllables come from the IPA's marks, or by rule; the stress is kept", () => {
+  const caballo = syllabify("kaˈbaʝo");
+  assert.deepEqual(caballo.syllables.map((s) => s.text), ["ka", "ba", "yo"]);
+  assert.equal(caballo.stress, 1);
+  assert.deepEqual(syllabify("obɾigadu").syllables.map((s) => s.text), ["o", "bri", "ga", "du"], "br starts a syllable together");
+  assert.deepEqual(syllabify("mastaʃfaː").syllables.map((s) => s.text), ["mas", "tash", "faa"]);
+});
+
+test("each language's spelling is read its own way when Wiktionary has no IPA", () => {
+  assert.equal(spellingIpa("caballo", "es"), "kabajo");
+  assert.equal(spellingIpa("chiesa", "it"), "kieza");
+  assert.equal(spellingIpa("Schmetterling", "de"), "ʃmetteʁliŋ");
+  assert.equal(spellingIpa("كَلْب", "ar"), "kalb", "vowel marks are read");
+  assert.equal(spellingIpa("مستشفى", "ar"), "mastaʃfaː", "without them a vowel is guessed, not after every letter");
+  assert.equal(spellingIpa("xièxie", "zh"), "ɕjɛ.ɕjɛ", "pinyin is cut into its syllables");
+  assert.equal(kanaRomaji("きって"), "kitte");
+  assert.equal(kanaRomaji("トウキョウ"), "toukyou");
+  assert.match(spellingIpa("соба́ка", "ru"), /saˈbaka/, "Russian: unstressed o is a, the stress goes before its consonant");
+});
+
+test("Wiktionary's pronunciation is used when the examples file has the word", () => {
+  const p = said("perro", "es");
+  assert.equal(p.from, "wiktionary");
+  assert.deepEqual(p.syllables.map((s) => s.text), ["pe", "ro"]);
+  assert.equal(said("قلم", "ar", "pen").syllables.map((s) => s.text).join("-"), "qa-lam", "Arabic: the noun's, for a noun meaning");
+  assert.equal(said("كتب", "ar", "to write").syllables.map((s) => s.text).join("-"), "ka-ta-ba", "and the verb's for 'to …'");
+  assert.equal(said("狗", "zh").syllables[0].ipa.replace(/ː/g, ""), "ɡow", "Chinese: pinyin from CC-CEDICT");
+  assert.equal(said("aqua", "la").syllables.map((s) => s.text).join("-"), "aa-kwa", "Latin as the Church says it");
+  assert.equal(pronunciationOf({ word: "", lang: "es" }), null);
+});
+
+// ----- keywords -----
+
+test("published keyword-method pairs are found with no AI", () => {
+  const has = (word, lang, meaning, keyword) => {
+    const got = keywordsFor(word, lang, meaning).map((s) => s.keyword);
+    assert.ok(got.some((k) => k.split(/[\s+]+/).includes(keyword)), `${word}: ${keyword} in ${got.join(", ")}`);
+  };
+  has("pato", "es", "duck", "pot");
+  has("carta", "es", "letter", "cart");
+  has("uccello", "it", "bird", "cello");
+  has("Ente", "de", "duck", "ant");
+  has("poubelle", "fr", "rubbish bin", "bell");
+  has("قلم", "ar", "pen", "column");
+  has("luna", "la", "moon", "loon");
+  has("書", "zh", "book", "shoe");  // (traditional characters: read as their simplified ones)
+});
+
+test("every keyword is a real, common English word, never the word or its meaning", () => {
+  for (const [word, lang, meaning] of [["perro", "es", "dog"], ["كلب", "ar", "dog"], ["Hund", "de", "dog"], ["แมว", "th", "cat"]]) {
+    const got = keywordsFor(word, lang, meaning);
+    assert.ok(got.length >= 3, `${word}: ${got.length}`);
+    for (const s of got) {
+      for (const w of s.keyword.split(/[\s+]+/)) assert.ok(list.byWord.has(w), `${w} is in the list`);
+      assert.ok(!/\bdog\b|\bcat\b/.test(s.keyword), s.keyword);
+      assert.ok(s.sound === "close" || s.sound === "partial");
+    }
+  }
+});
+
+test("picturable things come before abstract words that sound as close", () => {
+  const r = findKeywords(said("pato", "es"), list);
+  assert.ok(r.keywords.length && r.parts.length);
+  const first = keywordsFor("pato", "es", "duck").find((s) => !s.keyword.includes(" "));
+  assert.ok(["patio", "pot", "pipe", "pout"].includes(first.keyword), first.keyword);
+});
+
+test("turned-down keywords never come back", () => {
+  const before = keywordsFor("carta", "es", "letter").map((s) => s.keyword);
+  const r = makeFreeMnemonics({ text: "carta", meaning: "letter" }, { pron: said("carta", "es"), list, avoid: before });
+  for (const s of [...r.items, ...r.parts]) assert.ok(!before.includes(s.keyword), s.keyword);
+});
+
+test("the picture line joins the keyword to the meaning", () => {
+  const cart = list.byWord.get("cart"), calf = list.byWord.get("calf"), lettuce = list.byWord.get("lettuce");
+  assert.match(sceneFor(cart, meaningPicture("letter", list), "carta"), /\bCART\b/);
+  assert.match(sceneFor(cart, meaningPicture("letter", list), "carta"), /\ba letter\b/);
+  assert.match(sceneFor(calf, meaningPicture("dog", list), "kalb"), /^Picture a CALF .*a dog/);
+  assert.match(sceneFor(calf, meaningPicture("to write", list), "x"), /\bwrite\b/);
+  assert.match(sceneFor(lettuce, meaningPicture("happy, glad", list), "laetus"), /happy/);
+  assert.doesNotMatch(sceneFor(cart, meaningPicture("water", list), "x"), /a water/, "no 'a' before what isn't counted");
+  assert.equal(meaningPicture("(of a person) big; large", list).pos, "adj");
+  assert.equal(meaningPicture("to eat", list).pos, "verb");
+  const r = makeFreeMnemonics({ text: "pato", meaning: "duck" }, { pron: said("pato", "es"), list });
+  assert.match(noteText(r.items[0]), /^[a-z ]+ — (?:“[A-Z ]+”: )?Picture /, "Use puts 'keyword — picture' in Memorization notes");
+  assert.equal(r.free, true);
+});
+
+// ----- example sentences -----
+
+test("a short real sentence that uses the word, with its English translation", () => {
+  const [es] = pack("es").find("perro", { meaning: "dog" });
+  assert.ok(/\bperro\b/i.test(es.text) && /dog/i.test(es.english), es.text);
+  const [ja] = pack("ja").find("猫", { meaning: "cat" });
+  assert.ok(ja.text.includes("猫"), "Japanese: found inside the sentence");
+  const [ar] = pack("ar").find("كتاب", { meaning: "book" });
+  assert.ok(/book/i.test(ar.english), ar.english);
+  assert.ok(!ar.source.includes(":"), "Standard Arabic before a dialect's when no dialect is asked for");
+  const [ceb] = pack("ceb").find("balay", { meaning: "house" });
+  assert.ok(/house/i.test(ceb.english));
+});
+
+test("the sense that fits the meaning comes first, and whole sentences before dictionary phrases", () => {
+  const found = pack("es").find("manzana", { meaning: "apple" });
+  assert.ok(found.length && /apple/i.test(found[0].english), found[0] && found[0].english);
+  const words = found[0].text.split(/\s+/).length;
+  assert.ok(words >= 3, found[0].text);
+});
+
+test("other forms of the word are found through its dictionary form", () => {
+  const lemmaOf = (w) => ({ hablaba: "hablar", hablo: "hablar", hablar: "hablar" }[String(w).toLowerCase()] || w);
+  const found = pack("es").find("hablar", { lemmaOf, count: 40 });
+  assert.ok(found.length >= 3);
+});
+
+test("Arabic words are found with the little words in front (و، ال، ب)", () => {
+  assert.ok(sentenceKeys("وبالكتاب", "ar").includes("كتاب"));
+});
+
+test("the translation lights up the word for the meaning; sources are named", () => {
+  assert.equal(markTranslation("The dogs are playing.", "dog"), "The ⟦dogs⟧ are playing.");
+  assert.equal(markTranslation("I like to swim.", "to swim"), "I like to ⟦swim⟧.");
+  assert.equal(markTranslation("Nothing here.", "dog"), "Nothing here.");
+  assert.deepEqual(sourceOf("t12345"), { name: "Tatoeba", url: "https://tatoeba.org/en/sentences/show/12345" });
+  assert.equal(sourceOf("w:arz").name, "Wiktionary");
+});

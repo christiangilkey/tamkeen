@@ -1,0 +1,100 @@
+// Card helpers that need no AI key: an example sentence for a word ("Add words") and the free Mnemonic
+// maker's English keywords (the review card, and "Add words" too). Their files are downloaded the first
+// time they are needed, like the other dictionaries (kind "examples": docs/lexicon/<lang>-examples.json.gz;
+// kind "keywords": en-keywords.json.gz; tools/build_examples.py), and then work with no connection.
+//
+// Shared by the desktop app, the phone and the web app.
+
+import { api } from "./app.js";
+import { ExamplePack, markTranslation } from "./lexicon/exampledata.js";
+import { dictionaries } from "./lexicon/seen.js";
+import { lexemeOf } from "./lexicon/words.js";
+import { pronunciationOf } from "./review/soundout.js";
+import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
+
+const loaded = new Map(); // "examples|es", "keywords|en" -> Promise of the file's data, or null
+
+/** A file of `kind` for `lang`: downloaded when it isn't here yet (unless `download` is false), then read.
+ * Resolves to its data, or null (no connection, not published). */
+function pack(kind, lang, { download = true } = {}) {
+  const id = `${kind}|${lang}`;
+  if (!loaded.has(id)) {
+    loaded.set(id, (async () => {
+      let st = await api(`/lexicon/status?lang=${lang}&kind=${kind}`);
+      if (!st.needed) return null;
+      if (!st.installed) {
+        if (!download) return null;
+        st = await api("/lexicon/download", { method: "POST", body: { lang, kind } });
+      }
+      if (!st.installed) return null;
+      return api(`/lexicon/data/${st.names[0]}`);
+    })().catch((e) => { console.warn(`The ${kind} file for ${lang} couldn't be had`, e); return null; })
+      .then((d) => { if (!d) loaded.delete(id); return d; }));
+  }
+  return loaded.get(id);
+}
+
+const packs = new Map(); // lang -> ExamplePack
+/** The language's examples, read once: an ExamplePack, or null. */
+export async function examplesOf(lang, opts) {
+  if (packs.has(lang)) return packs.get(lang);
+  const data = await pack("examples", lang, opts);
+  if (!data) return null;
+  const p = new ExamplePack(data, lang);
+  packs.set(lang, p);
+  return p;
+}
+
+let keywordList = null;
+/** The free Mnemonic maker's English words: a KeywordList, or null. */
+export async function keywordsList(opts) {
+  if (keywordList) return keywordList;
+  const data = await pack("keywords", "en", opts);
+  if (data) keywordList = new KeywordList(data);
+  return keywordList;
+}
+
+/** What the examples file needs downloading for `lang`: {needed, installed, bytes}. */
+export const examplesStatus = (lang) => api(`/lexicon/status?lang=${lang}&kind=examples`);
+
+// A word's dictionary form, when the language's word tables are on this device (never downloads them).
+async function lemmaFinder(lang) {
+  let tables = null;
+  try { tables = await dictionaries(lang); } catch { /* none: words are matched as written */ }
+  if (!tables) return null;
+  return (form) => { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; };
+}
+
+/**
+ * An example sentence for `word` with no AI: {sentence, translation, source} or null when the file has
+ * none. `meaning` puts ⟦ ⟧ round the word in the translation; `dialect` prefers an Arabic dialect's.
+ */
+export async function freeExample(word, lang, { meaning = "", dialect = "", skip = [] } = {}) {
+  const p = await examplesOf(lang);
+  if (!p) return null;
+  const lemmaOf = await lemmaFinder(lang);
+  const found = p.find(word, { lemmaOf, dialect, meaning, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
+  if (!found.length) return null;
+  const best = found[0];
+  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source };
+}
+
+/**
+ * How `word` is said, with no AI (review/soundout.js), using Wiktionary's IPA from the examples file when
+ * it has the word and `reading` (what the app's dictionaries know: kana, pinyin, vowel marks) otherwise.
+ */
+export async function freePronunciation(word, lang, reading = "", meaning = "") {
+  const p = await examplesOf(lang).catch(() => null);
+  return pronunciationOf({ word, lang, ipa: p ? p.ipaOf(word, { verb: /^\s*to\s/i.test(meaning) }) : "", reading });
+}
+
+/**
+ * The free Mnemonic maker: keywords for card `v` ({text, meaning, pos}) the way mnemonic.js
+ * makeMnemonics gives them (with `free: true`). Throws "NO_KEYWORDS" when the English keyword list can't
+ * be had (no connection the first time).
+ */
+export async function freeMnemonics(v, lang, { reading = "", avoid = [] } = {}) {
+  const [list, pron] = await Promise.all([keywordsList(), freePronunciation(v.text, lang, reading, v.meaning)]);
+  if (!list) throw new Error("NO_KEYWORDS");
+  return makeFreeMnemonics(v, { pron, list, avoid });
+}

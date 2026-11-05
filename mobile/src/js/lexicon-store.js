@@ -16,7 +16,11 @@ const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it
 // Wolff's Dictionary of Cebuano Visayan).
 const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [`mean-${l}`]])), ar: ["mean-ar", "mean-arc"],
   ceb: ["mean-ceb", "mean-cebw"] };
-const KINDS = { words: LANGUAGES, meanings: MEANINGS };
+// Card helpers with no AI (tools/build_examples.py, as app/lexicon.py EXAMPLES): example sentences with
+// pronunciations, one file a language, and the free Mnemonic maker's English keywords.
+const EXAMPLES = Object.fromEntries(Object.keys(LANGUAGES).filter((l) => l !== "en").map((l) => [l, [`ex-${l}`]]));
+const KINDS = { words: LANGUAGES, meanings: MEANINGS, examples: EXAMPLES, keywords: { en: ["kw-en"] } };
+const EXAMPLE_ESTIMATE = 2500000;
 // Reading the text in a photo ("Add words" → Scan, web/js/ocr.js): Tesseract and each language's trained
 // data, for the study language and the learner's own ("es+en"), as app/lexicon.py names_for.
 const namesFor = (lang, kind) => (OCR_CORES[kind] ? ocrNames(lang, kind) : (KINDS[kind] || LANGUAGES)[lang] || []);
@@ -52,7 +56,8 @@ export async function lexiconStatus(lang = "ar", kind = "words") {
     const meta = index.files[name] || {};
     files[name] = { title: meta.title || name, bytes: meta.bytes || OCR_BYTES[name] || 0, license: meta.license || "", installed: have.has(name) };
   }
-  const bytes = names.reduce((n, name) => n + files[name].bytes, 0) || (kind === "meanings" ? MEANING_ESTIMATE : ESTIMATE)[lang] || 0;
+  const bytes = names.reduce((n, name) => n + files[name].bytes, 0)
+    || (kind === "examples" ? EXAMPLE_ESTIMATE : kind === "keywords" ? 150000 : (kind === "meanings" ? MEANING_ESTIMATE : ESTIMATE)[lang]) || 0;
   return { lang, kind, needed: names.length > 0, names, installed: names.length > 0 && names.every((n) => have.has(n)), bytes, files };
 }
 

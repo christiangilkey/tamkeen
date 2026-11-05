@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	대신 만들어 줘
+bf5f2da9	암기법 없음
+b8bf74bb	그 단어를 쓴 실제 문장 (Tatoeba 또는 위키낱말사전)과 영어 번역. <0>대신 AI가 쓰게 할 수 있어요</0>
+c8904665	그 단어를 쓴 실제 문장 (Tatoeba 또는 위키낱말사전)과 영어 번역. <0>AI를 설정</0>하면 문장을 대신 써 줘요.
+a19c2ced	그 단어와 소리가 비슷한 영어 단어를, 뜻을 떠올리게 하는 그림과 함께 암기 노트에 넣어요. 이 기기에서 AI 없이 만들어요.
+44c0cba7	선택: 문법, 쓰임, 어디서 들었는지
+6edbf7bc	찾아 드렸어요
+13a0f8ff	만들어 드린 암기법
+bea10c94	암기법, 그림
+dcf2ce6a	이 단어의 예문을 찾지 못했어요. 직접 쓰거나 비워 두세요.
+52e3278d	소리가 비슷한 영어 단어를 이 기기에서 AI 없이 찾았어요. 각각 뜻을 떠올리게 하는 그림이 있어요. '사용'을 누르면 암기 노트에 넣고, 엄지를 아래로 하면 다시는 보여 주지 않아요.
+7573a6d2	기억법 만들기는 처음 한 번 영어 단어 목록(0.2MB)이 필요해요. 연결을 확인하고 다시 시도하세요.
+b498b54c	단어의 발음을 알아내지 못해서 키워드를 찾지 못했어요.
+9c4491f1	AI 키 없이 암기법과 예문: 소리가 비슷한 영어 단어와 그림, Tatoeba와 위키낱말사전의 실제 문장

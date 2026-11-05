@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Crie uma para mim
+bf5f2da9	Sem mnemônico
+b8bf74bb	Uma frase real que usa a palavra, do Tatoeba ou do Wiktionary, com a tradução em inglês. <0>A IA pode escrevê-las</0>
+c8904665	Uma frase real que usa a palavra, do Tatoeba ou do Wiktionary, com a tradução em inglês. <0>Configure a IA</0> para que as escreva para você.
+a19c2ced	Palavras em inglês que soam como a palavra, cada uma com uma imagem do seu significado, nas Notas para memorizar. Feitas neste aparelho, sem IA.
+44c0cba7	Opcional: gramática, uso, onde você ouviu
+6edbf7bc	Encontrada para você
+13a0f8ff	Um mnemônico feito para você
+bea10c94	Um mnemônico, uma imagem
+dcf2ce6a	Nenhuma frase de exemplo foi encontrada para esta palavra. Escreva uma ou deixe em branco.
+52e3278d	Palavras em inglês que soam como ela, encontradas neste aparelho sem IA, cada uma com uma imagem do seu significado. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.
+7573a6d2	O Criador de mnemônicos precisa da sua lista de palavras em inglês na primeira vez (0,2 MB). Verifique a conexão e tente de novo.
+b498b54c	Não foi possível saber como a palavra soa, então nenhuma palavra-chave foi encontrada.
+9c4491f1	Mnemônicos e frases de exemplo sem chave de IA: palavras em inglês com som parecido, com uma imagem, e frases reais do Tatoeba e do Wiktionary

@@ -127,3 +127,11 @@ def test_a_wav_recording_from_a_phone_plays_as_wav(client):
     clips = _anki_clips([row])[row["uid"]]
     assert set(clips) == {"word", "sentence"}
     assert all(c[:3] == b"ID3" or c[:2] in (b"\xff\xfb", b"\xff\xf3", b"\xff\xf2") for c in clips.values()), "MP3 clips, as for any card"
+
+
+def test_a_batch_card_can_bring_its_memorization_notes(client):
+    """"Add words" can make a mnemonic (the free Mnemonic maker): it is the card's Memorization notes."""
+    card = client.post("/api/vocab/batch", json={"cards": [{"text": "pato", "memo": "POT — Picture a duck balanced on top of a POT."}]}).json()["cards"][0]
+    assert card["memo"].startswith("POT — ")
+    plain = client.post("/api/vocab/batch", json={"cards": [{"text": "mesa"}]}).json()["cards"][0]
+    assert not plain.get("memo")

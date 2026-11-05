@@ -1,0 +1,37 @@
+Example sentences and the free Mnemonic maker: Tatoeba, Wiktionary, WordNet, FrequencyWords, CMUdict (optional download)
+
+With no AI key, "Add words" can fill in a real example sentence for a word, and the review card's Mnemonic
+maker finds English words that sound like it. What they use is not part of this program: the app downloads
+it the first time it is needed (docs/lexicon/<language>-examples.json.gz and en-keywords.json.gz, made by
+tools/build_examples.py).
+
+Example sentences and their English translations:
+
+- Tatoeba (https://tatoeba.org), a collection of sentences and translations written by its contributors.
+  The sentences are available under the Creative Commons Attribution 2.0 France license
+  (https://creativecommons.org/licenses/by/2.0/fr/); some are in the public domain (CC0). Each sentence
+  kept here keeps its Tatoeba number, so it can be found at https://tatoeba.org/en/sentences/show/<number>
+  with its author. Sentences were chosen (short ones, a few for each word) and nothing in them was changed.
+- The English Wiktionary's usage examples (https://en.wiktionary.org, by the Wiktionary contributors), as
+  extracted by Wiktextract (Tatu Ylonen, https://kaikki.org), under the Creative Commons
+  Attribution-ShareAlike 4.0 International License (https://creativecommons.org/licenses/by-sa/4.0/).
+  The same files keep each word's pronunciation (IPA) from Wiktionary, and Chinese words' pinyin from
+  CC-CEDICT (CC BY-SA 4.0, https://cc-cedict.org). The files are shared under CC BY-SA 4.0.
+
+The free Mnemonic maker's English words:
+
+- US pronunciations from the CMU Pronouncing Dictionary (BSD-style licence: see cmudict.txt).
+- What kind of thing each word names (an animal, a tool, a food...) from WordNet 3.0:
+  WordNet 3.0 Copyright 2006 by Princeton University. All rights reserved.
+  THIS SOFTWARE AND DATABASE IS PROVIDED "AS IS" AND PRINCETON UNIVERSITY MAKES NO REPRESENTATIONS OR
+  WARRANTIES, EXPRESS OR IMPLIED. BY WAY OF EXAMPLE, BUT NOT LIMITATION, PRINCETON UNIVERSITY MAKES NO
+  REPRESENTATIONS OR WARRANTIES OF MERCHANT- ABILITY OR FITNESS FOR ANY PARTICULAR PURPOSE OR THAT THE USE
+  OF THE LICENSED SOFTWARE, DATABASE OR DOCUMENTATION WILL NOT INFRINGE ANY THIRD PARTY PATENTS,
+  COPYRIGHTS, TRADEMARKS OR OTHER RIGHTS. The name of Princeton University or Princeton may not be used in
+  advertising or publicity pertaining to distribution of the software and/or database. Title to copyright
+  in this software, database and any associated documentation shall at all times remain with Princeton
+  University and LICENSEE agrees to preserve same. (George A. Miller (1995). WordNet: A Lexical Database
+  for English. Communications of the ACM Vol. 38, No. 11: 39-41.) Permission to use, copy, modify and
+  distribute WordNet for any purpose and without fee or royalty is granted, provided this notice is kept.
+- How common each word is, from Hermit Dave's FrequencyWords (https://github.com/hermitdave/FrequencyWords),
+  counts of OpenSubtitles 2018, under CC BY-SA 4.0.

@@ -6645,3 +6645,74 @@ language do you speak?" box doesn't offer it; tests/js/i18n.test.mjs says so). C
 - **Not done**: Latin courses (Basics and Grammar: none, the Library says "There are
   no courses for this language yet"), Netflix (no Latin there). Macronizing a text that has none (showing amāvit over
   amavit in running text) is only in the popup, not over the words.
+
+
+## Mnemonics and example sentences with no AI key (2026-11-05, on main; "Free mnemonics and sentences" chat)
+Task from the main chat: free versions, with no AI key, of the keyword-method mnemonics and of the example sentences, in
+Add words, the Mnemonic maker and the review card's Memorization notes. With a key the AI paths are unchanged.
+- **Data, per-language downloads** (`tools/build_examples.py`, kinds in app/lexicon.py and mobile lexicon-store.js):
+  - `ex-<lang>` = `docs/lexicon/<lang>-examples.json.gz` (17 languages, not English; 0.13 MB Bisaya … 3.9 MB Chinese, 26 MB
+    in all): `sentences` [[text, english, source]]: Tatoeba pairs (CC BY 2.0 FR, source `t<number>`, `:arz` etc. for a
+    dialect), at most 40,000, a few (PER_WORD 3) for each word form, easiest first; plus Wiktionary usage examples (not
+    quotations), `words` {key: [their sentence numbers]}, source `w` / `w:<dialect>`; `ipa` {key: Wiktionary IPA} for
+    dictionary words (keys as meanings' `key`); Arabic/Persian `"qalam|n;qallama|v"` (every word that spelling is, nouns
+    first); Latin the IPA not tagged Classical (= Ecclesiastical); Chinese `"py:<pinyin>"` from Wiktionary, then every
+    CC-CEDICT word with a count, and `t2s` (traditional → simplified characters). Chinese examples: Cantonese ones dropped.
+  - `kw-en` = `en-keywords.json.gz` (0.14 MB): 10,069 English dictionary words (en-lemmas' lemmas, ≥ 3 letters, rank ≤ 30,000
+    in FrequencyWords' OpenSubtitles counts, CC BY-SA 4.0), each [word, CMU IPA, WordNet pos n/v/a/r, kind of its first
+    noun sense (WordNet 3.0 lexnames: animal, artifact, food, body, person, plant, object, place, nature, substance), rank];
+    WordNet-capitalised-only words (names) left out; `adjectives` (2,636) to tell a quality meaning from a thing.
+  - Sources' working copies were in the session scratchpad (not kept); `build_examples.py extract <cache> <langs>` streams
+    kaikki.org, `build <cache> <tatoeba dir> <langs>` needs Tatoeba's per_language exports, `keywords <WordNet dict> <en_50k.txt>`.
+  - Licences: `licenses/card-helpers.txt` (+ index.json entry), `docs/lexicon/LICENSE-card-helpers.txt`, README table.
+    No third-party code: only data files.
+- **How the word is said** (`web/js/review/soundout.js`, pure): Wiktionary's IPA (examples.js passes the verb's for a
+  "to …" meaning); else the reading the device has (kana, pinyin, romanization, Arabic vowel marks) or the spelling, by
+  per-language rules (es it pt ca fr de la tl/ceb ru ko th hi ja-kana zh-pinyin ar/fa); `syllabify` (IPA marks kept, else
+  one consonant to the next syllable, two split unless an obstruent + liquid onset), `placeStress` by language rule;
+  respelled for the "How it sounds" line (ka-BA-yo). Thai/Japanese/Chinese words the file lacks: built from known pieces.
+- **Keywords** (`web/js/review/freemnemonic.js`, pure): every keyword-list word against every run of the word's syllables
+  (phonemes.js `similarity`, the AI maker's sound check), top 40 per run; singles scored like `match`; two-word keywords for
+  the whole word (one word a noun; pieces common, no adverbs) and three-piece split ones for 3+ syllables; then
+  mnemonic.js `rankSuggestions` (new `count` option) checks them, and they are reordered with a picture bonus (animal 0.08 …
+  noun 0.02, plus commonness), a two-word keyword −0.1, same WordNet kind as the meaning = "loose" (+0.03); `varied` keeps
+  one phrase per piece word. ~100-350 ms a word. The picture line (`sceneFor`): templates per keyword kind × meaning
+  noun / "to" verb / adjective, the keyword in capitals ("Picture a duck balanced on top of a POT."), no "a" before
+  uncountable meanings (`MASS`). Result has `free: true`; the card says "English words that sound like it, found on this
+  device without AI…". Errors NO_KEYWORDS (list couldn't be downloaded) / NO_SOUNDS.
+- **Sentences** (`web/js/lexicon/exampledata.js` ExamplePack, pure): own-entry Wiktionary examples (−1.2; Chinese +1.5),
+  token index (Arabic/Persian also without و ف ب ل ك ال in front), dictionary-form matches through `lemmaOf` when the word
+  tables are here, substring search for ja/zh/th; scored by length (7 words best, > 12 +1), phrase/idiom +3, no full stop
+  +1.5, translation containing the meaning −0.6 (else +1.5: picks the sense: manzana "apple", not "block"), long English +1,
+  dialect mismatch +2.5. `markTranslation` puts ⟦ ⟧ round the meaning in the English; notes in brackets at the end dropped.
+- **Wiring** (`web/js/examples.js`, shared; added to build-www SHARED): downloads a pack the first time (`/lexicon/download`,
+  kinds "examples" / "keywords"), `freeExample`, `freePronunciation`, `freeMnemonics`.
+  - Review card (`pages/review.js` Mnemonic maker): `noAi() || !definerConfig().key` → free maker; a NO_KEY failure of the
+    AI falls back to it. Everything else on the card (Use, thumbs down, Make 5 more, avoid store) unchanged.
+  - Add words (`components/wordbuilder.js`, `addwords.js`): "Write one for me" is no longer disabled without AI: no AI →
+    step 3 finds a sentence (placeholders "Found for you"; "No example sentence was found…" note, not an error); new choice
+    **Mnemonic: Make one for me / No mnemonic** (`CHOICES.mnemonic`, default auto, `needsMemo`) and a **Memorization
+    notes** field per row (`row.memo`, typing wins) filled by the free maker (always free, key or not: the AI never made
+    them here); `cardOf` sends `memo`; `POST /vocab/batch` saves it on both servers (app/api/vocab.py BatchCard.memo,
+    backend.js). The Notes placeholder lost "a mnemonic".
+- i18n `tools/i18n/tr/<code>/113-free-card-help.txt` (14 × 16); ignore.txt: "Tatoeba" and the two English scene lines with {0}.
+  CHANGELOG Unreleased "New:" line; whatsnew `notes("0.45.0", …)`.
+- **Quality, 20 common words × 11 languages** (script and full output in the session; summary): keywords good for most
+  words in Spanish (pillow/perro, cart/carta, mansion/manzana, pot/pato), German (haunt/Hund, visor/Wasser, ant/Ente,
+  vocal/Vogel), Latin (loon/luna, lettuce/laetus, cooler/culter), Hindi (bunny/pānī, pier/peṛ, pixie/pakṣī), Persian
+  (sack/sag, maze/miz, panda/parande), Korean (koala/goyangi, jeep/jip, saga/sagwa), Arabic MSA (column/qalam, mattress/
+  madrasa, towel/ṭāwila), Chinese after the CEDICT fix (dough/gǒu, shoe/shū, bingo/píngguǒ), Japanese (neck/neko, moat/
+  moto, dingo/ringo). Weaker: Thai sounds for words Wiktionary lacks are pieced together from shorter words (มีความสุข), roughly; Bisaya
+  has few sentences (1,891: kabayo, mansanas found none); Arabic unvowelled words Wiktionary lacks are guessed (khubz read
+  khabaza); dialect courses get MSA sentences and MSA sounds. Scenes are templates (sometimes odd: "a KELP dressed up as a
+  dog": WordNet files kelp as an organism). Sentences: found for 214/220 (none for 3 infinitives, kabayo, mansanas, calceus), nearly all on the right sense after the
+  sense/full-stop rules; Hindi/Korean verbs in dictionary form need the word tables for other forms.
+- **Checked**: JS + pytest (new tests/js/freemnemonic.test.mjs 13; test_lexicon kinds; test_add_words memo), i18n
+  --check. Desktop preview `freecards-desktop` (port 8996) on a fresh data folder (no Google sign-in row), Spanish, no key:
+  Add words → Paste a list → Fill in gave a sentence + translation + mnemonic for 4 words, Add saved memo and ⟦ ⟧
+  translations; review card's Mnemonic maker showed 5 free keywords with pictures, thumbs down stored and dropped one, Make
+  5 more gave new ones; no console errors. Phone build (build-www) contains the new files.
+- **NOT checked / to do**: the phone and web app in a browser (their downloads come from GitHub Pages: **the new docs/lexicon
+  files must be published before installed apps can get them**); a real AI key (the AI paths are untouched). Ideas: a
+  dialect's own sentences/IPA for the dialect courses; Thai script rules for words without a reading; keywords in the
+  learner's own language when it isn't English (the free list is English only).

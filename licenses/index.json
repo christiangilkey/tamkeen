@@ -20,6 +20,7 @@
   {"name": "The IPADIC dictionary and kuromoji: Japanese words and furigana (optional download)", "license": "Apache 2.0 / MIT / NAIST", "file": "kuromoji.txt"},
   {"name": "CC-CEDICT and wordfreq: Chinese words and pinyin (optional download)", "license": "CC BY-SA 4.0", "file": "cc-cedict.txt"},
   {"name": "Wiktionary via Wiktextract: word meanings for No AI (optional download)", "license": "CC BY-SA 4.0", "file": "wiktionary.txt"},
+  {"name": "Tatoeba, Wiktionary, WordNet and FrequencyWords: example sentences and the free Mnemonic maker (optional download)", "license": "CC BY 2.0 FR; CC BY-SA 4.0; WordNet licence", "file": "card-helpers.txt"},
   {"name": "PDF.js (Mozilla): reading PDF books you add", "license": "Apache 2.0", "file": "pdfjs.txt"},
   {"name": "Tesseract.js and Tesseract OCR with its language data: reading words in a photo on the device (optional download)", "license": "Apache 2.0", "file": "tesseract.txt"},
   {"name": "The free book shelf: Project Gutenberg, Wikisource, Aozora Bunko (optional download)", "license": "Public domain", "file": "free-books.txt"},

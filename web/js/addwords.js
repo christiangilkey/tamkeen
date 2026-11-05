@@ -24,8 +24,9 @@ export const CHOICES = {
   meaning: ["auto", "type"],             // "Fill in for me" / "I'll type it"
   sentence: ["auto", "none", "type"],    // "Write one for me" / "No sentence" / "I'll type it"
   audio: ["auto", "none", "own"],        // "Make it for me" / "No audio" / "I'll add my own"
+  mnemonic: ["auto", "none"],            // "Make one for me" / "No mnemonic" (Memorization notes: the free Mnemonic maker)
 };
-export const DEFAULT_CHOICES = { meaning: "auto", sentence: "auto", audio: "auto", folder: "" };
+export const DEFAULT_CHOICES = { meaning: "auto", sentence: "auto", audio: "auto", mnemonic: "auto", folder: "" };
 
 /** Choices kept on this device, made safe: anything unknown is the default. */
 export function cleanChoices(saved) {
@@ -69,6 +70,9 @@ export function needs(row, choices) {
 
 /** Does a row need anything filled in? */
 export const needsAny = (row, choices) => Object.values(needs(row, choices)).some(Boolean);
+
+/** Does a row still want a mnemonic in its Memorization notes (made on the device, no AI)? */
+export const needsMemo = (row, choices) => choices.mnemonic === "auto" && !hasValue(row.memo);
 
 // ---------------------------------------------------------------- comparing words
 
@@ -310,6 +314,7 @@ export function cardOf(row, { choices = DEFAULT_CHOICES, folder = "" } = {}) {
     sentence: noSentence ? "" : v(row.sentence).slice(0, 1000),
     translation: noSentence ? "" : v(row.translation).slice(0, 1000),
     notes: v(row.notes).slice(0, 2000),
+    memo: v(row.memo).slice(0, 2000),
     folders: folder ? [folder] : [],
   };
 }

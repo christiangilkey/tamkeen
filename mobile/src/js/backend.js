@@ -866,6 +866,7 @@ const routes = [
       const text = s(c.text, 200), found = detectLanguage(text, study);
       const v = { uid: newUid(), episode_uid: null, text, sentence: s(c.sentence, 1000), start: null, end: null, sent_start: null,
                   sent_end: null, meaning: s(c.meaning, 500), notes: s(c.notes, 2000), translation: s(c.translation, 1000),
+                  ...(s(c.memo, 2000) ? { memo: s(c.memo, 2000) } : {}),  // (a mnemonic "Add words" made)
                   language: isLanguage(found) ? found : study, episode_title: s(c.source, 200),  // (the basics course names itself)
                   folders: [...new Set((Array.isArray(c.folders) ? c.folders : []).filter((f) => known.has(f)))].sort(),
                   deleted: 0, created_at: t - n * 0.001, updated_at: t };

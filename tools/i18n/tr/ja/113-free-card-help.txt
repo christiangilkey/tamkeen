@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	自動で作る
+bf5f2da9	覚え方なし
+b8bf74bb	その語を使った実際の文（Tatoeba または Wiktionary から）と英訳。<0>代わりに AI に書かせることもできます</0>
+c8904665	その語を使った実際の文（Tatoeba または Wiktionary から）と英訳。<0>AI を設定</0>すると文を書いてもらえます。
+a19c2ced	その語に音が似た英単語を、意味を表すイメージ付きで暗記メモに入れます。この端末で、AI なしで作ります。
+44c0cba7	任意：文法、使い方、どこで聞いたか
+6edbf7bc	見つかった文
+13a0f8ff	自動で作った覚え方
+bea10c94	覚え方、イメージ
+dcf2ce6a	この語の例文は見つかりませんでした。自分で書くか、空欄のままにしてください。
+52e3278d	音が似た英単語を、この端末で AI なしで見つけました。それぞれに意味を表すイメージ付きです。「使う」で暗記メモに入れ、親指を下に向けると二度と出しません。
+7573a6d2	語呂合わせメーカーは初回に英単語リスト（0.2 MB）が必要です。接続を確認して、もう一度お試しください。
+b498b54c	この語の発音がわからなかったため、キーワードが見つかりませんでした。
+9c4491f1	AI キーなしで覚え方と例文：音が似た英単語とイメージ、そして Tatoeba と Wiktionary の実際の文

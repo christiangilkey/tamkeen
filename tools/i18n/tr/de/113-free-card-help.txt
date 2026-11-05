@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Für mich machen
+bf5f2da9	Keine Eselsbrücke
+b8bf74bb	Ein echter Satz mit dem Wort, aus Tatoeba oder Wiktionary, mit englischer Übersetzung. <0>Die KI kann sie stattdessen schreiben</0>
+c8904665	Ein echter Satz mit dem Wort, aus Tatoeba oder Wiktionary, mit englischer Übersetzung. <0>KI einrichten</0>, damit sie für dich geschrieben werden.
+a19c2ced	Englische Wörter, die wie das Wort klingen, jedes mit einem Bild für seine Bedeutung, in den Merknotizen. Auf diesem Gerät gemacht, ohne KI.
+44c0cba7	Optional: Grammatik, Gebrauch, wo du es gehört hast
+6edbf7bc	Für dich gefunden
+13a0f8ff	Eine Eselsbrücke für dich
+bea10c94	Eine Eselsbrücke, ein Bild
+dcf2ce6a	Für dieses Wort wurde kein Beispielsatz gefunden. Schreib einen oder lass das Feld leer.
+52e3278d	Englische Wörter, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden, jedes mit einem Bild für die Bedeutung. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.
+7573a6d2	Der Eselsbrücken-Macher braucht beim ersten Mal seine Liste englischer Wörter (0,2 MB). Prüfe deine Verbindung und versuch es noch einmal.
+b498b54c	Wie das Wort klingt, ließ sich nicht herausfinden, darum wurden keine Schlüsselwörter gefunden.
+9c4491f1	Eselsbrücken und Beispielsätze ohne KI-Schlüssel: ähnlich klingende englische Wörter mit einem Bild und echte Sätze aus Tatoeba und Wiktionary

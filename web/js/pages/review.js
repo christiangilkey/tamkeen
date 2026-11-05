@@ -34,7 +34,8 @@ import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, pa
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { MNEMONIC_COUNT, addToNotes, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
-import { askMnemonic } from "../define-service.js";
+import { askMnemonic, definerConfig, noAi } from "../define-service.js";
+import { freeMnemonics } from "../examples.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
@@ -702,6 +703,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
       label.textContent = "Make 5 more";
       if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
+      else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
       else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
       // Fewer than five that pass: only those are shown, and the card says so.
       const n = all.length;
@@ -724,18 +726,34 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         const shown = before ? before.shown : [];
         const avoid = [...new Set([...shown, ...turnedDown(avoidStore(), uid)])].slice(-40);
         const reading = await readingOf(v, lang);
-        const got = await makeMnemonics(v, {
-          ask: askMnemonic, study: studyName, speaks, avoid, reading,
-          variety: varietyOf(lang, pickedCountry(lang), studyName),
-          ownSounds: uiLanguage() === "en" ? englishCheck() : null,
-        });
+        // No AI key (or AI turned off): the free maker, English keywords found on this device
+        // (examples.js freeMnemonics). With a key the AI's, as before; a key that turns out missing falls back.
+        const free = () => freeMnemonics(v, lang, { reading, avoid });
+        let got;
+        if (noAi() || !definerConfig().key) got = await free();
+        else {
+          try {
+            got = await makeMnemonics(v, {
+              ask: askMnemonic, study: studyName, speaks, avoid, reading,
+              variety: varietyOf(lang, pickedCountry(lang), studyName),
+              ownSounds: uiLanguage() === "en" ? englishCheck() : null,
+            });
+          } catch (e) {
+            if (!(e && e.message === "NO_KEY")) throw e;
+            got = await free();
+          }
+        }
         const st = { ...got, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
         mnemonics.set(uid, st);
         if (go.isConnected) draw(st);
       } catch (e) {
         if (!go.isConnected) return;
         label.textContent = mnemonics.get(uid) ? "Make 5 more" : "Mnemonic maker";
-        say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
+        const why = e && e.message;
+        say(why === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
+          : why === "NO_KEYWORDS" ? t("The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.")
+          : why === "NO_SOUNDS" ? t("The word's sounds couldn't be worked out, so no keywords could be found.")
+          : why || "That didn't work. Try again.", true);
         offerFix(e);  // no key, or a refused one: the popup with the way to Settings
         const fix = troubleshootButton(e);
         if (fix) note.append(" ", fix);

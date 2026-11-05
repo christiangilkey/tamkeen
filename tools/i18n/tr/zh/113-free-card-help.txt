@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	帮我做一个
+bf5f2da9	不要记忆法
+b8bf74bb	一个用到这个词的真实句子，来自 Tatoeba 或维基词典，附英文翻译。<0>也可以让 AI 来写</0>
+c8904665	一个用到这个词的真实句子，来自 Tatoeba 或维基词典，附英文翻译。<0>设置 AI</0>，让它为你写句子。
+a19c2ced	发音像这个词的英文单词，每个都配一幅表示词义的画面，放进记忆笔记。在本设备上生成，不用 AI。
+44c0cba7	可选：语法、用法、在哪儿听到的
+6edbf7bc	为你找到的
+13a0f8ff	为你做的记忆法
+bea10c94	记忆法、画面
+dcf2ce6a	没有找到这个词的例句。自己写一句，或者留空。
+52e3278d	发音相近的英文单词，在本设备上不用 AI 找到，每个都配一幅表示词义的画面。“使用”会把它放进记忆笔记；点踩则永远不再显示。
+7573a6d2	谐音助记生成器第一次需要下载英文单词表（0.2 MB）。请检查网络后重试。
+b498b54c	无法确定这个词的发音，所以没有找到关键词。
+9c4491f1	不用 AI 密钥也能做记忆法和例句：发音相近的英文单词配画面，以及来自 Tatoeba 和维基词典的真实句子

@@ -50,7 +50,12 @@ FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.g
 MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc"), "ceb": ("mean-ceb", "mean-cebw")}
 FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES}
              | {"mean-arc": "ar-camel-meanings.json.gz", "mean-cebw": "ceb-wolff-meanings.json.gz"})
-KINDS = {"words": LANGUAGES, "meanings": MEANINGS}
+# Card helpers with no AI (tools/build_examples.py): each language's example sentences with Wiktionary's
+# pronunciations ("Add words", the free Mnemonic maker), and the English keyword list of the free Mnemonic
+# maker (kind "keywords", lang "en"). Downloaded the first time they are needed.
+EXAMPLES = {lang: (f"ex-{lang}",) for lang in LANGUAGES if lang != "en"}
+FILES.update({f"ex-{lang}": f"{lang}-examples.json.gz" for lang in EXAMPLES} | {"kw-en": "en-keywords.json.gz"})
+KINDS = {"words": LANGUAGES, "meanings": MEANINGS, "examples": EXAMPLES, "keywords": {"en": ("kw-en",)}}
 # Reading the text in a photo ("Add words" → Scan, web/js/ocr.js; files made by tools/build_ocr.mjs): Tesseract
 # itself (the "core": one build for devices with WebAssembly SIMD, kind "ocr", one for older ones, kind "ocr-plain")
 # and each language's trained data, by Tesseract's names. For these kinds `lang` is the study language and the

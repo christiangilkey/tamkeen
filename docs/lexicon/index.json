@@ -61,6 +61,193 @@
    "forms": 236601,
    "lexemes": 67736
   },
+  "ex-ar": {
+   "file": "ar-examples.json.gz",
+   "bytes": 1435360,
+   "sha256": "2fa9163506d8d16c9be9d4445d8cbb17b97bfc8b06e3e4e9d5c5bc0d58f9f7ab",
+   "title": "Arabic example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 33824,
+   "wiktionary": 4144,
+   "pronunciations": 13029
+  },
+  "ex-ca": {
+   "file": "ca-examples.json.gz",
+   "bytes": 411036,
+   "sha256": "dab53becedef522e89cc870fd98fe048e02649b12ecb6eb5717dfb8302f8bfd2",
+   "title": "Catalan example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 4963,
+   "wiktionary": 1401,
+   "pronunciations": 23856
+  },
+  "ex-ceb": {
+   "file": "ceb-examples.json.gz",
+   "bytes": 132744,
+   "sha256": "385ef901d5cb1f7eda80f7be1d157ddaec93d291126717d0e7d8710d82c83e63",
+   "title": "Cebuano example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 1891,
+   "wiktionary": 1263,
+   "pronunciations": 3535
+  },
+  "ex-de": {
+   "file": "de-examples.json.gz",
+   "bytes": 2684302,
+   "sha256": "3f53cb12ef6842b0d58d12a48ff76f3b4b0c94e3aa9981d83aad97eb0a3ed8d6",
+   "title": "German example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 51402,
+   "wiktionary": 11420,
+   "pronunciations": 52489
+  },
+  "ex-es": {
+   "file": "es-examples.json.gz",
+   "bytes": 2403321,
+   "sha256": "4ee2c6a97778a736e4b807bb0f49aaec11a8ed44129dbb347b3b7cff7d4e069a",
+   "title": "Spanish example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 44937,
+   "wiktionary": 4958,
+   "pronunciations": 67935
+  },
+  "ex-fa": {
+   "file": "fa-examples.json.gz",
+   "bytes": 492976,
+   "sha256": "74e88fe405ac9dd186f9b247434a78b99d560d9af295a0295c6d6d3517441d35",
+   "title": "Persian example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 9691,
+   "wiktionary": 2957,
+   "pronunciations": 10708
+  },
+  "ex-fr": {
+   "file": "fr-examples.json.gz",
+   "bytes": 2477889,
+   "sha256": "1a083fa879d68c20778533b44811e8c541c1ec1dd1f63f5d1aece5011c21e239",
+   "title": "French example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 47949,
+   "wiktionary": 7975,
+   "pronunciations": 64201
+  },
+  "ex-hi": {
+   "file": "hi-examples.json.gz",
+   "bytes": 473190,
+   "sha256": "ac686a7b868a5a3a6afed64ee6e7ca91c5061c50e3bce313492d608608cb6348",
+   "title": "Hindi example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 6528,
+   "wiktionary": 4413,
+   "pronunciations": 17726
+  },
+  "ex-it": {
+   "file": "it-examples.json.gz",
+   "bytes": 1947031,
+   "sha256": "b95863207241ef95348fc1b31e97d11bc982bf042daa5f5bc3f2bd1ab901c6ad",
+   "title": "Italian example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 44533,
+   "wiktionary": 4546,
+   "pronunciations": 47430
+  },
+  "ex-ja": {
+   "file": "ja-examples.json.gz",
+   "bytes": 2158184,
+   "sha256": "2362ca89d5634f2c564500750d666c3d000bfe121a65da9b38362fa6e2ac1eb1",
+   "title": "Japanese example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 51500,
+   "wiktionary": 11554,
+   "pronunciations": 51659
+  },
+  "ex-ko": {
+   "file": "ko-examples.json.gz",
+   "bytes": 894772,
+   "sha256": "e511331678be6498371c3e2c74e2c20824a79447fd647500b4aaa65f7015d7df",
+   "title": "Korean example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 14369,
+   "wiktionary": 6290,
+   "pronunciations": 30221
+  },
+  "ex-la": {
+   "file": "la-examples.json.gz",
+   "bytes": 1028429,
+   "sha256": "ab1c982bef4aebc4dd8bf9ada5e59fea11d301448a85e1696929d4063d22d0b9",
+   "title": "Latin example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 22643,
+   "wiktionary": 1414,
+   "pronunciations": 26767
+  },
+  "ex-pt": {
+   "file": "pt-examples.json.gz",
+   "bytes": 2130445,
+   "sha256": "19d439d135b5add8232f6e982085078311454df0f522082d07a36c036916db9e",
+   "title": "Portuguese example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 44277,
+   "wiktionary": 4325,
+   "pronunciations": 46213
+  },
+  "ex-ru": {
+   "file": "ru-examples.json.gz",
+   "bytes": 2807688,
+   "sha256": "4681c915b739eca9e1e97248c660d758eb01128b29670c9204cce32c9c864ffb",
+   "title": "Russian example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 53897,
+   "wiktionary": 13897,
+   "pronunciations": 51779
+  },
+  "ex-th": {
+   "file": "th-examples.json.gz",
+   "bytes": 374419,
+   "sha256": "be5f043296326e540d05eac881a2f0ed80cd59ec7e6bf98b942efa6c4e849126",
+   "title": "Thai example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 6184,
+   "wiktionary": 1820,
+   "pronunciations": 15382
+  },
+  "ex-tl": {
+   "file": "tl-examples.json.gz",
+   "bytes": 862398,
+   "sha256": "40acacc73b222b2f13f43118480788524ced8a239190c93840c85f0b4094e976",
+   "title": "Tagalog example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 20100,
+   "wiktionary": 2058,
+   "pronunciations": 22586
+  },
+  "ex-zh": {
+   "file": "zh-examples.json.gz",
+   "bytes": 3877516,
+   "sha256": "f2ec9bad829db880ef1fb5d851eef138532ccb2c8f8ba5f400de90603b271e89",
+   "title": "Chinese example sentences",
+   "db": "Tatoeba + English Wiktionary (Wiktextract)",
+   "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
+   "sentences": 57776,
+   "wiktionary": 17797,
+   "pronunciations": 178969
+  },
   "fa": {
    "file": "fa-lemmas.json.gz",
    "bytes": 109066,
@@ -129,6 +316,15 @@
    "license": "CC-BY-SA-4.0",
    "forms": 0,
    "lexemes": 32124
+  },
+  "kw-en": {
+   "file": "en-keywords.json.gz",
+   "bytes": 144777,
+   "sha256": "df4da30d364aa747de498da2f63fd4a9e9d7ee854f8348edee10d6ded35e7767",
+   "title": "English keywords for mnemonics",
+   "db": "CMUdict + WordNet 3.0 + FrequencyWords",
+   "license": "CMUdict + WordNet + CC-BY-SA-4.0",
+   "words": 10069
   },
   "la": {
    "file": "la-lemmas.json.gz",

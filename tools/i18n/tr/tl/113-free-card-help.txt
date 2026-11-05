@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Gumawa para sa akin
+bf5f2da9	Walang mnemonic
+b8bf74bb	Isang tunay na pangungusap na gumagamit ng salita, mula sa Tatoeba o Wiktionary, kasama ang salin sa Ingles. <0>Puwedeng AI na lang ang sumulat</0>
+c8904665	Isang tunay na pangungusap na gumagamit ng salita, mula sa Tatoeba o Wiktionary, kasama ang salin sa Ingles. <0>I-set up ang AI</0> para isulat ang mga ito para sa iyo.
+a19c2ced	Mga salitang Ingles na kahawig ng tunog ng salita, bawat isa may larawan para sa kahulugan nito, ilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI.
+44c0cba7	Opsiyonal: gramatika, gamit, kung saan mo ito narinig
+6edbf7bc	Nahanap para sa iyo
+13a0f8ff	Isang mnemonic na ginawa para sa iyo
+bea10c94	Isang mnemonic, isang larawan
+dcf2ce6a	Walang nahanap na halimbawang pangungusap para sa salitang ito. Mag-type ng isa, o iwanang blangko.
+52e3278d	Mga salitang Ingles na kahawig ang tunog, nahanap sa device na ito nang walang AI, bawat isa may larawan para sa kahulugan. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.
+7573a6d2	Kailangan ng Gawa ng mnemonic ang listahan nito ng mga salitang Ingles sa unang beses (0.2 MB). Tingnan ang koneksiyon mo at subukan ulit.
+b498b54c	Hindi malaman kung paano binibigkas ang salita, kaya walang nahanap na keyword.
+9c4491f1	Mga mnemonic at halimbawang pangungusap nang walang AI key: mga salitang Ingles na kahawig ang tunog na may larawan, at tunay na pangungusap mula sa Tatoeba at Wiktionary

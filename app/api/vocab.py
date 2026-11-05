@@ -45,6 +45,7 @@ class BatchCard(BaseModel):
     sentence: str = ""
     translation: str = ""  # may carry ⟦ ⟧ round the word's part, as a looked-up word's does
     notes: str = ""
+    memo: str = ""  # Memorization notes: "Add words" can put a mnemonic there (the free Mnemonic maker)
     folders: list[str] = []
     source: str = ""  # where it came from, shown on the card ("Arabic basics · word 12": the basics course)
 
@@ -243,10 +244,10 @@ def add_batch(body: BatchIn) -> dict[str, Any]:
             folders = sorted({f for f in c.folders if f in known})
             cur = conn.execute(
                 "INSERT INTO vocab(uid, text, norm, sentence, meaning, notes, translation, episode_title, created_at, "
-                "language, folders) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
+                "language, folders, memo) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
                 (ids.new_uid(), text, arabic.normalize(text), c.sentence.strip()[:1000], c.meaning.strip()[:500],
                  c.notes.strip()[:2000], c.translation.strip()[:1000], c.source.strip()[:200], now - n * 0.001,
-                 languages.detect(text, study), json.dumps(folders)),
+                 languages.detect(text, study), json.dumps(folders), c.memo.strip()[:2000]),
             )
             made.append(int(cur.lastrowid))
         rows = [conn.execute("SELECT * FROM vocab WHERE id = ?", (i,)).fetchone() for i in made]

@@ -1,0 +1,16 @@
+# Free card helpers with no AI key: the free Mnemonic maker (review/freemnemonic.js), example sentences
+# from Tatoeba and Wiktionary in Add words (examples.js, wordbuilder.js), and the 0.45 What's new line.
+bfdd4dfe	Fais-en une pour moi
+bf5f2da9	Pas de mnémotechnique
+b8bf74bb	Une vraie phrase qui utilise le mot, de Tatoeba ou du Wiktionnaire, avec sa traduction en anglais. <0>L'IA peut les écrire à la place</0>
+c8904665	Une vraie phrase qui utilise le mot, de Tatoeba ou du Wiktionnaire, avec sa traduction en anglais. <0>Configure l'IA</0> pour qu'elle les écrive pour toi.
+a19c2ced	Des mots anglais qui sonnent comme le mot, chacun avec une image de son sens, dans les Notes de mémorisation. Faits sur cet appareil, sans IA.
+44c0cba7	Facultatif : grammaire, usage, où tu l'as entendu
+6edbf7bc	Trouvée pour toi
+13a0f8ff	Une mnémotechnique faite pour toi
+bea10c94	Une mnémotechnique, une image
+dcf2ce6a	Aucune phrase d'exemple n'a été trouvée pour ce mot. Écris-en une ou laisse vide.
+52e3278d	Des mots anglais qui sonnent comme lui, trouvés sur cet appareil sans IA, chacun avec une image de son sens. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.
+7573a6d2	Le Créateur de mnémoniques a besoin de sa liste de mots anglais la première fois (0,2 Mo). Vérifie ta connexion et réessaie.
+b498b54c	Impossible de savoir comment le mot se prononce, donc aucun mot-clé n'a été trouvé.
+9c4491f1	Mnémotechniques et phrases d'exemple sans clé d'IA : des mots anglais qui sonnent pareil, avec une image, et de vraies phrases de Tatoeba et du Wiktionnaire
