@@ -22415,6 +22415,11 @@
   "f": "app/api/definer.py"
  },
  {
+  "id": "4019b3a4",
+  "k": "this answer is too big to keep",
+  "f": "app/api/definer.py"
+ },
+ {
   "id": "d5f6613b",
   "k": "The video isn't in your Google Drive.",
   "f": "app/api/episodes.py"
@@ -22443,6 +22448,56 @@
   "id": "23eebf4d",
   "k": "Format must be txt, srt or vtt.",
   "f": "app/api/episodes.py"
+ },
+ {
+  "id": "f4af7b53",
+  "k": "a web address can't contain spaces",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "c8e7889a",
+  "k": "that isn't a web address",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "17cc287c",
+  "k": "an address on this computer or the home network can't be used here",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "473847df",
+  "k": "must be a number from {0} to {1}",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "1e7b6ab5",
+  "k": "must be one of: {0}",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "844c7f44",
+  "k": "must be text of at most {0} characters",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "fd998613",
+  "k": "can't contain control characters",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "99fed153",
+  "k": "{0} is too long",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "0c1170f4",
+  "k": "{0} can't be stored",
+  "f": "app/api/limits.py"
+ },
+ {
+  "id": "2a8d6427",
+  "k": "{0} is too big",
+  "f": "app/api/limits.py"
  },
  {
   "id": "d88f9041",
@@ -22475,6 +22530,11 @@
   "f": "app/api/reels.py"
  },
  {
+  "id": "43b8dc82",
+  "k": "This podcast's address is on a home network, so it can't be followed from here.",
+  "f": "app/api/shared.py"
+ },
+ {
   "id": "2e9a26f5",
   "k": "Couldn't add the podcast: {0}",
   "f": "app/api/shared.py"
@@ -22503,6 +22563,11 @@
   "id": "2f18d2c1",
   "k": "Sign in with Google first.",
   "f": "app/api/sync.py"
+ },
+ {
+  "id": "9c48cf05",
+  "k": "Can't save that setting: {0}.",
+  "f": "app/api/system.py"
  },
  {
   "id": "c4f7c260",
@@ -22660,6 +22725,11 @@
   "f": "app/backup.py"
  },
  {
+  "id": "d8716a72",
+  "k": "The backup's database can't be read ({0}).",
+  "f": "app/backup.py"
+ },
+ {
   "id": "d1198df0",
   "k": "Books to read a page at a time with clickable words.",
   "f": "app/books.py"
@@ -22780,6 +22850,11 @@
   "f": "app/desktop.py"
  },
  {
+  "id": "494178e0",
+  "k": "That isn't one of Tamkeen's downloads.",
+  "f": "app/desktop.py"
+ },
+ {
   "id": "d70a665c",
   "k": "Download failed: HTTP {0} from {1}.",
   "f": "app/downloader.py"
@@ -22867,7 +22942,12 @@
  {
   "id": "e3ec8c21",
   "k": "Cross-origin requests are not allowed.",
-  "f": "app/main.py"
+  "f": "app/guard.py"
+ },
+ {
+  "id": "8efd5fa8",
+  "k": "Only Tamkeen's own window can do that. Reload the page and try again.",
+  "f": "app/guard.py"
  },
  {
   "id": "3ad92dba",

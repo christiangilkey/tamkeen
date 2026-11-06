@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Diese Antwort ist zu groß zum Speichern
+f4af7b53	Eine Webadresse darf keine Leerzeichen enthalten
+c8e7889a	Das ist keine Webadresse
+17cc287c	Eine Adresse auf diesem Computer oder im Heimnetz kann hier nicht verwendet werden
+473847df	muss eine Zahl von {0} bis {1} sein
+1e7b6ab5	muss eines davon sein: {0}
+844c7f44	muss ein Text mit höchstens {0} Zeichen sein
+fd998613	darf keine Steuerzeichen enthalten
+99fed153	{0} ist zu lang
+0c1170f4	{0} kann nicht gespeichert werden
+2a8d6427	{0} ist zu groß
+43b8dc82	Die Adresse dieses Podcasts liegt in einem Heimnetz, daher kann er hier nicht abonniert werden.
+9c48cf05	Diese Einstellung konnte nicht gespeichert werden: {0}.
+d8716a72	Die Datenbank der Sicherung kann nicht gelesen werden ({0}).
+494178e0	Das ist keiner von Tamkeens Downloads.
+8efd5fa8	Das kann nur Tamkeens eigenes Fenster. Lade die Seite neu und versuche es noch einmal.

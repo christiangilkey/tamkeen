@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Aquesta resposta és massa gran per desar-la
+f4af7b53	Una adreça web no pot contenir espais
+c8e7889a	Això no és una adreça web
+17cc287c	Aquí no es pot fer servir una adreça d'aquest ordinador o de la xarxa de casa
+473847df	ha de ser un nombre de {0} a {1}
+1e7b6ab5	ha de ser un d'aquests: {0}
+844c7f44	ha de ser un text d'un màxim de {0} caràcters
+fd998613	no pot contenir caràcters de control
+99fed153	{0} és massa llarg
+0c1170f4	{0} no es pot desar
+2a8d6427	{0} és massa gran
+43b8dc82	L'adreça d'aquest pòdcast és en una xarxa de casa, així que no es pot seguir des d'aquí.
+9c48cf05	No s'ha pogut desar aquesta opció: {0}.
+d8716a72	No es pot llegir la base de dades de la còpia de seguretat ({0}).
+494178e0	Això no és una de les baixades de Tamkeen.
+8efd5fa8	Només la finestra de Tamkeen ho pot fer. Torna a carregar la pàgina i torna-ho a provar.

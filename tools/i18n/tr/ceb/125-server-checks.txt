@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Dako kaayo kini nga tubag aron itipig
+f4af7b53	Ang web address dili mahimong adunay espasyo
+c8e7889a	Dili kana web address
+17cc287c	Ang address niini nga computer o sa network sa balay dili magamit dinhi
+473847df	kinahanglan numero gikan {0} hangtod {1}
+1e7b6ab5	kinahanglan usa sa: {0}
+844c7f44	kinahanglan text nga dili molapas sa {0} ka letra
+fd998613	dili mahimong adunay control characters
+99fed153	taas kaayo ang {0}
+0c1170f4	dili matipig ang {0}
+2a8d6427	dako kaayo ang {0}
+43b8dc82	Ang address niini nga podcast anaa sa network sa balay, busa dili kini masundan gikan dinhi.
+9c48cf05	Dili matipig kana nga setting: {0}.
+d8716a72	Dili mabasa ang database sa backup ({0}).
+494178e0	Dili kana usa sa mga download sa Tamkeen.
+8efd5fa8	Ang window lang sa Tamkeen ang makahimo niana. I-reload ang panid ug sulayi pag-usab.

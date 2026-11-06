@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Esta respuesta es demasiado grande para guardarla
+f4af7b53	Una dirección web no puede contener espacios
+c8e7889a	Eso no es una dirección web
+17cc287c	Aquí no se puede usar una dirección de este ordenador o de la red de casa
+473847df	debe ser un número de {0} a {1}
+1e7b6ab5	debe ser uno de: {0}
+844c7f44	debe ser un texto de {0} caracteres como máximo
+fd998613	no puede contener caracteres de control
+99fed153	{0} es demasiado largo
+0c1170f4	{0} no se puede guardar
+2a8d6427	{0} es demasiado grande
+43b8dc82	La dirección de este pódcast está en una red de casa, así que no se puede seguir desde aquí.
+9c48cf05	No se pudo guardar ese ajuste: {0}.
+d8716a72	No se puede leer la base de datos de la copia de seguridad ({0}).
+494178e0	Eso no es una de las descargas de Tamkeen.
+8efd5fa8	Solo la propia ventana de Tamkeen puede hacer eso. Vuelve a cargar la página e inténtalo de nuevo.

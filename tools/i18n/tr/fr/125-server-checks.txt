@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Cette réponse est trop grande pour être gardée
+f4af7b53	Une adresse web ne peut pas contenir d'espaces
+c8e7889a	Ce n'est pas une adresse web
+17cc287c	Une adresse de cet ordinateur ou du réseau domestique ne peut pas être utilisée ici
+473847df	doit être un nombre de {0} à {1}
+1e7b6ab5	doit être l'un de : {0}
+844c7f44	doit être un texte de {0} caractères au plus
+fd998613	ne peut pas contenir de caractères de contrôle
+99fed153	{0} est trop long
+0c1170f4	{0} ne peut pas être enregistré
+2a8d6427	{0} est trop grand
+43b8dc82	L'adresse de ce podcast se trouve sur un réseau domestique : il ne peut donc pas être suivi d'ici.
+9c48cf05	Impossible d'enregistrer ce réglage : {0}.
+d8716a72	Impossible de lire la base de données de la sauvegarde ({0}).
+494178e0	Ce n'est pas l'un des téléchargements de Tamkeen.
+8efd5fa8	Seule la fenêtre de Tamkeen peut faire cela. Rechargez la page et réessayez.

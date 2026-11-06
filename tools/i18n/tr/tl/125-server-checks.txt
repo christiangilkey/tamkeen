@@ -1,0 +1,17 @@
+# The desktop server's input checks and security messages (app/api/limits.py, app/guard.py).
+4019b3a4	Masyadong malaki ang sagot na ito para itago
+f4af7b53	Hindi puwedeng may espasyo ang web address
+c8e7889a	Hindi iyan web address
+17cc287c	Hindi magagamit dito ang address sa computer na ito o sa network sa bahay
+473847df	dapat numero mula {0} hanggang {1}
+1e7b6ab5	dapat isa sa: {0}
+844c7f44	dapat text na hindi hihigit sa {0} na character
+fd998613	hindi puwedeng may control character
+99fed153	masyadong mahaba ang {0}
+0c1170f4	hindi maitatago ang {0}
+2a8d6427	masyadong malaki ang {0}
+43b8dc82	Nasa network sa bahay ang address ng podcast na ito, kaya hindi ito masusundan mula rito.
+9c48cf05	Hindi ma-save ang setting na iyan: {0}.
+d8716a72	Hindi mabasa ang database ng backup ({0}).
+494178e0	Hindi iyan isa sa mga download ng Tamkeen.
+8efd5fa8	Ang window lang ng Tamkeen ang makakagawa niyan. I-reload ang page at subukan ulit.
