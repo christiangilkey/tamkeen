@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Magbubukas ang Friends, chat at guilds pag {0} ka na{1}. Gumagana ang lahat ng iba pa sa Tamkeen gaya ng dati.
+bfefdc1b	Friends at chat
+e279ce05	Ang petsa ng iyong kapanganakan
+7896135b	Bago ka mag-online sa Friends, chat at guilds, pakilagay ang buwan at taon ng iyong kapanganakan.
+082bc378	Buwan
+879e3232	Taon
+28f68d4c	Ang tinatago lang ng Tamkeen ay kung puwede mong gamitin ang mga online feature, sa sarili mong mga device at Drive, hindi ang petsa ng iyong kapanganakan.
+ca129c85	Ang Friends, chat at guilds ay para sa mga {0} taong gulang pataas.

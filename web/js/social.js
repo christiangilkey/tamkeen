@@ -6,6 +6,7 @@
 // row-level security rules in supabase/schema.sql; the key below is public by design.
 
 import { googleIdToken } from "./app.js";
+import { ONLINE_MIN_AGE, onlineStatus, requireOnlineAge } from "./agegate.js";
 
 export const SUPABASE_URL = "https://ktzgcohmgmbccvegwxqz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_VttMCOKQYH9FL-kekzhqmg_w9qXTkxt";
@@ -44,9 +45,15 @@ function friendly(error) {
   return msg;
 }
 
-/** The signed-in user, or null. Never throws (offline just means "not available right now"). */
+/** The signed-in user, or null. Never throws (offline just means "not available right now").
+ *  Null too until the learner's age allows the online features (agegate.js): under 16 also signs out. */
 export async function currentUser() {
   try {
+    const age = await onlineStatus();
+    if (age !== "ok") {
+      if (age === "young") await (await sb()).auth.signOut({ scope: "local" }).catch(() => {});
+      return null;
+    }
     const { data } = await (await sb()).auth.getSession();
     return data.session ? data.session.user : null;
   } catch {
@@ -55,13 +62,21 @@ export async function currentUser() {
 }
 
 /** Sign in to the online features with the app's Google account. `opts.host`: in the web app,
- *  where to put Google's sign-in button (instead of a small window with it). */
+ *  where to put Google's sign-in button (instead of a small window with it). Asks the learner's age
+ *  first (once); under 16 it stops here with a note on when Friends opens. */
 export async function connect(opts = {}) {
+  if (!(await requireOnlineAge())) throw new AgeError();
   return connectWithIdToken(await googleIdToken(opts));
+}
+
+/** Thrown when the online features aren't open to this learner (yet); its message is safe to show. */
+export class AgeError extends Error {
+  constructor() { super(`Friends, chat and guilds are for people ${ONLINE_MIN_AGE} and older.`); this.age = true; }
 }
 
 /** Sign in to the online features with a Google ID token already in hand ({token, nonce}). */
 export async function connectWithIdToken({ token, nonce }) {
+  if ((await onlineStatus()) !== "ok") throw new AgeError();
   const c = await sb();
   const { data, error } = await c.auth.signInWithIdToken({ provider: "google", token, ...(nonce ? { nonce } : {}) });
   if (error) throw new Error(friendly(error));

@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Amics, xat i gremis s'obren quan facis {0} anys{1}. Tota la resta de Tamkeen funciona com sempre.
+bfefdc1b	Amics i xat
+e279ce05	La teva data de naixement
+7896135b	Abans de connectar-te amb Amics, xat i gremis, introdueix el mes i l'any en què vas néixer.
+082bc378	Mes
+879e3232	Any
+28f68d4c	Tamkeen només guarda si pots fer servir les funcions en línia, als teus dispositius i al teu Drive, no la teva data de naixement.
+ca129c85	Amics, xat i gremis són per a persones de {0} anys o més.

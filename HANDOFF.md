@@ -6852,3 +6852,20 @@ backed by studies, with the studies listed.
   ignore.txt. Test: tests/js/changelog.test.mjs (links, h4, the page exists with DOIs, build-www carries it).
 - Checked: phone build (mobile/www via `mobile-preview`, fresh state, no sign-in) opening the box: 4 parts, 39
   headings, 408 bullets, 143 DOI links, no console errors, readable at 375×812.
+
+## Age check: online features 16+ (2026-11-06, main chat)
+Owner's choice (main chat): "16+ for online features everywhere" (COPPA is under 13; GDPR lets countries pick 13–16).
+- `web/js/agegate.js` (shared; build-www SHARED): synced setting `online_from` (aikeys KEYS py+js, db.py, store.js):
+  "" not asked, "ok" 16+, "YYYY-MM" the month the learner turns 16 (that month still counts as younger; opens the
+  month after). The birth date itself isn't kept. `requireOnlineAge()` asks month + year once (neutral: nothing
+  preselected, no hint of the age needed), saves, and shows "Friends, chat and guilds open when you turn 16 (date)".
+- `social.js`: `connect()` asks first; `connectWithIdToken()` refuses unless "ok" (AgeError, `err.age`, callers stay
+  quiet about it); `currentUser()` is null unless "ok", and under 16 also signs Supabase out on this device. So every
+  online feature (friends, guilds, chat notifications, game sharing) sees "not signed in". Users who connected before
+  this are asked when they next open Friends or Settings → Friends & sharing.
+- Friends page / Settings card: under 16 shows the "opens when you turn 16" line instead of a sign-in button. The web
+  app's Drive sign-in no longer signs in to Friends silently until the age is answered.
+- NOT done yet: deleting someone's online data when they turn out to be under 16 (needs an account-deletion RPC in
+  Supabase, also needed for privacy law; see the legal/security work), and the privacy policy's wording on ages.
+- Tests: tests/js/agegate.test.mjs. Checked in the phone build (mobile-preview, fresh state, no sign-in): the question,
+  a 2013 birth → "opens April 2029", asked once; under 16 and not-asked blocked before anything goes online.

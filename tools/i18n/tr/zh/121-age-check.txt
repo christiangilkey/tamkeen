@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	好友、聊天和公会将在你年满 {0} 岁时开放{1}。Tamkeen 的其他功能照常使用。
+bfefdc1b	好友与聊天
+e279ce05	你的出生年月
+7896135b	在通过好友、聊天和公会上线之前，请输入你出生的年份和月份。
+082bc378	月
+879e3232	年
+28f68d4c	Tamkeen 只在你自己的设备和 Drive 上保存你能否使用在线功能，不保存你的出生日期。
+ca129c85	好友、聊天和公会仅限 {0} 岁及以上的人使用。

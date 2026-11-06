@@ -485,6 +485,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "mnemonic_model_openai": "",
     "mnemonic_model_grok": "",
     "mnemonic_effort": "off",
+    "online_from": "",              # age check for Friends/chat/guilds (web/js/agegate.js): "", "ok" or "YYYY-MM" (turns 16; synced: aikeys.KEYS)
     "mnemonic_prefs": "",           # what the free Mnemonic maker learned from Use and thumbs down (JSON; synced: aikeys.KEYS)
     "llm_key_claude": "",
     "llm_key_gemini": "",

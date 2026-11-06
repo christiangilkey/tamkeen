@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Amici, chat e gilde si aprono quando compirai {0} anni{1}. Tutto il resto di Tamkeen funziona come sempre.
+bfefdc1b	Amici e chat
+e279ce05	La tua data di nascita
+7896135b	Prima di andare online con Amici, chat e gilde, inserisci il mese e l'anno di nascita.
+082bc378	Mese
+879e3232	Anno
+28f68d4c	Tamkeen conserva solo se puoi usare le funzioni online, sui tuoi dispositivi e sul tuo Drive, non la tua data di nascita.
+ca129c85	Amici, chat e gilde sono per persone dai {0} anni in su.

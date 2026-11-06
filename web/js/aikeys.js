@@ -12,7 +12,8 @@ export const KEYS = ["llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_
   // voice at once ("on"/"off"), and whether the Italian voice reads Latin ("on"/"off"). They follow the
   // learner the same way.
   "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin",
-  "mnemonic_prefs"];
+  "mnemonic_prefs",
+  "online_from"]; // the age check for the online features (agegate.js): "", "ok" or the month the learner turns 16
 export const TIMES = "key_times"; // setting: {key name: when it last changed, here or on another device (whole seconds)}
 const MAX_LENGTH = 2000;
 

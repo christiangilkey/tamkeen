@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	친구, 채팅, 길드는 {0}세가 되면 열립니다{1}. Tamkeen의 다른 기능은 평소처럼 사용할 수 있어요.
+bfefdc1b	친구 및 채팅
+e279ce05	생년월
+7896135b	친구, 채팅, 길드로 온라인에 연결하기 전에 태어난 해와 달을 입력해 주세요.
+082bc378	월
+879e3232	연도
+28f68d4c	Tamkeen은 온라인 기능을 쓸 수 있는지 여부만 내 기기와 Drive에 저장하며, 생년월일은 저장하지 않습니다.
+ca129c85	친구, 채팅, 길드는 {0}세 이상만 이용할 수 있습니다.

@@ -330,6 +330,56 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "ce6bd09c",
+  "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "bfefdc1b",
+  "k": "Friends & chat",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "9ce3bd42",
+  "k": "OK",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "e279ce05",
+  "k": "Your date of birth",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "7896135b",
+  "k": "Before you go online with Friends, chat and guilds, please enter your month and year of birth.",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "082bc378",
+  "k": "Month",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "879e3232",
+  "k": "Year",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "28f68d4c",
+  "k": "Tamkeen keeps only whether you can use the online features, on your own devices and Drive, not your date of birth.",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "77dfd213",
+  "k": "Cancel",
+  "f": "web/js/agegate.js"
+ },
+ {
+  "id": "2e026239",
+  "k": "Continue",
+  "f": "web/js/agegate.js"
+ },
+ {
   "id": "6f442204",
   "k": "Lost connection to the app's local server.",
   "f": "web/js/app.js"
@@ -2940,11 +2990,6 @@
   "f": "web/js/components/ankisync.js"
  },
  {
-  "id": "77dfd213",
-  "k": "Cancel",
-  "f": "web/js/components/ankisync.js"
- },
- {
   "id": "0a98dcd0",
   "k": "Delete the word and its card",
   "f": "web/js/components/ankisync.js"
@@ -2952,11 +2997,6 @@
  {
   "id": "e93d02ca",
   "k": "Move Anki cards to their language's deck",
-  "f": "web/js/components/ankisync.js"
- },
- {
-  "id": "9ce3bd42",
-  "k": "OK",
   "f": "web/js/components/ankisync.js"
  },
  {
@@ -3932,11 +3972,6 @@
  {
   "id": "1652f197",
   "k": "Hear its whole sentence",
-  "f": "web/js/components/guideart.js"
- },
- {
-  "id": "2e026239",
-  "k": "Continue",
   "f": "web/js/components/guideart.js"
  },
  {
@@ -18867,6 +18902,11 @@
  {
   "id": "1d7a1d2e",
   "k": "Couldn't reach the online service. Check your internet connection.",
+  "f": "web/js/social.js"
+ },
+ {
+  "id": "ca129c85",
+  "k": "Friends, chat and guilds are for people {0} and older.",
   "f": "web/js/social.js"
  },
  {

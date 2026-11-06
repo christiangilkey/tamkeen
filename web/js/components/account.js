@@ -1,8 +1,9 @@
 // Settings section for the online features: connect with Google, choose/change a username.
 // Shared by the desktop and phone settings pages (Settings → Account & sync).
 
-import { esc, h, toast } from "../app.js";
+import { esc, h, state, toast } from "../app.js";
 import * as social from "../social.js";
+import { onlineStatus, youngNote } from "../agegate.js";
 import { confirmBox } from "./settingsui.js";
 
 export function accountSection() {
@@ -31,6 +32,12 @@ export function accountSection() {
       return;
     }
     if (!profile) {
+      if ((await onlineStatus()) === "young") {
+        // Under 16 (agegate.js): nothing goes online; say when Friends opens.
+        panel.innerHTML = `<p class="small muted"></p>`;
+        panel.firstChild.textContent = youngNote((state.status && state.status.settings || {}).online_from);
+        return;
+      }
       panel.innerHTML = `<div class="row"><button type="button" class="primary" id="acc-connect">Connect with Google</button>
         <span class="small muted">You'll pick a username next.</span></div>`;
       panel.querySelector("#acc-connect").onclick = async (e) => {
@@ -40,7 +47,7 @@ export function accountSection() {
           await social.connect();
           toast("Connected. Now choose a username.");
         } catch (err) {
-          toast(err.message, { error: true });
+          if (!err.age) toast(err.message, { error: true }); // (the age check says its own words)
         }
         paint();
       };

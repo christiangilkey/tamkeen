@@ -54,6 +54,7 @@ const SHARED = [
   "js/components/resetapp.js",
   "js/components/langswitch.js",
   "js/social.js",
+  "js/agegate.js",
   "js/syncpace.js",
   "js/syncnudge.js",
   "js/components/refreshbutton.js",

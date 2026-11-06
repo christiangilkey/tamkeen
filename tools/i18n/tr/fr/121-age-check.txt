@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Amis, discussion et guildes s'ouvrent quand tu auras {0} ans{1}. Tout le reste de Tamkeen fonctionne comme d'habitude.
+bfefdc1b	Amis et discussion
+e279ce05	Ta date de naissance
+7896135b	Avant de te connecter avec Amis, discussion et guildes, indique ton mois et ton année de naissance.
+082bc378	Mois
+879e3232	Année
+28f68d4c	Tamkeen garde seulement si tu peux utiliser les fonctions en ligne, sur tes propres appareils et ton Drive, pas ta date de naissance.
+ca129c85	Amis, discussion et guildes sont réservés aux personnes de {0} ans et plus.

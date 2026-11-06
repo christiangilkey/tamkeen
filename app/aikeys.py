@@ -21,7 +21,9 @@ KEYS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "s
         # the learner the same way.
         "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin",
         # What the free Mnemonic maker learned of the learner's taste from Use and thumbs down (JSON, review/freemnemonic.js).
-        "mnemonic_prefs")
+        "mnemonic_prefs",
+        # The age check for the online features (web/js/agegate.js): "", "ok" or the month the learner turns 16.
+        "online_from")
 TIMES = "key_times"  # setting: {key name: when it last changed, on this device or another (whole seconds)}
 MAX_LENGTH = 2000
 

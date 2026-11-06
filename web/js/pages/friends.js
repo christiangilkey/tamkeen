@@ -6,7 +6,8 @@
 // Every person and every guild is the same kind of row: picture or emblem, name, a status line
 // (online / last seen), and the actions as line icons in the same place on the right.
 
-import { esc, h, toast, showMenu } from "../app.js";
+import { esc, h, state, toast, showMenu } from "../app.js";
+import { onlineStatus, youngNote } from "../agegate.js";
 import * as social from "../social.js";
 import { studyCard, studyEditor } from "../components/studycard.js";
 import { avatar, tagChips } from "../components/avatar.js";
@@ -189,16 +190,28 @@ export async function render(view) {
       body.append(card);
       const spot = card.querySelector(".friends-signin");
       const connected = () => { toast("Signed in. Now choose a username."); load(); };
-      if (window.TAMKEEN_WEB === true) {
+      const age = await onlineStatus();
+      if (age === "young") {
+        // Under 16 (agegate.js): nothing goes online; say when Friends opens.
+        card.querySelector("p").textContent = youngNote((state.status && state.status.settings || {}).online_from);
+        return;
+      }
+      const web = window.TAMKEEN_WEB === true;
+      if (web && age === "ok") {
         // The web app: a "Sign in with Google" button right here; it goes to Google's page and back.
-        social.connect({ host: spot }).then(connected).catch((err) => { if (!disposed) toast(err.message, { error: true }); });
+        social.connect({ host: spot }).then(connected).catch((err) => { if (!disposed && !err.age) toast(err.message, { error: true }); });
       } else {
         const b = h(`<button type="button" class="primary">Sign in with Google</button>`);
         b.onclick = async () => {
           b.disabled = true;
           b.textContent = "Signing in…";
-          try { await social.connect(); connected(); }
-          catch (err) { toast(err.message, { error: true }); b.disabled = false; b.textContent = "Sign in with Google"; }
+          const back = () => { b.hidden = false; b.disabled = false; b.textContent = "Sign in with Google"; };
+          // (in the web app, once the age is answered, Google's own button takes this one's place)
+          try { const p = social.connect(web ? { host: spot } : {}); if (web) setTimeout(() => { if (b.disabled) b.hidden = true; }, 600); await p; connected(); }
+          catch (err) {
+            if (err.age) { back(); if ((await onlineStatus()) === "young") load(); return; }
+            toast(err.message, { error: true }); back();
+          }
         };
         spot.append(b);
       }

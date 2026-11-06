@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Freunde, Chat und Gilden öffnen sich, wenn du {0} wirst{1}. Alles andere in Tamkeen funktioniert wie gewohnt.
+bfefdc1b	Freunde & Chat
+e279ce05	Dein Geburtsdatum
+7896135b	Bevor du mit Freunden, Chat und Gilden online gehst, gib bitte Monat und Jahr deiner Geburt ein.
+082bc378	Monat
+879e3232	Jahr
+28f68d4c	Tamkeen speichert nur, ob du die Online-Funktionen nutzen darfst, auf deinen eigenen Geräten und in deinem Drive, nicht dein Geburtsdatum.
+ca129c85	Freunde, Chat und Gilden sind für Menschen ab {0} Jahren.

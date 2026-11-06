@@ -1,0 +1,9 @@
+# The age check for the online features (web/js/agegate.js): 16 or older for Friends, chat and guilds.
+ce6bd09c	Amigos, chat y gremios se abren cuando cumplas {0}{1}. Todo lo demás de Tamkeen funciona como siempre.
+bfefdc1b	Amigos y chat
+e279ce05	Tu fecha de nacimiento
+7896135b	Antes de conectarte con Amigos, chat y gremios, indica el mes y el año en que naciste.
+082bc378	Mes
+879e3232	Año
+28f68d4c	Tamkeen solo guarda si puedes usar las funciones en línea, en tus propios dispositivos y tu Drive, no tu fecha de nacimiento.
+ca129c85	Amigos, chat y gremios son para personas de {0} años o más.
