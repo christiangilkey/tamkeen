@@ -28,6 +28,7 @@ import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, batchPrompt, cardOf, chunks, cleanChoices, duplicates, edited, fillIn, hasValue,
          needs, needsAny, needsMemo, parseList, pool, readBatch, typed } from "../addwords.js";
 import { OWN_KEYWORDS, freeExample, freeMnemonics } from "../examples.js";
+import { LICENCE_NAMES, audioUrl } from "../lexicon/exampledata.js";
 import { noteText } from "../review/mnemonic.js";
 import { askAi, definerConfig, noAi } from "../define-service.js";
 import { definerModeOf } from "../definer.js";
@@ -330,6 +331,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           <span class="cb-in"><input type="text" class="cb-meaning" dir="auto" autocomplete="off" maxlength="500"><i class="cb-auto" aria-hidden="true">auto</i></span></label>
         <label class="cb-field cb-sent" data-f="sentence"><span class="cb-label">Example sentence</span>
           <span class="cb-in"><textarea class="cb-sentence ar" rows="1" ${study} maxlength="1000"></textarea><i class="cb-auto" aria-hidden="true">auto</i></span></label>
+        <div class="cb-field cb-sent cb-rec-field" hidden><span class="cb-label"></span><div class="cb-native"></div></div>
         <label class="cb-field cb-sent" data-f="translation"><span class="cb-label">Sentence translation</span>
           <span class="cb-in"><textarea class="cb-translation" rows="1" dir="auto" maxlength="1000"></textarea><i class="cb-auto" aria-hidden="true">auto</i></span></label>
         <label class="cb-field" data-f="notes"><span class="cb-label">Notes</span>
@@ -412,6 +414,23 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     sum.textContent = row.open ? "" : clean(row.meaning.value);
   }
 
+  /** The found sentence's native recording (Tatoeba), when there is one: a play button with who recorded it
+   * and their licence (exampledata.js AUDIO_LICENCES says which licences may be played). Fetched only on press. */
+  function paintNative(row) {
+    const field = row.el.querySelector(".cb-rec-field");
+    const rec = row.native && row.sentence.auto ? row.native : null;
+    field.hidden = !rec || choices.sentence === "none";
+    const box = field.querySelector(".cb-native");
+    box.innerHTML = "";
+    if (!rec) return;
+    const play = h(`<button type="button" class="ghost cb-native-play">${icon("play", 16)}<span></span></button>`);
+    play.querySelector("span").textContent = t("Native recording");
+    play.onclick = () => { try { new Audio(audioUrl(rec.id)).play().catch(() => toast(t("The recording couldn't be played."), { error: true })); } catch { /* no audio */ } };
+    const who = h(`<span class="small muted cb-native-who"></span>`);
+    who.append(t("by {0} on Tatoeba", rec.user), ` (${LICENCE_NAMES[rec.licence] || rec.licence})`);
+    box.append(play, " ", who);
+  }
+
   function paintRow(row) {
     const el = row.el;
     el.querySelector(".cb-num").textContent = String(rows.indexOf(row) + 1);
@@ -421,6 +440,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     toggle.setAttribute("aria-expanded", String(row.open));
     for (const f of ["meaning", "sentence", "translation", "memo"]) paintField(row, f);
     for (const s of el.querySelectorAll(".cb-sent")) s.hidden = choices.sentence === "none";
+    paintNative(row);
     el.querySelector(".cb-audio-field").hidden = choices.audio === "none";
     paintAudio(row);
     paintSummary(row);
@@ -832,6 +852,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         let found = null;
         try { found = await freeExample(r.text.trim(), lang, { meaning: r.meaning.value }); } catch { /* no connection the first time */ }
         if (found) {
+          if (!r.sentence.value || r.sentence.auto) r.native = found.audio || null;  // a Tatoeba recording of it, when allowed
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }

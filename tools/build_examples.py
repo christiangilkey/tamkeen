@@ -15,7 +15,7 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
    (FrequencyWords' English subtitle counts by Hermit Dave, CC BY-SA 4.0), for picturable, common keywords.
 
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
-    python tools/build_examples.py build <cache dir> <tatoeba dir> es de ... [--wolff <pg40074.txt>]   (Bisaya: Wolff's examples too)
+    python tools/build_examples.py build <cache dir> <tatoeba dir> es de ... [--wolff <pg40074.txt>] [--audio <sentences_with_audio.csv>]
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
     python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
@@ -288,15 +288,40 @@ def build(cache: Path, tatoeba: Path, lang: str) -> None:
     if meanings.exists() and lang != "zh":
         heads = json.loads(gzip.decompress(meanings.read_bytes()))["words"]
         ipa = {k: v for k, v in ipa.items() if k in heads}
+    # Tatoeba's native recordings of the sentences kept, with who made each and its licence (examples.js plays
+    # only the licences the owner allowed: exampledata.js AUDIO_LICENCES).
+    audio = {}
+    if AUDIO:
+        rec = recordings(AUDIO)
+        for i, (_t, _e, src) in enumerate(sentences):
+            if src.startswith("t") and src[1:].split(":")[0] in rec:
+                audio[str(i)] = rec[src[1:].split(":")[0]]
     pack = {"format": 1, "kind": "examples", "lang": lang,
             "source": "Tatoeba (tatoeba.org) and the English Wiktionary (Wiktextract, kaikki.org)",
             "license": "CC-BY-2.0-FR (Tatoeba sentences), CC-BY-SA-4.0 (Wiktionary)",
             "sentences": sentences, "words": words, "ipa": ipa, **({"t2s": t2s} if lang == "zh" else {}),
-            **({"dialect_ipa": data.get("dialect_ipa", {})} if lang == "ar" else {})}
+            **({"dialect_ipa": data.get("dialect_ipa", {})} if lang == "ar" else {}), **({"audio": audio} if audio else {})}
     name = f"{lang}-examples.json.gz"
     write(name, f"ex-{lang}", pack, title=f"{NAMES[lang]} example sentences",
           db="Tatoeba + English Wiktionary (Wiktextract)", license="CC-BY-2.0-FR + CC-BY-SA-4.0",
           extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(ipa)})
+
+
+# ---------------------------------------------------------------- Tatoeba's recordings
+
+AUDIO = None  # Tatoeba's sentences_with_audio.csv, when given (--audio)
+# Each recording's licence, as its recorder chose it (an empty one: not to be used outside Tatoeba, left out).
+LICENCES = {"CC BY 4.0": "by", "CC BY-SA 4.0": "by-sa", "CC0 1.0": "cc0", "CC BY-NC 4.0": "by-nc", "CC BY-NC-ND 3.0": "by-nc-nd"}
+
+
+def recordings(path: Path) -> dict[str, list]:
+    """{Tatoeba sentence number: [audio id, recorder, licence code]}: the first recording with a licence."""
+    out: dict[str, list] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        p = line.split("\t")
+        if len(p) >= 4 and p[3] in LICENCES and p[0] not in out:
+            out[p[0]] = [int(p[1]), p[2], LICENCES[p[3]]]
+    return out
 
 
 # ---------------------------------------------------------------- Bisaya: Wolff's example sentences
@@ -645,6 +670,10 @@ if __name__ == "__main__":
         for lang in args[2:]:
             extract(Path(args[1]), lang)
     elif args[0] == "build":
+        if "--audio" in args:
+            at = args.index("--audio")
+            AUDIO = Path(args[at + 1])
+            del args[at:at + 2]
         if "--wolff" in args:
             at = args.index("--wolff")
             WOLFF = Path(args[at + 1])

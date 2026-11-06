@@ -1,0 +1,4 @@
+# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
+082e21bd	ネイティブの録音
+23eded54	録音を再生できませんでした。
+a6b2b9f4	Tatoeba の {0} さんによる

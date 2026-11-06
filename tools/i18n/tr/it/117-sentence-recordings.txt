@@ -1,0 +1,4 @@
+# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
+082e21bd	Registrazione madrelingua
+23eded54	Non è stato possibile riprodurre la registrazione.
+a6b2b9f4	di {0} su Tatoeba

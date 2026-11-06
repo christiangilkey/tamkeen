@@ -6808,3 +6808,22 @@ Each committed on its own.
    `dialect.mjs`, 20 words each), the sentence is the dialect's for egy 11→17, lev 8→19, glf 8→17, mor 8→14, irq 8→14
    of 20, and the dialect's own sounds for egy 8, lev 16, glf 11, mor 10, irq 0. Preview: Egyptian chosen, بيت gave
    "أقدر أشتري البيت ده على كام؟" (Tatoeba arz) instead of an MSA sentence, قلب sounded ʔælɐb (Egyptian) not qalb.
+5. **Tatoeba's recordings of the found sentences (built, SWITCHED OFF: waiting for the owner's decision).** Tatoeba's
+   terms: each recording has its recorder's licence (empty = not to be used outside Tatoeba), some NC or ND; nothing
+   allows or forbids an app playing their files on demand (only "automated use … that can overload" is forbidden), no
+   bulk audio download, no stated limits; the FAQ recommends crediting each recorder and licence. Question sent to the
+   main chat for the owner (no Decisions chat open): A free licences only (recommended), B + non-commercial, C ask
+   team@tatoeba.org first, D none. Built: `build_examples.py build … --audio <sentences_with_audio.csv>` (Tatoeba export
+   sentences_with_audio.tar.bz2: sentence id, audio id, username, licence, attribution URL) adds `audio` {sentence number:
+   [audio id, recorder, licence code by / by-sa / cc0 / by-nc / by-nc-nd]} to the packs (no licence: left out).
+   exampledata.js `AUDIO_LICENCES` (EMPTY = off: switch on by adding codes, e.g. "by", "by-sa", "cc0"), `recording(i)`,
+   `audioUrl(id)` = https://tatoeba.org/audio/download/<id> (fetched only on press), `WITH_AUDIO` −0.5 so a sentence with
+   a playable recording goes a little ahead; `find` results carry `audio`. Add words (`paintNative`): under the found
+   sentence, "Native recording" play button and "by <recorder> on Tatoeba (licence)" (i18n 117-sentence-recordings.txt).
+   Not built yet: keeping the recording on the card (the card still uses its card voice). Counts among the shipped
+   sentences: free licences 1,152 (th 578, ru 327, de 108, ca 78, fr 44, it 17), non-commercial 11,247 (es 9,752, pt 561,
+   ja 401, de 309, fr 166), no licence 6,484; none for ar, ceb, fa, hi, ko, tl, la. Words of 20 whose chosen sentence has
+   a playable recording: free licences th 8, ru 2, es 0, de 0; with NC es 14, de 2. Preview (licences switched on in the
+   page only, the player stubbed, nothing fetched): Thai แมว → "เธอรักแมว" with "Native recording by ThaiVoice on Tatoeba
+   (CC BY 4.0)". Also: Chinese/Japanese/Thai Wiktionary examples +0.6 (often literary), and a found unspaced sentence
+   shorter than 8 characters counts as a phrase (แมวบ้าน "domestic cat").

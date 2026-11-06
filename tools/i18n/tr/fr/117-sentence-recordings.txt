@@ -1,0 +1,4 @@
+# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
+082e21bd	Enregistrement natif
+23eded54	L'enregistrement n'a pas pu être lu.
+a6b2b9f4	par {0} sur Tatoeba

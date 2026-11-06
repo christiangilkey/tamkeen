@@ -1,0 +1,4 @@
+# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
+082e21bd	تسجيل بصوت متحدث أصلي
+23eded54	تعذّر تشغيل التسجيل.
+a6b2b9f4	من {0} على Tatoeba
