@@ -1,0 +1,57 @@
+# Pag-block, pag-report ug pagtangtang sa online account (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Tangtanga ang akong online account
+24a0f8eb	Tangtangon ang imong username, litrato, mga higala, mga mensahe ug ang tanan pang gitipigan online. Walay hilabtan sa imong mga device o sa imong Google Drive.
+12aabd25	I-unblock
+82dd2cdf	I-block
+f0e45d3e	I-report…
+4e379a21	I-block o i-report
+2ce5abaa	I-block si {0}?
+b1290c24	Dili na ka mapadad-an ni {0} og mensahe o friend request, dili na niya makita ang imong card o kung online ka, dili na ka niya mahagit, ug dili na mo maghigala. Dili siya pahibaw-on. Sa guild nga pareho mong miyembro, makita gihapon ang inyong mga ngalan. Ma-unblock nimo siya sa Settings → Account ug sync → Mga higala ug pagpaambit.
+b61853dc	Gi-block nimo si {0}.
+8575654e	Gi-unblock nimo si {0}. Mahimo na usab mo magdugang sa usag usa isip higala.
+080b4697	I-report kining mensahe
+231ab59e	I-report si {0}
+3b7a3094	Naa pa bay angay namong mahibaw-an? (opsyonal)
+ed3f2b56	Kung naa bay anaa sa kapeligrohan karon, tawag sa lokal nga emergency number (911 sa US).
+a5b32af9	Ipadala ang report
+f5704a3d	Unsay problema niini? Moabot ang imong report sa team sa Tamkeen, uban ang kopya sa mensahe.
+772d1183	Unsay problema? Moabot ang imong report sa team sa Tamkeen.
+97a89a51	I-block usab si {0}
+0208682c	Mga gi-block
+bc676de5	Wala kay gi-block. Aron mag-block, gamita ang ⋯ tupad sa iyang ngalan sa page sa Mga higala, o sa usa ka chat.
+1f9d1023	(walay username)
+099d93dc	Tangtangon ang imong online account?
+129b768c	Permanente nga matangtang niini gikan sa online service sa Tamkeen:
+0b148deb	ang imong username ug profile photo
+ebbf457e	ang imong mga higala ug friend request
+4d066b8b	ang imong mga mensahe, voice note ug ang tanan nimong gipadala
+d7cdbcaf	ang imong card nga "Akong gitun-an" ug ang imong online status
+96531597	ang imong team sa duwa sa mga linalang, mga away ug mga regalo
+91b8e212	ang imong pagkamiyembro sa mga guild, ug ang lista sa imong gi-block
+72ced04d	Ang mga guild ug shared folder nga imong gitukod mapunta sa ilang pinakadugay nga miyembro. Ang mga pulong nga imong gidugang sa shared folder sa uban magpabilin didto, nga wala ang imong ngalan. Ang mga report nga imong gipadala magpabilin kanamo, nga wala ang imong ngalan.
+8f460eea	Dili hilabtan ang imong library, mga pulong ug settings sa imong mga device ug sa imong Google Drive. Makakonektar ka usab unya, isip bag-ong account.
+2ae3a019	Tangtanga ang akong account
+c7ac551e	Gitangtang…
+cb641a9b	Natangtang na ang imong online account.
+acb48443	Mga study group: paghimo o pag-apil sa usa, ug tan-awa kung unsay gitun-an sa matag usa.
+f74e442e	Ang guild usa ka grupo sa managhigala nga adunay kaugalingong ngalan ug tag. Ang tanan nga anaa niini magkitaay dinhi, uban ang ilang gitun-an, ug ang mga miyembro nga managhigala makapadala og mensahe sa usag usa. Paghimo og usa, o paghulat og imbitasyon.
+1b4cae1c	Spam o scam
+315a854d	Pagdaogdaog o pagharas
+54740aa6	Pagdumot o kapintasan
+29cd612b	Sekswal nga sulod
+83cf1310	Murag ubos pa siya sa 16
+8e583d51	Basin naa sa kapeligrohan ang usa ka tawo
+48f88ac3	Uban pa
+a61a342d	Salamat, tan-awon namo kini sulod sa 7 ka adlaw.
+8c26e5fb	Dili pa mahimo ang pag-block: kinahanglan una nga ma-update ang online service sa Tamkeen.
+f291617b	Dili pa mahimo ang pag-report gikan sa app. Pag-email sa {0} uban ang iyang username ug kung unsay nahitabo.
+3bf47d0d	Dili pa mahimo ang pagtangtang sa account gikan sa app. Pag-email sa {0} gikan sa address sa imong Google account ug tangtangon namo kini sulod sa 7 ka adlaw.
+c93510dd	Hangtod {0} ka friend request ra ang imong mapadala kada adlaw. Sulayi pag-usab ugma.
+865ac16b	Daghan kaayo kag napadalang mensahe karon. Sulayi pag-usab ugma.
+ee0e3cc0	Hangtod {0} ka report ra ang imong mapadala kada adlaw. Kung dinalian, pag-email sa {1}.
+bafb1d29	Daghan kaayo kag gi-block karon. Sulayi pag-usab ugma.
+65123bd1	Mao na kana ang labing daghan sa usa ka adlaw. Sulayi pag-usab ugma.
+1edbe3ca	Hangtod 5 ka guild ra ang imong matukod.
+d2155ca5	Wala mapadala ang maong report.
+05857334	Gi-block nimo si {0}. Aron madugang siya, i-unblock siya sa Settings → Account ug sync → Mga higala ug pagpaambit.
+9636bf13	Pilia una kung unsay problema.

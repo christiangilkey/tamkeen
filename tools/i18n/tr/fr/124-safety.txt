@@ -1,0 +1,57 @@
+# Bloquer, signaler et supprimer le compte en ligne (web/js/components/safetyui.js, web/js/safety.js ; supabase/v8-safety.sql).
+925f6d72	Supprimer mon compte en ligne
+24a0f8eb	Supprime votre nom d'utilisateur, votre photo, vos amis, vos messages et tout ce qui est enregistré en ligne. Rien n'est touché sur vos appareils ni dans votre Google Drive.
+12aabd25	Débloquer
+82dd2cdf	Bloquer
+f0e45d3e	Signaler…
+4e379a21	Bloquer ou signaler
+2ce5abaa	Bloquer {0} ?
+b1290c24	{0} ne pourra plus vous envoyer de messages ni de demandes d'ami, voir votre carte ni quand vous êtes en ligne, ni vous défier, et vous ne serez plus amis. Cette personne n'est pas prévenue. Dans une guilde commune, vos noms restent visibles. Vous pouvez débloquer dans Réglages → Compte et synchronisation → Amis et partage.
+b61853dc	Vous avez bloqué {0}.
+8575654e	Vous avez débloqué {0}. Vous pouvez de nouveau vous ajouter en amis.
+080b4697	Signaler ce message
+231ab59e	Signaler {0}
+3b7a3094	Autre chose à nous dire ? (facultatif)
+ed3f2b56	Si quelqu'un est en danger en ce moment, appelez le numéro d'urgence local (le 911 aux États-Unis).
+a5b32af9	Envoyer le signalement
+f5704a3d	Quel est le problème ? Votre signalement est envoyé à l'équipe de Tamkeen, avec une copie du message.
+772d1183	Quel est le problème ? Votre signalement est envoyé à l'équipe de Tamkeen.
+97a89a51	Bloquer aussi {0}
+0208682c	Personnes bloquées
+bc676de5	Vous n'avez bloqué personne. Pour bloquer quelqu'un, utilisez ⋯ à côté de son nom sur la page Amis, ou dans une discussion.
+1f9d1023	(pas de nom d'utilisateur)
+099d93dc	Supprimer votre compte en ligne ?
+129b768c	Ceci supprime définitivement, du service en ligne de Tamkeen :
+0b148deb	votre nom d'utilisateur et votre photo de profil
+ebbf457e	vos amis et vos demandes d'ami
+4d066b8b	vos messages, vos notes vocales et tout ce que vous avez envoyé
+d7cdbcaf	votre carte « Ce que j'étudie » et votre statut en ligne
+96531597	votre équipe du jeu de créatures, vos combats et vos cadeaux
+91b8e212	vos guildes et la liste des personnes que vous avez bloquées
+72ced04d	Les guildes et dossiers partagés que vous avez fondés passent à leur plus ancien membre. Les mots que vous avez ajoutés au dossier partagé de quelqu'un d'autre y restent, sans votre nom. Les signalements que vous avez envoyés restent chez nous, sans votre nom.
+8f460eea	Votre bibliothèque, vos mots et vos réglages, sur vos appareils et dans votre Google Drive, ne sont pas touchés. Vous pourrez vous reconnecter plus tard, comme un nouveau compte.
+2ae3a019	Supprimer mon compte
+c7ac551e	Suppression…
+cb641a9b	Votre compte en ligne a été supprimé.
+acb48443	Groupes d'étude : créez-en un ou rejoignez-en un, et voyez ce que chacun y étudie.
+f74e442e	Une guilde est un groupe d'amis avec son propre nom et son sigle. Tous ses membres se voient ici, avec ce qu'ils étudient, et ceux qui sont amis peuvent s'envoyer des messages. Créez-en une, ou attendez une invitation.
+1b4cae1c	Spam ou arnaque
+315a854d	Harcèlement ou intimidation
+54740aa6	Haine ou violence
+29cd612b	Contenu sexuel
+83cf1310	Cette personne semble avoir moins de 16 ans
+8e583d51	Quelqu'un est peut-être en danger
+48f88ac3	Autre chose
+a61a342d	Merci, nous l'examinerons sous 7 jours.
+8c26e5fb	Le blocage n'est pas encore disponible : le service en ligne de Tamkeen doit d'abord être mis à jour.
+f291617b	Le signalement depuis l'appli n'est pas encore disponible. Écrivez à {0} en indiquant son nom d'utilisateur et ce qui s'est passé.
+3bf47d0d	La suppression du compte depuis l'appli n'est pas encore disponible. Écrivez à {0} depuis l'adresse de votre compte Google et nous le supprimerons sous 7 jours.
+c93510dd	Vous pouvez envoyer jusqu'à {0} demandes d'ami par jour. Réessayez demain.
+865ac16b	Vous avez envoyé énormément de messages aujourd'hui. Réessayez demain.
+ee0e3cc0	Vous pouvez envoyer jusqu'à {0} signalements par jour. Pour une urgence, écrivez à {1}.
+bafb1d29	Vous avez bloqué énormément de personnes aujourd'hui. Réessayez demain.
+65123bd1	C'est le maximum pour une journée. Réessayez demain.
+1edbe3ca	Vous pouvez fonder jusqu'à 5 guildes.
+d2155ca5	Ce signalement n'a pas pu être envoyé.
+05857334	Vous avez bloqué {0}. Pour l'ajouter, débloquez cette personne dans Réglages → Compte et synchronisation → Amis et partage.
+9636bf13	Choisissez d'abord le problème.

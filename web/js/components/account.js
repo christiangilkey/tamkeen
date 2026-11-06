@@ -5,6 +5,7 @@ import { esc, h, state, toast } from "../app.js";
 import * as social from "../social.js";
 import { onlineStatus, youngNote } from "../agegate.js";
 import { confirmBox } from "./settingsui.js";
+import { blockedSection, deleteAccountBox } from "./safetyui.js";
 
 export function accountSection() {
   const el = h(`<section class="card stack" id="social" data-find="friends">
@@ -65,6 +66,14 @@ export function accountSection() {
       </form>
       <p class="small muted">Friends find you by this name. ${esc(social.USERNAME_HELP)} You can change it any time;
         your friends and shares stay connected.</p>`;
+    // The people I blocked (with Unblock), then deleting the online account.
+    panel.append(blockedSection());
+    const del = h(`<div class="delete-account-row">
+      <button type="button" class="ghost danger" id="acc-delete">Delete my online account</button>
+      <p class="small muted">Deletes your username, photo, friends, messages and everything else stored online. Nothing on
+        your devices or in your Google Drive is touched.</p></div>`);
+    del.querySelector("#acc-delete").onclick = () => deleteAccountBox(() => paint());
+    panel.append(del);
     const input = panel.querySelector("#acc-username");
     const hint = panel.querySelector("#acc-hint");
     input.value = profile.username || "";

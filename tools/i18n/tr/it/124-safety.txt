@@ -1,0 +1,57 @@
+# Bloccare, segnalare ed eliminare l'account online (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Elimina il mio account online
+24a0f8eb	Elimina il tuo nome utente, la foto, gli amici, i messaggi e tutto il resto salvato online. Sui tuoi dispositivi e nel tuo Google Drive non viene toccato nulla.
+12aabd25	Sblocca
+82dd2cdf	Blocca
+f0e45d3e	Segnala…
+4e379a21	Blocca o segnala
+2ce5abaa	Bloccare {0}?
+b1290c24	{0} non potrà più mandarti messaggi né richieste di amicizia, vedere la tua scheda o quando sei online, né sfidarti, e non sarete più amici. Non viene avvisato. In una gilda in comune i vostri nomi restano visibili. Puoi sbloccarlo in Impostazioni → Account e sincronizzazione → Amici e condivisione.
+b61853dc	Hai bloccato {0}.
+8575654e	Hai sbloccato {0}. Potete di nuovo aggiungervi come amici.
+080b4697	Segnala questo messaggio
+231ab59e	Segnala {0}
+3b7a3094	C'è altro che dovremmo sapere? (facoltativo)
+ed3f2b56	Se qualcuno è in pericolo in questo momento, chiama il numero di emergenza locale (il 911 negli Stati Uniti).
+a5b32af9	Invia segnalazione
+f5704a3d	Che cosa non va? La tua segnalazione va al team di Tamkeen, con una copia del messaggio.
+772d1183	Che cosa non va? La tua segnalazione va al team di Tamkeen.
+97a89a51	Blocca anche {0}
+0208682c	Persone bloccate
+bc676de5	Non hai bloccato nessuno. Per bloccare qualcuno, usa ⋯ accanto al suo nome nella pagina Amici o in una chat.
+1f9d1023	(nessun nome utente)
+099d93dc	Eliminare il tuo account online?
+129b768c	Questo elimina per sempre, dal servizio online di Tamkeen:
+0b148deb	il tuo nome utente e la foto del profilo
+ebbf457e	i tuoi amici e le richieste di amicizia
+4d066b8b	i tuoi messaggi, i messaggi vocali e tutto ciò che hai inviato
+d7cdbcaf	la tua scheda «Cosa sto studiando» e il tuo stato online
+96531597	la tua squadra del gioco delle creature, le battaglie e i regali
+91b8e212	le tue gilde e l'elenco delle persone che hai bloccato
+72ced04d	Le gilde e le cartelle condivise che hai fondato passano al membro più anziano. Le parole che hai aggiunto alla cartella condivisa di qualcun altro restano lì, senza il tuo nome. Le segnalazioni che hai inviato restano a noi, senza il tuo nome.
+8f460eea	La tua libreria, le tue parole e le tue impostazioni, sui tuoi dispositivi e nel tuo Google Drive, non vengono toccate. Potrai ricollegarti più avanti, come un nuovo account.
+2ae3a019	Elimina il mio account
+c7ac551e	Eliminazione…
+cb641a9b	Il tuo account online è stato eliminato.
+acb48443	Gruppi di studio: creane uno o unisciti a uno, e guarda cosa studiano tutti.
+f74e442e	Una gilda è un gruppo di amici con un nome e una sigla propri. Tutti i membri si vedono qui, con quello che stanno studiando, e quelli che sono amici possono mandarsi messaggi. Creane una o aspetta un invito.
+1b4cae1c	Spam o truffa
+315a854d	Bullismo o molestie
+54740aa6	Odio o violenza
+29cd612b	Contenuti sessuali
+83cf1310	Sembra avere meno di 16 anni
+8e583d51	Qualcuno potrebbe essere in pericolo
+48f88ac3	Altro
+a61a342d	Grazie, la esamineremo entro 7 giorni.
+8c26e5fb	Il blocco non è ancora disponibile: il servizio online di Tamkeen deve prima essere aggiornato.
+f291617b	Non è ancora possibile segnalare dall'app. Scrivi a {0} indicando il nome utente e cosa è successo.
+3bf47d0d	Non è ancora possibile eliminare l'account dall'app. Scrivi a {0} dall'indirizzo del tuo account Google e lo elimineremo entro 7 giorni.
+c93510dd	Puoi inviare fino a {0} richieste di amicizia al giorno. Riprova domani.
+865ac16b	Oggi hai inviato tantissimi messaggi. Riprova domani.
+ee0e3cc0	Puoi inviare fino a {0} segnalazioni al giorno. Per qualcosa di urgente, scrivi a {1}.
+bafb1d29	Oggi hai bloccato tantissime persone. Riprova domani.
+65123bd1	È il massimo per un giorno. Riprova domani.
+1edbe3ca	Puoi fondare fino a 5 gilde.
+d2155ca5	Non è stato possibile inviare la segnalazione.
+05857334	Hai bloccato {0}. Per aggiungerlo, sbloccalo in Impostazioni → Account e sincronizzazione → Amici e condivisione.
+9636bf13	Scegli prima che cosa non va.

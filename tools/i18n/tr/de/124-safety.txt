@@ -1,0 +1,57 @@
+# Blockieren, melden und das Online-Konto löschen (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Mein Online-Konto löschen
+24a0f8eb	Löscht deinen Benutzernamen, dein Foto, deine Freunde, Nachrichten und alles andere, was online gespeichert ist. Auf deinen Geräten und in deinem Google Drive wird nichts angerührt.
+12aabd25	Blockierung aufheben
+82dd2cdf	Blockieren
+f0e45d3e	Melden…
+4e379a21	Blockieren oder melden
+2ce5abaa	{0} blockieren?
+b1290c24	{0} kann dir dann keine Nachrichten und keine Freundschaftsanfragen mehr schicken, deine Karte und deinen Online-Status nicht sehen und dich nicht herausfordern, und ihr seid keine Freunde mehr. Die Person erfährt davon nichts. In einer gemeinsamen Gilde bleiben eure Namen sichtbar. Aufheben kannst du das unter Einstellungen → Konto & Synchronisierung → Freunde & Teilen.
+b61853dc	Du hast {0} blockiert.
+8575654e	Du hast die Blockierung von {0} aufgehoben. Ihr könnt euch wieder als Freunde hinzufügen.
+080b4697	Diese Nachricht melden
+231ab59e	{0} melden
+3b7a3094	Möchtest du uns noch etwas sagen? (optional)
+ed3f2b56	Wenn gerade jemand in Gefahr ist, ruf deine örtliche Notrufnummer an (in den USA 911).
+a5b32af9	Meldung senden
+f5704a3d	Was stimmt damit nicht? Deine Meldung geht an das Tamkeen-Team, mit einer Kopie der Nachricht.
+772d1183	Was stimmt nicht? Deine Meldung geht an das Tamkeen-Team.
+97a89a51	{0} auch blockieren
+0208682c	Blockierte Personen
+bc676de5	Du hast niemanden blockiert. Um jemanden zu blockieren, tippe auf der Freunde-Seite oder in einem Chat auf ⋯ neben dem Namen.
+1f9d1023	(kein Benutzername)
+099d93dc	Dein Online-Konto löschen?
+129b768c	Damit wird endgültig aus dem Online-Dienst von Tamkeen gelöscht:
+0b148deb	dein Benutzername und dein Profilfoto
+ebbf457e	deine Freunde und Freundschaftsanfragen
+4d066b8b	deine Nachrichten, Sprachnachrichten und alles, was du gesendet hast
+d7cdbcaf	deine Karte „Was ich gerade lerne“ und dein Online-Status
+96531597	dein Team im Wesen-Spiel, deine Kämpfe und Geschenke
+91b8e212	deine Gildenmitgliedschaften und die Liste der Personen, die du blockiert hast
+72ced04d	Gilden und geteilte Ordner, die du gegründet hast, gehen an ihr ältestes Mitglied über. Wörter, die du zum geteilten Ordner von jemand anderem hinzugefügt hast, bleiben dort, ohne deinen Namen. Meldungen, die du gesendet hast, bleiben bei uns, ohne deinen Namen.
+8f460eea	Deine Bibliothek, deine Wörter und deine Einstellungen auf deinen Geräten und in deinem Google Drive bleiben unberührt. Du kannst dich später wieder verbinden, als neues Konto.
+2ae3a019	Mein Konto löschen
+c7ac551e	Wird gelöscht…
+cb641a9b	Dein Online-Konto wurde gelöscht.
+acb48443	Lerngruppen: Gründe eine oder tritt einer bei und sieh, was alle darin gerade lernen.
+f74e442e	Eine Gilde ist eine Gruppe von Freunden mit eigenem Namen und Kürzel. Alle darin sehen sich hier gegenseitig, mit dem, was sie gerade lernen, und Mitglieder, die befreundet sind, können sich Nachrichten schreiben. Gründe eine oder warte auf eine Einladung.
+1b4cae1c	Spam oder Betrug
+315a854d	Mobbing oder Belästigung
+54740aa6	Hass oder Gewalt
+29cd612b	Sexuelle Inhalte
+83cf1310	Die Person scheint unter 16 zu sein
+8e583d51	Jemand ist vielleicht in Gefahr
+48f88ac3	Etwas anderes
+a61a342d	Danke, wir sehen es uns innerhalb von 7 Tagen an.
+8c26e5fb	Blockieren ist noch nicht verfügbar: Der Online-Dienst von Tamkeen braucht zuerst ein Update.
+f291617b	Melden in der App ist noch nicht verfügbar. Schreib eine E-Mail an {0} mit dem Benutzernamen und dem, was passiert ist.
+3bf47d0d	Das Konto in der App zu löschen ist noch nicht verfügbar. Schreib von der Adresse deines Google-Kontos eine E-Mail an {0}, dann löschen wir es innerhalb von 7 Tagen.
+c93510dd	Du kannst bis zu {0} Freundschaftsanfragen am Tag senden. Versuch es morgen wieder.
+865ac16b	Du hast heute sehr viele Nachrichten gesendet. Versuch es morgen wieder.
+ee0e3cc0	Du kannst bis zu {0} Meldungen am Tag senden. Für Dringendes schreib eine E-Mail an {1}.
+bafb1d29	Du hast heute sehr viele Personen blockiert. Versuch es morgen wieder.
+65123bd1	Mehr geht an einem Tag nicht. Versuch es morgen wieder.
+1edbe3ca	Du kannst bis zu 5 Gilden gründen.
+d2155ca5	Diese Meldung konnte nicht gesendet werden.
+05857334	Du hast {0} blockiert. Um die Person hinzuzufügen, heb die Blockierung unter Einstellungen → Konto & Synchronisierung → Freunde & Teilen auf.
+9636bf13	Wähle zuerst, was nicht stimmt.

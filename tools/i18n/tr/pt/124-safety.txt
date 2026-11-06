@@ -1,0 +1,57 @@
+# Bloquear, denunciar e excluir a conta online (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Excluir minha conta online
+24a0f8eb	Exclui seu nome de usuário, sua foto, seus amigos, suas mensagens e tudo o mais guardado online. Nada nos seus aparelhos nem no seu Google Drive é tocado.
+12aabd25	Desbloquear
+82dd2cdf	Bloquear
+f0e45d3e	Denunciar…
+4e379a21	Bloquear ou denunciar
+2ce5abaa	Bloquear {0}?
+b1290c24	{0} não poderá mais enviar mensagens nem pedidos de amizade para você, ver seu cartão nem quando você está online, nem desafiar você, e vocês deixarão de ser amigos. A pessoa não é avisada. Numa guilda em comum, os nomes de vocês continuam aparecendo. Você pode desbloquear em Configurações → Conta e sincronização → Amigos e compartilhamento.
+b61853dc	Você bloqueou {0}.
+8575654e	Você desbloqueou {0}. Vocês podem se adicionar como amigos de novo.
+080b4697	Denunciar esta mensagem
+231ab59e	Denunciar {0}
+3b7a3094	Mais alguma coisa que devamos saber? (opcional)
+ed3f2b56	Se alguém está em perigo agora, ligue para o número de emergência local (911 nos EUA).
+a5b32af9	Enviar denúncia
+f5704a3d	Qual é o problema? Sua denúncia vai para a equipe do Tamkeen, com uma cópia da mensagem.
+772d1183	Qual é o problema? Sua denúncia vai para a equipe do Tamkeen.
+97a89a51	Bloquear {0} também
+0208682c	Pessoas bloqueadas
+bc676de5	Você não bloqueou ninguém. Para bloquear alguém, use ⋯ ao lado do nome na página Amigos, ou numa conversa.
+1f9d1023	(sem nome de usuário)
+099d93dc	Excluir sua conta online?
+129b768c	Isto exclui para sempre, do serviço online do Tamkeen:
+0b148deb	seu nome de usuário e sua foto de perfil
+ebbf457e	seus amigos e pedidos de amizade
+4d066b8b	suas mensagens, mensagens de voz e tudo o que você enviou
+d7cdbcaf	seu cartão “O que estou estudando” e seu status online
+96531597	sua equipe do jogo das criaturas, suas batalhas e presentes
+91b8e212	suas guildas e a lista de pessoas que você bloqueou
+72ced04d	As guildas e pastas compartilhadas que você fundou passam para o membro mais antigo. As palavras que você adicionou à pasta compartilhada de outra pessoa ficam lá, sem o seu nome. As denúncias que você enviou ficam conosco, sem o seu nome.
+8f460eea	Sua biblioteca, suas palavras e suas configurações, nos seus aparelhos e no seu Google Drive, não são tocadas. Você pode se conectar de novo mais tarde, como uma conta nova.
+2ae3a019	Excluir minha conta
+c7ac551e	Excluindo…
+cb641a9b	Sua conta online foi excluída.
+acb48443	Grupos de estudo: crie um ou entre num, e veja o que todos estão estudando.
+f74e442e	Uma guilda é um grupo de amigos com nome e sigla próprios. Todos nela se veem aqui, com o que estão estudando, e os membros que são amigos podem trocar mensagens. Crie uma ou espere um convite.
+1b4cae1c	Spam ou golpe
+315a854d	Bullying ou assédio
+54740aa6	Ódio ou violência
+29cd612b	Conteúdo sexual
+83cf1310	A pessoa parece ter menos de 16 anos
+8e583d51	Alguém pode estar em perigo
+48f88ac3	Outra coisa
+a61a342d	Obrigado, vamos analisar em até 7 dias.
+8c26e5fb	Bloquear ainda não está disponível: o serviço online do Tamkeen precisa de uma atualização antes.
+f291617b	Denunciar pelo app ainda não está disponível. Escreva para {0} com o nome de usuário e o que aconteceu.
+3bf47d0d	Excluir a conta pelo app ainda não está disponível. Escreva para {0} a partir do endereço da sua conta Google e vamos excluí-la em até 7 dias.
+c93510dd	Você pode enviar até {0} pedidos de amizade por dia. Tente de novo amanhã.
+865ac16b	Você enviou muitas mensagens hoje. Tente de novo amanhã.
+ee0e3cc0	Você pode enviar até {0} denúncias por dia. Para algo urgente, escreva para {1}.
+bafb1d29	Você bloqueou muitas pessoas hoje. Tente de novo amanhã.
+65123bd1	É o máximo para um dia. Tente de novo amanhã.
+1edbe3ca	Você pode fundar até 5 guildas.
+d2155ca5	Não foi possível enviar essa denúncia.
+05857334	Você bloqueou {0}. Para adicionar essa pessoa, desbloqueie em Configurações → Conta e sincronização → Amigos e compartilhamento.
+9636bf13	Escolha primeiro qual é o problema.

@@ -2554,3 +2554,21 @@ html.sel-sheets select { pointer-events: none; }
   .pad-key { padding: 4px 8px; }
   .pad-row .icon { width: 30px; height: 30px; }
 }
+
+/* Block, report and delete my online account (components/safetyui.js) */
+.report-form { display: flex; flex-direction: column; gap: 12px; }
+.report-reasons { display: flex; flex-direction: column; gap: 6px; }
+.report-reason, .report-block { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--border); border-radius: 12px; cursor: pointer; }
+.report-reason:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
+.report-reason input, .report-block input { margin: 0; flex: none; }
+.report-block { border-style: dashed; }
+.report-note { width: 100%; resize: vertical; min-height: 64px; }
+.blocked-people { margin-top: 14px; }
+.set-sub { font-size: 15px; margin: 0 0 8px; }
+.blocked-list { display: flex; flex-direction: column; gap: 8px; }
+.blocked-row { display: flex; align-items: center; gap: 10px; }
+.blocked-row .avatar { width: 32px; height: 32px; }
+.delete-account-row { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+.delete-account-row p { margin: 6px 0 0; }
+.delete-list { margin: 8px 0 12px; padding-left: 22px; line-height: 1.5; }
+.delete-account p { margin: 0 0 10px; }

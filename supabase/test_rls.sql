@@ -128,8 +128,11 @@ begin
        + (select count(*) from public.shared_words) + (select count(*) from public.game_invites)
        + (select count(*) from storage.objects where bucket_id = 'voice') into n;
   if n = 0 then ok := ok + 1; else bad := bad || ' carol-sees=' || n; end if;
+  -- (since v8, strangers can't list profiles; they find someone by exact username with find_user)
   select count(*) into n from public.profiles where username in ('alice_t', 'bob_t');
-  if n = 2 then ok := ok + 1; else bad := bad || ' carol-cant-look-up-usernames'; end if;
+  if n = 0 then ok := ok + 1; else bad := bad || ' carol-lists-other-profiles'; end if;
+  select count(*) into n from public.find_user('ALICE_T');
+  if n = 1 then ok := ok + 1; else bad := bad || ' carol-cant-look-up-usernames'; end if;
   perform public.clear_seen(b);
   perform public.purge_old_messages();
   begin

@@ -1,0 +1,57 @@
+# Pag-block, pag-report at pagbura ng online account (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Burahin ang online account ko
+24a0f8eb	Binubura ang username, larawan, mga kaibigan, mga mensahe at lahat ng iba pang nakatago online. Walang gagalawin sa mga device mo o sa Google Drive mo.
+12aabd25	I-unblock
+82dd2cdf	I-block
+f0e45d3e	I-report…
+4e379a21	I-block o i-report
+2ce5abaa	I-block si {0}?
+b1290c24	Hindi ka na mapapadalhan ni {0} ng mensahe o friend request, hindi na niya makikita ang card mo o kung online ka, hindi ka na niya mahahamon, at hindi na kayo magkaibigan. Hindi siya sasabihan. Sa guild na pareho kayong kasali, makikita pa rin ang mga pangalan ninyo. Maa-unblock mo siya sa Settings → Account at sync → Mga kaibigan at pagbabahagi.
+b61853dc	Na-block mo si {0}.
+8575654e	Na-unblock mo si {0}. Puwede na ulit kayong magdagdag sa isa't isa bilang kaibigan.
+080b4697	I-report ang mensaheng ito
+231ab59e	I-report si {0}
+3b7a3094	May iba pa bang dapat naming malaman? (opsyonal)
+ed3f2b56	Kung may nasa panganib ngayon, tumawag sa lokal na emergency number (911 sa US).
+a5b32af9	Ipadala ang report
+f5704a3d	Ano ang problema rito? Mapupunta ang report mo sa team ng Tamkeen, kasama ang kopya ng mensahe.
+772d1183	Ano ang problema? Mapupunta ang report mo sa team ng Tamkeen.
+97a89a51	I-block din si {0}
+0208682c	Mga naka-block
+bc676de5	Wala ka pang na-block. Para mag-block, gamitin ang ⋯ sa tabi ng pangalan sa page ng Mga Kaibigan, o sa isang chat.
+1f9d1023	(walang username)
+099d93dc	Burahin ang online account mo?
+129b768c	Permanenteng mabubura nito mula sa online service ng Tamkeen:
+0b148deb	ang username at profile photo mo
+ebbf457e	ang mga kaibigan at friend request mo
+4d066b8b	ang mga mensahe, voice note at lahat ng ipinadala mo
+d7cdbcaf	ang card mong "Ang pinag-aaralan ko" at ang online status mo
+96531597	ang team mo sa creature game, mga laban at mga regalo
+91b8e212	ang pagiging miyembro mo sa mga guild, at ang listahan ng mga na-block mo
+72ced04d	Ang mga guild at shared folder na itinatag mo ay mapupunta sa pinakamatagal nilang miyembro. Ang mga salitang idinagdag mo sa shared folder ng iba ay mananatili roon, nang wala ang pangalan mo. Ang mga report na ipinadala mo ay mananatili sa amin, nang wala ang pangalan mo.
+8f460eea	Hindi gagalawin ang library, mga salita at settings mo sa mga device mo at sa Google Drive mo. Puwede kang kumonekta ulit sa ibang araw, bilang bagong account.
+2ae3a019	Burahin ang account ko
+c7ac551e	Binubura…
+cb641a9b	Nabura na ang online account mo.
+acb48443	Mga study group: gumawa o sumali sa isa, at tingnan kung ano ang pinag-aaralan ng bawat isa.
+f74e442e	Ang guild ay grupo ng magkakaibigan na may sariling pangalan at tag. Nakikita rito ng lahat ng nasa loob ang isa't isa at ang pinag-aaralan nila, at puwedeng magmensahe sa isa't isa ang mga miyembrong magkaibigan. Gumawa ng isa, o maghintay ng imbitasyon.
+1b4cae1c	Spam o scam
+315a854d	Pambu-bully o panliligalig
+54740aa6	Poot o karahasan
+29cd612b	Sekswal na nilalaman
+83cf1310	Mukhang wala pa siyang 16
+8e583d51	May maaaring nasa panganib
+48f88ac3	Iba pa
+a61a342d	Salamat, titingnan namin ito sa loob ng 7 araw.
+8c26e5fb	Hindi pa puwedeng mag-block: kailangan munang ma-update ang online service ng Tamkeen.
+f291617b	Hindi pa puwedeng mag-report mula sa app. Mag-email sa {0} kasama ang username niya at ang nangyari.
+3bf47d0d	Hindi pa puwedeng burahin ang account mula sa app. Mag-email sa {0} mula sa address ng Google account mo at buburahin namin ito sa loob ng 7 araw.
+c93510dd	Hanggang {0} friend request lang ang maipapadala mo bawat araw. Subukan ulit bukas.
+865ac16b	Napakarami mong naipadalang mensahe ngayon. Subukan ulit bukas.
+ee0e3cc0	Hanggang {0} report lang ang maipapadala mo bawat araw. Kung apurahan, mag-email sa {1}.
+bafb1d29	Napakarami mong na-block ngayon. Subukan ulit bukas.
+65123bd1	Iyan na ang pinakamarami sa isang araw. Subukan ulit bukas.
+1edbe3ca	Hanggang 5 guild lang ang maitatatag mo.
+d2155ca5	Hindi naipadala ang report na iyon.
+05857334	Na-block mo si {0}. Para maidagdag siya, i-unblock siya sa Settings → Account at sync → Mga kaibigan at pagbabahagi.
+9636bf13	Piliin muna kung ano ang problema.

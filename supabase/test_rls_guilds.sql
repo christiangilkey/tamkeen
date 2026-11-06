@@ -86,14 +86,19 @@ begin
   select count(*) into n from public.guild_members where guild_id = g;
   if n = 3 then ok := ok + 1; else bad := bad || ' members=' || n; end if;
 
-  -- ---- a and c are now guild-mates (not friends): they see and message each other
+  -- ---- a and c are now guild-mates (not friends): they see each other's cards, but since v8 only
+  -- friends can message each other
   perform set_config('request.jwt.claims', json_build_object('sub', a, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
   select count(*) into n from public.guild_members where guild_id = g;
   if n = 3 then ok := ok + 1; else bad := bad || ' founder-sees-members=' || n; end if;
   select count(*) into n from public.statuses where user_id = c;
   if n = 1 then ok := ok + 1; else bad := bad || ' cant-see-guildmate-status'; end if;
-  insert into public.messages (sender, recipient, body) values (a, c, 'welcome');
+  begin
+    insert into public.messages (sender, recipient, body) values (a, c, 'welcome');
+    bad := bad || ' messaged-a-guildmate-who-isnt-a-friend';
+  exception when others then ok := ok + 1;
+  end;
   select count(*) into n from public.seen_ago(array[c]) where seconds < 150;
   if n = 1 then ok := ok + 1; else bad := bad || ' guildmate-not-online'; end if;
   update public.guilds set name = 'Renamed Guild Zeta', tag = 'RGZ' where id = g;

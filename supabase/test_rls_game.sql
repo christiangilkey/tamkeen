@@ -21,7 +21,8 @@ begin
   -- ---- a publishes a team, reports a battle with their friend, and sends a gift
   perform set_config('request.jwt.claims', json_build_object('sub', a, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
-  insert into public.game_profiles (user_id, team, form, rating) values (a, '[{"seed": 1}]', 0.8, 1010);
+  -- (since v8 every creature needs a type from the game's list)
+  insert into public.game_profiles (user_id, team, form, rating) values (a, '[{"seed": 1, "type": "ember"}]', 0.8, 1010);
   update public.game_profiles set goal_days = 3 where user_id = a;
   begin
     insert into public.game_profiles (user_id) values (b);

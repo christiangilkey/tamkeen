@@ -1,0 +1,57 @@
+# Bloquejar, denunciar i esborrar el compte en línia (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Esborra el meu compte en línia
+24a0f8eb	Esborra el teu nom d'usuari, la foto, els amics, els missatges i tota la resta que hi ha desat en línia. No es toca res dels teus dispositius ni del teu Google Drive.
+12aabd25	Desbloqueja
+82dd2cdf	Bloqueja
+f0e45d3e	Denuncia…
+4e379a21	Bloqueja o denuncia
+2ce5abaa	Vols bloquejar {0}?
+b1290c24	{0} ja no et podrà enviar missatges ni sol·licituds d'amistat, veure la teva targeta ni quan estàs en línia, ni desafiar-te, i deixareu de ser amics. No se li avisa. En un gremi que compartiu, els vostres noms es continuen veient. Pots desbloquejar-lo a Configuració → Compte i sincronització → Amics i compartir.
+b61853dc	Has bloquejat {0}.
+8575654e	Has desbloquejat {0}. Podeu tornar a afegir-vos com a amics.
+080b4697	Denuncia aquest missatge
+231ab59e	Denuncia {0}
+3b7a3094	Alguna cosa més que hàgim de saber? (opcional)
+ed3f2b56	Si algú és en perill ara mateix, truca al número d'emergències local (el 911 als EUA).
+a5b32af9	Envia la denúncia
+f5704a3d	Què hi passa? La teva denúncia arriba a l'equip de Tamkeen, amb una còpia del missatge.
+772d1183	Què passa? La teva denúncia arriba a l'equip de Tamkeen.
+97a89a51	Bloqueja també {0}
+0208682c	Persones bloquejades
+bc676de5	No has bloquejat ningú. Per bloquejar algú, fes servir ⋯ al costat del seu nom a la pàgina d'Amics o en un xat.
+1f9d1023	(sense nom d'usuari)
+099d93dc	Vols esborrar el teu compte en línia?
+129b768c	Això esborra per sempre, del servei en línia de Tamkeen:
+0b148deb	el teu nom d'usuari i la foto de perfil
+ebbf457e	els teus amics i les sol·licituds d'amistat
+4d066b8b	els teus missatges, les notes de veu i tot el que has enviat
+d7cdbcaf	la teva targeta «El que estudio» i el teu estat en línia
+96531597	el teu equip del joc de criatures, les batalles i els regals
+91b8e212	els teus gremis i la llista de persones que has bloquejat
+72ced04d	Els gremis i les carpetes compartides que has fundat passen al membre més antic. Les paraules que has afegit a la carpeta compartida d'una altra persona s'hi queden, sense el teu nom. Les denúncies que has enviat es queden amb nosaltres, sense el teu nom.
+8f460eea	La teva biblioteca, les teves paraules i la teva configuració, als teus dispositius i al teu Google Drive, no es toquen. Més endavant et pots tornar a connectar, com un compte nou.
+2ae3a019	Esborra el meu compte
+c7ac551e	S'està esborrant…
+cb641a9b	S'ha esborrat el teu compte en línia.
+acb48443	Grups d'estudi: crea'n un o uneix-te a un, i mira què hi estudia cadascú.
+f74e442e	Un gremi és un grup d'amics amb nom i etiqueta propis. Tothom s'hi veu aquí, amb el que estudia, i els membres que són amics es poden enviar missatges. Crea'n un o espera una invitació.
+1b4cae1c	Correu brossa o una estafa
+315a854d	Assetjament o intimidació
+54740aa6	Odi o violència
+29cd612b	Contingut sexual
+83cf1310	Sembla que té menys de 16 anys
+8e583d51	Algú pot estar en perill
+48f88ac3	Una altra cosa
+a61a342d	Gràcies, ho revisarem en un termini de 7 dies.
+8c26e5fb	Encara no es pot bloquejar: el servei en línia de Tamkeen primer necessita una actualització.
+f291617b	Encara no es pot denunciar des de l'aplicació. Escriu a {0} amb el seu nom d'usuari i què ha passat.
+3bf47d0d	Encara no es pot esborrar el compte des de l'aplicació. Escriu a {0} des de l'adreça del teu compte de Google i l'esborrarem en un termini de 7 dies.
+c93510dd	Pots enviar fins a {0} sol·licituds d'amistat al dia. Torna-ho a provar demà.
+865ac16b	Avui has enviat moltíssims missatges. Torna-ho a provar demà.
+ee0e3cc0	Pots enviar fins a {0} denúncies al dia. Per a una cosa urgent, escriu a {1}.
+bafb1d29	Avui has bloquejat moltíssimes persones. Torna-ho a provar demà.
+65123bd1	És el màxim per a un dia. Torna-ho a provar demà.
+1edbe3ca	Pots fundar fins a 5 gremis.
+d2155ca5	No s'ha pogut enviar la denúncia.
+05857334	Has bloquejat {0}. Per afegir-lo, desbloqueja'l a Configuració → Compte i sincronització → Amics i compartir.
+9636bf13	Tria primer què passa.

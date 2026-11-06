@@ -7021,3 +7021,86 @@ The owner chose "Remove and replace it". Done here (history not rewritten; the m
 - **Non-commercial quotes, listed not removed** (Tamkeen will be paid): `ar-glf/evidence.json` quotes SADA 2022
   transcripts (CC BY-NC-SA 4.0) in `words[].examples.sada`; `ar-irq/evidence.json` quotes the Iraqi Arabic Dialect
   Corpus (CC BY-NC 4.0) in `words[].examples`. Not published in the app (docs/ has none). A decision for the owner.
+
+## Online safety: block, report, delete my account, closed profiles (v8, 2026-11-06)
+Owner's decision (Decisions chat, 2026-11-06): "Build all, ask before going live". Built and tested on a stand-in; the
+**live database is unchanged**: `supabase/v8-safety.sql` has NOT been run anywhere (no Postgres on this machine, and
+nothing was installed). Only the SQL editor self-test can confirm the SQL itself.
+- **Database** (`supabase/v8-safety.sql`, idempotent, all-or-nothing; also does what both v7 files do):
+  - helpers moved to a `private` schema the API doesn't expose, each answering only about the caller
+    (`private.are_friends/same_guild/in_guild/is_member/are_connected/can_message/can_request/knows/...`); the old
+    `public.are_friends` etc. are dropped last (if a rule made in the dashboard still used one, the run fails, changing
+    nothing). Every rule (RLS policy) that used them is re-created.
+  - `blocks` (only the blocker sees rows; `block_user`, `unblock_user`, `my_blocks`), `reports` (no rules at all: only
+    the admin reads them; `report_user` copies the message itself plus the person's username, photo path and card).
+    A block ends the friendship and pending invites, and hides card, presence (`seen_ago`), game profile, battles and
+    gifts both ways; `find_user` and the profile rule hide you from someone you blocked. Guild-mates still see each
+    other's names in the guild (by design).
+  - `profiles`: readable only by yourself and people `private.knows()` (friendship or request, guild-mate, invitation,
+    battle, gift, message, shared folder, or someone you blocked). Strangers use `find_user(name)` (exact, case-blind;
+    id, username, photo only). `send_friend_request(name)` does it in one step, answering `{status, username}`.
+  - Only friends can message (`private.can_message`), voice uploads too. Limits (`private.rate_log`, kept 2 days):
+    20 friend requests/day (cancelling doesn't give one back), 500 messages and 20 MB/day, 20 reports, 200 blocks,
+    100 guild and quiz invites, 20 shared folders, 2000 shared words; payload < 512 KB; voice folder < 400 files and
+    100 MB a day; at most 10 photo files and 5 founded guilds. Refusals are `P0001 daily_limit` (details = what, hint =
+    how many) or `guild_limit`; `safety.js serverText` words them. `created_at` is always the server's (`updated_at`
+    too on insert for statuses and game_profiles). Check constraints `not valid` (old rows aren't checked): avatar in
+    own folder, voice path in the pair's folder, game teams/showcase (types from `private.game_types()`, which must
+    equal `web/js/game/data.js TYPES`; `online-safety.test.mjs` fails if they differ), plausible numbers, gifts,
+    battle detail. `clear_seen`/`dismiss_message`/`purge_old_messages` hand back only the pair's own folder's files.
+  - Deleting: `delete_my_account()` (the app) and `private.delete_user(id)` (admin only); a `before delete` trigger
+    on profiles hands guilds and shared folders to the longest-standing member (`order by joined_at/added_at`) for
+    every way of deleting, the dashboard's too. Then cascades remove the rest; the sign-in account is deleted from
+    `auth.users` (if the database refuses, it goes to `private.admin_todo`). Files: SQL mustn't delete storage rows
+    (the files would stay behind), so the app deletes them through the Storage API first (`my_files()` plus listing
+    its own folders); anything left is noted in `private.files_to_remove`.
+  - Nightly (`pg_cron`, job `tamkeen-nightly-cleanup`, 03:17 UTC, `private.nightly_cleanup()`): messages > 30 days,
+    battles > 60, opened gifts > 30, quiz invites > 7, rate log > 2, reports handled > 90 days or older than a year;
+    then lists old files (voice > 30 days, deleted accounts' files, unused photos). With `pg_net` and two Vault secrets
+    it asks the Storage API to delete up to 500 a night; without, the apps delete their own chats' old files
+    (`purge_old_messages` now also returns them; `social.js tidyOldFiles` runs it at most every 6 hours).
+- **App** (works against the old database too: new calls fall back or say "not available yet"):
+  `web/js/safety.js` (no screen code; finding, friend requests, block, report, delete), `web/js/components/safetyui.js`
+  (⋯ menu, report form, blocked list, delete box, `onHold`), `social.js` (uses them; photos cached 1 hour, old photo
+  files removed), `friends.js` (⋯ on friends, requests and guild members; Message only for friends), `chat.js` (⋯ in
+  the header; hold or right-click a message → Report), `account.js` (Blocked people + Delete my online account).
+  build-www SHARED carries both new files. i18n `tools/i18n/tr/<code>/124-safety.txt` (56 strings, 16 languages).
+  docs/terms.html §6, §11 and docs/privacy.html (Friends, retention, Children) describe the v8 behaviour: publish them
+  with v8, not before.
+- **Older apps after v8**: can't add new friends (they read `profiles` by username) and can't message guild-mates who
+  aren't friends; everything else works. So: release this app version first, then apply v8.
+
+### How to apply v8 (owner's OK needed first)
+1. Release the app version with this code, so installed apps use `find_user`.
+2. Supabase dashboard → project Arabic-Podcast-Studio → **SQL Editor** → **New query**. Paste all of
+   `supabase/v8-safety.sql` (or, after a push, load it with the raw.githubusercontent `fetch` trick above and check its
+   SHA-256), press **Run**. It runs as one piece: on any error nothing is changed (send the error to a developer).
+   Expect one result row: `status` v8 applied, `nightly_job` scheduled, `profiles_closed` true, `old_helpers_gone` true.
+3. If `nightly_job` says "NOT scheduled: turn on pg_cron": **Database → Extensions**, search `pg_cron`, enable it,
+   then run v8-safety.sql again.
+4. Self-test: New query, paste `supabase/test_rls_safety.sql`, Run. It always ends in an error on purpose (that undoes
+   everything); the message must read `RESULTS ok=N bad=[ none] notes=[...]`. Then run `test_rls.sql`,
+   `test_rls_guilds.sql` and `test_rls_game.sql` the same way (updated for v8; each should say `bad=[ none]`).
+   `bad` items name the rule that failed. Two to watch: `my-files-found=0` or `eleventh-photo-file-allowed` would mean
+   the `postgres` role can't see `storage.objects` (the photo limit and the file list then do nothing; the rest works).
+5. Optional, so old files also go at night without anyone opening the app: Extensions → enable `pg_net`; then in the
+   SQL editor, typing the key yourself (from Settings → API Keys: the secret key): 
+   `select vault.create_secret('https://ktzgcohmgmbccvegwxqz.supabase.co', 'project_url');` and
+   `select vault.create_secret('<the secret key>', 'secret_key');`. Never paste the key into a chat.
+- **Admin, from then on**: reports in Table Editor → `reports` (set `handled_at` and `outcome`; the Terms promise a look
+  within 7 days, so check weekly). Delete an account (under 16, or an email request):
+  `select id from auth.users where email = '<their address>';` then `select private.delete_user('<that id>');`.
+  Leftovers: `select * from private.files_to_remove;` (remove them in Storage) and `select * from private.admin_todo;`.
+- **Dashboard settings still to check** (security audit): Authentication → Providers: Google only (Email, Phone,
+  Anonymous off; "Skip nonce checks" off); Authentication → Rate limits; URL configuration (exact redirect URLs, no
+  wildcards); Storage: `voice` private 3 MB audio + gzip, `avatars` public 512 KB images, no extra policies; Database →
+  Advisors → Security, run it after v8 (the definer functions in `public` are meant to be callable by signed-in users).
+- Tests: `tests/js/online-safety.test.mjs` (17: safety.js against a stand-in client, old-database fallbacks, the SQL
+  agreeing with the app, docs). Checked in the browser pane on a scratch phone build with supabase.js replaced by an
+  in-memory stand-in (no real service loaded; fresh data folder, not signed in to Drive), 375 px: ⋯ menus, block
+  (friendship gone, Unblock offered), report with "also block", message report by right-click and by touch hold,
+  Settings list + Unblock, delete (files → account → local sign-out), and with the old database: add friend the old
+  way, "not available yet" for block and delete, blocked list hidden. No console errors. Not checked: the real
+  database, a real phone, the desktop window.
+- Not done (smaller audit items): column-level update grants on profiles/guilds (L10), guild_members in the realtime
+  publication (L11), reserved usernames (L13), private avatars bucket.

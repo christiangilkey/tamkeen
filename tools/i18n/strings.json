@@ -2100,6 +2100,16 @@
   "f": "web/js/components/account.js"
  },
  {
+  "id": "925f6d72",
+  "k": "Delete my online account",
+  "f": "web/js/components/account.js"
+ },
+ {
+  "id": "24a0f8eb",
+  "k": "Deletes your username, photo, friends, messages and everything else stored online. Nothing on your devices or in your Google Drive is touched.",
+  "f": "web/js/components/account.js"
+ },
+ {
   "id": "aeed20b3",
   "k": "✓ Available",
   "f": "web/js/components/account.js"
@@ -4950,6 +4960,171 @@
   "f": "web/js/components/resetapp.js"
  },
  {
+  "id": "12aabd25",
+  "k": "Unblock",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "82dd2cdf",
+  "k": "Block",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "f0e45d3e",
+  "k": "Report…",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "4e379a21",
+  "k": "Block or report",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "2ce5abaa",
+  "k": "Block {0}?",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "b1290c24",
+  "k": "{0} won't be able to message you, send you friend requests, see your card or when you're online, or challenge you, and you'll stop being friends. They aren't told. In a guild you share, your names still show. You can unblock them in Settings → Account & sync → Friends & sharing.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "b61853dc",
+  "k": "You blocked {0}.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "8575654e",
+  "k": "You unblocked {0}. You can add each other as friends again.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "080b4697",
+  "k": "Report this message",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "231ab59e",
+  "k": "Report {0}",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "3b7a3094",
+  "k": "Anything else we should know? (optional)",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "ed3f2b56",
+  "k": "If someone is in danger right now, call your local emergency number (911 in the US).",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "a5b32af9",
+  "k": "Send report",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "f5704a3d",
+  "k": "What's wrong with it? Your report goes to the Tamkeen team, with a copy of the message.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "772d1183",
+  "k": "What's wrong? Your report goes to the Tamkeen team.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "97a89a51",
+  "k": "Also block {0}",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "cf765512",
+  "k": "Sending…",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "0208682c",
+  "k": "Blocked people",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "bc676de5",
+  "k": "You haven't blocked anyone. To block someone, use ⋯ next to their name on the Friends page, or in a chat.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "1f9d1023",
+  "k": "(no username)",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "099d93dc",
+  "k": "Delete your online account?",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "129b768c",
+  "k": "This deletes, for good, from Tamkeen's online service:",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "0b148deb",
+  "k": "your username and profile photo",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "ebbf457e",
+  "k": "your friends and friend requests",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "4d066b8b",
+  "k": "your messages, voice notes and everything you sent",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "d7cdbcaf",
+  "k": "your \"What I'm studying\" card and online status",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "96531597",
+  "k": "your creature game team, battles and gifts",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "91b8e212",
+  "k": "your guild memberships, and the list of people you blocked",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "72ced04d",
+  "k": "Guilds and shared folders you founded pass to their longest-standing member. Words you added to someone else's shared folder stay there, without your name. Reports you sent stay with us, without your name.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "8f460eea",
+  "k": "Your library, your words and your settings, on your devices and in your Google Drive, are not touched. You can connect again later, as a new account.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "2ae3a019",
+  "k": "Delete my account",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "c7ac551e",
+  "k": "Deleting…",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
+  "id": "cb641a9b",
+  "k": "Your online account has been deleted.",
+  "f": "web/js/components/safetyui.js"
+ },
+ {
   "id": "94331dff",
   "k": "YouTube video",
   "f": "web/js/components/sendmedia.js"
@@ -4987,11 +5162,6 @@
  {
   "id": "d7485673",
   "k": "Send “{0}” to…",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "cf765512",
-  "k": "Sending…",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -14290,8 +14460,8 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "78c698e3",
-  "k": "Study groups: make one or join one, and chat with everyone in it.",
+  "id": "acb48443",
+  "k": "Study groups: make one or join one, and see what everyone in it is studying.",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -14530,8 +14700,8 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "6fc866d1",
-  "k": "A guild is a group of friends with its own name and tag. Everyone in it sees each other here, with what they're studying, and can message each other. Create one, or wait for an invitation.",
+  "id": "f74e442e",
+  "k": "A guild is a group of friends with its own name and tag. Everyone in it sees each other here, with what they're studying, and members who are friends can message each other. Create one, or wait for an invitation.",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -18855,6 +19025,136 @@
   "f": "web/js/review/tasktext.js"
  },
  {
+  "id": "1b4cae1c",
+  "k": "Spam or a scam",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "315a854d",
+  "k": "Bullying or harassment",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "54740aa6",
+  "k": "Hate or violence",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "29cd612b",
+  "k": "Sexual content",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "83cf1310",
+  "k": "They seem to be under 16",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "8e583d51",
+  "k": "Someone may be in danger",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "48f88ac3",
+  "k": "Something else",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "a61a342d",
+  "k": "Thanks, we'll look at it within 7 days.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "8c26e5fb",
+  "k": "Blocking isn't available yet: Tamkeen's online service needs an update first.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "f291617b",
+  "k": "Reporting from the app isn't available yet. Email {0} with their username and what happened.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "3bf47d0d",
+  "k": "Deleting your account from the app isn't available yet. Email {0} from your Google account's address and we'll delete it within 7 days.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "c93510dd",
+  "k": "You can send up to {0} friend requests a day. Try again tomorrow.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "865ac16b",
+  "k": "You've sent a lot of messages today. Try again tomorrow.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "ee0e3cc0",
+  "k": "You can send up to {0} reports a day. For something urgent, email {1}.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "bafb1d29",
+  "k": "You've blocked a lot of people today. Try again tomorrow.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "65123bd1",
+  "k": "That's the most for one day. Try again tomorrow.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "1edbe3ca",
+  "k": "You can found up to 5 guilds.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "d2155ca5",
+  "k": "That report couldn't be sent.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "1d7a1d2e",
+  "k": "Couldn't reach the online service. Check your internet connection.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "0d09c4f7",
+  "k": "You and {0} are already friends.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "993bd149",
+  "k": "You already sent {0} a request.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "967a7678",
+  "k": "That's you!",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "05857334",
+  "k": "You blocked {0}. To add them, unblock them in Settings → Account & sync → Friends & sharing.",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "76ece8da",
+  "k": "Choose your own username first (Settings → Friends & sharing).",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "4e2bf6f2",
+  "k": "Nobody is called “{0}”. Usernames are exact (but not case-sensitive).",
+  "f": "web/js/safety.js"
+ },
+ {
+  "id": "9636bf13",
+  "k": "Choose what is wrong first.",
+  "f": "web/js/safety.js"
+ },
+ {
   "id": "0336262a",
   "k": "This device has no voice for this language.",
   "f": "web/js/saytext.js"
@@ -18905,11 +19205,6 @@
   "f": "web/js/social.js"
  },
  {
-  "id": "1d7a1d2e",
-  "k": "Couldn't reach the online service. Check your internet connection.",
-  "f": "web/js/social.js"
- },
- {
   "id": "ca129c85",
   "k": "Friends, chat and guilds are for people {0} and older.",
   "f": "web/js/social.js"
@@ -18942,31 +19237,6 @@
  {
   "id": "42f88043",
   "k": "Connect first (Settings → Friends & sharing).",
-  "f": "web/js/social.js"
- },
- {
-  "id": "76ece8da",
-  "k": "Choose your own username first (Settings → Friends & sharing).",
-  "f": "web/js/social.js"
- },
- {
-  "id": "4e2bf6f2",
-  "k": "Nobody is called “{0}”. Usernames are exact (but not case-sensitive).",
-  "f": "web/js/social.js"
- },
- {
-  "id": "967a7678",
-  "k": "That's you!",
-  "f": "web/js/social.js"
- },
- {
-  "id": "0d09c4f7",
-  "k": "You and {0} are already friends.",
-  "f": "web/js/social.js"
- },
- {
-  "id": "993bd149",
-  "k": "You already sent {0} a request.",
   "f": "web/js/social.js"
  },
  {
@@ -19040,6 +19310,11 @@
   "f": "web/js/social.js"
  },
  {
+  "id": "81058adf",
+  "k": "That is too large to send in one message.",
+  "f": "web/js/social.js"
+ },
+ {
   "id": "effea02d",
   "k": "You can only message people on your friends list.",
   "f": "web/js/social.js"
@@ -19057,11 +19332,6 @@
  {
   "id": "394821e7",
   "k": "There's nothing to share.",
-  "f": "web/js/social.js"
- },
- {
-  "id": "81058adf",
-  "k": "That is too large to send in one message.",
   "f": "web/js/social.js"
  },
  {
@@ -22595,6 +22865,11 @@
   "f": "app/gpu_libs.py"
  },
  {
+  "id": "e3ec8c21",
+  "k": "Cross-origin requests are not allowed.",
+  "f": "app/main.py"
+ },
+ {
   "id": "3ad92dba",
   "k": "NVIDIA GPU",
   "f": "app/hardware.py"
@@ -22643,11 +22918,6 @@
   "id": "2e99c4f9",
   "k": "Couldn't download the dictionaries ({0}). Check your connection and try again.",
   "f": "app/lexicon.py"
- },
- {
-  "id": "e3ec8c21",
-  "k": "Cross-origin requests are not allowed.",
-  "f": "app/main.py"
  },
  {
   "id": "4c3a7b2d",

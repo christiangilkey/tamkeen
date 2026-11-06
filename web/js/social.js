@@ -7,6 +7,9 @@
 
 import { googleIdToken } from "./app.js";
 import { ONLINE_MIN_AGE, onlineStatus, requireOnlineAge } from "./agegate.js";
+import * as safety from "./safety.js";
+
+export { NotReadyError, REPORT_REASONS, REPORT_THANKS } from "./safety.js";
 
 export const SUPABASE_URL = "https://ktzgcohmgmbccvegwxqz.supabase.co";
 const SUPABASE_KEY = "sb_publishable_VttMCOKQYH9FL-kekzhqmg_w9qXTkxt";
@@ -40,6 +43,8 @@ export async function sb() {
 }
 
 function friendly(error) {
+  const special = safety.serverText(error); // the database's own refusals: daily limits and the like
+  if (special) return special;
   const msg = (error && (error.message || error.error_description)) || String(error);
   if (/fetch|network|Failed to/i.test(msg)) return "Couldn't reach the online service. Check your internet connection.";
   return msg;
@@ -112,10 +117,9 @@ export function checkUsername(name) {
 export async function usernameFree(name) {
   const c = await sb();
   const user = await currentUser();
-  // username is case-insensitive text (citext), so "eq" ignores case.
-  const { data, error } = await c.from("profiles").select("id").eq("username", name).limit(1);
-  if (error) throw new Error(friendly(error));
-  return !data.length || (user && data[0].id === user.id);
+  // By exact username only (supabase/v8-safety.sql find_user); strangers can't list profiles.
+  const found = await safety.findUser(c, name);
+  return !found || !!(user && found.id === user.id);
 }
 
 export async function setUsername(name) {
@@ -169,10 +173,13 @@ export async function addFriend(username) {
   const me = await myProfile();
   if (!me) throw new Error("Connect first (Settings → Friends & sharing).");
   if (!me.username) throw new Error("Choose your own username first (Settings → Friends & sharing).");
-  const { data: found, error } = await c.from("profiles").select("id, username").eq("username", name).limit(1);
-  if (error) throw new Error(friendly(error));
-  if (!found.length) throw new Error(`Nobody is called “${name}”. Usernames are exact (but not case-sensitive).`);
-  const them = found[0];
+  const nobody = `Nobody is called “${name}”. Usernames are exact (but not case-sensitive).`;
+  // In one step on the server (supabase/v8-safety.sql): it also knows about blocks and the daily limit.
+  const sent = await safety.sendFriendRequest(c, name);
+  if (sent) return safety.requestOutcome(sent, name);
+  // An online database older than v8: look the name up, then ask.
+  const them = await safety.findUser(c, name);
+  if (!them) throw new Error(nobody);
   if (them.id === me.id) throw new Error("That's you!");
   const { data: existing } = await c.from("friendships").select("id, requester, status")
     .or(`and(requester.eq.${me.id},addressee.eq.${them.id}),and(requester.eq.${them.id},addressee.eq.${me.id})`);
@@ -245,6 +252,7 @@ export function startBadge() {
   sb().then((c) => c.auth.onAuthStateChange((event) => {
     if (event === "SIGNED_IN" || event === "SIGNED_OUT" || event === "INITIAL_SESSION") setTimeout(watch, 0);
     if (event === "SIGNED_IN") setTimeout(() => heartbeat(true), 0);
+    if (event === "SIGNED_IN" || event === "INITIAL_SESSION") setTimeout(tidyOldFiles, 8000);
   })).catch(() => {});
   setInterval(paint, 120000);
   // "I'm here": while the app is in use, about once a minute; "gone" as soon as it's put away.
@@ -498,6 +506,7 @@ async function insertMessage(friendId, fields) {
   const { data, error } = await c.from("messages").insert({ sender: user.id, recipient: friendId, ...fields })
     .select("id, sender, recipient, kind, body, payload, created_at, read_at").single();
   if (error) {
+    if (error.code === "23514") throw new Error("That is too large to send in one message.");
     throw new Error(error.code === "42501" ? "You can only message people on your friends list." : friendly(error));
   }
   return data;
@@ -632,6 +641,15 @@ export async function purgeOldMessages() {
   if (!error) await removeVoiceFiles(data);
 }
 
+// The online database clears old messages itself every night (supabase/v8-safety.sql), but only
+// the storage can delete their files: once in a while the app deletes those of its own chats.
+let lastTidy = 0;
+async function tidyOldFiles() {
+  if (Date.now() - lastTidy < 6 * 3600000 || !(await currentUser())) return;
+  lastTidy = Date.now();
+  await purgeOldMessages().catch(() => {});
+}
+
 /** Unsend one of my own messages. */
 export async function deleteMessage(message) {
   if (message.kind === "voice" && message.payload) await removeVoiceFiles([message.payload.path]);
@@ -686,12 +704,24 @@ export async function uploadAvatar(file) {
   const photo = await squarePhoto(file);
   if (!photo) throw new Error("Couldn't prepare that picture.");
   const path = `${me.id}/${Date.now()}.${photo.type === "image/webp" ? "webp" : "jpg"}`;
-  const up = await c.storage.from("avatars").upload(path, photo, { contentType: photo.type, cacheControl: "31536000" });
+  // Kept in caches for an hour at most, so a removed photo soon stops showing anywhere.
+  const up = await c.storage.from("avatars").upload(path, photo, { contentType: photo.type, cacheControl: "3600" });
   if (up.error) throw new Error(`Couldn't upload the picture: ${friendly(up.error)}`);
   const { error } = await c.from("profiles").update({ avatar_path: path }).eq("id", me.id);
   if (error) throw new Error(friendly(error));
-  if (me.avatar_path) c.storage.from("avatars").remove([me.avatar_path]).catch(() => {});
+  removeOldPhotos(c, me, path);
   return path;
+}
+
+/** Delete every photo in my folder except `keep` (also any an earlier attempt left behind). */
+function removeOldPhotos(c, me, keep = null) {
+  const bucket = c.storage.from("avatars");
+  return Promise.resolve(bucket.list(me.id, { limit: 100 })).then(({ data } = {}) => {
+    const old = new Set((data || []).filter((f) => f && f.id && f.name).map((f) => `${me.id}/${f.name}`));
+    if (me.avatar_path) old.add(me.avatar_path);
+    old.delete(keep);
+    if (old.size) return bucket.remove([...old]);
+  }).catch(() => {});
 }
 
 export async function removeAvatar() {
@@ -700,7 +730,7 @@ export async function removeAvatar() {
   if (!me || !me.avatar_path) return;
   const { error } = await c.from("profiles").update({ avatar_path: null }).eq("id", me.id);
   if (error) throw new Error(friendly(error));
-  c.storage.from("avatars").remove([me.avatar_path]).catch(() => {});
+  removeOldPhotos(c, me);
 }
 
 // ---------------------------------------------------------------- online / offline
@@ -942,4 +972,50 @@ export async function claimGift(id) {
   const { data, error } = await (await sb()).rpc("claim_gift", { g: id });
   if (error) throw new Error(friendly(error));
   return data;
+}
+
+// ---------------------------------------------------------------- blocking, reporting, deleting
+// (supabase/v8-safety.sql; the logic is in safety.js. Against an older online database these
+// throw NotReadyError, whose message says what to do instead.)
+
+/** Block someone: no messages, friend requests, card, online status or battles between you. */
+export async function blockUser(personId) {
+  await safety.block(await sb(), personId);
+}
+
+export async function unblockUser(personId) {
+  await safety.unblock(await sb(), personId);
+}
+
+/** The people I blocked: [{user_id, username, avatar_path, blocked_at}]; null when the online
+ * database can't block yet. */
+export async function blockedPeople() {
+  if (!(await currentUser())) return [];
+  return safety.blockedPeople(await sb());
+}
+
+/** Report a person, or one message they sent me (`messageId`). Resolves to the report's id. */
+export async function reportUser(personId, { reason, note = "", messageId = null } = {}) {
+  if (!(await currentUser())) throw new Error("Connect first.");
+  return safety.report(await sb(), { personId, reason, note, messageId });
+}
+
+/** Delete my online account and everything stored with it, then sign this device out of the
+ * online features. Resolves to the database's summary (guilds passed on, files removed, ...). */
+export async function deleteMyAccount() {
+  const user = await currentUser();
+  if (!user) throw new Error("Connect first.");
+  const c = await sb();
+  // Everyone I may have files with: their conversation folders are listed too.
+  const partners = new Set();
+  const [rows, members, mail] = await Promise.all([
+    c.from("friendships").select("requester, addressee"),
+    c.from("guild_members").select("user_id"),
+    c.from("messages").select("sender, recipient"),
+  ]);
+  for (const r of rows.data || []) partners.add(r.requester).add(r.addressee);
+  for (const r of members.data || []) partners.add(r.user_id);
+  for (const r of mail.data || []) partners.add(r.sender).add(r.recipient);
+  partners.delete(user.id);
+  return safety.deleteAccount(c, { userId: user.id, partnerIds: [...partners] });
 }

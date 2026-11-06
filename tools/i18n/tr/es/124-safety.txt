@@ -1,0 +1,57 @@
+# Bloquear, denunciar y borrar la cuenta en línea (web/js/components/safetyui.js, web/js/safety.js; supabase/v8-safety.sql).
+925f6d72	Borrar mi cuenta en línea
+24a0f8eb	Borra tu nombre de usuario, tu foto, tus amigos, tus mensajes y todo lo demás guardado en línea. No se toca nada de tus dispositivos ni de tu Google Drive.
+12aabd25	Desbloquear
+82dd2cdf	Bloquear
+f0e45d3e	Denunciar…
+4e379a21	Bloquear o denunciar
+2ce5abaa	¿Bloquear a {0}?
+b1290c24	{0} no podrá enviarte mensajes ni solicitudes de amistad, ver tu tarjeta ni cuándo estás en línea, ni retarte, y dejaréis de ser amigos. No se le avisa. En un gremio que compartáis, vuestros nombres se siguen viendo. Puedes desbloquearlo en Ajustes → Cuenta y sincronización → Amigos y compartir.
+b61853dc	Has bloqueado a {0}.
+8575654e	Has desbloqueado a {0}. Podéis volver a añadiros como amigos.
+080b4697	Denunciar este mensaje
+231ab59e	Denunciar a {0}
+3b7a3094	¿Algo más que debamos saber? (opcional)
+ed3f2b56	Si alguien está en peligro ahora mismo, llama a tu número local de emergencias (el 911 en EE. UU.).
+a5b32af9	Enviar denuncia
+f5704a3d	¿Qué tiene de malo? Tu denuncia llega al equipo de Tamkeen, con una copia del mensaje.
+772d1183	¿Qué pasa? Tu denuncia llega al equipo de Tamkeen.
+97a89a51	Bloquear también a {0}
+0208682c	Personas bloqueadas
+bc676de5	No has bloqueado a nadie. Para bloquear a alguien, usa ⋯ junto a su nombre en la página de Amigos o en un chat.
+1f9d1023	(sin nombre de usuario)
+099d93dc	¿Borrar tu cuenta en línea?
+129b768c	Esto borra para siempre, del servicio en línea de Tamkeen:
+0b148deb	tu nombre de usuario y tu foto de perfil
+ebbf457e	tus amigos y solicitudes de amistad
+4d066b8b	tus mensajes, notas de voz y todo lo que enviaste
+d7cdbcaf	tu tarjeta «Lo que estoy estudiando» y tu estado en línea
+96531597	tu equipo del juego de criaturas, tus batallas y tus regalos
+91b8e212	tus gremios y la lista de personas que bloqueaste
+72ced04d	Los gremios y carpetas compartidas que fundaste pasan a su miembro más antiguo. Las palabras que añadiste a la carpeta compartida de otra persona se quedan allí, sin tu nombre. Las denuncias que enviaste se quedan con nosotros, sin tu nombre.
+8f460eea	Tu biblioteca, tus palabras y tus ajustes, en tus dispositivos y en tu Google Drive, no se tocan. Puedes volver a conectarte más adelante, como una cuenta nueva.
+2ae3a019	Borrar mi cuenta
+c7ac551e	Borrando…
+cb641a9b	Tu cuenta en línea se ha borrado.
+acb48443	Grupos de estudio: crea uno o únete a uno, y mira lo que estudia cada uno.
+f74e442e	Un gremio es un grupo de amigos con su propio nombre y etiqueta. Todos sus miembros se ven aquí, con lo que están estudiando, y los que son amigos pueden enviarse mensajes. Crea uno o espera una invitación.
+1b4cae1c	Spam o una estafa
+315a854d	Acoso o intimidación
+54740aa6	Odio o violencia
+29cd612b	Contenido sexual
+83cf1310	Parece tener menos de 16 años
+8e583d51	Alguien puede estar en peligro
+48f88ac3	Otra cosa
+a61a342d	Gracias, lo revisaremos en un plazo de 7 días.
+8c26e5fb	Aún no se puede bloquear: el servicio en línea de Tamkeen necesita antes una actualización.
+f291617b	Aún no se puede denunciar desde la app. Escribe a {0} con su nombre de usuario y lo que pasó.
+3bf47d0d	Aún no se puede borrar la cuenta desde la app. Escribe a {0} desde la dirección de tu cuenta de Google y la borraremos en un plazo de 7 días.
+c93510dd	Puedes enviar hasta {0} solicitudes de amistad al día. Inténtalo de nuevo mañana.
+865ac16b	Hoy has enviado muchísimos mensajes. Inténtalo de nuevo mañana.
+ee0e3cc0	Puedes enviar hasta {0} denuncias al día. Para algo urgente, escribe a {1}.
+bafb1d29	Hoy has bloqueado a muchísimas personas. Inténtalo de nuevo mañana.
+65123bd1	Es el máximo para un día. Inténtalo de nuevo mañana.
+1edbe3ca	Puedes fundar hasta 5 gremios.
+d2155ca5	No se pudo enviar esa denuncia.
+05857334	Has bloqueado a {0}. Para añadirlo, desbloquéalo en Ajustes → Cuenta y sincronización → Amigos y compartir.
+9636bf13	Elige primero qué pasa.

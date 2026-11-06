@@ -2,6 +2,9 @@
 --
 -- Everything else (library, transcripts, private vocab) stays in each user's own Google Drive.
 -- Run in the Supabase SQL editor. Safe to re-run: every statement is idempotent.
+-- Then v5, v6, v7 and v8-safety.sql, in order. v8 replaces several rules here (who can read
+-- profiles, who can message whom, the helper functions); once v8 is in, don't re-run this file
+-- on its own, or run v8 again straight after it.
 --
 -- Privacy model (row-level security):
 --   profiles        anyone signed in can look up a username; only you can change yours
