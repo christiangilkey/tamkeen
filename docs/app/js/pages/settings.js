@@ -6,6 +6,7 @@
 import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
+import { freeHelpersCard } from "../components/freehelpers.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { waitingForComputer } from "../cardvoice.js";
@@ -163,7 +164,7 @@ function languages(body) {
 
 function words(body) {
   body.append(h(`<section class="card" id="definer"></section>`));
-  return [aiSetup(body.querySelector("#definer"), { transport })];
+  return [aiSetup(body.querySelector("#definer"), { transport }), freeHelpersCard(body)];
 }
 
 function listening(body) {
@@ -313,8 +314,11 @@ function data(body) {
     </section>
     <section class="card set-card stack" data-find="whatis">
       <h2>What is Tamkeen</h2>
-      <div class="row"><span class="small muted">Everything Tamkeen can do, how it does it, and the studies its design is based on (in English).</span><span class="spacer"></span>
-        <button type="button" id="open-whatis">Open</button></div>
+      <span class="small muted">A guide to the app, what makes it different, and the research behind it (in English).</span>
+      <div class="row">
+        <button type="button" data-whatis="howto">How to use Tamkeen</button>
+        <button type="button" data-whatis="special">What makes Tamkeen special</button>
+        <button type="button" data-whatis="studies">Supporting studies</button></div>
     </section>
     <section class="card set-card stack" data-find="changelog">
       <h2>Changelog</h2>
@@ -345,7 +349,7 @@ function data(body) {
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
-  $("#open-whatis").onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs());
+  for (const b of document.querySelectorAll("[data-whatis]")) b.onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs(b.dataset.whatis));
   $("#check-updates").onclick = async () => {
     const box = $("#update-result"), button = $("#check-updates");
     button.disabled = true;

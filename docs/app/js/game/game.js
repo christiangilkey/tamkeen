@@ -6,6 +6,7 @@ import { gameOn } from "../components/gameswitch.js";
 import { COMBO_STEPS, SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
+import { fly } from "./fly.js";
 
 let game = null;
 let saveTimer = 0;
@@ -73,13 +74,15 @@ export function onGame(fn) {
 export function reward(event, anchor = null) {
   if (!gameOn()) return null;  // the game is switched off in Settings
   const g = getGame();
+  const coins0 = g.coins;
   const result = earn(g, event, { combo, session });
   if (!result) return null;
   if (result.cleared) result.glow = cardsGlow(g); // the day's flashcards are done: their reward is glow
   saveGame();
   // (`quiet` events still earn, but without the fountain: the vocab reviewer has its own effects.)
-  if ((event.type !== "study" && !event.quiet) || result.goalDone) celebrate(result, anchor);
-  if (event.type !== "study" || result.goalDone) showChip(g, result);
+  const loud = (event.type !== "study" && !event.quiet) || result.goalDone;
+  if (loud) celebrate(result, anchor);
+  if (event.type !== "study" || result.goalDone) showChip(g, result, loud ? anchor : null, Math.max(0, g.coins - coins0));
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
 }
@@ -190,7 +193,7 @@ export function fountain(x, y, result) {
     : result.type === "anki" ? `Anki: ${result.matured} card${result.matured === 1 ? "" : "s"} matured · +${result.xp} XP`
     : result.item ? ` ${result.item === "freeze" ? "Streak freeze" : "Hint card"}!`
     : `+${result.xp} XP`;
-  if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", icon(result.item === "freeze" ? "freeze" : "hint"));
+  if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", result.item === "freeze" ? icon("freeze_badge", 18) : icon("hint"));
   // The big number is what was earned. When it was multiplied, the working goes beside it
   // ("+24 XP  12 ×2"), so the multiplier can never read as still to come.
   const sum = sumText(result);
@@ -229,23 +232,30 @@ function celebrate(result, anchor) {
 }
 
 // ---------- the XP readout shown while studying ----------
-// Away from Home there is no habitat on screen, so a small chip appears after each reward: the
-// total rolls up to its new value, and while this session's combo is alive it catches fire and
-// shows the multiplier and the next one. No countdown: the combo lasts the whole session.
+// Away from Home there is no habitat on screen, so a small chip appears after each reward: the XP (and
+// coins, when some came too) fly from the word into it (fly.js) and its total rolls up as they land, and
+// while this session's combo is alive it catches fire and shows the multiplier and the next one. No
+// countdown: the combo lasts the whole session.
 let chipTimer = 0;
 // Leaving the page puts the readout away (Home has the full bar).
 if (typeof window !== "undefined") window.addEventListener("hashchange", () => document.getElementById("game-chip")?.classList.remove("show", "hot", "max"));
-function showChip(g, result) {
-  if (document.querySelector(".habitat")) return; // Home shows all this already
+function showChip(g, result, from = null, coins = 0) {
+  if (document.querySelector(".habitat")) return; // Home shows all this already (and flies them in itself)
   let chip = document.getElementById("game-chip");
   if (!chip) {
     chip = document.createElement("div");
     chip.id = "game-chip";
-    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-combo" hidden></span>`;
-    chip.querySelector("b").dataset.value = String(g.xp - (result.xp || 0));
+    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-coins" hidden>${icon("coin")}<b></b></span><span class="chip-combo" hidden></span>`;
+    const start = Math.max(0, g.xp - (result.xp || 0)); // (what it showed before: it rolls up once the XP lands)
+    chip.querySelector(".chip-xp b").dataset.value = String(start);
+    chip.querySelector(".chip-xp b").textContent = start.toLocaleString();
     document.body.append(chip);
   }
-  rollNumber(chip.querySelector("b"), g.xp, (n) => n.toLocaleString());
+  const fmt = (n) => n.toLocaleString();
+  const xpEl = chip.querySelector(".chip-xp");
+  const coinEl = chip.querySelector(".chip-coins");
+  if (coins > 0 && coinEl.hidden) { coinEl.querySelector("b").dataset.value = String(g.coins - coins); coinEl.querySelector("b").textContent = fmt(g.coins - coins); }
+  coinEl.hidden = coinEl.hidden && !(coins > 0);
   const hot = chained(result.type) && comboAlive();
   // What the next lookup (or, after a grammar example, the next example) will really be multiplied by
   // (combo, boost and the day's fade together), the same sum the popup beside the word shows.
@@ -256,8 +266,11 @@ function showChip(g, result) {
   chip.classList.toggle("hot", hot);
   chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
   chip.classList.add("show");
+  // (from the word that earned them; with nothing to fly from, the number just rolls)
+  fly("xp", from, xpEl, { arrive: () => rollNumber(xpEl.querySelector("b"), g.xp, fmt) });
+  if (coins > 0) fly("coin", from, coinEl, { arrive: () => rollNumber(coinEl.querySelector("b"), g.coins, fmt) });
   clearTimeout(chipTimer);
-  chipTimer = setTimeout(() => chip.classList.remove("show", "hot", "max"), 5000);
+  chipTimer = setTimeout(() => { chip.classList.remove("show", "hot", "max"); coinEl.hidden = true; }, 5000);
 }
 
 /** Count a number on screen up to its new value, ticking as it goes. */

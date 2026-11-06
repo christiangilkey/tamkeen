@@ -18,6 +18,7 @@ import { LIMITS, cleanName, cleanProfile } from "./remote.js";
 import { FRAME, composeCreature, icon } from "./render.js";
 import { getGame, saveGame } from "./game.js";
 import { runLiveBattle } from "./livebattle-ui.js";
+import { friendsPanel } from "./friends-game.js";
 
 const MODE_NAME = { last100: `Last ${LAST_WORDS} words`, unlimited: "All-time" };
 
@@ -90,16 +91,33 @@ export function wordModePicker(game, onChange = () => {}) {
   return box;
 }
 
-/** The battle menu. Battles open once 100 words are saved: they are made of your own words. */
-export async function openBattleMenu() {
+/** The battle menu. Battles open once 100 words are saved: they are made of your own words. Friends are
+ * here too (challenges, their teams, gifts, the league and the guild raid: friends-game.js), whatever the
+ * words. `changed()` runs when something there changes the game; `waiting` > 0 puts a dot on Friends. */
+export async function openBattleMenu({ changed = () => {}, waiting = 0 } = {}) {
   const game = getGame();
   const { wrap, body } = sheet("Battles");
-  body.append(h(`<p class="muted">Loading your words…</p>`));
+  // Friends: open on its own page inside this sheet, with a way back.
+  const friendsEntry = () => {
+    const b = h(`<button type="button" class="battle-mode b-friends">${icon("trade", 32)}<span class="b-friends-text"><strong>Friends</strong>
+      <span class="small muted">Challenges, gifts, the league and guild raids</span></span><span class="tile-dot"${waiting > 0 ? "" : " hidden"}></span></button>`);
+    b.onclick = () => {
+      body.innerHTML = "";
+      const back = h(`<button type="button" class="ghost b-back">${icon("arrow")} Battles</button>`);
+      back.onclick = () => { wrap.remove(); openBattleMenu({ changed, waiting: 0 }); };
+      const page = h(`<div class="stack"></div>`);
+      body.append(back, page);
+      friendsPanel(page, game, changed, (friend, profile) => { wrap.remove(); startFriendBattle(friend, profile); });
+    };
+    return b;
+  };
+  body.append(friendsEntry(), h(`<p class="muted">Loading your words…</p>`));
   const vocab = await loadWords(game);
-  if (!wrap.isConnected) return;
+  if (!wrap.isConnected || !body.querySelector(".b-friends")) return; // closed, or Friends was opened meanwhile
   for (const id of checkBadges(game, { words: vocab.length })) badgeToast(id);
   saveGame();
   body.innerHTML = "";
+  body.append(friendsEntry());
 
   if (vocab.length < BATTLE_UNLOCK_WORDS) {
     body.append(h(`<div class="stack">
@@ -143,8 +161,7 @@ export async function openBattleMenu() {
       <button type="button" class="battle-mode" id="b-gyms"><strong>Gyms</strong>
         <span class="small muted"></span></button>
     </div>
-    <p class="small muted">To challenge a friend's team, open <strong>Friends</strong> in the game menu. This week's rule for
-      friend battles: <strong>${rule.name}</strong>. ${rule.text}</p>
+    <p class="small muted">This week's rule for friend battles: <strong>${rule.name}</strong>. ${rule.text}</p>
     <div id="b-team" class="row"></div>
   </div>`));
   body.querySelector("#b-wordmode").append(wordModePicker(game));

@@ -17,37 +17,30 @@
 // text box, and holding a word of the sentence (or of the translation) lights it up as part of what
 // is being learned, or puts it out. Both are saved like the Meaning box (review/cardedit.js).
 
-import { api, buzz, esc, fmtDate, h, platform, readClipboard, saveSettings, state as app, toast } from "../app.js";
-import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../languages.js";
+import { api, buzz, esc, fmtDate, h, platform, state as app, toast } from "../app.js";
+import { detectLanguage, langAttrs } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
-import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
+import { stripMarks } from "../cardtext.js";
 import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPayload } from "../review/cardedit.js";
 import { firstVisitTour, pageGuide, showGuide } from "../components/tour.js";
-import { canSay, hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoice.js";
-import { addReadings, wordReading } from "../lexicon/readings.js";
-import { dictionaries, downloadDictionaries } from "../lexicon/seen.js";
-import { pickedCountry } from "../youtube-home.js";
+import { canSay } from "../cardvoice.js";
+import { addReadings } from "../lexicon/readings.js";
 import { reward, trackStudy } from "../game/game.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
-import { MNEMONIC_COUNT, addToNotes, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
-import { askMnemonic, definerConfig, noAi } from "../define-service.js";
-import { freeMnemonics } from "../examples.js";
-import { learn } from "../review/freemnemonic.js";
-import { troubleshootButton } from "../components/troubleshoot.js";
-import { offerFix } from "../components/fixit.js";
-import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
+import { addToNotes } from "../review/mnemonic.js";
+import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, mnemonicHtml, mnemonicMaker, partSeconds, pastedInto, textBox } from "../review/cardtools.js";
+import { t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
-const HOLD_MS = 450;      // pressing a word of the sentence this long lights it up (or puts it out)
-// What a screen reader says for each text box that a tap opens on the back of a card.
-const EDIT_LABELS = { text: "Edit the word", meaning: "Edit the meaning", sentence: "Edit the sentence", translation: "Edit the translation" };
+// (HOLD_MS, how long a word of the sentence is held to light it up, and EDIT_LABELS, what a screen reader
+// calls each text box a tap opens, are the shared card tools', review/cardtools.js.)
 
 function pref(key, fallback) {
   try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
@@ -130,11 +123,11 @@ const ICON = {
   gear: `<svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="16" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/></svg>`,
   yes: `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
   no: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>`,
-  paste: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4.5" width="12" height="16" rx="2.2"/><path d="M9.5 4.5V3.5h5v1M9.5 11h5M9.5 14.5h3.5"/></svg>`,
-  copy: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="11" height="11" rx="2.2"/><path d="M15.5 8.5V6.2a1.7 1.7 0 0 0-1.7-1.7H6.2a1.7 1.7 0 0 0-1.7 1.7v7.6a1.7 1.7 0 0 0 1.7 1.7h2.3"/></svg>`,
-  check: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`,
-  bulb: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z"/></svg>`,
-  down: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 13.5v-9h-3a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1z"/><path d="M7.5 13.5l3.6 6.6a1.9 1.9 0 0 0 3.5-1.3l-.8-4.3h5a2 2 0 0 0 2-2.4l-1.3-6.4a2 2 0 0 0-2-1.7H7.5"/></svg>`,
+  paste: CARD_ICONS.paste,
+  copy: CARD_ICONS.copy,
+  check: CARD_ICONS.check,
+  bulb: CARD_ICONS.bulb,
+  down: CARD_ICONS.down,
   trash: `<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 7h15M9.5 7V4.8h5V7M6.5 7l.8 11.2a1.5 1.5 0 0 0 1.5 1.3h6.4a1.5 1.5 0 0 0 1.5-1.3L17.5 7M10 10.8v5.2M14 10.8v5.2"/></svg>`,
   sound: `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg>`,
   clock: `<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M10 2.5h4"/></svg>`,
@@ -318,18 +311,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // Every card can be heard: its own recording, or the voice chosen for cards without one (cardvoice.js).
   const hasWordAudio = (v) => canSay(v, "word");
   const hasSentenceAudio = (v) => canSay(v, "sentence");
-  // How long each stretch plays, with the air the Vocab page's player leaves round it (a voice
-  // spoken live: about as long as its text takes to say).
-  const timesOf = (v) => (hasOwnAudio(v) ? v : voiceTimes(v));
-  const wordSeconds = (v) => {
-    const t = timesOf(v);
-    return t ? (t.end ?? t.start + 1) - t.start + 0.6 : speakingSeconds(voiceText(v).word);
-  };
-  const sentenceSeconds = (v) => {
-    const t = timesOf(v);
-    return t && t.sent_start != null ? Math.max(0.5, (t.sent_end ?? t.sent_start + 3) - t.sent_start) + 0.6
-      : speakingSeconds(voiceText(v).sentence);
-  };
+  // How long each stretch plays, with the air the Vocab page's player leaves round it (review/cardtools.js partSeconds).
+  const wordSeconds = (v) => partSeconds(v, "word");
+  const sentenceSeconds = (v) => partSeconds(v, "sentence");
   // When audio started from this card will have finished: "Say it" must not record over it.
   let audioOverAt = 0;
   const track = (seconds, started) => {
@@ -364,14 +348,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // ----- Memorization notes: Paste, and the Mnemonic maker -----
   /** Put what is on the clipboard into Memorization notes (after what is there already), saved like typing. */
   async function pasteInto(box, v) {
-    let text;
-    try { text = await readClipboard(); } catch {
-      toast("The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.", { error: true });
-      return;
-    }
-    text = String(text || "").trim();
-    if (!text) { toast("There is nothing copied to paste."); return; }
-    box.value = box.value.trim() ? `${box.value.replace(/\s+$/, "")}\n${text}` : text;
+    const notes = await pastedInto(box.value);  // (review/cardtools.js: the Vocab list's Paste does the same)
+    if (notes === null) return;
+    box.value = notes;
     fit(box);
     more();
     edit(v, "memo", box.value);
@@ -412,22 +391,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const sentence = field === "sentence";
     const line = face.querySelector(editable(field).selector);
     if (!line || (editing && editing.field === field)) return;
-    const { text, marks } = litParts(v[field] || "", sentence ? v.text : null);
-    line.hidden = !text.trim();
-    if (line.hidden) { line.innerHTML = ""; return; }
-    let cut = cuts.get(field);
-    if (!cut || cut.text !== text) {
-      const focus = marks[0] || [0, 0];
-      cut = { text, ...trimSpan(text, focus[0], focus[1], CARD_SENTENCE_MAX) };
-      cuts.set(field, cut);
-    }
     const lang = sentence ? studyOf(v) : ownLanguage();
-    const places = sentence && vowelled ? vowelPlaces(text, vowelled) : null;
-    line.innerHTML = (cut.before ? "…" : "") + litTextHtml(text, marks, esc, {
-      words: wordRanges(text, lang), from: cut.lo, to: cut.hi,
-      shown: places ? (a, b) => vowelled.slice(places[a], places[b]) : null,
-    }) + (cut.after ? "…" : "");
-    if (sentence) addReadings(line, lang);
+    drawLitLine(line, v, field, { cuts, lang, vowelled: sentence ? vowelled : "" });
+    if (sentence && !line.hidden) addReadings(line, lang);
   }
   /** Everything in the answer drawn again from the card (after it was put right). */
   function drawAnswer(v) {
@@ -465,66 +431,30 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   function openEditor(v, field, line) {
     const rules = editable(field);
     if (!rules || line.hidden || editing || busy || !flipped || todo[0] !== v) return;
-    const box = document.createElement("textarea");
-    box.className = "rv-editbox";
-    box.rows = 1;
-    box.value = editValue(v, field);
-    box.autocomplete = "off";
-    box.setAttribute("enterkeyhint", "done");
-    box.setAttribute("aria-label", t(EDIT_LABELS[field]));
-    if (rules.study) setLang(box, studyOf(v));  // the word and its sentence: the language being learned
-    else { box.lang = ownLanguage(); box.dir = ownDir(); }
-    const copy = h(`<button type="button" class="rv-edit-copy">${ICON.copy}<span></span></button>`);
-    copy.lastElementChild.textContent = t("Copy");
-    copy.title = t("Copy");
-    const wrap = document.createElement("div");
-    wrap.className = "rv-editing";
-    wrap.append(box, copy);
-    line.classList.add("editing");
-    line.replaceChildren(wrap);
-    editing = { v, field, line, box };
-    const grow = () => { box.style.height = "auto"; box.style.height = `${box.scrollHeight}px`; };
-    box.addEventListener("input", () => { grow(); more(); });
-    box.addEventListener("keydown", (e) => {
-      e.stopPropagation();  // Space, 1, 2, the arrows, W, S, P, N, Z, Del: typing here, not the card's keys
-      if (e.isComposing || e.keyCode === 229) return;  // (still choosing characters: a Japanese or Chinese keyboard)
-      if (e.key === "Enter") { e.preventDefault(); closeEditor(true); }
-      else if (e.key === "Escape") { e.preventDefault(); closeEditor(false); }
+    const me = { v, field, line };
+    me.ed = textBox(line, {
+      value: editValue(v, field),
+      label: t(EDIT_LABELS[field]),
+      ...(rules.study ? { study: studyOf(v) } : { lang: ownLanguage(), dir: ownDir() }),  // the word and its sentence: the language being learned
+      onInput: more,
+      onClose: (save, value, next) => {
+        if (editing !== me) return;
+        editing = null;
+        const change = save ? editPayload(v, field, value) : null;
+        if (change) saveCard(v, change);
+        if (todo[0] === v && face.contains(line)) drawAnswer(v);
+        // Keys go back to the card, unless another box (Grammar notes, say) was tapped.
+        if (!(next instanceof Element && next.closest("input, textarea, select, button, a"))) el.focus({ preventScroll: true });
+      },
     });
-    let copying = false;
-    box.addEventListener("blur", (e) => { if (!copying) closeEditor(true, e.relatedTarget); });
-    // The Copy button keeps the box open: it never takes the focus from it (nor does the old way of
-    // copying, where the clipboard can't be written directly: it selects a hidden box for a moment).
-    copy.addEventListener("mousedown", (e) => e.preventDefault());
-    copy.onclick = async () => {
-      const text = box.value.replace(/\s+/g, " ").trim();
-      if (!text) return;
-      copying = true;
-      const done = await copyText(text);
-      copying = false;
-      if (editing && editing.box === box) box.focus({ preventScroll: true });
-      if (!done) { toast(t("That couldn't be copied here."), { error: true }); return; }
-      buzz("tick");
-      toast(t("Copied"), { timeout: 1500 });
-    };
-    grow();
-    box.focus({ preventScroll: true });
-    box.setSelectionRange(box.value.length, box.value.length);
-    box.scrollIntoView({ block: "nearest" });
+    me.box = me.ed.box;
+    editing = me;
     more();
   }
 
   /** Put the open text box away: saved (`save`), or as it was. `next` = where the focus is going. */
   function closeEditor(save, next = null) {
-    if (!editing) return;
-    const { v, field, line, box } = editing;
-    editing = null;
-    line.classList.remove("editing");
-    const change = save ? editPayload(v, field, box.value) : null;
-    if (change) saveCard(v, change);
-    if (todo[0] === v && face.contains(line)) drawAnswer(v);
-    // Keys go back to the card, unless another box (Grammar notes, say) was tapped.
-    if (!(next instanceof Element && next.closest("input, textarea, select, button, a"))) el.focus({ preventScroll: true });
+    if (editing) editing.ed.close(save, next);
   }
 
   // ----- hold a word of the sentence: it lights up as part of the word being learned, or goes out -----
@@ -541,253 +471,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (again) again.classList.add("rv-held");  // a short ring round the word that changed
   }
 
-  /** Copy `text`, falling back to the old way where the clipboard can't be written directly. */
-  async function copyText(text) {
-    try { await navigator.clipboard.writeText(text); return true; } catch { /* try the old way */ }
-    const spare = document.createElement("textarea");
-    spare.value = text;
-    spare.style.cssText = "position:fixed;opacity:0;left:-999px;top:0";
-    el.append(spare);
-    spare.select();
-    let ok = false;
-    try { ok = document.execCommand("copy"); } catch { /* not supported */ }
-    spare.remove();
-    return ok;
-  }
-
-  // ----- the Mnemonic maker (review/mnemonic.js): keywords that sound like the word, each with a picture -----
-  // What it came up with for each word while the reviewer is open: {pron, items, parts, checked, asked,
-  // shown, kept} (`shown`: every keyword shown for the word so far, left out of the next "Make 5 more";
-  // `kept`: those put in Memorization notes with Use). Keywords turned down are kept on this device
-  // (mnemonic.js turnDown) and never suggested for the word again.
-  const mnemonics = new Map();
-  // How a free keyword is tied to the word's meaning (freemnemonic.js ties), for its mark's tooltip.
-  const TIE_NOTES = {
-    s: "It means the same thing, or a kind of it", p: "One is a part of the other", d: "Its meaning is close to the word's",
-    k: "The word's meaning is a kind of it", g: "It goes with the word's meaning", v: "It goes with the word's meaning",
-  };
-  const avoidStore = () => { try { return window.localStorage; } catch { return null; } };
-  let englishTable = null;  // a promise of the English word table (its CMU pronunciations), or null
-  /** English speakers: each keyword's sounds from the CMU Pronouncing Dictionary in the English word table,
-   * downloaded once in the background (0.6 MB) while the AI thinks, like Dictionary first's dictionaries.
-   * Resolves to mnemonic.js englishSounds, or null when the table can't be had (the AI's IPA is used then). */
-  function englishCheck() {
-    if (!englishTable) {
-      englishTable = (async () => {
-        let dicts = await dictionaries("en");
-        if (!dicts) { await downloadDictionaries("en"); dicts = await dictionaries("en"); }
-        return (dicts || []).find((d) => d && d.ipa) || null;
-      })().catch(() => null).then((table) => { if (!table) englishTable = null; return table; });
-    }
-    return englishTable.then((table) => (table ? englishSounds(table) : null));
-  }
-  /** How the card's word is said, as far as this device knows, for the AI to follow: Arabic with its vowel
-   * marks (as drawn on the card with "Show vowels" on, or as typed), else the dictionaries' reading. */
-  async function readingOf(v, lang) {
-    if (lang === "ar") {
-      const shown = (face.querySelector(".rv-word") || {}).textContent || "";
-      return [shown, v.text].find((x) => /[ً-ْٰ]/.test(x || "")) || "";
-    }
-    return wordReading(v.text, lang);
-  }
-
-  /** The free maker learns the learner's taste from Use (+1) and thumbs down (−1): freemnemonic.js learn,
-   * kept in the synced setting `mnemonic_prefs` (Settings → Word definitions → Mnemonic maker can forget it). */
-  function tasteFrom(s, sign, st) {
-    if (!s.traits) return;  // (the AI's suggestions)
-    const now = (app.status && app.status.settings || {}).mnemonic_prefs;
-    const others = [...st.items, ...st.parts].filter((x) => x !== s && x.traits).map((x) => x.traits);
-    saveSettings({ mnemonic_prefs: JSON.stringify(learn(now, s.traits, sign, others)) }).catch(() => { /* kept next time */ });
-  }
-
-  /** The Mnemonic maker below Memorization notes. */
-  function mnemonicMaker(box, v) {
-    const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), few = box.querySelector(".rv-mnemo-few");
-    const list = box.querySelector(".rv-mnemo-list"), said = box.querySelector(".rv-mnemo-said");
-    const label = go.querySelector("span");
-    const uid = uidOf(v);
-    const speaks = (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name;
-    const say = (text, error = false) => { note.hidden = !text; note.textContent = text || ""; note.classList.toggle("error", error); };
-    const sayFew = (text) => { few.hidden = !text; few.textContent = text || ""; };
-    // Space and Enter on its buttons press them, and never answer the card (the reviewer's keys are on the document).
-    box.addEventListener("keydown", (e) => { if ((e.key === " " || e.key === "Enter") && e.target.closest("button")) e.stopPropagation(); });
-
-    /** The word's syllables ("ni-YYA", the stressed one in capitals), with those a keyword sounds like lit:
-     * one lit run per keyword (a split keyword's runs joined by " + "). */
-    function soundsLine(el, pron, s) {
-      const pieces = syllablePieces(pron);
-      el.textContent = "";
-      el.hidden = !pieces.length;
-      const run = (from, to, lit) => {
-        if (from > to) return;
-        const span = document.createElement(lit ? "b" : "span");
-        span.textContent = pieces.slice(from, to + 1).map((p) => p.text).join("-");
-        el.append(span);
-      };
-      const n = pieces.length;
-      if (s.pieces) {  // a split keyword: each piece's syllables, then the ones no piece covers
-        let at = 0;
-        s.pieces.forEach((p, i) => {
-          if (i) el.append(" + ");
-          run(Math.max(at, p.from), Math.min(p.to, n - 1), true);
-          at = Math.max(at, p.to + 1);
-        });
-        if (at < n) { el.append("-"); run(at, n - 1, false); }
-      } else {
-        const from = Math.max(0, s.from), to = Math.min(n - 1, s.to);
-        run(0, from - 1, false);
-        if (from > 0) el.append("-");
-        run(from, to, true);
-        if (to < n - 1) el.append("-");
-        run(to + 1, n - 1, false);
-      }
-    }
-
-    /** Use: put `s` (keyword and picture) at the end of Memorization notes, a blank line under what the
-     * learner wrote, saved like typing. */
-    function keep(s, st, button) {
-      const memo = face.querySelector(".memo");
-      const text = noteText(s);
-      if (memo && !memo.value.includes(text)) {
-        memo.value = addToNotes(memo.value, text);
-        fit(memo);
-        more();
-        edit(v, "memo", memo.value);
-      }
-      st.kept.add(s.keyword);
-      tasteFrom(s, +1, st);
-      buzz("tick");
-      kept(button);
-    }
-    const kept = (button) => {
-      button.classList.add("done");
-      button.disabled = true;
-      button.innerHTML = `${ICON.check}<span></span>`;
-      button.lastElementChild.textContent = t("Added");
-      button.title = t("Added to Memorization notes");
-    };
-
-    function row(s, st) {
-      const li = h(`<li class="rv-mn">
-        <div class="rv-mn-top">
-          <span class="rv-mn-word" translate="no"></span>
-          <span class="rv-mn-acts">
-            <button type="button" class="rv-mn-use" title="Put it in Memorization notes">Use</button>
-            <button type="button" class="rv-mn-btn rv-mn-drop" title="Not this one: never suggest it for this word again" aria-label="Not this one">${ICON.down}</button>
-          </span>
-        </div>
-        <div class="rv-mn-how"><span class="rv-mn-sounds" translate="no"></span></div>
-        <p class="rv-mn-scene" translate="no"></p>
-      </li>`);
-      li.querySelector(".rv-mn-word").textContent = s.keyword;
-      soundsLine(li.querySelector(".rv-mn-sounds"), st.pron, s);
-      const how = li.querySelector(".rv-mn-how");
-      if (s.sound === "close") how.append(h(`<span class="rv-mn-mark close" title="It sounds close to the word">Close match</span>`));
-      else if (s.sound === "partial") how.append(h(`<span class="rv-mn-mark" title="It sounds like part of the word, or roughly like it">Partial match</span>`));
-      if (s.link === 2) {
-        const fits = h(`<span class="rv-mn-mark fits">Fits the meaning</span>`);
-        if (s.linkNote) fits.title = s.linkNote;
-        if (s.tie && TIE_NOTES[s.tie]) fits.title = t(TIE_NOTES[s.tie]);
-        how.append(fits);
-      } else if (s.link === 1 && s.tie) {
-        // (the free maker: a looser tie to the meaning, review/freemnemonic.js)
-        const related = h(`<span class="rv-mn-mark fits">Related in meaning</span>`);
-        if (TIE_NOTES[s.tie]) related.title = t(TIE_NOTES[s.tie]);
-        how.append(related);
-      }
-      const scene = li.querySelector(".rv-mn-scene");
-      scene.textContent = s.scene || "";
-      scene.hidden = !s.scene;
-      const up = li.querySelector(".rv-mn-use");
-      if (st.kept.has(s.keyword)) kept(up);
-      else up.onclick = () => keep(s, st, up);
-      li.querySelector(".rv-mn-drop").onclick = () => {
-        turnDown(avoidStore(), uid, s.keyword);
-        tasteFrom(s, -1, st);
-        st.items = st.items.filter((x) => x !== s);
-        st.parts = st.parts.filter((x) => x !== s);
-        buzz("tick");
-        li.remove();
-        if (!st.items.length && !st.parts.length) { list.hidden = true; sayFew(""); say(t("You turned them all down. Press Make 5 more for new ones.")); }
-        more();
-      };
-      return li;
-    }
-
-    function draw(st) {
-      list.innerHTML = "";
-      const all = [...st.items, ...st.parts];
-      for (const s of all) list.append(row(s, st));
-      list.hidden = !all.length;
-      const pieces = syllablePieces(st.pron);
-      said.hidden = !pieces.length;
-      const line = said.querySelector(".rv-mnemo-syl");
-      line.textContent = pieces.map((p) => p.text).join("-");
-      line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
-      label.textContent = "Make 5 more";
-      if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
-      else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
-        say(st.keywordLangs.length > 1
-          ? t("Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.")
-          : t("Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
-      } else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
-      else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
-      // Fewer than five that pass: only those are shown, and the card says so.
-      const n = all.length;
-      sayFew(!n ? "" : !st.checked ? "Their sound couldn't be checked this time."
-        : n === 1 ? "Only 1 keyword sounded close enough to show." : n < MNEMONIC_COUNT ? `Only ${n} keywords sounded close enough to show.` : "");
-      more();
-    }
-
-    const had = mnemonics.get(uid);
-    if (had) draw(had);
-    go.onclick = async () => {
-      go.disabled = true;
-      label.textContent = "Thinking…";
-      say("");
-      sayFew("");
-      try {
-        const lang = studyOf(v);
-        const studyName = (langInfo(lang) || {}).name || "the language being learned";
-        const before = mnemonics.get(uid);
-        const shown = before ? before.shown : [];
-        const avoid = [...new Set([...shown, ...turnedDown(avoidStore(), uid)])].slice(-40);
-        const reading = await readingOf(v, lang);
-        // No AI key (or AI turned off): the free maker, English keywords found on this device
-        // (examples.js freeMnemonics). With a key the AI's, as before; a key that turns out missing falls back.
-        const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: (app.status && app.status.settings || {}).mnemonic_prefs });
-        let got;
-        if (noAi() || !definerConfig().key) got = await free();
-        else {
-          try {
-            got = await makeMnemonics(v, {
-              ask: askMnemonic, study: studyName, speaks, avoid, reading,
-              variety: varietyOf(lang, pickedCountry(lang), studyName),
-              ownSounds: uiLanguage() === "en" ? englishCheck() : null,
-            });
-          } catch (e) {
-            if (!(e && e.message === "NO_KEY")) throw e;
-            got = await free();
-          }
-        }
-        const st = { ...got, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
-        mnemonics.set(uid, st);
-        if (go.isConnected) draw(st);
-      } catch (e) {
-        if (!go.isConnected) return;
-        label.textContent = mnemonics.get(uid) ? "Make 5 more" : "Mnemonic maker";
-        const why = e && e.message;
-        say(why === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
-          : why === "NO_KEYWORDS" ? t("The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.")
-          : why === "NO_SOUNDS" ? t("The word's sounds couldn't be worked out, so no keywords could be found.")
-          : why || "That didn't work. Try again.", true);
-        offerFix(e);  // no key, or a refused one: the popup with the way to Settings
-        const fix = troubleshootButton(e);
-        if (fix) note.append(" ", fix);
-      } finally {
-        go.disabled = false;
-      }
-    };
+  // ----- the Mnemonic maker (review/cardtools.js mnemonicMaker): keywords that sound like the word, each with a picture -----
+  // Use puts one at the end of Memorization notes, a blank line under what the learner wrote, saved like typing.
+  function useMnemonic(v, text) {
+    const memo = face.querySelector(".memo");
+    if (!memo || memo.value.includes(text)) return;
+    memo.value = addToNotes(memo.value, text);
+    fit(memo);
+    more();
+    edit(v, "memo", memo.value);
   }
 
   function back(v) {
@@ -808,13 +500,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
           <div class="rv-field-head"><span>Memorization notes</span><button type="button" class="rv-paste" title="Paste what you copied into Memorization notes">${ICON.paste} Paste</button></div>
           <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="Memorization notes"></textarea>
         </div>
-        <div class="rv-mnemo">
-          <button type="button" class="rv-mnemo-go">${ICON.bulb}<span>Mnemonic maker</span></button>
-          <div class="rv-mnemo-said" hidden><div class="rv-mnemo-said-label">How it sounds</div><div class="rv-mnemo-syl" translate="no"></div></div>
-          <p class="rv-mnemo-note" hidden></p>
-          <p class="rv-mnemo-few" hidden></p>
-          <ul class="rv-mnemo-list" hidden></ul>
-        </div>
+        ${mnemonicHtml()}
         <div class="rv-source">
           <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
           <span class="saved" hidden>Saved</span>
@@ -825,7 +511,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     face.querySelector(".rv-trash").onclick = () => askDelete(v);
     const memo = face.querySelector(".memo");
     face.querySelector(".rv-paste").onclick = () => pasteInto(memo, v);
-    mnemonicMaker(face.querySelector(".rv-mnemo"), v);
+    mnemonicMaker(face.querySelector(".rv-mnemo"), v, {
+      lang: studyOf(v), onUse: (text) => useMnemonic(v, text), onLayout: more,
+      shownWord: () => (face.querySelector(".rv-word") || {}).textContent || "",  // (with its vowels, when shown)
+    });
     // The meaning and the translation are in the learner's own language (and never run through the
     // app's own translations: translate="no").
     for (const line of face.querySelectorAll(".rv-ans-meaning, .rv-ans-trans")) { line.lang = ownLanguage(); line.dir = ownDir(); }

@@ -7,10 +7,16 @@ import { CATALOG, DECOR, ITEMS, SHOP_MOVES, SLOTS, TAGS, itemById, moveIcon } fr
 import { buy, buyMove, equip, moveStock, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
+import { icon as lineIcon } from "../icons.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
-import { friendsPanel, gift } from "./friends-game.js";
+import { gift } from "./friends-game.js";
 import { gardenPanel, suppliesPanel } from "./garden.js";
-import { moveHelp, moveLine, startFriendBattle } from "./battle-ui.js";
+import { moveHelp, moveLine } from "./battle-ui.js";
+import { SHOP_SEEN_KEY, shopSeen } from "./homecard.js";
+import { openEarned, openEvolution } from "./info.js";
+
+// The "?" in the sheet's head: the explanation behind each page (info.js). Badges and things you own have none of their own.
+const HELP = { shop: "coin", mine: "coin", creatures: "evolve", garden: "glow", supplies: "gem" };
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const fileOf = (it) => (it.slot === "decor" ? `${it.id}.png` : `item/${it.id}.png`);
@@ -20,18 +26,18 @@ export function openShop(tab, changed) {
   const game = getGame();
   document.querySelector(".game-sheet-wrap")?.remove();
   const wrap = h(`<div class="game-sheet-wrap"><div class="game-sheet" role="dialog" aria-label="Shop and wardrobe">
-    <div class="game-sheet-head">
+    <div class="game-sheet-head with-tabs">
       <div class="tabs">
         <button type="button" data-tab="shop">${icon("nav_shop")} Shop</button>
         <button type="button" data-tab="mine">${icon("nav_wardrobe")} My things</button>
         <button type="button" data-tab="creatures">${icon("nav_roster")} Creatures</button>
         <button type="button" data-tab="badges">${icon("nav_badges")} Badges</button>
-        <button type="button" data-tab="friends">${icon("trade")} Friends</button>
         <button type="button" data-tab="garden">${icon("glow")} Garden</button>
         <button type="button" data-tab="supplies">${icon("potion")} Supplies</button>
       </div>
       <span class="spacer"></span>
-      <span class="today-chip lit" id="sheet-coins">${icon("coin")} <span></span></span>
+      <span class="today-chip cur-coin" id="sheet-coins">${icon("coin")} <span></span></span>
+      <button type="button" class="ghost icon sheet-help" title="How this works">${lineIcon("question", 18)}</button>
       <button type="button" class="ghost icon" data-close title="Close">${icon("close")}</button>
     </div>
     <div class="game-sheet-body"></div>
@@ -85,13 +91,18 @@ export function openShop(tab, changed) {
   function paint(which) {
     for (const b of wrap.querySelectorAll("[data-tab]")) b.classList.toggle("primary", b.dataset.tab === which);
     wrap.querySelector("#sheet-coins span").textContent = `${game.coins} coins`;
+    const help = wrap.querySelector(".sheet-help");
+    help.hidden = !HELP[which];
+    const go = (tab) => openShop(tab, changed);
+    help.onclick = () => (HELP[which] === "evolve" ? openEvolution(game, go, { over: true }) : openEarned(HELP[which], game, go, { over: true }));
     body.innerHTML = "";
     if (which === "creatures") { creaturesPanel(body, game, changed); return; }
     if (which === "badges") { badgesPanel(body, game); return; }
     if (which === "garden") { gardenPanel(body, game, changed); return; }
     if (which === "supplies") { suppliesPanel(body, game, changed); return; }
-    if (which === "friends") { friendsPanel(body, game, changed, (friend, profile) => { close(); startFriendBattle(friend, profile); }); return; }
     if (which === "shop") {
+      // Seen: what is affordable now no longer lights the Shop tile's dot on Home (homecard.shopDot).
+      try { localStorage.setItem(SHOP_SEEN_KEY, JSON.stringify(shopSeen(game))); } catch { /* no memory here: the dot may come back */ }
       const stock = shopStock(game);
       body.append(h(`<p class="small muted">Today's selection, chosen for your creature. It changes every day. Coins come from
         reaching your daily goal (10), saving words (1 each), levelling up (5), winning battles, and a creature becoming fully grown (25).</p>`));
@@ -143,7 +154,7 @@ export function openShop(tab, changed) {
   }
   for (const b of wrap.querySelectorAll("[data-tab]")) b.onclick = () => paint(b.dataset.tab);
   document.body.append(wrap);
-  paint(["mine", "creatures", "badges", "friends", "garden", "supplies"].includes(tab) ? tab : "shop");
+  paint(["mine", "creatures", "badges", "garden", "supplies"].includes(tab) ? tab : "shop");
   return close;
 }
 

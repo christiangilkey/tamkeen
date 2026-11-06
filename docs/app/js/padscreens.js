@@ -65,11 +65,13 @@ export function screenLayer(pad) {
   }
 
   if (p === "vocab") {
+    // The folder before or after the one on show: the Vocab page's folder button moves along (pages/vocab.js "folderstep").
+    const folderStep = (step) => ({ can: () => !!shown("#folder-pick"), run: () => shown("#folder-pick").dispatchEvent(new CustomEvent("folderstep", { detail: step })) });
     return { area: "vocab", handlers: {
       review: press("#review"),
       search: typeIn("#q"),
-      prevFolder: tabs("#folders", -1),
-      nextFolder: tabs("#folders", 1),
+      prevFolder: folderStep(-1),
+      nextFolder: folderStep(1),
       options: press("#more.vocab-more"),
     } };
   }

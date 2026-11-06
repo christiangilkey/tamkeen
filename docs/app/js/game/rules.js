@@ -273,7 +273,11 @@ function grow(state, xp, trait) {
   if (state.incubating != null) {
     const egg = state.roster.find((g) => g.seed === state.incubating && g !== c);
     if (!egg || stageOf(egg.growth).id !== "egg") state.incubating = null;
-    else { egg.growth = Math.min(1, egg.growth + xp / ADULT_XP / 2); if (stageOf(egg.growth).id !== "egg") state.incubating = null; }
+    else {
+      egg.growth = Math.min(1, egg.growth + xp / ADULT_XP / 2);
+      // Hatched: it waits in the habitat as a cracked egg until tapped (homecard.collectables).
+      if (stageOf(egg.growth).id !== "egg") { state.incubating = null; egg.hatchedAway = true; }
+    }
   }
   if (trait) {
     // Traits drift toward what the owner actually does; the others fade a little.

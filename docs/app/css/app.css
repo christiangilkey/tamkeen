@@ -2572,3 +2572,254 @@ html.sel-sheets select { pointer-events: none; }
 .delete-account-row p { margin: 6px 0 0; }
 .delete-list { margin: 8px 0 12px; padding-left: 22px; line-height: 1.5; }
 .delete-account p { margin: 0 0 10px; }
+
+/* ---------- creature game: the home card (game/habitat.js, homecard.js, fly.js; redesigned 2026-11-06) ---------- */
+/* Learnt by playing: the goal is a ring on the ground round the creature, its hearts float over its head, what you
+   earn flies into its counter. One colour per thing everywhere: gold coins, blue gems, orange streak, mint goal. */
+:root { --coin: #946500; --gem: #0d6fb3; --streak: #c4480f; --goal: #0b875a; --glow: #0e8797; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --coin: #f5c542; --gem: #5cc8ff; --streak: #ff8a3d; --goal: #5cf2b0; --glow: #7fe0ea; } }
+:root[data-theme="dark"] { --coin: #f5c542; --gem: #5cc8ff; --streak: #ff8a3d; --goal: #5cf2b0; --glow: #7fe0ea; }
+.cur-coin { color: var(--coin); }
+.cur-gem { color: var(--gem); }
+.cur-streak { color: var(--streak); }
+#sheet-coins.cur-coin { color: var(--coin); font-weight: 700; }
+.habitat-scene { container-type: inline-size; }
+.habitat .habitat-hud { padding: 10px 12px 12px; gap: 10px; }
+/* The level: its number, then a thin bar (tap: how XP works). */
+.hud-lv { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 26px; padding: 2px 2px; border: 0; background: none; color: var(--text); font-size: 13px; }
+.hud-lv:hover:not(:disabled) { background: none; }
+.hud-lv-n { font-weight: 700; color: var(--accent); white-space: nowrap; }
+.habitat-hud .hud-bar.thin { height: 6px; border: 0; border-image: none; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.habitat-hud .hud-bar.thin i { background: var(--accent); border-radius: 99px; filter: none; }
+/* Two currencies and the goal streak: three equal cells, the number large in the thing's own colour. */
+.hud-wallet { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.hud-count { gap: 8px; min-height: 42px; padding: 6px 8px; border: 0; border-radius: 12px; background: var(--surface-2);
+  font-size: 18px; font-weight: 800; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
+.hud-count:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.05); }
+.hud-count b { font-weight: 800; }
+.hud-count.cur-coin, .hud-count.cur-gem, .hud-count.cur-streak { color: var(--coin); }
+.hud-count.cur-gem { color: var(--gem); }
+.hud-count.cur-streak { color: var(--streak); }
+.hud-count.cur-streak.cold { color: var(--muted); }
+.cur-streak.cold .streak-pic > .px-icon { filter: grayscale(1); opacity: .5; }
+.streak-pic { position: relative; display: inline-flex; line-height: 0; }
+.freeze-badge { position: absolute; inset-inline-end: -5px; bottom: -4px; line-height: 0; }
+.freeze-badge[hidden] { display: none; }
+/* Four big tiles, one word each; a red dot when something waits there. */
+.habitat .hud-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.habitat .hud-tile { position: relative; flex-direction: column; gap: 6px; min-height: 84px; padding: 12px 8px; border: 0; border-radius: 14px;
+  background: var(--surface-2); color: var(--text); font-size: 15px; font-weight: 700; white-space: normal; }
+.habitat .hud-tile:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.05); }
+.tile-dot { position: absolute; top: 9px; inset-inline-end: 9px; width: 10px; height: 10px; border-radius: 50%; background: var(--alert); }
+.tile-dot[hidden], .tile-plus[hidden] { display: none; }
+/* (beside the tile's picture, not over it) */
+.tile-plus { position: absolute; top: 14px; inset-inline-start: calc(50% + 22px); font-size: 14px; font-weight: 800; color: var(--glow); pointer-events: none; }
+.tile-plus.show { animation: tile-plus 1.3s ease-out both; }
+@keyframes tile-plus { from { opacity: 0; transform: translateY(6px); } 15% { opacity: 1; transform: none; } 75% { opacity: 1; } to { opacity: 0; transform: translateY(-8px); } }
+/* Over the scene: the name tag (and what it is, for a moment after a tap), the arrows to another habitat (top
+   right, in the sky: clear of the buildings and things to tap), its name when it changes, and the goal ring's
+   "4 / 10 min" inside the ring's front half. */
+.habitat-about { position: absolute; left: 8px; top: 50px; max-width: calc(100% - 60px); padding: 2px 8px; background: #000; color: #fff;
+  font-size: 12px; line-height: 1.3; pointer-events: none; }
+.habitat-about[hidden] { display: none; }
+.scene-arrow { position: absolute; top: 8px; width: 34px; height: 34px; min-height: 0; padding: 0; border: 2px solid #fff; border-radius: 0;
+  background: #000; color: #fff; }
+.scene-arrow:hover:not(:disabled) { background: #000; filter: brightness(1.4); }
+.scene-arrow.prev { right: 46px; }
+.scene-arrow.next { right: 8px; }
+.scene-arrow.prev .ic { transform: scaleX(-1); }
+.scene-label { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); padding: 3px 10px; background: #000; color: #fff;
+  font-size: 13px; font-weight: 600; white-space: nowrap; pointer-events: none; }
+.scene-label[hidden] { display: none; }
+.scene-label.show { animation: scene-label 1.6s ease-out both; }
+@keyframes scene-label { from { opacity: 0; } 12% { opacity: 1; } 75% { opacity: 1; } to { opacity: 0; } }
+.goal-ring { position: absolute; left: 50%; top: 91%; transform: translate(-50%, -50%); min-height: 0; gap: 3px; padding: 1px 6px; border: 0; border-radius: 3px;
+  background: #000; color: #5cf2b0; font-size: clamp(10px, 3.1cqw, 15px); font-weight: 700; line-height: 1.3; font-variant-numeric: tabular-nums; z-index: 1; }
+.goal-ring:hover:not(:disabled) { background: #000; filter: brightness(1.2); }
+.goal-ring.done { background: #5cf2b0; color: #03140c; }
+.goal-ring.done:hover:not(:disabled) { background: #5cf2b0; }
+.habitat-scene .pet-word { z-index: 2; }
+/* The daily goal box (tap the ring) and the name box (tap the name tag). */
+.goal-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.goal-opt { min-height: 64px; border-radius: 14px; font-size: 20px; font-weight: 800; }
+.goal-opt.on, .goal-opt.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.name-box { gap: 14px; }
+.name-box input { width: 100%; font-size: 18px; text-align: center; }
+.name-box .name-about { margin: 0; text-align: center; }
+.name-box .confirm-buttons { margin-top: 8px; }
+.name-box .confirm-buttons button { flex: 1; }
+/* Rewards on their way to a counter (fly.js), and the counter's bounce when they land. */
+.fly-icon { position: absolute; left: 0; top: 0; line-height: 0; pointer-events: none; will-change: transform; }
+.hud-pop { animation: hud-pop .34s cubic-bezier(.3, 1.8, .5, 1); }
+@keyframes hud-pop { from { transform: scale(.86); } 55% { transform: scale(1.14); } to { transform: none; } }
+/* The XP chip while studying: its coins (when a reward brought some), and both bounce as rewards land. */
+#game-chip .chip-xp { display: inline-block; }
+.chip-coins { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--coin); }
+.chip-coins[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) { .hud-pop, .tile-plus.show, .scene-label.show { animation: none; } }
+/* The battle menu's Friends entry (challenges, gifts, league, raid: friends-game.js), and the way back from it. */
+.battle-mode.b-friends { position: relative; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 10px; width: 100%; }
+.b-friends-text { display: flex; flex-direction: column; gap: 2px; text-align: start; }
+.b-back { align-self: flex-start; margin-bottom: 8px; }
+.b-back .px-icon { transform: scaleX(-1); }
+/* On a phone the game sheet's tabs get a row of their own under the coins, "?" and close (beside them they
+   were squeezed into one tab per line). */
+@media (max-width: 600px) {
+  .game-sheet-head.with-tabs { flex-wrap: wrap; row-gap: 10px; }
+  .game-sheet-head.with-tabs > .tabs { order: 1; flex-basis: 100%; }
+}
+/* The "?" in a game sheet's head (the explanation behind that page), and the sheet it opens on top. */
+.game-sheet-wrap.over { z-index: 70; }
+.sheet-help[hidden] { display: none; }
+.row-help { display: flex; align-items: center; gap: 4px; }
+.row-help .sheet-help { min-height: 0; width: 28px; height: 28px; padding: 0; }
+
+/* ---------- Settings → Word definitions: example sentences and memory tricks, free or AI (freehelpers.js) ---------- */
+.helper-row { display: grid; gap: 6px; padding: 12px 0 0; border-top: 1px solid var(--border); }
+.helper-head { display: flex; align-items: center; gap: 8px; }
+.helper-how-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; font-size: 14px; }
+.helper-seg { margin: 2px 0 0; max-width: none; }
+.helper-taste[hidden] { display: none; }
+.helper-how-part { margin: 0 0 14px; }
+.helper-how-part p { margin: 4px 0 0; line-height: 1.5; }
+
+/* ---------- the Vocab list: its header, Select, and a word opened (pages/vocab.js, components/wordeditor.js; 2026-11-06) ---------- */
+/* The owner's look: plain solid surfaces, line icons, the app's own popups; no bars or shadows for decoration. */
+/* The row over the list: the folder on show (a tap: the folder sheet), sort and filter, Select. */
+.vocab-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.vocab-folder { flex: 1; min-width: 0; justify-content: flex-start; gap: 8px; min-height: 42px; padding: 0 10px 0 14px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: var(--text); font-size: 15px; font-weight: 650; }
+.vocab-folder:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vocab-folder > .ic-folder { color: var(--accent); }
+.vf-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vf-n { flex: none; color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+.vf-caret { flex: none; display: inline-flex; margin-inline-start: auto; color: var(--muted); }
+.vf-caret .ic { transform: rotate(90deg); }
+.vocab-tool { position: relative; flex: none; display: grid; place-items: center; width: 42px; height: 42px; min-width: 0; min-height: 0; padding: 0;
+  border: 0; border-radius: 12px; background: var(--surface-2); color: var(--text); }
+.vocab-tool:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vocab-tool.on, .vocab-tool[aria-pressed="true"] { color: var(--accent); }
+.vocab-tool.on .ic .fill, .vocab-tool[aria-pressed="true"] .ic .fill { opacity: .25; }
+.vt-dot { position: absolute; top: 7px; inset-inline-end: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+/* Select: a bar in the list's header's place (it stays in sight while scrolling), a box on each word. */
+.vocab-selbar { position: sticky; top: 0; z-index: 5; display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; padding: 8px;
+  border: 1px solid var(--accent); border-radius: 16px; background: var(--surface); }
+.vsb-top { display: flex; align-items: center; gap: 8px; }
+.vsb-count { flex: 1; min-width: 0; text-align: center; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vsb-all { flex: none; min-height: 42px; padding: 0 12px; color: var(--accent); font-weight: 650; }
+.vsb-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.vocab-page .vocab-item .pick { display: none; }
+.vocab-page.selecting .vocab-item .pick { display: block; flex: none; width: 20px; height: 20px; margin: 8px 0 0; accent-color: var(--accent); pointer-events: none; }
+.vocab-page.selecting .vocab-item .vi-chev, .vocab-page.selecting .vocab-item .vi-quick { display: none; }
+.vocab-page.selecting .vocab-item.picked { border-color: var(--accent); background: var(--sel-range); }
+@media (pointer: coarse) { .vocab-page .vocab-item:not(.open) .vi-head { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; } }
+/* The arrow: opens a word, and (pointing up, in the brand's teal) closes it. */
+.vocab-page .vi-chev { width: 36px; height: 36px; min-width: 0; min-height: 0; margin-top: 4px; padding: 0; border-radius: 50%; display: grid; place-items: center; }
+.vocab-page .vocab-item.open .vi-chev { transform: rotate(-90deg); color: var(--accent); }
+/* A word opened: a brand-teal outline, nothing else. Its texts are typed over where they are (cardtools.js textBox). */
+.vocab-page .vocab-item.open { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.vocab-page .vocab-item.open .vi-head { cursor: default; padding-bottom: 8px; }
+.vocab-item.open .vi-edit { cursor: text; border-radius: 8px; -webkit-tap-highlight-color: transparent; }
+@media (hover: hover) { .vocab-item.open .vi-edit:not(.editing):hover { background: var(--surface-2); } }
+.vocab-item .vi-trans { font-size: 14.5px; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+.vocab-item .vi-trans b { padding: 0 3px; border-radius: 5px; background: var(--accent-soft); color: var(--text); font-weight: 700; }
+/* A lit stretch over several words is drawn in pieces (cardtext.js litTextHtml): one band, rounded at its ends. */
+.vocab-item .sentence b.s, .vocab-item .vi-trans b.s { padding-inline-end: 1px; margin-inline-end: -1px; border-start-end-radius: 0; border-end-end-radius: 0; }
+.vocab-item .sentence b.m, .vocab-item .vi-trans b.m { padding-inline: 0 1px; margin-inline-end: -1px; border-radius: 0; }
+.vocab-item .sentence b.e, .vocab-item .vi-trans b.e { padding-inline-start: 0; border-start-start-radius: 0; border-end-start-radius: 0; }
+.vocab-item .rv-editing { align-items: stretch; }
+.vocab-item .rv-editbox { text-align: start; }
+.vocab-item .rv-edit-acts { display: flex; flex-wrap: wrap; gap: 6px; }
+.vocab-item textarea.rv-editbox { -webkit-user-select: text; user-select: text; }
+.vocab-item.open .vi-edit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.vocab-item.open .vi-quick { gap: 6px; }
+.vocab-item.open .vi-quick button { padding: 5px 10px; }
+.vi-quick .say-it { transition: background-color .15s ease, color .15s ease; }
+.vi-quick .say-it[data-state="ready"] { opacity: .7; }
+.vi-quick .say-it[data-state="rec"], .vi-quick .say-it[data-state="rec"]:hover:not(:disabled) { background: #e5484d; border-color: #e5484d; color: #fff; }
+.vi-quick .say-it[data-state="word"], .vi-quick .say-it[data-state="you"],
+.vi-quick .say-it[data-state="word"]:hover:not(:disabled), .vi-quick .say-it[data-state="you"]:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.vocab-page .vocab-item.open .vi-body { gap: 12px; max-width: 640px; margin: 0 16px; padding: 4px 0 14px; border-top: 0; }
+/* What it hasn't got takes no room: a line of small "+" links adds it. */
+.vi-adds { display: flex; flex-wrap: wrap; gap: 6px; }
+.vi-add { min-height: 30px; padding: 0 11px 0 8px; gap: 4px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--muted); font-size: 13px; font-weight: 600; }
+.vi-add:hover:not(:disabled) { background: var(--surface-2); color: var(--accent); }
+.vi-note { display: flex; flex-direction: column; gap: 2px; }
+.vi-note-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.vi-note-text { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+/* The row of tools: equal tiles, a line icon over its name; the one open is teal. */
+
+.vi-tools { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.vi-tool { flex-direction: column; gap: 4px; min-width: 0; min-height: 58px; padding: 6px 3px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: var(--text); font-size: 12px; font-weight: 600; line-height: 1.2; white-space: normal; text-align: center; }
+.vi-tool:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vi-tool span { max-width: 100%; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }  /* (a long name is hyphenated, never cut anywhere) */
+.vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
+.vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
+.vi-tool-danger { color: var(--danger); }
+/* What a tool opens, under the row. */
+.vi-panel { display: flex; flex-direction: column; gap: 10px; }
+.vi-btn { gap: 6px; min-height: 42px; padding: 0 14px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--text); font-weight: 600; }
+.vi-btn:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vi-btn.primary, .vi-btn.primary:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.vi-btn[aria-pressed="true"], .vi-btn[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
+.vi-btn-danger { color: var(--danger); }
+.vi-pair { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; }
+.vi-pair .vi-btn { min-width: 0; white-space: normal; line-height: 1.2; }
+.vi-link { align-self: center; min-height: 34px; padding: 0 10px; border: 0; background: none; color: var(--accent); font-weight: 600; }
+.vi-link:hover:not(:disabled) { background: none; text-decoration: underline; }
+.vi-sent, .vi-rec, .vi-rec-parts { display: flex; flex-direction: column; gap: 10px; }
+.vi-sent-found { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
+.vi-sent-text { font-family: var(--ar-font); font-size: 19px; line-height: 1.8; overflow-wrap: anywhere; }
+.vi-sent-text b { padding: 0 2px; border-radius: 4px; background: var(--hl); color: var(--hl-ink); font-weight: inherit; }
+.vi-sent-trans { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.vi-sent-trans b { color: var(--text); font-weight: 700; }
+.vi-sent-from { font-size: 12px; color: var(--muted); }
+.vi-sent-note, .vi-rec-note { margin: 0; font-size: 13.5px; line-height: 1.45; color: var(--muted); text-align: center; }
+.vi-sent-note.error, .vi-rec-note.error { color: var(--danger); }
+.vi-rec-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.vi-rec-row .cb-rec { flex: 1; justify-content: center; }
+.vi-rec-row .vi-rec-play { flex: 1; }
+.vi-rec-rm { width: 42px; padding: 0; }
+.vi-folders { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.vi-foot { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.vi-from { flex: 1; min-width: 0; }
+.vi-foot .saved { flex: none; color: var(--accent); font-weight: 600; }
+.vi-more { flex: none; width: 36px; height: 36px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--muted); }
+.vi-more:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
+/* The folder sheet: every word, those in no folder, each folder with its count (⋯: Rename, Send, Delete), New folder. */
+.vf-list { display: flex; flex-direction: column; gap: 4px; }
+.vf-row { display: flex; align-items: center; gap: 4px; border-radius: 12px; }
+.vf-row.on { background: var(--accent-soft); }
+.vf-pick { flex: 1; min-width: 0; justify-content: flex-start; gap: 10px; min-height: 48px; padding: 0 12px; border: 0; border-radius: 12px;
+  background: none; color: var(--text); font-size: 16px; text-align: start; }
+.vf-pick:hover:not(:disabled) { background: var(--surface-2); }
+.vf-pick > .ic { color: var(--muted); }
+.vf-row.on .vf-pick, .vf-row.on .vf-pick:hover:not(:disabled) { background: none; color: var(--accent); font-weight: 700; }
+.vf-row.on .vf-pick > .ic { color: var(--accent); }
+.vf-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vf-count { flex: none; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vf-row.on .vf-count { color: inherit; }
+.vf-on { flex: none; display: inline-flex; width: 18px; }
+.vf-more { flex: none; width: 44px; height: 44px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--muted); }
+.vf-more[aria-expanded="true"], .vf-more:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
+.vf-gap { flex: none; width: 44px; }
+.vf-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; padding: 2px 0 8px; }
+.vf-acts .vi-btn { min-width: 0; min-height: 44px; padding: 4px 8px; font-size: 13.5px; line-height: 1.2; white-space: normal; }
+.vf-new { gap: 8px; min-height: 46px; margin-top: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
+.vf-new:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+/* The sort and filter sheet: centred choices, the chosen one in teal; a tap changes the list behind at once. */
+.vs { display: flex; flex-direction: column; gap: 18px; }
+.vs-sec { display: flex; flex-direction: column; gap: 10px; }
+.vs-h { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.vs-opts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.vs-opt { min-height: 38px; padding: 0 14px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-weight: 600; }
+.vs-opt:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vs-opt.on, .vs-opt.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.vs-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 99px; background: var(--surface-2); }
+.vs-seg .vs-opt { min-height: 36px; background: none; }
+.vs-seg .vs-opt.on, .vs-seg .vs-opt.on:hover:not(:disabled) { background: var(--surface); color: var(--accent); }
+.vs-dates { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+.vs-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.vs-foot button { min-height: 44px; border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { .vocab-page .vi-chev { transition: none; } }
