@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	Amigos mais seguros: bloqueie e denuncie pessoas, apague sua conta online e converse só com amigos (16 anos ou mais)

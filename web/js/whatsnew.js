@@ -26,6 +26,9 @@ notes("0.45.0",
 notes("0.45.0",
   "What is Tamkeen in Settings: everything the app can do, and the studies behind its design");
 
+notes("0.45.0",
+  "Safer Friends: block and report people, delete your online account, and chat only with friends (16 and older)");
+
 notes("0.44.0",
   "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
   "Hatchlings have a baby look of their own",

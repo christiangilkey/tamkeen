@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	Sicherere Freunde: Leute blockieren und melden, dein Online-Konto löschen und nur mit Freunden chatten (ab 16)

@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	より安全なフレンド機能：ブロックと通報、オンラインアカウントの削除、フレンドとだけのチャット（16歳以上）

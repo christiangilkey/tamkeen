@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	Amics més segurs: bloqueja i denuncia persones, esborra el teu compte en línia i xateja només amb amics (16 anys o més)

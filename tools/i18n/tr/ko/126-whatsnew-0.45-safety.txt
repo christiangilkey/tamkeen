@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	더 안전한 친구: 사람 차단 및 신고, 온라인 계정 삭제, 친구와만 채팅 (16세 이상)

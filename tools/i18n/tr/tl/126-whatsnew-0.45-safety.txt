@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	Mas ligtas na Friends: i-block at i-report ang mga tao, burahin ang iyong online account, at makipag-chat lang sa mga kaibigan (16 pataas)

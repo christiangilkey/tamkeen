@@ -1,0 +1,2 @@
+# What's new 0.45: the online safety line (web/js/whatsnew.js).
+7fdbd2dd	更安全的好友功能：屏蔽和举报他人、删除你的在线账户，并且只与好友聊天（16 岁及以上）

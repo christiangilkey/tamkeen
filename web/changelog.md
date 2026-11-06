@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.45.0 — 2026-11-06
+
 - **New:** Block and report people in Friends and chat. Tap **⋯** next to a friend, a friend request or a guild member, or at the top of a chat, to block or report them; hold (or right-click) one of their messages to report it. A blocked person can't message you, send you friend requests, see your card or when you're online, or challenge you, and you stop being friends. A report sends the Tamkeen team a copy of the message, and we look at it within 7 days. The people you blocked are listed, with **Unblock**, in Settings → Account & sync → Friends & sharing. *(once Tamkeen's online service has been updated; until then these buttons say so)*
 - **New:** **Delete my online account** in Settings → Account & sync → Friends & sharing. It removes your username, photo, friends, messages, voice notes and files you sent, game data and guild memberships from Tamkeen's online service; guilds and shared folders you founded pass to their longest-standing member. Nothing on your devices or in your Google Drive is touched. *(once Tamkeen's online service has been updated; until then it explains how to ask by email)*
 - **Changed:** Only friends can message each other: guild-mates who aren't friends still see each other's cards and online status, with **Add friend** instead of **Message**. Up to 20 friend requests a day.
