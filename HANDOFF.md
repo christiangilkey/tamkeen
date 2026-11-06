@@ -6808,22 +6808,26 @@ Each committed on its own.
    `dialect.mjs`, 20 words each), the sentence is the dialect's for egy 11→17, lev 8→19, glf 8→17, mor 8→14, irq 8→14
    of 20, and the dialect's own sounds for egy 8, lev 16, glf 11, mor 10, irq 0. Preview: Egyptian chosen, بيت gave
    "أقدر أشتري البيت ده على كام؟" (Tatoeba arz) instead of an MSA sentence, قلب sounded ʔælɐb (Egyptian) not qalb.
-5. **Tatoeba's recordings of the found sentences (built, SWITCHED OFF: waiting for the owner's decision).** Tatoeba's
-   terms: each recording has its recorder's licence (empty = not to be used outside Tatoeba), some NC or ND; nothing
-   allows or forbids an app playing their files on demand (only "automated use … that can overload" is forbidden), no
-   bulk audio download, no stated limits; the FAQ recommends crediting each recorder and licence. Question sent to the
-   main chat for the owner (no Decisions chat open): A free licences only (recommended), B + non-commercial, C ask
-   team@tatoeba.org first, D none. Built: `build_examples.py build … --audio <sentences_with_audio.csv>` (Tatoeba export
-   sentences_with_audio.tar.bz2: sentence id, audio id, username, licence, attribution URL) adds `audio` {sentence number:
-   [audio id, recorder, licence code by / by-sa / cc0 / by-nc / by-nc-nd]} to the packs (no licence: left out).
-   exampledata.js `AUDIO_LICENCES` (EMPTY = off: switch on by adding codes, e.g. "by", "by-sa", "cc0"), `recording(i)`,
-   `audioUrl(id)` = https://tatoeba.org/audio/download/<id> (fetched only on press), `WITH_AUDIO` −0.5 so a sentence with
-   a playable recording goes a little ahead; `find` results carry `audio`. Add words (`paintNative`): under the found
-   sentence, "Native recording" play button and "by <recorder> on Tatoeba (licence)" (i18n 117-sentence-recordings.txt).
-   Not built yet: keeping the recording on the card (the card still uses its card voice). Counts among the shipped
-   sentences: free licences 1,152 (th 578, ru 327, de 108, ca 78, fr 44, it 17), non-commercial 11,247 (es 9,752, pt 561,
-   ja 401, de 309, fr 166), no licence 6,484; none for ar, ceb, fa, hi, ko, tl, la. Words of 20 whose chosen sentence has
-   a playable recording: free licences th 8, ru 2, es 0, de 0; with NC es 14, de 2. Preview (licences switched on in the
-   page only, the player stubbed, nothing fetched): Thai แมว → "เธอรักแมว" with "Native recording by ThaiVoice on Tatoeba
-   (CC BY 4.0)". Also: Chinese/Japanese/Thai Wiktionary examples +0.6 (often literary), and a found unspaced sentence
-   shorter than 8 characters counts as a phrase (แมวบ้าน "domestic cat").
+5. **Tatoeba's recordings of the found sentences: NOT DONE, the owner's decision (2026-11-06: option D, "No Tatoeba
+   audio").** Tatoeba's terms give each recording its recorder's licence (empty = not to be used outside Tatoeba; most
+   are CC BY-NC or BY-NC-ND) and neither allow nor forbid an app playing their files on demand. Options put to the owner:
+   A free licences only, B + non-commercial, C ask team@tatoeba.org first, D none; he chose D. What had been built
+   switched off (recording ids in the packs, exampledata.js AUDIO_LICENCES, the Add words play button, i18n 117) was
+   removed again; found sentences keep the card voice. Kept from that work: Chinese/Japanese/Thai Wiktionary examples
+   +0.6 (often literary: Tatoeba's everyday sentences first), and a found unspaced sentence shorter than 8 characters
+   counts as a phrase (แมวบ้าน "domestic cat"). Don't rebuild Tatoeba audio without asking the owner.
+
+### Downloaded lexicon files update themselves (2026-11-06, on main)
+Main chat: "the apps should replace a downloaded file when a newer one is published" (en-keywords and the ex-* packs keep
+changing). Every kind (words, meanings, examples, keywords, OCR): `docs/lexicon/index.json` already gives each file's
+sha256. **Computer** (app/lexicon.py): `installed.json` in the lexicon folder keeps each downloaded file's sha256
+(`local_sha` works it out once for a file downloaded before); `stale(names, files)`; `status()` reports `"stale"` and,
+in an installed app (not run from source: there the repository's files are read as they are, and `index()` now reads
+the repository's list first), starts `update_in_background(lang, kind)` (a thread per language and kind): the cached
+list is fetched again when older than `INDEX_MAX_AGE` (a day), and `download()` re-fetches stale files, checks the
+checksum and swaps the file in; `remove()` forgets the record. **Phones/web app** (mobile/src/js/lexicon-store.js): the
+same with kv `lexicon:shas` and `lexicon:indexAt`, `updateInBackground` started by `lexiconStatus` (never awaited: no
+connection, nothing breaks). Loaded data stays in memory until the next start, so the new copy is used from then.
+Tests: tests/test_lexicon.py `test_a_newer_published_file_replaces_the_downloaded_one`, tests/js/lexicon-store.test.mjs
+(the store with stand-ins for IndexedDB and the download site: v1 downloaded, v2 published, a day later replaced; not
+fetched again within a day; offline keeps the copy).

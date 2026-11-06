@@ -126,7 +126,7 @@ def test_dictionaries_are_only_there_once_downloaded(client, tmp_path, monkeypat
 
 def test_languages_without_dictionaries_need_none(client):
     st = client.get("/api/lexicon/status?lang=xx").json()  # (every taught language has one now)
-    assert st == {"lang": "xx", "kind": "words", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}}
+    assert st == {"lang": "xx", "kind": "words", "needed": False, "names": [], "installed": False, "bytes": 0, "files": {}, "stale": []}
     # Spanish, French, Italian and Russian have one table of word forms each.
     for lang in ("es", "fr", "it", "ru"):
         st = client.get(f"/api/lexicon/status?lang={lang}").json()
@@ -283,3 +283,47 @@ def test_keywords_in_the_app_languages_are_their_own_downloads(client):
     assert client.post("/api/lexicon/download", json={"lang": "it", "kind": "keywords"}).json()["installed"]
     data = client.get("/api/lexicon/data/kw-it").json()
     assert data["lang"] == "it" and any(w[0] == "gatta" for w in data["words"])
+
+
+def test_a_newer_published_file_replaces_the_downloaded_one(tmp_path, monkeypatch):
+    """An installed app (not run from source) fetches a file again when the published list gives it another
+    checksum: in the background, after looking at the list again a day later; the old copy works until then."""
+    import time
+
+    monkeypatch.setattr(lexicon, "lexicon_dir", lambda: _dir(tmp_path / "lexicon"))
+    monkeypatch.setattr(lexicon, "_source_dir", lambda: None)
+    site: dict[str, bytes] = {}
+
+    def publish(text: str) -> None:
+        blob = text.encode()
+        site["ceb-examples.json.gz"] = blob
+        site["index.json"] = json.dumps({"files": {"ex-ceb": {"file": "ceb-examples.json.gz", "bytes": len(blob),
+                                                             "sha256": hashlib.sha256(blob).hexdigest()}}}).encode()
+
+    monkeypatch.setattr(lexicon, "_fetch", lambda name: site[name])
+    started: list[tuple[str, str]] = []
+    publish("v1")
+    assert lexicon.download("ceb", "examples")["installed"]
+    assert lexicon.file_path("ex-ceb").read_bytes() == b"v1"
+    assert lexicon.status("ceb", "examples", update=False)["stale"] == []
+
+    publish("v2")
+    real = lexicon.update_in_background
+    monkeypatch.setattr(lexicon, "update_in_background", lambda lang, kind: started.append((lang, kind)))
+    st = lexicon.status("ceb", "examples")
+    assert st["installed"] and started == [("ceb", "examples")], "the old copy works; an update is started"
+    # The list here is a day old: looked at again, the newer file is found and fetched.
+    old = time.time() - 2 * lexicon.INDEX_MAX_AGE
+    import os
+    os.utime(lexicon.lexicon_dir() / "index.json", (old, old))
+    monkeypatch.setattr(lexicon, "update_in_background", real)
+    lexicon.update_in_background("ceb", "examples")
+    for _ in range(200):
+        if lexicon.file_path("ex-ceb").read_bytes() == b"v2":
+            break
+        time.sleep(0.01)
+    assert lexicon.file_path("ex-ceb").read_bytes() == b"v2"
+    assert lexicon.status("ceb", "examples", update=False)["stale"] == []
+    # A file downloaded before checksums were kept: worked out once, then it's up to date.
+    (lexicon.lexicon_dir() / "installed.json").unlink()
+    assert lexicon.status("ceb", "examples", update=False)["stale"] == []

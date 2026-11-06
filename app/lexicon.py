@@ -16,6 +16,7 @@ import logging
 import re
 import sys
 import threading
+import time
 from pathlib import Path
 from typing import Any
 
@@ -115,17 +116,20 @@ def _fetch(name: str) -> bytes:
     return r.content
 
 
+INDEX_MAX_AGE = 24 * 3600  # the published list is looked at again after a day, for newer files
+
+
 def index(refresh: bool = False) -> dict[str, Any]:
     """What can be downloaded: {files: {name: {file, bytes, sha256, title, license, ...}}}."""
+    src = _source_dir()
+    if src is not None:  # (running from source: the repository's own list is the newest)
+        return json.loads((src / "index.json").read_text(encoding="utf-8"))
     cached = lexicon_dir() / "index.json"
     if cached.exists() and not refresh:
         try:
             return json.loads(cached.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             pass
-    src = _source_dir()
-    if src is not None:
-        return json.loads((src / "index.json").read_text(encoding="utf-8"))
     data = json.loads(_fetch("index.json").decode("utf-8"))
     cached.write_text(json.dumps(data), encoding="utf-8")
     return data
@@ -139,18 +143,103 @@ def file_path(name: str) -> Path | None:
     return path if path.exists() else None
 
 
-def status(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
+# ----- newer files: a file downloaded before is replaced when a newer one is published -----
+# Each downloaded file's checksum is kept (installed.json, {name: sha256}); the published list gives each
+# file's checksum too. When they differ, the file is fetched again in the background, checked, and swapped
+# in; until then (and with no connection) the copy here keeps working.
+
+def _installed_path() -> Path:
+    return lexicon_dir() / "installed.json"
+
+
+def _installed() -> dict[str, str]:
+    try:
+        return json.loads(_installed_path().read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+
+def _remember(name: str, sha: str | None) -> None:
+    have = _installed()
+    if sha:
+        have[name] = sha
+    else:
+        have.pop(name, None)
+    _installed_path().write_text(json.dumps(have, sort_keys=True), encoding="utf-8")
+
+
+def local_sha(name: str) -> str | None:
+    """The checksum of the copy of `name` here (worked out once for a file downloaded before it was kept)."""
+    sha = _installed().get(name)
+    if sha:
+        return sha
+    path = file_path(name)
+    if path is None:
+        return None
+    sha = hashlib.sha256(path.read_bytes()).hexdigest()
+    _remember(name, sha)
+    return sha
+
+
+def stale(names, files: dict[str, Any]) -> list[str]:
+    """Of `names`, the ones here whose published file is newer (another checksum)."""
+    out = []
+    for name in names:
+        meta = files.get(name)
+        if meta and file_path(name) is not None and local_sha(name) != meta.get("sha256"):
+            out.append(name)
+    return out
+
+
+_updating: set[str] = set()
+
+
+def _refresh_index_if_old() -> None:
+    cached = lexicon_dir() / "index.json"
+    try:
+        old = not cached.exists() or time.time() - cached.stat().st_mtime > INDEX_MAX_AGE
+        if old and _source_dir() is None:
+            index(refresh=True)
+    except (LexiconError, OSError, json.JSONDecodeError, httpx.HTTPError) as exc:
+        log.info("The dictionary list couldn't be checked: %s", exc)
+
+
+def update_in_background(lang: str, kind: str) -> None:
+    """Look at the published list now and then and fetch newer copies of this language's files, in a thread."""
+    key = f"{kind}|{lang}"
+    with _lock:
+        if key in _updating:
+            return
+        _updating.add(key)
+
+    def run() -> None:
+        try:
+            _refresh_index_if_old()
+            if stale(names_for(lang, kind), index().get("files", {})):
+                download(lang, kind)
+        except (LexiconError, OSError, json.JSONDecodeError, httpx.HTTPError) as exc:
+            log.info("A newer dictionary couldn't be fetched: %s", exc)
+        finally:
+            _updating.discard(key)
+
+    threading.Thread(target=run, daemon=True, name=f"lexicon-update-{key}").start()
+
+
+def status(lang: str = "ar", kind: str = "words", update: bool = True) -> dict[str, Any]:
     names = names_for(lang, kind)
     try:
         files = index().get("files", {})
     except (LexiconError, OSError, json.JSONDecodeError):
         files = {}
+    # (an installed app only: run from source, the repository's files are read as they are)
+    if update and _source_dir() is None and any(file_path(n) is not None for n in names):
+        update_in_background(lang, kind)
     out = {name: {"title": files.get(name, {}).get("title", name), "bytes": files.get(name, {}).get("bytes", 0),
                   "license": files.get(name, {}).get("license", ""), "installed": file_path(name) is not None}
            for name in names}
     return {"lang": lang, "kind": kind, "needed": bool(names), "names": list(names),
             "installed": bool(names) and all(f["installed"] for f in out.values()),
-            "bytes": sum(f["bytes"] for f in out.values()), "files": out}
+            "bytes": sum(f["bytes"] for f in out.values()), "files": out, "stale": stale(names, files)}
 
 
 def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
@@ -158,8 +247,9 @@ def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
     the published checksum before it is kept."""
     with _lock:
         files = index(refresh=True).get("files", {})
+        newer = set(stale(names_for(lang, kind), files))
         for name in names_for(lang, kind):
-            if file_path(name) is not None:
+            if file_path(name) is not None and name not in newer:
                 continue
             meta = files.get(name)
             if not meta:
@@ -170,7 +260,8 @@ def download(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
             tmp = lexicon_dir() / f"{name}.part"
             tmp.write_bytes(blob)
             tmp.replace(lexicon_dir() / FILES[name])
-    return status(lang, kind)
+            _remember(name, meta["sha256"])
+    return status(lang, kind, update=False)
 
 
 def remove(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
@@ -179,4 +270,5 @@ def remove(lang: str = "ar", kind: str = "words") -> dict[str, Any]:
             path = file_path(name)
             if path is not None:
                 path.unlink(missing_ok=True)
-    return status(lang, kind)
+            _remember(name, None)
+    return status(lang, kind, update=False)

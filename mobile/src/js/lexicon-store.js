@@ -49,6 +49,55 @@ async function sha256(buf) {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
+// ----- newer files (as app/lexicon.py): a file downloaded before is replaced when a newer one is published -----
+// Each stored file's checksum is kept (kv "lexicon:shas"); the published list (index.json, looked at again after
+// a day) gives each file's. When they differ the file is fetched again in the background, checked, and swapped in;
+// until then, and with no connection, the stored copy keeps working.
+const INDEX_MAX_AGE = 24 * 3600 * 1000;
+
+async function shas() { return (await kv.get("lexicon:shas")) || {}; }
+async function remember(name, sha) {
+  const all = await shas();
+  if (sha) all[name] = sha; else delete all[name];
+  await kv.set("lexicon:shas", all);
+}
+/** The checksum of the stored copy of `name` (worked out once for a file stored before it was kept). */
+async function localSha(name) {
+  const known = (await shas())[name];
+  if (known) return known;
+  const blob = await kv.get(`lexicon:${name}`);
+  if (!blob) return null;
+  const sha = await sha256(blob);
+  await remember(name, sha);
+  return sha;
+}
+/** Of `names`, those stored here whose published file is newer (another checksum). */
+async function staleNames(names, index, have) {
+  const out = [];
+  for (const name of names) {
+    const meta = index.files[name];
+    if (meta && have.has(name) && (await localSha(name)) !== meta.sha256) out.push(name);
+  }
+  return out;
+}
+const updating = new Set();
+/** Look at the published list (after a day) and fetch newer copies of this language's files, in the background. */
+function updateInBackground(lang, kind) {
+  const key = `${kind}|${lang}`;
+  if (updating.has(key)) return;
+  updating.add(key);
+  (async () => {
+    let index = await kv.get("lexicon:index");
+    if (!index || Date.now() - ((await kv.get("lexicon:indexAt")) || 0) > INDEX_MAX_AGE) {
+      index = JSON.parse(new TextDecoder().decode(await fetchBytes("index.json")));
+      await kv.set("lexicon:index", index);
+      await kv.set("lexicon:indexAt", Date.now());
+    }
+    const have = new Set((await kv.get("lexicon:installed")) || []);
+    if ((await staleNames(namesFor(lang, kind), index, have)).length) await lexiconDownload(lang, kind);
+  })().catch(() => { /* no connection: the stored copy keeps working */ }).finally(() => updating.delete(key));
+}
+
 export async function lexiconStatus(lang = "ar", kind = "words") {
   const names = namesFor(lang, kind);
   const index = (await kv.get("lexicon:index")) || { files: {} };
@@ -60,20 +109,25 @@ export async function lexiconStatus(lang = "ar", kind = "words") {
   }
   const bytes = names.reduce((n, name) => n + files[name].bytes, 0)
     || (kind === "examples" ? EXAMPLE_ESTIMATE : kind === "keywords" ? 150000 : (kind === "meanings" ? MEANING_ESTIMATE : ESTIMATE)[lang]) || 0;
-  return { lang, kind, needed: names.length > 0, names, installed: names.length > 0 && names.every((n) => have.has(n)), bytes, files };
+  if (names.some((n) => have.has(n))) updateInBackground(lang, kind);
+  const stale = await staleNames(names, index, have);
+  return { lang, kind, needed: names.length > 0, names, installed: names.length > 0 && names.every((n) => have.has(n)), bytes, files, stale };
 }
 
 export async function lexiconDownload(lang = "ar", kind = "words") {
   const index = JSON.parse(new TextDecoder().decode(await fetchBytes("index.json")));
   await kv.set("lexicon:index", index);
+  await kv.set("lexicon:indexAt", Date.now());
   const have = new Set((await kv.get("lexicon:installed")) || []);
+  const newer = new Set(await staleNames(namesFor(lang, kind), index, have));
   for (const name of namesFor(lang, kind)) {
-    if (have.has(name)) continue;
+    if (have.has(name) && !newer.has(name)) continue;
     const meta = index.files[name];
     if (!meta) throw new Error(`The ${name} dictionary isn't published yet.`);
     const blob = await fetchBytes(meta.file);
     if ((await sha256(blob)) !== meta.sha256) throw new Error("A dictionary arrived damaged. Try again.");
     await kv.set(`lexicon:${name}`, blob);
+    await remember(name, meta.sha256);
     have.add(name);
     await kv.set("lexicon:installed", [...have]);
   }
@@ -85,6 +139,7 @@ export async function lexiconRemove(lang = "ar", kind = "words") {
   for (const name of namesFor(lang, kind)) {
     have.delete(name);
     await kv.set(`lexicon:${name}`, null);
+    await remember(name, null);
   }
   await kv.set("lexicon:installed", [...have]);
   return lexiconStatus(lang, kind);
