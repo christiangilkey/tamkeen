@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	Sem IA: frases de exemplo que você já consegue ler, palavras-chave de som parecido no seu idioma que combinam com o sentido, frases do seu curso de dialeto e muito mais frases em bisaya

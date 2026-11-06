@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	بلا ذكاء اصطناعي: جمل أمثلة تستطيع قراءتها، وكلمات مفتاحية متشابهة النطق بلغتك تناسب المعنى، وجمل دورة لهجتك، وجمل بيسايا أكثر بكثير

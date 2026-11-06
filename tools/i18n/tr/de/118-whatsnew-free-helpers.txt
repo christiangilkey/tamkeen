@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	Ohne KI: Beispielsätze, die du schon lesen kannst, ähnlich klingende Schlüsselwörter in deiner eigenen Sprache, die zur Bedeutung passen, Sätze aus deinem Dialektkurs und viel mehr Sätze auf Bisaya

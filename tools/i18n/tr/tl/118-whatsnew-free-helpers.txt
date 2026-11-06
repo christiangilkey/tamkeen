@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	Nang walang AI: mga halimbawang pangungusap na kaya mo nang basahin, mga keyword sa sarili mong wika na kahawig ang tunog at bagay sa kahulugan, mga pangungusap ng kurso mo sa diyalekto, at mas marami pang pangungusap sa Bisaya

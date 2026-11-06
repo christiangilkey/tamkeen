@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	AI なしで：もう読める例文、意味にも合う、あなたの言語の音が似たキーワード、方言コースの例文、そしてずっと多くのビサヤ語の例文

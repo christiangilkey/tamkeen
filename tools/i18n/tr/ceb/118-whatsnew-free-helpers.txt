@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	Walay AI: mga pananglitan nga sentence nga mabasa na nimo, mga keyword sa imong kaugalingong pinulongan nga pareho og tingog ug haom sa kahulogan, mga sentence sa imong kurso sa diyalekto, ug daghan pang mga sentence sa Bisaya

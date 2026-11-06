@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	AI 없이: 이미 읽을 수 있는 예문, 뜻에도 맞는 내 언어의 소리가 비슷한 키워드, 방언 강좌의 문장, 그리고 훨씬 많은 비사야어 문장

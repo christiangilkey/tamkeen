@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	Sans IA : des phrases d'exemple que tu sais déjà lire, des mots-clés qui sonnent pareil dans ta langue et collent au sens, les phrases de ton cours de dialecte, et beaucoup plus de phrases en bisaya

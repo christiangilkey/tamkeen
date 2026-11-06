@@ -1,0 +1,2 @@
+# The 0.45 What's new line for the free card helpers' second round (web/js/whatsnew.js).
+f2c0df45	不用 AI：你已经读得懂的例句、你自己语言里发音相近又贴合词义的关键词、你的方言课程里的句子，以及多得多的宿务语例句
