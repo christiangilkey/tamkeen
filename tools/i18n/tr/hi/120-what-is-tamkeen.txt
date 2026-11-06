@@ -1,0 +1,6 @@
+# Settings → What is Tamkeen (components/whatis.js; the page itself is English only, like the changelog).
+c8dffcec	Tamkeen क्या है
+c11ba195	Tamkeen जो कुछ भी कर सकता है, वह उसे कैसे करता है, और वे अध्ययन जिन पर उसका डिज़ाइन आधारित है (अंग्रेज़ी में)।
+5e6f387e	यह पेज नहीं खुल सका।
+# What's new 0.45 (web/js/whatsnew.js).
+c2485aa7	सेटिंग्स में Tamkeen क्या है: ऐप जो कुछ भी कर सकता है, और वे अध्ययन जिन पर उसका डिज़ाइन आधारित है

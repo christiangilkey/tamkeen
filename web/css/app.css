@@ -596,6 +596,11 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .changelog li { margin: 3px 0; }
 .changelog p { color: var(--muted); font-size: 13px; margin: 6px 0; }
 .changelog hr { border: 0; border-top: 1px solid var(--border); margin: 14px 0; }
+/* Settings → What is Tamkeen (components/whatis.js), drawn like the changelog */
+.whatis h3 { font-size: 18px; margin-top: 24px; }
+.whatis h4 { font-size: 15px; margin: 14px 0 2px; }
+.whatis p { color: inherit; font-size: 14px; }
+.whatis a { overflow-wrap: anywhere; }
 .wb-head > .wb-srcmenu, .word-bubble > .wb-srcmenu { margin: 4px 0 8px; }
 /* the tag is a button: it opens the menu of sources (defsource.js) */
 button.wb-src { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; min-width: 0; min-height: 0; overflow: hidden;

@@ -6831,3 +6831,24 @@ connection, nothing breaks). Loaded data stays in memory until the next start, s
 Tests: tests/test_lexicon.py `test_a_newer_published_file_replaces_the_downloaded_one`, tests/js/lexicon-store.test.mjs
 (the store with stand-ins for IndexedDB and the download site: v1 downloaded, v2 published, a day later replaced; not
 fetched again within a day; offline keeps the copy).
+
+## What is Tamkeen (2026-11-06, main chat)
+Owner: a "What is Tamkeen" section with everything the app does, the creative solutions, and every design choice
+backed by studies, with the studies listed.
+- **Where**: Settings → Data & updates → "What is Tamkeen" (above Changelog), computer and phone settings pages;
+  Settings search id `whatis`. Opens a wide box (`web/js/components/whatis.js`) drawing `web/whatis.md` with the
+  changelog's Markdown reader (`changelog.js changelogHtml`, which now also does `### ` → h4 and `[text](https://…)`
+  links; only http(s) addresses become links). English only and `translate="no"`, like the changelog. build-www SHARED
+  carries both files. Styles: `.whatis` after `.changelog` in app.css.
+- **Content** (about 120 KB): Part 1 what it can do (205 features, 14 groups, from CHANGELOG), Part 2 inventive
+  solutions (39, from this file), Part 3 the research: 19 design choices, each "What Tamkeen does" + "What the research
+  says" (honest about limits: two buttons, 5-second timer, word highlighting, example sentences, keyword forgetting)
+  + its studies; Part 4 all 80 studies (APA, DOI or handle links), checked against OpenAlex/Crossref/Europe PMC or
+  library catalogues in November 2026. Put together by a script from three drafts; edit `web/whatis.md` directly now.
+- **Keep it current**: when a feature lands, add its bullet to Part 1 (and a design choice to Part 3 only with a
+  checked study). The review card shows the foreign word on the front and the meaning on the back; Part 3 says the
+  research supports adding meaning-first (productive) cards for speaking and writing, as an idea, not built.
+- i18n `tools/i18n/tr/<code>/120-what-is-tamkeen.txt` (card title, hint, error, What's new line); search words in
+  ignore.txt. Test: tests/js/changelog.test.mjs (links, h4, the page exists with DOIs, build-www carries it).
+- Checked: phone build (mobile/www via `mobile-preview`, fresh state, no sign-in) opening the box: 4 parts, 39
+  headings, 408 bullets, 143 DOI links, no console errors, readable at 375×812.

@@ -1,0 +1,6 @@
+# Settings → What is Tamkeen (components/whatis.js; the page itself is English only, like the changelog).
+c8dffcec	Tamkeen 是什么
+c11ba195	Tamkeen 能做的一切、它的做法，以及它的设计所依据的研究（英文）。
+5e6f387e	无法打开此页面。
+# What's new 0.45 (web/js/whatsnew.js).
+c2485aa7	设置中的“Tamkeen 是什么”：应用能做的一切，以及其设计所依据的研究

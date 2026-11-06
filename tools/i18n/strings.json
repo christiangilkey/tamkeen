@@ -5280,6 +5280,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "c8dffcec",
+  "k": "What is Tamkeen",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "7ceacdca",
   "k": "Privacy policy",
   "f": "web/js/components/settingsui.js"
@@ -6223,6 +6228,11 @@
   "id": "2d8e8528",
   "k": "The download failed: {0}",
   "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "5e6f387e",
+  "k": "Couldn't open this page.",
+  "f": "web/js/components/whatis.js"
  },
  {
   "id": "40ee915a",
@@ -17200,6 +17210,11 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "c11ba195",
+  "k": "Everything Tamkeen can do, how it does it, and the studies its design is based on (in English).",
+  "f": "web/js/pages/settings.js"
+ },
+ {
   "id": "46aeaf8e",
   "k": "What changed in every version (in English).",
   "f": "web/js/pages/settings.js"
@@ -19952,6 +19967,11 @@
  {
   "id": "f2c0df45",
   "k": "Without AI: example sentences you can already read, sound-alike keywords in your own language that fit the meaning, your dialect course's sentences, and many more Bisaya sentences",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c2485aa7",
+  "k": "What is Tamkeen in Settings: everything the app can do, and the studies behind its design",
   "f": "web/js/whatsnew.js"
  },
  {

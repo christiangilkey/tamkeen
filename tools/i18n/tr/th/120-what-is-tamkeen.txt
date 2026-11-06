@@ -1,0 +1,6 @@
+# Settings → What is Tamkeen (components/whatis.js; the page itself is English only, like the changelog).
+c8dffcec	Tamkeen คืออะไร
+c11ba195	ทุกอย่างที่ Tamkeen ทำได้ วิธีที่มันทำ และงานวิจัยที่เป็นพื้นฐานของการออกแบบ (ภาษาอังกฤษ)
+5e6f387e	เปิดหน้านี้ไม่ได้
+# What's new 0.45 (web/js/whatsnew.js).
+c2485aa7	Tamkeen คืออะไร ในการตั้งค่า: ทุกอย่างที่แอปทำได้ และงานวิจัยเบื้องหลังการออกแบบ

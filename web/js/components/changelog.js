@@ -4,9 +4,12 @@
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-/** The little Markdown the changelog uses: # / ## headings, "- " lines, **bold**, *italic*, ---. */
+/** The little Markdown the changelog (and "What is Tamkeen", whatis.js) uses: # / ## / ### headings, "- " lines,
+ *  **bold**, *italic*, [text](https://…) links (web addresses only), ---. */
 export function changelogHtml(md) {
-  const inline = (t) => esc(t).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
+  const inline = (t) => esc(t)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (_, text, url) => `<a href="${url}" target="_blank" rel="noopener">${text}</a>`)
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/\*(.+?)\*/g, "<em>$1</em>");
   const out = [];
   let list = false;
   const closeList = () => { if (list) { out.push("</ul>"); list = false; } };
@@ -20,6 +23,7 @@ export function changelogHtml(md) {
     closeList();
     if (!line.trim()) continue;
     if (/^---+$/.test(line)) out.push("<hr>");
+    else if (/^### /.test(line)) out.push(`<h4>${inline(line.slice(4))}</h4>`);
     else if (/^## /.test(line)) out.push(`<h3>${inline(line.slice(3))}</h3>`);
     else if (/^# /.test(line)) continue; // the file's own title: the box has one
     else out.push(`<p>${inline(line)}</p>`);

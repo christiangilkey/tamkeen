@@ -1,0 +1,6 @@
+# Settings → What is Tamkeen (components/whatis.js; the page itself is English only, like the changelog).
+c8dffcec	Qué es Tamkeen
+c11ba195	Todo lo que Tamkeen puede hacer, cómo lo hace y los estudios en los que se basa su diseño (en inglés).
+5e6f387e	No se pudo abrir esta página.
+# What's new 0.45 (web/js/whatsnew.js).
+c2485aa7	Qué es Tamkeen en Ajustes: todo lo que puede hacer la app y los estudios en los que se basa su diseño

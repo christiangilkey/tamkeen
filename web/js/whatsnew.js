@@ -23,6 +23,9 @@ notes("0.45.0",
 notes("0.45.0",
   "Without AI: example sentences you can already read, sound-alike keywords in your own language that fit the meaning, your dialect course's sentences, and many more Bisaya sentences");
 
+notes("0.45.0",
+  "What is Tamkeen in Settings: everything the app can do, and the studies behind its design");
+
 notes("0.44.0",
   "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
   "Hatchlings have a baby look of their own",

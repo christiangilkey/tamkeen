@@ -401,6 +401,11 @@ function data(body, status) {
       <div class="row"><span>Version ${esc(status.version)}</span><span class="spacer"></span><button type="button" id="check-updates">Check for updates</button></div>
       <div id="update-result" class="small"></div>
     </section>
+    <section class="card set-card stack" data-find="whatis">
+      <h2>What is Tamkeen</h2>
+      <div class="row"><span class="small muted">Everything Tamkeen can do, how it does it, and the studies its design is based on (in English).</span><span class="spacer"></span>
+        <button type="button" id="open-whatis">Open</button></div>
+    </section>
     <section class="card set-card stack" data-find="changelog">
       <h2>Changelog</h2>
       <div class="row"><span class="small muted">What changed in every version (in English).</span><span class="spacer"></span>
@@ -459,6 +464,7 @@ function data(body, status) {
     }
   };
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
+  $("#open-whatis").onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs());
   $("#check-updates").onclick = async () => {
     const box = $("#update-result");
     box.textContent = "Checking…";

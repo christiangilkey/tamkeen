@@ -36,6 +36,8 @@ const SHARED = [
   "js/whatsnew.js",
   "js/components/changelog.js",
   "changelog.md",
+  "js/components/whatis.js",
+  "whatis.md",
   "js/vowelmarks.js",
   "js/game",
   "game-art",
