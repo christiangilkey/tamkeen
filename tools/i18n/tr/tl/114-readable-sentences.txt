@@ -1,0 +1,2 @@
+# Add words: example sentences the learner can read, every other word already seen (examples.js, wordbuilder.js).
+5516980a	Alam mo na ang lahat ng iba pang salita sa pangungusap na ito.

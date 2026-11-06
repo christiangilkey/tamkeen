@@ -1374,6 +1374,7 @@
 "No meaning was found. Type its meaning.":"ไม่พบความหมาย พิมพ์ความหมายของคำนี้",
 "The AI sent nothing back for this word. Press Fill in to try again.":"AI ไม่ได้ส่งอะไรกลับมาสำหรับคำนี้ กด เติมเลย เพื่อลองอีกครั้ง",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"บางส่วนเติมไม่ได้ พิมพ์เอง หรือกด เติมเลย เพื่อลองอีกครั้ง",
+"Every other word in this sentence is one you know.":"คำอื่น ๆ ในประโยคนี้เป็นคำที่คุณรู้แล้วทั้งหมด",
 "No example sentence was found for this word. Type one, or leave it empty.":"ไม่พบประโยคตัวอย่างสำหรับคำนี้ พิมพ์เอง หรือเว้นว่างไว้",
 "{0} of the cards need a look: see the red notes.":"การ์ดที่ต้องตรวจดู: {0} ใบ ดูหมายเหตุสีแดง",
 "Filled in. Look them over, then add them.":"เติมแล้ว ตรวจดูแล้วจึงเพิ่ม",

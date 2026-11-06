@@ -1,0 +1,2 @@
+# Add words: example sentences the learner can read, every other word already seen (examples.js, wordbuilder.js).
+5516980a	这个句子里的其他词你都认识。

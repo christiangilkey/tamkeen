@@ -832,7 +832,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
-          setStatus(r, found ? null : { kind: "note", text: t("No example sentence was found for this word. Type one, or leave it empty.") });
+          setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
+            : { kind: "note", text: t("No example sentence was found for this word. Type one, or leave it empty.") });
         }
         paintRow(r);
       }

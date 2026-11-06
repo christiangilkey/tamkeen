@@ -1,0 +1,2 @@
+# Add words: example sentences the learner can read, every other word already seen (examples.js, wordbuilder.js).
+5516980a	تعرف كل الكلمات الأخرى في هذه الجملة.

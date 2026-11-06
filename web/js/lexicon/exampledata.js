@@ -13,6 +13,9 @@
 import { matchKey } from "./meaningdata.js";
 
 const UNSPACED = new Set(["ja", "zh", "th"]);
+// What new words cost a sentence (i+1): one with no new word but the card's gains READABLE; each new word
+// costs NEW_WORD, at most NEW_WORD_CAP (a hard sentence of the right sense still beats a wrong one).
+export const READABLE = -1.8, NEW_WORD = 0.4, NEW_WORD_CAP = 1.8;
 const WORD = /[\p{L}\p{M}\p{N}'’-]+/gu;
 const AR_FRONT = /^(?:و|ف)?(?:ب|ل|ك)?(?:ال|لل)?/;
 
@@ -92,7 +95,7 @@ export class ExamplePack {
    * "w" for Wiktionary). `lemmaOf(form)` gives a word's dictionary form, when the word tables are here;
    * `dialect` prefers sentences of an Arabic dialect ("arz", "apc"...: Tatoeba's and Wiktionary's codes).
    */
-  find(word, { lemmaOf = null, dialect = "", meaning = "", count = 3 } = {}) {
+  find(word, { lemmaOf = null, dialect = "", meaning = "", count = 3, newWords = null } = {}) {
     const w = String(word ?? "").trim();
     if (!w) return [];
     const lang = this.lang;
@@ -141,10 +144,15 @@ export class ExamplePack {
       // a sentence whose translation has the meaning is about this sense of the word (manzana: apple, not block)
       const sense = meaning ? (markTranslation(this.sentences[i][1], meaning).includes("⟦") ? -0.6 : 1.5) : 0;
       return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
-        + (own === dialect ? 0 : own ? 2.5 : dialect ? 0.4 : 0);
+        + (own === dialect ? 0 : own ? 2.5 : dialect ? 0.4 : 0)
+        // A sentence the learner can read comes first (i+1): every other word one they have seen.
+        + (unseen.has(i) ? (unseen.get(i) === 0 ? READABLE : Math.min(NEW_WORD_CAP, unseen.get(i) * NEW_WORD)) : 0);
     };
+    const unseen = new Map();
+    if (newWords) for (const i of picked.keys()) { const n = safe(newWords, this.sentences[i][0]); if (Number.isInteger(n)) unseen.set(i, n); }
     return [...picked.keys()].sort((a, b) => fit(a) - fit(b)).slice(0, count)
-      .map((i) => ({ text: this.sentences[i][0], english: plainEnglish(this.sentences[i][1]), source: this.sentences[i][2] }));
+      .map((i) => ({ text: this.sentences[i][0], english: plainEnglish(this.sentences[i][1]), source: this.sentences[i][2],
+        ...(unseen.has(i) ? { newWords: unseen.get(i) } : {}) }));
   }
 }
 /** A translation without Wiktionary's notes after it ("… (proverb)", "… [and other animals]"). */

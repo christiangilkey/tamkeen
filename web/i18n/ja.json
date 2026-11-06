@@ -1374,6 +1374,7 @@
 "No meaning was found. Type its meaning.":"意味が見つかりませんでした。意味を入力してください。",
 "The AI sent nothing back for this word. Press Fill in to try again.":"この単語について AI から何も返ってきませんでした。「いま入れる」を押してもう一度試してください。",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"一部を入れられませんでした。入力するか、「いま入れる」を押してもう一度試してください。",
+"Every other word in this sentence is one you know.":"この文のほかの語はすべて知っている語です。",
 "No example sentence was found for this word. Type one, or leave it empty.":"この語の例文は見つかりませんでした。自分で書くか、空欄のままにしてください。",
 "{0} of the cards need a look: see the red notes.":"確認が必要なカード：{0}枚。赤いメモを見てください。",
 "Filled in. Look them over, then add them.":"入れました。確認してから追加してください。",

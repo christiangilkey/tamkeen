@@ -7,7 +7,7 @@
 
 import { api } from "./app.js";
 import { ExamplePack, markTranslation } from "./lexicon/exampledata.js";
-import { dictionaries } from "./lexicon/seen.js";
+import { dictionaries, newWordCounter } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
 import { pronunciationOf } from "./review/soundout.js";
 import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
@@ -72,11 +72,12 @@ async function lemmaFinder(lang) {
 export async function freeExample(word, lang, { meaning = "", dialect = "", skip = [] } = {}) {
   const p = await examplesOf(lang);
   if (!p) return null;
-  const lemmaOf = await lemmaFinder(lang);
-  const found = p.find(word, { lemmaOf, dialect, meaning, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
+  const [lemmaOf, newWords] = await Promise.all([lemmaFinder(lang), newWordCounter(lang, word).catch(() => null)]);
+  const found = p.find(word, { lemmaOf, dialect, meaning, newWords, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
   if (!found.length) return null;
   const best = found[0];
-  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source };
+  // readable: every other word of the sentence is one the learner has seen (only told when that is known)
+  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source, readable: best.newWords === 0 };
 }
 
 /**

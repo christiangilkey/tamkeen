@@ -1374,6 +1374,7 @@
 "No meaning was found. Type its meaning.":"Aucun sens trouvé. Tapez son sens.",
 "The AI sent nothing back for this word. Press Fill in to try again.":"L'IA n'a rien renvoyé pour ce mot. Appuyez sur Remplir pour réessayer.",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"Une partie n'a pas pu être remplie. Tapez-la, ou appuyez sur Remplir pour réessayer.",
+"Every other word in this sentence is one you know.":"Tu connais déjà tous les autres mots de cette phrase.",
 "No example sentence was found for this word. Type one, or leave it empty.":"Aucune phrase d'exemple n'a été trouvée pour ce mot. Écris-en une ou laisse vide.",
 "{0} of the cards need a look: see the red notes.":"Cartes à vérifier : {0}. Voyez les notes en rouge.",
 "Filled in. Look them over, then add them.":"C'est rempli. Relisez-les, puis ajoutez-les.",

@@ -179,3 +179,15 @@ test("the translation lights up the word for the meaning; sources are named", ()
   assert.deepEqual(sourceOf("t12345"), { name: "Tatoeba", url: "https://tatoeba.org/en/sentences/show/12345" });
   assert.equal(sourceOf("w:arz").name, "Wiktionary");
 });
+
+test("a sentence the learner can read comes first (i+1), when the seen words are known", () => {
+  const all = pack("es").find("perro", { meaning: "dog", count: 40 });
+  assert.ok(all.length >= 5);
+  const easy = all[all.length - 1].text;  // one the plain order puts last
+  const newWords = (text) => (text === easy ? 0 : 3);  // every other word of `easy` seen; others have 3 new
+  const [first] = pack("es").find("perro", { meaning: "dog", newWords });
+  assert.equal(first.text, easy);
+  assert.equal(first.newWords, 0, "said on the card: every other word is one you know");
+  const [plain] = pack("es").find("perro", { meaning: "dog" });
+  assert.equal(plain.newWords, undefined, "nothing said when it can't be told");
+});

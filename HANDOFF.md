@@ -6747,3 +6747,17 @@ language word". Sound stays the gate; among keywords that sound alike, one tied 
   removed first): a German Hund card's Mnemonic maker showed HOUND first, "Fits the meaning" with its tooltip, no errors.
 - **Note**: a keyword file already downloaded isn't replaced by a newer one (the apps only check the file is there);
   nobody has the old one yet (not published), but a later change to it would need that handled.
+
+### Free card helpers, round 2 (2026-11-06, on main): five upgrades the owner approved ("Implement all of these")
+Each committed on its own.
+1. **Sentences you can read (i+1).** `seen.js newWordCounter(lang, word)`: a function telling how many words of a
+   sentence are new (not seen, or marked unknown), every form counting as its lexeme, the card's word not counted;
+   null without the word tables or with nothing seen yet; never downloads. `ExamplePack.find(…, {newWords})`: a sentence
+   with none gains `READABLE` −1.8, each new word costs `NEW_WORD` 0.4 up to 1.8 (a wrong sense, +2.1, still loses);
+   results carry `newWords`. `examples.js freeExample` passes it and returns `readable`; Add words shows "Every other
+   word in this sentence is one you know." (i18n 114-readable-sentences.txt). Measured (scratch `measure_i1.mjs`: a
+   learner who knows the pack's N commonest words, the sample's 20 words, the 8 spaced languages): N = 1,500 readable
+   48/154 → 123/154 (es 9→20, ar 2→16, de 8→20, fa 6→18, hi 6→12, ko 3→9, ceb 5→11, la 9→17), translation has the
+   meaning 150 → 145, mean length 32 → 29 characters; N = 500: 21 → 84. Preview: with 50 common Spanish words marked
+   seen, perro's sentence went from "El perro está jugando junto al gato." to "No es un gato. Es un perro." (readable).
+   Not simulated: ja/zh/th (their splitter needs the dictionaries in the page).

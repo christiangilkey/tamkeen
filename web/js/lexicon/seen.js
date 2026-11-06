@@ -22,7 +22,7 @@
 
 import { api, h, saveSettings, state, toast } from "../app.js";
 import { t } from "../i18n.js";
-import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage } from "../languages.js";
+import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage, wordRanges } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
 import { JapaneseDictionary } from "./kuromoji.js";
@@ -143,6 +143,29 @@ async function readDictionaries(lang) {
 }
 
 export const lexiconStatus = (lang) => api(`/lexicon/status?lang=${lang}`);
+
+/**
+ * For choosing an example sentence the learner can read (examples.js, "Add words"): a function that says how
+ * many words of a sentence are still new to the learner (never seen, or marked unknown), every form of a word
+ * counting as that word, and `word` itself (the card's) not counted. Null when that can't be told: the
+ * language's word tables aren't on the device, or nothing has been seen yet. Never downloads anything.
+ */
+export async function newWordCounter(lang, word) {
+  const [dicts] = await Promise.all([dictionaries(lang).catch(() => null), loadKnown()]);
+  const usable = dicts === null && !needsDictionaries(lang) ? [] : dicts;
+  if (usable === null || !known.size) return null;
+  const target = lexemeOf(word, lang, usable);
+  return (text) => {
+    const s = String(text || "");
+    const lex = lexemesFor(wordRanges(s, lang).map(([a, b]) => s.slice(a, b)), lang, usable) || [];
+    let n = 0;
+    for (const l of lex) {
+      if (!l || (target && l.key === target.key)) continue;
+      if (!known.has(l.key) || unknown.has(l.key)) n++;
+    }
+    return n;
+  };
+}
 
 /** A word's pronunciation from the language's downloaded table (English: US IPA from the CMU
  * Pronouncing Dictionary; Thai: Paiboon romanization, ./readings.js), or "" when there is none.

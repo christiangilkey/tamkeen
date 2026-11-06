@@ -6880,6 +6880,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "5516980a",
+  "k": "Every other word in this sentence is one you know.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "dcf2ce6a",
   "k": "No example sentence was found for this word. Type one, or leave it empty.",
   "f": "web/js/components/wordbuilder.js"

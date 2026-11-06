@@ -1374,6 +1374,7 @@
 "No meaning was found. Type its meaning.":"没有找到意思。请输入它的意思。",
 "The AI sent nothing back for this word. Press Fill in to try again.":"AI 没有为这个单词返回任何内容。按“立即填写”再试一次。",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"有一部分没能填写。请输入它，或按“立即填写”再试一次。",
+"Every other word in this sentence is one you know.":"这个句子里的其他词你都认识。",
 "No example sentence was found for this word. Type one, or leave it empty.":"没有找到这个词的例句。自己写一句，或者留空。",
 "{0} of the cards need a look: see the red notes.":"需要检查的卡片：{0} 张。请看红色提示。",
 "Filled in. Look them over, then add them.":"已填写。检查一遍，然后添加。",
