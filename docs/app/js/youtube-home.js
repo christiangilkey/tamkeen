@@ -41,6 +41,10 @@ export const START = {
   en: ["the", "US", "en", 0],
   de: ["und", "DE", "de", 0],
   fa: ["است", "IR", "fa", 0],
+  // Latin: no one word works (Latine, "in Latin" bring Spanish latina/latino music and Latin America); "spoken Latin" in
+  // quotation marks finds the videos in Latin, which are few and titled in English, so it looks back a year
+  // (START_WITHIN). YouTube has no Latin interface: with hl=en, Latin titles are shown as written (checked 2026-11-02).
+  la: ['"spoken Latin"', "US", "en", 0],
 };
 
 /** Countries offered for each language: [YouTube's country code, name, a search word of its own
@@ -70,6 +74,7 @@ export const COUNTRIES = {
        ["NZ", "New Zealand"], ["IN", "India"], ["NG", "Nigeria"], ["ZA", "South Africa"], ["PH", "Philippines"]],
   de: [["DE", "Germany"], ["AT", "Austria"], ["CH", "Switzerland"]],
   fa: [["IR", "Iran"], ["AF", "Afghanistan"]],
+  la: [["US", "United States"], ["GB", "United Kingdom"], ["IT", "Italy"], ["DE", "Germany"]],
 };
 
 /** The country to use: the chosen one if it is on the language's list, else the usual one. */
@@ -112,6 +117,8 @@ const SORT_BY_VIEWS = 3;
 export const THIS_WEEK = 3;
 export const THIS_MONTH = 4;
 export const THIS_YEAR = 5;
+/** How far back a language's start search looks when a week has too few videos in it (otherwise this week). */
+export const START_WITHIN = { la: THIS_YEAR };
 const VIDEOS_ONLY = 1;
 const SUBTITLES = 0x28; // the filters' field 5, "Subtitles/CC"
 
@@ -142,7 +149,7 @@ export function youtubeHome(lang, { mobile = false, country = "", handmade = fal
   const gl = countryFor(lang, country);
   const own = (COUNTRIES[lang] || []).find(([c]) => c === gl);
   const q = new URLSearchParams({
-    search_query: (own && own[2]) || word, sp: filterCode(length, { handmade }),
+    search_query: (own && own[2]) || word, sp: filterCode(length, { handmade, within: START_WITHIN[lang] || THIS_WEEK }),
     gl, hl: language, persist_gl: "1", persist_hl: "1", // remembered, so going back or reloading keeps them
   });
   return `${site}/results?${q}`;
@@ -240,10 +247,15 @@ export const TOPIC_WORDS = {
   fa: { news: "اخبار امروز", music: "آهنگ جدید", comedy: "طنز", food: "آشپزی", travel: "ولاگ سفر", sport: "فوتبال",
         science: "فناوری", gaming: "گیم پلی فارسی", kids: "کارتون فارسی", vlog: "ولاگ روزمره", podcast: "پادکست فارسی",
         learn: "آموزش فارسی به غیر فارسی زبانان" },
+  // Latin (checked 2026-11-02, over a year): Novum Classicum's daily Latin news, Gregorian chant, the spoken-Latin podcasts
+  // filmed (Satura Lanx, ScorpioMartianus), Latin readers read aloud, Lingua Latina per se illustrata. Comedy, food, travel,
+  // sport, science, gaming and vlogs found next to nothing in Latin (Minecraft in Latin is years old), so they are left out.
+  la: { news: "nuntii Latini", music: "Gregorian chant Latin", podcast: "Spoken Latin Podcast", kids: "fabulae pueris Latine",
+        learn: "Lingua Latina per se illustrata" },
 };
 
 /** How far back a language's topics look when it has few videos (otherwise this month). */
-export const TOPIC_WITHIN = { ceb: THIS_YEAR };
+export const TOPIC_WITHIN = { ceb: THIS_YEAR, la: THIS_YEAR };
 
 /** The topics offered for a language: Popular now, then each topic it has words for. */
 export function topicsFor(lang) {

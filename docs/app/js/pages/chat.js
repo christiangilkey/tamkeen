@@ -5,7 +5,8 @@
 // people once the recipient has seen it and left the chat, a voice note once it has been
 // played, shared words once added or dismissed, and anything unopened after 30 days.
 
-import { api, h, toast, saveClip } from "../app.js";
+import { api, h, toast, saveClip, showMenu } from "../app.js";
+import { moreButton, onHold, reportPerson } from "../components/safetyui.js";
 import * as social from "../social.js";
 import { confirmBox } from "../components/modal.js";
 import { avatar } from "../components/avatar.js";
@@ -43,7 +44,8 @@ export async function render(view, { friendId }) {
   askChatNotifications(); // once: may Tamkeen show friends' messages as notifications? (chatnotify.js)
   view.append(h(`<div class="chat">
     <div class="chat-head"><a class="btn ghost" href="#/friends" title="Back">←</a>
-      <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span></div>
+      <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span>
+      <span class="spacer"></span><span id="chat-more"></span></div>
     <div class="chat-note small muted">👻 Messages disappear after they're seen · voice notes after they're played</div>
     <div class="chat-list" id="chat-list"><p class="muted" style="text-align:center">Loading…</p></div>
     <form class="chat-compose" id="compose">
@@ -74,10 +76,20 @@ export async function render(view, { friendId }) {
   let playingBtn = null;
   player.addEventListener("ended", () => { if (playingBtn) playingBtn.textContent = playingBtn.dataset.label; playingBtn = null; });
 
+  // The person (their name arrives below): ⋯ blocks or reports them; leaving after a block.
+  const person = { id: friendId, username: "Friend" };
+  let blockedIds = new Set();
+  social.blockedPeople().then((list) => { blockedIds = new Set((list || []).map((b) => b.user_id)); }).catch(() => {});
+  $("#chat-more").append(moreButton(person, () => ({
+    blocked: blockedIds.has(friendId),
+    onChange: () => { if (!blockedIds.has(friendId)) location.hash = "#/friends"; else blockedIds.delete(friendId); },
+  })));
+
   // Friend's name (only friends can be messaged; anyone else just sees an empty chat).
   social.sb().then((c) => c.from("profiles").select("username, avatar_path").eq("id", friendId).maybeSingle()).then(async ({ data }) => {
     if (disposed) return;
     const name = (data && data.username) || "Friend";
+    person.username = name;
     const online = (await social.onlineAmong([friendId])).has(friendId);
     if (disposed) return;
     $("#chat-name").textContent = name;
@@ -223,6 +235,11 @@ export async function render(view, { friendId }) {
         try { await social.deleteMessage(m); el.remove(); } catch (e) { toast(e.message, { error: true }); }
       };
       meta.append(del);
+    }
+    // Hold (or right-click) one of their messages to report it.
+    if (!mine) {
+      onHold(el, (x, y) => showMenu(x, y, "", [{ label: "Report this message",
+        run: () => reportPerson(person, { messageId: m.id, onChange: () => { location.hash = "#/friends"; } }) }]));
     }
     bubbles.set(m.id, el);
     list.append(el);

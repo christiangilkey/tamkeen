@@ -104,34 +104,32 @@ export const cloudBlocked = (code) => Object.hasOwn(OWN_MODEL_LANGUAGES, code ||
 // the advice to transcribe that language on the computer (components/ownmodel.js draws it). Only
 // numbers that were measured or published, each with what it measures; `cloud: false` = no provider
 // knows the language (OWN_MODEL_LANGUAGES). The numbers come from HANDOFF.md ("Thai speech model:
-// Typhoon", "Bisaya speech model: BuzzASR/cebuano").
+// Pathumma", "Bisaya speech model: BuzzASR/cebuano").
 export const LANGUAGE_MODEL_INFO = {
   th: {
-    model: "typhoon",
+    model: "pathumma",
     cloud: true,
-    ownName: "Typhoon, on your computer",
+    ownName: "Pathumma, on your computer",
     headline: "Thai is best transcribed on your computer",
-    about: "Typhoon Whisper Turbo is Thai's own listening model: Whisper retrained on about 11,000 hours of Thai by SCB 10X. "
-      + "On everyday talk it gets about half as many characters wrong as Whisper large-v3, the model Groq runs.",
+    about: "Pathumma is Thai's own listening model: Whisper large-v3 retrained on Thai by NECTEC, Thailand's national electronics and computer technology centre. "
+      + "On everyday talk it gets about a quarter fewer characters wrong than Whisper large-v3, the model Groq runs.",
     tests: [
-      { label: "Everyday talk: 14 minutes of Thai TV talk shows", own: 12.6, cloud: 27.1 },
-      { label: "90 half-minute clips of Thai talk", own: 9.4, cloud: 20.5 },
-      { label: "Sentences read aloud (FLEURS)", own: 12.6, cloud: 7.7 },
+      { label: "90 half-minute clips of Thai talk", own: 14.7, cloud: 20.5 },
+      { label: "Sentences read aloud (FLEURS)", own: 8.7, cloud: 7.7 },
     ],
     notes: { // (an object, not a list: the string extractor reads a string just after "[" as a key)
-      talk: "On the talk shows Whisper large-v3 also left out about a fifth of what was said, and Typhoon was 2.6 times faster.",
-      read: "On sentences read aloud Whisper large-v3 does a little better, partly because Typhoon writes numbers as words and English names in Latin letters.",
+      read: "On sentences read aloud Whisper large-v3 does a little better.",
     },
     unmeasured: "OpenAI's Whisper (whisper-1) and Groq's Whisper Large v3 Turbo: not measured.",
     how: "Measured by Tamkeen on a computer, with the app's own transcription settings, against the official transcripts: "
-      + "Thai TV talk shows (Typhoon's TVSpeech set) joined into 14 minutes of podcast-like audio, 90 half-minute clips, "
-      + "and FLEURS, a public set of sentences read aloud. The second bar is Whisper large-v3 run the same way: the model Groq runs.",
+      + "90 half-minute clips of Thai TV talk shows (the TVSpeech set, by SCB 10X) and FLEURS, a public set of sentences read aloud. "
+      + "The second bar is Whisper large-v3 run the same way: the model Groq runs.",
     // what to do, on the phone / on a computer without the model / with it
-    phone: "To use it, download Typhoon on your computer (Settings → Listening & transcripts → Transcription model) and choose "
+    phone: "To use it, download Pathumma on your computer (Settings → Listening & transcripts → Transcription model) and choose "
       + "My computer above. A cloud provider still works for Thai, straight from this phone, when you'd rather not wait for your computer.",
-    desktop: "Download Typhoon under Transcription model, just below. Once it is downloaded it writes every Thai transcript on this "
+    desktop: "Download Pathumma under Transcription model, just below. Once it is downloaded it writes every Thai transcript on this "
       + "computer, even with a cloud provider chosen.",
-    ready: "Typhoon is downloaded: it writes every Thai transcript on this computer, even with a cloud provider chosen.",
+    ready: "Pathumma is downloaded: it writes every Thai transcript on this computer, even with a cloud provider chosen.",
   },
   ceb: {
     model: "bisaya",
@@ -272,7 +270,7 @@ const LANGUAGE_CODES = { arabic: "ar", spanish: "es", french: "fr", japanese: "j
                          english: "en", turkish: "tr", persian: "fa", urdu: "ur", hindi: "hi", german: "de", italian: "it",
                          portuguese: "pt", korean: "ko", hebrew: "he", indonesian: "id", dutch: "nl",
                          tagalog: "tl", filipino: "tl", catalan: "ca", valencian: "ca", thai: "th", cebuano: "ceb",
-                         bisaya: "ceb", farsi: "fa" };
+                         bisaya: "ceb", farsi: "fa", latin: "la" };
 
 // Whisper doesn't know Bisaya (Cebuano): it is asked for its closest relative, Tagalog, and the
 // opening prompt (PROMPTS in mobile/src/js/transcribe-service.js, INITIAL_PROMPTS in app/languages.py)

@@ -65,6 +65,11 @@
   "file": "wiktionary.txt"
  },
  {
+  "name": "Tatoeba, Wiktionary, WordNet, GloVe and FrequencyWords: example sentences and the free Mnemonic maker (optional download)",
+  "license": "CC BY 2.0 FR; CC BY-SA 4.0; WordNet licence; PDDL 1.0",
+  "file": "card-helpers.txt"
+ },
+ {
   "name": "PDF.js (Mozilla): reading PDF books you add",
   "license": "Apache 2.0",
   "file": "pdfjs.txt"
@@ -116,5 +121,10 @@
   "name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)",
   "license": "CC BY-SA 4.0",
   "file": "korean-sources.txt"
+ },
+ {
+  "name": "Latin word forms and common words, from Wiktionary and Project Gutenberg counts (optional download)",
+  "license": "CC BY-SA 4.0",
+  "file": "latin-sources.txt"
  }
 ]

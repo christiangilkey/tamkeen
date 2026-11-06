@@ -120,6 +120,29 @@ const newControl = () => ({ move: null, dest: null, path: null, attack: null, st
 const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
 
 /**
+ * How the computer plays a side (its "brain"). Each number can be set on its own (gyms.js makes every gym
+ * leader sharper than the last); what isn't given follows `skill` (foeForm for the rival), as it always did.
+ *   react     seconds between its thoughts (it also dodges only when it thinks)
+ *   dodge     chance it gets out of the way of something aimed at it
+ *   eager     chance it uses a ready move that reaches
+ *   pick      chance it picks its best move rather than any that reaches
+ *   types     0..1 how much it weighs the element chart when it picks (0 = only a move's power)
+ *   ground    how much it cares about standing on helpful ground (0 = not at all, 1 = as before)
+ *   lead      0..1 how far ahead of a moving target it aims (where it will be when the move lands)
+ *   interrupt chance it cancels a wind-up with an interrupt move
+ *   heal      chance it heals when low
+ *   extras    chance a thought goes on a guard, power-up or terrain move
+ *   fast      chance a move of the rival's counts as a fast answer (stronger, and its combo grows)
+ */
+export function brainOf(skill = 0.7, over = null) {
+  const k = Math.max(0, Math.min(1, Number(skill) || 0));
+  const base = { react: 0.2 + (1 - k) * 0.2, dodge: 0.15 + 0.6 * k, eager: 0.5 + 0.4 * k, pick: 0.7, types: 1, ground: 1, lead: 0,
+                 interrupt: 0.8, heal: 0.6, extras: 0.12, fast: 0.4 };
+  if (over && typeof over === "object") for (const key of Object.keys(base)) if (Number.isFinite(over[key])) base[key] = over[key];
+  return base;
+}
+
+/**
  * Start a live battle.
  *   mine, theirs  arrays of fighters, as battle.js's fighters() makes them (unscaled: scale 1)
  *   map           the arena (battlemap.js generateMap); a new one from `rand` when not given
@@ -133,20 +156,25 @@ const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
  *                 well it dodges
  *   auto          the player's creature is played by the computer too (for tests and trials); its
  *                 moves still open questions. `autoSkill` 0..1 is how well it plays.
+ *   brain         how the rival plays, number by number (brainOf); the ones not given follow foeForm
+ *   quizSeconds   how long the player has to answer each question (QUIZ_S unless given; 2..10)
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
-  foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT } = {}) {
+  foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
+  brain = null, quizSeconds = QUIZ_S } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
   const b = {
     mode, rule, rival, wordMode: wm, rand, ground, sight: sightOf(sight), foeForm: Math.max(0.35, Math.min(0.95, Number(foeForm) || 0.7)), autoSkill,
+    quizS: Math.max(2, Math.min(10, Number(quizSeconds) || QUIZ_S)),
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
     quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [],
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
   };
+  b.brain = { me: brainOf(autoSkill), foe: brainOf(b.foeForm, brain) };
   b.width = arena.width || arena.cols * TILE;
   b.height = arena.height || arena.rows * TILE;
   b.starts = arena.starts || { me: { x: 3 * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 }, foe: { x: (arena.cols - 4) * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 } };
@@ -262,7 +290,7 @@ function pressAttack(b, moveId, events) {
   if (why) { events.push({ kind: "refused", side: "me", move: moveId, why, x: f.x, y: f.y }); return false; }
   const q = b.ask ? b.ask(moveId, b) : null;
   if (q && Array.isArray(q.options) && q.options.length) {
-    b.quiz = { side: "me", move: moveId, q, timeLeft: QUIZ_S, total: QUIZ_S };
+    b.quiz = { side: "me", move: moveId, q, timeLeft: b.quizS, total: b.quizS };
     events.push({ kind: "quiz", side: "me", move: moveId, x: f.x, y: f.y });
     return true;
   }
@@ -319,7 +347,7 @@ function rivalUse(b, side, moveId, events) {
   const m = moveById(moveId);
   const right = b.rand() < b.foeForm;
   if (!right) { b.foeCombo = 0; fail(b, f, m, "wrong", events); return; }
-  const fast = b.rand() < 0.4;
+  const fast = b.rand() < b.brain[side].fast;
   const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
   b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
   use(b, side, moveId, power, events);
@@ -332,7 +360,8 @@ const attackOf = (b, f) => f.atk * (f.boost > 0 ? f.boostMult : 1) * groundAt(b,
 function faceToward(f, o) { if (o && Math.abs(o.x - f.x) > 1) f.face = o.x < f.x ? -1 : 1; }
 
 /** Where a move goes, aimed at the rival where it stands now. */
-function aimFor(b, f, o, lm) {
+function aimFor(b, f, rival, lm) {
+  const o = ahead(b, f, rival, lm);
   const d = unit(o.x - f.x, o.y - f.y);
   if (lm.form === "drop") {
     const reach = Math.min(dist(f, o), lm.range);
@@ -341,6 +370,17 @@ function aimFor(b, f, o, lm) {
   if (lm.form === "burst") return { x: f.x + d.x * lm.reach, y: f.y + d.y * lm.reach, r: lm.r };
   if (lm.form === "beam") return { x: f.x, y: f.y, dx: d.x, dy: d.y, len: beamLength(b, f.x, f.y, d, lm.range), width: lm.width };
   return { x: f.x, y: f.y, dx: d.x, dy: d.y, len: lm.range };
+}
+
+/** Where to aim: at the rival, or (a brain with `lead`) where it is running to by the time the move lands. */
+function ahead(b, f, o, lm) {
+  const lead = b.brain && b.brain[f.side] ? b.brain[f.side].lead : 0;
+  if (!(lead > 0) || !(Math.abs(o.vx) + Math.abs(o.vy) > 1)) return o;
+  const d = dist(f, o);
+  const t = lm.form === "shot" || lm.form === "homing" ? d / (lm.speed || 300) : lm.form === "dash" ? d / (lm.speed || 380) : (lm.warn || 0) + (lm.windup || 0);
+  const s = Math.min(1, t) * lead;
+  const p = { x: o.x + o.vx * s, y: o.y + o.vy * s };
+  return fits(b, o, p.x, p.y) ? p : o;
 }
 
 function beamLength(b, x, y, d, range) {
@@ -756,24 +796,24 @@ function groundTick(b, f, h, events) {
 // ---------- the rival ----------
 // The computer plays a side by thinking a few times a second: first get out of the way of whatever
 // is coming, then use a move that will reach, else go and stand somewhere good for the next one.
-// How well it does all this follows foeForm (its owner's accuracy).
+// How well it does all this follows its brain (brainOf: unless set, foeForm, its owner's accuracy).
 
 function think(b, side, h, events) {
   const ai = b.ai[side];
   const f = current(b, side), o = current(b, other(side));
   if (b.over || f.fainted || o.fainted) return;
   if ((ai.think -= h) > 0) return;
-  const skill = side === "foe" ? b.foeForm : b.autoSkill;
-  ai.think = 0.2 + b.rand() * 0.15 + (1 - skill) * 0.2;
+  const brain = b.brain[side];
+  ai.think = brain.react + b.rand() * 0.15;
   const threat = threatTo(b, f);
-  if (threat && b.rand() < 0.15 + 0.6 * skill) {
+  if (threat && b.rand() < brain.dodge) {
     const p = escape(b, f, threat);
     if (p) { setDest(b, side, p); ai.dodgeUntil = b.time + 0.45; ai.replan = b.time + 0.7; return; }
   }
   if (b.time < ai.dodgeUntil) return;
   if (!f.charging && !f.dash && f.recover <= 0 && f.stun <= 0) {
     const id = choose(b, f, o);
-    if (id && b.rand() < 0.5 + 0.4 * skill) {
+    if (id && b.rand() < brain.eager) {
       if (side === "me") b.ctl.me.attack = id; else rivalUse(b, side, id, events);
       ai.lastMove = b.time;
       return;
@@ -835,7 +875,8 @@ function escape(b, f, t) {
 }
 
 const attackIds = (f) => f.moves.filter((id) => moveById(id).kind === "attack");
-const hitValue = (f, o, id) => { const m = moveById(id); return m.power * matchup(m.own ? f.type : m.element || null, o.type) * (m.element && m.element === f.type ? 1.1 : 1); };
+/** How much good a move would do to the rival; `types` 0..1 is how much the element chart counts. */
+const hitValue = (f, o, id, types = 1) => { const m = moveById(id); return m.power * matchup(m.own ? f.type : m.element || null, o.type) ** types * (m.element && m.element === f.type ? 1.1 : 1); };
 
 /** The move to use now, or null to wait. */
 function choose(b, f, o) {
@@ -849,12 +890,13 @@ function choose(b, f, o) {
       (m.kind === "attack" && (form === "beam" || form === "homing"));
   });
   if (!ready.length) return null;
+  const brain = b.brain[f.side];
   const by = (k) => ready.filter((id) => moveById(id).kind === k);
   const interrupt = ready.find((id) => moveById(id).style === "interrupt" && inRange(b, f.side, id));
-  if (o.charging && interrupt && b.rand() < 0.8) return interrupt;
-  if (f.hp < f.max * 0.35 && by("heal").length && b.rand() < 0.6) return by("heal")[0];
+  if (o.charging && interrupt && b.rand() < brain.interrupt) return interrupt;
+  if (f.hp < f.max * 0.35 && by("heal").length && b.rand() < brain.heal) return by("heal")[0];
   const d = dist(f, o);
-  if (b.rand() < 0.12) {
+  if (b.rand() < brain.extras) {
     const extras = [...by("guard").filter(() => d < 120), ...by("boost").filter(() => !f.boost && !f.haste), ...by("terrain")];
     if (extras.length) return extras[Math.floor(b.rand() * extras.length)];
   }
@@ -864,9 +906,9 @@ function choose(b, f, o) {
     if (form === "shot" || form === "beam") return clearShot(b, f.x, f.y, o.x, o.y);
     if (form === "dash") return walkable(b, f, f.x, f.y, o.x, o.y);
     return true;
-  }).sort((x, y) => hitValue(f, o, y) - hitValue(f, o, x));
+  }).sort((x, y) => hitValue(f, o, y, brain.types) - hitValue(f, o, x, brain.types));
   if (!reach.length) return null;
-  return b.rand() < 0.7 ? reach[0] : reach[Math.floor(b.rand() * reach.length)];
+  return b.rand() < brain.pick ? reach[0] : reach[Math.floor(b.rand() * reach.length)];
 }
 
 /** The distance a move likes to be used from. */
@@ -879,7 +921,8 @@ function liking(lm) {
 /** Somewhere good to stand: the right distance for its best attack, on helpful ground, with a clear shot.
  * The longer it goes without a move (`idle` seconds), the closer it comes and the more it tries others. */
 function bestSpot(b, f, o, idle = 0) {
-  const ids = attackIds(f).sort((x, y) => hitValue(f, o, y) - hitValue(f, o, x));
+  const brain = b.brain[f.side];
+  const ids = attackIds(f).sort((x, y) => hitValue(f, o, y, brain.types) - hitValue(f, o, x, brain.types));
   const best = idle > 6 && ids.length ? ids[Math.floor(b.rand() * ids.length)] : ids[0];
   const lm = liveMove(moveById(best || "tackle"));
   const want = (attackIds(f).every((id) => f.cd[id] > 1.2) ? 150 : liking(lm)) * (idle > 4 ? 0.6 : 1);
@@ -895,12 +938,13 @@ function bestSpot(b, f, o, idle = 0) {
     if (p.x < 8 || p.y < 8 || p.x > b.width - 8 || p.y > b.height - 8 || !fits(b, f, p.x, p.y)) continue;
     const g = groundAt(b, f, p.x, p.y);
     let s = -Math.abs(dist(p, o) - want) / 30 - dist(f, p) / 120 + b.rand() * 0.4;
-    s += (g.atk - 1) * 6 + (g.def - 1) * 5 - (1 - Math.min(1, g.speed)) * 2 - (g.grip < 0.5 ? 1 : 0);
-    if (g.heal > 0) s += f.hp < f.max * 0.7 ? 2 : 0.3;
-    if (g.burn > 0) s -= 4;
+    const gw = brain.ground;
+    s += gw * ((g.atk - 1) * 6 + (g.def - 1) * 5 - (1 - Math.min(1, g.speed)) * 2 - (g.grip < 0.5 ? 1 : 0));
+    if (g.heal > 0) s += gw * (f.hp < f.max * 0.7 ? 2 : 0.3);
+    if (g.burn > 0) s -= 4 * Math.max(0.25, gw);
     if (needsLine) s += clearShot(b, p.x, p.y, o.x, o.y) ? 1 : -3;
     if (!inSight(b, p, o)) s -= 3; // somewhere it couldn't attack from
-    if (g.heal > 0 && (f.groundHealed || 0) >= f.max * GROUND_HEAL) s -= f.hp < f.max * 0.7 ? 2 : 0.3; // it has had all the ground gives
+    if (g.heal > 0 && (f.groundHealed || 0) >= f.max * GROUND_HEAL) s -= gw * (f.hp < f.max * 0.7 ? 2 : 0.3); // it has had all the ground gives
     if (s > topScore) { topScore = s; top = p; }
   }
   return top;

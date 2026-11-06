@@ -428,7 +428,8 @@ async function finishWebSignIn() {
       await social.connectWithIdToken({ token: answer.get("id_token"), nonce: kept.nonce });
       friendsOk = true;
     } catch (e) {
-      toast(e.message || "Couldn't sign in to Friends.", { error: true });
+      // (not old enough yet, or not asked yet: Friends asks when it is opened; agegate.js)
+      if (!e.age) toast(e.message || "Couldn't sign in to Friends.", { error: true });
     }
     if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
   } else if (kept.renew && driveOk && !(kept.then && (kept.then.tasks || kept.then.calendar))) toast("Reconnected to Google.");

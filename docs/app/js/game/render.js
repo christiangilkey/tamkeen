@@ -24,8 +24,22 @@ export function loadImage(file) {
  * `px` is the size to show it at: the art's own size (icons are 16x16) or a whole multiple of it, so the
  * pixels stay square. */
 export function icon(id, px = 16, alt = "") {
-  const file = id.includes("/") ? id : `icon/${id}`;
-  return `<img class="px-icon" alt="${alt}" width="${px}" height="${px}" src="${ART}${file}.png">`;
+  const file = String(id).includes("/") ? String(id) : `icon/${id}`;
+  const size = Math.round(Number(px)) || 16;
+  // (escaped, so a name that came from somewhere else can never close the attribute and add its own)
+  return `<img class="px-icon" alt="${attr(alt)}" width="${size}" height="${size}" src="${attr(ART + file)}.png">`;
+}
+
+const attr = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+/** The same picture as icon(), made as an element (no HTML is parsed). */
+export function iconEl(id, px = 16, alt = "") {
+  const img = document.createElement("img");
+  img.className = "px-icon";
+  img.alt = alt;
+  img.width = img.height = Math.round(Number(px)) || 16;
+  img.src = `${ART}${String(id).includes("/") ? id : `icon/${id}`}.png`;
+  return img;
 }
 
 export const FRAME = 88; // creatures are composed in a square this size, feet on its bottom edge (room above for hats)
@@ -208,8 +222,8 @@ export async function composeCreature(look, pose = {}) {
   const worn = {};
   for (const slot of Object.keys(SLOTS)) {
     const id = look.equipped && look.equipped[slot];
-    // A baby wears the small version of a hat (item/small/hat/<id>.png: tools/game_art/small_hats.py).
-    const file = b.baby && slot === "hat" ? `item/small/${id}.png` : `item/${id}.png`;
+    // A baby wears small versions of what it wears (item/small/<slot>/<id>.png: tools/game_art/small_items.py).
+    const file = b.baby ? `item/small/${id}.png` : `item/${id}.png`;
     worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(file) : null;
   }
 
@@ -229,7 +243,7 @@ export async function composeCreature(look, pose = {}) {
     if (!img) return;
     const it = itemById(look.equipped[slot]);
     const shift = (it && it.shift) || [0, 0];
-    const a = b.baby && slot === "hat" ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small hat's own drop
+    const a = b.baby ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small item's own nudge
     const o = (it && it.offset && it.offset[look.size]) || [0, 0];
     const [sx, sy] = b.sockets[slot];
     ctx.drawImage(img, ox + sx - SLOTS[slot].anchor[0] + a[0] + o[0], oy + sy - SLOTS[slot].anchor[1] + a[1] + o[1] + dy);

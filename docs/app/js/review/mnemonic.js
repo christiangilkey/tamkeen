@@ -251,9 +251,10 @@ function chunk(pieces, word) {
  * `avoid` keywords never to show again. Returns {items, parts, checked} where each item is
  * {keyword, scene, link, linkNote, sound ("close" / "partial", or "" when the word's sounds aren't
  * known), score, from, to, heard ("dictionary" / "ai" / "spelling"), pieces?}, best first, at most
- * MNEMONIC_COUNT items and SPLIT_COUNT parts; `checked` is false when nothing could be measured.
+ * MNEMONIC_COUNT items (or `count`: the free maker orders them itself) and SPLIT_COUNT parts; `checked` is
+ * false when nothing could be measured.
  */
-export function rankSuggestions({ pron, keywords = [], parts = [], ownSounds = null, avoid = [] }) {
+export function rankSuggestions({ pron, keywords = [], parts = [], ownSounds = null, avoid = [], count = MNEMONIC_COUNT }) {
   const word = pron ? wordSounds(pron.syllables.length ? pron.syllables : [{ text: pron.romanization, ipa: pron.ipa }], pron.stress) : null;
   const avoided = (k) => avoid.some((a) => sameKeyword(a, k));
   // A keyword that points to the meaning ("strong") first; then by sound, a loose link counting a little.
@@ -286,7 +287,7 @@ export function rankSuggestions({ pron, keywords = [], parts = [], ownSounds = n
         score: m.score, sound: soundLabel(m.score, m.coverage), from: m.from, to: m.to, pieces: chunk(pieces, word) });
     }
   }
-  return { items: items.sort(order).slice(0, MNEMONIC_COUNT), parts: split.sort(order).slice(0, SPLIT_COUNT), checked: !!word };
+  return { items: items.sort(order).slice(0, count), parts: split.sort(order).slice(0, Math.max(SPLIT_COUNT, count === MNEMONIC_COUNT ? SPLIT_COUNT : count)), checked: !!word };
 }
 
 /** English speakers: each keyword's sounds from the CMU Pronouncing Dictionary (the English word table,

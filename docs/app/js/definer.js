@@ -371,6 +371,18 @@ const TEACH = {
     dialect_note: "Speech-level, honorific or regional usage note (who says it, to whom, how formal it is); empty if none.",
     msa_equivalent: "The neutral standard Korean equivalent if the word is slang, dialect or very informal; empty otherwise.",
   },
+  la: {
+    name: "Latin",
+    variety: "which may be Classical (Caesar, Cicero, Virgil), poetry, Late or Church Latin (the Vulgate, the Mass), Medieval or Neo-Latin, or the Latin spoken today in podcasts and courses, written with or without macrons",
+    why: "Latin words change form with case, number and gender and with person, tense, mood and voice (amō, amāvit, amātus; puella, puellārum), word order is free, little words are joined onto others (-que, -ne, -ve), and spelling varies (u/v, i/j, ae/e)",
+    vocalized: "The word itself written with its macrons on the long vowels (e.g. 'puellārum', 'amāvit'), exactly as it would be written in a dictionary-style text with macrons.",
+    lemma: "Dictionary form with macrons, as a dictionary lists it: the first-person singular present for verbs with their principal parts (e.g. 'amō, amāre, amāvī, amātum'), the nominative singular with the genitive and gender for nouns (e.g. 'puella, -ae f.'), the masculine nominative singular for adjectives; for a participle, its verb's dictionary form.",
+    root: "For compound words: the prefix and the word it is joined to, with their meanings, e.g. 'ad to + veniō come'; empty otherwise.",
+    morphology: "Short analysis: for verbs person, number, tense, mood and voice (e.g. 'third-person singular perfect active indicative'); for nouns, adjectives and pronouns case, number and gender; participles, gerunds and gerundives named; an enclitic (-que, -ne, -ve) spelled out.",
+    dialect: "Classical, or the period or register if notable: Old Latin, poetic, Late Latin, Church (Ecclesiastical) Latin, Medieval, Neo-Latin, modern spoken Latin, etc.",
+    dialect_note: "Period or usage note (e.g. used mostly in poetry, a Church Latin meaning, a modern coinage); empty if none.",
+    msa_equivalent: "The Classical Latin word if the word is Medieval, Church or modern Latin, or the usual spelling if it is an old or rare one; empty otherwise.",
+  },
   en: {
     name: "English",
     variety: "which may be American, British, Australian or any other variety, formal or colloquial",

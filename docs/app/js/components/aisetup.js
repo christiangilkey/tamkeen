@@ -14,8 +14,9 @@ import { LOOKUPS_PER_MILLION, PROVIDERS, SAME_MODEL, THINKING, askJson, askMnemo
   keyProvider, mnemonicCents, mnemonicConfig, modelFor, thinkingFor } from "../definer.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { downloadMeanings, meaningsStatus, removeMeanings } from "../meanings.js";
-import { UI_LANGUAGES, uiLanguage } from "../i18n.js";
+import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { makeMnemonics, syllableLine } from "../review/mnemonic.js";
+import { readPrefs } from "../review/freemnemonic.js";
 import { TOKENS_EVENT, describeUsage, tokensToday } from "../tokenuse.js";
 import { icon } from "../icons.js";
 import "./settingsui.js"; // (the looks of the "More options" fold)
@@ -106,6 +107,7 @@ export function aiSetup(section, { transport }) {
         <div class="small muted" id="mn-note"></div>
         <div class="small muted" id="mn-cost"></div>
         <div class="small" id="mn-test-result" role="status"></div>
+        <div class="small muted" id="mn-taste" hidden><span></span> <button type="button" class="link" id="mn-taste-reset">Forget it</button></div>
       </div>
       </div></details>
     </div>`;
@@ -291,6 +293,15 @@ export function aiSetup(section, { transport }) {
   mnModel.onchange = async () => { await saveSettings({ [`mnemonic_model_${prov()}`]: mnModel.value }); paintThinking(); };
   mnThink.onchange = () => saveSettings({ mnemonic_effort: mnThink.value });
   paintMnemonic();
+  // What the free Mnemonic maker learned from Use and thumbs down (review.js tasteFrom), and forgetting it.
+  function paintTaste() {
+    const n = readPrefs(cur().mnemonic_prefs).n;
+    $("#mn-taste").hidden = !n;
+    $("#mn-taste span").textContent = n === 1 ? t("Without AI, the Mnemonic maker has learned from 1 of your choices.")
+      : t("Without AI, the Mnemonic maker has learned from {0} of your choices.", n);
+  }
+  paintTaste();
+  $("#mn-taste-reset").onclick = async () => { await saveSettings({ mnemonic_prefs: "" }); paintTaste(); };
   // Try it: keywords for the example word, how long they took, and which model answered (the word
   // definitions' one when the key can't use the recommended model: definer.askMnemonicJson).
   $("#mn-test").onclick = async (e) => {

@@ -1,5 +1,5 @@
 // The panel in Settings → Listening & transcripts for a language with a listening model of its own
-// (Thai's Typhoon, Bisaya's BuzzASR: stt.js LANGUAGE_MODEL_INFO): what the model is, how many
+// (Thai's Pathumma, Bisaya's BuzzASR: stt.js LANGUAGE_MODEL_INFO): what the model is, how many
 // characters it gets wrong next to Whisper large-v3 (the model Groq runs) as two labelled bars per
 // test, and the advice to transcribe that language on the computer. HTML only, no page code, so the
 // tests can look at it; sttsetup.js puts it under the "Who writes the transcripts" choice, on every

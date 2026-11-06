@@ -17,7 +17,7 @@
 // text box, and holding a word of the sentence (or of the translation) lights it up as part of what
 // is being learned, or puts it out. Both are saved like the Meaning box (review/cardedit.js).
 
-import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toast } from "../app.js";
+import { api, buzz, esc, fmtDate, h, platform, readClipboard, saveSettings, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
@@ -34,7 +34,9 @@ import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, pa
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { MNEMONIC_COUNT, addToNotes, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
-import { askMnemonic } from "../define-service.js";
+import { askMnemonic, definerConfig, noAi } from "../define-service.js";
+import { freeMnemonics } from "../examples.js";
+import { learn } from "../review/freemnemonic.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
@@ -559,6 +561,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // `kept`: those put in Memorization notes with Use). Keywords turned down are kept on this device
   // (mnemonic.js turnDown) and never suggested for the word again.
   const mnemonics = new Map();
+  // How a free keyword is tied to the word's meaning (freemnemonic.js ties), for its mark's tooltip.
+  const TIE_NOTES = {
+    s: "It means the same thing, or a kind of it", p: "One is a part of the other", d: "Its meaning is close to the word's",
+    k: "The word's meaning is a kind of it", g: "It goes with the word's meaning", v: "It goes with the word's meaning",
+  };
   const avoidStore = () => { try { return window.localStorage; } catch { return null; } };
   let englishTable = null;  // a promise of the English word table (its CMU pronunciations), or null
   /** English speakers: each keyword's sounds from the CMU Pronouncing Dictionary in the English word table,
@@ -582,6 +589,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       return [shown, v.text].find((x) => /[ً-ْٰ]/.test(x || "")) || "";
     }
     return wordReading(v.text, lang);
+  }
+
+  /** The free maker learns the learner's taste from Use (+1) and thumbs down (−1): freemnemonic.js learn,
+   * kept in the synced setting `mnemonic_prefs` (Settings → Word definitions → Mnemonic maker can forget it). */
+  function tasteFrom(s, sign, st) {
+    if (!s.traits) return;  // (the AI's suggestions)
+    const now = (app.status && app.status.settings || {}).mnemonic_prefs;
+    const others = [...st.items, ...st.parts].filter((x) => x !== s && x.traits).map((x) => x.traits);
+    saveSettings({ mnemonic_prefs: JSON.stringify(learn(now, s.traits, sign, others)) }).catch(() => { /* kept next time */ });
   }
 
   /** The Mnemonic maker below Memorization notes. */
@@ -639,6 +655,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         edit(v, "memo", memo.value);
       }
       st.kept.add(s.keyword);
+      tasteFrom(s, +1, st);
       buzz("tick");
       kept(button);
     }
@@ -670,7 +687,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       if (s.link === 2) {
         const fits = h(`<span class="rv-mn-mark fits">Fits the meaning</span>`);
         if (s.linkNote) fits.title = s.linkNote;
+        if (s.tie && TIE_NOTES[s.tie]) fits.title = t(TIE_NOTES[s.tie]);
         how.append(fits);
+      } else if (s.link === 1 && s.tie) {
+        // (the free maker: a looser tie to the meaning, review/freemnemonic.js)
+        const related = h(`<span class="rv-mn-mark fits">Related in meaning</span>`);
+        if (TIE_NOTES[s.tie]) related.title = t(TIE_NOTES[s.tie]);
+        how.append(related);
       }
       const scene = li.querySelector(".rv-mn-scene");
       scene.textContent = s.scene || "";
@@ -680,6 +703,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       else up.onclick = () => keep(s, st, up);
       li.querySelector(".rv-mn-drop").onclick = () => {
         turnDown(avoidStore(), uid, s.keyword);
+        tasteFrom(s, -1, st);
         st.items = st.items.filter((x) => x !== s);
         st.parts = st.parts.filter((x) => x !== s);
         buzz("tick");
@@ -702,6 +726,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
       label.textContent = "Make 5 more";
       if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
+      else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
+        say(st.keywordLangs.length > 1
+          ? t("Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.")
+          : t("Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
+      } else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
       else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
       // Fewer than five that pass: only those are shown, and the card says so.
       const n = all.length;
@@ -724,18 +753,34 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         const shown = before ? before.shown : [];
         const avoid = [...new Set([...shown, ...turnedDown(avoidStore(), uid)])].slice(-40);
         const reading = await readingOf(v, lang);
-        const got = await makeMnemonics(v, {
-          ask: askMnemonic, study: studyName, speaks, avoid, reading,
-          variety: varietyOf(lang, pickedCountry(lang), studyName),
-          ownSounds: uiLanguage() === "en" ? englishCheck() : null,
-        });
+        // No AI key (or AI turned off): the free maker, English keywords found on this device
+        // (examples.js freeMnemonics). With a key the AI's, as before; a key that turns out missing falls back.
+        const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: (app.status && app.status.settings || {}).mnemonic_prefs });
+        let got;
+        if (noAi() || !definerConfig().key) got = await free();
+        else {
+          try {
+            got = await makeMnemonics(v, {
+              ask: askMnemonic, study: studyName, speaks, avoid, reading,
+              variety: varietyOf(lang, pickedCountry(lang), studyName),
+              ownSounds: uiLanguage() === "en" ? englishCheck() : null,
+            });
+          } catch (e) {
+            if (!(e && e.message === "NO_KEY")) throw e;
+            got = await free();
+          }
+        }
         const st = { ...got, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
         mnemonics.set(uid, st);
         if (go.isConnected) draw(st);
       } catch (e) {
         if (!go.isConnected) return;
         label.textContent = mnemonics.get(uid) ? "Make 5 more" : "Mnemonic maker";
-        say(e && e.message === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions." : (e && e.message) || "That didn't work. Try again.", true);
+        const why = e && e.message;
+        say(why === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
+          : why === "NO_KEYWORDS" ? t("The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.")
+          : why === "NO_SOUNDS" ? t("The word's sounds couldn't be worked out, so no keywords could be found.")
+          : why || "That didn't work. Try again.", true);
         offerFix(e);  // no key, or a refused one: the popup with the way to Settings
         const fix = troubleshootButton(e);
         if (fix) note.append(" ", fix);

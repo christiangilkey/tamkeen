@@ -5,9 +5,10 @@
 // for good: grammar examples have no recorded audio of their own (tools/grammar/README.md).
 
 import { platform, state, toast } from "./app.js";
-import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureSpeak, buildSsml, voiceMode } from "./cardvoice.js";
+import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureSpeak, buildSsml, spokenText, voiceMode, voiceOff } from "./cardvoice.js";
 import { azureVoiceOf } from "./voiceplay.js";
 import { speakDevice, stopDevice } from "./devicevoice.js";
+import { sayable } from "./grammardata.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 const made = new Map(); // "<voice>\u0000<text>" -> object URL of its sound (this run of the app)
@@ -47,13 +48,13 @@ async function azureUrl(text, lang, s) {
   if (!voice) return null;
   const key = `${voice}\u0000${text}`;
   if (made.has(key)) return made.get(key);
-  const bytes = await azureSpeak({ key: s.tts_key_azure, region: s.tts_region_azure, ssml: buildSsml(text, voice) });
+  const bytes = await azureSpeak({ key: s.tts_key_azure, region: s.tts_region_azure, ssml: buildSsml(spokenText(text, lang), voice) });
   return keep(key, bytes, "audio/ogg");
 }
 
 /** Made by this computer's downloaded voice ("My computer"), or null. */
 async function computerUrl(text, lang, s) {
-  if (platform !== "desktop" || voiceMode(s) !== "computer" || !LOCAL_VOICE_LANGUAGES.includes(lang)) return null;
+  if (platform !== "desktop" || voiceMode(s) !== "computer" || !LOCAL_VOICE_LANGUAGES.includes(lang) || voiceOff(lang, s)) return null;
   const key = `computer:${lang}\u0000${text}`;
   if (made.has(key)) return made.get(key);
   const r = await fetch(`/api/voices/sample?lang=${encodeURIComponent(lang)}&text=${encodeURIComponent(text.slice(0, 200))}`);
@@ -67,7 +68,7 @@ async function computerUrl(text, lang, s) {
  */
 export async function sayText(text, lang) {
   const s = settings();
-  const clean = String(text || "").replace(/[⟦⟧]/g, "").trim();
+  const clean = sayable(String(text || "").replace(/[⟦⟧]/g, "").trim(), lang); // (Iraqi گ / چ: grammardata.js)
   if (!clean) return { ended: Promise.resolve() };
   for (const make of [azureUrl, computerUrl]) {
     try {

@@ -12,6 +12,8 @@
 import { bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
+import { LEADERS } from "./gyms.js";
+import { cleanName, isType } from "./remote.js";
 
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -36,6 +38,12 @@ export const MAX_CREATURES = 12;
 // Curiosity takes 20 times as much: looking words up pays far more XP than anything else, and at the
 // same scale it filled in a sitting (the owner's call).
 export const HABIT_XP = { listener: 1500, reader: 1500, collector: 1500, curious: 30000 };
+// Time spent on these earns nothing: no XP, no minutes toward the daily goal (so no goal reward, goal
+// streak or league day), no habit. YouTube's API policies (III.F.3) don't allow rewarding people for
+// watching, so a YouTube video (YouTube Music too: anything in YouTube's player) pays only for what is
+// studied while it plays: looking words up and saving them, as everywhere else. Podcasts, Netflix,
+// reels and your own files keep their listening time (the owner's decision, 2026-11-06).
+export const UNPAID_TIME = new Set(["youtube"]);
 
 const TIERS = [
   { id: "common", chance: 0.7, xp: [5, 15] },
@@ -86,6 +94,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     raid: 0,                      // the week whose raid reward has been claimed
     rating: 1000, // battle skill, nothing to do with how much has been studied
     rivals: {},   // friend id -> {name, wins, losses}
+    gyms: { beaten: 0, wins: {} }, // gym leaders beaten in order (gyms.js LEADERS), and wins against each
     showcase: null, // seed of the favourite creature friends see next to my name (null = the one in the habitat)
     curious20: true, // curiosity is counted on its 20-times-longer scale (see normalize for saves from before)
     badges: [],
@@ -141,6 +150,9 @@ export function normalize(state) {
   }
   for (const k of ["owned", "attacks", "decor", "tags", "badges"]) if (!Array.isArray(s[k])) s[k] = [];
   for (const k of ["review", "rivals"]) if (!s[k] || typeof s[k] !== "object") s[k] = {};
+  const gyms = s.gyms && typeof s.gyms === "object" ? s.gyms : {};
+  s.gyms = { beaten: Math.max(0, Math.min(LEADERS.length, Math.floor(Number(gyms.beaten) || 0))),
+             wins: gyms.wins && typeof gyms.wins === "object" && !Array.isArray(gyms.wins) ? gyms.wins : {} };
   if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
   if (!["last100", "unlimited"].includes(s.battleMode)) s.battleMode = "last100";
@@ -360,7 +372,8 @@ function payBoth(state) {
  *   {type, xp, tier, item, combo, stage, levelUp, goalDone, badges}  (+ base, mult for a word)
  * Events: {type: "word", key}            a word was looked up (key identifies the word)
  *         {type: "save"}                 a word was saved to vocab
- *         {type: "study", seconds, mode} time spent listening ("listen") or reading ("read")
+ *         {type: "study", seconds, mode, source} time spent listening ("listen") or reading ("read");
+ *                                        `source` "youtube" earns nothing (UNPAID_TIME)
  *         {type: "review", cleared}      a card was answered in the vocab reviewer (`cleared`: none is left due)
  *         {type: "grammar", key, right, of, first}  a grammar lesson's practice was finished (`first`: never
  *                                        done before), or a mixed review (key "review:<day>")
@@ -402,6 +415,7 @@ export function earn(state, event, ctx = {}) {
     state.coins += 1;
     out.stage = grow(state, out.xp, "collector");
   } else if (event.type === "study") {
+    if (UNPAID_TIME.has(event.source)) return null; // watching YouTube earns nothing (see UNPAID_TIME)
     const seconds = Math.max(0, Math.min(60, Number(event.seconds) || 0));
     if (!seconds) return null;
     const before = day.seconds;
@@ -742,18 +756,18 @@ export function finishBattle(state, result, ctx = {}) {
     if (result.comeback && grant(state, "comeback")) out.tags.push("comeback");
     if (result.mode === "wild" && state.roster.length < 6 && rand() < 0.15) out.egg = !!layEgg(state, rand);
   }
-  if (result.mode !== "wild") {
-    const theirs = (result.rival && result.rival.rating) || 1000;
+  if (result.mode === "gym") out.gym = beatGym(state, result, out);
+  if (result.mode !== "wild" && result.mode !== "gym") {
+    // (a rival's rating comes from their own device: a number in range, else the starting 1000)
+    const sent = result.rival && Number(result.rival.rating);
+    const theirs = sent && Number.isFinite(sent) ? Math.max(0, Math.min(5000, sent)) : 1000;
     const expected = 1 / (1 + 10 ** ((theirs - state.rating) / 400));
     out.rating = Math.round(24 * ((result.won ? 1 : 0) - expected));
     state.rating += out.rating;
   }
-  if (result.mode === "friend" && result.rival && result.rival.id) {
+  if (result.mode === "friend" && result.rival && rivalKey(result.rival.id)) {
     state.stats.friend_battles++;
-    const r = state.rivals[result.rival.id] || { name: result.rival.name || "", wins: 0, losses: 0 };
-    r.name = result.rival.name || r.name;
-    r[result.won ? "wins" : "losses"]++;
-    state.rivals[result.rival.id] = r;
+    tally(state, result.rival, result.won);
   }
   state.coins += out.coins;
   if (out.xp) grow(state, out.xp, null);
@@ -761,6 +775,32 @@ export function finishBattle(state, result, ctx = {}) {
   out.badges = checkBadges(state);
   state.updated_at = now.getTime() / 1000;
   return out;
+}
+
+/**
+ * A gym battle's result: a win counts against that leader; the first win against the leader that is open
+ * (the next to beat) opens the one after it and pays its reward on top of the battle's own (`out`).
+ * Returns {leader, won, first, coins, xp, next} (next = the leader now open, or null after the last).
+ */
+export function beatGym(state, result, out = { coins: 0, xp: 0 }) {
+  const id = result.rival && result.rival.gym;
+  const i = LEADERS.findIndex((l) => l.id === id);
+  if (i < 0) return null;
+  const leader = LEADERS[i];
+  const g = state.gyms;
+  const info = { leader: leader.id, won: !!result.won, first: false, coins: 0, xp: 0, next: null };
+  if (!result.won) return info;
+  g.wins[leader.id] = (Number(g.wins[leader.id]) || 0) + 1;
+  if (i === g.beaten) {
+    g.beaten = i + 1;
+    info.first = true;
+    info.coins = leader.reward.coins;
+    info.xp = leader.reward.xp;
+    out.coins += info.coins;
+    out.xp += info.xp;
+    info.next = LEADERS[i + 1] ? LEADERS[i + 1].id : null;
+  }
+  return info;
 }
 
 // ---------- friends: league, raid, gifts ----------
@@ -804,11 +844,22 @@ export function claimRaid(state, now = new Date()) {
 
 /** A defence result came in: a friend challenged this player's team while they were away. */
 export function recordDefence(state, rival, challengerWon) {
-  if (!rival || !rival.id) return;
-  const r = state.rivals[rival.id] || { name: rival.name || "", wins: 0, losses: 0 };
-  r.name = rival.name || r.name;
-  r[challengerWon ? "losses" : "wins"]++;
-  state.rivals[rival.id] = r;
+  if (!rival || !rivalKey(rival.id)) return;
+  tally(state, rival, !challengerWon);
+}
+
+/** A rival's key in state.rivals: their user id, never a name every object already has
+ * ("__proto__", "constructor"…), which would reach into the object itself. */
+const rivalKey = (id) => (typeof id === "string" && id.length > 0 && id.length <= 64 && !(id in Object.prototype) ? id : null);
+
+/** One more win (`won`) or loss against a rival, with their name as it was last seen (checked: remote.js). */
+function tally(state, rival, won) {
+  const id = rivalKey(rival.id);
+  const had = Object.prototype.hasOwnProperty.call(state.rivals, id) ? state.rivals[id] : null;
+  const r = had && typeof had === "object" ? had : { name: "", wins: 0, losses: 0 };
+  r.name = cleanName(rival.name, 40) || r.name;
+  r[won ? "wins" : "losses"] = (Number(r[won ? "wins" : "losses"]) || 0) + 1;
+  state.rivals[id] = r;
 }
 
 /** Take an owned item out of the game to give it away. Returns what to send, or null. */
@@ -839,7 +890,7 @@ export function receiveGift(state, kind, payload) {
     state.owned.push(it.id);
     return `You received ${it.name}. It's in My things.`;
   }
-  if (kind === "egg" && payload && Number.isFinite(payload.seed) && TYPES[payload.type]) {
+  if (kind === "egg" && payload && Number.isFinite(payload.seed) && isType(payload.type)) {
     if (state.roster.length >= MAX_CREATURES) { state.coins += 20; return "Your roster is full, so the egg became 20 coins."; }
     state.roster.push(newGenome(payload.seed >>> 0, payload.type));
     return `You received a ${TYPES[payload.type].name} egg. It's with your creatures.`;

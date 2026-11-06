@@ -140,6 +140,17 @@ export const LANGUAGES = {
     pageSample: "커피는 볶은 커피콩으로 만든 음료로, 세계에서 가장 인기 있는 음료 중 하나입니다.",
     test: { word: "대박", marked: "와, 이 노래 진짜 ⟦대박⟧!", podcast: "진짜 한국어" },
   },
+  // Latin: written with or without macrons (ā ē ī ō ū: long vowels); matching ignores them (./lexicon/latin.js). The
+  // word popup shows a word with its macrons in place of the word ("replace"), as Russian shows its stress.
+  la: {
+    ...LTR, reading: "replace", name: "Latin", native: "Latīna",
+    hello: "Salvē!", hi: "salvē", search: "quaere", word: "verbum",
+    greet: ["Bonum māne", "Salvē", "Bonum vesperum"],
+    sample: "Salvēte, amīcī! Hoc est novum podcastī nostrī ēpisōdium.",
+    pageSample: "Cafēum est pōtiō quae ex grānīs tostīs plantae cafēī fit, et inter pōtiōnēs tōtīus orbis terrārum maximē amātur.",
+    test: { word: "sānē", marked: "Crās ⟦sānē⟧ veniam, amīce!", podcast: "Latīnē loquimur" },
+    searchNote: "Matches ignore macrons (ā = a), so a word typed without them finds it written with them.",
+  },
   en: {
     ...LTR, name: "English", native: "English",
     hello: "Welcome!", hi: "hi", search: "search", word: "the word",
@@ -189,7 +200,7 @@ const SCRIPTS = [
 
 /** The taught languages written in Latin letters: text in Latin letters is one of these when it is
  * the language being studied (the letters alone can't tell them apart, or from English). */
-export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en", "de"];
+export const LATIN_LANGUAGES = ["es", "fr", "it", "tl", "pt", "ca", "ceb", "en", "de", "la"];
 
 // Persian is written in Arabic letters, with four of its own (پ چ ژ گ), its own forms of k and y
 // (ک ی where Arabic writes ك ي), and ZWNJ, the "half space" inside words (می‌خواهم). Arabic has ة, ى, ي, ك and

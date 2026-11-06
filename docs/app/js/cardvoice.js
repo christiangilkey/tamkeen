@@ -48,6 +48,60 @@ export function voicesOnSave(s) {
 /** Where "Add audio" takes the learner: Settings → Card voices. */
 export const VOICE_SETTINGS = "#/settings?s=voices&show=cardvoice";
 
+// ----- a language read by another language's voice -----
+// No voice anywhere speaks Latin, so an Italian one reads it (the owner's choice, 2026-11-03): Azure's
+// Elsa, the computer's Italian Piper voice, the device's own Italian voice. Italian rules give the Church
+// pronunciation, and churchLatin() spells the text so that they do (caelum → celum: "chelum"). Settings →
+// Card voices shows it as "Italian voice reading Latin: Church pronunciation", a switch (`setting`, "on"
+// unless "off", synced with the other card-voice settings); off, Latin cards play only their own recordings.
+// app/voices.py READ_BY is the twin.
+
+/** Languages read by another language's voice: { lang: { by, setting } }. */
+export const READ_BY = { la: { by: "it", setting: "tts_latin" } };
+
+/** The language whose voice reads `lang` (itself, but Italian for Latin). */
+export const readBy = (lang) => (READ_BY[lang] ? READ_BY[lang].by : lang);
+
+/** Is the voice for `lang` switched off (only a language read by another's voice can be)? */
+export function voiceOff(lang, s) {
+  const r = READ_BY[lang];
+  return !!r && String((s && s[r.setting]) ?? "on") === "off";
+}
+
+const MARK = /[\u0300-\u036f]/;
+const MARKS = /[\u0300-\u036f]/g;
+
+/** One Latin word spelled for an Italian voice (in NFD: see churchLatin). */
+function churchWord(w) {
+  // ae and oe are said e, unless a mark on either vowel says they are two (āēr, aër, poēta), or the word is
+  // poeta, poema, poesis (often written without marks), Noe, aloe, Israel, Michael.
+  w = w.replace(/([aAoO])([eE])/g, (m, v, e, at) => {
+    const after = w.slice(at + 2);
+    if (MARK.test(after[0] || "")) return m;
+    if (/[oO]/.test(v) && (!after || (at === 1 && /^p$/i.test(w[0]) && /^[tms]/i.test(after)))) return m;
+    if (/[aA]/.test(v) && at > 0 && /^l$/i.test(after)) return m;
+    return v === v.toUpperCase() ? e.toUpperCase() : e.toLowerCase();
+  });
+  w = w.replace(MARKS, "");
+  w = w.replace(/^([mMnN]i)h(i)/, "$1k$2");                                    // mihi, nihil: k
+  w = w.replace(/[pP][hH]/g, (m) => (m[0] === "P" ? "F" : "f")).replace(/([tTrR])[hH]/g, "$1");  // ph th rh: f t r
+  w = w.replace(/y/g, "i").replace(/Y/g, "I").replace(/j/g, "i").replace(/J/g, "I");
+  // ti before a vowel inside a word, after anything but s, t or x: zi (gratia: "gratsia"; ostium stays).
+  return w.replace(/ti(?=[aeiou])/g, (m, at) => (at > 0 && !/[stxSTX]/.test(w[at - 1]) ? "zi" : m));
+}
+
+/** Latin spelled so that an Italian voice says it as the Church does: no macrons, breves or accents;
+ * ae, oe, æ, œ as e; ph th rh as f t r; y and j as i; mihi, nihil with k; ti before a vowel as zi. The
+ * Italian voice already says c, g, sc and gn before e and i the Church's way. app/voices.py church_latin
+ * is the twin (tests/fixtures/church_latin.json holds the cases both pass). */
+export function churchLatin(text) {
+  const t = String(text ?? "").normalize("NFD").replace(/[æœ]/g, "e").replace(/[ÆŒ]/g, "E");
+  return t.replace(/(?:\p{L}|[\u0300-\u036f])+/gu, churchWord).normalize("NFC");
+}
+
+/** `text` as the voice for language `lang` is given it (Latin spelled for the Italian voice). */
+export const spokenText = (text, lang) => (lang === "la" ? churchLatin(text) : String(text ?? ""));
+
 /** Kinds of episode whose sound the Vocab page and the review card can't load on any device: they
  * play inside YouTube's, Netflix's or Instagram's own player, or have no sound at all. ("missing":
  * the episode isn't on this device any more.) app/voices.py NO_AUDIO_KINDS is the twin. */
@@ -153,6 +207,7 @@ export const AZURE_VOICES = {
   zh: "zh-CN-XiaoxiaoNeural", ru: "ru-RU-SvetlanaNeural", it: "it-IT-ElsaNeural", tl: "fil-PH-BlessicaNeural",
   pt: "pt-BR-FranciscaNeural", ca: "ca-ES-JoanaNeural", th: "th-TH-PremwadeeNeural", de: "de-DE-KatjaNeural",
   fa: "fa-IR-DilaraNeural", hi: "hi-IN-SwaraNeural", ko: "ko-KR-SunHiNeural", en: "en-US-JennyNeural",
+  la: "it-IT-ElsaNeural", // Azure has no Latin voice: the Italian one reads it (READ_BY)
   // ceb (Bisaya): Azure has no Bisaya voice, and a Tagalog one would say it wrongly.
 };
 
@@ -173,8 +228,8 @@ export const AZURE_BY_COUNTRY = {
   zh: { TW: "zh-TW-HsiaoChenNeural" },
 };
 
-/** Azure's locale prefix for a language's voices ("fil" for Tagalog). */
-export const azurePrefix = (lang) => (lang === "tl" ? "fil" : lang);
+/** Azure's locale prefix for a language's voices ("fil" for Tagalog, "it" for Latin). */
+export const azurePrefix = (lang) => (lang === "tl" ? "fil" : readBy(lang));
 
 /** The voices the learner picked, by language: the setting tts_voices ({lang: voice name}, as JSON). */
 export function pickedVoices(s) {
@@ -309,12 +364,14 @@ export function clipTimes(parts, { lead = LEAD_MS / 1000, gap = WORD_GAP_MS / 10
   return { start, end, sent_start: sentStart, sent_end: r(Math.max(sentStart + 0.2, s.start + s.seconds - tail)) };
 }
 
-/** A card's voice made by Azure: {bytes, times}, the word and the sentence in one Ogg Opus file. */
-export async function makeAzureVoice(v, { key, region, voice, fetchFn = fetch }) {
+/** A card's voice made by Azure: {bytes, times}, the word and the sentence in one Ogg Opus file.
+ * `lang`: the card's language (Latin is spelled for the Italian voice: spokenText). */
+export async function makeAzureVoice(v, { key, region, voice, lang = v && v.language, fetchFn = fetch }) {
   const { word, sentence } = voiceText(v);
   if (!word) throw new Error("This card has no word to say.");
-  const parts = [await azureSpeak({ key, region, fetchFn, ssml: buildSsml(word, voice, { tail: sentence ? WORD_GAP_MS : TAIL_MS }) })];
-  if (sentence) parts.push(await azureSpeak({ key, region, fetchFn, ssml: buildSsml(sentence, voice) }));
+  const said = (text) => spokenText(text, lang);
+  const parts = [await azureSpeak({ key, region, fetchFn, ssml: buildSsml(said(word), voice, { tail: sentence ? WORD_GAP_MS : TAIL_MS }) })];
+  if (sentence) parts.push(await azureSpeak({ key, region, fetchFn, ssml: buildSsml(said(sentence), voice) }));
   const joined = joinOggOpus(parts);
   if (!joined) throw new Error("Azure's sound couldn't be read.");
   return { bytes: joined.bytes, times: clipTimes(joined.parts, { gap: sentence ? WORD_GAP_MS / 1000 : TAIL_MS / 1000 }) };
@@ -417,17 +474,19 @@ export function canSay(v, part = "word", voice = null) {
   return (hasOwnAudio(v) && v.sent_start != null) || !!(t && t.sent_start != null) || (text && !!voiceText(v).sentence);
 }
 
-/** Languages the computer has a voice model for (app/voices.py VOICES: tests check the two agree). */
-export const LOCAL_VOICE_LANGUAGES = ["ar", "es", "fr", "it", "pt", "ca", "ru", "de", "fa", "en"];
+/** Languages the computer has a voice model for (app/voices.py VOICES: tests check the two agree;
+ * Latin's are the Italian ones). */
+export const LOCAL_VOICE_LANGUAGES = ["ar", "es", "fr", "it", "pt", "ca", "ru", "de", "fa", "en", "la"];
 
 /** Cards waiting for the computer's voice, among `words`: {count, langs: {lang: n}, without: n} —
- * `without` = cards in languages the computer has no voice for (they keep the device's voice). */
-export function waitingForComputer(words, langOf = (v) => v.language) {
+ * `without` = cards in languages the computer has no voice for, or whose voice is off (settings `s`:
+ * voiceOff); they keep the device's voice, or none. */
+export function waitingForComputer(words, langOf = (v) => v.language, s = null) {
   const out = { count: 0, langs: {}, without: 0 };
   for (const v of words || []) {
     if (v.deleted || !needsVoice(v)) continue;
     const lang = langOf(v);
-    if (LOCAL_VOICE_LANGUAGES.includes(lang)) {
+    if (LOCAL_VOICE_LANGUAGES.includes(lang) && !voiceOff(lang, s)) {
       out.count++;
       out.langs[lang] = (out.langs[lang] || 0) + 1;
     } else out.without++;
@@ -441,6 +500,7 @@ export function waitingForComputer(words, langOf = (v) => v.language) {
 export const DEVICE_TAGS = {
   ar: "ar-SA", es: "es-ES", fr: "fr-FR", ja: "ja-JP", zh: "zh-CN", ru: "ru-RU", it: "it-IT", tl: "fil-PH",
   pt: "pt-BR", ca: "ca-ES", ceb: "ceb-PH", th: "th-TH", de: "de-DE", fa: "fa-IR", hi: "hi-IN", ko: "ko-KR", en: "en-US",
+  la: "it-IT", // (an Italian voice reads Latin: READ_BY)
 };
 export const deviceTag = (lang) => DEVICE_TAGS[lang] || lang || "en-US";
 

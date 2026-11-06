@@ -5,8 +5,8 @@
 //                         SpeechPlugin.swift), since Android's web view has no speechSynthesis
 // See cardvoice.js for the choice and the voices that are kept.
 
-import { platform, speechPlugin } from "./app.js";
-import { addVoiceHelp, deviceTag, pickDeviceVoice } from "./cardvoice.js";
+import { platform, speechPlugin, state } from "./app.js";
+import { addVoiceHelp, deviceTag, pickDeviceVoice, readBy, spokenText, voiceOff } from "./cardvoice.js";
 import { langInfo } from "./languages.js";
 
 /** Which device this is, for the words on adding a voice. */
@@ -52,8 +52,14 @@ export function deviceHasVoice(lang) {
 /** Forget what is known about the device's voices (after the learner may have added one). */
 export function recheckDeviceVoices() { known.clear(); }
 
-/** The words for a device without a voice for `lang`. */
-export const noVoiceText = (lang) => addVoiceHelp(langInfo(lang).name, deviceKind());
+/** The words for a device without a voice for `lang` (for Latin, without an Italian voice). */
+export function noVoiceText(lang) {
+  const help = addVoiceHelp(langInfo(readBy(lang)).name, deviceKind());
+  return readBy(lang) === lang ? help : `${langInfo(lang).name} cards are read by a voice for ${langInfo(readBy(lang)).name}. ${help}`;
+}
+
+/** The words for a language whose voice is switched off (the Italian voice reading Latin). */
+export const voiceOffText = (lang) => `${langInfo(lang).name} cards aren't read out: their voice is switched off in Settings → Card voices.`;
 
 let current = null; // the browser utterance being spoken
 
@@ -66,6 +72,10 @@ export function stopDevice() {
 /** Say `text` in language `lang` with the device's own voice. Resolves to {ended} once it has started
  * (ended settles when it has finished); throws, with the way to add a voice, when there is none. */
 export async function speakDevice(text, lang) {
+  if (voiceOff(lang, (state.status && state.status.settings) || {})) {
+    throw Object.assign(new Error(voiceOffText(lang)), { noVoice: true });
+  }
+  text = spokenText(text, lang); // (Latin spelled for the Italian voice)
   if ((await deviceHasVoice(lang)) === false) {
     throw Object.assign(new Error(noVoiceText(lang)), { noVoice: true });
   }

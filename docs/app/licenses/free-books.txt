@@ -16,6 +16,12 @@ names where its text was taken from:
   The Korean books are Korean Wikisource's (https://ko.wikisource.org) modern-spelling texts of works of
   1917-1948 whose authors all died by 1950; for the poems it also gives as first printed, only the
   modern spelling is kept.
+  The Latin books are Project Gutenberg's and the Latin Wikisource's (https://la.wikisource.org): school
+  readers of 1825-1914, Latin translations of novels by Arcadius Avellanus (died 1935), and the classics.
+  In Rebilius Crūsō and Rōbinson Crūsōeus the long vowels were marked by a Project Gutenberg volunteer
+  (Aurēliānus Agricola) for the public-domain edition; Fabulae Faciles marks them with acute accents,
+  which are written here as macrons. The school editions' English introductions, summaries, notes and
+  vocabularies, and the printed line numbers, are left out.
 
   Aozora Bunko 青空文庫 (https://www.aozora.gr.jp): Japanese works in the public domain, typed in and
   proofread by Aozora Bunko's volunteers; their furigana are left out (Tamkeen adds its own).

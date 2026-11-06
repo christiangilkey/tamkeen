@@ -305,13 +305,30 @@ export const NEWS = {
     ["رادیو آزادی", "https://da.azadiradio.com/", "Radio Azadi, Afghanistan"],
     ["ویکی‌پدیا", "https://fa.wikipedia.org/", "Persian Wikipedia"],
   ],
+  la: [
+    // Latin news and reading, all opened 2026-11-02. Left out: Vatican News (its legal notes forbid linking to its
+    // pages without written permission), Latinitium (its pages are in English), Perseus (refuses scripts), and the old
+    // Ephemeris address (ephemeris.alcuinus.net, moved to ephemerisnuntii.eu).
+    ["Nuntii Latini", "https://nuntiilatini.com/", "Easier: weekly world news in simple Latin, long vowels marked, with audio"],
+    ["Vicipaedia: Nuntii", "https://la.wikipedia.org/wiki/Vicipaedia:Nuntii", "Easier: the year's news, one sentence each"],
+    ["Ephemeris", "https://ephemerisnuntii.eu/", "Daily world news in Latin, since 2004"],
+    ["Nuntii Latini mensis", "https://www.bremenzwei.de/themen/nuntii-latini-100.html", "Radio Bremen's monthly news in Latin (the page is in German)"],
+    ["Nuntii Latini (Yle)", "https://areena.yle.fi/1-1931339", "Finnish radio's weekly news in Latin, 2012 to 2019"],
+    ["Academia Latinitati Fovendae", "https://academialatinitatifovendae.com/", "The Latin academy, with short news in Latin"],
+    ["Vicipaedia", "https://la.wikipedia.org/", "The Latin Wikipedia"],
+    ["Vicifons", "https://la.wikisource.org/", "Latin Wikisource: free Latin texts"],
+    ["Victionarium", "https://la.wiktionary.org/", "Latin Wiktionary, written in Latin"],
+    ["The Latin Library", "https://www.thelatinlibrary.com/", "Latin texts, from the classics to Neo-Latin"],
+    ["Bibliotheca Augustana", "https://www.tha.de/~harsch/augustana.html", "Latin texts from every age"],
+    ["Corpus Corporum", "https://mlat.uzh.ch/", "Medieval and later Latin texts (University of Zurich)"],
+  ],
 };
 
 // Language names and the few words on the page, for the languages taught (the page itself is in
 // English, like the rest of the app; only the heading greets in the language).
 const NAMES = { ar: "Arabic", es: "Spanish", fr: "French", ja: "Japanese", zh: "Chinese", ru: "Russian", it: "Italian",
                 tl: "Tagalog", pt: "Brazilian Portuguese", ca: "Catalan", ceb: "Bisaya (Cebuano)", th: "Thai", hi: "Hindi", ko: "Korean", en: "English",
-                de: "German", fa: "Persian" };
+                de: "German", fa: "Persian", la: "Latin" };
 const RTL = { ar: true, fa: true };
 
 export const hasNews = (code) => Object.prototype.hasOwnProperty.call(NEWS, code);

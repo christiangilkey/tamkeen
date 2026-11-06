@@ -1,9 +1,11 @@
 // Settings section for the online features: connect with Google, choose/change a username.
 // Shared by the desktop and phone settings pages (Settings → Account & sync).
 
-import { esc, h, toast } from "../app.js";
+import { esc, h, state, toast } from "../app.js";
 import * as social from "../social.js";
+import { onlineStatus, youngNote } from "../agegate.js";
 import { confirmBox } from "./settingsui.js";
+import { blockedSection, deleteAccountBox } from "./safetyui.js";
 
 export function accountSection() {
   const el = h(`<section class="card stack" id="social" data-find="friends">
@@ -31,6 +33,12 @@ export function accountSection() {
       return;
     }
     if (!profile) {
+      if ((await onlineStatus()) === "young") {
+        // Under 16 (agegate.js): nothing goes online; say when Friends opens.
+        panel.innerHTML = `<p class="small muted"></p>`;
+        panel.firstChild.textContent = youngNote((state.status && state.status.settings || {}).online_from);
+        return;
+      }
       panel.innerHTML = `<div class="row"><button type="button" class="primary" id="acc-connect">Connect with Google</button>
         <span class="small muted">You'll pick a username next.</span></div>`;
       panel.querySelector("#acc-connect").onclick = async (e) => {
@@ -40,7 +48,7 @@ export function accountSection() {
           await social.connect();
           toast("Connected. Now choose a username.");
         } catch (err) {
-          toast(err.message, { error: true });
+          if (!err.age) toast(err.message, { error: true }); // (the age check says its own words)
         }
         paint();
       };
@@ -58,6 +66,14 @@ export function accountSection() {
       </form>
       <p class="small muted">Friends find you by this name. ${esc(social.USERNAME_HELP)} You can change it any time;
         your friends and shares stay connected.</p>`;
+    // The people I blocked (with Unblock), then deleting the online account.
+    panel.append(blockedSection());
+    const del = h(`<div class="delete-account-row">
+      <button type="button" class="ghost danger" id="acc-delete">Delete my online account</button>
+      <p class="small muted">Deletes your username, photo, friends, messages and everything else stored online. Nothing on
+        your devices or in your Google Drive is touched.</p></div>`);
+    del.querySelector("#acc-delete").onclick = () => deleteAccountBox(() => paint());
+    panel.append(del);
     const input = panel.querySelector("#acc-username");
     const hint = panel.querySelector("#acc-hint");
     input.value = profile.username || "";

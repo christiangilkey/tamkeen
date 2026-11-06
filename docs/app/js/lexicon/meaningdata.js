@@ -7,6 +7,7 @@ import { compoundLemma, compoundParts, germanLemma, rankOf, separableAt, startsS
 import { markedTokens } from "./words.js";
 import { persianKey } from "./persian.js";
 import { hindiCandidates, hindiKey } from "./hindi.js";
+import { latinKey, withoutEnclitic } from "./latin.js";
 
 const AR_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
@@ -27,6 +28,8 @@ export function matchKey(word, lang) {
   if (lang === "de") return w.toLowerCase().replace(/ß/g, "ss");
   // Hindi: with or without nukta, chandrabindu or anusvara, गये or गए (as build_meanings.py hindi_key)
   if (lang === "hi") return hindiKey(w);
+  // Latin: macrons and other marks off, j as i, v as u (amō = amo, jam = iam, uir = vir: as build_meanings.py latin_key)
+  if (lang === "la") return latinKey(w);
   return w.toLowerCase();
 }
 
@@ -179,12 +182,17 @@ export function wordKeys(word, lang, lemmaOf = null) {
   const kept = lang === "it" && /\p{L}['’]$/u.test(raw.replace(/[^\p{L}'’]+$/u, "")) ? `${bare}'` : "";
   const keys = [matchKey(kept || bare, lang)];
   if (lang !== "ja" && lang !== "zh" && bare.includes(" ")) return keys; // a phrase: as a whole only
+  // Latin: the word without the -que, -ne or -ve written onto it (puellāsque: puellās), before its dictionary form,
+  // so the popup still says which form it is.
+  if (lang === "la" && withoutEnclitic(keys[0])) keys.push(withoutEnclitic(keys[0]));
   const lemma = lemmaOf && lemmaOf(kept || bare);
   if (lemma) keys.push(matchKey(lemma, lang));
   if (kept) keys.push(matchKey(bare, lang));
   if (lang === "ar") keys.push(...arabicVariants(keys[0]));
   if (lang === "ceb") keys.push(...cebuanoVariants(keys[0]));
   const sure = [...new Set(keys.filter(Boolean))];
+  // Latin: when the word table reads the word as a name (Gallia, Rōma, Caesar), the name's entry comes first.
+  if (lang === "la" && lemma && /^\p{Lu}/u.test(lemma)) sure.name = true;
   if (lang !== "hi") return sure;
   // Hindi: a form the files don't list, with its ending taken off (समझाते: समझाना), after everything else.
   // These are guesses (`guessed`: where they start): findIn never takes one as the word this is a form of
@@ -246,11 +254,13 @@ export function findIn(data, keys) {
     // (Not one with pronouns on it: cállate "shut up!" says more than callar's "to be quiet".)
     const verbForm = agreed && data.lang === "es" && !/combined with/.test(agreed[1])
       && (data.words[agreed[0]] || []).some((g) => g[1] === "verb");
-    const rare = (g) => RARE_OWN.has(g[1]) || (verbForm && SAID.has(g[1]));
+    const namesFirst = data.lang === "la" && keys.name; // (wordKeys)
+    const rare = (g) => (RARE_OWN.has(g[1]) && !(namesFirst && g[1] === "name")) || (verbForm && SAID.has(g[1]));
     // (A Spanish, French, Italian, Portuguese, Catalan or Hindi word with no entry of its own shows first the
     // word the word table counts it as: podés is poder, not podar; idos is ir, not idus; लगा is लगना "it
     // stuck", not the stem of लगाना.)
-    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de" || data.lang === "hi");
+    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de" || data.lang === "hi"
+      || data.lang === "la");
     const formRows = formFirst ? [agreed, ...forms.filter((f) => f[0] !== agreed[0])] : forms;
     const lemmas = formRows.flatMap(([lemmaKey]) => data.words[lemmaKey] || []);
     let all = formFirst ? [...lemmas, ...own] : [...own, ...lemmas];
@@ -259,15 +269,16 @@ export function findIn(data, keys) {
     if (k !== keys[0] && !linked && (data.lang === "tl" || data.lang === "ceb")) {
       all = [...all.filter((g) => !LITTLE.has(g[1])), ...all.filter((g) => LITTLE.has(g[1]))];
     }
-    const groups = [...all.filter(ordinary), ...all.filter((g) => !ordinary(g) && g[1] !== "name"), ...all.filter((g) => g[1] === "name")];
+    const groups = namesFirst ? [...all.filter((g) => g[1] === "name"), ...all.filter((g) => g[1] !== "name")]
+      : [...all.filter(ordinary), ...all.filter((g) => !ordinary(g) && g[1] !== "name"), ...all.filter((g) => g[1] === "name")];
     // "What form it is" only when the meanings shown first are those of the word it is a form of.
     const ownFirst = !formFirst && own.some(ordinary);
     let formOf = forms.length && !ownFirst ? formRows[0][1] : "";
     // A word whose own meanings come first but which the word table counts as another word's form says
     // so: fuera "outside", also ser's "were"; dicho "said, saying", also decir's past participle.
-    if (ownFirst && agreed && ROMANCE_LANGS.has(data.lang)) formOf = `also ${agreed[1]}${/ of /.test(agreed[1]) ? "" : ` of ${agreed[0]}`}`;
+    if (ownFirst && agreed && (ROMANCE_LANGS.has(data.lang) || data.lang === "la")) formOf = `also ${agreed[1]}${/ of /.test(agreed[1]) ? "" : ` of ${agreed[0]}`}`;
     const found = { key: k, groups, formOf };
-    if (groups.some(ordinary)) return found;
+    if (groups.some(ordinary) || (namesFirst && groups.length)) return found;
     // Nothing ordinary: a borrowed meaning beats a name, the first one found beats later ones.
     if (!names || (!names.groups.some((g) => g[1] !== "name") && groups.some((g) => g[1] !== "name"))) names = found;
   }
@@ -474,15 +485,21 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
   // German: the dictionary's spelling is shown when it differs from the word's other than by a capital
   // (Strasse: Straße, Häuser: Haus), and never replaces the word.
   const germanLemma = lang === "de" && first[0].toLowerCase() !== String(word).replace(EDGE_PUNCT, "").toLowerCase() ? first[0] : "";
+  // Latin: the form says how it is spelled with its macrons ("amāvit: third-person singular perfect … of amō"): that
+  // spelling is shown as the word, and the rest as the form.
+  let formOf = found.formOf || "";
+  let latinSaid = "";
+  const said = lang === "la" && /^([^\s:]+): (.+)$/u.exec(formOf);
+  if (said && matchKey(said[1], lang) === matchKey(String(word).replace(EDGE_PUNCT, ""), lang)) [, latinSaid, formOf] = said;
   const answer = {
     word: word,
     // Arabic with its vowels and Russian with its stress replace the word as shown, only when it is that very word.
     // (Persian: how it is said, in Latin letters: ketâb.)
-    vocalized: lang === "ja" || lang === "zh" || lang === "fa" ? reading : same && first[0] !== word && lang !== "de" ? first[0] : "",
+    vocalized: lang === "ja" || lang === "zh" || lang === "fa" ? reading : latinSaid || (same && first[0] !== word && lang !== "de" ? first[0] : ""),
     lemma: lang === "de" ? germanLemma : same ? "" : first[0],
     root,
     pos: first[1] || "",
-    morphology: found.formOf || "",
+    morphology: formOf,
     meaning,
     // No note: the popup's source switch (top right) already says it is the dictionary (the owner).
     explanation: "",

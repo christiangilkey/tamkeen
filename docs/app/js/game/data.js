@@ -230,7 +230,7 @@ export const TYPE_CHART = {
 };
 /** How hard a move of element `attack` hits a creature of element `defend`: STRONG, WEAK or 1. */
 export function matchup(attack, defend) {
-  const row = attack && TYPE_CHART[attack];
+  const row = typeof attack === "string" && Object.prototype.hasOwnProperty.call(TYPE_CHART, attack) ? TYPE_CHART[attack] : null;
   if (!row || !defend) return 1;
   return row.strong.includes(defend) ? STRONG : row.weak.includes(defend) ? WEAK : 1;
 }
@@ -526,8 +526,8 @@ export function artFiles() {
   }
   for (const id of ["xp", "coin", "streak", "freeze", "hint", "goal"]) add(`icon/${id}.png`, [16, 16], "icon", { id });
   for (const it of ITEMS) add(`item/${it.id}.png`, SLOTS[it.slot].size, "item", { id: it.id, slot: it.slot });
-  // Hatchlings wear smaller hats (tools/game_art/small_hats.py; same canvas, same bottom centre).
-  for (const it of ITEMS) if (it.slot === "hat") add(`item/small/${it.id}.png`, SLOTS.hat.size, "extra");
+  // Hatchlings wear smaller versions of everything but shirts (tools/game_art/small_items.py; same canvas and socket).
+  for (const it of ITEMS) if (it.slot !== "shirt") add(`item/small/${it.id}.png`, SLOTS[it.slot].size, "extra");
   for (const it of DECOR) add(`${it.id}.png`, [it.size, it.size], "decor", { id: it.id });
   for (const t of TYPE_IDS) {
     add(`battle/hit_${t}.png`, [160, 32], "sheet", { id: "hit", frames: 5 });

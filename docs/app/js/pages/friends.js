@@ -6,7 +6,8 @@
 // Every person and every guild is the same kind of row: picture or emblem, name, a status line
 // (online / last seen), and the actions as line icons in the same place on the right.
 
-import { esc, h, toast, showMenu } from "../app.js";
+import { esc, h, state, toast, showMenu } from "../app.js";
+import { onlineStatus, youngNote } from "../agegate.js";
 import * as social from "../social.js";
 import { studyCard, studyEditor } from "../components/studycard.js";
 import { avatar, tagChips } from "../components/avatar.js";
@@ -18,6 +19,7 @@ import { publishNow } from "../game/friends-game.js";
 import { lastStreak } from "../review/flame.js";
 import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
+import { moreButton } from "../components/safetyui.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
 const SEGMENT = "friends:segment";
@@ -148,6 +150,7 @@ export async function render(view) {
     let tags = new Map();
     let seen = new Map();
     let games = new Map();
+    let blockedIds = new Set();
     try {
       // Everything that doesn't depend on something else is asked for at the same time: on a phone
       // each request is a round trip, and waiting for them one after another made the page slow.
@@ -158,11 +161,14 @@ export async function render(view) {
       if (st && st.me.username) {
         const everyone = [...new Set([st.me.id, ...st.friends.map((f) => f.user.id), ...gs.guilds.flatMap((g) => g.members.map((m) => m.id))])];
         await published; // so my own bar (what friends see of me) is current
-        [mine, cards, unread, tags, seen, games] = await Promise.all([
+        let blocked;
+        [mine, cards, unread, tags, seen, games, blocked] = await Promise.all([
           social.myStatus(), social.statusesOf(everyone.filter((id) => id !== st.me.id)), social.unreadCounts(),
           social.tagsOf(everyone), social.seenAgo(everyone),
           social.gameProfiles(everyone).catch(() => new Map()), // the bar is an extra: never block the list on it
+          social.blockedPeople().catch(() => null), // (null: an online service that can't block yet)
         ]);
+        blockedIds = new Set((blocked || []).map((b) => b.user_id));
       }
     } catch (e) {
       if (disposed) return;
@@ -189,16 +195,28 @@ export async function render(view) {
       body.append(card);
       const spot = card.querySelector(".friends-signin");
       const connected = () => { toast("Signed in. Now choose a username."); load(); };
-      if (window.TAMKEEN_WEB === true) {
+      const age = await onlineStatus();
+      if (age === "young") {
+        // Under 16 (agegate.js): nothing goes online; say when Friends opens.
+        card.querySelector("p").textContent = youngNote((state.status && state.status.settings || {}).online_from);
+        return;
+      }
+      const web = window.TAMKEEN_WEB === true;
+      if (web && age === "ok") {
         // The web app: a "Sign in with Google" button right here; it goes to Google's page and back.
-        social.connect({ host: spot }).then(connected).catch((err) => { if (!disposed) toast(err.message, { error: true }); });
+        social.connect({ host: spot }).then(connected).catch((err) => { if (!disposed && !err.age) toast(err.message, { error: true }); });
       } else {
         const b = h(`<button type="button" class="primary">Sign in with Google</button>`);
         b.onclick = async () => {
           b.disabled = true;
           b.textContent = "Signing in…";
-          try { await social.connect(); connected(); }
-          catch (err) { toast(err.message, { error: true }); b.disabled = false; b.textContent = "Sign in with Google"; }
+          const back = () => { b.hidden = false; b.disabled = false; b.textContent = "Sign in with Google"; };
+          // (in the web app, once the age is answered, Google's own button takes this one's place)
+          try { const p = social.connect(web ? { host: spot } : {}); if (web) setTimeout(() => { if (b.disabled) b.hidden = true; }, 600); await p; connected(); }
+          catch (err) {
+            if (err.age) { back(); if ((await onlineStatus()) === "young") load(); return; }
+            toast(err.message, { error: true }); back();
+          }
         };
         spot.append(b);
       }
@@ -217,6 +235,10 @@ export async function render(view) {
     const pendingIds = new Set([...st.outgoing, ...st.incoming].map((r) => r.user.id));
     const messageAct = (userId) => iconButton("message", "Message", async () => { location.hash = `#/chat/${userId}`; },
       { cls: unread.get(userId) ? "has-new" : "", count: unread.get(userId) || 0 });
+    // Only friends can message each other; for anyone else the row offers Add friend instead.
+    const messageIfFriend = (userId) => (friendIds.has(userId) ? [messageAct(userId)] : []);
+    // ⋯ : block (or unblock) and report.
+    const moreAct = (user) => moreButton(user, () => ({ blocked: blockedIds.has(user.id), onChange: load }));
 
     // ----- the segmented control (with a count of what is waiting in each part) -----
     const waiting = { feed: 0, friends: st.incoming.length, guilds: gs.invites.length };
@@ -255,7 +277,7 @@ export async function render(view) {
       { target: '.seg-btn[data-seg="feed"]', title: "Activity", text: "What your friends and guild-mates are studying right now, newest first." },
       { target: '.seg-btn[data-seg="friends"]', title: "Friends",
         text: "Add a friend by their username, answer friend requests, and message friends, with voice notes too." },
-      { target: '.seg-btn[data-seg="guilds"]', title: "Guilds", text: "Study groups: make one or join one, and chat with everyone in it." },
+      { target: '.seg-btn[data-seg="guilds"]', title: "Guilds", text: "Study groups: make one or join one, and see what everyone in it is studying." },
       { target: ".me-photo", title: "Your picture", text: "Tap it to change the photo your friends see." },
       { target: ".me-card .game-bar", title: "What friends see", text: "Friends see this next to your name: your language, league, XP today, flashcard streak and favourite creature. Tap any part to see what it is." },
       { target: "#edit-card", title: "What I'm studying",
@@ -341,7 +363,7 @@ export async function render(view) {
       for (const { u, c } of feed) {
         sec.append(itemRow({
           lead: avatar(u, { online: online(u.id) }), name: u.username, tags: tags.get(u.id) || [],
-          status: statusOf(u.id), statusOn: online(u.id), game: games.get(u.id), actions: [messageAct(u.id)], extra: studyCard(c),
+          status: statusOf(u.id), statusOn: online(u.id), game: games.get(u.id), actions: messageIfFriend(u.id), extra: studyCard(c),
         }));
       }
       out.append(sec);
@@ -355,6 +377,7 @@ export async function render(view) {
           sec.append(itemRow({ lead: avatar(r.user, { online: null }), name: r.user.username, status: "Wants to be friends", actions: [
             iconButton("check", "Accept", async () => { await social.acceptFriend(r.id); toast(`You and ${r.user.username} are now friends.`); load(); }, { cls: "go" }),
             iconButton("close", "Decline", async () => { await social.removeFriendship(r.id); load(); }),
+            moreAct(r.user),
           ] }));
         }
         out.append(sec);
@@ -402,7 +425,7 @@ export async function render(view) {
               { ok: "Remove", danger: true }))) return;
             await social.removeFriendship(f.id);
             load();
-          }, { cls: "warn" })],
+          }, { cls: "warn" }), moreAct(f.user)],
         });
         // What "Find a friend" looks through: the name and any guild tags.
         rows.push([row, [f.user.username, ...(tags.get(f.user.id) || [])].join(" ").toLowerCase()]);
@@ -494,7 +517,8 @@ export async function render(view) {
 
       if (!gs.guilds.length) {
         sec.append(h(`<p class="small muted">A guild is a group of friends with its own name and tag. Everyone in it sees
-          each other here, with what they're studying, and can message each other. Create one, or wait for an invitation.</p>`));
+          each other here, with what they're studying, and members who are friends can message each other. Create one, or
+          wait for an invitation.</p>`));
       }
       for (const g of gs.guilds) {
         const others = g.members.filter((m) => m.id !== st.me.id);
@@ -537,8 +561,8 @@ export async function render(view) {
         const members = h(`<div class="guild-members"><div class="guild-edit"></div></div>`);
         members.hidden = !open;
         for (const m of others) {
-          const mActs = [messageAct(m.id)];
-          if (!friendIds.has(m.id)) {
+          const mActs = messageIfFriend(m.id);
+          if (!friendIds.has(m.id) && !blockedIds.has(m.id)) {
             mActs.push(pendingIds.has(m.id)
               ? iconButton("userplus", "Request pending", async () => {}, { cls: "muted-act" })
               : iconButton("userplus", "Add friend", async () => {
@@ -554,6 +578,7 @@ export async function render(view) {
               load();
             }, { cls: "warn" }));
           }
+          mActs.push(moreAct(m));
           members.append(itemRow({
             lead: avatar(m, { online: online(m.id) }), name: m.username, tags: (tags.get(m.id) || []).filter((t) => t !== g.tag),
             status: m.id === g.owner ? `Founder · ${statusOf(m.id)}` : statusOf(m.id), statusOn: online(m.id),

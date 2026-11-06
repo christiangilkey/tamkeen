@@ -10,6 +10,25 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.45.0",
+  "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch");
+notes("0.45.0",
+  "Thai transcripts on your computer now use Pathumma, with about a quarter fewer mistakes on everyday talk");
+notes("0.45.0",
+  "Latin: learn it from podcasts, audiobooks, books and videos, with each word's dictionary form and meaning a tap away");
+notes("0.45.0",
+  "Gyms: beat ten gym leaders in live battles, one after another, each quicker and sharper than the last");
+notes("0.45.0",
+  "No AI key needed for mnemonics and example sentences: English sound-alike keywords with a picture, and real sentences from Tatoeba and Wiktionary");
+notes("0.45.0",
+  "Without AI: example sentences you can already read, sound-alike keywords in your own language that fit the meaning, your dialect course's sentences, and many more Bisaya sentences");
+
+notes("0.45.0",
+  "What is Tamkeen in Settings: everything the app can do, and the studies behind its design");
+
+notes("0.45.0",
+  "Safer Friends: block and report people, delete your online account, and chat only with friends (16 and older)");
+
 notes("0.44.0",
   "Battles are now live: run your creature around a new arena every time with the stick, the keys, the mouse or your finger, and answer a word question in 5 seconds to land each move",
   "Hatchlings have a baby look of their own",

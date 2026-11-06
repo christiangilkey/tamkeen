@@ -1,8 +1,9 @@
-// Made by tools/build_podcast_picks.mjs on 2026-10-18: don't edit by hand, run the tool again.
+// Made by tools/build_podcast_picks.mjs: don't edit by hand, run the tool again.
 // Podcasts for languages none of whose podcasts reach the charts, most-rated first (listener ratings on
 // Spotify and Apple Podcasts together). Used by trending.js.
 
-export const PICKS_MEASURED = "2026-10-18";
+/** When each language's shows were measured. */
+export const PICKS_MEASURED_BY = {"ceb":"2026-10-18","la":"2026-11-02"};
 
 export const PICKS = {
   "ceb": [
@@ -460,6 +461,385 @@ export const PICKS = {
       ],
       "ratings": 0,
       "episodes": 4
+    }
+  ],
+  "la": [
+    {
+      "id": "1329415244",
+      "url": "https://anchor.fm/s/2c536214/podcast/rss",
+      "title": "Ab ovo (usque ad mala)",
+      "author": "Satura Lanx: Latin language and literature for beginners.",
+      "description": "Welcome to this upper beginner / intermediate podcast told in beginner-friendly, easy spoken Latin. I m Irene Regini, and every other Saturday I ll chat about everything concerning Latin (literature, language, culture), my own life and reflections and the questions you ll ask me. The same episodes are available in full video format on my YouTube channel. Kickstart your Latin in 5 days 👉 https://pages.saturalanx.eu/abovo-challenge This is a Satura Lanx production (listen to my other podcasts: Litterae Latinae Simplices, Rara avis).",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/20/51/8c/20518c92-611c-e8ad-0546-3347e0504171/mza_11178385613946439701.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 169,
+      "episodes": 197
+    },
+    {
+      "id": "1163511976",
+      "url": "https://feeds.acast.com/public/shows/608b68df6bae694b9287cb27",
+      "title": "Latinitium — Latin literature, history, and expressions",
+      "author": "latinitium.com",
+      "description": "Latinitium.com offers a podcast in Latin on various subjects, ranging from idiomatic expressions and literature to random curiosities. Visit Latinitium.com for more Latin audio, books, and guides for learning Latin well. Hosted on Acast. See acast.com/privacy for more information.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts125/v4/19/7a/8c/197a8cac-9abf-aefe-45e3-8072fdbe6a84/mza_14389128206648404716.jpeg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 116,
+      "episodes": 91
+    },
+    {
+      "id": "1662488027",
+      "url": "https://anchor.fm/s/d8a8e3b8/podcast/rss",
+      "title": "Litterae Latinae Simplices",
+      "author": "Litterae Latinae Simplices",
+      "description": "Litterae Latinae Simplices , by Irene Regini, is a spoken Latin podcast that tells the History of Latin literature told in beginner-friendly, easy Latin language (historia litterarum Latinarum lingua Latina simplici narrata). Listen to the episodes in order to navigate through history and progressively increase the difficulty of my spoken Latin. The same episodes with Latin subtitles are available on my YouTube channel. Kickstart your Latin in 5 days 👉 https://pages.saturalanx.eu/abovo-challenge This is a Satura Lanx production (listen to my other podcasts: Satura Lanx, Rara avis).",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/e6/58/d4/e658d4a7-4e41-e50a-76da-65478cbb4838/mza_17091643408487984798.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 52,
+      "episodes": 47
+    },
+    {
+      "id": "1153286821",
+      "url": "https://www.spreaker.com/show/3581243/episodes/feed",
+      "title": "Sermones Raedarii",
+      "author": "Alexander Veronensis",
+      "description": "Sermones Latini faciles.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/46/94/e4/4694e409-db78-db37-23c9-d9112b22e72e/mza_15021627280821481797.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 40,
+      "episodes": 61
+    },
+    {
+      "id": "1338542908",
+      "url": "https://legioxiii.podomatic.com/rss2.xml",
+      "title": "Legio XIII",
+      "author": "Legio XIII",
+      "description": "Latin amp; Ancient Greek Language Podcast full archive of epsidose at: youtube.com/LegioXIII",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts126/v4/6f/ee/4a/6fee4a1f-8d8f-29a6-4352-b115fa3617ee/mza_3204078956782125944.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 40,
+      "episodes": 8
+    },
+    {
+      "id": "1590674364",
+      "url": "https://anchor.fm/s/706fc1cc/podcast/rss",
+      "title": "Latinitas Animi Causa: Latin for Fun",
+      "author": "Latinitas Animi Causa",
+      "description": "In Latinitas Animi Causa, we speak in Latin and ancient Greek about whatever we (Andreas, Ilsa, and Clara) enjoy! Topics can range and vary from discussions of SLA Theory and language Pedagogy, to topics of daily life, to discussions of ancient authors and their texts. We aim to provide listeners with an authentic Latin language experience where we discuss all things in life, just in Latin. We love to hear from our listeners and learn more about what you all enjoy too so feel free to reach out to us! For more information about us, check out our website: habesnelac.com",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/48/f5/22/48f52263-847e-8611-cdfa-88b995448f98/mza_16007636484487810511.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 39,
+      "episodes": 83
+    },
+    {
+      "id": "1211902719",
+      "url": "https://nuntiilatini.com/feed/podcast/",
+      "title": "Nuntii Latini",
+      "author": "Discipuli Occidentalis Studiorum Universitatis Vasintoniensis",
+      "description": "Nuntii Latini Occidentalis Studiorum Universitatis Vasintoniensis",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/bf/bc/62/bfbc6265-5642-3c61-62dd-00ed5b803824/mza_13955227738468792481.jpg/600x600bb.jpg",
+      "categories": [
+        "News"
+      ],
+      "ratings": 37,
+      "episodes": 10
+    },
+    {
+      "id": "1508912347",
+      "url": "https://media.rss.com/quid-es-tu/feed.xml",
+      "title": "Quid Es Tu?",
+      "author": "Levi Baus",
+      "description": "de Acroamate: duo amici, Iosephus et Lebbaeus, Latine colloquuntur de vocabulis. Lebbaeus partes horum agit et Iosephus et auditores divinare vocabula temptant. About the Podcast: Two friends, Joe and Levi, speak about words in Latin. Levi assumes the role of the word while Joe and the listeners try to guess. This podcast aims to present novice level content in Latin while Joe asks Levi questions about what vocabulary word he is portraying. Think of it like Twenty Questions! Art: Bekah Haught (@bekahha) Song: Boop by Podington Bear Click on this link for the QET Words Archive and Transcripts",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts125/v4/4d/c1/b4/4dc1b4da-a35d-d45a-7a6d-b7176a82dab3/mza_8731350127195385449.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 33,
+      "episodes": 23
+    },
+    {
+      "id": "1295432578",
+      "url": "https://www.spreaker.com/show/3610498/episodes/feed",
+      "title": "In Foro Romano",
+      "author": "In Foro Romano",
+      "description": "Duae amicae quaque septimana de qua libet re latine loquuntur. Aliquando etiam de aliis linguis loquentes nos audere poteritis vel de diversis argumentis... at lingua Latina semper est hic maximi momenti!",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/3e/72/dd/3e72ddd9-da08-eea3-8738-4755f403a8f6/mza_14304476411892311340.jpg/600x600bb.jpg",
+      "categories": [
+        "Society & Culture"
+      ],
+      "ratings": 29,
+      "episodes": 5
+    },
+    {
+      "id": "1526136202",
+      "url": "https://anchor.fm/s/300fb3a8/podcast/rss",
+      "title": "Litterae Christianae - Podcast",
+      "author": "Podcast in Latin",
+      "description": "[EN] Hello. My name is Matheus, I am a Catholic priest from Brazil and on this channel I publish podcasts in Latin about Christian literature. [LA]Matthaeus appellor, sacerdos brasiliensis sum qui acroamata seu podcast de litteris christianis in lucem edo. If you want to support me: https://www.buymeacoffee.com/litteraechristi Pagina apud Pipiatorium https://twitter.com/litteraechristi",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/5c/ab/6a/5cab6a0a-fffb-f724-2d70-8d885073eb8e/mza_1960862395561597352.jpg/600x600bb.jpg",
+      "categories": [
+        "Religion & Spirituality"
+      ],
+      "ratings": 26,
+      "episodes": 83
+    },
+    {
+      "id": "1519521369",
+      "url": "https://anchor.fm/s/355c1b8/podcast/rss",
+      "title": "Secunda Mensa",
+      "author": "Secunda Mensa",
+      "description": "Secunda Mensa est colloquium de cibis, coquendo, et rebus culinariis... Latine! Hospites Catherina et Timotheus nugantur et res coquinas explorant. Secunda Mensa is a podcast about food, cooking, and culinary interests...in Latin! Co-hosts Cathy and Tim joke and explore cooking, kitchens, and cuisine.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/9e/7d/83/9e7d83bf-e88e-1d5f-c2c6-a3da973f25ee/mza_6244070293968958942.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 25,
+      "episodes": 205
+    },
+    {
+      "id": "1409210910",
+      "url": "https://philologiaperennis.podomatic.com/rss2.xml",
+      "title": "Philologia Perennis",
+      "author": "Tom Keeline and Patrick Owens",
+      "description": "Series sermonum in quibus de lingua Latina, de litteris Latinis, de rebus denique Latinis Latine disserimus. A Patricio Owens et Thoma Keeline edita.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts112/v4/1e/7e/ba/1e7eba6f-a6e1-6a32-baa2-7a894020ceb8/mza_16795572751225332514.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 23,
+      "episodes": 17
+    },
+    {
+      "id": "1754959741",
+      "url": "https://anchor.fm/s/f8137a10/podcast/rss",
+      "title": "Colloquia Facilia: Easy Latin Dialogues",
+      "author": "Latinitas Animi Causa",
+      "description": "In this podcast, a production of Latinitas Animi Causa, we three chat about a chosen topic using simple Latin so Latin learners can benefit from comprehensible input in dialogue form! Enjoy these short, simple, and compelling dialogues to boost your Latin as a beginner!",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/4a/b7/6c/4ab76cfb-b199-b526-4db0-e06339217c53/mza_8864239200460441486.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 17,
+      "episodes": 14
+    },
+    {
+      "id": "1478534457",
+      "url": "https://anchor.fm/s/62b81fac/podcast/rss",
+      "title": "Salvi Sitis!",
+      "author": "Matthew Jay",
+      "description": "Per hæc acroamata res epidemiologicæ præbentur Latine ut delectent et fortasse etiam certiores faciant.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts122/v4/58/07/3f/58073fe4-6480-0707-4556-5cfb74ae4f68/mza_5488896923315876285.jpg/600x600bb.jpg",
+      "categories": [
+        "Science"
+      ],
+      "ratings": 9,
+      "episodes": 12
+    },
+    {
+      "id": "1500792903",
+      "url": "https://feeds.simplecast.com/H40rfTpM",
+      "title": "Colloquia apud Recentiores",
+      "author": "Jamie Banks",
+      "description": "Haec series emissionum Latine facta tractat litteras Neo-Latinas quae dicuntur. Auscultantes invenient cum explicationes et enodationes textuum et contextuum, tum cogitationes de lingua ipsa longivivace et restauratione viva eius. Spero me et hoc propositum fructui et solacio fore vobis qui colant et diligant non modo Latinitatem et artem philologicam, sed etiam—immo praecipue—iustitiam.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts115/v4/c6/41/01/c64101fd-9c8f-ead5-ac8d-c72e22cb2383/mza_1153248300346598660.jpg/600x600bb.jpg",
+      "categories": [
+        "History"
+      ],
+      "ratings": 6,
+      "episodes": 10
+    },
+    {
+      "id": "1427872856",
+      "url": "https://musapedestris.podomatic.com/rss2.xml",
+      "title": "Musa Pedestris",
+      "author": "Musa Pedestris",
+      "description": "Latin languge podcast acroamata Latine edita, quibus de poematis deque litteratura Latina disseritur.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts125/v4/c6/d0/1b/c6d01b61-5460-7665-ecb9-32e027d362d4/mza_7282103604714767261.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 4,
+      "episodes": 9
+    },
+    {
+      "id": "668402257",
+      "url": "https://librivox.org/rss/7041",
+      "title": "Aeneidis Libri XII by Virgil (70 BCE - 19 BCE)",
+      "author": "LibriVox",
+      "description": "Aeneas flees the destruction of Troy, abandons Dido, queen of the Carthaginians, and wends his way to Latium in Italy, where slaying Turnus, leader of native resistance, he founds the future Rome. (Summary by Malone)",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 3,
+      "episodes": 24
+    },
+    {
+      "id": "1760528136",
+      "url": "https://anchor.fm/s/f974c6fc/podcast/rss",
+      "title": "Lucia et Thomas Latine loquuntur",
+      "author": "Lucia et Thomas",
+      "description": "Salvete sodales! Lucia, magistra tironum privatus, et Thomas, magister summa doctrina ac pondere, sumus. Latine haec colloquia inter amicos in quibus de litteris et de discendi arte cum amicis variis garrimus, docendi causa in lucem edimus. Hello everyone! We are Lucia, who tutors privately, and Thomas, a teacher of utmost learning. We publish these Latin conversations between friends for educational purposes. In each episode we chat about Latin literature with friends, offer study tips, or both.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts211/v4/c0/92/06/c092060c-09e8-b816-3857-b03ab32b6e90/mza_13552412112556796606.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 3,
+      "episodes": 23
+    },
+    {
+      "id": "1439859681",
+      "url": "https://s3.amazonaws.com/fabellaelatinae/feed.rss",
+      "title": "Fabellae Latinae",
+      "author": "Dani Wright",
+      "description": "Readings from Fabellae Latinae, the free supplement to Hans H. Ørberg’s “Lingua Latina per se Illustrata”.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts123/v4/33/7e/0c/337e0c2f-1939-21d0-8d1d-9df1d3e9d722/mza_2137672083191221759.jpg/600x600bb.jpg",
+      "categories": [
+        "Education"
+      ],
+      "ratings": 2,
+      "episodes": 27
+    },
+    {
+      "id": "668359366",
+      "url": "https://librivox.org/rss/4718",
+      "title": "De Bello Gallico Libri Septem by Gaius Julius Caesar (100 - 44 BCE)",
+      "author": "LibriVox",
+      "description": "In this book the famous Gaius Julius Caesar himself describes the seven years of his war in Gaul. When Caesar got proconsul of Gallia and Illyria in 58 B.C, the conquest of land in Gaul was an urgent need, both to improve his political standing and to calm his creditors in Rome. So Caesar claims his interest for a very large area already in the first sentence. His steps and measures always appear clear and logical, but this simplicity is the result of a strict discipline in style. Caesar really chooses his words, and the list of standard words that he never or rarely uses, is astonishing. E.g.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 2,
+      "episodes": 25
+    },
+    {
+      "id": "1674642489",
+      "url": "https://anchor.fm/s/cd49ed78/podcast/rss",
+      "title": "Alea Iacta Est: Acroama Latine Lusum",
+      "author": "Alea Iacta Est Pod",
+      "description": "Acroama quo Dungeons and Dragons 5e ludimus, itinere per Gallia ante adventum Caesaris, Latine narrato! Dramatis Personae: Magister Ludi: Mike Saridakis @toutovlepo Canticulus: Isaac Bennett-Smith @fireyarc Cimbris: Carla Hurt @FoundnAntiquity et https://foundinantiquity.com/ Sulpicia Soprana: Lilia Caerulia @caerulia Musica nostra, nomine Dead Languae edita est a Iohanne Bukovac (https://johnbukovac.carrd.co/) Inveniri possumus apud Twitter @AleaPod et Youtube Alea Iacta Est Podcast. Pictura nostra a Carla Hurt picta est.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts116/v4/25/55/e9/2555e90f-7a5d-542a-599e-b50967ac9d52/mza_9339110278427692518.jpg/600x600bb.jpg",
+      "categories": [
+        "Leisure"
+      ],
+      "ratings": 1,
+      "episodes": 18
+    },
+    {
+      "id": "668403113",
+      "url": "https://librivox.org/rss/7053",
+      "title": "De Rerum Natura by Titus Lucretius Carus (c. 99 BCE - 55 BCE)",
+      "author": "LibriVox",
+      "description": "An exposition of Epicurus atomic theory and the ethical tenets based upon it. Drawing upon this materialist philosophy, Lucretius cites the fear of death as the cause of man's ills, and shows the way to freedom from that fear. (Summary by bropops4)",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 1,
+      "episodes": 18
+    },
+    {
+      "id": "1543590593",
+      "url": "https://anchor.fm/s/430997f8/podcast/rss",
+      "title": "Beginner Latin AudioBooks",
+      "author": "Tan Hui Chuin",
+      "description": "Foreign language texts and books read at beginner friendly speeds.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts124/v4/93/2c/39/932c390a-9be9-3a39-23b5-fe9fee996852/mza_3471409357417389613.jpg/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 1,
+      "episodes": 13
+    },
+    {
+      "id": "736314030",
+      "url": "https://librivox.org/rss/7528",
+      "title": "Confessionum Libri Tredecim by Saint Augustine of Hippo (354 - 430)",
+      "author": "LibriVox",
+      "description": "Confessions (Latin: Confessiones) is the name of an autobiographical work, consisting of 13 books, by St. Augustine of Hippo, written between AD 397 and AD 398. Modern English translations of it are sometimes published under the title The Confessions of St. Augustine in order to distinguish the book from other books with similar titles. Its original title was \"Confessions in Thirteen Books\", and it was composed to be read out loud with each book being a complete unit. (Summary by Wikipedia)",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 0,
+      "episodes": 31
+    },
+    {
+      "id": "668270708",
+      "url": "https://librivox.org/rss/7230",
+      "title": "Epistulae Morales Selectae by Lucius Annaeus Seneca (4 BCE - 65)",
+      "author": "LibriVox",
+      "description": "Seneca is an important repository of Stoic doctrine. His reputation, based on the ancient testimony, has remained ambiguous down to the present day: he was a Stoic hero who attempted to advise Nero, he was a dissolute hypocrite, he was a Christian saint. That said, his letters provided a format for philosophical discourse that long remained valid for Western Europe. His musings always sprang from concrete situations: the games in the Coliseum, the noise from a public bath below his apartment. Montaigne admired the style of his Latin, which he called \"nerveux\": taut and full of energy. (Summary",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 0,
+      "episodes": 12
+    },
+    {
+      "id": "717653419",
+      "url": "https://librivox.org/rss/7521",
+      "title": "De Agricultura by Marcus Porcius Cato (236 BCE - 149 BCE)",
+      "author": "LibriVox",
+      "description": "Noted for being the most extensive piece of early Latin prose, it abounds in archaic imperatives and shows an almost total lack of subordinate clauses. Its subject matter is the pedestrian business of managing a Roman farm in the second century BC. The simplicity, however, may be only partially genuine. For Cato had a strong political and social agenda, based on the rejection of foreign, i.e., Greek, influences and the fostering of traditional Roman values, for which the persona of the plain rustic speaker may have proved useful. (Summary by malone)",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 0,
+      "episodes": 9
+    },
+    {
+      "id": "668463641",
+      "url": "https://librivox.org/rss/7221",
+      "title": "Georgica by Virgil (70 BCE - 19 BCE)",
+      "author": "LibriVox",
+      "description": "Vergil's Georgica is the culmination of a long tradition in antiquity of poems about agriculture, beginning with Hesiod in the eighth c. BC. His poem is a rich admixture of allusion to that tradition: didactic poem, eulogium of Augustus, the neoteric epyllion about Orpheus, Epicurean philosophy as presented by his predecessor and model, Lucretius. Thomas Jefferson imagined his gentleman farmer tilling his fields with a copy of the Georgics between the handles of the plowshare. (Summary by Malone)",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Features/v4/5f/88/96/5f8896e9-9be5-529a-af14-cc807367568a/mza_1382744875394257421.png/600x600bb.jpg",
+      "categories": [
+        "Arts"
+      ],
+      "ratings": 0,
+      "episodes": 8
+    },
+    {
+      "id": "1880980362",
+      "url": "https://anchor.fm/s/10f9a4a4c/podcast/rss",
+      "title": "Latine Loquimur",
+      "author": "JANEZ ERAT",
+      "description": "In hoc acroamate, textus simplices Latine recitabo. Legam ex diversis fontibus: ab auctoribus antiquis usque ad Vicipaediam eaque quae ipse scripsi.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts221/v4/4d/ba/b0/4dbab0d7-08fe-aae7-b6e6-023c3eb9099c/mza_17250421472020854033.jpg/600x600bb.jpg",
+      "categories": [
+        "Science"
+      ],
+      "ratings": 0,
+      "episodes": 7
+    },
+    {
+      "id": "1553850637",
+      "url": "https://anchor.fm/s/4cb9e118/podcast/rss",
+      "title": "Fabulae Syrae",
+      "author": "Eva Monzón",
+      "description": "Fabulae Syrae recitata a Vivarii Novi libro et discipulis dicata.",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Podcasts124/v4/2e/8f/07/2e8f079d-e658-f433-b042-cd208bda578d/mza_10415681511380459847.jpg/600x600bb.jpg",
+      "categories": [
+        "Kids & Family"
+      ],
+      "ratings": 0,
+      "episodes": 3
     }
   ]
 };

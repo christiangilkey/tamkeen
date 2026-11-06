@@ -15,10 +15,18 @@
 export const GRAMMAR_BASE = "https://christiangilkey.github.io/tamkeen/grammar/";
 const SITE_HOST = "christiangilkey.github.io";
 export const LEVELS = ["A1", "A2", "B1"];
-// The Arabic dialect courses (Levantine, Egyptian, Gulf, Moroccan) build on the Standard Arabic one. A
+// The Arabic dialect courses (Levantine, Egyptian, Gulf, Moroccan, Iraqi) build on the Standard Arabic one. A
 // dialect's grammar course teaches Arabic ("to": "ar") and names its dialect ("dialect": "lev"); its id
 // has the dialect after the pair: "en-ar-lev".
-export const DIALECTS = ["lev", "egy", "glf", "mor"];
+export const DIALECTS = ["lev", "egy", "glf", "mor", "irq"];
+
+/**
+ * A text as a voice can say it. Iraqi Arabic writes its g and ch sounds with the Persian letters گ and چ
+ * (گال "he said", چان "was"), which Arabic voices skip without a sound; they get the Arabic letters those
+ * sounds come from (ق, ك), so the word is said the Standard way rather than with a letter missing. (The Iraqi
+ * basics course's own recordings say g and ch: tools/course/build_course.py "ipa".)
+ */
+export const sayable = (text, lang) => (lang === "ar" ? String(text).replace(/گ/g, "ق").replace(/چ/g, "ك") : String(text));
 
 /** A course's id: "<from>-<to>", plus "-<dialect>" for a dialect course ("en-ar-lev"). */
 export const courseIdOf = (course) => `${course.from}-${course.to}${course.dialect ? `-${course.dialect}` : ""}`;

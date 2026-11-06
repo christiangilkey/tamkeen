@@ -12,13 +12,15 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { answerQuestion, battleWords, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, composeCreature, icon, loadImage } from "./render.js";
+import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
+import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
 import { PROPS, TERRAIN, drawLayers, generateMap } from "./battlemap.js";
 import { COMBO, answer, battleResult, input, newLiveBattle, step, usePotion, view } from "./livebattle.js";
+import { leaderById } from "./gyms.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const TILE = 16;
@@ -83,12 +85,26 @@ function frameAt(info, frames, ms, from = 0, to = frames - 1) {
   return to;
 }
 
+/** The end card's lines about a gym (rules.beatGym's result): the badge, its reward and what opens next. */
+function gymLines(gym) {
+  if (!gym || !gym.first) return [];
+  const leader = leaderById(gym.leader), next = gym.next ? leaderById(gym.next) : null;
+  if (!leader) return [];
+  const name = (l) => l.name; // a name, the same in every language
+  return [
+    `${icon("trophy")} ${t("You beat {0}, the {1}!", name(leader), t(leader.title))}`,
+    `${icon("coin")} ${t("Gym reward: {0} coins and {1} XP", String(gym.coins), String(gym.xp))}`,
+    next ? `${icon("arrow")} ${t("{0}'s gym is open now.", name(next))}` : `${icon("star")} ${t("You have beaten every gym leader.")}`,
+  ];
+}
+
 /** The move's own element, or the creature's for a move of "its own element" (none for a plain one). */
 const elementOf = (m, f) => (m.own ? f.type : m.element || null);
 
 /**
  * A battle against `theirs`, live. `setup` = { mine, theirs, mode, rule, foeForm, rival } (the fighters
- * from battle.js), `vocab` the learner's words (the questions come from them).
+ * from battle.js), `vocab` the learner's words (the questions come from them). A gym battle (gyms-ui.js) also
+ * gives `brain` and `quizSeconds` (livebattle.js) and `again`, what "Battle again" opens.
  */
 export function runLiveBattle(setup, vocab) {
   const game = getGame();
@@ -604,11 +620,18 @@ export function runLiveBattle(setup, vocab) {
       if (card.dataset.key !== key) {
         card.dataset.key = key;
         const who = card.querySelector(".lb-who");
-        const own = f.name || (side === "foe" && setup.mode === "friend" && setup.rival ? setup.rival.name : "");
+        const own = f.name || (side === "foe" && (setup.mode === "friend" || setup.mode === "gym") && setup.rival ? setup.rival.name : "");
         who.textContent = own || (side === "me" ? t("Your creature") : setup.mode === "wild" ? t("Wild creature") : t("Rival"));
         if (own) who.setAttribute("translate", "no"); else who.removeAttribute("translate"); // a name is never translated
-        card.querySelector(".lb-el").innerHTML = `<img class="px-icon" width="16" height="16" alt="" src="${ART}icon/type_${c.type}.png">`;
-        card.querySelector(".lb-el img").title = t(TYPES[c.type].name);
+        // The element's picture, made as an element: a friend's creature came from their device, so its
+        // type is never put into HTML (and one the game doesn't have shows no picture).
+        const elBox = card.querySelector(".lb-el");
+        elBox.replaceChildren();
+        if (isType(c.type)) {
+          const img = iconEl(`type_${c.type}`, 16);
+          img.title = t(TYPES[c.type].name);
+          elBox.append(img);
+        }
       }
       const pips = card.querySelector(".lb-pips");
       const alive = v.teams[side].map((m) => m.hp > 0);
@@ -846,7 +869,7 @@ export function runLiveBattle(setup, vocab) {
     clearTimeout(bannerTimer);
     bannerTimer = setTimeout(() => { el2.hidden = true; }, ms);
   }
-  const whose = (side) => (side === "me" ? t("Your creature") : setup.mode === "wild" ? t("The wild creature") : t("Your rival's creature"));
+  const whose = (side) => (side === "me" ? t("Your creature") : setup.mode === "wild" ? t("The wild creature") : setup.mode === "gym" ? t("The leader's creature") : t("Your rival's creature"));
   function show(events) {
     for (const ev of events || []) {
       const x = ev.x ?? 0, y = ev.y ?? 0;
@@ -1019,10 +1042,12 @@ export function runLiveBattle(setup, vocab) {
   let pausedBy = 0; // how many things hold the battle still (the pause box, the window hidden)
   const paused = () => pausedBy > 0 || document.hidden;
   async function pause(help = false) {
-    if (b.over || closed || pausedBy || b.quiz) return; // (a question can't be paused: its 5 seconds are the point)
+    if (b.over || closed || pausedBy || b.quiz) return; // (a question can't be paused: its seconds are the point)
     pausedBy++;
     held.clear();
-    const text = `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")} ${t("The ground matters: look under your creature to see what it does.")}`;
+    const within = b.quizS === 5 ? t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")
+      : t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within {0} seconds or the move fails.", String(b.quizS));
+    const text = `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
     const leave = await pauseBox(help ? t("How to play") : t("Paused"), text);
     pausedBy--;
     if (!leave || closed) return;
@@ -1074,6 +1099,7 @@ export function runLiveBattle(setup, vocab) {
       pay.egg ? icon("egg_mystery") + " The wild creature left you an egg." : "",
       pay.ticket ? icon("ticket") + " A battle ticket made this one pay in full." : "",
       pay.both ? `${icon("check")} A battle and your flashcards, both done today: +${pay.both.xp} XP · ${icon("coin")} ${pay.both.coins} coins` : "",
+      ...gymLines(pay.gym),
     ].filter(Boolean);
     const box = $(".lb-end");
     const card = h(`<div class="lb-end-card"><h2>${result.won ? "You won!" : "You lost this one"}</h2><div class="lb-end-lines"></div>
@@ -1082,7 +1108,7 @@ export function runLiveBattle(setup, vocab) {
     box.append(card);
     box.hidden = false;
     card.querySelector("#lb-done").onclick = close;
-    card.querySelector("#lb-again").onclick = () => { close(); openBattleMenu(); };
+    card.querySelector("#lb-again").onclick = () => { close(); (setup.again || openBattleMenu)(); };
     card.querySelector("#lb-again").focus({ preventScroll: true });
   }
 

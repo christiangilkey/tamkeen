@@ -8,8 +8,8 @@ import { esc, platform, state, saveSettings, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { LANGUAGES, studyLanguage } from "../languages.js";
 import { AZURE_FREE, AZURE_PORTAL, AZURE_PRICING, AZURE_VOICES, azureReady, azureVoices, buildSsml, azureSpeak, cleanAzureKey,
-         cleanRegion, LOCAL_VOICE_LANGUAGES, needsVoice, pickedVoices, voiceChars, voiceMode, voicesForLanguage,
-         waitingForComputer, withPickedVoice } from "../cardvoice.js";
+         cleanRegion, LOCAL_VOICE_LANGUAGES, needsVoice, pickedVoices, READ_BY, readBy, spokenText, voiceChars, voiceMode, voiceOff,
+         voicesForLanguage, waitingForComputer, withPickedVoice } from "../cardvoice.js";
 import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice } from "../devicevoice.js";
 import { azureVoiceOf, cardLanguage, voiceMaker } from "../voiceplay.js";
 
@@ -45,6 +45,10 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
   const lang = studyLanguage();
   const name = (LANGUAGES[lang] || {}).name || lang;
   const sampleText = (LANGUAGES[lang] || {}).sample || "";
+  // Latin is read by an Italian voice (cardvoice.js READ_BY), which can be switched off here.
+  const borrowed = READ_BY[lang] || null;
+  const byName = (LANGUAGES[readBy(lang)] || {}).name || readBy(lang);
+  const off = () => voiceOff(lang, cur());
   section.classList.add("stt-card", "vo-card");
   section.innerHTML = `
     <div class="stt-top"><h2>Who reads cards without audio</h2><span id="vo-tag"></span></div>
@@ -62,6 +66,10 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
         <strong>${phone ? "My computer" : "This computer"}</strong><span class="stt-choice-line">${phone
           ? "Free. Your computer makes them; they arrive when it syncs." : "Free, offline. Made here with a downloaded voice and kept."}</span></label>
     </div>
+    ${borrowed ? `<label class="check vo-borrowed" data-find="latinvoice"><input type="checkbox" id="vo-borrowed">
+      <span>Italian voice reading Latin: Church pronunciation<br><span class="small muted">No voice speaks Latin, so an Italian voice
+      reads the Latin cards that have no recording, the way the Church says Latin: c before e and i as in “cello”, ae as e. Off:
+      Latin cards play only the recordings they were saved from.</span></span></label>` : ""}
     <div class="vo-panel" id="vo-device"></div>
     <div class="stt-cloud vo-azure" id="vo-azure" data-find="azurekey">
       <h3>Azure Speech</h3>
@@ -124,9 +132,9 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     const mode = voiceMode(cur());
     section.querySelectorAll("input[name=vo-mode]").forEach((r) => { r.checked = r.value === mode; });
     $("#vo-azure").hidden = mode !== "azure";
-    $("#vo-computer").hidden = mode !== "computer";
+    $("#vo-computer").hidden = mode !== "computer" || off();
     const tag = $("#vo-tag");
-    const waiting = phone && mode === "computer" ? waitingForComputer(allWords, cardLanguage).count : 0;
+    const waiting = phone && mode === "computer" ? waitingForComputer(allWords, cardLanguage, cur()).count : 0;
     if (mode === "azure") {
       tag.className = refused ? "req-tag" : azureReady(cur()) ? "pill done" : "req-tag";
       tag.textContent = refused ? "Key not working" : azureReady(cur()) ? "✓ In use" : "Needs a key";
@@ -144,6 +152,11 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
   // ----- this device's voice for the language being learned -----
   async function paintDevice() {
     const box = $("#vo-device");
+    if (off()) {
+      box.innerHTML = `<div class="vo-device vo-missing"><span class="vo-device-ico">${icon("close", 18)}</span><span class="vo-device-text"></span></div>`;
+      box.querySelector(".vo-device-text").textContent = `Switched off: ${name} cards that have no recording aren't read out.`;
+      return;
+    }
     const has = await deviceHasVoice(lang);
     const android = deviceKind() === "android";
     box.innerHTML = `<div class="vo-device ${has === false ? "vo-missing" : ""}">
@@ -156,6 +169,8 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       </span></div>`;
     const only = voiceMode(cur()) === "device";
     box.querySelector(".vo-device-text").textContent = has === false ? noVoiceText(lang)
+      : has && borrowed ? (only ? `This device has a voice for ${byName}. It reads the ${name} cards that have no recording.`
+        : `This device has a voice for ${byName}. It reads the ${name} cards that have no recording until theirs is made.`)
       : has ? (only ? `This device has a ${name} voice. It reads the cards that have no recording.`
         : `This device has a ${name} voice. It reads the cards that have no recording until theirs is made.`)
       : only ? "This device's voice reads the cards that have no recording."
@@ -166,6 +181,18 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     if (settingsBtn) settingsBtn.onclick = () => openVoiceSettings();
     const again = box.querySelector("#vo-recheck");
     if (again) again.onclick = () => { recheckDeviceVoices(); paintDevice(); };
+  }
+
+  // ----- the Italian voice reading Latin, on or off (tts_latin) -----
+  if (borrowed) {
+    $("#vo-borrowed").checked = !off();
+    $("#vo-borrowed").onchange = async (e) => {
+      try { await save({ [borrowed.setting]: e.target.checked ? "on" : "off" }); } catch (err) { toast(err.message, { error: true }); }
+      paintState();
+      paintDevice();
+      paintVoices();
+      paintComputer();
+    };
   }
 
   // ----- Azure -----
@@ -211,6 +238,13 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
   let offered = [];  // Azure's voices for the language, once the key has been tried
   async function paintVoices() {
     const sel = $("#vo-voice");
+    if (off()) {
+      sel.innerHTML = `<option value="">Switched off</option>`;
+      sel.disabled = true;
+      $("#vo-try").disabled = true;
+      $("#vo-voice-note").textContent = "";
+      return;
+    }
     const usual = AZURE_VOICES[lang] ? await azureVoiceOf(lang, { ...cur(), tts_voices: "" }) : null;
     const picked = pickedVoices(cur())[lang] || "";
     if (!usual) {
@@ -226,7 +260,8 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     sel.value = picked && picked !== usual ? picked : "";
     sel.disabled = false;
     $("#vo-try").disabled = false;
-    $("#vo-voice-note").textContent = offered.length ? "" : "Test the key to choose from all of Azure's voices for the language.";
+    $("#vo-voice-note").textContent = offered.length ? "" : borrowed ? `Test the key to choose from all of Azure's voices for ${byName}.`
+      : "Test the key to choose from all of Azure's voices for the language.";
   }
   $("#vo-voice").onchange = async (e) => {
     await save({ tts_voices: withPickedVoice(cur(), lang, e.target.value) });
@@ -238,7 +273,8 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     e.currentTarget.disabled = true;
     try {
       const voice = await azureVoiceOf(lang, s);
-      const bytes = await azureSpeak({ key: s.tts_key_azure, region: s.tts_region_azure, ssml: buildSsml(sampleText, voice) });
+      if (!voice) throw new Error(`Switched off: ${name} cards that have no recording aren't read out.`);
+      const bytes = await azureSpeak({ key: s.tts_key_azure, region: s.tts_region_azure, ssml: buildSsml(spokenText(sampleText, lang), voice) });
       const a = new Audio(URL.createObjectURL(new Blob([bytes], { type: "audio/ogg" })));
       await a.play();
     } catch (err) {
@@ -260,7 +296,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       offered = voicesForLanguage(list, lang);
       refused = false;
       out.textContent = `✓ Works (Azure answered in ${((Date.now() - began) / 1000).toFixed(1)} s). ${offered.length
-        ? `${offered.length} ${name} voices in this region.` : `Azure has no ${name} voice in this region.`} Testing uses none of your characters.`;
+        ? `${offered.length} ${byName} voices in this region.` : `Azure has no ${byName} voice in this region.`} Testing uses none of your characters.`;
       out.style.color = "var(--accent)";
       paintVoices();
     } catch (err) {
@@ -278,7 +314,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     const box = $("#vo-all");
     if (stopAll) return;
     const todo = allWords.filter((v) => needsVoice(v) && cardLanguage(v) === lang);
-    if (voiceMode(cur()) !== "azure" || !azureReady(cur()) || !todo.length || !AZURE_VOICES[lang]) { box.innerHTML = ""; return; }
+    if (voiceMode(cur()) !== "azure" || !azureReady(cur()) || !todo.length || !AZURE_VOICES[lang] || off()) { box.innerHTML = ""; return; }
     const chars = todo.reduce((n, v) => n + voiceChars(v), 0);
     box.innerHTML = `<div class="vo-all-row"><span class="small muted"></span><button type="button" id="vo-make-all">Make them now</button></div>`;
     box.querySelector("span").textContent = `${todo.length} ${name} card${todo.length === 1 ? "" : "s"} have no voice yet (about ${chars.toLocaleString()} characters). Each is made the first time it is played, or all of them now, ready for an Anki export.`;
@@ -312,12 +348,13 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
   // ----- the computer's voices -----
   async function paintComputer() {
     const box = $("#vo-computer");
+    if (off()) { box.innerHTML = ""; return; }  // (hidden: the line above says it's switched off)
     if (phone) {
-      const w = waitingForComputer(allWords, cardLanguage);
+      const w = waitingForComputer(allWords, cardLanguage, cur());
       box.innerHTML = `<h3>Waiting for your computer</h3><div class="vo-wait"><strong></strong><span class="small muted"></span></div>`;
       box.querySelector("strong").textContent = w.count ? `${w.count} card${w.count === 1 ? "" : "s"}` : "Nothing waiting";
       box.querySelector("span").textContent = LOCAL_VOICE_LANGUAGES.includes(lang)
-        ? `Your computer makes them when Tamkeen is open there, with the ${name} voice downloaded (Settings → Card voices on the computer). They arrive here when it syncs; until then this phone's voice reads them.`
+        ? `Your computer makes them when Tamkeen is open there, with the ${byName} voice downloaded (Settings → Card voices on the computer). They arrive here when it syncs; until then this phone's voice reads them.`
         : `Your computer has no ${name} voice, so these cards use this phone's voice. For natural ${name} voices choose Azure.`;
       return;
     }
@@ -356,7 +393,8 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
         this computer's processor, offline). Each voice's recordings carry the licence shown. Many were trained on top of Piper's English
         voice, whose own recordings were licensed for research; Piper publishes them under their own licences.</p></details>`;
     const waitLine = box.querySelector(".vo-wait-line");
-    waitLine.textContent = !info.voice ? `Download a ${name} voice: then this computer gives every ${name} card without audio its own recording, also the ones saved on your phone.`
+    waitLine.textContent = !info.voice && borrowed ? `Download a voice for ${byName}: then this computer gives every ${name} card without audio its own recording, also the ones saved on your phone.`
+      : !info.voice ? `Download a ${name} voice: then this computer gives every ${name} card without audio its own recording, also the ones saved on your phone.`
       : waiting ? `${waiting} ${name} card${waiting === 1 ? "" : "s"} still to make: this computer is making them now.`
       : `Every ${name} card has its voice. New ones get theirs as they are saved, here or on your phone.`;
     const err = box.querySelector("p[style]");

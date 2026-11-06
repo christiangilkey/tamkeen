@@ -49,6 +49,9 @@ export const STOREFRONTS = {
   en: ["us", "gb", "au", "ca"],
   de: ["de", "at", "ch"],
   fa: ["af", "tj"],
+  // Latin: no country's chart has a podcast in Latin (checked 2026-11-02): the list is PICKS (podcast-picks.js),
+  // after anything in Latin the United States' chart might one day hold.
+  la: ["us"],
 };
 /** Languages whose countries' 19 category charts are read as well as the overall chart. */
 export const CATEGORY_CHARTS = new Set(["ca", "tl", "th", "fa", "hi", "ko"]);
@@ -137,6 +140,9 @@ const LITTLE_WORDS = {
   // (not "was", "in", "an", "so" or "man": English words too)
   de: ["der", "die", "das", "und", "ist", "mit", "von", "nicht", "ein", "eine", "auf", "für", "ich", "wir", "sie", "zu", "über",
        "den", "dem", "im", "auch", "wie", "sich", "oder", "aber", "nach", "bei", "mehr", "du", "uns", "zum", "zur", "geht", "als"],
+  // (not "in", "de", "a", "e", "est" or "non": English's, French's and Italian's too)
+  la: ["et", "atque", "ac", "cum", "sed", "ut", "quod", "qui", "quae", "sunt", "nos", "vos", "nostra", "noster", "latine",
+       "latina", "lingua", "loquimur", "colloquia", "fabulae", "sermones", "nuntii", "quid", "ad", "ex", "ab", "enim", "etiam"],
 };
 // Languages that share most of their little words with a neighbour (Catalan, Spanish, Portuguese, French
 // and Italian; Bisaya and Tagalog) are told apart by words and letters only one of them uses.

@@ -59,7 +59,7 @@ const EARNED = {
         "Finish a grammar lesson: 40 to 80 the first time, more for more right answers, and 15 to 30 when you do it again (each lesson pays once a day).",
         "Tap an example in a grammar lesson to hear it: a quarter of what looking up a word pays, once a day for each example. It keeps your combo going too.",
         `Add a word from a basics course to your cards: ${BASICS_XP} each, the same whether you add them one by one or all at once, for up to ${BASICS_DAY_CAP} words a day.`,
-        "Listen or read: a slow trickle while you study, which dries up well past your daily goal.",
+        "Listen or read: a slow trickle while you study, which dries up well past your daily goal. Watching YouTube earns none, because YouTube's rules don't allow rewards for watching, but looking words up and saving them while you watch still does.",
         `Reach your daily goal: ${DAILY_COMPLETE_XP}. This is the big one, and it pays the same whether your goal is 5 minutes or 20.`,
         "Battles: 3 for each right answer, 15 more when a word becomes well known, 40 for a win and 15 for a loss (in full for the day's first three battles).",
         "Vocab reviewer: each card you answer pays a quarter of what looking up a word pays (usually 1 to 4, sometimes 8 to 12, now and then 25 to 50), the same whether you remembered it or not, so there is nothing to gain by fibbing.",
@@ -81,7 +81,7 @@ const EARNED = {
       title: "Goal streak", pic: "goal",
       now: `${plural(game.streak, "day")} in a row. Your best is ${plural(game.best_streak, "day")}.`,
       get: [
-        `Reach your daily goal (${game.goal} minutes of listening or reading). Each day you do adds one.`,
+        `Reach your daily goal (${game.goal} minutes of listening or reading; time on YouTube doesn't count). Each day you do adds one.`,
         "With the Anki companion, clearing everything due in Anki also counts as the day's goal.",
         "Miss a day and a streak freeze covers it if you have one. Without one the streak starts again from zero. Nothing else is lost.",
         "The flame next to your name on the Friends tab is a different streak: days in a row you finished your flashcards.",
@@ -211,7 +211,7 @@ export function openEarned(id, game, go) {
 // ---------- how a creature grows ----------
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", grown: "Fully grown" };
 const HABIT = {
-  listener: { name: "Listening", how: "time spent listening to podcasts, audio and videos" },
+  listener: { name: "Listening", how: "time spent listening to podcasts, audio and videos (not YouTube)" },
   reader: { name: "Reading", how: "time spent reading web pages" },
   collector: { name: "Collecting", how: "saving words, right answers in battles, cards in the vocab reviewer, Anki reviews" },
   curious: { name: "Curiosity", how: "looking words up" },

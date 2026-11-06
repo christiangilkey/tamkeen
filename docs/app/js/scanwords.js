@@ -152,6 +152,7 @@ export function readScan(answer, { max = MAX_ROWS } = {}) {
 export const OCR_LANGS = {
   ar: ["ara"], es: ["spa"], fr: ["fra"], ja: ["jpn"], zh: ["chi_sim", "chi_tra"], ru: ["rus"], it: ["ita"], tl: ["tgl"],
   pt: ["por"], ca: ["cat"], ceb: ["ceb"], th: ["tha"], de: ["deu"], fa: ["fas"], hi: ["hin"], ko: ["kor"], en: ["eng"],
+  la: ["lat"],
 };
 /** Tesseract itself: the build for devices with WebAssembly SIMD ("ocr"), and for older ones. */
 export const OCR_CORES = { ocr: "ocr-core", "ocr-plain": "ocr-core-plain" };
@@ -160,7 +161,7 @@ export const OCR_BYTES = {
   "ocr-core": 1454316, "ocr-core-plain": 1453570, "ocr-ara": 1661906, "ocr-cat": 639438, "ocr-ceb": 487818,
   "ocr-chi_sim": 1718768, "ocr-chi_tra": 1656239, "ocr-deu": 1333102, "ocr-eng": 2952873, "ocr-fas": 424507,
   "ocr-fra": 707406, "ocr-hin": 1389692, "ocr-ita": 1660998, "ocr-jpn": 2030256, "ocr-kor": 1572336, "ocr-por": 1392239,
-  "ocr-rus": 2679598, "ocr-spa": 2100190, "ocr-tgl": 3296556, "ocr-tha": 896631,
+  "ocr-rus": 2679598, "ocr-spa": 2100190, "ocr-tgl": 3296556, "ocr-tha": 896631, "ocr-lat": 1739234,
 };
 
 /** The learner's own language as one of Tamkeen's codes: the language meanings are written in

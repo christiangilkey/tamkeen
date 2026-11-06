@@ -58,6 +58,11 @@ export function youTubeLanguage(code) {
   return { tl: "fil", zh: "zh-Hans", he: "iw" }[code] || code;
 }
 
+// Latin: YouTube's automatic captions take Latin speech for Italian (and write it as Italian), and its machine
+// translation into Latin is poor (checked 2026-11-02), so for Latin only captions a person wrote count. A video
+// without them is transcribed instead, as one with no captions at all.
+const PERSON_ONLY = new Set(["la"]);
+
 /** The code YouTube's translation list uses for `wanted` (its own list may say "zh-Hans" or "fil"). */
 function translationCode(wanted, languages) {
   const codes = (Array.isArray(languages) ? languages : []).map((l) => String((l && l.languageCode) || "")).filter(Boolean);
@@ -80,6 +85,7 @@ function translationCode(wanted, languages) {
  * Japanese subtitles would count as Japanese.
  * `handmadeOnly` ("Only videos with handmade subtitles"): a person's track in the wanted language
  * or nothing. `translate` false leaves out translations (when only what is said will do).
+ * Latin (PERSON_ONLY): only a person's Latin track, as with handmadeOnly.
  */
 export function captionChoices(tracks, wanted, taught = [], { handmadeOnly = false, translate = true, translationLanguages = null } = {}) {
   const list = (tracks || []).filter((t) => t && t.baseUrl);
@@ -93,7 +99,7 @@ export function captionChoices(tracks, wanted, taught = [], { handmadeOnly = fal
     if (track && !out.some((c) => c.track === track && c.kind === kind)) out.push({ track, language, kind, auto: kind === "auto", ...extra });
   };
   add(find(wanted, false), wanted, "manual");
-  if (handmadeOnly) return out;
+  if (handmadeOnly || PERSON_ONLY.has(wanted)) return out;
   add(find(wanted, true), wanted, "auto");
   const unique = (a) => a.filter((l, i) => l && a.indexOf(l) === i);
   const spoken = unique(list.filter(isAuto).map((t) => baseLanguage(t.languageCode)));

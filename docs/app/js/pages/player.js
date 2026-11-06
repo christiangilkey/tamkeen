@@ -1364,7 +1364,9 @@ export async function render(view, { id, query }) {
     });
   }
 
-  const stopStudy = trackStudy("listen", () => !audio.paused); // minutes actually played count toward today's goal
+  // Minutes actually played count toward today's goal, except a YouTube video's: YouTube's rules don't allow
+  // rewarding watching, so its time earns nothing (rules.UNPAID_TIME). Words looked up or saved still pay.
+  const stopStudy = trackStudy("listen", () => !audio.paused, yt ? "youtube" : null);
   return () => {
     disposed = true;
     stopStudy();

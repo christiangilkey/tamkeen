@@ -1,0 +1,28 @@
+Latin word table, word meanings and the 1000 most common Latin words (optional download)
+
+1. The word forms (docs/lexicon/la-lemmas.json.gz)
+
+   The Latin entries of the English Wiktionary (https://en.wiktionary.org), as extracted by
+   Wiktextract (https://kaikki.org, Tatu Ylonen, "Wiktextract: Wiktionary as Machine-Readable Structured
+   Data", LREC 2022): every word form its inflection tables and "form of" entries list, and the
+   dictionary form it belongs to, written with its macrons (puellārum: puella, amāvit: amō). Wiktionary's
+   text is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License
+   (https://creativecommons.org/licenses/by-sa/4.0/) and the GNU Free Documentation License.
+
+2. How common each word is (which of two words a shared form goes to, the table's order, and
+   web/js/wordlists/la.js)
+
+   Counted by tools/build_latin.py in public-domain Latin books from Project Gutenberg
+   (https://www.gutenberg.org): Caesar, Cicero, Virgil, Ovid, Horace, Catullus, Propertius, Persius,
+   Quintilian, Vitruvius, Silius Italicus, books of the Vulgate, Augustine, Saint Patrick, Descartes,
+   Newton, and the Latin readers and novels of Appleton, Newman, Goffaux, Avellanus and others. The texts
+   are in the public domain; only the counts are kept, never any text, and Gutenberg's header and licence
+   are not used. The forms are read with the word table above.
+
+The word table and the common-word list are shared under the same licence, CC BY-SA 4.0, with credit
+as above. This covers these lists only, not the rest of Tamkeen.
+
+3. Latin meanings for "No AI" (docs/lexicon/la-meanings.json.gz): see wiktionary.txt.
+
+4. Reading Latin text in a photo ("Add words" → Scan): Tesseract's Latin trained data
+   (@tesseract.js-data/lat, Apache-2.0): see tesseract.txt.

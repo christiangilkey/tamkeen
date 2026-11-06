@@ -28,6 +28,11 @@ the 1996 reform replaced, which are Switzerland's, and how often each word is wr
 entries' example sentences (see german-sources.txt). The German meanings file keys ß as ss, so today's
 spelling, the old one and Switzerland's find the same entries.
 
+The Latin word table (docs/lexicon/la-lemmas.json.gz, made by tools/build_latin.py, also an optional download) is
+made from the same Wiktionary data: every Latin form its inflection tables and "form of" entries list, with the
+dictionary form it belongs to (see latin-sources.txt). The Latin meanings file keys words without macrons, with j as
+i and v as u, and also keeps the forms in each word's inflection table that have no entry of their own.
+
 The Persian word table (docs/lexicon/fa-lemmas.json.gz, made by tools/build_persian.py, also an optional
 download) is made from the same Wiktionary data: the Persian headwords, the forms in their conjugation and
 declension tables (which verb, noun or adjective each form belongs to) and each verb's present and past stem,

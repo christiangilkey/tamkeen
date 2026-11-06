@@ -49,7 +49,7 @@ export const FINDS = [
   { s: "words", id: "usage", label: "Tokens used today", words: "usage cost spend" },
   { s: "words", id: "mnemonic", label: "Mnemonic maker", words: "sound-alike memory review thinking" },
   { s: "listening", id: "who", label: "Who writes the transcripts", words: "cloud transcription whisper groq openai speech" },
-  { s: "listening", id: "ownmodel", label: "Thai listening model: Typhoon", words: "accuracy mistakes compare groq openai local", langs: ["th"] },
+  { s: "listening", id: "ownmodel", label: "Thai listening model: Pathumma", words: "accuracy mistakes compare groq openai local", langs: ["th"] },
   { s: "listening", id: "ownmodel", label: "Bisaya listening model", words: "buzzasr cebuano accuracy mistakes compare groq openai local", langs: ["ceb"] },
   { s: "listening", id: "sttkey", label: "Transcription provider and key", words: "cloud groq openai deepgram key test" },
   { s: "listening", id: "whisper", label: "Transcription model", words: "whisper small medium large download", on: ["desktop"] },
@@ -59,6 +59,7 @@ export const FINDS = [
   { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
   { s: "voices", id: "voiceonsave", label: "Add the voice when a word is saved", words: "azure audio automatic netflix youtube save word sentence add audio" },
   { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
+  { s: "voices", id: "latinvoice", label: "Italian voice reading Latin", words: "church ecclesiastical pronunciation italian latin", langs: ["la"] },
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
@@ -80,9 +81,10 @@ export const FINDS = [
   { s: "apps", id: "getapp", label: "Get the app", words: "download install android iphone windows", on: ["web"] },
   { s: "data", id: "backup", label: "Your data", words: "export import backup folder zip", on: ["desktop"] },
   { s: "data", id: "updates", label: "Updates", words: "version update latest", on: ["desktop", "android", "ios"] },
+  { s: "data", id: "whatis", label: "What is Tamkeen", words: "features abilities everything design research studies science sources about how it works" },
   { s: "data", id: "changelog", label: "Changelog", words: "changelog changes versions history what's new release notes" },
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
-  { s: "data", id: "privacy", label: "Privacy policy", words: "privacy data" },
+  { s: "data", id: "privacy", label: "Privacy policy, terms and cookies", words: "privacy data terms service conditions cookies legal" },
   { s: "data", id: "about", label: "About and open-source licenses", words: "licenses licences credits version source code" },
 ];
 
