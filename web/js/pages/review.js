@@ -17,7 +17,7 @@
 // text box, and holding a word of the sentence (or of the translation) lights it up as part of what
 // is being learned, or puts it out. Both are saved like the Meaning box (review/cardedit.js).
 
-import { api, buzz, esc, fmtDate, h, platform, readClipboard, state as app, toast } from "../app.js";
+import { api, buzz, esc, fmtDate, h, platform, readClipboard, saveSettings, state as app, toast } from "../app.js";
 import { detectLanguage, langAttrs, langInfo, setLang, wordRanges } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
 import { CARD_SENTENCE_MAX, litParts, litTextHtml, stripMarks, trimSpan, vowelPlaces } from "../cardtext.js";
@@ -36,6 +36,7 @@ import { practise, practiseButton } from "../review/pronounce.js";
 import { MNEMONIC_COUNT, addToNotes, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "../review/mnemonic.js";
 import { askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { freeMnemonics } from "../examples.js";
+import { learn } from "../review/freemnemonic.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
@@ -590,6 +591,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     return wordReading(v.text, lang);
   }
 
+  /** The free maker learns the learner's taste from Use (+1) and thumbs down (−1): freemnemonic.js learn,
+   * kept in the synced setting `mnemonic_prefs` (Settings → Word definitions → Mnemonic maker can forget it). */
+  function tasteFrom(s, sign, st) {
+    if (!s.traits) return;  // (the AI's suggestions)
+    const now = (app.status && app.status.settings || {}).mnemonic_prefs;
+    const others = [...st.items, ...st.parts].filter((x) => x !== s && x.traits).map((x) => x.traits);
+    saveSettings({ mnemonic_prefs: JSON.stringify(learn(now, s.traits, sign, others)) }).catch(() => { /* kept next time */ });
+  }
+
   /** The Mnemonic maker below Memorization notes. */
   function mnemonicMaker(box, v) {
     const go = box.querySelector(".rv-mnemo-go"), note = box.querySelector(".rv-mnemo-note"), few = box.querySelector(".rv-mnemo-few");
@@ -645,6 +655,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         edit(v, "memo", memo.value);
       }
       st.kept.add(s.keyword);
+      tasteFrom(s, +1, st);
       buzz("tick");
       kept(button);
     }
@@ -692,6 +703,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       else up.onclick = () => keep(s, st, up);
       li.querySelector(".rv-mn-drop").onclick = () => {
         turnDown(avoidStore(), uid, s.keyword);
+        tasteFrom(s, -1, st);
         st.items = st.items.filter((x) => x !== s);
         st.parts = st.parts.filter((x) => x !== s);
         buzz("tick");
@@ -743,7 +755,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         const reading = await readingOf(v, lang);
         // No AI key (or AI turned off): the free maker, English keywords found on this device
         // (examples.js freeMnemonics). With a key the AI's, as before; a key that turns out missing falls back.
-        const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage() });
+        const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: (app.status && app.status.settings || {}).mnemonic_prefs });
         let got;
         if (noAi() || !definerConfig().key) got = await free();
         else {

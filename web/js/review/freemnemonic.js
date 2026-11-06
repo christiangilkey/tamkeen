@@ -346,7 +346,7 @@ export function sceneFor(entries, meaning, seed = "", tie = "", lang = "en") {
  * {pron, items, parts, checked, asked, free: true}. `pron` from soundout.js pronunciationOf; `list` a
  * KeywordList; `avoid` keywords already shown or turned down for the word.
  */
-export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT }) {
+export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT, prefs = null }) {
   if (!pron) throw new Error("NO_SOUNDS");
   const meaning = meaningPicture(v.meaning, list, v.pos || "");
   const skip = [...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^\p{L}]+/u)];
@@ -388,12 +388,78 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
     if (from) Object.assign(s, { tie: from.tie, tieWeight: from.tieWeight });
   }
   // (a keyword of two words is harder to keep in mind than one word: it must sound clearly closer)
-  const worth = (s) => s.score + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
+  // (and what the learner's own choices taught: prefs, readPrefs)
+  const taste = readPrefs(prefs);
+  for (const s of [...ranked.items, ...ranked.parts]) s.traits = traitsOf(s, list);
+  const worth = (s) => s.score + prefBonus(taste, s.traits) + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
     + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w.toLowerCase()) || { pos: "", rank: 1e5 }))));
   ranked.items.sort((a, b) => worth(b) - worth(a));
   ranked.parts.sort((a, b) => worth(b) - worth(a));
   return { pron, asked: keywords.length + parts.length, free: true, keywordLang: list.lang, items: varied(ranked.items, MNEMONIC_COUNT), parts: varied(ranked.parts, SPLIT_COUNT), checked: ranked.checked };
 }
+
+// ---------------------------------------------------------------- learning the learner's taste
+
+// What a suggestion is like, for learning which kinds the learner picks (Use) and turns down (thumbs down):
+// a keyword of two words or a split one, a loose ("partial") sound match, tied to the meaning or not, a word for
+// no picturable thing, a verb or adjective, and the kind of thing it names.
+export const PREF_STEP = 0.02;   // how far one Use or thumbs down moves a trait's weight
+export const PREF_LIMIT = 0.15;  // and never further than this either way (sound always matters more)
+
+/** The traits of a suggestion: ["two", "partial", "kind:animal", …]. */
+export function traitsOf(s, list) {
+  const out = [];
+  if (s.pieces) out.push("split");
+  else if (/\s/.test(s.keyword)) out.push("two");
+  if (s.sound === "partial") out.push("partial");
+  out.push(s.link ? "tied" : "untied");
+  if (!s.pieces && !/\s/.test(s.keyword)) {
+    const e = list && list.byWord.get(s.keyword.toLowerCase());
+    if (e) {
+      if (e.pos === "v") out.push("verb");
+      else if (e.pos === "a" || e.pos === "r") out.push("adj");
+      else if (e.kind) out.push(`kind:${e.kind}`);
+      else out.push("abstract");
+    }
+  }
+  return out;
+}
+
+/** The learner's weights, from the synced setting `mnemonic_prefs` (JSON): {w: {trait: weight}, n: choices}. */
+export function readPrefs(raw) {
+  try {
+    const p = typeof raw === "string" ? JSON.parse(raw || "{}") : raw || {};
+    const w = {};
+    for (const [k, v] of Object.entries((p && p.w) || {})) {
+      if (/^[a-z:]{2,24}$/.test(k) && Number.isFinite(v)) w[k] = Math.max(-PREF_LIMIT, Math.min(PREF_LIMIT, v));
+    }
+    return { w, n: Number.isInteger(p && p.n) ? p.n : 0 };
+  } catch { return { w: {}, n: 0 }; }
+}
+
+/** The weights after the learner picked (`sign` +1: Use) or turned down (−1: thumbs down) a suggestion with
+ * these traits, among the others shown with it (`others`: their traits). Only what sets it apart counts: a trait
+ * every one shown has says nothing about the choice. Picked: its own traits move up PREF_STEP, and traits only
+ * the others have move down half that; turned down: its own move down. Always within ±PREF_LIMIT. New prefs. */
+export function learn(prefs, traits, sign, others = []) {
+  const p = readPrefs(prefs);
+  const everywhere = new Set((traits || []).filter((t) => others.length && others.every((o) => (o || []).includes(t))));
+  const move = (t, by) => {
+    p.w[t] = Math.max(-PREF_LIMIT, Math.min(PREF_LIMIT, Math.round(((p.w[t] || 0) + by) * 1000) / 1000));
+    if (!p.w[t]) delete p.w[t];
+  };
+  for (const t of new Set(traits || [])) if (!everywhere.has(t)) move(t, sign * PREF_STEP);
+  if (sign > 0) {
+    const theirs = new Set(others.flat().filter((t) => !(traits || []).includes(t)));
+    for (const t of theirs) move(t, -PREF_STEP / 2);
+  }
+  p.n++;
+  return p;
+}
+
+/** What the learner's taste adds to a suggestion's place (in sound score). */
+export const PREF_TOTAL = 0.2;  // the most the taste adds or takes away in all
+export const prefBonus = (prefs, traits) => Math.max(-PREF_TOTAL, Math.min(PREF_TOTAL, (traits || []).reduce((n, t) => n + ((prefs && prefs.w && prefs.w[t]) || 0), 0)));
 
 /** The first `n` of `list`, but a word of a keyword made of several words only once ("pie toe", then not
  * "pie tow", "pie two" as well: the same picture). */

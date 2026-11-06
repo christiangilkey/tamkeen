@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { kanaRomaji, pronunciationOf, spellingIpa, syllabify } from "../../web/js/review/soundout.js";
-import { KeywordList, findKeywords, makeFreeMnemonics, meaningPicture, sceneFor } from "../../web/js/review/freemnemonic.js";
+import { KeywordList, PREF_LIMIT, findKeywords, learn, makeFreeMnemonics, meaningPicture, prefBonus, readPrefs, sceneFor, traitsOf } from "../../web/js/review/freemnemonic.js";
 import { ExamplePack, markTranslation, sentenceKeys, sourceOf } from "../../web/js/lexicon/exampledata.js";
 import { noteText } from "../../web/js/review/mnemonic.js";
 
@@ -209,4 +209,26 @@ test("keywords in the learner's own language when the app isn't in English", () 
   const hund = makeFreeMnemonics({ text: "perro", meaning: "Hund" }, { pron: said("perro", "es"), list: de });
   assert.ok(hund.items.length >= 3);
   for (const s of hund.items) assert.ok(de.byWord.has(s.keyword.toLowerCase()), `${s.keyword} is a German word of the list`);
+});
+
+test("the maker learns the learner's taste from Use and thumbs down, a little at a time", () => {
+  const two = ["two", "untied"], cart = ["untied", "kind:artifact"];
+  let p = learn("", two, -1, [cart]);
+  assert.equal(p.w.two, -0.02);
+  assert.equal(p.w.untied, undefined, "a trait every suggestion shown has says nothing");
+  for (let i = 0; i < 50; i++) p = learn(p, two, -1, [cart]);
+  assert.equal(p.w.two, -PREF_LIMIT, "never further than the limit");
+  p = learn(p, cart, +1, [two]);
+  assert.ok(p.w["kind:artifact"] > 0 && p.w.two < 0);
+  assert.equal(p.n, 52);
+  assert.deepEqual(readPrefs(JSON.stringify(p)).w, p.w, "kept as JSON in the synced setting");
+  assert.deepEqual(readPrefs("nonsense"), { w: {}, n: 0 });
+  assert.ok(Math.abs(prefBonus(p, ["two", "kind:artifact", "untied"])) <= 0.2);
+  // On real suggestions: someone who turns down two-word keywords stops getting them first.
+  const pron = said("pato", "es");
+  const plain = makeFreeMnemonics({ text: "pato", meaning: "duck" }, { pron, list });
+  assert.ok(/\s/.test(plain.items[0].keyword), "pie tow first, as before");
+  const taught = makeFreeMnemonics({ text: "pato", meaning: "duck" }, { pron, list, prefs: JSON.stringify({ w: { two: -0.15 }, n: 8 }) });
+  assert.ok(!/\s/.test(taught.items[0].keyword), taught.items[0].keyword);
+  assert.deepEqual(traitsOf({ keyword: "pot", sound: "partial", link: 0 }, list), ["partial", "untied", "kind:artifact"]);
 });

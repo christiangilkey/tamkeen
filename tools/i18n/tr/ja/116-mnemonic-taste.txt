@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	忘れる
+45c0f6e0	AI なしの語呂合わせメーカーは、あなたの選択 1 件から学びました。
+d197c13a	AI なしの語呂合わせメーカーは、あなたの選択 {0} 件から学びました。

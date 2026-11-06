@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Oblida-ho
+45c0f6e0	Sense IA, el Creador de mnemotècnies ha après d'1 de les teves eleccions.
+d197c13a	Sense IA, el Creador de mnemotècnies ha après de {0} de les teves eleccions.

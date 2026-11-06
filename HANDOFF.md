@@ -6779,3 +6779,16 @@ Each committed on its own.
    the meaning es 19/90, fr 30/108, de 18/90, it 42/108 (قطة → gatta), pt 25/108, ru 13/108, ca 21/108. Preview:
    app in Spanish, a German Hund card (meaning "perro"): junta, junto, fondo, sonda, funda with Spanish lines.
    Not covered: the other app languages (ar, fa, hi, ja, ko, zh, th, tl, ceb) keep English keywords.
+3. **Learning from Use and thumbs down.** `freemnemonic.js traitsOf(s, list)`: split / two, partial, tied / untied,
+   verb / adj / abstract / kind:<kind>; every free suggestion carries `traits`. `learn(prefs, traits, sign, others)`:
+   only traits that set the choice apart from the others shown move (a trait all of them have is skipped); Use +0.02
+   (`PREF_STEP`) for its traits and −0.01 for traits only the others have; thumbs down −0.02; each within ±0.15
+   (`PREF_LIMIT`), `prefBonus` in all within ±0.2 (`PREF_TOTAL`), so sound stays first. Setting `mnemonic_prefs`
+   (JSON {w, n}; db.py, store.js defaults) is in aikeys KEYS (py + js) so it syncs like the keys, newest wins.
+   review.js `tasteFrom` on Use and thumbs down (free suggestions only); `freeMnemonics(…, {prefs})`. Settings → Word
+   definitions → Mnemonic maker (in its More options fold): "Without AI, the Mnemonic maker has learned from N of your
+   choices. Forget it" (aisetup.js `#mn-taste`; i18n 116-mnemonic-taste.txt). Measured (scratch `taste.mjs`, a learner
+   who turns down every keyword of several words and uses things, learning on half the 220 sample words, measured on
+   the other half): several-word keywords in the top 5 13% → 1%, things (animal, artifact, object, food) 43% → 84%.
+   Preview: thumbs down on "pie tow" and Use on "patio" for pato saved {two −0.02, kind:artifact +0.02, …, n 2};
+   Forget it cleared it.

@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Забыть
+45c0f6e0	Без ИИ генератор мнемоник учёл 1 ваш выбор.
+d197c13a	Без ИИ генератор мнемоник учёл ваших выборов: {0}.

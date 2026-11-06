@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	भूल जाएँ
+45c0f6e0	बिना AI के, याद-सहायक बनाने वाले ने आपके 1 चुनाव से सीखा है।
+d197c13a	बिना AI के, याद-सहायक बनाने वाले ने आपके {0} चुनावों से सीखा है।

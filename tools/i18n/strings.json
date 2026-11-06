@@ -2440,6 +2440,11 @@
   "f": "web/js/components/aisetup.js"
  },
  {
+  "id": "2d5f5b05",
+  "k": "Forget it",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
   "id": "0f1aa62d",
   "k": "No AI",
   "f": "web/js/components/aisetup.js"
@@ -2542,6 +2547,16 @@
  {
   "id": "a8665558",
   "k": "Each press costs about {0} US cents.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "45c0f6e0",
+  "k": "Without AI, the Mnemonic maker has learned from 1 of your choices.",
+  "f": "web/js/components/aisetup.js"
+ },
+ {
+  "id": "d197c13a",
+  "k": "Without AI, the Mnemonic maker has learned from {0} of your choices.",
   "f": "web/js/components/aisetup.js"
  },
  {

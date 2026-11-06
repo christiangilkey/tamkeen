@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	잊기
+45c0f6e0	AI 없이 기억법 만들기가 내 선택 1개에서 배웠어요.
+d197c13a	AI 없이 기억법 만들기가 내 선택 {0}개에서 배웠어요.

@@ -485,6 +485,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "mnemonic_model_openai": "",
     "mnemonic_model_grok": "",
     "mnemonic_effort": "off",
+    "mnemonic_prefs": "",           # what the free Mnemonic maker learned from Use and thumbs down (JSON; synced: aikeys.KEYS)
     "llm_key_claude": "",
     "llm_key_gemini": "",
     "llm_key_openai": "",

@@ -99,18 +99,18 @@ export async function freePronunciation(word, lang, reading = "", meaning = "") 
  * makeMnemonics gives them (with `free: true`). Throws "NO_KEYWORDS" when the English keyword list can't
  * be had (no connection the first time).
  */
-export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en" } = {}) {
+export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en", prefs = null } = {}) {
   // The learner's own language when it has a list (and isn't the language being learned): its keywords first,
   // with English ones after them when it has fewer than three that sound close enough.
   const own = speaks !== "en" && speaks !== lang && OWN_KEYWORDS.has(speaks);
   const [ownList, pron] = await Promise.all([own ? keywordsList(undefined, speaks).catch(() => null) : null,
     freePronunciation(v.text, lang, reading, v.meaning)]);
-  const mine = ownList ? makeFreeMnemonics(v, { pron, list: ownList, avoid }) : null;
+  const mine = ownList ? makeFreeMnemonics(v, { pron, list: ownList, avoid, prefs }) : null;
   if (mine && mine.items.length + mine.parts.length >= 3) return { ...mine, keywordLangs: [speaks] };
   const list = await keywordsList();
   if (!list) { if (mine) return { ...mine, keywordLangs: [speaks] }; throw new Error("NO_KEYWORDS"); }
   // (an English meaning is still best for English keywords: the card's meaning is in the learner's language)
-  const english = makeFreeMnemonics(v, { pron, list, avoid });
+  const english = makeFreeMnemonics(v, { pron, list, avoid, prefs });
   if (!mine) return { ...english, keywordLangs: ["en"] };
   const items = [...mine.items, ...english.items].slice(0, 5), parts = [...mine.parts, ...english.parts].slice(0, 3);
   return { ...english, items, parts, asked: mine.asked + english.asked, keywordLangs: [speaks, "en"] };

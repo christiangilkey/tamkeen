@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Esquecer
+45c0f6e0	Sem IA, o Criador de mnemônicos aprendeu com 1 das suas escolhas.
+d197c13a	Sem IA, o Criador de mnemônicos aprendeu com {0} das suas escolhas.

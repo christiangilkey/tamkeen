@@ -19,7 +19,9 @@ KEYS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "s
         # any Azure voice picked per language (JSON), whether a word saved from something with no sound gets
         # its voice at once ("on"/"off"), and whether the Italian voice reads Latin ("on"/"off"). They follow
         # the learner the same way.
-        "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin")
+        "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin",
+        # What the free Mnemonic maker learned of the learner's taste from Use and thumbs down (JSON, review/freemnemonic.js).
+        "mnemonic_prefs")
 TIMES = "key_times"  # setting: {key name: when it last changed, on this device or another (whole seconds)}
 MAX_LENGTH = 2000
 

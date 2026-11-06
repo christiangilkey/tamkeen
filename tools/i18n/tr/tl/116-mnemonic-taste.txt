@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Kalimutan
+45c0f6e0	Nang walang AI, natuto ang Gawa ng mnemonic mula sa 1 mong pinili.
+d197c13a	Nang walang AI, natuto ang Gawa ng mnemonic mula sa {0} mong pinili.

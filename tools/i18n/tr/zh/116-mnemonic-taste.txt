@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	忘掉
+45c0f6e0	不用 AI 时，谐音助记生成器已从你的 1 次选择中学习。
+d197c13a	不用 AI 时，谐音助记生成器已从你的 {0} 次选择中学习。

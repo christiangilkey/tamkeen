@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Vergessen
+45c0f6e0	Ohne KI hat der Eselsbrücken-Macher aus 1 deiner Entscheidungen gelernt.
+d197c13a	Ohne KI hat der Eselsbrücken-Macher aus {0} deiner Entscheidungen gelernt.

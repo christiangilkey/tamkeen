@@ -1,0 +1,4 @@
+# The free Mnemonic maker learns from Use and thumbs down; Settings → Mnemonic maker can forget it (aisetup.js).
+2d5f5b05	Olvidarlo
+45c0f6e0	Sin IA, el Creador de mnemotecnias ha aprendido de 1 de tus elecciones.
+d197c13a	Sin IA, el Creador de mnemotecnias ha aprendido de {0} de tus elecciones.
