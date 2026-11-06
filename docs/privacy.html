@@ -18,16 +18,18 @@
   which is responsible for the personal data described here. Contact:
   <a href="mailto:tamkeen.app.help@gmail.com">tamkeen.app.help@gmail.com</a>.</p>
 
-  <p>Tamkeen is an open-source app that runs on your own devices. Your library, transcripts and
-  vocabulary stay on your devices and in your own Google Drive. The only data that ever reaches a service run for
-  the app is what you choose to use with the optional <a href="#social">friends &amp; sharing</a> features. This
-  page explains where your data goes when you use each feature.</p>
+  <p>Tamkeen is an open-source app that runs on your own devices. Your library, transcripts and vocabulary stay on
+  your devices and, if you turn on sync, in your own Google Drive. Two services run for Tamkeen can receive data about
+  you: the online database behind Friends, chat and guilds, only if you turn those on (see
+  <a href="#social">Friends</a>); and, in the web app only, a go-between server that fetches podcasts, web pages,
+  YouTube captions and Instagram reels for your browser (see <a href="#webapp">The web app</a>). This page explains
+  where your data goes for each feature.</p>
 
   <h2>Data stored on your device</h2>
   <p>Your podcast subscriptions, episode lists, downloaded audio, transcripts, saved vocabulary, settings and any API
   keys you enter are stored on your device, in the app's data folder (and in your own Google Drive if you use sync;
-  see below). Transcription runs entirely on your device.
-  Audio is never uploaded for transcription.</p>
+  see below). Transcription normally runs on your own computer, and the audio stays there. If you turn on Cloud
+  transcription, the audio is sent to the provider you choose (see "Cloud transcription").</p>
 
   <h2>Pronunciation practice</h2>
   <p>On a review card, the "Say it" button uses the microphone to listen to you saying the word, then plays the word's
@@ -73,12 +75,24 @@
   <p>When you add a web page, the app downloads it directly from that website, as a browser would, and keeps its
   text on your device (and in your own Google Drive if you use sync). The in-app web browser loads the sites you
   visit directly; those sites see a normal visit from your device and may set their own cookies, which stay on your
-  device. The developer receives nothing about the pages you read or import. A site shown in the browser has no
+  device. Nothing about the pages you read or import is stored by us (in the web app, see "The web app and its
+  go-between server" below). A site shown in the browser has no
   access to your library, vocabulary or keys. The browser's start page is part of the app: a list of links to news
   sites in the language you are studying and a Google search box. It loads the small icon of each listed site from
   Google's icon service, and a search you type there goes to Google, as in any browser. Sites you keep on the start
   page with the star are a list of addresses and page names kept on your device (and in your own Google Drive if you
   use sync); their icons are loaded the same way.</p>
+
+  <h2 id="webapp">The web app and its go-between server</h2>
+  <p>The web app is served by GitHub Pages; GitHub sees your device's internet address, as for any website (see
+  <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy
+  statement</a>). Web browsers don't let one website read another, so the web app asks Tamkeen's go-between server,
+  which runs for us on Cloudflare Workers, to fetch things for it: podcast feeds and audio, web pages you import,
+  YouTube captions and video details, and Instagram reels' public pages. That server receives the address of each
+  item and your internet address, passes on no cookies, and stores nothing. Cloudflare, which runs it, may keep
+  basic technical logs for a short time under its own
+  <a href="https://www.cloudflare.com/privacypolicy/">privacy policy</a>. The computer and phone apps fetch these
+  things directly and don't use it.</p>
 
   <h2>Trending podcasts</h2>
   <p>The "Trending" list comes from Apple's public podcast charts. When you open that list, your device asks
@@ -96,7 +110,8 @@
   also asks YouTube for that video's captions; their text is kept on your device (and in your own Google Drive if
   you use sync) so the words can be clicked. When you follow a channel, your device asks YouTube for that channel's
   name and picture; the list of channels you follow is kept the same way, on your device and in your own Google
-  Drive. The developer receives nothing about the videos you add or watch, or the channels you follow.</p>
+  Drive. Nothing about the videos you add or watch, or the channels you follow, is stored by us (in the web app, see
+  "The web app and its go-between server").</p>
 
   <h2>Netflix and the "Tamkeen for Netflix" browser extension (optional)</h2>
   <p>Netflix titles play only in Netflix's own player, on Netflix's own website, signed in with your own Netflix
@@ -131,15 +146,19 @@
   with a song from Instagram's music library) are only played by Instagram to people who are signed in: for
   those the app asks you to sign in to Instagram on the phone, in the app's own browser, and then plays the
   reel's ordinary Instagram page. That sign-in stays on your phone, in the app's browser storage, and is never
-  read by the app; Instagram then sees those views as yours. The developer receives nothing
-  about the reels you get or watch. This feature is not provided or endorsed by Instagram.</p>
+  read by the app; Instagram then sees those views as yours. Nothing about the reels you get or watch is stored by
+  us (in the web app, see "The web app and its go-between server"). This feature is not provided or endorsed by Instagram.</p>
 
   <h2>Google sign-in and Google Drive sync (optional)</h2>
-  <p>If you choose to sign in with Google, the app requests only these permissions:</p>
+  <p>If you choose to sign in with Google, the app asks for these permissions:</p>
   <ul>
     <li><code>drive.appdata</code>: access to a private, hidden app folder in <em>your own</em> Google Drive. The app
       cannot see, read or change any of your other Drive files.</li>
     <li><code>openid</code> and <code>email</code>: to show which Google account is signed in.</li>
+    <li>only if you use "Today's review as a to-do", and only the first time you send it: <code>tasks</code> (Google
+      Tasks) or <code>calendar.events</code> (Google Calendar). Tamkeen uses them only to add or update one task or
+      event a day (its title, "Tamkeen review", the day, the time you choose and the estimated minutes) and to check
+      whether that task or event still exists. It never reads, changes or deletes your other tasks or events.</li>
   </ul>
   <p>The app uses this folder to sync your subscriptions, transcripts, vocabulary (with your own notes and your answers in the
   vocab reviewer), cached word definitions, the API keys you add for AI providers (so a key added on one of your devices works
@@ -159,18 +178,22 @@
   settings. They use an online database hosted by <a href="https://supabase.com/privacy">Supabase</a> on behalf of
   the app. When you connect, it stores:</p>
   <ul>
-    <li>your Google account's email address and a user ID (to sign you in), and the username you choose. Other
-      users can look up a username to send a friend request; they never see your email address;</li>
+    <li>your Google account's email address, Google's ID for your account and the times you signed in (to sign you
+      in), and the username you choose. Other signed-in users can look up a username to send a friend request; they
+      never see your email address;</li>
     <li>your friend requests and friends;</li>
     <li>messages between you and a friend: text, voice notes (private audio files) and the words or folders
-      you send them, each with a short audio clip of its sentence when it has one. Only the two of you can read them, and they are temporary: a text message is deleted once the
-      other person has seen it and left the chat, a voice note once it has been played, shared words once they are
-      added or dismissed, and anything unopened after 30 days. You can also unsend a message. The paper-airplane
-      button in a player sends a friend what you are watching, reading or listening to: its title, kind and
-      address, and for a YouTube video or an Instagram reel the words your app has for it (its captions or
-      transcript), so it is ready to study on their device. Your friend sees only the title and kind until they
-      press Accept, and the message is deleted when they accept or dismiss it. Your own audio and video files
-      cannot be sent;</li>
+      you send them (with their meanings, your notes on them and their sentences), each with a short audio clip of
+      its sentence when it has one. Only the two of you can open them in the app. They are stored on Supabase's
+      servers and are not end-to-end encrypted, so we, as the database's administrator, could technically see them;
+      we look at stored content only to handle a report, a legal request or a technical fault. They are temporary: a
+      text message is deleted once the other person has seen it and left the chat, a voice note once it has been
+      played, shared words once they are added or dismissed, and anything unopened is cleared after 30 days, the next
+      time either of you opens Tamkeen. You can also unsend a message. The paper-airplane button sends a friend what
+      you are watching, reading or listening to: its title, kind and address, and the words your app has for it
+      (captions or transcript, or the text of a web page or book), so it is ready to study on their device. For one
+      of your own recordings, only its title and transcript are sent, never the file itself. Your friend sees only
+      the title and kind until they press Accept, and the message is deleted when they accept or dismiss it;</li>
     <li>your "What I'm studying" card and note (up to three items, for example a podcast episode title, or a
       YouTube, Instagram reel, web page, Spotify, Apple Music or IMDb link with its title and picture), visible
       only to your friends. Titles and pictures come from those sites' public link-preview services (for a web
@@ -189,27 +212,44 @@
       (their generated looks, names, items and chosen moves), how accurately you answer questions about your own
       words (one percentage), your skill rating and league, and this week's totals (days you reached your daily
       goal, and right answers). Also, for the small bar next to your name in friends' lists: the language you are
-      learning, how much XP you have earned today, and the look and name of the one creature you chose to show
-      off. Friends and guild-mates can see these. The results of battles between you and a
+      learning, how much XP you have earned today, your flashcard streak, and the look and name of the one creature
+      you chose to show off. Friends and guild-mates can see these. The results of battles between you and a
       friend, and gifts of game items or eggs between you, are stored so the other person can see or open them; battle
       results older than 60 days and opened gifts older than 30 days are cleared as you keep using the game
       <strong>Your words themselves, their meanings and the questions you are asked are never sent.</strong></li>
     <li>invitations to live quizzes. During a live quiz, the questions, answers and scores are passed between the
       players' devices through Supabase and are not stored.</li>
   </ul>
-  <p>Your podcasts, transcripts, private vocabulary, notes and API keys are never sent to this service. Quiz
-  questions are written by the AI provider of the player who starts the quiz, using their own API key (see below).
-  You can disconnect any time in settings. To delete your account and everything stored for it, open an issue at
-  the address below and it will be removed.</p>
+  <p>Your podcasts, transcripts, private vocabulary and notes are sent to this service only when you choose to send
+  something to a friend, and then only that item. Your API keys never are. Quiz questions are written by the AI
+  provider of the player who starts the quiz, using their own API key (see below). Supabase keeps short technical
+  logs, including internet addresses, for security and troubleshooting, under its own policy.</p>
+  <p>You can disconnect any time in settings. To delete your online account and everything stored with it, email
+  <a href="mailto:tamkeen.app.help@gmail.com">tamkeen.app.help@gmail.com</a> from the email address of your Google
+  account; we delete it within 7 days.</p>
 
-  <h2>AI word definitions and quizzes (optional)</h2>
-  <p>If you add your own API key for an AI provider (Anthropic Claude, Google Gemini, OpenAI or xAI Grok) and tap a
-  word, the app sends that word, the sentence it appears in, the neighbouring sentences and the podcast and episode
-  titles to the provider you chose, using your key. When you start a vocabulary quiz, the words in the chosen folder
-  and their saved meanings are sent the same way so the provider can write the answer choices. When you scan a
-  photo of a list of words with AI (see "Scanning words from a photo" above), a smaller copy of that photo is sent
-  to it the same way. That provider's privacy policy applies to those requests. No other data is sent, and nothing
-  is sent unless you have added a key.</p>
+  <h2>AI features (optional, with your own key)</h2>
+  <p>Nothing is sent to an AI provider unless you add your own key and use one of the features below. Each request
+  goes from your device to the provider you chose (Anthropic Claude, Google Gemini, OpenAI or xAI Grok), using your
+  key and paid by your account with them; that provider's terms and privacy policy apply.</p>
+  <ul>
+    <li><strong>Looking up a word:</strong> the word, its sentence and the sentences around it, and the title of the
+      episode, video, page or show.</li>
+    <li><strong>Add words:</strong> the words you typed, scanned or picked, so meanings and example sentences can be
+      filled in; for a scan, a smaller copy of the photo.</li>
+    <li><strong>Mnemonic maker:</strong> the word, its meaning and reading, your languages, and keywords you already
+      turned down.</li>
+    <li><strong>Grammar lessons, "Check with AI":</strong> the exercise, its model answers and the sentence you wrote.
+      Please don't write private information there.</li>
+    <li><strong>Live quizzes:</strong> the words in the chosen folder and their meanings (with the key of the player
+      who starts it).</li>
+    <li><strong>Captions written by Gemini:</strong> for a YouTube video with no captions, if you ask, the video's link
+      and the language you study are sent to Google Gemini with your Gemini key; Gemini watches the public video and
+      sends back its words.</li>
+  </ul>
+  <p>Providers may keep requests for a time under their own policies. With a free (unpaid) Google Gemini key, Google
+  may use what is sent to improve its products, and people may read it. AI answers can be wrong; they are marked "AI"
+  in the app. The providers have their own minimum ages (some require 18); please meet them before adding a key.</p>
 
   <h2>Cloud transcription (optional)</h2>
   <p>Transcripts are normally written on your own computer and no audio leaves it. If you turn on "Cloud
@@ -240,8 +280,40 @@
   <h2>Analytics and advertising</h2>
   <p>The app contains no analytics, tracking, advertising or crash-reporting services.</p>
 
-  <h2>Updates</h2>
-  <p>When you click "Check for updates", the app asks GitHub for the latest release version.</p>
+  <h2>Updates and downloads</h2>
+  <p>When you click "Check for updates", the app asks GitHub for the latest version. When you ask for them, the app
+  downloads speech-recognition models and computer voices from Hugging Face, Piper's program from GitHub, NVIDIA's
+  graphics libraries from PyPI, and dictionaries, courses, example sentences and the photo reader from Tamkeen's
+  website on GitHub Pages; books and audiobooks come from LibriVox, Project Gutenberg, Wikisource or Aozora Bunko.
+  These are ordinary downloads: those sites see your device's internet address, and nothing about you or your
+  library is sent.</p>
+
+  <h2>Your rights, why we use data, and how long we keep it</h2>
+  <p><strong>Your rights.</strong> Wherever you live, you can ask us to see, correct, export or delete the personal data
+  held on our service by emailing <a href="mailto:tamkeen.app.help@gmail.com">tamkeen.app.help@gmail.com</a>; we answer
+  within 30 days. If you are in the EU or UK, you can also object to or restrict how we use it, and complain to your
+  local data protection authority. Data on your own devices and in your own Google Drive is already in your hands.</p>
+  <p><strong>Why we use it (legal bases, EU/UK).</strong> We use the data on our service to provide the online
+  features you turn on (performance of our agreement with you), short technical logs to keep the service secure (our
+  legitimate interest in security), and anything the law requires us to keep (legal obligation). We don't sell or share
+  personal data, we don't use it for advertising, and we don't build profiles of you or make automated decisions about
+  you.</p>
+  <p><strong>Where it is stored.</strong> Supabase, Cloudflare and GitHub are US companies, so data on our service may
+  be processed in the United States, under those companies' data protection terms and standard contractual
+  clauses.</p>
+  <p><strong>How long we keep it.</strong></p>
+  <ul>
+    <li>Profile, username, photo, friends, guild memberships and "What I'm studying": until you change them or
+      delete your account.</li>
+    <li>Text messages: until seen and the chat is closed, at most 30 days. Voice notes: until played, at most 30 days.
+      Shared words and sent items: until accepted or dismissed, at most 30 days.</li>
+    <li>Online status: only the last time you were seen, replaced about every minute.</li>
+    <li>Battle results: 60 days. Opened gifts: 30 days. Live quiz questions and answers: not stored.</li>
+    <li>Server logs: kept by Supabase and Cloudflare for a short time under their own policies.</li>
+  </ul>
+  <p><strong>Do Not Track.</strong> Tamkeen doesn't track you across other websites, so it works the same whether or
+  not your browser sends a Do Not Track signal. Other companies' services that you open inside Tamkeen (such as
+  YouTube or Instagram) follow their own policies.</p>
 
   <h2>Children</h2>
   <p>The online features (Friends, chat, guilds, usernames and sharing), which are the only place Tamkeen's own
