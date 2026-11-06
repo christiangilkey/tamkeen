@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Kapag naabot ang daily goal (mga minuto ng pakikinig o pagbabasa, hindi kasama ang YouTube) nang 5 araw o higit pa sa isang linggo, aakyat ng isang liga ang player sa susunod na linggo. Kapag 1 araw o wala, bababa sila.
+90d067e4	Nakukuha ang XP sa paghahanap ng mga salita, pag-save ng mga salita, pakikinig at pagbabasa (hindi sa panonood ng YouTube), mga flashcard at mga laban. Pinapalaki nito ang creature at pinapataas ang level ng player.
+af2a6a9b	Makinig o magbasa: dahan-dahang patak habang nag-aaral ka, na natutuyo nang lampas na lampas sa layunin mo ngayong araw. Walang XP ang panonood ng YouTube, dahil hindi pinapayagan ng mga patakaran ng YouTube ang gantimpala sa panonood, pero may XP pa rin ang paghahanap at pag-save ng mga salita habang nanonood ka.
+90039372	oras na ginugol sa pakikinig sa podcast, audio at video (hindi YouTube)

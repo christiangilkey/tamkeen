@@ -6869,3 +6869,46 @@ Owner's choice (main chat): "16+ for online features everywhere" (COPPA is under
   Supabase, also needed for privacy law; see the legal/security work), and the privacy policy's wording on ages.
 - Tests: tests/js/agegate.test.mjs. Checked in the phone build (mobile-preview, fresh state, no sign-in): the question,
   a 2013 birth → "opens April 2029", asked once; under 16 and not-asked blocked before anything goes online.
+
+## Game safety: friends' data checked, no XP for YouTube watch time (2026-11-06, helper of the main chat)
+**1. Stored XSS through a friend's team (security review H2, M11).** A friend writes their own `game_profiles` row,
+and the database only checks its size, so their `team[].type` reached `innerHTML` in the live battle HUD
+(`livebattle-ui.js`, the element icon) when you pressed Challenge or Rematch.
+- New `web/js/game/remote.js`: the only way friends' game data gets in. `cleanProfile` / `cleanProfiles` (a
+  social.gameProfiles row: team, form 0..1, rating 0..5000, league, week, goal_days 0..7, reviews ≤ 3000, language
+  (isLanguage), xp_day (YYYY-MM-DD), xp_today ≤ 50000, showcase, streak ≤ 36500, dates), `cleanGenome` (seed and
+  growth must be finite numbers; type an own key of TYPES, else the seed's own type; variant/show from the tables;
+  equipped only real items in their own slot; loadout only real moves, each once, ≤ 4; name ≤ 20 characters without
+  control or bidi-override characters; unknown fields dropped), `cleanTeam` (≤ 3), `cleanRival`, `cleanName`,
+  `raidShare` (a guild-mate's raid damage counts for at most 2 × RAID_HP_PER_MEMBER: M11's client cap).
+- Applied where the data arrives: `friends-game.js friendsPanel` (profiles, gifts, battle inbox), `friend-bar.js
+  gameBar` (so `pages/friends.js` is covered without editing it), `battle-ui.js startFriendBattle` (cleans again,
+  whoever calls it). `battle.showcaseGenome` uses cleanGenome; `battle.fighter` and `fits` check the type;
+  `genome.newGenome/beastOf`, `data.matchup` and `rules.receiveGift` use own-key checks (a "__proto__" or
+  "constructor" egg was accepted before); `rules.recordDefence`/`finishBattle` refuse prototype ids, clean the name
+  and treat a non-number rating as 1000.
+- The HUD's element icon is built with the new `render.iconEl()` (DOM, no HTML); `render.icon()` now escapes its
+  name and alt text. `friends-game.js`'s "online data isn't available" line uses textContent.
+- Audit of `web/js/game/*`: no other place puts friends' data into HTML (names, guild names and usernames already
+  used textContent). Own-data only, left as is: `garden.js` puts your own creature's name into a template.
+- Still to do elsewhere (other helpers' files): call `cleanProfiles` inside `social.gameProfiles` itself; the
+  database check from the review (`gp_team_types`) and M11's caps on `reviews`/`streak`/`xp_today`; gifts are any
+  catalogue item with no ownership check (`social.js` sendGift). The built copies `docs/app/js/game/*` (the live web
+  app) still have the old code until docs/app is rebuilt at the next release.
+- Tests: `tests/js/friend-safety.test.mjs` (hostile rows: `<img src=x onerror=alert(1)>` types, quote-breaking
+  variants, prototype names, huge and text numbers, 10,000-creature teams, prototype-polluting rival ids).
+
+**2. No XP for YouTube watch time (owner's choice 2026-11-06: "No XP for watch time (Recommended)").** YouTube API
+policy III.F.3 forbids rewarding watching.
+- `rules.UNPAID_TIME = new Set(["youtube"])`: a `study` event with `source: "youtube"` earns nothing; `game.trackStudy`
+  takes a third argument `source` and counts nothing for it; `pages/player.js` passes `yt ? "youtube" : null`
+  (YouTube Music links and Onyx's /embed play through the same player, so they're covered too).
+- Decision on goal and streak: YouTube time no longer counts toward the game's daily goal either, so it gives no
+  goal reward (120 XP, coins), goal streak, league day, habit (listener) or night-owl/early-bird tags. The goal
+  itself is a reward, so counting YouTube minutes toward it would still reward watching. Word lookups and saves while
+  watching pay as before; podcasts, Netflix, reels, audiobooks and your own files are unchanged. The flashcard streak
+  (the flame) never counted watching, so nothing changed there.
+- Text: info.js (XP: listening line; goal streak line; the listening habit), friend-bar.js (league and XP lines),
+  `web/whatis.md` (a "No XP for watching YouTube" bullet; the daily goal line). i18n:
+  `tools/i18n/tr/<code>/123-game-safety.txt` (4 strings, 16 languages).
+- Tests: `tests/js/youtube-xp.test.mjs`.

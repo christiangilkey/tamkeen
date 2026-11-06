@@ -14,6 +14,7 @@ import { t } from "../i18n.js";
 import { LAST_WORDS, checkBadges, knownWords, pickQuestion, quizzable, retention, reviewSummary, weekNumber, weeklyRule } from "./rules.js";
 import { eligible, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
+import { LIMITS, cleanName, cleanProfile } from "./remote.js";
 import { FRAME, composeCreature, icon } from "./render.js";
 import { getGame, saveGame } from "./game.js";
 import { runLiveBattle } from "./livebattle-ui.js";
@@ -168,8 +169,11 @@ export async function openBattleMenu() {
  * and answer as accurately as their owner usually answers their own words. You answer yours.
  * In an all-time battle each side is as strong as the cards its owner has saved.
  */
-export async function startFriendBattle(friend, profile) {
+export async function startFriendBattle(friend, row) {
   const game = getGame();
+  // Their team came from their device: only the checked copy fights (remote.js), whoever called this.
+  const profile = cleanProfile(row) || cleanProfile({});
+  const rivalName = cleanName(friend && friend.username, LIMITS.username) || "A friend";
   const rule = weeklyRule();
   const vocab = await loadWords(game);
   saveGame();
@@ -178,14 +182,14 @@ export async function startFriendBattle(friend, profile) {
   const mineIdx = eligible(game, rule).slice(0, teamSize(rule));
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
   const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
-  if (!theirTeam.length) { toast(`${friend.username} has no creatures that fit this week's rule (${rule.name}).`); return; }
+  if (!theirTeam.length) { toast(`${rivalName} has no creatures that fit this week's rule (${rule.name}).`); return; }
   const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule });
   const theirs = fighters(null, theirTeam, { rule });
   // (a friend on an older version shares how many words they know, not their cards: those count instead)
   const theirCards = Number(theirTeam[0].cards ?? theirTeam[0].known) || 0;
-  for (const f of theirs) f.name = f.name || friend.username;
+  for (const f of theirs) f.name = f.name || rivalName;
   runLiveBattle({ mine, theirs, mode: "friend", rule, foeForm: Number(profile.form) || 0.7, cards: { me: vocab.length, foe: Math.min(100000, theirCards) },
-    rival: { id: friend.id, name: friend.username, rating: Number(profile.rating) || 1000 } }, vocab);
+    rival: { id: friend.id, name: rivalName, rating: profile.rating } }, vocab);
 }
 
 function pickRental(wrap, body, vocab) {

@@ -3,7 +3,7 @@
 
 import { api, on, saveSettings, state as app } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
-import { COMBO_STEPS, SESSION_GAP_MS, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { COMBO_STEPS, SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
 
@@ -107,8 +107,10 @@ function listenForAnki() {
   try { on("anki", () => { checkAnki(); }); } catch { /* this shell has no server events */ }
 }
 
-/** Count study time while `active()` is true. Returns a function that stops counting. */
-export function trackStudy(mode, active) {
+/** Count study time while `active()` is true. Returns a function that stops counting. `source` "youtube":
+ * nothing is counted, since time watching YouTube earns nothing (rules.UNPAID_TIME). */
+export function trackStudy(mode, active, source = null) {
+  if (UNPAID_TIME.has(source)) return () => {};
   const timer = setInterval(() => { if (!document.hidden && active()) reward({ type: "study", seconds: 5, mode }); }, 5000);
   return () => clearInterval(timer);
 }

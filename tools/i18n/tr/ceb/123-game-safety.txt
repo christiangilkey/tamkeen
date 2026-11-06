@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Kung maabot ang adlaw-adlaw nga tumong (mga minuto sa pagpaminaw o pagbasa, gawas sa YouTube) sulod sa 5 ka adlaw o labaw sa usa ka semana, mosaka og usa ka liga ang magdudula sa sunod nga semana. Kung 1 ka adlaw o wala, manaog sila.
+90d067e4	Makuha ang XP sa pagpangita og mga pulong, pag-save og mga pulong, pagpaminaw ug pagbasa (dili sa pagtan-aw og YouTube), mga flashcard ug mga sangka. Mopadako kini sa linalang ug mopataas sa level sa magdudula.
+af2a6a9b	Paminaw o basa: hinay nga tulo samtang nagtuon ka, nga mohubas kung molapas ka na og maayo sa imong adlaw-adlaw nga tumong. Ang pagtan-aw og YouTube walay XP, kay ang mga lagda sa YouTube dili motugot og ganti sa pagtan-aw, apan ang pagpangita ug pag-save og mga pulong samtang nagtan-aw adunay XP gihapon.
+90039372	oras nga gigamit sa pagpaminaw og mga podcast, audio ug video (dili YouTube)

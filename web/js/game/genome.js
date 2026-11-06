@@ -30,11 +30,14 @@ export function weightedPick(list, rand, traits = {}) {
   return list[list.length - 1];
 }
 
+/** One of the game's elements (an own key of TYPES: never "__proto__", "constructor" and the like). */
+const isType = (t) => typeof t === "string" && Object.prototype.hasOwnProperty.call(TYPES, t);
+
 export function newGenome(seed, type = null) {
   const r = rng(seed ^ 0x9e3779b9);
   return {
     seed: seed >>> 0,
-    type: type && TYPES[type] ? type : TYPE_IDS[Math.floor(r() * TYPE_IDS.length)],
+    type: isType(type) ? type : TYPE_IDS[Math.floor(r() * TYPE_IDS.length)],
     growth: 0,
     traits: Object.fromEntries(TRAITS.map((t) => [t, 0])),
     grown: false,       // it has been fully grown (paid once: see rules.grow)
@@ -70,7 +73,7 @@ export function formOf(genome) {
 
 /** Which creature a genome is: one of its element's three, picked by its seed (so it never changes). */
 export function beastOf(genome) {
-  const kinds = beastsOf(TYPES[genome.type] ? genome.type : TYPE_IDS[0]);
+  const kinds = beastsOf(isType(genome.type) ? genome.type : TYPE_IDS[0]);
   const list = kinds.length ? kinds : BEASTS;
   return list[Math.floor(rng(genome.seed)() * list.length)];
 }

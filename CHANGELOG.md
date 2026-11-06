@@ -4,7 +4,7 @@ What changed in each version of Tamkeen, in plain words. The newest version is a
 
 - **Unreleased** lists changes already made but not yet in a released version.
 - When a version is released, its Unreleased notes move under a new heading for that version.
-- Each line starts with the kind of change: **New**, **Improved**, **Changed**, **Fixed** or **Removed**.
+- Each line starts with the kind of change: **New**, **Improved**, **Changed**, **Fixed**, **Removed** or **Security**.
 - A note in brackets, such as *(Android)*, says which versions a change is for. A line with no note applies to every version that existed at the time.
 - The four versions are the **desktop app** (Windows, Mac, Linux), **Android**, **iPhone** and the **web app**. "The phones" means Android and iPhone.
 
@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Security:** Battling a friend can no longer run code hidden in their team. Everything friends send to the creature game (their team, favourite creature, league and week numbers, battle results and gifts) is now checked as it arrives: only creatures, elements, moves and items the game has, names of a sane length and numbers in a sane range are kept, and anything else is dropped or replaced. The battle screen also builds a creature's element picture without HTML. And one guild-mate's numbers can no longer bring down the guild's raid boss alone: each counts for at most twice their share.
+- **Changed:** Watching YouTube no longer earns XP or counts toward the daily goal (and so the goal streak and the league), because YouTube's rules don't allow rewards for watching. Looking words up and saving them while you watch still earn XP, as everywhere else, and podcasts, Netflix, reels and your own files keep their listening XP.
 - **New:** Terms of Service and a Cookie and Storage Notice, linked with the Privacy Policy in Settings → About and on the website, and agreed to on the first-run screen. The Privacy Policy now names who runs Tamkeen (Caliber Products LLC), gives an email for privacy requests, and explains the 16+ rule for the online features.
 - **New:** Friends, chat and guilds are for people 16 and older. The first time you go online with them, Tamkeen asks your month and year of birth once (on every device at once); under 16, everything else works as usual and nothing about you is stored online. Only whether you can use them is kept, on your own devices and Drive, not your date of birth.
 - **New:** **What is Tamkeen** in Settings → Data & updates: everything Tamkeen can do, the inventive ways it does it, and why it is designed the way it is, with the studies behind each choice (and where the evidence is weak), 80 studies in all, each with a link. In English, like the changelog.

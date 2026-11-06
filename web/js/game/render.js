@@ -24,8 +24,22 @@ export function loadImage(file) {
  * `px` is the size to show it at: the art's own size (icons are 16x16) or a whole multiple of it, so the
  * pixels stay square. */
 export function icon(id, px = 16, alt = "") {
-  const file = id.includes("/") ? id : `icon/${id}`;
-  return `<img class="px-icon" alt="${alt}" width="${px}" height="${px}" src="${ART}${file}.png">`;
+  const file = String(id).includes("/") ? String(id) : `icon/${id}`;
+  const size = Math.round(Number(px)) || 16;
+  // (escaped, so a name that came from somewhere else can never close the attribute and add its own)
+  return `<img class="px-icon" alt="${attr(alt)}" width="${size}" height="${size}" src="${attr(ART + file)}.png">`;
+}
+
+const attr = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+/** The same picture as icon(), made as an element (no HTML is parsed). */
+export function iconEl(id, px = 16, alt = "") {
+  const img = document.createElement("img");
+  img.className = "px-icon";
+  img.alt = alt;
+  img.width = img.height = Math.round(Number(px)) || 16;
+  img.src = `${ART}${String(id).includes("/") ? id : `icon/${id}`}.png`;
+  return img;
 }
 
 export const FRAME = 88; // creatures are composed in a square this size, feet on its bottom edge (room above for hats)

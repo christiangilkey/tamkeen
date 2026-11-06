@@ -201,8 +201,9 @@ This page has four parts: what Tamkeen can do, the inventive ways it does it, wh
 
 **Earning**
 - **XP for studying**: looking up words (with surprise bonuses and combos), saving words, study time, flashcards and reaching your daily goal all earn XP.
+- **No XP for watching YouTube**: YouTube's rules don't allow rewards for watching, so time spent on a YouTube video (YouTube Music too) earns no XP and doesn't count toward the daily goal. Looking up and saving words while you watch still earn XP, as everywhere else, and podcasts, Netflix, reels and your own files keep their listening XP.
 - **XP from courses**: finished grammar lessons, examples you tap to hear and basics words you add to your cards earn XP too.
-- **Daily goal and goal streak**: reaching your daily study goal (minutes of listening or reading) pays the most and builds a goal streak, which freezes can protect.
+- **Daily goal and goal streak**: reaching your daily study goal (minutes of listening or reading, not counting YouTube) pays the most and builds a goal streak, which freezes can protect.
 - **Levels, coins and more**: you earn levels, coins, gems, glow and hearts, and tapping any of them in the habitat's bar explains what it's for.
 - **Flashcards and battles together**: flashcards and battles pay their own rewards, with a bonus for doing both in a day.
 

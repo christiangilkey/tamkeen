@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Arribar a l'objectiu del dia (minuts escoltant o llegint, sense comptar YouTube) 5 dies o més en una setmana fa pujar el jugador una lliga la setmana següent. 1 dia o cap el fa baixar.
+90d067e4	Els XP s'obtenen buscant paraules, desant paraules, escoltant i llegint (no mirant YouTube), amb les targetes i a les batalles. Fan créixer la criatura i pujar el nivell del jugador.
+af2a6a9b	Escoltar o llegir: un degoteig lent mentre estudies, que s'esgota força després de la teva meta diària. Mirar YouTube no en dona cap, perquè les normes de YouTube no permeten recompensar el fet de mirar vídeos, però buscar i desar paraules mentre mires sí que en dona.
+90039372	el temps escoltant pòdcasts, àudios i vídeos (no YouTube)

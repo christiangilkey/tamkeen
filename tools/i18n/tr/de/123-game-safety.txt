@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Wer an 5 oder mehr Tagen einer Woche das Tagesziel (Minuten Hören oder Lesen, YouTube zählt nicht) erreicht, steigt in der Woche darauf eine Liga auf. Bei 1 Tag oder keinem geht es eine Liga abwärts.
+90d067e4	EP gibt es fürs Nachschlagen und Speichern von Wörtern, fürs Hören und Lesen (nicht fürs Ansehen von YouTube), für Karteikarten und Kämpfe. Sie lassen das Wesen wachsen und erhöhen das Level des Spielers.
+af2a6a9b	Hören oder lesen: ein langsames Rinnsal, während du lernst, das weit nach deinem Tagesziel versiegt. YouTube-Schauen bringt nichts, weil die Regeln von YouTube keine Belohnung fürs Zuschauen erlauben, aber Wörter nachschlagen und speichern, während du schaust, bringt weiterhin EP.
+90039372	Zeit, die du mit Podcasts, Audio und Videos verbringst (ohne YouTube)

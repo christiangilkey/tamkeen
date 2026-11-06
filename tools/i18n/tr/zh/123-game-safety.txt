@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	一周内有 5 天或更多天达成每日目标（听或读的分钟数，不算 YouTube），下一周就升一个联赛；只有 1 天或一天也没有，就降一个联赛。
+90d067e4	XP 来自查词、保存单词、听和读（不包括看 YouTube）、卡片和对战。它让生物成长，并提升玩家的等级。
+af2a6a9b	听或读：学习时慢慢累积，远超每日目标后就不再增加。看 YouTube 不会获得 XP，因为 YouTube 的规定不允许为观看给予奖励；但观看时查词和保存单词仍然可以获得 XP。
+90039372	收听播客、音频和视频的时间（不包括 YouTube）

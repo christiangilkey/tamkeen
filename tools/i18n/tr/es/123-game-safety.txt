@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Cumplir la meta diaria (minutos escuchando o leyendo, sin contar YouTube) 5 días o más en una semana sube al jugador una liga la semana siguiente. 1 día o ninguno lo baja.
+90d067e4	Los XP se ganan buscando palabras, guardando palabras, escuchando y leyendo (no viendo YouTube), con las tarjetas y en las batallas. Hacen crecer a la criatura y suben el nivel del jugador.
+af2a6a9b	Escuchar o leer: un goteo lento mientras estudias, que se agota bastante después de tu meta diaria. Ver YouTube no da nada, porque las normas de YouTube no permiten recompensar por ver vídeos, pero buscar y guardar palabras mientras ves sí que da XP.
+90039372	el tiempo escuchando pódcasts, audios y vídeos (no YouTube)

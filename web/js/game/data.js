@@ -230,7 +230,7 @@ export const TYPE_CHART = {
 };
 /** How hard a move of element `attack` hits a creature of element `defend`: STRONG, WEAK or 1. */
 export function matchup(attack, defend) {
-  const row = attack && TYPE_CHART[attack];
+  const row = typeof attack === "string" && Object.prototype.hasOwnProperty.call(TYPE_CHART, attack) ? TYPE_CHART[attack] : null;
   if (!row || !defend) return 1;
   return row.strong.includes(defend) ? STRONG : row.weak.includes(defend) ? WEAK : 1;
 }

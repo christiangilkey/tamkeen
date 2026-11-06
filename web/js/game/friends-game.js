@@ -10,6 +10,7 @@ import { publicProfile } from "./battle.js";
 import { wordModePicker } from "./battle-ui.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
+import { cleanName, cleanProfiles, cleanRival, raidShare } from "./remote.js";
 import { hasStudyLanguage, studyLanguage } from "../languages.js";
 import { myStreak } from "../review/flame.js";
 
@@ -108,8 +109,17 @@ export async function friendsPanel(body, game, changed, challenge) {
   let inbox = [];
   try {
     [profiles, gifts, inbox] = await Promise.all([social.gameProfiles([...people.keys()]), social.giftInbox(), social.battleInbox()]);
-  } catch (e) { body.append(h(`<p class="muted small">The game's online data isn't available yet (${e.message}).</p>`)); return; }
+  } catch (e) {
+    const p = h(`<p class="muted small"></p>`);
+    p.textContent = `The game's online data isn't available yet (${e.message}).`;
+    body.append(p);
+    return;
+  }
   if (!body.isConnected) return;
+  // Everything here came from friends' devices: checked before anything uses it (remote.js).
+  profiles = cleanProfiles(profiles);
+  gifts = (Array.isArray(gifts) ? gifts : []).map((g) => ({ id: g.id, kind: g.kind === "egg" ? "egg" : "item", from: cleanName(g.from, 40) || "A friend" }));
+  inbox = (Array.isArray(inbox) ? inbox : []).map((r) => ({ id: r.id, won: r.won === true, rival: cleanRival(r.rival) }));
 
   // ----- waiting for you -----
   if (gifts.length || inbox.length) {
@@ -147,7 +157,7 @@ export async function friendsPanel(body, game, changed, challenge) {
   for (const [id, p] of people) {
     const gp = profiles.get(id);
     rows.push({ id, name: p.username, league: gp ? gp.league : 0, rating: gp ? gp.rating : null, pct: gp && gp.week === week ? leaguePercent(gp.goal_days, now) : 0,
-                team: gp && Array.isArray(gp.team) ? gp.team : [], profile: gp, user: p });
+                team: gp ? gp.team : [], profile: gp, user: p });
   }
   rows.sort((a, b) => b.pct - a.pct || (b.rating || 0) - (a.rating || 0));
   const league = h(`<div class="stack"><div class="row"><img class="league-ico" alt="" src="${ART}icon/league_${LEAGUES[game.league].toLowerCase()}.png">
@@ -157,7 +167,7 @@ export async function friendsPanel(body, game, changed, challenge) {
     <p class="small muted">This week's battle rule: ${icon(`rule_${rule.icon || rule.id}`)} <strong>${rule.name}</strong>. ${rule.text}</p></div>`);
   league.append(h(`<div class="small"><strong>Words for your battles</strong></div>`), wordModePicker(game));
   rows.forEach((r, i) => {
-    const record = game.rivals[r.id];
+    const record = Object.prototype.hasOwnProperty.call(game.rivals, r.id) ? game.rivals[r.id] : null;
     const row = h(`<div class="league-row${r.mine ? " mine" : ""}"><span class="league-rank">${i + 1}</span>
       <img class="league-ico small" alt="" src="${ART}icon/league_${LEAGUES[Math.max(0, Math.min(3, r.league))].toLowerCase()}.png">
       <span class="league-name"></span><span class="hud-bar goal"><i style="width:${r.pct}%"></i></span><span class="league-pct">${r.pct}%</span>
@@ -184,7 +194,8 @@ export async function friendsPanel(body, game, changed, challenge) {
     for (const m of g.members) {
       if (m.id === me.id) continue;
       const gp = profiles.get(m.id);
-      const d = gp && gp.week === week ? gp.reviews : 0;
+      // (each guild-mate counts for at most twice their share of the boss: remote.raidShare)
+      const d = gp && gp.week === week ? raidShare(gp.reviews, RAID_HP_PER_MEMBER) : 0;
       dealt += d;
       parts.push([m.username, d]);
     }

@@ -7,9 +7,10 @@
 // beginner's three creatures can beat a veteran's twelve. In "Unlimited" battles a creature's
 // numbers grow with how many words its owner knows (knownScale).
 
-import { BASE_STATS, MOVES, TERRAIN, aimOf, matchup, moveById } from "./data.js";
+import { BASE_STATS, MOVES, TERRAIN, TYPE_IDS, aimOf, matchup, moveById } from "./data.js";
 import { describe, newGenome, rng, stageOf } from "./genome.js";
 import { retention, wildBonus, weekNumber, raidDamage, dayKey, showcaseOf } from "./rules.js";
+import { cleanGenome, isType } from "./remote.js";
 
 export const FAST_MS = 5000;       // answer correctly within this and the combo chain grows
 export const QUESTION_MS = 12000;  // after this the question counts as missed
@@ -62,7 +63,7 @@ function checkedMoves(ids, rule) {
 /** Whether a creature (the player's or a friend's) may fight under a rule. */
 export function fits(g, rule) {
   if (!g || !Number.isFinite(g.seed) || stageOf(g.growth || 0).id === "egg") return false;
-  return !(rule && rule.types && !rule.types.includes(g.type));
+  return !(rule && rule.types && !(isType(g.type) && rule.types.includes(g.type)));
 }
 
 /** What a player shares with friends: the team they may challenge (with its chosen moves), how
@@ -96,18 +97,16 @@ export function xpToday(profile, now = new Date()) {
   return near && fresh ? profile.xp_today : 0;
 }
 
-/** A friend's showcased creature, checked before it is drawn (it came from another device). */
+/** A friend's showcased creature, checked before it is drawn (it came from another device: remote.js). */
 export function showcaseGenome(profile) {
-  const g = profile && profile.showcase;
-  if (!g || typeof g !== "object" || !Number.isFinite(g.seed) || !Number.isFinite(g.growth)) return null;
-  if (stageOf(g.growth).id === "egg") return null;
-  const made = newGenome(g.seed);
-  if (typeof g.type === "string") made.type = g.type;
-  made.growth = Math.max(0, Math.min(1, g.growth));
-  for (const k of ["variant", "show"]) made[k] = typeof g[k] === "string" ? g[k] : null;
-  if (made.show === "adult") made.show = null; // from a device on an older version
-  if (Number.isFinite(g.partnerHue)) made.partnerHue = g.partnerHue;
-  made.name = typeof g.name === "string" ? g.name.slice(0, 20) : "";
+  const g = cleanGenome(profile && profile.showcase);
+  if (!g || stageOf(g.growth).id === "egg") return null;
+  const made = newGenome(g.seed, g.type);
+  made.growth = g.growth;
+  made.variant = g.variant;
+  made.show = g.show; // (an "adult" from a device on an older version is dropped: there are none now)
+  if (g.partnerHue !== undefined) made.partnerHue = g.partnerHue;
+  made.name = g.name;
   return made;
 }
 
@@ -118,7 +117,8 @@ export function fighter(state, g, { wild = false, rule = null, scale = 1 } = {})
   const base = BASE_STATS[look.species];
   const k = (wild ? wildBonus(g) : 1) * (Number.isFinite(scale) && scale > 0 ? Math.min(2, scale) : 1);
   const hp = Math.round(base.hp * k);
-  return { name: g.name || "", look, type: g.type, max: hp, hp, atk: base.atk * k, def: base.def * k, spd: base.spd,
+  // (a friend's creature is checked as it arrives, remote.js; an element the game doesn't have never gets this far)
+  return { name: g.name || "", look, type: isType(g.type) ? g.type : TYPE_IDS[0], max: hp, hp, atk: base.atk * k, def: base.def * k, spd: base.spd,
            moves: Array.isArray(g.loadout) ? checkedMoves(g.loadout, rule) : loadout(state, g, rule), boost: 0, guard: 0, haste: 0, heals: 2,
            pos: { c: 0, r: 0 }, next: 0, charging: null };
 }

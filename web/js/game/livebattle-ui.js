@@ -12,7 +12,8 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { answerQuestion, battleWords, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, composeCreature, icon, loadImage } from "./render.js";
+import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
+import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
@@ -622,8 +623,15 @@ export function runLiveBattle(setup, vocab) {
         const own = f.name || (side === "foe" && (setup.mode === "friend" || setup.mode === "gym") && setup.rival ? setup.rival.name : "");
         who.textContent = own || (side === "me" ? t("Your creature") : setup.mode === "wild" ? t("Wild creature") : t("Rival"));
         if (own) who.setAttribute("translate", "no"); else who.removeAttribute("translate"); // a name is never translated
-        card.querySelector(".lb-el").innerHTML = `<img class="px-icon" width="16" height="16" alt="" src="${ART}icon/type_${c.type}.png">`;
-        card.querySelector(".lb-el img").title = t(TYPES[c.type].name);
+        // The element's picture, made as an element: a friend's creature came from their device, so its
+        // type is never put into HTML (and one the game doesn't have shows no picture).
+        const elBox = card.querySelector(".lb-el");
+        elBox.replaceChildren();
+        if (isType(c.type)) {
+          const img = iconEl(`type_${c.type}`, 16);
+          img.title = t(TYPES[c.type].name);
+          elBox.append(img);
+        }
       }
       const pips = card.querySelector(".lb-pips");
       const alive = v.teams[side].map((m) => m.hp > 0);

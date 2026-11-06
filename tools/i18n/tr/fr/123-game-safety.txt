@@ -1,0 +1,5 @@
+# Watching YouTube earns no XP (the creature game's help: XP, league, habits)
+89b44529	Atteindre l'objectif du jour (des minutes d'écoute ou de lecture, YouTube non compris) 5 jours ou plus dans la semaine fait monter le joueur d'une ligue la semaine suivante. 1 jour ou aucun le fait descendre.
+90d067e4	Les XP viennent des mots cherchés, des mots enregistrés, de l'écoute et de la lecture (pas du visionnage de YouTube), des cartes et des combats. Ils font grandir la créature et monter le niveau du joueur.
+af2a6a9b	Écouter ou lire : un petit filet pendant que vous étudiez, qui se tarit bien après votre objectif du jour. Regarder YouTube ne rapporte rien, car les règles de YouTube n'autorisent pas les récompenses pour le visionnage, mais chercher et enregistrer des mots pendant que vous regardez rapporte toujours des XP.
+90039372	le temps passé à écouter des podcasts, des audios et des vidéos (hors YouTube)

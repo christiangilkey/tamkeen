@@ -14,6 +14,7 @@ import { portrait } from "./battle-ui.js";
 import { sheet } from "./info.js";
 import { weekNumber } from "./rules.js";
 import { icon } from "./render.js";
+import { cleanProfile } from "./remote.js";
 
 const STAGE_NAME = { hatchling: "Hatchling", juvenile: "Juvenile" };
 
@@ -51,7 +52,9 @@ function part(cls, title, open) {
  *   me     it is my own bar (the explanations say "you"); `today` = my streak.js result for today
  *   name   their username, for the explanations
  */
-export function gameBar(profile, { now = new Date(), game = true, me = false, name = "", today = null } = {}) {
+export function gameBar(row, { now = new Date(), game = true, me = false, name = "", today = null } = {}) {
+  // A friend's row came from their device: only its checked copy is read (remote.js).
+  const profile = cleanProfile(row);
   if (!profile) return null;
   const bar = h(`<span class="game-bar"></span>`);
   const who = name ? `@${name}` : "A friend";
@@ -73,7 +76,7 @@ export function gameBar(profile, { now = new Date(), game = true, me = false, na
     const chip = part("gb-league", `${league} league: tap for more`, () => explain(`${league} league`, `league_${league.toLowerCase()}`, [
       me ? "Your league in the creature game. There are four: Bronze, Silver, Gold and Diamond."
         : "Their league in the creature game. There are four: Bronze, Silver, Gold and Diamond.",
-      "Reaching the daily goal (minutes of listening or reading) on 5 days or more of a week moves a player up a league the week after. 1 day or none moves them down.",
+      "Reaching the daily goal (minutes of listening or reading, not counting YouTube) on 5 days or more of a week moves a player up a league the week after. 1 day or none moves them down.",
       `This week so far: ${days} day${days === 1 ? "" : "s"} with the goal reached.`,
     ]));
     chip.innerHTML = icon(`league_${league.toLowerCase()}`, 24, `${league} league`);
@@ -82,7 +85,7 @@ export function gameBar(profile, { now = new Date(), game = true, me = false, na
     const xp = xpToday(profile, now);
     const xpEl = part(`gb-xp${xp ? "" : " none"}`, "XP earned today: tap for more", () => explain(`${xp.toLocaleString()} XP today`, "xp", [
       me ? "The XP you have earned today in the creature game." : `The XP ${who} has earned today in the creature game.`,
-      "XP comes from looking words up, saving words, listening and reading, flashcards and battles. It grows the creature and the player's level.",
+      "XP comes from looking words up, saving words, listening and reading (not watching YouTube), flashcards and battles. It grows the creature and the player's level.",
       "It starts again from 0 at midnight (each person's own).",
     ]));
     xpEl.innerHTML = `${icon("xp")}<b></b><span class="small"> today</span>`;
