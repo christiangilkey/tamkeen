@@ -4795,6 +4795,11 @@
   "f": "web/js/components/onboarding.js"
  },
  {
+  "id": "f330ad01",
+  "k": "By continuing, you agree to Tamkeen's <0>Terms of Service</0> and <1>Privacy Policy</1>.",
+  "f": "web/js/components/onboarding.js"
+ },
+ {
   "id": "c32ae9f4",
   "k": "← Back",
   "f": "web/js/components/onboarding.js"
@@ -5320,8 +5325,8 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "7ceacdca",
-  "k": "Privacy policy",
+  "id": "f4bc8937",
+  "k": "Privacy policy, terms and cookies",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -17260,8 +17265,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "c41ff0c3",
-  "k": "Tamkeen for your computer · <0>Privacy policy</0> · <1>Source code</1> · <2>About</2>",
+  "id": "8fcc7ba6",
+  "k": "Tamkeen for your computer · <0>Privacy policy</0> · <1>Terms of service</1> · <2>Cookie notice</2> · <3>Source code</3> · <4>About</4>",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -21430,8 +21435,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "5b931348",
-  "k": "Tamkeen {0} · <0>Privacy policy</0> · <1>Source code</1>",
+  "id": "f5bddd19",
+  "k": "Tamkeen {0} · <0>Privacy policy</0> · <1>Terms of service</1> · <2>Cookie notice</2> · <3>Source code</3>",
   "f": "mobile/src/js/pages/settings.js"
  },
  {

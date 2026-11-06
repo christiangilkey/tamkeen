@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	続行すると、Tamkeenの<0>利用規約</0>と<1>プライバシーポリシー</1>に同意したことになります。
+f4bc8937	プライバシーポリシー・利用規約・Cookie
+8fcc7ba6	パソコン版Tamkeen · <0>プライバシーポリシー</0> · <1>利用規約</1> · <2>Cookieに関するお知らせ</2> · <3>ソースコード</3> · <4>このアプリについて</4>
+f5bddd19	Tamkeen {0} · <0>プライバシーポリシー</0> · <1>利用規約</1> · <2>Cookieに関するお知らせ</2> · <3>ソースコード</3>

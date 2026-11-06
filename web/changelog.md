@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Terms of Service and a Cookie and Storage Notice, linked with the Privacy Policy in Settings → About and on the website, and agreed to on the first-run screen. The Privacy Policy now names who runs Tamkeen (Caliber Products LLC), gives an email for privacy requests, and explains the 16+ rule for the online features.
 - **New:** Friends, chat and guilds are for people 16 and older. The first time you go online with them, Tamkeen asks your month and year of birth once (on every device at once); under 16, everything else works as usual and nothing about you is stored online. Only whether you can use them is kept, on your own devices and Drive, not your date of birth.
 - **New:** **What is Tamkeen** in Settings → Data & updates: everything Tamkeen can do, the inventive ways it does it, and why it is designed the way it is, with the studies behind each choice (and where the evidence is weak), 80 studies in all, each with a link. In English, like the changelog.
 - **Improved:** Downloaded dictionaries, example sentences and keyword lists update themselves: once a day the app looks for newer versions and fetches any that changed in the background, keeping the old one until the new one is in. *(installed apps; a copy run from the source code reads the repository's files as they are)*

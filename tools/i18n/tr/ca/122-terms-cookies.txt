@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	En continuar, acceptes les <0>Condicions del servei</0> i la <1>Política de privadesa</1> de Tamkeen.
+f4bc8937	Política de privadesa, condicions i galetes
+8fcc7ba6	Tamkeen per al teu ordinador · <0>Política de privadesa</0> · <1>Condicions del servei</1> · <2>Avís de galetes</2> · <3>Codi font</3> · <4>Quant a</4>
+f5bddd19	Tamkeen {0} · <0>Política de privadesa</0> · <1>Condicions del servei</1> · <2>Avís de galetes</2> · <3>Codi font</3>

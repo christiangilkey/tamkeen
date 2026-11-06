@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	Sa pagpapatuloy, sumasang-ayon ka sa <0>Mga tuntunin ng serbisyo</0> at <1>Patakaran sa privacy</1> ng Tamkeen.
+f4bc8937	Privacy, mga tuntunin at cookies
+8fcc7ba6	Tamkeen para sa computer mo · <0>Patakaran sa privacy</0> · <1>Mga tuntunin ng serbisyo</1> · <2>Abiso tungkol sa cookies</2> · <3>Source code</3> · <4>Tungkol sa app</4>
+f5bddd19	Tamkeen {0} · <0>Patakaran sa privacy</0> · <1>Mga tuntunin ng serbisyo</1> · <2>Abiso tungkol sa cookies</2> · <3>Source code</3>

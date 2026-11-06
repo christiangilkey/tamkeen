@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	继续即表示你同意 Tamkeen 的<0>服务条款</0>和<1>隐私政策</1>。
+f4bc8937	隐私政策、条款与 Cookie
+8fcc7ba6	电脑版 Tamkeen · <0>隐私政策</0> · <1>服务条款</1> · <2>Cookie 声明</2> · <3>源代码</3> · <4>关于</4>
+f5bddd19	Tamkeen {0} · <0>隐私政策</0> · <1>服务条款</1> · <2>Cookie 声明</2> · <3>源代码</3>

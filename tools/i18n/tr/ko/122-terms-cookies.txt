@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	계속하면 Tamkeen의 <0>서비스 약관</0> 및 <1>개인정보 처리방침</1>에 동의하게 됩니다.
+f4bc8937	개인정보 처리방침, 약관 및 쿠키
+8fcc7ba6	컴퓨터용 Tamkeen · <0>개인정보 처리방침</0> · <1>서비스 약관</1> · <2>쿠키 안내</2> · <3>소스 코드</3> · <4>정보</4>
+f5bddd19	Tamkeen {0} · <0>개인정보 처리방침</0> · <1>서비스 약관</1> · <2>쿠키 안내</2> · <3>소스 코드</3>

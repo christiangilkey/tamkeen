@@ -89,6 +89,7 @@ function ask() {
           <div id="ob-lang"></div>
           <p class="small muted">This sets what the app listens for, how words are explained, and which way the text runs.
             You can change it later in Settings.</p>
+          <p class="small muted">By continuing, you agree to Tamkeen's <a href="https://christiangilkey.github.io/tamkeen/terms.html" target="_blank" rel="noopener">Terms of Service</a> and <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
           <div class="row ob-nav">${dots()}<span class="spacer"></span>
             <button type="button" class="ghost" id="ob-back">← Back</button>
             <button type="button" class="primary big" id="ob-next" ${lang ? "" : "disabled"}>Next →</button></div>

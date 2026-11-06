@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	Sa pagpadayon, miuyon ka sa <0>Mga termino sa serbisyo</0> ug <1>Palisiya sa privacy</1> sa Tamkeen.
+f4bc8937	Palisiya sa privacy, mga termino ug cookies
+8fcc7ba6	Tamkeen alang sa imong computer · <0>Palisiya sa privacy</0> · <1>Mga termino sa serbisyo</1> · <2>Pahibalo bahin sa cookies</2> · <3>Source code</3> · <4>Mahitungod</4>
+f5bddd19	Tamkeen {0} · <0>Palisiya sa privacy</0> · <1>Mga termino sa serbisyo</1> · <2>Pahibalo bahin sa cookies</2> · <3>Source code</3>

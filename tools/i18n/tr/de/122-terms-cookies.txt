@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	Wenn du fortfährst, stimmst du den <0>Nutzungsbedingungen</0> und der <1>Datenschutzerklärung</1> von Tamkeen zu.
+f4bc8937	Datenschutz, Nutzungsbedingungen und Cookies
+8fcc7ba6	Tamkeen für deinen Computer · <0>Datenschutzerklärung</0> · <1>Nutzungsbedingungen</1> · <2>Cookie-Hinweis</2> · <3>Quellcode</3> · <4>Über</4>
+f5bddd19	Tamkeen {0} · <0>Datenschutzerklärung</0> · <1>Nutzungsbedingungen</1> · <2>Cookie-Hinweis</2> · <3>Quellcode</3>

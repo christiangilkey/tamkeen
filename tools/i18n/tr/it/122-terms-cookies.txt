@@ -1,0 +1,5 @@
+# Terms of Service and Cookie notice links (Settings → About, first-run screen, Settings search).
+f330ad01	Continuando, accetti i <0>Termini di servizio</0> e l'<1>Informativa sulla privacy</1> di Tamkeen.
+f4bc8937	Privacy, termini e cookie
+8fcc7ba6	Tamkeen per il tuo computer · <0>Informativa sulla privacy</0> · <1>Termini di servizio</1> · <2>Informativa sui cookie</2> · <3>Codice sorgente</3> · <4>Informazioni</4>
+f5bddd19	Tamkeen {0} · <0>Informativa sulla privacy</0> · <1>Termini di servizio</1> · <2>Informativa sui cookie</2> · <3>Codice sorgente</3>

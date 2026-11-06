@@ -84,7 +84,7 @@ export const FINDS = [
   { s: "data", id: "whatis", label: "What is Tamkeen", words: "features abilities everything design research studies science sources about how it works" },
   { s: "data", id: "changelog", label: "Changelog", words: "changelog changes versions history what's new release notes" },
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
-  { s: "data", id: "privacy", label: "Privacy policy", words: "privacy data" },
+  { s: "data", id: "privacy", label: "Privacy policy, terms and cookies", words: "privacy data terms service conditions cookies legal" },
   { s: "data", id: "about", label: "About and open-source licenses", words: "licenses licences credits version source code" },
 ];
 

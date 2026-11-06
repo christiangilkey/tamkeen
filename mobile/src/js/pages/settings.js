@@ -326,6 +326,8 @@ function data(body) {
       <h2>About Tamkeen</h2>
       <p class="set-hint">Tamkeen ${isWeb ? "on the web" : isIOS ? "for iPhone" : "for Android"} ·
         <a href="https://christiangilkey.github.io/tamkeen/privacy.html" target="_blank" rel="noopener">Privacy policy</a> ·
+        <a href="https://christiangilkey.github.io/tamkeen/terms.html" target="_blank" rel="noopener">Terms of service</a> ·
+        <a href="https://christiangilkey.github.io/tamkeen/cookies.html" target="_blank" rel="noopener">Cookie notice</a> ·
         <a href="https://github.com/christiangilkey/tamkeen" target="_blank" rel="noopener">Source code</a></p>
     </section>
   </div>`));
