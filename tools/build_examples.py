@@ -17,6 +17,7 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
     python tools/build_examples.py build <cache dir> <tatoeba dir> es de ...
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
+    python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
 <tatoeba dir> holds Tatoeba's per-language exports: <code>_sentences.tsv.bz2 and <code>-eng_links.tsv.bz2 for
 each language, and eng_sentences.tsv.bz2 (https://downloads.tatoeba.org/exports/per_language/).
@@ -500,6 +501,68 @@ def keywords(dict_dir: Path, freq_file: Path, glove: Path | None = None) -> None
           extra={"words": len(out), "meanings": len(related)})
 
 
+# ---------------------------------------------------------------- 4. keywords in the learner's own language
+
+OWN_KEYWORDS = ("es", "fr", "de", "it", "pt", "ru", "ca")  # app languages with good Wiktionary pronunciations
+POS_CODE = {"noun": "n", "verb": "v", "adj": "a", "adv": "r"}
+
+
+def english_heads(glosses: list[str], pos: str) -> list[str]:
+    """The English words a word's first two meanings come down to: "to run, to jog" -> run, jog; "dog, hound" ->
+    dog, hound; "castle (a large building ...)" -> castle."""
+    out = []
+    for g in glosses[:2]:
+        g = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", g)
+        for part in re.split(r"[,;]", g)[:3]:
+            words = re.findall(r"[a-z]+", part.lower().replace("to ", " ", 1) if pos == "v" else part.lower())
+            words = [w for w in words if w not in ("a", "an", "the", "to", "be", "of", "one", "someone", "something")]
+            if 1 <= len(words) <= 3:
+                head = words[0] if pos in ("v", "a") else words[-1]
+                if head not in out:
+                    out.append(head)
+    return out[:4]
+
+
+def own_keywords(dict_dir: Path, freq_dir: Path, cache: Path, lang: str) -> None:
+    """docs/lexicon/<lang>-keywords.json.gz: keywords in an app language that isn't English, for the free Mnemonic
+    maker when the app is shown in it. Words from FrequencyWords' <lang>_50k.txt (rank <= 25,000) that the
+    language's meanings file has as a noun, verb, adjective or adverb (not a name), with Wiktionary's IPA (the
+    examples cache); each with the English words its first meanings come down to (`heads`: dog, hound), through
+    which the English WordNet's kinds (animal, artifact...) and the meaning ties (en-keywords' `related`) are used."""
+    kind, _pos, _capital = wordnet(dict_dir)
+    rank: dict[str, int] = {}
+    for i, line in enumerate((freq_dir / f"{lang}_50k.txt").read_text(encoding="utf-8").splitlines()):
+        w = unicodedata.normalize("NFC", line.split(" ")[0])
+        rank.setdefault(key(w, lang), i + 1)
+    meanings = json.loads(gzip.decompress((OUT / f"{lang}-meanings.json.gz").read_bytes()))["words"]
+    ipa = json.loads((cache / f"{lang}-wiktionary.json").read_text(encoding="utf-8"))["ipa"]
+    out, seen = [], set()
+    for k, r in sorted(rank.items(), key=lambda x: x[1]):
+        if r > 25000 or k in seen or k not in ipa or k not in meanings or len(k) < 3 or not re.fullmatch(r"[^\W\d_]+", k):
+            continue
+        # Its main sense (the first: "que" is first a conjunction, "Ich" a pronoun) is a thing, an action or a
+        # quality; an adverb only when it isn't among the commonest words (those are little words: "bien", "so").
+        entries = [e for e in meanings[k] if e[1] != "name"]
+        entry = entries[0] if entries else None
+        if not entry or entry[1] not in POS_CODE or (entry[1] == "adv" and r < 1500):
+            continue
+        shown = unicodedata.normalize("NFC", unicodedata.normalize("NFD", entry[0]).replace("\u0301", "").replace("\u0300", ""))
+        if shown[:1].isupper() and lang != "de":
+            continue  # a name
+        p = POS_CODE[entry[1]]
+        heads = english_heads(entry[2], p)
+        if not heads:
+            continue
+        seen.add(k)
+        out.append([shown, ipa[k], p, kind.get(heads[0], "") if p == "n" else "", r, "|".join(heads)])
+    data = {"format": 1, "kind": "keywords", "lang": lang,
+            "source": f"FrequencyWords ({lang}, OpenSubtitles 2018); English Wiktionary (Wiktextract): pronunciations, meanings; WordNet 3.0 kinds",
+            "license": "CC-BY-SA-4.0 (FrequencyWords, Wiktionary); WordNet 3.0 licence",
+            "fields": ["word", "ipa", "pos", "kind", "rank", "english"], "words": out}
+    write(f"{lang}-keywords.json.gz", f"kw-{lang}", data, title=f"{NAMES[lang]} keywords for mnemonics",
+          db="FrequencyWords + Wiktionary + WordNet 3.0", license="CC-BY-SA-4.0 + WordNet", extra={"words": len(out)})
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if not args:
@@ -510,6 +573,9 @@ if __name__ == "__main__":
     elif args[0] == "build":
         for lang in args[3:]:
             build(Path(args[1]), Path(args[2]), lang)
+    elif args[0] == "ownkeywords":
+        for lang in args[4:]:
+            own_keywords(Path(args[1]), Path(args[2]), Path(args[3]), lang)
     elif args[0] == "keywords":
         keywords(Path(args[1]), Path(args[2]), Path(args[3]) if len(args) > 3 else None)
     else:

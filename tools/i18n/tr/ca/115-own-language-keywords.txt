@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Paraules de la teva llengua que sonen com la paraula, cadascuna amb una imatge del seu significat, a Notes per memoritzar. Es fan en aquest dispositiu, sense IA.
+7208744b	Paraules de la teva llengua, i d'altres en anglès, que sonen com ella, trobades en aquest dispositiu sense IA, cadascuna amb una imatge del seu significat. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.
+ee432df0	Paraules de la teva llengua que sonen com ella, trobades en aquest dispositiu sense IA, cadascuna amb una imatge del seu significat. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.

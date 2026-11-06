@@ -38,5 +38,9 @@ The free Mnemonic maker's English words:
   Manning, GloVe: Global Vectors for Word Representation, 2014; glove.6B, https://nlp.stanford.edu/projects/glove/),
   made available under the Public Domain Dedication and License v1.0 (https://opendatacommons.org/licenses/pddl/1-0/).
   Only the list of tied words is kept, not the vectors.
+- Keywords in the app languages (Spanish, French, German, Italian, Portuguese, Russian, Catalan): each language's
+  common words from FrequencyWords (Hermit Dave, OpenSubtitles 2018 counts, CC BY-SA 4.0), with the pronunciation,
+  part of speech and English meaning the English Wiktionary gives them (Wiktextract, CC BY-SA 4.0), and the kind of
+  thing from WordNet 3.0 (through the English meaning). Files <language>-keywords.json.gz, shared under CC BY-SA 4.0.
 - How common each word is, from Hermit Dave's FrequencyWords (https://github.com/hermitdave/FrequencyWords),
   counts of OpenSubtitles 2018, under CC BY-SA 4.0.

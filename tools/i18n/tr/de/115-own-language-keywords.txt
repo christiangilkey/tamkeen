@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Wörter deiner Sprache, die wie das Wort klingen, jedes mit einem Bild für seine Bedeutung, in den Merknotizen. Auf diesem Gerät gemacht, ohne KI.
+7208744b	Wörter deiner Sprache und englische Wörter, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden, jedes mit einem Bild für die Bedeutung. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.
+ee432df0	Wörter deiner Sprache, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden, jedes mit einem Bild für die Bedeutung. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.

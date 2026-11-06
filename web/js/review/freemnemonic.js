@@ -35,20 +35,27 @@ const PIECE_TIE = 0.6;  // a keyword of several words tied through one piece onl
 export const FITS = 0.7;     // a tie this strong is shown "Fits the meaning"
 export const RELATED = 0.4;  // and this strong "Related in meaning"
 
-/** The keyword list, read once: [{word, ipa, pos, kind, rank, phones}], and the words by spelling. */
+/** The keyword list, read once: [{word, ipa, pos, kind, rank, heads, phones}], and the words by spelling (lower
+ * case). English's (en-keywords) or an app language's (<lang>-keywords: Spanish, French, German, Italian,
+ * Portuguese, Russian, Catalan), whose words carry `heads`, the English words their meaning comes down to; such a
+ * list takes its ties to a meaning through the English list (`english`, attached by examples.js). */
 export class KeywordList {
-  constructor(data) {
+  constructor(data, english = null) {
     const rows = (data && Array.isArray(data.words) ? data.words : []);
-    this.words = rows.map(([word, ipa, pos, kind, rank]) => ({ word, ipa, pos, kind, rank, phones: null }));
-    this.byWord = new Map(this.words.map((w) => [w.word, w]));
+    this.lang = (data && data.lang) || "en";
+    this.words = rows.map(([word, ipa, pos, kind, rank, heads]) => ({ word, ipa, pos, kind, rank, heads: heads ? heads.split("|") : null, phones: null }));
+    this.byWord = new Map();
+    for (const w of this.words) if (!this.byWord.has(w.word.toLowerCase())) this.byWord.set(w.word.toLowerCase(), w);
     this.adjectives = new Set((data && data.adjectives) || []);
     this.related = (data && data.related) || {};
+    this.english = english;
   }
   /** The keywords tied to a meaning (meaningPicture's), as a Map word -> {weight 0..1, tie}: each head word of
    * the meaning's senses ("big, large": both), a verb's as "to <verb>". */
   tiesOf(meaning) {
     const out = new Map();
     meaning.heads = meaning.heads || [meaning.head].filter(Boolean);
+    if (this.lang !== "en") return this.tiesThroughEnglish(meaning);
     meaning.heads.forEach((head, n) => {
       const list = this.related[meaning.pos === "verb" ? `to ${head}` : head] || this.related[head] || [];
       for (const [k, w, tie] of list) {
@@ -57,10 +64,32 @@ export class KeywordList {
         // Looser ties count less: a word named in the definition, a word-vector neighbour, a verb's narrower
         // verbs (WordNet's "ways to speak" include blubber and drone), and the meaning's later senses.
         const weight = (w / 100) * (TRUST[tie] ?? 1) * (meaning.pos === "verb" && tie === "s" ? 0.8 : 1) * (n ? 0.85 : 1);
-        const had = out.get(e.word);
-        if (!had || had.weight < weight) out.set(e.word, { weight, tie });
+        const had = out.get(e.word.toLowerCase());
+        if (!had || had.weight < weight) out.set(e.word.toLowerCase(), { weight, tie });
       }
     });
+    return out;
+  }
+  /** An app language's list: the meaning's words (in that language) to English through their `heads`, then
+   * English's ties; a keyword whose own English heads are the meaning's is the same thing (tie "s", weight 1). */
+  tiesThroughEnglish(meaning) {
+    const out = new Map();
+    const englishHeads = [...new Set(meaning.heads.flatMap((h) => (this.byWord.get(h) || {}).heads || []))];
+    if (!englishHeads.length) return out;
+    const same = new Set(englishHeads);
+    const english = this.english ? this.english.tiesOf({ ...meaning, heads: englishHeads.slice(0, 3) }) : new Map();
+    for (const e of this.words) {
+      if (!e.heads) continue;
+      let best = null;
+      for (const h of e.heads.slice(0, 2)) {  // (its main English meanings)
+        // (through English only the firm ties: a word with two meanings in its English glosses makes looser
+        // ones wander off: "cascata" is a waterfall, and English "fall" ties it to many things)
+        const via = english.get(h);
+        const t = same.has(h) ? { weight: 1, tie: "s" } : via && "spdk".includes(via.tie) ? via : null;
+        if (t && (!best || t.weight > best.weight)) best = t;
+      }
+      if (best) out.set(e.word.toLowerCase(), best);
+    }
     return out;
   }
   sounds(entry) {
@@ -135,7 +164,7 @@ export function findKeywords(pron, list, { skip = [], count = 24, tieOf = () => 
   const n = word.syllables.length;
   const longest = word.syllables.reduce((a, s) => a + s.length, 0) + 3;
   for (const e of list.words) {
-    if (skipped.has(e.word)) continue;
+    if (skipped.has(e.word.toLowerCase())) continue;
     const ps = list.sounds(e);
     if (!ps.length || ps.length > longest) continue;
     for (const r of runs) {
@@ -207,7 +236,8 @@ const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 export function meaningPicture(meaning, list = null, pos = "") {
   let m = String(meaning || "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/\n]|\s[-–—]\s/)[0].replace(/\s+/g, " ").trim();
   m = m.replace(/^(?:a|an|the)\s+/i, "");
-  const verb = /^to\s+\S/i.test(m) || /verb/i.test(pos);
+  const plainHead = (m.split(" ").pop() || "").toLowerCase();
+  const verb = /^to\s+\S/i.test(m) || /verb/i.test(pos) || !!(list && list.lang !== "en" && (list.byWord.get(plainHead) || {}).pos === "v" && m.split(" ").length === 1);
   if (verb) m = m.replace(/^to\s+/i, "");
   const head = (m.split(" ")[verb ? 0 : m.split(" ").length - 1] || "").toLowerCase();
   const entry = list && list.byWord.get(head);
@@ -215,7 +245,7 @@ export function meaningPicture(meaning, list = null, pos = "") {
   // Every sense's head word, for the ties ("big, large": big and large; "to run, to flee": run and flee).
   const heads = [head, ...String(meaning || "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/\n]/).slice(1, 4)
     .map((x) => x.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").split(/\s+/))
-    .map((ws) => (verb ? ws[0] : ws[ws.length - 1]) || "")].filter((x, i, all) => /^[a-z]+$/.test(x) && all.indexOf(x) === i);
+    .map((ws) => (verb ? ws[0] : ws[ws.length - 1]) || "")].filter((x, i, all) => /^\p{L}+$/u.test(x) && all.indexOf(x) === i);
   return { text: m.slice(0, 60), pos: verb ? "verb" : adj ? "adj" : "noun", head, heads, kind: entry && entry.pos === "n" ? entry.kind : "" };
 }
 
@@ -259,11 +289,29 @@ const TIED_LINES = {
   adj: { s: "{K} means much the same as {m}: picture something {m}, shouting “{K}!”", other: "Picture something {m} with {k}: the two go together." },
 };
 
+// Picture lines in the app languages: no article or case ending to get right, so one plain line each (and one
+// for a keyword tied to the meaning, and one for no meaning). Not interface text: they go in the learner's notes.
+const OWN_LINES = {
+  es: ["Une {K} con «{m}» en una imagen que no olvides.", "{K} y «{m}» ya van juntos: imagina los dos a la vez.", "Imagina {K} y únelo al significado de la palabra."],
+  fr: ["Associe {K} à « {m} » dans une image que tu n'oublieras pas.", "{K} et « {m} » vont déjà ensemble : imagine les deux à la fois.", "Imagine {K} et relie-le au sens du mot."],
+  de: ["Verbinde {K} mit „{m}“ zu einem Bild, das du nicht vergisst.", "{K} und „{m}“ gehören schon zusammen: Stell dir beides zugleich vor.", "Stell dir {K} vor und verbinde es mit der Bedeutung des Wortes."],
+  it: ["Unisci {K} a «{m}» in un'immagine che non dimentichi.", "{K} e «{m}» vanno già insieme: immagina le due cose insieme.", "Immagina {K} e collegalo al significato della parola."],
+  pt: ["Junte {K} a “{m}” numa imagem que você não vai esquecer.", "{K} e “{m}” já combinam: imagine os dois ao mesmo tempo.", "Imagine {K} e ligue-o ao significado da palavra."],
+  ru: ["Представьте: {K} и «{m}» — вместе, в одной яркой картинке.", "{K} и «{m}» и так связаны: представьте их вместе.", "Представьте {K} и свяжите это со значением слова."],
+  ca: ["Uneix {K} amb «{m}» en una imatge que no oblidis.", "{K} i «{m}» ja van junts: imagina'ls tots dos alhora.", "Imagina {K} i uneix-ho al significat de la paraula."],
+};
+
 /** The picture line joining `keyword` (one entry, or several for a split keyword) to the meaning. `tie` (a
- * tie code, when the keyword is tied to the meaning) picks a line that says how. */
-export function sceneFor(entries, meaning, seed = "", tie = "") {
+ * tie code, when the keyword is tied to the meaning) picks a line that says how; `lang` is the keywords'
+ * language (an app language's lines for its own keywords). */
+export function sceneFor(entries, meaning, seed = "", tie = "", lang = "en") {
   const list = Array.isArray(entries) ? entries : [entries];
   const shown = list.map((e) => e.word.toUpperCase()).join(" ");
+  if (lang !== "en" && OWN_LINES[lang]) {
+    const [plain, tied, none] = OWN_LINES[lang];
+    const line = !meaning.text ? none : tie ? tied : plain;
+    return line.replace(/\{K\}/g, shown).replace(/\{m\}/g, meaning.text);
+  }
   // The piece to picture: the most picturable noun of the keyword, else the keyword as a word said aloud.
   const thing = [...list].sort((a, b) => bonus(b) - bonus(a)).find((e) => e.pos === "n");
   const many = list.length > 1;
@@ -301,22 +349,25 @@ export function sceneFor(entries, meaning, seed = "", tie = "") {
 export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT }) {
   if (!pron) throw new Error("NO_SOUNDS");
   const meaning = meaningPicture(v.meaning, list, v.pos || "");
-  const skip = [...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^a-z]+/)];
+  const skip = [...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^\p{L}]+/u)];
   // Ties to the meaning: their strength (0..1) and kind, per keyword word; a keyword of several words takes its
   // strongest piece's. (meaningWeight 0: sound and picture only, as before the ties: for measuring them.)
   const ties = meaningWeight ? list.tiesOf(meaning) : new Map();
   const tieOf = (entries) => entries.reduce((best, e) => {
-    const t = ties.get(e.word);
+    const t = ties.get(e.word.toLowerCase());
     const weight = t ? t.weight * (entries.length > 1 ? PIECE_TIE : 1) : 0;
     return weight > best.weight ? { weight, tie: t.tie } : best;
   }, { weight: 0, tie: "" });
-  const found = findKeywords(pron, list, { skip, tieOf: (e) => meaningWeight * ((ties.get(e.word) || { weight: 0 }).weight) });
+  const found = findKeywords(pron, list, { skip, tieOf: (e) => meaningWeight * ((ties.get(e.word.toLowerCase()) || { weight: 0 }).weight) });
   const linkOf = (t) => (t.weight >= FITS ? 2 : t.weight >= RELATED ? 1 : 0);
   const keywords = found.keywords.map((k) => {
     const t = tieOf([k.entry]);
-    return { ...k, tie: t, scene: sceneFor(k.entry, meaning, v.text, linkOf(t) ? t.tie : "") };
+    return { ...k, tie: t, scene: sceneFor(k.entry, meaning, v.text, linkOf(t) ? t.tie : "", list.lang) };
   });
-  const parts = found.parts.map((p) => ({ pieces: p.pieces, tie: tieOf(p.pieces.map((x) => x.entry)), scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text) }));
+  const parts = found.parts.map((p) => {
+    const t = tieOf(p.pieces.map((x) => x.entry));
+    return { pieces: p.pieces, tie: t, scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text, list.lang !== "en" && linkOf(t) ? t.tie : "", list.lang) };
+  });
   const own = (keyword) => list.ipaOf(keyword);
   const marks = (t) => ({ link: linkOf(t), linkNote: "", tie: linkOf(t) ? t.tie : "", tieWeight: t.weight });
   const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, scene: k.scene, ...marks(k.tie) });
@@ -338,10 +389,10 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
   }
   // (a keyword of two words is harder to keep in mind than one word: it must sound clearly closer)
   const worth = (s) => s.score + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
-    + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w) || { pos: "", rank: 1e5 }))));
+    + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w.toLowerCase()) || { pos: "", rank: 1e5 }))));
   ranked.items.sort((a, b) => worth(b) - worth(a));
   ranked.parts.sort((a, b) => worth(b) - worth(a));
-  return { pron, asked: keywords.length + parts.length, free: true, items: varied(ranked.items, MNEMONIC_COUNT), parts: varied(ranked.parts, SPLIT_COUNT), checked: ranked.checked };
+  return { pron, asked: keywords.length + parts.length, free: true, keywordLang: list.lang, items: varied(ranked.items, MNEMONIC_COUNT), parts: varied(ranked.parts, SPLIT_COUNT), checked: ranked.checked };
 }
 
 /** The first `n` of `list`, but a word of a keyword made of several words only once ("pie toe", then not

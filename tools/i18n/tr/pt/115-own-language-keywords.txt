@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Palavras do seu idioma que soam como a palavra, cada uma com uma imagem do seu significado, nas Notas para memorizar. Feitas neste aparelho, sem IA.
+7208744b	Palavras do seu idioma, e outras em inglês, que soam como ela, encontradas neste aparelho sem IA, cada uma com uma imagem do seu significado. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.
+ee432df0	Palavras do seu idioma que soam como ela, encontradas neste aparelho sem IA, cada uma com uma imagem do seu significado. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.

@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Des mots de ta langue qui sonnent comme le mot, chacun avec une image de son sens, dans les Notes de mémorisation. Faits sur cet appareil, sans IA.
+7208744b	Des mots de ta langue, et d'autres en anglais, qui sonnent comme lui, trouvés sur cet appareil sans IA, chacun avec une image de son sens. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.
+ee432df0	Des mots de ta langue qui sonnent comme lui, trouvés sur cet appareil sans IA, chacun avec une image de son sens. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.

@@ -191,3 +191,22 @@ test("a sentence the learner can read comes first (i+1), when the seen words are
   const [plain] = pack("es").find("perro", { meaning: "dog" });
   assert.equal(plain.newWords, undefined, "nothing said when it can't be told");
 });
+
+test("keywords in the learner's own language when the app isn't in English", () => {
+  for (const ui of ["es", "fr", "de", "it", "pt", "ru", "ca"]) {
+    const own = new KeywordList(read(`${ui}-keywords.json.gz`), list);
+    assert.equal(own.lang, ui);
+    assert.ok(own.words.length > 5000, `${ui}: ${own.words.length}`);
+  }
+  const it = new KeywordList(read("it-keywords.json.gz"), list);
+  const r = makeFreeMnemonics({ text: "قطة", meaning: "gatto" }, { pron: said("قطة", "ar", "cat"), list: it });
+  const top = r.items[0] || r.parts[0];
+  assert.equal(r.keywordLang, "it");
+  assert.equal(top.keyword, "gatta", "Arabic qiṭṭa: Italian GATTA, a she-cat");
+  assert.ok(top.link >= 1);
+  assert.match(top.scene, /GATTA e «gatto»/, "a picture line in Italian");
+  const de = new KeywordList(read("de-keywords.json.gz"), list);
+  const hund = makeFreeMnemonics({ text: "perro", meaning: "Hund" }, { pron: said("perro", "es"), list: de });
+  assert.ok(hund.items.length >= 3);
+  for (const s of hund.items) assert.ok(de.byWord.has(s.keyword.toLowerCase()), `${s.keyword} is a German word of the list`);
+});

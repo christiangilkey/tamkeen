@@ -714,7 +714,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
       label.textContent = "Make 5 more";
       if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
-      else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
+      else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
+        say(st.keywordLangs.length > 1
+          ? t("Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.")
+          : t("Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
+      } else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
       else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
       // Fewer than five that pass: only those are shown, and the card says so.
       const n = all.length;
@@ -739,7 +743,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         const reading = await readingOf(v, lang);
         // No AI key (or AI turned off): the free maker, English keywords found on this device
         // (examples.js freeMnemonics). With a key the AI's, as before; a key that turns out missing falls back.
-        const free = () => freeMnemonics(v, lang, { reading, avoid });
+        const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage() });
         let got;
         if (noAi() || !definerConfig().key) got = await free();
         else {

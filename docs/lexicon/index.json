@@ -317,6 +317,24 @@
    "forms": 0,
    "lexemes": 32124
   },
+  "kw-ca": {
+   "file": "ca-keywords.json.gz",
+   "bytes": 145001,
+   "sha256": "e074a22dbae1afe3a6062d2f8a14014db1948a1e5feade6d2a3ca0c98d2f6743",
+   "title": "Catalan keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 7076
+  },
+  "kw-de": {
+   "file": "de-keywords.json.gz",
+   "bytes": 222142,
+   "sha256": "6f3c5e5faf28e844b259755833da199f6024ca06195fa943d2c8ad1de065ef6f",
+   "title": "German keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 9266
+  },
   "kw-en": {
    "file": "en-keywords.json.gz",
    "bytes": 1876081,
@@ -326,6 +344,51 @@
    "license": "CMUdict + WordNet + CC-BY-SA-4.0 + PDDL-1.0",
    "words": 10069,
    "meanings": 22515
+  },
+  "kw-es": {
+   "file": "es-keywords.json.gz",
+   "bytes": 180309,
+   "sha256": "7c284a8f41f4a08029bb579dc6baf862f8fa5ba1cbccd0df306ada3c322a44a6",
+   "title": "Spanish keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 8513
+  },
+  "kw-fr": {
+   "file": "fr-keywords.json.gz",
+   "bytes": 193230,
+   "sha256": "c530ecbf5d7d7ac07cdb35897bf5ebba808e6892849c38d35169439ae1c4cdee",
+   "title": "French keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 9285
+  },
+  "kw-it": {
+   "file": "it-keywords.json.gz",
+   "bytes": 195041,
+   "sha256": "d76af02a794affdd45107dc7789bda2bfa2a1cfc61c3225a553628629d26675a",
+   "title": "Italian keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 8521
+  },
+  "kw-pt": {
+   "file": "pt-keywords.json.gz",
+   "bytes": 176609,
+   "sha256": "efffd85049bb89933fed463f8d8ebdbc09508f1e192f958c2e6105deed9eb667",
+   "title": "Portuguese keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 8167
+  },
+  "kw-ru": {
+   "file": "ru-keywords.json.gz",
+   "bytes": 156521,
+   "sha256": "9befda4ee1a9bf6e3618ddcd3df4b8c86c6c0a02187076ca3c60fa12d4b3c111",
+   "title": "Russian keywords for mnemonics",
+   "db": "FrequencyWords + Wiktionary + WordNet 3.0",
+   "license": "CC-BY-SA-4.0 + WordNet",
+   "words": 6108
   },
   "la": {
    "file": "la-lemmas.json.gz",

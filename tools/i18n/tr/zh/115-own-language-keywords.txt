@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	发音像这个词的、你自己语言里的词，每个都配一幅表示词义的画面，放进记忆笔记。在本设备上生成，不用 AI。
+7208744b	发音相近的、你自己语言里的词和英文单词，在本设备上不用 AI 找到，每个都配一幅表示词义的画面。“使用”会把它放进记忆笔记；点踩则永远不再显示。
+ee432df0	发音相近的、你自己语言里的词，在本设备上不用 AI 找到，每个都配一幅表示词义的画面。“使用”会把它放进记忆笔记；点踩则永远不再显示。

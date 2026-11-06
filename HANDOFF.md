@@ -6761,3 +6761,21 @@ Each committed on its own.
    meaning 150 → 145, mean length 32 → 29 characters; N = 500: 21 → 84. Preview: with 50 common Spanish words marked
    seen, perro's sentence went from "El perro está jugando junto al gato." to "No es un gato. Es un perro." (readable).
    Not simulated: ja/zh/th (their splitter needs the dictionaries in the page).
+2. **Keywords in the learner's own language.** `build_examples.py ownkeywords <WordNet dict> <FrequencyWords dir>
+   <cache> es fr de it pt ru ca` → `docs/lexicon/<lang>-keywords.json.gz` (kind "keywords", lang = the app language;
+   app/lexicon.py OWN_KEYWORDS, lexicon-store.js KEYWORDS): FrequencyWords `<lang>_50k.txt` rank ≤ 25,000, the word's
+   main sense in `<lang>-meanings` a noun/verb/adjective (an adverb only past rank 1,500), Wiktionary IPA from the extract
+   cache, `english` heads from its first two glosses (`english_heads`: "to run, to jog" → run|jog), WordNet kind of the
+   first head; names (a capital outside German) left out. 6,108 (ru) … 9,285 (fr) words, 0.15-0.22 MB each. Chose this
+   over Open Multilingual Wordnet: OMW's wordnets have mixed licences and none for German or Russian, while the glosses
+   are already in the app's own meanings files. `KeywordList(data, english)`: lower-case `byWord`, `heads`;
+   `tiesThroughEnglish` (the meaning's own-language words → their English heads → en-keywords' ties, only s/p/d/k ties,
+   a keyword's first two heads; the same English head = "s", weight 1). `OWN_LINES` per language (no articles: "Une
+   JUNTA con «perro» en una imagen que no olvides."). `examples.js freeMnemonics(…, {speaks})`: the app language's list
+   when it is one of the seven and not the study language; English ones added after when it has fewer than 3; result
+   `keywordLangs`. review.js and wordbuilder.js pass `uiLanguage()`; notes "Words of your language…" (i18n
+   115-own-language-keywords.txt). Measured (scratch `own.mjs`: words of ar, de, es, ja, ko, la for 18 meanings, the
+   meaning written in the app language): 3+ own-language keywords for 88/90 (es) … 108/108 (fr, it, ca), top tied to
+   the meaning es 19/90, fr 30/108, de 18/90, it 42/108 (قطة → gatta), pt 25/108, ru 13/108, ca 21/108. Preview:
+   app in Spanish, a German Hund card (meaning "perro"): junta, junto, fondo, sonda, funda with Spanish lines.
+   Not covered: the other app languages (ar, fa, hi, ja, ko, zh, th, tl, ceb) keep English keywords.

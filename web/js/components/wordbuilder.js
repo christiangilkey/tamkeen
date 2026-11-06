@@ -21,13 +21,13 @@
 
 import { api, esc, h, platform, saveRecording, showMenu, state, toast } from "../app.js";
 import { icon } from "../icons.js";
-import { t } from "../i18n.js";
+import { t, uiLanguage } from "../i18n.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, batchPrompt, cardOf, chunks, cleanChoices, duplicates, edited, fillIn, hasValue,
          needs, needsAny, needsMemo, parseList, pool, readBatch, typed } from "../addwords.js";
-import { freeExample, freeMnemonics } from "../examples.js";
+import { OWN_KEYWORDS, freeExample, freeMnemonics } from "../examples.js";
 import { noteText } from "../review/mnemonic.js";
 import { askAi, definerConfig, noAi } from "../define-service.js";
 import { definerModeOf } from "../definer.js";
@@ -233,7 +233,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           : `A real sentence that uses the word, from Tatoeba or Wiktionary, with its English translation. <a href="${AI_SETTINGS}" class="cb-go">Set up AI</a> to have them written for you.`;
       } else if (choices.sentence === "auto") html = "A short sentence that uses the word the way a native speaker would, with its translation.";
     } else if (key === "mnemonic") {
-      if (choices.mnemonic === "auto") html = "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.";
+      if (choices.mnemonic === "auto") {
+        html = OWN_KEYWORDS.has(uiLanguage()) && uiLanguage() !== lang
+          ? "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI."
+          : "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.";
+      }
     } else if (key === "audio") {
       const s = settings();
       if (choices.audio === "auto") {
@@ -843,7 +847,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     for (const r of todo) {
       if (!needsMemo(r, choices)) continue;
       try {
-        const got = await freeMnemonics({ text: r.text.trim(), meaning: r.meaning.value }, lang);
+        const got = await freeMnemonics({ text: r.text.trim(), meaning: r.meaning.value }, lang, { speaks: uiLanguage() });
         const best = got.items[0] || got.parts[0];
         if (best) r.memo = fillIn(r.memo, noteText(best));
       } catch { /* no keyword list (no connection the first time): the card is added without one */ }

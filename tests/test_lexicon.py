@@ -273,3 +273,12 @@ def test_example_sentences_and_keywords_are_their_own_downloads(client):
     assert kw["installed"] and kw["names"] == ["kw-en"]
     words = client.get("/api/lexicon/data/kw-en").json()["words"]
     assert ["pot", "ˈpɑt", "n", "artifact"] == next(w for w in words if w[0] == "pot")[:4]
+
+
+def test_keywords_in_the_app_languages_are_their_own_downloads(client):
+    """The free Mnemonic maker's keywords in an app language other than English (kind "keywords", lang = it)."""
+    for lang in ("es", "fr", "de", "it", "pt", "ru", "ca"):
+        assert client.get(f"/api/lexicon/status?lang={lang}&kind=keywords").json()["names"] == [f"kw-{lang}"]
+    assert client.post("/api/lexicon/download", json={"lang": "it", "kind": "keywords"}).json()["installed"]
+    data = client.get("/api/lexicon/data/kw-it").json()
+    assert data["lang"] == "it" and any(w[0] == "gatta" for w in data["words"])

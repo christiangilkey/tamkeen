@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Mga salita ng sarili mong wika na kahawig ng tunog ng salita, bawat isa may larawan para sa kahulugan nito, ilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI.
+7208744b	Mga salita ng sarili mong wika, at mga salitang Ingles, na kahawig ang tunog, nahanap sa device na ito nang walang AI, bawat isa may larawan para sa kahulugan. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.
+ee432df0	Mga salita ng sarili mong wika na kahawig ang tunog, nahanap sa device na ito nang walang AI, bawat isa may larawan para sa kahulugan. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.

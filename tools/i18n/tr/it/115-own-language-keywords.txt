@@ -1,0 +1,4 @@
+# Free Mnemonic maker: keywords in the learner's own language (review.js, wordbuilder.js; examples.js OWN_KEYWORDS).
+ebd5d05b	Parole della tua lingua che suonano come la parola, ognuna con un'immagine del suo significato, nelle Note per memorizzare. Create su questo dispositivo, senza IA.
+7208744b	Parole della tua lingua, e altre in inglese, che suonano come lei, trovate su questo dispositivo senza IA, ognuna con un'immagine del suo significato. Usa ne mette una nelle Note per memorizzare; il pollice verso lo scarta per sempre.
+ee432df0	Parole della tua lingua che suonano come lei, trovate su questo dispositivo senza IA, ognuna con un'immagine del suo significato. Usa ne mette una nelle Note per memorizzare; il pollice verso lo scarta per sempre.

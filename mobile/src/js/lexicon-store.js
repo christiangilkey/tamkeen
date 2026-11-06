@@ -19,7 +19,9 @@ const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [
 // Card helpers with no AI (tools/build_examples.py, as app/lexicon.py EXAMPLES): example sentences with
 // pronunciations, one file a language, and the free Mnemonic maker's English keywords.
 const EXAMPLES = Object.fromEntries(Object.keys(LANGUAGES).filter((l) => l !== "en").map((l) => [l, [`ex-${l}`]]));
-const KINDS = { words: LANGUAGES, meanings: MEANINGS, examples: EXAMPLES, keywords: { en: ["kw-en"] } };
+// (and the free Mnemonic maker's keywords in the app languages that have them, as app/lexicon.py OWN_KEYWORDS)
+const KEYWORDS = { en: ["kw-en"], ...Object.fromEntries(["es", "fr", "de", "it", "pt", "ru", "ca"].map((l) => [l, [`kw-${l}`]])) };
+const KINDS = { words: LANGUAGES, meanings: MEANINGS, examples: EXAMPLES, keywords: KEYWORDS };
 const EXAMPLE_ESTIMATE = 2500000;
 // Reading the text in a photo ("Add words" → Scan, web/js/ocr.js): Tesseract and each language's trained
 // data, for the study language and the learner's own ("es+en"), as app/lexicon.py names_for.

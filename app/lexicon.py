@@ -55,7 +55,11 @@ FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES}
 # maker (kind "keywords", lang "en"). Downloaded the first time they are needed.
 EXAMPLES = {lang: (f"ex-{lang}",) for lang in LANGUAGES if lang != "en"}
 FILES.update({f"ex-{lang}": f"{lang}-examples.json.gz" for lang in EXAMPLES} | {"kw-en": "en-keywords.json.gz"})
-KINDS = {"words": LANGUAGES, "meanings": MEANINGS, "examples": EXAMPLES, "keywords": {"en": ("kw-en",)}}
+# Keywords in an app language other than English (the free Mnemonic maker, when the app is shown in it).
+OWN_KEYWORDS = ("es", "fr", "de", "it", "pt", "ru", "ca")
+FILES.update({f"kw-{lang}": f"{lang}-keywords.json.gz" for lang in OWN_KEYWORDS})
+KINDS = {"words": LANGUAGES, "meanings": MEANINGS, "examples": EXAMPLES,
+         "keywords": {"en": ("kw-en",)} | {lang: (f"kw-{lang}",) for lang in OWN_KEYWORDS}}
 # Reading the text in a photo ("Add words" → Scan, web/js/ocr.js; files made by tools/build_ocr.mjs): Tesseract
 # itself (the "core": one build for devices with WebAssembly SIMD, kind "ocr", one for older ones, kind "ocr-plain")
 # and each language's trained data, by Tesseract's names. For these kinds `lang` is the study language and the
