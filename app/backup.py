@@ -47,6 +47,43 @@ def export(include_audio: bool) -> Path:
     return out
 
 
+# Settings that belong to this device and its sign-ins, never to a backup: the keys, the Google
+# account, this device's id. A backup's own are thrown away and this device's kept, so a backup made
+# by someone else can't sign this computer in to their Google Drive (and then receive its files).
+DEVICE_SETTINGS = (*db.SECRET_SETTINGS, "google_email", "google_scopes", "device_id")
+# Columns holding a file on this computer. They may only ever name a file in the audio folder.
+PATH_COLUMNS = (("episodes", "audio_path"), ("episodes", "sync_audio_path"))
+
+
+def _name(stored: str) -> str:
+    """The file name at the end of a path written on any computer (Windows or not)."""
+    return str(stored).replace("\\", "/").rsplit("/", 1)[-1]
+
+
+def clean_incoming(path: Path) -> None:
+    """Make a backup's database safe before it replaces the library: drop its device settings, every
+    trigger and view (the app makes its own again: db.init_db), and any file path outside the audio
+    folder (re-pointed there by file name, or forgotten)."""
+    conn = sqlite3.connect(path)
+    try:
+        conn.execute("PRAGMA trusted_schema = OFF")
+        tables = {r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type = 'table'")}
+        for kind, name in conn.execute("SELECT type, name FROM sqlite_master WHERE type IN ('trigger', 'view')").fetchall():
+            conn.execute(f'DROP {kind.upper()} IF EXISTS "{name.replace(chr(34), chr(34) * 2)}"')
+        if "settings" in tables:
+            conn.execute(f"DELETE FROM settings WHERE key IN ({','.join('?' * len(DEVICE_SETTINGS))})", DEVICE_SETTINGS)
+        for table, column in PATH_COLUMNS:
+            if table not in tables or column not in {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}:
+                continue
+            for rowid, stored in conn.execute(f"SELECT rowid, {column} FROM {table} WHERE {column} IS NOT NULL").fetchall():
+                # (by name only: the backup's own audio files are put there after this)
+                local = paths.audio_dir_path(_name(stored)) if isinstance(stored, str) else None
+                conn.execute(f"UPDATE {table} SET {column} = ? WHERE rowid = ?", (str(local) if local else None, rowid))
+        conn.commit()
+    finally:
+        conn.close()
+
+
 def import_(zip_path: Path) -> dict[str, Any]:
     """Replace the current library with the backup's contents."""
     with zipfile.ZipFile(zip_path) as zf:
@@ -62,7 +99,11 @@ def import_(zip_path: Path) -> dict[str, Any]:
                     raise ValueError("The backup's database is damaged.")
             finally:
                 check.close()
-            keep = {k: v for k, v in db.get_settings().items() if k in db.SECRET_SETTINGS and v}
+            try:
+                clean_incoming(incoming)
+            except sqlite3.DatabaseError as exc:
+                raise ValueError(f"The backup's database can't be read ({exc}).") from exc
+            keep = {k: v for k, v in db.get_settings().items() if k in DEVICE_SETTINGS and v}
             src = sqlite3.connect(incoming)
             dst = db.connect()
             try:
@@ -71,7 +112,7 @@ def import_(zip_path: Path) -> dict[str, Any]:
                 src.close()
                 dst.close()
             if keep:
-                db.set_settings(keep)  # this device's API keys survive an import
+                db.set_settings(keep)  # this device's API keys and sign-ins survive an import
         audio_dir = paths.audio_dir()
         restored = 0
         for name in names:
@@ -83,10 +124,10 @@ def import_(zip_path: Path) -> dict[str, Any]:
     db.init_db()
     # Re-point audio paths at this machine's data folder; forget files that aren't here.
     with db.session() as conn:
-        for row in conn.execute("SELECT id, audio_path FROM episodes WHERE audio_path IS NOT NULL").fetchall():
-            local = audio_dir / Path(row["audio_path"]).name
-            conn.execute("UPDATE episodes SET audio_path = ? WHERE id = ?",
-                         (str(local) if local.exists() else None, row["id"]))
+        for _table, column in PATH_COLUMNS:
+            for row in conn.execute(f"SELECT id, {column} FROM episodes WHERE {column} IS NOT NULL").fetchall():
+                local = paths.audio_file(paths.audio_dir_path(_name(row[column])))
+                conn.execute(f"UPDATE episodes SET {column} = ? WHERE id = ?", (str(local) if local else None, row["id"]))
     jobs.recover()
     jobs.worker.wake()
     return {"audio_files": restored}

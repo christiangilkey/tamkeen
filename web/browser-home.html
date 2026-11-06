@@ -24,7 +24,9 @@
     // "Your saved sites": kept by the app (this page is served by the app's own local server, so
     // it may ask). Asked again whenever the page is shown, so a site saved a moment ago is there
     // when the user comes back to the start page.
-    const takeOff = (url) => fetch("/api/browser/sites", { method: "POST", headers: { "Content-Type": "application/json" },
+    // (the server only takes changes that carry this run's token, which it wrote into this page: app/guard.py)
+    const session = document.querySelector('meta[name="tamkeen-session"]')?.content || "";
+    const takeOff = (url) => fetch("/api/browser/sites", { method: "POST", headers: { "Content-Type": "application/json", "X-Tamkeen-Session": session },
                                                            body: JSON.stringify({ url, on: false }) }).catch(() => {});
     async function showSaved() {
       try {

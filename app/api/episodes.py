@@ -4,14 +4,14 @@ from __future__ import annotations
 
 import mimetypes
 import re
-from pathlib import Path
 from typing import Any
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
 from pydantic import BaseModel
 
-from .. import audiobooks, books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, sync, tashkeel, videos, youtube
+from . import limits
+from .. import audiobooks, books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, paths, sync, tashkeel, videos, youtube
 
 router = APIRouter(tags=["episodes"])
 
@@ -25,7 +25,7 @@ STATUS_FILTERS = {
 
 
 class TranscribeIn(BaseModel):
-    ids: list[int]
+    ids: limits.IdList
 
 
 def _episode(episode_id: int) -> dict[str, Any]:
@@ -131,16 +131,16 @@ async def upload_video(request: Request, filename: str, title: str | None = None
 
 
 class PageIn(BaseModel):
-    url: str
-    title: str = ""
+    url: limits.AnyUrlText  # (pages.clean_url takes http(s) addresses only)
+    title: limits.Title = ""
     blocks: list[dict[str, Any]]
-    image: str | None = None
-    site: str | None = None
-    language: str | None = None  # a page a friend sent: the language it had for them
+    image: limits.AnyUrlText | None = None  # (kept only when it is https://)
+    site: limits.Name | None = None
+    language: limits.Code | None = None  # a page a friend sent: the language it had for them
 
 
 @router.get("/web/fetch")
-def fetch_page(url: str) -> dict[str, str]:
+def fetch_page(url: limits.AnyUrlText) -> dict[str, str]:
     """Download a web page for "Add a webpage" (the text is extracted in the app's own page)."""
     try:
         return pages.fetch_html(url)
@@ -160,9 +160,9 @@ def import_page(body: PageIn) -> dict[str, Any]:
 
 
 class ReviewTaskIn(BaseModel):
-    title: str
-    notes: str = ""
-    due: str
+    title: limits.Title
+    notes: limits.Text = ""
+    due: limits.Name
     minutes: int = 0
 
 
@@ -215,7 +215,7 @@ def review_event(body: ReviewEventIn, request: Request) -> dict[str, Any]:
 
 
 class OnyxIn(BaseModel):
-    url: str
+    url: limits.AnyUrlText  # (an onyx:// link: checked by googletasks.open_onyx)
 
 
 @router.post("/open-onyx")
@@ -229,12 +229,12 @@ def open_onyx(body: OnyxIn) -> dict[str, bool]:
 
 
 class BookIn(BaseModel):
-    guid: str
-    title: str = ""
-    author: str = ""
-    lang: str = ""
+    guid: limits.Title
+    title: limits.Title = ""
+    author: limits.Title = ""
+    lang: limits.Code = ""
     blocks: list[dict[str, Any]]
-    source: str = ""
+    source: limits.AnyUrlText = ""
 
 
 @router.post("/books")
@@ -269,7 +269,7 @@ def delete_episode(episode_id: int) -> dict[str, bool]:
 
 
 class DeleteIn(BaseModel):
-    ids: list[int]
+    ids: limits.IdList
 
 
 @router.post("/episodes/delete")
@@ -363,8 +363,7 @@ def episode_audio(episode_id: int, request: Request) -> Response:
     ep = _episode(episode_id)
     if youtube.is_youtube(ep["audio_type"]):
         raise HTTPException(404, "This video plays from YouTube; the app keeps no copy of its sound.")
-    if ep["audio_path"] and Path(ep["audio_path"]).exists():
-        path = Path(ep["audio_path"])
+    if (path := paths.audio_file(ep["audio_path"])) is not None:  # (only a file in the audio folder)
         media = ep["audio_type"] or mimetypes.guess_type(path.name)[0] or "audio/mpeg"
         return FileResponse(path, media_type=media)  # supports HTTP Range for seeking
     if videos.is_drive_media(ep["audio_url"]):
@@ -374,10 +373,10 @@ def episode_audio(episode_id: int, request: Request) -> Response:
         return _drive_stream(videos.drive_name(ep["audio_url"]), ep["audio_type"] or "video/mp4", request)
     # Transcribed on another device (or original deleted): the synced copy is the exact audio
     # the transcript was made from, so timestamps line up even if the feed inserts ads.
-    copy = Path(ep["sync_audio_path"]) if ep["sync_audio_path"] else None
-    if (copy is None or not copy.exists()) and ep["remote_audio"]:
-        copy = sync.audio_copy(episode_id)
-    if copy is not None and copy.exists():
+    copy = paths.audio_file(ep["sync_audio_path"])
+    if copy is None and ep["remote_audio"]:
+        copy = paths.audio_file(sync.audio_copy(episode_id))
+    if copy is not None:
         return FileResponse(copy, media_type="audio/ogg")
     return RedirectResponse(ep["audio_url"], status_code=307)
 

@@ -39,6 +39,31 @@ def audio_dir() -> Path:
     return _sub("audio")
 
 
+def audio_dir_path(name: str) -> Path | None:
+    """`name` as a file in the audio folder, or None when it isn't a plain file name ("..", a
+    folder, a drive, a Windows stream "a.mp3:x")."""
+    name = str(name or "")
+    if not name or name in (".", "..") or any(c in name for c in '/\\:\0') or name != name.strip():
+        return None
+    return audio_dir() / name
+
+
+def audio_file(stored: str | os.PathLike[str] | None) -> Path | None:
+    """A file path kept in the library (episodes.audio_path, sync_audio_path) when it names a file
+    that is really in the audio folder, else None. Every file the app plays, sends to a friend or
+    uploads to Drive is checked with this first, so a path planted in the library (an imported
+    backup, say) can't make it read some other file on the computer."""
+    if not stored:
+        return None
+    try:
+        path = Path(stored)
+        if path.resolve().parent != audio_dir().resolve() or not path.is_file():
+            return None
+    except (OSError, ValueError):
+        return None
+    return path
+
+
 def clips_dir() -> Path:
     """Short audio clips that came with vocab words shared by friends."""
     return _sub("clips")

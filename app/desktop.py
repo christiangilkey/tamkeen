@@ -37,7 +37,8 @@ def free_port() -> int:
 class Server:
     def __init__(self, port: int) -> None:
         self.port = port
-        config = uvicorn.Config(create_app(), host="127.0.0.1", port=port, log_level="warning",
+        self.app = create_app()
+        config = uvicorn.Config(self.app, host="127.0.0.1", port=port, log_level="warning",
                                 log_config=None, timeout_graceful_shutdown=2)
         self.server = uvicorn.Server(config)
         self.thread = threading.Thread(target=self.server.run, name="uvicorn", daemon=True)
@@ -417,11 +418,19 @@ class JsApi:
     def save_file(self, url: str, filename: str) -> dict[str, Any]:
         import webview
 
+        from . import guard
+
+        # Only one of the app's own downloads ("/api/..."): a "url" like "@other.site/x" would otherwise
+        # be read as an address on another computer once put after the server's own.
+        url = str(url or "")
+        if not url.startswith("/api/") or "@" in url.split("?", 1)[0] or "\\" in url:
+            return {"ok": False, "error": "That isn't one of Tamkeen's downloads."}
         result = self._window.create_file_dialog(webview.SAVE_DIALOG, save_filename=filename)
         if not result:
             return {"ok": False, "cancelled": True}
         target = Path(result if isinstance(result, str) else result[0])
-        with httpx.stream("GET", self._server.url.rstrip("/") + url, timeout=None) as resp:
+        headers = {guard.SESSION_HEADER: self._server.app.state.session_token}
+        with httpx.stream("GET", self._server.url.rstrip("/") + url, headers=headers, timeout=None) as resp:
             if resp.status_code >= 400:
                 return {"ok": False, "error": resp.read().decode("utf-8", "replace")}
             with open(target, "wb") as fh:

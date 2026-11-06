@@ -17,6 +17,8 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
+from . import limits
+
 from .. import db, events, feeds, ids, jobs, languages, reels, sync
 from ..transcriber import Segment, Word
 
@@ -87,14 +89,15 @@ def accept_reel(body: ReelIn) -> dict[str, Any]:
 
 
 class PodcastIn(BaseModel):
-    feed_url: str
-    guid: str = ""
-    audio_url: str = ""
-    title: str = ""
-    image: str = ""
+    # A friend's addresses: web addresses only, never this computer or the home network (checked below).
+    feed_url: limits.AnyUrlText
+    guid: limits.Title = ""
+    audio_url: limits.AnyUrlText = ""
+    title: limits.Title = ""
+    image: limits.AnyUrlText = ""
     duration: float | None = None
-    language: str | None = None
-    model: str = ""
+    language: limits.Code | None = None
+    model: limits.Name = ""
     segments: list[dict[str, Any]] = []
 
 
@@ -117,6 +120,8 @@ def accept_podcast(body: PodcastIn) -> dict[str, Any]:
     url = body.feed_url.strip()
     if not url.lower().startswith(("http://", "https://")):
         raise HTTPException(400, "This doesn't say which podcast the episode is from.")
+    if limits.is_local_address(url):  # a friend can't make this computer reach the home network or itself
+        raise HTTPException(400, "This podcast's address is on a home network, so it can't be followed from here.")
     language = body.language if languages.valid(body.language) else None
     feed = _followed_feed(url)
     added = False
@@ -130,6 +135,8 @@ def accept_podcast(body: PodcastIn) -> dict[str, Any]:
             with db.session() as conn:
                 conn.execute("UPDATE feeds SET language = ? WHERE id = ?", (language, feed["id"]))
     audio_url = body.audio_url.strip()[:1000] if body.audio_url.strip().lower().startswith(("http://", "https://")) else ""
+    if audio_url and limits.is_local_address(audio_url):
+        audio_url = ""
     guid = " ".join(body.guid.split())[:500] or audio_url
     if not guid:
         raise HTTPException(400, "This doesn't say which episode it is.")

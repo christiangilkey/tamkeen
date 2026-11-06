@@ -8,19 +8,38 @@ import subprocess
 import sys
 import time
 from pathlib import Path
-from typing import Any
+from typing import Annotated, Any
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
-from pydantic import BaseModel
+from pydantic import AfterValidator, BaseModel
 
-from .. import aikeys, applink, audio, backup, db, events, gpu_libs, hardware, languages, learning, models_manager, notify, paths, sync, transcriber, updates
+from .. import aikeys, applink, audio, backup, db, events, gpu_libs, guard, hardware, languages, learning, models_manager, notify, paths, sync, transcriber, updates
 from ..version import APP_NAME, GITHUB_REPO, __version__
+from . import limits
 
 router = APIRouter(tags=["system"])
 
+# Settings only the app itself writes: the Google sign-in, this device's id, the Anki add-on's token and
+# what the add-on reported. The page can't change them (code slipped into it can't switch the Drive
+# sync to another account, say).
+SERVER_ONLY_SETTINGS = {"google_refresh_token", "google_email", "google_scopes", "device_id", "anki_token",
+                        "anki_days", "anki_last_report", "anki_sync_state", "stt_usage"}
 ALLOWED_SETTINGS = {"model_size", "delete_audio_after", "stream_from_source", "theme", "font_size",
-                    "welcome_seen", "beam_size", *db.DEFAULT_SETTINGS.keys()} - {"stt_usage"}
+                    "welcome_seen", "beam_size", *db.DEFAULT_SETTINGS.keys()} - SERVER_ONLY_SETTINGS
+# Never sent to the page at all: it has no use for them.
+NEVER_SENT = ("google_refresh_token", "anki_token")
+
+
+def for_page(settings: dict[str, Any], request: Request) -> dict[str, Any]:
+    """The settings as the page may see them: never the Google sign-in or the Anki token, and the AI,
+    transcription and Azure keys only for a request from the app's own page (app/guard.py)."""
+    out = {k: v for k, v in settings.items() if k not in NEVER_SENT}
+    if not guard.trusted(request):
+        for key in db.SECRET_SETTINGS:
+            if key in out:
+                out[key] = ""
+    return out
 
 
 @router.get("/events")
@@ -30,7 +49,7 @@ async def sse() -> StreamingResponse:
 
 
 @router.get("/status")
-def status() -> dict[str, Any]:
+def status(request: Request) -> dict[str, Any]:
     ok, ffmpeg_msg = audio.check_ffmpeg()
     settings = db.get_settings()
     hw = hardware.detect()
@@ -41,7 +60,7 @@ def status() -> dict[str, Any]:
         "app_name": APP_NAME,
         "ffmpeg_ok": ok,
         "ffmpeg_message": ffmpeg_msg,
-        "settings": settings,
+        "settings": for_page(settings, request),
         "hardware": hw.to_dict(),
         # Ready to transcribe: a model on this computer, or a cloud provider set up to do it instead.
         "model_ready": (bool(size) and models_manager.is_installed(size)) or bool(own)
@@ -52,10 +71,14 @@ def status() -> dict[str, Any]:
     }
 
 
+def _clip(most: int):  # noqa: ANN202
+    return AfterValidator(lambda s: s[:most])
+
+
 class NotifyIn(BaseModel):
-    title: str = ""
-    text: str = ""
-    friend: str = ""  # a chat message's sender: clicking the notification opens that chat
+    title: Annotated[str, _clip(200)] = ""   # (a long chat message is shortened, not refused)
+    text: Annotated[str, _clip(1000)] = ""
+    friend: limits.Name = ""  # a chat message's sender: clicking the notification opens that chat (checked below)
 
 
 @router.post("/notify")
@@ -67,13 +90,20 @@ def show_notification(body: NotifyIn) -> dict[str, Any]:
 
 
 @router.get("/settings")
-def get_settings() -> dict[str, Any]:
-    return db.get_settings()
+def get_settings(request: Request) -> dict[str, Any]:
+    return for_page(db.get_settings(), request)
 
 
 @router.patch("/settings")
-def patch_settings(values: dict[str, Any]) -> dict[str, Any]:
+def patch_settings(values: dict[str, Any], request: Request) -> dict[str, Any]:
+    return for_page(_patch_settings(values), request)
+
+
+def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     clean = {k: v for k, v in values.items() if k in ALLOWED_SETTINGS}
+    for key, value in clean.items():
+        if problem := limits.setting_problem(key, value):
+            raise HTTPException(400, f"Can't save that setting: {problem}.")
     if clean.get("model_size") is not None and clean["model_size"] not in models_manager.SIZES:
         raise HTTPException(400, "Unknown model size.")
     if "study_language" in clean and not languages.valid(clean["study_language"]):
@@ -134,9 +164,9 @@ def reset_tamkeen() -> dict[str, Any]:
 
 
 class SttTestIn(BaseModel):
-    provider: str
-    key: str = ""
-    model: str = ""
+    provider: limits.Code
+    key: limits.Secret = ""
+    model: limits.Name = ""
 
 
 @router.post("/stt/test")
@@ -243,7 +273,7 @@ def privacy_page(what: str, platform: str = "") -> str:
 
 
 class PrivacyIn(BaseModel):
-    what: str = "microphone"
+    what: limits.Code = "microphone"
 
 
 @router.post("/system/open-privacy")

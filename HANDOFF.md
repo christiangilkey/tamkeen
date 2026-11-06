@@ -6912,3 +6912,84 @@ policy III.F.3 forbids rewarding watching.
   `web/whatis.md` (a "No XP for watching YouTube" bullet; the daily goal line). i18n:
   `tools/i18n/tr/<code>/123-game-safety.txt` (4 strings, 16 languages).
 - Tests: `tests/js/youtube-xp.test.mjs`.
+
+## Local server security: Host/Origin checks, a session token, safety headers, safe backups (2026-11-06, helper of the main chat)
+From the security review (H1, M1, M3, L1, L3, L4, part of L5, and the "docs pages" and `save_file` notes). Desktop only.
+- **`app/guard.py`** (new), a pure ASGI middleware installed by `create_app` (it replaces `same_origin_only`):
+  1. **Host** must be `127.0.0.1:<port>`, `localhost:<port>` or `[::1]:<port>` (the port from the ASGI scope's
+     `server`, the socket really listened on), or exactly the scope's own address (the test client's `testserver`).
+     Anything else gets 400 before any route runs. This is what stops DNS rebinding.
+  2. **Origin**, when sent, must be exactly `http://<one of those hosts>`, port included. Any other port, `null`,
+     https or another site gets 403. (The old check allowed any localhost port; test_definer is updated.)
+  3. **Session token** (`app.state.session_token`, `secrets.token_urlsafe(32)`, made by each `create_app`, kept in
+     memory only). Every non-GET `/api/*` request, and `GET /api/web/fetch` (it makes the computer fetch any
+     address), needs it in the `X-Tamkeen-Session` header **or** the `tamkeen_session_<port>` cookie (HttpOnly,
+     SameSite=Strict, set on every HTML page response). The server writes it into `/`, `/index.html`, `/embed` and
+     `/browser-home.html` as `<meta name="tamkeen-session">` (routes in main.py, `Cache-Control: no-store`).
+     `web/js/app.js` `api()` and the direct `fetch`/XHR uploads send the header (`sessionHeaders()`); the pagehide
+     `sendBeacon` became `fetch(..., {keepalive: true})` with it. The header is what makes **/embed inside Onyx**
+     work: Onyx's page is another site, so the Strict cookie isn't sent there. (Checked with a page on 127.0.0.1:8949
+     framing localhost:8948/embed: captions loaded, a new video was added, "ready" was posted.) GETs (audio and image
+     sources, EventSource, downloads, Onyx's `/api/app/info`, Google's `/api/sync/callback`) need no token.
+     Exempt because they check their own secret: `/api/app/open-link` (the applink token), `/api/anki/report` and
+     `/api/anki/sync` (the add-on's `X-Tamkeen-Token`). **New page code that POSTs to the server must use `api()` or
+     `sessionHeaders()`**. Python that calls the server over HTTP must send `guard.SESSION_HEADER`; `JsApi.save_file`
+     does, and it now only takes `/api/...` paths.
+  4. Headers on everything: `X-Content-Type-Options: nosniff`; `Referrer-Policy: strict-origin-when-cross-origin`
+     (not no-referrer: YouTube's embedded player needs the origin, "error 153"; `browser-home.html` gets
+     `no-referrer`); `X-Frame-Options: SAMEORIGIN` and `frame-ancestors 'self'` (not on `/embed`: Onyx's page is a
+     file:// page, which frame-ancestors can't name); `Cross-Origin-Resource-Policy: same-origin` on `/api/*`; and
+     `object-src 'none'; base-uri 'self'` elsewhere. **The app's pages (`/`, `/embed`) get a full CSP**,
+     `guard.APP_CSP`:
+     - scripts only from 'self', `'wasm-unsafe-eval'` (OCR) and `https://www.youtube.com` / `s.ytimg.com`;
+     - **no inline scripts and no `onclick=""` attributes** (the app's page has none today; the only ones are in
+       `browser-home.js`, whose page has no script-src rule);
+     - workers from 'self' and blob: (the OCR worker); styles from 'self' and inline;
+     - images, media and connections to any http(s) address (podcasts, feed pictures, AI providers, Supabase wss);
+     - frames from YouTube, Spotify, Apple Music and Instagram.
+     A new external script host or iframe host must be added there. Checked in the built-in browser with no CSP
+     errors: Home, Settings (theme and text size saved), Library, a web page with a word lookup (relay POST),
+     /embed with the YouTube player, browser-home. pdf.js already runs with `isEvalSupported: false`; the OCR core
+     has no eval.
+  `main.py` also sets the .js/.mjs/.css/.wasm/... MIME types itself (Windows can map .js to text/plain, and nosniff
+  makes that fatal), and turns off `/api/docs` and `/api/openapi.json` in the installed app (`sys.frozen`). /redoc
+  is always off.
+- **Keys** (`app/api/system.py`): `/api/settings`, `/api/status` and the PATCH answer never contain
+  `google_refresh_token` or `anki_token`. The AI, STT and Azure keys are included only for a request with the
+  session token (otherwise ""). The page needs those keys itself (Azure from the browser, the extension bridge, the
+  definer), so they still go to the app's own page. `SERVER_ONLY_SETTINGS` (the sign-in, email, scopes, device id,
+  Anki token and the add-on's reports) can no longer be PATCHed. `limits.setting_problem` checks the theme, font
+  sizes, beam size, keys and region (kind and length), and caps every setting at 100,000 characters or 2 MB of JSON
+  (400 otherwise).
+- **Backups** (`app/backup.py`, M3): `clean_incoming` runs on the backup's database before it replaces the library.
+  It drops every trigger and view (init_db makes the app's own again), deletes `DEVICE_SETTINGS` (all secrets plus
+  `google_email`, `google_scopes`, `device_id`) and re-points `audio_path`/`sync_audio_path` into the audio folder
+  by file name only (`paths.audio_dir_path`: no `..`, separators or `:`). This device's own values of those
+  settings are put back afterwards; if it had none, they stay empty. (The old code kept only non-empty values, so
+  an attacker's token survived on a signed-out device.) `paths.audio_file()` accepts a stored path only if it is a
+  real file directly in the audio folder; it now guards `episode_audio` and `sync.engine.upload_audio_copies`.
+  `vocab._episode_audio` is left out on purpose: tests feed it files from elsewhere, and import cleaning covers it.
+- **Input limits** (`app/api/limits.py`, new): `ShortText`, `Name`, `Title`, `Text`, `Code`, `Secret`,
+  `AnyUrlText`, `WebUrl`, `IdList` (10,000), and `is_local_address`/`friend_url`. Applied to:
+  - pages, books, the delete and transcribe id lists, the review task, the Onyx link;
+  - shared podcasts: a friend's `feed_url` on the home network or this computer gets 400, and such an `audio_url`
+    is dropped;
+  - notify (title and text are shortened, not refused);
+  - definitions (a key pattern on the path, a 1 MB cap on the answer);
+  - YouTube add (`lines` at most 200,000), the watch result, open-link, saved sites, feeds, the STT test, the
+    privacy page, web/fetch.
+  The limits are generous: they stop nonsense, not what the page sends.
+- **Tests**: `tests/test_security.py` (20 tests): a foreign Host, including the audit's probe; ports and names;
+  Origin; the token by header and by cookie; the exempt routes; keys; server-only settings; setting checks;
+  headers and CSP; docs off when frozen; URL checks; a friend's podcast; limits; save_file; stored paths; the
+  booby-trapped backup. `tests/conftest.py` now makes every `TestClient` send its app's token (it stands in for the
+  app's page); a test that wants a stranger passes `headers={"X-Tamkeen-Session": ""}`. Updated: test_definer
+  (another localhost port is now 403), test_applink (embed is no-store and frameable), test_netflix (the audio
+  redirect isn't followed into the app).
+- **Not done**:
+  - M10 (update signatures) was out of scope. Updates are still checked only against GitHub's own digest
+    (`app/updates.py`). Lock down the GitHub account and plan signed releases (see the review).
+  - L5 for typed addresses: `/api/web/fetch` can still reach the home network when the user types such an address.
+    Names are not resolved, so a public name pointing at a private address isn't caught.
+  - L7 body-size limits, L19 key storage.
+  - The web and phone app's own CSP (M1's meta tag) is a separate piece of work.

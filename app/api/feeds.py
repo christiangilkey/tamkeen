@@ -9,6 +9,7 @@ from typing import Any
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
+from . import limits
 from .. import db, feeds, languages, paths, sync
 
 router = APIRouter(prefix="/feeds", tags=["feeds"])
@@ -16,7 +17,7 @@ _refresh_lock = threading.Lock()
 
 
 class FeedIn(BaseModel):
-    url: str
+    url: limits.AnyUrlText  # (as typed: feeds.normalize_url adds https:// and checks it)
 
 
 class FeedPatch(BaseModel):

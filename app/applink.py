@@ -12,7 +12,8 @@ registers the `tamkeen` protocol, so a link opened anywhere does the same). Then
     started (its port and a secret made fresh for that run). The new process posts the link to
     POST /api/app/open-link with that secret in a header, and exits without opening a window.
     The secret is only ever accepted in the header, never in an address, so a web page can't use
-    it; and the server refuses any request that comes from a web page (main.py, same_origin_only).
+    it; and the server refuses any request that comes from a web page (app/guard.py). The route
+    checks this secret itself, so it is exempt from guard.py's page-session token.
     If the file is left over from a run that has ended (nothing answers), the new process starts
     normally and the file is written afresh.
 """

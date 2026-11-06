@@ -386,7 +386,10 @@ def test_subtitles_that_arrive_before_the_title_is_kept(fresh_db, monkeypatch):
         assert c.post("/api/netflix", json={"id": "nope"}).status_code == 400
         t = c.get(f"/api/episodes/{ep['id']}/transcript").json()
         assert t["words"]["text"][0] == "مرحباً،" and t["episode"]["audio_type"] == "video/netflix"
-        assert c.get(f"/api/episodes/{ep['id']}/audio").status_code == 404, "nothing of Netflix's video is ever downloaded"
+        # (only a pointer to Netflix's own page: the test client used to follow it into the app and get a 404)
+        audio = c.get(f"/api/episodes/{ep['id']}/audio", follow_redirects=False)
+        assert audio.status_code in (307, 404), "nothing of Netflix's video is ever downloaded"
+        assert audio.status_code == 404 or "netflix.com" in audio.headers["location"]
         assert c.delete(f"/api/episodes/{ep['id']}").json() == {"ok": True}
 
 

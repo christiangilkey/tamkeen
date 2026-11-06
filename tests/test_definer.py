@@ -56,7 +56,9 @@ def test_cross_site_requests_are_rejected(client):
     assert client.get("/api/settings", headers={"Origin": "https://evil.example"}).status_code == 403
     assert client.post("/api/llm/relay", headers={"Origin": "null"},
                        json={"url": "https://api.openai.com/v1/x", "headers": {}, "body": {}}).status_code == 403
-    assert client.get("/api/settings", headers={"Origin": "http://127.0.0.1:5555"}).status_code == 200
+    # Another local server (another port) is another website: refused too (app/guard.py).
+    assert client.get("/api/settings", headers={"Origin": "http://127.0.0.1:5555"}).status_code == 403
+    assert client.get("/api/settings", headers={"Origin": "http://testserver"}).status_code == 200  # the app's own
     assert client.get("/api/settings").status_code == 200  # no Origin (same-origin GET, tools)
 
 

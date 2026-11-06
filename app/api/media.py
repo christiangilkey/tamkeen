@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import Annotated, Any
 
 from fastapi import APIRouter, Header, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
+from . import limits
 from .. import applink, charts, db, events, pages, sync, youtube
 from ..version import APP_NAME, __version__
 
@@ -39,14 +40,14 @@ def youtube_request(body: YouTubeRequest) -> dict[str, Any]:
 
 
 class YouTubeIn(BaseModel):
-    video_id: str
-    title: str = ""
-    channel: str | None = None
+    video_id: limits.Name  # (youtube.py checks it is 11 letters, digits, - or _)
+    title: limits.Title = ""
+    channel: limits.Title | None = None
     duration: float | None = None
-    language: str | None = None
+    language: limits.Code | None = None
     auto: bool = False
-    kind: str | None = None  # "manual" | "auto" | "translated" (YouTube's translation); older pages send only `auto`
-    lines: list[dict[str, Any]]
+    kind: limits.Code | None = None  # "manual" | "auto" | "translated" (YouTube's translation); older pages send only `auto`
+    lines: Annotated[list[dict[str, Any]], Field(max_length=200_000)]
 
 
 @router.post("/youtube")
@@ -74,10 +75,10 @@ def get_youtube(video_id: str) -> dict[str, Any]:
 
 
 class WatchResult(BaseModel):
-    token: str
+    token: limits.Name
     ok: bool
-    title: str = ""
-    error: str = ""
+    title: limits.Title = ""
+    error: limits.Text = ""
 
 
 @router.post("/youtube/watch-result")
@@ -89,7 +90,7 @@ def watch_result(body: WatchResult) -> dict[str, bool]:
 # ----- tamkeen://watch links from other apps (see app/applink.py) -----
 
 class LinkIn(BaseModel):
-    url: str = ""
+    url: limits.AnyUrlText = ""
     show: bool = True  # with no url: bring the window forward (a plain second launch), or not (--background)
 
 
@@ -128,8 +129,8 @@ def pending_links() -> dict[str, Any]:
 # The phone's twin of these two routes is in mobile/src/js/backend.js.
 
 class SiteIn(BaseModel):
-    url: str
-    title: str = ""
+    url: limits.AnyUrlText  # (as typed: pages.typed_site takes web addresses only)
+    title: limits.Title = ""
     on: bool = True
 
 

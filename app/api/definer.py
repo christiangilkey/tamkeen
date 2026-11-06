@@ -9,13 +9,15 @@ from __future__ import annotations
 
 import json
 import time
-from typing import Any
+from typing import Annotated, Any
 from urllib.parse import urlsplit
 
 import httpx
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from fastapi import Path as PathParam
+from pydantic import BaseModel, field_validator
 
+from . import limits
 from .. import db, sync
 
 router = APIRouter(tags=["definer"])
@@ -50,17 +52,29 @@ def relay(req: RelayIn) -> dict[str, Any]:
     return {"status": resp.status_code, "text": resp.text}
 
 
+MAX_DEFINITION_BYTES = 1_000_000  # one word's answer, written as JSON
+# The cache's keys: definer.js cacheKey (40 hex characters of a SHA-256); a little room for other kinds.
+DefinitionKey = Annotated[str, PathParam(pattern=r"^[A-Za-z0-9_.:-]{1,128}$")]
+
+
 class DefinitionIn(BaseModel):
-    key: str
-    word: str
-    sentence: str
+    key: limits.Name
+    word: limits.Title
+    sentence: limits.Text
     data: dict[str, Any]
-    provider: str = ""
-    model: str = ""
+    provider: limits.Name = ""
+    model: limits.Name = ""
+
+    @field_validator("data")
+    @classmethod
+    def _not_huge(cls, value: dict[str, Any]) -> dict[str, Any]:
+        if len(json.dumps(value, ensure_ascii=False).encode("utf-8")) > MAX_DEFINITION_BYTES:
+            raise ValueError("this answer is too big to keep")
+        return value
 
 
 @router.get("/definitions/{key}")
-def get_definition(key: str) -> dict[str, Any] | None:
+def get_definition(key: DefinitionKey) -> dict[str, Any] | None:
     """Cached answer, or null when this word/sentence hasn't been looked up yet."""
     with db.session() as conn:
         row = conn.execute("SELECT data FROM definitions WHERE key = ?", (key,)).fetchone()
@@ -68,7 +82,7 @@ def get_definition(key: str) -> dict[str, Any] | None:
 
 
 @router.put("/definitions/{key}")
-def put_definition(key: str, body: DefinitionIn) -> dict[str, bool]:
+def put_definition(key: DefinitionKey, body: DefinitionIn) -> dict[str, bool]:
     with db.session() as conn:
         conn.execute(
             "INSERT INTO definitions(key, word, sentence, data, provider, model, created_at) VALUES(?,?,?,?,?,?,?) "
@@ -82,7 +96,7 @@ def put_definition(key: str, body: DefinitionIn) -> dict[str, bool]:
 
 
 @router.delete("/definitions/{key}")
-def delete_definition(key: str) -> dict[str, bool]:
+def delete_definition(key: DefinitionKey) -> dict[str, bool]:
     with db.session() as conn:
         conn.execute("DELETE FROM definitions WHERE key = ?", (key,))
     return {"ok": True}

@@ -32,8 +32,15 @@ import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
 
 // ---------- API ----------
+// This run's session token: the app's server writes it into its own page (app/guard.py), and it refuses
+// any change (and a few requests that reach the web) that doesn't carry it, so no website or other
+// program on the computer can make one. Requests that can't carry a header have the session cookie.
+const SESSION = document.querySelector('meta[name="tamkeen-session"]')?.content || "";
+/** Headers for a request to the app's own server, with the session token. */
+export const sessionHeaders = (extra = {}) => (SESSION ? { ...extra, "X-Tamkeen-Session": SESSION } : { ...extra });
+
 export async function api(path, { method = "GET", body, raw, bytes } = {}) {
-  const opts = { method, headers: {} };
+  const opts = { method, headers: sessionHeaders() };
   if (raw !== undefined) {
     opts.body = raw;
   } else if (body !== undefined) {
@@ -219,7 +226,7 @@ export async function saveClip(vocabId, blob, times) {
   // (A card's voice without a sentence has no sentence times: those are left out.)
   const q = new URLSearchParams(Object.entries({ start: times.start, end: times.end, sent_start: times.sent_start, sent_end: times.sent_end })
     .filter(([, x]) => x !== null && x !== undefined));
-  const res = await fetch(`/api/vocab/${vocabId}/clip?${q}`, { method: "PUT", body: blob });
+  const res = await fetch(`/api/vocab/${vocabId}/clip?${q}`, { method: "PUT", body: blob, headers: sessionHeaders() });
   if (!res.ok) throw new Error("Couldn't save the audio for that word.");
 }
 
@@ -232,7 +239,7 @@ export async function clipUrl(word) {
 /** Keep a card's voice made with Azure (Ogg Opus) and where its word and sentence are in it. */
 export async function saveVoice(vocabId, blob, times) {
   const q = new URLSearchParams(Object.entries(times).filter(([, x]) => x !== null && x !== undefined));
-  const res = await fetch(`/api/vocab/${vocabId}/voice?${q}`, { method: "PUT", body: blob });
+  const res = await fetch(`/api/vocab/${vocabId}/voice?${q}`, { method: "PUT", body: blob, headers: sessionHeaders() });
   if (!res.ok) throw new Error("Couldn't keep this card's voice.");
   return res.json();
 }
@@ -244,7 +251,7 @@ export async function saveRecording(vocabId, blob, times) {
   const q = new URLSearchParams(Object.entries(times).filter(([, x]) => x !== null && x !== undefined));
   let res;
   try {
-    res = await fetch(`/api/vocab/${vocabId}/recording?${q}`, { method: "PUT", body: blob });
+    res = await fetch(`/api/vocab/${vocabId}/recording?${q}`, { method: "PUT", body: blob, headers: sessionHeaders() });
   } catch {
     throw new Error("Lost connection to the app's local server.");
   }
@@ -448,6 +455,7 @@ export function uploadVideo(file, onProgress, { book = null, transcribe = true }
     if (book) { q.set("book", book.key); q.set("book_title", book.title); }
     if (!transcribe) q.set("transcribe", "false");
     xhr.open("POST", `/api/videos?${q}`);
+    for (const [k, v] of Object.entries(sessionHeaders())) xhr.setRequestHeader(k, v);
     xhr.upload.onprogress = (e) => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };
     xhr.onload = () => {
       let data = null;
@@ -757,7 +765,10 @@ function startSyncPace() {
   document.addEventListener("visibilitychange", tell);
   window.addEventListener("focus", tell);
   window.addEventListener("blur", tell);
-  window.addEventListener("pagehide", () => { try { navigator.sendBeacon("/api/sync/flush"); } catch { /* closing anyway */ } });
+  // (keepalive: it still goes when the page is closing, like sendBeacon, and it carries the session token)
+  window.addEventListener("pagehide", () => {
+    try { fetch("/api/sync/flush", { method: "POST", keepalive: true, headers: sessionHeaders() }).catch(() => {}); } catch { /* closing anyway */ }
+  });
   window.addEventListener("tamkeen:review-closed", () => { api("/sync/flush", { method: "POST" }).catch(() => {}); });
   tell();
   startNudges(() => { api("/sync/check", { method: "POST" }).catch(() => {}); });

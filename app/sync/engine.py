@@ -594,10 +594,11 @@ def upload_audio_copies(drive: Drive, files: dict[str, dict[str, Any]], result: 
             "AND (sync_audio_path IS NOT NULL OR audio_path IS NOT NULL)"
         ).fetchall()
     for ep in rows:
-        copy = Path(ep["sync_audio_path"]) if ep["sync_audio_path"] else None
-        if copy is None or not copy.exists():
-            src = Path(ep["audio_path"]) if ep["audio_path"] else None
-            if src is None or not src.exists():
+        # (only files really in the audio folder: a path planted in the library can't send another file)
+        copy = paths.audio_file(ep["sync_audio_path"])
+        if copy is None:
+            src = paths.audio_file(ep["audio_path"])
+            if src is None:
                 continue
             copy = paths.audio_dir() / f"{ep['id']}.sync.ogg"
             try:

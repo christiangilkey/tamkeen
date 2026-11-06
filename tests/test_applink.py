@@ -294,7 +294,8 @@ def test_embed_serves_the_app_page(client):
     r = client.get(f"/embed?v={VIDEO}&t=30&from=onyx")
     assert r.status_code == 200 and "text/html" in r.headers["content-type"]
     assert '<script type="module" src="/js/app.js">' in r.text  # absolute paths: they work from /embed too
-    assert r.headers.get("cache-control") == "no-cache"
+    assert r.headers.get("cache-control") == "no-store"  # (it carries this run's session token: app/guard.py)
+    assert "x-frame-options" not in r.headers and "frame-ancestors" not in r.headers["content-security-policy"]  # Onyx frames it
     css = client.get("/css/embed.css")
     assert css.status_code == 200 and "html.embed" in css.text
 
