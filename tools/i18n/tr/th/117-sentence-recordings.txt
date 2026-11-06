@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	เสียงบันทึกของเจ้าของภาษา
-23eded54	เล่นเสียงบันทึกไม่ได้
-a6b2b9f4	โดย {0} บน Tatoeba

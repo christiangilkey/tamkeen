@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	ضبط صدای گویشور بومی
-23eded54	پخش صدای ضبط‌شده ممکن نشد.
-a6b2b9f4	از {0} در Tatoeba

@@ -247,18 +247,3 @@ test("Arabic dialect courses get their own sentences and sounds; Bisaya gets Wol
   assert.ok(balay && /house/i.test(balay.english));
   assert.ok(!ceb.sentences.some((s) => s[2] === "d" && /[áéíóú()]/.test(s[0])), "in today's spelling, no stress marks or Wolff's brackets");
 });
-
-test("Tatoeba's recordings: kept with who made them and their licence, played only for the allowed licences", async () => {
-  const { AUDIO_LICENCES, audioUrl } = await import("../../web/js/lexicon/exampledata.js");
-  const th = pack("th");
-  const withAudio = Object.entries(th.audio);
-  assert.ok(withAudio.length > 400, `Thai sentences with a recording: ${withAudio.length}`);
-  assert.ok(withAudio.every(([, a]) => Number.isInteger(a[0]) && a[1] && ["by", "by-sa", "cc0", "by-nc", "by-nc-nd"].includes(a[2])),
-    "never a recording whose recorder gave no licence");
-  assert.equal(AUDIO_LICENCES.size, 0, "off until the owner decides");
-  const i = Number(withAudio.find(([, a]) => a[2] === "by")[0]);
-  assert.deepEqual(th.recording(i), {}, "so no sentence offers one");
-  assert.equal(th.recording(i, new Set(["by"])).audio.licence, "by");
-  assert.deepEqual(th.recording(i, new Set(["by-nc"])), {}, "a licence not allowed is not played");
-  assert.equal(audioUrl(1234), "https://tatoeba.org/audio/download/1234");
-});

@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	Muttersprachliche Aufnahme
-23eded54	Die Aufnahme konnte nicht abgespielt werden.
-a6b2b9f4	von {0} auf Tatoeba

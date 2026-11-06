@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	Grabación nativa
-23eded54	No se pudo reproducir la grabación.
-a6b2b9f4	de {0} en Tatoeba

@@ -6775,21 +6775,6 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "082e21bd",
-  "k": "Native recording",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "23eded54",
-  "k": "The recording couldn't be played.",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "a6b2b9f4",
-  "k": "by {0} on Tatoeba",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
   "id": "86066fb1",
   "k": "Add anyway",
   "f": "web/js/components/wordbuilder.js"

@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	Enregistrament natiu
-23eded54	No s'ha pogut reproduir l'enregistrament.
-a6b2b9f4	de {0} a Tatoeba

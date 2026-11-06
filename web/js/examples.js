@@ -89,8 +89,7 @@ export async function freeExample(word, lang, { meaning = "", dialect = courseDi
   if (!found.length) return null;
   const best = found[0];
   // readable: every other word of the sentence is one the learner has seen (only told when that is known)
-  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source, readable: best.newWords === 0,
-    ...(best.audio ? { audio: best.audio } : {}) };
+  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source, readable: best.newWords === 0 };
 }
 
 /**

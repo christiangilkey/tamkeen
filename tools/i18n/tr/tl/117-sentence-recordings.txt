@@ -1,4 +1,0 @@
-# Add words: a Tatoeba native recording of the found sentence (wordbuilder.js paintNative; off until the owner decides).
-082e21bd	Rekording ng katutubong nagsasalita
-23eded54	Hindi mapatugtog ang rekording.
-a6b2b9f4	ni {0} sa Tatoeba

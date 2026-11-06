@@ -19,15 +19,6 @@ export const DIALECT_CODES = { egy: ["arz"], lev: ["apc", "ajp"], glf: ["afb", "
 const codesOf = (dialect) => (dialect ? DIALECT_CODES[dialect] || [dialect] : []);
 // What new words cost a sentence (i+1): one with no new word but the card's gains READABLE; each new word
 // costs NEW_WORD, at most NEW_WORD_CAP (a hard sentence of the right sense still beats a wrong one).
-// Tatoeba's native recordings: which of their licences may be played (each recorder chose one; tools/
-// build_examples.py LICENCES codes). Empty until the owner decides (Tatoeba's terms don't say whether an app may
-// play recordings from their site on demand): then no sentence has a recording.
-export const AUDIO_LICENCES = new Set([]);
-const WITH_AUDIO = -0.5;  // a sentence with a recording that may be played goes a little ahead
-export const LICENCE_NAMES = { by: "CC BY 4.0", "by-sa": "CC BY-SA 4.0", cc0: "CC0 1.0", "by-nc": "CC BY-NC 4.0", "by-nc-nd": "CC BY-NC-ND 3.0" };
-/** A Tatoeba recording's address (fetched only when the learner presses play) and its recorder's page. */
-export const audioUrl = (id) => `https://tatoeba.org/audio/download/${Number(id)}`;
-export const recorderUrl = (user) => `https://tatoeba.org/en/user/profile/${encodeURIComponent(user)}`;
 export const READABLE = -1.8, NEW_WORD = 0.4, NEW_WORD_CAP = 1.8;
 const WORD = /[\p{L}\p{M}\p{N}'’-]+/gu;
 const AR_FRONT = /^(?:و|ف)?(?:ب|ل|ك)?(?:ال|لل)?/;
@@ -57,8 +48,7 @@ export class ExamplePack {
     this.words = (data && data.words) || {};
     this.ipa = (data && data.ipa) || {};
     this.t2s = (data && data.t2s) || null;  // Chinese: traditional characters' simplified ones
-    this.dialectIpa = (data && data.dialect_ipa) || {};
-    this.audio = (data && data.audio) || {};  // sentence number -> [Tatoeba audio id, recorder, licence code]  // Arabic: each dialect's own pronunciations
+    this.dialectIpa = (data && data.dialect_ipa) || {};  // Arabic: each dialect's own pronunciations
     this.index = null;
   }
 
@@ -80,12 +70,6 @@ export class ExamplePack {
     if (!said.includes("|")) return said;
     const list = said.split(";").map((x) => x.split("|"));
     return ((verb && list.find((x) => x[1] === "v")) || list[0])[0];
-  }
-
-  /** Sentence i's native recording, when its licence may be played: {audio: {id, user, licence}}, else {}. */
-  recording(i, allowed = AUDIO_LICENCES) {
-    const a = this.audio[String(i)];
-    return a && allowed.has(a[2]) ? { audio: { id: a[0], user: a[1], licence: a[2] } } : {};
   }
 
   piecewise(w) {
@@ -171,7 +155,7 @@ export class ExamplePack {
       const literary = UNSPACED.has(lang) && source.startsWith("w") ? 0.6 : 0;
       // a sentence whose translation has the meaning is about this sense of the word (manzana: apple, not block)
       const sense = meaning ? (markTranslation(this.sentences[i][1], meaning).includes("⟦") ? -0.6 : 1.5) : 0;
-      return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + literary + (this.recording(i).audio ? WITH_AUDIO : 0) + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
+      return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + literary + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
         // the dialect being studied first (−0.8), Standard Arabic next (+0.4), another dialect last (+2.5)
         + (own && wanted.includes(own) ? -0.8 : own ? 2.5 : wanted.length ? 0.4 : 0)
         // A sentence the learner can read comes first (i+1): every other word one they have seen.
@@ -182,7 +166,7 @@ export class ExamplePack {
     if (newWords) for (const i of picked.keys()) { const n = safe(newWords, this.sentences[i][0]); if (Number.isInteger(n)) unseen.set(i, n); }
     return [...picked.keys()].sort((a, b) => fit(a) - fit(b)).slice(0, count)
       .map((i) => ({ text: this.sentences[i][0], english: plainEnglish(this.sentences[i][1]), source: this.sentences[i][2],
-        ...(unseen.has(i) ? { newWords: unseen.get(i) } : {}), ...this.recording(i) }));
+        ...(unseen.has(i) ? { newWords: unseen.get(i) } : {}) }));
   }
 }
 /** A translation without Wiktionary's notes after it ("… (proverb)", "… [and other animals]"). */
