@@ -33,5 +33,10 @@ The free Mnemonic maker's English words:
   University and LICENSEE agrees to preserve same. (George A. Miller (1995). WordNet: A Lexical Database
   for English. Communications of the ACM Vol. 38, No. 11: 39-41.) Permission to use, copy, modify and
   distribute WordNet for any purpose and without fee or royalty is granted, provided this notice is kept.
+- Which keywords are tied to a meaning (hound for dog, kennel for dog, pane for window): WordNet 3.0's relations
+  (above), and nearest neighbours in GloVe's word vectors (Jeffrey Pennington, Richard Socher and Christopher D.
+  Manning, GloVe: Global Vectors for Word Representation, 2014; glove.6B, https://nlp.stanford.edu/projects/glove/),
+  made available under the Public Domain Dedication and License v1.0 (https://opendatacommons.org/licenses/pddl/1-0/).
+  Only the list of tied words is kept, not the vectors.
 - How common each word is, from Hermit Dave's FrequencyWords (https://github.com/hermitdave/FrequencyWords),
   counts of OpenSubtitles 2018, under CC BY-SA 4.0.

@@ -6716,3 +6716,34 @@ Add words, the Mnemonic maker and the review card's Memorization notes. With a k
   files must be published before installed apps can get them**); a real AI key (the AI paths are untouched). Ideas: a
   dialect's own sentences/IPA for the dialect courses; Thai script rules for words without a reading; keywords in the
   learner's own language when it isn't English (the free list is English only).
+
+### Free Mnemonic maker: keywords tied to the meaning come first (2026-11-06, on main)
+Owner (via Temkeen Main Chat): "I'd also like it to prefer words that are related to actual meaning of the foreign
+language word". Sound stays the gate; among keywords that sound alike, one tied to the meaning gets a clear bonus.
+- **Data** (`build_examples.py keywords <WordNet dict> <en_50k.txt> <glove.6B.100d.txt>`; `ties`, `vector_ties`): the
+  keyword file gains `related` {meaning word, or "to <verb>" from its verb senses only: [[keyword number, weight 0-100,
+  tie]]} for 22,515 meaning words (FrequencyWords rank ≤ 25,000 in WordNet), at most 30 each, strongest first. Ties:
+  `s` same synset / kind of it (hyponyms 90, their hyponyms 75; hound for dog), `p` part or whole (70), `d` derived
+  form (75), `k` broader word (70), `g` named in the definition (55 for a noun, 40 otherwise), same topic, sister word
+  (50), or the keyword's own definition names the meaning (60), `v` GloVe 6B 100-d nearest neighbours (cosine ≥ 0.45 →
+  30-60; Public Domain Dedication and License; only the ties are kept, never the vectors). The meaning's 1st/2nd/3rd
+  sense count ×1 / 0.55 / 0.4 (else "bird" brought "dame", "bread" "cabbage"). File 0.14 → 1.88 MB.
+- **App** (`freemnemonic.js`): `KeywordList.tiesOf(meaning)` merges the ties of every sense's head word ("big, large"),
+  with looser ones believed less (`TRUST` g 0.85, v 0.75; a verb's narrower verbs ×0.8; later senses ×0.85). Bonus
+  `MEANING_WEIGHT` 0.3 × weight in the candidate search and in the final order; a keyword of several words tied through
+  one piece ×0.6 (`PIECE_TIE`). `FITS` 0.7 → link 2, shown "Fits the meaning"; `RELATED` 0.4 → link 1 with `tie`, shown
+  "Related in meaning" (review.js; tooltips `TIE_NOTES` say how). Tied keywords get a line that says so
+  (`TIED_LINES`: "HOUND is a kind of dog: picture a HOUND and you see a dog."). `meaningWeight: 0` = the old order
+  (for measuring). Add words' Memorization notes take the first, so they prefer tied keywords too.
+- **Measured** on the 20-word × 11-language sample (scratch `measure.mjs`): top suggestion tied to the meaning 2/220 →
+  42/220 (19%); a tied keyword among those shown 10 → 78; top's sound score mean 0.782 → 0.758, top a close match 156
+  → 140 (no shown keyword below the sound gate). Per language (top tied): es 0→7, ar 0→2, de 0→4, fa 0→3, hi 0→3, ko
+  0→6, ja 0→2, zh 2→3, th 0→3, ceb 0→5, la 0→4. Good: Hund→hound, caballo/asb/kabayo→cob, پرنده→parrot, 말/马/ม้า→mare,
+  빵/パン/pan→bun, casa→castle, ventana→pane, magnus→mammoth, قطة→kitten. Weak: WordNet's odd verb kinds (hablar→
+  blubber, bolna→drone), a few vector ties (ख़ुश "happy"→sure), definition words (หน้าต่าง→metal).
+- i18n: 6 strings appended to `113-free-card-help.txt` (16 languages); ignore.txt "to {0}". Licence notes name GloVe.
+- **Checked**: JS (freemnemonic.test.mjs +2 tests: Hund→hound with Fits the meaning, cob, parrot; ties of dog, to run,
+  big), pytest, i18n --check; desktop preview (`freecards-desktop`, same fresh unsigned data folder, its old keyword file
+  removed first): a German Hund card's Mnemonic maker showed HOUND first, "Fits the meaning" with its tooltip, no errors.
+- **Note**: a keyword file already downloaded isn't replaced by a newer one (the apps only check the file is there);
+  nobody has the old one yet (not published), but a later change to it would need that handled.

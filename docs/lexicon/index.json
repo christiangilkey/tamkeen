@@ -319,12 +319,13 @@
   },
   "kw-en": {
    "file": "en-keywords.json.gz",
-   "bytes": 144777,
-   "sha256": "df4da30d364aa747de498da2f63fd4a9e9d7ee854f8348edee10d6ded35e7767",
+   "bytes": 1876081,
+   "sha256": "e8c083f0daa639bf4a1d8020f5e0189be10e1cef7b9b2d9f18070e0a02614abd",
    "title": "English keywords for mnemonics",
-   "db": "CMUdict + WordNet 3.0 + FrequencyWords",
-   "license": "CMUdict + WordNet + CC-BY-SA-4.0",
-   "words": 10069
+   "db": "CMUdict + WordNet 3.0 + FrequencyWords + GloVe",
+   "license": "CMUdict + WordNet + CC-BY-SA-4.0 + PDDL-1.0",
+   "words": 10069,
+   "meanings": 22515
   },
   "la": {
    "file": "la-lemmas.json.gz",

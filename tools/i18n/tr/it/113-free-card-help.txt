@@ -14,3 +14,10 @@ dcf2ce6a	Non è stata trovata nessuna frase d'esempio per questa parola. Scrivin
 7573a6d2	Il Generatore di mnemotecniche ha bisogno della sua lista di parole inglesi la prima volta (0,2 MB). Controlla la connessione e riprova.
 b498b54c	Non è stato possibile capire come suona la parola, quindi non sono state trovate parole chiave.
 9c4491f1	Mnemotecniche e frasi d'esempio senza chiave IA: parole inglesi dal suono simile, con un'immagine, e frasi vere da Tatoeba e Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Affine nel significato
+c4d31fcf	Significa la stessa cosa, o un tipo di essa
+43548a25	Una è parte dell'altra
+dd4c4630	Il suo significato è vicino a quello della parola
+90625d11	Il significato della parola ne è un tipo
+74ff2ed8	Va con il significato della parola

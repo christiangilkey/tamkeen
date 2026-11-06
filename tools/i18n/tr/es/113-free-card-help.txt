@@ -14,3 +14,10 @@ dcf2ce6a	No se encontró ninguna frase de ejemplo para esta palabra. Escribe una
 7573a6d2	El Creador de mnemotecnias necesita su lista de palabras inglesas la primera vez (0,2 MB). Revisa tu conexión y vuelve a intentarlo.
 b498b54c	No se pudo saber cómo suena la palabra, así que no se encontraron palabras clave.
 9c4491f1	Mnemotecnias y frases de ejemplo sin clave de IA: palabras inglesas que suenan parecido, con una imagen, y frases reales de Tatoeba y Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Relacionada en significado
+c4d31fcf	Significa lo mismo, o un tipo de ello
+43548a25	Una es parte de la otra
+dd4c4630	Su significado se parece al de la palabra
+90625d11	El significado de la palabra es un tipo de ella
+74ff2ed8	Va con el significado de la palabra

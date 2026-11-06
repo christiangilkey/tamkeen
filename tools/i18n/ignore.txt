@@ -496,3 +496,4 @@ ddf50f50  # Zenith
 a582ee05  # Tatoeba (exampledata.js sourceOf: a site's name)
 97e2c448  # Say “{0}” and link it… (freemnemonic.js: an English mnemonic line, not interface)
 69ae85d2  # Picture {0} and link it… (freemnemonic.js: an English mnemonic line, not interface)
+e6848785  # to {0} (freemnemonic.js: the key of a verb meaning in the keyword list, not interface)

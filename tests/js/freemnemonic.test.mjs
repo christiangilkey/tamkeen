@@ -89,6 +89,37 @@ test("picturable things come before abstract words that sound as close", () => {
   assert.ok(["patio", "pot", "pipe", "pout"].includes(first.keyword), first.keyword);
 });
 
+test("among keywords that sound alike, one tied to the meaning comes first", () => {
+  // The owner: "prefer words that are related to actual meaning of the foreign language word".
+  const top = (word, lang, meaning, opts = {}) => {
+    const r = makeFreeMnemonics({ text: word, meaning }, { pron: said(word, lang, meaning), list, ...opts });
+    return r.items[0] || r.parts[0];
+  };
+  const hund = top("Hund", "de", "dog");
+  assert.equal(hund.keyword, "hound", "HOUND: it sounds like Hund and is a kind of dog");
+  assert.equal(hund.link, 2, "shown 'Fits the meaning'");
+  assert.equal(hund.tie, "s");
+  assert.match(hund.scene, /HOUND is a kind of dog/);
+  assert.notEqual(top("Hund", "de", "dog", { meaningWeight: 0 }).keyword, "hound", "without the ties it was a sound-alike only");
+  assert.equal(top("caballo", "es", "horse").keyword, "cob");
+  assert.equal(top("پرنده", "fa", "bird").keyword, "parrot");
+  // Sound stays the gate: every tied keyword shown still sounds like the word.
+  for (const [word, lang, meaning] of [["Hund", "de", "dog"], ["perro", "es", "dog"], ["canis", "la", "dog"]]) {
+    const r = makeFreeMnemonics({ text: word, meaning }, { pron: said(word, lang, meaning), list });
+    for (const s of [...r.items, ...r.parts]) assert.ok(s.sound === "close" || s.sound === "partial", `${s.keyword}: ${s.sound}`);
+  }
+});
+
+test("a meaning's ties: kinds of it first, a verb's from its verb senses", () => {
+  const dog = list.tiesOf(meaningPicture("dog", list));
+  assert.ok(dog.get("hound").weight >= 0.7 && dog.get("puppy"));
+  assert.ok(!dog.has("dog"), "never the meaning itself");
+  const run = list.tiesOf(meaningPicture("to run", list));
+  assert.ok(run.has("jog") && run.has("sprint"), "to run: jog, sprint (not a run in baseball)");
+  const big = list.tiesOf(meaningPicture("big, large", list));
+  assert.ok(big.has("large") || big.has("huge") || big.has("giant"));
+});
+
 test("turned-down keywords never come back", () => {
   const before = keywordsFor("carta", "es", "letter").map((s) => s.keyword);
   const r = makeFreeMnemonics({ text: "carta", meaning: "letter" }, { pron: said("carta", "es"), list, avoid: before });

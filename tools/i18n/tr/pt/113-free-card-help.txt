@@ -14,3 +14,10 @@ dcf2ce6a	Nenhuma frase de exemplo foi encontrada para esta palavra. Escreva uma 
 7573a6d2	O Criador de mnemônicos precisa da sua lista de palavras em inglês na primeira vez (0,2 MB). Verifique a conexão e tente de novo.
 b498b54c	Não foi possível saber como a palavra soa, então nenhuma palavra-chave foi encontrada.
 9c4491f1	Mnemônicos e frases de exemplo sem chave de IA: palavras em inglês com som parecido, com uma imagem, e frases reais do Tatoeba e do Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Relacionada no sentido
+c4d31fcf	Significa a mesma coisa, ou um tipo dela
+43548a25	Uma é parte da outra
+dd4c4630	Seu sentido é próximo ao da palavra
+90625d11	O sentido da palavra é um tipo dela
+74ff2ed8	Combina com o sentido da palavra

@@ -14,3 +14,10 @@ dcf2ce6a	Für dieses Wort wurde kein Beispielsatz gefunden. Schreib einen oder l
 7573a6d2	Der Eselsbrücken-Macher braucht beim ersten Mal seine Liste englischer Wörter (0,2 MB). Prüfe deine Verbindung und versuch es noch einmal.
 b498b54c	Wie das Wort klingt, ließ sich nicht herausfinden, darum wurden keine Schlüsselwörter gefunden.
 9c4491f1	Eselsbrücken und Beispielsätze ohne KI-Schlüssel: ähnlich klingende englische Wörter mit einem Bild und echte Sätze aus Tatoeba und Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Bedeutung verwandt
+c4d31fcf	Es bedeutet dasselbe oder eine Art davon
+43548a25	Das eine ist ein Teil des anderen
+dd4c4630	Die Bedeutung ist der des Wortes nah
+90625d11	Die Bedeutung des Wortes ist eine Art davon
+74ff2ed8	Es passt zur Bedeutung des Wortes

@@ -16,7 +16,7 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
 
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
     python tools/build_examples.py build <cache dir> <tatoeba dir> es de ...
-    python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt>
+    python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
 
 <tatoeba dir> holds Tatoeba's per-language exports: <code>_sentences.tsv.bz2 and <code>-eng_links.tsv.bz2 for
 each language, and eng_sentences.tsv.bz2 (https://downloads.tatoeba.org/exports/per_language/).
@@ -328,7 +328,148 @@ def wordnet(dict_dir: Path) -> tuple[dict[str, str], dict[str, str], set[str]]:
     return kind, {w: p for w, (p, _n) in pos.items()}, capital - plain
 
 
-def keywords(dict_dir: Path, freq_file: Path) -> None:
+# How a keyword is tied to a meaning word, best first: the same thing or a kind of it (hound for dog), a part or
+# the whole (beak, bill for bird), a form of the same word, the broader word, then looser ties (named in the
+# definition, the same topic, a sister word, or near in GloVe's word vectors). [code, weight 0..100]
+TIES = {"s": 100, "p": 75, "d": 75, "k": 70, "g": 55, "v": 0}
+POINTERS = {"~": ("s", 90), "~i": ("s", 90), "@": ("k", 70), "@i": ("k", 70), "#m": ("p", 70), "#s": ("p", 70), "#p": ("p", 70),
+            "%m": ("p", 70), "%s": ("p", 70), "%p": ("p", 70), "+": ("d", 75), "&": ("s", 80), "=": ("g", 55), ";c": ("g", 50),
+            "-c": ("g", 50), "$": ("s", 75), "*": ("g", 55), ">": ("g", 55)}
+MAX_TIES = 30  # keywords kept per meaning word
+
+
+def synsets(dict_dir: Path) -> tuple[dict, dict]:
+    """WordNet's synsets {(pos, offset): (words, [(pointer, target)], gloss)} and senses {word: [synset, ...]}
+    (commonest first, nouns, verbs, adjectives, adverbs)."""
+    syn: dict = {}
+    for p, file in (("n", "data.noun"), ("v", "data.verb"), ("a", "data.adj"), ("r", "data.adv")):
+        for line in (dict_dir / file).read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.startswith(" "):
+                continue
+            body, _, gloss = line.partition(" | ")
+            parts = body.split(" ")
+            n = int(parts[3], 16)
+            words = [parts[4 + 2 * i].lower().replace("(a)", "").replace("(p)", "").replace("(ip)", "") for i in range(n)]
+            at = 4 + 2 * n
+            ptrs = []
+            for i in range(int(parts[at])):
+                sym, off, tp = parts[at + 1 + 4 * i: at + 4 + 4 * i]
+                ptrs.append((sym, ("a" if tp == "s" else tp, off)))
+            syn[(p, parts[0])] = (words, ptrs, gloss.split(";")[0].split('"')[0])
+    senses: dict = {}
+    for p, file in (("n", "index.noun"), ("v", "index.verb"), ("a", "index.adj"), ("r", "index.adv")):
+        for line in (dict_dir / file).read_text(encoding="utf-8", errors="replace").splitlines():
+            if line.startswith(" "):
+                continue
+            parts = line.strip().split(" ")
+            senses.setdefault(parts[0], []).extend((p, off) for off in parts[-int(parts[2]):])
+    return syn, senses
+
+
+def ties(dict_dir: Path, rank: dict[str, int], keyword_words: list[str], glove: Path | None) -> dict[str, list]:
+    """For each common English meaning word, the keywords tied to its meaning: {word: [[keyword number, weight,
+    code], ...]}, the strongest first (see TIES). A word that is also a verb has "to <word>" too, from its verb
+    senses only (to run: dash, race; run alone is first the noun, a run in baseball)."""
+    syn, senses = synsets(dict_dir)
+    index = {w: i for i, w in enumerate(keyword_words)}
+    meanings = [w for w, r in rank.items() if r <= 25000 and re.fullmatch(r"[a-z]{2,}", w) and w in senses]
+    found: dict[str, dict[int, tuple[int, str]]] = {}
+
+    def add(m: str, word: str, weight: int, code: str) -> None:
+        weight = int(weight * share)
+        k = index.get(word)
+        if k is None or word == m or f"to {word}" == m:
+            return
+        have = found.setdefault(m, {})
+        if k not in have or have[k][0] < weight:
+            have[k] = (weight, code)
+
+    share = 1.0
+    gloss_words = lambda g: {w for w in re.findall(r"[a-z]+", g.lower()) if w not in STOP and len(w) > 2}
+    jobs = [(m, senses[m][:3]) for m in meanings]
+    jobs += [(f"to {m}", [s for s in senses[m] if s[0] == "v"][:3]) for m in meanings if any(s[0] == "v" for s in senses[m])]
+    for m, its in jobs:
+        for n, s in enumerate(its):  # its three commonest senses, the first counting most
+            share = (1.0, 0.55, 0.4)[n]
+            words, ptrs, gloss = syn[s]
+            for w in words:
+                add(m, w, 100, "s")
+            for w in gloss_words(gloss):  # (a thing named in the definition more than a quality)
+                add(m, w, 55 if senses.get(w, [("x",)])[0][0] == "n" else 40, "g")
+            for sym, target in ptrs:
+                if sym not in POINTERS or target not in syn:
+                    continue
+                code, weight = POINTERS[sym]
+                for w in syn[target][0]:
+                    add(m, w, weight, code)
+                if sym in ("~", "~i"):  # a kind of a kind (hound is a dog, a beagle is a hound)
+                    for sym2, t2 in syn[target][1]:
+                        if sym2 in ("~", "~i") and t2 in syn:
+                            for w in syn[t2][0]:
+                                add(m, w, 75, "s")
+                if sym in ("@", "@i"):  # sister words (cat for dog: both kinds of carnivore)
+                    for sym2, t2 in syn[target][1]:
+                        if sym2 in ("~", "~i") and t2 in syn and t2 != s:
+                            for w in syn[t2][0]:
+                                add(m, w, 50, "g")
+    # A keyword whose own definition names the meaning word (hound: "any of several breeds of dog").
+    for kw in keyword_words:
+        for s in senses.get(kw, [])[:2]:
+            for w in gloss_words(syn[s][2]):
+                if w in senses:
+                    have = found.setdefault(w, {})
+                    k = index[kw]
+                    if k not in have or have[k][0] < 60:
+                        have[k] = (60, "g")
+    if glove:
+        vector_ties(glove, meanings, keyword_words, found)
+        for m in meanings:  # a verb's "to" entry shares the word's vector ties
+            if f"to {m}" in found:
+                for k, (w, c) in found.get(m, {}).items():
+                    if c == "v" and k not in found[f"to {m}"]:
+                        found[f"to {m}"][k] = (w, c)
+    out = {}
+    for m, have in found.items():
+        best = sorted(have.items(), key=lambda x: -x[1][0])[:MAX_TIES]
+        out[m] = [[k, w, c] for k, (w, c) in best]
+    return out
+
+
+def vector_ties(glove: Path, meanings: list[str], keyword_words: list[str], found: dict) -> None:
+    """GloVe (Stanford, Public Domain Dedication and License): each meaning word's nearest keywords by cosine,
+    weight 30-60 for a cosine of 0.45-0.75. Only these ties are kept, never the vectors."""
+    import numpy as np
+    wanted = set(meanings) | set(keyword_words)
+    vecs = {}
+    with open(glove, encoding="utf-8") as f:
+        for line in f:
+            w, _, rest = line.partition(" ")
+            if w in wanted:
+                vecs[w] = np.array(rest.split(), dtype=np.float32)
+    kws = [w for w in keyword_words if w in vecs]
+    K = np.stack([vecs[w] for w in kws])
+    K /= np.linalg.norm(K, axis=1, keepdims=True)
+    index = {w: i for i, w in enumerate(keyword_words)}
+    ms = [m for m in meanings if m in vecs]
+    for start in range(0, len(ms), 2000):
+        chunk = ms[start:start + 2000]
+        M = np.stack([vecs[m] for m in chunk])
+        M /= np.linalg.norm(M, axis=1, keepdims=True)
+        sims = M @ K.T
+        for row, m in enumerate(chunk):
+            top = np.argsort(-sims[row])[:12]
+            for j in top:
+                cos = float(sims[row, j])
+                if cos < 0.45 or kws[j] == m:
+                    continue
+                weight = int(30 + min(30, (cos - 0.45) * 100))
+                have = found.setdefault(m, {})
+                k = index[kws[j]]
+                if k not in have or have[k][0] < weight:
+                    have[k] = (weight, "v")
+
+
+def keywords(dict_dir: Path, freq_file: Path, glove: Path | None = None) -> None:
     table = json.loads(gzip.decompress((OUT / "en-lemmas.json.gz").read_bytes()))
     ipa = table["ipa"]
     rank: dict[str, int] = {}
@@ -349,12 +490,14 @@ def keywords(dict_dir: Path, freq_file: Path) -> None:
     # Adjectives too common to be keywords still say what a meaning is ("big", "red"): kept, marked.
     # Adjectives, to tell a meaning that is a quality ("big") from a thing (any common one, keyword or not).
     adjectives = sorted(w for w, r in rank.items() if r <= 20000 and pos.get(w) == "a" and re.fullmatch(r"[a-z]+", w))
-    data = {"format": 1, "kind": "keywords", "lang": "en", "adjectives": adjectives,
-            "source": "CMU Pronouncing Dictionary; WordNet 3.0 (Princeton University); FrequencyWords (Hermit Dave, OpenSubtitles 2018)",
-            "license": "CMUdict BSD-style; WordNet 3.0 licence; CC-BY-SA-4.0 (FrequencyWords)",
+    related = ties(dict_dir, rank, [w[0] for w in out], glove)
+    data = {"format": 1, "kind": "keywords", "lang": "en", "adjectives": adjectives, "related": related,
+            "source": "CMU Pronouncing Dictionary; WordNet 3.0 (Princeton University); FrequencyWords (Hermit Dave, OpenSubtitles 2018); GloVe 6B (Stanford NLP)",
+            "license": "CMUdict BSD-style; WordNet 3.0 licence; CC-BY-SA-4.0 (FrequencyWords); PDDL-1.0 (GloVe)",
             "fields": ["word", "ipa", "pos", "kind", "rank"], "words": out}
     write("en-keywords.json.gz", "kw-en", data, title="English keywords for mnemonics",
-          db="CMUdict + WordNet 3.0 + FrequencyWords", license="CMUdict + WordNet + CC-BY-SA-4.0", extra={"words": len(out)})
+          db="CMUdict + WordNet 3.0 + FrequencyWords + GloVe", license="CMUdict + WordNet + CC-BY-SA-4.0 + PDDL-1.0",
+          extra={"words": len(out), "meanings": len(related)})
 
 
 if __name__ == "__main__":
@@ -368,6 +511,6 @@ if __name__ == "__main__":
         for lang in args[3:]:
             build(Path(args[1]), Path(args[2]), lang)
     elif args[0] == "keywords":
-        keywords(Path(args[1]), Path(args[2]))
+        keywords(Path(args[1]), Path(args[2]), Path(args[3]) if len(args) > 3 else None)
     else:
         sys.exit(__doc__)

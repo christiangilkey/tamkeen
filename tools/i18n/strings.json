@@ -16280,6 +16280,31 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "c4d31fcf",
+  "k": "It means the same thing, or a kind of it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "43548a25",
+  "k": "One is a part of the other",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "dd4c4630",
+  "k": "Its meaning is close to the word's",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "90625d11",
+  "k": "The word's meaning is a kind of it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "74ff2ed8",
+  "k": "It goes with the word's meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "c35874c7",
   "k": "Added to Memorization notes",
   "f": "web/js/pages/review.js"
@@ -16322,6 +16347,11 @@
  {
   "id": "48c1ab45",
   "k": "Fits the meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c5bd44b4",
+  "k": "Related in meaning",
   "f": "web/js/pages/review.js"
  },
  {

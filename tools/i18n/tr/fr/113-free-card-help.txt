@@ -14,3 +14,10 @@ dcf2ce6a	Aucune phrase d'exemple n'a été trouvée pour ce mot. Écris-en une o
 7573a6d2	Le Créateur de mnémoniques a besoin de sa liste de mots anglais la première fois (0,2 Mo). Vérifie ta connexion et réessaie.
 b498b54c	Impossible de savoir comment le mot se prononce, donc aucun mot-clé n'a été trouvé.
 9c4491f1	Mnémotechniques et phrases d'exemple sans clé d'IA : des mots anglais qui sonnent pareil, avec une image, et de vraies phrases de Tatoeba et du Wiktionnaire
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Proche par le sens
+c4d31fcf	Veut dire la même chose, ou une sorte de cela
+43548a25	L'un fait partie de l'autre
+dd4c4630	Son sens est proche de celui du mot
+90625d11	Le sens du mot en est une sorte
+74ff2ed8	Va avec le sens du mot

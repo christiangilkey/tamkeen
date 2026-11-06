@@ -7,8 +7,12 @@
 //    common it is) is measured against every run of the word's syllables with the same sound check as
 //    the AI's keywords (review/phonemes.js). Long words also get keywords of two or three words, one for
 //    each chunk ("cab + eye + yo"), joined from the best words for each chunk.
-// 3. Among those that sound right, picturable, common words come first (an animal, a tool, a food: things
-//    one can see), then the rest.
+// 3. Among those that sound right, a keyword tied to the word's meaning comes first (the owner: "prefer words
+//    that are related to actual meaning of the foreign language word"): German Hund, "dog", gives HOUND. The ties
+//    come with the list: for each common English meaning word, the keywords that are the same thing or a kind
+//    of it, a part of it, a broader word, named in its definition (WordNet), or near it in GloVe's word vectors
+//    (tools/build_examples.py). Sound stays the gate: a tied word that doesn't sound like the word is never shown.
+//    Then picturable, common words (an animal, a tool, a food: things one can see), then the rest.
 // 4. Each keyword gets a short picture line from a template joining it to the meaning ("Picture a CALF
 //    dressed up as a dog."): not as clever as an AI's scene, but always about the meaning.
 //
@@ -23,6 +27,13 @@ const PICTURE = { animal: 0.08, artifact: 0.07, food: 0.07, body: 0.06, person: 
   nature: 0.05, substance: 0.04 };
 const KEEP = 40;  // best words kept per run of syllables
 const TWO_WORDS = 0.1; // what a two-word keyword gives up against a one-word one
+// How much a tie to the meaning counts, in sound score, at full strength (a weight of 1: hound for dog). A tied
+// keyword that sounds a little less close still goes first; one that doesn't sound like the word never shows.
+export const MEANING_WEIGHT = 0.3;
+const TRUST = { g: 0.85, v: 0.75 };  // how much a looser tie is believed (tools/build_examples.py TIES)
+const PIECE_TIE = 0.6;  // a keyword of several words tied through one piece only
+export const FITS = 0.7;     // a tie this strong is shown "Fits the meaning"
+export const RELATED = 0.4;  // and this strong "Related in meaning"
 
 /** The keyword list, read once: [{word, ipa, pos, kind, rank, phones}], and the words by spelling. */
 export class KeywordList {
@@ -31,6 +42,26 @@ export class KeywordList {
     this.words = rows.map(([word, ipa, pos, kind, rank]) => ({ word, ipa, pos, kind, rank, phones: null }));
     this.byWord = new Map(this.words.map((w) => [w.word, w]));
     this.adjectives = new Set((data && data.adjectives) || []);
+    this.related = (data && data.related) || {};
+  }
+  /** The keywords tied to a meaning (meaningPicture's), as a Map word -> {weight 0..1, tie}: each head word of
+   * the meaning's senses ("big, large": both), a verb's as "to <verb>". */
+  tiesOf(meaning) {
+    const out = new Map();
+    meaning.heads = meaning.heads || [meaning.head].filter(Boolean);
+    meaning.heads.forEach((head, n) => {
+      const list = this.related[meaning.pos === "verb" ? `to ${head}` : head] || this.related[head] || [];
+      for (const [k, w, tie] of list) {
+        const e = this.words[k];
+        if (!e) continue;
+        // Looser ties count less: a word named in the definition, a word-vector neighbour, a verb's narrower
+        // verbs (WordNet's "ways to speak" include blubber and drone), and the meaning's later senses.
+        const weight = (w / 100) * (TRUST[tie] ?? 1) * (meaning.pos === "verb" && tie === "s" ? 0.8 : 1) * (n ? 0.85 : 1);
+        const had = out.get(e.word);
+        if (!had || had.weight < weight) out.set(e.word, { weight, tie });
+      }
+    });
+    return out;
   }
   sounds(entry) {
     if (!entry.phones) entry.phones = phones(entry.ipa);
@@ -96,7 +127,7 @@ const keepBest = (list, item, n = KEEP) => {
  * entry each comes from (`entry`, `entries`), best first. `skip` are words never to offer (the word
  * itself, its meaning, those turned down).
  */
-export function findKeywords(pron, list, { skip = [], count = 24 } = {}) {
+export function findKeywords(pron, list, { skip = [], count = 24, tieOf = () => 0 } = {}) {
   const word = pron && wordSounds(pron.syllables, pron.stress);
   if (!word || !list || !list.words.length) return { keywords: [], parts: [] };
   const skipped = new Set(skip.map((s) => cleanKeyword(s).toLowerCase()).filter(Boolean));
@@ -111,7 +142,7 @@ export function findKeywords(pron, list, { skip = [], count = 24 } = {}) {
       if (ps.length > r.target.length + 3) continue;
       const sound = similarity(ps, r.target, r.weights);
       if (sound < 0.45) continue;
-      keepBest(r.best, { entry: e, sound, score: sound + bonus(e) });
+      keepBest(r.best, { entry: e, sound, score: sound + bonus(e) + tieOf(e) });
     }
   }
   // One word for the whole word, or for most of it.
@@ -120,7 +151,7 @@ export function findKeywords(pron, list, { skip = [], count = 24 } = {}) {
     for (const c of r.best) {
       const score = c.sound * (0.35 + 0.65 * r.coverage);
       if (score < PASS) continue;
-      singles.push({ keyword: c.entry.word, ipa: c.entry.ipa, covers: range(r.from, r.to), entry: c.entry, score: score + bonus(c.entry) });
+      singles.push({ keyword: c.entry.word, ipa: c.entry.ipa, covers: range(r.from, r.to), entry: c.entry, score: score + bonus(c.entry) + tieOf(c.entry) });
     }
   }
   // Two or three words, each sounding like a chunk, together the whole word.
@@ -181,7 +212,11 @@ export function meaningPicture(meaning, list = null, pos = "") {
   const head = (m.split(" ")[verb ? 0 : m.split(" ").length - 1] || "").toLowerCase();
   const entry = list && list.byWord.get(head);
   const adj = !verb && (/adj/i.test(pos) || (!pos && m.split(" ").length <= 2 && ((entry && entry.pos === "a") || (list && list.adjectives && list.adjectives.has(head)))));
-  return { text: m.slice(0, 60), pos: verb ? "verb" : adj ? "adj" : "noun", head, kind: entry && entry.pos === "n" ? entry.kind : "" };
+  // Every sense's head word, for the ties ("big, large": big and large; "to run, to flee": run and flee).
+  const heads = [head, ...String(meaning || "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/\n]/).slice(1, 4)
+    .map((x) => x.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").split(/\s+/))
+    .map((ws) => (verb ? ws[0] : ws[ws.length - 1]) || "")].filter((x, i, all) => /^[a-z]+$/.test(x) && all.indexOf(x) === i);
+  return { text: m.slice(0, 60), pos: verb ? "verb" : adj ? "adj" : "noun", head, heads, kind: entry && entry.pos === "n" ? entry.kind : "" };
 }
 
 // A few lines for each kind of keyword; one is picked by the word, so each word keeps its own.
@@ -215,8 +250,18 @@ function hash(s) {
   return h;
 }
 
-/** The picture line joining `keyword` (one entry, or several for a split keyword) to the meaning. */
-export function sceneFor(entries, meaning, seed = "") {
+// A keyword tied to the meaning gets a line that says how (tie codes as tools/build_examples.py TIES).
+const TIED_LINES = {
+  noun: { s: "{K} is a kind of {M}: picture {k} and you see {m}.", p: "Picture {m} and {k}: one is part of the other.",
+    d: "{K} and {M} are close in meaning: picture {k} that is {m}.", k: "Picture {k}: {m} is one.",
+    g: "Picture {m} with {k}: the two go together.", v: "Picture {m} with {k}: the two go together." },
+  verb: { s: "To {K} is a way to {m}: picture yourself as you {m}, then {K}.", other: "Picture yourself as you {m} with {k}: the two go together." },
+  adj: { s: "{K} means much the same as {m}: picture something {m}, shouting “{K}!”", other: "Picture something {m} with {k}: the two go together." },
+};
+
+/** The picture line joining `keyword` (one entry, or several for a split keyword) to the meaning. `tie` (a
+ * tie code, when the keyword is tied to the meaning) picks a line that says how. */
+export function sceneFor(entries, meaning, seed = "", tie = "") {
   const list = Array.isArray(entries) ? entries : [entries];
   const shown = list.map((e) => e.word.toUpperCase()).join(" ");
   // The piece to picture: the most picturable noun of the keyword, else the keyword as a word said aloud.
@@ -227,6 +272,13 @@ export function sceneFor(entries, meaning, seed = "") {
     return many ? `Say “${shown}” and link it to the word's meaning in your own picture.` : `Picture ${withArticle(shown)} and link it to the word's meaning.`;
   }
   let line;
+  if (tie && !many) {
+    const e = list[0];
+    const K = e.word.toUpperCase();
+    const lines = TIED_LINES[meaning.pos];
+    const template = (meaning.pos === "noun" ? lines[tie] : tie === "s" ? lines.s : lines.other) || lines.other || lines.g;
+    return cap(fill(template, e.pos === "n" ? withArticle(K) : K, K));
+  }
   if (thing) {
     const K = thing.word.toUpperCase();
     const k = withArticle(K);
@@ -246,29 +298,46 @@ export function sceneFor(entries, meaning, seed = "") {
  * {pron, items, parts, checked, asked, free: true}. `pron` from soundout.js pronunciationOf; `list` a
  * KeywordList; `avoid` keywords already shown or turned down for the word.
  */
-export function makeFreeMnemonics(v, { pron, list, avoid = [] }) {
+export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT }) {
   if (!pron) throw new Error("NO_SOUNDS");
   const meaning = meaningPicture(v.meaning, list, v.pos || "");
   const skip = [...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^a-z]+/)];
-  const found = findKeywords(pron, list, { skip });
-  const link = (entries) => (meaning.kind && entries.some((e) => e.kind === meaning.kind) ? "loose" : "none");
-  const keywords = found.keywords.map((k) => ({ ...k, meaning_link: link([k.entry]), link: "", scene: sceneFor(k.entry, meaning, v.text) }));
-  const parts = found.parts.map((p) => ({ pieces: p.pieces, meaning_link: link(p.pieces.map((x) => x.entry)), link: "",
-    scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text) }));
+  // Ties to the meaning: their strength (0..1) and kind, per keyword word; a keyword of several words takes its
+  // strongest piece's. (meaningWeight 0: sound and picture only, as before the ties: for measuring them.)
+  const ties = meaningWeight ? list.tiesOf(meaning) : new Map();
+  const tieOf = (entries) => entries.reduce((best, e) => {
+    const t = ties.get(e.word);
+    const weight = t ? t.weight * (entries.length > 1 ? PIECE_TIE : 1) : 0;
+    return weight > best.weight ? { weight, tie: t.tie } : best;
+  }, { weight: 0, tie: "" });
+  const found = findKeywords(pron, list, { skip, tieOf: (e) => meaningWeight * ((ties.get(e.word) || { weight: 0 }).weight) });
+  const linkOf = (t) => (t.weight >= FITS ? 2 : t.weight >= RELATED ? 1 : 0);
+  const keywords = found.keywords.map((k) => {
+    const t = tieOf([k.entry]);
+    return { ...k, tie: t, scene: sceneFor(k.entry, meaning, v.text, linkOf(t) ? t.tie : "") };
+  });
+  const parts = found.parts.map((p) => ({ pieces: p.pieces, tie: tieOf(p.pieces.map((x) => x.entry)), scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text) }));
   const own = (keyword) => list.ipaOf(keyword);
-  const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, link: k.meaning_link === "loose" ? 1 : 0, linkNote: "", scene: k.scene });
+  const marks = (t) => ({ link: linkOf(t), linkNote: "", tie: linkOf(t) ? t.tie : "", tieWeight: t.weight });
+  const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, scene: k.scene, ...marks(k.tie) });
   // Two-word keywords for a two-syllable word are shown as keywords ("cab eye"); longer words' as split ones.
   const twoWord = pron.syllables.length < SPLIT_FROM
     ? parts.filter((p) => p.pieces.length === 2).map((p) => ({ keyword: p.pieces.map((x) => x.keyword).join(" "), ipa: p.pieces.map((x) => x.ipa).join(" "),
-      covers: range(0, pron.syllables.length - 1), link: p.meaning_link === "loose" ? 1 : 0, linkNote: "", scene: p.scene }))
+      covers: range(0, pron.syllables.length - 1), scene: p.scene, ...marks(p.tie) }))
     : [];
   const split = parts.map((p) => ({ keyword: p.pieces.map((x) => x.keyword).join(" + "), pieces: p.pieces.map(({ keyword, ipa, covers }) => ({ keyword, ipa, covers })),
-    link: p.meaning_link === "loose" ? 1 : 0, linkNote: "", scene: p.scene }));
+    scene: p.scene, ...marks(p.tie) }));
   // Checked like the AI's (rankSuggestions), but all of them, so that a picturable word that sounds
   // nearly as close can go before the closest one.
   const ranked = rankSuggestions({ pron, keywords: [...keywords.map(tidy), ...twoWord.slice(0, 6)], parts: split, ownSounds: own, avoid, count: 1000 });
+  // (rankSuggestions keeps only its own fields: the tie goes back on)
+  const byKeyword = new Map([...keywords.map(tidy), ...twoWord, ...split].map((s) => [s.keyword, s]));
+  for (const s of [...ranked.items, ...ranked.parts]) {
+    const from = byKeyword.get(s.keyword);
+    if (from) Object.assign(s, { tie: from.tie, tieWeight: from.tieWeight });
+  }
   // (a keyword of two words is harder to keep in mind than one word: it must sound clearly closer)
-  const worth = (s) => s.score + (s.link === 1 ? 0.03 : 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
+  const worth = (s) => s.score + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
     + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w) || { pos: "", rank: 1e5 }))));
   ranked.items.sort((a, b) => worth(b) - worth(a));
   ranked.parts.sort((a, b) => worth(b) - worth(a));

@@ -14,3 +14,10 @@ dcf2ce6a	Walay nakit-an nga pananglitan nga sentence para niini nga pulong. Pag-
 7573a6d2	Ang Mnemonic maker nagkinahanglan sa iyang lista sa mga pulong sa English sa unang higayon (0.2 MB). Susiha ang imong koneksyon ug sulayi pag-usab.
 b498b54c	Wala mahibaw-i kung giunsa paglitok ang pulong, busa walay nakit-an nga keyword.
 9c4491f1	Mga panumduman ug pananglitan nga sentence nga walay AI key: mga pulong sa English nga pareho og tingog nga adunay hulagway, ug tinuod nga mga sentence gikan sa Tatoeba ug Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	May kalabutan sa kahulogan
+c4d31fcf	Pareho ang kahulogan, o usa ka matang niini
+43548a25	Ang usa bahin sa usa
+dd4c4630	Duol ang kahulogan niini sa pulong
+90625d11	Ang kahulogan sa pulong usa ka matang niini
+74ff2ed8	Haom kini sa kahulogan sa pulong

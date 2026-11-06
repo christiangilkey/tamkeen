@@ -560,6 +560,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // `kept`: those put in Memorization notes with Use). Keywords turned down are kept on this device
   // (mnemonic.js turnDown) and never suggested for the word again.
   const mnemonics = new Map();
+  // How a free keyword is tied to the word's meaning (freemnemonic.js ties), for its mark's tooltip.
+  const TIE_NOTES = {
+    s: "It means the same thing, or a kind of it", p: "One is a part of the other", d: "Its meaning is close to the word's",
+    k: "The word's meaning is a kind of it", g: "It goes with the word's meaning", v: "It goes with the word's meaning",
+  };
   const avoidStore = () => { try { return window.localStorage; } catch { return null; } };
   let englishTable = null;  // a promise of the English word table (its CMU pronunciations), or null
   /** English speakers: each keyword's sounds from the CMU Pronouncing Dictionary in the English word table,
@@ -671,7 +676,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       if (s.link === 2) {
         const fits = h(`<span class="rv-mn-mark fits">Fits the meaning</span>`);
         if (s.linkNote) fits.title = s.linkNote;
+        if (s.tie && TIE_NOTES[s.tie]) fits.title = t(TIE_NOTES[s.tie]);
         how.append(fits);
+      } else if (s.link === 1 && s.tie) {
+        // (the free maker: a looser tie to the meaning, review/freemnemonic.js)
+        const related = h(`<span class="rv-mn-mark fits">Related in meaning</span>`);
+        if (TIE_NOTES[s.tie]) related.title = t(TIE_NOTES[s.tie]);
+        how.append(related);
       }
       const scene = li.querySelector(".rv-mn-scene");
       scene.textContent = s.scene || "";

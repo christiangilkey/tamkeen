@@ -14,3 +14,10 @@ dcf2ce6a	No s'ha trobat cap frase d'exemple per a aquesta paraula. Escriu-ne una
 7573a6d2	El Creador de mnemotècnies necessita la seva llista de paraules angleses la primera vegada (0,2 MB). Comprova la connexió i torna-ho a provar.
 b498b54c	No s'ha pogut saber com sona la paraula, així que no s'han trobat paraules clau.
 9c4491f1	Mnemotècnies i frases d'exemple sense clau d'IA: paraules angleses que sonen semblant, amb una imatge, i frases reals de Tatoeba i Wiktionary
+# Keywords tied to the meaning (the mark on the card and its tooltips).
+c5bd44b4	Relacionada pel significat
+c4d31fcf	Vol dir el mateix, o un tipus d'això
+43548a25	Una és part de l'altra
+dd4c4630	El seu significat s'assembla al de la paraula
+90625d11	El significat de la paraula n'és un tipus
+74ff2ed8	Va amb el significat de la paraula
