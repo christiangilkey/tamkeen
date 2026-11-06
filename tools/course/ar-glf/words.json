@@ -3,7 +3,7 @@
  "title": "Gulf Arabic basics",
  "variety": "Saudi Arabic, Riyadh (Najdi) style",
  "about": "Everyday Saudi words that Modern Standard Arabic doesn't have, counted in real Saudi Arabic (readers' comments on Al-Riyadh, Saudi TV transcripts, Najdi web text) and ranked by how often they are used, 50 to a unit. Every word's meaning is backed by a published dictionary. Words that are Standard Arabic, said differently or with dialect grammar are left out (the grammar course teaches those). Each word has one short sentence as people in Riyadh say it, with its English translation; ⟦ ⟧ marks the part that translates the word.",
- "planned": 88,
+ "planned": 80,
  "voice": {
   "voice": "ar-SA-HamedNeural",
   "locale": "ar-SA",
@@ -125,16 +125,6 @@
   },
   {
    "n": 13,
-   "rank": 105,
-   "word": "خَلَاص",
-   "pos": "interj",
-   "meaning": "OK then; that's it; enough",
-   "sentence": "⟦خَلَاص⟧، فِهِمْت.",
-   "translation": "⟦OK⟧, I get it.",
-   "note": "MSA خَلَاص means “rescue, salvation”."
-  },
-  {
-   "n": 14,
    "rank": 126,
    "word": "قَطّ",
    "pos": "verb",
@@ -145,7 +135,7 @@
    "note": "Not MSA قَطَّ “to trim” or قِطّ “cat”."
   },
   {
-   "n": 15,
+   "n": 14,
    "rank": 127,
    "word": "جَاب",
    "pos": "verb",
@@ -156,7 +146,7 @@
    "note": "Not MSA جَابَ “to roam, explore”."
   },
   {
-   "n": 16,
+   "n": 15,
    "rank": 130,
    "word": "زَيْن",
    "pos": "adj",
@@ -166,17 +156,7 @@
    "note": "MSA زَيْن means “beauty, adornment”."
   },
   {
-   "n": 17,
-   "rank": 154,
-   "word": "حِنَّا",
-   "pos": "pron",
-   "meaning": "we",
-   "sentence": "⟦حِنَّا⟧ مِن الرِّيَاض.",
-   "translation": "⟦We⟧'re from Riyadh.",
-   "note": "Not حِنَّاء “henna”."
-  },
-  {
-   "n": 18,
+   "n": 16,
    "rank": 202,
    "word": "وِشْلُون",
    "pos": "adv",
@@ -185,7 +165,7 @@
    "translation": "⟦How⟧'s work going?"
   },
   {
-   "n": 19,
+   "n": 17,
    "rank": 204,
    "word": "هَلَا",
    "pos": "interj",
@@ -195,7 +175,7 @@
    "note": "Not MSA هَلَّا “why not, won't you”."
   },
   {
-   "n": 20,
+   "n": 18,
    "rank": 205,
    "word": "لَيْن",
    "pos": "conj",
@@ -205,7 +185,7 @@
    "note": "Not MSA لِين “softness”."
   },
   {
-   "n": 21,
+   "n": 19,
    "rank": 221,
    "word": "فْلُوس",
    "pos": "noun",
@@ -215,7 +195,7 @@
    "note": "MSA فُلُوس are “fils, small coins”."
   },
   {
-   "n": 22,
+   "n": 20,
    "rank": 224,
    "word": "مُويَة",
    "pos": "noun",
@@ -224,7 +204,7 @@
    "translation": "Give me some cold ⟦water⟧."
   },
   {
-   "n": 23,
+   "n": 21,
    "rank": 231,
    "word": "رَبْع",
    "pos": "noun",
@@ -234,7 +214,7 @@
    "note": "Not MSA رُبْع “quarter”."
   },
   {
-   "n": 24,
+   "n": 22,
    "rank": 244,
    "word": "عِيَال",
    "pos": "noun",
@@ -244,16 +224,7 @@
    "note": "MSA عِيَال means “dependents”."
   },
   {
-   "n": 25,
-   "rank": 251,
-   "word": "يُمَّه",
-   "pos": "noun",
-   "meaning": "Mum! (calling your mother)",
-   "sentence": "⟦يُمَّه⟧، وَيْن جَوَّالِي؟",
-   "translation": "⟦Mum⟧, where's my phone?"
-  },
-  {
-   "n": 26,
+   "n": 23,
    "rank": 305,
    "word": "وَدَّى",
    "pos": "verb",
@@ -264,7 +235,7 @@
    "note": "Not MSA وَدَى “to pay blood money”."
   },
   {
-   "n": 27,
+   "n": 24,
    "rank": 321,
    "word": "سَالْفَة",
    "pos": "noun",
@@ -273,7 +244,7 @@
    "translation": "I've got a good ⟦story⟧ for you."
   },
   {
-   "n": 28,
+   "n": 25,
    "rank": 354,
    "word": "مُوب",
    "pos": "part",
@@ -282,7 +253,7 @@
    "translation": "That's ⟦not⟧ true."
   },
   {
-   "n": 29,
+   "n": 26,
    "rank": 355,
    "word": "مَدْرِي",
    "pos": "interj",
@@ -291,7 +262,7 @@
    "translation": "⟦I don't know⟧ where I put the key."
   },
   {
-   "n": 30,
+   "n": 27,
    "rank": 395,
    "word": "دِيرَة",
    "pos": "noun",
@@ -300,7 +271,7 @@
    "translation": "This is my family's ⟦hometown⟧."
   },
   {
-   "n": 31,
+   "n": 28,
    "rank": 457,
    "word": "بَرَّا",
    "pos": "adv",
@@ -310,7 +281,7 @@
    "note": "Not MSA بَرًّا “by land”."
   },
   {
-   "n": 32,
+   "n": 29,
    "rank": 513,
    "word": "عُقْبَال",
    "pos": "interj",
@@ -319,7 +290,7 @@
    "translation": "⟦Here's hoping⟧ we celebrate you next."
   },
   {
-   "n": 33,
+   "n": 30,
    "rank": 563,
    "word": "هَذُولَا",
    "pos": "pron",
@@ -328,7 +299,7 @@
    "translation": "⟦These⟧ are my children."
   },
   {
-   "n": 34,
+   "n": 31,
    "rank": 678,
    "word": "أَبْشِر",
    "pos": "interj",
@@ -338,7 +309,7 @@
    "note": "MSA أَبْشِرْ means “rejoice, good news!”."
   },
   {
-   "n": 35,
+   "n": 32,
    "rank": 873,
    "word": "مَعْلِيش",
    "pos": "interj",
@@ -347,16 +318,7 @@
    "translation": "⟦Sorry⟧, I didn't notice."
   },
   {
-   "n": 36,
-   "rank": 874,
-   "word": "يُبَه",
-   "pos": "noun",
-   "meaning": "Dad! (calling your father)",
-   "sentence": "⟦يُبَه⟧، تِسْمَح لِي أَطْلَع؟",
-   "translation": "⟦Dad⟧, can I go out?"
-  },
-  {
-   "n": 37,
+   "n": 33,
    "rank": 923,
    "word": "قِهَر",
    "pos": "verb",
@@ -366,7 +328,7 @@
    "note": "MSA قَهَرَ means “to conquer, overpower”."
   },
   {
-   "n": 38,
+   "n": 34,
    "rank": 943,
    "word": "دَقّ",
    "pos": "verb",
@@ -377,17 +339,7 @@
    "note": "In MSA دَقَّ only means “to knock, pound”."
   },
   {
-   "n": 39,
-   "rank": 1285,
-   "word": "خَوِيّ",
-   "pos": "noun",
-   "meaning": "friend, buddy",
-   "sentence": "هُو ⟦خَوِيّ⟧ أَخُوي.",
-   "translation": "He's my brother's ⟦friend⟧.",
-   "note": "Not MSA خُوَيّ “little brother”."
-  },
-  {
-   "n": 40,
+   "n": 35,
    "rank": 1458,
    "word": "عَصَّب",
    "pos": "verb",
@@ -397,7 +349,7 @@
    "note": "MSA عَصَّبَ means “to bandage”."
   },
   {
-   "n": 41,
+   "n": 36,
    "rank": 1624,
    "word": "وَاجِد",
    "pos": "adv",
@@ -407,7 +359,7 @@
    "note": "Not MSA وَاجِد “finding”."
   },
   {
-   "n": 42,
+   "n": 37,
    "rank": 1636,
    "word": "حَيْل",
    "pos": "adv",
@@ -417,7 +369,7 @@
    "note": "MSA حَيْل means “strength”."
   },
   {
-   "n": 43,
+   "n": 38,
    "rank": 1683,
    "word": "اسْتَانَس",
    "pos": "verb",
@@ -428,7 +380,7 @@
    "note": "MSA اِسْتَأْنَسَ means “to be sociable, become tame”."
   },
   {
-   "n": 44,
+   "n": 39,
    "rank": 1697,
    "word": "طَقّ",
    "pos": "verb",
@@ -439,7 +391,7 @@
    "note": "MSA طَقَّ means “to crack, snap”."
   },
   {
-   "n": 45,
+   "n": 40,
    "rank": 1872,
    "word": "عَيْش",
    "pos": "noun",
@@ -449,7 +401,7 @@
    "note": "MSA عَيْش means “living, life”."
   },
   {
-   "n": 46,
+   "n": 41,
    "rank": 1889,
    "word": "بَدْرِي",
    "pos": "adv",
@@ -458,7 +410,7 @@
    "translation": "I went to bed ⟦early⟧ yesterday."
   },
   {
-   "n": 47,
+   "n": 42,
    "rank": 1968,
    "word": "خَرَابِيط",
    "pos": "noun",
@@ -467,7 +419,7 @@
    "translation": "Don't believe this ⟦nonsense⟧."
   },
   {
-   "n": 48,
+   "n": 43,
    "rank": 2020,
    "word": "شَيْن",
    "pos": "adj",
@@ -477,16 +429,7 @@
    "note": "MSA شَيْن means “disgrace”."
   },
   {
-   "n": 49,
-   "rank": 2024,
-   "word": "أَفَا",
-   "pos": "interj",
-   "meaning": "oh no! (dismay, mild reproach)",
-   "sentence": "⟦أَفَا⟧! لَيْش مَا قِلْت لِي؟",
-   "translation": "⟦Oh no⟧! Why didn't you tell me?"
-  },
-  {
-   "n": 50,
+   "n": 44,
    "rank": 2321,
    "word": "هَذَاك",
    "pos": "pron",
@@ -495,7 +438,7 @@
    "translation": "Who's ⟦that⟧ man?"
   },
   {
-   "n": 51,
+   "n": 45,
    "rank": 2340,
    "word": "خَشْم",
    "pos": "noun",
@@ -504,7 +447,7 @@
    "translation": "He has a big ⟦nose⟧."
   },
   {
-   "n": 52,
+   "n": 46,
    "rank": 2469,
    "word": "رَهِيب",
    "pos": "adj",
@@ -514,7 +457,7 @@
    "note": "In MSA رَهِيب means “terrible, dreadful”."
   },
   {
-   "n": 53,
+   "n": 47,
    "rank": 2509,
    "word": "سَوْلَف",
    "pos": "verb",
@@ -524,7 +467,7 @@
    "form": "نْسَوْلِف"
   },
   {
-   "n": 54,
+   "n": 48,
    "rank": 3097,
    "word": "بِبَلَاش",
    "pos": "adv",
@@ -533,7 +476,7 @@
    "translation": "Entry is ⟦free⟧."
   },
   {
-   "n": 55,
+   "n": 49,
    "rank": 3135,
    "word": "وَنَاسَة",
    "pos": "noun",
@@ -542,7 +485,7 @@
    "translation": "The trip was ⟦fun⟧."
   },
   {
-   "n": 56,
+   "n": 50,
    "rank": 3284,
    "word": "يَمّ",
    "pos": "prep",
@@ -552,7 +495,7 @@
    "note": "Not MSA يَمّ “sea”."
   },
   {
-   "n": 57,
+   "n": 51,
    "rank": 3442,
    "word": "سَلَامَات",
    "pos": "interj",
@@ -561,7 +504,7 @@
    "translation": "⟦Get well soon⟧! What's wrong?"
   },
   {
-   "n": 58,
+   "n": 52,
    "rank": 3582,
    "word": "بَزْر",
    "pos": "noun",
@@ -571,7 +514,7 @@
    "note": "Not MSA بِزْر “seed”."
   },
   {
-   "n": 59,
+   "n": 53,
    "rank": 4083,
    "word": "دَبَّاب",
    "pos": "noun",
@@ -581,7 +524,7 @@
    "note": "MSA دَبَّاب means “crawling”."
   },
   {
-   "n": 60,
+   "n": 54,
    "rank": 4226,
    "word": "وَخَّر",
    "pos": "verb",
@@ -591,7 +534,7 @@
    "form": "وَخِّر"
   },
   {
-   "n": 61,
+   "n": 55,
    "rank": 4253,
    "word": "طِفِش",
    "pos": "verb",
@@ -602,7 +545,7 @@
    "note": "MSA طَفَشَ means “to run away”."
   },
   {
-   "n": 62,
+   "n": 56,
    "rank": 4612,
    "word": "سَنَع",
    "pos": "adj",
@@ -611,7 +554,7 @@
    "translation": "This boy is ⟦well-mannered⟧."
   },
   {
-   "n": 63,
+   "n": 57,
    "rank": 4764,
    "word": "حَوْسَة",
    "pos": "noun",
@@ -620,7 +563,7 @@
    "translation": "The room is a ⟦mess⟧!"
   },
   {
-   "n": 64,
+   "n": 58,
    "rank": 5060,
    "word": "شِمَاغ",
    "pos": "noun",
@@ -629,7 +572,7 @@
    "translation": "He put on a new ⟦shemagh⟧."
   },
   {
-   "n": 65,
+   "n": 59,
    "rank": 5419,
    "word": "هَذِيك",
    "pos": "pron",
@@ -638,17 +581,7 @@
    "translation": "⟦That⟧'s my brother's car."
   },
   {
-   "n": 66,
-   "rank": 5555,
-   "word": "بَاكِر",
-   "pos": "adv",
-   "meaning": "tomorrow",
-   "sentence": "نِشُوفِك ⟦بَاكِر⟧ إِنْ شَاء الله.",
-   "translation": "See you ⟦tomorrow⟧, God willing.",
-   "note": "MSA بَاكِرًا means “early”."
-  },
-  {
-   "n": 67,
+   "n": 60,
    "rank": 5652,
    "word": "عَوَّر",
    "pos": "verb",
@@ -659,7 +592,7 @@
    "note": "MSA عَوَّرَ means “to blind in one eye”."
   },
   {
-   "n": 68,
+   "n": 61,
    "rank": 6002,
    "word": "يِمْدِي",
    "pos": "verb",
@@ -668,7 +601,7 @@
    "translation": "Do we ⟦have time to⟧ catch the film?"
   },
   {
-   "n": 69,
+   "n": 62,
    "rank": 7478,
    "word": "فَحَّط",
    "pos": "verb",
@@ -678,16 +611,7 @@
    "form": "يْفَحِّطُون"
   },
   {
-   "n": 70,
-   "rank": 7556,
-   "word": "مَزْيُون",
-   "pos": "adj",
-   "meaning": "good-looking, pretty",
-   "sentence": "وَلَدْكُم ⟦مَزْيُون⟧ مَا شَاء الله.",
-   "translation": "Your boy is ⟦handsome⟧, God bless him."
-  },
-  {
-   "n": 71,
+   "n": 63,
    "rank": 7594,
    "word": "كَشْخَة",
    "pos": "adj",
@@ -696,7 +620,16 @@
    "translation": "Your outfit is ⟦smart⟧ today."
   },
   {
-   "n": 72,
+   "n": 64,
+   "rank": 7625,
+   "word": "حَسَافَة",
+   "pos": "interj",
+   "meaning": "what a pity; alas",
+   "sentence": "⟦حَسَافَة⟧ مَا جِيت مَعَنَا!",
+   "translation": "⟦What a pity⟧ you didn't come with us!"
+  },
+  {
+   "n": 65,
    "rank": 8436,
    "word": "انْسَدَح",
    "pos": "verb",
@@ -706,7 +639,7 @@
    "form": "بَنْسَدِح"
   },
   {
-   "n": 73,
+   "n": 66,
    "rank": 9016,
    "word": "ارْحَب",
    "pos": "interj",
@@ -715,7 +648,7 @@
    "translation": "⟦Welcome⟧, come on in!"
   },
   {
-   "n": 74,
+   "n": 67,
    "rank": 9883,
    "word": "غُتْرَة",
    "pos": "noun",
@@ -724,7 +657,7 @@
    "translation": "The white ⟦ghutra⟧ is for summer."
   },
   {
-   "n": 75,
+   "n": 68,
    "rank": 10499,
    "word": "خَرْطِي",
    "pos": "adj",
@@ -733,7 +666,7 @@
    "translation": "This phone is ⟦rubbish⟧."
   },
   {
-   "n": 76,
+   "n": 69,
    "rank": 10701,
    "word": "مَقَاضِي",
    "pos": "noun",
@@ -742,7 +675,7 @@
    "translation": "I got the ⟦groceries⟧ for the house."
   },
   {
-   "n": 77,
+   "n": 70,
    "rank": 12313,
    "word": "طَنَّش",
    "pos": "verb",
@@ -751,7 +684,7 @@
    "translation": "I texted him, and he ⟦ignored⟧ me."
   },
   {
-   "n": 78,
+   "n": 71,
    "rank": 13650,
    "word": "تْسَبَّح",
    "pos": "verb",
@@ -761,7 +694,7 @@
    "form": "بَتْسَبَّح"
   },
   {
-   "n": 79,
+   "n": 72,
    "rank": 15631,
    "word": "تْوَهَّق",
    "pos": "verb",
@@ -771,7 +704,7 @@
    "form": "تْوَهَّقْت"
   },
   {
-   "n": 80,
+   "n": 73,
    "rank": 15826,
    "word": "بِيَالَة",
    "pos": "noun",
@@ -780,7 +713,7 @@
    "translation": "Give me a ⟦glass⟧ of tea."
   },
   {
-   "n": 81,
+   "n": 74,
    "rank": 16416,
    "word": "هَرْجَة",
    "pos": "noun",
@@ -789,17 +722,7 @@
    "translation": "It's all just ⟦talk⟧."
   },
   {
-   "n": 82,
-   "rank": 17487,
-   "word": "غَثّ",
-   "pos": "verb",
-   "meaning": "to annoy, get on someone's nerves",
-   "sentence": "صَوْت الْمُكَيِّف ⟦غَثّ⟧نِي.",
-   "translation": "The air conditioner's noise ⟦got on my nerves⟧.",
-   "note": "MSA غَثّ means “thin, poor (meat)”."
-  },
-  {
-   "n": 83,
+   "n": 75,
    "rank": 19022,
    "word": "طَعْس",
    "pos": "noun",
@@ -808,7 +731,7 @@
    "translation": "There's a big ⟦dune⟧ behind the camp."
   },
   {
-   "n": 84,
+   "n": 76,
    "rank": 19521,
    "word": "فَنِيلَة",
    "pos": "noun",
@@ -817,7 +740,7 @@
    "translation": "I wore an ⟦undershirt⟧ under my thobe."
   },
   {
-   "n": 85,
+   "n": 77,
    "rank": 34571,
    "word": "مَلْقُوف",
    "pos": "adj",
@@ -826,7 +749,7 @@
    "translation": "Don't be ⟦nosy⟧!"
   },
   {
-   "n": 86,
+   "n": 78,
    "rank": 43403,
    "word": "كَشْتَة",
    "pos": "noun",
@@ -835,7 +758,7 @@
    "translation": "We'll go on a ⟦desert picnic⟧ on Friday."
   },
   {
-   "n": 87,
+   "n": 79,
    "rank": 66190,
    "word": "مَاصِخ",
    "pos": "adj",
@@ -844,7 +767,7 @@
    "translation": "The food is ⟦bland⟧, it needs salt."
   },
   {
-   "n": 88,
+   "n": 80,
    "rank": 77299,
    "word": "دِرْكْسُون",
    "pos": "noun",

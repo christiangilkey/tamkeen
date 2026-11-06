@@ -13,13 +13,13 @@ const at = (p) => new URL(`../../${p}`, import.meta.url);
 const course = JSON.parse(readFileSync(at("tools/course/ar-irq/words.json"), "utf8"));
 const evidence = JSON.parse(readFileSync(at("tools/course/ar-irq/evidence.json"), "utf8"));
 
-test("ar-irq: every word has a dictionary entry for its meaning, with its page", () => {
+test("ar-irq: every word has a published source for its meaning (Wiktionary or Tatoeba), with its page", () => {
   for (const w of course.words) {
-    assert.ok(Array.isArray(w.src) && w.src.length, `${w.n} ${w.word}: no dictionary entry`);
+    assert.ok(Array.isArray(w.src) && w.src.length, `${w.n} ${w.word}: no published source`);
     for (const s of w.src) {
-      assert.match(s.dictionary, /^(Wiktionary \((Iraqi Arabic|Arabic, labelled Iraqi)\)|Living Arabic Project, Iraqi dictionary)$/, `${w.n}: ${s.dictionary}`);
+      assert.match(s.dictionary, /^(Wiktionary|Tatoeba) \(.+\)$/, `${w.n}: ${s.dictionary}`);
       assert.ok(String(s.gloss || "").trim() && String(s.entry || "").trim(), `${w.n}: an empty dictionary sense`);
-      assert.ok(/^https:\/\/(en\.wiktionary\.org\/wiki\/|www\.livingarabic\.com\/)/.test(s.url), `${w.n}: ${s.url}`);
+      assert.ok(/^https:\/\/(en\.wiktionary\.org\/wiki\/|tatoeba\.org\/en\/sentences\/show\/\d+$)/.test(s.url), `${w.n}: ${s.url}`);
     }
   }
 });

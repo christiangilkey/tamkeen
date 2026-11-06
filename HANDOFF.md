@@ -6295,9 +6295,9 @@ four (section above): id `irq`, basics `ar-irq`, grammar `en-ar-irq`, Baghdad sp
   downloads the parquet files and reads them with **tools/course/ar-irq/parquet.mjs**, a small reader written
   here (Thrift footer, PLAIN/dictionary pages, Snappy/gzip/zstd) so nothing had to be installed; Hugging Face's
   JSON viewer was tried first and throttles hard (429s).
-- **Basics**: 98 words (tools/course/ar-irq/list.tsv -> make.mjs -> words.json, EVIDENCE.md; evidence.json from
-  evidence.mjs irq). Evidence: Wiktionary Iraqi Arabic + the Living Arabic Project's Iraqi dictionary (la.mjs,
-  la-iraqi.json kept). Strict rules as the others; out by rule 1: آني (= إني), هم, بعد, مال, بطل; out as MSA said
+- **Basics**: 98 words, 79 since 2026-11-06 (tools/course/ar-irq/list.tsv -> make.mjs -> words.json, EVIDENCE.md; evidence.json from
+  evidence.mjs irq). Evidence: Wiktionary Iraqi Arabic (+ manual.json since 2026-11-06; the "all rights reserved"
+  dictionary first used is gone, see "Gulf and Iraqi courses: only sources whose licence allows it"). Strict rules as the others; out by rule 1: آني (= إني), هم, بعد, مال, بطل; out as MSA said
   the Iraqi way: گال, چان, چبير, وكت, گعد...; out as fused: ماكو, شكو (the grammar teaches them). README.md has
   the method and every word left out. A reviewer pass (a second agent reading as an Iraqi-Arabic linguist) fixed
   21 points in the grammar and list before the build.
@@ -6993,3 +6993,31 @@ From the security review (H1, M1, M3, L1, L3, L4, part of L5, and the "docs page
     Names are not resolved, so a public name pointing at a private address isn't caught.
   - L7 body-size limits, L19 key storage.
   - The web and phone app's own CSP (M1's meta tag) is a separate piece of work.
+
+## Gulf and Iraqi courses: only sources whose licence allows it (2026-11-06, helper of the main chat)
+A legal review found the Gulf (`ar-glf`) and Iraqi (`ar-irq`) basics had entries from the Living Arabic Project's
+dictionaries (livingarabic.com, "all rights reserved") fetched by script and quoted in the public repo as evidence.
+The owner chose "Remove and replace it". Done here (history not rewritten; the main chat raises that separately):
+- **Deleted**: `tools/course/ar-glf/la.mjs`, `la-gulf.json`, `tools/course/ar-irq/la.mjs`, `la-iraqi.json`; the LA
+  quotes in both evidence files (rebuilt) and READMEs; the LA column of `ar-irq/list.tsv` (now `manual`: ids into
+  the new `ar-irq/manual.json`, like the Gulf's); the `la` key of `ar-glf/list.json`. Local git-ignored copies went
+  to the Recycle Bin (`build/dialect/glf-work/ar-glf/{la.mjs,la-gulf.json,build-list.mjs}`, `glf-work/out/evidence.json`,
+  `irq-try/{EVIDENCE.md,words.json}`, `irq-pool.mjs`). Another session's scratch copy is still in
+  `%TEMP%/claude/C--Users-chris-Documents-arabic-tts/89144110-.../scratchpad/staged-tree/` (not touched).
+- **Rechecked** every word that leaned on LA against live Wiktionary (Gulf, Najdi, Hijazi, Iraqi entries; English
+  pages' translation tables; usage examples, synonyms, see-also and pronoun tables in other entries) and Tatoeba
+  (afb/acm sentences, CC BY 2.0 FR). New evidence lives in `manual.json` of each course, read by hand.
+  Gulf: kept 8 (يلا, زين, عيال, خرابيط, هذاك, هذيك, عوّر, غترة), dropped 9 (خلاص, حنّا, يمّه, يبه, خويّ, أفا, باكر,
+  مزيون, غثّ), added حسافة (a Gulf usage example) -> 80 words. Iraqi: kept 17 (ليش, ويّا, إجا, شويّة, بعدين, إنتو,
+  حيل, نطى, شغلة, هذول, سولف, دزّ, بيبي, خابر, صمّون, تريّگ, شفقة), dropped 20 (جاب, خطيّة, سالفة, يلا, تخبّل, بيش,
+  عاف, أشو, بلكي, هلا, ربع, ياهو, تدلّل, ذيچ, لزم, شمر, جگارة, صفن, استكان, مگرود), added كومة "a lot" -> 79 words.
+  The READMEs list them. `build-list.mjs` and `make.mjs` now stop on a word with no published source.
+- **Audio**: the words that stay kept their files under their new numbers (a scratch remap of audio/NNNN.ogg,
+  made.json, course.json times, and ar-irq check.json), so `build_course.py --voice azure` voiced only حسافة and
+  كومة (owner's saved Azure key). Whisper on the two: 0.57 and 0.75, both dropping the word's final -a (a known
+  Whisper habit); worth a native listen.
+- **Test**: `tests/js/dialect-course.test.mjs` fails if a dialect course file quotes or links Living Arabic;
+  `course-ar-irq.test.mjs` accepts Wiktionary and Tatoeba sources only.
+- **Non-commercial quotes, listed not removed** (Tamkeen will be paid): `ar-glf/evidence.json` quotes SADA 2022
+  transcripts (CC BY-NC-SA 4.0) in `words[].examples.sada`; `ar-irq/evidence.json` quotes the Iraqi Arabic Dialect
+  Corpus (CC BY-NC 4.0) in `words[].examples`. Not published in the app (docs/ has none). A decision for the owner.

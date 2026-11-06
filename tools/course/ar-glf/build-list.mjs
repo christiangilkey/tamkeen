@@ -18,7 +18,6 @@ import { matchForm } from "../../../web/js/lexicon/arabic.js";
 const here = dirname(fileURLToPath(import.meta.url));
 const out = process.argv.includes("--out") ? process.argv[process.argv.indexOf("--out") + 1] : here;
 const list = JSON.parse(readFileSync(join(here, "list.json"), "utf8"));
-const la = JSON.parse(readFileSync(join(here, "la-gulf.json"), "utf8"));
 const manual = JSON.parse(readFileSync(join(here, "manual.json"), "utf8"));
 const { totals, forms: counted } = JSON.parse(readFileSync(join(SRC, "glf-work", "counts.json"), "utf8"));
 const CORPORA = ["aoc", "sada", "fineweb2"];
@@ -99,8 +98,11 @@ const evidence = rows.map((r, i) => {
     seen.add(k);
     meanings.push({ src: e.src, word: e.word, gloss: e.gloss, url: wiktUrl(e) });
   }
-  for (const e of la[r.w.la] || []) meanings.push({ src: "Living Arabic Project, Gulf Arabic dictionary (livingarabic.com)", word: e.word, gloss: e.meaning, url: e.url });
-  for (const id of r.w.manual || []) meanings.push(manual[id]);
+  for (const id of r.w.manual || []) {
+    if (!manual[id]) throw new Error(`${r.w.word}: no "${id}" in manual.json`);
+    meanings.push(manual[id]);
+  }
+  if (!meanings.length) throw new Error(`${r.w.word}: no published source for its meaning (Wiktionary, or manual.json)`);
   const flags = [];
   for (const k of spellings(r.w.word)) if (MSAW.has(k)) flags.push(`MSA overlap: ${MSAW.get(k).join("; ")}`);
   for (const b of shiftClash(r.w.word, basics)) flags.push(`looks like MSA basics word ${b.n} ${b.word} with a sound change (checked by hand: a different word)`);

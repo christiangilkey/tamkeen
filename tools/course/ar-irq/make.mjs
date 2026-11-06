@@ -9,10 +9,12 @@
 //                     (tools/course/dialect/sources.mjs TEXTS.irq: Iraqis' YouTube comments and Telegram messages);
 //   rank              its place among every spelling in those texts, Standard words included, most used = 1 (the
 //                     Gulf course's way: the gaps are everything left out, mostly Standard Arabic);
-//   src               what published dictionaries say it means, with the page it is on: Wiktionary's Iraqi Arabic
-//                     entries (wikt.mjs), the senses of Wiktionary's Arabic entries labelled Iraqi, and the Living
-//                     Arabic Project's Iraqi dictionary (la.mjs, la-iraqi.json). "word~pattern" in list.tsv keeps
-//                     only the senses that match the pattern (a headword spelled like another word);
+//   src               what published sources say it means, with the page it is on: Wiktionary's Iraqi Arabic
+//                     entries (wikt.mjs), the senses of Wiktionary's Arabic entries labelled Iraqi, and the other
+//                     mentions that those don't reach (manual.json, named in list.tsv: an Iraqi Arabic translation
+//                     on an English Wiktionary page, an Iraqi usage example in another entry, a Tatoeba sentence).
+//                     "word~pattern" in list.tsv keeps only the senses that match the pattern (a headword spelled
+//                     like another word);
 //   msa               what Wiktionary's Arabic (Standard) entry spelled the same says, when there is one.
 // Words are put in order of use, most used first. The voice part of words.json gets sounds.tsv: how the voice
 // says each word written with گ or چ, letters Azure's Iraqi voice skips (build_course.py "ipa").
@@ -25,11 +27,11 @@ import { fileURLToPath } from "node:url";
 import { counts, SRC } from "../dialect/sources.mjs";
 import { countedForms } from "../dialect/evidence.mjs";
 import { bare } from "../dialect/msa.mjs";
-import { LA_FILE } from "./la.mjs";
 import { WIKT, pageUrl } from "./wikt.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const FIELDS = ["word", "pos", "meaning", "note", "heads", "la", "forms", "sentence", "translation"];
+const FIELDS = ["word", "pos", "meaning", "note", "heads", "manual", "forms", "sentence", "translation"];
+export const MANUAL_FILE = join(HERE, "manual.json");
 // Senses a Standard Arabic entry gives only for some region or register: not Standard Arabic.
 const LABELLED = /colloquial|dialect|levant|leban|syria|palestin|jordan|egypt|gulf|iraq|maghreb|morocc|tunis|algeri|hijaz|najd|saudi|sudan|yemen|kuwait|bahrain|qatar|emirat|libya|vulgar|slang|informal|regional/i;
 const IRAQ = /iraq|baghdad|mesopotam|basra|mosul/i;
@@ -39,7 +41,7 @@ export const VOICE = { voice: "ar-IQ-BasselNeural", locale: "ar-IQ", name: "Bass
 /** "هيچ~like|so" -> {key: "هيچ", re: /like|so/i} */
 const pick = (s) => { const [key, re] = s.split("~"); return { key: key.trim(), re: re ? new RegExp(re, "i") : null }; };
 
-/** list.tsv -> [{word, pos, meaning, note, heads[], la[], forms[], sentence, translation, form}] */
+/** list.tsv -> [{word, pos, meaning, note, heads[], manual[], forms[], sentence, translation, form}] */
 export function readList(path = join(HERE, "list.tsv")) {
   return readFileSync(path, "utf8").split(/\r?\n/).filter((l) => l.trim() && !l.startsWith("#")).map((line, i) => {
     const cells = line.split("|").map((c) => c.trim());
@@ -49,7 +51,7 @@ export function readList(path = join(HERE, "list.tsv")) {
     // The word as the sentence has it, when it isn't written the same: the part marked ⟦ ⟧.
     const marked = (w.sentence.match(/⟦([^⟦⟧]+)⟧/) || [])[1] || "";
     const form = w.sentence.replace(/[⟦⟧]/g, "").includes(w.word) ? "" : marked;
-    return { ...w, heads: list(w.heads), la: list(w.la), forms: w.forms.split(/\s+/).filter(Boolean), form };
+    return { ...w, heads: list(w.heads), manual: list(w.manual), forms: w.forms.split(/\s+/).filter(Boolean), form };
   });
 }
 
@@ -106,7 +108,7 @@ async function main() {
   const wikt = existsSync(WIKT) ? JSON.parse(readFileSync(WIKT, "utf8")) : {};
   const wiktByKey = new Map();
   for (const [word, senses] of Object.entries(wikt)) wiktByKey.set(bare(word), [...(wiktByKey.get(bare(word)) || []), ...senses.map((s) => ({ ...s, word }))]);
-  const la = JSON.parse(readFileSync(LA_FILE, "utf8"));
+  const manual = JSON.parse(readFileSync(MANUAL_FILE, "utf8"));
   const arabic = await arabicEntries(new Set(list.flatMap((w) => [w.word, ...w.heads.map((h) => pick(h).key)].map(bare))));
   const spellings = [...n.values()].sort((a, b) => b - a); // every spelling's count, most used first
 
@@ -121,11 +123,11 @@ async function main() {
       }
       for (const e of arabic.irq.get(bare(h.key)) || []) if (!h.re || h.re.test(e.gloss)) add(e);
     }
-    for (const q of w.la.map(pick)) {
-      if (!la[q.key]) throw new Error(`${w.word}: ${q.key} isn't in la-iraqi.json yet (node tools/course/ar-irq/la.mjs)`);
-      for (const e of la[q.key]) if (!q.re || q.re.test(e.meaning)) add({ dictionary: "Living Arabic Project, Iraqi dictionary", entry: e.word, gloss: e.meaning, url: e.url });
+    for (const id of w.manual) {
+      if (!manual[id]) throw new Error(`${w.word}: no "${id}" in manual.json`);
+      add(manual[id]);
     }
-    if (!src.length) throw new Error(`${w.word}: no dictionary entry (list.tsv heads ${w.heads.join(", ")}; la ${w.la.join(", ")})`);
+    if (!src.length) throw new Error(`${w.word}: no published source for its meaning (list.tsv heads ${w.heads.join(", ")}; manual ${w.manual.join(", ")})`);
     return { ...w, uses, src, msa: arabic.msa.get(bare(w.word)) || [] };
   }).sort((a, b) => b.uses - a.uses);
 
@@ -151,7 +153,7 @@ async function main() {
     lang: "ar-irq",
     title: "Iraqi basics",
     variety: "Iraqi Arabic (Baghdad)",
-    about: `The most common words of spoken Iraqi Arabic that are not Standard Arabic: counted in ${(total / 1e6).toFixed(1)} million words that Iraqis wrote in comments and messages, most common first, 50 to a unit. It builds on the Arabic basics course: words you already know from Standard Arabic, even said a little differently (گال for قال, چبير for كبير), are left out, and the grammar course teaches the patterns. Every meaning is backed by a published dictionary entry. Each word has one short everyday sentence as people say it in Baghdad, with vowel marks and its English translation; ⟦ ⟧ marks the part that translates the word. گ is the Iraqi g (Standard ق) and چ is ch (often Standard ك). A note under a word says how it differs from a Standard Arabic word that looks the same.`,
+    about: `The most common words of spoken Iraqi Arabic that are not Standard Arabic: counted in ${(total / 1e6).toFixed(1)} million words that Iraqis wrote in comments and messages, most common first, 50 to a unit. It builds on the Arabic basics course: words you already know from Standard Arabic, even said a little differently (گال for قال, چبير for كبير), are left out, and the grammar course teaches the patterns. Every meaning is backed by a published source, mostly Wiktionary. Each word has one short everyday sentence as people say it in Baghdad, with vowel marks and its English translation; ⟦ ⟧ marks the part that translates the word. گ is the Iraqi g (Standard ق) and چ is ch (often Standard ك). A note under a word says how it differs from a Standard Arabic word that looks the same.`,
     planned: out.length,
     voice: { ...VOICE, unsaid: UNSAID, ipa },
     words: out,
@@ -170,7 +172,7 @@ function evidenceMd(course, total) {
     "Made by `tools/course/ar-irq/make.mjs` from `list.tsv`; the method is in `README.md`. For each word:",
     "",
     `- **Uses**: how often it is used per million words in ${(total / 1e6).toFixed(2)} million words of real Iraqi text (the Iraqi Arabic Dialect Corpus: Iraqis' YouTube comments and Telegram messages), and its **rank** among every spelling in those texts.`,
-    "- **Dictionary**: what a published dictionary says it means (Wiktionary's Iraqi Arabic entry, or the Living Arabic Project's Iraqi dictionary, linked). The meaning taught is one of these senses.",
+    "- **Dictionary**: what a published source says it means, linked: Wiktionary's Iraqi Arabic entry, or where Wiktionary has none, an Iraqi Arabic translation on one of its English pages, an Iraqi usage example in another of its entries, or a sentence on Tatoeba (CC BY 2.0 FR). The meaning taught is one of these senses.",
     "- **Standard Arabic**: what Wiktionary's Standard Arabic entry spelled the same says, if there is one. It never gives the meaning taught (that would make it a Standard Arabic word, which the course leaves out); the note in the app says how they differ.",
     "- Real sentences that use each word are in `evidence.json` (made by `tools/course/dialect/evidence.mjs irq`).",
     "",

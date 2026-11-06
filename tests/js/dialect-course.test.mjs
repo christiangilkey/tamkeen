@@ -8,7 +8,7 @@
 // A dialect not made yet is simply skipped. Each dialect may add its own checks in tests/js/course-ar-<d>.test.mjs.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { DIALECT_COURSES, msaWords, overlaps, searchKey, spellings, courseId } from "../../tools/course/dialect/overlap.mjs";
 import { ARABIC_VARIETIES, basicsId, cardOf, courseIdOf, varietiesOffered, varietyChoice } from "../../web/js/coursedata.js";
 import { checkCourse, cleanProgress, courseFor, courseIdOf as grammarIdOf, DIALECTS } from "../../web/js/grammardata.js";
@@ -87,6 +87,19 @@ for (const id of DIALECT_COURSES) {
 }
 
 // ---------------------------------------------------------------- the formats
+
+// The Living Arabic Project's dictionaries are "all rights reserved": the Gulf and Iraqi courses once quoted them
+// as evidence, and the owner had that taken out (2026-11-06). No course file may quote or link them again.
+test("no dialect course's files quote or link the Living Arabic Project", () => {
+  for (const id of DIALECT_COURSES) {
+    const dir = new URL(`../../tools/course/${id}/`, import.meta.url);
+    if (!existsSync(dir)) continue;
+    for (const f of readdirSync(dir)) {
+      if (!/\.(json|md|tsv|mjs|py)$/.test(f)) continue;
+      assert.doesNotMatch(readFileSync(new URL(f, dir), "utf8"), /livingarabic|Living Arabic Project,/i, `tools/course/${id}/${f}`);
+    }
+  }
+});
 
 test("a dialect basics course is named by its id, and its words keep their notes on the card", () => {
   assert.equal(courseIdOf({ lang: "ar" }), "ar");

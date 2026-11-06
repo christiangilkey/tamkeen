@@ -5,14 +5,14 @@ the Arabic basics course (`tools/course/ar`): a learner who did that one already
 one teaches only what is new. The grammar that differs from Standard Arabic is in the grammar course
 (`tools/grammar/en-ar-irq`, 16 lessons).
 
-**98 words.** Fewer than 300: the strict rules below leave out most everyday Iraqi words (they are Standard
-Arabic said the Iraqi way), and a word goes in only with a published dictionary entry for its meaning.
+**79 words.** Fewer than 300: the strict rules below leave out most everyday Iraqi words (they are Standard
+Arabic said the Iraqi way), and a word goes in only with a published source for its meaning.
 
 ## Files
 
 | File | What it is |
 |---|---|
-| `list.tsv` | The list, written by hand: word, part of speech, meaning, note, its dictionary headwords, the spellings counted in the texts, the sentence and its translation. |
+| `list.tsv` | The list, written by hand: word, part of speech, meaning, note, its Wiktionary headwords, its other sources (ids in `manual.json`), the spellings counted in the texts, the sentence and its translation. |
 | `sounds.tsv` | How the voice says every word written with گ or چ, in IPA (below). |
 | `make.mjs` | `node tools/course/ar-irq/make.mjs`: `list.tsv` + `sounds.tsv` → `words.json` (counts, rank, dictionary proof, order, the voice's sounds) and `EVIDENCE.md`. |
 | `words.json` | The course as `build_course.py ar-irq --voice azure` reads it (`forms`, `uses`, `src`, `msa` are not published). |
@@ -20,14 +20,14 @@ Arabic said the Iraqi way), and a word goes in only with a published dictionary 
 | `evidence.json` | `node tools/course/dialect/evidence.mjs irq`: the same counts plus three real sentences from the texts that use each word. |
 | `texts.mjs`, `parquet.mjs` | Download the Iraqi texts (below) into the git-ignored `tools/course/build/dialect/irq/`. They come as parquet files, read by `parquet.mjs` (a small reader written here, so nothing has to be installed). |
 | `wikt.mjs` | Fetches Wiktionary's Iraqi Arabic entries (kaikki.org, the other courses' source, has none) into `build/dialect/irq/wikt-iraqi.json`. |
-| `la.mjs`, `la-iraqi.json` | Looks words up in the Living Arabic Project's Iraqi dictionary; the entries are kept in `la-iraqi.json` so the evidence can be rebuilt offline. |
+| `manual.json` | Published sources that `wikt.mjs` doesn't reach, found and read by hand: an Iraqi Arabic translation on an English Wiktionary page, an Iraqi usage example or table in another Wiktionary entry, a Tatoeba sentence (CC BY 2.0 FR). |
 
 ## Rebuilding
 
 1. `node tools/course/ar-irq/texts.mjs` (a minute), `node tools/course/ar-irq/wikt.mjs`, and
    `node tools/course/dialect/sources.mjs` for Wiktionary's Arabic entries (shared with the other dialects).
-2. After editing `list.tsv`: `node tools/course/ar-irq/la.mjs` (looks up new Living Arabic headwords),
-   `node --max-old-space-size=8192 tools/course/ar-irq/make.mjs`, `node tools/course/dialect/evidence.mjs irq`,
+2. After editing `list.tsv`: `node --max-old-space-size=8192 tools/course/ar-irq/make.mjs` (it stops on a word
+   with no published source), `node tools/course/dialect/evidence.mjs irq`,
    `node tools/course/dialect/overlap.mjs ar-irq`.
 3. `.venv/Scripts/python.exe tools/course/build_course.py ar-irq --voice azure` (only changed words are voiced
    again), `.venv/Scripts/python.exe tools/course/check_audio.py ar-irq`, `node --test tests/js/course-ar-irq.test.mjs`.
@@ -62,12 +62,24 @@ Arabic said the Iraqi way), and a word goes in only with a published dictionary 
    “tobacco” (Wiktionary: Standard, archaic), دشداشة “robe” and سويا “together” are out. Each word's Standard
    senses are in `EVIDENCE.md`.
 3. **Evidence of meaning** (the owner: “real solid evidence that each word means what you thought it meant”):
-   every word cites at least one published dictionary entry for the meaning taught (`src` in `words.json`, with
-   links): Wiktionary's Iraqi Arabic entries (203 pages, CC BY-SA), the senses of Wiktionary's Arabic entries
-   labelled Iraqi, and the **Living Arabic Project's Iraqi dictionary** (livingarabic.com), looked up word by word.
-   Words with no entry for the meaning were left out even when common: تره “you know”, عبالي “I thought”, مدري
+   every word cites at least one published source for the meaning taught (`src` in `words.json`, with links):
+   Wiktionary's Iraqi Arabic entries (203 pages, CC BY-SA), the senses of Wiktionary's Arabic entries labelled
+   Iraqi, and (`manual.json`, read by hand 2026-11-06) an Iraqi Arabic translation on an English Wiktionary page
+   (ليش, ويا, حيل, هذول, سولف, بيبي, صمون, ريّوگ for تريّگ), an Iraqi usage example in another entry (دز, خابر,
+   نطى, تريّگ, شغلات, وبعدين), Wiktionary's table of Iraqi pronouns (إنتو), the participle جاي “coming” of إجى, or a
+   Tatoeba sentence with its translation (CC BY 2.0 FR: شوية, and more for ليش, شغلة, كومة).
+   Words with no source for the meaning were left out even when common: تره “you know”, عبالي “I thought”, مدري
    “I don't know”, يمعود “come on, man”, عفية “well done”, حباب “sweet”, نوب “again”, فدوة “dear”, مصلحة “city
    bus”. And غوري “teapot” is never used in the texts, so it is out too.
+
+   **Only sources whose licence allows it.** Until 2026-11-06 the list also quoted a dictionary site whose content
+   is "all rights reserved"; the owner had those quotes and the tool that fetched them taken out. Every word that
+   leaned on it was checked again against Wiktionary and Tatoeba: 17 were found there, and these 20 were not and
+   left the list: جاب “bring”, خطية “poor thing”, سالفة “story”, يلا “come on”, تخبل “amazing”, بيش “for how
+   much?”, عاف “leave”, أشو “it seems”, بلكي “maybe”, هلا “hello”, ربع “friends”, ياهو “which one?”, تدلل “as you
+   wish”, ذيچ “that (f.)”, لزم “catch”, شمر “throw”, جگارة “cigarette”, صفن “zone out”, استكان “tea glass”, مگرود
+   “poor, wretched”. They can come back when Wiktionary (or another source whose licence allows it) records them.
+   كومة “a lot” (Wiktionary's Iraqi entry and a Tatoeba sentence) joined the list.
 4. **Order**: by uses in the texts, most used first, 50 to a unit. `rank` is the word's place among every spelling
    in the texts, Standard words included (the Gulf course's way).
 
@@ -103,7 +115,11 @@ Listen-back, 2026-11-02:
   came through); مرگ was moved off the end of its sentence. The misses left are mostly short words said alone,
   where the recogniser also misses sounds Whisper hears.
 
-**Worth a native listen** (an optional job for an Iraqi speaker): the words said alone in 5 هيچ, 13 حچى, 62 چا,
-75 خاشوگة, 92 چطل, 93 چول, 98 چرخ (is the ch or g there?); the sentences of 87 قنفة (اُگْعُد), 95 عگروگ and
-98 چرخ; and 26 شوكت, 28 لعد, 42 هذول, 55 دز, where Whisper heard something quite different. Voice test files:
+**Worth a native listen** (an optional job for an Iraqi speaker; numbers as of 2026-11-06): the words said alone in
+5 هيچ, 13 حچى, 49 چا, 58 خاشوگة, 74 چطل, 75 چول, 79 چرخ (is the ch or g there?); the sentences of 69 قنفة (اُگْعُد),
+76 عگروگ and 79 چرخ; and 24 شوكت, 25 لعد, 36 هذول, 44 دز, where Whisper heard something quite different.
+
+When 20 words left the list (2026-11-06) the others kept their audio under their new numbers (`check.json` too);
+only 46 كومة was voiced. Whisper heard its sentence as أكو كوم ناس بالشارع (0.75): the final -a of kōmat, as with
+other words. Worth a native listen too. Voice test files:
 `tools/course/build/dialect-voice-test/irq/` (git-ignored).

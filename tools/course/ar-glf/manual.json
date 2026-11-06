@@ -10,5 +10,83 @@
   "url": "https://www.arabnews.pk/saudi-arabia/lost-in-translation-the-saudi-words-the-english-language-cant-quite-handle-3002100",
   "word": "السَّنع",
   "gloss": "propriety, good conduct: knowing how to behave properly (hosting guests, respecting elders, conduct at gatherings), associated especially with Najd (paraphrased)"
+ },
+ "wikt-good": {
+  "src": "Wiktionary, English entry “good”: its Gulf Arabic translation",
+  "url": "https://en.wiktionary.org/wiki/good",
+  "word": "زين",
+  "gloss": "good (Gulf Arabic: زين, zēn)"
+ },
+ "wikt-shen": {
+  "src": "Wiktionary, Gulf Arabic entry شين “bad”: its antonym",
+  "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%8A%D9%86#Gulf_Arabic",
+  "word": "زين",
+  "gloss": "the opposite of شين “bad” (zēn)"
+ },
+ "tatoeba-7960361": {
+  "src": "Tatoeba, Gulf Arabic sentence 7960361 by Garnetskull (CC BY 2.0 FR)",
+  "url": "https://tatoeba.org/en/sentences/show/7960361",
+  "word": "زين.",
+  "gloss": "“Good.”"
+ },
+ "wikt-yalla": {
+  "src": "Wiktionary, Arabic entry ياالله: its Gulf Arabic descendant",
+  "url": "https://en.wiktionary.org/wiki/%D9%8A%D8%A7%D8%A7%D9%84%D9%84%D9%87#Arabic",
+  "word": "يلا",
+  "gloss": "(colloquial) come on; let's go, hurry up: Gulf Arabic يلا (yaḷḷa) is listed as its descendant"
+ },
+ "wikt-yoo3": {
+  "src": "Wiktionary, Gulf Arabic entry يوع “hunger”: usage example",
+  "url": "https://en.wiktionary.org/wiki/%D9%8A%D9%88%D8%B9#Gulf_Arabic",
+  "word": "يلا",
+  "gloss": "a sentence beginning يلا, translated “Come on, …”"
+ },
+ "wikt-offspring": {
+  "src": "Wiktionary, English entry “offspring”: its Gulf Arabic translation",
+  "url": "https://en.wiktionary.org/wiki/offspring",
+  "word": "عيال",
+  "gloss": "offspring (Gulf Arabic: عيال, ʕyāl)"
+ },
+ "wikt-3ayyal": {
+  "src": "Wiktionary, Gulf Arabic entry عيل: etymology",
+  "url": "https://en.wiktionary.org/wiki/%D8%B9%D9%8A%D9%84#Gulf_Arabic",
+  "word": "عيال",
+  "gloss": "عيال (ʕyāl) “offspring, children”"
+ },
+ "wikt-bullshit": {
+  "src": "Wiktionary, English entry “bullshit”: its Gulf Arabic translation",
+  "url": "https://en.wiktionary.org/wiki/bullshit",
+  "word": "خرابيط",
+  "gloss": "nonsense, deceptive or exaggerated talk (Gulf Arabic: خرابيط, ḵarābīṭ)"
+ },
+ "wikt-dhak-hadhak": {
+  "src": "Wiktionary, Hijazi Arabic entry ذاك “that”: see also",
+  "url": "https://en.wiktionary.org/wiki/%D8%B0%D8%A7%D9%83#Hijazi_Arabic",
+  "word": "هذاك",
+  "gloss": "that one (masculine singular, hadāk)"
+ },
+ "wikt-dhak-hadhik": {
+  "src": "Wiktionary, Hijazi Arabic entry ذاك “that”: see also",
+  "url": "https://en.wiktionary.org/wiki/%D8%B0%D8%A7%D9%83#Hijazi_Arabic",
+  "word": "هذيك",
+  "gloss": "that one (feminine singular, hadīk)"
+ },
+ "wikt-adha": {
+  "src": "Wiktionary, Hijazi Arabic entry آذى “to harm”: synonyms",
+  "url": "https://en.wiktionary.org/wiki/%D8%A2%D8%B0%D9%89#Hijazi_Arabic",
+  "word": "عَوَّر",
+  "gloss": "to cause an injury, to hurt (ʕawwar)"
+ },
+ "wikt-shmagh": {
+  "src": "Wiktionary, Hijazi Arabic entries شماغ and عقال: see also",
+  "url": "https://en.wiktionary.org/wiki/%D8%B4%D9%85%D8%A7%D8%BA#Hijazi_Arabic",
+  "word": "غُتْرَة",
+  "gloss": "ghutra (ḡutra)"
+ },
+ "wikt-tal3a": {
+  "src": "Wiktionary, Gulf Arabic entry طلعة “outing”: usage example",
+  "url": "https://en.wiktionary.org/wiki/%D8%B7%D9%84%D8%B9%D8%A9#Gulf_Arabic",
+  "word": "حسافة",
+  "gloss": "a sentence in which حسافة is translated “alas” (what a pity)"
  }
 }

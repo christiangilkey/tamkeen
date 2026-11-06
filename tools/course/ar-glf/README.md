@@ -5,7 +5,7 @@ of "Saudi style" (وِشْ "what", not Kuwaiti شنو). It builds on the Standar
 list holds only everyday Saudi words that MSA doesn't have. Grammar that differs from MSA is in the grammar
 course (`tools/grammar/en-ar-glf/lessons.json`).
 
-**88 words** pass every rule below and have a published source for their meaning. That is fewer than the
+**80 words** pass every rule below and have a published source for their meaning. That is fewer than the
 300 hoped for: the strict "no MSA word" rule removes most everyday Saudi words, because Arabic also has them
 (see "Left out" below), and several well-known Saudi words have no published dictionary entry yet.
 
@@ -13,13 +13,12 @@ course (`tools/grammar/en-ar-glf/lessons.json`).
 
 | file | what it is |
 | --- | --- |
-| `list.json` | the words chosen by hand: word (vowelled as said in Riyadh), part of speech, meaning, `note` (how it differs from an MSA word that looks the same), the example sentence and its translation, `form` (the word as the sentence has it), `forms` (the spellings it is counted in), `exforms` / `exmatch` (which sentences count as real examples), `la` (its Living Arabic headword), `manual` (other published sources) |
+| `list.json` | the words chosen by hand: word (vowelled as said in Riyadh), part of speech, meaning, `note` (how it differs from an MSA word that looks the same), the example sentence and its translation, `form` (the word as the sentence has it), `forms` (the spellings it is counted in), `exforms` / `exmatch` (which sentences count as real examples), `manual` (other published sources, ids in `manual.json`) |
 | `words.json` | the course's word list, numbered by how often Saudis use the words (made by `build-list.mjs`) |
 | `evidence.json` | for every word: its counts in the three Saudi text collections, every published dictionary entry found for it (with a link), and real Saudi sentences that use it (made by `build-list.mjs`) |
-| `la-gulf.json` | the Living Arabic Project Gulf dictionary entries looked up for the words (`la.mjs`), kept so the evidence can be rebuilt offline |
-| `manual.json` | published sources that are neither Wiktionary nor Living Arabic (an Arab News article) |
+| `manual.json` | published sources the dictionary extracts don't reach, found and read by hand: a Gulf, Najdi or Hijazi word in an English Wiktionary page's translations, another entry's usage example, synonyms or "see also", a Tatoeba sentence, an Arab News article |
 | `head.json` | the course title, variety, description, voice |
-| `counts.mjs`, `build-list.mjs`, `la.mjs`, `hf_text.py` | the tools (below) |
+| `counts.mjs`, `build-list.mjs`, `hf_text.py` | the tools (below) |
 
 ## Rebuilding
 
@@ -30,9 +29,9 @@ course (`tools/grammar/en-ar-glf/lessons.json`).
    into `.../wikt-najdi/najdi-pages.json` (the Wiktionary API, category "Najdi Arabic lemmas").
 3. `node --max-old-space-size=8192 tools/course/ar-glf/counts.mjs` counts every word in the Saudi texts
    (`build/dialect/glf-work/counts.json`).
-4. `node tools/course/ar-glf/la.mjs` looks up new words in the Living Arabic Gulf dictionary.
-5. `node tools/course/ar-glf/build-list.mjs` writes `words.json` and `evidence.json`.
-6. `node tools/course/dialect/overlap.mjs ar-glf` (must say none is an MSA word), then
+4. `node tools/course/ar-glf/build-list.mjs` writes `words.json` and `evidence.json` (it stops on a word with
+   no published source).
+5. `node tools/course/dialect/overlap.mjs ar-glf` (must say none is an MSA word), then
    `.venv/Scripts/python.exe tools/course/build_course.py ar-glf --voice azure` for the audio.
 
 ## The Saudi texts (counted; never published except a few short quotes in evidence.json)
@@ -58,11 +57,20 @@ entries, each with its source and a link:
   its Arabic entries labelled Gulf or Saudi (via kaikki.org; the Najdi entries from the Wiktionary API).
   Hijazi is the Arabic of western Saudi Arabia; a Hijazi entry is used only for a word that the Najdi texts
   also use with that meaning.
-- **The Living Arabic Project's Gulf Arabic dictionary** (livingarabic.com), looked up word by word.
+- **Other Wiktionary pages and Tatoeba** (`manual.json`, read by hand 2026-11-06): a Gulf Arabic translation on
+  an English page (زَيْن “good”, عِيَال “offspring”, خَرَابِيط “bullshit, nonsense”), another entry's usage example
+  (يَلَّا, حَسَافَة), synonyms (عَوَّر) or “see also” (هَذَاك, هَذِيك, غُتْرَة), and one Tatoeba sentence (CC BY 2.0 FR,
+  for زَيْن).
 - **Arab News**, "Lost in translation: The Saudi words the English language can't quite handle" (Nada
   Alturki, 23 September 2026), for أَبْشِر and سَنَع.
 
-Every word has at least one entry that gives the meaning the course teaches (read by hand, 2026-11-01).
+Every word has at least one entry that gives the meaning the course teaches (read by hand, 2026-11-01 and
+2026-11-06).
+
+**Only sources whose licence allows it.** Until 2026-11-06 the list also quoted a dictionary site whose
+content is "all rights reserved"; the owner had those quotes and the tool that fetched them taken out. Each
+word that leaned on it was checked again against Wiktionary and Tatoeba: eight were found there, nine were
+not and left the list (below), and حَسَافَة, now in a Wiktionary usage example, joined it.
 
 ## The rules (the owner's, approved 2026-10-27)
 
@@ -90,8 +98,12 @@ meaning" was the MSA dictionary the app uses (CAMeL Tools' MSA database) and, wh
   عِزْوَة "kin who back you", كِذَا "like this", جُوَّا "inside", قِدَّام "in front", تَوّ "just now", بُكْرَة "tomorrow",
   شَايِب "old man", لَبَن, عِقَال, شَنْطَة "bag".
 - **No published source for the meaning found yet:** تِكْفَى "please (I beg you)", كَفُو "well done", فَزْعَة
-  "rallying to help", طَقْطَقَة "teasing", حَسَافَة "what a pity", مِير "but", نَاظَر "look at", قَلَّط "come in",
-  شَغَّالَة "housemaid", سَمّ "yes? (answering)". They can join the list when a dictionary records them.
+  "rallying to help", طَقْطَقَة "teasing", مِير "but", نَاظَر "look at", قَلَّط "come in", شَغَّالَة "housemaid",
+  سَمّ "yes? (answering)", and, taken out on 2026-11-06 (nothing in Wiktionary or Tatoeba gives them as Gulf
+  words with that meaning): خَلَاص "OK then, that's it" (Wiktionary has it only as colloquial Arabic in general),
+  حِنَّا "we" (Wiktionary's Gulf and Hijazi entries have إِحْنَا; the grammar course teaches حِنَّا), يُمَّه "Mum!",
+  يُبَه "Dad!", خَوِيّ "friend", أَفَا "oh no!", بَاكِر "tomorrow" (Wiktionary's Gulf entry is بَاچِر), مَزْيُون
+  "good-looking" (only as a synonym of "stylish"), غَثّ "annoy". They can join the list when a dictionary records them.
 - **Too rare in the texts (under about 100 uses in 53 million words):** قَهْوَى "serve coffee", مْعَزِّب "host",
   زُولِيَّة "rug".
 - **Counts not trustworthy:** سِيدَا "straight on" (its spelling is mostly the Standard phrase سَيِّدَا "the two
@@ -108,5 +120,7 @@ on Standard Arabic with a Saudi accent: it reads the sentences clearly but says 
 Listened back with Whisper large-v3 (`tools/course/check_audio.py ar-glf`, 2026-11-01): the sentences match
 0.78 on average (MSA's course: 0.97), 45 of 88 fully. Most misses are Whisper writing Saudi words its own
 way, since it learned mostly Standard Arabic: ويش for وش, the final -ah dropped (موي for مويه, كشت for كشتة),
-حين for حيل. Two sentences that came out unclear were rewritten and voiced again (64 شِمَاغ, 81 هَرْجَة).
-Worth a native listen: 4 عَشَان, 13 خَلَاص (فِهِمْت), 32 عُقْبَال, 47 خَرَابِيط, 68 يِمْدِي.
+حين for حيل. Two sentences that came out unclear were rewritten and voiced again (58 شِمَاغ, 74 هَرْجَة).
+Worth a native listen: 4 عَشَان, 29 عُقْبَال, 42 خَرَابِيط, 61 يِمْدِي (numbers as of 2026-11-06). When nine words left
+the list (2026-11-06) the others kept their audio under their new numbers; only 64 حَسَافَة was voiced, and
+Whisper heard its sentence right (ماجيتي for ما جيت) but the word alone as حساف (the final -ah again).

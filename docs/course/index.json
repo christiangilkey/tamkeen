@@ -297,17 +297,17 @@
    "dialect": "glf",
    "title": "Gulf Arabic basics",
    "variety": "Saudi Arabic, Riyadh (Najdi) style",
-   "words": 88,
-   "planned": 88,
-   "bytes": 34295,
-   "audio_bytes": 1079127,
-   "sha256": "7e44cdbb834d491a983a3af4b0e1cc5117a3a3c5fceb8f9a529446718e4921a1",
+   "words": 80,
+   "planned": 80,
+   "bytes": 31135,
+   "audio_bytes": 972967,
+   "sha256": "06d96130efdcc2378d0d599e4f2aa8448e599b459cf02f9bda44d36adfff191b",
    "voice": {
     "engine": "azure",
     "name": "Hamed (Azure, Saudi Arabia)",
     "synthetic": true
    },
-   "built": "2026-11-01"
+   "built": "2026-11-06"
   },
   "ar-mor": {
    "file": "ar-mor/course.json",
@@ -347,17 +347,17 @@
    "dialect": "irq",
    "title": "Iraqi basics",
    "variety": "Iraqi Arabic (Baghdad)",
-   "words": 98,
-   "planned": 98,
-   "bytes": 37330,
-   "audio_bytes": 1083838,
-   "sha256": "a935f06c2f1cfb2a1dd75d7dcda76d20c10a2ecee0a05ff3ab581ff8e24ccb67",
+   "words": 79,
+   "planned": 79,
+   "bytes": 30089,
+   "audio_bytes": 874457,
+   "sha256": "8f33973062499d89c959d3f9c15a97862413fedbe75d62980dcb3b5fb4902cf4",
    "voice": {
     "engine": "azure",
     "name": "Bassel (Azure, Iraq)",
     "synthetic": true
    },
-   "built": "2026-11-02"
+   "built": "2026-11-06"
   }
  }
 }
