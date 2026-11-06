@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Desafiaments, regals, la lliga i les incursions de gremi
+3b5d1016	La regla d'aquesta setmana per a les batalles entre amics:
+b9305778	Com funcionen els cors
+87f949fc	El seu nom i com creix
+dde98287	Un altre hàbitat
+0f8a93bf	Hàbitat anterior
+4284a81e	Hàbitat següent
+bc1dd8bb	Meta d'avui: toca per canviar-la
+b02f5611	Monedes: toca per anar a la botiga, mantén premut per saber-ne més
+1ebd4eff	Gemmes: toca per anar a les provisions, mantén premut per saber-ne més
+98f011af	Ratxa d'objectius: dies seguits que has assolit l'objectiu diari
+4fe2dd16	{0} / {1} min
+0e25a70d	Objectiu diari assolit: {0} minuts
+4db7e05b	Objectiu diari: {0} de {1} minuts
+2ee0f508	Ratxa d'objectius (dies): {0}; protectors de ratxa: {2}
+28ac170c	Ratxa d'objectius (dies): {0}
+709a2322	Nom
+d9452dd7	Com creix
+7fc4dd0f	De {0}: {1}
+30bdc332	Ha sortit de l'ou! Treu-la a la pàgina Criatures.
+82d81062	Protectors de ratxa
+b895a8c3	Com funciona
+f7c5032d	Creix amb l'XP que guanyes estudiant, i l'anell que l'envolta s'omple cap a la meta d'avui.
+27d396f4	Lluita i desafia amics, cria criatures i gasta el que guanyes a la botiga i al jardí. Un punt vermell vol dir que hi ha alguna cosa esperant.

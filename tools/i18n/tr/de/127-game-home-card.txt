@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Herausforderungen, Geschenke, die Liga und Gilden-Raids
+3b5d1016	Die Regel dieser Woche für Kämpfe unter Freunden:
+b9305778	So funktionieren Herzen
+87f949fc	Sein Name und wie es wächst
+dde98287	Anderer Lebensraum
+0f8a93bf	Vorheriger Lebensraum
+4284a81e	Nächster Lebensraum
+bc1dd8bb	Heutiges Ziel: tippen, um es zu ändern
+b02f5611	Münzen: tippen für den Laden, gedrückt halten für mehr
+1ebd4eff	Edelsteine: tippen für die Vorräte, gedrückt halten für mehr
+98f011af	Ziel-Serie: Tage in Folge, an denen du dein Tagesziel erreicht hast
+4fe2dd16	{0} / {1} Min.
+0e25a70d	Tagesziel erreicht: {0} Minuten
+4db7e05b	Tagesziel: {0} von {1} Minuten
+2ee0f508	Ziel-Serie in Tagen: {0}; Serienschutz: {2}
+28ac170c	Ziel-Serie in Tagen: {0}
+709a2322	Name
+d9452dd7	So wächst es
+7fc4dd0f	Von {0}: {1}
+30bdc332	Es ist geschlüpft! Hol es auf der Seite „Wesen“ heraus.
+82d81062	Serienschutz
+b895a8c3	So funktioniert das
+f7c5032d	Es wächst mit den EP, die du beim Lernen verdienst, und der Ring um es herum füllt sich bis zum heutigen Ziel.
+27d396f4	Kämpfe gegen Freunde und fordere sie heraus, zieh Wesen groß und gib aus, was du verdienst, im Laden und im Garten. Ein roter Punkt heißt, dass etwas auf dich wartet.

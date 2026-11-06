@@ -121,9 +121,9 @@ export async function render(view) {
       text: "Switch to another language you're learning, or add one. Each keeps its own library, words and reviews." },
     { target: ".continue-btn", title: "Carry on",
       text: "Picks up your latest episode, video or page where you stopped." },
-    { target: ".habitat-scene", title: "Your creature", text: "It grows with the XP you earn while studying." },
+    { target: ".habitat-scene", title: "Your creature", text: "It grows with the XP you earn while studying, and the ring round it fills toward today's goal." },
     { target: ".hud-actions", title: "Play",
-      text: "Battle, trade with friends, collect creatures, and spend what you earn in the shop and garden." },
+      text: "Battle and challenge friends, raise creatures, and spend what you earn in the shop and garden. A red dot means something is waiting." },
     { target: ".top-search", anywhere: true, title: "Search",
       text: "Find a word in everything you've read or listened to." },
   ]);

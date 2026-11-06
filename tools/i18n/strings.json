@@ -4845,11 +4845,6 @@
   "f": "web/js/components/modal.js"
  },
  {
-  "id": "66f4e3b0",
-  "k": "Make the folder",
-  "f": "web/js/components/modal.js"
- },
- {
   "id": "f0fbfe6e",
   "k": "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
   "f": "web/js/components/models.js"
@@ -6955,6 +6950,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "66f4e3b0",
+  "k": "Make the folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "0215f9a3",
   "k": "Add words",
   "f": "web/js/components/wordbuilder.js"
@@ -7097,21 +7097,6 @@
  {
   "id": "c6d69a2d",
   "k": "A short sentence that uses the word the way a native speaker would, with its translation.",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "786c4251",
-  "k": "Words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made by your AI.",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "7e5e5822",
-  "k": "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "bd2053cf",
-  "k": "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7463,136 +7448,6 @@
   "id": "7e3520a9",
   "k": "Leave",
   "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "c420e532",
-  "k": "Grammar notes",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "a9c84e5b",
-  "k": "Tools for this word",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "dad9503c",
-  "k": "More: copy, send to a friend, delete",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "8669aa56",
-  "k": "Episode",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "47b1023a",
-  "k": "Added manually",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "9afb285b",
-  "k": "· changed {0}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "2bc362a1",
-  "k": "{0}{1} · added {2}{3}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "db248300",
-  "k": "Paste",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "3ebfa343",
-  "k": "AI can write them instead",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "a8de43f2",
-  "k": "Find a real one",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "b80ded59",
-  "k": "Use this",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "700de107",
-  "k": "Another one",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "52378927",
-  "k": "Type my own",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "e02b25ba",
-  "k": "Writing a sentence…",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "6235b9f7",
-  "k": "Finding a sentence…",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "9ae914fa",
-  "k": "That didn't work. Try again.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "b9e3178a",
-  "k": "The AI sent nothing back for this word. Try again.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "9f8fe3c2",
-  "k": "No other example sentence was found for this word.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "5fd33173",
-  "k": "Written for you by the AI",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "957db23d",
-  "k": "From {0}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "19ea253a",
-  "k": "Save the audio",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "3aa6c431",
-  "k": "Its audio is saved with the card.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "626965cc",
-  "k": "Its audio couldn't be kept: {0}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "4e821d07",
-  "k": "Copy the word",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "7656d600",
-  "k": "Copy the sentence",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "200b5172",
-  "k": "Delete this word",
-  "f": "web/js/components/wordeditor.js"
  },
  {
   "id": "8736c3f2",
@@ -16775,6 +16630,26 @@
   "f": "web/js/pages/reels.js"
  },
  {
+  "id": "9bce06e6",
+  "k": "Edit the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d0f60fa0",
+  "k": "Edit the meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "697f207b",
+  "k": "Edit the sentence",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "71f0b2ab",
+  "k": "Edit the translation",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "c614ba7c",
   "k": "Auto",
   "f": "web/js/pages/review.js"
@@ -16875,6 +16750,171 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "be0bf6d1",
+  "k": "The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "2b382bdb",
+  "k": "There is nothing copied to paste.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "af74f7c5",
+  "k": "Copy",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "13289035",
+  "k": "That couldn't be copied here.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c4d31fcf",
+  "k": "It means the same thing, or a kind of it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "43548a25",
+  "k": "One is a part of the other",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "dd4c4630",
+  "k": "Its meaning is close to the word's",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "90625d11",
+  "k": "The word's meaning is a kind of it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "74ff2ed8",
+  "k": "It goes with the word's meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c35874c7",
+  "k": "Added to Memorization notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "9314f858",
+  "k": "Put it in Memorization notes",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7709c8d3",
+  "k": "Not this one: never suggest it for this word again",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "febeb00d",
+  "k": "Not this one",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "20be8cae",
+  "k": "It sounds close to the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "12197aa2",
+  "k": "Close match",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "8da4f709",
+  "k": "It sounds like part of the word, or roughly like it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "5d99bc5d",
+  "k": "Partial match",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "48c1ab45",
+  "k": "Fits the meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c5bd44b4",
+  "k": "Related in meaning",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "56732347",
+  "k": "You turned them all down. Press Make 5 more for new ones.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d878e2e3",
+  "k": "Make 5 more",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "6657e44b",
+  "k": "No new keywords sounded close enough to the word. Press Make 5 more to try again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7208744b",
+  "k": "Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "ee432df0",
+  "k": "Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "52e3278d",
+  "k": "English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "9e43c50e",
+  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "0f212aca",
+  "k": "Their sound couldn't be checked this time.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "91eb1b29",
+  "k": "Only 1 keyword sounded close enough to show.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "b668e8b3",
+  "k": "Only {0} keywords sounded close enough to show.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7893f7ae",
+  "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7573a6d2",
+  "k": "The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "b498b54c",
+  "k": "The word's sounds couldn't be worked out, so no keywords could be found.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "9ae914fa",
+  "k": "That didn't work. Try again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "751a4b16",
   "k": "{0} Word",
   "f": "web/js/pages/review.js"
@@ -16885,8 +16925,23 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "8669aa56",
+  "k": "Episode",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "47b1023a",
+  "k": "Added manually",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "57e2a7ce",
   "k": "What it means",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c420e532",
+  "k": "Grammar notes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -16910,6 +16965,11 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "2f3a0211",
+  "k": "How it sounds",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "3250d8de",
   "k": "{0} · added {1}",
   "f": "web/js/pages/review.js"
@@ -16917,6 +16977,11 @@
  {
   "id": "e1e86d29",
   "k": "Delete this word (Del)",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "200b5172",
+  "k": "Delete this word",
   "f": "web/js/pages/review.js"
  },
  {
@@ -17780,23 +17845,38 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "0df0b09f",
-  "k": "Choose a folder",
+  "id": "adc4e96a",
+  "k": "Sort",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "c9b34169",
-  "k": "Sort and filter",
+  "id": "b2a08c42",
+  "k": "Show words",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "d1fc1dbd",
-  "k": "Select words",
+  "id": "172415f0",
+  "k": "added",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "9c938798",
-  "k": "Done selecting",
+  "id": "37c6c57b",
+  "k": "changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3f66052a",
+  "k": "From",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "4374aaee",
+  "k": "to",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "ae79ea1e",
+  "k": "To",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17810,23 +17890,18 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "ebe08b9e",
-  "k": "Rename folder",
+  "id": "6f99aa21",
+  "k": "📨 Send to a friend",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "b2ce023b",
-  "k": "Folder name",
+  "id": "247fd631",
+  "k": "Clear selection",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "89b57788",
-  "k": "Delete the folder “{0}”?",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "639b9d4f",
-  "k": "The words in it are kept.",
+  "id": "6d19e3ba",
+  "k": "Name for the new folder:",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17840,13 +17915,33 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "19adc47b",
-  "k": "Folders",
+  "id": "4ad414d8",
+  "k": "＋ New folder",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "0c89a43f",
-  "k": "Rename, send or delete this folder",
+  "id": "e2324f01",
+  "k": "Rename folder:",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "5ee46641",
+  "k": "Delete folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "89b57788",
+  "k": "Delete the folder “{0}”?",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "639b9d4f",
+  "k": "The words in it are kept.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "e4ae0eaf",
+  "k": "📨 Send folder to a friend",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17900,83 +17995,33 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "5d7d59d9",
-  "k": "Delete {0} words from your vocab?",
+  "id": "9afb285b",
+  "k": "· changed {0}",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "e4c1f098",
-  "k": "Any of their cards in Anki go too at the next sync, with those cards' review history.",
+  "id": "a5420424",
+  "k": "Select word",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "d82f2748",
-  "k": "Deleted {0} words.",
+  "id": "8e3f51e2",
+  "k": "{0} · added {1}{2}",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "adc4e96a",
-  "k": "Sort",
+  "id": "dd5422ef",
+  "k": "Grammar notes (root, grammar, usage…)",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "b2a08c42",
-  "k": "Show words",
+  "id": "36f70029",
+  "k": "Memorization notes (a mnemonic, where you heard it…)",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "cb5424f6",
-  "k": "Changed",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "3f66052a",
-  "k": "From",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "4374aaee",
-  "k": "to",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "ae79ea1e",
-  "k": "To",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "44c57abd",
-  "k": "Reset",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "e5084bff",
-  "k": "{0} selected",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "6432548e",
-  "k": "Tap words to select them",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "85cce1e1",
-  "k": "Deselect all",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "b2034f7e",
-  "k": "Select all {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "1ef4fd36",
-  "k": "Untick every word listed below",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "80e145aa",
-  "k": "Tick every word listed below, to file or send them together",
+  "id": "19adc47b",
+  "k": "Folders",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18012,6 +18057,31 @@
  {
   "id": "29a80ea8",
   "k": "All caught up{0}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "e5084bff",
+  "k": "{0} selected",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "85cce1e1",
+  "k": "Deselect all",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "b2034f7e",
+  "k": "Select all {0}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "1ef4fd36",
+  "k": "Untick every word listed below",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "80e145aa",
+  "k": "Tick every word listed below, to file or send them together",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18075,18 +18145,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "67c9f6e9",
-  "k": "The folder on show. Tap it to choose another, or to make, rename or send one; Review then covers just its words.",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "18e479d2",
-  "k": "Change the order, or show only the words added or changed on certain days.",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "16af5f21",
-  "k": "Tick several words to put them in a folder, send them to a friend or delete them together.",
+  "id": "b34e55f5",
+  "k": "Tap a folder to see only its words; Review then covers just those. New folder makes one.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18095,8 +18155,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "f026d2d5",
-  "k": "Tap a word to open it: hear it, put any part of it right, make a mnemonic, or find it an example sentence.",
+  "id": "a4284878",
+  "k": "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18910,201 +18970,6 @@
   "f": "web/js/review/calpopup.js"
  },
  {
-  "id": "9bce06e6",
-  "k": "Edit the word",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "d0f60fa0",
-  "k": "Edit the meaning",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "697f207b",
-  "k": "Edit the sentence",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "71f0b2ab",
-  "k": "Edit the translation",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "3007f8aa",
-  "k": "Edit the grammar notes",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "e09f4012",
-  "k": "Edit the memorization notes",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "13289035",
-  "k": "That couldn't be copied here.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "be0bf6d1",
-  "k": "The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "2b382bdb",
-  "k": "There is nothing copied to paste.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "af74f7c5",
-  "k": "Copy",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "c4d31fcf",
-  "k": "It means the same thing, or a kind of it",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "43548a25",
-  "k": "One is a part of the other",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "dd4c4630",
-  "k": "Its meaning is close to the word's",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "90625d11",
-  "k": "The word's meaning is a kind of it",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "74ff2ed8",
-  "k": "It goes with the word's meaning",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "2f3a0211",
-  "k": "How it sounds",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "c35874c7",
-  "k": "Added to Memorization notes",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "9314f858",
-  "k": "Put it in Memorization notes",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "7709c8d3",
-  "k": "Not this one: never suggest it for this word again",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "febeb00d",
-  "k": "Not this one",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "20be8cae",
-  "k": "It sounds close to the word",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "12197aa2",
-  "k": "Close match",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "8da4f709",
-  "k": "It sounds like part of the word, or roughly like it",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "5d99bc5d",
-  "k": "Partial match",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "48c1ab45",
-  "k": "Fits the meaning",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "c5bd44b4",
-  "k": "Related in meaning",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "56732347",
-  "k": "You turned them all down. Press Make 5 more for new ones.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "d878e2e3",
-  "k": "Make 5 more",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "6657e44b",
-  "k": "No new keywords sounded close enough to the word. Press Make 5 more to try again.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "7208744b",
-  "k": "Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "ee432df0",
-  "k": "Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "52e3278d",
-  "k": "English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "9e43c50e",
-  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "0f212aca",
-  "k": "Their sound couldn't be checked this time.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "91eb1b29",
-  "k": "Only 1 keyword sounded close enough to show.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "b668e8b3",
-  "k": "Only {0} keywords sounded close enough to show.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "7893f7ae",
-  "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "7573a6d2",
-  "k": "The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "b498b54c",
-  "k": "The word's sounds couldn't be worked out, so no keywords could be found.",
-  "f": "web/js/review/cardtools.js"
- },
- {
   "id": "15710324",
   "k": "Han",
   "f": "web/js/review/deck.js"
@@ -19398,31 +19263,6 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
- },
- {
-  "id": "ac26a7a9",
-  "k": "Translation",
-  "f": "web/js/review/vocabedit.js"
- },
- {
-  "id": "3095a407",
-  "k": "Mnemonic maker: words that sound like it, each with a picture",
-  "f": "web/js/review/vocabedit.js"
- },
- {
-  "id": "476f76d7",
-  "k": "An example sentence: a real one found, or one written for you",
-  "f": "web/js/review/vocabedit.js"
- },
- {
-  "id": "f94ba403",
-  "k": "Record the word, or choose a sound file",
-  "f": "web/js/review/vocabedit.js"
- },
- {
-  "id": "b68a4cb2",
-  "k": "Put it in folders",
-  "f": "web/js/review/vocabedit.js"
  },
  {
   "id": "1b4cae1c",
@@ -22727,6 +22567,11 @@
  {
   "id": "732ac1f0",
   "k": "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.",
+  "f": "mobile/src/js/web-sites.js"
+ },
+ {
+  "id": "db248300",
+  "k": "Paste",
   "f": "mobile/src/js/web-sites.js"
  },
  {

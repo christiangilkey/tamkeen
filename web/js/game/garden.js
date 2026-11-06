@@ -13,6 +13,8 @@ import {
 } from "./idle.js";
 import { announce, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
+import { icon as lineIcon } from "../icons.js";
+import { openEarned } from "./info.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
 const structure = (id) => STRUCTURES.find((s) => s.id === id);
@@ -147,9 +149,11 @@ export function suppliesPanel(body, game, changed) {
   body.append(h(wallet(game)));
 
   const fedToday = c.fed && c.fed.day === dayKey() ? c.fed.n : 0;
-  body.append(h(`<div class="stack"><strong>Food</strong>
+  const food = h(`<div class="stack"><strong class="row-help">Food <button type="button" class="ghost icon sheet-help" title="How hearts work">${lineIcon("question", 16)}</button></strong>
     <span class="small muted">${egg ? "Hatch your egg first; then it can be fed." : `${c.name || "Your creature"} ${heartsRow(c)} · fed ${Math.min(fedToday, FEEDS_PER_DAY)} of ${FEEDS_PER_DAY} times today.
-      Its favourite counts double. Hearts make its buildings a little faster and change nothing in battles.`}</span></div>`));
+      Its favourite counts double. Hearts make its buildings a little faster and change nothing in battles.`}</span></div>`);
+  food.querySelector(".sheet-help").onclick = () => openEarned("heart", game, () => {}, { over: true });
+  body.append(food);
   const foods = h(`<div class="shop-grid"></div>`);
   for (const f of FOODS) {
     const have = game.items[f.id] || 0;

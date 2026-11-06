@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Desafios, presentes, a liga e os raides da guilda
+3b5d1016	A regra desta semana para batalhas entre amigos:
+b9305778	Como os corações funcionam
+87f949fc	O nome e como ela cresce
+dde98287	Outro habitat
+0f8a93bf	Habitat anterior
+4284a81e	Próximo habitat
+bc1dd8bb	Meta de hoje: toque para mudar
+b02f5611	Moedas: toque para a loja, segure para saber mais
+1ebd4eff	Gemas: toque para os suprimentos, segure para saber mais
+98f011af	Sequência de metas: dias seguidos em que você atingiu sua meta diária
+4fe2dd16	{0} / {1} min
+0e25a70d	Meta diária atingida: {0} minutos
+4db7e05b	Meta diária: {0} de {1} minutos
+2ee0f508	Sequência de metas: {0} dia{1}; protetores de sequência: {2}
+28ac170c	Sequência de metas: {0} dia{1}
+709a2322	Nome
+d9452dd7	Como ela cresce
+7fc4dd0f	De {0}: {1}
+30bdc332	Nasceu! Traga a criatura para fora na página Criaturas.
+82d81062	Protetores de sequência
+b895a8c3	Como funciona
+f7c5032d	Ela cresce com o XP que você ganha estudando, e o anel ao redor dela se enche rumo à meta de hoje.
+27d396f4	Batalhe e desafie amigos, crie criaturas e gaste o que ganhar na loja e no jardim. Um ponto vermelho significa que algo está esperando.

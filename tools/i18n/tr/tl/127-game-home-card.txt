@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Mga hamon, regalo, ang liga at ang guild raids
+3b5d1016	Ang patakaran ngayong linggo para sa laban ng magkakaibigan:
+b9305778	Paano gumagana ang mga puso
+87f949fc	Ang pangalan nito at kung paano ito lumalaki
+dde98287	Ibang tirahan
+0f8a93bf	Nakaraang tirahan
+4284a81e	Susunod na tirahan
+bc1dd8bb	Layunin ngayong araw: pindutin para palitan
+b02f5611	Mga barya: pindutin para sa tindahan, pindutin nang matagal para malaman pa
+1ebd4eff	Mga hiyas: pindutin para sa mga gamit, pindutin nang matagal para malaman pa
+98f011af	Goal streak: mga sunod-sunod na araw na naabot mo ang araw-araw na layunin
+4fe2dd16	{0} / {1} min
+0e25a70d	Naabot ang araw-araw na layunin: {0} minuto
+4db7e05b	Araw-araw na layunin: {0} sa {1} minuto
+2ee0f508	Goal streak: {0} araw, streak freeze: {2}
+28ac170c	Goal streak: {0} araw
+709a2322	Pangalan
+d9452dd7	Paano ito lumalaki
+7fc4dd0f	Mula kay {0}: {1}
+30bdc332	Napisa na! Ilabas ito sa page ng Mga nilalang.
+82d81062	Mga streak freeze
+b895a8c3	Paano ito gumagana
+f7c5032d	Lumalaki ito sa XP na naiipon mo habang nag-aaral, at napupuno ang singsing sa paligid nito patungo sa layunin ngayong araw.
+27d396f4	Makipaglaban at hamunin ang mga kaibigan, mag-alaga ng mga nilalang, at gastusin ang kinita mo sa tindahan at hardin. Ang pulang tuldok ay nangangahulugang may naghihintay.

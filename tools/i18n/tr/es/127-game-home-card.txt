@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Desafíos, regalos, la liga y las incursiones de gremio
+3b5d1016	La regla de esta semana para las batallas entre amigos:
+b9305778	Cómo funcionan los corazones
+87f949fc	Su nombre y cómo crece
+dde98287	Otro hábitat
+0f8a93bf	Hábitat anterior
+4284a81e	Hábitat siguiente
+bc1dd8bb	Meta de hoy: toca para cambiarla
+b02f5611	Monedas: toca para ir a la tienda, mantén pulsado para saber más
+1ebd4eff	Gemas: toca para ir a las provisiones, mantén pulsado para saber más
+98f011af	Racha de metas: días seguidos en que alcanzaste tu meta diaria
+4fe2dd16	{0} / {1} min
+0e25a70d	Meta diaria alcanzada: {0} minutos
+4db7e05b	Meta diaria: {0} de {1} minutos
+2ee0f508	Racha de metas: {0} día{1}; protectores de racha: {2}
+28ac170c	Racha de metas: {0} día{1}
+709a2322	Nombre
+d9452dd7	Cómo crece
+7fc4dd0f	De {0}: {1}
+30bdc332	¡Ha nacido! Sácalo en la página de Criaturas.
+82d81062	Protectores de racha
+b895a8c3	Cómo funciona esto
+f7c5032d	Crece con la XP que ganas al estudiar, y el anillo a su alrededor se llena hacia la meta de hoy.
+27d396f4	Lucha y desafía a amigos, cría criaturas y gasta lo que ganas en la tienda y el jardín. Un punto rojo significa que algo te espera.

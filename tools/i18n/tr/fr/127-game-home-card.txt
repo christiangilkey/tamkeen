@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Défis, cadeaux, la ligue et les raids de guilde
+3b5d1016	La règle de la semaine pour les combats entre amis :
+b9305778	Comment fonctionnent les cœurs
+87f949fc	Son nom et comment elle grandit
+dde98287	Un autre habitat
+0f8a93bf	Habitat précédent
+4284a81e	Habitat suivant
+bc1dd8bb	Objectif du jour : touchez pour le changer
+b02f5611	Pièces : touchez pour la boutique, maintenez pour en savoir plus
+1ebd4eff	Gemmes : touchez pour les fournitures, maintenez pour en savoir plus
+98f011af	Série d'objectifs : jours d'affilée où vous avez atteint votre objectif quotidien
+4fe2dd16	{0} / {1} min
+0e25a70d	Objectif quotidien atteint : {0} minutes
+4db7e05b	Objectif quotidien : {0} sur {1} minutes
+2ee0f508	Série d'objectifs : {0} jour{1} ; gels de série : {2}
+28ac170c	Série d'objectifs : {0} jour{1}
+709a2322	Nom
+d9452dd7	Comment elle grandit
+7fc4dd0f	De {0} : {1}
+30bdc332	Elle a éclos ! Faites-la sortir depuis la page Créatures.
+82d81062	Gels de série
+b895a8c3	Comment ça marche
+f7c5032d	Elle grandit avec l'XP que vous gagnez en étudiant, et l'anneau autour d'elle se remplit vers l'objectif du jour.
+27d396f4	Combattez et défiez vos amis, élevez des créatures et dépensez vos gains dans la boutique et le jardin. Un point rouge signifie que quelque chose vous attend.

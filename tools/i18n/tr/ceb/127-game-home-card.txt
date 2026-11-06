@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Mga hagit, regalo, ang liga ug mga raid sa guild
+3b5d1016	Ang lagda karong semanaha para sa mga sangka sa mga higala:
+b9305778	Giunsa paglihok sa mga kasingkasing
+87f949fc	Ang ngalan niini ug giunsa kini pagtubo
+dde98287	Laing habitat
+0f8a93bf	Miaging habitat
+4284a81e	Sunod nga habitat
+bc1dd8bb	Tumong karon: i-tap aron usbon
+b02f5611	Mga coin: i-tap para sa tindahan, kupti para mahibal-an pa
+1ebd4eff	Mga mutya: i-tap para sa suplay, kupti para mahibal-an pa
+98f011af	Streak sa tumong: mga adlaw nga sunod-sunod nga naabot nimo ang adlaw-adlaw nga tumong
+4fe2dd16	{0} / {1} min
+0e25a70d	Naabot ang adlaw-adlaw nga tumong: {0} ka minuto
+4db7e05b	Adlaw-adlaw nga tumong: {0} sa {1} ka minuto
+2ee0f508	Streak sa tumong: {0} ka adlaw, streak freeze: {2}
+28ac170c	Streak sa tumong: {0} ka adlaw
+709a2322	Ngalan
+d9452dd7	Giunsa kini pagtubo
+7fc4dd0f	Gikan kang {0}: {1}
+30bdc332	Napusa na! Gawasa kini sa panid sa Mga linalang.
+82d81062	Mga streak freeze
+b895a8c3	Giunsa kini paglihok
+f7c5032d	Motubo kini sa XP nga imong makuha samtang nagtuon, ug mapuno ang singsing palibot niini paingon sa tumong karon.
+27d396f4	Pakig-sangka ug hagita ang mga higala, atimana ang mga linalang, ug gastoha ang imong nakuha sa tindahan ug tanaman. Ang pula nga tuldok nagpasabot nga adunay naghulat.

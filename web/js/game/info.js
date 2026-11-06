@@ -14,19 +14,22 @@ const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
 const list = (items) => `<ul class="info-list">${items.map((t) => `<li>${t}</li>`).join("")}</ul>`;
 
 /** A small sheet over the page with a title and a close button. Returns {body, close}. `pic` is a
- * game icon's name, or ready markup (a line icon, a portrait). Also used by the friends-list bar. */
-export function sheet(title, pic) {
-  document.querySelector(".game-sheet-wrap")?.remove();
-  const wrap = h(`<div class="game-sheet-wrap"><div class="game-sheet info-sheet" role="dialog">
+ * game icon's name, or ready markup (a line icon, a portrait). Also used by the friends-list bar.
+ * `over`: it opens on top of the game sheet (its "?") instead of in its place, and closing it goes back there. */
+export function sheet(title, pic, { over = false } = {}) {
+  if (over) document.querySelector(".game-sheet-wrap.over")?.remove();
+  else document.querySelector(".game-sheet-wrap")?.remove();
+  const wrap = h(`<div class="game-sheet-wrap${over ? " over" : ""}"><div class="game-sheet info-sheet" role="dialog">
     <div class="game-sheet-head"><strong class="info-title">${pic.startsWith("<") ? pic : icon(pic, 32)} <span></span></strong><span class="spacer"></span>
       <button type="button" class="ghost icon" data-close title="Close">${icon("close")}</button></div>
     <div class="game-sheet-body stack"></div>
   </div></div>`);
   wrap.querySelector(".info-title span").textContent = title;
   wrap.querySelector(".game-sheet").setAttribute("aria-label", title);
-  const close = () => { wrap.remove(); document.removeEventListener("keydown", onKey); };
-  const onKey = (e) => { if (e.key === "Escape") close(); };
-  document.addEventListener("keydown", onKey);
+  const close = () => { wrap.remove(); document.removeEventListener("keydown", onKey, over); };
+  // (on top of another sheet it hears Escape first, and keeps it to itself)
+  const onKey = (e) => { if (e.key === "Escape") { if (over) e.stopPropagation(); close(); } };
+  document.addEventListener("keydown", onKey, over);
   wrap.addEventListener("click", (e) => { if (e.target === wrap || e.target.closest("[data-close]")) close(); });
   document.body.append(wrap);
   return { body: wrap.querySelector(".game-sheet-body"), close };
@@ -36,7 +39,7 @@ export function sheet(title, pic) {
 function links(close, items) {
   const row = h(`<div class="row"></div>`);
   items.forEach((it, i) => {
-    const b = h(`<button type="button" class="${i ? "" : "primary"}">${icon(it.pic)} <span></span></button>`);
+    const b = h(`<button type="button" class="${i ? "" : "primary"}">${it.pic.startsWith("<") ? it.pic : icon(it.pic)} <span></span></button>`);
     b.querySelector("span").textContent = it.label;
     b.onclick = () => { close(); it.run(); };
     row.append(b);
@@ -78,7 +81,7 @@ const EARNED = {
   streak(game) {
     const prizes = CATALOG.filter((it) => (it.requires || []).includes("streak_7")).map((it) => it.name);
     return {
-      title: "Goal streak", pic: "goal",
+      title: "Goal streak", pic: "streak",
       now: `${plural(game.streak, "day")} in a row. Your best is ${plural(game.best_streak, "day")}.`,
       get: [
         `Reach your daily goal (${game.goal} minutes of listening or reading; time on YouTube doesn't count). Each day you do adds one.`,
@@ -92,7 +95,7 @@ const EARNED = {
         "A 5-day streak opens a building plot in the garden.",
         "Badges at 7, 30 and 100 days, and each badge pays 2 gems.",
       ],
-      go: [{ label: "See your badges", pic: "nav_badges", tab: "badges" }],
+      go: [{ label: "Streak freezes", pic: icon("freeze_badge", 18), info: "freeze" }, { label: "See your badges", pic: "nav_badges", tab: "badges" }],
     };
   },
   coin(game) {
@@ -122,7 +125,7 @@ const EARNED = {
   },
   freeze(game) {
     return {
-      title: "Streak freeze", pic: "freeze",
+      title: "Streak freeze", pic: icon("freeze_badge", 27), // (the snowflake on the streak flame; 9px art at 3x)
       now: `You have ${plural(game.items.freeze || 0, "streak freeze")}.`,
       get: [
         "Every 7th day in a row of reaching your daily goal gives one (up to 3 held this way).",
@@ -196,16 +199,17 @@ const EARNED = {
   },
 };
 
-/** Explain one of the things in the habitat's bar: "xp", "streak", "coin", "freeze", "glow", "gem"
- * or "heart". `go(tab)` opens a page of the game sheet. */
-export function openEarned(id, game, go) {
+/** Explain one of the things the home card counts: "xp", "streak", "coin", "freeze", "glow", "gem"
+ * or "heart". `go(tab)` opens a page of the game sheet. `opts.over`: on top of the game sheet (see sheet). */
+export function openEarned(id, game, go, opts = {}) {
   const c = EARNED[id](game);
-  const { body, close } = sheet(c.title, c.pic);
+  const { body, close } = sheet(c.title, c.pic, opts);
   body.append(h(`<p class="info-now">${c.now}</p>`));
   body.append(h(`<div><strong>How you get it</strong>${list(c.get)}</div>`));
   body.append(h(`<div><strong>What it does</strong>${list(c.use)}</div>`));
   if (c.where) body.append(h(`<div><strong>Where</strong><p class="info-where">${c.where}</p></div>`));
-  if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l, run: () => (l.tab === "evolve" ? openEvolution(game, go) : go(l.tab)) }))));
+  if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l,
+    run: () => (l.info ? openEarned(l.info, game, go, opts) : l.tab === "evolve" ? openEvolution(game, go, opts) : go(l.tab)) }))));
 }
 
 // ---------- how a creature grows ----------
@@ -219,14 +223,14 @@ const HABIT = {
 const EGG_LEANS = "Ember for curiosity, Tide for listening, Grove for collecting, Stone for reading, Spark for early mornings and Dusk for late nights";
 
 /** The page behind the creature's own chip: how it grows up and what the owner's habits shape. */
-export function openEvolution(game, go) {
+export function openEvolution(game, go, opts = {}) {
   const g = game.creature;
   const look = describe(g);
   const stage = stageOf(g.growth);
   const egg = stage.id === "egg";
   const grown = isGrown(g);
   const pct = (t) => Math.round((g.traits[t] || 0) * 100);
-  const { body, close } = sheet("How your creature grows", "evolve");
+  const { body, close } = sheet("How your creature grows", "evolve", opts);
 
   const kind = `${TYPES[look.type].name} ${egg ? "egg" : beastById(look.beast).name.toLowerCase()}`;
   body.append(h(`<p class="info-now">${esc(g.name || (egg ? "Your egg" : "Your creature"))} is a ${kind}. Creatures stay young and

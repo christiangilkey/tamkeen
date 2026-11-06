@@ -1,0 +1,25 @@
+# The creature game's home card, redesigned (web/js/game/habitat.js, battle-ui.js, shop.js, garden.js, pages/home.js).
+8b181435	Sfide, regali, la lega e le incursioni di gilda
+3b5d1016	La regola di questa settimana per le battaglie tra amici:
+b9305778	Come funzionano i cuori
+87f949fc	Il suo nome e come cresce
+dde98287	Un altro habitat
+0f8a93bf	Habitat precedente
+4284a81e	Habitat successivo
+bc1dd8bb	Obiettivo di oggi: tocca per cambiarlo
+b02f5611	Monete: tocca per il negozio, tieni premuto per saperne di più
+1ebd4eff	Gemme: tocca per i rifornimenti, tieni premuto per saperne di più
+98f011af	Serie di obiettivi: giorni di fila in cui hai raggiunto l'obiettivo giornaliero
+4fe2dd16	{0} / {1} min
+0e25a70d	Obiettivo giornaliero raggiunto: {0} minuti
+4db7e05b	Obiettivo giornaliero: {0} su {1} minuti
+2ee0f508	Serie di obiettivi (giorni): {0}; salva-serie: {2}
+28ac170c	Serie di obiettivi (giorni): {0}
+709a2322	Nome
+d9452dd7	Come cresce
+7fc4dd0f	Da {0}: {1}
+30bdc332	Si è schiusa! Portala fuori dalla pagina Creature.
+82d81062	Salva-serie
+b895a8c3	Come funziona
+f7c5032d	Cresce con gli XP che guadagni studiando, e l'anello intorno si riempie verso l'obiettivo di oggi.
+27d396f4	Combatti e sfida gli amici, alleva creature e spendi ciò che guadagni nel negozio e nel giardino. Un punto rosso significa che qualcosa ti aspetta.

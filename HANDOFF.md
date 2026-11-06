@@ -7121,3 +7121,33 @@ each with a button that explains how it works.
   unset = AI when there is a key (the old behaviour). Every place that picks AI or free for sentences or
   mnemonics (review/cardtools.js, review/sentencefind.js, components/wordbuilder.js) must ask `aiMakes`.
 - Tests: `tests/js/helpersource.test.mjs`. Strings: tr 131.
+
+## Creature game: the home card redesigned, step 1 (2026-11-06; helper of the main chat)
+The owner approved a redesign of the game card at the bottom of Home: learnt by playing, not by reading.
+- **Under the scene** (`web/js/game/habitat.js`): a thin level bar ("Lv n"; tap = how XP works), three counters
+  (coins, gems, goal streak; tapping coins or gems opens Shop or Supplies, holding or right-clicking explains them;
+  the streak's flame wears a snowflake badge, `icon/freeze_badge.png`, while streak freezes are held), and a 2x2
+  grid of big tiles: Battle, Creatures, Shop, Garden. **Friends moved into Battle**: `openBattleMenu` has a Friends
+  entry that opens `friendsPanel` inside the battle sheet, with a way back; the shop sheet has no Friends tab now.
+- **In the scene**: the day's goal is a pixel ring on the ground round the creature (`homecard.ringPixels`, mint,
+  filling clockwise from the front); its "4 / 10 min" label is a button for the Daily goal box (5, 10, 20). Hearts
+  float over the creature. Buildings with glow waiting glow and twinkle (tap = gather). A friend's gift
+  (`social.giftInbox`, looked at 4.5 s after Home opens and every 5 minutes, signed in only) waits on the ground at
+  `GIFT_X` and opens with a tap (`claimGift` + `receiveGift`). An egg warming in the incubator stands at `EGG_X`;
+  once it hatches there (`rules.grow` marks `hatchedAway`) it shakes until tapped. Habitat arrows are at the top
+  right; the name tag opens a rename box (no browser prompt) with "How it grows".
+- **Red dots** (`homecard.tileDots`): Battle = a gift or an unseen challenge; Creatures = an egg hatched in the
+  incubator; Shop = something newly affordable since the shop was last opened today (`tamkeen.game.shopSeen` in
+  localStorage, written by shop.js); Garden = glow waiting (never once collecting is automated).
+- **Rewards fly** (`web/js/game/fly.js`, at most 10 icons in the air, none with reduced motion): what went up since
+  the card last showed it (`tamkeen.game.homeSeen`, per device) flies from the creature into its counter, and the
+  number rolls as it lands; glow from a tapped building flies to the Garden tile with "+N"; gifts and hatched eggs
+  fly to Shop or Creatures. Flights wait while a sheet or battle covers the card; the automated glow trickle is
+  counted quietly. While studying, XP (and coins) fly from the word into the XP chip (`game.js showChip`).
+- Every page of the game sheet has a **?** (shop.js `HELP` → info.js `openEarned` / `openEvolution` with
+  `{ over: true }`: a sheet over the sheet); Supplies' Food has one for hearts. One colour per thing: CSS variables
+  `--coin --gem --streak --goal --glow` (light and dark), app.css block "creature game: the home card".
+- Art (Aseprite, sources in `game/art-src/icon/`): `streak.png` recoloured orange, new `freeze_badge.png` (9x9).
+- Pure rules in `web/js/game/homecard.js`; tests `tests/js/homecard.test.mjs`. Translations
+  `tools/i18n/tr/<code>/127-game-home-card.txt` (24 strings, 16 languages).
+- Not tried: a real phone, and a real friend's gift or challenge (needs two signed-in accounts).
