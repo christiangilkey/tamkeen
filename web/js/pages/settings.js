@@ -403,8 +403,11 @@ function data(body, status) {
     </section>
     <section class="card set-card stack" data-find="whatis">
       <h2>What is Tamkeen</h2>
-      <div class="row"><span class="small muted">Everything Tamkeen can do, how it does it, and the studies its design is based on (in English).</span><span class="spacer"></span>
-        <button type="button" id="open-whatis">Open</button></div>
+      <span class="small muted">A guide to the app, what makes it different, and the research behind it (in English).</span>
+      <div class="row">
+        <button type="button" data-whatis="howto">How to use Tamkeen</button>
+        <button type="button" data-whatis="special">What makes Tamkeen special</button>
+        <button type="button" data-whatis="studies">Supporting studies</button></div>
     </section>
     <section class="card set-card stack" data-find="changelog">
       <h2>Changelog</h2>
@@ -466,7 +469,7 @@ function data(body, status) {
     }
   };
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
-  $("#open-whatis").onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs());
+  for (const b of document.querySelectorAll("[data-whatis]")) b.onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs(b.dataset.whatis));
   $("#check-updates").onclick = async () => {
     const box = $("#update-result");
     box.textContent = "Checking…";

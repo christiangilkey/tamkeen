@@ -1,0 +1,5 @@
+# Settings → What is Tamkeen: its three page buttons (web/js/components/whatis.js, pages/settings.js).
+c93eb846	Unsaon paggamit sa Tamkeen
+84601126	Unsay nakapalahi sa Tamkeen
+3774a1dc	Mga pagtuon nga nagsuporta
+049749cb	Giya sa app, unsay nakapalahi niini, ug ang panukiduki sa luyo niini (sa English).

@@ -1,0 +1,5 @@
+# Settings → What is Tamkeen: its three page buttons (web/js/components/whatis.js, pages/settings.js).
+c93eb846	كيفية استخدام تمكين
+84601126	ما الذي يميّز تمكين
+3774a1dc	الدراسات الداعمة
+049749cb	دليل للتطبيق، وما الذي يميّزه، والأبحاث التي يستند إليها (بالإنجليزية).

@@ -1,0 +1,5 @@
+# Settings → What is Tamkeen: its three page buttons (web/js/components/whatis.js, pages/settings.js).
+c93eb846	Tamkeen का इस्तेमाल कैसे करें
+84601126	Tamkeen को खास क्या बनाता है
+3774a1dc	सहायक अध्ययन
+049749cb	ऐप की गाइड, इसे अलग क्या बनाता है, और इसके पीछे का शोध (अंग्रेज़ी में)।

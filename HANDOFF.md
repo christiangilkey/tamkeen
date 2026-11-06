@@ -6836,7 +6836,10 @@ fetched again within a day; offline keeps the copy).
 Owner: a "What is Tamkeen" section with everything the app does, the creative solutions, and every design choice
 backed by studies, with the studies listed.
 - **Where**: Settings → Data & updates → "What is Tamkeen" (above Changelog), computer and phone settings pages;
-  Settings search id `whatis`. Opens a wide box (`web/js/components/whatis.js`) drawing `web/whatis.md` with the
+  Settings search id `whatis`. **Since 2026-11-06 three buttons and three pages** (owner's request): How to use Tamkeen
+  (`web/whatis-howto.md`: a 7-step getting-started guide, then the old Part 1 feature list), What makes Tamkeen special
+  (`web/whatis-special.md`: the old Part 2) and Supporting studies (`web/whatis-studies.md`: the old Parts 3 and 4).
+  `openWhatIs(page)` with `howto`/`special`/`studies` (`WHATIS_PAGES`). Opens a wide box (`web/js/components/whatis.js`) drawing the page with the
   changelog's Markdown reader (`changelog.js changelogHtml`, which now also does `### ` → h4 and `[text](https://…)`
   links; only http(s) addresses become links). English only and `translate="no"`, like the changelog. build-www SHARED
   carries both files. Styles: `.whatis` after `.changelog` in app.css.
@@ -6844,9 +6847,9 @@ backed by studies, with the studies listed.
   solutions (39, from this file), Part 3 the research: 19 design choices, each "What Tamkeen does" + "What the research
   says" (honest about limits: two buttons, 5-second timer, word highlighting, example sentences, keyword forgetting)
   + its studies; Part 4 all 80 studies (APA, DOI or handle links), checked against OpenAlex/Crossref/Europe PMC or
-  library catalogues in November 2026. Put together by a script from three drafts; edit `web/whatis.md` directly now.
-- **Keep it current**: when a feature lands, add its bullet to Part 1 (and a design choice to Part 3 only with a
-  checked study). The review card shows the foreign word on the front and the meaning on the back; Part 3 says the
+  library catalogues in November 2026. Put together by a script from three drafts; edit the three `web/whatis-*.md` files directly now.
+- **Keep it current**: when a feature lands, add its bullet to `whatis-howto.md`'s feature list (and a design choice to
+  `whatis-studies.md` only with a checked study). The review card shows the foreign word on the front and the meaning on the back; Part 3 says the
   research supports adding meaning-first (productive) cards for speaking and writing, as an idea, not built.
 - i18n `tools/i18n/tr/<code>/120-what-is-tamkeen.txt` (card title, hint, error, What's new line); search words in
   ignore.txt. Test: tests/js/changelog.test.mjs (links, h4, the page exists with DOIs, build-www carries it).

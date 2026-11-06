@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Settings → What is Tamkeen is now three pages, each with its own button: **How to use Tamkeen** (a short getting-started guide, then everything the app can do), **What makes Tamkeen special** (Tamkeen's own solutions and techniques) and **Supporting studies** (the research behind its design, with every study listed and linked).
+
 ## v0.45.0 — 2026-11-06
 
 - **New:** Block and report people in Friends and chat. Tap **⋯** next to a friend, a friend request or a guild member, or at the top of a chat, to block or report them; hold (or right-click) one of their messages to report it. A blocked person can't message you, send you friend requests, see your card or when you're online, or challenge you, and you stop being friends. A report sends the Tamkeen team a copy of the message, and we look at it within 7 days. The people you blocked are listed, with **Unblock**, in Settings → Account & sync → Friends & sharing. *(once Tamkeen's online service has been updated; until then these buttons say so)*

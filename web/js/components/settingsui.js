@@ -81,7 +81,7 @@ export const FINDS = [
   { s: "apps", id: "getapp", label: "Get the app", words: "download install android iphone windows", on: ["web"] },
   { s: "data", id: "backup", label: "Your data", words: "export import backup folder zip", on: ["desktop"] },
   { s: "data", id: "updates", label: "Updates", words: "version update latest", on: ["desktop", "android", "ios"] },
-  { s: "data", id: "whatis", label: "What is Tamkeen", words: "features abilities everything design research studies science sources about how it works" },
+  { s: "data", id: "whatis", label: "What is Tamkeen", words: "features abilities everything design research studies science sources about how it works how to use guide help getting started special techniques" },
   { s: "data", id: "changelog", label: "Changelog", words: "changelog changes versions history what's new release notes" },
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
   { s: "data", id: "privacy", label: "Privacy policy, terms and cookies", words: "privacy data terms service conditions cookies legal" },

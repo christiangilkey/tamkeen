@@ -1,0 +1,5 @@
+# Settings → What is Tamkeen: its three page buttons (web/js/components/whatis.js, pages/settings.js).
+c93eb846	راهنمای استفاده از تمکین
+84601126	چه چیزی تمکین را خاص می‌کند
+3774a1dc	پژوهش‌های پشتیبان
+049749cb	راهنمای برنامه، آنچه آن را متفاوت می‌کند و پژوهش‌های پشت آن (به انگلیسی).

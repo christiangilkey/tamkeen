@@ -21,12 +21,18 @@ test("subheadings and web links are drawn; other links stay plain text", () => {
   assert.ok(!/<a [^>]*javascript/.test(html));
 });
 
-test("What is Tamkeen: the page every version carries, with its studies linked", () => {
-  const md = readFileSync(new URL("web/whatis.md", root), "utf8");
-  assert.ok(md.includes("## ") && md.length > 5000, "the page has its sections");
-  assert.ok(/doi\.org\//.test(md), "the studies are listed with their links");
-  const www = readFileSync(new URL("mobile/scripts/build-www.mjs", root), "utf8");
-  assert.ok(www.includes('"whatis.md"') && www.includes('"js/components/whatis.js"'), "the phone and web builds carry it");
+test("What is Tamkeen: three pages every version carries, the studies linked", () => {
+  const read = (f) => readFileSync(new URL(f, root), "utf8");
+  const howto = read("web/whatis-howto.md"), special = read("web/whatis-special.md"), studies = read("web/whatis-studies.md");
+  assert.ok(howto.includes("## Getting started") && howto.includes("## Everything Tamkeen can do") && howto.length > 5000, "the guide, then the feature list");
+  assert.ok(special.includes("### ") && special.length > 5000, "Tamkeen's own solutions");
+  assert.ok(/doi\.org\//.test(studies) && studies.includes("Every study cited"), "the studies are listed with their links");
+  const www = read("mobile/scripts/build-www.mjs");
+  for (const f of ["whatis-howto.md", "whatis-special.md", "whatis-studies.md", "js/components/whatis.js"]) assert.ok(www.includes(`"${f}"`), `the phone and web builds carry ${f}`);
+  for (const f of ["web/js/pages/settings.js", "mobile/src/js/pages/settings.js"]) {
+    const s = read(f);
+    for (const p of ["howto", "special", "studies"]) assert.ok(s.includes(`data-whatis="${p}"`), `${f} has the ${p} button`);
+  }
 });
 
 test("headings, lists, bold and italic are drawn; nothing else gets through as HTML", () => {

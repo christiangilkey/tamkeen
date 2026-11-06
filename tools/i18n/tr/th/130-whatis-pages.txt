@@ -1,0 +1,5 @@
+# Settings → What is Tamkeen: its three page buttons (web/js/components/whatis.js, pages/settings.js).
+c93eb846	วิธีใช้ Tamkeen
+84601126	อะไรทำให้ Tamkeen พิเศษ
+3774a1dc	งานวิจัยที่สนับสนุน
+049749cb	คู่มือการใช้แอป สิ่งที่ทำให้แตกต่าง และงานวิจัยเบื้องหลัง (ภาษาอังกฤษ)

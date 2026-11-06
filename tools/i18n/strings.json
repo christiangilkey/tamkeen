@@ -4635,6 +4635,11 @@
   "f": "web/js/components/modal.js"
  },
  {
+  "id": "66f4e3b0",
+  "k": "Make the folder",
+  "f": "web/js/components/modal.js"
+ },
+ {
   "id": "f0fbfe6e",
   "k": "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
   "f": "web/js/components/models.js"
@@ -6440,6 +6445,21 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
+  "id": "c93eb846",
+  "k": "How to use Tamkeen",
+  "f": "web/js/components/whatis.js"
+ },
+ {
+  "id": "84601126",
+  "k": "What makes Tamkeen special",
+  "f": "web/js/components/whatis.js"
+ },
+ {
+  "id": "3774a1dc",
+  "k": "Supporting studies",
+  "f": "web/js/components/whatis.js"
+ },
+ {
   "id": "5e6f387e",
   "k": "Couldn't open this page.",
   "f": "web/js/components/whatis.js"
@@ -6717,11 +6737,6 @@
  {
   "id": "bf5f2da9",
   "k": "No mnemonic",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "66f4e3b0",
-  "k": "Make the folder",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7218,6 +7233,166 @@
   "id": "7e3520a9",
   "k": "Leave",
   "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "ac26a7a9",
+  "k": "Translation",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "c420e532",
+  "k": "Grammar notes",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "3095a407",
+  "k": "Mnemonic maker: words that sound like it, each with a picture",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "476f76d7",
+  "k": "An example sentence: a real one found, or one written for you",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "1c54132b",
+  "k": "Record",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "f94ba403",
+  "k": "Record the word, or choose a sound file",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "19adc47b",
+  "k": "Folders",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "b68a4cb2",
+  "k": "Put it in folders",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "dad9503c",
+  "k": "More: copy, send to a friend, delete",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "a9c84e5b",
+  "k": "Tools for this word",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "8669aa56",
+  "k": "Episode",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "47b1023a",
+  "k": "Added manually",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "9afb285b",
+  "k": "· changed {0}",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "2bc362a1",
+  "k": "{0}{1} · added {2}{3}",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "db248300",
+  "k": "Paste",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "a8de43f2",
+  "k": "Find a real one",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "b80ded59",
+  "k": "Use this",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "700de107",
+  "k": "Another one",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "52378927",
+  "k": "Type my own",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "e02b25ba",
+  "k": "Writing a sentence…",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "6235b9f7",
+  "k": "Finding a sentence…",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "9ae914fa",
+  "k": "That didn't work. Try again.",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "b9e3178a",
+  "k": "The AI sent nothing back for this word. Try again.",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "9f8fe3c2",
+  "k": "No other example sentence was found for this word.",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "5fd33173",
+  "k": "Written for you by the AI",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "957db23d",
+  "k": "From {0}",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "19ea253a",
+  "k": "Save the audio",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "3aa6c431",
+  "k": "Its audio is saved with the card.",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "626965cc",
+  "k": "Its audio couldn't be kept: {0}",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "4e821d07",
+  "k": "Copy the word",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "7656d600",
+  "k": "Copy the sentence",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "200b5172",
+  "k": "Delete this word",
+  "f": "web/js/components/wordeditor.js"
  },
  {
   "id": "8736c3f2",
@@ -7980,6 +8155,16 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "c11d5e1d",
+  "k": "Friends",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "8b181435",
+  "k": "Challenges, gifts, the league and guild raids",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "0dca7b14",
   "k": "Loading your words…",
   "f": "web/js/game/battle-ui.js"
@@ -8060,8 +8245,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "c7218f9d",
-  "k": "To challenge a friend's team, open <0>Friends</0> in the game menu. This week's rule for friend battles: <1>{0}</1>. {1}",
+  "id": "3b5d1016",
+  "k": "This week's rule for friend battles:",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -10360,6 +10545,11 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "27e32721",
+  "k": "cubic-bezier(.45, 0, .7, 1)",
+  "f": "web/js/game/fly.js"
+ },
+ {
   "id": "c559bda3",
   "k": "Learning {0}: tap for more",
   "f": "web/js/game/friend-bar.js"
@@ -10905,6 +11095,11 @@
   "f": "web/js/game/garden.js"
  },
  {
+  "id": "b9305778",
+  "k": "How hearts work",
+  "f": "web/js/game/garden.js"
+ },
+ {
   "id": "9d041fa1",
   "k": "{0} its favourite",
   "f": "web/js/game/garden.js"
@@ -11155,88 +11350,8 @@
   "f": "web/js/game/gyms.js"
  },
  {
-  "id": "993750ae",
-  "k": "Your creature's habitat",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "d3f4cb89",
-  "k": "Rename",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "29cdd5c4",
-  "k": "Your level: tap to see how XP works",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "1aa6e8ca",
-  "k": "Lv",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "eaeec02c",
-  "k": "XP to the next level",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "18e480f2",
-  "k": "Tap to see how XP works",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "890541c0",
-  "k": "Change your daily goal",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "3d504079",
-  "k": "Tap to see how your creature grows",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "6d5546f2",
-  "k": "Days in a row you reached your daily goal: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "ce1213a4",
-  "k": "Coins, for the shop: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "c3b0236d",
-  "k": "A streak freeze covers a missed day: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "5894f7c3",
-  "k": "Glow from your buildings: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "b1e9fef7",
-  "k": "Gems, for supplies: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "dd8fd086",
-  "k": "Hearts: tap for more",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "b2d3bd7f",
-  "k": "Move your creature to another habitat",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "f5552713",
   "k": "Battle",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "c11d5e1d",
-  "k": "Friends",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11255,18 +11370,58 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "3f5aa796",
-  "k": "Daily goal reached",
+  "id": "993750ae",
+  "k": "Your creature's habitat",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "ad69cbf5",
-  "k": "Today: {0} / {1} min",
+  "id": "87f949fc",
+  "k": "Its name and how it grows",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "79bcdbf3",
-  "k": "Goal: {0} min",
+  "id": "dde98287",
+  "k": "Another habitat",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "0f8a93bf",
+  "k": "Previous habitat",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "4284a81e",
+  "k": "Next habitat",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "bc1dd8bb",
+  "k": "Today's goal: tap to change it",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "29cdd5c4",
+  "k": "Your level: tap to see how XP works",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "1aa6e8ca",
+  "k": "Lv",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "b02f5611",
+  "k": "Coins: tap for the shop, hold to learn more",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "1ebd4eff",
+  "k": "Gems: tap for supplies, hold to learn more",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "98f011af",
+  "k": "Goal streak: days in a row you reached your daily goal",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11290,8 +11445,18 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "4246502f",
-  "k": "{0} day{1}",
+  "id": "4fe2dd16",
+  "k": "{0} / {1} min",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "0e25a70d",
+  "k": "Daily goal reached: {0} minutes",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "4db7e05b",
+  "k": "Daily goal: {0} of {1} minutes",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11305,13 +11470,13 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "98303fea",
-  "k": "Daily goal: your buildings sent {0} glow at once.",
+  "id": "dbc20d14",
+  "k": "Goal streak: {0} days, {1} streak freezes",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "72e1269a",
-  "k": "You earned {0} gem{1}.",
+  "id": "e2efac7b",
+  "k": "Goal streak: {0} days",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11320,8 +11485,18 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "673e4951",
-  "k": "Name your creature",
+  "id": "55da47da",
+  "k": "Daily goal",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "709a2322",
+  "k": "Name",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "d9452dd7",
+  "k": "How it grows",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11330,8 +11505,13 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "0a5a8112",
-  "k": "+{0} glow",
+  "id": "7fc4dd0f",
+  "k": "From {0}: {1}",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "30bdc332",
+  "k": "It hatched! Bring it out on the Creatures page.",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11552,6 +11732,11 @@
  {
   "id": "f7922bac",
   "k": "Badges at 7, 30 and 100 days, and each badge pays 2 gems.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "82d81062",
+  "k": "Streak freezes",
   "f": "web/js/game/info.js"
  },
  {
@@ -12257,6 +12442,11 @@
  {
   "id": "2c578dc8",
   "k": "Badges",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "b895a8c3",
+  "k": "How this works",
   "f": "web/js/game/shop.js"
  },
  {
@@ -13500,11 +13690,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "1c54132b",
-  "k": "Record",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "11eaaf74",
   "k": "Write a message (in a chat)",
   "f": "web/js/padmap.js"
@@ -14730,6 +14915,11 @@
   "f": "web/js/pages/friends.js"
  },
  {
+  "id": "d3f4cb89",
+  "k": "Rename",
+  "f": "web/js/pages/friends.js"
+ },
+ {
   "id": "49293437",
   "k": "Leave guild",
   "f": "web/js/pages/friends.js"
@@ -14915,8 +15105,8 @@
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "1862828e",
-  "k": "It grows with the XP you earn while studying.",
+  "id": "f7c5032d",
+  "k": "It grows with the XP you earn while studying, and the ring round it fills toward today's goal.",
   "f": "web/js/pages/home.js"
  },
  {
@@ -14925,8 +15115,8 @@
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "d8de77c3",
-  "k": "Battle, trade with friends, collect creatures, and spend what you earn in the shop and garden.",
+  "id": "27d396f4",
+  "k": "Battle and challenge friends, raise creatures, and spend what you earn in the shop and garden. A red dot means something is waiting.",
   "f": "web/js/pages/home.js"
  },
  {
@@ -16385,26 +16575,6 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "9bce06e6",
-  "k": "Edit the word",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "d0f60fa0",
-  "k": "Edit the meaning",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "697f207b",
-  "k": "Edit the sentence",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "71f0b2ab",
-  "k": "Edit the translation",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "c614ba7c",
   "k": "Auto",
   "f": "web/js/pages/review.js"
@@ -16505,171 +16675,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "be0bf6d1",
-  "k": "The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "2b382bdb",
-  "k": "There is nothing copied to paste.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "af74f7c5",
-  "k": "Copy",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "13289035",
-  "k": "That couldn't be copied here.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c4d31fcf",
-  "k": "It means the same thing, or a kind of it",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "43548a25",
-  "k": "One is a part of the other",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "dd4c4630",
-  "k": "Its meaning is close to the word's",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "90625d11",
-  "k": "The word's meaning is a kind of it",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "74ff2ed8",
-  "k": "It goes with the word's meaning",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c35874c7",
-  "k": "Added to Memorization notes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "9314f858",
-  "k": "Put it in Memorization notes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "7709c8d3",
-  "k": "Not this one: never suggest it for this word again",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "febeb00d",
-  "k": "Not this one",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "20be8cae",
-  "k": "It sounds close to the word",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "12197aa2",
-  "k": "Close match",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "8da4f709",
-  "k": "It sounds like part of the word, or roughly like it",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "5d99bc5d",
-  "k": "Partial match",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "48c1ab45",
-  "k": "Fits the meaning",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c5bd44b4",
-  "k": "Related in meaning",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "56732347",
-  "k": "You turned them all down. Press Make 5 more for new ones.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "d878e2e3",
-  "k": "Make 5 more",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "6657e44b",
-  "k": "No new keywords sounded close enough to the word. Press Make 5 more to try again.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "7208744b",
-  "k": "Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "ee432df0",
-  "k": "Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "52e3278d",
-  "k": "English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "9e43c50e",
-  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "0f212aca",
-  "k": "Their sound couldn't be checked this time.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "91eb1b29",
-  "k": "Only 1 keyword sounded close enough to show.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "b668e8b3",
-  "k": "Only {0} keywords sounded close enough to show.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "7893f7ae",
-  "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "7573a6d2",
-  "k": "The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "b498b54c",
-  "k": "The word's sounds couldn't be worked out, so no keywords could be found.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "9ae914fa",
-  "k": "That didn't work. Try again.",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "751a4b16",
   "k": "{0} Word",
   "f": "web/js/pages/review.js"
@@ -16680,23 +16685,8 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "8669aa56",
-  "k": "Episode",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "47b1023a",
-  "k": "Added manually",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "57e2a7ce",
   "k": "What it means",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c420e532",
-  "k": "Grammar notes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -16720,11 +16710,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "2f3a0211",
-  "k": "How it sounds",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "3250d8de",
   "k": "{0} · added {1}",
   "f": "web/js/pages/review.js"
@@ -16732,11 +16717,6 @@
  {
   "id": "e1e86d29",
   "k": "Delete this word (Del)",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "200b5172",
-  "k": "Delete this word",
   "f": "web/js/pages/review.js"
  },
  {
@@ -17420,8 +17400,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "c11ba195",
-  "k": "Everything Tamkeen can do, how it does it, and the studies its design is based on (in English).",
+  "id": "049749cb",
+  "k": "A guide to the app, what makes it different, and the research behind it (in English).",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -17750,11 +17730,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "9afb285b",
-  "k": "· changed {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "a5420424",
   "k": "Select word",
   "f": "web/js/pages/vocab.js"
@@ -17772,11 +17747,6 @@
  {
   "id": "36f70029",
   "k": "Memorization notes (a mnemonic, where you heard it…)",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "19adc47b",
-  "k": "Folders",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17882,11 +17852,6 @@
  {
   "id": "3c3a1272",
   "k": "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start.",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "55da47da",
-  "k": "Daily goal",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18728,6 +18693,201 @@
   "id": "4cb980b9",
   "k": "Couldn't add the review to Google Calendar.",
   "f": "web/js/review/calpopup.js"
+ },
+ {
+  "id": "9bce06e6",
+  "k": "Edit the word",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "d0f60fa0",
+  "k": "Edit the meaning",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "697f207b",
+  "k": "Edit the sentence",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "71f0b2ab",
+  "k": "Edit the translation",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "3007f8aa",
+  "k": "Edit the grammar notes",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "e09f4012",
+  "k": "Edit the memorization notes",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "13289035",
+  "k": "That couldn't be copied here.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "be0bf6d1",
+  "k": "The clipboard couldn't be read here. Press and hold in the box and choose Paste instead.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "2b382bdb",
+  "k": "There is nothing copied to paste.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "af74f7c5",
+  "k": "Copy",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "c4d31fcf",
+  "k": "It means the same thing, or a kind of it",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "43548a25",
+  "k": "One is a part of the other",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "dd4c4630",
+  "k": "Its meaning is close to the word's",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "90625d11",
+  "k": "The word's meaning is a kind of it",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "74ff2ed8",
+  "k": "It goes with the word's meaning",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "2f3a0211",
+  "k": "How it sounds",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "c35874c7",
+  "k": "Added to Memorization notes",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "9314f858",
+  "k": "Put it in Memorization notes",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "7709c8d3",
+  "k": "Not this one: never suggest it for this word again",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "febeb00d",
+  "k": "Not this one",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "20be8cae",
+  "k": "It sounds close to the word",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "12197aa2",
+  "k": "Close match",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "8da4f709",
+  "k": "It sounds like part of the word, or roughly like it",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "5d99bc5d",
+  "k": "Partial match",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "48c1ab45",
+  "k": "Fits the meaning",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "c5bd44b4",
+  "k": "Related in meaning",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "56732347",
+  "k": "You turned them all down. Press Make 5 more for new ones.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "d878e2e3",
+  "k": "Make 5 more",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "6657e44b",
+  "k": "No new keywords sounded close enough to the word. Press Make 5 more to try again.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "7208744b",
+  "k": "Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "ee432df0",
+  "k": "Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "52e3278d",
+  "k": "English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "9e43c50e",
+  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "0f212aca",
+  "k": "Their sound couldn't be checked this time.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "91eb1b29",
+  "k": "Only 1 keyword sounded close enough to show.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "b668e8b3",
+  "k": "Only {0} keywords sounded close enough to show.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "7893f7ae",
+  "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "7573a6d2",
+  "k": "The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "b498b54c",
+  "k": "The word's sounds couldn't be worked out, so no keywords could be found.",
+  "f": "web/js/review/cardtools.js"
  },
  {
   "id": "15710324",
@@ -22327,11 +22487,6 @@
  {
   "id": "732ac1f0",
   "k": "With Tamkeen added to your home screen you can also share the article straight to Tamkeen: in Chrome tap ⋮, then Share, then Tamkeen.",
-  "f": "mobile/src/js/web-sites.js"
- },
- {
-  "id": "db248300",
-  "k": "Paste",
   "f": "mobile/src/js/web-sites.js"
  },
  {
