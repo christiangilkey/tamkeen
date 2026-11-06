@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Paraules que sonen com la paraula, cadascuna amb una imatge del seu significat, posades a les Notes per memoritzar. Les fa la teva IA.
+7e5e5822	Paraules de la teva llengua que sonen com la paraula, cadascuna amb una imatge del seu significat, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA. <0>La IA les pot fer en lloc seu</0>
+bd2053cf	Paraules angleses que sonen com la paraula, cadascuna amb una imatge del seu significat, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA. <0>La IA les pot fer en lloc seu</0>
+a9c84e5b	Eines per a aquesta paraula
+dad9503c	Més: copia, envia a un amic, esborra
+2bc362a1	{0}{1} · afegida {2}{3}
+3ebfa343	La IA les pot escriure en lloc seu
+a8de43f2	Troba'n una de real
+b80ded59	Fes servir aquesta
+700de107	Una altra
+52378927	Escriu la meva
+e02b25ba	S'està escrivint una frase…
+6235b9f7	S'està buscant una frase…
+b9e3178a	La IA no ha retornat res per a aquesta paraula. Torna-ho a provar.
+9f8fe3c2	No s'ha trobat cap altra frase d'exemple per a aquesta paraula.
+5fd33173	Escrita per a tu per la IA
+957db23d	De {0}
+19ea253a	Desa l'àudio
+3aa6c431	El seu àudio s'ha desat amb la targeta.
+626965cc	No s'ha pogut guardar el seu àudio: {0}
+4e821d07	Copia la paraula
+7656d600	Copia la frase
+0df0b09f	Tria una carpeta
+c9b34169	Ordena i filtra
+d1fc1dbd	Selecciona paraules
+9c938798	Acaba la selecció
+ebe08b9e	Canvia el nom de la carpeta
+b2ce023b	Nom de la carpeta
+0c89a43f	Canvia el nom, envia o esborra aquesta carpeta
+5d7d59d9	Vols esborrar {0} paraules del teu vocabulari?
+e4c1f098	Les seves targetes a Anki també se n'aniran a la propera sincronització, amb l'historial de repàs d'aquestes targetes.
+d82f2748	S'han esborrat {0} paraules.
+cb5424f6	Canviada
+44c57abd	Restableix
+6432548e	Toca paraules per seleccionar-les
+67c9f6e9	La carpeta que es mostra. Toca-la per triar-ne una altra, o per crear-ne, canviar el nom o enviar-ne una; el repàs llavors només inclou les seves paraules.
+18e479d2	Canvia l'ordre, o mostra només les paraules afegides o canviades en certs dies.
+16af5f21	Marca diverses paraules per posar-les en una carpeta, enviar-les a un amic o esborrar-les alhora.
+f026d2d5	Toca una paraula per obrir-la: escolta-la, corregeix-ne qualsevol part, fes-ne una mnemotècnia o troba-li una frase d'exemple.
+3007f8aa	Edita les notes de gramàtica
+e09f4012	Edita les notes per memoritzar
+ac26a7a9	Traducció
+3095a407	Creador de mnemotècnies: paraules que sonen com aquesta, cadascuna amb una imatge
+476f76d7	Una frase d'exemple: una de real trobada, o una escrita per a tu
+f94ba403	Enregistra la paraula, o tria un fitxer de so
+b68a4cb2	Posa-la en carpetes

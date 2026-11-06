@@ -50,6 +50,29 @@ export function openModal({ title = "", canClose = true, wide = false, onClose, 
 }
 
 /**
+ * A small box asking for a name (a new folder, a folder renamed), instead of the browser's own (which a
+ * game controller can't answer). `value` is what the box starts with, `ok` the button's words.
+ * Resolves to the name typed, or "" when it was closed.
+ */
+export function askName(title, label, { value = "", ok = "Make the folder" } = {}) {
+  return new Promise((resolve) => {
+    let answer = "";
+    const m = openModal({ title, onClose: () => resolve(answer) });
+    const form = h(`<form class="cb-ask"><input type="text" maxlength="80" autocomplete="off" dir="auto">
+      <div class="confirm-buttons"><button type="button" class="ghost">Cancel</button><button type="submit" class="primary"></button></div></form>`);
+    const input = form.querySelector("input");
+    input.setAttribute("aria-label", label);
+    input.placeholder = label;
+    input.value = value;
+    form.querySelector("button.primary").textContent = ok;
+    form.querySelector("button.ghost").onclick = () => m.close();
+    form.onsubmit = (e) => { e.preventDefault(); answer = input.value.trim(); if (answer) m.close(); };
+    m.body.append(form);
+    setTimeout(() => { input.focus(); input.select(); }, 30);
+  });
+}
+
+/**
  * A sleek in-app yes/no box instead of the browser's plain one (which a game controller can't
  * answer, and which stops the whole page while it is open). Resolves to true or false.
  */

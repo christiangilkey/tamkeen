@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Palavras que soam como a palavra, cada uma com uma imagem do seu significado, colocadas em Notas para memorizar. Feitas pela sua IA.
+7e5e5822	Palavras do seu idioma que soam como a palavra, cada uma com uma imagem do seu significado, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA. <0>A IA pode fazê-las no lugar</0>
+bd2053cf	Palavras em inglês que soam como a palavra, cada uma com uma imagem do seu significado, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA. <0>A IA pode fazê-las no lugar</0>
+a9c84e5b	Ferramentas para esta palavra
+dad9503c	Mais: copiar, enviar para um amigo, excluir
+2bc362a1	{0}{1} · adicionada {2}{3}
+3ebfa343	A IA pode escrevê-las no lugar
+a8de43f2	Encontrar uma real
+b80ded59	Usar esta
+700de107	Outra
+52378927	Escrever a minha
+e02b25ba	Escrevendo uma frase…
+6235b9f7	Procurando uma frase…
+b9e3178a	A IA não devolveu nada para esta palavra. Tente de novo.
+9f8fe3c2	Nenhuma outra frase de exemplo foi encontrada para esta palavra.
+5fd33173	Escrita para você pela IA
+957db23d	De {0}
+19ea253a	Salvar o áudio
+3aa6c431	O áudio dela foi salvo com o cartão.
+626965cc	Não foi possível guardar o áudio dela: {0}
+4e821d07	Copiar a palavra
+7656d600	Copiar a frase
+0df0b09f	Escolher uma pasta
+c9b34169	Ordenar e filtrar
+d1fc1dbd	Selecionar palavras
+9c938798	Concluir a seleção
+ebe08b9e	Renomear a pasta
+b2ce023b	Nome da pasta
+0c89a43f	Renomear, enviar ou excluir esta pasta
+5d7d59d9	Excluir {0} palavras do seu vocabulário?
+e4c1f098	Os cartões delas no Anki também vão embora na próxima sincronização, com o histórico de revisão desses cartões.
+d82f2748	{0} palavras excluídas.
+cb5424f6	Alterado
+44c57abd	Redefinir
+6432548e	Toque nas palavras para selecioná-las
+67c9f6e9	A pasta em exibição. Toque nela para escolher outra, ou para criar, renomear ou enviar uma; a revisão então cobre só as palavras dela.
+18e479d2	Mude a ordem, ou mostre só as palavras adicionadas ou alteradas em certos dias.
+16af5f21	Marque várias palavras para colocá-las numa pasta, enviá-las para um amigo ou excluí-las juntas.
+f026d2d5	Toque numa palavra para abri-la: ouça, corrija qualquer parte, crie um mnemônico ou encontre uma frase de exemplo para ela.
+3007f8aa	Editar as notas gramaticais
+e09f4012	Editar as notas para memorizar
+ac26a7a9	Tradução
+3095a407	Criador de mnemônicos: palavras que soam como ela, cada uma com uma imagem
+476f76d7	Uma frase de exemplo: uma real encontrada, ou uma escrita para você
+f94ba403	Gravar a palavra, ou escolher um arquivo de som
+b68a4cb2	Colocar em pastas

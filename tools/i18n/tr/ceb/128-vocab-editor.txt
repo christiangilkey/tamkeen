@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Mga pulong susama og tingog sa pulong, matag usa adunay hulagway sa kahulogan niini, ibutang sa Mga nota sa pagsag-ulo. Gihimo sa imong AI.
+7e5e5822	Mga pulong sa imong pinulongan nga susama og tingog sa pulong, matag usa adunay hulagway sa kahulogan niini, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI. <0>Puwede nga ang AI na lang ang mohimo niini</0>
+bd2053cf	Mga pulong nga English nga susama og tingog sa pulong, matag usa adunay hulagway sa kahulogan niini, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI. <0>Puwede nga ang AI na lang ang mohimo niini</0>
+a9c84e5b	Mga himan para niini nga pulong
+dad9503c	Uban pa: kopyaha, ipadala sa higala, tangtanga
+2bc362a1	{0}{1} · gidugang {2}{3}
+3ebfa343	Puwede nga ang AI na lang ang mosulat niini
+a8de43f2	Pangitag tinuod nga sentence
+b80ded59	Gamita kini
+700de107	Lain pa
+52378927	Ako na ang mosulat
+e02b25ba	Nagsulat og sentence…
+6235b9f7	Nangita og sentence…
+b9e3178a	Walay gibalik ang AI para niini nga pulong. Sulayi pag-usab.
+9f8fe3c2	Walay laing pananglitan nga sentence nga nakit-an para niini nga pulong.
+5fd33173	Gisulat para nimo sa AI
+957db23d	Gikan sa {0}
+19ea253a	I-save ang audio
+3aa6c431	Na-save ang audio niini uban sa card.
+626965cc	Dili matipigan ang audio niini: {0}
+4e821d07	Kopyaha ang pulong
+7656d600	Kopyaha ang sentence
+0df0b09f	Pagpili og folder
+c9b34169	Han-aya ug salaa
+d1fc1dbd	Pagpili og mga pulong
+9c938798	Humana ang pagpili
+ebe08b9e	Ilisi ang ngalan sa folder
+b2ce023b	Ngalan sa folder
+0c89a43f	Ilisi ang ngalan, ipadala o tangtanga kini nga folder
+5d7d59d9	Tangtangon ang {0} ka pulong sa imong vocab?
+e4c1f098	Matangtang usab ang ilang mga card sa Anki sa sunod nga sync, uban sa review history sa maong mga card.
+d82f2748	Natangtang ang {0} ka pulong.
+cb5424f6	Nausab
+44c57abd	I-reset
+6432548e	Pindota ang mga pulong aron mapili
+67c9f6e9	Ang folder nga gipakita. Pindota kini aron mopili og lain, o aron mohimo, mag-ilis og ngalan o magpadala og usa; ang review maglakip na lang sa mga pulong niini.
+18e479d2	Usba ang han-ay, o ipakita lang ang mga pulong nga gidugang o giusab sa pipila ka adlaw.
+16af5f21	Markahi ang pipila ka pulong aron dungan nga ibutang sa folder, ipadala sa higala o tangtangon.
+f026d2d5	Pindota ang pulong aron ablihan: paminawa, ayoha ang bisan unsang bahin, paghimo og panumduman, o pangitai kini og pananglitan nga sentence.
+3007f8aa	I-edit ang mga note sa grammar
+e09f4012	I-edit ang mga nota sa pagsag-ulo
+ac26a7a9	Hubad
+3095a407	Mnemonic maker: mga pulong nga susama og tingog niini, matag usa adunay hulagway
+476f76d7	Usa ka pananglitan nga sentence: tinuod nga nakit-an, o gisulat para nimo
+f94ba403	I-record ang pulong, o pagpili og sound file
+b68a4cb2	Ibutang sa mga folder

@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Parole che suonano come la parola, ognuna con un'immagine del suo significato, messe nelle Note per memorizzare. Create dalla tua IA.
+7e5e5822	Parole della tua lingua che suonano come la parola, ognuna con un'immagine del suo significato, messe nelle Note per memorizzare. Create su questo dispositivo, senza IA. <0>L'IA può crearle al suo posto</0>
+bd2053cf	Parole inglesi che suonano come la parola, ognuna con un'immagine del suo significato, messe nelle Note per memorizzare. Create su questo dispositivo, senza IA. <0>L'IA può crearle al suo posto</0>
+a9c84e5b	Strumenti per questa parola
+dad9503c	Altro: copia, invia a un amico, elimina
+2bc362a1	{0}{1} · aggiunta {2}{3}
+3ebfa343	L'IA può scriverle al suo posto
+a8de43f2	Trovane una vera
+b80ded59	Usa questa
+700de107	Un'altra
+52378927	Scrivo la mia
+e02b25ba	Scrivo una frase…
+6235b9f7	Cerco una frase…
+b9e3178a	L'IA non ha restituito nulla per questa parola. Riprova.
+9f8fe3c2	Non è stata trovata un'altra frase d'esempio per questa parola.
+5fd33173	Scritta per te dall'IA
+957db23d	Da {0}
+19ea253a	Salva l'audio
+3aa6c431	Il suo audio è salvato con la scheda.
+626965cc	Non è stato possibile tenere il suo audio: {0}
+4e821d07	Copia la parola
+7656d600	Copia la frase
+0df0b09f	Scegli una cartella
+c9b34169	Ordina e filtra
+d1fc1dbd	Seleziona parole
+9c938798	Fine selezione
+ebe08b9e	Rinomina la cartella
+b2ce023b	Nome della cartella
+0c89a43f	Rinomina, invia o elimina questa cartella
+5d7d59d9	Eliminare {0} parole dal tuo vocabolario?
+e4c1f098	Anche le loro schede in Anki se ne andranno alla prossima sincronizzazione, con la cronologia di ripasso di quelle schede.
+d82f2748	{0} parole eliminate.
+cb5424f6	Modificata
+44c57abd	Ripristina
+6432548e	Tocca le parole per selezionarle
+67c9f6e9	La cartella mostrata. Toccala per sceglierne un'altra, o per crearne, rinominarne o inviarne una; il ripasso allora riguarda solo le sue parole.
+18e479d2	Cambia l'ordine, o mostra solo le parole aggiunte o modificate in certi giorni.
+16af5f21	Spunta più parole per metterle in una cartella, inviarle a un amico o eliminarle insieme.
+f026d2d5	Tocca una parola per aprirla: ascoltala, correggine qualsiasi parte, crea una mnemotecnica o trovale una frase d'esempio.
+3007f8aa	Modifica le note grammaticali
+e09f4012	Modifica le note per memorizzare
+ac26a7a9	Traduzione
+3095a407	Generatore di mnemotecniche: parole che suonano come lei, ognuna con un'immagine
+476f76d7	Una frase d'esempio: una vera trovata, o una scritta per te
+f94ba403	Registra la parola, o scegli un file audio
+b68a4cb2	Mettila in cartelle

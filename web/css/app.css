@@ -2682,3 +2682,144 @@ html.sel-sheets select { pointer-events: none; }
 .helper-taste[hidden] { display: none; }
 .helper-how-part { margin: 0 0 14px; }
 .helper-how-part p { margin: 4px 0 0; line-height: 1.5; }
+
+/* ---------- the Vocab list: its header, Select, and a word opened (pages/vocab.js, components/wordeditor.js; 2026-11-06) ---------- */
+/* The owner's look: plain solid surfaces, line icons, the app's own popups; no bars or shadows for decoration. */
+/* The row over the list: the folder on show (a tap: the folder sheet), sort and filter, Select. */
+.vocab-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.vocab-folder { flex: 1; min-width: 0; justify-content: flex-start; gap: 8px; min-height: 42px; padding: 0 10px 0 14px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: var(--text); font-size: 15px; font-weight: 650; }
+.vocab-folder:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vocab-folder > .ic-folder { color: var(--accent); }
+.vf-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vf-n { flex: none; color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
+.vf-caret { flex: none; display: inline-flex; margin-inline-start: auto; color: var(--muted); }
+.vf-caret .ic { transform: rotate(90deg); }
+.vocab-tool { position: relative; flex: none; display: grid; place-items: center; width: 42px; height: 42px; min-width: 0; min-height: 0; padding: 0;
+  border: 0; border-radius: 12px; background: var(--surface-2); color: var(--text); }
+.vocab-tool:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vocab-tool.on, .vocab-tool[aria-pressed="true"] { color: var(--accent); }
+.vocab-tool.on .ic .fill, .vocab-tool[aria-pressed="true"] .ic .fill { opacity: .25; }
+.vt-dot { position: absolute; top: 7px; inset-inline-end: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+/* Select: a bar in the list's header's place (it stays in sight while scrolling), a box on each word. */
+.vocab-selbar { position: sticky; top: 0; z-index: 5; display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; padding: 8px;
+  border: 1px solid var(--accent); border-radius: 16px; background: var(--surface); }
+.vsb-top { display: flex; align-items: center; gap: 8px; }
+.vsb-count { flex: 1; min-width: 0; text-align: center; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vsb-all { flex: none; min-height: 42px; padding: 0 12px; color: var(--accent); font-weight: 650; }
+.vsb-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.vocab-page .vocab-item .pick { display: none; }
+.vocab-page.selecting .vocab-item .pick { display: block; flex: none; width: 20px; height: 20px; margin: 8px 0 0; accent-color: var(--accent); pointer-events: none; }
+.vocab-page.selecting .vocab-item .vi-chev, .vocab-page.selecting .vocab-item .vi-quick { display: none; }
+.vocab-page.selecting .vocab-item.picked { border-color: var(--accent); background: var(--sel-range); }
+@media (pointer: coarse) { .vocab-page .vocab-item:not(.open) .vi-head { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; } }
+/* The arrow: opens a word, and (pointing up, in the brand's teal) closes it. */
+.vocab-page .vi-chev { width: 36px; height: 36px; min-width: 0; min-height: 0; margin-top: 4px; padding: 0; border-radius: 50%; display: grid; place-items: center; }
+.vocab-page .vocab-item.open .vi-chev { transform: rotate(-90deg); color: var(--accent); }
+/* A word opened: a brand-teal outline, nothing else. Its texts are typed over where they are (cardtools.js textBox). */
+.vocab-page .vocab-item.open { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.vocab-page .vocab-item.open .vi-head { cursor: default; padding-bottom: 8px; }
+.vocab-item.open .vi-edit { cursor: text; border-radius: 8px; -webkit-tap-highlight-color: transparent; }
+@media (hover: hover) { .vocab-item.open .vi-edit:not(.editing):hover { background: var(--surface-2); } }
+.vocab-item .vi-trans { font-size: 14.5px; line-height: 1.5; color: var(--muted); overflow-wrap: anywhere; }
+.vocab-item .vi-trans b { padding: 0 3px; border-radius: 5px; background: var(--accent-soft); color: var(--text); font-weight: 700; }
+/* A lit stretch over several words is drawn in pieces (cardtext.js litTextHtml): one band, rounded at its ends. */
+.vocab-item .sentence b.s, .vocab-item .vi-trans b.s { padding-inline-end: 1px; margin-inline-end: -1px; border-start-end-radius: 0; border-end-end-radius: 0; }
+.vocab-item .sentence b.m, .vocab-item .vi-trans b.m { padding-inline: 0 1px; margin-inline-end: -1px; border-radius: 0; }
+.vocab-item .sentence b.e, .vocab-item .vi-trans b.e { padding-inline-start: 0; border-start-start-radius: 0; border-end-start-radius: 0; }
+.vocab-item .rv-editing { align-items: stretch; }
+.vocab-item .rv-editbox { text-align: start; }
+.vocab-item .rv-edit-acts { display: flex; flex-wrap: wrap; gap: 6px; }
+.vocab-item textarea.rv-editbox { -webkit-user-select: text; user-select: text; }
+.vocab-item.open .vi-edit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.vocab-item.open .vi-quick { gap: 6px; }
+.vocab-item.open .vi-quick button { padding: 5px 10px; }
+.vi-quick .say-it { transition: background-color .15s ease, color .15s ease; }
+.vi-quick .say-it[data-state="ready"] { opacity: .7; }
+.vi-quick .say-it[data-state="rec"], .vi-quick .say-it[data-state="rec"]:hover:not(:disabled) { background: #e5484d; border-color: #e5484d; color: #fff; }
+.vi-quick .say-it[data-state="word"], .vi-quick .say-it[data-state="you"],
+.vi-quick .say-it[data-state="word"]:hover:not(:disabled), .vi-quick .say-it[data-state="you"]:hover:not(:disabled) { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.vocab-page .vocab-item.open .vi-body { gap: 12px; max-width: 640px; margin: 0 16px; padding: 4px 0 14px; border-top: 0; }
+/* What it hasn't got takes no room: a line of small "+" links adds it. */
+.vi-adds { display: flex; flex-wrap: wrap; gap: 6px; }
+.vi-add { min-height: 30px; padding: 0 11px 0 8px; gap: 4px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--muted); font-size: 13px; font-weight: 600; }
+.vi-add:hover:not(:disabled) { background: var(--surface-2); color: var(--accent); }
+.vi-note { display: flex; flex-direction: column; gap: 2px; }
+.vi-note-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.vi-note-text { font-size: 15px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+/* The row of tools: equal tiles, a line icon over its name; the one open is teal. */
+
+.vi-tools { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; }
+.vi-tool { flex-direction: column; gap: 4px; min-width: 0; min-height: 58px; padding: 6px 3px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: var(--text); font-size: 12px; font-weight: 600; line-height: 1.2; white-space: normal; text-align: center; }
+.vi-tool:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vi-tool span { max-width: 100%; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }  /* (a long name is hyphenated, never cut anywhere) */
+.vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
+.vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
+.vi-tool-danger { color: var(--danger); }
+/* What a tool opens, under the row. */
+.vi-panel { display: flex; flex-direction: column; gap: 10px; }
+.vi-btn { gap: 6px; min-height: 42px; padding: 0 14px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--text); font-weight: 600; }
+.vi-btn:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vi-btn.primary, .vi-btn.primary:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.vi-btn[aria-pressed="true"], .vi-btn[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
+.vi-btn-danger { color: var(--danger); }
+.vi-pair { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; }
+.vi-pair .vi-btn { min-width: 0; white-space: normal; line-height: 1.2; }
+.vi-link { align-self: center; min-height: 34px; padding: 0 10px; border: 0; background: none; color: var(--accent); font-weight: 600; }
+.vi-link:hover:not(:disabled) { background: none; text-decoration: underline; }
+.vi-sent, .vi-rec, .vi-rec-parts { display: flex; flex-direction: column; gap: 10px; }
+.vi-sent-found { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
+.vi-sent-text { font-family: var(--ar-font); font-size: 19px; line-height: 1.8; overflow-wrap: anywhere; }
+.vi-sent-text b { padding: 0 2px; border-radius: 4px; background: var(--hl); color: var(--hl-ink); font-weight: inherit; }
+.vi-sent-trans { font-size: 14.5px; line-height: 1.5; color: var(--muted); }
+.vi-sent-trans b { color: var(--text); font-weight: 700; }
+.vi-sent-from { font-size: 12px; color: var(--muted); }
+.vi-sent-note, .vi-rec-note { margin: 0; font-size: 13.5px; line-height: 1.45; color: var(--muted); text-align: center; }
+.vi-sent-note.error, .vi-rec-note.error { color: var(--danger); }
+.vi-rec-row { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.vi-rec-row .cb-rec { flex: 1; justify-content: center; }
+.vi-rec-row .vi-rec-play { flex: 1; }
+.vi-rec-rm { width: 42px; padding: 0; }
+.vi-folders { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.vi-foot { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.vi-from { flex: 1; min-width: 0; }
+.vi-foot .saved { flex: none; color: var(--accent); font-weight: 600; }
+.vi-more { flex: none; width: 36px; height: 36px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--muted); }
+.vi-more:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
+/* The folder sheet: every word, those in no folder, each folder with its count (⋯: Rename, Send, Delete), New folder. */
+.vf-list { display: flex; flex-direction: column; gap: 4px; }
+.vf-row { display: flex; align-items: center; gap: 4px; border-radius: 12px; }
+.vf-row.on { background: var(--accent-soft); }
+.vf-pick { flex: 1; min-width: 0; justify-content: flex-start; gap: 10px; min-height: 48px; padding: 0 12px; border: 0; border-radius: 12px;
+  background: none; color: var(--text); font-size: 16px; text-align: start; }
+.vf-pick:hover:not(:disabled) { background: var(--surface-2); }
+.vf-pick > .ic { color: var(--muted); }
+.vf-row.on .vf-pick, .vf-row.on .vf-pick:hover:not(:disabled) { background: none; color: var(--accent); font-weight: 700; }
+.vf-row.on .vf-pick > .ic { color: var(--accent); }
+.vf-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.vf-count { flex: none; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vf-row.on .vf-count { color: inherit; }
+.vf-on { flex: none; display: inline-flex; width: 18px; }
+.vf-more { flex: none; width: 44px; height: 44px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--muted); }
+.vf-more[aria-expanded="true"], .vf-more:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
+.vf-gap { flex: none; width: 44px; }
+.vf-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; padding: 2px 0 8px; }
+.vf-acts .vi-btn { min-width: 0; min-height: 44px; padding: 4px 8px; font-size: 13.5px; line-height: 1.2; white-space: normal; }
+.vf-new { gap: 8px; min-height: 46px; margin-top: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
+.vf-new:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+/* The sort and filter sheet: centred choices, the chosen one in teal; a tap changes the list behind at once. */
+.vs { display: flex; flex-direction: column; gap: 18px; }
+.vs-sec { display: flex; flex-direction: column; gap: 10px; }
+.vs-h { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-align: center; }
+.vs-opts { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.vs-opt { min-height: 38px; padding: 0 14px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-weight: 600; }
+.vs-opt:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
+.vs-opt.on, .vs-opt.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.vs-seg { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 4px; border-radius: 99px; background: var(--surface-2); }
+.vs-seg .vs-opt { min-height: 36px; background: none; }
+.vs-seg .vs-opt.on, .vs-seg .vs-opt.on:hover:not(:disabled) { background: var(--surface); color: var(--accent); }
+.vs-dates { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+.vs-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.vs-foot button { min-height: 44px; border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { .vocab-page .vi-chev { transition: none; } }

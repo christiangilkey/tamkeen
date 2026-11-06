@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Palabras que suenan como la palabra, cada una con una imagen de su significado, puestas en Notas para memorizar. Las crea tu IA.
+7e5e5822	Palabras de tu idioma que suenan como la palabra, cada una con una imagen de su significado, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA. <0>La IA puede crearlas en su lugar</0>
+bd2053cf	Palabras en inglés que suenan como la palabra, cada una con una imagen de su significado, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA. <0>La IA puede crearlas en su lugar</0>
+a9c84e5b	Herramientas para esta palabra
+dad9503c	Más: copiar, enviar a un amigo, borrar
+2bc362a1	{0}{1} · añadida {2}{3}
+3ebfa343	La IA puede escribirlas en su lugar
+a8de43f2	Buscar una real
+b80ded59	Usar esta
+700de107	Otra
+52378927	Escribir la mía
+e02b25ba	Escribiendo una frase…
+6235b9f7	Buscando una frase…
+b9e3178a	La IA no devolvió nada para esta palabra. Inténtalo de nuevo.
+9f8fe3c2	No se encontró otra frase de ejemplo para esta palabra.
+5fd33173	Escrita para ti por la IA
+957db23d	De {0}
+19ea253a	Guardar el audio
+3aa6c431	Su audio se ha guardado con la tarjeta.
+626965cc	No se pudo guardar su audio: {0}
+4e821d07	Copiar la palabra
+7656d600	Copiar la frase
+0df0b09f	Elegir una carpeta
+c9b34169	Ordenar y filtrar
+d1fc1dbd	Seleccionar palabras
+9c938798	Terminar la selección
+ebe08b9e	Cambiar el nombre de la carpeta
+b2ce023b	Nombre de la carpeta
+0c89a43f	Cambiar el nombre, enviar o borrar esta carpeta
+5d7d59d9	¿Borrar {0} palabras de tu vocabulario?
+e4c1f098	Sus tarjetas en Anki también se borrarán en la próxima sincronización, con el historial de repaso de esas tarjetas.
+d82f2748	{0} palabras borradas.
+cb5424f6	Cambiada
+44c57abd	Restablecer
+6432548e	Toca palabras para seleccionarlas
+67c9f6e9	La carpeta que se muestra. Tócala para elegir otra, o para crear, renombrar o enviar una; el repaso entonces solo incluye sus palabras.
+18e479d2	Cambia el orden, o muestra solo las palabras añadidas o cambiadas en ciertos días.
+16af5f21	Marca varias palabras para ponerlas en una carpeta, enviarlas a un amigo o borrarlas a la vez.
+f026d2d5	Toca una palabra para abrirla: escúchala, corrige cualquier parte, crea una mnemotecnia o búscale una frase de ejemplo.
+3007f8aa	Editar las notas gramaticales
+e09f4012	Editar las notas para memorizar
+ac26a7a9	Traducción
+3095a407	Creador de mnemotecnias: palabras que suenan como esta, cada una con una imagen
+476f76d7	Una frase de ejemplo: una real encontrada, o una escrita para ti
+f94ba403	Grabar la palabra, o elegir un archivo de sonido
+b68a4cb2	Ponerla en carpetas

@@ -1,11 +1,16 @@
 // Vocab list: saved words/phrases with their sentence, notes, audio replay and export.
 // Words can be filed in any number of folders; the list can be sorted and filtered by when
 // a word was added or last changed.
+//
+// The header over the list (the owner's clean-up, 2026-11-06): the search box, then one row with the
+// folder on show (a tap opens the folder sheet: every folder with its count, New folder, and each one's
+// Rename / Send / Delete), one sort-and-filter icon (a sheet: the order, and which days' words to show)
+// and Select (a mode where a tap ticks a word, with a bar of what to do with the ticked ones). A tap on a
+// word opens it in place with every tool the back of a review card has (components/wordeditor.js).
 
-import { api, esc, h, toast, download, fmtDate, audioUrl, showMenu, shareClip, clipUrl, platform } from "../app.js";
+import { api, esc, h, toast, download, audioUrl, showMenu, shareClip, clipUrl, platform, buzz } from "../app.js";
 import { ANKI_SETTINGS, MOVE_LABEL, ankiProgressLine, ankiSettingsLabel, ankiSyncHere, confirmDelete, loadAnkiProgress, moveToLanguageDecks } from "../components/ankisync.js";
-import { formatTime } from "../wordlookup.js";
-import { confirmBox } from "../components/modal.js";
+import { askName, confirmBox, openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
 import { detectLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import * as social from "../social.js";
@@ -16,8 +21,10 @@ import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
+import { VIEW_DEFAULTS, changedView, folderCount, narrowed, stepFolder } from "../review/vocabedit.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
+import { openWordEditor, vocabIcon } from "../components/wordeditor.js";
 import { offerFix } from "../components/fixit.js";
 
 const DAY = 86400;
@@ -29,6 +36,8 @@ const SORTS = {
   alpha: ["A–Z", (a, b) => a.text.localeCompare(b.text, studyLanguage())],
 };
 const RANGES = { any: "Any time", today: "Today", week: "Last 7 days", month: "Last 30 days", year: "Last 12 months", custom: "Between dates…" };
+/** Holding a word on the list this long starts Select with it ticked (a phone's usual way). */
+const PICK_HOLD_MS = 500;
 
 function lsGet(key, fallback) {
   try { const v = localStorage.getItem(key); return v === null ? fallback : JSON.parse(v); } catch { return fallback; }
@@ -129,7 +138,7 @@ export async function render(view) {
   const prefs = lsGet("vocabView", {});
   const st = {
     folder: prefs.folder || "",           // "" = all, "none" = not in any folder, else a folder uid
-    sort: SORTS[prefs.sort] ? prefs.sort : "added_desc",
+    sort: SORTS[prefs.sort] ? prefs.sort : VIEW_DEFAULTS.sort,
     dateField: prefs.dateField === "changed" ? "changed" : "added",
     range: RANGES[prefs.range] ? prefs.range : "any",
     from: prefs.from || "",
@@ -140,8 +149,8 @@ export async function render(view) {
                                                range: st.range, from: st.from, to: st.to });
 
   // The owner's layout (2026-10-16): the Review block first and bold, so the day's task is the first
-  // thing seen; then search and folders; each word a short card that opens on a tap; the less used
-  // things (adding a word by hand, the exports, Anki's settings) in the ⋯ menu.
+  // thing seen; then search and the list's header; each word a short card that opens on a tap; the less
+  // used things (adding a word by hand, the exports, Anki's settings) in the ⋯ menu.
   view.append(h(`<div class="page vocab-page">
     <div class="vocab-head">
       <h1>Vocab</h1>
@@ -163,37 +172,38 @@ export async function render(view) {
     </section>
     <div id="mywords">
     <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
-    <div class="folder-bar" id="folders"></div>
-    <div class="row vocab-filters">
-      <label class="small muted">Sort
-        <select id="sort">${Object.entries(SORTS).map(([k, [label]]) => `<option value="${k}">${label}</option>`).join("")}</select></label>
-      <label class="small muted">Show words
-        <select id="date-field"><option value="added">added</option><option value="changed">changed</option></select></label>
-      <select id="range">${Object.entries(RANGES).map(([k, label]) => `<option value="${k}">${label}</option>`).join("")}</select>
-      <span id="custom-range" class="row" hidden>
-        <input type="date" id="from" aria-label="From"> <span class="small muted">to</span> <input type="date" id="to" aria-label="To">
-      </span>
-      <span class="spacer"></span>
-      <button type="button" id="select-all" hidden>Select all</button>
+    <div class="vocab-bar" id="vbar">
+      <button type="button" class="vocab-folder" id="folder-pick" aria-haspopup="dialog" title="Choose a folder">
+        ${icon("folder", 18)}<span class="vf-name"></span><span class="vf-n"></span><span class="vf-caret" aria-hidden="true">${icon("chevron", 16)}</span>
+      </button>
+      <button type="button" class="vocab-tool" id="sort-pick" aria-haspopup="dialog" title="Sort and filter" aria-label="Sort and filter">${vocabIcon("filter", 20)}<i class="vt-dot" hidden></i></button>
+      <button type="button" class="vocab-tool" id="select-mode" title="Select words" aria-label="Select words" aria-pressed="false">${vocabIcon("select", 20)}</button>
     </div>
-    <div class="bulk-bar" id="bulk" hidden>
-      <span id="bulk-count"></span>
-      <button type="button" id="bulk-add">${icon("folder", 16)} Add to folder</button>
-      <button type="button" id="bulk-remove">Remove from folder</button>
-      <button type="button" id="bulk-send">📨 Send to a friend</button>
-      <span class="spacer"></span>
-      <button type="button" class="ghost" id="bulk-clear">Clear selection</button>
+    <div class="vocab-selbar" id="bulk" hidden>
+      <div class="vsb-top">
+        <button type="button" class="vocab-tool" id="bulk-done" title="Done selecting" aria-label="Done selecting">${icon("close", 18)}</button>
+        <span class="vsb-count" id="bulk-count" role="status"></span>
+        <button type="button" class="ghost vsb-all" id="select-all"></button>
+      </div>
+      <div class="vsb-acts">
+        <button type="button" class="vi-tool" id="bulk-add">${vocabIcon("folderin", 20)}<span>Add to folder</span></button>
+        <button type="button" class="vi-tool" id="bulk-remove">${vocabIcon("folderout", 20)}<span>Remove from folder</span></button>
+        <button type="button" class="vi-tool" id="bulk-send">${icon("send", 20)}<span>Send</span></button>
+        <button type="button" class="vi-tool vi-tool-danger" id="bulk-delete">${icon("trash", 20)}<span>Delete</span></button>
+      </div>
     </div>
     <div class="vocab-list" id="list"></div>
     </div>
   </div>`));
   const $ = (s) => view.querySelector(s);
+  const page = $(".vocab-page");
   const list = $("#list");
 
   let all = [];      // every word matching the search box
   let folders = [];  // [{uid, name}]
   let log = {};      // the reviewer's record: every answer by word uid (see pages/review.js)
   const selected = new Set();
+  let selecting = false;  // Select is on: a tap ticks a word instead of opening it
   let shown = [];    // the words listed right now (the open folder, narrowed by the search box and the dates)
   let justAdded = new Set();  // ids of the cards just added with "Add words": listed first, lit up a moment
   const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
@@ -290,62 +300,132 @@ export async function render(view) {
   const say = cardSayer(playSnippet);
 
   // ----- folders -----
+  /** Make a folder (its name asked in the app's own small box). */
   async function newFolder() {
-    const name = prompt("Name for the new folder:");
-    if (!name || !name.trim()) return null;
+    const name = await askName(t("New folder"), t("Name for the new folder"));
+    if (!name) return null;
     try {
-      const f = await api("/vocab/folders", { method: "POST", body: { name: name.trim() } });
+      const f = await api("/vocab/folders", { method: "POST", body: { name } });
       folders.push(f);
       folders.sort((a, b) => a.name.localeCompare(b.name));
+      renderFolderButton();
       return f;
     } catch (e) { toast(e.message, { error: true }); return null; }
   }
 
-  function renderFolders() {
-    const bar = $("#folders");
-    bar.innerHTML = "";
-    const count = (uid) => all.filter((v) => (uid === "none" ? !v.folders.length : v.folders.includes(uid))).length;
-    const chip = (key, label, n, isFolder = false) => {
-      const b = h(`<button type="button" class="folder-chip${st.folder === key ? " active" : ""}">${isFolder ? `${icon("folder", 15)} ` : ""}<span></span> <span class="n">${n}</span></button>`);
-      b.querySelector("span").textContent = label;
-      b.onclick = () => { st.folder = key; savePrefs(); renderAll(); };
-      bar.append(b);
+  async function renameFolder(f) {
+    const name = await askName(t("Rename folder"), t("Folder name"), { value: f.name, ok: t("Rename") });
+    if (!name || name === f.name) return false;
+    try {
+      Object.assign(f, await api(`/vocab/folders/${f.uid}`, { method: "PATCH", body: { name } }));
+      folders.sort((a, b) => a.name.localeCompare(b.name));
+      renderAll();
+      return true;
+    } catch (e) { toast(e.message, { error: true }); return false; }
+  }
+
+  async function deleteFolder(f) {
+    if (!(await confirmBox(t("Delete the folder “{0}”?", f.name), "The words in it are kept.", { ok: "Delete", danger: true }))) return false;
+    try {
+      await api(`/vocab/folders/${f.uid}`, { method: "DELETE" });
+      if (st.folder === f.uid) { st.folder = ""; savePrefs(); }
+      await load();
+      return true;
+    } catch (e) { toast(e.message, { error: true }); return false; }
+  }
+
+  /** Put `items` in folder `uid` (or take them out). The list is drawn again unless `redraw` is false
+   * (the open word's own Folders tool: the word stays where it is until it is closed). */
+  async function applyFolder(items, uid, add, { redraw = true } = {}) {
+    try {
+      await api("/vocab/bulk-folders", { method: "POST",
+        body: { ids: items.map((v) => v.id), add: add ? [uid] : [], remove: add ? [] : [uid] } });
+      for (const v of items) {
+        const set = new Set(v.folders);
+        add ? set.add(uid) : set.delete(uid);
+        v.folders = [...set].sort();
+        v.updated_at = Date.now() / 1000;
+      }
+      if (redraw) renderAll(); else { renderFolderButton(); renderReview(); }
+      return true;
+    } catch (e) { toast(e.message, { error: true }); return false; }
+  }
+
+  /** Show folder `key` ("" every word, "none" those in no folder, else a folder's uid). */
+  function chooseFolder(key) {
+    if (key === st.folder) return;
+    st.folder = key;
+    savePrefs();
+    renderAll();
+  }
+
+  /** The folder on show, in the row over the list: its name and how many words it has. */
+  function renderFolderButton() {
+    const b = $("#folder-pick");
+    const name = b.querySelector(".vf-name");
+    const own = st.folder && st.folder !== "none";
+    name.textContent = !st.folder ? "All words" : st.folder === "none" ? "Not in a folder" : folderName(st.folder) || "";
+    if (own) name.setAttribute("translate", "no"); else name.removeAttribute("translate");  // (a folder's name is the learner's)
+    b.querySelector(".vf-n").textContent = String(folderCount(all, st.folder));
+  }
+
+  /** The folder sheet: every word, those in no folder, then each folder with its count; a tap shows it.
+   * ⋯ on a folder opens its Rename / Send to a friend / Delete under it; New folder makes one. */
+  function folderSheet() {
+    const m = openModal({ title: t("Folders"), cls: "vf-back" });
+    let actsFor = "";  // the folder whose actions are open under it
+    const draw = () => {
+      const box = h(`<div class="vf-list"></div>`);
+      const row = (key, label, isFolder) => {
+        const on = st.folder === key;
+        const r = h(`<div class="vf-row${on ? " on" : ""}">
+          <button type="button" class="vf-pick" aria-pressed="${on}">${isFolder ? icon("folder", 18) : key ? vocabIcon("folderout", 18) : icon("vocab", 18)}<span class="vf-label"></span><span class="vf-count">${folderCount(all, key)}</span><span class="vf-on" aria-hidden="true">${on ? icon("check", 18) : ""}</span></button>
+        </div>`);
+        const text = r.querySelector(".vf-label");
+        text.textContent = label;
+        if (isFolder) text.setAttribute("translate", "no");
+        r.querySelector(".vf-pick").onclick = () => { m.close(); chooseFolder(key); };
+        if (isFolder) {
+          const f = folders.find((x) => x.uid === key);
+          const more = h(`<button type="button" class="vf-more" title="Rename, send or delete this folder" aria-expanded="${actsFor === key}">${icon("more", 18)}</button>`);
+          more.setAttribute("aria-label", t("Folder: {0}", f.name));
+          more.onclick = () => { actsFor = actsFor === key ? "" : key; draw(); };
+          r.append(more);
+          box.append(r);
+          if (actsFor === key) {
+            const acts = h(`<div class="vf-acts">
+              <button type="button" class="vi-btn" data-act="rename">${icon("edit", 16)}<span>Rename</span></button>
+              <button type="button" class="vi-btn" data-act="send">${icon("send", 16)}<span>Send to a friend</span></button>
+              <button type="button" class="vi-btn vi-btn-danger" data-act="delete">${icon("trash", 16)}<span>Delete</span></button>
+            </div>`);
+            acts.querySelector('[data-act="rename"]').onclick = async () => { if (await renameFolder(f) && m.el.isConnected) draw(); };
+            acts.querySelector('[data-act="delete"]').onclick = async () => { if (await deleteFolder(f)) { actsFor = ""; if (m.el.isConnected) draw(); } };
+            acts.querySelector('[data-act="send"]').onclick = () => {
+              m.close();  // (the list of friends opens over the page)
+              const at = $("#folder-pick").getBoundingClientRect();
+              sendMenu(at.left, at.bottom + 4, all.filter((v) => v.folders.includes(f.uid)), f.name);
+            };
+            box.append(acts);
+          }
+          return;
+        }
+        r.append(h(`<span class="vf-gap" aria-hidden="true"></span>`));  // (the counts in one column with the folders')
+        box.append(r);
+      };
+      row("", "All words", false);
+      row("none", "Not in a folder", false);
+      for (const f of folders) row(f.uid, f.name, true);
+      const add = h(`<button type="button" class="vf-new">${icon("plus", 18)}<span>New folder</span></button>`);
+      add.onclick = async () => {
+        const f = await newFolder();
+        if (!f) return;
+        m.close();
+        chooseFolder(f.uid);
+      };
+      box.append(add);
+      m.body.replaceChildren(box);
     };
-    chip("", "All words", all.length);
-    chip("none", "Not in a folder", count("none"));
-    for (const f of folders) chip(f.uid, f.name, count(f.uid), true);
-    const add = h(`<button type="button" class="folder-chip ghost">＋ New folder</button>`);
-    add.onclick = async () => { const f = await newFolder(); if (f) { st.folder = f.uid; savePrefs(); renderAll(); } };
-    bar.append(add);
-    const current = folders.find((f) => f.uid === st.folder);
-    if (current) {
-      const rn = h(`<button type="button" class="ghost small-btn">Rename</button>`);
-      rn.onclick = async () => {
-        const name = prompt("Rename folder:", current.name);
-        if (!name || !name.trim() || name.trim() === current.name) return;
-        try {
-          Object.assign(current, await api(`/vocab/folders/${current.uid}`, { method: "PATCH", body: { name: name.trim() } }));
-          renderAll();
-        } catch (e) { toast(e.message, { error: true }); }
-      };
-      const del = h(`<button type="button" class="ghost danger small-btn">Delete folder</button>`);
-      del.onclick = async () => {
-        if (!(await confirmBox(t("Delete the folder “{0}”?", current.name), "The words in it are kept.", { ok: "Delete", danger: true }))) return;
-        try {
-          await api(`/vocab/folders/${current.uid}`, { method: "DELETE" });
-          st.folder = "";
-          savePrefs();
-          await load();
-        } catch (e) { toast(e.message, { error: true }); }
-      };
-      const share = h(`<button type="button" class="ghost small-btn">📨 Send folder to a friend</button>`);
-      share.onclick = (e) => {
-        const words = all.filter((v) => v.folders.includes(current.uid));
-        const r = e.currentTarget.getBoundingClientRect();
-        sendMenu(r.left, r.bottom + 4, words, current.name);
-      };
-      bar.append(rn, del, share);
-    }
+    draw();
   }
 
   /** Menu of folders to put the given words into (or take them out of). */
@@ -353,27 +433,14 @@ export async function render(view) {
     const targets = mode === "remove"
       ? folders.filter((f) => items.some((v) => v.folders.includes(f.uid)))
       : folders;
-    const apply = async (uid, add) => {
-      try {
-        await api("/vocab/bulk-folders", { method: "POST",
-          body: { ids: items.map((v) => v.id), add: add ? [uid] : [], remove: add ? [] : [uid] } });
-        for (const v of items) {
-          const set = new Set(v.folders);
-          add ? set.add(uid) : set.delete(uid);
-          v.folders = [...set].sort();
-          v.updated_at = Date.now() / 1000;
-        }
-        renderAll();
-      } catch (e) { toast(e.message, { error: true }); }
-    };
     const entries = targets.map((f) => {
       const inAll = items.every((v) => v.folders.includes(f.uid));
-      if (mode === "remove") return { label: `✕ ${f.name}`, run: () => apply(f.uid, false) };
-      if (mode === "add") return { label: f.name, icon: icon("folder", 16), run: () => apply(f.uid, true) };
-      return { label: `${inAll ? "☑" : "☐"} ${f.name}`, run: () => apply(f.uid, !inAll) };
+      if (mode === "remove") return { label: `✕ ${f.name}`, run: () => applyFolder(items, f.uid, false) };
+      if (mode === "add") return { label: f.name, icon: icon("folder", 16), run: () => applyFolder(items, f.uid, true) };
+      return { label: `${inAll ? "☑" : "☐"} ${f.name}`, run: () => applyFolder(items, f.uid, !inAll) };
     });
     if (mode !== "remove") {
-      entries.push({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) apply(f.uid, true); } });
+      entries.push({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) applyFolder(items, f.uid, true); } });
     }
     if (!entries.length) { toast("These words aren't in any folder."); return; }
     showMenu(x, y, items.length === 1 ? items[0].text : `${items.length} words`, entries);
@@ -423,138 +490,267 @@ export async function render(view) {
       })));
   }
 
+  /** Delete `words` (asked first: one word as before, saying so when its Anki card would go too; several
+   * in one question). */
+  async function removeWords(words) {
+    if (!words.length) return;
+    if (words.length === 1) {
+      if (!(await confirmDelete(words[0]))) return;
+    } else {
+      let anki = false;
+      try { anki = !!(await api("/anki/sync/status")).enabled; } catch { /* no sync on this device */ }
+      const ok = await confirmBox(t("Delete {0} words from your vocab?", words.length),
+        anki ? "Any of their cards in Anki go too at the next sync, with those cards' review history." : "", { ok: "Delete", danger: true });
+      if (!ok) return;
+    }
+    if (open && words.includes(open.v)) closeOpen();
+    const gone = new Set();
+    for (const v of words) {
+      try { await api(`/vocab/${v.id}`, { method: "DELETE" }); gone.add(v); } catch (e) { toast(e.message, { error: true }); break; }
+    }
+    all = all.filter((x) => !gone.has(x));
+    for (const v of gone) selected.delete(v.id);
+    if (gone.size > 1) toast(t("Deleted {0} words.", gone.size), { timeout: 2500 });
+    if (selecting && !selected.size) setSelecting(false);
+    renderAll();
+  }
+
+  // ----- the sort and filter sheet -----
+  function renderSortButton() {
+    const b = $("#sort-pick");
+    const on = narrowed(st);
+    b.classList.toggle("on", on);
+    b.querySelector(".vt-dot").hidden = !on;
+  }
+
+  /** Sort (the order) and Show words (added or changed, and when): a tap changes the list behind at once. */
+  function sortSheet() {
+    const m = openModal({ title: t("Sort and filter"), cls: "vs-back" });
+    m.body.innerHTML = `<div class="vs">
+      <section class="vs-sec"><h3 class="vs-h">Sort</h3>
+        <div class="vs-opts" data-k="sort">${Object.entries(SORTS).map(([k, [label]]) => `<button type="button" class="vs-opt" data-v="${k}">${label}</button>`).join("")}</div></section>
+      <section class="vs-sec"><h3 class="vs-h">Show words</h3>
+        <div class="vs-seg" data-k="dateField"><button type="button" class="vs-opt" data-v="added">Added</button><button type="button" class="vs-opt" data-v="changed">Changed</button></div>
+        <div class="vs-opts" data-k="range">${Object.entries(RANGES).map(([k, label]) => `<button type="button" class="vs-opt" data-v="${k}">${label}</button>`).join("")}</div>
+        <div class="vs-dates" hidden><input type="date" class="vs-from" aria-label="From"><span class="muted">to</span><input type="date" class="vs-to" aria-label="To"></div>
+      </section>
+      <div class="vs-foot"><button type="button" class="ghost vs-reset">Reset</button><button type="button" class="primary vs-done">Done</button></div>
+    </div>`;
+    const box = m.body.firstElementChild;
+    const from = box.querySelector(".vs-from"), to = box.querySelector(".vs-to");
+    const paint = () => {
+      for (const group of box.querySelectorAll("[data-k]")) {
+        for (const b of group.querySelectorAll(".vs-opt")) {
+          const on = st[group.dataset.k] === b.dataset.v;
+          b.classList.toggle("on", on);
+          b.setAttribute("aria-pressed", String(on));
+        }
+      }
+      box.querySelector(".vs-dates").hidden = st.range !== "custom";
+      from.value = st.from;
+      to.value = st.to;
+      box.querySelector(".vs-reset").disabled = !changedView(st);
+    };
+    const changed = () => { savePrefs(); paint(); renderAll(); };
+    for (const group of box.querySelectorAll("[data-k]")) {
+      for (const b of group.querySelectorAll(".vs-opt")) b.onclick = () => { st[group.dataset.k] = b.dataset.v; changed(); };
+    }
+    from.onchange = () => { st.from = from.value; changed(); };
+    to.onchange = () => { st.to = to.value; changed(); };
+    box.querySelector(".vs-reset").onclick = () => { Object.assign(st, VIEW_DEFAULTS); changed(); };
+    box.querySelector(".vs-done").onclick = () => m.close();
+    paint();
+  }
+
+  // ----- selecting several words -----
+  /** Select on or off. `first`: a word to tick at once (the word held down to start it). */
+  function setSelecting(on, first = null) {
+    if (on) closeOpen();  // (an open word is put away, saved)
+    else selected.clear();
+    selecting = on;
+    if (first) selected.add(first.id);
+    page.classList.toggle("selecting", on);
+    $("#vbar").hidden = on;
+    $("#bulk").hidden = !on;
+    $("#select-mode").setAttribute("aria-pressed", String(on));
+    for (const el of list.querySelectorAll(".vocab-item")) if (el.__pick) el.__pick();
+    renderBulk();
+  }
+
+  function renderBulk() {
+    for (const id of [...selected]) if (!all.some((v) => v.id === id)) selected.delete(id);
+    $("#bulk-count").textContent = selected.size ? t("{0} selected", selected.size) : "Tap words to select them";
+    // "Select all" ticks every word listed; once they all are, the same button unticks them.
+    const every = shown.length > 0 && shown.every((v) => selected.has(v.id));
+    const button = $("#select-all");
+    button.hidden = shown.length === 0;
+    button.textContent = every ? "Deselect all" : t("Select all {0}", shown.length);
+    button.title = every ? "Untick every word listed below" : "Tick every word listed below, to file or send them together";
+    const picked = pickedItems();
+    for (const id of ["#bulk-add", "#bulk-send", "#bulk-delete"]) $(id).disabled = !picked.length;
+    $("#bulk-remove").disabled = !picked.some((v) => v.folders.length);
+  }
+
   // ----- items -----
   const ankiProgress = await loadAnkiProgress();  // each word's review progress in Anki, when the deck is synced
   // A word is a short card: the word, its meaning, the bit of its sentence around it and its play
-  // buttons. A tap opens it in place for editing (meaning, grammar notes, personal notes, folders, delete); one
-  // card is open at a time, and it stays open when the list is drawn again.
+  // buttons. A tap opens it in place with every tool of a review card's back (components/wordeditor.js);
+  // one card is open at a time, and it stays open when the list is drawn again.
   let openId = null;
+  let open = null;   // the open card: {v, el, editor}
+  /** Put the open card away (an open text box saved first). */
+  function closeOpen() {
+    if (!open) return;
+    const o = open;
+    open = null;
+    openId = null;
+    o.editor.close();
+    if (o.el.__closed) o.el.__closed();
+  }
+  /** What the open word's editor needs of the page. */
+  const editorDeps = (v) => ({
+    say,
+    folders: () => folders,
+    setFolder: (w, uid, on) => applyFolder([w], uid, on, { redraw: false }),
+    newFolder,
+    send: (w, x, y) => sendMenu(x, y, [w]),
+    remove: (w) => removeWords([w]),
+    changed: () => renderReview(),  // (a meaning typed in makes the word a card to review)
+    refreshQuick,
+    ankiLine: ankiProgressLine(ankiProgress[v.uid || v.id]),
+  });
+
   function item(v) {
-    const changed = v.updated_at && v.updated_at - v.created_at > 60;
-    const lang = langAttrs(detectLanguage(v.sentence || v.text));
-    const translation = String(v.translation || "").replace(/[⟦⟧]/g, "").trim();
     const el = h(`<div class="card vocab-item${justAdded.has(v.id) ? " vi-new" : ""}">
-      <div class="vi-head" role="button" tabindex="0" aria-expanded="false">
-        <input type="checkbox" class="pick" aria-label="Select word">
-        <div class="vi-main">
-          <div class="word" ${lang}></div>
-          <div class="vi-meaning"></div>
-          ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
-          <div class="vi-quick" hidden>
-            <button type="button" class="play-word" hidden>${icon("sound", 15)} Word</button>
-            <button type="button" class="play-sent" hidden>${icon("sound", 15)} Sentence</button>
-          </div>
-        </div>
-        <span class="vi-chev" aria-hidden="true">${icon("chevron", 20)}</span>
-      </div>
-      <div class="vi-body" hidden>
-        <div class="small muted">
-          ${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}
-          ${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}${changed ? ` · changed ${fmtDate(v.updated_at)}` : ""}
-        </div>
-        ${ankiProgressLine(ankiProgress[v.uid || v.id])}
-        <div class="item-folders"></div>
-        ${translation ? `<div class="vi-translation small"></div>` : ""}
-        <input type="text" class="meaning" placeholder="Meaning" aria-label="Meaning">
-        <textarea class="notes" rows="2" placeholder="Grammar notes (root, grammar, usage…)" aria-label="Grammar notes"></textarea>
-        <textarea class="memo" rows="1" placeholder="Memorization notes (a mnemonic, where you heard it…)" aria-label="Memorization notes"></textarea>
-        <div class="row vi-actions">
-          <button type="button" class="ghost folders-btn">${icon("folder", 16)} Folders</button>
-          <span class="spacer"></span>
-          <span class="small muted saved" hidden>Saved</span>
-          <button type="button" class="ghost danger del">Delete</button>
-        </div>
+      <div class="vi-head">
+        <input type="checkbox" class="pick" tabindex="-1" aria-hidden="true">
+        <div class="vi-main"></div>
+        <button type="button" class="ghost icon vi-chev">${icon("chevron", 20)}</button>
       </div>
     </div>`);
-    el.querySelector(".word").textContent = v.text;
-    const shownMeaning = el.querySelector(".vi-meaning");
-    shownMeaning.textContent = v.meaning;
-    shownMeaning.hidden = !v.meaning;
-    if (translation) el.querySelector(".vi-translation").textContent = translation;
-    el.querySelector(".meaning").value = v.meaning;
-    el.querySelector(".notes").value = v.notes;
-    el.querySelector(".memo").value = v.memo || "";
-    // Opening and closing: a tap anywhere on the card's top part, except its own controls.
-    const head = el.querySelector(".vi-head");
-    const body = el.querySelector(".vi-body");
-    const setOpen = (on) => {
-      el.classList.toggle("open", on);
-      body.hidden = !on;
-      head.setAttribute("aria-expanded", String(on));
-    };
-    el.__close = () => setOpen(false);
-    const toggle = () => {
-      const on = openId !== v.id;
-      for (const other of list.querySelectorAll(".vocab-item.open")) if (other !== el) other.__close();
-      openId = on ? v.id : null;
-      setOpen(on);
-    };
-    head.onclick = (e) => { if (!e.target.closest("input, button, a, textarea, select")) toggle(); };
-    head.onkeydown = (e) => {
-      if (e.target === head && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); toggle(); }
-    };
-    setOpen(openId === v.id);
-    const chips = el.querySelector(".item-folders");
-    for (const uid of v.folders) {
-      const name = folderName(uid);
-      if (!name) continue;
-      const c = h(`<span class="tag"></span>`);
-      c.innerHTML = `${icon("folder", 13)} `;
-      c.append(name);
-      chips.append(c);
+    const head = el.querySelector(".vi-head"), main = el.querySelector(".vi-main");
+    const chev = el.querySelector(".vi-chev"), pick = el.querySelector(".pick");
+    const isOpen = () => !!open && open.el === el;
+
+    // ----- closed: the word, its meaning, its sentence and Word / Sentence -----
+    let pw = null, ps = null, quick = null;
+    function drawClosed() {
+      const lang = langAttrs(detectLanguage(v.sentence || v.text));
+      main.innerHTML = `<div class="word" ${lang}></div>
+        <div class="vi-meaning" translate="no"></div>
+        ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
+        <div class="vi-quick" hidden>
+          <button type="button" class="play-word" hidden>${icon("sound", 15)} Word</button>
+          <button type="button" class="play-sent" hidden>${icon("sound", 15)} Sentence</button>
+        </div>`;
+      main.querySelector(".word").textContent = v.text;
+      const meaning = main.querySelector(".vi-meaning");
+      meaning.textContent = v.meaning || "";
+      meaning.hidden = !String(v.meaning || "").trim();
+      meaning.dir = "auto";
+      quick = main.querySelector(".vi-quick");
+      pw = main.querySelector(".play-word");
+      ps = main.querySelector(".play-sent");
+      // (Never fails: at worst one calm message, see voiceplay.js. Afterwards every card is checked
+      // again, since a recording that failed is shared by all the cards from its episode.)
+      pw.onclick = () => say(v, "word").finally(refreshQuick);
+      ps.onclick = () => say(v, "sentence").finally(refreshQuick);
+      paintQuick();
     }
-    const pick = el.querySelector(".pick");
-    pick.checked = selected.has(v.id);
-    pick.onchange = () => { pick.checked ? selected.add(v.id) : selected.delete(v.id); renderBulk(); };
-    let timer;
-    const save = (field, value) => {
-      clearTimeout(timer);
-      timer = setTimeout(async () => {
-        try {
-          await api(`/vocab/${v.id}`, { method: "PATCH", body: { [field]: value } });
-          v[field] = value;
-          v.updated_at = Date.now() / 1000;
-          const s = el.querySelector(".saved");
-          s.hidden = false;
-          setTimeout(() => (s.hidden = true), 1200);
-        } catch (e) { toast(e.message, { error: true }); }
-      }, 500);
-    };
-    el.querySelector(".meaning").oninput = (e) => {
-      save("meaning", e.target.value);
-      shownMeaning.textContent = e.target.value;  // the closed card shows it too
-      shownMeaning.hidden = !e.target.value;
-    };
-    el.querySelector(".notes").oninput = (e) => save("notes", e.target.value);
-    el.querySelector(".memo").oninput = (e) => save("memo", e.target.value);
-    el.querySelector(".folders-btn").onclick = (e) => {
-      const r = e.currentTarget.getBoundingClientRect();
-      folderMenu(r.left, r.bottom + 4, [v], "toggle");
-    };
     // Word and Sentence: shown when the card can be heard on this device: its own recording when this
     // device can play it, else its kept voice, else the voice chosen in Settings (cardvoice.js canSay).
     // Drawn again when that changes: a recording that failed to load, or no voice for the language here.
-    const quick = el.querySelector(".vi-quick");
-    const pw = el.querySelector(".play-word");
-    const ps = el.querySelector(".play-sent");
-    el.__quick = () => {
+    function paintQuick() {
+      if (!quick) return;
       const voice = voiceHere(cardLanguage(v));
       pw.hidden = !canSay(v, "word", voice);
       ps.hidden = !canSay(v, "sentence", voice);
       quick.hidden = pw.hidden && ps.hidden;
+    }
+    el.__quick = () => (isOpen() ? open.editor.paintQuick() : paintQuick());
+
+    // ----- open and closed -----
+    function setHead(opened) {
+      el.classList.toggle("open", opened);
+      if (opened || selecting) {
+        head.removeAttribute("aria-expanded");
+      } else head.setAttribute("aria-expanded", "false");
+      if (!opened) { head.setAttribute("role", selecting ? "checkbox" : "button"); head.tabIndex = 0; }
+      else { head.removeAttribute("role"); head.removeAttribute("tabindex"); }
+      chev.setAttribute("aria-expanded", String(opened));
+      chev.setAttribute("aria-label", opened ? "Close" : "Open");
+      chev.title = opened ? "Close (Esc)" : "Open";
+      chev.tabIndex = opened ? 0 : -1;  // (closed, the card itself is the button)
+    }
+    function openIt() {
+      if (isOpen() || selecting) return;
+      closeOpen();
+      quick = null;
+      openId = v.id;
+      open = { v, el, editor: openWordEditor(el, v, editorDeps(v)) };
+      setHead(true);
+    }
+    el.__closed = () => { setHead(false); drawClosed(); };
+
+    // ----- ticked in Select -----
+    el.__pick = () => {
+      const on = selected.has(v.id);
+      el.classList.toggle("picked", selecting && on);
+      pick.checked = on;
+      if (selecting) head.setAttribute("aria-checked", String(on)); else head.removeAttribute("aria-checked");
+      setHead(isOpen());
     };
-    el.__quick();
-    // (Never fails: at worst one calm message, see voiceplay.js. Afterwards every card is checked
-    // again, since a recording that failed is shared by all the cards from its episode.)
-    pw.onclick = () => say(v, "word").finally(refreshQuick);
-    ps.onclick = () => say(v, "sentence").finally(refreshQuick);
-    el.querySelector(".del").onclick = async () => {
-      if (!(await confirmDelete(v))) return;  // says so first when the word's Anki card would go too
-      await api(`/vocab/${v.id}`, { method: "DELETE" });
-      all = all.filter((x) => x !== v);
-      selected.delete(v.id);
-      renderAll();
+    const togglePick = () => {
+      selected.has(v.id) ? selected.delete(v.id) : selected.add(v.id);
+      el.__pick();
+      renderBulk();
     };
+
+    // A tap: in Select it ticks the word; else, on a closed card, it opens it (its own buttons do their
+    // own thing); on the open one, its texts and tools are the editor's, and the arrow closes it.
+    let heldAt = 0;
+    head.addEventListener("click", (e) => {
+      if (Date.now() - heldAt < 700) { heldAt = 0; return; }  // (the click after a hold that started Select)
+      if (selecting) { e.preventDefault(); togglePick(); return; }
+      if (e.target.closest(".vi-chev")) { isOpen() ? closeOpen() : openIt(); return; }
+      if (isOpen() || e.target.closest("input, button, a, textarea, select")) return;
+      openIt();
+    });
+    head.addEventListener("keydown", (e) => {
+      if (e.target !== head || (e.key !== "Enter" && e.key !== " ")) return;
+      e.preventDefault();
+      if (selecting) togglePick(); else openIt();
+    });
+    el.addEventListener("keydown", (e) => {
+      if (e.key !== "Escape" || !isOpen() || e.target.closest("textarea, input")) return;
+      e.preventDefault();
+      closeOpen();
+      head.focus({ preventScroll: true });
+    });
+    // Holding a closed card down starts Select with it ticked (moving 8 px, a scroll, doesn't).
+    let press = null;
+    const endPress = () => { if (press) { clearTimeout(press.timer); press = null; } };
+    head.addEventListener("pointerdown", (e) => {
+      if (e.button > 0 || selecting || isOpen() || e.target.closest("button, a, input")) return;
+      const p = { x: e.clientX, y: e.clientY, id: e.pointerId };
+      p.timer = setTimeout(() => {
+        if (press !== p) return;
+        press = null;
+        heldAt = Date.now();
+        buzz("tick");
+        setSelecting(true, v);
+      }, PICK_HOLD_MS);
+      press = p;
+    });
+    head.addEventListener("pointermove", (e) => {
+      if (press && e.pointerId === press.id && Math.hypot(e.clientX - press.x, e.clientY - press.y) > 8) endPress();
+    });
+    for (const type of ["pointerup", "pointercancel", "pointerleave"]) head.addEventListener(type, endPress);
+    head.addEventListener("contextmenu", (e) => { if (!isOpen()) e.preventDefault(); });  // (a phone's own long-press menu)
+
+    drawClosed();
+    el.__pick();
+    if (openId === v.id && !selecting) openIt();
     return el;
   }
 
@@ -632,6 +828,7 @@ export async function render(view) {
   $("#goal").addEventListener("goalchange", renderReview);
 
   function startReview() {
+    closeOpen();  // (its edits saved: the cards show them)
     openReview({
       words: reviewWords(), allWords: all, log, playSnippet, say, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
@@ -640,21 +837,14 @@ export async function render(view) {
     });
   }
 
-  function renderBulk() {
-    for (const id of [...selected]) if (!all.some((v) => v.id === id)) selected.delete(id);
-    $("#bulk").hidden = selected.size === 0;
-    $("#bulk-count").textContent = `${selected.size} selected`;
-    // "Select all" ticks every word listed; once they all are, the same button unticks them.
-    const every = shown.length > 0 && shown.every((v) => selected.has(v.id));
-    const button = $("#select-all");
-    button.hidden = shown.length === 0;
-    button.textContent = every ? "Deselect all" : `Select all ${shown.length}`;
-    button.title = every ? "Untick every word listed below" : "Tick every word listed below, to file or send them together";
-  }
-
   function renderAll() {
     if (st.folder && st.folder !== "none" && !folderName(st.folder)) st.folder = "";
-    renderFolders();
+    // The open card is put away (saved) and opened again in the new list, if it is still in it.
+    const reopen = openId;
+    closeOpen();
+    openId = reopen;
+    renderFolderButton();
+    renderSortButton();
     const items = visible();
     const filtered = items.length !== all.length;
     $("#count").textContent = `${items.length}${filtered ? ` of ${all.length}` : ""} item${items.length === 1 ? "" : "s"}`;
@@ -663,6 +853,7 @@ export async function render(view) {
       list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : `No saved words yet.<p class="small">${TIP}</p>`}</div>`));
     }
     for (const v of items) list.append(item(v));
+    if (!open) openId = null;  // (no longer listed: it stays closed)
     shown = items;
     renderBulk();
     renderReview();
@@ -680,7 +871,8 @@ export async function render(view) {
       loadLog().catch(() => log),  // the list still works if the reviewer's record can't be read
     ]);
     log = answers;
-    all = items.map((v) => ({ ...v, folders: v.folders || [] }));
+    // (the open word keeps its own copy: the one being edited)
+    all = items.map((v) => (open && open.v.id === v.id ? open.v : { ...v, folders: v.folders || [] }));
     folders = fl;
     renderAll();
     // Whether this device has a voice for the cards' languages (a moment's work, asked once): a card
@@ -689,33 +881,23 @@ export async function render(view) {
   }
 
   // ----- wiring -----
-  $("#sort").value = st.sort;
-  $("#date-field").value = st.dateField;
-  $("#range").value = st.range;
-  $("#from").value = st.from;
-  $("#to").value = st.to;
-  $("#custom-range").hidden = st.range !== "custom";
-  $("#sort").onchange = (e) => { st.sort = e.target.value; savePrefs(); renderAll(); };
-  $("#date-field").onchange = (e) => { st.dateField = e.target.value; savePrefs(); renderAll(); };
-  $("#range").onchange = (e) => {
-    st.range = e.target.value;
-    $("#custom-range").hidden = st.range !== "custom";
-    savePrefs();
-    renderAll();
-  };
-  $("#from").onchange = (e) => { st.from = e.target.value; savePrefs(); renderAll(); };
-  $("#to").onchange = (e) => { st.to = e.target.value; savePrefs(); renderAll(); };
-
   $("#review").onclick = startReview;
   const pickedItems = () => all.filter((v) => selected.has(v.id));
-  $("#bulk-add").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); folderMenu(r.left, r.bottom + 4, pickedItems(), "add"); };
-  $("#bulk-remove").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); folderMenu(r.left, r.bottom + 4, pickedItems(), "remove"); };
-  $("#bulk-send").onclick = (e) => { const r = e.currentTarget.getBoundingClientRect(); sendMenu(r.left, r.bottom + 4, pickedItems()); };
-  $("#bulk-clear").onclick = () => { selected.clear(); renderAll(); };
+  const below = (e) => { const r = e.currentTarget.getBoundingClientRect(); return [r.left, r.bottom + 4]; };
+  $("#folder-pick").onclick = folderSheet;
+  // The controller's shoulder buttons (padscreens.js): the folder before or after the one on show.
+  $("#folder-pick").addEventListener("folderstep", (e) => chooseFolder(stepFolder(st.folder, folders, e.detail)));
+  $("#sort-pick").onclick = sortSheet;
+  $("#select-mode").onclick = () => setSelecting(!selecting);
+  $("#bulk-done").onclick = () => setSelecting(false);
+  $("#bulk-add").onclick = (e) => folderMenu(...below(e), pickedItems(), "add");
+  $("#bulk-remove").onclick = (e) => folderMenu(...below(e), pickedItems(), "remove");
+  $("#bulk-send").onclick = (e) => sendMenu(...below(e), pickedItems());
+  $("#bulk-delete").onclick = () => removeWords(pickedItems());
   $("#select-all").onclick = () => {
     const every = shown.every((v) => selected.has(v.id));
     for (const v of shown) every ? selected.delete(v.id) : selected.add(v.id);
-    for (const box of list.querySelectorAll(".pick")) box.checked = !every;
+    for (const el of list.querySelectorAll(".vocab-item")) if (el.__pick) el.__pick();
     renderBulk();
   };
 
@@ -744,7 +926,7 @@ export async function render(view) {
       if (folders.some((x) => x.uid === f.uid)) return;
       folders.push(f);
       folders.sort((a, b) => a.name.localeCompare(b.name));
-      if (view.isConnected) renderFolders();
+      if (view.isConnected) renderFolderButton();
     },
     onAdded: (cards) => {
       justAdded = new Set(cards.map((v) => v.id));
@@ -768,18 +950,20 @@ export async function render(view) {
   };
   await load();
 
-  firstVisitTour("vocab", view.querySelector(".vocab-page"), [
+  firstVisitTour("vocab", page, [
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
     { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
     { target: "#add-words", title: "Add words",
       text: "Type or paste new words, one or many at a time, or scan a photo of a list. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
     { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
-    { target: "#folders", title: "Folders",
-      text: "Tap a folder to see only its words; Review then covers just those. New folder makes one." },
+    { target: "#folder-pick", title: "Folders",
+      text: "The folder on show. Tap it to choose another, or to make, rename or send one; Review then covers just its words." },
+    { target: "#sort-pick", title: "Sort and filter", text: "Change the order, or show only the words added or changed on certain days." },
+    { target: "#select-mode", title: "Select", text: "Tick several words to put them in a folder, send them to a friend or delete them together." },
     { target: "#list .vocab-item", title: "A saved word",
-      text: "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several." },
+      text: "Tap a word to open it: hear it, put any part of it right, make a mnemonic, or find it an example sentence." },
     { target: "#more", title: "More", text: "Add words, scan words from a photo, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
+  return () => { closeOpen(); audio.pause(); stopDevice(); cancelAnimationFrame(raf); reviewRoom.disconnect(); goal.close(); };
 }

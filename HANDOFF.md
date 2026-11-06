@@ -7151,3 +7151,38 @@ The owner approved a redesign of the game card at the bottom of Home: learnt by 
 - Pure rules in `web/js/game/homecard.js`; tests `tests/js/homecard.test.mjs`. Translations
   `tools/i18n/tr/<code>/127-game-home-card.txt` (24 strings, 16 languages).
 - Not tried: a real phone, and a real friend's gift or challenge (needs two signed-in accounts).
+
+## The Vocab list: an opened word with every review-card tool; one header row; Select (2026-11-06; helper of the main chat)
+Owner: an opened word on the Vocab list gets a brand-teal outline and every tool the review card has, shown
+minimally; the folder and filter header cleaned up: one folder sheet, one sort/filter icon, a selection mode.
+- **Shared card tools** `web/js/review/cardtools.js` (taken out of pages/review.js, which now imports them):
+  `textBox` (a text typed over where it is; Copy, extra buttons, multiline with Done), `drawLitLine` +
+  `holdWords` (hold a word of the sentence/translation to light it up), `mnemonicMaker`/`mnemonicHtml` (its
+  per-word memory `mnemonics` is shared, so keywords made on one show on the other), `partSeconds`,
+  `pastedInto`, `copyAndSay`, `CARD_ICONS`, `EDIT_LABELS`, `HOLD_MS`. Pure part of the open word and header:
+  `web/js/review/vocabedit.js` (`missingParts`, `toolsFor`, `canKeepRecording`, `sentenceItem`/`readSentence`,
+  `narrowed`, `changedView`, `folderCount`, `stepFolder`), tested in `tests/js/vocabedit.test.mjs`.
+- **The open word** `web/js/components/wordeditor.js` `openWordEditor(el, v, deps)`: texts typed over in place
+  (word, meaning, sentence, translation; notes multiline, Paste under Memorization notes), "+" links for what
+  it lacks, Word / Sentence / Say it, a row of 4 tiles (Mnemonic, Sentence, Record only with no sound of its
+  own, Folders) opening a panel under the row, the source line with ⋯ (copy word/sentence, send, delete).
+  Sentence = `review/sentencefind.js findSentence` (AI as in Add words, or a free real one). Its own line icons
+  (`vocabIcon`: bulb, example, filter, select, folderin, folderout) live in wordeditor.js, not icons.js
+  (icons.js has an older uncommitted copy of bulb/example/filter that nothing uses: its owner may drop it).
+- **The page** `web/js/pages/vocab.js`: search, then `#vbar` = `#folder-pick` (folder sheet: openModal
+  `.vf-back`, rows with counts, ⋯ → Rename / Send to a friend / Delete inline, New folder; names asked with
+  `modal.js askName`, now shared with wordbuilder), `#sort-pick` (sheet `.vs-back`: Sort chips, Show words
+  Added|Changed + ranges + dates, Reset/Done; `.vt-dot` when `narrowed`), `#select-mode` (`.selecting`: a tap
+  ticks, holding a closed card 500 ms starts it; sticky `#bulk` bar: Add to folder, Remove from folder, Send,
+  Delete with one question). One card open at a time; `renderAll` closes it (saved) and reopens it. The
+  controller's LB/RB send `folderstep` to `#folder-pick` (padscreens.js). CSS: app.css "the Vocab list" block.
+- **Free or AI** (the main chat's `helpersource.js aiMakes`): cardtools' Mnemonic maker, sentencefind
+  `aiWrites` and wordbuilder (`makes("sentence"|"mnemonic")`: the notes, placeholders, which fields the AI is
+  asked for, found sentences, and AI mnemonics in Add words when AI is chosen) use it; with Free chosen the
+  notes link `#/settings?s=words&show=sentencesource|mnemonicsource`. Test `tests/js/helpersource-callers.test.mjs`.
+- i18n `tools/i18n/tr/<code>/128-vocab-editor.txt` (46 × 16). build-www SHARED: js/components/wordeditor.js.
+- **Checked**: JS and pytest suites, `build.mjs --check`. Phone build (mobile/www) in headless Edge on its own
+  throwaway profile at 375×812, light, dark and Spanish; desktop server on a fresh never-signed-in data folder at
+  1280 wide (open word, folders tool, folder sheet, hold-to-light saved `⟦panadería⟧`). **Not checked**: a real
+  phone (long-press to Select, hold-to-light by finger), the free sentence/mnemonic data (not published in the
+  dev build: the error paths showed), an AI key (none used), Anki-linked bulk delete, iPhone.

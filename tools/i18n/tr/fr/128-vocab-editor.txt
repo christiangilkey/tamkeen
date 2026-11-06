@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Des mots qui sonnent comme le mot, chacun avec une image pour son sens, mis dans les notes de mémorisation. Créés par ton IA.
+7e5e5822	Des mots de ta langue qui sonnent comme le mot, chacun avec une image pour son sens, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA. <0>L'IA peut les créer à la place</0>
+bd2053cf	Des mots anglais qui sonnent comme le mot, chacun avec une image pour son sens, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA. <0>L'IA peut les créer à la place</0>
+a9c84e5b	Outils pour ce mot
+dad9503c	Plus : copier, envoyer à un ami, supprimer
+2bc362a1	{0}{1} · ajouté {2}{3}
+3ebfa343	L'IA peut les écrire à la place
+a8de43f2	En trouver une vraie
+b80ded59	Utiliser celle-ci
+700de107	Une autre
+52378927	Écrire la mienne
+e02b25ba	Écriture d'une phrase…
+6235b9f7	Recherche d'une phrase…
+b9e3178a	L'IA n'a rien renvoyé pour ce mot. Réessaie.
+9f8fe3c2	Aucune autre phrase d'exemple n'a été trouvée pour ce mot.
+5fd33173	Écrite pour toi par l'IA
+957db23d	De {0}
+19ea253a	Enregistrer l'audio
+3aa6c431	Son audio est enregistré avec la carte.
+626965cc	Son audio n'a pas pu être gardé : {0}
+4e821d07	Copier le mot
+7656d600	Copier la phrase
+0df0b09f	Choisir un dossier
+c9b34169	Trier et filtrer
+d1fc1dbd	Sélectionner des mots
+9c938798	Terminer la sélection
+ebe08b9e	Renommer le dossier
+b2ce023b	Nom du dossier
+0c89a43f	Renommer, envoyer ou supprimer ce dossier
+5d7d59d9	Supprimer {0} mots de ton vocabulaire ?
+e4c1f098	Leurs cartes dans Anki partiront aussi à la prochaine synchronisation, avec l'historique de révision de ces cartes.
+d82f2748	{0} mots supprimés.
+cb5424f6	Modifiée
+44c57abd	Réinitialiser
+6432548e	Touche des mots pour les sélectionner
+67c9f6e9	Le dossier affiché. Touche-le pour en choisir un autre, ou pour en créer, renommer ou envoyer un ; la révision ne porte alors que sur ses mots.
+18e479d2	Change l'ordre, ou n'affiche que les mots ajoutés ou modifiés certains jours.
+16af5f21	Coche plusieurs mots pour les mettre dans un dossier, les envoyer à un ami ou les supprimer ensemble.
+f026d2d5	Touche un mot pour l'ouvrir : écoute-le, corrige n'importe quelle partie, crée un moyen mnémotechnique ou trouve-lui une phrase d'exemple.
+3007f8aa	Modifier les notes de grammaire
+e09f4012	Modifier les notes de mémorisation
+ac26a7a9	Traduction
+3095a407	Créateur de mnémoniques : des mots qui sonnent comme lui, chacun avec une image
+476f76d7	Une phrase d'exemple : une vraie trouvée, ou une écrite pour toi
+f94ba403	Enregistrer le mot, ou choisir un fichier son
+b68a4cb2	Le mettre dans des dossiers

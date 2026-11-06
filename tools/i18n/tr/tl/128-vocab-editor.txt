@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Mga salitang kahawig ng tunog ng salita, bawat isa may larawan ng kahulugan nito, inilalagay sa Mga tala sa pagsasaulo. Gawa ng iyong AI.
+7e5e5822	Mga salita sa iyong wika na kahawig ng tunog ng salita, bawat isa may larawan ng kahulugan nito, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI. <0>Puwedeng ang AI na lang ang gumawa ng mga ito</0>
+bd2053cf	Mga salitang Ingles na kahawig ng tunog ng salita, bawat isa may larawan ng kahulugan nito, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI. <0>Puwedeng ang AI na lang ang gumawa ng mga ito</0>
+a9c84e5b	Mga tool para sa salitang ito
+dad9503c	Iba pa: kopyahin, ipadala sa kaibigan, burahin
+2bc362a1	{0}{1} · idinagdag {2}{3}
+3ebfa343	Puwedeng ang AI na lang ang sumulat ng mga ito
+a8de43f2	Maghanap ng totoong pangungusap
+b80ded59	Gamitin ito
+700de107	Iba pa
+52378927	Ako na ang susulat
+e02b25ba	Sumusulat ng pangungusap…
+6235b9f7	Naghahanap ng pangungusap…
+b9e3178a	Walang ibinalik ang AI para sa salitang ito. Subukan ulit.
+9f8fe3c2	Walang ibang halimbawang pangungusap na nakita para sa salitang ito.
+5fd33173	Isinulat para sa iyo ng AI
+957db23d	Mula sa {0}
+19ea253a	I-save ang audio
+3aa6c431	Na-save ang audio nito kasama ng card.
+626965cc	Hindi naitabi ang audio nito: {0}
+4e821d07	Kopyahin ang salita
+7656d600	Kopyahin ang pangungusap
+0df0b09f	Pumili ng folder
+c9b34169	Ayusin at salain
+d1fc1dbd	Pumili ng mga salita
+9c938798	Tapusin ang pagpili
+ebe08b9e	Palitan ang pangalan ng folder
+b2ce023b	Pangalan ng folder
+0c89a43f	Palitan ang pangalan, ipadala o burahin ang folder na ito
+5d7d59d9	Burahin ang {0} salita sa iyong vocab?
+e4c1f098	Mabubura rin ang mga card nila sa Anki sa susunod na sync, kasama ang review history ng mga card na iyon.
+d82f2748	Nabura ang {0} salita.
+cb5424f6	Nabago
+44c57abd	I-reset
+6432548e	I-tap ang mga salita para piliin
+67c9f6e9	Ang folder na ipinapakita. I-tap ito para pumili ng iba, o para gumawa, magpalit ng pangalan o magpadala ng isa; ang review ay sasaklaw na lang sa mga salita nito.
+18e479d2	Palitan ang ayos, o ipakita lang ang mga salitang idinagdag o binago sa ilang araw.
+16af5f21	Markahan ang ilang salita para sabay-sabay na ilagay sa folder, ipadala sa kaibigan o burahin.
+f026d2d5	I-tap ang salita para buksan: pakinggan, ayusin ang kahit anong bahagi, gumawa ng mnemonic, o humanap ng halimbawang pangungusap.
+3007f8aa	I-edit ang mga tala sa gramatika
+e09f4012	I-edit ang mga tala sa pagsasaulo
+ac26a7a9	Salin
+3095a407	Gawa ng mnemonic: mga salitang kahawig ng tunog nito, bawat isa may larawan
+476f76d7	Isang halimbawang pangungusap: totoong nakita, o isinulat para sa iyo
+f94ba403	I-record ang salita, o pumili ng sound file
+b68a4cb2	Ilagay sa mga folder

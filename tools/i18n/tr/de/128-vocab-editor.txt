@@ -1,0 +1,47 @@
+# The Vocab list: a word opened with every tool of the review card, the folder sheet, sort and filter, Select; who makes mnemonics in Add words
+786c4251	Wörter, die wie das Wort klingen, jedes mit einem Bild für seine Bedeutung, in die Merknotizen gesetzt. Von deiner KI gemacht.
+7e5e5822	Wörter deiner Sprache, die wie das Wort klingen, jedes mit einem Bild für seine Bedeutung, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI. <0>Die KI kann sie stattdessen machen</0>
+bd2053cf	Englische Wörter, die wie das Wort klingen, jedes mit einem Bild für seine Bedeutung, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI. <0>Die KI kann sie stattdessen machen</0>
+a9c84e5b	Werkzeuge für dieses Wort
+dad9503c	Mehr: kopieren, an einen Freund senden, löschen
+2bc362a1	{0}{1} · hinzugefügt {2}{3}
+3ebfa343	Die KI kann sie stattdessen schreiben
+a8de43f2	Einen echten finden
+b80ded59	Diesen nehmen
+700de107	Noch einer
+52378927	Selbst schreiben
+e02b25ba	Ein Satz wird geschrieben…
+6235b9f7	Ein Satz wird gesucht…
+b9e3178a	Die KI hat für dieses Wort nichts zurückgeschickt. Versuch es noch einmal.
+9f8fe3c2	Für dieses Wort wurde kein anderer Beispielsatz gefunden.
+5fd33173	Von der KI für dich geschrieben
+957db23d	Aus {0}
+19ea253a	Audio speichern
+3aa6c431	Sein Audio ist mit der Karte gespeichert.
+626965cc	Sein Audio konnte nicht behalten werden: {0}
+4e821d07	Wort kopieren
+7656d600	Satz kopieren
+0df0b09f	Ordner wählen
+c9b34169	Sortieren und filtern
+d1fc1dbd	Wörter auswählen
+9c938798	Auswahl beenden
+ebe08b9e	Ordner umbenennen
+b2ce023b	Ordnername
+0c89a43f	Diesen Ordner umbenennen, senden oder löschen
+5d7d59d9	{0} Wörter aus deinem Wortschatz löschen?
+e4c1f098	Ihre Karten in Anki gehen beim nächsten Abgleich mit, samt dem Lernverlauf dieser Karten.
+d82f2748	{0} Wörter gelöscht.
+cb5424f6	Geändert
+44c57abd	Zurücksetzen
+6432548e	Tippe Wörter an, um sie auszuwählen
+67c9f6e9	Der angezeigte Ordner. Tippe darauf, um einen anderen zu wählen oder einen zu erstellen, umzubenennen oder zu senden; die Wiederholung umfasst dann nur seine Wörter.
+18e479d2	Ändere die Reihenfolge oder zeige nur die Wörter, die an bestimmten Tagen hinzugefügt oder geändert wurden.
+16af5f21	Hake mehrere Wörter an, um sie zusammen in einen Ordner zu legen, an einen Freund zu senden oder zu löschen.
+f026d2d5	Tippe ein Wort an, um es zu öffnen: anhören, jeden Teil korrigieren, eine Eselsbrücke machen oder einen Beispielsatz finden.
+3007f8aa	Grammatiknotizen bearbeiten
+e09f4012	Merknotizen bearbeiten
+ac26a7a9	Übersetzung
+3095a407	Eselsbrücken-Macher: Wörter, die so ähnlich klingen, jedes mit einem Bild
+476f76d7	Ein Beispielsatz: ein echter gefunden oder einer für dich geschrieben
+f94ba403	Das Wort aufnehmen oder eine Tondatei wählen
+b68a4cb2	In Ordner legen
