@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Settings → Word definitions → **Example sentences and memory tricks**: choose who makes the example sentences and the Mnemonic maker's memory tricks: **Free** (real sentences and sound-alike words found on your device, with no AI and no cost) or **AI** (your own AI key). Each has a **How it works** button that explains the free way step by step, and what the AI does instead. Without a choice it works as before: the AI when there is a key, free when there isn't.
 - **Improved:** Settings → What is Tamkeen is now three pages, each with its own button: **How to use Tamkeen** (a short getting-started guide, then everything the app can do), **What makes Tamkeen special** (Tamkeen's own solutions and techniques) and **Supporting studies** (the research behind its design, with every study listed and linked).
 
 ## v0.45.0 — 2026-11-06

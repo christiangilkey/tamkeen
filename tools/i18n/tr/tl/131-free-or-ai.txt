@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Mga halimbawang pangungusap
+4736aff0	Ang pangungusap sa bawat card na nagpapakita kung paano ginagamit ang salita, kasama ang salin nito.
+6ac90fe9	Libre: tunay na pangungusap
+ffac4e16	AI ang sumusulat
+968d6041	Mga tunay na pangungusap na gumagamit ng salita, nahanap sa device na ito. Libre, at gumagana nang offline.
+9fcd2c34	Sumusulat ang AI mo ng bagong pangungusap para sa bawat salita, kasama ang salin nito.
+a1640369	Paano gumagana ang mga libreng halimbawang pangungusap
+1a8027f9	Saan galing ang mga pangungusap
+aebb3794	Minsan lang nagda-download ang Tamkeen ng koleksiyon ng mga tunay na pangungusap para sa wikang pinag-aaralan mo (0.1 hanggang 4 MB). Galing ang mga ito sa Tatoeba, isang pinagsasaluhang koleksiyon ng mga pangungusap na isinalin ng mga boluntaryo, at sa mga halimbawa ng paggamit sa Wiktionary, bawat isa may salin sa Ingles.
+a5dd4b91	Paano pinipili ang isa
+c0b7a4be	Para sa bawat card, naghahanap ang Tamkeen ng mga pangungusap na gumagamit ng salita sa alinman sa mga anyo nito. Mas gusto nito ang pangungusap na bagay sa kahulugang na-save mo at hindi masyadong mahaba, at higit sa lahat, isang pangungusap na nakita mo na ang lahat ng iba pang salita, para mabasa mo ito. Saka nito sinasabi: “Alam mo na ang lahat ng iba pang salita sa pangungusap na ito.”
+e3c71164	Mga diyalekto
+77955144	Kung nag-aaral ka ng Arabe gamit ang kurso sa diyalekto na pinili sa Library → Mga kurso, galing sa diyalektong iyon ang mga pangungusap kapag mayroon.
+4392a49e	Pribado at libre
+391c6f62	Lahat ay nangyayari sa device mo: walang ipinapadala kahit saan at walang binabayaran. Pagkatapos ng download, gumagana ito nang offline.
+c265b05c	Ang mga limitasyon nito
+3505bf7a	Mga pangungusap na umiiral lang ang kaya nitong hanapin: maaaring walang pangungusap ang isang bihirang salita, at kung gayon walang pangungusap ang card hanggang sumulat ka ng isa. Nasa Ingles ang mga salin.
+09cdfa17	Gamit ang AI sa halip
+95bfb494	Sumusulat ang AI mo ng bagong maikling pangungusap para sa salita, ayon sa antas mo, kasama ang salin sa sarili mong wika. Gumagana ito sa kahit anong salita, kailangan nito ang AI key mo, at bahagi lang ng isang sentimo ang gastos.
+cf7ab8b6	Mga paraan para matandaan: isang salitang kahawig ang tunog ng bagong salita, may larawang nag-uugnay dito sa kahulugan.
+2a08a31a	Mga salitang kahawig ang tunog, nahanap sa device na ito. Libre, at gumagana nang offline.
+9e203b13	Nagmumungkahi ang AI mo ng mga salitang kahawig ang tunog at isinusulat nito ang mga larawan.
+e11c8e2a	Paano gumagana ang libreng Gawa ng mnemonic
+43e19816	Ang ideya
+fe273af7	Ang paraang keyword: iugnay ang bagong salita sa isang salitang alam mo na na kahawig ang tunog, at ilarawan sa isip ang dalawa nang magkasama. Espanyol na pato, “bibe”: ilarawan sa isip ang isang bibeng nagbabalanse sa ibabaw ng isang kaldero (POT sa Ingles).
+07b5addf	Paghahanap ng mga salitang talagang magkatunog
+91db4028	Hinahati ng Tamkeen ang bagong salita sa mga tunog nito, batay sa bigkas sa Wiktionary o sa mga tuntunin sa pagbaybay ng wika. Inihahambing nito ang mga iyon sa mga tunog ng bawat salita sa isang diksiyonaryo ng bigkas sa Ingles, at mas binibigyang-bigat ang pantig na may diin, kaya ang mga talagang magkatunog lang ang nakakapasa. Nakakakuha rin ang mahahabang salita ng mga keyword na may dalawa o tatlong salita.
+1852144d	Alin ang nauuna
+ae65ca21	Nauuna ang keyword na bagay rin sa kahulugan, na may markang “Bagay sa kahulugan” o “Kaugnay sa kahulugan” (Aleman na Hund, “aso”: HOUND). Kasunod ang mga bagay na madaling ilarawan sa isip, gaya ng mga hayop, kasangkapan at pagkain. May linyang larawan ang bawat keyword na nag-uugnay dito sa kahulugan.
+03aba891	Sa wika mo
+671b5655	Kapag nasa Espanyol, Pranses, Aleman, Italyano, Portuges, Ruso o Catalan ang app, mga salita ng wikang iyon ang mga keyword.
+bdf4c2bb	Natututunan nito ang gusto mo
+0f465597	Sa bawat pindot mo ng Gamitin o thumbs down, natututo ito nang kaunti tungkol sa mga keyword na gusto mo, sa lahat ng device mo. Nagsisimula ulit ito kapag pinindot ang “Kalimutan” sa ilalim ng Gawa ng mnemonic dito.
+44daeae0	Lahat ay nangyayari sa device mo, na may 0.15 MB na download sa unang beses: walang ipinapadala kahit saan at walang binabayaran.
+285e63cd	Nagmumungkahi ang AI mo ng mga keyword at isinusulat nito ang mga larawan, gamit ang model at antas ng pag-iisip sa Iba pang opsyon. Maaari itong maging mas malikhain, pero kung minsan nagmumungkahi ito ng mga salitang hindi talaga magkatunog. Kailangan nito ang AI key mo, at bawat pindot ay nagkakahalaga ng mga isang sentimo o mas mababa pa.
+d2edf7c9	Mga halimbawang pangungusap at paraan para matandaan
+2f256b9f	Sino ang gumagawa: ang Tamkeen mismo, libre sa device mo, o ang AI mo.
+6fcf0e59	Naka-off ang AI, o wala pa itong key, kaya ang libreng paraan muna ang ginagamit.
+08ba39e3	I-set up ang AI
+83e7cf79	Natuto ang libreng Gawa ng mnemonic mula sa 1 mong pinili.
+64e7259f	Natuto ang libreng Gawa ng mnemonic mula sa {0} mong pinili.
+a00bc2d1	Mga halimbawang pangungusap: libre o AI
+eec0c151	Gawa ng mnemonic: libre o AI

@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Beispielsätze
+4736aff0	Der Satz auf jeder Karte, der das Wort im Gebrauch zeigt, mit Übersetzung.
+6ac90fe9	Kostenlos: echte Sätze
+ffac4e16	KI schreibt sie
+968d6041	Echte Sätze mit dem Wort, auf diesem Gerät gefunden. Kostenlos und funktioniert offline.
+9fcd2c34	Deine KI schreibt für jedes Wort einen neuen Satz, mit Übersetzung.
+a1640369	So funktionieren die kostenlosen Beispielsätze
+1a8027f9	Woher die Sätze kommen
+aebb3794	Tamkeen lädt einmalig eine Sammlung echter Sätze für die Sprache herunter, die du lernst (0,1 bis 4 MB). Sie stammen aus Tatoeba, einer gemeinsamen Sammlung von Sätzen, die Freiwillige übersetzt haben, und aus den Anwendungsbeispielen in Wiktionary, jeweils mit englischer Übersetzung.
+a5dd4b91	Wie einer ausgewählt wird
+c0b7a4be	Für jede Karte sucht Tamkeen nach Sätzen, die das Wort in irgendeiner seiner Formen verwenden. Es bevorzugt einen, der zur gespeicherten Bedeutung passt und nicht zu lang ist, und vor allem einen, in dem du alle anderen Wörter schon kennengelernt hast, sodass du ihn lesen kannst. Dann steht dort: „Alle anderen Wörter in diesem Satz kennst du schon.“
+e3c71164	Dialekte
+77955144	Lernst du Arabisch mit einem Dialektkurs, den du unter Bibliothek → Kurse gewählt hast, kommen die Sätze aus diesem Dialekt, sofern es welche gibt.
+4392a49e	Privat und kostenlos
+391c6f62	Alles passiert auf deinem Gerät: Nichts wird irgendwohin geschickt und nichts kostet etwas. Nach dem Download funktioniert es offline.
+c265b05c	Seine Grenzen
+3505bf7a	Es kann nur Sätze finden, die es gibt: Ein seltenes Wort hat vielleicht keinen, und dann hat die Karte keinen Satz, bis du einen schreibst. Die Übersetzungen sind auf Englisch.
+09cdfa17	Stattdessen mit KI
+95bfb494	Deine KI schreibt einen neuen kurzen Satz für das Wort, auf deinem Niveau, mit einer Übersetzung in deine eigene Sprache. Das klappt mit jedem Wort, braucht deinen KI-Schlüssel und kostet einen Bruchteil eines Cents.
+cf7ab8b6	Eselsbrücken: ein Wort, das wie das neue Wort klingt, mit einem Bild, das es mit der Bedeutung verbindet.
+2a08a31a	Ähnlich klingende Wörter, auf diesem Gerät gefunden. Kostenlos und funktioniert offline.
+9e203b13	Deine KI schlägt die ähnlich klingenden Wörter vor und schreibt die Bilder.
+e11c8e2a	So funktioniert der kostenlose Eselsbrücken-Macher
+43e19816	Die Idee
+fe273af7	Die Schlüsselwortmethode: Verknüpfe das neue Wort mit einem Wort, das du schon kennst und das ähnlich klingt, und stell dir beide zusammen vor. Spanisch pato, „Ente“: Stell dir eine Ente vor, die oben auf einem Kochtopf balanciert (englisch POT).
+07b5addf	Wörter finden, die wirklich ähnlich klingen
+91db4028	Tamkeen zerlegt das neue Wort in seine Laute, nach der Aussprache in Wiktionary oder den Schreibregeln der Sprache. Es vergleicht sie mit den Lauten jedes Wortes in einem englischen Aussprachewörterbuch und gewichtet die betonte Silbe stärker, sodass nur wirklich ähnlich klingende Wörter durchkommen. Lange Wörter bekommen auch Schlüsselwörter aus zwei oder drei Wörtern.
+1852144d	Welche zuerst kommen
+ae65ca21	Ein Schlüsselwort, das auch zur Bedeutung passt, kommt zuerst und ist mit „Passt zur Bedeutung“ oder „Bedeutung verwandt“ markiert (deutsch Hund: HOUND). Danach kommen Dinge, die man sich leicht vorstellen kann, etwa Tiere, Werkzeuge und Essen. Jedes Schlüsselwort bekommt einen Bildsatz, der es mit der Bedeutung verbindet.
+03aba891	In deiner Sprache
+671b5655	Ist die App auf Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Russisch oder Katalanisch eingestellt, sind die Schlüsselwörter Wörter dieser Sprache.
+bdf4c2bb	Es lernt deinen Geschmack
+0f465597	Jedes Mal, wenn du Nutzen oder Daumen runter drückst, lernt es ein wenig darüber, welche Schlüsselwörter dir gefallen, auf all deinen Geräten. „Vergessen“ unter dem Eselsbrücken-Macher hier fängt wieder von vorn an.
+44daeae0	Alles passiert auf deinem Gerät, mit einem Download von 0,15 MB beim ersten Mal: Nichts wird irgendwohin geschickt und nichts kostet etwas.
+285e63cd	Deine KI schlägt Schlüsselwörter vor und schreibt die Bilder, mit dem Modell und der Stufe fürs Nachdenken unter Weitere Optionen. Sie kann einfallsreicher sein, schlägt aber manchmal Wörter vor, die nicht wirklich ähnlich klingen. Sie braucht deinen KI-Schlüssel, und jedes Drücken kostet etwa einen Cent oder weniger.
+d2edf7c9	Beispielsätze und Eselsbrücken
+2f256b9f	Wer sie macht: Tamkeen selbst, kostenlos auf deinem Gerät, oder deine KI.
+6fcf0e59	KI ist aus oder hat noch keinen Schlüssel, darum wird vorerst der kostenlose Weg genutzt.
+08ba39e3	KI einrichten
+83e7cf79	Der kostenlose Eselsbrücken-Macher hat aus 1 deiner Entscheidungen gelernt.
+64e7259f	Der kostenlose Eselsbrücken-Macher hat aus {0} deiner Entscheidungen gelernt.
+a00bc2d1	Beispielsätze: kostenlos oder KI
+eec0c151	Eselsbrücken-Macher: kostenlos oder KI

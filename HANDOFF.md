@@ -7107,3 +7107,17 @@ nothing was installed). Only the SQL editor self-test can confirm the SQL itself
   database, a real phone, the desktop window.
 - Not done (smaller audit items): column-level update grants on profiles/guilds (L10), guild_members in the realtime
   publication (L11), reserved usernames (L13), private avatars bucket.
+
+## Example sentences and memory tricks: free or AI (2026-11-06)
+
+Owner: the free sentence finder and the free Mnemonic maker should be choosable against the AI in Word definitions,
+each with a button that explains how it works.
+- **Settings**: `web/js/components/freehelpers.js` `freeHelpersCard(body)`, a card after "How words are explained"
+  on the computer and phone Settings (`words()` in both settings.js). Two rows (`data-find` `sentencesource`,
+  `mnemonicsource`), each Free | AI writes them (`.segmented`), a note, and **How it works**
+  (`explainFreeHelper(kind)`, a popup). The mnemonic row also shows what the free maker learned, with Forget it.
+- **The choice**: synced settings `sentence_source` / `mnemonic_source` = "free" | "ai" | unset.
+  `web/js/helpersource.js` (pure): `aiMakes(settings, kind, aiUsable)` is true only with usable AI and not "free";
+  unset = AI when there is a key (the old behaviour). Every place that picks AI or free for sentences or
+  mnemonics (review/cardtools.js, review/sentencefind.js, components/wordbuilder.js) must ask `aiMakes`.
+- Tests: `tests/js/helpersource.test.mjs`. Strings: tr 131.

@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Frasi d'esempio
+4736aff0	La frase su ogni scheda che mostra la parola in uso, con la sua traduzione.
+6ac90fe9	Gratis: frasi vere
+ffac4e16	Le scrive l'IA
+968d6041	Frasi vere che usano la parola, trovate su questo dispositivo. Gratis, e funziona offline.
+9fcd2c34	La tua IA scrive una frase nuova per ogni parola, con la sua traduzione.
+a1640369	Come funzionano le frasi d'esempio gratuite
+1a8027f9	Da dove vengono le frasi
+aebb3794	Tamkeen scarica una sola volta una raccolta di frasi vere nella lingua che stai imparando (da 0,1 a 4 MB). Vengono da Tatoeba, una raccolta condivisa di frasi tradotte da volontari, e dagli esempi d'uso di Wiktionary, ognuna con la sua traduzione in inglese.
+a5dd4b91	Come se ne sceglie una
+c0b7a4be	Per ogni scheda, Tamkeen cerca frasi che usano la parola in una qualsiasi delle sue forme. Preferisce una frase che si adatta al significato che hai salvato e non è troppo lunga, e soprattutto una in cui hai già incontrato tutte le altre parole, così puoi leggerla. Poi dice: «Tutte le altre parole di questa frase le conosci già.»
+e3c71164	Dialetti
+77955144	Se studi l'arabo con un corso di dialetto scelto in Libreria → Corsi, le frasi vengono da quel dialetto, quando ce ne sono.
+4392a49e	Privato e gratis
+391c6f62	Succede tutto sul tuo dispositivo: non viene inviato niente da nessuna parte e non si paga niente. Dopo il download funziona offline.
+c265b05c	I suoi limiti
+3505bf7a	Può trovare solo frasi che esistono: una parola rara può non averne nessuna, e allora la scheda resta senza frase finché non ne scrivi una. Le traduzioni sono in inglese.
+09cdfa17	Con l'IA, invece
+95bfb494	La tua IA scrive una nuova frase breve per la parola, al tuo livello, con una traduzione nella tua lingua. Funziona con qualsiasi parola, richiede la tua chiave IA e costa una frazione di centesimo.
+cf7ab8b6	Trucchi di memoria: una parola che suona come la parola nuova, con un'immagine che la collega al significato.
+2a08a31a	Parole dal suono simile, trovate su questo dispositivo. Gratis, e funziona offline.
+9e203b13	La tua IA suggerisce le parole dal suono simile e scrive le immagini.
+e11c8e2a	Come funziona il Generatore di mnemotecniche gratuito
+43e19816	L'idea
+fe273af7	Il metodo della parola chiave: collega la parola nuova a una parola che conosci già e che suona in modo simile, e immagina le due insieme. Lo spagnolo pato, «anatra»: immagina un'anatra in equilibrio sopra una pentola (in inglese, POT).
+07b5addf	Trovare parole che suonano davvero simili
+91db4028	Tamkeen scompone la parola nuova nei suoi suoni, in base alla pronuncia di Wiktionary o alle regole ortografiche della lingua. Li confronta con i suoni di ogni parola di un dizionario di pronuncia inglese, dando più peso alla sillaba accentata, così passano solo le parole che suonano davvero simili. Le parole lunghe ricevono anche parole chiave di due o tre parole.
+1852144d	Quali vengono prima
+ae65ca21	Una parola chiave che si adatta anche al significato viene prima, segnata con «Si adatta al significato» o «Affine nel significato» (il tedesco Hund, «cane»: HOUND). Poi vengono cose facili da immaginare, come animali, attrezzi e cibo. Ogni parola chiave riceve una frase-immagine che la collega al significato.
+03aba891	Nella tua lingua
+671b5655	Con l'app in spagnolo, francese, tedesco, italiano, portoghese, russo o catalano, le parole chiave sono parole di quella lingua.
+bdf4c2bb	Impara i tuoi gusti
+0f465597	Ogni volta che premi Usa o il pollice verso, impara un po' quali parole chiave ti piacciono, su tutti i tuoi dispositivi. «Dimentica», qui sotto il Generatore di mnemotecniche, lo fa ripartire da zero.
+44daeae0	Succede tutto sul tuo dispositivo, con un download di 0,15 MB la prima volta: non viene inviato niente da nessuna parte e non si paga niente.
+285e63cd	La tua IA suggerisce parole chiave e scrive le immagini, usando il modello e il livello di ragionamento in Altre opzioni. Può essere più creativa, ma a volte suggerisce parole che non suonano davvero simili. Richiede la tua chiave IA, e ogni pressione costa circa un centesimo o meno.
+d2edf7c9	Frasi d'esempio e trucchi di memoria
+2f256b9f	Chi li crea: Tamkeen stesso, gratis sul tuo dispositivo, o la tua IA.
+6fcf0e59	L'IA è disattivata o non ha ancora una chiave, quindi per ora si usa il metodo gratuito.
+08ba39e3	Configura l'IA
+83e7cf79	Il Generatore di mnemotecniche gratuito ha imparato da 1 delle tue scelte.
+64e7259f	Il Generatore di mnemotecniche gratuito ha imparato da {0} delle tue scelte.
+a00bc2d1	Frasi d'esempio: gratis o IA
+eec0c151	Generatore di mnemotecniche: gratis o IA

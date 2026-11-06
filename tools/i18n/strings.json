@@ -3545,6 +3545,216 @@
   "f": "web/js/components/fixit.js"
  },
  {
+  "id": "3680de49",
+  "k": "Example sentences",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "4736aff0",
+  "k": "The sentence on each card that shows the word in use, with its translation.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "6ac90fe9",
+  "k": "Free: real sentences",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "ffac4e16",
+  "k": "AI writes them",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "968d6041",
+  "k": "Real sentences that use the word, found on this device. Free, and works offline.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "9fcd2c34",
+  "k": "Your AI writes a new sentence for each word, with its translation.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "a1640369",
+  "k": "How the free example sentences work",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "1a8027f9",
+  "k": "Where the sentences come from",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "aebb3794",
+  "k": "Tamkeen downloads a collection of real sentences for the language you are learning, once (0.1 to 4 MB). They come from Tatoeba, a shared collection of sentences translated by volunteers, and from the usage examples in Wiktionary, each with its English translation.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "a5dd4b91",
+  "k": "How one is chosen",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "c0b7a4be",
+  "k": "For each card, Tamkeen looks for sentences that use the word in any of its forms. It prefers one that fits the meaning you saved and is not too long, and above all one where every other word is a word you have already met, so you can read it. Then it says: “Every other word in this sentence is one you know.”",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "e3c71164",
+  "k": "Dialects",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "77955144",
+  "k": "Learning Arabic with a dialect course chosen in Library → Courses, the sentences come from that dialect where there are any.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "4392a49e",
+  "k": "Private and free",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "391c6f62",
+  "k": "It all happens on your device: nothing is sent anywhere and nothing is paid. After the download it works offline.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "c265b05c",
+  "k": "Its limits",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "3505bf7a",
+  "k": "It can only find sentences that exist: a rare word may have none, and then the card has no sentence until you write one. The translations are in English.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "09cdfa17",
+  "k": "With AI instead",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "95bfb494",
+  "k": "Your AI writes a new short sentence for the word, at your level, with a translation in your own language. It works for any word, needs your AI key and costs a fraction of a cent.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "cf7ab8b6",
+  "k": "Memory tricks: a word that sounds like the new word, with a picture that links it to the meaning.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "2a08a31a",
+  "k": "Sound-alike words found on this device. Free, and works offline.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "9e203b13",
+  "k": "Your AI suggests the sound-alike words and writes the pictures.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "e11c8e2a",
+  "k": "How the free Mnemonic maker works",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "43e19816",
+  "k": "The idea",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "fe273af7",
+  "k": "The keyword method: link the new word to a word you already know that sounds like it, and picture the two together. Spanish pato, “duck”: picture a duck balanced on top of a POT.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "07b5addf",
+  "k": "Finding words that really sound alike",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "91db4028",
+  "k": "Tamkeen breaks the new word into its speech sounds, from Wiktionary's pronunciation or the language's spelling rules. It compares them with the sounds of every word in an English pronunciation dictionary, giving extra weight to the stressed syllable, so only true sound-alikes get through. Long words also get keywords of two or three words.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "1852144d",
+  "k": "Which ones come first",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "ae65ca21",
+  "k": "A keyword that also fits the meaning comes first, marked “Fits the meaning” or “Related in meaning” (German Hund, “dog”: HOUND). Then come things that are easy to picture, such as animals, tools and food. Each keyword gets a picture line that joins it to the meaning.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "03aba891",
+  "k": "In your language",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "671b5655",
+  "k": "With the app in Spanish, French, German, Italian, Portuguese, Russian or Catalan, the keywords are words of that language.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "bdf4c2bb",
+  "k": "It learns your taste",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "0f465597",
+  "k": "Each time you press Use or thumbs down, it learns a little about the keywords you like, on all your devices. “Forget it” under the Mnemonic maker here starts again.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "44daeae0",
+  "k": "It all happens on your device, with a 0.15 MB download the first time: nothing is sent anywhere and nothing is paid.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "285e63cd",
+  "k": "Your AI suggests keywords and writes the pictures, using the model and thinking level under More options. It can be more inventive, but sometimes suggests words that don't really sound alike. It needs your AI key, and each press costs about a cent or less.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "d2edf7c9",
+  "k": "Example sentences and memory tricks",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "2f256b9f",
+  "k": "Who makes them: Tamkeen itself, free on your device, or your AI.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "1dd6a17c",
+  "k": "How it works",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "6fcf0e59",
+  "k": "AI is off, or has no key yet, so the free way is used for now.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "08ba39e3",
+  "k": "Set up AI",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "83e7cf79",
+  "k": "The free Mnemonic maker has learned from 1 of your choices.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "64e7259f",
+  "k": "The free Mnemonic maker has learned from {0} of your choices.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
   "id": "5896cb72",
   "k": "Game features",
   "f": "web/js/components/gameswitch.js"
@@ -5365,6 +5575,16 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "a00bc2d1",
+  "k": "Example sentences: free or AI",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "eec0c151",
+  "k": "Mnemonic maker: free or AI",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "c579b050",
   "k": "Who writes the transcripts",
   "f": "web/js/components/settingsui.js"
@@ -5637,11 +5857,6 @@
  {
   "id": "4e78d0fc",
   "k": "Audio sent today from {0}: <0>0 min</0> <1></1>",
-  "f": "web/js/components/sttsetup.js"
- },
- {
-  "id": "1dd6a17c",
-  "k": "How it works",
   "f": "web/js/components/sttsetup.js"
  },
  {
@@ -6885,6 +7100,21 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "786c4251",
+  "k": "Words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made by your AI.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7e5e5822",
+  "k": "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bd2053cf",
+  "k": "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "ebd5d05b",
   "k": "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.",
   "f": "web/js/components/wordbuilder.js"
@@ -7235,53 +7465,18 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "ac26a7a9",
-  "k": "Translation",
-  "f": "web/js/components/wordeditor.js"
- },
- {
   "id": "c420e532",
   "k": "Grammar notes",
   "f": "web/js/components/wordeditor.js"
  },
  {
-  "id": "3095a407",
-  "k": "Mnemonic maker: words that sound like it, each with a picture",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "476f76d7",
-  "k": "An example sentence: a real one found, or one written for you",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "1c54132b",
-  "k": "Record",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "f94ba403",
-  "k": "Record the word, or choose a sound file",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "19adc47b",
-  "k": "Folders",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "b68a4cb2",
-  "k": "Put it in folders",
+  "id": "a9c84e5b",
+  "k": "Tools for this word",
   "f": "web/js/components/wordeditor.js"
  },
  {
   "id": "dad9503c",
   "k": "More: copy, send to a friend, delete",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "a9c84e5b",
-  "k": "Tools for this word",
   "f": "web/js/components/wordeditor.js"
  },
  {
@@ -7307,6 +7502,11 @@
  {
   "id": "db248300",
   "k": "Paste",
+  "f": "web/js/components/wordeditor.js"
+ },
+ {
+  "id": "3ebfa343",
+  "k": "AI can write them instead",
   "f": "web/js/components/wordeditor.js"
  },
  {
@@ -10545,11 +10745,6 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "27e32721",
-  "k": "cubic-bezier(.45, 0, .7, 1)",
-  "f": "web/js/game/fly.js"
- },
- {
   "id": "c559bda3",
   "k": "Learning {0}: tap for more",
   "f": "web/js/game/friend-bar.js"
@@ -11470,13 +11665,13 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "dbc20d14",
-  "k": "Goal streak: {0} days, {1} streak freezes",
+  "id": "2ee0f508",
+  "k": "Goal streak: {0} day{1}, {2} streak freeze{3}",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "e2efac7b",
-  "k": "Goal streak: {0} days",
+  "id": "28ac170c",
+  "k": "Goal streak: {0} day{1}",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -13687,6 +13882,11 @@
  {
   "id": "b36a924e",
   "k": "Record a voice message (in a chat)",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "1c54132b",
+  "k": "Record",
   "f": "web/js/padmap.js"
  },
  {
@@ -17580,38 +17780,23 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "adc4e96a",
-  "k": "Sort",
+  "id": "0df0b09f",
+  "k": "Choose a folder",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "b2a08c42",
-  "k": "Show words",
+  "id": "c9b34169",
+  "k": "Sort and filter",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "172415f0",
-  "k": "added",
+  "id": "d1fc1dbd",
+  "k": "Select words",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "37c6c57b",
-  "k": "changed",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "3f66052a",
-  "k": "From",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "4374aaee",
-  "k": "to",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "ae79ea1e",
-  "k": "To",
+  "id": "9c938798",
+  "k": "Done selecting",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17625,43 +17810,13 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "6f99aa21",
-  "k": "📨 Send to a friend",
+  "id": "ebe08b9e",
+  "k": "Rename folder",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "247fd631",
-  "k": "Clear selection",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "6d19e3ba",
-  "k": "Name for the new folder:",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "7e6e65f7",
-  "k": "All words",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "889ab689",
-  "k": "Not in a folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "4ad414d8",
-  "k": "＋ New folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "e2324f01",
-  "k": "Rename folder:",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "5ee46641",
-  "k": "Delete folder",
+  "id": "b2ce023b",
+  "k": "Folder name",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17675,8 +17830,23 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "e4ae0eaf",
-  "k": "📨 Send folder to a friend",
+  "id": "7e6e65f7",
+  "k": "All words",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "19adc47b",
+  "k": "Folders",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "0c89a43f",
+  "k": "Rename, send or delete this folder",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17730,23 +17900,83 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "a5420424",
-  "k": "Select word",
+  "id": "5d7d59d9",
+  "k": "Delete {0} words from your vocab?",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "8e3f51e2",
-  "k": "{0} · added {1}{2}",
+  "id": "e4c1f098",
+  "k": "Any of their cards in Anki go too at the next sync, with those cards' review history.",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "dd5422ef",
-  "k": "Grammar notes (root, grammar, usage…)",
+  "id": "d82f2748",
+  "k": "Deleted {0} words.",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "36f70029",
-  "k": "Memorization notes (a mnemonic, where you heard it…)",
+  "id": "adc4e96a",
+  "k": "Sort",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "b2a08c42",
+  "k": "Show words",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "cb5424f6",
+  "k": "Changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3f66052a",
+  "k": "From",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "4374aaee",
+  "k": "to",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "ae79ea1e",
+  "k": "To",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "44c57abd",
+  "k": "Reset",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "e5084bff",
+  "k": "{0} selected",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "6432548e",
+  "k": "Tap words to select them",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "85cce1e1",
+  "k": "Deselect all",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "b2034f7e",
+  "k": "Select all {0}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "1ef4fd36",
+  "k": "Untick every word listed below",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "80e145aa",
+  "k": "Tick every word listed below, to file or send them together",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17782,31 +18012,6 @@
  {
   "id": "29a80ea8",
   "k": "All caught up{0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "e5084bff",
-  "k": "{0} selected",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "85cce1e1",
-  "k": "Deselect all",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "b2034f7e",
-  "k": "Select all {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "1ef4fd36",
-  "k": "Untick every word listed below",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "80e145aa",
-  "k": "Tick every word listed below, to file or send them together",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17870,8 +18075,18 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "b34e55f5",
-  "k": "Tap a folder to see only its words; Review then covers just those. New folder makes one.",
+  "id": "67c9f6e9",
+  "k": "The folder on show. Tap it to choose another, or to make, rename or send one; Review then covers just its words.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "18e479d2",
+  "k": "Change the order, or show only the words added or changed on certain days.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "16af5f21",
+  "k": "Tick several words to put them in a folder, send them to a friend or delete them together.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -17880,8 +18095,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "a4284878",
-  "k": "Tap a word to open it: its meaning, the sentence it came from, and its recording. Tick the box to pick several.",
+  "id": "f026d2d5",
+  "k": "Tap a word to open it: hear it, put any part of it right, make a mnemonic, or find it an example sentence.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -19183,6 +19398,31 @@
   "id": "d567fe70",
   "k": "{0} left today: about {1}, by Tamkeen's estimate.",
   "f": "web/js/review/tasktext.js"
+ },
+ {
+  "id": "ac26a7a9",
+  "k": "Translation",
+  "f": "web/js/review/vocabedit.js"
+ },
+ {
+  "id": "3095a407",
+  "k": "Mnemonic maker: words that sound like it, each with a picture",
+  "f": "web/js/review/vocabedit.js"
+ },
+ {
+  "id": "476f76d7",
+  "k": "An example sentence: a real one found, or one written for you",
+  "f": "web/js/review/vocabedit.js"
+ },
+ {
+  "id": "f94ba403",
+  "k": "Record the word, or choose a sound file",
+  "f": "web/js/review/vocabedit.js"
+ },
+ {
+  "id": "b68a4cb2",
+  "k": "Put it in folders",
+  "f": "web/js/review/vocabedit.js"
  },
  {
   "id": "1b4cae1c",

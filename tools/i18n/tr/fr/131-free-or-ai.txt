@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Phrases d'exemple
+4736aff0	La phrase de chaque carte qui montre le mot en contexte, avec sa traduction.
+6ac90fe9	Gratuit : de vraies phrases
+ffac4e16	L'IA les écrit
+968d6041	De vraies phrases qui utilisent le mot, trouvées sur cet appareil. Gratuit, et fonctionne hors ligne.
+9fcd2c34	Ton IA écrit une nouvelle phrase pour chaque mot, avec sa traduction.
+a1640369	Comment fonctionnent les phrases d'exemple gratuites
+1a8027f9	D'où viennent les phrases
+aebb3794	Tamkeen télécharge une seule fois un ensemble de vraies phrases dans la langue que tu apprends (de 0,1 à 4 MB). Elles viennent de Tatoeba, une collection partagée de phrases traduites par des bénévoles, et des exemples d'usage de Wiktionary, chacune avec sa traduction en anglais.
+a5dd4b91	Comment elle est choisie
+c0b7a4be	Pour chaque carte, Tamkeen cherche des phrases qui utilisent le mot sous l'une de ses formes. Il préfère une phrase qui correspond au sens que tu as enregistré et qui n'est pas trop longue, et surtout une phrase dont tu as déjà rencontré tous les autres mots, pour que tu puisses la lire. Il indique alors : « Tu connais déjà tous les autres mots de cette phrase. »
+e3c71164	Dialectes
+77955144	Si tu apprends l'arabe avec un cours de dialecte choisi dans Bibliothèque → Cours, les phrases viennent de ce dialecte quand il y en a.
+4392a49e	Privé et gratuit
+391c6f62	Tout se passe sur ton appareil : rien n'est envoyé nulle part et rien n'est payant. Après le téléchargement, cela fonctionne hors ligne.
+c265b05c	Ses limites
+3505bf7a	Il ne peut trouver que des phrases qui existent : un mot rare peut n'en avoir aucune, et la carte reste alors sans phrase jusqu'à ce que tu en écrives une. Les traductions sont en anglais.
+09cdfa17	Avec l'IA à la place
+95bfb494	Ton IA écrit une nouvelle phrase courte pour le mot, à ton niveau, avec une traduction dans ta propre langue. Cela marche pour n'importe quel mot, demande ta clé d'IA et coûte une fraction de centime.
+cf7ab8b6	Astuces mnémotechniques : un mot qui sonne comme le nouveau mot, avec une image qui le relie à son sens.
+2a08a31a	Des mots qui sonnent pareil, trouvés sur cet appareil. Gratuit, et fonctionne hors ligne.
+9e203b13	Ton IA propose les mots qui sonnent pareil et écrit les images.
+e11c8e2a	Comment fonctionne le Créateur de mnémoniques gratuit
+43e19816	L'idée
+fe273af7	La méthode du mot-clé : relie le nouveau mot à un mot que tu connais déjà et qui sonne pareil, et imagine les deux ensemble. L'espagnol pato, « canard » : imagine un canard en équilibre sur une marmite (en anglais, POT).
+07b5addf	Trouver des mots qui sonnent vraiment pareil
+91db4028	Tamkeen découpe le nouveau mot en sons, d'après la prononciation donnée par Wiktionary ou les règles d'orthographe de la langue. Il les compare aux sons de chaque mot d'un dictionnaire de prononciation anglais, en donnant plus de poids à la syllabe accentuée, pour que seuls passent les mots qui sonnent vraiment pareil. Les mots longs reçoivent aussi des mots-clés de deux ou trois mots.
+1852144d	Lesquels viennent en premier
+ae65ca21	Un mot-clé qui colle aussi au sens passe en premier, marqué « Colle au sens » ou « Proche par le sens » (l'allemand Hund, « chien » : HOUND). Viennent ensuite les choses faciles à imaginer, comme les animaux, les outils et la nourriture. Chaque mot-clé reçoit une phrase-image qui le relie au sens.
+03aba891	Dans ta langue
+671b5655	Quand l'application est en espagnol, français, allemand, italien, portugais, russe ou catalan, les mots-clés sont des mots de cette langue.
+bdf4c2bb	Il apprend tes goûts
+0f465597	Chaque fois que tu appuies sur Utiliser ou sur le pouce vers le bas, il apprend un peu quels mots-clés tu aimes, sur tous tes appareils. « L'oublier », ici sous le Créateur de mnémoniques, le fait repartir de zéro.
+44daeae0	Tout se passe sur ton appareil, avec un téléchargement de 0,15 MB la première fois : rien n'est envoyé nulle part et rien n'est payant.
+285e63cd	Ton IA propose des mots-clés et écrit les images, avec le modèle et le niveau de réflexion choisis dans Plus d'options. Elle peut être plus inventive, mais propose parfois des mots qui ne sonnent pas vraiment pareil. Il faut ta clé d'IA, et chaque appui coûte environ un centime ou moins.
+d2edf7c9	Phrases d'exemple et astuces mnémotechniques
+2f256b9f	Qui les fait : Tamkeen lui-même, gratuitement sur ton appareil, ou ton IA.
+6fcf0e59	L'IA est désactivée ou n'a pas encore de clé, donc la méthode gratuite est utilisée pour l'instant.
+08ba39e3	Configure l'IA
+83e7cf79	Le Créateur de mnémoniques gratuit a appris de 1 de tes choix.
+64e7259f	Le Créateur de mnémoniques gratuit a appris de {0} de tes choix.
+a00bc2d1	Phrases d'exemple : gratuit ou IA
+eec0c151	Créateur de mnémoniques : gratuit ou IA

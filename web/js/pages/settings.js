@@ -7,6 +7,7 @@ import { taskTargetCard } from "../components/tasktarget.js";
 import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state, offerUpdate } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
+import { freeHelpersCard } from "../components/freehelpers.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
@@ -136,7 +137,7 @@ function languages(body, status) {
 
 function words(body) {
   body.append(h(`<section class="card" id="definer"></section>`));
-  return [aiSetup(body.querySelector("#definer"), { transport: (req) => api("/llm/relay", { method: "POST", body: req }) })];
+  return [aiSetup(body.querySelector("#definer"), { transport: (req) => api("/llm/relay", { method: "POST", body: req }) }), freeHelpersCard(body)];
 }
 
 function listening(body, status) {

@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Frases d'exemple
+4736aff0	La frase de cada targeta que mostra la paraula en ús, amb la seva traducció.
+6ac90fe9	Gratis: frases reals
+ffac4e16	Les escriu la IA
+968d6041	Frases reals que fan servir la paraula, trobades en aquest dispositiu. Gratis, i funciona sense connexió.
+9fcd2c34	La teva IA escriu una frase nova per a cada paraula, amb la seva traducció.
+a1640369	Com funcionen les frases d'exemple gratuïtes
+1a8027f9	D'on surten les frases
+aebb3794	Tamkeen baixa una sola vegada una col·lecció de frases reals de la llengua que aprens (de 0,1 a 4 MB). Venen de Tatoeba, una col·lecció compartida de frases traduïdes per voluntaris, i dels exemples d'ús de Wiktionary, cadascuna amb la seva traducció a l'anglès.
+a5dd4b91	Com se n'escull una
+c0b7a4be	Per a cada targeta, Tamkeen busca frases que facin servir la paraula en qualsevol de les seves formes. Prefereix una frase que encaixi amb el significat que vas desar i que no sigui massa llarga, i sobretot una en què ja hagis trobat totes les altres paraules, perquè la puguis llegir. Llavors diu: «Totes les altres paraules d'aquesta frase ja les coneixes.»
+e3c71164	Dialectes
+77955144	Si aprens àrab amb un curs de dialecte triat a Biblioteca → Cursos, les frases surten d'aquell dialecte quan n'hi ha.
+4392a49e	Privat i gratuït
+391c6f62	Tot passa al teu dispositiu: no s'envia res enlloc i no es paga res. Després de la baixada funciona sense connexió.
+c265b05c	Els seus límits
+3505bf7a	Només pot trobar frases que existeixen: una paraula poc freqüent pot no tenir-ne cap, i llavors la targeta es queda sense frase fins que n'escriguis una. Les traduccions són en anglès.
+09cdfa17	Amb IA, en canvi
+95bfb494	La teva IA escriu una frase curta nova per a la paraula, al teu nivell, amb una traducció a la teva llengua. Funciona amb qualsevol paraula, necessita la teva clau d'IA i costa una fracció de cèntim.
+cf7ab8b6	Trucs de memòria: una paraula que sona com la paraula nova, amb una imatge que la lliga al significat.
+2a08a31a	Paraules que sonen semblant, trobades en aquest dispositiu. Gratis, i funciona sense connexió.
+9e203b13	La teva IA suggereix les paraules que sonen semblant i escriu les imatges.
+e11c8e2a	Com funciona el Creador de mnemotècnies gratuït
+43e19816	La idea
+fe273af7	El mètode de la paraula clau: lliga la paraula nova a una paraula que ja coneixes i que sona semblant, i imagina-te-les juntes. El castellà pato, «ànec»: imagina un ànec fent equilibris damunt d'una olla (en anglès, POT).
+07b5addf	Trobar paraules que de debò sonen semblant
+91db4028	Tamkeen divideix la paraula nova en els seus sons, a partir de la pronunciació de Wiktionary o de les regles d'ortografia de la llengua. Els compara amb els sons de cada paraula d'un diccionari de pronunciació anglès, donant més pes a la síl·laba tònica, perquè només passin les que de debò sonen semblant. Les paraules llargues també reben paraules clau de dues o tres paraules.
+1852144d	Quines van primer
+ae65ca21	Una paraula clau que a més encaixa amb el significat va primer, marcada «Encaixa amb el significat» o «Relacionada pel significat» (l'alemany Hund, «gos»: HOUND). Després venen coses fàcils d'imaginar, com animals, eines i menjar. Cada paraula clau rep una frase amb una imatge que la lliga al significat.
+03aba891	En la teva llengua
+671b5655	Amb l'app en castellà, francès, alemany, italià, portuguès, rus o català, les paraules clau són paraules d'aquella llengua.
+bdf4c2bb	Aprèn els teus gustos
+0f465597	Cada vegada que prems Fes-la servir o el polze avall, aprèn una mica quines paraules clau t'agraden, a tots els teus dispositius. «Oblida-ho», aquí sota el Creador de mnemotècnies, el fa començar de zero.
+44daeae0	Tot passa al teu dispositiu, amb una baixada de 0,15 MB la primera vegada: no s'envia res enlloc i no es paga res.
+285e63cd	La teva IA suggereix paraules clau i escriu les imatges, amb el model i el nivell de raonament de Més opcions. Pot ser més inventiva, però de vegades suggereix paraules que no sonen gaire semblant. Necessita la teva clau d'IA, i cada toc costa al voltant d'un cèntim o menys.
+d2edf7c9	Frases d'exemple i trucs de memòria
+2f256b9f	Qui els fa: el mateix Tamkeen, gratis al teu dispositiu, o la teva IA.
+6fcf0e59	La IA està desactivada o encara no té clau, així que de moment es fa servir la manera gratuïta.
+08ba39e3	Configura la IA
+83e7cf79	El Creador de mnemotècnies gratuït ha après d'1 de les teves eleccions.
+64e7259f	El Creador de mnemotècnies gratuït ha après de {0} de les teves eleccions.
+a00bc2d1	Frases d'exemple: gratis o IA
+eec0c151	Creador de mnemotècnies: gratis o IA

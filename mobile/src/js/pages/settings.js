@@ -6,6 +6,7 @@
 import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
+import { freeHelpersCard } from "../components/freehelpers.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { waitingForComputer } from "../cardvoice.js";
@@ -163,7 +164,7 @@ function languages(body) {
 
 function words(body) {
   body.append(h(`<section class="card" id="definer"></section>`));
-  return [aiSetup(body.querySelector("#definer"), { transport })];
+  return [aiSetup(body.querySelector("#definer"), { transport }), freeHelpersCard(body)];
 }
 
 function listening(body) {

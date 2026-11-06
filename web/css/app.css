@@ -2572,3 +2572,11 @@ html.sel-sheets select { pointer-events: none; }
 .delete-account-row p { margin: 6px 0 0; }
 .delete-list { margin: 8px 0 12px; padding-left: 22px; line-height: 1.5; }
 .delete-account p { margin: 0 0 10px; }
+/* ---------- Settings → Word definitions: example sentences and memory tricks, free or AI (freehelpers.js) ---------- */
+.helper-row { display: grid; gap: 6px; padding: 12px 0 0; border-top: 1px solid var(--border); }
+.helper-head { display: flex; align-items: center; gap: 8px; }
+.helper-how-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; font-size: 14px; }
+.helper-seg { margin: 2px 0 0; max-width: none; }
+.helper-taste[hidden] { display: none; }
+.helper-how-part { margin: 0 0 14px; }
+.helper-how-part p { margin: 4px 0 0; line-height: 1.5; }

@@ -1,0 +1,44 @@
+# Settings → Word definitions → Example sentences and memory tricks, free or AI (web/js/components/freehelpers.js).
+3680de49	Mga pananglitan nga sentence
+4736aff0	Ang sentence sa matag card nga nagpakita kung giunsa paggamit ang pulong, uban ang hubad niini.
+6ac90fe9	Libre: tinuod nga mga sentence
+ffac4e16	AI ang mosulat
+968d6041	Tinuod nga mga sentence nga naggamit sa pulong, nakit-an dinhi sa device. Libre, ug mogana bisan offline.
+9fcd2c34	Ang imong AI mosulat og bag-ong sentence para sa matag pulong, uban ang hubad niini.
+a1640369	Giunsa paglihok sa libreng mga pananglitan nga sentence
+1a8027f9	Asa gikan ang mga sentence
+aebb3794	Kausa ra modownload ang Tamkeen og koleksyon sa tinuod nga mga sentence para sa pinulongan nga imong gitun-an (0.1 ngadto sa 4 MB). Gikan kini sa Tatoeba, usa ka gipaambit nga koleksyon sa mga sentence nga gihubad sa mga boluntaryo, ug sa mga pananglitan sa paggamit sa Wiktionary, matag usa adunay hubad sa English.
+a5dd4b91	Giunsa pagpili ang usa
+c0b7a4be	Para sa matag card, mangita ang Tamkeen og mga sentence nga naggamit sa pulong sa bisan unsang porma niini. Mas gusto niini ang usa nga haom sa kahulogan nga imong gi-save ug dili kaayo taas, ug labaw sa tanan, usa nga nakita na nimo ang tanang ubang pulong niini, aron mabasa nimo kini. Unya moingon kini: “Nahibaw-an na nimo ang tanang ubang pulong niini nga sentence.”
+e3c71164	Mga diyalekto
+77955144	Kung nagtuon ka og Arabiko gamit ang kurso sa diyalekto nga gipili sa Library → Mga kurso, gikan sa maong diyalekto ang mga sentence kung naa.
+4392a49e	Pribado ug libre
+391c6f62	Ang tanan mahitabo sa imong device: walay ipadala bisan asa ug walay bayranan. Human sa download, mogana kini bisan offline.
+c265b05c	Ang mga limitasyon niini
+3505bf7a	Makakita ra kini og mga sentence nga anaa: ang talagsaong pulong mahimong walay bisan usa, ug unya walay sentence ang card hangtod nga magsulat ka og usa. Sa English ang mga hubad.
+09cdfa17	Gamit ang AI hinuon
+95bfb494	Ang imong AI mosulat og bag-ong mubo nga sentence para sa pulong, sumala sa imong lebel, uban ang hubad sa imong kaugalingong pinulongan. Mogana kini sa bisan unsang pulong, nagkinahanglan sa imong AI key, ug gamay ra kaayo nga bahin sa usa ka sentimo ang gasto.
+cf7ab8b6	Mga paagi sa paghinumdom: usa ka pulong nga susama og tingog sa bag-ong pulong, uban ang hulagway nga nagdugtong niini sa kahulogan.
+2a08a31a	Mga pulong nga susama og tingog, nakit-an dinhi sa device. Libre, ug mogana bisan offline.
+9e203b13	Ang imong AI mosugyot sa mga pulong nga susama og tingog ug mosulat sa mga hulagway.
+e11c8e2a	Giunsa paglihok sa libreng Mnemonic maker
+43e19816	Ang ideya
+fe273af7	Ang keyword nga paagi: idugtong ang bag-ong pulong sa usa ka pulong nga nahibaw-an na nimo nga susama og tingog, ug handurawa ang duha nga magkauban. Espanyol nga pato, “itik”: handurawa ang usa ka itik nga nagbalanse sa ibabaw sa usa ka kaldero (POT sa English).
+07b5addf	Pagpangita og mga pulong nga tinuod nga susama og tingog
+91db4028	Bahinon sa Tamkeen ang bag-ong pulong ngadto sa mga tingog niini, gikan sa paglitok sa Wiktionary o sa mga lagda sa pagbaybay sa pinulongan. Ikumpara niini kini sa mga tingog sa matag pulong sa usa ka English nga diksiyonaryo sa paglitok, nga mas gibug-atan ang silaba nga may diin, aron ang tinuod ra nga susama og tingog ang makalusot. Ang tag-as nga mga pulong makakuha usab og mga keyword nga duha o tulo ka pulong.
+1852144d	Unsa ang mauna
+ae65ca21	Mauna ang keyword nga haom usab sa kahulogan, nga may marka nga “Haom sa kahulogan” o “May kalabutan sa kahulogan” (Aleman nga Hund, “iro”: HOUND). Sunod ang mga butang nga sayon handurawon, sama sa mga hayop, himan ug pagkaon. Ang matag keyword adunay linya nga hulagway nga nagdugtong niini sa kahulogan.
+03aba891	Sa imong pinulongan
+671b5655	Kung ang app naa sa Espanyol, Pranses, Aleman, Italyano, Portuges, Ruso o Katalan, ang mga keyword mga pulong sa maong pinulongan.
+bdf4c2bb	Makat-on kini sa imong gusto
+0f465597	Matag higayon nga imong pinduton ang Gamita o thumbs down, makat-on kini og gamay bahin sa mga keyword nga imong gusto, sa tanan nimong device. Ang “Kalimti” ubos sa Mnemonic maker dinhi magsugod pag-usab.
+44daeae0	Ang tanan mahitabo sa imong device, uban ang 0.15 MB nga download sa unang higayon: walay ipadala bisan asa ug walay bayranan.
+285e63cd	Ang imong AI mosugyot og mga keyword ug mosulat sa mga hulagway, gamit ang model ug lebel sa paghunahuna sa Dugang mga opsyon. Mahimong mas mamugnaon kini, apan usahay mosugyot kini og mga pulong nga dili gyud susama og tingog. Nagkinahanglan kini sa imong AI key, ug ang matag pindot mogasto og mga usa ka sentimo o ubos pa.
+d2edf7c9	Mga pananglitan nga sentence ug mga paagi sa paghinumdom
+2f256b9f	Kinsa ang mohimo: ang Tamkeen mismo, libre sa imong device, o ang imong AI.
+6fcf0e59	Gipalong ang AI, o wala pay key, busa ang libreng paagi ang gigamit sa karon.
+08ba39e3	I-set up ang AI
+83e7cf79	Ang libreng Mnemonic maker nakakat-on gikan sa 1 sa imong mga pinili.
+64e7259f	Ang libreng Mnemonic maker nakakat-on gikan sa {0} sa imong mga pinili.
+a00bc2d1	Mga pananglitan nga sentence: libre o AI
+eec0c151	Mnemonic maker: libre o AI
