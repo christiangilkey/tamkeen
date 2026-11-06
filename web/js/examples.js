@@ -59,6 +59,13 @@ export async function keywordsList(opts, lang = "en") {
   return list;
 }
 
+/** Arabic: the dialect course chosen in Library → Courses on this device (coursedata.js, localStorage
+ * `courseVariety:ar`: "egy", "lev", "glf", "mor", "irq"), "" for Standard Arabic or another language. */
+export function courseDialect(lang) {
+  if (lang !== "ar") return "";
+  try { return localStorage.getItem("courseVariety:ar") || ""; } catch { return ""; }
+}
+
 /** What the examples file needs downloading for `lang`: {needed, installed, bytes}. */
 export const examplesStatus = (lang) => api(`/lexicon/status?lang=${lang}&kind=examples`);
 
@@ -74,7 +81,7 @@ async function lemmaFinder(lang) {
  * An example sentence for `word` with no AI: {sentence, translation, source} or null when the file has
  * none. `meaning` puts ⟦ ⟧ round the word in the translation; `dialect` prefers an Arabic dialect's.
  */
-export async function freeExample(word, lang, { meaning = "", dialect = "", skip = [] } = {}) {
+export async function freeExample(word, lang, { meaning = "", dialect = courseDialect(lang), skip = [] } = {}) {
   const p = await examplesOf(lang);
   if (!p) return null;
   const [lemmaOf, newWords] = await Promise.all([lemmaFinder(lang), newWordCounter(lang, word).catch(() => null)]);
@@ -89,9 +96,9 @@ export async function freeExample(word, lang, { meaning = "", dialect = "", skip
  * How `word` is said, with no AI (review/soundout.js), using Wiktionary's IPA from the examples file when
  * it has the word and `reading` (what the app's dictionaries know: kana, pinyin, vowel marks) otherwise.
  */
-export async function freePronunciation(word, lang, reading = "", meaning = "") {
+export async function freePronunciation(word, lang, reading = "", meaning = "", dialect = courseDialect(lang)) {
   const p = await examplesOf(lang).catch(() => null);
-  return pronunciationOf({ word, lang, ipa: p ? p.ipaOf(word, { verb: /^\s*to\s/i.test(meaning) }) : "", reading });
+  return pronunciationOf({ word, lang, ipa: p ? p.ipaOf(word, { verb: /^\s*to\s/i.test(meaning), dialect }) : "", reading });
 }
 
 /**

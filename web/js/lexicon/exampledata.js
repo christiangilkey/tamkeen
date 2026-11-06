@@ -13,6 +13,10 @@
 import { matchKey } from "./meaningdata.js";
 
 const UNSPACED = new Set(["ja", "zh", "th"]);
+// The app's Arabic dialect courses (coursedata.js ARABIC_VARIETIES) and the codes their sentences and sounds are
+// filed under in the examples file (Tatoeba's and Wiktionary's; the courses' own sentences under the first).
+export const DIALECT_CODES = { egy: ["arz"], lev: ["apc", "ajp"], glf: ["afb", "acw"], mor: ["ary"], irq: ["acm"] };
+const codesOf = (dialect) => (dialect ? DIALECT_CODES[dialect] || [dialect] : []);
 // What new words cost a sentence (i+1): one with no new word but the card's gains READABLE; each new word
 // costs NEW_WORD, at most NEW_WORD_CAP (a hard sentence of the right sense still beats a wrong one).
 export const READABLE = -1.8, NEW_WORD = 0.4, NEW_WORD_CAP = 1.8;
@@ -44,13 +48,19 @@ export class ExamplePack {
     this.words = (data && data.words) || {};
     this.ipa = (data && data.ipa) || {};
     this.t2s = (data && data.t2s) || null;  // Chinese: traditional characters' simplified ones
+    this.dialectIpa = (data && data.dialect_ipa) || {};  // Arabic: each dialect's own pronunciations
     this.index = null;
   }
 
   /** Wiktionary's IPA for the word ("" when it has none). Chinese: "py:<pinyin>". Arabic and Persian list
    * every word written that way with its part of speech ("qalam|n;qallama|v"): the verb's is taken when
    * `verb` (a meaning like "to write"), else the first. */
-  ipaOf(word, { verb = false } = {}) {
+  ipaOf(word, { verb = false, dialect = "" } = {}) {
+    // A dialect course's own sounds first (Egyptian ʔalb, not MSA qalb), from Wiktionary's dialect entries.
+    for (const code of codesOf(dialect)) {
+      const own = (this.dialectIpa[code] || {})[matchKey(word, this.lang)];
+      if (own) return own;
+    }
     let said = this.ipa[matchKey(word, this.lang)] || "";
     // Thai, Japanese and Chinese words the file lacks are often made of words it has: the longest known
     // piece first, each piece's sounds one after the other.
@@ -144,10 +154,12 @@ export class ExamplePack {
       // a sentence whose translation has the meaning is about this sense of the word (manzana: apple, not block)
       const sense = meaning ? (markTranslation(this.sentences[i][1], meaning).includes("⟦") ? -0.6 : 1.5) : 0;
       return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
-        + (own === dialect ? 0 : own ? 2.5 : dialect ? 0.4 : 0)
+        // the dialect being studied first (−0.8), Standard Arabic next (+0.4), another dialect last (+2.5)
+        + (own && wanted.includes(own) ? -0.8 : own ? 2.5 : wanted.length ? 0.4 : 0)
         // A sentence the learner can read comes first (i+1): every other word one they have seen.
         + (unseen.has(i) ? (unseen.get(i) === 0 ? READABLE : Math.min(NEW_WORD_CAP, unseen.get(i) * NEW_WORD)) : 0);
     };
+    const wanted = codesOf(dialect);
     const unseen = new Map();
     if (newWords) for (const i of picked.keys()) { const n = safe(newWords, this.sentences[i][0]); if (Number.isInteger(n)) unseen.set(i, n); }
     return [...picked.keys()].sort((a, b) => fit(a) - fit(b)).slice(0, count)
@@ -179,6 +191,8 @@ export function markTranslation(english, meaning) {
 /** Where a sentence comes from, for the learner: "Tatoeba" (with its address) or "Wiktionary". */
 export function sourceOf(source) {
   const s = String(source || "");
+  if (s.startsWith("d")) return { name: "Wolff, A Dictionary of Cebuano Visayan", url: "https://www.gutenberg.org/ebooks/40074" };
+  if (s.startsWith("c")) return { name: "Tamkeen's dialect course", url: "" };
   if (s.startsWith("t")) {
     const id = s.slice(1).split(":")[0];
     return { name: "Tatoeba", url: `https://tatoeba.org/en/sentences/show/${id}` };

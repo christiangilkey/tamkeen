@@ -18,6 +18,12 @@ Example sentences and their English translations:
   The same files keep each word's pronunciation (IPA) from Wiktionary, and Chinese words' pinyin from
   CC-CEDICT (CC BY-SA 4.0, https://cc-cedict.org). The files are shared under CC BY-SA 4.0.
 
+- Bisaya example sentences from John U. Wolff, A Dictionary of Cebuano Visayan (1972), public domain in the USA, as
+  transcribed for Project Gutenberg (ebook 40074, https://www.gutenberg.org/ebooks/40074) by Jeroen Hellingman, Scott
+  Robertson and the Online Distributed Proofreading Team: each example with its English, in today's spelling.
+- Arabic dialect sentences also from the app's own dialect courses (docs/course/ar-<dialect>), and the dialects' own
+  pronunciations from the English Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian entries.
+
 The free Mnemonic maker's English words:
 
 - US pronunciations from the CMU Pronouncing Dictionary (BSD-style licence: see cmudict.txt).

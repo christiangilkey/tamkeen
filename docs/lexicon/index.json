@@ -63,12 +63,12 @@
   },
   "ex-ar": {
    "file": "ar-examples.json.gz",
-   "bytes": 1435360,
-   "sha256": "2fa9163506d8d16c9be9d4445d8cbb17b97bfc8b06e3e4e9d5c5bc0d58f9f7ab",
+   "bytes": 1536513,
+   "sha256": "fba5238dd26dd416944c41482f722add109986643e774e52d2fe4607825516ca",
    "title": "Arabic example sentences",
    "db": "Tatoeba + English Wiktionary (Wiktextract)",
    "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
-   "sentences": 33824,
+   "sentences": 34633,
    "wiktionary": 4144,
    "pronunciations": 13029
   },
@@ -85,12 +85,12 @@
   },
   "ex-ceb": {
    "file": "ceb-examples.json.gz",
-   "bytes": 132744,
-   "sha256": "385ef901d5cb1f7eda80f7be1d157ddaec93d291126717d0e7d8710d82c83e63",
+   "bytes": 915023,
+   "sha256": "96233bae9e4ca592e1feeee10ec58deef891661504f32aad9e0a2f6eff9c822f",
    "title": "Cebuano example sentences",
    "db": "Tatoeba + English Wiktionary (Wiktextract)",
    "license": "CC-BY-2.0-FR + CC-BY-SA-4.0",
-   "sentences": 1891,
+   "sentences": 21980,
    "wiktionary": 1263,
    "pronunciations": 3535
   },

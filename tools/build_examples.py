@@ -15,7 +15,7 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
    (FrequencyWords' English subtitle counts by Hermit Dave, CC BY-SA 4.0), for picturable, common keywords.
 
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
-    python tools/build_examples.py build <cache dir> <tatoeba dir> es de ...
+    python tools/build_examples.py build <cache dir> <tatoeba dir> es de ... [--wolff <pg40074.txt>]   (Bisaya: Wolff's examples too)
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
     python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
@@ -47,13 +47,16 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "lexicon"
 
 # Tatoeba's codes for the languages taught (Arabic also its dialects; Persian is "pes").
-TATOEBA = {"ar": ["ara", "arz", "apc", "ajp", "acm", "ary"], "es": ["spa"], "fr": ["fra"], "it": ["ita"], "ru": ["rus"],
+TATOEBA = {"ar": ["ara", "arz", "apc", "ajp", "acm", "ary", "afb"], "es": ["spa"], "fr": ["fra"], "it": ["ita"], "ru": ["rus"],
            "tl": ["tgl"], "ja": ["jpn"], "zh": ["cmn"], "pt": ["por"], "ca": ["cat"], "ceb": ["ceb"], "th": ["tha"],
            "de": ["deu"], "fa": ["pes"], "hi": ["hin"], "ko": ["kor"], "la": ["lat"]}
 # Characters only Cantonese writes ("did", "of", "not"...): Wiktionary's Chinese entries also give Cantonese examples.
 CANTONESE = re.compile("[咗㖞哗嘅唔佢嗰冇啲嘢噉咁喺喎嚟睇攞嗮哋㗎嘞]")
 NOT_MANDARIN_TAGS = {"Cantonese", "Classical-Chinese", "Literary-Chinese", "Hokkien", "Hakka"}
-DIALECT_OF = {"arz": "arz", "apc": "apc", "ajp": "ajp", "acm": "acm", "ary": "ary"}
+DIALECT_OF = {"arz": "arz", "apc": "apc", "ajp": "ajp", "acm": "acm", "ary": "ary", "afb": "afb"}
+# The app's Arabic dialect courses (docs/course/ar-<course>/course.json: an everyday sentence for each word, with its
+# translation; the app's own content) and the dialect code their sentences are filed under (Tatoeba's, Wiktionary's).
+COURSES = {"egy": "arz", "lev": "apc", "glf": "afb", "mor": "ary", "irq": "acm"}
 UNSPACED = {"ja", "zh", "th"}
 PER_WORD = 3          # Tatoeba sentences kept for each word form (the shortest, easiest first)
 MAX_SENTENCES = 40000 # Tatoeba sentences kept per language at most
@@ -100,6 +103,7 @@ def extract(cache: Path, lang: str) -> None:
     {"ipa": {key: ipa}, "examples": [[key, text, english, dialect]]}."""
     sources = [(NAMES[lang], "")] + ([(name, code) for code, name in DIALECTS.items()] if lang == "ar" else [])
     ipa: dict[str, str] = {}
+    dialect_ipa: dict[str, dict[str, str]] = {}  # Arabic dialects' own pronunciations, by dialect code
     examples: list[list[str]] = []
     for name, dialect in sources:
         print(f"  {lang}: reading {name}", flush=True)
@@ -119,6 +123,8 @@ def extract(cache: Path, lang: str) -> None:
             # Arabic and Persian are written without short vowels: one spelling is several words (قلم qalam
             # "pen", qallama "to trim"). Each word's IPA is kept with its part of speech, "qalam|n;qallama|v",
             # nouns first, so the app can take the verb's for a meaning like "to write".
+            if said and dialect:
+                dialect_ipa.setdefault(dialect, {}).setdefault(k, said)
             if said and not dialect:
                 if lang in ("ar", "fa"):
                     tag = "v" if e.get("pos") == "verb" else "n"
@@ -145,7 +151,7 @@ def extract(cache: Path, lang: str) -> None:
                     n += 1
         print(f"  {lang}: {name}: {n} examples so far", flush=True)
     cache.mkdir(parents=True, exist_ok=True)
-    (cache / f"{lang}-wiktionary.json").write_text(json.dumps({"ipa": ipa, "examples": examples}, ensure_ascii=False), encoding="utf-8")
+    (cache / f"{lang}-wiktionary.json").write_text(json.dumps({"ipa": ipa, "dialect_ipa": dialect_ipa, "examples": examples}, ensure_ascii=False), encoding="utf-8")
     print(f"  {lang}: {len(ipa)} pronunciations, {len(examples)} examples", flush=True)
 
 
@@ -240,6 +246,28 @@ def build(cache: Path, tatoeba: Path, lang: str) -> None:
         words.setdefault(k, []).append(len(sentences))
         sentences.append([text, english, "w" + (f":{dialect}" if dialect else "")])
     n_wik = len(sentences)
+    if lang == "ar":
+        # The dialect courses' own sentences, filed under their word (so a card of that word finds them first).
+        for course, code in COURSES.items():
+            path = ROOT / "docs" / "course" / f"ar-{course}" / "course.json"
+            if not path.exists():
+                continue
+            for w in json.loads(path.read_text(encoding="utf-8")).get("words", []):
+                text = clean(str(w.get("sentence", "")).replace("⟦", "").replace("⟧", ""))
+                if not text or text in seen or not w.get("translation"):
+                    continue
+                seen.add(text)
+                words.setdefault(key(w["word"], lang), []).append(len(sentences))
+                sentences.append([text, clean(w["translation"]), f"c:{code}"])
+    if lang == "ceb" and WOLFF:
+        for head, text, english in wolff_examples(WOLFF):
+            if text in seen:
+                continue
+            seen.add(text)
+            have = words.setdefault(key(head, lang), [])
+            if len(have) < MAX_EXAMPLES + 2:
+                have.append(len(sentences))
+            sentences.append([text, english, "d"])
     for text, english, src in choose(tatoeba_pairs(tatoeba, lang), lang):
         if text not in seen:
             seen.add(text)
@@ -263,11 +291,57 @@ def build(cache: Path, tatoeba: Path, lang: str) -> None:
     pack = {"format": 1, "kind": "examples", "lang": lang,
             "source": "Tatoeba (tatoeba.org) and the English Wiktionary (Wiktextract, kaikki.org)",
             "license": "CC-BY-2.0-FR (Tatoeba sentences), CC-BY-SA-4.0 (Wiktionary)",
-            "sentences": sentences, "words": words, "ipa": ipa, **({"t2s": t2s} if lang == "zh" else {})}
+            "sentences": sentences, "words": words, "ipa": ipa, **({"t2s": t2s} if lang == "zh" else {}),
+            **({"dialect_ipa": data.get("dialect_ipa", {})} if lang == "ar" else {})}
     name = f"{lang}-examples.json.gz"
     write(name, f"ex-{lang}", pack, title=f"{NAMES[lang]} example sentences",
           db="Tatoeba + English Wiktionary (Wiktextract)", license="CC-BY-2.0-FR + CC-BY-SA-4.0",
           extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(ipa)})
+
+
+# ---------------------------------------------------------------- Bisaya: Wolff's example sentences
+
+WOLFF = None  # the Project Gutenberg text of Wolff's Dictionary of Cebuano Visayan (ebook 40074), when given
+ENGLISH_WORDS = set("the a an is are was were be i you he she it we they my your his her its our their to of in on at for with "
+                    "not do does did don't can't won't will would can could have has had this that there what why how who".split())
+
+
+def wolff_examples(path: Path):
+    """Wolff's example sentences: (head word, Bisaya sentence in today's spelling, its English). Wolff writes each
+    as "Bisaya sentence, English sentence." after the meaning it shows; the comma that parts them is the one after
+    which the words are English. Public domain (tools/build_cebuano_glosses.py)."""
+    from build_cebuano_glosses import entries, modern
+    today = {"ku": "ko", "mu": "mo", "tu": "to", "nu": "no", "su": "so", "du": "do"}
+
+    def bisaya(text: str) -> str:
+        out = []
+        for w in re.findall(r"[\w’'-]+|[^\w\s]+|\s+", text):
+            if re.fullmatch(r"[\w’'-]+", w):
+                lower = w.lower()
+                m = today.get(lower) or modern(lower)
+                m = unicodedata.normalize("NFC", "".join(c for c in unicodedata.normalize("NFD", m) if not unicodedata.combining(c)))
+                w = m[:1].upper() + m[1:] if w[:1].isupper() else m
+            out.append(w)
+        return "".join(out)
+
+    english_share = lambda s: (lambda ws: sum(w in ENGLISH_WORDS for w in ws) / max(1, len(ws)))(re.findall(r"[a-z’']+", s.lower()))
+    for para in entries(path):
+        head = para.split(" ", 1)[0].strip(",")
+        if not re.fullmatch(r"[^\W\d_]+", head):
+            continue
+        # Each pair ends at a full stop, ? or ! (the English one's); within it, split at the comma before English.
+        for chunk in re.findall(r"[A-ZÁÉÍÓÚ][^.?!]{6,220}[.?!]", para):
+            best = None
+            for m in re.finditer(r", (?=[A-Z])", chunk):
+                left, right = chunk[:m.start()], chunk[m.end():]
+                if english_share(right) >= 0.25 and english_share(left) <= 0.12 and len(left.split()) >= 3:
+                    best = (left, right)
+            if best:
+                # (Wolff's other forms of the word in brackets, "Abagahon (pangabagahon) ni Manoy…", left out)
+                text = re.sub(r"\s*\([^)]*\)", "", bisaya(best[0].strip())) + "."
+                english = best[1].strip().rstrip("†").strip()
+                if 3 <= len(text.split()) <= 16 and not re.search(r"[()]", text) and english.count("(") == english.count(")"):
+                    yield modern(head), text, english
 
 
 def write(name: str, entry: str, data: dict, title: str, db: str, license: str, extra: dict) -> None:
@@ -571,6 +645,10 @@ if __name__ == "__main__":
         for lang in args[2:]:
             extract(Path(args[1]), lang)
     elif args[0] == "build":
+        if "--wolff" in args:
+            at = args.index("--wolff")
+            WOLFF = Path(args[at + 1])
+            del args[at:at + 2]
         for lang in args[3:]:
             build(Path(args[1]), Path(args[2]), lang)
     elif args[0] == "ownkeywords":

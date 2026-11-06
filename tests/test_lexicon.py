@@ -268,7 +268,8 @@ def test_example_sentences_and_keywords_are_their_own_downloads(client):
     assert st["installed"]
     data = client.get("/api/lexicon/data/ex-ceb").json()
     assert data["kind"] == "examples" and any("balay" in s[0] for s in data["sentences"])
-    assert all(len(s) == 3 and s[2][0] in "tw" for s in data["sentences"])  # each says where it is from
+    assert all(len(s) == 3 and s[2][0] in "twdc" for s in data["sentences"])  # each says where it is from (d: Wolff)
+    assert any(s[2] == "d" for s in data["sentences"]), "Bisaya: Wolff's example sentences"
     kw = client.post("/api/lexicon/download", json={"lang": "en", "kind": "keywords"}).json()
     assert kw["installed"] and kw["names"] == ["kw-en"]
     words = client.get("/api/lexicon/data/kw-en").json()["words"]

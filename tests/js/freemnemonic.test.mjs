@@ -232,3 +232,18 @@ test("the maker learns the learner's taste from Use and thumbs down, a little at
   assert.ok(!/\s/.test(taught.items[0].keyword), taught.items[0].keyword);
   assert.deepEqual(traitsOf({ keyword: "pot", sound: "partial", link: 0 }, list), ["partial", "untied", "kind:artifact"]);
 });
+
+test("Arabic dialect courses get their own sentences and sounds; Bisaya gets Wolff's examples", () => {
+  const ar = pack("ar");
+  const [egy] = ar.find("بيت", { meaning: "house", dialect: "egy" });
+  assert.match(egy.source, /:arz$/, `Egyptian chosen: an Egyptian sentence (${egy.source})`);
+  const [msa] = ar.find("بيت", { meaning: "house" });
+  assert.ok(!msa.source.includes(":"), "no course chosen: Standard Arabic first");
+  assert.ok(ar.sentences.some((s) => s[2] === "c:acm"), "the Iraqi course's own sentences are in");
+  assert.ok(Object.keys(ar.dialectIpa.arz || {}).length > 500, "Wiktionary's Egyptian pronunciations");
+  const ceb = pack("ceb");
+  assert.ok(ceb.sentences.filter((s) => s[2] === "d").length > 15000, "Wolff's example sentences");
+  const [balay] = ceb.find("balay", { meaning: "house" });
+  assert.ok(balay && /house/i.test(balay.english));
+  assert.ok(!ceb.sentences.some((s) => s[2] === "d" && /[áéíóú()]/.test(s[0])), "in today's spelling, no stress marks or Wolff's brackets");
+});

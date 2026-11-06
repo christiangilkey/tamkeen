@@ -6792,3 +6792,19 @@ Each committed on its own.
    the other half): several-word keywords in the top 5 13% → 1%, things (animal, artifact, object, food) 43% → 84%.
    Preview: thumbs down on "pie tow" and Use on "patio" for pato saved {two −0.02, kind:artifact +0.02, …, n 2};
    Forget it cleared it.
+4. **Arabic dialects and Bisaya.** build_examples.py: Tatoeba `afb` (Gulf) added; `extract` keeps each Wiktionary dialect
+   dump's IPA (`dialect_ipa` {arz, ajp, apc, afb, acw, ary, aeb: {key: ipa}}; kaikki has no Iraqi); `build` files the
+   dialect courses' own sentences (docs/course/ar-<d>/course.json, ⟦ ⟧ off) under their word as `c:<code>` (`COURSES`
+   egy→arz, lev→apc, glf→afb, mor→ary, irq→acm), and with `--wolff <pg40074.txt>` (Project Gutenberg 40074, public
+   domain) Wolff's example sentences for Bisaya (`wolff_examples`: the ", " after which the words are English; today's
+   spelling by build_cebuano_glosses `modern`, stress marks off, ku/mu → ko/mo, brackets dropped), source `d`.
+   exampledata.js `DIALECT_CODES` (lev: apc+ajp, glf: afb+acw…): `find(…, {dialect})` the chosen dialect −0.8, MSA +0.4,
+   another dialect +2.5; `ipaOf(…, {dialect})` the dialect's IPA first. examples.js `courseDialect(lang)` = this device's
+   course choice (localStorage `courseVariety:ar`), the default for `freeExample` and `freePronunciation` (so Add words
+   and both makers follow the Courses picker). Counts, before → after: Egyptian sentences 1,103 → 1,252, Levantine
+   (apc+ajp) 873 → 1,020, Gulf (afb+acw) 282 → 404, Moroccan 270 → 570, Iraqi 10 → 108; dialect pronunciations 0 →
+   8,714 (arz 940, ajp 2,461, apc 520, afb 591, acw 1,718, ary 1,854, aeb 630; none for Iraqi); Bisaya 1,891 → 21,980
+   sentences (Wolff 20,093), a sentence for 18/20 → 20/20 of the sample's words. With a course chosen (scratch
+   `dialect.mjs`, 20 words each), the sentence is the dialect's for egy 11→17, lev 8→19, glf 8→17, mor 8→14, irq 8→14
+   of 20, and the dialect's own sounds for egy 8, lev 16, glf 11, mor 10, irq 0. Preview: Egyptian chosen, بيت gave
+   "أقدر أشتري البيت ده على كام؟" (Tatoeba arz) instead of an MSA sentence, قلب sounded ʔælɐb (Egyptian) not qalb.
