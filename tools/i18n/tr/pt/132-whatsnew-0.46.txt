@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	O cartão da sua criatura no Início: um anel de meta em volta da criatura, recompensas que voam até o contador e quatro blocos grandes com um ponto quando algo está esperando
+a8c89279	Vocabulário: uma palavra aberta tem todas as ferramentas do cartão de revisão, uma única linha organizada para pastas e ordem, e Selecionar para mudar várias palavras de uma vez
+c26f4304	Escolha grátis ou IA para frases de exemplo e truques de memória nas Configurações, cada um com um botão Como funciona
+2f68363a	O que é o Tamkeen agora tem três páginas: Como usar o Tamkeen, O que torna o Tamkeen especial e Estudos que o embasam

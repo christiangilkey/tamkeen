@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	Ang card ng iyong nilalang sa Home: isang singsing ng layunin sa paligid ng nilalang, mga gantimpalang lumilipad sa kanilang bilang, at apat na malalaking tile na may tuldok kapag may naghihintay
+a8c89279	Vocab: ang binuksang salita ay may lahat ng gamit ng review card, isang maayos na hanay para sa mga folder at pagkakasunod, at Piliin para baguhin ang maraming salita nang sabay
+c26f4304	Pumili ng libre o AI para sa mga halimbawang pangungusap at mga paraan ng pagsasaulo sa Settings, bawat isa may buton na Paano ito gumagana
+2f68363a	Ang Ano ang Tamkeen ay tatlong pahina na: Paano gamitin ang Tamkeen, Ano ang espesyal sa Tamkeen, at Mga pag-aaral na sumusuporta

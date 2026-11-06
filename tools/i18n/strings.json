@@ -20655,6 +20655,26 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "d46a53cd",
+  "k": "Your creature's card on Home: a goal ring round your creature, rewards that fly to their counter, and four big tiles with a dot when something waits",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a8c89279",
+  "k": "Vocab: an opened word gets every review-card tool, one tidy row for folders and sorting, and Select to change many words at once",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c26f4304",
+  "k": "Choose free or AI for example sentences and memory tricks in Settings, each with a How it works button",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2f68363a",
+  "k": "What is Tamkeen is now three pages: How to use Tamkeen, What makes Tamkeen special, and Supporting studies",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "a067042e",
   "k": "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch",
   "f": "web/js/whatsnew.js"

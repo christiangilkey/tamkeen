@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	La targeta de la teva criatura a l’Inici: un anell d’objectiu al voltant de la criatura, recompenses que volen al seu comptador i quatre rajoles grans amb un punt quan hi ha alguna cosa pendent
+a8c89279	Vocabulari: una paraula oberta té totes les eines de la targeta de repàs, una sola fila endreçada per a carpetes i ordre, i Selecciona per canviar moltes paraules alhora
+c26f4304	Tria entre gratuït o IA per a les frases d’exemple i els trucs de memòria a la Configuració, cadascun amb un botó Com funciona
+2f68363a	Què és Tamkeen ara són tres pàgines: Com fer servir Tamkeen, Què fa especial Tamkeen i Estudis que el sustenten

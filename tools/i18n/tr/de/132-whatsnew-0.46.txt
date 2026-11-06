@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	Die Karte deines Wesens auf der Startseite: ein Zielring um dein Wesen, Belohnungen, die zu ihrem Zähler fliegen, und vier große Kacheln mit einem Punkt, wenn etwas wartet
+a8c89279	Vokabeln: Ein geöffnetes Wort hat alle Werkzeuge der Lernkarte, eine aufgeräumte Zeile für Ordner und Sortierung, und Auswählen, um viele Wörter auf einmal zu ändern
+c26f4304	Wähle in den Einstellungen kostenlos oder KI für Beispielsätze und Merkhilfen, jeweils mit einer Schaltfläche „So funktioniert es“
+2f68363a	Was ist Tamkeen hat jetzt drei Seiten: So benutzt du Tamkeen, Was Tamkeen besonders macht und Studien dahinter

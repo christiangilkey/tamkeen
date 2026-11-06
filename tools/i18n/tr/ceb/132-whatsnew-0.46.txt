@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	Ang card sa imong linalang sa Home: usa ka singsing sa tumong libot sa imong linalang, mga ganti nga molupad ngadto sa ilang ihapan, ug upat ka dagkong tile nga adunay tuldok kon adunay naghulat
+a8c89279	Vocab: ang giablihang pulong adunay tanang himan sa review card, usa ka hapsay nga laray alang sa mga folder ug paghan-ay, ug Pilia aron usbon ang daghang pulong dungan
+c26f4304	Pilia ang libre o AI alang sa mga pananglitan nga sentence ug mga lansis sa paghinumdom sa Settings, matag usa adunay buton nga Unsaon kini paglihok
+2f68363a	Ang Unsa ang Tamkeen tulo na ka panid: Unsaon paggamit sa Tamkeen, Unsay nakapalahi sa Tamkeen, ug Mga pagtuon nga nagsuporta

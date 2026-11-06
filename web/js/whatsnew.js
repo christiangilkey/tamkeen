@@ -10,6 +10,15 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.46.0",
+  "Your creature's card on Home: a goal ring round your creature, rewards that fly to their counter, and four big tiles with a dot when something waits");
+notes("0.46.0",
+  "Vocab: an opened word gets every review-card tool, one tidy row for folders and sorting, and Select to change many words at once");
+notes("0.46.0",
+  "Choose free or AI for example sentences and memory tricks in Settings, each with a How it works button");
+notes("0.46.0",
+  "What is Tamkeen is now three pages: How to use Tamkeen, What makes Tamkeen special, and Supporting studies");
+
 notes("0.45.0",
   "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch");
 notes("0.45.0",

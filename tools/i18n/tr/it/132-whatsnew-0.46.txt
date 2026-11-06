@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	La scheda della tua creatura nella Home: un anello obiettivo intorno alla creatura, ricompense che volano al loro contatore e quattro grandi riquadri con un punto quando qualcosa ti aspetta
+a8c89279	Vocaboli: una parola aperta ha tutti gli strumenti della scheda di ripasso, una sola riga ordinata per cartelle e ordinamento, e Seleziona per cambiare molte parole insieme
+c26f4304	Scegli gratis o IA per le frasi di esempio e i trucchi di memoria nelle Impostazioni, ciascuno con un pulsante Come funziona
+2f68363a	Cos’è Tamkeen ora è in tre pagine: Come usare Tamkeen, Cosa rende speciale Tamkeen e Studi a supporto

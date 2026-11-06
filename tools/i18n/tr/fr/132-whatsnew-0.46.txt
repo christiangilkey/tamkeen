@@ -1,0 +1,5 @@
+# What's new 0.46 (web/js/whatsnew.js).
+d46a53cd	La carte de ta créature sur l’Accueil : un anneau d’objectif autour de ta créature, des récompenses qui volent vers leur compteur et quatre grandes tuiles avec un point quand quelque chose t’attend
+a8c89279	Vocabulaire : un mot ouvert a tous les outils de la carte de révision, une seule ligne claire pour les dossiers et le tri, et Sélectionner pour modifier plusieurs mots à la fois
+c26f4304	Choisis gratuit ou IA pour les phrases d’exemple et les astuces de mémorisation dans les Réglages, chacun avec un bouton Comment ça marche
+2f68363a	Qu’est-ce que Tamkeen compte maintenant trois pages : Comment utiliser Tamkeen, Ce qui rend Tamkeen unique et Études à l’appui
