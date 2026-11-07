@@ -139,6 +139,11 @@ SETTING_RULES = {
     "definer_provider": _text(32, nullable=True),
     "stt_provider": _text(32, nullable=True),
     **{k: _text(2_000, nullable=True) for k in SECRET_KEYS},
+    # DLI students (web/js/dli.js)
+    "dli_student": _choice("", "on"),
+    "dli_language": _choice("", "ar", "zh", "fa", "fr", "ko", "ru", "es"),
+    "dli_key": _text(64, nullable=True),
+    "dli_added": _text(2_000, nullable=True),
 }
 
 

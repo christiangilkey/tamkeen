@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Ajouter « {0} » aux langues que vous apprenez ?
+a8d0289a	Votre contenu DLI s'affiche dans Bibliothèque → Cours quand vous étudiez « {0} ». Vous changez de langue en haut de l'écran.
+cf87367b	Ajouter « {0} »
+baf616d7	Étudiants du DLI
+1ca56c2c	Je suis étudiant au DLI
+6ea6f7b6	Quelle langue étudiez-vous au DLI ?
+e771fc84	La changer change le contenu DLI que vous voyez. Ce qui a déjà été ajouté à votre bibliothèque, comme un podcast, reste.
+8be3c943	Mot de passe
+ad4d70da	Saisissez le mot de passe du DLI pour déverrouiller le contenu de votre langue.
+e7e224bf	Pour les étudiants d'arabe du DLI : des podcasts sont ajoutés à votre Bibliothèque, chaque épisode déjà transcrit.
+1526a17e	Déverrouiller
+1b888de1	Ce mot de passe n'est pas le bon.
+4e9853b6	Déverrouillé.
+96e82cdb	Ouvrir le contenu DLI
+a865a31b	« {0} » ne fait pas encore partie des langues que vous apprenez.
+c5aedd6b	Choisissez votre langue du DLI ci-dessus pour voir son contenu.
+554f5c45	Votre contenu DLI est dans Bibliothèque → Cours → DLI.
+1095a575	Votre contenu DLI est dans Bibliothèque → Cours → DLI, quand vous étudiez « {0} ».
+e9ae5bf5	Verrouiller le contenu DLI ?
+89ea40fd	Il est de nouveau masqué sur tous vos appareils jusqu'à ce que le mot de passe soit saisi. Ce qui a déjà été ajouté à votre bibliothèque, comme un podcast, reste.
+891ebccd	Verrouiller
+2b52679a	{0} ko
+afa42ccd	{0} du DLI
+4cb10069	Le contenu DLI pour « {0} » arrive bientôt.
+3ccfab05	1 épisode, déjà transcrit
+ba723b41	{0} épisodes, déjà transcrits
+5a677cd0	Ajouter à mes podcasts
+f1678504	{0} est dans vos podcasts, chaque épisode déjà transcrit.
+b1b8530b	Ouverture…
+9056f96b	Enregistrer une copie
+9d8e4017	Ce fichier n'a pas pu être ouvert.
+6ce6c512	Fichiers
+3ff33014	Le contenu DLI n'a pas pu être ouvert. Déverrouillez-le à nouveau dans Réglages.
+2c3cafa4	Fichier
+ea5a129e	Le fichier DLI n'a pas pu être lu (HTTP {0}).
+ded4cdfa	Ce fichier n'est pas dans cette version de l'app.
+c1433097	Cela n'indique pas de quel podcast il s'agit.
+8c42036b	Cette transcription n'est pas dans la forme où l'app garde les transcriptions.
+ef83abf2	Farsi

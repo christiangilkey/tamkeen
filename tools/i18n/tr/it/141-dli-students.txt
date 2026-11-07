@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Aggiungere {0:lower} alle lingue che stai imparando?
+a8d0289a	I tuoi contenuti DLI compaiono in Libreria → Corsi mentre studi {0:lower}. Cambi lingua in alto sullo schermo.
+cf87367b	Aggiungi {0:lower}
+baf616d7	Studenti del DLI
+1ca56c2c	Sono uno studente del DLI
+6ea6f7b6	Quale lingua studi al DLI?
+e771fc84	Cambiarla cambia i contenuti DLI che vedi. Ciò che è già stato aggiunto alla tua libreria, come un podcast, resta.
+8be3c943	Password
+ad4d70da	Inserisci la password del DLI per sbloccare i contenuti della tua lingua.
+e7e224bf	Per gli studenti di arabo del DLI: vengono aggiunti podcast alla tua Libreria con ogni episodio già trascritto.
+1526a17e	Sblocca
+1b888de1	Questa password non è corretta.
+4e9853b6	Sbloccato.
+96e82cdb	Apri i contenuti DLI
+a865a31b	{0} non è ancora tra le lingue che stai imparando.
+c5aedd6b	Scegli qui sopra la tua lingua del DLI per vederne i contenuti.
+554f5c45	I tuoi contenuti DLI sono in Libreria → Corsi → DLI.
+1095a575	I tuoi contenuti DLI sono in Libreria → Corsi → DLI, mentre studi {0:lower}.
+e9ae5bf5	Bloccare i contenuti DLI?
+89ea40fd	Vengono nascosti di nuovo su tutti i tuoi dispositivi finché non si inserisce la password. Ciò che è già stato aggiunto alla tua libreria, come un podcast, resta.
+891ebccd	Blocca
+2b52679a	{0} kB
+afa42ccd	{0} al DLI
+4cb10069	I contenuti per gli studenti di {0:lower} del DLI arriveranno presto.
+3ccfab05	1 episodio, già trascritto
+ba723b41	{0} episodi, già trascritti
+5a677cd0	Aggiungi ai miei podcast
+f1678504	{0} è nei tuoi podcast, con ogni episodio già trascritto.
+b1b8530b	Apertura…
+9056f96b	Salva una copia
+9d8e4017	Non è stato possibile aprire questo file.
+6ce6c512	File
+3ff33014	Non è stato possibile aprire i contenuti DLI. Sbloccali di nuovo in Impostazioni.
+2c3cafa4	File
+ea5a129e	Non è stato possibile leggere il file DLI (HTTP {0}).
+ded4cdfa	Questo file non è in questa versione dell'app.
+c1433097	Qui non c'è scritto di quale podcast si tratta.
+8c42036b	Quella trascrizione non è nella forma in cui l'app conserva le trascrizioni.
+ef83abf2	Farsi

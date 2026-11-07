@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Idugang ang {0} sa mga pinulongan nga imong gitun-an?
+a8d0289a	Makita ang imong DLI content sa Library → Mga kurso samtang nagtuon ka og {0}. Ilisan nimo ang pinulongan sa ibabaw sa screen.
+cf87367b	Idugang ang {0}
+baf616d7	Mga estudyante sa DLI
+1ca56c2c	Estudyante ko sa DLI
+6ea6f7b6	Unsang pinulongan ang imong gitun-an sa DLI?
+e771fc84	Kon ilisan nimo, mausab ang DLI content nga imong makita. Ang nadugang na sa imong library, sama sa podcast, magpabilin.
+8be3c943	Password
+ad4d70da	Isulod ang DLI password aron ma-unlock ang content para sa imong pinulongan.
+e7e224bf	Para sa mga estudyante sa Arabiko sa DLI: may mga podcast nga idugang sa imong Library, na-transcribe na ang matag episode.
+1526a17e	I-unlock
+1b888de1	Dili sakto kana nga password.
+4e9853b6	Na-unlock na.
+96e82cdb	Ablihi ang DLI content
+a865a31b	Ang {0} wala pa sa mga pinulongan nga imong gitun-an.
+c5aedd6b	Pilia sa ibabaw ang imong pinulongan sa DLI aron makita ang content niini.
+554f5c45	Ang imong DLI content anaa sa Library → Mga kurso → DLI.
+1095a575	Ang imong DLI content anaa sa Library → Mga kurso → DLI, samtang nagtuon ka og {0}.
+e9ae5bf5	I-lock ang DLI content?
+89ea40fd	Matago kini pag-usab sa tanan nimong device hangtod isulod ang password. Ang nadugang na sa imong library, sama sa podcast, magpabilin.
+891ebccd	I-lock
+2b52679a	{0} kB
+afa42ccd	DLI {0}
+4cb10069	Hapit na moabot ang content para sa mga estudyante sa {0} sa DLI.
+3ccfab05	1 ka episode, na-transcribe na
+ba723b41	{0} ka episode, na-transcribe na
+5a677cd0	Idugang sa akong mga podcast
+f1678504	Anaa na sa imong mga podcast ang {0}, na-transcribe na ang matag episode.
+b1b8530b	Giablihan…
+9056f96b	Pag-save og kopya
+9d8e4017	Dili maablihan kini nga file.
+6ce6c512	Mga file
+3ff33014	Dili maablihan ang DLI content. I-unlock kini pag-usab sa Settings.
+2c3cafa4	File
+ea5a129e	Dili mabasa ang DLI file (HTTP {0}).
+ded4cdfa	Wala kini nga file sa kini nga bersyon sa app.
+c1433097	Wala kini moingon kung asang podcast kini.
+8c42036b	Kana nga transcript wala sa porma nga gigamit sa app sa pagtipig og mga transcript.
+ef83abf2	Farsi

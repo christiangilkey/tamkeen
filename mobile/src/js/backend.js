@@ -21,6 +21,7 @@ import { phoneCanReach } from "./cardvoice.js";
 import * as phoneReels from "./reels-phone.js";
 import { anki, requestAnkiSync } from "./anki-phone.js";
 import { cleanInfo, cleanTitleId, displayTitle } from "./netflix-ttml.js";
+import { checkPayload } from "./dli.js";
 
 export class ApiError extends Error {}
 
@@ -771,6 +772,50 @@ const routes = [
     }
     changed();
     return { episode: episodeOut(episodeOf(e.uid) || e), transcribed, kept_own: keptOwn, added_feed: added };
+  }],
+  // Ready-made transcripts for a podcast: the DLI students' podcasts (web/js/dlicontent.js), the twin of
+  // app/api/premade.py. The podcast is followed the ordinary way (addFeed) when asked and not followed
+  // yet; each episode is found by its guid, else its audio address, and its transcript (the sync's own
+  // format, as a t_<episode>.json.gz file brings it) stored as the sync stores a downloaded one. An
+  // episode with a transcript keeps it. Items without a transcript only ask which would take one
+  // (`need`). What is stored goes to Drive with the next sync, like a transcript made here.
+  ["POST", /^\/premade$/, async (m, q, body) => {
+    const raw = String(body.feed_url || "").trim();
+    if (!/^https?:\/\//i.test(raw)) throw new ApiError("This doesn't say which podcast it is.");
+    const lang = isLanguage(body.language) ? body.language : null;
+    let feed = feedOf(await feedUid(normalizeUrl(raw)));
+    let added = false;
+    if ((!feed || feed.deleted || builtIn(feed)) && body.follow) {
+      feed = feedOf((await addFeed({ url: raw, title: body.title }, lang || studyLanguage())).id);
+      added = true;
+    }
+    const out = { feed_id: null, added_feed: added, need: [], stored: 0, kept: 0, missing: 0 };
+    if (!feed || feed.deleted || builtIn(feed)) return out;
+    out.feed_id = feed.uid;
+    const items = Array.isArray(body.items) ? body.items.slice(0, 5000) : [];
+    const pending = new Set((await kv.get("pending_transcripts")) || []);
+    for (const [i, item] of items.entries()) {
+      const guid = String((item && item.guid) || "").replace(/\s+/g, " ").trim().slice(0, 500);
+      const audioUrl = /^https?:\/\//i.test(String((item && item.audio_url) || "").trim()) ? String(item.audio_url).trim().slice(0, 1000) : "";
+      if (!guid && !audioUrl) { out.missing++; continue; }
+      const uid = await episodeUid(feed.uid, guid || audioUrl);
+      const e = liveEpisodes().find((x) => x.feed_uid === feed.uid && (x.uid === uid || (guid && x.guid === guid)))
+        || (audioUrl ? liveEpisodes().find((x) => x.feed_uid === feed.uid && x.audio_url === audioUrl) : null);
+      if (!e) { out.missing++; continue; }
+      const job = cloud.jobOf(e.uid);
+      if (e.transcript_rev || (job && (job.status === "downloading" || job.status === "transcribing"))) { out.kept++; continue; }
+      if (!item.payload) { out.need.push(i); continue; }
+      const payload = checkPayload(item.payload);
+      if (!payload) throw new ApiError("That transcript isn't in the form the app keeps transcripts in.");
+      cloud.cancel(e.uid); // queued here meanwhile: the ready-made one makes that unnecessary
+      await transcripts.put(e.uid, payload);
+      Object.assign(e, { transcript_rev: payload.rev, model: payload.model, transcribe_requested_at: null, updated_at: now() });
+      pending.add(e.uid);
+      out.stored++;
+    }
+    if (out.stored) await kv.set("pending_transcripts", [...pending]);
+    if (added || out.stored) changed();
+    return out;
   }],
   ["GET", /^\/youtube\/([\w-]{11})$/, async (m) => { // a video already here with its captions
     const fuid = await feedUid(YOUTUBE_FEED_URL);

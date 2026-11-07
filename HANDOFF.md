@@ -7564,3 +7564,95 @@ out of a BANANA").
 - **Not checked**: a real AI key, a real phone, Scan with a real photo of phrases, the desktop window (same code).
   Ideas: Thai polite particles could be dropped for the sentence search (ขอบคุณครับ finds nothing); Japanese inflected
   verbs count as phrases with the device's splitter (harmless: the whole is looked up as one word first).
+
+## Ready-made transcripts of a whole podcast: tools/dli/transcribe_feed.py (2026-11-06; helper for the DLI feature; NOT committed)
+- `tools/dli/transcribe_feed.py FEED_URL OUT_FOLDER --data DATA_FOLDER` runs the desktop's own pipeline in-process
+  (feeds.add_feed, jobs.enqueue + jobs.worker, the speech scan, tashkeel's worker) and writes, per episode,
+  `<guid made safe>.json` = exactly `sync.engine.transcript_payload(id)` (installable with `store_transcript`) plus
+  `index.json` (feed_url/uid/title; per episode guid, uid, title, audio_url, audio_type, pub_date ISO + published
+  seconds, duration, transcript file, words, vowels). Docstring at the top says it all.
+- Safety: DATA_FOLDER must be new or carry its marker `.tamkeen-transcribe-feed`; refuses a library with
+  google_refresh_token or google_email set (read-only check, again after init and on every progress poll), the real
+  `%APPDATA%\ArabicPodcastStudio`, and folders inside the repo (also for OUT_FOLDER). Never signs in or starts sync.
+  Borrows `models\faster-whisper` and `gpu-libs` from the real data folder as junctions and removes them at the end
+  with `cmd /c rmdir` (`--unlink` does only that). Deliberately NOT `main.startup_checks` (its pending GPU-libs
+  removal would go through the junction). The vowel model goes into DATA_FOLDER's own `models\tashkeel`.
+- Settings = a new install on this PC: study_language ar, model `hardware.recommend_model` (large-v3 here), beam 5,
+  stt_mode local. Order = the feed's own (Arabic101 lists Unit 01 first though it was published last).
+- **Arabic101** (https://feed.podbean.com/arabic101/feed.xml, 50 episodes, 4.69 h): all 50 done on the RTX 5070 Ti
+  (`faster-whisper:large-v3:cuda`, no CPU fallback needed) in ~22 min including downloads and vowels. Output
+  `../dli-content/arabic101/` (50 files + index.json); work library `../dli-work/arabic101-data/` (audio kept, never
+  signed in). Standard Arabic drill sentences, numbered, all with word timings and vowels; the spoken English intro
+  ("Unit 1 Chapter 1 Review") is in Latin letters in 30 episodes and in Arabic letters in 17; ~6 lines in 5 episodes
+  (ch. 21, 30, 40, 43, 45) repeat or garble a sentence, with collapsed (zero-length) word times. 6 lines falsely
+  flagged as dialect guesses (هواية, فوائد, ودي look like Gulf/Egyptian words), so their vowels are held back.
+- Tests: `tests/test_dli_transcribe_feed.py` (5: refusals, file names). Full pytest passes.
+
+## DLI students: a password unlocks material per DLI language; Arabic101 already transcribed (2026-11-06/07; helper of the main chat; NOT committed)
+Owner: "a section in settings where a user can click a checkbox and say if they are a DLI student. If they are, then I want
+them to need to enter a password … instant access to a bunch of specific content"; then "a selector asking which language
+they are studying at DLI (Arabic, Chinese, Farsi, French, Korean, Russian, or Spanish)", and Arabic101
+(feed.podbean.com/arabic101) in the podcasts of DLI Arabic students, every episode transcribed already.
+- **The password is never in the repository** (code, tests, docs, commits). The repo and the web app are public, so the app
+  checks a typed password against a salted hash: `web/js/dli.js` **CHECK** = { salt (16 bytes, base64), iterations 310,000,
+  hash (32 bytes) }, PBKDF2-SHA-256. The content key comes from the password with PBKDF2 too, with its own salt: **KEY** =
+  { salt, iterations } in the same file. Both were made once by a script outside the repo. Before hashing, a typed password
+  is normalised: NFKC, every space removed, capitals (`normalisePassword`), so small letters and spaces work. To change the
+  password: make a new CHECK and KEY salt with `dli.makeCheck` in a scratch script, paste the values, package the content
+  again with the new password; everyone unlocks again. (The hash is public, so the password could be guessed offline; the
+  310,000 rounds slow that down, and a longer password would be stronger.)
+- **Where**: Settings → Languages → card **DLI students** (`web/js/components/dlicard.js`, on both Settings pages; FINDS
+  `dli`): "I'm a DLI student" / "Defense Language Institute"; ticked: "Which language are you studying at DLI?" (7 tiles,
+  codes ar zh fa fr ko ru es), the password with **Unlock** ("That password isn't right."), then "Unlocked." with where the
+  content is and **Open DLI content**. Choosing a DLI language that isn't one of the learner's languages opens an in-app box
+  offering to add it (never added silently); declined, a line with "Add X" stays. Unticking asks first (in-app box), then
+  clears `dli_student` and `dli_key` (the language is kept); nothing in the library is removed.
+  Content: Library → Courses → a third tab **DLI** (`web/js/components/dlipanel.js`, lock icon added to icons.js), shown when
+  unlocked and the DLI language is the language studied now (`dliShown`; `#/library?show=courses&tab=dli`). It lists the
+  language's podcasts (Open, or "Add to my podcasts" for one removed) and files (grouped; open in a box: audio, video,
+  pictures, text, PDF, "Save a copy"); with nothing yet: "Content for DLI X students is coming soon."
+- **Settings, synced like the AI keys** (aikeys KEYS in `web/js/aikeys.js` and `app/aikeys.py`, `app/db.py` DEFAULT_SETTINGS,
+  `mobile/src/js/store.js` DEFAULTS, `app/api/limits.py` SETTING_RULES): `dli_student` "on"/"", `dli_language`, `dli_key`
+  (the content key, base64; in `db.SECRET_SETTINGS`: hidden from other programs, left out of backups) and `dli_added`
+  ("ar:arabic101 …": podcasts added once, so one the learner removed isn't added again).
+- **Encrypted files**: `web/dli/index.bin` and `web/dli/<32 hex>.bin` (AES-GCM; first bytes version + flags, then the IV; the
+  file's name is checked too, so files can't be swapped; text and JSON gzipped first). The decrypted index:
+  `{ v, made, content: { ar: [...], zh: [], … } }`, podcast items `{ id, title, feed, episodes: [{ guid, audio, title, file, sha }] }`,
+  file items `{ id, title, name, type, size, group, sha }`. **Committed now: only an encrypted empty index** (every language
+  "coming soon"); `mobile/scripts/build-www.mjs` copies `dli` and the four new js files.
+- **How to add content later**:
+  1. Put it in `C:\Users\chris\Documents\arabic-tts\dli-content\<code>\` (outside the repo; README.txt there explains).
+     A podcast = a folder with `index.json` (feed_url, feed_title, episodes with guid, audio_url, title, transcript) and one
+     transcript per episode in the sync's format (`transcript_payload`), as `tools/dli/transcribe_feed.py` writes them.
+     Any other file is listed in the DLI tab; sub-folders become groups; file names become titles.
+  2. In PowerShell, in podcast-studio: `$env:DLI_PASSWORD = "<the password>"` then `node tools/dli/encrypt.mjs`
+     (the password only ever goes in that environment variable). It refuses a wrong password, encrypts into `web/dli/`,
+     keeps the encrypted copy of anything unchanged (found through the old index), deletes copies nothing uses, and lists what
+     it left out (exit 1). `--empty` writes an empty index; `--from` / `--out` use other folders.
+  3. `node --test tests/js/dli.test.mjs` with DLI_PASSWORD still set also searches every repo file for the password. Then the
+     release carries `web/dli/`.
+- **Arabic101**: `dli-content\arabic101\` (50 transcripts by the transcription helper) counts as `ar\arabic101` until moved
+  there (`ALIASES` in encrypt.mjs). On the way, `tools/dli/fixes.mjs` `fixIntro` writes the spoken English intro as
+  "Unit N Chapter N Review" in Latin letters (numbers from the episode title) on the same times, as one line: 26 were right
+  already, 4 re-cased, 17 were in Arabic letters, 3 have none (left alone). **Not packaged into web/dli/ or committed yet**:
+  waits for the owner's word that the podcast's creator agreed. At release: step 2 above.
+- **Adding the podcasts** (`web/js/dlicontent.js`): `startDli` (both shells' boot) runs `addDliPodcasts` 4 s after start and
+  after each sync, one run at a time; Settings runs it on unlocking or choosing a language. `POST /api/premade`
+  (`app/api/premade.py`; the phone's twin in `mobile/src/js/backend.js`): follows the podcast the ordinary way
+  (`feeds.add_feed` / `addFeed`, filed under the DLI language) when asked and not followed; matches episodes by uid/guid,
+  then audio address; items without a transcript only report `need` (so only those are decrypted); a transcript is checked
+  (`clean_payload` / `dli.checkPayload`, twins: tests/test_premade.py compares them) and stored with the sync's own code
+  (`engine.store_transcript`; the phone: `transcripts.put` and `transcript_rev` = its rev), then marked for upload
+  (synced_rev NULL / pending_transcripts) so the learner's other devices get it through Drive like any transcript. An
+  episode with a transcript, or being transcribed, keeps it. Re-running changes nothing. Audio streams from the feed.
+- Tests: `tests/js/dli.test.mjs` (11: hash, typing, wrong password, encrypt/decrypt, the tool, the intro fix, the shipped
+  files, the password nowhere: quoted texts in the DLI files hashed and compared, plus a full search with DLI_PASSWORD set),
+  `tests/test_premade.py` (6, with the settings). Strings: tr 141 (40 × 16); "Farsi" is translated now (was ignored); the institute's name, the
+  tab's "DLI" and three developer errors are in ignore.txt.
+- **Checked**: the phone build (scratch copy with fake content and a fake feed, headless Chrome at 390 px, fresh profile, never
+  signed in): tick, Arabic and the offer to add it, wrong password, the real one typed in small letters with a space, the
+  podcast added with both transcripts and marked for upload, again = nothing, DLI tab, a text file and a picture, the episodes
+  "Done", a transcript, Chinese "coming soon" with the Arabic podcast kept, lock box, locked, search. The desktop server on a
+  fresh data folder: real password, the real Arabic101 feed followed (50 episodes) and the real transcripts stored, served
+  from a scratch package so the repo's web/dli stayed empty. Pictures: `..\tamkeen-shots\dli\`. **Not checked**: a real
+  phone or iPhone, the web app on GitHub Pages (the feed through the go-between server), two real devices syncing.

@@ -1498,6 +1498,8 @@ async function boot() {
     emit("feeds", { refreshed: true });
   }).catch((e) => console.warn(e));
   check().then(lookForEpisodes, lookForEpisodes);
+  // DLI students: their DLI language's podcasts, with transcripts, once unlocked (dlicontent.js)
+  import("./dlicontent.js").then(({ startDli }) => startDli()).catch(() => {});
   planChecks();
   // The two-way sync with the Tamkeen deck in AnkiDroid (off until switched on in Settings):
   // on start, on return to the app, and every 10 minutes while open.

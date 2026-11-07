@@ -488,6 +488,13 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "online_from": "",              # age check for Friends/chat/guilds (web/js/agegate.js): "", "ok" or "YYYY-MM" (turns 16; synced: aikeys.KEYS)
     "mnemonic_prefs": "",           # what the free Mnemonic maker learned from Use and thumbs down (JSON; synced: aikeys.KEYS)
     "mnemonic_learn_own": "",       # "Learn from my own mnemonics" (web/js/review/ownmnemonic.js): "off", else on (synced: aikeys.KEYS)
+    # DLI students (web/js/dli.js; all synced: aikeys.KEYS): ticked ("on"), the language studied at DLI,
+    # the content key the password made (never the password; a secret, so left out of backups) and the
+    # DLI podcasts already added once ("ar:arabic101 ...").
+    "dli_student": "",
+    "dli_language": "",
+    "dli_key": "",
+    "dli_added": "",
     # Who makes example sentences and mnemonics (web/js/helpersource.js): "free", "ai" or "" (AI when it can be used).
     "sentence_source": "",
     "mnemonic_source": "",
@@ -523,7 +530,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
 
 # Settings that hold secrets: never exported in backups.
 SECRET_SETTINGS = ("llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_key_grok", "stt_key_groq", "stt_key_openai",
-                   "tts_key_azure", "google_refresh_token", "anki_token")
+                   "tts_key_azure", "dli_key", "google_refresh_token", "anki_token")
 
 
 def get_settings() -> dict[str, Any]:

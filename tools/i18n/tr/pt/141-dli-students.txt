@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Adicionar {0:lower} aos idiomas que você está aprendendo?
+a8d0289a	Seu conteúdo do DLI aparece em Biblioteca → Cursos enquanto você estuda {0:lower}. Você troca de idioma no alto da tela.
+cf87367b	Adicionar {0:lower}
+baf616d7	Alunos do DLI
+1ca56c2c	Sou aluno do DLI
+6ea6f7b6	Qual idioma você estuda no DLI?
+e771fc84	Trocá-lo muda o conteúdo do DLI que você vê. O que já foi adicionado à sua biblioteca, como um podcast, continua lá.
+8be3c943	Senha
+ad4d70da	Digite a senha do DLI para desbloquear o conteúdo do seu idioma.
+e7e224bf	Para alunos de árabe do DLI: podcasts são adicionados à sua Biblioteca com todos os episódios já transcritos.
+1526a17e	Desbloquear
+1b888de1	Essa senha não está certa.
+4e9853b6	Desbloqueado.
+96e82cdb	Abrir o conteúdo do DLI
+a865a31b	{0} ainda não está entre os idiomas que você está aprendendo.
+c5aedd6b	Escolha acima seu idioma do DLI para ver o conteúdo dele.
+554f5c45	Seu conteúdo do DLI está em Biblioteca → Cursos → DLI.
+1095a575	Seu conteúdo do DLI está em Biblioteca → Cursos → DLI, enquanto você estuda {0:lower}.
+e9ae5bf5	Bloquear o conteúdo do DLI?
+89ea40fd	Ele fica oculto de novo em todos os seus dispositivos até a senha ser digitada. O que já foi adicionado à sua biblioteca, como um podcast, continua lá.
+891ebccd	Bloquear
+2b52679a	{0} kB
+afa42ccd	{0} no DLI
+4cb10069	O conteúdo para alunos de {0:lower} do DLI chega em breve.
+3ccfab05	1 episódio, já transcrito
+ba723b41	{0} episódios, já transcritos
+5a677cd0	Adicionar aos meus podcasts
+f1678504	{0} está nos seus podcasts, com todos os episódios já transcritos.
+b1b8530b	Abrindo…
+9056f96b	Salvar uma cópia
+9d8e4017	Não foi possível abrir este arquivo.
+6ce6c512	Arquivos
+3ff33014	Não foi possível abrir o conteúdo do DLI. Desbloqueie de novo em Configurações.
+2c3cafa4	Arquivo
+ea5a129e	Não foi possível ler o arquivo do DLI (HTTP {0}).
+ded4cdfa	Este arquivo não está nesta versão do app.
+c1433097	Isto não diz de qual podcast se trata.
+8c42036b	Essa transcrição não está no formato em que o app guarda as transcrições.
+ef83abf2	Farsi

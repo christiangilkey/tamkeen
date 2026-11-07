@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Vols afegir {0:lower} a les llengües que aprens?
+a8d0289a	El teu contingut del DLI apareix a Biblioteca → Cursos mentre estudies {0:lower}. Canvies de llengua a dalt de la pantalla.
+cf87367b	Afegeix {0:lower}
+baf616d7	Estudiants del DLI
+1ca56c2c	Soc estudiant del DLI
+6ea6f7b6	Quina llengua estudies al DLI?
+e771fc84	Si la canvies, canvia el contingut del DLI que veus. El que ja s'hagi afegit a la teva biblioteca, com un pòdcast, s'hi queda.
+8be3c943	Contrasenya
+ad4d70da	Escriu la contrasenya del DLI per desbloquejar el contingut de la teva llengua.
+e7e224bf	Per a estudiants d'àrab del DLI: s'afegeixen pòdcasts a la teva Biblioteca amb tots els episodis ja transcrits.
+1526a17e	Desbloqueja
+1b888de1	Aquesta contrasenya no és correcta.
+4e9853b6	Desbloquejat.
+96e82cdb	Obre el contingut del DLI
+a865a31b	{0} encara no és una de les llengües que aprens.
+c5aedd6b	Tria a dalt la teva llengua del DLI per veure'n el contingut.
+554f5c45	El teu contingut del DLI és a Biblioteca → Cursos → DLI.
+1095a575	El teu contingut del DLI és a Biblioteca → Cursos → DLI, mentre estudies {0:lower}.
+e9ae5bf5	Vols bloquejar el contingut del DLI?
+89ea40fd	Es torna a amagar a tots els teus dispositius fins que s'escrigui la contrasenya. El que ja s'hagi afegit a la teva biblioteca, com un pòdcast, s'hi queda.
+891ebccd	Bloqueja
+2b52679a	{0} kB
+afa42ccd	{0} al DLI
+4cb10069	El contingut del DLI per a {0:lower} arribarà aviat.
+3ccfab05	1 episodi, ja transcrit
+ba723b41	{0} episodis, ja transcrits
+5a677cd0	Afegeix als meus pòdcasts
+f1678504	{0} ja és als teus pòdcasts, amb tots els episodis transcrits.
+b1b8530b	Obrint…
+9056f96b	Desa'n una còpia
+9d8e4017	No s'ha pogut obrir aquest fitxer.
+6ce6c512	Fitxers
+3ff33014	No s'ha pogut obrir el contingut del DLI. Torna'l a desbloquejar a Configuració.
+2c3cafa4	Fitxer
+ea5a129e	No s'ha pogut llegir el fitxer del DLI (HTTP {0}).
+ded4cdfa	Aquest fitxer no és en aquesta versió de l'app.
+c1433097	Això no diu de quin pòdcast es tracta.
+8c42036b	Aquesta transcripció no té la forma en què l'app desa les transcripcions.
+ef83abf2	Farsi

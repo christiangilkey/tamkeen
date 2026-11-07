@@ -360,6 +360,11 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "ef83abf2",
+  "k": "Farsi",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"
@@ -3560,6 +3565,181 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "a2484f02",
+  "k": "Add {0} to the languages you're learning?",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "a8d0289a",
+  "k": "Your DLI content shows in Library → Courses while you study {0}. You switch languages at the top of the screen.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "cf87367b",
+  "k": "Add {0}",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "baf616d7",
+  "k": "DLI students",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "1ca56c2c",
+  "k": "I'm a DLI student",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "6ea6f7b6",
+  "k": "Which language are you studying at DLI?",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "e771fc84",
+  "k": "Changing it swaps which DLI content you see. Anything already added to your library, such as a podcast, stays.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "8be3c943",
+  "k": "Password",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "ad4d70da",
+  "k": "Enter the DLI password to unlock the content for your language.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "e7e224bf",
+  "k": "For DLI Arabic students: podcasts are added to your Library with every episode already transcribed.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "1526a17e",
+  "k": "Unlock",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "1b888de1",
+  "k": "That password isn't right.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "4e9853b6",
+  "k": "Unlocked.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "96e82cdb",
+  "k": "Open DLI content",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "a865a31b",
+  "k": "{0} isn't one of the languages you're learning yet.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "c5aedd6b",
+  "k": "Choose your DLI language above to see its content.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "554f5c45",
+  "k": "Your DLI content is in Library → Courses → DLI.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "1095a575",
+  "k": "Your DLI content is in Library → Courses → DLI, while you're studying {0}.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "e9ae5bf5",
+  "k": "Lock the DLI content?",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "89ea40fd",
+  "k": "It is hidden again on all your devices until the password is entered. Anything already added to your library, such as a podcast, stays.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "891ebccd",
+  "k": "Lock",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "2b52679a",
+  "k": "{0} kB",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "33ce4174",
+  "k": "Loading…",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "afa42ccd",
+  "k": "DLI {0}",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "4cb10069",
+  "k": "Content for DLI {0} students is coming soon.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "3ccfab05",
+  "k": "1 episode, already transcribed",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "ba723b41",
+  "k": "{0} episodes, already transcribed",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "5a677cd0",
+  "k": "Add to my podcasts",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "f1678504",
+  "k": "{0} is in your podcasts, every episode already transcribed.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "b1b8530b",
+  "k": "Opening…",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "9056f96b",
+  "k": "Save a copy",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "9d8e4017",
+  "k": "This file couldn't be opened.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "fd52b45d",
+  "k": "Podcasts",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "6ce6c512",
+  "k": "Files",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "3ff33014",
+  "k": "The DLI content couldn't be opened. Unlock it again in Settings.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
   "id": "70afe9ef",
   "k": "Dismiss",
   "f": "web/js/components/fixit.js"
@@ -4932,11 +5112,6 @@
  {
   "id": "30dced67",
   "k": "Open-source licenses",
-  "f": "web/js/components/licenses.js"
- },
- {
-  "id": "33ce4174",
-  "k": "Loading…",
   "f": "web/js/components/licenses.js"
  },
  {
@@ -8263,6 +8438,21 @@
   "id": "52e201f0",
   "k": "{0} cards aren't read out: their voice is switched off in Settings → Card voices.",
   "f": "web/js/devicevoice.js"
+ },
+ {
+  "id": "2c3cafa4",
+  "k": "File",
+  "f": "web/js/dli.js"
+ },
+ {
+  "id": "ea5a129e",
+  "k": "The DLI file couldn't be read (HTTP {0}).",
+  "f": "web/js/dlicontent.js"
+ },
+ {
+  "id": "ded4cdfa",
+  "k": "This file isn't in this version of the app.",
+  "f": "web/js/dlicontent.js"
  },
  {
   "id": "174bac74",
@@ -16110,11 +16300,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "fd52b45d",
-  "k": "Podcasts",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "4019c5e2",
   "k": "Add podcasts with the + button below.",
   "f": "web/js/pages/library.js"
@@ -22910,6 +23095,16 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "c1433097",
+  "k": "This doesn't say which podcast it is.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "8c42036b",
+  "k": "That transcript isn't in the form the app keeps transcripts in.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
   "id": "1d6b4183",
   "k": "That video isn't in the library yet.",
   "f": "mobile/src/js/backend.js"
@@ -23980,6 +24175,16 @@
   "f": "app/api/netflix.py"
  },
  {
+  "id": "43b8dc82",
+  "k": "This podcast's address is on a home network, so it can't be followed from here.",
+  "f": "app/api/premade.py"
+ },
+ {
+  "id": "2e9a26f5",
+  "k": "Couldn't add the podcast: {0}",
+  "f": "app/api/premade.py"
+ },
+ {
   "id": "7200d5dc",
   "k": "Not an Instagram picture.",
   "f": "app/api/reels.py"
@@ -23993,16 +24198,6 @@
   "id": "f0cbe469",
   "k": "No picture.",
   "f": "app/api/reels.py"
- },
- {
-  "id": "43b8dc82",
-  "k": "This podcast's address is on a home network, so it can't be followed from here.",
-  "f": "app/api/shared.py"
- },
- {
-  "id": "2e9a26f5",
-  "k": "Couldn't add the podcast: {0}",
-  "f": "app/api/shared.py"
  },
  {
   "id": "a52aaab5",

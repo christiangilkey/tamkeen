@@ -53,3 +53,5 @@ Power-up
 “and”
 “or”
 “oneself”
+# DLI students (web/js/dli.js DLI_LANGUAGES): the chip for Persian says Farsi, as DLI calls it.
+Farsi

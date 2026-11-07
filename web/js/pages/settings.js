@@ -8,6 +8,7 @@ import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, s
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
+import { dliCard } from "../components/dlicard.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
@@ -132,7 +133,8 @@ function languages(body, status) {
   paintCard();
   const watch = new MutationObserver(paintCard);
   rows.forEach((r) => watch.observe(r, { attributes: true, attributeFilter: ["hidden"] }));
-  return [() => watch.disconnect()];
+  // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
+  return [() => watch.disconnect(), dliCard(body)];
 }
 
 function words(body) {

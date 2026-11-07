@@ -339,7 +339,6 @@ bb45869a  # 먹어요, 먹었어요, 먹고 싶어요
 # answers only the code reads.
 ca024fd6  # Netflix
 b75dba35  # Cantonese  (matched in Netflix's menu, never shown)
-ef83abf2  # Farsi  (the same)
 140fb5eb  # video/mp4; codecs="avc1.42E01E"
 d4bea453  # audio/mp4; codecs="mp4a.40.2"
 dc3c38fd  # Mozilla/5.0 (Windows NT 10.0; …)  (a user agent)
@@ -680,3 +679,11 @@ b9c00699  # "spoken Latin"  (youtube-home.js: Latin's YouTube search words)
 b623b54c  # مقلب في السوق 😂 #ضحك  (mobile reels-phone.js: a preview's sample caption)
 487ddb21  # e.deleted = 0  (app/api/episodes.py: SQL)
 44986cef  # Segment  (app/transcriber/__init__.py __all__: a Python name)
+# DLI students (web/js/dli.js, dlicontent.js): errors only a developer would meet (a broken key or file), the tab's
+# name (an acronym, the same everywhere), and the Settings search words (not shown).
+8b66f560  # The DLI key settings are broken.
+c1d68d4a  # No DLI key.
+9a730cde  # This isn't a DLI file.
+749bb609  # DLI
+8ae3b4f5  # defense language institute dli student military password unlock content course  (Settings search words, not shown)
+8cf2d175  # Defense Language Institute  (the institute's own name, kept in English like the acronym)

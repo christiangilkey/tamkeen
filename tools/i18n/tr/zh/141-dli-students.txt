@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	把{0}加入你正在学的语言吗？
+a8d0289a	你学习{0}时，DLI 内容会显示在 资料库 → 课程 中。在屏幕顶部切换语言。
+cf87367b	添加{0}
+baf616d7	DLI 学员
+1ca56c2c	我是 DLI 学员
+6ea6f7b6	你在 DLI 学习哪种语言？
+e771fc84	更改它会切换你看到的 DLI 内容。已经加入资料库的内容（比如播客）会保留。
+8be3c943	密码
+ad4d70da	输入 DLI 密码，解锁你所学语言的内容。
+e7e224bf	DLI 阿拉伯语学员：播客会加入你的资料库，每一集都已转写好。
+1526a17e	解锁
+1b888de1	密码不对。
+4e9853b6	已解锁。
+96e82cdb	打开 DLI 内容
+a865a31b	{0}还不在你正在学的语言中。
+c5aedd6b	在上方选择你在 DLI 学的语言，即可查看其内容。
+554f5c45	你的 DLI 内容在 资料库 → 课程 → DLI。
+1095a575	你学习{0}时，DLI 内容在 资料库 → 课程 → DLI。
+e9ae5bf5	锁定 DLI 内容？
+89ea40fd	在输入密码之前，它会在你的所有设备上再次隐藏。已经加入资料库的内容（比如播客）会保留。
+891ebccd	锁定
+2b52679a	{0} KB
+afa42ccd	DLI {0}
+4cb10069	DLI {0}学员的内容即将推出。
+3ccfab05	1 集，已转写
+ba723b41	{0} 集，已转写
+5a677cd0	加入我的播客
+f1678504	{0} 已加入你的播客，每一集都已转写好。
+b1b8530b	正在打开…
+9056f96b	保存副本
+9d8e4017	无法打开这个文件。
+6ce6c512	文件
+3ff33014	无法打开 DLI 内容。请在设置中重新解锁。
+2c3cafa4	文件
+ea5a129e	无法读取 DLI 文件（HTTP {0}）。
+ded4cdfa	这个文件不在此版本的应用中。
+c1433097	这里没有说明是哪个播客。
+8c42036b	这份转写文本的格式不是应用保存转写文本的格式。
+ef83abf2	波斯语

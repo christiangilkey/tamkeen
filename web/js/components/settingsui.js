@@ -42,6 +42,7 @@ export const FINDS = [
   { s: "languages", id: "reading", label: "Furigana", words: "kana kanji reading", langs: ["ja"] },
   { s: "languages", id: "reading", label: "Pinyin and characters", words: "tones simplified traditional", langs: ["zh"] },
   { s: "languages", id: "reading", label: "Korean readings", words: "romanization romanisation pronunciation hangul", langs: ["ko"] },
+  { s: "languages", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course" },
   { s: "words", id: "mode", label: "AI explanations or built-in dictionary", words: "offline wiktionary free definitions meanings" },
   { s: "words", id: "key", label: "AI provider and API key", words: "claude gemini openai chatgpt grok key test" },
   { s: "words", id: "aimodel", label: "AI model", words: "price cost tokens cheaper faster" },

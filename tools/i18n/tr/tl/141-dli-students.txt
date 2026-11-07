@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	Idagdag ang {0} sa mga wikang pinag-aaralan mo?
+a8d0289a	Lumalabas ang DLI content mo sa Library → Mga kurso habang nag-aaral ka ng {0}. Nagpapalit ka ng wika sa itaas ng screen.
+cf87367b	Idagdag ang {0}
+baf616d7	Mga estudyante ng DLI
+1ca56c2c	Estudyante ako ng DLI
+6ea6f7b6	Anong wika ang pinag-aaralan mo sa DLI?
+e771fc84	Kapag pinalitan mo ito, nagbabago ang DLI content na nakikita mo. Ang naidagdag na sa library mo, gaya ng podcast, ay mananatili.
+8be3c943	Password
+ad4d70da	Ilagay ang DLI password para i-unlock ang content para sa wika mo.
+e7e224bf	Para sa mga estudyante ng Arabe sa DLI: may mga podcast na idinadagdag sa Library mo, naka-transcribe na ang bawat episode.
+1526a17e	I-unlock
+1b888de1	Mali ang password na iyan.
+4e9853b6	Naka-unlock na.
+96e82cdb	Buksan ang DLI content
+a865a31b	Hindi pa kasama ang {0} sa mga wikang pinag-aaralan mo.
+c5aedd6b	Piliin sa itaas ang wika mo sa DLI para makita ang content nito.
+554f5c45	Nasa Library → Mga kurso → DLI ang DLI content mo.
+1095a575	Nasa Library → Mga kurso → DLI ang DLI content mo, habang nag-aaral ka ng {0}.
+e9ae5bf5	I-lock ang DLI content?
+89ea40fd	Itatago ulit ito sa lahat ng device mo hanggang mailagay ang password. Ang naidagdag na sa library mo, gaya ng podcast, ay mananatili.
+891ebccd	I-lock
+2b52679a	{0} kB
+afa42ccd	DLI {0}
+4cb10069	Malapit nang dumating ang content para sa mga estudyante ng {0} sa DLI.
+3ccfab05	1 episode, naka-transcribe na
+ba723b41	{0} episode, naka-transcribe na
+5a677cd0	Idagdag sa mga podcast ko
+f1678504	Nasa mga podcast mo na ang {0}, naka-transcribe na ang bawat episode.
+b1b8530b	Binubuksan…
+9056f96b	Mag-save ng kopya
+9d8e4017	Hindi mabuksan ang file na ito.
+6ce6c512	Mga file
+3ff33014	Hindi mabuksan ang DLI content. I-unlock ulit ito sa Settings.
+2c3cafa4	File
+ea5a129e	Hindi mabasa ang DLI file (HTTP {0}).
+ded4cdfa	Wala ang file na ito sa bersyong ito ng app.
+c1433097	Hindi nito sinasabi kung aling podcast ito.
+8c42036b	Wala sa anyong ginagamit ng app sa pag-iimbak ng mga transcript ang transcript na iyan.
+ef83abf2	Farsi

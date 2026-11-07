@@ -161,6 +161,12 @@ const SHARED = [
   "js/components/keyhelp.js",
   "js/components/aisetup.js",
   "js/components/freehelpers.js",
+  // DLI students (dli.js): the card in Settings, the Library tab, and the encrypted material itself
+  "js/dli.js",
+  "js/dlicontent.js",
+  "js/components/dlicard.js",
+  "js/components/dlipanel.js",
+  "dli",
   "js/helpersource.js",
   "js/components/settingsui.js",
   "js/components/licenses.js",

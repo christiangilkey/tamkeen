@@ -716,6 +716,8 @@ async function boot() {
   mountXpBadge(document.querySelector(".topbar")); // the game's level and XP, at the end (game/xpbadge.js)
   startBadge();
   startSyncPace();
+  // DLI students: their DLI language's podcasts, with transcripts, once unlocked (dlicontent.js)
+  import("./dlicontent.js").then(({ startDli }) => startDli()).catch(() => {});
   // After each sync, pass on the creature game's state in case another device saved a newer one.
   on("sync", () => api("/settings").then((s) => {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));

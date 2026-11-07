@@ -1,0 +1,40 @@
+# DLI students (Settings → Languages → DLI students; Library → Courses → DLI): components/dlicard.js, dlipanel.js, dlicontent.js, app/api/premade.py and the phone's twin.
+a2484f02	{0} zu den Sprachen hinzufügen, die du lernst?
+a8d0289a	Deine DLI-Inhalte erscheinen unter Bibliothek → Kurse, während du {0} lernst. Die Sprache wechselst du oben auf dem Bildschirm.
+cf87367b	{0} hinzufügen
+baf616d7	DLI-Studierende
+1ca56c2c	Ich studiere am DLI
+6ea6f7b6	Welche Sprache lernst du am DLI?
+e771fc84	Wenn du sie änderst, wechseln die DLI-Inhalte, die du siehst. Was schon in deiner Bibliothek ist, etwa ein Podcast, bleibt.
+8be3c943	Passwort
+ad4d70da	Gib das DLI-Passwort ein, um die Inhalte für deine Sprache freizuschalten.
+e7e224bf	Für DLI-Studierende mit Arabisch: Podcasts kommen in deine Bibliothek, jede Folge schon transkribiert.
+1526a17e	Freischalten
+1b888de1	Das Passwort stimmt nicht.
+4e9853b6	Freigeschaltet.
+96e82cdb	DLI-Inhalte öffnen
+a865a31b	{0} gehört noch nicht zu den Sprachen, die du lernst.
+c5aedd6b	Wähle oben deine DLI-Sprache, um ihre Inhalte zu sehen.
+554f5c45	Deine DLI-Inhalte findest du unter Bibliothek → Kurse → DLI.
+1095a575	Deine DLI-Inhalte findest du unter Bibliothek → Kurse → DLI, während du {0} lernst.
+e9ae5bf5	DLI-Inhalte sperren?
+89ea40fd	Sie sind dann auf allen deinen Geräten wieder verborgen, bis das Passwort eingegeben wird. Was schon in deiner Bibliothek ist, etwa ein Podcast, bleibt.
+891ebccd	Sperren
+2b52679a	{0} kB
+afa42ccd	DLI: {0}
+4cb10069	Inhalte für DLI-Studierende mit {0} kommen bald.
+3ccfab05	1 Folge, schon transkribiert
+ba723b41	{0} Folgen, schon transkribiert
+5a677cd0	Zu meinen Podcasts hinzufügen
+f1678504	{0} ist jetzt in deinen Podcasts, jede Folge schon transkribiert.
+b1b8530b	Wird geöffnet …
+9056f96b	Kopie speichern
+9d8e4017	Diese Datei ließ sich nicht öffnen.
+6ce6c512	Dateien
+3ff33014	Die DLI-Inhalte ließen sich nicht öffnen. Schalte sie in den Einstellungen wieder frei.
+2c3cafa4	Datei
+ea5a129e	Die DLI-Datei ließ sich nicht lesen (HTTP {0}).
+ded4cdfa	Diese Datei ist nicht in dieser Version der App.
+c1433097	Hier steht nicht, um welchen Podcast es geht.
+8c42036b	Dieses Transkript hat nicht die Form, in der die App Transkripte speichert.
+ef83abf2	Farsi

@@ -180,7 +180,8 @@ test("the Library puts Grammar first and keeps a chosen tab for this visit only"
   const library = read("web/js/pages/library.js");
   assert.ok(library.indexOf('data-tab="grammar"') < library.indexOf('data-tab="basics"'), "Grammar on the left");
   assert.match(library, /sessionStorage\.setItem\("courseTab", b\.dataset\.tab\)/);
-  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
+  // (dli: the DLI students' tab, components/dlipanel.js; opened only when a link asks for it or it was chosen)
+  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, dli, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
   assert.doesNotMatch(library, /localStorage\.(get|set)Item\("courseTab"/);
 });
 
