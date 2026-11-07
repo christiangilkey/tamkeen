@@ -487,6 +487,10 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "mnemonic_effort": "off",
     "online_from": "",              # age check for Friends/chat/guilds (web/js/agegate.js): "", "ok" or "YYYY-MM" (turns 16; synced: aikeys.KEYS)
     "mnemonic_prefs": "",           # what the free Mnemonic maker learned from Use and thumbs down (JSON; synced: aikeys.KEYS)
+    "mnemonic_learn_own": "",       # "Learn from my own mnemonics" (web/js/review/ownmnemonic.js): "off", else on (synced: aikeys.KEYS)
+    # Who makes example sentences and mnemonics (web/js/helpersource.js): "free", "ai" or "" (AI when it can be used).
+    "sentence_source": "",
+    "mnemonic_source": "",
     "llm_key_claude": "",
     "llm_key_gemini": "",
     "llm_key_openai": "",

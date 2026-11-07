@@ -32,7 +32,8 @@ import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, pa
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { addToNotes } from "../review/mnemonic.js";
-import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, mnemonicHtml, mnemonicMaker, partSeconds, pastedInto, textBox } from "../review/cardtools.js";
+import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, mnemonicHtml, mnemonicMaker, partSeconds, pastedInto,
+         textBox } from "../review/cardtools.js";
 import { t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
@@ -480,6 +481,21 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     fit(memo);
     more();
     edit(v, "memo", memo.value);
+    if (memoAt.word === v) memoAt.text = memo.value;  // (its keyword is the maker's: Use has learned from it)
+  }
+
+  // ----- the learner's own mnemonics: words in CAPITALS teach the Mnemonic maker (review/ownmnemonic.js) -----
+  // What the notes said when last learned from: only capitals new since then count, once the learner leaves
+  // the box (or the card), so a word half typed is never learned.
+  const memoAt = { word: null, text: "" };
+  function memoDone(v) {
+    if (memoAt.word !== v) return;
+    const before = memoAt.text, now = String(v.memo || "");
+    if (before === now) return;
+    memoAt.text = now;
+    const box = face.querySelector(".memo");
+    learnFromNote(v, before, now, { lang: studyOf(v), at: box && box.isConnected ? box : null,
+      shown: (face.querySelector(".rv-word") || {}).textContent || "" });
   }
 
   function back(v) {
@@ -498,7 +514,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <label class="rv-field"><span>Grammar notes</span><textarea class="notes" rows="1" placeholder="Root, grammar, usage…"></textarea></label>
         <div class="rv-field">
           <div class="rv-field-head"><span>Memorization notes</span><button type="button" class="rv-paste" title="Paste what you copied into Memorization notes">${ICON.paste} Paste</button></div>
-          <textarea class="memo" rows="1" placeholder="A mnemonic, a picture, where you heard it…" aria-label="Memorization notes"></textarea>
+          <textarea class="memo" rows="1" aria-label="Memorization notes"></textarea>
         </div>
         ${mnemonicHtml()}
         <div class="rv-source">
@@ -510,6 +526,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     </div>`;
     face.querySelector(".rv-trash").onclick = () => askDelete(v);
     const memo = face.querySelector(".memo");
+    memo.placeholder = memoPlaceholder();  // (with "Learn from my own mnemonics" on: the sound-alike in CAPITALS)
+    memoAt.word = v;
+    memoAt.text = String(v.memo || "");
+    memo.addEventListener("blur", () => memoDone(v));
     face.querySelector(".rv-paste").onclick = () => pasteInto(memo, v);
     mnemonicMaker(face.querySelector(".rv-mnemo"), v, {
       lang: studyOf(v), onUse: (text) => useMnemonic(v, text), onLayout: more,
@@ -627,6 +647,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (editing) closeEditor(true);  // (an answer button pressed while a text box was open: the text is kept first)
     busy = true;
     flushEdits();
+    memoDone(todo[0]);  // (notes typed and answered without leaving the box: their capitals still count)
     const word = todo[0], uid = uidOf(word), t = Date.now();
     const before = cards.get(uid) || null;
     const day = before ? Math.max(dayNumber(), before.day) : dayNumber();
@@ -677,6 +698,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   function takeBack() {
     if (busy || !undo.length) return;
     flushEdits();
+    if (todo.length) memoDone(todo[0]);
     const last = undo.pop(), uid = uidOf(last.word);
     last.entry[1] = 0;                       // the log holds this same list: 0 means "taken back"
     send(uid, last.entry);
@@ -1124,6 +1146,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (editing) closeEditor(true);  // (the phone's back button with a text box open: what was typed is kept)
     closed = true;
     flushEdits();
+    if (todo.length) memoDone(todo[0]);  // (closed with the notes still being typed: their capitals still count)
     stopStudy();
     clearInterval(ticker);
     document.removeEventListener("visibilitychange", onVisible);

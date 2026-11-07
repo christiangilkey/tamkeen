@@ -50,6 +50,7 @@ export const FINDS = [
   { s: "words", id: "mnemonic", label: "Mnemonic maker", words: "sound-alike memory review thinking" },
   { s: "words", id: "sentencesource", label: "Example sentences: free or AI", words: "sentence example tatoeba wiktionary free no key how it works" },
   { s: "words", id: "mnemonicsource", label: "Mnemonic maker: free or AI", words: "mnemonic keyword memory trick sound-alike free no key how it works" },
+  { s: "words", id: "mnemonicown", label: "Learn from my own mnemonics", words: "capitals capital letters memorization notes own mnemonic keyword sound-alike teach learn" },
   { s: "listening", id: "who", label: "Who writes the transcripts", words: "cloud transcription whisper groq openai speech" },
   { s: "listening", id: "ownmodel", label: "Thai listening model: Pathumma", words: "accuracy mistakes compare groq openai local", langs: ["th"] },
   { s: "listening", id: "ownmodel", label: "Bisaya listening model", words: "buzzasr cebuano accuracy mistakes compare groq openai local", langs: ["ceb"] },

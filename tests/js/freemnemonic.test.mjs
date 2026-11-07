@@ -222,7 +222,7 @@ test("the maker learns the learner's taste from Use and thumbs down, a little at
   assert.ok(p.w["kind:artifact"] > 0 && p.w.two < 0);
   assert.equal(p.n, 52);
   assert.deepEqual(readPrefs(JSON.stringify(p)).w, p.w, "kept as JSON in the synced setting");
-  assert.deepEqual(readPrefs("nonsense"), { w: {}, n: 0 });
+  assert.deepEqual(readPrefs("nonsense"), { w: {}, n: 0, o: [], x: [] });
   assert.ok(Math.abs(prefBonus(p, ["two", "kind:artifact", "untied"])) <= 0.2);
   // On real suggestions: someone who turns down two-word keywords stops getting them first.
   const pron = said("pato", "es");

@@ -10,7 +10,11 @@ import { ExamplePack, markTranslation } from "./lexicon/exampledata.js";
 import { dictionaries, newWordCounter } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
 import { pronunciationOf } from "./review/soundout.js";
+import { soundCore } from "./review/wordcore.js";
+import { matchKey } from "./lexicon/meaningdata.js";
 import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
+import { judgeOwn } from "./review/ownmnemonic.js";
+import { englishSounds } from "./review/mnemonic.js";
 
 const loaded = new Map(); // "examples|es", "keywords|en" -> Promise of the file's data, or null
 
@@ -84,7 +88,10 @@ async function lemmaFinder(lang) {
 export async function freeExample(word, lang, { meaning = "", dialect = courseDialect(lang), skip = [] } = {}) {
   const p = await examplesOf(lang);
   if (!p) return null;
-  const [lemmaOf, newWords] = await Promise.all([lemmaFinder(lang), newWordCounter(lang, word).catch(() => null)]);
+  const [lemmaOf, counter] = await Promise.all([lemmaFinder(lang), newWordCounter(lang, word).catch(() => null)]);
+  // (a phrase's own words aren't new words of its sentence: "por favor" in "Pásame la sal, por favor.")
+  const own = counter ? counter(word) : 0;
+  const newWords = counter && ((s) => Math.max(0, counter(s) - own));
   const found = p.find(word, { lemmaOf, dialect, meaning, newWords, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
   if (!found.length) return null;
   const best = found[0];
@@ -95,29 +102,81 @@ export async function freeExample(word, lang, { meaning = "", dialect = courseDi
 /**
  * How `word` is said, with no AI (review/soundout.js), using Wiktionary's IPA from the examples file when
  * it has the word and `reading` (what the app's dictionaries know: kana, pinyin, vowel marks) otherwise.
+ * `download` false: the examples file only when it is here already (else the spelling rules).
  */
-export async function freePronunciation(word, lang, reading = "", meaning = "", dialect = courseDialect(lang)) {
-  const p = await examplesOf(lang).catch(() => null);
-  return pronunciationOf({ word, lang, ipa: p ? p.ipaOf(word, { verb: /^\s*to\s/i.test(meaning), dialect }) : "", reading });
+export async function freePronunciation(word, lang, reading = "", meaning = "", dialect = courseDialect(lang), { download = true, core = null } = {}) {
+  const p = await examplesOf(lang, { download }).catch(() => null);
+  // Only the word's own part is matched: الكتاب is said kitaab here, "der Hund, -e" Hund (review/wordcore.js). The
+  // result says what was left out (`core`); `core` given = worked out already (wordCoreOf).
+  const c = core || soundCore(word, lang, { isWord: knowsWord(p, lang), reading });
+  const pron = pronunciationOf({ word: c.core, lang, ipa: p ? p.ipaOf(c.core, { verb: /^\s*to\s/i.test(meaning), dialect }) : "", reading: c.reading });
+  return pron && { ...pron, core: c };
+}
+
+/** wordcore.js's `isWord` from the language's examples file: is `form` one of Wiktionary's words there? (Its plain
+ * entries: not the Arabic analyser, which takes و and ال off any word and so says yes to all.) */
+function knowsWord(p, lang) {
+  if (!p) return null;
+  return (form) => {
+    const k = matchKey(form, lang);
+    return !!(k && (p.ipa[k] || (p.words[k] && p.words[k].length)));
+  };
 }
 
 /**
- * The free Mnemonic maker: keywords for card `v` ({text, meaning, pos}) the way mnemonic.js
- * makeMnemonics gives them (with `free: true`). Throws "NO_KEYWORDS" when the English keyword list can't
- * be had (no connection the first time).
+ * The part of card word `word` the Mnemonic maker matches, and what is left out (review/wordcore.js soundCore:
+ * الكتاب -> كتاب "al- left out"), with the examples file as its word list when it is on this device (or `download`).
  */
-export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en", prefs = null } = {}) {
+export async function wordCoreOf(word, lang, reading = "", { download = false } = {}) {
+  const p = await examplesOf(lang, { download }).catch(() => null);
+  return soundCore(word, lang, { isWord: knowsWord(p, lang), reading });
+}
+
+/**
+ * The sound check for the learner's own mnemonics (review/ownmnemonic.js): which of `keywords` (newCapitals')
+ * really sound like card `v`'s word. Only with what is on this device already: nothing is downloaded, and
+ * without a connection it works the same. Resolves to judgeOwn's answer, or null (the word's sounds unknown).
+ */
+export async function checkOwnKeywords(v, lang, keywords, { reading = "", speaks = "en" } = {}) {
+  const here = { download: false };
+  const own = speaks !== "en" && speaks !== lang && OWN_KEYWORDS.has(speaks);
+  const [pron, ownList, englishList, table] = await Promise.all([
+    freePronunciation(v.text, lang, reading, v.meaning, courseDialect(lang), here).catch(() => null),
+    own ? keywordsList(here, speaks).catch(() => null) : null,
+    keywordsList(here).catch(() => null),
+    // (the English word table, its CMU pronunciations, when this device has it: the AI's maker downloads it)
+    dictionaries("en").then((ds) => (ds || []).find((d) => d && d.ipa) || null, () => null),
+  ]);
+  return judgeOwn(v, pron, keywords, { lists: [ownList, englishList].filter(Boolean), english: table ? englishSounds(table) : null });
+}
+
+/**
+ * The free Mnemonic maker: keywords for card `v` ({text, meaning, pos, memo}) the way mnemonic.js
+ * makeMnemonics gives them (with `free: true`). Throws "NO_KEYWORDS" when the English keyword list can't
+ * be had (no connection the first time). `prefs` is what it learned (the setting `mnemonic_prefs`); `ownWords`
+ * false leaves out the sound-alikes the learner wrote themselves ("Learn from my own mnemonics" off).
+ */
+export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en", prefs = null, ownWords = true, core = null } = {}) {
   // The learner's own language when it has a list (and isn't the language being learned): its keywords first,
   // with English ones after them when it has fewer than three that sound close enough.
   const own = speaks !== "en" && speaks !== lang && OWN_KEYWORDS.has(speaks);
   const [ownList, pron] = await Promise.all([own ? keywordsList(undefined, speaks).catch(() => null) : null,
-    freePronunciation(v.text, lang, reading, v.meaning)]);
-  const mine = ownList ? makeFreeMnemonics(v, { pron, list: ownList, avoid, prefs }) : null;
+    freePronunciation(v.text, lang, reading, v.meaning, courseDialect(lang), { core })]);
+  // (the sounds are the core's, `pron.core`: the result carries it for the line under "How it sounds", and the core
+  // itself is no keyword, "taco" for el taco)
+  core = (pron && pron.core) || core;
+  if (core && core.core && core.core !== String(v.text || "").trim()) avoid = [...avoid, core.core];
+  return { ...(await keywordsFor(v, { pron, ownList, avoid, speaks, prefs, ownWords })), core };
+}
+
+// (freeMnemonics, once the sounds are known)
+async function keywordsFor(v, { pron, ownList, avoid, speaks, prefs, ownWords }) {
+  const mine = ownList ? makeFreeMnemonics(v, { pron, list: ownList, avoid, prefs, own: ownWords }) : null;
   if (mine && mine.items.length + mine.parts.length >= 3) return { ...mine, keywordLangs: [speaks] };
   const list = await keywordsList();
   if (!list) { if (mine) return { ...mine, keywordLangs: [speaks] }; throw new Error("NO_KEYWORDS"); }
   // (an English meaning is still best for English keywords: the card's meaning is in the learner's language)
-  const english = makeFreeMnemonics(v, { pron, list, avoid, prefs });
+  const english = makeFreeMnemonics(v, { pron, list, avoid, prefs, own: ownWords });
   if (!mine) return { ...english, keywordLangs: ["en"] };
   const items = [...mine.items, ...english.items].slice(0, 5), parts = [...mine.parts, ...english.parts].slice(0, 3);
   return { ...english, items, parts, asked: mine.asked + english.asked, keywordLangs: [speaks, "en"] };

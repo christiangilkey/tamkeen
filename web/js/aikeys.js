@@ -13,6 +13,7 @@ export const KEYS = ["llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_
   // learner the same way.
   "tts_key_azure", "tts_region_azure", "tts_mode", "tts_voices", "tts_on_save", "tts_latin",
   "mnemonic_prefs",
+  "mnemonic_learn_own", // "Learn from my own mnemonics" (review/ownmnemonic.js): "off", else on
   "online_from"]; // the age check for the online features (agegate.js): "", "ok" or the month the learner turns 16
 export const TIMES = "key_times"; // setting: {key name: when it last changed, here or on another device (whole seconds)}
 const MAX_LENGTH = 2000;

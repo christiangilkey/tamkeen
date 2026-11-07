@@ -26,6 +26,7 @@
 import { PASS, letterPhones, match, phones, soundLabel, wordSounds } from "./phonemes.js";
 import { pronunciation as cmuPronunciation } from "../lexicon/english.js";
 import { COUNTRIES } from "../youtube-home.js";
+import { corePromptLine, soundCore } from "./wordcore.js";
 
 export const MNEMONIC_COUNT = 5;   // keywords shown
 export const KEYWORD_ASK = 15;     // keywords asked for, so that enough pass the sound check
@@ -86,11 +87,17 @@ export const MNEMONIC_SCHEMA = {
  * The question for the AI. `study` and `speaks` are language names in English ("Arabic", "Spanish");
  * `reading` is how the app's dictionary says the word ("" when it has nothing), `variety` the variety
  * the learner chose ("Egyptian Arabic", "Spanish as spoken in Spain"; "" for none); `avoid` lists what
- * was suggested or turned down before, so asking again brings new ones.
+ * was suggested or turned down before, so asking again brings new ones; `examples` are a few mnemonics the
+ * learner wrote themselves ([{word, meaning, note}], review/ownmnemonic.js ownExamples), to show their style.
  */
-export function mnemonicPrompt({ word, meaning = "", study = "Arabic", speaks = "English", avoid = [], reading = "", variety = "" }) {
+export function mnemonicPrompt({ word, meaning = "", study = "Arabic", speaks = "English", avoid = [], reading = "", variety = "", examples = [], coreLine = "" }) {
   const said = variety ? ` in ${variety}` : "";
-  const system = `You help language learners remember words with the keyword method. A keyword is a real ${speaks} word or short phrase that SOUNDS like the ${study} word; a scene is a vivid picture that joins the keyword to the word's meaning, so that hearing the word brings back the keyword, and the keyword brings back the meaning.
+  // (the learner's own notes, one line each: the word, its meaning, the note as they wrote it, in quotes)
+  const mine = (Array.isArray(examples) ? examples : []).slice(0, 3)
+    .map((e) => [text((e || {}).word, 60), text((e || {}).meaning, 120), text((e || {}).note, 240)])
+    .filter(([w, , n]) => w && n)
+    .map(([w, m, n]) => `- ${w}${m ? ` (${m})` : ""}: "${n.replace(/"/g, "'")}"`);
+  const system =`You help language learners remember words with the keyword method. A keyword is a real ${speaks} word or short phrase that SOUNDS like the ${study} word; a scene is a vivid picture that joins the keyword to the word's meaning, so that hearing the word brings back the keyword, and the keyword brings back the meaning.
 1. First work out exactly how the ${study} word is said${said}: a simple romanization, its IPA, its syllables (each with its own romanization and IPA, together making the whole word) and which syllable is stressed (0 = the first; in a language without word stress, the most prominent one). When the message gives the app's reading of the word, follow it.
 2. Then find ${KEYWORD_ASK} keywords. Each is made only of real ${speaks} words that a ${speaks} speaker knows (dictionary words, everyday phrases, well-known names), at most four words, in the usual ${speaks} spelling and script. Say it aloud in your head and compare it sound by sound with the word's IPA; the first sound and the stressed syllable matter most. A keyword may sound like the whole word or like only some of its syllables. Never spell out the word's sounds (like "nah-wee-yah"), never invent a word, never translate the word, never repeat it.
 For each keyword give: "ipa", how a ${speaks} speaker says the keyword; "covers", the numbers of the word's syllables it sounds like; "meaning_link": "strong" when the keyword itself already points to the word's meaning (for German "Ente", duck: a keyword about birds or ponds), "loose" when it is only distantly related, "none" when it isn't related; "link", a few words on how it connects to the meaning ("" for none); "scene", one sentence in ${speaks} of at most 18 words: a concrete, vivid, slightly absurd picture in which the keyword and the meaning meet.
@@ -99,9 +106,12 @@ Sound comes first: a keyword that doesn't sound like the word is useless, howeve
 Before answering, check every keyword: is it real ${speaks}, does it really sound like the word, and does its scene make the meaning clear? Replace any that fail. Return only the JSON object.`;
   const user = [
     `${study} word: ${word}`,
+    // (`coreLine`, wordcore.js corePromptLine: the card says الكتاب and `word` is كتاب, the part the keywords match)
+    coreLine,
     meaning ? `Its meaning: ${meaning}` : "",
     reading ? `How it is said, from the app's dictionary: ${reading}` : "",
     avoid.length ? `Already suggested or turned down, so give different ones: ${avoid.join("; ")}` : "",
+    mine.length ? `Mnemonics this learner wrote themselves (the keyword in capitals), to show the kind of scene they like. Write your scenes in a similar style, with new keywords that sound like this word:\n${mine.join("\n")}` : "",
     `Give ${KEYWORD_ASK} keywords in ${speaks}, each with its scene.`,
   ].filter(Boolean).join("\n");
   return { system, user, schema: MNEMONIC_SCHEMA };
@@ -312,21 +322,31 @@ export function englishSounds(table) {
  * Keywords for word `v` ({text, meaning}). `ask(prompt)` sends the question to the AI and resolves to
  * its JSON answer; `study` and `speaks` name the two languages; `reading` and `variety` as in
  * mnemonicPrompt; `ownSounds` as in rankSuggestions, or a promise of it (it may still be loading while
- * the AI thinks; if it fails, the AI's IPA is used); `avoid` what was shown or turned down before.
- * Resolves to {pron, items, parts, checked, asked} (`asked`: how many keywords came back). An answer
+ * the AI thinks; if it fails, the AI's IPA is used); `avoid` what was shown or turned down before;
+ * `examples` the learner's own mnemonics, as in mnemonicPrompt.
+ * Only the word's own part is matched (review/wordcore.js): `core` is soundCore's answer for `v.text` (or `lang`, the
+ * language's code, to work it out here); the AI is given the core (كتاب for الكتاب) and told what was left out, and
+ * `reading` should be the core's (core.reading).
+ * Resolves to {pron, core, items, parts, checked, asked} (`asked`: how many keywords came back). An answer
  * with no keywords at all is an error; one whose keywords all fail the sound check is not (it is said
  * honestly on the card).
  */
-export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading = "", variety = "", ownSounds = null }) {
+export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading = "", variety = "", ownSounds = null, examples = [], core = null, lang = "" }) {
+  if (!core && lang) {
+    core = soundCore(v.text, lang, { reading });
+    reading = core.reading;
+  }
+  const word = (core && core.core) || v.text;
   const [answer, own] = await Promise.all([
-    ask(mnemonicPrompt({ word: v.text, meaning: v.meaning, study, speaks, avoid, reading, variety })),
+    ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples, coreLine: corePromptLine(v.text, core) })),
     Promise.resolve(ownSounds).catch(() => null),
   ]);
-  const keywords = readKeywords(answer, v.text);
-  const parts = readParts(answer, v.text);
+  // (neither the card's word nor its core is a keyword: el taco is no "taco")
+  const keywords = readKeywords(answer, v.text).filter((k) => !sameKeyword(k.keyword, word));
+  const parts = readParts(answer, v.text).filter((k) => !sameKeyword(k.keyword, word));
   if (!keywords.length && !parts.length) throw new Error("No sound-alikes came back. Try again.");
   const pron = readPronunciation(answer);
-  return { pron, asked: keywords.length + parts.length, ...rankSuggestions({ pron, keywords, parts, ownSounds: own, avoid }) };
+  return { pron, core, asked: keywords.length + parts.length, ...rankSuggestions({ pron, keywords, parts, ownSounds: own, avoid }) };
 }
 
 /** What "Use" puts in Memorization notes: the keyword and its scene. */

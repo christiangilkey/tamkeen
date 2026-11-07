@@ -293,10 +293,12 @@ export function aiSetup(section, { transport }) {
   mnModel.onchange = async () => { await saveSettings({ [`mnemonic_model_${prov()}`]: mnModel.value }); paintThinking(); };
   mnThink.onchange = () => saveSettings({ mnemonic_effort: mnThink.value });
   paintMnemonic();
-  // What the free Mnemonic maker learned from Use and thumbs down (review.js tasteFrom), and forgetting it.
+  // What the free Mnemonic maker learned from Use and thumbs down (review.js tasteFrom) and from the learner's own
+  // mnemonics (review/ownmnemonic.js), and forgetting it: the whole setting, so its weights, the learner's own
+  // sound-alikes and their example notes for the AI all go (freehelpers.js's Forget it does the same).
   function paintTaste() {
-    const n = readPrefs(cur().mnemonic_prefs).n;
-    $("#mn-taste").hidden = !n;
+    const learned = readPrefs(cur().mnemonic_prefs), n = learned.n;
+    $("#mn-taste").hidden = !n && !learned.o.length && !learned.x.length;
     $("#mn-taste span").textContent = n === 1 ? t("Without AI, the Mnemonic maker has learned from 1 of your choices.")
       : t("Without AI, the Mnemonic maker has learned from {0} of your choices.", n);
   }

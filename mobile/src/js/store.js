@@ -94,6 +94,8 @@ export const DEFAULTS = {
   definer_model_claude: "", definer_model_gemini: "", definer_model_openai: "", definer_model_grok: "",
   // The review card's Mnemonic maker: its own model ("" = recommended, a step up from the cheapest; "same" = the lookups') and thinking (definer.mnemonicConfig).
   mnemonic_model_claude: "", mnemonic_model_gemini: "", mnemonic_model_openai: "", mnemonic_model_grok: "", mnemonic_effort: "off", mnemonic_prefs: "", online_from: "",
+  mnemonic_learn_own: "", // "Learn from my own mnemonics" (review/ownmnemonic.js): "off", else on; synced with the keys
+  sentence_source: "", mnemonic_source: "", // who makes example sentences and mnemonics (helpersource.js): "free", "ai" or ""
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.
   stt_mode: "local", stt_provider: "groq", stt_model_groq: "", stt_model_openai: "", stt_key_groq: "", stt_key_openai: "",

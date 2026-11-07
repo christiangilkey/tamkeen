@@ -66,3 +66,18 @@ def test_phone_and_computer_agree():
               " console.log(JSON.stringify(cases.map(([s, t]) => [m.takeKeys(s, t), m.keysFromSettings(s)]))); })")
     out = subprocess.run(["node", "-e", script, json.dumps(cases)], cwd=ROOT, capture_output=True, text=True, check=True).stdout
     assert json.loads(out) == [[aikeys.take(s, t), aikeys.from_settings(s)] for s, t in cases]
+
+
+def test_the_mnemonic_makers_choices_are_kept_and_learning_from_own_notes_syncs(fresh_db):
+    """Settings -> Word definitions: who makes sentences and mnemonics, and "Learn from my own mnemonics"
+    (web/js/review/ownmnemonic.js) are kept on the computer (they were dropped before, being unknown names);
+    the switch follows the learner to their other devices like the Mnemonic maker's taste."""
+    from fastapi.testclient import TestClient
+
+    from app.main import create_app
+
+    with TestClient(create_app()) as client:
+        s = client.patch("/api/settings", json={"mnemonic_source": "free", "sentence_source": "ai", "mnemonic_learn_own": "off"}).json()
+    assert (s["mnemonic_source"], s["sentence_source"], s["mnemonic_learn_own"]) == ("free", "ai", "off")
+    assert "mnemonic_learn_own" in aikeys.KEYS
+    assert "mnemonic_learn_own" in s[aikeys.TIMES]
