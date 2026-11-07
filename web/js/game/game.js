@@ -1,12 +1,13 @@
 // The game's saved state, and the one function the study screens call: reward().
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
-import { api, on, saveSettings, state as app } from "../app.js";
+import { api, on, saveSettings, state as app, toast } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
-import { COMBO_STEPS, SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
-import { fly } from "./fly.js";
+import { times, working } from "./xpline.js";
+import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
 
 let game = null;
 let saveTimer = 0;
@@ -18,12 +19,17 @@ let hiddenAt = 0;
 if (typeof document !== "undefined") {
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) { hiddenAt = Date.now(); return; }
-    if (hiddenAt && Date.now() - hiddenAt >= SESSION_GAP_MS) session++;
+    if (hiddenAt && Date.now() - hiddenAt >= SESSION_GAP_MS) { session++; paintBadge(); } // (the combo's flame goes out)
     hiddenAt = 0;
   });
 }
-/** Is a combo running in this session (for the chip)? */
+/** Is a combo running in this session (the level badge's flame)? */
 const comboAlive = () => combo.count > 0 && combo.session === session && new Date(combo.at).toDateString() === new Date().toDateString();
+/** The combo as the level badge shows it: alive or not, and what the next lookup will really be multiplied by
+ * (combo, boost and the day's fade together: the same sum its popup will show). */
+export function comboNow() {
+  return { alive: comboAlive(), next: game ? times(wordMultiplier(game, combo.count + 1)) : "" };
+}
 
 export function getGame() {
   listenForAnki();
@@ -74,17 +80,41 @@ export function onGame(fn) {
 export function reward(event, anchor = null) {
   if (!gameOn()) return null;  // the game is switched off in Settings
   const g = getGame();
+  rollDay(g);
   const coins0 = g.coins;
+  // (a word pays once a day: looked up again, its popup says so instead of showing nothing)
+  const repeat = event.type === "word" && g.day.words.includes(String(event.key || ""));
   const result = earn(g, event, { combo, session });
-  if (!result) return null;
+  if (!result) {
+    if (repeat) landXp(null, { from: anchor, repeat: true, next: comboAlive() ? comboNow().next : "", hot: comboAlive() });
+    return null;
+  }
   if (result.cleared) result.glow = cardsGlow(g); // the day's flashcards are done: their reward is glow
   saveGame();
   // (`quiet` events still earn, but without the fountain: the vocab reviewer has its own effects.)
   const loud = (event.type !== "study" && !event.quiet) || result.goalDone;
   if (loud) celebrate(result, anchor);
-  if (event.type !== "study" || result.goalDone) showChip(g, result, loud ? anchor : null, Math.max(0, g.coins - coins0));
+  // Where it shows: the word's popup (what this lookup or save earned, and the combo's next step), and the
+  // level badge in the top bar, which it flies into. Never on Home, which has the game card (it flies them in itself).
+  const hot = comboAlive();
+  const chain = chained(result.type);
+  const next = chain || hot ? times((result.type === "hear" ? hearMultiplier : wordMultiplier)(g, combo.count + 1)) : "";
+  const home = !!document.querySelector(".habitat");
+  landXp(result, { from: home ? null : anchor, loud: loud && !home, chained: chain, hot, next, coins: Math.max(0, g.coins - coins0) });
+  if (loud && !home) tell(result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
+}
+
+/** The rare big moments get a few words too (the app's own short note at the bottom): the day's goal, a new
+ * level, cards matured in Anki. Everything else shows in the popup or the level badge. */
+function tell(result) {
+  const said = result.goalDone ? `Daily goal reached: +${result.xp} XP`
+    : result.type === "anki" && result.matured ? `Anki: ${result.matured} card${result.matured === 1 ? "" : "s"} matured · +${result.xp} XP`
+    : "";
+  const level = result.levelUp ? "Level up! +5 coins" : "";
+  const text = [said, level].filter(Boolean).join(" · ");
+  if (text) try { toast(text, { timeout: 3500 }); } catch { /* no toasts here */ }
 }
 
 /** Credit whatever the Anki companion has reported and the game hasn't counted yet (desktop only:
@@ -97,7 +127,11 @@ export async function checkAnki() {
   const result = earnAnki(g, report && report.days);
   if (!result) return null;
   saveGame();
-  if (result.goalDone || result.matured) celebrate(result, null);
+  const big = !!(result.goalDone || result.matured);
+  if (big) celebrate(result, null);
+  const home = !!document.querySelector(".habitat");
+  landXp(result, { loud: big && !home });
+  if (big && !home) tell(result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* ignore */ } }
   return result;
 }
@@ -160,56 +194,34 @@ function layer() {
   return el;
 }
 
-/** A multiplier as shown on screen: "×2", "×1.2", "×0.8". */
-export const times = (m) => `×${Math.round(m * 100) / 100}`;
 /** Rewards that carry the study session's combo: a word looked up, a grammar example heard. */
 const chained = (type) => type === "word" || type === "hear";
-/** How a multiplied word reward was worked out, e.g. "12 ×2" for +24 XP; "" when nothing multiplied it. */
-export const sumText = (result) => (chained(result.type) && result.base && result.mult && result.mult !== 1 ? `${result.base} ${times(result.mult)}` : "");
+export { times };
+/** How a multiplied word reward was worked out, e.g. "12 ×2" for +24 XP; "" when nothing multiplied it
+ * (xpline.js; the word's popup shows it beside the XP earned). */
+export const sumText = (result) => working(result, chained(result.type));
 
-/** Shoot a small fountain of particles up from a point on screen, with the XP amount. */
+/** A short burst of particles up from a point on screen (the word tapped): no words. What was earned shows
+ * in the word's popup and the top bar's level badge (xpbadge.js), never on top of the page. */
 export function fountain(x, y, result) {
   const fx = layer();
   const tier = result.tier;
-  const count = { common: 6, lucky: 12, jackpot: 26, surprise: 8 }[tier] || 6;
+  const count = { common: 5, lucky: 8, jackpot: 14, surprise: 6 }[tier] || 5;
   const kinds = PARTICLES[tier] || PARTICLES.common;
   for (let i = 0; i < count; i++) {
     const p = document.createElement("span");
     p.className = `fx-p fx-${tier}`;
     p.innerHTML = icon(`fx/${kinds[i % kinds.length]}`, tier === "jackpot" ? 24 : 16);
-    const angle = -Math.PI / 2 + (Math.random() - 0.5) * (tier === "jackpot" ? 2.6 : 1.5);
-    const dist = 30 + Math.random() * (tier === "jackpot" ? 110 : 60);
+    const angle = -Math.PI / 2 + (Math.random() - 0.5) * (tier === "jackpot" ? 2.4 : 1.5);
+    const dist = 24 + Math.random() * (tier === "jackpot" ? 70 : 40);
     p.style.left = `${x}px`;
     p.style.top = `${y}px`;
     p.style.setProperty("--dx", `${Math.cos(angle) * dist}px`);
-    p.style.setProperty("--dy", `${Math.sin(angle) * dist - 20}px`);
-    p.style.animationDelay = `${Math.random() * 90}ms`;
+    p.style.setProperty("--dy", `${Math.sin(angle) * dist - 12}px`);
+    p.style.animationDelay = `${Math.random() * 60}ms`;
     fx.append(p);
-    setTimeout(() => p.remove(), 1100);
+    setTimeout(() => p.remove(), 700);
   }
-  const label = document.createElement("span");
-  label.className = `fx-label fx-${tier}`;
-  label.textContent = result.goalDone ? `Daily goal! +${result.xp} XP`
-    : result.type === "anki" ? `Anki: ${result.matured} card${result.matured === 1 ? "" : "s"} matured · +${result.xp} XP`
-    : result.item ? ` ${result.item === "freeze" ? "Streak freeze" : "Hint card"}!`
-    : `+${result.xp} XP`;
-  if (result.item && !result.goalDone) label.insertAdjacentHTML("afterbegin", result.item === "freeze" ? icon("freeze_badge", 18) : icon("hint"));
-  // The big number is what was earned. When it was multiplied, the working goes beside it
-  // ("+24 XP  12 ×2"), so the multiplier can never read as still to come.
-  const sum = sumText(result);
-  if (sum && !result.goalDone && !result.item) {
-    const small = document.createElement("small");
-    small.textContent = sum;
-    label.append(small);
-  }
-  label.style.left = `${x}px`;
-  label.style.top = `${y}px`;
-  // A quick flash (the owner: "show very briefly, disappears much quicker"): a moment longer only for
-  // the rarer, wordier ones, so they can still be read.
-  const ms = result.goalDone || result.item || result.type === "anki" ? 1100 : tier === "jackpot" ? 1000 : tier === "common" ? 650 : 800;
-  label.style.animationDuration = `${ms}ms`;
-  fx.append(label);
-  setTimeout(() => label.remove(), ms + 50);
   if (tier === "jackpot") {
     document.body.classList.add("fx-shake");
     setTimeout(() => document.body.classList.remove("fx-shake"), 420);
@@ -217,8 +229,11 @@ export function fountain(x, y, result) {
 }
 
 function celebrate(result, anchor) {
-  let x = window.innerWidth / 2;
-  let y = window.innerHeight * 0.4;
+  // From the word that earned it; with no word (the day's goal reached while reading, Anki), from the level
+  // badge it lands in, or else the middle of the screen.
+  const at = badgePoint();
+  let x = at ? at.x : window.innerWidth / 2;
+  let y = at ? at.y : window.innerHeight * 0.4;
   if (anchor && anchor.getBoundingClientRect) {
     const r = anchor.getBoundingClientRect();
     if (r.width) { x = r.left + r.width / 2; y = r.top; }
@@ -229,48 +244,6 @@ function celebrate(result, anchor) {
   }
   fountain(x, y, result);
   sfx(result.tier);
-}
-
-// ---------- the XP readout shown while studying ----------
-// Away from Home there is no habitat on screen, so a small chip appears after each reward: the XP (and
-// coins, when some came too) fly from the word into it (fly.js) and its total rolls up as they land, and
-// while this session's combo is alive it catches fire and shows the multiplier and the next one. No
-// countdown: the combo lasts the whole session.
-let chipTimer = 0;
-// Leaving the page puts the readout away (Home has the full bar).
-if (typeof window !== "undefined") window.addEventListener("hashchange", () => document.getElementById("game-chip")?.classList.remove("show", "hot", "max"));
-function showChip(g, result, from = null, coins = 0) {
-  if (document.querySelector(".habitat")) return; // Home shows all this already (and flies them in itself)
-  let chip = document.getElementById("game-chip");
-  if (!chip) {
-    chip = document.createElement("div");
-    chip.id = "game-chip";
-    chip.innerHTML = `<span class="chip-xp"><b></b> XP</span><span class="chip-coins" hidden>${icon("coin")}<b></b></span><span class="chip-combo" hidden></span>`;
-    const start = Math.max(0, g.xp - (result.xp || 0)); // (what it showed before: it rolls up once the XP lands)
-    chip.querySelector(".chip-xp b").dataset.value = String(start);
-    chip.querySelector(".chip-xp b").textContent = start.toLocaleString();
-    document.body.append(chip);
-  }
-  const fmt = (n) => n.toLocaleString();
-  const xpEl = chip.querySelector(".chip-xp");
-  const coinEl = chip.querySelector(".chip-coins");
-  if (coins > 0 && coinEl.hidden) { coinEl.querySelector("b").dataset.value = String(g.coins - coins); coinEl.querySelector("b").textContent = fmt(g.coins - coins); }
-  coinEl.hidden = coinEl.hidden && !(coins > 0);
-  const hot = chained(result.type) && comboAlive();
-  // What the next lookup (or, after a grammar example, the next example) will really be multiplied by
-  // (combo, boost and the day's fade together), the same sum the popup beside the word shows.
-  const next = times((result.type === "hear" ? hearMultiplier : wordMultiplier)(g, combo.count + 1));
-  const label = chip.querySelector(".chip-combo");
-  label.hidden = !chained(result.type);
-  label.textContent = hot ? `${times(result.mult)} · next ${next}` : `next ${next}`; // while hot, app.css puts the combo flame in front
-  chip.classList.toggle("hot", hot);
-  chip.classList.toggle("max", result.combo >= COMBO_STEPS[COMBO_STEPS.length - 1]);
-  chip.classList.add("show");
-  // (from the word that earned them; with nothing to fly from, the number just rolls)
-  fly("xp", from, xpEl, { arrive: () => rollNumber(xpEl.querySelector("b"), g.xp, fmt) });
-  if (coins > 0) fly("coin", from, coinEl, { arrive: () => rollNumber(coinEl.querySelector("b"), g.coins, fmt) });
-  clearTimeout(chipTimer);
-  chipTimer = setTimeout(() => { chip.classList.remove("show", "hot", "max"); coinEl.hidden = true; }, 5000);
 }
 
 /** Count a number on screen up to its new value, ticking as it goes. */

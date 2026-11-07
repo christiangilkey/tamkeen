@@ -41,6 +41,7 @@ import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncp
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { mountHelpButton } from "./components/helpbutton.js";
+import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -1425,6 +1426,7 @@ async function boot() {
   const refresh = refreshButton(refreshNow);
   if (topSearch) topSearch.before(refresh); else document.querySelector(".topbar").append(refresh);
   mountHelpButton(document.querySelector(".topbar"), refresh); // "?": how to use the screen that is open
+  mountXpBadge(document.querySelector(".topbar"), document.querySelector(".topbar .top-help")); // the game's level and XP (game/xpbadge.js)
   startBadge();
   startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);

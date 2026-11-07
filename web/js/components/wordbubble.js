@@ -95,6 +95,11 @@ export function createWordBubble(host, actions) {
   let fix = null;
   // Docked (see show): part of its container's layout, below what is already in it, not floating.
   let docked = false;
+  // The creature game's line about what this lookup earned, just above the buttons (game/xpbadge.js fills it;
+  // none without the game). Kept when the popup is drawn again, emptied for each new word.
+  const xpSlot = document.createElement("div");
+  xpSlot.className = "wb-xp";
+  xpSlot.hidden = true;
 
   // "Add audio": a word saved from here would have nothing to listen to, and cards don't get a voice by
   // themselves (Settings → Card voices). Not inside another app's panel (/embed: no Settings there).
@@ -331,6 +336,7 @@ export function createWordBubble(host, actions) {
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
     paintSwitch(el.querySelector(".wb-mode"));
+    el.querySelector(".wb-actions").before(xpSlot);
     requestAnimationFrame(position);
   }
 
@@ -478,6 +484,9 @@ export function createWordBubble(host, actions) {
     saved = !!opts.saved;
     unknownBtn = !context.phrase && opts.unknown ? { ...opts.unknown } : null;
     quick = lookupMode() === "quick";
+    xpSlot.hidden = true;
+    xpSlot.replaceChildren();
+    xpSlot.wbAnchor = anchorEl; // (which word's reward goes in it)
     el.hidden = false;
     ipa = "";
     const shownFor = context;

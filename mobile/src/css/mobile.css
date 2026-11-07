@@ -174,6 +174,7 @@ button, .btn { min-height: 38px; }
    "Reconnect Google" it keeps close to them; on a narrow phone Search is its icon alone, to make room. */
 .top-install ~ .top-help, .top-reconnect:not([hidden]) ~ .top-help { margin-inline-start: 4px; }
 .top-help { width: 32px; height: 32px; }
+.xp-badge { width: 32px; height: 32px; } /* the game's level badge (game/xpbadge.js), just before the "?" */
 @media (max-width: 420px) {
   .top-search { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: 50%; }
   .top-search span:not(.top-ico) { display: none; }

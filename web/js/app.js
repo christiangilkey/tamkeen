@@ -27,6 +27,7 @@ import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { mountHelpButton } from "./components/helpbutton.js";
+import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -712,6 +713,7 @@ async function boot() {
   })).catch(() => {});
   mountLanguageSwitch(document.querySelector(".topbar .brand")); // "which language am I learning now"
   mountHelpButton(document.querySelector(".topbar")); // "?": how to use the screen that is open
+  mountXpBadge(document.querySelector(".topbar")); // the game's level and XP, at the end (game/xpbadge.js)
   startBadge();
   startSyncPace();
   // After each sync, pass on the creature game's state in case another device saved a newer one.
