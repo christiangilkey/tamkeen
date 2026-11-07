@@ -7684,8 +7684,8 @@ outside the repo); only encrypted copies are in the repo.
   `usage.json` (characters per month; CJK counted double). A text Azure refuses (400) is skipped and listed at the end
   ("lve" sapi was refused: 战略/掠夺 had their say removed). Whisper check of zh c001: sentences 0.99 (check via
   tools/course/check_audio.py on a course.json pointing at the files).
-- **Owner chose Azure's free tier** (~500,000 characters a month): Nov 2026: Chinese 118,634 (4,410 of 5,817 words; 1,407
-  left), Arabic ~330,000 (all). **December: rest of Chinese (~37k), then Spanish (~150k), Farsi (~140k), Korean (~250k) over
+- **Owner chose Azure's free tier** (~500,000 characters a month): Nov 2026: Chinese 118,634 (4,408 of 5,817 words; 1,409
+  left), Arabic 331,991 (all 4,652). Packaged 3f8680a3. **December: rest of Chinese (~37k), then Spanish (~150k), Farsi (~140k), Korean (~250k) over
   Dec-Jan**. Run e.g. `voice_deck.py zh`, then `voice_deck.py es --budget 150000`, then package.
 - **Packaging** `tools/dli/encrypt.mjs` (DLI_PASSWORD set): a folder with deck.json = a deck; each chapter whose sentences
   are ALL written → its word list `web/dli/<id>.bin` (ships in every app, works offline) and, as far as voiced with audio that
