@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Tus criaturas
+3ad63cd1	Todas las criaturas
+4c62aad0	Eclosión
+f3b21e04	Crecimiento
+df873d99	Eclosiona mientras estudias.
+be763e9a	Estadísticas
+17ac8106	Cómo la criaste
+756016c6	Las coloraciones se ven con el aspecto Joven.
+e7c741fc	Aún no conseguida
+117dc066	{0} de {1} conseguidas
+257f305b	Conseguida
+7548ab52	Poder
+54c45c03	Bloquea
+bc6f4bc6	Cura
+3159fe42	Vacío
+c81c947a	Movimientos
+eb10a5c1	Toca un movimiento para verlo o cambiarlo. Deja al menos un movimiento de ataque.
+57351a82	Otros movimientos que sabe
+d0b58b44	Usa todos los movimientos que sabe.
+92f548f5	Compra más movimientos en la tienda
+34dbd5c4	Recarga
+2ec0e11f	Es su único movimiento de ataque: solo puede cambiarse por otro movimiento de ataque.
+9981290a	Todavía no sabe otros movimientos.
+210dd62a	Cambiar
+1f36beb6	Usar este movimiento
+e4a6558f	¿Qué movimiento reemplazas?
+bafc96af	{0} ocupa el lugar del movimiento que elijas.
+7eedf90d	Su único movimiento de ataque
+267c5f05	¿Por qué movimiento lo cambias?
+7e756b98	Elige un movimiento
+f90824d2	Potenciador

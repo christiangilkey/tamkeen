@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	Meta diária cumprida: +{0} XP
+3a110e1d	Subiu de nível! +5 moedas
+5428d235	Nível {0}: {1} XP
+d6d9f18f	{0}. Combo, próximo {1}
+0ad2c237	Seu nível
+7c7f5d04	Nível
+2314cd9a	Abrir o jogo
+623e0f4d	{0} XP para o nível {1}
+bbbe0df0	Combo ativo: próxima consulta {0}
+58c06693	Consulte palavras uma após a outra para fazer um combo: ×1.2, depois ×1.5, depois ×2.
+3d845682	Protetor de sequência!
+ef0dcaec	Carta de dica!
+f21e440a	Já consultada hoje
+9fe2b30d	+1 moeda
+09eee77a	+{0} moedas

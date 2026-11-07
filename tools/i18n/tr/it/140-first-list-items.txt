@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Apri la Claude Console
+641e071f	Accedi o crea un account
+64b6cdc7	Aggiungi un po' di credito
+0603680d	Crea la chiave
+ddc9f55d	Copiala subito
+a11e9d4b	Incollala in Tamkeen
+a50988a3	Apri Google AI Studio
+6049f9a6	Accedi con il tuo account Google
+39963ac7	Copia la chiave
+d5825787	Apri la piattaforma OpenAI
+c1bdc572	Apri la Console xAI
+fe9bed90	Apri la Console di Groq
+1eec8f15	Dice che la chiave è stata rifiutata
+1ad303dd	Parla di quota, fatturazione o limite di frequenza
+cd002623	Dice che non riconosce il modello
+76d3e42c	Ho chiuso la finestra prima di copiare la chiave
+f35d2a44	La mia chiave è al sicuro?
+1a7a8dc0	Cercare una parola: di solito da 5 a 15, a volte da 30 a 50, ogni tanto da 100 a 200. Una parola paga una volta al giorno, e ogni parola che cerchi nella stessa sessione di studio fa crescere una combo fino al doppio, senza fretta: la sessione finisce solo quando sei lontano dall'app da 10 minuti, o a mezzanotte.
+ebd10589	Riempiono la barra del livello. Ogni nuovo livello dà 5 monete, e ogni livello richiede più XP del precedente (questo ne richiede {0}).
+ceae120c	Raggiungere l'obiettivo giornaliero ({0} minuti di ascolto o lettura; il tempo su YouTube non conta). Ogni giorno in cui ci riesci ne aggiunge uno.
+d883cc30	Ogni 7° giorno di fila fa guadagnare un salva-serie.
+76f510d0	Raggiungere l'obiettivo giornaliero: 10.
+73298568	Cose da far indossare alla tua creatura e per il suo habitat: cappelli, occhiali, cose da collo, cose da tenere in mano, mantelli e ali, magliette e decorazioni. Costano da {0} a {1} monete.
+76557f97	Ogni 7° giorno di fila in cui raggiungi l'obiettivo giornaliero ne dà uno (fino a 3 tenuti così).
+797b53b5	Copre un giorno saltato, così la tua serie continua come se avessi studiato.
+fc8d2b71	Gli edifici del tuo giardino lo producono tutto il giorno, anche ad app chiusa (ti aspetta fino all'equivalente di {0} ore).
+75cc6677	Nuovi edifici, e far salire un edificio al livello successivo perché produca di più.
+38414bff	Ottenere una medaglia: 2 ciascuna.
+ced05c8e	Dare da mangiare alla creatura nel tuo habitat. Il cibo costa {0} di bagliore, e mangia fino a {1} volte al giorno.
+317d4503	Ogni cuore rende tutti i tuoi edifici più veloci del 4% finché quella creatura è nell'habitat.
+b3e7bb3e	Il suo corno, che spunta quando è giovane, tende alle antenne per chi ascolta e a una gemma per i collezionisti.
+d702648b	+{0} XP{1}
+af310252	Bronzo
+4042806d	Parola inglese
+eed7cb83	Levetta sinistra giù
+d526caec	Levetta destra a destra
+f5ec7772	Prima le più recenti
+6a99c65c	Prima le più vecchie
+7def648b	Modificate di recente
+530262d8	Modificate meno di recente
+7f5f05af	Salva il file da Tamkeen.
+ced72db7	Arte
+ffa74a4e	🎧 Episodio di podcast
+eb3d3982	Fai clic sull'icona di installazione all'estremità destra della barra degli indirizzi (uno schermo con una freccia verso il basso).
+aebb4c7b	Questo browser non può aggiungere web app. Apri questa pagina in Chrome o Edge, poi usa il suo pulsante di installazione nella barra degli indirizzi.

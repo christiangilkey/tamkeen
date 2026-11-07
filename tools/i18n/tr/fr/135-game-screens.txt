@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Niveau {0} sur 3
+799c9f2a	Vous avez
+1e1c72c2	Par heure
+33d30632	À récolter
+53cb1f45	Poussière d'étoile
+fe26b106	La lueur se récolte toute seule
+84466168	Rien à récolter pour l'instant
+c2743891	Se récolte tout seul après {0} objectifs quotidiens de plus
+185fb7e9	Se récolte tout seul après un objectif quotidien de plus
+a6fe4bd7	Bâtiments
+5209c504	Parcelles ouvertes
+5e50e7d0	Utiliser une clé
+c9d9f62d	Parcelle {0}
+f096bcd2	Vide : choisissez quoi construire
+bbd80cf7	Construire
+90335b64	par heure
+8ae5f769	Libérer une créature
+469c82aa	Ce que fait la libération
+cc5f562c	Laisse {0} poussière d'étoile
+3ce59147	Libérées jusqu'ici : {0}
+d0c810d6	Poussière d'étoile actuelle
+8490bae0	Chacune
+d40e4bd3	Une créature entièrement développée peut être libérée. Elle quitte votre équipe et on se souvient d'elle ici. Vos bâtiments et votre lueur repartent de zéro, et vous gardez la poussière d'étoile : chacune rend tous les bâtiments plus rapides pour de bon, si bien que le jardin suivant pousse bien plus vite. Plus vous avez de bâtiments entièrement développés à ce moment-là, plus vous recevez de poussière d'étoile.
+c5e4d0d9	Construire sur la parcelle {0}
+5bd44ebe	Niveau
+2c6d59f3	Idéal pour
+c756f6af	Tout le monde
+7e2299a8	Améliorer
+ad05dc64	Nourri {0} fois sur {1} aujourd'hui
+64ce4b08	Au chaud
+38da057b	Achetez-en un pour le nourrir.
+3e8248e3	Prix
+6e4af9cf	Préféré des
+b6792f89	Repas aujourd'hui
+ea2619b8	Son préféré : il compte double.
+7ceca51f	Acheter
+d5f82806	Actif encore {0} min
+f52b020c	Un œuf est au chaud.
+bfb4298c	Combien vous en avez
+0b5ad7f0	Chapeau
+9a46e65f	Pour le visage
+0a3774e5	À tenir
+03898713	Pour le dos
+56cc042a	T-shirt
+68121261	À porter
+899db74e	Décorations
+807f8ba7	À porter
+fa6095d9	Dans l'habitat
+e7eb9ee9	Attaques de combat achetées
+e5ffd15b	Tête
+35a237da	Cou
+6b568a69	Pour les combats
+231a3994	Pour vos créatures
+0891d9ac	Pour le jardin
+01888a92	Attaques que vous connaissez, parmi celles vendues ici
+755844bc	À vous
+f13ba138	À débloquer
+1894043f	Purement décoratif. Il est installé dans l'habitat tout de suite.
+ef4da3ac	Purement décoratif. Votre créature le porte tout de suite.
+dbe3238f	{0} Acheté une fois, pour toutes vos créatures.
+44e6822a	Porté
+c5040300	Porté en ce moment
+44819483	Rien
+f7b4c7be	Les œufs ne portent rien avant d'éclore.
+31e8d565	Dans votre sac

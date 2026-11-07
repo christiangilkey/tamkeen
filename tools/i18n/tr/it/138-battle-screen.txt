@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Domande da
+4c8044d7	Tutte le {0} parole
+3254a11b	Le {0} più recenti
+24d3e4fd	Forza
+19ab964c	Uguale per tutti
+f472694a	Parole da ripassare
+c5480ef5	Le battaglie si aprono con {0} parole salvate
+a0d031d3	Ancora da salvare
+54a41c30	Salva parole con ★ mentre ascolti e leggi.
+efaa27d9	Alle tue parole servono i significati
+32fa4207	Con significato
+2c5dcbb8	Le domande hanno bisogno di significati: aggiungine alcuni nella pagina Vocabolario.
+71db6b56	Apri Vocabolario
+3c5410a6	Il tuo uovo non si è ancora schiuso
+50c5f1c3	Raggiungi l'obiettivo di oggi per farlo schiudere, poi torna a combattere.
+80b3016c	La tua squadra
+3cda3a1b	Battaglie rapide
+47c316a3	Sfida alla pari
+ac02de4b	Scegline altre {0}
+d26d55c7	Parole
+63bbbf02	Il tuo bilancio
+ec9f630c	Abilità
+b6c015d1	Vittorie
+375cbb72	Esatte di recente
+80263722	Parole conosciute
+51c51d5d	Come funzionano le battaglie
+12901c84	Una battaglia
+f0975bb0	Combattono le tue prime tre creature schiuse, nell'ordine della pagina Creature. Toccane una per vederla e sceglierne le mosse.
+07b537c2	Una vittoria può lasciarti un uovo, finché hai meno di sei creature.
+514a5381	Capipalestra
+0a33d702	La prima vittoria contro ciascuno dà in più monete e XP. Le palestre non cambiano il tuo punteggio di abilità.
+504b0ab6	L'abilità sale quando vinci duelli a noleggio e battaglie con gli amici, e scende quando li perdi.
+9b123a44	Esatte di recente: quante delle tue risposte in battaglia erano giuste questa settimana.
+0574ed77	Ha battuto la tua squadra
+b97fcdd2	Ha perso contro la tua squadra
+666a5d8c	{0}% dei giorni
+8c26dc15	Regola della settimana
+d0753d11	Incursione della gilda: {0}
+e7a1a8e1	Incursione della gilda
+c314c002	Apri la scheda Amici
+f93ee291	Battaglie con gli amici
+ff38765f	Sfide
+34d6c5fd	Sfida la squadra di un amico: le sue creature combattono con le mosse che ha scelto e rispondono con la precisione con cui il loro proprietario di solito risponde alle proprie parole. Tu rispondi alle tue.
+d64bc035	Ogni settimana ha la sua regola per le battaglie con gli amici: la trovi sotto Regola della settimana.
+5586d01b	Le battaglie con gli amici contano per il tuo punteggio di abilità, e il tuo bilancio contro ogni amico viene conservato.
+9f14cd67	La lega
+862b1fa5	Ogni risposta giusta in battaglia questa settimana, di chiunque nella gilda, gli toglie un punto.
+9d59a182	Battete insieme il boss per 150 XP e 20 monete a testa. Un nuovo boss arriva il lunedì.
+3b2c3fdb	Regali
+8e3a0e6a	Gli amici possono regalarti cose da indossare, decorazioni e uova. Ti aspettano qui finché non le apri.
+2c3fe469	Le tue parole e il tuo materiale di studio non vengono mai inviati: solo la tua squadra di creature, la precisione delle tue risposte e i totali della settimana.
+fb278703	Battuto
+1cc55327	Combatti con {0}
+bc435923	Palestra
+a563972e	Elementi
+a9965777	Ogni domanda
+08f35234	Prima vittoria
+bcafab50	Inviato da {0}

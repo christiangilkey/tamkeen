@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Cada vez que pulsas Usar o el pulgar abajo, aprende un poco sobre las palabras clave que te gustan, y algo más de las mnemotecnias que escribes tú, en todos tus dispositivos. «Olvidarlo», aquí bajo el Creador de mnemotecnias, lo hace empezar de cero.
+f381b52f	Tus propias mnemotecnias
+8ee516ce	Cuando escribas una mnemotecnia en Notas para memorizar, pon en MAYÚSCULAS la palabra que suena parecido: en «un pato sentado en un POT» aprende de POT. Solo cuentan las palabras en mayúsculas, y solo si de verdad suenan como la palabra; el resto de la nota no se tiene en cuenta. Una palabra parecida tuya puede volver para otras palabras que suenen igual, marcada «Ya la has usado». Cuando tu IA hace las mnemotecnias, se le envían algunas de las tuyas como ejemplo de tu estilo. «Aprender de mis propias mnemotecnias», aquí, lo desactiva.
+69f9ddf6	Aprender de mis propias mnemotecnias
+7e24bec4	Solo cuentan las palabras en MAYÚSCULAS: en «un pato sentado en un POT» aprende de POT. El resto de la nota no se tiene en cuenta.
+b87389a9	Algunas de tus propias mnemotecnias se envían a tu IA como ejemplo de tu estilo.
+64df8757	La palabra parecida en MAYÚSCULAS: un pato sentado en un POT…
+12c40c2f	Aprendido de {0}
+cca17e08	{0} no suena como {1}, así que no se aprendió nada.
+b410b039	Consejo: escribe en MAYÚSCULAS la palabra que suena parecido y el Creador de mnemotecnias aprenderá de ella.
+2814674c	{0} no suenan como {1}, así que no se aprendió nada.
+1f9e7496	Ya la has usado
+9aab0129	Escribiste esta palabra parecida en MAYÚSCULAS en una de tus notas

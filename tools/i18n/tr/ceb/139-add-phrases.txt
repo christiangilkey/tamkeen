@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Usa ka card kada linya: usa ka pulong o hugpong sa pulong. Human niini, madugang nimo ang kahulogan gamit ang dash, equals sign o semicolon (<0/>), o mag-paste og mga column gikan sa spreadsheet: pulong, kahulogan, sentence, hubad.
+52cfc778	Pulong o hugpong sa pulong
+91c9953e	Matag pulong: {0}
+23809925	Walay entry sa diksiyonaryo para sa tibuok hugpong sa pulong, mao nga kini matag pulong. Lahi tingali ang kahulogan sa hugpong: usba kini kon kahibalo ka.
+72ad27f7	Wala kini nga hugpong sa pulong sa built-in nga diksiyonaryo. I-type ang kahulogan niini.
+bf5d6eab	Walay nakit-an nga pananglitan nga sentence para niini nga hugpong sa pulong. Pag-type og usa, o biyai nga blangko.
+1b850af7	Walay panumduman: ang mga pulong nga parehas og tingog angay lang sa mga pulong ug mubo nga hugpong, dili sa ingon kataas.

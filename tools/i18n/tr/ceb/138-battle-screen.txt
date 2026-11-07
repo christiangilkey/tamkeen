@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Pangutana gikan sa
+4c8044d7	Tanang {0} ka pulong
+3254a11b	Pinakabag-ong {0}
+24d3e4fd	Kusog
+19ab964c	Parehas sa tanan
+f472694a	Mga pulong nga angay balikon
+c5480ef5	Maablihan ang mga sangka sa {0} ka na-save nga pulong
+a0d031d3	Kulang pa
+54a41c30	Pag-save og mga pulong gamit ang ★ samtang naminaw ug nagbasa.
+efaa27d9	Kinahanglan og kahulogan ang imong mga pulong
+32fa4207	Adunay kahulogan
+2c5dcbb8	Kinahanglan og kahulogan ang mga pangutana: sudli ang pipila sa Vocab page.
+71db6b56	Ablihi ang Vocab
+3c5410a6	Wala pa mapusa ang imong itlog
+50c5f1c3	Abta ang tumong karong adlawa aron mapusa kini, unya balik aron makigsangka.
+80b3016c	Imong team
+3cda3a1b	Paspas nga sangka
+47c316a3	Patas nga away
+ac02de4b	Pili og {0} pa
+d26d55c7	Mga pulong
+63bbbf02	Imong rekord
+ec9f630c	Skill
+b6c015d1	Daog
+375cbb72	Husto bag-o lang
+80263722	Nahibal-ang pulong
+51c51d5d	Unsaon pagdula sa sangka
+12901c84	Usa ka sangka
+f0975bb0	Ang imong unang tulo ka napusa nga linalang ang makig-away, sumala sa han-ay sa panid sa Mga linalang. I-tap ang usa aron makita kini ug mapili ang mga lihok niini.
+07b537c2	Ang usa ka daog mahimong magbilin kanimo og itlog, samtang ubos pa sa unom ang imong linalang.
+514a5381	Mga gym leader
+0a33d702	Ang unang daog batok sa matag usa mohatag og dugang coin ug XP. Ang mga gym dili mousab sa imong skill rating.
+504b0ab6	Mosaka ang skill kon modaog ka sa duelo sa hinulaman ug sangka sa higala, ug mous-os kon mapildi ka.
+9b123a44	Husto bag-o lang: pila sa imong mga tubag sa mga sangka ang husto karong semanaha.
+0574ed77	Gipildi ang imong team
+b97fcdd2	Napildi sa imong team
+666a5d8c	{0}% sa mga adlaw
+8c26dc15	Lagda karong semanaha
+d0753d11	Guild raid: {0}
+e7a1a8e1	Guild raid
+c314c002	Ablihi ang Friends tab
+f93ee291	Sangka sa mga higala
+ff38765f	Mga hagit
+34d6c5fd	Hagita ang team sa usa ka higala: makig-away ang iyang mga linalang gamit ang mga lihok nga iyang gipili, ug motubag sila sama ka husto sa kasagarang pagtubag sa tag-iya sa iyang kaugalingong mga pulong. Ikaw ang motubag sa imo.
+d64bc035	Matag semana adunay kaugalingong lagda alang sa sangka sa higala: anaa kini sa Lagda karong semanaha.
+5586d01b	Maihap sa imong skill rating ang mga sangka sa higala, ug gitipigan ang imong rekord batok sa matag higala.
+9f14cd67	Ang liga
+862b1fa5	Matag husto nga tubag sa usa ka sangka karong semanaha, gikan sa bisan kinsa sa guild, mokuha og usa niini.
+9d59a182	Pildiha og dungan ang boss alang sa 150 XP ug 20 ka coin matag usa. Moabot ang bag-ong boss sa Lunes.
+3b2c3fdb	Mga regalo
+8e3a0e6a	Mahimo kang hatagan sa mga higala og isul-ob, dekorasyon ug itlog. Maghulat sila dinhi hangtod imong ablihan.
+2c3fe469	Dili gayod ipadala ang imong mga pulong ug materyales sa pagtuon: ang imong team sa mga linalang lang, unsa ka husto ang imong pagtubag, ug ang mga total karong semanaha.
+fb278703	Napildi na
+1cc55327	Awaya si {0}
+bc435923	Gym
+a563972e	Mga elemento
+a9965777	Matag pangutana
+08f35234	Unang daog
+bcafab50	Gipadala ni {0}

@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Cada vegada que prems Fes-la servir o el polze avall, aprèn una mica quines paraules clau t'agraden, i una mica més de les mnemotècnies que escrius tu, a tots els teus dispositius. «Oblida-ho», aquí sota el Creador de mnemotècnies, el fa començar de zero.
+f381b52f	Les teves mnemotècnies
+8ee516ce	Quan escriguis una mnemotècnia a Notes per memoritzar, posa en MAJÚSCULES la paraula que sona semblant: a «un ànec assegut sobre un POT» aprèn de POT. Només compten les paraules en majúscules, i només si sonen de debò com la paraula; la resta de la nota no compta. Una paraula teva pot tornar per a altres paraules que sonin semblant, marcada «Ja l'has fet servir». Quan la teva IA fa les mnemotècnies, se li envien algunes de les teves com a exemples del teu estil. «Aprendre de les meves mnemotècnies», aquí, ho desactiva.
+69f9ddf6	Aprendre de les meves mnemotècnies
+7e24bec4	Només compten les paraules en MAJÚSCULES: a «un ànec assegut sobre un POT» aprèn de POT. La resta de la nota no compta.
+b87389a9	Algunes de les teves mnemotècnies s'envien a la teva IA com a exemples del teu estil.
+64df8757	La paraula que sona semblant en MAJÚSCULES: un ànec assegut sobre un POT…
+12c40c2f	Après de {0}
+cca17e08	{0} no sona com {1}, així que no s'ha après res.
+b410b039	Consell: escriu en MAJÚSCULES la paraula que sona semblant i el Creador de mnemotècnies n'aprendrà.
+2814674c	{0} no sonen com {1}, així que no s'ha après res.
+1f9e7496	Ja l'has fet servir
+9aab0129	Vas escriure aquesta paraula en MAJÚSCULES en una de les teves notes

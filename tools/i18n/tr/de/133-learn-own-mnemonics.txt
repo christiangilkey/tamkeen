@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Jedes Mal, wenn du Nutzen oder Daumen runter drückst, lernt es ein wenig darüber, welche Schlüsselwörter dir gefallen, und noch etwas mehr aus den Eselsbrücken, die du selbst schreibst, auf all deinen Geräten. „Vergessen“ unter dem Eselsbrücken-Macher hier fängt wieder von vorn an.
+f381b52f	Deine eigenen Eselsbrücken
+8ee516ce	Wenn du eine Eselsbrücke in die Merknotizen schreibst, schreib das ähnlich klingende Wort in GROSSBUCHSTABEN: Bei „eine Ente, die auf einem POT sitzt“ lernt es POT. Nur Wörter in Großbuchstaben zählen, und nur, wenn sie wirklich wie das Wort klingen; der Rest der Notiz wird nicht beachtet. Ein Wort von dir kann bei anderen Wörtern, die ähnlich klingen, wiederkommen, markiert mit „Hast du schon benutzt“. Wenn deine KI die Eselsbrücken macht, werden ihr ein paar deiner eigenen als Beispiele für deinen Stil geschickt. „Aus meinen eigenen Eselsbrücken lernen“ hier schaltet das aus.
+69f9ddf6	Aus meinen eigenen Eselsbrücken lernen
+7e24bec4	Nur Wörter in GROSSBUCHSTABEN zählen: Bei „eine Ente, die auf einem POT sitzt“ lernt es POT. Der Rest der Notiz wird nicht beachtet.
+b87389a9	Ein paar deiner eigenen Eselsbrücken werden deiner KI als Beispiele für deinen Stil geschickt.
+64df8757	Ähnlich klingendes Wort in GROSSBUCHSTABEN: eine Ente, die auf einem POT sitzt…
+12c40c2f	Gelernt aus {0}
+cca17e08	{0} klingt nicht wie {1}, darum wurde nichts gelernt.
+b410b039	Tipp: Schreib das ähnlich klingende Wort in GROSSBUCHSTABEN, dann lernt der Eselsbrücken-Macher daraus.
+2814674c	{0} klingen nicht wie {1}, darum wurde nichts gelernt.
+1f9e7496	Hast du schon benutzt
+9aab0129	Du hast dieses ähnlich klingende Wort in einer deiner Notizen in GROSSBUCHSTABEN geschrieben

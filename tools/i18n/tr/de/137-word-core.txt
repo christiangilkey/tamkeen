@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Artikel
+8458445d	Konjunktion
+ad3287cc	Präposition
+4290a803	Markierung
+8c112070	Pluralzeichen
+c2f69372	Infinitivzeichen
+28680091	Reflexivpronomen
+e95a5003	Funktionsverb
+3520950d	Kopula
+4a1c659d	Höflichkeitswort
+4442f411	Substantivbildner
+e5efdbe6	Angehängtes Wort
+2c924e30	Notiz
+e9b9ac89	Andere Formen
+3b74e96e	Alternative
+8753dabd	Grammatikangabe
+ed212fa1	Platzhalter
+cf597d75	„ein, eine“
+edcca932	„ein, eins“
+73afd32b	„also, und dann“
+69c093a0	„mit, durch, in“
+35aa4308	„wie, als“
+1c86bb4a	„für, zu“
+98f1e5fa	macht eine Frage daraus
+1b7cb171	„zu“ vor einem Verb
+b3c108a5	„machen, tun“
+11547b17	„tun“, gehoben
+c0318423	„werden“
+0366e875	„werden“, gehoben
+0791ccdc	„schlagen“
+55c64b21	„geben“
+bf203a4a	„nehmen“
+5de917a4	„haben“
+e7dd0530	„sein, werden“
+b4f502d9	„sein“, höflich
+cb715b83	das Themazeichen
+9ed195a4	das Objektzeichen
+43ae6d89	ein Zeichen vor einem Namen
+62a014d5	das Pluralzeichen
+072b1f7c	„an, zu, in“
+235f5aff	ein Höflichkeitswort
+84887987	macht aus einem Verb oder Adjektiv ein Substantiv
+c8a729e5	eine Notiz in Klammern
+8a697f13	andere Formen des Wortes
+66cc4fbe	der Plural
+dfa3391c	ein anderes Wort oder eine andere Form
+4a66721a	eine grammatische Angabe
+46e3575a	ein Platzhalter für andere Wörter
+b9a634a6	Ausgelassen: {0}
+413cacc4	Nur „{0}“ wird verglichen.
+045b3e3b	„der, die, das“
+7bdc12eb	„einige, etwas“
+35cdf2c9	„und“
+5392faee	„oder“
+72a50e8f	„sich“

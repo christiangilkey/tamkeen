@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Matag higayon nga imong pinduton ang Gamita o thumbs down, makat-on kini og gamay bahin sa mga keyword nga imong gusto, ug gamay pa gikan sa mga mnemonic nga ikaw mismo ang misulat, sa tanan nimong device. Ang “Kalimti” ubos sa Mnemonic maker dinhi magsugod pag-usab.
+f381b52f	Imong kaugalingong mga mnemonic
+8ee516ce	Kung mosulat ka og mnemonic sa Mga nota sa pagsag-ulo, isulat sa DAGKONG LETRA ang pulong nga susama og tingog: sa “usa ka itik nga naglingkod sa usa ka POT” makat-on kini gikan sa POT. Ang mga pulong nga nakasulat sa dagkong letra lang ang maihap, ug kung tinuod gyud nga susama ang tingog niini sa pulong; ang uban pang bahin sa nota dili tagdon. Ang imong pulong mahimong mobalik alang sa ubang mga pulong nga susama og tingog, nga adunay marka nga “Nagamit na nimo kini”. Kung ang imong AI ang mohimo sa mga mnemonic, ipadala ngadto niini ang pipila sa imong kaugalingong mga mnemonic isip ehemplo sa imong estilo. Ang “Makat-on gikan sa akong kaugalingong mga mnemonic” dinhi mopalong niini.
+69f9ddf6	Makat-on gikan sa akong kaugalingong mga mnemonic
+7e24bec4	Ang mga pulong nga nakasulat sa DAGKONG LETRA lang ang maihap: sa “usa ka itik nga naglingkod sa usa ka POT” makat-on kini gikan sa POT. Ang uban pang bahin sa nota dili tagdon.
+b87389a9	Ipadala sa imong AI ang pipila sa imong kaugalingong mga mnemonic isip ehemplo sa imong estilo.
+64df8757	Ang susama nga pulong sa DAGKONG LETRA: usa ka itik nga naglingkod sa usa ka POT…
+12c40c2f	Nakakat-on gikan sa {0}
+cca17e08	Ang {0} dili susama og tingog sa {1}, busa walay nakat-onan.
+b410b039	Tip: isulat sa DAGKONG LETRA ang pulong nga susama og tingog ug makat-on gikan niini ang Mnemonic maker.
+2814674c	Ang {0} dili susama og tingog sa {1}, busa walay nakat-onan.
+1f9e7496	Nagamit na nimo kini
+9aab0129	Imong gisulat kining pulong sa DAGKONG LETRA sa usa sa imong mga nota

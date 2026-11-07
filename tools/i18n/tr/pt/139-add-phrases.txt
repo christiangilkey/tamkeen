@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Um cartão por linha: uma palavra ou uma expressão. Depois, você pode adicionar o significado com um travessão, um sinal de igual ou um ponto e vírgula (<0/>), ou colar colunas de uma planilha: palavra, significado, frase, tradução.
+52cfc778	Palavra ou expressão
+91c9953e	Palavra por palavra: {0}
+23809925	O dicionário não tem a expressão inteira, então isto é palavra por palavra. A expressão pode querer dizer outra coisa: mude se souber.
+72ad27f7	Esta expressão não está no dicionário integrado. Digite o significado.
+bf5d6eab	Nenhuma frase de exemplo foi encontrada para esta expressão. Escreva uma ou deixe em branco.
+1b850af7	Sem mnemónica: palavras de som parecido servem para palavras e expressões curtas, não para uma tão longa.

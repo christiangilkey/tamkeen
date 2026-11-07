@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Abre la Consola de Claude
+641e071f	Inicia sesión o crea una cuenta
+64b6cdc7	Añade algo de saldo
+0603680d	Crea la clave
+ddc9f55d	Cópiala enseguida
+a11e9d4b	Pégala en Tamkeen
+a50988a3	Abre Google AI Studio
+6049f9a6	Inicia sesión con tu cuenta de Google
+39963ac7	Copia la clave
+d5825787	Abre la plataforma de OpenAI
+c1bdc572	Abre la Consola de xAI
+fe9bed90	Abre la Consola de Groq
+1eec8f15	Dice que se ha rechazado la clave
+1ad303dd	Habla de cuota, facturación o límite de uso
+cd002623	Dice que no reconoce el modelo
+76d3e42c	Cerré el cuadro antes de copiar la clave
+f35d2a44	¿Mi clave está segura?
+1a7a8dc0	Buscar una palabra: normalmente de 5 a 15, a veces de 30 a 50 y de vez en cuando de 100 a 200. Cada palabra paga una vez al día, y cada palabra que buscas en la misma sesión de estudio suma a un combo de hasta el doble, sin prisa: la sesión solo termina cuando llevas 10 minutos fuera de la app, o a medianoche.
+ebd10589	Llena tu barra de nivel. Cada nivel nuevo da 5 monedas, y cada nivel necesita más XP que el anterior (este necesita {0}).
+ceae120c	Alcanzar tu meta diaria ({0} minutos escuchando o leyendo; el tiempo en YouTube no cuenta). Cada día que lo consigues suma uno.
+d883cc30	Cada séptimo día seguido te da un protector de racha.
+76f510d0	Alcanzar tu meta diaria: 10.
+73298568	Cosas para que tu criatura se ponga y para su hábitat: sombreros, gafas, cosas para el cuello, cosas para sostener, capas y alas, camisetas y decoraciones. Cuestan de {0} a {1} monedas.
+76557f97	Cada séptimo día seguido que alcanzas tu meta diaria te da uno (hasta 3 guardados de esta forma).
+797b53b5	Cubre un día perdido, así que tu racha sigue como si hubieras estudiado.
+fc8d2b71	Los edificios de tu jardín lo producen todo el día, incluso con la app cerrada (te espera hasta el equivalente a {0} horas).
+75cc6677	Edificios nuevos, y subir un edificio a su siguiente nivel para que produzca más.
+38414bff	Conseguir una insignia: 2 cada una.
+ced05c8e	Dar de comer a la criatura de tu hábitat. La comida cuesta {0} de brillo, y come hasta {1} veces al día.
+317d4503	Cada corazón hace que todos tus edificios sean un 4 % más rápidos mientras esa criatura esté en el hábitat.
+b3e7bb3e	Su cuerno, que le sale de joven, tiende a ser unas antenas en quienes escuchan y una gema en los coleccionistas.
+d702648b	+{0} XP{1}
+af310252	Bronce
+4042806d	Palabra inglesa
+eed7cb83	Stick izquierdo abajo
+d526caec	Stick derecho a la derecha
+f5ec7772	Más recientes primero
+6a99c65c	Más antiguas primero
+7def648b	Cambiadas hace poco
+530262d8	Cambiadas hace más tiempo
+7f5f05af	Guarda el archivo desde Tamkeen.
+ced72db7	Arte
+ffa74a4e	🎧 Episodio de pódcast
+eb3d3982	Haz clic en el icono de instalar, en el extremo derecho de la barra de direcciones (una pantalla con una flecha hacia abajo).
+aebb4c7b	Este navegador no puede añadir apps web. Abre esta página en Chrome o Edge y usa su botón de instalar de la barra de direcciones.

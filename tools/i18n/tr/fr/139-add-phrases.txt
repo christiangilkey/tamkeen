@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Une carte par ligne : un mot ou une expression. Ensuite, vous pouvez ajouter son sens avec un tiret, un signe égal ou un point-virgule (<0/>), ou coller des colonnes d'un tableur : mot, sens, phrase, traduction.
+52cfc778	Mot ou expression
+91c9953e	Mot à mot : {0}
+23809925	Le dictionnaire n'a pas d'entrée pour toute l'expression, donc ceci est du mot à mot. L'expression peut vouloir dire autre chose : changez-le si vous le savez.
+72ad27f7	Cette expression n'est pas dans le dictionnaire intégré. Tapez son sens.
+bf5d6eab	Aucune phrase d'exemple n'a été trouvée pour cette expression. Écris-en une ou laisse vide.
+1b850af7	Pas de moyen mnémotechnique : les mots qui se ressemblent à l'oreille conviennent aux mots et aux expressions courtes, pas à une aussi longue.

@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Eine Karte pro Zeile: ein Wort oder ein Ausdruck. Danach kannst du die Bedeutung mit einem Gedankenstrich, einem Gleichheitszeichen oder einem Semikolon anfügen (<0/>), oder Spalten aus einer Tabelle einfügen: Wort, Bedeutung, Satz, Übersetzung.
+52cfc778	Wort oder Ausdruck
+91c9953e	Wort für Wort: {0}
+23809925	Das Wörterbuch hat keinen Eintrag für den ganzen Ausdruck, darum ist das Wort für Wort. Der Ausdruck kann etwas anderes bedeuten: Ändere es, wenn du es weißt.
+72ad27f7	Dieser Ausdruck ist nicht im eingebauten Wörterbuch. Tippe seine Bedeutung.
+bf5d6eab	Für diesen Ausdruck wurde kein Beispielsatz gefunden. Schreib einen oder lass das Feld leer.
+1b850af7	Keine Eselsbrücke: Ähnlich klingende Wörter passen zu Wörtern und kurzen Ausdrücken, nicht zu einem so langen.

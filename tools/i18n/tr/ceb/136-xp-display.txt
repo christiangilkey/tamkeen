@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	Naabot ang adlaw-adlaw nga tumong: +{0} XP
+3a110e1d	Misaka og level! +5 ka coin
+5428d235	Level {0}: {1} XP
+d6d9f18f	{0}. Combo, sunod {1}
+0ad2c237	Imong level
+7c7f5d04	Level
+2314cd9a	Ablihi ang dula
+623e0f4d	{0} XP pa aron sa level {1}
+bbbe0df0	Nagpadayon ang combo: sunod nga pagpangita {0}
+58c06693	Pangitaa ang mga pulong sunod-sunod para sa combo: ×1.2, dayon ×1.5, dayon ×2.
+3d845682	Streak freeze!
+ef0dcaec	Card sa timaan!
+f21e440a	Gipangita na karong adlawa
+9fe2b30d	+1 ka coin
+09eee77a	+{0} ka coin

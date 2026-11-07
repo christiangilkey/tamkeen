@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Una targeta per línia: una paraula o una expressió. Després hi pots afegir el significat amb un guió, un signe d'igual o un punt i coma (<0/>), o enganxar columnes d'un full de càlcul: paraula, significat, frase, traducció.
+52cfc778	Paraula o expressió
+91c9953e	Paraula per paraula: {0}
+23809925	El diccionari no té l'expressió sencera, així que això és paraula per paraula. L'expressió pot voler dir una altra cosa: canvia-ho si ho saps.
+72ad27f7	Aquesta expressió no és al diccionari integrat. Escriu-ne el significat.
+bf5d6eab	No s'ha trobat cap frase d'exemple per a aquesta expressió. Escriu-ne una o deixa-ho buit.
+1b850af7	Sense mnemotècnia: les paraules que sonen semblant serveixen per a paraules i expressions curtes, no per a una de tan llarga.

@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Obre la Consola de Claude
+641e071f	Inicia la sessió o crea un compte
+64b6cdc7	Afegeix una mica de saldo
+0603680d	Crea la clau
+ddc9f55d	Copia-la de seguida
+a11e9d4b	Enganxa-la a Tamkeen
+a50988a3	Obre Google AI Studio
+6049f9a6	Inicia la sessió amb el teu compte de Google
+39963ac7	Copia la clau
+d5825787	Obre la plataforma d'OpenAI
+c1bdc572	Obre la Consola d'xAI
+fe9bed90	Obre la Consola de Groq
+1eec8f15	Diu que s'ha rebutjat la clau
+1ad303dd	Parla de quota, facturació o límit d'ús
+cd002623	Diu que no reconeix el model
+76d3e42c	He tancat el quadre abans de copiar la clau
+f35d2a44	La meva clau és segura?
+1a7a8dc0	Buscar una paraula: normalment de 5 a 15, de vegades de 30 a 50 i de tant en tant de 100 a 200. Cada paraula paga un cop al dia, i cada paraula que busques en la mateixa sessió d'estudi fa créixer un combo de fins al doble, sense presses: la sessió només s'acaba quan fa 10 minuts que no ets a l'app, o a mitjanit.
+ebd10589	Omple la teva barra de nivell. Cada nivell nou dona 5 monedes, i cada nivell necessita més XP que l'anterior (aquest en necessita {0}).
+ceae120c	Arribar a la teva meta diària ({0} minuts escoltant o llegint; el temps a YouTube no compta). Cada dia que ho aconsegueixes en suma un.
+d883cc30	Cada setè dia seguit et dona un protector de ratxa.
+76f510d0	Arribar a la teva meta diària: 10.
+73298568	Coses perquè la teva criatura es posi i per al seu hàbitat: barrets, ulleres, coses per al coll, coses per agafar, capes i ales, samarretes i decoracions. Costen de {0} a {1} monedes.
+76557f97	Cada setè dia seguit que arribes a la teva meta diària te'n dona un (fins a 3 guardats d'aquesta manera).
+797b53b5	Cobreix un dia perdut, així que la teva ratxa continua com si haguessis estudiat.
+fc8d2b71	Els edificis del teu jardí el produeixen tot el dia, fins i tot amb l'app tancada (t'espera fins a l'equivalent de {0} hores).
+75cc6677	Edificis nous, i pujar un edifici al nivell següent perquè en faci més.
+38414bff	Aconseguir una insígnia: 2 cadascuna.
+ced05c8e	Donar menjar a la criatura del teu hàbitat. El menjar costa {0} de brill, i menja fins a {1} vegades al dia.
+317d4503	Cada cor fa que tots els teus edificis vagin un 4 % més de pressa mentre aquella criatura és a l'hàbitat.
+b3e7bb3e	La seva banya, que li surt quan és jove, tendeix a ser unes antenes per a qui escolta i una gemma per als col·leccionistes.
+d702648b	+{0} XP{1}
+af310252	Bronze
+4042806d	Paraula anglesa
+eed7cb83	Palanca esquerra avall
+d526caec	Palanca dreta cap a la dreta
+f5ec7772	Primer les més noves
+6a99c65c	Primer les més antigues
+7def648b	Canviades fa poc
+530262d8	Canviades fa més temps
+7f5f05af	Desa el fitxer des de Tamkeen.
+ced72db7	Arts
+ffa74a4e	🎧 Episodi de pòdcast
+eb3d3982	Fes clic a la icona d'instal·lar, a l'extrem dret de la barra d'adreces (una pantalla amb una fletxa cap avall).
+aebb4c7b	Aquest navegador no pot afegir apps web. Obre aquesta pàgina a Chrome o Edge i fes servir el seu botó d'instal·lar de la barra d'adreces.

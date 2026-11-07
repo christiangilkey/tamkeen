@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Nível {0} de 3
+799c9f2a	Você tem
+1e1c72c2	Por hora
+33d30632	Para coletar
+53cb1f45	Poeira estelar
+fe26b106	O brilho é coletado sozinho
+84466168	Nada para coletar ainda
+c2743891	Passa a ser coletado sozinho depois de mais {0} metas diárias
+185fb7e9	Passa a ser coletado sozinho depois de mais uma meta diária
+a6fe4bd7	Construções
+5209c504	Terrenos abertos
+5e50e7d0	Usar uma chave
+c9d9f62d	Terreno {0}
+f096bcd2	Vazio: escolha algo para construir
+bbd80cf7	Construir
+90335b64	por hora
+8ae5f769	Libertar uma criatura
+469c82aa	O que libertar faz
+cc5f562c	Deixa {0} de poeira estelar
+3ce59147	Libertadas até agora: {0}
+d0c810d6	Poeira estelar agora
+8490bae0	Cada uma
+d40e4bd3	Uma criatura totalmente crescida pode ser libertada. Ela sai do seu grupo e fica lembrada aqui. Suas construções e seu brilho recomeçam, e você mantém a poeira estelar: cada uma deixa todas as construções mais rápidas para sempre, então o próximo jardim cresce bem mais depressa. Quanto mais construções totalmente crescidas você tiver na hora, mais poeira estelar ganha.
+c5e4d0d9	Construir no terreno {0}
+5bd44ebe	Nível
+2c6d59f3	Rende mais com
+c756f6af	Todos
+7e2299a8	Melhorar
+ad05dc64	Comeu {0} de {1} vezes hoje
+64ce4b08	Aquecendo
+38da057b	Compre um para alimentá-la.
+3e8248e3	Preço
+6e4af9cf	Favorito de
+b6792f89	Refeições hoje
+ea2619b8	A favorita dela: conta em dobro.
+7ceca51f	Comprar
+d5f82806	Ativo por mais {0} min
+f52b020c	Um ovo está sendo aquecido.
+bfb4298c	Quantos você tem
+0b5ad7f0	Chapéu
+9a46e65f	Para o rosto
+0a3774e5	Para segurar
+03898713	Para as costas
+56cc042a	Camiseta
+68121261	Coisas para usar
+899db74e	Decorações
+807f8ba7	Para usar
+fa6095d9	No habitat
+e7eb9ee9	Golpes de batalha que você comprou
+e5ffd15b	Cabeça
+35a237da	Pescoço
+6b568a69	Para batalhas
+231a3994	Para suas criaturas
+0891d9ac	Para o jardim
+01888a92	Golpes que você conhece, dos vendidos aqui
+755844bc	Seu
+f13ba138	Para desbloquear
+1894043f	Só para enfeitar. Vai para o habitat na hora.
+ef4da3ac	Só para enfeitar. A criatura já usa na hora.
+dbe3238f	{0} Comprado uma vez, para todas as suas criaturas.
+44e6822a	Usando
+c5040300	Usando agora
+44819483	Nada
+f7b4c7be	Ovos não usam nada até chocar.
+31e8d565	Na sua bolsa

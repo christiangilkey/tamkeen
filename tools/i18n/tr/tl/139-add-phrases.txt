@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Isang card bawat linya: isang salita o parirala. Pagkatapos nito, maidaragdag mo ang kahulugan gamit ang gitling, equals sign o semicolon (<0/>), o mag-paste ng mga column mula sa spreadsheet: salita, kahulugan, pangungusap, salin.
+52cfc778	Salita o parirala
+91c9953e	Bawat salita: {0}
+23809925	Walang entry ang diksiyonaryo para sa buong parirala, kaya ito ay bawat salita. Maaaring iba ang ibig sabihin ng parirala: palitan ito kung alam mo.
+72ad27f7	Wala ang pariralang ito sa built-in na diksiyonaryo. I-type ang kahulugan nito.
+bf5d6eab	Walang nahanap na halimbawang pangungusap para sa pariralang ito. Mag-type ng isa, o iwanang blangko.
+1b850af7	Walang mnemonic: ang mga salitang magkatunog ay para sa mga salita at maiikling parirala, hindi sa ganito kahaba.

@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	每行一张卡片：一个单词或一个短语。后面可以用破折号、等号或分号加上意思（<0/>），也可以粘贴电子表格中的几列：单词、意思、例句、翻译。
+52cfc778	单词或短语
+91c9953e	逐词：{0}
+23809925	词典里没有整个短语，所以这是逐词的意思。这个短语可能另有含义：如果你知道，请改一下。
+72ad27f7	内置词典里没有这个短语。请输入它的意思。
+bf5d6eab	没有找到这个短语的例句。自己写一句，或者留空。
+1b850af7	没有记忆法：读音相近的词适合单词和短短语，不适合这么长的。

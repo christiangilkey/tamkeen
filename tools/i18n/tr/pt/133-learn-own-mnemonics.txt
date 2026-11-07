@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Cada vez que você toca em Usar ou no polegar para baixo, ele aprende um pouco sobre as palavras-chave de que você gosta, e um pouco mais com os mnemônicos que você mesmo escreve, em todos os seus aparelhos. “Esquecer”, aqui embaixo do Criador de mnemônicos, recomeça do zero.
+f381b52f	Seus próprios mnemônicos
+8ee516ce	Quando você escrever um mnemônico em Notas para memorizar, ponha em MAIÚSCULAS a palavra de som parecido: em “um pato sentado num POT” ele aprende com POT. Só contam as palavras em maiúsculas, e só se soarem mesmo como a palavra; o resto da nota é ignorado. Uma palavra sua pode voltar para outras palavras de som parecido, marcada “Você já usou esta”. Quando sua IA cria os mnemônicos, alguns dos seus são enviados a ela como exemplos do seu estilo. “Aprender com meus próprios mnemônicos”, aqui, desliga isso.
+69f9ddf6	Aprender com meus próprios mnemônicos
+7e24bec4	Só contam as palavras em MAIÚSCULAS: em “um pato sentado num POT” ele aprende com POT. O resto da nota é ignorado.
+b87389a9	Alguns dos seus próprios mnemônicos são enviados à sua IA como exemplos do seu estilo.
+64df8757	A palavra de som parecido em MAIÚSCULAS: um pato sentado num POT…
+12c40c2f	Aprendeu com {0}
+cca17e08	{0} não soa como {1}, então nada foi aprendido.
+b410b039	Dica: escreva em MAIÚSCULAS a palavra de som parecido e o Criador de mnemônicos aprende com ela.
+2814674c	{0} não soam como {1}, então nada foi aprendido.
+1f9e7496	Você já usou esta
+9aab0129	Você escreveu esta palavra em MAIÚSCULAS numa das suas notas

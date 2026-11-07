@@ -30,6 +30,7 @@ bd7ef16e  # Saudi Arabic (mnemonic.js, to the AI)
 849c584d  # Tunisian Arabic (mnemonic.js, to the AI)
 5f9c869a  # Libyan Arabic (mnemonic.js, to the AI)
 ed816526  # Yemeni Arabic (mnemonic.js, to the AI)
+5b06776c  # Mnemonics this learner wrote themselves (the keyword in capitals)... {0} (mnemonic.js, to the AI: the learner's own notes as examples)
 # Pieces of sentences the code glues together at run time (the whole is never on screen like this).
 56806a1f  # Take
 99e68eaa  # off the start page
@@ -385,6 +386,8 @@ aecf88cb  # changelog changes versions history what's new release notes  (Settin
 d9070fbc  # features abilities everything design research studies science sources about how it works how to use guide help getting started special techniques  (Settings search words, not shown)
 # "Add words" (web/js/addwords.js batchPrompt): what the app tells the AI about each word.
 e9369867  # fill in: {0}
+02c459b4  # A "phrase:" line is several words learned together…  (addwords.js batchPrompt: to the AI)
+fc118a44  # and {0}  (wordbuilder.js: a word-by-word meaning's "and", joined to the dictionary's English gloss)
 # "Add words" → Scan (web/js/scanwords.js scanPrompt): what the app tells the AI with the photo. (Its longer
 # instructions have JSON in them, so the extractor passes over them by itself.)
 32a9ff53  # The photo: read the {0} vocabulary on it.
@@ -517,3 +520,163 @@ b6fd8870  # {0}={1}; Path=/; HttpOnly; SameSite=Strict  (the session cookie)
 6fc357d0  # Invalid host header.  (answer to a request from another site; nobody using the app sees it)
 70ee1da1  # sentence example tatoeba wiktionary free no key how it works  (Settings search words, not shown)
 e64a529f  # mnemonic keyword memory trick sound-alike free no key how it works  (Settings search words, not shown)
+c13daa14  # The card's word is written "{0}". Find keywords only for "{1}"{2}.  (review/wordcore.js corePromptLine: to the AI)
+4cfab2ec  # ; the other forms and notes left out  (the same, to the AI)
+# Found when the extractor learned to read a list's first item (2026-11-07).
+# The browser start page's news sites, by the name each site writes for itself (web/js/browser-home.js NEWS):
+# names, kept as they are in every language.
+4d26cd8d  # BBC عربي
+cc671674  # سكاي نيوز عربية
+9fe83a08  # الشرق الأوسط
+8844909d  # CNN بالعربية
+c8309330  # فرانس 24
+5bfb1e6a  # DW عربية
+0a06713d  # اندبندنت عربية
+4d96687a  # القدس العربي
+61fae57e  # اليوم السابع
+24097bb7  # El País
+36c332a2  # BBC Mundo
+388f87ed  # El Mundo
+118cbdd7  # RTVE Noticias
+d68458bb  # La Vanguardia
+57614bfc  # CNN en Español
+35662db9  # Infobae
+0e74182b  # Clarín
+d28ab508  # La Nación
+a8f4c64e  # El Universal
+59123353  # Milenio
+024b2b1b  # El Tiempo
+b7ac91a5  # El Comercio
+cdc3aa67  # DW Español
+7451ca43  # RFI Français facile
+de40ac8d  # Le Monde
+1b504747  # Le Figaro
+118e6a74  # Libération
+4442a60a  # Le Parisien
+43d23978  # 20 Minutes
+433c4780  # La Presse
+f452ce44  # Le Soir
+5d332a26  # RTS Info
+7f9795e2  # NHK やさしいことばニュース
+57eb6adf  # TBS NEWS DIG
+fbf30883  # BBC 中文
+8615f7bd  # BBC News Русская служба
+9c28f873  # Медуза
+1283dff4  # Коммерсантъ
+b6509aa8  # Интерфакс
+f042a1a1  # РИА Новости
+bf4207f7  # Ведомости
+db936eb4  # DW на русском
+446dbcec  # Радио Свобода
+860a63cf  # Новая газета Европа
+8e65c771  # Настоящее Время
+f03f8ec6  # Хабр
+d45db115  # Rai News
+b7365cf9  # Il Sole 24 Ore
+d5bc8624  # Internazionale
+00e1805b  # Gazzetta dello Sport
+664add43  # Wikipedia
+af2a2c4a  # Abante
+5a235f05  # Pilipino Star Ngayon
+ed7834ad  # Balita
+24127cac  # Bandera
+e612e1b0  # GMA News Balitambayan
+f8f71512  # Bulgar
+e5556062  # Remate
+51ca4ce6  # Pilipino Mirror
+39be00c8  # Hataw
+b776deda  # Radyo Pilipinas
+98ce2a99  # Estadão
+a3205e50  # O Globo
+ba433fca  # BBC News Brasil
+5599b337  # Agência Brasil
+c318ba01  # Nexo Jornal
+5d0c0dc4  # Superinteressante
+f557e1c4  # DW Brasil
+83df7de9  # Wikipédia
+0224d245  # 3Cat Notícies
+22a81e90  # El Periódico en català
+7b4cd421  # La Vanguardia en català
+c41d1a50  # À Punt
+b5fae927  # El Temps
+83001a69  # Viquipèdia
+693c581c  # Superbalita Cebu
+ddeb76b4  # Superbalita Davao
+2648521a  # Superbalita Cagayan de Oro
+04724422  # Banat
+5d35386c  # DYHP RMN Cebu
+646969f0  # Bombo Radyo Cebu
+2c2ee5ba  # Bombo Radyo Davao
+ad69314f  # Bombo Radyo Butuan
+01c7c8d3  # Bombo Radyo GenSan
+b360f6ce  # Binisaya
+82b17fef  # Thai PBS
+8df1340d  # BBC ไทย
+7cfd0aa2  # THE STANDARD
+b0c29521  # Sanook ข่าว
+a4eedbcd  # workpoint TODAY
+67975396  # BBC News हिंदी
+12ac3f2d  # दैनिक भास्कर
+7cac951f  # दैनिक जागरण
+f02683f9  # अमर उजाला
+443c1fdf  # आज तक
+d785b97d  # NDTV इंडिया
+5e3ae44a  # नवभारत टाइम्स
+e9642cf1  # द लल्लनटॉप
+1c633781  # DW हिंदी
+ec1fc12d  # News18 हिंदी
+befc8536  # ABP न्यूज़
+3e78a087  # द वायर हिंदी
+815e8423  # हिंदी समय
+ec3c1d55  # KBS 뉴스
+cf4a5d40  # MBC 뉴스
+56cddbb7  # SBS 뉴스
+95e79789  # JTBC 뉴스
+a99e59bf  # BBC 코리아
+e0359e79  # News in Levels
+eb5d1053  # VOA Learning English
+cb13fbf8  # BBC News
+a4cdfd3a  # AP News
+e089e568  # Reuters
+382450e1  # ABC News (Australia)
+d80d86a6  # CBC News
+ca206c43  # The Verge
+c83e90ae  # DW Kurz und leicht
+3efbfe76  # Der Spiegel
+0b8bca7e  # Die Zeit
+2bf75179  # Süddeutsche Zeitung
+f9129df9  # Der Standard
+fd6294a4  # SRF News
+acfac6aa  # Handelsblatt
+88eb4797  # بی‌بی‌سی فارسی
+37902d57  # دویچه وله فارسی
+dcde8123  # رادیو فردا
+399cbe15  # ایران اینترنشنال
+f01518f9  # صدای آمریکا
+01aed91d  # همشهری آنلاین
+530411ba  # عصر ایران
+604abb5f  # دنیای اقتصاد
+ae13cbfa  # ورزش سه
+dd21b7ed  # اطلاعات روز
+7eca5722  # رادیو آزادی
+57f1d0a3  # Ephemeris
+ffe495b4  # Nuntii Latini mensis
+5a51ea8e  # Nuntii Latini (Yle)
+c9e0b874  # Academia Latinitati Fovendae
+2099bed9  # Vicipaedia
+1f82d509  # Vicifons
+90bc11fd  # Victionarium
+b360c146  # The Latin Library
+2dee65e6  # Bibliotheca Augustana
+f9e18fc5  # Corpus Corporum
+# The rest: a word told to the AI, Gemini's instruction, YouTube search words, a preview's sample caption,
+# names only matched in Netflix's menu, SQL and a Python name.
+acb53e89  # {0} word: {1}  (review/mnemonic.js: the word, told to the AI)
+a6124710  # Mandarin  (netflix.js NETFLIX_NAMES: matched in Netflix's menu, never shown)
+cd9a5554  # Filipino  (the same)
+56c856e0  # Cebuano  (the same)
+b9c00699  # "spoken Latin"  (youtube-home.js: Latin's YouTube search words)
+3b3d8f94  # Transcribe everything that is spoken in this video...  (ytgemini.js: told to Gemini)
+b623b54c  # مقلب في السوق 😂 #ضحك  (mobile reels-phone.js: a preview's sample caption)
+487ddb21  # e.deleted = 0  (app/api/episodes.py: SQL)
+44986cef  # Segment  (app/transcriber/__init__.py __all__: a Python name)

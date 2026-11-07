@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Buksan ang Claude Console
+641e071f	Mag-sign in, o gumawa ng account
+64b6cdc7	Magdagdag ng kaunting credit
+0603680d	Gawin ang key
+ddc9f55d	Kopyahin agad
+a11e9d4b	I-paste ito sa Tamkeen
+a50988a3	Buksan ang Google AI Studio
+6049f9a6	Mag-sign in gamit ang Google account mo
+39963ac7	Kopyahin ang key
+d5825787	Buksan ang OpenAI platform
+c1bdc572	Buksan ang xAI Console
+fe9bed90	Buksan ang Groq Console
+1eec8f15	Sinasabing tinanggihan ang key
+1ad303dd	Sinasabing quota, billing o rate limit
+cd002623	Sinasabing hindi nito kilala ang model
+76d3e42c	Naisara ko ang box bago makopya ang key
+f35d2a44	Ligtas ba ang key ko?
+1a7a8dc0	Maghanap ng salita: karaniwang 5 hanggang 15, minsan 30 hanggang 50, at paminsan-minsan 100 hanggang 200. Isang beses kada araw lang nagbibigay ang bawat salita, at bawat salitang hahanapin mo sa iisang sesyon ng pag-aaral ay nagpapalaki ng combo hanggang doble, nang walang pagmamadali: matatapos lang ang sesyon kapag 10 minuto kang wala sa app, o pagsapit ng hatinggabi.
+ebd10589	Pinupuno nito ang level bar mo. Nagbibigay ng 5 barya ang bawat bagong level, at mas maraming XP ang kailangan ng bawat level kaysa sa nauna (kailangan nito ng {0}).
+ceae120c	Abutin ang layunin mo ngayong araw ({0} minutong pakikinig o pagbabasa; hindi binibilang ang oras sa YouTube). Bawat araw na nagawa mo ito ay nagdadagdag ng isa.
+d883cc30	Bawat ika-7 sunod-sunod na araw ay nagbibigay ng streak freeze.
+76f510d0	Abutin ang layunin mo ngayong araw: 10.
+73298568	Mga isusuot ng nilalang mo at mga bagay para sa tirahan nito: sumbrero, salamin, pangleeg, hawak, kapa at pakpak, damit, at dekorasyon. Nagkakahalaga ang mga ito ng {0} hanggang {1} barya.
+76557f97	Bawat ika-7 sunod-sunod na araw ng pag-abot sa layunin mo ay nagbibigay ng isa (hanggang 3 ang mahahawakan sa ganitong paraan).
+797b53b5	Sinasaklaw nito ang isang nalaktawang araw, kaya tuloy ang streak mo na parang nag-aral ka.
+fc8d2b71	Ginagawa ito ng mga gusali sa hardin mo buong araw, kahit nakasara ang app (hanggang {0} oras na halaga ang naghihintay sa iyo).
+75cc6677	Mga bagong gusali, at pagpapalaki ng gusali sa susunod na antas nito para mas marami itong magawa.
+38414bff	Makakuha ng badge: tig-2.
+ced05c8e	Pakainin ang nilalang sa tirahan mo. Nagkakahalaga ng {0} liwanag ang pagkain, at kumakain ito nang hanggang {1} beses kada araw.
+317d4503	Pinabibilis ng bawat puso nang 4% ang lahat ng gusali mo habang nasa tirahan ang nilalang na iyon.
+b3e7bb3e	Ang sungay nito, na tumutubo kapag bata na ito, ay mas malamang na maging antena para sa mga nakikinig at hiyas para sa mga nag-iipon.
+d702648b	+{0} XP{1}
+af310252	Tanso
+4042806d	Salitang Ingles
+eed7cb83	Kaliwang stick pababa
+d526caec	Kanang stick pakanan
+f5ec7772	Pinakabago muna
+6a99c65c	Pinakaluma muna
+7def648b	Kamakailang binago
+530262d8	Pinakamatagal nang binago
+7f5f05af	I-save ang file mula sa Tamkeen.
+ced72db7	Sining
+ffa74a4e	🎧 Episode ng podcast
+eb3d3982	I-click ang install icon sa kanang dulo ng address bar (isang screen na may pababang arrow).
+aebb4c7b	Hindi makapagdagdag ng web app ang browser na ito. Buksan ang page na ito sa Chrome o Edge, saka gamitin ang install button nito sa address bar.

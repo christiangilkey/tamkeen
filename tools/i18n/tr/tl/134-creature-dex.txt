@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Ang mga nilalang mo
+3ad63cd1	Lahat ng nilalang
+4c62aad0	Pagpisa
+f3b21e04	Paglaki
+df873d99	Mapipisa ito habang nag-aaral ka.
+be763e9a	Mga stat
+17ac8106	Paano mo ito pinalaki
+756016c6	Makikita lang ang mga kulay sa itsurang Bata.
+e7c741fc	Hindi pa nakukuha
+117dc066	{0} sa {1} ang nakuha
+257f305b	Nakuha na
+7548ab52	Lakas
+54c45c03	Humaharang
+bc6f4bc6	Nagpapagaling
+3159fe42	Bakante
+c81c947a	Mga galaw
+eb10a5c1	I-tap ang isang galaw para makita o palitan ito. Mag-iwan ng kahit isang pang-atakeng galaw.
+57351a82	Iba pang galaw na alam nito
+d0b58b44	Ginagamit nito ang lahat ng galaw na alam nito.
+92f548f5	Bumili ng iba pang galaw sa tindahan
+34dbd5c4	Hintay
+2ec0e11f	Ito lang ang pang-atakeng galaw nito: mapapalitan lang ito ng isa pang pang-atakeng galaw.
+9981290a	Wala pa itong alam na ibang galaw.
+210dd62a	Palitan
+1f36beb6	Gamitin ang galaw na ito
+e4a6558f	Aling galaw ang papalitan?
+bafc96af	Papalitan ng {0} ang galaw na pipiliin mo.
+7eedf90d	Ang tanging pang-atakeng galaw nito
+267c5f05	Ipapalit sa aling galaw?
+7e756b98	Pumili ng galaw
+f90824d2	Pampalakas

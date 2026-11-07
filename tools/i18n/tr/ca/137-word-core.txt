@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Article
+8458445d	Conjunció
+ad3287cc	Preposició
+4290a803	Marcador
+8c112070	Marcador de plural
+c2f69372	Marca d’infinitiu
+28680091	Pronom reflexiu
+e95a5003	Verb de suport
+3520950d	Còpula
+4a1c659d	Paraula de cortesia
+4442f411	Formador de noms
+e5efdbe6	Paraula unida
+2c924e30	Nota
+e9b9ac89	Altres formes
+3b74e96e	Alternativa
+8753dabd	Indicació gramatical
+ed212fa1	Comodí
+cf597d75	«un, una»
+edcca932	«un»
+73afd32b	«així que, i després»
+69c093a0	«amb, per, en»
+35aa4308	«com»
+1c86bb4a	«per a, a»
+98f1e5fa	la converteix en pregunta
+1b7cb171	marca de l’infinitiu, davant d’un verb
+b3c108a5	«fer»
+11547b17	«fer», formal
+c0318423	«esdevenir, tornar-se»
+0366e875	«esdevenir», formal
+0791ccdc	«colpejar»
+55c64b21	«donar»
+bf203a4a	«prendre»
+5de917a4	«tenir»
+e7dd0530	«ser, estar, esdevenir»
+b4f502d9	«ser, estar», cortès
+cb715b83	el marcador del tema
+9ed195a4	el marcador de l’objecte
+43ae6d89	un marcador davant d’un nom de persona
+62a014d5	el marcador de plural
+072b1f7c	«a, en»
+235f5aff	una paraula de cortesia
+84887987	converteix un verb o un adjectiu en nom
+c8a729e5	una nota entre parèntesis
+8a697f13	altres formes de la paraula
+66cc4fbe	el plural
+dfa3391c	una altra paraula o forma
+4a66721a	una indicació gramatical
+46e3575a	un comodí en lloc d’altres paraules
+b9a634a6	Es deixa fora: {0}
+413cacc4	Només compta «{0}».
+045b3e3b	«el, la»
+7bdc12eb	«uns, unes»
+35cdf2c9	«i»
+5392faee	«o»
+72a50e8f	«es, un mateix»

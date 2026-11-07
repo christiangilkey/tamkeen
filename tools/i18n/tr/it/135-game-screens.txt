@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Livello {0} di 3
+799c9f2a	Hai
+1e1c72c2	All'ora
+33d30632	Da raccogliere
+53cb1f45	Polvere di stelle
+fe26b106	Il bagliore si raccoglie da solo
+84466168	Ancora niente da raccogliere
+c2743891	Si raccoglie da solo dopo altri {0} obiettivi giornalieri
+185fb7e9	Si raccoglie da solo dopo un altro obiettivo giornaliero
+a6fe4bd7	Edifici
+5209c504	Lotti aperti
+5e50e7d0	Usa una chiave
+c9d9f62d	Lotto {0}
+f096bcd2	Vuoto: scegli cosa costruire
+bbd80cf7	Costruisci
+90335b64	all'ora
+8ae5f769	Libera una creatura
+469c82aa	Cosa fa liberare
+cc5f562c	Lascia {0} di polvere di stelle
+3ce59147	Liberate finora: {0}
+d0c810d6	Polvere di stelle ora
+8490bae0	Ognuna
+d40e4bd3	Una creatura completamente cresciuta può essere liberata. Lascia la tua squadra e viene ricordata qui. I tuoi edifici e il tuo bagliore ricominciano da capo, e tieni la polvere di stelle: ognuna rende tutti gli edifici più veloci per sempre, così il giardino successivo cresce molto più in fretta. Più edifici completamente cresciuti hai in quel momento, più polvere di stelle ottieni.
+c5e4d0d9	Costruisci sul lotto {0}
+5bd44ebe	Livello
+2c6d59f3	Rende di più con
+c756f6af	Tutti
+7e2299a8	Potenzia
+ad05dc64	Ha mangiato {0} volte su {1} oggi
+64ce4b08	Al caldo
+38da057b	Comprane uno per darglielo.
+3e8248e3	Prezzo
+6e4af9cf	Preferito da
+b6792f89	Pasti oggi
+ea2619b8	Il suo preferito: conta il doppio.
+7ceca51f	Compra
+d5f82806	Attivo ancora per {0} min
+f52b020c	Un uovo è al caldo.
+bfb4298c	Quanti ne hai
+0b5ad7f0	Cappello
+9a46e65f	Per il viso
+0a3774e5	Da tenere in mano
+03898713	Per la schiena
+56cc042a	Maglietta
+68121261	Da indossare
+899db74e	Decorazioni
+807f8ba7	Da indossare
+fa6095d9	Nell'habitat
+e7eb9ee9	Mosse di battaglia comprate
+e5ffd15b	Testa
+35a237da	Collo
+6b568a69	Per le battaglie
+231a3994	Per le tue creature
+0891d9ac	Per il giardino
+01888a92	Mosse che conosci, tra quelle vendute qui
+755844bc	Tuo
+f13ba138	Da sbloccare
+1894043f	Solo estetico. Va subito nell'habitat.
+ef4da3ac	Solo estetico. Lo indossa subito.
+dbe3238f	{0} Si compra una volta, per tutte le tue creature.
+44e6822a	Indossato
+c5040300	Indossa ora
+44819483	Niente
+f7b4c7be	Le uova non indossano niente finché non si schiudono.
+31e8d565	Nella tua borsa

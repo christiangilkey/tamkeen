@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	今日目标达成：+{0} XP
+3a110e1d	升级了！+5 金币
+5428d235	等级 {0}：{1} XP
+d6d9f18f	{0}。连击，下一次 {1}
+0ad2c237	你的等级
+7c7f5d04	等级
+2314cd9a	打开游戏
+623e0f4d	距离等级 {1} 还差 {0} XP
+bbbe0df0	连击中：下一次查词 {0}
+58c06693	连续查词就能连击：×1.2，然后 ×1.5，然后 ×2。
+3d845682	连续保护！
+ef0dcaec	提示卡！
+f21e440a	今天已经查过了
+9fe2b30d	+1 金币
+09eee77a	+{0} 金币

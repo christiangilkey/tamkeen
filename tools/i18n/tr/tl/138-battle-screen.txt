@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Tanong mula sa
+4c8044d7	Lahat ng {0} salita
+3254a11b	Pinakabagong {0}
+24d3e4fd	Lakas
+19ab964c	Pareho sa lahat
+f472694a	Mga salitang dapat balikan
+c5480ef5	Bubukas ang mga laban sa {0} naka-save na salita
+a0d031d3	Kulang pa
+54a41c30	Mag-save ng mga salita gamit ang ★ habang nakikinig at nagbabasa.
+efaa27d9	Kailangan ng kahulugan ng mga salita mo
+32fa4207	May kahulugan
+2c5dcbb8	Kailangan ng kahulugan ang mga tanong: punan ang ilan sa Vocab page.
+71db6b56	Buksan ang Vocab
+3c5410a6	Hindi pa napipisa ang itlog mo
+50c5f1c3	Abutin ang layunin ngayong araw para mapisa ito, saka bumalik para lumaban.
+80b3016c	Ang team mo
+3cda3a1b	Mabilisang laban
+47c316a3	Patas na laban
+ac02de4b	Pumili ng {0} pa
+d26d55c7	Mga salita
+63bbbf02	Ang record mo
+ec9f630c	Galing
+b6c015d1	Panalo
+375cbb72	Tama kamakailan
+80263722	Alam na salita
+51c51d5d	Paano gumagana ang mga laban
+12901c84	Isang laban
+f0975bb0	Ang unang tatlong napisang nilalang mo ang lalaban, ayon sa ayos sa pahina ng Mga nilalang. I-tap ang isa para makita ito at piliin ang mga galaw nito.
+07b537c2	Puwedeng mag-iwan ng itlog ang isang panalo, habang wala pang anim ang mga nilalang mo.
+514a5381	Mga gym leader
+0a33d702	Ang unang panalo laban sa bawat isa ay may dagdag na barya at XP. Hindi binabago ng mga gym ang skill rating mo.
+504b0ab6	Tumataas ang galing kapag nananalo ka sa mga paupahang duelo at laban sa kaibigan, at bumababa kapag natatalo ka.
+9b123a44	Tama kamakailan: ilan sa mga sagot mo sa mga laban ang tama ngayong linggo.
+0574ed77	Tinalo ang team mo
+b97fcdd2	Natalo sa team mo
+666a5d8c	{0}% ng mga araw
+8c26dc15	Patakaran ngayong linggo
+d0753d11	Guild raid: {0}
+e7a1a8e1	Guild raid
+c314c002	Buksan ang Mga Kaibigan tab
+f93ee291	Laban sa mga kaibigan
+ff38765f	Mga hamon
+34d6c5fd	Hamunin ang team ng isang kaibigan: lumalaban ang mga nilalang niya gamit ang mga galaw na pinili niya, at sumasagot nang kasingtumpak ng karaniwang pagsagot ng may-ari sa sarili niyang mga salita. Ikaw ang sasagot sa iyo.
+d64bc035	Bawat linggo ay may sariling patakaran para sa laban sa kaibigan: nasa Patakaran ngayong linggo ito.
+5586d01b	Kasama sa skill rating mo ang mga laban sa kaibigan, at itinatala ang record mo laban sa bawat kaibigan.
+9f14cd67	Ang liga
+862b1fa5	Bawat tamang sagot sa isang laban ngayong linggo, mula sa kahit sino sa guild, ay nagbabawas ng isa rito.
+9d59a182	Talunin nang sabay-sabay ang boss para sa 150 XP at 20 barya bawat isa. Darating ang bagong boss sa Lunes.
+3b2c3fdb	Mga regalo
+8e3a0e6a	Puwede kang bigyan ng mga kaibigan ng maisusuot, dekorasyon at itlog. Naghihintay sila rito hanggang buksan mo.
+2c3fe469	Hindi kailanman ipinapadala ang mga salita at materyales mo sa pag-aaral: ang team mo lang ng mga nilalang, kung gaano katumpak ang sagot mo, at ang mga kabuuan ngayong linggo.
+fb278703	Natalo na
+1cc55327	Labanan si {0}
+bc435923	Gym
+a563972e	Mga elemento
+a9965777	Bawat tanong
+08f35234	Unang panalo
+bcafab50	Ipinadala ni {0}

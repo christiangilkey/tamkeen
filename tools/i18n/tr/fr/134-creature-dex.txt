@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Vos créatures
+3ad63cd1	Toutes les créatures
+4c62aad0	Éclosion
+f3b21e04	Croissance
+df873d99	Il éclot pendant que vous étudiez.
+be763e9a	Statistiques
+17ac8106	Comment vous l'avez élevée
+756016c6	Les colorations se voient avec l'apparence Juvénile.
+e7c741fc	À obtenir
+117dc066	{0} sur {1} obtenus
+257f305b	Obtenu
+7548ab52	Puissance
+54c45c03	Bloque
+bc6f4bc6	Soigne
+3159fe42	Vide
+c81c947a	Attaques
+eb10a5c1	Touchez une attaque pour la voir ou l'échanger. Gardez au moins une attaque offensive.
+57351a82	Autres attaques qu'elle connaît
+d0b58b44	Elle utilise toutes les attaques qu'elle connaît.
+92f548f5	Acheter d'autres attaques à la boutique
+34dbd5c4	Recharge
+2ec0e11f	Sa seule attaque offensive : elle ne peut être échangée que contre une autre attaque offensive.
+9981290a	Elle ne connaît pas encore d'autres attaques.
+210dd62a	Échanger
+1f36beb6	Utiliser cette attaque
+e4a6558f	Remplacer quelle attaque ?
+bafc96af	{0} prend la place de l'attaque que vous choisissez.
+7eedf90d	Sa seule attaque offensive
+267c5f05	L'échanger contre quelle attaque ?
+7e756b98	Choisir une attaque
+f90824d2	Renforcement

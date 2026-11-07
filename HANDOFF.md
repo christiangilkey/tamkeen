@@ -2242,6 +2242,9 @@ translated so English learners can use the app.
      (i18n.test fails while any string is untranslated).
   `tools/i18n/ignore.txt` = ids that are not interface (model names, web headers, the AI's instructions);
   `tools/i18n/extra.txt` = words the code glues into sentences that the extractor can't see.
+  (2026-11-07: extract.mjs had taken every `[` before a string for a lookup (`obj["key"]`), so a list's first item was
+  never extracted; it now reads `[ "…"` as words. The 198 strings that brought: 45 translated in
+  `tr/<code>/140-first-list-items.txt`, the other 153 (news site names, AI text, SQL…) in ignore.txt.)
 - **Style**: es tú, fr vous, it tu, ru вы, Arabic MSA, app name in Arabic تمكين. Glossary — elements
   Ember/Tide/Grove/Stone/Spark/Dusk: es Brasa/Marea/Arboleda/Piedra/Chispa/Ocaso, ar جمرة/مدّ/بستان/حجر/شرارة/غسق,
   fr Braise/Marée/Bosquet/Pierre/Étincelle/Crépuscule, ja 熾火/潮/森/岩/火花/宵, zh 余烬/潮汐/林地/岩石/火花/黄昏,
@@ -7121,6 +7124,54 @@ each with a button that explains how it works.
   unset = AI when there is a key (the old behaviour). Every place that picks AI or free for sentences or
   mnemonics (review/cardtools.js, review/sentencefind.js, components/wordbuilder.js) must ask `aiMakes`.
 - Tests: `tests/js/helpersource.test.mjs`. Strings: tr 131.
+- **Fixed 2026-11-06**: `sentence_source` / `mnemonic_source` weren't in app/db.py DEFAULT_SETTINGS, so the desktop server
+  dropped them (the choice never stuck on the computer); now in db.py and store.js. They still don't sync between
+  devices (not in aikeys KEYS); add them there if they should.
+
+### Learn from my own mnemonics (2026-11-06; helper of the main chat)
+Owner-approved design: the free Mnemonic maker also learns from mnemonics the learner **types** in Memorization notes,
+from the words in **CAPITALS only** (Tamkeen's own keyword convention: Use writes "… on top of a POT").
+- **Pure part** `web/js/review/ownmnemonic.js`: `capitalKeywords` (2+ capital letters, Unicode `\p{Lu}`, so É and Ж count;
+  words separated only by spaces or a hyphen on one line make one keyword, at most `RUN_MAX` 3, longer runs word by word;
+  single letters I/A don't count and break a run; not inside a word written otherwise, McDONALD; a small plural "s" is
+  dropped), `newCapitals(before, after, {skip, word, meaning})` (only capitals new since the note was last learned from;
+  never the maker's own suggestions for the card, the word itself or its meaning's words), `judgeOwn` (the sound check:
+  the keyword's IPA from the KeywordLists, then the English word table's CMU via `englishSounds`; unknown sounds =
+  ignored; pass = `rankSuggestions` keeps it, as for the makers' own keywords), `learnOwn` (each pass = a Use at
+  `OWN_STEP` 1.5 × PREF_STEP with `traitsOf`, n + 1; the keyword kept with its IPA; the whole note kept as an example),
+  `ownExamples`, `learnsOwn(settings)`.
+- **Stored** in `mnemonic_prefs` (freemnemonic.js): `o` [[keyword, ipa, lang if not en]] newest first ≤ `OWN_MAX` 60,
+  `x` [[word, meaning, note ≤ 240]] ≤ `EXAMPLES_MAX` 3. `readPrefs` validates everything strictly (types, lengths,
+  small-letter keywords of ≤ 3 words, no control/bidi characters, no `<>&"\` in IPA, language codes, duplicates, n ≥ 0).
+  **aikeys cuts synced values at 2,000 characters** (py and js, older apps too), so `writePrefs` keeps the setting
+  ≤ `PREFS_MAX` 1,900 by dropping the oldest own words (down to 10), then examples; in practice ~40-50 own words fit
+  beside 3 full examples, not 60. Every writer of the setting must use `writePrefs` (tasteFrom does).
+- **Offered again**: `makeFreeMnemonics(…, {own})` adds the learner's own words (same list language) as candidates,
+  sound-checked like the rest, `OWN_BONUS` 0.04 (small: one keyword for many words mixes them up), marked `own`
+  ("You've used this before", review.css `.rv-mn-mark.own`); not for a card whose notes have it already.
+- **AI**: `mnemonicPrompt({examples})` adds up to 3 of the learner's notes (word, meaning, note in quotes) to the user
+  message; cardtools.js (review card, Vocab card) and wordbuilder.js (Add words) pass `ownExamples` when the switch is on.
+- **Page side** `cardtools.js learnFromNote(v, before, after, {lang, at, quiet, skip, shown})`: runs after the save,
+  never downloads (`examples.js checkOwnKeywords`: `download: false` everywhere; the word's sounds by spelling rules
+  when the examples file isn't here), quiet when nothing can be checked. Says it under the box for 4 s (`noteLine`,
+  `.mn-learned`, role=status, aria-live polite; a toast when the box has gone): "Learned from POT" / "POT doesn't sound
+  like pato, so nothing was learned." First note saved with no capitals at all: a one-time tip (localStorage
+  `tamkeen.mnemonicCapsTip`). Wiring: review.js on the memo's blur, on answering, undo and closing (`memoAt`
+  remembers the last-learned text; Use updates it); wordeditor.js when the memo's text box saves; wordbuilder.js
+  after Add (rows the learner typed, skipping the keywords the maker filled in, one toast for all).
+  Placeholders (`memoPlaceholder()`): "Sound-alike in CAPITALS: a duck sitting on a POT…" while on.
+- **Setting** `mnemonic_learn_own` ("off" = off; db.py, store.js, aikeys KEYS py+js so it syncs): a `label.check`
+  (role=switch) in freehelpers.js's Mnemonic maker row, `data-find="mnemonicown"` (FINDS). Off = no learning from notes,
+  own words not offered, nothing sent to the AI (what was learned stays until Forget it). Both Forget it buttons
+  (freehelpers.js, aisetup.js) empty the whole setting: weights, own words and examples. "How it works" has a
+  "Your own mnemonics" part.
+- Tests: `tests/js/ownmnemonic.test.mjs` (9), freemnemonic.test.mjs (readPrefs' new shape), test_aikeys.py (the
+  settings are kept on the desktop). Strings: tr 133 (13 × 16); the AI line is in ignore.txt.
+- **Checked** in the phone build (mobile/www, fresh `mnlearn.localhost` origin, never signed in), Spanish at 390 px:
+  setting, placeholder, Mnemonic maker then "PATTY" typed → "Learned from PATTY" and the prefs saved, "TABLE" →
+  "doesn't sound like pato", editing other text → nothing, the tip once, "patty" offered for pata with "You've used
+  this before", the Vocab card's notes ("Learned from PADDLE"), switch off/on, Forget it; no console errors.
+  Screenshots: `tamkeen-shots/mnemonic-learn/`. **Not checked**: the desktop window, a real phone, a real AI key.
 
 ## Creature game: the home card redesigned, step 1 (2026-11-06; helper of the main chat)
 The owner approved a redesign of the game card at the bottom of Home: learnt by playing, not by reading.
@@ -7143,7 +7194,8 @@ The owner approved a redesign of the game card at the bottom of Home: learnt by 
   the card last showed it (`tamkeen.game.homeSeen`, per device) flies from the creature into its counter, and the
   number rolls as it lands; glow from a tapped building flies to the Garden tile with "+N"; gifts and hatched eggs
   fly to Shop or Creatures. Flights wait while a sheet or battle covers the card; the automated glow trickle is
-  counted quietly. While studying, XP (and coins) fly from the word into the XP chip (`game.js showChip`).
+  counted quietly. While studying, XP flies from the word into the top bar's level badge (`game/xpbadge.js`; the
+  XP chip `showChip` is gone: see "Where XP shows while studying" below).
 - Every page of the game sheet has a **?** (shop.js `HELP` → info.js `openEarned` / `openEvolution` with
   `{ over: true }`: a sheet over the sheet); Supplies' Food has one for hearts. One colour per thing: CSS variables
   `--coin --gem --streak --goal --glow` (light and dark), app.css block "creature game: the home card".
@@ -7186,3 +7238,329 @@ minimally; the folder and filter header cleaned up: one folder sheet, one sort/f
   1280 wide (open word, folders tool, folder sheet, hold-to-light saved `⟦panadería⟧`). **Not checked**: a real
   phone (long-press to Select, hold-to-light by finger), the free sentence/mnemonic data (not published in the
   dev build: the error paths showed), an AI key (none used), Anki-linked bulk delete, iPhone.
+
+## Creature game: the Creatures page as a dex, moves in four slots, the badge case (2026-11-06; helper of the main chat)
+Owner: "the way moves are picked and selected here is really unintuitive … take inspiration from the Pokemon games"
+(our colours and styling), then: no paragraph, the creature's information "broke up and presented better", Pokédex-like.
+The sheet's shell (title, X, no tab row) is the other helper's (shop.js); this is what `creaturesPanel` and `badgesPanel`
+draw inside it. Blocks use the shared `.gs-block` / `.gs-label`.
+- **Creatures** (`web/js/game/creatures.js`): with several creatures a grid (`.cr-grid`, picture, name, element badge; the
+  one in the habitat gold with a house icon), a tap opens its entry with "All creatures" back; one creature goes straight
+  to it. `creaturesPanel(body, game, changed, seed)` (no seed = the grid); a repaint keeps the entry and the scroll.
+  Entry blocks: hero (`.cr-stage` tinted by element, 2x portrait, `#seed`, name, element badge + species + stage, growth
+  bar to GROWN or, for an egg, to hatching; "Bring out"/"In the habitat" + "Show to friends" as an equal pair; an egg has
+  the gift button instead), **Stats** (rows: icon, name, number, bar; full = best of that stat in BASE_STATS), **Moves**,
+  **Other moves it knows**, **Look** + **Special colouring** (portrait tiles; locked colourings dimmed with a lock, a tap
+  says how to earn it), **How you raised it** (habit rows, names as info.js). The long paragraph is gone; explanations
+  stay behind the "?" (info.js `openEvolution`).
+- **Moves** (`web/js/game/movesui.js`, rules in `web/js/game/movepick.js`): the four as tiles tinted by element
+  (`.tint-<element>`, `--el` = the battle banners' body colour; plain moves grey), laid out like the battle's buttons
+  (`SLOT_ORDER` 2 3 / 0 1 = X Y over A B, tested against livebattle-ui.js PLACES); an empty slot is an outline ("Empty",
+  a tap picks a move). A tap on a move opens a popup (`openModal`): picture, element badge, Kind / Power (or Blocks,
+  Heals, Attack/Speed +%, Ground) / Wait (live cooldown), `moveHelp`; **Swap** (equipped: a list of the others) or **Use
+  this move** (free slot: fills it; all four full: "Replace which move?" with the four tiles). The attack rule is said
+  first: the only attack's popup says so, non-attacks that would break it are greyed with "Keep at least one attacking
+  move.", and in "Replace which move?" the only attack's tile is greyed "Its only attacking move". There is no Remove:
+  `battle.loadout` tops a creature up to four anyway. `g.moves` stays a list of up to four ids (the shown loadout,
+  in slot order), so battles, friends (`publicProfile` → remote.js `cleanGenome`) and old saves are unchanged.
+  `movepick.js`: `slotsOf`, `onlyAttack`, `whyNot` ("unknown" / "already" / "full" / "attack"), `useMove(slots, id, at)`,
+  `benched`, `moveFacts`, `moveElement`, `HASTE_UP` (= livebattle HASTE, tested). A change publishes to friends 3 s later.
+- **Badges**: a badge case (`.badge-case`): earned in colour, the rest grey and faint (`--silhouette`), a tap opens a
+  popup with the picture, how to earn it, Earned / Not earned yet.
+- i18n `tools/i18n/tr/<code>/134-creature-dex.txt` (31 strings × 16); "Power-up" (a move kind, hyphenated) added to
+  extra.txt. Tests `tests/js/movepick.test.mjs`. CSS: app.css block "creature game: the Creatures page, its moves, and
+  the badge case". No new art.
+- **Checked** in headless Edge on throwaway profiles (phone build, 390×844 at 2x, dark and light, English, Spanish,
+  German) and in the browser pane: grid, entry, egg, hatchling with an empty slot, swap, use with a free slot and with
+  all four full, the attack rule with only one attack, badge case and popups. Screenshots in
+  `tamkeen-shots/moves/`. **Not checked**: a real phone, a controller on these screens, right-to-left by eye.
+- Battle screen and shop move buttons were left as they are (the battle's banners already use the same element colours).
+
+## Creature game: each section its own screen; Shop, My things, Garden, Supplies in blocks (2026-11-06; helper of the main chat)
+Owner, on Creatures: no section selector there, an X back to Home, no big paragraph, the information broken up like a
+Pokédex entry; then "Do the same with all the other buttons you press on this creature mini game section."
+- **The shell** (`openShop(tab, changed)` in `web/js/game/shop.js`, still the one entry point): the row of six tabs is
+  gone. Head: the section's pixel icon and name, its counters (Shop/My things coins; Garden glow; Supplies glow + gems;
+  none on Creatures/Badges), "?" (kept in place, hidden by `visibility` where there is none: Badges) and the X (closes =
+  back to Home). Under it a switch for the pair the screen belongs to: **Buy | My things**, **Garden | Supplies**,
+  **Creatures | Badges** (`.segmented` from the Friends tab). The sheet keeps one height (`.gs-sheet`), so switching never
+  moves the switch. `paint(id, keep)` redraws in place (keep = same scroll). How each section is reached: Home tiles
+  Shop / Creatures / Garden, the coins counter → Shop, the gems counter → Supplies, then the switches; info.js links
+  (`go("badges")` etc.) and `openShop(section, changed)` from anywhere also work. Shop/My things/Garden/Supplies panels
+  get `(body, game, changed, go)`; `creaturesPanel(body, game, changed)` / `badgesPanel(body, game)` are called as before.
+- **Pure rules** `web/js/game/sections.js` (tests `tests/js/sections.test.mjs`): `SECTIONS`, `PAIRS`, `sectionOf`,
+  `screenOf`, `pillsOf`, `artOf`/`structureArt`/`fitScale` (pixel art at whole-number sizes), `shelves`, `lockedShelf`,
+  `POCKETS`/`pocketCounts`/`pocketBlocks`/`wearing`/`isOn`, `supplyBlocks`, `gardenFacts`, `plotRows`, `buildOptions`,
+  `KIND`. A test scans habitat/info/shop/garden/creatures/movesui/friends-game/battle-ui for `go("x")`, `tab: "x"`,
+  `openShop("x"` and checks each is a section. `idle.js` gained `stardustGain` (release uses it; the Release block shows it).
+- **Screen parts** `web/js/game/screenparts.js`: `block` (a `.gs-block` with its `.gs-label` and an optional end: a count
+  or a "?"), `tile` (`.gs-tile`: picture, name on two lines, price/count line, corner count), `row` (`.gs-row`: picture,
+  name, line, end; the whole row a button when it opens something), `switcher`, `amount` (coins/gems/glow in their
+  colour, muted when short), `art`, `fact`, and `details(fill)`: the app's own box (`openModal`) with a big picture
+  panel, name, facts in labelled cells, text, a note line that keeps its height, two equal buttons; `d.redraw()` after
+  buying/wearing/feeding keeps it open in place.
+- **Shop**: shelves Things to wear / Decorations (tiles) / Battle moves (rows), Still to unlock (tag lines). The day's
+  selection is kept for as long as the sheet is open, so a bought thing stays in its place marked "Yours". A thing's
+  box shows the creature in the habitat **trying it on** (portrait at 2x, the item in the corner), Kind, Price, Buy.
+  **Battle moves** use the Creatures screen's rows and popup (`movesui.moveRow` and `moveView`, both exported for this):
+  the row adds the price after the element badge (`.gs-move-row`), the popup has Close / Buy.
+- **My things**: pockets To wear / Decorations / Moves (counts in the switch). To wear starts with **Wearing now** (2x
+  portrait and six cells Head, Face, Neck, Held, For the back, Shirt; data.SLOTS' "Back" read as "go back" in some
+  languages, so the bag uses its own words), then a block per kind. Decorations: Out in the habitat / Put away. A
+  thing's box: Kind, Now, Give (closes the box first: the friend chooser sits under modals) and Wear/Take off or Put
+  out/Put away. Moves: the Creatures rows; the popup's button opens Creatures.
+- **Garden**: Glow block (You have, An hour, Waiting, Stardust; Collect N glow, or "Glow collects itself"; full bloom),
+  Buildings (a row per plot: built → tier pips, rate, waiting, a tap opens its box with Tier, An hour, Waiting, Does best
+  for, Collect and Grow; empty → Build, a box listing all six with cost and rate or what opens them; closed → what opens
+  it and Use a key on the first closed one), Release a creature (a row per fully grown one with the stardust it leaves;
+  its explanation is behind the block's "?"). Per-plot Collect moved into the building's box.
+- **Supplies**: Food (who eats, hearts, fed n of 3; six food tiles with price and a corner count; a box with Buy and
+  Feed, staying open), then For battles (potion, ticket), For your creatures (XP boost, mystery egg, incubator), For the
+  garden (key); each box has Buy and, where it applies, Use now / Add 20 more minutes / Warm an egg.
+- CSS: app.css block "creature game: each section its own screen" (after the home card block); the old phone rule for
+  the tab row is gone. i18n `tools/i18n/tr/<code>/135-game-screens.txt` (67 strings × 16).
+- **Checked** in the browser pane (phone build, 390 px) by hand: buying, wearing, taking off, pockets, collect, build,
+  key, grow (refused without glow), feed, buy food, XP boost, incubator, X, gems → Supplies, "?" over the sheet,
+  Creatures ↔ Badges. Screenshots (headless Chrome on a throwaway profile, 390×844 at 2x, dark and light) in
+  `tamkeen-shots/sections/`. **Not checked**: a real phone, a controller on these screens, right-to-left by eye, Give
+  (needs a signed-in friend).
+
+## Creature game: the Battle screen and its Friends side in blocks; gyms as a path (2026-11-06; helper of the main chat)
+Owner, on the game's screens: no section selector, an X back to Home, no big paragraph, information "more broke up and not
+so flat", Pokédex-like; "Do the same with all the other buttons you press on this creature mini game section." Battle was
+the last old-style sheet. The live battle screen (livebattle-ui.js) is unchanged.
+- **Two more sections of the one game sheet** (shop.js `openShop`, the shell above): `battle` and `friends`, a pair with
+  the switch **Battle | Friends** (sections.js `SECTIONS`/`PAIRS`; icons `battle`, `rival`; no counters). Their "?" are
+  their own (`battleHelp`, `friendsHelp`: shop.js head() picks `{evolve, battle, friends}` by name, else openEarned).
+  `openShop(tab, changed, opts)`: `opts.counts` = `{friends: n}` puts a red number on Friends (`.gs-switch .gs-seg-n`; not
+  while Friends is the one shown; cleared once Friends is opened), `opts.focus` = "gyms" scrolls to the gyms once. PANELS:
+  `battle` → `battlePanel(body, game, changed, go, close, focus)`, `friends` → `friendsPanel(body, game, changed,
+  challenge)` (challenge closes the sheet, then `startFriendBattle`). `openBattleMenu({changed, waiting, focus})` (home's
+  Battle tile, "Battle again") is now `openShop("battle", …)` by dynamic import; battle-ui's own `sheet()` is gone. Both
+  panels draw into a fresh `.bt-page` and check it is still attached after each await, so turning the switch mid-load
+  never draws into the other side.
+- **Battle** (`web/js/game/battle-ui.js`), after `loadWords`: **Your team** (`teamSlots`: the first three hatched, as
+  `.cr-tile`s with element badge; an "Empty" place keeps the row's shape; a tap → `go("creatures")`), **Quick battles**
+  (two `screenparts.tile`s: Wild encounter with a random wild creature's portrait, sub "Your team"; Rental duel with this
+  week's first rental creature, sub "Even fight"), **Gym leaders** (gyms-ui.js, below), **Words** (`wordModePicker` is now
+  a `switcher` + facts Questions from / Strength / Words due; due counts only the words that choice asks:
+  `reviewSummary(game, battleWords(vocab, mode))`), **Your record** (Skill with the rating icon, Wins, Right lately, Words
+  known). Closed battles show one block instead (`battleGate`): words (Saved / Still to save, a bar), meanings (Saved /
+  With a meaning, Open Vocab) or the egg. **Rental duel** is a `screenparts.details` box: six tiles, a tap chooses or puts
+  back (never a fourth), "Choose 2 more" on the note line, Close | Start the duel.
+- **Gym leaders** (`web/js/game/gyms-ui.js` `gymsBlock`): the ten as a path reusing the badge case (`.badge-case.bt-path`,
+  five to a row): each leader's first creature in a circle of its element's colour; beaten = colour + teal tick, next =
+  teal ring and teal name, locked = faint (`--silhouette`) + lock; "3 / 10" at the block's end; a wide **Fight Volta**
+  for the next one (or "All ten gym leaders beaten…"). A tap opens the leader's entry (`details`): its team on its
+  element's colour with its title on a plate (silhouettes when locked), facts Gym n of 10 / Elements / Creatures / Each
+  question / First win (coins + XP) or Wins, the blurb, "Beat X to open this gym." and Close | Fight or Rematch (disabled
+  when locked). `fightLeader(leader, vocab, close)`; `openGyms()` = the Battle screen scrolled to the gyms with the next
+  leader focused (controller), used by "Battle again" after a gym battle.
+- **Friends** (`web/js/game/friends-game.js` `friendsPanel`): **Waiting for you** (gift rows "Sent by x" with Open; your
+  team's defences "Beat your team" / "Lost to your team" with Rematch; the count drops and the block goes as they are
+  opened), the **league** (`leagueRows`: each friend's favourite creature with their league in its corner and their place,
+  "{0}% of days", your record, Challenge or a disabled "No team yet"; you have a teal edge; no friends → Add a friend),
+  **This week's rule** (a row), **Guild raid** per guild (`raidState`: boss sprite, Health bar, who hit it, Claim the
+  reward) or one inviting you to a guild. Signed out: one block and Open Settings. The word choice is no longer repeated
+  here (it is on Battle). Names from friends are text with `translate="no"`. `chooseFriend` (Give, from My things and
+  Creatures) is now the app's own box (`openModal`, rows, Cancel) instead of an old sheet of pills.
+- **Pure rules** `web/js/game/battlescreen.js` (tests `tests/js/battlescreen.test.mjs`): `battleGate`, `teamOf`,
+  `teamSlots`, `wordChoice`, `gymPath`, `nextGym`, `gymEntry`, `RENTAL_PICK`/`toggleRental`/`rentalLeft`, `leagueRows`,
+  `raidState`; the test also checks the three screens have no small grey paragraphs and that the old sentences are in the
+  "?". sections.test.mjs knows the two new sections.
+- CSS: app.css block "creature game: the Battle screen and its Friends side" (at the end); the old `.battle-mode`, `.gym*`,
+  `.league-*` and `.b-friends`/`.b-back` rules are gone. `.gs-block-end` and `.fr-record` read left to right in Arabic and
+  Persian ("3 / 10" came out "10 / 3"; this also fixes the Garden's and Shop's counts). i18n
+  `tools/i18n/tr/<code>/138-battle-screen.txt` (58 strings × 16); the moved paragraphs kept their old translations.
+- Found, not changed: the translation finder skips a string that opens a list (`[ "…"` is read as `obj["key"]`), so the
+  first line of each list in info.js's explanations (e.g. "Look up a word: usually 5 to 15…") is never translated.
+- **Checked** in headless Chrome on a throwaway profile (phone build, 390×844 at 2x, dark and light, English, German,
+  Arabic) with the online service played by an in-memory stand-in (no network): every button (wild, rental with three,
+  Fight next leader, Rematch, locked leader disabled, "Battle again" → gyms, team → Creatures, words switch saved, Friends
+  count, "?" and Esc, X; opening a gift, Challenge, No team yet, claiming a beaten raid, Give with Cancel and with a
+  friend), closed battles, signed out. Screenshots in `tamkeen-shots/battle/` (`ar/`, `de/`). **Not checked**: a real
+  phone, two real accounts, a controller on these screens.
+
+## Where XP shows while studying: a line in the word's popup and a level badge in the top bar (2026-11-06; helper of the main chat)
+Owner (Android, Arabic interface): the XP readout "is too intrusive and it covers buttons"; he wanted "a new and more
+effective way of displaying the XP". The old `#game-chip` (game.js `showChip`, fixed at the top right for 5 s after
+each reward) is gone, with its CSS (app.css, the reel player's copy in reels.css, review.css's hiding rule).
+- **The popup line** (`.wb-xp`): `components/wordbubble.js` keeps one empty slot just above its buttons
+  (`xpSlot`, re-attached on every render, emptied in `show()`, `xpSlot.wbAnchor` = the word it was shown for: the
+  only hook in that file). `game/xpbadge.js landXp` fills the open popup whose anchor is the reward's anchor (a Save
+  from a popup shown for another element, a video's captions, still finds the one open popup). It reads, on one
+  line that never changes the popup's height: "+12 XP 10 ×1.2" at the start (the big number is what was earned, the
+  working beside it: the owner's old rule from `fountain`) and "next ×1.5" at the end, orange with the pixel flame
+  while the session's combo is alive. A Save shows "+20 XP [coin] +1"; a surprise "Hint card!" / "Streak freeze!";
+  a word already looked up today (it pays once a day) "Already looked up today" with the combo's next step
+  (game.js checks `day.words` before `earn`). Texts are worked out in `game/xpline.js` (pure, tested in
+  `tests/js/xpline.test.mjs`): `gainLine`, `working` (game.js `sumText` uses it), `times`, `shortXp`, `badgeFace`,
+  `ringOffset`.
+- **The level badge** (`.xp-badge`, `xpbadge.js mountXpBadge`, mounted by both shells' app.js: on the phone just
+  before "?", on the computer at the end of the bar): a round 32 px (computer 34 px) button like "?" and refresh, an
+  SVG ring (gold, `--brand-gold`; orange while the combo is alive, with `icon/combo.png` at its bottom corner) filling
+  towards the next level round the level number. When XP lands, an XP icon flies in from the word (`fly.js`), the
+  badge bounces and shows "+12" for 1.4 s in its own space (smaller type for 3 digits, `data-len`); a new level fills
+  the ring then starts it again. Quiet rewards (study time, review cards) just move the ring. A tap opens a small
+  solid card (`.xp-pop`, no shadow): ring with Level and number, the XP in all, "1,840 XP to level 9", the combo
+  ("Combo on: next lookup ×2", or how to start one), **Open the game** (Home, scrolled to the game card); it closes
+  by tapping outside, Esc, ✕ or a page change. On Home (and welcome/setup) it is `visibility: hidden` (`.away`): the
+  game card has the level, and nothing else in the bar moves. Hidden altogether with the game switched off.
+- **Room in the phone's top bar**: at 390 px the bar's things need 5 px more than there is, even with the owner's
+  "العربية" (the old bar let Search shrink quietly). `fitBar` measures with nothing allowed to shrink
+  (`.topbar.xp-measure`) and, only when it doesn't fit, hides the word "Tamkeen" beside the logo (`.xp-tight`; the
+  logo says it in Arabic and still goes Home). At 412 px and up with a short language name the word stays. Fixed on
+  the way: in right-to-left Search kept a 21 px gap at the bar's end (`.top-search { margin-left: auto }`).
+- **Particles** (`fountain`): fewer and quicker (0.6 s, at most 14), no floating "+12 XP" label any more. With no word
+  to start from (the day's goal reached by study time, Anki), they burst from the badge. The rare big moments get the
+  app's own toast as well: "Daily goal reached: +N XP", "Level up! +5 coins", Anki cards matured (game.js `tell`).
+  With "reduce motion": no particles, no flights, no ring sliding, no card animation.
+- i18n `tools/i18n/tr/<code>/136-xp-display.txt` (15 strings × 16 languages).
+- **Checked** in headless Edge on throwaway profiles (own origins, nothing signed in) with the phone build at 390 x 844:
+  Arabic interface dark and light, English dark, lookups with a made-up dictionary in the page (nothing sent), combo,
+  the same word again, Save, the card, Home (badge hidden, nothing moves), Portuguese (the longest language name);
+  the computer's server on a fresh data folder at 1280 wide (real dictionary). Before/after pictures in
+  `tamkeen-shots/xp/` (`before-*` = the old chip). **Not checked**: a real phone (the bar's fit depends on the
+  phone's Arabic font), the reel player and YouTube player on a phone (both hide or cover the app's top bar there:
+  the popup line still shows), a grammar example heard (badge only), Anki on the computer, iPhone.
+
+## Mnemonic maker: little words left out of what it matches (2026-11-06; helper of the main chat)
+Owner: "Certain languages have particles, like in Arabic, the definitive particle, al … which aren't particularly useful
+to memorize as part of the mnemonic sound … exclude them from what the mnemonic maker is looking at to find matching
+sounds." A card saved as الكتاب was matched as "al-kitaab"; now as "kitaab". The card's word and display never change.
+- **Module** `web/js/review/wordcore.js` (pure; imports only i18n.js `t` and the light lexicon helpers arabic.js
+  `spelled`/`matchForm`, latin.js `latinKey`/`withoutEnclitic`, persian.js `persianKey`, korean.js `romanize`).
+  `soundCore(text, lang, {isWord, reading})` → `{core, reading, dropped: [{part, kind, note, label, extra}]}`: `core`
+  what to match, `reading` the reading cut the same way ("" when it can't be told: the caller works it out for the core),
+  `dropped` what was left out (`kind` a fixed id, `note` translated, `label` as shown, `extra` true for what was typed
+  round the word). `leftOutLine(r)` = "al- (“the”) left out" / "Only “amo” is matched." / ""; `kindName(kind)`;
+  `corePromptLine(text, r)` (English, for the AI). Unknown languages and plain words come back as they are. `isWord`
+  (optional) is asked before every strip that could be wrong; nothing is ever cut to nothing.
+- **Wiring.** examples.js: `freePronunciation` works out the core (isWord = `knowsWord`, the examples file's Wiktionary
+  entries, never the Arabic analyser, which takes و/ال off anything) and returns `pron.core`; `wordCoreOf(word, lang,
+  reading)`; `freeMnemonics` takes `core`, adds the core to `avoid` (el taco's keyword is never "taco") and returns
+  `core`. mnemonic.js `makeMnemonics(v, {core | lang})`: the AI is asked about the core (`${study} word: كتاب`) with the
+  line "The card's word is written "الكتاب". Find keywords only for "كتاب"; al- (article) left out." (`mnemonicPrompt`
+  `coreLine`); keywords equal to the core are dropped; the result carries `core`. cardtools.js `mnemonicMaker`: core
+  worked out once (`wordCoreOf`, the reading of the core from `wordReading` when the cut one is lost), given to both
+  makers; `.rv-mnemo-core` under the syllables shows `leftOutLine` (tooltip: each part's kind; review.css, muted 13px).
+  `learnFromNote`: the learner's CAPITALS are checked against the core's sounds (checkOwnKeywords → freePronunciation),
+  the core itself is skipped, and "POT doesn't sound like كتاب" names the core. Phone/web: `js/review` is copied whole
+  by build-www SHARED (no change needed; a test checks it).
+- **Not wired**: `components/wordbuilder.js` `aiMemo` (Add words' AI mnemonics) calls `makeMnemonics` without `lang`,
+  so it still matches the whole word; one argument, `lang,` in that call, fixes it (that file was another helper's).
+  Add words' free mnemonics already use the core (freeMnemonics). Settings "Try it" (aisetup.js) uses plain test words.
+- **What is left out, and what stays (per study language)**:
+
+| Language | Left out | Kept, and why |
+|---|---|---|
+| Arabic | ال (with marks, ٱ, tatweel); و ف before it; ب ك before it; لل (li + al; لِلَّيْل keeps its own lam: the shadda, the dictionary, or a 2-letter rest ending ة says so); the shadda the article left on a sun letter (الشَّمس → شَمس, in the core and the reading); a bare و ف ب ك ل only when the dictionary has the rest and not the whole; ج + plural; a form after ، | Only one-word cards (in a phrase ال agrees with the next word: الكتاب الأحمر stays). At least 2 letters left; a 2-letter rest after وال/بال only with the dictionary's yes (بالون, والدة). ال is the word's own: الآن, اليوم, البارحة, الحين, البتة, الذي … اللاتي, اللي, الله/اللهم/والله/لله. Only looks like it (without hamza): ألم, ألف, آلة, ألو, plurals أفعال of ل-roots (ألوان, ألعاب …), إلغاء, إلهام, ألبوم, ألمانيا, إلكتروني, إلى, إلا, أليس, افتعل of ل-roots (التقى, التزام, التهاب …), والد/والدة/والدين, بالون, باليه. A hamza (أل) is never the article. With the dictionary: the whole known and the rest not = keep (الوان). |
+| German | der die das den dem des, ein eine …, r/e/s (word-list shorthand) before a capital; zu before a small-letter infinitive; sich; plural/genitive notes (-e, ¨er, Häuser, -(e)s); "Hund, der"; Pl./m labels; an\|fangen, Hun·de joined | "das ist" (verb next), "zu Hause", "zu viel"; the -en of the infinitive (said) |
+| English | the, a, an (not before a capital or lot/bit/few/little/while); to before a verb (not to the/me/London); sb, sth, smb, one's, oneself | phrasal-verb particles (give up) |
+| Spanish | el la los las un una unos unas; -se on an infinitive (lavarse, irse) | lo (lo siento), "el que", names (La Paz, El Salvador) |
+| French | le la les un une des du, de la, de l', l'; se, s' before an infinitive | s'il, d'accord, Le Havre |
+| Italian | il lo la i gli le un uno una l' un'; -si (lavarsi → lavare, porsi → porre, tradursi → tradurre) | "lo" only before s+consonant, z, gn, ps…(lo so stays); diversi, versi, persi, corsi, scarsi… (with the dictionary: only when the infinitive is a word) |
+| Portuguese | o a os as um uma uns umas; -se (lavar-se) | "o que" (que, qual, quem … after an article keep it) |
+| Catalan | el la els les un una uns unes l'; -se, 's, -se'n | en/na before names; col·legi's middle dot |
+| Tagalog | ang, ng, sa, si, ni, kay, sina, nina, kina, mga (several in a row: ang mga bata); po/ho at the end | opo; affixes (they make the word) |
+| Bisaya | ang, sa, si, ni, kang, kay, mga, usa ka | ug/og (rare in front of a card) |
+| Japanese | する/します after 2+ characters (勉強する, コピーする), をする, です | お/ご (お茶 is said so), 愛する (one kanji + する is one verb), だ (からだ, まだ end in it) |
+| Korean | -하다 after 2+ syllables (공부하다, 깨끗하다), -되다 after 2+ (시작되다), "공부를 하다" | 좋아하다, 싫어하다 (a verb form before 하다); 말하다, 일하다 only with the dictionary's yes; the citation -다 (said) |
+| Hindi | करना, होना after a noun (काम करना) | देना/लेना after a verb stem (they change the meaning) |
+| Persian | کردن نمودن شدن گشتن زدن دادن گرفتن داشتن after a noun; را | one-word verbs (برگشتن); no Arabic article rules (بالاخره) |
+| Thai | ครับ ค่ะ คะ นะครับ นะคะ ครับผม at the end; ความ/การ in front (ความรัก, การเรียน) | การ์ตูน, การันตี (a mark follows); พระเจ้า (not จ้า: ends in the same letters) |
+| Latin | other principal parts after a comma; -que -ne -ve only with the dictionary's yes | atque, itaque, sine, bene, neque, quoque |
+| Russian | the other verb of an aspect pair (/ or –), (ся) in brackets, что-л./кого-л., ж./сов./несов. labels | -ся (учиться is not учить), что-нибудь |
+| Chinese | only what is typed round the word (brackets) | 很好, 了, 子, 儿 (said) |
+| All | brackets ( ) [ ] { } （ ） 【 】; a pair or alternative after / ; – \|; other forms after a comma when they are forms (start alike, -e, a label, an article, one letter); trailing grammar labels; ~ 〜 …; end marks (¿?«».) | a phrase with a comma ("Sí, claro"); a whole entry in brackets |
+- **How it was decided**: Chris's examples and brief; standard grammar (Wiktionary's grammar appendices for the Arabic
+  article and sun letters, Tagalog and Cebuano markers, Japanese suru-verbs, Korean 하다 verbs, Hindi conjunct verbs,
+  Persian compound verbs, Thai nominalisers, Latin principal parts and enclitics, Romance pronominal verbs: from what I
+  know of them, not fetched this session). The Arabic exceptions were checked against the app's own Wiktionary data:
+  152 entries of ar-examples begin with ال; those that aren't article + word (الوان, التزام, الهام, الكتروني …) are in
+  `AR_KEEP` or caught by the dictionary rule, and probe words were tried with and without the dictionary.
+- i18n `tools/i18n/tr/<code>/137-word-core.txt` (55 × 16); extra.txt "“the” “some” “and” “or” “oneself”" (one-word
+  notes the extractor skips); ignore.txt the two AI lines. CHANGELOG Unreleased "Improved:" line.
+- **Checked**: tests/js/wordcore.test.mjs (21 tests: every language, rule and exception, plain words, the readings,
+  the free maker's sounds against the real ar/de/es packs, the AI prompt with a stand-in AI, the learner's own keyword
+  check, the card markup, the phone build's SHARED, translations in all 16); all JS 1486 + new, pytest 616, i18n
+  --check. Phone build (built into a scratch folder, lexicon files served locally) in headless Edge at 390 × 844, no
+  sign-in, no AI key: a الكتاب card's back shows الكتاب unchanged; the Mnemonic maker shows "ki-taab", "al- (“the”) left
+  out" and keypad, key tab, kitten, kebab, keeper. Pictures: `tamkeen-shots/wordcore/phone-alkitaab-{card,maker}-{dark,light}.png`.
+- **Not checked**: a real AI (the prompt and result were checked with a stand-in), the desktop app window, a real
+  phone, interface languages other than English on screen. **Open choices for Chris**: Thai ความ/การ and Korean -하다 on
+  adjectives (깨끗하다 → 깨끗) are left out though they are said (they are predictable add-ons); Portuguese/Spanish
+  articles before an expression ("a gente", "du coup") are left out too; Arabic pronoun endings (كتابها) and the future
+  سـ are kept; Russian -ся is kept.
+
+## Add words: whole phrases as cards (2026-11-06; helper of the main chat; NOT committed)
+Owner: "In the add a word section on Tamkeen, there should be support for me to add an entire phrase. If I want."
+Before: the word box took any text, but Fill in treated it as one word: the dictionary lookup failed ("This word isn't
+in the built-in dictionary"), the free sentence finder found almost nothing (only a phrase's own Wiktionary example),
+the AI was told it was a word, and the free Mnemonic maker pictured the meaning as a thing ("a you're welcome growing
+out of a BANANA").
+- **What a card is** (`addwords.js`, pure, imports languages.js `wordRanges` and review/wordcore.js `soundCore`):
+  `isPhrase` = its **core** (soundCore: articles, "to", reflexives, polite particles, other forms after a comma left
+  out) has more than one word by the language's own splitter (spaces; ja/zh/th the dictionary's splitter or
+  Intl.Segmenter). So "el perro", "der Hund, -e", "to go", ขอบคุณครับ, 勉強する, "amo, amare…" stay words; "por favor",
+  "darse cuenta de", 谢谢你 are phrases. `entryKind` → "word" / "phrase" / "sentence": a phrase that ends with . ? ! ؟ 。
+  ！ ？ । (closing quotes allowed; not "…") or starts with ¿ ¡, or has `SENTENCE_WORDS` = 5+ words (ja 12 / zh 10 /
+  th 24 letters, `SENTENCE_LETTERS`, since the device splitter cuts endings off: 食べます is 3 pieces). Chosen over 4
+  words because many set phrases have 4 ("de vez en cuando", "a fin de cuentas"). `mnemonicFits`: core of at most
+  `MNEMONIC_WORDS` = 3 words (ja 10 / zh 4 / th 12 letters, `MNEMONIC_LETTERS`). Tried on real phrases with the free
+  maker (scratch memo.mjs): 2 words give whole-phrase sound-alikes (de nada → banana, sin embargo → cylinder, الحمد لله
+  → anthem + bully + lassie), 3 words partial ones (إن شاء الله → keen + saga + lass, darse cuenta de → queen), 4+ only
+  cover the start (de vez en cuando → delinquent).
+- **Meaning** (`wordbuilder.js dictionaryMeaning`): a word as before, then its core when the whole isn't found (new:
+  "der Hund, -e"). A phrase: the dictionary's exact entry for the whole phrase, edge punctuation off (meanings.js
+  `ctx.phrase` mode; the files hold many: es 16,441 multi-word keys, fr 16,643, ar 2,266, th 78; "cómo estás", "darse
+  cuenta", "ان شاء الله", "en un abrir y cerrar de ojos" are there); ja/zh/th also the whole as one word (不客气, 你叫什么名字).
+  Not found: with AI it goes to the AI as a phrase; with no AI, **word by word** (`addwords.js wordByWord`): the
+  longest run with an entry first ("darse cuenta" + "de"), each part's first usable sense (`usableSense` skips "The name
+  of the Latin script letter D", "alternative form of", "Used other than figuratively…: see"), Arabic/Persian "و" on a
+  run → "and" + the run's entry; at least ⅔ of the parts found (ja/zh/th all). Shown as "Word by word: to notice + of"
+  (auto) with a note under the card; editing the meaning drops the note. `row.meaningFrom` "entry" / "words" / "ai",
+  `row.meaningPos` (the entry's part of speech, for the mnemonic's picture line).
+- **AI** (`batchPrompt`): a phrase's line is "N. phrase: …"; the system text gains one paragraph (only when the
+  request has a phrase): explain it as one unit, never word by word, and use the whole phrase in the sentence (in
+  ignore.txt). A "sentence" card is sent with its sentence, so only its translation is asked.
+- **Example sentence**: a "sentence" card is its own example (`fillIn` before anything runs; the AI only translates it;
+  free: the examples file's own English when it has that very sentence, `ExamplePack.translationOf`, else the
+  dictionary's whole-phrase meaning). A shorter phrase: `ExamplePack.find` now finds phrases (`phraseIn`, spaced
+  languages): sentences with its words one after another (cost 0), with و ف ب ل ك ال in front (0.5), or another form of
+  a word through the word tables (`formsOf`, the same stem search as words; cost 1: "me estás tomando el pelo"); its own
+  entry's Wiktionary examples first as for words. ja/zh/th were already searched inside the sentence (now without the
+  punctuation round the phrase). `markTranslation` marks "how are you?" whole. `freeExample` doesn't count a phrase's
+  own words as new (the readable-sentence check). Before → after (scratch examples.mjs, `before-examples.txt` /
+  `after-examples.txt`): de nada 0 → 3, darse cuenta de 0 → 3, cómo estás 0 → 3, buenos días 0 → 3, كيف حالك 0 → 3, صباح
+  الخير 0 → 3; Thai ขอบคุณครับ still 0 (Tatoeba's Thai drops ครับ).
+- **Mnemonic**: longer than `mnemonicFits` → none, with a note. A phrase's meaning goes with pos "phrase" (or the
+  entry's: intj, adv…) and freemnemonic.js `meaningPicture` gives pos **"said"** (unless it is a verb, "to realize"):
+  `SAID_LINES` ("Picture a BANANA turning to you and saying “you're welcome”."), `TIED_LINES.said`; makeFreeMnemonics also
+  treats a card whose core has a space as a phrase when no pos is given (the review card's maker). A word-by-word meaning
+  is not shown to the maker or the sentence finder (it would mislead both). Add words' AI mnemonics now pass `lang`
+  (the core word, from the particles helper's work).
+- **Screen**: the word box and the meaning box are growing `<textarea rows=1>` (Enter still moves on; a pasted line
+  break becomes a space) so a phrase or a long meaning wraps instead of being cut; app.css `.cb-row .cb-word` (was
+  `input.cb-word`), the paste preview's word wraps (`.cb-pv-word`). Word box: placeholder `langInfo().wordOrPhrase`
+  (new field in languages.js for all 18 languages: "palabra o frase", "كلمة أو عبارة"…), aria-label "Word or phrase";
+  the paste help says "One card per line: a word or a phrase". Notes per card: `row.fillNotes` {meaning, memo}, drawn
+  as muted lines in `.cb-status`. Phrase versions of the "not in the dictionary" and "no example sentence" notes.
+  Repeats, folders, audio (card voice or own recording), Scan (the AI prompt already said "word or phrase"; OCR keeps a
+  line's words together) and the Vocab list are unchanged; the Vocab list and the review card wrap long phrases.
+- i18n `tools/i18n/tr/<code>/139-add-phrases.txt` (7 × 16); ignore.txt the AI paragraph. CHANGELOG Unreleased "New:".
+- **Checked**: new tests/js/addphrases.test.mjs (14: phrase rule, sentence rule, mnemonic limit, word by word with a
+  stand-in dictionary, usable senses, the AI lines and answer, paste, phrase sentences in the real es/ar/fr/ja packs, word
+  forms, translationOf, markTranslation, the "said" picture); all JS 1508 pass; pytest; i18n --check. Phone build (built,
+  copied to a scratch folder, docs/lexicon served locally through `lexicon_base`) in headless Edge at 390 × 844 on a
+  fresh profile (never signed in), No AI: Spanish (por favor, darse cuenta de → "Word by word: to notice + of", ¿cómo
+  estás? as its own example, de vez en cuando, el perro, más vale tarde que nunca, sin embargo), Arabic (كيف حالك, إن
+  شاء الله, صباح الخير, ما اسمك؟ with Tatoeba's "What is your name?", الكتاب, أنا بخير والحمد لله, مع السلامة يا صديقي →
+  "goodbye + O + friend"), Chinese (谢谢你 → "thanks + you", 不客气, 一路平安, 中国, 你叫什么名字？, a 10-character
+  sentence, 马马虎虎); Add, the Vocab list, the review card (front and back, a long phrase wrapping); paste with phrases
+  (preview, Use these, "Already in your words" for a phrase). With a pretend Claude in the page: one request, "phrase:"
+  lines and the paragraph, a sentence card asked only for its translation. Computer width (1280): the 700 px box.
+  Pictures: `tamkeen-shots/phrases/` (es-*, es-ai-*, ar-*, zh-*, es-review-*, zh-review-*, desk-01-builder.png).
+- **Not checked**: a real AI key, a real phone, Scan with a real photo of phrases, the desktop window (same code).
+  Ideas: Thai polite particles could be dropped for the sentence search (ขอบคุณครับ finds nothing); Japanese inflected
+  verbs count as phrases with the device's splitter (harmless: the whole is looked up as one word first).

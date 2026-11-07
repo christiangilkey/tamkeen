@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Preguntas de
+4c8044d7	Las {0} palabras
+3254a11b	Las {0} más nuevas
+24d3e4fd	Fuerza
+19ab964c	Igual para todos
+f472694a	Palabras pendientes
+c5480ef5	Las batallas se abren con {0} palabras guardadas
+a0d031d3	Faltan por guardar
+54a41c30	Guarda palabras con ★ mientras escuchas y lees.
+efaa27d9	Tus palabras necesitan significados
+32fa4207	Con significado
+2c5dcbb8	Las preguntas necesitan significados: añade algunos en la página Vocabulario.
+71db6b56	Abrir Vocabulario
+3c5410a6	Tu huevo aún no ha eclosionado
+50c5f1c3	Alcanza la meta de hoy para que eclosione y luego vuelve a luchar.
+80b3016c	Tu equipo
+3cda3a1b	Batallas rápidas
+47c316a3	Pelea igualada
+ac02de4b	Elige {0} más
+d26d55c7	Palabras
+63bbbf02	Tu historial
+ec9f630c	Habilidad
+b6c015d1	Victorias
+375cbb72	Aciertos recientes
+80263722	Palabras conocidas
+51c51d5d	Cómo funcionan las batallas
+12901c84	Una batalla
+f0975bb0	Luchan tus tres primeras criaturas nacidas, en el orden de la página Criaturas. Toca una para verla y elegir sus movimientos.
+07b537c2	Una victoria puede dejarte un huevo, mientras tengas menos de seis criaturas.
+514a5381	Líderes de gimnasio
+0a33d702	La primera victoria contra cada uno da monedas y XP extra. Los gimnasios no cambian tu puntuación de habilidad.
+504b0ab6	La habilidad sube cuando ganas duelos de alquiler y batallas contra amigos, y baja cuando los pierdes.
+9b123a44	Aciertos recientes: cuántas de tus respuestas en batallas fueron correctas esta semana.
+0574ed77	Venció a tu equipo
+b97fcdd2	Perdió contra tu equipo
+666a5d8c	{0}% de los días
+8c26dc15	Regla de esta semana
+d0753d11	Incursión del gremio: {0}
+e7a1a8e1	Incursión del gremio
+c314c002	Abrir la pestaña Amigos
+f93ee291	Batallas con amigos
+ff38765f	Desafíos
+34d6c5fd	Desafía al equipo de un amigo: sus criaturas luchan con los movimientos que eligió y responden con la precisión con la que su dueño suele responder sus propias palabras. Tú respondes las tuyas.
+d64bc035	Cada semana tiene su propia regla para las batallas con amigos: está en Regla de esta semana.
+5586d01b	Las batallas con amigos cuentan para tu puntuación de habilidad, y se guarda tu historial contra cada amigo.
+9f14cd67	La liga
+862b1fa5	Cada respuesta correcta en una batalla esta semana, de cualquiera del gremio, le quita un punto.
+9d59a182	Venced juntos al jefe y cada uno recibe 150 XP y 20 monedas. Un jefe nuevo llega el lunes.
+3b2c3fdb	Regalos
+8e3a0e6a	Tus amigos pueden regalarte cosas para ponerse, decoraciones y huevos. Te esperan aquí hasta que los abras.
+2c3fe469	Tus palabras y tu material de estudio nunca se envían: solo tu equipo de criaturas, tu precisión al responder y los totales de esta semana.
+fb278703	Vencido
+1cc55327	Luchar contra {0}
+bc435923	Gimnasio
+a563972e	Elementos
+a9965777	Cada pregunta
+08f35234	Primera victoria
+bcafab50	Enviado por {0}

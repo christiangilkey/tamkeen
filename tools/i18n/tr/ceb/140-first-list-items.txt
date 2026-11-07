@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Ablihi ang Claude Console
+641e071f	Mag-sign in, o paghimo og account
+64b6cdc7	Pagdugang og gamay nga credit
+0603680d	Himoa ang key
+ddc9f55d	Kopyaha dayon
+a11e9d4b	I-paste kini sa Tamkeen
+a50988a3	Ablihi ang Google AI Studio
+6049f9a6	Mag-sign in gamit ang imong Google account
+39963ac7	Kopyaha ang key
+d5825787	Ablihi ang OpenAI platform
+c1bdc572	Ablihi ang xAI Console
+fe9bed90	Ablihi ang Groq Console
+1eec8f15	Nag-ingon nga gisalikway ang key
+1ad303dd	Nag-ingon og quota, billing o rate limit
+cd002623	Nag-ingon nga wala kini makaila sa model
+76d3e42c	Nasirado nako ang box sa wala pa nako makopya ang key
+f35d2a44	Luwas ba ang akong key?
+1a7a8dc0	Pangitaa ang usa ka pulong: kasagaran 5 hangtod 15, usahay 30 hangtod 50, ug panagsa 100 hangtod 200. Kausa ra kada adlaw mobayad ang matag pulong, ug ang matag pulong nga imong pangitaon sa samang sesyon sa pagtuon mopataas sa combo hangtod doble, walay pagdali: matapos ra ang sesyon kung 10 minuto ka nang wala sa app, o pag-abot sa tungang gabii.
+ebd10589	Kini ang mopuno sa imong level bar. Ang matag bag-ong level mobayad og 5 ka coin, ug ang matag level nagkinahanglan og mas daghang XP kaysa sa nauna (kini nagkinahanglan og {0}).
+ceae120c	Abta ang imong adlaw-adlaw nga tumong ({0} ka minuto sa pagpaminaw o pagbasa; dili maihap ang oras sa YouTube). Ang matag adlaw nga imong maabot modugang og usa.
+d883cc30	Ang matag ika-7 nga adlaw nga sunod-sunod mohatag og streak freeze.
+76f510d0	Abta ang imong adlaw-adlaw nga tumong: 10.
+73298568	Mga sul-obonon sa imong linalang ug mga butang para sa habitat niini: kalo, antipara, sa liog, gunitan, kapa ug pako, sinina, ug mga dekorasyon. Ang presyo {0} hangtod {1} ka coin.
+76557f97	Ang matag ika-7 nga sunod-sunod nga adlaw sa pag-abot sa imong adlaw-adlaw nga tumong mohatag og usa (hangtod 3 ang mahuptan sa ingon niini nga paagi).
+797b53b5	Tabonan niini ang usa ka adlaw nga nalaktawan, busa magpadayon ang imong streak nga daw nagtuon ka.
+fc8d2b71	Ang mga building sa imong tanaman mohimo niini tibuok adlaw, bisan sirado ang app (hangtod {0} ka oras nga katumbas ang maghulat nimo).
+75cc6677	Bag-ong mga building, ug pagpatubo sa usa ka building ngadto sa sunod nga lebel aron mas daghan ang mahimo niini.
+38414bff	Makakuha og badge: 2 matag usa.
+ced05c8e	Pakaona ang linalang sa imong habitat. Ang pagkaon nagkantidad og {0} ka sanag, ug mokaon kini hangtod {1} ka beses kada adlaw.
+317d4503	Ang matag kasingkasing mopaspas sa tanan nimong mga building og 4% samtang naa sa habitat ang maong linalang.
+b3e7bb3e	Ang sungay niini, nga motubo kung batan-on na, mohilig nga mahimong antena para sa mga naminaw ug mutya para sa mga tigtigom.
+d702648b	+{0} XP{1}
+af310252	Bronse
+4042806d	Pulong nga Ingles
+eed7cb83	Wala nga stick paubos
+d526caec	Tuo nga stick paingon sa tuo
+f5ec7772	Pinakabag-o una
+6a99c65c	Pinakadaan una
+7def648b	Bag-o lang nausab
+530262d8	Pinakadugay nang nausab
+7f5f05af	I-save ang file gikan sa Tamkeen.
+ced72db7	Arte
+ffa74a4e	🎧 Episode sa podcast
+eb3d3982	I-click ang install icon sa tuong tumoy sa address bar (usa ka screen nga naay pana nga paubos).
+aebb4c7b	Dili makadugang og web app kini nga browser. Ablihi kini nga page sa Chrome o Edge, dayon gamita ang install button niini sa address bar.

@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Una tarjeta por línea: una palabra o una frase. Después puedes añadir su significado con un guion, un signo igual o un punto y coma (<0/>), o pegar columnas de una hoja de cálculo: palabra, significado, frase, traducción.
+52cfc778	Palabra o frase
+91c9953e	Palabra por palabra: {0}
+23809925	El diccionario no tiene esta frase entera, así que esto es palabra por palabra. La frase puede significar otra cosa: cámbialo si lo sabes.
+72ad27f7	Esta frase no está en el diccionario integrado. Escribe su significado.
+bf5d6eab	No se encontró ninguna frase de ejemplo para esta expresión. Escribe una o déjalo vacío.
+1b850af7	Sin mnemotecnia: las palabras que suenan parecido sirven para palabras y frases cortas, no para una tan larga.

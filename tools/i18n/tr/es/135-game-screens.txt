@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Nivel {0} de 3
+799c9f2a	Tienes
+1e1c72c2	Por hora
+33d30632	Por recoger
+53cb1f45	Polvo de estrellas
+fe26b106	El brillo se recoge solo
+84466168	Aún no hay nada que recoger
+c2743891	Se recoge solo tras {0} metas diarias más
+185fb7e9	Se recoge solo tras una meta diaria más
+a6fe4bd7	Edificios
+5209c504	Parcelas abiertas
+5e50e7d0	Usar una llave
+c9d9f62d	Parcela {0}
+f096bcd2	Vacía: elige algo que construir
+bbd80cf7	Construir
+90335b64	por hora
+8ae5f769	Liberar una criatura
+469c82aa	Qué hace liberar
+cc5f562c	Deja {0} de polvo de estrellas
+3ce59147	Liberadas hasta ahora: {0}
+d0c810d6	Polvo de estrellas ahora
+8490bae0	Cada uno
+d40e4bd3	Una criatura totalmente crecida puede ser liberada. Deja tu grupo y se la recuerda aquí. Tus edificios y tu brillo vuelven a empezar, y conservas el polvo de estrellas: cada uno hace todos los edificios más rápidos para siempre, así que el siguiente jardín crece mucho más deprisa. Cuantos más edificios totalmente crecidos tengas en ese momento, más polvo de estrellas recibes.
+c5e4d0d9	Construir en la parcela {0}
+5bd44ebe	Nivel
+2c6d59f3	Rinde más con
+c756f6af	Todos
+7e2299a8	Mejorar
+ad05dc64	Comió {0} de {1} veces hoy
+64ce4b08	Calentando
+38da057b	Compra uno para dárselo.
+3e8248e3	Precio
+6e4af9cf	Favorita de
+b6792f89	Comidas hoy
+ea2619b8	Su favorita: cuenta el doble.
+7ceca51f	Comprar
+d5f82806	Activo {0} min más
+f52b020c	Un huevo se está calentando.
+bfb4298c	Cuántos tienes
+0b5ad7f0	Sombrero
+9a46e65f	Para la cara
+0a3774e5	Para sostener
+03898713	Para la espalda
+56cc042a	Camiseta
+68121261	Cosas para ponerse
+899db74e	Decoraciones
+807f8ba7	Para ponerse
+fa6095d9	En el hábitat
+e7eb9ee9	Movimientos de batalla que compraste
+e5ffd15b	Cabeza
+35a237da	Cuello
+6b568a69	Para las batallas
+231a3994	Para tus criaturas
+0891d9ac	Para el jardín
+01888a92	Movimientos de batalla que sabes, de los que se venden aquí
+755844bc	Tuyo
+f13ba138	Por desbloquear
+1894043f	Solo decorativo. Se coloca en el hábitat enseguida.
+ef4da3ac	Solo decorativo. Se lo pone enseguida.
+dbe3238f	{0} Se compra una vez, para todas tus criaturas.
+44e6822a	Lo lleva puesto
+c5040300	Lo que lleva puesto
+44819483	Nada
+f7b4c7be	Los huevos no llevan nada hasta que eclosionan.
+31e8d565	En tu bolsa

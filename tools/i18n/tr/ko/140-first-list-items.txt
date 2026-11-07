@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Claude 콘솔 열기
+641e071f	로그인하거나 계정 만들기
+64b6cdc7	크레딧 추가하기
+0603680d	키 만들기
+ddc9f55d	바로 복사하기
+a11e9d4b	Tamkeen에 붙여 넣기
+a50988a3	Google AI Studio 열기
+6049f9a6	구글 계정으로 로그인하기
+39963ac7	키 복사하기
+d5825787	OpenAI 플랫폼 열기
+c1bdc572	xAI 콘솔 열기
+fe9bed90	Groq 콘솔 열기
+1eec8f15	키가 거부됐다고 나와요
+1ad303dd	할당량, 결제, 사용량 제한이라고 나와요
+cd002623	모델을 알 수 없다고 나와요
+76d3e42c	키를 복사하기 전에 창을 닫았어요
+f35d2a44	내 키는 안전한가요?
+1a7a8dc0	단어 찾아보기: 보통 5~15, 가끔 30~50, 아주 가끔 100~200. 한 단어는 하루 한 번 받고, 같은 학습 세션에서 찾아본 단어마다 콤보가 쌓여 최대 두 배가 돼요. 서두를 필요 없어요. 세션은 앱을 10분 동안 떠나 있거나 자정이 되어야 끝나요.
+ebd10589	레벨 막대를 채워요. 새 레벨마다 코인 5개를 받고, 레벨마다 앞 레벨보다 경험치가 더 필요해요(이번 레벨은 {0}).
+ceae120c	하루 목표 달성(듣기나 읽기 {0}분, YouTube 시간은 치지 않아요). 달성한 날마다 하나씩 늘어요.
+d883cc30	7일 연속마다 연속 기록 보호를 하나 받아요.
+76f510d0	하루 목표 달성: 10.
+73298568	크리처가 입을 것과 서식지에 둘 것: 모자, 안경, 목장식, 손에 드는 것, 망토와 날개, 셔츠, 장식. 가격은 코인 {0}~{1}개예요.
+76557f97	하루 목표를 7일 연속 달성할 때마다 하나 받아요(이렇게는 3개까지 가질 수 있어요).
+797b53b5	빠뜨린 하루를 막아 줘서 공부한 것처럼 연속 기록이 이어져요.
+fc8d2b71	정원의 건물은 앱이 닫혀 있을 때도 하루 종일 빛을 만들어요(최대 {0}시간 분량이 기다려요).
+75cc6677	새 건물, 그리고 건물을 다음 단계로 키워 더 많이 만들게 하기.
+38414bff	배지 받기: 하나에 2.
+ced05c8e	서식지의 크리처에게 먹이 주기. 먹이는 빛 {0}이고, 하루 {1}번까지 먹어요.
+317d4503	하트 하나마다 그 크리처가 서식지에 있는 동안 모든 건물이 4% 빨라져요.
+b3e7bb3e	청소년기에 돋는 뿔은 듣는 사람이면 더듬이로, 모으는 사람이면 보석으로 기울어요.
+d702648b	경험치 +{0}{1}
+af310252	브론즈
+4042806d	영어 단어
+eed7cb83	왼쪽 스틱 아래
+d526caec	오른쪽 스틱 오른쪽
+f5ec7772	최신순
+6a99c65c	오래된 순
+7def648b	최근 변경순
+530262d8	변경이 오래된 순
+7f5f05af	Tamkeen에서 파일을 저장하세요.
+ced72db7	예술
+ffa74a4e	🎧 팟캐스트 에피소드
+eb3d3982	주소창 오른쪽 끝의 설치 아이콘(아래 화살표가 있는 화면)을 누르세요.
+aebb4c7b	이 브라우저는 웹 앱을 추가할 수 없어요. 이 페이지를 Chrome이나 Edge에서 열고 주소창의 설치 버튼을 쓰세요.

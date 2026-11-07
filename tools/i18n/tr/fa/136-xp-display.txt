@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	هدف روزانه انجام شد: +{0} XP
+3a110e1d	سطح بالاتر! +5 سکه
+5428d235	سطح {0}: {1} XP
+d6d9f18f	{0}. کومبو، بعدی {1}
+0ad2c237	سطح شما
+7c7f5d04	سطح
+2314cd9a	باز کردن بازی
+623e0f4d	{0} XP تا سطح {1}
+bbbe0df0	کومبو فعال است: جستجوی بعدی {0}
+58c06693	کلمه‌ها را پشت سر هم جستجو کنید تا کومبو بگیرید: ×1.2، بعد ×1.5، بعد ×2.
+3d845682	یخ‌زدن رکورد!
+ef0dcaec	کارت سرنخ!
+f21e440a	امروز قبلاً جستجو شده
+9fe2b30d	+1 سکه
+09eee77a	+{0} سکه

@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Le tue creature
+3ad63cd1	Tutte le creature
+4c62aad0	Schiusa
+f3b21e04	Crescita
+df873d99	Si schiude mentre studi.
+be763e9a	Statistiche
+17ac8106	Come l'hai cresciuta
+756016c6	Le colorazioni si vedono con l'aspetto Giovane.
+e7c741fc	Non ancora ottenuta
+117dc066	{0} di {1} ottenute
+257f305b	Ottenuta
+7548ab52	Potenza
+54c45c03	Blocca
+bc6f4bc6	Cura
+3159fe42	Vuoto
+c81c947a	Mosse
+eb10a5c1	Tocca una mossa per vederla o cambiarla. Tieni almeno una mossa d'attacco.
+57351a82	Altre mosse che conosce
+d0b58b44	Usa tutte le mosse che conosce.
+92f548f5	Compra altre mosse nel negozio
+34dbd5c4	Ricarica
+2ec0e11f	È la sua unica mossa d'attacco: puoi scambiarla solo con un'altra mossa d'attacco.
+9981290a	Non conosce ancora altre mosse.
+210dd62a	Scambia
+1f36beb6	Usa questa mossa
+e4a6558f	Quale mossa sostituire?
+bafc96af	{0} prende il posto della mossa che scegli.
+7eedf90d	La sua unica mossa d'attacco
+267c5f05	Con quale mossa scambiarla?
+7e756b98	Scegli una mossa
+f90824d2	Potenziamento

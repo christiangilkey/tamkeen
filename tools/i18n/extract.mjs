@@ -287,7 +287,9 @@ function isUiString(key, before) {
   if (!hasWords(key)) return false;
   const s = key.replace(/\{\d+\}/g, "0"); // (a {0} is not code)
   if (CODE_BEFORE.test(before)) return false;
-  if (/\[\s*$/.test(before) || /\b(case|typeof\s+\w+\s*[!=]==?)\s*$/.test(before)) return false; // obj["key"], case "x":
+  // obj["key"], f()["key"], case "x": not words. (A list's first item, `[ "…"` or `return [ "…"`, is words.)
+  const lookup = /([\w$]+|[)\]])\s*\[\s*$/.exec(before);
+  if ((lookup && !KEYWORDS.has(lookup[1])) || /\b(case|typeof\s+\w+\s*[!=]==?)\s*$/.test(before)) return false;
   if (/[!=]==?\s*$/.test(before)) return false; // compared with: a value, not words
   if (/\b(type|kind|mode|stage|status|state|event|key|code|id|cls|className|lang|dir|role|method|provider|unit|via)\s*[:=]\s*$/.test(before)) return false;
   if (/(https?:|www\.|\.(js|mjs|css|json|png|jpe?g|svg|webp|gif|mp3|m4a|ogg|wav|html?|py|apk|exe|zip)\b|^[./#@]|^--|=>|[{}]|;(?! [a-z])|\$\{|\\u)/i.test(s)) return false;

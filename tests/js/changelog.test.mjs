@@ -35,6 +35,21 @@ test("What is Tamkeen: three pages every version carries, the studies linked", (
   }
 });
 
+test("What makes Tamkeen special: each part opens and closes, the opening lines stay open", async () => {
+  const { foldSections, WHATIS_PAGES } = await import("../../web/js/components/whatis.js");
+  assert.equal(WHATIS_PAGES.special.fold, true);
+  const html = foldSections(changelogHtml("Intro line.\n\n### One\n- a\n- b\n\n### Two\nText\n\n## Part 2\n- c"));
+  assert.ok(html.startsWith("<p>Intro line.</p>"), "the intro is not folded");
+  assert.equal((html.match(/<details class="whatis-fold">/g) || []).length, 2);
+  assert.ok(html.includes("<summary>One</summary><div class=\"whatis-fold-body\"><ul><li>a</li>"));
+  assert.ok(/<\/details><h3>Part 2<\/h3>/.test(html), "a fold ends at the next bigger heading");
+  const special = changelogHtml(readFileSync(new URL("web/whatis-special.md", root), "utf8"));
+  const folded = foldSections(special);
+  for (const head of ["Learning from what you already love", "Your data, kept safe", "Free and private by design", "The creature game"]) {
+    assert.ok(folded.includes(`<summary>${head}</summary>`), `"${head}" is a section that opens`);
+  }
+});
+
 test("headings, lists, bold and italic are drawn; nothing else gets through as HTML", () => {
   const html = changelogHtml("# Title\n\n## v1.0 — 2026-01-01\n\n- **New:** a thing *(web app)*\n- <b>x</b>\n\n---\nText");
   assert.ok(html.includes("<h3>v1.0 — 2026-01-01</h3>"));

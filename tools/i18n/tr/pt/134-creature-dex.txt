@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Suas criaturas
+3ad63cd1	Todas as criaturas
+4c62aad0	Eclosão
+f3b21e04	Crescimento
+df873d99	Ele eclode enquanto você estuda.
+be763e9a	Atributos
+17ac8106	Como você a criou
+756016c6	As colorações aparecem no visual Jovem.
+e7c741fc	Ainda não conquistada
+117dc066	{0} de {1} conquistadas
+257f305b	Conquistada
+7548ab52	Poder
+54c45c03	Bloqueia
+bc6f4bc6	Cura
+3159fe42	Vazio
+c81c947a	Golpes
+eb10a5c1	Toque em um golpe para ver ou trocar. Mantenha pelo menos um golpe de ataque.
+57351a82	Outros golpes que ela conhece
+d0b58b44	Ela usa todos os golpes que conhece.
+92f548f5	Comprar mais golpes na loja
+34dbd5c4	Recarga
+2ec0e11f	É o único golpe de ataque dela: só pode ser trocado por outro golpe de ataque.
+9981290a	Ela ainda não conhece outros golpes.
+210dd62a	Trocar
+1f36beb6	Usar este golpe
+e4a6558f	Qual golpe substituir?
+bafc96af	{0} fica no lugar do golpe que você escolher.
+7eedf90d	O único golpe de ataque dela
+267c5f05	Trocar por qual golpe?
+7e756b98	Escolha um golpe
+f90824d2	Fortalecimento

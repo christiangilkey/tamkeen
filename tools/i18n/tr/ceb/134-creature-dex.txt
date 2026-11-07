@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Imong mga linalang
+3ad63cd1	Tanang linalang
+4c62aad0	Pagpusa
+f3b21e04	Pagdako
+df873d99	Mapusa kini samtang nagtuon ka.
+be763e9a	Mga stat
+17ac8106	Giunsa nimo kini pagpadako
+756016c6	Makita ra ang mga kolor sa hitsurang Batan-on.
+e7c741fc	Wala pa makuha
+117dc066	{0} sa {1} ang nakuha
+257f305b	Nakuha na
+7548ab52	Kusog
+54c45c03	Mosalipod
+bc6f4bc6	Moayo
+3159fe42	Bakante
+c81c947a	Mga lihok
+eb10a5c1	I-tap ang usa ka lihok aron makita o ilisan kini. Ipabilin bisan usa ka lihok nga pang-atake.
+57351a82	Ubang lihok nga nahibal-an niini
+d0b58b44	Gigamit niini ang tanang lihok nga nahibal-an niini.
+92f548f5	Palita og dugang lihok sa tindahan
+34dbd5c4	Paghulat
+2ec0e11f	Kini ra ang lihok niini nga pang-atake: ikailis ra kini og laing lihok nga pang-atake.
+9981290a	Wala pa kini mahibalo og laing lihok.
+210dd62a	Ilisan
+1f36beb6	Gamita kini nga lihok
+e4a6558f	Unsang lihok ang ilisan?
+bafc96af	Ang {0} mopuli sa lihok nga imong pilion.
+7eedf90d	Ang bugtong lihok niini nga pang-atake
+267c5f05	Ilisan og unsang lihok?
+7e756b98	Pagpili og lihok
+f90824d2	Pampakusog

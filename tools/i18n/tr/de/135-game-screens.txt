@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Stufe {0} von 3
+799c9f2a	Du hast
+1e1c72c2	Pro Stunde
+33d30632	Zum Einsammeln
+53cb1f45	Sternenstaub
+fe26b106	Glimmer sammelt sich von selbst
+84466168	Noch nichts einzusammeln
+c2743891	Sammelt sich nach {0} weiteren Tageszielen von selbst
+185fb7e9	Sammelt sich nach einem weiteren Tagesziel von selbst
+a6fe4bd7	Gebäude
+5209c504	Offene Grundstücke
+5e50e7d0	Schlüssel benutzen
+c9d9f62d	Grundstück {0}
+f096bcd2	Leer: Wähle etwas zum Bauen
+bbd80cf7	Bauen
+90335b64	pro Stunde
+8ae5f769	Ein Wesen freilassen
+469c82aa	Was Freilassen bewirkt
+cc5f562c	Hinterlässt {0} Sternenstaub
+3ce59147	Bisher freigelassen: {0}
+d0c810d6	Sternenstaub jetzt
+8490bae0	Jeder
+d40e4bd3	Ein ausgewachsenes Wesen kann freigelassen werden. Es verlässt deine Sammlung und bleibt hier in Erinnerung. Deine Gebäude und dein Glimmer fangen von vorn an, und du behältst den Sternenstaub: Jeder macht alle Gebäude für immer schneller, sodass der nächste Garten viel schneller wächst. Je mehr ausgewachsene Gebäude du in dem Moment hast, desto mehr Sternenstaub gibt es.
+c5e4d0d9	Auf Grundstück {0} bauen
+5bd44ebe	Stufe
+2c6d59f3	Am besten für
+c756f6af	Alle
+7e2299a8	Ausbauen
+ad05dc64	Heute {0} von {1} Mal gefüttert
+64ce4b08	Wird gewärmt
+38da057b	Kauf eins, um es zu füttern.
+3e8248e3	Preis
+6e4af9cf	Lieblingsessen von
+b6792f89	Heute gefüttert
+ea2619b8	Sein Lieblingsessen: zählt doppelt.
+7ceca51f	Kaufen
+d5f82806	Läuft noch {0} Min.
+f52b020c	Ein Ei wird gewärmt.
+bfb4298c	Wie viele du hast
+0b5ad7f0	Hut
+9a46e65f	Fürs Gesicht
+0a3774e5	Zum Halten
+03898713	Für den Rücken
+56cc042a	Shirt
+68121261	Zum Anziehen
+899db74e	Dekorationen
+807f8ba7	Zum Anziehen
+fa6095d9	Im Lebensraum
+e7eb9ee9	Gekaufte Kampfzüge
+e5ffd15b	Kopf
+35a237da	Hals
+6b568a69	Für Kämpfe
+231a3994	Für deine Wesen
+0891d9ac	Für den Garten
+01888a92	Kampfzüge, die du kennst, von denen, die hier verkauft werden
+755844bc	Deins
+f13ba138	Noch freizuschalten
+1894043f	Nur zur Zierde. Es kommt sofort in den Lebensraum.
+ef4da3ac	Nur zur Zierde. Es wird sofort angezogen.
+dbe3238f	{0} Einmal gekauft, für alle deine Wesen.
+44e6822a	Getragen
+c5040300	Trägt gerade
+44819483	Nichts
+f7b4c7be	Eier tragen nichts, bis sie schlüpfen.
+31e8d565	In deiner Tasche

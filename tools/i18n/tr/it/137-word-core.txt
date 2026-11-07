@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Articolo
+8458445d	Congiunzione
+ad3287cc	Preposizione
+4290a803	Marcatore
+8c112070	Marcatore del plurale
+c2f69372	Segno dell’infinito
+28680091	Pronome riflessivo
+e95a5003	Verbo supporto
+3520950d	Copula
+4a1c659d	Parola di cortesia
+4442f411	Formatore di nomi
+e5efdbe6	Parola unita
+2c924e30	Nota
+e9b9ac89	Altre forme
+3b74e96e	Alternativa
+8753dabd	Indicazione grammaticale
+ed212fa1	Segnaposto
+cf597d75	«un, una»
+edcca932	«uno, un»
+73afd32b	«quindi, e poi»
+69c093a0	«con, per, in»
+35aa4308	«come»
+1c86bb4a	«per, a»
+98f1e5fa	la rende una domanda
+1b7cb171	segno dell’infinito, prima di un verbo
+b3c108a5	«fare»
+11547b17	«fare», formale
+c0318423	«diventare»
+0366e875	«diventare», formale
+0791ccdc	«colpire»
+55c64b21	«dare»
+bf203a4a	«prendere»
+5de917a4	«avere»
+e7dd0530	«essere, diventare»
+b4f502d9	«essere», cortese
+cb715b83	il marcatore del tema
+9ed195a4	il marcatore dell’oggetto
+43ae6d89	un marcatore prima di un nome di persona
+62a014d5	il marcatore del plurale
+072b1f7c	«a, in»
+235f5aff	una parola di cortesia
+84887987	trasforma un verbo o un aggettivo in nome
+c8a729e5	una nota tra parentesi
+8a697f13	altre forme della parola
+66cc4fbe	il plurale
+dfa3391c	un’altra parola o forma
+4a66721a	un’indicazione grammaticale
+46e3575a	un segnaposto per altre parole
+b9a634a6	Escluso: {0}
+413cacc4	Conta solo «{0}».
+045b3e3b	«il, la»
+7bdc12eb	«dei, del»
+35cdf2c9	«e»
+5392faee	«o»
+72a50e8f	«si, sé stesso»

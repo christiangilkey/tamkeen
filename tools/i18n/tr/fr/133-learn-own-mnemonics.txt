@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Chaque fois que tu appuies sur Utiliser ou sur le pouce vers le bas, il apprend un peu quels mots-clés tu aimes, et un peu plus des mnémoniques que tu écris toi-même, sur tous tes appareils. « L'oublier », ici sous le Créateur de mnémoniques, le fait repartir de zéro.
+f381b52f	Tes propres mnémoniques
+8ee516ce	Quand tu écris une mnémonique dans Notes de mémorisation, écris en MAJUSCULES le mot qui sonne pareil : dans « un canard assis sur un POT », il apprend POT. Seuls les mots en majuscules comptent, et seulement s'ils sonnent vraiment comme le mot ; le reste de la note est ignoré. Un de tes mots peut revenir pour d'autres mots qui sonnent pareil, marqué « Tu l'as déjà utilisé ». Quand ton IA crée les mnémoniques, quelques-unes des tiennes lui sont envoyées comme exemples de ton style. « Apprendre de mes propres mnémoniques », ici, désactive tout cela.
+69f9ddf6	Apprendre de mes propres mnémoniques
+7e24bec4	Seuls les mots en MAJUSCULES comptent : dans « un canard assis sur un POT », il apprend POT. Le reste de la note est ignoré.
+b87389a9	Quelques-unes de tes mnémoniques sont envoyées à ton IA comme exemples de ton style.
+64df8757	Le mot qui sonne pareil en MAJUSCULES : un canard assis sur un POT…
+12c40c2f	Appris de {0}
+cca17e08	{0} ne sonne pas comme {1}, donc rien n'a été appris.
+b410b039	Astuce : écris en MAJUSCULES le mot qui sonne pareil, et le Créateur de mnémoniques en apprendra.
+2814674c	{0} ne sonnent pas comme {1}, donc rien n'a été appris.
+1f9e7496	Tu l'as déjà utilisé
+9aab0129	Tu as écrit ce mot en MAJUSCULES dans une de tes notes

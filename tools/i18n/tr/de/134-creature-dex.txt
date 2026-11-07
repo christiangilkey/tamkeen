@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Deine Wesen
+3ad63cd1	Alle Wesen
+4c62aad0	Schlüpfen
+f3b21e04	Wachstum
+df873d99	Es schlüpft, während du lernst.
+be763e9a	Werte
+17ac8106	Wie du es großgezogen hast
+756016c6	Färbungen zeigen sich nur beim Aussehen als Jungtier.
+e7c741fc	Noch nicht verdient
+117dc066	{0} von {1} verdient
+257f305b	Verdient
+7548ab52	Stärke
+54c45c03	Blockt
+bc6f4bc6	Heilt
+3159fe42	Leer
+c81c947a	Züge
+eb10a5c1	Tippe auf einen Zug, um ihn anzusehen oder zu tauschen. Behalte mindestens einen Angriffszug.
+57351a82	Weitere Züge, die es kennt
+d0b58b44	Es nutzt alle Züge, die es kennt.
+92f548f5	Weitere Züge im Laden kaufen
+34dbd5c4	Wartezeit
+2ec0e11f	Sein einziger Angriffszug: Er lässt sich nur gegen einen anderen Angriffszug tauschen.
+9981290a	Es kennt noch keine anderen Züge.
+210dd62a	Tauschen
+1f36beb6	Diesen Zug nutzen
+e4a6558f	Welchen Zug ersetzen?
+bafc96af	{0} nimmt den Platz des Zugs ein, den du wählst.
+7eedf90d	Sein einziger Angriffszug
+267c5f05	Gegen welchen Zug tauschen?
+7e756b98	Wähle einen Zug
+f90824d2	Verstärkung

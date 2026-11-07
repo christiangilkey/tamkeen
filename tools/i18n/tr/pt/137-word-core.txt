@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Artigo
+8458445d	Conjunção
+ad3287cc	Preposição
+4290a803	Marcador
+8c112070	Marcador de plural
+c2f69372	Marca de infinitivo
+28680091	Pronome reflexivo
+e95a5003	Verbo de apoio
+3520950d	Cópula
+4a1c659d	Palavra de cortesia
+4442f411	Formador de substantivos
+e5efdbe6	Palavra unida
+2c924e30	Nota
+e9b9ac89	Outras formas
+3b74e96e	Alternativa
+8753dabd	Indicação gramatical
+ed212fa1	Marcador de lugar
+cf597d75	“um, uma”
+edcca932	“um”
+73afd32b	“então, e depois”
+69c093a0	“com, por, em”
+35aa4308	“como”
+1c86bb4a	“para, a”
+98f1e5fa	transforma-a numa pergunta
+1b7cb171	marca do infinitivo, antes de um verbo
+b3c108a5	“fazer”
+11547b17	“fazer”, formal
+c0318423	“tornar-se”
+0366e875	“tornar-se”, formal
+0791ccdc	“bater”
+55c64b21	“dar”
+bf203a4a	“tomar, pegar”
+5de917a4	“ter”
+e7dd0530	“ser, estar, tornar-se”
+b4f502d9	“ser, estar”, educado
+cb715b83	o marcador do tópico
+9ed195a4	o marcador do objeto
+43ae6d89	um marcador antes de um nome de pessoa
+62a014d5	o marcador de plural
+072b1f7c	“em, a”
+235f5aff	uma palavra de cortesia
+84887987	transforma um verbo ou adjetivo em substantivo
+c8a729e5	uma nota entre parênteses
+8a697f13	outras formas da palavra
+66cc4fbe	o plural
+dfa3391c	outra palavra ou forma
+4a66721a	uma indicação gramatical
+46e3575a	uma palavra que substitui outras
+b9a634a6	Deixado de fora: {0}
+413cacc4	Só conta “{0}”.
+045b3e3b	“o, a”
+7bdc12eb	“uns, umas”
+35cdf2c9	“e”
+5392faee	“ou”
+72a50e8f	“se, a si mesmo”

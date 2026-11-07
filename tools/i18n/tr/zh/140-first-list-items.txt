@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	打开 Claude Console
+641e071f	登录，或注册账号
+64b6cdc7	充值少量额度
+0603680d	创建密钥
+ddc9f55d	立即复制
+a11e9d4b	粘贴到 Tamkeen
+a50988a3	打开 Google AI Studio
+6049f9a6	用你的 Google 账号登录
+39963ac7	复制密钥
+d5825787	打开 OpenAI 平台
+c1bdc572	打开 xAI Console
+fe9bed90	打开 Groq Console
+1eec8f15	提示密钥被拒绝
+1ad303dd	提示配额、账单或速率限制
+cd002623	提示无法识别该模型
+76d3e42c	复制密钥之前就关掉了窗口
+f35d2a44	我的密钥安全吗？
+1a7a8dc0	查一个词：通常 5 到 15，有时 30 到 50，偶尔 100 到 200。每个词每天只奖励一次；同一学习时段里每查一个词都会累积连击，最多翻倍，而且不用着急：只有离开应用 10 分钟或到了午夜，这个时段才会结束。
+ebd10589	它会填满你的等级条。每升一级奖励 5 枚金币，而且每一级需要的 XP 都比上一级多（这一级需要 {0}）。
+ceae120c	完成每日目标（听或读 {0} 分钟；在 YouTube 上的时间不算）。每完成一天就加一。
+d883cc30	每连续第 7 天可获得一个连续保护。
+76f510d0	完成每日目标：10。
+73298568	给你的生物穿戴的东西和栖息地用的东西：帽子、眼镜、颈饰、手持物、披风和翅膀、上衣以及装饰。价格为 {0} 到 {1} 枚金币。
+76557f97	每连续 7 天完成每日目标就获得一个（这样最多持有 3 个）。
+797b53b5	它能弥补缺席的一天，让你的连续天数像学习过一样继续下去。
+fc8d2b71	花园里的建筑全天都会产出光芒，即使应用关闭也一样（最多可积攒 {0} 小时的量等你来收）。
+75cc6677	新建筑，以及把建筑升到下一等级让它产出更多。
+38414bff	获得徽章：每个 2。
+ced05c8e	喂养栖息地里的生物。食物需要 {0} 光芒，它每天最多吃 {1} 次。
+317d4503	那只生物待在栖息地时，每颗心都会让你所有建筑快 4%。
+b3e7bb3e	它在少年期长出的角，对爱听的人更偏向触角，对收集者更偏向宝石。
+d702648b	+{0} XP{1}
+af310252	青铜
+4042806d	英语词
+eed7cb83	左摇杆向下
+d526caec	右摇杆向右
+f5ec7772	最新的在前
+6a99c65c	最早的在前
+7def648b	最近修改的在前
+530262d8	最久未修改的在前
+7f5f05af	从 Tamkeen 保存文件。
+ced72db7	艺术
+ffa74a4e	🎧 播客单集
+eb3d3982	点击地址栏最右端的安装图标（一个带向下箭头的屏幕）。
+aebb4c7b	这个浏览器无法添加网页应用。请在 Chrome 或 Edge 中打开此页面，然后使用地址栏里的安装按钮。

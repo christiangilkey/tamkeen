@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Article
+8458445d	Conjonction
+ad3287cc	Préposition
+4290a803	Marqueur
+8c112070	Marqueur du pluriel
+c2f69372	Marque de l’infinitif
+28680091	Pronom réfléchi
+e95a5003	Verbe support
+3520950d	Copule
+4a1c659d	Mot de politesse
+4442f411	Préfixe nominal
+e5efdbe6	Mot accolé
+2c924e30	Note
+e9b9ac89	Autres formes
+3b74e96e	Variante
+8753dabd	Indication grammaticale
+ed212fa1	Mot générique
+cf597d75	« un, une »
+edcca932	« un »
+73afd32b	« alors, puis »
+69c093a0	« avec, par, dans »
+35aa4308	« comme »
+1c86bb4a	« pour, à »
+98f1e5fa	en fait une question
+1b7cb171	marque de l’infinitif, devant un verbe
+b3c108a5	« faire »
+11547b17	« faire », soutenu
+c0318423	« devenir »
+0366e875	« devenir », soutenu
+0791ccdc	« frapper »
+55c64b21	« donner »
+bf203a4a	« prendre »
+5de917a4	« avoir »
+e7dd0530	« être, devenir »
+b4f502d9	« être », poli
+cb715b83	le marqueur du thème
+9ed195a4	le marqueur du complément d’objet
+43ae6d89	un marqueur devant un nom de personne
+62a014d5	le marqueur du pluriel
+072b1f7c	« à, dans »
+235f5aff	un mot de politesse
+84887987	fait d’un verbe ou d’un adjectif un nom
+c8a729e5	une note entre parenthèses
+8a697f13	d’autres formes du mot
+66cc4fbe	le pluriel
+dfa3391c	un autre mot ou une autre forme
+4a66721a	une indication grammaticale
+46e3575a	un mot qui tient lieu d’autres mots
+b9a634a6	Laissé de côté : {0}
+413cacc4	Seul « {0} » compte.
+045b3e3b	« le, la »
+7bdc12eb	« des, du »
+35cdf2c9	« et »
+5392faee	« ou »
+72a50e8f	« se, soi-même »

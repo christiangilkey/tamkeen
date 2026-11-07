@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Artículo
+8458445d	Conjunción
+ad3287cc	Preposición
+4290a803	Marcador
+8c112070	Marcador de plural
+c2f69372	Marca de infinitivo
+28680091	Pronombre reflexivo
+e95a5003	Verbo de apoyo
+3520950d	Cópula
+4a1c659d	Palabra de cortesía
+4442f411	Formador de sustantivos
+e5efdbe6	Palabra unida
+2c924e30	Nota
+e9b9ac89	Otras formas
+3b74e96e	Alternativa
+8753dabd	Etiqueta gramatical
+ed212fa1	Comodín
+cf597d75	«un, una»
+edcca932	«un, uno»
+73afd32b	«así que, y luego»
+69c093a0	«con, por, en»
+35aa4308	«como»
+1c86bb4a	«para, a»
+98f1e5fa	la convierte en pregunta
+1b7cb171	marca del infinitivo, delante de un verbo
+b3c108a5	«hacer»
+11547b17	«hacer», formal
+c0318423	«volverse, hacerse»
+0366e875	«volverse», formal
+0791ccdc	«golpear»
+55c64b21	«dar»
+bf203a4a	«tomar»
+5de917a4	«tener»
+e7dd0530	«ser, estar, volverse»
+b4f502d9	«ser, estar», cortés
+cb715b83	el marcador del tema
+9ed195a4	el marcador del objeto
+43ae6d89	un marcador delante de un nombre propio
+62a014d5	el marcador de plural
+072b1f7c	«en, a»
+235f5aff	una palabra de cortesía
+84887987	convierte un verbo o adjetivo en sustantivo
+c8a729e5	una nota entre paréntesis
+8a697f13	otras formas de la palabra
+66cc4fbe	el plural
+dfa3391c	otra palabra o forma
+4a66721a	una etiqueta gramatical
+46e3575a	un comodín en lugar de otras palabras
+b9a634a6	Se deja fuera: {0}
+413cacc4	Solo cuenta «{0}».
+045b3e3b	«el, la»
+7bdc12eb	«unos, unas»
+35cdf2c9	«y»
+5392faee	«o»
+72a50e8f	«se, uno mismo»

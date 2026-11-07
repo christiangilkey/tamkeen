@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	Objectiu diari aconseguit: +{0} XP
+3a110e1d	Has pujat de nivell! +5 monedes
+5428d235	Nivell {0}: {1} XP
+d6d9f18f	{0}. Combo, següent: {1}
+0ad2c237	El teu nivell
+7c7f5d04	Nivell
+2314cd9a	Obre el joc
+623e0f4d	{0} XP per al nivell {1}
+bbbe0df0	Combo actiu: següent cerca {0}
+58c06693	Busca paraules una rere l'altra per fer un combo: ×1.2, després ×1.5, després ×2.
+3d845682	Protector de ratxa!
+ef0dcaec	Carta de pista!
+f21e440a	Ja l'has buscada avui
+9fe2b30d	+1 moneda
+09eee77a	+{0} monedes

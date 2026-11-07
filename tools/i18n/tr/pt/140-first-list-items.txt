@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Abra o Claude Console
+641e071f	Entre ou crie uma conta
+64b6cdc7	Adicione um pouco de crédito
+0603680d	Crie a chave
+ddc9f55d	Copie-a na hora
+a11e9d4b	Cole-a no Tamkeen
+a50988a3	Abra o Google AI Studio
+6049f9a6	Entre com sua conta do Google
+39963ac7	Copie a chave
+d5825787	Abra a plataforma da OpenAI
+c1bdc572	Abra o xAI Console
+fe9bed90	Abra o Groq Console
+1eec8f15	Diz que a chave foi recusada
+1ad303dd	Fala de cota, cobrança ou limite de uso
+cd002623	Diz que não reconhece o modelo
+76d3e42c	Fechei a caixa antes de copiar a chave
+f35d2a44	Minha chave está segura?
+1a7a8dc0	Consultar uma palavra: normalmente de 5 a 15, às vezes de 30 a 50, de vez em quando de 100 a 200. Cada palavra rende uma vez por dia, e cada palavra que você consulta na mesma sessão de estudo aumenta um combo de até o dobro, sem pressa: a sessão só termina quando você fica 10 minutos fora do app, ou à meia-noite.
+ebd10589	Ele enche sua barra de nível. Cada novo nível rende 5 moedas, e cada nível precisa de mais XP que o anterior (este precisa de {0}).
+ceae120c	Alcançar sua meta diária ({0} minutos ouvindo ou lendo; o tempo no YouTube não conta). Cada dia em que você consegue soma um.
+d883cc30	Cada 7º dia seguido rende um protetor de sequência.
+76f510d0	Alcançar sua meta diária: 10.
+73298568	Coisas para sua criatura vestir e para o habitat dela: chapéus, óculos, coisas para o pescoço, coisas para segurar, capas e asas, camisetas e decorações. Custam de {0} a {1} moedas.
+76557f97	Cada 7º dia seguido em que você alcança sua meta diária rende um (até 3 guardados assim).
+797b53b5	Ele cobre um dia perdido, e sua sequência continua como se você tivesse estudado.
+fc8d2b71	As construções do seu jardim produzem brilho o dia todo, mesmo com o app fechado (até {0} horas de produção esperam por você).
+75cc6677	Novas construções, e levar uma construção ao próximo nível para ela produzir mais.
+38414bff	Conquistar uma insígnia: 2 cada.
+ced05c8e	Alimentar a criatura do seu habitat. A comida custa {0} de brilho, e ela come até {1} vezes por dia.
+317d4503	Cada coração deixa todas as suas construções 4% mais rápidas enquanto essa criatura estiver no habitat.
+b3e7bb3e	O chifre, que nasce quando ela é jovem, tende a antenas para quem escuta e a uma gema para colecionadores.
+d702648b	+{0} XP{1}
+af310252	Bronze
+4042806d	Palavra inglesa
+eed7cb83	Analógico esquerdo para baixo
+d526caec	Analógico direito para a direita
+f5ec7772	Mais recentes primeiro
+6a99c65c	Mais antigos primeiro
+7def648b	Alterados recentemente
+530262d8	Alterados há mais tempo
+7f5f05af	Salve o arquivo pelo Tamkeen.
+ced72db7	Artes
+ffa74a4e	🎧 Episódio de podcast
+eb3d3982	Clique no ícone de instalar na ponta direita da barra de endereço (uma tela com uma seta para baixo).
+aebb4c7b	Este navegador não consegue adicionar apps da web. Abra esta página no Chrome ou no Edge e use o botão de instalar na barra de endereço.

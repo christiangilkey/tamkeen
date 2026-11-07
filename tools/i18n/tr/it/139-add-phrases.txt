@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	Una scheda per riga: una parola o un'espressione. Dopo puoi aggiungere il significato con un trattino, un segno di uguale o un punto e virgola (<0/>), oppure incollare colonne da un foglio di calcolo: parola, significato, frase, traduzione.
+52cfc778	Parola o espressione
+91c9953e	Parola per parola: {0}
+23809925	Il dizionario non ha una voce per l'espressione intera, quindi questo è parola per parola. L'espressione potrebbe significare altro: cambialo se lo sai.
+72ad27f7	Questa espressione non è nel dizionario integrato. Scrivi il suo significato.
+bf5d6eab	Non è stata trovata nessuna frase d'esempio per questa espressione. Scrivine una o lascia vuoto.
+1b850af7	Nessun mnemonico: le parole dal suono simile vanno bene per parole ed espressioni brevi, non per una così lunga.

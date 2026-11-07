@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	오늘의 목표 달성: 경험치 +{0}
+3a110e1d	레벨 업! 코인 +5
+5428d235	레벨 {0}: 경험치 {1}
+d6d9f18f	{0}. 콤보, 다음 {1}
+0ad2c237	내 레벨
+7c7f5d04	레벨
+2314cd9a	게임 열기
+623e0f4d	레벨 {1}까지 경험치 {0}
+bbbe0df0	콤보 중: 다음 찾기 {0}
+58c06693	단어를 연달아 찾아보면 콤보: ×1.2, 그다음 ×1.5, 그다음 ×2.
+3d845682	연속 기록 보호!
+ef0dcaec	힌트 카드!
+f21e440a	오늘 이미 찾아봤어요
+9fe2b30d	코인 +1
+09eee77a	코인 +{0}

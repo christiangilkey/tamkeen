@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Nivell {0} de 3
+799c9f2a	Tens
+1e1c72c2	Per hora
+33d30632	Per recollir
+53cb1f45	Pols d'estels
+fe26b106	El brill es recull sol
+84466168	Encara no hi ha res per recollir
+c2743891	Es recull sol després de {0} objectius diaris més
+185fb7e9	Es recull sol després d'un objectiu diari més
+a6fe4bd7	Edificis
+5209c504	Parcel·les obertes
+5e50e7d0	Fes servir una clau
+c9d9f62d	Parcel·la {0}
+f096bcd2	Buida: tria què vols construir
+bbd80cf7	Construeix
+90335b64	per hora
+8ae5f769	Allibera una criatura
+469c82aa	Què fa alliberar
+cc5f562c	Deixa {0} de pols d'estels
+3ce59147	Alliberades fins ara: {0}
+d0c810d6	Pols d'estels ara
+8490bae0	Cadascuna
+d40e4bd3	Una criatura del tot crescuda es pot alliberar. Deixa el teu grup i se la recorda aquí. Els teus edificis i el teu brill tornen a començar, i conserves la pols d'estels: cadascuna fa tots els edificis més ràpids per sempre, de manera que el jardí següent creix molt més de pressa. Com més edificis del tot crescuts tinguis en aquell moment, més pols d'estels reps.
+c5e4d0d9	Construeix a la parcel·la {0}
+5bd44ebe	Nivell
+2c6d59f3	Rendeix més amb
+c756f6af	Tothom
+7e2299a8	Millora
+ad05dc64	Ha menjat {0} de {1} cops avui
+64ce4b08	Escalfant
+38da057b	Compra'n un per donar-l'hi.
+3e8248e3	Preu
+6e4af9cf	Preferit de
+b6792f89	Àpats avui
+ea2619b8	El seu preferit: compta el doble.
+7ceca51f	Compra
+d5f82806	Actiu {0} min més
+f52b020c	Un ou s'està escalfant.
+bfb4298c	Quants en tens
+0b5ad7f0	Barret
+9a46e65f	Per a la cara
+0a3774e5	Per aguantar
+03898713	Per a l'esquena
+56cc042a	Samarreta
+68121261	Coses per posar-se
+899db74e	Decoracions
+807f8ba7	Per posar-se
+fa6095d9	A l'hàbitat
+e7eb9ee9	Moviments de batalla que has comprat
+e5ffd15b	Cap
+35a237da	Coll
+6b568a69	Per a les batalles
+231a3994	Per a les teves criatures
+0891d9ac	Per al jardí
+01888a92	Moviments de batalla que saps, dels que es venen aquí
+755844bc	Teu
+f13ba138	Per desbloquejar
+1894043f	Només decoratiu. Es col·loca a l'hàbitat de seguida.
+ef4da3ac	Només decoratiu. Se'l posa de seguida.
+dbe3238f	{0} Es compra un cop, per a totes les teves criatures.
+44e6822a	El porta
+c5040300	Porta ara
+44819483	Res
+f7b4c7be	Els ous no porten res fins que es desclouen.
+31e8d565	A la teva bossa

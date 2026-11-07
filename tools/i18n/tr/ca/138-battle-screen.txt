@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Preguntes de
+4c8044d7	Les {0} paraules
+3254a11b	Les {0} més noves
+24d3e4fd	Força
+19ab964c	Igual per a tothom
+f472694a	Paraules pendents
+c5480ef5	Les batalles s'obren amb {0} paraules desades
+a0d031d3	Encara per desar
+54a41c30	Desa paraules amb ★ mentre escoltes i llegeixes.
+efaa27d9	Les teves paraules necessiten significats
+32fa4207	Amb significat
+2c5dcbb8	Les preguntes necessiten significats: afegeix-ne alguns a la pàgina Vocabulari.
+71db6b56	Obre Vocabulari
+3c5410a6	El teu ou encara no ha eclosionat
+50c5f1c3	Assoleix l'objectiu d'avui perquè eclosioni i després torna a lluitar.
+80b3016c	El teu equip
+3cda3a1b	Batalles ràpides
+47c316a3	Combat igualat
+ac02de4b	Tria'n {0} més
+d26d55c7	Paraules
+63bbbf02	El teu historial
+ec9f630c	Habilitat
+b6c015d1	Victòries
+375cbb72	Encerts recents
+80263722	Paraules conegudes
+51c51d5d	Com funcionen les batalles
+12901c84	Una batalla
+f0975bb0	Lluiten les teves tres primeres criatures nascudes, en l'ordre de la pàgina Criatures. Toca'n una per veure-la i triar-ne els moviments.
+07b537c2	Una victòria et pot deixar un ou, mentre tinguis menys de sis criatures.
+514a5381	Líders de gimnàs
+0a33d702	La primera victòria contra cadascun dona monedes i XP de més. Els gimnasos no canvien la teva puntuació d'habilitat.
+504b0ab6	L'habilitat puja quan guanyes duels de lloguer i batalles amb amics, i baixa quan els perds.
+9b123a44	Encerts recents: quantes de les teves respostes en batalles han estat correctes aquesta setmana.
+0574ed77	Ha vençut el teu equip
+b97fcdd2	Ha perdut contra el teu equip
+666a5d8c	{0}% dels dies
+8c26dc15	Regla d'aquesta setmana
+d0753d11	Incursió del gremi: {0}
+e7a1a8e1	Incursió del gremi
+c314c002	Obre la pestanya Amics
+f93ee291	Batalles amb amics
+ff38765f	Desafiaments
+34d6c5fd	Desafia l'equip d'un amic: les seves criatures lluiten amb els moviments que va triar i responen amb la precisió amb què el seu amo sol respondre les seves pròpies paraules. Tu respons les teves.
+d64bc035	Cada setmana té la seva pròpia regla per a les batalles amb amics: és a Regla d'aquesta setmana.
+5586d01b	Les batalles amb amics compten per a la teva puntuació d'habilitat, i es guarda el teu historial contra cada amic.
+9f14cd67	La lliga
+862b1fa5	Cada resposta correcta en una batalla aquesta setmana, de qualsevol membre del gremi, li treu un punt.
+9d59a182	Venceu junts el cap i cadascú rep 150 XP i 20 monedes. Un cap nou arriba el dilluns.
+3b2c3fdb	Regals
+8e3a0e6a	Els amics et poden regalar coses per posar-te, decoracions i ous. T'esperen aquí fins que els obris.
+2c3fe469	Les teves paraules i el teu material d'estudi no s'envien mai: només el teu equip de criatures, la precisió de les teves respostes i els totals d'aquesta setmana.
+fb278703	Derrotat
+1cc55327	Lluita contra {0}
+bc435923	Gimnàs
+a563972e	Elements
+a9965777	Cada pregunta
+08f35234	Primera victòria
+bcafab50	Enviat per {0}

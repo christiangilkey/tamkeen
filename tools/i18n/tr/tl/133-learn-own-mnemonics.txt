@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Sa bawat pindot mo ng Gamitin o thumbs down, natututo ito nang kaunti tungkol sa mga keyword na gusto mo, at nang kaunti pa mula sa mga mnemonic na ikaw mismo ang sumulat, sa lahat ng device mo. Nagsisimula ulit ito kapag pinindot ang “Kalimutan” sa ilalim ng Gawa ng mnemonic dito.
+f381b52f	Sarili mong mga mnemonic
+8ee516ce	Kapag sumulat ka ng mnemonic sa Mga tala sa pagsasaulo, isulat sa MALALAKING TITIK ang salitang kahawig ang tunog: sa “isang bibeng nakaupo sa isang POT” natututo ito mula sa POT. Ang mga salitang nasa malalaking titik lang ang binibilang, at kung talagang kahawig ang tunog nila ng salita; hindi pinapansin ang iba pang bahagi ng tala. Puwedeng bumalik ang salita mo para sa ibang salitang kahawig ang tunog, na may markang “Nagamit mo na ito”. Kapag AI mo ang gumagawa ng mga mnemonic, ipinapadala rito ang ilan sa mga sarili mong mnemonic bilang halimbawa ng istilo mo. Pinapatay ito ng “Matuto mula sa sarili kong mga mnemonic” dito.
+69f9ddf6	Matuto mula sa sarili kong mga mnemonic
+7e24bec4	Ang mga salitang nasa MALALAKING TITIK lang ang binibilang: sa “isang bibeng nakaupo sa isang POT” natututo ito mula sa POT. Hindi pinapansin ang iba pang bahagi ng tala.
+b87389a9	Ipinapadala sa AI mo ang ilan sa mga sarili mong mnemonic bilang halimbawa ng istilo mo.
+64df8757	Ang kahawig na salita sa MALALAKING TITIK: isang bibeng nakaupo sa isang POT…
+12c40c2f	Natuto mula sa {0}
+cca17e08	Hindi kahawig ng {1} ang tunog ng {0}, kaya walang natutunan.
+b410b039	Tip: isulat sa MALALAKING TITIK ang salitang kahawig ang tunog at matututo mula rito ang Gawa ng mnemonic.
+2814674c	Hindi kahawig ng {1} ang tunog ng {0}, kaya walang natutunan.
+1f9e7496	Nagamit mo na ito
+9aab0129	Isinulat mo ang salitang ito sa MALALAKING TITIK sa isa sa mga tala mo

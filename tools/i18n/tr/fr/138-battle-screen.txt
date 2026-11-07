@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Questions tirées de
+4c8044d7	Les {0} mots
+3254a11b	Les {0} plus récents
+24d3e4fd	Force
+19ab964c	La même pour tous
+f472694a	Mots à revoir
+c5480ef5	Les combats s'ouvrent à {0} mots enregistrés
+a0d031d3	Encore à enregistrer
+54a41c30	Enregistrez des mots avec ★ pendant que vous écoutez et lisez.
+efaa27d9	Vos mots ont besoin de sens
+32fa4207	Avec un sens
+2c5dcbb8	Les questions ont besoin de sens : ajoutez-en dans la page Vocabulaire.
+71db6b56	Ouvrir le Vocabulaire
+3c5410a6	Votre œuf n'a pas encore éclos
+50c5f1c3	Atteignez l'objectif du jour pour le faire éclore, puis revenez combattre.
+80b3016c	Votre équipe
+3cda3a1b	Combats rapides
+47c316a3	Combat équilibré
+ac02de4b	Encore {0} à choisir
+d26d55c7	Mots
+63bbbf02	Votre bilan
+ec9f630c	Niveau
+b6c015d1	Victoires
+375cbb72	Réussite récente
+80263722	Mots connus
+51c51d5d	Comment se passent les combats
+12901c84	Un combat
+f0975bb0	Vos trois premières créatures écloses combattent, dans l'ordre de la page Créatures. Touchez-en une pour la voir et choisir ses attaques.
+07b537c2	Une victoire peut vous laisser un œuf, tant que vous avez moins de six créatures.
+514a5381	Chefs d'arène
+0a33d702	La première victoire contre chacun rapporte des pièces et des XP en plus. Les arènes ne changent pas votre classement.
+504b0ab6	Votre niveau monte quand vous gagnez des duels de location et des combats entre amis, et baisse quand vous les perdez.
+9b123a44	Réussite récente : combien de vos réponses en combat étaient justes cette semaine.
+0574ed77	A battu votre équipe
+b97fcdd2	A perdu contre votre équipe
+666a5d8c	{0} % des jours
+8c26dc15	Règle de la semaine
+d0753d11	Raid de guilde : {0}
+e7a1a8e1	Raid de guilde
+c314c002	Ouvrir l'onglet Amis
+f93ee291	Combattre des amis
+ff38765f	Défis
+34d6c5fd	Défiez l'équipe d'un ami : ses créatures combattent avec les attaques qu'il a choisies et répondent avec la même justesse que leur propriétaire répond d'habitude à ses propres mots. Vous répondez aux vôtres.
+d64bc035	Chaque semaine a sa propre règle pour les combats entre amis : elle se trouve sous Règle de la semaine.
+5586d01b	Les combats entre amis comptent pour votre classement, et votre bilan contre chaque ami est conservé.
+9f14cd67	La ligue
+862b1fa5	Chaque bonne réponse en combat cette semaine, de n'importe qui dans la guilde, lui retire un point.
+9d59a182	Battez le boss ensemble : 150 XP et 20 pièces chacun. Un nouveau boss arrive le lundi.
+3b2c3fdb	Cadeaux
+8e3a0e6a	Vos amis peuvent vous offrir des choses à porter, des décorations et des œufs. Ils vous attendent ici jusqu'à ce que vous les ouvriez.
+2c3fe469	Vos mots et votre matériel d'étude ne sont jamais envoyés : seulement votre équipe de créatures, la justesse de vos réponses et les totaux de la semaine.
+fb278703	Battu
+1cc55327	Combattre {0}
+bc435923	Arène
+a563972e	Éléments
+a9965777	Par question
+08f35234	Première victoire
+bcafab50	Envoyé par {0}

@@ -1,0 +1,32 @@
+# The Creatures page as a dex (grid, entry in blocks), choosing battle moves in four slots, the badge case
+7a29e59f	Les teves criatures
+3ad63cd1	Totes les criatures
+4c62aad0	Eclosió
+f3b21e04	Creixement
+df873d99	Es desclou mentre estudies.
+be763e9a	Estadístiques
+17ac8106	Com l'has criada
+756016c6	Les coloracions es veuen amb l'aspecte Jove.
+e7c741fc	Encara no aconseguida
+117dc066	{0} de {1} aconseguides
+257f305b	Aconseguida
+7548ab52	Poder
+54c45c03	Bloqueja
+bc6f4bc6	Cura
+3159fe42	Buit
+c81c947a	Moviments
+eb10a5c1	Toca un moviment per veure'l o canviar-lo. Conserva com a mínim un moviment d'atac.
+57351a82	Altres moviments que sap
+d0b58b44	Fa servir tots els moviments que sap.
+92f548f5	Compra més moviments a la botiga
+34dbd5c4	Recàrrega
+2ec0e11f	És el seu únic moviment d'atac: només es pot canviar per un altre moviment d'atac.
+9981290a	Encara no sap cap altre moviment.
+210dd62a	Canviar
+1f36beb6	Fes servir aquest moviment
+e4a6558f	Quin moviment substitueixes?
+bafc96af	{0} ocupa el lloc del moviment que triïs.
+7eedf90d	El seu únic moviment d'atac
+267c5f05	Per quin moviment el canvies?
+7e756b98	Tria un moviment
+f90824d2	Potenciador

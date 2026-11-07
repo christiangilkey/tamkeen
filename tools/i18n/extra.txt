@@ -45,3 +45,11 @@ Left stick right
 Right stick down
 Cat-ferret
 All-time
+# game/data.js MOVE_STYLES: a move kind, shown by game/movesui.js and the battle (the extractor skips hyphenated words)
+Power-up
+# review/wordcore.js NOTES: what a part left out of a word means, in "al- (“the”) left out" (one word in quotes)
+“the”
+“some”
+“and”
+“or”
+“oneself”

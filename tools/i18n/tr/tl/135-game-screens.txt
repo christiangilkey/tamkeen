@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Antas {0} sa 3
+799c9f2a	Mayroon ka
+1e1c72c2	Kada oras
+33d30632	Naghihintay
+53cb1f45	Stardust
+fe26b106	Kusang naiipon ang liwanag
+84466168	Wala pang maiipon
+c2743891	Kusang maiipon pagkatapos ng {0} pang araw-araw na layunin
+185fb7e9	Kusang maiipon pagkatapos ng isa pang araw-araw na layunin
+a6fe4bd7	Mga gusali
+5209c504	Mga bukas na lote
+5e50e7d0	Gumamit ng susi
+c9d9f62d	Lote {0}
+f096bcd2	Bakante: pumili ng itatayo
+bbd80cf7	Itayo
+90335b64	kada oras
+8ae5f769	Magpakawala ng nilalang
+469c82aa	Ano ang nagagawa ng pagpapakawala
+cc5f562c	Mag-iiwan ng {0} stardust
+3ce59147	Napakawalan na: {0}
+d0c810d6	Stardust ngayon
+8490bae0	Bawat isa
+d40e4bd3	Puwedeng pakawalan ang nilalang na ganap nang lumaki. Aalis ito sa grupo mo at maaalala rito. Magsisimula ulit ang mga gusali at liwanag mo, at itatago mo ang stardust: bawat isa ay nagpapabilis sa lahat ng gusali habambuhay, kaya mas mabilis lalaki ang susunod na hardin. Mas maraming ganap nang lumaking gusali sa oras na iyon, mas maraming stardust.
+c5e4d0d9	Magtayo sa lote {0}
+5bd44ebe	Antas
+2c6d59f3	Pinakamainam para sa
+c756f6af	Lahat
+7e2299a8	Palakihin
+ad05dc64	Napakain nang {0} sa {1} ngayon
+64ce4b08	Pinaiinit
+38da057b	Bumili ng isa para ipakain.
+3e8248e3	Presyo
+6e4af9cf	Paborito ng
+b6792f89	Pinakain ngayon
+ea2619b8	Paborito niya: doble ang bilang.
+7ceca51f	Bilhin
+d5f82806	Tatakbo pa nang {0} min
+f52b020c	May itlog na pinaiinit.
+bfb4298c	Ilan ang mayroon ka
+0b5ad7f0	Sumbrero
+9a46e65f	Para sa mukha
+0a3774e5	Panghawak
+03898713	Para sa likod
+56cc042a	Damit
+68121261	Mga isusuot
+899db74e	Mga dekorasyon
+807f8ba7	Isusuot
+fa6095d9	Nasa tirahan
+e7eb9ee9	Mga binili mong galaw sa laban
+e5ffd15b	Ulo
+35a237da	Leeg
+6b568a69	Para sa laban
+231a3994	Para sa mga nilalang mo
+0891d9ac	Para sa hardin
+01888a92	Mga galaw na alam mo, sa mga ibinebenta rito
+755844bc	Iyo na
+f13ba138	Hindi pa bukas
+1894043f	Pampaganda lang. Ilalagay agad sa tirahan.
+ef4da3ac	Pampaganda lang. Isusuot agad.
+dbe3238f	{0} Isang beses bibilhin, para sa lahat ng nilalang mo.
+44e6822a	Suot
+c5040300	Suot ngayon
+44819483	Wala
+f7b4c7be	Walang isinusuot ang itlog hangga't hindi napipisa.
+31e8d565	Nasa bag mo

@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Perguntas de
+4c8044d7	Todas as {0} palavras
+3254a11b	As {0} mais novas
+24d3e4fd	Força
+19ab964c	Igual para todos
+f472694a	Palavras pendentes
+c5480ef5	As batalhas abrem com {0} palavras salvas
+a0d031d3	Faltam salvar
+54a41c30	Salve palavras com ★ enquanto ouve e lê.
+efaa27d9	Suas palavras precisam de significados
+32fa4207	Com significado
+2c5dcbb8	As perguntas precisam de significados: preencha alguns na página Vocabulário.
+71db6b56	Abrir Vocabulário
+3c5410a6	Seu ovo ainda não chocou
+50c5f1c3	Alcance a meta de hoje para chocá-lo e depois volte para batalhar.
+80b3016c	Sua equipe
+3cda3a1b	Batalhas rápidas
+47c316a3	Luta equilibrada
+ac02de4b	Escolha mais {0}
+d26d55c7	Palavras
+63bbbf02	Seu histórico
+ec9f630c	Habilidade
+b6c015d1	Vitórias
+375cbb72	Acertos recentes
+80263722	Palavras conhecidas
+51c51d5d	Como funcionam as batalhas
+12901c84	Uma batalha
+f0975bb0	Suas três primeiras criaturas chocadas lutam, na ordem da página Criaturas. Toque em uma para vê-la e escolher os golpes dela.
+07b537c2	Uma vitória pode deixar um ovo para você, enquanto tiver menos de seis criaturas.
+514a5381	Líderes de ginásio
+0a33d702	A primeira vitória contra cada um dá moedas e XP a mais. Os ginásios não mudam sua pontuação de habilidade.
+504b0ab6	A habilidade sobe quando você vence duelos de aluguel e batalhas com amigos, e cai quando perde.
+9b123a44	Acertos recentes: quantas das suas respostas em batalhas estavam certas nesta semana.
+0574ed77	Venceu sua equipe
+b97fcdd2	Perdeu para sua equipe
+666a5d8c	{0}% dos dias
+8c26dc15	Regra da semana
+d0753d11	Raide da guilda: {0}
+e7a1a8e1	Raide da guilda
+c314c002	Abrir a aba Amigos
+f93ee291	Batalhas com amigos
+ff38765f	Desafios
+34d6c5fd	Desafie a equipe de um amigo: as criaturas dele lutam com os golpes que ele escolheu e respondem com a mesma precisão com que o dono costuma responder às próprias palavras. Você responde às suas.
+d64bc035	Cada semana tem sua própria regra para batalhas com amigos: ela fica em Regra da semana.
+5586d01b	Batalhas com amigos contam para sua pontuação de habilidade, e seu histórico contra cada amigo fica guardado.
+9f14cd67	A liga
+862b1fa5	Cada resposta certa em uma batalha nesta semana, de qualquer pessoa da guilda, tira um ponto dele.
+9d59a182	Vençam o chefe juntos e cada um ganha 150 XP e 20 moedas. Um novo chefe chega na segunda-feira.
+3b2c3fdb	Presentes
+8e3a0e6a	Amigos podem dar para você coisas para vestir, decorações e ovos. Eles esperam aqui até você abrir.
+2c3fe469	Suas palavras e seu material de estudo nunca são enviados: só sua equipe de criaturas, a precisão das suas respostas e os totais desta semana.
+fb278703	Vencido
+1cc55327	Lutar contra {0}
+bc435923	Ginásio
+a563972e	Elementos
+a9965777	Cada pergunta
+08f35234	Primeira vitória
+bcafab50	Enviado por {0}

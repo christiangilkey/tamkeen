@@ -1,0 +1,8 @@
+# Add words: phrases (components/wordbuilder.js, addwords.js): the word box, the paste help, a phrase's meaning word by word, no sentence or mnemonic for it
+e371c445	한 줄에 카드 한 장: 단어든 표현이든 괜찮아요. 그 뒤에 대시, 등호, 세미콜론으로 뜻을 붙일 수 있어요(<0/>). 스프레드시트의 열(단어, 뜻, 예문, 번역)을 그대로 붙여넣어도 돼요.
+52cfc778	단어 또는 표현
+91c9953e	단어별 뜻: {0}
+23809925	사전에 이 표현 전체가 없어서 단어별 뜻을 이어 붙였어요. 표현의 뜻은 다를 수 있어요. 알고 있다면 고쳐 주세요.
+72ad27f7	이 표현은 내장 사전에 없어요. 뜻을 입력하세요.
+bf5d6eab	이 표현의 예문을 찾지 못했어요. 직접 쓰거나 비워 두세요.
+1b850af7	암기법 없음: 소리가 비슷한 단어는 단어나 짧은 표현에 맞고, 이렇게 긴 표현에는 맞지 않아요.

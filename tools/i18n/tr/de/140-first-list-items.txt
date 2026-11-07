@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Öffne die Claude Console
+641e071f	Melde dich an oder erstelle ein Konto
+64b6cdc7	Lade etwas Guthaben auf
+0603680d	Erstelle den Schlüssel
+ddc9f55d	Kopiere ihn sofort
+a11e9d4b	Füge ihn in Tamkeen ein
+a50988a3	Öffne Google AI Studio
+6049f9a6	Melde dich mit deinem Google-Konto an
+39963ac7	Kopiere den Schlüssel
+d5825787	Öffne die OpenAI-Plattform
+c1bdc572	Öffne die xAI Console
+fe9bed90	Öffne die Groq Console
+1eec8f15	Es heißt, der Schlüssel wurde abgelehnt
+1ad303dd	Es ist von Kontingent, Abrechnung oder Ratenlimit die Rede
+cd002623	Es heißt, das Modell sei unbekannt
+76d3e42c	Ich habe das Fenster geschlossen, bevor ich den Schlüssel kopiert habe
+f35d2a44	Ist mein Schlüssel sicher?
+1a7a8dc0	Ein Wort nachschlagen: meist 5 bis 15, manchmal 30 bis 50, ab und zu 100 bis 200. Ein Wort zahlt einmal am Tag, und jedes Wort, das du in derselben Lernsitzung nachschlägst, baut eine Combo bis zum Doppelten auf, ganz ohne Eile: Die Sitzung endet erst, wenn du 10 Minuten nicht in der App warst, oder um Mitternacht.
+ebd10589	Sie füllen deinen Levelbalken. Jedes neue Level zahlt 5 Münzen, und jedes Level braucht mehr EP als das vorige (dieses braucht {0}).
+ceae120c	Dein Tagesziel erreichen ({0} Minuten Hören oder Lesen; Zeit auf YouTube zählt nicht). Jeder Tag, an dem du es schaffst, zählt eins dazu.
+d883cc30	Jeder 7. Tag in Folge bringt einen Serienschutz.
+76f510d0	Dein Tagesziel erreichen: 10.
+73298568	Dinge zum Anziehen für dein Wesen und für seinen Lebensraum: Hüte, Brillen, Halsschmuck, Dinge zum Halten, Umhänge und Flügel, Shirts und Dekorationen. Sie kosten {0} bis {1} Münzen.
+76557f97	Jeder 7. Tag in Folge, an dem du dein Tagesziel erreichst, bringt einen (bis zu 3 auf diesem Weg).
+797b53b5	Er deckt einen verpassten Tag ab, sodass deine Serie weiterläuft, als hättest du gelernt.
+fc8d2b71	Die Gebäude in deinem Garten erzeugen ihn den ganzen Tag, auch wenn die App geschlossen ist (bis zu {0} Stunden Vorrat warten auf dich).
+75cc6677	Neue Gebäude und das Ausbauen eines Gebäudes auf die nächste Stufe, damit es mehr erzeugt.
+38414bff	Ein Abzeichen verdienen: je 2.
+ced05c8e	Das Wesen in deinem Lebensraum füttern. Futter kostet {0} Glimmer, und es frisst bis zu {1}-mal am Tag.
+317d4503	Jedes Herz macht all deine Gebäude 4 % schneller, solange dieses Wesen im Lebensraum ist.
+b3e7bb3e	Sein Horn, das als Jungtier wächst, neigt bei Zuhörern zu Fühlern und bei Sammlern zu einem Edelstein.
+d702648b	+{0} EP{1}
+af310252	Bronze
+4042806d	Englisches Wort
+eed7cb83	Linker Stick nach unten
+d526caec	Rechter Stick nach rechts
+f5ec7772	Neueste zuerst
+6a99c65c	Älteste zuerst
+7def648b	Zuletzt geändert
+530262d8	Am längsten nicht geändert
+7f5f05af	Speichere die Datei aus Tamkeen.
+ced72db7	Kunst
+ffa74a4e	🎧 Podcastfolge
+eb3d3982	Klicke auf das Installieren-Symbol am rechten Ende der Adressleiste (ein Bildschirm mit einem Pfeil nach unten).
+aebb4c7b	Dieser Browser kann keine Web-Apps hinzufügen. Öffne diese Seite in Chrome oder Edge und nutze dort den Installieren-Knopf in der Adressleiste.

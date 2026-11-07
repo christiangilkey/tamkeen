@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	今日の目標達成：+{0} XP
+3a110e1d	レベルアップ！ +5コイン
+5428d235	レベル{0}：{1} XP
+d6d9f18f	{0}。コンボ、次は{1}
+0ad2c237	あなたのレベル
+7c7f5d04	レベル
+2314cd9a	ゲームを開く
+623e0f4d	レベル{1}まであと{0} XP
+bbbe0df0	コンボ中：次の検索は{0}
+58c06693	続けて単語を調べるとコンボ：×1.2、次に×1.5、さらに×2。
+3d845682	連続記録の保護！
+ef0dcaec	ヒントカード！
+f21e440a	今日はもう調べました
+9fe2b30d	+1コイン
+09eee77a	+{0}コイン

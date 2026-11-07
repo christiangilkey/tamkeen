@@ -1,0 +1,14 @@
+# "Learn from my own mnemonics": the Mnemonic maker learns from words in CAPITALS in Memorization notes (review/ownmnemonic.js, cardtools.js, freehelpers.js).
+4c2512fe	Ogni volta che premi Usa o il pollice verso, impara un po' quali parole chiave ti piacciono, e un po' di più dalle mnemotecniche che scrivi tu, su tutti i tuoi dispositivi. «Dimentica», qui sotto il Generatore di mnemotecniche, lo fa ripartire da zero.
+f381b52f	Le tue mnemotecniche
+8ee516ce	Quando scrivi una mnemotecnica nelle Note per memorizzare, scrivi in MAIUSCOLO la parola dal suono simile: in «un'anatra seduta su un POT» impara da POT. Contano solo le parole in maiuscolo, e solo se suonano davvero come la parola; il resto della nota non conta. Una tua parola può tornare per altre parole dal suono simile, segnata «L'hai già usata». Quando è la tua IA a creare le mnemotecniche, le vengono inviate alcune delle tue come esempi del tuo stile. «Impara dalle mie mnemotecniche», qui, lo disattiva.
+69f9ddf6	Impara dalle mie mnemotecniche
+7e24bec4	Contano solo le parole in MAIUSCOLO: in «un'anatra seduta su un POT» impara da POT. Il resto della nota non conta.
+b87389a9	Alcune delle tue mnemotecniche vengono inviate alla tua IA come esempi del tuo stile.
+64df8757	La parola dal suono simile in MAIUSCOLO: un'anatra seduta su un POT…
+12c40c2f	Imparato da {0}
+cca17e08	{0} non suona come {1}, quindi non ha imparato nulla.
+b410b039	Suggerimento: scrivi in MAIUSCOLO la parola dal suono simile e il Generatore di mnemotecniche imparerà da quella.
+2814674c	{0} non suonano come {1}, quindi non ha imparato nulla.
+1f9e7496	L'hai già usata
+9aab0129	Hai scritto questa parola in MAIUSCOLO in una delle tue note

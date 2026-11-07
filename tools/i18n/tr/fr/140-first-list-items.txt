@@ -1,0 +1,46 @@
+# Found when the extractor learned to read a list's first item (2026-11-07): the AI-key guides' step titles and problems (components/keyhelp.js, stt.js), the game info sheet's first lines (game/info.js), Vocab's sort order and Anki step (pages/vocab.js), the league Bronze, a controller's stick directions, a podcast category, a share type, the web app's install steps and a borrowed word's label.
+5fb2aa13	Ouvrez la Claude Console
+641e071f	Connectez-vous ou créez un compte
+64b6cdc7	Ajoutez un peu de crédit
+0603680d	Créez la clé
+ddc9f55d	Copiez-la tout de suite
+a11e9d4b	Collez-la dans Tamkeen
+a50988a3	Ouvrez Google AI Studio
+6049f9a6	Connectez-vous avec votre compte Google
+39963ac7	Copiez la clé
+d5825787	Ouvrez la plateforme OpenAI
+c1bdc572	Ouvrez la Console xAI
+fe9bed90	Ouvrez la Console Groq
+1eec8f15	Il est indiqué que la clé a été refusée
+1ad303dd	Il est question de quota, de facturation ou de limite de débit
+cd002623	Il est indiqué que le modèle n'est pas reconnu
+76d3e42c	J'ai fermé la fenêtre avant de copier la clé
+f35d2a44	Ma clé est-elle en sécurité ?
+1a7a8dc0	Chercher un mot : en général 5 à 15, parfois 30 à 50, de temps en temps 100 à 200. Un mot rapporte une fois par jour, et chaque mot cherché pendant la même séance d'étude fait monter un combo jusqu'au double, sans se presser : la séance ne se termine que lorsque vous avez quitté l'application depuis 10 minutes, ou à minuit.
+ebd10589	Elle remplit votre barre de niveau. Chaque nouveau niveau rapporte 5 pièces, et chaque niveau demande plus d'XP que le précédent (celui-ci en demande {0}).
+ceae120c	Atteindre votre objectif du jour ({0} minutes d'écoute ou de lecture ; le temps passé sur YouTube ne compte pas). Chaque jour où vous y arrivez en ajoute un.
+d883cc30	Chaque 7e jour d'affilée rapporte un gel de série.
+76f510d0	Atteindre votre objectif du jour : 10.
+73298568	Des choses à porter pour votre créature et pour son habitat : chapeaux, lunettes, tours de cou, objets à tenir, capes et ailes, t-shirts et décorations. Elles coûtent de {0} à {1} pièces.
+76557f97	Chaque 7e jour d'affilée où vous atteignez votre objectif du jour en rapporte un (jusqu'à 3 gardés de cette façon).
+797b53b5	Il couvre un jour manqué, et votre série continue comme si vous aviez étudié.
+fc8d2b71	Les bâtiments de votre jardin en produisent toute la journée, même quand l'application est fermée (jusqu'à {0} heures de production vous attendent).
+75cc6677	De nouveaux bâtiments, et faire passer un bâtiment au niveau suivant pour qu'il produise plus.
+38414bff	Gagner un badge : 2 chacun.
+ced05c8e	Nourrir la créature de votre habitat. La nourriture coûte {0} de lueur, et elle mange jusqu'à {1} fois par jour.
+317d4503	Chaque cœur rend tous vos bâtiments 4 % plus rapides tant que cette créature est dans l'habitat.
+b3e7bb3e	Sa corne, qui pousse quand elle est juvénile, tend vers des antennes chez ceux qui écoutent et vers une gemme chez les collectionneurs.
+d702648b	+{0} XP{1}
+af310252	Bronze
+4042806d	Mot anglais
+eed7cb83	Joystick gauche vers le bas
+d526caec	Joystick droit vers la droite
+f5ec7772	Du plus récent au plus ancien
+6a99c65c	Du plus ancien au plus récent
+7def648b	Dernières modifications d'abord
+530262d8	Modifications les plus anciennes d'abord
+7f5f05af	Enregistrez le fichier depuis Tamkeen.
+ced72db7	Arts
+ffa74a4e	🎧 Épisode de podcast
+eb3d3982	Cliquez sur l'icône d'installation au bout à droite de la barre d'adresse (un écran avec une flèche vers le bas).
+aebb4c7b	Ce navigateur ne peut pas ajouter d'applications web. Ouvrez cette page dans Chrome ou Edge, puis utilisez son bouton d'installation dans la barre d'adresse.

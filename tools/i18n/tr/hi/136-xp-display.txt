@@ -1,0 +1,16 @@
+# Where XP shows while studying: the level badge in the top bar, its card, the line in a word's popup (web/js/game/xpbadge.js, xpline.js, game.js).
+74537dbb	आज का लक्ष्य पूरा: +{0} XP
+3a110e1d	नया स्तर! +5 सिक्के
+5428d235	स्तर {0}: {1} XP
+d6d9f18f	{0}. कॉम्बो, अगला {1}
+0ad2c237	आपका स्तर
+7c7f5d04	स्तर
+2314cd9a	गेम खोलें
+623e0f4d	स्तर {1} तक {0} XP और
+bbbe0df0	कॉम्बो जारी: अगली खोज {0}
+58c06693	कॉम्बो के लिए एक के बाद एक शब्द खोजें: ×1.2, फिर ×1.5, फिर ×2.
+3d845682	गिनती बचाने वाला!
+ef0dcaec	संकेत कार्ड!
+f21e440a	आज पहले ही खोजा गया
+9fe2b30d	+1 सिक्का
+09eee77a	+{0} सिक्के

@@ -1,0 +1,59 @@
+# The creature game's Battle screen and its Friends side, in blocks (web/js/game/battle-ui.js, gyms-ui.js, friends-game.js).
+80ba492b	Fragen aus
+4c8044d7	Allen {0} Wörtern
+3254a11b	Den neuesten {0}
+24d3e4fd	Stärke
+19ab964c	Gleich für alle
+f472694a	Fällige Wörter
+c5480ef5	Kämpfe öffnen sich ab {0} gespeicherten Wörtern
+a0d031d3	Noch zu speichern
+54a41c30	Speichere Wörter mit ★, während du hörst und liest.
+efaa27d9	Deine Wörter brauchen Bedeutungen
+32fa4207	Mit Bedeutung
+2c5dcbb8	Fragen brauchen Bedeutungen: Trag auf der Vokabeln-Seite welche ein.
+71db6b56	Vokabeln öffnen
+3c5410a6	Dein Ei ist noch nicht geschlüpft
+50c5f1c3	Erreiche das heutige Ziel, damit es schlüpft, und komm dann zum Kämpfen zurück.
+80b3016c	Dein Team
+3cda3a1b	Schnelle Kämpfe
+47c316a3	Ausgeglichener Kampf
+ac02de4b	Wähle noch {0}
+d26d55c7	Wörter
+63bbbf02	Deine Bilanz
+ec9f630c	Können
+b6c015d1	Siege
+375cbb72	Zuletzt richtig
+80263722	Bekannte Wörter
+51c51d5d	So funktionieren Kämpfe
+12901c84	Ein Kampf
+f0975bb0	Es kämpfen deine ersten drei geschlüpften Wesen, in der Reihenfolge der Wesen-Seite. Tippe eines an, um es anzusehen und seine Züge zu wählen.
+07b537c2	Ein Sieg kann dir ein Ei einbringen, solange du weniger als sechs Wesen hast.
+514a5381	Arenaleiter
+0a33d702	Der erste Sieg gegen jeden bringt zusätzlich Münzen und XP. Arenen ändern deine Könnenswertung nicht.
+504b0ab6	Dein Können steigt, wenn du Leih-Duelle und Kämpfe gegen Freunde gewinnst, und sinkt, wenn du sie verlierst.
+9b123a44	Zuletzt richtig: wie viele deiner Antworten in Kämpfen diese Woche richtig waren.
+0574ed77	Hat dein Team besiegt
+b97fcdd2	Hat gegen dein Team verloren
+666a5d8c	{0} % der Tage
+8c26dc15	Regel dieser Woche
+d0753d11	Gilden-Raid: {0}
+e7a1a8e1	Gilden-Raid
+c314c002	Tab „Freunde“ öffnen
+f93ee291	Kämpfe gegen Freunde
+ff38765f	Herausforderungen
+34d6c5fd	Fordere das Team eines Freundes heraus: Seine Wesen kämpfen mit den Zügen, die er gewählt hat, und antworten so treffsicher, wie ihr Besitzer meist seine eigenen Wörter beantwortet. Du beantwortest deine.
+d64bc035	Jede Woche hat ihre eigene Regel für Kämpfe gegen Freunde: Du findest sie unter „Regel dieser Woche“.
+5586d01b	Kämpfe gegen Freunde zählen für deine Könnenswertung, und deine Bilanz gegen jeden Freund wird festgehalten.
+9f14cd67	Die Liga
+862b1fa5	Jede richtige Antwort in einem Kampf diese Woche, von irgendwem in der Gilde, zieht ihm einen Punkt ab.
+9d59a182	Besiegt den Boss gemeinsam, und jeder bekommt 150 XP und 20 Münzen. Montags kommt ein neuer Boss.
+3b2c3fdb	Geschenke
+8e3a0e6a	Freunde können dir Dinge zum Anziehen, Dekorationen und Eier schenken. Sie warten hier, bis du sie öffnest.
+2c3fe469	Deine Wörter und dein Lernmaterial werden nie gesendet: nur dein Team aus Wesen, wie treffsicher du antwortest, und die Summen dieser Woche.
+fb278703	Besiegt
+1cc55327	Gegen {0} kämpfen
+bc435923	Arena
+a563972e	Elemente
+a9965777	Pro Frage
+08f35234	Erster Sieg
+bcafab50	Von {0}

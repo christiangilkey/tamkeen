@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Artikulo
+8458445d	Pangdugtong
+ad3287cc	Preposisyon
+4290a803	Timaan
+8c112070	Timaan sa daghan
+c2f69372	Timaan sa infinitive
+28680091	Reflexive nga panghalip
+e95a5003	Katabang nga berbo
+3520950d	Kopula
+4a1c659d	Pulong sa pagtahod
+4442f411	Panghimo og pangngalan
+e5efdbe6	Gidugtong nga pulong
+2c924e30	Nota
+e9b9ac89	Ubang porma
+3b74e96e	Alternatibo
+8753dabd	Timaan sa gramatika
+ed212fa1	Puli
+cf597d75	“usa ka”
+edcca932	“usa ka”
+73afd32b	“busa, unya”
+69c093a0	“uban sa, pinaagi sa, sa”
+35aa4308	“sama sa”
+1c86bb4a	“para sa, ngadto sa”
+98f1e5fa	himoon kining pangutana
+1b7cb171	timaan sa infinitive atubangan sa berbo
+b3c108a5	“buhaton”
+11547b17	“buhaton”, pormal
+c0318423	“mahimo”
+0366e875	“mahimo”, pormal
+0791ccdc	“bunalan”
+55c64b21	“mohatag”
+bf203a4a	“mokuha”
+5de917a4	“adunay”
+e7dd0530	“mahimo”
+b4f502d9	“mao”, matinahuron
+cb715b83	ang timaan sa hilisgutan
+9ed195a4	ang timaan sa butang
+43ae6d89	timaan sa dili pa ang ngalan sa tawo
+62a014d5	ang timaan sa daghan
+072b1f7c	“sa”
+235f5aff	pulong sa pagtahod
+84887987	himoon nga pangngalan ang berbo o adhetibo
+c8a729e5	nota sulod sa parentesis
+8a697f13	ubang porma sa pulong
+66cc4fbe	ang plural
+dfa3391c	laing pulong o porma
+4a66721a	timaan sa gramatika
+46e3575a	puli sa ubang mga pulong
+b9a634a6	Wala giapil: {0}
+413cacc4	“{0}” ra ang gitandi.
+045b3e3b	“ang”
+7bdc12eb	“pipila”
+35cdf2c9	“ug”
+5392faee	“o”
+72a50e8f	“kaugalingon”

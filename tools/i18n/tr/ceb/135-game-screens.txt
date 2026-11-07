@@ -1,0 +1,66 @@
+# The creature game's sections as screens: Shop, My things, Garden, Supplies (web/js/game/shop.js, garden.js, sections.js, screenparts.js).
+da3d3c4e	Lebel {0} sa 3
+799c9f2a	Naa nimo
+1e1c72c2	Matag oras
+33d30632	Naghulat
+53cb1f45	Abog sa bituon
+fe26b106	Kusang makuha ang sanag
+84466168	Wala pay makuha
+c2743891	Kusang makuha human sa {0} pa ka adlaw-adlaw nga tumong
+185fb7e9	Kusang makuha human sa usa pa ka adlaw-adlaw nga tumong
+a6fe4bd7	Mga building
+5209c504	Mga abli nga lote
+5e50e7d0	Gamita ang yawe
+c9d9f62d	Lote {0}
+f096bcd2	Bakante: pili og tukoron
+bbd80cf7	Tukora
+90335b64	matag oras
+8ae5f769	Buhii ang usa ka linalang
+469c82aa	Unsa ang mahitabo kon buhian
+cc5f562c	Mobilin og {0} abog sa bituon
+3ce59147	Nabuhian na: {0}
+d0c810d6	Abog sa bituon karon
+8490bae0	Matag usa
+d40e4bd3	Mahimong buhian ang linalang nga hingpit na nga dako. Mobiya kini sa imong roster ug hinumdoman dinhi. Magsugod pag-usab ang imong mga building ug sanag, ug imong mapabilin ang abog sa bituon: ang matag usa mopadali sa tanang building hangtod sa hangtod, mao nga mas paspas modako ang sunod nga tanaman. Kon mas daghan ang building nga hingpit na nga dako niadtong higayona, mas daghan ang abog sa bituon.
+c5e4d0d9	Tukora sa lote {0}
+5bd44ebe	Lebel
+2c6d59f3	Labing maayo alang sa
+c756f6af	Tanan
+7e2299a8	Padak-a
+ad05dc64	Napakaon {0} sa {1} karon
+64ce4b08	Ginapainit
+38da057b	Palit og usa aron ipakaon.
+3e8248e3	Presyo
+6e4af9cf	Paborito sa
+b6792f89	Gipakaon karon
+ea2619b8	Iyang paborito: doble ang ihap.
+7ceca51f	Palita
+d5f82806	Modagan pa og {0} min
+f52b020c	Adunay itlog nga ginapainit.
+bfb4298c	Pila ang imong naa
+0b5ad7f0	Kalo
+9a46e65f	Para sa nawong
+0a3774e5	Para gunitan
+03898713	Para sa likod
+56cc042a	Sinina
+68121261	Mga isul-ob
+899db74e	Mga dekorasyon
+807f8ba7	Isul-ob
+fa6095d9	Naa sa habitat
+e7eb9ee9	Mga lihok sa sangka nga imong gipalit
+e5ffd15b	Ulo
+35a237da	Liog
+6b568a69	Para sa sangka
+231a3994	Para sa imong mga linalang
+0891d9ac	Para sa tanaman
+01888a92	Mga lihok nga imong nahibal-an, sa mga gibaligya dinhi
+755844bc	Imo na
+f13ba138	Wala pa maablihi
+1894043f	Pangdekorasyon lang. Ibutang dayon sa habitat.
+ef4da3ac	Pangdekorasyon lang. Isul-ob dayon.
+dbe3238f	{0} Kausa ra paliton, para sa tanan nimong linalang.
+44e6822a	Gisul-ob
+c5040300	Gisul-ob karon
+44819483	Wala
+f7b4c7be	Walay gisul-ob ang itlog hangtod mapusa.
+31e8d565	Naa sa imong bag

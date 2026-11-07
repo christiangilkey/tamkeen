@@ -1,0 +1,56 @@
+# review/wordcore.js: what the Mnemonic maker leaves out of a word (kinds, what each part means, the line under "How it sounds")
+4360c2dc	Pantukoy
+8458445d	Pangatnig
+ad3287cc	Pang-ukol
+4290a803	Pananda
+8c112070	Pananda ng maramihan
+c2f69372	Pananda ng pawatas
+28680091	Panghalip na repleksibo
+e95a5003	Pandiwang pantulong
+3520950d	Kopula
+4a1c659d	Salitang paggalang
+4442f411	Panlaping gumagawa ng pangngalan
+e5efdbe6	Nakadugtong na salita
+2c924e30	Tala
+e9b9ac89	Ibang anyo
+3b74e96e	Alternatibo
+8753dabd	Tatak-gramatika
+ed212fa1	Pamalit
+cf597d75	“isang”
+edcca932	“isang”
+73afd32b	“kaya, at saka”
+69c093a0	“kasama, sa pamamagitan ng, sa”
+35aa4308	“gaya ng, tulad ng”
+1c86bb4a	“para sa, sa”
+98f1e5fa	ginagawa itong tanong
+1b7cb171	pananda ng pawatas bago ang pandiwa
+b3c108a5	“gawin”
+11547b17	“gawin”, pormal
+c0318423	“maging”
+0366e875	“maging”, pormal
+0791ccdc	“pumalo”
+55c64b21	“magbigay”
+bf203a4a	“kumuha”
+5de917a4	“magkaroon”
+e7dd0530	“maging”
+b4f502d9	“ay”, magalang
+cb715b83	ang pananda ng paksa
+9ed195a4	ang pananda ng layon
+43ae6d89	pananda bago ang pangalan ng tao
+62a014d5	ang pananda ng maramihan
+072b1f7c	“sa”
+235f5aff	salitang paggalang
+84887987	ginagawang pangngalan ang pandiwa o pang-uri
+c8a729e5	tala sa loob ng panaklong
+8a697f13	ibang anyo ng salita
+66cc4fbe	ang maramihan
+dfa3391c	ibang salita o anyo
+4a66721a	tatak-gramatika
+46e3575a	pamalit sa ibang salita
+b9a634a6	Hindi isinama: {0}
+413cacc4	“{0}” lang ang itinutugma.
+045b3e3b	“ang”
+7bdc12eb	“ilang”
+35cdf2c9	“at”
+5392faee	“o”
+72a50e8f	“sarili”

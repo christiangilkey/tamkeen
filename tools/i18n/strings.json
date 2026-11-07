@@ -330,6 +330,36 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "f90824d2",
+  "k": "Power-up",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "045b3e3b",
+  "k": "“the”",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "7bdc12eb",
+  "k": "“some”",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "35cdf2c9",
+  "k": "“and”",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "5392faee",
+  "k": "“or”",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "72a50e8f",
+  "k": "“oneself”",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"
@@ -3705,8 +3735,18 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "0f465597",
-  "k": "Each time you press Use or thumbs down, it learns a little about the keywords you like, on all your devices. “Forget it” under the Mnemonic maker here starts again.",
+  "id": "4c2512fe",
+  "k": "Each time you press Use or thumbs down, it learns a little about the keywords you like, and a little more from the mnemonics you write yourself, on all your devices. “Forget it” under the Mnemonic maker here starts again.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "f381b52f",
+  "k": "Your own mnemonics",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "8ee516ce",
+  "k": "When you write a mnemonic in Memorization notes, put the sound-alike word in CAPITALS: in “a duck sitting on a POT” it learns from POT. Only words in capitals count, and only when they really sound like the word; the rest of the note is ignored. A sound-alike of yours can come back for other words that sound like it, marked “You've used this before”. When your AI makes the mnemonics, a few of your own are sent to it as examples of your style. “Learn from my own mnemonics” here turns this off.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -3735,6 +3775,11 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
+  "id": "69f9ddf6",
+  "k": "Learn from my own mnemonics",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
   "id": "6fcf0e59",
   "k": "AI is off, or has no key yet, so the free way is used for now.",
   "f": "web/js/components/freehelpers.js"
@@ -3742,6 +3787,16 @@
  {
   "id": "08ba39e3",
   "k": "Set up AI",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "7e24bec4",
+  "k": "Only words in CAPITALS count: in “a duck sitting on a POT” it learns from POT. The rest of the note is ignored.",
+  "f": "web/js/components/freehelpers.js"
+ },
+ {
+  "id": "b87389a9",
+  "k": "A few of your own mnemonics are sent to your AI as examples of your style.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -4540,8 +4595,18 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "5fb2aa13",
+  "k": "Open the Claude Console",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "881ac247",
   "k": "Press the button below. It opens console.anthropic.com in your web browser. This is a different site from the Claude chat app.",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "641e071f",
+  "k": "Sign in, or make an account",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4550,8 +4615,18 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "64b6cdc7",
+  "k": "Add some credit",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "7403c4f9",
   "k": "Open <0>Settings → Billing</0>, add a payment card and buy a small amount of credit. Keys don't work until the account has credit.",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "0603680d",
+  "k": "Create the key",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4560,8 +4635,18 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "ddc9f55d",
+  "k": "Copy it straight away",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "e04e0bbd",
   "k": "The key is a long line of letters that starts with <0/>. It is shown only once, so press <1>Copy</1> before closing the box.",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "a11e9d4b",
+  "k": "Paste it into Tamkeen",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4580,8 +4665,18 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "a50988a3",
+  "k": "Open Google AI Studio",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "2628ac25",
   "k": "Press the button below. It opens aistudio.google.com in your web browser.",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "6049f9a6",
+  "k": "Sign in with your Google account",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4595,6 +4690,11 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "39963ac7",
+  "k": "Copy the key",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "8d7a2586",
   "k": "It is a long line of letters that starts with <0/>. Press the copy button beside it. You can come back to this page and copy it again later.",
   "f": "web/js/components/keyhelp.js"
@@ -4602,6 +4702,11 @@
  {
   "id": "162ab3e6",
   "k": "the OpenAI platform",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "d5825787",
+  "k": "Open the OpenAI platform",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4630,6 +4735,11 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "c1bdc572",
+  "k": "Open the xAI Console",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "e76446c0",
   "k": "Press the button below. It opens console.x.ai in your web browser.",
   "f": "web/js/components/keyhelp.js"
@@ -4655,8 +4765,18 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "1eec8f15",
+  "k": "It says the key was rejected",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "58d7704c",
   "k": "The key has most likely expired or been switched off, so you probably need a new one: make it with the steps above and paste it in. If the key is brand new, copy it again and paste it fresh (a missing letter at the end stops it working).",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "1ad303dd",
+  "k": "It says quota, billing or rate limit",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -4665,13 +4785,28 @@
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "cd002623",
+  "k": "It says it doesn't recognise the model",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "43b82a8b",
   "k": "Set <0>Model</0> in Settings back to the one marked “recommended”.",
   "f": "web/js/components/keyhelp.js"
  },
  {
+  "id": "76d3e42c",
+  "k": "I closed the box before copying the key",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
   "id": "995ff549",
   "k": "Make a new key the same way, and delete the old one from the provider's list.",
+  "f": "web/js/components/keyhelp.js"
+ },
+ {
+  "id": "f35d2a44",
+  "k": "Is my key safe?",
   "f": "web/js/components/keyhelp.js"
  },
  {
@@ -6995,8 +7130,8 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "afab7c60",
-  "k": "One card per line. After the word you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.",
+  "id": "e371c445",
+  "k": "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7190,6 +7325,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "52cfc778",
+  "k": "Word or phrase",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "4871fc4e",
   "k": "Show the rest of this card",
   "f": "web/js/components/wordbuilder.js"
@@ -7232,6 +7372,11 @@
  {
   "id": "13a0f8ff",
   "k": "A mnemonic made for you",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "64df8757",
+  "k": "Sound-alike in CAPITALS: a duck sitting on a POT…",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7335,13 +7480,28 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "91c9953e",
+  "k": "Word by word: {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "363eacb1",
   "k": "Filling in…",
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "23809925",
+  "k": "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "f9536828",
   "k": "The built-in dictionary isn't on this device yet: download it under Meaning, or type the meaning.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "72ad27f7",
+  "k": "This phrase isn't in the built-in dictionary. Type its meaning.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7372,6 +7532,16 @@
  {
   "id": "dcf2ce6a",
   "k": "No example sentence was found for this word. Type one, or leave it empty.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "bf5d6eab",
+  "k": "No example sentence was found for this phrase. Type one, or leave it empty.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "1b850af7",
+  "k": "No mnemonic: sound-alike keywords work for words and short phrases, not for one this long.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -7437,6 +7607,16 @@
  {
   "id": "e8de8a44",
   "k": "Added {0} card{1}.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "12c40c2f",
+  "k": "Learned from {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "cca17e08",
+  "k": "{0} doesn't sound like {1}, so nothing was learned.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -8340,28 +8520,33 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "142deb50",
-  "k": "Questions can be any word you have saved in this language, so they are harder. Your creatures grow stronger with every card you have: you have {0}, so they fight at ×{1} (×2 at most).",
+  "id": "80ba492b",
+  "k": "Questions from",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "9ef7bc96",
-  "k": "Questions come from the {0} words you saved most recently, and every creature fights at the same level: the fairest fight for everyone.",
+  "id": "4c8044d7",
+  "k": "All {0} words",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "2e1adabb",
-  "k": "Battles",
+  "id": "3254a11b",
+  "k": "Newest {0}",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "c11d5e1d",
-  "k": "Friends",
+  "id": "24d3e4fd",
+  "k": "Strength",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "8b181435",
-  "k": "Challenges, gifts, the league and guild raids",
+  "id": "19ab964c",
+  "k": "Same for all",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "f472694a",
+  "k": "Words due",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8370,53 +8555,63 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "51954ab8",
-  "k": "<0>Battles unlock at {0} saved words.</0> You have {1}.",
+  "id": "c5480ef5",
+  "k": "Battles open at {0} saved words",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "7ec3a887",
-  "k": "A battle is a review of your own vocab: each move you make is powered by a question about one of your saved words, and your rival answers from theirs. It takes about {0} words for the questions to stay fresh. Save words with ★ while you listen and read.",
+  "id": "a0d031d3",
+  "k": "Still to save",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "685356fd",
-  "k": "You have {0} words saved, but only {1} have a meaning written in. Questions need meanings: open Vocab and fill some in, or save words from the definition popup (it fills the meaning in for you).",
+  "id": "54a41c30",
+  "k": "Save words with ★ while you listen and read.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "4e3989a7",
-  "k": "Your egg hasn't hatched yet. Reach today's goal to hatch it, then come back to battle.",
+  "id": "efaa27d9",
+  "k": "Your words need meanings",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "5d1b6d21",
-  "k": "{0}% right lately",
+  "id": "32fa4207",
+  "k": "With a meaning",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "3400a4a4",
-  "k": "{0} word{1} due",
+  "id": "2c5dcbb8",
+  "k": "Questions need meanings: fill some in on the Vocab page.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "3c2bbf67",
-  "k": "{0} known",
+  "id": "71db6b56",
+  "k": "Open Vocab",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "d1e6e466",
-  "k": "Skill {0}",
+  "id": "3c5410a6",
+  "k": "Your egg hasn't hatched yet",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "148a9757",
-  "k": "Battles are live: walk your creature round the arena with the controller's stick, the keys, a click or your finger, and use a move with its button. Each move asks about one of your words while the battle waits: answer within 5 seconds or the move fails. The ground matters: some of it makes you faster, tougher or stronger.",
+  "id": "50c5f1c3",
+  "k": "Reach today's goal to hatch it, then come back to battle.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "44bc0338",
-  "k": "Which words?",
+  "id": "80b3016c",
+  "k": "Your team",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "3159fe42",
+  "k": "Empty",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "3cda3a1b",
+  "k": "Quick battles",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8425,13 +8620,98 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "81b0d13f",
+  "k": "Rental duel",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "47c316a3",
+  "k": "Even fight",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "57b02151",
+  "k": "Choose three. Your rival fights with the other three.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "ac02de4b",
+  "k": "Choose {0} more",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "d7fb7f72",
+  "k": "Start the duel",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "dca34e30",
+  "k": "Rival",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "d26d55c7",
+  "k": "Words",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "63bbbf02",
+  "k": "Your record",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "ec9f630c",
+  "k": "Skill",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "b6c015d1",
+  "k": "Wins",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "375cbb72",
+  "k": "Right lately",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "80263722",
+  "k": "Words known",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "51c51d5d",
+  "k": "How battles work",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "12901c84",
+  "k": "A battle",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "7ec3a887",
+  "k": "A battle is a review of your own vocab: each move you make is powered by a question about one of your saved words, and your rival answers from theirs. It takes about {0} words for the questions to stay fresh. Save words with ★ while you listen and read.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "148a9757",
+  "k": "Battles are live: walk your creature round the arena with the controller's stick, the keys, a click or your finger, and use a move with its button. Each move asks about one of your words while the battle waits: answer within 5 seconds or the move fails. The ground matters: some of it makes you faster, tougher or stronger.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "f0975bb0",
+  "k": "Your first three hatched creatures fight, in the order of the Creatures page. Tap one to see it and choose its moves.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "0f5c66fe",
   "k": "Your own creatures against wild ones. Their age gives yours a small edge here only.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "81b0d13f",
-  "k": "Rental duel",
+  "id": "07b537c2",
+  "k": "A win may leave you an egg, while you have fewer than six creatures.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8440,23 +8720,43 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "3457f455",
-  "k": "Gyms",
+  "id": "514a5381",
+  "k": "Gym leaders",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "3b5d1016",
-  "k": "This week's rule for friend battles:",
+  "id": "0e6e70f6",
+  "k": "Ten gym leaders, each harder than the last: they react faster, dodge more, aim where you are going and give you less time for each question. Beat one to open the next.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "fb0227a3",
-  "k": "All ten gym leaders beaten. Fight any of them again.",
+  "id": "0a33d702",
+  "k": "The first win against each one pays coins and XP on top. Gyms don't change your skill rating.",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "41a883a4",
-  "k": "Ten leaders to beat in order, each harder than the last. {0} of 10 beaten.",
+  "id": "44bc0338",
+  "k": "Which words?",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "9ef7bc96",
+  "k": "Questions come from the {0} words you saved most recently, and every creature fights at the same level: the fairest fight for everyone.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "142deb50",
+  "k": "Questions can be any word you have saved in this language, so they are harder. Your creatures grow stronger with every card you have: you have {0}, so they fight at ×{1} (×2 at most).",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "504b0ab6",
+  "k": "Skill goes up when you win rental duels and friend battles, and down when you lose them.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "9b123a44",
+  "k": "Right lately: how many of your answers in battles were right this week.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8477,21 +8777,6 @@
  {
   "id": "914efb3d",
   "k": "{0} has no creatures that fit this week's rule ({1}).",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "57b02151",
-  "k": "Choose three. Your rival fights with the other three.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "d7fb7f72",
-  "k": "Start the duel",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "dca34e30",
-  "k": "Rival",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8805,6 +9090,11 @@
   "f": "web/js/game/battlemap.js"
  },
  {
+  "id": "905cb326",
+  "k": "You",
+  "f": "web/js/game/battlescreen.js"
+ },
+ {
   "id": "ae8298e9",
   "k": "Phoenix chick",
   "f": "web/js/game/beasts.js"
@@ -8920,28 +9210,28 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "498c3f86",
-  "k": "Shaped by listening",
+  "id": "dc353487",
+  "k": "Listening",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "0a72a97b",
-  "k": "Shaped by reading",
+  "id": "cffa2af0",
+  "k": "Reading",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "fd0127b7",
-  "k": "Shaped by saving words",
+  "id": "7f6efe83",
+  "k": "Collecting",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "59bcab48",
-  "k": "Shaped by looking words up",
+  "id": "1a0bff19",
+  "k": "Curiosity",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "a4e86c7a",
-  "k": "The creature in the habitat is the one that grows as you study. Creatures stay young: a juvenile keeps growing until it is fully grown, then leaves you a new egg. Its look is yours to choose and can be changed later: nothing is lost by keeping a younger look or trying a special colouring.",
+  "id": "7a29e59f",
+  "k": "Your creatures",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -8950,18 +9240,43 @@
   "f": "web/js/game/creatures.js"
  },
  {
+  "id": "3ad63cd1",
+  "k": "All creatures",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "4c62aad0",
+  "k": "Hatching",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "f3b21e04",
+  "k": "Growth",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "50645793",
+  "k": "Fully grown",
+  "f": "web/js/game/creatures.js"
+ },
+ {
   "id": "d7ddc5a1",
   "k": "Bring out",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "24c58d57",
-  "k": "· Fully grown",
+  "id": "50275e1d",
+  "k": "Give this egg to a friend",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "c68f8125",
-  "k": "· seed {0}",
+  "id": "df873d99",
+  "k": "It hatches as you study.",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "1f38a263",
+  "k": "Bring it out and study to hatch it.",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -8975,8 +9290,13 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "6c5a6923",
-  "k": "Friends see this creature next to your name",
+  "id": "be763e9a",
+  "k": "Stats",
+  "f": "web/js/game/creatures.js"
+ },
+ {
+  "id": "17ac8106",
+  "k": "How you raised it",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -8995,28 +9315,23 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "c61c0aa4",
-  "k": "Battle moves (choose up to four of {0}; buy more in the shop)",
+  "id": "756016c6",
+  "k": "Colourings show on the Juvenile look.",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "8d474b73",
-  "k": "Keep at least one attacking move.",
+  "id": "e7c741fc",
+  "k": "Not earned yet",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "1f38a263",
-  "k": "Bring it out and study to hatch it.",
+  "id": "117dc066",
+  "k": "{0} of {1} earned",
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "50275e1d",
-  "k": "Give this egg to a friend",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "25e40553",
-  "k": "Badges are yours for good: <0/> of {0} earned.",
+  "id": "257f305b",
+  "k": "Earned",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -10575,6 +10890,11 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "af310252",
+  "k": "Bronze",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "8697f432",
   "k": "Silver",
   "f": "web/js/game/data.js"
@@ -10697,11 +11017,6 @@
  {
   "id": "f7254f15",
   "k": "Fill the collecting habit",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "50645793",
-  "k": "Fully grown",
   "f": "web/js/game/data.js"
  },
  {
@@ -10935,18 +11250,13 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "ab898d21",
-  "k": "Battling friends, the league, guild raids and gifts need the online features.",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "260bcda8",
-  "k": "Choose <0>Connect with Google</0> under Settings → Friends & sharing. Your words and study material are never sent: only your team of creatures, how accurately you answer, and this week's totals.",
-  "f": "web/js/game/friends-game.js"
- },
- {
   "id": "0908d881",
   "k": "The game's online data isn't available yet ({0}).",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "ab898d21",
+  "k": "Battling friends, the league, guild raids and gifts need the online features.",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -10965,13 +11275,8 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "359aac0c",
-  "k": "{0} from",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "86834099",
-  "k": "challenged your team and {0}.",
+  "id": "bcafab50",
+  "k": "Sent by {0}",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -10980,23 +11285,18 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "905cb326",
-  "k": "You",
+  "id": "0574ed77",
+  "k": "Beat your team",
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "75a9d140",
-  "k": "Ranked by the share of days this week each of you reached your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down.",
+  "id": "b97fcdd2",
+  "k": "Lost to your team",
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "561c39e9",
-  "k": "This week's battle rule:",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "5ce50a44",
-  "k": "Words for your battles",
+  "id": "666a5d8c",
+  "k": "{0}% of days",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -11010,6 +11310,11 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "d1e6e466",
+  "k": "Skill {0}",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "f45f3479",
   "k": "They haven't opened the game online yet",
   "f": "web/js/game/friends-game.js"
@@ -11020,23 +11325,23 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "f1d382dd",
+  "k": "Add a friend",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "8c26dc15",
+  "k": "This week's rule",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "d0753d11",
+  "k": "Guild raid: {0}",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "17f11ae4",
   "k": "Defeated!",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "ce9deb48",
-  "k": "{0} of {1} left",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "fd2b49ec",
-  "k": "{0} raid: {1}",
-  "f": "web/js/game/friends-game.js"
- },
- {
-  "id": "1a39a266",
-  "k": "{0} Every right answer in a battle this week, by anyone in the guild, takes one off.",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -11055,13 +11360,88 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "e7a1a8e1",
+  "k": "Guild raid",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "c314c002",
+  "k": "Open the Friends tab",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "a2df9bd2",
   "k": "Join or found a guild (Friends tab) to take on the weekly raid boss together. This week: {0}.",
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "6b8ca9a3",
-  "k": "Daily goal! +{0} XP",
+  "id": "f93ee291",
+  "k": "Battling friends",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "ff38765f",
+  "k": "Challenges",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "34d6c5fd",
+  "k": "Challenge a friend's team: their creatures fight with the moves they chose, and answer as accurately as their owner usually answers their own words. You answer yours.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "d64bc035",
+  "k": "Each week has its own rule for friend battles: it is under This week's rule.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "5586d01b",
+  "k": "Friend battles count for your skill rating, and your record against each friend is kept.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "9f14cd67",
+  "k": "The league",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "75a9d140",
+  "k": "Ranked by the share of days this week each of you reached your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "862b1fa5",
+  "k": "Every right answer in a battle this week, by anyone in the guild, takes one off.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "9d59a182",
+  "k": "Beat the boss together for 150 XP and 20 coins each. A new boss arrives on Monday.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "3b2c3fdb",
+  "k": "Gifts",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "8e3a0e6a",
+  "k": "Friends can give you things to wear, decorations and eggs. They wait here until you open them.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "699dd745",
+  "k": "What friends see",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "2c3fe469",
+  "k": "Your words and study material are never sent: only your team of creatures, how accurately you answer, and this week's totals.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "74537dbb",
+  "k": "Daily goal reached: +{0} XP",
   "f": "web/js/game/game.js"
  },
  {
@@ -11070,34 +11450,14 @@
   "f": "web/js/game/game.js"
  },
  {
-  "id": "b72da5f2",
-  "k": "Streak freeze",
+  "id": "3a110e1d",
+  "k": "Level up! +5 coins",
   "f": "web/js/game/game.js"
  },
  {
-  "id": "dce47891",
-  "k": "Hint card",
-  "f": "web/js/game/game.js"
- },
- {
-  "id": "29877f37",
-  "k": "+{0} XP",
-  "f": "web/js/game/game.js"
- },
- {
-  "id": "53af6389",
-  "k": "XP",
-  "f": "web/js/game/game.js"
- },
- {
-  "id": "b666a4ab",
-  "k": "{0} · next {1}",
-  "f": "web/js/game/game.js"
- },
- {
-  "id": "df2457aa",
-  "k": "next {0}",
-  "f": "web/js/game/game.js"
+  "id": "da3d3c4e",
+  "k": "Tier {0} of 3",
+  "f": "web/js/game/garden.js"
  },
  {
   "id": "830ead14",
@@ -11105,53 +11465,33 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "45260878",
-  "k": "Glow: made by your buildings",
+  "id": "d5545dea",
+  "k": "Glow",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "4ac9dac4",
-  "k": "{0} glow",
+  "id": "799c9f2a",
+  "k": "You have",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "ec8782a8",
-  "k": "Glow per hour right now",
+  "id": "1e1c72c2",
+  "k": "An hour",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "6a6e9e27",
-  "k": "{0} an hour",
+  "id": "33d30632",
+  "k": "Waiting",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "cba40f6f",
-  "k": "Gems: earned from badges, raids, rising a league and full bloom",
+  "id": "53cb1f45",
+  "k": "Stardust",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "626f7b1c",
-  "k": "Stardust: each one makes everything {0}% faster, for good",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "f7370cf7",
-  "k": "{0} Glow now collects itself.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "7a211303",
-  "k": "Reach your daily goal {0} times and glow collects itself ({1} so far).",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "ddd7a154",
-  "k": "Buildings make glow while you are away: up to {0} hours' worth waits for you. Each kind does best for a different study habit, and reaching today's goal speeds them all up by half and sends two hours of glow at once.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "cf6b269f",
-  "k": "<0>Full bloom.</0> Every plot holds a fully grown building. The garden is complete; releasing a creature starts a new, faster one.",
+  "id": "fe26b106",
+  "k": "Glow collects itself",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11160,83 +11500,78 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "eabc714b",
-  "k": "Plot {0}: closed",
+  "id": "84466168",
+  "k": "Nothing to collect yet",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "467b84dc",
-  "k": "{0} Opens when you: {1}",
+  "id": "185fb7e9",
+  "k": "Collects itself after one more daily goal",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "1c6e99ed",
-  "k": "Use a key ({0})",
+  "id": "c2743891",
+  "k": "Collects itself after {0} more daily goals",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "7cf40990",
-  "k": "Plot {0}: empty",
+  "id": "61fe2211",
+  "k": "Full bloom: every plot holds a fully grown building.",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "144a397b",
-  "k": "Choose something to build here.",
+  "id": "a6fe4bd7",
+  "k": "Buildings",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "7e08478b",
-  "k": "{0} {1} · {2} an hour",
+  "id": "5209c504",
+  "k": "Plots open",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "0595972e",
-  "k": "{0} · tier {1}",
+  "id": "5e50e7d0",
+  "k": "Use a key",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "d020fbd3",
-  "k": "· likes {0} {1}",
+  "id": "c9d9f62d",
+  "k": "Plot {0}",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "9078100c",
-  "k": "{0} glow an hour{1} · {2} waiting",
+  "id": "f096bcd2",
+  "k": "Empty: choose something to build",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "04aac4c0",
-  "k": "Collect",
+  "id": "bbd80cf7",
+  "k": "Build",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "53b630e7",
-  "k": "Grow ·",
+  "id": "90335b64",
+  "k": "an hour",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "6d6426d9",
-  "k": "Raise it a tier: it makes a good deal more glow",
+  "id": "8ae5f769",
+  "k": "Release a creature",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "740ac187",
-  "k": "Release a fully grown creature",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "5e37efe9",
-  "k": "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep <0/>: each one makes every building {0}% faster for good, so the next garden grows much quicker than the last. More fully grown buildings at the time means more stardust.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "7005fc6d",
-  "k": "stardust",
+  "id": "469c82aa",
+  "k": "What releasing does",
   "f": "web/js/game/garden.js"
  },
  {
   "id": "684832fa",
   "k": "You have no fully grown creature yet.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "d41f56ce",
+  "k": "Release",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11255,38 +11590,68 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "d41f56ce",
-  "k": "Release",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "d2001733",
   "k": "Released. You gained {0} stardust.",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "28a4bacf",
-  "k": "Set free so far: {0}.",
+  "id": "cc5f562c",
+  "k": "Leaves {0} stardust",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "912d81bb",
-  "k": "Hatch your egg first; then it can be fed.",
+  "id": "3ce59147",
+  "k": "Set free so far: {0}",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "0d36b10d",
-  "k": "Your creature",
+  "id": "d0c810d6",
+  "k": "Stardust now",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "55427966",
-  "k": "{0} {1} · fed {2} of {3} times today. Its favourite counts double. Hearts make its buildings a little faster and change nothing in battles.",
+  "id": "8490bae0",
+  "k": "Each one",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "35b25929",
-  "k": "Food",
+  "id": "d40e4bd3",
+  "k": "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep stardust: each one makes every building faster for good, so the next garden grows much quicker. More fully grown buildings at the time means more stardust.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "c5e4d0d9",
+  "k": "Build on plot {0}",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "5bd44ebe",
+  "k": "Tier",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "2c6d59f3",
+  "k": "Does best for",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "c756f6af",
+  "k": "Everyone",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "04aac4c0",
+  "k": "Collect",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "7e2299a8",
+  "k": "Grow",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "710d27b3",
+  "k": "You need {0} more glow.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11295,18 +11660,78 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "9d041fa1",
-  "k": "{0} its favourite",
+  "id": "35b25929",
+  "k": "Food",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "779fc473",
-  "k": "{0} creatures love it",
+  "id": "223e900f",
+  "k": "Your egg",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "77690ee2",
-  "k": "· you have {0}",
+  "id": "0d36b10d",
+  "k": "Your creature",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "912d81bb",
+  "k": "Hatch your egg first; then it can be fed.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "ad05dc64",
+  "k": "Fed {0} of {1} today",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "a99cdd56",
+  "k": "{0} min left",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "64ce4b08",
+  "k": "Warming",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "26de9a27",
+  "k": "You need {0} more gem{1}.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "a66174fd",
+  "k": "It is full for today.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "38da057b",
+  "k": "Buy one to feed it.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "3e8248e3",
+  "k": "Price",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "6e4af9cf",
+  "k": "Loved by",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "b6792f89",
+  "k": "Fed today",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "ea2619b8",
+  "k": "Its favourite: it counts double.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "7ceca51f",
+  "k": "Buy",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11325,23 +11750,23 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "db09cbc4",
-  "k": "Buy one for {0} glow",
+  "id": "265753d6",
+  "k": "Used by itself when a battle would pay less.",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "14e351e1",
-  "k": "Supplies",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "0e90e484",
-  "k": "Gems come only from things you do: each badge (2), a raid won (3), rising a league (2), full bloom (10). Nothing is sold for money.",
+  "id": "6028b76d",
+  "k": "Use it during a wild battle.",
   "f": "web/js/game/garden.js"
  },
  {
   "id": "11a9a29c",
   "k": "A new egg is with your creatures.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "d5f82806",
+  "k": "Running for {0} more min",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11360,13 +11785,8 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "0a854dda",
-  "k": "running for {0} more min",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "427a838f",
-  "k": "Warm an egg",
+  "id": "f52b020c",
+  "k": "An egg is warming.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -11375,43 +11795,18 @@
   "f": "web/js/game/garden.js"
  },
  {
+  "id": "427a838f",
+  "k": "Warm an egg",
+  "f": "web/js/game/garden.js"
+ },
+ {
   "id": "bdd2a3a3",
   "k": "The egg is warming: it grows as your creature does.",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "6a6002af",
-  "k": "an egg is warming",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "678552eb",
-  "k": "Use it on the Garden page.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "265753d6",
-  "k": "Used by itself when a battle would pay less.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "6028b76d",
-  "k": "Use it during a wild battle.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "0e6e70f6",
-  "k": "Ten gym leaders, each harder than the last: they react faster, dodge more, aim where you are going and give you less time for each question. Beat one to open the next.",
-  "f": "web/js/game/gyms-ui.js"
- },
- {
-  "id": "6ec35393",
-  "k": "{0} of {1} beaten",
-  "f": "web/js/game/gyms-ui.js"
- },
- {
-  "id": "08b2a7a4",
-  "k": "Beat {0} to open this gym.",
+  "id": "fb278703",
+  "k": "Beaten",
   "f": "web/js/game/gyms-ui.js"
  },
  {
@@ -11420,28 +11815,53 @@
   "f": "web/js/game/gyms-ui.js"
  },
  {
-  "id": "ac2e0c64",
-  "k": "1 creature",
+  "id": "6ec35393",
+  "k": "{0} of {1} beaten",
   "f": "web/js/game/gyms-ui.js"
  },
  {
-  "id": "25058467",
-  "k": "{0} creatures",
+  "id": "1cc55327",
+  "k": "Fight {0}",
   "f": "web/js/game/gyms-ui.js"
  },
  {
-  "id": "1de52d20",
-  "k": "{0} seconds a question",
+  "id": "fb0227a3",
+  "k": "All ten gym leaders beaten. Fight any of them again.",
   "f": "web/js/game/gyms-ui.js"
  },
  {
-  "id": "ee1f1af3",
-  "k": "Wins against this leader: {0}",
+  "id": "bc435923",
+  "k": "Gym",
   "f": "web/js/game/gyms-ui.js"
  },
  {
-  "id": "ca039c61",
-  "k": "First win: {0} coins and {1} XP",
+  "id": "a563972e",
+  "k": "Elements",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "48f77eb7",
+  "k": "Creatures",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "a9965777",
+  "k": "Each question",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "55d8f8bc",
+  "k": "{0} seconds",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "08f35234",
+  "k": "First win",
+  "f": "web/js/game/gyms-ui.js"
+ },
+ {
+  "id": "08b2a7a4",
+  "k": "Beat {0} to open this gym.",
   "f": "web/js/game/gyms-ui.js"
  },
  {
@@ -11550,11 +11970,6 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "48f77eb7",
-  "k": "Creatures",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "55de8870",
   "k": "Shop",
   "f": "web/js/game/habitat.js"
@@ -11655,11 +12070,6 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "223e900f",
-  "k": "Your egg",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "63b41493",
   "k": "Name me",
   "f": "web/js/game/habitat.js"
@@ -11672,11 +12082,6 @@
  {
   "id": "28ac170c",
   "k": "Goal streak: {0} day{1}",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "61fe2211",
-  "k": "Full bloom: every plot holds a fully grown building.",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -11735,11 +12140,6 @@
   "f": "web/js/game/idle.js"
  },
  {
-  "id": "710d27b3",
-  "k": "You need {0} more glow.",
-  "f": "web/js/game/idle.js"
- },
- {
   "id": "efcf13a6",
   "k": "Nothing is built there.",
   "f": "web/js/game/idle.js"
@@ -11775,11 +12175,6 @@
   "f": "web/js/game/idle.js"
  },
  {
-  "id": "26de9a27",
-  "k": "You need {0} more gem{1}.",
-  "f": "web/js/game/idle.js"
- },
- {
   "id": "6c27e5e8",
   "k": "You have none of that.",
   "f": "web/js/game/idle.js"
@@ -11787,11 +12182,6 @@
  {
   "id": "6156ebc8",
   "k": "Eggs don't eat. Hatch it first.",
-  "f": "web/js/game/idle.js"
- },
- {
-  "id": "a66174fd",
-  "k": "It is full for today.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -11817,6 +12207,11 @@
  {
   "id": "73ed2987",
   "k": "You have {0} XP and are level {1}. The next level is {2} XP away.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "1a7a8dc0",
+  "k": "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and each word you look up in the same study session builds a combo of up to double, with no hurry: the session ends only when you've been away from the app for 10 minutes, or at midnight.",
   "f": "web/js/game/info.js"
  },
  {
@@ -11870,6 +12265,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "ebd10589",
+  "k": "It fills your level bar. Each new level pays 5 coins, and each level needs more XP than the last (this one needs {0}).",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "c2117ebd",
   "k": "It grows the creature in your habitat: it hatches, grows into a juvenile and then becomes fully grown.",
   "f": "web/js/game/info.js"
@@ -11900,6 +12300,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "ceae120c",
+  "k": "Reach your daily goal ({0} minutes of listening or reading; time on YouTube doesn't count). Each day you do adds one.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "31fb81dc",
   "k": "With the Anki companion, clearing everything due in Anki also counts as the day's goal.",
   "f": "web/js/game/info.js"
@@ -11912,6 +12317,11 @@
  {
   "id": "c57ee3a3",
   "k": "The flame next to your name on the Friends tab is a different streak: days in a row you finished your flashcards.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "d883cc30",
+  "k": "Every 7th day in a row earns a streak freeze.",
   "f": "web/js/game/info.js"
  },
  {
@@ -11947,6 +12357,11 @@
  {
   "id": "647952d2",
   "k": "You have {0}.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "76f510d0",
+  "k": "Reach your daily goal: 10.",
   "f": "web/js/game/info.js"
  },
  {
@@ -11990,6 +12405,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "73298568",
+  "k": "Things for your creature to wear and for its habitat: hats, glasses, neckwear, things to hold, capes and wings, shirts, and decorations. They cost {0} to {1} coins.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "ee0d1b14",
   "k": "Battle moves, bought once for all your creatures: quick moves, guards, power-ups, heals, delays, interrupts, charges and moves that change the squares. They cost {0} to {1} coins. They give new tricks, not bigger numbers.",
   "f": "web/js/game/info.js"
@@ -12010,6 +12430,16 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "b72da5f2",
+  "k": "Streak freeze",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "76557f97",
+  "k": "Every 7th day in a row of reaching your daily goal gives one (up to 3 held this way).",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "02b8de87",
   "k": "Now and then one drops as a surprise when you look up a word.",
   "f": "web/js/game/info.js"
@@ -12020,13 +12450,13 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "a66c8544",
-  "k": "It is used by itself the next time you open the app after a missed day. Two missed days need two.",
+  "id": "797b53b5",
+  "k": "It covers one missed day, so your streak carries on as if you had studied.",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "d5545dea",
-  "k": "Glow",
+  "id": "a66c8544",
+  "k": "It is used by itself the next time you open the app after a missed day. Two missed days need two.",
   "f": "web/js/game/info.js"
  },
  {
@@ -12037,6 +12467,11 @@
  {
   "id": "6319cd67",
   "k": "You have {0} glow{1}. Your buildings make {2} an hour.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "fc8d2b71",
+  "k": "Buildings in your garden make it all day, even while the app is closed (up to {0} hours' worth waits for you).",
   "f": "web/js/game/info.js"
  },
  {
@@ -12057,6 +12492,11 @@
  {
   "id": "5881fc72",
   "k": "Each kind of building makes more for one study habit, and each heart on your creature adds a little.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "75cc6677",
+  "k": "New buildings, and growing a building to its next tier so it makes more.",
   "f": "web/js/game/info.js"
  },
  {
@@ -12087,6 +12527,11 @@
  {
   "id": "02904156",
   "k": "Gems",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "38414bff",
+  "k": "Earn a badge: 2 each.",
   "f": "web/js/game/info.js"
  },
  {
@@ -12125,6 +12570,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "ced05c8e",
+  "k": "Feed the creature in your habitat. Food costs {0} glow, and it eats up to {1} times a day.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "3be3ea7c",
   "k": ": for a {0} creature that is {1}",
   "f": "web/js/game/info.js"
@@ -12137,6 +12587,11 @@
  {
   "id": "746e8201",
   "k": "Hearts belong to each creature, and they never go down.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "317d4503",
+  "k": "Each heart makes all your buildings 4% faster while that creature is in the habitat.",
   "f": "web/js/game/info.js"
  },
  {
@@ -12165,33 +12620,13 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "dc353487",
-  "k": "Listening",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "90039372",
   "k": "time spent listening to podcasts, audio and videos (not YouTube)",
   "f": "web/js/game/info.js"
  },
  {
-  "id": "cffa2af0",
-  "k": "Reading",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "7f6efe83",
-  "k": "Collecting",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "ab60d3ea",
   "k": "saving words, right answers in battles, cards in the vocab reviewer, Anki reviews",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "1a0bff19",
-  "k": "Curiosity",
   "f": "web/js/game/info.js"
  },
  {
@@ -12257,6 +12692,11 @@
  {
   "id": "883360b0",
   "k": "A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, and what you pull off in battle. They change colours and features, never strength.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "b3e7bb3e",
+  "k": "Its horn, which comes in as a juvenile, leans toward antennae for listeners and a gem for collectors.",
   "f": "web/js/game/info.js"
  },
  {
@@ -12515,6 +12955,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "d702648b",
+  "k": "+{0} XP{1}",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "c94a5549",
   "k": "· {0} word{1} now well known",
   "f": "web/js/game/livebattle-ui.js"
@@ -12575,6 +13020,106 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "7548ab52",
+  "k": "Power",
+  "f": "web/js/game/movepick.js"
+ },
+ {
+  "id": "54c45c03",
+  "k": "Blocks",
+  "f": "web/js/game/movepick.js"
+ },
+ {
+  "id": "bc6f4bc6",
+  "k": "Heals",
+  "f": "web/js/game/movepick.js"
+ },
+ {
+  "id": "c81c947a",
+  "k": "Moves",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "eb10a5c1",
+  "k": "Tap a move to see it or swap it. Keep at least one attacking move.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "57351a82",
+  "k": "Other moves it knows",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "d0b58b44",
+  "k": "It uses every move it knows.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "92f548f5",
+  "k": "Buy more moves in the shop",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "e00ac23f",
+  "k": "Kind",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "34dbd5c4",
+  "k": "Wait",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "2ec0e11f",
+  "k": "Its only attacking move: it can only be swapped for another attacking move.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "9981290a",
+  "k": "It knows no other moves yet.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "210dd62a",
+  "k": "Swap",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "1f36beb6",
+  "k": "Use this move",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "e4a6558f",
+  "k": "Replace which move?",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "bafc96af",
+  "k": "{0} takes the place of the move you pick.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "7eedf90d",
+  "k": "Its only attacking move",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "267c5f05",
+  "k": "Swap for which move?",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "7e756b98",
+  "k": "Choose a move",
+  "f": "web/js/game/movesui.js"
+ },
+ {
+  "id": "8d474b73",
+  "k": "Keep at least one attacking move.",
+  "f": "web/js/game/movesui.js"
+ },
+ {
   "id": "5eb43479",
   "k": "The gift couldn't be opened.",
   "f": "web/js/game/rules.js"
@@ -12625,19 +13170,119 @@
   "f": "web/js/game/rules.js"
  },
  {
-  "id": "77e01fe2",
-  "k": "Shop and wardrobe",
-  "f": "web/js/game/shop.js"
+  "id": "bfb4298c",
+  "k": "How many you have",
+  "f": "web/js/game/screenparts.js"
  },
  {
   "id": "0ee5c43c",
   "k": "My things",
-  "f": "web/js/game/shop.js"
+  "f": "web/js/game/sections.js"
  },
  {
   "id": "2c578dc8",
   "k": "Badges",
-  "f": "web/js/game/shop.js"
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "14e351e1",
+  "k": "Supplies",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "c11d5e1d",
+  "k": "Friends",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "0b5ad7f0",
+  "k": "Hat",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "9a46e65f",
+  "k": "For the face",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "0a3774e5",
+  "k": "To hold",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "03898713",
+  "k": "For the back",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "56cc042a",
+  "k": "Shirt",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "2db87a01",
+  "k": "Decoration",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "68121261",
+  "k": "Things to wear",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "899db74e",
+  "k": "Decorations",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "fa0d260b",
+  "k": "Battle moves",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "807f8ba7",
+  "k": "To wear",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "fa6095d9",
+  "k": "Out in the habitat",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "4f3e6209",
+  "k": "Put away",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "e7eb9ee9",
+  "k": "Battle moves you bought",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "e5ffd15b",
+  "k": "Head",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "35a237da",
+  "k": "Neck",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "6b568a69",
+  "k": "For battles",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "231a3994",
+  "k": "For your creatures",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "0891d9ac",
+  "k": "For the garden",
+  "f": "web/js/game/sections.js"
  },
  {
   "id": "b895a8c3",
@@ -12645,8 +13290,33 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "2db87a01",
-  "k": "Decoration",
+  "id": "7c0a7817",
+  "k": "You own everything that's on offer.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "01888a92",
+  "k": "Battle moves you know, of those sold here",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "755844bc",
+  "k": "Yours",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "f13ba138",
+  "k": "Still to unlock",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "1894043f",
+  "k": "For looks only. It goes out in the habitat straight away.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "ef4da3ac",
+  "k": "For looks only. It goes on straight away.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -12655,8 +13325,48 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "4f3e6209",
-  "k": "Put away",
+  "id": "dbe3238f",
+  "k": "{0} Bought once, for all your creatures.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "ca40be16",
+  "k": "You learned {0}. Give it to a creature on the Creatures page.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "1a2cdd14",
+  "k": "Nothing yet. Things you buy in the shop are kept here.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "44e6822a",
+  "k": "Wearing",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "c5040300",
+  "k": "Wearing now",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "44819483",
+  "k": "Nothing",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "f7b4c7be",
+  "k": "Eggs wear nothing until they hatch.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "31e8d565",
+  "k": "In your bag",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "fbefae1e",
+  "k": "Give",
   "f": "web/js/game/shop.js"
  },
  {
@@ -12675,59 +13385,79 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "5d632f2d",
-  "k": "Give this to a friend",
-  "f": "web/js/game/shop.js"
+  "id": "5428d235",
+  "k": "Level {0}: {1} XP",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "fbefae1e",
-  "k": "Give",
-  "f": "web/js/game/shop.js"
+  "id": "d6d9f18f",
+  "k": "{0}. Combo, next {1}",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "1cfad2d7",
-  "k": "{0} coins",
-  "f": "web/js/game/shop.js"
+  "id": "0ad2c237",
+  "k": "Your level",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "dd5916bd",
-  "k": "Today's selection, chosen for your creature. It changes every day. Coins come from reaching your daily goal (10), saving words (1 each), levelling up (5), winning battles, and a creature becoming fully grown (25).",
-  "f": "web/js/game/shop.js"
+  "id": "7c7f5d04",
+  "k": "Level",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "7c0a7817",
-  "k": "You own everything that's on offer.",
-  "f": "web/js/game/shop.js"
+  "id": "2314cd9a",
+  "k": "Open the game",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "fa0d260b",
-  "k": "Battle moves",
-  "f": "web/js/game/shop.js"
+  "id": "623e0f4d",
+  "k": "{0} XP to level {1}",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "e3296134",
-  "k": "Bought once, any of your creatures can take it into battle: choose on the Creatures page. You know {0} of the {1} moves sold here.",
-  "f": "web/js/game/shop.js"
+  "id": "bbbe0df0",
+  "k": "Combo on: next lookup {0}",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "03376a71",
-  "k": "You know every move there is to buy.",
-  "f": "web/js/game/shop.js"
+  "id": "58c06693",
+  "k": "Look words up one after another for a combo: ×1.2, then ×1.5, then ×2.",
+  "f": "web/js/game/xpbadge.js"
  },
  {
-  "id": "ca40be16",
-  "k": "You learned {0}. Give it to a creature on the Creatures page.",
-  "f": "web/js/game/shop.js"
+  "id": "3d845682",
+  "k": "Streak freeze!",
+  "f": "web/js/game/xpline.js"
  },
  {
-  "id": "db13058c",
-  "k": "{0} more item{1} appear once you've earned:",
-  "f": "web/js/game/shop.js"
+  "id": "ef0dcaec",
+  "k": "Hint card!",
+  "f": "web/js/game/xpline.js"
  },
  {
-  "id": "1a2cdd14",
-  "k": "Nothing yet. Things you buy in the shop are kept here.",
-  "f": "web/js/game/shop.js"
+  "id": "f21e440a",
+  "k": "Already looked up today",
+  "f": "web/js/game/xpline.js"
+ },
+ {
+  "id": "29877f37",
+  "k": "+{0} XP",
+  "f": "web/js/game/xpline.js"
+ },
+ {
+  "id": "9fe2b30d",
+  "k": "+1 coin",
+  "f": "web/js/game/xpline.js"
+ },
+ {
+  "id": "09eee77a",
+  "k": "+{0} coins",
+  "f": "web/js/game/xpline.js"
+ },
+ {
+  "id": "df2457aa",
+  "k": "next {0}",
+  "f": "web/js/game/xpline.js"
  },
  {
   "id": "ea683ad6",
@@ -12777,6 +13507,11 @@
  {
   "id": "b016324b",
   "k": "the CAMeL Arabic databases",
+  "f": "web/js/lexicon/meaningdata.js"
+ },
+ {
+  "id": "4042806d",
+  "k": "English word",
   "f": "web/js/lexicon/meaningdata.js"
  },
  {
@@ -13143,6 +13878,11 @@
   "id": "4a6b81c8",
   "k": "Netflix title",
   "f": "web/js/netflix-ttml.js"
+ },
+ {
+  "id": "23882c57",
+  "k": "Portuguese",
+  "f": "web/js/netflix.js"
  },
  {
   "id": "6fedd6f1",
@@ -13795,11 +14535,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "e00ac23f",
-  "k": "Kind",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "39386083",
   "k": "The next kind",
   "f": "web/js/padmap.js"
@@ -14215,8 +14950,18 @@
   "f": "web/js/padmap.js"
  },
  {
+  "id": "eed7cb83",
+  "k": "Left stick down",
+  "f": "web/js/padmap.js"
+ },
+ {
   "id": "342bb24a",
   "k": "Left stick up",
+  "f": "web/js/padmap.js"
+ },
+ {
+  "id": "d526caec",
+  "k": "Right stick right",
   "f": "web/js/padmap.js"
  },
  {
@@ -14860,11 +15605,6 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "699dd745",
-  "k": "What friends see",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "f56a7b41",
   "k": "Friends see this next to your name: your language, league, XP today, flashcard streak and favourite creature. Tap any part to see what it is.",
   "f": "web/js/pages/friends.js"
@@ -14967,11 +15707,6 @@
  {
   "id": "b59cf9ed",
   "k": "Decline",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "f1d382dd",
-  "k": "Add a friend",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -16905,11 +17640,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "887fed4a",
-  "k": "A mnemonic, a picture, where you heard it…",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "3250d8de",
   "k": "{0} · added {1}",
   "f": "web/js/pages/review.js"
@@ -17655,6 +18385,26 @@
   "f": "web/js/pages/settings.js"
  },
  {
+  "id": "f5ec7772",
+  "k": "Newest first",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "6a99c65c",
+  "k": "Oldest first",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "7def648b",
+  "k": "Recently changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "530262d8",
+  "k": "Least recently changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "d7854118",
   "k": "Any time",
   "f": "web/js/pages/vocab.js"
@@ -17692,6 +18442,11 @@
  {
   "id": "574c12ec",
   "k": "You need the Anki app installed on this computer.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "7f5f05af",
+  "k": "Save the file from Tamkeen.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -18345,6 +19100,11 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "11381a19",
+  "k": "Comedy",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "c9476ace",
   "k": "Crosseyed",
   "f": "web/js/podcast-picks.js"
@@ -18367,6 +19127,11 @@
  {
   "id": "6c8793d1",
   "k": "Darling and Kringkay The Pod Network Entertainment",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "4a6df903",
+  "k": "Society & Culture",
   "f": "web/js/podcast-picks.js"
  },
  {
@@ -18410,6 +19175,11 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "aaf87fe5",
+  "k": "Education",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "e59b5c99",
   "k": "Kasikas: Bisaya Podcast",
   "f": "web/js/podcast-picks.js"
@@ -18437,6 +19207,11 @@
  {
   "id": "cc4289fa",
   "k": "Sunday Mass readings in Cebuano | Mga pagbasa sa Santos nga Misa sa Binisaya. New episodes are released on the Monday before the Mass. Send all feedback to sundaymassreadings@gmail.com. Special thanks to Fr. Alvin, Lorena, Celine, Aimee, Belinda, Ivy, Praxi, Fr. Gerry, Belton, Agnes and Deacon Roman.",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "f31acc39",
+  "k": "Religion & Spirituality",
   "f": "web/js/podcast-picks.js"
  },
  {
@@ -18547,6 +19322,11 @@
  {
   "id": "2f32eaa3",
   "k": "Unsa Man Jud Podcast is a Bisaya Podcast or a talk show that is spoken in Cebuano language that talks about binutbot and binuang stuff. Sometimes we also talk about sineryoso stuff but who wants to listen to that, right? So we talk about fun stuff instead. Anyway, if you can understand the language, come join us!",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "540c98ab",
+  "k": "Leisure",
   "f": "web/js/podcast-picks.js"
  },
  {
@@ -18770,6 +19550,11 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "ced72db7",
+  "k": "Arts",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "d47f0ec5",
   "k": "Hisgutanan: Bisaya nga Podcast ni Lewey Jimoya",
   "f": "web/js/podcast-picks.js"
@@ -18820,6 +19605,16 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "d2d06637",
+  "k": "Science",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
+  "id": "90ccd649",
+  "k": "History",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "552b9b7a",
   "k": "Aeneas flees the destruction of Troy, abandons Dido, queen of the Carthaginians, and wends his way to Latium in Italy, where slaying Turnus, leader of native resistance, he founds the future Rome. (Summary by Malone)",
   "f": "web/js/podcast-picks.js"
@@ -18865,6 +19660,11 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "cccd8e9f",
+  "k": "Kids & Family",
+  "f": "web/js/podcast-picks.js"
+ },
+ {
   "id": "d9cc6b1c",
   "k": "{0}% read",
   "f": "web/js/progress.js"
@@ -18872,11 +19672,6 @@
  {
   "id": "e078f34f",
   "k": "{0} h {1} min left",
-  "f": "web/js/progress.js"
- },
- {
-  "id": "a99cdd56",
-  "k": "{0} min left",
   "f": "web/js/progress.js"
  },
  {
@@ -18985,6 +19780,21 @@
   "f": "web/js/review/cardtools.js"
  },
  {
+  "id": "887fed4a",
+  "k": "A mnemonic, a picture, where you heard it…",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "b410b039",
+  "k": "Tip: write the sound-alike word in CAPITALS and the Mnemonic maker learns from it.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "2814674c",
+  "k": "{0} don't sound like {1}, so nothing was learned.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
   "id": "2f3a0211",
   "k": "How it sounds",
   "f": "web/js/review/cardtools.js"
@@ -19037,6 +19847,16 @@
  {
   "id": "c5bd44b4",
   "k": "Related in meaning",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "1f9e7496",
+  "k": "You've used this before",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "9aab0129",
+  "k": "You wrote this sound-alike in CAPITALS in one of your own notes",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -19425,6 +20245,256 @@
   "f": "web/js/review/vocabedit.js"
  },
  {
+  "id": "4360c2dc",
+  "k": "Article",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "8458445d",
+  "k": "Conjunction",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "ad3287cc",
+  "k": "Preposition",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "4290a803",
+  "k": "Marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "8c112070",
+  "k": "Plural marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "c2f69372",
+  "k": "Infinitive marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "28680091",
+  "k": "Reflexive pronoun",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "e95a5003",
+  "k": "Light verb",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "3520950d",
+  "k": "Copula",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "4a1c659d",
+  "k": "Polite word",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "4442f411",
+  "k": "Noun maker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "e5efdbe6",
+  "k": "Joined-on word",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "2c924e30",
+  "k": "Note",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "e9b9ac89",
+  "k": "Other forms",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "3b74e96e",
+  "k": "Alternative",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "8753dabd",
+  "k": "Grammar label",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "ed212fa1",
+  "k": "Placeholder",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "cf597d75",
+  "k": "“a, an”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "edcca932",
+  "k": "“a, one”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "73afd32b",
+  "k": "“so, and then”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "69c093a0",
+  "k": "“with, by, in”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "35aa4308",
+  "k": "“like, as”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "1c86bb4a",
+  "k": "“for, to”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "98f1e5fa",
+  "k": "makes it a question",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "1b7cb171",
+  "k": "“to” before a verb",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "b3c108a5",
+  "k": "“to do”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "11547b17",
+  "k": "“to do”, formal",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "c0318423",
+  "k": "“to become”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "0366e875",
+  "k": "“to become”, formal",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "0791ccdc",
+  "k": "“to hit”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "55c64b21",
+  "k": "“to give”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "bf203a4a",
+  "k": "“to take”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "5de917a4",
+  "k": "“to have”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "e7dd0530",
+  "k": "“to be, to become”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "b4f502d9",
+  "k": "“am, is, are”, polite",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "cb715b83",
+  "k": "the topic marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "9ed195a4",
+  "k": "the object marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "43ae6d89",
+  "k": "a marker before a name",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "62a014d5",
+  "k": "the plural marker",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "072b1f7c",
+  "k": "“at, to, in”",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "235f5aff",
+  "k": "a polite word",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "84887987",
+  "k": "turns a verb or adjective into a noun",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "c8a729e5",
+  "k": "a note in brackets",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "8a697f13",
+  "k": "other forms of the word",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "66cc4fbe",
+  "k": "the plural",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "dfa3391c",
+  "k": "another word or form",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "4a66721a",
+  "k": "a grammar label",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "46e3575a",
+  "k": "a stand-in for other words",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "b9a634a6",
+  "k": "{0} left out",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
+  "id": "413cacc4",
+  "k": "Only “{0}” is matched.",
+  "f": "web/js/review/wordcore.js"
+ },
+ {
   "id": "1b4cae1c",
   "k": "Spam or a scam",
   "f": "web/js/safety.js"
@@ -19675,6 +20745,11 @@
   "f": "web/js/social.js"
  },
  {
+  "id": "ffa74a4e",
+  "k": "🎧 Podcast episode",
+  "f": "web/js/social.js"
+ },
+ {
   "id": "bdfd8662",
   "k": "any episode from your own library: use the 🎧 button on the bar",
   "f": "web/js/social.js"
@@ -19817,6 +20892,11 @@
  {
   "id": "2e074132",
   "k": "Groq has a free allowance (a few hours of audio a day) that needs no payment card. With a card added, an hour of audio costs between 4 and 11 cents.",
+  "f": "web/js/stt.js"
+ },
+ {
+  "id": "fe9bed90",
+  "k": "Open the Groq Console",
   "f": "web/js/stt.js"
  },
  {
@@ -19977,11 +21057,6 @@
  {
   "id": "9f2d7d5a",
   "k": "The audio couldn't be sent to {0}: {1}.",
-  "f": "web/js/stt.js"
- },
- {
-  "id": "55d8f8bc",
-  "k": "{0} seconds",
   "f": "web/js/stt.js"
  },
  {
@@ -20155,16 +21230,6 @@
   "f": "web/js/trending.js"
  },
  {
-  "id": "11381a19",
-  "k": "Comedy",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "aaf87fe5",
-  "k": "Education",
-  "f": "web/js/trending.js"
- },
- {
   "id": "0d23bd8c",
   "k": "Fiction",
   "f": "web/js/trending.js"
@@ -20180,38 +21245,8 @@
   "f": "web/js/trending.js"
  },
  {
-  "id": "90ccd649",
-  "k": "History",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "cccd8e9f",
-  "k": "Kids & Family",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "540c98ab",
-  "k": "Leisure",
-  "f": "web/js/trending.js"
- },
- {
   "id": "131260cb",
   "k": "Music",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "f31acc39",
-  "k": "Religion & Spirituality",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "d2d06637",
-  "k": "Science",
-  "f": "web/js/trending.js"
- },
- {
-  "id": "4a6df903",
-  "k": "Society & Culture",
   "f": "web/js/trending.js"
  },
  {
@@ -22680,6 +23715,11 @@
   "f": "mobile/src/js/web-install.js"
  },
  {
+  "id": "eb3d3982",
+  "k": "Click the install icon at the right end of the address bar (a screen with a down arrow).",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
   "id": "887b182d",
   "k": "Or open the menu <0>⋮</0>, then <1>Cast, save and share</1> → <2>Install page as app</2>.",
   "f": "mobile/src/js/web-install.js"
@@ -22702,6 +23742,11 @@
  {
   "id": "7487434a",
   "k": "Click <0>Add</0>.",
+  "f": "mobile/src/js/web-install.js"
+ },
+ {
+  "id": "aebb4c7b",
+  "k": "This browser can't add web apps. Open this page in Chrome or Edge, then use its install button in the address bar.",
   "f": "mobile/src/js/web-install.js"
  },
  {
@@ -23477,11 +24522,6 @@
  {
   "id": "412e3190",
   "k": "Urdu",
-  "f": "app/reels.py"
- },
- {
-  "id": "23882c57",
-  "k": "Portuguese",
   "f": "app/reels.py"
  },
  {
