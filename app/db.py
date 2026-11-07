@@ -495,6 +495,7 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "dli_language": "",
     "dli_key": "",
     "dli_added": "",
+    "dli_decks": "",  # the DLI vocabulary decks' chapters already added once (web/js/dli.js deckMarks)
     # Who makes example sentences and mnemonics (web/js/helpersource.js): "free", "ai" or "" (AI when it can be used).
     "sentence_source": "",
     "mnemonic_source": "",

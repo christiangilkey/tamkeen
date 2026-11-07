@@ -1,0 +1,12 @@
+# DLI vocabulary decks (Library → Courses → DLI; the Vocab tab, a folder per chapter): components/dlipanel.js, dlicontent.js, app/course.py.
+d4f59af4	{0} salita sa {1} kabanata, bawat isa may pangungusap at salin nito
+38590522	May audio ang bawat salita.
+68e47ad9	May audio na ang {0} salita sa ngayon; darating ang iba sa mga susunod na update.
+eae0afc7	Darating ang audio sa mga susunod na update; habang wala pa, ang boses ng device na ito ang babasa sa mga ito.
+efae7357	Idagdag sa aking Vocab
+364510a7	Idinadagdag ang kabanata {0} ng {1}: {2}
+bdc752c9	Bokabularyo
+3f82d6ad	Hindi makuha ang DLI audio (HTTP {0}).
+d4022500	Nasa Vocab mo na ang {0}: {1} salita, isang folder bawat kabanata.
+b5ce3290	{0} pang salita mula sa {1} ang nasa Vocab mo na.
+5f580882	Hindi ma-download ang DLI audio ({0}). Tingnan ang iyong koneksyon.

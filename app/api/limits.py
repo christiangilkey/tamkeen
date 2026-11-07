@@ -144,6 +144,7 @@ SETTING_RULES = {
     "dli_language": _choice("", "ar", "zh", "fa", "fr", "ko", "ru", "es"),
     "dli_key": _text(64, nullable=True),
     "dli_added": _text(2_000, nullable=True),
+    "dli_decks": _text(2_000, nullable=True),
 }
 
 

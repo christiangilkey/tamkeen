@@ -152,10 +152,15 @@ export const openJson = async (key, sealed, { name } = {}) => JSON.parse(new Tex
 //   { kind: "podcast", id, title, feed, episodes: [{ guid, audio, title, file, sha }] }  (a podcast; each
 //     episode's transcript is the encrypted file `file`, in the sync's own format: app/sync/engine.py
 //     transcript_payload), or
-//   { kind: "file", id, title, name, type, size, group, sha }  (any other file: `id` is its encrypted file).
+//   { kind: "file", id, title, name, type, size, group, sha }  (any other file: `id` is its encrypted file), or
+//   { kind: "deck", id, title, short, words, chapters: [{ id, title, words, file, audio, voiced }] }  (a vocabulary
+//     deck, tools/dli/DECKS.md: each chapter becomes a folder in the learner's Vocab tab. `file` is the chapter's
+//     encrypted word list (chapterWords below), `audio` its encrypted audio bundle (readBundle), "" until it is voiced).
 export const INDEX_NAME = "index";
 const FILE_ID = /^[0-9a-f]{32}$/;
 const ITEM_ID = /^[a-z0-9][a-z0-9_-]{0,63}$/;
+const CHAPTER_ID = /^c\d{3}$/;
+const MAX_CHAPTERS = 400;
 const line = (v, most) => String(v ?? "").replace(/[\u0000-\u001f\u007f‪-‮⁦-⁩]/g, " ").replace(/\s+/g, " ").trim().slice(0, most);
 const webUrl = (v) => { const s = String(v || "").trim(); return /^https?:\/\/[^\s]+$/i.test(s) && s.length <= 1000 ? s : ""; };
 
@@ -168,6 +173,18 @@ function cleanItem(raw) {
       guid: line(e.guid, 500), audio: webUrl(e.audio), title: line(e.title, 300), file: e.file, sha: line(e.sha, 64) } : null)
       .filter((e) => e && (e.guid || e.audio));
     return { kind: "podcast", id: raw.id, title: line(raw.title, 200) || raw.id, feed, episodes };
+  }
+  if (raw.kind === "deck") {
+    if (!ITEM_ID.test(String(raw.id || ""))) return null;
+    const chapters = (Array.isArray(raw.chapters) ? raw.chapters : []).map((c) => c && typeof c === "object"
+      && CHAPTER_ID.test(String(c.id || "")) && FILE_ID.test(String(c.file || "")) ? {
+        id: c.id, title: line(c.title, 120) || c.id, words: Number.isInteger(c.words) && c.words >= 0 ? c.words : 0, file: c.file,
+        audio: FILE_ID.test(String(c.audio || "")) ? c.audio : "", voiced: Number.isInteger(c.voiced) && c.voiced >= 0 ? c.voiced : 0,
+        sha: line(c.sha, 64), audio_sha: line(c.audio_sha, 64) } : null)
+      .filter(Boolean).slice(0, MAX_CHAPTERS);
+    if (!chapters.length) return null;
+    return { kind: "deck", id: raw.id, title: line(raw.title, 200) || raw.id, short: line(raw.short, 40) || "DLI",
+             words: Number.isInteger(raw.words) && raw.words >= 0 ? raw.words : 0, chapters };
   }
   if (raw.kind === "file") {
     if (!FILE_ID.test(String(raw.id || ""))) return null;
@@ -213,6 +230,111 @@ export function withAdded(s, code, id) {
   const list = addedList(s);
   const name = addedName(code, id);
   return list.includes(name) ? list.join(" ") : [...list, name].join(" ");
+}
+
+// ---------- vocabulary decks ----------
+// The learner's Vocab tab gets one folder per chapter ("DLI Arabic · Chapter 1 (Unit 1)") and each word one card,
+// whose source says where it came from ("DLI Arabic · Chapter 1 (Unit 1) · word 209"), so the app can find it again
+// (to give it its audio when that comes later). The synced setting dli_decks says which chapters were added
+// once, by their place in the deck: "ar-basic:1-60,62 zh-basic:1-3" (a word the learner deleted isn't added again).
+
+export const deckFolderName = (deck, chapter) => `${deck.short} · ${chapter.title}`.slice(0, 80);  // (a folder name is at most 80)
+export const deckSource = (deck, chapter, n) => `${deck.short} · ${chapter.title} · word ${n}`.slice(0, 200);
+/** The deck word a card came from (its number), or 0. */
+export function deckWordOf(deck, card) {
+  const src = String((card && (card.episode_title || card.source)) || "");
+  if (!src.startsWith(`${deck.short} · `)) return 0;
+  const m = / · word (\d{1,6})$/.exec(src);
+  return m ? Number(m[1]) : 0;
+}
+
+/** "1-3,7" → Set {1, 2, 3, 7} (at most 1000 numbers). */
+export function parseRanges(text) {
+  const out = new Set();
+  for (const part of String(text || "").split(",")) {
+    const m = /^(\d{1,4})(?:-(\d{1,4}))?$/.exec(part.trim());
+    if (!m) continue;
+    const a = Number(m[1]), b = Number(m[2] || m[1]);
+    for (let n = a; n <= b && n <= 1000 && out.size < 1000; n++) if (n > 0) out.add(n);
+  }
+  return out;
+}
+/** Set {1, 2, 3, 7} → "1-3,7". */
+export function rangesText(numbers) {
+  const ns = [...new Set(numbers)].filter((n) => Number.isInteger(n) && n > 0).sort((a, b) => a - b);
+  const parts = [];
+  for (let i = 0; i < ns.length; i++) {
+    let j = i;
+    while (j + 1 < ns.length && ns[j + 1] === ns[j] + 1) j++;
+    parts.push(i === j ? `${ns[i]}` : `${ns[i]}-${ns[j]}`);
+    i = j;
+  }
+  return parts.join(",");
+}
+const deckEntries = (s) => String((s && s.dli_decks) || "").split(/\s+/).map((x) => /^([a-z0-9][a-z0-9_-]{0,63}):([\d,-]{1,1500})$/.exec(x)).filter(Boolean);
+/** The chapters of deck `id` added once (their places, 1 = the first chapter). */
+export function deckMarks(s, id) {
+  const e = deckEntries(s).find((m) => m[1] === id);
+  return e ? parseRanges(e[2]) : new Set();
+}
+/** dli_decks with these chapter places of deck `id` added. */
+export function withDeckMarks(s, id, places) {
+  const all = new Set([...deckMarks(s, id), ...places]);
+  const rest = deckEntries(s).filter((m) => m[1] !== id).map((m) => m[0]);
+  return [...rest, `${id}:${rangesText(all)}`].join(" ").slice(0, 2000);
+}
+
+/** A chapter's word list, opened (made by tools/dli/encrypt.mjs): { id, words: [{ n, text, meaning, notes, sentence,
+ *  translation, in: [chapter ids] }] }, `in` being every chapter that has the word (its folders), the first one the
+ *  chapter it is written in. A word written in another chapter is listed as { n, also: true }. Badly formed words go. */
+export function chapterWords(raw) {
+  const words = [];
+  for (const w of (raw && Array.isArray(raw.words) ? raw.words : []).slice(0, 5000)) {
+    if (!w || !Number.isInteger(w.n) || w.n < 1) continue;
+    if (w.also) { words.push({ n: w.n, also: true }); continue; }
+    const text = String(w.text ?? "").trim().slice(0, 200);
+    if (!text) continue;
+    const chapters = (Array.isArray(w.in) ? w.in : []).filter((c) => CHAPTER_ID.test(String(c))).slice(0, 20);
+    words.push({ n: w.n, text, meaning: String(w.meaning ?? "").slice(0, 500), notes: String(w.notes ?? "").slice(0, 1000),
+                 sentence: String(w.sentence ?? "").slice(0, 1000), translation: String(w.translation ?? "").slice(0, 1000), in: chapters });
+  }
+  return { id: String((raw && raw.id) || ""), words };
+}
+
+// A chapter's audio, one file: [4 bytes: the header's length, little-endian][the header, JSON: [{ n, at, size,
+// times: { start, end, sent_start, sent_end } }]][each word's Ogg Opus file, one after another]. Encrypted like the rest.
+/** Write a bundle (tools/dli/encrypt.mjs). `files`: [{ n, bytes, times }]. */
+export function makeBundle(files) {
+  let at = 0;
+  const head = files.map((f) => { const e = { n: f.n, at, size: f.bytes.length, times: f.times }; at += f.bytes.length; return e; });
+  const h = enc.encode(JSON.stringify(head));
+  const out = new Uint8Array(4 + h.length + at);
+  new DataView(out.buffer).setUint32(0, h.length, true);
+  out.set(h, 4);
+  let p = 4 + h.length;
+  for (const f of files) { out.set(f.bytes, p); p += f.bytes.length; }
+  return out;
+}
+const timeOk = (v) => typeof v === "number" && Number.isFinite(v) && v >= 0 && v < 600;
+/** A bundle's files: Map n → { bytes (a view into `bytes`), times }. Anything that doesn't fit is left out. */
+export function readBundle(bytes) {
+  const b = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+  const out = new Map();
+  if (b.length < 4) return out;
+  const len = new DataView(b.buffer, b.byteOffset, b.byteLength).getUint32(0, true);
+  if (len > b.length - 4 || len > 2_000_000) return out;
+  let head;
+  try { head = JSON.parse(new TextDecoder().decode(b.subarray(4, 4 + len))); } catch { return out; }
+  const base = 4 + len;
+  for (const e of Array.isArray(head) ? head : []) {
+    const t = e && e.times;
+    if (!e || !Number.isInteger(e.n) || !Number.isInteger(e.at) || !Number.isInteger(e.size) || e.at < 0 || e.size < 100
+        || base + e.at + e.size > b.length || !t || !timeOk(t.start) || !timeOk(t.end) || t.end < t.start) continue;
+    const sent = timeOk(t.sent_start) && timeOk(t.sent_end) && t.sent_end >= t.sent_start;
+    out.set(e.n, { bytes: b.subarray(base + e.at, base + e.at + e.size),
+                   times: { start: t.start, end: t.end, sent_start: sent ? t.sent_start : null, sent_end: sent ? t.sent_end : null } });
+  }
+  return out;
 }
 
 // ---------- a ready-made transcript, in the sync's own format ----------

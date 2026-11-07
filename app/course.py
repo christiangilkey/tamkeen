@@ -24,7 +24,9 @@ from . import paths
 BASE_URL = "https://christiangilkey.github.io/tamkeen/course/"
 # What may be asked for: the list of courses, a course, and one of its audio files. A course is a
 # language ("ar") or an Arabic dialect ("ar-lev": tools/course/build_course.py).
-NAME = re.compile(r"^(index\.json|[a-z]{2,3}(-[a-z]{3})?/course\.json|[a-z]{2,3}(-[a-z]{3})?/audio/\d{4}\.ogg)$")
+# And the DLI decks' audio bundles (tools/dli/encrypt.mjs: encrypted, named by a random id; web/js/dlicontent.js).
+NAME = re.compile(r"^(index\.json|[a-z]{2,3}(-[a-z]{3})?/course\.json|[a-z]{2,3}(-[a-z]{3})?/audio/\d{4}\.ogg"
+                  r"|dli/[0-9a-f]{32}\.bin)$")
 
 
 class CourseError(RuntimeError):
@@ -57,6 +59,15 @@ def get(name: str) -> bytes:
         if not path.exists():
             raise CourseError("That part of the course hasn't been made yet.")
         return path.read_bytes()
+    if name.startswith("dli/"):
+        # A DLI chapter's audio is fetched once, when its words go into the learner's cards (each card then
+        # keeps its own voice), so it isn't kept here.
+        try:
+            r = httpx.get(BASE_URL + name, timeout=120, follow_redirects=True)
+            r.raise_for_status()
+        except httpx.HTTPError as exc:
+            raise CourseError(f"Couldn't download the DLI audio ({exc.__class__.__name__}). Check your connection.") from exc
+        return r.content
     kept = cache_dir() / name
     # The list and the courses change as units are added: asked afresh, kept for when there is no
     # connection. Audio files never change once made, so a kept one is used as it is.

@@ -7656,3 +7656,56 @@ they are studying at DLI (Arabic, Chinese, Farsi, French, Korean, Russian, or Sp
   fresh data folder: real password, the real Arabic101 feed followed (50 episodes) and the real transcripts stored, served
   from a scratch package so the repo's web/dli stayed empty. Pictures: `..\tamkeen-shots\dli\`. **Not checked**: a real
   phone or iPhone, the web app on GitHub Pages (the feed through the go-between server), two real devices syncing.
+
+## DLI vocabulary decks: five DLI Anki decks in the Vocab tab, a folder per chapter, sentences and audio (2026-11-07; main chat)
+Owner gave five DLI Anki decks (Downloads: DLI_MSA_-_Arabic_Basic_Course_Second_Edition, DLI_CM_Course_-_Elementary_Chinese,
+DLI_All_Spanish_Vocab, DLI_Farsi_Basic_Course_Vocabulary, DLI_Korean_Vocab): "available in vocab tab for their respective
+languages once a dli student logs on and selects this language ... Each chapter into its own folder, give each word a full
+sentence, english translation, and audio for everything." Same day: Ismaeil agreed, so Arabic101 is packaged (56716a3f).
+How everything is made: **`tools/dli/DECKS.md`**. All deck content lives in `..\dli-content\<lang>\<lang>-basic\` (private,
+outside the repo); only encrypted copies are in the repo.
+- **Words** `tools/dli/anki_decks.py <lang> <apkg>` → `deck.json` (words numbered once, chapters c001… in course order; a word
+  met in several chapters is one word listed in each; it refuses to renumber once sentences exist, `--force`). Chapters:
+  Arabic 109 (Sound and Script 1-9, Chapters 1-50 with the Verbs/Old/New lists merged in, "Unit 2: the months", Semester 3
+  Lessons 1-48, "All the verbs in the course" = only words of earlier chapters), Chinese 83 (Units 1-11 by lesson, the lesson
+  number decides; Unit 12, GLOSS and handbook lists by topic; chengyu), Korean 96 (Chapters 1-56, Units 15-18 by lesson),
+  Farsi 22 (Sound and Script, Chapters 1-21), **Spanish 22 "Part N"**: the deck has no chapters; its maker added words
+  week by week (Feb-Aug 2020), weeks under 20 words join the one before. Words: ar 4,652, zh 5,817, ko 7,031, es 2,906, fa 2,874.
+- **Sentences** `sentences/<chapter>.json` (n, sentence with ⟦ ⟧ round the word's form, translation with ⟦ ⟧, `say` = how to
+  voice the word alone: always for Arabic (fully vowelled), Chinese sapi tone numbers for doubtful readings, alternatives
+  "a, b"; `fix` = a deck typo or swapped word/meaning, word and/or meaning only). Written by ~45 helper agents (Opus for ar/fa,
+  Sonnet for zh/ko/es) after a 25-word sample per language checked here; `node tools/dli/check_sentences.mjs <lang> [chapters]`
+  (and `--todo <chapter>`) checks format, marks, script, Arabic vowels (≥0.5 marks per letter), length. Helpers fixed many
+  deck typos with `fix`; notes (plurals, pinyin) can't be fixed and keep a few deck errors.
+- **Audio** `tools/dli/voice_deck.py <lang> [--budget N] [--chapters c001-c020] [--dry]`: the basics builder's Azure voices
+  (build_course.AZURE, owner's key read-only, same lock), word, 0.9 s, sentence at -10%; **6 words per request** with 1.3 s /
+  2.5 s breaks, cut at the silences (`cut`; anything that doesn't cut into exactly 2 parts per word is redone 2 requests a
+  word), Ogg Opus at **18 kb/s** (~8-12 KB a word). `audio/<n>.ogg`, `made.json` (fp, times, the word and sentence said),
+  `usage.json` (characters per month; CJK counted double). A text Azure refuses (400) is skipped and listed at the end
+  ("lve" sapi was refused: 战略/掠夺 had their say removed). Whisper check of zh c001: sentences 0.99 (check via
+  tools/course/check_audio.py on a course.json pointing at the files).
+- **Owner chose Azure's free tier** (~500,000 characters a month): Nov 2026: Chinese 118,634 (4,410 of 5,817 words; 1,407
+  left), Arabic ~330,000 (all). **December: rest of Chinese (~37k), then Spanish (~150k), Farsi (~140k), Korean (~250k) over
+  Dec-Jan**. Run e.g. `voice_deck.py zh`, then `voice_deck.py es --budget 150000`, then package.
+- **Packaging** `tools/dli/encrypt.mjs` (DLI_PASSWORD set): a folder with deck.json = a deck; each chapter whose sentences
+  are ALL written → its word list `web/dli/<id>.bin` (ships in every app, works offline) and, as far as voiced with audio that
+  still matches its text, its **audio bundle in `docs/course/dli/<id>.bin`** (published with the website only, beside the
+  basics courses' audio; dli.js makeBundle/readBundle). Unfinished chapters are a note, not an error. Unchanged files keep
+  their encrypted copies (sha in the index). Sizes Nov: web/dli ~3-4 MB, docs/course/dli ~90 MB; all five voiced ≈ 200 MB.
+- **App** (`web/js/dlicontent.js addDeck`, run by runDli on start, after each sync, from the Library DLI tab): only while
+  the study language is the DLI language. New chapters' folders first ("DLI Arabic · Chapter 1 (Unit 1)", in course order),
+  then the chapters **last first** (the reviewer shows newest new cards first, so Chapter 1 comes first; within a chapter
+  the batches go last hundred first), `POST /vocab/batch` with `language` (new field, computer + phone backend) and
+  `source` "DLI Arabic · Chapter 1 (Unit 1) · word 209" (how a card is found again: dli.js deckWordOf), each word in every
+  chapter folder it belongs to (`in`), then the chapter's audio bundle fetched once (courseUrl `dli/<id>.bin`: desktop via
+  /api/course, not cached; phones/web app from the site) and kept as each card's voice (saveVoice, once-only).
+  Synced setting **`dli_decks`** "zh-basic:1-83" = chapters added once (a deleted card or folder never comes back); audio
+  that arrives in a later version goes to cards of added chapters that still have none. Library → Courses → DLI:
+  Vocabulary section (words, chapters, how much has audio, progress while adding, Open Vocab / Add to my Vocab).
+- **Vocab page**: folders sorted by `sortFolders` (review/vocabedit.js: numbers as numbers; a DLI deck's folders together in
+  the order made = course order), the list drawn 150 rows at a time as you scroll (`drawRows`, marker `.vlist-more`).
+- Tests: `tests/js/dli-decks.test.mjs` (8). Strings: tr 142 (11 × 16); the card source pattern is in ignore.txt.
+- **Checked**: desktop server on a fresh data folder (never signed in), DLI Chinese unlocked: 83 folders, 5,817 cards in
+  order, 3,000 with their audio, Sentence played the DLI voice (206), folder review, Library DLI tab. Pictures
+  `..\tamkeen-shots\dli-decks\`. **Gotcha**: preview at `localhost:8871` reached another server (IPv6); use 127.0.0.1.
+  **Not checked**: phones, the web app (audio comes from the published site, so only after a release), two devices.

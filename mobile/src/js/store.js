@@ -97,7 +97,7 @@ export const DEFAULTS = {
   mnemonic_learn_own: "", // "Learn from my own mnemonics" (review/ownmnemonic.js): "off", else on; synced with the keys
   // DLI students (dli.js), synced with the keys: ticked ("on"), the language studied at DLI, the key the
   // password made (never the password) and the DLI podcasts already added once.
-  dli_student: "", dli_language: "", dli_key: "", dli_added: "",
+  dli_student: "", dli_language: "", dli_key: "", dli_added: "", dli_decks: "",
   sentence_source: "", mnemonic_source: "", // who makes example sentences and mnemonics (helpersource.js): "free", "ai" or ""
   llm_key_claude: "", llm_key_gemini: "", llm_key_openai: "", llm_key_grok: "",
   // Cloud transcription (transcribe-service.js): "local" = the computer writes transcripts, "cloud" = a provider does, from this phone.

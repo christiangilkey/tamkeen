@@ -37,6 +37,7 @@ import { OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../example
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
 import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
 import { learnFromNote } from "../review/cardtools.js";
+import { sortFolders } from "../review/vocabedit.js";
 import { askAi, askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { aiMakes, chosenSource } from "../helpersource.js";
 import { pickedCountry } from "../youtube-home.js";
@@ -178,7 +179,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         if (name) {
           try {
             const made = await api("/vocab/folders", { method: "POST", body: { name } });
-            folderList = [...folderList, made].sort((a, b) => a.name.localeCompare(b.name));
+            folderList = sortFolders([...folderList, made]);
             onFolder(made);
             choices.folder = made.uid;
           } catch (err) { toast(err.message, { error: true }); }

@@ -1,0 +1,12 @@
+# DLI vocabulary decks (Library → Courses → DLI; the Vocab tab, a folder per chapter): components/dlipanel.js, dlicontent.js, app/course.py.
+d4f59af4	{1}개 장에 {0}개 단어, 단어마다 예문과 번역이 있어요
+38590522	모든 단어에 음성이 있어요.
+68e47ad9	지금까지 {0}개 단어에 음성이 있어요. 나머지는 다음 업데이트에서 와요.
+eae0afc7	음성은 다음 업데이트에서 와요. 그때까지는 이 기기의 음성이 읽어 줘요.
+efae7357	단어장에 추가
+364510a7	{1}개 장 중 {0}번째 장 추가 중: {2}
+bdc752c9	어휘
+3f82d6ad	DLI 음성을 가져오지 못했어요 (HTTP {0}).
+d4022500	{0}이(가) 단어장에 들어갔어요: 단어 {1}개, 장마다 폴더 하나.
+b5ce3290	{1}의 단어 {0}개가 단어장에 더 들어갔어요.
+5f580882	DLI 음성을 내려받지 못했어요 ({0}). 연결을 확인하세요.

@@ -1,14 +1,15 @@
 // Library → Courses → DLI: the material for the learner's DLI language (Settings → Languages → DLI
 // students), opened on the device with the key the password made (dlicontent.js). Podcasts are in the
 // learner's podcasts with every episode transcribed (added by themselves on unlocking; "Add to my
-// podcasts" brings one back after it was removed); other files open in a box. Until there is material
+// podcasts" brings one back after it was removed); vocabulary decks are in the Vocab tab, a folder per chapter;
+// other files open in a box. Until there is material
 // for a language it says it is coming soon. Shared by the computer and the phone.
 
 import { api, esc, h, state, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
-import { contentFor, dliLanguageName, dliState } from "../dli.js";
-import { addPodcast, loadIndex, openFile } from "../dlicontent.js";
+import { contentFor, deckMarks, dliLanguageName, dliState } from "../dli.js";
+import { addPodcast, loadIndex, onDeckProgress, openFile, runDli } from "../dlicontent.js";
 import { openModal } from "./modal.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -38,6 +39,7 @@ export function dliPanel(el, language) {
   const bodyEl = page.querySelector(".dli-body");
   let alive = true;
   const urls = [];
+  const cleanups = [];
 
   function soon() {
     bodyEl.innerHTML = "";
@@ -78,6 +80,46 @@ export function dliPanel(el, language) {
     // Followed already? (the ordinary podcast door answers without changing anything)
     const r = await api("/premade", { method: "POST", body: { feed_url: pod.feed, language, follow: false, items: [] } }).catch(() => null);
     paint(r && r.feed_id);
+    return row;
+  }
+
+  /** A vocabulary deck: its size, how much has audio yet, and where it is (the Vocab tab, a folder per
+   *  chapter, put there by dlicontent.js addDeck on starting and after each sync; this row can start it too). */
+  function deckRow(deck) {
+    const row = h(`<div class="dli-row"><span class="dli-row-ico">${icon("vocab", 22)}</span>
+      <span class="dli-row-text"><strong></strong><span class="small muted dli-deck-size"></span>
+        <span class="small muted dli-deck-state"></span></span><span class="dli-row-act"></span></div>`);
+    row.querySelector("strong").textContent = deck.title;
+    const voiced = deck.chapters.reduce((s, c) => s + c.voiced, 0);
+    row.querySelector(".dli-deck-size").textContent = t("{0} words in {1} chapters, each with a sentence and its translation",
+      deck.words.toLocaleString(), deck.chapters.length);
+    const stateEl = row.querySelector(".dli-deck-state");
+    const act = row.querySelector(".dli-row-act");
+    const paint = (busy) => {
+      const marks = deckMarks(settings(), deck.id);
+      const all = deck.chapters.every((c) => marks.has(Number(c.id.slice(1))));
+      stateEl.textContent = busy ? busy
+        : voiced >= deck.words ? t("With audio for every word.")
+        : voiced ? t("Audio for {0} words so far; the rest comes with the next updates.", voiced.toLocaleString())
+        : t("Audio comes with the next updates; until then this device's voice reads them.");
+      act.innerHTML = "";
+      if (busy) return;
+      if (all) {
+        act.append(h(`<a class="btn" href="#/vocab">${esc(t("Open Vocab"))}</a>`));
+        return;
+      }
+      const add = h(`<button type="button" class="primary"></button>`);
+      add.textContent = t("Add to my Vocab");
+      add.onclick = () => { paint(t("Adding…")); runDli().finally(() => alive && paint("")); };
+      act.append(add);
+    };
+    paint("");
+    const stop = onDeckProgress((p) => {
+      if (!alive) return;
+      if (p && p.deck === deck.title) paint(t("Adding chapter {0} of {1}: {2}", p.step, p.of, p.chapter));
+      else if (!p) paint("");
+    });
+    cleanups.push(stop);
     return row;
   }
 
@@ -126,6 +168,13 @@ export function dliPanel(el, language) {
     const items = contentFor(index, language);
     if (!items.length) { soon(); return; }
     bodyEl.innerHTML = "";
+    const decks = items.filter((x) => x.kind === "deck");
+    if (decks.length) {
+      const sec = h(`<section class="dli-sec"><h3></h3><div class="dli-list"></div></section>`);
+      sec.querySelector("h3").textContent = t("Vocabulary");
+      for (const d of decks) sec.querySelector(".dli-list").append(deckRow(d));
+      bodyEl.append(sec);
+    }
     const pods = items.filter((x) => x.kind === "podcast");
     if (pods.length) {
       const sec = h(`<section class="dli-sec"><h3>Podcasts</h3><div class="dli-list"></div></section>`);
@@ -153,7 +202,7 @@ export function dliPanel(el, language) {
     bodyEl.append(p);
   });
 
-  return () => { alive = false; urls.forEach((u) => URL.revokeObjectURL(u)); };
+  return () => { alive = false; urls.forEach((u) => URL.revokeObjectURL(u)); cleanups.forEach((fn) => fn()); };
 }
 
 // ---------- looks (added once) ----------

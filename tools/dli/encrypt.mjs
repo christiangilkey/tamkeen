@@ -37,6 +37,9 @@ import { FIXES } from "./fixes.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const DEFAULT_FROM = resolve(root, "..", "dli-content");
 export const DEFAULT_OUT = join(root, "web", "dli");
+// The decks' audio is too big to ship inside the apps: it is published with the website beside the basics
+// courses' audio (app/course.py and web/js/coursedata.js fetch it), and fetched only when a learner adds a chapter.
+export const DEFAULT_AUDIO_OUT = join(root, "docs", "course", "dli");
 /** Folders at the top of the content folder that stand for a podcast of one language. */
 export const ALIASES = { arabic101: "ar" };
 const SKIP = /^(\.|readme(\.\w+)?$|thumbs\.db$|desktop\.ini$)/i;
@@ -98,8 +101,10 @@ async function lastIndex(out, key) {
  * test gives its own, with its own `keyParams`). `empty`: an index with nothing in it. Returns
  * { index, written, kept, skipped: [messages] }.
  */
-export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, password, check = dli.CHECK, keyParams = dli.KEY,
-                                    empty = false, log = () => {} } = {}) {
+export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, audioOut, password, check = dli.CHECK,
+                                    keyParams = dli.KEY, empty = false, log = () => {} } = {}) {
+  // (the website's audio folder only for the app's own package; any other package keeps its audio beside it)
+  audioOut = audioOut || (resolve(out) === resolve(DEFAULT_OUT) ? DEFAULT_AUDIO_OUT : join(out, "audio"));
   if (!password) throw new Error("Set the environment variable DLI_PASSWORD to the DLI password first.");
   if (!(await dli.checkPassword(password, check))) throw new Error("DLI_PASSWORD isn't the DLI password: nothing was written.");
   const key = await dli.contentKey(password, keyParams);
@@ -110,22 +115,29 @@ export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, pass
     for (const it of items) {
       if (it.kind === "file" && it.sha) known.set(it.sha, it.id);
       if (it.kind === "podcast") for (const e of it.episodes) if (e.sha) known.set(e.sha, e.file);
+      if (it.kind === "deck") {
+        for (const c of it.chapters) {
+          if (c.sha) known.set(c.sha, c.file);
+          if (c.audio_sha && c.audio) known.set(c.audio_sha, c.audio);
+        }
+      }
     }
   }
-  const result = { written: 0, kept: 0, skipped: [], fixed: {} };
+  const result = { written: 0, kept: 0, skipped: [], fixed: {}, notes: [] };
   const used = new Set();
   /** Encrypt one file's plain bytes (or keep last time's copy), returning its id. */
-  async function store(plain, { gzip, json }) {
+  async function store(plain, { gzip, json, to = out }) {
     const digest = sha(plain);
     const old = known.get(digest);
-    if (old && !used.has(old) && existsSync(join(out, `${old}.bin`))) {
+    if (old && !used.has(old) && existsSync(join(to, `${old}.bin`))) {
       used.add(old);
       result.kept++;
       return { id: old, sha: digest };
     }
     const id = newId();
     const sealed = json ? await dli.sealJson(key, json, { name: id }) : await dli.sealBytes(key, plain, { name: id, gzip });
-    writeFileSync(join(out, `${id}.bin`), sealed);
+    mkdirSync(to, { recursive: true });
+    writeFileSync(join(to, `${id}.bin`), sealed);
     used.add(id);
     result.written++;
     return { id, sha: digest };
@@ -158,10 +170,59 @@ export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, pass
     return item;
   }
 
+  /** A vocabulary deck (tools/dli/DECKS.md): each chapter whose sentences are all written becomes its word list
+   *  (in `out`) and, as far as it is voiced, its audio bundle (in `audioOut`, published with the website). */
+  async function deck(folder, code) {
+    const d = JSON.parse(readFileSync(join(folder, "deck.json"), "utf8"));
+    const written = new Map();
+    for (const f of list(join(folder, "sentences")).filter((n) => /^c\d{3}\.json$/.test(n))) {
+      for (const e of JSON.parse(readFileSync(join(folder, "sentences", f), "utf8")).words || []) written.set(e.n, e);
+    }
+    const madeFile = join(folder, "audio", "made.json");
+    const made = existsSync(madeFile) ? JSON.parse(readFileSync(madeFile, "utf8")) : {};
+    const unmark = (s) => String(s || "").replace(/[⟦⟧]/gu, "").trim();
+    const chapters = [];
+    let words = 0, left = 0;
+    for (const ch of d.chapters) {
+      const due = ch.words.filter((n) => d.words[n - 1].chapters[0] === ch.id);
+      if (!due.every((n) => written.has(n) && unmark(written.get(n).sentence) && written.get(n).translation)) { left++; continue; }
+      const list_ = ch.words.map((n) => {
+        const w = d.words[n - 1];
+        if (w.chapters[0] !== ch.id) return { n, also: true };
+        const e = written.get(n);
+        const fix = e.fix || {};
+        return { n, text: fix.word || w.word, meaning: fix.meaning || w.meaning, notes: w.notes || "", sentence: e.sentence,
+                 translation: e.translation, in: w.chapters };
+      });
+      const payload = { id: ch.id, words: list_ };
+      const { id: file, sha: digest } = await store(Buffer.from(JSON.stringify(payload)), { json: payload });
+      // The audio made for exactly this text (voice_deck.py notes what it said).
+      const files = [];
+      for (const w of list_.filter((x) => !x.also)) {
+        const m = made[String(w.n)];
+        const path = join(folder, "audio", `${w.n}.ogg`);
+        if (m && m.word === w.text && m.sentence === unmark(w.sentence) && m.times && existsSync(path)) {
+          files.push({ n: w.n, bytes: readFileSync(path), times: m.times });
+        }
+      }
+      let audio = "", audioSha = "";
+      if (files.length) ({ id: audio, sha: audioSha } = await store(Buffer.from(dli.makeBundle(files)), { gzip: false, to: audioOut }));
+      chapters.push({ id: ch.id, title: ch.title, words: ch.words.length, file, audio, voiced: files.length, sha: digest, audio_sha: audioSha });
+      words += due.length;
+    }
+    if (left) result.notes.push(`${code}/${d.id}: ${left} chapter(s) not finished yet (their sentences), left out for now`);
+    const item = dli.cleanIndex({ content: { [code]: [{ kind: "deck", id: d.id, title: d.title, short: d.short, words, chapters }] } }).content[code][0];
+    if (!item) return null;
+    log(`  ${code}: deck "${item.title}", ${item.chapters.length} chapters, ${words} words, `
+        + `${item.chapters.reduce((s, c) => s + c.voiced, 0)} with audio`);
+    return item;
+  }
+
   async function walk(folder, code, group, items) {
     for (const name of list(folder)) {
       const path = join(folder, name);
       if (statSync(path).isDirectory()) {
+        if (existsSync(join(path, "deck.json"))) { const k = await deck(path, code); if (k) items.push(k); continue; }
         const info = readPodcastIndex(path);
         if (info) { const p = await podcast(path, info, code); if (p) items.push(p); }
         else await walk(path, code, group ? `${group} / ${name}` : name, items);
@@ -188,10 +249,13 @@ export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, pass
   }
   const index = dli.cleanIndex({ v: 1, made: Math.floor(Date.now() / 1000), content });
   writeFileSync(join(out, "index.bin"), await dli.sealJson(key, index, { name: dli.INDEX_NAME }));
-  // Encrypted copies nothing refers to any more go.
-  for (const name of readdirSync(out)) {
-    const m = /^([0-9a-f]{32})\.bin$/.exec(name);
-    if (m && !used.has(m[1])) rmSync(join(out, name));
+  // Encrypted copies nothing refers to any more go (the audio folder holds only this tool's files).
+  for (const folder of [out, audioOut]) {
+    if (!existsSync(folder)) continue;
+    for (const name of readdirSync(folder)) {
+      const m = /^([0-9a-f]{32})\.bin$/.exec(name);
+      if (m && !used.has(m[1])) rmSync(join(folder, name));
+    }
   }
   return { index, ...result };
 }
@@ -203,14 +267,16 @@ if (isMain) {
   try {
     const from = resolve(arg("--from") || process.env.DLI_CONTENT || DEFAULT_FROM);
     const out = resolve(arg("--out") || DEFAULT_OUT);
-    console.log(args.includes("--empty") ? `Writing an empty DLI index to ${out}` : `Packaging ${from}\n  into ${out}`);
-    const r = await packContent({ from, out, password: process.env.DLI_PASSWORD, empty: args.includes("--empty"), log: console.log });
+    const audioOut = resolve(arg("--audio-out") || (arg("--out") ? join(out, "audio") : DEFAULT_AUDIO_OUT));
+    console.log(args.includes("--empty") ? `Writing an empty DLI index to ${out}` : `Packaging ${from}\n  into ${out}\n  (audio into ${audioOut})`);
+    const r = await packContent({ from, out, audioOut, password: process.env.DLI_PASSWORD, empty: args.includes("--empty"), log: console.log });
     for (const code of dli.DLI_CODES) {
       const items = r.index.content[code];
       console.log(`  ${dli.dliLanguageName(code)}: ${items.length ? `${items.length} item(s)` : "nothing yet (coming soon)"}`);
     }
     for (const [name, tally] of Object.entries(r.fixed)) console.log(`  Fixed on the way, ${name}: ${JSON.stringify(tally)}`);
     console.log(`Done: ${r.written} file(s) encrypted, ${r.kept} unchanged.`);
+    for (const s of r.notes) console.log(`  Note: ${s}`);
     if (r.skipped.length) {
       console.log(`Left out (${r.skipped.length}):`);
       for (const s of r.skipped) console.log(`  ${s}`);

@@ -739,6 +739,7 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
 .review-block .goal-wrap { margin-bottom: 0; }
 .vocab-search { width: 100%; margin-bottom: 12px; }
 .vocab-page .vocab-item { display: block; padding: 0; }
+.vocab-page .vlist-more { height: 1px; }  /* where the next rows are drawn (vocab.js drawRows) */
 .vi-head { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; cursor: pointer; border-radius: inherit; }
 .vi-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .vi-head .pick { margin-top: 9px; flex: none; }

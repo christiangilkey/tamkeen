@@ -1,0 +1,12 @@
+# DLI vocabulary decks (Library → Courses → DLI; the Vocab tab, a folder per chapter): components/dlipanel.js, dlicontent.js, app/course.py.
+d4f59af4	{0} palavras em {1} capítulos, cada uma com uma frase e a tradução
+38590522	Com áudio para cada palavra.
+68e47ad9	Áudio para {0} palavras até agora; o resto chega com as próximas atualizações.
+eae0afc7	O áudio chega com as próximas atualizações; até lá, a voz deste aparelho lê as palavras.
+efae7357	Adicionar ao Vocabulário
+364510a7	Adicionando o capítulo {0} de {1}: {2}
+bdc752c9	Vocabulário
+3f82d6ad	Não foi possível obter o áudio do DLI (HTTP {0}).
+d4022500	{0} está no seu Vocabulário: {1} palavras, uma pasta por capítulo.
+b5ce3290	Mais {0} palavras de {1} estão no seu Vocabulário.
+5f580882	Não foi possível baixar o áudio do DLI ({0}). Verifique sua conexão.

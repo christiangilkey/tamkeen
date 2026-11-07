@@ -48,6 +48,7 @@ class BatchCard(BaseModel):
     memo: str = ""  # Memorization notes: "Add words" can put a mnemonic there (the free Mnemonic maker)
     folders: list[str] = []
     source: str = ""  # where it came from, shown on the card ("Arabic basics · word 12": the basics course)
+    language: str = ""  # the card's language when the caller knows it (a DLI deck: Farsi in Arabic letters); else its letters say
 
 
 class BatchIn(BaseModel):
@@ -247,7 +248,8 @@ def add_batch(body: BatchIn) -> dict[str, Any]:
                 "language, folders, memo) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",
                 (ids.new_uid(), text, arabic.normalize(text), c.sentence.strip()[:1000], c.meaning.strip()[:500],
                  c.notes.strip()[:2000], c.translation.strip()[:1000], c.source.strip()[:200], now - n * 0.001,
-                 languages.detect(text, study), json.dumps(folders), c.memo.strip()[:2000]),
+                 c.language if languages.valid(c.language) else languages.detect(text, study), json.dumps(folders),
+                 c.memo.strip()[:2000]),
             )
             made.append(int(cur.lastrowid))
         rows = [conn.execute("SELECT * FROM vocab WHERE id = ?", (i,)).fetchone() for i in made]

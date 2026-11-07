@@ -1,0 +1,12 @@
+# DLI vocabulary decks (Library → Courses → DLI; the Vocab tab, a folder per chapter): components/dlipanel.js, dlicontent.js, app/course.py.
+d4f59af4	{0} ka pulong sa {1} ka kapitulo, matag usa adunay sentence ug ang hubad niini
+38590522	Adunay audio ang matag pulong.
+68e47ad9	Audio para sa {0} ka pulong sa pagkakaron; ang uban moabot sa sunod nga mga update.
+eae0afc7	Moabot ang audio sa sunod nga mga update; samtang wala pa, ang tingog niining device ang mobasa niini.
+efae7357	Idugang sa akong Vocab
+364510a7	Gidugang ang kapitulo {0} sa {1}: {2}
+bdc752c9	Vocabulary
+3f82d6ad	Dili makuha ang DLI audio (HTTP {0}).
+d4022500	Ang {0} anaa na sa imong Vocab: {1} ka pulong, usa ka folder matag kapitulo.
+b5ce3290	{0} pa ka pulong gikan sa {1} ang anaa na sa imong Vocab.
+5f580882	Dili ma-download ang DLI audio ({0}). Susiha ang imong koneksyon.

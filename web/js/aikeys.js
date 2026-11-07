@@ -16,8 +16,9 @@ export const KEYS = ["llm_key_claude", "llm_key_gemini", "llm_key_openai", "llm_
   "mnemonic_learn_own", // "Learn from my own mnemonics" (review/ownmnemonic.js): "off", else on
   "online_from", // the age check for the online features (agegate.js): "", "ok" or the month the learner turns 16
   // DLI students (dli.js): "I'm a DLI student" ("on" or ""), the language studied at DLI, the key the
-  // password made (never the password), and the DLI podcasts already added once.
-  "dli_student", "dli_language", "dli_key", "dli_added"];
+  // password made (never the password), the DLI podcasts already added once, and the chapters of the DLI
+  // vocabulary decks already put in the Vocab tab once.
+  "dli_student", "dli_language", "dli_key", "dli_added", "dli_decks"];
 export const TIMES = "key_times"; // setting: {key name: when it last changed, here or on another device (whole seconds)}
 const MAX_LENGTH = 2000;
 

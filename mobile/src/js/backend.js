@@ -899,7 +899,7 @@ const routes = [
     return vocabOut(v);
   }],
   // Several cards typed in at once (the Vocab page's "Add words"; the computer's twin is app/api/vocab.py
-  // add_batch): in the order given, the first the newest, each in the language its letters say.
+  // add_batch): in the order given, the first the newest, each in the language it names (a DLI deck's) or its letters say.
   ["POST", /^\/vocab\/batch$/, (m, q, body) => {
     const cards = (Array.isArray(body.cards) ? body.cards : []).filter((c) => c && String(c.text || "").trim());
     if (!cards.length) throw new ApiError("Nothing to save.");
@@ -908,7 +908,7 @@ const routes = [
     const known = new Set(liveFolders().map((f) => f.uid));
     const s = (x, n) => String(x || "").trim().slice(0, n);
     const made = cards.map((c, n) => {
-      const text = s(c.text, 200), found = detectLanguage(text, study);
+      const text = s(c.text, 200), found = isLanguage(c.language) ? c.language : detectLanguage(text, study);  // (a DLI deck says its own)
       const v = { uid: newUid(), episode_uid: null, text, sentence: s(c.sentence, 1000), start: null, end: null, sent_start: null,
                   sent_end: null, meaning: s(c.meaning, 500), notes: s(c.notes, 2000), translation: s(c.translation, 1000),
                   ...(s(c.memo, 2000) ? { memo: s(c.memo, 2000) } : {}),  // (a mnemonic "Add words" made)

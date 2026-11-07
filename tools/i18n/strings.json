@@ -3710,6 +3710,41 @@
   "f": "web/js/components/dlipanel.js"
  },
  {
+  "id": "d4f59af4",
+  "k": "{0} words in {1} chapters, each with a sentence and its translation",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "38590522",
+  "k": "With audio for every word.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "68e47ad9",
+  "k": "Audio for {0} words so far; the rest comes with the next updates.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "eae0afc7",
+  "k": "Audio comes with the next updates; until then this device's voice reads them.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "71db6b56",
+  "k": "Open Vocab",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "efae7357",
+  "k": "Add to my Vocab",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "364510a7",
+  "k": "Adding chapter {0} of {1}: {2}",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
   "id": "b1b8530b",
   "k": "Opening…",
   "f": "web/js/components/dlipanel.js"
@@ -3722,6 +3757,11 @@
  {
   "id": "9d8e4017",
   "k": "This file couldn't be opened.",
+  "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "bdc752c9",
+  "k": "Vocabulary",
   "f": "web/js/components/dlipanel.js"
  },
  {
@@ -8455,6 +8495,21 @@
   "f": "web/js/dlicontent.js"
  },
  {
+  "id": "3f82d6ad",
+  "k": "The DLI audio couldn't be fetched (HTTP {0}).",
+  "f": "web/js/dlicontent.js"
+ },
+ {
+  "id": "d4022500",
+  "k": "{0} is in your Vocab: {1} words, a folder for each chapter.",
+  "f": "web/js/dlicontent.js"
+ },
+ {
+  "id": "b5ce3290",
+  "k": "{0} more words from {1} are in your Vocab.",
+  "f": "web/js/dlicontent.js"
+ },
+ {
   "id": "174bac74",
   "k": "This needs your own AI key: add one in Settings → Word definitions.",
   "f": "web/js/fixes.js"
@@ -8772,11 +8827,6 @@
  {
   "id": "2c5dcbb8",
   "k": "Questions need meanings: fill some in on the Vocab page.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "71db6b56",
-  "k": "Open Vocab",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -24413,6 +24463,11 @@
   "id": "b8d1317b",
   "k": "Your daily totals are kept here between Anki sessions.",
   "f": "app/companion.py"
+ },
+ {
+  "id": "5f580882",
+  "k": "Couldn't download the DLI audio ({0}). Check your connection.",
+  "f": "app/course.py"
  },
  {
   "id": "23b6910c",

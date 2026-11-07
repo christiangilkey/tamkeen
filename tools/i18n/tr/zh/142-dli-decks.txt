@@ -1,0 +1,12 @@
+# DLI vocabulary decks (Library → Courses → DLI; the Vocab tab, a folder per chapter): components/dlipanel.js, dlicontent.js, app/course.py.
+d4f59af4	{1} 章共 {0} 个词，每个词都有例句和翻译
+38590522	每个词都有音频。
+68e47ad9	目前已有 {0} 个词有音频，其余的会随后续更新提供。
+eae0afc7	音频会随后续更新提供；在此之前由本设备的语音朗读。
+efae7357	添加到词汇
+364510a7	正在添加第 {0} 章（共 {1} 章）：{2}
+bdc752c9	词汇
+3f82d6ad	无法获取 DLI 音频（HTTP {0}）。
+d4022500	{0} 已在你的词汇中：{1} 个词，每章一个文件夹。
+b5ce3290	{1} 又有 {0} 个词加入了你的词汇。
+5f580882	无法下载 DLI 音频（{0}）。请检查网络连接。
