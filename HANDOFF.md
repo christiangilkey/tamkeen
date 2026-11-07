@@ -6517,7 +6517,7 @@ Owner: 10 gym leaders to fight, each harder than the last; beating one opens the
   Rematch / lock; `fightLeader`: the player's team unscaled, like rentals; all-time mode gives the leader the player's
   card count too, so only the words get harder). livebattle-ui.js: the rival card shows the leader's name, end card
   lines (beat, reward, next open), "Battle again" goes back to the gym list (`setup.again`). CSS "creature game: gyms".
-  No new art: element icons, creature portraits, lock/check/trophy icons (leader portraits are a Decisions item).
+  No new art: element icons, creature portraits, lock/check/trophy icons (the owner chose no leader pictures for now, 2026-11-07; Decisions #45).
 - **Trials** `tools/game_sim/gym-trials.mjs [n] [share right] [leader id]` (the computer plays the player too:
   3 random fully grown creatures, autoSkill 0.7, answers 1-3 s, one in five up to 2 s slower; with a leader id every
   leader gets that leader's team, stats and arena, so only its brain/form/time differ). 150 battles a leader:
