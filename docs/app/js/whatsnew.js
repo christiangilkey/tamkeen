@@ -9,6 +9,11 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.47.1",
+  "Signing in on the welcome screen takes you straight to Home");
+notes("0.47.1",
+  "A book file you add goes under the language it is written in: if one didn't show up, add it again");
+
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
 notes("0.47.0",
   "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter");

@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ El modelo de vocales está en este ordenador ({0} MB). {1}",
 "Downloading the vowel model… {0}%":"Descargando el modelo de vocales… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Las vocales del árabe necesitan un modelo de vocales ({0} MB, árabe estándar). {1}",
+"Signing in on the welcome screen takes you straight to Home":"Iniciar sesión en la pantalla de bienvenida te lleva directo a Inicio",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"Un archivo de libro que añades va al idioma en que está escrito: si alguno no aparecía, vuelve a añadirlo",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"Estudiantes del DLI: desbloquea tu curso en Ajustes → Idiomas, con todo su vocabulario en Vocabulario, una carpeta por capítulo",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"El Creador de mnemotecnias aprende de las palabras parecidas que escribes en MAYÚSCULAS, y deja fuera palabras pequeñas como al-, el y to",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"Añadir palabras acepta frases enteras, como por favor o إن شاء الله, como una sola tarjeta",

@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Nasa computer na ito ang vowel model ({0} MB). {1}",
 "Downloading the vowel model… {0}%":"Dina-download ang vowel model… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Kailangan ng vowel model para sa mga patinig ng Arabe ({0} MB, Standard Arabic). {1}",
+"Signing in on the welcome screen takes you straight to Home":"Ang pag-sign in sa welcome screen ay diretsong magdadala sa iyo sa Home",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"Ang file ng aklat na idinagdag mo ay mapupunta sa wikang pinagsulatan nito: kung may hindi lumabas, idagdag itong muli",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"Mga estudyante ng DLI: i-unlock ang iyong kurso sa Settings → Mga wika, kasama ang buong vocabulary nito sa Vocab, isang folder bawat kabanata",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"Natututo ang Gawa ng mnemonic mula sa mga salitang magkatunog na isinusulat mo sa MALALAKING TITIK, at hindi na isinasama ang maliliit na salita gaya ng al-, el at to",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"Tumatanggap na ang Magdagdag ng mga salita ng buong parirala, gaya ng por favor o إن شاء الله, bilang isang card",

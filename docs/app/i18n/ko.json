@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 모음 모델이 이 컴퓨터에 있어요({0} MB).{1}",
 "Downloading the vowel model… {0}%":"모음 모델 다운로드하는 중… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"아랍어 모음 부호에는 모음 모델이 필요해요({0} MB, 표준 아랍어).{1}",
+"Signing in on the welcome screen takes you straight to Home":"환영 화면에서 로그인하면 바로 홈으로 이동해요",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"추가한 책 파일은 그 책이 쓰인 언어로 들어가요. 보이지 않던 책은 다시 추가하세요",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"DLI 학생: 설정 → 언어에서 과정을 잠금 해제하면 전체 어휘가 단어장에 들어가요. 장마다 폴더 하나",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"기억법 만들기는 대문자(CAPITALS)로 쓴 비슷한 소리의 단어에서 배우고, al-, el, to 같은 작은 단어는 빼요",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"단어 추가에서 por favor나 إن شاء الله 같은 구 전체를 카드 한 장으로 만들 수 있어요",

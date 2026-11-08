@@ -14,6 +14,11 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.47.1 — 2026-11-08
+
+- **Fixed:** Signing in with Google on the welcome screen now takes you straight to Home, instead of leaving you on the welcome screen with only a "Signed in" message. *(web app)*
+- **Fixed:** A book file you add is filed under the language it is written in, judged from all through the book. Books from the Internet Archive, which open with an English notice and a list of "Page 1, Page 2…", were filed as English, so an Arabic book didn't show in your Arabic Library. An EPUB's own language label now helps too. If a book you added didn't show up, add the same file again and it moves to the right language.
+
 ## v0.47.0 — 2026-11-07
 
 - **New:** **DLI students** (the Defense Language Institute). In Settings → Languages, tick **I'm a DLI student**, choose the language you study at DLI (Arabic, Chinese, Farsi, French, Korean, Russian or Spanish) and enter the DLI password to unlock material for that language. It shows in Library → Courses → **DLI** while you study that language (if it isn't one of your languages yet, the app offers to add it), and the unlock follows you to your other devices. Material appears there as it is added: for DLI Arabic students that includes podcasts put straight into your podcasts with every episode already transcribed. Unticking the box locks it again; anything already added to your library stays. The material is encrypted inside the app, so it can only be read with the password.

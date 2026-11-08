@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ मात्रा मॉडल इस कंप्यूटर पर है ({0} MB)।{1}",
 "Downloading the vowel model… {0}%":"मात्रा मॉडल डाउनलोड हो रहा है… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"अरबी मात्रा-चिह्नों के लिए मात्रा मॉडल चाहिए ({0} MB, मानक अरबी)।{1}",
+"Signing in on the welcome screen takes you straight to Home":"स्वागत स्क्रीन पर साइन इन करने से आप सीधे होम पर पहुँचते हैं",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"आपकी जोड़ी गई किताब की फ़ाइल उसी भाषा में जाती है जिसमें वह लिखी है: अगर कोई किताब नहीं दिखी, तो उसे फिर से जोड़ें",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"DLI के छात्र: सेटिंग्स → भाषाएँ में अपना कोर्स खोलें, उसकी पूरी शब्दावली शब्दावली में, हर अध्याय का एक फ़ोल्डर",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"याद-सहायक बनाने वाला उन मिलती-जुलती आवाज़ वाले शब्दों से सीखता है जो आप बड़े अक्षरों (CAPITALS) में लिखते हैं, और al-, el और to जैसे छोटे शब्द छोड़ देता है",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"शब्द जोड़ें अब पूरे वाक्यांश, जैसे por favor या إن شاء الله, एक कार्ड के रूप में लेता है",
