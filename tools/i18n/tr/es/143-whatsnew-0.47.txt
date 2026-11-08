@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Estudiantes del DLI: desbloquea tu curso en Ajustes → Idiomas, con todo su vocabulario en Vocabulario, una carpeta por capítulo
+8b9a5b6f	El Creador de mnemotecnias aprende de las palabras parecidas que escribes en MAYÚSCULAS, y deja fuera palabras pequeñas como al-, el y to
+ac04db1a	Añadir palabras acepta frases enteras, como por favor o إن شاء الله, como una sola tarjeta
+1f1aeebd	El juego de criaturas: cada parte tiene su propia pantalla, y la página Criaturas se lee como una guía de criaturas

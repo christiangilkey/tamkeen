@@ -21925,6 +21925,26 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "f79bb1fa",
+  "k": "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "8b9a5b6f",
+  "k": "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ac04db1a",
+  "k": "Add words takes whole phrases, such as por favor or إن شاء الله, as one card",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "1f1aeebd",
+  "k": "The creature game: every part has a screen of its own, and the Creatures page reads like a creature guide",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "d46a53cd",
   "k": "Your creature's card on Home: a goal ring round your creature, rewards that fly to their counter, and four big tiles with a dot when something waits",
   "f": "web/js/whatsnew.js"

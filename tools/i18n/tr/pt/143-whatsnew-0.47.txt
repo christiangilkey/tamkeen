@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Alunos do DLI: desbloqueie seu curso em Configurações → Idiomas, com todo o vocabulário dele em Vocabulário, uma pasta por capítulo
+8b9a5b6f	O Criador de mnemônicos aprende com as palavras de som parecido que você escreve em MAIÚSCULAS, e deixa de fora palavras pequenas como al-, el e to
+ac04db1a	Adicionar palavras aceita frases inteiras, como por favor ou إن شاء الله, como um único cartão
+1f1aeebd	O jogo das criaturas: cada parte tem sua própria tela, e a página Criaturas se lê como um guia de criaturas

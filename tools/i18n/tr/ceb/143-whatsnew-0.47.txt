@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Mga estudyante sa DLI: ablihi ang imong kurso sa Settings → Mga pinulongan, uban ang tanan niining vocabulary sa Vocab, usa ka folder matag kapitulo
+8b9a5b6f	Ang Mnemonic maker makakat-on gikan sa mga pulong nga parehas og tingog nga imong isulat sa DAGKONG LETRA, ug dili na niya iapil ang gagmayng pulong sama sa al-, el ug to
+ac04db1a	Ang Pagdugang og mga pulong modawat na og tibuok nga hugpong sa pulong, sama sa por favor o إن شاء الله, isip usa ka card
+1f1aeebd	Ang dula sa mga linalang: ang matag bahin adunay kaugalingong screen, ug ang panid sa Mga linalang mabasa sama sa giya sa mga linalang

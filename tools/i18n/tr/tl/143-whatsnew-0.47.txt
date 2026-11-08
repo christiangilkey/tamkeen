@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Mga estudyante ng DLI: i-unlock ang iyong kurso sa Settings → Mga wika, kasama ang buong vocabulary nito sa Vocab, isang folder bawat kabanata
+8b9a5b6f	Natututo ang Gawa ng mnemonic mula sa mga salitang magkatunog na isinusulat mo sa MALALAKING TITIK, at hindi na isinasama ang maliliit na salita gaya ng al-, el at to
+ac04db1a	Tumatanggap na ang Magdagdag ng mga salita ng buong parirala, gaya ng por favor o إن شاء الله, bilang isang card
+1f1aeebd	Ang laro ng mga nilalang: may sariling screen ang bawat bahagi, at nababasa ang pahina ng Mga nilalang na parang gabay sa mga nilalang

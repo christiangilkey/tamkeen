@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	DLI-Studierende: Schalte deinen Kurs unter Einstellungen → Sprachen frei, mit seinem ganzen Wortschatz unter Vokabeln, ein Ordner pro Kapitel
+8b9a5b6f	Der Eselsbrücken-Macher lernt von den ähnlich klingenden Wörtern, die du in GROSSBUCHSTABEN schreibst, und lässt kleine Wörter wie al-, el und to weg
+ac04db1a	Wörter hinzufügen nimmt ganze Wendungen wie por favor oder إن شاء الله als eine Karte
+1f1aeebd	Das Wesen-Spiel: Jeder Teil hat einen eigenen Bildschirm, und die Seite Wesen liest sich wie ein Wesen-Handbuch

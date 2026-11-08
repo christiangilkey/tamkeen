@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Studenti del DLI: sblocca il tuo corso in Impostazioni → Lingue, con tutto il suo vocabolario in Vocabolario, una cartella per capitolo
+8b9a5b6f	Il Generatore di mnemotecniche impara dalle parole simili nel suono che scrivi in MAIUSCOLO, e lascia fuori le parole piccole come al-, el e to
+ac04db1a	Aggiungi parole accetta frasi intere, come por favor o إن شاء الله, come un'unica carta
+1f1aeebd	Il gioco delle creature: ogni parte ha una schermata tutta sua, e la pagina Creature si legge come una guida alle creature

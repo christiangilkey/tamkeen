@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Estudiants del DLI: desbloqueja el teu curs a Configuració → Llengües, amb tot el seu vocabulari a Vocabulari, una carpeta per capítol
+8b9a5b6f	El Creador de mnemotècnies aprèn de les paraules semblants que escrius en MAJÚSCULES, i deixa de banda paraules petites com al-, el i to
+ac04db1a	Afegeix paraules accepta frases senceres, com por favor o إن شاء الله, com una sola targeta
+1f1aeebd	El joc de criatures: cada part té la seva pròpia pantalla, i la pàgina Criatures es llegeix com una guia de criatures

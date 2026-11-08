@@ -10,6 +10,15 @@ const WHATS_NEW = new Map();
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
 // Added with the feature, ahead of the release (rename the version if the release is numbered otherwise).
+notes("0.47.0",
+  "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter");
+notes("0.47.0",
+  "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to");
+notes("0.47.0",
+  "Add words takes whole phrases, such as por favor or إن شاء الله, as one card");
+notes("0.47.0",
+  "The creature game: every part has a screen of its own, and the Creatures page reads like a creature guide");
+
 notes("0.46.0",
   "Your creature's card on Home: a goal ring round your creature, rewards that fly to their counter, and four big tiles with a dot when something waits");
 notes("0.46.0",

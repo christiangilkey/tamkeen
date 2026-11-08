@@ -1,0 +1,5 @@
+# What's new 0.47 (web/js/whatsnew.js).
+f79bb1fa	Étudiants du DLI : débloquez votre cours dans Réglages → Langues, avec tout son vocabulaire dans Vocabulaire, un dossier par chapitre
+8b9a5b6f	Le Créateur de mnémoniques apprend des mots qui sonnent pareil que vous écrivez en MAJUSCULES, et laisse de côté les petits mots comme al-, el et to
+ac04db1a	Ajouter des mots accepte des expressions entières, comme por favor ou إن شاء الله, en une seule carte
+1f1aeebd	Le jeu des créatures : chaque partie a son propre écran, et la page Créatures se lit comme un guide des créatures
