@@ -37,6 +37,10 @@ export async function render(view, { query }) {
         </div>
         <button type="button" class="ghost" id="disc-refresh" title="Load the list again">⟳ Refresh</button>
       </div>
+      <form class="aw-form disc-rss">
+        <input type="url" placeholder="Or paste a podcast's RSS feed address" required autocomplete="off" aria-label="Podcast RSS feed address">
+        <button type="submit">Add podcast</button>
+      </form>
       <div class="tabs disc-cats" id="disc-cats"></div>
       <div id="disc-body"><div class="empty"><span class="spinner"></span> Loading trending podcasts…</div></div>
       <p class="small muted disc-credit">${hasPicks(lang) ? "Ratings from <strong>Spotify</strong> and <strong>Apple Podcasts</strong>." : "Charts from <strong>Apple Podcasts</strong>."}</p>
@@ -47,6 +51,22 @@ export async function render(view, { query }) {
     { target: "#disc-body", title: "Trending podcasts", text: "The most listened-to podcasts in the language you're learning. Press + Add to put one in your library." },
     { target: "#disc-refresh", title: "Refresh", text: "Load the list again." },
   ]); // the "?" in the top bar
+  // A podcast that isn't trending: its feed address (the Library's + → Podcast opens this page).
+  const rss = $(".disc-rss");
+  rss.onsubmit = async (e) => {
+    e.preventDefault();
+    const button = rss.querySelector("button");
+    button.disabled = true;
+    try {
+      const feed = await api("/feeds", { method: "POST", body: { url: rss.querySelector("input").value } });
+      toast(`Subscribed to ${feed.title}`);
+      location.hash = `#/feed/${feed.id}`;
+    } catch (err) {
+      toast(err.message, { error: true });
+    } finally {
+      button.disabled = false;
+    }
+  };
   const body = $("#disc-body");
   const chips = $("#disc-cats");
   let groups = [];

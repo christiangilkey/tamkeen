@@ -121,7 +121,8 @@ test("a saved site's address is shown the short way", () => {
 
 test("the Library's Web page button opens the one screen on every version", () => {
   const sheet = read("web/js/components/addsheet.js");
-  assert.match(sheet, /key === "page" \? "#\/sites"/, "straight to the screen, no small sheet in between");
+  assert.match(sheet, /page: "#\/sites"/, "straight to the screen, no small sheet in between");
+  assert.match(sheet, /podcast: "#\/discover"/, "Podcast opens Trending, loading at once");
   assert.doesNotMatch(sheet, /Open Web Browser|Popular websites|pageStep/);
   assert.match(read("web/js/app.js"), /\[\/\^sites\$\/, websites,/, "the computer has the screen");
   assert.match(read("mobile/src/js/app.js"), /\[\/\^sites\$\/, webSites,/, "the phones and the web app have it");
