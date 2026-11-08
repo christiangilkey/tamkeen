@@ -41,3 +41,20 @@ test("text files in older encodings are read too", () => {
   assert.equal(decodeText(Uint8Array.from([0x63, 0x61, 0x66, 0xe9])), "café"); // Windows-1252
   assert.equal(decodeText(new TextEncoder().encode("café")), "café");
 });
+
+test("a book's language is read from all through it, not from an English notice at the front", async () => {
+  const { bookLanguage, languageSample } = await import("../../web/js/bookfiles.js");
+  const notice = { kind: "p", text: "This book was produced in EPUB format by the Internet Archive. The book pages were scanned and converted to EPUB format automatically." };
+  const contents = Array.from({ length: 120 }, (_, i) => ({ kind: "li", text: `Page ${i}` }));
+  const arabic = Array.from({ length: 200 }, () => ({ kind: "p", text: "في أن الجاه مفيد للمال وفي أن السعادة والكسب إنما تحصل غالبا لأهل الخضوع" }));
+  const book = { blocks: [notice, notice, notice, ...contents, ...arabic], language: "ar" };
+  assert.ok(languageSample(book.blocks).length <= 2000);
+  assert.equal(bookLanguage(book, "ar"), "ar");
+  assert.equal(bookLanguage({ ...book, language: "" }, "es"), "ar"); // its letters win over the language being learned
+  // Latin letters: the language being learned, else the book's own label, else English.
+  const spanish = { blocks: Array.from({ length: 50 }, () => ({ kind: "p", text: "Había una vez un pueblo pequeño junto al mar donde vivía una familia." })) };
+  assert.equal(bookLanguage({ ...spanish, language: "es" }, "ar"), "es");
+  assert.equal(bookLanguage({ ...spanish, language: "" }, "fr"), "fr");
+  assert.equal(bookLanguage({ ...spanish, language: "" }, "ar"), "en");
+  assert.equal(bookLanguage({ ...spanish, language: "en-US" }, "es"), "es");
+});

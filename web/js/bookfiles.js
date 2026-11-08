@@ -5,6 +5,7 @@
 
 import { BLOCK_KINDS, marksFromRuns, runsOf } from "./blockmarks.js";
 import { guessHeading } from "./readerlayout.js";
+import { detectLanguage, isLanguage } from "./languages.js";
 
 const MAX_BYTES = 200 * 1024 * 1024;
 
@@ -23,7 +24,31 @@ export async function readBookFile(file, onStep = () => {}) {
   else if (["azw3", "azw", "mobi", "prc"].includes(ext)) book = readMobi(bytes);
   else if (ext === "htm" || ext === "html" || ext === "xhtml") book = htmlBook(decodeText(bytes));
   else book = textBook(decodeText(bytes), ext === "md");
-  return { title: tidy(book.title || ""), author: tidy(book.author || ""), blocks: tidyBlocks(book.blocks || []) };
+  return { title: tidy(book.title || ""), author: tidy(book.author || ""), language: tidy(book.language || ""), blocks: tidyBlocks(book.blocks || []) };
+}
+
+/** Some text from all through a book, for telling its language. The first pages alone can mislead: a
+ *  book from the Internet Archive opens with an English notice and a contents list of "Page 1, Page 2…",
+ *  and an Arabic book was filed as English, out of sight in the Arabic Library. */
+export function languageSample(blocks, size = 2000, picks = 20) {
+  const long = blocks.filter((b) => (b.text || "").length >= 40); // not "Page 12" or a heading
+  const pool = long.length ? long : blocks;
+  const step = Math.max(1, pool.length / picks);
+  const each = Math.ceil(size / picks);
+  let out = "";
+  for (let i = 0; i < pool.length && out.length < size; i += step) out += `${(pool[Math.floor(i)].text || "").slice(0, each)} `;
+  return out.slice(0, size);
+}
+
+/** The language a book `{blocks, language}` is in. Its letters say (read from all through it); where
+ *  they leave it open (which language in Latin letters), the language being learned, then the book's
+ *  own label (an EPUB's dc:language) when its letters fit it. */
+export function bookLanguage(book, studyLang) {
+  const sample = languageSample(book.blocks || []);
+  const found = detectLanguage(sample, studyLang) || studyLang;
+  const label = String(book.language || "").toLowerCase().split(/[-_]/)[0];
+  if (found !== studyLang && label && label !== found && isLanguage(label) && detectLanguage(sample, label) === label) return label;
+  return found;
 }
 
 // ---------- shared helpers ----------
@@ -211,7 +236,7 @@ async function readEpub(bytes) {
     if (!html) continue;
     blocks.push(...htmlBlocks(new DOMParser().parseFromString(html, "text/html")));
   }
-  return { title: meta("title"), author: meta("creator"), blocks };
+  return { title: meta("title"), author: meta("creator"), language: meta("language"), blocks };
 }
 
 function resolvePath(dir, href) {

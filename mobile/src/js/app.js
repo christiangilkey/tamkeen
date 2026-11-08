@@ -433,6 +433,13 @@ async function finishWebSignIn() {
       if (!e.age) toast(e.message || "Couldn't sign in to Friends.", { error: true });
     }
     if (driveOk || friendsOk) toast(email ? `Signed in as ${email}` : "Signed in.");
+    // Signed in from the first-run screen: that screen is done, so on to Home (the owner: "It should
+    // automatically send user to the home tab once they're signed in"). Google brought the learner back
+    // to the welcome page, and without welcome_seen it would stay there. (The hashchange at the end draws Home.)
+    if ((driveOk || friendsOk) && /^#\/welcome/.test(location.hash) && settings.onboarded && settings.study_language) {
+      history.replaceState(null, "", location.pathname + location.search + "#/");
+      await saveSettings({ welcome_seen: true }); // (after Reset Tamkeen this brings the library back and reloads)
+    }
   } else if (kept.renew && driveOk && !(kept.then && (kept.then.tasks || kept.then.calendar))) toast("Reconnected to Google.");
   if (!driveOk && !quiet) toast("Syncing needs Tamkeen's private Drive folder: sign in again and leave that box ticked.", { error: true });
   if (kept.then && kept.then.tasks) {

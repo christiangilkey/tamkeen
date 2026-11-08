@@ -61,15 +61,13 @@ export async function addFromShelf(lang, row) {
 /** Read an uploaded file (EPUB, PDF, TXT, AZW3, Word) and put it in "My books". `lang` is the
  *  language it is in (the one being learned). `onStep(text)` hears what is happening. */
 export async function addFromFile(file, lang, onStep = () => {}) {
-  const { readBookFile } = await import("./bookfiles.js");
+  const { bookLanguage, readBookFile } = await import("./bookfiles.js");
   onStep("Reading the file…");
   const book = await readBookFile(file, onStep);
   if (!book.blocks.length) throw new Error("No text was found in that file. A scanned book (pictures of pages) has no text to read.");
-  // Its own script says which language it is in where it can (Cyrillic, Arabic, kana, Chinese characters);
-  // a book in Latin letters is taken to be in the language being learned.
-  const { detectLanguage } = await import("./languages.js");
-  const sample = book.blocks.slice(0, 80).map((b) => b.text).join(" ").slice(0, 4000);
-  lang = detectLanguage(sample, lang) || lang;
+  // Its own script says which language it is in where it can (Cyrillic, Arabic, kana, Chinese characters),
+  // read from all through the book; a book in Latin letters is taken to be in the language being learned.
+  lang = bookLanguage(book, lang);
   onStep("Saving…");
   return api("/books", { method: "POST", body: {
     guid: `file:${file.name}:${file.size}`.slice(0, 300), title: book.title || file.name.replace(/\.[^.]+$/, ""),
