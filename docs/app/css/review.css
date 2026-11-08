@@ -34,7 +34,6 @@
 
 /* ---------- the table ---------- */
 body.rv-open { overflow: hidden; }
-body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; the game's readout would sit on the card */
 .rv {
   position: fixed; inset: 0; z-index: 48; display: grid; grid-template-rows: auto 1fr auto;
   background: #160a1c; color: #fff; --tilt: 0;
@@ -181,6 +180,8 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-mnemo-said[hidden] { display: none; }
 .rv-mnemo-said-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-mnemo-syl { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: .02em; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+/* what the keywords leave out of the word (review/wordcore.js): "al- (“the”) left out" */
+.rv-mnemo-core { font-size: 13px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
 .rv-mnemo-note.error { color: var(--danger); }
 .rv-mnemo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -202,6 +203,9 @@ body.rv-open #game-chip { display: none; }  /* the reviewer shows its own XP; th
 .rv-mn-mark { font-size: 11.5px; font-weight: 700; line-height: 1.5; padding: 1px 8px; border-radius: 99px; background: var(--surface); color: var(--muted); }
 .rv-mn-mark.close { color: var(--accent); }
 .rv-mn-mark.fits { background: var(--accent-soft); color: var(--accent); }
+.rv-mn-mark.own { color: var(--text); }  /* a sound-alike the learner wrote themselves (review/ownmnemonic.js) */
+/* "Learn from my own mnemonics": a quiet line under Memorization notes for a moment ("Learned from POT"; cardtools.js noteLine) */
+.mn-learned { margin: 0; padding-inline-start: 2px; font-size: 13px; line-height: 1.45; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mn-scene { margin: 0; font-size: 14.5px; line-height: 1.45; user-select: text; -webkit-user-select: text; }
 .rv-mn-scene[hidden] { display: none; }
 .rv-source { display: flex; align-items: center; gap: 10px; min-height: 38px; font-size: 12px; color: var(--muted); }

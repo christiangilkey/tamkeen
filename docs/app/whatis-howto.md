@@ -186,6 +186,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Use or thumbs down**: Use adds a keyword and its picture to Memorization notes, and thumbs down drops it so it's never suggested for that word again.
 - **Mnemonics without AI**: with no AI key, the Mnemonic maker finds sound-alike words from a pronunciation dictionary, in English or in Spanish, French, German, Italian, Portuguese, Russian or Catalan when the app is shown in one of those.
 - **It learns your taste**: the free Mnemonic maker learns what kinds of keywords you like from Use and thumbs down, on all your devices, and Settings can make it forget.
+- **It learns from your own mnemonics**: write the sound-alike in CAPITALS in Memorization notes ("a duck sitting on a POT") and, if it really sounds like the word, the Mnemonic maker learns from it, offers it again for other words that sound alike ("You've used this before"), and shows your AI a few of your notes as examples of your style.
 - **Mnemonic settings**: choose the Mnemonic maker's AI model and how hard it thinks, with its cost shown (about 2 US cents a press at most).
 
 **Example sentences and card voices**

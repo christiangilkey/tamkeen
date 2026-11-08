@@ -16,6 +16,7 @@ import { firstVisitTour } from "../components/tour.js";
 import { courseIndex, coursePanel } from "../components/coursepanel.js";
 import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpanel.js";
 import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
+import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
@@ -208,9 +209,11 @@ export async function render(view, { feedId: routeFeed, query }) {
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
             <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
+            <button type="button" role="tab" data-tab="dli" hidden>${icon("lock", 18)} <span>DLI</span></button>
           </div>
           <div class="course" id="course" hidden></div>
           <div class="course grammar" id="grammar" hidden></div>
+          <div class="course dli" id="dli" hidden></div>
           <p class="course-note" id="no-courses" hidden></p>
         </div>
         <div id="lib-head"></div>
@@ -831,7 +834,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   // Learning Arabic, with a dialect course published: a drop-down above the tabs picks Standard Arabic
   // (MSA, the default) or a dialect (coursedata.js varietiesOffered; the choice is kept on this device).
   // Each kind has its own Grammar and Basics courses ("ar-lev", "en-ar-lev"), in the same panels.
-  let closeCourse = null, closeGrammar = null, grammarChoice = null, coursesAsked = false;
+  // DLI students (Settings → Languages): a third tab, DLI, with the material of their DLI language while
+  // they study it (components/dlipanel.js).
+  let closeCourse = null, closeGrammar = null, closeDli = null, grammarChoice = null, coursesAsked = false;
   let variety = "", basicsCourse = "";
   const courseLang = studyLanguage();
   const showCourseTab = (tab) => {
@@ -842,6 +847,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     $("#course").hidden = tab !== "basics";
     $("#grammar").hidden = tab !== "grammar";
+    $("#dli").hidden = tab !== "dli";
+    if (tab === "dli" && !closeDli) closeDli = dliPanel($("#dli"), courseLang);
     if (tab === "basics" && !closeCourse) closeCourse = coursePanel($("#course"), courseLang, { course: basicsCourse });
     if (tab === "grammar" && !closeGrammar && grammarChoice) closeGrammar = grammarPanel($("#grammar"), courseLang, grammarChoice);
   };
@@ -877,29 +884,33 @@ export async function render(view, { feedId: routeFeed, query }) {
   async function openCourses(courses, grammar) {
     if (closeCourse) closeCourse();
     if (closeGrammar) closeGrammar();
-    closeCourse = closeGrammar = null;
+    if (closeDli) closeDli();
+    closeCourse = closeGrammar = closeDli = null;
     $("#course").innerHTML = "";
     $("#grammar").innerHTML = "";
-    $("#course").hidden = $("#grammar").hidden = true;
+    $("#dli").innerHTML = "";
+    $("#course").hidden = $("#grammar").hidden = $("#dli").hidden = true;
     const want = variety;
     basicsCourse = basicsId(courseLang, variety);
     const basics = !!(courses && courses.courses && courses.courses[basicsCourse]);
     const choice = await grammarFor(courseLang, variety, grammar).catch(() => null);
     if (!root.isConnected || want !== variety) return; // (another kind was picked meanwhile)
     grammarChoice = choice;
+    const dli = dliShown(courseLang);
     const note = $("#no-courses");
-    note.hidden = !!(basics || choice);
-    if (!basics && !choice) {
+    note.hidden = !!(basics || choice || dli);
+    if (!basics && !choice && !dli) {
       $("#course-tabs").hidden = true;
       note.textContent = "There are no courses for this language yet.";
       return;
     }
     root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
     root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !choice;
+    root.querySelector('#course-tabs [data-tab="dli"]').hidden = !dli;
     $("#course-tabs").hidden = false;
     let chosen = "";
     try { chosen = sessionStorage.getItem("courseTab") || ""; } catch { /* storage off */ }
-    showCourseTab(courseTabChoice({ basics, grammar: !!choice, asked: query.get("tab") || "", chosen }));
+    showCourseTab(courseTabChoice({ basics, grammar: !!choice, dli, asked: query.get("tab") || "", chosen }));
   }
 
   // ----- wiring -----
@@ -1106,6 +1117,6 @@ export async function render(view, { feedId: routeFeed, query }) {
 
   return () => {
     offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
-    if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar();
+    if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();
   };
 }

@@ -180,6 +180,9 @@ export function useKey(state) {
   return "";
 }
 
+/** The stardust a release would leave now: one, and one more for every two fully grown buildings. */
+export const stardustGain = (state) => 1 + Math.floor(garden(state).plots.filter((p) => p.tier === 3).length / 2);
+
 /**
  * Release a grown creature: it leaves the roster for good (it is remembered in the garden's
  * record), the garden's buildings and glow start over, and stardust is kept forever, making
@@ -189,7 +192,7 @@ export function release(state, rosterIndex, rand = Math.random) {
   const g = garden(state);
   const c = state.roster[rosterIndex];
   if (!c || !isGrown(c)) return "Only a fully grown creature can be released.";
-  const gained = 1 + Math.floor(g.plots.filter((p) => p.tier === 3).length / 2);
+  const gained = stardustGain(state);
   g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey() });
   if (state.roster.length === 1) layEgg(state, rand); // you are never left without a creature
   state.roster.splice(rosterIndex, 1);

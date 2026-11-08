@@ -41,6 +41,7 @@ import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncp
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
 import { mountHelpButton } from "./components/helpbutton.js";
+import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
@@ -1425,6 +1426,7 @@ async function boot() {
   const refresh = refreshButton(refreshNow);
   if (topSearch) topSearch.before(refresh); else document.querySelector(".topbar").append(refresh);
   mountHelpButton(document.querySelector(".topbar"), refresh); // "?": how to use the screen that is open
+  mountXpBadge(document.querySelector(".topbar"), document.querySelector(".topbar .top-help")); // the game's level and XP (game/xpbadge.js)
   startBadge();
   startChatNotices();
   setTimeout(() => checkForUpdate(), 3000);
@@ -1496,6 +1498,8 @@ async function boot() {
     emit("feeds", { refreshed: true });
   }).catch((e) => console.warn(e));
   check().then(lookForEpisodes, lookForEpisodes);
+  // DLI students: their DLI language's podcasts, with transcripts, once unlocked (dlicontent.js)
+  import("./dlicontent.js").then(({ startDli }) => startDli()).catch(() => {});
   planChecks();
   // The two-way sync with the Tamkeen deck in AnkiDroid (off until switched on in Settings):
   // on start, on return to the app, and every 10 minutes while open.

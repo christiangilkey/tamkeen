@@ -18,8 +18,10 @@ import { pickedCountry } from "../youtube-home.js";
 import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "./mnemonic.js";
 import { askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { aiMakes } from "../helpersource.js";
-import { freeMnemonics } from "../examples.js";
-import { learn } from "./freemnemonic.js";
+import { checkOwnKeywords, freeMnemonics, wordCoreOf } from "../examples.js";
+import { kindName, leftOutLine, leftWordParts, soundCore } from "./wordcore.js";
+import { learn, writePrefs } from "./freemnemonic.js";
+import { capitalKeywords, learnOwn, learnsOwn, newCapitals, ownExamples } from "./ownmnemonic.js";
 import { uidOf } from "./deck.js";
 import { troubleshootButton } from "../components/troubleshoot.js";
 import { offerFix } from "../components/fixit.js";
@@ -104,16 +106,18 @@ export async function pastedInto(notes) {
  *   study      the language being learned, when the text is in it (its lang and direction come from it);
  *              else `lang` and `dir` (the learner's own language)
  *   multiline  notes: Enter makes a new line, and a Done button puts it away
+ *   placeholder  what the empty box says (Memorization notes: memoPlaceholder())
  *   onInput()  something was typed (the card may need measuring again)
  *   onClose(save, value, next)   it was put away: saved or not, its text, and where the focus went
  * Returns {box, close(save, next)}.
  */
 export function textBox(line, { value = "", label = "", study = "", lang = "", dir = "auto", multiline = false, extra = [],
-  onInput = () => {}, onClose = () => {} } = {}) {
+  placeholder = "", onInput = () => {}, onClose = () => {} } = {}) {
   const box = document.createElement("textarea");
   box.className = "rv-editbox";
   box.rows = 1;
   box.value = value;
+  if (placeholder) box.placeholder = placeholder;
   box.autocomplete = "off";
   box.setAttribute("enterkeyhint", multiline ? "enter" : "done");
   box.setAttribute("aria-label", label);
@@ -301,17 +305,96 @@ function tasteFrom(s, sign, st) {
   if (!s.traits) return;  // (the AI's suggestions)
   const now = (app.status && app.status.settings || {}).mnemonic_prefs;
   const others = [...st.items, ...st.parts].filter((x) => x !== s && x.traits).map((x) => x.traits);
-  saveSettings({ mnemonic_prefs: JSON.stringify(learn(now, s.traits, sign, others)) }).catch(() => { /* kept next time */ });
+  saveSettings({ mnemonic_prefs: writePrefs(learn(now, s.traits, sign, others)) }).catch(() => { /* kept next time */ });
 }
 
 /** Has the Mnemonic maker already made keywords for this card while the app has been open? */
 export const hasMnemonics = (v) => mnemonics.has(uidOf(v));
 
+// ---------------------------------------------------------------- learning from the learner's own mnemonics
+
+const appSettings = () => (app.status && app.status.settings) || {};
+/** What an empty Memorization notes box says: with "Learn from my own mnemonics" on, that the sound-alike goes
+ * in capitals (only those words teach the Mnemonic maker). */
+export const memoPlaceholder = () => (learnsOwn(appSettings()) ? t("Sound-alike in CAPITALS: a duck sitting on a POT…")
+  : t("A mnemonic, a picture, where you heard it…"));
+
+const TIP_KEY = "tamkeen.mnemonicCapsTip";  // (this device: the tip about capitals has been shown)
+const LINE_MS = 4000;
+
+/** A quiet line for a moment under `after` (the notes' box), read out politely; a short note at the bottom of
+ * the screen instead when the box has gone (the card was answered meanwhile). */
+export function noteLine(after, text) {
+  if (!text) return;
+  if (!after || !after.isConnected) { toast(text, { timeout: LINE_MS }); return; }
+  let line = after.nextElementSibling;
+  if (!line || !line.classList.contains("mn-learned")) {
+    line = document.createElement("p");
+    line.className = "mn-learned";
+    line.setAttribute("role", "status");
+    line.setAttribute("aria-live", "polite");
+    after.after(line);
+  }
+  clearTimeout(line._gone);
+  line.textContent = "";
+  setTimeout(() => { line.textContent = text; }, 60);  // (filled after it is there, so a screen reader says it)
+  line._gone = setTimeout(() => line.remove(), LINE_MS);
+}
+
+/**
+ * Memorization notes of card `v` were saved, from `before` to `after` (typed by the learner): the free Mnemonic
+ * maker learns from the sound-alikes in CAPITALS that are new (review/ownmnemonic.js), when they really sound
+ * like the word. In the background, after the save; nothing is downloaded, and without the word lists or a
+ * connection it quietly does nothing. Says what happened under `at` (noteLine) unless `quiet`. `skip`: keywords
+ * the maker suggested for the card besides those it made while the app is open; `shown` the word as the card
+ * shows it (Arabic with its vowels). Resolves to {learned: ["POT"], failed: ["DUCK"]} or null; never fails.
+ */
+export async function learnFromNote(v, before, after, { lang, at = null, quiet = false, skip = [], shown = "" } = {}) {
+  try {
+    if (!learnsOwn(appSettings())) return null;
+    const was = String(before || "").trim(), now = String(after || "").trim();
+    if (!now || was === now) return null;
+    const made = mnemonics.get(uidOf(v));
+    // (the sound check is against the word's own part, review/wordcore.js: POT counts for الكتاب's "kitaab"; the
+    // core itself in capitals is no sound-alike, as the word isn't)
+    const core = soundCore(v.text, lang).core;
+    const fresh = newCapitals(was, now, { skip: [...skip, ...(made ? made.shown : []), core], word: v.text, meaning: v.meaning });
+    if (!fresh.length) {
+      // The first note saved with no capitals at all: say once (on this device) how it can learn from one.
+      if (!quiet && at && !capitalKeywords(now).length && !tipShown()) {
+        tipDone = true;
+        noteLine(at, t("Tip: write the sound-alike word in CAPITALS and the Mnemonic maker learns from it."));
+        try { localStorage.setItem(TIP_KEY, "1"); } catch { /* storage unavailable: once while the app is open */ }
+      }
+      return null;
+    }
+    const reading = await readingOf(v, lang, shown).catch(() => "");
+    const got = await checkOwnKeywords(v, lang, fresh, { reading, speaks: uiLanguage() });
+    if (!got || (!got.passed.length && !got.failed.length)) return null;  // (its sounds aren't known here)
+    const learned = got.passed.map((k) => k.shown), failed = got.failed.map((k) => k.shown);
+    if (learned.length) {
+      const p = learnOwn(appSettings().mnemonic_prefs, got.passed, { v, note: now });
+      await saveSettings({ mnemonic_prefs: writePrefs(p) });
+    }
+    if (!quiet) {
+      noteLine(at, learned.length ? t("Learned from {0}", learned.join(", "))
+        : failed.length === 1 ? t("{0} doesn't sound like {1}, so nothing was learned.", failed[0], core)
+          : t("{0} don't sound like {1}, so nothing was learned.", failed.join(", "), core));
+    }
+    return { learned, failed };
+  } catch (e) {
+    console.warn("Couldn't learn from the note", e);
+    return null;
+  }
+}
+let tipDone = false;
+const tipShown = () => { if (tipDone) return true; try { return localStorage.getItem(TIP_KEY) === "1"; } catch { return false; } };
+
 /** The Mnemonic maker's markup: its button, how the word sounds, a note, and the keywords. */
 export function mnemonicHtml() {
   return `<div class="rv-mnemo">
     <button type="button" class="rv-mnemo-go">${CARD_ICONS.bulb}<span>Mnemonic maker</span></button>
-    <div class="rv-mnemo-said" hidden><div class="rv-mnemo-said-label">How it sounds</div><div class="rv-mnemo-syl" translate="no"></div></div>
+    <div class="rv-mnemo-said" hidden><div class="rv-mnemo-said-label">How it sounds</div><div class="rv-mnemo-syl" translate="no"></div><div class="rv-mnemo-core" translate="no" hidden></div></div>
     <p class="rv-mnemo-note" hidden></p>
     <p class="rv-mnemo-few" hidden></p>
     <ul class="rv-mnemo-list" hidden></ul>
@@ -412,6 +495,13 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       if (TIE_NOTES[s.tie]) related.title = t(TIE_NOTES[s.tie]);
       how.append(related);
     }
+    if (s.own) {
+      // (a sound-alike the learner wrote in CAPITALS in a note of their own: review/ownmnemonic.js)
+      const mine = h(`<span class="rv-mn-mark own"></span>`);
+      mine.textContent = t("You've used this before");
+      mine.title = t("You wrote this sound-alike in CAPITALS in one of your own notes");
+      how.append(mine);
+    }
     const scene = li.querySelector(".rv-mn-scene");
     scene.textContent = s.scene || "";
     scene.hidden = !s.scene;
@@ -441,6 +531,14 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     const line = said.querySelector(".rv-mnemo-syl");
     line.textContent = pieces.map((p) => p.text).join("-");
     line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
+    // What the keywords leave out of the word (review/wordcore.js): "al- (“the”) left out" (translated by t() there,
+    // hence translate="no"); its tooltip names each part's kind.
+    const left = said.querySelector(".rv-mnemo-core");
+    if (left) {
+      left.textContent = leftOutLine(st.core);
+      left.hidden = !left.textContent;
+      left.title = leftWordParts(st.core).map((d) => `${d.part}: ${kindName(d.kind)}`).join("\n");
+    }
     label.textContent = "Make 5 more";
     if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
     else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
@@ -469,26 +567,36 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       const shown = before ? before.shown : [];
       const avoid = [...new Set([...shown, ...turnedDown(avoidStore(), uid)])].slice(-40);
       const reading = await readingOf(v, lang, shownWord());
+      // Both makers match only the word's own part: الكتاب's "kitaab", not "al-kitaab"; "der Hund, -e"'s Hund
+      // (review/wordcore.js, with the examples file as its word list when it is here). The card's word stays as it is.
+      const core = await wordCoreOf(v.text, lang, reading).catch(() => soundCore(v.text, lang, { reading }));
+      if (!core.reading && reading && lang !== "ar" && core.core !== String(v.text || "").trim()) {
+        core.reading = await wordReading(core.core, lang).catch(() => "") || "";  // (the reading of the core itself)
+      }
       // The free maker (examples.js freeMnemonics: keywords found on this device) when the learner chose
       // Free in Settings → Word definitions, or has no AI key (or AI turned off); else the AI's
       // (helpersource.js aiMakes). A key that turns out missing falls back to the free one.
       const settings = (app.status && app.status.settings) || {};
-      const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: settings.mnemonic_prefs });
+      // ("Learn from my own mnemonics": the free maker offers the learner's own sound-alikes again, and the AI
+      // sees a few of their notes as examples of their style; review/ownmnemonic.js)
+      const own = learnsOwn(settings);
+      const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: settings.mnemonic_prefs, ownWords: own, core });
       let got;
       if (!aiMakes(settings, "mnemonic", !noAi() && !!definerConfig().key)) got = await free();
       else {
         try {
           got = await makeMnemonics(v, {
-            ask: askMnemonic, study: studyName, speaks, avoid, reading,
+            ask: askMnemonic, study: studyName, speaks, avoid, reading: core.reading, core,
             variety: varietyOf(lang, pickedCountry(lang), studyName),
             ownSounds: uiLanguage() === "en" ? englishCheck() : null,
+            examples: own ? ownExamples(settings.mnemonic_prefs).filter((e) => e.word !== v.text) : [],
           });
         } catch (e) {
           if (!(e && e.message === "NO_KEY")) throw e;
           got = await free();
         }
       }
-      const st = { ...got, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
+      const st = { ...got, core: got.core || core, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set() };
       mnemonics.set(uid, st);
       if (go.isConnected) draw(st);
     } catch (e) {

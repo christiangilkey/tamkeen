@@ -1,18 +1,26 @@
-// The game's "Friends" page: gifts and battle results waiting for you, the friend league, the
-// guild raid, and challenging a friend's team. Needs the online features (Connect with Google);
-// everything else in the game works without them.
+// The Battle screen's Friends side (the game sheet's "friends" section, shop.js openShop): gifts and battle results
+// waiting for you, the friend league with a Challenge button for each friend's team, this week's rule for friend
+// battles, and the guild raid. In blocks like the other game screens; the explanations are behind its "?"
+// (friendsHelp). Needs the online features (Connect with Google); everything else in the game works without them.
+// Also here: publishing my team for friends, and giving a friend an item or an egg.
 
 import { h, toast } from "../app.js";
 import * as social from "../social.js";
-import { BOSSES, LEAGUES, RAID_HP_PER_MEMBER } from "./data.js";
-import { claimRaid, giveEgg, giveItem, leaguePercent, raidDamage, receiveGift, recordDefence, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
-import { publicProfile } from "./battle.js";
-import { wordModePicker } from "./battle-ui.js";
+import { BOSSES, LEAGUES } from "./data.js";
+import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
+import { publicProfile, showcaseGenome } from "./battle.js";
+import { portrait } from "./battle-ui.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
-import { cleanName, cleanProfiles, cleanRival, raidShare } from "./remote.js";
+import { icon as lineIcon } from "../icons.js";
+import { cleanName, cleanProfiles, cleanRival } from "./remote.js";
 import { hasStudyLanguage, studyLanguage } from "../languages.js";
 import { myStreak } from "../review/flame.js";
+import { t } from "../i18n.js";
+import { sheet as helpSheet } from "./info.js";
+import { openModal } from "../components/modal.js";
+import { block, fmt, row } from "./screenparts.js";
+import { leagueRows, raidState } from "./battlescreen.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 let lastPublish = 0;
@@ -40,25 +48,23 @@ export async function publishNow(force = false) {
   }
 }
 
-/** Ask which friend (or guild-mate). Resolves to {id, username} or null. */
+/** Ask which friend, in the app's own box: a row for each friend. Resolves to {id, username}, or null when the box
+ * is closed. */
 export async function chooseFriend(title) {
   const state = await social.friendsState().catch(() => null);
   if (!state) { toast("Connect with Google first (Settings → Friends & sharing)."); return null; }
   if (!state.friends.length) { toast("Add a friend first, on the Friends tab."); return null; }
   return new Promise((resolve) => {
-    const wrap = h(`<div class="game-sheet-wrap" style="z-index:75"><div class="game-sheet" role="dialog">
-      <div class="game-sheet-head"><strong></strong><span class="spacer"></span><button type="button" class="ghost icon" data-close title="Close">${icon("close")}</button></div>
-      <div class="game-sheet-body pick-row"></div></div></div>`);
-    wrap.querySelector("strong").textContent = title;
-    const done = (v) => { wrap.remove(); resolve(v); };
-    wrap.addEventListener("click", (e) => { if (e.target === wrap || e.target.closest("[data-close]")) done(null); });
+    let picked = null;
+    const box = openModal({ title, cls: "gs-detail-back", onClose: () => resolve(picked) });
+    const view = h(`<div class="gs-detail"><div class="gs-build-list"></div><div class="confirm-buttons"><button type="button" data-close>Cancel</button></div></div>`);
     for (const f of state.friends) {
-      const b = h(`<button type="button" class="pick"></button>`);
-      b.textContent = f.user.username;
-      b.onclick = () => done(f.user);
-      wrap.querySelector(".game-sheet-body").append(b);
+      const r = row({ pic: lineIcon("friends", 24), name: f.user.username, end: `<span class="gs-chev">${lineIcon("chevron", 18)}</span>`,
+        open: () => { picked = f.user; box.close(); } });
+      theirs(r.querySelector(".gs-row-name"));
+      view.querySelector(".gs-build-list").append(r);
     }
-    document.body.append(wrap);
+    box.body.append(view);
   });
 }
 
@@ -80,25 +86,39 @@ export async function gift(kind, what, changed) {
   changed();
 }
 
-/** Fill `body` with the Friends page. `challenge(friend, profile)` starts a battle. */
+// ---------- the Friends side of the Battle screen ----------
+
+/** A block with one line in it: loading, or why nothing can be shown. */
+function stateBlock(text) {
+  const b = block();
+  const p = h(`<p class="gs-state muted"></p>`);
+  p.textContent = text;
+  b.append(p);
+  return b;
+}
+/** A league's picture ("Bronze", "Silver", "Gold", "Diamond": 0 to 3). */
+const leagueIcon = (n, px = 24) => icon(`league_${LEAGUES[Math.max(0, Math.min(3, Math.floor(Number(n) || 0)))].toLowerCase()}`, px);
+/** Text that came from another person (a name): shown as written, never translated. */
+const theirs = (el) => { el.setAttribute("translate", "no"); return el; };
+
+/**
+ * Fill `body` with the Friends side. `challenge(friend, profile)` starts a battle against a friend's team. Everything
+ * drawn here that came from friends' devices is checked first (remote.js) and put in as text, never as markup.
+ */
 export async function friendsPanel(body, game, changed, challenge) {
-  body.innerHTML = `<p class="muted">Loading…</p>`;
+  const page = h(`<div class="bt-page"></div>`);
+  page.append(stateBlock("Loading…"));
+  body.append(page);
+  const gone = () => !page.isConnected; // closed, or turned back to Battle meanwhile
   let me = null;
   let friends = null;
   let guilds = null;
   try {
     me = await social.currentUser();
     if (me) { friends = await social.friendsState(); guilds = await social.guildsState(); }
-  } catch (e) { body.innerHTML = ""; body.append(h(`<p class="muted">Couldn't reach the online service. Check your connection.</p>`)); return; }
-  if (!body.isConnected) return;
-  body.innerHTML = "";
-  if (!me || !friends) {
-    body.append(h(`<div class="stack"><p>Battling friends, the league, guild raids and gifts need the online features.</p>
-      <p class="small muted">Choose <strong>Connect with Google</strong> under Settings → Friends &amp; sharing. Your words and
-      study material are never sent: only your team of creatures, how accurately you answer, and this week's totals.</p>
-      <a class="btn primary" href="#/settings?s=account&show=friends" data-close>Open Settings</a></div>`));
-    return;
-  }
+  } catch { if (!gone()) page.replaceChildren(stateBlock("Couldn't reach the online service. Check your connection.")); return; }
+  if (gone()) return;
+  if (!me || !friends) { page.replaceChildren(offlineBlock()); return; }
   await publishNow(true);
   const now = new Date();
   const week = weekNumber(now);
@@ -110,121 +130,190 @@ export async function friendsPanel(body, game, changed, challenge) {
   try {
     [profiles, gifts, inbox] = await Promise.all([social.gameProfiles([...people.keys()]), social.giftInbox(), social.battleInbox()]);
   } catch (e) {
-    const p = h(`<p class="muted small"></p>`);
-    p.textContent = `The game's online data isn't available yet (${e.message}).`;
-    body.append(p);
+    if (!gone()) page.replaceChildren(stateBlock(`The game's online data isn't available yet (${e.message}).`));
     return;
   }
-  if (!body.isConnected) return;
+  if (gone()) return;
   // Everything here came from friends' devices: checked before anything uses it (remote.js).
   profiles = cleanProfiles(profiles);
   gifts = (Array.isArray(gifts) ? gifts : []).map((g) => ({ id: g.id, kind: g.kind === "egg" ? "egg" : "item", from: cleanName(g.from, 40) || "A friend" }));
   inbox = (Array.isArray(inbox) ? inbox : []).map((r) => ({ id: r.id, won: r.won === true, rival: cleanRival(r.rival) }));
+  for (const r of inbox) recordDefence(game, r.rival, r.won);
+  if (inbox.length) { saveGame(); social.markBattlesSeen().catch(() => {}); }
 
-  // ----- waiting for you -----
-  if (gifts.length || inbox.length) {
-    const box = h(`<div class="creature-card on stack"><strong>Waiting for you</strong></div>`);
-    for (const g of gifts) {
-      const row = h(`<div class="row"><span>${icon("gift")} ${g.kind === "egg" ? "An egg" : "A gift"} from <b></b></span><span class="spacer"></span><button type="button" class="primary">Open</button></div>`);
-      row.querySelector("b").textContent = g.from;
-      row.querySelector("button").onclick = async (e) => {
-        e.target.disabled = true;
-        try {
-          const got = await social.claimGift(g.id);
-          toast(receiveGift(game, got.kind, got.payload));
-          sfx("jackpot");
-          saveGame();
-          changed();
-          row.remove();
-        } catch (err) { toast(err.message, { error: true }); e.target.disabled = false; }
-      };
-      box.append(row);
-    }
-    for (const r of inbox) {
-      recordDefence(game, r.rival, r.won);
-      const row = h(`<div class="row"><span>${icon("defence")} <b></b> challenged your team and ${r.won ? "won" : "lost"}.</span><span class="spacer"></span><button type="button">Rematch</button></div>`);
-      row.querySelector("b").textContent = r.rival.name;
-      row.querySelector("button").onclick = () => challenge(people.get(r.rival.id) || { id: r.rival.id, username: r.rival.name }, profiles.get(r.rival.id));
-      box.append(row);
-    }
-    if (inbox.length) { saveGame(); social.markBattlesSeen().catch(() => {}); }
-    body.append(box);
-  }
+  const blocks = [];
+  if (gifts.length || inbox.length) blocks.push(waitingBlock(game, gifts, inbox, people, profiles, changed, challenge));
+  blocks.push(leagueBlock(game, me, people, profiles, now, challenge));
+  blocks.push(ruleBlock(now));
+  for (const g of (guilds && guilds.guilds) || []) blocks.push(raidBlock(game, me, g, profiles, now, week, changed));
+  if (guilds && !guilds.guilds.length) blocks.push(noGuildBlock(now));
+  page.replaceChildren(...blocks);
+}
 
-  // ----- the league: who kept their own promise this week -----
-  const rule = weeklyRule(now);
-  const rows = [{ id: me.id, name: "You", league: game.league, rating: game.rating, pct: leaguePercent(game.goalWeek.n === week ? game.goalWeek.days : 0, now), mine: true }];
-  for (const [id, p] of people) {
-    const gp = profiles.get(id);
-    rows.push({ id, name: p.username, league: gp ? gp.league : 0, rating: gp ? gp.rating : null, pct: gp && gp.week === week ? leaguePercent(gp.goal_days, now) : 0,
-                team: gp ? gp.team : [], profile: gp, user: p });
-  }
-  rows.sort((a, b) => b.pct - a.pct || (b.rating || 0) - (a.rating || 0));
-  const league = h(`<div class="stack"><div class="row"><img class="league-ico" alt="" src="${ART}icon/league_${LEAGUES[game.league].toLowerCase()}.png">
-    <div><strong>${LEAGUES[game.league]} league</strong><div class="small muted">Ranked by the share of days this week each of you reached
-    your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down.</div></div></div>
-    <div class="league-table"></div>
-    <p class="small muted">This week's battle rule: ${icon(`rule_${rule.icon || rule.id}`)} <strong>${rule.name}</strong>. ${rule.text}</p></div>`);
-  league.append(h(`<div class="small"><strong>Words for your battles</strong></div>`), wordModePicker(game));
-  rows.forEach((r, i) => {
-    const record = Object.prototype.hasOwnProperty.call(game.rivals, r.id) ? game.rivals[r.id] : null;
-    const row = h(`<div class="league-row${r.mine ? " mine" : ""}"><span class="league-rank">${i + 1}</span>
-      <img class="league-ico small" alt="" src="${ART}icon/league_${LEAGUES[Math.max(0, Math.min(3, r.league))].toLowerCase()}.png">
-      <span class="league-name"></span><span class="hud-bar goal"><i style="width:${r.pct}%"></i></span><span class="league-pct">${r.pct}%</span>
-      <span class="league-act"></span></div>`);
-    row.querySelector(".league-name").textContent = r.name + (record ? ` · ${record.wins}–${record.losses}` : "");
-    if (record) row.querySelector(".league-name").prepend(h(icon("rival")), " "); // someone you have fought
-    if (!r.mine) {
-      const btn = h(`<button type="button" class="primary small"${r.team.length ? "" : " disabled"}>${r.team.length ? "Challenge" : "No team yet"}</button>`);
-      btn.title = r.team.length ? `Skill ${r.rating}` : "They haven't opened the game online yet";
-      btn.onclick = () => challenge(r.user, r.profile);
-      row.querySelector(".league-act").append(btn);
-    }
-    league.querySelector(".league-table").append(row);
-  });
-  body.append(league);
-  if (!people.size) body.append(h(`<p class="small muted">Add friends on the Friends tab to fill the league and challenge their teams.</p>`));
+/** Not signed in: what the Friends side needs, and the way to Settings. */
+function offlineBlock() {
+  const b = block();
+  b.append(h(`<div class="gs-empty">${icon("rival", 48)}<span>Battling friends, the league, guild raids and gifts need the online features.</span>
+    <a class="btn primary" href="#/settings?s=account&show=friends" data-close>Open Settings</a></div>`));
+  return b;
+}
 
-  // ----- the guild raid: everyone's right answers this week wear the boss down -----
-  const boss = weeklyBoss(now);
-  for (const g of (guilds && guilds.guilds) || []) {
-    const hp = g.members.length * RAID_HP_PER_MEMBER;
-    let dealt = raidDamage(game, now);
-    const parts = [["You", dealt]];
-    for (const m of g.members) {
-      if (m.id === me.id) continue;
-      const gp = profiles.get(m.id);
-      // (each guild-mate counts for at most twice their share of the boss: remote.raidShare)
-      const d = gp && gp.week === week ? raidShare(gp.reviews, RAID_HP_PER_MEMBER) : 0;
-      dealt += d;
-      parts.push([m.username, d]);
-    }
-    const left = Math.max(0, hp - dealt);
-    const down = left === 0;
-    const raid = h(`<div class="creature-card stack"><div class="row"><span class="boss${down ? " down" : ""}" style="background-image:url(${ART}boss/${boss.id}_${down ? "down" : "idle"}.png)"></span>
-      <div class="creature-info"><strong></strong><span class="small muted"></span>
-        <div class="hud-bar"><i style="width:${Math.round((left / hp) * 100)}%;background:var(--alert)"></i></div>
-        <span class="small">${down ? "Defeated!" : `${left} of ${hp} left`}</span></div></div>
-      <div class="small muted" id="raid-parts"></div><div id="raid-claim"></div></div>`);
-    raid.querySelector("strong").textContent = `${g.name} raid: ${boss.name}`;
-    raid.querySelector("strong").prepend(h(icon("raid")), " ");
-    raid.querySelector(".creature-info .small").textContent = `${boss.text} Every right answer in a battle this week, by anyone in the guild, takes one off.`;
-    raid.querySelector("#raid-parts").textContent = parts.sort((a, b) => b[1] - a[1]).map(([n, d]) => `${n} ${d}`).join(" · ");
-    if (down && game.raid !== week) {
-      const btn = h(`<button type="button" class="primary">Claim the reward</button>`);
-      btn.onclick = () => {
-        const pay = claimRaid(game, new Date());
-        if (!pay) return;
-        saveGame();
+/** Gifts to open and challenges your team answered while you were away. */
+function waitingBlock(game, gifts, inbox, people, profiles, changed, challenge) {
+  const b = block("Waiting for you", String(gifts.length + inbox.length));
+  const count = () => {
+    const n = b.querySelectorAll(".gs-row").length;
+    if (!n) b.remove(); else b.querySelector(".gs-block-end").textContent = String(n);
+  };
+  for (const g of gifts) {
+    const open = h(`<button type="button" class="gs-row-btn primary">Open</button>`);
+    const r = row({ pic: icon(g.kind === "egg" ? "egg" : "gift", 32), name: g.kind === "egg" ? "An egg" : "A gift", end: open });
+    r.querySelector(".gs-row-sub").append(theirs(Object.assign(h(`<span></span>`), { textContent: t("Sent by {0}", g.from) })));
+    open.onclick = async () => {
+      open.disabled = true;
+      try {
+        const got = await social.claimGift(g.id);
+        toast(receiveGift(game, got.kind, got.payload));
         sfx("jackpot");
-        announce({ type: "raid", xp: pay.xp, tier: "jackpot", badges: pay.badges });
-        toast(`Raid won: +${pay.xp} XP and ${pay.coins} coins.`);
+        saveGame();
         changed();
-        btn.remove();
-      };
-      raid.querySelector("#raid-claim").append(btn);
-    } else if (down) raid.querySelector("#raid-claim").append(h(`<span class="small muted">${icon("clock")} Reward claimed. A new boss arrives on Monday.</span>`));
-    body.append(raid);
+        r.remove();
+        count();
+      } catch (err) { toast(err.message, { error: true }); open.disabled = false; }
+    };
+    b.append(r);
   }
-  if (guilds && !guilds.guilds.length) body.append(h(`<p class="small muted">Join or found a guild (Friends tab) to take on the weekly raid boss together. This week: ${BOSSES.length ? boss.name : ""}.</p>`));
+  for (const x of inbox) {
+    const again = h(`<button type="button" class="gs-row-btn">Rematch</button>`);
+    const r = row({ pic: icon("defence", 32), name: x.rival.name, sub: x.won ? "Beat your team" : "Lost to your team", end: again });
+    theirs(r.querySelector(".gs-row-name"));
+    again.onclick = () => challenge(people.get(x.rival.id) || { id: x.rival.id, username: x.rival.name }, profiles.get(x.rival.id));
+    b.append(r);
+  }
+  return b;
+}
+
+/** The league: everyone, best first, with their favourite creature, this week's share of goal days, my record against
+ * them, and Challenge. */
+function leagueBlock(game, me, people, profiles, now, challenge) {
+  const lg = Math.max(0, Math.min(3, Math.floor(Number(game.league) || 0)));
+  const b = block(`${LEAGUES[lg]} league`, h(`<span class="bt-league">${leagueIcon(lg, 24)}</span>`));
+  leagueRows({ me, game, people, profiles, now }).forEach((r, i) => {
+    const record = !r.mine && Object.prototype.hasOwnProperty.call(game.rivals, r.id) ? game.rivals[r.id] : null;
+    const sub = `<span>${t("{0}% of days", String(r.pct))}</span>`
+      + (record ? `<span class="fr-record">${icon("rival")}${fmt(record.wins)}–${fmt(record.losses)}</span>` : "");
+    let end = "";
+    if (!r.mine) {
+      end = h(`<button type="button" class="gs-row-btn${r.team.length ? " primary" : ""}"></button>`);
+      end.textContent = r.team.length ? "Challenge" : "No team yet";
+      end.disabled = !r.team.length;
+      end.title = r.team.length ? t("Skill {0}", String(r.rating)) : "They haven't opened the game online yet";
+      end.onclick = () => challenge(r.user, r.profile);
+    }
+    const el = row({ pic: "", name: r.name, sub, end });
+    el.classList.add("fr-row");
+    el.classList.toggle("fr-me", r.mine);
+    if (!r.mine) theirs(el.querySelector(".gs-row-name"));
+    const fav = r.mine ? showcaseOf(game) : showcaseGenome(r.profile);
+    const pic = el.querySelector(".gs-row-pic");
+    // their favourite creature with their league in its corner; without one, the league's picture
+    if (fav) pic.append(portrait(fav, 48), h(`<span class="fr-league">${leagueIcon(r.league, 24)}</span>`)); else pic.innerHTML = leagueIcon(r.league, 48);
+    pic.append(h(`<span class="fr-rank">${i + 1}</span>`));
+    b.append(el);
+  });
+  if (!people.size) {
+    b.append(h(`<div class="gs-empty"><span>Add friends on the Friends tab to fill the league and challenge their teams.</span>
+      <a class="btn" href="#/friends" data-close>${lineIcon("userplus", 18)}<span>Add a friend</span></a></div>`));
+  }
+  return b;
+}
+
+/** This week's rule for friend battles. */
+function ruleBlock(now) {
+  const rule = weeklyRule(now);
+  const b = block("This week's rule");
+  b.append(row({ pic: icon(`rule_${rule.icon || rule.id}`, 32), name: rule.name, sub: rule.text }));
+  return b;
+}
+
+/** A guild's raid: the boss, how much of it is left, who has hit it, and the reward once it is down. */
+function raidBlock(game, me, guild, profiles, now, week, changed) {
+  const boss = weeklyBoss(now);
+  const r = raidState({ me, game, members: guild.members, profiles, now });
+  const b = block(t("Guild raid: {0}", guild.name));
+  theirs(b.querySelector(".gs-label"));
+  const stage = h(`<div class="fr-boss"><span class="boss${r.down ? " down" : ""}"></span><span class="fr-boss-text"><strong></strong><span></span></span></div>`);
+  stage.querySelector(".boss").style.backgroundImage = `url(${ART}boss/${boss.id}_${r.down ? "down" : "idle"}.png)`;
+  stage.querySelector("strong").textContent = boss.name;
+  stage.querySelector(".fr-boss-text span").textContent = boss.text;
+  b.append(stage);
+  const hp = h(`<div class="cr-grow fr-hp"><span class="gs-label">Health</span><span class="cr-bar"><i></i></span><span class="small cr-pct"></span></div>`);
+  hp.querySelector("i").style.width = `${Math.round((r.left / r.hp) * 100)}%`;
+  hp.querySelector(".cr-pct").textContent = r.down ? t("Defeated!") : `${fmt(r.left)} / ${fmt(r.hp)}`;
+  if (!r.down) hp.querySelector(".cr-pct").dir = "ltr"; // ("252 / 450" reads the same way round in Arabic)
+  b.append(hp);
+  const parts = h(`<div class="fr-parts"></div>`);
+  for (const [name, dealt] of r.parts) {
+    const who = h(`<span class="fr-part-name"></span>`);
+    who.textContent = name;
+    if (name !== "You") theirs(who);
+    parts.append(who, Object.assign(h(`<b class="fr-part-n"></b>`), { textContent: fmt(dealt) }));
+  }
+  b.append(parts);
+  if (r.down && game.raid !== week) {
+    const btn = h(`<button type="button" class="primary gs-wide">${icon("trophy")}<span>Claim the reward</span></button>`);
+    btn.onclick = () => {
+      const pay = claimRaid(game, new Date());
+      if (!pay) return;
+      saveGame();
+      sfx("jackpot");
+      announce({ type: "raid", xp: pay.xp, tier: "jackpot", badges: pay.badges });
+      toast(`Raid won: +${pay.xp} XP and ${pay.coins} coins.`);
+      changed();
+      btn.replaceWith(h(`<p class="gs-state muted">${icon("clock")}<span>Reward claimed. A new boss arrives on Monday.</span></p>`));
+    };
+    b.append(btn);
+  } else if (r.down) b.append(h(`<p class="gs-state muted">${icon("clock")}<span>Reward claimed. A new boss arrives on Monday.</span></p>`));
+  return b;
+}
+
+/** No guild yet: the week's boss, and where guilds are made. */
+function noGuildBlock(now) {
+  const boss = weeklyBoss(now);
+  const b = block("Guild raid");
+  const box = h(`<div class="gs-empty"><span class="boss"></span><span></span>
+    <a class="btn" href="#/friends" data-close>${lineIcon("friends", 18)}<span>Open the Friends tab</span></a></div>`);
+  box.querySelector(".boss").style.backgroundImage = `url(${ART}boss/${boss.id}_idle.png)`;
+  box.querySelector("span:not(.boss)").textContent = `Join or found a guild (Friends tab) to take on the weekly raid boss together. This week: ${BOSSES.length ? boss.name : ""}.`;
+  b.append(box);
+  return b;
+}
+
+// ---------- the "?": how battling friends works ----------
+
+/** A part of an explanation: a heading, then its points (markup), as arguments (see battle-ui.js helpPart). */
+function helpPart(title, ...items) {
+  const part = h(`<div><strong></strong><ul class="info-list"></ul></div>`);
+  part.querySelector("strong").textContent = title;
+  for (const it of items) part.querySelector("ul").append(h(`<li>${it}</li>`));
+  return part;
+}
+
+/** How the Friends side works, over it (its "?"): challenges, the league, the raid, gifts, and what friends see. */
+export function friendsHelp(game, go, opts = {}) {
+  const { body } = helpSheet("Battling friends", "rival", opts);
+  body.append(
+    helpPart("Challenges",
+      "Challenge a friend's team: their creatures fight with the moves they chose, and answer as accurately as their owner usually answers their own words. You answer yours.",
+      "Each week has its own rule for friend battles: it is under This week's rule.",
+      "Friend battles count for your skill rating, and your record against each friend is kept."),
+    helpPart("The league",
+      "Ranked by the share of days this week each of you reached your own daily goal, whatever its size. Five or more days in a week moves you up a league; one or none moves you down."),
+    helpPart("Guild raid",
+      "Every right answer in a battle this week, by anyone in the guild, takes one off.",
+      "Beat the boss together for 150 XP and 20 coins each. A new boss arrives on Monday."),
+    helpPart("Gifts", "Friends can give you things to wear, decorations and eggs. They wait here until you open them."),
+    helpPart("What friends see",
+      "Your words and study material are never sent: only your team of creatures, how accurately you answer, and this week's totals."),
+  );
 }

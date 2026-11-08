@@ -24,6 +24,28 @@ const WORD = /[\p{L}\p{M}\p{N}'’-]+/gu;
 const AR_FRONT = /^(?:و|ف)?(?:ب|ل|ك)?(?:ال|لل)?/;
 
 const clean = (w) => w.replace(/^['’-]+|['’-]+$/g, "");
+const EDGE = /^[\s\p{P}\p{S}]+|[\s\p{P}\p{S}]+$/gu;
+
+/**
+ * A text's words as keys, in order, for finding phrases: {k: [keys], b: [the same without و ف ب ل ك ال in front]
+ * (Arabic and Persian only, else null)}. Japanese, Chinese and Thai: the whole text without spaces and
+ * punctuation, as one key (they are searched for inside the sentence instead).
+ */
+export function wordsOf(text, lang) {
+  if (UNSPACED.has(lang)) {
+    const all = String(text ?? "").replace(/[\s\p{P}\p{S}]+/gu, "");
+    return { k: all ? [all] : [], b: null };
+  }
+  const k = [], b = lang === "ar" || lang === "fa" ? [] : null;
+  for (const m of String(text ?? "").matchAll(WORD)) {
+    const w = clean(m[0]);
+    if (!w) continue;
+    const key = matchKey(w, lang);
+    k.push(key);
+    if (b) { const bare = key.replace(AR_FRONT, ""); b.push(bare.length >= 3 ? bare : key); }
+  }
+  return { k, b };
+}
 
 /** The words of a sentence, as keys. Arabic: each also without the little words in front. */
 export function sentenceKeys(text, lang) {
@@ -100,6 +122,73 @@ export class ExamplePack {
     return this.index;
   }
 
+  /** Every sentence's words in order (wordsOf), made the first time a phrase is looked for. */
+  sequences() {
+    if (!this.seqs) this.seqs = this.sentences.map(([text]) => wordsOf(text, this.lang));
+    return this.seqs;
+  }
+
+  /** The keys that count as `key` in a phrase: itself and, with the word tables (`lemmaOf`), the other forms
+   * of the same word that the sentences have (tomando for tomar: "me estás tomando el pelo"). Words of fewer
+   * than 3 letters (de, el, في) only as written. */
+  formsOf(key, lemmaOf) {
+    const out = new Set([key]);
+    const lemma = lemmaOf && key.length >= 3 ? safe(lemmaOf, key) : null;
+    if (!lemma) return out;
+    const stem = key.slice(0, Math.max(2, Math.min(4, key.length - 2)));
+    let tried = 0;
+    for (const k of this.byKey().keys()) {
+      if (k === key || !k.startsWith(stem)) continue;
+      if (++tried > 3000) break;
+      if (safe(lemmaOf, k) === lemma) out.add(k);
+    }
+    return out;
+  }
+
+  /**
+   * Sentences that have phrase `text`'s words one after another, given to `add(i, cost)`: cost 0 as written,
+   * 0.5 with و ف ب ل ك ال in front of a word (Arabic, Persian), 1 with another form of a word (`lemmaOf`, the
+   * word tables, when they are on the device). At most `max` sentences.
+   */
+  phraseIn(text, { lemmaOf = null, add, max = 400 } = {}) {
+    const want = wordsOf(text, this.lang).k;
+    if (want.length < 2) return;
+    const forms = want.map((k) => this.formsOf(k, lemmaOf));
+    const seqs = this.sequences();
+    let n = 0;
+    for (let i = 0; i < seqs.length && n < max; i++) {
+      const { k, b } = seqs[i];
+      let best = Infinity;
+      for (let s = 0; s + want.length <= k.length && best > 0; s++) {
+        let cost = 0;
+        for (let t = 0; t < want.length && cost < Infinity; t++) {
+          const got = k[s + t];
+          if (got === want[t]) continue;
+          if (b && b[s + t] === want[t]) cost = Math.max(cost, 0.5);
+          else if (forms[t].has(got)) cost = Math.max(cost, 1);
+          else cost = Infinity;
+        }
+        best = Math.min(best, cost);
+      }
+      if (best < Infinity) { add(i, best); n++; }
+    }
+  }
+
+  /** The file's English for `text` when `text` is one of its sentences (the same words, whatever the
+   * capitals and punctuation: "¿cómo estás?" is Tatoeba's "¿Cómo estás?"), the shortest if several; else "". */
+  translationOf(text) {
+    const words = wordsOf(text, this.lang).k, want = words.join(" ");
+    if (!want) return "";
+    const seqs = this.sequences();
+    let best = "";
+    for (let i = 0; i < seqs.length; i++) {
+      if (seqs[i].k.length !== words.length || seqs[i].k.join(" ") !== want) continue;
+      const english = plainEnglish(this.sentences[i][1]);
+      if (english && (!best || english.length < best.length)) best = english;
+    }
+    return best;
+  }
+
   /**
    * Sentences that use `word`, best first: [{text, english, source}] (`source` "t<number>" for Tatoeba,
    * "w" for Wiktionary). `lemmaOf(form)` gives a word's dictionary form, when the word tables are here;
@@ -112,15 +201,20 @@ export class ExamplePack {
     const key = matchKey(w, lang);
     const picked = new Map();  // sentence number -> how well it fits (less is better)
     const add = (i, cost) => { if (!picked.has(i) || picked.get(i) > cost) picked.set(i, cost); };
+    // A phrase ("por favor", "إن شاء الله"): its own entry's examples, then sentences with its words one after another.
+    const several = !UNSPACED.has(lang) && wordsOf(w, lang).k.length > 1;
     // 1. Wiktionary's examples in the word's own entry.
     // (Chinese entries also give Cantonese and classical examples: Tatoeba's Mandarin is as good a choice.)
-    for (const i of this.words[key] || []) add(i, lang === "zh" ? 1.5 : -1.2);
-    if (UNSPACED.has(lang)) {
+    for (const i of this.words[several ? matchKey(w.replace(EDGE, ""), lang) : key] || []) add(i, lang === "zh" ? 1.5 : -1.2);
+    if (several) this.phraseIn(w, { lemmaOf, add });
+    else if (UNSPACED.has(lang)) {
       // 2. Written without spaces: the word inside the sentence.
-      if (w.length >= 1) {
+      // (without the punctuation round it: お願いします。 is found in 静かにお願いします。)
+      const inner = w.replace(EDGE, "") || w;
+      if (inner.length >= 1) {
         let n = 0;
         for (let i = 0; i < this.sentences.length && n < 400; i++) {
-          if (this.sentences[i][0].includes(w) && !picked.has(i)) { add(i, 0); n++; }  // (an entry's own example keeps its own cost)
+          if (this.sentences[i][0].includes(inner) && !picked.has(i)) { add(i, 0); n++; }  // (an entry's own example keeps its own cost)
         }
       }
     } else {
@@ -178,7 +272,8 @@ const safe = (f, x) => { try { return f(x); } catch { return null; } };
  * review card lights it up, as it does for the AI's translations). */
 export function markTranslation(english, meaning) {
   const text = String(english || "");
-  const words = String(meaning || "").replace(/\([^)]*\)/g, " ").split(/[;,/]/)[0].replace(/^\s*(?:to|a|an|the)\s+/i, "").trim();
+  // (a phrase's meaning ends as a question may: "how are you?" is marked as "how are you", not just "how")
+  const words = String(meaning || "").replace(/\([^)]*\)/g, " ").split(/[;,/]/)[0].replace(/^\s*(?:to|a|an|the)\s+/i, "").replace(/[\s?!.¿¡]+$/u, "").trim();
   if (!words || text.includes("⟦")) return text;
   const tries = [words, ...words.split(/\s+/).filter((x) => x.length >= 3).sort((a, b) => b.length - a.length)];
   for (const t of tries) {

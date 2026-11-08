@@ -73,6 +73,20 @@ export function folderCount(words, key) {
   return words.filter((v) => (key === "none" ? !(v.folders || []).length : (v.folders || []).includes(key))).length;
 }
 
+const DECK_GROUP = /^(DLI [^·]{1,30}) · /u;  // a DLI deck's chapter folders (dli.js deckFolderName)
+/** Folders in the order the Vocab page lists them: by name, numbers as numbers ("Chapter 2" before "Chapter 10"),
+ * except that a DLI deck's folders ("DLI Arabic · …") stay together in the order they were made, which is the
+ * course's order (Sound and Script before Chapter 1, Chapter 50 before Semester 3). */
+export function sortFolders(list) {
+  const group = (f) => { const m = DECK_GROUP.exec(String((f && f.name) || "")); return m ? m[1] : ""; };
+  const byName = (a, b) => String(a).localeCompare(String(b), undefined, { numeric: true, sensitivity: "base" });
+  return [...(list || [])].sort((a, b) => {
+    const ga = group(a), gb = group(b);
+    if (ga && ga === gb) return (Number(a.created_at) || 0) - (Number(b.created_at) || 0) || byName(a.name, b.name);
+    return byName(ga || a.name, gb || b.name) || byName(a.name, b.name);
+  });
+}
+
 /** The folder choice `step` places along from `key` (the controller's shoulder buttons): every word, those
  * in no folder, then each folder in its order, round and round. */
 export function stepFolder(key, folders, step) {

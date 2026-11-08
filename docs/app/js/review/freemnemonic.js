@@ -31,7 +31,10 @@ const TWO_WORDS = 0.1; // what a two-word keyword gives up against a one-word on
 // keyword that sounds a little less close still goes first; one that doesn't sound like the word never shows.
 export const MEANING_WEIGHT = 0.3;
 const TRUST = { g: 0.85, v: 0.75 };  // how much a looser tie is believed (tools/build_examples.py TIES)
-const PIECE_TIE = 0.6;  // a keyword of several words tied through one piece only
+export const PIECE_TIE = 0.6;  // a keyword of several words tied through one piece only
+// A sound-alike the learner wrote in CAPITALS in a note of their own (review/ownmnemonic.js) gets this much more
+// when it sounds like another word too: only a little, as one keyword for many words can mix them up.
+export const OWN_BONUS = 0.04;
 export const FITS = 0.7;     // a tie this strong is shown "Fits the meaning"
 export const RELATED = 0.4;  // and this strong "Related in meaning"
 
@@ -242,6 +245,11 @@ export function meaningPicture(meaning, list = null, pos = "") {
   const head = (m.split(" ")[verb ? 0 : m.split(" ").length - 1] || "").toLowerCase();
   const entry = list && list.byWord.get(head);
   const adj = !verb && (/adj/i.test(pos) || (!pos && m.split(" ").length <= 2 && ((entry && entry.pos === "a") || (list && list.adjectives && list.adjectives.has(head)))));
+  // Something said rather than a thing (a phrase's meaning: "please", "how are you?", "God willing", "however"):
+  // pictured being said, not as an object ("a PILLOW saying “please”", never "a please on top of a PILLOW").
+  if (!verb && !adj && /phrase|intj|interj|adv|particle/i.test(pos)) {
+    return { text: m.slice(0, 60), pos: "said", head, heads: [head].filter((x) => /^\p{L}+$/u.test(x)), kind: "" };
+  }
   // Every sense's head word, for the ties ("big, large": big and large; "to run, to flee": run and flee).
   const heads = [head, ...String(meaning || "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/\n]/).slice(1, 4)
     .map((x) => x.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").split(/\s+/))
@@ -272,6 +280,11 @@ const ADJ_LINES = {
   thing: ["Picture {k} that is incredibly {m}.", "Picture a really {m} {K}, the only one in the world.", "Picture {k}: so {m} that everyone stares."],
   word: ["Shout “{K}!” at something very {m}.", "Picture something very {m} with “{K}” written on it.", "Hear “{K}” and think {m}."],
 };
+// A phrase's meaning that is said ("please", "how are you?"): the keyword says it.
+const SAID_LINES = {
+  thing: ["Picture {k} turning to you and saying “{M}”.", "Picture {k} that can only say one thing: “{M}”.", "Picture {k} with a speech bubble: “{M}”."],
+  word: ["Hear someone say “{K}” when they mean “{M}”.", "Picture a speech bubble with “{K}” in it, meaning “{M}”.", "Shout “{K}!” whenever you mean “{M}”."],
+};
 
 const pick = (lines, seed) => lines[Math.abs(hash(seed)) % lines.length];
 function hash(s) {
@@ -287,6 +300,7 @@ const TIED_LINES = {
     g: "Picture {m} with {k}: the two go together.", v: "Picture {m} with {k}: the two go together." },
   verb: { s: "To {K} is a way to {m}: picture yourself as you {m}, then {K}.", other: "Picture yourself as you {m} with {k}: the two go together." },
   adj: { s: "{K} means much the same as {m}: picture something {m}, shouting “{K}!”", other: "Picture something {m} with {k}: the two go together." },
+  said: { other: "Picture {k} saying “{M}”: the two go together." },
 };
 
 // Picture lines in the app languages: no article or case ending to get right, so one plain line each (and one
@@ -332,24 +346,29 @@ export function sceneFor(entries, meaning, seed = "", tie = "", lang = "en") {
     const k = withArticle(K);
     if (meaning.pos === "verb") line = fill(pick(VERB_LINES.thing, seed + thing.word), k, K);
     else if (meaning.pos === "adj") line = fill(pick(ADJ_LINES.thing, seed + thing.word), k, K);
+    else if (meaning.pos === "said") line = fill(pick(SAID_LINES.thing, seed + thing.word), k, K);
     else line = fill(pick(LINES[thing.kind] || LINES.noun, seed + thing.word), k, K);
     if (many) line = `“${shown}”: ${line}`;
   } else {
-    const lines = meaning.pos === "verb" ? VERB_LINES.word : meaning.pos === "adj" ? ADJ_LINES.word : LINES.word;
+    const lines = meaning.pos === "verb" ? VERB_LINES.word : meaning.pos === "adj" ? ADJ_LINES.word : meaning.pos === "said" ? SAID_LINES.word : LINES.word;
     line = fill(pick(lines, seed + shown), shown, shown);
   }
   return cap(line);
 }
 
 /**
- * Keywords for word `v` ({text, meaning, pos}) with no AI: the same result as mnemonic.js makeMnemonics,
+ * Keywords for word `v` ({text, meaning, pos, memo}) with no AI: the same result as mnemonic.js makeMnemonics,
  * {pron, items, parts, checked, asked, free: true}. `pron` from soundout.js pronunciationOf; `list` a
- * KeywordList; `avoid` keywords already shown or turned down for the word.
+ * KeywordList; `avoid` keywords already shown or turned down for the word; `prefs` what the learner's choices
+ * taught (readPrefs), and with `own` the sound-alikes they wrote themselves are offered again (marked `own`).
  */
-export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT, prefs = null }) {
+export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = MEANING_WEIGHT, prefs = null, own = true }) {
   if (!pron) throw new Error("NO_SOUNDS");
-  const meaning = meaningPicture(v.meaning, list, v.pos || "");
-  const skip = [...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^\p{L}]+/u)];
+  // (a card of several words whose core is too, "por favor", is a phrase: its meaning is pictured being said)
+  const several = !v.pos && pron.core && /\S\s+\S/u.test(String(pron.core.core || ""));
+  const meaning = meaningPicture(v.meaning, list, v.pos || (several ? "phrase" : ""));
+  const skip =[...avoid, v.text, meaning.head, ...String(v.meaning || "").toLowerCase().split(/[^\p{L}]+/u)];
+  const taste = readPrefs(prefs);
   // Ties to the meaning: their strength (0..1) and kind, per keyword word; a keyword of several words takes its
   // strongest piece's. (meaningWeight 0: sound and picture only, as before the ties: for measuring them.)
   const ties = meaningWeight ? list.tiesOf(meaning) : new Map();
@@ -368,7 +387,20 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
     const t = tieOf(p.pieces.map((x) => x.entry));
     return { pieces: p.pieces, tie: t, scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text, list.lang !== "en" && linkOf(t) ? t.tie : "", list.lang) };
   });
-  const own = (keyword) => list.ipaOf(keyword);
+  // The sound-alikes the learner wrote in CAPITALS in their own notes (review/ownmnemonic.js), in this list's
+  // language: offered again here when they pass the same sound check as the rest, marked "You've used this
+  // before". Never the word's own words or meaning, nor one its notes already have.
+  const skipped = new Set(skip.map((s) => cleanKeyword(s).toLowerCase()).filter(Boolean));
+  const inNotes = (k) => new RegExp(`(?<![\\p{L}\\p{M}])${k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\p{M}])`, "iu").test(String(v.memo || ""));
+  const mine = own ? taste.o.filter(([k, , lang]) => (lang || "en") === list.lang && !skipped.has(k) && !k.split(" ").some((w) => skipped.has(w)) && !inNotes(k)) : [];
+  const ownIpa = new Map(mine.map(([k, ipa]) => [k, ipa]));
+  for (const [k, ipa] of mine) {
+    if (keywords.some((x) => x.keyword.toLowerCase() === k)) continue;  // (found anyway: marked below)
+    const entries = k.split(" ").map((w) => list.byWord.get(w) || { word: w, pos: "", kind: "", rank: 1e5 });
+    const t = tieOf(entries);
+    keywords.push({ keyword: k, ipa, covers: [], entry: entries[0], tie: t, scene: sceneFor(entries, meaning, v.text, linkOf(t) && entries.length === 1 ? t.tie : "", list.lang) });
+  }
+  const heardAs = (keyword) => list.ipaOf(keyword) || ownIpa.get(String(keyword).toLowerCase()) || null;
   const marks = (t) => ({ link: linkOf(t), linkNote: "", tie: linkOf(t) ? t.tie : "", tieWeight: t.weight });
   const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, scene: k.scene, ...marks(k.tie) });
   // Two-word keywords for a two-syllable word are shown as keywords ("cab eye"); longer words' as split ones.
@@ -380,18 +412,19 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
     scene: p.scene, ...marks(p.tie) }));
   // Checked like the AI's (rankSuggestions), but all of them, so that a picturable word that sounds
   // nearly as close can go before the closest one.
-  const ranked = rankSuggestions({ pron, keywords: [...keywords.map(tidy), ...twoWord.slice(0, 6)], parts: split, ownSounds: own, avoid, count: 1000 });
-  // (rankSuggestions keeps only its own fields: the tie goes back on)
+  const ranked = rankSuggestions({ pron, keywords: [...keywords.map(tidy), ...twoWord.slice(0, 6)], parts: split, ownSounds: heardAs, avoid, count: 1000 });
+  // (rankSuggestions keeps only its own fields: the tie goes back on, and the mark of the learner's own words)
   const byKeyword = new Map([...keywords.map(tidy), ...twoWord, ...split].map((s) => [s.keyword, s]));
   for (const s of [...ranked.items, ...ranked.parts]) {
     const from = byKeyword.get(s.keyword);
     if (from) Object.assign(s, { tie: from.tie, tieWeight: from.tieWeight });
+    if (!s.pieces && ownIpa.has(s.keyword.toLowerCase())) s.own = true;
   }
   // (a keyword of two words is harder to keep in mind than one word: it must sound clearly closer)
   // (and what the learner's own choices taught: prefs, readPrefs)
-  const taste = readPrefs(prefs);
   for (const s of [...ranked.items, ...ranked.parts]) s.traits = traitsOf(s, list);
   const worth = (s) => s.score + prefBonus(taste, s.traits) + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
+    + (s.own ? OWN_BONUS : 0)
     + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w.toLowerCase()) || { pos: "", rank: 1e5 }))));
   ranked.items.sort((a, b) => worth(b) - worth(a));
   ranked.parts.sort((a, b) => worth(b) - worth(a));
@@ -425,33 +458,87 @@ export function traitsOf(s, list) {
   return out;
 }
 
-/** The learner's weights, from the synced setting `mnemonic_prefs` (JSON): {w: {trait: weight}, n: choices}. */
+// The learner's own mnemonics (review/ownmnemonic.js) are kept in the same setting: the sound-alikes they wrote
+// in CAPITALS that passed the sound check, with their sounds (newest first), and a few whole notes, sent to
+// their AI as examples of their style. It is synced with the keys (aikeys.js), whose copies are cut at 2,000
+// characters, so writePrefs keeps it under PREFS_MAX by letting the oldest go.
+export const OWN_MAX = 60;       // own sound-alikes kept
+export const EXAMPLES_MAX = 3;   // own notes kept as examples
+export const NOTE_MAX = 240;     // characters of each
+export const PREFS_MAX = 1900;   // the whole setting, in characters
+const OWN_WORD = /^[\p{Ll}\p{Lo}\p{M}']{2,}(?: [\p{Ll}\p{Lo}\p{M}']{2,}){0,2}$/u;
+// (control characters and the ones that turn text round: never kept)
+const CONTROL = "\\u0000-\\u001f\\u007f-\\u009f\\u2028\\u2029\\u202a-\\u202e\\u2066-\\u2069";
+const HAS_CONTROL = new RegExp(`[${CONTROL}]`);
+const plainText = (s) => (typeof s === "string" ? s.replace(new RegExp(`[${CONTROL}]`, "g"), " ").replace(/\s+/g, " ").trim() : null);
+
+/** What the free Mnemonic maker has learned, from the synced setting `mnemonic_prefs` (JSON, from any device, so
+ * read strictly; anything odd is left out): {w: {trait: weight}, n: choices learned from, o: [[sound-alike,
+ * its IPA, its language when not English]], x: [[word, meaning, note]]}. */
 export function readPrefs(raw) {
   try {
     const p = typeof raw === "string" ? JSON.parse(raw || "{}") : raw || {};
+    if (!p || typeof p !== "object" || Array.isArray(p)) return { w: {}, n: 0, o: [], x: [] };
     const w = {};
-    for (const [k, v] of Object.entries((p && p.w) || {})) {
-      if (/^[a-z:]{2,24}$/.test(k) && Number.isFinite(v)) w[k] = Math.max(-PREF_LIMIT, Math.min(PREF_LIMIT, v));
+    if (p.w && typeof p.w === "object" && !Array.isArray(p.w)) {
+      for (const [k, v] of Object.entries(p.w).slice(0, 60)) {
+        if (/^[a-z:]{2,24}$/.test(k) && typeof v === "number" && Number.isFinite(v)) w[k] = Math.max(-PREF_LIMIT, Math.min(PREF_LIMIT, v));
+      }
     }
-    return { w, n: Number.isInteger(p && p.n) ? p.n : 0 };
-  } catch { return { w: {}, n: 0 }; }
+    const o = [];
+    for (const e of Array.isArray(p.o) ? p.o.slice(0, OWN_MAX * 2) : []) {
+      if (!Array.isArray(e) || e.length < 2 || e.length > 3) continue;
+      const [k, ipa, lang] = e;
+      if (typeof k !== "string" || k.length > 40 || !OWN_WORD.test(k) || o.some(([x]) => x === k)) continue;
+      if (typeof ipa !== "string" || !ipa.trim() || ipa.length > 80 || /[<>&"\\]/.test(ipa) || HAS_CONTROL.test(ipa)) continue;
+      if (e.length === 3 && !(typeof lang === "string" && /^[a-z]{2,3}$/.test(lang))) continue;
+      o.push(e.length === 3 && lang !== "en" ? [k, ipa, lang] : [k, ipa]);
+      if (o.length >= OWN_MAX) break;
+    }
+    const x = [];
+    for (const e of Array.isArray(p.x) ? p.x.slice(0, EXAMPLES_MAX * 4) : []) {
+      if (!Array.isArray(e) || e.length !== 3) continue;
+      const [word, meaning, note] = e.map((s) => plainText(s));
+      if (!word || meaning === null || !note || word.length > 60 || meaning.length > 120 || note.length > NOTE_MAX) continue;
+      if (x.some(([y]) => y === word)) continue;
+      x.push([word, meaning, note]);
+      if (x.length >= EXAMPLES_MAX) break;
+    }
+    const n = Number.isInteger(p.n) && p.n >= 0 ? Math.min(p.n, 1e6) : 0;
+    return { w, n, o, x };
+  } catch { return { w: {}, n: 0, o: [], x: [] }; }
+}
+
+/** The setting's text for `prefs` (readPrefs' shape), at most PREFS_MAX characters: the oldest own sound-alikes
+ * go first when it is too long, then the oldest examples. "" when nothing has been learned. */
+export function writePrefs(prefs) {
+  const p = readPrefs(prefs);
+  if (!p.n && !Object.keys(p.w).length && !p.o.length && !p.x.length) return "";
+  const text = () => JSON.stringify({ w: p.w, n: p.n, ...(p.o.length ? { o: p.o } : {}), ...(p.x.length ? { x: p.x } : {}) });
+  let out = text();
+  while (out.length > PREFS_MAX && (p.o.length || p.x.length)) {
+    if (p.o.length > 10 || !p.x.length) p.o.pop(); else p.x.pop();
+    out = text();
+  }
+  return out;
 }
 
 /** The weights after the learner picked (`sign` +1: Use) or turned down (−1: thumbs down) a suggestion with
  * these traits, among the others shown with it (`others`: their traits). Only what sets it apart counts: a trait
- * every one shown has says nothing about the choice. Picked: its own traits move up PREF_STEP, and traits only
- * the others have move down half that; turned down: its own move down. Always within ±PREF_LIMIT. New prefs. */
-export function learn(prefs, traits, sign, others = []) {
+ * every one shown has says nothing about the choice. Picked: its own traits move up `step` (PREF_STEP; a
+ * sound-alike of the learner's own a little more), and traits only the others have move down half that; turned
+ * down: its own move down. Always within ±PREF_LIMIT. New prefs (own words and examples kept). */
+export function learn(prefs, traits, sign, others = [], step = PREF_STEP) {
   const p = readPrefs(prefs);
   const everywhere = new Set((traits || []).filter((t) => others.length && others.every((o) => (o || []).includes(t))));
   const move = (t, by) => {
     p.w[t] = Math.max(-PREF_LIMIT, Math.min(PREF_LIMIT, Math.round(((p.w[t] || 0) + by) * 1000) / 1000));
     if (!p.w[t]) delete p.w[t];
   };
-  for (const t of new Set(traits || [])) if (!everywhere.has(t)) move(t, sign * PREF_STEP);
+  for (const t of new Set(traits || [])) if (!everywhere.has(t)) move(t, sign * step);
   if (sign > 0) {
     const theirs = new Set(others.flat().filter((t) => !(traits || []).includes(t)));
-    for (const t of theirs) move(t, -PREF_STEP / 2);
+    for (const t of theirs) move(t, -step / 2);
   }
   p.n++;
   return p;

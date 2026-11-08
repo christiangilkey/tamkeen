@@ -26,8 +26,8 @@ import { litParts, litTextHtml, markedSentenceHtml, stripMarks } from "../cardte
 import { canSay } from "../cardvoice.js";
 import { cardLanguage, voiceHere } from "../voiceplay.js";
 import { editPayload, editValue, holdPayload } from "../review/cardedit.js";
-import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, hasMnemonics, holdWords, mnemonicHtml, mnemonicMaker, partSeconds,
-         pastedInto, textBox } from "../review/cardtools.js";
+import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, hasMnemonics, holdWords, learnFromNote, memoPlaceholder, mnemonicHtml,
+         mnemonicMaker, partSeconds, pastedInto, textBox } from "../review/cardtools.js";
 import { ADDS, TOOLS, missingParts, toolsFor } from "../review/vocabedit.js";
 import { addToNotes } from "../review/mnemonic.js";
 import { practise, practiseButton } from "../review/pronounce.js";
@@ -240,6 +240,7 @@ export function openWordEditor(el, v, deps) {
         const notes = await pastedInto(box.value);
         if (notes !== null) box.value = notes;
       } }] : [],
+      placeholder: field === "memo" ? memoPlaceholder() : "",
       onClose: (save, typed, next) => {
         if (editing !== me) return;
         editing = null;
@@ -248,7 +249,12 @@ export function openWordEditor(el, v, deps) {
           const value = typed.replace(/\s+$/, "");
           change = value !== String(v[field] || "") ? { [field]: value } : null;
         } else if (save) change = editPayload(v, field, typed);
+        const memoBefore = String(v.memo || "");
         if (change) saveChange(change);
+        // Words in CAPITALS new in the notes teach the Mnemonic maker (review/ownmnemonic.js), after the save.
+        if (change && "memo" in change) {
+          learnFromNote(v, memoBefore, change.memo, { lang: studyLang(), at: body.querySelector('[data-note="memo"]'), shown: v.text });
+        }
         if (closed) return;
         paint();
         if (change && "text" in change) paintQuick(true);

@@ -10,7 +10,7 @@ const LTR ={ dir: "ltr", unspaced: false, reading: "below", root: "", standard: 
 export const LANGUAGES = {
   es: {
     ...LTR, name: "Spanish", native: "Español",
-    hello: "¡Bienvenido!", hi: "hola", search: "buscar", word: "la palabra",
+    hello: "¡Bienvenido!", hi: "hola", search: "buscar", word: "la palabra", wordOrPhrase: "palabra o frase",
     greet: ["Buenos días", "Buenas tardes", "Buenas noches"],
     sample: "Bienvenidos a un nuevo episodio del pódcast.",
     pageSample: "El café es una bebida que se obtiene de los granos tostados del cafeto, y es una de las más populares del mundo.",
@@ -19,7 +19,7 @@ export const LANGUAGES = {
   ar: {
     dir: "rtl", unspaced: false, name: "Arabic", native: "العربية",
     reading: "replace", root: "Root", standard: "In MSA", note: "Dialect",
-    hello: "أَهْلًا وَسَهْلًا", hi: "مرحبا", search: "ابحث", word: "الكلمة",
+    hello: "أَهْلًا وَسَهْلًا", hi: "مرحبا", search: "ابحث", word: "الكلمة", wordOrPhrase: "كلمة أو عبارة",
     greet: ["صباح الخير", "نهارك سعيد", "مساء الخير"],
     sample: "مَرْحَبًا بِكُمْ فِي حَلْقَةٍ جَدِيدَةٍ مِنَ البودكاست.",
     pageSample: "القهوة مشروب يُحضر من بذور البن المحمصة، وتعد واحدة من أكثر المشروبات شعبية في العالم.",
@@ -28,7 +28,7 @@ export const LANGUAGES = {
   },
   fr: {
     ...LTR, name: "French", native: "Français",
-    hello: "Bienvenue !", hi: "salut", search: "chercher", word: "le mot",
+    hello: "Bienvenue !", hi: "salut", search: "chercher", word: "le mot", wordOrPhrase: "mot ou expression",
     greet: ["Bonjour", "Bon après-midi", "Bonsoir"],
     sample: "Bienvenue dans un nouvel épisode du podcast.",
     pageSample: "Le café est une boisson obtenue à partir des graines torréfiées du caféier, et l'une des plus populaires au monde.",
@@ -36,7 +36,7 @@ export const LANGUAGES = {
   },
   ja: {
     ...LTR, unspaced: true, name: "Japanese", native: "日本語", root: "Characters",
-    hello: "ようこそ", hi: "こんにちは", search: "検索", word: "単語",
+    hello: "ようこそ", hi: "こんにちは", search: "検索", word: "単語", wordOrPhrase: "単語やフレーズ",
     greet: ["おはようございます", "こんにちは", "こんばんは"],
     sample: "ポッドキャストの新しいエピソードへようこそ。",
     pageSample: "コーヒーは焙煎したコーヒー豆から作られる飲み物で、世界で最も人気のある飲み物の一つです。",
@@ -44,7 +44,7 @@ export const LANGUAGES = {
   },
   zh: {
     ...LTR, unspaced: true, name: "Chinese", native: "中文", root: "Characters",
-    hello: "欢迎", hi: "你好", search: "搜索", word: "词语",
+    hello: "欢迎", hi: "你好", search: "搜索", word: "词语", wordOrPhrase: "词语或短语",
     greet: ["早上好", "下午好", "晚上好"],
     sample: "欢迎收听新一期的播客节目。",
     pageSample: "咖啡是用烘焙过的咖啡豆制作的饮料，是世界上最受欢迎的饮料之一。",
@@ -52,7 +52,7 @@ export const LANGUAGES = {
   },
   ru: {
     ...LTR, name: "Russian", native: "Русский", reading: "replace",
-    hello: "Добро пожаловать!", hi: "привет", search: "поиск", word: "слово",
+    hello: "Добро пожаловать!", hi: "привет", search: "поиск", word: "слово", wordOrPhrase: "слово или выражение",
     greet: ["Доброе утро", "Добрый день", "Добрый вечер"],
     sample: "Добро пожаловать в новый выпуск подкаста.",
     pageSample: "Кофе — это напиток из обжаренных зёрен кофейного дерева, один из самых популярных в мире.",
@@ -60,7 +60,7 @@ export const LANGUAGES = {
   },
   it: {
     ...LTR, name: "Italian", native: "Italiano",
-    hello: "Benvenuto!", hi: "ciao", search: "cerca", word: "la parola",
+    hello: "Benvenuto!", hi: "ciao", search: "cerca", word: "la parola", wordOrPhrase: "parola o espressione",
     greet: ["Buongiorno", "Buon pomeriggio", "Buonasera"],
     sample: "Benvenuti a un nuovo episodio del podcast.",
     pageSample: "Il caffè è una bevanda che si ottiene dai semi tostati della pianta del caffè, ed è una delle più diffuse al mondo.",
@@ -68,7 +68,7 @@ export const LANGUAGES = {
   },
   tl: {
     ...LTR, name: "Tagalog", native: "Tagalog", root: "Root",
-    hello: "Maligayang pagdating!", hi: "kumusta", search: "hanapin", word: "ang salita",
+    hello: "Maligayang pagdating!", hi: "kumusta", search: "hanapin", word: "ang salita", wordOrPhrase: "salita o parirala",
     greet: ["Magandang umaga", "Magandang hapon", "Magandang gabi"],
     sample: "Maligayang pagdating sa bagong episode ng podcast.",
     pageSample: "Ang kape ay inuming gawa sa mga binusang buto ng halamang kape, at isa ito sa pinakasikat na inumin sa buong mundo.",
@@ -76,7 +76,7 @@ export const LANGUAGES = {
   },
   pt: {
     ...LTR, name: "Brazilian Portuguese", native: "Português (Brasil)",
-    hello: "Bem-vindo!", hi: "oi", search: "buscar", word: "a palavra",
+    hello: "Bem-vindo!", hi: "oi", search: "buscar", word: "a palavra", wordOrPhrase: "palavra ou expressão",
     greet: ["Bom dia", "Boa tarde", "Boa noite"],
     sample: "Bem-vindos a mais um episódio do podcast.",
     pageSample: "O café é uma bebida feita a partir dos grãos torrados do cafeeiro, e é uma das mais populares do mundo.",
@@ -84,7 +84,7 @@ export const LANGUAGES = {
   },
   ca: {
     ...LTR, name: "Catalan", native: "Català",
-    hello: "Benvingut!", hi: "hola", search: "cercar", word: "la paraula",
+    hello: "Benvingut!", hi: "hola", search: "cercar", word: "la paraula", wordOrPhrase: "paraula o expressió",
     greet: ["Bon dia", "Bona tarda", "Bona nit"],
     sample: "Benvinguts a un nou episodi del pòdcast.",
     pageSample: "El cafè és una beguda que s'obté de les llavors torrades de la planta del cafè, i és una de les més populars del món.",
@@ -92,7 +92,7 @@ export const LANGUAGES = {
   },
   ceb: {
     ...LTR, name: "Bisaya (Cebuano)", native: "Binisaya", root: "Root",
-    hello: "Maayong pag-abot!", hi: "kumusta", search: "pangita", word: "ang pulong",
+    hello: "Maayong pag-abot!", hi: "kumusta", search: "pangita", word: "ang pulong", wordOrPhrase: "pulong o hugpong sa pulong",
     greet: ["Maayong buntag", "Maayong hapon", "Maayong gabii"],
     sample: "Maayong pag-abot sa bag-ong episode sa podcast.",
     pageSample: "Ang kape usa ka ilimnon nga hinimo gikan sa sinanlag nga liso sa tanom nga kape, ug usa kini sa labing sikat nga ilimnon sa tibuok kalibotan.",
@@ -100,7 +100,7 @@ export const LANGUAGES = {
   },
   th: {
     ...LTR, unspaced: true, name: "Thai", native: "ไทย",
-    hello: "ยินดีต้อนรับ", hi: "สวัสดี", search: "ค้นหา", word: "คำ",
+    hello: "ยินดีต้อนรับ", hi: "สวัสดี", search: "ค้นหา", word: "คำ", wordOrPhrase: "คำหรือวลี",
     greet: ["สวัสดีตอนเช้า", "สวัสดีตอนบ่าย", "สวัสดีตอนเย็น"],
     sample: "ยินดีต้อนรับสู่พอดแคสต์ตอนใหม่",
     pageSample: "กาแฟเป็นเครื่องดื่มที่ทำจากเมล็ดกาแฟคั่ว และเป็นหนึ่งในเครื่องดื่มที่ได้รับความนิยมมากที่สุดในโลก",
@@ -108,7 +108,7 @@ export const LANGUAGES = {
   },
   de: {
     ...LTR, name: "German", native: "Deutsch",
-    hello: "Willkommen!", hi: "hallo", search: "suchen", word: "das Wort",
+    hello: "Willkommen!", hi: "hallo", search: "suchen", word: "das Wort", wordOrPhrase: "Wort oder Ausdruck",
     greet: ["Guten Morgen", "Guten Tag", "Guten Abend"],
     sample: "Willkommen zu einer neuen Folge des Podcasts.",
     pageSample: "Kaffee ist ein Getränk aus den gerösteten Samen der Kaffeepflanze und eines der beliebtesten Getränke der Welt.",
@@ -117,7 +117,7 @@ export const LANGUAGES = {
   fa: {
     dir: "rtl", unspaced: false, name: "Persian", native: "فارسی",
     reading: "below", root: "", standard: "Standard form", note: "Usage",
-    hello: "خوش آمدید!", hi: "سلام", search: "جستجو", word: "واژه",
+    hello: "خوش آمدید!", hi: "سلام", search: "جستجو", word: "واژه", wordOrPhrase: "واژه یا عبارت",
     greet: ["صبح بخیر", "روز بخیر", "عصر بخیر"],
     sample: "به قسمت تازه‌ای از پادکست خوش آمدید.",
     pageSample: "قهوه نوشیدنی‌ای است که از دانه‌های برشته‌شدهٔ گیاه قهوه به دست می‌آید و یکی از محبوب‌ترین نوشیدنی‌های جهان است.",
@@ -126,7 +126,7 @@ export const LANGUAGES = {
   },
   hi: {
     ...LTR, name: "Hindi", native: "हिन्दी",
-    hello: "स्वागत है!", hi: "नमस्ते", search: "खोजें", word: "शब्द",
+    hello: "स्वागत है!", hi: "नमस्ते", search: "खोजें", word: "शब्द", wordOrPhrase: "शब्द या वाक्यांश",
     greet: ["सुप्रभात", "नमस्ते", "शुभ संध्या"],
     sample: "पॉडकास्ट के नए एपिसोड में आपका स्वागत है।",
     pageSample: "कॉफ़ी भुने हुए कॉफ़ी के बीजों से बनने वाला एक पेय है, और यह दुनिया के सबसे लोकप्रिय पेयों में से एक है।",
@@ -134,7 +134,7 @@ export const LANGUAGES = {
   },
   ko: {
     ...LTR, name: "Korean", native: "한국어", root: "Hanja",
-    hello: "환영합니다!", hi: "안녕하세요", search: "검색", word: "단어",
+    hello: "환영합니다!", hi: "안녕하세요", search: "검색", word: "단어", wordOrPhrase: "단어 또는 표현",
     greet: ["좋은 아침이에요", "안녕하세요", "좋은 저녁이에요"],
     sample: "팟캐스트 새 에피소드에 오신 것을 환영합니다.",
     pageSample: "커피는 볶은 커피콩으로 만든 음료로, 세계에서 가장 인기 있는 음료 중 하나입니다.",
@@ -144,7 +144,7 @@ export const LANGUAGES = {
   // word popup shows a word with its macrons in place of the word ("replace"), as Russian shows its stress.
   la: {
     ...LTR, reading: "replace", name: "Latin", native: "Latīna",
-    hello: "Salvē!", hi: "salvē", search: "quaere", word: "verbum",
+    hello: "Salvē!", hi: "salvē", search: "quaere", word: "verbum", wordOrPhrase: "verbum vel locūtiō",
     greet: ["Bonum māne", "Salvē", "Bonum vesperum"],
     sample: "Salvēte, amīcī! Hoc est novum podcastī nostrī ēpisōdium.",
     pageSample: "Cafēum est pōtiō quae ex grānīs tostīs plantae cafēī fit, et inter pōtiōnēs tōtīus orbis terrārum maximē amātur.",
@@ -153,7 +153,7 @@ export const LANGUAGES = {
   },
   en: {
     ...LTR, name: "English", native: "English",
-    hello: "Welcome!", hi: "hi", search: "search", word: "the word",
+    hello: "Welcome!", hi: "hi", search: "search", word: "the word", wordOrPhrase: "word or phrase",
     greet: ["Good morning", "Good afternoon", "Good evening"],
     sample: "Welcome to a brand new episode of the podcast.",
     pageSample: "Coffee is a drink made from the roasted seeds of the coffee plant, and it is one of the most popular drinks in the world.",

@@ -15,6 +15,9 @@
 //   - Audio: the card voice chosen in Settings → Card voices (made and kept now with Azure; the
 //     computer makes it with "My computer"; the device's voice says it live), or the learner's own
 //     recording or sound file for each card (cardaudio.js), kept with the card like a voice.
+// A card can be a phrase ("por favor", "إن شاء الله", addwords.js entryKind): its meaning is the dictionary's entry
+// for the whole phrase, else the AI's for it as one unit, else (no AI) word by word, marked so; a phrase that is
+// a sentence already is its own example; a long one gets no mnemonic (sound-alikes suit short ones).
 // "Fill in" does the automatic parts now, so they can be looked over (and changed) before adding;
 // "Add N cards" does whatever is left, saves them all (POST /vocab/batch), keeps their audio and closes.
 //
@@ -27,10 +30,14 @@ import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
-import { AI_CHUNK, MAX_ROWS, addable, batchPrompt, cardOf, chunks, cleanChoices, duplicates, edited, fillIn, hasValue,
-         needs, needsAny, needsMemo, parseList, pool, readBatch, typed } from "../addwords.js";
-import { OWN_KEYWORDS, freeExample, freeMnemonics } from "../examples.js";
+import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
+         fillIn, firstSense, hasValue, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
+         wordByWord, wordKey, wordsIn } from "../addwords.js";
+import { OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
+import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
+import { learnFromNote } from "../review/cardtools.js";
+import { sortFolders } from "../review/vocabedit.js";
 import { askAi, askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { aiMakes, chosenSource } from "../helpersource.js";
 import { pickedCountry } from "../youtube-home.js";
@@ -108,7 +115,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     </div>
     <div class="cb-paste" hidden>
       <textarea class="cb-paste-box" rows="7" dir="auto" spellcheck="false" aria-label="Your list, one card per line"></textarea>
-      <p class="small muted cb-paste-help">One card per line. After the word you can add its meaning with a dash, an equals sign or a semicolon (<span translate="no">word – meaning</span>), or paste columns from a spreadsheet: word, meaning, sentence, translation.</p>
+      <p class="small muted cb-paste-help">One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<span translate="no">word – meaning</span>), or paste columns from a spreadsheet: word, meaning, sentence, translation.</p>
       <div class="cb-preview" aria-live="polite"></div>
       <div class="cb-paste-go"><button type="button" class="primary cb-use" disabled>Use these</button></div>
     </div>
@@ -172,7 +179,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         if (name) {
           try {
             const made = await api("/vocab/folders", { method: "POST", body: { name } });
-            folderList = [...folderList, made].sort((a, b) => a.name.localeCompare(b.name));
+            folderList = sortFolders([...folderList, made]);
             onFolder(made);
             choices.folder = made.uid;
           } catch (err) { toast(err.message, { error: true }); }
@@ -313,6 +320,10 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       anyway: false,
       status: null,  // {kind: "busy" | "error" | "ok", text}
       audioNote: null,
+      fillNotes: {},     // {meaning, memo}: a line about what Fill in put there (a phrase's meaning word by word…)
+      kind: "word",      // "word", "phrase" or "sentence" (addwords.js entryKind), worked out when filling in
+      meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for the mnemonic's picture line
+      meaningFrom: "",   // "entry" (the dictionary's for the whole card), "words" (word by word), "ai"
       el: null,
     };
     row.el = rowElement(row);
@@ -324,14 +335,14 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     const el = h(`<div class="cb-row">
       <div class="cb-head">
         <span class="cb-num" aria-hidden="true"></span>
-        <input type="text" class="cb-word ar" ${study} autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" maxlength="200">
+        <textarea class="cb-word ar" rows="1" ${study} autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="next" maxlength="200"></textarea>
         <span class="cb-sum" dir="auto"></span>
         <button type="button" class="ghost icon cb-open" aria-expanded="false">${icon("chevron", 18)}</button>
         <button type="button" class="ghost icon cb-del">${icon("trash", 18)}</button>
       </div>
       <div class="cb-body">
         <label class="cb-field" data-f="meaning"><span class="cb-label">Meaning</span>
-          <span class="cb-in"><input type="text" class="cb-meaning" dir="auto" autocomplete="off" maxlength="500"><i class="cb-auto" aria-hidden="true">auto</i></span></label>
+          <span class="cb-in"><textarea class="cb-meaning" rows="1" dir="auto" autocomplete="off" maxlength="500"></textarea><i class="cb-auto" aria-hidden="true">auto</i></span></label>
         <label class="cb-field cb-sent" data-f="sentence"><span class="cb-label">Example sentence</span>
           <span class="cb-in"><textarea class="cb-sentence ar" rows="1" ${study} maxlength="1000"></textarea><i class="cb-auto" aria-hidden="true">auto</i></span></label>
         <label class="cb-field cb-sent" data-f="translation"><span class="cb-label">Sentence translation</span>
@@ -345,8 +356,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       <div class="cb-status" hidden></div>
     </div>`);
     const word = el.querySelector(".cb-word");
-    word.placeholder = info.word;  // (in the language being learned)
-    word.setAttribute("aria-label", t("Word"));
+    word.placeholder = info.wordOrPhrase || info.word;  // (in the language being learned: "palabra o frase")
+    word.setAttribute("aria-label", t("Word or phrase"));
     word.value = row.text;
     el.querySelector(".cb-open").setAttribute("aria-label", t("Show the rest of this card"));
     el.querySelector(".cb-del").setAttribute("aria-label", t("Take this card out"));
@@ -357,6 +368,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const input = el.querySelector(`.cb-${f}`);
       input.oninput = () => {
         row[f] = edited(input.value);  // from now on it is the learner's: never filled in over
+        if (f === "meaning") { row.meaningPos = ""; row.meaningFrom = ""; }
+        if (row.fillNotes[f]) { delete row.fillNotes[f]; paintStatus(row); }  // (a note about what was filled in)
         paintField(row, f);
         if (f === "meaning") paintSummary(row);
         if (input.tagName === "TEXTAREA") grow(input);
@@ -366,7 +379,15 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     }
     el.querySelector(".cb-notes").value = row.notes;
     el.querySelector(".cb-notes").oninput = (e) => { row.notes = e.target.value; dirtied(); };
+    // (The word box and the meaning box wrap a long phrase onto more lines, but stay one line of text: Enter
+    // moves on, and a line break pasted in becomes a space.)
+    el.querySelector(".cb-meaning").addEventListener("keydown", (e) => { if (e.key === "Enter" && !e.isComposing) e.preventDefault(); });
+    el.querySelector(".cb-meaning").addEventListener("input", (e) => {  // (before oninput below, which keeps the value)
+      if (/[\r\n]/.test(e.target.value)) e.target.value = e.target.value.replace(/\s*[\r\n]+\s*/g, " ");
+    }, true);
     word.oninput = () => {
+      if (/[\r\n]/.test(word.value)) word.value = word.value.replace(/\s*[\r\n]+\s*/g, " ");
+      grow(word);
       row.text = word.value;
       if (row.status && row.status.kind === "error") setStatus(row, null);
       dirtied();
@@ -403,7 +424,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       meaning: wants ? "Filled in for you" : "Its meaning",
       sentence: wants ? (found ? "Found for you" : "Written for you") : "A sentence that uses it",
       translation: wants ? (found ? "Found for you" : "Written for you") : "The sentence in your language",
-      memo: wants ? "A mnemonic made for you" : "A mnemonic, a picture",
+      // (with "Learn from my own mnemonics" on, a mnemonic typed here teaches the maker: its sound-alike in CAPITALS)
+      memo: wants ? "A mnemonic made for you" : learnsOwn(settings()) ? "Sound-alike in CAPITALS: a duck sitting on a POT…" : "A mnemonic, a picture",
     }[f];
     // (A text box's placeholder isn't translated again by itself when it changes, and the sentence box is in
     // the language being learned: so those are translated here.)
@@ -424,6 +446,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     const toggle = el.querySelector(".cb-open");
     toggle.setAttribute("aria-expanded", String(row.open));
     for (const f of ["meaning", "sentence", "translation", "memo"]) paintField(row, f);
+    grow(el.querySelector(".cb-word"));  // (a phrase on more lines than one)
     for (const s of el.querySelectorAll(".cb-sent")) s.hidden = choices.sentence === "none";
     el.querySelector(".cb-audio-field").hidden = choices.audio === "none";
     paintAudio(row);
@@ -499,6 +522,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     if (row.audioNote) {
       const line = h(`<span class="cb-st is-error-text"></span>`);
       line.textContent = row.audioNote;
+      box.append(line);
+    }
+    for (const text of Object.values(row.fillNotes)) {
+      const line = h(`<span class="cb-st cb-fill-note"></span>`);
+      line.textContent = text;
       box.append(line);
     }
     box.hidden = !box.childNodes.length;
@@ -642,7 +670,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   const pasteBox = $(".cb-paste-box");
   const meaningWord = t("its meaning");
-  pasteBox.placeholder = [`${info.word} – ${meaningWord}`, `${info.word} = ${meaningWord}`, `${info.word}; ${meaningWord}; ${t("a sentence")}`, info.word].join("\n");
+  pasteBox.placeholder = [`${info.word} – ${meaningWord}`, `${info.word} = ${meaningWord}`, `${info.word}; ${meaningWord}; ${t("a sentence")}`,
+    info.wordOrPhrase || info.word].join("\n");
   let pasted = { cards: [], total: 0, cut: false };
   function preview() {
     pasted = parseList(pasteBox.value, { lang, max: MAX_ROWS });
@@ -725,6 +754,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     $(".cb-one").hidden = m !== "one";
     $(".cb-paste").hidden = m !== "paste";
     $(".cb-scan-wrap").hidden = m !== "scan";
+    if (m === "one") for (const r of rows) grow(r.el.querySelector(".cb-word"));  // (sized while hidden: again now)
     if (m === "paste") pasteBox.focus();
     if (m === "scan") scanner().shown();
   }
@@ -769,6 +799,52 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     p.hidden = !text;
   };
 
+  /** A line under a card about what Fill in put in one of its fields ("" takes it away). */
+  function setNote(row, field, text) {
+    if (text) row.fillNotes[field] = text;
+    else delete row.fillNotes[field];
+    paintStatus(row);
+  }
+
+  /** The card's meaning, for finding a sentence of that sense and picturing it in a mnemonic: none when it is
+   * the app's word-by-word guess at a phrase (its words would mislead both). */
+  const meaningOf = (r) => (r.meaningFrom === "words" && r.meaning.auto ? "" : r.meaning.value);
+
+  /**
+   * A card's meaning from the built-in dictionary: {meaning, pos, from: "entry" | "words"}. A word as written,
+   * then its core ("der Hund, -e": Hund). A phrase: only an entry for the whole phrase ("por favor", "darse
+   * cuenta", "إن شاء الله"; in Japanese, Chinese and Thai also the whole as one word), and with `byWords` (no AI
+   * to ask) else its words one by one, the longest runs with an entry first (addwords.js wordByWord). Throws
+   * NO_MEANINGS when the dictionary isn't on this device, and an error when nothing was found.
+   */
+  async function dictionaryMeaning(text, { phrase = false, byWords = false } = {}) {
+    const language = definerConfig().language;
+    const ask = (word, several = false, quick = true) => dictionaryDefine({ word, lang, marked: "", ...(several ? { phrase: true } : {}) }, { quick, language });
+    const bare = bareText(text) || text, core = coreText(text, lang);
+    const tries = phrase ? [[bare, true], ...(info.unspaced ? [[bare, false]] : [])] : [[text, false], ...(core && core !== text ? [[core, false]] : [])];
+    for (const [word, several] of tries) {
+      try {
+        const d = await ask(word, several);
+        if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry" };
+      } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
+    }
+    if (phrase && byWords) {
+      // (all of a word's senses: its first may be no use here, "de" is first the letter D)
+      const look = async (word, several) => {
+        const sense = await ask(word, several, false).then((d) => usableSense(d ? [d.meaning, ...(d.other_meanings || [])] : []), () => "");
+        // Arabic, Persian: "and" written onto a run of words (والحمد لله): the run's own entry, with "and" before it
+        if (!sense && several && (lang === "ar" || lang === "fa") && /^و\S{2,}/u.test(word)) {
+          const rest = await look(word.slice(1), true);
+          return rest ? `and ${rest}` : "";
+        }
+        return sense;
+      };
+      const got = await wordByWord(wordsIn(bare, lang), look, { lang, all: !!info.unspaced });
+      if (got) return { meaning: t("Word by word: {0}", got.literal), pos: "", from: "words" };
+    }
+    throw new Error("NOT_FOUND");
+  }
+
   /** Fill in what the choices say is the app's to fill, for these rows: meanings from the dictionary
    * (by the lookup setting), then one AI request per AI_CHUNK words for the rest. Each row shows how
    * it went. Resolves when all is done. */
@@ -782,22 +858,35 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const want = needs(r, choices);
       return aiSentences ? want : { ...want, sentence: false, translation: want.translation && hasValue(r.sentence) };
     };
+    // A word, a phrase, or a phrase that is a sentence already (addwords.js entryKind). That last one is its own
+    // example: nothing is looked for or written for it (only its translation is).
+    for (const r of list) {
+      r.kind = entryKind(r.text, lang);
+      if (r.kind === "sentence" && choices.sentence === "auto" && !hasValue(r.sentence)) r.sentence = fillIn(r.sentence, r.text.trim());
+    }
     const todo = list.filter((r) => needsAny(r, choices) || needsMemo(r, choices));
-    if (!todo.length) return;
+    if (!todo.length) { for (const r of list) paintRow(r); return; }
     for (const r of todo) setStatus(r, { kind: "busy", text: t("Filling in…") });
 
-    // 1. Meanings from the built-in dictionary first, where the lookup setting says so.
+    // 1. Meanings from the built-in dictionary first, where the lookup setting says so. A phrase: the entry for
+    // the whole phrase; without one, the AI explains it (step 2), or with no AI it is put together word by word.
     const forAi = [];
     for (const r of todo) {
       const want = needs(r, choices);
+      const phrase = r.kind !== "word";
       let dictionaryFailed = "";
       if (want.meaning && usesDictionary()) {
         try {
-          const d = await dictionaryDefine({ word: r.text.trim(), lang, marked: "" }, { quick: true, language: cfg.language });
-          r.meaning = fillIn(r.meaning, d && d.meaning);
+          const d = await dictionaryMeaning(r.text.trim(), { phrase, byWords: phrase && !ai });
+          r.meaning = fillIn(r.meaning, d.meaning);
+          r.meaningPos = d.pos;
+          r.meaningFrom = d.from;
+          setNote(r, "meaning", d.from === "words"
+            ? t("The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.") : "");
         } catch (err) {
           dictionaryFailed = err && err.message === NO_MEANINGS
             ? t("The built-in dictionary isn't on this device yet: download it under Meaning, or type the meaning.")
+            : phrase ? t("This phrase isn't in the built-in dictionary. Type its meaning.")
             : t("This word isn't in the built-in dictionary. Type its meaning.");
         }
       }
@@ -813,7 +902,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     await pool(chunks(forAi, AI_CHUNK), 2, async (group) => {
       const items = group.map((r) => {
         const want = askFor(r);
-        return { word: r.text.trim(), meaning: r.meaning.value.trim(), sentence: hasValue(r.sentence) ? r.sentence.value.trim() : "", want };
+        // (a phrase is asked about as one unit: its meaning as a whole, a sentence with all of it)
+        return { word: r.text.trim(), meaning: r.meaning.value.trim(), sentence: hasValue(r.sentence) ? r.sentence.value.trim() : "",
+          phrase: r.kind !== "word", want };
       });
       let answers;
       try {
@@ -827,7 +918,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         const a = answers[i];
         if (!a) { setStatus(r, { kind: "error", text: t("The AI sent nothing back for this word. Press Fill in to try again.") }); return; }
         const want = items[i].want;
-        if (want.meaning) r.meaning = fillIn(r.meaning, a.meaning);
+        if (want.meaning && a.meaning) { r.meaning = fillIn(r.meaning, a.meaning); r.meaningFrom = "ai"; r.meaningPos = ""; setNote(r, "meaning", ""); }
         if (want.sentence) r.sentence = fillIn(r.sentence, a.sentence);
         if (want.translation) r.translation = fillIn(r.translation, a.translation);
         const left = needs(r, choices);
@@ -838,18 +929,30 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     });
 
     // 3. No AI, or Free chosen: a real sentence that uses the word (Tatoeba, Wiktionary), with its English translation.
+    // A phrase: sentences that have all of it (other forms of its words too, with the word tables). A phrase that
+    // is a sentence already gets its translation: the examples' own, when they have that very sentence, or the
+    // dictionary's meaning of the whole phrase.
     if (!aiSentences) {
       for (const r of todo) {
+        if (r.kind === "sentence" && needs(r, choices).translation && !needs(r, choices).sentence && wordKey(r.sentence.value) === wordKey(r.text)) {
+          let english = "";
+          try { const p = await examplesOf(lang); english = p ? p.translationOf(r.text.trim()) : ""; } catch { /* no connection the first time */ }
+          if (!english && r.meaningFrom === "entry" && r.meaning.auto) english = firstSense(r.meaning.value);
+          if (english) r.translation = fillIn(r.translation, english);
+          paintRow(r);
+          continue;
+        }
         if (!needs(r, choices).sentence) continue;
         let found = null;
-        try { found = await freeExample(r.text.trim(), lang, { meaning: r.meaning.value }); } catch { /* no connection the first time */ }
+        try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch { /* no connection the first time */ }
         if (found) {
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
           setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
-            : { kind: "note", text: t("No example sentence was found for this word. Type one, or leave it empty.") });
+            : { kind: "note", text: r.kind === "word" ? t("No example sentence was found for this word. Type one, or leave it empty.")
+              : t("No example sentence was found for this phrase. Type one, or leave it empty.") });
         }
         paintRow(r);
       }
@@ -858,15 +961,29 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     // 4. A mnemonic in Memorization notes: the AI's when it makes them (the review card's Mnemonic maker, a
     // few words at a time), else made on this device (keywords that sound like the word); an AI that fails
     // for a word leaves it to the free one.
-    const freeMemo = (r) => freeMnemonics({ text: r.text.trim(), meaning: r.meaning.value }, lang, { speaks: uiLanguage() });
-    const aiMemo = (r) => makeMnemonics({ text: r.text.trim(), meaning: r.meaning.value }, {
+    // ("Learn from my own mnemonics": the learner's own sound-alikes offered again, their notes shown to the AI)
+    // A phrase too long for sound-alikes (addwords.js mnemonicFits) gets none, and a line that says why. A phrase's
+    // meaning is pictured being said ("a BANANA saying “you're welcome”"): its part of speech goes with it.
+    const own = learnsOwn(settings()), prefs = settings().mnemonic_prefs;
+    const posOf = (r) => r.meaningPos || (r.kind !== "word" ? "phrase" : "");
+    const freeMemo = (r) => freeMnemonics({ text: r.text.trim(), meaning: meaningOf(r), pos: posOf(r) }, lang, { speaks: uiLanguage(), prefs, ownWords: own });
+    const aiMemo = (r) => makeMnemonics({ text: r.text.trim(), meaning: meaningOf(r) }, {
       ask: askMnemonic, study: info.name, speaks: (UI_LANGUAGES[uiLanguage()] || UI_LANGUAGES.en).name,
       variety: varietyOf(lang, pickedCountry(lang), info.name),
+      examples: own ? ownExamples(prefs) : [], lang,
     });
-    await pool(todo.filter((r) => needsMemo(r, choices)), aiMnemonics ? 2 : 1, async (r) => {
+    const memoRows = todo.filter((r) => needsMemo(r, choices));
+    for (const r of memoRows) {
+      const fits = mnemonicFits(r.text, lang);
+      setNote(r, "memo", fits ? "" : t("No mnemonic: sound-alike keywords work for words and short phrases, not for one this long."));
+      if (!fits && r.status && r.status.kind === "busy") setStatus(r, null);
+    }
+    await pool(memoRows.filter((r) => mnemonicFits(r.text, lang)), aiMnemonics ? 2 : 1, async (r) => {
       let got = null;
       if (aiMnemonics) { try { got = await aiMemo(r); } catch { /* the free one instead */ } }
       try { if (!got) got = await freeMemo(r); } catch { /* no keyword list (no connection the first time): the card is added without one */ }
+      // (the maker's own keywords: a note edited after it was filled in doesn't teach the maker its own words)
+      if (got) r.made = [...(r.made || []), ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)];
       const best = got && (got.items[0] || got.parts[0]);
       if (best) r.memo = fillIn(r.memo, noteText(best));
       if (r.status && r.status.kind === "busy") setStatus(r, null);
@@ -918,6 +1035,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const cards = (answer && answer.cards) || [];
       list.forEach((r, i) => { r.saved = cards[i] || null; setStatus(r, { kind: "ok", text: t("Added") }); });
       done = true;
+      // (notes the learner wrote: their sound-alikes in CAPITALS teach the Mnemonic maker, in the background)
+      learnFromRows(list.filter((r) => r.saved && !r.memo.auto && hasValue(r.memo)));
       // 3. Their audio: the learner's own recordings, then voices made now (Azure). A few at a time.
       const problems = [];
       const own = choices.audio !== "none" ? list.filter((r) => r.saved && r.audio.word) : [];
@@ -963,6 +1082,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       countUp();
     }
   };
+
+  /** Cards added with Memorization notes the learner wrote: the Mnemonic maker learns from their sound-alikes in
+   * CAPITALS (review/ownmnemonic.js, cardtools.js learnFromNote), one card after another, and says so once in a
+   * short note at the bottom of the screen (the sheet has closed by then). */
+  async function learnFromRows(added) {
+    const learned = [], failed = [];
+    for (const r of added) {
+      const v = { text: r.text.trim(), meaning: r.meaning.value, ...(r.saved || {}) };
+      const got = await learnFromNote(v, "", r.memo.value, { lang, quiet: true, skip: r.made || [] });
+      if (got) { learned.push(...got.learned); failed.push(...got.failed); }
+    }
+    if (learned.length) toast(t("Learned from {0}", learned.join(", ")), { timeout: 4000 });
+    else if (failed.length === 1 && added.length === 1) toast(t("{0} doesn't sound like {1}, so nothing was learned.", failed[0], added[0].text.trim()), { timeout: 4000 });
+  }
 
   /** Added, but some audio couldn't be kept or made: say so card by card, then close. */
   function showResult(n, problems) {

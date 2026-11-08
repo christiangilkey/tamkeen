@@ -21,7 +21,7 @@ import { cardLanguage, cardSayer, learnVoices, stopDevice, voiceHere } from "../
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
-import { VIEW_DEFAULTS, changedView, folderCount, narrowed, stepFolder } from "../review/vocabedit.js";
+import { VIEW_DEFAULTS, changedView, folderCount, narrowed, sortFolders, stepFolder } from "../review/vocabedit.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
 import { openWordEditor, vocabIcon } from "../components/wordeditor.js";
@@ -307,7 +307,7 @@ export async function render(view) {
     try {
       const f = await api("/vocab/folders", { method: "POST", body: { name } });
       folders.push(f);
-      folders.sort((a, b) => a.name.localeCompare(b.name));
+      folders.splice(0, folders.length, ...sortFolders(folders));  // (in place: the open Add words box holds this list)
       renderFolderButton();
       return f;
     } catch (e) { toast(e.message, { error: true }); return null; }
@@ -318,7 +318,7 @@ export async function render(view) {
     if (!name || name === f.name) return false;
     try {
       Object.assign(f, await api(`/vocab/folders/${f.uid}`, { method: "PATCH", body: { name } }));
-      folders.sort((a, b) => a.name.localeCompare(b.name));
+      folders.splice(0, folders.length, ...sortFolders(folders));  // (in place: the open Add words box holds this list)
       renderAll();
       return true;
     } catch (e) { toast(e.message, { error: true }); return false; }
@@ -837,6 +837,34 @@ export async function render(view) {
     });
   }
 
+  // The rows are drawn a few at a time as the end of the list comes near, so a list of thousands (a DLI
+  // course's whole vocabulary) opens at once. The open word's row is always among the first drawn.
+  const ROWS = 150;
+  let moreRows = null;
+  function drawRows(items) {
+    if (moreRows) { moreRows.disconnect(); moreRows = null; }
+    let drawn = 0;
+    const draw = (upto) => {
+      const frag = document.createDocumentFragment();
+      for (const end = Math.min(items.length, upto); drawn < end; drawn++) frag.append(item(items[drawn]));
+      list.append(frag);
+    };
+    const openAt = openId == null ? -1 : items.findIndex((v) => v.id === openId);
+    draw(Math.max(ROWS, openAt + 1));
+    if (drawn >= items.length) return;
+    if (typeof IntersectionObserver === "undefined") { draw(items.length); return; }
+    const mark = h(`<div class="vlist-more" aria-hidden="true"></div>`);
+    list.append(mark);
+    moreRows = new IntersectionObserver((seen) => {
+      if (!seen.some((e) => e.isIntersecting)) return;
+      moreRows.unobserve(mark);
+      mark.remove();
+      draw(drawn + ROWS);
+      if (drawn < items.length) { list.append(mark); moreRows.observe(mark); } else { moreRows.disconnect(); moreRows = null; }
+    }, { rootMargin: "1200px 0px" });
+    moreRows.observe(mark);
+  }
+
   function renderAll() {
     if (st.folder && st.folder !== "none" && !folderName(st.folder)) st.folder = "";
     // The open card is put away (saved) and opened again in the new list, if it is still in it.
@@ -852,7 +880,7 @@ export async function render(view) {
     if (!items.length) {
       list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : `No saved words yet.<p class="small">${TIP}</p>`}</div>`));
     }
-    for (const v of items) list.append(item(v));
+    drawRows(items);
     if (!open) openId = null;  // (no longer listed: it stays closed)
     shown = items;
     renderBulk();
@@ -873,7 +901,7 @@ export async function render(view) {
     log = answers;
     // (the open word keeps its own copy: the one being edited)
     all = items.map((v) => (open && open.v.id === v.id ? open.v : { ...v, folders: v.folders || [] }));
-    folders = fl;
+    folders = sortFolders(fl);
     renderAll();
     // Whether this device has a voice for the cards' languages (a moment's work, asked once): a card
     // with nothing it can play, in a language with no voice here, then shows no buttons.
@@ -925,7 +953,7 @@ export async function render(view) {
     onFolder: (f) => {  // a folder made in the builder shows among the folders at once
       if (folders.some((x) => x.uid === f.uid)) return;
       folders.push(f);
-      folders.sort((a, b) => a.name.localeCompare(b.name));
+      folders.splice(0, folders.length, ...sortFolders(folders));  // (in place: the open Add words box holds this list)
       if (view.isConnected) renderFolderButton();
     },
     onAdded: (cards) => {

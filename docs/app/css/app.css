@@ -151,7 +151,7 @@ img { display: block; }
 h1, h2, h3 { margin: 0 0 .5em; line-height: 1.25; }
 /* Rubik: page titles and the numbers worth celebrating; a medium weight so it looks confident, not like a toy.
    Smaller headings and labels stay in Figtree. Numbers keep a fixed width so a changing count doesn't jiggle. */
-h1, h2, .display-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .chip-xp, .review-banner strong,
+h1, h2, .display-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .xp-num, .xp-pop-ring b, .xp-pop-total, .review-banner strong,
 .caught-up-title, .caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
   font-family: var(--display-font); font-variant-numeric: tabular-nums;
 }
@@ -601,6 +601,18 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .whatis h4 { font-size: 15px; margin: 14px 0 2px; }
 .whatis p { color: inherit; font-size: 14px; }
 .whatis a { overflow-wrap: anywhere; }
+/* "What makes Tamkeen special": each part opens and closes (whatis.js foldSections) */
+.whatis-fold { background: var(--surface-2); border-radius: var(--radius); margin: 10px 0; }
+.whatis-fold > summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 14px 16px; min-height: 48px;
+  font-size: 16px; font-weight: 600; cursor: pointer; border-radius: var(--radius); }
+.whatis-fold > summary::-webkit-details-marker { display: none; }
+.whatis-fold > summary::after { content: ""; flex: none; margin-inline-start: auto; width: 8px; height: 8px;
+  border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; }
+.whatis-fold[open] > summary::after { transform: rotate(-135deg); }
+.whatis-fold > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.whatis-fold-body { padding: 0 16px 14px; }
+.whatis-fold-body li { margin: 8px 0; }
+@media (prefers-reduced-motion: reduce) { .whatis-fold > summary::after { transition: none; } }
 .wb-head > .wb-srcmenu, .word-bubble > .wb-srcmenu { margin: 4px 0 8px; }
 /* the tag is a button: it opens the menu of sources (defsource.js) */
 button.wb-src { display: inline-flex; align-items: center; gap: 3px; max-width: 100%; min-width: 0; min-height: 0; overflow: hidden;
@@ -727,6 +739,7 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
 .review-block .goal-wrap { margin-bottom: 0; }
 .vocab-search { width: 100%; margin-bottom: 12px; }
 .vocab-page .vocab-item { display: block; padding: 0; }
+.vocab-page .vlist-more { height: 1px; }  /* where the next rows are drawn (vocab.js drawRows) */
 .vi-head { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; cursor: pointer; border-radius: inherit; }
 .vi-head:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .vi-head .pick { margin-top: 9px; flex: none; }
@@ -1105,18 +1118,12 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 
 /* ---------- creature game: reward effects ---------- */
 #game-fx { position: fixed; inset: 0; pointer-events: none; z-index: 80; overflow: hidden; }
-.fx-p { position: absolute; font-size: 14px; line-height: 1; color: var(--brand-gold); animation: fx-fly .9s cubic-bezier(.15, .7, .3, 1) both; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
+/* (a short burst: what was earned is said in the word's popup and the level badge, never floating over the page) */
+.fx-p { position: absolute; font-size: 14px; line-height: 1; color: var(--brand-gold); animation: fx-fly .6s cubic-bezier(.15, .7, .3, 1) both; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
 .fx-p.fx-lucky { color: #7fe0ea; font-size: 16px; }
 .fx-p.fx-jackpot { color: #ffd54a; font-size: 20px; }
 .fx-p.fx-surprise { color: #d59bff; }
 @keyframes fx-fly { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 70% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; } }
-.fx-label { position: absolute; transform: translate(-50%, -100%); font-weight: 800; font-size: 15px; color: #fff; white-space: nowrap;
-  background: var(--accent); padding: 2px 10px; border-radius: 99px; box-shadow: 0 4px 12px rgba(0, 0, 0, .3); animation: fx-rise .65s ease-out both; } /* (game.js fountain sets each one's length) */
-.fx-label small { margin-inline-start: 8px; font-size: .78em; font-weight: 700; opacity: .85; } /* the working: "12 ×2" */
-.fx-label.fx-lucky { background: #1596a6; font-size: 17px; }
-.fx-label.fx-jackpot { background: linear-gradient(90deg, #f0a500, #ff6b3d); font-size: 21px; }
-.fx-label.fx-surprise { background: #7a4bd1; }
-@keyframes fx-rise { from { transform: translate(-50%, -60%) scale(.5); opacity: 0; } 15% { transform: translate(-50%, -130%) scale(1.15); opacity: 1; } 30% { transform: translate(-50%, -140%) scale(1); } 80% { opacity: 1; } to { transform: translate(-50%, -230%); opacity: 0; } }
 .fx-pop { animation: fx-pop .32s cubic-bezier(.3, 1.8, .5, 1); display: inline-block; }
 @keyframes fx-pop { from { transform: scale(.82); } 55% { transform: scale(1.18); } to { transform: scale(1); } }
 .fx-shake { animation: fx-shake .4s linear; }
@@ -1132,6 +1139,11 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .game-sheet-head { display: flex; align-items: center; gap: 8px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
 .game-sheet-head .tabs { display: flex; gap: 6px; }
 .game-sheet-body { padding: 14px; overflow-y: auto; }
+/* Game screens (each section is its own screen, opened from the home card): the information broken up into
+   blocks, Pokédex-style. Shared by Creatures, Badges, Shop, My things, Garden and Supplies: use these, not new ones. */
+.gs-block { background: var(--surface-2); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.gs-block + .gs-block { margin-top: 12px; }
+.gs-label { font-size: 13px; font-weight: 600; color: var(--muted); }
 .shop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
 .shop-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 10px 8px; border: 2px solid var(--border); border-radius: 14px; text-align: center; }
 .shop-item.on { border-color: var(--brand-gold); }
@@ -1144,20 +1156,68 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   .game-sheet { border-radius: 18px 18px 0 0; max-height: 82vh; padding-bottom: env(safe-area-inset-bottom); }
 }
 
-/* ---------- creature game: pressing a word, and the XP readout while studying ---------- */
+/* ---------- creature game: pressing a word, and where XP shows while studying (game/xpbadge.js) ---------- */
+/* Nothing floats over the page any more (the old XP chip covered the top bar's buttons): the gain is a line in
+   the word's popup, and the level has a round badge of its own in the top bar. */
 .transcript .w:active, .reader-text .w:active, .captions .w:active { display: inline-block; transform: scale(.9); }
-#game-chip { position: fixed; top: 64px; right: 14px; z-index: 55; display: flex; align-items: center; gap: 8px; padding: 6px 12px 8px; border-radius: 99px;
-  background: var(--surface); border: 2px solid var(--border); box-shadow: 0 6px 18px rgba(0, 0, 0, .28); font-size: 13px; font-variant-numeric: tabular-nums;
-  opacity: 0; transform: translateY(-8px); pointer-events: none; transition: opacity .25s, transform .25s; overflow: hidden; }
-#game-chip.show { opacity: 1; transform: none; }
-#game-chip.hot { border-color: #ff8a3d; box-shadow: 0 0 0 3px rgba(255, 138, 61, .25), 0 6px 18px rgba(0, 0, 0, .28); }
-#game-chip.max { border-color: #ffd54a; animation: chip-burn .5s ease-in-out infinite alternate; }
-@keyframes chip-burn { from { box-shadow: 0 0 6px 2px rgba(255, 120, 40, .55); } to { box-shadow: 0 0 16px 6px rgba(255, 200, 60, .75); } }
-.chip-combo { font-weight: 700; color: #ff8a3d; }
-#game-chip.hot .chip-combo::before { content: ""; display: inline-block; width: 16px; height: 16px; margin-inline-end: 4px; vertical-align: -3px;
-  background: url("../game-art/icon/combo.png") center / 16px 16px no-repeat; image-rendering: pixelated; image-rendering: crisp-edges; }
-.chip-fuse { position: absolute; left: 0; bottom: 0; height: 3px; width: 100%; background: #ff8a3d; transform-origin: left; }
-@keyframes chip-fuse { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+/* The level badge: round like "?" and refresh beside it, its ring filling towards the next level round the level's
+   number; gold, orange with a pixel flame while the combo is alive; "+12" in it for a moment when XP lands. On Home
+   it keeps its place unseen (the game card shows the level). */
+.xp-badge { position: relative; flex: none; width: 34px; height: 34px; min-width: 0; min-height: 0; padding: 0; margin-inline-start: auto;
+  display: inline-grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .14); color: #fff; }
+.xp-badge:hover:not(:disabled) { background: rgba(255, 255, 255, .22); }
+.xp-badge[hidden] { display: none; }
+.xp-badge.away { visibility: hidden; }
+.xp-badge + .top-help, .top-help + .xp-badge { margin-inline-start: 6px; }
+.xp-ring { display: block; overflow: visible; transform: rotate(-90deg); } /* (starts at the top, fills clockwise) */
+.xp-ring circle { fill: none; stroke-width: 3; }
+.xp-badge .xp-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.xp-badge .xp-track { stroke: rgba(255, 255, 255, .2); }
+.xp-badge .xp-fill { stroke: var(--brand-gold); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100;
+  transition: stroke-dashoffset .6s cubic-bezier(.2, .8, .3, 1), stroke .3s; }
+.xp-badge.still .xp-fill { transition: none; }
+.xp-badge.hot .xp-fill { stroke: #ff8a3d; }
+.xp-num { position: relative; font-size: 13px; font-weight: 700; line-height: 1; letter-spacing: -.01em; direction: ltr; unicode-bidi: isolate; }
+.xp-badge.flash .xp-num { font-size: 11px; color: var(--brand-gold); }
+.xp-badge.flash .xp-num[data-len="4"] { font-size: 9.5px; letter-spacing: -.03em; }
+.xp-badge.flash .xp-num[data-len="5"] { font-size: 8.5px; letter-spacing: -.04em; }
+.xp-flame { position: absolute; inset-inline-end: -5px; bottom: -5px; line-height: 0; pointer-events: none; }
+.xp-flame[hidden] { display: none; }
+.wb-xp .px-icon, .xp-flame .px-icon, .xp-pop .px-icon { image-rendering: pixelated; image-rendering: crisp-edges; }
+/* A narrow phone with a long language name: the name "Tamkeen" beside the logo gives way (xpbadge.js fitBar). */
+.topbar.xp-tight .brand span { display: none; }
+.topbar.xp-measure > * { flex-shrink: 0 !important; }
+/* (right to left, Search kept a stray space at the bar's far end: margin-left: auto from .top-search) */
+.top-refresh + .top-search { margin-inline-end: 0; }
+@media (prefers-reduced-motion: reduce) { .xp-badge .xp-fill { transition: none; } }
+/* The line in a word's popup, just above its buttons: what the lookup (or the Save) earned at the start, the next
+   lookup's multiplier at the end. One line high whatever it says, so the popup never jumps. */
+.wb-xp { flex: none; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2px 12px; min-height: 22px;
+  margin-top: 8px; font-size: 13px; line-height: 1.35; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wb-xp[hidden] { display: none; }
+.wb-xp .xp-gain, .wb-xp .xp-next { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.wb-xp .xp-xp { color: var(--accent); font-size: 14px; font-weight: 800; }
+.wb-xp .xp-coins, .wb-xp .xp-item { display: inline-flex; align-items: center; gap: 3px; font-weight: 700; color: var(--text); }
+.wb-xp .xp-coins { color: var(--coin); }
+.wb-xp .xp-next.hot { color: var(--streak); font-weight: 700; }
+/* The card a tap on the badge opens: the level, the XP in all, what the next level needs, the combo. */
+.xp-pop { position: fixed; z-index: 70; width: min(280px, calc(100vw - 24px)); box-sizing: border-box; padding: 20px 16px 16px;
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+  background: var(--surface); color: var(--text); border: 1px solid var(--border); border-radius: 16px; animation: wb-in .12s ease; }
+.xp-pop-close { position: absolute; top: 6px; inset-inline-end: 6px; }
+.xp-pop-ring { position: relative; display: grid; place-items: center; width: 76px; height: 76px; margin-bottom: 6px; }
+.xp-pop-ring .xp-ring { position: absolute; inset: 0; width: 100%; height: 100%; }
+.xp-pop-ring circle { stroke-width: 2.6; }
+.xp-pop-ring .xp-track { stroke: var(--surface-2); }
+.xp-pop-ring .xp-fill { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 100; }
+.xp-pop-ring b { position: relative; display: flex; flex-direction: column; align-items: center; font-size: 26px; font-weight: 700; line-height: 1; }
+.xp-pop-ring b small { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 2px; letter-spacing: .02em; }
+.xp-pop-total { font-size: 20px; font-weight: 700; color: var(--accent); }
+.xp-pop-left { font-size: 13px; color: var(--muted); }
+.xp-pop-combo { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.xp-pop-combo.hot { color: var(--streak); font-weight: 700; }
+.xp-pop-go { width: 100%; margin-top: 12px; }
+@media (prefers-reduced-motion: reduce) { .xp-pop { animation: none; } }
 
 /* ---------- creature game: habitat buttons, creatures page ---------- */
 .hud-actions { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
@@ -1188,33 +1248,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 @keyframes fx-evolve { to { background-position: -512px 0; } }
 @media (prefers-reduced-motion: reduce) { .fx-evolve { display: none; } }
 
-/* ---------- creature game: battles ---------- */
-.battle-modes { display: grid; gap: 8px; }
-.battle-mode { display: flex; flex-direction: column; gap: 2px; text-align: start; padding: 12px; border-radius: 14px; }
 @media (max-width: 520px) { .hud-actions { grid-template-columns: repeat(2, 1fr); } }
-.battle-mode, .battle-mode span { white-space: normal; }
-
-/* ---------- creature game: gyms (game/gyms-ui.js) ---------- */
-/* One row a leader: its number, name, element icons, team and what it is like, and on the right its state:
-   a lock, or Fight / Rematch (a tick once beaten). Plain solid surfaces; a locked row is faded. */
-.gym-list { display: grid; gap: 8px; }
-.gym { display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 14px; background: var(--surface-2); }
-.gym.locked { opacity: .55; }
-.gym.open { background: var(--hl); color: var(--hl-ink); }
-.gym.open .muted { color: inherit; opacity: .85; }
-.gym-num { font-size: 20px; font-weight: 700; text-align: center; }
-.gym-main { min-width: 0; display: grid; gap: 4px; }
-.gym-head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
-.gym-head .name { font-size: 17px; }
-.gym-title { font-size: 13px; opacity: .8; }
-.gym-els { display: inline-flex; gap: 2px; }
-.gym-team { display: flex; gap: 4px; }
-.gym-team:empty { display: none; }
-.gym-blurb, .gym-facts { margin: 0; white-space: normal; }
-.gym-side { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.gym-side button { min-width: 88px; }
-.gym-done img { width: 24px; height: 24px; }
-@media (max-width: 420px) { .gym { grid-template-columns: 22px 1fr; } .gym-side { grid-column: 2; flex-direction: row; justify-content: flex-start; } }
 
 /* ---------- creature game: live battles (game/livebattle-ui.js) ---------- */
 /* One column: the two creatures' cards, the arena (the stage takes the room left; the canvas is fitted inside
@@ -1390,21 +1424,11 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   .lb-cd { font-size: 12px; }
 }
 
-/* ---------- creature game: friends page (league, raid, gifts) ---------- */
-.league-ico { width: 48px; height: 48px; image-rendering: pixelated; flex: none; }
-.league-ico.small { width: 24px; height: 24px; }
-.league-table { display: flex; flex-direction: column; gap: 4px; }
-.league-row { display: grid; grid-template-columns: 22px 24px minmax(70px, 1fr) minmax(50px, 1fr) 40px auto; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; font-size: 14px; }
-.league-row.mine { background: var(--surface-2); font-weight: 600; }
-.league-rank { text-align: center; color: var(--muted); }
-.league-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.league-pct { text-align: end; font-variant-numeric: tabular-nums; }
-.league-act { min-width: 92px; text-align: end; }
+/* ---------- creature game: the raid boss (friends-game.js; the rest of the Friends side is in "the Battle screen") ---------- */
 button.small { font-size: 12px; padding: 3px 10px; }
 .boss { width: 96px; height: 96px; flex: none; background-size: 192px 96px; background-repeat: no-repeat; image-rendering: pixelated; animation: boss-idle .9s steps(2) infinite; }
 .boss.down { background-size: 96px 96px; animation: none; }
 @keyframes boss-idle { from { background-position: 0 0; } to { background-position: -192px 0; } }
-@media (max-width: 520px) { .league-row { grid-template-columns: 18px 24px 1fr 36px auto; } .league-row .hud-bar { display: none; } }
 
 /* ---------- creature game: the pixel-art interface frames (game-art/ui/) ---------- */
 /* Each frame is a 24x24 picture with 8-pixel corners; the browser stretches the middle. Never smoothed. */
@@ -1988,9 +2012,10 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-row.open { border-color: var(--muted); }
 .cb-head { display: flex; align-items: center; gap: 8px; min-width: 0; }
 .cb-num { flex: none; width: 24px; text-align: center; color: var(--muted); font-size: 13px; font-weight: 650; }
-.cb-row input.cb-word { flex: 1 1 auto; min-width: 0; width: 100%; min-height: 48px; padding: 4px 12px; font-size: 24px; line-height: 1.4;
-  border: 1px solid transparent; border-radius: 12px; background: var(--surface-2); font-family: var(--ar-font); }
-.cb-row input.cb-word:focus { border-color: var(--accent); background: var(--surface); }
+.cb-row .cb-word { flex: 1 1 auto; min-width: 0; width: 100%; min-height: 48px; padding: 6px 12px; font-size: 24px; line-height: 1.4;
+  border: 1px solid transparent; border-radius: 12px; background: var(--surface-2); font-family: var(--ar-font);
+  display: block; resize: none; overflow: hidden; overflow-wrap: anywhere; /* (a phrase wraps onto a second line: wordbuilder.js grows it) */ }
+.cb-row .cb-word:focus { border-color: var(--accent); background: var(--surface); }
 .cb-sum { flex: 0 1 34%; min-width: 0; color: var(--muted); font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cb-sum:empty { display: none; }
 .cb-open .ic { transform: rotate(90deg); transition: transform .15s ease; }
@@ -2045,7 +2070,7 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-pv li { display: flex; align-items: baseline; gap: 10px; padding: 7px 12px; min-width: 0; counter-increment: pv; }
 .cb-pv li + li { border-top: 1px solid var(--border); }
 .cb-pv li::before { content: counter(pv); color: var(--muted); font-size: 12px; min-width: 18px; }
-.cb-pv-word { font-family: var(--ar-font); font-size: 19px; flex: none; max-width: 45%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cb-pv-word { font-family: var(--ar-font); font-size: 19px; flex: none; max-width: 45%; overflow-wrap: anywhere; /* (a phrase wraps, never cut) */ }
 .cb-pv-rest { flex: 1; min-width: 0; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .cb-pv-tag { flex: none; font-size: 11.5px; padding: 0 8px; border-radius: 99px; background: var(--surface-2); color: var(--warn); font-weight: 650; }
 .cb-paste-go { display: flex; justify-content: center; }
@@ -2144,7 +2169,7 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
   .cb-foot-buttons .cb-add { min-width: 0; flex-grow: 1.6; }
   .cb-row { padding: 6px 4px 6px 6px; }
   .cb-num { width: 18px; }
-  .cb-row input.cb-word { font-size: 22px; min-height: 46px; }
+  .cb-row .cb-word { font-size: 22px; min-height: 46px; }
   .cb-sum { display: none; }
   .cb-body { padding: 10px 4px 4px 4px; }
   .cb-status { padding-left: 4px; }
@@ -2652,27 +2677,132 @@ html.sel-sheets select { pointer-events: none; }
 .fly-icon { position: absolute; left: 0; top: 0; line-height: 0; pointer-events: none; will-change: transform; }
 .hud-pop { animation: hud-pop .34s cubic-bezier(.3, 1.8, .5, 1); }
 @keyframes hud-pop { from { transform: scale(.86); } 55% { transform: scale(1.14); } to { transform: none; } }
-/* The XP chip while studying: its coins (when a reward brought some), and both bounce as rewards land. */
-#game-chip .chip-xp { display: inline-block; }
-.chip-coins { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--coin); }
-.chip-coins[hidden] { display: none; }
 @media (prefers-reduced-motion: reduce) { .hud-pop, .tile-plus.show, .scene-label.show { animation: none; } }
-/* The battle menu's Friends entry (challenges, gifts, league, raid: friends-game.js), and the way back from it. */
-.battle-mode.b-friends { position: relative; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; margin-bottom: 10px; width: 100%; }
-.b-friends-text { display: flex; flex-direction: column; gap: 2px; text-align: start; }
-.b-back { align-self: flex-start; margin-bottom: 8px; }
-.b-back .px-icon { transform: scaleX(-1); }
-/* On a phone the game sheet's tabs get a row of their own under the coins, "?" and close (beside them they
-   were squeezed into one tab per line). */
-@media (max-width: 600px) {
-  .game-sheet-head.with-tabs { flex-wrap: wrap; row-gap: 10px; }
-  .game-sheet-head.with-tabs > .tabs { order: 1; flex-basis: 100%; }
-}
 /* The "?" in a game sheet's head (the explanation behind that page), and the sheet it opens on top. */
 .game-sheet-wrap.over { z-index: 70; }
 .sheet-help[hidden] { display: none; }
 .row-help { display: flex; align-items: center; gap: 4px; }
 .row-help .sheet-help { min-height: 0; width: 28px; height: 28px; padding: 0; }
+
+/* ---------- creature game: each section its own screen (shop.js, garden.js, screenparts.js, sections.js; 2026-11-06) ---------- */
+/* The head: the section's picture and name, what it is paid with, "?" and an X back to Home. The screen keeps one
+   height, so switching Buy / My things, Garden / Supplies or Creatures / Badges never moves the switch. */
+.gs-sheet { height: min(86vh, 720px); }
+@media (max-width: 640px) { .gs-sheet { height: 82vh; } }
+.gs-sheet .game-sheet-body { flex: 1; min-height: 0; }
+.gs-head { gap: 4px; padding: 8px 8px 8px 14px; }
+.gs-head > button.icon { flex: none; width: 42px; height: 42px; min-width: 0; padding: 0; }
+.gs-head .sheet-help.gs-off { visibility: hidden; }
+.gs-title { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; font-size: 18px; }
+.gs-title-pic { flex: none; display: grid; place-items: center; line-height: 0; }
+.gs-title-word { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gs-pills { flex: none; display: flex; gap: 6px; margin-inline-end: 4px; }
+.gs-pill { display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border-radius: 99px; background: var(--surface-2); }
+/* A price or an amount in its own colour (gold coins, blue gems, teal glow); muted when there isn't enough. */
+.cur-glow { color: var(--glow); }
+.gs-amount { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.gs-amount.short { color: var(--muted); }
+.gs-amount.short .px-icon { opacity: .6; }
+button.primary .gs-amount { color: inherit; }
+/* The switch under the head (it stays put while the screen scrolls), and the bag's pockets. */
+.gs-switch { padding: 10px 14px 0; }
+.gs-switch .segmented { margin: 0 auto; }
+.gs-seg .seg-btn { min-height: 42px; }
+.gs-seg-n { min-width: 22px; padding: 0 6px; border-radius: 99px; background: var(--surface-2); color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; line-height: 20px; }
+.seg-btn.on .gs-seg-n { background: var(--surface-2); color: var(--text); }
+.gs-pockets { max-width: none; margin: 0 0 12px; }
+@media (max-width: 420px) { .gs-pockets .seg-btn > .px-icon { display: none; } }
+/* A block's heading row: the label, and a count or a "?" at its other end. */
+.gs-block-head { display: flex; align-items: center; gap: 8px; min-height: 22px; }
+.gs-block-head .gs-label { flex: 1; min-width: 0; }
+.gs-block-end { color: var(--muted); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.gs-block-head .sheet-help { min-height: 0; width: 30px; height: 30px; padding: 0; margin: -4px -6px -4px 0; }
+/* Tiles: a picture, a name on up to two lines, a price or a count; worn or out: an accent edge. */
+.gs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.gs-tile { flex-direction: column; justify-content: flex-start; gap: 4px; min-height: 0; padding: 10px 6px; border: 2px solid transparent; border-radius: 12px;
+  background: var(--surface); color: var(--text); white-space: normal; text-align: center; }
+.gs-tile:hover:not(:disabled) { background: var(--surface); border-color: var(--border); }
+.gs-tile.on, .gs-tile.on:hover:not(:disabled) { border-color: var(--accent); }
+.gs-tile:disabled { opacity: 1; cursor: default; }
+.gs-tile.done .gs-tile-pic { opacity: .4; }
+.gs-tile-pic { height: 64px; display: grid; place-items: center; line-height: 0; }
+.gs-tile-name { max-width: 100%; font-size: 13px; font-weight: 650; line-height: 1.25; min-height: 2.5em; display: -webkit-box; -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+.gs-tile-sub { display: inline-flex; align-items: center; justify-content: center; gap: 4px; min-height: 20px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.gs-tile.on .gs-tile-sub { color: var(--accent); }
+.gs-tile { position: relative; }
+.gs-tile-n { position: absolute; top: 6px; inset-inline-end: 8px; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--text); }
+.gs-tile-n.none { color: var(--muted); font-weight: 500; }
+.gs-art { image-rendering: pixelated; image-rendering: crisp-edges; vertical-align: middle; }
+/* Rows: a picture, a name with a line under it, and a button, a count or an arrow at the end (the text never runs under it). */
+.gs-row { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 64px; padding: 8px 12px;
+  border: 0; border-radius: 12px; background: var(--surface); color: var(--text); text-align: start; white-space: normal; }
+button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightness(1.05); }
+.gs-row.dim .gs-row-pic { opacity: .45; }
+.gs-row-pic { width: 52px; height: 52px; display: grid; place-items: center; line-height: 0; }
+.gs-row-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.gs-row-name { font-size: 15px; font-weight: 650; line-height: 1.25; }
+.gs-row-sub { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; font-size: 13px; color: var(--muted); line-height: 1.3; }
+.gs-need-line .px-icon { margin-inline-end: 5px; }
+.gs-row-end { display: flex; align-items: center; gap: 6px; }
+.gs-row-btn { min-height: 40px; padding: 0 14px; border-radius: 99px; font-weight: 600; }
+.gs-row-go { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); font-weight: 650; }
+.gs-chev { display: inline-flex; color: var(--muted); }
+[dir="rtl"] .gs-chev .ic { transform: rotate(180deg); }
+.gs-pips { display: inline-flex; gap: 3px; }
+.gs-pips i { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.gs-pips i.on { background: var(--glow); }
+/* Lines of text in a block: a picture, words, and something small at the end. */
+.gs-line { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; align-items: center; gap: 10px; font-size: 14px; }
+.gs-line-end { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+.gs-state { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; font-size: 14px; text-align: center; }
+.gs-wide { width: 100%; min-height: 46px; font-weight: 650; }
+.gs-empty { display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 0; padding: 14px 0; color: var(--muted); text-align: center; }
+.gs-empty button { min-height: 44px; padding: 0 18px; }
+/* Facts in labelled cells, two to a row (the garden's glow, a thing's details). A lone last cell takes the whole row. */
+.gs-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.gs-fact { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 10px; border-radius: 12px; background: var(--surface-2); text-align: center; }
+.gs-block .gs-fact { background: var(--surface); }
+.gs-fact:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.gs-fact-v { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 24px; font-size: 17px; font-weight: 700;
+  font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+/* What is worn: the creature, then one cell for each kind of thing it can wear. */
+.gs-wear-pic { display: grid; place-items: end center; height: 176px; line-height: 0; }
+.gs-wear-pic img { align-self: center; image-rendering: pixelated; }
+.gs-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.gs-slot { flex-direction: column; justify-content: flex-start; gap: 2px; min-height: 0; padding: 8px 4px; border: 0; border-radius: 12px; background: var(--surface);
+  color: var(--text); white-space: normal; text-align: center; }
+.gs-slot:hover:not(:disabled) { background: var(--surface); filter: brightness(1.05); }
+.gs-slot:disabled { opacity: 1; cursor: default; }
+.gs-slot-pic { height: 32px; display: grid; place-items: center; line-height: 0; margin-bottom: 2px; }
+.gs-slot:disabled .gs-slot-pic { opacity: .5; }
+.gs-slot-v { max-width: 100%; font-size: 13px; font-weight: 650; line-height: 1.2; overflow-wrap: anywhere; }
+.gs-slot:disabled .gs-slot-v { color: var(--muted); font-weight: 500; }
+/* Food: who eats it, with its hearts. */
+.gs-who { display: flex; align-items: center; gap: 12px; }
+.gs-who-pic { flex: none; width: 44px; height: 44px; display: grid; place-items: end center; line-height: 0; }
+/* A thing's details (screenparts.details): a big picture on a solid panel, its name over it, facts, what it does,
+   and two buttons of equal width; the note line keeps its height, so the buttons never move. */
+.gs-detail-back .modal-head h2 { text-align: center; padding-inline-start: 36px; }
+.gs-detail { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.gs-detail-pic { position: relative; width: 100%; height: 188px; display: grid; place-items: center; border-radius: 14px; background: var(--surface-2); line-height: 0; }
+.gs-detail-pic canvas { align-self: end; margin-bottom: 4px; }
+.gs-detail-thing { position: absolute; top: 10px; inset-inline-start: 10px; width: 60px; height: 60px; display: grid; place-items: center; border-radius: 12px;
+  background: var(--surface); }
+.gs-detail-text { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+.gs-detail-note { margin: 0; min-height: 1.45em; color: var(--warn); font-size: 14px; font-weight: 600; line-height: 1.45; }
+.gs-detail .confirm-buttons { width: 100%; margin-top: 0; }
+.gs-detail .confirm-buttons button { white-space: normal; line-height: 1.2; }
+.gs-build-list { display: grid; gap: 6px; width: 100%; }
+/* The shop's move rows are the Creatures screen's (movesui.moveRow), with the price after the element badge. */
+.mv-row.gs-move-row { grid-template-columns: 40px minmax(0, 1fr) auto auto; }
+.gs-move-price { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; padding: 0 12px; border-radius: 99px; background: var(--surface-2);
+  font-size: 14px; font-weight: 700; }
+.mv-row.gs-move-row:disabled { opacity: 1; cursor: default; }
+.mv-row.gs-move-row:disabled .mv-pic { opacity: .45; }
+.mv-row.gs-move-row:disabled .gs-move-price { background: none; color: var(--muted); }
+.mv-detail .gs-detail-note { width: 100%; }
+.gs-build-list .gs-row { background: var(--surface-2); }
 
 /* ---------- Settings → Word definitions: example sentences and memory tricks, free or AI (freehelpers.js) ---------- */
 .helper-row { display: grid; gap: 6px; padding: 12px 0 0; border-top: 1px solid var(--border); }
@@ -2680,6 +2810,8 @@ html.sel-sheets select { pointer-events: none; }
 .helper-how-btn { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 10px; font-size: 14px; }
 .helper-seg { margin: 2px 0 0; max-width: none; }
 .helper-taste[hidden] { display: none; }
+.helper-own { margin-top: 4px; }
+.helper-own-note { display: block; margin-top: 2px; line-height: 1.45; }
 .helper-how-part { margin: 0 0 14px; }
 .helper-how-part p { margin: 4px 0 0; line-height: 1.5; }
 
@@ -2823,3 +2955,196 @@ html.sel-sheets select { pointer-events: none; }
 .vs-foot { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .vs-foot button { min-height: 44px; border-radius: 12px; }
 @media (prefers-reduced-motion: reduce) { .vocab-page .vi-chev { transition: none; } }
+
+/* ---------- creature game: the Creatures page, its moves, and the badge case (creatures.js, movesui.js; 2026-11-06) ---------- */
+/* Like a handheld monster game's dex: a grid of creatures, each creature's entry in .gs-blocks. Plain solid surfaces.
+   Each element has one colour (--el, the battle's move banners' body colour), used as a light tint behind pictures. */
+.tint-ember { --el: #e1552b; } .tint-tide { --el: #3b80d8; } .tint-grove { --el: #3e9f45; } .tint-spark { --el: #e2bb1e; }
+.tint-stone { --el: #a17b4b; } .tint-dusk { --el: #6c4bb0; } .tint-plain { --el: #8b8a9e; }
+:root { --silhouette: grayscale(1) opacity(.32); } /* a badge not earned yet: grey and faint */
+.el-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px 2px 5px; border-radius: 99px; background: color-mix(in srgb, var(--el) 30%, var(--surface));
+  color: var(--text); font-size: 12px; font-weight: 700; line-height: 1.5; white-space: nowrap; }
+/* The grid of creatures: picture, name, element; the one in the habitat in gold with a little house. */
+.cr-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; }
+.cr-tile { position: relative; flex-direction: column; gap: 6px; min-height: 0; padding: 10px 6px 12px; border: 2px solid transparent; border-radius: 14px;
+  background: var(--surface); white-space: normal; }
+.cr-tile:hover:not(:disabled) { background: var(--surface); border-color: var(--border); }
+.cr-tile.on, .cr-tile.on:hover:not(:disabled) { border-color: var(--brand-gold); }
+.cr-tile-pic { width: 88px; height: 88px; display: grid; place-items: end center; }
+.cr-tile-pic .cr-egg { align-self: center; }
+.cr-tile strong { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+.cr-here { position: absolute; top: 6px; inset-inline-end: 6px; color: var(--coin); line-height: 0; }
+.cr-egg { image-rendering: pixelated; image-rendering: crisp-edges; }
+/* One creature's entry. */
+.cr-back { align-self: flex-start; gap: 2px; margin: -4px 0 8px; padding: 6px 10px 6px 2px; font-weight: 600; }
+.cr-back .ic { transform: rotate(180deg); }
+[dir="rtl"] .cr-back .ic { transform: none; }
+.cr-hero { align-items: center; text-align: center; }
+.cr-stage { width: 100%; height: 196px; display: grid; place-items: end center; padding-bottom: 8px; border-radius: 12px;
+  background: color-mix(in srgb, var(--el) 22%, var(--surface)); }
+.cr-stage .cr-egg { align-self: center; }
+.cr-name { display: flex; flex-direction: column; align-items: center; }
+.cr-name strong { font-family: var(--display-font); font-size: 24px; line-height: 1.2; max-width: 100%; overflow-wrap: anywhere; }
+.cr-no { font-variant-numeric: tabular-nums; }
+.cr-tags { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px; }
+.cr-tag { padding: 2px 10px; border-radius: 99px; background: var(--surface); font-size: 12px; font-weight: 600; line-height: 1.5; }
+.cr-grow { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 10px; width: 100%; }
+.cr-bar { display: block; height: 8px; min-width: 40px; border-radius: 99px; background: var(--surface); overflow: hidden; }
+.cr-bar i { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.cr-grow.done .cr-bar i { background: var(--brand-gold); }
+.cr-pct { min-width: 3ch; font-weight: 700; font-variant-numeric: tabular-nums; text-align: end; }
+.cr-about { margin: 0; }
+.cr-acts { width: 100%; margin-top: 4px; }
+.cr-acts button { white-space: normal; line-height: 1.25; }
+.cr-acts .fav-btn { margin: 0; align-self: auto; }
+/* Stats and habits: a picture, a name, a number and a bar on each row, the bars lined up. */
+.cr-rows { display: grid; grid-template-columns: 16px auto auto minmax(0, 1fr); align-items: center; gap: 10px; }
+.cr-ri { line-height: 0; }
+.cr-rl { font-size: 14px; font-weight: 600; }
+.cr-rn { min-width: 3ch; font-size: 14px; font-variant-numeric: tabular-nums; text-align: end; }
+/* Looks and colourings as pictures; a locked colouring dimmed, with a lock. */
+.cr-looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.cr-look { position: relative; flex-direction: column; gap: 4px; min-height: 0; padding: 6px 4px 8px; border: 2px solid transparent; border-radius: 12px;
+  background: var(--surface); white-space: normal; }
+.cr-look:hover:not(:disabled) { background: var(--surface); border-color: var(--border); }
+.cr-look.on, .cr-look.on:hover:not(:disabled) { border-color: var(--accent); }
+.cr-look-pic { position: relative; width: 72px; max-width: 100%; height: 72px; overflow: hidden; }
+.cr-look-pic canvas { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); }
+.cr-look-name { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; font-weight: 600; }
+.cr-look.locked .cr-look-pic { opacity: .4; }
+.cr-look.locked .cr-look-name { color: var(--muted); }
+.cr-lock { position: absolute; top: 6px; inset-inline-end: 6px; line-height: 0; }
+/* The four moves, in the places of the battle's buttons, each a tile in its element's colour; then the others it knows. */
+.mv-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.mv-slot { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; column-gap: 8px; height: 76px; min-height: 0; padding: 8px 10px;
+  border: 2px solid color-mix(in srgb, var(--el) 60%, var(--surface)); border-radius: 14px; background: color-mix(in srgb, var(--el) 24%, var(--surface));
+  color: var(--text); text-align: start; white-space: normal; }
+.mv-slot:hover:not(:disabled) { background: color-mix(in srgb, var(--el) 32%, var(--surface)); }
+.mv-slot.empty { grid-template-columns: minmax(0, 1fr); justify-items: center; border-color: color-mix(in srgb, var(--muted) 45%, transparent); background: transparent;
+  color: var(--muted); font-weight: 600; }
+.mv-slot.empty:hover:not(:disabled) { background: var(--surface); }
+.mv-slot.empty:disabled { opacity: 1; }
+.mv-pic { display: grid; place-items: center; line-height: 0; }
+.mv-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mv-txt strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 16px; line-height: 1.25; }
+.mv-line { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 12px; line-height: 1.3; color: var(--muted); }
+/* in a slot a long name may take two lines, and the short line under it one */
+.mv-slot .mv-txt strong { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; font-size: 15px; line-height: 1.2;
+  overflow-wrap: anywhere; }
+.mv-slot .mv-line { -webkit-line-clamp: 2; }
+.mv-rule { margin: 0; text-align: center; }
+.mv-list { display: grid; gap: 6px; }
+.mv-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 10px; width: 100%; min-height: 56px; padding: 8px 10px;
+  border: 0; border-radius: 12px; background: var(--surface); text-align: start; white-space: normal; }
+.mv-row:hover:not(:disabled) { background: var(--surface); filter: brightness(1.05); }
+.mv-row .mv-pic { width: 40px; height: 40px; border-radius: 10px; background: color-mix(in srgb, var(--el) 26%, var(--surface)); }
+.mv-shop { align-self: center; gap: 6px; min-height: 40px; padding: 0 16px; border-radius: 99px; }
+/* A move's popup: its picture on its colour, its element, three numbers, what it does, then Swap / Use this move. */
+.mv-detail { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+.mv-hero { width: 100%; height: 96px; display: grid; place-items: center; line-height: 0; border-radius: 14px; background: color-mix(in srgb, var(--el) 24%, var(--surface-2)); }
+.mv-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.mv-fact { display: flex; flex-direction: column; gap: 2px; padding: 8px 6px; border-radius: 12px; background: var(--surface-2); }
+.mv-fact span { font-size: 12px; color: var(--muted); }
+.mv-fact b { font-size: 17px; overflow-wrap: anywhere; }
+.mv-detail p { margin: 0; }
+.mv-help { line-height: 1.5; }
+.mv-detail .confirm-buttons { width: 100%; margin-top: 6px; }
+.mv-detail .mv-slots, .mv-detail .mv-list { width: 100%; }
+.mv-detail .mv-row { background: var(--surface-2); }
+.mv-detail .mv-row:disabled, .mv-detail .mv-slot:disabled { opacity: .45; }
+/* A badge's or a locked colouring's popup. */
+.cr-info { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.cr-info-pic { width: 100%; min-height: 124px; display: grid; place-items: center; padding: 12px; border-radius: 14px; background: var(--surface-2); }
+.cr-info-pic img { image-rendering: pixelated; image-rendering: crisp-edges; }
+.cr-info-pic.dim img { filter: var(--silhouette); }
+.cr-info-pic.dim canvas { opacity: .55; }
+.cr-info p { margin: 0; }
+.cr-info-text { font-size: 16px; line-height: 1.45; }
+.cr-info-status { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-weight: 600; }
+.cr-info-status.got { color: var(--accent); }
+.cr-info .confirm-buttons { width: 100%; margin-top: 4px; }
+/* The badge case: earned badges in colour, the rest as faint outlines. */
+.badge-case { display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 8px; }
+.badge-slot { flex-direction: column; justify-content: flex-start; gap: 6px; min-height: 0; padding: 10px 4px; border: 0; border-radius: 12px; background: var(--surface);
+  white-space: normal; }
+.badge-slot:hover:not(:disabled) { background: var(--surface); filter: brightness(1.05); }
+.badge-pic { width: 56px; height: 56px; display: grid; place-items: center; border-radius: 50%; background: var(--surface-2); }
+.badge-pic img { image-rendering: pixelated; image-rendering: crisp-edges; }
+.badge-slot:not(.got) .badge-pic img { filter: var(--silhouette); }
+.badge-name { max-width: 100%; font-size: 12px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.badge-slot:not(.got) .badge-name { color: var(--muted); font-weight: 500; }
+
+/* ---------- creature game: the Battle screen and its Friends side (battle-ui.js, gyms-ui.js, friends-game.js; 2026-11-06) ---------- */
+/* The game sheet's "battle" and "friends" sections, in the shared .gs-blocks: your team, quick battles, the gym leaders
+   as a path like the badge case, the words battles ask, your record; the league, this week's rule, the guild raid.
+   Plain solid surfaces; each element's colour (--el) only as a light tint behind pictures. */
+.gs-switch .gs-seg-n { background: var(--alert); color: #fff; } /* things waiting on the Friends side */
+/* Counts such as "3 / 10" and a record "2–1" read left to right in Arabic and Persian too (they came out "10 / 3"). */
+.gs-block-end, .fr-record { direction: ltr; unicode-bidi: isolate; }
+/* Battles not open yet: what is missing, centred. */
+.bt-gate { padding: 6px 0; }
+.bt-gate-pic { line-height: 0; }
+.bt-gate-title { color: var(--text); font-size: 17px; line-height: 1.3; }
+.bt-gate .gs-facts, .bt-gate-bar { max-width: 320px; }
+.bt-gate .cr-bar { width: 100%; }
+/* Your team: a place for each of three, like a party; an empty place keeps the row's shape. */
+.bt-team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.bt-team .cr-tile-pic { width: 72px; height: 72px; }
+.bt-member.empty { display: grid; place-items: center; min-height: 0; padding: 10px 6px; border: 2px solid color-mix(in srgb, var(--muted) 35%, transparent);
+  border-radius: 14px; color: var(--muted); font-size: 13px; font-weight: 600; }
+/* Two big tiles side by side (quick battles). */
+.gs-grid.bt-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bt-two .gs-tile { padding-top: 12px; }
+/* Choosing a rental team, in its box: six tiles, three to a row; the ones chosen with a teal edge and a tick. */
+.bt-rentals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%; }
+.bt-rental, .bt-rental:hover:not(:disabled) { background: var(--surface-2); }
+.bt-rental.on, .bt-rental.on:hover:not(:disabled) { border-color: var(--accent); }
+.bt-rental .cr-tile-pic { width: 64px; height: 64px; }
+.bt-rental .el-badge { max-width: 100%; overflow: hidden; }
+.bt-rental strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; min-height: 2.5em; line-height: 1.25;
+  white-space: normal; overflow-wrap: anywhere; text-align: center; }
+.bt-pick { position: absolute; top: 6px; inset-inline-end: 6px; width: 20px; height: 20px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink); }
+.bt-pick[hidden] { display: none; }
+/* Words: the switch, then what it means. */
+.bt-words { display: flex; flex-direction: column; gap: 10px; }
+.segmented.bt-seg { margin: 0; max-width: none; }
+/* The gym leaders: five to a row, each its first creature in a circle of its element's colour. Beaten: in colour with
+   a tick; the next: a teal ring; the rest: faint, with a lock. */
+.badge-case.bt-path { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+.bt-gym { position: relative; padding: 8px 2px; gap: 5px; }
+.bt-path .badge-pic { width: 48px; height: 48px; overflow: hidden; background: color-mix(in srgb, var(--el) 30%, var(--surface-2)); }
+.bt-gym.locked .badge-pic { background: var(--surface-2); }
+.bt-gym.locked .badge-pic canvas { filter: var(--silhouette); }
+.bt-gym.open .badge-pic { outline: 2px solid var(--accent); outline-offset: 2px; }
+.bt-gym.open .badge-name { color: var(--accent); font-weight: 700; }
+.bt-gym-mark { position: absolute; top: 4px; inset-inline-end: 3px; line-height: 0; }
+.bt-gym.beaten .bt-gym-mark { width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--accent-ink); }
+.bt-fight { gap: 8px; }
+/* A leader's entry: its team on its element's colour, its title on a plate. */
+.bt-stage { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12px 8px 4px;
+  border-radius: inherit; background: color-mix(in srgb, var(--el) 22%, var(--surface-2)); }
+.bt-plate { max-width: 100%; padding: 2px 12px; border-radius: 99px; background: var(--surface); font-size: 13px; font-weight: 700; line-height: 1.6;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.bt-stage-team { display: flex; align-items: flex-end; justify-content: center; gap: 2px; line-height: 0; }
+.bt-stage.locked canvas { filter: var(--silhouette); }
+/* The Friends side: league rows (favourite creature with the place in the league, name, share of goal days, record,
+   Challenge); you are the row with a teal edge. */
+.bt-league { line-height: 0; }
+.fr-row .gs-row-pic { position: relative; }
+.fr-rank { position: absolute; top: -2px; inset-inline-start: -4px; min-width: 20px; height: 20px; padding: 0 5px; display: grid; place-items: center;
+  border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12px; font-weight: 700; line-height: 1; }
+.fr-league { position: absolute; bottom: 0; inset-inline-end: 0; line-height: 0; }
+.fr-row.fr-me { outline: 2px solid var(--accent); outline-offset: -2px; }
+.fr-record { display: inline-flex; align-items: center; gap: 3px; font-variant-numeric: tabular-nums; }
+.fr-row .gs-row-sub .px-icon { vertical-align: middle; }
+/* The guild raid: the boss, its health, who has hit it. */
+.fr-boss { display: flex; align-items: center; gap: 12px; }
+.fr-boss-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.fr-boss-text strong { font-size: 16px; }
+.fr-boss-text span { color: var(--muted); font-size: 14px; line-height: 1.4; }
+.fr-hp .cr-bar i { background: var(--alert); }
+.fr-parts { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; font-size: 14px; }
+.fr-part-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fr-part-n { font-variant-numeric: tabular-nums; text-align: end; }
+@media (prefers-reduced-motion: reduce) { .boss { animation: none; } }

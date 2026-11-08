@@ -7,6 +7,7 @@ import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
+import { dliCard } from "../components/dlicard.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { waitingForComputer } from "../cardvoice.js";
@@ -159,7 +160,8 @@ function languages(body) {
   paintCard();
   const watch = new MutationObserver(paintCard);
   rows.forEach((r) => watch.observe(r, { attributes: true, attributeFilter: ["hidden"] }));
-  return [() => watch.disconnect()];
+  // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
+  return [() => watch.disconnect(), dliCard(body)];
 }
 
 function words(body) {

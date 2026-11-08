@@ -153,13 +153,14 @@ export function varietyChoice(offered, remembered) {
 }
 
 /**
- * Which of the Library's Courses tabs opens ("grammar" or "basics"; "" when the language has neither).
- * `basics` / `grammar`: whether the language has that course. A link that asks for one (`asked`,
- * #/library?tab=basics) comes first, then the tab the learner chose earlier in this visit (`chosen`),
- * then Grammar (the owner's choice), or Basics when there is no grammar course.
+ * Which of the Library's Courses tabs opens ("grammar", "basics" or "dli"; "" when the language has none).
+ * `basics` / `grammar`: whether the language has that course; `dli`: whether the learner's DLI material
+ * shows (components/dlipanel.js dliShown). A link that asks for one (`asked`, #/library?tab=basics)
+ * comes first, then the tab the learner chose earlier in this visit (`chosen`), then Grammar (the
+ * owner's choice), or Basics when there is no grammar course, or DLI when there is neither.
  */
-export function courseTabChoice({ basics = false, grammar = false, asked = "", chosen = "" } = {}) {
-  const can = { basics: !!basics, grammar: !!grammar };
+export function courseTabChoice({ basics = false, grammar = false, dli = false, asked = "", chosen = "" } = {}) {
+  const can = { basics: !!basics, grammar: !!grammar, dli: !!dli };
   for (const tab of [asked, chosen]) if (Object.prototype.hasOwnProperty.call(can, tab) && can[tab]) return tab;
-  return can.grammar ? "grammar" : can.basics ? "basics" : "";
+  return can.grammar ? "grammar" : can.basics ? "basics" : can.dli ? "dli" : "";
 }

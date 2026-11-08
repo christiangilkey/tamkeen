@@ -11,6 +11,12 @@
 //   alef, ya and ta marbuta, letter case and spaces don't count; nor do Russian stress marks or ё.
 // - The question for the learner's AI: many words in one request, at most AI_CHUNK at a time, with
 //   a strict JSON answer; and reading that answer, whatever came round it.
+// - Phrases: a card can be several words ("por favor", "إن شاء الله", お願いします). What a card is (a word,
+//   a phrase, or a phrase that is already a sentence), whether the Mnemonic maker suits it, and its
+//   meaning word by word when no dictionary entry has the whole phrase.
+
+import { joinWords, langInfo, wordRanges } from "./languages.js";
+import { soundCore } from "./review/wordcore.js";
 
 /** At most this many cards are added at a time. */
 export const MAX_ROWS = 100;
@@ -179,6 +185,119 @@ export function parseList(text, { lang = "", max = MAX_ROWS } = {}) {
   return { cards: cards.slice(0, max), total: cards.length, cut: cards.length > max };
 }
 
+// ---------------------------------------------------------------- phrases
+
+/** The words of `text` as the language splits them (languages.js wordRanges): at its spaces, or, in Japanese,
+ * Chinese and Thai, by the word splitter (a dictionary's once loaded, else the device's), without the
+ * punctuation round each word. */
+export function wordsIn(text, lang) {
+  const s = String(text ?? "");
+  return wordRanges(s, lang).map(([a, b]) => s.slice(a, b));
+}
+
+/** The words that count in a card's text: those of its core (review/wordcore.js soundCore), so the little words a
+ * learner writes round one word ("el perro", "der Hund, -e", "to go", ขอบคุณครับ, 勉強する) don't make it a phrase. */
+export function coreWords(text, lang) {
+  return wordsIn(coreText(text, lang), lang);
+}
+
+/** A card's core: the part that is the word itself ("der Hund, -e" -> "Hund"; "por favor" stays whole). */
+export function coreText(text, lang) {
+  const s = String(text ?? "").trim();
+  try { return soundCore(s, lang).core || s; } catch { return s; }
+}
+
+/** Text without the punctuation and marks at either end ("¿cómo estás?" -> "cómo estás"). */
+export const bareText = (text) => String(text ?? "").replace(/^[\s\p{P}\p{S}]+|[\s\p{P}\p{S}]+$/gu, "");
+
+/** A phrase: a card of more than one word ("por favor", "إن شاء الله", "darse cuenta de"). */
+export const isPhrase = (text, lang) => coreWords(text, lang).length > 1;
+
+/** A phrase of this many words or more is a sentence already: its own example sentence. */
+export const SENTENCE_WORDS = 5;
+/** Japanese, Chinese and Thai: by letters instead (the device's word splitter cuts endings off a word:
+ * 食べます is three pieces to it, おはようございます five). */
+export const SENTENCE_LETTERS = { ja: 12, zh: 10, th: 24 };
+// Ends as a sentence does (closing quotes and brackets after it are fine). Not "…": "a ver si…" is unfinished.
+const SENTENCE_END = /[.!?。！？؟।॥]["'’”»)\]」』]*$/u;
+const letters = (s) => [...String(s).replace(/[\s\p{P}\p{S}]/gu, "")].length;
+
+/**
+ * What a card's text is: "word" (one word), "phrase" (several), or "sentence": a phrase that is a sentence
+ * already, so it is its own example (nothing is looked for or written for it). A sentence ends with . ? ! ؟ 。
+ * (or starts with ¿ ¡), or is long: SENTENCE_WORDS words (SENTENCE_LETTERS letters in Japanese, Chinese, Thai).
+ */
+export function entryKind(text, lang) {
+  const s = String(text ?? "").trim();
+  if (!isPhrase(s, lang)) return "word";
+  if (SENTENCE_END.test(s) || /^[¿¡]/u.test(s)) return "sentence";
+  const long = langInfo(lang).unspaced ? letters(s) >= (SENTENCE_LETTERS[lang] || 12) : wordsIn(s, lang).length >= SENTENCE_WORDS;
+  return long ? "sentence" : "phrase";
+}
+
+/** The keyword method (the Mnemonic maker) suits a word or a short phrase: at most this many words. Longer
+ * ones get no mnemonic (sound-alikes for a whole sentence would be nonsense). */
+export const MNEMONIC_WORDS = 3;
+/** Japanese, Chinese, Thai: at most this many letters (about four or five syllables; 一路平安, ありがとうございます). */
+export const MNEMONIC_LETTERS = { ja: 10, zh: 4, th: 12 };
+
+/** Does the keyword method suit this card? (Counted on its core, the part the Mnemonic maker matches.) */
+export function mnemonicFits(text, lang) {
+  const words = coreWords(text, lang);
+  if (langInfo(lang).unspaced) return letters(words.join("")) <= (MNEMONIC_LETTERS[lang] || 10);
+  return words.length <= MNEMONIC_WORDS;
+}
+
+/** A dictionary meaning cut down to its first sense: "to notice, to realize" -> "to notice"; notes in
+ * brackets left out ("(informal) mate" -> "mate"). */
+export function firstSense(meaning) {
+  const m = String(meaning ?? "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/\n]/)[0].replace(/\s+/g, " ").trim();
+  return m || String(meaning ?? "").trim();
+}
+
+// Dictionary senses that don't say what a word means in a phrase: a letter's name ("de": "The name of the Latin
+// script letter D"), only that it is another spelling or an abbreviation of something, or a pointer elsewhere
+// ("Used other than figuratively or idiomatically: see لِـ").
+const NOT_A_SENSE = /\bname of the\b.*\bletter\b|^(?:the )?letter\b|^(?:an? )?(?:alternative|obsolete|archaic|dated|rare|misspelling)\b.*\b(?:form|spelling) of\b|^(?:abbreviation|initialism|acronym|contraction) of\b|^used other than\b|^see\b/i;
+
+/** The first of a dictionary's meanings (its main one, then the others) that says what the word means, cut to its
+ * first sense; "" when none does. */
+export function usableSense(meanings) {
+  const list = (meanings || []).map((m) => firstSense(m)).filter(Boolean);
+  return list.find((m) => !NOT_A_SENSE.test(m)) || "";
+}
+
+/**
+ * A phrase's meaning word by word, for when no dictionary entry has the whole phrase: the longest run of its
+ * words that has an entry of its own first ("darse cuenta" + "de"), else each word alone. `lookup(text,
+ * several)` resolves to a meaning, or "" or null when there is none (`several`: a run of words, looked up only
+ * as an exact entry). `longest` words in a run at most (never the whole phrase: that was tried already).
+ * Resolves to {parts: [{text, meaning}], found, literal: "to notice + of"} (a word with no meaning stands in
+ * it as written), or null when under two thirds of the parts have a meaning (`all`: unless every part has one;
+ * for Japanese, Chinese and Thai, whose word splitter can cut one word into pieces).
+ */
+export async function wordByWord(words, lookup, { lang = "", longest = 4, all = false } = {}) {
+  const list = (words || []).map((w) => String(w ?? "").trim()).filter(Boolean);
+  if (list.length < 2) return null;
+  const join = (ws) => joinWords(ws, lang);
+  const ask = async (text, several) => { try { return firstSense((await lookup(text, several)) || ""); } catch { return ""; } };
+  const parts = [];
+  for (let i = 0; i < list.length;) {
+    let hit = null;
+    for (let n = Math.min(longest, list.length - i, list.length - 1); n >= 2 && !hit; n--) {
+      const text = join(list.slice(i, i + n));
+      const meaning = await ask(text, true);
+      if (meaning) hit = { text, meaning, n };
+    }
+    if (!hit) hit = { text: list[i], meaning: await ask(list[i], false), n: 1 };
+    parts.push(hit);
+    i += hit.n;
+  }
+  const found = parts.filter((p) => p.meaning).length;
+  if (!found || (all ? found < parts.length : found * 3 < parts.length * 2)) return null;
+  return { parts: parts.map(({ text, meaning }) => ({ text, meaning })), found, literal: parts.map((p) => p.meaning || p.text).join(" + ") };
+}
+
 // ---------------------------------------------------------------- the AI: many words per request
 
 /** `list` in pieces of at most `size`. */
@@ -198,7 +317,7 @@ export const BATCH_SCHEMA = {
       items: {
         type: "object",
         properties: {
-          word: { type: "string", description: "The word exactly as given." },
+          word: { type: "string", description: "The word (or phrase) exactly as given." },
           meaning: { type: "string" },
           sentence: { type: "string" },
           translation: { type: "string" },
@@ -213,12 +332,16 @@ export const BATCH_SCHEMA = {
 };
 
 /**
- * The question for one request. `items`: [{word, meaning, sentence, want: {meaning, sentence,
+ * The question for one request. `items`: [{word, meaning, sentence, phrase, want: {meaning, sentence,
  * translation}}] (meaning and sentence: what the card already has, so the sentence uses that sense
- * and a translation translates that sentence). `study` and `speaks` are language names in English.
+ * and a translation translates that sentence; `phrase`: several words learned together, explained as
+ * one unit). `study` and `speaks` are language names in English.
  */
 export function batchPrompt(items, { study = "Arabic", speaks = "English" } = {}) {
-  const system = `You help a language learner make flashcards for ${study} words. For each word you get, fill in only the fields it asks for, and leave the others as "".
+  const phrases = (items || []).some((it) => it.phrase)
+    ? `\nA "phrase:" line is several words learned together (a set phrase, idiom, greeting or collocation). Its "meaning" is what the whole phrase means as one unit, the way a native speaker understands it, never its words translated one by one. Its "sentence" uses the whole phrase, in a form natives use.`
+    : "";
+  const system = `You help a language learner make flashcards for ${study} words. For each word you get, fill in only the fields it asks for, and leave the others as "".${phrases}
 "meaning": a short meaning in ${speaks}: a few words, the most common sense (if a meaning is given, keep to that sense).
 "sentence": one ${study} sentence that uses the word exactly the way native speakers really use it. It must:
 - sound like something a native speaker would actually say or write in everyday life: idiomatic and natural, never stiff textbook language, and never translated word for word from ${speaks};
@@ -231,7 +354,7 @@ Before answering, check each sentence: would a native speaker say it just like t
 Answer with JSON only: {"cards": [...]}, one entry per word, in the same order, with "word" exactly as given.`;
   const lines = (items || []).map((it, i) => {
     const asks = ["meaning", "sentence", "translation"].filter((k) => it.want && it.want[k]);
-    const parts = [`${i + 1}. word: ${it.word}`, `fill in: ${asks.join(", ") || "nothing"}`];
+    const parts = [`${i + 1}. ${it.phrase ? "phrase" : "word"}: ${it.word}`, `fill in: ${asks.join(", ") || "nothing"}`];
     if (it.meaning) parts.push(`meaning: ${it.meaning}`);
     if (it.sentence) parts.push(`sentence: ${it.sentence}`);
     return parts.join(" | ");

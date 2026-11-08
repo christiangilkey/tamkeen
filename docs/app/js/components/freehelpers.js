@@ -6,8 +6,9 @@
 import { h, state, saveSettings } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
-import { aiUsableFrom, chosenSource } from "../helpersource.js";
+import { aiMakes, aiUsableFrom, chosenSource } from "../helpersource.js";
 import { readPrefs } from "../review/freemnemonic.js";
+import { learnsOwn } from "../review/ownmnemonic.js";
 
 const SETUP = "#/settings?s=words&show=mode";
 
@@ -44,7 +45,8 @@ const KINDS = {
       [t("Finding words that really sound alike"), t("Tamkeen breaks the new word into its speech sounds, from Wiktionary's pronunciation or the language's spelling rules. It compares them with the sounds of every word in an English pronunciation dictionary, giving extra weight to the stressed syllable, so only true sound-alikes get through. Long words also get keywords of two or three words.")],
       [t("Which ones come first"), t("A keyword that also fits the meaning comes first, marked “Fits the meaning” or “Related in meaning” (German Hund, “dog”: HOUND). Then come things that are easy to picture, such as animals, tools and food. Each keyword gets a picture line that joins it to the meaning.")],
       [t("In your language"), t("With the app in Spanish, French, German, Italian, Portuguese, Russian or Catalan, the keywords are words of that language.")],
-      [t("It learns your taste"), t("Each time you press Use or thumbs down, it learns a little about the keywords you like, on all your devices. “Forget it” under the Mnemonic maker here starts again.")],
+      [t("It learns your taste"), t("Each time you press Use or thumbs down, it learns a little about the keywords you like, and a little more from the mnemonics you write yourself, on all your devices. “Forget it” under the Mnemonic maker here starts again.")],
+      [t("Your own mnemonics"), t("When you write a mnemonic in Memorization notes, put the sound-alike word in CAPITALS: in “a duck sitting on a POT” it learns from POT. Only words in capitals count, and only when they really sound like the word; the rest of the note is ignored. A sound-alike of yours can come back for other words that sound like it, marked “You've used this before”. When your AI makes the mnemonics, a few of your own are sent to it as examples of your style. “Learn from my own mnemonics” here turns this off.")],
       [t("Private and free"), t("It all happens on your device, with a 0.15 MB download the first time: nothing is sent anywhere and nothing is paid.")],
       [t("With AI instead"), t("Your AI suggests keywords and writes the pictures, using the model and thinking level under More options. It can be more inventive, but sometimes suggests words that don't really sound alike. It needs your AI key, and each press costs about a cent or less.")],
     ],
@@ -83,7 +85,9 @@ export function freeHelpersCard(body) {
         <button type="button" class="seg-btn" role="radio" data-v="free"></button>
         <button type="button" class="seg-btn" role="radio" data-v="ai"></button></div>
       <div class="small muted helper-note" role="status"></div>
-      ${kind === "mnemonic" ? `<div class="small muted helper-taste" hidden><span></span> <button type="button" class="link">${t("Forget it")}</button></div>` : ""}</div>`);
+      ${kind === "mnemonic" ? `<label class="check helper-own" data-find="mnemonicown"><input type="checkbox" role="switch">
+        <span><span class="helper-own-title"></span><span class="small muted helper-own-note"></span></span></label>
+      <div class="small muted helper-taste" hidden><span></span> <button type="button" class="link">${t("Forget it")}</button></div>` : ""}</div>`);
     row.querySelector("strong").textContent = k.title();
     row.querySelector(".helper-how-btn span").textContent = t("How it works");
     row.querySelector(".helper-about").textContent = k.about();
@@ -97,8 +101,16 @@ export function freeHelpersCard(body) {
         paint();
       };
     }
+    // ("Forget it": the whole setting goes, so the weights, the learner's own sound-alikes and their example
+    // notes for the AI are all forgotten together; aisetup.js's Forget it does the same)
     const taste = row.querySelector(".helper-taste button");
     if (taste) taste.onclick = async () => { await saveSettings({ mnemonic_prefs: "" }); paint(); };
+    // "Learn from my own mnemonics" (review/ownmnemonic.js): the synced setting mnemonic_learn_own, on unless "off".
+    const own = row.querySelector(".helper-own input");
+    if (own) {
+      row.querySelector(".helper-own-title").textContent = t("Learn from my own mnemonics");
+      own.onchange = async () => { await saveSettings({ mnemonic_learn_own: own.checked ? "on" : "off" }); paint(); };
+    }
     rows[kind] = row;
     card.append(row);
   }
@@ -123,9 +135,16 @@ export function freeHelpersCard(body) {
         note.append(go);
       }
     }
-    // what the free Mnemonic maker has learned from Use and thumbs down, and forgetting it
-    const taste = rows.mnemonic.querySelector(".helper-taste"), n = readPrefs(s.mnemonic_prefs).n;
-    taste.hidden = !n;
+    // learning from the learner's own mnemonics: only the words in CAPITALS (and, with AI, a few go to it)
+    const on = learnsOwn(s), mine = rows.mnemonic.querySelector(".helper-own input");
+    mine.checked = on;
+    const aiNow = aiMakes(s, "mnemonic", usable);
+    rows.mnemonic.querySelector(".helper-own-note").textContent = t("Only words in CAPITALS count: in “a duck sitting on a POT” it learns from POT. The rest of the note is ignored.")
+      + (on && aiNow ? ` ${t("A few of your own mnemonics are sent to your AI as examples of your style.")}` : "");
+    // what the free Mnemonic maker has learned from Use and thumbs down (and the learner's own notes), and forgetting it
+    const learned = readPrefs(s.mnemonic_prefs), n = learned.n;
+    const taste = rows.mnemonic.querySelector(".helper-taste");
+    taste.hidden = !n && !learned.o.length && !learned.x.length;
     taste.querySelector("span").textContent = n === 1 ? t("The free Mnemonic maker has learned from 1 of your choices.")
       : t("The free Mnemonic maker has learned from {0} of your choices.", n);
   }
