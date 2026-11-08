@@ -21925,6 +21925,16 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "364e919a",
+  "k": "Signing in on the welcome screen takes you straight to Home",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "9d14daab",
+  "k": "A book file you add goes under the language it is written in: if one didn't show up, add it again",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "f79bb1fa",
   "k": "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter",
   "f": "web/js/whatsnew.js"

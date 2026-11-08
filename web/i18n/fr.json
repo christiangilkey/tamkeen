@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Le modèle de voyelles est sur cet ordinateur ({0} Mo). {1}",
 "Downloading the vowel model… {0}%":"Téléchargement du modèle de voyelles… {0} %",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Les voyelles de l'arabe nécessitent un modèle de voyelles ({0} Mo, arabe standard). {1}",
+"Signing in on the welcome screen takes you straight to Home":"Se connecter sur l'écran d'accueil vous emmène directement à l'Accueil",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"Un fichier de livre ajouté va dans la langue où il est écrit : si un livre n'apparaissait pas, ajoutez-le à nouveau",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"Étudiants du DLI : débloquez votre cours dans Réglages → Langues, avec tout son vocabulaire dans Vocabulaire, un dossier par chapitre",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"Le Créateur de mnémoniques apprend des mots qui sonnent pareil que vous écrivez en MAJUSCULES, et laisse de côté les petits mots comme al-, el et to",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"Ajouter des mots accepte des expressions entières, comme por favor ou إن شاء الله, en une seule carte",

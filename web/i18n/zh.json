@@ -4383,6 +4383,8 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 元音模型已在这台电脑上（{0} MB）。{1}",
 "Downloading the vowel model… {0}%":"正在下载元音模型… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"阿拉伯语元音符号需要元音模型（{0} MB，标准阿拉伯语）。{1}",
+"Signing in on the welcome screen takes you straight to Home":"在欢迎界面登录后会直接进入首页",
+"A book file you add goes under the language it is written in: if one didn't show up, add it again":"你添加的书籍文件会归入它所用的语言：如果有书没有显示，请再添加一次",
 "DLI students: unlock your course in Settings → Languages, with its whole vocabulary in Vocab, a folder for each chapter":"DLI 学员：在 设置 → 语言 中解锁你的课程，整套词汇会进入 词汇，每章一个文件夹",
 "The Mnemonic maker learns from the sound-alikes you write in CAPITALS, and leaves out little words such as al-, el and to":"谐音助记生成器会从你用大写字母（CAPITALS）写下的谐音词中学习，并略去 al-、el、to 这类小词",
 "Add words takes whole phrases, such as por favor or إن شاء الله, as one card":"添加单词 可以把整个短语（如 por favor 或 إن شاء الله）做成一张卡片",

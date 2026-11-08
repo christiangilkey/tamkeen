@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Die Anmeldung auf dem Willkommensbildschirm bringt dich direkt zur Startseite
+9d14daab	Eine hinzugefügte Buchdatei landet bei der Sprache, in der sie geschrieben ist: Fehlte ein Buch, füge es noch einmal hinzu

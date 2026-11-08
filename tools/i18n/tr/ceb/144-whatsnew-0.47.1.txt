@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Ang pag-sign in sa welcome screen modala dayon nimo sa Home
+9d14daab	Ang file sa libro nga imong idugang mapunta sa pinulongan nga gisulat niini: kung wala kini mogawas, idugang kini pag-usab

@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Ang pag-sign in sa welcome screen ay diretsong magdadala sa iyo sa Home
+9d14daab	Ang file ng aklat na idinagdag mo ay mapupunta sa wikang pinagsulatan nito: kung may hindi lumabas, idagdag itong muli

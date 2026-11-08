@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Accedere dalla schermata di benvenuto ti porta subito alla Home
+9d14daab	Un file di libro che aggiungi va sotto la lingua in cui è scritto: se uno non compariva, aggiungilo di nuovo

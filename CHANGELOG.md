@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.47.1 — 2026-11-08
+
 - **Fixed:** Signing in with Google on the welcome screen now takes you straight to Home, instead of leaving you on the welcome screen with only a "Signed in" message. *(web app)*
 - **Fixed:** A book file you add is filed under the language it is written in, judged from all through the book. Books from the Internet Archive, which open with an English notice and a list of "Page 1, Page 2…", were filed as English, so an Arabic book didn't show in your Arabic Library. An EPUB's own language label now helps too. If a book you added didn't show up, add the same file again and it moves to the right language.
 

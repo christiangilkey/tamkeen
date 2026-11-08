@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Se connecter sur l'écran d'accueil vous emmène directement à l'Accueil
+9d14daab	Un fichier de livre ajouté va dans la langue où il est écrit : si un livre n'apparaissait pas, ajoutez-le à nouveau

@@ -1,0 +1,3 @@
+# What's new 0.47.1 (web/js/whatsnew.js).
+364e919a	Iniciar la sessió a la pantalla de benvinguda et porta directament a Inici
+9d14daab	Un fitxer de llibre que afegeixes va a la llengua en què està escrit: si un no apareixia, torna'l a afegir
