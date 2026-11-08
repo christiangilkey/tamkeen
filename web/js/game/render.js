@@ -122,6 +122,9 @@ export function drawingOf(look) {
   return { ...b, dir: `creature/beast/${b.id}/`, key: b.id };
 }
 
+/** How much a shirt pixel is lit: the body's brightness there against the torso's middle tone, kept within bounds. */
+export const shirtShade = (bodyLum, mid) => Math.max(0.6, Math.min(1.35, bodyLum / (mid || 1)));
+
 /** The body wearing a shirt: the shirt's pattern fills the pixels its mask marks (the coat of the torso). */
 async function shirted(body, form, look) {
   const shirt = look.equipped && look.equipped.shirt;
@@ -139,13 +142,21 @@ async function shirted(body, form, look) {
   ctx.drawImage(body, 0, 0);
   const data = ctx.getImageData(0, 0, c.width, c.height);
   const px = data.data;
+  // The body's light and shade stay on the shirt (each pixel as much lighter or darker than the torso's
+  // middle tone as the body was there), so it reads as cloth round the body, not a flat patch.
+  const lum = (i) => 0.299 * px[i] + 0.587 * px[i + 1] + 0.114 * px[i + 2];
+  const under = [];
+  for (let i = 0; i < px.length; i += 4) if (mp[i + 3]) under.push(lum(i));
+  under.sort((a, b) => a - b);
+  const mid = under[under.length >> 1] || 1;
   for (let y = 0; y < c.height; y++) {
     for (let x = 0; x < c.width; x++) {
       const i = (y * c.width + x) * 4;
       if (!mp[i + 3]) continue;
       const j = ((y % tile.height) * tile.width + (x % tile.width)) * 4;
       if (!tp[j + 3]) continue;
-      px[i] = tp[j]; px[i + 1] = tp[j + 1]; px[i + 2] = tp[j + 2];
+      const f = shirtShade(lum(i), mid);
+      px[i] = Math.min(255, Math.round(tp[j] * f)); px[i + 1] = Math.min(255, Math.round(tp[j + 1] * f)); px[i + 2] = Math.min(255, Math.round(tp[j + 2] * f));
     }
   }
   ctx.putImageData(data, 0, 0);
