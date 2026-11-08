@@ -248,7 +248,7 @@ once real art arrives). Real art replaces files one for one, same name and size.
 - **Read `game/CHECKLIST.md` first**: every requirement of the owner's five design docs with its status.
   The owner asked for nothing to be left out; keep that file current.
 - **Owner's rules (override the docs):** battles are reviews of each player's own vocab; battles need
-  >= 100 saved words (`BATTLE_UNLOCK_WORDS`).
+  >= 20 saved words (`BATTLE_UNLOCK_WORDS`; 100 until 2026-11-08).
 - **Real art has arrived**: the art session wrote all three phases straight into `web/game-art/` (sizes
   verified), retuned the creature colours in `genome.describe` ("soft neon"), and left its generators in
   `tools/game_art/` and previews in `game/art-preview/`. Never run `make_placeholder_art.py --all`.

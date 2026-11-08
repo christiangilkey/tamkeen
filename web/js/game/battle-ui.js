@@ -110,7 +110,7 @@ export function openBattleMenu({ changed = () => {}, waiting = 0, focus = null }
 }
 
 /**
- * Fill `body` with the Battle screen. Battles open once 100 words are saved: they are made of your own words. `go`
+ * Fill `body` with the Battle screen. Battles open once 20 words are saved: they are made of your own words. `go`
  * turns the sheet to another section (a team member opens Creatures); `close` closes the sheet (before a battle);
  * `focus` = "gyms" scrolls to the gym leaders once they are drawn.
  */

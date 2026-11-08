@@ -1,7 +1,7 @@
 // The gyms on the Battle screen: ten leaders to beat in order (gyms.js), shown as a path like a badge case: the ones
 // beaten in colour with a tick, the next one ringed, the rest locked and faint. A tap opens a leader's entry (its team,
 // its numbers, what it is like) with Fight or Rematch; under the path a button fights the next one. The battle itself
-// is livebattle-ui.js; battle-ui.js has made its checks (100 words, meanings, a hatched creature) before this is shown.
+// is livebattle-ui.js; battle-ui.js has made its checks (20 words, meanings, a hatched creature) before this is shown.
 
 import { h } from "../app.js";
 import { t } from "../i18n.js";

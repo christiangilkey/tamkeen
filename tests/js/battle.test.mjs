@@ -206,7 +206,7 @@ test("battle data: equal totals, the type chart, every creature has moves", () =
   assert.equal(matchup("ember", "tide"), WEAK);
   assert.equal(matchup(null, "ember"), 1);
   assert.equal(new Set(MOVES.map((m) => m.id)).size, MOVES.length);
-  assert.equal(BATTLE_UNLOCK_WORDS, 100);
+  assert.equal(BATTLE_UNLOCK_WORDS, 20);
   assert.ok(WEEKLY_RULES.includes(weeklyRule(at("2026-10-12T10:00:00"))));
   assert.notEqual(weeklyRule(at("2026-10-12T10:00:00")), weeklyRule(at("2026-10-19T10:00:00")), "a different rule next week");
 });

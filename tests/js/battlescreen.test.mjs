@@ -25,14 +25,14 @@ function withCreatures(n, eggs = 0) {
   return s;
 }
 
-test("battles open at 100 saved words, with meanings to ask, and a hatched creature", () => {
-  assert.deepEqual(battleGate({ words: 42, meanings: 42, hatched: 1 }), { id: "words", have: 42, need: BATTLE_UNLOCK_WORDS });
+test("battles open at 20 saved words, with meanings to ask, and a hatched creature", () => {
+  assert.deepEqual(battleGate({ words: 12, meanings: 12, hatched: 1 }), { id: "words", have: 12, need: BATTLE_UNLOCK_WORDS });
   assert.deepEqual(battleGate({ words: 0 }), { id: "words", have: 0, need: BATTLE_UNLOCK_WORDS });
   assert.deepEqual(battleGate({ words: 120, meanings: 0, hatched: 1 }), { id: "meanings", have: 0, need: 120 });
   assert.equal(battleGate({ words: 120, meanings: 3, canAsk: false, hatched: 1 }).id, "meanings", "too few different meanings to make a question");
   assert.deepEqual(battleGate({ words: 120, meanings: 80, hatched: 0 }), { id: "egg", have: 0, need: 1 });
   assert.equal(battleGate({ words: 120, meanings: 80, hatched: 2 }), null, "open");
-  assert.equal(battleGate({ words: BATTLE_UNLOCK_WORDS, meanings: 10, hatched: 1 }), null, "exactly 100 is enough");
+  assert.equal(battleGate({ words: BATTLE_UNLOCK_WORDS, meanings: 10, hatched: 1 }), null, "exactly 20 is enough");
 });
 
 test("the team: the first three hatched creatures, in the roster's order, with an empty place for each still to come", () => {
