@@ -40,7 +40,7 @@ test("what is shared for the bar: today's XP and the favourite's look, nothing e
   assert.equal(p.xp_day, "2026-10-14");
   assert.equal(p.xp_today, Math.round(s.day.xp));
   assert.ok(p.xp_today > 0);
-  assert.deepEqual(Object.keys(p.showcase).sort(), ["growth", "name", "partnerHue", "seed", "show", "type", "variant"]);
+  assert.deepEqual(Object.keys(p.showcase).sort(), ["equipped", "growth", "name", "partnerHue", "seed", "show", "type", "variant"]);
   assert.equal(p.showcase.name, "Noor");
   assert.ok(JSON.stringify(p.showcase).length < 1000);
   // The next morning, before any study, yesterday's XP is not reported as today's.
