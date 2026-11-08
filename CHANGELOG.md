@@ -14,6 +14,12 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Battles unlock at **20** saved words instead of 100.
+- **Fixed:** Your creature on Friends now wears everything it wears on Home. Its stage and colour already matched.
+- **Improved:** New **Plain** and **Striped** shirt designs. Every shirt now keeps the creature's light and shadow, so it looks like cloth on the body instead of a flat patch.
+- **Changed:** Library → + → **Podcast** opens Trending in your language straight away. The box for pasting a feed address is there too, but no longer starts out selected for typing.
+- **Fixed:** The review screen no longer runs off the right edge of the phone, which cut off the card and the Remembered button, mostly with large system text. *(Android)*
+
 ## v0.47.1 — 2026-11-08
 
 - **Fixed:** Signing in with Google on the welcome screen now takes you straight to Home, instead of leaving you on the welcome screen with only a "Signed in" message. *(web app)*
