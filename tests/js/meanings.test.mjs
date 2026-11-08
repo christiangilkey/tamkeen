@@ -272,3 +272,17 @@ test("Bisaya: Wolff's words listed by their affix, translation tables, English w
   assert.equal(post.groups[0][1], "verb");
   assert.equal(look("milan"), null, "not mi- + LAN");
 });
+
+test("the grammar line: gender, root and principal forms from Wiktionary's headword line, checked", async () => {
+  const { grammarOf } = await import("../../web/js/lexicon/meaningdata.js");
+  const data = { words: { "كتاب": [["كِتَاب", "noun", ["book"], "ك ت ب|kitāb", [["masculine"], [["plural", "كُتُب", "kutub"]]]]] }, forms: {} };
+  const a = answerFrom(findIn(data, ["كتاب"]), "كتاب", "ar");
+  assert.equal(a.root, "ك ت ب");
+  assert.equal(a.pos, "noun");
+  assert.deepEqual(a.grammar, ["masculine"]);
+  assert.deepEqual(a.forms, [{ label: "plural", form: "كُتُب", said: "kutub" }]);
+  // Files from before the grammar line, and hostile ones, give nothing (or only what is sane).
+  assert.deepEqual(grammarOf(undefined), { grammar: [], forms: [] });
+  assert.deepEqual(grammarOf([["x".repeat(200), 3, "neuter"], [["plural"], ["genitive", "Hauses"], "nope", [1, 2]]]),
+    { grammar: ["neuter"], forms: [{ label: "genitive", form: "Hauses", said: "" }] });
+});

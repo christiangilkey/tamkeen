@@ -473,6 +473,19 @@ export function lookUp(files, keys, word, lang, { rank, initial = true } = {}) {
 }
 
 /** The popup's answer (the shape definer.js gives) for what findIn found for `word`. */
+/** {grammar: ["masculine", ...], forms: [{label, form, said}, ...]} from a meaning group's fifth item, checked
+ *  (the file came from the network): only short strings, at most a few of each. */
+export function grammarOf(info) {
+  const str = (x, max) => (typeof x === "string" && x.trim() && x.length <= max ? x.trim() : "");
+  if (!Array.isArray(info)) return { grammar: [], forms: [] };
+  const grammar = (Array.isArray(info[0]) ? info[0] : []).map((w) => str(w, 60)).filter(Boolean).slice(0, 4);
+  const forms = (Array.isArray(info[1]) ? info[1] : [])
+    .filter((r) => Array.isArray(r) && str(r[0], 60) && str(r[1], 60))
+    .slice(0, 6)
+    .map((r) => ({ label: r[0].trim(), form: r[1].trim(), said: str(r[2], 60) }));
+  return { grammar, forms };
+}
+
 export function answerFrom(found, word, lang, { quick = false, language = "English", source = "" } = {}) {
   if (found.parts) return compoundAnswer(found, word, { quick, language, source });
   const dict = dictionaryName(source);
@@ -499,6 +512,9 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
     lemma: lang === "de" ? germanLemma : same ? "" : first[0],
     root,
     pos: first[1] || "",
+    // What Wiktionary's headword line says (tools/build_meanings.py grammar_info): gender, aspect, verb form
+    // or class, and the word's principal forms (an Arabic broken plural, a verb's non-past, a counter word).
+    ...grammarOf(first[4]),
     morphology: formOf,
     meaning,
     // No note: the popup's source switch (top right) already says it is the dictionary (the owner).

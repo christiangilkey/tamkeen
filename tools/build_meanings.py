@@ -10,6 +10,7 @@ forms of a word ("hablo", "كتبت"), which word they are a form of. Read by we
     python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th de fa hi ko la)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
+    python tools/build_meanings.py --grammar ar de ...   (only add the grammar line and Arabic roots to the files there)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
     python tools/build_meanings.py --translations ceb    (add the Bisaya words that English entries' translation
                                                           tables give and the Bisaya entries lack; reads English)
@@ -20,10 +21,11 @@ from mdbg.net, or a saved copy named by the TAMKEEN_CEDICT environment variable)
 everyday meaning first; Japanese needs `pip install wordfreq`, to choose between spellings.
 
 The file: {"kind": "meanings", "lang", "source", "license",
-           "words": {key: [[shown, pos, [gloss, ...], extra], ...]},
+           "words": {key: [[shown, pos, [gloss, ...], extra, grammar?], ...]},
            "forms": {key: [[lemma key, what form it is], ...]}}
 `key` is the word as Tamkeen matches it (see KEY below and web/js/meanings.js); `extra` is
-"root|reading|dialect" (any part may be empty; trailing empty parts are left off).
+"root|reading|dialect" (any part may be empty; trailing empty parts are left off); `grammar`, when the
+headword line says something, is [grammar words, [[label, form, romanization?], ...]] (grammar_info).
 """
 
 from __future__ import annotations
@@ -225,7 +227,170 @@ def root(entry: dict, lang: str) -> str:
             parts = [v for k, v in sorted((t.get("args") or {}).items(), key=lambda kv: kv[0]) if k.isdigit() and v]
             if parts:
                 return " ".join(parts)
+    # Wiktextract now gives the root as a category: "Arabic terms belonging to the root ك ت ب" (dialects too),
+    # on the entry or (in the whole-language files) on its senses.
+    for name in category_names(entry):
+        m = ROOT_CATEGORY.search(name)
+        if m:
+            return m.group(1).strip()
     return ""
+
+
+def category_names(entry: dict):
+    """The entry's categories and its senses', as names (Wiktextract gives strings or {"name": ...})."""
+    for c in [*(entry.get("categories") or []), *(c for s in entry.get("senses") or [] for c in s.get("categories") or [])]:
+        yield str(c.get("name", "") if isinstance(c, dict) else c)
+
+
+ROOT_CATEGORY = re.compile(r"terms belonging to the root ([^\s].*)$")
+FROM_ARABIC_ROOT = re.compile(r"derived from the Arabic root ([^\s].*)$")
+
+
+# ---------- the grammar line: what Wiktionary's headword line says about a word ----------
+# Gender, aspect, verb form or class from the headword line, and its principal forms: an Arabic noun's
+# (broken) plural, a verb's non-past and verbal noun, a German noun's genitive and plural, a Latin verb's
+# principal parts, a Russian verb's other aspect, a Thai or Korean counter word. Stored as the meaning
+# group's fifth item, [grammar words, [[label, form, romanization], ...]], and shown in the word popup.
+GRAMMAR_WORDS = {"masculine": "masculine", "feminine": "feminine", "neuter": "neuter", "common": "common gender",
+                 "animate": "animate", "inanimate": "inanimate", "imperfective": "imperfective", "perfective": "perfective",
+                 "transitive": "transitive", "intransitive": "intransitive", "plural": "plural", "uncountable": "uncountable"}
+HEAD_ABBREVIATIONS = {"m": "masculine", "f": "feminine", "n": "neuter", "c": "common gender", "pl": "plural",
+                      "anim": "animate", "inan": "inanimate", "impf": "imperfective", "pf": "perfective", "du": "dual"}
+HEAD_WORDS = {"transitive", "intransitive", "ichidan", "godan", "irregular", "strong", "weak", "mixed", "or", "and"}
+ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV"]
+SKIP_FORM_TAGS = {"romanization", "canonical", "alternative", "obsolete", "archaic", "dialectal", "nonstandard", "rare",
+                  "uncommon", "regional", "abbreviation", "pronunciation-spelling", "misspelling", "diminutive",
+                  "augmentative", "pejorative", "derogatory", "endearing", "hypocoristic", "expressive", "relational",
+                  "table-tags", "inflection-template", "class", "hanja", "Baybayin", "Badlit", "Urdu", "Cyrillic",
+                  "colloquial", "informal", "poetic", "dated", "error-unrecognized-form", "excessive"}
+TAG_ORDER = [["masculine", "feminine", "neuter", "common"],
+             ["nominative", "genitive", "dative", "accusative", "ablative", "instrumental", "prepositional", "locative",
+              "vocative", "oblique", "construct", "definite", "indefinite"],
+             ["first-person", "second-person", "third-person"],
+             ["singular", "dual", "plural"],
+             ["present", "preterite", "imperfect", "past", "perfect", "pluperfect", "future", "non-past", "aorist",
+              "conditional", "subjunctive", "imperative"],
+             ["active", "passive"],
+             ["participle", "infinitive", "supine", "gerund", "stem"]]
+TAG_RANK = {t: (i, j) for i, group in enumerate(TAG_ORDER) for j, t in enumerate(group)}
+TAG_WORDS = {"noun-from-verb": "verbal noun", "before-vowel": "before a vowel", "error-unknown-tag": ""}
+LATIN_SCRIPT = re.compile(r"^[A-Za-zÀ-ɏḀ-ỿʔʕʾʿ'’·\-\s/]+$")
+MAX_FORM_ROWS = 6
+
+
+def form_label(tags: set[str]) -> str:
+    known = sorted((t for t in tags if t in TAG_RANK), key=lambda t: TAG_RANK[t])
+    rest = sorted(t for t in tags if t not in TAG_RANK)
+    return " ".join(w for w in (TAG_WORDS.get(t, t) for t in known + rest) if w)
+
+
+def regular_form(form: str, word: str, label: str, lang: str, feminine: str = "") -> bool:
+    """A form any learner can guess (casa: casas, walk: walked), left out so the irregular ones stand out."""
+    f, w = form.lower(), word.lower()
+    if lang in ("es", "pt", "ca", "fr", "en", "it", "tl", "ceb", "la", "de") and label in ("plural", "masculine plural"):
+        if f in (w + "s", w + "es"):
+            return True
+    if label == "feminine plural" and feminine and f in (feminine.lower() + "s", feminine.lower() + "es"):
+        return True
+    if lang == "en":
+        if label in ("third-person singular present", "present participle"):
+            return True
+        if label in ("past", "past participle") and (f in (w + "ed", w + "d") or (w.endswith("y") and f == w[:-1] + "ied")):
+            return True
+    return False
+
+
+def romanization_of(form: str, expansion: str) -> str:
+    """The Latin-letter reading Wiktionary prints after a form in the headword line: كُتُب (kutub)."""
+    if not expansion or LATIN_SCRIPT.match(form):
+        return ""
+    m = re.search(re.escape(form) + r"\s*\(([^()]+)\)", expansion)
+    said = m.group(1).strip() if m else ""
+    return said if said and LATIN_SCRIPT.match(said) and len(said) <= 40 else ""
+
+
+def head_grammar(entry: dict, lang: str) -> list[str]:
+    """Grammar words of the headword line: "f inan", "impf", "I" (an Arabic verb's form), "transitive ichidan",
+    "; first conjugation", "(class 7 strong, ...)"."""
+    heads = entry.get("head_templates") or []
+    text = str(heads[0].get("expansion") or "") if heads else ""
+    if not text:
+        return []
+    out: list[str] = []
+    rest = re.sub(r"^.*?•\s*\([^()]*\)\s*", "", text) if "•" in text else text
+    if "•" not in text:
+        for w in sorted({entry.get("word", ""), shown_form(entry, lang)}, key=len, reverse=True):
+            if w and rest.startswith(w):
+                rest = rest[len(w):]
+                break
+    before = rest.split("(", 1)[0].split(";", 1)[0].strip()
+    words = before.split()
+    if words and all(t in HEAD_ABBREVIATIONS or t in HEAD_WORDS or (lang == "ar" and t in ROMAN) for t in words):
+        said = []
+        for t in words:
+            if lang == "ar" and t in ROMAN:
+                said.append(f"form {t}")
+            else:
+                said.append(HEAD_ABBREVIATIONS.get(t, t))
+        phrase = " ".join(said).strip()
+        if phrase and phrase not in ("or", "and"):
+            out.append(phrase)
+    inside = re.match(r"[^(]*\(([^()]*)", rest)
+    if inside:
+        for part in inside.group(1).split(","):
+            part = part.strip()
+            if re.fullmatch(r"(?:class \d+ )?(?:strong|weak|mixed|irregular)", part):
+                out.append(part)
+    tail = text.rsplit(")", 1)[-1] if ")" in text else ""
+    m = re.match(r"\s*;\s*([a-z][a-z \-]{3,40})$", tail)
+    if m:
+        out.append(m.group(1).strip())
+    return out
+
+
+def grammar_info(entry: dict, lang: str) -> list:
+    """[grammar words, [[label, form, romanization], ...]] from an entry's headword line, or [] when it says nothing."""
+    words: list[str] = []
+    for f in entry.get("forms") or []:
+        if "canonical" in (f.get("tags") or []) and not f.get("source"):
+            for t in f.get("tags") or []:
+                if t in GRAMMAR_WORDS:
+                    words.append(GRAMMAR_WORDS[t])
+                m = re.fullmatch(r"form-([ivx]+)", t)
+                if m:
+                    words.append(f"form {m.group(1).upper()}")
+    for w in head_grammar(entry, lang):
+        if not any(w == x or w in x.split() or x in w for x in words):
+            words.append(w)
+    if lang == "fa":
+        for name in category_names(entry):
+            m = FROM_ARABIC_ROOT.search(name)
+            if m:
+                words.append(f"from the Arabic root {m.group(1).strip()}")
+                break
+    heads = entry.get("head_templates") or []
+    expansion = str(heads[0].get("expansion") or "") if heads else ""
+    word = entry.get("word", "")
+    feminine = next((f.get("form", "") for f in entry.get("forms") or [] if not f.get("source")
+                     and set(f.get("tags") or []) == {"feminine"}), "")
+    rows: list[list[str]] = []
+    per_label: dict[str, int] = {}
+    for f in entry.get("forms") or []:
+        tags = set(f.get("tags") or [])
+        form = str(f.get("form") or "").strip()
+        if f.get("source") or not tags or not form or form in (word, shown_form(entry, lang)):
+            continue
+        if tags & SKIP_FORM_TAGS or any(t[:1].isupper() for t in tags):
+            continue
+        label = form_label(tags)
+        if not label or per_label.get(label, 0) >= 2 or regular_form(form, word, label, lang, feminine):
+            continue
+        per_label[label] = per_label.get(label, 0) + 1
+        rows.append([label, form, romanization_of(form, expansion)] if romanization_of(form, expansion) else [label, form])
+        if len(rows) >= MAX_FORM_ROWS:
+            break
+    words = list(dict.fromkeys(words))
+    return [words, rows] if words or rows else []
 
 
 # Senses learners meet least in today's language: Wiktionary's tags, or the label its gloss starts with
@@ -700,7 +865,11 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
             continue
         if glosses:
             extra = f"{root(e, lang)}|{reading(e, lang)}|{dialect}".rstrip("|")
-            words.setdefault(k, []).append([shown_form(e, lang), pos, glosses, extra])
+            group = [shown_form(e, lang), pos, glosses, extra]
+            info = grammar_info(e, lang)
+            if info:
+                group.append(info)
+            words.setdefault(k, []).append(group)
             if lang == "zh":
                 note_readings(e, k)
             if lang in ("zh", "ja"):
@@ -1116,7 +1285,69 @@ def add_numbers(lang: str) -> None:
     write(lang, data)
 
 
+def add_grammar(lang: str, source: str = "") -> None:
+    """Add the grammar line (grammar_info) and the Arabic root to a language's file already in docs/lexicon,
+    reading the language again but changing nothing else in the file (its filled gaps, numbers and
+    translations stay). Each Wiktionary entry is matched to its meaning group by key, written form, part of
+    speech and dialect, in the order the entries come."""
+    path = OUT / f"{lang}-meanings.json.gz"
+    data = json.loads(gzip.decompress(path.read_bytes()))
+    sources = [source or url(NAMES[lang])]
+    if lang == "ar" and not source:
+        sources += [url(name) for name in DIALECTS.values()]
+    used: set[int] = set()
+    matched = with_info = rooted = 0
+    for src in sources:
+        n = 0
+        for line in read_lines(src):
+            n += 1
+            if n % 100000 == 0:
+                print(f"  {lang}: {n} entries read, {with_info} with a grammar line", flush=True)
+            try:
+                e = json.loads(line)
+            except ValueError:
+                continue
+            code = e.get("lang_code")
+            dialect = DIALECTS.get(code, "") if lang == "ar" else ""
+            if code not in (lang, "cmn" if lang == "zh" else lang) and not dialect or not e.get("word"):
+                continue
+            pos = e.get("pos", "")
+            if (pos in SKIP_POS and not (lang == "zh" and pos == "character")) or not any(c.isalpha() for c in e["word"]):
+                continue
+            k = key(e["word"], lang)
+            groups = data["words"].get(k)
+            if not groups or not senses(e, lang)[0]:
+                continue
+            shown = shown_form(e, lang)
+            for g in groups:
+                extra = (str(g[3]) if len(g) > 3 else "").split("|")
+                if id(g) in used or g[0] != shown or g[1] != pos or (extra[2] if len(extra) > 2 else "") != dialect:
+                    continue
+                used.add(id(g))
+                matched += 1
+                while len(g) < 4:
+                    g.append("")
+                r = root(e, lang)
+                if r and not extra[0]:
+                    extra[0] = r
+                    g[3] = "|".join(extra).rstrip("|")
+                    rooted += 1
+                info = grammar_info(e, lang)
+                if info:
+                    g[4:] = [info]
+                    with_info += 1
+                break
+        print(f"  {lang}: read {n} entries from {src.rsplit('/', 1)[-1]}", flush=True)
+    print(f"  {lang}: {matched} meaning groups matched, {with_info} with a grammar line, {rooted} roots added", flush=True)
+    write(lang, data)
+
+
 def main(args: list[str]) -> None:
+    if args and args[0] == "--grammar":
+        for arg in args[1:] or list(NAMES):
+            lang, _, source = arg.partition("=")
+            add_grammar(lang, source)
+        return
     if args and args[0] == "--fill":
         for lang in args[1:] or list(WORD_LISTS):
             fill(lang)

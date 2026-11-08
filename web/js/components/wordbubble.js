@@ -15,6 +15,10 @@ import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
 const PAUSE_KEY = "wordPause";
+// Wiktionary's short names for parts of speech, in full on the popup's chips (adj: adjective).
+const POS_NAMES = { adj: "adjective", adv: "adverb", name: "proper noun", pron: "pronoun", prep: "preposition", postp: "postposition",
+  conj: "conjunction", intj: "interjection", num: "number", det: "determiner", abbrev: "abbreviation", prep_phrase: "prepositional phrase",
+  article: "article", particle: "particle", contraction: "contraction", phrase: "phrase", prefix: "prefix", suffix: "suffix" };
 export function pauseAfterWord() {
   try { return localStorage.getItem(PAUSE_KEY) !== "0"; } catch { return true; }
 }
@@ -141,10 +145,20 @@ export function createWordBubble(host, actions) {
 
   function chips(d) {
     const items = [];
-    if (d.pos) items.push(esc(d.pos));
+    if (d.pos) items.push(esc(POS_NAMES[d.pos] || d.pos));
+    for (const g of d.grammar || []) items.push(esc(g)); // masculine, form I, imperfective, first conjugation …
     if (d.root && L().root === "Root") items.push(`root <span class="ar" ${attrs()}>${esc(d.root)}</span>`);
     if (d.dialect) items.push(esc(d.dialect));
     return items.map((c) => `<span class="wb-chip">${c}</span>`).join("");
+  }
+
+  /** The word's principal forms from Wiktionary's headword line: "Plural  كُتُب kutub", "Non-past  يَكْتُبُ yaktubu". */
+  function formRows(d) {
+    const byLabel = new Map(); // two plurals (بُيُوت, بُيُوتَات) share one row
+    for (const f of d.forms || []) byLabel.set(f.label, [...(byLabel.get(f.label) || []), f]);
+    const one = (f) => `<span class="ar" ${attrs()}>${esc(f.form)}</span>${f.said ? ` <span class="wb-said" translate="no">${esc(f.said)}</span>` : ""}`;
+    return [...byLabel].map(([label, list]) => `<div class="wb-row wb-form"><span class="wb-label">${esc(label.charAt(0).toUpperCase() + label.slice(1))}</span>
+        ${list.map(one).join(`<span class="wb-said"> · </span>`)}</div>`).join("");
   }
 
   let current = { state: "loading", message: "" };
@@ -291,7 +305,10 @@ export function createWordBubble(host, actions) {
               ${kindOf(lastError) ? `<button type="button" data-act="trouble">Troubleshoot</button>` : ""}
               <button type="button" class="ghost" data-act="settings">Settings</button></div>`;
     } else if (quick) {
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>${downloadingNote()}`;
+      // The dictionary's grammar comes along even here: it is already on the device, and short.
+      const extras = (def.grammar && def.grammar.length) || (def.forms && def.forms.length) || (def.root && L().root === "Root");
+      body = `<div class="wb-meaning">${esc(def.meaning)}</div>
+        ${extras ? `<div class="wb-chips">${chips(def)}</div>${formRows(def)}` : ""}${downloadingNote()}`;
     } else {
       const d = def;
       // How the word is read (kana, pinyin, IPA) goes under the meaning; where the reading is the
@@ -304,7 +321,8 @@ export function createWordBubble(host, actions) {
         ${reading ? `<div class="wb-reading" ${attrs()}>${esc(reading)}</div>` : ""}
         ${d.lemma && d.lemma !== d.vocalized && d.lemma !== word ? `<div class="wb-row"><span class="wb-label">Dictionary form</span> <span class="ar" ${attrs()}>${esc(d.lemma)}</span></div>` : ""}
         ${d.root && L().root !== "Root" ? `<div class="wb-row"><span class="wb-label">${esc(L().root || "Root")}</span> <span class="ar" ${attrs()}>${esc(d.root)}</span></div>` : ""}
-        ${d.morphology ? `<div class="wb-row"><span class="wb-label">Form</span> ${esc(d.morphology)}</div>` : ""}
+        ${formRows(d)}
+        ${d.morphology ?`<div class="wb-row"><span class="wb-label">Form</span> ${esc(d.morphology)}</div>` : ""}
         ${d.other_meanings.length ? `<div class="wb-row"><span class="wb-label">Also</span> ${d.other_meanings.map(esc).join("; ")}</div>` : ""}
         ${d.msa_equivalent ? `<div class="wb-row"><span class="wb-label">${esc(L().standard)}</span> <span class="ar" ${attrs()}>${esc(d.msa_equivalent)}</span></div>` : ""}
         ${d.dialect_note ? `<div class="wb-row"><span class="wb-label">${esc(L().note)}</span> ${esc(d.dialect_note)}</div>` : ""}

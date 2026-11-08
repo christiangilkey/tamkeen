@@ -7709,3 +7709,27 @@ outside the repo); only encrypted copies are in the repo.
   order, 3,000 with their audio, Sentence played the DLI voice (206), folder review, Library DLI tab. Pictures
   `..\tamkeen-shots\dli-decks\`. **Gotcha**: preview at `localhost:8871` reached another server (IPv6); use 127.0.0.1.
   **Not checked**: phones, the web app (audio comes from the published site, so only after a release), two devices.
+
+## Word popup: Wiktionary's grammar line (2026-11-08; main chat)
+
+The owner: show whether a word is a noun, verb or adjective, the Arabic root and broken plurals, and for every
+language whatever else Wiktionary's page gives that would help.
+
+- **Data:** `tools/build_meanings.py grammar_info` reads each entry's headword line (Wiktextract `forms` without a
+  `source`, and `head_templates[0].expansion`). Stored as a meaning group's optional fifth item,
+  `[grammar words, [[label, form, romanization?], ...]]`:
+  - grammar words: gender, animacy, aspect, an Arabic verb's form (form I), Japanese verb class, German "strong",
+    Latin "first conjugation" / "third declension", Persian "from the Arabic root …";
+  - forms (at most 6, 2 per label): plurals, genitive, feminine, non-past, verbal noun, principal parts, the other
+    aspect, counter words. Left out: alternative/obsolete/dialect spellings, diminutives and the like, and regular
+    forms (casa: casas; walk: walked).
+- **Arabic roots** were empty in every file: Wiktextract moved the root from an `ar-root` template to the category
+  "Arabic terms belonging to the root ك ت ب". `root()` reads that now.
+- **Updating the files:** `build_meanings.py --grammar <langs>` reads Wiktionary again but only adds the grammar
+  line and roots to the files already in docs/lexicon (gaps filled, numbers and translations stay). Fresh builds
+  include it too. Devices fetch the changed files by themselves (checksum in docs/lexicon/index.json).
+- **App:** `meaningdata.js grammarOf` checks the item (it comes from the network) into `answer.grammar` and
+  `answer.forms`; the popup (`wordbubble.js`) shows the grammar words as chips beside the part of speech (now in
+  full: adj → adjective) and each form as a row ("Plural كُتُب kutub"). Shown in Quick mode too, since the
+  dictionary's answer is already on the device. AI answers have neither field.
+- Tests: `tests/test_meanings_grammar.py`, `tests/js/meanings.test.mjs` (grammar line).
