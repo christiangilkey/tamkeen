@@ -7724,7 +7724,14 @@ language whatever else Wiktionary's page gives that would help.
     aspect, counter words. Left out: alternative/obsolete/dialect spellings, diminutives and the like, and regular
     forms (casa: casas; walk: walked).
 - **Arabic roots** were empty in every file: Wiktextract moved the root from an `ar-root` template to the category
-  "Arabic terms belonging to the root ك ت ب". `root()` reads that now.
+  "Arabic terms belonging to the root ك ت ب" (on the entry, or on its senses in the whole-language file), and the
+  whole-language file has it for only some entries (none for بيت, جميل). `root()` reads the category;
+  `roots_from_camel` then fills gaps from ar-camel-meanings (same consonants and shadda, or all its entries for the
+  spelling agreeing) and shares a root among one spelling's entries within one dialect. Result: 19,715 of 26,555
+  Standard Arabic entries have a root; dialect entries mostly none.
+- **Chinese** measure words came inside the meaning ("friend (Classifier: 個／个 m c; 位 m c)"): moved to a
+  "classifier" form (Mandarin ones), the meaning cleaned. **Persian** words from Arabic name the Arabic root, from the
+  category or from the etymology's Arabic word looked up in ar-meanings (`arabic_roots`), so run ar before fa.
 - **Updating the files:** `build_meanings.py --grammar <langs>` reads Wiktionary again but only adds the grammar
   line and roots to the files already in docs/lexicon (gaps filled, numbers and translations stay). Fresh builds
   include it too. Devices fetch the changed files by themselves (checksum in docs/lexicon/index.json).

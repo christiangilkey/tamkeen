@@ -278,6 +278,30 @@ LATIN_SCRIPT = re.compile(r"^[A-Za-zÀ-ɏḀ-ỿʔʕʾʿ'’·\-\s/]+$")
 MAX_FORM_ROWS = 6
 
 
+# Chinese measure words are written inside a meaning: "friend (Classifier: 個／个 m c; 位 m c)" (m: Mandarin).
+ZH_CLASSIFIER = re.compile(r"\s*\(Classifier: ([^()]*)\)")
+
+
+def zh_classifiers(entry: dict) -> list[str]:
+    """The Mandarin measure words of a Chinese entry's first meaning that names any: 個／个, 位."""
+    for sense in entry.get("senses") or []:
+        for gloss in sense.get("glosses") or []:
+            m = ZH_CLASSIFIER.search(str(gloss))
+            if m:
+                out = []
+                for part in m.group(1).split(";"):
+                    bits = part.split()
+                    if len(bits) >= 2 and "m" in bits[1:] and bits[0] not in out:
+                        out.append(bits[0])
+                return out[:3]
+    return []
+
+
+def zh_gloss(text: str) -> str:
+    """A Chinese meaning without its measure words, which the popup shows on a row of their own."""
+    return ZH_CLASSIFIER.sub("", text).strip()
+
+
 def form_label(tags: set[str]) -> str:
     known = sorted((t for t in tags if t in TAG_RANK), key=lambda t: TAG_RANK[t])
     rest = sorted(t for t in tags if t not in TAG_RANK)
@@ -348,6 +372,24 @@ def head_grammar(entry: dict, lang: str) -> list[str]:
     return out
 
 
+_ARABIC_ROOTS: dict[str, str] | None = None
+
+
+def arabic_roots() -> dict[str, str]:
+    """Arabic word key -> its root, from docs/lexicon/ar-meanings (Standard Arabic entries, one root only)."""
+    global _ARABIC_ROOTS
+    if _ARABIC_ROOTS is None:
+        _ARABIC_ROOTS = {}
+        path = OUT / "ar-meanings.json.gz"
+        if path.exists():
+            for k, groups in json.loads(gzip.decompress(path.read_bytes()))["words"].items():
+                roots = {str(g[3]).split("|")[0] for g in groups
+                         if len(g) > 3 and len(str(g[3]).split("|")) < 3 and str(g[3]).split("|")[0]}
+                if len(roots) == 1:
+                    _ARABIC_ROOTS[k] = roots.pop()
+    return _ARABIC_ROOTS
+
+
 def grammar_info(entry: dict, lang: str) -> list:
     """[grammar words, [[label, form, romanization], ...]] from an entry's headword line, or [] when it says nothing."""
     words: list[str] = []
@@ -363,11 +405,15 @@ def grammar_info(entry: dict, lang: str) -> list:
         if not any(w == x or w in x.split() or x in w for x in words):
             words.append(w)
     if lang == "fa":
-        for name in category_names(entry):
-            m = FROM_ARABIC_ROOT.search(name)
-            if m:
-                words.append(f"from the Arabic root {m.group(1).strip()}")
-                break
+        arabic = next((m.group(1).strip() for m in map(FROM_ARABIC_ROOT.search, category_names(entry)) if m), "")
+        if not arabic:  # the whole-language file often lacks the category: the Arabic word it came from, and its root
+            for t in entry.get("etymology_templates") or []:
+                args = t.get("args") or {}
+                if t.get("name") in ("bor", "bor+", "der", "der+", "lbor", "inh") and args.get("2") == "ar" and args.get("3"):
+                    arabic = arabic_roots().get(key(args["3"], "ar"), "")
+                    break
+        if arabic:
+            words.append(f"from the Arabic root {arabic}")
     heads = entry.get("head_templates") or []
     expansion = str(heads[0].get("expansion") or "") if heads else ""
     word = entry.get("word", "")
@@ -389,6 +435,9 @@ def grammar_info(entry: dict, lang: str) -> list:
         rows.append([label, form, romanization_of(form, expansion)] if romanization_of(form, expansion) else [label, form])
         if len(rows) >= MAX_FORM_ROWS:
             break
+    if lang == "zh":
+        for c in zh_classifiers(entry)[:2]:
+            rows.append(["classifier", c])
     words = list(dict.fromkeys(words))
     return [words, rows] if words or rows else []
 
@@ -865,6 +914,8 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
             continue
         if glosses:
             extra = f"{root(e, lang)}|{reading(e, lang)}|{dialect}".rstrip("|")
+            if lang == "zh":
+                glosses = [zh_gloss(g) or g for g in glosses]
             group = [shown_form(e, lang), pos, glosses, extra]
             info = grammar_info(e, lang)
             if info:
@@ -1336,10 +1387,66 @@ def add_grammar(lang: str, source: str = "") -> None:
                 if info:
                     g[4:] = [info]
                     with_info += 1
+                if lang == "zh":
+                    g[2] = [zh_gloss(x) or x for x in g[2]]
                 break
         print(f"  {lang}: read {n} entries from {src.rsplit('/', 1)[-1]}", flush=True)
     print(f"  {lang}: {matched} meaning groups matched, {with_info} with a grammar line, {rooted} roots added", flush=True)
+    if lang == "ar":
+        print(f"  ar: {roots_from_camel(data)} more roots from the CAMeL glosses", flush=True)
     write(lang, data)
+
+
+def vowel_key(word: str) -> str:
+    """An Arabic word's letters and doubled letters (shadda), without its short vowels: what tells one root's
+    words apart. CAMeL writes مَزّاح where Wiktionary writes مَزَّاح (the fatha before alif left implied)."""
+    return "".join(ch for ch in word.replace("ـ", "") if not unicodedata.combining(ch) or ch == "ّ")
+
+
+def roots_from_camel(data: dict) -> int:
+    """Arabic roots the Wiktionary data leaves out (the whole-language file gives the root category for only
+    some entries: بيت, جميل have none), taken from the CAMeL glosses file (docs/lexicon/ar-camel-meanings):
+    from its entry for the same word with the same vowels, else when all its entries for the spelling (and
+    dialect) agree on one root. Returns how many were added."""
+    path = OUT / "ar-camel-meanings.json.gz"
+    if not path.exists():
+        return 0
+    camel = json.loads(gzip.decompress(path.read_bytes()))["words"]
+    added = 0
+    for k, groups in data["words"].items():
+        mine = camel.get(k) or []
+        for g in groups:
+            extra = (str(g[3]) if len(g) > 3 else "").split("|")
+            if extra[0] or len(g) < 4:
+                continue
+            dialect = extra[2] if len(extra) > 2 else ""
+            have = [(c[0], str(c[3]).split("|")[0]) for c in mine
+                    if len(c) > 3 and str(c[3]).split("|")[0] and (str(c[3]).split("|") + ["", "", ""])[2] == dialect]
+            same = [r for w, r in have if vowel_key(w) == vowel_key(g[0])]
+            found = same[0] if same else (have[0][1] if have and len({r for _, r in have}) == 1 else "")
+            if found:
+                extra[0] = found
+                g[3] = "|".join(extra).rstrip("|")
+                added += 1
+    # Then the file's own words: one spelling's entries with a root all agreeing (وَلَدَ "give birth": و ل د)
+    # give it to the others written with those letters (وَلَد "boy"), within one dialect (Moroccan مزاح
+    # "loquats" is no word of م ز ح) and names apart.
+    def dialect_of(g):
+        return ((str(g[3]) if len(g) > 3 else "").split("|") + ["", "", ""])[2]
+    for groups in data["words"].values():
+        for dialect in {dialect_of(g) for g in groups}:
+            same = [g for g in groups if len(g) > 3 and dialect_of(g) == dialect]
+            roots = {str(g[3]).split("|")[0] for g in same if str(g[3]).split("|")[0]}
+            if len(roots) != 1:
+                continue
+            found = roots.pop()
+            for g in same:
+                extra = str(g[3]).split("|")
+                if not extra[0] and g[1] != "name":
+                    extra[0] = found
+                    g[3] = "|".join(extra).rstrip("|")
+                    added += 1
+    return added
 
 
 def main(args: list[str]) -> None:
@@ -1368,6 +1475,8 @@ def main(args: list[str]) -> None:
         data = build(lang, source or url(NAMES[lang]))
         if lang in WORD_LISTS:
             fill_gaps(lang, data)
+        if lang == "ar":
+            roots_from_camel(data)
         write(lang, data)
 
 

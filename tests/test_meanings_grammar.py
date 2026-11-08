@@ -57,3 +57,23 @@ def test_root_on_a_sense_as_the_whole_language_files_have_it():
     e = entry("بيت", "noun", "بَيْت • (bayt) m (plural بُيُوت (buyūt))", [{"form": "بُيُوت", "tags": ["plural"]}])
     e["senses"] = [{"glosses": ["house"], "categories": [{"name": "Arabic terms belonging to the root ب ي ت", "kind": "other"}]}]
     assert bm.root(e, "ar") == "ب ي ت"
+
+
+def test_chinese_measure_words_leave_the_meaning_for_a_row_of_their_own():
+    e = {"word": "朋友", "pos": "noun", "forms": [], "head_templates": [],
+         "senses": [{"glosses": ["friend (Classifier: 個／个 m c; 位 m c; 隻 c)"]}]}
+    assert bm.grammar_info(e, "zh") == [[], [["classifier", "個／个"], ["classifier", "位"]]]
+    assert bm.zh_gloss("friend (Classifier: 個／个 m c; 位 m c)") == "friend"
+
+
+def test_camel_and_wiktionary_spellings_of_one_word_match():
+    assert bm.vowel_key("مَزَّاح") == bm.vowel_key("مَزّاح")
+    assert bm.vowel_key("كِتَاب") != bm.vowel_key("كُتَّاب")
+
+
+def test_a_persian_word_from_arabic_names_the_arabic_root():
+    bm._ARABIC_ROOTS = {"كتاب": "ك ت ب"}
+    e = {"word": "کتاب", "pos": "noun", "forms": [], "head_templates": [], "senses": [{"glosses": ["book"]}],
+         "etymology_templates": [{"name": "bor", "args": {"1": "fa", "2": "ar", "3": "كِتَاب"}}]}
+    assert bm.grammar_info(e, "fa") == [["from the Arabic root ك ت ب"], []]
+    bm._ARABIC_ROOTS = None
