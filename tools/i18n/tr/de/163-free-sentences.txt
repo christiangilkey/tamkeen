@@ -1,0 +1,5 @@
+# Free example sentences for common words: the download message (examples.js freeExample) and where a
+# sentence is from (exampledata.js sourceOf, shown in the Vocab list's Sentence tool).
+a2211902	Die Beispielsätze konnten nicht heruntergeladen werden. Prüfe deine Verbindung und versuch es noch einmal.
+dd15a9c3	Tamkeens Grundlagenkurs
+4b773e32	Tamkeens Dialektkurs

@@ -1,0 +1,5 @@
+# Free example sentences for common words: the download message (examples.js freeExample) and where a
+# sentence is from (exampledata.js sourceOf, shown in the Vocab list's Sentence tool).
+a2211902	جمله‌های نمونه دانلود نشدند. اتصال خود را بررسی کنید و دوباره امتحان کنید.
+dd15a9c3	دورهٔ پایهٔ تمکین
+4b773e32	دورهٔ لهجهٔ تمکین

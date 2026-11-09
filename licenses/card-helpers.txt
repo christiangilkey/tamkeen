@@ -3,7 +3,7 @@ Example sentences and the free Mnemonic maker: Tatoeba, Wiktionary, WordNet, Fre
 With no AI key, "Add words" can fill in a real example sentence for a word, and the review card's Mnemonic
 maker finds English words that sound like it. What they use is not part of this program: the app downloads
 it the first time it is needed (docs/lexicon/<language>-examples.json.gz and en-keywords.json.gz, made by
-tools/build_examples.py).
+tools/build_examples.py and tools/enrich_examples.mjs).
 
 Example sentences and their English translations:
 
@@ -23,6 +23,10 @@ Example sentences and their English translations:
   Robertson and the Online Distributed Proofreading Team: each example with its English, in today's spelling.
 - Arabic dialect sentences also from the app's own dialect courses (docs/course/ar-<dialect>), and the dialects' own
   pronunciations from the English Wiktionary's Egyptian, Levantine, Gulf, Hijazi, Moroccan and Tunisian entries.
+- Each language's Basics course sentences (docs/course/<language>/course.json: a short everyday sentence with its
+  translation for each of the 1,000 commonest words), Tamkeen's own, added by tools/enrich_examples.mjs. That step also
+  notes which dictionary word each word of the sentences is a form of (plurals, verb forms, Arabic words with a
+  pronoun ending), worked out from the language's meanings file (the English Wiktionary, CC BY-SA 4.0).
 
 The free Mnemonic maker's English words:
 

@@ -33,7 +33,7 @@ import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
          fillIn, firstSense, hasValue, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
-import { OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
+import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
 import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
 import { learnFromNote } from "../review/cardtools.js";
@@ -970,14 +970,16 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           continue;
         }
         if (!needs(r, choices).sentence) continue;
-        let found = null;
-        try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch { /* no connection the first time */ }
+        let found = null, failed = null;
+        // (no connection the first time: said as such, not as "none found")
+        try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch (e) { failed = e && e.code === NO_EXAMPLES ? e : null; }
         if (found) {
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
           setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
+            : failed ? { kind: "note", text: failed.message }
             : { kind: "note", text: r.kind === "word" ? t("No example sentence was found for this word. Type one, or leave it empty.")
               : t("No example sentence was found for this phrase. Type one, or leave it empty.") });
         }

@@ -1,0 +1,5 @@
+# Free example sentences for common words: the download message (examples.js freeExample) and where a
+# sentence is from (exampledata.js sourceOf, shown in the Vocab list's Sentence tool).
+a2211902	예문을 다운로드하지 못했어요. 연결을 확인하고 다시 해 보세요.
+dd15a9c3	Tamkeen 기초 과정
+4b773e32	Tamkeen 방언 과정

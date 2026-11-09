@@ -19,12 +19,17 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
     python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
+After `build`, always run `node tools/enrich_examples.mjs <langs>`: it adds each language's Basics course sentences
+(source "b") and the table of which dictionary word each word of the sentences is a form of (`forms`, `also`), so
+that common words nearly always get a sentence, and it updates the files' sha256 in docs/lexicon/index.json.
+
 <tatoeba dir> holds Tatoeba's per-language exports: <code>_sentences.tsv.bz2 and <code>-eng_links.tsv.bz2 for
 each language, and eng_sentences.tsv.bz2 (https://downloads.tatoeba.org/exports/per_language/).
 
 The examples file: {"kind": "examples", "lang", "sentences": [[text, english, source], ...],
                     "words": {key: [sentence number, ...]}, "ipa": {key: ipa}}
-`source` is "t<number>" (Tatoeba's sentence number) or "w" (Wiktionary; "w:arz" a dialect's entry);
+`source` is "t<number>" (Tatoeba's sentence number) or "w" (Wiktionary; "w:arz" a dialect's entry), "c:<code>" a
+dialect course's, "d" Wolff's (Bisaya), "b" the Basics course's (tools/enrich_examples.mjs);
 `words` lists the Wiktionary examples of each word; `key` is meanings' key (tools/build_meanings.py key).
 """
 

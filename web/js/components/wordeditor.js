@@ -413,7 +413,7 @@ export function openWordEditor(el, v, deps) {
       trans.dir = "auto";
       trans.hidden = !plain.trim();
       const from = box.querySelector(".vi-sent-from");
-      from.textContent = got.by === "ai" ? t("Written for you by the AI") : t("From {0}", sourceOf(got.source).name);
+      from.textContent = got.by === "ai" ? t("Written for you by the AI") : t("From {0}", t(sourceOf(got.source).name));
       if (got.readable) from.textContent += ` · ${t("Every other word in this sentence is one you know.")}`;
       found.hidden = false;
       say("");

@@ -6,7 +6,8 @@
 // Shared by the desktop app, the phone and the web app.
 
 import { api } from "./app.js";
-import { ExamplePack, markTranslation } from "./lexicon/exampledata.js";
+import { t } from "./i18n.js";
+import { ExamplePack, markTranslation, plainWord } from "./lexicon/exampledata.js";
 import { dictionaries, newWordCounter } from "./lexicon/seen.js";
 import { lexemeOf } from "./lexicon/words.js";
 import { pronunciationOf } from "./review/soundout.js";
@@ -82,18 +83,33 @@ async function lemmaFinder(lang) {
   return (form) => { const lex = lexemeOf(form, lang, tables); return lex && lex.lemma; };
 }
 
+/** Thrown by freeExample when the language has sentences but they couldn't be had (no connection the first time):
+ * not the same as none found. */
+export const NO_EXAMPLES = "NO_EXAMPLES";
+
 /**
  * An example sentence for `word` with no AI: {sentence, translation, source} or null when the file has
  * none. `meaning` puts ⟦ ⟧ round the word in the translation; `dialect` prefers an Arabic dialect's.
+ * Throws an Error with `code` NO_EXAMPLES (and a message for the learner) when the file couldn't be downloaded.
  */
 export async function freeExample(word, lang, { meaning = "", dialect = courseDialect(lang), skip = [] } = {}) {
   const p = await examplesOf(lang);
-  if (!p) return null;
+  if (!p) {
+    // (a language with no sentences file, English: none found; one with a file that couldn't be had: say so)
+    const st = await examplesStatus(lang).catch(() => null);
+    if (st && !st.needed) return null;
+    const e = new Error(t("The example sentences couldn't be downloaded. Check your connection and try again."));
+    e.code = NO_EXAMPLES;
+    throw e;
+  }
+  word = plainWord(word);
   const [lemmaOf, counter] = await Promise.all([lemmaFinder(lang), newWordCounter(lang, word).catch(() => null)]);
   // (a phrase's own words aren't new words of its sentence: "por favor" in "Pásame la sal, por favor.")
   const own = counter ? counter(word) : 0;
   const newWords = counter && ((s) => Math.max(0, counter(s) - own));
-  const found = p.find(word, { lemmaOf, dialect, meaning, newWords, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
+  // The word without what is typed round it counts too: "der Teil, -e" finds sentences with Teil, "مشكلة ج مشاكل" with مشكلة.
+  const core = soundCore(word, lang, { isWord: knowsWord(p, lang) }).core;
+  const found = p.find(word, { lemmaOf, dialect, meaning, newWords, core, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
   if (!found.length) return null;
   const best = found[0];
   // readable: every other word of the sentence is one the learner has seen (only told when that is known)

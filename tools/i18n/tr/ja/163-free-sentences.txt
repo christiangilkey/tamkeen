@@ -1,0 +1,5 @@
+# Free example sentences for common words: the download message (examples.js freeExample) and where a
+# sentence is from (exampledata.js sourceOf, shown in the Vocab list's Sentence tool).
+a2211902	例文をダウンロードできませんでした。接続を確認してもう一度お試しください。
+dd15a9c3	Tamkeenの基礎コース
+4b773e32	Tamkeenの方言コース
