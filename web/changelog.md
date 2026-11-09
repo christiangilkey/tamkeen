@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** A grammar lesson's **Previous**, **All lessons** and **Next** at its foot are blue pills, like the app's other buttons.
 - **Changed:** The **+** button no longer shows on Library → Courses: there is nothing to add there.
 - **Fixed:** On the phone, the **+** button no longer jumps up for a moment as you scroll the Library, and a slightly slanted scroll no longer slides the page sideways (a swipe to the next section has to be clearly sideways). *(phone)*
 - **Improved:** The chat screen has no emojis: the voice-note button is a microphone line icon, and the lines about disappearing messages and saying hello are plain text.

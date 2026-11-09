@@ -2387,6 +2387,10 @@ html.sel-sheets select { pointer-events: none; }
 .gp-done .primary { display: inline-flex; align-items: center; gap: 8px; }
 .gp-score { margin: 0; }
 .gl-nav { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
+/* Previous / All lessons / Next: blue on blue pills, the app's usual button look (the owner) */
+.gl-nav button, .gl-nav button:hover:not(:disabled) { min-height: 40px; padding: 0 18px; border: 0; border-radius: 99px;
+  background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.gl-nav button:hover:not(:disabled) { filter: brightness(1.12); }
 .gl-body[dir="ltr"] .gx-t, .gl-body[dir="ltr"] .gq-line, .gl-body[dir="ltr"] .gq-pool { text-align: left; }
 .gl-body[dir="rtl"] .gx-t { text-align: right; }
 @media (min-width: 700px) { .gx-list { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); } }
