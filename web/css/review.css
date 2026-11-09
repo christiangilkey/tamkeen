@@ -177,6 +177,15 @@ body.rv-open { overflow: hidden; }
 .rv-field-head > span { padding-inline-start: 2px; font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-paste { display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 0 11px; border: 0; border-radius: 99px; background: var(--surface-2); color: var(--text); font-size: 12.5px; font-weight: 600; }
 .rv-paste:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.15); }
+/* The back's tools (components/wordtools.js): the Vocab list's tiles (app.css .vi-tool), in the reviewer's own
+   colours, as its Word / Sentence buttons and the Mnemonic maker's button (the owner: light blue on the brand's
+   dark teal, not plain). The open one has a ring. The buttons inside a tool's panel match. */
+.rv .vi-tools { gap: 8px; }
+.rv .vi-tool { min-height: 64px; border-radius: 14px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; }
+.rv .vi-tool:hover:not(:disabled) { background: var(--accent-soft); filter: brightness(1.12); }
+.rv .vi-tool[aria-pressed="true"], .rv .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); box-shadow: inset 0 0 0 2px var(--accent); }
+.rv .vi-panel .vi-btn:not(.primary) { background: var(--accent-soft); color: var(--accent); }
+.rv .vi-panel .vi-btn:not(.primary):hover:not(:disabled) { background: var(--accent-soft); filter: brightness(1.12); }
 /* The Mnemonic maker: one button; then how the word sounds (its syllables, the stressed one in capitals)
    and the keywords. Each keyword: Use (blue) / Not this one on its right; under it the word's syllables
    with those it sounds like lit, how close it sounds (and "Fits the meaning" when it does), and its picture. */

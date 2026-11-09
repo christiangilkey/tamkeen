@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	Mga mnemonic ug sentence
+2772a106	Paghimo og hulagway gamit ang pulong nga parehas og tingog aron dili nimo makalimtan ang pulong, pagkuha og bag-ong pananglitan nga sentence, o ibutang ang pulong sa usa ka folder.

@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	助记与例句
+2772a106	用谐音词想一幅画帮你记住这个词，换一个新的例句，或把这个词放进文件夹。

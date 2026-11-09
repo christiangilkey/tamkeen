@@ -26,13 +26,13 @@ test("the review card's and the Vocab list's Mnemonic maker (review/cardtools.js
   assert.match(src, /const settings = \(app\.status && app\.status\.settings\) \|\| \{\};/);
 });
 
-test("the Vocab list's Sentence tool (review/sentencefind.js, components/wordeditor.js)", () => {
+test("the Sentence tool of the Vocab list and the review card (review/sentencefind.js, components/wordtools.js)", () => {
   const src = read("web/js/review/sentencefind.js");
   assert.match(src, /export const aiWrites = \(\) => aiMakes\(settings\(\), "sentence", aiUsable\(\)\);/);
   assert.match(src, /way = aiWrites\(\) \? "ai" : "free"/);
   assert.match(src, /SENTENCE_SOURCE = "#\/settings\?s=words&show=sentencesource"/);
-  const editor = read("web/js/components/wordeditor.js");
-  assert.match(editor, /freeChosen\(\) \? `<a class="vi-link vi-sent-source" href="\$\{SENTENCE_SOURCE\}">AI can write them instead<\/a>`/);
+  const tools = read("web/js/components/wordtools.js");
+  assert.match(tools, /freeChosen\(\) \? `<a class="vi-link vi-sent-source" href="\$\{SENTENCE_SOURCE\}">AI can write them instead<\/a>`/);
 });
 
 test("Add words (components/wordbuilder.js): sentences and mnemonics by the choice, meanings as before", () => {

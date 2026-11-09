@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	Mnemotècnies i frases
+2772a106	Crea una imatge amb una paraula que soni semblant perquè la paraula se't quedi, aconsegueix una frase d'exemple nova o posa la paraula en una carpeta.

@@ -833,6 +833,10 @@ export async function render(view) {
       words: reviewWords(), allWords: all, log, playSnippet, say, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
       onDelete: (v) => { all = all.filter((x) => x !== v); selected.delete(v.id); },  // a word deleted from its card
+      // (the back's Folders tool, as the open word's: the list is drawn again when the reviewer closes)
+      folders: () => folders,
+      setFolder: (w, uid, on) => applyFolder([w], uid, on, { redraw: false }),
+      newFolder,
       onClose: () => { audio.pause(); stopDevice(); if (view.isConnected) renderAll(); },  // meanings and notes may have been edited on a card
     });
   }

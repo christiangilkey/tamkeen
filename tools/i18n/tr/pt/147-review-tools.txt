@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	Mnemônicos e frases
+2772a106	Crie uma imagem com uma palavra de som parecido para a palavra ficar na memória, obtenha uma nova frase de exemplo ou coloque a palavra numa pasta.

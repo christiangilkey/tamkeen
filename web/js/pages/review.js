@@ -32,8 +32,9 @@ import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, pa
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { addToNotes } from "../review/mnemonic.js";
-import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, mnemonicHtml, mnemonicMaker, partSeconds, pastedInto,
+import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
          textBox } from "../review/cardtools.js";
+import { wordTools } from "../components/wordtools.js";
 import { t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
@@ -161,10 +162,14 @@ async function play(el, frames, options) {
  *   say          (word, "word" | "sentence") => Promise<{ended}>, the Vocab page's way of saying a
  *                card: its own audio, else the voice chosen for cards without (voiceplay.js)
  *   onDelete     (word) => void, told when a word is deleted from its card
+ *   folders      () => [{uid, name}], the Vocab page's folders (the back's Folders tool)
+ *   setFolder    (word, uid, on) => Promise, puts a word in a folder or takes it out
+ *   newFolder    () => Promise<folder | null>, makes a folder (its name asked)
  *   onClose      called when the reviewer is put away
  * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
-export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {}, onClose = () => {} }) {
+export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {},
+  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {} }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
@@ -295,6 +300,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // ----- drawing a card -----
   function front(v) {
     if (editing) closeEditor(true);
+    putToolsAway();
     const p = prompt(v), state = cards.get(uidOf(v));
     const kind = !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
     face.classList.remove("more");
@@ -498,8 +504,39 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       shown: (face.querySelector(".rv-word") || {}).textContent || "" });
   }
 
+  // ----- the back's tools (components/wordtools.js), put away when the card turns or goes -----
+  let tools = null;
+  function putToolsAway() {
+    if (tools) tools.close();
+    tools = null;
+  }
+
+  /** Word, Sentence and Say it under the answer (drawn again when a new sentence or recording comes). */
+  function paintListen(v) {
+    const row = face.querySelector(".rv-listen");
+    if (!row) return;
+    const word = hasWordAudio(v), sentence = hasSentenceAudio(v);
+    row.innerHTML = `${word ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}`
+      + `${sentence ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${word || sentence ? practiseButton() : ""}`;
+    const pw = row.querySelector(".play-word"), ps = row.querySelector(".play-sent");
+    if (pw) pw.onclick = () => sayWord(v);
+    if (ps) ps.onclick = () => saySentence(v);
+    const say = row.querySelector(".say-it");  // listens to the learner, then plays the sentence and the attempt
+    if (say) {
+      // The native model is the whole sentence (the owner's choice); the word's own audio only when
+      // the card has no sentence audio.
+      practise(say, {
+        sayModel: () => (sentence ? saySentence(v, true) : sayWord(v, true)),
+        modelSeconds: sentence ? sentenceSeconds(v) : wordSeconds(v),
+        audioBusy: () => audioOverAt - Date.now(),
+        onError: (m) => toast(m, { error: true }),
+      });
+    }
+  }
+
   function back(v) {
     if (editing) closeEditor(true);
+    putToolsAway();
     const lang = langAttrs(studyOf(v));
     face.innerHTML = `<div class="rv-back">
       <div class="rv-answer">
@@ -507,7 +544,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-ans-meaning" translate="no" hidden></div>
         <div class="rv-ans-sentence" ${lang} hidden></div>
         <div class="rv-ans-trans" translate="no" hidden></div>
-        <div class="rv-listen">${hasWordAudio(v) ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}${hasSentenceAudio(v) ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${hasWordAudio(v) || hasSentenceAudio(v) ? practiseButton() : ""}</div>
+        <div class="rv-listen"></div>
       </div>
       <div class="rv-details">
         <label class="rv-field"><span>Meaning</span><input type="text" class="meaning" placeholder="What it means"></label>
@@ -516,7 +553,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
           <div class="rv-field-head"><span>Memorization notes</span><button type="button" class="rv-paste" title="Paste what you copied into Memorization notes">${ICON.paste} Paste</button></div>
           <textarea class="memo" rows="1" aria-label="Memorization notes"></textarea>
         </div>
-        ${mnemonicHtml()}
+        <div class="vi-tools rv-tools" role="toolbar" aria-label="Tools for this word"></div>
+        <div class="vi-panel rv-tool-panel" hidden></div>
         <div class="rv-source">
           <span>${v.episode_id ? `<a href="#/episode/${v.episode_id}?t=${v.start ?? 0}">${esc(v.episode_title || "Episode")}</a>` : esc(v.episode_title || "Added manually")}${v.episode_id && v.start != null ? ` · ${formatTime(v.start)}` : ""} · added ${fmtDate(v.created_at)}</span>
           <span class="saved" hidden>Saved</span>
@@ -531,9 +569,24 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     memoAt.text = String(v.memo || "");
     memo.addEventListener("blur", () => memoDone(v));
     face.querySelector(".rv-paste").onclick = () => pasteInto(memo, v);
-    mnemonicMaker(face.querySelector(".rv-mnemo"), v, {
-      lang: studyOf(v), onUse: (text) => useMnemonic(v, text), onLayout: more,
+    // The Vocab list's tools (components/wordtools.js): the Mnemonic maker, a new example sentence, the word's
+    // own recording, its folders; each opens under the row, so a sentence or mnemonics can be made while reviewing.
+    tools = wordTools(face.querySelector(".rv-tools"), face.querySelector(".rv-tool-panel"), v, {
+      studyLang: () => studyOf(v),
+      save: (change) => saveCard(v, change),
+      useMnemonic: (text) => useMnemonic(v, text),
       shownWord: () => (face.querySelector(".rv-word") || {}).textContent || "",  // (with its vowels, when shown)
+      onLayout: more,
+      sentenceUsed: () => { if (todo[0] !== v) return; cuts.clear(); vowelled = ""; drawAnswer(v); paintListen(v); },
+      typeSentence: () => {
+        const line = face.querySelector(".rv-ans-sentence");
+        if (!line || todo[0] !== v) return;
+        line.hidden = false;  // (a card with no sentence yet: its line is shown for the box)
+        openEditor(v, "sentence", line);
+      },
+      recorded: () => { if (todo[0] === v && flipped) paintListen(v); },
+      folders, setFolder, newFolder,
+      reveal: (p) => p.scrollIntoView({ block: "nearest", behavior: "smooth" }),  // (the card scrolls, not the page)
     });
     // The meaning and the translation are in the learner's own language (and never run through the
     // app's own translations: translate="no").
@@ -550,21 +603,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       fit(box);
     }
     drawAnswer(v);
-    const pw = face.querySelector(".play-word"), ps = face.querySelector(".play-sent");
-    if (pw) pw.onclick = () => sayWord(v);
-    if (ps) ps.onclick = () => saySentence(v);
-    const say = face.querySelector(".say-it");  // listens to the learner, then plays the sentence and the attempt
-    if (say) {
-      // The native model is the whole sentence (the owner's choice); the word's own audio only when
-      // the card has no sentence audio.
-      const sentence = hasSentenceAudio(v);
-      practise(say, {
-        sayModel: () => (sentence ? saySentence(v, true) : sayWord(v, true)),
-        modelSeconds: sentence ? sentenceSeconds(v) : wordSeconds(v),
-        audioBusy: () => audioOverAt - Date.now(),
-        onError: (m) => toast(m, { error: true }),
-      });
-    }
+    paintListen(v);
 
     const wait = nextWait(cards.get(uidOf(v)) || null, dayNumber());
     actions.innerHTML = `
@@ -1118,9 +1157,19 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     playSentence: { can: () => { const v = padCard(); return !!v && flipped && hasSentenceAudio(v); }, run: () => saySentence(padCard()) },
     sayIt: { can: () => !!padCard() && flipped && !!face.querySelector(".say-it"), run: () => face.querySelector(".say-it").click() },
     // the left stick pressed: the Mnemonic maker (the owner: "the press in left stick button to generate mnemonics")
+    // (its tile first, when the Mnemonic maker isn't open yet; then "Make 5 more")
     mnemonic: {
-      can: () => { const b = padCard() && flipped && face.querySelector(".rv-mnemo-go"); return !!b && !b.disabled && !b.closest("[hidden]"); },
-      run: () => { const b = face.querySelector(".rv-mnemo-go"); b.scrollIntoView({ block: "nearest" }); b.click(); },
+      can: () => {
+        if (!padCard() || !flipped || !tools) return false;
+        const b = face.querySelector(".rv-mnemo-go");
+        return !b || !b.disabled;
+      },
+      run: () => {
+        const b = face.querySelector(".rv-mnemo-go");
+        if (!b) { tools.open("mnemonic"); return; }
+        b.scrollIntoView({ block: "nearest" });
+        b.click();
+      },
     },
     undo: () => { if (padReady()) takeBack(); },
     finish: () => close(),
@@ -1145,6 +1194,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (closed) return;
     if (editing) closeEditor(true);  // (the phone's back button with a text box open: what was typed is kept)
     closed = true;
+    putToolsAway();
     flushEdits();
     if (todo.length) memoDone(todo[0]);  // (closed with the notes still being typed: their capitals still count)
     stopStudy();
@@ -1171,7 +1221,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     { target: ".rv-answer", title: "Put a card right", text: "Tap any text on the back to edit it. Hold a word in the sentence to highlight it." },
     { target: ".rv-no", title: "Not remembered", text: "It comes back in a few cards. Swiping the card left does the same." },
     { target: ".rv-yes", title: "Remembered", text: "It comes back later, a little later each time you remember it. Swiping the card right does the same." },
-    { target: ".rv-mnemo", title: "Memory hooks", text: "Make a sound-alike picture to help the word stick." },
+    { target: ".rv-tools", title: "Memory hooks and sentences", text: "Make a sound-alike picture to help the word stick, get a new example sentence, or put the word in a folder." },
     { target: ".rv-undo", title: "Undo", text: "Take back your last answer." },
     { target: ".rv-gear", title: "Reviewer settings", text: "New words a day, saying the word when the card turns, and the timers." },
     { target: ".rv-x", title: "Close", text: "Stop for now. Your answers so far are kept." },

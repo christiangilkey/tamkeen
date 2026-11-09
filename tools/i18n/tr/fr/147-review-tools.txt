@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	Mnémoniques et phrases
+2772a106	Créez une image avec un mot qui sonne pareil pour retenir le mot, obtenez une nouvelle phrase d'exemple ou rangez le mot dans un dossier.

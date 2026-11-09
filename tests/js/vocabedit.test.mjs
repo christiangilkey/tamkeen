@@ -84,15 +84,27 @@ test("the Vocab page: one folder sheet, one sort-and-filter icon, Select; the op
 test("the open word has every tool of the review card's back, from the same code", () => {
   const editor = read("web/js/components/wordeditor.js");
   const review = read("web/js/pages/review.js");
-  for (const tool of ["textBox", "drawLitLine", "mnemonicMaker", "mnemonicHtml", "partSeconds", "pastedInto"]) {
+  const tools = read("web/js/components/wordtools.js");
+  for (const tool of ["textBox", "drawLitLine", "partSeconds", "pastedInto"]) {
     assert.match(review, new RegExp(`\\b${tool}\\b`), `review card: ${tool}`);
     assert.match(editor, new RegExp(`\\b${tool}\\b`), `open word: ${tool}`);
   }
+  // the row of tools (Mnemonic, Sentence, Record, Folders) is one piece of code that both draw
+  assert.match(editor, /const tools = wordTools\(\$\("\.vi-tools"\), panel, v, \{/, "open word: the tools");
+  assert.match(review, /tools = wordTools\(face\.querySelector\("\.rv-tools"\), face\.querySelector\("\.rv-tool-panel"\), v, \{/, "review card: the tools");
+  assert.match(review, /<div class="vi-tools rv-tools" role="toolbar"/, "review card: the row of tiles on the back");
+  for (const tool of ["mnemonicMaker", "mnemonicHtml", "findSentence\\(", "startRecording\\(", "toolsFor\\(v\\)"]) {
+    assert.match(tools, new RegExp(`\\b${tool}`), `the tools: ${tool}`);
+  }
+  assert.doesNotMatch(editor + review, /function (mnemonicTool|sentenceTool|recordTool|foldersTool)\b/, "no second copy of a tool left");
   assert.match(editor, /holdWords\(/, "hold a word of the sentence to light it up");
   assert.match(editor, /practiseButton\(\)/, "Say it");
-  assert.match(editor, /findSentence\(/, "an example sentence");
-  assert.match(editor, /startRecording\(/, "record the word");
   assert.doesNotMatch(review, /function mnemonicMaker|function copyText|const HOLD_MS/, "no second copy left in the reviewer");
+  assert.ok(read("mobile/scripts/build-www.mjs").includes('"js/components/wordtools.js"'), "the phone and web app carry the tools");
+  // in the reviewer's own colours (the owner: light blue on the brand's dark teal, like its other buttons)
+  assert.match(read("web/css/review.css"), /\.rv \.vi-tool \{[^}]*background: var\(--accent-soft\); color: var\(--accent\);/);
+  // the Vocab page lends the reviewer its folders
+  assert.match(read("web/js/pages/vocab.js"), /setFolder: \(w, uid, on\) => applyFolder\(\[w\], uid, on, \{ redraw: false \}\),\s+newFolder,\s+onClose:/);
   const css = read("web/css/app.css");
   assert.match(css, /\.vocab-page \.vocab-item\.open \{ border-color: var\(--accent\); box-shadow: 0 0 0 1px var\(--accent\); \}/, "the brand-teal outline");
 });

@@ -1,0 +1,3 @@
+# The review card's tools (pages/review.js guide; components/wordtools.js).
+802dc49d	Eselsbrücken und Sätze
+2772a106	Mach ein Bild mit einem ähnlich klingenden Wort, damit das Wort hängen bleibt, hol dir einen neuen Beispielsatz oder leg das Wort in einen Ordner.
