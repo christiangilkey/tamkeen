@@ -7931,6 +7931,17 @@ Kalīla wa-Dimna". Kalila wa-Dimna was already on the shelf (`kalila-wa-dimna`).
   مجنون ليلى only as its first scene, and the three siras (Antara, al-Zahir Baybars, Bani Hilal) not at all. Options
   went to the Decisions chat (OCR of public-domain scans; another source if its licence allows paid use; or leave them
   to "Add your own book").
+- **Then** ("Also add medina al-Fadila, the quran, The Kutub al-Sittah, Al-Kutub al-Arba'ah"): `al-quran` (القرآن الكريم
+  (حفص، المدينة النبوية), 114 suras, about 85,000 words); the six books: `sahih-al-bukhari-1`/`-2` and `sahih-muslim-1`/`-2`
+  (each longer than MAX_WORDS: a page list item may now be (contents page, pattern, from, to), a slice of its links; Bukhari
+  split after كتاب المغازي, Muslim after كتاب اللعان, Muslim's contents page lists two books twice at its end, so volume 2
+  stops before them; MUSLIM drops each page's back link (one had a vandal's words after it), title and list of books),
+  `sunan-abi-dawud` (four broken notes with "</ref>" cut out), `sunan-al-tirmidhi`, `sunan-ibn-majah`, `sunan-al-nasai`
+  (only its first books are typed; its كتاب الزينة is one paragraph of 15,700 words, left out); `al-kafi` (only خطبة الكتاب,
+  كتاب العقل والجهل, فضل العلم, التوحيد are typed). Not on Wikisource as text: al-Farabi's آراء أهل المدينة الفاضلة, من لا
+  يحضره الفقيه, تهذيب الأحكام, الاستبصار (ar.wikisource's الاستبصار في نقد الأخبار is a 20th-century book by al-Mu'allimi, not
+  public domain). Checked: no Latin letters left in any new book (a stray "kjk" in the Muqaddimah went), no modern
+  editors' gradings (شعيب in them is a narrator). The shelf: 217 books in 18 languages, 21 in Arabic.
 - **Not published yet:** docs/books goes live on GitHub Pages when it is pushed.
 
 ## Live battles: a fuller village, dungeon traps and secrets, the fortress keep, roofs, more trees (2026-11-09; helper of the main chat)

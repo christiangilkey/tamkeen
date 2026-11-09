@@ -47,6 +47,10 @@ OUT = ROOT / "docs" / "books"
 UA = {"User-Agent": "Tamkeen book shelf builder (https://github.com/christiangilkey/tamkeen)"}
 MAX_WORDS = 450_000
 
+# (صحيح مسلم's volumes: each page has its book's heading; a link back to the book at its top, and the book's title and
+# the list of books at its end, go; its contents page lists two books twice at its end, so the second volume stops before them)
+MUSLIM = {"drop": r"^المقدمة \| كتاب الإيمان|^صحيح مسلم$|^<\s*صحيح مسلم"}  # (one back link had a vandal's words after it)
+
 # id, title, author, year, blurb (English, one line), source
 BOOKS: dict[str, list[tuple]] = {
     "en": [
@@ -142,7 +146,34 @@ BOOKS: dict[str, list[tuple]] = {
          ("wikisource", "ar", [("مقدمة ابن خلدون - الجزء الأول", r"^مقدمة ابن خلدون/"), ("مقدمة ابن خلدون - الجزء الثاني", r"^مقدمة ابن خلدون/")]
           + [f"مقدمة ابن خلدون - الجزء {n}" for n in ("الثالث", "الرابع", "الخامس", "السادس")],
           # (the notes are left out, so their headings go too; a chapter's title line is its heading)
-          {"drop": r"^(حواشي?|الحواشي)$", "headings": r"^(الفصل|الباب|المقدمة) "})),
+          {"drop": r"^(حواشي?|الحواشي)$", "headings": r"^(الفصل|الباب|المقدمة) ", "replace": [[r"kjk", ""]]})),  # (a stray "kjk" typed in one line)
+        # the Quran, the six books of Sunni hadith, and the first books of al-Kafi (the owner, 2026-11-09; al-Farabi's
+        # المدينة الفاضلة and the other three Shia books aren't on Wikisource as text)
+        ("al-quran", "القرآن الكريم", "رواية حفص عن عاصم", 632, "The Quran in the Hafs reading: all 114 suras, in the Uthmani script of the Madina mushaf.",
+         ("wikisource", "ar", "القرآن الكريم (حفص، المدينة النبوية)")),
+        # (Bukhari and Muslim are longer than one book may be, MAX_WORDS: two volumes each, split about halfway)
+        ("sahih-al-bukhari-1", "صحيح البخاري (الجزء الأول)", "محمد بن إسماعيل البخاري", 846, "The first of the six books of hadith, first half: from the beginning of revelation to the Prophet's campaigns.",
+         ("wikisource", "ar", [("صحيح البخاري", r"^صحيح البخاري/", 0, 41)], {"names": True, "replace": [[r"\{\{|\}\}", ""]]})),
+        ("sahih-al-bukhari-2", "صحيح البخاري (الجزء الثاني)", "محمد بن إسماعيل البخاري", 846, "The first of the six books of hadith, second half: from the commentary on the Quran to God's oneness.",
+         ("wikisource", "ar", [("صحيح البخاري", r"^صحيح البخاري/", 41, None)], {"names": True, "replace": [[r"\{\{|\}\}", ""]]})),
+        ("sahih-muslim-1", "صحيح مسلم (الجزء الأول)", "مسلم بن الحجاج", 875, "The second of the six books of hadith, first half: from faith to the oath of li'an.",
+         ("wikisource", "ar", [("صحيح مسلم", r"^صحيح مسلم/", 0, 20)], MUSLIM)),
+        ("sahih-muslim-2", "صحيح مسلم (الجزء الثاني)", "مسلم بن الحجاج", 875, "The second of the six books of hadith, second half: from freeing slaves to the commentary on the Quran.",
+         ("wikisource", "ar", [("صحيح مسلم", r"^صحيح مسلم/", 20, 57)], MUSLIM)),
+        ("sunan-abi-dawud", "سنن أبي داود", "أبو داود السجستاني", 889, "One of the six books of hadith: hadith on law and daily practice.",
+         ("wikisource", "ar", "سنن أبي داود", {"drop": r"^(هامش|سنن أبي داود)$|^كتاب الطهارة \| ",  # (a stray contents list at its end)
+          # (four of an editor's notes whose note tags broke stay in the text, ending in "</ref>": they go)
+          "replace": [[r"\([^()]*\)\s*</ref>", ""], [r"»[^«»]*</ref>", "»"], [r"في القاموس الساقية[^)]*\)\s*</ref>", ""], [r"</ref>", ""], [r"\s{2,}", " "]]})),
+        ("sunan-al-tirmidhi", "سنن الترمذي", "أبو عيسى الترمذي", 884, "One of the six books of hadith, with al-Tirmidhi's notes on how sound each one is.",
+         ("wikisource", "ar", "سنن الترمذي")),
+        ("sunan-al-nasai", "سنن النسائي", "أحمد بن شعيب النسائي", 915, "One of the six books of hadith: its first books, on purification (the rest isn't typed yet).",
+         # (its typed pages: the list numbers before chapter titles go; كتاب الزينة at the end is one paragraph of 15,700 words, left out)
+         ("wikisource", "ar", "سنن النسائي", {"to": r"^كتاب الزينة من السنن$", "drop": r"^\d+$", "replace": [[r"^\d+\. \d+ - ", ""]]})),
+        ("sunan-ibn-majah", "سنن ابن ماجه", "ابن ماجه القزويني", 887, "The last of the six books of hadith.",
+         ("wikisource", "ar", "سنن ابن ماجة")),
+        ("al-kafi", "الكافي", "محمد بن يعقوب الكليني", 941, "The first books of al-Kulayni's al-Kafi, the first of the four Shia books of hadith: reason, knowledge, God's oneness.",
+         ("wikisource", "ar", ["الكافي/خطبة الكتاب", "الكافي/كتاب العقل والجهل", "الكافي/كتاب فضل العلم", "الكافي/كتاب التوحيد"],
+          {"drop": r"^\d+$", "replace": [[r"\{\{|\}\}", ""]]})),  # (a hadith's bare number was its heading)
     ],
     "ja": [
         ("rashomon", "羅生門", "芥川龍之介", 1915, "A servant and an old woman at a ruined Kyoto gate.", ("aozora", "000879", "127")),
@@ -1135,9 +1166,10 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
             blocks = gutenberg(source[1], lang, opts)
             credit = f"Project Gutenberg #{source[1]} (https://www.gutenberg.org/ebooks/{source[1]})"
         elif kind == "wikisource" and isinstance(source[2], list):
-            # an item may be (contents page, pattern): the pages it links to whose names match, in its order
+            # an item may be (contents page, pattern[, from, to]): the pages it links to whose names match, in its order
+            # (from, to: a slice of them, for a book too long for one volume: صحيح البخاري)
             # (مقدمة ابن خلدون: its first two parts are lists of chapter pages, the last four the text itself)
-            pages = [p for item in source[2] for p in (wiki_links(source[1], item[0], item[1]) if isinstance(item, tuple) else [item])]
+            pages = [p for item in source[2] for p in (wiki_links(source[1], item[0], item[1])[slice(*(item[2:4] or (None,)))] if isinstance(item, tuple) else [item])]
             listed = source[2][0][0] if isinstance(source[2][0], tuple) else source[2][0]  # (the credit names the first page listed)
             source = (kind, source[1], pages)
             blocks = []

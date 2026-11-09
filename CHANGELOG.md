@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** The Quran and the books of hadith on the free book shelf: **the Quran** (the Hafs reading, all 114 suras, in the Uthmani script), **the six books of hadith** (Sahih al-Bukhari and Sahih Muslim in two volumes each; Abu Dawud, al-Tirmidhi and Ibn Majah complete; al-Nasa'i's first books, on purification) and **the first books of al-Kulayni's al-Kafi**.
 ## v0.49.0 — 2026-11-09
 
 - **New:** Three more Arabic classics on the free book shelf: **the Mu'allaqat** (the nine hanging odes, from Imru' al-Qays to Antara), **the Thousand and One Nights** (Shahrazad's tales and the voyages of Sindbad) and **Ibn Khaldun's Muqaddimah**. Arabic poems that Wikisource sets out as a table are now read too, a line of verse at a time.
