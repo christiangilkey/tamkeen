@@ -1,0 +1,5 @@
+# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
+3ece5591	Mais uma batalha hoje rende todas as moedas, depois das três primeiras.
+5bed92b6	Batalhas: 3 por resposta certa, {0} por palavra que você passa a conhecer bem, e mais {1} por vitória ou {2} por derrota.
+6b0419a5	Agora você conhece bem essa palavra: +{0} XP
+18284367	Um ingresso de batalha fez esta render todas as moedas.

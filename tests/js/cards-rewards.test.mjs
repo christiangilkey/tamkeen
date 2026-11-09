@@ -61,9 +61,9 @@ test("a battle and cleared flashcards on one day pay a bonus once, whichever com
   const xp = a.xp;
   const pay = wonBattle(a);
   assert.deepEqual([pay.both.xp, pay.both.coins], [BOTH_XP, BOTH_COINS]);
-  assert.deepEqual([pay.xp, pay.coins], [40, 4], "the battle's own pay is unchanged");
+  assert.deepEqual([pay.xp, pay.coins], [3, 4], "the battle's own pay is unchanged (a win that made no word well known)");
   assert.equal(a.coins, coins + 4 + BOTH_COINS);
-  assert.equal(a.xp, xp + 40 + BOTH_XP);
+  assert.equal(a.xp, xp + 3 + BOTH_XP);
   assert.equal(wonBattle(a).both, null, "once a day");
 
   // The battle first, then the cards: the last card carries it, inside its XP.

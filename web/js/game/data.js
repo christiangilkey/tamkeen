@@ -458,7 +458,7 @@ export const FOODS = [
 export const SUPPLIES = [
   { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
   { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
-  { id: "ticket", name: "Battle ticket", gems: 2, text: "One more battle today pays in full, after the first three." },
+  { id: "ticket", name: "Battle ticket", gems: 2, text: "One more battle today pays full coins, after the first three." },
   { id: "incubator", name: "Incubator", gems: 4, text: "Warms an egg so it grows alongside the creature in your habitat." },
   { id: "key", name: "Plot key", gems: 5, text: "Opens the next building plot without waiting for its milestone." },
   { id: "egg", name: "Mystery egg", gems: 6, icon: "egg_mystery", text: "A new egg for your roster. Its element leans toward how you study." },

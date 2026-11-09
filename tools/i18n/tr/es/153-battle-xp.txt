@@ -1,0 +1,5 @@
+# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
+3ece5591	Una batalla más hoy paga todas las monedas, después de las tres primeras.
+5bed92b6	Batallas: 3 por cada respuesta correcta, {0} por cada palabra que pasas a saber bien, y {1} más por una victoria o {2} por una derrota.
+6b0419a5	Ahora te sabes bien esa palabra: +{0} XP
+18284367	Una entrada de combate hizo que esta pagara todas las monedas.

@@ -1,0 +1,5 @@
+# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
+3ece5591	Buo ang barya ng isa pang laban ngayon, pagkatapos ng unang tatlo.
+5bed92b6	Mga laban: 3 sa bawat tamang sagot, {0} sa bawat salitang nakilala mo nang husto, at {1} pa kapag nanalo o {2} kapag natalo.
+6b0419a5	Kilalang-kilala mo na ang salitang iyan: +{0} XP
+18284367	Dahil sa tiket sa laban, buo ang barya ng labang ito.

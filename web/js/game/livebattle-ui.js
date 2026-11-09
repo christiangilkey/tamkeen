@@ -11,7 +11,7 @@ import { fullMap, inputName } from "../padmap.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
-import { answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
+import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
 import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
@@ -831,7 +831,7 @@ export function runLiveBattle(setup, vocab) {
     $(".lbq-bar i").style.width = correct ? $(".lbq-bar i").style.width : "0%";
     sfx(correct ? "common" : "surprise");
     const r = answerQuestion(game, q.uid, correct);
-    if (r.graduated) { graduated++; toast(t("That word is now well known. +15 XP")).prepend(h(icon("star")), " "); }
+    if (r.graduated) { graduated++; toast(t("That word is now well known: +{0} XP", WELL_KNOWN_XP)).prepend(h(icon("star")), " "); }
     if (r.retentionBonus) toast(t("Accurate all week: +60 XP and 5 coins")).prepend(h(icon("goal")), " ");
     holdUntil = performance.now() + (correct ? 450 : 1300);
     pending = events;
@@ -1080,7 +1080,7 @@ export function runLiveBattle(setup, vocab) {
     releasePad(); // the end card's buttons are moved between with the D-pad, as anywhere
     releasePad = () => {};
     const result = battleResult(b);
-    const pay = finishBattle(game, result);
+    const pay = finishBattle(game, { ...result, wellKnown: graduated }); // its XP: the words made well known
     saveGame();
     announce({ type: "battle", xp: pay.xp, tier: result.won ? "lucky" : "common" });
     if (setup.mode === "friend" && setup.rival && setup.rival.id) {
@@ -1097,7 +1097,7 @@ export function runLiveBattle(setup, vocab) {
       pay.tags.includes("flawless") ? icon("trophy") + " Not one wrong answer: the Champion colouring and the move Perfect Form are now open." : "",
       pay.tags.includes("comeback") ? icon("trophy") + " Won from the brink: the Champion colouring and the move Second Wind are now open." : "",
       pay.egg ? icon("egg_mystery") + " The wild creature left you an egg." : "",
-      pay.ticket ? icon("ticket") + " A battle ticket made this one pay in full." : "",
+      pay.ticket ? icon("ticket") + " A battle ticket made this one pay full coins." : "",
       pay.both ? `${icon("check")} A battle and your flashcards, both done today: +${pay.both.xp} XP · ${icon("coin")} ${pay.both.coins} coins` : "",
       ...gymLines(pay.gym),
     ].filter(Boolean);

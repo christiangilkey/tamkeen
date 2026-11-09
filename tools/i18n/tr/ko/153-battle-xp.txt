@@ -1,0 +1,5 @@
+# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
+3ece5591	처음 세 번 다음에도 오늘 배틀 한 번은 코인을 다 받아요.
+5bed92b6	배틀: 정답마다 3, 잘 알게 된 단어마다 {0}, 그리고 이기면 {1} 더, 지면 {2}.
+6b0419a5	이제 잘 아는 단어예요. 경험치 +{0}
+18284367	배틀 티켓 덕에 코인을 다 받았어요.

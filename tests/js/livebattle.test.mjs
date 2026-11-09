@@ -472,7 +472,7 @@ test("a creature faints, the next steps in, the last one ends it; rewards are as
   assert.deepEqual(result, { mode: "wild", won: true, flawless: false, comeback: false, rival: null });
   const s = newState(5);
   const pay = finishBattle(s, result, { now: new Date("2026-11-01T10:00:00"), rand: () => 0.9 });
-  assert.equal(pay.xp, 40, "a win pays what rules.js pays now");
+  assert.equal(pay.xp, 3, "a win pays what rules.js pays now (no word made well known: 3)");
   assert.ok(pay.coins > 0);
 
   // Answering every question right, and winning from the brink, are feats.

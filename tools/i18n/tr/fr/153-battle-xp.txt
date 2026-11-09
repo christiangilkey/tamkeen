@@ -1,0 +1,5 @@
+# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
+3ece5591	Un combat de plus aujourd'hui rapporte toutes ses pièces, après les trois premiers.
+5bed92b6	Combats : 3 par bonne réponse, {0} par mot qui devient bien connu, et {1} de plus pour une victoire ou {2} pour une défaite.
+6b0419a5	Ce mot est maintenant bien connu : +{0} XP
+18284367	Un ticket de combat a fait payer à celui-ci toutes ses pièces.

@@ -743,8 +743,7 @@ export function answerQuestion(state, uid, correct, now = new Date()) {
   if (correct) out.xp = Math.round(3 * fade(state.day.reviews, 40, 120) * boost(state, now));
   state.day.reviews++;
   if (correct && before < MATURE_BOX && rec[0] >= MATURE_BOX) { // well known at last: the bonus that can't be rushed
-    out.graduated = true;
-    out.xp += 15;
+    out.graduated = true; // (its XP comes with the battle's own: WELL_KNOWN_XP in finishBattle)
     state.coins += 1;
   }
   if (!state.week.paid && state.week.total >= 30 && state.week.right / state.week.total >= 0.8) { // accuracy kept up all week
@@ -774,7 +773,13 @@ export function reviewSummary(state, vocab, now = new Date()) {
 // ---------- battles: what they pay ----------
 export const weeklyRule = (now = new Date()) => WEEKLY_RULES[weekNumber(now) % WEEKLY_RULES.length];
 
-/** The least XP a battle pays however many came before it that day: a win, a loss. */
+// A battle's own XP comes from the words it made well known (the owner: "The amount battles give in XP should be
+// determined by how many cards are now well known"): WELL_KNOWN_XP for each, on top of BATTLE_XP_FLOOR for a win or a
+// loss, so a battle never pays 0 ("maybe less but not zero"). It doesn't fade with the day's battles: a word becomes
+// well known only after weeks of right answers, so it can't be farmed. (Right answers pay their own 3 XP each.)
+/** The XP a battle pays for each word that became well known in it. */
+export const WELL_KNOWN_XP = 25;
+/** The XP a battle pays on top of that: a win, a loss. */
 export const BATTLE_XP_FLOOR = { won: 3, lost: 1 };
 
 /** A little extra strength from a creature's age, used ONLY against wild creatures and bosses.
@@ -783,20 +788,20 @@ export const wildBonus = (genome) => 1 + 0.15 * Math.min(1, genome.growth);
 
 /**
  * Settle a finished battle. `result` = {mode: "wild" | "rental" | "friend", won, flawless,
- * comeback, rival: {id, name, rating}}. Returns {xp, coins, tags, egg, rating, badges, both}.
+ * comeback, rival: {id, name, rating}, wellKnown: words that became well known in it}.
+ * Returns {xp, coins, tags, egg, rating, badges, both}.
  */
 export function finishBattle(state, result, ctx = {}) {
   const now = ctx.now || new Date();
   const rand = ctx.rand || Math.random;
   rollDay(state, now);
-  let share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay
-  const ticket = share < 1 && state.items.ticket > 0; // a battle ticket makes one more pay in full
+  let share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay coins
+  const ticket = share < 1 && state.items.ticket > 0; // a battle ticket makes one more pay full coins
   if (ticket) { state.items.ticket--; share = 1; }
   state.day.battles++;
   state.stats.battles++;
-  // XP fades with the day's battles but never to nothing (the owner: "should never give you zero XP, maybe
-  // less but not zero"): at least BATTLE_XP_FLOOR. Coins still stop after the day's first battles.
-  const xp = Math.max(result.won ? BATTLE_XP_FLOOR.won : BATTLE_XP_FLOOR.lost, Math.round((result.won ? 40 : 15) * share));
+  const known = Math.max(0, Math.floor(Number(result.wellKnown)) || 0);
+  const xp = (result.won ? BATTLE_XP_FLOOR.won : BATTLE_XP_FLOOR.lost) + WELL_KNOWN_XP * known;
   const out = { xp, coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
   if (result.won) {
     state.stats.wins++;

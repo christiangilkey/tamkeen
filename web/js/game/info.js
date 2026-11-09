@@ -6,7 +6,7 @@ import { esc, h } from "../app.js";
 import { CATALOG, FOODS, GROWN, SHOP_MOVES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS, beastById } from "./data.js";
 import { describe, isGrown, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
-import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, levelOf, variantOptions } from "./rules.js";
+import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BATTLE_XP_FLOOR, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, WELL_KNOWN_XP, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
@@ -64,7 +64,7 @@ const EARNED = {
         `Add a word from a basics course to your cards: ${BASICS_XP} each, the same whether you add them one by one or all at once, for up to ${BASICS_DAY_CAP} words a day.`,
         "Listen or read: a slow trickle while you study, which dries up well past your daily goal. Watching YouTube earns none, because YouTube's rules don't allow rewards for watching, but looking words up and saving them while you watch still does.",
         `Reach your daily goal: ${DAILY_COMPLETE_XP}. This is the big one, and it pays the same whether your goal is 5 minutes or 20.`,
-        "Battles: 3 for each right answer, 15 more when a word becomes well known, 40 for a win and 15 for a loss (in full for the day's first three battles).",
+        `Battles: 3 for each right answer, ${WELL_KNOWN_XP} for each word that becomes well known, and ${BATTLE_XP_FLOOR.won} more for a win or ${BATTLE_XP_FLOOR.lost} for a loss.`,
         "Vocab reviewer: each card you answer pays a quarter of what looking up a word pays (usually 1 to 4, sometimes 8 to 12, now and then 25 to 50), the same whether you remembered it or not, so there is nothing to gain by fibbing.",
         `Finish a battle and clear your flashcards on the same day: ${BOTH_XP} more, once a day.`,
         "Doing the same thing many times in one day pays less and less, so a little every day beats one long session.",

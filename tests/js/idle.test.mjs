@@ -200,13 +200,13 @@ test("supplies do what they say: XP boost, battle ticket, incubator, potion", ()
   const late = hours(1);
   assert.equal(earn(boosted, { type: "save" }, { now: late }).xp, earn(plain, { type: "save" }, { now: late }).xp, "it wears off after twenty minutes");
 
-  // Ticket: one more battle pays in full once the day's first three are done.
+  // Ticket: one more battle pays full coins once the day's first three are done (XP doesn't fade: rules.WELL_KNOWN_XP).
   const s = hatched(65);
   s.items.ticket = 1;
   for (let i = 0; i < 3; i++) assert.equal(finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 }).ticket, false);
   const fourth = finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 });
-  assert.deepEqual([fourth.xp, fourth.ticket, s.items.ticket], [40, true, 0]);
-  assert.ok(finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 }).xp < 40);
+  assert.deepEqual([fourth.coins, fourth.ticket, s.items.ticket], [4, true, 0]);
+  assert.ok(finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 }).coins < 4);
 
   // Incubator: a spare egg grows at half speed alongside the creature in the habitat, until it hatches.
   const inc = hatched(66);

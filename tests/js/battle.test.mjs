@@ -171,7 +171,7 @@ test("a word becomes well known only over weeks of right answers; that pays best
   }
   assert.deepEqual(dues, [1, 2, 4, 8], "each right answer doubles the wait");
   assert.equal(graduated.answers, MATURE_BOX);
-  assert.ok(graduated.xp >= 15);
+  assert.equal(graduated.xp, 3, "the answer pays its 3; the well-known XP comes with the battle (finishBattle)");
   assert.equal(s.coins, 1);
   assert.equal(reviewSummary(s, [{ uid: "w", text: "a", meaning: "b" }], at("2026-10-02T10:00:00")).mature, 1);
   const before = s.review.w[0];
@@ -435,13 +435,13 @@ test("moves do what they say; a team fights on; feats and rewards are settled", 
   s.creature.growth = 0.2;
   const now = at("2026-10-12T10:00:00");
   const pay = finishBattle(s, { mode: "wild", won: true, flawless: true, comeback: true }, { now, rand: () => 0.99 });
-  assert.deepEqual([pay.xp, pay.coins, pay.rating], [40, 4, 0]);
+  assert.deepEqual([pay.xp, pay.coins, pay.rating], [3, 4, 0], "a win with no word made well known: 3 XP");
   assert.deepEqual(pay.tags.sort(), ["comeback", "flawless"]);
   assert.equal(s.rating, 1000, "wild encounters don't touch the skill rating");
   assert.ok(variantOptions(s, s.creature).find((v) => v.id === "champion").open, "a battle feat opens the Champion form");
   finishBattle(s, { mode: "wild", won: true }, { now });
   finishBattle(s, { mode: "wild", won: true }, { now });
-  assert.ok(finishBattle(s, { mode: "wild", won: true }, { now }).xp < 40, "only the first few battles of the day pay in full");
+  assert.ok(finishBattle(s, { mode: "wild", won: true }, { now }).coins < 4, "only the first few battles of the day pay full coins");
   const up = finishBattle(s, { mode: "friend", won: true, rival: { id: "u1", name: "Sam", rating: 1200 } }, { now });
   assert.ok(up.rating > 12, "beating a stronger rival moves the rating more");
   const down = finishBattle(s, { mode: "friend", won: false, rival: { id: "u1", name: "Sam", rating: 1200 } }, { now });
@@ -547,14 +547,20 @@ test("battles from the words due for review, or from one folder, once 20 of them
   assert.equal(odd.battleFolder, "");
 });
 
-test("a battle never pays 0 XP, however many came before it that day (coins still stop)", async () => {
-  const { BATTLE_XP_FLOOR } = await import("../../web/js/game/rules.js");
+test("a battle's XP comes from the words it made well known, and is never 0 (coins still stop)", async () => {
+  const { BATTLE_XP_FLOOR, WELL_KNOWN_XP } = await import("../../web/js/game/rules.js");
+  assert.deepEqual([BATTLE_XP_FLOOR.won, BATTLE_XP_FLOOR.lost, WELL_KNOWN_XP], [3, 1, 25]);
   const s = newState(12);
   const now = new Date("2026-11-08T10:00:00");
-  const pays = Array.from({ length: 14 }, (_, i) => finishBattle(s, { mode: "wild", won: i % 2 === 0 }, { now, rand: () => 0.99 }));
-  assert.equal(pays[0].xp, 40, "the first win of the day in full");
+  const fight = (won, wellKnown) => finishBattle(s, { mode: "wild", won, wellKnown }, { now, rand: () => 0.99 });
+  assert.equal(fight(true, 0).xp, 3, "a win that made no word well known");
+  assert.equal(fight(false, 0).xp, 1, "a loss that made none: less, but not nothing");
+  assert.equal(fight(true, 1).xp, 3 + 25, "each word made well known pays 25");
+  assert.equal(fight(false, 2).xp, 1 + 50, "a loss too: the words were still learnt");
+  const pays = Array.from({ length: 12 }, (_, i) => fight(i % 2 === 0, i === 11 ? 3 : 0));
   assert.ok(pays.every((p) => p.xp > 0), "never nothing");
-  assert.equal(pays[12].xp, BATTLE_XP_FLOOR.won, "a win late in the day: the least a win pays");
-  assert.equal(pays[13].xp, BATTLE_XP_FLOOR.lost, "a loss late in the day: the least a loss pays");
-  assert.equal(pays[12].coins, 0, "but no coins by then");
+  assert.equal(pays[10].xp, 3, "late in the day a win still pays");
+  assert.equal(pays[11].xp, 1 + 75, "and well-known words pay in full however late: they took weeks");
+  assert.equal(pays[10].coins, 0, "but no coins by then");
+  for (const odd of [-2, "x", null, undefined, 1.7]) assert.ok([3, 28].includes(fight(true, odd).xp), `a bad count (${odd}) pays no more than it should`);
 });
