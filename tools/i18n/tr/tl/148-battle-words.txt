@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Para sa review
+f1d004b9	Isang folder
+15f0b4ec	Mga salita sa laban mula sa isang folder
+ed9c4a95	Kailangan ng folder ng hindi bababa sa {0} salitang may kahulugan.
+123d0a1e	Wala pang folder. Gumawa ng isa sa pahina ng Vocab at maglagay ng hindi bababa sa {0} salita.
+a6c4c05c	{0} sa {1} salita
+af3575d7	Pumili ng ibang folder
+b9a10733	{0} para sa review
+1f7a04b6	{0} sa folder
+adcb81dd	{0} salita lang ang para sa review. Kailangan ng mga laban ng {1}, kaya hanggang doon ang pinakabago mong mga salita ang itinatanong.
+7cd4649e	Mas kaunti sa {1} ang salitang may kahulugan sa “{0}” ngayon, kaya ang pinakabago mong mga salita ang itinatanong ng mga laban.
+e164f846	Pumili ng folder na may hindi bababa sa {0} salita.
+0153ee7f	Walang salitang para sa review ngayon. Kailangan ng mga laban ng {0}, kaya hanggang doon ang pinakabago mong mga salita ang itinatanong.

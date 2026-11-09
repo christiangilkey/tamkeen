@@ -7870,81 +7870,6 @@
   "f": "web/js/components/wordeditor.js"
  },
  {
-  "id": "3ebfa343",
-  "k": "AI can write them instead",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "a8de43f2",
-  "k": "Find a real one",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "b80ded59",
-  "k": "Use this",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "700de107",
-  "k": "Another one",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "52378927",
-  "k": "Type my own",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "e02b25ba",
-  "k": "Writing a sentence…",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "6235b9f7",
-  "k": "Finding a sentence…",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "9ae914fa",
-  "k": "That didn't work. Try again.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "b9e3178a",
-  "k": "The AI sent nothing back for this word. Try again.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "9f8fe3c2",
-  "k": "No other example sentence was found for this word.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "5fd33173",
-  "k": "Written for you by the AI",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "957db23d",
-  "k": "From {0}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "19ea253a",
-  "k": "Save the audio",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "3aa6c431",
-  "k": "Its audio is saved with the card.",
-  "f": "web/js/components/wordeditor.js"
- },
- {
-  "id": "626965cc",
-  "k": "Its audio couldn't be kept: {0}",
-  "f": "web/js/components/wordeditor.js"
- },
- {
   "id": "4e821d07",
   "k": "Copy the word",
   "f": "web/js/components/wordeditor.js"
@@ -8193,6 +8118,81 @@
   "id": "d3336fe8",
   "k": "Use these ({0})",
   "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "52378927",
+  "k": "Type my own",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "3ebfa343",
+  "k": "AI can write them instead",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "a8de43f2",
+  "k": "Find a real one",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "b80ded59",
+  "k": "Use this",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "700de107",
+  "k": "Another one",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "e02b25ba",
+  "k": "Writing a sentence…",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "6235b9f7",
+  "k": "Finding a sentence…",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "9ae914fa",
+  "k": "That didn't work. Try again.",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "b9e3178a",
+  "k": "The AI sent nothing back for this word. Try again.",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "9f8fe3c2",
+  "k": "No other example sentence was found for this word.",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "5fd33173",
+  "k": "Written for you by the AI",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "957db23d",
+  "k": "From {0}",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "19ea253a",
+  "k": "Save the audio",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "3aa6c431",
+  "k": "Its audio is saved with the card.",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "626965cc",
+  "k": "Its audio couldn't be kept: {0}",
+  "f": "web/js/components/wordtools.js"
  },
  {
   "id": "6a640cc3",
@@ -8730,13 +8730,48 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "2f5f637d",
+  "k": "Due for review",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "f1d004b9",
+  "k": "A folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "b9286298",
   "k": "Power {0}",
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "80ba492b",
-  "k": "Questions from",
+  "id": "15f0b4ec",
+  "k": "Battle words from a folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "ed9c4a95",
+  "k": "A folder needs at least {0} words with a meaning.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "123d0a1e",
+  "k": "No folders yet. Make one on the Vocab page and put at least {0} words in it.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "a6c4c05c",
+  "k": "{0} of {1} words",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "af3575d7",
+  "k": "Choose another folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0df0b09f",
+  "k": "Choose a folder",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8745,8 +8780,23 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "b9a10733",
+  "k": "{0} due for review",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "1f7a04b6",
+  "k": "{0} in the folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "3254a11b",
   "k": "Newest {0}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "80ba492b",
+  "k": "Questions from",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8762,6 +8812,26 @@
  {
   "id": "f472694a",
   "k": "Words due",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "adcb81dd",
+  "k": "Only {0} words are due for review. Battles need {1}, so until then they ask your newest words.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0153ee7f",
+  "k": "No words are due for review right now. Battles need {0}, so until then they ask your newest words.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "7cd4649e",
+  "k": "“{0}” has fewer than {1} words with a meaning now, so battles ask your newest words.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "e164f846",
+  "k": "Choose a folder with at least {0} words.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -18095,13 +18165,13 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "bd3b8f33",
-  "k": "Memory hooks",
+  "id": "802dc49d",
+  "k": "Memory hooks and sentences",
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "5538fe2b",
-  "k": "Make a sound-alike picture to help the word stick.",
+  "id": "2772a106",
+  "k": "Make a sound-alike picture to help the word stick, get a new example sentence, or put the word in a folder.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -18762,11 +18832,6 @@
  {
   "id": "2fa9797f",
   "k": "Search vocab… {0}",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "0df0b09f",
-  "k": "Choose a folder",
   "f": "web/js/pages/vocab.js"
  },
  {

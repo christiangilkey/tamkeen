@@ -4,9 +4,9 @@
 // tests/js/battlescreen.test.mjs can check it.
 
 import { BATTLE_UNLOCK_WORDS, RAID_HP_PER_MEMBER } from "./data.js";
-import { eligible, teamSize } from "./battle.js";
+import { WORD_MODES, eligible, teamSize } from "./battle.js";
 import { GYM_COUNT, LEADERS, gymProgress, gymStatus, leaderElement } from "./gyms.js";
-import { LAST_WORDS, leaguePercent, raidDamage, weekNumber } from "./rules.js";
+import { LAST_WORDS, MIN_SET, leaguePercent, raidDamage, weekNumber } from "./rules.js";
 import { raidShare } from "./remote.js";
 
 /** How many creatures a rental duel's team has (of the week's six). */
@@ -37,14 +37,20 @@ export function teamSlots(state) {
   return Array.from({ length: teamSize(null) }, (_, k) => (k < team.length ? team[k] : null));
 }
 
-/** What a choice of words means: {mode, questions, all, strength}. `questions`: how many words can be asked (the
- * newest LAST_WORDS, or every one with a meaning); `strength`: how strong your creatures fight (1 = the same as
- * everyone; an all-time battle scales with the cards saved: livebattle.cardScale gives `scale`). */
-export function wordChoice(mode, { meanings = 0, scale = 1 } = {}) {
-  const all = mode === "unlimited";
+/** What a choice of words means: {mode, questions, all, strength, set, short}. `questions`: how many words can be
+ * asked (the newest LAST_WORDS, every one with a meaning, or those due for review or in the folder: `setSize`);
+ * `strength`: how strong your creatures fight (1 = the same as everyone; an all-time battle scales with the cards
+ * saved: livebattle.cardScale gives `scale`). `set`: "due" or "folder" for those choices (else null); `short`: it
+ * has fewer than MIN_SET words, so battles ask the newest words until it has. */
+export function wordChoice(mode, { meanings = 0, scale = 1, setSize = 0 } = {}) {
+  const m = WORD_MODES.includes(mode) ? mode : "last100";
+  const all = m === "unlimited";
+  const set = m === "due" || m === "folder" ? m : null;
   const n = Math.max(0, Math.floor(Number(meanings) || 0));
-  return { mode: all ? "unlimited" : "last100", all, questions: all ? n : Math.min(LAST_WORDS, n),
-    strength: all ? Math.round(Math.max(1, Number(scale) || 1) * 100) / 100 : 1 };
+  const size = Math.max(0, Math.floor(Number(setSize) || 0));
+  const short = !!set && size < MIN_SET;
+  return { mode: m, all, questions: all ? n : set && !short ? size : Math.min(LAST_WORDS, n),
+    strength: all ? Math.round(Math.max(1, Number(scale) || 1) * 100) / 100 : 1, set, short };
 }
 
 // ---------- the gym leaders ----------

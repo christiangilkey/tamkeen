@@ -47,11 +47,19 @@ test("the team: the first three hatched creatures, in the roster's order, with a
 });
 
 test("what each choice of words means: the newest 100 at the same level for all, or every word with the cards' strength", () => {
-  assert.deepEqual(wordChoice("last100", { meanings: 340, scale: 1.4 }), { mode: "last100", all: false, questions: LAST_WORDS, strength: 1 });
+  assert.deepEqual(wordChoice("last100", { meanings: 340, scale: 1.4 }), { mode: "last100", all: false, questions: LAST_WORDS, strength: 1, set: null, short: false });
   assert.equal(wordChoice("last100", { meanings: 60 }).questions, 60, "never more than there are");
-  assert.deepEqual(wordChoice("unlimited", { meanings: 340, scale: 1.3456 }), { mode: "unlimited", all: true, questions: 340, strength: 1.35 });
+  assert.deepEqual(wordChoice("unlimited", { meanings: 340, scale: 1.3456 }), { mode: "unlimited", all: true, questions: 340, strength: 1.35, set: null, short: false });
   assert.equal(wordChoice("nonsense", { meanings: 5 }).mode, "last100", "anything else reads as the default");
   assert.equal(wordChoice("unlimited", { meanings: 5, scale: 0.4 }).strength, 1, "never weaker than everyone else");
+});
+
+test("words due for review, or one folder's: at the same level for all, once there are 20 of them", () => {
+  assert.deepEqual(wordChoice("due", { meanings: 340, scale: 1.4, setSize: 51 }), { mode: "due", all: false, questions: 51, strength: 1, set: "due", short: false });
+  assert.deepEqual(wordChoice("folder", { meanings: 340, setSize: 20 }), { mode: "folder", all: false, questions: 20, strength: 1, set: "folder", short: false });
+  const few = wordChoice("folder", { meanings: 340, setSize: 19 });
+  assert.equal(few.short, true, "19 words are too few");
+  assert.equal(few.questions, LAST_WORDS, "until then the newest words are asked");
 });
 
 test("the gym leaders as a path: beaten, then the next one open, then the rest locked", () => {

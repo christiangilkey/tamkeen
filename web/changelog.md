@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Battles can ask the words **due for review** in your flashcards, or the words in **one folder** you choose (Battle → Words → **Due for review** or **A folder**). A folder needs at least 20 words with a meaning; until there are 20 words due (or in the folder), battles ask your newest words, and a line under the choice says so. As in Last 100 words battles, every creature fights at the same level.
+
 ## v0.48.1 — 2026-11-08
 
 - **Improved:** The free Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is said pa-LIT, hatag HA-tag, mipalit mi-pa-LIT. Where Wolff spells a word two ways, the card's meaning picks one (bása "read", basà "wet"). This is for words Wiktionary has no pronunciation for, once the Bisaya dictionary is downloaded.

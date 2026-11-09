@@ -11,7 +11,7 @@ import { fullMap, inputName } from "../padmap.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
-import { answerQuestion, battleWords, finishBattle, pickQuestion } from "./rules.js";
+import { answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
 import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
@@ -108,7 +108,7 @@ const elementOf = (m, f) => (m.own ? f.type : m.element || null);
  */
 export function runLiveBattle(setup, vocab) {
   const game = getGame();
-  const words = battleWords(vocab, game.battleMode);
+  const words = battleWordsFor(vocab, game);  // (the Battle screen's choice: the newest 100, all, due for review, a folder)
   let dict = null; // until the built-in dictionary's list is ready, the wrong answers are the learner's own words
   battleDictionary().then((d) => { dict = d; });
   let asked = [];

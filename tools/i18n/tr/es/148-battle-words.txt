@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Para repasar
+f1d004b9	Una carpeta
+15f0b4ec	Palabras de combate de una carpeta
+ed9c4a95	Una carpeta necesita al menos {0} palabras con significado.
+123d0a1e	Aún no hay carpetas. Crea una en la página Vocabulario y pon al menos {0} palabras en ella.
+a6c4c05c	{0} de {1} palabras
+af3575d7	Elegir otra carpeta
+b9a10733	{0} para repasar
+1f7a04b6	{0} en la carpeta
+adcb81dd	Solo hay {0} palabras para repasar. Los combates necesitan {1}, así que hasta entonces preguntan tus palabras más nuevas.
+7cd4649e	«{0}» tiene ahora menos de {1} palabras con significado, así que los combates preguntan tus palabras más nuevas.
+e164f846	Elige una carpeta con al menos {0} palabras.
+0153ee7f	Ahora no hay palabras para repasar. Los combates necesitan {0}, así que hasta entonces preguntan tus palabras más nuevas.

@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Fällig zur Wiederholung
+f1d004b9	Ein Ordner
+15f0b4ec	Kampfwörter aus einem Ordner
+ed9c4a95	Ein Ordner braucht mindestens {0} Wörter mit Bedeutung.
+123d0a1e	Noch keine Ordner. Leg auf der Seite Vokabeln einen an und füge mindestens {0} Wörter hinzu.
+a6c4c05c	{0} von {1} Wörtern
+af3575d7	Anderen Ordner wählen
+b9a10733	{0} fällig zur Wiederholung
+1f7a04b6	{0} im Ordner
+adcb81dd	Nur {0} Wörter sind zur Wiederholung fällig. Kämpfe brauchen {1}, also fragen sie bis dahin deine neuesten Wörter.
+7cd4649e	„{0}“ hat gerade weniger als {1} Wörter mit Bedeutung, also fragen Kämpfe deine neuesten Wörter.
+e164f846	Wähle einen Ordner mit mindestens {0} Wörtern.
+0153ee7f	Gerade ist kein Wort zur Wiederholung fällig. Kämpfe brauchen {0}, also fragen sie bis dahin deine neuesten Wörter.

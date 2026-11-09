@@ -482,6 +482,7 @@ test("word modes: the last 100 words for an even fight, or every word with creat
   assert.equal(battleWords(words, "unlimited").length, 225, "every word with a meaning");
 
   const s = newState(40);
+  assert.equal(s.battleFolder, "", "no folder chosen at first");
   s.review.w1 = [MATURE_BOX, 0, 5, 0];
   s.review.w2 = [1, 0, 1, 0];
   assert.equal(knownWords(s, words, new Set(["w3", "w4", "w1"])), 3, "remembered in the flashcards, or well known from battles, counted once");
@@ -512,4 +513,36 @@ test("word modes: the last 100 words for an even fight, or every word with creat
   const other = { ...newGenome(42, "tide"), growth: 0.1 };
   assert.ok(knownMoves(s, other).some((m) => m.id === stock[0].id), "every creature may take it");
   for (const m of SHOP_MOVES) assert.ok(m.price > 0 && m.style && (m.kind !== "attack" || m.aim), m.id);
+});
+
+test("battles from the words due for review, or from one folder, once 20 of them have a meaning", async () => {
+  const { LAST_WORDS, MIN_SET, battleWords, battleWordsFor, markDue, normalize, setWords } = await import("../../web/js/game/rules.js");
+  const { WORD_MODES } = await import("../../web/js/game/battle.js");
+  assert.deepEqual(WORD_MODES, ["last100", "unlimited", "due", "folder"]);
+  assert.equal(MIN_SET, 20, "the owner: at least 20 words");
+  // 200 words; every 10th has no meaning; w0-w39 are in folder "f1", w100-w109 in "f2"
+  const words = Array.from({ length: 200 }, (_, i) => ({ uid: `w${i}`, text: `palabra${i}`, meaning: i % 10 === 9 ? "" : `meaning ${i}`,
+    created_at: 1000 + i, folders: i < 40 ? ["f1"] : i >= 100 && i < 110 ? ["f2"] : [] }));
+  const f1 = battleWords(words, "folder", { folder: "f1" });
+  assert.equal(f1.length, 36, "the folder's words that have a meaning");
+  assert.ok(f1.every((v) => v.folders.includes("f1") && v.meaning));
+  assert.equal(f1[0].uid, "w38", "newest first");
+  assert.equal(setWords(words, "folder", { folder: "f2" }).length, 9);
+  assert.equal(battleWords(words, "folder", { folder: "f2" }).length, LAST_WORDS, "too few: the newest words instead");
+  assert.equal(battleWords(words, "folder", { folder: "" }).length, LAST_WORDS, "no folder chosen: the newest words");
+  const due = new Set(words.slice(50, 80).map((v) => v.uid));
+  assert.equal(battleWords(words, "due", { due }).length, 27, "the words due that have a meaning");
+  assert.equal(battleWords(words, "due", { due: new Set(["w1", "w2"]) }).length, LAST_WORDS, "only two due: the newest words");
+  // the Battle screen marks the due words on the list itself (not saved: JSON leaves it out)
+  markDue(words, due);
+  assert.equal(JSON.stringify(words).includes("reviewDue"), false);
+  assert.equal(battleWordsFor(words, { battleMode: "due", battleFolder: "" }).length, 27);
+  assert.equal(battleWordsFor(words, { battleMode: "folder", battleFolder: "f1" }).length, 36);
+  // a saved game keeps the choice; anything odd goes back to the newest 100
+  const kept = normalize({ ...newState(3), battleMode: "folder", battleFolder: "f1" });
+  assert.equal(kept.battleMode, "folder");
+  assert.equal(kept.battleFolder, "f1");
+  const odd = normalize({ ...newState(3), battleMode: "everything", battleFolder: 7 });
+  assert.equal(odd.battleMode, "last100");
+  assert.equal(odd.battleFolder, "");
 });

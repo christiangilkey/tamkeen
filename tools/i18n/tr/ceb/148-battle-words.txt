@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Para sa review
+f1d004b9	Usa ka folder
+15f0b4ec	Mga pulong sa away gikan sa usa ka folder
+ed9c4a95	Ang folder kinahanglan adunay labing menos {0} ka pulong nga may kahulogan.
+123d0a1e	Wala pay mga folder. Paghimo og usa sa Vocab nga panid ug ibutang ang labing menos {0} ka pulong niini.
+a6c4c05c	{0} sa {1} ka pulong
+af3575d7	Pagpili og laing folder
+b9a10733	{0} para sa review
+1f7a04b6	{0} sa folder
+adcb81dd	{0} ra ka pulong ang para sa review. Ang mga away nagkinahanglan og {1}, busa hangtod niana ang imong pinakabag-ong mga pulong ang ipangutana.
+7cd4649e	Ang “{0}” adunay ubos sa {1} ka pulong nga may kahulogan karon, busa ang imong pinakabag-ong mga pulong ang ipangutana sa mga away.
+e164f846	Pagpili og folder nga adunay labing menos {0} ka pulong.
+0153ee7f	Wala pay pulong nga para sa review karon. Ang mga away nagkinahanglan og {0}, busa hangtod niana ang imong pinakabag-ong mga pulong ang ipangutana.

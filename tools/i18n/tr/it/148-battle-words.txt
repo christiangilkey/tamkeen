@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Da ripassare
+f1d004b9	Una cartella
+15f0b4ec	Parole di battaglia da una cartella
+ed9c4a95	Una cartella deve avere almeno {0} parole con un significato.
+123d0a1e	Ancora nessuna cartella. Creane una nella pagina Vocabolario e mettici almeno {0} parole.
+a6c4c05c	{0} di {1} parole
+af3575d7	Scegli un'altra cartella
+b9a10733	{0} da ripassare
+1f7a04b6	{0} nella cartella
+adcb81dd	Solo {0} parole sono da ripassare. Le battaglie ne vogliono {1}, quindi fino ad allora chiedono le tue parole più recenti.
+7cd4649e	«{0}» ha ora meno di {1} parole con un significato, quindi le battaglie chiedono le tue parole più recenti.
+e164f846	Scegli una cartella con almeno {0} parole.
+0153ee7f	Al momento non ci sono parole da ripassare. Le battaglie ne vogliono {0}, quindi fino ad allora chiedono le tue parole più recenti.

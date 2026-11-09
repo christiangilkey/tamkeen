@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Per repassar
+f1d004b9	Una carpeta
+15f0b4ec	Paraules de combat d'una carpeta
+ed9c4a95	Una carpeta necessita almenys {0} paraules amb significat.
+123d0a1e	Encara no hi ha carpetes. Crea'n una a la pàgina Vocabulari i posa-hi almenys {0} paraules.
+a6c4c05c	{0} de {1} paraules
+af3575d7	Tria una altra carpeta
+b9a10733	{0} per repassar
+1f7a04b6	{0} a la carpeta
+adcb81dd	Només hi ha {0} paraules per repassar. Els combats en necessiten {1}, així que fins llavors pregunten les teves paraules més noves.
+7cd4649e	«{0}» té menys de {1} paraules amb significat ara, així que els combats pregunten les teves paraules més noves.
+e164f846	Tria una carpeta amb almenys {0} paraules.
+0153ee7f	Ara no hi ha cap paraula per repassar. Els combats en necessiten {0}, així que fins llavors pregunten les teves paraules més noves.

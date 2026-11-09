@@ -81,7 +81,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     day: freshDay(),
     owned: [],   // ids of items bought
     attacks: [], // ids of battle moves bought in the shop: any of the owner's creatures may use them
-    battleMode: "last100", // which words battles ask: "last100" (the 100 newest) or "unlimited" (all; see battle.knownScale)
+    battleMode: "last100", // which words battles ask: "last100" (the 100 newest), "unlimited" (all; see battle.knownScale),
+                           // "due" (those the flashcards have due for review) or "folder" (one folder's: battleFolder)
+    battleFolder: "",      // that folder's uid
     known: 0,    // how many words the owner knew when battles last counted them (shared with friends for Unlimited battles)
     decor: [],   // decorations standing in the habitat: {id, x}
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
@@ -155,7 +157,8 @@ export function normalize(state) {
              wins: gyms.wins && typeof gyms.wins === "object" && !Array.isArray(gyms.wins) ? gyms.wins : {} };
   if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
-  if (!["last100", "unlimited"].includes(s.battleMode)) s.battleMode = "last100";
+  if (!["last100", "unlimited", "due", "folder"].includes(s.battleMode)) s.battleMode = "last100";
+  if (typeof s.battleFolder !== "string" || s.battleFolder.length > 64) s.battleFolder = "";
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
   s.v = VERSION;
   return s;
@@ -596,12 +599,42 @@ export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.te
 // ---------- which words a battle asks ----------
 export const LAST_WORDS = 100;
 
-/** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
- * ("last100": the same size of pool for everyone), or every one of them ("unlimited"). */
-export function battleWords(vocab, mode = "last100") {
+/** A folder, or the words due for review, can be a battle's words once this many of them have a meaning (the owner). */
+export const MIN_SET = 20;
+
+/** The words of a "due" or "folder" choice that can be asked (newest first): those the flashcards have due for
+ * review now (`due`, a Set of word ids), or those in folder `folder` (a uid). */
+export function setWords(vocab, mode, { due = null, folder = "" } = {}) {
   const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
-  return mode === "unlimited" ? pool : pool.slice(0, LAST_WORDS);
+  if (mode === "due") return due ? pool.filter((v) => due.has(uidOf(v))) : [];
+  if (mode === "folder") return folder ? pool.filter((v) => Array.isArray(v.folders) && v.folders.includes(folder)) : [];
+  return [];
 }
+
+/** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
+ * ("last100": the same size of pool for everyone), every one of them ("unlimited"), the words the flashcards
+ * have due for review ("due") or one folder's ("folder"; see setWords). A "due" or "folder" choice with fewer
+ * than MIN_SET words that can be asked asks the newest words instead. */
+export function battleWords(vocab, mode = "last100", { due = null, folder = "" } = {}) {
+  const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
+  if (mode === "unlimited") return pool;
+  if (mode === "due" || mode === "folder") {
+    const set = setWords(vocab, mode, { due, folder });
+    if (set.length >= MIN_SET) return set;
+  }
+  return pool.slice(0, LAST_WORDS);
+}
+
+/** Note on the list of words itself which of them the flashcards have due for review now (a Set of word ids),
+ * for "due" battles. It isn't saved anywhere: the Battle screen works it out each time it loads the words. */
+export function markDue(vocab, ids) {
+  Object.defineProperty(vocab, "reviewDue", { value: ids, configurable: true, enumerable: false, writable: true });
+  return vocab;
+}
+
+/** The words a battle asks, by the owner's choice (`state.battleMode`, `state.battleFolder`). */
+export const battleWordsFor = (vocab, state) =>
+  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: state.battleFolder || "" });
 
 /** How many of these words the owner knows: remembered at least once in the flashcards (`learned`,
  * a Set of word ids, as the Review page counts them) or well known from battles. */

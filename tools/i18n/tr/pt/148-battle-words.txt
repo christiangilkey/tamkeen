@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	Para revisar
+f1d004b9	Uma pasta
+15f0b4ec	Palavras de batalha de uma pasta
+ed9c4a95	Uma pasta precisa de pelo menos {0} palavras com significado.
+123d0a1e	Ainda não há pastas. Crie uma na página Vocabulário e coloque pelo menos {0} palavras nela.
+a6c4c05c	{0} de {1} palavras
+af3575d7	Escolher outra pasta
+b9a10733	{0} para revisar
+1f7a04b6	{0} na pasta
+adcb81dd	Só {0} palavras estão para revisar. As batalhas precisam de {1}, então até lá elas perguntam suas palavras mais novas.
+7cd4649e	“{0}” tem agora menos de {1} palavras com significado, então as batalhas perguntam suas palavras mais novas.
+e164f846	Escolha uma pasta com pelo menos {0} palavras.
+0153ee7f	Agora não há palavras para revisar. As batalhas precisam de {0}, então até lá elas perguntam suas palavras mais novas.

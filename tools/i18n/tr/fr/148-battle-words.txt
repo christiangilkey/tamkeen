@@ -1,0 +1,14 @@
+# Battle words from the words due for review or from a folder (game/battle-ui.js wordModePicker).
+2f5f637d	À réviser
+f1d004b9	Un dossier
+15f0b4ec	Mots de combat d'un dossier
+ed9c4a95	Un dossier doit contenir au moins {0} mots avec un sens.
+123d0a1e	Pas encore de dossier. Créez-en un dans la page Vocabulaire et mettez-y au moins {0} mots.
+a6c4c05c	{0} sur {1} mots
+af3575d7	Choisir un autre dossier
+b9a10733	{0} à réviser
+1f7a04b6	{0} dans le dossier
+adcb81dd	Seulement {0} mots sont à réviser. Les combats en demandent {1} : d'ici là, ils interrogent vos mots les plus récents.
+7cd4649e	« {0} » a moins de {1} mots avec un sens pour l'instant : les combats interrogent vos mots les plus récents.
+e164f846	Choisissez un dossier d'au moins {0} mots.
+0153ee7f	Aucun mot n'est à réviser pour l'instant. Les combats en demandent {0} : d'ici là, ils interrogent vos mots les plus récents.
