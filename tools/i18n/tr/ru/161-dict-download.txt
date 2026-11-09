@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	Встроенного словаря ещё нет на этом устройстве. Скачайте его или введите значение.
+25710ff7	Скачать словарь ({0} МБ)
+395b22e4	Скачать словарь

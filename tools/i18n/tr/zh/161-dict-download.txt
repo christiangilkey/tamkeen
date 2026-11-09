@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	内置词典还不在这台设备上。下载它，或输入意思。
+25710ff7	下载词典（{0} MB）
+395b22e4	下载词典

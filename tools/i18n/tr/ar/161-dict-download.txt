@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	القاموس المدمج ليس على هذا الجهاز بعد. نزّله، أو اكتب المعنى.
+25710ff7	نزّل القاموس ({0} ميغابايت)
+395b22e4	نزّل القاموس

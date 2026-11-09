@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	พจนานุกรมในตัวยังไม่อยู่ในอุปกรณ์นี้ ดาวน์โหลดเลย หรือพิมพ์ความหมายเอง
+25710ff7	ดาวน์โหลดพจนานุกรม ({0} MB)
+395b22e4	ดาวน์โหลดพจนานุกรม

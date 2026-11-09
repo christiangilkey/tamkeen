@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	Wala pa sa device na ito ang built-in na diksiyonaryo. I-download ito, o i-type ang kahulugan.
+25710ff7	I-download ang diksiyonaryo ({0} MB)
+395b22e4	I-download ang diksiyonaryo

@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	Das eingebaute Wörterbuch ist noch nicht auf diesem Gerät. Lade es herunter oder gib die Bedeutung ein.
+25710ff7	Wörterbuch herunterladen ({0} MB)
+395b22e4	Wörterbuch herunterladen

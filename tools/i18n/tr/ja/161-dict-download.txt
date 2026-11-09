@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	内蔵辞書はまだこの端末にありません。ダウンロードするか、意味を入力してください。
+25710ff7	辞書をダウンロード（{0} MB）
+395b22e4	辞書をダウンロード

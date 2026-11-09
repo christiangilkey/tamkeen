@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	기본 사전이 아직 이 기기에 없어요. 다운로드하거나 뜻을 입력하세요.
+25710ff7	사전 다운로드 ({0}MB)
+395b22e4	사전 다운로드

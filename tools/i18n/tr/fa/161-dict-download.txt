@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	فرهنگ داخلی هنوز روی این دستگاه نیست. آن را دانلود کنید یا معنی را بنویسید.
+25710ff7	دانلود فرهنگ ({0} مگابایت)
+395b22e4	دانلود فرهنگ

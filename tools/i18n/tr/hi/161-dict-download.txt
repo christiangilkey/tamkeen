@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	बिल्ट-इन शब्दकोश अभी इस डिवाइस पर नहीं है। इसे डाउनलोड करें, या अर्थ लिखें।
+25710ff7	शब्दकोश डाउनलोड करें ({0} MB)
+395b22e4	शब्दकोश डाउनलोड करें

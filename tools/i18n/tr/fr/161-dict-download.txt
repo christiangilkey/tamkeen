@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	Le dictionnaire intégré n'est pas encore sur cet appareil. Téléchargez-le, ou saisissez le sens.
+25710ff7	Télécharger le dictionnaire ({0} Mo)
+395b22e4	Télécharger le dictionnaire

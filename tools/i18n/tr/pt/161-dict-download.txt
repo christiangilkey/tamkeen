@@ -1,0 +1,4 @@
+# Add words: download the dictionary right in a row's message (components/wordbuilder.js).
+db2fea69	O dicionário integrado ainda não está neste dispositivo. Baixe-o, ou digite o significado.
+25710ff7	Baixar o dicionário ({0} MB)
+395b22e4	Baixar o dicionário
