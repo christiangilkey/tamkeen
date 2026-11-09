@@ -26,16 +26,19 @@ const ELEMENTS = ["ember", "tide", "grove", "spark", "stone", "dusk"]; // data.T
 //   under    the terrain drawn beneath it (deep water sits on shallow water); null = the theme's base ground
 //   anim     its _fill strip is 4 animation frames rather than 4 variants
 //   joinLand its edges join to walkable land (a bridge joins the banks at its ends)
+//   spikes   share of max HP a creature standing here loses each time the spikes shoot up (every 2 s, livebattle.js)
+//   opens    a weak wall the player can break open (clicking it from close by): the terrain it becomes
 //   likes / hinders   elements it helps / hurts (worked out from the above, for icons)
 const NO_EFFECT = "No effect.";
 // How many textures each ground's middle tiles come in: `<id>_fill.png` holds them in groups of 4 tiles (group 0 =
 // tiles 0-3, the usual look; group 1 = tiles 4-7...), all sharing the base colour at their edges. Big plain areas
 // then show patches of each texture (fillIndex). Animated terrains keep one group.
-const FILL_GROUPS = { grass: 4, sand: 3, snow: 3, ash: 3, cave_floor: 3, high: 3, dirt: 2 };
+const FILL_GROUPS = { grass: 4, sand: 3, snow: 3, ash: 3, cave_floor: 3, high: 3, dirt: 2, wood_floor: 2, stone_floor: 3, farmland: 2, wheat: 2 };
 function terrain(id, name, text, o = {}) {
   const t = {
     id, name, text, walk: true, cross: [], shots: true, speed: 1, grip: 1, atk: 1, def: 1, heal: 0, burn: 0,
-    favours: {}, bonus: {}, status: null, fixed: false, under: null, anim: false, joinLand: false, fills: FILL_GROUPS[id] || 1, ...o,
+    favours: {}, bonus: {}, status: null, fixed: false, under: null, anim: false, joinLand: false, spikes: 0, opens: null,
+    fills: FILL_GROUPS[id] || 1, ...o,
     art: { edges: `battle/terrain/${id}.png`, fill: `battle/terrain/${id}_fill.png` },
   };
   t.likes = ELEMENTS.filter((e) => helps(t, e) > 0);
@@ -88,6 +91,26 @@ export const TERRAIN = Object.fromEntries([
   // built
   terrain("bridge", "Bridge", NO_EFFECT, { fixed: true, under: "deep_water", joinLand: true }),
   terrain("wall", "Wall", "Blocks movement and attacks.", { walk: false, shots: false, fixed: true }),
+  // built places (village, dungeon, fortress): walls creatures go round and through the doors of, floors inside
+  terrain("fort_wall", "Fortress wall", "Blocks movement and attacks.", { walk: false, shots: false, fixed: true }),
+  terrain("dungeon_wall", "Dungeon wall", "Blocks movement and attacks.", { walk: false, shots: false, fixed: true }),
+  terrain("house_wall", "House wall", "Blocks movement and attacks.", { walk: false, shots: false, fixed: true }),
+  terrain("fence", "Fence", "Blocks movement but not attacks. Floaters drift over it.", { walk: false, cross: ["floater"], fixed: true }),
+  terrain("wood_floor", "Wooden floor", NO_EFFECT),
+  terrain("stone_floor", "Stone floor", NO_EFFECT),
+  // the village's square, farms and Town Hall, the fortress keep's carpet (the owner, 2026-11-09)
+  terrain("hall_wall", "Town Hall wall", "Blocks movement and attacks.", { walk: false, shots: false, fixed: true }),
+  terrain("carpet", "Carpet", NO_EFFECT),
+  terrain("farmland", "Farmland", "A little slower. Grove creatures move freely and heal a little.",
+    { speed: 0.85, bonus: { grove: { speed: 1, heal: 0.006 } }, status: "leaf" }),
+  terrain("wheat", "Wheat", "Defence +20%, a little slower. Grove creatures move freely.",
+    { def: 1.2, speed: 0.85, bonus: { grove: { speed: 1 } }, status: "leaf" }),
+  terrain("fountain", "Fountain", "Only Tide creatures and floaters can go in. Its water heals a little, Tide creatures more.",
+    { walk: false, cross: ["tide", "floater"], heal: 0.01, favours: { tide: 1.1 }, bonus: { tide: { heal: 0.02 } }, status: "wet", fixed: true, anim: true }),
+  // the dungeon's traps and secrets
+  terrain("spikes", "Spikes", "Spikes shoot up every 2 seconds and hurt whoever stands on them.", { spikes: 0.07, fixed: true, anim: true }),
+  terrain("cracked_wall", "Cracked wall", "A weak spot in the wall: click it when your creature is close to break it open.",
+    { walk: false, shots: false, fixed: true, opens: "stone_floor", under: "dungeon_wall" }), // (its art: the cracks, over the wall)
 ].map((t) => [t.id, t]));
 export const TERRAIN_IDS = Object.keys(TERRAIN);
 
@@ -111,6 +134,39 @@ const BASE_PROPS = [
   prop("pillar", "Pillar", 16, 32, 1),
   prop("obsidian", "Obsidian", 16, 16, 1),
   prop("mushroom", "Giant mushroom", 16, 32, 1),
+  // the built places
+  prop("barrel", "Barrel", 16, 32, 1),
+  prop("crate", "Crate", 16, 16, 1),
+  prop("well", "Well", 32, 32, 2),
+  prop("brazier", "Brazier", 16, 32, 1),
+  prop("haystack", "Haystack", 32, 32, 2),
+  prop("statue", "Statue", 16, 48, 1),
+  prop("cart", "Cart", 32, 32, 2),
+  prop("banner", "Banner", 16, 48, 1),
+  // the village (2026-11-09): the market, the farms, the shops, the tavern and the Town Hall
+  prop("stall", "Market stall", 32, 48, 2),
+  prop("vendor_cart", "Vending cart", 32, 40, 2),
+  prop("scarecrow", "Scarecrow", 16, 32, 1),
+  prop("sign_tavern", "Sign", 16, 32, 1, "sign"), prop("sign_bakery", "Sign", 16, 32, 1, "sign"),
+  prop("sign_potion", "Sign", 16, 32, 1, "sign"), prop("sign_smith", "Sign", 16, 32, 1, "sign"),
+  prop("lamp_post", "Lamp post", 16, 48, 1),
+  prop("bench", "Bench", 32, 16, 2),
+  prop("table", "Table", 32, 32, 2),
+  prop("counter", "Counter", 48, 32, 3),
+  prop("shelf", "Shelves", 32, 32, 2),
+  prop("sacks", "Sacks", 16, 16, 1),
+  prop("anvil", "Anvil", 16, 16, 1),
+  prop("desk", "Desk", 32, 32, 2),
+  // the dungeon and the fortress
+  prop("chest", "Chest", 16, 16, 1),
+  prop("cage", "Cage", 16, 32, 1),
+  prop("weapon_rack", "Weapon rack", 32, 32, 2),
+  prop("armor_stand", "Armour stand", 16, 32, 1),
+  prop("throne", "Throne", 32, 48, 2),
+  // fallen trees and stumps
+  prop("log_fallen", "Fallen tree", 48, 32, 3, "log"), prop("log_mossy", "Fallen tree", 48, 16, 3, "log"),
+  prop("stump", "Stump", 16, 16, 1), prop("stump_big", "Stump", 32, 24, 2, "stump"),
+  prop("stump_axe", "Stump", 16, 16, 1, "stump"), prop("stump_mossy", "Stump", 16, 16, 1, "stump"),
 ];
 const named = Object.fromEntries(BASE_PROPS.map((p) => [p.id, p.name]));
 /** A variety of a prop: it shares its kind's name. */
@@ -129,6 +185,13 @@ function VARIETIES() {
     variety("crystal_cluster", "crystal", 16, 16, 1), variety("crystal_pink", "crystal", 16, 32, 1), variety("obsidian_big", "obsidian", 32, 32, 2),
     variety("bush_flower", "bush", 16, 16, 1), variety("bush_dry", "bush", 16, 16, 1), variety("cactus_round", "cactus", 16, 16, 1),
     variety("pillar_fallen", "pillar", 32, 16, 2),
+    // 2026-11-09: more trees ("more shapes, dead trees, some knocked over, some taller, some stumps")
+    variety("tree_tall", "tree", 48, 80, 2), variety("tree_poplar", "tree", 32, 80, 1), variety("tree_round", "tree", 48, 64, 2),
+    variety("tree_twisted", "tree", 48, 64, 2), variety("tree_dead_tall", "tree", 48, 80, 2), variety("tree_dead_broken", "tree", 32, 48, 1),
+    variety("pine_tall", "pine", 32, 80, 2), variety("pine_dead", "pine", 32, 64, 2),
+    variety("stall_cloth", "stall", 32, 48, 2), variety("stall_bread", "stall", 32, 48, 2), variety("vendor_cart_flowers", "vendor_cart", 32, 32, 2),
+    variety("shelf_books", "shelf", 32, 32, 2), variety("statue_gargoyle", "statue", 16, 32, 1), variety("statue_knight", "statue", 16, 48, 1),
+    variety("weapon_rack_axes", "weapon_rack", 32, 32, 2), variety("armor_stand_gold", "armor_stand", 16, 32, 1),
   ];
 }
 
@@ -142,26 +205,74 @@ const decal = (id, on, { variants = 4, size = [16, 16], near = null } = {}) =>
 export const DECALS = Object.fromEntries(DECAL_LIST().map((d) => [d.id, d]));
 function DECAL_LIST() {
   return [
-    decal("pebbles", ["grass", "dirt", "sand", "cave_floor", "ash", "high", "snow", "cobbles"]),
+    decal("pebbles", ["grass", "dirt", "sand", "cave_floor", "ash", "high", "snow", "cobbles", "stone_floor"]),
     decal("twigs", ["grass", "forest_floor", "dirt"]),
     decal("leaves", ["forest_floor", "grass"]),
     decal("tuft", ["grass", "dirt", "sand"], { near: { sand: ["grass", "tall_grass"] } }),
     decal("flowers", ["grass"], { variants: 6 }),
-    decal("bones", ["sand", "ash", "dirt"]),
+    decal("bones", ["sand", "ash", "dirt", "stone_floor"]),
     decal("shells", ["sand"], { near: ["shallows", "deep_water"] }),
     decal("seaweed", ["sand"], { near: ["shallows", "deep_water"] }),
-    decal("puddle", ["grass", "dirt", "mud", "cave_floor", "cobbles"]),
-    decal("crack", ["sand", "dirt", "ash", "high", "cave_floor", "cobbles"]),
+    decal("puddle", ["grass", "dirt", "mud", "cave_floor", "cobbles", "stone_floor"]),
+    decal("crack", ["sand", "dirt", "ash", "high", "cave_floor", "cobbles", "stone_floor"]),
     decal("mushrooms", ["forest_floor", "grass", "shadow", "cave_floor"]),
     decal("snowdrift", ["snow"]),
     decal("cinders", ["ash"]),
+    // the built places
+    decal("straw", ["wood_floor", "dirt", "stone_floor", "cobbles"]),
+    decal("rug", ["wood_floor"]),
+    decal("cobweb", ["stone_floor", "cave_floor"]),
+    decal("rubble", ["stone_floor", "cobbles", "dirt", "cave_floor"]),
+    decal("coins", ["stone_floor"]), // (only in the dungeon's hidden rooms, laid by the map, never scattered)
   ];
 }
+
+// ---------- ornaments, roofs and traps ----------
+// Ornaments: pictures that block nothing (map.ornaments: { id, v (variant), x, y = the cell's top-left in world px }).
+// `wall` ones hang on the south face of a wall over floor (the cell's top-left at the wall tile's top-left, 16x32:
+// the wall tile, then the floor tile in front); `stand` ones are sorted with props and creatures by their bottom.
+// `frames` > 1: an animation along the strip (variants, if any, come first, each with its frames).
+const ornament = (id, size, { variants = 1, frames = 1, wall = false, stand = false } = {}) =>
+  ({ id, size, variants, frames, wall, stand, art: `battle/terrain/ornament_${id}.png` });
+export const ORNAMENTS = Object.fromEntries([
+  ornament("chains", [16, 32], { variants: 3, wall: true }),
+  ornament("torch", [16, 32], { frames: 4, wall: true }),
+  ornament("weapons", [16, 32], { variants: 3, wall: true }),
+  ornament("fountain", [32, 48], { frames: 4, stand: true }),
+].map((o) => [o.id, o]));
+
+// Roofs (map.roofs: { x0, y0, w, h, style, extras }): over a building's footprint (its walls included), faded away
+// while a creature is inside so nobody hides under one. `sheet` styles are put together from 16x16 pieces (README
+// "Roofs"): (w*16 + 6) x h*16 px, drawn at (x0*16 - 3, y0*16 - 10). `image` styles are one picture for a building of
+// a fixed size, its bottom edge at (y0 + h)*16 - 10, centred on the building. Extras stand on the roof: { id, x }
+// (x: tiles from the roof's left, where its picture is centred; its bottom edge `sit` px below the top of the ridge row:
+// a chimney stands on the back slope just above the ridge, a bell tower or a flag astride it; dx: px to shift the picture
+// so its foot sits at x).
+export const ROOFS = {
+  thatch: { sheet: "battle/terrain/roof_thatch.png" }, red: { sheet: "battle/terrain/roof_red.png" },
+  slate: { sheet: "battle/terrain/roof_slate.png" }, shingle: { sheet: "battle/terrain/roof_shingle.png" },
+  tower: { image: "battle/terrain/roof_tower.png", w: 9, h: 9 },
+};
+export const ROOF_EXTRAS = {
+  chimney: { art: "battle/terrain/roof_chimney.png", size: [16, 32], sit: 7 },
+  bell: { art: "battle/terrain/roof_bell.png", size: [32, 48], sit: 16 },
+  flag: { art: "battle/terrain/roof_keep_flag.png", size: [16, 32], sit: 8, dx: 4 }, // (its pole is left of the picture's middle)
+};
+/** Which rows of a sheet roof h tiles tall are back slope and front slope (the rest: back eave, ridge, front eave). */
+export const roofRows = (h) => { const a = Math.max(0, Math.floor((h - 3) * 0.4)); return { back: a, front: Math.max(0, h - 3 - a) }; };
+
+// Traps (map.hazards). An axe: a blade on a pole hanging from the ceiling over the floor point (x, y) (world px),
+// swinging left and right: angle = 60 degrees * sin(2 pi t / period + phase); the blade sweeps reach px either side.
+export const HAZARDS = {
+  axe: { art: "battle/terrain/hazard_axe.png", frames: 9, size: [96, 64], pivot: [48, 4], low: [48, 54], reach: 46, swing: 60 },
+};
 
 /** Every art file the arenas use (paths under web/game-art/), for data.artFiles(). */
 export function terrainArtFiles() {
   return [...Object.values(SHEETS).flatMap((t) => [t.edges, t.fill]), ...Object.values(PROPS).map((p) => p.art),
-    ...Object.values(DECALS).map((d) => d.art)];
+    ...Object.values(DECALS).map((d) => d.art), ...Object.values(ORNAMENTS).map((o) => o.art),
+    ...Object.values(ROOFS).map((r) => r.sheet || r.image), ...Object.values(ROOF_EXTRAS).map((e) => e.art),
+    ...Object.values(HAZARDS).map((h) => h.art)];
 }
 
 // ---------- what a tile does to a creature ----------
@@ -325,7 +436,9 @@ export function drawLayers(map, tx, ty) {
 
 // Low to high: the order terrains are drawn in a cell, when the corners' own stacks don't already say.
 const DRAW_ORDER = ["cave_floor", "ash", "snow", "sand", "dirt", "grass", "forest_floor", "mud", "ice", "shallows",
-  "deep_water", "spring", "coals", "lava", "cobbles", "high", "tall_grass", "flowers", "shadow", "crystals", "wall", "bridge", "bridge_v"];
+  "deep_water", "spring", "coals", "lava", "cobbles", "stone_floor", "wood_floor", "carpet", "farmland", "high", "tall_grass", "wheat",
+  "flowers", "shadow", "crystals", "spikes", "fountain",
+  "wall", "house_wall", "hall_wall", "dungeon_wall", "cracked_wall", "fort_wall", "fence", "bridge", "bridge_v"];
 
 /**
  * The art for each layer drawCorners can name: every terrain, plus `bridge_v` (a bridge whose deck runs north-south;
@@ -415,7 +528,7 @@ function costGrid(map, creature) {
     const id = map.tiles[i];
     if (!(id in memo)) {
       const e = effectsFor(id, creature);
-      memo[id] = [canEnter(id, creature) ? 1 : 0, 1 / Math.max(0.2, e.speed) + e.burn * 25];
+      memo[id] = [canEnter(id, creature) ? 1 : 0, 1 / Math.max(0.2, e.speed) + e.burn * 25 + TERRAIN[id].spikes * 40];
     }
     ok[i] = map.propTiles[i] ? 0 : memo[id][0];
     cost[i] = memo[id][1];
@@ -690,6 +803,7 @@ function makeCtx(seedNum, themeId, cols, rows, attempt) {
     theme, themeId, cols, rows, n, seedNum, salt, attempt, r, sym, R, base: theme.base, k: 100,
     big, grow: 1 + (big - 1) * 0.5, zone: Math.round(5 + big), fade: Math.round(2 + 2 * big),
     tiles: Array(n).fill(theme.base), propTiles: Array(n).fill(null), props: [], under: Array(n).fill(null),
+    roofs: [], ornaments: [], hazards: [], doors: [], decals: [], secrets: [],
     w: new Float64Array(n), keep: new Uint8Array(n), clear: new Uint8Array(n),
   };
   // the starts: about 12 tiles either side of the middle (on a small map, near the ends), the rows a little apart
@@ -720,7 +834,7 @@ const tileRand = (ctx, key, i) => (ctx.w[i] >= 1 ? symRand(ctx, key, i) : hash01
 const N4 = [[0, -1], [1, 0], [0, 1], [-1, 0]];
 const N8 = [[0, -1], [1, 0], [0, 1], [-1, 0], [1, -1], [1, 1], [-1, 1], [-1, -1]];
 const around = (ctx, i, dirs = N8) => dirs.map(([dx, dy]) => at(ctx, X(ctx, i) + dx, Y(ctx, i) + dy)).filter((j) => j >= 0);
-const harmful = (id) => !TERRAIN[id].walk || TERRAIN[id].burn > 0;
+const harmful = (id) => !TERRAIN[id].walk || TERRAIN[id].burn > 0 || TERRAIN[id].spikes > 0;
 /** Ground a patch, road or landmark may paint over: walkable, not water, not a bridge or a wall. */
 const paintable = (id) => TERRAIN[id].walk && !TERRAIN[id].fixed && !WATERY.has(id);
 
@@ -1211,14 +1325,16 @@ function connect(ctx) {
 function walkerRegions(ctx) {
   const label = new Int32Array(ctx.n).fill(-1);
   const sizes = [];
+  // a hidden room counts as joined: the player can break its cracked wall open
+  const ok = (i) => walkerOk(ctx, i) || !!TERRAIN[ctx.tiles[i]].opens;
   for (let s = 0; s < ctx.n; s++) {
-    if (label[s] >= 0 || !walkerOk(ctx, s)) continue;
+    if (label[s] >= 0 || !ok(s)) continue;
     const c = sizes.length;
     let size = 0;
     const stack = [s]; label[s] = c;
     while (stack.length) {
       const i = stack.pop(); size++;
-      for (const j of around(ctx, i, N4)) if (label[j] < 0 && walkerOk(ctx, j)) { label[j] = c; stack.push(j); }
+      for (const j of around(ctx, i, N4)) if (label[j] < 0 && ok(j)) { label[j] = c; stack.push(j); }
     }
     sizes.push(size);
   }
@@ -1310,7 +1426,7 @@ function walkTimes(ctx, from) {
   const t = new Float64Array(ctx.n).fill(Infinity);
   t[from] = 0;
   const heap = new Heap(); heap.push(0, from);
-  const cost = (i) => 1 / TERRAIN[ctx.tiles[i]].speed + TERRAIN[ctx.tiles[i]].burn * 25;
+  const cost = (i) => 1 / TERRAIN[ctx.tiles[i]].speed + TERRAIN[ctx.tiles[i]].burn * 25 + TERRAIN[ctx.tiles[i]].spikes * 40;
   while (heap.size) {
     const i = heap.pop();
     const d = heap.lastKey;
@@ -1354,6 +1470,651 @@ export function fairness(map) {
   return { ok: (!worst || worst.over <= 0) && share >= 0.85, worst: worst || null, share, mine, theirs };
 }
 
+// ---- structures: walls, rooms and corridors (the village, dungeon and fortress themes) ----
+// The owner (2026-11-08): "our generator would need to be able to understand things like structures, so things that
+// the creature can move around in, like towers and buildings ... maps like the fortress allow the creatures to go
+// through the corridors". A structure is a set of rectangles painted with walls and floors, always with its mirror
+// image (both sides alike), and its tiles are marked `clear` so the ground patches, roads and scattered props that
+// come after leave it alone. Walls never go within KEEP of a start. Corridors and doorways are at least as wide as a
+// creature can pass (a creature collides with the map by a small radius at its feet: one tile is enough, two is
+// comfortable; corridors are 2-3).
+
+/** A rectangle's mirror image (the map turned 180 degrees or mirrored, as the theme's symmetry is). */
+function mirrorRect(ctx, { x0, y0, w, h }) {
+  return ctx.sym === "rotate" ? { x0: ctx.cols - x0 - w, y0: ctx.rows - y0 - h, w, h } : { x0: ctx.cols - x0 - w, y0, w, h };
+}
+const overlaps = (a, b, pad = 0) => a.x0 - pad < b.x0 + b.w && b.x0 - pad < a.x0 + a.w && a.y0 - pad < b.y0 + b.h && b.y0 - pad < a.y0 + a.h;
+/** The tiles of a rectangle that are on the map. */
+function rectTiles(ctx, { x0, y0, w, h }) {
+  const out = [];
+  for (let y = y0; y < y0 + h; y++) for (let x = x0; x < x0 + w; x++) { const i = at(ctx, x, y); if (i >= 0) out.push(i); }
+  return out;
+}
+/** Paint tile i, and its mirror image, as part of a structure (`mark`: keep later patches and props off it). A floor
+ * replaces whatever was beneath (only the theme's ground shows round its edges); a wall keeps the floor it stands on
+ * beneath it, once. */
+function structTile(ctx, i, id, mark = true, mirror = true) {
+  for (const j of mirror ? [i, ctx.R(i)] : [i]) {
+    if (j < 0 || (harmful(id) && ctx.keep[j])) continue;
+    setTile(ctx, j, id);
+    const under = TERRAIN[id].walk ? [] : [...new Set(ctx.under[j] || [])].filter((t) => t !== id && t !== ctx.base).slice(-1);
+    ctx.under[j] = under.length ? under : null;
+    if (mark) ctx.clear[j] = 1;
+  }
+}
+/** Floor over a whole rectangle (a corridor, a courtyard), with its mirror image; `over`: only over these grounds. */
+function floorRect(ctx, rc, floor, mark = true, over = null, mirror = true) {
+  for (const i of rectTiles(ctx, rc)) if (!over || over.includes(ctx.tiles[i])) structTile(ctx, i, floor, mark, mirror);
+}
+/**
+ * A walled room on rectangle `rc`: `wall` round its edge (`thick` tiles), `floor` inside (null: the ground stays), and
+ * openings in the wall: doors [{ side: "N" | "E" | "S" | "W", at: tiles along that side from its corner, len }].
+ * Painted with its mirror image; a door's mirror image is a door too, so a room that is its own mirror image (one in
+ * the middle) can name its doors on one side only. `mirror` false: this room alone (the Town Hall, whose mirror image
+ * is the tavern: the same walls, another building). Each door's tile just outside goes in ctx.doors (for paths).
+ */
+function room(ctx, rc, wall, floor, doors = [], thick = 1, mark = true, mirror = true) {
+  const { x0, y0, w, h } = rc;
+  const open = new Set();
+  for (const d of doors) {
+    for (let k = 0; k < d.len; k++) for (let t = 0; t < thick; t++) {
+      const x = d.side === "W" ? x0 + t : d.side === "E" ? x0 + w - 1 - t : x0 + d.at + k;
+      const y = d.side === "N" ? y0 + t : d.side === "S" ? y0 + h - 1 - t : y0 + d.at + k;
+      const i = at(ctx, x, y);
+      if (i >= 0) { open.add(i); if (mirror) open.add(ctx.R(i)); }
+    }
+    const ox = d.side === "W" ? x0 - 1 : d.side === "E" ? x0 + w : x0 + d.at, oy = d.side === "N" ? y0 - 1 : d.side === "S" ? y0 + h : y0 + d.at;
+    const o = at(ctx, ox, oy);
+    if (o >= 0) { ctx.doors.push(o); if (mirror) ctx.doors.push(ctx.R(o)); }
+  }
+  for (const i of rectTiles(ctx, rc)) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    const edge = x < x0 + thick || y < y0 + thick || x >= x0 + w - thick || y >= y0 + h - thick;
+    if (edge && !open.has(i)) structTile(ctx, i, wall, mark, mirror);
+    else if (floor) structTile(ctx, i, floor, mark, mirror);
+  }
+}
+/** A door of rectangle rc as seen on its image turned 180 degrees (the tavern's door matching the Town Hall's). */
+const turnDoor = (rc, d) => ({ side: { N: "S", S: "N", E: "W", W: "E" }[d.side], at: (d.side === "N" || d.side === "S" ? rc.w : rc.h) - d.at - d.len, len: d.len });
+/** A roof over rectangle rc, and over its mirror image unless `mirror` is false. extras: [{ id, x }], x = its centre
+ * in tiles from the roof's left (mirrored with it). */
+function addRoof(ctx, rc, style, extras = [], mirror = true) {
+  ctx.roofs.push({ x0: rc.x0, y0: rc.y0, w: rc.w, h: rc.h, style, extras });
+  if (mirror) ctx.roofs.push({ ...mirrorRect(ctx, rc), style, extras: extras.map((e) => ({ ...e, x: rc.w - e.x })) });
+}
+/** A corridor `width` tiles wide from tile (ax, ay) to (bx, by): an L, along x first (or y first); `over`: it is cut
+ * only through these grounds (a dungeon's corridors through the rock, not across the rooms' floors). */
+function corridor(ctx, [ax, ay], [bx, by], width, floor, { yFirst = false, mark = true, over = null } = {}) {
+  const half = Math.floor((width - 1) / 2);
+  const legX = (y, x1, x2) => floorRect(ctx, { x0: Math.min(x1, x2) - half, y0: y - half, w: Math.abs(x2 - x1) + width, h: width }, floor, mark, over);
+  const legY = (x, y1, y2) => floorRect(ctx, { x0: x - half, y0: Math.min(y1, y2) - half, w: width, h: Math.abs(y2 - y1) + width }, floor, mark, over);
+  if (yFirst) { legY(ax, ay, by); legX(by, ax, bx); } else { legX(ay, ax, bx); legY(bx, ay, by); }
+}
+const centre = (rc) => [rc.x0 + Math.floor(rc.w / 2), rc.y0 + Math.floor(rc.h / 2)];
+/**
+ * Can a structure stand on rectangle `rc` (and its mirror image)? On the map with a `margin`, `fromStarts` tiles or more
+ * from the starts, `pad` tiles or more from the rectangles in `taken`, on grounds in `on` (when given), off other
+ * structures, and not on its own mirror image.
+ */
+function roomFits(ctx, rc, taken, { pad = 2, fromStarts = 4, margin = 1, on = null } = {}) {
+  const { cols: W, rows: H } = ctx;
+  if (rc.x0 < margin || rc.y0 < margin || rc.x0 + rc.w > W - margin || rc.y0 + rc.h > H - margin) return false;
+  const m = mirrorRect(ctx, rc);
+  if (overlaps(rc, m, pad) || taken.some((q) => overlaps(rc, q, pad) || overlaps(m, q, pad))) return false;
+  for (const i of rectTiles(ctx, rc)) {
+    if (Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < fromStarts) return false;
+    if (ctx.clear[i] || (on && !on.includes(ctx.tiles[i]))) return false;
+  }
+  return true;
+}
+/** Put a prop (and its mirror image) at tile (x, y) inside a structure; tries the next spots along the row if it doesn't fit. */
+function placeProp(ctx, id, x, y, on, { flip = false, tries = 1, step = 1, tight = false } = {}) {
+  for (let k = 0; k < tries; k++) {
+    const i = at(ctx, x + k * step, y);
+    if (i >= 0 && putPair(ctx, id, i, flip, on, { onClear: true, tight })) return true;
+  }
+  return false;
+}
+/** A prop at tile (x, y) without its mirror image (inside the Town Hall or the tavern, far from the starts). */
+function placeOne(ctx, id, x, y, on, { flip = false, tries = 1, step = 1, tight = true } = {}) {
+  for (let k = 0; k < tries; k++) {
+    const i = at(ctx, x + k * step, y);
+    if (i >= 0 && fits(ctx, id, i, on, { onClear: true, tight })) { put(ctx, id, i, flip); return true; }
+  }
+  return false;
+}
+/** Two props of the same footprint at a spot and at its mirror image: `a` here, `b` there (two shops' signs), or `a`
+ * on both when the spot is near a start (where both sides must look alike). */
+function putTwin(ctx, a, b, x, y, on) {
+  const i = at(ctx, x, y);
+  if (i < 0) return false;
+  const near = Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < 7;
+  if (near || PROPS[a].foot !== PROPS[b].foot) return putPair(ctx, a, i, false, on, { onClear: true, tight: true });
+  const j = mirrorAnchor(ctx, a, i);
+  if (j === i || !fits(ctx, a, i, on, { onClear: true, tight: true }) || !fits(ctx, b, j, on, { onClear: true, tight: true })) return false;
+  put(ctx, a, i, false);
+  put(ctx, b, j, true);
+  return true;
+}
+
+/** A village house: house walls, a wooden floor, a door on the side facing the middle (now and then a back door);
+ * a bigger one has two rooms. A crate or barrel in a corner away from the door. */
+function house(ctx, r, rc) {
+  const { cols: W, rows: H } = ctx;
+  const { x0, y0, w, h } = rc;
+  const split = w >= 8 && h >= 5 && r.chance(0.6);
+  const facesDown = y0 + h / 2 < H / 2;
+  const len = w >= 7 ? 2 : 1;
+  const doors = [{ side: facesDown ? "S" : "N", at: split ? 1 : Math.floor((w - len) / 2), len }];
+  if (r.chance(0.45)) doors.push({ side: x0 + w / 2 < W / 2 ? "E" : "W", at: Math.floor((h - 1) / 2), len: 1 });
+  room(ctx, rc, "house_wall", "wood_floor", doors);
+  if (split) {
+    // the wall between the two rooms, with a doorway two tiles tall
+    const x = x0 + Math.floor(w / 2);
+    const gap = y0 + 1 + r.int(0, Math.max(0, h - 4));
+    for (let y = y0 + 1; y < y0 + h - 1; y++) if (y !== gap && y !== gap + 1) structTile(ctx, at(ctx, x, y), "house_wall");
+  }
+  const y = facesDown ? y0 + 1 : y0 + h - 2;
+  placeProp(ctx, r.chance(0.5) ? "crate" : "barrel", x0 + w - 2, y, ["wood_floor"], { tries: 2, step: -1 });
+  if (r.chance(0.5)) placeProp(ctx, "table", x0 + 1, facesDown ? y0 + h - 3 : y0 + 2, ["wood_floor"], { tries: 2, tight: true });
+  addRoof(ctx, rc, r.chance(0.6) ? "thatch" : "shingle", r.chance(0.6) ? [{ id: "chimney", x: r.int(1, w - 2) + 0.5 }] : []);
+}
+
+/** A fenced garden: a fence round a patch of flowers or tall grass, with a gate. */
+function garden(ctx, r, rc) {
+  const crop = r.chance(0.5) ? "flowers" : "tall_grass";
+  const side = r.pick(["N", "E", "S", "W"]);
+  room(ctx, rc, "fence", crop, [{ side, at: 1, len: side === "N" || side === "S" ? Math.min(2, rc.w - 2) : 1 }]);
+}
+
+/** A path (`id`, on `on` grounds) from the tile outside each door to the nearest street (cobbles or `id`), both
+ * sides alike; a door already on a street needs none. */
+function doorPaths(ctx, id, on) {
+  const done = new Set();
+  const street = (i) => ctx.tiles[i] === "cobbles" || ctx.tiles[i] === id;
+  const cost = new Float64Array(ctx.n).fill(Infinity), prev = new Int32Array(ctx.n).fill(-1);
+  const touched = [];
+  for (const d of ctx.doors) {
+    if (done.has(d) || street(d)) continue;
+    done.add(d); done.add(ctx.R(d));
+    for (const i of touched) { cost[i] = Infinity; prev[i] = -1; }
+    touched.length = 0;
+    cost[d] = 0; touched.push(d);
+    const heap = new Heap(); heap.push(0, d);
+    let goal = -1;
+    while (heap.size) {
+      const i = heap.pop(), c = heap.lastKey;
+      if (c > cost[i]) continue;
+      if (street(i)) { goal = i; break; }
+      if (c > 40) break;
+      const x = X(ctx, i), y = Y(ctx, i);
+      for (const [dx, dy] of N4) {
+        const j = at(ctx, x + dx, y + dy);
+        if (j < 0 || ctx.propTiles[j] || !(street(j) || (on.includes(ctx.tiles[j]) && !ctx.clear[j]))) continue;
+        const nc = c + (ctx.tiles[j] === "tall_grass" || ctx.tiles[j] === "flowers" ? 1.3 : 1);
+        if (nc < cost[j]) { if (cost[j] === Infinity) touched.push(j); cost[j] = nc; prev[j] = i; heap.push(nc, j); }
+      }
+    }
+    for (let i = goal; i >= 0; i = prev[i]) for (const j of [i, ctx.R(i)]) if (on.includes(ctx.tiles[j]) && !ctx.clear[j] && !ctx.propTiles[j]) setTile(ctx, j, id);
+  }
+}
+
+/** Things hung on walls (theme.wallDecor: [[ornament, [wall ids], share]]): on a wall tile whose face looks over open
+ * floor, along a straight run (not at its end), at least 3 tiles apart. Looks only, so they needn't match. */
+function wallOrnaments(ctx) {
+  const list = ctx.theme.wallDecor || [];
+  if (!list.length) return;
+  const key = ctx.k++;
+  const wallAt = (x, y) => { const j = at(ctx, x, y); return j >= 0 && !TERRAIN[ctx.tiles[j]].walk; };
+  const used = [];
+  for (let i = 0; i < ctx.n; i++) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    const below = at(ctx, x, y + 1);
+    if (below < 0 || !TERRAIN[ctx.tiles[below]].walk || WATERY.has(ctx.tiles[below]) || ctx.propTiles[below]) continue;
+    if (!wallAt(x - 1, y) || !wallAt(x + 1, y) || !wallAt(x, y - 1)) continue;
+    for (const [id, walls, share] of list) {
+      if (!walls.includes(ctx.tiles[i]) || hash01(ctx.salt, key, i, strKey(id)) >= share) continue;
+      if (used.some(([ux, uy]) => uy === y && Math.abs(ux - x) < 3)) break;
+      used.push([x, y]);
+      ctx.ornaments.push({ id, v: hashN(ctx.salt, key + 1, i) % ORNAMENTS[id].variants, x: x * TILE, y: y * TILE });
+      break;
+    }
+  }
+}
+
+/** Is tile i open floor of a straight north-south corridor 2-4 tiles wide (rows y-2..y+2 all walled at the same
+ * columns)? Returns the corridor's floor columns [x0, x1], or null. */
+function corridorNS(ctx, i) {
+  const x = X(ctx, i), y = Y(ctx, i);
+  const floor = (cx, cy) => { const j = at(ctx, cx, cy); return j >= 0 && TERRAIN[ctx.tiles[j]].walk && !WATERY.has(ctx.tiles[j]) && !ctx.propTiles[j]; };
+  if (!floor(x, y)) return null;
+  let x0 = x, x1 = x;
+  while (floor(x0 - 1, y) && x - x0 < 5) x0--;
+  while (floor(x1 + 1, y) && x1 - x < 5) x1++;
+  if (x1 - x0 + 1 < 2 || x1 - x0 + 1 > 4) return null;
+  for (let dy = -2; dy <= 2; dy++) {
+    for (let cx = x0; cx <= x1; cx++) if (!floor(cx, y + dy)) return null;
+    if (floor(x0 - 1, y + dy) || floor(x1 + 1, y + dy)) return null;
+  }
+  return [x0, x1];
+}
+/** Swinging axes over `count` pairs of north-south corridors, both sides alike (the same swing), away from the starts. */
+function axes(ctx, r, count) {
+  const cand = [];
+  for (let i = 0; i < ctx.n; i++) {
+    if (ctx.R(i) < i || Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < 7) continue;
+    const span = corridorNS(ctx, i);
+    if (span && X(ctx, i) === span[0] && corridorNS(ctx, ctx.R(i))) cand.push([i, span]);
+  }
+  const H = HAZARDS.axe;
+  for (let made = 0; made < count && cand.length; ) {
+    const [i, [x0, x1]] = cand.splice(r.int(0, cand.length - 1), 1)[0];
+    const x = ((x0 + x1 + 1) / 2) * TILE, y = Y(ctx, i) * TILE + TILE / 2;
+    if (ctx.hazards.some((h) => Math.hypot(h.x - x, h.y - y) < 10 * TILE)) continue;
+    const period = Math.round(r.range(2.2, 2.8) * 10) / 10, phase = Math.round(r.range(0, 6.28) * 100) / 100;
+    ctx.hazards.push({ kind: "axe", x, y, period, phase, reach: H.reach });
+    ctx.hazards.push({ kind: "axe", x: ctx.cols * TILE - x, y: ctx.sym === "rotate" ? ctx.rows * TILE - y : y, period, phase, reach: H.reach });
+    made++;
+  }
+}
+/** Spike plates across corridors and in rooms, `count` pairs, away from the starts: a w x h patch of stone floor. */
+function spikes(ctx, r, count) {
+  for (let made = 0, tries = 0; made < count && tries < count * 200; tries++) {
+    const i = at(ctx, r.int(1, ctx.cols - 3), r.int(1, ctx.rows - 3));
+    if (Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < (ctx.big > 1.5 ? 7 : 5)) continue;
+    // across a corridor where one is found, else a square plate
+    const span = corridorNS(ctx, i);
+    const rc = span ? { x0: span[0], y0: Y(ctx, i), w: span[1] - span[0] + 1, h: 2 } : { x0: X(ctx, i), y0: Y(ctx, i), w: 2, h: 2 };
+    const tiles = rectTiles(ctx, rc);
+    const m = mirrorRect(ctx, rc);
+    if (overlaps(rc, m, 2) || tiles.length !== rc.w * rc.h || !tiles.every((j) => ctx.tiles[j] === "stone_floor" && !ctx.propTiles[j] && !ctx.propTiles[ctx.R(j)])) continue;
+    if (tiles.some((j) => around(ctx, j).some((k) => ctx.tiles[k] === "spikes"))) continue;
+    if (ctx.hazards.some((h) => Math.hypot(h.x - (rc.x0 + rc.w / 2) * TILE, h.y - (rc.y0 + 1) * TILE) < 4 * TILE)) continue;
+    for (const j of tiles) structTile(ctx, j, "spikes", false);
+    made++;
+  }
+}
+/**
+ * Hidden rooms in the rock (`count` pairs): a small room, walled off, whose wall on one side is 2 tiles of cracked wall
+ * right beside a corridor or room, which the player can break open. Inside: a spring, a chest, coins, a gargoyle.
+ */
+function hiddenRooms(ctx, r, count) {
+  const { cols: W, rows: H } = ctx;
+  const okOut = (j) => j >= 0 && TERRAIN[ctx.tiles[j]].walk && !WATERY.has(ctx.tiles[j]) && !ctx.propTiles[j] && ctx.tiles[j] !== "spikes";
+  for (let made = 0, tries = 0; made < count && tries < 400; tries++) {
+    const big = ctx.big > 1.5;
+    const iw = big ? r.int(3, 5) : r.int(3, 4), ih = big ? r.int(3, 4) : 3;
+    const rc = { x0: r.int(1, Math.max(1, W - iw - 3)), y0: r.int(1, Math.max(1, H - ih - 3)), w: iw + 2, h: ih + 2 };
+    const m = mirrorRect(ctx, rc);
+    if (overlaps(rc, m, 2) || !rectTiles(ctx, rc).every((i) => ctx.tiles[i] === "dungeon_wall" && ctx.tiles[ctx.R(i)] === "dungeon_wall")) continue;
+    if (rectTiles(ctx, rc).some((i) => Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < (big ? 6 : 4))) continue;
+    let door = null;
+    for (const side of ["N", "E", "S", "W"].sort(() => r.f() - 0.5)) {
+      const len = side === "N" || side === "S" ? rc.w : rc.h;
+      for (let a = 1; a + 1 <= len - 2 && !door; a++) {
+        const outs = [a, a + 1].map((k) => {
+          const x = side === "W" ? rc.x0 - 1 : side === "E" ? rc.x0 + rc.w : rc.x0 + k;
+          const y = side === "N" ? rc.y0 - 1 : side === "S" ? rc.y0 + rc.h : rc.y0 + k;
+          return at(ctx, x, y);
+        });
+        if (outs.every((j) => okOut(j) && okOut(ctx.R(j)))) door = { side, at: a };
+      }
+      if (door) break;
+    }
+    if (!door) continue;
+    const inside = { x0: rc.x0 + 1, y0: rc.y0 + 1, w: iw, h: ih };
+    floorRect(ctx, inside, "stone_floor", false);
+    const cracks = [door.at, door.at + 1].map((k) => {
+      const x = door.side === "W" ? rc.x0 : door.side === "E" ? rc.x0 + rc.w - 1 : rc.x0 + k;
+      const y = door.side === "N" ? rc.y0 : door.side === "S" ? rc.y0 + rc.h - 1 : rc.y0 + k;
+      structTile(ctx, at(ctx, x, y), "cracked_wall", false);
+      return at(ctx, x, y);
+    });
+    // drawn covered with rock until its wall is broken (map.secrets)
+    ctx.secrets.push({ ...inside, cracks }, { ...mirrorRect(ctx, inside), cracks: cracks.map((i) => ctx.R(i)) });
+    // the treasure: a spring in one corner, a chest and coins in another, a gargoyle keeping watch
+    const corner = (fx, fy) => at(ctx, inside.x0 + (fx ? inside.w - 1 : 0), inside.y0 + (fy ? inside.h - 1 : 0));
+    const fx = r.chance(0.5);
+    structTile(ctx, corner(fx, 1), "spring", false);
+    const sp2 = at(ctx, X(ctx, corner(fx, 1)) + (fx ? -1 : 1), Y(ctx, corner(fx, 1)));
+    structTile(ctx, sp2, "spring", false);
+    const c = corner(!fx, 0);
+    putPair(ctx, "chest", c, fx, ["stone_floor"], { onClear: true, tight: true });
+    putPair(ctx, "statue_gargoyle", corner(fx, 0), !fx, ["stone_floor"], { onClear: true, tight: true });
+    for (const j of [at(ctx, X(ctx, c) + (fx ? 1 : -1), Y(ctx, c)), at(ctx, X(ctx, c), Y(ctx, c) + 1)]) {
+      for (const k of [j, ctx.R(j)]) {
+        if (k < 0 || ctx.tiles[k] !== "stone_floor" || ctx.propTiles[k]) continue;
+        ctx.decals.push({ id: "coins", v: hashN(ctx.salt, 77, k) % 4, x: X(ctx, k) * TILE, y: Y(ctx, k) * TILE, flip: hash01(ctx.salt, 78, k) < 0.5 });
+      }
+    }
+    made++;
+  }
+}
+
+/**
+ * The village (the owner, 2026-11-09: "pathways, village farm, vending carts, fences, tavern, wells, village fountain,
+ * Town Hall, shops"). A cobbled square in the middle round a fountain, with market stalls, carts, benches and lamp
+ * posts; on a big map the Town Hall on its north side and the tavern on its south (the same walls turned round, so
+ * the halves stay alike; two different buildings), shops by the square, houses with wells between them, fenced farms
+ * with a barn and a scarecrow further out, gardens, and a path from every door to the streets. Every building has a
+ * roof (faded while a creature is inside).
+ */
+function village(ctx, r) {
+  const { cols: W, rows: H } = ctx;
+  const big = ctx.big > 1.5;
+  const GREEN = ["grass", "tall_grass", "flowers"];
+  patch(ctx, "tall_grass", r.range(0.04, 0.07), 4);
+  patch(ctx, "flowers", r.range(0.015, 0.03), 2.5, { on: ["grass", "tall_grass"] });
+  const cx = Math.floor(W / 2), cy = Math.floor(H / 2); // the tile just past the middle (the middle is between tiles)
+  // the square, its corners cut, and the fountain in the middle
+  const sw = 2 * (big ? r.int(9, 11) : r.int(4, 5)), sh = 2 * (big ? r.int(6, 7) : 3);
+  const sq = { x0: cx - sw / 2, y0: cy - sh / 2, w: sw, h: sh };
+  for (const i of rectTiles(ctx, sq)) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    if ((x === sq.x0 || x === sq.x0 + sw - 1) && (y === sq.y0 || y === sq.y0 + sh - 1)) continue;
+    structTile(ctx, i, "cobbles");
+  }
+  const fw = big ? 4 : 2;
+  floorRect(ctx, { x0: cx - fw / 2, y0: cy - fw / 2, w: fw, h: fw }, "fountain");
+  ctx.ornaments.push({ id: "fountain", v: 0, x: cx * TILE - 16, y: cy * TILE + (big ? 10 : 6) - 48 });
+  const taken = [sq];
+  // the Town Hall and the tavern
+  if (big) {
+    const hw = 2 * r.int(6, 7), hh = r.int(8, 9);
+    const hall = { x0: cx - hw / 2, y0: sq.y0 - hh, w: hw, h: hh };
+    const tav = mirrorRect(ctx, hall);
+    const doors = [{ side: "S", at: hw / 2 - 1, len: 2 }, { side: r.chance(0.5) ? "W" : "E", at: hh - 3, len: 1 }];
+    room(ctx, hall, "hall_wall", "stone_floor", doors, 1, true, false);
+    room(ctx, tav, "house_wall", "wood_floor", doors.map((d) => turnDoor(hall, d)), 1, true, false);
+    taken.push(hall, tav);
+    // the hall: a carpet from the door to the mayor's desk, bookcases, benches either side, banners
+    const ix = hall.x0 + 1, iy = hall.y0 + 1, iw = hw - 2, ih = hh - 2;
+    floorRect(ctx, { x0: cx - 1, y0: iy + 2, w: 2, h: ih - 1 }, "carpet", true, null, false);
+    placeOne(ctx, "desk", cx - 1, iy + 1, ["stone_floor"]);
+    placeOne(ctx, "shelf_books", ix, iy, ["stone_floor"]);
+    placeOne(ctx, "shelf_books", ix + iw - 2, iy, ["stone_floor"]);
+    placeOne(ctx, "banner", cx - 3, iy, ["stone_floor"]);
+    placeOne(ctx, "banner", cx + 2, iy, ["stone_floor"]);
+    for (let y = iy + 3; y < iy + ih - 1; y += 2) { placeOne(ctx, "bench", cx - 4, y, ["stone_floor"]); placeOne(ctx, "bench", cx + 2, y, ["stone_floor"]); }
+    placeOne(ctx, "banner", cx - 3, sq.y0, ["cobbles"]);
+    placeOne(ctx, "banner", cx + 2, sq.y0, ["cobbles"]);
+    addRoof(ctx, hall, "slate", [{ id: "bell", x: hw / 2 }], false);
+    // the tavern: the bar along the back wall with barrels behind it, tables, a sign by the door
+    const tx = tav.x0 + 1, ty = tav.y0 + 1, tw = hw - 2, th = hh - 2;
+    placeOne(ctx, "counter", tx + 1, ty + th - 3, ["wood_floor"]);
+    placeOne(ctx, "barrel", tx, ty + th - 1, ["wood_floor"]);
+    placeOne(ctx, "barrel", tx + 2, ty + th - 1, ["wood_floor"]);
+    placeOne(ctx, "shelf", tx + 4, ty + th - 1, ["wood_floor"]);
+    for (const [x, y] of [[tx + 1, ty + 1], [tx + tw - 3, ty + 1], [tx + tw - 4, ty + 3], [tx + tw - 3, ty + th - 2]]) placeOne(ctx, "table", x, y, ["wood_floor"]);
+    placeOne(ctx, "sign_tavern", cx + 1, tav.y0 - 1, ["cobbles"]);
+    placeOne(ctx, "barrel", cx - 3, tav.y0 - 1, ["cobbles"]);
+    addRoof(ctx, tav, "shingle", [{ id: "chimney", x: 2.5 }, { id: "chimney", x: hw - 3.5 }], false);
+  }
+  // the market: stalls and vending carts round the fountain, benches, lamp posts at the corners
+  const market = [["stall", 3], ["vendor_cart", 2]];
+  for (let k = 0, tries = 0; k < (big ? r.int(3, 4) : 1) && tries < 60; tries++) {
+    const x = r.int(sq.x0 + 1, sq.x0 + sw - 3), y = r.int(sq.y0 + 1, sq.y0 + sh - 2);
+    if (Math.abs(x + 1 - cx) < fw / 2 + 2 && Math.abs(y - cy) < fw / 2 + 2) continue;
+    const id = varietyOf(ctx, pickWeighted(market, r.f()), at(ctx, x, y));
+    if (placeProp(ctx, id, x, y, ["cobbles"], { flip: r.chance(0.5) })) k++;
+  }
+  if (big) for (let k = 0, tries = 0; k < 2 && tries < 30; tries++) {
+    if (placeProp(ctx, "bench", r.int(sq.x0 + 2, sq.x0 + sw - 4), r.chance(0.5) ? cy - fw / 2 - 2 : cy + fw / 2 + 1, ["cobbles"])) k++;
+  }
+  placeProp(ctx, "lamp_post", sq.x0 + 1, sq.y0 + 1, ["cobbles"]);
+  placeProp(ctx, "lamp_post", sq.x0 + sw - 2, sq.y0 + 1, ["cobbles"]);
+  // shops by the square (big map): a counter, shelves and wares, a sign by the door
+  const SHOPS = { bakery: ["sign_bakery", "sacks"], potion: ["sign_potion", "crate"], smith: ["sign_smith", "anvil"] };
+  const shops = big ? 2 : 0;
+  for (let made = 0, tries = 0; made < shops && tries < 120; tries++) {
+    const w = r.int(6, 7), h = r.int(5, 6);
+    const above = r.chance(0.5);
+    const rc = { x0: r.int(sq.x0 - w - 6, sq.x0 + 1), y0: above ? sq.y0 - h - r.int(0, 3) : sq.y0 + sh + r.int(0, 3), w, h };
+    if (!roomFits(ctx, rc, taken, { pad: 1, fromStarts: 5, on: GREEN })) continue;
+    taken.push(rc, mirrorRect(ctx, rc));
+    const doorX = rc.x0 + w / 2 < cx ? w - 3 : 1; // the door at the end nearer the middle
+    room(ctx, rc, "house_wall", "wood_floor", [{ side: above ? "S" : "N", at: doorX, len: 2 }]);
+    const mine = r.pick(Object.keys(SHOPS));
+    const other = r.pick(Object.keys(SHOPS).filter((k) => k !== mine));
+    const back = above ? rc.y0 + 1 : rc.y0 + h - 2;
+    putTwin(ctx, "shelf", "shelf", rc.x0 + w - 3, back, ["wood_floor"]);
+    putTwin(ctx, SHOPS[mine][1], SHOPS[other][1], rc.x0 + 1, back, ["wood_floor"]);
+    placeProp(ctx, "counter", rc.x0 + 1, above ? back + 1 : back - 1, ["wood_floor"], { tight: true, tries: 2 });
+    putTwin(ctx, SHOPS[mine][0], SHOPS[other][0], rc.x0 + doorX + 2, above ? rc.y0 + h : rc.y0 - 1, null);
+    addRoof(ctx, rc, "red", r.chance(0.5) ? [{ id: "chimney", x: w - 1.5 }] : []);
+    made++;
+  }
+  // houses
+  const place = (count, dims, make, pad, where = () => true) => {
+    for (let made = 0, tries = 0; made < count && tries < count * 50; tries++) {
+      const [w, h] = dims();
+      const rc = { x0: r.int(1, Math.max(1, Math.floor(W / 2) - w - 1)), y0: r.int(1, Math.max(1, H - h - 1)), w, h };
+      if (!where(rc) || !roomFits(ctx, rc, taken, { pad, fromStarts: 4, on: GREEN })) continue;
+      taken.push(rc, mirrorRect(ctx, rc));
+      make(rc);
+      made++;
+    }
+  };
+  // farms out at the edges: a fenced field of crops (or two), a scarecrow, a barn with hay, haystacks by the fence
+  place(big ? 2 : 1, () => (big ? [r.int(8, 12), r.int(5, 7)] : [r.int(5, 6), 4]), (rc) => {
+    const crop = r.chance(0.5) ? "wheat" : "farmland";
+    room(ctx, rc, "fence", crop, [{ side: r.pick(["N", "S"]), at: 1, len: 2 }]);
+    if (rc.w >= 9 && r.chance(0.6)) floorRect(ctx, { x0: rc.x0 + Math.floor(rc.w / 2), y0: rc.y0 + 1, w: Math.ceil(rc.w / 2) - 1, h: rc.h - 2 }, crop === "wheat" ? "farmland" : "wheat");
+    placeProp(ctx, "scarecrow", rc.x0 + Math.floor(rc.w / 2) - 1, rc.y0 + Math.floor(rc.h / 2), ["wheat", "farmland"], { tries: 3 });
+    placeProp(ctx, "haystack", rc.x0 + rc.w + 1, rc.y0 + 1, GREEN.concat("dirt"), { tries: 2 });
+  }, 2, (rc) => rc.x0 + rc.w < W * 0.3);
+  if (big) place(1, () => [r.int(6, 7), r.int(5, 6)], (rc) => {
+    room(ctx, rc, "house_wall", "dirt", [{ side: rc.y0 + rc.h / 2 < H / 2 ? "S" : "N", at: Math.floor(rc.w / 2) - 1, len: 2 }]);
+    placeProp(ctx, "haystack", rc.x0 + 1, rc.y0 + Math.floor(rc.h / 2) - 1, ["dirt"], { tight: true, tries: 2 });
+    placeProp(ctx, "sacks", rc.x0 + rc.w - 2, rc.y0 + 1, ["dirt"], { tight: true, tries: 2, step: -1 });
+    addRoof(ctx, rc, "thatch");
+  }, 2, (rc) => rc.x0 + rc.w < W * 0.36);
+  place(big ? r.int(3, 5) : 1, () => (big ? [r.int(7, 9), r.int(6, 7)] : [r.int(5, 6), r.int(4, 5)]), (rc) => house(ctx, r, rc), 2);
+  place(big ? r.int(1, 2) : 0, () => [r.int(4, 6), r.int(4, 5)], (rc) => garden(ctx, r, rc), 1);
+  // streets out to the edges, and a path from every door to them
+  roads(ctx, "dirt", GREEN, 1);
+  doorPaths(ctx, "dirt", GREEN);
+  // nothing planted just south of a building: a tree there would stand up into the room when its roof fades
+  for (const r of ctx.roofs) for (let y = r.y0 + r.h; y < r.y0 + r.h + 2; y++) for (let x = r.x0 - 1; x <= r.x0 + r.w; x++) {
+    const i = at(ctx, x, y);
+    if (i >= 0) ctx.clear[i] = 1;
+  }
+  // wells between the houses, and the rest of village life
+  for (let k = 0, tries = 0; k < (big ? r.int(1, 2) : 0) && tries < 80; tries++) {
+    const i = at(ctx, r.int(2, Math.floor(W / 2) - 3), r.int(2, H - 3));
+    if (Math.min(dist(ctx, i, ctx.starts[0]), dist(ctx, i, ctx.starts[1])) < 5) continue;
+    if (putPair(ctx, "well", i, r.chance(0.5), ["grass", "dirt"])) k++;
+  }
+  scatter(ctx, [["haystack", 0.6], ["cart", 0.8], ["barrel", 1.3], ["crate", 1.3], ["stump", 0.8]], r.range(0.008, 0.013), { on: ["grass", "dirt"] });
+  scatter(ctx, [["tree", 3], ["bush", 2]], r.range(0.02, 0.035), { on: ["grass", "tall_grass"] });
+}
+
+/** The dungeon: solid rock everywhere, with a great hall in the middle, a room round each start and more rooms,
+ * all joined by corridors (the nearest first, then a loop or two); pillars, statues, braziers, stores and caves. */
+function dungeon(ctx, r) {
+  const { cols: W, rows: H } = ctx;
+  const big = ctx.big > 1.5;
+  for (let i = 0; i < ctx.n; i++) setTile(ctx, i, "dungeon_wall");
+  const wide = big ? 3 : 2;
+  const dig = (rc, floor, ragged = false) => {
+    const f = ragged ? field(ctx, 2) : null;
+    for (const i of rectTiles(ctx, rc)) {
+      const x = X(ctx, i), y = Y(ctx, i);
+      // a cave's corners crumble a little
+      const inX = Math.min(x - rc.x0, rc.x0 + rc.w - 1 - x), inY = Math.min(y - rc.y0, rc.y0 + rc.h - 1 - y);
+      if (ragged && inX + inY < 2 && f[i] < 0.3) continue;
+      structTile(ctx, i, floor, false);
+    }
+  };
+  // the great hall, its own mirror image
+  const hw = 2 * (big ? r.int(6, 8) : r.int(3, 4)), hh = 2 * (big ? r.int(4, 5) : r.int(2, 3));
+  const hall = { x0: Math.floor((W - hw) / 2), y0: Math.floor((H - hh) / 2), w: hw, h: hh };
+  dig(hall, "cobbles");
+  // a room round each start
+  const [sx, sy] = [X(ctx, ctx.starts[0]), Y(ctx, ctx.starts[0])];
+  const sw = big ? r.int(9, 11) : 7, sh = Math.min(H - 2, big ? r.int(7, 9) : 6);
+  const start = { x0: Math.max(1, Math.min(W - sw - 1, sx - Math.floor(sw / 2))), y0: Math.max(1, Math.min(H - sh - 1, sy - Math.floor(sh / 2))), w: sw, h: sh };
+  dig(start, "stone_floor");
+  // more rooms on the starts' side, each with its mirror image; on a big map at least one is a cave
+  const rooms = [start];
+  const taken = [hall, start, mirrorRect(ctx, start)];
+  const want = big ? r.int(3, 5) : r.int(0, 1);
+  let caves = 0;
+  for (let tries = 0; rooms.length - 1 < want && tries < want * 40; tries++) {
+    const w = r.int(6, big ? 12 : 7), h = r.int(5, big ? 9 : 6);
+    const rc = { x0: r.int(1, Math.max(1, Math.floor(W / 2) - w - 1)), y0: r.int(1, Math.max(1, H - h - 1)), w, h };
+    const m = mirrorRect(ctx, rc);
+    if (rc.y0 + h > H - 1 || overlaps(rc, m, 3) || taken.some((q) => overlaps(rc, q, 3) || overlaps(m, q, 3))) continue;
+    const cave = big && (caves === 0 && rooms.length === want ? true : r.chance(0.3));
+    if (cave) caves++;
+    rc.cave = cave;
+    dig(rc, cave ? "cave_floor" : "stone_floor", cave);
+    rooms.push(rc);
+    taken.push(rc, m);
+  }
+  // corridors: each room joins the nearest room already joined (the hall first), then a loop or two
+  const joined = [hall];
+  const todo = [...rooms];
+  while (todo.length) {
+    let best = null;
+    for (const p of todo) for (const q of joined) {
+      const [px, py] = centre(p), [qx, qy] = centre(q);
+      const d = Math.abs(px - qx) + Math.abs(py - qy);
+      if (!best || d < best.d) best = { p, q, d };
+    }
+    corridor(ctx, centre(best.p), centre(best.q), wide, "stone_floor", { yFirst: r.chance(0.5), mark: false, over: ["dungeon_wall"] });
+    joined.push(best.p);
+    todo.splice(todo.indexOf(best.p), 1);
+  }
+  for (let k = big ? r.int(1, 2) : 0; k > 0 && rooms.length > 2; k--) {
+    const a = r.pick(rooms), b = r.pick(rooms.filter((q) => q !== a));
+    corridor(ctx, centre(a), centre(b), wide, "stone_floor", { yFirst: r.chance(0.5), mark: false, over: ["dungeon_wall"] });
+  }
+  // a damp floor here and there, and shadowy corners
+  patch(ctx, "shadow", r.range(0.008, 0.02), 3, { on: ["stone_floor", "cave_floor", "cobbles"] });
+  patch(ctx, "shallows", r.range(0.004, 0.01), 2.5, { on: ["stone_floor", "cave_floor"] });
+  // the hall: two rows of pillars, a statue at each end, braziers in its corners
+  const rowsAt = [hall.y0 + 1, hall.y0 + hall.h - 2];
+  for (let x = hall.x0 + 2; x < hall.x0 + hall.w - 2; x += 3) for (const y of rowsAt) placeProp(ctx, "pillar", x, y, ["cobbles", "shadow"]);
+  placeProp(ctx, "statue", hall.x0 + 1, hall.y0 + Math.floor(hall.h / 2) - 1, ["cobbles", "shadow"], { tries: 2, step: 1 });
+  // every room: braziers in two corners; a store of barrels and crates now and then; a cave has stalagmites and boulders
+  for (const rc of [hall, ...rooms]) {
+    placeProp(ctx, "brazier", rc.x0 + 1, rc.y0 + 1, ["stone_floor", "cave_floor", "cobbles", "shadow"], { tries: 2 });
+    placeProp(ctx, "brazier", rc.x0 + rc.w - 2, rc.y0 + rc.h - 2, ["stone_floor", "cave_floor", "cobbles", "shadow"], { tries: 2, step: -1 });
+  }
+  for (const rc of rooms.slice(1)) {
+    if (rc.cave) {
+      for (let k = 0; k < 3; k++) placeProp(ctx, k ? "stalagmite" : "boulder", rc.x0 + 2 + r.int(0, Math.max(0, rc.w - 5)), rc.y0 + 2 + r.int(0, Math.max(0, rc.h - 5)), ["cave_floor"]);
+    } else if (r.chance(0.7)) {
+      const y = rc.y0 + rc.h - 2;
+      placeProp(ctx, "barrel", rc.x0 + 2, y, ["stone_floor", "shadow"], { tries: 2 });
+      placeProp(ctx, "crate", rc.x0 + 4, y, ["stone_floor", "shadow"], { tries: 2 });
+    }
+  }
+  if (!big) placeProp(ctx, "barrel", start.x0 + 1, start.y0 + start.h - 2, ["stone_floor", "shadow"], { tries: 2 });
+  // knights guarding the hall, a cage or two in the rooms
+  placeProp(ctx, "statue_knight", hall.x0 + hall.w - 2, hall.y0 + Math.floor(hall.h / 2) - 1, ["cobbles", "shadow"], { tries: 2, step: -1 });
+  for (const rc of rooms.slice(1)) if (!rc.cave && r.chance(0.6)) placeProp(ctx, "cage", rc.x0 + rc.w - 3, rc.y0 + 1, ["stone_floor", "shadow"], { tries: 2, step: -1 });
+  // traps and secrets: spike plates, swinging axes over the corridors, hidden rooms behind cracked walls
+  spikes(ctx, r, big ? r.int(2, 4) : 1);
+  axes(ctx, r, big ? r.int(1, 3) : 1);
+  hiddenRooms(ctx, r, big ? r.int(1, 2) : 1);
+}
+
+/**
+ * The fortress (a big map): a moat with bridges, curtain walls with a passage inside them all the way round, towers
+ * at the corners that open onto the passage, gates on every side, a cobbled courtyard where the creatures start, and
+ * a keep in the middle with doors on all four sides. On a small map: the keep alone, with corner towers.
+ */
+function fortress(ctx, r) {
+  const { cols: W, rows: H } = ctx;
+  const big = ctx.big > 1.5;
+  const even = (n) => n - (n % 2);
+  const keepW = even(big ? 2 * r.int(5, 6) : 10), keepH = even(big ? 2 * r.int(4, 5) : Math.min(H - 6, 10));
+  const keep = { x0: Math.floor((W - keepW) / 2), y0: Math.floor((H - keepH) / 2), w: keepW, h: keepH };
+  if (!big) {
+    room(ctx, keep, "fort_wall", "stone_floor", [{ side: "W", at: keepH / 2 - 1, len: 2 }, { side: "N", at: keepW / 2 - 1, len: 2 }]);
+    for (const [x, y] of [[keep.x0 - 1, keep.y0 - 1], [keep.x0 + keepW - 2, keep.y0 - 1]]) floorRect(ctx, { x0: x, y0: y, w: 3, h: 3 }, "fort_wall");
+    placeProp(ctx, "statue", keep.x0 + 2, keep.y0 + 2, ["stone_floor"], { tries: 2 });
+    placeProp(ctx, "brazier", keep.x0 + keepW - 3, keep.y0 + 2, ["stone_floor"], { tries: 2, step: -1 });
+    floorRect(ctx, { x0: keep.x0, y0: keep.y0 + keepH / 2 - 1, w: keepW, h: 2 }, "carpet", true, ["stone_floor"]);
+    addRoof(ctx, keep, "slate", [{ id: "flag", x: keepW / 2 }], false);
+    road(ctx, "dirt", { on: ["grass", "tall_grass"] });
+    return;
+  }
+  const t = 2, pass = 3;                       // the walls' thickness, the passage inside them
+  const mx = Math.round(W * 0.19), my = Math.round(H * 0.14);
+  const outer = { x0: mx, y0: my, w: W - 2 * mx, h: H - 2 * my };
+  const inner = { x0: mx + t + pass, y0: my + t + pass, w: outer.w - 2 * (t + pass), h: outer.h - 2 * (t + pass) };
+  const gate = 4;
+  const gateW = { side: "W", at: even(outer.h - gate) / 2, len: gate }, gateN = { side: "N", at: even(outer.w - gate) / 2, len: gate };
+  // the moat: two tiles of deep water round the walls (and the towers, which stand out three tiles), bridges at the gates
+  for (let i = 0; i < ctx.n; i++) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    const dx = Math.max(outer.x0 - x, x - (outer.x0 + outer.w - 1), 0), dy = Math.max(outer.y0 - y, y - (outer.y0 + outer.h - 1), 0);
+    const d = Math.max(dx, dy);
+    if (d < 5 || d > 6) continue;
+    const atGateRow = y >= outer.y0 + gateW.at && y < outer.y0 + gateW.at + gate;
+    const atGateCol = x >= outer.x0 + gateN.at && x < outer.x0 + gateN.at + gate;
+    const bridge = (dx > 0 && dy === 0 && atGateRow) || (dy > 0 && dx === 0 && atGateCol);
+    structTile(ctx, i, bridge ? "bridge" : "deep_water", false);
+  }
+  // the outer walls, the passage all the way round inside them
+  room(ctx, outer, "fort_wall", "stone_floor", [gateW, gateN], t);
+  // towers at the corners, opening onto the passage
+  const towers = [{ x0: outer.x0 - 3, y0: outer.y0 - 3, w: 9, h: 9 }, { x0: outer.x0 + outer.w - 6, y0: outer.y0 - 3, w: 9, h: 9 }];
+  for (const tw of towers) room(ctx, tw, "fort_wall", "stone_floor", [], t);
+  for (const tw of towers) for (const i of rectTiles(ctx, tw)) {
+    const x = X(ctx, i), y = Y(ctx, i);
+    const inPassage = x >= outer.x0 + t && x < outer.x0 + outer.w - t && y >= outer.y0 + t && y < outer.y0 + outer.h - t
+      && !(x >= inner.x0 && x < inner.x0 + inner.w && y >= inner.y0 && y < inner.y0 + inner.h);
+    if (inPassage) structTile(ctx, i, "stone_floor");
+  }
+  // the inner walls and the courtyard: the gates' doors, and two more doors on each long side into the passage
+  const q = Math.floor(inner.w / 4) - 1;
+  room(ctx, inner, "fort_wall", "cobbles", [
+    { side: "W", at: even(inner.h - gate) / 2, len: gate }, { side: "N", at: even(inner.w - gate) / 2, len: gate },
+    { side: "N", at: q, len: 2 }, { side: "N", at: inner.w - q - 2, len: 2 },
+  ], t);
+  // the keep, with a door on every side
+  room(ctx, keep, "fort_wall", "stone_floor", [{ side: "W", at: keepH / 2 - 1, len: 2 }], t);
+  // the keep (the owner, 2026-11-09: "carpets, armories, swords/axes hung up with armor on stands, statues"): a red
+  // carpet from the doors to the throne, gold armour either side of it, a weapon rack facing it (the throne's place
+  // turned round); knights by the doors outside, braziers
+  const kx = keep.x0 + keepW / 2;
+  floorRect(ctx, { x0: keep.x0, y0: keep.y0 + keepH / 2 - 1, w: keepW, h: 2 }, "carpet", true, ["stone_floor"]);
+  floorRect(ctx, { x0: kx - 1, y0: keep.y0 + t + 1, w: 2, h: keepH - 2 * t - 2 }, "carpet", true, ["stone_floor"]);
+  putTwin(ctx, "throne", "weapon_rack", kx - 1, keep.y0 + t, ["stone_floor"]);
+  placeProp(ctx, "armor_stand_gold", kx - 3, keep.y0 + t, ["stone_floor"], { tight: true });
+  placeProp(ctx, "armor_stand_gold", kx + 2, keep.y0 + t, ["stone_floor"], { tight: true });
+  placeProp(ctx, "statue_knight", keep.x0 - 2, keep.y0 + 1, ["cobbles"], { tries: 2, step: -1 });
+  placeProp(ctx, "brazier", keep.x0 - 2, keep.y0 + keepH / 2 - 3, ["cobbles"], { tries: 1 });
+  addRoof(ctx, keep, "slate", [{ id: "flag", x: keepW / 2 }], false);
+  // the courtyard: wells, banners on the walls, carts, hay, barrels and crates in its corners
+  const ix = inner.x0 + t, iy = inner.y0 + t, iw = inner.w - 2 * t, ih = inner.h - 2 * t;
+  placeProp(ctx, "well", ix + Math.floor(iw / 2) - 7, iy + 2, ["cobbles"], { tries: 3 });
+  for (let x = ix + 3; x < ix + iw - 3; x += 7) placeProp(ctx, "banner", x, iy, ["cobbles"]);
+  placeProp(ctx, "cart", ix + 1, iy + 2, ["cobbles"], { tries: 3 });
+  placeProp(ctx, "haystack", ix + 1, iy + 5, ["cobbles"], { tries: 3 });
+  placeProp(ctx, "barrel", ix + iw - 2, iy + 1, ["cobbles"], { tries: 3, step: -1 });
+  placeProp(ctx, "crate", ix + iw - 2, iy + 3, ["cobbles"], { tries: 3, step: -1 });
+  placeProp(ctx, "brazier", ix + 1, iy + Math.floor(ih / 2) - 3, ["cobbles"], { tries: 2 });
+  // in the towers: a barrel or crate
+  // the towers are armouries: weapon racks and suits of armour; pointed roofs
+  towers.forEach((tw, k) => {
+    placeProp(ctx, k ? "weapon_rack_axes" : "weapon_rack", tw.x0 + t, tw.y0 + t, ["stone_floor"], { tries: 2, tight: true });
+    placeProp(ctx, "armor_stand", tw.x0 + t + 3, tw.y0 + t, ["stone_floor"], { tries: 2, tight: true });
+    placeProp(ctx, r.chance(0.5) ? "barrel" : "crate", tw.x0 + t, tw.y0 + tw.h - t - 1, ["stone_floor"], { tries: 2 });
+    addRoof(ctx, tw, "tower");
+  });
+  // outside: roads from the gates to the edge of the map, trees, rocks and bushes on the grass
+  for (const [a, b] of [[[1, outer.y0 + gateW.at + 1], [outer.x0 - 1, outer.y0 + gateW.at + 1]], [[outer.x0 + gateN.at + 1, 1], [outer.x0 + gateN.at + 1, outer.y0 - 1]]]) {
+    for (const i of rectTiles(ctx, { x0: Math.min(a[0], b[0]), y0: Math.min(a[1], b[1]), w: Math.abs(b[0] - a[0]) + (a[0] === b[0] ? 2 : 1), h: Math.abs(b[1] - a[1]) + (a[1] === b[1] ? 2 : 1) })) {
+      if (["grass", "tall_grass"].includes(ctx.tiles[i])) structTile(ctx, i, "dirt", false);
+    }
+  }
+}
+
 // ---------- themes ----------
 // Each theme: its base ground, a light hint for the screen (day / night / dim / warm), how it is symmetric
 // ("rotate" = turned 180 degrees, "mirror" = left-right, "either" = picked by the seed), what replaces blocked
@@ -1365,9 +2126,11 @@ export const THEMES = {
   meadow: {
     name: "Meadow", base: "grass", light: "day", sym: "either", carve: { deep_water: "bridge" },
     uses: ["grass", "tall_grass", "flowers", "dirt", "high", "mud", "shallows", "deep_water", "bridge", "spring"],
-    props: ["tree", "bush", "boulder", "rock_big"],
+    props: ["tree", "bush", "boulder", "rock_big", "log", "stump"],
     varieties: {
-      tree: [["tree", 3], ["tree_birch", 2], ["tree_autumn", 1.5], ["tree_fruit", 1.5], ["tree_willow", 1], ["tree_dead", 0.7]],
+      tree: [["tree", 3], ["tree_birch", 2], ["tree_autumn", 1.5], ["tree_fruit", 1.5], ["tree_willow", 1], ["tree_dead", 0.7],
+        ["tree_round", 1.5], ["tree_tall", 1.2], ["tree_poplar", 1], ["tree_twisted", 0.8], ["tree_dead_broken", 0.6]],
+      log: [["log_fallen", 1], ["log_mossy", 1]], stump: [["stump", 2], ["stump_big", 1], ["stump_mossy", 1]],
       boulder: [["boulder", 3], ["boulder_mossy", 2]], bush: [["bush", 3], ["bush_flower", 2]],
       rock_big: [["rock_big", 2], ["rock_big_flat", 1.5], ["rock_big_cluster", 1.5], ["rock_big_cracked", 1]],
     },
@@ -1390,15 +2153,18 @@ export const THEMES = {
       roads(ctx, "dirt", ["grass", "tall_grass", "flowers", "mud"]);
       if (ctx.big > 1.5) springs(ctx, r.int(1, Math.round(ctx.big))); else if (r.chance(0.4)) spring(ctx);
       ridges(ctx, [["rock_big", 1], ["boulder", 2], ["bush", 1]], ridgeCount(ctx));
-      scatter(ctx, [["tree", 3], ["bush", 2], ["boulder", 1.5], ["rock_big", 1]], r.range(0.03, 0.06), { on: ["grass", "tall_grass"] });
+      scatter(ctx, [["tree", 3], ["bush", 2], ["boulder", 1.5], ["rock_big", 1], ["log", 0.4], ["stump", 0.7]], r.range(0.03, 0.06), { on: ["grass", "tall_grass"] });
     },
   },
   forest: {
     name: "Forest", base: "grass", light: "day", sym: "either", carve: { deep_water: "bridge" },
     uses: ["grass", "forest_floor", "tall_grass", "flowers", "mud", "dirt", "shallows", "deep_water", "bridge", "spring"],
-    props: ["tree", "pine", "bush", "mushroom", "boulder"],
+    props: ["tree", "pine", "bush", "mushroom", "boulder", "log", "stump"],
     varieties: {
-      tree: [["tree", 3], ["tree_birch", 2], ["tree_autumn", 2]], mushroom: [["mushroom", 2], ["mushroom_giant", 1.5]],
+      tree: [["tree", 3], ["tree_birch", 2], ["tree_autumn", 2], ["tree_tall", 2], ["tree_round", 1], ["tree_twisted", 1], ["tree_dead_tall", 0.7]],
+      mushroom: [["mushroom", 2], ["mushroom_giant", 1.5]],
+      pine: [["pine", 3], ["pine_tall", 2], ["pine_dead", 0.7]], log: [["log_fallen", 1], ["log_mossy", 1.5]],
+      stump: [["stump", 1.5], ["stump_big", 1], ["stump_mossy", 1.5]],
       boulder: [["boulder_mossy", 3], ["boulder", 1]], bush: [["bush", 3], ["bush_flower", 1.5]],
     },
     decals: [["leaves", 3], ["twigs", 2], ["mushrooms", 2], ["pebbles", 1], ["tuft", 1], ["flowers", 1], ["puddle", 1]],
@@ -1419,7 +2185,7 @@ export const THEMES = {
       roads(ctx, "dirt", ["grass", "forest_floor", "tall_grass", "flowers", "mud"]);
       if (ctx.big > 1.5) springs(ctx, r.int(0, Math.round(ctx.big) - 1)); else if (r.chance(0.35)) spring(ctx);
       ridges(ctx, [["pine", 2], ["tree", 1], ["bush", 1]], ridgeCount(ctx, 1.3));
-      scatter(ctx, [["tree", 3], ["pine", 3], ["bush", 1.5], ["mushroom", 0.8], ["boulder", 0.8]], r.range(0.09, 0.14),
+      scatter(ctx, [["tree", 3], ["pine", 3], ["bush", 1.5], ["mushroom", 0.8], ["boulder", 0.8], ["log", 0.5], ["stump", 0.6]], r.range(0.09, 0.14),
         { on: ["grass", "forest_floor", "tall_grass"], scale: 5, clump: 1.6 });
     },
   },
@@ -1466,7 +2232,7 @@ export const THEMES = {
     varieties: {
       palm: [["palm", 2], ["palm_date", 2], ["palm_small", 1]], cactus: [["cactus", 3], ["cactus_round", 2]],
       rock_big: [["rock_big_sandstone", 3], ["rock_big", 1], ["rock_big_cracked", 1.5], ["rock_big_flat", 1], ["rock_big_cluster", 1]],
-      tree: [["tree_dead", 1]], bush: [["bush_dry", 1]],
+      tree: [["tree_dead", 1], ["tree_dead_broken", 0.7]], bush: [["bush_dry", 1]],
     },
     decals: [["crack", 2], ["pebbles", 2], ["bones", 1.5], ["tuft", 1], ["flowers", 0.5]],
     build(ctx, r) {
@@ -1556,9 +2322,11 @@ export const THEMES = {
   ruins: {
     name: "Ruins", base: "grass", light: "day", sym: "either", carve: { wall: "cobbles" },
     uses: ["grass", "cobbles", "wall", "tall_grass", "shadow", "flowers", "dirt"],
-    props: ["pillar", "bush", "boulder", "tree", "rock_big"],
+    props: ["pillar", "bush", "boulder", "tree", "rock_big", "log"],
     varieties: {
-      boulder: [["boulder", 2], ["boulder_mossy", 2]], tree: [["tree_birch", 2], ["tree_dead", 2], ["tree_autumn", 1.5]],
+      boulder: [["boulder", 2], ["boulder_mossy", 2]],
+      tree: [["tree_birch", 2], ["tree_dead", 2], ["tree_autumn", 1.5], ["tree_dead_broken", 1.2], ["tree_twisted", 1.2], ["tree_dead_tall", 0.8]],
+      log: [["log_mossy", 2], ["log_fallen", 1]],
       bush: [["bush", 2], ["bush_flower", 1.5]], pillar: [["pillar", 3], ["pillar_fallen", 1.5]],
       rock_big: [["rock_big_flat", 1], ["rock_big_cluster", 1]],
     },
@@ -1601,15 +2369,16 @@ export const THEMES = {
       }
       patch(ctx, "flowers", r.range(0.02, 0.05), 2.5, { on: ["grass"] });
       ridges(ctx, [["pillar", 1], ["boulder", 1], ["bush", 2]], ridgeCount(ctx, 0.6));
-      scatter(ctx, [["bush", 2], ["boulder", 1], ["pillar", 1], ["tree", 0.8], ["rock_big", 0.5]], r.range(0.02, 0.035), { on: ["grass", "tall_grass", "dirt"] });
+      scatter(ctx, [["bush", 2], ["boulder", 1], ["pillar", 1], ["tree", 0.8], ["rock_big", 0.5], ["log", 0.35]], r.range(0.02, 0.035), { on: ["grass", "tall_grass", "dirt"] });
     },
   },
   night: {
     name: "Night", base: "grass", light: "night", sym: "rotate", carve: { deep_water: "bridge" },
     uses: ["grass", "shadow", "flowers", "tall_grass", "shallows", "deep_water", "bridge", "spring"],
-    props: ["tree", "mushroom", "boulder", "bush"],
+    props: ["tree", "mushroom", "boulder", "bush", "stump"],
     varieties: {
-      tree: [["tree", 3], ["tree_birch", 1], ["tree_dead", 1], ["tree_willow", 1]], mushroom: [["mushroom", 2], ["mushroom_giant", 1.5]],
+      tree: [["tree", 3], ["tree_birch", 1], ["tree_dead", 1], ["tree_willow", 1], ["tree_twisted", 1.5], ["tree_dead_tall", 1], ["tree_dead_broken", 0.8]],
+      mushroom: [["mushroom", 2], ["mushroom_giant", 1.5]], stump: [["stump_mossy", 2], ["stump", 1]],
       boulder: [["boulder", 2], ["boulder_mossy", 2]], bush: [["bush", 2], ["bush_flower", 2]],
     },
     decals: [["tuft", 2], ["mushrooms", 2], ["flowers", 1.5], ["pebbles", 1], ["twigs", 1], ["leaves", 1], ["puddle", 1]],
@@ -1626,7 +2395,7 @@ export const THEMES = {
       else lake(ctx, r.range(0.03, 0.06), 5 * G, { on: ["grass", "shadow", "tall_grass", "flowers"] });
       if (ctx.big > 1.5) springs(ctx, r.int(1, Math.round(ctx.big))); else if (r.chance(0.6)) spring(ctx);
       ridges(ctx, [["tree", 2], ["boulder", 1]], ridgeCount(ctx));
-      scatter(ctx, [["tree", 3], ["mushroom", 1.5], ["boulder", 1], ["bush", 1]], r.range(0.04, 0.07), { on: ["grass", "tall_grass", "shadow"] });
+      scatter(ctx, [["tree", 3], ["mushroom", 1.5], ["boulder", 1], ["bush", 1], ["stump", 0.6]], r.range(0.04, 0.07), { on: ["grass", "tall_grass", "shadow"] });
     },
   },
   snow: {
@@ -1634,7 +2403,7 @@ export const THEMES = {
     uses: ["snow", "ice", "deep_water", "shallows", "high"],
     props: ["pine", "boulder", "rock_big", "tree"],
     varieties: {
-      pine: [["pine_snowy", 3], ["pine", 2]], tree: [["tree_bare_snowy", 1]], boulder: [["boulder", 2], ["boulder_ice", 1.5]],
+      pine: [["pine_snowy", 3], ["pine", 2], ["pine_tall", 1.5], ["pine_dead", 0.6]], tree: [["tree_bare_snowy", 1]], boulder: [["boulder", 2], ["boulder_ice", 1.5]],
       rock_big: [["rock_big", 1], ["rock_big_ice", 1.5], ["rock_big_flat", 1], ["rock_big_cluster", 1]],
     },
     decals: [["snowdrift", 3], ["pebbles", 1]],
@@ -1655,6 +2424,51 @@ export const THEMES = {
       scatter(ctx, [["pine", 3], ["boulder", 1.5], ["rock_big", 1], ["tree", 0.8]], r.range(0.04, 0.07), { on: ["snow", "high"] });
     },
   },
+  // ---- built places (the owner, 2026-11-08: "I want one to include a village ... a dungeon ... a fortress") ----
+  village: {
+    name: "Village", base: "grass", light: "day", sym: "rotate",
+    carve: { house_wall: "wood_floor", hall_wall: "stone_floor", fence: "grass", fountain: "cobbles" },
+    uses: ["grass", "tall_grass", "flowers", "dirt", "cobbles", "house_wall", "wood_floor", "fence", "hall_wall", "stone_floor", "carpet",
+      "farmland", "wheat", "fountain"],
+    props: ["well", "banner", "haystack", "cart", "barrel", "crate", "tree", "bush", "stump", "stall", "vendor_cart", "scarecrow",
+      "sign_tavern", "sign_bakery", "sign_potion", "sign_smith", "lamp_post", "bench", "table", "counter", "shelf", "sacks", "anvil", "desk"],
+    varieties: {
+      tree: [["tree", 2], ["tree_fruit", 2], ["tree_round", 1.5], ["tree_poplar", 1]], bush: [["bush", 2], ["bush_flower", 1.5]],
+      stump: [["stump", 1], ["stump_axe", 1]], stall: [["stall", 1], ["stall_cloth", 1], ["stall_bread", 1]],
+      vendor_cart: [["vendor_cart", 1], ["vendor_cart_flowers", 1]], shelf: [["shelf", 1], ["shelf_books", 1]],
+    },
+    decals: [["straw", 2], ["rug", 1.5], ["tuft", 2], ["pebbles", 1.5], ["flowers", 1.5], ["puddle", 0.7]],
+    build(ctx, r) { village(ctx, r); },
+  },
+  dungeon: {
+    name: "Dungeon", base: "stone_floor", light: "dim", sym: "rotate", carve: { dungeon_wall: "stone_floor", cracked_wall: "stone_floor" },
+    uses: ["stone_floor", "dungeon_wall", "cobbles", "cave_floor", "shadow", "shallows", "spikes", "cracked_wall", "spring"],
+    props: ["pillar", "statue", "brazier", "barrel", "crate", "stalagmite", "boulder", "chest", "cage"],
+    varieties: { statue: [["statue", 1], ["statue_gargoyle", 1], ["statue_knight", 1]] },
+    decals: [["cobweb", 2], ["rubble", 2], ["crack", 1.5], ["bones", 1], ["puddle", 1]],
+    wallDecor: [["chains", ["dungeon_wall"], 0.07], ["torch", ["dungeon_wall"], 0.05]],
+    laid: ["coins"], // (decals it lays itself, not scattered: the hidden rooms' treasure)
+    build(ctx, r) { dungeon(ctx, r); },
+  },
+  fortress: {
+    name: "Fortress", base: "grass", light: "day", sym: "rotate", carve: { fort_wall: "stone_floor", deep_water: "bridge" },
+    uses: ["grass", "tall_grass", "dirt", "cobbles", "stone_floor", "fort_wall", "deep_water", "bridge", "carpet"],
+    props: ["banner", "brazier", "statue", "well", "cart", "haystack", "barrel", "crate", "tree", "boulder", "bush",
+      "weapon_rack", "armor_stand", "throne"],
+    varieties: {
+      statue: [["statue", 1], ["statue_knight", 1]], weapon_rack: [["weapon_rack", 1], ["weapon_rack_axes", 1]],
+      armor_stand: [["armor_stand", 1], ["armor_stand_gold", 1]], tree: [["tree", 2], ["tree_tall", 1], ["tree_round", 1]],
+    },
+    decals: [["tuft", 2], ["straw", 1.5], ["rubble", 1.5], ["pebbles", 1.5], ["crack", 1], ["puddle", 0.7]],
+    wallDecor: [["weapons", ["fort_wall"], 0.08], ["torch", ["fort_wall"], 0.03]],
+    // the creatures start in the courtyard, level with the keep's side doors
+    startRows: (ctx) => { const cy = Math.round((ctx.rows - 1) / 2); return [cy - 3, cy + 3]; },
+    build(ctx, r) {
+      patch(ctx, "tall_grass", r.range(0.05, 0.09), 4);
+      fortress(ctx, r);
+      scatter(ctx, [["tree", 3], ["boulder", 1.5], ["bush", 2]], r.range(0.025, 0.04), { on: ["grass", "tall_grass"] });
+    },
+  },
 };
 for (const [id, t] of Object.entries(THEMES)) {
   t.id = id;
@@ -1668,7 +2482,8 @@ export const THEME_IDS = Object.keys(THEMES);
 
 /**
  * A random arena. Same seed (and options) = same map. `theme` is picked from the seed when not given.
- * Returns { seed, theme, cols, rows, width, height, base, light, symmetry, tiles, propTiles, under, props, decals, starts }
+ * Returns { seed, theme, cols, rows, width, height, base, light, symmetry, tiles, propTiles, under, props, decals, roofs,
+ * ornaments, hazards, secrets (hidden rooms: { x0, y0, w, h, cracks: their walls' cracked tiles }), starts }
  * (`under`: per tile, the grounds a patch was painted over, bottom to top, or null; drawLayers reads it).
  */
 export function generateMap(seed, { theme = null, cols = 90, rows = 54 } = {}) {
@@ -1684,7 +2499,8 @@ export function generateMap(seed, { theme = null, cols = 90, rows = 54 } = {}) {
     connect(ctx);
     connectRegions(ctx);
     extendBridges(ctx);
-    const decals = decorate(ctx);
+    wallOrnaments(ctx);
+    const decals = [...decorate(ctx), ...ctx.decals].sort((a, b) => a.y - b.y || a.x - b.x);
     const [a, b] = ctx.starts;
     const pt = (i) => tileCenter(X(ctx, i), Y(ctx, i));
     map = {
@@ -1692,6 +2508,7 @@ export function generateMap(seed, { theme = null, cols = 90, rows = 54 } = {}) {
       light: ctx.theme.light, symmetry: ctx.sym, attempt,
       tiles: ctx.tiles, propTiles: ctx.propTiles, under: ctx.under,
       props: ctx.props.sort((p, q) => p.y - q.y || p.x - q.x), decals,
+      roofs: ctx.roofs, ornaments: ctx.ornaments.sort((a, b) => a.y - b.y || a.x - b.x), hazards: ctx.hazards, secrets: ctx.secrets,
       starts: { me: pt(a), foe: pt(b) },
     };
     if (fairness(map).ok) break;

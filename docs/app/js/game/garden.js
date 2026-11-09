@@ -284,7 +284,7 @@ function foodDetails(game, f, again) {
 }
 
 /** What using a supply does, where it is not a button here. */
-const USED = { key: "Use it on the Garden page.", ticket: "Used by itself when a battle would pay less.", potion: "Use it during a wild battle." };
+const USED = { key: "Use it on the Garden page.", potion: "Use it during a wild battle." };
 
 function supplyDetails(game, s, again) {
   details((d) => {

@@ -9,6 +9,17 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.49.0",
+  "Battle maps with buildings: a village with a town hall and tavern, a dungeon with traps and hidden rooms, and a fortress with a keep");
+notes("0.49.0",
+  "Challenge a friend on one of your folders: you each battle the other's team with its words");
+notes("0.49.0",
+  "Battles can ask the words due for review, or the words in one folder");
+notes("0.49.0",
+  "Battles pay 25 XP for each word they make well known. Battle tickets are gone: any you had came back as gems");
+notes("0.49.0",
+  "Three Arabic classics on the free book shelf: the Mu'allaqat, the Thousand and One Nights and the Muqaddimah");
+
 notes("0.48.1",
   "The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag");
 

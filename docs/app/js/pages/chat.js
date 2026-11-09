@@ -6,6 +6,7 @@
 // played, shared words once added or dismissed, and anything unopened after 30 days.
 
 import { api, h, toast, saveClip, showMenu } from "../app.js";
+import { icon } from "../icons.js";
 import { moreButton, onHold, reportPerson } from "../components/safetyui.js";
 import * as social from "../social.js";
 import { confirmBox } from "../components/modal.js";
@@ -15,6 +16,8 @@ import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.j
 import { askChatNotifications } from "../chatnotify.js";
 import { micProblem } from "../review/pronounce.js";
 import { pageGuide } from "../components/tour.js";
+import { t } from "../i18n.js";
+import { readChallenge } from "../game/challenge.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -46,10 +49,10 @@ export async function render(view, { friendId }) {
     <div class="chat-head"><a class="btn ghost" href="#/friends" title="Back">←</a>
       <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span>
       <span class="spacer"></span><span id="chat-more"></span></div>
-    <div class="chat-note small muted">👻 Messages disappear after they're seen · voice notes after they're played</div>
+    <div class="chat-note small muted">Messages disappear after they're seen · voice notes after they're played</div>
     <div class="chat-list" id="chat-list"><p class="muted" style="text-align:center">Loading…</p></div>
     <form class="chat-compose" id="compose">
-      <button type="button" id="mic" title="Record a voice note (up to 2 minutes)">🎤</button>
+      <button type="button" id="mic" title="Record a voice note (up to 2 minutes)" aria-label="Record a voice note">${icon("mic", 20)}</button>
       <input type="text" id="msg" placeholder="Message" autocomplete="off" maxlength="4000" dir="auto">
       <button type="submit" class="primary" id="send">Send</button>
     </form>
@@ -182,18 +185,46 @@ export async function render(view, { friendId }) {
       const card = h(`<div class="share-card"><div class="share-title"></div><div class="share-words ar"></div>
         <div class="share-action"></div></div>`);
       card.querySelector(".share-title").textContent = m.payload.folder
-        ? `📁 ${m.payload.folder} · ${words.length} word${words.length === 1 ? "" : "s"}`
+        ? `${m.payload.folder} · ${words.length} word${words.length === 1 ? "" : "s"}`
         : `★ ${words.length} word${words.length === 1 ? "" : "s"}`;
       card.querySelector(".share-words").textContent = words.slice(0, 6).map((w) => w.text).join(" · ") + (words.length > 6 ? " …" : "");
       setLang(card.querySelector(".share-words"), detectLanguage(words.map((w) => w.text).join(" ")));
       const audioCount = words.filter((w) => w.clip).length;
-      if (audioCount) card.querySelector(".share-title").textContent += ` · 🔊 audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
+      if (audioCount) card.querySelector(".share-title").textContent += ` · audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
       const action = card.querySelector(".share-action");
+      // A folder challenge (game/challenge.js): battle their team with these words, as they battle yours
+      const challenge = readChallenge(m.payload);
+      if (challenge) {
+        card.classList.add("challenge-card");
+        const head = h(`<div class="share-challenge small">${icon("game", 16)}<span></span></div>`);
+        head.querySelector("span").textContent = mine ? t("Your folder challenge: you each battle the other's team with these words.")
+          : t("A folder challenge: battle their team with these words, as they battle yours.");
+        card.prepend(head);
+        if (!mine && challenge.language && challenge.language !== studyLanguage()) {
+          const other = h(`<div class="small muted"></div>`);
+          other.textContent = t("These words are in {0}, not the language you're studying now.", (langInfo(challenge.language) || {}).name || challenge.language);
+          head.after(other);
+        }
+      }
       if (mine) {
         action.append(h(`<span class="small muted">Sent</span>`));
       } else {
-        const add = h(`<button type="button" class="primary">Add to my vocab</button>`);
+        const add = h(`<button type="button" class="${challenge ? "" : "primary"}">Add to my vocab</button>`);
         const dismiss = h(`<button type="button" class="ghost">Dismiss</button>`);
+        if (challenge) {
+          const fight = h(`<button type="button" class="primary">${icon("game", 18)}<span>Battle</span></button>`);
+          fight.onclick = async () => {
+            fight.disabled = true;
+            try {
+              const [{ startFriendBattle }, { cleanProfiles }] = await Promise.all([import("../game/battle-ui.js"), import("../game/remote.js")]);
+              const profile = cleanProfiles(await social.gameProfiles([friendId])).get(friendId);
+              if (!profile || !(profile.team || []).length) toast(t("{0} has no team online yet.", person.username));
+              else await startFriendBattle(person, profile, { words: challenge.words, folder: challenge.folder });
+            } catch (e) { toast(e.message, { error: true }); }
+            fight.disabled = false;
+          };
+          action.append(fight);
+        }
         add.onclick = async () => {
           add.disabled = dismiss.disabled = true;
           add.textContent = "Adding…";
@@ -258,7 +289,7 @@ export async function render(view, { friendId }) {
     const conv = await social.conversation(friendId);
     me = conv.me;
     list.innerHTML = "";
-    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say ${langInfo(studyLanguage()).hi} 👋</p>`));
+    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say ${langInfo(studyLanguage()).hi}</p>`));
     conv.messages.forEach(bubble);
     toBottom();
     markShown(conv.messages);

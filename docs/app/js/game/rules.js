@@ -9,9 +9,9 @@
 //   - the bonuses that are hard to fake pay best: words that become well known over weeks,
 //     answers that stay accurate, and days kept up.
 
-import { bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
+import { beastOf, bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
-import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
+import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, itemById } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 
@@ -81,7 +81,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     day: freshDay(),
     owned: [],   // ids of items bought
     attacks: [], // ids of battle moves bought in the shop: any of the owner's creatures may use them
-    battleMode: "last100", // which words battles ask: "last100" (the 100 newest) or "unlimited" (all; see battle.knownScale)
+    battleMode: "last100", // which words battles ask: "last100" (the 100 newest), "unlimited" (all; see battle.knownScale),
+                           // "due" (those the flashcards have due for review) or "folder" (one folder's: battleFolder)
+    battleFolder: "",      // that folder's uid
     known: 0,    // how many words the owner knew when battles last counted them (shared with friends for Unlimited battles)
     decor: [],   // decorations standing in the habitat: {id, x}
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
@@ -104,6 +106,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
 
 // The moves the old adult forms brought (echo, sage, keeper), given to owners whose creatures had them.
 const OLD_FORM_MOVES = { echo: "resonance", sage: "insight", keeper: "hoard" };
+
+/** What a battle ticket cost, in gems: what each one held is worth now that they're gone (normalize). */
+export const TICKET_GEMS = 2;
 
 /** Make a saved state safe to use (older saves, hand-edited values). */
 export function normalize(state) {
@@ -155,7 +160,18 @@ export function normalize(state) {
              wins: gyms.wins && typeof gyms.wins === "object" && !Array.isArray(gyms.wins) ? gyms.wins : {} };
   if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
-  if (!["last100", "unlimited"].includes(s.battleMode)) s.battleMode = "last100";
+  if (!["last100", "unlimited", "due", "folder"].includes(s.battleMode)) s.battleMode = "last100";
+  // Wings put on a creature with wings of its own (before it was refused) go back in the bag.
+  for (const g of s.roster) {
+    const on = g && g.equipped;
+    if (!on || typeof on !== "object") continue;
+    for (const [slot, id] of Object.entries(on)) if (!fits(g, itemById(id))) delete on[slot];
+  }
+  if (typeof s.battleFolder !== "string" || s.battleFolder.length > 64) s.battleFolder = "";
+  // Battle tickets are gone (the owner's choice, 2026-11-09): each one still held comes back as the gems it cost.
+  const tickets = Math.max(0, Math.floor(Number(s.items.ticket)) || 0);
+  if (tickets) s.gems = (Number.isFinite(s.gems) ? s.gems : 0) + TICKET_GEMS * tickets;
+  delete s.items.ticket;
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
   s.v = VERSION;
   return s;
@@ -596,12 +612,42 @@ export const quizzable = (vocab) => (vocab || []).filter((v) => v && String(v.te
 // ---------- which words a battle asks ----------
 export const LAST_WORDS = 100;
 
-/** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
- * ("last100": the same size of pool for everyone), or every one of them ("unlimited"). */
-export function battleWords(vocab, mode = "last100") {
+/** A folder, or the words due for review, can be a battle's words once this many of them have a meaning (the owner). */
+export const MIN_SET = 20;
+
+/** The words of a "due" or "folder" choice that can be asked (newest first): those the flashcards have due for
+ * review now (`due`, a Set of word ids), or those in folder `folder` (a uid). */
+export function setWords(vocab, mode, { due = null, folder = "" } = {}) {
   const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
-  return mode === "unlimited" ? pool : pool.slice(0, LAST_WORDS);
+  if (mode === "due") return due ? pool.filter((v) => due.has(uidOf(v))) : [];
+  if (mode === "folder") return folder ? pool.filter((v) => Array.isArray(v.folders) && v.folders.includes(folder)) : [];
+  return [];
 }
+
+/** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
+ * ("last100": the same size of pool for everyone), every one of them ("unlimited"), the words the flashcards
+ * have due for review ("due") or one folder's ("folder"; see setWords). A "due" or "folder" choice with fewer
+ * than MIN_SET words that can be asked asks the newest words instead. */
+export function battleWords(vocab, mode = "last100", { due = null, folder = "" } = {}) {
+  const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
+  if (mode === "unlimited") return pool;
+  if (mode === "due" || mode === "folder") {
+    const set = setWords(vocab, mode, { due, folder });
+    if (set.length >= MIN_SET) return set;
+  }
+  return pool.slice(0, LAST_WORDS);
+}
+
+/** Note on the list of words itself which of them the flashcards have due for review now (a Set of word ids),
+ * for "due" battles. It isn't saved anywhere: the Battle screen works it out each time it loads the words. */
+export function markDue(vocab, ids) {
+  Object.defineProperty(vocab, "reviewDue", { value: ids, configurable: true, enumerable: false, writable: true });
+  return vocab;
+}
+
+/** The words a battle asks, by the owner's choice (`state.battleMode`, `state.battleFolder`). */
+export const battleWordsFor = (vocab, state) =>
+  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: state.battleFolder || "" });
 
 /** How many of these words the owner knows: remembered at least once in the flashcards (`learned`,
  * a Set of word ids, as the Review page counts them) or well known from battles. */
@@ -704,8 +750,7 @@ export function answerQuestion(state, uid, correct, now = new Date()) {
   if (correct) out.xp = Math.round(3 * fade(state.day.reviews, 40, 120) * boost(state, now));
   state.day.reviews++;
   if (correct && before < MATURE_BOX && rec[0] >= MATURE_BOX) { // well known at last: the bonus that can't be rushed
-    out.graduated = true;
-    out.xp += 15;
+    out.graduated = true; // (its XP comes with the battle's own: WELL_KNOWN_XP in finishBattle)
     state.coins += 1;
   }
   if (!state.week.paid && state.week.total >= 30 && state.week.right / state.week.total >= 0.8) { // accuracy kept up all week
@@ -735,24 +780,34 @@ export function reviewSummary(state, vocab, now = new Date()) {
 // ---------- battles: what they pay ----------
 export const weeklyRule = (now = new Date()) => WEEKLY_RULES[weekNumber(now) % WEEKLY_RULES.length];
 
+// A battle's own XP comes from the words it made well known (the owner: "The amount battles give in XP should be
+// determined by how many cards are now well known"): WELL_KNOWN_XP for each, on top of BATTLE_XP_FLOOR for a win or a
+// loss, so a battle never pays 0 ("maybe less but not zero"). It doesn't fade with the day's battles: a word becomes
+// well known only after weeks of right answers, so it can't be farmed. (Right answers pay their own 3 XP each.)
+/** The XP a battle pays for each word that became well known in it. */
+export const WELL_KNOWN_XP = 25;
+/** The XP a battle pays on top of that: a win, a loss. */
+export const BATTLE_XP_FLOOR = { won: 3, lost: 1 };
+
 /** A little extra strength from a creature's age, used ONLY against wild creatures and bosses.
  * Battles between people ignore it: there, everyone fights at the same level. */
 export const wildBonus = (genome) => 1 + 0.15 * Math.min(1, genome.growth);
 
 /**
  * Settle a finished battle. `result` = {mode: "wild" | "rental" | "friend", won, flawless,
- * comeback, rival: {id, name, rating}}. Returns {xp, coins, tags, egg, rating, badges, both}.
+ * comeback, rival: {id, name, rating}, wellKnown: words that became well known in it}.
+ * Returns {xp, coins, tags, egg, rating, badges, both}.
  */
 export function finishBattle(state, result, ctx = {}) {
   const now = ctx.now || new Date();
   const rand = ctx.rand || Math.random;
   rollDay(state, now);
-  let share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay
-  const ticket = share < 1 && state.items.ticket > 0; // a battle ticket makes one more pay in full
-  if (ticket) { state.items.ticket--; share = 1; }
+  const share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay coins
   state.day.battles++;
   state.stats.battles++;
-  const out = { xp: Math.round((result.won ? 40 : 15) * share), coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
+  const known = Math.max(0, Math.floor(Number(result.wellKnown)) || 0);
+  const xp = (result.won ? BATTLE_XP_FLOOR.won : BATTLE_XP_FLOOR.lost) + WELL_KNOWN_XP * known;
+  const out = { xp, coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [] };
   if (result.won) {
     state.stats.wins++;
     // Feats in battle, not hours of grinding, open the special forms and moves.
@@ -981,13 +1036,18 @@ export function buy(state, id) {
   state.coins -= it.price;
   state.owned.push(id);
   if (it.slot === "decor") placeDecor(state, id, true);
-  else state.creature.equipped[it.slot] = id; // put it straight on
-  return "";
+  else if (fits(state.creature, it)) state.creature.equipped[it.slot] = id; // put it straight on
+  return ""; // (wings for a creature with its own: kept in the bag, for another creature)
+}
+
+/** Can creature `genome` wear item `it`? Not wings when it has wings of its own (data.canWear). */
+export function fits(genome, it) {
+  try { return canWear(beastOf(genome).id, it); } catch { return true; }
 }
 
 /** Wear an owned item, or pass null to take off whatever is in that slot. */
 export function equip(state, slot, id) {
-  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot)) return;
+  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot || !fits(state.creature, itemById(id)))) return;
   if (id) state.creature.equipped[slot] = id;
   else delete state.creature.equipped[slot];
 }

@@ -161,8 +161,8 @@ const WEARABLES = {
   ],
   back: [
     ["cape_red", "Red cape", 40], ["cape_star", "Star cape", 60, { requires: ["night_owl"] }], ["backpack", "Backpack", 30, { weight_by: { curious: 2 } }],
-    ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"] }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 } }],
-    ["butterfly_wings", "Butterfly wings", 55], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
+    ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"], wings: true }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 }, wings: true }],
+    ["butterfly_wings", "Butterfly wings", 55, { wings: true }], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
     ["quiver", "Quiver", 35], ["balloons", "Bunch of balloons", 30], ["leaf_cloak", "Leaf cloak", 40],
   ],
   shirt: [
@@ -171,6 +171,12 @@ const WEARABLES = {
     ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
   ],
 };
+// The creatures with wings of their own in their drawing (game/art-src-16bit/creatures/_lineup_18_ff.png): they
+// don't wear wings as well (the owner: "wings shouldn't be able to be worn by creatures that already have wings").
+// The wings among the things worn are marked `wings: true` above.
+export const OWN_WINGS = new Set(["chick", "dragon_whelp", "griffin", "winged_fox"]);
+/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except wings when it has its own. */
+export const canWear = (beastId, it) => !(it && it.wings && OWN_WINGS.has(beastId));
 export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
   list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.
@@ -452,7 +458,6 @@ export const FOODS = [
 export const SUPPLIES = [
   { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
   { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
-  { id: "ticket", name: "Battle ticket", gems: 2, text: "One more battle today pays in full, after the first three." },
   { id: "incubator", name: "Incubator", gems: 4, text: "Warms an egg so it grows alongside the creature in your habitat." },
   { id: "key", name: "Plot key", gems: 5, text: "Opens the next building plot without waiting for its milestone." },
   { id: "egg", name: "Mystery egg", gems: 6, icon: "egg_mystery", text: "A new egg for your roster. Its element leans toward how you study." },
@@ -561,7 +566,7 @@ export function artFiles() {
   extra("structure/plot.png", [32, 32]);
   for (const s of STRUCTURES) for (const tier of [1, 2, 3]) extra(`structure/${s.id}_${tier}.png`, tier === 3 ? [48, 48] : [32, 32]);
   for (const f of FOODS) extra(`icon/${f.id}.png`, [16, 16]);
-  for (const id of ["potion", "key", "ticket", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
+  for (const id of ["potion", "key", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
   for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
   for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
   for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);

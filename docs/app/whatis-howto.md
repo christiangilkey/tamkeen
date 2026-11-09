@@ -235,7 +235,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 **Shop and garden**
 - **Shop**: a daily selection of wearables (113 in all: hats, glasses, scarves, necklaces, things to hold, capes, packs and shirts) that fit each creature's shape, in smaller versions for hatchlings, and decorations for the habitat.
 - **Battle moves in the shop**: four battle moves are on offer each day for 40 to 130 coins, bought once and usable by any of your creatures.
-- **The garden**: build buildings that produce while you're away, feed your creatures, and buy supplies such as potions, XP boosts, battle tickets, an incubator for a second egg and mystery eggs.
+- **The garden**: build buildings that produce while you're away, feed your creatures, and buy supplies such as potions, XP boosts, an incubator for a second egg and mystery eggs.
 
 **Battles**
 - **Battles from your own words**: once you've saved 20 words, battles quiz you on your own words.

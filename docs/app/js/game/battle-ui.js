@@ -5,20 +5,26 @@
 // Also here: choosing a rental team, a friend's challenge, and small parts other battle screens share (a move in a
 // few words, a creature's portrait). The battle itself is live (livebattle-ui.js shows it, livebattle.js runs it).
 
-import { api, h, state, toast } from "../app.js";
+import { api, esc, h, state, toast } from "../app.js";
+import * as social from "../social.js";
 import { commonWords } from "../commonwords.js";
 import { studyLanguage } from "../languages.js";
 import { installedMeanings } from "../meanings.js";
 import { dictionaryChoices } from "./dictwords.js";
-import { states } from "../review/deck.js";
+import { plan, states } from "../review/deck.js";
+import { dayNumber } from "../review/fsrs.js";
+import { sortFolders } from "../review/vocabedit.js";
+import { openModal } from "../components/modal.js";
 import { BADGES, BATTLE_UNLOCK_WORDS, LIVE_FORMS, LIVE_STYLE_TEXT, MOVE_STYLES, TYPES, beastById, liveMove } from "./data.js";
 import { describe } from "./genome.js";
 import { t } from "../i18n.js";
 import {
-  LAST_WORDS, battleWords, checkBadges, knownWords, pickQuestion, quizzable, retention, reviewSummary, weekNumber, weeklyRule,
+  LAST_WORDS, MIN_SET, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setWords,
+  weekNumber, weeklyRule,
 } from "./rules.js";
 import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
+import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
 import { FRAME, composeCreature, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -31,7 +37,7 @@ import { block, details, fact, fmt, switcher, tile } from "./screenparts.js";
 import { battleGate, rentalLeft, teamOf, teamSlots, toggleRental, wordChoice } from "./battlescreen.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
-const MODE_NAME = { last100: `Last ${LAST_WORDS} words`, unlimited: "All-time" };
+const MODE_NAME = { last100: `Last ${LAST_WORDS} words`, unlimited: "All-time", due: "Due for review", folder: "A folder" };
 
 /** A move in a few words, each translated on its own: "Strike · Power 45 · Shot" (how it works in a live
  * battle: livebattle.js, data.liveMove). `extra` replaces the power for moves that don't attack. */
@@ -57,16 +63,23 @@ export function portrait(genome, size = 72) {
   return c;
 }
 
+let folderList = []; // the Vocab page's folders ({uid, name}, in its order), for battles from one folder
+
 /** The saved words, and how many of them the owner knows (remembered in the flashcards, or well
- * known from battles). The count is kept in the game, so friends' all-time battles can use it. */
+ * known from battles). The count is kept in the game, so friends' all-time battles can use it. The list
+ * also notes which words the flashcards have due for review now (rules.js markDue), for "due" battles. */
 async function loadWords(game) {
   let vocab = [];
   let log = {};
   try { vocab = await api("/vocab"); } catch { /* shown as zero words */ }
   try { log = (await api("/reviews")).reviews || {}; } catch { /* counted from battles only */ }
-  const learned = new Set([...states(log)].filter(([, card]) => card && card.known).map(([uid]) => uid));
+  try { folderList = sortFolders(await api("/vocab/folders")); } catch { folderList = []; }
+  const cards = states(log);
+  const learned = new Set([...cards].filter(([, card]) => card && card.known).map(([uid]) => uid));
   game.known = knownWords(game, vocab, learned);
   game.cards = vocab.length; // an all-time battle scales with every card saved (livebattle.js cardScale)
+  // (due: the reviewer's own "due", the words whose wait is over; words never reviewed aren't among them)
+  markDue(vocab, new Set(plan(vocab, cards, dayNumber(), 0).due.map((v) => String(v.uid || v.id))));
   return vocab;
 }
 
@@ -81,22 +94,139 @@ function factCells(list) {
   return box;
 }
 
-/** The choice of words for battles: a switch of two, and what the one chosen means, in facts that keep their place.
- * `meanings`: saved words with a meaning (what can be asked); `dueOf(mode)`: how many of the words that choice asks
- * are due (shown when given). */
-export function wordModePicker(game, onChange = () => {}, { meanings = 0, dueOf = null } = {}) {
+/**
+ * How to challenge a friend (challenge.js): battle their team with my words as usual, or challenge them on one of my
+ * folders (only when we study the same language, `same`). The folder's words go to them in a message; then my battle
+ * starts. Resolves { words, folder } for a folder challenge (already sent), {} for a usual battle, null if closed.
+ */
+export function challengeChoice(friend, name, same) {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = (v) => { if (!done) { done = true; resolve(v); } };
+    const m = openModal({ title: t("Challenge {0}", name), cls: "bt-folder-back", onClose: () => finish(null) });
+    const list = h(`<div class="bt-folder-list"></div>`);
+    const option = (iconName, title, sub) => {
+      const b = h(`<button type="button" class="bt-folder bt-choice">${lineIcon(iconName, 18)}<span class="bt-folder-name"><strong></strong><span class="bt-choice-sub"></span></span></button>`);
+      b.querySelector("strong").textContent = title;
+      b.querySelector(".bt-choice-sub").textContent = sub;
+      list.append(b);
+      return b;
+    };
+    option("game", t("Battle their team"), t("With your battle words, as usual.")).onclick = () => { finish({}); m.close(); };
+    const fold = option("folder", t("Challenge them on a folder"), same
+      ? t("Pick one of your folders: you both battle with its words. They get the words in your chat.")
+      : t("Only with a friend who studies the same language as you."));
+    fold.disabled = !same;
+    fold.onclick = async () => {
+      fold.disabled = true;
+      const game = getGame();
+      const vocab = await loadWords(game);
+      list.replaceChildren();
+      m.setTitle(t("Challenge {0} on which folder?", name));
+      const note = h(`<p class="bt-folder-note muted"></p>`);
+      note.textContent = folderList.length ? t("A folder needs at least {0} words with a meaning.", CHALLENGE_MIN)
+        : t("No folders yet. Make one on the Vocab page and put at least {0} words in it.", CHALLENGE_MIN);
+      for (const f of folderList) {
+        const words = folderWords(vocab, f.uid);
+        const ok = words.length >= CHALLENGE_MIN;
+        const b = h(`<button type="button" class="bt-folder">${lineIcon("folder", 18)}<span class="bt-folder-name"></span><span class="bt-folder-n"></span></button>`);
+        b.querySelector(".bt-folder-name").textContent = f.name;
+        b.querySelector(".bt-folder-n").textContent = ok ? t("{0} words", fmt(words.length)) : t("{0} of {1} words", fmt(words.length), fmt(CHALLENGE_MIN));
+        b.disabled = !ok;
+        b.onclick = async () => {
+          for (const x of list.querySelectorAll("button")) x.disabled = true;
+          try {
+            await social.sendChallenge(friend.id, { folder: f.name, words, language: studyLanguage() });
+          } catch (e) {
+            toast(e.message, { error: true });
+            for (const x of list.querySelectorAll("button")) x.disabled = false;
+            return;
+          }
+          toast(t("Challenge sent: {0} can battle your team with “{1}”.", name, f.name));
+          finish({ words, folder: f.name });
+          m.close();
+        };
+        list.append(b);
+      }
+      list.before(note);
+      list.querySelector(".bt-folder:not(:disabled)")?.focus({ preventScroll: true });
+    };
+    m.body.append(list);
+    list.querySelector(".bt-folder:not(:disabled)")?.focus({ preventScroll: true }); // (for the controller)
+  });
+}
+
+/** The choice of words for battles: a switch of four (the newest 100, all-time, the words due for review in the
+ * flashcards, one folder's), and what the one chosen means, in facts that keep their place. A folder (or the words
+ * due) counts once MIN_SET of its words have a meaning (the owner: "the folder must contain at least 20 words");
+ * until then battles ask the newest words, and a line says so. `vocab`: the saved words (loadWords: with the ones
+ * due marked); `folders`: the Vocab page's, in its order. */
+export function wordModePicker(game, onChange = () => {}, { vocab = [], folders = [] } = {}) {
   const box = h(`<div class="bt-words"></div>`);
+  const meanings = quizzable(vocab).length;
+  const due = vocab.reviewDue || null;
+  const sizeOf = (mode, folder = game.battleFolder) => setWords(vocab, mode, { due, folder }).length;
+  const folderOf = (uid) => folders.find((f) => f.uid === uid) || null;
+  const choose = (mode) => { game.battleMode = mode; saveGame(); paint(); onChange(); };
+
+  /** The folders to choose from, each with how many of its words can be asked; one with fewer than MIN_SET can't be chosen. */
+  function pickFolder() {
+    const m = openModal({ title: t("Battle words from a folder"), cls: "bt-folder-back" });
+    const list = h(`<div class="bt-folder-list"></div>`);
+    const note = h(`<p class="bt-folder-note muted"></p>`);
+    note.textContent = folders.length ? t("A folder needs at least {0} words with a meaning.", MIN_SET)
+      : t("No folders yet. Make one on the Vocab page and put at least {0} words in it.", MIN_SET);
+    for (const f of folders) {
+      const n = sizeOf("folder", f.uid);
+      const ok = n >= MIN_SET;
+      const on = f.uid === game.battleFolder && game.battleMode === "folder";
+      const b = h(`<button type="button" class="bt-folder${on ? " on" : ""}" aria-pressed="${on}">${lineIcon(on ? "check" : "folder", 18)}<span class="bt-folder-name"></span><span class="bt-folder-n"></span></button>`);
+      b.querySelector(".bt-folder-name").textContent = f.name;
+      b.querySelector(".bt-folder-n").textContent = ok ? t("{0} words", fmt(n)) : t("{0} of {1} words", fmt(n), fmt(MIN_SET));
+      b.disabled = !ok;
+      b.onclick = () => { game.battleFolder = f.uid; m.close(); choose("folder"); };
+      list.append(b);
+    }
+    m.body.append(note, list);
+    (list.querySelector(".bt-folder.on") || list.querySelector(".bt-folder:not(:disabled)"))?.focus({ preventScroll: true }); // (for the controller)
+  }
+
   const paint = () => {
-    const w = wordChoice(game.battleMode, { meanings, scale: cardScale(game.cards || 0) });
+    const set = game.battleMode === "due" || game.battleMode === "folder";
+    const w = wordChoice(game.battleMode, { meanings, scale: cardScale(game.cards || 0), setSize: set ? sizeOf(game.battleMode) : 0 });
     const sw = switcher(WORD_MODES.map((id) => ({ id, word: MODE_NAME[id] })), w.mode, (id) => {
-      game.battleMode = id; saveGame(); paint(); onChange();
+      // A folder chosen before (with enough words) comes straight back; else the list of folders opens.
+      if (id === "folder" && !(folderOf(game.battleFolder) && sizeOf("folder") >= MIN_SET)) { pickFolder(); return; }
+      choose(id);
     }, "bt-seg");
-    const cells = [
-      fact("Questions from", w.all ? t("All {0} words", fmt(w.questions)) : t("Newest {0}", fmt(w.questions))),
+    const parts = [sw];
+    const folder = w.set === "folder" ? folderOf(game.battleFolder) : null;
+    if (w.set === "folder") {
+      const pick = h(`<button type="button" class="bt-folder-pick" title="Choose another folder">${lineIcon("folder", 18)}<span></span>${lineIcon("chevron", 16)}</button>`);
+      pick.querySelector("span").textContent = folder ? folder.name : t("Choose a folder");
+      pick.onclick = pickFolder;
+      parts.push(pick);
+    }
+    const from = w.all ? t("All {0} words", fmt(w.questions))
+      : w.set === "due" && !w.short ? t("{0} due for review", fmt(w.questions))
+      : w.set === "folder" && !w.short ? t("{0} in the folder", fmt(w.questions))
+      : t("Newest {0}", fmt(w.questions));
+    parts.push(factCells([
+      fact("Questions from", esc(from)),
       fact("Strength", w.all ? `×${w.strength.toFixed(2)}` : t("Same for all")),
-    ];
-    if (dueOf) cells.push(fact("Words due", fmt(dueOf(w.mode))));
-    box.replaceChildren(sw, factCells(cells));
+      fact("Words due", fmt(reviewSummary(game, battleWordsFor(vocab, game)).due)),
+    ]));
+    if (w.short) {
+      const line = h(`<p class="bt-words-note muted"></p>`);
+      const dueNow = w.set === "due" ? sizeOf("due") : 0;
+      line.textContent = w.set === "due"
+        ? dueNow ? t("Only {0} words are due for review. Battles need {1}, so until then they ask your newest words.", fmt(dueNow), fmt(MIN_SET))
+          : t("No words are due for review right now. Battles need {0}, so until then they ask your newest words.", fmt(MIN_SET))
+        : folder ? t("“{0}” has fewer than {1} words with a meaning now, so battles ask your newest words.", folder.name, fmt(MIN_SET))
+        : t("Choose a folder with at least {0} words.", fmt(MIN_SET));
+      parts.push(line);
+    }
+    box.replaceChildren(...parts);
   };
   paint();
   return box;
@@ -269,7 +399,7 @@ function rentalBox(game, vocab, close) {
 
 function wordsBlock(game, vocab) {
   const b = block("Words");
-  b.append(wordModePicker(game, () => {}, { meanings: quizzable(vocab).length, dueOf: (mode) => reviewSummary(game, battleWords(vocab, mode)).due }));
+  b.append(wordModePicker(game, () => {}, { vocab, folders: folderList }));
   return b;
 }
 
@@ -326,7 +456,7 @@ export function battleHelp(game, go, opts = {}) {
  * and answer as accurately as their owner usually answers their own words. You answer yours.
  * In an all-time battle each side is as strong as the cards its owner has saved.
  */
-export async function startFriendBattle(friend, row) {
+export async function startFriendBattle(friend, row, { words = null, folder = null } = {}) {
   const game = getGame();
   // Their team came from their device: only the checked copy fights (remote.js), whoever called this.
   const profile = cleanProfile(row) || cleanProfile({});
@@ -335,7 +465,10 @@ export async function startFriendBattle(friend, row) {
   const vocab = await loadWords(game);
   saveGame();
   if (vocab.length < BATTLE_UNLOCK_WORDS) { toast(`Battles unlock at ${BATTLE_UNLOCK_WORDS} saved words. You have ${vocab.length}.`); return; }
-  if (!pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
+  // A folder challenge (challenge.js): its words, the player's own copy of each where they have one
+  const set = words ? challengeWords(words, vocab) : null;
+  if (set && set.length < CHALLENGE_MIN) { toast(t("This challenge has fewer than {0} words with a meaning.", CHALLENGE_MIN)); return; }
+  if (!set && !pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
   const mineIdx = teamOf(game, rule);
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
   const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
@@ -346,7 +479,7 @@ export async function startFriendBattle(friend, row) {
   const theirCards = Number(theirTeam[0].cards ?? theirTeam[0].known) || 0;
   for (const f of theirs) f.name = f.name || rivalName;
   runLiveBattle({ mine, theirs, mode: "friend", rule, foeForm: Number(profile.form) || 0.7, cards: { me: vocab.length, foe: Math.min(100000, theirCards) },
-    rival: { id: friend.id, name: rivalName, rating: profile.rating } }, vocab);
+    rival: { id: friend.id, name: rivalName, rating: profile.rating }, ...(set ? { words: set, folder: String(folder || "").slice(0, 80) } : {}) }, vocab);
 }
 
 export function badgeToast(id) {

@@ -4,8 +4,8 @@
 //    with the XP towards the next level, the level's number in the middle. When XP lands it flies in from where
 //    it was earned, the badge bounces and shows "+12" for a moment in its own space; a pixel flame sits on it
 //    while the study session's combo is alive. A tap opens a small card: the level, the XP in all, what the next
-//    level needs, the combo, and "Open the game". Home has the game's own level bar, so there the badge keeps its
-//    place but doesn't show.
+//    level needs, the combo, and "Open the game". It shows on Home too (the owner: it "disappears on the home
+//    screen for whatever reason"), though Home's game card has a level bar of its own.
 //  - The line in a word's popup (components/wordbubble.js keeps an empty slot for it): what that lookup, or the
 //    Save after it, earned ("+12 XP  10 ×1.2"), and the next lookup's multiplier while the combo is on.
 // game.js calls landXp after each reward; what the texts say is worked out in xpline.js.
@@ -26,8 +26,9 @@ let inFlight = 0; // XP icons on their way to the badge
 const reduced = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 const fmt = (n) => Number(n || 0).toLocaleString();
 const loaded = () => !!(app.status && app.status.settings);
-/** Home (the game card has its own level bar) and the first-run screens: the badge keeps its place, unseen. */
-const away = () => !location.hash || /^#\/?(\?|$)/.test(location.hash) || /^#\/(welcome|setup)/.test(location.hash);
+const onHome = () => !location.hash || /^#\/?(\?|$)/.test(location.hash);
+/** The first-run screens: the badge keeps its place, unseen. */
+const away = () => /^#\/(welcome|setup)/.test(location.hash);
 
 function ring(cls, size) {
   return `<svg class="${cls}" viewBox="0 0 36 36" width="${size}" height="${size}" aria-hidden="true">
@@ -224,7 +225,7 @@ function placeCard(card) {
 
 /** Home, scrolled to the game card at its bottom. */
 function openGame() {
-  if (!away()) location.hash = "#/";
+  if (!onHome()) location.hash = "#/";
   let tries = 0;
   const find = () => {
     const el = document.querySelector(".habitat");

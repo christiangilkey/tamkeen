@@ -16,9 +16,10 @@ export const FAST_MS = 5000;       // answer correctly within this and the combo
 export const QUESTION_MS = 12000;  // after this the question counts as missed
 export const COMBO = [1, 1.2, 1.5, 2]; // the chain's multiplier on the next move; the last step is a "surge"
 export const TEAM_SIZE = 3;
-// The two kinds of battle by the words they ask: the 100 most recent words (the same for everyone),
-// or every word saved in the language, with creatures as strong as how many words are known.
-export const WORD_MODES = ["last100", "unlimited"];
+// The kinds of battle by the words they ask: the 100 most recent words (the same for everyone), every word
+// saved in the language (with creatures as strong as how many words are known), the words the flashcards have
+// due for review, or one folder's words (these two at the same strength for everyone, as the newest 100).
+export const WORD_MODES = ["last100", "unlimited", "due", "folder"];
 /** How much stronger creatures are in an Unlimited battle, by words known: x1 at none, x1.25 at
  * 100, x1.5 at 300, x1.75 at 700, and never more than x2. */
 export const knownScale = (known) => Math.min(2, 1 + 0.25 * Math.log2(1 + Math.max(0, Number(known) || 0) / 100));
