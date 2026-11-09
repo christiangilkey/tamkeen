@@ -6527,6 +6527,7 @@ Owner: 10 gym leaders to fight, each harder than the last; beating one opens the
   words, never signed in; and the phone build `mobile/www` in a plain tab): menu entry, list at 800x600 and 375x812, in
   Spanish, Pip's battle with the 6-second bar, a win with the reward lines, "Battle again" → Pip beaten, Marin open,
   progress kept after a reload (phone build). Not tried: a person playing the later gyms, a real phone, a controller.
+- **Owner's decisions** (2026-11-08, Decisions #46, #47): keep this difficulty (Zenith ~22% at 80% right) and the champion's 3.5 s a question.
 
 ## Latin (la): a language to learn (2026-11-02, on main; "Add Latin as a language to learn" chat)
 Owner: "lets also add the latin language". A **learning** language only: it is in `LANGUAGES` (web/js/languages.js,
@@ -7732,6 +7733,8 @@ language whatever else Wiktionary's page gives that would help.
 - **Chinese** measure words came inside the meaning ("friend (Classifier: 個／个 m c; 位 m c)"): moved to a
   "classifier" form (Mandarin ones), the meaning cleaned. **Persian** words from Arabic name the Arabic root, from the
   category or from the etymology's Arabic word looked up in ar-meanings (`arabic_roots`), so run ar before fa.
+- **Romance subjunctive** (es pt it ca fr, the owner's wish): the "I" form of the present and imperfect subjunctive
+  from the conjugation table (`SUBJUNCTIVE_I`), labelled "present subjunctive (yo)"; the headword line has none.
 - **Updating the files:** `build_meanings.py --grammar <langs>` reads Wiktionary again but only adds the grammar
   line and roots to the files already in docs/lexicon (gaps filled, numbers and translations stay). Fresh builds
   include it too. Devices fetch the changed files by themselves (checksum in docs/lexicon/index.json).
