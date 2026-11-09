@@ -3113,6 +3113,10 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .bt-words { display: flex; flex-direction: column; gap: 10px; }
 .segmented.bt-seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; max-width: none; }
 .segmented.bt-seg .seg-btn { min-width: 0; padding: 4px 8px; line-height: 1.2; white-space: normal; text-align: center; }
+/* (blue, so each reads as a button: the owner. The one chosen is the solid brand teal, the others its pale tint.) */
+.segmented.bt-seg .seg-btn, .segmented.bt-seg .seg-btn:hover:not(:disabled):not(.on) { background: var(--accent-soft); color: var(--accent); }
+.segmented.bt-seg .seg-btn:hover:not(:disabled):not(.on) { filter: brightness(1.12); }
+.segmented.bt-seg .seg-btn.on, .segmented.bt-seg .seg-btn.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
 .bt-folder-pick { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 44px; padding: 0 14px; border: 0; border-radius: 12px;
   background: var(--surface-2); color: var(--text); font-weight: 600; }
 .gs-block .bt-folder-pick, .gs-block .bt-folder-pick:hover:not(:disabled) { background: var(--surface); }  /* (as the facts under it) */
