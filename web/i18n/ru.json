@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Модель огласовок есть на этом компьютере ({0} МБ). {1}",
 "Downloading the vowel model… {0}%":"Скачивается модель огласовок… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Для арабских огласовок нужна модель огласовок ({0} МБ, литературный арабский). {1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"Генератор мнемоник ставит ударение в словах бисайя так, как в словаре Вольфа: palit — pa-LIT, hatag — HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"Окно слова показывает грамматику каждого слова: существительное или глагол, род, арабский корень и формы множественного числа, а также важные формы глагола, например испанское сослагательное наклонение",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"Слова тагальского показывают корень и аффикс, а глаголы тагальского и бисайя — свои формы фокуса",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"Новые однотонная и полосатая футболки, и каждая футболка повторяет свет и тень вашего существа",

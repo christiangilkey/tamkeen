@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Le modèle de voyelles est sur cet ordinateur ({0} Mo). {1}",
 "Downloading the vowel model… {0}%":"Téléchargement du modèle de voyelles… {0} %",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Les voyelles de l'arabe nécessitent un modèle de voyelles ({0} Mo, arabe standard). {1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"Le Créateur de mnémoniques accentue les mots bisayas là où le fait le dictionnaire de Wolff : palit se dit pa-LIT, hatag HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"La fenêtre du mot montre la grammaire de chaque mot : nom ou verbe, genre, la racine arabe et les pluriels, et des formes verbales clés comme le subjonctif espagnol",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"Les mots tagalogs montrent leur racine et leur affixe, et les verbes tagalogs et bisayas leurs formes de focus",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"Nouveaux t-shirts uni et rayé, et chaque t-shirt suit la lumière et l'ombre de ta créature",

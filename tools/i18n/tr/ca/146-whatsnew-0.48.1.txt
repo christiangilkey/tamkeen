@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	El Creador de mnemotècnies accentua les paraules en bisaya on ho fa el diccionari de Wolff: palit és pa-LIT, hatag HA-tag

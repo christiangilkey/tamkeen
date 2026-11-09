@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	Il Generatore di mnemotecniche accentua le parole bisaya dove lo fa il dizionario di Wolff: palit è pa-LIT, hatag HA-tag

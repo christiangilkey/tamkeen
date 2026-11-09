@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	O Criador de mnemônicos acentua as palavras em bisaya onde o dicionário de Wolff acentua: palit é pa-LIT, hatag HA-tag

@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	Der Eselsbrücken-Macher betont Bisaya-Wörter so wie Wolffs Wörterbuch: palit ist pa-LIT, hatag HA-tag

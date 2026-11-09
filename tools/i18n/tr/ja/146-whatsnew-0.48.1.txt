@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	語呂合わせメーカーがビサヤ語の単語にウォルフの辞書どおりのアクセントを置きます：palit は pa-LIT、hatag は HA-tag

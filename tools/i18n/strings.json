@@ -21920,6 +21920,11 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "06fe9926",
+  "k": "The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "0bc57068",
   "k": "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive",
   "f": "web/js/whatsnew.js"

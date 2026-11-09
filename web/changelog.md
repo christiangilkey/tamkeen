@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.48.1 — 2026-11-08
+
 - **Improved:** The free Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is said pa-LIT, hatag HA-tag, mipalit mi-pa-LIT. Where Wolff spells a word two ways, the card's meaning picks one (bása "read", basà "wet"). This is for words Wiktionary has no pronunciation for, once the Bisaya dictionary is downloaded.
 
 ## v0.48.0 — 2026-11-08

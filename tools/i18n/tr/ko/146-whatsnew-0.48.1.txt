@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	기억법 만들기가 비사야어 단어의 강세를 울프 사전대로 둬요: palit은 pa-LIT, hatag은 HA-tag

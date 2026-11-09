@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	Ang Mnemonic maker mobutang sa diin sa mga pulong sa Bisaya diin gibutang kini sa diksiyonaryo ni Wolff: ang palit kay pa-LIT, ang hatag HA-tag

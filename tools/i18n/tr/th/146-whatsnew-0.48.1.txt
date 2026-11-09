@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	ตัวช่วยจำลงเสียงหนักในคำภาษาบิซายาตามพจนานุกรมของวูล์ฟ: palit คือ pa-LIT, hatag คือ HA-tag

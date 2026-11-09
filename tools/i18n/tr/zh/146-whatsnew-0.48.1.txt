@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	谐音助记生成器按 Wolff 词典给宿务语单词标重音：palit 读作 pa-LIT，hatag 读作 HA-tag

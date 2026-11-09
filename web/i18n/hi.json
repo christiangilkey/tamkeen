@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ मात्रा मॉडल इस कंप्यूटर पर है ({0} MB)।{1}",
 "Downloading the vowel model… {0}%":"मात्रा मॉडल डाउनलोड हो रहा है… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"अरबी मात्रा-चिह्नों के लिए मात्रा मॉडल चाहिए ({0} MB, मानक अरबी)।{1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"याद-सहायक बनाने वाला बिसाया शब्दों पर वहीं ज़ोर देता है जहाँ वुल्फ़ का शब्दकोश देता है: palit है pa-LIT, hatag है HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"शब्द पॉपअप हर शब्द का व्याकरण दिखाता है: संज्ञा या क्रिया, लिंग, अरबी मूल और बहुवचन, और ख़ास क्रिया रूप जैसे स्पेनिश सबजंक्टिव",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"तागालोग शब्द अपना मूल और प्रत्यय दिखाते हैं, और तागालोग व बिसाया क्रियाएँ अपने फ़ोकस रूप",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"नई सादी और धारीदार कमीज़ें, और हर कमीज़ आपके जीव की रोशनी और छाया के साथ चलती है",

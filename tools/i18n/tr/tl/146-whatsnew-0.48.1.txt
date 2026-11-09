@@ -1,0 +1,2 @@
+# What's new 0.48.1 (web/js/whatsnew.js).
+06fe9926	Inilalagay ng Gawa ng mnemonic ang diin sa mga salitang Bisaya kung saan ito inilalagay ng diksiyonaryo ni Wolff: ang palit ay pa-LIT, ang hatag ay HA-tag

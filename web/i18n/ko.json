@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 모음 모델이 이 컴퓨터에 있어요({0} MB).{1}",
 "Downloading the vowel model… {0}%":"모음 모델 다운로드하는 중… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"아랍어 모음 부호에는 모음 모델이 필요해요({0} MB, 표준 아랍어).{1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"기억법 만들기가 비사야어 단어의 강세를 울프 사전대로 둬요: palit은 pa-LIT, hatag은 HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"단어 팝업에 각 단어의 문법이 나와요: 명사인지 동사인지, 성, 아랍어 어근과 복수형, 스페인어 접속법 같은 주요 동사형",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"타갈로그어 단어는 어근과 접사를, 타갈로그어와 비사야어 동사는 초점 형태를 보여 줘요",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"새 무지 셔츠와 줄무늬 셔츠, 그리고 모든 셔츠가 크리처의 빛과 그림자를 따라가요",
