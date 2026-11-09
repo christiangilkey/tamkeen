@@ -2,7 +2,7 @@
 // How much audio the "Word" button plays (web/js/wordclip.js).
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { estimateSeconds, syllables, wordClip } from "../../web/js/wordclip.js";
+import { clipEnded, estimateSeconds, syllables, wordClip } from "../../web/js/wordclip.js";
 
 test("syllables are counted from the letters in each script", () => {
   assert.equal(syllables("simplemente", "es"), 4);
@@ -37,4 +37,21 @@ test("it never plays most of the next word", () => {
 test("the last word of a transcript isn't capped", () => {
   const [, to] = wordClip({ starts: [1], ends: [1.1], texts: ["simplemente"], i: 0, lang: "es" });
   assert.ok(to > 1.8);
+});
+
+test("a tapped word plays before it pauses, though the phone tells the time a moment late", () => {
+  // The reel was at 10 s; the word tapped runs 3.0-3.5 s (clip 2.95-3.58).
+  const clip = () => ({ from: 2.95, end: 3.58, at: 1000, there: false });
+  const c = clip();
+  assert.equal(clipEnded(c, 10, 1050), false, "a report from before the jump: not the end of the word");
+  assert.equal(clipEnded(c, 3.1, 1170), false, "inside the word: it plays");
+  assert.equal(clipEnded(c, 3.6, 1700), true, "past the word: now it pauses");
+  // A word ahead of where the reel was works as before.
+  const ahead = { from: 12, end: 12.6, at: 0, there: false };
+  assert.equal(clipEnded(ahead, 12.2, 100), false);
+  assert.equal(clipEnded(ahead, 12.7, 700), true);
+  // No report from inside the word ever came (a very short word): it still ends, after 1.5 s.
+  const quick = clip();
+  assert.equal(clipEnded(quick, 10, 1100), false);
+  assert.equal(clipEnded(quick, 3.7, 2600), true);
 });

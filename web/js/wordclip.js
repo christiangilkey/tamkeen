@@ -57,3 +57,15 @@ export function wordClip({ starts, ends, texts, i, j = i, lang = "" }) {
   }
   return [from, to];
 }
+
+/**
+ * Has a clip (a tapped word or sentence) ended, on a player that reports its time a moment late? The
+ * phone's reel view is asked for its time every 120 ms (ReelSurface.java), so a report from before the
+ * jump back to the word still has the later place, and ending the clip on it paused the reel before the
+ * word had played. So the clip only ends once a report from inside it has come (or after `wait` ms, if
+ * none ever does). `clip` = { from, end, at (when it was asked for), there }; `there` is kept on it.
+ */
+export function clipEnded(clip, t, now = Date.now(), wait = 1500) {
+  if (!clip.there) clip.there = (t >= clip.from - 0.3 && t < clip.end) || now - clip.at > wait;
+  return clip.there && t >= clip.end;
+}

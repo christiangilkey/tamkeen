@@ -23,7 +23,7 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
-import { wordClip } from "../wordclip.js";
+import { clipEnded, wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { actionHeld, buttonsMenu, controllerArea } from "../gamepad.js";
@@ -541,6 +541,7 @@ async function renderPlayer(view, { query }) {
           </span>
           <span class="rc-side" id="rc-right"></span>
         </div>
+  let clip = { from: 0, end: 0, at: 0, there: false }; // the word or sentence being played (wordclip.js clipEnded)
       </div>
     </div>`));
   const $ = (sel) => view.querySelector(sel);
@@ -682,7 +683,8 @@ async function renderPlayer(view, { query }) {
   function playClip(start, end) {
     if (!surface) return;
     clipEnd = pauseAfterWord() ? end + 0.08 : null;
-    surface.do("seek", Math.max(0, start - 0.05));
+    clip = { from: Math.max(0, start - 0.05), end: end + 0.08, at: Date.now(), there: false };
+    surface.do("seek", clip.from);
     surface.do("play");
   }
 
@@ -877,7 +879,10 @@ async function renderPlayer(view, { query }) {
       return;
     }
     if (cur) {
-      if (clipEnd !== null && s.t >= clipEnd) { clipEnd = null; surface.do("pause"); }
+      // The phone tells the reel's time a moment late: a report from before the jump back to a tapped word
+      // must not end it before it has played (the owner: tapping a word should "play the sound of that word
+      // and stop it"). wordclip.js clipEnded waits for a report from inside the clip.
+      if (clipEnd !== null && clipEnded(clip, s.t)) { clipEnd = null; surface.do("pause"); }
       setActive(activeWordIndex(cur.starts, cur.ends, s.t, 1.5));
     }
     if (s.ends > seenEnds) {
