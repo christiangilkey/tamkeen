@@ -14,6 +14,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.48.1 — 2026-11-08
+
+- **Improved:** The free Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is said pa-LIT, hatag HA-tag, mipalit mi-pa-LIT. Where Wolff spells a word two ways, the card's meaning picks one (bása "read", basà "wet"). This is for words Wiktionary has no pronunciation for, once the Bisaya dictionary is downloaded.
+
 ## v0.48.0 — 2026-11-08
 
 - **New:** The word popup's dictionary (Wiktionary) answers show the word's grammar: noun, verb or adjective; gender; and its key forms, such as an Arabic broken plural, a verb's present tense and verbal noun, a Spanish, Portuguese, Italian, Catalan or French verb's present and imperfect subjunctive, a German genitive and plural, a Latin verb's principal parts, a Russian verb's other aspect, a Chinese measure word, or a Thai or Korean counter word. Arabic words now show their root, and Persian words borrowed from Arabic show the Arabic root. This shows in Quick mode too. Downloaded dictionaries update by themselves.

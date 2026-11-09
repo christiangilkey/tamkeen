@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 母音モデルはこのパソコンにあります（{0} MB）。{1}",
 "Downloading the vowel model… {0}%":"母音モデルをダウンロード中… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"アラビア語の母音記号には母音モデルが必要です（{0} MB、標準アラビア語）。{1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"語呂合わせメーカーがビサヤ語の単語にウォルフの辞書どおりのアクセントを置きます：palit は pa-LIT、hatag は HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"単語ポップアップに文法が表示されます：名詞か動詞か、性、アラビア語の語根と複数形、スペイン語の接続法などの大事な動詞の形",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"タガログ語の単語は語根と接辞を、タガログ語とビサヤ語の動詞は焦点の形を表示します",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"新しい無地としましまのシャツ。どのシャツもクリーチャーの光と影に合わせて見えます",

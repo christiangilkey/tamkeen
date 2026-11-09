@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ โมเดลสระอยู่ในคอมพิวเตอร์เครื่องนี้แล้ว ({0} MB){1}",
 "Downloading the vowel model… {0}%":"กำลังดาวน์โหลดโมเดลสระ… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"เครื่องหมายสระภาษาอาหรับต้องใช้โมเดลสระ ({0} MB ภาษาอาหรับมาตรฐาน){1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"ตัวช่วยจำลงเสียงหนักในคำภาษาบิซายาตามพจนานุกรมของวูล์ฟ: palit คือ pa-LIT, hatag คือ HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"ป๊อปอัปคำแสดงไวยากรณ์ของแต่ละคำ: คำนามหรือคำกริยา เพศ รากศัพท์ภาษาอาหรับและรูปพหูพจน์ และรูปคำกริยาสำคัญอย่างรูปสมมุติของภาษาสเปน",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"คำภาษาตากาล็อกแสดงรากศัพท์และหน่วยเติม และคำกริยาภาษาตากาล็อกกับบิซายาแสดงรูปโฟกัส",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"เสื้อเรียบและเสื้อลายทางแบบใหม่ และเสื้อทุกตัวจะมีแสงและเงาตามตัวสัตว์ของคุณ",

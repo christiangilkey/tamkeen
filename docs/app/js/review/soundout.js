@@ -110,10 +110,43 @@ const betweenVowels = (s, i, n, v) => i > 0 && v.includes(s[i - 1]) && v.include
 const atEnd = (s, i, n) => i + n >= s.length || !/\p{L}/u.test(s[i + n]);
 const atStart = (s, i) => i === 0 || !/\p{L}/u.test(s[i - 1]);
 
-// Stress by the usual rule of the language, given the syllables (as IPA) and the written word.
-function placeStress(syl, lang, word) {
+// Bisaya in Wolff's spelling (lexicon/meaningdata.js wolffSpelling), by his introduction, 3.0-3.22. Only his spelling
+// shows which vowels are long, so his rule is used only for it (today's spelling keeps the penult rule below).
+
+/** Wolff's spelling to IPA: a grave says a glottal stop follows its vowel (bàbà is baʔbaʔ, walà walaʔ), and two vowels
+ * side by side have one between them (maáyo is maʔayo, kaon kaʔon); his other marks only say where the stress is.
+ * Two consonants between vowels belong to two syllables, even dl, br, pl (tudlò is tud.loʔ, its penult closed). */
+function wolffIpa(spelled) {
+  const s = String(spelled).normalize("NFD").toLowerCase()
+    .replace(/([aeiou])(\p{M}*)/gu, (all, v, marks) => v + (marks.includes("̀") ? "ʔ" : ""))
+    .replace(/\p{M}/gu, "") // (above: a grave; here every other mark goes)
+    .replace(/([aeiou])(?=[aeiou])/g, "$1ʔ");
+  return rules(s, TAGALOG).replace(/([aeiou][pbtdkgfv])([ɾl])(?=[aeiou])/g, "$1.$2");
+}
+
+/** Which syllable Wolff's spelling stresses: the long vowel's (his acute: hátag, lamísa, maáyo), or a last one his wedge
+ * marks (mandǎr); else the last but one when it is closed (tan-aw, bàbà, bantay) and the last when it is open and short
+ * (palit, mala, walà). A phrase's stress is its last word's, as for other languages. */
+function wolffStress(syl, spelled) {
   const n = syl.length;
   if (n < 2) return -1;
+  const words = String(spelled).normalize("NFD").toLowerCase().split(/\s+/).filter(Boolean);
+  const last = words.pop() || "";
+  const before = (words.join(" ").match(/[aeiou]/g) || []).length; // (each vowel is a syllable: maáyo is ma-a-yo)
+  let v = -1;
+  for (const ch of last) {
+    if (/[aeiou]/.test(ch)) v++;
+    else if ((ch === "́" || ch === "̌") && v >= 0) return Math.min(n - 1, before + v); // (acute, wedge)
+  }
+  return VOWEL.test(syl[n - 2].slice(-1)) ? n - 1 : n - 2;
+}
+
+// Stress by the usual rule of the language, given the syllables (as IPA) and the written word. `wolff`: a Bisaya word
+// in Wolff's spelling (wolffStress).
+function placeStress(syl, lang, word, { wolff = false } = {}) {
+  const n = syl.length;
+  if (n < 2) return -1;
+  if (lang === "ceb" && wolff) return wolffStress(syl, word);
   const accent = /[áéíóúàèìòùâêô]/;
   if (["es", "it", "pt", "ca", "tl", "ceb", "la"].includes(lang)) {
     // A written accent says where the stress is: count the vowel groups up to it.
@@ -368,8 +401,8 @@ export function spellingIpa(text, lang) {
 /**
  * How the word is said, with no AI: {romanization, ipa, syllables, stress, from} like mnemonic.js
  * readPronunciation's, or null. `ipa` is Wiktionary's when the examples file has the word (from: "wiktionary"),
- * `reading` what the app's dictionaries give (kana, pinyin, a romanization; Arabic with vowel marks), else the
- * spelling is read by the language's rules (from: "rules").
+ * `reading` what the app's dictionaries give (kana, pinyin, a romanization; Arabic with vowel marks; Bisaya in Wolff's
+ * spelling, examples.js freePronunciation), else the spelling is read by the language's rules (from: "rules").
  */
 export function pronunciationOf({ word, lang, ipa = "", reading = "" }) {
   const w = String(word ?? "").trim();
@@ -378,16 +411,18 @@ export function pronunciationOf({ word, lang, ipa = "", reading = "" }) {
   if (said.startsWith("py:")) { said = pinyinIpa(said.slice(3)); from = "wiktionary"; }
   if (lang === "la") said = said.replace(/ʷ/g, "w");  // (aqua: kw, not k)
   if (lang === "ja") said = said.replace(/ɨ/g, "ɯ").replace(/ɴ/g, "n");  // (Wiktionary writes Japanese u as a barred i)
+  // A Bisaya reading is Wolff's spelling (the app has no other): his marks and his stress rule (wolffStress).
+  const wolff = lang === "ceb" && /\p{Script=Latin}/u.test(reading);
   if (!said) {
     from = "rules";
     const source = lang === "ar" || lang === "fa" ? (reading || w) : (reading || w);
-    said = spellingIpa(source, lang);
+    said = wolff ? wolffIpa(reading) : spellingIpa(source, lang);
   }
   if (!said) return null;
   const cut = syllabify(said);
   if (!cut.syllables.length) return null;
   let stress = cut.stress;
-  if (stress < 0 && from === "rules") stress = placeStress(cut.syllables.map((s) => s.ipa), lang, reading && /\p{Script=Latin}/u.test(reading) ? reading : w);
+  if (stress < 0 && from === "rules") stress = placeStress(cut.syllables.map((s) => s.ipa), lang, reading && /\p{Script=Latin}/u.test(reading) ? reading : w, { wolff });
   // Japanese, Chinese and Korean have no word stress to show.
   if (["ja", "zh", "ko"].includes(lang)) stress = -1;
   return { romanization: cut.syllables.map((s) => s.text).join(""), ipa: said.replace(/^\/|\/$/g, ""), syllables: cut.syllables, stress, from };

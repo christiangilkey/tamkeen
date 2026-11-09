@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ مدل اعراب روی این رایانه است ({0} مگابایت).{1}",
 "Downloading the vowel model… {0}%":"در حال دانلود مدل اعراب… {0}٪",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"اعراب عربی به یک مدل اعراب نیاز دارد ({0} مگابایت، عربی فصیح).{1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"سازندهٔ یادیار تکیهٔ واژه‌های بیسایا را همان‌جا می‌گذارد که فرهنگ وولف می‌گذارد: palit می‌شود pa-LIT و hatag می‌شود HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"پنجرهٔ واژه دستور هر واژه را نشان می‌دهد: اسم یا فعل، جنس، ریشهٔ عربی و جمع‌ها، و صورت‌های مهم فعل مثل وجه التزامی اسپانیایی",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"واژه‌های تاگالوگ ریشه و وند خود را نشان می‌دهند، و فعل‌های تاگالوگ و بیسایا صورت‌های تمرکزشان را",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"پیراهن‌های ساده و راه‌راه تازه، و هر پیراهن نور و سایهٔ موجودت را دنبال می‌کند",

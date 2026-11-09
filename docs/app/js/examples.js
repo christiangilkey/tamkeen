@@ -12,6 +12,7 @@ import { lexemeOf } from "./lexicon/words.js";
 import { pronunciationOf } from "./review/soundout.js";
 import { soundCore } from "./review/wordcore.js";
 import { matchKey } from "./lexicon/meaningdata.js";
+import { wolffReading } from "./meanings.js";
 import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
 import { judgeOwn } from "./review/ownmnemonic.js";
 import { englishSounds } from "./review/mnemonic.js";
@@ -101,7 +102,8 @@ export async function freeExample(word, lang, { meaning = "", dialect = courseDi
 
 /**
  * How `word` is said, with no AI (review/soundout.js), using Wiktionary's IPA from the examples file when
- * it has the word and `reading` (what the app's dictionaries know: kana, pinyin, vowel marks) otherwise.
+ * it has the word and `reading` (what the app's dictionaries know: kana, pinyin, vowel marks) otherwise; for Bisaya
+ * that is Wolff's spelling, looked up here (meanings.js wolffReading, never downloaded).
  * `download` false: the examples file only when it is here already (else the spelling rules).
  */
 export async function freePronunciation(word, lang, reading = "", meaning = "", dialect = courseDialect(lang), { download = true, core = null } = {}) {
@@ -109,7 +111,12 @@ export async function freePronunciation(word, lang, reading = "", meaning = "", 
   // Only the word's own part is matched: الكتاب is said kitaab here, "der Hund, -e" Hund (review/wordcore.js). The
   // result says what was left out (`core`); `core` given = worked out already (wordCoreOf).
   const c = core || soundCore(word, lang, { isWord: knowsWord(p, lang), reading });
-  const pron = pronunciationOf({ word: c.core, lang, ipa: p ? p.ipaOf(c.core, { verb: /^\s*to\s/i.test(meaning), dialect }) : "", reading: c.reading });
+  const ipa = p ? p.ipaOf(c.core, { verb: /^\s*to\s/i.test(meaning), dialect }) : "";
+  // Bisaya with no IPA from Wiktionary: Wolff's spelling (his dictionary, when it is on this device) is the reading, and
+  // says where the stress goes (palit is palít, hatag hátag: review/soundout.js reads a Bisaya reading as his).
+  let said = c.reading;
+  if (lang === "ceb" && !ipa && !said) said = await wolffReading(c.core, meaning).catch(() => "");
+  const pron = pronunciationOf({ word: c.core, lang, ipa, reading: said });
   return pron && { ...pron, core: c };
 }
 

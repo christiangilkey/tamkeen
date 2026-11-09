@@ -4382,6 +4382,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 元音模型已在这台电脑上（{0} MB）。{1}",
 "Downloading the vowel model… {0}%":"正在下载元音模型… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"阿拉伯语元音符号需要元音模型（{0} MB，标准阿拉伯语）。{1}",
+"The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag":"谐音助记生成器按 Wolff 词典给宿务语单词标重音：palit 读作 pa-LIT，hatag 读作 HA-tag",
 "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive":"单词弹窗会显示每个词的语法：名词还是动词、性、阿拉伯语词根和复数，以及重要的动词形式，比如西班牙语的虚拟式",
 "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms":"他加禄语单词会显示词根和词缀，他加禄语和宿务语动词会显示焦点形式",
 "New Plain and Striped shirts, and every shirt follows your creature's light and shadow":"新的素色衫和条纹衫，每件衣服都会随你的生物的光影变化",
