@@ -238,7 +238,7 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **The garden**: build buildings that produce while you're away, feed your creatures, and buy supplies such as potions, XP boosts, battle tickets, an incubator for a second egg and mystery eggs.
 
 **Battles**
-- **Battles from your own words**: once you've saved 100 words, battles quiz you on your own words.
+- **Battles from your own words**: once you've saved 20 words, battles quiz you on your own words.
 - **Live arena battles**: your creature runs around a big arena made fresh for each battle (meadows, forests, shores, deserts, volcanoes, caves, ruins, night fields or snow), with a small map and an arrow pointing to your rival.
 - **Move how you like**: move with a controller's stick or D-pad, W A S D or the arrow keys, by clicking or holding the mouse, or by dragging a finger.
 - **Every move asks a word**: each of your four moves (shown as banners placed like a controller's X Y A B buttons) pauses the battle for a word question with a 5-second bar, where a right answer lands the move, quick ones build a combo, and a wrong or slow one fails.

@@ -84,7 +84,7 @@ export function publicProfile(state, rule, now = new Date()) {
            xp_day: dayKey(now), xp_today: state.day.key === dayKey(now) ? Math.max(0, Math.round(state.day.xp || 0)) : 0,
            showcase: fav ? { seed: fav.seed, type: fav.type, growth: Math.round(fav.growth * 1000) / 1000,
                              variant: fav.variant || null, partnerHue: fav.partnerHue, show: fav.show || null,
-                             name: (fav.name || "").slice(0, 20) } : null };
+                             name: (fav.name || "").slice(0, 20), equipped: fav.equipped || {} } : null }; // worn items too: friends see it as on Home
 }
 
 /** A friend's XP for "today". Days start at each player's own midnight, so a number counts while
@@ -107,6 +107,7 @@ export function showcaseGenome(profile) {
   made.show = g.show; // (an "adult" from a device on an older version is dropped: there are none now)
   if (g.partnerHue !== undefined) made.partnerHue = g.partnerHue;
   made.name = g.name;
+  made.equipped = g.equipped || {}; // (only real items, each in its own slot: remote.js cleanEquipped)
   return made;
 }
 

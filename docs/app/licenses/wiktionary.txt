@@ -23,6 +23,11 @@ CC-CEDICT's character table (CC BY-SA 4.0). The Hindi file also keeps the forms 
 table and its romanization (written the way the app writes readings), and gives Hindi's postpositions of more
 than one word (के लिए "for") to their main word; see hindi-sources.txt.
 
+The Tagalog file also keeps each word's root from its etymology and conjugation table, a verb's affix,
+focus (Wiktionary's trigger) and the forms of its conjugation table, with which verb and form each is
+(sinulat: "object focus, complete aspect of sulatin"); some verb forms and their roots come from the
+UD_Tagalog-NewsCrawl treebank (CC BY-SA 4.0). See tagalog-sources.txt.
+
 The German word table and common-word list also take a few facts from the German entries: which spellings
 the 1996 reform replaced, which are Switzerland's, and how often each word is written with a capital in the
 entries' example sentences (see german-sources.txt). The German meanings file keys ß as ss, so today's

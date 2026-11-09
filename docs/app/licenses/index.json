@@ -126,5 +126,10 @@
   "name": "Latin word forms and common words, from Wiktionary and Project Gutenberg counts (optional download)",
   "license": "CC BY-SA 4.0",
   "file": "latin-sources.txt"
+ },
+ {
+  "name": "Tagalog roots and verb forms, from Wiktionary and UD_Tagalog-NewsCrawl (optional download)",
+  "license": "CC BY-SA 4.0",
+  "file": "tagalog-sources.txt"
  }
 ]

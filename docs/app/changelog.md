@@ -14,6 +14,17 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.48.0 — 2026-11-08
+
+- **New:** The word popup's dictionary (Wiktionary) answers show the word's grammar: noun, verb or adjective; gender; and its key forms, such as an Arabic broken plural, a verb's present tense and verbal noun, a Spanish, Portuguese, Italian, Catalan or French verb's present and imperfect subjunctive, a German genitive and plural, a Latin verb's principal parts, a Russian verb's other aspect, a Chinese measure word, or a Thai or Korean counter word. Arabic words now show their root, and Persian words borrowed from Arabic show the Arabic root. This shows in Quick mode too. Downloaded dictionaries update by themselves.
+- **New:** Tagalog words in the word popup show their root (kumain: kain), the affix that made them (-um-) and, for verbs, their focus (actor, object, directional ...) and main forms: the other aspects (kumakain, kakain) and the same verb's other focuses (kainin, kainan, ikain). A form with no entry of its own, such as sinulat or nagluluto, now shows its verb and says which form it is ("object focus, complete aspect of sulatin"), and tapping a root such as sulat lists its verbs. Tagalog words are also matched to their root more often (tumayo, kinuha, darating). From Wiktionary and the UD_Tagalog-NewsCrawl treebank. Downloaded dictionaries update by themselves.
+- **New:** Bisaya verbs show their main forms in the word popup, from Wolff's dictionary: the form for who does it (mokaon, mikaon), for what it is done to (kan-on, gikaon) and one more (kan-an, gikan-an), each as future then past. About 12,000 verbs have them, spelled as Wolff's own examples and today's Bisaya writing show them, and verbs of becoming are marked "stative" (malipay, nalipay).
+- **Changed:** Battles unlock at **20** saved words instead of 100.
+- **Fixed:** Your creature on Friends now wears everything it wears on Home. Its stage and colour already matched.
+- **Improved:** New **Plain** and **Striped** shirt designs. Every shirt now keeps the creature's light and shadow, so it looks like cloth on the body instead of a flat patch.
+- **Changed:** Library → + → **Podcast** opens Trending in your language straight away. The box for pasting a feed address is there too, but no longer starts out selected for typing.
+- **Fixed:** The review screen no longer runs off the right edge of the phone, which cut off the card and the Remembered button, mostly with large system text. *(Android)*
+
 ## v0.47.1 — 2026-11-08
 
 - **Fixed:** Signing in with Google on the welcome screen now takes you straight to Home, instead of leaving you on the welcome screen with only a "Signed in" message. *(web app)*

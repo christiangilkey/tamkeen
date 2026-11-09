@@ -410,12 +410,15 @@ export function lookUp(files, keys, word, lang, { rank, initial = true } = {}) {
   }
   // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
   // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
-  // loanword "baton", where Wolff has báton "have, possess").
+  // loanword "baton", where Wolff has báton "have, possess"). Tagalog: the word itself first when the file
+  // has it as a verb or a verb's form (bumibili: "actor focus, progressive aspect of bumili"), then its root.
   const bare = String(word || "").replace(EDGE_PUNCT, "").toLowerCase();
   if ((lang === "ceb" || lang === "tl") && keys.length > 1 && VERB_AFFIX.test(bare)) {
+    const isVerb = (hit) => hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g));
     for (const data of files) {
-      const hit = data && findIn(data, keys.slice(1));
-      if (hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g))) {
+      const own = lang === "tl" && data && findIn(data, keys.slice(0, 1));
+      const hit = isVerb(own) ? own : data && findIn(data, keys.slice(1));
+      if (isVerb(hit)) {
         const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
         return { ...hit, groups: verbsFirst, source: data.source };
       }
@@ -473,6 +476,19 @@ export function lookUp(files, keys, word, lang, { rank, initial = true } = {}) {
 }
 
 /** The popup's answer (the shape definer.js gives) for what findIn found for `word`. */
+/** {grammar: ["masculine", ...], forms: [{label, form, said}, ...]} from a meaning group's fifth item, checked
+ *  (the file came from the network): only short strings, at most a few of each. */
+export function grammarOf(info) {
+  const str = (x, max) => (typeof x === "string" && x.trim() && x.length <= max ? x.trim() : "");
+  if (!Array.isArray(info)) return { grammar: [], forms: [] };
+  const grammar = (Array.isArray(info[0]) ? info[0] : []).map((w) => str(w, 60)).filter(Boolean).slice(0, 4);
+  const forms = (Array.isArray(info[1]) ? info[1] : [])
+    .filter((r) => Array.isArray(r) && str(r[0], 60) && str(r[1], 60))
+    .slice(0, 6)
+    .map((r) => ({ label: r[0].trim(), form: r[1].trim(), said: str(r[2], 60) }));
+  return { grammar, forms };
+}
+
 export function answerFrom(found, word, lang, { quick = false, language = "English", source = "" } = {}) {
   if (found.parts) return compoundAnswer(found, word, { quick, language, source });
   const dict = dictionaryName(source);
@@ -499,6 +515,9 @@ export function answerFrom(found, word, lang, { quick = false, language = "Engli
     lemma: lang === "de" ? germanLemma : same ? "" : first[0],
     root,
     pos: first[1] || "",
+    // What Wiktionary's headword line says (tools/build_meanings.py grammar_info): gender, aspect, verb form
+    // or class, and the word's principal forms (an Arabic broken plural, a verb's non-past, a counter word).
+    ...grammarOf(first[4]),
     morphology: formOf,
     meaning,
     // No note: the popup's source switch (top right) already says it is the dictionary (the owner).

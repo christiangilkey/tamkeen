@@ -412,7 +412,7 @@ export const WEEKLY_RULES = [
   { id: "cool", name: "Tide, Grove and Dusk", text: "Only Tide, Grove and Dusk creatures.", types: ["tide", "grove", "dusk"] },
   { id: "solo", name: "One on one", text: "Teams of one." , team: 1 },
 ];
-export const BATTLE_UNLOCK_WORDS = 100; // saved vocab words needed before battles open
+export const BATTLE_UNLOCK_WORDS = 20; // saved vocab words needed before battles open (the owner: "Unlock battling at 20 words")
 
 // ---------- the garden ----------
 // Buildings that make glow (rules in idle.js). `rate` is glow an hour at tier 1, `cost` the glow to

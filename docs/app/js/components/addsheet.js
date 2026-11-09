@@ -6,7 +6,7 @@
 // saved sites and news sites, all on one screen), a video or audio file of your own, Instagram
 // reels, and audiobooks (components/audiobooksheet.js: your own files, and LibriVox's free books).
 
-import { api, esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
+import { esc, h, platform, toast, openNetflix, openYouTube, netflixSupport } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
 import { extensionLink, extensionStore, storeButtonText, unavailableText } from "../netflix.js";
@@ -16,7 +16,7 @@ import { openModal } from "./modal.js";
 import { audiobookStep } from "./audiobooksheet.js";
 
 const WAYS = [
-  { key: "podcast", label: "Podcast", icon: "podcast", text: "Paste a feed address, or choose from what's trending", step: true },
+  { key: "podcast", label: "Podcast", icon: "podcast", text: "What's trending in your language, or paste a feed address", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
   { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },
@@ -26,6 +26,11 @@ const WAYS = [
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
 ];
+
+/** Ways that are a screen of their own. Podcast opens Trending, which starts loading at once, with
+ *  the feed-address box there too (the owner: it "should automatically start loading the trending in the
+ *  language podcasts" and not put the learner straight into typing in the RSS box). */
+const GO_TO = { page: "#/sites", reels: "#/reels", podcast: "#/discover" };
 
 /** The way to add that goes with each kind of thing the Library shows (its tabs on the left): the +
  * button opens straight on it (the owner: "it should just bring the add content page that corresponds
@@ -43,7 +48,7 @@ export const WAY_FOR_KIND = {
  */
 export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
   if (start === "video" || start === "audio") { pickFile(start); return; } // still inside the tap
-  if (start === "reels" || start === "page") { location.hash = start === "page" ? "#/sites" : "#/reels"; return; }
+  if (GO_TO[start]) { location.hash = GO_TO[start]; return; }
   const sheet = openModal({ title: "Add to your library" });
   const { body } = sheet;
   sheet.el.querySelector(".modal-box").classList.add("add-sheet");
@@ -71,9 +76,9 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
       pickFile(key); // still inside the tap, so the phone lets the file chooser open
       return;
     }
-    if (key === "reels" || key === "page") { // a screen of its own: no step in between
+    if (GO_TO[key]) { // a screen of its own: no step in between
       sheet.close();
-      location.hash = key === "page" ? "#/sites" : "#/reels";
+      location.hash = GO_TO[key];
       return;
     }
     step(key);
@@ -89,8 +94,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
     body.append(back);
     const box = h(`<div class="aw-step"></div>`);
     body.append(box);
-    if (key === "podcast") podcastStep(box);
-    else if (key === "youtube") youtubeStep(box);
+    if (key === "youtube") youtubeStep(box);
     else if (key === "netflix") netflixStep(box);
     else if (key === "audiobook") audiobookStep(box, { sheet, lang, langName, addFiles: addAudiobookFiles });
     else bookStep(box);
@@ -111,26 +115,6 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
       button.disabled = false;
       button.innerHTML = label;
     }
-  }
-
-  function podcastStep(box) {
-    box.append(h(`<form class="aw-form">
-        <input type="url" placeholder="Paste a podcast's RSS feed address" required autocomplete="off" aria-label="Podcast RSS feed address">
-        <button class="primary" type="submit">Add podcast</button>
-      </form>`),
-    h(`<div class="aw-or">or</div>`),
-    h(`<a class="btn aw-wide" href="#/discover" title="Podcasts popular right now in the language you're studying, sorted by topic">
-        ${icon("trending", 18)} Trending in ${esc(langName)}</a>`));
-    box.querySelector("a").onclick = () => sheet.close();
-    const form = box.querySelector("form");
-    form.onsubmit = (e) => {
-      e.preventDefault();
-      run(form.querySelector("button"), "Adding…", async () => {
-        const feed = await api("/feeds", { method: "POST", body: { url: form.querySelector("input").value } });
-        toast(`Subscribed to ${feed.title}`);
-        location.hash = `#/feed/${feed.id}`;
-      });
-    };
   }
 
   /** YouTube: a menu of topics (youtube-home.js TOPICS), each opening YouTube on the most-watched

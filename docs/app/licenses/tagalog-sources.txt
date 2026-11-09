@@ -1,0 +1,26 @@
+Tagalog roots and verb forms (optional downloads)
+
+The Tagalog word popup shows a word's root (kumain: kain), its affix (-um-), its verb focus (actor, object,
+directional, benefactive, locative ...) and its aspect forms (complete, progressive, contemplative), and the
+root finder (web/js/lexicon/tagalog.js) knows the roots of about 10,000 verb forms. They come from:
+
+1. The English Wiktionary (https://en.wiktionary.org), written by the Wiktionary contributors and extracted
+   by Wiktextract (Tatu Ylonen, https://github.com/tatuylonen/wiktextract; data from https://kaikki.org):
+   each Tagalog entry's etymology ("From kain + -um-"), the trigger in its headword line ("1st actor
+   trigger") and its conjugation table, and the derived terms listed under a root. Wiktionary's text is
+   available under the Creative Commons Attribution-ShareAlike 4.0 International License
+   (https://creativecommons.org/licenses/by-sa/4.0/) and the GNU Free Documentation License; see
+   wiktionary.txt.
+
+2. UD_Tagalog-NewsCrawl (https://github.com/UniversalDependencies/UD_Tagalog-NewsCrawl), a Universal
+   Dependencies treebank of Tagalog news text from the Leipzig Tagalog Corpus, annotated by Angelina Aquino,
+   corrected by hand following guidelines by Elsie Marie Or, Maria Bardaji Farre and Nikolaus Himmelmann,
+   and checked by Lester James Miranda, with many student annotators; made possible by the Deutsche
+   Forschungsgemeinschaft (DFG). Licensed under the Creative Commons Attribution-ShareAlike 4.0
+   International License (https://creativecommons.org/licenses/by-sa/4.0/). Only its word-level
+   annotations are used (each word form, its lemma, which is the root, its part of speech and its
+   Voice, Aspect and Mood features), for the roots of verb forms and for which focus and aspect a verb form
+   is; none of its sentences are kept.
+
+The files made from them (docs/lexicon/tl-meanings.json.gz and tl-roots.json.gz, by tools/build_meanings.py
+--grammar tl) are shared under the same CC BY-SA 4.0 license.

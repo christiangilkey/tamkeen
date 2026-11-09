@@ -26,10 +26,10 @@ const EXAMPLE_ESTIMATE = 2500000;
 // Reading the text in a photo ("Add words" → Scan, web/js/ocr.js): Tesseract and each language's trained
 // data, for the study language and the learner's own ("es+en"), as app/lexicon.py names_for.
 const namesFor = (lang, kind) => (OCR_CORES[kind] ? ocrNames(lang, kind) : (KINDS[kind] || LANGUAGES)[lang] || []);
-const MEANING_ESTIMATE = { ar: 3000000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 950000, ja: 3300000, zh: 6000000,
-  pt: 4900000, ca: 2000000, ceb: 3600000, th: 650000, fa: 560000, hi: 1400000, ko: 1400000, la: 8200000 };
+const MEANING_ESTIMATE = { ar: 3000000, es: 7300000, fr: 4500000, it: 6300000, ru: 6000000, en: 20000000, tl: 2600000, ja: 3300000, zh: 6000000,
+  pt: 4900000, ca: 2000000, ceb: 3800000, th: 650000, fa: 560000, hi: 1400000, ko: 1400000, la: 8200000 };
 // Sizes to show before anything has been fetched (the real ones come with the file list).
-const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 120000, ja: 11400000, zh: 1900000,
+const ESTIMATE = { ar: 3300000, es: 1000000, fr: 700000, it: 700000, ru: 2400000, en: 600000, tl: 180000, ja: 11400000, zh: 1900000,
   pt: 1100000, ca: 900000, ceb: 260000, th: 190000, fa: 110000, hi: 400000, ko: 230000, la: 3100000 };
 
 // (A different address can be set for testing a build before the files are published.)
