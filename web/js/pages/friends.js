@@ -15,7 +15,7 @@ import { openModal } from "../components/modal.js";
 import { icon } from "../icons.js";
 import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
-import { publishNow } from "../game/friends-game.js";
+import { battleFriend, publishNow } from "../game/friends-game.js";
 import { lastStreak } from "../review/flame.js";
 import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
@@ -420,7 +420,9 @@ export async function render(view) {
         const row = itemRow({
           lead: avatar(f.user, { online: online(f.user.id) }), name: f.user.username, tags: tags.get(f.user.id) || [],
           status: statusOf(f.user.id), statusOn: online(f.user.id), game: games.get(f.user.id), streak: true,
-          actions: [messageAct(f.user.id), iconButton("userminus", "Remove friend", async () => {
+          // Battle: the choice of battle (their team as usual, or a folder challenge), then the battle (friends-game.js).
+          actions: [messageAct(f.user.id), ...(gameOn() ? [iconButton("game", "Battle", () => battleFriend(f.user))] : []),
+            iconButton("userminus", "Remove friend", async () => {
             if (!(await confirmBox(`Remove ${f.user.username}?`, `${f.user.username} will no longer be on your friends list. You can add each other again later.`,
               { ok: "Remove", danger: true }))) return;
             await social.removeFriendship(f.id);

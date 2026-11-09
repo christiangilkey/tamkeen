@@ -9,7 +9,7 @@ import * as social from "../social.js";
 import { BOSSES, LEAGUES } from "./data.js";
 import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
 import { publicProfile, showcaseGenome } from "./battle.js";
-import { challengeChoice, portrait } from "./battle-ui.js";
+import { challengeChoice, portrait, startFriendBattle } from "./battle-ui.js";
 import { canChallenge } from "./challenge.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
@@ -285,6 +285,21 @@ function raidBlock(game, me, guild, profiles, now, week, changed) {
     b.append(btn);
   } else if (r.down) b.append(h(`<p class="gs-state muted">${icon("clock")}<span>Reward claimed. A new boss arrives on Monday.</span></p>`));
   return b;
+}
+
+/**
+ * The Battle button on each friend on the Friends tab (pages/friends.js): the same choice as the league's Challenge
+ * (battle their team as usual, or challenge them on one of my folders), then the battle (the owner: "a battle button
+ * on each friend", with "the selector for all the different battle types"). `user` = { id, username }, a friend.
+ */
+export async function battleFriend(user) {
+  let profile = null;
+  try { profile = cleanProfiles(await social.gameProfiles([user.id])).get(user.id) || null; } // (from their device: checked, remote.js)
+  catch (e) { toast(e.message, { error: true }); return; }
+  if (!profile || !profile.team || !profile.team.length) { toast("They haven't opened the game online yet"); return; }
+  const name = cleanName(user.username, 40) || "A friend";
+  const pick = await challengeChoice(user, name, canChallenge(profile, hasStudyLanguage() ? studyLanguage() : null));
+  if (pick) startFriendBattle(user, profile, pick);
 }
 
 /**
