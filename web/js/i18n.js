@@ -38,26 +38,26 @@ export const UI_LANGUAGES = {
 export const UI_LANGUAGE_CODES = Object.keys(UI_LANGUAGES);
 export const isUiLanguage = (code) => Object.prototype.hasOwnProperty.call(UI_LANGUAGES, code);
 
-/** The question "Which language do you speak?" in every language, for the very first box
+/** The question "What is your native language?" in every language (the owner's wording), for the very first box
  * (shown before the app knows which one to use). */
 export const SPEAK_QUESTION = {
-  en: "Which language do you speak?",
-  es: "¿Qué idioma hablas?",
-  ar: "ما اللغة التي تتحدثها؟",
-  fr: "Quelle langue parlez-vous ?",
-  ja: "あなたが話す言語はどれですか？",
-  zh: "你说哪种语言？",
-  ru: "На каком языке вы говорите?",
-  it: "Che lingua parli?",
-  tl: "Anong wika ang sinasalita mo?",
-  pt: "Que idioma você fala?",
-  ca: "Quina llengua parles?",
-  ceb: "Unsang pinulongan ang imong ginasulti?",
-  th: "คุณพูดภาษาอะไร",
-  de: "Welche Sprache sprichst du?",
-  fa: "به چه زبانی صحبت می‌کنید؟",
-  hi: "आप कौन-सी भाषा बोलते हैं?",
-  ko: "어떤 언어를 사용하세요?",
+  en: "What is your native language?",
+  es: "¿Cuál es tu lengua materna?",
+  ar: "ما لغتك الأم؟",
+  fr: "Quelle est votre langue maternelle ?",
+  ja: "あなたの母語は何ですか？",
+  zh: "你的母语是什么？",
+  ru: "Какой ваш родной язык?",
+  it: "Qual è la tua lingua madre?",
+  tl: "Ano ang iyong katutubong wika?",
+  pt: "Qual é a sua língua materna?",
+  ca: "Quina és la teva llengua materna?",
+  ceb: "Unsa ang imong lumad nga pinulongan?",
+  th: "ภาษาแม่ของคุณคือภาษาอะไร",
+  de: "Was ist deine Muttersprache?",
+  fa: "زبان مادری شما چیست؟",
+  hi: "आपकी मातृभाषा क्या है?",
+  ko: "모국어가 무엇인가요?",
 };
 
 // ---------- the rules (pure: also run by the extractor on its own small copy of the page) ----------

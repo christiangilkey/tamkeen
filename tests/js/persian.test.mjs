@@ -28,7 +28,7 @@ test("Persian is a language of its own: right to left, in Arabic letters, and an
   assert.equal(LANGUAGES.fa.native, "فارسی");
   assert.equal(langAttrs("fa"), 'lang="fa" dir="rtl"');
   assert.equal(UI_LANGUAGES.fa.dir, "rtl");
-  assert.match(SPEAK_QUESTION.fa, /زبانی/);
+  assert.match(SPEAK_QUESTION.fa, /زبان مادری/);
   assert.ok(usesDictionaries("fa") && !needsDictionaries("fa"), "a word table helps, but Persian works without one");
 });
 
