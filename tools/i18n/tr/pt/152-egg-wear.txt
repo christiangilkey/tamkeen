@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Só para o visual. Ovos só usam chapéus e asas, então isto vai para a sua bolsa até o seu ovo chocar.
+cf3d3c22	Ovos só usam chapéus e asas. Sua criatura pode usar isto quando o ovo chocar.
+6da58d68	Ovos usam um chapéu e asas. O resto espera até eles chocarem.

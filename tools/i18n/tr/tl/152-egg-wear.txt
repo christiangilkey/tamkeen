@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Pang-itsura lang. Sumbrero at pakpak lang ang naisusuot ng itlog, kaya mapupunta ito sa bag mo hanggang mapisa ang itlog mo.
+cf3d3c22	Sumbrero at pakpak lang ang naisusuot ng itlog. Maisusuot ito ng nilalang mo kapag napisa na.
+6da58d68	Nakasuot ang itlog ng sumbrero at pakpak. Maghihintay ang iba hanggang mapisa ito.

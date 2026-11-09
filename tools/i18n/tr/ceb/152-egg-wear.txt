@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Para sa hitsura ra. Kalo ug pako ra ang masul-ob sa itlog, busa moadto kini sa imong bag hangtod mapusa ang imong itlog.
+cf3d3c22	Kalo ug pako ra ang masul-ob sa itlog. Masul-ob kini sa imong linalang kung mapusa na.
+6da58d68	Ang itlog makasul-ob og kalo ug pako. Ang uban maghulat hangtod mapusa.

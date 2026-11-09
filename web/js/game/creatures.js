@@ -9,7 +9,7 @@ import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter } from "./battle.js";
 import { portrait } from "./battle-ui.js";
-import { icon } from "./render.js";
+import { eggPicture, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { saveGame } from "./game.js";
 import { gift, publishNow } from "./friends-game.js";
@@ -70,10 +70,10 @@ function list(body, game, changed) {
   body.append(block);
 }
 
-/** A creature's picture: its portrait, or its egg. */
+/** A creature's picture: its portrait, or its egg (in its hat and wings, when it wears them). */
 function picture(g, size, eggSize) {
   if (!isEgg(g)) return portrait(g, size);
-  return h(`<img class="cr-egg" alt="" width="${eggSize}" height="${eggSize}" src="${ART}egg/${TYPES[g.type] ? g.type : "ember"}.png">`);
+  return eggPicture(g, eggSize);
 }
 
 /** One creature's entry, as blocks. `back` adds the way back to the grid. */

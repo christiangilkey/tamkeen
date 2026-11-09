@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Juste pour le style. Les œufs ne portent que des chapeaux et des ailes : ça va dans ton sac jusqu'à ce que ton œuf éclose.
+cf3d3c22	Les œufs ne portent que des chapeaux et des ailes. Ta créature pourra le porter une fois éclose.
+6da58d68	Les œufs portent un chapeau et des ailes. Le reste attend qu'ils éclosent.

@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Només per a l'aspecte. Els ous només porten barrets i ales, així que va a la bossa fins que l'ou surti.
+cf3d3c22	Els ous només porten barrets i ales. La teva criatura s'ho podrà posar quan surti de l'ou.
+6da58d68	Els ous porten un barret i ales. La resta espera fins que surtin de l'ou.

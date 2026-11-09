@@ -316,7 +316,7 @@ test("a creature with wings of its own doesn't wear wings as well (the owner's r
   assert.deepEqual([...OWN_WINGS].sort(), ["chick", "dragon_whelp", "griffin", "winged_fox"], "the four with wings in their drawing");
   assert.ok([...OWN_WINGS].every((id) => BEASTS.some((b) => b.id === id)));
   assert.deepEqual(CATALOG.filter((it) => it.wings).map((it) => it.id).sort(), ["back/angel_wings", "back/bat_wings", "back/butterfly_wings"]);
-  const kind = (id) => { for (let seed = 1; seed < 5000; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === id) return { ...g, equipped: {} }; } return null; };
+  const kind = (id) => { for (let seed = 1; seed < 5000; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === id) return { ...g, growth: 0.3, equipped: {} }; } return null; };
   const fox = kind("winged_fox"), cat = kind("cat");
   const s = newState(7);
   s.roster = [fox, cat];
@@ -337,4 +337,37 @@ test("a creature with wings of its own doesn't wear wings as well (the owner's r
   const loaded = normalize(JSON.parse(JSON.stringify(s)));
   assert.equal(loaded.roster[0].equipped.back, undefined);
   assert.equal(loaded.roster[1].equipped.back, "back/butterfly_wings");
+});
+
+test("an egg wears a hat and wings, and nothing else (the owner: because that's funny)", async () => {
+  const { eggCanWear, itemById } = await import("../../web/js/game/data.js");
+  const { beastOf } = await import("../../web/js/game/genome.js");
+  const { buy, equip, wearProblem } = await import("../../web/js/game/rules.js");
+  assert.equal(eggCanWear(itemById("hat/cap")), true);
+  assert.equal(eggCanWear(itemById("back/bat_wings")), true);
+  assert.equal(eggCanWear(itemById("back/cape_red")), false, "a cape waits until it hatches");
+  assert.equal(eggCanWear(itemById("face/glasses") || itemById("neck/ribbon")), false);
+  // An egg that will hatch into a winged fox still wears wings: an egg has none of its own.
+  let fox = null;
+  for (let seed = 1; seed < 5000 && !fox; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === "winged_fox") fox = { ...g, growth: 0, equipped: {} }; }
+  assert.equal(stageOf(fox.growth).id, "egg");
+  assert.equal(wearProblem(fox, itemById("back/butterfly_wings")), "");
+  assert.equal(wearProblem(fox, itemById("neck/ribbon")), "egg");
+  const s = newState(9);
+  s.roster = [fox];
+  s.active = 0;
+  s.coins = 500;
+  assert.equal(buy(s, "hat/cap"), "");
+  assert.equal(fox.equipped.hat, "hat/cap", "a hat goes straight on the egg");
+  assert.equal(buy(s, "back/butterfly_wings"), "");
+  assert.equal(fox.equipped.back, "back/butterfly_wings", "and wings");
+  assert.equal(buy(s, "neck/ribbon"), "");
+  assert.equal(fox.equipped.neck, undefined, "a ribbon goes in the bag");
+  equip(s, "neck", "neck/ribbon");
+  assert.equal(fox.equipped.neck, undefined, "and can't be put on the egg");
+  // Hatched into a winged fox, its own wings win: the worn ones come off when the game loads.
+  fox.growth = 0.3;
+  const loaded = normalize(JSON.parse(JSON.stringify(s)));
+  assert.equal(loaded.roster[0].equipped.back, undefined);
+  assert.equal(loaded.roster[0].equipped.hat, "hat/cap", "its hat stays on");
 });

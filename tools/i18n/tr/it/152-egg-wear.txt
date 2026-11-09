@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Solo estetico. Le uova indossano solo cappelli e ali, quindi va nella borsa finché il tuo uovo non si schiude.
+cf3d3c22	Le uova indossano solo cappelli e ali. La tua creatura potrà indossarlo quando si schiude.
+6da58d68	Le uova indossano un cappello e le ali. Tutto il resto aspetta che si schiudano.

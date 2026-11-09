@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Nur für den Look. Eier tragen nur Hüte und Flügel, also kommt es in deine Tasche, bis dein Ei schlüpft.
+cf3d3c22	Eier tragen nur Hüte und Flügel. Dein Wesen kann es tragen, sobald es geschlüpft ist.
+6da58d68	Eier tragen einen Hut und Flügel. Alles andere wartet, bis sie schlüpfen.

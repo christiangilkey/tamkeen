@@ -1,0 +1,4 @@
+# Eggs wear a hat and wings, nothing else (game/shop.js).
+119e110a	Solo estético. Los huevos solo llevan sombreros y alas, así que va a tu bolsa hasta que tu huevo eclosione.
+cf3d3c22	Los huevos solo llevan sombreros y alas. Tu criatura podrá ponérselo cuando eclosione.
+6da58d68	Los huevos llevan un sombrero y alas. Todo lo demás espera hasta que eclosionen.
