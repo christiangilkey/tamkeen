@@ -1,0 +1,3 @@
+# Creatures with wings of their own don't wear wings (game/shop.js).
+64b10b10	Juste pour le style. Ta créature a déjà ses propres ailes : celles-ci vont dans ton sac pour une autre créature.
+71464994	Ta créature a déjà ses propres ailes, elle ne peut donc pas porter celles-ci. Une autre de tes créatures le peut.

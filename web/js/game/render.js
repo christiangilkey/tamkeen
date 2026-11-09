@@ -3,7 +3,7 @@
 // animated by nudging layers a pixel or two (the head dips, the near legs lift, the eyes shut), with
 // worn things placed on its own sockets.
 
-import { SLOTS, beastById, itemById } from "./data.js";
+import { SLOTS, beastById, canWear, itemById } from "./data.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -235,7 +235,8 @@ export async function composeCreature(look, pose = {}) {
     const id = look.equipped && look.equipped[slot];
     // A baby wears small versions of what it wears (item/small/<slot>/<id>.png: tools/game_art/small_items.py).
     const file = b.baby ? `item/small/${id}.png` : `item/${id}.png`;
-    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" ? await loadImage(file) : null;
+    // (never wings on a creature with wings of its own: a friend's saved before that was refused, say)
+    worn[slot] = id && slot !== "shirt" && look.stage !== "egg" && canWear(look.beast, itemById(id)) ? await loadImage(file) : null;
   }
 
   const c = document.createElement("canvas");

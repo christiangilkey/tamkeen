@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Creatures with wings of their own (Phoenix chick, Dragon whelp, Thunder griffin and Winged fox) can't wear wings as well. Wings bought for one go in your bag for another creature, and wings one of them already wore go back in the bag.
 - **New:** Battles can ask the words **due for review** in your flashcards, or the words in **one folder** you choose (Battle → Words → **Due for review** or **A folder**). A folder needs at least 20 words with a meaning; until there are 20 words due (or in the folder), battles ask your newest words, and a line under the choice says so. As in Last 100 words battles, every creature fights at the same level.
 
 ## v0.48.1 — 2026-11-08

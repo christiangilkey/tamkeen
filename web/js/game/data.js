@@ -161,8 +161,8 @@ const WEARABLES = {
   ],
   back: [
     ["cape_red", "Red cape", 40], ["cape_star", "Star cape", 60, { requires: ["night_owl"] }], ["backpack", "Backpack", 30, { weight_by: { curious: 2 } }],
-    ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"] }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 } }],
-    ["butterfly_wings", "Butterfly wings", 55], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
+    ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"], wings: true }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 }, wings: true }],
+    ["butterfly_wings", "Butterfly wings", 55, { wings: true }], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
     ["quiver", "Quiver", 35], ["balloons", "Bunch of balloons", 30], ["leaf_cloak", "Leaf cloak", 40],
   ],
   shirt: [
@@ -171,6 +171,12 @@ const WEARABLES = {
     ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
   ],
 };
+// The creatures with wings of their own in their drawing (game/art-src-16bit/creatures/_lineup_18_ff.png): they
+// don't wear wings as well (the owner: "wings shouldn't be able to be worn by creatures that already have wings").
+// The wings among the things worn are marked `wings: true` above.
+export const OWN_WINGS = new Set(["chick", "dragon_whelp", "griffin", "winged_fox"]);
+/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except wings when it has its own. */
+export const canWear = (beastId, it) => !(it && it.wings && OWN_WINGS.has(beastId));
 export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
   list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.

@@ -13595,6 +13595,11 @@
   "f": "web/js/game/shop.js"
  },
  {
+  "id": "64b10b10",
+  "k": "For looks only. Your creature has wings of its own, so these go in your bag for another creature.",
+  "f": "web/js/game/shop.js"
+ },
+ {
   "id": "ef4da3ac",
   "k": "For looks only. It goes on straight away.",
   "f": "web/js/game/shop.js"
@@ -13642,6 +13647,11 @@
  {
   "id": "31e8d565",
   "k": "In your bag",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "71464994",
+  "k": "Your creature has wings of its own, so it can't wear these. Another of your creatures can.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -17430,13 +17440,13 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "f097968b",
-  "k": "Random reels",
+  "id": "9167bedc",
+  "k": "Finding reels",
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "9358a6e2",
-  "k": "Or get reels from all of Instagram in the language you're learning. Set how many with − and +.",
+  "id": "989306ad",
+  "k": "Find reels on Instagram: search for something in the language you're learning and save the reels you like to a collection. Then choose it here.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -17470,8 +17480,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "b2e08e21",
-  "k": "No reels yet. Press “Get random reels” above, or choose one of your Instagram collections and tick the reels you want.",
+  "id": "342d076c",
+  "k": "No reels yet. Save reels you like on Instagram, then choose that collection above and tick the reels you want.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -17480,13 +17490,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "78706e7f",
-  "k": "No reels yet. Choose which reels you want above and press “Get reels”, or press “Get random reels”.",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "36fc5604",
-  "k": "· watched",
+  "id": "d2bd5a05",
+  "k": "No reels yet. Choose which reels you want above and press “Get reels”.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -17560,13 +17565,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "b2272a97",
-  "k": "Reels in {0} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time.",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "991aa79d",
-  "k": "Random reels come from all of Instagram, not from your saved collection. For reels from your collection, tick them above and press “Get the ticked reels”.",
+  "id": "75b7bce9",
+  "k": "To find {0} reels, search Instagram for a word or hashtag in {1} and save the reels you like to a collection. Then choose that collection above and tick them.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -17600,16 +17600,6 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "ade96e8d",
-  "k": "Get {0} random {1} reel{2} from all of Instagram",
-  "f": "web/js/pages/reels.js"
- },
- {
-  "id": "c3f837df",
-  "k": "Get {0} random {1} reel{2}",
-  "f": "web/js/pages/reels.js"
- },
- {
   "id": "4b5b4888",
   "k": "Turn on <0>Cloud transcription in Settings</0> first: it is what listens to the reel and writes its words.",
   "f": "web/js/pages/reels.js"
@@ -17630,8 +17620,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "0c2f86c7",
-  "k": "On the web you can watch your reels and add public ones from their link. Picking reels from your Instagram saves, random reels, and reels with a song from Instagram's music library need the Tamkeen app on your phone or computer. Reels added there show up here after a sync.",
+  "id": "be6eea67",
+  "k": "On the web you can watch your reels and add public ones from their link. Picking reels from your Instagram saves and reels with a song from Instagram's music library need the Tamkeen app on your phone or computer. Reels added there show up here after a sync.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -21985,6 +21975,11 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "de9a3242",
+  "k": "Watched",
+  "f": "web/js/watched.js"
+ },
+ {
   "id": "06fe9926",
   "k": "The Mnemonic maker stresses Bisaya words where Wolff's dictionary does: palit is pa-LIT, hatag HA-tag",
   "f": "web/js/whatsnew.js"
@@ -23520,8 +23515,8 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "d6071c46",
-  "k": "Reels from your Instagram saves and random reels, reels with a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
+  "id": "953d951a",
+  "k": "Reels from your Instagram saves, reels with a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -23740,16 +23735,6 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "3bb1a5b6",
-  "k": "in {0}, not {1}",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "8a1414e3",
-  "k": "hardly any speech in it",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
   "id": "ed162d4b",
   "k": ", in {0}",
   "f": "mobile/src/js/reels-phone.js"
@@ -23792,36 +23777,6 @@
  {
   "id": "f239c335",
   "k": "The list below says why each was skipped.",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "72ef9385",
-  "k": "Random reels aren't set up for this language yet.",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "4c93d4b8",
-  "k": "Stopped. {0}.",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "0b85ce49",
-  "k": "Looking for {0} reels ({1})…",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "403ebed9",
-  "k": "Getting {0} {1} reels: {2} so far; listening to the next one…",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "3d0a21ac",
-  "k": "{0}: {1} random {2} reel{3} ready to watch.",
-  "f": "mobile/src/js/reels-phone.js"
- },
- {
-  "id": "ceda21f2",
-  "k": "{0}: no {1} reels could be kept this time. Try again: the search words change each time.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {
@@ -25070,31 +25025,6 @@
   "f": "app/reels_worker.py"
  },
  {
-  "id": "cbf2cd0c",
-  "k": "Listening to reel {0} (kept {1} of {2})…",
-  "f": "app/reels_worker.py"
- },
- {
-  "id": "d38405ee",
-  "k": "{0} random {1} reel{2} ready ({3} checked).",
-  "f": "app/reels_worker.py"
- },
- {
-  "id": "a8aa31cd",
-  "k": "No {0} reels could be kept this time ({1} checked). Try again: the search words change each time.",
-  "f": "app/reels_worker.py"
- },
- {
-  "id": "dc90c318",
-  "k": "They sync to your phone with everything else.",
-  "f": "app/reels_worker.py"
- },
- {
-  "id": "44244e4a",
-  "k": "Getting reels failed ({0}: {1}).",
-  "f": "app/reels_worker.py"
- },
- {
   "id": "dd51e085",
   "k": "Listening to reel {0} of {1}…",
   "f": "app/reels_worker.py"
@@ -25150,8 +25080,18 @@
   "f": "app/reels_worker.py"
  },
  {
+  "id": "cbf2cd0c",
+  "k": "Listening to reel {0} (kept {1} of {2})…",
+  "f": "app/reels_worker.py"
+ },
+ {
   "id": "8f45b7fa",
   "k": "{0} reel{1} ready ({2} checked). They sync to your phone with everything else.",
+  "f": "app/reels_worker.py"
+ },
+ {
+  "id": "44244e4a",
+  "k": "Getting reels failed ({0}: {1}).",
   "f": "app/reels_worker.py"
  },
  {

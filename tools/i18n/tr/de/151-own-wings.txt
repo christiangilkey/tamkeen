@@ -1,0 +1,3 @@
+# Creatures with wings of their own don't wear wings (game/shop.js).
+64b10b10	Nur für den Look. Dein Wesen hat eigene Flügel, also kommen diese für ein anderes Wesen in deine Tasche.
+71464994	Dein Wesen hat eigene Flügel und kann diese deshalb nicht tragen. Ein anderes deiner Wesen kann es.

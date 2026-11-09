@@ -308,3 +308,33 @@ test("a grammar lesson finished pays once a day, more the first time and for mor
   const old = normalize({ ...newState(6), day: { key: "2026-10-24", seconds: 0 } });
   assert.ok(earn(old, { type: "grammar", key: "review:20385", right: 6, of: 8 }, { now }), "a save from before grammar lessons");
 });
+
+test("a creature with wings of its own doesn't wear wings as well (the owner's rule)", async () => {
+  const { CATALOG, OWN_WINGS } = await import("../../web/js/game/data.js");
+  const { beastOf } = await import("../../web/js/game/genome.js");
+  const { buy, equip, fits } = await import("../../web/js/game/rules.js");
+  assert.deepEqual([...OWN_WINGS].sort(), ["chick", "dragon_whelp", "griffin", "winged_fox"], "the four with wings in their drawing");
+  assert.ok([...OWN_WINGS].every((id) => BEASTS.some((b) => b.id === id)));
+  assert.deepEqual(CATALOG.filter((it) => it.wings).map((it) => it.id).sort(), ["back/angel_wings", "back/bat_wings", "back/butterfly_wings"]);
+  const kind = (id) => { for (let seed = 1; seed < 5000; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === id) return { ...g, equipped: {} }; } return null; };
+  const fox = kind("winged_fox"), cat = kind("cat");
+  const s = newState(7);
+  s.roster = [fox, cat];
+  s.active = 0;
+  s.coins = 500;
+  assert.equal(fits(fox, CATALOG.find((it) => it.id === "back/bat_wings")), false);
+  assert.equal(fits(fox, CATALOG.find((it) => it.id === "back/cape_red")), true, "anything else fits");
+  assert.equal(buy(s, "back/butterfly_wings"), "", "wings can still be bought");
+  assert.ok(s.owned.includes("back/butterfly_wings"));
+  assert.equal(fox.equipped.back, undefined, "but they don't go on the winged fox");
+  equip(s, "back", "back/butterfly_wings");
+  assert.equal(fox.equipped.back, undefined, "and can't be put on it");
+  s.active = 1;
+  equip(s, "back", "back/butterfly_wings");
+  assert.equal(cat.equipped.back, "back/butterfly_wings", "another creature can wear them");
+  // A save from before the rule: the winged fox's wings come off when the game loads; the cat keeps its own.
+  fox.equipped.back = "back/butterfly_wings";
+  const loaded = normalize(JSON.parse(JSON.stringify(s)));
+  assert.equal(loaded.roster[0].equipped.back, undefined);
+  assert.equal(loaded.roster[1].equipped.back, "back/butterfly_wings");
+});

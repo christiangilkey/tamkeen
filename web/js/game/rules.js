@@ -9,9 +9,9 @@
 //   - the bonuses that are hard to fake pay best: words that become well known over weeks,
 //     answers that stay accurate, and days kept up.
 
-import { bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
+import { beastOf, bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
-import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, itemById } from "./data.js";
+import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, itemById } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 
@@ -158,6 +158,12 @@ export function normalize(state) {
   if (!(s.active >= 0 && s.active < s.roster.length)) s.active = 0;
   if (!GOALS.includes(s.goal)) s.goal = 10;
   if (!["last100", "unlimited", "due", "folder"].includes(s.battleMode)) s.battleMode = "last100";
+  // Wings put on a creature with wings of its own (before it was refused) go back in the bag.
+  for (const g of s.roster) {
+    const on = g && g.equipped;
+    if (!on || typeof on !== "object") continue;
+    for (const [slot, id] of Object.entries(on)) if (!fits(g, itemById(id))) delete on[slot];
+  }
   if (typeof s.battleFolder !== "string" || s.battleFolder.length > 64) s.battleFolder = "";
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
   s.v = VERSION;
@@ -1014,13 +1020,18 @@ export function buy(state, id) {
   state.coins -= it.price;
   state.owned.push(id);
   if (it.slot === "decor") placeDecor(state, id, true);
-  else state.creature.equipped[it.slot] = id; // put it straight on
-  return "";
+  else if (fits(state.creature, it)) state.creature.equipped[it.slot] = id; // put it straight on
+  return ""; // (wings for a creature with its own: kept in the bag, for another creature)
+}
+
+/** Can creature `genome` wear item `it`? Not wings when it has wings of its own (data.canWear). */
+export function fits(genome, it) {
+  try { return canWear(beastOf(genome).id, it); } catch { return true; }
 }
 
 /** Wear an owned item, or pass null to take off whatever is in that slot. */
 export function equip(state, slot, id) {
-  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot)) return;
+  if (id && (!state.owned.includes(id) || (itemById(id) || {}).slot !== slot || !fits(state.creature, itemById(id)))) return;
   if (id) state.creature.equipped[slot] = id;
   else delete state.creature.equipped[slot];
 }

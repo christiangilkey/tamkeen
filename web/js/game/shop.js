@@ -13,7 +13,7 @@ import { openModal } from "../components/modal.js";
 import { SHOP_MOVES, itemById } from "./data.js";
 import { formOf } from "./genome.js";
 import { t } from "../i18n.js";
-import { buy, buyMove, equip, moveStock, placeDecor, shopStock } from "./rules.js";
+import { buy, buyMove, equip, fits, moveStock, placeDecor, shopStock } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -194,7 +194,9 @@ function itemToBuy(game, it, changed, repaint) {
   details((d) => ({
     title: it.name, ...itemPic(game, it),
     facts: [fact("Kind", KIND[it.slot]), fact("Price", amount("coins", it.price))],
-    text: it.slot === "decor" ? "For looks only. It goes out in the habitat straight away." : "For looks only. It goes on straight away.",
+    text: it.slot === "decor" ? "For looks only. It goes out in the habitat straight away."
+      : !fits(game.creature, it) ? "For looks only. Your creature has wings of its own, so these go in your bag for another creature."
+      : "For looks only. It goes on straight away.",
     note: needCoins(game, it.price),
     buttons: [
       { word: "Close", run: () => d.close() },
@@ -326,12 +328,14 @@ function itemInBag(game, it, changed, repaint) {
     if (!game.owned.includes(it.id)) return null; // given away meanwhile
     const decor = it.slot === "decor";
     const on = isOn(game, it);
+    const cant = !decor && !on && !fits(game.creature, it); // wings, on a creature with wings of its own
     return {
       title: it.name, ...itemPic(game, it),
       facts: [fact("Kind", KIND[it.slot]), fact("Now", decor ? (on ? "Out in the habitat" : "Put away") : on ? "Wearing" : "In your bag")],
+      note: cant ? "Your creature has wings of its own, so it can't wear these. Another of your creatures can." : "",
       buttons: [
         { word: "Give", pic: icon("gift"), run: () => { d.close(); gift("item", it.id, () => { changed(); repaint(); }); } },
-        { word: decor ? (on ? "Put away" : "Put out") : on ? "Take off" : "Wear", primary: !on, run: () => {
+        { word: decor ? (on ? "Put away" : "Put out") : on ? "Take off" : "Wear", primary: !on, disabled: cant, run: () => {
           if (decor) placeDecor(game, it.id, !on);
           else equip(game, it.slot, on ? null : it.id);
           saveGame();
