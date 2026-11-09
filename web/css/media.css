@@ -102,6 +102,9 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
 .aw-or { text-align: center; color: var(--muted); font-size: 13px; }
 .aw-note { margin: 0; text-align: center; }
+/* Books (pages/books.js): a book of your own first, the free shelf under it. */
+.books-own { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 18px; }
+.books-about { margin: 0 0 10px; }
 /* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
 .aw-unavailable { padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); text-align: center; }
 .aw-unavailable p { margin: 8px 0 0; }

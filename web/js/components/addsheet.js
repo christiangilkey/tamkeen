@@ -32,6 +32,12 @@ const WAYS = [
  *  language podcasts" and not put the learner straight into typing in the RSS box). */
 const GO_TO = { page: "#/sites", reels: "#/reels", podcast: "#/discover" };
 
+/** Ways that are a screen of their own only from their own tab's +. Books: straight to the free classics
+ *  (pages/books.js), whose first button adds a book of your own (the owner: it "should automatically open up
+ *  the free classics, but put the button to put your own book at the very top", only for the Books tab's +).
+ *  Book chosen from the list of every way keeps its step with both. */
+const TAB_GO_TO = { book: "#/books" };
+
 /** The way to add that goes with each kind of thing the Library shows (its tabs on the left): the +
  * button opens straight on it (the owner: "it should just bring the add content page that corresponds
  * to the already selected content type tab"). Courses have none, so there it shows every way. */
@@ -48,7 +54,7 @@ export const WAY_FOR_KIND = {
  */
 export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
   if (start === "video" || start === "audio") { pickFile(start); return; } // still inside the tap
-  if (GO_TO[start]) { location.hash = GO_TO[start]; return; }
+  if (GO_TO[start] || TAB_GO_TO[start]) { location.hash = GO_TO[start] || TAB_GO_TO[start]; return; }
   const sheet = openModal({ title: "Add to your library" });
   const { body } = sheet;
   sheet.el.querySelector(".modal-box").classList.add("add-sheet");
