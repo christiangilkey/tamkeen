@@ -8,8 +8,10 @@
 // -han, -hin), a repeated first syllable for actions not yet finished (kakain, magluluto), and
 // the linker -ng (magandang). The rules below take those off in every order and keep the
 // shortest result that is a real word in the language's word list (docs/lexicon/tl-roots.json.gz,
-// wordfreq's Filipino list, made by tools/build_lemmas.py). Without the list a word is known by
-// its spelling. No screen or network code here: tests/js/tagalog.test.mjs.
+// wordfreq's Filipino list, made by tools/build_lemmas.py). The list also knows the roots of about
+// 10,000 verb forms outright (its `forms`, from Wiktionary's conjugation tables and UD_Tagalog-NewsCrawl,
+// by tools/build_meanings.py --grammar tl), which come before the rules. Without the list a word is
+// known by its spelling. No screen or network code here: tests/js/tagalog.test.mjs.
 
 import { EDGE_PUNCT } from "../wordlookup.js";
 
@@ -58,7 +60,11 @@ function stripOnce(s) {
     if (!/[aeiou]$/.test(root)) for (const v of "aiou") out.push(root + v);
   }
   for (const pre of PREFIXES) {
-    if (s.startsWith(pre) && s.length - pre.length >= 3) out.push(s.slice(pre.length));
+    if (!s.startsWith(pre) || s.length - pre.length < 3) continue;
+    const rest = s.slice(pre.length);
+    out.push(rest);
+    // A root's first d is said r after a vowel: marami <- dami, narinig <- dinig, nakarating <- dating.
+    if (/[aeiou]$/.test(pre) && /^r[aeiou]/.test(rest)) out.push(`d${rest.slice(1)}`);
   }
   // mang-/mam-/man- (and nang-, nam-, nan-) swallow a root's first consonant: mamili <- bili/pili,
   // manalo <- talo, mangisda <- isda.
@@ -76,9 +82,10 @@ function stripOnce(s) {
   if (m) out.push(m[2]);
   m = s.match(/^ni([lyw].{3,})$/);
   if (m) out.push(m[1]);
-  // A repeated first syllable: kakain -> kain, luluto -> luto, aalis -> alis.
+  // A repeated first syllable: kakain -> kain, luluto -> luto, aalis -> alis; darating -> dating.
   m = s.match(/^([^aeiou]?[aeiou])(.+)$/);
   if (m && m[2].startsWith(m[1]) && m[2].length >= 3) out.push(m[2]);
+  if (m && m[1][0] === "d" && m[2].startsWith(`r${m[1].slice(1)}`) && m[2].length >= 3) out.push(`d${m[2].slice(1)}`);
   return out;
 }
 
@@ -109,6 +116,10 @@ export function tagalogRoot(word, table) {
 function findRoot(word, table) {
   if (ROOT_OF[word]) return ROOT_OF[word];
   if (KEEP.has(word)) return word;
+  // A verb form whose root the list knows: from Wiktionary's conjugation tables and UD_Tagalog-NewsCrawl's
+  // hand-made roots (tools/build_meanings.py tagalog_root_forms): tumayo is tayo, nagulat gulat, kunin kuha.
+  const listed = table.forms && Object.prototype.hasOwnProperty.call(table.forms, word) ? table.lemmas[table.forms[word]] : null;
+  if (listed) return listed;
   const rank = rankOf(table);
   // One piece off and it is a word never taken apart (tumulong: tulong, before tumulo + -ng; tinanong: tanong).
   const kept = stripOnce(word).find((c) => KEEP.has(c) && !LITTLE.has(c));

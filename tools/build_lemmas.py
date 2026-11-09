@@ -123,7 +123,8 @@ def pronunciations(path: Path) -> dict[str, str]:
 
 
 def tagalog_words() -> dict:
-    """wordfreq's Filipino list (its only list for the language), letters only, most common first."""
+    """wordfreq's Filipino list (its only list for the language), letters only, most common first. It has no
+    forms: `build_meanings.py --grammar tl` adds the roots of verb forms (run it after this)."""
     words = [w for w in top_n_list("fil", 100_000, wordlist="small") if re.fullmatch(r"[a-zñ'-]+", w) and len(w) > 1]
     return {"format": FORMAT, "kind": "lemmas", "name": "tl", "lang": "tl", "title": "Tagalog",
             "license": "CC-BY-SA-4.0", "lemmas": words, "forms": {}}

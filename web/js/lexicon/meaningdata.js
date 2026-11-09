@@ -410,12 +410,15 @@ export function lookUp(files, keys, word, lang, { rank, initial = true } = {}) {
   }
   // A Tagalog or Bisaya word with a verb's affixes on it (nagbaton, kumain) is a verb: a dictionary
   // that knows its root as a verb wins over one that has only a noun of the same spelling (Wiktionary's
-  // loanword "baton", where Wolff has báton "have, possess").
+  // loanword "baton", where Wolff has báton "have, possess"). Tagalog: the word itself first when the file
+  // has it as a verb or a verb's form (bumibili: "actor focus, progressive aspect of bumili"), then its root.
   const bare = String(word || "").replace(EDGE_PUNCT, "").toLowerCase();
   if ((lang === "ceb" || lang === "tl") && keys.length > 1 && VERB_AFFIX.test(bare)) {
+    const isVerb = (hit) => hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g));
     for (const data of files) {
-      const hit = data && findIn(data, keys.slice(1));
-      if (hit && hit.groups.some((g) => g[1] === "verb" && ordinary(g))) {
+      const own = lang === "tl" && data && findIn(data, keys.slice(0, 1));
+      const hit = isVerb(own) ? own : data && findIn(data, keys.slice(1));
+      if (isVerb(hit)) {
         const verbsFirst = [...hit.groups.filter((g) => g[1] === "verb"), ...hit.groups.filter((g) => g[1] !== "verb")];
         return { ...hit, groups: verbsFirst, source: data.source };
       }

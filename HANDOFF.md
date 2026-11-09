@@ -7777,3 +7777,59 @@ popup's grammar line (same format as Wiktionary's, above). No app change: Bisaya
   (long or closed penult, else last syllable). paN- forms (code N) and mag- / maka- rows aren't shown.
 - Tests: `tests/test_cebuano_glosses.py` (decoder cases from the key, spellings, rows), `tests/js/meanings.test.mjs`
   (kaon, hatag, palit, adto, human, balay, gihatag, miadto through the popup's lookup).
+
+## Tagalog verbs: root, affix, focus and aspect forms in the word popup (2026-11-08; helper of the main chat)
+
+The owner asked what could support Tagalog better; research ranked the conjugation tables and etymologies already
+in kaikki's Tagalog file, plus UD_Tagalog-NewsCrawl, first. Both are CC BY-SA 4.0 (fine for the paid app, credited).
+
+- **What the popup shows** (no screen code changed: `grammarOf` and `formRows` already show it): kumain: chips
+  "verb · actor focus · affix -um- · root kain", rows Progressive kumakain, Contemplative kakain, Object focus kainin,
+  Directional focus kainan, Benefactive focus ikain, Locative focus pagkainan. sinulat (no entry of its own): sulatin's
+  meaning, Dictionary form sulatin, Form "object focus, complete aspect of sulatin". A root (sulat, kain, luto) lists
+  its verbs. Words: "focus" (Wiktionary says "trigger"), as the Bisaya rows; aspects as Wiktionary names them.
+- **Build** (`tools/build_meanings.py`, section "Tagalog"; `--grammar tl` updates the files in place, a fresh build
+  does it too): `note_tagalog` keeps per entry its table rows, etymology root/affix/sense, headword trigger and
+  aspects, derived terms; `tagalog_grammar` then works across entries (a verb's other focuses are on other pages).
+  - **Tables:** Wiktextract flattens Wiktionary's table into one list and loses or shifts most labels
+    (error-unrecognized-form). `tagalog_rows` rebuilds the rows by the forms' shape (`tl_aspect`: realis n- / -in-,
+    a doubled syllable, d said r): 95% of the 3,100 verbs' headword aspect forms are found (most of the rest are the
+    other right spelling: pinaliliguan/pinapaliguan). A table is the root's own ("main"), or a causative /
+    abilitative / social one (`TL_OTHER_TABLE` on the prefix before the root, or the tl-infl template's name);
+    "usual" = a big main table whose actor is -um-/mag-/mang- (maluto's own table, whose object verb is ipaluto, isn't).
+  - **Roots** (7,637): a table form's is the table's root (ibinigay: bigay), else the etymology's, else the table's,
+    else a root page's derived terms, else UD's lemma (a verb seen twice, 75% of the time). Never a root's root:
+    dumating is dating "arrive", not dati (dating "former" = dati + -ng). Stored in the group's root field.
+  - **A root's verbs** (one per focus), keyed by root and the etymology's sense (kita<t:earnings> apart from
+    kita<t:visibility>): usual tables, then verbs whose headword/table/affix says their focus (lutuin, luto + -in:
+    object), then other main tables. Causative, abilitative and social verbs (magpakita) are left out. A verb found
+    in a big table uses that table's rows.
+  - **Grammar line** (4,806 groups): words [focus, affix]; rows = its other aspects (headword, else table), then the
+    other focuses' infinitives, at most 6. The old rows' garbage ("first-person directional: trigger") is dropped.
+  - **Forms:** 635 entries that only named a form (kinain "complete aspect of kainin") became forms; a verb's sense
+    naming itself (kumain "complete aspect of kumain") is gone. Every table form is linked to its verb with its focus
+    and aspect: all forms of rows whose infinitive has an entry, others only when the word list or UD has the word
+    (tl-meanings 2.39 → 2.58 MB; all of them would be 2.9). UD verb forms neither has get UD's labels (`ud_label`:
+    Perf+Ind complete, Imp+Ind progressive, Imp+Pot contemplative when the root's first syllable is doubled, else
+    infinitive). 19,878 forms in all (5,418 before).
+- **UD_Tagalog-NewsCrawl** is read from GitHub at a pinned commit (`UD_TL_URL`; the data is only on its `dev` branch,
+  no release tags) or a folder (`TAMKEEN_UD_TL`). Only the word columns; no sentence is kept. Credited in
+  `licenses/tagalog-sources.txt` (+ index.json entry), `licenses/wiktionary.txt`, `docs/lexicon/README.md`.
+  `docs/app/licenses` gets it with the next web app build.
+- **Root finder:** `tl-roots.json.gz` now has `forms` (10,216 verb forms → root; roots not in the word list appended,
+  30,021 → 30,976), written by `tagalog_root_forms`; `tagalog.js findRoot` takes them after `ROOT_OF` and `KEEP`, and
+  has a d → r rule (marami: dami, darating: dating). Agreement with UD's hand-made lemmas, verb tokens: 76.3% before,
+  78.8% with the d rule, 81.4% with Wiktionary's forms (UD held out), 91.7% with UD's own forms too; nouns and
+  adjectives stay ~89%. What's left is mostly words kept whole on purpose (naging, maaari, magaling) and conventions
+  (manalo: UD panalo, Wiktionary talo). Rebuilding the list (`build_lemmas.py tl=wordfreq`) empties `forms`: run
+  `--grammar tl` after it. Some words' lexeme keys (`tl|root|x`) change, so they count as new seen words once.
+- **Lookup:** `meaningdata.js lookUp`: a Tagalog word with verb affixes tries its own entry or form link before its
+  root (bumibili: "actor focus, progressive aspect of bumili", not bili's forms). Phone size estimates updated.
+- **Not perfect:** a homograph root without a sense tag still mixes (kumita "earn" lists makita "see"); Wiktionary
+  disagrees with itself (isulat is object focus on its page, benefactive in sulat's table: the page wins for the
+  chip, the main table for the root's list); magluto lists malutuan (a ma- -an verb entry) for directional, not
+  lutuan; UD labels a few verbs oddly (nagugustuhan "actor", the table's "locative" wins there).
+- **Bisaya:** `build_cebuano_glosses.py` reads tl-meanings to skip Tagalog look-alikes; the final file has 19,878
+  forms (the 68,158 that chat saw was an intermediate state).
+- Tests: `tests/test_tagalog_verbs.py`; `tests/js/tagalog.test.mjs` (d rule, the list's forms, KEEP still first);
+  `tests/js/meanings.test.mjs` (kumain, sinulat, bumili, bumibili, nagluluto, sulat, nakita through the lookup).

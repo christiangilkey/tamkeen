@@ -53,3 +53,24 @@ test("common words that only look built from a smaller one", () => {
     "dumating is not dati, tumulong not tulo");
   assert.equal(tagalogWord("Ano'ng"), "ano", "a clipped 'ng comes off");
 });
+
+test("a root's first d is said r after a vowel, and in a doubled syllable", () => {
+  assert.deepEqual(roots("darating dumarating nakarating"), ["dating", "dating", "dating"]);
+  // by the rules alone (a list with no verb forms): marami is ma- + dami, darating the doubled da of dating
+  const bare = new LemmaTable({ format: 1, kind: "lemmas", name: "tl", lang: "tl", lemmas: ["dami", "dating", "dinig"], forms: {} });
+  assert.deepEqual(["marami", "darating", "naririnig"].map((w) => tagalogRoot(w, bare)), ["dami", "dating", "dinig"]);
+});
+
+test("the list's verb forms come before the rules (Wiktionary's conjugation tables, UD_Tagalog-NewsCrawl)", () => {
+  // tools/build_meanings.py --grammar tl: tl-roots.json.gz `forms` (form -> index of its root in `lemmas`)
+  assert.ok(Object.keys(list.forms).length > 5000);
+  assert.deepEqual(roots("tumayo nagulat kinuha ibinigay"), ["tayo", "gulat", "kuha", "bigay"],
+    "a pronoun-looking root (tayo), a likelier-looking one (ulat), an irregular form (kuha), the i- of ibigay");
+  // a made-up list: the form's listed root wins, the rest is found by the rules
+  const small = new LemmaTable({ format: 1, kind: "lemmas", name: "tl", lang: "tl", lemmas: ["luto", "sabi", "abi"], forms: { sinabi: 1 } });
+  assert.equal(tagalogRoot("sinabi", small), "sabi");
+  assert.equal(tagalogRoot("nagluto", small), "luto");
+  // words never taken apart stay so (kaibigan, naging), whatever the list says
+  const keep = new LemmaTable({ format: 1, kind: "lemmas", name: "tl", lang: "tl", lemmas: ["ibig", "maging"], forms: { kaibigan: 0, naging: 1 } });
+  assert.deepEqual(["kaibigan", "naging"].map((w) => tagalogRoot(w, keep)), ["kaibigan", "naging"]);
+});

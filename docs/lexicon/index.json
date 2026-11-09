@@ -592,13 +592,13 @@
   },
   "mean-tl": {
    "file": "tl-meanings.json.gz",
-   "bytes": 2390223,
-   "sha256": "a212c63bee71341b9975de2d662c3feb43cbaa05f8b33d619a56c4f8c66a31f7",
+   "bytes": 2583851,
+   "sha256": "a8a05c27261664b0e6730b4152d654b5127495e16b3f1e6a02122f6be36f8328",
    "title": "Tagalog meanings",
    "db": "English Wiktionary (Wiktextract, kaikki.org)",
    "license": "CC-BY-SA-4.0",
-   "words": 34678,
-   "forms": 5418
+   "words": 34205,
+   "forms": 19878
   },
   "mean-zh": {
    "file": "zh-meanings.json.gz",
@@ -820,13 +820,13 @@
   },
   "tl": {
    "file": "tl-roots.json.gz",
-   "bytes": 119677,
-   "sha256": "745f1679fc042e484b7e72bec1837e3f76f6a11454588c3616a662e4abaa3909",
+   "bytes": 176968,
+   "sha256": "7cd785759a23a09b09b7cd28c070b7ee91e9358b8f54e64edb0fde66bea98e59",
    "title": "Tagalog word list",
-   "db": "wordfreq (fil)",
+   "db": "wordfreq (fil) + Wiktionary conjugation tables + UD_Tagalog-NewsCrawl",
    "license": "CC-BY-SA-4.0",
-   "forms": 0,
-   "lexemes": 30021
+   "forms": 10216,
+   "lexemes": 30976
   },
   "zh": {
    "file": "zh-cedict.json.gz",

@@ -309,3 +309,45 @@ test("the grammar line: gender, root and principal forms from Wiktionary's headw
   assert.deepEqual(grammarOf([["x".repeat(200), 3, "neuter"], [["plural"], ["genitive", "Hauses"], "nope", [1, 2]]]),
     { grammar: ["neuter"], forms: [{ label: "genitive", form: "Hauses", said: "" }] });
 });
+
+test("Tagalog verbs: root, focus, affix and aspect forms in the popup (Wiktionary's tables and etymologies, UD)", async () => {
+  const { LemmaTable } = await import("../../web/js/lexicon/romance.js");
+  const { tagalogLexeme } = await import("../../web/js/lexicon/tagalog.js");
+  const table = new LemmaTable(JSON.parse(gunzipSync(readFileSync(new URL("../../docs/lexicon/tl-roots.json.gz", import.meta.url))).toString("utf8")));
+  const tl = file("tl");
+  // as the popup asks (meanings.js candidates): the word, then the root the root finder gives
+  const popup = (word) => {
+    const keys = wordKeys(word, "tl", (f) => tagalogLexeme(f, table).lemma);
+    const found = lookUp([tl], keys, word, "tl", { rank: commonness(table.lemmas) });
+    return answerFrom(found, word, "tl", { source: found.source });
+  };
+  const rows = (a) => a.forms.map((f) => `${f.label}: ${f.form}`);
+  const kumain = popup("kumain");
+  assert.match(kumain.meaning, /eat/);
+  assert.equal(kumain.root, "kain");
+  assert.deepEqual(kumain.grammar, ["actor focus", "affix -um-"]);
+  assert.deepEqual(rows(kumain).slice(0, 3), ["progressive: kumakain", "contemplative: kakain", "object focus: kainin"]);
+  assert.ok(!kumain.other_meanings.some((m) => /aspect of/.test(m)), "no 'complete aspect of kumain' among its meanings");
+  // a form with no entry of its own: its verb, and which form it is
+  const sinulat = popup("sinulat");
+  assert.match(sinulat.meaning, /write/);
+  assert.equal(sinulat.lemma, "sulatin");
+  assert.equal(sinulat.root, "sulat");
+  assert.equal(sinulat.morphology, "object focus, complete aspect of sulatin");
+  assert.ok(rows(sinulat).includes("actor focus: sumulat"));
+  const bumili = popup("bumili");
+  assert.match(bumili.meaning, /buy/, "the verb, not bili's 'immediate imperative mood of bumili'");
+  assert.equal(bumili.root, "bili");
+  assert.ok(rows(bumili).includes("object focus: bilhin") && rows(bumili).includes("contemplative: bibili"));
+  assert.equal(popup("bumibili").morphology, "actor focus, progressive aspect of bumili");
+  const nagluluto = popup("nagluluto");
+  assert.match(nagluluto.meaning, /cook/);
+  assert.equal(nagluluto.lemma, "magluto");
+  assert.equal(nagluluto.root, "luto");
+  assert.equal(nagluluto.morphology, "actor focus, progressive aspect of magluto");
+  assert.deepEqual(nagluluto.grammar, ["actor focus", "affix mag-"]);
+  assert.ok(rows(nagluluto).includes("object focus: lutuin"), "the root's -in verb, not maluto's ipaluto");
+  // a root lists its verbs; homograph roots stay apart (makita "see" has no kumita "earn")
+  assert.ok(rows(popup("sulat")).includes("actor focus: sumulat"));
+  assert.ok(!rows(popup("nakita")).some((r) => /kumita/.test(r)));
+});

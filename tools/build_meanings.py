@@ -10,7 +10,11 @@ forms of a word ("hablo", "كتبت"), which word they are a form of. Read by we
     python tools/build_meanings.py ar es fr ...      (any of: ar es fr it ru en tl ja zh pt ca ceb th de fa hi ko la)
     python tools/build_meanings.py ar=<a saved kaikki .jsonl.gz>   (from a file instead)
     python tools/build_meanings.py --numbers es fr ...   (only add the number words to the files there)
-    python tools/build_meanings.py --grammar ar de ...   (only add the grammar line and Arabic roots to the files there)
+    python tools/build_meanings.py --grammar ar de ...   (only add the grammar line and Arabic roots to the files there;
+                                                          tl: also roots, verb focus and aspect forms, from Wiktionary
+                                                          and UD_Tagalog-NewsCrawl, and the root finder's verb forms in
+                                                          tl-roots. TAMKEEN_UD_TL=<folder of its .conllu files> reads a
+                                                          saved copy instead of GitHub)
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
     python tools/build_meanings.py --translations ceb    (add the Bisaya words that English entries' translation
                                                           tables give and the Bisaya entries lack; reads English)
@@ -553,7 +557,7 @@ def read_lines(source: str):
 def build(lang: str, source: str) -> dict:
     words: dict[str, list] = {}
     forms: dict[str, list] = {}
-    for notes in (ZH_READINGS, MODERN, SEE, SPELLED):  # what the last language built left (日 is ja and zh)
+    for notes in (ZH_READINGS, MODERN, SEE, SPELLED, TL_NOTES):  # what the last language built left (日 is ja and zh)
         notes.clear()
     sources = [source]
     if lang == "ar" and re.match(r"https?://", source):
@@ -567,6 +571,9 @@ def build(lang: str, source: str) -> dict:
         hindi_everyday_first(words)
     if lang == "la":
         latin_table_forms(forms)
+    if lang == "tl":
+        ud = ud_tagalog(os.environ.get("TAMKEEN_UD_TL", ""))
+        tagalog_root_forms(TL_NOTES, tagalog_grammar({"words": words, "forms": forms}, TL_NOTES, ud), ud)
     if lang == "zh":
         simplified_spellings(words, forms)
         everyday_reading_first(words)
@@ -925,6 +932,7 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
         k = key(e["word"], lang)
         if not k:
             continue
+        group = None
         if glosses:
             extra = f"{root(e, lang)}|{reading(e, lang)}|{dialect}".rstrip("|")
             if lang == "zh":
@@ -950,6 +958,8 @@ def read(lang: str, source: str, words: dict, forms: dict) -> None:
                     for r in row:
                         if r[0] == lk:
                             r[1] = latin_what(r[1], what)
+        if lang == "tl":
+            note_tagalog(e, k, group)
         if lang == "hi" and glosses:
             hindi_table_forms(e, k, forms)
         if lang == "la" and glosses:
@@ -1349,6 +1359,584 @@ def add_numbers(lang: str) -> None:
     write(lang, data)
 
 
+# ---------- Tagalog: roots, affixes, and a verb's focus and aspect forms ----------
+# Tagalog makes words from a root and affixes (kumain = kain + -um-), and a verb comes in several focuses
+# (Wiktionary: "triggers"), by which part of the sentence is the topic: actor (kumain "ate"), object (kinain
+# "was eaten"), directional (kinainan), benefactive (ikinain), ...; each in three aspects: complete,
+# progressive, contemplative (kumain, kumakain, kakain). Wiktionary has the root and affix in the etymology
+# ("From kain + -um-"), the trigger in the headword line ("1st actor trigger") and the whole conjugation
+# table, which Wiktextract flattens into a list with most of its labels lost or moved to the next form
+# (error-unrecognized-form). tagalog_rows() rebuilds the table's rows from the forms' shape: the realis mark
+# (n- for m-, the infix -in-) for the complete and progressive aspects, a doubled syllable for the progressive
+# and contemplative ones. Checked against the verbs' headword lines, it finds about 95% of their forms (most
+# of the rest are the other of two right spellings: pinaliliguan, pinapaliguan).
+# UD_Tagalog-NewsCrawl (Universal Dependencies, CC BY-SA 4.0: hand-checked lemmas, which are roots, and
+# Voice/Aspect features for 360,000 words of news) fills gaps: roots, and forms the tables don't have. Only its
+# word-level notes are read (form, lemma, part of speech, features); none of its sentences are kept.
+TL_VOWELS = "aeiou"
+TL_FOCUS_TAGS = {"objective": "object", "directional": "directional", "locative": "locative",
+                 "benefactive": "benefactive", "causative": "causative"}
+TL_FOCUS_ORDER = ["actor", "object", "directional", "benefactive", "locative", "instrument", "causative"]
+TL_TRIGGER_NAMES = {"actor", "object", "directional", "locative", "benefactive", "instrument", "causative",
+                    "measurement", "reciprocal", "reason"}
+TL_ASPECTS = ("complete", "progressive", "contemplative", "recently complete")
+# A table of the root's own verbs, or of its causative (magpa-, ipa-, pa- -in), abilitative (maka-, ma- -an) or
+# social (maki-) verbs: by the first row's prefix (the big table) or the template's name (one verb's table).
+TL_OTHER_TABLE = re.compile(r"^(?:magpa|nagpa|makapag|makapa|maka|mapa|mai|maki|makipag|ipa(?![nmg])|pa(?![gnm]))")
+TL_MAIN_TEMPLATES = {"um", "mag", "in", "an", "in-an", "mang", "ma", "i", "ma-an", "pag-an", "ipag", "ika", "isa"}
+TL_HEAD_ASPECTS = {"completive": "complete", "progressive": "progressive", "contemplative": "contemplative"}
+# Senses that only name another word's form ("complete aspect of kainin", "immediate imperative mood of bumili"):
+# Wiktextract keeps them as meanings; they become forms of that word.
+TL_FORM_OF = re.compile(r"^((?:recently )?complete|progressive|contemplative) aspect of (?:of )?(\S+)$|"
+                        r"^((?:immediate )?imperative) mood of (\S+)$")
+TL_ETY_AFFIX = (":af", ":affix", ":pre", ":prefix", ":suf", ":suffix", ":con", ":confix", ":infix")
+UD_TL_URL = ("https://raw.githubusercontent.com/UniversalDependencies/UD_Tagalog-NewsCrawl/"
+             "5b961422a0273d054b66bbc1ddb12b4338428aa3/tl_newscrawl-ud-{}.conllu")
+UD_TL_PARTS = ("train", "dev", "test")
+UD_VOICE = {"Act": "actor", "Pass": "object", "Lfoc": "directional", "Bfoc": "benefactive", "Ifoc": "instrument",
+            "Cau": "causative"}
+TL_NOTES: list[dict] = []  # what each Tagalog entry read says about its verb forms (note_tagalog)
+
+
+def tl_plain(s: str) -> str:
+    """A Tagalog form as the files key it: lower case, without Wiktionary's stress marks (bumilí: bumili)."""
+    s = unicodedata.normalize("NFD", str(s or "").replace("⁠", "").replace("\xad", "").strip().lower())
+    return unicodedata.normalize("NFC", "".join(c for c in s if not unicodedata.combining(c) or c == "̃"))
+
+
+def tl_word(s: str) -> bool:
+    return bool(re.fullmatch(r"[a-zñ][a-zñ'\-]*", s or ""))
+
+
+def tl_syllable(s: str, i: int) -> str:
+    """The syllable starting at i: a vowel, or a consonant (ng counts as one) and its vowel; '' if none."""
+    if i >= len(s):
+        return ""
+    if s[i] in TL_VOWELS:
+        return s[i]
+    if s.startswith("ng", i) and i + 2 < len(s) and s[i + 2] in TL_VOWELS:
+        return s[i:i + 3]
+    return s[i:i + 2] if i + 1 < len(s) and s[i + 1] in TL_VOWELS else ""
+
+
+def tl_unreduplicate(s: str) -> list[str]:
+    """Every way of taking one doubled syllable out: kakain -> kain, magluluto -> magluto, darating -> dating
+    (d is said r between vowels)."""
+    out = []
+    for i in range(len(s)):
+        syl = tl_syllable(s, i)
+        if not syl:
+            continue
+        after = i + len(syl)
+        if s.startswith(syl, after):
+            out.append(s[:i] + s[after:])
+        elif syl[0] == "d" and s.startswith("r" + syl[1:], after):
+            out.append(s[:i] + "d" + s[after + 1:])
+    return out
+
+
+def tl_unrealis(s: str, inf: str) -> list[str]:
+    """Ways of undoing the realis mark of the complete and progressive aspects: n- for m- (nagluto), the infix
+    -in- after the first consonant or before a vowel (sinulat, inabot, isinulat, ipinasulat), ni- (niluto)."""
+    out = []
+    if inf.startswith("m"):
+        if s.startswith("n"):
+            out.append("m" + s[1:])
+        if s.startswith("in", 1):  # (mahalin: minahal; but maninila is no realis of manila)
+            out.append(s[:1] + s[3:])
+        return out
+    if s.startswith("in") and len(s) > 2 and s[2] in TL_VOWELS:
+        out.append(s[2:])
+    if s.startswith("in", 1):
+        out.append(s[:1] + s[3:])
+    if s.startswith("i") and s.startswith("in", 2):
+        out.append(s[:2] + s[4:])
+    if s.startswith("ni"):
+        out.append(s[2:])
+    if s.startswith("ini") and inf.startswith("i"):  # iniabot: iabot
+        out.append("i" + s[3:])
+    return [b for b in out if b]
+
+
+def tl_um_verb(inf: str) -> bool:
+    return bool(re.match(r"^[^aeiou]+um[aeiou]", inf) or re.match(r"^um[aeiou]", inf))
+
+
+def tl_without_um(s: str) -> str:
+    m = re.match(r"^([^aeiou]+)um([aeiou].*)$", s)
+    if m:
+        return m.group(1) + m.group(2)
+    return s[2:] if re.match(r"^um[aeiou]", s) else ""
+
+
+def tl_same_stem(base: str, inf: str) -> bool:
+    """`base` (the aspect's marks taken off) is the infinitive, or its stem before the suffix: bili for bilhin,
+    inom for inumin, gawa for gawin."""
+    if base == inf:
+        return True
+    for suf in ("hin", "nin", "in", "han", "nan", "an"):
+        if inf.endswith(suf) and len(inf) - len(suf) >= 2:
+            stem = inf[: -len(suf)]
+            m = re.match(r"^(.*)u([^aeiou]*)$", stem)  # a last o turns to u before a suffix: inom, inumin
+            for st in {stem, f"{m.group(1)}o{m.group(2)}" if m else stem}:
+                if base == st or (st[-1] not in TL_VOWELS and base[:-1] == st and base[-1] in TL_VOWELS):
+                    return True
+    return False
+
+
+def tl_aspect(form: str, inf: str) -> str:
+    """Which aspect of the verb whose infinitive is `inf` the form is (complete, progressive, contemplative;
+    "infinitive" for the infinitive), or '' when it is no form of it."""
+    if form == inf:
+        return "infinitive"
+    if tl_um_verb(inf):  # sumulat: the complete is the infinitive; sumusulat, susulat
+        core, bare = tl_without_um(inf), tl_without_um(form)
+        if bare and core in tl_unreduplicate(bare):
+            return "progressive"
+        return "contemplative" if core in tl_unreduplicate(form) else ""
+    bases = tl_unrealis(form, inf)
+    if any(tl_same_stem(b, inf) for b in bases):
+        return "complete"
+    if any(tl_same_stem(u, inf) for b in bases for u in tl_unreduplicate(b)):
+        return "progressive"
+    return "contemplative" if any(tl_same_stem(u, inf) for u in tl_unreduplicate(form)) else ""
+
+
+def tl_recent(form: str, inf: str, root: str) -> bool:
+    """The recently complete aspect: kakakain, kasusulat, kabibili, kapagluluto ("have just ...")."""
+    if not root or not form.startswith("ka") or inf.startswith("ka"):
+        return False
+    for tail in (form[2:], form[4:] if form.startswith("kaka") else ""):
+        if any(t.endswith(root) or t.endswith(root[1:]) for t in [tail, *tl_unreduplicate(tail)] if t):
+            return True
+    return False
+
+
+def tagalog_rows(entry: dict) -> tuple[list[dict], str]:
+    """The rows of an entry's conjugation tables, {table, inf, focus, complete, progressive, contemplative,
+    recently complete}, and the root the first table names. Table 0 is the main one (the verbs of the root);
+    the others are its causative (magpa-), abilitative (maka-, ma-) and social (maki-) verbs."""
+    tables: list[list] = []
+    for f in entry.get("forms") or []:
+        if f.get("source") != "conjugation":
+            continue
+        tags = set(f.get("tags") or []) - {"error-unrecognized-form"}
+        if "table-tags" in tags or not tables:
+            tables.append([])
+            if "table-tags" in tags:
+                continue
+        if "inflection-template" in tags:
+            tables[-1].append(("#", tags, str(f.get("form") or "")))
+            continue
+        form = tl_plain(f.get("form"))
+        if tl_word(form) and form != "-":
+            tables[-1].append((form, tags, ""))
+    rows: list[dict] = []
+    first_root = ""
+    for n, table in enumerate(tables):
+        template = next((x[2] for x in table if x[0] == "#"), "")
+        small = template.startswith("tl-infl")
+        items = [x for x in table if x[0] != "#"]
+        i, root, named = 0, "", ""
+        if small:  # tl-infl-um and the like: the affix, the root, the trigger's name, then one row
+            while i < len(items) and (items[i][0].startswith("-") or items[i][0].endswith("-")):
+                i += 1
+            if i < len(items):
+                root, i = items[i][0], i + 1
+            if i < len(items) and items[i][0] in TL_TRIGGER_NAMES:
+                named, i = items[i][0], i + 1
+        elif items and "infinitive" not in items[0][1]:  # the big table: the root, then a row per trigger
+            root, i = items[0][0], 1
+        first_root = first_root or root
+        kept = [x for x in items[i:] if not {"dialectal", "imperative", "rare"} & x[1]]
+        row = None
+        for j, (form, tags, _) in enumerate(kept):
+            if row:
+                a = tl_aspect(form, row["inf"])
+                if a == "infinitive":
+                    continue
+                if not a and tl_recent(form, row["inf"], root or first_root):
+                    a = "recently complete"
+                if a:
+                    if form not in row[a]:
+                        row[a].append(form)
+                    continue
+            # A new row begins with its infinitive: so tagged, or followed by a form of it.
+            after = kept[j + 1][0] if j + 1 < len(kept) else ""
+            if row and "infinitive" not in tags and not (after and tl_aspect(after, form) not in ("", "infinitive")):
+                continue
+            focus = next((TL_FOCUS_TAGS[t] for t in sorted(tags) if t in TL_FOCUS_TAGS), "") or named
+            if not focus and not small:
+                if tl_um_verb(form) or re.match(r"^(?:mag|mang|man|mam)[a-z]", form):
+                    focus = "actor"
+                elif re.match(r"^ipa[nm]g?", form):
+                    focus = "instrument"
+                elif form.startswith("ika"):
+                    focus = "causative"
+            if not any(r["table"] == n for r in rows):  # the table's first row says what kind it is
+                base = (root or first_root)[:-1]
+                at = form.find(base) if len(base) >= 2 else -1  # magpalit is mag- + palit, magpasulat magpa- + sulat
+                main = template[len("tl-infl-"):] in TL_MAIN_TEMPLATES if small else not TL_OTHER_TABLE.match(form[:at] if at > 0 else form)
+                # (the usual table of a root's verbs has an -um-, mag- or mang- verb as its actor; maluto's is its own)
+                usual = main and not small and focus == "actor"
+            row = {"table": n, "main": main, "usual": usual, "small": small, "inf": form, "focus": focus,
+                   **{a: [] for a in TL_ASPECTS}}
+            rows.append(row)
+    return rows, first_root
+
+
+def tagalog_etymology(entry: dict) -> tuple[str, list[str], str]:
+    """The root, affixes and the root's sense the etymology names: kumain "From kain + -um-" -> ("kain",
+    ["-um-"], ""), kumita "kita<t:earnings> + -um-" -> ("kita", ["-um-"], "earnings"); ("", [], "") for a word
+    with no Tagalog root (borrowings, compounds of two words)."""
+    for t in entry.get("etymology_templates") or []:
+        a = t.get("args") or {}
+        if a.get("1") != "tl":
+            continue
+        name = t.get("name")
+        parts: list[str] = []
+        if name == "ety" and str(a.get("2", "")).split("<")[0] in TL_ETY_AFFIX + (":rdp", ":redup", ":reduplication"):
+            for i in range(3, 12):  # the first clause only (":af ... :der ..." is two)
+                v = str(a.get(str(i), ""))
+                if not v or v.startswith(":"):
+                    break
+                parts.append(v)
+        elif name in ("af", "affix", "com", "compound"):
+            parts = [str(a.get(str(i), "")) for i in range(2, 8) if a.get(str(i))]
+        elif name in ("prefix", "pre"):
+            parts = [str(a.get("2", "")).rstrip("-") + "-", str(a.get("3", ""))]
+        elif name in ("suffix", "suf"):
+            parts = [str(a.get("2", "")), "-" + str(a.get("3", "")).lstrip("-")]
+        elif name in ("confix", "con"):
+            parts = [str(a.get("2", "")).rstrip("-") + "-", str(a.get("3", "")), "-" + str(a.get("4", "")).lstrip("-")]
+        elif name == "infix":
+            parts = [str(a.get("2", "")), "-" + str(a.get("3", "")).strip("-") + "-"]
+        elif name == "rdp":
+            parts = [str(a.get("2", ""))]
+        else:
+            continue
+        parts = [p for p in parts if p and not p.startswith(("[", "*")) and ":" not in p.split("<")[0]]
+        sense = next((m.group(1).strip().lower() for p in parts if not p.split("<")[0].strip().startswith("-")
+                      and not p.split("<")[0].strip().endswith("-") for m in [re.search(r"<(?:id|t):([^<>]+)>", p)] if m), "")
+        parts = [p.split("<")[0].strip() for p in parts]
+        affixes = [tl_plain(p) for p in parts if p.startswith("-") or p.endswith("-")]
+        roots = [tl_plain(p) for p in parts if p and not (p.startswith("-") or p.endswith("-"))]
+        if len(roots) == 1 and tl_word(roots[0]) and roots[0] != tl_plain(entry.get("word")) and (affixes or name in ("rdp", "ety")):
+            return roots[0], [x for x in affixes if x not in ("-ng", "-g", "-'t", "-y")], sense
+        return "", [], ""
+    return "", [], ""
+
+
+def tagalog_head_focus(entry: dict) -> str:
+    """The focus the headword line names: "1st actor trigger" -> "actor"; "indirect actor trigger" -> "indirect actor"."""
+    heads = entry.get("head_templates") or []
+    text = str(heads[0].get("expansion") or "") if heads else ""
+    m = re.search(r"(?:^|, )(?:\d+(?:st|nd|rd|th) )?([a-z][a-z ]*?) trigger\b", text)
+    return m.group(1).replace("secondary indirect actor", "secondary actor") if m else ""
+
+
+def note_tagalog(entry: dict, k: str, group: list | None) -> None:
+    """Keep what a Tagalog entry says about its root and verb forms, for tagalog_grammar() (which needs every
+    entry read: a verb's other focuses are on other pages of the same root)."""
+    rows, table_root = tagalog_rows(entry)
+    root, affixes, sense = tagalog_etymology(entry)
+    derived = [tl_plain(d.get("word")) for d in entry.get("derived") or [] if tl_word(tl_plain(d.get("word")))]
+    head = {TL_HEAD_ASPECTS[t]: tl_plain(f.get("form")) for f in entry.get("forms") or [] if not f.get("source")
+            for t in f.get("tags") or [] if t in TL_HEAD_ASPECTS and tl_word(tl_plain(f.get("form")))}
+    if not (rows or root or derived or head or group):
+        return
+    TL_NOTES.append({"k": k, "word": tl_plain(entry.get("word")), "pos": entry.get("pos", ""), "group": group,
+                     "root": root, "affixes": affixes, "sense": sense, "table_root": table_root, "rows": rows,
+                     "focus": tagalog_head_focus(entry), "head": head, "derived": derived})
+
+
+def ud_tagalog(source: str = "") -> dict[str, "Counter"]:
+    """UD_Tagalog-NewsCrawl's words: form -> Counter of (lemma, part of speech, features). `source` is a folder
+    holding the three .conllu files, or empty to read them from GitHub. Only the word columns are read."""
+    from collections import Counter
+    out: dict[str, Counter] = {}
+    for part in UD_TL_PARTS:
+        name = f"tl_newscrawl-ud-{part}.conllu"
+        if source:
+            text = (Path(source) / name).read_text(encoding="utf-8")
+        else:
+            req = urllib.request.Request(UD_TL_URL.format(part), headers={"User-Agent": "Tamkeen dictionary builder (github.com/christiangilkey/tamkeen)"})
+            text = urllib.request.urlopen(req, timeout=120).read().decode("utf-8")
+        for line in text.splitlines():
+            c = line.split("\t")
+            if len(c) < 6 or not c[0].isdigit() or "Typo=Yes" in c[5]:
+                continue
+            form, lemma = tl_plain(c[1]), tl_plain(c[2])
+            if tl_word(form) and tl_word(lemma) and c[3] not in ("PROPN", "PUNCT", "SYM", "X", "NUM"):
+                out.setdefault(form, Counter())[(lemma, c[3], c[5])] += 1
+    print(f"  tl: read {len(out)} word forms from UD_Tagalog-NewsCrawl", flush=True)
+    return out
+
+
+def ud_label(form: str, lemma: str, feats: str) -> tuple[str, str]:
+    """(focus, aspect) of a UD verb: Voice=Act|Aspect=Perf|Mood=Ind -> ("actor", "complete"). UD marks the
+    infinitive and the contemplative alike (Aspect=Imp|Mood=Pot): the contemplative has the root's first
+    syllable doubled (magseselos, from selos)."""
+    f = dict(x.split("=", 1) for x in feats.split("|") if "=" in x)
+    focus = UD_VOICE.get(f.get("Voice", ""), "")
+    aspect, mood = f.get("Aspect", ""), f.get("Mood", "")
+    syl = tl_syllable(lemma, 0)
+    doubled = bool(syl) and (syl * 2 in form or (syl[0] == "d" and syl + "r" + syl[1:] in form))
+    if aspect == "Perf" and mood == "Ind":
+        return focus, "complete"
+    if aspect == "Imp" and mood == "Ind":
+        return focus, "progressive"
+    if aspect == "Imp" and mood == "Pot":
+        return focus, "contemplative" if doubled else "infinitive"
+    if aspect == "Perf" and mood == "Pot":
+        return focus, "infinitive"
+    return focus, ""
+
+
+def tagalog_grammar(data: dict, notes: list[dict], ud: dict | None = None) -> dict[str, str]:
+    """Give the Tagalog file what the notes and UD say: each word's root (shown as "Root" in the popup), each
+    verb's focus, affix and main forms (its other aspects, then the infinitive of its other focuses), and every
+    form of a conjugation table as a form of its verb (sinulat: "object focus, complete aspect of sulatin").
+    Returns form -> root, for the root finder's word list (tagalog_root_forms)."""
+    words, forms = data["words"], data["forms"]
+    has = lambda w: w in words  # noqa: E731
+    verb = lambda w: any(g[1] == "verb" for g in words.get(w, []))  # noqa: E731
+    # 1. Form-of senses become forms (kinain: "complete aspect of kainin"); a verb naming itself loses the sense.
+    moved = 0
+    for k, groups in list(words.items()):
+        for g in list(groups):
+            if g[1] != "verb":
+                continue
+            keep = []
+            for gloss in g[2]:
+                m = TL_FORM_OF.match(gloss)
+                lemma = tl_plain((m.group(2) or m.group(4))) if m else ""
+                if m and lemma == k and len(g[2]) > 1:
+                    continue
+                if m and lemma != k and has(lemma):
+                    row = forms.setdefault(k, [])
+                    if len(row) < 4 and all(r[0] != lemma for r in row):
+                        row.append([lemma, gloss])
+                    continue
+                keep.append(gloss)
+            if not keep:
+                groups.remove(g)
+                moved += 1
+            elif len(keep) < len(g[2]):
+                g[2] = keep
+        if not groups:
+            del words[k]
+    # 2. Roots: the etymology's, else the conjugation table's, else the root page listing the word among its
+    # derived terms, else UD's lemma (a verb's, seen at least twice). Not a root's root: dumating's root is
+    # dating "arrive", whose spelling dating "former" comes from dati.
+    root_of: dict[str, str] = {}
+    def give(w, r):
+        if w and r and r != w and tl_word(r) and w not in root_of:
+            root_of[w] = r
+    for n in notes:  # (a form of a table is its root's first: ibinigay is bigay's, not "ibigay + -in-")
+        for row in n["rows"]:
+            for a in TL_ASPECTS:
+                for f in row[a]:
+                    give(f, n["table_root"])
+    for n in notes:
+        give(n["word"], n["root"])
+    for n in notes:
+        give(n["word"], n["table_root"])
+        for row in n["rows"]:
+            give(row["inf"], n["table_root"])
+    for n in notes:
+        if n["pos"] != "verb" and not n["root"]:
+            for d in n["derived"]:
+                if " " not in d and n["word"] in d and len(d) > len(n["word"]):
+                    give(d, n["word"])
+    for form, seen in (ud or {}).items():
+        (lemma, upos, _), times = seen.most_common(1)[0]
+        if upos == "VERB" and times >= 2 and times * 4 >= 3 * sum(seen.values()) and (has(lemma) or lemma in root_of):
+            give(form, lemma)
+    # 3. Each root's verbs, one per focus: the rows of its usual table (isulat's own table calls it an object
+    # focus verb, the root's main table a benefactive one: the main table wins), then the verbs whose headword
+    # line, own table or affix says their focus (lutuin, luto + -in: object), then any other table of the root
+    # (maluto's own table, whose object focus verb is ipaluto).
+    def affix_focus(affixes):
+        a = set(affixes)
+        if a & {"-um-", "mag-", "mang-", "man-", "mam-"}:
+            return "actor"
+        if a & {"-in", "-hin", "-nin"} and not a & {"pa-", "ka-", "ma-"}:
+            return "object"
+        return {frozenset({"i-"}): "object", frozenset({"-an"}): "directional", frozenset({"-han"}): "directional",
+                frozenset({"pag-", "-an"}): "locative", frozenset({"ipang-"}): "instrument", frozenset({"ika-"}): "causative"}.get(frozenset(a), "")
+    focus_of: dict[str, str] = {}
+    for n in notes:
+        if n["pos"] == "verb":
+            own = next((row for row in n["rows"] if row["inf"] == n["word"] and row["main"] and row["focus"]), None)
+            focus_of.setdefault(n["word"], n["focus"] or (own["focus"] if own else "") or affix_focus(n["affixes"]))
+    # A root's sense, when the etymology gives one (kita<t:earnings>, kita<t:visibility>), keeps homographs apart:
+    # makita "see" is no kumita "earn". A verb with a sense sees its sense's verbs and those with none.
+    family: dict[tuple, dict[str, str]] = {}
+    def put(r, sense, fo, inf):
+        if r and fo and inf not in family.get((r, sense), {}).values():
+            family.setdefault((r, sense), {}).setdefault(fo, inf)
+    for n in notes:
+        for row in n["rows"]:
+            if row["usual"]:
+                put(n["table_root"] or n["root"], n["sense"], row["focus"], row["inf"])
+    for n in notes:  # (not a causative, abilitative or social verb: magpakita is no actor focus verb of kita)
+        if n["pos"] == "verb" and verb(n["word"]) and not any(TL_OTHER_TABLE.match(a.strip("-")) for a in n["affixes"]):
+            put(root_of.get(n["word"], ""), n["sense"], focus_of.get(n["word"], ""), n["word"])
+    for small in (False, True):
+        for n in notes:
+            for row in n["rows"]:
+                if row["main"] and row["small"] == small:
+                    put(n["table_root"] or n["root"], n["sense"], row["focus"], row["inf"])
+    def family_of(r, sense):
+        return {**family.get((r, ""), {}), **family.get((r, sense), {})} if sense else family.get((r, ""), {})
+    # 4. The groups: root, and for verbs the grammar line.
+    rooted = lines = 0
+    root_rows: set[str] = set()  # roots whose verbs a group of theirs lists already
+    order = lambda fam: sorted(fam.items(), key=lambda x: TL_FOCUS_ORDER.index(x[0]) if x[0] in TL_FOCUS_ORDER else 99)  # noqa: E731
+    for n in notes:
+        g = n["group"]
+        if not g or g not in words.get(n["k"], []):
+            continue
+        while len(g) < 4:
+            g.append("")
+        extra = str(g[3]).split("|")
+        r = root_of.get(n["word"], "")
+        if r and extra[0] != r:
+            extra[0] = r
+            g[3] = "|".join(extra).rstrip("|")
+            rooted += 1
+        info = g[4] if len(g) > 4 else [[], []]
+        gwords = list(info[0])
+        rows = [x for x in info[1] if "trigger" not in x[1] and "-person" not in x[0] and x[0] not in TL_HEAD_ASPECTS]
+        if n["pos"] == "verb":
+            own = (next((row for row in n["rows"] if row["inf"] == n["word"] and row["main"]), None)
+                   or next((row for row in n["rows"] if row["inf"] == n["word"]), None))
+            fam = family_of(r or n["word"], n["sense"])
+            if own and own["main"] and not own["small"]:  # its own table: kumain's lists kainin, kainan, ikain
+                fam = {}
+                for row in n["rows"]:
+                    if row["table"] == own["table"] and row["focus"]:
+                        fam.setdefault(row["focus"], row["inf"])
+            mine = next((fo for fo, inf in fam.items() if inf == n["word"]), "")
+            focus = n["focus"] or (own and own["focus"]) or mine or focus_of.get(n["word"], "")
+            if focus:
+                gwords.insert(0, f"{focus} focus")
+            if n["affixes"]:
+                gwords.insert(1 if focus else 0, ("affixes " if len(n["affixes"]) > 1 else "affix ") + " ".join(n["affixes"]))
+            aspects = []
+            for a in TL_ASPECTS[:3]:
+                f = n["head"].get(a) or (own and own[a][:1] and own[a][0]) or ""
+                if a == "complete" and not f and own and tl_um_verb(own["inf"]):
+                    f = own["inf"]
+                if f and f != n["word"]:
+                    aspects.append([a, f])
+            # (the other focuses only for a verb of the root's main table: not magpakain, makakain)
+            others = [[f"{fo} focus", inf] for fo, inf in order(fam)
+                      if fo.split()[-1] != (focus or "-").split()[-1] and inf != n["word"]] if (own and own["main"]) or mine else []
+            rows = aspects + others + rows
+        elif (n["k"], "") in family and not rows and g[1] != "name" and n["k"] not in root_rows:
+            rows = [[f"{fo} focus", inf] for fo, inf in order(family[(n["k"], "")])][:4]  # a root: its verbs (sulat: sumulat, sulatin ...)
+            root_rows.add(n["k"])
+        rows = rows[:MAX_FORM_ROWS]
+        gwords = list(dict.fromkeys(gwords))[:4]
+        if gwords or rows:
+            g[4:] = [[gwords, rows]]
+            lines += 1
+        elif len(g) > 4:
+            del g[4:]
+    # 5. Every form of the tables as a form of its verb: the row's infinitive when it has an entry, else the verb
+    # the table is on. Not for a word with an entry of its own; and of the rows whose infinitive has no entry
+    # (maikapagpaiyak), only forms Filipino text uses (the word list, UD), which keeps the file small.
+    path = OUT / WORD_LISTS["tl"]
+    used = set(json.loads(gzip.decompress(path.read_bytes()))["lemmas"]) if path.exists() else set()
+    used |= set(ud or {})
+    linked = 0
+    for n in notes:
+        page = n["word"] if verb(n["word"]) else ""
+        for row in n["rows"]:
+            lemma = row["inf"] if verb(row["inf"]) else page
+            if not lemma:
+                continue
+            focus = f"{row['focus']} focus, " if row["focus"] else ""
+            todo = [(row["inf"], f"{row['focus']} focus form of {page}" if row["focus"] else f"form of {page}")] if lemma != row["inf"] else []
+            todo += [(f, f"{focus}{a} aspect of {row['inf']}") for a in TL_ASPECTS for f in row[a]]
+            for f, what in todo:
+                if f == lemma or f in words or (lemma != row["inf"] and f not in used):
+                    continue
+                have = forms.setdefault(f, [])
+                same = next((x for x in have if x[0] == lemma), None)
+                if same and "focus" not in same[1] and "focus" in what:  # kinain: "object focus, complete aspect of kainin"
+                    same[1] = what
+                elif not same and len(have) < 4:
+                    have.append([lemma, what])
+                    linked += 1
+    # 6. UD: a verb form neither has, labelled by UD's features (nagugustuhan: "actor focus, progressive aspect
+    # of gusto"), when its root has an entry.
+    from_ud = 0
+    for form, seen in (ud or {}).items():
+        (lemma, upos, feats), times = seen.most_common(1)[0]
+        if upos != "VERB" or form in words or form in forms or form == lemma or not has(lemma):
+            continue
+        focus, aspect = ud_label(form, lemma, feats)
+        if not aspect:
+            continue
+        what = (f"{focus} focus form of {lemma}" if aspect == "infinitive" else f"{aspect} aspect of {lemma}")
+        if focus and aspect != "infinitive":
+            what = f"{focus} focus, {what}"
+        forms[form] = [[lemma, what]]
+        from_ud += 1
+    print(f"  tl: {moved} form-only verb entries made forms, {rooted} roots, {lines} grammar lines, "
+          f"{linked} table forms and {from_ud} UD forms linked to their verb", flush=True)
+    return root_of
+
+
+def tagalog_root_forms(notes: list[dict], root_of: dict[str, str], ud: dict | None = None) -> None:
+    """The root finder's word list (docs/lexicon/tl-roots, web/js/lexicon/tagalog.js) learns the roots of verb
+    forms: the conjugation tables' and UD's (form -> index of its root in `lemmas`). Only forms of verbs: a noun
+    made from a root (kaibigan, pagkain) is a word of its own."""
+    path = OUT / WORD_LISTS["tl"]
+    table = json.loads(gzip.decompress(path.read_bytes()))
+    lemmas = table["lemmas"]
+    index = {w: i for i, w in enumerate(lemmas)}
+    listed = set(lemmas)
+    verbs: dict[str, str] = {}
+    for n in notes:
+        r = root_of.get(n["word"], "") if n["pos"] == "verb" else ""
+        for row in n["rows"]:
+            for f in [row["inf"], *(x for a in TL_ASPECTS for x in row[a])]:
+                if f in listed and n["table_root"]:
+                    verbs.setdefault(f, n["table_root"])
+        if r and n["word"] in listed:
+            verbs.setdefault(n["word"], r)
+    for form, seen in (ud or {}).items():
+        (lemma, upos, _), times = seen.most_common(1)[0]
+        if upos == "VERB" and form != lemma and times * 4 >= 3 * sum(seen.values()) and tl_word(lemma):
+            verbs.setdefault(form, lemma)  # (UD's lemma is the root: nakarating is dating, not dating's dati)
+    out = {}
+    for form, r in sorted(verbs.items()):
+        if r == form or not r:
+            continue
+        if r not in index:
+            index[r] = len(lemmas)
+            lemmas.append(r)
+        out[form] = index[r]
+    table["forms"] = out
+    table["forms_source"] = ("English Wiktionary's conjugation tables (Wiktextract, kaikki.org) and "
+                             "UD_Tagalog-NewsCrawl (Universal Dependencies), CC BY-SA 4.0")
+    blob = gzip.compress(json.dumps(table, ensure_ascii=False, separators=(",", ":")).encode("utf-8"), compresslevel=9, mtime=0)
+    path.write_bytes(blob)
+    index_path = OUT / "index.json"
+    idx = json.loads(index_path.read_text(encoding="utf-8"))
+    entry = idx["files"].get("tl", {})
+    entry.update({"file": WORD_LISTS["tl"], "bytes": len(blob), "sha256": hashlib.sha256(blob).hexdigest(),
+                  "db": "wordfreq (fil) + Wiktionary conjugation tables + UD_Tagalog-NewsCrawl",
+                  "forms": len(out), "lexemes": len(lemmas)})
+    idx["files"]["tl"] = entry
+    index_path.write_text(json.dumps(idx, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"  tl: the root finder's list knows {len(out)} verb forms' roots ({len(blob) / 1e6:.2f} MB)", flush=True)
+
+
 def add_grammar(lang: str, source: str = "") -> None:
     """Add the grammar line (grammar_info) and the Arabic root to a language's file already in docs/lexicon,
     reading the language again but changing nothing else in the file (its filled gaps, numbers and
@@ -1361,6 +1949,7 @@ def add_grammar(lang: str, source: str = "") -> None:
         sources += [url(name) for name in DIALECTS.values()]
     used: set[int] = set()
     matched = with_info = rooted = 0
+    TL_NOTES.clear()
     for src in sources:
         n = 0
         for line in read_lines(src):
@@ -1379,11 +1968,10 @@ def add_grammar(lang: str, source: str = "") -> None:
             if (pos in SKIP_POS and not (lang == "zh" and pos == "character")) or not any(c.isalpha() for c in e["word"]):
                 continue
             k = key(e["word"], lang)
-            groups = data["words"].get(k)
-            if not groups or not senses(e, lang)[0]:
-                continue
+            groups = data["words"].get(k) if senses(e, lang)[0] else None
             shown = shown_form(e, lang)
-            for g in groups:
+            found = None
+            for g in groups or []:
                 extra = (str(g[3]) if len(g) > 3 else "").split("|")
                 if id(g) in used or g[0] != shown or g[1] != pos or (extra[2] if len(extra) > 2 else "") != dialect:
                     continue
@@ -1402,11 +1990,19 @@ def add_grammar(lang: str, source: str = "") -> None:
                     with_info += 1
                 if lang == "zh":
                     g[2] = [zh_gloss(x) or x for x in g[2]]
+                found = g
                 break
+            if lang == "tl":
+                note_tagalog(e, k, found)
         print(f"  {lang}: read {n} entries from {src.rsplit('/', 1)[-1]}", flush=True)
     print(f"  {lang}: {matched} meaning groups matched, {with_info} with a grammar line, {rooted} roots added", flush=True)
     if lang == "ar":
         print(f"  ar: {roots_from_camel(data)} more roots from the CAMeL glosses", flush=True)
+    if lang == "tl":
+        ud = ud_tagalog(os.environ.get("TAMKEEN_UD_TL", ""))
+        root_of = tagalog_grammar(data, TL_NOTES, ud)
+        data["forms"] = {k: v for k, v in ((k, [r for r in v if r[0] in data["words"]]) for k, v in data["forms"].items()) if v}
+        tagalog_root_forms(TL_NOTES, root_of, ud)
     write(lang, data)
 
 

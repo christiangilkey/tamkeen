@@ -29,10 +29,15 @@ from the [CMU Pronouncing Dictionary](https://github.com/cmusphinx/cmudict) (BSD
 `LICENSE-CMUdict.txt`); `web/js/lexicon/english.js` reads them, with a hand-written list of common
 phrasal verbs.
 
-Tagalog has no table of forms: `tl-roots.json.gz` is [wordfreq](https://github.com/rspeer/wordfreq)'s
+Tagalog has no full table of forms: `tl-roots.json.gz` is [wordfreq](https://github.com/rspeer/wordfreq)'s
 Filipino word list (CC BY-SA 4.0: `LICENSE-CC-BY-SA-4.0.txt`), most common first, made by
 `tools/build_lemmas.py tl=wordfreq`. `web/js/lexicon/tagalog.js` takes prefixes, infixes, suffixes and
-repeated syllables off a word and keeps the result only when it is a word in that list.
+repeated syllables off a word and keeps the result only when it is a word in that list. Its `forms` are the
+roots of about 10,000 verb forms (tumayo: tayo, kinuha: kuha), from Wiktionary's conjugation tables and
+[UD_Tagalog-NewsCrawl](https://github.com/UniversalDependencies/UD_Tagalog-NewsCrawl)'s hand-made lemmas
+(CC BY-SA 4.0), which the root finder takes before its rules. They are added by
+`tools/build_meanings.py --grammar tl` (which also gives `tl-meanings.json.gz` its roots, verb focuses and
+aspect forms): run it again after rebuilding the word list, which starts with no forms.
 
 Russian has one table of word forms with stress, read by `web/js/lexicon/russian.js`:
 
