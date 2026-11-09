@@ -7769,9 +7769,10 @@ popup's grammar line (same format as Wiktionary's, above). No app change: Bisaya
 - A first group with no part of speech (adto "there, will go") or an adjective (human "finished") also gets its
   verb's forms; nouns don't (balay). 12,191 verb groups have forms; mean-cebw 0.88 → 1.12 MB (phone estimate updated).
 - **Rebuild**: only `build_cebuano_glosses.py pg40074.txt` is needed (the other Bisaya steps only read this file to
-  see which words exist). It reads tl-meanings to skip Tagalog look-alikes. The committed file was built with the
-  older tl file; with the Tagalog chat's final one (f9890fda, 19,878 forms) a rebuild drops 38 of the 1,290
-  spelled-out words (1,252 left). Not rebuilt yet.
+  see which words exist). It reads tl-meanings to skip Tagalog look-alikes (`tagalog_lookalikes`): Tagalog's words
+  and spellings, not its verb forms that only say which aspect or focus they are (nagpadala, nangisda), which Bisaya
+  shares (the Tagalog chat's rule; its new verb-form links had made 38-49 good Bisaya words drop). Rebuilt with
+  the final tl file: all 1,290 spelled-out words kept, plus nangisda and dinala.
 - **Not done:** Wolff's stress for pronunciation. The popup already shows his marks (káon, hátag) when Wolff answers.
   The Mnemonic maker's Bisaya stress rule (`soundout.js placeStress`: penult unless marked) is wrong for unmarked
   final-stress words (palit = palít); fixing it needs Wolff's spelling passed as the card's reading plus his rule

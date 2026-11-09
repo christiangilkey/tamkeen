@@ -563,6 +563,21 @@ def verb_codes(para: str) -> dict[str, tuple[str, str]]:
     return out
 
 
+INFLECTION = re.compile(r"\b(?:aspect|mood) of |\bfocus form of |^form of ")
+
+
+def tagalog_lookalikes(tl: dict) -> set[str]:
+    """The keys of Tagalog's file that a spelled-out Bisaya word must not be (manuod is Tagalog manood): its words
+    and spellings, not the verb forms that only say which aspect or focus they are (nagpadala; nangisda, "complete
+    aspect of mangisda"), which Bisaya has too."""
+    def only_inflection(texts):
+        texts = list(texts)
+        return bool(texts) and all(INFLECTION.search(t) for t in texts)
+    words = {k for k, groups in tl["words"].items() if not only_inflection(x for g in groups for x in g[2])}
+    forms = {k for k, rows in tl["forms"].items() if not only_inflection(str(r[1]) for r in rows)}
+    return {key(k, "ceb") for k in words | forms}
+
+
 def build(path: Path) -> dict:
     words: dict[str, list] = {}
     forms: dict[str, list] = {}
@@ -650,7 +665,7 @@ def build(path: Path) -> dict:
     own = {k for k, groups in wikt["words"].items()
            if any(g[1] != "name" and (g[3].split("|") + ["", "", ""])[2] not in ("English word", "Tagalog word") for g in groups)}
     tl = json.loads(gzip.decompress((OUT / "tl-meanings.json.gz").read_bytes()))
-    tagalog = {key(k, "ceb") for k in [*tl["words"], *tl["forms"]]}
+    tagalog = tagalog_lookalikes(tl)
     added = spelled_out(affixed, set(words) | set(forms) | own | set(wikt["forms"]), set(words) | own, tagalog, wordlist)
     for k, row in added.items():
         words[k] = [row]

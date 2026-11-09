@@ -452,12 +452,12 @@
   },
   "mean-cebw": {
    "file": "ceb-wolff-meanings.json.gz",
-   "bytes": 1130415,
-   "sha256": "a262037011ed86adf584e13d12a4bb0da3f9ce79690cd95c058c760bcdc4885d",
+   "bytes": 1130489,
+   "sha256": "35dd9d22b4dc743b6770fbddb49a2c90323d0b1716b148ef6b4cae27423b2dc2",
    "title": "Bisaya meanings (Wolff's dictionary)",
    "db": "Wolff, A Dictionary of Cebuano Visayan (Project Gutenberg)",
    "license": "public-domain-us",
-   "words": 18314,
+   "words": 18316,
    "forms": 2788
   },
   "mean-de": {

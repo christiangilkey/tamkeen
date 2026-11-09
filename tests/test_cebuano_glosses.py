@@ -167,3 +167,14 @@ def test_the_codes_of_an_entry_and_of_its_own_derived_words():
     assert codes[""][0] == "A2; b3c"
     assert codes["adtuan"][0] == "A13", "a derived word with meanings of its own"
     assert "hi-/ha-" not in codes, "a word listed only by its affix"
+
+
+def test_tagalog_lookalikes_are_its_words_not_its_verb_forms():
+    tl = {"words": {"manood": [["manood", "verb", ["to watch"], ""]],
+                    "nangisda": [["nangisda", "verb", ["complete aspect of mangisda"], ""]]},
+          "forms": {"nagpadala": [["magpadala", "actor focus, complete aspect of magpadala"]],
+                    "manuod": [["manood", "alternative form of manood"]]}}
+    keys = b.tagalog_lookalikes(tl)
+    assert b.key("manood", "ceb") in keys and b.key("manuod", "ceb") in keys, "a Tagalog word and its spelling"
+    assert b.key("nagpadala", "ceb") not in keys and b.key("nangisda", "ceb") not in keys, \
+        "a verb form both languages share is no look-alike"
