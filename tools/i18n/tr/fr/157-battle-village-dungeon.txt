@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Mur de la mairie
+1f7a7a64	Tapis
+71efc0ca	Terre cultivée
+af3952bb	Un peu plus lent. Les créatures Bosquet s'y déplacent librement et se soignent un peu.
+ea3580df	Blé
+2766aed7	Seules les créatures Marée et les créatures flottantes peuvent y entrer. Son eau soigne un peu, et davantage les créatures Marée.
+d6adaf3e	Piques
+12304ac5	Toutes les 2 secondes, des piques jaillissent et blessent quiconque se tient dessus.
+db402c3c	Mur fissuré
+14f4b7c3	Un point faible dans le mur : clique dessus quand ta créature est tout près pour l'ouvrir.
+fccbed74	Étal du marché
+bbfefb83	Charrette de marchand
+668bfc84	Épouvantail
+8b3d8d66	Enseigne
+931fa888	Banc
+0424f6e7	Table
+f4018045	Comptoir
+9c4cd273	Étagères
+3bdeb9a8	Sacs
+f0537d95	Enclume
+5f9a8584	Bureau
+d8bfbca8	Coffre
+2954684a	Cage
+07569532	Râtelier d'armes
+fa1f581c	Support d'armure
+a353afc8	Trône
+30686c9a	Arbre tombé
+8d274746	Souche
+5e2d8f0d	Un mur fissuré ! Touche-le pour l'ouvrir.
+7499ffbf	Un mur fissuré ! Clique dessus pour l'ouvrir.
+c4bc12e0	Une salle cachée !
+a187c328	Fontaine
+370793de	Réverbère

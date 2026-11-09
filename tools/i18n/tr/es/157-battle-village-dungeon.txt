@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Muro del ayuntamiento
+1f7a7a64	Alfombra
+71efc0ca	Tierra de cultivo
+af3952bb	Un poco más lento. Las criaturas Arboleda se mueven sin trabas y se curan un poco.
+ea3580df	Trigo
+2766aed7	Solo pueden entrar las criaturas Marea y las flotantes. Su agua cura un poco; a las criaturas Marea, más.
+d6adaf3e	Pinchos
+12304ac5	Cada 2 segundos salen pinchos que hieren a quien esté encima.
+db402c3c	Muro agrietado
+14f4b7c3	Un punto débil del muro: haz clic en él cuando tu criatura esté cerca para abrirlo.
+fccbed74	Puesto del mercado
+bbfefb83	Carrito de venta
+668bfc84	Espantapájaros
+8b3d8d66	Letrero
+931fa888	Banco
+0424f6e7	Mesa
+f4018045	Mostrador
+9c4cd273	Estantería
+3bdeb9a8	Sacos
+f0537d95	Yunque
+5f9a8584	Escritorio
+d8bfbca8	Cofre
+2954684a	Jaula
+07569532	Armero
+fa1f581c	Soporte de armadura
+a353afc8	Trono
+30686c9a	Árbol caído
+8d274746	Tocón
+5e2d8f0d	¡Un muro agrietado! Tócalo para abrirlo.
+7499ffbf	¡Un muro agrietado! Haz clic en él para abrirlo.
+c4bc12e0	¡Una sala oculta!
+a187c328	Fuente
+370793de	Farola

@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Muro del municipio
+1f7a7a64	Tappeto
+71efc0ca	Terreno coltivato
+af3952bb	Un po' più lento. Le creature Bosco si muovono liberamente e si curano un po'.
+ea3580df	Grano
+2766aed7	Possono entrarci solo le creature Marea e le fluttuanti. La sua acqua cura un po'; le creature Marea, di più.
+d6adaf3e	Spuntoni
+12304ac5	Ogni 2 secondi spuntano degli spuntoni che feriscono chiunque ci stia sopra.
+db402c3c	Muro crepato
+14f4b7c3	Un punto debole nel muro: cliccalo quando la tua creatura è vicina per aprirlo.
+fccbed74	Bancarella
+bbfefb83	Carretto del venditore
+668bfc84	Spaventapasseri
+8b3d8d66	Insegna
+931fa888	Panchina
+0424f6e7	Tavolo
+f4018045	Bancone
+9c4cd273	Scaffali
+3bdeb9a8	Sacchi
+f0537d95	Incudine
+5f9a8584	Scrivania
+d8bfbca8	Forziere
+2954684a	Gabbia
+07569532	Rastrelliera di armi
+fa1f581c	Supporto per armatura
+a353afc8	Trono
+30686c9a	Albero caduto
+8d274746	Ceppo
+5e2d8f0d	Un muro crepato! Toccalo per aprirlo.
+7499ffbf	Un muro crepato! Cliccalo per aprirlo.
+c4bc12e0	Una stanza nascosta!
+a187c328	Fontana
+370793de	Lampione

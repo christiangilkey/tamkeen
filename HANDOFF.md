@@ -7932,3 +7932,81 @@ Kalīla wa-Dimna". Kalila wa-Dimna was already on the shelf (`kalila-wa-dimna`).
   went to the Decisions chat (OCR of public-domain scans; another source if its licence allows paid use; or leave them
   to "Add your own book").
 - **Not published yet:** docs/books goes live on GitHub Pages when it is pushed.
+
+## Live battles: a fuller village, dungeon traps and secrets, the fortress keep, roofs, more trees (2026-11-09; helper of the main chat)
+Owner, in a row: roofs that fade when a creature walks in ("Add this"); "The village should have pathways, village farm,
+vending carts, fences, tavern, wells, village fountain, Town Hall, shops"; "Dungeons should have chains, spikes, hidden
+rooms the player can walk into (cracks in the wall that open when clicked), statues, Swinging Axes"; "Fortresses can
+have things like carpets, armories, swords/axes hung up with armor on stands, statues"; "trees need more variety, more
+shapes, dead trees, some knocked over, some taller, some stumps". Art made the same way as before (procedural recipes,
+.aseprite sources), by five helper agents, each in its own recipe file (see Art).
+- **Terrain** (`battlemap.js`, now 35): `hall_wall` (the Town Hall's pale stone wall), `carpet`, `farmland` (0.85 speed,
+  grove free and heals a little), `wheat` (like tall grass), `fountain` (walk false, tide and floaters cross, heals,
+  animated), `spikes` (walkable, `spikes: 0.07`, fixed, animated by the battle clock), `cracked_wall` (a wall with
+  `opens: "stone_floor"`). New fields on every terrain: `spikes`, `opens`. `harmful()` and the path costs count spikes.
+- **Props** (87; kinds may now be families without a plain member: `sign_*`, `log_*`; footprints up to 3): village
+  stall (+cloth, bread), vendor_cart (+flowers), scarecrow, sign_tavern/bakery/potion/smith, lamp_post, bench, table,
+  counter (3 wide), shelf (+books), sacks, anvil, desk; chest, cage, statue_gargoyle, statue_knight; weapon_rack (+axes),
+  armor_stand (+gold), throne; trees tree_tall, tree_poplar, tree_round, tree_twisted, tree_dead_tall, tree_dead_broken,
+  pine_tall, pine_dead; log_fallen, log_mossy (3 wide); stump, stump_big, stump_axe, stump_mossy. Decal `coins` (laid by
+  the map in hidden rooms only: a theme's `laid` list).
+- **New map lists** (generateMap): `roofs` [{x0, y0, w, h, style, extras: [{id, x}]}] (styles in `ROOFS`: sheet roofs
+  thatch/red/slate/shingle put together from 16x16 pieces by `roofRows(h)`, the one-picture `tower` roof for 9x9
+  towers; extras in `ROOF_EXTRAS`: chimney, bell, flag); `ornaments` [{id, v, x, y}] (`ORNAMENTS`: chains, torch,
+  weapons hung on walls, the fountain's centrepiece standing); `hazards` [{kind: "axe", x, y, period, phase, reach}]
+  (`HAZARDS`); `secrets` [{x0, y0, w, h, cracks}] (hidden rooms). `terrainArtFiles()` lists all their art.
+- **Structure helpers**: `room(..., mirror)` and `structTile(..., mirror)` can paint one side only (the Town Hall,
+  whose turned image is the tavern: the same walls, another building); rooms record their doors' outside tiles in
+  `ctx.doors`; `turnDoor`, `addRoof`, `placeOne`, `putTwin` (two props of one footprint at mirror spots, the same one
+  near a start), `doorPaths` (a dirt path from each door to the nearest street), `wallOrnaments` (theme.wallDecor),
+  `corridorNS`, `axes`, `spikes`, `hiddenRooms`. `walkerRegions` passes cracked walls, so connectRegions leaves hidden
+  rooms shut.
+- **Village** (`village()`): a cobbled square (corners cut) round a 4x4 fountain (2x2 on a small map) with its
+  centrepiece; stalls and vending carts, benches, lamp posts; on a big map the Town Hall north of the square
+  (hall_wall, stone floor, a carpet from the south door to the desk, bookcases, banners, benches; slate roof with a bell
+  tower) and the tavern south (its turned image: house_wall, wood floor, a bar counter with barrels and shelves behind,
+  tables, a sign and a barrel outside; shingle roof, two chimneys); two shops by the square (counter, shelves, wares,
+  a sign: bakery/potion/smith, the mirror shop another kind; red roofs); fenced farms at the edges (wheat and/or
+  farmland, a scarecrow, a haystack) and a barn (dirt floor, hay, sacks; thatch); houses (a table now and then;
+  thatch or shingle roofs, chimneys), gardens; roads out, paths from every door; wells; carts, barrels, stumps, trees
+  (nothing planted in the 2 rows south of a building: it would stand up into the room when the roof fades).
+- **Dungeon**: knight statue in the hall, cages; spike plates (across north-south corridors or 2x2, in pairs, 7 tiles
+  from the starts, 5 on a small map); swinging axes over straight north-south corridors 2-4 wide (in pairs with the
+  same swing; period 2.2-2.8 s); 1-2 pairs of hidden rooms (3-5 x 3-4 inside, in solid rock next to a corridor or
+  room, its wall on that side 2 tiles of cracked_wall; inside a 2-tile spring, a chest, a gargoyle, coins); chains and
+  torches on the walls.
+- **Fortress**: the big keep has doors west and east only, a carpet across and up to the throne (`putTwin` throne /
+  weapon_rack on the turned spot), gold armour beside it, slate roof with a flag; knight statues by the keep outside;
+  the towers are armouries (weapon racks, armour stands) with pointed roofs; weapons and torches on the walls. The small
+  keep: a carpet across and a roof.
+- **Trees**: the new varieties and the log/stump kinds in meadow, forest, ruins, night, snow, desert, village, fortress.
+- **Engine** (`livebattle.js`): `SPIKE_S` 2, `spikesUp(t)`, `spikeFrame(t)` (the picture follows the battle clock, not
+  the 5/s cycle); spikes hurt `max * spikes` whoever stands on them as they rise (event `trap`, trap "spikes"); axes
+  (`axeAngle(h, t)`): within 42 degrees of the bottom, a creature whose feet are within 13 px of the blade across and 9 px
+  of the swing's line takes 8% and is thrown 220 px/s along the swing, once per 0.9 s (event `trap`, trap "axe");
+  `crackAt(b, x, y)` (the whole crack, or the one above, where its face hangs); `input(b, {open: {x, y}})` walks the
+  player's creature to the floor beside the crack and breaks it when its feet are within 30 px of a crack tile (event
+  `wall-open`); `b.map.propTiles` is replaced then, so the way-finding cache sees the new way. A key or a goTo cancels
+  it. The AI avoids standing on spikes; it doesn't open cracks. view() has `traps` and `opening`.
+- **Screen** (`livebattle-ui.js`): roofs composed once per building and sorted with props and creatures by their
+  bottom edge (raised 10 px, 3 px eaves; the south wall's face shows below), faded to nothing while either creature's
+  feet are inside the building; hidden rooms drawn over with the dungeon wall's top until opened (minimap too); wall
+  ornaments after the ground, the fountain's centrepiece sorted; axes with a moving floor shadow; a click or tap on a
+  crack sends `open` (the pointer shows a hand over one); a banner the first time the player's creature is near a crack;
+  `trap` and `wall-open` events (numbers, dust, rubble decals, "A hidden room!"). Props inside a hidden room aren't
+  drawn until it opens (a tall one would peek over the rock). Roofs cast a shadow (their outline, 3 px down and right).
+  Placeholder colours for everything until art loads. A battle whose screen is taken away without close() (another
+  battle opened over it) now stops its own loop instead of running on in the background.
+- **Art**: `game/art-src/terrain/` village_ground.py, village_props.py, dungeon_art.py, fortress_art.py, trees_art.py,
+  each defining TERRAINS / PROPS / DECALS / SPRITES that terrain.py's build picks up (`EXTRA`; a name list builds just
+  those: `terrain.py build prop_stall roof_red --aseprite`; base props now only with `props`, base decals with
+  `decals`). Previews `preview/<module>_preview.png`. README tables updated (readme.py).
+- **Translations**: `tools/i18n/tr/<code>/157-battle-village-dungeon.txt` (33 strings, with Fountain and Lamp post).
+- **Checked**: battlemap tests (new "built places" test; counts; kinds may be families; hidden rooms count as joined
+  through their crack) and livebattle tests (spikes, axe, opening a crack): JS all pass; maps of the three themes all
+  fair; the village builds in about 20 ms.
+- **Notes**: a friend battle between this version and an older one shows different maps (as with any change here).
+  Screenshots by headless Edge over CDP: pass `Emulation.setFocusEmulationEnabled`, or a page out of focus stops its
+  frames and the battle looks frozen; and stop every msedge process of the profile afterwards (Edge relaunches itself
+  under a new process, and a forgotten one keeps its debugging port open for anything on the machine).
+  Gamepad players can't open cracks yet (no pointer); walking into one could open it later.

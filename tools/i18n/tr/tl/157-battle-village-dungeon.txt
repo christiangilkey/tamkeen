@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Pader ng Munisipyo
+1f7a7a64	Alpombra
+71efc0ca	Bukirin
+af3952bb	Medyo mas mabagal. Malayang nakakagalaw at gumagaling nang kaunti ang mga nilalang na Kakahuyan.
+ea3580df	Trigo
+2766aed7	Ang mga nilalang na Alon at mga lumulutang lang ang makakapasok. Nanggagamot nang kaunti ang tubig nito, at mas marami pa sa mga nilalang na Alon.
+d6adaf3e	Mga tinik
+12304ac5	Bawat 2 segundo, may mga tinik na lumilitaw at nanakit sa sinumang nakatayo sa ibabaw.
+db402c3c	Pader na may bitak
+14f4b7c3	Mahinang bahagi ng pader: i-click ito kapag malapit ang nilalang mo para mabasag at mabuksan.
+fccbed74	Puwesto sa palengke
+bbfefb83	Kariton ng tindero
+668bfc84	Panakot-ibon
+8b3d8d66	Karatula
+931fa888	Bangko
+0424f6e7	Mesa
+f4018045	Mostrador
+9c4cd273	Mga istante
+3bdeb9a8	Mga sako
+f0537d95	Palihan
+5f9a8584	Sulatang mesa
+d8bfbca8	Kaban
+2954684a	Hawla
+07569532	Lalagyan ng armas
+fa1f581c	Patungan ng baluti
+a353afc8	Trono
+30686c9a	Natumbang puno
+8d274746	Tuod
+5e2d8f0d	May bitak na pader! I-tap ito para mabasag at mabuksan.
+7499ffbf	May bitak na pader! I-click ito para mabasag at mabuksan.
+c4bc12e0	Isang lihim na silid!
+a187c328	Pontana
+370793de	Poste ng ilaw

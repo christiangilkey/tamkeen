@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	시청 벽
+1f7a7a64	카펫
+71efc0ca	밭
+af3952bb	조금 느려져요. 숲 크리처는 자유롭게 움직이고 조금 회복해요.
+ea3580df	밀
+2766aed7	물결 크리처와 둥실이만 들어갈 수 있어요. 물이 조금 회복해 주고, 물결 크리처는 더 많이 회복해요.
+d6adaf3e	가시
+12304ac5	2초마다 가시가 솟아올라 그 위에 선 크리처에게 피해를 줘요.
+db402c3c	금 간 벽
+14f4b7c3	벽의 약한 곳이에요. 크리처가 가까이 있을 때 클릭하면 부수고 열 수 있어요.
+fccbed74	시장 가판대
+bbfefb83	행상 수레
+668bfc84	허수아비
+8b3d8d66	간판
+931fa888	벤치
+0424f6e7	탁자
+f4018045	계산대
+9c4cd273	선반
+3bdeb9a8	자루
+f0537d95	모루
+5f9a8584	책상
+d8bfbca8	보물상자
+2954684a	우리
+07569532	무기 걸이
+fa1f581c	갑옷 받침대
+a353afc8	왕좌
+30686c9a	쓰러진 나무
+8d274746	그루터기
+5e2d8f0d	금 간 벽이에요! 탭해서 부수세요.
+7499ffbf	금 간 벽이에요! 클릭해서 부수세요.
+c4bc12e0	숨겨진 방이에요!
+a187c328	분수
+370793de	가로등

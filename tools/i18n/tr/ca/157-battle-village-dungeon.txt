@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Mur de l'ajuntament
+1f7a7a64	Catifa
+71efc0ca	Terra de conreu
+af3952bb	Una mica més lent. Les criatures Bosquet es mouen lliurement i es curen una mica.
+ea3580df	Blat
+2766aed7	Només hi poden entrar les criatures Marea i les flotants. La seva aigua cura una mica; les criatures Marea, més.
+d6adaf3e	Punxes
+12304ac5	Cada 2 segons surten punxes que fereixen qui hi hagi a sobre.
+db402c3c	Mur esquerdat
+14f4b7c3	Un punt feble del mur: fes-hi clic quan la teva criatura sigui a prop per obrir-lo.
+fccbed74	Parada del mercat
+bbfefb83	Carretó de venedor
+668bfc84	Espantaocells
+8b3d8d66	Rètol
+931fa888	Banc
+0424f6e7	Taula
+f4018045	Taulell
+9c4cd273	Prestatges
+3bdeb9a8	Sacs
+f0537d95	Enclusa
+5f9a8584	Escriptori
+d8bfbca8	Cofre
+2954684a	Gàbia
+07569532	Armer
+fa1f581c	Suport d'armadura
+a353afc8	Tron
+30686c9a	Arbre caigut
+8d274746	Soca
+5e2d8f0d	Un mur esquerdat! Toca'l per obrir-lo.
+7499ffbf	Un mur esquerdat! Fes-hi clic per obrir-lo.
+c4bc12e0	Una sala amagada!
+a187c328	Font
+370793de	Fanal

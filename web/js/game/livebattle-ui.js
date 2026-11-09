@@ -18,8 +18,8 @@ import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
-import { PROPS, TERRAIN, drawLayers, generateMap } from "./battlemap.js";
-import { COMBO, answer, battleResult, input, newLiveBattle, step, usePotion, view } from "./livebattle.js";
+import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
+import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
@@ -46,7 +46,11 @@ const PLACEHOLDER = { grass: "#5f9442", dirt: "#8a6a45", sand: "#d8c27c", snow: 
   ice: "#bfe6f2", high: "#a08a62", cobbles: "#8d8a86", crystals: "#9a7ff0", coals: "#c2482c", lava: "#f06a1d", shadow: "#2c2440",
   spring: "#58d2c6", bridge: "#9b6b3c", wall: "#56535c",
   // the built places (also the minimap's colours): walls dark, floors light, so rooms and corridors read at a glance
-  fort_wall: "#5f5a66", dungeon_wall: "#1f1b26", house_wall: "#6b4a34", fence: "#8a6a45", wood_floor: "#a8794a", stone_floor: "#8e8a92" };
+  fort_wall: "#5f5a66", dungeon_wall: "#1f1b26", house_wall: "#6b4a34", fence: "#8a6a45", wood_floor: "#a8794a", stone_floor: "#8e8a92",
+  hall_wall: "#7a6f62", carpet: "#a8323c", farmland: "#6e4a2c", wheat: "#d8b04a", fountain: "#5aa8d8", spikes: "#6d6a76",
+  cracked_wall: "#1f1b26" }; // (a cracked wall looks like any other on the minimap: it is a secret)
+// A roof before its art is drawn: a colour for each style.
+const ROOF_COLOUR = { thatch: "#c9a14a", red: "#b4553a", slate: "#4e5a6e", shingle: "#7a5234", tower: "#4e5a6e" };
 const LIGHT = { night: "rgba(18, 24, 70, .32)", dim: "rgba(0, 0, 0, .22)", warm: "rgba(255, 110, 40, .08)" };
 // The effects (game-art/battle/fx/), and the older battle art to show while one isn't drawn yet.
 const FX_OLD = { projectile: (el) => `battle/shot_${el}.png`, impact: (el) => `battle/hit_${el}.png`, guard: () => "battle/shield.png",
@@ -176,6 +180,14 @@ export function runLiveBattle(setup, vocab) {
   }
   for (const p of map.props) if (PROPS[p.id]) want(PROPS[p.id].art);
   for (const id of new Set((map.decals || []).map((d) => d.id))) if (arena.DECALS && arena.DECALS[id]) want(arena.DECALS[id].art);
+  if (arena.DECALS && arena.DECALS.rubble && (map.secrets || []).length) want(arena.DECALS.rubble.art);
+  for (const o of map.ornaments || []) if (ORNAMENTS[o.id]) want(ORNAMENTS[o.id].art);
+  for (const r of map.roofs || []) {
+    const st = ROOFS[r.style];
+    if (st) want(st.sheet || st.image);
+    for (const e of r.extras || []) if (ROOF_EXTRAS[e.id]) want(ROOF_EXTRAS[e.id].art);
+  }
+  if ((map.hazards || []).length) want(HAZARDS.axe.art);
   want("fx/shadow_m.png");
   want("ui/digits.png");
 
@@ -198,7 +210,7 @@ export function runLiveBattle(setup, vocab) {
     if (!tr) return;
     const v0 = DUAL ? layer.mask : layer.variant;
     const full = v0 === 15;
-    const f = Math.floor(now / ANIM_MS) % 4;
+    const f = layer.terrain === "spikes" ? spikeFrame(v.time) : Math.floor(now / ANIM_MS) % 4; // (spikes: up when they hurt)
     // Moving ground (battle/terrain/README.md): <id>_anim.png is the edge sheet once per frame side by side,
     // <id>_fill_anim.png a middle tile per row and a frame per column; without them, the plain sheets.
     if (tr.anim) {
@@ -320,6 +332,158 @@ export function runLiveBattle(setup, vocab) {
     return labels.get(key) || null;
   }
 
+  // ----- built places: roofs, hidden rooms, things on walls, traps -----
+  // A roof covers its building (walls and all) and fades away while a creature is under it, so nobody hides there.
+  const roofs = (map.roofs || []).map((r) => ({ ...r, alpha: 1, canvas: null, shadow: null }));
+  /** A roof's shadow: its outline in the terrain's see-through shadow colour, drawn 3 px down and right of it (the roof's
+   * eaves hide the walls' own shadow), made once. */
+  function roofShadow(r, img) {
+    if (r.shadow && r.shadow.src === img) return r.shadow.c;
+    const c = document.createElement("canvas");
+    c.width = img.width;
+    c.height = img.height;
+    const g = c.getContext("2d");
+    g.drawImage(img, 0, 0);
+    g.globalCompositeOperation = "source-in";
+    g.fillStyle = "rgba(20, 10, 38, .46)";
+    g.fillRect(0, 0, c.width, c.height);
+    r.shadow = { src: img, c };
+    return c;
+  }
+  /** A sheet roof put together once from its 16x16 pieces (battlemap.ROOFS): ends, middles repeated, rows by roofRows. */
+  function roofImage(r) {
+    const st = ROOFS[r.style];
+    if (!st) return null;
+    if (st.image) return want(st.image);
+    if (r.canvas) return r.canvas;
+    const sheet = want(st.sheet);
+    if (!sheet) return null;
+    const c = document.createElement("canvas");
+    const w = r.w * TILE + 6;
+    c.width = w;
+    c.height = r.h * TILE;
+    const g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    const { back, front } = roofRows(r.h);
+    [0, ...Array(back).fill(1), 2, ...Array(front).fill(3), 4].forEach((row, k) => {
+      const y = k * TILE, sy = row * TILE;
+      g.drawImage(sheet, 0, sy, TILE, TILE, 0, y, TILE, TILE);
+      for (let x = TILE; x < w - TILE; x += TILE) { const cw = Math.min(TILE, w - TILE - x); g.drawImage(sheet, TILE, sy, cw, TILE, x, y, cw, TILE); }
+      g.drawImage(sheet, 2 * TILE, sy, TILE, TILE, w - TILE, y, TILE, TILE);
+    });
+    r.canvas = c;
+    return c;
+  }
+  function drawRoof(r) {
+    if (r.alpha < 0.02) return;
+    const st = ROOFS[r.style];
+    const img = roofImage(r);
+    ctx.save();
+    ctx.globalAlpha = r.alpha;
+    let top;
+    if (st && st.image) {
+      const bottom = (r.y0 + r.h) * TILE - 10;
+      const w = img ? img.width : r.w * TILE + 6, hgt = img ? img.height : r.h * TILE;
+      const left = Math.round(r.x0 * TILE + (r.w * TILE - w) / 2);
+      top = bottom - hgt;
+      if (img) { ctx.drawImage(roofShadow(r, img), left + 3, top + 3); ctx.drawImage(img, left, top); }
+      else { ctx.fillStyle = ROOF_COLOUR[r.style] || "#555"; ctx.fillRect(left, top + hgt - r.h * TILE, w, r.h * TILE); }
+    } else {
+      top = r.y0 * TILE - 10;
+      if (img) { ctx.drawImage(roofShadow(r, img), r.x0 * TILE, top + 3); ctx.drawImage(img, r.x0 * TILE - 3, top); }
+      else {
+        ctx.fillStyle = ROOF_COLOUR[r.style] || "#555";
+        ctx.fillRect(r.x0 * TILE - 3, top, r.w * TILE + 6, r.h * TILE);
+        ctx.fillStyle = "rgba(0, 0, 0, .25)";
+        ctx.fillRect(r.x0 * TILE - 3, top + (1 + roofRows(r.h).back) * TILE + 6, r.w * TILE + 6, 3);
+      }
+      // a chimney on the back slope, a bell tower or a flag on the ridge
+      const ridge = top + (1 + roofRows(r.h).back) * TILE;
+      for (const e of r.extras || []) {
+        const info = ROOF_EXTRAS[e.id];
+        const im = info && want(info.art);
+        if (!im) continue;
+        const bottom = ridge + info.sit;
+        ctx.drawImage(im, Math.round(r.x0 * TILE + e.x * TILE - im.width / 2 + (info.dx || 0)), bottom - im.height);
+      }
+    }
+    ctx.restore();
+  }
+  // A hidden room is drawn as solid rock until its cracked wall is broken open.
+  const secrets = (map.secrets || []).map((sc) => ({ ...sc, alpha: 1 }));
+  const secretOpen = (sc) => sc.cracks.some((i) => !(TERRAIN[map.tiles[i]] && TERRAIN[map.tiles[i]].opens));
+  function drawSecret(sc) {
+    if (sc.alpha < 0.02) return;
+    const fill = want(TERRAIN.dungeon_wall.art.fill);
+    ctx.save();
+    ctx.globalAlpha = sc.alpha;
+    for (let y = sc.y0; y < sc.y0 + sc.h; y++) for (let x = sc.x0; x < sc.x0 + sc.w; x++) {
+      if (fill) ctx.drawImage(fill, ((x * 7 + y * 13) % 4) * TILE, 0, TILE, TILE, x * TILE, y * TILE, TILE, TILE);
+      else { ctx.fillStyle = PLACEHOLDER.dungeon_wall; ctx.fillRect(x * TILE, y * TILE, TILE, TILE); }
+    }
+    ctx.restore();
+  }
+  /** Chains, torches, weapons on the walls; the fountain's centrepiece (battlemap.ORNAMENTS). */
+  function drawOrnament(o, now) {
+    const info = ORNAMENTS[o.id];
+    const img = info && want(info.art);
+    if (!img) return;
+    const [w, hgt] = info.size;
+    const f = info.frames > 1 ? Math.floor(now / 140 + (o.x + o.y) / 16) % info.frames : 0;
+    ctx.drawImage(img, ((o.v || 0) * info.frames + f) * w, 0, w, hgt, o.x, o.y, w, hgt);
+  }
+  /** A swinging axe (battlemap.HAZARDS.axe): the frame nearest its angle now, and its shadow sweeping the floor. */
+  function drawAxe(hz) {
+    const info = HAZARDS.axe;
+    const { deg } = axeAngle(hz, v.time);
+    const rad = (deg * Math.PI) / 180;
+    const low = Math.cos(rad);
+    const bx = hz.x + (hz.reach || info.reach) * Math.sin(rad);
+    ctx.fillStyle = `rgba(20, 10, 38, ${(0.12 + 0.28 * low).toFixed(3)})`;
+    ctx.beginPath();
+    ctx.ellipse(bx, hz.y + 2, 6 + 5 * low, 3, 0, 0, Math.PI * 2);
+    ctx.fill();
+    const img = want(info.art);
+    const k = Math.max(0, Math.min(info.frames - 1, Math.round(((deg + info.swing) / (2 * info.swing)) * (info.frames - 1))));
+    const [fw, fh] = info.size;
+    if (img) { ctx.drawImage(img, k * fw, 0, fw, fh, Math.round(hz.x - info.low[0]), Math.round(hz.y - info.low[1]), fw, fh); return; }
+    const L = info.low[1] - info.pivot[1] - 6, px = hz.x, py = hz.y - info.low[1] + info.pivot[1];
+    ctx.strokeStyle = "#3e3e4e";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(px, py);
+    ctx.lineTo(px + L * Math.sin(rad), py + L * Math.cos(rad));
+    ctx.stroke();
+    ctx.fillStyle = "#bcbec6";
+    ctx.beginPath();
+    ctx.arc(px + L * Math.sin(rad), py + L * Math.cos(rad), 7, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  /** Roofs fade while a creature is under them; a hidden room's rock fades once it is open. */
+  function fadeCovers(dt) {
+    const k = Math.min(1, dt * 8);
+    for (const r of roofs) {
+      const x0 = r.x0 * TILE, y0 = r.y0 * TILE, x1 = (r.x0 + r.w) * TILE, y1 = (r.y0 + r.h) * TILE;
+      const under = ["me", "foe"].some((side) => { const c = v[side]; return c && !(c.fainted && !c.act) && c.x >= x0 && c.x < x1 && c.y >= y0 && c.y < y1; });
+      r.alpha += ((under ? 0 : 1) - r.alpha) * k;
+    }
+    for (const sc of secrets) if (secretOpen(sc)) sc.alpha += (0 - sc.alpha) * Math.min(1, dt * 4);
+  }
+  let crackHinted = false; // the first time the player's creature comes near a cracked wall, a word on what to do
+  function crackHint() {
+    if (crackHinted || !secrets.length) return;
+    const tx = Math.floor(v.me.x / TILE), ty = Math.floor(v.me.y / TILE);
+    for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) {
+      const x = tx + dx, y = ty + dy;
+      if (x < 0 || y < 0 || x >= map.cols || y >= map.rows) continue;
+      const tr = TERRAIN[map.tiles[y * map.cols + x]];
+      if (!tr || !tr.opens) continue;
+      crackHinted = true;
+      banner(device === "touch" ? t("A cracked wall! Tap it to break it open.") : t("A cracked wall! Click it to break it open."), 2600);
+      return;
+    }
+  }
+
   // ----- drawing a frame -----
   let v = view(b);
   function draw(now, dt) {
@@ -338,6 +502,13 @@ export function runLiveBattle(setup, vocab) {
     const gw = Math.min(W, ox + viewport.w) - gx, gh = Math.min(H, oy + viewport.h) - gy;
     if (gw > 0 && gh > 0) ctx.drawImage(ground, gx, gy, gw, gh, gx, gy, gw, gh);
     for (const m of moving) if (m.x >= ox - TILE && m.x <= ox + viewport.w && m.y >= oy - TILE && m.y <= oy + viewport.h) for (const l of m.layers) drawLayer(ctx, l, m.x, m.y, now);
+    const seen = (x0, y0, x1, y1) => x1 >= ox && x0 <= ox + viewport.w && y1 >= oy && y0 <= oy + viewport.h;
+    for (const o of map.ornaments || []) {
+      const info = ORNAMENTS[o.id];
+      if (info && !info.stand && seen(o.x, o.y, o.x + info.size[0], o.y + info.size[1])) drawOrnament(o, now);
+    }
+    fadeCovers(dt);
+    crackHint();
 
     // Where something is about to land, on the ground: a wind-up, a beam or an area warning (gold yours, red theirs).
     const pulse = 0.22 + 0.16 * Math.sin(now / 110);
@@ -358,9 +529,17 @@ export function runLiveBattle(setup, vocab) {
     for (const p of map.props) {
       const px = p.x * TILE, py = (p.y + 1) * TILE;
       if (px > ox + viewport.w + 32 || px + p.w * TILE < ox - 32 || py < oy || py - 80 > oy + viewport.h) continue; // out of the window
+      if (secrets.some((sc) => !secretOpen(sc) && p.x >= sc.x0 && p.x < sc.x0 + sc.w && p.y >= sc.y0 && p.y < sc.y0 + sc.h)) continue; // (a tall one would peek over the rock)
       things.push({ y: py, draw: () => drawProp(p) });
     }
     for (const side of ["me", "foe"]) things.push({ y: v[side].y, draw: () => drawCreature(side, now) });
+    for (const o of map.ornaments || []) {
+      const info = ORNAMENTS[o.id];
+      if (info && info.stand && seen(o.x, o.y, o.x + info.size[0], o.y + info.size[1])) things.push({ y: o.y + info.size[1], draw: () => drawOrnament(o, now) });
+    }
+    for (const r of roofs) if (r.alpha >= 0.02 && seen(r.x0 * TILE - 16, r.y0 * TILE - 64, (r.x0 + r.w) * TILE + 16, (r.y0 + r.h) * TILE)) things.push({ y: (r.y0 + r.h) * TILE - 1, draw: () => drawRoof(r) });
+    for (const sc of secrets) if (sc.alpha >= 0.02 && seen(sc.x0 * TILE, sc.y0 * TILE, (sc.x0 + sc.w) * TILE, (sc.y0 + sc.h) * TILE)) things.push({ y: (sc.y0 + sc.h) * TILE + 1, draw: () => drawSecret(sc) });
+    for (const hz of v.traps || []) if (seen(hz.x - 64, hz.y - 64, hz.x + 64, hz.y + 8)) things.push({ y: hz.y + 1, draw: () => drawAxe(hz) });
     for (const p of v.fx) if (!p.warn) things.push({ y: p.y + (p.kind === "area" ? 0 : 2), draw: () => drawFlying(p, now) });
     things.sort((a, c) => a.y - c.y);
     for (const th of things) th.draw();
@@ -448,8 +627,10 @@ export function runLiveBattle(setup, vocab) {
       miniBase.width = mini.width;
       miniBase.height = mini.height;
       const g = miniBase.getContext("2d");
+      const hidden = new Set();
+      for (const sc of secrets) if (!secretOpen(sc)) for (let y = sc.y0; y < sc.y0 + sc.h; y++) for (let x = sc.x0; x < sc.x0 + sc.w; x++) hidden.add(y * map.cols + x);
       for (let ty = 0; ty < map.rows; ty++) for (let tx = 0; tx < map.cols; tx++) {
-        const id = map.tiles[ty * map.cols + tx];
+        const id = hidden.has(ty * map.cols + tx) ? "dungeon_wall" : map.tiles[ty * map.cols + tx];
         g.fillStyle = map.propTiles && map.propTiles[ty * map.cols + tx] ? "#241e2e" : PLACEHOLDER[id] || "#777";
         g.fillRect(tx * MINI, ty * MINI, MINI, MINI);
       }
@@ -906,6 +1087,25 @@ export function runLiveBattle(setup, vocab) {
           if (TERRAIN[ev.terrain]) banner(t("{0}: {1}", whose(ev.side), TERRAIN[ev.terrain].name), 1200);
           break;
         case "terrain-tick": numbers.push({ text: ev.heal ? `+${ev.heal}` : `-${ev.dmg}`, x, y: y - 46, t: 0, color: ev.heal ? "#7dffb0" : "#ff9a6a" }); break;
+        case "trap": // the dungeon's spikes or a swinging axe
+          play("impact", null, x, y - (ev.trap === "spikes" ? 6 : BODY_UP));
+          numbers.push({ text: `-${ev.dmg}`, x, y: y - 44, t: 0, color: "#ff9a6a" });
+          shake = ev.side === "me" ? 0.16 : 0.08;
+          sfx("common");
+          break;
+        case "wall-open": // a cracked wall broken open: rubble where it stood, and the room behind it shows
+          for (const tile of ev.tiles || []) {
+            play("dust", null, tile.c * TILE + 8, tile.r * TILE + 12);
+            play("impact", "stone", tile.c * TILE + 8, tile.r * TILE + 6);
+            (map.decals ||= []).push({ id: "rubble", v: (tile.c + tile.r) % 4, x: tile.c * TILE, y: tile.r * TILE, flip: tile.c % 2 === 1 });
+          }
+          groundDirty = true;
+          miniBase = null;
+          target = null;
+          shake = 0.2;
+          banner(t("A hidden room!"), 1400);
+          sfx("lucky");
+          break;
         case "faint": play("faint", null, x, y); banner(t("{0} is out!", whose(ev.side))); sfx("surprise"); break;
         case "swap": {
           const f = team(ev.side)[ev.index];
@@ -935,11 +1135,13 @@ export function runLiveBattle(setup, vocab) {
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* the drag still ends on pointerup */ }
     target = clampWorld(toWorld(e));
-    input(b, { goTo: target });
+    if (crackAt(b, target.x, target.y)) { pointer.crack = true; input(b, { open: target }); } // a cracked wall: go and break it open
+    else input(b, { goTo: target });
     e.preventDefault();
   });
   canvas.addEventListener("pointermove", (e) => {
-    if (!pointer || pointer.id !== e.pointerId || b.quiz) return;
+    if (!pointer && e.pointerType === "mouse" && secrets.length) { const p0 = toWorld(e); canvas.style.cursor = crackAt(b, p0.x, p0.y) ? "pointer" : ""; }
+    if (!pointer || pointer.id !== e.pointerId || b.quiz || pointer.crack) return;
     pointer.cx = e.clientX;
     pointer.cy = e.clientY;
     const to = clampWorld(toWorld(e));
@@ -1151,6 +1353,7 @@ export function runLiveBattle(setup, vocab) {
   let last = 0;
   function frame(now) {
     if (closed) return;
+    if (!el.isConnected) { close(); return; } // its screen was taken away without closing it (another battle opened): stop
     const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
     last = now;
     if (!paused() && now >= holdUntil) {

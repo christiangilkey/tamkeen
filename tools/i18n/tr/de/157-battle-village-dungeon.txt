@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Rathausmauer
+1f7a7a64	Teppich
+71efc0ca	Ackerland
+af3952bb	Etwas langsamer. Hain-Wesen bewegen sich ungehindert und heilen ein wenig.
+ea3580df	Weizen
+2766aed7	Nur Flut-Wesen und Schweber können hinein. Sein Wasser heilt ein wenig, Flut-Wesen mehr.
+d6adaf3e	Stacheln
+12304ac5	Alle 2 Sekunden schießen Stacheln hoch und verletzen jeden, der darauf steht.
+db402c3c	Rissige Mauer
+14f4b7c3	Eine Schwachstelle in der Mauer: Klicke sie an, wenn dein Wesen nah genug ist, um sie aufzubrechen.
+fccbed74	Marktstand
+bbfefb83	Verkaufskarren
+668bfc84	Vogelscheuche
+8b3d8d66	Schild
+931fa888	Bank
+0424f6e7	Tisch
+f4018045	Theke
+9c4cd273	Regal
+3bdeb9a8	Säcke
+f0537d95	Amboss
+5f9a8584	Schreibtisch
+d8bfbca8	Truhe
+2954684a	Käfig
+07569532	Waffenständer
+fa1f581c	Rüstungsständer
+a353afc8	Thron
+30686c9a	Umgestürzter Baum
+8d274746	Baumstumpf
+5e2d8f0d	Eine rissige Mauer! Tippe sie an, um sie aufzubrechen.
+7499ffbf	Eine rissige Mauer! Klicke sie an, um sie aufzubrechen.
+c4bc12e0	Ein verborgener Raum!
+a187c328	Springbrunnen
+370793de	Laternenpfahl

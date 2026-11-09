@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Muro da prefeitura
+1f7a7a64	Tapete
+71efc0ca	Terra cultivada
+af3952bb	Um pouco mais lento. As criaturas Bosque se movem livremente e se curam um pouco.
+ea3580df	Trigo
+2766aed7	Só as criaturas Maré e as flutuantes conseguem entrar. A água cura um pouco; as criaturas Maré, mais.
+d6adaf3e	Espinhos
+12304ac5	A cada 2 segundos, espinhos saltam do chão e ferem quem estiver em cima.
+db402c3c	Muro rachado
+14f4b7c3	Um ponto fraco no muro: clique nele quando sua criatura estiver perto para abri-lo.
+fccbed74	Barraca de feira
+bbfefb83	Carrinho de vendedor
+668bfc84	Espantalho
+8b3d8d66	Placa
+931fa888	Banco
+0424f6e7	Mesa
+f4018045	Balcão
+9c4cd273	Prateleiras
+3bdeb9a8	Sacos
+f0537d95	Bigorna
+5f9a8584	Escrivaninha
+d8bfbca8	Baú
+2954684a	Jaula
+07569532	Suporte de armas
+fa1f581c	Suporte de armadura
+a353afc8	Trono
+30686c9a	Árvore caída
+8d274746	Toco
+5e2d8f0d	Um muro rachado! Toque nele para abri-lo.
+7499ffbf	Um muro rachado! Clique nele para abri-lo.
+c4bc12e0	Uma sala escondida!
+a187c328	Fonte
+370793de	Poste de luz

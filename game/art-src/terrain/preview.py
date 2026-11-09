@@ -41,7 +41,7 @@ class Art:
     """Every terrain's tiles for one animation frame, made once."""
 
     def __init__(self, frame: int = 0):
-        from terrain import TERRAINS
+        from terrain import all_terrains; TERRAINS = all_terrains()
         self.T = TERRAINS
         self.frame = frame
         self.cache = {}
@@ -74,8 +74,9 @@ def chain(tid):
 
 # the order layers are drawn in inside a cell (the Map chat's drawCorners uses the same), low to high
 ORDER = ["cave_floor", "ash", "snow", "sand", "dirt", "grass", "forest_floor", "mud", "ice", "shallows", "deep_water",
-         "spring", "coals", "lava", "cobbles", "wood_floor", "stone_floor", "high", "tall_grass", "flowers", "shadow",
-         "crystals", "wall", "fort_wall", "dungeon_wall", "house_wall", "fence", "bridge", "bridge_v"]
+         "spring", "coals", "lava", "cobbles", "farmland", "wood_floor", "stone_floor", "carpet", "high", "tall_grass",
+         "wheat", "flowers", "shadow", "crystals", "spikes", "fountain", "wall", "fort_wall", "dungeon_wall", "cracked_wall",
+         "house_wall", "hall_wall", "fence", "bridge", "bridge_v"]
 
 
 def bridge_axis(g, x, y):
@@ -201,10 +202,13 @@ SHOW_ON = {
     "coals": "ash", "lava": "ash", "shadow": "grass", "spring": "grass", "bridge": "grass", "bridge_v": "grass",
     "wall": "grass", "fort_wall": "grass", "dungeon_wall": "cave_floor", "house_wall": "grass", "fence": "grass",
     "wood_floor": "grass", "stone_floor": "grass",
+    # the village, dungeon and fortress additions (village_ground.py, dungeon_art.py)
+    "hall_wall": "grass", "carpet": "stone_floor", "farmland": "grass", "wheat": "grass", "fountain": "cobbles",
+    "spikes": "stone_floor", "cracked_wall": "stone_floor",
 }
 
-WALLS = ("fort_wall", "dungeon_wall", "house_wall")
-FLOOR_OF = {"fort_wall": "stone_floor", "dungeon_wall": "stone_floor", "house_wall": "wood_floor"}
+WALLS = ("fort_wall", "dungeon_wall", "house_wall", "hall_wall")
+FLOOR_OF = {"fort_wall": "stone_floor", "dungeon_wall": "stone_floor", "house_wall": "wood_floor", "hall_wall": "stone_floor"}
 
 
 def special_grid(tid, w, h):
@@ -266,7 +270,7 @@ def patch(tid: str, frame: int = 0, art=None) -> Image.Image:
 
 
 def sheet_view(tid: str, k: int = 4) -> Image.Image:
-    from terrain import TERRAINS
+    from terrain import all_terrains; TERRAINS = all_terrains()
     t = TERRAINS[tid]
     s = Image.fromarray(t.sheet(0), "RGBA")
     f = Image.fromarray(t.fill_strip(), "RGBA")
@@ -410,7 +414,7 @@ def structures_sheets(k=4) -> Image.Image:
 
 def main(args):
     PREV.mkdir(exist_ok=True)
-    from terrain import TERRAINS
+    from terrain import all_terrains; TERRAINS = all_terrains()
     if args and args[0] == "structures":
         structures_sheets().save(PREV / "structures_sheets.png")
         zoom(structures_area(), 2).save(PREV / "structures_area.png")
@@ -451,7 +455,7 @@ def slow_noise(x, y, scale=5.0, salt=0):
 
 def textures_sheet(k=2, w=24, h=10):
     """Each ground with several fill textures, laid as a big field with the textures in patches."""
-    from terrain import TERRAINS
+    from terrain import all_terrains; TERRAINS = all_terrains()
     ids = [t for t in TERRAINS if TERRAINS[t].groups > 1]
     shots = []
     for tid in ids:

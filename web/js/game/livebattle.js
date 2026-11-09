@@ -42,6 +42,10 @@ const DELAY_PUSH = 3;               // a delay move's `delay` times this many se
 const ACCEL = 900;                  // px/s², how quickly a creature reaches its speed (times the ground's grip)
 const KNOCK = 90;                   // px/s a hit pushes its target back
 const STRIDE = 14;                  // px between footsteps
+export const SPIKE_S = 2;           // spikes shoot up every this many seconds (and stay up for half of it)
+const AXE_HIT = 0.08;               // a swinging axe takes this share of a creature's health
+const AXE_PUSH = 220;               // px/s it throws the creature along its swing
+const OPEN_REACH = 30;              // px from a cracked wall's tile centre a creature's feet must be to break it open
 const SHOW_S = 0.25;                // how long a beam or area stays on screen after it lands
 const MAX_DT = 1 / 30;              // the simulation runs in steps no longer than this
 const MAX_STEP = 0.25;              // and never jumps more than this at once (a hidden tab)
@@ -79,7 +83,8 @@ function groundAt(b, f, x = f.x, y = f.y) {
   const num = (v, d) => (Number.isFinite(v) ? v : d);
   const hp = num(e.hp, 0);
   return { id: t ? t.id : null, status: t ? t.status || null : null, speed: num(e.speed, 1), grip: num(e.grip, Number.isFinite(e.slip) ? 1 - e.slip : 1),
-           atk: num(e.atk, 1), def: num(e.def, 1), heal: num(e.heal, Math.max(0, hp)), burn: num(e.burn, Math.max(0, -hp)) };
+           atk: num(e.atk, 1), def: num(e.def, 1), heal: num(e.heal, Math.max(0, hp)), burn: num(e.burn, Math.max(0, -hp)),
+           spikes: t ? num(t.spikes, 0) : 0 };
 }
 /** Whether the creature's feet fit at (x, y). */
 function fits(b, f, x, y) {
@@ -116,7 +121,7 @@ function liveFighter(f, side, index, scale) {
            x: 0, y: 0, vx: 0, vy: 0, face: side === "me" ? 1 : -1, cd: {}, recover: 0, guard: 0, guardLeft: 0, boost: 0, boostMult: 1, boostLeft: 0,
            haste: 0, slow: 0, stun: 0, grace: 0, charging: null, dash: null, act: null, stride: 0, tick: 0, speed: 0, groundHealed: 0, fainted: false };
 }
-const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0 });
+const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0, open: null });
 const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
 
 /**
@@ -171,7 +176,8 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [],
+    quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
   };
   b.brain = { me: brainOf(autoSkill), foe: brainOf(b.foeForm, brain) };
@@ -240,10 +246,16 @@ export function input(b, cmd = {}) {
     const m = cmd.move;
     const len = m ? Math.hypot(m.x || 0, m.y || 0) : 0;
     c.move = len > 0.01 ? { x: (m.x || 0) / Math.max(1, len), y: (m.y || 0) / Math.max(1, len) } : null;
-    if (c.move) { c.dest = null; c.path = null; }
+    if (c.move) { c.dest = null; c.path = null; c.open = null; }
   }
   if ("goTo" in cmd) {
+    c.open = null;
     if (cmd.goTo) { c.move = null; setDest(b, "me", cmd.goTo); } else { c.dest = null; c.path = null; }
+  }
+  if (cmd.open) {
+    // a cracked wall: walk up to it and break it open (on the next steps, when close enough)
+    const tiles = crackAt(b, cmd.open.x, cmd.open.y);
+    if (tiles) { c.open = { tiles, walking: false }; c.move = null; }
   }
   if (cmd.attack) c.attack = cmd.attack;
   if (cmd.sight) b.sight = sightOf(cmd.sight);
@@ -258,6 +270,73 @@ function setDest(b, side, to, retry = false) {
   c.path = path && path.length ? path : [goal];
   c.stuck = 0;
   c.tries = retry ? (c.tries || 0) + 1 : 0;
+}
+
+/** The tiles of the cracked wall at (x, y) world px (or just above it, where its face hangs), all of it (4 ways), or
+ * null when there is none there. */
+export function crackAt(b, x, y) {
+  const m = b.map, T = battlemap.TERRAIN;
+  const weak = (i) => i >= 0 && T[m.tiles[i]] && !!T[m.tiles[i]].opens;
+  const tx = Math.floor(x / TILE), ty = Math.floor(y / TILE);
+  if (tx < 0 || tx >= m.cols || ty < 0 || ty >= m.rows) return null;
+  const start = [ty * m.cols + tx, (ty - 1) * m.cols + tx].find((i) => ty >= 0 && weak(i));
+  if (start === undefined) return null;
+  const seen = new Set([start]), todo = [start];
+  while (todo.length) {
+    const i = todo.pop(), cx = i % m.cols;
+    for (const j of [cx > 0 ? i - 1 : -1, cx < m.cols - 1 ? i + 1 : -1, i - m.cols, i + m.cols]) if (j >= 0 && j < m.tiles.length && weak(j) && !seen.has(j)) { seen.add(j); todo.push(j); }
+  }
+  return [...seen].sort((a, c) => a - c);
+}
+const tileMid = (b, i) => ({ x: (i % b.map.cols) * TILE + TILE / 2, y: Math.floor(i / b.map.cols) * TILE + TILE / 2 });
+/** The player's creature on its way to a cracked wall: break it open once close enough, else walk to the floor beside it. */
+function opening(b, events) {
+  const c = b.ctl.me, f = current(b, "me");
+  const o = c.open;
+  if (!o || f.fainted) { c.open = null; return; }
+  const T = battlemap.TERRAIN;
+  const tiles = o.tiles.filter((i) => T[b.map.tiles[i]] && T[b.map.tiles[i]].opens);
+  if (!tiles.length) { c.open = null; return; }
+  const near = Math.min(...tiles.map((i) => dist(f, tileMid(b, i))));
+  if (near <= OPEN_REACH) {
+    const changed = tiles.map((i) => {
+      const to = T[b.map.tiles[i]].opens;
+      b.map.tiles[i] = to;
+      if (Array.isArray(b.map.under)) b.map.under[i] = null;
+      return { c: i % b.map.cols, r: Math.floor(i / b.map.cols), terrain: to };
+    });
+    b.map.propTiles = b.map.propTiles.slice(); // a new key for the ways-through cache: the map's regions changed
+    c.open = null;
+    events.push({ kind: "wall-open", side: "me", tiles: changed, x: f.x, y: f.y });
+    return;
+  }
+  if (o.walking && (c.dest || c.move)) return;
+  if (o.walking) { c.open = null; return; } // it stopped short (stuck): give up
+  // the floor tile beside the crack nearest the creature, that it can stand on
+  let best = null;
+  for (const i of tiles) for (const j of [i - 1, i + 1, i - b.map.cols, i + b.map.cols]) {
+    if (j < 0 || j >= b.map.tiles.length) continue;
+    const p = tileMid(b, j);
+    if (!fits(b, f, p.x, p.y)) continue;
+    const d = dist(f, p);
+    if (!best || d < best.d) best = { p, d };
+  }
+  if (!best) { c.open = null; return; }
+  setDest(b, "me", best.p);
+  o.walking = true;
+}
+
+/** Whether the spikes are up at battle time t (seconds): up for the first half of every SPIKE_S. */
+export const spikesUp = (t) => ((t % SPIKE_S) + SPIKE_S) % SPIKE_S < SPIKE_S / 2;
+/** The spikes' picture at battle time t: 0 down, 1 rising, 2 up, 3 going down (battle/terrain/spikes_anim.png). */
+export function spikeFrame(t) {
+  const u = ((t % SPIKE_S) + SPIKE_S) % SPIKE_S;
+  return u < 0.12 ? 1 : u < SPIKE_S / 2 - 0.12 ? 2 : u < SPIKE_S / 2 ? 3 : u < SPIKE_S - 0.12 ? 0 : 1;
+}
+/** A swinging axe's angle at battle time t, in degrees (0 = straight down, + = to the right), and which way it is going. */
+export function axeAngle(h, t) {
+  const a = (2 * Math.PI * t) / (h.period || 2.5) + (h.phase || 0);
+  return { deg: (battlemap.HAZARDS.axe.swing || 60) * Math.sin(a), dir: Math.cos(a) >= 0 ? 1 : -1 };
 }
 
 /** Why a move can't be used now ("cooldown", "busy", "stunned", "used up", ...), or null when it can. */
@@ -581,6 +660,8 @@ function tick(b, h, events) {
   separate(b);
   flight(b, h, events);
   for (const side of SIDES) groundTick(b, current(b, side), h, events);
+  if (b.ctl.me.open) opening(b, events);
+  traps(b, events);
   const me = current(b, "me");
   if (!b.over && b.me === b.mine.length - 1 && me.hp > 0 && me.hp <= me.max * 0.15) b.brink = true;
 }
@@ -771,6 +852,40 @@ function flight(b, h, events) {
   b.fx = b.fx.filter((p) => !p.done);
 }
 
+/** The dungeon's traps: spikes shoot up every SPIKE_S (hurting whoever stands on them as they rise), axes swing. */
+function traps(b, events) {
+  const up = spikesUp(b.time);
+  const rising = up && !b.spikesUp;
+  b.spikesUp = up;
+  for (const side of SIDES) {
+    const f = current(b, side);
+    if (b.over || f.fainted || f.grace > 0) continue;
+    if (rising) {
+      const g = groundAt(b, f);
+      if (g.spikes > 0) {
+        const dmg = Math.max(1, Math.round(f.max * g.spikes));
+        f.hp = Math.max(0, f.hp - dmg);
+        f.act = { kind: "hurt", t: 0, dur: 0.3 };
+        events.push({ kind: "trap", trap: "spikes", side, dmg, hp: f.hp, x: f.x, y: f.y });
+        if (f.hp <= 0) { faint(b, f, events); continue; }
+      }
+    }
+    for (const h of b.traps) {
+      const { deg, dir } = axeAngle(h, b.time);
+      if (Math.abs(deg) > 42 || b.time - h.hit[side] < 0.9) continue; // only the low part of the swing hits
+      const bx = h.x + (h.reach || 42) * Math.sin((deg * Math.PI) / 180);
+      if (Math.abs(f.x - bx) > 13 || Math.abs(f.y - h.y) > 9) continue;
+      h.hit[side] = b.time;
+      const dmg = Math.max(1, Math.round(f.max * AXE_HIT));
+      f.hp = Math.max(0, f.hp - dmg);
+      f.vx += dir * AXE_PUSH;
+      f.act = { kind: "hurt", t: 0, dur: 0.35 };
+      events.push({ kind: "trap", trap: "axe", side, dmg, hp: f.hp, x: f.x, y: f.y, dir });
+      if (f.hp <= 0) { faint(b, f, events); break; }
+    }
+  }
+}
+
 /** Once a second the ground heals or burns the creature standing on it. */
 function groundTick(b, f, h, events) {
   if (f.fainted || b.over) return;
@@ -942,6 +1057,7 @@ function bestSpot(b, f, o, idle = 0) {
     s += gw * ((g.atk - 1) * 6 + (g.def - 1) * 5 - (1 - Math.min(1, g.speed)) * 2 - (g.grip < 0.5 ? 1 : 0));
     if (g.heal > 0) s += gw * (f.hp < f.max * 0.7 ? 2 : 0.3);
     if (g.burn > 0) s -= 4 * Math.max(0.25, gw);
+    if (g.spikes > 0) s -= 4 * Math.max(0.25, gw);
     if (needsLine) s += clearShot(b, p.x, p.y, o.x, o.y) ? 1 : -3;
     if (!inSight(b, p, o)) s -= 3; // somewhere it couldn't attack from
     if (g.heal > 0 && (f.groundHealed || 0) >= f.max * GROUND_HEAL) s -= gw * (f.hp < f.max * 0.7 ? 2 : 0.3); // it has had all the ground gives
@@ -1007,7 +1123,7 @@ export function view(b) {
   return {
     time: b.time, over: b.over, won: b.won, combo: b.combo, mode: b.mode, wordMode: b.wordMode,
     quiz: b.quiz ? { move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
-    map: b.map, width: b.width, height: b.height,
+    map: b.map, width: b.width, height: b.height, traps: b.traps, opening: !!b.ctl.me.open,
     me: fighterView(b, "me"), foe: fighterView(b, "foe"),
     teams: { me: b.mine.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })), foe: b.theirs.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })) },
     index: { me: b.me, foe: b.foe },

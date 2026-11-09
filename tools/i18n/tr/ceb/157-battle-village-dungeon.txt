@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	Bungbong sa Munisipyo
+1f7a7a64	Alpombra
+71efc0ca	Umahan
+af3952bb	Mopahinay og gamay. Walay babag ang lihok sa mga linalang nga Kalasangan ug mamaayo sila og gamay.
+ea3580df	Trigo
+2766aed7	Ang mga linalang nga Balud ug mga molutaw ra ang makasulod. Mag-ayo og gamay ang tubig niini, mas daghan sa mga linalang nga Balud.
+d6adaf3e	Mga tunok
+12304ac5	Matag 2 ka segundo, motungha ang mga tunok ug mosakit sa bisan kinsa nga nagbarog niini.
+db402c3c	Liki nga bungbong
+14f4b7c3	Huyang nga bahin sa bungbong: i-click kini kung duol na ang imong linalang aron maguba ug maablihan.
+fccbed74	Tindahan sa merkado
+bbfefb83	Kariton sa tindera
+668bfc84	Tinawo
+8b3d8d66	Karatula
+931fa888	Bangko
+0424f6e7	Lamesa
+f4018045	Mostrador
+9c4cd273	Mga estante
+3bdeb9a8	Mga sako
+f0537d95	Palihan
+5f9a8584	Lamesa sa pagsulat
+d8bfbca8	Kaban
+2954684a	Hawla
+07569532	Butanganan sa armas
+fa1f581c	Butanganan sa armadura
+a353afc8	Trono
+30686c9a	Natumbang kahoy
+8d274746	Tuod
+5e2d8f0d	Liki nga bungbong! I-tap kini aron maguba ug maablihan.
+7499ffbf	Liki nga bungbong! I-click kini aron maguba ug maablihan.
+c4bc12e0	Usa ka tinagong lawak!
+a187c328	Pontana
+370793de	Poste sa suga

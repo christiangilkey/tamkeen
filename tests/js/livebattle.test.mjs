@@ -10,7 +10,8 @@ import { finishBattle, newState } from "../../web/js/game/rules.js";
 import { fighters, wildTeam } from "../../web/js/game/battle.js";
 import { generateMap } from "../../web/js/game/battlemap.js";
 import {
-  COMBO, ENTER_GAP, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, TILE, answer, battleResult, cardScale, current, input, inRange, newLiveBattle, speedOf,
+  COMBO, ENTER_GAP, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, SPIKE_S, TILE, answer, axeAngle, battleResult, cardScale, crackAt, current, input, inRange,
+  newLiveBattle, speedOf, spikeFrame, spikesUp,
   step, useNow, usePotion, view, whyNot, wordModeOf, wordPool,
 } from "../../web/js/game/livebattle.js";
 
@@ -21,7 +22,8 @@ const mk = (type, { moves = ["tackle"], species = "biped", hp = 100, atk = 20, d
   ({ name, look: { species, beast: "test", type }, type, max: hp, hp, atk, def, spd, moves, heals: 2 });
 // An arena drawn as text: . grass, g tall grass, m mud, i ice, h high ground, c hot coals, s spring,
 // a shallows, d deep water, w wall, o a boulder (a prop on grass).
-const LEGEND = { ".": "grass", g: "tall_grass", m: "mud", i: "ice", h: "high", c: "coals", s: "spring", a: "shallows", d: "deep_water", w: "wall", o: "grass" };
+const LEGEND = { ".": "grass", g: "tall_grass", m: "mud", i: "ice", h: "high", c: "coals", s: "spring", a: "shallows", d: "deep_water", w: "wall", o: "grass",
+  "^": "spikes", x: "cracked_wall", f: "stone_floor", D: "dungeon_wall" };
 function arena(rows, starts) {
   const tiles = [], propTiles = [];
   for (const line of rows) for (const ch of line) { tiles.push(LEGEND[ch]); propTiles.push(ch === "o" ? "boulder" : null); }
@@ -706,4 +708,61 @@ test("the rival attacks only from inside the player's view, whatever the screen'
   // A homing shot may come from just outside the view: it is slow, and shows up near the player in time.
   const far = firstAttack({ w: 360, h: 520 }, at(46, 20), { theirs: [mk("grove", { moves: ["seeker"] })] });
   assert.ok(far && far.dx > 360 / 2 - 30, `it fired its homing shot from outside the view (${far && far.dx.toFixed(0)} px across)`);
+});
+
+test("dungeon traps: spikes rise every 2 seconds and hurt whoever stands on them; the picture follows the same clock", () => {
+  const rows = open(24, 9);
+  rows[4] = ".....^^^................";
+  const b = duel({ map: arena(rows, { me: at(6, 4), foe: at(18, 4) }) });
+  const me = current(b, "me");
+  const ev = run(b, 4.3);
+  const hits = kinds(ev, "trap").filter((e) => e.trap === "spikes");
+  assert.equal(hits.length, 2, "up at 2 s and at 4 s, not at the start");
+  assert.ok(hits.every((e) => e.side === "me" && e.dmg === Math.round(me.max * 0.07)));
+  assert.equal(current(b, "foe").hp, current(b, "foe").max, "the rival on grass is untouched");
+  assert.ok(spikesUp(0.5) && !spikesUp(1.5) && spikesUp(2.2));
+  assert.equal(spikeFrame(0.5), 2); assert.equal(spikeFrame(1.5), 0); assert.equal(spikeFrame(1.95), 1); assert.equal(spikeFrame(0.95), 3);
+  assert.equal(SPIKE_S, 2);
+});
+
+test("dungeon traps: a swinging axe hits a creature in its path at the bottom of its swing and throws it along the swing", () => {
+  const map = { ...field(".", at(6, 4)), hazards: [{ kind: "axe", x: 6 * TILE + 8, y: 4 * TILE + 8, period: 2, phase: 0, reach: 42 }] };
+  const b = duel({ map });
+  const ev = run(b, 3);
+  const hits = kinds(ev, "trap").filter((e) => e.trap === "axe");
+  assert.ok(hits.length >= 1 && hits.every((e) => e.side === "me"), "the creature standing under it is hit");
+  assert.ok(hits.length <= 4, "not every step: once per pass at most");
+  assert.equal(current(b, "foe").hp, current(b, "foe").max);
+  const a = axeAngle({ period: 2, phase: 0 }, 0.5);
+  assert.ok(Math.abs(a.deg - 60) < 1e-6, "a quarter of the way through, swung right out");
+  assert.equal(axeAngle({ period: 2, phase: 0 }, 0).dir, 1);
+});
+
+test("hidden rooms: clicking a cracked wall walks the creature up to it and breaks it open; the way through is new", () => {
+  const rows = [
+    "DDDDDDDDDDDDDDDDDDDDDDDD",
+    "DffffffffffffffffffffffD",
+    "DffffffffffffffffffffffD",
+    "DDDDDDDDDDxxDDDDDDDDDDDD",
+    "DDDDDDDDDffffDDDDDDDDDDD",
+    "DDDDDDDDDffffDDDDDDDDDDD",
+    "DDDDDDDDDDDDDDDDDDDDDDDD",
+  ];
+  const map = { ...arena(rows, { me: at(3, 1), foe: at(20, 2) }), base: "stone_floor" };
+  const b = duel({ map });
+  assert.equal(crackAt(b, at(3, 1).x, at(3, 1).y), null, "no crack on open floor");
+  const crack = crackAt(b, at(10, 3).x, at(10, 3).y);
+  assert.deepEqual(crack, [3 * 24 + 10, 3 * 24 + 11], "the whole crack, from one of its tiles");
+  assert.deepEqual(crackAt(b, at(11, 4).x, at(11, 4).y - 6), crack, "or a click just below it, on its face");
+  const keys = b.map.propTiles;
+  input(b, { open: at(10, 3) });
+  const ev = run(b, 4);
+  const open = kinds(ev, "wall-open");
+  assert.equal(open.length, 1, "it walked over and broke it");
+  assert.deepEqual(open[0].tiles.map((t) => [t.c, t.r]), [[10, 3], [11, 3]]);
+  assert.equal(b.map.tiles[3 * 24 + 10], "stone_floor");
+  assert.notEqual(b.map.propTiles, keys, "a fresh key for the way-finding cache");
+  input(b, { goTo: at(10, 5) });
+  run(b, 3);
+  assert.ok(Math.abs(current(b, "me").y - at(10, 5).y) < 6, "and it can walk into the room");
 });

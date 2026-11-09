@@ -16,7 +16,7 @@ distinctive details drawn inside each tile separately (so big areas don't show a
 down at the same three-quarter angle as the creatures, so raised things show their south face and cast their
 shadow to the lower right, and dips show their far (north) bank.
 
-    .venv/Scripts/python game/art-src/terrain/terrain.py build [id ...] [--aseprite]
+    .venv/Scripts/python game/art-src/terrain/terrain.py build [id ... | props | decals | prop_<name> ...] [--aseprite]
     .venv/Scripts/python game/art-src/terrain/terrain.py preview [id ...]
 """
 
@@ -2631,6 +2631,33 @@ TERRAINS = {t.id: t for t in (
 )}
 UNDER = {"deep_water": "shallows", "bridge": "deep_water", "bridge_v": "deep_water"}
 
+# Art drawn in other recipe files, one per set (so several can be worked on at once). Each may define
+#   TERRAINS  {id: Terrain}                       sheets like the ones above
+#   PROPS     {name: fn -> RGBA array}            drawn with props.finish (so props.LAST holds the layers)
+#   DECALS    {"decal_<id>": fn -> RGBA strip}
+#   SPRITES   {file name without .png: fn -> (RGBA array, {layer: [frame arrays]})}   roofs, ornaments, hazards
+EXTRA = ("village_ground", "village_props", "dungeon_art", "fortress_art", "trees_art")
+
+
+def extra_modules():
+    import importlib
+    mods = []
+    for name in EXTRA:
+        try:
+            mods.append(importlib.import_module(name))
+        except ModuleNotFoundError as e:
+            if e.name != name:
+                raise
+    return mods
+
+
+def all_terrains():
+    """TERRAINS and the ones drawn in the EXTRA recipe files."""
+    out = dict(TERRAINS)
+    for m in extra_modules():
+        out.update(getattr(m, "TERRAINS", {}))
+    return out
+
 
 # ---------- build ----------
 
@@ -2657,7 +2684,7 @@ def build(ids=None, aseprite=False) -> None:
         save(arr, f)
         return f
 
-    for tid, t in TERRAINS.items():
+    for tid, t in all_terrains().items():
         if ids and tid not in ids:
             continue
         sheets = [t.sheet(f) for f in range(t.frames)]
@@ -2687,14 +2714,14 @@ def build(ids=None, aseprite=False) -> None:
             jobs.append((ASE / f"{tid}_fill.aseprite", fill_frames[0].shape[1], T,
                          {"fill": [frame_file(a, f"{tid}_fill_{i}.png") for i, a in enumerate(fill_frames)]}))
         print("built", tid)
-    if not ids or any(i.startswith("prop") for i in ids):
+    if not ids or "props" in ids:  # (one extra prop: its own name, prop_<name>)
         import props
         for name, (shadow, obj) in props.build().items():
             if aseprite:
                 h, w = obj.shape[:2]
                 jobs.append((ASE / f"prop_{name}.aseprite", w, h,
                              {"shadow": [frame_file(shadow, f"p_{name}_s.png")], "prop": [frame_file(obj, f"p_{name}_o.png")]}))
-    if not ids or any(i.startswith("decal") for i in ids):
+    if not ids or "decals" in ids:
         import decals
         for name, fn in decals.DECALS.items():
             strip = fn()
@@ -2702,6 +2729,39 @@ def build(ids=None, aseprite=False) -> None:
             if aseprite:
                 jobs.append((ASE / f"{name}.aseprite", strip.shape[1], T, {"decal": [frame_file(strip, f"{name}.png")]}))
             print("decal", name, strip.shape[1] // T, "cells")
+    # the EXTRA recipe files' props, decals and sprites (a name in `ids` builds just that one)
+    pick = lambda name: not ids or name in ids
+    for m in extra_modules():
+        for name, fn in getattr(m, "PROPS", {}).items():
+            if not pick(f"prop_{name}"):
+                continue
+            import props
+            arr = fn()
+            save(arr, OUT / f"prop_{name}.png")
+            if aseprite:
+                shadow, obj = props.LAST["layers"]
+                h, w = obj.shape[:2]
+                jobs.append((ASE / f"prop_{name}.aseprite", w, h,
+                             {"shadow": [frame_file(shadow, f"p_{name}_s.png")], "prop": [frame_file(obj, f"p_{name}_o.png")]}))
+            print("prop", name, arr.shape[1], "x", arr.shape[0])
+        for name, fn in getattr(m, "DECALS", {}).items():
+            if not pick(name):
+                continue
+            strip = fn()
+            save(strip, OUT / f"{name}.png")
+            if aseprite:
+                jobs.append((ASE / f"{name}.aseprite", strip.shape[1], strip.shape[0], {"decal": [frame_file(strip, f"{name}.png")]}))
+            print("decal", name)
+        for name, fn in getattr(m, "SPRITES", {}).items():
+            if not pick(name):
+                continue
+            arr, layers = fn()
+            save(arr, OUT / f"{name}.png")
+            if aseprite:
+                first = next(iter(layers.values()))[0]
+                jobs.append((ASE / f"{name}.aseprite", first.shape[1], first.shape[0],
+                             {ln: [frame_file(a, f"{name}_{ln}_{i}.png") for i, a in enumerate(fr)] for ln, fr in layers.items()}))
+            print("sprite", name, arr.shape[1], "x", arr.shape[0])
     if jobs:
         ASE.mkdir(exist_ok=True)
         lua = []

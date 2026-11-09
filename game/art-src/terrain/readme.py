@@ -13,7 +13,9 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from decals import DECALS_K  # noqa: E402
-from terrain import OUT, TERRAINS  # noqa: E402
+from terrain import OUT, all_terrains  # noqa: E402
+
+TERRAINS = all_terrains()  # (with the ones drawn in the EXTRA recipe files)
 
 # kind, footprint (tiles), themes — what the Map needs to place each prop
 PROP_INFO = {
@@ -37,6 +39,28 @@ PROP_INFO = {
     "barrel": ("barrel", 1, "village, fortress, dungeon"), "crate": ("crate", 1, "village, fortress, dungeon"),
     "well": ("well", 2, "village"), "brazier": ("brazier", 1, "dungeon, fortress"), "haystack": ("haystack", 2, "village"),
     "statue": ("statue", 1, "fortress, dungeon"), "cart": ("cart", 2, "village"), "banner": ("banner", 1, "fortress, village"),
+    # the village (village_props.py)
+    "stall": ("stall", 2, "village (the market)"), "stall_cloth": ("stall", 2, "village"), "stall_bread": ("stall", 2, "village"),
+    "vendor_cart": ("vendor_cart", 2, "village"), "vendor_cart_flowers": ("vendor_cart", 2, "village"),
+    "scarecrow": ("scarecrow", 1, "village (in the fields)"), "sign_tavern": ("sign", 1, "village (by the tavern door)"),
+    "sign_bakery": ("sign", 1, "village (a shop)"), "sign_potion": ("sign", 1, "village (a shop)"), "sign_smith": ("sign", 1, "village (a shop)"),
+    "lamp_post": ("lamp_post", 1, "village (the square)"), "bench": ("bench", 2, "village (the square, the Town Hall)"),
+    "table": ("table", 2, "village (tavern, houses)"), "counter": ("counter", 3, "village (tavern, shops)"),
+    "shelf": ("shelf", 2, "village (against a wall)"), "shelf_books": ("shelf", 2, "village (the Town Hall, against a wall)"),
+    "sacks": ("sacks", 1, "village (bakery, barn)"), "anvil": ("anvil", 1, "village (smithy)"), "desk": ("desk", 2, "village (the Town Hall)"),
+    # the dungeon (dungeon_art.py) and the fortress (fortress_art.py)
+    "chest": ("chest", 1, "dungeon (hidden rooms)"), "cage": ("cage", 1, "dungeon"), "statue_gargoyle": ("statue", 1, "dungeon"),
+    "statue_knight": ("statue", 1, "dungeon, fortress"), "weapon_rack": ("weapon_rack", 2, "fortress (towers)"),
+    "weapon_rack_axes": ("weapon_rack", 2, "fortress (towers)"), "armor_stand": ("armor_stand", 1, "fortress (towers)"),
+    "armor_stand_gold": ("armor_stand", 1, "fortress (the keep)"), "throne": ("throne", 2, "fortress (the keep)"),
+    # more trees (trees_art.py)
+    "tree_tall": ("tree", 2, "meadow, forest, fortress"), "tree_poplar": ("tree", 1, "meadow, village"),
+    "tree_round": ("tree", 2, "meadow, forest, village, fortress"), "tree_twisted": ("tree", 2, "meadow, forest, ruins, night"),
+    "tree_dead_tall": ("tree", 2, "forest, ruins, night"), "tree_dead_broken": ("tree", 1, "meadow, ruins, night, desert"),
+    "pine_tall": ("pine", 2, "forest, snow"), "pine_dead": ("pine", 2, "forest, snow"),
+    "log_fallen": ("log", 3, "meadow, forest, ruins"), "log_mossy": ("log", 3, "meadow, forest, ruins"),
+    "stump": ("stump", 1, "meadow, forest, night, village"), "stump_big": ("stump", 2, "meadow, forest"),
+    "stump_axe": ("stump", 1, "village"), "stump_mossy": ("stump", 1, "meadow, forest, night"),
 }
 DECAL_INFO = {
     "pebbles": ("grass, dirt, sand, cave_floor, ash, high, snow, cobbles", "every theme"),
@@ -56,12 +80,15 @@ DECAL_INFO = {
     "rug": ("wood_floor", "village"),
     "cobweb": ("stone_floor, cave_floor", "dungeon (cells 0, 1: top-left / top-right corner, against a wall)"),
     "rubble": ("stone_floor, cobbles, dirt, cave_floor", "dungeon, fortress"),
+    "coins": ("stone_floor", "dungeon (laid in the hidden rooms only)"),
 }
 GROUP_NAMES = {
     "grass": "plain, lush, dry, flowery", "sand": "plain, dunes, grit", "snow": "plain, wind-swept, drifts",
     "cave_floor": "plain, rubble, damp", "high": "plain, mossy, cracked", "ash": "plain, cinders, crust",
     "dirt": "plain, stony", "wood_floor": "plain (a knot, nails), aged (worn, darker, cracked planks)",
     "stone_floor": "plain (a darker, paler or chipped slab), worn (crack, stain), damp (moss, puddle, a drain in tile 10)",
+    "farmland": "seedlings in rows, cabbages and lettuces (the edge tiles are bare tilled soil)",
+    "wheat": "golden ripe, greener with poppies",
 }
 
 
@@ -78,8 +105,10 @@ def main():
     w("Tiles, props and decals for the live battles' arenas (the terrain table, themes and placement are the Map")
     w("chat's, in `web/js/game/battlemap.js`). All pixel art, light from the top left, seen from the creatures'")
     w("three-quarter angle. Made by the scripts in `game/art-src/terrain/` (terrain.py, corners.py, props.py,")
-    w("props_more.py, decals.py); one layered Aseprite source per PNG in `game/art-src/terrain/aseprite/`, same name.")
-    w("Rebuild: `.venv/Scripts/python game/art-src/terrain/terrain.py build --aseprite`, then `readme.py` (this file).")
+    w("props_more.py, decals.py, and the EXTRA files village_ground.py, village_props.py, dungeon_art.py, fortress_art.py,")
+    w("trees_art.py); one layered Aseprite source per PNG in `game/art-src/terrain/aseprite/`, same name.")
+    w("Rebuild: `.venv/Scripts/python game/art-src/terrain/terrain.py build --aseprite`, then `readme.py` (this file); one file")
+    w("at a time: `terrain.py build <terrain id | prop_<name> | decal_<id> | sprite name ...> --aseprite` (`props`, `decals`: all of them).")
     w("")
     w("## How the ground is drawn: the dual grid")
     w("")
@@ -112,6 +141,44 @@ def main():
     w("- `fence` is a line, not an area: a post at the centre of every fence tile, rails to each fence tile beside it")
     w("  (north, south, east or west; diagonal neighbours get no rail). Its fill tiles are see-through too.")
     w("- `wood_floor`, `stone_floor`: level, square-edged, a thin dark seam where they meet other ground.")
+    w("- `hall_wall` (the Town Hall's cream stone, face 10 px: 8 in the tile, 2 over the tile in front) is built like")
+    w("  `house_wall`. `carpet`: a red runner with gold trim along its outline, on stone or wooden floor.")
+    w("- `fountain`: the village fountain's basin, a block of 4x4 (2x2 on a small map) in the square: a low pale stone rim")
+    w("  round clear water; animated. `farmland`, `wheat`: square-edged fields (fenced by the Map).")
+    w("- `spikes`: an iron plate with holes. It has 4 frames, but they are **not** a loop: the game picks the frame from")
+    w("  the battle's clock (livebattle.js `spikeFrame`): 0 down, 1 rising, 2 up (when they hurt), 3 going down.")
+    w("- `cracked_wall`: a `dungeon_wall` with a crack, a hidden room's weak spot; broken open it becomes `stone_floor`")
+    w("  with `decal_rubble`.")
+    w("")
+    w("## Roofs")
+    w("")
+    w("Every village building, the fortress keep and its towers have a roof, drawn over the building's footprint")
+    w("(walls included) and sorted with props and creatures by the footprint's bottom edge; the game fades it out")
+    w("while a creature is inside, and draws a shadow of it 3 px down and right (the roof's outline in the shadow")
+    w("colour). `map.roofs`: { x0, y0, w, h, style, extras } in tiles (battlemap.js ROOFS, ROOF_EXTRAS).")
+    w("")
+    w("- `roof_<style>.png` (48x80; thatch, red, slate, shingle): 16x16 pieces, 3 columns (left end, middle, right end) by")
+    w("  5 rows (back eave, back slope, ridge, front slope, front eave). A roof w x h tiles is (w·16 + 6) x h·16 px, drawn")
+    w("  at (x0·16 − 3, y0·16 − 10): 3 px eaves, raised 10 px, so the south wall's face shows below it. Rows: back eave,")
+    w("  `a` back slopes, ridge, `b` front slopes, front eave, with a = floor((h − 3)·0.4), b = h − 3 − a; columns: the")
+    w("  left end, middles repeated (the last one cut), the right end. (village_ground.py `compose_roof` does the same.)")
+    w("- `roof_tower.png` (150x176): one picture for a 9x9 tower, its bottom edge at (y0 + 9)·16 − 10, centred on it.")
+    w("- Extras, centred at x tiles from the roof's left, their bottom edge `sit` px below the top of the ridge row:")
+    w("  `roof_chimney.png` (16x32, sit 7: on the back slope), `roof_bell.png` (32x48, sit 16: the Town Hall's bell tower,")
+    w("  astride the ridge), `roof_keep_flag.png` (16x32, sit 8; its pole is 4 px left of its middle).")
+    w("")
+    w("## Ornaments and traps")
+    w("")
+    w("Pictures that block nothing (`map.ornaments`: id, v = variant, x, y = the cell's top-left in world px).")
+    w("")
+    w("- On walls (the cell's top-left at the wall tile's top-left, 16x32: the wall tile, then the floor in front;")
+    w("  drawn after the ground): `ornament_chains.png` (3 variants), `ornament_torch.png` (4 frames),")
+    w("  `ornament_weapons.png` (3 variants: swords and shield, crossed axes, spear and kite shield; fort or hall wall).")
+    w("- Standing (sorted by its bottom edge): `ornament_fountain.png` (4 frames of 32x48), its bottom centre on the")
+    w("  fountain basin's centre.")
+    w("- `hazard_axe.png`: 9 frames of 96x64, a pendulum blade swinging over a corridor; frame k at (k − 4)·15 degrees,")
+    w("  the pivot at (48, 4) in every frame, the blade's lowest point at (48, 58), which the game puts on the floor point")
+    w("  under the pivot (`map.hazards`). The game draws its moving floor shadow.")
     w("")
     w("## Fill textures (groups)")
     w("")
@@ -161,6 +228,13 @@ def main():
     for n, (k, f) in DECALS_K.items():
         on, themes = DECAL_INFO[n]
         w(f"| decal_{n}.png | {size(f'decal_{n}.png')} | {k} | {on} | {themes} |")
+    from terrain import extra_modules
+    for m in extra_modules():
+        for name in getattr(m, "DECALS", {}):
+            n = name[len("decal_"):]
+            on, themes = DECAL_INFO[n]
+            im = Image.open(OUT / f"{name}.png")
+            w(f"| {name}.png | {im.width}x{im.height} | {im.width // 16} | {on} | {themes} |")
     w("")
     w("## Every file")
     w("")

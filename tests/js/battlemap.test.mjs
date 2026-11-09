@@ -5,7 +5,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  DECALS, PROPS, PROP_IDS, TERRAIN, TERRAIN_IDS, THEMES, THEME_IDS, TILE, blocksShot, canEnter, canRepaint, canStand,
+  DECALS, HAZARDS, ORNAMENTS, PROPS, PROP_IDS, ROOFS, ROOF_EXTRAS, TERRAIN, TERRAIN_IDS, THEMES, THEME_IDS, TILE, blocksShot, canEnter, canRepaint, canStand,
   SHEETS, drawCorners, drawLayers, edgeIndex, effectsAt, effectsFor, fairness, fillIndex, findPath, generateMap, safeSpotNear, terrainArtFiles, terrainAt,
   tileCenter,
 } from "../../web/js/game/battlemap.js";
@@ -55,8 +55,8 @@ function reach(map, from, creature = walker) {
 const tileIndex = (map, p) => Math.floor(p.y / TILE) * map.cols + Math.floor(p.x / TILE);
 
 test("the terrain table: every field filled, the ids other parts use, art names", () => {
-  assert.equal(TERRAIN_IDS.length, 28, "22 grounds, and the built places' walls, fence and floors");
-  assert.equal(PROP_IDS.filter((id) => PROPS[id].kind === id).length, 20, "20 kinds of prop (and their varieties)");
+  assert.equal(TERRAIN_IDS.length, 35, "22 grounds; the built places' walls, fence and floors; the village's fields and fountain; traps");
+  assert.equal(new Set(PROP_IDS.map((id) => PROPS[id].kind)).size, 39, "39 kinds of prop (and their varieties)");
   for (const t of Object.values(TERRAIN)) {
     for (const k of ["id", "name", "text", "walk", "cross", "shots", "speed", "grip", "atk", "def", "heal", "burn", "favours", "bonus",
       "status", "fixed", "under", "anim", "art", "likes", "hinders"]) assert.ok(k in t, `${t.id} has ${k}`);
@@ -77,10 +77,11 @@ test("the terrain table: every field filled, the ids other parts use, art names"
   for (const p of Object.values(PROPS)) {
     assert.equal(p.walk, false); assert.equal(p.shots, false);
     assert.equal(p.art, `battle/terrain/prop_${p.id}.png`);
-    assert.ok(p.foot === 1 || p.foot === 2);
+    assert.ok(p.foot >= 1 && p.foot <= 3);
   }
   const files = terrainArtFiles();
-  assert.equal(files.length, (TERRAIN_IDS.length + 1) * 2 + PROP_IDS.length + Object.keys(DECALS).length, "with bridge_v's sheets");
+  assert.equal(files.length, (TERRAIN_IDS.length + 1) * 2 + PROP_IDS.length + Object.keys(DECALS).length + Object.keys(ORNAMENTS).length
+    + Object.keys(ROOFS).length + Object.keys(ROOF_EXTRAS).length + Object.keys(HAZARDS).length, "with bridge_v's sheets");
   assert.equal(new Set(files).size, files.length);
   for (const [id, th] of Object.entries(THEMES)) {
     assert.ok(th.uses.includes(th.base), `${id}: base ground listed`);
@@ -299,7 +300,9 @@ test("big arenas: the starts near the middle, 20-31 tiles apart; no walled-off a
       if (seen.has(i) || !canStand(m, c.x, c.y, walker)) continue;
       const pocket = reach(m, i);
       for (const j of pocket) seen.add(j);
-      assert.ok(pocket.size < 12, `${m.theme} ${m.seed}: a walled-off area of ${pocket.size} tiles`);
+      // (a hidden room is walled off on purpose: behind a cracked wall the player can break open)
+      const behindCrack = [...pocket].some((j) => [j - 1, j + 1, j - m.cols, j + m.cols].some((k) => TERRAIN[m.tiles[k]] && TERRAIN[m.tiles[k]].opens));
+      assert.ok(pocket.size < 12 || behindCrack, `${m.theme} ${m.seed}: a walled-off area of ${pocket.size} tiles`);
     }
     // something to see in the middle: the theme's landmark, or the river running through it
     const mid = Math.floor((m.rows - 1) / 2) * m.cols + Math.floor((m.cols - 1) / 2);
@@ -393,10 +396,12 @@ test("the dual grid: each cell draws the terrains at its four corners, base firs
 });
 
 test("variety: props come in kinds and varieties by region, decals lie on their grounds, textures in patches", () => {
-  for (const p of Object.values(PROPS)) assert.ok(PROPS[p.kind] && PROPS[p.kind].kind === p.kind, `${p.id} is a kind of ${p.kind}`);
+  // a kind is a prop of its own name, or a family of two or more (signs, fallen trees) with no plain one
+  const family = (kind) => PROP_IDS.filter((id) => PROPS[id].kind === kind);
+  for (const p of Object.values(PROPS)) assert.ok(p.kind === p.id || family(p.kind).length >= 2, `${p.id} is a kind of ${p.kind}`);
   for (const [id, th] of Object.entries(THEMES)) {
     for (const [kind, list] of Object.entries(th.varieties)) {
-      assert.ok(PROPS[kind], `${id}: kind ${kind}`);
+      assert.ok(family(kind).length, `${id}: kind ${kind}`);
       for (const [v] of list) assert.equal(PROPS[v].kind, kind, `${id}: ${v} is a ${kind}`);
     }
     for (const [d] of th.decals) assert.ok(DECALS[d], `${id}: decal ${d}`);
@@ -426,7 +431,7 @@ test("variety: props come in kinds and varieties by region, decals lie on their 
     for (let k = 1; k < m.decals.length; k++) assert.ok(m.decals[k - 1].y <= m.decals[k].y, "decals come sorted by y");
     for (const dc of m.decals) {
       const d = DECALS[dc.id];
-      assert.ok(THEMES[m.theme].decals.some(([id]) => id === dc.id), `${m.theme} may have ${dc.id}`);
+      assert.ok(THEMES[m.theme].decals.some(([id]) => id === dc.id) || (THEMES[m.theme].laid || []).includes(dc.id), `${m.theme} may have ${dc.id}`);
       assert.ok(Number.isInteger(dc.v) && dc.v >= 0 && dc.v < d.variants);
       const tx = Math.floor((dc.x + d.size[0] / 2) / TILE), ty = Math.floor((dc.y + d.size[1] / 2) / TILE);
       const i = ty * m.cols + tx;
@@ -501,4 +506,62 @@ test("finding a way: around walls, through gaps, round slow mud, and to the near
   assert.ok(way.every((p) => terrainAt(muddy, p.x, p.y).id !== "mud" || p === way[way.length - 1]), "it goes round the mud");
   assert.ok(findPath(muddy, tileCenter(0, 1), tileCenter(5, 1), { type: "spark", species: "floater" }).length <= 2,
     "a floater isn't slowed by mud, so it goes straight");
+});
+
+test("built places: roofs over the buildings, the village's square and landmarks, the dungeon's traps and hidden rooms", () => {
+  for (const m of all) {
+    assert.ok(Array.isArray(m.roofs) && Array.isArray(m.ornaments) && Array.isArray(m.hazards) && Array.isArray(m.secrets));
+    // every roof sits over a building: walls round its edge (bar doorways), on the map
+    for (const r of m.roofs) {
+      assert.ok(ROOFS[r.style], `${m.theme}: roof style ${r.style}`);
+      assert.ok(r.x0 >= 0 && r.y0 >= 0 && r.x0 + r.w <= m.cols && r.y0 + r.h <= m.rows, "on the map");
+      let wall = 0, edge = 0;
+      for (let y = r.y0; y < r.y0 + r.h; y++) for (let x = r.x0; x < r.x0 + r.w; x++) {
+        if (x !== r.x0 && y !== r.y0 && x !== r.x0 + r.w - 1 && y !== r.y0 + r.h - 1) continue;
+        edge++;
+        if (!TERRAIN[m.tiles[y * m.cols + x]].walk) wall++;
+      }
+      assert.ok(wall / edge > 0.6, `${m.theme} ${m.seed}: a roof over walls (${wall} of ${edge})`);
+      for (const e of r.extras) assert.ok(ROOF_EXTRAS[e.id] && e.x > 0 && e.x < r.w, `${m.theme}: ${e.id} on the roof`);
+      if (ROOFS[r.style].image) assert.ok(r.w === ROOFS[r.style].w && r.h === ROOFS[r.style].h, "a one-picture roof fits its building");
+    }
+    for (const o of m.ornaments) assert.ok(ORNAMENTS[o.id] && o.v < ORNAMENTS[o.id].variants, `${m.theme}: ornament ${o.id}`);
+    for (const o of m.ornaments.filter((q) => ORNAMENTS[q.id].wall)) {
+      const tx = o.x / TILE, ty = o.y / TILE;
+      assert.ok(!TERRAIN[m.tiles[ty * m.cols + tx]].walk, "hung on a wall");
+    }
+  }
+  for (const m of maps.village) {
+    const mid = Math.floor(m.rows / 2) * m.cols + Math.floor(m.cols / 2);
+    assert.equal(m.tiles[mid], "fountain", "the fountain in the middle of the square");
+    assert.ok(m.ornaments.some((o) => o.id === "fountain"));
+    if (m.cols === 90) {
+      const has = (id) => m.props.some((p) => p.id === id);
+      assert.ok(m.tiles.includes("hall_wall") && has("desk") && has("sign_tavern") && has("counter"), `village ${m.seed}: the Town Hall and the tavern`);
+      assert.ok(m.roofs.some((r) => r.extras.some((e) => e.id === "bell")), "the Town Hall's bell");
+      assert.ok(m.tiles.includes("farmland") || m.tiles.includes("wheat"), "a farm");
+      assert.ok(m.roofs.length >= 8, `village ${m.seed}: ${m.roofs.length} roofs`);
+    }
+  }
+  for (const m of maps.dungeon) {
+    assert.ok(m.secrets.length >= (m.cols === 90 ? 2 : 0) && m.secrets.length % 2 === 0, `dungeon ${m.seed}: hidden rooms come in pairs`);
+    for (const sc of m.secrets) {
+      assert.ok(sc.cracks.length === 2 && sc.cracks.every((i) => m.tiles[i] === "cracked_wall"));
+      for (let y = sc.y0; y < sc.y0 + sc.h; y++) for (let x = sc.x0; x < sc.x0 + sc.w; x++) assert.ok(TERRAIN[m.tiles[y * m.cols + x]].walk, "a room inside");
+      assert.ok(m.props.some((p) => p.id === "chest" && p.x >= sc.x0 && p.x < sc.x0 + sc.w && p.y >= sc.y0 && p.y < sc.y0 + sc.h), "with a chest");
+    }
+    for (const hz of m.hazards) {
+      assert.equal(hz.kind, "axe");
+      const tx = Math.floor(hz.x / TILE), ty = Math.floor(hz.y / TILE);
+      assert.ok(TERRAIN[m.tiles[ty * m.cols + tx - 1]].walk || TERRAIN[m.tiles[ty * m.cols + tx]].walk, "over a corridor");
+      for (const s of [m.starts.me, m.starts.foe]) assert.ok(Math.hypot(hz.x - s.x, hz.y - s.y) > 6 * TILE, "away from the starts");
+    }
+    assert.ok(m.tiles.includes("spikes") || m.cols === 30, `dungeon ${m.seed}: spikes`);
+    assert.ok(m.ornaments.some((o) => o.id === "chains") || m.cols === 30);
+  }
+  for (const m of maps.fortress.filter((q) => q.cols === 90)) {
+    assert.equal(m.roofs.filter((r) => r.style === "tower").length, 4, "the four towers' roofs");
+    assert.ok(m.props.some((p) => p.id === "throne") && m.tiles.includes("carpet"), "a throne at the end of a carpet");
+    assert.ok(m.props.some((p) => PROPS[p.id].kind === "weapon_rack") && m.props.some((p) => PROPS[p.id].kind === "armor_stand"), "armouries");
+  }
 });

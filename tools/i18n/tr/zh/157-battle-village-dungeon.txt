@@ -1,0 +1,34 @@
+# Battle maps: the village's square, farms, shops, tavern and Town Hall; the dungeon's traps and hidden rooms; the fortress's armouries; more trees (game/battlemap.js, livebattle-ui.js).
+baf9d7e4	市政厅墙
+1f7a7a64	地毯
+71efc0ca	农田
+af3952bb	稍微变慢。林地生物行动自如，还能恢复一点。
+ea3580df	小麦
+2766aed7	只有潮汐生物和漂浮生物能进去。池水能恢复一点，潮汐生物恢复更多。
+d6adaf3e	尖刺
+12304ac5	每 2 秒尖刺弹出一次，伤害站在上面的生物。
+db402c3c	裂开的墙
+14f4b7c3	墙上的薄弱处：你的生物靠近时点击它，就能把它打开。
+fccbed74	集市摊位
+bbfefb83	小贩推车
+668bfc84	稻草人
+8b3d8d66	招牌
+931fa888	长椅
+0424f6e7	桌子
+f4018045	柜台
+9c4cd273	架子
+3bdeb9a8	麻袋
+f0537d95	铁砧
+5f9a8584	书桌
+d8bfbca8	宝箱
+2954684a	笼子
+07569532	兵器架
+fa1f581c	盔甲架
+a353afc8	王座
+30686c9a	倒下的树
+8d274746	树桩
+5e2d8f0d	有一面裂开的墙！点一下把它打开。
+7499ffbf	有一面裂开的墙！点击把它打开。
+c4bc12e0	一个隐藏的房间！
+a187c328	喷泉
+370793de	路灯
