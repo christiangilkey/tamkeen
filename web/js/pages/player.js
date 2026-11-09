@@ -13,6 +13,7 @@
 import { api, esc, h, on, toast, showMenu, hideMenu, download, saveSettings, state, requestNotifications, audioUrl, buzz,
   netflixBridge, netflixSupport, openNetflix } from "../app.js";
 import { saveProgress } from "../progress.js";
+import { atEnd, markWatched } from "../watched.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, studyLanguage, vocabFromDefinition } from "../languages.js";
 import { computerOnlyNotice, progressBars, statusInfo, isVideo } from "./library.js";
@@ -473,6 +474,7 @@ export async function render(view, { id, query }) {
     if (!duration) return;
     saveProgress({ id, kind: vid ? "video" : "audio", title: ep.title, sub: ep.feed_title, image: img || "",
                    pos: audio.currentTime || 0, dur: duration });
+    if (vid && atEnd(audio.currentTime || 0, duration)) markWatched(id);  // the Library's "Watched" label (watched.js)
   };
   audio.addEventListener("timeupdate", update);
 
@@ -492,7 +494,10 @@ export async function render(view, { id, query }) {
     if (!disposed) { $("#play").textContent = "▶"; lsSet(posKey, audio.currentTime); remember(); kick(); }
   });
   audio.addEventListener("seeked", () => { if (!disposed) kick(); });
-  audio.addEventListener("ended", () => { if (!disposed) $("#play").textContent = "▶"; });
+  audio.addEventListener("ended", () => {
+    if (vid) markWatched(id);
+    if (!disposed) $("#play").textContent = "▶";
+  });
 
   // Manual scrolling is detected from user input (wheel, touch, keys, scrollbar drag), never
   // from 'scroll' events, which our own auto-scroll also fires (possibly late, e.g. when the
