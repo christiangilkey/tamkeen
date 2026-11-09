@@ -2857,6 +2857,16 @@ The owner asked for a web version. It is the phone app's screens served by GitHu
 which runs `mobile/scripts/build-www.mjs` and adds `window.TAMKEEN_WEB`/`TAMKEEN_PROXY`, a manifest and an
 offline service worker; the version is the latest git tag unless `APP_VERSION` is set). **Rebuild and commit
 docs/app at every release** so the web app matches.
+- **learntamkeen.com (2026-11-09)**: the owner bought the domain (Porkbun) for the web app. It is a second GitHub
+  Pages site, repo **christiangilkey/learntamkeen** (public; checkout at `C:\Users\chris\Documents\arabic-tts\learntamkeen-site`),
+  holding a copy of docs/app at its top (the app opens straight away) plus privacy/terms/cookies, a `CNAME` and `.nojekyll`.
+  **At every release, after build-web.mjs and its commit, run `node webapp/publish-site.mjs ../learntamkeen-site`**
+  (copies, commits "Web app x.y.z", pushes). The old github.io address is kept on purpose (owner's choice): moving the
+  tamkeen repo's Pages to the domain would redirect github.io, and GitHub's redirects carry no CORS header, so installed
+  phone apps couldn't fetch dictionaries, books or courses. Each address keeps its own browser storage. Needed outside
+  the repo: DNS at Porkbun (apex A/AAAA to GitHub Pages, www CNAME to christiangilkey.github.io), the Google OAuth
+  client's origins/redirect (`https://learntamkeen.com`, redirect `https://learntamkeen.com/`), and worker.js pasted
+  into Cloudflare (it now allows `https://learntamkeen.com`). Then "Enforce HTTPS" on the learntamkeen repo's Pages.
 - **Go-between server** = `webapp/worker.js`, a Cloudflare Worker on the owner's Cloudflare account (free plan),
   live at `https://tamkeen-proxy.christiangilkey.workers.dev` (address in `webapp/proxy-url.txt`). The owner
   pasted the code into Cloudflare's editor (Workers → tamkeen-proxy → Edit code → Deploy); a change to

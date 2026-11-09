@@ -50,7 +50,7 @@ const PROD = {
   netflixHosts: ["www.netflix.com", "netflix.com"],
   subtitleHosts: "(^|\\.)nflxvideo\\.net$",
   subtitleUrls: ["https://*.nflxvideo.net/*"],
-  webApp: "https://christiangilkey.github.io/tamkeen/app/",
+  webApp: "https://learntamkeen.com/", // (the web app at its own address; the old github.io one still works too)
 };
 const config = { ...PROD, version, test: testing };
 if (test.netflix) { config.netflixBase = test.netflix.replace(/\/+$/, ""); config.netflixHosts = [new URL(test.netflix).hostname]; }

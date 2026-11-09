@@ -26,7 +26,7 @@
       "run_at": "document_idle"
     },
     {
-      "matches": ["https://christiangilkey.github.io/tamkeen/app/*"],
+      "matches": ["https://learntamkeen.com/*", "https://christiangilkey.github.io/tamkeen/app/*"],
       "js": ["content/webapp.js"],
       "run_at": "document_start"
     }
@@ -35,7 +35,7 @@
     { "resources": ["panel.html"], "matches": ["https://www.netflix.com/*"] },
     {
       "resources": ["js/extbridge.js", "js/netflix-ttml.js", "js/netflix-common.js", "js/ytcaptions.js", "js/languages.js", "js/wordlists/th.js"],
-      "matches": ["https://christiangilkey.github.io/*"]
+      "matches": ["https://learntamkeen.com/*", "https://christiangilkey.github.io/*"]
     }
   ],
   "browser_specific_settings": {

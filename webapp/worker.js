@@ -13,7 +13,8 @@
 // Use:  https://<this worker>/fetch?url=<address>   (POST: send the body as YouTube expects it)
 
 const ALLOWED_ORIGINS = [
-  "https://christiangilkey.github.io", // the web app on GitHub Pages
+  "https://learntamkeen.com",          // the web app at its own address
+  "https://christiangilkey.github.io", // the web app on GitHub Pages (the old address, still working)
   "http://localhost:8791",             // testing on the computer
 ];
 const POST_ALLOWED = ["https://www.youtube.com/youtubei/v1/player"];

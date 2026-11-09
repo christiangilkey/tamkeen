@@ -1,4 +1,4 @@
-// Tamkeen for Netflix, on the Tamkeen web app's own pages (christiangilkey.github.io/tamkeen/app/).
+// Tamkeen for Netflix, on the Tamkeen web app's own pages (learntamkeen.com, and the old christiangilkey.github.io/tamkeen/app/).
 // The extension can't read the web app's library or settings itself (each website's storage is kept
 // apart), so this part of it, which runs beside the web app's page, passes them over
 // (web/js/extbridge.js explains the messages; mobile/src/js/web-extension.js is the web app's side):

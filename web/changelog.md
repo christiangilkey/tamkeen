@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** The web app has its own address: **learntamkeen.com**. The old address keeps working. The Netflix extension works on both. *(web app)*
 - **Changed:** The first question when you start Tamkeen is now **What is your native language?** (in every language the app speaks), instead of "Which language do you speak?".
 - **New:** A **Battle** button on each friend on the Friends tab. It asks which battle: their team as usual, or a challenge on one of your folders (with a friend who studies the same language). Then the battle starts.
 - **Improved:** On an empty Library section, the arrow pointing to the **+** button no longer turns with the button as it rolls in after a swipe: it fades in once the button has stopped. *(phone)*
