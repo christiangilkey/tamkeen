@@ -7,7 +7,7 @@ import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
-import { dliCard } from "../components/dlicard.js";
+import { dliCard, dliSummary } from "../components/dlicard.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { waitingForComputer } from "../cardvoice.js";
@@ -81,6 +81,7 @@ function home(view) {
     finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb, vibrates }, studyLanguage()),
     summaries: {
       languages: () => [{ text: learningSummary(learningList(s)) }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
+      dli: () => dliSummary(s),
       words: () => {
         const how = definerModeOf(s);
         if (how === "dictionary") return { text: "No AI: built-in dictionary" };
@@ -121,7 +122,10 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, words, listening, voices, look, controller: controllerSection, account, apps, data };
+const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
+
+// DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
+function dliSection(body) { return [dliCard(body)]; }
 
 function languages(body) {
   const s = settings;
@@ -160,8 +164,7 @@ function languages(body) {
   paintCard();
   const watch = new MutationObserver(paintCard);
   rows.forEach((r) => watch.observe(r, { attributes: true, attributeFilter: ["hidden"] }));
-  // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
-  return [() => watch.disconnect(), dliCard(body)];
+  return [() => watch.disconnect()];
 }
 
 function words(body) {

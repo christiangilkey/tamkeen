@@ -1,4 +1,4 @@
-// Settings → Languages → "DLI students": "I'm a DLI student" (the Defense Language Institute). Ticked,
+// Settings → "DLI students" (a section of its own): "I'm a DLI student" (the Defense Language Institute). Ticked,
 // it asks which language is studied there (one of seven) and the password that unlocks that language's
 // material (dli.js: only a hash of the password is in the app). The answers follow the learner to their
 // other devices (aikeys.js). Unticking locks it again after an in-app yes/no box; what was added to the
@@ -28,10 +28,19 @@ async function offerLanguage(code) {
   return true;
 }
 
-/** The card. Appends it to `body`; returns a cleanup function. */
+/** What the DLI section is set to now, for its line on the Settings list (settingsui.js summaries):
+ *  nothing for someone who isn't a DLI student (the section's own line shows). */
+export function dliSummary(s) {
+  const st = dliState(s);
+  if (!st.student) return null;
+  if (!st.language) return { text: "Choose your DLI language", warn: true };
+  const name = t("DLI {0}", t(dliLanguageName(st.language)));
+  return [{ text: name }, st.unlocked ? { text: "Unlocked" } : { text: "Needs the DLI password", warn: true }];
+}
+
+/** The card (the section's page already says "DLI students" at the top). Appends it to `body`; returns a cleanup function. */
 export function dliCard(body) {
   const card = h(`<section class="card set-card stack dli-card" data-find="dli">
-    <h2>DLI students</h2>
     <label class="check dli-student"><input type="checkbox">
       <span><span class="dli-student-title">I'm a DLI student</span><span class="small muted dli-sub">Defense Language Institute</span></span></label>
     <div class="dli-more stack" hidden>

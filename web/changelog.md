@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** **DLI students** has its own section in Settings, right under Languages, instead of a card inside Languages. Its line on the Settings list says where you stand: which DLI language, and whether it is unlocked.
 - **Changed:** On Library → Books, the **+** button opens the free classics straight away, with **Add a book of your own** as the first button at the top. (Book in the list of every way to add still offers both.)
 - **Fixed:** The Audiobooks sheet no longer scrolls sideways on a phone or in the web app: a long line, such as a book author's name, made the whole sheet wider than the screen. The same fix holds for every popup.
 - **New:** The Quran and the books of hadith on the free book shelf: **the Quran** (the Hafs reading, all 114 suras, in the Uthmani script), **the six books of hadith** (Sahih al-Bukhari and Sahih Muslim in two volumes each; Abu Dawud, al-Tirmidhi and Ibn Majah complete; al-Nasa'i's first books, on purification) and **the first books of al-Kulayni's al-Kafi**.

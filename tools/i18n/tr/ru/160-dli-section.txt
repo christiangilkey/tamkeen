@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	Разблокируйте свой курс Института иностранных языков Минобороны США (DLI).
+0a1625b8	Выберите свой язык в DLI
+b3da7025	Разблокировано
+b66e7189	Нужен пароль DLI

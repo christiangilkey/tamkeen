@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	Desbloqueja el teu curs del Defense Language Institute (DLI).
+0a1625b8	Tria la teva llengua del DLI
+b3da7025	Desbloquejat
+b66e7189	Cal la contrasenya del DLI

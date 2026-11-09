@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	Déverrouillez votre cours du Defense Language Institute (DLI).
+0a1625b8	Choisissez votre langue au DLI
+b3da7025	Déverrouillé
+b66e7189	Il faut le mot de passe du DLI

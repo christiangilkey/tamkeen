@@ -167,7 +167,7 @@ const PATHS = {
   // Audiobooks (LibriVox): a book that speaks.
   audiobook: `<rect class="fill" x="3.5" y="4" width="10.5" height="16" rx="1.8"/>
     <rect x="3.5" y="4" width="10.5" height="16" rx="1.8"/><path d="M6.8 4v16"/><path d="M17 9.2a4 4 0 0 1 0 5.6M19.6 6.6a7.6 7.6 0 0 1 0 10.8"/>`,
-  // DLI students' material (Settings → Languages, Library → Courses → DLI)
+  // DLI students' material (Settings → DLI students, Library → Courses → DLI)
   lock: `<rect class="fill" x="5" y="10.5" width="14" height="10" rx="2.4"/><rect x="5" y="10.5" width="14" height="10" rx="2.4"/>
     <path d="M8.5 10.5V7.8a3.5 3.5 0 0 1 7 0v2.7"/><path d="M12 14.4v2.2"/>`,
 };

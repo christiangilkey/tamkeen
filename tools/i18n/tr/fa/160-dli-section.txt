@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	دورهٔ مؤسسهٔ زبان وزارت دفاع آمریکا (DLI) را باز کنید.
+0a1625b8	زبان DLI خود را انتخاب کنید
+b3da7025	باز شده
+b66e7189	رمز عبور DLI لازم است

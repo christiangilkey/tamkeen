@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	ปลดล็อกคอร์สของคุณจาก Defense Language Institute (DLI)
+0a1625b8	เลือกภาษาของคุณที่ DLI
+b3da7025	ปลดล็อกแล้ว
+b66e7189	ต้องใช้รหัสผ่าน DLI

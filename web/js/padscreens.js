@@ -6,7 +6,7 @@
 
 // Settings' sections in their order (components/settingsui.js SECTIONS; tests/js/padscreens.test.mjs
 // checks the two agree). Not imported from there, so this file needs nothing of the pages'.
-export const SECTION_IDS = ["languages", "words", "listening", "voices", "look", "controller", "account", "apps", "data"];
+export const SECTION_IDS = ["languages", "dli", "words", "listening", "voices", "look", "controller", "account", "apps", "data"];
 
 /** The page's path, without "#/" and the query: "", "library", "chat/abc"… */
 const path = () => location.hash.replace(/^#\/?/, "").split("?")[0];

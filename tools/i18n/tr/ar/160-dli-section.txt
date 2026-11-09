@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	افتح قفل مقررك من معهد اللغات التابع لوزارة الدفاع (DLI).
+0a1625b8	اختر لغتك في DLI
+b3da7025	مفتوح
+b66e7189	يحتاج إلى كلمة مرور DLI

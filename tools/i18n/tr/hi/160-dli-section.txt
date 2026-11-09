@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	Defense Language Institute (DLI) का अपना कोर्स अनलॉक करें।
+0a1625b8	अपनी DLI भाषा चुनें
+b3da7025	अनलॉक है
+b66e7189	DLI पासवर्ड चाहिए

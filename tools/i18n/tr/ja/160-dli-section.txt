@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	Defense Language Institute（DLI）のコースのロックを解除します。
+0a1625b8	DLI の言語を選んでください
+b3da7025	ロック解除済み
+b66e7189	DLI のパスワードが必要です

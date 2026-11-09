@@ -1,0 +1,5 @@
+# Settings → DLI students, a section of its own (settingsui.js, components/dlicard.js).
+358337dd	解锁你在美国国防语言学院（DLI）的课程。
+0a1625b8	选择你的 DLI 语言
+b3da7025	已解锁
+b66e7189	需要 DLI 密码
