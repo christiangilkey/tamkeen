@@ -263,6 +263,45 @@
     "chars": 500756,
     "chapters": 106,
     "source": "Wikisource (https://ar.wikisource.org/wiki/%D8%A7%D9%84%D9%86%D8%B8%D8%B1%D8%A7%D8%AA)"
+   },
+   {
+    "id": "al-muallaqat",
+    "title": "المعلقات",
+    "author": "شعراء الجاهلية",
+    "year": 550,
+    "blurb": "The hanging odes: the great poems of pre-Islamic Arabia, from Imru' al-Qays to Antara.",
+    "file": "ar/al-muallaqat.json.gz",
+    "bytes": 35725,
+    "sha256": "1881308d8b00c0d5a1a5504ba1aced58948e400d092c360be2e0499ea102ce83",
+    "chars": 55620,
+    "chapters": 9,
+    "source": "Wikisource (https://ar.wikisource.org/wiki/%D9%85%D8%B9%D9%84%D9%82%D8%A9_%D8%A7%D9%85%D8%B1%D8%A6_%D8%A7%D9%84%D9%82%D9%8A%D8%B3)"
+   },
+   {
+    "id": "alf-layla-wa-layla",
+    "title": "ألف ليلة وليلة",
+    "author": "مجهول",
+    "year": 1400,
+    "blurb": "Shahrazad tells the king a story each night to stay alive; with the voyages of Sindbad.",
+    "file": "ar/alf-layla-wa-layla.json.gz",
+    "bytes": 406980,
+    "sha256": "f131fc6fa2a6fdbf72df7ce27f5f3171323d2aad24838410b22669fd4a314bf5",
+    "chars": 863519,
+    "chapters": 182,
+    "source": "Wikisource (https://ar.wikisource.org/wiki/%D8%A3%D9%84%D9%81_%D9%84%D9%8A%D9%84%D8%A9_%D9%88%D9%84%D9%8A%D9%84%D8%A9)"
+   },
+   {
+    "id": "al-muqaddima",
+    "title": "مقدمة ابن خلدون",
+    "author": "ابن خلدون",
+    "year": 1377,
+    "blurb": "Ibn Khaldun's introduction to history: how states rise, flourish and fall.",
+    "file": "ar/al-muqaddima.json.gz",
+    "bytes": 608480,
+    "sha256": "3a29d7810dcd35ec623b16e429d55b1522950854281e21d666ffd41340a9f151",
+    "chars": 1280843,
+    "chapters": 221,
+    "source": "Wikisource (https://ar.wikisource.org/wiki/%D9%85%D9%82%D8%AF%D9%85%D8%A9_%D8%A7%D8%A8%D9%86_%D8%AE%D9%84%D8%AF%D9%88%D9%86_-_%D8%A7%D9%84%D8%AC%D8%B2%D8%A1_%D8%A7%D9%84%D8%A3%D9%88%D9%84)"
    }
   ],
   "ja": [

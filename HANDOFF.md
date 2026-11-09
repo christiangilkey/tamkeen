@@ -7913,3 +7913,22 @@ same way as the terrain he liked (procedural Python recipes in `game/art-src/ter
 - **Notes**: buildings are open-topped (no roofs); roofs that fade when a creature walks in could come later. Adding
   three themes changes which theme a seed with no theme gets, so a friend battle between this version and an older one
   can show different maps (as with any battlemap.js change). Not played on a phone.
+
+## Book shelf: more Arabic classics (2026-11-09; the owner asked for nine)
+Owner: "In the Arabic classic books section I want to add al-malawat [المعلقات], alif leyla wa leyla, al-muqaaddimah, Layla
+and majnoon, Sirat Antara ibn Shaddad, Sirat al-Zahir Baibars, and Sirat Bani Hilal", then "Also Kitab al-Aghani and
+Kalīla wa-Dimna". Kalila wa-Dimna was already on the shelf (`kalila-wa-dimna`).
+- **Added** (tools/build_books.py BOOKS["ar"], ar.wikisource; docs/books/ar, index.json): `al-muallaqat` (nine odes, one
+  page each, verse, the page names as headings; معلقة عبيد الأبرص is an empty page there), `alf-layla-wa-layla` (the
+  contents page's four parts and Sindbad; Wikisource marks it 25% done, about 150,000 words), `al-muqaddima` (all of it:
+  the chapter pages its first two parts link to, then parts 3-6; notes headings dropped, chapter title lines made
+  headings; in parts 4-6 some chapters run their title into the first paragraph, left so).
+- **Script:** a page list item may be (contents page, pattern): the pages it links to, in order (`wiki_links`). "ar" is
+  now in TABLE_POEMS (معلقة عنترة is a table, a verse a row) and UNCASED (no capitals: the title-page rule turned the
+  first ode's heading into text). The older Arabic books were built before both: rebuilding them (`--again`) may
+  change them a little. NOTES knows حواش / حواشي / الحواشي.
+- **Not on the shelf:** Kitab al-Aghani and the Diwan of Majnun Layla are on Wikisource only as scans, Shawqi's play
+  مجنون ليلى only as its first scene, and the three siras (Antara, al-Zahir Baybars, Bani Hilal) not at all. Options
+  went to the Decisions chat (OCR of public-domain scans; another source if its licence allows paid use; or leave them
+  to "Add your own book").
+- **Not published yet:** docs/books goes live on GitHub Pages when it is pushed.

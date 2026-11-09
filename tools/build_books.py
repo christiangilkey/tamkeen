@@ -131,6 +131,18 @@ BOOKS: dict[str, list[tuple]] = {
         ("al-bukhala", "البخلاء", "الجاحظ", 850, "Funny portraits of misers from Basra and beyond.", ("wikisource", "ar", "البخلاء", {"from": r"^المقدمة$"})),
         ("risalat-al-ghufran", "رسالة الغفران", "أبو العلاء المعري", 1033, "A journey to Paradise and Hell to meet the poets.", ("wikisource", "ar", "رسالة الغفران")),
         ("an-nazarat", "النظرات", "مصطفى لطفي المنفلوطي", 1910, "Al-Manfaluti's essays and moving short stories.", ("wikisource", "ar", "النظرات")),
+        # (the owner, 2026-11-09; the other books he asked for aren't on Wikisource as text: see HANDOFF "Book shelf")
+        ("al-muallaqat", "المعلقات", "شعراء الجاهلية", 550, "The hanging odes: the great poems of pre-Islamic Arabia, from Imru' al-Qays to Antara.",
+         ("wikisource", "ar", ["معلقة امرئ القيس", "معلقة طرفة بن العبد", "معلقة زهير بن أبي سلمى", "معلقة لبيد بن ربيعة",
+                               "معلقة عمرو بن كلثوم", "معلقة عنترة بن شداد", "معلقة الحارث بن حلزة اليشكري", "معلقة الأعشى",
+                               "معلقة النابغة الذبياني"], {"verse": True, "names": True})),
+        ("alf-layla-wa-layla", "ألف ليلة وليلة", "مجهول", 1400, "Shahrazad tells the king a story each night to stay alive; with the voyages of Sindbad.",
+         ("wikisource", "ar", "ألف ليلة وليلة", {"drop": r"(>>|<<)s*$"})),  # ("الجزء الثاني >>": a link to the next part)
+        ("al-muqaddima", "مقدمة ابن خلدون", "ابن خلدون", 1377, "Ibn Khaldun's introduction to history: how states rise, flourish and fall.",
+         ("wikisource", "ar", [("مقدمة ابن خلدون - الجزء الأول", r"^مقدمة ابن خلدون/"), ("مقدمة ابن خلدون - الجزء الثاني", r"^مقدمة ابن خلدون/")]
+          + [f"مقدمة ابن خلدون - الجزء {n}" for n in ("الثالث", "الرابع", "الخامس", "السادس")],
+          # (the notes are left out, so their headings go too; a chapter's title line is its heading)
+          {"drop": r"^(حواشي?|الحواشي)$", "headings": r"^(الفصل|الباب|المقدمة) "})),
     ],
     "ja": [
         ("rashomon", "羅生門", "芥川龍之介", 1915, "A servant and an old woman at a ruined Kyoto gate.", ("aozora", "000879", "127")),
@@ -406,8 +418,8 @@ BOOKS: dict[str, list[tuple]] = {
 }
 
 NO_SPACES = {"ja", "zh", "th"}  # lines of a paragraph join without a space
-TABLE_POEMS = {"th", "fa"}  # Wikisources that lay poems out as plain tables, a line of verse a row
-UNCASED = {"fa"}  # scripts with no capital letters, where the title-page rules about capitals don't apply (see clean)
+TABLE_POEMS = {"th", "fa", "ar"}  # Wikisources that lay poems out as plain tables, a line of verse a row (معلقة عنترة)
+UNCASED = {"fa", "ar"}  # scripts with no capital letters, where the title-page rules about capitals don't apply (see clean)
 CAPS_HEADINGS = {"ca", "ceb", "pt", "tl", "de"}  # Gutenberg books whose chapter titles are lines in capitals
 
 
@@ -917,7 +929,7 @@ def aozora(author: str, card: str) -> list[dict]:
 # ------------------------------------------------------------------------------------------ build
 
 SEE_ALSO = re.compile(r"^(see also|voir aussi|vedi anche|véase también|vegeu també|veja também|см\. также|ดูเพิ่ม|انظر أيضا|関連項目)$", re.I)
-NOTES = re.compile(r"^(Примечания( редакторов Викитеки)?|Notes?|Notas?|Note|ملاحظات|هوامش|↑|脚注|注釈|Mga tala|หมายเหตุ|เชิงอรรถ|"
+NOTES = re.compile(r"^(Примечания( редакторов Викитеки)?|Notes?|Notas?|Note|ملاحظات|هوامش|حواشي?|الحواشي|↑|脚注|注釈|Mga tala|หมายเหตุ|เชิงอรรถ|"
                    r"टिप्पणी|टिप्पणियाँ|टिप्पणियां|पाद-टिप्पणी)\.?$", re.I)
 
 
@@ -1123,6 +1135,11 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
             blocks = gutenberg(source[1], lang, opts)
             credit = f"Project Gutenberg #{source[1]} (https://www.gutenberg.org/ebooks/{source[1]})"
         elif kind == "wikisource" and isinstance(source[2], list):
+            # an item may be (contents page, pattern): the pages it links to whose names match, in its order
+            # (مقدمة ابن خلدون: its first two parts are lists of chapter pages, the last four the text itself)
+            pages = [p for item in source[2] for p in (wiki_links(source[1], item[0], item[1]) if isinstance(item, tuple) else [item])]
+            listed = source[2][0][0] if isinstance(source[2][0], tuple) else source[2][0]  # (the credit names the first page listed)
+            source = (kind, source[1], pages)
             blocks = []
             for page in source[2]:
                 part = wikisource(source[1], page, depth=1, chain=False, verse=bool(opts.get("verse")))
@@ -1132,8 +1149,7 @@ def build_one(lang: str, entry: tuple, again: bool) -> dict | None:
                     blocks.append({"kind": "h2", "text": tidy(page.rsplit("/", 1)[-1].split(" - ")[-1])})
                 blocks.extend(part)
                 time.sleep(0.2)
-            first = source[2][0]
-            credit = f"Wikisource (https://{source[1]}.wikisource.org/wiki/{urllib.parse.quote(first.replace(' ', '_'))})"
+            credit = f"Wikisource (https://{source[1]}.wikisource.org/wiki/{urllib.parse.quote(listed.replace(' ', '_'))})"
         elif kind == "wikisource":
             blocks = wikisource(source[1], source[2], verse=bool(opts.get("verse")))
             credit = f"Wikisource (https://{source[1]}.wikisource.org/wiki/{urllib.parse.quote(source[2].replace(' ', '_'))})"
