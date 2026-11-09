@@ -6,6 +6,7 @@
 // few words, a creature's portrait). The battle itself is live (livebattle-ui.js shows it, livebattle.js runs it).
 
 import { api, esc, h, state, toast } from "../app.js";
+import * as social from "../social.js";
 import { commonWords } from "../commonwords.js";
 import { studyLanguage } from "../languages.js";
 import { installedMeanings } from "../meanings.js";
@@ -23,6 +24,7 @@ import {
 } from "./rules.js";
 import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
+import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
 import { FRAME, composeCreature, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -90,6 +92,68 @@ function factCells(list) {
     box.append(cell);
   }
   return box;
+}
+
+/**
+ * How to challenge a friend (challenge.js): battle their team with my words as usual, or challenge them on one of my
+ * folders (only when we study the same language, `same`). The folder's words go to them in a message; then my battle
+ * starts. Resolves { words, folder } for a folder challenge (already sent), {} for a usual battle, null if closed.
+ */
+export function challengeChoice(friend, name, same) {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = (v) => { if (!done) { done = true; resolve(v); } };
+    const m = openModal({ title: t("Challenge {0}", name), cls: "bt-folder-back", onClose: () => finish(null) });
+    const list = h(`<div class="bt-folder-list"></div>`);
+    const option = (iconName, title, sub) => {
+      const b = h(`<button type="button" class="bt-folder bt-choice">${lineIcon(iconName, 18)}<span class="bt-folder-name"><strong></strong><span class="bt-choice-sub"></span></span></button>`);
+      b.querySelector("strong").textContent = title;
+      b.querySelector(".bt-choice-sub").textContent = sub;
+      list.append(b);
+      return b;
+    };
+    option("game", t("Battle their team"), t("With your battle words, as usual.")).onclick = () => { finish({}); m.close(); };
+    const fold = option("folder", t("Challenge them on a folder"), same
+      ? t("Pick one of your folders: you both battle with its words. They get the words in your chat.")
+      : t("Only with a friend who studies the same language as you."));
+    fold.disabled = !same;
+    fold.onclick = async () => {
+      fold.disabled = true;
+      const game = getGame();
+      const vocab = await loadWords(game);
+      list.replaceChildren();
+      m.setTitle(t("Challenge {0} on which folder?", name));
+      const note = h(`<p class="bt-folder-note muted"></p>`);
+      note.textContent = folderList.length ? t("A folder needs at least {0} words with a meaning.", CHALLENGE_MIN)
+        : t("No folders yet. Make one on the Vocab page and put at least {0} words in it.", CHALLENGE_MIN);
+      for (const f of folderList) {
+        const words = folderWords(vocab, f.uid);
+        const ok = words.length >= CHALLENGE_MIN;
+        const b = h(`<button type="button" class="bt-folder">${lineIcon("folder", 18)}<span class="bt-folder-name"></span><span class="bt-folder-n"></span></button>`);
+        b.querySelector(".bt-folder-name").textContent = f.name;
+        b.querySelector(".bt-folder-n").textContent = ok ? t("{0} words", fmt(words.length)) : t("{0} of {1} words", fmt(words.length), fmt(CHALLENGE_MIN));
+        b.disabled = !ok;
+        b.onclick = async () => {
+          for (const x of list.querySelectorAll("button")) x.disabled = true;
+          try {
+            await social.sendChallenge(friend.id, { folder: f.name, words, language: studyLanguage() });
+          } catch (e) {
+            toast(e.message, { error: true });
+            for (const x of list.querySelectorAll("button")) x.disabled = false;
+            return;
+          }
+          toast(t("Challenge sent: {0} can battle your team with “{1}”.", name, f.name));
+          finish({ words, folder: f.name });
+          m.close();
+        };
+        list.append(b);
+      }
+      list.before(note);
+      list.querySelector(".bt-folder:not(:disabled)")?.focus({ preventScroll: true });
+    };
+    m.body.append(list);
+    list.querySelector(".bt-folder:not(:disabled)")?.focus({ preventScroll: true }); // (for the controller)
+  });
 }
 
 /** The choice of words for battles: a switch of four (the newest 100, all-time, the words due for review in the
@@ -392,7 +456,7 @@ export function battleHelp(game, go, opts = {}) {
  * and answer as accurately as their owner usually answers their own words. You answer yours.
  * In an all-time battle each side is as strong as the cards its owner has saved.
  */
-export async function startFriendBattle(friend, row) {
+export async function startFriendBattle(friend, row, { words = null, folder = null } = {}) {
   const game = getGame();
   // Their team came from their device: only the checked copy fights (remote.js), whoever called this.
   const profile = cleanProfile(row) || cleanProfile({});
@@ -401,7 +465,10 @@ export async function startFriendBattle(friend, row) {
   const vocab = await loadWords(game);
   saveGame();
   if (vocab.length < BATTLE_UNLOCK_WORDS) { toast(`Battles unlock at ${BATTLE_UNLOCK_WORDS} saved words. You have ${vocab.length}.`); return; }
-  if (!pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
+  // A folder challenge (challenge.js): its words, the player's own copy of each where they have one
+  const set = words ? challengeWords(words, vocab) : null;
+  if (set && set.length < CHALLENGE_MIN) { toast(t("This challenge has fewer than {0} words with a meaning.", CHALLENGE_MIN)); return; }
+  if (!set && !pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
   const mineIdx = teamOf(game, rule);
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
   const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
@@ -412,7 +479,7 @@ export async function startFriendBattle(friend, row) {
   const theirCards = Number(theirTeam[0].cards ?? theirTeam[0].known) || 0;
   for (const f of theirs) f.name = f.name || rivalName;
   runLiveBattle({ mine, theirs, mode: "friend", rule, foeForm: Number(profile.form) || 0.7, cards: { me: vocab.length, foe: Math.min(100000, theirCards) },
-    rival: { id: friend.id, name: rivalName, rating: profile.rating } }, vocab);
+    rival: { id: friend.id, name: rivalName, rating: profile.rating }, ...(set ? { words: set, folder: String(folder || "").slice(0, 80) } : {}) }, vocab);
 }
 
 export function badgeToast(id) {

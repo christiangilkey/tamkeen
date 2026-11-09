@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Défier {0}
+96fe9d31	Affronter son équipe
+50feeaea	Avec tes mots de combat, comme d'habitude.
+37f281a6	Défier sur un dossier
+0d52df81	Choisis un de tes dossiers : vous combattez tous les deux avec ses mots. Les mots arrivent dans votre discussion.
+42d949fa	Seulement avec un ami qui apprend la même langue que toi.
+8f763f43	Défier {0} sur quel dossier ?
+3006f9d7	Défi envoyé : {0} peut affronter ton équipe avec « {1} ».
+78f3a514	Ce défi a moins de {0} mots avec un sens.
+b4f74cc9	A battu ton équipe sur « {0} »
+4bc47281	A perdu contre ton équipe sur « {0} »
+a973796d	Ton défi sur un dossier : chacun affronte l'équipe de l'autre avec ces mots.
+258242b1	Un défi sur un dossier : chacun affronte l'équipe de l'autre avec ces mots.
+27646849	Ces mots sont en {0}, pas dans la langue que tu apprends en ce moment.
+c1e7ef1c	{0} n'a pas encore d'équipe en ligne.

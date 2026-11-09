@@ -16,6 +16,8 @@ import { detectLanguage, langInfo, setLang, studyLanguage } from "../languages.j
 import { askChatNotifications } from "../chatnotify.js";
 import { micProblem } from "../review/pronounce.js";
 import { pageGuide } from "../components/tour.js";
+import { t } from "../i18n.js";
+import { readChallenge } from "../game/challenge.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -190,11 +192,39 @@ export async function render(view, { friendId }) {
       const audioCount = words.filter((w) => w.clip).length;
       if (audioCount) card.querySelector(".share-title").textContent += ` · audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
       const action = card.querySelector(".share-action");
+      // A folder challenge (game/challenge.js): battle their team with these words, as they battle yours
+      const challenge = readChallenge(m.payload);
+      if (challenge) {
+        card.classList.add("challenge-card");
+        const head = h(`<div class="share-challenge small">${icon("game", 16)}<span></span></div>`);
+        head.querySelector("span").textContent = mine ? t("Your folder challenge: you each battle the other's team with these words.")
+          : t("A folder challenge: battle their team with these words, as they battle yours.");
+        card.prepend(head);
+        if (!mine && challenge.language && challenge.language !== studyLanguage()) {
+          const other = h(`<div class="small muted"></div>`);
+          other.textContent = t("These words are in {0}, not the language you're studying now.", (langInfo(challenge.language) || {}).name || challenge.language);
+          head.after(other);
+        }
+      }
       if (mine) {
         action.append(h(`<span class="small muted">Sent</span>`));
       } else {
-        const add = h(`<button type="button" class="primary">Add to my vocab</button>`);
+        const add = h(`<button type="button" class="${challenge ? "" : "primary"}">Add to my vocab</button>`);
         const dismiss = h(`<button type="button" class="ghost">Dismiss</button>`);
+        if (challenge) {
+          const fight = h(`<button type="button" class="primary">${icon("game", 18)}<span>Battle</span></button>`);
+          fight.onclick = async () => {
+            fight.disabled = true;
+            try {
+              const [{ startFriendBattle }, { cleanProfiles }] = await Promise.all([import("../game/battle-ui.js"), import("../game/remote.js")]);
+              const profile = cleanProfiles(await social.gameProfiles([friendId])).get(friendId);
+              if (!profile || !(profile.team || []).length) toast(t("{0} has no team online yet.", person.username));
+              else await startFriendBattle(person, profile, { words: challenge.words, folder: challenge.folder });
+            } catch (e) { toast(e.message, { error: true }); }
+            fight.disabled = false;
+          };
+          action.append(fight);
+        }
         add.onclick = async () => {
           add.disabled = dismiss.disabled = true;
           add.textContent = "Adding…";

@@ -588,7 +588,7 @@ export function sharedTextPath(path) {
 
 /** Send copies of vocab words (optionally as a named folder) to a friend. A word may carry
  * `clip` (the storage path of its audio) and `times` (word and sentence positions in it). */
-export function sendShare(friendId, { folder = null, words }) {
+export function sendShare(friendId, { folder = null, words, challenge = null }) {
   const num = (x) => (Number.isFinite(Number(x)) ? Math.max(0, Number(x)) : 0);
   const clean = words.slice(0, 500).map((w) => ({
     text: String(w.text || "").slice(0, 300), meaning: String(w.meaning || "").slice(0, 2000),
@@ -598,7 +598,14 @@ export function sendShare(friendId, { folder = null, words }) {
       start: num(w.times.start), end: num(w.times.end), sent_start: num(w.times.sent_start), sent_end: num(w.times.sent_end) } } : {}),
   })).filter((w) => w.text);
   if (!clean.length) throw new Error("There's nothing to share.");
-  return insertMessage(friendId, { kind: "share", payload: { folder: folder ? String(folder).slice(0, 80) : null, words: clean } });
+  return insertMessage(friendId, { kind: "share", payload: { folder: folder ? String(folder).slice(0, 80) : null, words: clean,
+    ...(challenge ? { challenge: { v: 1, language: String(challenge.language || "").slice(0, 12) } } : {}) } });
+}
+
+/** Challenge a friend to battles on one of my folders (game/challenge.js): its words go as a shared folder marked as a
+ * challenge in `language`; they can battle my team with them, as I battle theirs. */
+export function sendChallenge(friendId, { folder, words, language }) {
+  return sendShare(friendId, { folder, words, challenge: { language } });
 }
 
 // Messages disappear, Snapchat-style: text once the recipient has seen it and left the chat,
@@ -940,6 +947,7 @@ export async function battleInbox() {
   if (error) throw new Error(friendly(error));
   const names = await usernames(data.map((r) => r.challenger));
   return data.map((r) => ({ id: r.id, won: r.won, at: r.created_at,
+    folder: r.detail && typeof r.detail.folder === "string" ? r.detail.folder.slice(0, 80) : null, // (a folder challenge)
     rival: { id: r.challenger, name: names.get(r.challenger) || "A friend", rating: (r.detail && r.detail.rating) || 1000 } }));
 }
 

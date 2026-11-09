@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Desafiar {0}
+96fe9d31	Lutar contra o time
+50feeaea	Com suas palavras de batalha, como sempre.
+37f281a6	Desafiar com uma pasta
+0d52df81	Escolha uma das suas pastas: vocês dois lutam com as palavras dela. As palavras chegam pelo chat.
+42d949fa	Só com um amigo que estuda o mesmo idioma que você.
+8f763f43	Desafiar {0} com qual pasta?
+3006f9d7	Desafio enviado: {0} pode lutar contra o seu time com “{1}”.
+78f3a514	Este desafio tem menos de {0} palavras com significado.
+b4f74cc9	Venceu o seu time com “{0}”
+4bc47281	Perdeu para o seu time com “{0}”
+a973796d	Seu desafio de pasta: cada um luta contra o time do outro com estas palavras.
+258242b1	Um desafio de pasta: cada um luta contra o time do outro com estas palavras.
+27646849	Estas palavras estão em {0}, não no idioma que você estuda agora.
+c1e7ef1c	{0} ainda não tem time online.

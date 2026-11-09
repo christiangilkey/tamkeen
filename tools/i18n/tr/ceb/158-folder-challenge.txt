@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Hagita si {0}
+96fe9d31	Sukla ang ilang team
+50feeaea	Gamit ang imong mga pulong pang-away, sama sa naandan.
+37f281a6	Hagita sa usa ka folder
+0d52df81	Pili og usa sa imong mga folder: pareho kamong moaway gamit ang mga pulong niini. Moabot ang mga pulong sa inyong chat.
+42d949fa	Sa higala lang nga parehas og gitun-an nga pinulongan nimo.
+8f763f43	Asa nga folder nimo hagiton si {0}?
+3006f9d7	Napadala ang hagit: makig-away si {0} sa imong team gamit ang “{1}”.
+78f3a514	Kulang sa {0} ang mga pulong nga adunay kahulugan niining hagit.
+b4f74cc9	Napildi ang imong team sa “{0}”
+4bc47281	Napildi sa imong team sa “{0}”
+a973796d	Ang imong hagit sa folder: ang matag usa moaway sa team sa usa gamit kining mga pulonga.
+258242b1	Hagit sa folder: ang matag usa moaway sa team sa usa gamit kining mga pulonga.
+27646849	Ang mga pulong anaa sa {0}, dili sa pinulongan nga imong gitun-an karon.
+c1e7ef1c	Wala pay team online si {0}.

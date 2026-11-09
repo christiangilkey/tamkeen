@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	{0} herausfordern
+96fe9d31	Gegen das Team kämpfen
+50feeaea	Mit deinen Kampfwörtern, wie immer.
+37f281a6	Mit einem Ordner herausfordern
+0d52df81	Wähle einen deiner Ordner: Ihr kämpft beide mit seinen Wörtern. Die Wörter kommen in euren Chat.
+42d949fa	Nur mit Freunden, die dieselbe Sprache lernen wie du.
+8f763f43	{0} mit welchem Ordner herausfordern?
+3006f9d7	Herausforderung gesendet: {0} kann mit „{1}“ gegen dein Team kämpfen.
+78f3a514	Diese Herausforderung hat weniger als {0} Wörter mit Bedeutung.
+b4f74cc9	Hat dein Team mit „{0}“ besiegt
+4bc47281	Hat mit „{0}“ gegen dein Team verloren
+a973796d	Deine Ordner-Herausforderung: Ihr kämpft beide mit diesen Wörtern gegen das Team des anderen.
+258242b1	Eine Ordner-Herausforderung: Ihr kämpft beide mit diesen Wörtern gegen das Team des anderen.
+27646849	Diese Wörter sind auf {0}, nicht in der Sprache, die du gerade lernst.
+c1e7ef1c	{0} hat noch kein Team online.

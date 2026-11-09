@@ -109,7 +109,7 @@ export function openShop(tab, changed = () => {}, opts = {}) {
     supplies: (b) => suppliesPanel(b, game, onChange, go),
     battle: (b) => { battlePanel(b, game, onChange, go, close, focus); focus = null; },
     // (what waits there is seen once it is open: the number on the switch goes at the next redraw)
-    friends: (b) => { delete counts.friends; friendsPanel(b, game, onChange, (friend, profile) => { close(); startFriendBattle(friend, profile); }); },
+    friends: (b) => { delete counts.friends; friendsPanel(b, game, onChange, (friend, profile, opts) => { close(); startFriendBattle(friend, profile, opts); }); },
   };
   document.body.append(wrap);
   paint(tab);

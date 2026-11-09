@@ -8010,3 +8010,25 @@ shapes, dead trees, some knocked over, some taller, some stumps". Art made the s
   frames and the battle looks frozen; and stop every msedge process of the profile afterwards (Edge relaunches itself
   under a new process, and a forgotten one keeps its debugging port open for anything on the machine).
   Gamepad players can't open cracks yet (no pointer); walking into one could open it later.
+
+## Friends: folder challenges (2026-11-09; helper of the main chat)
+Owner: "Users learning the same language should be able to challenge another player to a specific folder that they'll
+both use".
+- `web/js/game/challenge.js` (pure): `CHALLENGE_MIN` (= MIN_SET, 20), `CHALLENGE_MAX` 500, `canChallenge(profile,
+  language)`, `folderWords(vocab, folderUid)` (text, meaning and sentence only), `challengeWords(words, vocab)` (the
+  player's own copy of each word by its text, else the word with a `challenge:<text>` uid), `isChallengeWord`,
+  `readChallenge(payload)` (checks one that came from another device).
+- **Online: nothing new.** `social.sendChallenge` sends a `share` message (friends only, by the messages' own rules; 500
+  words; payload under 1 MB) with `challenge: { v: 1, language }`; the battle report's `detail.folder` (under 2000 bytes)
+  names the folder, and `battleInbox` returns `folder`. The access control matrix is unchanged.
+- **Friends side**: Challenge opens `battle-ui.challengeChoice`: Battle their team, or Challenge them on a folder (only a
+  friend, not a guild-mate, whose game profile studies my language); the folder list (20+ words with a meaning) sends
+  the challenge, then my battle starts: `startFriendBattle(friend, profile, { words, folder })` (shop.js passes the
+  options on). The inbox row says "Beat your team on “X”" (the folder's name set as text, never markup).
+- **Chat**: a share with `challenge` gets a line saying so, a note when it isn't in the reader's study language, and
+  Battle (battle-ui and remote loaded when pressed; the sender's checked game profile), Add to my vocab, Dismiss.
+- **Battle**: `setup.words` replaces battleWordsFor; answers on `challenge:` words aren't kept in game.review (so a word
+  that isn't yours never becomes well known); the report carries `folder`.
+- Tests `tests/js/challenge.test.mjs`; translations `158-folder-challenge` (15 strings).
+- **Not done**: no side-by-side result of a challenge (each sees the other's result in the battle inbox); a challenge
+  message disappears like any share once added or dismissed.

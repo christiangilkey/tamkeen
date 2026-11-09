@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Hamunin si {0}
+96fe9d31	Labanan ang team nila
+50feeaea	Gamit ang mga salita mo sa laban, gaya ng dati.
+37f281a6	Hamunin sa isang folder
+0d52df81	Pumili ng isa sa mga folder mo: pareho kayong lalaban gamit ang mga salita nito. Darating ang mga salita sa chat ninyo.
+42d949fa	Sa kaibigang pareho ang pinag-aaralang wika mo lang.
+8f763f43	Sa aling folder mo hahamunin si {0}?
+3006f9d7	Naipadala ang hamon: puwedeng labanan ni {0} ang team mo gamit ang “{1}”.
+78f3a514	Kulang sa {0} ang mga salitang may kahulugan sa hamong ito.
+b4f74cc9	Tinalo ang team mo sa “{0}”
+4bc47281	Natalo sa team mo sa “{0}”
+a973796d	Ang hamon mo sa isang folder: lalabanan ng bawat isa ang team ng isa pa gamit ang mga salitang ito.
+258242b1	Hamon sa isang folder: lalabanan ng bawat isa ang team ng isa pa gamit ang mga salitang ito.
+27646849	Nasa {0} ang mga salitang ito, hindi sa wikang pinag-aaralan mo ngayon.
+c1e7ef1c	Wala pang team online si {0}.

@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Desafia {0}
+96fe9d31	Lluita contra el seu equip
+50feeaea	Amb les teves paraules de batalla, com sempre.
+37f281a6	Desafia amb una carpeta
+0d52df81	Tria una de les teves carpetes: lluitareu tots dos amb les seves paraules. Les paraules li arriben pel xat.
+42d949fa	Només amb un amic que estudiï la mateixa llengua que tu.
+8f763f43	Amb quina carpeta desafies {0}?
+3006f9d7	Desafiament enviat: {0} pot lluitar contra el teu equip amb «{1}».
+78f3a514	Aquest desafiament té menys de {0} paraules amb significat.
+b4f74cc9	Ha vençut el teu equip amb «{0}»
+4bc47281	Ha perdut contra el teu equip amb «{0}»
+a973796d	El teu desafiament de carpeta: cadascú lluita contra l'equip de l'altre amb aquestes paraules.
+258242b1	Un desafiament de carpeta: cadascú lluita contra l'equip de l'altre amb aquestes paraules.
+27646849	Aquestes paraules són en {0}, no en la llengua que estudies ara.
+c1e7ef1c	{0} encara no té equip en línia.

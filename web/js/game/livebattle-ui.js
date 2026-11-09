@@ -21,6 +21,7 @@ import * as arena from "./battlemap.js";
 import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
 import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
+import { isChallengeWord } from "./challenge.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const TILE = 16;
@@ -114,7 +115,8 @@ const elementOf = (m, f) => (m.own ? f.type : m.element || null);
  */
 export function runLiveBattle(setup, vocab) {
   const game = getGame();
-  const words = battleWordsFor(vocab, game);  // (the Battle screen's choice: the newest 100, all, due for review, a folder)
+  // (the Battle screen's choice: the newest 100, all, due for review, a folder; or a folder challenge's words, challenge.js)
+  const words = setup.words || battleWordsFor(vocab, game);
   let dict = null; // until the built-in dictionary's list is ready, the wrong answers are the learner's own words
   battleDictionary().then((d) => { dict = d; });
   let asked = [];
@@ -1014,6 +1016,7 @@ export function runLiveBattle(setup, vocab) {
     $(".lbq-bar i").style.width = correct ? $(".lbq-bar i").style.width : "0%";
     sfx(correct ? "common" : "surprise");
     const r = answerQuestion(game, q.uid, correct);
+    if (isChallengeWord(q.uid)) delete game.review[q.uid]; // a challenge's word the player doesn't have: answered, not kept
     if (r.graduated) { graduated++; toast(t("That word is now well known: +{0} XP", WELL_KNOWN_XP)).prepend(h(icon("star")), " "); }
     if (r.retentionBonus) toast(t("Accurate all week: +60 XP and 5 coins")).prepend(h(icon("goal")), " ");
     holdUntil = performance.now() + (correct ? 450 : 1300);
@@ -1288,7 +1291,7 @@ export function runLiveBattle(setup, vocab) {
     saveGame();
     announce({ type: "battle", xp: pay.xp, tier: result.won ? "lucky" : "common" });
     if (setup.mode === "friend" && setup.rival && setup.rival.id) {
-      social.reportBattle(setup.rival.id, result.won, { rating: game.rating }).catch((e) => toast(t("Couldn't tell {0}: {1}", setup.rival.name, e.message), { error: true }));
+      social.reportBattle(setup.rival.id, result.won, { rating: game.rating, ...(setup.folder ? { folder: setup.folder } : {}) }).catch((e) => toast(t("Couldn't tell {0}: {1}", setup.rival.name, e.message), { error: true }));
     }
     import("./friends-game.js").then((m) => m.publishNow(true));
     sfx(result.won ? "jackpot" : "surprise");

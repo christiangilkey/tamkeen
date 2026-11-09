@@ -8745,8 +8745,38 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "15f0b4ec",
-  "k": "Battle words from a folder",
+  "id": "86116a94",
+  "k": "Challenge {0}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "96fe9d31",
+  "k": "Battle their team",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "50feeaea",
+  "k": "With your battle words, as usual.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "37f281a6",
+  "k": "Challenge them on a folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0d52df81",
+  "k": "Pick one of your folders: you both battle with its words. They get the words in your chat.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "42d949fa",
+  "k": "Only with a friend who studies the same language as you.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "8f763f43",
+  "k": "Challenge {0} on which folder?",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -8762,6 +8792,16 @@
  {
   "id": "a6c4c05c",
   "k": "{0} of {1} words",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "3006f9d7",
+  "k": "Challenge sent: {0} can battle your team with “{1}”.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "15f0b4ec",
+  "k": "Battle words from a folder",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -9045,6 +9085,11 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "78f3a514",
+  "k": "This challenge has fewer than {0} words with a meaning.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "f7c24281",
   "k": "Your words need meanings before they can be asked. Fill some in on the Vocab page.",
   "f": "web/js/game/battle-ui.js"
@@ -9300,6 +9345,61 @@
   "f": "web/js/game/battlemap.js"
  },
  {
+  "id": "baf9d7e4",
+  "k": "Town Hall wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "1f7a7a64",
+  "k": "Carpet",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "71efc0ca",
+  "k": "Farmland",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "af3952bb",
+  "k": "A little slower. Grove creatures move freely and heal a little.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ea3580df",
+  "k": "Wheat",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a187c328",
+  "k": "Fountain",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "2766aed7",
+  "k": "Only Tide creatures and floaters can go in. Its water heals a little, Tide creatures more.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "d6adaf3e",
+  "k": "Spikes",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "12304ac5",
+  "k": "Spikes shoot up every 2 seconds and hurt whoever stands on them.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "db402c3c",
+  "k": "Cracked wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "14f4b7c3",
+  "k": "A weak spot in the wall: click it when your creature is close to break it open.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
   "id": "c6928281",
   "k": "Boulder",
   "f": "web/js/game/battlemap.js"
@@ -9397,6 +9497,101 @@
  {
   "id": "c8af83fb",
   "k": "Banner",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "fccbed74",
+  "k": "Market stall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "bbfefb83",
+  "k": "Vending cart",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "668bfc84",
+  "k": "Scarecrow",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "8b3d8d66",
+  "k": "Sign",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "370793de",
+  "k": "Lamp post",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "931fa888",
+  "k": "Bench",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "0424f6e7",
+  "k": "Table",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "f4018045",
+  "k": "Counter",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "9c4cd273",
+  "k": "Shelves",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "3bdeb9a8",
+  "k": "Sacks",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "f0537d95",
+  "k": "Anvil",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "5f9a8584",
+  "k": "Desk",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "d8bfbca8",
+  "k": "Chest",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "2954684a",
+  "k": "Cage",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "07569532",
+  "k": "Weapon rack",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "fa1f581c",
+  "k": "Armour stand",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a353afc8",
+  "k": "Throne",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "30686c9a",
+  "k": "Fallen tree",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "8d274746",
+  "k": "Stump",
   "f": "web/js/game/battlemap.js"
  },
  {
@@ -10420,18 +10615,8 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "370793de",
-  "k": "Lamp post",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "dc94e91a",
   "k": "Fruit tree",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "a187c328",
-  "k": "Fountain",
   "f": "web/js/game/data.js"
  },
  {
@@ -11637,6 +11822,16 @@
  {
   "id": "032d7174",
   "k": "Rematch",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "b4f74cc9",
+  "k": "Beat your team on “{0}”",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "4bc47281",
+  "k": "Lost to your team on “{0}”",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -13100,6 +13295,16 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "5e2d8f0d",
+  "k": "A cracked wall! Tap it to break it open.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "7499ffbf",
+  "k": "A cracked wall! Click it to break it open.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "c308020b",
   "k": "Wild creature",
   "f": "web/js/game/livebattle-ui.js"
@@ -13232,6 +13437,11 @@
  {
   "id": "4facd611",
   "k": "Cut short!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "c4bc12e0",
+  "k": "A hidden room!",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -15680,6 +15890,21 @@
   "f": "web/js/pages/chat.js"
  },
  {
+  "id": "a973796d",
+  "k": "Your folder challenge: you each battle the other's team with these words.",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "258242b1",
+  "k": "A folder challenge: battle their team with these words, as they battle yours.",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "27646849",
+  "k": "These words are in {0}, not the language you're studying now.",
+  "f": "web/js/pages/chat.js"
+ },
+ {
   "id": "35f49dcf",
   "k": "Sent",
   "f": "web/js/pages/chat.js"
@@ -15687,6 +15912,11 @@
  {
   "id": "03f7e506",
   "k": "Add to my vocab",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "c1e7ef1c",
+  "k": "{0} has no team online yet.",
   "f": "web/js/pages/chat.js"
  },
  {

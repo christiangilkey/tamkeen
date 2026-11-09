@@ -3134,6 +3134,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .bt-folder-n { flex: none; font-size: 13px; font-weight: 500; color: var(--muted); }
 .bt-folder.on, .bt-folder.on:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .bt-folder:disabled { opacity: .5; }
+/* challenging a friend (battle-ui.js challengeChoice): two choices, each with a line under it */
+.bt-choice { min-height: 60px; }
+.bt-choice .bt-folder-name { display: flex; flex-direction: column; gap: 2px; }
+.bt-choice-sub { font-size: 13px; font-weight: 500; color: var(--muted); }
+/* a folder challenge in a chat (chat.js) */
+.share-challenge { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-weight: 600; color: var(--accent); }
 /* The gym leaders: five to a row, each its first creature in a circle of its element's colour. Beaten: in colour with
    a tick; the next: a teal ring; the rest: faint, with a lock. */
 .badge-case.bt-path { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }

@@ -9,7 +9,8 @@ import * as social from "../social.js";
 import { BOSSES, LEAGUES } from "./data.js";
 import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
 import { publicProfile, showcaseGenome } from "./battle.js";
-import { portrait } from "./battle-ui.js";
+import { challengeChoice, portrait } from "./battle-ui.js";
+import { canChallenge } from "./challenge.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -102,7 +103,8 @@ const leagueIcon = (n, px = 24) => icon(`league_${LEAGUES[Math.max(0, Math.min(3
 const theirs = (el) => { el.setAttribute("translate", "no"); return el; };
 
 /**
- * Fill `body` with the Friends side. `challenge(friend, profile)` starts a battle against a friend's team. Everything
+ * Fill `body` with the Friends side. `challenge(friend, profile, opts)` starts a battle against a friend's team (opts:
+ * { words, folder } for a folder challenge, challenge.js). Everything
  * drawn here that came from friends' devices is checked first (remote.js) and put in as text, never as markup.
  */
 export async function friendsPanel(body, game, changed, challenge) {
@@ -137,13 +139,14 @@ export async function friendsPanel(body, game, changed, challenge) {
   // Everything here came from friends' devices: checked before anything uses it (remote.js).
   profiles = cleanProfiles(profiles);
   gifts = (Array.isArray(gifts) ? gifts : []).map((g) => ({ id: g.id, kind: g.kind === "egg" ? "egg" : "item", from: cleanName(g.from, 40) || "A friend" }));
-  inbox = (Array.isArray(inbox) ? inbox : []).map((r) => ({ id: r.id, won: r.won === true, rival: cleanRival(r.rival) }));
+  inbox = (Array.isArray(inbox) ? inbox : []).map((r) => ({ id: r.id, won: r.won === true, rival: cleanRival(r.rival), folder: cleanName(r.folder, 80) || null }));
   for (const r of inbox) recordDefence(game, r.rival, r.won);
   if (inbox.length) { saveGame(); social.markBattlesSeen().catch(() => {}); }
 
   const blocks = [];
   if (gifts.length || inbox.length) blocks.push(waitingBlock(game, gifts, inbox, people, profiles, changed, challenge));
-  blocks.push(leagueBlock(game, me, people, profiles, now, challenge));
+  const friendIds = new Set(friends.friends.map((f) => f.user.id)); // (a folder challenge goes in a chat: friends only)
+  blocks.push(leagueBlock(game, me, people, profiles, now, challenge, friendIds));
   blocks.push(ruleBlock(now));
   for (const g of (guilds && guilds.guilds) || []) blocks.push(raidBlock(game, me, g, profiles, now, week, changed));
   if (guilds && !guilds.guilds.length) blocks.push(noGuildBlock(now));
@@ -185,7 +188,9 @@ function waitingBlock(game, gifts, inbox, people, profiles, changed, challenge) 
   }
   for (const x of inbox) {
     const again = h(`<button type="button" class="gs-row-btn">Rematch</button>`);
-    const r = row({ pic: icon("defence", 32), name: x.rival.name, sub: x.won ? "Beat your team" : "Lost to your team", end: again });
+    const sub = x.folder ? (x.won ? t("Beat your team on “{0}”", x.folder) : t("Lost to your team on “{0}”", x.folder)) : x.won ? "Beat your team" : "Lost to your team";
+    const r = row({ pic: icon("defence", 32), name: x.rival.name, end: again });
+    r.querySelector(".gs-row-sub").textContent = sub; // (the folder's name came from their device: text, never markup)
     theirs(r.querySelector(".gs-row-name"));
     again.onclick = () => challenge(people.get(x.rival.id) || { id: x.rival.id, username: x.rival.name }, profiles.get(x.rival.id));
     b.append(r);
@@ -195,7 +200,7 @@ function waitingBlock(game, gifts, inbox, people, profiles, changed, challenge) 
 
 /** The league: everyone, best first, with their favourite creature, this week's share of goal days, my record against
  * them, and Challenge. */
-function leagueBlock(game, me, people, profiles, now, challenge) {
+function leagueBlock(game, me, people, profiles, now, challenge, friendIds = new Set()) {
   const lg = Math.max(0, Math.min(3, Math.floor(Number(game.league) || 0)));
   const b = block(`${LEAGUES[lg]} league`, h(`<span class="bt-league">${leagueIcon(lg, 24)}</span>`));
   leagueRows({ me, game, people, profiles, now }).forEach((r, i) => {
@@ -208,7 +213,12 @@ function leagueBlock(game, me, people, profiles, now, challenge) {
       end.textContent = r.team.length ? "Challenge" : "No team yet";
       end.disabled = !r.team.length;
       end.title = r.team.length ? t("Skill {0}", String(r.rating)) : "They haven't opened the game online yet";
-      end.onclick = () => challenge(r.user, r.profile);
+      // a battle as usual, or (a friend studying the same language) a challenge on one of my folders
+      end.onclick = async () => {
+        const same = friendIds.has(r.id) && canChallenge(r.profile, hasStudyLanguage() ? studyLanguage() : null);
+        const pick = await challengeChoice(r.user, r.name, same);
+        if (pick) challenge(r.user, r.profile, pick);
+      };
     }
     const el = row({ pic: "", name: r.name, sub, end });
     el.classList.add("fr-row");

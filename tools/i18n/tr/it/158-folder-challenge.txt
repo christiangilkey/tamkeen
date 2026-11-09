@@ -1,0 +1,16 @@
+# Folder challenges between friends (game/battle-ui.js challengeChoice, friends-game.js, pages/chat.js).
+86116a94	Sfida {0}
+96fe9d31	Combatti contro la sua squadra
+50feeaea	Con le tue parole di battaglia, come sempre.
+37f281a6	Sfida su una cartella
+0d52df81	Scegli una delle tue cartelle: combattete entrambi con le sue parole. Le parole arrivano nella vostra chat.
+42d949fa	Solo con un amico che studia la tua stessa lingua.
+8f763f43	Sfidare {0} su quale cartella?
+3006f9d7	Sfida inviata: {0} può combattere contro la tua squadra con «{1}».
+78f3a514	Questa sfida ha meno di {0} parole con un significato.
+b4f74cc9	Ha battuto la tua squadra su «{0}»
+4bc47281	Ha perso contro la tua squadra su «{0}»
+a973796d	La tua sfida su una cartella: ognuno combatte contro la squadra dell'altro con queste parole.
+258242b1	Una sfida su una cartella: ognuno combatte contro la squadra dell'altro con queste parole.
+27646849	Queste parole sono in {0}, non nella lingua che stai studiando ora.
+c1e7ef1c	{0} non ha ancora una squadra online.
