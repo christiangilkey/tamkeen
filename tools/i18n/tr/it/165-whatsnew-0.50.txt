@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Le parole dei dialetti arabi sono lette con il loro accento: voci irachene, levantine, egiziane e del Golfo per le schede
+5bd4a209	Le parole comuni hanno una frase d'esempio senza chiave IA, in tutte le 16 lingue dei corsi
+2820ee5f	Un pulsante Battaglia su ogni amico, e l'incursione della gilda nella Home
+b32cc3b8	Il retro di una scheda di ripasso ha il Creatore di mnemotecniche, una nuova frase d'esempio e le Cartelle
+aebb01bb	Le uova indossano cappelli e ali
+d87e0c5d	I video di YouTube senza sottotitoli hanno un'etichetta prima di aprirli

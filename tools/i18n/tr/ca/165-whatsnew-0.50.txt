@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Les paraules dels dialectes àrabs es llegeixen amb el seu accent: veus iraquianes, llevantines, egípcies i del Golf per a les targetes
+5bd4a209	Les paraules comunes tenen una frase d'exemple sense clau d'IA, en les 16 llengües dels cursos
+2820ee5f	Un botó de Batalla a cada amic, i l'atac del gremi a l'Inici
+b32cc3b8	El revers d'una targeta de repàs té el Creador de mnemotècnies, una frase d'exemple nova i les Carpetes
+aebb01bb	Els ous porten barrets i ales
+d87e0c5d	Els vídeos de YouTube sense subtítols porten una etiqueta abans d'obrir-los

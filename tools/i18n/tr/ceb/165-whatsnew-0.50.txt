@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Ang mga pulong sa Arabic nga diyalekto gibasa sa ilang kaugalingong accent: mga tingog sa Iraq, Levant, Egypt ug Gulf para sa mga card
+5bd4a209	Ang komon nga mga pulong adunay pananglitan nga sentence bisan walay AI key, sa tanang 16 ka pinulongan sa kurso
+2820ee5f	Usa ka Battle nga button sa matag higala, ug ang guild raid sa Home
+b32cc3b8	Ang likod sa review card adunay Mnemonic maker, bag-ong pananglitan nga sentence ug Folders
+aebb01bb	Ang mga itlog magsul-ob og kalo ug pako
+d87e0c5d	Ang mga video sa YouTube nga walay caption adunay tag sa dili pa nimo ablihan

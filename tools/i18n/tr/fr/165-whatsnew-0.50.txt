@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Les mots des dialectes arabes sont lus avec leur propre accent : des voix irakiennes, levantines, égyptiennes et du Golfe pour les cartes
+5bd4a209	Les mots courants ont une phrase d'exemple sans clé d'IA, dans les 16 langues des cours
+2820ee5f	Un bouton Combat sur chaque ami, et le raid de la guilde sur l'Accueil
+b32cc3b8	Le dos d'une carte de révision a le Créateur de mnémoniques, une nouvelle phrase d'exemple et les Dossiers
+aebb01bb	Les œufs portent des chapeaux et des ailes
+d87e0c5d	Les vidéos YouTube sans sous-titres ont une étiquette avant que vous les ouvriez

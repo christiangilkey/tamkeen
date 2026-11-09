@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Ang mga salita ng mga diyalektong Arabe ay binabasa sa sarili nilang punto: mga boses na Iraqi, Levantine, Egyptian at Gulf para sa mga card
+5bd4a209	May halimbawang pangungusap ang mga karaniwang salita kahit walang AI key, sa lahat ng 16 na wika ng kurso
+2820ee5f	Isang Battle na button sa bawat kaibigan, at ang guild raid sa Home
+b32cc3b8	Nasa likod ng review card ang Mnemonic maker, bagong halimbawang pangungusap at Folders
+aebb01bb	Nagsusuot ng sumbrero at pakpak ang mga itlog
+d87e0c5d	May tag ang mga video sa YouTube na walang caption bago mo pa buksan

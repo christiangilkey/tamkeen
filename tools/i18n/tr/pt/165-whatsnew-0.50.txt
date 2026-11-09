@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	As palavras dos dialetos árabes são lidas com o seu próprio sotaque: vozes iraquianas, levantinas, egípcias e do Golfo para os cartões
+5bd4a209	As palavras comuns têm uma frase de exemplo sem chave de IA, nos 16 idiomas dos cursos
+2820ee5f	Um botão de Batalha em cada amigo, e a incursão da guilda no Início
+b32cc3b8	O verso de um cartão de revisão tem o Criador de mnemônicos, uma nova frase de exemplo e as Pastas
+aebb01bb	Os ovos usam chapéus e asas
+d87e0c5d	Os vídeos do YouTube sem legendas têm uma etiqueta antes de você abri-los

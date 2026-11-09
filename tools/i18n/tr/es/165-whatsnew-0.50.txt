@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Las palabras de los dialectos árabes se leen con su propio acento: voces iraquíes, levantinas, egipcias y del Golfo para las tarjetas
+5bd4a209	Las palabras comunes tienen una frase de ejemplo sin clave de IA, en los 16 idiomas de los cursos
+2820ee5f	Un botón de Batalla en cada amigo, y la incursión del gremio en Inicio
+b32cc3b8	El reverso de una tarjeta de repaso tiene el Creador de mnemotecnias, una frase de ejemplo nueva y las Carpetas
+aebb01bb	Los huevos llevan sombreros y alas
+d87e0c5d	Los vídeos de YouTube sin subtítulos llevan una etiqueta antes de abrirlos

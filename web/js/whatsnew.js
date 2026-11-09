@@ -9,6 +9,19 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.50.0",
+  "Arabic dialect words are read in their own accent: Iraqi, Levantine, Egyptian and Gulf card voices");
+notes("0.50.0",
+  "Common words get an example sentence without an AI key, in all 16 course languages");
+notes("0.50.0",
+  "A Battle button on each friend, and the guild raid on Home");
+notes("0.50.0",
+  "The back of a review card has the Mnemonic maker, a new example sentence and Folders");
+notes("0.50.0",
+  "Eggs wear hats and wings");
+notes("0.50.0",
+  "YouTube videos without captions are tagged before you open them");
+
 notes("0.49.0",
   "Battle maps with buildings: a village with a town hall and tavern, a dungeon with traps and hidden rooms, and a fortress with a keep");
 notes("0.49.0",

@@ -1,0 +1,7 @@
+# What's new in 0.50.0 (web/js/whatsnew.js).
+e36a1b68	Wörter aus arabischen Dialekten werden mit ihrem eigenen Akzent gelesen: irakische, levantinische, ägyptische und Golf-Kartenstimmen
+5bd4a209	Häufige Wörter bekommen einen Beispielsatz ohne KI-Schlüssel, in allen 16 Kurssprachen
+2820ee5f	Ein Kampf-Knopf bei jedem Freund, und der Gildenangriff auf der Startseite
+b32cc3b8	Die Rückseite einer Lernkarte hat den Eselsbrücken-Macher, einen neuen Beispielsatz und die Ordner
+aebb01bb	Eier tragen Hüte und Flügel
+d87e0c5d	YouTube-Videos ohne Untertitel sind markiert, bevor du sie öffnest
