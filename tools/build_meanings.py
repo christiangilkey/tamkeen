@@ -372,6 +372,9 @@ def head_grammar(entry: dict, lang: str) -> list[str]:
     return out
 
 
+# Romance verbs show their subjunctive too: the "I" form, labelled with the language's word for "I".
+SUBJUNCTIVE_I = {"es": "yo", "pt": "eu", "it": "io", "ca": "jo", "fr": "je"}
+
 _ARABIC_ROOTS: dict[str, str] | None = None
 
 
@@ -421,6 +424,8 @@ def grammar_info(entry: dict, lang: str) -> list:
                      and set(f.get("tags") or []) == {"feminine"}), "")
     rows: list[list[str]] = []
     per_label: dict[str, int] = {}
+    # (A Romance verb keeps two rows for its subjunctive: Italian dire's headword line alone gives six forms.)
+    head_rows = MAX_FORM_ROWS - 2 if lang in SUBJUNCTIVE_I and entry.get("pos") == "verb" else MAX_FORM_ROWS
     for f in entry.get("forms") or []:
         tags = set(f.get("tags") or [])
         form = str(f.get("form") or "").strip()
@@ -433,8 +438,16 @@ def grammar_info(entry: dict, lang: str) -> list:
             continue
         per_label[label] = per_label.get(label, 0) + 1
         rows.append([label, form, romanization_of(form, expansion)] if romanization_of(form, expansion) else [label, form])
-        if len(rows) >= MAX_FORM_ROWS:
+        if len(rows) >= head_rows:
             break
+    if lang in SUBJUNCTIVE_I and entry.get("pos") == "verb":
+        # The Romance subjunctive, from the conjugation table (the headword line has none): decir → diga, dijera.
+        for tense in ("present", "imperfect"):
+            form = next((str(f.get("form") or "") for f in entry.get("forms") or []
+                         if f.get("source") == "conjugation" and " " not in str(f.get("form") or " ")
+                         and set(f.get("tags") or []) == {"first-person", "singular", "subjunctive", tense}), "")
+            if form and len(rows) < MAX_FORM_ROWS:
+                rows.append([f"{tense} subjunctive ({SUBJUNCTIVE_I[lang]})", form])
     if lang == "zh":
         for c in zh_classifiers(entry)[:2]:
             rows.append(["classifier", c])

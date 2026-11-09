@@ -77,3 +77,16 @@ def test_a_persian_word_from_arabic_names_the_arabic_root():
          "etymology_templates": [{"name": "bor", "args": {"1": "fa", "2": "ar", "3": "كِتَاب"}}]}
     assert bm.grammar_info(e, "fa") == [["from the Arabic root ك ت ب"], []]
     bm._ARABIC_ROOTS = None
+
+
+def test_romance_verbs_show_their_subjunctive():
+    e = entry("decir", "verb", "decir (first-person singular present digo, first-person singular preterite dije, past participle dicho)",
+              [{"form": "digo", "tags": ["first-person", "present", "singular"]},
+               {"form": "dije", "tags": ["first-person", "preterite", "singular"]},
+               {"form": "dicho", "tags": ["participle", "past"]},
+               {"form": "diga", "tags": ["first-person", "present", "singular", "subjunctive"], "source": "conjugation"},
+               {"form": "me diga", "tags": ["first-person", "present", "singular", "subjunctive"], "source": "conjugation"},
+               {"form": "dijera", "tags": ["first-person", "imperfect", "singular", "subjunctive"], "source": "conjugation"},
+               {"form": "dijese", "tags": ["first-person", "imperfect", "imperfect-se", "singular", "subjunctive"], "source": "conjugation"}])
+    rows = bm.grammar_info(e, "es")[1]
+    assert rows[-2:] == [["present subjunctive (yo)", "diga"], ["imperfect subjunctive (yo)", "dijera"]]
