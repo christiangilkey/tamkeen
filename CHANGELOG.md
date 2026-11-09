@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Android's back gesture (or back button) closes a popup that is open, such as the Shop, a game screen, the + sheet or a word's popup, and leaves you on the page under it. It used to go to another page, or leave the app from Home, with the popup still open. *(Android)*
 - **Changed:** In a guild, the **guild raid** shows on Home, under your creature and its buttons: the week's boss, its health, who has hit it, and Claim the reward once it is down. It is still on Battle → Friends too.
 - **Fixed:** Tapping a word in a reel plays that word, then pauses (with the switch on pause, the purple one). On the phone it often stopped the reel at once, before the word had played, when the word had already gone by. *(Android)*
 - **Changed:** **DLI students** has its own section in Settings, right under Languages, instead of a card inside Languages. Its line on the Settings list says where you stand: which DLI language, and whether it is unlocked.

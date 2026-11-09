@@ -44,7 +44,7 @@ import { mountHelpButton } from "./components/helpbutton.js";
 import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
-import { startGamepad } from "./gamepad.js";
+import { closeTopBox, startGamepad } from "./gamepad.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { voiceTimes } from "./cardvoice.js";
 import { vocabDeck } from "./anki-export.js";
@@ -1529,6 +1529,8 @@ async function boot() {
     App.addListener("resume", () => { check().then(lookForEpisodes, lookForEpisodes); planChecks(); requestAnkiSync(3000); });
     App.addListener("pause", () => { flushSync(); }); // put away: send a waiting change now
     App.addListener("backButton", () => {
+      // A popup, game screen or word popup open over the page closes first, leaving you on the page under it (gamepad.js).
+      if (closeTopBox()) return;
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();
     });
