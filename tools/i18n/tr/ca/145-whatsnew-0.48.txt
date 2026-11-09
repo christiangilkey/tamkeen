@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	El que és tendència en la teva llengua, o enganxa l'adreça d'un canal
+effe7f77	O enganxa l'adreça del canal RSS d'un pòdcast
+0bc57068	La finestra de la paraula mostra la gramàtica de cada paraula: nom o verb, gènere, l'arrel àrab i els plurals, i formes verbals clau com el subjuntiu castellà
+885c10c4	Les paraules en tagal mostren la seva arrel i el seu afix, i els verbs en tagal i bisaya les seves formes de focus
+7bda9be1	Samarretes llisa i de ratlles noves, i cada samarreta segueix la llum i l'ombra de la teva criatura
+a4dd30ae	Els amics veuen la teva criatura amb tot el que porta a Inici
+0abad53e	Les batalles es desbloquegen amb 20 paraules desades
+d57d5944	Biblioteca → + → Pòdcast obre directament les tendències en la teva llengua
+0d0602b9	La pantalla de repàs cap a qualsevol telèfon

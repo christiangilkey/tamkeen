@@ -9,6 +9,21 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.48.0",
+  "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive");
+notes("0.48.0",
+  "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms");
+notes("0.48.0",
+  "New Plain and Striped shirts, and every shirt follows your creature's light and shadow");
+notes("0.48.0",
+  "Friends see your creature wearing everything it wears on Home");
+notes("0.48.0",
+  "Battles unlock at 20 saved words");
+notes("0.48.0",
+  "Library → + → Podcast opens Trending in your language straight away");
+notes("0.48.0",
+  "The review screen fits on every phone");
+
 notes("0.47.1",
   "Signing in on the welcome screen takes you straight to Home");
 notes("0.47.1",

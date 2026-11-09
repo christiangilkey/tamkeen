@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Lo que es tendencia en tu idioma, o pega la dirección de un feed
+effe7f77	O pega la dirección del feed RSS de un pódcast
+0bc57068	La ventana de la palabra muestra la gramática de cada palabra: sustantivo o verbo, género, la raíz árabe y los plurales, y formas verbales clave como el subjuntivo
+885c10c4	Las palabras en tagalo muestran su raíz y su afijo, y los verbos en tagalo y bisaya sus formas de foco
+7bda9be1	Nuevas camisetas lisa y de rayas, y cada camiseta sigue la luz y la sombra de tu criatura
+a4dd30ae	Tus amigos ven a tu criatura con todo lo que lleva en Inicio
+0abad53e	Las batallas se desbloquean con 20 palabras guardadas
+d57d5944	Biblioteca → + → Pódcast abre directamente las tendencias en tu idioma
+0d0602b9	La pantalla de repaso cabe en cualquier teléfono

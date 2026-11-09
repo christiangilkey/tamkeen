@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Ang trending sa imong pinulongan, o i-paste ang address sa feed
+effe7f77	O i-paste ang address sa RSS feed sa podcast
+0bc57068	Ang popup sa pulong nagpakita sa gramatika sa matag pulong: noun o verb, gender, ang gamut sa Arabiko ug ang plural, ug ang importanteng porma sa verb sama sa subjunctive sa Espanyol
+885c10c4	Ang mga pulong sa Tagalog nagpakita sa ilang gamut ug affix, ug ang mga verb sa Tagalog ug Bisaya ang ilang mga porma sa focus
+7bda9be1	Bag-ong Yano ug Gilis-gilis nga sinina, ug ang matag sinina mosunod sa kahayag ug landong sa imong linalang
+a4dd30ae	Makita sa imong mga higala ang imong linalang nga nagsul-ob sa tanan nga gisul-ob niini sa Home
+0abad53e	Maablihan ang mga away sa 20 ka natipig nga pulong
+d57d5944	Ang Library → + → Podcast diretso nga moabli sa Trending sa imong pinulongan
+0d0602b9	Ang screen sa review mohaum sa matag telepono

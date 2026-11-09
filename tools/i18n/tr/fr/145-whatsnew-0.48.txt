@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Ce qui est tendance dans ta langue, ou colle l'adresse d'un flux
+effe7f77	Ou collez l'adresse du flux RSS d'un podcast
+0bc57068	La fenêtre du mot montre la grammaire de chaque mot : nom ou verbe, genre, la racine arabe et les pluriels, et des formes verbales clés comme le subjonctif espagnol
+885c10c4	Les mots tagalogs montrent leur racine et leur affixe, et les verbes tagalogs et bisayas leurs formes de focus
+7bda9be1	Nouveaux t-shirts uni et rayé, et chaque t-shirt suit la lumière et l'ombre de ta créature
+a4dd30ae	Tes amis voient ta créature avec tout ce qu'elle porte dans Accueil
+0abad53e	Les combats se débloquent à 20 mots enregistrés
+d57d5944	Bibliothèque → + → Podcast ouvre directement les tendances dans ta langue
+0d0602b9	L'écran de révision tient sur tous les téléphones

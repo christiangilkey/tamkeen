@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	O que está em alta no seu idioma, ou cole o endereço de um feed
+effe7f77	Ou cole o endereço do feed RSS de um podcast
+0bc57068	A janela da palavra mostra a gramática de cada palavra: substantivo ou verbo, gênero, a raiz árabe e os plurais, e formas verbais importantes como o subjuntivo espanhol
+885c10c4	Palavras em tagalo mostram a raiz e o afixo, e verbos em tagalo e bisaya suas formas de foco
+7bda9be1	Novas camisetas lisa e listrada, e toda camiseta acompanha a luz e a sombra da sua criatura
+a4dd30ae	Seus amigos veem sua criatura com tudo o que ela usa no Início
+0abad53e	As batalhas são liberadas com 20 palavras salvas
+d57d5944	Biblioteca → + → Podcast abre direto o que está em alta no seu idioma
+0d0602b9	A tela de revisão cabe em qualquer celular

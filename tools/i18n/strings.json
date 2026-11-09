@@ -2175,8 +2175,8 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "cfe04561",
-  "k": "Paste a feed address, or choose from what's trending",
+  "id": "6ae77e4a",
+  "k": "What's trending in your language, or paste a feed address",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -2260,41 +2260,6 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "73b04161",
-  "k": "Paste a podcast's RSS feed address",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "825aa64b",
-  "k": "Podcast RSS feed address",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "24ba4ecf",
-  "k": "Add podcast",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "1758356d",
-  "k": "or",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "382c6e00",
-  "k": "Podcasts popular right now in the language you're studying, sorted by topic",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "da089e19",
-  "k": "Trending in {0}",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "688659c1",
-  "k": "Subscribed to {0}",
-  "f": "web/js/components/addsheet.js"
- },
- {
   "id": "a2a04642",
   "k": "Open YouTube starts on this week's most-watched videos from this country",
   "f": "web/js/components/addsheet.js"
@@ -2357,6 +2322,11 @@
  {
   "id": "217c2a25",
   "k": "Famous books in the language you're learning, free because they are in the public domain.",
+  "f": "web/js/components/addsheet.js"
+ },
+ {
+  "id": "1758356d",
+  "k": "or",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -15635,6 +15605,11 @@
   "f": "web/js/pages/discover.js"
  },
  {
+  "id": "da089e19",
+  "k": "Trending in {0}",
+  "f": "web/js/pages/discover.js"
+ },
+ {
   "id": "b389210d",
   "k": "{0} Press <0>+ Add</0> to put one in your library.",
   "f": "web/js/pages/discover.js"
@@ -15647,6 +15622,21 @@
  {
   "id": "c4e76a79",
   "k": "⟳ Refresh",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "effe7f77",
+  "k": "Or paste a podcast's RSS feed address",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "825aa64b",
+  "k": "Podcast RSS feed address",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "24ba4ecf",
+  "k": "Add podcast",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -15682,6 +15672,11 @@
  {
   "id": "6d56afad",
   "k": "Load the list again.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "688659c1",
+  "k": "Subscribed to {0}",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -21923,6 +21918,41 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
+ },
+ {
+  "id": "0bc57068",
+  "k": "The word popup shows each word's grammar: noun or verb, gender, the Arabic root and plurals, and key verb forms such as the Spanish subjunctive",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "885c10c4",
+  "k": "Tagalog words show their root and affix, and Tagalog and Bisaya verbs their focus forms",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7bda9be1",
+  "k": "New Plain and Striped shirts, and every shirt follows your creature's light and shadow",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a4dd30ae",
+  "k": "Friends see your creature wearing everything it wears on Home",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0abad53e",
+  "k": "Battles unlock at 20 saved words",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d57d5944",
+  "k": "Library → + → Podcast opens Trending in your language straight away",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0d0602b9",
+  "k": "The review screen fits on every phone",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "364e919a",

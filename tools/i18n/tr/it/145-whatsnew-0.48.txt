@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Le tendenze nella tua lingua, o incolla l'indirizzo di un feed
+effe7f77	Oppure incolla l'indirizzo del feed RSS di un podcast
+0bc57068	La finestra della parola mostra la grammatica di ogni parola: nome o verbo, genere, la radice araba e i plurali, e le forme verbali chiave come il congiuntivo spagnolo
+885c10c4	Le parole tagalog mostrano radice e affisso, e i verbi tagalog e bisaya le loro forme di focus
+7bda9be1	Nuove magliette tinta unita e a righe, e ogni maglietta segue la luce e l'ombra della tua creatura
+a4dd30ae	Gli amici vedono la tua creatura con tutto ciò che indossa nella Home
+0abad53e	Le battaglie si sbloccano a 20 parole salvate
+d57d5944	Libreria → + → Podcast apre subito le tendenze nella tua lingua
+0d0602b9	La schermata di ripasso sta in ogni telefono

@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Was in deiner Sprache im Trend ist, oder füge eine Feed-Adresse ein
+effe7f77	Oder füge die RSS-Feed-Adresse eines Podcasts ein
+0bc57068	Das Wortfenster zeigt die Grammatik jedes Worts: Nomen oder Verb, Genus, die arabische Wurzel und Plurale sowie wichtige Verbformen wie den spanischen Subjuntivo
+885c10c4	Tagalog-Wörter zeigen Wurzel und Affix, Tagalog- und Bisaya-Verben ihre Fokusformen
+7bda9be1	Neue Shirts Einfarbig und Gestreift, und jedes Shirt folgt Licht und Schatten deines Wesens
+a4dd30ae	Freunde sehen dein Wesen mit allem, was es auf der Startseite trägt
+0abad53e	Kämpfe werden ab 20 gespeicherten Wörtern freigeschaltet
+d57d5944	Bibliothek → + → Podcast öffnet sofort die Trends in deiner Sprache
+0d0602b9	Der Wiederholungsbildschirm passt auf jedes Handy

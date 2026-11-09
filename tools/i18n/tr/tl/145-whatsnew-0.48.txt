@@ -1,0 +1,10 @@
+# What's new 0.48 (web/js/whatsnew.js), and the Add podcast texts.
+6ae77e4a	Ang trending sa wika mo, o i-paste ang address ng feed
+effe7f77	O i-paste ang address ng RSS feed ng isang podcast
+0bc57068	Ipinapakita ng popup ng salita ang gramatika ng bawat salita: pangngalan o pandiwa, kasarian, ang ugat sa Arabic at ang mga plural, at mahahalagang anyo ng pandiwa gaya ng subjunctive sa Espanyol
+885c10c4	Ipinapakita ng mga salitang Tagalog ang kanilang ugat at panlapi, at ng mga pandiwang Tagalog at Bisaya ang kanilang mga anyo ng pokus
+7bda9be1	Bagong Plain at Guhit-guhit na damit, at sinusundan ng bawat damit ang liwanag at anino ng nilalang mo
+a4dd30ae	Nakikita ng mga kaibigan mo ang nilalang mo na suot ang lahat ng suot nito sa Home
+0abad53e	Nabubuksan ang mga laban sa 20 naka-save na salita
+d57d5944	Ang Library → + → Podcast ay diretsong nagbubukas ng Trending sa wika mo
+0d0602b9	Kasya ang screen ng review sa bawat telepono
