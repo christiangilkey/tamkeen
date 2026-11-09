@@ -7,6 +7,11 @@ what it does in one or two plain sentences, the commit hashes (or the files chan
 whether pytest and the JS tests pass, and what's unfinished. That chat commits and releases; without the
 message new work gets lost between versions. Never tag or release yourself.
 
+**When a feature or a clever workaround lands, add it to `web/whatis-special.md`** ("What makes Tamkeen
+special" in Settings; the owner wants it kept up to date). One bullet in the right section, in the page's style:
+a bold title, the problem in *italics*, then how Tamkeen solves it in plain words, with real numbers where there
+are any. Bug fixes and small tweaks don't go there (they go in CHANGELOG.md). The main chat checks it at every release.
+
 ## Access control matrix (who may do what)
 
 Keep this true when you add a feature: enforce it where marked (database rules, the desktop server), never only
