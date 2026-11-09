@@ -88,6 +88,7 @@ const SHARED = [
   "js/pageimport.js",
   "js/ytcaptions.js",
   "js/ytgemini.js",
+  "js/ytcaptiontag.js",
   "js/youtube.js",
   "js/applink.js",
   "js/ytmedia.js",

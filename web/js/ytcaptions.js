@@ -9,12 +9,22 @@
 // YouTube changes this from time to time; when it breaks, this file is the one to fix.
 
 const PLAYER_URL = "https://www.youtube.com/youtubei/v1/player?prettyPrint=false";
-// Tried in order until one lists caption tracks.
-const CLIENTS = [
+// Tried in order until one lists caption tracks. (web/js/youtube-browser.js asks with the same two.)
+export const CLIENTS = [
   { clientName: "ANDROID", clientVersion: "20.10.38" },
   { clientName: "IOS", clientVersion: "20.10.4" },
 ];
 const MAX_LAST_WORD = 1.2; // seconds the last word of an auto-caption line may last
+
+/** The question YouTube's own apps ask about a video ("youtubei/v1/player"), as `client` (one of
+ * CLIENTS). Its answer lists the caption tracks; nothing of the video itself is downloaded. */
+export function playerQuestion(id, client) {
+  return {
+    url: PLAYER_URL, method: "POST",
+    headers: { "Content-Type": "application/json", "Accept-Language": "en" },
+    body: JSON.stringify({ context: { client: { ...client, hl: "en" } }, videoId: id }),
+  };
+}
 
 export class CaptionError extends Error {
   /** `code`: "no_captions" | "no_language" | "unavailable" | "blocked" (YouTube's "confirm you're not
@@ -119,6 +129,46 @@ export function captionChoices(tracks, wanted, taught = [], { handmadeOnly = fal
 /** The best caption track (the first of captionChoices), or null. */
 export function pickTrack(tracks, wanted, taught = [], options = {}) {
   return captionChoices(tracks, wanted, taught, options)[0] || null;
+}
+
+/**
+ * What a video's caption tracks mean for opening it, judged as fetchCaptions judges them (YouTube's
+ * translation counts, as the player uses it): "yes" (captions in `wanted`), "other" (only in another
+ * language the app teaches, which the player then shows) or "none" (nothing the player could use:
+ * opening the video offers captions written by Gemini instead). For the tag on lists of videos
+ * (ytcaptiontag.js). web/js/youtube-browser.js has a copy for YouTube's own pages; the tests in
+ * tests/js/ytcaptiontag.test.mjs keep the two alike.
+ */
+export function captionVerdict(tracks, wanted, taught = [], translationLanguages = null) {
+  const choices = captionChoices(tracks, wanted, taught, { translationLanguages });
+  return choices.some((c) => c.language === wanted) ? "yes" : choices.length ? "other" : "none";
+}
+
+/**
+ * Would opening video `id` find captions in `language`? {captions, seconds}: `captions` as
+ * captionVerdict, or "unknown" whenever YouTube didn't answer clearly (no connection, an error, a
+ * refusal such as "confirm you're not a bot", a live stream), so a check that failed never tags a
+ * video. "none" only when every way of asking (CLIENTS) answered and none listed a caption track.
+ * Asks only fetchCaptions' first question (the player's caption list): no captions, sound or video
+ * are downloaded. `seconds`: the video's length, when YouTube said.
+ */
+export async function checkCaptions(id, { language, taught = [], request }) {
+  let seconds = 0;
+  let empty = false;
+  for (const client of CLIENTS) {
+    let res;
+    try { res = await request(playerQuestion(id, client)); } catch { return { captions: "unknown", seconds }; }
+    const data = res && res.status < 400 ? parse(res.text) : null;
+    const details = data && data.videoDetails;
+    if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds };
+    seconds = Number(details.lengthSeconds) || 0;
+    const renderer = (data.captions || {}).playerCaptionsTracklistRenderer || {};
+    const tracks = Array.isArray(renderer.captionTracks) ? renderer.captionTracks : [];
+    if (tracks.length) return { captions: captionVerdict(tracks, language, taught, renderer.translationLanguages), seconds };
+    if (details.isLiveContent && !seconds) return { captions: "unknown", seconds }; // live: Gemini can't caption it
+    empty = true;
+  }
+  return { captions: empty ? "none" : "unknown", seconds };
 }
 
 /**
@@ -230,11 +280,7 @@ export async function fetchCaptions(id, { language, languageName, taught = [], h
   for (const client of CLIENTS) {
     let res;
     try {
-      res = await request({
-        url: PLAYER_URL, method: "POST",
-        headers: { "Content-Type": "application/json", "Accept-Language": "en" },
-        body: JSON.stringify({ context: { client: { ...client, hl: "en" } }, videoId: id }),
-      });
+      res = await request(playerQuestion(id, client));
     } catch (e) {
       throw new CaptionError(e && e.message ? e.message : "Couldn't reach YouTube. Check your connection.", "network");
     }
@@ -253,19 +299,23 @@ export async function fetchCaptions(id, { language, languageName, taught = [], h
                            blocked ? "blocked" : "unavailable");
   }
   const name = languageName || language;
-  if (!info.tracks.length) {
-    const err = new CaptionError("This video has no captions at all, so Tamkeen can't show its words. Try another video.", "no_captions");
-    // What Gemini needs to write them instead (youtube.js offers that: components/geminicaptions.js).
+  // What Gemini needs to write captions instead (youtube.js offers that: components/geminicaptions.js).
+  const forGemini = (err) => {
     err.video = { videoId: id, title: String(info.details.title || "YouTube video"), channel: String(info.details.author || ""),
                   duration: Number(info.details.lengthSeconds) || 0, live: !!info.details.isLiveContent && !Number(info.details.lengthSeconds) };
-    throw err;
+    return err;
+  };
+  if (!info.tracks.length) {
+    throw forGemini(new CaptionError("This video has no captions at all, so Tamkeen can't show its words. Try another video.", "no_captions"));
   }
   const choices = captionChoices(info.tracks, language, taught, { handmadeOnly, translate, translationLanguages: info.translations });
   if (!choices.length) {
     if (handmadeOnly && captionChoices(info.tracks, language, taught, { translate, translationLanguages: info.translations }).length) {
       throw new CaptionError(`This video has no ${name} subtitles written by a person. To use YouTube's automatic ones, turn off “Only videos with handmade subtitles” under Open YouTube.`, "no_handmade");
     }
-    throw new CaptionError(`No ${name} captions available for this video.`, "no_language");
+    // Nothing the player could use (lists of videos tag these: ytcaptiontag.js), so Gemini is offered,
+    // as for a video with no captions at all.
+    throw forGemini(new CaptionError(`No ${name} captions available for this video.`, "no_language"));
   }
   let pick = null;
   let lines = [];
@@ -315,11 +365,7 @@ export async function audioInLanguage(id, language, request) {
   for (const client of CLIENTS) {
     let res;
     try {
-      res = await request({
-        url: PLAYER_URL, method: "POST",
-        headers: { "Content-Type": "application/json", "Accept-Language": "en" },
-        body: JSON.stringify({ context: { client: { ...client, hl: "en" } }, videoId: id }),
-      });
+      res = await request(playerQuestion(id, client));
     } catch { return null; }
     const data = res && res.status < 400 ? parse(res.text) : null;
     if (data && data.streamingData) return dubbedAudio(data, language);
@@ -337,11 +383,7 @@ export async function fetchChannel(id, request) {
   for (const client of CLIENTS) {
     let res;
     try {
-      res = await request({
-        url: PLAYER_URL, method: "POST",
-        headers: { "Content-Type": "application/json", "Accept-Language": "en" },
-        body: JSON.stringify({ context: { client: { ...client, hl: "en" } }, videoId: id }),
-      });
+      res = await request(playerQuestion(id, client));
     } catch { return out; }
     const d = res && res.status < 400 ? (parse(res.text) || {}).videoDetails : null;
     if (d && /^UC[\w-]{20,30}$/.test(String(d.channelId || ""))) {

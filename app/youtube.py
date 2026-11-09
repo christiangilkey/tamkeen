@@ -216,6 +216,53 @@ def find_video(video_id: str) -> dict[str, Any] | None:
     return dict(row) if row is not None else None
 
 
+# ---------------------------------------------------------------- "No captions" tags on YouTube's lists
+# The YouTube window tags each video YouTube has no captions for (web/js/youtube-browser.js; the
+# rules are in web/js/ytcaptiontag.js). The page is told what it needs before the script runs.
+
+# The same three as TAG_TEXT in web/js/ytcaptiontag.js (a test checks they match).
+CAPTION_TAG_TEXT = {
+    "nokey": "No captions · Gemini required",
+    "key": "No captions · Gemini will write them",
+    "long": "No captions on YouTube",
+}
+GEMINI_MAX_SECONDS = 60 * 60  # web/js/ytgemini.js MAX_SECONDS
+
+
+def _translations() -> dict[str, str]:
+    """The app's words in the language the user speaks (web/i18n/<code>.json), or {} for English."""
+    import json
+
+    from . import paths
+
+    code = str(db.get_setting("ui_language") or "")
+    if not re.fullmatch(r"[a-z]{2,3}", code) or code == "en":
+        return {}
+    try:
+        data = json.loads((paths.web_dir() / "i18n" / f"{code}.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def caption_tag_config() -> dict[str, Any]:
+    """What youtube-browser.js needs to tag videos (window.__tamkeenCaptionTag)."""
+    settings = db.get_settings()
+    with db.session() as conn:
+        made = [r["guid"] for r in conn.execute(
+            "SELECT e.guid FROM episodes e JOIN feeds f ON f.id = e.feed_id "
+            "WHERE f.url = ? AND e.deleted = 0 AND e.model = 'youtube-gemini'", (LOCAL_FEED_URL,)).fetchall()
+            if re.fullmatch(r"[\w-]{11}", str(r["guid"] or ""))]
+    words = _translations()
+    say = lambda english: str(words.get(english) or english)  # noqa: E731
+    has_key = bool(str(settings.get("llm_key_gemini") or "").strip())
+    return {
+        "lang": languages.study(), "taught": list(languages.LANGUAGES), "made": made,
+        "text": say(CAPTION_TAG_TEXT["key" if has_key else "nokey"]), "long": say(CAPTION_TAG_TEXT["long"]),
+        "max": GEMINI_MAX_SECONDS,
+    }
+
+
 # ---------------------------------------------------------------- "watch this" from the browser
 # Tapping a video in the app's web browser window (see web/js/youtube-browser.js) has to end up
 # in the app's own page, which is what reads captions and shows the player. The browser window

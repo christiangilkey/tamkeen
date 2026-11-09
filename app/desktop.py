@@ -97,6 +97,18 @@ def _netflix_config(cfg: Any) -> dict[str, Any]:
     }
 
 
+def caption_tag_prefix() -> str:
+    """What web/js/youtube-browser.js is told before it runs, so it can tag the videos YouTube has
+    no captions for (app/youtube.py caption_tag_config). Nothing (no tags) if that can't be read."""
+    from . import youtube
+
+    try:
+        return f"window.__tamkeenCaptionTag = {json.dumps(youtube.caption_tag_config())};"
+    except Exception as exc:  # e.g. the database busy: the page works as before, without tags
+        log.debug("Couldn't prepare the caption tags: %s", exc)
+        return ""
+
+
 class BrowserApi:
     """The only things exposed to pages shown in the Web Browser window: importing the page
     being viewed, keeping the site being viewed on the browser's start page, and handing a
@@ -290,10 +302,14 @@ class JsApi:
                                        width=1200, height=820, min_size=(640, 480), text_select=True)
         api._window = window
 
+        youtube_script = scripts.index(next(s for s in scripts if "window.__tamkeenYouTube" in s))
+
         def add_scripts() -> None:
-            for script in scripts:
+            for i, script in enumerate(scripts):
                 try:
-                    window.evaluate_js(script)
+                    # (the "No captions" tags on YouTube's lists: told fresh on every page, in the
+                    # same evaluation as the script, which takes it off `window` at once)
+                    window.evaluate_js(caption_tag_prefix() + script if i == youtube_script else script)
                 except Exception as exc:  # e.g. the window closed while a page was loading
                     log.debug("Couldn't add a browser script: %s", exc)
 

@@ -720,7 +720,21 @@ async function youtubeBrowserScript() {
     // (for the Follow button it shows on a channel's page).
     const { followedChannels } = await import("./ytfollow.js");
     const names = followedChannels(settings.youtube_follows).map((c) => c.name);
-    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}`;
+    return `window.__tamkeenFollowing=${JSON.stringify(names)};${await captionTagPrefix()}${source}`;
+  } catch { return ""; }
+}
+
+/** What youtube-browser.js needs to tag the videos YouTube has no captions for ("No captions ·
+ * Gemini required", rules in ytcaptiontag.js), set just before it runs; it takes it off `window`
+ * at once. Nothing (no tags) if something is missing. */
+async function captionTagPrefix() {
+  try {
+    const [{ TAG_TEXT, tagText }, { MAX_SECONDS }, { t }, { LANGUAGE_CODES }, { aiKey }] = await Promise.all([
+      import("./ytcaptiontag.js"), import("./ytgemini.js"), import("./i18n.js"), import("./languages.js"), import("./define-service.js")]);
+    const made = (lib.episodes || []).filter((e) => !e.deleted && e.model === "youtube-gemini").map((e) => String(e.guid));
+    const cfg = { lang: studyLanguage(), taught: LANGUAGE_CODES, made, max: MAX_SECONDS,
+                  text: t(tagText({ captions: "none", seconds: 0 }, { hasKey: !!aiKey("gemini") })), long: t(TAG_TEXT.long) };
+    return `window.__tamkeenCaptionTag=${JSON.stringify(cfg)};`;
   } catch { return ""; }
 }
 
