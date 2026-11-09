@@ -3550,8 +3550,23 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "baf616d7",
-  "k": "DLI students",
+  "id": "0a1625b8",
+  "k": "Choose your DLI language",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "afa42ccd",
+  "k": "DLI {0}",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "b3da7025",
+  "k": "Unlocked",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "b66e7189",
+  "k": "Needs the DLI password",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -3647,11 +3662,6 @@
  {
   "id": "33ce4174",
   "k": "Loading…",
-  "f": "web/js/components/dlipanel.js"
- },
- {
-  "id": "afa42ccd",
-  "k": "DLI {0}",
   "f": "web/js/components/dlipanel.js"
  },
  {
@@ -5757,6 +5767,16 @@
  {
   "id": "b7764d5b",
   "k": "The language you speak and the one you're learning.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "baf616d7",
+  "k": "DLI students",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "358337dd",
+  "k": "Unlock your course from the Defense Language Institute.",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -15700,28 +15720,13 @@
   "f": "web/js/pages/books.js"
  },
  {
-  "id": "f689db93",
-  "k": "Famous books, free because they are in the public domain. Add one and read it a page at a time, with every word clickable. Or add a book of your own.",
+  "id": "d9fffb0d",
+  "k": "Loading the shelf…",
   "f": "web/js/pages/books.js"
  },
  {
   "id": "70ebead0",
   "k": "Your own book",
-  "f": "web/js/pages/books.js"
- },
- {
-  "id": "c25f48d6",
-  "k": "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM. It is read on this device and added to My books.",
-  "f": "web/js/pages/books.js"
- },
- {
-  "id": "195e97d3",
-  "k": "Add a file",
-  "f": "web/js/pages/books.js"
- },
- {
-  "id": "d9fffb0d",
-  "k": "Loading the shelf…",
   "f": "web/js/pages/books.js"
  },
  {
@@ -16932,6 +16937,11 @@
  {
   "id": "3f52d1ce",
   "k": "No podcasts yet. Add one above, or look in Trending.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "195e97d3",
+  "k": "Add a file",
   "f": "web/js/pages/library.js"
  },
  {
