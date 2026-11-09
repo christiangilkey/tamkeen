@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** The **+** button no longer shows on Library → Courses: there is nothing to add there.
 - **Fixed:** On the phone, the **+** button no longer jumps up for a moment as you scroll the Library, and a slightly slanted scroll no longer slides the page sideways (a swipe to the next section has to be clearly sideways). *(phone)*
 - **Improved:** The chat screen has no emojis: the voice-note button is a microphone line icon, and the lines about disappearing messages and saying hello are plain text.
 - **Changed:** A battle's XP now comes from the words it makes **well known**: 25 XP for each, plus 3 for a win or 1 for a loss, so a battle never pays 0 ("4 right, 0 wrong · 1 word now well known" pays 28). It no longer shrinks with the day's battles, since a word takes weeks of right answers to become well known. Right answers still pay 3 XP each. Coins still stop after the day's first three battles, and a battle ticket now gives a battle's full coins.
