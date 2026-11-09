@@ -7952,6 +7952,10 @@ Kalīla wa-Dimna". Kalila wa-Dimna was already on the shelf (`kalila-wa-dimna`).
   يحضره الفقيه, تهذيب الأحكام, الاستبصار (ar.wikisource's الاستبصار في نقد الأخبار is a 20th-century book by al-Mu'allimi, not
   public domain). Checked: no Latin letters left in any new book (a stray "kjk" in the Muqaddimah went), no modern
   editors' gradings (شعيب in them is a narrator). The shelf: 217 books in 18 languages, 21 in Arabic.
+- **Decided (2026-11-09, Decisions #64):** the owner: "64 leave out for now, we will do c later". All nine missing
+  books stay off the shelf for now: Kitab al-Aghani, Majnun Layla (the diwan and Shawqi's play), the three siras,
+  al-Farabi's al-Madina al-Fadila, من لا يحضره الفقيه, تهذيب الأحكام and الاستبصار. **Later (option C):** look for another
+  library's typed text whose licence allows a paid app (Tamkeen will be a subscription app). No OCR of scans for now.
 - **Not published yet:** docs/books goes live on GitHub Pages when it is pushed.
 
 ## Live battles: a fuller village, dungeon traps and secrets, the fortress keep, roofs, more trees (2026-11-09; helper of the main chat)
