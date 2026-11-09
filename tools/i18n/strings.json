@@ -11095,8 +11095,8 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "05dc8601",
-  "k": "One more battle today pays in full, after the first three.",
+  "id": "3ece5591",
+  "k": "One more battle today pays full coins, after the first three.",
   "f": "web/js/game/data.js"
  },
  {
@@ -12525,8 +12525,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "e3435b6f",
-  "k": "Battles: 3 for each right answer, 15 more when a word becomes well known, 40 for a win and 15 for a loss (in full for the day's first three battles).",
+  "id": "5bed92b6",
+  "k": "Battles: 3 for each right answer, {0} for each word that becomes well known, and {1} more for a win or {2} for a loss.",
   "f": "web/js/game/info.js"
  },
  {
@@ -13110,8 +13110,8 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
-  "id": "63d63141",
-  "k": "That word is now well known. +15 XP",
+  "id": "6b0419a5",
+  "k": "That word is now well known: +{0} XP",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -13270,8 +13270,8 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
-  "id": "6a569f25",
-  "k": "A battle ticket made this one pay in full.",
+  "id": "18284367",
+  "k": "A battle ticket made this one pay full coins.",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -13600,6 +13600,11 @@
   "f": "web/js/game/shop.js"
  },
  {
+  "id": "119e110a",
+  "k": "For looks only. Eggs only wear hats and wings, so it goes in your bag until your egg hatches.",
+  "f": "web/js/game/shop.js"
+ },
+ {
   "id": "ef4da3ac",
   "k": "For looks only. It goes on straight away.",
   "f": "web/js/game/shop.js"
@@ -13640,8 +13645,8 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "f7b4c7be",
-  "k": "Eggs wear nothing until they hatch.",
+  "id": "6da58d68",
+  "k": "Eggs wear a hat and wings. Everything else waits until they hatch.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -13652,6 +13657,11 @@
  {
   "id": "71464994",
   "k": "Your creature has wings of its own, so it can't wear these. Another of your creatures can.",
+  "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "cf3d3c22",
+  "k": "Eggs only wear hats and wings. Your creature can wear this once it hatches.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -15480,13 +15490,18 @@
   "f": "web/js/pages/books.js"
  },
  {
-  "id": "f40382cc",
-  "k": "👻 Messages disappear after they're seen · voice notes after they're played",
+  "id": "f09db5a9",
+  "k": "Messages disappear after they're seen · voice notes after they're played",
   "f": "web/js/pages/chat.js"
  },
  {
   "id": "5e5bb045",
   "k": "Record a voice note (up to 2 minutes)",
+  "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "16a4db29",
+  "k": "Record a voice note",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -15580,8 +15595,8 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "d7e5d622",
-  "k": "📁 {0} · {1} word{2}",
+  "id": "e8d85371",
+  "k": "{0} · {1} word{2}",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -15595,8 +15610,8 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "7b347cb7",
-  "k": "· 🔊 audio{0}",
+  "id": "2d0364e3",
+  "k": "· audio{0}",
   "f": "web/js/pages/chat.js"
  },
  {
@@ -15640,8 +15655,8 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "93536c19",
-  "k": "No messages yet. Say {0} 👋",
+  "id": "20f8d19f",
+  "k": "No messages yet. Say {0}",
   "f": "web/js/pages/chat.js"
  },
  {
