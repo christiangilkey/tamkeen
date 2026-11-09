@@ -9,7 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
@@ -64,6 +64,38 @@ export async function downloadMeanings(lang) {
 export async function removeMeanings(lang) {
   loaded.delete(lang);
   return api("/lexicon/remove", { method: "POST", body: { lang, kind: "meanings" } });
+}
+
+// ---------- Bisaya: Wolff's spelling, for how a word sounds ----------
+// The Mnemonic maker reads it to put a Bisaya word's stress where Wolff says (examples.js freePronunciation). His file
+// is ~20 MB once read: kept a minute after its last use (the popup's own copy, when it has one, is used instead).
+let wolffData = null, wolffDrop = 0;
+const WOLFF_KEEP_MS = 60000;
+const isWolff = (d) => !!d && /Wolff/.test(d.source || "");
+function wolffFile() {
+  clearTimeout(wolffDrop);
+  wolffDrop = setTimeout(() => { wolffData = null; }, WOLFF_KEEP_MS);
+  if (!wolffData) {
+    wolffData = (async () => {
+      if (loaded.has("ceb")) {
+        const mine = ((await loaded.get("ceb")) || []).find(isWolff);
+        if (mine) return mine;
+      }
+      const st = await meaningsStatus("ceb");
+      const name = (st.names || []).find((n) => n === "mean-cebw" && st.files && st.files[n] && st.files[n].installed);
+      const data = name ? await api(`/lexicon/data/${name}`) : null;
+      return isWolff(data) ? data : null;
+    })().catch(() => null).then((d) => { if (!d) wolffData = null; return d; });
+  }
+  return wolffData;
+}
+
+/** Bisaya `text` as Wolff's dictionary writes it, with his marks (hátag, bàbà; meaningdata.js wolffSpelling), chosen
+ * by the card's `meaning` where he has two spellings; "" when his file isn't on this device or lacks the word. Never
+ * downloads anything. */
+export async function wolffReading(text, meaning = "") {
+  const data = await wolffFile();
+  return data ? wolffSpelling(data, text, meaning) : "";
 }
 
 // ---------- finding a word ----------

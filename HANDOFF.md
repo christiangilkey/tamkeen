@@ -7771,9 +7771,48 @@ popup's grammar line (same format as Wiktionary's, above). No app change: Bisaya
 - **Rebuild**: only `build_cebuano_glosses.py pg40074.txt` is needed (the other Bisaya steps only read this file to
   see which words exist). It reads tl-meanings to skip Tagalog look-alikes: the Tagalog chat's new tl file (68,158
   forms) drops 49 of the 1,290 spelled-out words; this build used the committed tl file. Told that chat.
-- **Not done:** Wolff's stress for pronunciation. The popup already shows his marks (káon, hátag) when Wolff answers.
-  The Mnemonic maker's Bisaya stress rule (`soundout.js placeStress`: penult unless marked) is wrong for unmarked
-  final-stress words (palit = palít); fixing it needs Wolff's spelling passed as the card's reading plus his rule
-  (long or closed penult, else last syllable). paN- forms (code N) and mag- / maka- rows aren't shown.
+- **Not done:** paN- forms (code N) and mag- / maka- rows aren't shown. (Wolff's stress for pronunciation: done, next
+  section.)
 - Tests: `tests/test_cebuano_glosses.py` (decoder cases from the key, spellings, rows), `tests/js/meanings.test.mjs`
   (kaon, hatag, palit, adto, human, balay, gihatag, miadto through the popup's lookup).
+
+## Bisaya stress from Wolff's marks, for the free Mnemonic maker (2026-11-08; helper of the main chat)
+
+The free Mnemonic maker (and the sound check of the learner's own mnemonics) said a Bisaya word with no Wiktionary IPA
+by spelling, stressed on the penult unless written with an accent: palit came out PA-lit. Wolff's rule (introduction
+3.0-3.22, Gutenberg 40074): an acute marks the long vowel, which is stressed (bása, káon); with none, a closed penult is
+stressed (tan-aw, bàbà) and an open short one isn't (palit = palít, mala = malá); a grave is a glottal stop, not stress;
+a wedge marks a stressed last syllable after a closed one (mandǎr). Now: palit pa-LIT, hatag HA-tag, tan-aw TAN-aw.
+- **Where the reading comes from**: no caller gives a Bisaya card a reading (`readings.js wordReading` has none for
+  ceb), so `examples.js freePronunciation`, which all three callers use (cardtools.js Mnemonic maker and
+  learnFromNote → checkOwnKeywords; wordbuilder.js Add words), looks it up itself: only when the examples file has no
+  IPA for the word's core and no reading came, `meanings.js wolffReading(core, meaning)`. Wolff's file only when it is
+  installed (never downloads); the popup's loaded copy if there is one, else read and kept 60 s after last use (~20 MB
+  once parsed). The card's core is what's looked up ("palit (buy)" → palit). The AI path is unchanged (the AI gets no
+  Bisaya reading; giving it Wolff's spelling would be a one-line `wordReading` case if wanted).
+- **The spelling** (`meaningdata.js wolffSpelling(data, text, meaning)`, pure): the card's own letters with Wolff's marks
+  (`marksOnto`: kaon + káun → káon), every word of the text, or "" when any word isn't his. Where his groups differ in
+  spelling (844 keys: bása / basà, balay / bálay), the group whose glosses share most words with the card's meaning,
+  else the first ordinary one (the popup's). A card written with marks keeps them only when they are his (hátag);
+  else "" and the old accent rule reads the learner's mark (palít). A word that isn't a headword: a plain prefix
+  (CEB_PREFIXES, shortest first) on a root he has (4+ letters or vowel-consonant-vowel, a content word) gets the root's
+  marks after the prefix, since a prefix keeps the root's stressed syllable (his 5.11): mipalit → mi-pa-LIT, gihátag.
+  No paN- (it swallows a sound), infixes or suffixes (a suffix moves the stress).
+- **Sounds and stress** (`soundout.js`): `pronunciationOf` takes a Latin-letter `reading` for ceb as Wolff's spelling
+  (`wolff`). `wolffIpa`: a grave → ʔ after its vowel (bàbà baʔbaʔ), two vowels → ʔ between (maáyo maʔajo, kaon kaʔon),
+  a syllable break between two consonants even where Spanish keeps them together (tudlò tud.loʔ: dl, br, pl), other
+  marks dropped, then the TAGALOG letters. `placeStress(…, { wolff })` → `wolffStress`: an acute or wedge → its vowel's
+  syllable (each vowel is one); else the penult when it ends in a consonant (ʔ counts), else the last. A phrase: its
+  last word's. Without his spelling (a word he lacks, the learner's own accent) the old rule; Tagalog unchanged;
+  Wiktionary's IPA (3,535 Bisaya words) still comes first.
+- **Checked** in a desktop server from this branch on an empty data folder: Vocab → dala "to carry" → Mnemonic maker
+  shows "How it sounds: da-LA" (was DA-la) with "dahlia" first; mipalit mi-pa-LIT; freePronunciation in the page gave
+  palit pa-LIT, hatag HA-tag, tan-aw TAN-aw, basa "wet" ba-SA', "to read" BA-sa; no console errors. The phone bundle
+  copies examples.js, meanings.js, lexicon/ and review/ (build-www.mjs SHARED), and the web app and iPhone are built
+  from it. Phone not run.
+- **Not done:** Wolff's marked exceptions to 5.11 (nag- + káun = nagkaún, his (→) / (←), not in the mean-cebw file):
+  nagkaon stays nag-KA-on. Suffixed forms (hatagan) keep the penult rule. Where Wolff and Wiktionary disagree (tawag:
+  Wolff tawág, Wiktionary ˈtawag) Wiktionary wins, as it is asked first.
+- Tests: `tests/js/cebuano-stress.test.mjs` (palit, hatag, tan-aw; meaning picks the spelling; prefixes; grave, wedge,
+  maáyo, tudlò; Tagalog and Wiktionary as before; the wiring and the builds). `tests/js/wordcore.test.mjs`: its regex
+  for freePronunciation's line follows the new shape.

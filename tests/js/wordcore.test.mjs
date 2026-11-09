@@ -378,7 +378,8 @@ test("the free maker's sounds are the core's: kitaab, not al-kitaab", () => {
   // the examples.js wiring: freePronunciation works out the core and returns it with the sounds
   const src = read("web/js/examples.js");
   assert.match(src, /const c = core \|\| soundCore\(word, lang, \{ isWord: knowsWord\(p, lang\), reading \}\);/);
-  assert.match(src, /pronunciationOf\(\{ word: c\.core, lang, ipa: p \? p\.ipaOf\(c\.core/);
+  assert.match(src, /const ipa = p \? p\.ipaOf\(c\.core/);
+  assert.match(src, /pronunciationOf\(\{ word: c\.core, lang, ipa, reading: said \}\)/);
   assert.match(src, /return \{ \.\.\.\(await keywordsFor\(v, \{ pron, ownList, avoid, speaks, prefs, ownWords \}\)\), core \};/);
 });
 
