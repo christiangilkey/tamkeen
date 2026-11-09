@@ -1,0 +1,4 @@
+# Arabic dialect words read by their dialect's voice (Settings → Card voices): components/voicesetup.js, settingsui.js.
+c318c45d	Voces de los dialectos árabes
+d5518b72	Las palabras de los dialectos árabes las lee una voz de ese dialecto: las del curso de levantino, Amany (Siria); egipcio, Salma (Egipto); iraquí, Bassel (Irak), que dice la g y la ch iraquíes; y del Golfo, Hamed (Arabia Saudí). Las demás palabras siguen el dialecto elegido en Biblioteca → Cursos, o la voz de abajo para el árabe estándar. Las palabras marroquíes mantienen la voz de abajo: aún ninguna voz de Azure dice bien el árabe marroquí.
+c497bd90	La voz de este dispositivo y la del ordenador solo hablan árabe estándar, así que leen las palabras de dialecto a la manera estándar. Para oír las palabras levantinas, egipcias, iraquíes y del Golfo como las dice la gente de allí, elige Azure.

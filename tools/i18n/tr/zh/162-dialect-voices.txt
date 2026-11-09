@@ -1,0 +1,4 @@
+# Arabic dialect words read by their dialect's voice (Settings → Card voices): components/voicesetup.js, settingsui.js.
+c318c45d	阿拉伯语方言语音
+d5518b72	阿拉伯语方言的词由该方言的语音朗读：黎凡特课程的词由 Amany（叙利亚）朗读，埃及方言由 Salma（埃及），伊拉克方言由能说出伊拉克 g 和 ch 音的 Bassel（伊拉克），海湾方言由 Hamed（沙特阿拉伯）。其他词按“资料库 → 课程”里选择的方言朗读，或用下方的标准阿拉伯语语音。摩洛哥方言的词仍用下方的语音：目前还没有能把摩洛哥阿拉伯语说好的 Azure 语音。
+c497bd90	这台设备的语音和电脑的语音只会说标准阿拉伯语，所以会用标准读法读方言词。想听到黎凡特、埃及、伊拉克和海湾方言的词按当地人的说法读出来，请选择 Azure。

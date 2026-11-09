@@ -1,0 +1,4 @@
+# Arabic dialect words read by their dialect's voice (Settings → Card voices): components/voicesetup.js, settingsui.js.
+c318c45d	Mga boses ng mga diyalekto ng Arabe
+d5518b72	Ang mga salita ng mga diyalekto ng Arabe ay binabasa ng boses mula sa diyalektong iyon: ang mga salita sa kurso ng Levantine ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), na nakapagsasabi ng g at ch ng Iraq, at ang Gulf ni Hamed (Saudi Arabia). Ang ibang salita ay sumusunod sa diyalektong pinili sa Library → Mga kurso, o sa boses sa ibaba para sa Standard Arabic. Ang mga salitang Moroccan ay nananatili sa boses sa ibaba: wala pang boses ng Azure na mahusay magsalita ng Moroccan Arabic.
+c497bd90	Standard Arabic lang ang kayang sabihin ng boses ng device na ito at ng boses ng computer, kaya binabasa nila ang mga salita ng diyalekto sa paraang Standard. Para marinig ang mga salitang Levantine, Egyptian, Iraqi at Gulf gaya ng pagsabi ng mga tao roon, piliin ang Azure.

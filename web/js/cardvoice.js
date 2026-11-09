@@ -24,6 +24,7 @@
 // device: Azure answers web pages itself (it allows every origin), so nothing goes through Tamkeen.
 
 import { cardSentence } from "./cardtext.js";
+import { dialectVoice, voiceSsmlText } from "./dialectvoice.js";
 import { joinOggOpus } from "./oggjoin.js";
 
 export const VOICE_MODES = ["device", "azure", "computer"];
@@ -212,10 +213,11 @@ export const AZURE_VOICES = {
 };
 
 /** A country's own voice, for the country the learner chose for the language (the same choice as
- * YouTube's "Popular in"): Arabic by dialect (Egyptian, Moroccan, Levantine, Gulf…), and the others' main variants. */
+ * YouTube's "Popular in"): Arabic by dialect (Egyptian, Moroccan, Levantine, Gulf…), and the others' main variants.
+ * Iraq's is Bassel, not Rana: Rana says the Baghdad g (گ) as j (dialectvoice.js). */
 export const AZURE_BY_COUNTRY = {
   ar: { AE: "ar-AE-FatimaNeural", BH: "ar-BH-LailaNeural", DZ: "ar-DZ-AminaNeural", EG: "ar-EG-SalmaNeural",
-        IQ: "ar-IQ-RanaNeural", JO: "ar-JO-SanaNeural", KW: "ar-KW-NouraNeural", LB: "ar-LB-LaylaNeural",
+        IQ: "ar-IQ-BasselNeural", JO: "ar-JO-SanaNeural", KW: "ar-KW-NouraNeural", LB: "ar-LB-LaylaNeural",
         LY: "ar-LY-ImanNeural", MA: "ar-MA-MounaNeural", OM: "ar-OM-AyshaNeural", QA: "ar-QA-AmalNeural",
         SA: "ar-SA-ZariyahNeural", SY: "ar-SY-AmanyNeural", TN: "ar-TN-ReemNeural", YE: "ar-YE-MaryamNeural" },
   es: { MX: "es-MX-DaliaNeural", ES: "es-ES-ElviraNeural", AR: "es-AR-ElenaNeural", CO: "es-CO-SalomeNeural",
@@ -249,10 +251,15 @@ export function withPickedVoice(s, lang, voice) {
 const VOICE_NAME = /^[a-z]{2,3}-[A-Za-z0-9]{2,8}-[\w:.-]{2,80}$/;
 
 /** The Azure voice for language `lang`: the one the learner picked, else the chosen country's, else
- * the language's usual one. Null for a language Azure has no voice for. */
-export function azureVoiceFor(lang, { picked = {}, country = "" } = {}) {
-  const own = picked && picked[lang];
-  if (own && VOICE_NAME.test(own) && own.toLowerCase().startsWith(`${azurePrefix(lang)}-`)) return own;
+ * the language's usual one. Null for a language Azure has no voice for. `dialect` ("irq", "lev", "egy",
+ * "glf"): an Arabic dialect word's, which is said by its dialect's voice (dialectvoice.js): the voice
+ * picked, or the country chosen, only when it is one of that dialect's. */
+export function azureVoiceFor(lang, { picked = {}, country = "", dialect = "" } = {}) {
+  let own = picked && picked[lang];
+  if (!(own && VOICE_NAME.test(own) && own.toLowerCase().startsWith(`${azurePrefix(lang)}-`))) own = "";
+  const spoken = lang === "ar" && dialect ? dialectVoice(dialect, { picked: own, country, byCountry: AZURE_BY_COUNTRY.ar }) : null;
+  if (spoken) return spoken;
+  if (own) return own;
   const byCountry = AZURE_BY_COUNTRY[lang] && AZURE_BY_COUNTRY[lang][String(country || "").toUpperCase()];
   return byCountry || AZURE_VOICES[lang] || null;
 }
@@ -288,11 +295,13 @@ const xml = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
  * and the sentence apart in the one file: playing the word stops in it. */
 export const LEAD_MS = 60, WORD_GAP_MS = 900, TAIL_MS = 350;
 
-/** The SSML for one part: `text` in `voice`, with exactly `lead` and `tail` ms of silence round it. */
+/** The SSML for one part: `text` in `voice`, with exactly `lead` and `tail` ms of silence round it.
+ * Arabic voices skip the Iraqi letters گ and چ: an Iraqi voice gets those words in IPA, any other Arabic
+ * voice ق / ك for them (dialectvoice.js voiceSsmlText). */
 export function buildSsml(text, voice, { lead = LEAD_MS, tail = TAIL_MS } = {}) {
   return `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="${xml(voiceLocale(voice))}">`
     + `<voice name="${xml(voice)}"><mstts:silence type="Leading-exact" value="${Math.round(lead)}ms"/>`
-    + `<mstts:silence type="Tailing-exact" value="${Math.round(tail)}ms"/>${xml(text)}</voice></speak>`;
+    + `<mstts:silence type="Tailing-exact" value="${Math.round(tail)}ms"/>${voiceSsmlText(text, voice)}</voice></speak>`;
 }
 
 /** An error from Azure, worded for the learner. `keyRejected` when the key (or its region) was refused. */

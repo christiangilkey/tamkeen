@@ -1,0 +1,4 @@
+# Arabic dialect words read by their dialect's voice (Settings → Card voices): components/voicesetup.js, settingsui.js.
+c318c45d	Veus dels dialectes àrabs
+d5518b72	Les paraules dels dialectes àrabs les llegeix una veu d'aquell dialecte: les del curs de llevantí, l'Amany (Síria); les d'egipci, la Salma (Egipte); les d'iraquià, en Bassel (Iraq), que diu la g i la ch iraquianes; i les del Golf, en Hamed (Aràbia Saudita). Les altres paraules segueixen el dialecte triat a Biblioteca → Cursos, o la veu de sota per a l'àrab estàndard. Les paraules marroquines mantenen la veu de sota: encara cap veu d'Azure no diu bé l'àrab marroquí.
+c497bd90	La veu d'aquest dispositiu i la de l'ordinador només parlen àrab estàndard, així que llegeixen les paraules dels dialectes a la manera estàndard. Per sentir les paraules llevantines, egípcies, iraquianes i del Golf com les diu la gent d'allà, tria Azure.

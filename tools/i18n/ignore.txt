@@ -688,3 +688,10 @@ c1d68d4a  # No DLI key.
 8ae3b4f5  # defense language institute dli student military password unlock content course  (Settings search words, not shown)
 8cf2d175  # Defense Language Institute  (the institute's own name, kept in English like the acronym)
 9d02c7a7  # {0} · {1} · word {2}  (a DLI card source on its back, kept in English like "Arabic basics · word 2": dli.js deckSource)
+# The basics courses' titles as their cards' sources start with them (web/js/dialectvoice.js COURSE_TITLES): data, kept in English.
+c27799a9  # Arabic basics
+c68dd24b  # Levantine basics
+b90d6e31  # Egyptian basics
+394a7a5c  # Gulf Arabic basics
+11b463eb  # Moroccan basics
+164bff8f  # Iraqi basics

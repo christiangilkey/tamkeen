@@ -1,0 +1,4 @@
+# Arabic dialect words read by their dialect's voice (Settings → Card voices): components/voicesetup.js, settingsui.js.
+c318c45d	Mga tingog sa mga diyalekto sa Arabiko
+d5518b72	Ang mga pulong sa diyalekto sa Arabiko basahon sa tingog gikan sa maong diyalekto: ang mga pulong sa kurso sa Levantine ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), nga makasulti sa g ug ch sa Iraq, ug ang Gulf ni Hamed (Saudi Arabia). Ang ubang mga pulong mosunod sa diyalekto nga gipili sa Library → Mga kurso, o sa tingog sa ubos para sa Standard Arabic. Ang mga pulong sa Moroccan magpabilin sa tingog sa ubos: wala pay tingog sa Azure nga maayong mosulti sa Moroccan Arabic.
+c497bd90	Ang tingog niining device ug ang tingog sa computer Standard Arabic ra ang masulti, mao nga basahon nila ang mga pulong sa diyalekto sama sa Standard. Aron madungog ang mga pulong sa Levantine, Egyptian, Iraqi ug Gulf sama sa pagsulti sa mga tawo didto, pilia ang Azure.

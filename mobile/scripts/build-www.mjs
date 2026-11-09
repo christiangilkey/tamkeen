@@ -99,6 +99,7 @@ const SHARED = [
   "js/youtube-browser.js",
   "js/cardtext.js",
   "js/cardvoice.js",
+  "js/dialectvoice.js",
   "js/devicevoice.js",
   "js/voiceplay.js",
   "js/oggjoin.js",
