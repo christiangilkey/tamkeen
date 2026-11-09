@@ -172,6 +172,100 @@ export function commonness(lemmas) {
   return (k) => (r.has(k) ? r.get(k) : Infinity);
 }
 
+// ---------- Bisaya: how a word is said, from Wolff's marks ----------
+// Wolff writes each headword with marks (his introduction, 3.0-3.22): an acute on the long vowel, which is the stressed
+// one (hátag, káon), a grave on a vowel a glottal stop follows (bàbà, walà), a wedge on a stressed last vowel after a
+// closed syllable (mandǎr), and no mark where his rule puts the stress (palit is palít, tan-aw is tán-aw). The Mnemonic
+// maker reads his spelling as the card's reading (review/soundout.js wolffStress).
+
+/** `word`'s letters with the marks of `spelled` (the same word as matchKey reads it: o is u, e is i), or "" when they
+ * don't line up: kaon + káun -> káon. */
+export function marksOnto(word, spelled) {
+  const letters = Array.from(String(word).normalize("NFD").replace(/\p{M}/gu, ""));
+  const marks = [];
+  for (const ch of String(spelled).normalize("NFD")) {
+    if (/\p{M}/u.test(ch)) { if (marks.length) marks[marks.length - 1] += ch; } else marks.push("");
+  }
+  return marks.length === letters.length ? letters.map((c, i) => c + marks[i]).join("").normalize("NFC") : "";
+}
+
+// The words of a meaning that tell two of Wolff's spellings apart: bása "read" or basà "wet".
+const MEANING_SKIP = new Set(["the", "and", "for", "with", "from", "into", "onto", "something", "someone", "one's", "s.t", "s.o"]);
+const meaningWords = (m) => (String(m || "").toLowerCase().match(/\p{L}[\p{L}']+/gu) || []).filter((w) => w.length > 2 && !MEANING_SKIP.has(w));
+const sameWord = (a, b) => a === b || (a.length >= 4 && b.length >= 4 && (a.startsWith(b) || b.startsWith(a)));
+
+/** Of Wolff's meaning groups `groups` for one word, the one whose glosses share most words with `meaning` (the card's),
+ * else the first ordinary one (the word popup's). */
+function wolffGroup(groups, meaning) {
+  const list = [...groups.filter(ordinary), ...groups.filter((g) => !ordinary(g))];
+  const want = meaningWords(meaning);
+  if (!want.length || new Set(list.map((g) => g[0])).size < 2) return list[0];
+  let best = list[0], most = 0;
+  for (const g of list) {
+    const has = meaningWords((Array.isArray(g[2]) ? g[2] : []).join(" "));
+    const n = want.filter((w) => has.some((x) => sameWord(w, x))).length;
+    if (n > most) { best = g; most = n; }
+  }
+  return best;
+}
+
+// Prefixes that leave a root as it is and, as a rule, its stress where it was (Wolff 5.11): mipalit is mipalít,
+// gihatag gihátag. (Not paN-, which swallows the root's first sound, nor a suffix, which moves the stress.) Shortest
+// first: the longest root Wolff has wins.
+const WOLFF_PREFIXES = [...CEB_PREFIXES].sort((a, b) => a.length - b.length);
+
+/** One word in Wolff's spelling: `word`'s letters with his marks for it (or for its root, after a prefix), or "". */
+function wolffWord(data, word, meaning) {
+  const bare = String(word).normalize("NFC");
+  const k = matchKey(bare, "ceb");
+  if (!k || !/[a-z]/.test(k)) return "";
+  const own = data.words[k];
+  if (own && own.length) {
+    // Already written with marks (the popup shows Wolff's): kept only when they are his.
+    if (/\p{M}/u.test(bare.normalize("NFD"))) {
+      const low = bare.toLowerCase();
+      return own.some((g) => marksOnto(low, g[0]) === low) ? low : "";
+    }
+    return marksOnto(bare.toLowerCase(), wolffGroup(own, meaning)[0]);
+  }
+  if (/\p{M}/u.test(bare.normalize("NFD"))) return "";
+  // A prefix on a root Wolff has (a word of its own, not a little word): the root's marks after the prefix as written.
+  for (const p of WOLFF_PREFIXES) {
+    if (!k.startsWith(p)) continue;
+    const gap = k[p.length] === "-" ? 1 : 0;
+    const root = k.slice(p.length + gap);
+    if (!(root.length >= 4 || /^[aiu][^aiu-][aiu]$/.test(root))) continue;
+    const groups = (data.words[root] || []).filter((g) => ordinary(g) && !LITTLE.has(g[1]));
+    if (!groups.length) continue;
+    const letters = bare.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
+    const marked = marksOnto(letters.slice(p.length + gap), wolffGroup(groups, meaning)[0]);
+    if (marked) return letters.slice(0, p.length + gap) + marked;
+  }
+  return "";
+}
+
+/**
+ * How Bisaya `text` (a card's word or phrase) is written in Wolff's dictionary (`data`, the mean-cebw file): its own
+ * letters, with Wolff's marks (hatag -> hátag, baba -> bàbà; palit and tan-aw have none), the spelling chosen by the
+ * card's `meaning` where Wolff has two (bása "read", basà "wet"). "" when a word of it isn't in Wolff, so the spelling
+ * rules alone say how it sounds (review/soundout.js reads a Bisaya reading as Wolff's).
+ */
+export function wolffSpelling(data, text, meaning = "") {
+  if (!data || !data.words) return "";
+  const parts = String(text || "").trim().split(/(\s+)/);
+  if (!parts[0]) return "";
+  const out = [];
+  for (const part of parts) {
+    if (!/\S/.test(part)) { out.push(part); continue; }
+    const [, lead, word, tail] = part.match(/^([^\p{L}]*)(.*?)([^\p{L}]*)$/u);
+    if (!word) { out.push(part); continue; }
+    const spelled = wolffWord(data, word, parts.length > 1 ? "" : meaning);
+    if (!spelled) return "";
+    out.push(lead + spelled + tail);
+  }
+  return out.join("");
+}
+
 /** The keys to try for a word, best first: as written, then the dictionary form `lemmaOf` (the
  * language's word tables) finds, then the little words it may carry joined on. */
 export function wordKeys(word, lang, lemmaOf = null) {
