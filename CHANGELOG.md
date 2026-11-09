@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** On an empty Library section, the arrow pointing to the **+** button no longer turns with the button as it rolls in after a swipe: it fades in once the button has stopped. *(phone)*
 - **Fixed:** Android's back gesture (or back button) closes a popup that is open, such as the Shop, a game screen, the + sheet or a word's popup, and leaves you on the page under it. It used to go to another page, or leave the app from Home, with the popup still open. *(Android)*
 - **Changed:** In a guild, the **guild raid** shows on Home, under your creature and its buttons: the week's boss, its health, who has hit it, and Claim the reward once it is down. It is still on Battle → Friends too.
 - **Fixed:** Tapping a word in a reel plays that word, then pauses (with the switch on pause, the purple one). On the phone it often stopped the reel at once, before the word had played, when the word had already gone by. *(Android)*
