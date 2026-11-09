@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Arabic dialects are said in their own accent. With Azure card voices, words from the Iraqi, Levantine, Egyptian and Gulf courses are read by a voice from that dialect: Bassel (Iraq), who says the Iraqi g and ch, Amany (Syria), Salma (Egypt) and Hamed (Saudi Arabia). A grammar lesson's examples are read in its dialect too, and other words follow the dialect chosen in Library → Courses. If you study two dialects, each word gets its own. This device's voice still reads every word like Standard Arabic; Settings → Card voices says so.
 - **Improved:** Vocab → **Add words**: when a meaning needs the built-in dictionary and it isn't downloaded yet, the word's row has a **Download the dictionary** button. It downloads it and fills in the meanings there and then, instead of sending you to the Meaning options.
 - **New:** The web app has its own address: **learntamkeen.com**. The old address keeps working. The Netflix extension works on both. *(web app)*
 - **Changed:** The first question when you start Tamkeen is now **What is your native language?** (in every language the app speaks), instead of "Which language do you speak?".
