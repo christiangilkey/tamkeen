@@ -1,0 +1,8 @@
+# The Reels page without "Get random reels": finding reels on Instagram (pages/reels.js, phone settings.js).
+9167bedc	寻找短视频
+989306ad	在 Instagram 上找短视频：用你在学的语言搜索点什么，把喜欢的短视频收藏到一个收藏夹，然后在这里选择它。
+342d076c	还没有短视频。在 Instagram 上收藏你喜欢的短视频，然后在上面选择那个收藏夹，勾选你想要的短视频。
+d2bd5a05	还没有短视频。在上面选择你想要的短视频，然后点“获取短视频”。
+75b7bce9	要找{0}短视频，在 Instagram 上搜索一个{1}单词或话题标签，把喜欢的短视频收藏到一个收藏夹。然后在上面选择那个收藏夹并勾选它们。
+be6eea67	在网页版中，你可以观看自己的短视频，也可以通过链接添加公开的短视频。从 Instagram 收藏中挑选短视频，以及使用 Instagram 音乐库歌曲的短视频，都需要手机或电脑上的 Tamkeen 应用。在那里添加的短视频同步后会出现在这里。
+953d951a	来自 Instagram 收藏的短视频、使用 Instagram 音乐库歌曲的短视频、内置网页浏览器（导入页面）、AnkiDroid 同步，以及应用图标上的数字。你在应用中添加的内容同步后会出现在这里。

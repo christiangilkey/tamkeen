@@ -299,7 +299,7 @@ function apps(body) {
     ${isWeb ? `<section class="card set-card stack" data-find="getapp">
       <h2>Tamkeen on the web</h2>
       <p class="set-hint">This works like the app, with a few things that need the Tamkeen app on your phone or computer.</p>
-      <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves and random reels, reels with
+      <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves, reels with
         a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the
         number on the app icon. What you add in the app shows up here after a sync.</details>
       <div><a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a></div>

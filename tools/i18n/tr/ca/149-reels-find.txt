@@ -1,0 +1,8 @@
+# The Reels page without "Get random reels": finding reels on Instagram (pages/reels.js, phone settings.js).
+9167bedc	Trobar reels
+989306ad	Troba reels a Instagram: cerca alguna cosa en la llengua que aprens i desa els reels que t'agradin en una col·lecció. Després tria-la aquí.
+342d076c	Encara no hi ha reels. Desa a Instagram els reels que t'agradin, després tria aquella col·lecció a dalt i marca els reels que vulguis.
+d2bd5a05	Encara no hi ha reels. Tria a dalt els reels que vols i prem «Obtén reels».
+75b7bce9	Per trobar reels en {0}, cerca a Instagram una paraula o etiqueta en {1} i desa els reels que t'agradin en una col·lecció. Després tria aquella col·lecció a dalt i marca'ls.
+be6eea67	Al web pots mirar els teus reels i afegir-ne de públics des del seu enllaç. Per triar reels del que has desat a Instagram i reels amb una cançó de la biblioteca musical d'Instagram cal l'app Tamkeen al telèfon o a l'ordinador. Els reels que hi afegeixis apareixen aquí després d'una sincronització.
+953d951a	Reels del que has desat a Instagram, reels amb una cançó de la biblioteca musical d'Instagram, el navegador web integrat («Importa la pàgina»), la sincronització amb AnkiDroid i el número a la icona de l'app. El que afegeixis a l'app apareix aquí després d'una sincronització.

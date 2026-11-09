@@ -1,0 +1,8 @@
+# The Reels page without "Get random reels": finding reels on Instagram (pages/reels.js, phone settings.js).
+9167bedc	Paghahanap ng reels
+989306ad	Maghanap ng reels sa Instagram: maghanap ng isang bagay sa wikang pinag-aaralan mo at i-save ang mga reel na gusto mo sa isang collection. Pagkatapos piliin ito rito.
+342d076c	Wala pang reels. I-save sa Instagram ang mga reel na gusto mo, pagkatapos piliin ang collection na iyon sa itaas at i-tick ang mga reel na gusto mo.
+d2bd5a05	Wala pang reels. Piliin sa itaas ang mga reel na gusto mo at pindutin ang “Kunin ang reels”.
+75b7bce9	Para makahanap ng reels sa {0}, maghanap sa Instagram ng isang salita o hashtag sa {1} at i-save ang mga reel na gusto mo sa isang collection. Pagkatapos piliin ang collection na iyon sa itaas at i-tick sila.
+be6eea67	Sa web, mapapanood mo ang mga reel mo at makakapagdagdag ka ng mga pampublikong reel mula sa link nila. Kailangan ang Tamkeen app sa phone o computer mo para pumili ng reels mula sa mga na-save mo sa Instagram at para sa reels na may kanta mula sa music library ng Instagram. Lalabas dito ang reels na idinagdag doon pagkatapos mag-sync.
+953d951a	Reels mula sa mga na-save mo sa Instagram, reels na may kanta mula sa music library ng Instagram, ang built-in na web browser (I-import ang Page), AnkiDroid sync, at ang numero sa icon ng app. Lalabas dito ang idinagdag mo sa app pagkatapos mag-sync.

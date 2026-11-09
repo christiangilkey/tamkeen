@@ -1,0 +1,8 @@
+# The Reels page without "Get random reels": finding reels on Instagram (pages/reels.js, phone settings.js).
+9167bedc	Pagpangita og mga reel
+989306ad	Pangitaa ang mga reel sa Instagram: pangitaa ang usa ka butang sa pinulongan nga imong gitun-an ug i-save ang mga reel nga ganahan nimo sa usa ka collection. Dayon pilia kini dinhi.
+342d076c	Wala pay mga reel. I-save sa Instagram ang mga reel nga ganahan nimo, dayon pilia kana nga collection sa ibabaw ug i-tick ang mga reel nga gusto nimo.
+d2bd5a05	Wala pay mga reel. Pilia sa ibabaw ang mga reel nga gusto nimo ug pindota ang “Kuhaa ang mga reel”.
+75b7bce9	Aron makakita og mga reel sa {0}, pangitaa sa Instagram ang usa ka pulong o hashtag sa {1} ug i-save ang mga reel nga ganahan nimo sa usa ka collection. Dayon pilia kana nga collection sa ibabaw ug i-tick sila.
+be6eea67	Sa web, matan-aw nimo ang imong mga reel ug makadugang og mga publiko gikan sa ilang link. Ang pagpili og mga reel gikan sa imong mga save sa Instagram ug mga reel nga naay kanta gikan sa music library sa Instagram nanginahanglan sa Tamkeen app sa imong phone o computer. Ang mga reel nga gidugang didto makita dinhi human sa sync.
+953d951a	Mga reel gikan sa imong mga save sa Instagram, mga reel nga naay kanta gikan sa music library sa Instagram, ang built-in nga web browser (I-import ang Page), AnkiDroid sync, ug ang numero sa icon sa app. Ang imong idugang sa app makita dinhi human sa sync.
