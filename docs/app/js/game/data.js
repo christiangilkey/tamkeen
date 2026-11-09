@@ -177,6 +177,8 @@ const WEARABLES = {
 export const OWN_WINGS = new Set(["chick", "dragon_whelp", "griffin", "winged_fox"]);
 /** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except wings when it has its own. */
 export const canWear = (beastId, it) => !(it && it.wings && OWN_WINGS.has(beastId));
+/** Can an egg wear item `it`? A hat and wings, whatever will hatch (the owner: "because that's funny"). */
+export const eggCanWear = (it) => !!it && (it.slot === "hat" || !!it.wings);
 export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
   list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.

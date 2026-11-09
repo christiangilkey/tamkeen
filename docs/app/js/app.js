@@ -44,7 +44,7 @@ import { mountHelpButton } from "./components/helpbutton.js";
 import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
-import { startGamepad } from "./gamepad.js";
+import { closeTopBox, startGamepad } from "./gamepad.js";
 import { newUid, toSrt, toTxt, toVtt, vocabAnki, vocabCsv } from "./shared-logic.js";
 import { voiceTimes } from "./cardvoice.js";
 import { vocabDeck } from "./anki-export.js";
@@ -720,7 +720,21 @@ async function youtubeBrowserScript() {
     // (for the Follow button it shows on a channel's page).
     const { followedChannels } = await import("./ytfollow.js");
     const names = followedChannels(settings.youtube_follows).map((c) => c.name);
-    return `window.__tamkeenFollowing=${JSON.stringify(names)};${source}`;
+    return `window.__tamkeenFollowing=${JSON.stringify(names)};${await captionTagPrefix()}${source}`;
+  } catch { return ""; }
+}
+
+/** What youtube-browser.js needs to tag the videos YouTube has no captions for ("No captions ·
+ * Gemini required", rules in ytcaptiontag.js), set just before it runs; it takes it off `window`
+ * at once. Nothing (no tags) if something is missing. */
+async function captionTagPrefix() {
+  try {
+    const [{ TAG_TEXT, tagText }, { MAX_SECONDS }, { t }, { LANGUAGE_CODES }, { aiKey }] = await Promise.all([
+      import("./ytcaptiontag.js"), import("./ytgemini.js"), import("./i18n.js"), import("./languages.js"), import("./define-service.js")]);
+    const made = (lib.episodes || []).filter((e) => !e.deleted && e.model === "youtube-gemini").map((e) => String(e.guid));
+    const cfg = { lang: studyLanguage(), taught: LANGUAGE_CODES, made, max: MAX_SECONDS,
+                  text: t(tagText({ captions: "none", seconds: 0 }, { hasKey: !!aiKey("gemini") })), long: t(TAG_TEXT.long) };
+    return `window.__tamkeenCaptionTag=${JSON.stringify(cfg)};`;
   } catch { return ""; }
 }
 
@@ -1529,6 +1543,8 @@ async function boot() {
     App.addListener("resume", () => { check().then(lookForEpisodes, lookForEpisodes); planChecks(); requestAnkiSync(3000); });
     App.addListener("pause", () => { flushSync(); }); // put away: send a waiting change now
     App.addListener("backButton", () => {
+      // A popup, game screen or word popup open over the page closes first, leaving you on the page under it (gamepad.js).
+      if (closeTopBox()) return;
       if (location.hash && location.hash !== "#/") history.back();
       else App.exitApp();
     });

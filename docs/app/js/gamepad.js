@@ -396,7 +396,7 @@ function closeBox(box) {
   setTimeout(() => {
     if (!box.isConnected || overlay() !== box) return;
     const x = box.querySelector('[data-close], [data-cancel], [data-act="later"], [data-act="cancel"], .tour-skip, .fix-no, #b-quit, #b-done');
-    if (x && visible(x)) { x.click(); return; }
+    if (x && visible(x, true)) { x.click(); return; }  // (also when scrolled out of sight in a tall box)
     if (box.matches(".goal-pop, #def-model-menu")) { box.hidden = true; return; }  // small popovers: just put away
     // else a tap beside it, on the dimmed page behind (the way most of them close)
     const back = box.closest(".lex-offer-back, .modal-back, .sel-sheet-back, .game-sheet-wrap") || box.parentElement;
@@ -718,6 +718,18 @@ export function pressHighlighted() {
     const next = nearSpot(candidates().filter((c) => c !== el));
     if (next) highlight(next);
   }, 60);
+}
+
+/** Close the box open over the page (a popup, a game screen, a menu), else the word popup, if one is open. True if
+ *  something was closed. Android's back gesture does this first (mobile/src/js/app.js), so swiping back from a popup
+ *  closes it and leaves you on the page under it (the owner: it "should exit it and bring you back to the main page
+ *  of that tab"), instead of going to another page, or leaving the app from Home, with the popup still open. */
+export function closeTopBox() {
+  const box = overlay();
+  if (box) { closeBox(box); return true; }
+  const bubble = inBubble("[data-act='close']");
+  if (bubble) { bubble.click(); return true; }
+  return false;
 }
 
 function back() {

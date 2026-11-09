@@ -52,6 +52,7 @@ export async function render(view) {
     <div class="home-more" id="more"></div>
     <div class="home-today" id="today"></div>
     <div id="habitat"></div>
+    <div id="home-raid" class="home-raid" hidden></div>
   </div>`));
   // The daily streak (days in a row the flashcard goal was met: review/flame.js), at the right of the
   // greeting, in its gold: the owner wanted it there, a flame icon rather than an emoji.
@@ -69,6 +70,8 @@ export async function render(view) {
   }).catch(() => {});
   // The creature's habitat lives at the bottom of Home (unless the game is switched off in Settings).
   if (gameOn()) view.querySelector("#habitat").append(habitat().el);
+  // Under it, in a guild: the guild raid (game/friends-game.js), loaded on its own so Home never waits for it.
+  if (gameOn()) import("../game/friends-game.js").then((m) => m.homeRaids(view.querySelector("#home-raid"))).catch(() => {});
   const main = view.querySelector("#main");
   const more = view.querySelector("#more");
 

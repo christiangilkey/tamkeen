@@ -43,17 +43,13 @@ export async function render(view) {
     <div class="page books-page">
       <div class="disc-head">
         <a class="btn ghost" href="#/library?show=books" title="Back to the library">←</a>
-        <div class="meta">
-          <h1>${icon("book", 26)} Books in ${esc(name)}</h1>
-          <div class="small muted">Famous books, free because they are in the public domain. Add one and read it a page at a time,
-            with every word clickable. Or add a book of your own.</div>
-        </div>
+        <div class="meta"><h1>${icon("book", 26)} Books in ${esc(name)}</h1></div>
       </div>
-      <div class="card row books-upload" style="gap:10px;flex-wrap:wrap">
-        <div style="flex:1;min-width:200px"><strong>Your own book</strong>
-          <div class="small muted">EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM. It is read on this device and added to My books.</div></div>
-        <button type="button" class="primary" id="upload">${icon("plus", 16)} Add a file</button>
+      <div class="books-own">
+        <button type="button" class="aw-wide" id="upload">${icon("plus", 18)} Add a book of your own</button>
+        <p class="small muted aw-note">EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.</p>
       </div>
+      <p class="small muted books-about">Famous books in the language you're learning, free because they are in the public domain.</p>
       <div class="books-grid" id="shelf"><p class="muted">Loading the shelf…</p></div>
     </div>`));
   view.querySelector("#upload").onclick = () => uploadBook(lang);

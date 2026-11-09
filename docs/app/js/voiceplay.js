@@ -10,6 +10,8 @@ import { makeComputerVoice, saveVoice, speechPlugin, state, toast } from "./app.
 import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureVoiceFor, azureVoices, ensureVoice, makeAzureVoice, needsVoice,
          pickedVoices, sayCard, voiceMode, voiceOff, voicesForLanguage, voicesOnSave, voiceLocale } from "./cardvoice.js";
 import { deviceHasVoice, speakDevice, stopDevice } from "./devicevoice.js";
+import { DIALECT_VOICES, dialectOfCard, standardGch } from "./dialectvoice.js";
+import { ARABIC_VARIETIES, VARIETY_KEY } from "./coursedata.js";
 import { detectLanguage } from "./languages.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -17,36 +19,58 @@ const settings = () => (state.status && state.status.settings) || {};
 /** The language a card is in. */
 export const cardLanguage = (v) => v.language || detectLanguage(v.sentence || v.text);
 
-/** The country chosen for a language (YouTube's "Popular in", this device), for Arabic's dialect voice. */
-async function countryFor(lang) {
+/** The country chosen for a language (YouTube's "Popular in", this device), for Arabic's dialect voice.
+ * `picked`: only one the learner chose themselves ("" if they never did), not the usual one. */
+async function countryFor(lang, picked = false) {
   try {
-    const { chosenCountry } = await import("./youtube-home.js");
-    return chosenCountry(lang);
+    const { chosenCountry, pickedCountry } = await import("./youtube-home.js");
+    return picked ? pickedCountry(lang) : chosenCountry(lang);
   } catch { return ""; }
+}
+
+/** The Arabic dialect chosen in Library → Courses on this device ("irq"), "" for Standard Arabic. */
+export function chosenDialect() {
+  let id = "";
+  try { id = localStorage.getItem(VARIETY_KEY) || ""; } catch { /* storage off */ }
+  return ARABIC_VARIETIES.some((x) => x.id && x.id === id) ? id : "";
+}
+
+/** The Arabic dialect card `v` is said in: the one of the course it came from (dialectvoice.js
+ * dialectOfCard; "" for the Standard Arabic course or a DLI deck), else, for a word whose kind of Arabic
+ * isn't known, the dialect chosen in Library → Courses. "" for Standard Arabic and other languages. */
+export function cardDialect(v) {
+  if (cardLanguage(v) !== "ar") return "";
+  const known = dialectOfCard({ ...v, language: "ar" });
+  return known === null ? chosenDialect() : known;
 }
 
 const replaced = new Map(); // voice name Azure refused -> the region's own voice used instead (this run)
 
 /** The Azure voice for a card's language, or null when Azure has none for it (or it is switched off:
- * the Italian voice reading Latin, cardvoice.js voiceOff). */
-export async function azureVoiceOf(lang, s = settings()) {
+ * the Italian voice reading Latin, cardvoice.js voiceOff). `dialect`: an Arabic dialect's ("lev"), whose
+ * words are said by that dialect's voice (dialectvoice.js DIALECT_VOICES); within it, a country the
+ * learner picked for YouTube's "Popular in" (Lebanon, say) chooses that country's voice. */
+export async function azureVoiceOf(lang, s = settings(), dialect = "") {
   if (voiceOff(lang, s)) return null;
-  const voice = azureVoiceFor(lang, { picked: pickedVoices(s), country: await countryFor(lang) });
+  const d = lang === "ar" && DIALECT_VOICES[dialect] ? dialect : "";
+  const voice = azureVoiceFor(lang, { picked: pickedVoices(s), country: await countryFor(lang, !!d), dialect: d });
   return voice && (replaced.get(voice) || voice);
 }
 
 /** Make card `v`'s voice with Azure: if the usual voice isn't offered in the learner's region, the
  * region's first voice for the language (same country if it has one) is used instead. Null when
- * Azure has no voice for the card's language (Bisaya). */
+ * Azure has no voice for the card's language (Bisaya). An Arabic dialect word is said by its dialect's
+ * voice (cardDialect). */
 async function azureMaker(v, s) {
   const lang = cardLanguage(v);
-  const voice = await azureVoiceOf(lang, s);
+  const dialect = cardDialect(v);
+  const voice = await azureVoiceOf(lang, s, dialect);
   if (!voice) return null;
   const opts = { key: s.tts_key_azure, region: s.tts_region_azure, voice, lang };
   try {
     return await makeAzureVoice(v, opts);
   } catch (e) {
-    if (!e || !e.badVoice || pickedVoices(s)[lang]) throw e;
+    if (!e || !e.badVoice || pickedVoices(s)[lang] === voice) throw e;
     const offered = voicesForLanguage(await azureVoices(opts), lang);
     const other = offered.find((x) => x.locale === voiceLocale(voice)) || offered[0];
     if (!other) throw e;
@@ -133,7 +157,7 @@ export function cardSayer(playSnippet) {
       return await sayCard(v, part, {
         playSnippet,
         makeVoice: voiceMaker(settings()),
-        speakDevice,
+        speakDevice: (text, lang) => speakDevice(standardGch(text, lang), lang),  // (a device voice skips گ / چ: dialectvoice.js)
         lang: cardLanguage(v),
         onNote: (message) => {
           if (told.has(message)) return;

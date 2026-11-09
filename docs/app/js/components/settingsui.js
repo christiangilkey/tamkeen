@@ -15,6 +15,8 @@ import { pageGuide } from "./tour.js";
 /** The sections, in the order a learner thinks of them. */
 export const SECTIONS = [
   { id: "languages", icon: "page", title: "Languages", about: "The language you speak and the one you're learning." },
+  // DLI students (components/dlicard.js): a section of its own (the owner's wish), no longer inside Languages
+  { id: "dli", icon: "lock", title: "DLI students", about: "Unlock your course from the Defense Language Institute." },
   { id: "words", icon: "message", title: "Word definitions", about: "What you see when you tap a word." },
   { id: "listening", icon: "audio", title: "Listening & transcripts", about: "Who writes down what is said in podcasts, videos and reels." },
   { id: "voices", icon: "sound", title: "Card voices", about: "The voice that reads out flashcards without a recording." },
@@ -42,7 +44,7 @@ export const FINDS = [
   { s: "languages", id: "reading", label: "Furigana", words: "kana kanji reading", langs: ["ja"] },
   { s: "languages", id: "reading", label: "Pinyin and characters", words: "tones simplified traditional", langs: ["zh"] },
   { s: "languages", id: "reading", label: "Korean readings", words: "romanization romanisation pronunciation hangul", langs: ["ko"] },
-  { s: "languages", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course" },
+  { s: "dli", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course" },
   { s: "words", id: "mode", label: "AI explanations or built-in dictionary", words: "offline wiktionary free definitions meanings" },
   { s: "words", id: "key", label: "AI provider and API key", words: "claude gemini openai chatgpt grok key test" },
   { s: "words", id: "aimodel", label: "AI model", words: "price cost tokens cheaper faster" },
@@ -63,6 +65,7 @@ export const FINDS = [
   { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
   { s: "voices", id: "voiceonsave", label: "Add the voice when a word is saved", words: "azure audio automatic netflix youtube save word sentence add audio" },
   { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
+  { s: "voices", id: "dialectvoices", label: "Arabic dialect voices", words: "levantine egyptian iraqi gulf dialect accent azure pronunciation", langs: ["ar"] },
   { s: "voices", id: "latinvoice", label: "Italian voice reading Latin", words: "church ecclesiastical pronunciation italian latin", langs: ["la"] },
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },

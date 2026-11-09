@@ -33,7 +33,7 @@ import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
          fillIn, firstSense, hasValue, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
-import { OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
+import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
 import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
 import { learnFromNote } from "../review/cardtools.js";
@@ -501,6 +501,28 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     paintStatus(row);
   }
 
+  /** "Download the dictionary" in a row's message: downloads it, then fills in every row still waiting for a meaning. */
+  function dictButton() {
+    const mb = dict && dict.bytes ? Math.max(1, Math.round(dict.bytes / 1e6)) : 0;
+    const b = h(`<button type="button" class="primary cb-getdict-row">${icon("import", 16)}<span></span></button>`);
+    b.querySelector("span").textContent = mb ? t("Download the dictionary ({0} MB)", mb) : t("Download the dictionary");
+    b.onclick = async () => {
+      for (const x of document.querySelectorAll(".cb-getdict-row")) { x.disabled = true; }
+      b.querySelector("span").textContent = t("Downloading…");
+      try {
+        await downloadMeanings(lang);
+        dict = await meaningsStatus(lang).catch(() => null);
+        paintOptions();
+        const waiting = rows.filter((r) => r.status && r.status.getDict);
+        if (waiting.length) await fill(waiting);
+      } catch (err) {
+        toast(err.message || String(err), { error: true });
+        for (const r of rows) if (r.status && r.status.getDict) paintStatus(r);
+      }
+    };
+    return b;
+  }
+
   function paintStatus(row) {
     const box = row.el.querySelector(".cb-status");
     const i = rows.indexOf(row);
@@ -512,6 +534,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const line = h(`<span class="cb-st">${row.status.kind === "busy" ? `<i class="cb-spin" aria-hidden="true"></i>` : row.status.kind === "ok" ? icon("check", 16) : ""}<span></span></span>`);
       line.querySelector("span:last-child").textContent = row.status.text;
       box.append(line);
+      // No dictionary on this device yet: download it from here, then fill in the meanings (the owner: "a button should
+      // just show up to allow them to download it right there, no sending users through navigations").
+      if (row.status.getDict) box.append(dictButton());
     }
     if (rep.saved || rep.sameAs !== undefined) {
       const line = h(`<label class="cb-st cb-dup"><span></span> <span class="cb-anyway-box"><input type="checkbox" class="cb-anyway"> Add anyway</span></label>`);
@@ -875,6 +900,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const want = needs(r, choices);
       const phrase = r.kind !== "word";
       let dictionaryFailed = "";
+      let noDictionary = false; // (the dictionary isn't on this device: the row offers to download it right there)
       if (want.meaning && usesDictionary()) {
         try {
           const d = await dictionaryMeaning(r.text.trim(), { phrase, byWords: phrase && !ai });
@@ -884,8 +910,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           setNote(r, "meaning", d.from === "words"
             ? t("The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.") : "");
         } catch (err) {
-          dictionaryFailed = err && err.message === NO_MEANINGS
-            ? t("The built-in dictionary isn't on this device yet: download it under Meaning, or type the meaning.")
+          noDictionary = !!err && err.message === NO_MEANINGS;
+          dictionaryFailed = noDictionary
+            ? t("The built-in dictionary isn't on this device yet. Download it, or type the meaning.")
             : phrase ? t("This phrase isn't in the built-in dictionary. Type its meaning.")
             : t("This word isn't in the built-in dictionary. Type its meaning.");
         }
@@ -893,7 +920,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const still = askFor(r);
       if (ai && (still.meaning || still.sentence || still.translation)) forAi.push(r);
       else if (!still.meaning && needs(r, choices).sentence) continue;  // (no AI, or Free chosen: a sentence is found below)
-      else if (still.meaning) setStatus(r, { kind: "error", text: dictionaryFailed || t("No meaning was found. Type its meaning.") });
+      else if (still.meaning) setStatus(r, { kind: "error", text: dictionaryFailed || t("No meaning was found. Type its meaning."), getDict: noDictionary });
       else setStatus(r, null);
       paintRow(r);
     }
@@ -943,14 +970,16 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           continue;
         }
         if (!needs(r, choices).sentence) continue;
-        let found = null;
-        try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch { /* no connection the first time */ }
+        let found = null, failed = null;
+        // (no connection the first time: said as such, not as "none found")
+        try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch (e) { failed = e && e.code === NO_EXAMPLES ? e : null; }
         if (found) {
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
           setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
+            : failed ? { kind: "note", text: failed.message }
             : { kind: "note", text: r.kind === "word" ? t("No example sentence was found for this word. Type one, or leave it empty.")
               : t("No example sentence was found for this phrase. Type one, or leave it empty.") });
         }

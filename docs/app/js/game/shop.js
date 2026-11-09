@@ -13,9 +13,9 @@ import { openModal } from "../components/modal.js";
 import { SHOP_MOVES, itemById } from "./data.js";
 import { formOf } from "./genome.js";
 import { t } from "../i18n.js";
-import { buy, buyMove, equip, fits, moveStock, placeDecor, shopStock } from "./rules.js";
+import { buy, buyMove, equip, moveStock, placeDecor, shopStock, wearProblem } from "./rules.js";
 import { getGame, saveGame, sfx } from "./game.js";
-import { icon } from "./render.js";
+import { eggPicture, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { badgesPanel, creaturesPanel } from "./creatures.js";
 import { friendsHelp, friendsPanel, gift } from "./friends-game.js";
@@ -195,7 +195,8 @@ function itemToBuy(game, it, changed, repaint) {
     title: it.name, ...itemPic(game, it),
     facts: [fact("Kind", KIND[it.slot]), fact("Price", amount("coins", it.price))],
     text: it.slot === "decor" ? "For looks only. It goes out in the habitat straight away."
-      : !fits(game.creature, it) ? "For looks only. Your creature has wings of its own, so these go in your bag for another creature."
+      : wearProblem(game.creature, it) === "wings" ? "For looks only. Your creature has wings of its own, so these go in your bag for another creature."
+      : wearProblem(game.creature, it) === "egg" ? "For looks only. Eggs only wear hats and wings, so it goes in your bag until your egg hatches."
       : "For looks only. It goes on straight away.",
     note: needCoins(game, it.price),
     buttons: [
@@ -306,7 +307,7 @@ function wearingBlock(game, changed, go, repaint) {
   const egg = formOf(c).id === "egg";
   const b = block("Wearing now");
   const pic = h(`<div class="gs-wear-pic"></div>`);
-  pic.append(egg ? h(`<img class="px-icon" alt="" width="64" height="64" src="${ART}egg/${c.type}.png">`) : portrait(c, 176));
+  pic.append(egg ? eggPicture(c, 64, "px-icon") : portrait(c, 176));
   b.append(pic);
   const slots = h(`<div class="gs-slots"></div>`);
   for (const w of wearing(game)) {
@@ -319,7 +320,7 @@ function wearingBlock(game, changed, go, repaint) {
     slots.append(cell);
   }
   b.append(slots);
-  if (egg) b.append(h(`<p class="gs-detail-text">Eggs wear nothing until they hatch.</p>`));
+  if (egg) b.append(h(`<p class="gs-detail-text">Eggs wear a hat and wings. Everything else waits until they hatch.</p>`));
   return b;
 }
 
@@ -328,14 +329,15 @@ function itemInBag(game, it, changed, repaint) {
     if (!game.owned.includes(it.id)) return null; // given away meanwhile
     const decor = it.slot === "decor";
     const on = isOn(game, it);
-    const cant = !decor && !on && !fits(game.creature, it); // wings, on a creature with wings of its own
+    const cant = decor || on ? "" : wearProblem(game.creature, it); // wings on a winged creature, or not a hat or wings on an egg
     return {
       title: it.name, ...itemPic(game, it),
       facts: [fact("Kind", KIND[it.slot]), fact("Now", decor ? (on ? "Out in the habitat" : "Put away") : on ? "Wearing" : "In your bag")],
-      note: cant ? "Your creature has wings of its own, so it can't wear these. Another of your creatures can." : "",
+      note: cant === "wings" ? "Your creature has wings of its own, so it can't wear these. Another of your creatures can."
+        : cant === "egg" ? "Eggs only wear hats and wings. Your creature can wear this once it hatches." : "",
       buttons: [
         { word: "Give", pic: icon("gift"), run: () => { d.close(); gift("item", it.id, () => { changed(); repaint(); }); } },
-        { word: decor ? (on ? "Put away" : "Put out") : on ? "Take off" : "Wear", primary: !on, disabled: cant, run: () => {
+        { word: decor ? (on ? "Put away" : "Put out") : on ? "Take off" : "Wear", primary: !on, disabled: !!cant, run: () => {
           if (decor) placeDecor(game, it.id, !on);
           else equip(game, it.slot, on ? null : it.id);
           saveGame();

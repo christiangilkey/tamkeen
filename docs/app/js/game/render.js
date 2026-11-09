@@ -3,7 +3,7 @@
 // animated by nudging layers a pixel or two (the head dips, the near legs lift, the eyes shut), with
 // worn things placed on its own sockets.
 
-import { SLOTS, beastById, canWear, itemById } from "./data.js";
+import { SLOTS, TYPES, beastById, canWear, eggCanWear, itemById } from "./data.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -193,6 +193,66 @@ export function beastHeight(look) {
 }
 
 const SHUT = new Set(["blink", "sleepy", "happy"]);
+
+// ---------- a dressed egg ----------
+// An egg wears a hat and wings (data.eggCanWear; the owner: "because that's funny"): the small versions a baby wears,
+// wings behind the egg and a hat on its crown. Where they sit on the 32 x 32 egg (egg/<type>.png):
+const EGG_SOCKETS = { hat: [16, 7], back: [13, 21] };
+/** How much taller a dressed egg's picture is than the egg (room for the hat), in its pixels. */
+export const EGG_TOP = 8;
+const eggWears = (equipped) => ["back", "hat"].filter((slot) => equipped && equipped[slot] && eggCanWear(itemById(equipped[slot])));
+
+/** Egg picture `egg` (32 x 32) with what it wears (`equipped`): a canvas 32 x (32 + EGG_TOP) with the egg at its
+ * foot, or `egg` itself when it wears no hat and no wings. */
+export async function dressEgg(egg, equipped) {
+  const slots = eggWears(equipped);
+  if (!egg || !slots.length) return egg;
+  const worn = await Promise.all(slots.map(async (slot) => [slot,
+    (await loadImage(`item/small/${equipped[slot]}.png`)) || (await loadImage(`item/${equipped[slot]}.png`))]));
+  const c = document.createElement("canvas");
+  c.width = 32;
+  c.height = 32 + EGG_TOP;
+  const ctx = c.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  const put = (slot) => {
+    const img = (worn.find(([s]) => s === slot) || [])[1];
+    if (!img) return;
+    const [sx, sy] = EGG_SOCKETS[slot], [ax, ay] = SLOTS[slot].anchor;
+    ctx.drawImage(img, sx - ax, EGG_TOP + sy - ay);
+  };
+  put("back");
+  ctx.drawImage(egg, 0, EGG_TOP);
+  put("hat");
+  return c;
+}
+
+/** Creature `genome`'s egg as an element `size` px wide: the egg picture, or, when it wears a hat or wings, a canvas
+ * of the dressed egg (a little taller, for the hat). `cls`: its class. */
+export function eggPicture(genome, size, cls = "cr-egg") {
+  const type = TYPES[genome && genome.type] ? genome.type : "ember";
+  const on = (genome && genome.equipped) || {};
+  if (!eggWears(on).length) {
+    const img = new Image(size, size);
+    img.className = cls;
+    img.alt = "";
+    img.src = `${ART}egg/${type}.png`;
+    return img;
+  }
+  const c = document.createElement("canvas");
+  c.className = cls;
+  c.width = 32;
+  c.height = 32 + EGG_TOP;
+  c.style.width = `${size}px`;
+  c.style.height = `${Math.round((size * (32 + EGG_TOP)) / 32)}px`;
+  c.style.imageRendering = "pixelated";
+  loadImage(`egg/${type}.png`).then((img) => dressEgg(img, on)).then((pic) => {
+    if (!pic) return;
+    const ctx = c.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(pic, 0, c.height - pic.height);
+  });
+  return c;
+}
 
 /**
  * Compose one frame of a creature. `look` comes from describe(genome); `pose` is

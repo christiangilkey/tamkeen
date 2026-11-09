@@ -23,13 +23,14 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton } from "../vowels.js";
-import { wordClip } from "../wordclip.js";
+import { clipEnded, wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
 import { actionHeld, buttonsMenu, controllerArea } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
+import { markWatched, watchedIds, watchedPill } from "../watched.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -66,16 +67,6 @@ function askSignIn(host, counter, { retry, skip }) {
   gone.observe(counter, { childList: true, characterData: true, subtree: true });
 }
 
-// Which reels have been watched to the end, on this device.
-const WATCHED = "reels:watched";
-function watched() {
-  try { return new Set(JSON.parse(localStorage.getItem(WATCHED)) || []); } catch { return new Set(); }
-}
-function markWatched(id) {
-  const set = watched();
-  set.add(String(id));
-  try { localStorage.setItem(WATCHED, JSON.stringify([...set].slice(-500))); } catch { /* storage unavailable */ }
-}
 
 /** The reels in the library, oldest first (the order they were found in). */
 async function loadReels() {
@@ -122,7 +113,7 @@ async function renderList(view) {
     { target: ".reel-modes", title: "Which reels", text: "Get reels from creators you follow, a mix, or reels you saved on Instagram." },
     { target: "#reel-colls", title: "1. Choose a collection", text: "Pick one of your Instagram collections, or everything you saved." },
     { target: ".reel-picks", title: "2. Tick the reels you want", text: "Tick the reels to add. One that didn't work last time can be ticked again." },
-    { target: "#reel-random", title: "Random reels", text: "Or get reels from all of Instagram in the language you're learning. Set how many with − and +." },
+    { target: "#reel-find-tip", title: "Finding reels", text: "Find reels on Instagram: search for something in the language you're learning and save the reels you like to a collection. Then choose it here." },
     { target: "#reel-list", title: "Your reels", text: "The reels you have. Watch plays one with its words underneath; tap any word to see what it means." },
     { target: "#reel-watch", title: "Watch them all", text: "Play your reels one after another." },
   ]); // the "?" in the top bar
@@ -134,7 +125,7 @@ async function renderList(view) {
   let choosing = "";   // the collection just chosen from the list, while Instagram is being read
   let lastAsk = null;  // the last thing asked of Instagram, to ask again once the user has signed in
   let askedForCollections = false;
-  // How many reels to get: for "Get N reels" and "Get N random reels". Remembered on this device.
+  // How many reels to get, for "Get N reels". Remembered on this device.
   const COUNT_KEY = "reels:count";
   const cleanCount = (n) => Math.max(1, Math.min(30, Math.round(Number(n)) || 10));
   let howMany = 10;
@@ -143,7 +134,7 @@ async function renderList(view) {
 
   async function drawList() {
     const reels = await loadReels();
-    const seen = watched();
+    const seen = watchedIds(); // the reels watched to the end on this device (watched.js)
     const list = $("#reel-list");
     list.innerHTML = "";
     $("#reel-count").textContent = reels.length || "";
@@ -158,17 +149,19 @@ async function renderList(view) {
       list.append(h(`<div class="empty">${info && info.web
         ? "No reels yet. Paste a reel's link above, or add reels in the Tamkeen app: they arrive here after a sync."
         : phone && info && info.available
-        ? "No reels yet. Press “Get random reels” above, or choose one of your Instagram collections and tick the reels you want."
+        ? "No reels yet. Save reels you like on Instagram, then choose that collection above and tick the reels you want."
         : phone
         ? "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync."
-        : "No reels yet. Choose which reels you want above and press “Get reels”, or press “Get random reels”."}</div>`));
+        : "No reels yet. Choose which reels you want above and press “Get reels”."}</div>`));
       return;
     }
     for (const ep of [...reels].reverse()) { // newest at the top of the list
+      const pic = ep.image ? `<img src="${esc(ep.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph">${icon("video", 22)}</div>`;
+      // Watched to the end: "Watched" in the brand's purple at the top right of its picture.
       const row = h(`<div class="ep reel-row">
-        ${ep.image ? `<img src="${esc(ep.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph">${icon("video", 22)}</div>`}
+        ${seen.has(String(ep.id)) ? `<span class="thumb">${pic}${watchedPill()}</span>` : pic}
         <div class="info"><div class="title" dir="auto"><a href="#/reels/play?at=${ep.id}"></a></div>
-          <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${seen.has(String(ep.id)) ? " · watched" : ""}${needsSignIn(ep) ? " · plays when signed in to Instagram" : ""}</div></div>
+          <div class="sub">@${esc(ep.description || "")}${ep.duration ? ` · ${ep.duration < 60 ? `${Math.round(ep.duration)} s` : fmtDuration(ep.duration)}` : ""}${needsSignIn(ep) ? " · plays when signed in to Instagram" : ""}</div></div>
         <div class="status"><div class="row"><a class="btn primary" href="#/reels/play?at=${ep.id}">Watch</a>
           <button type="button" class="ghost danger">Delete</button></div></div>
       </div>`);
@@ -222,18 +215,17 @@ async function renderList(view) {
         <div class="row reel-collrow" id="reel-colls"></div>
         <div id="reel-picker"></div>
       </div>
-      <div class="row reel-howmany" id="reel-howmany" ${info.random || info.mode !== "saved" ? "" : "hidden"}>
+      <div class="row reel-howmany" id="reel-howmany" ${info.mode !== "saved" ? "" : "hidden"}>
         <strong>How many?</strong>
         <span class="reel-count">
           <button type="button" id="reel-less" title="One fewer" ${busy ? "disabled" : ""}>−</button>
           <input type="number" id="reel-n-want" min="1" max="30" step="1" inputmode="numeric" value="${howMany}" aria-label="How many reels to get" ${busy ? "disabled" : ""}>
           <button type="button" id="reel-more" title="One more" ${busy ? "disabled" : ""}>+</button>
         </span>
-        <button type="button" class="primary" id="reel-random" ${busy ? "disabled" : ""} ${info.random ? "" : "hidden"}
-          title="Reels in ${esc(info.language_name)} on all sorts of everyday subjects, found by searching Instagram for a few words picked at random. Different every time."></button>
       </div>
-      <p class="small muted reel-random-note" id="reel-random-note" ${info.random && info.mode === "saved" ? "" : "hidden"}>Random reels come from all of
-        Instagram, not from your saved collection. For reels from your collection, tick them above and press “Get the ticked reels”.</p>
+      <p class="small muted reel-find-tip" id="reel-find-tip" ${info.mode === "saved" ? "" : "hidden"}>To find ${esc(info.language_name)} reels,
+        search Instagram for a word or hashtag in ${esc(info.language_name)} and save the reels you like to a collection. Then choose
+        that collection above and tick them.</p>
       <div class="row">
         <button type="button" class="primary" id="reel-go" ${busy ? "disabled" : ""} ${info.mode === "saved" ? "hidden" : ""}></button>
         <button type="button" class="primary" id="reel-send" ${info.mode === "saved" ? "" : "hidden"} disabled></button>
@@ -278,11 +270,6 @@ async function renderList(view) {
     const want = q("#reel-n-want");
     const paintCount = () => {
       q("#reel-go").textContent = busy ? "Getting reels…" : `Get ${howMany} reel${howMany === 1 ? "" : "s"}`;
-      // Beside your saves the random ones must not look like part of them (the owner: "make it clear the 10
-      // random reels aren't from your collection"): the button says where they come from, and a line under it.
-      q("#reel-random").textContent = info.mode === "saved"
-        ? `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"} from all of Instagram`
-        : `Get ${howMany} random ${info.language_name} reel${howMany === 1 ? "" : "s"}`;
     };
     const setCount = (n, typed = false) => {
       howMany = cleanCount(n);
@@ -299,7 +286,6 @@ async function renderList(view) {
       try { info.status = await api("/reels/batch", { method: "POST", body: { count: howMany } }); drawGet(); watchBatch(); }
       catch (e) { toast(e.message, { error: true }); }
     };
-    q("#reel-random").onclick = () => start("/reels/random", { count: howMany });
     q("#reel-stop").onclick = () => api("/reels/cancel", { method: "POST" }).catch(() => {});
     // On the phone the sign-in is made in Tamkeen's own browser, which shares it with the reel window.
     q("#reel-signin").onclick = () => openInstagramSignIn().catch((e) => toast(e.message, { error: true }));
@@ -329,7 +315,7 @@ async function renderList(view) {
       <div class="small muted" id="reel-status"></div>
       <div id="reel-log"></div>
       <p class="small muted">On the web you can watch your reels and add public ones from their link. Picking reels from your
-        Instagram saves, random reels, and reels with a song from Instagram's music library need the Tamkeen app on your phone
+        Instagram saves and reels with a song from Instagram's music library need the Tamkeen app on your phone
         or computer. Reels added there show up here after a sync.</p>
     </div>`);
     box.append(card);
@@ -555,6 +541,7 @@ async function renderPlayer(view, { query }) {
   let seen = null; // which of this reel's words are new to the learner (they are drawn in purple)
   let curIdx = -1;
   let clipEnd = null;
+  let clip = { from: 0, end: 0, at: 0, there: false }; // the word or sentence being played (wordclip.js clipEnded)
   let seenEnds = 0;
   let seenNav = "";
   let loadedAt = 0;
@@ -682,7 +669,8 @@ async function renderPlayer(view, { query }) {
   function playClip(start, end) {
     if (!surface) return;
     clipEnd = pauseAfterWord() ? end + 0.08 : null;
-    surface.do("seek", Math.max(0, start - 0.05));
+    clip = { from: Math.max(0, start - 0.05), end: end + 0.08, at: Date.now(), there: false };
+    surface.do("seek", clip.from);
     surface.do("play");
   }
 
@@ -877,7 +865,10 @@ async function renderPlayer(view, { query }) {
       return;
     }
     if (cur) {
-      if (clipEnd !== null && s.t >= clipEnd) { clipEnd = null; surface.do("pause"); }
+      // The phone tells the reel's time a moment late: a report from before the jump back to a tapped word
+      // must not end it before it has played (the owner: tapping a word should "play the sound of that word
+      // and stop it"). wordclip.js clipEnded waits for a report from inside the clip.
+      if (clipEnd !== null && clipEnded(clip, s.t)) { clipEnd = null; surface.do("pause"); }
       setActive(activeWordIndex(cur.starts, cur.ends, s.t, 1.5));
     }
     if (s.ends > seenEnds) {

@@ -254,8 +254,183 @@
     }).catch(function () { /* no button this time */ });
   }
 
-  setInterval(function () { checkPage(); checkChannel(); }, 700);
+  // ----- lists of videos: a small tag on each video YouTube has no captions for -----
+  // "No captions · Gemini required" on the thumbnail, before the video is tapped (tapping it shows
+  // the "No captions on YouTube" box, which offers Gemini's). The same rules as the web app's list
+  // (web/js/ytcaptiontag.js, ytcaptions.js checkCaptions), copied here because this is plain script
+  // inside YouTube's page; tests/js/ytcaptiontag.test.mjs keeps the copy alike. Only the videos on
+  // screen are checked, a few at a time, with the one question the player asks first (its caption
+  // list: nothing of the video is downloaded), and the answers are kept a while by video id. A check
+  // that failed never tags. The app tells the page what it needs up front, in the same evaluation as
+  // this script, and the setting is taken off `window` at once so YouTube's own scripts never see it:
+  //   window.__tamkeenCaptionTag = {lang, taught: [codes], made: [ids with Gemini's captions in the
+  //   library], text: the tag (translated), long: the tag for a video too long for Gemini, max: seconds}
+  var tagCfg = window.__tamkeenCaptionTag || null;
+  try { delete window.__tamkeenCaptionTag; } catch (e) { window.__tamkeenCaptionTag = undefined; }
+  var CLIENTS = [{ clientName: "ANDROID", clientVersion: "20.10.38" }, { clientName: "IOS", clientVersion: "20.10.4" }];
+  var PERSON_ONLY = { la: true }; // Latin: only captions a person wrote count (ytcaptions.js)
+  var KEEP = { yes: 3 * 24 * 3600e3, other: 3 * 24 * 3600e3, none: 6 * 3600e3 };
+  var STORE = "tamkeen-captions";
+  var AT_ONCE = 3;
+  var made = {};
+  if (tagCfg && tagCfg.made) for (var mi = 0; mi < tagCfg.made.length; mi++) made[tagCfg.made[mi]] = true;
+
+  function baseLanguage(code) {
+    var b = String(code || "").toLowerCase().split(/[-_]/)[0];
+    if (b === "fil") return "tl";
+    return b === "cmn" || b === "yue" ? "zh" : b;
+  }
+  /** captionVerdict (ytcaptions.js): "yes" (captions in `wanted`, YouTube's translation included),
+   * "other" (only in another taught language) or "none" (nothing the player could use). */
+  function verdict(tracks, wanted, taught) {
+    var manual = false, auto = false, translatable = false, spoken = [], written = [], i;
+    for (i = 0; i < (tracks || []).length; i++) {
+      var t = tracks[i];
+      if (!t || !t.baseUrl) continue;
+      var lang = baseLanguage(t.languageCode);
+      var isAuto = t.kind === "asr";
+      if (lang === wanted) { if (isAuto) auto = true; else manual = true; } else if (t.isTranslatable !== false) translatable = true;
+      (isAuto ? spoken : written).push(lang);
+    }
+    if (manual) return "yes";
+    if (PERSON_ONLY[wanted]) return "none";
+    if (auto || (wanted && translatable)) return "yes";
+    var from = spoken.length ? spoken : written;
+    for (i = 0; i < from.length; i++) if (from[i] !== wanted && (taught || []).indexOf(from[i]) >= 0) return "other";
+    return "none";
+  }
+  /** checkCaptions (ytcaptions.js): {captions: "yes"|"other"|"none"|"unknown", seconds}. */
+  function askYouTube(id) {
+    var seconds = 0;
+    function one(i, empty) {
+      if (i >= CLIENTS.length) return { captions: empty ? "none" : "unknown", seconds: seconds };
+      var c = CLIENTS[i];
+      return fetch(location.origin + "/youtubei/v1/player?prettyPrint=false", {
+        method: "POST", credentials: "omit", headers: { "Content-Type": "application/json", "Accept-Language": "en" },
+        body: JSON.stringify({ context: { client: { clientName: c.clientName, clientVersion: c.clientVersion, hl: "en" } }, videoId: id }),
+      }).then(function (res) { return res && res.status < 400 ? res.json() : null; }).then(function (data) {
+        var details = data && data.videoDetails;
+        if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds: seconds };
+        seconds = Number(details.lengthSeconds) || 0;
+        var renderer = (data.captions || {}).playerCaptionsTracklistRenderer || {};
+        var tracks = renderer.captionTracks && renderer.captionTracks.length ? renderer.captionTracks : [];
+        if (tracks.length) return { captions: verdict(tracks, tagCfg.lang, tagCfg.taught), seconds: seconds };
+        if (details.isLiveContent && !seconds) return { captions: "unknown", seconds: seconds }; // live: Gemini can't caption it
+        return one(i + 1, true);
+      });
+    }
+    return Promise.resolve().then(function () { return one(0, false); })
+      .catch(function () { return { captions: "unknown", seconds: seconds }; });
+  }
+
+  // The answers, by study language and video id: [captions, seconds, kept until].
+  var answers = null;
+  function loadAnswers() {
+    if (answers) return answers;
+    try { answers = JSON.parse(localStorage.getItem(STORE) || "{}") || {}; } catch (e) { answers = {}; }
+    if (typeof answers !== "object") answers = {};
+    return answers;
+  }
+  function known(id) {
+    var a = loadAnswers()[tagCfg.lang + ":" + id];
+    return a && a[2] > Date.now() ? { captions: a[0], seconds: a[1] } : null;
+  }
+  function keepAnswer(id, result) {
+    var all = loadAnswers();
+    var now = Date.now();
+    all[tagCfg.lang + ":" + id] = [result.captions, result.seconds || 0, now + KEEP[result.captions]];
+    var keys = Object.keys(all);
+    if (keys.length > 500) for (var i = 0; i < keys.length; i++) if (!(all[keys[i]][2] > now) || i < keys.length - 500) delete all[keys[i]];
+    try { localStorage.setItem(STORE, JSON.stringify(all)); } catch (e) { /* kept for this page only */ }
+  }
+
+  var waiting = [];
+  var asking = {};   // id -> true while asked or waiting
+  var failed = {};   // id -> when to ask again after a failed check
+  var running = 0;
+  var fails = 0;
+  var pausedUntil = 0; // YouTube refusing again and again: stop asking for a while
+  function want(id) {
+    if (asking[id] || (failed[id] || 0) > Date.now()) return;
+    asking[id] = true;
+    waiting.push(id);
+    nextCheck();
+  }
+  function nextCheck() {
+    while (running < AT_ONCE && waiting.length && Date.now() >= pausedUntil) {
+      var id = waiting.shift();
+      running++;
+      askYouTube(id).then(function (id) {
+        return function (r) {
+          running--;
+          delete asking[id];
+          if (r.captions === "unknown") {
+            failed[id] = Date.now() + 120e3;
+            if (++fails >= 4) { fails = 0; pausedUntil = Date.now() + 120e3; waiting = []; asking = {}; }
+          } else {
+            fails = 0;
+            keepAnswer(id, r);
+          }
+          nextCheck();
+        };
+      }(id));
+    }
+  }
+
+  var tags = []; // [{link, host, id}]
+  function tagOn(link) {
+    for (var i = 0; i < tags.length; i++) if (tags[i].link === link) return tags[i];
+    return null;
+  }
+  function addTag(link, id, result) {
+    var host = document.createElement("span");
+    host.setAttribute("data-tamkeen", "captions");
+    host.style.cssText = "all:initial;position:absolute;left:6px;top:6px;z-index:3;pointer-events:none;max-width:calc(100% - 12px);display:block;";
+    var label = document.createElement("span");
+    label.setAttribute("dir", "auto");
+    label.textContent = Number(result.seconds) > (tagCfg.max || 3600) && tagCfg.long ? tagCfg.long : tagCfg.text;
+    // Like the app's own small tags: plain, one line.
+    label.style.cssText = "display:inline-block;box-sizing:border-box;max-width:100%;font:600 12px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;" +
+      "padding:1px 8px;border-radius:99px;background:#1c1c1a;color:#f2f1ec;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+    host.attachShadow({ mode: "closed" }).appendChild(label);
+    try {
+      var cs = window.getComputedStyle ? window.getComputedStyle(link) : null;
+      if (cs && cs.position === "static") link.style.position = "relative";
+    } catch (e) { /* placed as it comes */ }
+    link.appendChild(host);
+    tags.push({ link: link, host: host, id: id });
+  }
+  function removeTag(t) {
+    try { if (t.host.parentNode) t.host.parentNode.removeChild(t.host); } catch (e) { /* already gone */ }
+    tags.splice(tags.indexOf(t), 1);
+  }
+  /** Tag the videos on (or near) the screen that YouTube has no captions for; ask about the rest. */
+  function checkTags() {
+    if (!tagCfg || !tagCfg.lang || !tagCfg.text || !document.querySelectorAll) return;
+    // YouTube reuses its list's elements for other videos as it scrolls: a tag goes with its video.
+    for (var k = tags.length - 1; k >= 0; k--) {
+      var t = tags[k];
+      if (!t.link.isConnected || !t.host.isConnected || videoId(t.link.href) !== t.id) removeTag(t);
+    }
+    var links = document.querySelectorAll('a[href*="watch?v="], a[href*="/shorts/"]');
+    var height = window.innerHeight || 800;
+    for (var i = 0; i < links.length; i++) {
+      var link = links[i];
+      var id = videoId(link.href);
+      if (!id || made[id] || tagOn(link)) continue;
+      if (!link.querySelector || !link.querySelector("img")) continue; // the thumbnail's link (not the title's)
+      var box = link.getBoundingClientRect ? link.getBoundingClientRect() : null;
+      if (!box || !box.width || box.bottom < -300 || box.top > height + 300) continue;
+      var have = known(id);
+      if (!have) want(id);
+      else if (have.captions === "none") addTag(link, id, have);
+    }
+  }
+  if (window.__tamkeenTestHooks) window.__tamkeenTestHooks.verdict = verdict;
+
+  setInterval(function () { checkPage(); checkChannel(); checkTags(); }, 700);
   checkPage();
   checkChannel();
+  checkTags();
   if (window.__tamkeenBridge !== "address" && !videoId(location.href)) say("Tap a video to watch it in Tamkeen", true);
 })();

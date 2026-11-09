@@ -410,6 +410,13 @@ label.check input { margin-top: 3px; }
   border-radius: var(--radius);
 }
 .ep img, .ep .ph { width: 56px; height: 56px; border-radius: 8px; object-fit: cover; background: var(--surface-2); }
+/* A reel or YouTube video watched to the end (watched.js): "Watched" at the top right of its picture, in the
+   brand's purple (the top bar's plum made light enough to carry white text: the new-word purple of a light
+   page). The same in both themes, as it sits on the picture. */
+.thumb { position: relative; display: block; width: fit-content; line-height: 0; }
+.watched-pill { position: absolute; top: -5px; inset-inline-end: -6px; z-index: 1; padding: 2px 6px; border-radius: 99px;
+  background: #8f1d84; color: #fff; font-size: 10px; font-weight: 700; line-height: 1.2; letter-spacing: .01em; white-space: nowrap;
+  box-shadow: 0 0 0 2px var(--surface); pointer-events: none; }
 .ep .info { min-width: 0; }
 .ep .title { font-weight: 600; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; unicode-bidi: plaintext; text-align: start; }
 .ep .title a { color: var(--text); }
@@ -1541,6 +1548,9 @@ button.today-chip { cursor: pointer; font: inherit; }
 
 /* ---------- boxes over the page (components/modal.js): first-run questions, the API-key walkthrough ---------- */
 .modal-back { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, .55); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+/* One column no wider than the screen: an "auto" column grows to the box's widest line (a book's author on
+   one line in the Audiobooks sheet), and then the whole box scrolled sideways on a phone. */
+.modal-back { grid-template-columns: minmax(0, 1fr); }
 .modal-box { width: min(520px, 100%); max-height: min(92vh, 860px); display: flex; flex-direction: column; background: var(--surface); color: var(--text); border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, .35); }
 .modal-box.wide { width: min(640px, 100%); }
 .modal-head { display: flex; align-items: center; gap: 8px; padding: 18px 20px 0; }

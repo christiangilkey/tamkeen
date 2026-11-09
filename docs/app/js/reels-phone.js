@@ -29,53 +29,7 @@ const REEL_TYPE = "video/instagram";
 const LIST_LIMIT = 80;
 const MAX_SECONDS = 240;
 const NOT_OUTSIDE = "can't be shown outside Instagram";
-const SAVED = "reels_phone"; // kept on this phone only: {skipped, tried}
-const TRIED_KEPT = 2000;     // random reels already listened to, so they aren't paid for twice
-const PER_CREATOR = 2;       // at most this many random reels of one creator in a batch
-const RANDOM_SEARCHES = 8;   // at most this many words are searched for in one batch
-const TRIES_PER_REEL = 6;    // give up after listening to this many times the number asked for
-const MIN_WORDS = 8;         // a random reel with fewer words than this is music or noise
-const MIN_WORDS_PER_SECOND = 0.35;
-// "Random reels": everyday words searched for, a few picked at random each time. (The computer has
-// the same lists in app/reels.py, RANDOM_WORDS; keep the two in step.)
-export const RANDOM_WORDS = {
-  ar: ["يوميات", "طبخ", "قصة", "نصيحة", "ضحك", "كوميديا", "سؤال", "تحدي", "مقابلة", "سفر", "أكل", "حكاية", "تجربة", "معلومة",
-       "شرح", "مطبخ", "رياضة", "أخبار", "بودكاست", "فلوق", "مقالب", "تعليم", "عائلة", "قهوة"],
-  es: ["vlog", "receta", "historia", "consejo", "humor", "comedia", "pregunta", "reto", "entrevista", "viaje", "comida", "anécdota",
-       "experiencia", "curiosidades", "explicación", "cocina", "deporte", "noticias", "podcast", "rutina", "familia", "café"],
-  fr: ["vlog", "recette", "histoire", "conseil", "humour", "sketch", "question", "défi", "interview", "voyage", "cuisine", "anecdote",
-       "expérience", "astuce", "explication", "sport", "actualité", "podcast", "routine", "famille", "café", "quotidien"],
-  ja: ["日常", "料理", "お話", "アドバイス", "お笑い", "コント", "質問", "チャレンジ", "インタビュー", "旅行", "グルメ", "体験",
-       "豆知識", "解説", "スポーツ", "ニュース", "ポッドキャスト", "ルーティン", "家族", "あるある"],
-  zh: ["日常", "做饭", "故事", "建议", "搞笑", "段子", "问答", "挑战", "采访", "旅行", "美食", "经历", "冷知识", "讲解", "运动", "新闻",
-       "播客", "生活", "家庭", "脱口秀"],
-  ru: ["влог", "рецепт", "история", "совет", "юмор", "приколы", "вопрос", "челлендж", "интервью", "путешествие", "еда", "опыт",
-       "факты", "объяснение", "спорт", "новости", "подкаст", "рутина", "семья", "кофе"],
-  it: ["vlog", "ricetta", "storia", "consiglio", "comicità", "sketch", "domanda", "sfida", "intervista", "viaggio", "cibo", "aneddoto",
-       "esperienza", "curiosità", "spiegazione", "cucina", "sport", "notizie", "podcast", "routine", "famiglia", "caffè"],
-  tl: ["vlog", "luto", "kwento", "payo", "katatawanan", "biruan", "tanong", "hamon", "panayam", "biyahe", "pagkain", "karanasan",
-       "kaalaman", "paliwanag", "ulam", "palaro", "balita", "podcast", "araw-araw", "pamilya", "kape", "hugot"],
-  pt: ["vlog", "receita", "história", "dica", "humor", "comédia", "pergunta", "desafio", "entrevista", "viagem", "comida", "resenha",
-       "experiência", "curiosidades", "explicação", "culinária", "futebol", "notícias", "podcast", "rotina", "família", "café"],
-  ca: ["vlog", "recepta", "història", "consell", "humor", "comèdia", "pregunta", "repte", "entrevista", "viatge", "menjar", "anècdota",
-       "experiència", "curiositats", "explicació", "cuina", "esport", "notícies", "pòdcast", "rutina", "família", "cafè"],
-  ceb: ["vlog", "luto", "istorya", "tambag", "katawa", "binuang", "pangutana", "hagit", "interbyu", "biyahe", "pagkaon", "sugilanon",
-        "kasinatian", "kahibalo", "pagpasabot", "sud-an", "dula", "balita", "podcast", "adlaw-adlaw", "pamilya", "kape", "bisaya"],
-  th: ["vlog", "สูตรอาหาร", "เรื่องเล่า", "คำแนะนำ", "ตลก", "ขำขัน", "คำถาม", "ชาเลนจ์", "สัมภาษณ์", "เที่ยว", "อาหาร", "ประสบการณ์",
-       "เกร็ดความรู้", "อธิบาย", "ทำอาหาร", "กีฬา", "ข่าว", "พอดแคสต์", "กิจวัตร", "ครอบครัว", "กาแฟ", "รีวิว"],
-  hi: ["vlog", "रेसिपी", "कहानी", "सलाह", "कॉमेडी", "मज़ाक", "सवाल", "चैलेंज", "इंटरव्यू", "यात्रा", "खाना", "अनुभव",
-       "जानकारी", "हिंदी", "रसोई", "क्रिकेट", "समाचार", "पॉडकास्ट", "दिनचर्या", "परिवार", "चाय", "देसी"],
-  ko: ["브이로그", "레시피", "썰", "꿀팁", "개그", "웃긴영상", "질문", "챌린지", "인터뷰", "여행", "먹방", "경험", "상식", "설명",
-       "요리", "스포츠", "뉴스", "팟캐스트", "일상", "가족", "카페", "리뷰"],
-  en: ["vlog", "recipe", "storytime", "advice", "comedy", "sketch", "question", "challenge", "interview", "travel", "food", "story",
-       "experience", "funfacts", "explained", "cooking", "sports", "news", "podcast", "routine", "family", "coffee"],
-  de: ["vlog", "rezept", "geschichte", "tipp", "humor", "witzig", "frage", "challenge", "interview", "reise", "essen", "anekdote",
-       "erfahrung", "wissenswertes", "erklärt", "kochen", "fußball", "nachrichten", "podcast", "alltag", "familie", "kaffee"],
-  fa: ["ولاگ", "آشپزی", "داستان", "توصیه", "طنز", "کمدی", "سوال", "چالش", "مصاحبه", "سفرنامه", "غذا", "خاطره",
-       "تجربه", "دانستنی", "توضیح", "شیرینی", "ورزش", "خبر", "پادکست", "روزمرگی", "خانواده", "قهوه"],
-  la: ["latine", "lingualatina", "loquerelatine", "latinitas", "fabula", "sermo", "historia", "cottidie", "roma", "verba",
-       "carmen", "lectio", "grammatica", "vocabula", "cena", "familia", "iter", "nuntii", "podcast", "salve", "vita", "latinitium"],
-};
+const SAVED = "reels_phone"; // kept on this phone only: {skipped}
 
 const CODE = /^[A-Za-z0-9_-]{5,40}$/;
 const USERNAME = /^[A-Za-z0-9._]{1,30}$/;
@@ -178,8 +132,7 @@ let saved = null;
 async function load() {
   if (!saved) {
     const raw = (await kv.get(SAVED)) || {};
-    saved = { skipped: raw.skipped && typeof raw.skipped === "object" ? raw.skipped : {},
-              tried: Array.isArray(raw.tried) ? raw.tried.map(String) : [] };
+    saved = { skipped: raw.skipped && typeof raw.skipped === "object" ? raw.skipped : {} };
     // Collections used to be kept here, on this phone only; now they are shared (below).
     if (!settings.ig_collections && Array.isArray(raw.collections) && raw.collections.length) {
       storeCollections(cleanCollections({ at: 1, items: raw.collections, chosen: raw.collection, chosen_at: 1 }));
@@ -299,9 +252,6 @@ function previewInstagram() {
       if (what === "collectionName") return { name: { "17900000000000001": "Arabic", "17900000000000002": "Funny", "17900000000000003": "Cooking 🍲" }[arg.id] || "" };
       if (what === "list") return { posts: arg.collection === "all" ? posts : posts.slice(0, 3) };
       if (what === "info") return { post: posts.find((p) => p.code === arg.code) || null };
-      if (what === "search") return { posts: posts.concat(["Rand0006", "Rand0007", "Rand0008"].map((code, i) => ({
-        code: `${code}${arg.word.length}`, user: ["yawmiyat", "matbakh.ar", "comedy.ar"][i], caption: `${arg.word} ${i + 1}`, video: true, seconds: 25 + i,
-        thumb: "", src: new URL(`../dev-reel-${i + 1}.mp4`, import.meta.url).href, music: false }))) };
       return null;
     },
     close() {},
@@ -483,9 +433,7 @@ export async function saveReel({ code, creator, caption, segments, language, mod
   return storeTranscript(uid, segments, model, { language });
 }
 
-/** `random`: a reel the app found by itself (not one the user picked). Then it has to be in the
- * language being studied and have real speech in it, as on the computer. */
-async function tryReel(ig, cfg, known, { random = false } = {}) {
+async function tryReel(ig, cfg, known) {
   const code = known.code;
   let p = known;
   try { p = { ...known, ...tidy([((await ig.ask("info", { code })) || {}).post])[0] }; } // asked afresh: a video's address only works for a while
@@ -526,11 +474,6 @@ async function tryReel(ig, cfg, known, { random = false } = {}) {
   heard.language = heardAs(heard.language, study); // Bisaya is heard as Tagalog, Hindi as Urdu (stt.js)
   // (Hindi heard as Urdu is only Hindi to a learner when it came back in Devanagari, not in Urdu's Arabic letters.)
   if (study === "hi" && heard.language === "hi" && detectLanguage(heard.segments.map((s) => s.text).join(" "), "hi") !== "hi") heard.language = "ur";
-  if (random) {
-    const seconds = p.seconds || heard.duration || 0;
-    if (heard.language && heard.language !== study) return [false, `in ${(LANGUAGES[heard.language] || {}).name || heard.language}, not ${LANGUAGES[study].name}`];
-    if (words < MIN_WORDS || (seconds && words / seconds < MIN_WORDS_PER_SECOND)) return [false, "hardly any speech in it"];
-  }
   // Your own pick is kept whatever its language; one in another language the app teaches is filed under that.
   const language = isLanguage(heard.language) ? heard.language : study;
   const count = await saveReel({ code, creator: p.user, caption: p.caption, segments: heard.segments, language,
@@ -587,88 +530,6 @@ export function startSelected(codes) {
   });
 }
 
-/** The reels worth trying out of what a search found, in a random order: videos of reel length,
- * not tried or kept before, none with a song from Instagram's music library (those only play to
- * someone signed in). The twin of reels.pick_random on the computer. */
-export function pickRandom(posts, skip, rand = Math.random) {
-  const out = [];
-  for (const p of posts || []) {
-    if (!p || !CODE.test(p.code || "") || skip.has(p.code) || out.some((q) => q.code === p.code)) continue;
-    if (!p.user || p.video === false || p.music || !p.src) continue;
-    if (p.seconds > MAX_SECONDS || (p.seconds > 0 && p.seconds < 5)) continue;
-    out.push(p);
-  }
-  return shuffled(out, rand);
-}
-
-/** A copy of a list in a random order. */
-function shuffled(list, rand = Math.random) {
-  const out = [...list];
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
-  }
-  return out;
-}
-
-/** "Get random reels": `count` reels in the language being studied, found by searching Instagram
- * for a few everyday words picked at random. Each one tried is sent to the provider once. */
-export function startRandom(count) {
-  const want = Math.max(1, Math.min(30, Math.round(Number(count) || 10)));
-  const study = settings.study_language || "ar";
-  const name = (LANGUAGES[study] || {}).name || study;
-  if (!RANDOM_WORDS[study]) throw new Error("Random reels aren't set up for this language yet.");
-  return job(want, async (ig) => {
-    const cfg = sttConfig(settings);
-    const s = await load();
-    const fuid = await feedUid(REELS_FEED_URL);
-    const skip = new Set([...s.tried, ...lib.episodes.filter((e) => e.feed_uid === fuid && !e.deleted).map((e) => e.guid)]);
-    const words = shuffled(RANDOM_WORDS[study]);
-    const perCreator = new Map();
-    let pool = [];
-    // Only some of what each word finds is taken, so a batch mixes several words' reels.
-    const perWord = Math.max(6, Math.ceil((want * TRIES_PER_REEL) / RANDOM_SEARCHES));
-    let searches = 0;
-    let kept = 0;
-    let checked = 0;
-    while (kept < want && checked < want * TRIES_PER_REEL) {
-      if (cancelled) throw new Stopped(`Stopped. ${tally(kept, checked - kept)}.`);
-      if (!pool.length) {
-        if (searches >= Math.min(words.length, RANDOM_SEARCHES)) break;
-        say("finding", `Looking for ${name} reels (${searches + 1})…`, { kept, checked });
-        let found = [];
-        try { found = tidy(((await ig.ask("search", { word: words[searches] }, 90)) || {}).posts); }
-        catch (e) { console.warn("Instagram's search didn't answer", e); }
-        searches++;
-        pool = pickRandom(found, skip).slice(0, perWord);
-        for (const p of pool) skip.add(p.code);
-        continue;
-      }
-      const cand = pool.shift();
-      if ((perCreator.get(cand.user) || 0) >= PER_CREATOR) continue;
-      checked++;
-      say("checking", `Getting ${want} ${name} reels: ${tally(kept, checked - 1 - kept)} so far; listening to the next one…`, { kept, checked });
-      let ok = false;
-      let outcome;
-      try { [ok, outcome] = await tryWithin(ig, cfg, cand, { random: true }); }
-      catch (e) {
-        if (e instanceof Stopped) throw new Stopped(`${e.message} ${tally(kept, checked - 1 - kept)}.`);
-        throw e;
-      }
-      note(cand.user || "?", titleFor(cand.caption || "", cand.user || "?"), outcome, ok);
-      s.tried = [...s.tried, cand.code].slice(-TRIED_KEPT);
-      keep();
-      if (ok) {
-        kept++;
-        perCreator.set(cand.user, (perCreator.get(cand.user) || 0) + 1);
-        say(null, null, { kept });
-      }
-    }
-    say("done", kept ? `${tally(kept, checked - kept)}: ${kept} random ${name} reel${kept === 1 ? "" : "s"} ready to watch.`
-      : `${tally(0, checked)}: no ${name} reels could be kept this time. Try again: the search words change each time.`, { kept, checked });
-  });
-}
-
 export function cancelReels() { cancelled = true; }
 
 // -------------------------------------------------------------- what the Reels page asks for
@@ -681,7 +542,6 @@ export async function reelsView() {
   return {
     phone: true, web: isWeb, available: cloudOn() && lang !== "ceb", computer_only: lang === "ceb" ? BISAYA_REELS : "", model_ready: true, mode: "saved", modes: isWeb ? [] : ["saved"], mine: [], selected: [], popular: [],
     collections: known.items, collection: known.chosen, language: lang, language_name: (LANGUAGES[lang] || {}).name || lang,
-    random: !!RANDOM_WORDS[lang],
     status: reelsStatus(),
   };
 }

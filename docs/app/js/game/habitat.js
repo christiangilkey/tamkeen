@@ -19,7 +19,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./rules.js";
-import { FRAME, beastHeight, composeCreature, drawSheet, icon, loadImage } from "./render.js";
+import { FRAME, beastHeight, composeCreature, drawSheet, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { openEarned, openEvolution } from "./info.js";
@@ -405,7 +405,8 @@ export function habitat() {
     lookKey = key;
     frames = {};
     if (look.stage === "egg") {
-      loadImage(`egg/${look.type}.png`).then((img) => { egg = img; });
+      // (with its hat and wings on, when it wears them: render.dressEgg)
+      loadImage(`egg/${look.type}.png`).then((img) => dressEgg(img, look.equipped)).then((pic) => { if (key === lookKey) egg = pic; });
       Promise.all([1, 2, 3].map((n) => loadImage(`egg/crack_${n}.png`))).then((imgs) => { cracks = imgs; });
     }
     return look;
@@ -567,7 +568,7 @@ export function habitat() {
       if (egg) {
         ctx.save();
         ctx.translate(Math.round(W / 2 + wobble), groundY);
-        ctx.drawImage(egg, -16, -32 - Math.round(pet.hop));
+        ctx.drawImage(egg, -16, -egg.height - Math.round(pet.hop)); // (a dressed egg is taller: its hat on top)
         // Cracks spread as the egg nears hatching.
         const n = Math.min(2, Math.floor((game.creature.growth / STAGES[1].from) * 4) - 1);
         if (n >= 0 && cracks[n]) ctx.drawImage(cracks[n], -16, -32 - Math.round(pet.hop));

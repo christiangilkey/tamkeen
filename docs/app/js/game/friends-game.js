@@ -9,7 +9,7 @@ import * as social from "../social.js";
 import { BOSSES, LEAGUES } from "./data.js";
 import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
 import { publicProfile, showcaseGenome } from "./battle.js";
-import { challengeChoice, portrait } from "./battle-ui.js";
+import { challengeChoice, portrait, startFriendBattle } from "./battle-ui.js";
 import { canChallenge } from "./challenge.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
@@ -285,6 +285,47 @@ function raidBlock(game, me, guild, profiles, now, week, changed) {
     b.append(btn);
   } else if (r.down) b.append(h(`<p class="gs-state muted">${icon("clock")}<span>Reward claimed. A new boss arrives on Monday.</span></p>`));
   return b;
+}
+
+/**
+ * The Battle button on each friend on the Friends tab (pages/friends.js): the same choice as the league's Challenge
+ * (battle their team as usual, or challenge them on one of my folders), then the battle (the owner: "a battle button
+ * on each friend", with "the selector for all the different battle types"). `user` = { id, username }, a friend.
+ */
+export async function battleFriend(user) {
+  let profile = null;
+  try { profile = cleanProfiles(await social.gameProfiles([user.id])).get(user.id) || null; } // (from their device: checked, remote.js)
+  catch (e) { toast(e.message, { error: true }); return; }
+  if (!profile || !profile.team || !profile.team.length) { toast("They haven't opened the game online yet"); return; }
+  const name = cleanName(user.username, 40) || "A friend";
+  const pick = await challengeChoice(user, name, canChallenge(profile, hasStudyLanguage() ? studyLanguage() : null));
+  if (pick) startFriendBattle(user, profile, pick);
+}
+
+/**
+ * Home, under the creature and its buttons (pages/home.js): the raid of each guild the player is in, the same block as
+ * on the Battle screen's Friends side (the owner: it "shouldn't be tucked away in a menu", but "directly on the home
+ * screen underneath the player's habitat"). Nothing at all when signed out, offline or in no guild. `host` is shown
+ * once there is something in it.
+ */
+export async function homeRaids(host) {
+  let me = null;
+  let list = [];
+  let profiles = new Map();
+  try {
+    me = await social.currentUser();
+    if (!me) return;
+    const guilds = await social.guildsState();
+    list = (guilds && guilds.guilds) || [];
+    if (!list.length) return;
+    const ids = new Set();
+    for (const g of list) for (const m of g.members) if (m.id !== me.id) ids.add(m.id);
+    profiles = cleanProfiles(await social.gameProfiles([...ids])); // (from their devices: checked first, remote.js)
+  } catch { return; }
+  if (!host.isConnected) return; // Home was left meanwhile
+  const now = new Date();
+  host.replaceChildren(...list.map((g) => raidBlock(getGame(), me, g, profiles, now, weekNumber(now), () => {})));
+  host.hidden = false;
 }
 
 /** No guild yet: the week's boss, and where guilds are made. */

@@ -11,7 +11,7 @@
 
 import { beastOf, bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
-import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, itemById } from "./data.js";
+import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, itemById } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 
@@ -1040,10 +1040,17 @@ export function buy(state, id) {
   return ""; // (wings for a creature with its own: kept in the bag, for another creature)
 }
 
-/** Can creature `genome` wear item `it`? Not wings when it has wings of its own (data.canWear). */
-export function fits(genome, it) {
-  try { return canWear(beastOf(genome).id, it); } catch { return true; }
+/** Why creature `genome` can't wear item `it`: "egg" (an egg wears only a hat and wings: data.eggCanWear), "wings"
+ * (wings on a creature with wings of its own: data.canWear), or "" when it can. */
+export function wearProblem(genome, it) {
+  if (!it || it.slot === "decor") return "";
+  try {
+    if (stageOf(genome.growth).id === "egg") return eggCanWear(it) ? "" : "egg";
+    return canWear(beastOf(genome).id, it) ? "" : "wings";
+  } catch { return ""; }
 }
+/** Can creature `genome` wear item `it`? */
+export const fits = (genome, it) => !wearProblem(genome, it);
 
 /** Wear an owned item, or pass null to take off whatever is in that slot. */
 export function equip(state, slot, id) {

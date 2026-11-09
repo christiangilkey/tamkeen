@@ -24,7 +24,8 @@ export const DIALECTS = ["lev", "egy", "glf", "mor", "irq"];
  * A text as a voice can say it. Iraqi Arabic writes its g and ch sounds with the Persian letters گ and چ
  * (گال "he said", چان "was"), which Arabic voices skip without a sound; they get the Arabic letters those
  * sounds come from (ق, ك), so the word is said the Standard way rather than with a letter missing. (The Iraqi
- * basics course's own recordings say g and ch: tools/course/build_course.py "ipa".)
+ * basics course's own recordings say g and ch: tools/course/build_course.py "ipa"; and with Azure, an Iraqi voice
+ * is given those words as sounds it can say: dialectvoice.js iraqiSsml.) The same as dialectvoice.js standardGch.
  */
 export const sayable = (text, lang) => (lang === "ar" ? String(text).replace(/گ/g, "ق").replace(/چ/g, "ك") : String(text));
 

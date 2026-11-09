@@ -4,6 +4,7 @@ import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, upl
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
 import { allProgress, isUnfinished } from "../progress.js";
+import { watchedIds, watchedPill } from "../watched.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
@@ -621,11 +622,15 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
   }
 
+  let watchedNow = null;  // the videos watched to the end (watched.js), read once for each list drawn
   function epRow(ep) {
     const img = ep.image || ep.feed_image;
+    const pic = img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`;
+    // A reel or YouTube video watched to the end: "Watched" in the brand's purple on its picture.
+    const seen = (isReel(ep) || isYouTube(ep)) && (watchedNow || (watchedNow = watchedIds())).has(String(ep.id));
     const row = h(`<div class="ep" data-id="${ep.id}">
       <input type="checkbox" class="sel" aria-label="Select episode">
-      ${img ? `<img src="${esc(img)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph"></div>`}
+      ${seen ? `<span class="thumb">${pic}${watchedPill()}</span>` : pic}
       <div class="info">
         <div class="title" dir="auto"></div>
         <div class="sub">${isAudiobookFeed(ep.feed_url) ? fmtDuration(ep.duration) /* a chapter: no date, its length */
@@ -807,6 +812,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       const last = (ep) => Math.max(opened.get(String(ep.id)) || 0, ep.published || 0);
       items = [...items].sort((a, b) => last(b) - last(a));
     }
+    watchedNow = watchedIds();
     for (const ep of items) listEl.append(epRow(ep));
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;

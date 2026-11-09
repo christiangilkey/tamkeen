@@ -9,7 +9,8 @@
 //     what it hasn't got takes no room: a line of small "+" links adds it;
 //   - a row of line-icon tools, each opening inside the card under the row: the Mnemonic maker, an example
 //     sentence (a real one found, or one the AI writes, as in "Add words"), recording the word's audio
-//     (only a card with no sound of its own: like a voice, a card keeps its first) and its folders;
+//     (only a card with no sound of its own: like a voice, a card keeps its first) and its folders
+//     (components/wordtools.js, which the back of a review card uses too);
 //   - where it came from, when it was added, its Anki progress, "Saved", and ⋯ (copy, send to a friend,
 //     delete).
 // The open card has a brand-teal outline (app.css "the Vocab list: a word opened"), so it is plain which
@@ -17,55 +18,29 @@
 // (pages/vocab.js); opening another puts this one away, saved. Which parts and tools a card gets is
 // worked out in review/vocabedit.js (no screen there). Shared by the desktop app, the phone and the web app.
 
-import { api, esc, fmtDate, h, saveRecording, showMenu, toast } from "../app.js";
+import { api, esc, fmtDate, h, showMenu, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { formatTime } from "../wordlookup.js";
-import { litParts, litTextHtml, markedSentenceHtml, stripMarks } from "../cardtext.js";
+import { stripMarks } from "../cardtext.js";
 import { canSay } from "../cardvoice.js";
 import { cardLanguage, voiceHere } from "../voiceplay.js";
 import { editPayload, editValue, holdPayload } from "../review/cardedit.js";
-import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, hasMnemonics, holdWords, learnFromNote, memoPlaceholder, mnemonicHtml,
-         mnemonicMaker, partSeconds, pastedInto, textBox } from "../review/cardtools.js";
-import { ADDS, TOOLS, missingParts, toolsFor } from "../review/vocabedit.js";
+import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, holdWords, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
+         textBox } from "../review/cardtools.js";
+import { ADDS, missingParts } from "../review/vocabedit.js";
 import { addToNotes } from "../review/mnemonic.js";
 import { practise, practiseButton } from "../review/pronounce.js";
-import { SENTENCE_SOURCE, aiWrites, findSentence, freeChosen } from "../review/sentencefind.js";
-import { sourceOf } from "../lexicon/exampledata.js";
-import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
-import { offerFix } from "./fixit.js";
-import { troubleshootButton } from "./troubleshoot.js";
+import { wordTools } from "./wordtools.js";
 
 /** The notes, typed over as a whole (several lines). */
 const NOTES = new Set(["notes", "memo"]);
 /** Written in the language being learned (the rest in the learner's own). */
 const STUDY = new Set(["text", "sentence"]);
 
-// The Vocab page's own line drawings, in icons.js's style (24 x 24, thin rounded lines, a "fill" tint that
-// shows when the button is on): the Mnemonic maker (a light bulb), an example sentence (a speech bubble with
-// lines of text), the list's sort and filter (sliders) and its selection mode (a ticked box). Any other
-// name is one of icons.js's.
-const FOLDER = "M3.5 8.3A2.3 2.3 0 0 1 5.8 6h3.3a1.6 1.6 0 0 1 1.2.5l1.1 1.2a1.6 1.6 0 0 0 1.2.5h5.6a2.3 2.3 0 0 1 2.3 2.3v6.2a2.3 2.3 0 0 1-2.3 2.3H5.8a2.3 2.3 0 0 1-2.3-2.3z";  // (icons.js folder's outline)
-const OWN_ICONS = {
-  bulb: `<path class="fill" d="M12 3.5a5.8 5.8 0 0 0-3.4 10.5c.6.5.9 1.1.9 1.9v.6h5v-.6c0-.8.3-1.4.9-1.9A5.8 5.8 0 0 0 12 3.5z"/>
-    <path d="M12 3.5a5.8 5.8 0 0 0-3.4 10.5c.6.5.9 1.1.9 1.9v.6h5v-.6c0-.8.3-1.4.9-1.9A5.8 5.8 0 0 0 12 3.5z"/><path d="M9.8 19h4.4M10.6 21.2h2.8"/>`,
-  example: `<path class="fill" d="M4.5 4.5h15A1.5 1.5 0 0 1 21 6v9a1.5 1.5 0 0 1-1.5 1.5H10.5L6 20v-3.5H4.5A1.5 1.5 0 0 1 3 15V6a1.5 1.5 0 0 1 1.5-1.5z"/>
-    <path d="M4.5 4.5h15A1.5 1.5 0 0 1 21 6v9a1.5 1.5 0 0 1-1.5 1.5H10.5L6 20v-3.5H4.5A1.5 1.5 0 0 1 3 15V6a1.5 1.5 0 0 1 1.5-1.5z"/><path d="M7 9h10M7 12.5h6"/>`,
-  filter: `<path d="M4 7h9M17 7h3M4 12h3M11 12h9M4 17h11M19 17h1"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="17" r="2"/>`,
-  select: `<rect class="fill" x="4" y="4" width="16" height="16" rx="4"/><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8.4 12.3l2.5 2.5 4.8-5.2"/>`,
-  // a folder with a plus (put the chosen words in a folder) or a minus (take them out of one)
-  folderin: `<path class="fill" d="${FOLDER}"/><path d="${FOLDER}"/><path d="M9.6 13h4.8M12 10.6v4.8"/>`,
-  folderout: `<path class="fill" d="${FOLDER}"/><path d="${FOLDER}"/><path d="M9.6 13h4.8"/>`,
-};
-
-/** A line icon for the Vocab page: its own (above), else icons.js's. */
-export function vocabIcon(name, size = 20) {
-  const body = OWN_ICONS[name];
-  if (!body) return icon(name, size);
-  return `<svg class="ic ic-${name}" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" `
-    + `stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
-}
+// (The Vocab page's line icons, vocabIcon, live with the tools in components/wordtools.js.)
+export { vocabIcon } from "./wordtools.js";
 
 /**
  * Open word `v` for editing inside its card `el` on the Vocab list (pages/vocab.js item(): `.vi-main`
@@ -89,11 +64,9 @@ export function openWordEditor(el, v, deps) {
   const cuts = new Map();   // where a long sentence (and its translation) is cut, kept while the card is open
   const off = new AbortController();
   let editing = null;       // the open text box: {field, ed}
-  let tool = "";            // the tool open under the row
   let closed = false;
   let audioOverAt = 0;      // when audio started from this card will have finished ("Say it" must not record over it)
   let quickKey = "";        // which of Word / Sentence are shown, so they are only drawn again when that changes
-  let stopTool = () => {};  // the open tool's own clean-up (a recording in progress)
 
   main.innerHTML = `
     <div class="word vi-edit" data-f="text" role="button" tabindex="0"></div>
@@ -117,6 +90,21 @@ export function openWordEditor(el, v, deps) {
     translation: main.querySelector(".vi-trans"), notes: body.querySelector('[data-f="notes"]'), memo: body.querySelector('[data-f="memo"]'),
   };
   const quick = main.querySelector(".vi-quick"), panel = $(".vi-panel");
+  // The row of tools and the panel each opens in (components/wordtools.js, the review card's too).
+  const tools = wordTools($(".vi-tools"), panel, v, {
+    studyLang,
+    save: saveChange,
+    useMnemonic: (text) => {
+      if (String(v.memo || "").includes(text)) return;
+      saveChange({ memo: addToNotes(v.memo || "", text) });
+      paintNotes();
+      paintAdds();
+    },
+    sentenceUsed: () => { cuts.clear(); paint(); paintQuick(true); },
+    typeSentence: () => edit("sentence"),
+    recorded: () => { changed(v, { voice: v.voice }); paintQuick(true); refreshQuick(); },
+    folders, setFolder, newFolder,
+  });
   for (const f of Object.keys(lines)) lines[f].setAttribute("aria-label", t(EDIT_LABELS[f]));
   const isEditing = (field) => !!editing && editing.field === field;
 
@@ -157,16 +145,6 @@ export function openWordEditor(el, v, deps) {
     const anki = body.querySelector(".anki-progress");
     if (anki) anki.remove();
     if (ankiLine) $(".vi-foot").insertAdjacentHTML("beforebegin", ankiLine);
-  }
-  function paintTools() {
-    const row = $(".vi-tools");
-    row.innerHTML = "";
-    for (const id of toolsFor(v)) {
-      const [, ic, label, about] = TOOLS.find((x) => x[0] === id);
-      const b = h(`<button type="button" class="vi-tool" data-tool="${id}" title="${about}" aria-pressed="${tool === id}">${vocabIcon(ic, 20)}<span>${label}</span></button>`);
-      b.onclick = () => openTool(id);
-      row.append(b);
-    }
   }
   function paint() { paintTexts(); paintNotes(); paintAdds(); paintFoot(); }
 
@@ -268,7 +246,7 @@ export function openWordEditor(el, v, deps) {
   const onPress = (e) => {
     if (closed) return;
     const add = e.target.closest(".vi-add");
-    if (add) { const f = add.dataset.add; if (f === "sentence") openTool("sentence"); else edit(f); return; }
+    if (add) { const f = add.dataset.add; if (f === "sentence") tools.open("sentence"); else edit(f); return; }
     const line = e.target.closest(".vi-edit");
     if (!line || line.classList.contains("editing") || e.target.closest(".rv-editing, a")) return;
     edit(line.dataset.f);
@@ -299,298 +277,6 @@ export function openWordEditor(el, v, deps) {
     },
   });
 
-  // ----- the tools under the row -----
-  function openTool(id) {
-    if (closed) return;
-    if (tool === id) { closeTool(); return; }
-    closeTool();
-    tool = id;
-    for (const b of el.querySelectorAll(".vi-tool[aria-pressed]")) b.setAttribute("aria-pressed", String(b.dataset.tool === id));
-    panel.hidden = false;
-    panel.innerHTML = "";
-    panel.dataset.tool = id;
-    if (id === "mnemonic") mnemonicTool();
-    else if (id === "sentence") sentenceTool();
-    else if (id === "record") recordTool();
-    else if (id === "folders") foldersTool();
-    // Brought into sight when it opens below the screen's edge (nothing above it moves).
-    requestAnimationFrame(() => {
-      const r = panel.getBoundingClientRect(), room = window.innerHeight - 24;
-      if (!panel.hidden && r.top > room - 140) window.scrollBy({ top: Math.min(r.top - (room - 220), r.top - 80), behavior: "smooth" });
-    });
-  }
-  function closeTool() {
-    stopTool();
-    stopTool = () => {};
-    tool = "";
-    panel.hidden = true;
-    panel.innerHTML = "";
-    delete panel.dataset.tool;
-    for (const b of el.querySelectorAll(".vi-tool[aria-pressed]")) b.setAttribute("aria-pressed", "false");
-  }
-  const stillOpen = (id) => !closed && tool === id;
-
-  /** The Mnemonic maker (review/cardtools.js), started at once unless it has made some for this word already. */
-  function mnemonicTool() {
-    panel.innerHTML = mnemonicHtml();
-    const box = panel.firstElementChild;
-    mnemonicMaker(box, v, {
-      lang: studyLang(),
-      shownWord: () => v.text,
-      onUse: (text) => {
-        if (String(v.memo || "").includes(text)) return;
-        saveChange({ memo: addToNotes(v.memo || "", text) });
-        paintNotes();
-        paintAdds();
-      },
-    });
-    if (!hasMnemonics(v)) box.querySelector(".rv-mnemo-go").click();
-  }
-
-  /** An example sentence: written by the AI when it is set up (as in "Add words"), else a real one. */
-  function sentenceTool() {
-    const ai = aiWrites();
-    panel.innerHTML = `<div class="vi-sent">
-      <div class="vi-pair vi-sent-ways"${ai ? "" : " hidden"}>
-        <button type="button" class="vi-btn" data-way="free">${icon("search", 16)}<span>Find a real one</span></button>
-        <button type="button" class="vi-btn" data-way="ai">${icon("sparkle", 16)}<span>Write one for me</span></button>
-      </div>
-      <div class="vi-sent-found" hidden>
-        <div class="vi-sent-text"></div>
-        <div class="vi-sent-trans" translate="no"></div>
-        <div class="vi-sent-from"></div>
-      </div>
-      <p class="vi-sent-note" hidden></p>
-      <div class="vi-pair vi-sent-pick" hidden>
-        <button type="button" class="primary vi-btn vi-sent-use">Use this</button>
-        <button type="button" class="vi-btn vi-sent-again">Another one</button>
-      </div>
-      <button type="button" class="vi-link vi-sent-type">Type my own</button>
-      ${freeChosen() ? `<a class="vi-link vi-sent-source" href="${SENTENCE_SOURCE}">AI can write them instead</a>` : ""}
-    </div>`;
-    const box = panel.firstElementChild;
-    const found = box.querySelector(".vi-sent-found"), note = box.querySelector(".vi-sent-note"), pick = box.querySelector(".vi-sent-pick");
-    const say = (text, error = false) => { note.hidden = !text; note.textContent = text || ""; note.classList.toggle("error", error); };
-    const skip = [];
-    let way = ai ? "ai" : "free";
-    let got = null;
-    async function run(w = way) {
-      way = w;
-      for (const b of box.querySelectorAll("[data-way]")) b.setAttribute("aria-pressed", String(b.dataset.way === way));
-      for (const b of box.querySelectorAll("button")) b.disabled = true;
-      found.hidden = true;
-      pick.hidden = true;
-      say(way === "ai" ? t("Writing a sentence…") : t("Finding a sentence…"));
-      const lang = studyLang();
-      try {
-        got = await findSentence(v, lang, { way, skip });
-      } catch (e) {
-        got = null;
-        if (!stillOpen("sentence")) return;
-        say(e && e.message ? e.message : t("That didn't work. Try again."), true);
-        offerFix(e);  // no key, or a refused one: the popup with the way to Settings
-        const fix = troubleshootButton(e);
-        if (fix) note.append(" ", fix);
-        return;
-      } finally {
-        for (const b of box.querySelectorAll("button")) b.disabled = false;
-      }
-      if (!stillOpen("sentence")) return;
-      if (!got) {
-        say(way === "ai" ? t("The AI sent nothing back for this word. Try again.")
-          : skip.length ? t("No other example sentence was found for this word.") : t("No example sentence was found for this word. Type one, or leave it empty."));
-        pick.hidden = way !== "ai";
-        box.querySelector(".vi-sent-use").hidden = true;
-        return;
-      }
-      skip.push(got.sentence);
-      const text = box.querySelector(".vi-sent-text");
-      setLang(text, lang);
-      text.innerHTML = markedSentenceHtml(got.sentence, v.text, esc);
-      const trans = box.querySelector(".vi-sent-trans");
-      const { text: plain, marks } = litParts(got.translation || "", null);
-      trans.innerHTML = marks.length ? litTextHtml(plain, marks, esc) : esc(plain);
-      trans.dir = "auto";
-      trans.hidden = !plain.trim();
-      const from = box.querySelector(".vi-sent-from");
-      from.textContent = got.by === "ai" ? t("Written for you by the AI") : t("From {0}", sourceOf(got.source).name);
-      if (got.readable) from.textContent += ` · ${t("Every other word in this sentence is one you know.")}`;
-      found.hidden = false;
-      say("");
-      box.querySelector(".vi-sent-use").hidden = false;
-      pick.hidden = false;
-    }
-    for (const b of box.querySelectorAll("[data-way]")) b.onclick = () => { skip.length = 0; run(b.dataset.way); };
-    box.querySelector(".vi-sent-again").onclick = () => run();
-    box.querySelector(".vi-sent-use").onclick = () => {
-      if (!got) return;
-      saveChange({ sentence: got.sentence, translation: got.translation || "" });
-      cuts.clear();
-      closeTool();
-      paint();
-      paintQuick(true);
-    };
-    box.querySelector(".vi-sent-type").onclick = () => { closeTool(); edit("sentence"); };
-    run();
-  }
-
-  /** The word's own recording (and then its sentence's), or a sound file: kept with the card like a voice. */
-  function recordTool() {
-    const parts = { word: null, sentence: null };
-    let rec = null;      // {which, ctl, paint} while the microphone is listening
-    let busy = false;
-    let player = null;
-    panel.innerHTML = `<div class="vi-rec"><div class="vi-rec-parts"></div><p class="vi-rec-note" hidden></p>
-      <div class="vi-pair vi-rec-keep" hidden><button type="button" class="primary vi-btn">Save the audio</button></div></div>`;
-    const box = panel.firstElementChild;
-    const note = box.querySelector(".vi-rec-note");
-    const say = (text, error = false) => { note.hidden = !text; note.textContent = text || ""; note.classList.toggle("error", error); };
-    stopTool = () => {
-      if (rec) { const r = rec; rec = null; try { r.ctl.stop(); } catch { /* gone */ } }
-      if (player) { player.pause(); URL.revokeObjectURL(player.src); player = null; }
-    };
-    const hasSentence = () => !!stripMarks(v.sentence || "").trim();
-    function paintParts() {
-      const list = box.querySelector(".vi-rec-parts");
-      list.innerHTML = "";
-      for (const which of ["word", "sentence"]) {
-        if (which === "sentence" && (!parts.word || !hasSentence())) continue;  // (a sentence only after its word)
-        if (rec && rec.which === which) {
-          const row = h(`<div class="vi-rec-row"><span class="cb-rec" role="status"><i class="cb-rec-dot" aria-hidden="true"></i><span class="cb-rec-what"></span>
-            <span class="cb-rec-time">0:00</span></span><button type="button" class="vi-btn">${icon("stop", 16)} Stop</button></div>`);
-          row.querySelector(".cb-rec-what").textContent = which === "word" ? t("Recording the word…") : t("Recording the sentence…");
-          row.querySelector("button").onclick = () => rec && rec.ctl.stop();
-          rec.paint = (level, ms) => {
-            row.querySelector(".cb-rec").style.setProperty("--level", String(level));
-            const s = Math.floor(ms / 1000);
-            row.querySelector(".cb-rec-time").textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
-          };
-          list.append(row);
-          continue;
-        }
-        const part = parts[which];
-        if (part) {
-          const row = h(`<div class="vi-rec-row"><button type="button" class="vi-btn vi-rec-play">${icon("play", 15)} <span></span></button>
-            <button type="button" class="vi-btn vi-rec-rm" title="Remove">${icon("close", 15)}</button></div>`);
-          row.querySelector(".vi-rec-play span").textContent = `${t(which === "word" ? "Word" : "Sentence")} · ${seconds(part).toFixed(1)} s`;
-          row.querySelector(".vi-rec-play").onclick = () => hear(part);
-          row.querySelector(".vi-rec-rm").setAttribute("aria-label", which === "word" ? t("Remove the word's audio") : t("Remove the sentence's audio"));
-          row.querySelector(".vi-rec-rm").onclick = () => { parts[which] = null; if (which === "word") parts.sentence = null; paintParts(); };
-          list.append(row);
-          continue;
-        }
-        const row = h(`<div class="vi-pair"></div>`);
-        if (canRecord()) {
-          const b = h(`<button type="button" class="vi-btn">${icon("mic", 16)} <span></span></button>`);
-          b.querySelector("span").textContent = which === "word" ? t("Record the word") : t("Record the sentence");
-          b.onclick = () => record(which);
-          row.append(b);
-        }
-        const file = h(`<button type="button" class="vi-btn">${icon("upload", 16)} <span></span></button>`);
-        file.querySelector("span").textContent = t("Choose a sound file");
-        file.onclick = () => pickFile(which);
-        row.append(file);
-        list.append(row);
-      }
-      box.querySelector(".vi-rec-keep").hidden = !parts.word || !!rec;
-      for (const b of box.querySelectorAll("button")) b.disabled = busy && !b.closest(".vi-rec-row .cb-rec");
-    }
-    function hear(part) {
-      try {
-        if (player) { player.pause(); URL.revokeObjectURL(player.src); }
-        player = new Audio(URL.createObjectURL(previewBlob(part)));
-        player.play().catch(() => {});
-      } catch { /* nothing to play */ }
-    }
-    async function use(which, blob) {
-      busy = true;
-      paintParts();
-      try {
-        const part = await partFrom(blob, which);
-        parts[which] = part;
-        say(part.cut ? t("Only the first {0} seconds are kept.", MAX_SECONDS[which]) : "");
-      } catch (err) {
-        say(err && err.message ? t(err.message) : String(err), true);
-      } finally {
-        busy = false;
-        if (stillOpen("record")) paintParts();
-      }
-    }
-    async function record(which) {
-      if (rec) rec.ctl.stop();
-      say("");
-      let me = null;
-      try {
-        const ctl = await startRecording({ which, onLevel: (level, ms) => me && me.paint && me.paint(level, ms) });
-        if (!stillOpen("record")) { ctl.stop(); return; }
-        me = rec = { which, ctl, paint: null };
-        paintParts();
-        const blob = await ctl.done;
-        if (rec !== me) return;  // put away meanwhile
-        rec = null;
-        await use(which, blob);
-      } catch (err) {
-        if (rec === me) rec = null;
-        if (err && err.kind === "mic") offerFix("mic");  // the popup with the way to allow it
-        if (stillOpen("record")) { say(err && err.message ? t(err.message) : String(err), true); paintParts(); }
-      }
-    }
-    function pickFile(which) {
-      const input = h(`<input type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg,.opus,.aac,.flac,.webm" hidden>`);
-      input.onchange = () => {
-        const f = input.files && input.files[0];
-        input.remove();
-        if (f) use(which, f);
-      };
-      document.body.append(input);
-      input.click();  // (still inside the tap, so a phone lets the file chooser open)
-    }
-    box.querySelector(".vi-rec-keep button").onclick = async () => {
-      if (!parts.word || busy) return;
-      busy = true;
-      paintParts();
-      say(t("Keeping its audio…"));
-      try {
-        const made = await cardAudio({ word: parts.word, sentence: hasSentence() ? parts.sentence : null });
-        const kept = await saveRecording(v.id, made.blob, made.times);
-        v.voice = (kept && kept.voice) || JSON.stringify(made.times);
-        v.updated_at = Date.now() / 1000;
-        changed(v, { voice: v.voice });
-        if (closed) return;
-        closeTool();
-        paintTools();
-        paintQuick(true);
-        refreshQuick();
-        toast(t("Its audio is saved with the card."), { timeout: 2500 });
-      } catch (err) {
-        busy = false;
-        if (stillOpen("record")) { say(t("Its audio couldn't be kept: {0}", t(err && err.message ? err.message : String(err))), true); paintParts(); }
-      }
-    };
-    paintParts();
-  }
-
-  /** Its folders: a tap puts it in one or takes it out; New folder makes one and puts it there. */
-  function foldersTool() {
-    panel.innerHTML = `<div class="vi-folders"></div>`;
-    const box = panel.firstElementChild;
-    const draw = () => {
-      if (!stillOpen("folders")) return;
-      box.innerHTML = "";
-      for (const f of folders()) {
-        const on = (v.folders || []).includes(f.uid);
-        const b = h(`<button type="button" class="folder-chip${on ? " active" : ""}" aria-pressed="${on}">${icon(on ? "check" : "folder", 15)} <span></span></button>`);
-        b.querySelector("span").textContent = f.name;
-        b.onclick = async () => { b.disabled = true; await setFolder(v, f.uid, !(v.folders || []).includes(f.uid)); draw(); };
-        box.append(b);
-      }
-      const add = h(`<button type="button" class="folder-chip ghost">${icon("plus", 15)} <span>New folder</span></button>`);
-      add.onclick = async () => { const f = await newFolder(); if (f) await setFolder(v, f.uid, true); draw(); };
-      box.append(add);
-    };
-    draw();
-  }
-
   /** ⋯: copy it, send it to a friend, delete it. */
   function moreMenu(button) {
     const r = button.getBoundingClientRect();
@@ -606,7 +292,7 @@ export function openWordEditor(el, v, deps) {
   function close() {
     if (closed) return;
     if (editing) editing.ed.close(true);
-    closeTool();
+    tools.close();
     closed = true;
     clearTimeout(savedTimer);
     stopHolding();
@@ -617,6 +303,5 @@ export function openWordEditor(el, v, deps) {
   body.querySelector(".vi-more").onclick = (e) => moreMenu(e.currentTarget);
   paint();
   paintQuick(true);
-  paintTools();
   return { close, paintQuick: () => paintQuick() };
 }

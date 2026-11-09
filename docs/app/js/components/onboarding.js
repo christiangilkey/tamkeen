@@ -1,5 +1,5 @@
 // The first time the app is opened: four boxes, one after the other.
-//   1. Which language do you speak? (Asked in every language; from then on the app's own words
+//   1. What is your native language? (Asked in every language; from then on the app's own words
 //      are in that one, and the AI explains words in it: see i18n.js.)
 //   2. Which language are you learning? (English is offered to everyone who speaks another one.)
 //   3. Have you already started, or are you a complete beginner? (For someone who has started,

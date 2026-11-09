@@ -41,10 +41,12 @@ function keep(key, bytes, type) {
   return url;
 }
 
-/** Made by Azure with the learner's key, or null when Azure isn't their card voice (or has none for `lang`). */
-async function azureUrl(text, lang, s) {
+/** Made by Azure with the learner's key, or null when Azure isn't their card voice (or has none for `lang`).
+ * `dialect`: an Arabic dialect's text ("irq") is said by that dialect's voice (dialectvoice.js); the Iraqi g
+ * and ch (گ, چ) reach the Iraqi voice as sounds it can say (cardvoice.js buildSsml). */
+async function azureUrl(text, lang, s, dialect = "") {
   if (voiceMode(s) !== "azure" || !azureReady(s) || !AZURE_VOICES[lang]) return null;
-  const voice = await azureVoiceOf(lang, s);
+  const voice = await azureVoiceOf(lang, s, dialect);
   if (!voice) return null;
   const key = `${voice}\u0000${text}`;
   if (made.has(key)) return made.get(key);
@@ -63,16 +65,19 @@ async function computerUrl(text, lang, s) {
 }
 
 /**
- * Say `text` (in language `lang`). Resolves to {ended}; never rejects: when the chosen voice fails, the
- * device's own voice says it, and when nothing can, one calm message says so (not on every tap).
+ * Say `text` (in language `lang`; `dialect`: the Arabic dialect it is in, "lev", or "" for Standard Arabic).
+ * Resolves to {ended}; never rejects: when the chosen voice fails, the device's own voice says it, and when
+ * nothing can, one calm message says so (not on every tap). The computer's and the device's voices speak
+ * only Standard Arabic and skip گ / چ, so they get ق / ك instead (grammardata.js sayable).
  */
-export async function sayText(text, lang) {
+export async function sayText(text, lang, { dialect = "" } = {}) {
   const s = settings();
-  const clean = sayable(String(text || "").replace(/[⟦⟧]/g, "").trim(), lang); // (Iraqi گ / چ: grammardata.js)
+  const raw = String(text || "").replace(/[⟦⟧]/g, "").trim();
+  const clean = sayable(raw, lang);
   if (!clean) return { ended: Promise.resolve() };
   for (const make of [azureUrl, computerUrl]) {
     try {
-      const url = await make(clean, lang, s);
+      const url = make === azureUrl ? await azureUrl(raw, lang, s, dialect) : await make(clean, lang, s);
       if (url) return await playUrl(url);
     } catch (e) {
       if (e && e.name === "NotAllowedError") return { ended: Promise.resolve() };

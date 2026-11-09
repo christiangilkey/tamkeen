@@ -1,4 +1,4 @@
-// Library → Courses → DLI: the material for the learner's DLI language (Settings → Languages → DLI
+// Library → Courses → DLI: the material for the learner's DLI language (Settings → DLI
 // students), opened on the device with the key the password made (dlicontent.js). Podcasts are in the
 // learner's podcasts with every episode transcribed (added by themselves on unlocking; "Add to my
 // podcasts" brings one back after it was removed); vocabulary decks are in the Vocab tab, a folder per chapter;
@@ -196,7 +196,7 @@ export function dliPanel(el, language) {
     if (!alive) return;
     console.warn("DLI content", e);
     bodyEl.innerHTML = "";
-    const p = h(`<div class="dli-soon"><p></p><a class="btn" href="#/settings?s=languages&show=dli"></a></div>`);
+    const p = h(`<div class="dli-soon"><p></p><a class="btn" href="#/settings?s=dli"></a></div>`);
     p.querySelector("p").textContent = t("The DLI content couldn't be opened. Unlock it again in Settings.");
     p.querySelector("a").textContent = t("Open Settings");
     bodyEl.append(p);

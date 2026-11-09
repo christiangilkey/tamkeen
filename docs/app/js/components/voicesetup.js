@@ -71,6 +71,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       reads the Latin cards that have no recording, the way the Church says Latin: c before e and i as in “cello”, ae as e. Off:
       Latin cards play only the recordings they were saved from.</span></span></label>` : ""}
     <div class="vo-panel" id="vo-device"></div>
+    ${lang === "ar" ? `<p class="set-hint vo-dialects" id="vo-dialects" data-find="dialectvoices"></p>` : ""}
     <div class="stt-cloud vo-azure" id="vo-azure" data-find="azurekey">
       <h3>Azure Speech</h3>
       <div class="ai-setup">
@@ -146,7 +147,17 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       tag.textContent = mode === "device" ? "Free" : "✓ In use";
     }
     $("#vo-keyrow").classList.toggle("need", mode === "azure" && (!cleanAzureKey(cur().tts_key_azure) || refused));
+    paintDialects();
     paintAll();
+  }
+
+  // ----- Arabic: which voice says a dialect's words (dialectvoice.js) -----
+  function paintDialects() {
+    const box = $("#vo-dialects");
+    if (!box) return;
+    box.textContent = voiceMode(cur()) === "azure"
+      ? "Arabic dialect words are read by a voice from that dialect: words from the Levantine course by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Courses, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
+      : "This device's voice and the computer's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure.";
   }
 
   // ----- this device's voice for the language being learned -----

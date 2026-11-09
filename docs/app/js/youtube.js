@@ -34,7 +34,8 @@ export async function libraryVideo(id) {
 }
 
 /** Add the video at `link` to the library. Resolves to the new episode (with `auto` and `words`).
- * A video with no captions at all: the learner is offered captions written by Gemini instead
+ * A video with no captions at all (or none the player could use in the language): the learner is
+ * offered captions written by Gemini instead
  * (components/geminicaptions.js), unless `opts.offer` is false; `opts.beforeOffer()` runs just before
  * the offer shows (to clear the way to it, e.g. close the phone's in-app browser). Turned down, it
  * throws an Error with `quiet: true`: the learner chose that, so there is nothing to tell them. */
@@ -45,7 +46,8 @@ export async function importVideo(link, opts = {}) {
   try {
     v = await readVideo(id);
   } catch (e) {
-    if (!(e && e.code === "no_captions" && e.video) || opts.offer === false || typeof document === "undefined") throw e;
+    // (no captions at all, or none in the language: the two that lists of videos tag, see ytcaptiontag.js)
+    if (!(e && (e.code === "no_captions" || e.code === "no_language") && e.video) || opts.offer === false || typeof document === "undefined") throw e;
     if (opts.beforeOffer) { try { await opts.beforeOffer(e); } catch { /* the offer shows anyway */ } }
     const { offerGeminiCaptions } = await import("./components/geminicaptions.js");
     const { aiKey } = await import("./define-service.js");

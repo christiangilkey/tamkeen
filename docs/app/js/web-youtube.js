@@ -1,15 +1,70 @@
 // The web app's YouTube page. The installed apps open YouTube in their own browser and catch the
 // video tapped there; a web page can't, so here YouTube's list of videos (popular ones, a search,
 // or a followed channel's videos) is read through the go-between server and shown inside Tamkeen.
-// Tapping a video opens it with its captions as words, like on the phone.
+// Tapping a video opens it with its captions as words, like on the phone. A video YouTube has no
+// captions for gets a small tag once it is on screen (ytcaptiontag.js).
 
-import { esc, toast } from "./app.js";
+import { esc, toast, ytRequest } from "./app.js";
 import { offerFix } from "./components/fixit.js";
+import { aiKey } from "./define-service.js";
 import { icon } from "./icons.js";
-import { langInfo } from "./languages.js";
+import { LANGUAGE_CODES, langInfo } from "./languages.js";
 import { webFetch } from "./native.js";
-import { settings } from "./store.js";
+import { lib, settings } from "./store.js";
+import { checkCaptions } from "./ytcaptions.js";
+import { captionChecker, tagText } from "./ytcaptiontag.js";
 import { THIS_YEAR, TOPICS, TOPIC_WITHIN, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "./youtube-home.js";
+
+// ---------- the "No captions · Gemini required" tag ----------
+// One checker per study language, kept while the app is open; its answers also last between visits
+// (this browser's storage), so going back to a list doesn't ask YouTube again.
+const STORE_KEY = "tamkeen-yt-captions";
+const checkers = new Map();
+function checkerFor(lang) {
+  if (!checkers.has(lang)) {
+    const store = {
+      load: () => { try { return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch { return {}; } },
+      save: (kept) => { try { localStorage.setItem(STORE_KEY, JSON.stringify(kept)); } catch { /* memory only */ } },
+    };
+    checkers.set(lang, captionChecker({ scope: lang, store,
+      check: (id) => checkCaptions(id, { language: lang, taught: LANGUAGE_CODES, request: ytRequest }) }));
+  }
+  return checkers.get(lang);
+}
+
+/** Videos already in the library with captions Gemini wrote: those open with them, so no tag. */
+function geminiMade() {
+  return new Set((lib.episodes || []).filter((e) => !e.deleted && e.model === "youtube-gemini").map((e) => String(e.guid)));
+}
+
+/** Check each card's video once it comes near the screen (a few at a time) and tag it when YouTube
+ * has no captions for it. `cards`: [[element, video id, tag element]]. */
+function tagCards(cards, lang) {
+  const checker = checkerFor(lang);
+  const made = geminiMade();
+  const hasKey = !!aiKey("gemini");
+  const show = (tag, id, result) => {
+    const text = tagText(result, { hasKey, made: made.has(id) });
+    tag.textContent = text;
+    tag.hidden = !text;
+  };
+  const byCard = new Map(cards.map((c) => [c[0], c]));
+  const look = (card) => {
+    const [, id, tag] = byCard.get(card);
+    checker.want(id).then((r) => { if (r) show(tag, id, r); });
+  };
+  if (typeof IntersectionObserver === "undefined") { cards.slice(0, 6).forEach((c) => look(c[0])); return; }
+  const seen = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      const [, id] = byCard.get(e.target);
+      if (!e.isIntersecting) { checker.drop(id); continue; }
+      const have = checker.known(id);
+      if (have) { show(byCard.get(e.target)[2], id, have); seen.unobserve(e.target); continue; }
+      look(e.target);
+    }
+  }, { rootMargin: "200px 0px" });
+  cards.forEach((c) => seen.observe(c[0]));
+}
 
 
 /** The data YouTube puts in its pages ("ytInitialData"): a JSON object on the computer site,
@@ -122,6 +177,7 @@ export async function render(view, { query }) {
   }
   if (!videos.length) { list.innerHTML = `<p class="muted">No videos found.</p>`; return; }
   list.innerHTML = "";
+  const cards = [];
   for (const v of videos) {
     const card = document.createElement("button");
     card.type = "button";
@@ -130,9 +186,11 @@ export async function render(view, { query }) {
     card.innerHTML = `<span style="position:relative;flex:0 0 40%;max-width:220px">
         <img src="${esc(v.thumb)}" alt="" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;display:block">
         ${v.length ? `<span class="small" style="position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);color:#fff;border-radius:6px;padding:0 6px">${esc(v.length)}</span>` : ""}</span>
-      <span class="stack" style="gap:4px;min-width:0">
+      <span class="stack" style="display:flex;flex-direction:column;gap:4px;min-width:0;white-space:normal">
         <strong dir="auto" style="overflow-wrap:anywhere">${esc(v.title)}</strong>
-        <span class="small muted" dir="auto">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span></span>`;
+        <span class="small muted" dir="auto">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
+        <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span></span>`;
+    cards.push([card, v.id, card.querySelector(".web-yt-tag")]);
     card.onclick = async () => {
       if (card.disabled) return;
       card.disabled = true;
@@ -152,4 +210,5 @@ export async function render(view, { query }) {
     };
     list.append(card);
   }
+  if (lang) tagCards(cards, lang);
 }

@@ -81,6 +81,8 @@ export function grammarPanel(box, lang, choice) {
   // (for the AI that puts lessons in the learner's language: "Arabic", or "Levantine Arabic")
   const variety = choice.dialect ? (ARABIC_VARIETIES.find((v) => v.id === choice.dialect) || {}).name : "";
   const taught = `${variety ? `${variety} ` : ""}${(langInfo(lang) || {}).name || lang}`;
+  // Examples are said in the course's own kind of Arabic: a dialect course's by that dialect's voice (saytext.js).
+  const say = (text) => sayText(text, lang, { dialect: choice.dialect || "" });
   let course = null, list = null, progress = {};
   let making = null;                  // {stop: false} while "Make the rest now" runs
   let currentTopic = "";              // the grammar of the lesson on screen (for the AI's look at "your turn")
@@ -404,7 +406,7 @@ export function grammarPanel(box, lang, choice) {
         for (const el of lines) {
           if (!el.isConnected) return;
           el.classList.add("saying");
-          const { ended } = await sayText(el.dataset.say, lang);
+          const { ended } = await say(el.dataset.say);
           await ended;
           el.classList.remove("saying");
           await new Promise((ok) => setTimeout(ok, 250));
@@ -533,7 +535,7 @@ export function grammarPanel(box, lang, choice) {
       const el = e.target.closest("[data-say]");
       if (!el || !view.contains(el) || e.target.closest("button:not([data-say])")) return;
       el.classList.add("saying");
-      sayText(el.dataset.say, lang).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
+      say(el.dataset.say).then(({ ended }) => ended).finally(() => el.classList.remove("saying"));
       heard(el.dataset.say, el);
     });
   }
@@ -604,7 +606,7 @@ export function grammarPanel(box, lang, choice) {
           else if (j === k) x.classList.add("wrong");
         }
         feedback(li, ok, q.why);
-        if (ok) sayText(`${before}${q.options[q.answer]}${after}`, lang);
+        if (ok) say(`${before}${q.options[q.answer]}${after}`);
         done(ok);
       };
       opts.append(b);
@@ -633,7 +635,7 @@ export function grammarPanel(box, lang, choice) {
       const picked = [...line.children].map((t) => t.dataset.word);
       const ok = orderIsRight(q, picked);
       li.classList.add("checked");
-      if (ok) sayText(picked.join(" "), lang);
+      if (ok) say(picked.join(" "));
       const fb = feedback(li, ok, ok ? q.why : "");
       if (!ok) {
         fb.append(h(`<span>The right order:</span>`));
@@ -678,7 +680,7 @@ export function grammarPanel(box, lang, choice) {
           const fb = h(`<div class="gq-fb small ${ok ? "ok" : "no"}"><strong>${ok ? `${icon("check", 14)} <span>Right!</span>` : `${icon("close", 14)} <span>Not quite.</span>`}</strong></div>`);
           if (line.why) fb.append(h(`<span translate="no">${rich(line.why)}</span>`));
           chat.append(fb);
-          sayText(line.options[line.answer], lang);
+          say(line.options[line.answer]);
           i++;
           setTimeout(next, 350);
         };
@@ -718,7 +720,7 @@ export function grammarPanel(box, lang, choice) {
     show.onclick = () => {
       show.remove();
       li.append(answerCard(q.answer, q.r));
-      sayText(q.answer, lang);
+      say(q.answer);
       if (q.why) li.append(h(`<div class="gq-why" translate="no">${rich(q.why)}</div>`));
       selfCheck(li, done, "Did you get it?");
     };
