@@ -546,3 +546,15 @@ test("battles from the words due for review, or from one folder, once 20 of them
   assert.equal(odd.battleMode, "last100");
   assert.equal(odd.battleFolder, "");
 });
+
+test("a battle never pays 0 XP, however many came before it that day (coins still stop)", async () => {
+  const { BATTLE_XP_FLOOR } = await import("../../web/js/game/rules.js");
+  const s = newState(12);
+  const now = new Date("2026-11-08T10:00:00");
+  const pays = Array.from({ length: 14 }, (_, i) => finishBattle(s, { mode: "wild", won: i % 2 === 0 }, { now, rand: () => 0.99 }));
+  assert.equal(pays[0].xp, 40, "the first win of the day in full");
+  assert.ok(pays.every((p) => p.xp > 0), "never nothing");
+  assert.equal(pays[12].xp, BATTLE_XP_FLOOR.won, "a win late in the day: the least a win pays");
+  assert.equal(pays[13].xp, BATTLE_XP_FLOOR.lost, "a loss late in the day: the least a loss pays");
+  assert.equal(pays[12].coins, 0, "but no coins by then");
+});

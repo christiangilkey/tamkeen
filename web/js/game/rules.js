@@ -774,6 +774,9 @@ export function reviewSummary(state, vocab, now = new Date()) {
 // ---------- battles: what they pay ----------
 export const weeklyRule = (now = new Date()) => WEEKLY_RULES[weekNumber(now) % WEEKLY_RULES.length];
 
+/** The least XP a battle pays however many came before it that day: a win, a loss. */
+export const BATTLE_XP_FLOOR = { won: 3, lost: 1 };
+
 /** A little extra strength from a creature's age, used ONLY against wild creatures and bosses.
  * Battles between people ignore it: there, everyone fights at the same level. */
 export const wildBonus = (genome) => 1 + 0.15 * Math.min(1, genome.growth);
@@ -791,7 +794,10 @@ export function finishBattle(state, result, ctx = {}) {
   if (ticket) { state.items.ticket--; share = 1; }
   state.day.battles++;
   state.stats.battles++;
-  const out = { xp: Math.round((result.won ? 40 : 15) * share), coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
+  // XP fades with the day's battles but never to nothing (the owner: "should never give you zero XP, maybe
+  // less but not zero"): at least BATTLE_XP_FLOOR. Coins still stop after the day's first battles.
+  const xp = Math.max(result.won ? BATTLE_XP_FLOOR.won : BATTLE_XP_FLOOR.lost, Math.round((result.won ? 40 : 15) * share));
+  const out = { xp, coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
   if (result.won) {
     state.stats.wins++;
     // Feats in battle, not hours of grinding, open the special forms and moves.
