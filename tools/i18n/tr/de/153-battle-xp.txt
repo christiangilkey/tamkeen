@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	Ein weiterer Kampf heute zahlt nach den ersten dreien die vollen Münzen aus.
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	Kämpfe: 3 für jede richtige Antwort, {0} für jedes Wort, das gut bekannt wird, und {1} mehr für einen Sieg oder {2} für eine Niederlage.
 6b0419a5	Dieses Wort ist jetzt gut bekannt: +{0} EP
-18284367	Ein Kampfticket hat diesen die vollen Münzen auszahlen lassen.

@@ -430,7 +430,8 @@ once real art arrives). Real art replaces files one for one, same name and size.
   `tests/js/idle.test.mjs`), screens in `garden.js` (Garden and Supplies pages of the game sheet), data in
   `data.js` (`STRUCTURES`, `PLOTS`, `FOODS`, `SUPPLIES`). State: `state.idle` (plots, glow, stardust, released,
   ledgers), `state.gems`, `state.items.<supply>`, `state.boostUntil`, `state.incubating`, `creature.bond/fed`.
-  Small hooks in `rules.js` (XP boost, ticket, incubator) and `battle.js` (`usePotion`, wild battles only).
+  Small hooks in `rules.js` (XP boost, incubator) and `battle.js` (`usePotion`, wild battles only). Battle tickets
+  were removed on 2026-11-09 (the owner's choice); `normalize` turns any still held into `TICKET_GEMS` (2) gems each.
 - Gems are paid by a ledger inside `idle.tick` (it compares badge, raid and league counts with what it has
   already paid), so nothing else needs to remember to pay them.
 - Branches now: `main` (everything except the two Anki pieces), `anki-companion` (Anki review add-on),
@@ -7316,7 +7317,7 @@ Pokédex entry; then "Do the same with all the other buttons you press on this c
   it and Use a key on the first closed one), Release a creature (a row per fully grown one with the stardust it leaves;
   its explanation is behind the block's "?"). Per-plot Collect moved into the building's box.
 - **Supplies**: Food (who eats, hearts, fed n of 3; six food tiles with price and a corner count; a box with Buy and
-  Feed, staying open), then For battles (potion, ticket), For your creatures (XP boost, mystery egg, incubator), For the
+  Feed, staying open), then For battles (potion), For your creatures (XP boost, mystery egg, incubator), For the
   garden (key); each box has Buy and, where it applies, Use now / Add 20 more minutes / Warm an egg.
 - CSS: app.css block "creature game: each section its own screen" (after the home card block); the old phone rule for
   the tab row is gone. i18n `tools/i18n/tr/<code>/135-game-screens.txt` (67 strings × 16).

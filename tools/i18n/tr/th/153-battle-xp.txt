@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	การต่อสู้อีกหนึ่งครั้งในวันนี้หลังจากสามครั้งแรกจะได้เหรียญเต็ม
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	การต่อสู้: 3 ต่อคำตอบที่ถูก {0} ต่อคำที่คุณรู้ดีแล้ว และอีก {1} เมื่อชนะ หรือ {2} เมื่อแพ้
 6b0419a5	ตอนนี้คุณรู้คำนี้ดีแล้ว +{0} XP
-18284367	ตั๋วต่อสู้ทำให้ครั้งนี้ได้เหรียญเต็ม

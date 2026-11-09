@@ -458,7 +458,6 @@ export const FOODS = [
 export const SUPPLIES = [
   { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
   { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
-  { id: "ticket", name: "Battle ticket", gems: 2, text: "One more battle today pays full coins, after the first three." },
   { id: "incubator", name: "Incubator", gems: 4, text: "Warms an egg so it grows alongside the creature in your habitat." },
   { id: "key", name: "Plot key", gems: 5, text: "Opens the next building plot without waiting for its milestone." },
   { id: "egg", name: "Mystery egg", gems: 6, icon: "egg_mystery", text: "A new egg for your roster. Its element leans toward how you study." },
@@ -567,7 +566,7 @@ export function artFiles() {
   extra("structure/plot.png", [32, 32]);
   for (const s of STRUCTURES) for (const tier of [1, 2, 3]) extra(`structure/${s.id}_${tier}.png`, tier === 3 ? [48, 48] : [32, 32]);
   for (const f of FOODS) extra(`icon/${f.id}.png`, [16, 16]);
-  for (const id of ["potion", "key", "ticket", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
+  for (const id of ["potion", "key", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
   for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
   for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
   for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);

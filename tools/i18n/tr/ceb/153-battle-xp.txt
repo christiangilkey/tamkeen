@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	Usa pa ka sangka karon ang hingpit nga bayran og coin, human sa unang tulo.
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	Mga sangka: 3 sa matag sakto nga tubag, {0} sa matag pulong nga imong makabalo na kaayo, ug {1} pa kon modaog o {2} kon mapildi.
 6b0419a5	Kabalo na kaayo ka niana nga pulong karon: +{0} XP
-18284367	Tungod sa ticket sa sangka, hingpit ang bayad nga coin niini.

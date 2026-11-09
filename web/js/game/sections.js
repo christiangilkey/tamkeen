@@ -153,7 +153,7 @@ export function wearing(state) {
 /** The Supplies screen's blocks after Food: what each thing is for. Anything new in data.SUPPLIES that isn't
  * listed here goes into the last block, so it is never missing from the screen. */
 const SUPPLY_GROUPS = [
-  { id: "battle", label: "For battles", ids: ["potion", "ticket"] },
+  { id: "battle", label: "For battles", ids: ["potion"] },
   { id: "grow", label: "For your creatures", ids: ["xp_boost", "egg", "incubator"] },
   { id: "garden", label: "For the garden", ids: ["key"] },
 ];

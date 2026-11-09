@@ -11175,16 +11175,6 @@
   "f": "web/js/game/data.js"
  },
  {
-  "id": "2b8f2201",
-  "k": "Battle ticket",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "3ece5591",
-  "k": "One more battle today pays full coins, after the first three.",
-  "f": "web/js/game/data.js"
- },
- {
   "id": "7d10b37f",
   "k": "Incubator",
   "f": "web/js/game/data.js"
@@ -12112,11 +12102,6 @@
  {
   "id": "df139e6c",
   "k": "Yum.",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "265753d6",
-  "k": "Used by itself when a battle would pay less.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -13352,11 +13337,6 @@
  {
   "id": "21526016",
   "k": "The wild creature left you an egg.",
-  "f": "web/js/game/livebattle-ui.js"
- },
- {
-  "id": "18284367",
-  "k": "A battle ticket made this one pay full coins.",
   "f": "web/js/game/livebattle-ui.js"
  },
  {

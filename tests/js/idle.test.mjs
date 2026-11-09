@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TIER_COST, TIER_RATE } from "../../web/js/game/data.js";
 import { newGenome } from "../../web/js/game/genome.js";
-import { answerQuestion, earn, finishBattle, newState } from "../../web/js/game/rules.js";
+import { TICKET_GEMS, answerQuestion, earn, finishBattle, newState, normalize } from "../../web/js/game/rules.js";
 import {
   AUTO_GOALS, FEEDS_PER_DAY, OFFLINE_HOURS, automated, build, buySupply, collect, costOf, feed, garden, hearts, incubate, meets, rateOf,
   release, tick, totalRate, upgrade, useBoost, useKey,
@@ -25,7 +25,7 @@ test("every building, plot, food and supply has its picture", () => {
   assert.equal(FOODS.length, 6);
   for (const f of FOODS) assert.ok(art(`icon/${f.id}.png`), f.id);
   for (const s of SUPPLIES) assert.ok(art(`icon/${s.icon || s.id}.png`), s.id);
-  for (const id of ["potion", "key", "ticket", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty", "glow", "release", "egg"]) assert.ok(art(`icon/${id}.png`), id);
+  for (const id of ["potion", "key", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty", "glow", "release", "egg"]) assert.ok(art(`icon/${id}.png`), id);
   assert.equal(PLOTS.length, 6);
   assert.equal(new Set(FOODS.map((f) => f.loves)).size, 6, "one favourite food for each element");
 });
@@ -187,7 +187,33 @@ test("food raises hearts, the favourite counts double, three times a day; eggs d
   assert.match(feed(egg, "food_berry", T0), /Eggs don't eat/);
 });
 
-test("supplies do what they say: XP boost, battle ticket, incubator, potion", () => {
+test("battle tickets are gone: each one still held comes back as the 2 gems it cost, once", () => {
+  assert.equal(TICKET_GEMS, 2);
+  assert.ok(!SUPPLIES.some((s) => s.id === "ticket"), "not sold any more");
+  const old = hatched(65);
+  old.items.ticket = 3;
+  old.gems = 1;
+  const s = normalize(JSON.parse(JSON.stringify(old)));
+  assert.deepEqual([s.gems, "ticket" in s.items], [1 + 3 * 2, false]);
+  assert.equal(normalize(s).gems, 7, "loading it again pays nothing more");
+  const noGems = hatched(66);
+  noGems.items.ticket = 1;
+  delete noGems.gems;
+  assert.equal(normalize(noGems).gems, 2, "a save from before gems");
+  for (const odd of [0, -2, "x", null, 1.7]) {
+    const t = hatched(67);
+    t.gems = 5;
+    t.items.ticket = odd;
+    assert.equal(normalize(t).gems, odd === 1.7 ? 7 : 5, `a bad count (${odd})`);
+  }
+  // A battle late in the day no longer uses one, and says nothing about one.
+  const b = hatched(68);
+  for (let i = 0; i < 4; i++) finishBattle(b, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 });
+  const late = finishBattle(b, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 });
+  assert.ok(late.coins < 4 && !("ticket" in late));
+});
+
+test("supplies do what they say: XP boost, incubator, potion", () => {
   // XP boost: looking up, saving and reviewing words pays double while it runs.
   const plain = newState(64);
   const boosted = newState(64);
@@ -199,14 +225,6 @@ test("supplies do what they say: XP boost, battle ticket, incubator, potion", ()
   assert.equal(answerQuestion(boosted, "w1", true, T0).xp, answerQuestion(plain, "w1", true, T0).xp * 2);
   const late = hours(1);
   assert.equal(earn(boosted, { type: "save" }, { now: late }).xp, earn(plain, { type: "save" }, { now: late }).xp, "it wears off after twenty minutes");
-
-  // Ticket: one more battle pays full coins once the day's first three are done (XP doesn't fade: rules.WELL_KNOWN_XP).
-  const s = hatched(65);
-  s.items.ticket = 1;
-  for (let i = 0; i < 3; i++) assert.equal(finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 }).ticket, false);
-  const fourth = finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 });
-  assert.deepEqual([fourth.coins, fourth.ticket, s.items.ticket], [4, true, 0]);
-  assert.ok(finishBattle(s, { mode: "wild", won: true }, { now: T0, rand: () => 0.9 }).coins < 4);
 
   // Incubator: a spare egg grows at half speed alongside the creature in the habitat, until it hatches.
   const inc = hatched(66);

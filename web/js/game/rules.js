@@ -107,6 +107,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
 // The moves the old adult forms brought (echo, sage, keeper), given to owners whose creatures had them.
 const OLD_FORM_MOVES = { echo: "resonance", sage: "insight", keeper: "hoard" };
 
+/** What a battle ticket cost, in gems: what each one held is worth now that they're gone (normalize). */
+export const TICKET_GEMS = 2;
+
 /** Make a saved state safe to use (older saves, hand-edited values). */
 export function normalize(state) {
   const fresh = newState(1);
@@ -165,6 +168,10 @@ export function normalize(state) {
     for (const [slot, id] of Object.entries(on)) if (!fits(g, itemById(id))) delete on[slot];
   }
   if (typeof s.battleFolder !== "string" || s.battleFolder.length > 64) s.battleFolder = "";
+  // Battle tickets are gone (the owner's choice, 2026-11-09): each one still held comes back as the gems it cost.
+  const tickets = Math.max(0, Math.floor(Number(s.items.ticket)) || 0);
+  if (tickets) s.gems = (Number.isFinite(s.gems) ? s.gems : 0) + TICKET_GEMS * tickets;
+  delete s.items.ticket;
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
   s.v = VERSION;
   return s;
@@ -795,14 +802,12 @@ export function finishBattle(state, result, ctx = {}) {
   const now = ctx.now || new Date();
   const rand = ctx.rand || Math.random;
   rollDay(state, now);
-  let share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay coins
-  const ticket = share < 1 && state.items.ticket > 0; // a battle ticket makes one more pay full coins
-  if (ticket) { state.items.ticket--; share = 1; }
+  const share = fade(state.day.battles, 3, 9); // the first few battles of the day are the ones that pay coins
   state.day.battles++;
   state.stats.battles++;
   const known = Math.max(0, Math.floor(Number(result.wellKnown)) || 0);
   const xp = (result.won ? BATTLE_XP_FLOOR.won : BATTLE_XP_FLOOR.lost) + WELL_KNOWN_XP * known;
-  const out = { xp, coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [], ticket };
+  const out = { xp, coins: result.won && share ? Math.ceil(4 * share) : 0, tags: [], egg: false, rating: 0, badges: [] };
   if (result.won) {
     state.stats.wins++;
     // Feats in battle, not hours of grinding, open the special forms and moves.

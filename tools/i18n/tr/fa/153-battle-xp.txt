@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	یک نبرد دیگر امروز، بعد از سه نبرد اول، سکه‌ها را کامل می‌دهد.
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	نبردها: ۳ برای هر پاسخ درست، {0} برای هر کلمه‌ای که خوب شناخته‌شده می‌شود، و {1} بیشتر برای برد یا {2} برای باخت.
 6b0419a5	این کلمه حالا خوب شناخته‌شده است: +{0} XP
-18284367	یک بلیت نبرد باعث شد این یکی سکه‌ها را کامل بدهد.

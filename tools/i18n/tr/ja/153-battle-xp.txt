@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	今日の最初の3回のあと、もう1回だけバトルのコインが満額になります。
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	バトル: 正解1つにつき3、よく覚えた単語1つにつき{0}、さらに勝ちで{1}、負けで{2}。
 6b0419a5	この単語をよく覚えました。+{0} XP
-18284367	バトルチケットで、この勝負のコインが満額になりました。

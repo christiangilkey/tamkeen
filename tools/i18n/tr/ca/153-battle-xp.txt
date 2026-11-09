@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	Una batalla més avui paga totes les monedes, després de les tres primeres.
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	Batalles: 3 per cada resposta correcta, {0} per cada paraula que passes a saber bé, i {1} més per una victòria o {2} per una derrota.
 6b0419a5	Ara aquesta paraula te la saps bé: +{0} XP
-18284367	Un tiquet de batalla ha fet que aquesta pagués totes les monedes.

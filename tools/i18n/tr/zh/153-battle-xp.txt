@@ -1,5 +1,3 @@
-# Battle XP from the words made well known; tickets pay full coins (game/rules.js, livebattle-ui.js, info.js, data.js).
-3ece5591	今天前三场之后，再多一场对战可获得全额金币。
+# Battle XP from the words made well known (game/info.js, livebattle-ui.js).
 5bed92b6	对战：每答对一题得 3，每熟记一个词得 {0}，获胜再得 {1}，落败得 {2}。
 6b0419a5	这个词你已经熟记了：+{0} XP
-18284367	一张对战券让这一场获得全额金币。
