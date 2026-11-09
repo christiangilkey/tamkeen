@@ -287,6 +287,32 @@ function raidBlock(game, me, guild, profiles, now, week, changed) {
   return b;
 }
 
+/**
+ * Home, under the creature and its buttons (pages/home.js): the raid of each guild the player is in, the same block as
+ * on the Battle screen's Friends side (the owner: it "shouldn't be tucked away in a menu", but "directly on the home
+ * screen underneath the player's habitat"). Nothing at all when signed out, offline or in no guild. `host` is shown
+ * once there is something in it.
+ */
+export async function homeRaids(host) {
+  let me = null;
+  let list = [];
+  let profiles = new Map();
+  try {
+    me = await social.currentUser();
+    if (!me) return;
+    const guilds = await social.guildsState();
+    list = (guilds && guilds.guilds) || [];
+    if (!list.length) return;
+    const ids = new Set();
+    for (const g of list) for (const m of g.members) if (m.id !== me.id) ids.add(m.id);
+    profiles = cleanProfiles(await social.gameProfiles([...ids])); // (from their devices: checked first, remote.js)
+  } catch { return; }
+  if (!host.isConnected) return; // Home was left meanwhile
+  const now = new Date();
+  host.replaceChildren(...list.map((g) => raidBlock(getGame(), me, g, profiles, now, weekNumber(now), () => {})));
+  host.hidden = false;
+}
+
 /** No guild yet: the week's boss, and where guilds are made. */
 function noGuildBlock(now) {
   const boss = weeklyBoss(now);
