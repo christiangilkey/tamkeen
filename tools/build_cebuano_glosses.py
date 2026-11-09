@@ -16,7 +16,8 @@ square brackets left out). Words made from the entry's word that it lists with t
 point to X. Wolff spells with Bisaya's three vowels (kaáyu, ímung); the words are shown as Bisaya is
 written today (kaáyo, ímong: o in a word's last syllable), keeping his marks for the stressed
 syllable (á) and the glottal stop (à). Keys are made by build_meanings.key, which treats o/u and e/i
-alike for Bisaya, so either spelling finds the word.
+alike for Bisaya, so either spelling finds the word. A verb's conjugation code ("[A2S3S; a]") becomes its
+main forms in the popup's grammar line (verb_grammar: mokaon, mikaon; kan-on, gikaon; kan-an, gikan-an).
 
 Writes docs/lexicon/ceb-wolff-meanings.json.gz (index name "mean-cebw"), in the format of
 build_meanings.py's files.
@@ -312,6 +313,256 @@ def spelled_out(entries_affixed, have: set, heads: set, tagalog: set, wordlist: 
     return out
 
 
+# ---------- a verb's main forms, from Wolff's conjugation code ----------
+# Each verb meaning in Wolff carries a code for the affixes it takes (his introduction, section 7):
+# "[A2S3S; a]" for káun "eat", "[A; c]" for hátag "give", "[B1256; b6]". Before the semicolon the
+# active sets: A action verbs (mu-/mi-, mag-/nag-, maka-/naka-), B stative verbs (also ma-/na- and
+# magka-), C mutual action verbs (mag-/nag-, magka-, makig-). A number after the letter is a set the verb
+# lacks (A1: no mu-, A2: no mag-, A3: no maka-; B1 mu-, B2 mag-, B4 ma-, B5 maka-, B6 magka-, while B3 only
+# changes maka-'s meaning; C1 mag-, C2 magka-, C3 makig-), unless S follows it (the set is there, the
+# stress shifts) or P (there, with pa- too). N: paN- can be added. After the semicolon the passive sets:
+# a the direct passive (-un, gi-), b the local passive (-an, gi-…-an), c the instrumental passive (i-, gi-).
+# Their numbers: a1 no local passive, a2 no instrumental one, a3 only the potential ma-/na-; b(1) no
+# instrumental passive, b6 only the local one, b3(1), b4(1) and b8 only the potential ma-…-an; c3 only
+# ika-/gika-, c6 no local passive. (The other numbers only change what the passive means.)
+# The verb's word group gets its main forms as the grammar line (build_meanings.py grammar_info's
+# format): who does it (mo-, mi-), what it is done to, and one more passive, each as future · past.
+ACTIVE_SETS = {"A": {"1": "mu", "2": "mag", "3": "maka"},
+               "B": {"1": "mu", "2": "mag", "4": "ma", "5": "maka", "6": "magka"},
+               "C": {"1": "mag", "2": "magka", "3": "makig"}}
+# (in the order shown: a stative verb's ma-/na- first, malipay "be happy", nalipay)
+ACTIVE_ORDER = {"A": ["mu", "mag", "maka"], "B": ["ma", "mu", "mag", "maka", "magka"], "C": ["mag", "magka", "makig"]}
+PAST = {"mu": "mi", "mag": "nag", "maka": "naka", "ma": "na", "magka": "nagka", "makig": "nakig"}
+CLASS_WORDS = {"B": "stative", "C": "mutual action"}
+VERB_CODE = re.compile(r"^(?:[ABC](?:\d|S|N|P|\(1\))*)+(?:\s*;\s*(?:[abc](?:\d|S|N|P|\(1\))*)+)?$|^(?:[abc](?:\d|S|N|P|\(1\))*)+$")
+MAX_FORM_ROWS = 6
+# Where a spelling is looked for in the entry's own examples: after a passive prefix, which shows it is the
+# verb (gisakyan, nakan-an; bare sakayan is "boat"), or on its own (kan-un).
+VERB_SEEN_PREFIXES = ["gi", "na", "ma", "hi", "ka", "gika", "ika", "gina", "paga", "ha"]
+
+
+def decode(code: str) -> dict | None:
+    """Wolff's verb code as {"active": [(class, {"sets": [...], "shift": {...}, "paN": bool})],
+    "passive": [(class, {subclass, ...})]}, or None when the brackets hold something else ([so-and-so])."""
+    code = code.strip()
+    if not code or not VERB_CODE.match(code):
+        return None
+    active_part, _, passive_part = code.partition(";") if code[0].isupper() else ("", "", code)
+    active = []
+    for letter, mods in re.findall(r"([ABC])((?:\d(?:S|P|\(1\))*|S|N|P|\(1\))*)", active_part):
+        lacks = {d for d, after in re.findall(r"(\d)((?:S|P|\(1\))*)", mods) if not after}
+        shift = {ACTIVE_SETS[letter].get(d) for d in re.findall(r"(\d)S", mods)} - {None}
+        sets = [s for s in ACTIVE_ORDER[letter] if not any(ACTIVE_SETS[letter].get(d) == s for d in lacks)]
+        active.append((letter, {"sets": sets, "shift": shift, "paN": "N" in re.sub(r"\(1\)", "", mods)}))
+    passive = []
+    for letter, mods in re.findall(r"([abc])((?:\d(?:\(1\))?|\(1\)|S|P|N)*)", passive_part.replace(" ", "")):
+        passive.append((letter, set(re.findall(r"\d\(1\)|\(1\)|\d", mods))))
+    if not active and not passive:
+        return None
+    return {"active": active, "passive": passive}
+
+
+def suffix_candidates(root: str, suffix: str, glottal: bool = False) -> list[str]:
+    """Every way root + suffix may be spelled (Wolff's introduction, 5.12-5.15), the plainest first:
+    suffixed()'s, and the glottal stop between two vowels moving after the last consonant (káun + -un =
+    kan-un), the dropped vowel's consonants swapped (putus + -un = pustun, luhud + -an = ludhan), l, d or r
+    before k, g or ng becoming g (haluk + -an = hagkan), a Spanish r becoming h (imbitar + -un = imbitahun).
+    `glottal`: the root ends in a glottal stop (kúhà, walà), which stays: kuhaun, and walà + -un = wad-un."""
+    if glottal:
+        return [root + suffix] + ([root[:-2] + "d-" + suffix] if root[-2:-1] in ("l", "r") else [])
+    out = suffixed(root, suffix)
+    if root[-1:] in "aeiou" and len(root) > 3:
+        # the last vowel dropped for h (dala + -un = dalhun), or for a glottal stop after l, d (dad-un)
+        out.append(root[:-1] + "h" + suffix)
+        if root[-2] in ("l", "r"):
+            out.append(root[:-2] + "d-" + suffix)
+    m = re.fullmatch(r"(.*[aeiou])[aeiou](ng|[^aeiou'-])", root)
+    if m:
+        out.append(m.group(1) + m.group(2) + "-" + suffix)
+    m = re.fullmatch(r"(.*[aeiou])(ng|[^aeiou'-])[aeiou](ng|[^aeiou'-])", root)
+    if m:
+        pre, c1, c2 = m.groups()
+        for last in dict.fromkeys([c2, "r" if c2 == "d" else c2]):  # (luhud + -an = ludhan; bayad + -an = bayran)
+            out += [pre + c1 + last + suffix, pre + last + c1 + suffix]
+        if c1 in ("l", "d", "r") and c2 in ("k", "g", "ng"):
+            out.append(pre + "g" + c2 + suffix)
+    if root.endswith(("r", "l")) and len(root) > 3:
+        out.append(root[:-1] + "h" + suffix)
+    return list(dict.fromkeys(out))
+
+
+def plain_candidates(root: str, suffix: str, glottal: bool = False) -> list[str]:
+    """The spellings of root + suffix that change the root least: as it is, with h after a vowel (basahun),
+    the glottal stop moved (kan-un), or the last vowel simply dropped (sugud + -an = sugdan). The only ones
+    taken from the word list alone: there, a reshaped spelling is as often another word (patrun: English
+    "patron", not pátid + -un)."""
+    if glottal:
+        return [root + suffix]
+    out = [root + suffix]
+    if root[-1:] in "aeiou":
+        out.append(root + "h" + suffix)
+    m = re.fullmatch(r"(.*[aeiou])[aeiou](ng|[^aeiou'-])", root)
+    if m:
+        out.append(m.group(1) + m.group(2) + "-" + suffix)
+    m = re.fullmatch(r"(.*[aeiou](?:ng|[^aeiou'-]))[aeiou](ng|[^aeiou'-])", root)
+    if m:
+        out.append(m.group(1) + m.group(2) + suffix)
+    return out
+
+
+def joined(prefix: str, stem: str) -> str:
+    """A prefix and what follows it: a hyphen between a consonant and a vowel (nag-adtu, makig-áway)."""
+    return prefix + ("-" if prefix[-1:] not in "aeiou" and stem[:1] in "aeiou" else "") + stem
+
+
+ACUTE, GRAVE, WEDGE = "\u0301", "\u0300", "\u030c"  # (combining marks, as in NFD)
+
+
+def penult_stress(head: str) -> bool:
+    """Whether Wolff's spelling of a word puts its stress on the last-but-one syllable (his 3.0): the vowel
+    with the acute mark is the long, stressed one (bása, káun); with none, a closed last-but-one syllable
+    is stressed (tan-aw, bàbà), an open one is not (palit is palít; a wedge marks a stressed last one)."""
+    base = unicodedata.normalize("NFD", head.lower())
+    vowels = [i for i, c in enumerate(base) if c in "aeiou"]
+    if len(vowels) < 2:
+        return False
+    if ACUTE in base:
+        return ACUTE in base[vowels[-2] + 1:vowels[-1]]
+    if WEDGE in base:
+        return False
+    between = base[vowels[-2] + 1:vowels[-1]]
+    return len(re.sub(r"[^a-z'-]", "", between)) + between.count(GRAVE) >= 2
+
+
+def predictable(head: str) -> bool:
+    """Whether root + suffix is simply the two joined (palit + -an = palitan) when no example shows it: a root
+    ending in a consonant and stressed on its last-but-one syllable (a vowel is dropped mostly when the last
+    is stressed: dakup + -an = dakpan, Wolff 5.12), with no glottal stop or h before its last vowel (káun:
+    kan-un; luhud: ludhan)."""
+    p = plain(head)
+    if not p or p[-1] in "aeiou'-" or re.search(r"[aeiou][aeiou][^aeiou]+$|h[aeiou][^aeiou]+$", p):
+        return False
+    return penult_stress(head)
+
+
+def verb_grammar(head: str, code: str, seen: set[str], shown: dict[str, tuple[int, str]], english: set[str] = frozenset()) -> list:
+    """The grammar line [grammar words, [[label, form], ...]] for the verb `head` with Wolff's `code`, or [].
+    `seen`: the keys of the words in the entry's own examples; `shown`: the Bisaya word list, key -> (rank,
+    spelling). A suffixed form is given only when the entry's examples or the word list have one of its
+    spellings (or it is `predictable`), so no made-up word is shown."""
+    info = decode(code)
+    root = plain(head).strip("-")
+    if not info or not root or not re.fullmatch(r"[a-z'-]+", root):
+        return []
+
+    # The forms are written as Bisaya is today, like the headword: the root keeps its o (adto: giadtoan,
+    # mokaon), a suffix's u is o (palitun: paliton). Real text mostly does so (giadtoan, lutoon, sugoon).
+    mroot = plain(modern(head)).strip("-")
+    glottal = unicodedata.normalize("NFD", head.lower()).rstrip("-").endswith(GRAVE)
+
+    def written(c: str) -> str:
+        return modern(mroot + c[len(root):] if c.startswith(root) else c)
+
+    absent = 10 ** 9
+
+    def rank(c: str) -> int:
+        """How common the spelling is in the word list (alone or after gi-); `absent` when it isn't there."""
+        return min([shown[k][0] for k in (key(c, "ceb"), key("gi" + c, "ceb")) if k in shown] or [absent])
+
+    def stem(suffix: str) -> str:
+        """root + suffix as Wolff's examples, else the word list, spell it (or "" when neither has it). Of
+        several spellings Wolff shows (dad-un, dalhun, dal-un), the commonest in the word list."""
+        cands = suffix_candidates(root, suffix, glottal)
+        for tier in ([c for c in cands if any(key(p + c, "ceb") in seen for p in VERB_SEEN_PREFIXES)],
+                     [c for c in cands if key(c, "ceb") in seen]):
+            if tier:
+                return written(min(tier, key=lambda c: (rank(c), cands.index(c))))
+        # (from the word list alone: a plain spelling of a root of two syllables or more, and not an English
+        # word of the list, human: húm + -an)
+        many = len(re.findall(r"[aeiou]", root)) >= 2  # (taas is ta-as)
+        hits = [(rank(c), c) for c in plain_candidates(root, suffix, glottal)
+                if many and rank(c) < absent and key(c, "ceb") not in english]
+        if hits:
+            return written(min(hits)[1])
+        if not predictable(head):
+            return ""
+        return written(re.sub(r"(?<=[aeiou])d$", "r", root) + suffix)  # (d between vowels is r: búkid -> bukiran)
+
+    rows: list[list[str]] = []
+
+    def add(label: str, future: str, past: str) -> None:
+        """A row's future · past (a past another row shows already, gi- for i- and -un alike, is left out)."""
+        if not future or any(r[0] == label for r in rows):
+            return
+        new = [[label, future]] + ([[label, past]] if past and all(r[1] != past for r in rows) else [])
+        if len(rows) + len(new) <= MAX_FORM_ROWS:
+            rows.extend(new)
+
+    if info["active"]:
+        act = info["active"][0][1]
+        if act["sets"]:
+            first = act["sets"][0]
+            # (mu- is written mo- today: mokaon)
+            add("actor focus", joined("mo" if first == "mu" else first, mroot), joined(PAST[first], mroot))
+
+    def passive(letter: str, subs: set) -> list[tuple[str, str, str]]:
+        """(label, future, past) of the class's main passive, then its other one."""
+        un, an = (stem("un") if letter == "a" else ""), stem("an")
+        direct = ("ma" + mroot, "na" + mroot) if "3" in subs else (un, "gi" + mroot if un else "")
+        local_pot = subs & {"3(1)", "4(1)", "8"}
+        local = ("ma" + an, "na" + an) if (local_pot or letter == "a" and "3" in subs) and an else (an, "gi" + an if an else "")
+        instr = ("ika" + mroot, "gika" + mroot) if "3" in subs else ("i" + mroot, "gi" + mroot)
+        out = []
+        if letter == "a":
+            out.append(("object focus", *direct))
+            if "1" not in subs:
+                out.append(("local focus", *local))
+            elif "2" not in subs and "3" not in subs:
+                out.append(("instrument focus", *instr))
+        elif letter == "b":
+            out.append(("local focus", *local))
+            if "(1)" not in subs and ("6" not in subs or "6(1)" in subs) and not local_pot:
+                out.append(("instrument focus", *instr))
+        elif letter == "c":
+            out.append(("instrument focus", *instr))
+            if "6" not in subs:
+                out.append(("local focus", *local))
+        return out
+
+    found = [passive(letter, subs) for letter, subs in info["passive"]]
+    # The first class's main passive, a second class's main one, then the first's other one. A class's main
+    # passive is what the action is done to (Wolff: -un for a, -an for b, i- for c): the first one there is
+    # "object focus" (hagkan "kiss her", ihatag "give it").
+    order = ([(True, *found[0][0])] if found else []) + [(True, *f[0]) for f in found[1:]]         + [(False, *x) for x in (found[0][1:] if found else [])]
+    for main, label, future, past in order:
+        add("object focus" if main and future and not any(r[0] == "object focus" for r in rows) else label, future, past)
+    letters = {a for a, _ in info["active"]}
+    words = [CLASS_WORDS[next(iter(letters))]] if len(letters) == 1 and next(iter(letters)) in CLASS_WORDS else []
+    return [words, rows] if rows else []
+
+
+def verb_codes(para: str) -> dict[str, tuple[str, str]]:
+    """{word: (its first verb code, its part of the entry)} for the entry's own word ("") and the words made
+    from it that have meanings of their own (adtuan v [A13]), cut the way parse() cuts the entry."""
+    m = HEAD.match(para)
+    if not m:
+        return {}
+    rest = para[m.end():].strip(" ,")
+    blank = CODES.sub(lambda mm: " " * len(mm.group()), rest)  # (the same cuts as parse(), at the same places)
+    cuts = [(0, "")] + [(mm.start(1), mm.group(1)) for mm in SUB.finditer(blank)]
+    out: dict[str, tuple[str, str]] = {}
+    for i, (at, who) in enumerate(cuts):
+        end = cuts[i + 1][0] if i + 1 < len(cuts) else len(rest)
+        text = rest[at + len(who):end]
+        if who and (who.startswith("-") or who.endswith("-") or "-" in who
+                    and not re.search(rf"[{LETTER}]{{3,}}-[{LETTER}]{{3,}}", who) or len(who) < 3 or who.lower() in ENGLISH):
+            continue  # (words listed only by their affix: their root's forms are not theirs)
+        code = next((c for c in re.findall(r"\[([^\]]*)\]", text) if decode(c)), "")
+        if code and who not in out:
+            out[who] = (code, text)
+    return out
+
+
 def build(path: Path) -> dict:
     words: dict[str, list] = {}
     forms: dict[str, list] = {}
@@ -343,7 +594,13 @@ def build(path: Path) -> dict:
         return (not g.isascii() or bool(re.search(r"[-_\d]$", g))
                 or "-" in g and key(g, "ceb") in bisaya)
 
-    n = 0
+    # (the English words of the Bisaya word list, which Wiktionary's file marks: no verb's form is one)
+    english = {k for k, groups in json.loads(gzip.decompress((OUT / "ceb-meanings.json.gz").read_bytes()))["words"].items()
+               if any((str(g[3]).split("|") + ["", "", ""])[2] == "English word" for g in groups)}
+    ranks: dict[str, tuple[int, str]] = {}  # (commonest first: of two spellings with one key, the commoner)
+    for i, w in enumerate(wordlist):
+        ranks.setdefault(key(w, "ceb"), (i, w))
+    n = n_verbs = 0
     affixed: list[tuple[str, str, str, str]] = []
     for para in entries(path):
         parsed = parse(para)
@@ -363,6 +620,16 @@ def build(path: Path) -> dict:
         for word, pos, g in derived:
             if g and not pointer(g):
                 put(word, pos, [g])
+        # The verb's main forms, from its first conjugation code (verb_grammar), on its word group.
+        for who, (code, text) in verb_codes(para).items():
+            word = who or head
+            group = next((g for g in words.get(key(word, "ceb"), []) if g[1] == "verb" and g[0] == modern(word)), None)
+            if group and len(group) == 4:
+                seen = {key(t, "ceb") for t in re.findall(rf"[{LETTER}'’-]+", text)}
+                info = verb_grammar(word, code, seen, ranks, english)
+                if info:
+                    group.append(info)
+                    n_verbs += 1
         if same and not glosses:
             hk, sk = key(head, "ceb"), key(same, "ceb")
             if hk and sk and hk != sk:
@@ -387,8 +654,17 @@ def build(path: Path) -> dict:
     added = spelled_out(affixed, set(words) | set(forms) | own | set(wikt["forms"]), set(words) | own, tagalog, wordlist)
     for k, row in added.items():
         words[k] = [row]
+    # The popup shows the first group's grammar line. Where that is a word with no part of speech (adto "there,
+    # will go") or an adjective a verb is made from (human "finished": mahuman, nahuman), it gets the verb's
+    # forms too; a noun's own meaning (balay "house") comes without them.
+    for groups in words.values():
+        first = groups[0]
+        if len(first) == 4 and first[1] in ("", "adj"):
+            verb = next((g for g in groups[1:] if g[1] == "verb" and len(g) > 4 and g[0] == first[0]), None)
+            if verb:
+                first.append(verb[4])
     print(f"  ceb (Wolff): {n} entries read, {len(words)} words with meanings ({len(added)} spelled out from their affix), "
-          f"{len(forms)} pointing to another", flush=True)
+          f"{len(forms)} pointing to another, {n_verbs} verbs with their forms", flush=True)
     return {"format": 1, "kind": "meanings", "lang": "ceb",
             "source": "John U. Wolff, A Dictionary of Cebuano Visayan (1972), Project Gutenberg ebook 40074",
             "license": "public-domain-us", "words": words, "forms": forms}

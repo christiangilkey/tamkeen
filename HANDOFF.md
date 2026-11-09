@@ -7743,3 +7743,37 @@ language whatever else Wiktionary's page gives that would help.
   full: adj → adjective) and each form as a row ("Plural كُتُب kutub"). Shown in Quick mode too, since the
   dictionary's answer is already on the device. AI answers have neither field.
 - Tests: `tests/test_meanings_grammar.py`, `tests/js/meanings.test.mjs` (grammar line).
+
+## Bisaya verbs: focus forms from Wolff's conjugation codes (2026-11-08; helper of the main chat)
+
+The owner asked what could support Bisaya grammar better than the English Wiktionary. Wolff's dictionary (public
+domain, already the `mean-cebw` file) gives each verb meaning a conjugation code; these are now decoded into the
+popup's grammar line (same format as Wiktionary's, above). No app change: Bisaya asks Wolff's file first.
+- **Codes** (Wolff's introduction §7; `tools/build_cebuano_glosses.py` `decode`): `[A2S3S; a]`. Active classes A
+  (mu-/mi-, mag-/nag-, maka-/naka-), B stative (also ma-/na-, magka-), C mutual (mag-, magka-, makig-); a number is
+  a set the verb lacks unless S (stress shift) or P follows it (B3 only changes maka-'s meaning). Passive a = -un/gi-,
+  b = -an/gi-…-an, c = i-/gi-; a1 no local, a2 no instrumental, a3 / b3(1) / b4(1) / b8 / c3 potential only
+  (ma-, ma-…-an, ika-), b(1) and b6 no instrumental, c6 no local. `verb_codes` takes the first code of the head
+  and of each derived word with meanings of its own (not words listed only by their affix).
+- **Rows** (`verb_grammar`, at most 6, future · past): "actor focus" (mokaon · mikaon; a stative verb's ma-/na-
+  first, malipay), "object focus" = the first class's main passive, what the action is done to (a: kan-on, b:
+  hagkan, c: ihatag), then one more ("local focus" -an, "instrument focus" i-). Grammar words: "stative" (B only),
+  "mutual action" (C only). A past another row shows already (gi- of i- and -un) is left out.
+- **Spelling a suffixed form** (`suffix_candidates`: Wolff 5.12-5.15, glottal stop moved kan-un, vowel dropped
+  dakpan, consonants swapped sudlon/pustun, l/d/r + velar → g hagkan, d → r, dala → dad-un/dalhun): the spelling
+  Wolff's own examples in the entry show after a passive prefix (gisakyan; bare "sakayan" is "boat"), else bare,
+  ties to the commoner in the word list; else the word list alone, only for plain shapes (`plain_candidates`) of a
+  root of 2+ syllables and not an English word of the list (reshaped ones were half wrong there: patrun = "patron");
+  else `predictable` (consonant end, stressed penult by Wolff's marks: tábang → tabangan); else no row. Written as
+  today, like the headword: the root keeps its o (giadtoan, real text agrees), -un is -on.
+- A first group with no part of speech (adto "there, will go") or an adjective (human "finished") also gets its
+  verb's forms; nouns don't (balay). 12,191 verb groups have forms; mean-cebw 0.88 → 1.12 MB (phone estimate updated).
+- **Rebuild**: only `build_cebuano_glosses.py pg40074.txt` is needed (the other Bisaya steps only read this file to
+  see which words exist). It reads tl-meanings to skip Tagalog look-alikes: the Tagalog chat's new tl file (68,158
+  forms) drops 49 of the 1,290 spelled-out words; this build used the committed tl file. Told that chat.
+- **Not done:** Wolff's stress for pronunciation. The popup already shows his marks (káon, hátag) when Wolff answers.
+  The Mnemonic maker's Bisaya stress rule (`soundout.js placeStress`: penult unless marked) is wrong for unmarked
+  final-stress words (palit = palít); fixing it needs Wolff's spelling passed as the card's reading plus his rule
+  (long or closed penult, else last syllable). paN- forms (code N) and mag- / maka- rows aren't shown.
+- Tests: `tests/test_cebuano_glosses.py` (decoder cases from the key, spellings, rows), `tests/js/meanings.test.mjs`
+  (kaon, hatag, palit, adto, human, balay, gihatag, miadto through the popup's lookup).

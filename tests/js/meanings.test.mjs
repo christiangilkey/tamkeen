@@ -259,6 +259,29 @@ test("Bisaya: a root the dictionaries have, with the affixes off, when they lack
   assert.equal(look("kaon").formOf, "", "a word the dictionary has is found as before");
 });
 
+test("Bisaya: a verb's focus forms from Wolff's conjugation code, in the popup's grammar line", () => {
+  const look = bisaya();
+  const forms = (word) => {
+    const found = look(word);
+    return answerFrom(found, word, "ceb", { source: found.source }).forms.map((f) => `${f.label}: ${f.form}`);
+  };
+  // káun [A2S3S; a]: who eats, what is eaten (kan-on, Wolff's own spelling), where or for whom.
+  assert.deepEqual(forms("kaon"), ["actor focus: mokaon", "actor focus: mikaon", "object focus: kan-on",
+    "object focus: gikaon", "local focus: kan-an", "local focus: gikan-an"]);
+  // hátag [A; c]: i- is the thing given, -an the one given to.
+  assert.deepEqual(forms("hatag"), ["actor focus: mohatag", "actor focus: mihatag", "object focus: ihatag",
+    "object focus: gihatag", "local focus: hatagan", "local focus: gihatagan"]);
+  assert.ok(forms("palit").includes("object focus: paliton") && forms("palit").includes("local focus: gipalitan"));
+  // adto's first meaning has no part of speech ("there, will go"): it shows the verb's forms; so does an adjective
+  // a verb is made from (human "finished": nahuman), but not a noun's meaning (balay "house").
+  assert.ok(forms("adto").includes("actor focus: moadto") && forms("adto").includes("object focus: giadtoan"));
+  assert.ok(forms("human").includes("actor focus: nahuman"));
+  assert.deepEqual(forms("balay"), []);
+  // A form of the verb (found by its root) shows the root's forms too.
+  assert.ok(forms("gihatag").includes("object focus: ihatag"));
+  assert.ok(forms("miadto").includes("instrument focus: iadto"));
+});
+
 test("Bisaya: Wolff's words listed by their affix, translation tables, English words (tools/build_*.py)", () => {
   const look = bisaya();
   const household = look("panimalay");
