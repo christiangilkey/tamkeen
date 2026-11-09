@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Des cartes de combat avec des bâtiments : un village avec mairie et taverne, un donjon avec pièges et salles cachées, et une forteresse avec sa tour maîtresse
+1fd98247	Défiez un ami sur un de vos dossiers : chacun combat l'équipe de l'autre avec les mots du dossier
+067b09b7	Les combats peuvent demander les mots à réviser, ou ceux d'un dossier
+983fefb5	Les combats rapportent 25 XP par mot qui devient bien connu. Les tickets de combat disparaissent : ceux que vous aviez sont revenus en gemmes
+ea2f451b	Trois classiques arabes sur l'étagère des livres gratuits : les Mu'allaqat, Les Mille et Une Nuits et la Muqaddima

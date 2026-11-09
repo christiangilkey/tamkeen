@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Kampfkarten mit Gebäuden: ein Dorf mit Rathaus und Taverne, ein Verlies mit Fallen und geheimen Räumen und eine Festung mit Bergfried
+1fd98247	Fordere einen Freund mit einem deiner Ordner heraus: Ihr kämpft beide mit den Wörtern des Ordners gegen das Team des anderen
+067b09b7	Kämpfe können die zur Wiederholung fälligen Wörter abfragen oder die Wörter eines Ordners
+983fefb5	Kämpfe bringen 25 EP für jedes Wort, das gut bekannt wird. Kampftickets gibt es nicht mehr: Deine hast du als Edelsteine zurückbekommen
+ea2f451b	Drei arabische Klassiker im Regal der kostenlosen Bücher: die Muʿallaqat, Tausendundeine Nacht und die Muqaddima

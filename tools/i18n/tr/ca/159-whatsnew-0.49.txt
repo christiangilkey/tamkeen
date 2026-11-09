@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mapes de batalla amb edificis: un poble amb ajuntament i taverna, una masmorra amb paranys i sales amagades, i una fortalesa amb torre de l'homenatge
+1fd98247	Desafia un amic amb una de les teves carpetes: cadascú lluita contra l'equip de l'altre amb les seves paraules
+067b09b7	Les batalles poden preguntar les paraules per repassar, o les d'una carpeta
+983fefb5	Les batalles donen 25 XP per cada paraula que passes a saber bé. Els tiquets de batalla ja no hi són: els que tenies t'han tornat en gemmes
+ea2f451b	Tres clàssics àrabs a la prestatgeria de llibres gratuïts: les Mu'al·laqat, Les mil i una nits i la Muqaddima

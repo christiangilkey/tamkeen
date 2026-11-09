@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mappe di battaglia con edifici: un villaggio con municipio e taverna, un sotterraneo con trappole e stanze segrete, e una fortezza con il mastio
+1fd98247	Sfida un amico su una delle tue cartelle: ognuno combatte la squadra dell'altro con le parole della cartella
+067b09b7	Le battaglie possono chiedere le parole da ripassare, o quelle di una cartella
+983fefb5	Le battaglie danno 25 XP per ogni parola che impari bene. I biglietti di battaglia non ci sono più: quelli che avevi sono tornati come gemme
+ea2f451b	Tre classici arabi sullo scaffale dei libri gratuiti: le Mu'allaqat, Le mille e una notte e la Muqaddima

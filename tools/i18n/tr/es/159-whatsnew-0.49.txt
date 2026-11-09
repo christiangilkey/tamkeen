@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mapas de batalla con edificios: un pueblo con ayuntamiento y taberna, una mazmorra con trampas y salas ocultas, y una fortaleza con torre del homenaje
+1fd98247	Desafía a un amigo con una de tus carpetas: cada uno lucha contra el equipo del otro con sus palabras
+067b09b7	Las batallas pueden preguntar las palabras para repasar, o las de una carpeta
+983fefb5	Las batallas dan 25 XP por cada palabra que pasas a saber bien. Los tickets de batalla ya no existen: los que tenías volvieron como gemas
+ea2f451b	Tres clásicos árabes en el estante de libros gratis: las Mu'allaqat, Las mil y una noches y la Muqaddima

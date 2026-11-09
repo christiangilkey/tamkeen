@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mapas de batalha com construções: uma vila com prefeitura e taverna, uma masmorra com armadilhas e salas escondidas, e uma fortaleza com torre de menagem
+1fd98247	Desafie um amigo com uma das suas pastas: cada um batalha contra a equipe do outro com as palavras da pasta
+067b09b7	As batalhas podem perguntar as palavras para revisar, ou as de uma pasta
+983fefb5	As batalhas dão 25 XP por palavra que você passa a conhecer bem. Os tíquetes de batalha acabaram: os que você tinha voltaram como gemas
+ea2f451b	Três clássicos árabes na estante de livros grátis: as Mu'allaqat, As Mil e Uma Noites e a Muqaddima

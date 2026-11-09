@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mga mapa sa sangka nga may mga tinukod: baryo nga may munisipyo ug taberna, piitan nga may mga lit-ag ug tinagong mga kwarto, ug kuta nga may tore sa tunga
+1fd98247	Hagita ang usa ka higala sa usa sa imong mga folder: matag usa kaninyo makig-sangka sa team sa usa gamit ang mga pulong niini
+067b09b7	Ang mga sangka makapangutana sa mga pulong nga para sa review, o sa mga pulong sa usa ka folder
+983fefb5	Ang mga sangka mohatag og 25 XP sa matag pulong nga imong makabalo na kaayo. Wala na ang mga tiket sa sangka: ang imong naa pa nibalik isip mga mutya
+ea2f451b	Tulo ka klasikong Arabiko sa estante sa libreng mga libro: ang Mu'allaqat, ang Usa ka Libo ug Usa ka Gabii, ug ang Muqaddimah

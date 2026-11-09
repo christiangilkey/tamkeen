@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.49.0 — 2026-11-09
+
 - **New:** Three more Arabic classics on the free book shelf: **the Mu'allaqat** (the nine hanging odes, from Imru' al-Qays to Antara), **the Thousand and One Nights** (Shahrazad's tales and the voyages of Sindbad) and **Ibn Khaldun's Muqaddimah**. Arabic poems that Wikisource sets out as a table are now read too, a line of verse at a time.
 - **Removed:** Battle tickets. Now that a battle's XP no longer shrinks through the day, a ticket only added a few coins, so they are gone from Supplies and from battles. Any tickets you still had come back as the 2 gems each one cost.
 - **New:** Three new kinds of battle map with buildings to fight through: a **Village** (wooden houses with doors, fenced gardens), a **Dungeon** (stone rooms and caves joined by corridors) and a **Fortress** (a moat with bridges, an outer wall with gates and corner towers, a courtyard, and a keep in the middle). Walls stop creatures and attacks, so creatures go in through doors and along corridors; fences stop walkers but not attacks, and floating creatures drift over them. With them come wooden and stone floors, eight new props (barrel, crate, well, brazier, haystack, statue, cart, banner) and new ground details (straw, rugs, cobwebs, rubble).

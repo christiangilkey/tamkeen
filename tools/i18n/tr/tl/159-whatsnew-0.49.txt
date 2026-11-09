@@ -1,0 +1,6 @@
+# What's new 0.49.0 (web/js/whatsnew.js).
+63158d57	Mga mapa ng laban na may mga gusali: isang nayon na may munisipyo at taberna, isang piitan na may mga patibong at lihim na silid, at isang kuta na may tore sa gitna
+1fd98247	Hamunin ang isang kaibigan sa isa sa iyong mga folder: bawat isa sa inyo ay lalaban sa team ng isa gamit ang mga salita ng folder
+067b09b7	Maaaring itanong ng mga laban ang mga salitang para sa review, o ang mga salita sa isang folder
+983fefb5	Ang mga laban ay nagbibigay ng 25 XP sa bawat salitang nakilala mo nang husto. Wala na ang mga tiket sa laban: ang mga mayroon ka ay ibinalik bilang mga hiyas
+ea2f451b	Tatlong klasikong Arabe sa estante ng mga libreng aklat: ang Mu'allaqat, ang Isang Libo't Isang Gabi, at ang Muqaddimah
