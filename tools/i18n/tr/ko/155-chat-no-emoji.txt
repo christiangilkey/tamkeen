@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	메시지는 읽으면 사라지고, 음성 메시지는 들으면 사라져요
+e8d85371	{0} · 단어 {1}개
+2d0364e3	· 오디오{0}
+20f8d19f	아직 메시지가 없어요. {0}에게 인사해 보세요
+16a4db29	음성 메시지 녹음

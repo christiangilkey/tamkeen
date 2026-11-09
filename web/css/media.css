@@ -39,7 +39,9 @@
 /* Swiping between sections on a phone (mobile/src/js/swipe.js): hidden while the page slides, then
    it fades in rolling from the left once the new page has settled (or just fades back if the swipe
    springs back). A 58 px circle travelling 120 px turns about 240 degrees, so it looks like rolling. */
-.page-swiping .add-fab { opacity: 0; transition: opacity .12s; pointer-events: none; }
+/* (gone at once, not faded: the sliding page moves where a fixed button sits, so during a fade it was seen to jump
+   up for a moment: the owner) */
+.page-swiping .add-fab { visibility: hidden; opacity: 0; transition: none; pointer-events: none; }
 .add-fab.roll-in { animation: fab-roll-in .6s cubic-bezier(.33, 1, .68, 1) both; }
 .add-fab.fade-in { animation: fab-fade-in .2s ease-out both; }
 @keyframes fab-roll-in {

@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	Los mensajes desaparecen después de verse · las notas de voz, después de escucharse
+e8d85371	{0} · {1} palabras
+2d0364e3	· audio{0}
+20f8d19f	Aún no hay mensajes. Di {0}
+16a4db29	Grabar una nota de voz

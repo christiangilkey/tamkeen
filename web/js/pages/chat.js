@@ -6,6 +6,7 @@
 // played, shared words once added or dismissed, and anything unopened after 30 days.
 
 import { api, h, toast, saveClip, showMenu } from "../app.js";
+import { icon } from "../icons.js";
 import { moreButton, onHold, reportPerson } from "../components/safetyui.js";
 import * as social from "../social.js";
 import { confirmBox } from "../components/modal.js";
@@ -46,10 +47,10 @@ export async function render(view, { friendId }) {
     <div class="chat-head"><a class="btn ghost" href="#/friends" title="Back">←</a>
       <span id="chat-avatar"></span><strong id="chat-name">…</strong><span class="small muted" id="chat-online"></span>
       <span class="spacer"></span><span id="chat-more"></span></div>
-    <div class="chat-note small muted">👻 Messages disappear after they're seen · voice notes after they're played</div>
+    <div class="chat-note small muted">Messages disappear after they're seen · voice notes after they're played</div>
     <div class="chat-list" id="chat-list"><p class="muted" style="text-align:center">Loading…</p></div>
     <form class="chat-compose" id="compose">
-      <button type="button" id="mic" title="Record a voice note (up to 2 minutes)">🎤</button>
+      <button type="button" id="mic" title="Record a voice note (up to 2 minutes)" aria-label="Record a voice note">${icon("mic", 20)}</button>
       <input type="text" id="msg" placeholder="Message" autocomplete="off" maxlength="4000" dir="auto">
       <button type="submit" class="primary" id="send">Send</button>
     </form>
@@ -182,12 +183,12 @@ export async function render(view, { friendId }) {
       const card = h(`<div class="share-card"><div class="share-title"></div><div class="share-words ar"></div>
         <div class="share-action"></div></div>`);
       card.querySelector(".share-title").textContent = m.payload.folder
-        ? `📁 ${m.payload.folder} · ${words.length} word${words.length === 1 ? "" : "s"}`
+        ? `${m.payload.folder} · ${words.length} word${words.length === 1 ? "" : "s"}`
         : `★ ${words.length} word${words.length === 1 ? "" : "s"}`;
       card.querySelector(".share-words").textContent = words.slice(0, 6).map((w) => w.text).join(" · ") + (words.length > 6 ? " …" : "");
       setLang(card.querySelector(".share-words"), detectLanguage(words.map((w) => w.text).join(" ")));
       const audioCount = words.filter((w) => w.clip).length;
-      if (audioCount) card.querySelector(".share-title").textContent += ` · 🔊 audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
+      if (audioCount) card.querySelector(".share-title").textContent += ` · audio${audioCount === words.length ? "" : ` for ${audioCount}`}`;
       const action = card.querySelector(".share-action");
       if (mine) {
         action.append(h(`<span class="small muted">Sent</span>`));
@@ -258,7 +259,7 @@ export async function render(view, { friendId }) {
     const conv = await social.conversation(friendId);
     me = conv.me;
     list.innerHTML = "";
-    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say ${langInfo(studyLanguage()).hi} 👋</p>`));
+    if (!conv.messages.length) list.append(h(`<p class="muted chat-empty" style="text-align:center">No messages yet. Say ${langInfo(studyLanguage()).hi}</p>`));
     conv.messages.forEach(bubble);
     toBottom();
     markShown(conv.messages);

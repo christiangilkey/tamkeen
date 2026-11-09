@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	Mawala ang mga mensahe human makita · ang mga voice note human ma-play
+e8d85371	{0} · {1} ka pulong
+2d0364e3	· audio{0}
+20f8d19f	Wala pay mensahe. Isulti ang {0}
+16a4db29	Pagrekord og voice note

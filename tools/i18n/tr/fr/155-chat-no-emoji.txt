@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	Les messages disparaissent une fois vus · les messages vocaux une fois écoutés
+e8d85371	{0} · {1} mots
+2d0364e3	· audio{0}
+20f8d19f	Pas encore de messages. Dites {0}
+16a4db29	Enregistrer un message vocal

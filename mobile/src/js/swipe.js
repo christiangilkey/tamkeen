@@ -109,8 +109,11 @@ export function initSwipe() {
     const mx = e.touches[0].clientX - start.x;
     const my = e.touches[0].clientY - start.y;
     if (!swiping) {
-      if (Math.abs(my) > 12 && Math.abs(my) > Math.abs(mx)) { start = null; return; } // it's a vertical scroll
-      if (Math.abs(mx) < 14 || Math.abs(mx) < Math.abs(my) * 1.6) return;
+      // A scroll that starts a little slanted mustn't slide the page sideways (the owner saw the page jump left
+      // while scrolling): it is a scroll as soon as it goes down more than three quarters as far as across, and
+      // a swipe needs a clearly sideways move of 24 px.
+      if (Math.abs(my) > 10 && Math.abs(my) > Math.abs(mx) * 0.75) { start = null; return; } // it's a vertical scroll
+      if (Math.abs(mx) < 24 || Math.abs(mx) < Math.abs(my) * 2) return;
       swiping = true;
       document.body.classList.add("page-swiping");
       view.style.transition = "none";

@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	ข้อความจะหายไปหลังจากถูกอ่าน · ข้อความเสียงจะหายไปหลังจากถูกเล่น
+e8d85371	{0} · {1} คำ
+2d0364e3	· เสียง {0}
+20f8d19f	ยังไม่มีข้อความ ทักว่า {0}
+16a4db29	อัดข้อความเสียง

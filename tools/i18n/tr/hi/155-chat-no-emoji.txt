@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	संदेश देखे जाने के बाद ग़ायब हो जाते हैं · वॉइस नोट चलाए जाने के बाद
+e8d85371	{0} · {1} शब्द
+2d0364e3	· ऑडियो{0}
+20f8d19f	अभी कोई संदेश नहीं। {0} कहिए
+16a4db29	वॉइस नोट रिकॉर्ड करें

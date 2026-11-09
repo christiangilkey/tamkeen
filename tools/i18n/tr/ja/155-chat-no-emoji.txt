@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	メッセージは見たら消えます · ボイスメッセージは再生したら消えます
+e8d85371	{0} · {1}語
+2d0364e3	· 音声{0}
+20f8d19f	まだメッセージはありません。{0}と言ってみよう
+16a4db29	ボイスメモを録音

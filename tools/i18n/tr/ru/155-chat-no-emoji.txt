@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	Сообщения исчезают после просмотра · голосовые — после прослушивания
+e8d85371	{0} · слов: {1}
+2d0364e3	· аудио{0}
+20f8d19f	Сообщений пока нет. Скажите {0}
+16a4db29	Записать голосовое сообщение

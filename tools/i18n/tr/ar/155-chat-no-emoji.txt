@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	تختفي الرسائل بعد رؤيتها · والرسائل الصوتية بعد تشغيلها
+e8d85371	{0} · {1} كلمة
+2d0364e3	· صوت{0}
+20f8d19f	لا رسائل بعد. قل {0}
+16a4db29	سجّل رسالة صوتية

@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	消息被看过后会消失 · 语音消息播放后会消失
+e8d85371	{0} · {1} 个单词
+2d0364e3	· 音频{0}
+20f8d19f	还没有消息。说一声 {0}
+16a4db29	录制语音消息

@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	As mensagens somem depois de vistas · as mensagens de voz, depois de ouvidas
+e8d85371	{0} · {1} palavra(s)
+2d0364e3	· áudio{0}
+20f8d19f	Nenhuma mensagem ainda. Diga {0}
+16a4db29	Gravar uma mensagem de voz

@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	Nachrichten verschwinden, nachdem sie gesehen wurden · Sprachnachrichten, nachdem sie abgespielt wurden
+e8d85371	{0} · Wörter: {1}
+2d0364e3	· Audio{0}
+20f8d19f	Noch keine Nachrichten. Sag {0}
+16a4db29	Sprachnachricht aufnehmen

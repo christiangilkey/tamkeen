@@ -1,0 +1,6 @@
+# The chat screen without emojis (pages/chat.js): the old lines' translations, emoji taken out.
+f09db5a9	پیام‌ها پس از دیده شدن ناپدید می‌شوند · پیام‌های صوتی پس از پخش شدن
+e8d85371	{0} · {1} کلمه
+2d0364e3	· صدا{0}
+20f8d19f	هنوز پیامی نیست. بگویید {0}
+16a4db29	ضبط پیام صوتی
