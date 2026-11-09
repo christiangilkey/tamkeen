@@ -55,8 +55,8 @@ function reach(map, from, creature = walker) {
 const tileIndex = (map, p) => Math.floor(p.y / TILE) * map.cols + Math.floor(p.x / TILE);
 
 test("the terrain table: every field filled, the ids other parts use, art names", () => {
-  assert.equal(TERRAIN_IDS.length, 22);
-  assert.equal(PROP_IDS.filter((id) => PROPS[id].kind === id).length, 12, "12 kinds of prop (and their varieties)");
+  assert.equal(TERRAIN_IDS.length, 28, "22 grounds, and the built places' walls, fence and floors");
+  assert.equal(PROP_IDS.filter((id) => PROPS[id].kind === id).length, 20, "20 kinds of prop (and their varieties)");
   for (const t of Object.values(TERRAIN)) {
     for (const k of ["id", "name", "text", "walk", "cross", "shots", "speed", "grip", "atk", "def", "heal", "burn", "favours", "bonus",
       "status", "fixed", "under", "anim", "art", "likes", "hinders"]) assert.ok(k in t, `${t.id} has ${k}`);
@@ -80,7 +80,7 @@ test("the terrain table: every field filled, the ids other parts use, art names"
     assert.ok(p.foot === 1 || p.foot === 2);
   }
   const files = terrainArtFiles();
-  assert.equal(files.length, (22 + 1) * 2 + PROP_IDS.length + Object.keys(DECALS).length, "with bridge_v's sheets");
+  assert.equal(files.length, (TERRAIN_IDS.length + 1) * 2 + PROP_IDS.length + Object.keys(DECALS).length, "with bridge_v's sheets");
   assert.equal(new Set(files).size, files.length);
   for (const [id, th] of Object.entries(THEMES)) {
     assert.ok(th.uses.includes(th.base), `${id}: base ground listed`);

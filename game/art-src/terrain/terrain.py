@@ -31,7 +31,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from corners import blocky, organic  # noqa: E402
+from corners import E as EXT, blocky, organic  # noqa: E402
 from edges import BIG  # noqa: E402
 from pix import (T, Spots, blank, fbm, hx, mix, put, quantize, ramp, stamp)  # noqa: E402
 
@@ -1721,6 +1721,787 @@ class Wall(Terrain):
                 stamp(img, x, y, [".ab", "abs"], {"a": self.pal[6], "b": self.pal[4], "s": SHADOW})
 
 
+# ---------- built structures (village, dungeon, fortress): walls, a fence, floors ----------
+# A cell only knows its four corners, so a wall's south face can only be drawn where the cell can tell the wall ends:
+# the wall tile's south half, in the cell whose north corners are the wall and whose south corners aren't. To make a
+# one-tile wall read as high, the face carries on past the tile and hangs over the top of the tile to the south (in
+# that same cell, as a tall prop overlaps the tile behind it). Margins of 1 put the dark outline on the tile's own
+# edge pixel, so nothing of the ground shows between a wall and a floor beside it.
+
+OUTLINE = hx("#120c18")
+
+
+class Structure(Terrain):
+    """A wall: a flat top (the fill tiles), rims round the top, a south face of face_in + hang rows, a dark outline
+    and a cast shadow to the lower right. Square, straight-sided outline: it's built."""
+    organic = False
+    amp = 0
+    radius = 1.0
+    margin = {"N": 1, "E": 1, "S": 0, "W": 1}
+    face_in = 8        # face rows inside the wall's own tile (its south half; needs margin S 0)
+    hang = 3           # face rows hanging over the top of the tile to the south
+    detail_gap = 2
+    reach = 2          # how far the cast shadow reaches
+
+    @property
+    def face_h(self):
+        return self.face_in + self.hang
+
+    def solids(self, sh):
+        """Over the cell and its extension: how many rows below the wall's bottom each pixel is (1..hang, else 0),
+        which pixels are face, and which are solid (the wall's top, face and hanging face)."""
+        ext = sh.ext
+        n = ext.shape[0]
+        hang = np.zeros((n, n), int)
+        for x in range(n):
+            k = -1
+            for y in range(n):
+                if ext[y, x]:
+                    k = 0
+                elif k >= 0:
+                    k += 1
+                    if k > self.hang:
+                        k = -1
+                    else:
+                        hang[y, x] = k
+        face = (ext & (sh.dS_ext <= self.face_in)) | (hang > 0)
+        return hang, face, ext | (hang > 0)
+
+    @staticmethod
+    def run(face, solid, X, Y, dx):
+        """Along a row of face, how far to its end (1 = this is the end column) and what is past it: "out" (the wall
+        stops), "wall" (it meets the top of a wall running the other way) or None (beyond what the cell knows)."""
+        n = face.shape[1]
+        k, xx = 0, X
+        while 0 <= xx < n and face[Y, xx]:
+            xx += dx
+            k += 1
+        if not 0 <= xx < n:
+            return k, None
+        return k, ("wall" if solid[Y, xx] else "out")
+
+    def step(self, c, k):
+        """The colour k steps lighter (k < 0: darker) on this wall's own ramp."""
+        for i, p in enumerate(self.pal):
+            if tuple(p) == tuple(c):
+                return self.pal[max(0, min(len(self.pal) - 1, i + k))]
+        return c
+
+    def top_rim(self, x, y, sh):
+        return None
+
+    def face_marks(self, rng):
+        return {}
+
+    def face_px(self, x, y, t, west, east, marks):
+        raise NotImplementedError
+
+    def edge(self, bits, frame=0):
+        if bits == 15:
+            return self.fill(0, frame)
+        if bits == 0:
+            return blank()
+        sh = self.shape(bits)
+        self.salt = ("edge", bits)
+        img = self.base(frame)
+        self.details(img, rng_for(self.id, "edge", bits), (sh.d >= self.detail_gap) & (sh.dS > self.face_in + 2), frame, 0)
+        hang, face, solid = self.solids(sh)
+        for x, y in each(sh):
+            if not face[y + EXT, x + EXT]:
+                c = self.top_rim(x, y, sh)
+                if c is not None:
+                    img[y, x] = c
+        marks = self.face_marks(rng_for(self.id, "face", bits))
+        for y in range(T):
+            for x in range(T):
+                X, Y = x + EXT, y + EXT
+                if face[Y, X]:
+                    t = self.face_in - sh.dS[y, x] if sh.ins[y, x] else self.face_in - 1 + hang[Y, X]
+                    img[y, x] = self.face_px(x, y, t, self.run(face, solid, X, Y, -1), self.run(face, solid, X, Y, 1), marks)
+                elif not sh.ins[y, x]:
+                    img[y, x] = 0
+        self.surround(img, solid)
+        return img
+
+    def surround(self, img, solid):
+        """The cast shadow (to the lower right, see-through) and a dark outline round the whole wall."""
+        n = solid.shape[0]
+
+        def s(x, y):
+            return bool(solid[min(max(y + EXT, 0), n - 1), min(max(x + EXT, 0), n - 1)])
+
+        r = self.reach
+        for y in range(T):
+            for x in range(T):
+                if s(x, y):
+                    continue
+                if any(s(x - k, y) or s(x, y - k) or s(x - k, y - k) for k in range(1, r + 1)):
+                    put(img, x, y, SHADOW)
+                elif s(x - r - 1, y) or s(x, y - r - 1) or s(x - r, y - r - 1):
+                    put(img, x, y, SHADOW_SOFT)
+        for y in range(T):
+            for x in range(T):
+                if not s(x, y) and (s(x, y + 1) or s(x + 1, y) or s(x - 1, y) or s(x, y - 1)):
+                    img[y, x] = OUTLINE
+
+
+# ---------- fortress wall ----------
+
+FORT = ramp("#211b1e #352d2e #4b413f #645852 #7f7268 #9a8c7f #b4a696 #cec1ae #eae0cc")
+
+
+class FortWall(Structure):
+    """A grand, well-kept castle wall of pale warm stone: a paved wall-walk on top with a crenellated parapet along
+    its far (north) side and thin ones along its sides, and a tall face of big ashlar blocks under a crenellated
+    front, 11 px high (8 in its own tile, 3 over the tile in front)."""
+    id = "fort_wall"
+    pal = FORT
+    hang = 3
+    reach = 3
+
+    def base(self, frame):
+        """The wall-walk: big square flagstones, 8 px, every other row offset by half, fine joints, a faint grain."""
+        rng = rng_for(self.id, "base", self.salt)
+        img = speckle_base(rng, self.pal[6], [(self.pal[5], 0.05, 1), (self.pal[7], 0.03, 1)])
+        for y in range(T):
+            row = y // 8
+            for x in range(T):
+                kx = (x + (row % 2) * 4) % 8
+                if y % 8 == 7 or kx == 7:
+                    img[y, x] = self.pal[4]          # the joints, fine and even
+                elif y % 8 == 0 or kx == 0:
+                    img[y, x] = self.pal[7]          # each flag's lit top and left edge
+                elif y % 8 == 6 or kx == 6:
+                    img[y, x] = self.pal[5]
+        return img
+
+    def details(self, img, rng, ok, frame, variant):
+        sp = Spots(ok)
+        if variant == 1:  # a flag a touch darker with age
+            place(img, sp, rng, ["ddd", "ddd"], {"d": self.pal[5]}, pad=1)
+        elif variant == 2:  # a hairline crack
+            place(img, sp, rng, ["c..", ".cc", "...c"], {"c": self.pal[4]})
+        elif variant == 3:  # a little moss in a joint
+            place(img, sp, rng, [".m", "mm"], {"m": MOSS[2]})
+
+    def top_rim(self, x, y, sh):
+        p = self.pal
+        dn, dw, de = sh.dN[y, x], sh.dW[y, x], sh.dE[y, x]
+        merlon = x % 8 < 5
+        if dn == 1:
+            return p[8] if merlon else OUTLINE      # merlon tops; a crenel is a notch in the outline
+        if dn == 2:
+            return p[5] if merlon else p[7]         # a merlon's front / the lit sill of a crenel
+        if dn == 3:
+            return p[3]                             # the parapet's foot, in shade
+        notch = y % 8 >= 5
+        if dw == 1:
+            return p[5] if notch else p[8]          # the side parapets: a lit top with crenel gaps
+        if dw == 2:
+            return p[4]
+        if de == 1:
+            return p[3]
+        if de == 2:
+            return p[5] if notch else p[7]
+        return None
+
+    def face_px(self, x, y, t, west, east, marks):
+        p = self.pal
+        fh = self.face_h
+        cren = x % 8 >= 5
+        if t == 0:
+            c = p[2] if cren else p[8]          # merlon tops; through a crenel, the dark gap
+        elif t == 1:
+            c = p[7] if cren else p[5]          # the crenel's lit sill / the merlon's face
+        elif t == 2:
+            c = p[4]
+        elif t == 3:
+            c = p[2]                            # the shadow under the parapet's string course
+        elif t >= fh - 1:
+            c = p[1]                            # the plinth's foot
+        else:
+            course, row = divmod(t - 4, 3)      # ashlar: courses 3 px high, blocks 8 wide, staggered
+            kx = (x + (course % 2) * 4 + 2) % 8
+            if row == 2 or kx == 0:
+                c = p[2]
+            elif row == 0 or kx == 1:
+                c = p[5] if course == 0 else p[4]
+            else:
+                c = p[4] if course == 0 else p[3]
+        (wk, wkind), (ek, ekind) = west, east
+        if wkind == "out" and wk == 1 and t >= 2:
+            c = p[6] if t < fh - 1 else p[2]      # the wall's lit west corner
+        elif wkind == "wall" and wk <= 2:
+            c = self.step(c, -1)                # in the shade of the wall running south beside it
+        if ekind == "out" and ek == 1 and t >= 1:
+            c = p[1]                            # its east corner, in shade
+        elif ekind == "wall" and ek == 1:
+            c = p[1]
+        return c
+
+
+# ---------- dungeon wall ----------
+
+DUNGEON = ramp("#08070d #110f18 #1a1722 #24202d #2f2937 #3b3443 #48404f #584d5b #6a5d69")
+DRIP = [hx("#232b42"), hx("#33435f"), hx("#7896bc")]   # wet stains running down, and a glint
+DMOSS = ramp("#14221c #1d3324 #29482c #3a6034")
+
+
+def voronoi(name: str, n: int, sy: float = 1.2, gap: float = 0.9, iters: int = 5):
+    """Rough stones that wrap round the tile (the same as cobble_layout, with its own seed)."""
+    rng = rng_for(name, "stones")
+    pts = rng.random((n, 2)) * T
+
+    def nearest(x, y):
+        ds = []
+        for i, (px, py) in enumerate(pts):
+            dx = min(abs(x - px), T - abs(x - px))
+            dy = min(abs(y - py), T - abs(y - py)) * sy
+            ds.append((dx * dx + dy * dy, i))
+        ds.sort()
+        return ds
+
+    for _ in range(iters):
+        acc = [[0.0, 0.0, 0.0, 0.0, 0] for _ in range(n)]
+        for y in range(T):
+            for x in range(T):
+                i = nearest(x + 0.5, y + 0.5)[0][1]
+                a = acc[i]
+                for k, v in ((0, x + 0.5), (2, y + 0.5)):
+                    ang = v / T * 2 * math.pi
+                    a[k] += math.cos(ang)
+                    a[k + 1] += math.sin(ang)
+                a[4] += 1
+        for i, a in enumerate(acc):
+            if a[4]:
+                pts[i, 0] = (math.atan2(a[1], a[0]) / (2 * math.pi) * T) % T
+                pts[i, 1] = (math.atan2(a[3], a[2]) / (2 * math.pi) * T) % T
+    owner = np.full((T, T), -1)
+    for y in range(T):
+        for x in range(T):
+            ds = nearest(x + 0.5, y + 0.5)
+            if math.sqrt(ds[1][0]) - math.sqrt(ds[0][0]) > gap:
+                owner[y, x] = ds[0][1]
+    return owner
+
+
+class DungeonWall(Structure):
+    """Dark, rough-hewn blue-black stone, damp: blocks of uneven size with chipped edges, wet stains running down
+    the face with a glint, moss at its top and foot. Face 9 px (8 in its own tile, 1 over the tile in front)."""
+    id = "dungeon_wall"
+    pal = DUNGEON
+    hang = 1
+
+    def __init__(self):
+        self.owner = voronoi(self.id, 5)
+        rng = rng_for(self.id, "tones")
+        self.tone = {i: ri(rng, 4, 5) for i in range(int(self.owner.max()) + 1)}
+        self.grain = rng_for(self.id, "grain").random((T, T))
+        # the face: two courses of blocks of uneven width; each block's bottom joint a row higher or lower, so the
+        # courses don't run ruler-straight. It repeats every 16 px, the same in every cell, so faces join up.
+        rng = rng_for(self.id, "face_layout")
+        fh = self.face_h
+        blk = np.full((fh, T), -1)
+        bid = 0
+        for top, bottom in ((1, 4), (5, fh - 2)):
+            s0 = ri(rng, 0, 7)
+            starts = [s0]
+            x = s0 + ri(rng, 4, 7)
+            while x < s0 + T - 3:
+                starts.append(x)
+                x += ri(rng, 4, 7)
+            starts.append(s0 + T)
+            for i, sx in enumerate(starts[:-1]):
+                low = bottom - (ri(rng, 0, 1) if top == 1 else 0)
+                for xx in range(sx, starts[i + 1] - 1):   # a 1 px joint between blocks
+                    for t in range(top, low + 1):
+                        blk[t, xx % T] = bid
+                bid += 1
+        self.blk = blk
+        self.blk_tone = {i: ri(rng, 4, 5) for i in range(bid)}
+
+    def stone(self, x, y):
+        o = self.owner[y % T, x % T]
+        return None if o < 0 else int(o)
+
+    def base(self, frame):
+        """The wall's top: rough flat stones with dark cracks between them, each lit on its top-left."""
+        img = blank()
+        p = self.pal
+        for y in range(T):
+            for x in range(T):
+                s = self.stone(x, y)
+                if s is None:
+                    img[y, x] = p[1]
+                    continue
+                t = self.tone[s]
+                if self.stone(x, y + 1) != s:
+                    c = p[t - 2]
+                elif self.stone(x, y - 1) != s or self.stone(x - 1, y) != s:
+                    c = p[t + 1]
+                elif self.stone(x + 1, y) != s:
+                    c = p[t - 1]
+                else:
+                    g = self.grain[y, x]
+                    c = p[t - 1] if g < 0.12 else p[t + 1] if g > 0.94 else p[t]
+                img[y, x] = c
+        return img
+
+    def details(self, img, rng, ok, frame, variant):
+        sp = Spots(ok)
+        if variant == 1:  # moss creeping over the top
+            place(img, sp, rng, [".ll.", "lmmm", ".dd."], {"l": DMOSS[3], "m": DMOSS[2], "d": DMOSS[1]})
+        elif variant == 2:  # a fallen chip of stone
+            place(img, sp, rng, ["ab", "bs"], {"a": self.pal[6], "b": self.pal[4], "s": self.pal[1]})
+        elif variant == 3:  # a damp patch with a glint
+            place(img, sp, rng, [".dd.", "dwhd", ".dd."], {"d": DRIP[0], "w": DRIP[2], "h": DRIP[1]})
+
+    def top_rim(self, x, y, sh):
+        p = self.pal
+        chip = (x * 5 + y * 3) % 11 == 0 and 1 < x < T - 2 and 1 < y < T - 2
+        if sh.dN[y, x] == 1 or sh.dW[y, x] == 1:
+            return p[3] if chip else p[6]
+        if sh.dE[y, x] == 1:
+            return p[1] if chip else p[2]
+        return None
+
+    def face_marks(self, rng):
+        cols = list(range(1, T - 1))
+        rng.shuffle(cols)
+        drips = {cols[0]: ri(rng, 4, 7), cols[1]: ri(rng, 2, 4)}   # wet stains: column -> length
+        moss_top = set(cols[2:4])
+        moss_foot = set(cols[4:7])
+        chips = set(cols[7:9])
+        return {"drips": drips, "moss_top": moss_top, "moss_foot": moss_foot, "chips": chips}
+
+    def face_px(self, x, y, t, west, east, marks):
+        p = self.pal
+        fh = self.face_h
+        if t == 0:
+            c = p[4] if x in marks["chips"] else p[7]           # the chipped lip of the top
+        elif t >= fh - 1:
+            c = p[1]                                            # the wet foot of the wall
+        else:
+            b = self.blk[t, x]
+            if b < 0:
+                c = p[1]                                        # joints
+            else:
+                tn = self.blk_tone[b] - (1 if t >= 5 else 0)    # the lower course a touch darker
+                up = t == 0 or self.blk[t - 1, x] != b
+                lf = self.blk[t, (x - 1) % T] != b
+                dn = t + 1 >= fh or self.blk[t + 1, x] != b
+                rt = self.blk[t, (x + 1) % T] != b
+                if dn:
+                    c = p[tn - 2]
+                elif up:
+                    c = p[tn + 1]
+                elif lf:
+                    c = p[tn + 1] if t < 5 else p[tn]
+                elif rt:
+                    c = p[tn - 1]
+                else:
+                    g = self.grain[t, x]
+                    c = p[tn - 1] if g < 0.15 else p[tn]
+        if x in marks["drips"] and 1 <= t <= marks["drips"][x]:
+            c = DRIP[1] if t == marks["drips"][x] else DRIP[0]   # a dark wet streak ending in a drop
+        if x in marks["moss_top"] and t <= 1:
+            c = DMOSS[3] if t == 0 else DMOSS[1]
+        if x in marks["moss_foot"] and t >= fh - 2:
+            c = DMOSS[2] if t == fh - 2 else DMOSS[1]
+        (wk, wkind), (ek, ekind) = west, east
+        if wkind == "out" and wk == 1 and 0 < t < fh - 1:
+            c = self.step(c, 1)
+        elif wkind == "wall" and wk <= 2:
+            c = self.step(c, -1)
+        if ek == 1 and ekind is not None and t > 0:
+            c = p[1]
+        return c
+
+
+# ---------- house wall (timber frame) ----------
+
+PLASTER = ramp("#6e5e52 #96846e #baa98c #d8caa8 #ece2c6 #f8f2e2")
+
+
+class HouseWall(Structure):
+    """A village house, cut away (no roof: we look down into it). The top of the wall is the wall-plate, a timber
+    beam; the face is timber framing (posts and braces, dark brown) with whitewashed plaster panels between, on a
+    low stone plinth. Face 10 px (8 in its own tile, 2 over the tile in front)."""
+    id = "house_wall"
+    pal = WOOD
+    hang = 2
+
+    def base(self, frame):
+        """The wall-plate: dark seasoned timber, a faint grain, the odd knot."""
+        rng = rng_for(self.id, "base", self.salt)
+        img = speckle_base(rng, self.pal[4], [(self.pal[3], 0.03, 2), (self.pal[5], 0.03, 1)])
+        for y in range(T):
+            for x in range(T):
+                if self.grain_ew(x, y):
+                    img[y, x] = self.pal[3]
+        return img
+
+    @staticmethod
+    def grain_ew(x, y):
+        return y % 3 == 1 and (x + y * 5) % 7 < 4
+
+    @staticmethod
+    def grain_ns(x, y):
+        return x % 4 == 1 and (y + x * 5) % 7 < 4
+
+    def details(self, img, rng, ok, frame, variant):
+        sp = Spots(ok)
+        if variant == 1:
+            place(img, sp, rng, [".k.", "kok", ".k."], {"k": self.pal[3], "o": self.pal[2]})
+        elif variant == 2:  # nail heads
+            for _ in range(2):
+                place(img, sp, rng, ["n"], {"n": STONE[3]}, pad=2)
+        elif variant == 3:  # a split in the beam
+            place(img, sp, rng, ["cc..", "..cc"], {"c": self.pal[3]})
+
+    def top_rim(self, x, y, sh):
+        p = self.pal
+        if sh.dN[y, x] == 1 or sh.dW[y, x] == 1:
+            return p[6]
+        if sh.dE[y, x] == 1:
+            return p[2]
+        if sh.dN[y, x] == 2 or sh.dW[y, x] == 2:
+            return p[5]
+        # the grain runs along the beam: up and down where the wall runs north-south, across elsewhere (the base)
+        if min(sh.dW[y, x], sh.dE[y, x]) < min(sh.dN[y, x], sh.dS[y, x]):
+            if self.grain_ns(x, y):
+                return p[3]
+            if self.grain_ew(x, y):
+                return p[4]
+        return None
+
+    def face_px(self, x, y, t, west, east, marks):
+        w, pl = self.pal, PLASTER
+        fh = self.face_h
+        (wk, wkind), (ek, ekind) = west, east
+        if t == 0:
+            c = w[7]                                 # the wall-plate's lit edge
+        elif t == 1:
+            c = w[2]                                 # its underside
+        elif t == fh - 2:
+            c = w[4]                                 # the sill beam
+        elif t >= fh - 1:
+            c = STONE[3] if (x * 5) % 7 == 0 else STONE[2]   # the stone plinth
+        else:
+            k = x % 8
+            panel = ((x + 3) // 8) % 2               # panels run between the posts (k 3, 4)
+            r = t - 2                                # 0..5 down the panel
+            if k in (3, 4):
+                c = w[5] if k == 3 else w[3]         # a post
+            else:
+                c = pl[2] if r == 0 else pl[3] if r == 5 else pl[4]   # plaster, shaded under the beam
+                if (x * 3 + t * 5) % 13 == 0 and 0 < r < 5:
+                    c = pl[5]
+                j = (k - 5) % 8                      # 0..5 across the panel
+                if panel == 0 and j in (5 - r, 6 - r):
+                    c = w[4] if j == 5 - r else w[2]  # a brace rising to the right
+        # the ends of the wall: a corner post
+        if wkind == "out" and wk <= 2 and t >= 1:
+            c = w[6] if wk == 1 else w[4]
+            if t >= fh - 1:
+                c = STONE[3] if wk == 1 else STONE[2]
+        elif wkind == "wall" and wk <= 2 and 2 <= t < fh - 2:
+            c = self.step(c, -1) if c in w else pl[2]
+        if ekind is not None and ek <= 2 and t >= 1:
+            c = w[3] if ek == 2 else w[1]
+            if t >= fh - 1:
+                c = STONE[1]
+        return c
+
+
+# ---------- fence (a line: posts at the tiles' centres, rails between neighbours) ----------
+
+class Fence(Terrain):
+    """A low wooden fence. Unlike the other terrains it is a line, not an area: a post stands at the centre of every
+    fence tile (each cell corner) and two rails run to each fence tile beside it, along the cell's sides, with a post
+    half-way. A cell knows every part it draws (the corners and sides it shares), so lines, corners, T-junctions and
+    crossings all join up. Everything else is see-through (the ground shows between the rails), fills included."""
+    id = "fence"
+    pal = WOOD
+
+    def draw(self, mask: int) -> np.ndarray:
+        p = self.pal
+        c = blank(3 * T, 3 * T)
+
+        def px(x, y, col):
+            put(c, x + T, y + T, col)
+
+        corners = {1: (0, 0), 2: (T, 0), 4: (0, T), 8: (T, T)}
+        on = [b for b in corners if mask & b]
+        hs = [(1, 2), (4, 8)]   # the north and south sides: rails running east-west
+        vs = [(1, 4), (2, 8)]   # the west and east sides: rails running north-south
+        hrails = [(corners[a], corners[b]) for a, b in hs if mask & a and mask & b]
+        vrails = [(corners[a], corners[b]) for a, b in vs if mask & a and mask & b]
+
+        def post(cx, cy, h):
+            """A post 2 px wide standing on (cx - 1..cx, cy), h px tall, with a dark outline and a lit cap."""
+            for k in range(h + 1):
+                y = cy - k
+                px(cx - 1, y, p[7] if k < h else p[8])
+                px(cx, y, p[5] if k < h else p[7])
+                px(cx - 2, y, p[1])
+                px(cx + 1, y, p[1])
+            px(cx - 1, cy - h - 1, p[1])
+            px(cx, cy - h - 1, p[1])
+            px(cx - 1, cy, p[4])
+            px(cx, cy, p[3])
+            px(cx + 2, cy, SHADOW)                # its shadow on the ground
+            px(cx + 2, cy + 1, SHADOW_SOFT)
+            px(cx + 1, cy + 1, SHADOW_SOFT)
+
+        # shadows on the ground, to the lower right
+        for (x0, y0), (x1, _) in hrails:
+            for x in range(x0 + 1, x1 + 1):
+                px(x, y0 + 1, SHADOW_SOFT)
+        for (x0, y0), (_, y1) in vrails:
+            for y in range(y0 + 1, y1):
+                px(x0 + 2, y, SHADOW_SOFT)
+        # rails running north-south: seen from above, the two rails are one line, a little above the ground
+        for (x0, y0), (_, y1) in vrails:
+            for y in range(y0 - 3, y1 - 2):
+                px(x0 - 1, y, p[6])
+                px(x0, y, p[3])
+                px(x0 + 1, y, p[1])
+            post(x0, y0 + 8, 5)
+        # rails running east-west: a top rail and a low one, with the ground showing between
+        for (x0, y0), (x1, _) in hrails:
+            for x in range(x0, x1 + 1):
+                px(x, y0 - 6, p[1])
+                px(x, y0 - 5, p[6])
+                px(x, y0 - 4, p[3])
+                px(x, y0 - 2, p[6])
+                px(x, y0 - 1, p[3])
+            post(x0 + 8, y0, 5)
+        for b in on:
+            post(*corners[b], 6)
+        return c[T:2 * T, T:2 * T].copy()
+
+    def base(self, frame):
+        return blank()
+
+    def edge(self, bits, frame=0):
+        return blank() if bits == 0 else self.draw(bits)
+
+    def fill(self, variant, frame=0):
+        return self.draw(15)
+
+
+# ---------- floors: level, square-edged, with a thin dark seam where they meet other ground ----------
+
+class Floor(Terrain):
+    organic = False
+    amp = 0
+    radius = 0.5
+    margin = {"N": 0, "E": 0, "S": 0, "W": 0}
+    detail_gap = 1
+    groups = 2
+    seam = 1
+
+    def rim(self, img, sh, frame):
+        for x, y in each(sh):
+            if sh.dN[y, x] == 1 or sh.dS[y, x] == 1 or sh.dW[y, x] == 1 or sh.dE[y, x] == 1:
+                img[y, x] = self.pal[self.seam]
+
+
+FLOORBOARD = ramp("#2a1a12 #452c1a #5e3e22 #704c28 #7e582e #8c6434 #9a703a #aa7e44 #c49a5c")
+
+
+class WoodFloor(Floor):
+    """Warm honey-brown planks running east-west, 3 px wide with a dark gap between the rows, their ends staggered
+    and faint, each plank a shade of its own, with long grain. Textures: plain (knots, nails) and aged (a worn plank,
+    a darker one, a crack)."""
+    id = "wood_floor"
+    pal = FLOORBOARD
+    seam = 2
+    JOINTS = ({5, 13}, {9}, {1, 12}, {6})   # where planks end in each of the tile's 4 rows of planks
+    # each plank's shade (by its row and the joint it starts after); the long ones that cross the tile's side stay
+    # plain, so a big floor shows no stripes
+    TONES = {(0, 5): 1, (0, 13): -1, (1, 9): 0, (2, 1): -1, (2, 12): 1, (3, 6): 0}
+
+    def plank(self, x, y, tone=None):
+        p = self.pal
+        r, k = divmod(y % T, 4)
+        x %= T
+        j = self.JOINTS[r]
+        if k == 0:
+            return p[3]                              # the gap between rows of planks
+        if x in j:
+            return p[5] if k > 1 else p[4]           # where two planks butt together (faint: planks, not bricks)
+        prev = max([a for a in j if a < x], default=max(j))
+        b = 6 + (self.TONES.get((r, prev), 0) if tone is None else tone)
+        if k == 2 and (x + r * 5) % 11 < 3 or k == 3 and (x + r * 3 + 6) % 13 < 2:
+            return p[b - 1]                          # the grain, in long streaks
+        if k == 1 and (x + r * 7) % 9 == 0:
+            return p[min(b + 1, len(p) - 1)]
+        return p[b]
+
+    def runs(self):
+        """Planks lying wholly inside the tile, as (row, x0, x1): recolouring one never shows a seam."""
+        out = []
+        for r, j in enumerate(self.JOINTS):
+            for x0 in range(T):
+                if x0 in j or not ((x0 - 1) % T in j):
+                    continue
+                x1 = x0
+                while (x1 + 1) % T not in j and x1 + 1 < T:
+                    x1 += 1
+                if (x1 + 1) % T in j:
+                    out.append((r, x0, x1))
+        return out
+
+    def base(self, frame):
+        img = blank()
+        for y in range(T):
+            for x in range(T):
+                img[y, x] = self.plank(x, y)
+        return img
+
+    def recolour(self, img, run, tone, ok=None):
+        r, x0, x1 = run
+        for y in range(r * 4 + 1, r * 4 + 4):
+            for x in range(x0, x1 + 1):
+                if ok is None or ok[y, x]:
+                    img[y, x] = self.plank(x, y, tone)
+
+    def nails(self, img, run):
+        r, x0, x1 = run
+        for x in (x0, x1):
+            put(img, x, r * 4 + 2, self.pal[1])
+
+    def details(self, img, rng, ok, frame, variant):
+        if variant < 2:
+            return
+        runs = self.runs()
+        run = runs[ri(rng, 0, len(runs) - 1)]
+        r, x0, x1 = run
+        if variant == 2:  # a knot
+            x = ri(rng, x0 + 1, max(x0 + 1, x1 - 2))
+            if ok[r * 4 + 1:r * 4 + 3, x:x + 2].all():
+                stamp(img, x, r * 4 + 1, ["kk", "ok"], {"k": self.pal[4], "o": self.pal[3]})
+        else:  # nail heads at a plank's ends
+            if ok[r * 4 + 2, x0] and ok[r * 4 + 2, x1]:
+                self.nails(img, run)
+
+    def group(self, img, rng, frame, g, v):
+        runs = self.runs()
+        run = runs[ri(rng, 0, len(runs) - 1)]
+        r, x0, x1 = run
+        if v == 0:  # a worn, paler plank, scuffed
+            self.recolour(img, run, 1)
+            for x in range(x0 + 1, x1, 3):
+                put(img, x, r * 4 + 2, self.pal[8])
+        elif v == 1:  # a darker plank, nailed down
+            self.recolour(img, run, -2)
+            self.nails(img, run)
+        elif v == 2:  # a crack along a plank
+            n = min(5, x1 - x0)
+            for i in range(n):
+                put(img, x0 + 1 + i, r * 4 + 2 + (1 if i >= n // 2 else 0), self.pal[3])
+        else:  # a darker plank
+            self.recolour(img, run, -1)
+
+
+SLAB = ramp("#131317 #202026 #303037 #414148 #54545b #68686e #7d7d82 #959598 #b0b0b0")
+
+
+class StoneFloor(Floor):
+    """Dressed square slabs of neutral grey stone, 7 px with dark grout, in a regular grid (one tile = 2 by 2 slabs).
+    Textures: plain (a darker or paler slab, a chipped corner), worn (a crack, a stain) and damp (moss in the joints,
+    a puddle, a drain grate: kept to this rarer texture so drains don't crowd a big floor)."""
+    id = "stone_floor"
+    pal = SLAB
+    groups = 3
+
+    def __init__(self):
+        self.grain = rng_for(self.id, "grain").random((T, T))
+
+    def slab(self, x, y, tone=0):
+        p = self.pal
+        sx, sy = x % 8, y % 8
+        if sx == 7 or sy == 7:
+            return p[1]                               # the grout
+        t = 5 + tone
+        if sy == 0:
+            return p[t + 1] if sx < 6 else p[t]       # the lit top edge
+        if sx == 0:
+            return p[t + 1] if sy < 6 else p[t]       # and left edge
+        if sy == 6 or sx == 6:
+            return p[t - 1]                           # the shaded lower and right edges
+        return p[t]
+
+    def base(self, frame):
+        img = blank()
+        for y in range(T):
+            for x in range(T):
+                img[y, x] = self.slab(x, y)
+        return img
+
+    def tone_slab(self, img, i, tone, ok):
+        sx, sy = (i % 2) * 8, (i // 2) * 8
+        for y in range(sy, sy + 7):
+            for x in range(sx, sx + 7):
+                if ok[y, x]:
+                    img[y, x] = self.slab(x, y, tone)
+
+    def crack(self, img, rng, i):
+        sx, sy = (i % 2) * 8, (i // 2) * 8
+        pts = [(1, 2), (2, 3), (3, 3), (4, 4), (5, 4)] if chance(rng, 0.5) else [(2, 1), (2, 2), (3, 3), (3, 4), (4, 5)]
+        for x, y in pts:
+            put(img, sx + x, sy + y, self.pal[2])
+        x, y = pts[0]
+        put(img, sx + x, sy + y - 1, self.pal[6])
+
+    def details(self, img, rng, ok, frame, variant):
+        if variant == 0:
+            return
+        i = ri(rng, 0, 3)
+        if variant == 1:
+            self.tone_slab(img, i, -1, ok)
+        elif variant == 2:
+            self.tone_slab(img, i, 1, ok)
+        else:  # a chipped corner: the slab's lower right broken off, showing grit
+            sx, sy = (i % 2) * 8, (i // 2) * 8
+            for x, y in ((6, 5), (5, 6), (6, 6), (4, 6)):
+                if ok[sy + y, sx + x]:
+                    img[sy + y, sx + x] = self.pal[2]
+            if ok[sy + 4, sx + 6]:
+                img[sy + 4, sx + 6] = self.pal[3]
+
+    def moss(self, img, salt):
+        """Moss in some of the joints (never on the tile's border, so it can't make a seam)."""
+        for y in range(1, T - 1):
+            for x in range(1, T - 1):
+                if (x % 8 == 7 or y % 8 == 7) and (x * 5 + y * 3 + salt) % 7 < 2:
+                    img[y, x] = MOSS[2] if (x + y) % 2 else MOSS[1]
+
+    def group(self, img, rng, frame, g, v):
+        i = ri(rng, 0, 3)
+        ok = np.ones((T, T), bool)
+        sx, sy = (i % 2) * 8, (i // 2) * 8
+        if g == 1:  # worn
+            if v == 0:
+                self.crack(img, rng, i)
+            elif v == 1:  # a dark stain spreading over a slab
+                stamp(img, sx + 1, sy + 1, ["ss...", "ssss.", ".sss.", "..s.."], {"s": self.pal[4]})
+            else:  # a darker slab; a chipped corner on another
+                self.tone_slab(img, (i + v) % 4, -1, ok)
+                if v == 3:
+                    self.details(img, rng, ok, frame, 3)
+        else:  # damp
+            if v != 2:
+                self.moss(img, v)
+            if v == 1:  # a shallow puddle catching the light
+                stamp(img, sx + 1, sy + 1, ["pp...", "pppp.", ".pphp", "..pp."], {"p": self.pal[4], "h": self.pal[7]})
+            elif v == 2:  # an iron drain grate set in a slab
+                stamp(img, sx + 1, sy + 1, ["rrrrr", "rhbhr", "rbhbr", "rhbhr", "rrrrr"],
+                      {"r": self.pal[2], "h": self.pal[0], "b": self.pal[4]})
+
+
 # ---------- fill textures: extra looks for the big plain grounds ----------
 # Each is drawn over the terrain's shared surface, with nothing crossing a tile's border, so a patch of one
 # texture meets the plain ground with no seam. The Map picks the group by a slow noise (whole patches of one
@@ -1846,6 +2627,7 @@ TERRAINS = {t.id: t for t in (
     Grass(), Dirt(), Sand(), Snow(), Ash(), CaveFloor(), TallGrass(), Flowers(), ForestFloor(), Mud(),
     Shallows(), DeepWater(), Ice(), High(), Cobbles(), Crystals(), Coals(), Lava(), Shadow(), Spring(),
     Bridge(), BridgeV(), Wall(),
+    FortWall(), DungeonWall(), HouseWall(), Fence(), WoodFloor(), StoneFloor(),
 )}
 UNDER = {"deep_water": "shallows", "bridge": "deep_water", "bridge_v": "deep_water"}
 

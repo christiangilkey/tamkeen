@@ -1,0 +1,18 @@
+# Battle maps with buildings: village, dungeon, fortress (game/battlemap.js: walls, floors, props, themes).
+74f5e45a	Pader ng kuta
+0a99381f	Pader ng piitan
+143bf15b	Dingding ng bahay
+a7852991	Bakod
+12d3b568	Humaharang sa paggalaw pero hindi sa mga atake. Nakakalampas sa ibabaw ang mga lumulutang.
+a394ba75	Sahig na kahoy
+fd72242f	Sahig na bato
+a5427f8e	Bariles
+2180b3e7	Kahon
+682d1263	Balon
+db310719	Brasero
+51b05e25	Tumpok ng dayami
+44656820	Kariton
+c8af83fb	Bandila
+1be3c783	Nayon
+ef947e3a	Piitan
+a904e72a	Kuta

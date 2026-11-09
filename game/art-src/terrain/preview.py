@@ -74,8 +74,8 @@ def chain(tid):
 
 # the order layers are drawn in inside a cell (the Map chat's drawCorners uses the same), low to high
 ORDER = ["cave_floor", "ash", "snow", "sand", "dirt", "grass", "forest_floor", "mud", "ice", "shallows", "deep_water",
-         "spring", "coals", "lava", "cobbles", "high", "tall_grass", "flowers", "shadow", "crystals", "wall", "bridge",
-         "bridge_v"]
+         "spring", "coals", "lava", "cobbles", "wood_floor", "stone_floor", "high", "tall_grass", "flowers", "shadow",
+         "crystals", "wall", "fort_wall", "dungeon_wall", "house_wall", "fence", "bridge", "bridge_v"]
 
 
 def bridge_axis(g, x, y):
@@ -199,8 +199,12 @@ SHOW_ON = {
     "tall_grass": "grass", "flowers": "grass", "forest_floor": "grass", "mud": "grass", "shallows": "grass",
     "deep_water": "grass", "ice": "snow", "high": "grass", "cobbles": "grass", "crystals": "cave_floor",
     "coals": "ash", "lava": "ash", "shadow": "grass", "spring": "grass", "bridge": "grass", "bridge_v": "grass",
-    "wall": "grass",
+    "wall": "grass", "fort_wall": "grass", "dungeon_wall": "cave_floor", "house_wall": "grass", "fence": "grass",
+    "wood_floor": "grass", "stone_floor": "grass",
 }
+
+WALLS = ("fort_wall", "dungeon_wall", "house_wall")
+FLOOR_OF = {"fort_wall": "stone_floor", "dungeon_wall": "stone_floor", "house_wall": "wood_floor"}
 
 
 def special_grid(tid, w, h):
@@ -226,19 +230,32 @@ def special_grid(tid, w, h):
             g[y][x - 1] = "bridge_v"
         g[0][11] = "shallows"
         return g
-    if tid == "wall":
+    if tid == "wall" or tid in WALLS:
+        floor = FLOOR_OF.get(tid, "cobbles")
         g = [[None] * w for _ in range(h)]
         for x in range(2, 11):
-            g[2][x] = "wall"
+            g[2][x] = tid
         for y in range(2, 7):
-            g[y][2] = "wall"
+            g[y][2] = tid
         for x in range(2, 6):
-            g[6][x] = "wall"
-        g[6][8], g[6][9] = "wall", "wall"
-        g[4][12] = "wall"
-        for x in range(4, 9):
+            g[6][x] = tid
+        g[6][8], g[6][9] = tid, tid
+        g[4][12] = tid
+        for x in range(4 if tid == "wall" else 3, 9 if tid == "wall" else 11):
             for y in range(3, 6):
-                g[y][x] = "cobbles"
+                g[y][x] = floor
+        return g
+    if tid == "fence":  # a run with a corner, a T, a crossing and a lone post
+        g = [[None] * w for _ in range(h)]
+        for x in range(1, 12):
+            g[2][x] = "fence"
+        for y in range(2, 8):
+            g[y][1] = "fence"
+        for y in range(2, 7):
+            g[y][6] = "fence"
+        for x in range(4, 10):
+            g[5][x] = "fence"
+        g[7][11] = "fence"
         return g
     return blob_grid(w, h, tid)
 
@@ -257,7 +274,9 @@ def sheet_view(tid: str, k: int = 4) -> Image.Image:
     chk = Image.new("RGBA", s.size, (200, 60, 200, 255))  # magenta under the see-through parts
     chk.alpha_composite(s)
     out.paste(zoom(chk, k), (0, 0))
-    out.paste(zoom(f, k), (s.width * k + 8, 0))
+    fchk = Image.new("RGBA", f.size, (200, 60, 200, 255))  # (fills are see-through too for shadow, fence)
+    fchk.alpha_composite(f)
+    out.paste(zoom(fchk, k), (s.width * k + 8, 0))
     d = ImageDraw.Draw(out)
     for i in range(1, 4):
         d.line([(i * T * k, 0), (i * T * k, s.height * k)], fill=(255, 255, 255, 60))
@@ -305,9 +324,99 @@ def props_sheet(k=4) -> Image.Image:
     return zoom(im, k)
 
 
+STRUCTURES = ("fort_wall", "dungeon_wall", "house_wall", "fence", "wood_floor", "stone_floor")
+
+
+def structures_area(under_walls: bool = False) -> Image.Image:
+    """A mock village / dungeon / fortress corner on grass, through the same dual-grid drawing as the game: an
+    L-shaped fortress corridor (stone floor) with a tower, a 6x5 house (wood floor, a 1-tile door), a dungeon room
+    (stone floor, a doorway, a pillar) and a fence with a corner, a T and a gap. under_walls: the floor also runs
+    under the walls (the tile's stack holds both)."""
+    W, H = 46, 22
+    g = [[None] * W for _ in range(H)]
+
+    def box(x0, y0, x1, y1, t):
+        for y in range(y0, y1 + 1):
+            for x in range(x0, x1 + 1):
+                g[y][x] = t
+
+    # fortress: an outer and an inner wall, a corridor 2 wide between them, a tower at the corner, a thick stretch
+    box(3, 3, 19, 4, "stone_floor")
+    box(3, 3, 4, 20, "stone_floor")
+    box(2, 2, 20, 2, "fort_wall")
+    box(2, 2, 2, 21, "fort_wall")
+    box(5, 5, 20, 5, "fort_wall")
+    box(5, 5, 5, 21, "fort_wall")
+    box(0, 0, 3, 2, "fort_wall")      # the tower
+    box(10, 1, 14, 2, "fort_wall")    # a thicker stretch
+    box(12, 6, 13, 7, "fort_wall")    # a buttress into the yard
+    # house: 6x5, wood floor, a door in the south wall
+    box(24, 1, 29, 5, "house_wall")
+    box(25, 2, 28, 4, "wood_floor")
+    g[5][26] = "wood_floor"
+    # dungeon room: stone floor, a doorway on the west, a pillar
+    box(22, 9, 31, 17, "dungeon_wall")
+    box(23, 10, 30, 16, "stone_floor")
+    g[13][22] = "stone_floor"
+    g[12][27] = "dungeon_wall"
+    box(26, 19, 31, 19, "dungeon_wall")   # a loose stretch, and a lone block
+    g[20][34] = "dungeon_wall"
+    # fence: a run with a corner, a T, and a gap
+    for x in range(33, 45):
+        if x != 38:
+            g[3][x] = "fence"
+    for y in range(3, 13):
+        g[y][44] = "fence"
+    for y in range(3, 9):
+        g[y][36] = "fence"
+    for x in range(36, 42):
+        g[12][x] = "fence"
+    base = "grass"
+    floor_at = {}
+    if under_walls:  # which floor lies under each wall tile: the nearest floor's
+        for y in range(H):
+            for x in range(W):
+                if g[y][x] in WALLS:
+                    floor_at[(x, y)] = FLOOR_OF[g[y][x]]
+    stacks = []
+    for y in range(H):
+        stacks.append([])
+        for x in range(W):
+            t = g[y][x] or base
+            st = [base]
+            if (x, y) in floor_at:
+                st.append(floor_at[(x, y)])
+            if t != base:
+                st.append(t)
+            stacks[-1].append(st)
+    beasts = [("rock_golem", 4 * T, 12 * T, False), ("griffin", 16 * T, 4 * T + 12, True),
+              ("bunny", 27 * T, 4 * T + 8, False), ("moon_wolf", 25 * T, 15 * T, False), ("chick", 40 * T, 8 * T, True)]
+    return render(None, base, stacks=stacks, beasts=[b for b in beasts if (BEAST / b[0]).exists()])
+
+
+def structures_sheets(k=4) -> Image.Image:
+    """The six structure terrains' corner sheets (magenta = see-through) and fill strips, x k."""
+    shots = [(tid, sheet_view(tid, k)) for tid in STRUCTURES]
+    w = max(im.width for _, im in shots)
+    out = Image.new("RGBA", (w + 24, sum(im.height + 34 for _, im in shots) + 12), (28, 24, 38, 255))
+    d = ImageDraw.Draw(out)
+    y = 12
+    for tid, im in shots:
+        d.text((12, y), tid, fill=(240, 220, 160, 255), font=font(15))
+        out.paste(im, (12, y + 22))
+        y += im.height + 34
+    return out
+
+
 def main(args):
     PREV.mkdir(exist_ok=True)
     from terrain import TERRAINS
+    if args and args[0] == "structures":
+        structures_sheets().save(PREV / "structures_sheets.png")
+        zoom(structures_area(), 2).save(PREV / "structures_area.png")
+        contact(list(STRUCTURES), cols=3).save(PREV / "structures_patches.png")
+        print("saved structures_sheets.png, structures_area.png, structures_patches.png")
+        return
     if args and args[0] == "props":
         props_sheet().save(PREV / "props.png")
         print("saved props.png")

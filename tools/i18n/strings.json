@@ -9265,6 +9265,41 @@
   "f": "web/js/game/battlemap.js"
  },
  {
+  "id": "74f5e45a",
+  "k": "Fortress wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "0a99381f",
+  "k": "Dungeon wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "143bf15b",
+  "k": "House wall",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a7852991",
+  "k": "Fence",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "12d3b568",
+  "k": "Blocks movement but not attacks. Floaters drift over it.",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a394ba75",
+  "k": "Wooden floor",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "fd72242f",
+  "k": "Stone floor",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
   "id": "c6928281",
   "k": "Boulder",
   "f": "web/js/game/battlemap.js"
@@ -9325,6 +9360,46 @@
   "f": "web/js/game/battlemap.js"
  },
  {
+  "id": "a5427f8e",
+  "k": "Barrel",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "2180b3e7",
+  "k": "Crate",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "682d1263",
+  "k": "Well",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "db310719",
+  "k": "Brazier",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "51b05e25",
+  "k": "Haystack",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "237d114f",
+  "k": "Statue",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "44656820",
+  "k": "Cart",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "c8af83fb",
+  "k": "Banner",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
   "id": "afb106c7",
   "k": "Meadow",
   "f": "web/js/game/battlemap.js"
@@ -9367,6 +9442,21 @@
  {
   "id": "77e6cffc",
   "k": "Snowfield",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "1be3c783",
+  "k": "Village",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "ef947e3a",
+  "k": "Dungeon",
+  "f": "web/js/game/battlemap.js"
+ },
+ {
+  "id": "a904e72a",
+  "k": "Fortress",
   "f": "web/js/game/battlemap.js"
  },
  {
@@ -10347,11 +10437,6 @@
  {
   "id": "f96ddf32",
   "k": "Arch",
-  "f": "web/js/game/data.js"
- },
- {
-  "id": "237d114f",
-  "k": "Statue",
   "f": "web/js/game/data.js"
  },
  {

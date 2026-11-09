@@ -1,0 +1,18 @@
+# Battle maps with buildings: village, dungeon, fortress (game/battlemap.js: walls, floors, props, themes).
+74f5e45a	요새 성벽
+0a99381f	던전 벽
+143bf15b	집 벽
+a7852991	울타리
+12d3b568	이동은 막지만 공격은 막지 않아요. 떠다니는 크리처는 위로 넘어가요.
+a394ba75	나무 바닥
+fd72242f	돌바닥
+a5427f8e	통
+2180b3e7	상자
+682d1263	우물
+db310719	화로
+51b05e25	건초 더미
+44656820	수레
+c8af83fb	깃발
+1be3c783	마을
+ef947e3a	던전
+a904e72a	요새

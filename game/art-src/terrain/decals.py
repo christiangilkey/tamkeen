@@ -221,9 +221,200 @@ def cinders(img, rng, i):
         scatter(img, rng, ["gh"] if k else ["g"], {"g": GLOW[2], "h": GLOW[4]}, 1)
 
 
+# ---------- for the walled arenas: village, dungeon, fortress ----------
+
+STRAW = ramp("#6a4a1c #a88234 #dcb650 #f4d672 #fff2b4")
+RUG_RED = ramp("#3a1418 #5a2024 #7a3030 #9a4a40 #b46a54")
+RUG_TEAL = ramp("#123034 #1c4a4c #2a6664 #44847a #6aa494")
+RUG_OCHRE = ramp("#4a3214 #6e4c1c #946a2a #b88c40 #d4ae62")
+CREAM = hx("#dccca4")
+WEB = (hx("#eeecf8", 150), hx("#e0deee", 85))
+DUST = hx("#d0c8c0", 70)
+
+
+def seg(img, x0, y0, x1, y1, c):
+    """A straight line inside the cell (kept one pixel clear of its border)."""
+    n = int(max(abs(x1 - x0), abs(y1 - y0)))
+    for k in range(n + 1):
+        t = k / max(1, n)
+        x, y = int(round(x0 + (x1 - x0) * t)), int(round(y0 + (y1 - y0) * t))
+        if 1 <= x < T - 1 and 1 <= y < T - 1:
+            put(img, x, y, c)
+
+
+def straw(img, rng, i):
+    """Loose straws: short golden stalks, a darker end where they lie in their own shade."""
+    bits = [["abbc", "..ss"], ["abc", ".ss"], ["a..", ".b.", ".sc", "..s"], ["..a", ".b.", "cs.", "s.."],
+            ["ab...", "..bbc", "...ss"], ["...ba", "cbb..", "ss..."], ["a....", ".bb..", "..sbc", "...ss"]]
+    cm = {"a": STRAW[4], "b": STRAW[3], "c": STRAW[1], "s": SHADOW}
+    old = {"a": STRAW[2], "b": STRAW[1], "c": STRAW[0], "s": SHADOW}
+    if i == 1:  # a loose little heap: stalks lying across each other
+        x0, y0 = 3 + int(rng.integers(0, 3)), 4 + int(rng.integers(0, 3))
+        for k in range(6):
+            rows = bits[int(rng.integers(0, len(bits)))]
+            stamp(img, x0 + int(rng.integers(0, 5)), y0 + int(rng.integers(0, 5)), rows, cm if k % 3 else old)
+        return
+    for k in range(5 if i == 0 else 4):
+        scatter(img, rng, bits[int(rng.integers(0, len(bits)))], old if (i == 3 and k % 2) else cm, 1)
+
+
+def rug(img, rng, i):
+    """A small woven rug or mat lying flat: a border, a pattern in the field, fringes on the short ends."""
+    if i == 2:  # a round braided mat: rings of ochre round a red middle
+        for y in range(3, 13):
+            for x in range(1, 15):
+                dx, dy = (x + 0.5 - 8) / 6.4, (y + 0.5 - 8) / 4.6
+                r = math.hypot(dx, dy)
+                if r > 1:
+                    continue
+                if r < 0.3:
+                    c = RUG_RED[3]
+                elif r < 0.45:
+                    c = RUG_RED[1]
+                else:
+                    ring_i = int(r * 7)
+                    c = RUG_OCHRE[3] if ring_i % 2 else RUG_OCHRE[2]
+                    if (x + y) % 3 == 0:
+                        c = RUG_OCHRE[1] if ring_i % 2 == 0 else RUG_OCHRE[2]   # the braid's twist
+                if dy > 0.75 or (r > 0.88 and dy > 0.3):
+                    c = RUG_OCHRE[1]                                       # its near edge, a hair thick
+                put(img, x, y, c)
+        return
+    pal, accent, x0, x1, y0, y1 = [
+        (RUG_RED, RUG_OCHRE, 2, 13, 4, 11),
+        (RUG_TEAL, RUG_OCHRE, 2, 13, 5, 10),
+        None,
+        (RUG_TEAL, RUG_RED, 3, 12, 4, 11),
+    ][i]
+    for y in range(y0, y1 + 1):
+        for x in range(x0, x1 + 1):
+            edge = x in (x0, x1) or y in (y0, y1)
+            inner = x in (x0 + 1, x1 - 1) or y in (y0 + 1, y1 - 1)
+            if i == 1:  # a runner in stripes
+                c = pal[2] if not edge else pal[1]
+                if not edge and (y - y0) % 2 == 0:
+                    c = accent[3] if (y - y0) % 4 == 2 else pal[3]
+                if not edge and x in (x0 + 3, x1 - 3) and (y - y0) % 2:
+                    c = CREAM
+            else:
+                c = pal[1] if edge else accent[2] if inner else pal[2]
+                mx, my = (x0 + x1) / 2, (y0 + y1) / 2   # a diamond in the middle
+                d = abs(x - mx) / ((x1 - x0) / 2 - 1.5) + abs(y - my) / ((y1 - y0) / 2 - 1.5)
+                if not edge and not inner:
+                    if d < 0.45:
+                        c = accent[3]
+                    elif d < 0.8:
+                        c = pal[3] if (x + y) % 2 else pal[2]
+            if y == y1:
+                c = pal[0]                    # its near edge, a hair thick
+            put(img, x, y, c)
+    for y in range(y0 + 1, y1, 1):  # fringes
+        if (y - y0) % 2:
+            put(img, x0 - 1, y, CREAM)
+            put(img, x1 + 1, y, CREAM)
+
+
+WEB_CORNER = [
+    "mmmmmmmmmmmff.",
+    "mm.m..mm..ff..",
+    "m.m..m...f....",
+    "mm.mm..ff.....",
+    "m..mm.f.......",
+    "m.m..m........",
+    "mm..f.m.......",
+    "mm.f...m......",
+    "m..f....m.....",
+    "m.f......f....",
+    "mf............",
+    "ff............",
+    "f.............",
+]
+WEB_ORB = [
+    ".............",
+    "......m......",
+    "..m.ffmff.m..",
+    "...m..m..m...",
+    "..f.mmmmm.f..",
+    "..f.m.m.m.f..",
+    ".mmmmmmmmmmm.",
+    "..f.m.m.m.f..",
+    "..f.mmmmm.f..",
+    "...m..m..m...",
+    "..m.ffmff.m..",
+    "......m......",
+]
+WEB_TORN = [
+    ".m............",
+    ".mmm.......mm.",
+    ".fm.mm...mmm..",
+    ".fm.m.mmm.fm..",
+    "..fmm...f.m...",
+    "..f.mm..fm....",
+    "...f..mmm.....",
+    "...f.....f....",
+    "....ff....f...",
+    "......ff..f...",
+    "........f.....",
+    "........f.....",
+]
+
+
+def cobweb(img, rng, i):
+    """Cobwebs: see-through silver threads that lighten whatever stone they're on. Cells 0 and 1 fill a corner
+    (top left, top right: for the foot of a wall), cell 2 is a small round web with its spider in the middle,
+    cell 3 a torn web sagging from two points."""
+    cm = {"m": WEB[0], "f": WEB[1]}
+    if i in (0, 1):
+        stamp(img, 1, 1, WEB_CORNER, cm)
+        if i == 1:
+            img[:] = img[:, ::-1].copy()
+    elif i == 2:
+        stamp(img, 1, 1, WEB_ORB, cm)
+        for x, y in ((6, 6), (8, 6), (6, 8), (8, 8)):   # the spider: legs, then its body over the web
+            img[y, x] = hx("#1e1626", 150)
+        img[7, 7] = hx("#1e1626")
+        img[8, 7] = hx("#1e1626")
+        img[6, 7] = hx("#5a4a66")
+    else:
+        stamp(img, 1, 1, WEB_TORN, cm)
+
+
+def rubble(img, rng, i):
+    """Broken stone: sharp chunks lit on their top faces, with a small shade each, in a haze of dust."""
+    big = ["aaab.", "aabbc", "bbbcc", "ccccs"]
+    block = ["aaaaa.", "abbbbc", "bbbbcc", "cccc.s"]
+    heap = ["..ab...", ".aabbc.", "abbbcab", "bbcccbc", ".ccssc."]
+    small = [["aab", "bcs"], ["ab", "cs"], ["a", "s"], ["ab.", "bcc", ".cs"]]
+    cm = {"a": STONE[5], "b": STONE[3], "c": STONE[1], "s": SHADOW}
+    warm = {"a": hx("#c8b098"), "b": hx("#8e7866"), "c": hx("#54463a"), "s": SHADOW}
+    if i == 0:
+        scatter(img, rng, big, cm, 1)
+        for k in range(3):
+            scatter(img, rng, small[k % 4], cm, 1)
+    elif i == 1:  # a broken block of masonry, mortar still on it
+        scatter(img, rng, block, cm, 1)
+        for y in range(T):
+            for x in range(T):
+                if tuple(img[y, x]) == tuple(STONE[5]) and (y == 0 or not img[y - 1, x, 3]):
+                    img[y, x] = hx("#e4dcd4")
+        scatter(img, rng, small[1], warm, 1)
+        scatter(img, rng, small[2], cm, 2)
+    elif i == 2:  # gravel
+        for k in range(7):
+            scatter(img, rng, small[2 + k % 2] if k % 3 else small[1], cm if k % 4 else warm, 1)
+    else:  # a little heap
+        scatter(img, rng, heap, cm, 1)
+        scatter(img, rng, small[2], cm, 2)
+    for _ in range(9 if i != 2 else 6):  # dust
+        x, y = int(rng.integers(1, T - 1)), int(rng.integers(2, T - 1))
+        if not img[y, x, 3]:
+            put(img, x, y, DUST)
+
+
 DECALS_K = {
     "pebbles": (4, pebbles), "twigs": (4, twigs), "leaves": (4, leaves), "tuft": (4, tuft), "flowers": (6, flowers),
     "bones": (4, bones), "shells": (4, shells), "seaweed": (4, seaweed), "puddle": (4, puddle), "crack": (4, crack),
     "mushrooms": (4, mushrooms), "snowdrift": (4, snowdrift), "cinders": (4, cinders),
+    "straw": (4, straw), "rug": (4, rug), "cobweb": (4, cobweb), "rubble": (4, rubble),
 }
 DECALS = {f"decal_{n}": (lambda n=n, k=k, f=f: cells(n, k, f)) for n, (k, f) in DECALS_K.items()}

@@ -7874,3 +7874,41 @@ a wedge marks a stressed last syllable after a closed one (mandǎr). Now: palit 
 - Tests: `tests/js/cebuano-stress.test.mjs` (palit, hatag, tan-aw; meaning picks the spelling; prefixes; grave, wedge,
   maáyo, tudlò; Tagalog and Wiktionary as before; the wiring and the builds). `tests/js/wordcore.test.mjs`: its regex
   for freePronunciation's line follows the new shape.
+
+## Live battles: built places, a village, a dungeon and a fortress (2026-11-08; helper of the main chat)
+Owner: "more variety for maps… one to include a village… a dungeon… a fortress… our generator would need to be able to
+understand things like structures… towers and buildings… allow the creatures to go through the corridors". Made the
+same way as the terrain he liked (procedural Python recipes in `game/art-src/terrain`, .aseprite sources kept).
+- **Terrain** (`web/js/game/battlemap.js`, now 28): `fort_wall`, `dungeon_wall`, `house_wall` (walk and shots false,
+  fixed), `fence` (walk false, shots true, `cross: ["floater"]`), `wood_floor` (FILL_GROUPS 2), `stone_floor` (3).
+  DRAW_ORDER: the floors after cobbles, the walls with `wall`. Props (20 kinds): barrel, crate, well, brazier, haystack,
+  statue, cart, banner. Decals: straw, rug, cobweb, rubble (pebbles, bones, puddle, crack also on stone_floor).
+  Minimap and placeholder colours: `PLACEHOLDER` in `livebattle-ui.js`.
+- **Structure helpers** (before "themes"): `structTile` paints a tile and its mirror, keeps at most one floor under a
+  wall (so drawLayers never stacks a layer twice); `floorRect`; `room(ctx, rect, wall, floor, doors, thick)` (doors are
+  {side, at, len}; the mirror's doors open too); `corridor(a, b, width, floor, { yFirst, over })`; `roomFits` (padding,
+  distance from the starts); `placeProp` (a prop on given grounds, tries nearby spots); `house`, `garden`, `dungeon`,
+  `fortress`. Everything goes through the usual symmetrize, clearStarts, connect, connectRegions and fairness, so a
+  start is never walled in and there is always a walker's path between the two creatures.
+- **Themes**: `village` (grass; plaza of cobbles with a well and banners; 4-6 houses 7-10 x 6-8 tiles on a big map,
+  a door facing the middle, sometimes a back door and a split inner wall, a crate or barrel inside; fenced gardens of
+  flowers or tall grass with a gate; dirt roads; haystacks, carts, trees, bushes). `dungeon` (all dungeon_wall, rooms
+  dug out: a cobbled hall in the middle, a room round each start, ~30% ragged caves on cave_floor; corridors 3 wide on
+  a big map (2 small) joined by Prim's tree plus 1-2 loops; pillars, statue, braziers, barrels, crates, stalagmites).
+  `fortress` (grass; moat of deep water with bridges on the gate lines; outer wall with gates and 9 x 9 corner
+  towers; a stone passage; inner wall round a cobbled courtyard with a well, banners, cart, haystack; a keep in the
+  middle with four doors; dirt roads out of the gates; `startRows` puts the starts 3 rows above and below the middle).
+  A small map (30 x 18) gets a keep and two wall blocks instead.
+- **Art** (two helper agents, recipes in `terrain.py`, `props_more.py` "structures", `decals.py`, `readme.py`;
+  `preview.py structures` draws the checks): wall sheets 64 x 64 with a front face (fort 11 px with crenels, dungeon
+  9, house 10), the fence as see-through line art, `wood_floor_fill.png` 128 x 16, `stone_floor_fill.png` 192 x 16.
+  Previews in `game/art-src/terrain/preview/structures_*.png`, `props_structures.png`, `decals_structures.png`.
+- **Translations**: `tools/i18n/tr/<code>/156-battle-structures.txt` (17 strings: walls, floors, fence text, props, the
+  three theme names).
+- **Checked**: `tests/js/battlemap.test.mjs` (counts updated; every theme's `uses`/`props` appear, fairness, paths);
+  480 maps (60 big + 100 small per theme): none unfair, none without a path, ~13% needed a second try, 4-8 ms each
+  (slowest 62 ms). Whole-map pictures with the real art and a live wild battle on each (headless Edge, test data
+  folder): the new sheets load, no console errors.
+- **Notes**: buildings are open-topped (no roofs); roofs that fade when a creature walks in could come later. Adding
+  three themes changes which theme a seed with no theme gets, so a friend battle between this version and an older one
+  can show different maps (as with any battlemap.js change). Not played on a phone.

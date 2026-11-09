@@ -44,7 +44,9 @@ const STEER_KEYS = { ArrowUp: [0, -1], KeyW: [0, -1], ArrowDown: [0, 1], KeyS: [
 const PLACEHOLDER = { grass: "#5f9442", dirt: "#8a6a45", sand: "#d8c27c", snow: "#e8eef4", ash: "#5b5458", cave_floor: "#4a4452",
   tall_grass: "#3d7f35", flowers: "#c46fae", forest_floor: "#4b5f2c", mud: "#6b4a2e", shallows: "#4f8fd0", deep_water: "#24508f",
   ice: "#bfe6f2", high: "#a08a62", cobbles: "#8d8a86", crystals: "#9a7ff0", coals: "#c2482c", lava: "#f06a1d", shadow: "#2c2440",
-  spring: "#58d2c6", bridge: "#9b6b3c", wall: "#56535c" };
+  spring: "#58d2c6", bridge: "#9b6b3c", wall: "#56535c",
+  // the built places (also the minimap's colours): walls dark, floors light, so rooms and corridors read at a glance
+  fort_wall: "#5f5a66", dungeon_wall: "#1f1b26", house_wall: "#6b4a34", fence: "#8a6a45", wood_floor: "#a8794a", stone_floor: "#8e8a92" };
 const LIGHT = { night: "rgba(18, 24, 70, .32)", dim: "rgba(0, 0, 0, .22)", warm: "rgba(255, 110, 40, .08)" };
 // The effects (game-art/battle/fx/), and the older battle art to show while one isn't drawn yet.
 const FX_OLD = { projectile: (el) => `battle/shot_${el}.png`, impact: (el) => `battle/hit_${el}.png`, guard: () => "battle/shield.png",

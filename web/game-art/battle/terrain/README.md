@@ -20,10 +20,23 @@ bottom to top, as `{ terrain, mask, fill }`:
 - Tile 0 of every sheet is empty (never drawn).
 
 Most terrains have smooth outlines (a lone tile draws as a round patch, a diagonal row of tiles as a
-diagonal shore); `wall`, `bridge` and `bridge_v` keep square, tile-shaped ones. Draw with normal alpha
+diagonal shore); the built ones (`wall`, `fort_wall`, `dungeon_wall`, `house_wall`, `wood_floor`, `stone_floor`,
+`bridge`, `bridge_v`) keep square, tile-shaped ones. Draw with normal alpha
 blending: edge tiles hold see-through shadow pixels, and `shadow` (fills too) is a see-through dark veil on
 purpose, darkening whatever ground is under it. A bridge tile is `bridge` when its deck runs east-west,
 `bridge_v` when it runs north-south.
+
+## Structures (village, dungeon, fortress)
+
+- Walls `fort_wall` (face 11 px), `dungeon_wall` (9), `house_wall` (10): a top (the fill tiles), a south face,
+  a dark outline and a shadow. Part of the face is drawn in the wall tile's south half, the rest **hangs over
+  the top of the tile to the south** (3, 1 and 2 px), so a 1-tile wall reads as high; creatures in that tile are
+  drawn over it, as they stand in front. North-south runs show their top only, with the face at the south end.
+  The outline sits on the wall tile's own edge pixel, so nothing shows between a wall and a floor beside it
+  (the floor needn't run under the wall). Draw floors before walls, the fence after them.
+- `fence` is a line, not an area: a post at the centre of every fence tile, rails to each fence tile beside it
+  (north, south, east or west; diagonal neighbours get no rail). Its fill tiles are see-through too.
+- `wood_floor`, `stone_floor`: level, square-edged, a thin dark seam where they meet other ground.
 
 ## Fill textures (groups)
 
@@ -40,6 +53,8 @@ without a seam; the Map picks the group by a slow noise (whole patches) and the 
 | ash | 3 | plain, cinders, crust |
 | cave_floor | 3 | plain, rubble, damp |
 | high | 3 | plain, mossy, cracked |
+| wood_floor | 2 | plain (a knot, nails), aged (worn, darker, cracked planks) |
+| stone_floor | 3 | plain (a darker, paler or chipped slab), worn (crack, stain), damp (moss, puddle, a drain in tile 10) |
 
 Every other terrain has 1 group (4 tiles).
 
@@ -98,6 +113,14 @@ treats it as.
 | prop_bush_dry.png | 16x16 | 1 | bush | desert, shore |
 | prop_cactus_round.png | 16x16 | 1 | cactus | desert |
 | prop_pillar_fallen.png | 32x16 | 2 | pillar | ruins |
+| prop_barrel.png | 16x32 | 1 | barrel | village, fortress, dungeon |
+| prop_crate.png | 16x16 | 1 | crate | village, fortress, dungeon |
+| prop_well.png | 32x32 | 2 | well | village |
+| prop_brazier.png | 16x32 | 1 | brazier | dungeon, fortress |
+| prop_haystack.png | 32x32 | 2 | haystack | village |
+| prop_statue.png | 16x48 | 1 | statue | fortress, dungeon |
+| prop_cart.png | 32x32 | 2 | cart | village |
+| prop_banner.png | 16x48 | 1 | banner | fortress, village |
 
 ## Decals
 
@@ -121,10 +144,14 @@ Nothing on water, bridges, walls or under props.
 | decal_mushrooms.png | 64x16 | 4 | forest_floor, grass, shadow, cave_floor | forest, night, cave (cell 2 glows: night, cave) |
 | decal_snowdrift.png | 64x16 | 4 | snow | snow |
 | decal_cinders.png | 64x16 | 4 | ash | volcanic |
+| decal_straw.png | 64x16 | 4 | wood_floor, dirt, stone_floor, cobbles | village, fortress |
+| decal_rug.png | 64x16 | 4 | wood_floor | village |
+| decal_cobweb.png | 64x16 | 4 | stone_floor, cave_floor | dungeon (cells 0, 1: top-left / top-right corner, against a wall) |
+| decal_rubble.png | 64x16 | 4 | stone_floor, cobbles, dirt, cave_floor | dungeon, fortress |
 
 ## Every file
 
-108 files:
+132 files:
 
 | file | size |
 |---|---|
@@ -148,15 +175,19 @@ Nothing on water, bridges, walls or under props.
 | crystals_fill_anim.png | 64x64 |
 | decal_bones.png | 64x16 |
 | decal_cinders.png | 64x16 |
+| decal_cobweb.png | 64x16 |
 | decal_crack.png | 64x16 |
 | decal_flowers.png | 96x16 |
 | decal_leaves.png | 64x16 |
 | decal_mushrooms.png | 64x16 |
 | decal_pebbles.png | 64x16 |
 | decal_puddle.png | 64x16 |
+| decal_rubble.png | 64x16 |
+| decal_rug.png | 64x16 |
 | decal_seaweed.png | 64x16 |
 | decal_shells.png | 64x16 |
 | decal_snowdrift.png | 64x16 |
+| decal_straw.png | 64x16 |
 | decal_tuft.png | 64x16 |
 | decal_twigs.png | 64x16 |
 | deep_water.png | 64x64 |
@@ -165,14 +196,22 @@ Nothing on water, bridges, walls or under props.
 | deep_water_fill_anim.png | 64x64 |
 | dirt.png | 64x64 |
 | dirt_fill.png | 128x16 |
+| dungeon_wall.png | 64x64 |
+| dungeon_wall_fill.png | 64x16 |
+| fence.png | 64x64 |
+| fence_fill.png | 64x16 |
 | flowers.png | 64x64 |
 | flowers_fill.png | 64x16 |
 | forest_floor.png | 64x64 |
 | forest_floor_fill.png | 64x16 |
+| fort_wall.png | 64x64 |
+| fort_wall_fill.png | 64x16 |
 | grass.png | 64x64 |
 | grass_fill.png | 256x16 |
 | high.png | 64x64 |
 | high_fill.png | 192x16 |
+| house_wall.png | 64x64 |
+| house_wall_fill.png | 64x16 |
 | ice.png | 64x64 |
 | ice_fill.png | 64x16 |
 | lava.png | 64x64 |
@@ -181,17 +220,23 @@ Nothing on water, bridges, walls or under props.
 | lava_fill_anim.png | 64x64 |
 | mud.png | 64x64 |
 | mud_fill.png | 64x16 |
+| prop_banner.png | 16x48 |
+| prop_barrel.png | 16x32 |
 | prop_boulder.png | 16x16 |
 | prop_boulder_ice.png | 16x16 |
 | prop_boulder_mossy.png | 16x16 |
+| prop_brazier.png | 16x32 |
 | prop_bush.png | 16x16 |
 | prop_bush_dry.png | 16x16 |
 | prop_bush_flower.png | 16x16 |
 | prop_cactus.png | 16x32 |
 | prop_cactus_round.png | 16x16 |
+| prop_cart.png | 32x32 |
+| prop_crate.png | 16x16 |
 | prop_crystal.png | 16x32 |
 | prop_crystal_cluster.png | 16x16 |
 | prop_crystal_pink.png | 16x32 |
+| prop_haystack.png | 32x32 |
 | prop_mushroom.png | 16x32 |
 | prop_mushroom_giant.png | 48x64 |
 | prop_obsidian.png | 16x16 |
@@ -210,6 +255,7 @@ Nothing on water, bridges, walls or under props.
 | prop_rock_big_ice.png | 32x32 |
 | prop_rock_big_sandstone.png | 32x32 |
 | prop_stalagmite.png | 16x32 |
+| prop_statue.png | 16x48 |
 | prop_tree.png | 48x64 |
 | prop_tree_autumn.png | 48x64 |
 | prop_tree_bare_snowy.png | 48x64 |
@@ -218,6 +264,7 @@ Nothing on water, bridges, walls or under props.
 | prop_tree_dead.png | 32x48 |
 | prop_tree_fruit.png | 48x64 |
 | prop_tree_willow.png | 48x64 |
+| prop_well.png | 32x32 |
 | sand.png | 64x64 |
 | sand_fill.png | 192x16 |
 | shadow.png | 64x64 |
@@ -232,14 +279,20 @@ Nothing on water, bridges, walls or under props.
 | spring_anim.png | 256x64 |
 | spring_fill.png | 64x16 |
 | spring_fill_anim.png | 64x64 |
+| stone_floor.png | 64x64 |
+| stone_floor_fill.png | 192x16 |
 | tall_grass.png | 64x64 |
 | tall_grass_fill.png | 64x16 |
 | wall.png | 64x64 |
 | wall_fill.png | 64x16 |
+| wood_floor.png | 64x64 |
+| wood_floor_fill.png | 128x16 |
 
 ## Previews
 
 `game/art-src/terrain/preview/`: `all_terrains.png` (every terrain as a patch), `textures.png` (the fill
-textures in patches), `props.png`, `props_more.png`, `decals.png`, `arenas.png` (a camera-sized view of an
-arena per theme) and `arena_full.png` (one whole arena). Arenas straight from the game's generator:
+textures in patches), `props.png`, `props_more.png`, `decals.png`, `props_structures.png` and
+`decals_structures.png` (the village / dungeon / fortress props in the open and against a wall, and their decals),
+`arenas.png` (a camera-sized view of an arena per theme) and `arena_full.png` (one whole arena). Arenas straight
+from the game's generator:
 `node game/art-src/terrain/dump_maps.mjs maps.json [theme:seed ...]`, then `arena.py maps.json`.
