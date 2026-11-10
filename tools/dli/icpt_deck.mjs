@@ -34,21 +34,79 @@ const STOP = new Set(["the", "a", "an", "to", "of", "in", "on", "for", "and", "o
 /** The content words of a meaning ("to sign (a treaty); signing" → sign, treaty, signing). */
 export function meaningWords(meaning) {
   return new Set(String(meaning || "").toLowerCase().replace(/\([^)]*\)/g, " ").split(/[^a-z0-9]+/)
-    .filter((w) => w.length > 1 && !STOP.has(w)).map((w) => w.replace(/(ies)$/, "y").replace(/(?<=[a-z]{3})s$/, "")));
+    .filter((w) => w.length > 1 && !STOP.has(w))
+    // British or American spelling alike: localisation = localization, labour = labor, defence = defense
+    .map((w) => w.replace(/is(ation|e|ed|ing)$/, "iz$1").replace(/our$/, "or").replace(/ence$/, "ense").replace(/tre$/, "ter"))
+    .map((w) => w.replace(/(ies)$/, "y").replace(/(?<=[a-z]{3})s$/, "")));
 }
-/** Same word: the same letters (vowel marks aside) and a meaning in common. */
+const SHADDA = "\u0651";
+const HARAKA = /[\u064B-\u0652\u0670]/u;
+/** The letters a word can be matched by (vowel marks aside). Arabic and Persian also without the article on each
+ *  word (الْبِنْيَةُ التَّحْتِيَّةُ = بنية تحتية), and a word ending in tanween kasra with its ي (نَادٍ = نادي, قَاضٍ =
+ *  قاضي): the meaning decides the rest. `shadda`: keep the shadda as a letter of its own (صَوْت ≠ صَوَّتَ). */
+export function letterKeys(word, lang, { shadda = false } = {}) {
+  const out = new Set();
+  const lettersOf = (t) => letters(shadda ? String(t).replaceAll(SHADDA, "9") : t, lang);
+  for (const c of candidates(word)) {
+    out.add(lettersOf(c));
+    if (lang !== "ar" && lang !== "fa") continue;
+    const parts = c.split(/\s+/u).map((w) => {
+      const l = lettersOf(w);
+      // (the article doubles a sun letter: التَّحْتِيَّة has a shadda that تَحْتِيَّة hasn't)
+      const bare = l.length > 3 ? l.replace(/^ال(.)9?/u, "$1") : l;
+      return /\u064D$/u.test(w.trim()) ? [bare, bare + "ي"] : [bare];
+    });
+    out.add(parts.map((p) => p[0]).join(""));
+    out.add(parts.map((p) => p[p.length - 1]).join(""));
+  }
+  out.delete("");
+  return [...out];
+}
+/** Same word: the same letters (letterKeys) and a meaning in common. When both are vowelled, the same shadda too
+ *  (a word written without vowel marks, as some of the basic deck's are, can't say). */
 export function sameWord(a, b, lang) {
-  const la = candidates(a.word).map((c) => letters(c, lang));
-  const lb = candidates(b.word).map((c) => letters(c, lang));
-  if (!la.some((x) => x && lb.includes(x))) return false;
+  const la = letterKeys(a.word, lang);
+  const lb = letterKeys(b.word, lang);
+  if (!la.some((x) => lb.includes(x))) return false;
+  if (HARAKA.test(a.word) && HARAKA.test(b.word)) {
+    const sa = letterKeys(a.word, lang, { shadda: true });
+    const sb = letterKeys(b.word, lang, { shadda: true });
+    if (!sa.some((x) => sb.includes(x))) return false;
+    // A verb in the past ends in a fatha, a noun's dictionary form doesn't: طَلَبَ (to ask) ≠ طَلَب (a request).
+    const verb = (w) => /^\S+$/u.test(String(w).trim()) && /َ$/u.test(String(w).trim());
+    if (lang === "ar" && verb(a.word) !== verb(b.word)) return false;
+  }
   const ma = meaningWords(a.meaning);
   return [...meaningWords(b.meaning)].some((w) => ma.has(w));
+}
+/** May the ICPT word `w` be the basic deck's card `b`? Only when that card says what the news means by it: the
+ *  first sense of w is in b's meaning (قَضَى "to sentence" isn't the basic card's "to spend time"), and both are verbs
+ *  ("to ...") or neither (دَعْم "subsidies" isn't دعم "to support"). Otherwise the learner gets the ICPT card. */
+export function linkable(w, b) {
+  const first = String(w.meaning || "").split(/\s*;\s*/u)[0];
+  const isVerb = (m) => /^\s*to\s/iu.test(String(m || ""));
+  if (isVerb(first) !== isVerb(b.meaning)) return false;
+  const mb = meaningWords(b.meaning);
+  return [...meaningWords(first)].some((x) => mb.has(x));
+}
+
+/** `meaning` with the senses of `more` it doesn't have yet ("website; site" + "position (military); site"). */
+export function joinMeanings(meaning, more) {
+  const senses = (m) => String(m || "").split(/\s*;\s*/u).map((x) => x.trim()).filter(Boolean);
+  const have = senses(meaning);
+  const seen = new Set(have.map((x) => [...meaningWords(x)].sort().join(" ")));
+  for (const x of senses(more)) {
+    const k = [...meaningWords(x)].sort().join(" ");
+    if (k && [...meaningWords(x)].every((w) => have.some((h) => meaningWords(h).has(w)))) continue;
+    if (!seen.has(k)) { have.push(x); seen.add(k); }
+  }
+  return have.join("; ");
 }
 
 /** Words looked up by their letters: add(w), find(e) -> the same word or undefined. */
 function wordIndex(lang) {
   const by = new Map();
-  const keys = (w) => candidates(w.word).map((c) => letters(c, lang)).filter(Boolean);
+  const keys = (w) => letterKeys(w.word, lang);
   return {
     add(w) { for (const k of keys(w)) { if (!by.has(k)) by.set(k, []); by.get(k).push(w); } },
     find(e) { for (const k of keys(e)) { const hit = (by.get(k) || []).find((w) => sameWord(w, e, lang)); if (hit) return hit; } return undefined; },
@@ -82,6 +140,7 @@ export function buildDeck(lang, topicFiles, { old = null, basic = null } = {}) {
         if (w && w.chapters.length && entryOf.has(w.n)) report.merged.push(`${word} (${topic}) = n${w.n}`);
         if (!w) { w = { n: words.length + 1, word, meaning, notes: notes || "", chapters: [] }; words.push(w); index.add(w); }
         if (!w.chapters.length) { Object.assign(w, { word, meaning, notes: notes || "" }); entryOf.set(w.n, rest); }
+        else w.meaning = joinMeanings(w.meaning, meaning); // (a word met in two topics: its senses from both)
         if (!w.chapters.includes(id)) {
           w.chapters.push(id);
           if (!chapterWords.has(id)) chapterWords.set(id, []);
@@ -104,7 +163,7 @@ export function buildDeck(lang, topicFiles, { old = null, basic = null } = {}) {
     delete w.link;
     if (!basic || !w.chapters.length) continue;
     const b = basicIndex.find(w);
-    if (b) { w.link = b.n; report.linked++; }
+    if (b && linkable(w, b)) { w.link = b.n; report.linked++; }
   }
   const chapters = [];
   for (const [level, lname] of LEVELS) {

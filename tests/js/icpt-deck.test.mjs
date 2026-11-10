@@ -8,7 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import * as dli from "../../web/js/dli.js";
 import { packContent } from "../../tools/dli/encrypt.mjs";
-import { LEVELS, TOPICS, buildDeck, chapterId, meaningWords, sameWord } from "../../tools/dli/icpt_deck.mjs";
+import { LEVELS, TOPICS, buildDeck, chapterId, joinMeanings, meaningWords, sameWord } from "../../tools/dli/icpt_deck.mjs";
 
 const entry = (level, word, meaning, sentence, translation, extra = {}) =>
   ({ level, word, meaning, notes: "", sentence, translation, say: word, ...extra });
@@ -29,9 +29,19 @@ test("chapters have fixed ids: level first, then topic, so a new topic never mov
 
 test("the same word is the same letters and a meaning in common", () => {
   assert.deepEqual([...meaningWords("to sign (a treaty); signing")].sort(), ["sign", "signing"]);
+  assert.deepEqual([...meaningWords("localisation; labour; defence; centre")], [...meaningWords("localization; labor; defense; center")]);
   assert.ok(sameWord({ word: "حُكُومَة", meaning: "government" }, { word: "حكومة", meaning: "the government" }, "ar"));
   assert.ok(!sameWord({ word: "عَلَم", meaning: "flag" }, { word: "عِلْم", meaning: "science" }, "ar"), "same letters, another word");
   assert.ok(!sameWord({ word: "سِعْر", meaning: "price" }, { word: "سَفَر", meaning: "price" }, "ar"));
+  assert.ok(sameWord({ word: "الْبِنْيَةُ التَّحْتِيَّةُ", meaning: "infrastructure" }, { word: "بِنْيَة تَحْتِيَّة", meaning: "Infrastructure" }, "ar"),
+    "the article on each word aside");
+  assert.ok(sameWord({ word: "نَادٍ", meaning: "club" }, { word: "نادي", meaning: "Club (sports)" }, "ar"), "a final ي aside");
+  assert.ok(!sameWord({ word: "الْعِشْرُونَ", meaning: "twentieth" }, { word: "عِشْرُون", meaning: "twenty" }, "ar"), "the meaning decides");
+  assert.ok(!sameWord({ word: "أَمْن", meaning: "security" }, { word: "أَمْنِيّ", meaning: "security (adj.)" }, "ar"), "a noun isn't its adjective");
+  assert.ok(!sameWord({ word: "صَوْت", meaning: "vote; voice" }, { word: "صَوَّتَ", meaning: "to vote" }, "ar"), "another shadda, another word");
+  assert.ok(sameWord({ word: "صَوَّتَ", meaning: "to vote" }, { word: "صوت", meaning: "to vote" }, "ar"), "unvowelled: can't tell, so the meaning decides");
+  assert.equal(joinMeanings("website; site", "position (military); site"), "website; site; position (military)");
+  assert.equal(joinMeanings("border(s)", "border; borders"), "border(s)");
 });
 
 test("topic files become a deck: one card per word in every folder it's written in, linked to the basic deck", () => {
@@ -120,4 +130,12 @@ test("a chapter's word list keeps a well-formed link only", () => {
     { n: 6, text: "عَلَم", meaning: "flag", in: ["c016"], link: { deck: "ar-basic", n: -1 } },
   ] });
   assert.deepEqual(data.words.map((w) => [w.n, w.link]), [[3, { deck: "ar-basic", n: 7 }], [4, { deck: "ar-basic", n: 9 }], [5, undefined], [6, undefined]]);
+});
+
+test("a word links to the basic deck's card only when that card says what the news means by it", async () => {
+  const { linkable } = await import("../../tools/dli/icpt_deck.mjs");
+  assert.ok(linkable({ meaning: "government" }, { meaning: "Government(s)" }));
+  assert.ok(!linkable({ meaning: "to rule, sentence (of a court); to spend (time)" }, { meaning: "to spend time (I)" }), "another first sense");
+  assert.ok(!linkable({ meaning: "subsidies; support" }, { meaning: "to support (ساند)" }), "a noun isn't a verb");
+  assert.ok(linkable({ meaning: "to withdraw, pull out" }, { meaning: "withdraw (VII)" }) === false, "a verb whose basic meaning lacks 'to' stays apart");
 });

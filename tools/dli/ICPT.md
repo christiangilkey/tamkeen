@@ -107,6 +107,13 @@ deck:
   topic before Level 2. One who wants a topic opens its folders.
 - A word written in two topics is one word (one card) filed in both folders, with the first one's sentence. A word
   number never changes once given (it's what the audio and the learner's cards are matched by).
-- A word the student already has from the basic deck (same letters and a meaning in common) is **linked** to it:
-  the app files the student's existing card in the ICPT folder instead of making a second card. It also needs no
-  audio of its own.
+- A word the student already has from the basic deck is **linked** to it: the app files the student's existing card
+  in the ICPT folder instead of making a second card, and it needs no audio of its own. Linked = the same letters
+  (the article, a sun letter's shadda and a tanween ي aside), the same shadda and verb-or-not when both are vowelled,
+  and the basic card's meaning has the ICPT word's **first** sense (قَضَى "to sentence" stays its own card, since the
+  basic card says "to spend time").
+- Two topics' entries are one word by the same letter and shadda rules plus a meaning in common; its meaning then
+  has the senses of both.
+- **Once released, a chapter's word list is final** (the app adds a chapter once). More words go in a new chapter.
+- Audio: `voice_deck.py ar --deck ar-icpt`. Its `usage.json` counts per deck folder, so for the month's Azure total
+  add the basic deck's `usage.json` too.
