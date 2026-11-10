@@ -3,7 +3,8 @@
 //   node tools/dli/check_sentences.mjs <lang>                  every chapter: what is written, what is wrong
 //   node tools/dli/check_sentences.mjs <lang> c010 c011        only these chapters
 //   node tools/dli/check_sentences.mjs <lang> --todo c010      the words to write for chapter c010
-//   (--content <folder>: another content folder; default ../dli-content beside the repository)
+//   (--content <folder>: another content folder; default ../dli-content beside the repository;
+//    --deck <id>: a language's other deck, e.g. ar-icpt; default its first, the basic deck)
 //
 // Errors (exit code 1) are things that must be fixed; warnings are worth a second look (a marked word that
 // shares little with the deck's word may be a typo, or just a form that changes a lot, like Korean 하다 → 해요).
@@ -116,9 +117,10 @@ export function checkEntry(e, word, lang) {
   return { errors, warnings };
 }
 
-export function loadDeck(lang, content) {
+export function loadDeck(lang, content, wanted = "") {
   const base = join(content, lang);
-  const id = existsSync(base) ? readdirSync(base).find((d) => existsSync(join(base, d, "deck.json"))) : null;
+  const id = !existsSync(base) ? null : wanted ? (existsSync(join(base, wanted, "deck.json")) ? wanted : null)
+    : readdirSync(base).sort().find((d) => existsSync(join(base, d, "deck.json")));
   if (!id) throw new Error(`No deck for ${lang} in ${base} (run tools/dli/anki_decks.py first).`);
   const folder = join(base, id);
   return { folder, deck: JSON.parse(readFileSync(join(folder, "deck.json"), "utf8")) };
@@ -157,8 +159,9 @@ if (isMain) {
   const opt = (f) => { const i = args.indexOf(f); return i >= 0 ? args.splice(i, 2)[1] : undefined; };
   const content = resolve(opt("--content") || join(root, "..", "dli-content"));
   const todo = opt("--todo");
+  const deckId = opt("--deck") || "";
   const [lang, ...wanted] = args;
-  const { deck, folder } = loadDeck(lang, content);
+  const { deck, folder } = loadDeck(lang, content, deckId);
   if (todo) {
     const ch = deck.chapters.find((c) => c.id === todo);
     if (!ch) throw new Error(`No chapter ${todo}.`);

@@ -188,17 +188,19 @@ export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, audi
       if (!due.every((n) => written.has(n) && unmark(written.get(n).sentence) && written.get(n).translation)) { left++; continue; }
       const list_ = ch.words.map((n) => {
         const w = d.words[n - 1];
-        if (w.chapters[0] !== ch.id) return { n, also: true };
+        // (an ICPT deck's word the basic deck has: the app files the learner's card of that one, tools/dli/ICPT.md)
+        const link = w.link && d.link_deck ? { link: { deck: d.link_deck, n: w.link } } : {};
+        if (w.chapters[0] !== ch.id) return { n, also: true, ...link };
         const e = written.get(n);
         const fix = e.fix || {};
         return { n, text: fix.word || w.word, meaning: fix.meaning || w.meaning, notes: w.notes || "", sentence: e.sentence,
-                 translation: e.translation, in: w.chapters };
+                 translation: e.translation, in: w.chapters, ...link };
       });
       const payload = { id: ch.id, words: list_ };
       const { id: file, sha: digest } = await store(Buffer.from(JSON.stringify(payload)), { json: payload });
       // The audio made for exactly this text (voice_deck.py notes what it said).
       const files = [];
-      for (const w of list_.filter((x) => !x.also)) {
+      for (const w of list_.filter((x) => !x.also && !x.link)) {
         const m = made[String(w.n)];
         const path = join(folder, "audio", `${w.n}.ogg`);
         if (m && m.word === w.text && m.sentence === unmark(w.sentence) && m.times && existsSync(path)) {

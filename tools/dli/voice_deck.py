@@ -61,9 +61,12 @@ def billed(text: str) -> int:
     return sum(2 if re.match(r"[ᄀ-ᇿ぀-ヿ㄰-㆏㐀-鿿가-힯豈-﫿]", c) else 1 for c in text)
 
 
-def load(lang: str, content: Path) -> tuple[Path, dict, dict[int, dict]]:
+def load(lang: str, content: Path, deck_id: str = "") -> tuple[Path, dict, dict[int, dict]]:
     base = content / lang
-    folder = next((d for d in sorted(base.iterdir()) if (d / "deck.json").exists()), None) if base.exists() else None
+    if deck_id:
+        folder = base / deck_id if (base / deck_id / "deck.json").exists() else None
+    else:
+        folder = next((d for d in sorted(base.iterdir()) if (d / "deck.json").exists()), None) if base.exists() else None
     if folder is None:
         raise SystemExit(f"No deck for {lang} in {base}.")
     deck = json.loads((folder / "deck.json").read_text(encoding="utf-8"))
@@ -80,7 +83,8 @@ def finished(deck: dict, written: dict[int, dict]) -> list[dict]:
     for c in deck["chapters"]:
         due = [n for n in c["words"] if deck["words"][n - 1]["chapters"][0] == c["id"]]
         if all(n in written and unmarked(written[n].get("sentence", "")).strip() and written[n].get("translation") for n in due):
-            out.append({**c, "due": due})
+            # (a word linked to the basic deck's card, tools/dli/ICPT.md, plays that card's audio: none made here)
+            out.append({**c, "due": [n for n in due if not deck["words"][n - 1].get("link")]})
     return out
 
 
@@ -242,10 +246,11 @@ def main() -> None:
     ap.add_argument("--batch", type=int, default=BATCH)
     ap.add_argument("--dry", action="store_true", help="only count what is still to make")
     ap.add_argument("--content", type=Path, default=CONTENT)
+    ap.add_argument("--deck", default="", help="a language's other deck, e.g. ar-icpt (default: its first, the basic deck)")
     a = ap.parse_args()
     if a.lang not in bc.AZURE:
         raise SystemExit(f"No Azure voice for {a.lang}.")
-    folder, deck, written = load(a.lang, a.content)
+    folder, deck, written = load(a.lang, a.content, a.deck)
     chapters = finished(deck, written)
     if a.chapters:
         keep = chapter_range(a.chapters, deck)

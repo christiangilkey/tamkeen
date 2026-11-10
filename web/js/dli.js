@@ -160,6 +160,7 @@ export const INDEX_NAME = "index";
 const FILE_ID = /^[0-9a-f]{32}$/;
 const ITEM_ID = /^[a-z0-9][a-z0-9_-]{0,63}$/;
 const CHAPTER_ID = /^c\d{3}$/;
+const DECK_ID = /^[a-z]{2,3}-[a-z0-9-]{1,30}$/;
 const MAX_CHAPTERS = 400;
 const line = (v, most) => String(v ?? "").replace(/[\u0000-\u001f\u007f‪-‮⁦-⁩]/g, " ").replace(/\s+/g, " ").trim().slice(0, most);
 const webUrl = (v) => { const s = String(v || "").trim(); return /^https?:\/\/[^\s]+$/i.test(s) && s.length <= 1000 ? s : ""; };
@@ -286,17 +287,23 @@ export function withDeckMarks(s, id, places) {
 
 /** A chapter's word list, opened (made by tools/dli/encrypt.mjs): { id, words: [{ n, text, meaning, notes, sentence,
  *  translation, in: [chapter ids] }] }, `in` being every chapter that has the word (its folders), the first one the
- *  chapter it is written in. A word written in another chapter is listed as { n, also: true }. Badly formed words go. */
+ *  chapter it is written in. A word written in another chapter is listed as { n, also: true }. A word that is
+ *  the same as one of another deck of the language (an ICPT deck's word the basic deck has, tools/dli/ICPT.md) also
+ *  has `link`: { deck: that deck's id, n: its number there }. Badly formed words go. */
 export function chapterWords(raw) {
   const words = [];
   for (const w of (raw && Array.isArray(raw.words) ? raw.words : []).slice(0, 5000)) {
     if (!w || !Number.isInteger(w.n) || w.n < 1) continue;
-    if (w.also) { words.push({ n: w.n, also: true }); continue; }
+    const l = w.link;
+    const link = l && typeof l === "object" && DECK_ID.test(String(l.deck)) && Number.isInteger(l.n) && l.n > 0
+      ? { link: { deck: String(l.deck), n: l.n } } : {};
+    if (w.also) { words.push({ n: w.n, also: true, ...link }); continue; }
     const text = String(w.text ?? "").trim().slice(0, 200);
     if (!text) continue;
     const chapters = (Array.isArray(w.in) ? w.in : []).filter((c) => CHAPTER_ID.test(String(c))).slice(0, 20);
     words.push({ n: w.n, text, meaning: String(w.meaning ?? "").slice(0, 500), notes: String(w.notes ?? "").slice(0, 1000),
-                 sentence: String(w.sentence ?? "").slice(0, 1000), translation: String(w.translation ?? "").slice(0, 1000), in: chapters });
+                 sentence: String(w.sentence ?? "").slice(0, 1000), translation: String(w.translation ?? "").slice(0, 1000), in: chapters,
+                 ...link });
   }
   return { id: String((raw && raw.id) || ""), words };
 }
