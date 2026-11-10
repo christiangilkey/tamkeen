@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** The Firefly beetle's head is just its head now. Hats, glasses and scarves sit on its real head (the cap tilts forward with it), it nods and blinks without moving its whole shell, and wings or a cape on its back show above its shell. Things worn by a creature can now sit at an angle, to fit its body.
 - **New:** A YouTube video with a dubbed soundtrack in the language you're learning now plays that soundtrack by itself, for example the Arabic one of an English MrBeast video. A note under the captions says so, and YouTube's ⚙ → Audio track still takes you back to the original sound. *(desktop app and the phones; the web app can't reach into YouTube's player, so it still shows where to choose it)*
 - **Changed:** What a creature can wear now goes by where it's worn, so new creatures and new things follow the same rule. An egg wears a hat and **anything on its back** (a cape, a satchel, balloons and so on, not only wings; wings stick out on both sides). A creature with wings of its own (Phoenix chick, Dragon whelp, Thunder griffin and Winged fox) wears **nothing on its back**, not only no wings. What it can't wear stays in your bag for another creature.
 - **Changed:** Battle questions always show a card's meaning, in your own language, and the four choices are always words in the language you're learning. Before, about two questions in three were the other way round. A word whose meaning is just the word itself isn't asked.

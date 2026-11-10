@@ -381,3 +381,28 @@ test("an egg wears a hat and anything on its back, and nothing else (the owner: 
   assert.equal(loaded.roster[0].equipped.back, undefined);
   assert.equal(loaded.roster[0].equipped.hat, "hat/cap", "its hat stays on");
 });
+
+test("an item can sit at an angle on a creature: turned about its anchor, nearest pixel (the firefly's cap)", async () => {
+  const { turnPixels } = await import("../../web/js/game/render.js");
+  // A 3 x 1 bar (red, green, blue) turned 90 degrees clockwise about its middle stands up: red on top.
+  const bar = { width: 3, height: 1, data: new Uint8ClampedArray([255, 0, 0, 255, 0, 255, 0, 255, 0, 0, 255, 255]) };
+  const up = turnPixels(bar, 1, 0, 90);
+  const at = (p, x, y) => [...p.data.slice((y * p.width + x) * 4, (y * p.width + x) * 4 + 4)];
+  const [cx, cy] = up.anchor;
+  assert.deepEqual(at(up, cx, cy), [0, 255, 0, 255], "the anchor stays put");
+  assert.deepEqual(at(up, cx, cy - 1), [255, 0, 0, 255]);
+  assert.deepEqual(at(up, cx, cy + 1), [0, 0, 255, 255]);
+  assert.deepEqual(at(up, cx - 1, cy), [0, 0, 0, 0], "nothing beside it");
+  // Not turned at all, every pixel is where it was (around the anchor), and no colour is made up.
+  const same = turnPixels(bar, 1, 0, 0);
+  assert.deepEqual([-1, 0, 1].map((dx) => at(same, same.anchor[0] + dx, same.anchor[1])), [[255, 0, 0, 255], [0, 255, 0, 255], [0, 0, 255, 255]]);
+  // Every creature's sockets are [x, y] or [x, y, angle] with a small angle; the firefly's cap tilts with its head.
+  for (const b of BEASTS) for (const look of [b, b.young].filter(Boolean)) {
+    for (const [slot, v] of Object.entries(look.sockets)) {
+      assert.ok(v.length === 2 || (v.length === 3 && Math.abs(v[2]) <= 45), `${b.id} ${slot}`);
+    }
+  }
+  const firefly = BEASTS.find((b) => b.id === "firefly");
+  assert.equal(firefly.sockets.hat.length, 3);
+  assert.equal(firefly.young.sockets.hat.length, 3);
+});

@@ -267,6 +267,51 @@ export function eggPicture(genome, size, cls = "cr-egg") {
   return c;
 }
 
+// ---------- turned items ----------
+// A socket may carry an angle ([x, y, degrees] in rig.json, clockwise): the item is turned that much about its anchor,
+// taking the nearest pixel so it stays crisp (the firefly's cap tilts forward with its head). Same as
+// tools/game_art/beasts.py rotated(), pixel for pixel.
+/** Pixels `src` ({width, height, data: RGBA}) turned `deg` degrees clockwise about pixel (ax, ay): {width, height,
+ * data, anchor}, square, with the anchor in the middle. */
+export function turnPixels(src, ax, ay, deg) {
+  const t = (deg * Math.PI) / 180;
+  const c = Math.cos(t), s = Math.sin(t);
+  const { width: w, height: h, data } = src;
+  let r = 0;
+  for (const x of [0, w]) for (const y of [0, h]) r = Math.max(r, Math.hypot(x - ax, y - ay));
+  r = Math.ceil(r);
+  const size = 2 * r + 1;
+  const out = new Uint8ClampedArray(size * size * 4);
+  for (let j = 0; j < size; j++) {
+    for (let i = 0; i < size; i++) {
+      const dx = i - r, dy = j - r;
+      const sx = Math.floor(ax + 0.5 + dx * c + dy * s), sy = Math.floor(ay + 0.5 - dx * s + dy * c);
+      if (sx < 0 || sy < 0 || sx >= w || sy >= h) continue;
+      const from = (sy * w + sx) * 4, to = (j * size + i) * 4;
+      for (let k = 0; k < 4; k++) out[to + k] = data[from + k];
+    }
+  }
+  return { width: size, height: size, data: out, anchor: [r, r] };
+}
+const turned = new Map(); // "src|anchor|deg" -> {pic, anchor}: each item turned once per angle
+function turnItem(img, anchor, deg) {
+  const key = `${img.src}|${anchor}|${deg}`;
+  if (!turned.has(key)) {
+    const c0 = document.createElement("canvas");
+    c0.width = img.width;
+    c0.height = img.height;
+    const x0 = c0.getContext("2d", { willReadFrequently: true });
+    x0.drawImage(img, 0, 0);
+    const p = turnPixels(x0.getImageData(0, 0, img.width, img.height), anchor[0], anchor[1], deg);
+    const pic = document.createElement("canvas");
+    pic.width = p.width;
+    pic.height = p.height;
+    pic.getContext("2d").putImageData(new ImageData(p.data, p.width, p.height), 0, 0);
+    turned.set(key, { pic, anchor: p.anchor });
+  }
+  return turned.get(key);
+}
+
 /**
  * Compose one frame of a creature. `look` comes from describe(genome); `pose` is
  *   {walk: 0-3, the walk cycle (0 and 2: both feet down; 1: the near legs lift and the head dips; 3: the far legs
@@ -322,7 +367,8 @@ export async function composeCreature(look, pose = {}) {
   const oy = oy0 - (pose.lift || 0) - float + dy;
   if (pose.act === "faint") ctx.globalAlpha = 1 - t;
   const put = (img, dy = 0) => { if (img) ctx.drawImage(img, ox, oy + dy); };
-  // Where a worn thing sits: its socket on this creature, moved by the item's own `shift` and `offset`.
+  // Where a worn thing sits: its socket on this creature, moved by the item's own `shift` and `offset`, and turned
+  // by the socket's angle if it has one (the nudge turns with it).
   const item = (slot, dy = 0) => {
     const img = worn[slot];
     if (!img) return;
@@ -330,8 +376,14 @@ export async function composeCreature(look, pose = {}) {
     const shift = (it && it.shift) || [0, 0];
     const a = b.baby ? shift.map((v) => Math.round(v * 0.75)) : shift; // the small item's own nudge
     const o = (it && it.offset && it.offset[look.size]) || [0, 0];
-    const [sx, sy] = b.sockets[slot];
-    ctx.drawImage(img, ox + sx - SLOTS[slot].anchor[0] + a[0] + o[0], oy + sy - SLOTS[slot].anchor[1] + a[1] + o[1] + dy);
+    const [sx, sy, deg = 0] = b.sockets[slot];
+    let pic = img, [ax, ay] = SLOTS[slot].anchor, [nx, ny] = [a[0] + o[0], a[1] + o[1]];
+    if (deg) {
+      ({ pic, anchor: [ax, ay] } = turnItem(img, SLOTS[slot].anchor, deg));
+      const t = (deg * Math.PI) / 180;
+      [nx, ny] = [Math.round(nx * Math.cos(t) - ny * Math.sin(t)), Math.round(nx * Math.sin(t) + ny * Math.cos(t))];
+    }
+    ctx.drawImage(pic, ox + sx - ax + nx, oy + sy - ay + ny + dy);
   };
   put(legsBack, -back);
   put(body);

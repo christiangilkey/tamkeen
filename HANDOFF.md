@@ -6241,6 +6241,18 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   wears nothing on its back; an egg wears a hat and any back item (`render.dressEgg`: the hat on its crown, a back item
   peeking out on its left, wings (items marked `wings: true`) as a mirrored pair). `rules.wearProblem` says why not
   ("egg" / "wings"); `buy` puts what doesn't fit in the bag, `equip` refuses it, and `normalize` takes it off on load.
+- **Angled items, the firefly's head** (2026-11-09; the owner: "I want items to dynamically be able to be angled to
+  fit well to certain creatures bodies. It also seems like the game thinks that this guy's body is his head"): a
+  socket may be `[x, y, degrees]` (clockwise), in rig.json and beasts.js; `render.turnPixels` / beasts.py `rotated()`
+  turn the item about its anchor, nearest pixel, the same pixel for pixel (checked with hashes in the browser);
+  render.js caches each turned item (`turnItem`) and turns the item's `shift` with it. The firefly's head was its
+  whole front shell and horn; now it is the real head (eye, antennae, feelers): hat [53, 31, 20], face [54, 35],
+  neck [49, 40], back [30, 22, -15] (baby: [50, 41, 20], [52, 45], [46, 50], [27, 37, -15]); its shirt skips the
+  front shell (`"shirt": {"not": ...}`), so the shirt looks as before. beasts.py `underlay()`: where the body is
+  right above the head, body.png keeps the head's top 2 rows under it, so a dip shows no gap (firefly; 1-3 pixels
+  on the axolotl, chick and dragon whelp). The preview sheet has a "bat wings" panel. Back items still hide behind
+  the Moss boulder, Crystal golem, Treasure golem and Fluffball (and barely show on the axolotl): their back sockets
+  want moving up (follow-up).
 - **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.

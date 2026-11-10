@@ -4,7 +4,7 @@
 // on its back: data.canWear), the hue of its body, and for its juvenile look (and `young`, its
 // hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how
 // high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things
-// sit (in its drawing's pixels).
+// sit (in its drawing's pixels; a third number is an angle: the item turned that many degrees clockwise).
 export const BEASTS = [
   { id: "chick", name: "Phoenix chick", type: "ember", set: "original", plan: "biped", wings: true, hue: 29,
     size: [64, 64], box: [0, 1, 56, 62], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
@@ -53,9 +53,9 @@ export const BEASTS = [
     sockets: { hat: [47, 29], face: [49, 33], neck: [45, 41], held: [52, 52], back: [28, 48] } } },
   { id: "firefly", name: "Firefly beetle", type: "spark", set: "original", plan: "quad", hue: 80,
     size: [64, 64], box: [0, 7, 63, 61], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
-    sockets: { hat: [44, 18], face: [53, 34], neck: [50, 41], held: [58, 55], back: [28, 30] },
+    sockets: { hat: [53, 31, 20], face: [54, 35], neck: [49, 40], held: [58, 55], back: [30, 22, -15] },
     young: { size: [64, 64], box: [4, 26, 61, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
-    sockets: { hat: [43, 31], face: [51, 44], neck: [47, 52], held: [57, 59], back: [27, 45] } } },
+    sockets: { hat: [50, 41, 20], face: [52, 45], neck: [46, 50], held: [57, 59], back: [27, 37, -15] } } },
   { id: "cat_ferret", name: "Cat-ferret", type: "spark", set: "cyberpunk", plan: "quad", hue: 42,
     size: [64, 64], box: [2, 4, 63, 60], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [53, 18], face: [57, 23], neck: [49, 34], held: [55, 50], back: [28, 42] },

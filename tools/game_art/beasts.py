@@ -11,7 +11,10 @@ colour letters, `art`) and a rig.json that says how to cut it:
       "legs_front": polygon(s)  - the near legs, drawn in front; they lift a pixel on the walk's second step
       "blink": [{"at": [x, y], "rows": ["..44..", ...]}]  - pixels painted over the head for shut eyes ('.' = leave)
       "sockets": {"hat": [x, y], "face": [x, y], "neck": [x, y], "held": [x, y], "back": [x, y]},
+                                  - a socket may have a third number, an angle: [x, y, degrees], clockwise; the
+                                    item is turned about its anchor by that much (nearest pixel: rotated())
       "shirt": {"box": [x0, y0, x1, y1], "letters": "123"} or null  - which body pixels a shirt covers
+                                  (and "not": polygon(s) inside the box it leaves alone, if need be)
       "hover": 0                - pixels a floater stays off the ground
       "wings": true             - only for a creature drawn with wings of its own: it wears nothing on its back
                                   (data.canWear); leave it out otherwise
@@ -23,6 +26,10 @@ creature is a hatchling (game art in creature/beast/<id>/hatchling/).
 A polygon is a list of [x, y] corners in pixel units; a pixel belongs to it when its centre is inside.
 "head" etc. may also be a list of polygons.
 
+Where the body is right above the head (a beetle's head under its shell), body.png also keeps a copy of the head's
+top two rows there, under the head (underlay()): at rest the head covers it exactly; when the head dips, it fills
+the strip the head leaves, so there is no see-through gap.
+
     .venv/Scripts/python tools/game_art/beasts.py preview chick     its preview sheet (_rig_preview.png)
     .venv/Scripts/python tools/game_art/beasts.py build             every creature: game art + web/js/game/beasts.js
     .venv/Scripts/python tools/game_art/beasts.py build --aseprite  also the layered .aseprite sources
@@ -32,6 +39,7 @@ from __future__ import annotations
 
 import colorsys
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -49,6 +57,7 @@ SLOTS = {"hat": (10, 13), "face": (8, 4), "neck": (8, 1), "held": (6, 11), "back
 ORDER = ["ember", "tide", "grove", "spark", "stone", "dusk"]
 SETS = ["original", "cyberpunk", "fantasy"]
 LAYERS = ["body", "head", "legs_back", "legs_front"]
+DIP = 2  # the most the head dips, in pixels (asleep; 1 walking): render.js composeCreature
 
 
 def hexrgb(h: str) -> tuple[int, int, int]:
@@ -107,7 +116,42 @@ def cut(rig: dict, rows: list[str]) -> dict[str, dict[tuple[int, int], str]]:
                 if ch != ".":
                     blink[(x0 + dx, y0 + dy)] = ch
     layers["blink"] = blink
+    layers["under"] = underlay(layers)
     return layers
+
+
+def underlay(layers) -> dict[tuple[int, int], str]:
+    """The head's pixels that the body keeps a copy of, under the head: the top DIP rows of the head wherever the
+    body is right above it. When the head dips they fill the strip it leaves instead of a see-through gap."""
+    head, body = layers["head"], layers["body"]
+    out = {}
+    for (x, y) in head:
+        if (x, y - 1) in body:
+            for k in range(DIP):
+                if (x, y + k) in head:
+                    out[(x, y + k)] = head[(x, y + k)]
+    return out
+
+
+def rotated(im: Image.Image, anchor, deg: float):
+    """Item picture `im` turned `deg` degrees clockwise about its anchor pixel, taking the nearest pixel, so it
+    stays crisp. Returns (picture, its anchor). render.js turnPixels does the same, pixel for pixel."""
+    if not deg:
+        return im, tuple(anchor)
+    ax, ay = anchor
+    c, s = math.cos(math.radians(deg)), math.sin(math.radians(deg))
+    w, h = im.size
+    r = math.ceil(max(math.hypot(x - ax, y - ay) for x in (0, w) for y in (0, h)))
+    size = 2 * r + 1
+    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    src, dst = im.load(), out.load()
+    for j in range(size):
+        for i in range(size):
+            dx, dy = i - r, j - r
+            sx, sy = math.floor(ax + 0.5 + dx * c + dy * s), math.floor(ay + 0.5 - dx * s + dy * c)
+            if 0 <= sx < w and 0 <= sy < h:
+                dst[i, j] = src[sx, sy]
+    return out, (r, r)
 
 
 def shirt_mask(rig: dict, layers) -> set[tuple[int, int]]:
@@ -115,7 +159,9 @@ def shirt_mask(rig: dict, layers) -> set[tuple[int, int]]:
     if not s:
         return set()
     x0, y0, x1, y1 = s["box"]
-    return {p for p, ch in layers["body"].items() if ch in s["letters"] and x0 <= p[0] <= x1 and y0 <= p[1] <= y1}
+    skip = polys(s.get("not"))  # an area inside the box the shirt leaves alone (the firefly's front shell)
+    return {p for p, ch in layers["body"].items() if ch in s["letters"] and x0 <= p[0] <= x1 and y0 <= p[1] <= y1
+            and not any(inside(q, p[0] + 0.5, p[1] + 0.5) for q in skip)}
 
 
 def image(px: dict, pal: dict, w: int, h: int) -> Image.Image:
@@ -160,12 +206,13 @@ def compose(rig, layers, pal, w, h, *, step=0, bob=0, shut=False, items=None, sh
         im = items.get(slot)
         if im is None:
             return
-        ax, ay = SLOTS[slot]
-        put(im, ox + so[slot][0] - ax, oy + so[slot][1] - ay + dy)
+        sx, sy, *turn = so[slot]
+        im, (ax, ay) = rotated(im, SLOTS[slot], turn[0] if turn else 0)
+        put(im, ox + sx - ax, oy + sy - ay + dy)
 
     item("back")
     put(image(layers["legs_back"], pal, w, h), ox, oy)
-    body = image(layers["body"], pal, w, h)
+    body = image({**layers["under"], **layers["body"]}, pal, w, h)
     if shirt is not None:
         for (x, y) in shirt_mask(rig, layers):
             body.putpixel((x, y), shirt.getpixel((x % shirt.width, y % shirt.height)))
@@ -200,6 +247,7 @@ def preview(cid: str, form: str = "juvenile") -> Path:
         ("asleep", compose(rig, layers, pal, w, h, bob=2, shut=True)),
         ("hat, glasses, scarf, book, cape", compose(rig, layers, pal, w, h, items=dressed)),
         ("same, walking", compose(rig, layers, pal, w, h, items=dressed, step=1, bob=1)),
+        ("bat wings", compose(rig, layers, pal, w, h, items={"back": item(f"{s}back/bat_wings.png")})),
         ("shirt", compose(rig, layers, pal, w, h, shirt=item("shirt/striped.png"))),
     ]
     # the cut itself: head red, far legs blue, near legs green, shirt yellow
@@ -257,7 +305,8 @@ def write_form(cid: str, form: str, aseprite: bool, lua: list) -> dict:
     for name in ("body", "head", "blink", "legs_back", "legs_front"):
         path = folder / f"{name}.png"
         if layers[name] or name in ("body", "head", "blink"):
-            image(layers[name], pal, w, h).save(path)
+            px = {**layers["under"], **layers["body"]} if name == "body" else layers[name]  # (underlay(): under the head)
+            image(px, pal, w, h).save(path)
         elif path.exists():
             path.unlink()
     mask = shirt_mask(rig, layers)
@@ -273,7 +322,7 @@ def write_form(cid: str, form: str, aseprite: bool, lua: list) -> dict:
 
 
 def look_js(f: dict) -> str:
-    so = ", ".join(f"{k}: [{v[0]}, {v[1]}]" for k, v in f["sockets"].items())
+    so = ", ".join(f"{k}: [{', '.join(str(n) for n in v)}]" for k, v in f["sockets"].items())
     return (f'size: [{f["size"][0]}, {f["size"][1]}], box: [{", ".join(map(str, f["box"]))}], hover: {f["hover"]}, '
             f'legs: {json.dumps(f["legs"])}, shirt: {str(f["shirt"]).lower()},\n    sockets: {{ {so} }}')
 
@@ -297,7 +346,7 @@ def build(aseprite: bool) -> None:
              "// on its back: data.canWear), the hue of its body, and for its juvenile look (and `young`, its",
              "// hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how",
              "// high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things",
-             "// sit (in its drawing's pixels).",
+             "// sit (in its drawing's pixels; a third number is an angle: the item turned that many degrees clockwise).",
              "export const BEASTS = ["]
     for e in entries:
         young = f"young: {{ {look_js(e['young'])} }}" if e["young"] else "young: null"
