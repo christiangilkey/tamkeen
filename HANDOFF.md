@@ -6250,9 +6250,12 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   neck [49, 40], back [30, 22, -15] (baby: [50, 41, 20], [52, 45], [46, 50], [27, 37, -15]); its shirt skips the
   front shell (`"shirt": {"not": ...}`), so the shirt looks as before. beasts.py `underlay()`: where the body is
   right above the head, body.png keeps the head's top 2 rows under it, so a dip shows no gap (firefly; 1-3 pixels
-  on the axolotl, chick and dragon whelp). The preview sheet has a "bat wings" panel. Back items still hide behind
-  the Moss boulder, Crystal golem, Treasure golem and Fluffball (and barely show on the axolotl): their back sockets
-  want moving up (follow-up).
+  on the axolotl, chick and dragon whelp). The preview sheet has a "bat wings" panel. Back items hid behind the
+  Moss boulder, Crystal golem, Treasure golem and Fluffball (and barely showed on the axolotl); the owner said yes to
+  moving them up (2026-11-09), so their back sockets sit high on the back now, some at an angle: pebble [20, 18, -25]
+  (baby [25, 33, -15]), rock_golem [24, 18] ([24, 36]), treasure_golem [22, 22] ([23, 42]), fluffball
+  [17, 12, -30] ([24, 32, -30]), axolotl [30, 26, -10] ([26, 38, -10]). Every creature that can wear back items now
+  shows them (checked on the bat-wings panel of all 18, both looks).
 - **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.
