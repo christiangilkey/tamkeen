@@ -1,0 +1,2 @@
+# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
+310ab56c	Ara sona la pista d'àudio en {0:lower} d'aquest vídeo. Per al so original, tria'l a ⚙ → Pista d'àudio, al vídeo.

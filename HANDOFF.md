@@ -8069,3 +8069,36 @@ both use".
 - Tests `tests/js/challenge.test.mjs`; translations `158-folder-challenge` (15 strings).
 - **Not done**: no side-by-side result of a challenge (each sees the other's result in the battle inbox); a challenge
   message disappears like any share once added or dismissed.
+
+## YouTube: the dubbed soundtrack in the language being learned, chosen by itself (2026-11-09; owner's request)
+Owner: "when a user is studying a language, and they select a youtube video that is in english as the main audio track,
+have tamkeen automatically select the target language from the youtube language track dropdown". This overturns the
+2026-10-20 note "No version can choose it" (section "YouTube: automatic captions…"): the page still can't, the apps can.
+- **How**: YouTube's embed page has the internal player API on `#movie_player` (`getAvailableAudioTracks`,
+  `getAudioTrack`, `setAudioTrack`) even though the IFrame API's `apiInterface` doesn't list it. A track's language sits
+  in a small object inside it ({id "ar.3", name, isDefault, isAutoDubbed}) under a minified name that changes per
+  release (seen `Ib`, `Rb`), so it is found by shape. `setAudioTrack` throws until the video plays (state 1/3).
+- **`web/js/yt-audio-frame.js`** (plain script) runs in every frame of the app's own web view and acts only on
+  `youtube.com`/`youtube-nocookie.com` `/embed/` pages whose address has `tamkeen_audio=<lang>` (ytmedia.js passes it as
+  a playerVar; YouTube ignores unknown ones, and other sites' embeds are left alone). Once per video, while playing:
+  already in the language → "already"; a track in it → `setAudioTrack` (a people-made dub before an auto-dub),
+  reported as "switched" once `getAudioTrack` says so; none → "none" (also after 4 s with no tracks listed); 4 refusals
+  → "failed". It posts `{tamkeenYtAudio: {video, outcome, name}}` to the parent. The user's own later ⚙ choice sticks.
+- **Who puts it there**: computer `app/desktop.py` `add_youtube_audio_script` → `add_frame_script` on the main window's
+  first `loaded` (Windows: WebView2 `AddScriptToExecuteOnDocumentCreatedAsync`, which covers child frames; Mac:
+  `WKUserScript(..., forMainFrameOnly: False)`; Linux GTK: `UserContentInjectedFrames.ALL_FRAMES`). Android:
+  `YouTubeAudio.java` (`WebViewCompat.addDocumentStartJavaScript` for the two YouTube origins, read from assets
+  `public/js/yt-audio-frame.js`; app/build.gradle now depends on `androidx.webkit` itself), called from MainActivity.
+  iPhone: `YouTubeAudioPlugin.swift` (a plugin with no methods; its `load()` adds a `WKUserScript`, not main frame only,
+  from the bundle's `public/js`). build-www.mjs ships the file to the phones.
+- **The page** (`ytmedia.js`): `media.audioTrack` + an "audiotrack" event, from the player's own iframe only.
+  `player.js`: "switched" → temporary note "Now playing this video's Arabic audio track. For the original sound, choose
+  it under ⚙ → Audio track in the video." (i18n 167); "failed", or no word 8 s after the video first plays (an older app,
+  an old Android web view) → the old hint "This video can be heard in Arabic too: choose it under ⚙ → Audio track…".
+  The web app (`window.TAMKEEN_WEB`) shows the old hint straight away, as before.
+- **Checked**: a real Windows pywebview window on a scratch data folder, MrBeast 0e3GPea1Tyg (English original, 24
+  tracks incl. ar.3) learning Arabic: frame reported "switched"/"Arabic", note shown. On youtube.com's watch page in
+  the browser pane: `setAudioTrack` moved `getAudioTrack()` to ar.3 mid-play. Browser (no script) → the hint after 8 s.
+  `YouTubeAudio.java` compiled with javac against android-36 + webkit 1.14. **Not checked: Mac, Linux, a real Android
+  phone or iPhone** (the iPhone code only builds in CI). Tests: `tests/js/yt-audio-frame.test.mjs`, `tests/test_ytaudio.py`.
+- Caveat: the saved captions follow the original video, so with a dub they may not match the words heard exactly.

@@ -17595,6 +17595,11 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "310ab56c",
+  "k": "Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "5124719f",
   "k": "YouTube still won't give Tamkeen {0} captions for this video.",
   "f": "web/js/pages/player.js"

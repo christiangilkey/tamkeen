@@ -3517,6 +3517,7 @@
 "Translated by YouTube: it may not match what is said.":"YouTube による翻訳です。実際に話されている内容と違うことがあります。",
 "Captions written by Gemini: they can have mistakes.":"Gemini が書いた字幕です。間違いがあるかもしれません。",
 "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.":"この動画は{0}でも聞けます。動画の ⚙ → 音声トラック で選んでください。",
+"Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.":"この動画の{0}の音声トラックを再生中です。元の音声は、動画の ⚙ → 音声トラック で選んでください。",
 "YouTube still won't give Tamkeen {0} captions for this video.":"YouTube はまだこの動画の{0}字幕を Tamkeen に渡してくれません。",
 "Netflix's player closed.":"Netflix のプレーヤーが閉じました。",
 "Sign in to Netflix first: open Netflix, sign in there, then press Try again.":"まず Netflix にサインインしてください。Netflix を開いてサインインし、「もう一度試す」を押してください。",

@@ -1,0 +1,2 @@
+# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
+310ab56c	Сейчас играет звуковая дорожка этого видео: {0:lower}. Оригинальный звук можно выбрать в ⚙ → Звуковая дорожка в видео.

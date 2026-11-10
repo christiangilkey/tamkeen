@@ -3517,6 +3517,7 @@
 "Translated by YouTube: it may not match what is said.":"แปลโดย YouTube: อาจไม่ตรงกับสิ่งที่พูด",
 "Captions written by Gemini: they can have mistakes.":"คำบรรยายที่ Gemini เขียน: อาจมีข้อผิดพลาด",
 "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.":"วิดีโอนี้ฟังเป็นภาษา{0:lower}ได้ด้วย: เลือกได้ที่ ⚙ → แทร็กเสียง ในวิดีโอ",
+"Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.":"กำลังเล่นแทร็กเสียงภาษา{0:lower}ของวิดีโอนี้ หากต้องการเสียงต้นฉบับ เลือกได้ที่ ⚙ → แทร็กเสียง ในวิดีโอ",
 "YouTube still won't give Tamkeen {0} captions for this video.":"YouTube ยังไม่ยอมให้คำบรรยายภาษา{0:lower}ของวิดีโอนี้แก่ Tamkeen",
 "Netflix's player closed.":"เครื่องเล่นของ Netflix ปิดแล้ว",
 "Sign in to Netflix first: open Netflix, sign in there, then press Try again.":"ลงชื่อเข้าใช้ Netflix ก่อน: เปิด Netflix ลงชื่อเข้าใช้ที่นั่น แล้วกด “ลองอีกครั้ง”",

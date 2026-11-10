@@ -338,7 +338,7 @@ export async function render(view, { id, query }) {
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was
   // first watched in: after a change of language, Netflix's subtitles follow it).
   const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
-    { start: startAt, duration, captions: { lang: study, show: lang !== study } })
+    { start: startAt, duration, captions: { lang: study, show: lang !== study }, audio: study })
     : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: study, duration,
       onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();
@@ -649,14 +649,37 @@ export async function render(view, { id, query }) {
       if (bubble) fitBubble(); // the phone's popup hangs just below this
     };
     paint();
-    // A dubbed version in the language being learned (YouTube's "multi-language audio"). Tamkeen
-    // can't choose it from outside YouTube's player, so the way to it is shown.
-    dubbedTrack(ep).then((track) => {
-      if (!track || disposed) return;
-      temp = `This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`;
+    // A dubbed version in the language being learned (YouTube's "multi-language audio"). In the apps it is
+    // switched to when the video starts (yt-audio-frame.js inside YouTube's frame; ytmedia.js hands on what it
+    // did), as the owner asked. The web app can't reach into YouTube's frame, so there the way to it is shown,
+    // as it is in the apps when the switch doesn't come (an older app, a phone whose web view can't).
+    let tempTimer = 0;
+    const showTemp = (text) => {
+      temp = text;
       paint();
       // Shown for 12 seconds, fading out over the last one (media.css .yt-note-temp), then gone.
-      setTimeout(() => { if (disposed) return; temp = ""; paint(); }, 12000);
+      clearTimeout(tempTimer);
+      tempTimer = setTimeout(() => { if (disposed) return; temp = ""; paint(); }, 12000);
+    };
+    const showWay = () => showTemp(`This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`);
+    let told = false; // yt-audio-frame.js said what it did
+    audio.addEventListener("audiotrack", () => {
+      if (disposed || told || !audio.audioTrack) return;
+      told = true;
+      const { outcome } = audio.audioTrack;
+      if (outcome === "switched") {
+        showTemp(`Now playing this video's ${studyName} audio track. For the original sound, choose it under ⚙ → Audio track in the video.`);
+      } else if (outcome === "failed") {
+        showWay();
+      }
+    });
+    dubbedTrack(ep).then((track) => {
+      if (!track || disposed || told) return;
+      if (window.TAMKEEN_WEB === true) { showWay(); return; }
+      // Give the switch a few seconds once the video plays; without word of it, show the way.
+      const wait = () => setTimeout(() => { if (!disposed && !told) showWay(); }, 8000);
+      if (!audio.paused) wait();
+      else audio.addEventListener("play", wait, { once: true });
     }).catch(() => {});
   }
   /** Ask YouTube again for captions in the language being learned (its translation may come now). */

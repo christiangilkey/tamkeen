@@ -1,0 +1,2 @@
+# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
+310ab56c	اکنون صدای {0} این ویدیو پخش می‌شود. برای صدای اصلی، آن را زیر ⚙ ← Audio track در ویدیو انتخاب کنید.

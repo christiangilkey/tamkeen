@@ -1,0 +1,2 @@
+# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
+310ab56c	Tocando agora a faixa de áudio em {0:lower} deste vídeo. Para o som original, escolha-o em ⚙ → Faixa de áudio, no vídeo.

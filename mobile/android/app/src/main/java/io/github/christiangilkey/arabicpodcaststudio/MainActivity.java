@@ -24,5 +24,7 @@ public class MainActivity extends BridgeActivity {
         super.onCreate(savedInstanceState);
         // Lets the video player stream the user's own videos straight from Google Drive.
         getBridge().setWebViewClient(new DriveMediaWebViewClient(getBridge()));
+        // A YouTube video's dubbed soundtrack in the language being learned, chosen inside YouTube's player.
+        YouTubeAudio.install(getBridge().getWebView(), getAssets());
     }
 }

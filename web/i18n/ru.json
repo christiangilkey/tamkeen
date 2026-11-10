@@ -3517,6 +3517,7 @@
 "Translated by YouTube: it may not match what is said.":"Переведено YouTube: может не совпадать с тем, что говорят.",
 "Captions written by Gemini: they can have mistakes.":"Субтитры написаны Gemini: в них могут быть ошибки.",
 "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.":"Это видео можно послушать и на другом языке ({0:lower}): выберите его в ⚙ → Звуковая дорожка в видео.",
+"Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.":"Сейчас играет звуковая дорожка этого видео: {0:lower}. Оригинальный звук можно выбрать в ⚙ → Звуковая дорожка в видео.",
 "YouTube still won't give Tamkeen {0} captions for this video.":"YouTube всё ещё не даёт Tamkeen субтитры к этому видео (язык: {0:lower}).",
 "Netflix's player closed.":"Плеер Netflix закрылся.",
 "Sign in to Netflix first: open Netflix, sign in there, then press Try again.":"Сначала войдите в Netflix: откройте Netflix, войдите там, затем нажмите «Повторить».",

@@ -1,0 +1,2 @@
+# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
+310ab56c	Jetzt läuft die Audiospur auf {0}. Den Originalton wählst du im Video unter ⚙ → Audiospur.

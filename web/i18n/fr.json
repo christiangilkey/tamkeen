@@ -3517,6 +3517,7 @@
 "Translated by YouTube: it may not match what is said.":"Traduit par YouTube : cela peut ne pas correspondre à ce qui est dit.",
 "Captions written by Gemini: they can have mistakes.":"Sous-titres écrits par Gemini : ils peuvent contenir des erreurs.",
 "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.":"Cette vidéo peut aussi s'écouter en {0:lower} : choisissez-le dans ⚙ → Piste audio, dans la vidéo.",
+"Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.":"La piste audio en {0:lower} de cette vidéo est en cours de lecture. Pour le son original, choisissez-le dans ⚙ → Piste audio, dans la vidéo.",
 "YouTube still won't give Tamkeen {0} captions for this video.":"YouTube ne donne toujours pas à Tamkeen de sous-titres en {0:lower} pour cette vidéo.",
 "Netflix's player closed.":"Le lecteur de Netflix s'est fermé.",
 "Sign in to Netflix first: open Netflix, sign in there, then press Try again.":"Connectez-vous d'abord à Netflix : ouvrez Netflix, connectez-vous-y, puis appuyez sur « Réessayer ».",
