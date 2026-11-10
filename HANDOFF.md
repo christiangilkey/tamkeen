@@ -8166,3 +8166,15 @@ patterns that require the creature to stand upright ... add many more new items 
   zigzags, both keeping their ids, names and colours; Argyle (square diamonds) and the others were already direction-free.
   `tests/js/feats.test.mjs` reads every shirt PNG and fails one whose same-colour runs are more than 1.6 times longer one
   way than the other, or whose plain one-colour rows outnumber its plain columns (stripes measure 8, rows of zigzags 0.63).
+- **Pictures for the owner**: `game/art-src-16bit/creatures/_colourings_feats.png` (six creatures in every colouring),
+  `_new_items_2026-11-09.png` (every new item, prizes marked), `_new_shirts_2026-11-09.png` (each shirt tiled and on a
+  cat, the chick and the deer). Checked in the browser: the Creatures page at 375 px (the colouring tiles four to a row,
+  progress under the locked ones), every new item worn by the cat and the hare, new hats and back items on an egg
+  (wings as a pair).
+- **Not done / follow-ups**: the owner was asked (in the "Decisions" chat) to confirm the method for drawing the items;
+  no answer had come when this was committed, so the method he approved for bulk work on 2026-10-30 was used (designed
+  pixel by pixel, placed in Aseprite by a script, sources kept). The Netflix extension must be rebuilt and uploaded to the
+  Chrome Web Store before Netflix episodes watched in the web app count. Anki's daily review totals don't count toward
+  Holofoil (only Tamkeen's own card review), and the raid reward counts for the creature out when it is claimed. Dark
+  shirts (camo, confetti, circuit) nearly vanish on the darkest creatures, as galaxy already did. A few Bisaya item names
+  may want a native speaker's look ("Antipara nga ilong-bigote", "Sinina nga murag baka", "Patay-buhi nga suga").
