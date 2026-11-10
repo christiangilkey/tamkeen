@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Dazu gibt es: {0}.
+6c7ce323	{0} / {1} Wörter
+dc96ff66	{0} / {1} Stunden
+db775117	{0} / {1} Karten
+0ba1062e	{0} / {1} Buch
+5d0065c6	{0} / {1} Folgen
+1eaad47a	{0} / {1} Raid-Boss
+2b420833	Froschfreund
+5c0d7fe4	Quietscheentchen
+3c8078f7	Schneckenfreund
+ba1f4cbb	Teekanne
+3ec38fed	Verkehrshütchen
+2930c52d	Cupcake-Hut
+816cc9ba	Toastscheibe
+1bbb8dec	Kleine Regenwolke
+521e325a	Oktopus-Umarmung
+fc59c4bd	Goldfischglas
+6d7fc1d8	Bücherwurm
+0110c9f1	Neon-Visier
+04083e46	Inkognito-Brille
+fe11eb8d	Hypnosebrille
+fb1ddb78	Ballmaske
+cc191d24	Kaugummiblase
+ed8b5e04	Lichterkette
+758ef137	Hummer-Lätzchen
+039b2a40	Rettungsring
+ed55035b	Gänseblümchenkette
+bf370c59	On-Air-Ausweis
+11576748	Gummihuhn
+abbb6b06	Baguette
+2be62044	Seifenblasenstab
+1992332e	Mini-Kaktus
+38244692	Schneekugel
+67cd5914	Knicklicht
+72bd5677	Spirallutscher
+7fb7ad8a	Wörterglas
+2fcc4f9a	Kartenfächer
+62a91401	Popcorn
+3903c0cc	Boombox
+a6f6b2c0	Schneckenhaus
+ce1a66a3	Papprakete
+7dd2a42f	Papierflügel
+2c6cdd4b	Neonflügel
+b7cff543	Wanderbündel
+f922bc3c	Raid-Banner
+147e903a	Tarn-Shirt
+6b9f0a2f	Leopardenmuster
+228cf3be	Kirschmuster
+bb92e57d	Konfetti-Shirt
+d442b0ad	Streusel-Shirt
+462237dd	Waben-Shirt
+5f5a9b2c	Kuhflecken
+4a898b56	Platinen-Shirt
+817122ce	Glyphe
+d5f50ff2	Speichere 200 Wörter in deinen Vokabeln, während es dein Hauptwesen ist
+d0dcc00c	überall mit leuchtenden Buchstaben beschrieben
+9afb3161	Synthwave
+d2fa6888	Hör 10 Stunden lang zu, während es dein Hauptwesen ist
+cee34fcb	ein Neon-Sonnenuntergang, der im Takt wogt
+b4c149b4	Holofolie
+d8f415ae	Wiederhole 1000 Karten, während es dein Hauptwesen ist
+fce265a7	der Regenbogenglanz einer seltenen Holo-Karte
+5a77628b	Märchenbuch
+22fdb7f6	Lies ein ganzes Buch, während es dein Hauptwesen ist
+e4f0af30	aus den Seiten eines Märchenbuchs geschnitten
+77ca3fc6	Flimmerkiste
+23ae5e9a	Schau 10 Netflix-Folgen bis zum Ende, während es dein Hauptwesen ist
+d7342b6d	flimmernd wie ein Fernseher spät in der Nacht
+ddb7750f	Raidgeschmiedet
+d47e9fe4	Besiege mit deiner Gilde einen Raid-Boss, während es dein Hauptwesen ist
+e164f04b	Obsidian und Magma, in einem Raid geschmiedet
+6973e1fe	Chor
+8cd9df06	Hör 10 Podcastfolgen bis zum Ende, während es dein Hauptwesen ist
+e4ea37eb	gefolgt vom Echo jeder Stimme, die es gehört hat
+ced73532	Färbung „{0}“ verdient! Wähle sie auf der Seite „Wesen“. {1} ist auch unter „Meine Sachen“.
+e28449b2	Färbung „{0}“ verdient! Wähle sie auf der Seite „Wesen“.
+56f7f3a1	Ein Jungtier kann eine davon tragen; du wählst sie auf der Seite „Wesen“. Sie entstehen daraus, wann du lernst, neben wem es aufwächst, was du im Kampf schaffst und was du tust, während es im Lebensraum ist: gespeicherte Wörter, Stunden des Zuhörens, wiederholte Karten, ein ganz gelesenes Buch, Netflix- oder Podcastfolgen bis zum Ende, ein besiegter Raid-Boss. Sie ändern Farben und Merkmale, nie die Stärke.

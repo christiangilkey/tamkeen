@@ -1,0 +1,21 @@
+# Swirl lollipop: a big round pink-and-white spiral lollipop on a stick
+K #2a1430
+H #ff9ad5
+P #ff3fa4
+p #b82a78
+W #fff2f8
+w #e2b8d0
+S #f0ece4
+--
+....KKKKK...
+...KHHPPPK..
+..KHPWWWWPK.
+..KPWPPPWPK.
+..KPWPPPPwK.
+..KPPWWPpwK.
+..KWPPPpwpK.
+...KWWwwpK..
+....KKKKK...
+.....KSK....
+.....KSK....
+......K.....

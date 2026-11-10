@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Viene con {0}.
+6c7ce323	{0} / {1} palabras
+dc96ff66	{0} / {1} horas
+db775117	{0} / {1} tarjetas
+0ba1062e	{0} / {1} libro
+5d0065c6	{0} / {1} episodios
+1eaad47a	{0} / {1} jefe de incursión
+2b420833	Ranita amiga
+5c0d7fe4	Patito de goma
+3c8078f7	Caracol amigo
+ba1f4cbb	Tetera
+3ec38fed	Cono de tráfico
+2930c52d	Gorro de cupcake
+816cc9ba	Tostada
+1bbb8dec	Nubecita de lluvia
+521e325a	Abrazo de pulpo
+fc59c4bd	Pecera
+6d7fc1d8	Gusanito lector
+0110c9f1	Visera de neón
+04083e46	Gafas de incógnito
+fe11eb8d	Gafas hipnóticas
+fb1ddb78	Antifaz veneciano
+cc191d24	Chicle
+ed8b5e04	Guirnalda de luces
+758ef137	Babero de langosta
+039b2a40	Salvavidas
+ed55035b	Collar de margaritas
+bf370c59	Pase «En antena»
+11576748	Pollo de goma
+abbb6b06	Baguette
+2be62044	Pompero
+1992332e	Cactus chiquitín
+38244692	Bola de nieve
+67cd5914	Barrita luminosa
+72bd5677	Piruleta en espiral
+7fb7ad8a	Tarro de palabras
+2fcc4f9a	Abanico de cartas
+62a91401	Palomitas
+3903c0cc	Radiocasete
+a6f6b2c0	Concha de caracol
+ce1a66a3	Cohete de cartón
+7dd2a42f	Alas de papel
+2c6cdd4b	Alas de neón
+b7cff543	Hatillo
+f922bc3c	Estandarte de incursión
+147e903a	Camiseta de camuflaje
+6b9f0a2f	Estampado de leopardo
+228cf3be	Estampado de cerezas
+bb92e57d	Camiseta de confeti
+d442b0ad	Camiseta de fideos de colores
+462237dd	Camiseta de panal
+5f5a9b2c	Manchas de vaca
+4a898b56	Camiseta de circuitos
+817122ce	Glifo
+d5f50ff2	Guarda 200 palabras en tu vocabulario mientras esté en tu hábitat
+d0dcc00c	con letras luminosas escritas por todo el cuerpo
+9afb3161	Synthwave
+d2fa6888	Escucha durante 10 horas mientras esté en tu hábitat
+cee34fcb	un atardecer de neón que ondula al compás de la música
+b4c149b4	Holográfico
+d8f415ae	Repasa 1000 tarjetas mientras esté en tu hábitat
+fce265a7	el brillo arcoíris de una carta holográfica rara
+5a77628b	Cuento
+22fdb7f6	Lee un libro entero mientras esté en tu hábitat
+e4f0af30	de papel recortado de las páginas de un libro de cuentos
+77ca3fc6	Transmisión
+23ae5e9a	Mira 10 episodios de Netflix hasta el final mientras esté en tu hábitat
+d7342b6d	con el parpadeo de una tele de madrugada
+ddb7750f	Forja
+d47e9fe4	Derrota a un jefe de incursión con tu gremio mientras esté en tu hábitat
+e164f04b	obsidiana y magma, forjados en una incursión
+6973e1fe	Coro
+8cd9df06	Escucha 10 episodios de pódcast hasta el final mientras esté en tu hábitat
+e4ea37eb	con una estela de ecos de cada voz que ha oído
+ced73532	¡Has conseguido la coloración {0}! Elígela en la página Criaturas. {1} también está en Mis cosas.
+e28449b2	¡Has conseguido la coloración {0}! Elígela en la página Criaturas.
+56f7f3a1	Una criatura joven puede llevar una, que se elige en la página Criaturas. Dependen de cuándo estudias, junto a quién crece, lo que logras en las batallas y lo que haces mientras está en tu hábitat: palabras guardadas, horas de escucha, tarjetas repasadas, un libro entero leído, episodios de Netflix o de pódcast seguidos hasta el final, un jefe de incursión derrotado. Cambian colores y rasgos, nunca la fuerza.

@@ -1,0 +1,21 @@
+# Leopard print: broken dark rosettes round tawny centres, tumbled at all angles
+b #cf9d55
+o #a5652c
+K #2b1a12
+--
+bbbbbbbbbbbKKbbb
+bKKbbKbKbKoooKbb
+KKoooKKKbKoooKbb
+Kooooobbbbooobbb
+boooooKbbKoobKbb
+KKoooKKbbbKbKbbb
+bKbbKKbbbbbbbbbb
+bbbKKbbbKKbbbbbb
+bbbbbbbbKbbbKKbK
+KbKbbKKbbbbKKooK
+bKKbbooobbbKoooo
+bbbbKoooKbbboooo
+KbbbKoooKbbboooo
+KbbbbbKKbbbKKooK
+bbbKbbbbbbKbKbKK
+bbKKbbbbbbbKbbbb

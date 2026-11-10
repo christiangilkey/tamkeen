@@ -1,0 +1,15 @@
+# Hypno glasses: round glasses with black-and-white spiral lenses
+A #d6a0ff
+B #9a3df0
+D #5c2196
+K #1b1420
+W #f4f0ff
+--
+..AAA......AAA..
+.AWWWB....AWWWB.
+AWKKKWB..AWKKKWB
+AKWWKWBBBAKWWKWB
+AKWKKWD..AKWKKWD
+AKWWWWD..AKWWWWD
+.DKKKD....DKKKD.
+..DDD......DDD..

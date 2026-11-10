@@ -1,0 +1,18 @@
+# Lobster bib: a white bib with a cartoon red lobster on it, tied at the top
+K #3a3346
+W #f4f1ea
+s #c9c3d6
+R #e5423a
+r #9e2436
+o #ff9a6a
+--
+.R............R.
+..RKKKK..KKKKR..
+..KWWWWKKWWWWK..
+..KWoWoWWRWRsK..
+..KWRRRWWRRrsK..
+..KWWRWoRWrWsK..
+..KWWWRRRrWWsK..
+..KWWWWRrWWWsK..
+...KWWRrrrWsK...
+....KKKKKKKK....

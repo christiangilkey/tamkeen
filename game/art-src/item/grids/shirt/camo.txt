@@ -1,0 +1,22 @@
+# Camo shirt: outrun camouflage, ragged blobs of violet, deep plum and hot pink
+v #4a3566
+m #8050ae
+d #22183a
+p #f0479b
+--
+vvvvdddddvmmmvvv
+mmddddppddmmmvvv
+mmddmmppvvvmmvvm
+mmddmmvvvvvvvvvm
+mmdddvvvmmmvvppv
+ddddvvvmmmmvpppv
+dddddvvvmmvvmmvv
+ddddppvvvvvmmmvv
+dddppppvvppmmmdd
+ddpppppvvppmmmdd
+ddppppvvvvvvmmdd
+vddppvvvvvvvmmmd
+vvddvvvvvvvmmmmm
+vvvvddddvvvmmmmm
+vvvddddddvvvvmvv
+vvvvdddddvvvvvvv

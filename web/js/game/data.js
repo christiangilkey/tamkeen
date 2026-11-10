@@ -139,6 +139,11 @@ const WEARABLES = {
     ["star_glasses", "Star glasses", 40, { weight_by: { curious: 2 } }], ["mask", "Mask", 30, { requires: ["night_owl"] }],
     ["heart_glasses", "Heart glasses", 30], ["goggles", "Goggles", 30, { weight_by: { curious: 2 } }], ["eye_patch", "Eye patch", 25],
     ["glasses_3d", "3D glasses", 25], ["reading_glasses", "Reading glasses", 20, { weight_by: { reader: 3 } }], ["snorkel", "Snorkel mask", 35],
+    // (2026-11-09, the owner: "make a ton more items ... fun/whimsical")
+    ["frog", "Frog friend", 30], ["rubber_duck", "Rubber duck", 20], ["snail", "Snail friend", 25], ["teapot", "Teapot", 30, { weight_by: { reader: 1.5 } }],
+    ["traffic_cone", "Traffic cone", 15], ["cupcake", "Cupcake hat", 25], ["toast", "Slice of toast", 15, { weight_by: { early_bird: 2 } }],
+    ["storm_cloud", "Little rain cloud", 35, { weight_by: { night_owl: 1.5 } }], ["octopus", "Octopus hug", 40], ["fishbowl", "Fishbowl", 45, { weight_by: { curious: 2 } }],
+    ["bookworm", "Bookworm", 60, { prize: "papercut" }],
     ["clown_nose", "Clown nose", 15], ["mustache", "Mustache", 20, { shift: [2, 5] }], ["blush", "Rosy cheeks", 10], ["sleep_mask", "Sleep mask", 20, { weight_by: { night_owl: 3 } }],
     ["pixel_shades", "Pixel shades", 45, { requires: ["flawless"] }], ["whiskers", "Whiskers", 15, { shift: [2, 4] }], ["bandage", "Bandage", 15, { requires: ["comeback"] }],
   ],
@@ -147,6 +152,8 @@ const WEARABLES = {
     ["spiked_collar", "Spiked collar", 35, { requires: ["night_owl"] }], ["medal", "Medal", 60, { requires: ["streak_7"] }],
     ["necktie", "Necktie", 20], ["pearls", "Pearl necklace", 45], ["locket", "Locket", 35, { weight_by: { collector: 2 } }], ["lei", "Flower lei", 25],
     ["bandana", "Bandana", 15], ["ruff", "Ruff collar", 40, { weight_by: { reader: 2 } }], ["whistle", "Whistle", 20, { weight_by: { listener: 2 } }],
+    ["neon_visor", "Neon visor", 40, { weight_by: { night_owl: 2 } }], ["disguise", "Disguise glasses", 20], ["spiral_glasses", "Hypno glasses", 25, { weight_by: { curious: 1.5 } }],
+    ["masquerade", "Masquerade mask", 35], ["bubble_gum", "Bubble gum", 15, { shift: [2, 4] }],
     ["key_necklace", "Key necklace", 30, { weight_by: { collector: 2 } }], ["shell_necklace", "Shell necklace", 25], ["feather_boa", "Feather boa", 40],
     ["ribbon", "Ribbon", 15], ["dog_tag", "Name tag", 20], ["amulet", "Amulet", 55, { requires: ["comeback"] }], ["compass", "Compass", 35, { weight_by: { curious: 2 } }],
   ],
@@ -155,6 +162,8 @@ const WEARABLES = {
     ["microphone", "Microphone", 30, { weight_by: { listener: 3 } }], ["quill", "Quill", 30, { weight_by: { collector: 2 } }],
     ["umbrella", "Umbrella", 25], ["wooden_sword", "Wooden sword", 30, { requires: ["comeback"] }], ["wand", "Wand", 40, { requires: ["night_owl"] }],
     ["bouquet", "Bouquet", 20], ["ice_cream", "Ice cream", 15], ["coffee", "Coffee cup", 15, { weight_by: { early_bird: 3 } }], ["tea", "Tea cup", 15, { weight_by: { reader: 1.5 } }],
+    ["fairy_lights", "Fairy lights", 30], ["bib", "Lobster bib", 15], ["life_ring", "Life ring", 20], ["daisy_chain", "Daisy chain", 20, { weight_by: { collector: 1.5 } }],
+    ["onair_pass", "On-air pass", 60, { prize: "chorus" }],
     ["pencil", "Pencil", 15, { weight_by: { collector: 2 } }], ["paintbrush", "Paintbrush", 20], ["fishing_rod", "Fishing rod", 30],
     ["magnifier", "Magnifying glass", 30, { weight_by: { curious: 3 } }], ["torch", "Torch", 25], ["kite", "Kite", 25], ["shield", "Shield", 40, { requires: ["flawless"] }],
     ["teddy", "Teddy", 30], ["trophy", "Trophy", 90, { requires: ["streak_7"] }],
@@ -164,17 +173,30 @@ const WEARABLES = {
     ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"], wings: true }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 }, wings: true }],
     ["butterfly_wings", "Butterfly wings", 55, { wings: true }], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
     ["quiver", "Quiver", 35], ["balloons", "Bunch of balloons", 30], ["leaf_cloak", "Leaf cloak", 40],
+    ["rubber_chicken", "Rubber chicken", 20], ["baguette", "Baguette", 15], ["bubble_wand", "Bubble wand", 25], ["cactus", "Tiny cactus", 20, { weight_by: { collector: 1.5 } }],
+    ["snow_globe", "Snow globe", 35], ["glow_stick", "Glow stick", 15, { weight_by: { night_owl: 2 } }], ["lollipop", "Swirl lollipop", 15],
+    // the colourings' prizes (never sold: each comes with its colouring, rules.featUp)
+    ["word_jar", "Word jar", 60, { prize: "glyph" }], ["card_fan", "Card fan", 60, { prize: "holo" }], ["popcorn", "Popcorn", 60, { prize: "broadcast" }],
+    ["boombox", "Boombox", 60, { prize: "synth" }],
   ],
   shirt: [
     ["striped", "Striped shirt", 20], ["plain", "Plain shirt", 15], ["dotted", "Dotted shirt", 20], ["checked", "Checked shirt", 25], ["star", "Star shirt", 30],
     ["hearts", "Hearts shirt", 25], ["zigzag", "Zigzag sweater", 25], ["floral", "Floral shirt", 30], ["galaxy", "Galaxy shirt", 45, { weight_by: { night_owl: 2, curious: 2 } }],
     ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
   ],
+    ["snail_shell", "Snail shell", 40], ["cardboard_rocket", "Cardboard rocket", 45, { weight_by: { curious: 2 } }],
+    ["paper_wings", "Paper wings", 50, { wings: true, weight_by: { reader: 2 } }], ["neon_wings", "Neon wings", 70, { wings: true, weight_by: { night_owl: 2 } }],
+    ["bindle", "Bindle", 20], ["raid_banner", "Raid banner", 60, { prize: "molten" }],
 };
 // What can be worn goes by slot, so new creatures and new things follow it (the owner: "eggs have hats and back items
 // and creatures with wings can't be given back items. So when I add new creatures and items this rule holds"):
 // - a creature drawn with wings of its own ("wings": true in its rig.json, `wings` in beasts.js) wears nothing on its
 //   back;
+    // Every shirt is an all-over pattern that reads the same whichever way the body lies (most creatures are four-legged
+    // and lie along the ground): no stripes or rows (the owner, 2026-11-09; Striped and Zigzag were redrawn so).
+    ["camo", "Camo shirt", 25], ["leopard", "Leopard print", 30], ["cherries", "Cherry print", 25], ["confetti", "Confetti shirt", 25],
+    ["sprinkles", "Sprinkles shirt", 25], ["honeycomb", "Honeycomb shirt", 30, { weight_by: { collector: 1.5 } }], ["cow", "Cow spots", 25],
+    ["circuit", "Circuit shirt", 35, { weight_by: { curious: 2 } }],
 // - an egg wears a hat and anything on its back, whatever will hatch.
 // (The wings among the back items are marked `wings: true` above: an egg wears them as a pair, render.dressEgg.)
 /** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except on its back when it has wings. */
@@ -189,6 +211,8 @@ export const DECOR = [
   decor("flower_red", "Red flowers", 8, 16), decor("flower_blue", "Blue flowers", 8, 16), decor("mushroom", "Mushroom", 10, 16),
   decor("rock_small", "Small rock", 6, 16), decor("grass_tuft", "Tall grass", 5, 16), decor("lantern_small", "Little lantern", 18, 16),
   decor("shell", "Shell", 12, 16), decor("signpost", "Signpost", 14, 16),
+/** The thing to wear that comes with colouring `variant` (an item with `prize: variant`; never sold), or null. */
+export const prizeOf = (variant) => (variant && ITEMS.find((it) => it.prize === variant)) || null;
   decor("bush", "Bush", 20, 32), decor("rock_big", "Boulder", 18, 32), decor("nest", "Nest", 30, 32), decor("bed", "Bed", 40, 32),
   decor("food_bowl", "Food bowl", 15, 32), decor("toy_ball", "Toy ball", 15, 32),
   decor("bookshelf", "Bookshelf", 45, 32, { weight_by: { reader: 3 } }), decor("radio", "Radio", 45, 32, { weight_by: { listener: 3 } }),

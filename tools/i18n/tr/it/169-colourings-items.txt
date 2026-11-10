@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	In regalo: {0}.
+6c7ce323	{0} / {1} parole
+dc96ff66	{0} / {1} ore
+db775117	{0} / {1} carte
+0ba1062e	{0} / {1} libro
+5d0065c6	{0} / {1} episodi
+1eaad47a	{0} / {1} boss d'incursione
+2b420833	Ranocchio amico
+5c0d7fe4	Paperella di gomma
+3c8078f7	Lumachina amica
+ba1f4cbb	Teiera
+3ec38fed	Cono stradale
+2930c52d	Cappello a cupcake
+816cc9ba	Pane tostato
+1bbb8dec	Nuvoletta di pioggia
+521e325a	Abbraccio di polpo
+fc59c4bd	Boccia per pesci
+6d7fc1d8	Vermetto lettore
+0110c9f1	Visiera al neon
+04083e46	Occhiali in incognito
+fe11eb8d	Occhiali ipnotici
+fb1ddb78	Maschera veneziana
+cc191d24	Gomma da masticare
+ed8b5e04	Filo di lucine
+758ef137	Bavaglino da aragosta
+039b2a40	Salvagente
+ed55035b	Collana di margherite
+bf370c59	Pass «In onda»
+11576748	Pollo di gomma
+abbb6b06	Baguette
+2be62044	Bacchetta per bolle
+1992332e	Cactus piccino
+38244692	Palla con la neve
+67cd5914	Bastoncino luminoso
+72bd5677	Lecca-lecca a spirale
+7fb7ad8a	Barattolo di parole
+2fcc4f9a	Ventaglio di carte
+62a91401	Popcorn
+3903c0cc	Stereo portatile
+a6f6b2c0	Guscio di lumaca
+ce1a66a3	Razzo di cartone
+7dd2a42f	Ali di carta
+2c6cdd4b	Ali al neon
+b7cff543	Fagotto
+f922bc3c	Stendardo d'incursione
+147e903a	Maglietta mimetica
+6b9f0a2f	Stampa leopardata
+228cf3be	Stampa a ciliegie
+bb92e57d	Maglietta a coriandoli
+d442b0ad	Maglietta a codette
+462237dd	Maglietta a nido d'ape
+5f5a9b2c	Macchie di mucca
+4a898b56	Maglietta a circuiti
+817122ce	Glifo
+d5f50ff2	Salva 200 parole nel tuo vocabolario mentre si trova nel tuo habitat
+d0dcc00c	con lettere luminose scritte su tutto il corpo
+9afb3161	Synthwave
+d2fa6888	Ascolta per 10 ore mentre si trova nel tuo habitat
+cee34fcb	un tramonto al neon che ondeggia a tempo di musica
+b4c149b4	Olografico
+d8f415ae	Ripassa 1000 carte mentre si trova nel tuo habitat
+fce265a7	il luccichio arcobaleno di una carta olografica rara
+5a77628b	Fiaba
+22fdb7f6	Leggi un libro intero mentre si trova nel tuo habitat
+e4f0af30	di carta ritagliata dalle pagine di un libro di fiabe
+77ca3fc6	Trasmissione
+23ae5e9a	Guarda 10 episodi di Netflix fino alla fine mentre si trova nel tuo habitat
+d7342b6d	con lo sfarfallio di una TV a notte fonda
+ddb7750f	Forgia
+d47e9fe4	Sconfiggi un boss d'incursione con la tua gilda mentre si trova nel tuo habitat
+e164f04b	ossidiana e magma, forgiati in un'incursione
+6973e1fe	Coro
+8cd9df06	Ascolta 10 episodi di podcast fino alla fine mentre si trova nel tuo habitat
+e4ea37eb	con una scia di echi di ogni voce che ha sentito
+ced73532	Hai ottenuto la colorazione {0}! Sceglila nella pagina Creature. Anche {1} è in Le mie cose.
+e28449b2	Hai ottenuto la colorazione {0}! Sceglila nella pagina Creature.
+56f7f3a1	Una creatura giovane può indossarne una, scelta nella pagina Creature. Dipendono da quando studi, da chi cresce accanto a lei, da cosa riesci a fare in battaglia e da cosa fai mentre si trova nel tuo habitat: parole salvate, ore di ascolto, carte ripassate, un libro intero letto, episodi di Netflix o di podcast seguiti fino alla fine, un boss d'incursione sconfitto. Cambiano colori e tratti, mai la forza.

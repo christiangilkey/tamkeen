@@ -1,0 +1,23 @@
+# Bubble wand: a pink bubble wand with shimmering soap bubbles floating off it
+K #2a1438
+H #ff9ad5
+P #ff3fa4
+p #a8206a
+W #ffffff
+F #c8fbff
+f #ffc8ec
+C #3ff6ff
+V #b13cff
+--
+.KKKK...CCC.
+KHHPPK.CW..V
+KHWFpK.C...V
+KPFfpK.P...V
+KppppK..VVV.
+.KKPK.......
+..KPK....CC.
+...KPK..CW.V
+....KPK.P..V
+....KPK..VV.
+.....KpK....
+......K.....

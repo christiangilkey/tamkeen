@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Ve amb {0}.
+6c7ce323	{0} / {1} paraules
+dc96ff66	{0} / {1} hores
+db775117	{0} / {1} targetes
+0ba1062e	{0} / {1} llibre
+5d0065c6	{0} / {1} episodis
+1eaad47a	{0} / {1} cap d'incursió
+2b420833	Granoteta amiga
+5c0d7fe4	Aneguet de goma
+3c8078f7	Cargol amic
+ba1f4cbb	Tetera
+3ec38fed	Con de trànsit
+2930c52d	Barret de cupcake
+816cc9ba	Torrada
+1bbb8dec	Nuvolet de pluja
+521e325a	Abraçada de pop
+fc59c4bd	Peixera
+6d7fc1d8	Cuquet lector
+0110c9f1	Visera de neó
+04083e46	Ulleres d'incògnit
+fe11eb8d	Ulleres hipnòtiques
+fb1ddb78	Antifaç venecià
+cc191d24	Xiclet
+ed8b5e04	Garlanda de llums
+758ef137	Pitet de llagosta
+039b2a40	Salvavides
+ed55035b	Collaret de margarides
+bf370c59	Passi «En antena»
+11576748	Pollastre de goma
+abbb6b06	Baguet
+2be62044	Vareta de bombolles
+1992332e	Cactus petitó
+38244692	Bola de neu
+67cd5914	Barreta lluminosa
+72bd5677	Piruleta en espiral
+7fb7ad8a	Pot de paraules
+2fcc4f9a	Ventall de cartes
+62a91401	Crispetes
+3903c0cc	Radiocasset
+a6f6b2c0	Closca de cargol
+ce1a66a3	Coet de cartró
+7dd2a42f	Ales de paper
+2c6cdd4b	Ales de neó
+b7cff543	Farcell
+f922bc3c	Estendard d'incursió
+147e903a	Samarreta de camuflatge
+6b9f0a2f	Estampat de lleopard
+228cf3be	Estampat de cireres
+bb92e57d	Samarreta de confeti
+d442b0ad	Samarreta de fideus de colors
+462237dd	Samarreta de bresca
+5f5a9b2c	Taques de vaca
+4a898b56	Samarreta de circuits
+817122ce	Glif
+d5f50ff2	Desa 200 paraules al teu vocabulari mentre sigui al teu hàbitat
+d0dcc00c	amb lletres lluminoses escrites per tot el cos
+9afb3161	Synthwave
+d2fa6888	Escolta durant 10 hores mentre sigui al teu hàbitat
+cee34fcb	una posta de sol de neó que ondula al compàs de la música
+b4c149b4	Hologràfic
+d8f415ae	Repassa 1000 targetes mentre sigui al teu hàbitat
+fce265a7	la brillantor irisada d'una carta hologràfica rara
+5a77628b	Conte
+22fdb7f6	Llegeix un llibre sencer mentre sigui al teu hàbitat
+e4f0af30	de paper retallat de les pàgines d'un llibre de contes
+77ca3fc6	Emissió
+23ae5e9a	Mira 10 episodis de Netflix fins al final mentre sigui al teu hàbitat
+d7342b6d	amb el parpelleig d'una tele de matinada
+ddb7750f	Farga
+d47e9fe4	Derrota un cap d'incursió amb el teu gremi mentre sigui al teu hàbitat
+e164f04b	obsidiana i magma, forjats en una incursió
+6973e1fe	Cor de veus
+8cd9df06	Escolta 10 episodis de pòdcast fins al final mentre sigui al teu hàbitat
+e4ea37eb	amb una estela d'ecos de cada veu que ha sentit
+ced73532	Has aconseguit la coloració {0}! Tria-la a la pàgina Criatures. {1} també és a Les meves coses.
+e28449b2	Has aconseguit la coloració {0}! Tria-la a la pàgina Criatures.
+56f7f3a1	Una criatura jove en pot portar una, que es tria a la pàgina Criatures. Depenen de quan estudies, al costat de qui creix, del que aconsegueixes a les batalles i del que fas mentre és al teu hàbitat: paraules desades, hores d'escolta, targetes repassades, un llibre sencer llegit, episodis de Netflix o de pòdcast seguits fins al final, un cap d'incursió derrotat. Canvien colors i trets, mai la força.

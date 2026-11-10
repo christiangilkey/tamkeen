@@ -4,7 +4,8 @@
 // behind the sheet's "?" (info.js), not on the pages. The blocks use the shared .gs-block / .gs-label look.
 
 import { h } from "../app.js";
-import { BADGES, BASE_STATS, FEATS, GROWN, STAGES, TRAITS, TYPES, VARIANTS, beastById } from "./data.js";
+import { BADGES, BASE_STATS, GROWN, STAGES, TRAITS, TYPES, beastById, prizeOf } from "./data.js";
+import { progressText } from "./screenparts.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter } from "./battle.js";
@@ -215,18 +216,10 @@ function lookTile(look, name, on, pick) {
 
 /** A colouring not earned yet: what it looks like, and how to earn it (and, earned by a feat, how far it has got). */
 function lockedColouring(g, o) {
-  infoBox(o.name, portrait({ ...g, show: null, variant: o.id }, 176), o.why, false,
+  const prize = prizeOf(o.id); // (a colouring earned by a feat comes with a thing to wear)
+  const why = prize ? `${t(o.why)}. ${t("It comes with {0}.", t(prize.name))}` : o.why;
+  infoBox(o.name, portrait({ ...g, show: null, variant: o.id }, 176), why, false,
     o.progress ? `${t("Not earned yet")} · ${progressText(o)}` : "Not earned yet");
-}
-
-// How far a creature has got toward a colouring earned by a feat (data.FEATS units), e.g. "143 / 200 words".
-const PROGRESS = { words: "{0} / {1} words", hours: "{0} / {1} hours", cards: "{0} / {1} cards", book: "{0} / {1} book",
-  episodes: "{0} / {1} episodes", "raid boss": "{0} / {1} raid boss" };
-function progressText(o) {
-  const f = FEATS[VARIANTS[o.id].feat];
-  const [n, goal] = o.progress;
-  const done = f.per ? String(Math.floor(n * 10) / 10) : String(Math.floor(n)); // (hours to a tenth: "3.5 / 10 hours")
-  return t(PROGRESS[f.unit], done, String(goal));
 }
 
 /** A small popup about one thing: its picture, a line of text, and whether it is earned. */

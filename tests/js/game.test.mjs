@@ -321,7 +321,7 @@ test("a creature with wings of its own wears nothing on its back (the owner's ru
     assert.equal(canWear(id, itemById("hat/cap")), true);
   }
   assert.ok(CATALOG.filter((i) => i.slot === "back").every((it) => canWear("cat", it)), "a creature without wings wears them all");
-  assert.deepEqual(CATALOG.filter((it) => it.wings).map((it) => it.id).sort(), ["back/angel_wings", "back/bat_wings", "back/butterfly_wings"]);
+  assert.deepEqual(CATALOG.filter((it) => it.wings).map((it) => it.id).sort(), ["back/angel_wings", "back/bat_wings", "back/butterfly_wings", "back/neon_wings", "back/paper_wings"]);
   const kind = (id) => { for (let seed = 1; seed < 5000; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === id) return { ...g, growth: 0.3, equipped: {} }; } return null; };
   const fox = kind("winged_fox"), cat = kind("cat");
   const s = newState(7);

@@ -1,0 +1,25 @@
+# Teapot: a little cyan teapot with gold trim worn as a hat, steam curling from its spout
+K #0b2f40
+H #b8fbff
+C #3ec9d6
+c #0a7fa6
+Y #f9c80e
+y #c2701c
+W #f2f4ff
+S #9aa0c8
+P #ff2a8a
+--
+....................
+.................WW.
+................WS..
+........KYyK....S...
+.......KKKKKK....WS.
+......KHCCCCcK....W.
+.....KYYYYYYyyK...KK
+.KKKKHHCCCCCCccK.KHK
+KCK.KHCCPCPCCccKKCK.
+KcK.KCCCPPPCCccCCK..
+KcK.KCCCCPCCcccccK..
+.KKKKCCCCCCccccKK...
+.....KCCCCCcccK.....
+......KKKKKKKK......

@@ -1,0 +1,24 @@
+# Snail friend: a snail with a pink and violet spiral shell, eye stalks and a shiny slimy body
+K #24124a
+W #f2f4ff
+A #ffb3e0
+P #ff4fa8
+V #a23ccf
+v #5a2a9c
+B #a8e0c8
+b #5c9c8a
+--
+....................
+.................WK.
+....KKKKKK...WK..KK.
+..KKWAAAPPKK.KK..K..
+.KAAAvvvvPPVK.K..K..
+.KAAvAAAPvPVK..KK...
+.KAvAAvvPPvVK.KKKK..
+.KPvPAAPvPvVKKWBBBK.
+.KPPvPPPvVVVKBBBABBK
+.KPPPvvvvVVvKBBBBKbK
+..KVVVVVVvvKBBBBBbK.
+.KWKKKKKKKKBBBBBbbK.
+KBBBBBBBBBBBBBbbbK..
+.KKKKKKKKKKKKKKKK...

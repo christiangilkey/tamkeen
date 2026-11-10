@@ -1,0 +1,23 @@
+# Honeycomb shirt: a honeycomb of glowing amber cells in dark wax walls
+K #5c3512
+H #e5962a
+h #ffd36a
+s #b5651b
+W #fff4c8
+--
+HHHssKKKKKKKhhHH
+HHsssKhhhHHKhHHH
+HsssKhWhHHHHKHHH
+sssKhhhHHHHHsKHH
+KKKKhhHHHHHssKKK
+hHHKhHHHHHsssKhh
+HHHHKHHHHsssKhWh
+HHHHsKHHsssKhhhH
+HHHssKKKKKKKhhHH
+HHsssKhhhHHKhHHH
+HsssKhWhHHHHKHHH
+sssKhhhHHHHHsKHH
+KKKKhhHHHHHssKKK
+hHHKhHHHHHsssKhh
+HHHHKHHHHsssKhWh
+HHHHsKHHsssKhhhH

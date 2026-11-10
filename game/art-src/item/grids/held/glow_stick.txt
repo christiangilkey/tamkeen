@@ -1,0 +1,21 @@
+# Glow stick: a bent neon-green glow stick, glowing
+K #0c2a14
+W #f0ffe8
+L #9dff5a
+G #3fdc3a
+g #1f9a2a
+C #8a9a9a
+c #4a5a5a
+--
+.........KK.
+..L.....KCcK
+.LWL...KLGK.
+..L...KWGK..
+.....KLGK...
+....KLGK....
+....KWGK..L.
+....KLGK.LWL
+....KLgK..L.
+....KLgK....
+....KCcK....
+.....KK.....

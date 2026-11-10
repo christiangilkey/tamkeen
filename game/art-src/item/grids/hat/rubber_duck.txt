@@ -1,0 +1,23 @@
+# Rubber duck: a yellow rubber duck with an orange beak and a glossy shine
+K #4a2c14
+W #fffbe6
+L #fff3a0
+Y #f9c80e
+y #c98512
+O #ff8a3c
+o #c2441c
+--
+....................
+..........KKKK......
+.........KWWLYK.....
+........KWLYYYYK....
+........KLYYYKYKKK..
+........KYYYYYYOOOK.
+........KYYYYYYoooK.
+..K.....KYYYYYyKKK..
+.KLK....KYYYYYyK....
+.KLYKKKKLYYYYYyyKK..
+.KYYLLLLyYYYYyYYyyK.
+.KYYYYYYYyyyyYYYyyK.
+..KyYYYYYYYYYYYyyK..
+...KKKKKKKKKKKKKK...

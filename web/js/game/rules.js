@@ -11,7 +11,7 @@
 
 import { beastOf, bodyHue, featCount, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
-import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, featVariant, itemById } from "./data.js";
+import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, featVariant, itemById, prizeOf } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 
@@ -595,7 +595,12 @@ export function featUp(state, kind, n = 1) {
   const feats = g.feats && typeof g.feats === "object" && !Array.isArray(g.feats) ? g.feats : (g.feats = {});
   const before = featCount(g, kind);
   feats[kind] = Math.min(before + add, 1e9);
-  return before < f.goal && feats[kind] >= f.goal ? featVariant(kind) : null;
+  if (!(before < f.goal && feats[kind] >= f.goal)) return null;
+  const colouring = featVariant(kind);
+  // Its prize: a thing to wear that the shop never sells (data.js `prize`), the first time any creature earns it.
+  const prize = prizeOf(colouring);
+  if (prize && Array.isArray(state.owned) && !state.owned.includes(prize.id)) state.owned.push(prize.id);
+  return colouring;
 }
 
 /** A study event that paid nothing still tells of a colouring it has just earned. */
@@ -1170,7 +1175,8 @@ function dayRand(state, now, salt = "") {
  * what suits this creature, and toward hats (the owner's favourite thing to wear). Items
  * needing a tag only appear once the tag is earned. Hats come first. */
 export function shopStock(state, now = new Date()) {
-  const pool = CATALOG.filter((it) => !state.owned.includes(it.id) && (it.requires || []).every((t) => state.tags.includes(t)))
+  // (a colouring's prize is never sold: it comes with the colouring, featUp)
+  const pool = CATALOG.filter((it) => !it.prize && !state.owned.includes(it.id) && (it.requires || []).every((t) => state.tags.includes(t)))
     .map((it) => (it.slot === "hat" ? { ...it, weight: (it.weight || 1) * 2 } : it));
   const rand = dayRand(state, now);
   const weights = { ...state.creature.traits };

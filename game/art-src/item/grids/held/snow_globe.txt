@@ -1,0 +1,24 @@
+# Snow globe: a glass globe on a wooden base, a little pine tree with a star inside, snow falling
+K #141428
+B #2c3c74
+b #1e2850
+W #ffffff
+S #dce8ff
+G #4aa86a
+g #24684a
+D #b0703c
+d #7a4424
+O #ffb347
+--
+...KKKKKK...
+..KWBBOBbK..
+.KWBWBGBBbK.
+.KWBBGGgBbK.
+.KBWBGGgWbK.
+.KBBGGGggbK.
+.KSSSSDSSSK.
+..KSSSSSSK..
+.KKKKKKKKKK.
+.KDDDDDDDdK.
+KddddddddddK
+.KKKKKKKKKK.

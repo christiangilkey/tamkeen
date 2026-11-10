@@ -1,0 +1,24 @@
+# Boombox: a little retro boombox with two speakers and a tape deck, pink and cyan accents (a prize for 10 hours of listening)
+K #140f1f
+H #c8c4dc
+h #7a7494
+B #5c5672
+b #3c3650
+d #1e1a2c
+C #3ff6ff
+c #1d8fa6
+P #ff3fa4
+p #a8206a
+--
+...KKKKKK...
+..KHHHHHhK..
+..KHKKKKhK..
+..KH....hK..
+.KKKKKKKKKK.
+KBBBBBBBBBbK
+KBcBHHHhbcbK
+KcCcHddhcCcK
+KBcBhhhhbcbK
+KPPPPPPPPPpK
+KbbbbbbbbbbK
+.KKKKKKKKKK.

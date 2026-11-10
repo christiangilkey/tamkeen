@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Kasama nito ang {0}.
+6c7ce323	{0} / {1} salita
+dc96ff66	{0} / {1} oras
+db775117	{0} / {1} card
+0ba1062e	{0} / {1} aklat
+5d0065c6	{0} / {1} episode
+1eaad47a	{0} / {1} raid boss
+2b420833	Kaibigang palaka
+5c0d7fe4	Bibeng goma
+3c8078f7	Kaibigang kuhol
+ba1f4cbb	Tsarera
+3ec38fed	Traffic cone
+2930c52d	Sumbrerong cupcake
+816cc9ba	Hiwa ng toast
+1bbb8dec	Maliit na ulap ng ulan
+521e325a	Yakap ng pugita
+fc59c4bd	Fishbowl
+6d7fc1d8	Uod ng aklat
+0110c9f1	Neon na visor
+04083e46	Salaming pambalatkayo
+fe11eb8d	Salaming panghipnotismo
+fb1ddb78	Maskara ng masquerade
+cc191d24	Bubble gum
+ed8b5e04	Kumukutitap na ilaw
+758ef137	Babero ng lobster
+039b2a40	Salbabida
+ed55035b	Kuwintas na daisy
+bf370c59	On-air pass
+11576748	Manok na goma
+abbb6b06	Baguette
+2be62044	Patpat ng bula
+1992332e	Maliit na cactus
+38244692	Snow globe
+67cd5914	Glow stick
+72bd5677	Lollipop na paikot-ikot
+7fb7ad8a	Garapon ng salita
+2fcc4f9a	Pamaypay ng card
+62a91401	Popcorn
+3903c0cc	Boombox
+a6f6b2c0	Bahay ng kuhol
+ce1a66a3	Rocket na karton
+7dd2a42f	Pakpak na papel
+2c6cdd4b	Pakpak na neon
+b7cff543	Balutan sa patpat
+f922bc3c	Bandila ng raid
+147e903a	Damit na camo
+6b9f0a2f	Leopard print
+228cf3be	Damit na may cherry
+bb92e57d	Damit na confetti
+d442b0ad	Damit na sprinkles
+462237dd	Damit na bahay-pukyutan
+5f5a9b2c	Batik ng baka
+4a898b56	Damit na circuit
+817122ce	Titik
+d5f50ff2	Mag-save ng 200 salita sa vocab mo habang ito ang pangunahing nilalang mo
+d0dcc00c	may kumikinang na mga titik sa buong katawan
+9afb3161	Synthwave
+d2fa6888	Makinig nang 10 oras habang ito ang pangunahing nilalang mo
+cee34fcb	isang neon na paglubog ng araw na umaalon sa kumpas
+b4c149b4	Holofoil
+d8f415ae	Mag-review ng 1000 card habang ito ang pangunahing nilalang mo
+fce265a7	ang kinang-bahaghari ng isang bihirang foil card
+5a77628b	Kuwento
+22fdb7f6	Magbasa ng isang buong aklat habang ito ang pangunahing nilalang mo
+e4f0af30	ginupit mula sa mga pahina ng isang aklat ng kuwento
+77ca3fc6	Brodkast
+23ae5e9a	Manood ng 10 episode sa Netflix hanggang dulo habang ito ang pangunahing nilalang mo
+d7342b6d	kumukurap-kurap na lumilitaw mula sa TV sa hatinggabi
+ddb7750f	Pinanday sa Raid
+d47e9fe4	Talunin ang isang raid boss kasama ang guild mo habang ito ang pangunahing nilalang mo
+e164f04b	obsidian at magma, pinanday sa isang raid
+6973e1fe	Koro
+8cd9df06	Makinig sa 10 podcast episode hanggang dulo habang ito ang pangunahing nilalang mo
+e4ea37eb	sinusundan ng alingawngaw ng bawat boses na narinig nito
+ced73532	Nakuha mo ang espesyal na kulay na {0}! Piliin ito sa pahina ng Mga nilalang. Nasa Mga gamit ko na rin ang {1}.
+e28449b2	Nakuha mo ang espesyal na kulay na {0}! Piliin ito sa pahina ng Mga nilalang.
+56f7f3a1	Puwedeng magsuot ng isa ang batang nilalang, na pinipili sa pahina ng Mga nilalang. Nanggagaling ang mga ito sa oras ng pag-aaral mo, sa kasama nitong lumaki, sa nagagawa mo sa laban, at sa ginagawa mo habang ito ang pangunahing nilalang mo: mga salitang na-save, mga oras ng pakikinig, mga card na na-review, isang buong aklat na nabasa, mga episode sa Netflix o podcast na sinundan hanggang dulo, isang raid boss na natalo. Kulay at itsura ang binabago, hindi kailanman ang lakas.

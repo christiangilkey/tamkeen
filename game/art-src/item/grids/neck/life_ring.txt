@@ -1,0 +1,18 @@
+# Life ring: a small red-and-white life preserver worn around the neck
+K #2a1e2a
+R #e2403a
+o #ff8a6a
+r #a02a34
+W #f2efe8
+s #b8b2c4
+--
+....KKKKKKKK....
+..KKWWoRRRWWKK..
+.KWWKKKKKKKKWsK.
+KoRK........KrRK
+KoRK........KrRK
+KRRRKK....KKRrrK
+KWWWWWKKKKWWWWsK
+.KWWWWRRRRWWWsK.
+..KKKRRRRrrKKK..
+.....KKKKKK.....

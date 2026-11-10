@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	En prime : {0}.
+6c7ce323	{0} / {1} mots
+dc96ff66	{0} / {1} heures
+db775117	{0} / {1} cartes
+0ba1062e	{0} / {1} livre
+5d0065c6	{0} / {1} épisodes
+1eaad47a	{0} / {1} boss de raid
+2b420833	Ami grenouille
+5c0d7fe4	Canard de bain
+3c8078f7	Ami escargot
+ba1f4cbb	Théière
+3ec38fed	Cône de chantier
+2930c52d	Chapeau cupcake
+816cc9ba	Tranche de pain grillé
+1bbb8dec	Petit nuage de pluie
+521e325a	Câlin de poulpe
+fc59c4bd	Bocal à poisson
+6d7fc1d8	Ver bouquineur
+0110c9f1	Visière néon
+04083e46	Lunettes incognito
+fe11eb8d	Lunettes hypnotiques
+fb1ddb78	Masque vénitien
+cc191d24	Bulle de chewing-gum
+ed8b5e04	Guirlande lumineuse
+758ef137	Bavoir homard
+039b2a40	Bouée de sauvetage
+ed55035b	Collier de pâquerettes
+bf370c59	Badge « À l'antenne »
+11576748	Poulet en caoutchouc
+abbb6b06	Baguette
+2be62044	Bâton à bulles
+1992332e	Mini cactus
+38244692	Boule à neige
+67cd5914	Bâton lumineux
+72bd5677	Sucette tourbillon
+7fb7ad8a	Bocal à mots
+2fcc4f9a	Éventail de cartes
+62a91401	Pop-corn
+3903c0cc	Radiocassette
+a6f6b2c0	Coquille d'escargot
+ce1a66a3	Fusée en carton
+7dd2a42f	Ailes en papier
+2c6cdd4b	Ailes néon
+b7cff543	Baluchon
+f922bc3c	Bannière de raid
+147e903a	T-shirt camouflage
+6b9f0a2f	Imprimé léopard
+228cf3be	Imprimé cerises
+bb92e57d	T-shirt confettis
+d442b0ad	T-shirt vermicelles
+462237dd	T-shirt nid d'abeille
+5f5a9b2c	Taches de vache
+4a898b56	T-shirt circuit
+817122ce	Glyphe
+d5f50ff2	Enregistrez 200 mots dans votre vocabulaire avec elle comme créature principale
+d0dcc00c	des lettres lumineuses écrites sur tout le corps
+9afb3161	Synthwave
+d2fa6888	Écoutez pendant 10 heures avec elle comme créature principale
+cee34fcb	un coucher de soleil néon qui ondule en rythme
+b4c149b4	Holographique
+d8f415ae	Révisez 1000 cartes avec elle comme créature principale
+fce265a7	l'éclat arc-en-ciel d'une carte holo rare
+5a77628b	Livre de contes
+22fdb7f6	Lisez un livre en entier avec elle comme créature principale
+e4f0af30	découpée dans les pages d'un livre de contes
+77ca3fc6	Petit écran
+23ae5e9a	Regardez 10 épisodes Netflix jusqu'au bout avec elle comme créature principale
+d7342b6d	qui grésille comme une télé tard dans la nuit
+ddb7750f	Forgé en raid
+d47e9fe4	Battez un boss de raid en guilde avec elle comme créature principale
+e164f04b	obsidienne et magma, forgés dans un raid
+6973e1fe	Chœur
+8cd9df06	Écoutez 10 épisodes de podcast jusqu'au bout avec elle comme créature principale
+e4ea37eb	avec dans son sillage l'écho de chaque voix entendue
+ced73532	Coloration {0} obtenue ! Choisissez-la sur la page Créatures. {1} est aussi dans Mes affaires.
+e28449b2	Coloration {0} obtenue ! Choisissez-la sur la page Créatures.
+56f7f3a1	Un juvénile peut en porter une, à choisir sur la page Créatures. Elles viennent du moment où vous étudiez, de qui grandit à ses côtés, de vos exploits en combat et de ce que vous faites pendant qu'il est sorti dans l'habitat : mots enregistrés, heures d'écoute, cartes révisées, un livre lu en entier, des épisodes Netflix ou de podcast suivis jusqu'au bout, un boss de raid battu. Elles changent les couleurs et les traits, jamais la force.

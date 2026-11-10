@@ -1,0 +1,17 @@
+# Disguise glasses: classic joke glasses with a big pink nose and a bushy moustache
+K #1b1420
+W #ffffff
+N #ff8fb3
+h #ffc6d9
+n #c9507e
+M #5e4030
+m #93704f
+--
+.KKKKK....KKKKK.
+K.W...KKKK.W...K
+K.....KhnK.....K
+.KKKKKhNNnKKKKK.
+....KhNNNNnK....
+..KKKNNNNnnKKK..
+.KmMmKnnnnKmMmK.
+.KMmMMmMMmMMmMK.

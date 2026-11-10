@@ -1,0 +1,24 @@
+# Word jar: a corked glass jar full of glowing cyan letters (a prize for saving 200 words)
+K #13182a
+c #d8b48a
+C #9a6c4c
+R #a8c8d4
+r #6a8a9c
+W #eafcff
+G #23465c
+g #152c3c
+L #3ff6ff
+l #1fa8c0
+--
+....KKKK....
+...KcccCK...
+...KcCCCK...
+..KRRRRRrK..
+.KWGGLLLGgK.
+.KWGGGLGGgK.
+.KWGGGLGlgK.
+.KGGGGGGGgK.
+.KGGLGGGlgK.
+.KGLLLGGlgK.
+.KGLGLGllgK.
+..KKKKKKKK..

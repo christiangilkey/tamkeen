@@ -1,0 +1,24 @@
+# Frog friend: a little green frog sitting on the head, big eyes and a cheeky grin
+K #10281c
+H #b4e36a
+G #63b84a
+g #2f7a3a
+B #d9e8a2
+W #f2f4ff
+P #ff5fa2
+p #a3156b
+--
+....................
+....................
+....KKKK...KKKK.....
+...KWWWWK.KWWWWK....
+...KWKKWKKKWKKWK....
+..KKWKKWKHKWKKWKK...
+..KHKWWKGGGKWWKGGK..
+.KHGGKKGGGGGKKGGgK..
+.KHGKGGGGGGGGGGGKgK.
+.KGGGKKKKKKKKKKKGgK.
+.KGGBBBBBBBBPPBGggK.
+.KgGBBBBBBBBPpBGggK.
+..KGgGKBBBBBBKGggK..
+...KKKKKKKKKKKKKK...

@@ -1,0 +1,19 @@
+# Baguette: a long crusty baguette held upright, with slashes along the top
+K #2e1a10
+L #f2c98a
+M #d4914a
+D #9c5a28
+S #fbe6c0
+--
+.......KKK..
+......KLLMK.
+.....KLMSDK.
+.....KLSMDK.
+.....KLMMDK.
+....KLMSDK..
+....KLSMDK..
+....KLMMDK..
+...KLMSDK...
+...KLSMDK...
+...KLMMDK...
+....KKKK....

@@ -4,7 +4,7 @@
 import { api, on, saveSettings, state as app, toast } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
 import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, finishedEpisode, hearMultiplier, normalize, newState, readPage, rollDay, wordMultiplier } from "./rules.js";
-import { VARIANTS } from "./data.js";
+import { VARIANTS, prizeOf } from "./data.js";
 import { t } from "../i18n.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
@@ -160,7 +160,10 @@ export function tellColouring(id) {
   if (!v) return;
   sfx("jackpot");
   const name = t(v.name);
-  try { toast(t("{0} colouring earned! Pick it on the Creatures page.", name), { timeout: 6000 }); } catch { /* no toasts here */ }
+  const prize = prizeOf(id); // (its prize, in the bag now: rules.featUp)
+  const text = prize ? t("{0} colouring earned! Pick it on the Creatures page. {1} is in My things too.", name, t(prize.name))
+    : t("{0} colouring earned! Pick it on the Creatures page.", name);
+  try { toast(text, { timeout: 6000 }); } catch { /* no toasts here */ }
 }
 
 /** Tell everyone listening about a feat's result, and the creature's new colouring if it earned one. */

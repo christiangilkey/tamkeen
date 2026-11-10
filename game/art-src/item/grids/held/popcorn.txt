@@ -1,0 +1,22 @@
+# Popcorn: a red-and-white striped bucket overflowing with popcorn (a prize for watching episodes)
+K #2a141c
+W #f6efe2
+w #c9bba8
+R #d93a4c
+r #9c2438
+Y #fff2b8
+y #f2c860
+o #c48a3c
+--
+....KK.KK...
+...KWYKWYK..
+..KWYyoYYyK.
+.KWYyoYWYyoK
+KYYyoyYyyoyK
+KyooyooyooyK
+.KWRRWWRRwK.
+..KRRWWRrK..
+..KRRWWRrK..
+..KRRWWRrK..
+...KRWWrK...
+...KKKKKK...

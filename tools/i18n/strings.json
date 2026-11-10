@@ -9930,6 +9930,11 @@
   "f": "web/js/game/creatures.js"
  },
  {
+  "id": "e2d66b92",
+  "k": "It comes with {0}.",
+  "f": "web/js/game/creatures.js"
+ },
+ {
   "id": "e7c741fc",
   "k": "Not earned yet",
   "f": "web/js/game/creatures.js"
@@ -10175,6 +10180,61 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "2b420833",
+  "k": "Frog friend",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "5c0d7fe4",
+  "k": "Rubber duck",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "3c8078f7",
+  "k": "Snail friend",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ba1f4cbb",
+  "k": "Teapot",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "3ec38fed",
+  "k": "Traffic cone",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "2930c52d",
+  "k": "Cupcake hat",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "816cc9ba",
+  "k": "Slice of toast",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "1bbb8dec",
+  "k": "Little rain cloud",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "521e325a",
+  "k": "Octopus hug",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fc59c4bd",
+  "k": "Fishbowl",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "6d7fc1d8",
+  "k": "Bookworm",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "6b70d2cc",
   "k": "Round glasses",
   "f": "web/js/game/data.js"
@@ -10262,6 +10322,31 @@
  {
   "id": "a81134de",
   "k": "Bandage",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "0110c9f1",
+  "k": "Neon visor",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "04083e46",
+  "k": "Disguise glasses",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fe11eb8d",
+  "k": "Hypno glasses",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fb1ddb78",
+  "k": "Masquerade mask",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "cc191d24",
+  "k": "Bubble gum",
   "f": "web/js/game/data.js"
  },
  {
@@ -10362,6 +10447,31 @@
  {
   "id": "9d5c8e51",
   "k": "Compass",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ed8b5e04",
+  "k": "Fairy lights",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "758ef137",
+  "k": "Lobster bib",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "039b2a40",
+  "k": "Life ring",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ed55035b",
+  "k": "Daisy chain",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "bf370c59",
+  "k": "On-air pass",
   "f": "web/js/game/data.js"
  },
  {
@@ -10470,6 +10580,61 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "11576748",
+  "k": "Rubber chicken",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "abbb6b06",
+  "k": "Baguette",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "2be62044",
+  "k": "Bubble wand",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "1992332e",
+  "k": "Tiny cactus",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "38244692",
+  "k": "Snow globe",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "67cd5914",
+  "k": "Glow stick",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "72bd5677",
+  "k": "Swirl lollipop",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "7fb7ad8a",
+  "k": "Word jar",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "2fcc4f9a",
+  "k": "Card fan",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "62a91401",
+  "k": "Popcorn",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "3903c0cc",
+  "k": "Boombox",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "266a0fb1",
   "k": "Red cape",
   "f": "web/js/game/data.js"
@@ -10530,6 +10695,36 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "a6f6b2c0",
+  "k": "Snail shell",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ce1a66a3",
+  "k": "Cardboard rocket",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "7dd2a42f",
+  "k": "Paper wings",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "2c6cdd4b",
+  "k": "Neon wings",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "b7cff543",
+  "k": "Bindle",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "f922bc3c",
+  "k": "Raid banner",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "06f3045f",
   "k": "Striped shirt",
   "f": "web/js/game/data.js"
@@ -10577,6 +10772,46 @@
  {
   "id": "cc58986a",
   "k": "Argyle sweater",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "147e903a",
+  "k": "Camo shirt",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "6b9f0a2f",
+  "k": "Leopard print",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "228cf3be",
+  "k": "Cherry print",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "bb92e57d",
+  "k": "Confetti shirt",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d442b0ad",
+  "k": "Sprinkles shirt",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "462237dd",
+  "k": "Honeycomb shirt",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "5f5a9b2c",
+  "k": "Cow spots",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "4a898b56",
+  "k": "Circuit shirt",
   "f": "web/js/game/data.js"
  },
  {
@@ -10737,6 +10972,111 @@
  {
   "id": "ecc4d7d2",
   "k": "crested and gold-marked",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "817122ce",
+  "k": "Glyph",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d5f50ff2",
+  "k": "Save 200 words to your vocab with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d0dcc00c",
+  "k": "glowing letters written all over it",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "9afb3161",
+  "k": "Synthwave",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d2fa6888",
+  "k": "Listen for 10 hours with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "cee34fcb",
+  "k": "a neon sunset that ripples to the beat",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "b4c149b4",
+  "k": "Holofoil",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d8f415ae",
+  "k": "Review 1000 cards with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "fce265a7",
+  "k": "the rainbow shine of a rare foil card",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "5a77628b",
+  "k": "Storybook",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "22fdb7f6",
+  "k": "Read a whole book with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "e4f0af30",
+  "k": "cut out of the pages of a storybook",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "77ca3fc6",
+  "k": "Broadcast",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "23ae5e9a",
+  "k": "Watch 10 Netflix episodes to the end with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d7342b6d",
+  "k": "flickering in from a late-night TV",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "ddb7750f",
+  "k": "Raidforged",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "d47e9fe4",
+  "k": "Beat a raid boss with your guild with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "e164f04b",
+  "k": "obsidian and magma, forged in a raid",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "6973e1fe",
+  "k": "Chorus",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "8cd9df06",
+  "k": "Listen to 10 podcast episodes to the end with it as your main creature",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "e4ea37eb",
+  "k": "trailed by echoes of every voice it heard",
   "f": "web/js/game/data.js"
  },
  {
@@ -12050,6 +12390,16 @@
   "f": "web/js/game/game.js"
  },
  {
+  "id": "ced73532",
+  "k": "{0} colouring earned! Pick it on the Creatures page. {1} is in My things too.",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "e28449b2",
+  "k": "{0} colouring earned! Pick it on the Creatures page.",
+  "f": "web/js/game/game.js"
+ },
+ {
   "id": "da3d3c4e",
   "k": "Tier {0} of 3",
   "f": "web/js/game/garden.js"
@@ -13280,8 +13630,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "883360b0",
-  "k": "A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, and what you pull off in battle. They change colours and features, never strength.",
+  "id": "56f7f3a1",
+  "k": "A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, what you pull off in battle, and what you do while it is the creature out: words saved, hours of listening, cards reviewed, a whole book read, Netflix or podcast episodes followed to the end, a raid boss beaten. They change colours and features, never strength.",
   "f": "web/js/game/info.js"
  },
  {
@@ -13773,6 +14123,36 @@
   "id": "2b338829",
   "k": "You already have it.",
   "f": "web/js/game/rules.js"
+ },
+ {
+  "id": "6c7ce323",
+  "k": "{0} / {1} words",
+  "f": "web/js/game/screenparts.js"
+ },
+ {
+  "id": "dc96ff66",
+  "k": "{0} / {1} hours",
+  "f": "web/js/game/screenparts.js"
+ },
+ {
+  "id": "db775117",
+  "k": "{0} / {1} cards",
+  "f": "web/js/game/screenparts.js"
+ },
+ {
+  "id": "0ba1062e",
+  "k": "{0} / {1} book",
+  "f": "web/js/game/screenparts.js"
+ },
+ {
+  "id": "5d0065c6",
+  "k": "{0} / {1} episodes",
+  "f": "web/js/game/screenparts.js"
+ },
+ {
+  "id": "1eaad47a",
+  "k": "{0} / {1} raid boss",
+  "f": "web/js/game/screenparts.js"
  },
  {
   "id": "bfb4298c",

@@ -1,0 +1,25 @@
+# Confetti shirt: bright confetti bits tumbling at all angles on a dark night
+k #262039
+P #ff3fa4
+C #3ff6ff
+Y #ffd23f
+O #ffb347
+M #5fe0a8
+V #b13cff
+--
+kkkkkkCkkkkkkkkk
+kPPkkkkCkkkYYkkk
+kkkkkkkkkkkkYkkk
+kkkkkkkkkkkkkkkM
+kkkOOkkkkVkkkkkM
+kkkkOkkkVkkkkkkk
+kkkkkkkkkkkkPkkk
+kYkkkkkkkkkkkPkk
+YkkkkCCkkkkkkkkk
+kkkkkkkkkkOkkkkk
+kkkkkkkkkkOkkkkk
+kkMkkkkkkkkkkkPk
+kkkMkkkVVkkkkPkk
+kkkkkkkkVkkkkkkk
+kkkkkYkkkkkCCkkk
+OkkkYkkkkkkkkkkO

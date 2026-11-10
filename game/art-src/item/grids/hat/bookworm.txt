@@ -1,0 +1,26 @@
+# Bookworm: an open book worn like a little tent, a green worm in gold glasses burrowing through it
+K #24102e
+C #8a4ad0
+c #4a2280
+Y #f9c80e
+P #f2e8c8
+p #c9b48a
+G #8fd14f
+g #4a8a2e
+W #f2f4ff
+R #ff3fa4
+--
+............KKKKKK..
+...........KWGGGGgK.
+..........KGYYGGYYgK
+..........KYWWYYWWYK
+.K......KKKYWKYYWKYK
+KGK....KCCKGYYGGYYgK
+KGgK..KCPppKRGKKgRK.
+.KGgKKCPpPPpKGGggK..
+...KKCPpPppPpKGgK...
+...KCPpPpKKpPpcCK...
+..KCPpPpKccKpPpPCK..
+.KCPpPpKccccKpPpPCK.
+KYPpPpKccccccKpPpPYK
+KKKKKKKKKKKKKKKKKKKK

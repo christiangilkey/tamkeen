@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Kauban niini ang {0}.
+6c7ce323	{0} / {1} ka pulong
+dc96ff66	{0} / {1} ka oras
+db775117	{0} / {1} ka card
+0ba1062e	{0} / {1} ka libro
+5d0065c6	{0} / {1} ka episode
+1eaad47a	{0} / {1} ka raid boss
+2b420833	Higalang baki
+5c0d7fe4	Goma nga pato
+3c8078f7	Higalang kuhol
+ba1f4cbb	Tsarera
+3ec38fed	Traffic cone
+2930c52d	Kalo nga cupcake
+816cc9ba	Hiwa sa toast
+1bbb8dec	Gamayng dag-om
+521e325a	Gakos sa kugita
+fc59c4bd	Garapon sa isda
+6d7fc1d8	Ulod sa libro
+0110c9f1	Neon nga visor
+04083e46	Antipara nga ilong-bigote
+fe11eb8d	Hipno nga antipara
+fb1ddb78	Maskara pang-maskarada
+cc191d24	Bubble gum
+ed8b5e04	Patay-buhi nga suga
+758ef137	Babero nga banagan
+039b2a40	Salbabida
+ed55035b	Kwintas nga daisy
+bf370c59	On-air nga pass
+11576748	Goma nga manok
+abbb6b06	Baguette
+2be62044	Baston sa bula
+1992332e	Gamayng cactus
+38244692	Snow globe
+67cd5914	Glow stick
+72bd5677	Lollipop nga tuyok-tuyok
+7fb7ad8a	Garapon sa mga pulong
+2fcc4f9a	Abaniko nga card
+62a91401	Popcorn
+3903c0cc	Boombox
+a6f6b2c0	Kabhang sa kuhol
+ce1a66a3	Karton nga rocket
+7dd2a42f	Pako nga papel
+2c6cdd4b	Neon nga pako
+b7cff543	Putos sa sungkod
+f922bc3c	Bandera sa raid
+147e903a	Sinina nga camouflage
+6b9f0a2f	Leopard print nga sinina
+228cf3be	Sinina nga cherry
+bb92e57d	Sinina nga confetti
+d442b0ad	Sinina nga sprinkles
+462237dd	Sinina nga honeycomb
+5f5a9b2c	Sinina nga murag baka
+4a898b56	Sinina nga circuit
+817122ce	Letra
+d5f50ff2	I-save ang 200 ka pulong sa imong vocab samtang kini ang imong pangunang linalang
+d0dcc00c	puno sa nagsiga nga mga letra sa tibuok lawas
+9afb3161	Synthwave
+d2fa6888	Paminaw sulod sa 10 ka oras samtang kini ang imong pangunang linalang
+cee34fcb	usa ka neon nga pagsalop sa adlaw nga mobalud-balud sa ritmo
+b4c149b4	Holofoil
+d8f415ae	Pag-review og 1000 ka card samtang kini ang imong pangunang linalang
+fce265a7	ang balangaw nga sinaw sa usa ka talagsaong foil card
+5a77628b	Sugilanon
+22fdb7f6	Basaha ang usa ka tibuok libro samtang kini ang imong pangunang linalang
+e4f0af30	giputol gikan sa mga panid sa usa ka libro sa sugilanon
+77ca3fc6	Sibya
+23ae5e9a	Tan-awa hangtod sa kataposan ang 10 ka episode sa Netflix samtang kini ang imong pangunang linalang
+d7342b6d	nagkidlap-kidlap sama sa TV sa lawom nga gabii
+ddb7750f	Gipanday sa raid
+d47e9fe4	Pildiha ang usa ka raid boss uban sa imong guild samtang kini ang imong pangunang linalang
+e164f04b	obsidian ug magma, gipanday sa usa ka raid
+6973e1fe	Koro
+8cd9df06	Paminawa hangtod sa kataposan ang 10 ka episode sa podcast samtang kini ang imong pangunang linalang
+e4ea37eb	ginasundan sa alingawngaw sa matag tingog nga nadungog niini
+ced73532	Nakuha nimo ang kolor nga {0}! Pilia kini sa panid sa Mga linalang. Naa usab ang {1} sa Akong mga butang.
+e28449b2	Nakuha nimo ang kolor nga {0}! Pilia kini sa panid sa Mga linalang.
+56f7f3a1	Ang batan-on makasul-ob og usa, nga pilion sa panid sa Mga linalang. Gikan kini sa oras sa imong pagtuon, kinsa ang kauban niini sa pagdako, unsa ang imong nahimo sa sangka, ug unsa ang imong gibuhat samtang kini ang naa sa habitat: mga pulong nga gi-save, mga oras sa pagpaminaw, mga card nga gi-review, usa ka tibuok libro nga nabasa, mga episode sa Netflix o podcast nga gisundan hangtod sa kataposan, usa ka raid boss nga napildi. Mausab niini ang mga kolor ug mga bahin, dili gyud ang kusog.

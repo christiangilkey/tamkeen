@@ -1,0 +1,30 @@
+# Neon wings: feather-shaped wings traced in glowing cyan and pink neon tubes on a dark frame
+K #0c0918
+F #221a3a
+G #1f4a68
+g #561d52
+C #3ff6ff
+c #d8feff
+P #ff3fa4
+p #ffb3dd
+--
+...KK...............
+..KcCKK.............
+.KCGGCCKK...........
+KCGFFGGCCKK.........
+KcGFFFFGGCCKK.......
+KCGFFFFFFGGCcK......
+KCGFFFFFFFFGGCKK....
+KCGFFFFFFggFFGCCK...
+KCFFFFFggPPgFFGGCK..
+KCFFFggPPgFFFFgFGCK.
+.KPpPPgFFFFFgPPgFCK.
+..KKKPgFFggPPgFFFCK.
+....KPFFgPPgFFFgFFK.
+....KPPPPgFFFgPPgFK.
+.....KKKPFFgPPgFFFK.
+.......KPPPPgFFFFFK.
+........KKKPFFFFFFK.
+..........KPPFFFFFK.
+...........KKPPFFFK.
+.............KKKK...

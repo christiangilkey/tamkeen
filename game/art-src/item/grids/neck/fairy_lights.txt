@@ -1,0 +1,21 @@
+# Fairy lights: a string of small glowing bulbs in pink, cyan, yellow and violet draped like a necklace
+w #34443a
+P #ff3fa4
+p #ffa6d5
+C #3ff6ff
+c #c8ffff
+Y #ffd84a
+y #fff6b0
+V #b13cff
+v #e0a8ff
+--
+.w............w.
+..w..........w..
+.pPw........wpP.
+.PP.w......w.PP.
+.....w....w.....
+....cCw..wvV....
+....CC.ww.VV....
+.......yY.......
+.......YY.......
+................

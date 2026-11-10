@@ -7,10 +7,25 @@ import { h } from "../app.js";
 import { openModal } from "../components/modal.js";
 import { icon } from "./render.js";
 import { artOf, fitScale } from "./sections.js";
+import { FEATS, VARIANTS } from "./data.js";
+import { t } from "../i18n.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const attr = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 export const fmt = (n) => Math.floor(Number(n) || 0).toLocaleString();
+
+// How far a creature has got toward a colouring earned by a feat (data.FEATS units; rules.variantOptions `progress`),
+// e.g. "143 / 200 words"; hours to a tenth ("3.5 / 10 hours").
+const PROGRESS = { words: "{0} / {1} words", hours: "{0} / {1} hours", cards: "{0} / {1} cards", book: "{0} / {1} book",
+  episodes: "{0} / {1} episodes", "raid boss": "{0} / {1} raid boss" };
+/** The progress line of variant option `o` (rules.variantOptions), translated; "" for a colouring not earned by a feat. */
+export function progressText(o) {
+  const v = o && VARIANTS[o.id];
+  if (!v || !v.feat || !o.progress) return "";
+  const f = FEATS[v.feat];
+  const [n, goal] = o.progress;
+  return t(PROGRESS[f.unit], f.per ? String(Math.floor(n * 10) / 10) : String(Math.floor(n)), String(goal));
+}
 
 /** A thing's picture as big as fits in a `box`-pixel square: `thing` is anything sections.artOf knows, or {file, w, h}. */
 export function art(thing, box = 64) {

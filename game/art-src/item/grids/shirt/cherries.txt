@@ -1,0 +1,25 @@
+# Cherry print: little cherry pairs tumbled at all angles on cream
+c #f1e3c4
+R #d8283f
+r #ff9a9a
+d #7a1428
+s #5b4a2a
+G #7cc04f
+g #3f7a34
+--
+cccccccccccccccc
+cccsGgcccccccccc
+ccscsccccccccccc
+cscccscccccccccc
+rRRcrRRccccccccc
+RRRcRRRcccrRRccc
+RRdcRRdcccRRRscc
+ccccccccccRRdcsc
+cccccccccccccccs
+ccccccccGgrRRcsG
+ccccccssGcRRRscg
+cccrRsccscRRdccc
+cccRRRccsccccccc
+cccRRdcrRRcccccc
+cccccccRRRcccccc
+cccccccRRdcccccc

@@ -1,0 +1,30 @@
+# Paper wings: folded origami wings, cream paper with crisp folds and a pink underside
+K #3a2630
+W #fffbf2
+L #f4e9cf
+M #dccaa3
+S #b39b78
+D #8c7656
+P #ff3fa4
+p #b8327a
+--
+....................
+.KK.................
+.KWKK...............
+.KMWLKK.............
+KMMMWLLKK...........
+KMMMMWLLLKK.........
+KMMMMMWLLLLKK.......
+KMMMMMMWLLLLLKK.....
+KMMMMMMMWLLLLLLKK...
+KMMMMMMMMWLLLLLLLKK.
+KPPMMMMMMMWLLLLLLLK.
+.KKPPPDMMMMWLLLLLLK.
+...KKKLDDMMMWLLLLLK.
+....KLLLLDDMMWLLLLK.
+..KKLLLLLLLDDMWLLLK.
+.KPPPPLLLLLLDDWLLLK.
+..KKKKPPPPDDLLDWLLK.
+......KKMMMMMDDLDWK.
+.....KPPPPPpMMMDSSK.
+......KKKKKKKKKKKK..

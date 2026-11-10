@@ -1,0 +1,22 @@
+# Circuit shirt: a cyberpunk circuit board, glowing traces bending both ways between pads
+k #0d1a1e
+t #1f8f7a
+T #5cffd0
+P #ff3fa4
+--
+kkkkkkkkkTTktkkk
+kkkkkkkkkTTtkkkk
+kkTTTkkkkkkkkkkk
+ttTkTtttkkkkkPtt
+kkTTTkkktkkkkkkk
+kkktkkkkkttttTkk
+kkktkkTkkkkkkkkk
+kkktkktkkkkkTkkk
+kktkkktkkkkktkkT
+ktkkkkkttTkktkkt
+ktkkkkkkkkkTTTkt
+ktkkkkkktttTkTkt
+ktkkkkktkkkTTTkt
+kTTttttkkkkktkkT
+kTTkkkkkkkkktkkk
+kkkkkTtPkkkktkkk

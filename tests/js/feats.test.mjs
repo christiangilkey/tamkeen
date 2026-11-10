@@ -3,11 +3,13 @@
 // per creature, the no-skipping book rule, "watched / heard to near the end" (playcover.js), and how they are drawn.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { FEATS, VARIANTS, featVariant } from "../../web/js/game/data.js";
+import { readFileSync } from "node:fs";
+import { inflateSync } from "node:zlib";
+import { BEASTS, FEATS, ITEMS, VARIANTS, canWear, eggCanWear, featVariant, itemById, prizeOf } from "../../web/js/game/data.js";
 import { describe, featCount, newGenome } from "../../web/js/game/genome.js";
 import {
-  BOOK_DONE, PAGE_MIN, PAGE_WPM, claimRaid, earn, featUp, finishedEpisode, newState, normalize, pageNeeds, readPage, reshape, setActive,
-  variantOptions,
+  BOOK_DONE, PAGE_MIN, PAGE_WPM, buy, claimRaid, earn, equip, featUp, finishedEpisode, newState, normalize, pageNeeds, readPage, reshape,
+  setActive, shopStock, variantOptions, wearProblem,
 } from "../../web/js/game/rules.js";
 import { DONE_SHARE, STEP, loadCover, nearEnd, newCover, saveCover, share, track } from "../../web/js/playcover.js";
 import { FORM_KINDS, formFinish, formParticles, formPixels, formRows, formSweep } from "../../web/js/game/forms.js";
@@ -314,4 +316,124 @@ test("the colourings' movement is light: a few particles, a ripple or a glitch o
   assert.ok(formSweep("holo", 100) && formSweep("holo", 2000) === null, "the foil shine sweeps by, then rests");
   // the same moment draws the same (nothing random): a frame can be redrawn and look the same
   assert.deepEqual(formParticles("molten", 1234, [0, 0, 60, 60], 5), formParticles("molten", 1234, [0, 0, 60, 60], 5));
+});
+
+// ---------- the new things to wear (2026-11-09) ----------
+
+const NEW = {
+  hat: ["frog", "rubber_duck", "snail", "teapot", "traffic_cone", "cupcake", "toast", "storm_cloud", "octopus", "fishbowl", "bookworm"],
+  face: ["neon_visor", "disguise", "spiral_glasses", "masquerade", "bubble_gum"],
+  neck: ["fairy_lights", "bib", "life_ring", "daisy_chain", "onair_pass"],
+  held: ["rubber_chicken", "baguette", "bubble_wand", "cactus", "snow_globe", "glow_stick", "lollipop", "word_jar", "card_fan", "popcorn", "boombox"],
+  back: ["snail_shell", "cardboard_rocket", "paper_wings", "neon_wings", "bindle", "raid_banner"],
+  shirt: ["camo", "leopard", "cherries", "confetti", "sprinkles", "honeycomb", "cow", "circuit"],
+};
+const newItems = Object.entries(NEW).flatMap(([slot, ids]) => ids.map((id) => itemById(`${slot}/${id}`)));
+
+test("the new things to wear are all in the game", () => {
+  assert.equal(newItems.length, 46);
+  for (const it of newItems) assert.ok(it && it.name && it.price > 0, JSON.stringify(it));
+  assert.equal(new Set(ITEMS.map((i) => i.id)).size, ITEMS.length, "no id twice");
+});
+
+test("the dress-up rules hold for the new things: eggs wear hats and back items only; winged creatures nothing on the back", () => {
+  for (const it of newItems) assert.equal(eggCanWear(it), it.slot === "hat" || it.slot === "back", `an egg and ${it.id}`);
+  const winged = BEASTS.filter((b) => b.wings);
+  assert.ok(winged.length >= 3);
+  for (const b of winged) for (const it of newItems) assert.equal(canWear(b.id, it), it.slot !== "back", `${b.id} and ${it.id}`);
+  const plain = BEASTS.find((b) => !b.wings);
+  for (const it of newItems) assert.equal(canWear(plain.id, it), true, `${plain.id} and ${it.id}`);
+  assert.deepEqual(newItems.filter((it) => it.wings).map((it) => it.id), ["back/paper_wings", "back/neon_wings"], "the wings among them are marked");
+  // and the rules' own check, for an egg and a hatched creature
+  const s = newState(4);
+  assert.equal(wearProblem(s.creature, itemById("held/baguette")), "egg");
+  assert.equal(wearProblem(s.creature, itemById("hat/frog")), "");
+  assert.equal(wearProblem(s.creature, itemById("back/neon_wings")), "");
+});
+
+test("each colouring of a feat comes with a prize the shop never sells", () => {
+  for (const v of ["glyph", "synth", "holo", "papercut", "broadcast", "molten", "chorus"]) assert.ok(prizeOf(v), v);
+  const prizes = ITEMS.filter((it) => it.prize).map((it) => it.id);
+  assert.equal(prizes.length, 7);
+  const s = newState(9);
+  s.creature.growth = 0.4;
+  s.coins = 100000;
+  for (let day = 1; day <= 40; day++) for (const it of shopStock(s, at(`2026-12-${String(Math.min(day, 28)).padStart(2, "0")}T09:00:00`))) assert.ok(!it.prize, it.id);
+  assert.ok(!s.owned.includes("held/word_jar"));
+  featUp(s, "words", 200);
+  assert.ok(s.owned.includes("held/word_jar"), "earning Glyph puts the Word jar in the bag");
+  equip(s, "held", "held/word_jar");
+  assert.equal(s.creature.equipped.held, "held/word_jar");
+  assert.equal(buy(s, "held/word_jar"), "You already have it.");
+});
+
+// ---------- shirts that make sense whichever way a body lies ----------
+/** A PNG's pixels ({w, h, px: RGBA}); 8-bit colour, grey or palette images, as the art tools save them. */
+function readPng(buf) {
+  let pos = 8, w = 0, h = 0, type = 0, palette = null, trns = null;
+  const idat = [];
+  while (pos < buf.length) {
+    const len = buf.readUInt32BE(pos), kind = buf.toString("ascii", pos + 4, pos + 8), data = buf.subarray(pos + 8, pos + 8 + len);
+    if (kind === "IHDR") { w = data.readUInt32BE(0); h = data.readUInt32BE(4); assert.equal(data[8], 8, "8 bits a channel"); type = data[9]; }
+    else if (kind === "PLTE") palette = data;
+    else if (kind === "tRNS") trns = data;
+    else if (kind === "IDAT") idat.push(data);
+    pos += 12 + len;
+  }
+  const ch = { 6: 4, 2: 3, 3: 1, 0: 1, 4: 2 }[type];
+  const raw = inflateSync(Buffer.concat(idat));
+  const stride = w * ch, px = new Uint8Array(w * h * 4), prev = new Uint8Array(stride), row = new Uint8Array(stride);
+  for (let y = 0; y < h; y++) {
+    const f = raw[y * (stride + 1)];
+    for (let x = 0; x < stride; x++) {
+      const v = raw[y * (stride + 1) + 1 + x], a = x >= ch ? row[x - ch] : 0, b = prev[x], c = x >= ch ? prev[x - ch] : 0;
+      const p = a + b - c, pa = Math.abs(p - a), pb = Math.abs(p - b), pc = Math.abs(p - c);
+      row[x] = (v + [0, a, b, (a + b) >> 1, pa <= pb && pa <= pc ? a : pb <= pc ? b : c][f]) & 255;
+    }
+    for (let x = 0; x < w; x++) {
+      const i = (y * w + x) * 4;
+      if (type === 6) px.set(row.subarray(x * 4, x * 4 + 4), i);
+      else if (type === 2) px.set([row[x * 3], row[x * 3 + 1], row[x * 3 + 2], 255], i);
+      else if (type === 3) { const k = row[x]; px.set([palette[k * 3], palette[k * 3 + 1], palette[k * 3 + 2], trns && k < trns.length ? trns[k] : 255], i); }
+      else if (type === 0) px.set([row[x], row[x], row[x], 255], i);
+      else px.set([row[x * 2], row[x * 2], row[x * 2], row[x * 2 + 1]], i);
+    }
+    prev.set(row);
+  }
+  return { w, h, px };
+}
+/** How much longer same-colour runs are across the tile than down it, or the other way (1 = the same; a stripe: 8). */
+function runRatio({ w, h, px }) {
+  const key = (x, y) => { const i = ((((y % h) + h) % h) * w + (((x % w) + w) % w)) * 4; return px.slice(i, i + 4).join(); };
+  const mean = (len, n, at) => {
+    let total = 0, count = 0;
+    for (let k = 0; k < n; k++) {
+      let r = 0;
+      for (let i = 0; i < len; i++) if (at(k, i) !== at(k, i - 1)) r++;
+      total += len;
+      count += Math.max(1, r);
+    }
+    return total / count;
+  };
+  const across = mean(w, h, (y, x) => key(x, y)), down = mean(h, w, (x, y) => key(x, y));
+  return Math.max(across, down) / Math.min(across, down);
+}
+/** The share of the tile's rows that are one plain colour, against the share of its columns (rows of zigzags: 0.6). */
+function plainLines({ w, h, px }) {
+  const key = (x, y) => { const i = (y * w + x) * 4; return px.slice(i, i + 4).join(); };
+  let rows = 0, cols = 0;
+  for (let y = 0; y < h; y++) rows += [...Array(w).keys()].every((x) => key(x, y) === key(0, y)) ? 1 : 0;
+  for (let x = 0; x < w; x++) cols += [...Array(h).keys()].every((y) => key(x, y) === key(x, 0)) ? 1 : 0;
+  return Math.abs(rows / h - cols / w);
+}
+
+test("every shirt is an all-over pattern with no direction (the owner: no stripes that need the creature upright)", () => {
+  const shirts = ITEMS.filter((it) => it.slot === "shirt");
+  assert.ok(shirts.length >= 18);
+  for (const it of shirts) {
+    const tile = readPng(readFileSync(new URL(`../../web/game-art/item/${it.id}.png`, import.meta.url)));
+    assert.deepEqual([tile.w, tile.h], [16, 16], it.id);
+    assert.ok(runRatio(tile) <= 1.6, `${it.id}: its runs of one colour are ${runRatio(tile).toFixed(2)} times longer one way`);
+    assert.ok(plainLines(tile) <= 0.3, `${it.id}: plain rows against plain columns ${plainLines(tile).toFixed(2)}`);
+  }
 });

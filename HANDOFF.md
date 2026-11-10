@@ -8091,3 +8091,78 @@ both use".
 - Tests `tests/js/challenge.test.mjs`; translations `158-folder-challenge` (15 strings).
 - **Not done**: no side-by-side result of a challenge (each sees the other's result in the battle inbox); a challenge
   message disappears like any share once added or dismissed.
+
+## Creature game: colourings earned by feats, 46 new things to wear, direction-free shirts (2026-11-09; side session "Creature colourings from feats, many new items")
+Owner: "lots of more color pallete swaps for collecting 200 vocab with creature as main, for listening to 10 hours with
+it as main, for reviewing 1000 cards ..., for finishing a book ... (dont let the user just skip to the end of a book) for
+watching 10 episodes on netflix ..., beating a raid boss in a guild ..., For listening to 10 podcast episodes ... Make
+every pallete swap visually distinct and interesting ... particle effects, borders, distortions ... dont have shirt
+patterns that require the creature to stand upright ... add many more new items and make them fun/whimsical".
+- **Feats** (`data.FEATS`, colourings in `data.VARIANTS` with `feat`): words 200 -> `glyph` "Glyph"; listen 36000 s
+  (shown in hours) -> `synth` "Synthwave"; cards 1000 -> `holo` "Holofoil"; book 1 -> `papercut` "Storybook"; netflix
+  10 -> `broadcast` "Broadcast"; raid 1 -> `molten` "Raidforged"; podcast 10 -> `chorus` "Chorus". Counted per creature
+  in its genome's `feats` (`genome.featCount`), only for the main one (`state.creature`, rules.featUp); older saves load
+  with `{}` (normalize: `cleanFeats`). Counting points: rules.earn `save` (every word, even past the day's fade),
+  `study` with mode `listen` (the same time that counts toward the goal, so never YouTube's: UNPAID_TIME; Anki's and the
+  card review's "read" time don't count), `review` (each card of the vocab reviewer; Anki's daily totals don't),
+  rules.claimRaid (the creature out when the reward is claimed), rules.finishedEpisode, rules.readPage. A study event
+  that paid no XP still returns `{colouring}` when it earned one (`onlyColouring`); game.tellColouring says so.
+  variantOptions gives `progress` [done, goal] and the locked tile shows "143 / 200 words" (creatures.js progressText).
+- **Prizes**: each colouring comes with a thing to wear (`prize: "<variant>"` in WEARABLES): Word jar, Boombox, Card
+  fan, Bookworm, Popcorn, Raid banner, On-air pass. Never in the shop (shopStock filters `prize`); put in the bag the
+  first time any creature earns that colouring (featUp, `prizeOf`).
+- **No skipping, books** (rules.readPage; pages/book.js): a page counts once it has been on screen, window showing and
+  the reader in use in the last 2 minutes (a page turn counts as use), for `pageNeeds(words)` = words at 400 a minute,
+  at least 1.5 s. What was read is kept per book in the synced game state (`state.reading[bookId] = {r: ranges in
+  1/10000 of the book, by: {seed: share first read while it was out}, done, at}`, the 30 most recently read; fractions so
+  another device's word split still matches). A book is finished when its last page has been read so and 80% of it
+  has; **the rule for a book read with different creatures out**: it counts for the creature that is out when it is
+  finished, if at least half of the reading (each part credited to whoever was out when it was first read) was done
+  while it was out; otherwise it counts for nobody. A book counts once (`done`).
+- **No skipping, episodes** (`web/js/playcover.js`, pure): the episode is cut into 5-second pieces; a piece counts once
+  steady playback (moving forward no faster than the time passed allows at the current speed) has passed its middle;
+  jumps mark nothing; an episode counts when playback is near its end (last 10%, at most 3 minutes, at least 20 s:
+  Netflix moves on during the credits) and 80% of it has really played. Kept on the device per episode
+  (`localStorage cover:<kind>:<id>`, newest 40). Fed by pages/player.js (podcasts: episodes whose feed is a real
+  `http(s)` feed, not YouTube, not your own files or audiobooks; Netflix on the computer, by its Netflix id) and by the
+  Netflix extension's subtitle bar (`extension/src/js/ext/panel.js` trackWatch): its waiting title gets `finished: true`
+  (extbridge.cleanTitle keeps it) and the web app (`mobile/src/js/web-extension.js`) counts it. Each episode counts once,
+  for the creature out at the time (`state.finished.netflix/podcast`, newest 500). **Netflix in the web app needs the
+  extension's next version** (built by webapp/build-web.mjs; the Chrome Web Store copy needs uploading). The phones can't
+  play Netflix in the app, so Broadcast is earned on the computer or in the web app.
+- **Looks** (`web/js/game/forms.js`, pure pixel code, tested): `formPixels` per layer (render.js `layer()` via
+  `formLayer`, which finds the drawing by its folder so the animation sheets are coloured in drawing coordinates using
+  `anims.cell`), `formFinish` on the composed creature before what it wears (render.js `finishForm`, after the Champion
+  edge), and per frame `formRows` (a row ripple or a glitch), `formSweep` (a shine) and `formParticles` (a few
+  rectangles), drawn by render.js `drawLiving(ctx, frame, look, now)` — used by the habitat, live battles, and by
+  portraits through `animatePortrait` (one shared timer, ~12 fps, stops when no portrait of a moving colouring is on the
+  page). Glyph: dark slate, glowing made-up letters scattered on the body (8x8 cells), letters drifting up. Synthwave:
+  gold-to-violet sunset by height, sun slits, cyan edge with a pink glow, rings pulsing from its feet, a 1 px ripple to a
+  640 ms beat. Holofoil: rainbow bands, silver rim, glints, a shine every ~3 s. Storybook: flat paper tones with fibre,
+  white paper edge, drop shadow, paper scraps. Broadcast: fewer, punchier colours with teal shadows, red/blue fringes
+  2 px apart, scanlines, a screen glow, a rolling bar, a glitch (slices and snow) every ~2.5 s. Raidforged: obsidian,
+  magma cracks (cell edges), glowing highlights, a hot edge, embers. Chorus: pale, two echoes trailing behind (pink and
+  cyan), sound arcs from the mouth. Icons `icon/form_<id>.png` drawn in Aseprite through the MCP (sources
+  `game/art-src/icon/form_<id>.aseprite`). Preview page used: `.claude/preview/colourings.html` (not committed).
+- **Online**: friends' creatures with a new colouring are kept (remote.cleanGenome checks VARIANTS);
+  `supabase/v8-safety.sql` (not yet applied) now lists the seven new variants in `private.valid_creature`. Nothing else
+  changes in the database (the raid reward is claimed on the device, as before).
+- **46 new things to wear** (data.js WEARABLES, after a comment with the owner's words): hats frog, rubber_duck, snail,
+  teapot, traffic_cone, cupcake, toast, storm_cloud, octopus, fishbowl, bookworm (prize); face neon_visor, disguise,
+  spiral_glasses, masquerade, bubble_gum (`shift` to the mouth); neck fairy_lights, bib, life_ring, daisy_chain,
+  onair_pass (prize); held rubber_chicken, baguette, bubble_wand, cactus, snow_globe, glow_stick, lollipop, word_jar,
+  card_fan, popcorn, boombox (the last four prizes); back snail_shell, cardboard_rocket, paper_wings and neon_wings (both
+  `wings: true`, so eggs wear them as a pair and winged creatures can't), bindle, raid_banner (prize); shirts camo,
+  leopard, cherries, confetti, sprinkles, honeycomb, cow, circuit. The dress-up rules need nothing new (they go by slot);
+  tests check every new item against them.
+- **Art method** (the one the owner approved for bulk work on 2026-10-30): each item designed pixel by pixel as a text
+  grid, `game/art-src/item/grids/<slot>/<id>.txt` (a palette, then the rows); `tools/game_art/new_items.py build
+  --aseprite` has Aseprite (batch Lua) place the pixels and save `game/art-src/item/<slot>/<id>.aseprite` and the PNG
+  `web/game-art/item/<slot>/<id>.png`; `preview <slot> OUT.png` makes a check sheet (shirts also laid on a cat, a chick
+  and a deer); then `tools/game_art/small_items.py --aseprite` remakes every baby-size item (`item/small/`). To change an
+  item, edit its grid and build again (or edit the .aseprite and export the PNG).
+- **Shirts** must make sense whichever way a body lies (the owner named Striped as wrong, Checked and Star as good):
+  Striped is redrawn as woven stripe segments (horizontal and vertical in a checker), Zigzag as a lattice of diagonal
+  zigzags, both keeping their ids, names and colours; Argyle (square diamonds) and the others were already direction-free.
+  `tests/js/feats.test.mjs` reads every shirt PNG and fails one whose same-colour runs are more than 1.6 times longer one
+  way than the other, or whose plain one-colour rows outnumber its plain columns (stripes measure 8, rows of zigzags 0.63).

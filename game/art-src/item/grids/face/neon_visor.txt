@@ -1,0 +1,19 @@
+# Neon visor: a sleek cyberpunk visor band with an outrun pink-to-cyan lens and a highlight streak
+K #1b1420
+F #3a3552
+f #6b6488
+P #ff3fa4
+p #d93fd6
+V #9a4dff
+b #5f8dff
+C #3ff6ff
+W #ffffff
+--
+................
+.KKKKKKKKKKKKKK.
+KffffffffffffffK
+KPPPpWWVVbbbCWCK
+KPPpWWVVVbbCCCCK
+KPpWWVVVbbbCCCCK
+KFFFFFFKKFFFFFFK
+.KKKKKK..KKKKKK.

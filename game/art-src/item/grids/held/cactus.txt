@@ -1,0 +1,24 @@
+# Tiny cactus: a little cactus with a pink flower on top, in a terracotta pot
+K #1c1418
+G #8cc85a
+g #4a9a4a
+d #2a6a3e
+W #e8f4c8
+P #ff3fa4
+O #ffb347
+T #e07a4a
+t #b0502e
+r #7a3020
+--
+.....KK.....
+....KPPK.KK.
+.KKKPOOPKgdK
+KGgKGGgdKgdK
+KGgKGWgdggdK
+KGggGGgdKKK.
+.KKKGgWdK...
+...KGggdK...
+.KTTTTTTtrK.
+..KttttrrK..
+..KTTTttrK..
+...KKKKKK...

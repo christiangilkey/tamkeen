@@ -1,0 +1,19 @@
+# Masquerade mask: an elegant violet and gold eye mask with a little pink feather on one side
+K #1b1420
+v #c48cff
+V #8a3dd6
+d #55207f
+G #ffc94a
+g #c98a1e
+F #ff3fa4
+f #ff9ad5
+q #a3156b
+--
+G............fF.
+GG..........fFqg
+vGGGGGg..gGFqggd
+KvV...VGgV...VdK
+.KvV..VVVd..ddK.
+.KvVVVK..KVVddK.
+..KKKK....KKKK..
+................

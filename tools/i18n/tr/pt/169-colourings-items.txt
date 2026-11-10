@@ -1,0 +1,78 @@
+# The creature game: colourings earned by feats, their prizes and 46 new things to wear (web/js/game/data.js, creatures.js, game.js).
+e2d66b92	Vem com {0}.
+6c7ce323	{0} / {1} palavras
+dc96ff66	{0} / {1} horas
+db775117	{0} / {1} cartões
+0ba1062e	{0} / {1} livro
+5d0065c6	{0} / {1} episódios
+1eaad47a	{0} / {1} chefe de raide
+2b420833	Sapinho amigo
+5c0d7fe4	Patinho de borracha
+3c8078f7	Caracol amigo
+ba1f4cbb	Bule
+3ec38fed	Cone de trânsito
+2930c52d	Chapéu de cupcake
+816cc9ba	Torrada
+1bbb8dec	Nuvenzinha de chuva
+521e325a	Abraço de polvo
+fc59c4bd	Aquário
+6d7fc1d8	Minhoca leitora
+0110c9f1	Viseira neon
+04083e46	Óculos de disfarce
+fe11eb8d	Óculos hipnóticos
+fb1ddb78	Máscara veneziana
+cc191d24	Chiclete
+ed8b5e04	Pisca-pisca
+758ef137	Babador de lagosta
+039b2a40	Boia salva-vidas
+ed55035b	Colar de margaridas
+bf370c59	Crachá “No ar”
+11576748	Galinha de borracha
+abbb6b06	Baguete
+2be62044	Varinha de bolhas
+1992332e	Cactozinho
+38244692	Globo de neve
+67cd5914	Bastão luminoso
+72bd5677	Pirulito espiral
+7fb7ad8a	Pote de palavras
+2fcc4f9a	Leque de cartas
+62a91401	Pipoca
+3903c0cc	Rádio-gravador
+a6f6b2c0	Concha de caracol
+ce1a66a3	Foguete de papelão
+7dd2a42f	Asas de papel
+2c6cdd4b	Asas neon
+b7cff543	Trouxinha
+f922bc3c	Estandarte de raide
+147e903a	Camiseta camuflada
+6b9f0a2f	Estampa de oncinha
+228cf3be	Estampa de cerejas
+bb92e57d	Camiseta de confete
+d442b0ad	Camiseta de granulado
+462237dd	Camiseta de favo de mel
+5f5a9b2c	Manchas de vaca
+4a898b56	Camiseta de circuitos
+817122ce	Glifo
+d5f50ff2	Salve 200 palavras no seu vocabulário enquanto ela estiver no habitat
+d0dcc00c	com letras luminosas escritas pelo corpo todo
+9afb3161	Synthwave
+d2fa6888	Ouça por 10 horas enquanto ela estiver no habitat
+cee34fcb	um pôr do sol neon que ondula no ritmo da música
+b4c149b4	Holográfica
+d8f415ae	Revise 1000 cartões enquanto ela estiver no habitat
+fce265a7	o brilho de arco-íris de uma carta holográfica rara
+5a77628b	Fábula
+22fdb7f6	Leia um livro inteiro enquanto ela estiver no habitat
+e4f0af30	de papel recortado das páginas de um livro de histórias
+77ca3fc6	Transmissão
+23ae5e9a	Assista a 10 episódios da Netflix até o fim enquanto ela estiver no habitat
+d7342b6d	com a cintilação de uma TV de madrugada
+ddb7750f	Forja
+d47e9fe4	Derrote um chefe de raide com sua guilda enquanto ela estiver no habitat
+e164f04b	obsidiana e magma, forjados num raide
+6973e1fe	Coro
+8cd9df06	Ouça 10 episódios de podcast até o fim enquanto ela estiver no habitat
+e4ea37eb	com um rastro de ecos de cada voz que ouviu
+ced73532	Você ganhou a coloração {0}! Escolha-a na página Criaturas. {1} também está em Minhas coisas.
+e28449b2	Você ganhou a coloração {0}! Escolha-a na página Criaturas.
+56f7f3a1	Uma criatura jovem pode usar uma, escolhida na página Criaturas. Elas vêm de quando você estuda, de quem cresce ao lado dela, do que você consegue nas batalhas e do que você faz enquanto ela está no habitat: palavras salvas, horas de escuta, cartões revisados, um livro inteiro lido, episódios da Netflix ou de podcast acompanhados até o fim, um chefe de raide derrotado. Mudam cores e traços, nunca a força.

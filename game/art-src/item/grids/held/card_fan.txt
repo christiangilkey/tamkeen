@@ -1,0 +1,22 @@
+# Card fan: a fanned hand of flashcards, the front one shiny holofoil (a prize for reviewing 1000 cards)
+K #1c1426
+W #f4f0ff
+w #b8b0d0
+t #6a6290
+C #3ff6ff
+P #ff3fa4
+O #ffb347
+V #b13cff
+--
+............
+.KKK....KKK.
+KCCKKKKKKPPK
+KCCKWVPPKPPK
+KWWKVPPOKWWK
+KttKPPOOKttK
+KWwKPOOCKwWK
+.KWKOOCCKWK.
+.KwKOCCVKwK.
+..KKCCVVKK..
+..KKCVVPKK..
+...KKKKKK...

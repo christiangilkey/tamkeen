@@ -1,0 +1,20 @@
+# Cow spots: big irregular black cow patches on off-white
+w #ece8e0
+K #1f1c24
+--
+KKKKKKKwwwwwwwwK
+KKKKKKKwwKKwwwKK
+KKKKKwwwKKKwwwwK
+KKKKKKwwwwwwwwww
+wKKKKKKwwwwKKwww
+wwKKKwwwwwKKKKww
+wwKKKwwwwwKKKKKw
+wwwKwwwwwwwKKKKw
+wwwwwwwwwwwKKKww
+wwwwwwwKwwwwKKKw
+wwwwwwKKwwwwwKww
+wwwwwKKKKKwwwwww
+wwwwKKKKKKwwwwww
+wwwwwwKKKwwwwwww
+wwKKwwwwwwwwwwww
+wKKKKKwwwwwwwwww

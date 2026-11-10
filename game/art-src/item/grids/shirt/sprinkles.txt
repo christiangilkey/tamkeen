@@ -1,0 +1,25 @@
+# Sprinkles shirt: donut sprinkles tossed at every angle on strawberry frosting
+f #e8679f
+W #fff4f8
+Y #ffd23f
+C #3ff6ff
+V #8a3cff
+M #5fe0a8
+O #ffa04a
+--
+ffffffYYffffffCf
+fWWWfffYYfffffCf
+ffffffffffCfffCf
+VfffffffffCCffff
+VffffMMffffCfffV
+ffffMMfffffffffV
+fffffffffOOOffff
+fffffffffffffWff
+fCCffffYfffffWWf
+ffCCfffYffffffWf
+fffffffYffffffff
+fYffffffffVVVfff
+fYYfffffffffffff
+ffYffMfffWWfffOO
+ffffMMffWWfffOOf
+ffffMfffffffffff
