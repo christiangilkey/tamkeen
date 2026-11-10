@@ -1,7 +1,7 @@
 // A creature is data first: a seed plus what has changed since it was born. Everything about
 // its look is rebuilt from that, so saves stay tiny and the same seed is always the same creature.
 
-import { BEASTS, GROWN, STAGES, TRAITS, TYPES, TYPE_IDS, beastsOf } from "./data.js";
+import { BEASTS, GROWN, STAGES, TRAITS, TYPES, TYPE_IDS, VARIANTS, beastsOf } from "./data.js";
 
 /** A small seeded random-number generator (mulberry32). One per creature, never the global one. */
 export function rng(seed) {
@@ -46,8 +46,15 @@ export function newGenome(seed, type = null) {
     moves: [],          // the (up to four) moves it takes into battle
     equipped: {},
     name: "",
+    feats: {},          // what was done while it was the main creature (data.FEATS): earns its colourings
   };
 }
+
+/** How much of feat `kind` (data.FEATS) creature `genome` has done while it was the main one. */
+export const featCount = (genome, kind) => {
+  const v = genome && genome.feats && typeof genome.feats === "object" && Object.prototype.hasOwnProperty.call(genome.feats, kind) ? Number(genome.feats[kind]) : 0;
+  return Number.isFinite(v) && v > 0 ? v : 0;
+};
 
 export function stageOf(growth) {
   let stage = STAGES[0];
@@ -91,6 +98,8 @@ export function describe(genome) {
   if (variant === "nocturne") tint = { kind: "nocturne" };
   else if (variant === "twin") tint = { kind: "twin", hue: Math.round(Number.isFinite(genome.partnerHue) ? genome.partnerHue : beast.hue + 150) % 360 };
   else if (variant === "champion") tint = { kind: "champion" };
+  // (the colourings earned by feats: each its own look, drawn by forms.js)
+  else if (variant && VARIANTS[variant] && VARIANTS[variant].feat) tint = { kind: variant };
   return {
     beast: beast.id, species: beast.plan, stage: stage.id, size: stage.size || "s",
     type: genome.type, variant, tint,

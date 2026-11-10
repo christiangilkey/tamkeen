@@ -8,6 +8,7 @@ import { describe, isGrown, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
 import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BATTLE_XP_FLOOR, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, WELL_KNOWN_XP, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
+import { progressText } from "./screenparts.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
 const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
@@ -261,10 +262,12 @@ export function openEvolution(game, go, opts = {}) {
   // Special forms: earned by something other than growth.
   const specials = variantOptions(game, g).map((v) => `<div class="info-form${v.open ? " on" : ""}">${icon(`form_${v.id}`, 32)}
     <span><b>${v.name}</b> <span class="small muted">${VARIANTS[v.id].blurb}</span>
-    <span class="small">${v.open ? `${icon("check")} Earned` : `${icon("lock")} ${VARIANTS[v.id].how}`}</span></span></div>`);
+    <span class="small">${v.open ? `${icon("check")} Earned` : `${icon("lock")} ${VARIANTS[v.id].how}`}</span>${v.open || !v.progress ? ""
+      : ` <span class="small muted" translate="no">${esc(progressText(v))}</span>`}</span></div>`);
   body.append(h(`<div><strong>3. Special colourings</strong>
-    <p class="small muted">A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside, and
-      what you pull off in battle. They change colours and features, never strength.</p>
+    <p class="small muted">A juvenile can wear one, chosen on the Creatures page. They come from when you study, who it grows up beside,
+      what you pull off in battle, and what you do while it is the creature out: words saved, hours of listening, cards reviewed, a whole
+      book read, Netflix or podcast episodes followed to the end, a raid boss beaten. They change colours and features, never strength.</p>
     ${specials.join("")}</div>`));
 
   body.append(h(`<div><strong>What else your habits change</strong>${list([

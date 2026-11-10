@@ -33,7 +33,8 @@ import { selectedSubtitles } from "../netflix-ttml.js";
 import { createNetflixMedia } from "../nfmedia.js";
 import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
-import { reward, trackStudy } from "../game/game.js";
+import { featEpisode, reward, trackStudy } from "../game/game.js";
+import { loadCover, saveCover, track } from "../playcover.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
@@ -447,9 +448,28 @@ export async function render(view, { id, query }) {
   let disposed = false;
   let clipEnd = null; // when set, playback pauses at this time (word/sentence preview)
   let clipTimer = 0;
+  // Played to near the end without skipping (playcover.js): a podcast episode or a Netflix title then counts toward
+  // the creature game's Chorus or Broadcast colouring (game/rules.js finishedEpisode). Not a YouTube video, nor the
+  // learner's own files: only episodes from a podcast's feed.
+  const featKind = nf ? "netflix" : !yt && !isAudiobookFeed(ep.feed_url) && /^https?:/i.test(String(ep.feed_url || "")) ? "podcast" : null;
+  const featId = nf ? String(ep.guid) : String(ep.uid || id);
+  let cover = null;
+  let coverAt = 0;
+  function trackCover(t) {
+    if (!featKind || !(duration > 0)) return;
+    const now = Date.now();
+    if (now - coverAt < 250) return;
+    coverAt = now;
+    if (!cover || Math.abs(cover.d - duration) >= 2) cover = loadCover(`${featKind}:${featId}`, duration);
+    if (track(cover, t, !audio.paused, Number(audio.playbackRate) || 1, now)) {
+      saveCover(`${featKind}:${featId}`, cover);
+      featEpisode(featKind, featId);
+    }
+  }
   function update() {
     if (disposed) return;
     let t = audio.currentTime;
+    trackCover(t);
     if (clipEnd !== null && t >= clipEnd) {
       // End of a single-word/sentence clip: stop right after it.
       clipEnd = null;
@@ -474,6 +494,7 @@ export async function render(view, { id, query }) {
     if (!duration) return;
     saveProgress({ id, kind: vid ? "video" : "audio", title: ep.title, sub: ep.feed_title, image: img || "",
                    pos: audio.currentTime || 0, dur: duration });
+    if (cover) saveCover(`${featKind}:${featId}`, cover); // (what was really played, so it can be finished another day)
     if (vid && atEnd(audio.currentTime || 0, duration)) markWatched(id);  // the Library's "Watched" label (watched.js)
   };
   audio.addEventListener("timeupdate", update);

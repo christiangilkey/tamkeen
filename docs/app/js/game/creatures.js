@@ -4,7 +4,8 @@
 // behind the sheet's "?" (info.js), not on the pages. The blocks use the shared .gs-block / .gs-label look.
 
 import { h } from "../app.js";
-import { BADGES, BASE_STATS, GROWN, STAGES, TRAITS, TYPES, beastById } from "./data.js";
+import { BADGES, BASE_STATS, GROWN, STAGES, TRAITS, TYPES, beastById, prizeOf } from "./data.js";
+import { progressText } from "./screenparts.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter } from "./battle.js";
@@ -192,7 +193,12 @@ function lookBlock(game, g, i, repaint) {
   for (const o of [{ id: null, name: "None", open: true }, ...variantOptions(game, g)]) {
     const tile = lookTile({ ...g, show: null, variant: o.id }, o.name, (g.variant || null) === o.id,
       o.open ? () => { reshape(game, i, { variant: o.id }); repaint(); } : () => lockedColouring(g, o));
-    if (!o.open) { tile.classList.add("locked"); tile.append(h(`<span class="cr-lock">${icon("lock")}</span>`)); }
+    if (!o.open) {
+      tile.classList.add("locked");
+      tile.append(h(`<span class="cr-lock">${icon("lock")}</span>`));
+      // (a colouring earned by a feat: how far this creature has got, "143 / 200 words")
+      if (o.progress) tile.append(Object.assign(h(`<span class="cr-look-progress small" translate="no"></span>`), { textContent: progressText(o) }));
+    }
     colours.append(tile);
   }
   if (formOf(g).id !== "juvenile") block.append(h(`<p class="small muted mv-rule">Colourings show on the Juvenile look.</p>`));
@@ -208,9 +214,12 @@ function lookTile(look, name, on, pick) {
   return b;
 }
 
-/** A colouring not earned yet: what it looks like, and how to earn it. */
+/** A colouring not earned yet: what it looks like, and how to earn it (and, earned by a feat, how far it has got). */
 function lockedColouring(g, o) {
-  infoBox(o.name, portrait({ ...g, show: null, variant: o.id }, 176), o.why, false, "Not earned yet");
+  const prize = prizeOf(o.id); // (a colouring earned by a feat comes with a thing to wear)
+  const why = prize ? `${t(o.why)}. ${t("It comes with {0}.", t(prize.name))}` : o.why;
+  infoBox(o.name, portrait({ ...g, show: null, variant: o.id }, 176), why, false,
+    o.progress ? `${t("Not earned yet")} · ${progressText(o)}` : "Not earned yet");
 }
 
 /** A small popup about one thing: its picture, a line of text, and whether it is earned. */

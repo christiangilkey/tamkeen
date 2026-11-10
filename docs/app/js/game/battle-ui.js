@@ -26,7 +26,7 @@ import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./ba
 import { cardScale } from "./livebattle.js";
 import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
-import { FRAME, composeCreature, icon } from "./render.js";
+import { FRAME, animatePortrait, composeCreature, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { getGame, saveGame } from "./game.js";
 import { runLiveBattle } from "./livebattle-ui.js";
@@ -55,10 +55,12 @@ export const moveHelp = (m) => {
 /** A small picture of a creature (a canvas element). */
 export function portrait(genome, size = 72) {
   const c = h(`<canvas class="portrait" width="${FRAME}" height="${FRAME}" style="width:${size}px;height:${size}px"></canvas>`);
-  composeCreature(describe(genome), { eyes: "open", mouth: "smile" }).then((frame) => {
+  const look = describe(genome);
+  composeCreature(look, { eyes: "open", mouth: "smile" }).then((frame) => {
     const ctx = c.getContext("2d");
     ctx.imageSmoothingEnabled = false;
     if (frame) ctx.drawImage(frame, 0, 0);
+    animatePortrait(c, frame, look); // (a colouring earned by a feat moves: its particles, ripple or shine)
   });
   return c;
 }

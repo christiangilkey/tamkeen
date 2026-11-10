@@ -1,6 +1,7 @@
 // Home: one obvious next step. If something is unfinished (see progress.js for the rules) the
 // screen is a big "Continue" button; otherwise it says you're caught up and offers at most
-// three things to do next. Deliberately short: no feed, nothing endless.
+// three things to do next. Deliberately short: no feed, nothing endless. A brand-new learner (nothing
+// in the library yet) gets "Start here" instead: a lesson, a video or a podcast.
 
 import { api, esc, h } from "../app.js";
 import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.js";
@@ -9,6 +10,7 @@ import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 import { icon } from "../icons.js";
 import { firstVisitTour } from "../components/tour.js";
+import { t } from "../i18n.js";
 
 // The app's own white line icons (icons.js), the same as the tab bar's.
 const KIND_ICON = { audio: "podcast", video: "video", page: "page" };
@@ -21,6 +23,11 @@ function greeting() {
   if (hour < 12) return [morning, "Good morning"];
   if (hour < 18) return [afternoon, "Good afternoon"];
   return [evening, "Good evening"];
+}
+
+/** Nothing in the library yet (a new learner): no episode, video, page or book at all. */
+async function libraryEmpty() {
+  try { return Number((await api("/episodes?limit=1")).total) === 0; } catch { return false; }
 }
 
 /** Items still in the library (anything deleted since is forgotten). */
@@ -103,6 +110,21 @@ export async function render(view) {
       row.querySelector(".t").textContent = item.title || "";
       more.append(row);
     }
+  } else if (await libraryEmpty()) {
+    const name = langInfo(studyLanguage()).name;
+    main.append(h(`<div class="caught-up home-start">
+      <div class="caught-up-title">Start here</div>
+      <div class="caught-up-sub">Pick something to learn from, then tap any word in it to see what it means.</div>
+    </div>`));
+    more.append(h(`<div class="home-choices">
+      <a class="choice card" href="#/library?show=courses"><span class="choice-ico">${icon("learn", 24)}</span><span><strong>Start with a lesson</strong>
+        <span class="small muted">Short lessons that teach the basics</span></span></a>
+      <a class="choice card" href="#/library?show=youtube"><span class="choice-ico">${icon("video", 24)}</span><span><strong>Watch a video</strong>
+        <span class="small muted">YouTube videos with captions you can tap</span></span></a>
+      <a class="choice card" href="#/discover"><span class="choice-ico">${icon("podcast", 24)}</span><span><strong>Listen to a podcast</strong>
+        <span class="small muted"></span></span></a>
+    </div>`));
+    more.querySelector('a[href="#/discover"] .muted').textContent = t("Popular {0} podcasts", t(name));
   } else {
     main.append(h(`<div class="caught-up">
       <div class="caught-up-mark">✓</div>
@@ -122,6 +144,8 @@ export async function render(view) {
   firstVisitTour("home", view.querySelector(".home"), [
     { target: ".lang-switch", anywhere: true, title: "The language you're learning",
       text: "Switch to another language you're learning, or add one. Each keeps its own library, words and reviews." },
+    { target: ".home-start", title: "Start here",
+      text: "Pick a lesson, a video or a podcast. In any of them, tap a word to see what it means and hear it." },
     { target: ".continue-btn", title: "Carry on",
       text: "Picks up your latest episode, video or page where you stopped." },
     { target: ".habitat-scene", title: "Your creature", text: "It grows with the XP you earn while studying, and the ring round it fills toward today's goal." },

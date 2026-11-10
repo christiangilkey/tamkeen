@@ -124,10 +124,12 @@ const SUBTITLES = 0x28; // the filters' field 5, "Subtitles/CC"
 
 /** YouTube's search-filter code (its "sp" value): most viewed, uploaded this week (or `within`
  * THIS_MONTH / THIS_YEAR), videos only, optionally a length, and optionally only videos with
- * handmade subtitles. It is a few numbered fields packed together and written in base64. */
-export function filterCode(length = 0, { handmade = false, within = THIS_WEEK } = {}) {
-  const filters = [0x08, within, 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : []), ...(handmade ? [SUBTITLES, 1] : [])];
-  const bytes = [0x08, SORT_BY_VIEWS, 0x12, filters.length, ...filters];
+ * handmade subtitles. It is a few numbered fields packed together and written in base64.
+ * `relevance`: YouTube's own order and any upload date instead (lessons: most viewed this year
+ * brought news and politics to the top of "Learn Spanish"). */
+export function filterCode(length = 0, { handmade = false, within = THIS_WEEK, relevance = false } = {}) {
+  const filters = [...(relevance ? [] : [0x08, within]), 0x10, VIDEOS_ONLY, ...(length ? [0x18, length] : []), ...(handmade ? [SUBTITLES, 1] : [])];
+  const bytes = [...(relevance ? [] : [0x08, SORT_BY_VIEWS]), 0x12, filters.length, ...filters];
   return btoa(String.fromCharCode(...bytes));
 }
 
@@ -170,6 +172,8 @@ export function youtubeHome(lang, { mobile = false, country = "", handmade = fal
 
 export const TOPICS = [
   { key: "popular", label: "Popular now", icon: "trending" },
+  // (lessons second: the first thing a beginner needs, the owner's onboarding review)
+  { key: "learn", label: "Learn {0}", icon: "learn", relevance: true },
   { key: "news", label: "News", icon: "news" },
   { key: "music", label: "Music", icon: "music" },
   { key: "comedy", label: "Comedy", icon: "smile" },
@@ -181,7 +185,6 @@ export const TOPICS = [
   { key: "kids", label: "Kids & cartoons", icon: "kids" },
   { key: "vlog", label: "Vlogs & daily life", icon: "vlog" },
   { key: "podcast", label: "Podcasts & interviews", icon: "podcast" },
-  { key: "learn", label: "Learn {0}", icon: "learn", within: THIS_YEAR },
 ];
 
 /** Each topic's search words in each study language (search data for YouTube, not interface text). */
@@ -275,7 +278,7 @@ export function topicAddress(lang, key, { mobile = false, country = "", handmade
   if (!topic || key === "popular" || !words || !start) return youtubeHome(lang, { mobile, country, handmade });
   const [, , language, length] = start;
   const q = new URLSearchParams({
-    search_query: words, sp: filterCode(length, { handmade, within: topic.within || TOPIC_WITHIN[lang] || THIS_MONTH }),
+    search_query: words, sp: filterCode(length, { handmade, within: topic.within || TOPIC_WITHIN[lang] || THIS_MONTH, relevance: !!topic.relevance }),
     gl: countryFor(lang, country), hl: language, persist_gl: "1", persist_hl: "1",
   });
   return `${mobile ? "https://m.youtube.com" : "https://www.youtube.com"}/results?${q}`;

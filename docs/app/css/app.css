@@ -1263,7 +1263,8 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
    it by fit()), then the ground under your creature and your four moves in a 2 x 2 block shaped like the
    controller's buttons (X Y over A B), at the foot where thumbs are. A phone held sideways puts the moves beside
    the arena. The question and the end of the battle sit over it all. Plain solid surfaces. */
-.live-wrap { position: fixed; inset: 0; z-index: 70; background: #120d1c; color: #fff; display: flex; justify-content: center; overflow: hidden; }
+.live-wrap { position: fixed; inset: 0; z-index: 70; background: #120d1c; color: #fff; display: flex; justify-content: center; overflow: hidden;
+  -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; } /* no flash or text selection where the finger goes */
 .lb { position: relative; width: min(1000px, 100%); height: 100%; box-sizing: border-box; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 8px; padding: max(10px, env(safe-area-inset-top)) 16px max(10px, env(safe-area-inset-bottom)); }
 .lb-top, .lb-side { width: 100%; }
@@ -1302,10 +1303,19 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-banner.go { animation: lb-banner 1.4s ease-out forwards; }
 @keyframes lb-banner { from { opacity: 0; transform: translate(-50%, -50%) scale(.85); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } to { opacity: 0; } }
 .lb-combo { position: absolute; inset-inline-start: 8px; top: 8px; padding: 2px 10px; border-radius: 99px; line-height: 1.5; font-weight: 800; background: #ff8a3d; }
-.lb-ground { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 8px; min-height: 22px; max-width: 760px; font-size: 14px; text-align: center; }
+/* the hint cards picked up this battle: over the arena's bottom corner, so nothing else moves when one is found */
+.lb-hints { position: absolute; inset-inline-start: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 3px; padding: 2px 9px 2px 6px;
+  border-radius: 99px; line-height: 1.5; font-weight: 800; background: rgba(18, 13, 28, .82); color: #ffd54a; pointer-events: none; }
+.lb-hints[hidden] { display: none; }
+/* the ground note is always two lines high (cut with "..." past that; the whole text is its title), so the arena
+   above it never changes size, nor the camera's view, as the creature walks from one ground to another */
+.lb-ground { flex: none; display: flex; align-items: center; justify-content: center; height: 2.8em; max-width: 760px; overflow: hidden;
+  font-size: 14px; line-height: 1.35; text-align: center; }
+.lb-ground-in { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+.lb-ground-in > :not(:last-child) { margin-inline-end: 6px; }
 .lb-ground .muted { color: rgba(255, 255, 255, .7); }
-.lb-swatch { flex: none; width: 16px; height: 16px; border-radius: 3px; background-size: 64px 16px; background-repeat: no-repeat; image-rendering: pixelated; }
-.lb-tag { display: inline-flex; align-items: center; gap: 1px; font-weight: 800; }
+.lb-swatch { display: inline-block; vertical-align: -3px; flex: none; width: 16px; height: 16px; border-radius: 3px; background-size: 64px 16px; background-repeat: no-repeat; image-rendering: pixelated; }
+.lb-tag { display: inline-flex; align-items: center; gap: 1px; vertical-align: -3px; font-weight: 800; }
 .lb-tag.up { color: #7dffb0; }
 .lb-tag.down { color: #ff9a9a; }
 /* The four moves as banners (inspired by the owner's picture of a handheld monster battle's move list, in our pixel
@@ -1358,7 +1368,9 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .live-wrap .pl-key:not(.pl-a):not(.pl-b):not(.pl-x):not(.pl-y) { background: #45395f; color: #fff; border-color: #5a4c78; }
 .lb-extra:empty { display: none; }
 .lb-extra { display: flex; justify-content: center; }
-.lb-potion { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 12px; font-size: 13px; white-space: normal; }
+.lb-extra.reserve { display: flex; flex: none; height: 32px; } /* wild battles: the potion's row keeps its room all fight */
+.lb-potion { display: inline-flex; align-items: center; gap: 6px; max-width: 100%; padding: 6px 14px; border-radius: 12px; font-size: 13px; white-space: nowrap; }
+.lb-potion span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .lb-help { max-width: 640px; text-align: center; color: rgba(255, 255, 255, .55); }
 /* The question: the battle waits behind it. */
 .lb-quiz, .lb-end { position: absolute; inset: 0; z-index: 3; display: grid; place-items: center; padding: 16px; background: rgba(10, 8, 18, .6); }
@@ -1402,6 +1414,8 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   .lb-stage { grid-column: 1; grid-row: 2; }
   .lb-side { grid-column: 2; grid-row: 2; justify-content: center; }
   .lb-moves { grid-template-columns: 1fr; gap: 8px; } /* the four banners stacked, one under another */
+  .lb-ground { height: auto; min-height: 2.8em; } /* beside the arena its height doesn't move the arena */
+  .lb-ground-in { -webkit-line-clamp: 4; line-clamp: 4; }
 }
 /* a phone held sideways: one column of smaller buttons */
 @media (orientation: landscape) and (max-height: 560px) {
@@ -1421,6 +1435,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 }
 @media (max-width: 600px) {
   .lb { gap: 6px; }
+  .lb-ground { font-size: 13px; }
   .lb-move { --cut: 12px; min-height: 58px; gap: 6px; padding-inline-start: 7px; }
   .lb-quiz, .lb-end { place-items: end center; padding: 10px; }
   .lbq, .lb-end-card { padding: 14px; gap: 8px; }
@@ -3029,6 +3044,8 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .cr-look.locked .cr-look-pic { opacity: .4; }
 .cr-look.locked .cr-look-name { color: var(--muted); }
 .cr-lock { position: absolute; top: 6px; inset-inline-end: 6px; line-height: 0; }
+/* (a colouring earned by a feat: how far this creature has got, "143 / 200 words") */
+.cr-look-progress { max-width: 100%; color: var(--muted); font-size: 11px; line-height: 1.2; text-align: center; font-variant-numeric: tabular-nums; }
 /* The four moves, in the places of the battle's buttons, each a tile in its element's colour; then the others it knows. */
 .mv-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .mv-slot { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; column-gap: 8px; height: 76px; min-height: 0; padding: 8px 10px;

@@ -195,8 +195,8 @@ function itemToBuy(game, it, changed, repaint) {
     title: it.name, ...itemPic(game, it),
     facts: [fact("Kind", KIND[it.slot]), fact("Price", amount("coins", it.price))],
     text: it.slot === "decor" ? "For looks only. It goes out in the habitat straight away."
-      : wearProblem(game.creature, it) === "wings" ? "For looks only. Your creature has wings of its own, so these go in your bag for another creature."
-      : wearProblem(game.creature, it) === "egg" ? "For looks only. Eggs only wear hats and wings, so it goes in your bag until your egg hatches."
+      : wearProblem(game.creature, it) === "wings" ? "For looks only. Your creature has wings of its own, so it can't wear things on its back. It goes in your bag for another creature."
+      : wearProblem(game.creature, it) === "egg" ? "For looks only. Eggs only wear hats and things on the back, so it goes in your bag until your egg hatches."
       : "For looks only. It goes on straight away.",
     note: needCoins(game, it.price),
     buttons: [
@@ -320,7 +320,7 @@ function wearingBlock(game, changed, go, repaint) {
     slots.append(cell);
   }
   b.append(slots);
-  if (egg) b.append(h(`<p class="gs-detail-text">Eggs wear a hat and wings. Everything else waits until they hatch.</p>`));
+  if (egg) b.append(h(`<p class="gs-detail-text">Eggs wear a hat and something on the back. Everything else waits until they hatch.</p>`));
   return b;
 }
 
@@ -329,12 +329,12 @@ function itemInBag(game, it, changed, repaint) {
     if (!game.owned.includes(it.id)) return null; // given away meanwhile
     const decor = it.slot === "decor";
     const on = isOn(game, it);
-    const cant = decor || on ? "" : wearProblem(game.creature, it); // wings on a winged creature, or not a hat or wings on an egg
+    const cant = decor || on ? "" : wearProblem(game.creature, it); // a back item on a winged creature, or not a hat or back item on an egg
     return {
       title: it.name, ...itemPic(game, it),
       facts: [fact("Kind", KIND[it.slot]), fact("Now", decor ? (on ? "Out in the habitat" : "Put away") : on ? "Wearing" : "In your bag")],
-      note: cant === "wings" ? "Your creature has wings of its own, so it can't wear these. Another of your creatures can."
-        : cant === "egg" ? "Eggs only wear hats and wings. Your creature can wear this once it hatches." : "",
+      note: cant === "wings" ? "Your creature has wings of its own, so it can't wear things on its back. Another of your creatures can."
+        : cant === "egg" ? "Eggs only wear hats and things on the back. Your creature can wear this once it hatches." : "",
       buttons: [
         { word: "Give", pic: icon("gift"), run: () => { d.close(); gift("item", it.id, () => { changed(); repaint(); }); } },
         { word: decor ? (on ? "Put away" : "Put out") : on ? "Take off" : "Wear", primary: !on, disabled: !!cant, run: () => {

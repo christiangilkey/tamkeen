@@ -19,7 +19,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./rules.js";
-import { FRAME, beastHeight, composeCreature, drawSheet, dressEgg, icon, loadImage } from "./render.js";
+import { FRAME, animAt, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { openEarned, openEvolution } from "./info.js";
@@ -320,7 +320,13 @@ export function habitat() {
   const plotArt = {}; // building picture by file name
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
 
-  const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, step: 0, stepT: 0, mood: "", moodT: 0, hop: 0, blinkT: 3, emote: "", emoteT: 0, idleT: 6 };
+  const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, mood: "", moodT: 0, hop: 0, emote: "", emoteT: 0, idleT: 6,
+                walkMs: 0, fly: false, air: 0, stand: 0 }; // (walkMs: how far its walk or wing beat has got; fly: this trip is flown; air: 0 on the ground .. 1 up; stand: 0 lying .. 1 up, for one that gets up to walk)
+  const FLY_UP = 9; // about how high its fly frames hold it (anim.py `lift`): it rises to that and sinks back from it
+  const canFly = (look) => { const f = drawingOf(look); return !!(f.anims && f.anims.fly); };
+  // A creature that rests lying down (the forest stag) gets up before it walks and lies back down when it stops: its
+  // `rise` frames, forwards then backwards. How long that takes (0: it has none).
+  const riseMs = (look) => { const r = drawingOf(look).anims.rise; return r ? r.ms.reduce((s, v) => s + v, 0) : 0; };
   const emote = (id, secs = 1.8) => { if (id) { pet.emote = id; pet.emoteT = secs; } };
   // It rains on about one day in four (the same days for everyone, so it is weather and not a glitch).
   const rainy = () => { const d = new Date(); return (d.getDate() * 7 + d.getMonth()) % 4 === 0; };
@@ -418,7 +424,7 @@ export function habitat() {
   };
 
   function creatureFrame(look, pose) {
-    const key = `${pose.step}|${pose.bob}|${pose.eyes}|${pose.mouth}`;
+    const key = `${pose.anim}|${pose.frame}|${pose.eyes}`;
     if (!(key in frames)) {
       frames[key] = null; // being made; draw the previous frame meanwhile
       composeCreature(look, pose).then((c) => { frames[key] = c; });
@@ -457,18 +463,29 @@ export function habitat() {
     // Wander: walk to a spot, wait, pick another. Eggs just wobble.
     if (look.stage !== "egg" && !asleep) {
       if (pet.wait > 0) pet.wait -= dt;
-      else if (Math.abs(pet.target - pet.x) < 1) { pet.wait = 1.5 + Math.random() * 4; pet.target = 40 + Math.random() * (W - 80); }
-      else {
+      else if (Math.abs(pet.target - pet.x) < 1) {
+        pet.wait = 1.5 + Math.random() * 4;
+        pet.target = 40 + Math.random() * (W - 80);
+        // A winged creature flies some of its longer trips.
+        pet.fly = canFly(look) && Math.abs(pet.target - pet.x) > 70 && Math.random() < 0.4;
+      } else {
         pet.dir = pet.target > pet.x ? 1 : -1;
-        pet.x += pet.dir * (look.size === "s" ? 14 : 20) * dt;
-        pet.stepT += dt;
-        if (pet.stepT > 0.18) { pet.stepT = 0; pet.step ^= 1; }
+        const flying = pet.fly && canFly(look);
+        const rise = !flying && riseMs(look);
+        if (rise && pet.stand < 1) pet.stand = Math.min(1, pet.stand + (dt * 1000) / rise); // (getting up first)
+        else {
+          if (flying) pet.air = Math.min(1, pet.air + dt * 3); // up it goes, then across
+          if (!flying || pet.air > 0.6) pet.x += pet.dir * (look.size === "s" ? 14 : 20) * (flying ? 1.6 : 1) * dt;
+          pet.walkMs += dt * 1000;
+        }
       }
     }
+    const settle = riseMs(look);
+    if (pet.stand > 0 && settle && (pet.wait > 0 || asleep)) pet.stand = Math.max(0, pet.stand - (dt * 1000) / settle); // lying back down
+    if (pet.air > 0 && (pet.wait > 0 || asleep || !pet.fly)) { pet.air = Math.max(0, pet.air - dt * 3); pet.walkMs += dt * 1000; } // landing
+    if (!pet.air && pet.wait > 0) pet.fly = false;
     if (pet.moodT > 0) { pet.moodT -= dt; if (pet.moodT <= 0) pet.mood = ""; }
     pet.hop = pet.mood === "happy" ? Math.abs(Math.sin(now / 110)) * 6 : 0;
-    pet.blinkT -= dt;
-    if (pet.blinkT < -0.15) pet.blinkT = 2 + Math.random() * 4;
     // Now and then it says how it feels, in a little bubble.
     if (pet.emoteT > 0) pet.emoteT -= dt;
     else if ((pet.idleT -= dt) < 0) {
@@ -568,7 +585,7 @@ export function habitat() {
       if (egg) {
         ctx.save();
         ctx.translate(Math.round(W / 2 + wobble), groundY);
-        ctx.drawImage(egg, -16, -egg.height - Math.round(pet.hop)); // (a dressed egg is taller: its hat on top)
+        ctx.drawImage(egg, -egg.width / 2, -egg.height - Math.round(pet.hop)); // (a dressed egg is bigger: hat and wings)
         // Cracks spread as the egg nears hatching.
         const n = Math.min(2, Math.floor((game.creature.growth / STAGES[1].from) * 4) - 1);
         if (n >= 0 && cracks[n]) ctx.drawImage(cracks[n], -16, -32 - Math.round(pet.hop));
@@ -576,24 +593,30 @@ export function habitat() {
         if (near && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, W / 2, groundY - 18);
       }
     } else {
-      const pose = {
-        step: pet.wait > 0 || asleep ? 0 : pet.step,
-        bob: asleep ? 2 : pet.wait > 0 ? (Math.floor(now / 500) % 2) : pet.step,
-        eyes: asleep ? "sleepy" : pet.mood === "happy" ? "happy" : pet.blinkT < 0 ? "blink" : "open",
-        mouth: asleep ? "sleep" : pet.mood === "happy" ? "smile" : "neutral",
-      };
+      // Its frame: flying (taking off and landing too), walking, or still (breathing, now and then a blink;
+      // slower asleep).
+      const moving = pet.wait <= 0 && !asleep && Math.abs(pet.target - pet.x) >= 1;
+      const rise = drawingOf(look).anims.rise;
+      const pose = pet.air > 0 ? animAt(look, "fly", pet.walkMs)
+        : rise && pet.stand > 0 && pet.stand < 1 ? { anim: "rise", frame: Math.min(rise.frames - 1, Math.floor(pet.stand * rise.frames)), eyes: "open" }
+        : moving ? animAt(look, "walk", pet.walkMs)
+        : animAt(look, "idle", asleep ? now * 0.6 : now);
+      if (asleep) pose.eyes = "sleepy";
+      else if (pet.mood === "happy") pose.eyes = "happy";
       const frame = creatureFrame(look, pose);
+      const sink = pose.anim === "fly" ? Math.round((1 - pet.air) * FLY_UP) : 0; // (its fly frames hold it up: from the ground at take-off)
       const body = pet.x - pet.dir * 3; // the body sits 3px behind the middle of its frame (the head leans forward)
       const shadow = art.shadow_m; // (the creatures are all one size now)
       if (frame && shadow) ctx.drawImage(shadow, Math.round(body - shadow.width / 2), groundY - Math.floor(shadow.height / 2)); // stays on the ground through a hop
       if (frame) {
         ctx.save();
-        ctx.translate(Math.round(pet.x), groundY - Math.round(pet.hop));
+        ctx.translate(Math.round(pet.x), groundY - Math.round(pet.hop) + sink);
         if (pet.dir < 0) ctx.scale(-1, 1);
-        ctx.drawImage(frame, -FRAME / 2, -FRAME);
+        drawLiving(ctx, frame, look, now); // (as drawImage(frame, -FRAME / 2, -FRAME), with a colouring's particles)
         ctx.restore();
       }
-      const top = groundY - beastHeight(look) - Math.round(pet.hop);
+      // (higher while it stands up to walk; a flight rises by its own reckoning: FLY_UP)
+      const top = groundY - beastHeight(look, pose.anim === "fly" ? null : pose.anim) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), top);
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), top + 4 - (Math.floor(now / 300) % 3));

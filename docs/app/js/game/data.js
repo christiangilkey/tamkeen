@@ -54,9 +54,15 @@ export const PART = {
 export { BEASTS };
 export const beastById = (id) => BEASTS.find((b) => b.id === id) || BEASTS[0];
 export const beastsOf = (type) => BEASTS.filter((b) => b.type === type);
-/** The layer files a look has (a creature, or its `young` hatchling look): body, head, head with shut eyes,
- * its legs, and where a shirt goes. */
-export const beastLayers = (look) => ["body", "head", "blink", ...look.legs, ...(look.shirt ? ["shirt"] : [])];
+/** The art files a look has (a creature, or its `young` hatchling look): a strip per animation (idle, walk, and fly
+ * for the winged: tools/game_art/anim.py), its frames on top and their eyelids below, and for one that can wear a
+ * shirt, where the shirt goes in each frame. Each with its size: [name, [w, h]]. */
+export const beastLayers = (look) => {
+  const [cw, ch] = look.anims.cell;
+  const names = Object.keys(look.anims).filter((k) => k !== "cell");
+  return [...names.map((n) => [n, [cw * look.anims[n].frames, ch * 2]]),
+    ...(look.shirt ? names.map((n) => [`${n}_shirt`, [cw * look.anims[n].frames, ch]]) : [])];
+};
 
 // Body plans: they set a creature's battle stats and one move. (`legs`/`arms`/`wings`/`hover` were for the
 // old part-built creatures; the drawings now carry their own limbs.)
@@ -133,6 +139,11 @@ const WEARABLES = {
     ["bucket_hat", "Bucket hat", 20], ["earmuffs", "Earmuffs", 20, { shift: [0, 7], weight_by: { listener: 1.5 } }], ["mushroom_cap", "Mushroom cap", 30],
     ["viking", "Viking helmet", 45, { requires: ["comeback"] }], ["astronaut", "Space helmet", 70, { weight_by: { curious: 2 }, shift: [0, 9] }],
     ["bunny_ears", "Bunny ears", 25], ["cat_ears", "Cat ears", 25], ["jester", "Jester hat", 35], ["night_cap", "Night cap", 20, { weight_by: { night_owl: 3 } }],
+    // (2026-11-09, the owner: "make a ton more items ... fun/whimsical")
+    ["frog", "Frog friend", 30], ["rubber_duck", "Rubber duck", 20], ["snail", "Snail friend", 25], ["teapot", "Teapot", 30, { weight_by: { reader: 1.5 } }],
+    ["traffic_cone", "Traffic cone", 15], ["cupcake", "Cupcake hat", 25], ["toast", "Slice of toast", 15, { weight_by: { early_bird: 2 } }],
+    ["storm_cloud", "Little rain cloud", 35, { weight_by: { night_owl: 1.5 } }], ["octopus", "Octopus hug", 40], ["fishbowl", "Fishbowl", 45, { weight_by: { curious: 2 } }],
+    ["bookworm", "Bookworm", 60, { prize: "papercut" }],
   ],
   face: [
     ["round_glasses", "Round glasses", 20, { weight_by: { reader: 3 } }], ["shades", "Shades", 25], ["monocle", "Monocle", 35, { weight_by: { reader: 1.5 } }],
@@ -141,6 +152,8 @@ const WEARABLES = {
     ["glasses_3d", "3D glasses", 25], ["reading_glasses", "Reading glasses", 20, { weight_by: { reader: 3 } }], ["snorkel", "Snorkel mask", 35],
     ["clown_nose", "Clown nose", 15], ["mustache", "Mustache", 20, { shift: [2, 5] }], ["blush", "Rosy cheeks", 10], ["sleep_mask", "Sleep mask", 20, { weight_by: { night_owl: 3 } }],
     ["pixel_shades", "Pixel shades", 45, { requires: ["flawless"] }], ["whiskers", "Whiskers", 15, { shift: [2, 4] }], ["bandage", "Bandage", 15, { requires: ["comeback"] }],
+    ["neon_visor", "Neon visor", 40, { weight_by: { night_owl: 2 } }], ["disguise", "Disguise glasses", 20], ["spiral_glasses", "Hypno glasses", 25, { weight_by: { curious: 1.5 } }],
+    ["masquerade", "Masquerade mask", 35], ["bubble_gum", "Bubble gum", 15, { shift: [2, 4] }],
   ],
   neck: [
     ["scarf", "Scarf", 15], ["bowtie", "Bow tie", 20], ["bell", "Bell", 20], ["gold_chain", "Gold chain", 50, { weight_by: { collector: 2 } }],
@@ -149,6 +162,8 @@ const WEARABLES = {
     ["bandana", "Bandana", 15], ["ruff", "Ruff collar", 40, { weight_by: { reader: 2 } }], ["whistle", "Whistle", 20, { weight_by: { listener: 2 } }],
     ["key_necklace", "Key necklace", 30, { weight_by: { collector: 2 } }], ["shell_necklace", "Shell necklace", 25], ["feather_boa", "Feather boa", 40],
     ["ribbon", "Ribbon", 15], ["dog_tag", "Name tag", 20], ["amulet", "Amulet", 55, { requires: ["comeback"] }], ["compass", "Compass", 35, { weight_by: { curious: 2 } }],
+    ["fairy_lights", "Fairy lights", 30], ["bib", "Lobster bib", 15], ["life_ring", "Life ring", 20], ["daisy_chain", "Daisy chain", 20, { weight_by: { collector: 1.5 } }],
+    ["onair_pass", "On-air pass", 60, { prize: "chorus" }],
   ],
   held: [
     ["book", "Book", 20, { weight_by: { reader: 3 } }], ["lantern", "Lantern", 25], ["flag", "Flag", 15], ["balloon", "Balloon", 15],
@@ -158,29 +173,46 @@ const WEARABLES = {
     ["pencil", "Pencil", 15, { weight_by: { collector: 2 } }], ["paintbrush", "Paintbrush", 20], ["fishing_rod", "Fishing rod", 30],
     ["magnifier", "Magnifying glass", 30, { weight_by: { curious: 3 } }], ["torch", "Torch", 25], ["kite", "Kite", 25], ["shield", "Shield", 40, { requires: ["flawless"] }],
     ["teddy", "Teddy", 30], ["trophy", "Trophy", 90, { requires: ["streak_7"] }],
+    ["rubber_chicken", "Rubber chicken", 20], ["baguette", "Baguette", 15], ["bubble_wand", "Bubble wand", 25], ["cactus", "Tiny cactus", 20, { weight_by: { collector: 1.5 } }],
+    ["snow_globe", "Snow globe", 35], ["glow_stick", "Glow stick", 15, { weight_by: { night_owl: 2 } }], ["lollipop", "Swirl lollipop", 15],
+    // the colourings' prizes (never sold: each comes with its colouring, rules.featUp)
+    ["word_jar", "Word jar", 60, { prize: "glyph" }], ["card_fan", "Card fan", 60, { prize: "holo" }], ["popcorn", "Popcorn", 60, { prize: "broadcast" }],
+    ["boombox", "Boombox", 60, { prize: "synth" }],
   ],
   back: [
     ["cape_red", "Red cape", 40], ["cape_star", "Star cape", 60, { requires: ["night_owl"] }], ["backpack", "Backpack", 30, { weight_by: { curious: 2 } }],
     ["school_bag", "Satchel", 30, { weight_by: { reader: 2 } }], ["angel_wings", "Feather wings", 70, { requires: ["flawless"], wings: true }], ["bat_wings", "Bat wings", 55, { weight_by: { night_owl: 3 }, wings: true }],
     ["butterfly_wings", "Butterfly wings", 55, { wings: true }], ["jetpack", "Jetpack", 80, { weight_by: { curious: 2 } }], ["turtle_shell", "Turtle shell", 45],
     ["quiver", "Quiver", 35], ["balloons", "Bunch of balloons", 30], ["leaf_cloak", "Leaf cloak", 40],
+    ["snail_shell", "Snail shell", 40], ["cardboard_rocket", "Cardboard rocket", 45, { weight_by: { curious: 2 } }],
+    ["paper_wings", "Paper wings", 50, { wings: true, weight_by: { reader: 2 } }], ["neon_wings", "Neon wings", 70, { wings: true, weight_by: { night_owl: 2 } }],
+    ["bindle", "Bindle", 20], ["raid_banner", "Raid banner", 60, { prize: "molten" }],
   ],
   shirt: [
     ["striped", "Striped shirt", 20], ["plain", "Plain shirt", 15], ["dotted", "Dotted shirt", 20], ["checked", "Checked shirt", 25], ["star", "Star shirt", 30],
     ["hearts", "Hearts shirt", 25], ["zigzag", "Zigzag sweater", 25], ["floral", "Floral shirt", 30], ["galaxy", "Galaxy shirt", 45, { weight_by: { night_owl: 2, curious: 2 } }],
     ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
+    // Every shirt is an all-over pattern that reads the same whichever way the body lies (most creatures are four-legged
+    // and lie along the ground): no stripes or rows (the owner, 2026-11-09; Striped and Zigzag were redrawn so).
+    ["camo", "Camo shirt", 25], ["leopard", "Leopard print", 30], ["cherries", "Cherry print", 25], ["confetti", "Confetti shirt", 25],
+    ["sprinkles", "Sprinkles shirt", 25], ["honeycomb", "Honeycomb shirt", 30, { weight_by: { collector: 1.5 } }], ["cow", "Cow spots", 25],
+    ["circuit", "Circuit shirt", 35, { weight_by: { curious: 2 } }],
   ],
 };
-// The creatures with wings of their own in their drawing (game/art-src-16bit/creatures/_lineup_18_ff.png): they
-// don't wear wings as well (the owner: "wings shouldn't be able to be worn by creatures that already have wings").
-// The wings among the things worn are marked `wings: true` above.
-export const OWN_WINGS = new Set(["chick", "dragon_whelp", "griffin", "winged_fox"]);
-/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except wings when it has its own. */
-export const canWear = (beastId, it) => !(it && it.wings && OWN_WINGS.has(beastId));
-/** Can an egg wear item `it`? A hat and wings, whatever will hatch (the owner: "because that's funny"). */
-export const eggCanWear = (it) => !!it && (it.slot === "hat" || !!it.wings);
+// What can be worn goes by slot, so new creatures and new things follow it (the owner: "eggs have hats and back items
+// and creatures with wings can't be given back items. So when I add new creatures and items this rule holds"):
+// - a creature drawn with wings of its own ("wings": true in its rig.json, `wings` in beasts.js) wears nothing on its
+//   back;
+// - an egg wears a hat and anything on its back, whatever will hatch.
+// (The wings among the back items are marked `wings: true` above: an egg wears them as a pair, render.dressEgg.)
+/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except on its back when it has wings. */
+export const canWear = (beastId, it) => !(it && it.slot === "back" && BEASTS.some((b) => b.id === beastId && b.wings));
+/** Can an egg wear item `it`? A hat and anything on the back (the owner: "because that's funny"). */
+export const eggCanWear = (it) => !!it && (it.slot === "hat" || it.slot === "back");
 export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
   list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
+/** The thing to wear that comes with colouring `variant` (an item with `prize: variant`; never sold), or null. */
+export const prizeOf = (variant) => (variant && ITEMS.find((it) => it.prize === variant)) || null;
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.
 const decor = (id, name, price, size, extra = {}) => ({ id: `decor/${id}`, slot: "decor", name, price, size, ...extra });
 export const DECOR = [
@@ -214,7 +246,36 @@ export const VARIANTS = {
   twin: { name: "Twin", how: "Raise it alongside a hatched creature of another element", blurb: "takes on its companion's colours" },
   nocturne: { name: "Nocturne", how: "Study after 10 at night", needs: "night_owl", blurb: "a night form with a moonlit glow" },
   champion: { name: "Champion", how: "Win a battle from the brink, or without a single wrong answer", needs: ["comeback", "flawless"], blurb: "crested and gold-marked" },
+  // Earned by a feat done while the creature is the main one, the one out in the habitat (FEATS below; counted in
+  // its genome's `feats`, rules.featUp). Each is drawn quite differently, not just in other colours (forms.js).
+  glyph: { name: "Glyph", feat: "words", how: "Save 200 words to your vocab with it as your main creature", blurb: "glowing letters written all over it" },
+  synth: { name: "Synthwave", feat: "listen", how: "Listen for 10 hours with it as your main creature", blurb: "a neon sunset that ripples to the beat" },
+  holo: { name: "Holofoil", feat: "cards", how: "Review 1000 cards with it as your main creature", blurb: "the rainbow shine of a rare foil card" },
+  papercut: { name: "Storybook", feat: "book", how: "Read a whole book with it as your main creature", blurb: "cut out of the pages of a storybook" },
+  broadcast: { name: "Broadcast", feat: "netflix", how: "Watch 10 Netflix episodes to the end with it as your main creature", blurb: "flickering in from a late-night TV" },
+  molten: { name: "Raidforged", feat: "raid", how: "Beat a raid boss with your guild with it as your main creature", blurb: "obsidian and magma, forged in a raid" },
+  chorus: { name: "Chorus", feat: "podcast", how: "Listen to 10 podcast episodes to the end with it as your main creature", blurb: "trailed by echoes of every voice it heard" },
 };
+// The feats, each counted per creature while it is the main one: `goal` is how many it takes (listening is counted
+// in seconds, shown in hours: `per`), `unit` names them on the locked colouring ("143 / 200 words").
+//   words    words saved to vocab (rules.earn "save")
+//   listen   seconds of listening that count toward the daily goal (rules.earn "study" listen: never YouTube's)
+//   cards    cards answered in the review (rules.earn "review")
+//   book     books read to the end for real, mostly with it out (rules.readPage)
+//   netflix  Netflix episodes watched to near the end without skipping (rules.finishedEpisode)
+//   raid     guild raid bosses beaten (rules.claimRaid)
+//   podcast  podcast episodes listened to near the end without skipping (rules.finishedEpisode)
+export const FEATS = {
+  words: { goal: 200, unit: "words" },
+  listen: { goal: 36000, per: 3600, unit: "hours" },
+  cards: { goal: 1000, unit: "cards" },
+  book: { goal: 1, unit: "book" },
+  netflix: { goal: 10, unit: "episodes" },
+  raid: { goal: 1, unit: "raid boss" },
+  podcast: { goal: 10, unit: "episodes" },
+};
+/** The colouring a feat earns (a VARIANTS id), or null. */
+export const featVariant = (kind) => Object.keys(VARIANTS).find((id) => VARIANTS[id].feat === kind) || null;
 
 // ---------- battles ----------
 // Battles are won by reviewing your own vocab, not by the size of your numbers: every creature
@@ -381,8 +442,8 @@ export const LIVE_FORM_STATS = {
   shot: { range: 220, speed: 300, r: 5 },
   homing: { range: 260, speed: 170, r: 5, turn: 2.4 },
   beam: { range: 260, width: 10, warn: 0.3 },
-  burst: { range: 68, r: 44, reach: 24, warn: 0.2 },
-  drop: { range: 230, r: 28, warn: 0.55 },
+  burst: { range: 86, r: 62, reach: 24, warn: 0.2 }, // areas a good 1.4 times wider than they were (the owner: harder to dodge)
+  drop: { range: 230, r: 40, warn: 0.55 },
   dash: { range: 100, speed: 380 },
   self: { range: 0 },
   terrain: { range: 240, size: 1 },
@@ -393,7 +454,7 @@ export const LIVE_TUNING = {
   dawn_ray: { form: "beam" },
   charge: { form: "dash", range: 170, speed: 420 },
   thunderhead: { form: "beam", width: 20, range: 260 },
-  meteor: { form: "drop", r: 44 },
+  meteor: { form: "drop", r: 62 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
 };
@@ -508,11 +569,11 @@ const SHEET = (frames, w, h) => ({ w: w * frames, h, frames });
 export function artFiles() {
   const out = [];
   const add = (file, [w, h], kind, hint = {}) => out.push({ file, w, h, kind, ...hint });
-  // The creatures: each one's layers, cut from its drawing by tools/game_art/beasts.py ("beast" art is
-  // hand-made only, so the placeholder generator leaves it alone).
+  // The creatures: each one's animation strips, made from its drawing by tools/game_art/beasts.py and anim.py
+  // ("beast" art is hand-made only, so the placeholder generator leaves it alone).
   for (const b of BEASTS) {
-    for (const layer of beastLayers(b)) add(`creature/beast/${b.id}/${layer}.png`, b.size, "beast", { id: b.id });
-    if (b.young) for (const layer of beastLayers(b.young)) add(`creature/beast/${b.id}/hatchling/${layer}.png`, b.young.size, "beast", { id: b.id });
+    for (const [name, size] of beastLayers(b)) add(`creature/beast/${b.id}/${name}.png`, size, "beast", { id: b.id });
+    if (b.young) for (const [name, size] of beastLayers(b.young)) add(`creature/beast/${b.id}/hatchling/${name}.png`, size, "beast", { id: b.id });
   }
   for (const t of TYPE_IDS) {
     add(`egg/${t}.png`, [32, 32], "egg", { type: t });

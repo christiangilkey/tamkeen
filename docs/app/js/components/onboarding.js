@@ -4,7 +4,8 @@
 //   2. Which language are you learning? (English is offered to everyone who speaks another one.)
 //   3. Have you already started, or are you a complete beginner? (For someone who has started,
 //      the language's 1000 most common words count as already seen: see commonwords.js.)
-//   4. The app needs an API key from an AI provider; where to set or change it.
+//   4. Tapping a word works at once (the free built-in dictionary); an AI key adds what the word means
+//      in its sentence, and where to set one (Gemini, with its free allowance, is the first suggested).
 // Shared by the desktop app and the phone (each shows it from its welcome screen).
 
 import { esc, h, state, saveSettings, toast } from "../app.js";
@@ -66,6 +67,7 @@ function ask() {
 
     function paint() {
       modal.body.innerHTML = "";
+      modal.body.scrollTop = 0; // each box opens at its top (the first box's list leaves it scrolled down)
       if (step === 0) {
         modal.setTitle("");
         const box = h(`<div class="stack">
@@ -136,24 +138,26 @@ function ask() {
         box.querySelector("#ob-next").onclick = () => go(3);
         modal.body.append(box);
       } else {
-        modal.setTitle("One thing to set up: an API key");
+        modal.setTitle("Tap any word to see what it means");
         const names = Object.values(PROVIDERS).map((p) => p.short);
         const box = h(`<div class="stack">
-          <p>Tap any word and Tamkeen tells you what it means <em>in that sentence</em>. Those explanations are written by an
-            AI service, so <strong>for the app to work you need to give it an API key from an AI provider of your choice</strong>:
-            ${esc(names.slice(0, -1).join(", "))} or ${esc(names[names.length - 1])}.</p>
-          <p>An API key is a kind of password you get from the provider's website. You pay the provider directly:
-            a lookup costs a fraction of a cent, and Gemini has a free allowance.</p>
-          <p class="ob-where">Set it, or change it later, in <strong>Settings → Word definitions (AI)</strong>.
-            There you can also choose <strong>No AI</strong>: a free built-in dictionary that shows a word's usual meanings,
-            but not the one in its sentence (AI is strongly recommended).</p>
+          <p>That works straight away: a free built-in dictionary shows the word's usual meanings.</p>
+          <p>For more, add an <strong>AI key</strong>. Then Tamkeen also tells you what the word means <em>in that sentence</em>,
+            with its grammar and idioms. An API key is a kind of password from an AI provider's website
+            (${esc(names.slice(0, -1).join(", "))} or ${esc(names[names.length - 1])}). You pay the provider directly, a fraction of a cent
+            a word, and <strong>Gemini has a free allowance</strong>.</p>
+          <p class="ob-where">Add a key now or later in <strong>Settings → Word definitions (AI)</strong>.</p>
           <div class="row ob-nav">${dots()}<span class="spacer"></span>
             <button type="button" class="ghost" id="ob-back">← Back</button>
             <button type="button" id="ob-help">How do I get a key?</button>
             <button type="button" class="primary big" id="ob-done">Got it</button></div>
         </div>`);
         box.querySelector("#ob-back").onclick = () => go(2);
-        box.querySelector("#ob-help").onclick = () => showKeyHelp(settings().definer_provider);
+        // (Gemini first, for its free allowance, unless a key is already set for the chosen provider)
+        box.querySelector("#ob-help").onclick = () => {
+          const chosen = settings().definer_provider;
+          showKeyHelp(settings()[`llm_key_${chosen}`] ? chosen : "gemini");
+        };
         box.querySelector("#ob-done").onclick = async (e) => {
           e.target.disabled = true;
           try {

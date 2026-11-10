@@ -14,6 +14,14 @@
 
 import { MAX_SECONDS } from "./ytgemini.js";
 
+// A second tag, "Arabic track available" (DUB_TEXT), marks a video whose own sound is in another language
+// but which YouTube also offers dubbed in the language being studied ("multi-language audio"). The owner
+// wanted learners to know before they tap that it's an extra audio track, chosen under the player's
+// ⚙ → Audio track, and not the video's own sound. It comes from the same answer, so it costs nothing more.
+
+/** The dubbed-track tag; {0} is the study language's name (app/youtube.py CAPTION_TAG_DUB is the same). */
+export const DUB_TEXT = "{0} track available";
+
 /** The words on the tag (the desktop's app/youtube.py CAPTION_TAG_TEXT has the same three). */
 export const TAG_TEXT = {
   nokey: "No captions · Gemini required",
@@ -43,7 +51,7 @@ export const PAUSE = 2 * MINUTE;
 
 /**
  * Checks videos a few at a time and remembers the answers by video id.
- * `check(id)` resolves to checkCaptions' {captions, seconds}; `store` (optional) keeps the answers
+ * `check(id)` resolves to checkCaptions' {captions, seconds, dub}; `store` (optional) keeps the answers
  * between visits: {load() -> object, save(object)}; `scope` (the study language) is part of every key.
  * Returns {known(id), want(id) -> Promise<result>, drop(id)}: `want` asks (or answers from memory);
  * `drop` takes a video that left the screen out of the waiting line (one being asked carries on).
@@ -60,13 +68,14 @@ export function captionChecker({ check, store = null, scope = "", now = () => Da
   let pausedUntil = 0;
   const keyOf = (id) => `${scope}:${id}`;
 
-  const fresh = (entry) => entry && entry.until > now() ? { captions: entry.captions, seconds: entry.seconds || 0 } : null;
+  const fresh = (entry) => entry && entry.until > now() ? { captions: entry.captions, seconds: entry.seconds || 0, dub: !!entry.dub } : null;
   function known(id) {
     const key = keyOf(id);
     return fresh(kept[key]) || fresh(brief.get(key));
   }
   function remember(key, result) {
     const entry = { captions: result.captions, seconds: Number(result.seconds) || 0, until: now() + (KEEP[result.captions] || KEEP.unknown) };
+    if (result.dub) entry.dub = true;
     if (result.captions === "unknown") { brief.set(key, entry); return; }
     kept[key] = entry;
     const keys = Object.keys(kept);
@@ -85,6 +94,7 @@ export function captionChecker({ check, store = null, scope = "", now = () => Da
       running++;
       Promise.resolve().then(() => check(job.id)).catch(() => ({ captions: "unknown", seconds: 0 })).then((r) => {
         const result = r && ["yes", "other", "none", "unknown"].includes(r.captions) ? r : { captions: "unknown", seconds: 0 };
+        if (result.captions === "unknown") result.dub = false; // a failed check never tags
         if (result.captions === "unknown") {
           if (++fails >= FAILS_BEFORE_PAUSE) { pausedUntil = now() + PAUSE; fails = 0; }
         } else fails = 0;

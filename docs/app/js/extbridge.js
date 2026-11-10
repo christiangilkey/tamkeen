@@ -127,12 +127,14 @@ export function cleanLines(lines) {
   return out;
 }
 
-/** A title watched in Netflix, as it waits for the web app: {id, info, language, lines, at}, or null. */
+/** A title watched in Netflix, as it waits for the web app: {id, info, language, lines, at, finished?}, or null.
+ * `finished`: watched to near its end without skipping (playcover.js), for the creature game's Broadcast colouring. */
 export function cleanTitle(t) {
   if (!plain(t)) return null;
   const id = cleanTitleId(t.id);
   if (!id) return null;
-  return { id, info: cleanInfo(t.info), language: code(t.language), lines: cleanLines(t.lines), at: stamp(t.at) };
+  return { id, info: cleanInfo(t.info), language: code(t.language), lines: cleanLines(t.lines), at: stamp(t.at),
+    ...(t.finished === true ? { finished: true } : {}) };
 }
 
 /** What the extension sends: at most MAX_PENDING words and the titles, all cleaned; bad ones dropped. */
@@ -171,7 +173,7 @@ export function savedWord({ netflixId, def = null, word, lang, sentence, start, 
 }
 
 /** A title watched, with its subtitles as lines, for the web app's library. */
-export const watchedTitle = ({ id, info, language, lines }, now = Date.now()) => cleanTitle({ id, info, language, lines, at: now });
+export const watchedTitle = ({ id, info, language, lines, finished = false }, now = Date.now()) => cleanTitle({ id, info, language, lines, at: now, finished });
 
 /** What waits, from everything the extension keeps (chrome.storage.local.get(null)): {words, titles},
  * oldest word first. */

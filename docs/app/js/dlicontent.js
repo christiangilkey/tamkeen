@@ -153,8 +153,10 @@ export function onDeckProgress(fn) { progressFns.add(fn); return () => progressF
 const tell = (p) => { for (const fn of progressFns) { try { fn(p); } catch { /* a closed panel */ } } };
 
 /** Put one deck's chapters in the Vocab tab (those not added once yet) and give the cards already there the
- *  audio that has come since. `s` is kept current through `settings` ({ get, set }). Returns { added, voiced }. */
-export async function addDeck(deck, language, key, settings) {
+ *  audio that has come since. `s` is kept current through `settings` ({ get, set }). `others`: the language's other
+ *  decks: a word linked to one of theirs (an ICPT deck's word the basic deck has, tools/dli/ICPT.md) files the
+ *  learner's card of it in this deck's folder instead of making a second card. Returns { added, voiced }. */
+export async function addDeck(deck, language, key, settings, others = []) {
   const marks = dli.deckMarks(settings.get(), deck.id);
   const todo = deck.chapters.filter((ch) => !marks.has(place(ch)));
   // The folders of the new chapters, in course order (the Vocab page lists a deck's folders in the order made).
@@ -165,9 +167,14 @@ export async function addDeck(deck, language, key, settings) {
     if (!uidOf.has(name)) uidOf.set(name, (await api("/vocab/folders", { method: "POST", body: { name } })).uid);
   }
   const folderOf = (id) => { const ch = deck.chapters.find((c) => c.id === id); return ch ? uidOf.get(dli.deckFolderName(deck, ch)) : undefined; };
-  // The deck's words already in the learner's cards, by number.
+  // The deck's words already in the learner's cards, by number, and the cards of the language's other decks.
   const have = new Map();
-  for (const c of await api("/vocab")) { const n = dli.deckWordOf(deck, c); if (n && !have.has(n)) have.set(n, c); }
+  const theirs = new Map(); // "deck id:n" -> card
+  for (const c of await api("/vocab")) {
+    const n = dli.deckWordOf(deck, c);
+    if (n && !have.has(n)) have.set(n, c);
+    for (const o of others) { const m = dli.deckWordOf(o, c); if (m && !theirs.has(`${o.id}:${m}`)) theirs.set(`${o.id}:${m}`, c); }
+  }
   let added = 0, voiced = 0, step = 0;
   for (const ch of [...todo].reverse()) {
     tell({ deck: deck.title, chapter: ch.title, step: ++step, of: todo.length, words: added });
@@ -175,10 +182,16 @@ export async function addDeck(deck, language, key, settings) {
     if (!sealed) continue;  // (not in this version of the app)
     const data = dli.chapterWords(await dli.openJson(key, sealed, { name: ch.file }));
     const here = folderOf(ch.id);
-    // A word written in an earlier chapter that is also in this one: into this folder too.
-    const also = data.words.filter((w) => w.also && have.has(w.n)).map((w) => have.get(w.n))
+    // A word the learner has from another deck of the language: that card, not a new one.
+    for (const w of data.words) {
+      const c = !have.has(w.n) && w.link ? theirs.get(`${w.link.deck}:${w.link.n}`) : null;
+      if (c) have.set(w.n, c);
+    }
+    // A word written in an earlier chapter (or another deck) that is also in this one: into this folder too.
+    const also = [...new Set(data.words.filter((w) => have.has(w.n)).map((w) => have.get(w.n)))]
       .filter((c) => here && !(c.folders || []).includes(here));
     if (also.length) await api("/vocab/bulk-folders", { method: "POST", body: { ids: also.map((c) => c.id), add: [here] } });
+    for (const c of also) c.folders = [...(c.folders || []), here];
     const fresh = data.words.filter((w) => !w.also && !have.has(w.n));
     const mine = new Map();
     // (a batch's first card is its newest: the chapter's last hundred go in first, so its first word is newest)
@@ -210,8 +223,10 @@ export async function addDliDecks({ quiet = false } = {}) {
   if (!st.ready || studyLanguage() !== st.language) return { added: 0, voiced: 0 };
   const index = await loadIndex(st.key);
   let added = 0, voiced = 0;
-  for (const deck of dli.contentFor(index, st.language).filter((x) => x.kind === "deck")) {
-    const r = await addDeck(deck, st.language, st.key, { get: () => s, set: (next) => { if (next) s = next; } });
+  const decks = dli.contentFor(index, st.language).filter((x) => x.kind === "deck");
+  for (const deck of decks) {
+    const r = await addDeck(deck, st.language, st.key, { get: () => s, set: (next) => { if (next) s = next; } },
+      decks.filter((d) => d !== deck));
     added += r.added;
     voiced += r.voiced;
     if (r.added && !quiet) {

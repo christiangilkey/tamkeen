@@ -3,7 +3,9 @@
 
 import { api, on, saveSettings, state as app, toast } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
-import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, hearMultiplier, normalize, newState, rollDay, wordMultiplier } from "./rules.js";
+import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, finishedEpisode, hearMultiplier, normalize, newState, readPage, rollDay, wordMultiplier } from "./rules.js";
+import { VARIANTS, prizeOf } from "./data.js";
+import { t } from "../i18n.js";
 import { cardsGlow } from "./idle.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
@@ -89,6 +91,12 @@ export function reward(event, anchor = null) {
     if (repeat) landXp(null, { from: anchor, repeat: true, next: comboAlive() ? comboNow().next : "", hot: comboAlive() });
     return null;
   }
+  if (result.colouring) tellColouring(result.colouring);
+  if (!result.xp && result.colouring && !result.goalDone && !result.cleared) { // (it paid nothing but a colouring)
+    saveGame();
+    for (const fn of listeners) { try { fn(result, g); } catch { /* ignore */ } }
+    return result;
+  }
   if (result.cleared) result.glow = cardsGlow(g); // the day's flashcards are done: their reward is glow
   saveGame();
   // (`quiet` events still earn, but without the fountain: the vocab reviewer has its own effects.)
@@ -142,6 +150,45 @@ function listenForAnki() {
   if (listening) return;
   listening = true;
   try { on("anki", () => { checkAnki(); }); } catch { /* this shell has no server events */ }
+}
+
+// ---------- colourings earned by feats (rules.js featUp; data.js FEATS) ----------
+
+/** Say that the main creature has earned colouring `id` (a VARIANTS id): a jingle and a note. */
+export function tellColouring(id) {
+  const v = VARIANTS[id];
+  if (!v) return;
+  sfx("jackpot");
+  const name = t(v.name);
+  const prize = prizeOf(id); // (its prize, in the bag now: rules.featUp)
+  const text = prize ? t("{0} colouring earned! Pick it on the Creatures page. {1} is in My things too.", name, t(prize.name))
+    : t("{0} colouring earned! Pick it on the Creatures page.", name);
+  try { toast(text, { timeout: 6000 }); } catch { /* no toasts here */ }
+}
+
+/** Tell everyone listening about a feat's result, and the creature's new colouring if it earned one. */
+function featDone(res) {
+  if (!res) return res;
+  saveGame();
+  if (res.colouring) tellColouring(res.colouring);
+  for (const fn of listeners) { try { fn({ type: "feat", ...res }, game); } catch { /* ignore */ } }
+  return res;
+}
+
+/** An episode was watched ("netflix") or listened to ("podcast") to near its end without skipping (playcover.js):
+ * it counts for the main creature, once. */
+export function featEpisode(kind, id) {
+  if (!gameOn()) return null;
+  return featDone(finishedEpisode(getGame(), kind, id));
+}
+
+/** A page of a book has been read for real (rules.readPage): words `from` to `to` of `total`. */
+export function featBookPage(key, from, to, total) {
+  if (!gameOn()) return null;
+  const res = readPage(getGame(), key, { from, to, total });
+  if (!res) return null;
+  saveGame();
+  return res.colouring ? featDone(res) : res;
 }
 
 /** Count study time while `active()` is true. Returns a function that stops counting. `source` "youtube":

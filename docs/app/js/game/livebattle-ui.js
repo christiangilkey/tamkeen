@@ -12,14 +12,14 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
+import { FRAME, animAt, composeCreature, drawLiving, drawingOf, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
 import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
-import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spikeFrame, step, usePotion, view } from "./livebattle.js";
+import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 import { isChallengeWord } from "./challenge.js";
 
@@ -34,7 +34,6 @@ const VIEW_LONG = 560;
 const LEAD = 0.3;         // seconds of movement the camera looks ahead (a small lead where the creature is going)
 const FOLLOW = 5;         // how fast the camera catches up (higher: tighter)
 const ANIM_MS = 200;      // a frame of the water, lava and other moving ground (the same frame on every tile)
-const WALK_MS = 130;      // a frame of the walk cycle
 // Where each move and each answer sits: a 2 x 2 block shaped like the controller's face buttons turned a
 // quarter (X Y over A B), so the button on the controller is where its answer is on the screen.
 // `slot` is which move (or answer) the place holds; `keys` the keyboard's (U I over J K, or 1 2 over 3 4).
@@ -144,11 +143,11 @@ export function runLiveBattle(setup, vocab) {
     </div>
     <div class="lb-stage"><div class="lb-arena"><canvas width="${viewport.w}" height="${viewport.h}"></canvas><div class="lb-floats" aria-hidden="true"></div>
       <canvas class="lb-mini" hidden aria-hidden="true"></canvas>
-      <div class="lb-banner" hidden></div><span class="lb-combo" hidden></span></div></div>
+      <div class="lb-banner" hidden></div><span class="lb-combo" hidden></span><span class="lb-hints" hidden></span></div></div>
     <div class="lb-side">
       <div class="lb-ground"></div>
       <div class="lb-moves"></div>
-      <div class="lb-extra"></div>
+      <div class="lb-extra${b.mode === "wild" ? " reserve" : ""}"></div>
       <div class="lb-help small"></div>
     </div>
     <div class="lb-quiz" hidden></div>
@@ -278,7 +277,7 @@ export function runLiveBattle(setup, vocab) {
 
   // ----- creatures: each pose composed once, then kept -----
   const frames = new Map();
-  const poseKey = (side, i, pose) => `${side}|${i}|${pose.walk}|${pose.bob}|${pose.act || ""}|${pose.t || 0}|${pose.eyes}`;
+  const poseKey = (side, i, pose) => `${side}|${i}|${pose.anim}|${pose.frame}|${pose.act || ""}|${pose.t || 0}|${pose.eyes}`;
   function creatureFrame(side, f, i, pose) {
     const key = poseKey(side, i, pose);
     if (!frames.has(key)) { frames.set(key, null); composeCreature(f.look, pose).then((c) => frames.set(key, c)); }
@@ -289,11 +288,14 @@ export function runLiveBattle(setup, vocab) {
     return null;
   }
   const team = (side) => (side === "me" ? b.mine : b.theirs);
-  function warmUp(side, i) { // the walk cycle and the idle bob ready before they are needed
+  function warmUp(side, i) { // every frame of its walk, wing beat and idle (and the blink) ready before they are needed
     const f = team(side)[i];
     if (!f) return;
-    for (let walk = 0; walk < 4; walk++) creatureFrame(side, f, i, { walk, bob: 0, eyes: "open" });
-    creatureFrame(side, f, i, { walk: 0, bob: 1, eyes: "open" });
+    const anims = drawingOf(f.look).anims;
+    for (const anim of ["idle", "walk", "fly"]) {
+      for (let frame = 0; anims[anim] && frame < anims[anim].frames; frame++) creatureFrame(side, f, i, { anim, frame, eyes: "open" });
+    }
+    creatureFrame(side, f, i, { anim: "idle", frame: 0, eyes: "blink" });
   }
 
   // ----- what is on the screen besides the world -----
@@ -518,7 +520,10 @@ export function runLiveBattle(setup, vocab) {
       const c = v[side].charging;
       if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0));
     }
-    for (const p of v.fx) if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
+    for (const p of v.fx) {
+      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
+      else if (p.kind === "area") warnShape(p.side, p, 0.3 * (1 - (p.t || 0))); // as it lands: the whole circle it hit, fading (the art is smaller)
+    }
     if (target) {
       ctx.strokeStyle = "rgba(255, 255, 255, .7)";
       ctx.beginPath();
@@ -534,6 +539,7 @@ export function runLiveBattle(setup, vocab) {
       if (secrets.some((sc) => !secretOpen(sc) && p.x >= sc.x0 && p.x < sc.x0 + sc.w && p.y >= sc.y0 && p.y < sc.y0 + sc.h)) continue; // (a tall one would peek over the rock)
       things.push({ y: py, draw: () => drawProp(p) });
     }
+    for (const p of v.pickups || []) if (seen(p.x - 12, p.y - 32, p.x + 12, p.y + 4)) things.push({ y: p.y, draw: () => drawPickup(p, now) });
     for (const side of ["me", "foe"]) things.push({ y: v[side].y, draw: () => drawCreature(side, now) });
     for (const o of map.ornaments || []) {
       const info = ORNAMENTS[o.id];
@@ -644,6 +650,12 @@ export function runLiveBattle(setup, vocab) {
     miniCtx.lineWidth = 1;
     miniCtx.strokeRect(Math.round(drawn.x * k) + 0.5, Math.round(Math.max(0, drawn.y) * k) + 0.5, Math.round(viewport.w * k) - 1, Math.round(Math.min(viewport.h, viewport.h + drawn.y) * k) - 1);
     const dot = (c, color) => { if (!c || (c.fainted && !c.act)) return; miniCtx.fillStyle = "#1b1420"; miniCtx.fillRect(Math.round(c.x * k) - 3, Math.round(c.y * k) - 3, 6, 6); miniCtx.fillStyle = color; miniCtx.fillRect(Math.round(c.x * k) - 2, Math.round(c.y * k) - 2, 4, 4); };
+    for (const p of v.pickups || []) { // hint cards lying about
+      miniCtx.fillStyle = "#1b1420";
+      miniCtx.fillRect(Math.round(p.x * k) - 2, Math.round(p.y * k) - 2, 5, 5);
+      miniCtx.fillStyle = "#ffd54a";
+      miniCtx.fillRect(Math.round(p.x * k) - 1, Math.round(p.y * k) - 1, 3, 3);
+    }
     dot(v.foe, "#ff5a5a");
     dot(v.me, "#7fd3ff");
   }
@@ -654,12 +666,14 @@ export function runLiveBattle(setup, vocab) {
     if (cam.at && dt > 0) {
       const jump = Math.hypot(me.x - cam.at.x, me.y - cam.at.y) > 40; // stepped in somewhere else: no lead from that
       const vx = jump ? 0 : (me.x - cam.at.x) / dt, vy = jump ? 0 : (me.y - cam.at.y) / dt;
-      const k = Math.min(1, dt * 6);
+      // smoothed slowly (about 0.4 s), so running into a wall, edging round a corner or being knocked back by a hit
+      // eases the lead away instead of swinging the view
+      const k = Math.min(1, dt * 2.5);
       cam.vx += (vx - cam.vx) * k;
       cam.vy += (vy - cam.vy) * k;
     }
     cam.at = { x: me.x, y: me.y };
-    const lead = { x: Math.max(-48, Math.min(48, cam.vx * LEAD)), y: Math.max(-32, Math.min(32, cam.vy * LEAD)) };
+    const lead = { x: Math.max(-36, Math.min(36, cam.vx * LEAD)), y: Math.max(-24, Math.min(24, cam.vy * LEAD)) };
     const clampTo = (want0, size, lo, hi) => (hi - lo <= size ? lo + (hi - lo - size) / 2 : Math.max(lo, Math.min(hi - size, want0)));
     const tx = clampTo(me.x + lead.x - viewport.w / 2, viewport.w, 0, W);
     const ty = clampTo(me.y - 24 + lead.y - viewport.h / 2, viewport.h, -TOP, H);
@@ -667,6 +681,24 @@ export function runLiveBattle(setup, vocab) {
     const f = 1 - Math.exp(-dt * FOLLOW);
     cam.x += (tx - cam.x) * f;
     cam.y += (ty - cam.y) * f;
+  }
+
+  /** A hint card lying on the arena: its picture bobbing over a small shadow, with a glint now and then. */
+  function drawPickup(p, now) {
+    const x = Math.round(p.x), y = Math.round(p.y);
+    const bob = Math.round(Math.sin(now / 260 + p.id) * 2);
+    ctx.fillStyle = "rgba(0, 0, 0, .28)";
+    ctx.beginPath();
+    ctx.ellipse(x, y, 6, 2.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    const img = want("icon/hint.png");
+    if (img) ctx.drawImage(img, x - 8, y - 22 + bob);
+    else { ctx.fillStyle = "#ffd54a"; ctx.fillRect(x - 5, y - 20 + bob, 10, 12); }
+    if ((now + p.id * 700) % 1600 < 260) { // the glint
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(x + 4, y - 22 + bob, 5, 1);
+      ctx.fillRect(x + 6, y - 24 + bob, 1, 5);
+    }
   }
 
   function drawProp(p) {
@@ -716,8 +748,9 @@ export function runLiveBattle(setup, vocab) {
     if (!f) return;
     if (c.fainted && (!c.act || c.act.t > 0.17)) return; // the faint cloud covers it from its 3rd frame; the next steps in shortly
     const actT = c.act ? Math.min(7, Math.floor(c.act.t * 8)) / 8 : 0;
-    const pose = c.act ? { walk: 0, bob: 0, act: c.act.kind, t: actT, eyes: "open" }
-      : { walk: c.moving ? Math.floor(now / WALK_MS) % 4 : 0, bob: c.moving ? 0 : Math.floor(now / 520 + (side === "me" ? 0 : 1)) % 2, eyes: "open" };
+    // Walking when it moves (a winged creature flies its dashes), else breathing and now and then blinking.
+    const pose = c.act ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+      : c.moving ? animAt(f.look, c.dashing ? "fly" : "walk", now) : animAt(f.look, "idle", now, side === "me" ? 0 : 1);
     const img = creatureFrame(side, f, i, pose);
     const shadow = art.get("fx/shadow_m.png");
     ctx.save();
@@ -725,7 +758,7 @@ export function runLiveBattle(setup, vocab) {
     ctx.translate(Math.round(c.x), Math.round(c.y));
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
     if (c.face < 0) ctx.scale(-1, 1);
-    if (img) ctx.drawImage(img, -FRAME / 2, -FRAME);
+    if (img) drawLiving(ctx, img, f.look, now); // (as drawImage(img, -FRAME / 2, -FRAME), with a colouring's particles)
     ctx.restore();
     const charge = c.charging && fx("charge", c.type);
     if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);
@@ -827,35 +860,48 @@ export function runLiveBattle(setup, vocab) {
         pips.title = t("{0} of {1} still standing", alive.filter(Boolean).length, alive.length);
       }
     }
-    // The ground under the player's creature, and what it does.
+    // The ground under the player's creature, and what it does: always two lines high (the full text in its
+    // title), so the arena above never changes size as the creature walks from one ground to another.
     const tr = TERRAIN[v.me.terrain];
     const gk = tr ? tr.id : "";
     if (hud.ground !== gk) {
       hud.ground = gk;
       const box = $(".lb-ground");
       box.innerHTML = "";
+      box.title = tr ? `${tr.name}: ${tr.text}` : "";
       if (tr) {
+        const line = h(`<span class="lb-ground-in"></span>`);
         const sw = h(`<span class="lb-swatch"></span>`);
         const img = art.get(tr.art.fill);
         if (img) sw.style.backgroundImage = `url("${ART}${tr.art.fill}")`; else sw.style.background = PLACEHOLDER[tr.id] || "#777";
         const name = h(`<strong></strong>`);
         name.textContent = tr.name;
-        const what = h(`<span class="muted"></span>`);
-        what.textContent = tr.text;
-        box.append(sw, name, what);
+        line.append(sw, name);
         for (const [list, cls] of [[tr.likes || [], "up"], [tr.hinders || [], "down"]]) {
           for (const e of list) {
             const tag = h(`<span class="lb-tag ${cls}"><img class="px-icon" width="16" height="16" alt="" src="${ART}icon/type_${e}.png"></span>`);
             tag.title = cls === "up" ? t("Good for {0}", t(TYPES[e].name)) : t("Bad for {0}", t(TYPES[e].name));
             tag.append(cls === "up" ? "+" : "−");
-            box.append(tag);
+            line.append(tag);
           }
         }
+        const what = h(`<span class="muted"></span>`);
+        what.textContent = tr.text;
+        line.append(what);
+        box.append(line);
       }
     }
     const combo = $(".lb-combo");
     combo.hidden = !v.combo;
     if (v.combo) combo.textContent = `×${COMBO[Math.min(COMBO.length - 1, v.combo)]}`;
+    const cards = $(".lb-hints"); // the hint cards picked up this battle
+    if (cards.dataset.n !== String(v.hints)) {
+      cards.dataset.n = String(v.hints);
+      cards.hidden = !v.hints;
+      cards.innerHTML = `${icon("hint")}`;
+      cards.append(`×${v.hints}`);
+      cards.title = t("Hint ({0})", v.hints);
+    }
     paintMoves();
   }
 
@@ -962,17 +1008,19 @@ export function runLiveBattle(setup, vocab) {
     panel.querySelector(".lbq-sentence").textContent = q.sentence || "";
     quizButtons = PLACES.map((place, i) => {
       const btn = h(`<button type="button" class="lbq-opt"><span class="lb-key"></span><span class="lbq-text" dir="auto"></span></button>`);
-      btn.querySelector(".lbq-text").textContent = q.options[i] ?? "";
+      const text = btn.querySelector(".lbq-text");
+      text.textContent = q.options[i] ?? "";
+      if (q.options[i]) setLang(text, detectLanguage(q.options[i]));
       if (q.options[i] === undefined) btn.disabled = true;
       btn.addEventListener("click", () => choose(i));
       panel.querySelector(".lbq-options").append(btn);
       return btn;
     });
     const hint = panel.querySelector(".lbq-hint");
-    if (game.items.hint > 0) {
+    if (b.hints > 0) { // the hint cards picked up on the arena this battle
       hint.hidden = false;
       hint.innerHTML = `${icon("hint")} `;
-      hint.append(t("Hint ({0})", game.items.hint));
+      hint.append(t("Hint ({0})", b.hints));
       hint.addEventListener("click", useHint);
     }
     box.append(panel);
@@ -990,8 +1038,7 @@ export function runLiveBattle(setup, vocab) {
     $(".lbq-left").textContent = `${Math.ceil(quiz.timeLeft)}`;
   }
   function useHint() {
-    if (!b.quiz || game.items.hint <= 0) return;
-    game.items.hint--;
+    if (!spendHint(b)) return;
     $(".lbq-hint").hidden = true;
     const q = b.quiz.q;
     const wrong = quizButtons.map((_, i) => i).filter((i) => i !== q.answer && !quizButtons[i].disabled).sort(() => Math.random() - 0.5).slice(0, 2);
@@ -1062,6 +1109,7 @@ export function runLiveBattle(setup, vocab) {
       switch (ev.kind) {
         case "step": play("dust", null, x - (v[ev.side]?.face || 1) * 4, y, { flip: (v[ev.side]?.face || 1) < 0 }); break;
         case "attack": sfx("common"); break;
+        case "pickup": float(t("Hint card!"), x, y - 30, "strong"); play("power", null, x, y); sfx("lucky"); break;
         case "hit": {
           play("impact", ev.element, x, y - BODY_UP);
           numbers.push({ text: `-${ev.dmg}`, x, y: y - 44, t: 0, color: ev.mult > 1 ? "#ffd54a" : ev.mult < 1 ? "#a9b8d6" : "#ffffff" });
@@ -1131,8 +1179,9 @@ export function runLiveBattle(setup, vocab) {
     return { x: drawn.x + ((e.clientX - r.left) / r.width) * viewport.w, y: drawn.y + ((e.clientY - r.top) / r.height) * viewport.h };
   };
   const clampWorld = (p) => ({ x: Math.max(4, Math.min(W - 4, p.x)), y: Math.max(4, Math.min(H - 2, p.y)) });
+  const openedAt = performance.now(); // a tap in the first moment is the end of the one that opened the battle: the creature stands still
   canvas.addEventListener("pointerdown", (e) => {
-    if (b.over || b.quiz || paused()) return;
+    if (b.over || b.quiz || paused() || performance.now() - openedAt < 500) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
@@ -1202,7 +1251,7 @@ export function runLiveBattle(setup, vocab) {
   let releasePad = controllerArea("battle", {
     move1: padAction("move1"), move2: padAction("move2"), move3: padAction("move3"), move4: padAction("move4"),
     walkUp: walking, walkDown: walking, walkLeft: walking, walkRight: walking,
-    hint: { run: useHint, can: () => !!b.quiz && game.items.hint > 0 },
+    hint: { run: useHint, can: () => !!b.quiz && b.hints > 0 && !b.quiz.hinted },
     potion: { run: drinkPotion, can: () => canDrink() },
     help: { run: () => pause(true), hint: () => t("How to play") },
     pause: { run: () => pause(), hint: () => t("Pause") },
@@ -1239,8 +1288,9 @@ export function runLiveBattle(setup, vocab) {
     box.dataset.can = String(can);
     box.innerHTML = "";
     if (!can) return;
-    const btn = h(`<button type="button" class="lb-potion">${icon("potion")} </button>`);
-    btn.append(t("Potion ({0}): half its health back, once a battle", game.items.potion));
+    const btn = h(`<button type="button" class="lb-potion">${icon("potion")}<span></span></button>`);
+    btn.title = t("Potion ({0}): half its health back, once a battle", game.items.potion);
+    btn.lastElementChild.textContent = btn.title;
     btn.onclick = drinkPotion;
     box.append(btn);
   }
@@ -1319,33 +1369,44 @@ export function runLiveBattle(setup, vocab) {
   }
 
   // ----- fitting the arena to the screen -----
+  // The zoom (device pixels per game pixel) is picked once, when the battle opens, and kept for the whole fight (the
+  // owner: the camera stays the same distance from the creature the entire fight). A new size of the screen only
+  // changes how much of the arena shows; the zoom is picked again only if it would leave too small a window on the
+  // world (a phone turned on its side).
+  let zoom = 0;
   function fit() {
     const stage = $(".lb-stage");
     const sw = stage.clientWidth, sh = stage.clientHeight;
     if (!sw || !sh) return;
     const dpr = window.devicePixelRatio || 1;
     const dw = sw * dpr, dh = sh * dpr;
-    let best = null;
-    for (let px = 1; px <= 10; px++) { // device pixels per game pixel
-      const w = Math.floor(dw / px), h = Math.floor(dh / px);
-      if (best && (w < 220 || h < 160)) break;
-      const off = Math.abs(Math.max(w, h) - VIEW_LONG);
-      if (!best || off < best.off) best = { px, w, h, off };
+    if (!zoom || Math.floor(dw / zoom) < 220 || Math.floor(dh / zoom) < 160) {
+      let best = null;
+      for (let px = 1; px <= 10; px++) {
+        const w = Math.floor(dw / px), h = Math.floor(dh / px);
+        if (best && (w < 220 || h < 160)) break;
+        const off = Math.abs(Math.max(w, h) - VIEW_LONG);
+        if (!best || off < best.off) best = { px, off };
+      }
+      zoom = best.px;
     }
+    const fullW = Math.floor(dw / zoom), fullH = Math.floor(dh / zoom);
     // never more than the arena (and the strip above it): then it all shows, centred
-    const w = Math.min(best.w, W), h = Math.min(best.h, H + TOP);
-    if (w !== viewport.w || h !== viewport.h) {
+    const w = Math.min(fullW, W), h = Math.min(fullH, H + TOP);
+    const resized = w !== viewport.w || h !== viewport.h;
+    if (resized) {
       canvas.width = w;
       canvas.height = h;
       ctx.imageSmoothingEnabled = false;
     }
-    Object.assign(viewport, { w, h, s: best.px });
+    Object.assign(viewport, { w, h, s: zoom });
     // the rival attacks only from inside what the player can see (livebattle.js `sight`)
-    const sight = { w: best.w, h: best.h };
+    const sight = { w: fullW, h: fullH };
     if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) input(b, { sight });
-    canvas.style.width = `${(w * best.px) / dpr}px`;
-    canvas.style.height = `${(h * best.px) / dpr}px`;
+    canvas.style.width = `${(w * zoom) / dpr}px`;
+    canvas.style.height = `${(h * zoom) / dpr}px`;
     mini.style.width = `${Math.round(Math.max(72, Math.min(128, sw * 0.24)))}px`;
+    if (resized) cam.ready = false; // a new window on the world: put it straight on the creature, no glide across the arena
   }
   const ro = new ResizeObserver(() => fit());
   ro.observe($(".lb-stage"));

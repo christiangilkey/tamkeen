@@ -150,25 +150,29 @@ export function captionVerdict(tracks, wanted, taught = [], translationLanguages
  * refusal such as "confirm you're not a bot", a live stream), so a check that failed never tags a
  * video. "none" only when every way of asking (CLIENTS) answered and none listed a caption track.
  * Asks only fetchCaptions' first question (the player's caption list): no captions, sound or video
- * are downloaded. `seconds`: the video's length, when YouTube said.
+ * are downloaded. `seconds`: the video's length, when YouTube said. `dub`: true when the same answer
+ * lists a dubbed audio track in `language` that isn't the video's own sound (dubbedAudio), for the
+ * "Arabic track available" tag.
  */
 export async function checkCaptions(id, { language, taught = [], request }) {
   let seconds = 0;
   let empty = false;
+  let dub = false;
   for (const client of CLIENTS) {
     let res;
-    try { res = await request(playerQuestion(id, client)); } catch { return { captions: "unknown", seconds }; }
+    try { res = await request(playerQuestion(id, client)); } catch { return { captions: "unknown", seconds, dub }; }
     const data = res && res.status < 400 ? parse(res.text) : null;
     const details = data && data.videoDetails;
-    if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds };
+    if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds, dub };
     seconds = Number(details.lengthSeconds) || 0;
+    dub = dub || !!dubbedAudio(data, language);
     const renderer = (data.captions || {}).playerCaptionsTracklistRenderer || {};
     const tracks = Array.isArray(renderer.captionTracks) ? renderer.captionTracks : [];
-    if (tracks.length) return { captions: captionVerdict(tracks, language, taught, renderer.translationLanguages), seconds };
-    if (details.isLiveContent && !seconds) return { captions: "unknown", seconds }; // live: Gemini can't caption it
+    if (tracks.length) return { captions: captionVerdict(tracks, language, taught, renderer.translationLanguages), seconds, dub };
+    if (details.isLiveContent && !seconds) return { captions: "unknown", seconds, dub }; // live: Gemini can't caption it
     empty = true;
   }
-  return { captions: empty ? "none" : "unknown", seconds };
+  return { captions: empty ? "none" : "unknown", seconds, dub };
 }
 
 /**

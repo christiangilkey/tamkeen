@@ -9,12 +9,14 @@
 //   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId });  // only the keys given change
 //   const events = step(b, dt);      // dt in seconds; while b.quiz is open only its timer runs
 //   answer(b, choiceIndex | null);   // null = no answer (out of time)
+//   spendHint(b);                    // in a question: one of the hint cards picked up on the arena (b.hints)
 //   view(b);                         // everything the screen draws
 //   battleResult(b);                 // for rules.finishBattle once b.over
 //
 // World units are pixels (a tile is 16x16). A creature's x, y is the point between its feet.
 
 import { MOVES, liveMove, matchup, moveById } from "./data.js";
+import { rng } from "./genome.js";
 import { battleWords, pickQuestion } from "./rules.js";
 import * as battlemap from "./battlemap.js";
 
@@ -46,6 +48,14 @@ export const SPIKE_S = 2;           // spikes shoot up every this many seconds (
 const AXE_HIT = 0.08;               // a swinging axe takes this share of a creature's health
 const AXE_PUSH = 220;               // px/s it throws the creature along its swing
 const OPEN_REACH = 30;              // px from a cracked wall's tile centre a creature's feet must be to break it open
+// Hint cards (the owner: found while walking round the map, put there at random; every battle starts with none).
+// One turns up every so often on open ground the player's creature can walk to; walking over it picks it up, and in
+// a question it takes away two wrong answers. They last for this battle only.
+export const HINT_FIRST = [5, 10];  // seconds before the first turns up
+export const HINT_EVERY = [10, 18]; // seconds between the next ones
+export const HINT_MAX = 2;          // never more than this many lying about at once
+export const HINT_PICK = 14;        // px from the creature's feet that picks one up
+const HINT_CLEAR = 56;              // px a new one keeps from both creatures and from the others
 const SHOW_S = 0.25;                // how long a beam or area stays on screen after it lands
 const MAX_DT = 1 / 30;              // the simulation runs in steps no longer than this
 const MAX_STEP = 0.25;              // and never jumps more than this at once (a hidden tab)
@@ -177,10 +187,15 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
     quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
   };
   b.brain = { me: brainOf(autoSkill), foe: brainOf(b.foeForm, brain) };
+  // Hint cards have dice of their own, so they never change how the fight itself rolls (a seeded battle in a test or a
+  // trial plays out as it always did); in a real battle (Math.random) they differ every time, even on a gym's fixed map.
+  b.hintRand = rng(rand === Math.random ? (Math.random() * 2 ** 32) >>> 0 : ((Number(arena.seed) || 1) ^ 0x5bd1e995) >>> 0);
+  b.nextHint = HINT_FIRST[0] + b.hintRand() * (HINT_FIRST[1] - HINT_FIRST[0]);
   b.width = arena.width || arena.cols * TILE;
   b.height = arena.height || arena.rows * TILE;
   b.starts = arena.starts || { me: { x: 3 * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 }, foe: { x: (arena.cols - 4) * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 } };
@@ -353,13 +368,30 @@ export function whyNot(b, side, moveId) {
   return null;
 }
 
-/** Whether the rival is within the move's reach from where the creature stands. */
+/** Whether the move, used now, would reach the rival if it stood still. The same reach as the hit itself (flight()
+ * and dashOn()), so the button's "Out of range" and the rival's choice of moves agree with what really lands. */
 export function inRange(b, side, moveId) {
   const f = current(b, side), o = current(b, other(side));
   const lm = liveMove(moveById(moveId));
   if (lm.form === "self" || (lm.form === "terrain" && lm.where === "self")) return true;
   const d = dist(f, o);
-  return lm.form === "dash" ? d <= lm.range + 2 * BODY.rx : d <= lm.range;
+  return d <= reachOf(lm, d > 0 ? (o.x - f.x) / d : 1, d > 0 ? (o.y - f.y) / d : 0) - 1;
+}
+
+/** How far from the user's feet to the rival's feet a move lands, aimed along (ux, uy): the run of the shot, beam,
+ * area or dash, plus the part of the rival it has to touch (its hurt shape for a shot or beam, the two bodies for a
+ * dash: both wider than tall, so the reach is a little shorter up and down than across). */
+export function reachOf(lm, ux, uy) {
+  const across = (a, c) => 1 / Math.hypot(ux / a, uy / c); // an ellipse's radius in this direction
+  const hurt = (pad) => across(HURT.rx + pad, HURT.ry + pad) + HURT.lift * uy; // its middle sits `lift` above the feet
+  switch (lm.form) {
+    case "shot": case "homing": return 8 + lm.range + hurt(lm.r || 0); // it starts 8 px out
+    case "beam": return lm.range + hurt((lm.width || 0) / 2);
+    case "burst": return (lm.reach || 0) + lm.r + 6;
+    case "drop": return lm.range + lm.r + 6;
+    case "dash": return lm.range + across(2 * BODY.rx + 6, 2 * BODY.ry + 6);
+    default: return lm.range || 0;
+  }
 }
 
 // ---------- the question ----------
@@ -660,6 +692,7 @@ function tick(b, h, events) {
   separate(b);
   flight(b, h, events);
   for (const side of SIDES) groundTick(b, current(b, side), h, events);
+  hintsTick(b, events);
   if (b.ctl.me.open) opening(b, events);
   traps(b, events);
   const me = current(b, "me");
@@ -887,6 +920,50 @@ function traps(b, events) {
 }
 
 /** Once a second the ground heals or burns the creature standing on it. */
+/** Hint cards: a new one now and then (while fewer than HINT_MAX lie about), and the player's creature picking one up. */
+function hintsTick(b, events) {
+  if (b.over) return;
+  if (b.time >= b.nextHint) {
+    b.nextHint = b.time + HINT_EVERY[0] + b.hintRand() * (HINT_EVERY[1] - HINT_EVERY[0]);
+    const p = b.pickups.length < HINT_MAX ? hintSpot(b) : null;
+    if (p) {
+      const card = { id: b.nextId++, kind: "hint", x: p.x, y: p.y };
+      b.pickups.push(card);
+      events.push({ kind: "hint-appears", side: "me", id: card.id, x: card.x, y: card.y }); // (for the player)
+    }
+  }
+  const me = current(b, "me");
+  if (me.fainted) return;
+  const i = b.pickups.findIndex((p) => Math.hypot(p.x - me.x, p.y - me.y) <= HINT_PICK);
+  if (i < 0) return;
+  const [card] = b.pickups.splice(i, 1);
+  b.hints++;
+  events.push({ kind: "pickup", item: "hint", side: "me", id: card.id, hints: b.hints, x: card.x, y: card.y });
+}
+
+/** Somewhere at random for a hint card: open ground that doesn't hurt, which the player's creature can walk to,
+ * not right next to either creature or another card. Null when a few tries find nowhere. */
+function hintSpot(b) {
+  const me = current(b, "me"), foe = current(b, "foe");
+  for (let tries = 0; tries < 8; tries++) {
+    const x = 8 + b.hintRand() * (b.width - 16), y = 8 + b.hintRand() * (b.height - 16);
+    const p = b.ground.safeSpotNear ? b.ground.safeSpotNear(b.map, x, y, who(me), { from: { x: me.x, y: me.y } }) : nearestFit(b, me, x, y);
+    if (!p || !fits(b, me, p.x, p.y) || groundAt(b, me, p.x, p.y).spikes > 0) continue;
+    if ([me, foe, ...b.pickups].some((o) => Math.hypot(o.x - p.x, o.y - p.y) < HINT_CLEAR)) continue;
+    return { x: p.x, y: p.y };
+  }
+  return null;
+}
+
+/** Spend one of this battle's hint cards on the open question (one a question; the screen then takes away two wrong
+ * answers). Returns whether it could. */
+export function spendHint(b) {
+  if (!b.quiz || b.hints <= 0 || b.quiz.hinted) return false;
+  b.hints--;
+  b.quiz.hinted = true;
+  return true;
+}
+
 function groundTick(b, f, h, events) {
   if (f.fainted || b.over) return;
   f.tick += h;
@@ -1130,6 +1207,7 @@ export function view(b) {
     moves: movesView(b),
     fx: b.fx.map(fxView),
     potion: b.mode === "wild" && !b.potionUsed && !b.over,
+    hints: b.hints, pickups: b.pickups.map((p) => ({ id: p.id, kind: p.kind, x: p.x, y: p.y })),
   };
 }
 
