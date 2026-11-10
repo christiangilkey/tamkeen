@@ -6,8 +6,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import vm from "node:vm";
-import { CLIENTS, CaptionError, captionVerdict, checkCaptions, fetchCaptions } from "../../web/js/ytcaptions.js";
-import { AT_ONCE, KEEP, PAUSE, TAG_TEXT, captionChecker, tagText } from "../../web/js/ytcaptiontag.js";
+import { CLIENTS, CaptionError, captionVerdict, checkCaptions, dubbedAudio, fetchCaptions } from "../../web/js/ytcaptions.js";
+import { AT_ONCE, DUB_TEXT, KEEP, PAUSE, TAG_TEXT, captionChecker, tagText } from "../../web/js/ytcaptiontag.js";
 
 const TAUGHT = ["es", "ar", "fr", "ja", "zh", "ru", "tl", "la", "ko"];
 const track = (languageCode, kind, extra = {}) => ({ baseUrl: `https://www.youtube.com/api/timedtext?v=x&lang=${languageCode}`, languageCode, kind, ...extra });
@@ -75,7 +75,7 @@ const check = (yt, language = "ar") => checkCaptions("lo3KyF50IGE", { language, 
 
 test("a video is 'none' only when every way of asking says it has no captions", async () => {
   const yt = pretendYouTube(ok(null));
-  assert.deepEqual(await check(yt), { captions: "none", seconds: 300 });
+  assert.deepEqual(await check(yt), { captions: "none", seconds: 300, dub: false });
   assert.deepEqual(yt.seen.map((r) => JSON.parse(r.body).context.client.clientName), ["ANDROID", "IOS"]);
   assert.ok(yt.seen.every((r) => r.method === "POST" && r.url.startsWith("https://www.youtube.com/youtubei/v1/player")),
     "only the player's question: no captions, sound or video are downloaded");
@@ -86,6 +86,41 @@ test("a video is 'none' only when every way of asking says it has no captions", 
   const one = pretendYouTube(ok([track("ar")]));
   assert.equal((await check(one)).captions, "yes");
   assert.equal(one.seen.length, 1, "one question when the first answer lists captions");
+});
+
+// The audio tracks YouTube lists in the same answer: [language id, is it the video's own sound].
+const withAudio = (answer, tracks) => ({ ...answer, streamingData: { adaptiveFormats: [{ itag: 137 },
+  ...tracks.map(([id, own]) => ({ itag: 251, audioTrack: { id: `${id}.${own ? 4 : 3}`, displayName: id, audioIsDefault: own } }))] } });
+
+test("the same answer says whether the video is also dubbed in the language being learnt", async () => {
+  const dub = async (answer, language = "ar") => (await check(pretendYouTube(answer), language)).dub;
+  assert.equal(await dub(withAudio(ok([track("en", "asr")]), [["en", true], ["ar", false], ["es", false]])), true, "English video with an Arabic dub");
+  assert.equal(await dub(withAudio(ok(null), [["en", true], ["ar", false]])), true, "no captions, but a dub");
+  assert.equal(await dub(withAudio(ok([track("ar", "asr")]), [["ar", true], ["en", false]])), false, "Arabic is its own sound");
+  assert.equal(await dub(withAudio(ok([track("en", "asr")]), [["en", true], ["es", false]])), false, "dubbed, but not in Arabic");
+  assert.equal(await dub(withAudio(ok([track("en", "asr")]), [["en", true], ["es", false]]), "es"), true);
+  assert.equal(await dub(ok([track("en", "asr")])), false, "one sound only");
+  assert.equal(await dub(withAudio({ playabilityStatus: { status: "ERROR" } }, [["en", true], ["ar", false]])), false, "a failed check never says dubbed");
+  const one = pretendYouTube(withAudio(ok([track("ar")]), [["en", true], ["ar", false]]));
+  await check(one);
+  assert.equal(one.seen.length, 1, "no extra question for it");
+});
+
+test("the copy in YouTube's pages finds a dub as ytcaptions.js does", () => {
+  const hooks = {};
+  const win = { __tamkeenTestHooks: hooks, location: { hostname: "www.youtube.com", href: "https://www.youtube.com/", pathname: "/" },
+    setInterval() {}, setTimeout() {}, clearTimeout() {}, URL, document: { querySelectorAll: () => [] }, addEventListener() {},
+    __tamkeenBridge: "address" };
+  win.window = win;
+  win.top = win;
+  vm.runInNewContext(browserSource, win, { filename: "youtube-browser.js" });
+  const pieces = [["en", true], ["ar", false], ["ar", true], ["es", false], ["fil", false], ["zh-Hans", false], ["en", false]];
+  for (const wanted of ["ar", "en", "tl", "zh", "es"]) {
+    for (let mask = 0; mask < 1 << pieces.length; mask++) {
+      const data = withAudio({}, pieces.filter((_, i) => mask & (1 << i)));
+      assert.equal(hooks.dubbed(data, wanted), !!dubbedAudio(data, wanted), `${wanted}: ${JSON.stringify(data.streamingData.adaptiveFormats)}`);
+    }
+  }
 });
 
 test("a check that failed is 'unknown', never 'none'", async () => {
@@ -146,7 +181,7 @@ test("videos are checked a few at a time, once each", async () => {
   assert.deepEqual(p.calls, ["a", "b", "c", "d", "e"], "the same video is asked once");
   assert.ok(results.every((r) => r.captions === "none"));
   assert.ok(p.most <= AT_ONCE);
-  assert.deepEqual(await c.want("a"), { captions: "none", seconds: 60 });
+  assert.deepEqual(await c.want("a"), { captions: "none", seconds: 60, dub: false });
   assert.equal(p.calls.length, 5, "a known answer isn't asked again");
 });
 
@@ -172,6 +207,18 @@ test("answers last a while and survive a visit; failures don't", async () => {
   t += KEEP.none;
   assert.equal(again.known("none"), null, "'no captions' is asked again after a few hours (YouTube adds them later)");
   assert.equal(again.known("has").captions, "yes");
+});
+
+test("a dubbed track is remembered with the answer", async () => {
+  let saved = null;
+  const store = { load: () => saved, save: (kept) => { saved = JSON.parse(JSON.stringify(kept)); } };
+  const c = captionChecker({ check: async (id) => ({ captions: "yes", seconds: 60, dub: id === "dubbed" }), scope: "ar", store });
+  assert.equal((await c.want("dubbed")).dub, true);
+  assert.equal((await c.want("plain")).dub, false);
+  const again = captionChecker({ check: async () => assert.fail("not asked again"), scope: "ar", store });
+  assert.equal(again.known("dubbed").dub, true);
+  assert.equal(again.known("plain").dub, false);
+  assert.equal(DUB_TEXT, "{0} track available");
 });
 
 test("YouTube refusing again and again stops the checks for a while", async () => {
@@ -281,6 +328,26 @@ test("YouTube's own lists: the videos with no captions get the tag, the rest don
   p.list[0].href = "https://www.youtube.com/watch?v=hasCaptions"; // YouTube reused the element for another video
   await p.tick();
   assert.equal(p.tag(0), null, "the tag goes with its video");
+});
+
+test("YouTube's own lists: a video also dubbed in the language being learnt says so", async () => {
+  const answers = (id) => ({
+    dubbedOnly1: withAudio(ok([track("en", "asr")]), [["en", true], ["ar", false]]),
+    dubbedNoCap: withAudio(ok(null), [["en", true], ["ar", false]]),
+    ownArabic01: withAudio(ok([track("ar", "asr")]), [["ar", true], ["en", false]]),
+    madeByGemin: withAudio(ok(null), [["en", true], ["ar", false]]),
+  })[id];
+  const p = youtubePage({ answers, cfg: { ...CFG, dub: "مسار عربي متاح" }, links: [
+    ["https://www.youtube.com/watch?v=dubbedOnly1", 100], ["https://www.youtube.com/watch?v=dubbedNoCap", 300],
+    ["https://www.youtube.com/watch?v=ownArabic01", 500], ["https://www.youtube.com/watch?v=madeByGemin", 600],
+  ] });
+  await p.tick();
+  const labels = (i) => { const t = p.list[i].children.find((c) => c.attrs["data-tamkeen"] === "captions"); return t ? t.shadow.children.map((l) => l.textContent) : []; };
+  assert.deepEqual(labels(0), ["مسار عربي متاح"], "its own sound is English: the Arabic track is an extra");
+  assert.deepEqual(labels(1), ["بلا ترجمة · Gemini", "مسار عربي متاح"], "both tags, one under the other");
+  assert.deepEqual(labels(2), [], "Arabic is the video's own sound");
+  assert.deepEqual(labels(3), ["مسار عربي متاح"], "Gemini's captions are in the library: only the dub tag");
+  assert.equal(JSON.parse(p.kept.get("tamkeen-captions"))["ar:dubbedOnly1"][3], 1, "kept with the answer");
 });
 
 test("without the app's settings (an older app), YouTube's pages get no tags and nothing is asked", async () => {

@@ -729,11 +729,12 @@ async function youtubeBrowserScript() {
  * at once. Nothing (no tags) if something is missing. */
 async function captionTagPrefix() {
   try {
-    const [{ TAG_TEXT, tagText }, { MAX_SECONDS }, { t }, { LANGUAGE_CODES }, { aiKey }] = await Promise.all([
+    const [{ DUB_TEXT, TAG_TEXT, tagText }, { MAX_SECONDS }, { t }, { LANGUAGE_CODES, langInfo }, { aiKey }] = await Promise.all([
       import("./ytcaptiontag.js"), import("./ytgemini.js"), import("./i18n.js"), import("./languages.js"), import("./define-service.js")]);
     const made = (lib.episodes || []).filter((e) => !e.deleted && e.model === "youtube-gemini").map((e) => String(e.guid));
     const cfg = { lang: studyLanguage(), taught: LANGUAGE_CODES, made, max: MAX_SECONDS,
-                  text: t(tagText({ captions: "none", seconds: 0 }, { hasKey: !!aiKey("gemini") })), long: t(TAG_TEXT.long) };
+                  text: t(tagText({ captions: "none", seconds: 0 }, { hasKey: !!aiKey("gemini") })), long: t(TAG_TEXT.long),
+                  dub: t(DUB_TEXT, t(langInfo(studyLanguage()).name)) };
     return `window.__tamkeenCaptionTag=${JSON.stringify(cfg)};`;
   } catch { return ""; }
 }

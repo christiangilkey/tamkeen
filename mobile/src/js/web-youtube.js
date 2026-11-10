@@ -2,7 +2,8 @@
 // video tapped there; a web page can't, so here YouTube's list of videos (popular ones, a search,
 // or a followed channel's videos) is read through the go-between server and shown inside Tamkeen.
 // Tapping a video opens it with its captions as words, like on the phone. A video YouTube has no
-// captions for gets a small tag once it is on screen (ytcaptiontag.js).
+// captions for gets a small tag once it is on screen (ytcaptiontag.js), and one YouTube also offers
+// dubbed in the language being studied gets "Arabic track available" (its own sound is another language).
 
 import { esc, toast, ytRequest } from "./app.js";
 import { offerFix } from "./components/fixit.js";
@@ -12,7 +13,8 @@ import { LANGUAGE_CODES, langInfo } from "./languages.js";
 import { webFetch } from "./native.js";
 import { lib, settings } from "./store.js";
 import { checkCaptions } from "./ytcaptions.js";
-import { captionChecker, tagText } from "./ytcaptiontag.js";
+import { DUB_TEXT, captionChecker, tagText } from "./ytcaptiontag.js";
+import { t } from "./i18n.js";
 import { THIS_YEAR, TOPICS, TOPIC_WITHIN, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "./youtube-home.js";
 
 // ---------- the "No captions · Gemini required" tag ----------
@@ -38,20 +40,23 @@ function geminiMade() {
 }
 
 /** Check each card's video once it comes near the screen (a few at a time) and tag it when YouTube
- * has no captions for it. `cards`: [[element, video id, tag element]]. */
+ * has no captions for it, or a dubbed track in `lang`. `cards`: [[element, video id, tag element, dub tag]]. */
 function tagCards(cards, lang) {
   const checker = checkerFor(lang);
   const made = geminiMade();
   const hasKey = !!aiKey("gemini");
-  const show = (tag, id, result) => {
+  const dubText = t(DUB_TEXT, t(langInfo(lang).name));
+  const show = (tag, id, result, dubTag) => {
     const text = tagText(result, { hasKey, made: made.has(id) });
     tag.textContent = text;
     tag.hidden = !text;
+    dubTag.textContent = dubText;
+    dubTag.hidden = !result.dub;
   };
   const byCard = new Map(cards.map((c) => [c[0], c]));
   const look = (card) => {
-    const [, id, tag] = byCard.get(card);
-    checker.want(id).then((r) => { if (r) show(tag, id, r); });
+    const [, id, tag, dubTag] = byCard.get(card);
+    checker.want(id).then((r) => { if (r) show(tag, id, r, dubTag); });
   };
   if (typeof IntersectionObserver === "undefined") { cards.slice(0, 6).forEach((c) => look(c[0])); return; }
   const seen = new IntersectionObserver((entries) => {
@@ -59,7 +64,7 @@ function tagCards(cards, lang) {
       const [, id] = byCard.get(e.target);
       if (!e.isIntersecting) { checker.drop(id); continue; }
       const have = checker.known(id);
-      if (have) { show(byCard.get(e.target)[2], id, have); seen.unobserve(e.target); continue; }
+      if (have) { show(byCard.get(e.target)[2], id, have, byCard.get(e.target)[3]); seen.unobserve(e.target); continue; }
       look(e.target);
     }
   }, { rootMargin: "200px 0px" });
@@ -189,8 +194,9 @@ export async function render(view, { query }) {
       <span class="stack" style="display:flex;flex-direction:column;gap:4px;min-width:0;white-space:normal">
         <strong dir="auto" style="overflow-wrap:anywhere">${esc(v.title)}</strong>
         <span class="small muted" dir="auto">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
-        <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span></span>`;
-    cards.push([card, v.id, card.querySelector(".web-yt-tag")]);
+        <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span>
+        <span class="tag web-yt-dub" hidden style="align-self:flex-start" dir="auto"></span></span>`;
+    cards.push([card, v.id, card.querySelector(".web-yt-tag"), card.querySelector(".web-yt-dub")]);
     card.onclick = async () => {
       if (card.disabled) return;
       card.disabled = true;

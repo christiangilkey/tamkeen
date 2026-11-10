@@ -95,7 +95,7 @@ def test_caption_tag_config_for_the_youtube_window(world):
     from app import desktop, languages, paths
 
     source = (paths.web_dir() / "js" / "ytcaptiontag.js").read_text(encoding="utf-8")
-    for english in youtube.CAPTION_TAG_TEXT.values():
+    for english in [*youtube.CAPTION_TAG_TEXT.values(), youtube.CAPTION_TAG_DUB]:
         assert f'"{english}"' in source, english
     gemini_max = re.search(r"MAX_SECONDS = ([\d *]+);", (paths.web_dir() / "js" / "ytgemini.js").read_text(encoding="utf-8"))
     assert eval(gemini_max.group(1)) == youtube.GEMINI_MAX_SECONDS  # noqa: S307 (a number from our own file)
@@ -108,6 +108,7 @@ def test_caption_tag_config_for_the_youtube_window(world):
         assert cfg["made"] == [VIDEO], "only videos whose captions Gemini wrote"
         assert cfg["lang"] == languages.study() and "ar" in cfg["taught"] and cfg["max"] == 3600
         assert cfg["text"] == "No captions · Gemini required" and cfg["long"] == "No captions on YouTube"
+        assert cfg["dub"] == f"{languages.LANGUAGES[languages.study()]} track available"
         db.set_settings({"llm_key_gemini": "AIza-not-a-real-key"})
         assert youtube.caption_tag_config()["text"] == "No captions · Gemini will write them"
         assert "AIza" not in desktop.caption_tag_prefix(), "the key itself never goes to YouTube's page"

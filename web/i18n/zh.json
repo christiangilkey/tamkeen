@@ -4628,6 +4628,7 @@
 "No {0} captions available for this video.":"这个视频没有{0}字幕。",
 "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.":"这个视频没有{0}字幕，YouTube 也不肯为 Tamkeen 翻译它的字幕。换一个视频试试。",
 "No captions available for this video.":"这个视频没有字幕。",
+"{0} track available":"有音轨：{0}",
 "No captions · Gemini required":"没有字幕 · 需要 Gemini",
 "Couldn't reach Gemini. Check your internet connection.":"无法连接到 Gemini。请检查你的网络连接。",
 "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.":"Gemini（Google）拒绝了 API 密钥。它很可能已经过期，你可能需要一个新的。",

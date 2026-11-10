@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** YouTube lists show **"Arabic track available"** (in the language you’re learning) on a video whose own sound is another language but which YouTube also offers dubbed in yours. So you know before you tap that it’s an extra audio track, chosen in the video under ⚙ → Audio track, and not the video’s own sound.
 - **Improved:** Wings and capes now show on the Moss boulder, Crystal golem, Treasure golem, Fluffball and Axolotl, rising from the top of their backs. Before, they hid almost completely behind the creature.
 - **Improved:** The Firefly beetle's head is just its head now. Hats, glasses and scarves sit on its real head (the cap tilts forward with it), it nods and blinks without moving its whole shell, and wings or a cape on its back show above its shell. Things worn by a creature can now sit at an angle, to fit its body.
 - **Changed:** What a creature can wear now goes by where it's worn, so new creatures and new things follow the same rule. An egg wears a hat and **anything on its back** (a cape, a satchel, balloons and so on, not only wings; wings stick out on both sides). A creature with wings of its own (Phoenix chick, Dragon whelp, Thunder griffin and Winged fox) wears **nothing on its back**, not only no wings. What it can't wear stays in your bag for another creature.

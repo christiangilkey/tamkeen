@@ -226,6 +226,8 @@ CAPTION_TAG_TEXT = {
     "key": "No captions · Gemini will write them",
     "long": "No captions on YouTube",
 }
+# The tag for a video YouTube also offers dubbed in the study language (DUB_TEXT in ytcaptiontag.js).
+CAPTION_TAG_DUB = "{0} track available"
 GEMINI_MAX_SECONDS = 60 * 60  # web/js/ytgemini.js MAX_SECONDS
 
 
@@ -256,9 +258,11 @@ def caption_tag_config() -> dict[str, Any]:
     words = _translations()
     say = lambda english: str(words.get(english) or english)  # noqa: E731
     has_key = bool(str(settings.get("llm_key_gemini") or "").strip())
+    study = languages.study()
     return {
-        "lang": languages.study(), "taught": list(languages.LANGUAGES), "made": made,
+        "lang": study, "taught": list(languages.LANGUAGES), "made": made,
         "text": say(CAPTION_TAG_TEXT["key" if has_key else "nokey"]), "long": say(CAPTION_TAG_TEXT["long"]),
+        "dub": say(CAPTION_TAG_DUB).replace("{0}", say(languages.LANGUAGES.get(study, study))),
         "max": GEMINI_MAX_SECONDS,
     }
 

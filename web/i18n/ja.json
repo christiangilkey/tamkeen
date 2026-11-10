@@ -4628,6 +4628,7 @@
 "No {0} captions available for this video.":"この動画には{0}の字幕がありません。",
 "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.":"この動画には{0}の字幕がなく、YouTube も Tamkeen のために字幕を翻訳してくれませんでした。別の動画を試してください。",
 "No captions available for this video.":"この動画には字幕がありません。",
+"{0} track available":"音声トラックあり：{0}",
 "No captions · Gemini required":"字幕なし · Gemini が必要",
 "Couldn't reach Gemini. Check your internet connection.":"Gemini に接続できませんでした。インターネット接続を確認してください。",
 "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.":"Gemini（Google）が API キーを拒否しました。期限切れの可能性が高いので、新しいキーが必要かもしれません。",

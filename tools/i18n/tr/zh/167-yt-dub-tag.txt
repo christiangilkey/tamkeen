@@ -1,0 +1,2 @@
+# The tag on a YouTube video also dubbed in the study language (ytcaptiontag.js DUB_TEXT); {0} is the language name.
+5ada0d9c	有音轨：{0}

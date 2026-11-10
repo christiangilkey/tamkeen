@@ -4628,6 +4628,7 @@
 "No {0} captions available for this video.":"У этого видео нет субтитров (язык: {0:lower}).",
 "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.":"У этого видео нет субтитров (язык: {0:lower}), а YouTube не стал переводить его субтитры для Tamkeen. Попробуйте другое видео.",
 "No captions available for this video.":"У этого видео нет субтитров.",
+"{0} track available":"Есть звуковая дорожка: {0}",
 "No captions · Gemini required":"Нет субтитров · нужен Gemini",
 "Couldn't reach Gemini. Check your internet connection.":"Не удалось связаться с Gemini. Проверьте подключение к интернету.",
 "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.":"Gemini (Google) отклонил ключ API. Скорее всего, срок его действия истёк, и вам нужен новый.",

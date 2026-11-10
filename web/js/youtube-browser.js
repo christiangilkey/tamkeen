@@ -264,7 +264,9 @@
   // that failed never tags. The app tells the page what it needs up front, in the same evaluation as
   // this script, and the setting is taken off `window` at once so YouTube's own scripts never see it:
   //   window.__tamkeenCaptionTag = {lang, taught: [codes], made: [ids with Gemini's captions in the
-  //   library], text: the tag (translated), long: the tag for a video too long for Gemini, max: seconds}
+  //   library], text: the tag (translated), long: the tag for a video too long for Gemini, max: seconds,
+  //   dub: "Arabic track available" (translated), for a video YouTube also offers dubbed in `lang`}
+  // The dub tag comes from the same answer (dubbedAudio in ytcaptions.js, copied as dubbed() below).
   var tagCfg = window.__tamkeenCaptionTag || null;
   try { delete window.__tamkeenCaptionTag; } catch (e) { window.__tamkeenCaptionTag = undefined; }
   var CLIENTS = [{ clientName: "ANDROID", clientVersion: "20.10.38" }, { clientName: "IOS", clientVersion: "20.10.4" }];
@@ -299,31 +301,46 @@
     for (i = 0; i < from.length; i++) if (from[i] !== wanted && (taught || []).indexOf(from[i]) >= 0) return "other";
     return "none";
   }
-  /** checkCaptions (ytcaptions.js): {captions: "yes"|"other"|"none"|"unknown", seconds}. */
+  /** dubbedAudio (ytcaptions.js): does the answer list an audio track in `wanted` that isn't the
+   * video's own sound? */
+  function dubbed(data, wanted) {
+    var formats = ((data && data.streamingData) || {}).adaptiveFormats || [];
+    var original = null, hit = false, i;
+    for (i = 0; i < formats.length; i++) {
+      var a = formats[i] && formats[i].audioTrack;
+      if (!a || !a.id) continue;
+      var lang = baseLanguage(String(a.id).split(".")[0]);
+      if (a.audioIsDefault) { if (!original) original = lang; } else if (lang === wanted) hit = true;
+    }
+    return hit && original !== wanted;
+  }
+  /** checkCaptions (ytcaptions.js): {captions: "yes"|"other"|"none"|"unknown", seconds, dub}. */
   function askYouTube(id) {
     var seconds = 0;
+    var dub = false;
     function one(i, empty) {
-      if (i >= CLIENTS.length) return { captions: empty ? "none" : "unknown", seconds: seconds };
+      if (i >= CLIENTS.length) return { captions: empty ? "none" : "unknown", seconds: seconds, dub: dub };
       var c = CLIENTS[i];
       return fetch(location.origin + "/youtubei/v1/player?prettyPrint=false", {
         method: "POST", credentials: "omit", headers: { "Content-Type": "application/json", "Accept-Language": "en" },
         body: JSON.stringify({ context: { client: { clientName: c.clientName, clientVersion: c.clientVersion, hl: "en" } }, videoId: id }),
       }).then(function (res) { return res && res.status < 400 ? res.json() : null; }).then(function (data) {
         var details = data && data.videoDetails;
-        if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds: seconds };
+        if (!details || ((data.playabilityStatus || {}).status || "") !== "OK") return { captions: "unknown", seconds: seconds, dub: false };
         seconds = Number(details.lengthSeconds) || 0;
+        dub = dub || dubbed(data, tagCfg.lang);
         var renderer = (data.captions || {}).playerCaptionsTracklistRenderer || {};
         var tracks = renderer.captionTracks && renderer.captionTracks.length ? renderer.captionTracks : [];
-        if (tracks.length) return { captions: verdict(tracks, tagCfg.lang, tagCfg.taught), seconds: seconds };
-        if (details.isLiveContent && !seconds) return { captions: "unknown", seconds: seconds }; // live: Gemini can't caption it
+        if (tracks.length) return { captions: verdict(tracks, tagCfg.lang, tagCfg.taught), seconds: seconds, dub: dub };
+        if (details.isLiveContent && !seconds) return { captions: "unknown", seconds: seconds, dub: false }; // live: Gemini can't caption it
         return one(i + 1, true);
       });
     }
     return Promise.resolve().then(function () { return one(0, false); })
-      .catch(function () { return { captions: "unknown", seconds: seconds }; });
+      .catch(function () { return { captions: "unknown", seconds: seconds, dub: false }; });
   }
 
-  // The answers, by study language and video id: [captions, seconds, kept until].
+  // The answers, by study language and video id: [captions, seconds, kept until, dub (1 or 0)].
   var answers = null;
   function loadAnswers() {
     if (answers) return answers;
@@ -333,12 +350,12 @@
   }
   function known(id) {
     var a = loadAnswers()[tagCfg.lang + ":" + id];
-    return a && a[2] > Date.now() ? { captions: a[0], seconds: a[1] } : null;
+    return a && a[2] > Date.now() ? { captions: a[0], seconds: a[1], dub: !!a[3] } : null;
   }
   function keepAnswer(id, result) {
     var all = loadAnswers();
     var now = Date.now();
-    all[tagCfg.lang + ":" + id] = [result.captions, result.seconds || 0, now + KEEP[result.captions]];
+    all[tagCfg.lang + ":" + id] = [result.captions, result.seconds || 0, now + KEEP[result.captions], result.dub ? 1 : 0];
     var keys = Object.keys(all);
     if (keys.length > 500) for (var i = 0; i < keys.length; i++) if (!(all[keys[i]][2] > now) || i < keys.length - 500) delete all[keys[i]];
     try { localStorage.setItem(STORE, JSON.stringify(all)); } catch (e) { /* kept for this page only */ }
@@ -382,17 +399,27 @@
     for (var i = 0; i < tags.length; i++) if (tags[i].link === link) return tags[i];
     return null;
   }
-  function addTag(link, id, result) {
+  /** The tags a video's answer earns: "No captions · …" and/or "Arabic track available". */
+  function tagTexts(id, result) {
+    var out = [];
+    if (result.captions === "none" && !made[id]) out.push(Number(result.seconds) > (tagCfg.max || 3600) && tagCfg.long ? tagCfg.long : tagCfg.text);
+    if (result.dub && tagCfg.dub) out.push(tagCfg.dub);
+    return out;
+  }
+  function addTag(link, id, texts) {
     var host = document.createElement("span");
     host.setAttribute("data-tamkeen", "captions");
     host.style.cssText = "all:initial;position:absolute;left:6px;top:6px;z-index:3;pointer-events:none;max-width:calc(100% - 12px);display:block;";
-    var label = document.createElement("span");
-    label.setAttribute("dir", "auto");
-    label.textContent = Number(result.seconds) > (tagCfg.max || 3600) && tagCfg.long ? tagCfg.long : tagCfg.text;
-    // Like the app's own small tags: plain, one line.
-    label.style.cssText = "display:inline-block;box-sizing:border-box;max-width:100%;font:600 12px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;" +
-      "padding:1px 8px;border-radius:99px;background:#1c1c1a;color:#f2f1ec;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
-    host.attachShadow({ mode: "closed" }).appendChild(label);
+    var root = host.attachShadow({ mode: "closed" });
+    for (var i = 0; i < texts.length; i++) {
+      var label = document.createElement("span");
+      label.setAttribute("dir", "auto");
+      label.textContent = texts[i];
+      // Like the app's own small tags: plain, one line each, one under the other.
+      label.style.cssText = "display:table;box-sizing:border-box;max-width:100%;margin-bottom:4px;font:600 12px/1.5 system-ui,-apple-system,'Segoe UI',sans-serif;" +
+        "padding:1px 8px;border-radius:99px;background:#1c1c1a;color:#f2f1ec;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;";
+      root.appendChild(label);
+    }
     try {
       var cs = window.getComputedStyle ? window.getComputedStyle(link) : null;
       if (cs && cs.position === "static") link.style.position = "relative";
@@ -417,16 +444,17 @@
     for (var i = 0; i < links.length; i++) {
       var link = links[i];
       var id = videoId(link.href);
-      if (!id || made[id] || tagOn(link)) continue;
+      if (!id || (made[id] && !tagCfg.dub) || tagOn(link)) continue; // (Gemini's captions: only a dub tag is left to find)
       if (!link.querySelector || !link.querySelector("img")) continue; // the thumbnail's link (not the title's)
       var box = link.getBoundingClientRect ? link.getBoundingClientRect() : null;
       if (!box || !box.width || box.bottom < -300 || box.top > height + 300) continue;
       var have = known(id);
-      if (!have) want(id);
-      else if (have.captions === "none") addTag(link, id, have);
+      if (!have) { want(id); continue; }
+      var texts = tagTexts(id, have);
+      if (texts.length) addTag(link, id, texts);
     }
   }
-  if (window.__tamkeenTestHooks) window.__tamkeenTestHooks.verdict = verdict;
+  if (window.__tamkeenTestHooks) { window.__tamkeenTestHooks.verdict = verdict; window.__tamkeenTestHooks.dubbed = dubbed; }
 
   setInterval(function () { checkPage(); checkChannel(); checkTags(); }, 700);
   checkPage();

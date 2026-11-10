@@ -4628,6 +4628,7 @@
 "No {0} captions available for this video.":"Walay caption sa {0} nga magamit para niini nga video.",
 "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.":"Walay caption sa {0} kini nga video, ug dili mohubad ang YouTube sa mga caption niini para sa Tamkeen. Sulayi ang laing video.",
 "No captions available for this video.":"Walay caption nga magamit para niini nga video.",
+"{0} track available":"Adunay audio track: {0}",
 "No captions · Gemini required":"Walay captions · kinahanglan ang Gemini",
 "Couldn't reach Gemini. Check your internet connection.":"Dili maabot ang Gemini. Susiha ang imong koneksyon sa internet.",
 "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.":"Gisalikway sa Gemini (Google) ang API key. Lagmit na-expire na kini, busa basin kinahanglan nimo og bag-o.",

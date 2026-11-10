@@ -4628,6 +4628,7 @@
 "No {0} captions available for this video.":"วิดีโอนี้ไม่มีคำบรรยายภาษา{0:lower}",
 "No {0} captions for this video, and YouTube wouldn't translate its captions for Tamkeen. Try another video.":"วิดีโอนี้ไม่มีคำบรรยายภาษา{0:lower} และ YouTube ไม่ยอมแปลคำบรรยายให้ Tamkeen ลองวิดีโออื่น",
 "No captions available for this video.":"วิดีโอนี้ไม่มีคำบรรยาย",
+"{0} track available":"มีแทร็กเสียง: {0}",
 "No captions · Gemini required":"ไม่มีคำบรรยาย · ต้องใช้ Gemini",
 "Couldn't reach Gemini. Check your internet connection.":"ติดต่อ Gemini ไม่ได้ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณ",
 "Gemini (Google) rejected the API key. It has most likely expired, so you probably need a new one.":"Gemini (Google) ปฏิเสธคีย์ API ส่วนใหญ่เป็นเพราะคีย์หมดอายุ คุณจึงน่าจะต้องใช้คีย์ใหม่",

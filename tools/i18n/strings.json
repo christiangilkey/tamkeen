@@ -23150,6 +23150,11 @@
   "f": "web/js/ytcaptions.js"
  },
  {
+  "id": "5ada0d9c",
+  "k": "{0} track available",
+  "f": "web/js/ytcaptiontag.js"
+ },
+ {
   "id": "a966c817",
   "k": "No captions · Gemini required",
   "f": "web/js/ytcaptiontag.js"
