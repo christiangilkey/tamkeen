@@ -50,7 +50,8 @@ import beasts  # noqa: E402
 SRC = Path(__file__).resolve().parents[2] / "game" / "art-src-16bit" / "creatures"  # (as beasts.SRC)
 PAD = 28                     # empty margin round the drawing while moving parts (trimmed off afterwards)
 ANIMS = ("idle", "walk", "fly")  # the built-in actions; anim.json may add more (see Look.actions)
-NOT_ACTIONS = {"parts", "z", "legs", "pivot", "breathe", "sockets", "tail_radius", "tail_power", "fix"}
+NOT_ACTIONS = {"parts", "z", "legs", "pivot", "breathe", "sockets", "tail_radius", "tail_power", "fix", "drawings"}
+CONTEXT = ("z", "legs", "pivot", "breathe", "sockets", "tail_radius", "tail_power")  # an action may set its own
 MS = {"idle": [420, 300, 520, 300], "walk": 120, "fly": 100}
 LEGS = "FfRr"
 WINGS = "Ww"
@@ -165,6 +166,52 @@ def fill_holes(a: np.ndarray, src: np.ndarray, drawn: np.ndarray | None = None) 
 
 # ---------- one look of a creature ----------
 
+class Drawing:
+    """One finished drawing of a look, on the look's shared working canvas: its main drawing, or another one an
+    action uses (anim.json `drawings`: {"stand": {"rig": "rig_stand.json", "parts": "_parts_stand.txt",
+    "offset": [0, -11]}}, the forest stag standing up to walk). `offset` is where its top-left pixel sits in the
+    main drawing's coordinates; its rig gives its art, head and blink stamps, sockets and shirt area."""
+
+    def __init__(self, look, name: str, rig: dict, rows: list[str], prow: list[str], offset):
+        self.name, self.rig, self.rows, self.off = name, rig, rows, tuple(offset)
+        self.dh, self.dw = len(rows), len(rows[0])
+        self.img0 = np.array([[look.num.get(ch, 0) for ch in r] for r in rows], np.int16)
+        self.parts0 = np.array([[ord(ch) for ch in r] for r in prow], np.int16)
+        if self.parts0.shape != self.img0.shape or ((self.parts0 == ord(".")) != (self.img0 == 0)).any():
+            bad = [(x, y) for y in range(min(len(prow), self.dh)) for x in range(self.dw)
+                   if (prow[y][x] == ".") != (rows[y][x] == ".")]
+            raise SystemExit(f"{look.cid} {look.form} {name}: the parts grid must cover exactly the drawing's pixels "
+                             f"(differs at {bad[:8]})")
+        self.has = {chr(c) for c in np.unique(self.parts0)} - {"."}
+        layers = beasts.cut(rig, rows)
+        self.mask = beasts.shirt_mask(rig, layers)
+        self.box = beasts.bbox_of(layers)
+        self.shut0 = self.img0.copy()
+        for (x, y), ch in layers["blink"].items():
+            if (x, y) not in layers["head"] or layers["head"][(x, y)] != ch:
+                self.shut0[y, x] = look.num[ch]
+
+    def place(self, W: int, H: int, cx: int, cy: int):
+        """Onto the shared canvas (W x H), its top-left pixel at (cx, cy)."""
+        self.cx, self.cy = cx, cy
+
+        def embed(a, fill=0):
+            out = np.full((H, W), fill, a.dtype)
+            out[cy:cy + self.dh, cx:cx + self.dw] = a
+            return out
+        self.parts = embed(self.parts0, ord("."))
+        self.img = {"open": embed(self.img0), "shut": embed(self.shut0)}
+        self.big = {}
+        for k, a in self.img.items():
+            for _ in range(3):
+                a = epx(a)
+            self.big[k] = a
+        self.owner = np.repeat(np.repeat(self.parts, 8, 0), 8, 1)
+        self.maskmap = np.zeros((H, W), bool)
+        for (mx, my) in self.mask:
+            self.maskmap[my + cy, mx + cx] = True
+
+
 class Look:
     def __init__(self, cid: str, form: str = "juvenile"):
         self.cid, self.form = cid, form
@@ -176,55 +223,48 @@ class Look:
         self.letters = sorted(self.pal)
         self.num = {ch: i + 1 for i, ch in enumerate(self.letters)}
         self.colour = {i + 1: self.pal[ch] for i, ch in enumerate(self.letters)}
-        self.rows = rows
-        self.dh, self.dw = len(rows), len(rows[0])
-        img = np.array([[self.num.get(ch, 0) for ch in r] for r in rows], np.int16)
-        prow = [r for r in (SRC / cid / self.spec.get("parts", pname)).read_text(encoding="utf-8").split() if r]
-        parts = np.array([[ord(ch) for ch in r] for r in prow], np.int16)
-        if parts.shape != img.shape or ((parts == ord(".")) != (img == 0)).any():
-            bad = [(x, y) for y in range(min(len(prow), self.dh)) for x in range(self.dw) if (prow[y][x] == ".") != (rows[y][x] == ".")]
-            raise SystemExit(f"{cid} {form}: the parts grid must cover exactly the drawing's pixels (differs at {bad[:8]})")
-        self.has = {chr(c) for c in np.unique(parts)} - {"."}
-        layers = beasts.cut(self.rig, rows)
-        self.mask = beasts.shirt_mask(self.rig, layers)
-        self.box = beasts.bbox_of(layers)  # the drawing's pixels (the game centres and stands the creature by it)
-        shut = img.copy()
-        for (x, y), ch in layers["blink"].items():
-            if (x, y) not in layers["head"] or layers["head"][(x, y)] != ch:
-                shut[y, x] = self.num[ch]
-        self.parts = np.pad(parts, ((PAD, PAD), (PAD, PAD)), constant_values=ord("."))
-        self.img = {"open": np.pad(img, PAD), "shut": np.pad(shut, PAD)}
-        self.big = {}
-        for k, a in self.img.items():
-            for _ in range(3):
-                a = epx(a)
-            self.big[k] = a
-        self.owner = np.repeat(np.repeat(self.parts, 8, 0), 8, 1)
-        self.h, self.w = self.parts.shape
-        self.maskmap = np.zeros((self.h, self.w), bool)
-        for (mx, my) in self.mask:
-            self.maskmap[my + PAD, mx + PAD] = True
+        read = lambda f: [r for r in (SRC / cid / f).read_text(encoding="utf-8").split() if r]  # noqa: E731
+        self.main = Drawing(self, "main", self.rig, rows, read(self.spec.get("parts", pname)), (0, 0))
+        self.drawings = {"main": self.main}
+        for name, d in self.spec.get("drawings", {}).items():
+            rig = json.loads((SRC / cid / d["rig"]).read_text(encoding="utf-8"))
+            if rig["palette"] != self.rig["palette"]:
+                raise SystemExit(f"{cid} {form} {name}: its rig's palette must be the main rig's")
+            self.drawings[name] = Drawing(self, name, rig, read(rig["art"]), read(d["parts"]), d.get("offset", (0, 0)))
+        # the shared working canvas: every drawing with an empty margin of PAD round it
+        ds = self.drawings.values()
+        gx0, gy0 = min(d.off[0] for d in ds) - PAD, min(d.off[1] for d in ds) - PAD
+        gx1, gy1 = max(d.off[0] + d.dw for d in ds) + PAD, max(d.off[1] + d.dh for d in ds) + PAD
+        self.w, self.h = gx1 - gx0, gy1 - gy0
+        for d in ds:
+            d.place(self.w, self.h, d.off[0] - gx0, d.off[1] - gy0)
+        self.px0, self.py0 = self.main.cx, self.main.cy  # where the main drawing's top-left is on the canvas
+        # (the main drawing, as before)
+        self.rows, self.dh, self.dw, self.has, self.mask, self.box = rows, self.main.dh, self.main.dw, self.main.has, self.main.mask, self.main.box
+        self.img, self.parts = self.main.img, self.main.parts
+        self.d, self.ctx = self.main, self.spec  # the drawing and settings the action being made uses
 
     # one frame
-    def render(self, steps: dict, eyes: str = "open"):
-        """steps: part letter -> forward steps. Returns colour numbers and, per pixel, the drawing pixel it came
-        from ([y, x], -1 where empty), both in padded coordinates."""
+    def render(self, steps: dict, eyes: str = "open", d: Drawing | None = None):
+        """steps: part letter -> forward steps (in drawing `d`'s own pixels; the main drawing unless given).
+        Returns colour numbers and, per pixel, the canvas pixel it came from ([y, x], -1 where empty)."""
+        d = d or self.main
         ys, xs = np.mgrid[0:self.h, 0:self.w]
         out = np.zeros((self.h, self.w), np.int16)
         src = np.full((2, self.h, self.w), -1, np.int32)
-        img, big = self.img[eyes], self.big[eyes]
-        for part in self.z():
-            sx, sy = xs + 0.5 - PAD, ys + 0.5 - PAD
+        img, big = d.img[eyes], d.big[eyes]
+        for part in self.z(d):
+            sx, sy = xs + 0.5 - d.cx, ys + 0.5 - d.cy
             for st in reversed(steps.get(part, [])):
                 sx, sy = inverse(st, sx, sy)
-            sx, sy = sx + PAD, sy + PAD
+            sx, sy = sx + d.cx, sy + d.cy
             ix, iy = np.floor(sx).astype(int), np.floor(sy).astype(int)
             ok = (ix >= 0) & (iy >= 0) & (ix < self.w) & (iy < self.h)
             ixc, iyc = np.clip(ix, 0, self.w - 1), np.clip(iy, 0, self.h - 1)
             bx = np.clip(np.floor(sx * 8).astype(int), 0, self.w * 8 - 1)
             by = np.clip(np.floor(sy * 8).astype(int), 0, self.h * 8 - 1)
-            exact = ok & (np.abs(sx - ix - 0.5) < 0.25) & (np.abs(sy - iy - 0.5) < 0.25) & (self.parts[iyc, ixc] == ord(part))
-            own = (ok & (self.owner[by, bx] == ord(part))) | exact
+            exact = ok & (np.abs(sx - ix - 0.5) < 0.25) & (np.abs(sy - iy - 0.5) < 0.25) & (d.parts[iyc, ixc] == ord(part))
+            own = (ok & (d.owner[by, bx] == ord(part))) | exact
             col = np.where(exact, img[iyc, ixc], big[by, bx])
             put = own & (col != 0)
             out[put] = col[put]
@@ -234,9 +274,10 @@ class Look:
         fill_holes(out, src, img)
         return out, src
 
-    def z(self) -> str:
-        z = self.spec.get("z", "wrfatbRFAhW")
-        return "".join(p for p in z if p in self.has) + "".join(sorted(self.has - set(z)))
+    def z(self, d: Drawing | None = None) -> str:
+        has = (d or self.d).has
+        z = self.ctx.get("z", "wrfatbRFAhW")
+        return "".join(p for p in z if p in has) + "".join(sorted(has - set(z)))
 
     def actions(self) -> list[str]:
         """Its actions: idle and walk, fly if it has wings, then any other named in anim.json (an action of its own
@@ -253,6 +294,8 @@ class Look:
         if anim == "fly" and not self.wings:  # only a creature drawn with wings flies
             return [], []
         a = sp.get(anim) or {}
+        self.d = self.drawings[a.get("drawing", "main")]
+        self.ctx = {**sp, **{k: a[k] for k in CONTEXT if k in a}}  # (its own hips, pivots... for another drawing)
         like = a.get("like", anim)
         if "custom" in a:
             frames = [{k: [tuple(s) for s in v] for k, v in fr.items()} for fr in a["custom"]]
@@ -272,19 +315,19 @@ class Look:
         return frames, ms
 
     def _legs(self):
-        return {k: v for k, v in self.spec.get("legs", {}).items() if k in self.has}
+        return {k: v for k, v in self.ctx.get("legs", {}).items() if k in self.d.has}
 
     def _pivot(self, part, default=None):
-        p = self.spec.get("pivot", {}).get(part)
+        p = self.ctx.get("pivot", {}).get(part)
         return p if p else default
 
     def _tail(self, deg):
         p = self._pivot("t")
-        if "t" not in self.has or not p or not deg:
+        if "t" not in self.d.has or not p or not deg:
             return []
-        ys, xs = np.nonzero(self.parts == ord("t"))
-        radius = self.spec.get("tail_radius") or float(np.max(np.hypot(xs - PAD + 0.5 - p[0], ys - PAD + 0.5 - p[1])))
-        return [("bend", p[0], p[1], deg, radius, self.spec.get("tail_power", 1.3))]
+        ys, xs = np.nonzero(self.d.parts == ord("t"))
+        radius = self.ctx.get("tail_radius") or float(np.max(np.hypot(xs - self.d.cx + 0.5 - p[0], ys - self.d.cy + 0.5 - p[1])))
+        return [("bend", p[0], p[1], deg, radius, self.ctx.get("tail_power", 1.3))]
 
     def _walk(self, a):
         n = a.get("frames", 6)
@@ -302,14 +345,14 @@ class Look:
                 ang = 2 * math.pi * (p + gait.get(leg, 0))
                 st[leg] = [("leg", hx, hy, fy, round(S * math.cos(ang)), round(L * max(0, -math.sin(ang))), bob)]
             for arm in ARMS:
-                if arm in self.has and self._pivot(arm):
+                if arm in self.d.has and self._pivot(arm):
                     ang = 2 * math.pi * (p + (0 if arm == "A" else 0.5))  # (the near arm swings back as the near leg steps forward)
                     st[arm] = [("rot", *self._pivot(arm), a.get("arm", 8) * math.cos(ang)), ("move", 0, bob)]
-            for part in self.has - set(legs) - set(st):
+            for part in self.d.has - set(legs) - set(st):
                 st[part] = [("move", 0, bob)]
             st["t"] = self._tail(a.get("tail", 5) * math.sin(2 * math.pi * p)) + st.get("t", [])
             for w in WINGS:
-                if w in self.has and a.get("flap") and self._pivot(w):
+                if w in self.d.has and a.get("flap") and self._pivot(w):
                     st[w] = [("rot", *self._pivot(w), a["flap"][f % len(a["flap"])])] + st.get(w, [])
             frames.append(st)
         return frames
@@ -317,8 +360,8 @@ class Look:
     def _idle(self, a):
         breath = a.get("breath", [0, 1, 1, 0])
         tail = a.get("tail", [0, 2, 4, 2])  # (frame 0 is the drawing as drawn: the still picture)
-        box = self.spec.get("breathe")
-        rides = set(a.get("rides", "hWwAae")) & self.has
+        box = self.ctx.get("breathe")
+        rides = set(a.get("rides", "hWwAae")) & self.d.has
         frames = []
         for f, b in enumerate(breath):
             st = {}
@@ -342,11 +385,11 @@ class Look:
             for leg, (hx, hy, fy) in legs.items():
                 st[leg] = [("leg", hx, hy, fy, tuck[leg][0], tuck[leg][1], 0)]
             for w in WINGS:
-                if w in self.has and self._pivot(w):
+                if w in self.d.has and self._pivot(w):
                     angles = a.get(f"flap_{w}", flap)
                     st[w] = [("rot", *self._pivot(w), angles[f % len(angles)])]
             st["t"] = self._tail(tail[f % len(tail)])
-            for part in self.has:  # the whole creature rises and falls with the beat
+            for part in self.d.has:  # the whole creature rises and falls with the beat
                 st.setdefault(part, []).append(("move", 0, -lift[f]))
             frames.append(st)
         return frames
@@ -357,34 +400,41 @@ class Look:
         if not plan:
             return None
         fixes = self.spec.get("fix", {}).get(anim, {})
+        d = self.d  # (set by plan)
         out = []
         for i, st in enumerate(plan):
-            col, src = self.render(st)
-            shut, _ = self.render(st, "shut")
+            col, src = self.render(st, d=d)
+            shut, _ = self.render(st, "shut", d)
             for stamp in fixes.get(str(i), []):
-                self.stamp(col, stamp)
-                self.stamp(shut, stamp)
+                self.stamp(col, stamp, d)
+                self.stamp(shut, stamp, d)
             lids = np.where(shut != col, shut, 0)
             ys, xs = src
-            masked = (ys >= 0) & self.maskmap[np.clip(ys, 0, None), np.clip(xs, 0, None)] & (col != 0)
+            masked = (ys >= 0) & d.maskmap[np.clip(ys, 0, None), np.clip(xs, 0, None)] & (col != 0)
             at = {}
-            for slot, (sx, sy, *_turn) in self.rig["sockets"].items():
-                part = self.spec.get("sockets", {}).get(slot, SOCKET_PART[slot])
-                part = part if part in self.has else "b"
+            for slot, (sx, sy, *turn) in d.rig["sockets"].items():
+                part = self.ctx.get("sockets", {}).get(slot, SOCKET_PART[slot])
+                part = part if part in d.has else "b"
                 fx, fy = forward(st.get(part, []), sx, sy)
+                # where the socket is now, from where it is in the main drawing (rig.json): for another drawing that
+                # also says how its sockets differ (a standing stag's chest is higher)
+                mx, my, *mturn = self.rig["sockets"][slot]
                 # a part that turns (an arm swinging) turns what it holds too: a third number, degrees clockwise
-                deg = round(sum(step[3] for step in st.get(part, []) if step[0] == "rot"))
-                at[slot] = [fx - sx, fy - sy] + ([deg] if deg else [])
-            out.append({"img": col, "lids": lids, "shirt": masked, "src": (ys - PAD, xs - PAD), "at": at})
+                deg = round(sum(step[3] for step in st.get(part, []) if step[0] == "rot")
+                            + (turn[0] if turn else 0) - (mturn[0] if mturn else 0))
+                at[slot] = [fx + d.off[0] - mx, fy + d.off[1] - my] + ([deg] if deg else [])
+            out.append({"img": col, "lids": lids, "shirt": masked, "src": (ys - d.cy, xs - d.cx), "at": at})
         return {"frames": out, "ms": ms, "once": (self.spec.get(anim) or {}).get("loop", True) is False}
 
-    def stamp(self, a: np.ndarray, st: dict) -> None:
+    def stamp(self, a: np.ndarray, st: dict, d: Drawing | None = None) -> None:
+        """A `fix` stamp, in drawing `d`'s own pixels (the drawing the action moves)."""
+        d = d or self.main
         x0, y0 = st["at"]
         for dy, line in enumerate(st["rows"]):
             for dx, ch in enumerate(line):
                 if ch == ".":
                     continue
-                a[y0 + dy + PAD, x0 + dx + PAD] = 0 if ch == "_" else self.num[ch]
+                a[y0 + dy + d.cy, x0 + dx + d.cx] = 0 if ch == "_" else self.num[ch]
 
     def all(self) -> dict:
         return {k: v for k in self.actions() if (v := self.frames(k))}
@@ -417,7 +467,7 @@ def write(cid: str, form: str, folder: Path, lua: list | None = None) -> dict:
     anims = look.all()
     x0, y0, x1, y1 = trim_box(anims)
     cw, ch = x1 - x0, y1 - y0
-    meta = {"cell": [cw, ch, PAD - x0, PAD - y0]}  # a frame's size, and where the drawing's top-left is in it
+    meta = {"cell": [cw, ch, look.px0 - x0, look.py0 - y0]}  # a frame's size, and where the drawing's top-left is in it
     for name in set(ANIMS) | set(look.spec) - NOT_ACTIONS:  # (an action it no longer has)
         for suffix in ("", "_shirt"):
             p = folder / f"{name}{suffix}.png"
@@ -446,6 +496,11 @@ def write(cid: str, form: str, folder: Path, lua: list | None = None) -> dict:
             (folder / f"{name}_shirt.png").unlink()
         meta[name] = {"frames": n, "ms": a["ms"], "once": a["once"],
                       "at": {slot: [fr["at"][slot] for fr in a["frames"]] for slot in look.rig["sockets"]}}
+        # an action that reaches well above the drawing (the stag standing up, a wing beat) says how high, in the
+        # drawing's rows, so what floats over the creature (its hearts) can stay clear of it (render.beastHeight)
+        top = min(int(np.nonzero(fr["img"].any(axis=1))[0][0]) for fr in a["frames"]) - look.py0
+        if top < look.box[1] - 2:
+            meta[name]["top"] = top
     if lua is not None:
         lua += lua_for(cid, form, look, anims)
     return meta
@@ -459,7 +514,8 @@ def anim_js(meta: dict) -> str:
             continue
         at = ", ".join(f"{slot}: [{', '.join('[' + ', '.join(map(str, d)) + ']' for d in v)}]" for slot, v in m["at"].items())
         once = "once: true, " if m.get("once") else ""
-        parts.append(f"{name}: {{ frames: {m['frames']}, ms: [{', '.join(map(str, m['ms']))}], {once}at: {{ {at} }} }}")
+        top = f"top: {m['top']}, " if "top" in m else ""
+        parts.append(f"{name}: {{ frames: {m['frames']}, ms: [{', '.join(map(str, m['ms']))}], {once}{top}at: {{ {at} }} }}")
     return "anims: {\n      " + ",\n      ".join(parts) + " }"
 
 
@@ -501,14 +557,14 @@ def preview(cid: str, form: str = "juvenile", scale: int = 5) -> list[Path]:
     anims = look.all()
     x0, y0, x1, y1 = trim_box(anims)
     x0, y0, x1 = x0 - 4, y0 - 14, x1 + 4
-    gy = PAD + look.box[3] + 1 + look.rig.get("hover", 0) - y0  # the ground: under the drawing's lowest pixel (a floater above it)
+    gy = look.py0 + look.box[3] + 1 + look.rig.get("hover", 0) - y0  # the ground: under the drawing's lowest pixel (a floater above it)
     W, H = x1 - x0, gy + 6
     shadow = Image.open(beasts.ROOT / "web" / "game-art" / "fx" / "shadow_m.png").convert("RGBA")
     s = "small/" if form == "hatchling" else ""
     dressed = {slot: Image.open(beasts.ITEMS / f"{s}{f}").convert("RGBA") for slot, f in
                (("hat", "hat/cap.png"), ("face", "face/round_glasses.png"), ("held", "held/book.png"))}
     so = look.rig["sockets"]
-    mid = (look.box[0] + look.box[2]) // 2 + PAD - x0
+    mid = (look.box[0] + look.box[2]) // 2 + look.px0 - x0
     paths = []
     folder = SRC / cid
     tag = "" if form == "juvenile" else "_hatchling"
@@ -526,7 +582,7 @@ def preview(cid: str, form: str = "juvenile", scale: int = 5) -> list[Path]:
                         sx, sy, *turn = so[slot]
                         dx, dy, *more = fr["at"][slot]  # (a third number: this frame turns it further)
                         im2, (ax, ay) = beasts.rotated(im, beasts.SLOTS[slot], (turn[0] if turn else 0) + (more[0] if more else 0))
-                        row.alpha_composite(im2, (W + sx + dx - ax + PAD - x0, sy + dy - ay + PAD - y0))
+                        row.alpha_composite(im2, (W + sx + dx - ax + look.px0 - x0, sy + dy - ay + look.py0 - y0))
             imgs.append(row.resize((W * 2 * scale, H * scale), Image.NEAREST).convert("P", palette=Image.ADAPTIVE, colors=255))
         p = folder / f"_anim{tag}_{name}.gif"
         imgs[0].save(p, save_all=True, append_images=imgs[1:], duration=a["ms"], loop=0, disposal=1)

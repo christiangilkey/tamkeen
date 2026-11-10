@@ -321,9 +321,12 @@ export function habitat() {
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
 
   const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, mood: "", moodT: 0, hop: 0, emote: "", emoteT: 0, idleT: 6,
-                walkMs: 0, fly: false, air: 0 }; // (walkMs: how far its walk or wing beat has got; fly: this trip is flown; air: 0 on the ground .. 1 up)
+                walkMs: 0, fly: false, air: 0, stand: 0 }; // (walkMs: how far its walk or wing beat has got; fly: this trip is flown; air: 0 on the ground .. 1 up; stand: 0 lying .. 1 up, for one that gets up to walk)
   const FLY_UP = 9; // about how high its fly frames hold it (anim.py `lift`): it rises to that and sinks back from it
   const canFly = (look) => { const f = drawingOf(look); return !!(f.anims && f.anims.fly); };
+  // A creature that rests lying down (the forest stag) gets up before it walks and lies back down when it stops: its
+  // `rise` frames, forwards then backwards. How long that takes (0: it has none).
+  const riseMs = (look) => { const r = drawingOf(look).anims.rise; return r ? r.ms.reduce((s, v) => s + v, 0) : 0; };
   const emote = (id, secs = 1.8) => { if (id) { pet.emote = id; pet.emoteT = secs; } };
   // It rains on about one day in four (the same days for everyone, so it is weather and not a glitch).
   const rainy = () => { const d = new Date(); return (d.getDate() * 7 + d.getMonth()) % 4 === 0; };
@@ -468,11 +471,17 @@ export function habitat() {
       } else {
         pet.dir = pet.target > pet.x ? 1 : -1;
         const flying = pet.fly && canFly(look);
-        if (flying) pet.air = Math.min(1, pet.air + dt * 3); // up it goes, then across
-        if (!flying || pet.air > 0.6) pet.x += pet.dir * (look.size === "s" ? 14 : 20) * (flying ? 1.6 : 1) * dt;
-        pet.walkMs += dt * 1000;
+        const rise = !flying && riseMs(look);
+        if (rise && pet.stand < 1) pet.stand = Math.min(1, pet.stand + (dt * 1000) / rise); // (getting up first)
+        else {
+          if (flying) pet.air = Math.min(1, pet.air + dt * 3); // up it goes, then across
+          if (!flying || pet.air > 0.6) pet.x += pet.dir * (look.size === "s" ? 14 : 20) * (flying ? 1.6 : 1) * dt;
+          pet.walkMs += dt * 1000;
+        }
       }
     }
+    const settle = riseMs(look);
+    if (pet.stand > 0 && settle && (pet.wait > 0 || asleep)) pet.stand = Math.max(0, pet.stand - (dt * 1000) / settle); // lying back down
     if (pet.air > 0 && (pet.wait > 0 || asleep || !pet.fly)) { pet.air = Math.max(0, pet.air - dt * 3); pet.walkMs += dt * 1000; } // landing
     if (!pet.air && pet.wait > 0) pet.fly = false;
     if (pet.moodT > 0) { pet.moodT -= dt; if (pet.moodT <= 0) pet.mood = ""; }
@@ -587,7 +596,9 @@ export function habitat() {
       // Its frame: flying (taking off and landing too), walking, or still (breathing, now and then a blink;
       // slower asleep).
       const moving = pet.wait <= 0 && !asleep && Math.abs(pet.target - pet.x) >= 1;
+      const rise = drawingOf(look).anims.rise;
       const pose = pet.air > 0 ? animAt(look, "fly", pet.walkMs)
+        : rise && pet.stand > 0 && pet.stand < 1 ? { anim: "rise", frame: Math.min(rise.frames - 1, Math.floor(pet.stand * rise.frames)), eyes: "open" }
         : moving ? animAt(look, "walk", pet.walkMs)
         : animAt(look, "idle", asleep ? now * 0.6 : now);
       if (asleep) pose.eyes = "sleepy";
@@ -604,7 +615,8 @@ export function habitat() {
         drawLiving(ctx, frame, look, now); // (as drawImage(frame, -FRAME / 2, -FRAME), with a colouring's particles)
         ctx.restore();
       }
-      const top = groundY - beastHeight(look) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
+      // (higher while it stands up to walk; a flight rises by its own reckoning: FLY_UP)
+      const top = groundY - beastHeight(look, pose.anim === "fly" ? null : pose.anim) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), top);
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), top + 4 - (Math.floor(now / 300) % 3));

@@ -244,9 +244,12 @@ export function beastOrigin(form) {
 }
 
 /** How tall a creature stands, from the ground to the top of its head (for what is shown above it). */
-export function beastHeight(look) {
+export function beastHeight(look, anim = null) {
   const f = drawingOf(look);
-  return f.box[3] - f.box[1] + 1 + f.hover;
+  // (taller while doing `anim` if that reaches well above the drawing: the forest stag standing up to walk)
+  const a = anim && f.anims && f.anims[actionOf(f.anims, anim)];
+  const top = a && Number.isInteger(a.top) ? Math.min(f.box[1], a.top) : f.box[1];
+  return f.box[3] - top + 1 + f.hover;
 }
 
 const SHUT = new Set(["blink", "sleepy", "happy"]);

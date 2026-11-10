@@ -25,6 +25,16 @@ name with `render.animAt(look, name, ms, seed, speed)` and a creature that lacks
 climb...) or idle (anything else): `render.js ACTION_FALLBACK`. A held thing turns with a part that turns (an arm's
 `rot` step): the frame's offset for it gets a third number, degrees, so a rod or watering can swings with the arm.
 
+## An action with a drawing of its own (the forest stag stands up to walk)
+A creature drawn in a pose it can't move from (lying down) can have more drawings: anim.json
+`"drawings": {"stand": {"rig": "rig_stand.json", "parts": "_parts_stand.txt", "offset": [0, -11]}}`. The drawing's
+rig is a copy of rig.json with its own `art`, sockets, shirt area and leg polygons (same palette, head and blink if the
+head is drawn at the same place); `offset` is where its top-left pixel sits in the main drawing, chosen so both stand on
+the same ground. An action then says `"drawing": "stand"` and gives its own `legs`, `pivot`, `z` for that drawing. A
+`rise` action (a few crouched frames, `"loop": false`) is played forwards before it walks and backwards when it stops
+(habitat.js). Worked example: `forest_deer/` (`_build_stand1.py` makes the standing drawing from the lying one's own
+script, so the head, antlers and markings stay exactly as approved).
+
 ## Files (per look; the hatchling's names in brackets)
 - `_parts.txt` (`_parts_hatchling.txt`): a copy of the drawing's grid where each drawn pixel is a part letter, `.`
   where the drawing is empty (it must match the drawing's empty pixels exactly).

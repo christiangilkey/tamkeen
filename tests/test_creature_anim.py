@@ -46,8 +46,9 @@ def test_every_look_animates_cleanly(cid, form):
     assert len(got["idle"]["frames"]) == 4 and len(got["walk"]["frames"]) == 6
     assert ("fly" in got) == look.wings, "fly exactly for a creature drawn with wings"
     # the idle loop starts from the drawing as drawn (it is the still picture: portraits, the Creatures page)
-    still = got["idle"]["frames"][0]["img"][anim.PAD:anim.PAD + look.dh, anim.PAD:anim.PAD + look.dw]
-    assert (still == look.img["open"][anim.PAD:anim.PAD + look.dh, anim.PAD:anim.PAD + look.dw]).all(), "idle frame 0 must be the drawing"
+    y, x = look.py0, look.px0  # (where the main drawing is on the working canvas)
+    still = got["idle"]["frames"][0]["img"][y:y + look.dh, x:x + look.dw]
+    assert (still == look.img["open"][y:y + look.dh, x:x + look.dw]).all(), "idle frame 0 must be the drawing"
     for name, a in got.items():
         assert len(a["ms"]) == len(a["frames"])
         for fr in a["frames"]:
@@ -58,8 +59,9 @@ def test_every_look_animates_cleanly(cid, form):
 def test_the_still_frame_is_the_drawing():
     look = anim.Look("griffin")
     a = look.frames("idle")
-    still = a["frames"][0]["img"][anim.PAD:anim.PAD + look.dh, anim.PAD:anim.PAD + look.dw]
-    drawn = look.img["open"][anim.PAD:anim.PAD + look.dh, anim.PAD:anim.PAD + look.dw]
+    y, x = look.py0, look.px0
+    still = a["frames"][0]["img"][y:y + look.dh, x:x + look.dw]
+    drawn = look.img["open"][y:y + look.dh, x:x + look.dw]
     assert (still == drawn).all()
     lids = a["frames"][0]["lids"]
     assert lids.any() and (look.img["shut"] != look.img["open"]).sum() == np.count_nonzero(lids)
@@ -76,3 +78,17 @@ def test_compose_frames_draws_the_still_frame_where_the_drawing_stands(tmp_path)
             if ch != ".":
                 assert im.getpixel((ox + x, oy + y)) == pal[ch] + (255,)
     assert {p.name for p in tmp_path.iterdir()} >= {"idle.png", "walk.png", "fly.png", "idle_shirt.png"}
+
+
+def test_a_look_can_walk_with_another_drawing():
+    """The forest stag rests lying down and stands up to walk: its walk and getting-up frames come from its standing
+    drawing, placed so both stand on the same ground, and its worn things move up with it."""
+    look = anim.Look("forest_deer")
+    got = look.all()
+    assert set(got) >= {"idle", "walk", "rise"} and got["rise"]["once"]
+    stand = look.drawings["stand"]
+    assert stand.off[1] < 0 and stand.box[3] + stand.off[1] == look.box[3], "the standing hooves are on the lying stag's ground"
+    hat = got["walk"]["frames"][0]["at"]["hat"]
+    assert hat[1] <= stand.off[1] + 1, "the hat goes up with the standing head"
+    meta = anim.write("forest_deer", "juvenile", __import__("pathlib").Path(__import__("tempfile").mkdtemp()))
+    assert meta["walk"]["top"] < look.box[1] and "top" not in meta["idle"]

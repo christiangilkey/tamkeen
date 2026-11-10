@@ -8212,7 +8212,8 @@ moves parts of the existing drawings (nothing redrawn), then hand pixel fixes. T
 "Creature game: 18 hand-designed creatures, cut into layers": body/head/blink/legs layer PNGs and their code are gone.
 - **What each look has**: `idle` 4 frames (breath, tail swish; frame 0 is the drawing exactly, so still pictures are
   unchanged), `walk` 6 frames (legs in pairs, body dips when feet land, tail sways; the bunny hops, the seal galumphs,
-  the jellyfish pulses and trails, the forest stag glides, the winged fox hovers with slow wing beats), and `fly` 4
+  the jellyfish pulses and trails, the forest stag stands up to walk (below), the winged fox hovers with slow wing
+  beats), and `fly` 4
   frames for the winged four (chick, dragon_whelp, griffin, winged_fox; hatchlings too). The game adds the blink: every
   frame has its eyelids, and `render.animAt` shuts the eyes for 150 ms at the start of about one idle loop in three.
 - **Tool** `tools/game_art/anim.py` (guide `creatures/ANIM_GUIDE.md`): per look a parts grid (`_parts.txt`,
@@ -8250,9 +8251,18 @@ moves parts of the existing drawings (nothing redrawn), then hand pixel fixes. T
 - **Checked** in a real window (desktop server from source on a fresh data folder never signed in to Drive): the
   griffin and dragon whelp walking, idling and flying in the habitat with a cap and book on, the dragon walking in a
   live battle, every look composed in the browser without errors.
-- **Open**: (1) the owner's choice for the forest stag (in the Decisions chat): a new standing drawing for walking
-  (recommended) or the glide it has now; (2) where winged creatures fly (built: habitat now and then, battle dashes);
-  (3) the winged fox's and chick's downbeat frame is a little busy where the wing sweeps over the body; (4) tool
-  wishes from the helpers, for later: a built-in "repaint lost outline" pass, an underlay for parts that move over the
-  body, per-leg swing/lift, a hop and a galumph preset, rounding sway to whole pixels; (5) mini-game actions (run,
-  jump, cheer, sad, cast...) are not drawn yet.
+- **Forest stag stands up to walk** (the owner's choice through Decisions, "67 a": a new standing pose, grown-up and
+  baby; and "68 a": winged creatures fly as built). It rests lying down (idle) and walks on four legs:
+  `forest_deer/_stand1.txt` and `_stand_hatch1.txt`, made by `_build_stand1.py` / `_build_stand_hatch1.py` from the
+  approved lying drawings' own scripts (same head, antlers, moss and runes at the same coordinates, standing legs
+  added; canvas 11 / 8 rows taller). anim.py takes more drawings per look: anim.json `drawings: {stand: {rig, parts,
+  offset}}` (offset: where its top-left sits in the main drawing, here [0, -11] so both stand on the same ground;
+  `rig_stand.json` gives its sockets, shirt area and legs), and an action says `"drawing": "stand"` with its own
+  legs/pivots/z. Its `rise` action (2 crouched frames, plays once) is played forwards before it walks and backwards when
+  it stops, in the habitat (`pet.stand`, `riseMs`); in battles it pops straight between lying and walking. beasts.js
+  `top` on an action that reaches well above the drawing (standing, flying): `beastHeight(look, anim)` keeps its hearts
+  clear of the antlers while it walks. Every other look's frames came out byte-identical after the change.
+- **Open**: (1) the winged fox's and chick's downbeat frame is a little busy where the wing sweeps over the body;
+  (2) tool wishes from the helpers, for later: a built-in "repaint lost outline" pass, an underlay for parts that move
+  over the body, per-leg swing/lift, a hop and a galumph preset, rounding sway to whole pixels; (3) mini-game actions
+  (run, jump, cheer, sad, cast...) are not drawn yet; (4) the stag doesn't get up or lie down in battles.
