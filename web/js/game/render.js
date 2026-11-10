@@ -196,21 +196,24 @@ const SHUT = new Set(["blink", "sleepy", "happy"]);
 
 // ---------- a dressed egg ----------
 // An egg wears a hat and wings (data.eggCanWear; the owner: "because that's funny"): the small versions a baby wears,
-// wings behind the egg and a hat on its crown. Where they sit on the 32 x 32 egg (egg/<type>.png):
-const EGG_SOCKETS = { hat: [16, 7], back: [13, 21] };
-/** How much taller a dressed egg's picture is than the egg (room for the hat), in its pixels. */
+// a hat on its crown and wings as a pair, one each side (the wing picture on the left and its mirror on the right:
+// one alone, as a creature wears it, hid behind the egg). Where they sit on the 32 x 32 egg (egg/<type>.png):
+const EGG_SOCKETS = { hat: [16, 7], back: [9, 22] };
+/** How much bigger a dressed egg's picture is than the egg, in its pixels: room above for the hat and each side
+ * for the wings. */
 export const EGG_TOP = 8;
+export const EGG_SIDE = 4;
 const eggWears = (equipped) => ["back", "hat"].filter((slot) => equipped && equipped[slot] && eggCanWear(itemById(equipped[slot])));
 
-/** Egg picture `egg` (32 x 32) with what it wears (`equipped`): a canvas 32 x (32 + EGG_TOP) with the egg at its
- * foot, or `egg` itself when it wears no hat and no wings. */
+/** Egg picture `egg` (32 x 32) with what it wears (`equipped`): a canvas (32 + 2 EGG_SIDE) x (32 + EGG_TOP) with
+ * the egg at the middle of its foot, or `egg` itself when it wears no hat and no wings. */
 export async function dressEgg(egg, equipped) {
   const slots = eggWears(equipped);
   if (!egg || !slots.length) return egg;
   const worn = await Promise.all(slots.map(async (slot) => [slot,
     (await loadImage(`item/small/${equipped[slot]}.png`)) || (await loadImage(`item/${equipped[slot]}.png`))]));
   const c = document.createElement("canvas");
-  c.width = 32;
+  c.width = 32 + 2 * EGG_SIDE;
   c.height = 32 + EGG_TOP;
   const ctx = c.getContext("2d");
   ctx.imageSmoothingEnabled = false;
@@ -218,16 +221,25 @@ export async function dressEgg(egg, equipped) {
     const img = (worn.find(([s]) => s === slot) || [])[1];
     if (!img) return;
     const [sx, sy] = EGG_SOCKETS[slot], [ax, ay] = SLOTS[slot].anchor;
-    ctx.drawImage(img, sx - ax, EGG_TOP + sy - ay);
+    const y = EGG_TOP + sy - ay;
+    ctx.drawImage(img, EGG_SIDE + sx - ax, y);
+    if (slot !== "back") return;
+    // the other wing: mirrored, as far right of the middle as the first is left of it
+    const x = EGG_SIDE + 32 - sx - (img.width - ax);
+    ctx.save();
+    ctx.scale(-1, 1);
+    ctx.drawImage(img, -(x + img.width), y);
+    ctx.restore();
   };
   put("back");
-  ctx.drawImage(egg, 0, EGG_TOP);
+  ctx.drawImage(egg, EGG_SIDE, EGG_TOP);
   put("hat");
   return c;
 }
 
-/** Creature `genome`'s egg as an element `size` px wide: the egg picture, or, when it wears a hat or wings, a canvas
- * of the dressed egg (a little taller, for the hat). `cls`: its class. */
+/** Creature `genome`'s egg as an element: the egg picture `size` px wide, or, when it wears a hat or wings, a canvas
+ * of the dressed egg with the egg the same size (so the picture is a little bigger, for the hat and wings). `cls`:
+ * its class. */
 export function eggPicture(genome, size, cls = "cr-egg") {
   const type = TYPES[genome && genome.type] ? genome.type : "ember";
   const on = (genome && genome.equipped) || {};
@@ -240,16 +252,16 @@ export function eggPicture(genome, size, cls = "cr-egg") {
   }
   const c = document.createElement("canvas");
   c.className = cls;
-  c.width = 32;
+  c.width = 32 + 2 * EGG_SIDE;
   c.height = 32 + EGG_TOP;
-  c.style.width = `${size}px`;
-  c.style.height = `${Math.round((size * (32 + EGG_TOP)) / 32)}px`;
+  c.style.width = `${Math.round((size * c.width) / 32)}px`;
+  c.style.height = `${Math.round((size * c.height) / 32)}px`;
   c.style.imageRendering = "pixelated";
   loadImage(`egg/${type}.png`).then((img) => dressEgg(img, on)).then((pic) => {
     if (!pic) return;
     const ctx = c.getContext("2d");
     ctx.imageSmoothingEnabled = false;
-    ctx.drawImage(pic, 0, c.height - pic.height);
+    ctx.drawImage(pic, (c.width - pic.width) / 2, c.height - pic.height);
   });
   return c;
 }

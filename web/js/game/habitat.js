@@ -568,7 +568,7 @@ export function habitat() {
       if (egg) {
         ctx.save();
         ctx.translate(Math.round(W / 2 + wobble), groundY);
-        ctx.drawImage(egg, -16, -egg.height - Math.round(pet.hop)); // (a dressed egg is taller: its hat on top)
+        ctx.drawImage(egg, -egg.width / 2, -egg.height - Math.round(pet.hop)); // (a dressed egg is bigger: hat and wings)
         // Cracks spread as the egg nears hatching.
         const n = Math.min(2, Math.floor((game.creature.growth / STAGES[1].from) * 4) - 1);
         if (n >= 0 && cracks[n]) ctx.drawImage(cracks[n], -16, -32 - Math.round(pet.hop));
