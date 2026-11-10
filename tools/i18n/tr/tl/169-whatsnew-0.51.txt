@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Naglalakad, humihinga at kumukurap ang mga nilalang, at lumilipad ang may pakpak
+df44f4a7	Pitong espesyal na kulay na makukuha, at 46 na bagong maisusuot
+8e5b1460	Ipinapakita ng mga tanong sa Battle ang kahulugan at ikaw ang pipili ng salita
+80534ad9	Live battles: matatag na camera, mas malapad na area attacks, at mga hint card na mahahanap sa arena
+a13995c8	Mas madaling simula para sa mga bagong mag-aaral, may «Magsimula rito» sa Home
+10375d3e	Sinasabi ng mga video sa YouTube kung may audio track sila sa wikang pinag-aaralan mo

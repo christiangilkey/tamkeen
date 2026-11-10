@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	As criaturas andam, respiram e piscam, e as que têm asas voam
+df44f4a7	Sete colorações especiais para ganhar e 46 coisas novas para vestir
+8e5b1460	As perguntas de batalha mostram o significado e você escolhe a palavra
+80534ad9	Batalhas ao vivo: uma câmera estável, ataques de área mais amplos e cartas de dica para encontrar na arena
+a13995c8	Um começo mais fácil para quem está começando, com «Comece aqui» no Início
+10375d3e	Os vídeos do YouTube dizem quando têm uma faixa de áudio no idioma que você está aprendendo

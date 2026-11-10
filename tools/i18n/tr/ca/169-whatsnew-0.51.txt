@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Les criatures caminen, respiren i parpellegen, i les que tenen ales volen
+df44f4a7	Set coloracions especials per guanyar i 46 coses noves per vestir
+8e5b1460	Les preguntes de batalla mostren el significat i tu tries la paraula
+80534ad9	Batalles en directe: una càmera estable, atacs d'àrea més amplis i targetes de pista per trobar a l'arena
+a13995c8	Un començament més fàcil per als nous estudiants, amb «Comença aquí» a l'Inici
+10375d3e	Els vídeos de YouTube diuen quan tenen una pista d'àudio en la llengua que aprens

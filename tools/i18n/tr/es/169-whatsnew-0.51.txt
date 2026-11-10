@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Las criaturas caminan, respiran y parpadean, y las que tienen alas vuelan
+df44f4a7	Siete coloraciones especiales para ganar y 46 cosas nuevas para vestir
+8e5b1460	Las preguntas de batalla muestran el significado y tú eliges la palabra
+80534ad9	Batallas en vivo: una cámara estable, ataques de área más amplios y tarjetas de pista para encontrar en la arena
+a13995c8	Un comienzo más fácil para los nuevos estudiantes, con «Empieza aquí» en Inicio
+10375d3e	Los vídeos de YouTube dicen cuándo tienen una pista de audio en el idioma que aprendes

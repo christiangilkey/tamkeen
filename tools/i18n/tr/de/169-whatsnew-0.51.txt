@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Kreaturen laufen, atmen und blinzeln, und die geflügelten fliegen
+df44f4a7	Sieben besondere Färbungen zum Verdienen und 46 neue Dinge zum Anziehen
+8e5b1460	Kampffragen zeigen die Bedeutung, und du wählst das Wort
+80534ad9	Live-Kämpfe: eine ruhige Kamera, breitere Flächenangriffe und Hinweiskarten, die du in der Arena findest
+a13995c8	Ein leichterer Start für neue Lernende, mit „Fang hier an“ auf der Startseite
+10375d3e	YouTube-Videos zeigen, wenn sie eine Tonspur in der Sprache haben, die du lernst

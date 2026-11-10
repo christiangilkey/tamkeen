@@ -22770,6 +22770,36 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "55b9b2d8",
+  "k": "Creatures walk, breathe and blink, and the winged ones fly",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "df44f4a7",
+  "k": "Seven special colourings to earn, and 46 new things to wear",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "8e5b1460",
+  "k": "Battle questions show the meaning and you pick the word",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "80534ad9",
+  "k": "Live battles: a steady camera, wider area attacks, and hint cards to find on the arena",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a13995c8",
+  "k": "A smoother start for new learners, with Start here on Home",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "10375d3e",
+  "k": "YouTube videos say when they have a soundtrack in the language you are learning",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "e36a1b68",
   "k": "Arabic dialect words are read in their own accent: Iraqi, Levantine, Egyptian and Gulf card voices",
   "f": "web/js/whatsnew.js"

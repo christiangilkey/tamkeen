@@ -9,6 +9,19 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.51.0",
+  "Creatures walk, breathe and blink, and the winged ones fly");
+notes("0.51.0",
+  "Seven special colourings to earn, and 46 new things to wear");
+notes("0.51.0",
+  "Battle questions show the meaning and you pick the word");
+notes("0.51.0",
+  "Live battles: a steady camera, wider area attacks, and hint cards to find on the arena");
+notes("0.51.0",
+  "A smoother start for new learners, with Start here on Home");
+notes("0.51.0",
+  "YouTube videos say when they have a soundtrack in the language you are learning");
+
 notes("0.50.0",
   "Arabic dialect words are read in their own accent: Iraqi, Levantine, Egyptian and Gulf card voices");
 notes("0.50.0",

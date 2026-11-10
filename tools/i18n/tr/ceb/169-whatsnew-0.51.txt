@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Ang mga binuhat maglakaw, moginhawa ug mopiyong, ug ang adunay pako molupad
+df44f4a7	Pito ka espesyal nga kolor nga makuha, ug 46 ka bag-ong isul-ob
+8e5b1460	Ang mga pangutana sa Battle magpakita sa kahulogan ug ikaw ang mopili sa pulong
+80534ad9	Live battles: lig-on nga camera, mas lapad nga area attacks, ug mga hint card nga makit-an sa arena
+a13995c8	Mas sayon nga pagsugod para sa bag-ong mga estudyante, nga adunay «Sugdi dinhi» sa Home
+10375d3e	Ang mga video sa YouTube mosulti kung aduna silay audio track sa pinulongan nga imong gitun-an

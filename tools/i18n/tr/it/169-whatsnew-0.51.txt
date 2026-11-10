@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Le creature camminano, respirano e sbattono le palpebre, e quelle alate volano
+df44f4a7	Sette colorazioni speciali da guadagnare e 46 cose nuove da indossare
+8e5b1460	Le domande di battaglia mostrano il significato e tu scegli la parola
+80534ad9	Battaglie dal vivo: una telecamera stabile, attacchi ad area più ampi e carte suggerimento da trovare nell'arena
+a13995c8	Un inizio più facile per chi comincia, con «Inizia da qui» nella Home
+10375d3e	I video di YouTube dicono quando hanno una traccia audio nella lingua che stai imparando

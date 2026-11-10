@@ -1,0 +1,7 @@
+# What's new in 0.51.0 (web/js/whatsnew.js).
+55b9b2d8	Les créatures marchent, respirent et clignent des yeux, et celles qui ont des ailes volent
+df44f4a7	Sept colorations spéciales à gagner et 46 nouvelles choses à porter
+8e5b1460	Les questions de combat montrent le sens et vous choisissez le mot
+80534ad9	Combats en direct : une caméra stable, des attaques de zone plus larges et des cartes d'indice à trouver dans l'arène
+a13995c8	Un départ plus facile pour les nouveaux apprenants, avec « Commencez ici » sur l'Accueil
+10375d3e	Les vidéos YouTube indiquent quand elles ont une piste audio dans la langue que vous apprenez
