@@ -1934,6 +1934,12 @@ desktop preview in all three views (folder membership was faked in the page, so 
   browser-home edits are unfinished.
 
 ### "Get random reels" with a counter (2026-10-13, "Media import" chat; committed locally, NOT pushed, NOT released)
+**REMOVED 2026-11-08 (commit 0ec96f3a, v0.50.0).** The owner: "This button never actually finds me Arabic reels … just
+remove it and allow the user to find them on Instagram". Gone from the desktop app (`reels.RANDOM_WORDS`, `pick_random`,
+`reels_worker.start_random`, POST `/api/reels/random`) and the phones (`startRandom`, `pickRandom`, the Instagram
+window's `search` handler). In saved mode the Reels page now shows `#reel-find-tip`: search Instagram for a word or
+hashtag in the language, save the reels you like to a collection, choose it there and tick them. The notes below are history.
+
 The owner: "Add a get random Arabic reels button to the app, also give it a number counter for how many you want".
 - **The page** (`drawGet` in `web/js/pages/reels.js`, both shells): a "How many?" row with a counter (− number +,
   1 to 30, typed or stepped, remembered on the device in `localStorage` `reels:count`) and the teal button
