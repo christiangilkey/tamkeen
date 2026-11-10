@@ -15,6 +15,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 ## Unreleased
 
 - **Changed:** Battle questions always show a card's meaning, in your own language, and the four choices are always words in the language you're learning. Before, about two questions in three were the other way round. A word whose meaning is just the word itself isn't asked.
+- **Fixed:** Live battles: the view no longer jumps or zooms in and out while your creature walks. The arena changed size each time the note about the ground under your creature grew or shrank (along lava and water edges, mostly) or the potion button came and went. Now that note always takes two lines, the potion keeps its place, and the camera stays the same distance from your creature all fight. Your creature also stands still when a battle opens, and tapping the arena no longer flashes blue on phones.
 
 ## v0.50.0 — 2026-11-09
 

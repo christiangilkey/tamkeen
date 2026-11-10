@@ -148,7 +148,7 @@ export function runLiveBattle(setup, vocab) {
     <div class="lb-side">
       <div class="lb-ground"></div>
       <div class="lb-moves"></div>
-      <div class="lb-extra"></div>
+      <div class="lb-extra${b.mode === "wild" ? " reserve" : ""}"></div>
       <div class="lb-help small"></div>
     </div>
     <div class="lb-quiz" hidden></div>
@@ -654,12 +654,14 @@ export function runLiveBattle(setup, vocab) {
     if (cam.at && dt > 0) {
       const jump = Math.hypot(me.x - cam.at.x, me.y - cam.at.y) > 40; // stepped in somewhere else: no lead from that
       const vx = jump ? 0 : (me.x - cam.at.x) / dt, vy = jump ? 0 : (me.y - cam.at.y) / dt;
-      const k = Math.min(1, dt * 6);
+      // smoothed slowly (about 0.4 s), so running into a wall, edging round a corner or being knocked back by a hit
+      // eases the lead away instead of swinging the view
+      const k = Math.min(1, dt * 2.5);
       cam.vx += (vx - cam.vx) * k;
       cam.vy += (vy - cam.vy) * k;
     }
     cam.at = { x: me.x, y: me.y };
-    const lead = { x: Math.max(-48, Math.min(48, cam.vx * LEAD)), y: Math.max(-32, Math.min(32, cam.vy * LEAD)) };
+    const lead = { x: Math.max(-36, Math.min(36, cam.vx * LEAD)), y: Math.max(-24, Math.min(24, cam.vy * LEAD)) };
     const clampTo = (want0, size, lo, hi) => (hi - lo <= size ? lo + (hi - lo - size) / 2 : Math.max(lo, Math.min(hi - size, want0)));
     const tx = clampTo(me.x + lead.x - viewport.w / 2, viewport.w, 0, W);
     const ty = clampTo(me.y - 24 + lead.y - viewport.h / 2, viewport.h, -TOP, H);
@@ -827,30 +829,35 @@ export function runLiveBattle(setup, vocab) {
         pips.title = t("{0} of {1} still standing", alive.filter(Boolean).length, alive.length);
       }
     }
-    // The ground under the player's creature, and what it does.
+    // The ground under the player's creature, and what it does: always two lines high (the full text in its
+    // title), so the arena above never changes size as the creature walks from one ground to another.
     const tr = TERRAIN[v.me.terrain];
     const gk = tr ? tr.id : "";
     if (hud.ground !== gk) {
       hud.ground = gk;
       const box = $(".lb-ground");
       box.innerHTML = "";
+      box.title = tr ? `${tr.name}: ${tr.text}` : "";
       if (tr) {
+        const line = h(`<span class="lb-ground-in"></span>`);
         const sw = h(`<span class="lb-swatch"></span>`);
         const img = art.get(tr.art.fill);
         if (img) sw.style.backgroundImage = `url("${ART}${tr.art.fill}")`; else sw.style.background = PLACEHOLDER[tr.id] || "#777";
         const name = h(`<strong></strong>`);
         name.textContent = tr.name;
-        const what = h(`<span class="muted"></span>`);
-        what.textContent = tr.text;
-        box.append(sw, name, what);
+        line.append(sw, name);
         for (const [list, cls] of [[tr.likes || [], "up"], [tr.hinders || [], "down"]]) {
           for (const e of list) {
             const tag = h(`<span class="lb-tag ${cls}"><img class="px-icon" width="16" height="16" alt="" src="${ART}icon/type_${e}.png"></span>`);
             tag.title = cls === "up" ? t("Good for {0}", t(TYPES[e].name)) : t("Bad for {0}", t(TYPES[e].name));
             tag.append(cls === "up" ? "+" : "−");
-            box.append(tag);
+            line.append(tag);
           }
         }
+        const what = h(`<span class="muted"></span>`);
+        what.textContent = tr.text;
+        line.append(what);
+        box.append(line);
       }
     }
     const combo = $(".lb-combo");
@@ -1133,8 +1140,9 @@ export function runLiveBattle(setup, vocab) {
     return { x: drawn.x + ((e.clientX - r.left) / r.width) * viewport.w, y: drawn.y + ((e.clientY - r.top) / r.height) * viewport.h };
   };
   const clampWorld = (p) => ({ x: Math.max(4, Math.min(W - 4, p.x)), y: Math.max(4, Math.min(H - 2, p.y)) });
+  const openedAt = performance.now(); // a tap in the first moment is the end of the one that opened the battle: the creature stands still
   canvas.addEventListener("pointerdown", (e) => {
-    if (b.over || b.quiz || paused()) return;
+    if (b.over || b.quiz || paused() || performance.now() - openedAt < 500) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
@@ -1241,8 +1249,9 @@ export function runLiveBattle(setup, vocab) {
     box.dataset.can = String(can);
     box.innerHTML = "";
     if (!can) return;
-    const btn = h(`<button type="button" class="lb-potion">${icon("potion")} </button>`);
-    btn.append(t("Potion ({0}): half its health back, once a battle", game.items.potion));
+    const btn = h(`<button type="button" class="lb-potion">${icon("potion")}<span></span></button>`);
+    btn.title = t("Potion ({0}): half its health back, once a battle", game.items.potion);
+    btn.lastElementChild.textContent = btn.title;
     btn.onclick = drinkPotion;
     box.append(btn);
   }
@@ -1321,33 +1330,44 @@ export function runLiveBattle(setup, vocab) {
   }
 
   // ----- fitting the arena to the screen -----
+  // The zoom (device pixels per game pixel) is picked once, when the battle opens, and kept for the whole fight (the
+  // owner: the camera stays the same distance from the creature the entire fight). A new size of the screen only
+  // changes how much of the arena shows; the zoom is picked again only if it would leave too small a window on the
+  // world (a phone turned on its side).
+  let zoom = 0;
   function fit() {
     const stage = $(".lb-stage");
     const sw = stage.clientWidth, sh = stage.clientHeight;
     if (!sw || !sh) return;
     const dpr = window.devicePixelRatio || 1;
     const dw = sw * dpr, dh = sh * dpr;
-    let best = null;
-    for (let px = 1; px <= 10; px++) { // device pixels per game pixel
-      const w = Math.floor(dw / px), h = Math.floor(dh / px);
-      if (best && (w < 220 || h < 160)) break;
-      const off = Math.abs(Math.max(w, h) - VIEW_LONG);
-      if (!best || off < best.off) best = { px, w, h, off };
+    if (!zoom || Math.floor(dw / zoom) < 220 || Math.floor(dh / zoom) < 160) {
+      let best = null;
+      for (let px = 1; px <= 10; px++) {
+        const w = Math.floor(dw / px), h = Math.floor(dh / px);
+        if (best && (w < 220 || h < 160)) break;
+        const off = Math.abs(Math.max(w, h) - VIEW_LONG);
+        if (!best || off < best.off) best = { px, off };
+      }
+      zoom = best.px;
     }
+    const fullW = Math.floor(dw / zoom), fullH = Math.floor(dh / zoom);
     // never more than the arena (and the strip above it): then it all shows, centred
-    const w = Math.min(best.w, W), h = Math.min(best.h, H + TOP);
-    if (w !== viewport.w || h !== viewport.h) {
+    const w = Math.min(fullW, W), h = Math.min(fullH, H + TOP);
+    const resized = w !== viewport.w || h !== viewport.h;
+    if (resized) {
       canvas.width = w;
       canvas.height = h;
       ctx.imageSmoothingEnabled = false;
     }
-    Object.assign(viewport, { w, h, s: best.px });
+    Object.assign(viewport, { w, h, s: zoom });
     // the rival attacks only from inside what the player can see (livebattle.js `sight`)
-    const sight = { w: best.w, h: best.h };
+    const sight = { w: fullW, h: fullH };
     if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) input(b, { sight });
-    canvas.style.width = `${(w * best.px) / dpr}px`;
-    canvas.style.height = `${(h * best.px) / dpr}px`;
+    canvas.style.width = `${(w * zoom) / dpr}px`;
+    canvas.style.height = `${(h * zoom) / dpr}px`;
     mini.style.width = `${Math.round(Math.max(72, Math.min(128, sw * 0.24)))}px`;
+    if (resized) cam.ready = false; // a new window on the world: put it straight on the creature, no glide across the arena
   }
   const ro = new ResizeObserver(() => fit());
   ro.observe($(".lb-stage"));
