@@ -129,7 +129,8 @@ test("a topic opens YouTube's most-watched videos about it this month, with the 
   }
   const learn = new URL(topicAddress("ar", "learn", { mobile: true, country: "EG", handmade: true }));
   assert.equal(learn.origin, "https://m.youtube.com", "the phones use YouTube's phone site");
-  assert.equal(learn.searchParams.get("sp"), filterCode(0, { within: THIS_YEAR, handmade: true }), "lessons: this year; handmade subtitles apply to every topic");
+  assert.equal(learn.searchParams.get("sp"), filterCode(0, { relevance: true, handmade: true }), "lessons: YouTube's own order, any date; handmade subtitles apply to every topic");
+  assert.equal(filterCode(0, { relevance: true }), btoa(String.fromCharCode(0x12, 2, 0x10, 1)), "videos only, no sort, no date");
   assert.equal(learn.searchParams.get("gl"), "EG", "so does the country chosen under Popular in");
   assert.equal(learn.searchParams.get("search_query"), TOPIC_WORDS.ar.learn, "a topic keeps its own words whatever the country");
   assert.equal(new URL(topicAddress("ceb", "music")).searchParams.get("sp"), filterCode(0, { within: THIS_YEAR }),

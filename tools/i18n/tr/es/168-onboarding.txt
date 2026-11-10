@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	Toca cualquier palabra para ver qué significa
+46b131e7	Funciona desde el primer momento: un diccionario integrado y gratuito muestra los significados habituales de la palabra.
+e797ab5d	Si quieres más, añade una <0>clave de IA</0>. Así Tamkeen también te dice qué significa la palabra <1>en esa frase</1>, con su gramática y sus expresiones hechas. Una clave de API es una especie de contraseña que te da la web de un proveedor de IA ({0} o {1}). Pagas directamente al proveedor, una fracción de céntimo por palabra, y <2>Gemini tiene un uso gratuito</2>.
+e8383d42	Añade una clave ahora o más tarde en <0>Ajustes → Definiciones de palabras (IA)</0>.
+54acc280	Empieza aquí
+a97a8f82	Elige algo con lo que aprender y toca cualquier palabra para ver qué significa.
+57ab68c9	Empieza con una lección
+a15f8298	Lecciones cortas que enseñan lo básico
+9c247426	Mira un vídeo
+de96e807	Vídeos de YouTube con subtítulos que puedes tocar
+4e1f48bb	Escucha un pódcast
+cf12fc59	Pódcasts populares en {0:lower}
+84ed2c8b	Elige una lección, un vídeo o un pódcast. En cualquiera de ellos, toca una palabra para ver qué significa y oírla.
+f54f0ecf	Estos episodios están en cola para la app de escritorio de Tamkeen. Escribirá sus transcripciones la próxima vez que se sincronice con este dispositivo (con la misma cuenta de Google iniciada en los dos).
+f5f5658b	¿No tienes ordenador? Un servicio en línea puede escribirlas aquí, por unos céntimos la hora de audio: <0>Ajustes → Escucha y transcripciones</0>.
+94866010	Tus pódcasts aparecerán aquí.
+42977af6	<0>Encuentra algo con lo que aprender.</0> En la Biblioteca, empieza un curso o pulsa <1>+</1> para añadir un vídeo de YouTube, un pódcast (elige uno popular o pega su dirección), una página web, un libro o tu propio audio y vídeo.
+ef9b1ba7	<0>Toca cualquier palabra</0> para oírla y ver qué significa. Mientras escuchas, se resalta la palabra que se está diciendo, y puedes ralentizar el sonido o repetir una frase.
+9b7f5595	<0>Guarda las palabras que quieras conservar.</0> Haz clic derecho (o mantén pulsada) una palabra o expresión para guardarla con su frase, y luego repásala en la página Vocabulario o envíala a Anki.
+98b2cf8b	<0>Transcripciones.</0> Los vídeos con subtítulos están listos al momento. Los pódcasts y tus propias grabaciones primero se escriben palabra por palabra, en este ordenador (lo configuras a continuación) o con un servicio en línea si eliges uno.
+134e6bf6	Solo lo necesitan los pódcasts y tus propias grabaciones. Los vídeos con subtítulos, los cursos y los libros funcionan sin esto.
+6fc09607	Omitir por ahora
+5bea5568	<0>Encuentra algo con lo que aprender.</0> En la Biblioteca, empieza un curso o pulsa <1>+</1> para vídeos de YouTube, pódcasts, páginas web y libros.
+f3e46795	<0>Toca cualquier palabra</0> para oírla y ver qué significa. Mantén pulsado para ver más opciones.
+02e83c27	<0>¿Usas Tamkeen también en otro dispositivo?</0> Inicia sesión con la misma cuenta de Google en cada uno: tu biblioteca, tus palabras y tu progreso se sincronizan a través de una carpeta privada en tu propio Google Drive.
+02d279ce	Empezar a aprender

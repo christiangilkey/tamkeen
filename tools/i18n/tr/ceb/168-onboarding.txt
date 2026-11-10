@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	I-tap ang bisan unsang pulong aron makita ang kahulogan niini
+46b131e7	Mogana dayon kini: ang libre nga built-in nga diksyonaryo mopakita sa komon nga mga kahulogan sa pulong.
+e797ab5d	Para sa dugang, idugang ang <0>AI key</0>. Unya isulti usab sa Tamkeen kung unsa ang kahulogan sa pulong <1>niana nga sentence</1>, uban sa grammar ug mga idiom niini. Ang API key usa ka klase sa password gikan sa website sa AI provider ({0} o {1}). Direkta ka nga mobayad sa provider, gamay ra kaayo matag pulong, ug <2>may libre nga allowance ang Gemini</2>.
+e8383d42	Idugang ang key karon o unya sa <0>Settings → Kahulogan sa pulong (AI)</0>.
+54acc280	Sugdi dinhi
+a97a8f82	Pili og butang nga tun-an, unya i-tap ang bisan unsang pulong niini aron makita ang kahulogan.
+57ab68c9	Sugdi sa usa ka leksyon
+a15f8298	Mubo nga mga leksyon nga nagtudlo sa mga batakan
+9c247426	Motan-aw og video
+de96e807	Mga YouTube video nga adunay caption nga ma-tap nimo
+4e1f48bb	Paminaw og podcast
+cf12fc59	Popular nga mga podcast sa {0}
+84ed2c8b	Pili og leksyon, video o podcast. Sa bisan asa niini, i-tap ang pulong aron makita ang kahulogan niini ug madungog kini.
+f54f0ecf	Kining mga episode naa sa pila para sa Tamkeen desktop app. Isulat niini ang ilang mga transcript sa sunod nga pag-sync niini uban niining device (naka-sign in sa parehas nga Google account sa duha).
+f5f5658b	Walay computer? Usa ka online service ang makasulat niini dinhi, sa pipila ka sentimo matag oras sa audio: <0>Settings → Pagpaminaw ug mga transcript</0>.
+94866010	Makita dinhi ang imong mga podcast.
+42977af6	<0>Pangitag butang nga tun-an.</0> Sa Library, sugdi ang usa ka kurso, o pindota ang <1>+</1> aron magdugang og YouTube video, podcast (pili og popular o i-paste ang address niini), web page, libro, o imong kaugalingong audio ug video.
+ef9b1ba7	<0>I-tap ang bisan unsang pulong</0> aron madungog kini ug makita ang kahulogan niini. Naka-highlight ang pulong nga gisulti samtang naminaw ka, ug mapahinay nimo ang tingog o masubli ang usa ka sentence.
+9b7f5595	<0>I-save ang mga pulong nga gusto nimong tipigan.</0> I-right-click (o pindota og dugay) ang pulong o phrase aron i-save kini uban sa sentence niini, unya i-review kini sa Vocab page o ipadala sa Anki.
+98b2cf8b	<0>Mga transcript.</0> Andam dayon ang mga video nga adunay caption. Ang mga podcast ug imong kaugalingong mga recording isulat una matag pulong, niini nga computer (i-set up sunod) o sa online service kung mopili ka og usa.
+134e6bf6	Ang mga podcast ug imong kaugalingong mga recording ra ang nagkinahanglan niini. Ang mga video nga adunay caption, mga kurso ug mga libro mogana bisan wala kini.
+6fc09607	Laktawi sa karon
+5bea5568	<0>Pangitag butang nga tun-an.</0> Sa Library, sugdi ang usa ka kurso, o pindota ang <1>+</1> para sa mga YouTube video, podcast, web page ug libro.
+f3e46795	<0>I-tap ang bisan unsang pulong</0> aron madungog kini ug makita ang kahulogan niini. Pindota og dugay para sa dugang nga mga opsyon.
+02e83c27	<0>Gamiton usab ang Tamkeen sa laing device?</0> Mag-sign in gamit ang parehas nga Google account sa matag usa: ang imong library, mga pulong ug progreso mag-sync pinaagi sa pribado nga folder sa imong kaugalingong Google Drive.
+02d279ce	Sugdi ang pagkat-on

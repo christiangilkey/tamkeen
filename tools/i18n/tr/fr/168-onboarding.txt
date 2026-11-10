@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	Touchez n'importe quel mot pour voir ce qu'il veut dire
+46b131e7	Cela marche tout de suite : un dictionnaire intégré gratuit affiche les sens habituels du mot.
+e797ab5d	Pour aller plus loin, ajoutez une <0>clé d'IA</0>. Tamkeen vous dit alors aussi ce que le mot veut dire <1>dans cette phrase</1>, avec sa grammaire et ses expressions. Une clé API est une sorte de mot de passe fourni par le site d'un fournisseur d'IA ({0} ou {1}). Vous payez le fournisseur directement, une fraction de centime par mot, et <2>Gemini offre un quota gratuit</2>.
+e8383d42	Ajoutez une clé maintenant ou plus tard dans <0>Réglages → Définitions des mots (IA)</0>.
+54acc280	Commencez ici
+a97a8f82	Choisissez de quoi apprendre, puis touchez n'importe quel mot pour voir ce qu'il veut dire.
+57ab68c9	Commencer par une leçon
+a15f8298	De courtes leçons pour apprendre les bases
+9c247426	Regarder une vidéo
+de96e807	Des vidéos YouTube avec des sous-titres que vous pouvez toucher
+4e1f48bb	Écouter un podcast
+cf12fc59	Podcasts populaires en {0:lower}
+84ed2c8b	Choisissez une leçon, une vidéo ou un podcast. Dans chacun, touchez un mot pour voir ce qu'il veut dire et l'entendre.
+f54f0ecf	Ces épisodes attendent l'application Tamkeen sur ordinateur. Elle écrira leurs transcriptions à sa prochaine synchronisation avec cet appareil (connecté au même compte Google sur les deux).
+f5f5658b	Pas d'ordinateur ? Un service en ligne peut les écrire ici à la place, pour quelques centimes par heure d'audio : <0>Réglages → Écoute et transcriptions</0>.
+94866010	Vos podcasts apparaîtront ici.
+42977af6	<0>Trouvez de quoi apprendre.</0> Dans la Bibliothèque, commencez un cours, ou appuyez sur <1>+</1> pour ajouter une vidéo YouTube, un podcast (choisissez-en un populaire ou collez son adresse), une page web, un livre, ou vos propres fichiers audio et vidéo.
+ef9b1ba7	<0>Touchez n'importe quel mot</0> pour l'entendre et voir ce qu'il veut dire. Le mot prononcé est surligné pendant l'écoute, et vous pouvez ralentir le son ou répéter une phrase.
+9b7f5595	<0>Enregistrez les mots que vous voulez garder.</0> Faites un clic droit (ou un appui long) sur un mot ou une expression pour l'enregistrer avec sa phrase, puis révisez-le sur la page Vocabulaire ou envoyez-le vers Anki.
+98b2cf8b	<0>Transcriptions.</0> Les vidéos sous-titrées sont prêtes tout de suite. Les podcasts et vos propres enregistrements sont d'abord écrits mot à mot, sur cet ordinateur (à configurer juste après) ou par un service en ligne si vous en choisissez un.
+134e6bf6	Seuls les podcasts et vos propres enregistrements en ont besoin. Les vidéos sous-titrées, les cours et les livres fonctionnent sans.
+6fc09607	Passer pour l'instant
+5bea5568	<0>Trouvez de quoi apprendre.</0> Dans la Bibliothèque, commencez un cours, ou appuyez sur <1>+</1> pour des vidéos YouTube, des podcasts, des pages web et des livres.
+f3e46795	<0>Touchez n'importe quel mot</0> pour l'entendre et voir ce qu'il veut dire. Appui long pour plus d'options.
+02e83c27	<0>Vous utilisez aussi Tamkeen sur un autre appareil ?</0> Connectez-vous avec le même compte Google sur chacun : votre bibliothèque, vos mots et vos progrès se synchronisent via un dossier privé dans votre propre Google Drive.
+02d279ce	Commencer à apprendre

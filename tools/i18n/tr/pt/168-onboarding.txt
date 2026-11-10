@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	Toque em qualquer palavra para ver o que ela significa
+46b131e7	Isso já funciona na hora: um dicionário embutido gratuito mostra os significados comuns da palavra.
+e797ab5d	Para ir além, adicione uma <0>chave de IA</0>. Aí o Tamkeen também diz o que a palavra significa <1>naquela frase</1>, com a gramática e as expressões idiomáticas. Uma chave de API é uma espécie de senha que você pega no site de um provedor de IA ({0} ou {1}). Você paga direto ao provedor, uma fração de centavo por palavra, e <2>o Gemini tem uma cota gratuita</2>.
+e8383d42	Adicione uma chave agora ou depois em <0>Configurações → Definições de palavras (IA)</0>.
+54acc280	Comece aqui
+a97a8f82	Escolha algo para aprender e toque em qualquer palavra para ver o que ela significa.
+57ab68c9	Comece com uma lição
+a15f8298	Lições curtas que ensinam o básico
+9c247426	Assista a um vídeo
+de96e807	Vídeos do YouTube com legendas que você pode tocar
+4e1f48bb	Ouça um podcast
+cf12fc59	Podcasts populares em {0:lower}
+84ed2c8b	Escolha uma lição, um vídeo ou um podcast. Em qualquer um deles, toque em uma palavra para ver o que ela significa e ouvi-la.
+f54f0ecf	Estes episódios estão na fila para o app do Tamkeen para computador. Ele vai escrever as transcrições na próxima vez que sincronizar com este aparelho (com a mesma conta do Google conectada nos dois).
+f5f5658b	Sem computador? Um serviço online pode escrevê-las aqui, por alguns centavos a hora de áudio: <0>Configurações → Escuta e transcrições</0>.
+94866010	Seus podcasts vão aparecer aqui.
+42977af6	<0>Encontre algo para aprender.</0> Na Biblioteca, comece um curso ou aperte <1>+</1> para adicionar um vídeo do YouTube, um podcast (escolha um popular ou cole o endereço dele), uma página da web, um livro ou seus próprios áudios e vídeos.
+ef9b1ba7	<0>Toque em qualquer palavra</0> para ouvi-la e ver o que ela significa. Enquanto você escuta, a palavra que está sendo dita fica destacada, e dá para deixar o som mais lento ou repetir uma frase.
+9b7f5595	<0>Salve as palavras que você quer guardar.</0> Clique com o botão direito (ou toque e segure) em uma palavra ou expressão para salvá-la com a frase dela e depois revise-a na página Vocabulário ou envie-a para o Anki.
+98b2cf8b	<0>Transcrições.</0> Vídeos com legendas ficam prontos na hora. Podcasts e suas próprias gravações primeiro são escritos palavra por palavra, neste computador (você configura isso a seguir) ou por um serviço online, se você escolher um.
+134e6bf6	Só os podcasts e suas próprias gravações precisam disso. Vídeos com legendas, cursos e livros funcionam sem isso.
+6fc09607	Pular por enquanto
+5bea5568	<0>Encontre algo para aprender.</0> Na Biblioteca, comece um curso ou aperte <1>+</1> para vídeos do YouTube, podcasts, páginas da web e livros.
+f3e46795	<0>Toque em qualquer palavra</0> para ouvi-la e ver o que ela significa. Toque e segure para ver mais opções.
+02e83c27	<0>Também vai usar o Tamkeen em outro aparelho?</0> Entre com a mesma conta do Google em cada um: sua biblioteca, suas palavras e seu progresso são sincronizados por uma pasta privada no seu próprio Google Drive.
+02d279ce	Começar a aprender

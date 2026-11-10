@@ -14,6 +14,12 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** A smoother start for new learners. The welcome page now explains what Tamkeen does today (courses, YouTube, podcasts, books, tapping words), instead of only podcasts by their RSS address. The last first-run box says tapping a word works straight away with the free dictionary, and an AI key adds more, with Gemini (free allowance) shown first in “How do I get a key?”. Each first-run box opens at its top.
+- **Improved:** Home greets a learner with nothing in the library yet with **Start here**: a lesson, a video or a podcast, and the tour points to it. Before, it said “You’re all caught up”.
+- **Improved:** *(desktop app)* The transcription setup page has **Skip for now**, and the app no longer opens on it at every start until a speech model is downloaded. Videos with captions, courses and books don’t need one.
+- **Fixed:** *(the phones and the web app)* Asking for a podcast episode’s transcript with no cloud transcription set up only said “Queued”, and the episode then waited forever. Now a note explains it is waiting for the desktop app, and how to let an online service write it instead.
+- **Improved:** YouTube’s **Learn** topic (now second, after Popular now) shows lessons in YouTube’s own order from any year. Sorted by most watched this year, “Learn Spanish” was mostly news and politics.
+- **Improved:** An empty Library tab no longer shows status tabs and “Transcribe selected” with nothing in them, or two different hints about where to add things.
 - **New:** YouTube lists show **"Arabic track available"** (in the language you’re learning) on a video whose own sound is another language but which YouTube also offers dubbed in yours. So you know before you tap that it’s an extra audio track, chosen in the video under ⚙ → Audio track, and not the video’s own sound.
 - **Improved:** Wings and capes now show on the Moss boulder, Crystal golem, Treasure golem, Fluffball and Axolotl, rising from the top of their backs. Before, they hid almost completely behind the creature.
 - **Improved:** The Firefly beetle's head is just its head now. Hats, glasses and scarves sit on its real head (the cap tilts forward with it), it nods and blinks without moving its whole shell, and wings or a cape on its back show above its shell. Things worn by a creature can now sit at an angle, to fit its body.

@@ -5385,23 +5385,23 @@
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "871384d2",
-  "k": "One thing to set up: an API key",
+  "id": "338547ec",
+  "k": "Tap any word to see what it means",
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "af91b49e",
-  "k": "Tap any word and Tamkeen tells you what it means <0>in that sentence</0>. Those explanations are written by an AI service, so <1>for the app to work you need to give it an API key from an AI provider of your choice</1>: {0} or {1}.",
+  "id": "46b131e7",
+  "k": "That works straight away: a free built-in dictionary shows the word's usual meanings.",
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "c3016d5f",
-  "k": "An API key is a kind of password you get from the provider's website. You pay the provider directly: a lookup costs a fraction of a cent, and Gemini has a free allowance.",
+  "id": "e797ab5d",
+  "k": "For more, add an <0>AI key</0>. Then Tamkeen also tells you what the word means <1>in that sentence</1>, with its grammar and idioms. An API key is a kind of password from an AI provider's website ({0} or {1}). You pay the provider directly, a fraction of a cent a word, and <2>Gemini has a free allowance</2>.",
   "f": "web/js/components/onboarding.js"
  },
  {
-  "id": "9ab59592",
-  "k": "Set it, or change it later, in <0>Settings → Word definitions (AI)</0>. There you can also choose <1>No AI</1>: a free built-in dictionary that shows a word's usual meanings, but not the one in its sentence (AI is strongly recommended).",
+  "id": "e8383d42",
+  "k": "Add a key now or later in <0>Settings → Word definitions (AI)</0>.",
   "f": "web/js/components/onboarding.js"
  },
  {
@@ -16650,6 +16650,46 @@
   "f": "web/js/pages/home.js"
  },
  {
+  "id": "54acc280",
+  "k": "Start here",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "a97a8f82",
+  "k": "Pick something to learn from, then tap any word in it to see what it means.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "57ab68c9",
+  "k": "Start with a lesson",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "a15f8298",
+  "k": "Short lessons that teach the basics",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "9c247426",
+  "k": "Watch a video",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "de96e807",
+  "k": "YouTube videos with captions you can tap",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "4e1f48bb",
+  "k": "Listen to a podcast",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "cf12fc59",
+  "k": "Popular {0} podcasts",
+  "f": "web/js/pages/home.js"
+ },
+ {
   "id": "65a724ff",
   "k": "You're all caught up",
   "f": "web/js/pages/home.js"
@@ -16697,6 +16737,11 @@
  {
   "id": "afc68c61",
   "k": "Switch to another language you're learning, or add one. Each keeps its own library, words and reviews.",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "84ed2c8b",
+  "k": "Pick a lesson, a video or a podcast. In any of them, tap a word to see what it means and hear it.",
   "f": "web/js/pages/home.js"
  },
  {
@@ -16752,6 +16797,16 @@
  {
   "id": "2457b3f7",
   "k": "They're waiting in the queue for your computer now.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "f54f0ecf",
+  "k": "These episodes are queued for the Tamkeen desktop app. It writes their transcripts the next time it syncs with this device (signed in to the same Google account on both).",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "f5f5658b",
+  "k": "No computer? An online service can write them here instead, for a few cents an hour of audio: <0>Settings → Listening & transcripts</0>.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -16980,8 +17035,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "3f52d1ce",
-  "k": "No podcasts yet. Add one above, or look in Trending.",
+  "id": "94866010",
+  "k": "Your podcasts will appear here.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -19630,28 +19685,23 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "58c2a9b6",
-  "k": "<0>Add a podcast by its RSS feed URL.</0> Most podcasts publish one. Look for “RSS” on the podcast's website, or search the web for “<1>podcast name</1> RSS feed”. Apple Podcasts links won't work directly, but sites like castos.com/tools/find-podcast-rss-feed can turn them into an RSS URL.",
+  "id": "42977af6",
+  "k": "<0>Find something to learn from.</0> In the Library, start a course, or press <1>+</1> to add a YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.",
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "668bb8e3",
-  "k": "<0>Transcribe episodes.</0> Click “Transcribe” on any episode. Everything runs on your computer. Nothing is uploaded anywhere.",
+  "id": "ef9b1ba7",
+  "k": "<0>Tap any word</0> to hear it and see what it means. The word being spoken is highlighted as you listen, and you can slow the sound down or repeat a sentence.",
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "264a32cd",
-  "k": "<0>Listen and read along.</0> The current word is highlighted. Click any word to jump to it, slow the audio down, or loop a sentence.",
+  "id": "9b7f5595",
+  "k": "<0>Save the words you want to keep.</0> Right-click (or long-press) a word or phrase to save it with its sentence, then review it on the Vocab page or send it to Anki.",
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "fde41bd9",
-  "k": "<0>Build your vocab.</0> Right-click (or long-press) a word or phrase to save it with its sentence. Export to Anki when you're ready.",
-  "f": "web/js/pages/welcome.js"
- },
- {
-  "id": "c7ea5765",
-  "k": "The app re-checks your podcasts every time it starts, so new episodes appear automatically.",
+  "id": "98b2cf8b",
+  "k": "<0>Transcripts.</0> Videos with captions are ready at once. Podcasts and your own recordings are written down word by word first, on this computer (set up next) or by an online service if you choose one.",
   "f": "web/js/pages/welcome.js"
  },
  {
@@ -19715,8 +19765,13 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "9ff4b446",
-  "k": "Download a model to continue, or set up a cloud provider above. You can keep using the app while a model downloads.",
+  "id": "134e6bf6",
+  "k": "Only podcasts and your own recordings need this. Videos with captions, courses and books work without it.",
+  "f": "web/js/pages/welcome.js"
+ },
+ {
+  "id": "6fc09607",
+  "k": "Skip for now",
   "f": "web/js/pages/welcome.js"
  },
  {
@@ -23060,6 +23115,11 @@
   "f": "web/js/youtube-home.js"
  },
  {
+  "id": "884466c4",
+  "k": "Learn {0}",
+  "f": "web/js/youtube-home.js"
+ },
+ {
   "id": "42f2a9e5",
   "k": "Food & cooking",
   "f": "web/js/youtube-home.js"
@@ -23092,11 +23152,6 @@
  {
   "id": "0a62c1c5",
   "k": "Podcasts & interviews",
-  "f": "web/js/youtube-home.js"
- },
- {
-  "id": "884466c4",
-  "k": "Learn {0}",
   "f": "web/js/youtube-home.js"
  },
  {
@@ -23985,18 +24040,23 @@
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "d0ddef8f",
-  "k": "<0>Transcribe on your computer.</0> The desktop app makes the word-by-word transcripts.",
+  "id": "5bea5568",
+  "k": "<0>Find something to learn from.</0> In the Library, start a course, or press <1>+</1> for YouTube videos, podcasts, web pages and books.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "f0adf6f0",
-  "k": "<0>Sign in with the same Google account</0> here and on your computer. Everything syncs through a private app folder in your own Google Drive.",
+  "id": "f3e46795",
+  "k": "<0>Tap any word</0> to hear it and see what it means. Long-press for more options.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "a6b63644",
-  "k": "<0>Tap any word</0> to hear it and see what it means in context. Long-press for more options.",
+  "id": "02e83c27",
+  "k": "<0>Using Tamkeen on another device too?</0> Sign in with the same Google account on each: your library, words and progress sync through a private folder in your own Google Drive.",
+  "f": "mobile/src/js/pages/welcome.js"
+ },
+ {
+  "id": "02d279ce",
+  "k": "Start learning",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {

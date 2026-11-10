@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	Toca qualsevol paraula per veure què vol dir
+46b131e7	Funciona des del primer moment: un diccionari integrat gratuït mostra els significats habituals de la paraula.
+e797ab5d	Si en vols més, afegeix una <0>clau d'IA</0>. Llavors Tamkeen també et diu què vol dir la paraula <1>en aquella frase</1>, amb la seva gramàtica i les frases fetes. Una clau d'API és una mena de contrasenya que et dona el web d'un proveïdor d'IA ({0} o {1}). Pagues directament al proveïdor, una fracció de cèntim per paraula, i <2>Gemini té una quota gratuïta</2>.
+e8383d42	Afegeix una clau ara o més tard a <0>Configuració → Definicions de paraules (IA)</0>.
+54acc280	Comença aquí
+a97a8f82	Tria alguna cosa per aprendre i toca qualsevol paraula per veure què vol dir.
+57ab68c9	Comença amb una lliçó
+a15f8298	Lliçons curtes que ensenyen el més bàsic
+9c247426	Mira un vídeo
+de96e807	Vídeos de YouTube amb subtítols que pots tocar
+4e1f48bb	Escolta un pòdcast
+cf12fc59	Pòdcasts populars en {0:lower}
+84ed2c8b	Tria una lliçó, un vídeo o un pòdcast. En qualsevol d'ells, toca una paraula per veure què vol dir i sentir-la.
+f54f0ecf	Aquests episodis són a la cua per a l'aplicació d'ordinador de Tamkeen. N'escriurà les transcripcions la pròxima vegada que se sincronitzi amb aquest dispositiu (amb la sessió iniciada al mateix compte de Google en tots dos).
+f5f5658b	No tens ordinador? Un servei en línia les pot escriure aquí, per uns quants cèntims l'hora d'àudio: <0>Configuració → Escolta i transcripcions</0>.
+94866010	Els teus pòdcasts apareixeran aquí.
+42977af6	<0>Troba alguna cosa per aprendre.</0> A la Biblioteca, comença un curs o prem <1>+</1> per afegir un vídeo de YouTube, un pòdcast (tria'n un de popular o enganxa'n l'adreça), una pàgina web, un llibre o el teu propi àudio i vídeo.
+ef9b1ba7	<0>Toca qualsevol paraula</0> per sentir-la i veure què vol dir. Mentre escoltes, la paraula que es diu queda ressaltada, i pots alentir el so o repetir una frase.
+9b7f5595	<0>Desa les paraules que vulguis conservar.</0> Fes clic amb el botó dret (o mantén premuda) una paraula o una expressió per desar-la amb la seva frase, i després repassa-la a la pàgina Vocabulari o envia-la a Anki.
+98b2cf8b	<0>Transcripcions.</0> Els vídeos amb subtítols estan a punt de seguida. Els pòdcasts i les teves gravacions primer s'escriuen paraula per paraula, en aquest ordinador (el configures tot seguit) o amb un servei en línia si en tries un.
+134e6bf6	Només ho necessiten els pòdcasts i les teves gravacions. Els vídeos amb subtítols, els cursos i els llibres funcionen sense això.
+6fc09607	Omet per ara
+5bea5568	<0>Troba alguna cosa per aprendre.</0> A la Biblioteca, comença un curs o prem <1>+</1> per a vídeos de YouTube, pòdcasts, pàgines web i llibres.
+f3e46795	<0>Toca qualsevol paraula</0> per sentir-la i veure què vol dir. Mantén premut per veure més opcions.
+02e83c27	<0>Fas servir Tamkeen també en un altre dispositiu?</0> Inicia la sessió amb el mateix compte de Google a cadascun: la teva biblioteca, les paraules i el progrés se sincronitzen a través d'una carpeta privada al teu propi Google Drive.
+02d279ce	Comença a aprendre

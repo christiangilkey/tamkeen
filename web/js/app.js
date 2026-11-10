@@ -684,6 +684,11 @@ async function bootEmbed() {
   tell("ready", { title: ep.title || "" });
 }
 
+/** "Skip for now" on the transcription setup page (pages/welcome.js): this computer stops opening on it.
+ * Only needed for podcasts and recordings; captioned videos, courses and books work without a model. */
+export const SETUP_LATER = "tamkeenSetupLater";
+function setupLater() { try { return !!localStorage.getItem(SETUP_LATER); } catch { return false; } }
+
 async function boot() {
   installSelectSheets(); // drop-down menus open Tamkeen's own list on a touch screen (components/selectsheet.js)
   connectEvents();
@@ -693,7 +698,7 @@ async function boot() {
     await startTranslating(s.settings.ui_language); // the app's own words in the user's language
     if (!s.settings.welcome_seen || !s.settings.study_language) { // first run: choose a language first
       if (!location.hash.startsWith("#/welcome") && !location.hash.startsWith("#/setup")) location.hash = "#/welcome";
-    } else if (!s.model_ready && !location.hash.startsWith("#/settings") && !location.hash.startsWith("#/about")) {
+    } else if (!s.model_ready && !setupLater() && !location.hash.startsWith("#/settings") && !location.hash.startsWith("#/about")) {
       location.hash = "#/setup";
     }
   } catch (e) {

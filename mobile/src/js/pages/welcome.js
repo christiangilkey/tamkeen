@@ -1,5 +1,5 @@
-// First run on the phone: the three boxes (components/onboarding.js), then what the app does and
-// Google sign-in to bring in the library.
+// First run on the phone and in the web app: the first-run boxes (components/onboarding.js), then what
+// the app does, with Google sign-in offered for those who also use it on another device.
 
 import { h, toast, saveSettings } from "../app.js";
 import { signIn } from "../drive.js";
@@ -17,13 +17,14 @@ export async function render(view) {
     <div class="ar-sample" id="hello"></div>
     <div class="card stack">
       <ol>
-        <li><strong>Transcribe on your computer.</strong> The desktop app makes the word-by-word transcripts.</li>
-        <li><strong>Sign in with the same Google account</strong> here and on your computer. Everything syncs through a
-          private app folder in your own Google Drive.</li>
-        <li><strong>Tap any word</strong> to hear it and see what it means in context. Long-press for more options.</li>
+        <li><strong>Find something to learn from.</strong> In the Library, start a course, or press <strong>+</strong> for
+          YouTube videos, podcasts, web pages and books.</li>
+        <li><strong>Tap any word</strong> to hear it and see what it means. Long-press for more options.</li>
+        <li><strong>Using Tamkeen on another device too?</strong> Sign in with the same Google account on each: your library,
+          words and progress sync through a private folder in your own Google Drive.</li>
       </ol>
-      <button type="button" class="primary" id="go">Sign in with Google</button>
-      <button type="button" class="ghost" id="skip">Not now</button>
+      <button type="button" class="primary" id="skip">Start learning</button>
+      <button type="button" class="ghost" id="go">Sign in with Google</button>
       ${isNative || isWeb ? "" : `<p class="small muted">Preview mode: sign-in works in the installed app.</p>`}
     </div>
   </div>`));

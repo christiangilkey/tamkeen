@@ -1,7 +1,7 @@
 // First run: the three boxes (components/onboarding.js) over the welcome page (how it works /
 // adding a feed), then model setup.
 
-import { api, esc, h, saveSettings, loadStatus, state } from "../app.js";
+import { SETUP_LATER, api, esc, h, saveSettings, loadStatus, state } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { needsOnboarding, runOnboarding } from "../components/onboarding.js";
 import { sttSetup } from "../components/sttsetup.js";
@@ -17,17 +17,15 @@ export async function render(view, { step }) {
       <div class="card stack">
         <h2>How it works</h2>
         <ol>
-          <li><strong>Add a podcast by its RSS feed URL.</strong> Most podcasts publish one. Look for “RSS” on the podcast's website,
-            or search the web for “<em>podcast name</em> RSS feed”. Apple Podcasts links won't work directly, but sites like
-            castos.com/tools/find-podcast-rss-feed can turn them into an RSS URL.</li>
-          <li><strong>Transcribe episodes.</strong> Click “Transcribe” on any episode. Everything runs on your computer.
-            Nothing is uploaded anywhere.</li>
-          <li><strong>Listen and read along.</strong> The current word is highlighted. Click any word to jump to it, slow the audio
-            down, or loop a sentence.</li>
-          <li><strong>Build your vocab.</strong> Right-click (or long-press) a word or phrase to save it with its sentence.
-            Export to Anki when you're ready.</li>
+          <li><strong>Find something to learn from.</strong> In the Library, start a course, or press <strong>+</strong> to add a
+            YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.</li>
+          <li><strong>Tap any word</strong> to hear it and see what it means. The word being spoken is highlighted as you listen,
+            and you can slow the sound down or repeat a sentence.</li>
+          <li><strong>Save the words you want to keep.</strong> Right-click (or long-press) a word or phrase to save it with its
+            sentence, then review it on the Vocab page or send it to Anki.</li>
+          <li><strong>Transcripts.</strong> Videos with captions are ready at once. Podcasts and your own recordings are written down
+            word by word first, on this computer (set up next) or by an online service if you choose one.</li>
         </ol>
-        <p class="small muted">The app re-checks your podcasts every time it starts, so new episodes appear automatically.</p>
         <div class="row"><button class="primary" id="next" type="button">Next: set up transcription →</button></div>
       </div>
     </div>`));
@@ -70,7 +68,8 @@ export async function render(view, { step }) {
     </details>
     <div class="row" style="margin-top:16px">
       <span class="spacer"></span>
-      <span class="small muted" id="hint">Download a model to continue, or set up a cloud provider above. You can keep using the app while a model downloads.</span>
+      <span class="small muted" id="hint">Only podcasts and your own recordings need this. Videos with captions, courses and books work without it.</span>
+      <button class="ghost" type="button" id="later">Skip for now</button>
       <button class="primary" type="button" id="done" disabled>Start using the app →</button>
     </div>
   </div>`));
@@ -78,7 +77,7 @@ export async function render(view, { step }) {
   const refresh = () => {
     const ready = state.status && state.status.model_ready;
     $("#done").disabled = !ready;
-    $("#hint").hidden = !!ready;
+    $("#hint").hidden = $("#later").hidden = !!ready;
   };
   const cleanups = [modelManager($("#models"), { hardware: hw, onChange: refresh })];
   if (hw.gpu_pack_supported) cleanups.push(gpuPanel($("#gpu"), hw));
@@ -92,6 +91,11 @@ export async function render(view, { step }) {
     changed: async () => { await loadStatus(); refresh(); },
   }));
   $("#done").onclick = async () => {
+    await saveSettings({ welcome_seen: true });
+    location.hash = "#/";
+  };
+  $("#later").onclick = async () => {
+    try { localStorage.setItem(SETUP_LATER, "1"); } catch { /* asked again next time */ }
     await saveSettings({ welcome_seen: true });
     location.hash = "#/";
   };

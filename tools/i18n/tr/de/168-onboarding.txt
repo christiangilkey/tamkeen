@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	Tippe auf ein beliebiges Wort, um zu sehen, was es bedeutet
+46b131e7	Das funktioniert sofort: Ein kostenloses eingebautes Wörterbuch zeigt die üblichen Bedeutungen des Wortes.
+e797ab5d	Für mehr füge einen <0>KI-Schlüssel</0> hinzu. Dann sagt dir Tamkeen auch, was das Wort <1>in diesem Satz</1> bedeutet, mit Grammatik und Redewendungen. Ein API-Schlüssel ist eine Art Passwort von der Website eines KI-Anbieters ({0} oder {1}). Du bezahlst den Anbieter direkt, einen Bruchteil eines Cents pro Wort, und <2>Gemini hat ein kostenloses Kontingent</2>.
+e8383d42	Füge jetzt oder später einen Schlüssel hinzu, unter <0>Einstellungen → Worterklärungen (KI)</0>.
+54acc280	Fang hier an
+a97a8f82	Such dir etwas zum Lernen aus und tippe dann auf ein beliebiges Wort darin, um zu sehen, was es bedeutet.
+57ab68c9	Mit einer Lektion beginnen
+a15f8298	Kurze Lektionen, die die Grundlagen vermitteln
+9c247426	Ein Video ansehen
+de96e807	YouTube-Videos mit Untertiteln zum Antippen
+4e1f48bb	Einen Podcast hören
+cf12fc59	Beliebte Podcasts auf {0}
+84ed2c8b	Wähle eine Lektion, ein Video oder einen Podcast. Tippe darin auf ein Wort, um zu sehen, was es bedeutet, und es zu hören.
+f54f0ecf	Diese Folgen warten auf die Tamkeen-Desktop-App. Sie schreibt ihre Transkripte, sobald sie sich das nächste Mal mit diesem Gerät synchronisiert (auf beiden mit demselben Google-Konto angemeldet).
+f5f5658b	Kein Computer? Ein Onlinedienst kann sie stattdessen hier schreiben, für ein paar Cent pro Stunde Audio: <0>Einstellungen → Hören & Transkripte</0>.
+94866010	Deine Podcasts erscheinen hier.
+42977af6	<0>Finde etwas zum Lernen.</0> Starte in der Bibliothek einen Kurs oder tippe auf <1>+</1>, um ein YouTube-Video, einen Podcast (wähle einen beliebten oder füge seine Adresse ein), eine Webseite, ein Buch oder deine eigenen Audios und Videos hinzuzufügen.
+ef9b1ba7	<0>Tippe auf ein beliebiges Wort</0>, um es zu hören und zu sehen, was es bedeutet. Beim Zuhören wird das gerade gesprochene Wort hervorgehoben, und du kannst den Ton verlangsamen oder einen Satz wiederholen.
+9b7f5595	<0>Speichere die Wörter, die du behalten willst.</0> Klicke mit der rechten Maustaste auf ein Wort oder einen Ausdruck (oder drücke lang darauf), um es mit seinem Satz zu speichern. Wiederhole es dann auf der Seite Vokabeln oder schick es an Anki.
+98b2cf8b	<0>Transkripte.</0> Videos mit Untertiteln sind sofort bereit. Podcasts und deine eigenen Aufnahmen werden zuerst Wort für Wort aufgeschrieben, auf diesem Computer (das richtest du als Nächstes ein) oder von einem Onlinedienst, wenn du einen wählst.
+134e6bf6	Das brauchen nur Podcasts und deine eigenen Aufnahmen. Videos mit Untertiteln, Kurse und Bücher funktionieren ohne.
+6fc09607	Vorerst überspringen
+5bea5568	<0>Finde etwas zum Lernen.</0> Starte in der Bibliothek einen Kurs oder tippe auf <1>+</1> für YouTube-Videos, Podcasts, Webseiten und Bücher.
+f3e46795	<0>Tippe auf ein beliebiges Wort</0>, um es zu hören und zu sehen, was es bedeutet. Lang drücken für weitere Optionen.
+02e83c27	<0>Nutzt du Tamkeen auch auf einem anderen Gerät?</0> Melde dich überall mit demselben Google-Konto an: Deine Bibliothek, deine Wörter und dein Fortschritt werden über einen privaten Ordner in deinem eigenen Google Drive synchronisiert.
+02d279ce	Mit dem Lernen beginnen

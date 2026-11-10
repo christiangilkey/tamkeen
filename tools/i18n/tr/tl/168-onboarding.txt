@@ -1,0 +1,27 @@
+# First-run screens, the "Start here" Home and the waiting-for-your-computer note (onboarding review).
+338547ec	I-tap ang kahit anong salita para makita ang kahulugan nito
+46b131e7	Gumagana na ito agad: isang libreng built-in na diksyunaryo ang nagpapakita ng karaniwang kahulugan ng salita.
+e797ab5d	Para sa higit pa, magdagdag ng <0>AI key</0>. Sasabihin din sa iyo ng Tamkeen ang kahulugan ng salita <1>sa pangungusap na iyon</1>, kasama ang grammar at mga idyoma nito. Ang API key ay parang password mula sa website ng isang AI provider ({0} o {1}). Direkta kang magbabayad sa provider, bahagi lang ng isang sentimo bawat salita, at <2>may libreng allowance ang Gemini</2>.
+e8383d42	Magdagdag ng key ngayon o mamaya sa <0>Settings → Kahulugan ng mga salita (AI)</0>.
+54acc280	Magsimula rito
+a97a8f82	Pumili ng pag-aaralan, tapos i-tap ang kahit anong salita rito para makita ang kahulugan nito.
+57ab68c9	Magsimula sa isang aralin
+a15f8298	Maiikling aralin na nagtuturo ng mga batayan
+9c247426	Manood ng video
+de96e807	Mga video sa YouTube na may caption na puwede mong i-tap
+4e1f48bb	Makinig sa podcast
+cf12fc59	Mga sikat na podcast sa {0}
+84ed2c8b	Pumili ng aralin, video o podcast. Sa alinman sa mga ito, i-tap ang isang salita para makita ang kahulugan nito at marinig ito.
+f54f0ecf	Nakapila ang mga episode na ito para sa Tamkeen desktop app. Isusulat nito ang mga transcript nila sa susunod na mag-sync ito sa device na ito (naka-sign in sa iisang Google account sa dalawa).
+f5f5658b	Walang computer? Puwedeng isang online na serbisyo ang sumulat ng mga ito rito, sa ilang sentimo bawat oras ng audio: <0>Settings → Pakikinig at mga transcript</0>.
+94866010	Lalabas dito ang mga podcast mo.
+42977af6	<0>Humanap ng pag-aaralan.</0> Sa Library, magsimula ng kurso, o pindutin ang <1>+</1> para magdagdag ng video sa YouTube, podcast (pumili ng sikat o i-paste ang address nito), web page, libro, o sarili mong audio at video.
+ef9b1ba7	<0>I-tap ang kahit anong salita</0> para marinig ito at makita ang kahulugan nito. Naka-highlight ang salitang binibigkas habang nakikinig ka, at puwede mong bagalan ang tunog o ulitin ang isang pangungusap.
+9b7f5595	<0>I-save ang mga salitang gusto mong itago.</0> I-right-click (o pindutin nang matagal) ang isang salita o parirala para i-save ito kasama ang pangungusap nito, tapos i-review ito sa Vocab page o ipadala sa Anki.
+98b2cf8b	<0>Mga transcript.</0> Handa agad ang mga video na may caption. Ang mga podcast at sarili mong recording ay isusulat muna nang salita por salita, sa computer na ito (ise-set up sa susunod) o ng isang online na serbisyo kung pipili ka nito.
+134e6bf6	Ang mga podcast at sarili mong recording lang ang nangangailangan nito. Gumagana ang mga video na may caption, kurso at libro kahit wala ito.
+6fc09607	Laktawan muna
+5bea5568	<0>Humanap ng pag-aaralan.</0> Sa Library, magsimula ng kurso, o pindutin ang <1>+</1> para sa mga video sa YouTube, podcast, web page at libro.
+f3e46795	<0>I-tap ang kahit anong salita</0> para marinig ito at makita ang kahulugan nito. Pindutin nang matagal para sa iba pang opsyon.
+02e83c27	<0>Gumagamit ka rin ba ng Tamkeen sa ibang device?</0> Mag-sign in gamit ang iisang Google account sa bawat isa: magsi-sync ang library, mga salita at progreso mo sa pamamagitan ng isang pribadong folder sa sarili mong Google Drive.
+02d279ce	Simulan ang pag-aaral

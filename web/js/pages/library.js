@@ -35,6 +35,23 @@ export function computerOnlyNotice() {
   box.body.querySelector("button").onclick = box.close;
 }
 
+/** On the phone or the web app with no cloud transcription set up, episodes asked for wait for the
+ * desktop app. Said once (a new user would otherwise see "Queued" forever with no idea why). */
+const WAITING_SEEN = "tamkeenWaitingForComputerSeen";
+export function waitingForComputerNotice() {
+  try { if (localStorage.getItem(WAITING_SEEN)) return false; localStorage.setItem(WAITING_SEEN, "1"); } catch { /* storage off: say it */ }
+  const box = openModal({ title: "Waiting for your computer" });
+  box.body.append(h(`<div class="stack">
+    <p>These episodes are queued for the Tamkeen desktop app. It writes their transcripts the next time it syncs with this
+      device (signed in to the same Google account on both).</p>
+    <p>No computer? An online service can write them here instead, for a few cents an hour of audio:
+      <strong>Settings → Listening &amp; transcripts</strong>.</p>
+    <div class="row"><a class="btn" href="#/settings?s=listening">Open Settings</a><button type="button" class="primary">OK</button></div></div>`));
+  box.body.querySelector("button").onclick = box.close;
+  box.body.querySelector("a").onclick = () => box.close();
+  return true;
+}
+
 const FILTERS = [
   ["", "All"],
   ["new", "Not started"],
@@ -316,7 +333,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       remember(el);
       strip.append(el);
     }
-    if (!podcasts.length) strip.append(h(`<p class="small muted" style="padding:6px;align-self:center">No podcasts yet. Add one above, or look in Trending.</p>`));
+    if (!podcasts.length) strip.append(h(`<p class="small muted" style="padding:6px;align-self:center">Your podcasts will appear here.</p>`));
     strip.querySelector(".active")?.scrollIntoView({ block: "nearest", inline: "nearest" });
   }
 
@@ -381,6 +398,14 @@ export async function render(view, { feedId: routeFeed, query }) {
   function markEmpty(part, on) {
     empty[part] = on;
     root.classList.toggle("lib-is-empty", empty.head || empty.list);
+    // Nothing to filter, tick or transcribe yet: the status tabs and their buttons wait (a new user saw
+    // "Queued 0 · Failed 0 · Transcribe selected" over an empty page).
+    const bare = empty.head || empty.list;
+    for (const q of [".filter-row", "#select-all", "#transcribe-selected"]) {
+      const el = root.querySelector(q);
+      const box = el && (el.closest("label.switch") || el);
+      if (box) box.style.display = bare ? "none" : "";
+    }
     if (empty.head || empty.list) aimHint();
   }
   const aimHint = () => {
@@ -763,6 +788,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       scheduleCounts();
       if (r.computer_only) { computerOnlyNotice(); return; }
       if (!r.queued.length) toast("Those episodes are already queued or in progress.");
+      else if (r.note && !r.here) { if (!waitingForComputerNotice()) toast(r.note); }
       else toast(`Queued ${r.queued.length} episode${r.queued.length > 1 ? "s" : ""} for transcription.`);
     } catch (e) {
       toast(e.message, { error: true });

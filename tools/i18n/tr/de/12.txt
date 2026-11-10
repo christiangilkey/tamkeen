@@ -118,7 +118,7 @@ addc5a24 5 Sekunden vor (→)
 af85b75e YouTube konnte dieses Video nicht abspielen.
 b66fc2d7 Das Video konnte nicht geladen werden. Es wird aus deinem Google Drive gestreamt: Prüfe deine Verbindung und ob du angemeldet bist.
 6a9b0c2f Der Ton konnte nicht geladen werden. Wenn er vom Server des Podcasts gestreamt wird, prüfe deine Verbindung.
-70f8bb9a Pos1
+70f8bb9a Startseite
 a2bb9d34 Ende
 9c127d35 Wiedergabe fehlgeschlagen: {0}
 fa150e0d Du folgst {0}. Tippe, um nicht mehr zu folgen.
