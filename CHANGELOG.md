@@ -21,6 +21,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **Fixed:** Live battles: the view no longer jumps or zooms in and out while your creature walks. The arena changed size each time the note about the ground under your creature grew or shrank (along lava and water edges, mostly) or the potion button came and went. Now that note always takes two lines, the potion keeps its place, and the camera stays the same distance from your creature all fight. Your creature also stands still when a battle opens, and tapping the arena no longer flashes blue on phones.
 - **Fixed:** Live battles: a move no longer says "Out of range" while it would still hit. Its button now goes by how far the move really reaches (a shot's flight, an area's circle, a dash's run), and the computer's creature judges its own moves the same way.
 - **Changed:** Live battles: area attacks (the circles) are about 1.4 times wider, so they're harder to dodge, and as one lands the whole circle it hit shows for a moment.
+- **Changed:** Live battles: hint cards are found on the battle arena now. Every battle starts with none; now and then one turns up somewhere your creature can walk to (a yellow square on the little map shows where), and walking over it picks it up for that battle. In a question, a hint still takes away two wrong answers. Looking up words no longer gives hint cards.
 
 ## v0.50.0 — 2026-11-09
 

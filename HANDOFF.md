@@ -6486,9 +6486,16 @@ shown when wrong or too slow. This is the screen; the rules are livebattle.js, t
   theirs); damage numbers in ui/digits.png; "Failed", "Dodged!", "Strong hit!" float as text over the arena.
 - **Question**: a panel over everything (at the foot on phones): the move, the seconds left and a bar (teal, gold under
   40%, red under 20%), the word, its sentence, four big answers in the same X Y / A B places (each wearing its button,
-  key or nothing on a phone), hint card. "Right!" or "Too slow: failed" / "Wrong answer: failed" with the right
+  key or nothing on a phone), hint card (one a question: takes away two wrong answers). "Right!" or "Too slow: failed" / "Wrong answer: failed" with the right
   answer marked; the battle waits 0.45 s / 1.3 s so it can be seen. `rules.answerQuestion` records every answer. A
   question can't be paused, and leaving the app (page hidden) with one open counts as out of time.
+- **Hint cards** (owner, 2026-11-09: found walking round the map, at random, starting with none): battle-only, in
+  livebattle.js (`b.hints`, `b.pickups`, `hintsTick`, `spendHint`; HINT_FIRST 5-10 s, then every HINT_EVERY 10-18 s,
+  at most HINT_MAX 2 lying about) on a `battlemap.safeSpotNear` tile the player's creature can walk to (no burning
+  ground, no spikes, 56 px from both creatures and other cards); only the player's creature picks one up (14 px). The
+  screen draws the card bobbing on the ground, a yellow square on the minimap, "Hint card!" when picked up, and a
+  counter over the arena's bottom corner. The saved `items.hint` is no longer given (lookup surprises are streak
+  freezes only) nor used; it stays in saves so old ones load.
 - **Controls**: controller screen **"battle"** in padmap.js (Settings → Controller lists "Creature battles"; also in
   app/controller.py AREAS): A B X Y the four moves / answers, D-pad walks (remappable), LB hint, RB potion, View how to
   play, Menu pause; the button guide names each move. `gamepad.js padSteer()` reads the left stick as far as it is
@@ -7427,7 +7434,7 @@ each reward) is gone, with its CSS (app.css, the reel player's copy in reels.css
   from a popup shown for another element, a video's captions, still finds the one open popup). It reads, on one
   line that never changes the popup's height: "+12 XP 10 ×1.2" at the start (the big number is what was earned, the
   working beside it: the owner's old rule from `fountain`) and "next ×1.5" at the end, orange with the pixel flame
-  while the session's combo is alive. A Save shows "+20 XP [coin] +1"; a surprise "Hint card!" / "Streak freeze!";
+  while the session's combo is alive. A Save shows "+20 XP [coin] +1"; a surprise "Streak freeze!" (hint cards were one until 2026-11-09);
   a word already looked up today (it pays once a day) "Already looked up today" with the combo's next step
   (game.js checks `day.words` before `earn`). Texts are worked out in `game/xpline.js` (pure, tested in
   `tests/js/xpline.test.mjs`): `gainLine`, `working` (game.js `sumText` uses it), `times`, `shortXp`, `badgeFace`,

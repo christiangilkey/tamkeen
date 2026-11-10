@@ -19,7 +19,7 @@ import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
 import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
-import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spikeFrame, step, usePotion, view } from "./livebattle.js";
+import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 import { isChallengeWord } from "./challenge.js";
 
@@ -144,7 +144,7 @@ export function runLiveBattle(setup, vocab) {
     </div>
     <div class="lb-stage"><div class="lb-arena"><canvas width="${viewport.w}" height="${viewport.h}"></canvas><div class="lb-floats" aria-hidden="true"></div>
       <canvas class="lb-mini" hidden aria-hidden="true"></canvas>
-      <div class="lb-banner" hidden></div><span class="lb-combo" hidden></span></div></div>
+      <div class="lb-banner" hidden></div><span class="lb-combo" hidden></span><span class="lb-hints" hidden></span></div></div>
     <div class="lb-side">
       <div class="lb-ground"></div>
       <div class="lb-moves"></div>
@@ -537,6 +537,7 @@ export function runLiveBattle(setup, vocab) {
       if (secrets.some((sc) => !secretOpen(sc) && p.x >= sc.x0 && p.x < sc.x0 + sc.w && p.y >= sc.y0 && p.y < sc.y0 + sc.h)) continue; // (a tall one would peek over the rock)
       things.push({ y: py, draw: () => drawProp(p) });
     }
+    for (const p of v.pickups || []) if (seen(p.x - 12, p.y - 32, p.x + 12, p.y + 4)) things.push({ y: p.y, draw: () => drawPickup(p, now) });
     for (const side of ["me", "foe"]) things.push({ y: v[side].y, draw: () => drawCreature(side, now) });
     for (const o of map.ornaments || []) {
       const info = ORNAMENTS[o.id];
@@ -647,6 +648,12 @@ export function runLiveBattle(setup, vocab) {
     miniCtx.lineWidth = 1;
     miniCtx.strokeRect(Math.round(drawn.x * k) + 0.5, Math.round(Math.max(0, drawn.y) * k) + 0.5, Math.round(viewport.w * k) - 1, Math.round(Math.min(viewport.h, viewport.h + drawn.y) * k) - 1);
     const dot = (c, color) => { if (!c || (c.fainted && !c.act)) return; miniCtx.fillStyle = "#1b1420"; miniCtx.fillRect(Math.round(c.x * k) - 3, Math.round(c.y * k) - 3, 6, 6); miniCtx.fillStyle = color; miniCtx.fillRect(Math.round(c.x * k) - 2, Math.round(c.y * k) - 2, 4, 4); };
+    for (const p of v.pickups || []) { // hint cards lying about
+      miniCtx.fillStyle = "#1b1420";
+      miniCtx.fillRect(Math.round(p.x * k) - 2, Math.round(p.y * k) - 2, 5, 5);
+      miniCtx.fillStyle = "#ffd54a";
+      miniCtx.fillRect(Math.round(p.x * k) - 1, Math.round(p.y * k) - 1, 3, 3);
+    }
     dot(v.foe, "#ff5a5a");
     dot(v.me, "#7fd3ff");
   }
@@ -672,6 +679,24 @@ export function runLiveBattle(setup, vocab) {
     const f = 1 - Math.exp(-dt * FOLLOW);
     cam.x += (tx - cam.x) * f;
     cam.y += (ty - cam.y) * f;
+  }
+
+  /** A hint card lying on the arena: its picture bobbing over a small shadow, with a glint now and then. */
+  function drawPickup(p, now) {
+    const x = Math.round(p.x), y = Math.round(p.y);
+    const bob = Math.round(Math.sin(now / 260 + p.id) * 2);
+    ctx.fillStyle = "rgba(0, 0, 0, .28)";
+    ctx.beginPath();
+    ctx.ellipse(x, y, 6, 2.5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    const img = want("icon/hint.png");
+    if (img) ctx.drawImage(img, x - 8, y - 22 + bob);
+    else { ctx.fillStyle = "#ffd54a"; ctx.fillRect(x - 5, y - 20 + bob, 10, 12); }
+    if ((now + p.id * 700) % 1600 < 260) { // the glint
+      ctx.fillStyle = "#fff";
+      ctx.fillRect(x + 4, y - 22 + bob, 5, 1);
+      ctx.fillRect(x + 6, y - 24 + bob, 1, 5);
+    }
   }
 
   function drawProp(p) {
@@ -866,6 +891,14 @@ export function runLiveBattle(setup, vocab) {
     const combo = $(".lb-combo");
     combo.hidden = !v.combo;
     if (v.combo) combo.textContent = `×${COMBO[Math.min(COMBO.length - 1, v.combo)]}`;
+    const cards = $(".lb-hints"); // the hint cards picked up this battle
+    if (cards.dataset.n !== String(v.hints)) {
+      cards.dataset.n = String(v.hints);
+      cards.hidden = !v.hints;
+      cards.innerHTML = `${icon("hint")}`;
+      cards.append(`×${v.hints}`);
+      cards.title = t("Hint ({0})", v.hints);
+    }
     paintMoves();
   }
 
@@ -981,10 +1014,10 @@ export function runLiveBattle(setup, vocab) {
       return btn;
     });
     const hint = panel.querySelector(".lbq-hint");
-    if (game.items.hint > 0) {
+    if (b.hints > 0) { // the hint cards picked up on the arena this battle
       hint.hidden = false;
       hint.innerHTML = `${icon("hint")} `;
-      hint.append(t("Hint ({0})", game.items.hint));
+      hint.append(t("Hint ({0})", b.hints));
       hint.addEventListener("click", useHint);
     }
     box.append(panel);
@@ -1002,8 +1035,7 @@ export function runLiveBattle(setup, vocab) {
     $(".lbq-left").textContent = `${Math.ceil(quiz.timeLeft)}`;
   }
   function useHint() {
-    if (!b.quiz || game.items.hint <= 0) return;
-    game.items.hint--;
+    if (!spendHint(b)) return;
     $(".lbq-hint").hidden = true;
     const q = b.quiz.q;
     const wrong = quizButtons.map((_, i) => i).filter((i) => i !== q.answer && !quizButtons[i].disabled).sort(() => Math.random() - 0.5).slice(0, 2);
@@ -1074,6 +1106,7 @@ export function runLiveBattle(setup, vocab) {
       switch (ev.kind) {
         case "step": play("dust", null, x - (v[ev.side]?.face || 1) * 4, y, { flip: (v[ev.side]?.face || 1) < 0 }); break;
         case "attack": sfx("common"); break;
+        case "pickup": float(t("Hint card!"), x, y - 30, "strong"); play("power", null, x, y); sfx("lucky"); break;
         case "hit": {
           play("impact", ev.element, x, y - BODY_UP);
           numbers.push({ text: `-${ev.dmg}`, x, y: y - 44, t: 0, color: ev.mult > 1 ? "#ffd54a" : ev.mult < 1 ? "#a9b8d6" : "#ffffff" });
@@ -1215,7 +1248,7 @@ export function runLiveBattle(setup, vocab) {
   let releasePad = controllerArea("battle", {
     move1: padAction("move1"), move2: padAction("move2"), move3: padAction("move3"), move4: padAction("move4"),
     walkUp: walking, walkDown: walking, walkLeft: walking, walkRight: walking,
-    hint: { run: useHint, can: () => !!b.quiz && game.items.hint > 0 },
+    hint: { run: useHint, can: () => !!b.quiz && b.hints > 0 && !b.quiz.hinted },
     potion: { run: drinkPotion, can: () => canDrink() },
     help: { run: () => pause(true), hint: () => t("How to play") },
     pause: { run: () => pause(), hint: () => t("Pause") },

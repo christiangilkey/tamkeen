@@ -51,7 +51,9 @@ const TIERS = [
   { id: "jackpot", chance: 0.08, xp: [100, 200] },
   { id: "surprise", chance: 0.02, xp: [0, 0] }, // no XP: an item instead
 ];
-const SURPRISES = ["freeze", "hint"];
+// (Hint cards were a surprise too; now they are only found on a live battle's arena, and every battle starts with
+// none. A save's items.hint stays so old saves load, unused.)
+const SURPRISES = ["freeze"];
 
 export const dayKey = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 /** Days since 1970 in local time: a plain number, easy to compare and add to. */

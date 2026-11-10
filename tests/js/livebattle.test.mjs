@@ -6,13 +6,13 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { LIVE_FORMS, LIVE_STYLE_TEXT, MOVES, MOVE_STYLES, STRONG, TYPE_CHART, TYPE_IDS, WEAK, defenceOf, liveMove, matchup, moveById } from "../../web/js/game/data.js";
 import { newGenome, rng } from "../../web/js/game/genome.js";
-import { finishBattle, newState } from "../../web/js/game/rules.js";
+import { finishBattle, newState, rollReward } from "../../web/js/game/rules.js";
 import { fighters, wildTeam } from "../../web/js/game/battle.js";
 import { generateMap } from "../../web/js/game/battlemap.js";
 import {
-  COMBO, ENTER_GAP, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, SPIKE_S, TILE, answer, axeAngle, battleResult, cardScale, crackAt, current, input, inRange,
+  COMBO, ENTER_GAP, HINT_FIRST, HINT_MAX, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, SPIKE_S, TILE, answer, axeAngle, battleResult, cardScale, crackAt, current, input, inRange,
   newLiveBattle, reachOf, speedOf, spikeFrame, spikesUp,
-  step, useNow, usePotion, view, whyNot, wordModeOf, wordPool,
+  spendHint, step, useNow, usePotion, view, whyNot, wordModeOf, wordPool,
 } from "../../web/js/game/livebattle.js";
 
 const DT = 1 / 60;
@@ -787,4 +787,69 @@ test("hidden rooms: clicking a cracked wall walks the creature up to it and brea
   input(b, { goTo: at(10, 5) });
   run(b, 3);
   assert.ok(Math.abs(current(b, "me").y - at(10, 5).y) < 6, "and it can walk into the room");
+});
+
+test("hint cards: none at the start; now and then one turns up on ground the player can reach; only the player picks them up", () => {
+  // the owner: hints are found walking round the map, put there at random, and the player starts with none
+  const b = duel();
+  assert.equal(b.hints, 0);
+  assert.equal(view(b).hints, 0);
+  assert.deepEqual(view(b).pickups, []);
+  assert.equal(kinds(run(b, HINT_FIRST[0] - 0.2), "hint-appears").length, 0, "not straight away");
+  const ev = run(b, 60);
+  assert.ok(kinds(ev, "hint-appears").length >= 1, "one turned up");
+  assert.ok(b.pickups.length >= 1 && b.pickups.length <= HINT_MAX, `never more than ${HINT_MAX} lying about`);
+  const me = current(b, "me"), foe = current(b, "foe");
+  for (const p of b.pickups) {
+    assert.ok(Math.hypot(p.x - me.x, p.y - me.y) >= 40 && Math.hypot(p.x - foe.x, p.y - foe.y) >= 40, "not right by a creature");
+  }
+  assert.deepEqual(view(b).pickups.map((p) => p.id), b.pickups.map((p) => p.id), "the screen sees them");
+  const card = b.pickups[0];
+  const home = { x: foe.x, y: foe.y };
+  foe.x = card.x;
+  foe.y = card.y;
+  run(b, 0.1);
+  assert.ok(b.pickups.some((p) => p.id === card.id), "the rival leaves it");
+  foe.x = home.x;
+  foe.y = home.y;
+  me.x = card.x;
+  me.y = card.y;
+  const got = kinds(run(b, 0.1), "pickup");
+  assert.equal(got.length, 1, "the player's creature picks it up");
+  assert.equal(got[0].item, "hint");
+  assert.equal(b.hints, 1);
+  assert.equal(view(b).hints, 1);
+  assert.ok(!b.pickups.some((p) => p.id === card.id), "and it is gone from the ground");
+
+  // never in deep water the creature can't cross, nor where it can't walk to
+  const lake = duel({ map: arena(open(24, 9).map((row) => row.slice(0, 14) + "d".repeat(10)), { me: at(3, 4), foe: at(10, 4) }) });
+  const seen = [];
+  for (let t = 0; t < 120; t += 5) { run(lake, 5); seen.push(...lake.pickups.map((p) => p.x)); lake.pickups = []; }
+  assert.ok(seen.length >= 3, `several turned up (${seen.length})`);
+  assert.ok(seen.every((x) => x < 14 * TILE), "all on the grass");
+});
+
+test("a hint card is spent in a question, one a question", () => {
+  const b = duel({ ask: () => QUESTION });
+  b.hints = 2;
+  assert.equal(spendHint(b), false, "only in a question");
+  input(b, { attack: "tackle" });
+  run(b, 0.1);
+  assert.ok(b.quiz, "a question is open");
+  assert.equal(spendHint(b), true);
+  assert.equal(b.hints, 1);
+  assert.equal(spendHint(b), false, "one a question");
+  assert.equal(b.hints, 1);
+});
+
+test("looking up words no longer gives hint cards: they are only found in battles", () => {
+  const rand = rng(11);
+  let surprises = 0;
+  for (let i = 0; i < 6000; i++) {
+    const w = rollReward(rand);
+    if (w.tier !== "surprise") continue;
+    surprises++;
+    assert.equal(w.item, "freeze");
+  }
+  assert.ok(surprises > 20, `surprises still happen (${surprises})`);
 });

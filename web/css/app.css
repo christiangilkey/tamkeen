@@ -1303,6 +1303,10 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .lb-banner.go { animation: lb-banner 1.4s ease-out forwards; }
 @keyframes lb-banner { from { opacity: 0; transform: translate(-50%, -50%) scale(.85); } 12% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 80% { opacity: 1; } to { opacity: 0; } }
 .lb-combo { position: absolute; inset-inline-start: 8px; top: 8px; padding: 2px 10px; border-radius: 99px; line-height: 1.5; font-weight: 800; background: #ff8a3d; }
+/* the hint cards picked up this battle: over the arena's bottom corner, so nothing else moves when one is found */
+.lb-hints { position: absolute; inset-inline-start: 8px; bottom: 8px; display: inline-flex; align-items: center; gap: 3px; padding: 2px 9px 2px 6px;
+  border-radius: 99px; line-height: 1.5; font-weight: 800; background: rgba(18, 13, 28, .82); color: #ffd54a; pointer-events: none; }
+.lb-hints[hidden] { display: none; }
 /* the ground note is always two lines high (cut with "..." past that; the whole text is its title), so the arena
    above it never changes size, nor the camera's view, as the creature walks from one ground to another */
 .lb-ground { flex: none; display: flex; align-items: center; justify-content: center; height: 2.8em; max-width: 760px; overflow: hidden;
