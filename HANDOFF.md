@@ -8195,9 +8195,11 @@ patterns that require the creature to stand upright ... add many more new items 
   cat, the chick and the deer). Checked in the browser: the Creatures page at 375 px (the colouring tiles four to a row,
   progress under the locked ones), every new item worn by the cat and the hare, new hats and back items on an egg
   (wings as a pair).
-- **Not done / follow-ups**: the owner was asked (in the "Decisions" chat) to confirm the method for drawing the items;
-  no answer had come when this was committed, so the method he approved for bulk work on 2026-10-30 was used (designed
-  pixel by pixel, placed in Aseprite by a script, sources kept). The Netflix extension must be rebuilt and uploaded to the
+- **Drawing method**: the owner chose it in the "Decisions" chat (question #66, his words "66 a"): every item designed
+  pixel by pixel as a text grid, placed in Aseprite by a script with an .aseprite source kept, and the colouring icons
+  drawn through the Aseprite MCP. That plan also named an Argyle redraw; Argyle was kept as it is, because its diamonds
+  are square and it measures as direction-free (same-colour runs 1.00, plain rows against columns 0.00).
+- **Not done / follow-ups**: the Netflix extension must be rebuilt and uploaded to the
   Chrome Web Store before Netflix episodes watched in the web app count. Anki's daily review totals don't count toward
   Holofoil (only Tamkeen's own card review), and the raid reward counts for the creature out when it is claimed. Dark
   shirts (camo, confetti, circuit) nearly vanish on the darkest creatures, as galaxy already did. A few Bisaya item names
