@@ -353,13 +353,30 @@ export function whyNot(b, side, moveId) {
   return null;
 }
 
-/** Whether the rival is within the move's reach from where the creature stands. */
+/** Whether the move, used now, would reach the rival if it stood still. The same reach as the hit itself (flight()
+ * and dashOn()), so the button's "Out of range" and the rival's choice of moves agree with what really lands. */
 export function inRange(b, side, moveId) {
   const f = current(b, side), o = current(b, other(side));
   const lm = liveMove(moveById(moveId));
   if (lm.form === "self" || (lm.form === "terrain" && lm.where === "self")) return true;
   const d = dist(f, o);
-  return lm.form === "dash" ? d <= lm.range + 2 * BODY.rx : d <= lm.range;
+  return d <= reachOf(lm, d > 0 ? (o.x - f.x) / d : 1, d > 0 ? (o.y - f.y) / d : 0) - 1;
+}
+
+/** How far from the user's feet to the rival's feet a move lands, aimed along (ux, uy): the run of the shot, beam,
+ * area or dash, plus the part of the rival it has to touch (its hurt shape for a shot or beam, the two bodies for a
+ * dash: both wider than tall, so the reach is a little shorter up and down than across). */
+export function reachOf(lm, ux, uy) {
+  const across = (a, c) => 1 / Math.hypot(ux / a, uy / c); // an ellipse's radius in this direction
+  const hurt = (pad) => across(HURT.rx + pad, HURT.ry + pad) + HURT.lift * uy; // its middle sits `lift` above the feet
+  switch (lm.form) {
+    case "shot": case "homing": return 8 + lm.range + hurt(lm.r || 0); // it starts 8 px out
+    case "beam": return lm.range + hurt((lm.width || 0) / 2);
+    case "burst": return (lm.reach || 0) + lm.r + 6;
+    case "drop": return lm.range + lm.r + 6;
+    case "dash": return lm.range + across(2 * BODY.rx + 6, 2 * BODY.ry + 6);
+    default: return lm.range || 0;
+  }
 }
 
 // ---------- the question ----------

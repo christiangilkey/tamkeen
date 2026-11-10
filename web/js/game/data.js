@@ -383,8 +383,8 @@ export const LIVE_FORM_STATS = {
   shot: { range: 220, speed: 300, r: 5 },
   homing: { range: 260, speed: 170, r: 5, turn: 2.4 },
   beam: { range: 260, width: 10, warn: 0.3 },
-  burst: { range: 68, r: 44, reach: 24, warn: 0.2 },
-  drop: { range: 230, r: 28, warn: 0.55 },
+  burst: { range: 86, r: 62, reach: 24, warn: 0.2 }, // areas a good 1.4 times wider than they were (the owner: harder to dodge)
+  drop: { range: 230, r: 40, warn: 0.55 },
   dash: { range: 100, speed: 380 },
   self: { range: 0 },
   terrain: { range: 240, size: 1 },
@@ -395,7 +395,7 @@ export const LIVE_TUNING = {
   dawn_ray: { form: "beam" },
   charge: { form: "dash", range: 170, speed: 420 },
   thunderhead: { form: "beam", width: 20, range: 260 },
-  meteor: { form: "drop", r: 44 },
+  meteor: { form: "drop", r: 62 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
 };

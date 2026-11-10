@@ -11,7 +11,7 @@ import { fighters, wildTeam } from "../../web/js/game/battle.js";
 import { generateMap } from "../../web/js/game/battlemap.js";
 import {
   COMBO, ENTER_GAP, SIGHT, FAINT_S, FAST_S, FEET, QUIZ_S, RECOVER_S, SPIKE_S, TILE, answer, axeAngle, battleResult, cardScale, crackAt, current, input, inRange,
-  newLiveBattle, speedOf, spikeFrame, spikesUp,
+  newLiveBattle, reachOf, speedOf, spikeFrame, spikesUp,
   step, useNow, usePotion, view, whyNot, wordModeOf, wordPool,
 } from "../../web/js/game/livebattle.js";
 
@@ -321,6 +321,28 @@ test("shots fly straight: step aside and they miss; boulders stop them", () => {
   assert.equal(inRange(far, "me", "tackle"), false);
   useNow(far, "me", "tackle");
   assert.equal(kinds(run(far, 2), "miss")[0].why, "range", "it falls short");
+});
+
+test("a move is \"in range\" exactly when it would land: a still rival just inside its reach is hit, just outside is not", () => {
+  // the owner: moves showed "Out of range" while the rival was in range (the button used one rough distance per move)
+  for (const id of ["tackle", "seeker", "dawn_ray", "wildfire", "rockslide", "charge"]) { // shot, homing, beam, burst, drop, dash
+    for (const [ux, uy] of [[1, 0], [0, -1], [0.6, 0.8]]) {
+      const reach = reachOf(liveMove(moveById(id)), ux, uy);
+      for (const [d, lands] of [[reach - 3, true], [reach + 4, false]]) {
+        const b = duel({ mine: [mk("ember", { moves: [id], hp: 5000 })], theirs: [mk("grove", { hp: 5000 })], map: arena(open(60, 40), { me: at(30, 20), foe: at(40, 20) }) });
+        const me = current(b, "me"), foe = current(b, "foe");
+        foe.x = me.x + ux * d;
+        foe.y = me.y + uy * d;
+        me.grace = foe.grace = 0;
+        const said = `${id} with the rival ${d.toFixed(0)} px away (${ux}, ${uy})`;
+        assert.equal(inRange(b, "me", id), lands, `${said}: ${lands ? "in" : "out of"} range`);
+        useNow(b, "me", id);
+        assert.equal(kinds(run(b, 3), "hit").length, lands ? 1 : 0, `${said}: ${lands ? "lands" : "misses"}`);
+      }
+    }
+  }
+  // the areas are a good 1.4 times wider than they were (the owner: harder to dodge)
+  assert.ok(liveMove(moveById("rockslide")).r >= 40 && liveMove(moveById("wildfire")).r >= 60 && liveMove(moveById("meteor")).r >= 60);
 });
 
 test("drops land where the rival stood, beams hit along a line, homing shots follow, dashes rush in", () => {

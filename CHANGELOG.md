@@ -18,6 +18,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **Changed:** What a creature can wear now goes by where it's worn, so new creatures and new things follow the same rule. An egg wears a hat and **anything on its back** (a cape, a satchel, balloons and so on, not only wings; wings stick out on both sides). A creature with wings of its own (Phoenix chick, Dragon whelp, Thunder griffin and Winged fox) wears **nothing on its back**, not only no wings. What it can't wear stays in your bag for another creature.
 - **Changed:** Battle questions always show a card's meaning, in your own language, and the four choices are always words in the language you're learning. Before, about two questions in three were the other way round. A word whose meaning is just the word itself isn't asked.
 - **Fixed:** Live battles: the view no longer jumps or zooms in and out while your creature walks. The arena changed size each time the note about the ground under your creature grew or shrank (along lava and water edges, mostly) or the potion button came and went. Now that note always takes two lines, the potion keeps its place, and the camera stays the same distance from your creature all fight. Your creature also stands still when a battle opens, and tapping the arena no longer flashes blue on phones.
+- **Fixed:** Live battles: a move no longer says "Out of range" while it would still hit. Its button now goes by how far the move really reaches (a shot's flight, an area's circle, a dash's run), and the computer's creature judges its own moves the same way.
+- **Changed:** Live battles: area attacks (the circles) are about 1.4 times wider, so they're harder to dodge, and as one lands the whole circle it hit shows for a moment.
 
 ## v0.50.0 — 2026-11-09
 

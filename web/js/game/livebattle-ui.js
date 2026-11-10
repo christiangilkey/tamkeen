@@ -518,7 +518,10 @@ export function runLiveBattle(setup, vocab) {
       const c = v[side].charging;
       if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0));
     }
-    for (const p of v.fx) if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
+    for (const p of v.fx) {
+      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
+      else if (p.kind === "area") warnShape(p.side, p, 0.3 * (1 - (p.t || 0))); // as it lands: the whole circle it hit, fading (the art is smaller)
+    }
     if (target) {
       ctx.strokeStyle = "rgba(255, 255, 255, .7)";
       ctx.beginPath();
