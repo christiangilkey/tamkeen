@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	กำลังเล่นแทร็กเสียงภาษา{0:lower}ของวิดีโอนี้ หากต้องการเสียงต้นฉบับ เลือกได้ที่ ⚙ → แทร็กเสียง ในวิดีโอ

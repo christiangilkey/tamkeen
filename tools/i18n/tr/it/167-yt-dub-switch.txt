@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	Ora è in riproduzione la traccia audio in {0:lower} di questo video. Per l'audio originale, sceglilo in ⚙ → Traccia audio, nel video.

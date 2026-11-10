@@ -9,12 +9,8 @@
 // aren't in the language being learned (YouTube wouldn't hand over its translation). Then YouTube's
 // are switched on in that language, translated by YouTube when it has none of its own: YouTube's
 // player is allowed to show its translations (`setOption("captions", "track", ...)`). Either way
-// `cc_lang_pref` makes the language being learned YouTube's first choice.
-//
-// The audio track (a dubbed version) can't be chosen through the IFrame API. In the apps, yt-audio-frame.js
-// runs inside YouTube's frame and switches to the language being learned: `tamkeen_audio` in the player's
-// settings says which (YouTube ignores a setting it doesn't know). It tells this page how it went, handed on
-// as `media.audioTrack` {outcome, name} and an "audiotrack" event. In the web app nothing comes.
+// `cc_lang_pref` makes the language being learned YouTube's first choice. The audio track (a dubbed
+// version) can't be chosen from outside YouTube's player: its ⚙ menu has "Audio track".
 
 import { baseLanguage, youTubeLanguage } from "./ytcaptions.js";
 
@@ -48,12 +44,11 @@ function errorText(code) {
 /**
  * @param {HTMLElement} mount element the player replaces
  * @param {string} videoId
- * @param {{start?: number, duration?: number, captions?: {lang: string, show?: boolean}, audio?: string}} opts
- *   where to begin, the length already known, YouTube's own captions (`lang` the language being learned,
- *   `show` to switch them on in it when the app's own captions are in another language), and `audio`, the
- *   language whose dubbed soundtrack to switch to where the app can (see the top of this file)
+ * @param {{start?: number, duration?: number, captions?: {lang: string, show?: boolean}}} opts where
+ *   to begin, the length already known, and YouTube's own captions: `lang` the language being learned,
+ *   `show` to switch them on in it (when the app's own captions are in another language)
  */
-export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, captions = null, audio = "" } = {}) {
+export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, captions = null } = {}) {
   const media = new EventTarget();
   const fire = (name) => media.dispatchEvent(new Event(name));
   let player = null;
@@ -228,26 +223,9 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
     try { if (ready) player.pauseVideo(); } catch { /* player gone */ }
     if (started) { if (!hold) base = position(); setPaused(true); }
   };
-  // What yt-audio-frame.js did with the soundtrack (only in the apps), from YouTube's frame and no other.
-  /** {outcome: "switched" | "already" | "none" | "failed", name} once known, else null. */
-  media.audioTrack = null;
-  const onFrameMessage = (e) => {
-    let frame = null;
-    try { frame = player && player.getIframe(); } catch { /* not made yet */ }
-    if (disposed || !frame || e.source !== frame.contentWindow) return;
-    const said = e.data && typeof e.data === "object" ? e.data.tamkeenYtAudio : null;
-    if (!said || said.video !== videoId) return;
-    const outcome = ["switched", "already", "none", "failed"].includes(said.outcome) ? said.outcome : "";
-    if (!outcome) return;
-    media.audioTrack = { outcome, name: String(said.name || "").slice(0, 80) };
-    fire("audiotrack");
-  };
-  if (audio) window.addEventListener("message", onFrameMessage);
-
   media.dispose = () => {
     disposed = true;
     clearInterval(timer);
-    window.removeEventListener("message", onFrameMessage);
     try { if (player) player.destroy(); } catch { /* already gone */ }
   };
   /** Text describing a failure, set before the "error" event fires. */
@@ -266,7 +244,6 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
         rel: 0,              // at the end, only suggest videos from the same channel
         start: Math.floor(start) || undefined,
         origin: location.origin,
-        tamkeen_audio: audio || undefined, // for yt-audio-frame.js, in the apps (see the top of this file)
       },
       events: {
         onReady: () => {

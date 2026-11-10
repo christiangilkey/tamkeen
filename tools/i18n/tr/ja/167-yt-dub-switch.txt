@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	この動画の{0}の音声トラックを再生中です。元の音声は、動画の ⚙ → 音声トラック で選んでください。

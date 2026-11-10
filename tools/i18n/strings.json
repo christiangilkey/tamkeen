@@ -13370,6 +13370,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "91eb4afd",
+  "k": "Hint ({0})",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "96129a87",
   "k": "Stunned",
   "f": "web/js/game/livebattle-ui.js"
@@ -13415,11 +13420,6 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
-  "id": "91eb4afd",
-  "k": "Hint ({0})",
-  "f": "web/js/game/livebattle-ui.js"
- },
- {
   "id": "55ba9644",
   "k": "Too slow: failed",
   "f": "web/js/game/livebattle-ui.js"
@@ -13452,6 +13452,11 @@
  {
   "id": "9fbc3550",
   "k": "Your rival's creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "ef0dcaec",
+  "k": "Hint card!",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -14047,11 +14052,6 @@
  {
   "id": "3d845682",
   "k": "Streak freeze!",
-  "f": "web/js/game/xpline.js"
- },
- {
-  "id": "ef0dcaec",
-  "k": "Hint card!",
   "f": "web/js/game/xpline.js"
  },
  {
@@ -17592,11 +17592,6 @@
  {
   "id": "8307fe58",
   "k": "This video can be heard in {0} too: choose it under ⚙ → Audio track in the video.",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "310ab56c",
-  "k": "Now playing this video's {0} audio track. For the original sound, choose it under ⚙ → Audio track in the video.",
   "f": "web/js/pages/player.js"
  },
  {

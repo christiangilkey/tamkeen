@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	Ang {0} nga audio track niini nga video ang nagpatugtog karon. Para sa orihinal nga tingog, pilia kini sa ⚙ → Audio track sa video.

@@ -74,74 +74,6 @@ def bring_forward(window: Any) -> None:
         log.debug("Couldn't bring a window forward: %s", exc)
 
 
-def add_frame_script(window: Any, source: str) -> bool:
-    """Run `source` at the start of every page AND every frame inside it in this window, from the next
-    page or frame on. web/js/yt-audio-frame.js needs it: it works inside YouTube's embedded player, a frame
-    of youtube.com that the app's page can't reach into (pywebview's evaluate_js only reaches the page).
-    Called on the window's first "loaded". Returns False where it can't (the script then never runs)."""
-    native = getattr(window, "native", None)
-    if native is None:
-        return False
-    try:
-        if sys.platform == "win32":
-            # WebView2: a script added here runs in every later page and frame. On its UI thread.
-            from System import Func, Type  # pythonnet: pywebview's WinForms side is already loaded
-
-            def add_win() -> None:
-                native.browser.webview.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync(source)
-
-            native.Invoke(Func[Type](add_win))
-            return True
-        if sys.platform == "darwin":
-            # WKWebView: a user script that isn't for the main frame only runs in frames too.
-            import WebKit
-            from PyObjCTools import AppHelper
-            from webview.platforms.cocoa import BrowserView
-
-            view = BrowserView.instances[window.uid].webview
-
-            def add_mac() -> None:
-                script = WebKit.WKUserScript.alloc().initWithSource_injectionTime_forMainFrameOnly_(
-                    source, WebKit.WKUserScriptInjectionTimeAtDocumentStart, False)
-                view.configuration().userContentController().addUserScript_(script)
-
-            AppHelper.callAfter(add_mac)
-            return True
-        from webview.platforms.gtk import BrowserView as GtkView, glib, webkit  # Linux (WebKitGTK)
-
-        manager = GtkView.instances[window.uid].manager
-
-        def add_gtk() -> bool:
-            manager.add_script(webkit.UserScript.new(source, webkit.UserContentInjectedFrames.ALL_FRAMES,
-                                                     webkit.UserScriptInjectionTime.START, None, None))
-            return False  # (once)
-
-        glib.idle_add(add_gtk)
-        return True
-    except Exception as exc:  # another web view (Qt), or the window closing
-        log.warning("Couldn't add a script to the window's frames: %s", exc)
-        return False
-
-
-def add_youtube_audio_script(window: Any) -> None:
-    """The dubbed soundtrack in the language being learned, chosen inside YouTube's player
-    (web/js/yt-audio-frame.js, which explains it). Added once, on the window's first page."""
-    done = threading.Event()
-
-    def add() -> None:
-        if done.is_set():
-            return
-        done.set()
-        try:
-            source = (paths.web_dir() / "js" / "yt-audio-frame.js").read_text(encoding="utf-8")
-        except OSError as exc:
-            log.warning("yt-audio-frame.js is missing: %s", exc)
-            return
-        add_frame_script(window, source)
-
-    window.events.loaded += add
-
-
 NETFLIX_TEXTS = ("tap", "opening", "opened", "signin", "choose", "nolang", "failed", "padSelect", "padBack", "padPage")
 
 
@@ -612,7 +544,6 @@ def run(browser: bool = False, port: int | None = None, headless: bool = False, 
                                        js_api=api, width=1280, height=860, min_size=(820, 560),
                                        text_select=True, hidden=background)
         api._window = window
-        add_youtube_audio_script(window)
         shown = threading.Event()
         if not background:
             shown.set()

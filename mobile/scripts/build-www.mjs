@@ -93,7 +93,6 @@ const SHARED = [
   "js/youtube.js",
   "js/applink.js",
   "js/ytmedia.js",
-  "js/yt-audio-frame.js",
   "js/netflix.js",
   "js/nfmedia.js",
   "js/netflix-ttml.js",

@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	正在播放这个视频的{0}音轨。想听原声，请在视频里的 ⚙ → 音轨 中选择。

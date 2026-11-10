@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	지금 이 영상의 {0} 오디오 트랙이 재생되고 있어요. 원래 소리는 영상의 ⚙ → 오디오 트랙에서 고르세요.

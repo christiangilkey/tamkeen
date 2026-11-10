@@ -1,2 +1,0 @@
-# A YouTube video switched to its dubbed soundtrack in the language being learned (player.js, yt-audio-frame.js).
-310ab56c	يُشغَّل الآن المقطع الصوتي باللغة {0} لهذا الفيديو. للصوت الأصلي، اختره من ⚙ ← المقطع الصوتي في الفيديو.

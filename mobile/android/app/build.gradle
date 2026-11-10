@@ -53,8 +53,6 @@ dependencies {
     implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
     implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
     implementation project(':capacitor-android')
-    // Scripts in YouTube's embedded player (YouTubeAudio.java); Capacitor uses the same library but keeps it to itself.
-    implementation "androidx.webkit:webkit:$androidxWebkitVersion"
     // Google sign-in (Authorization API) for Drive sync.
     implementation "com.google.android.gms:play-services-auth:22.0.0"
     // Google ID token (Credential Manager) for the online features (friends, sharing) via Supabase.
