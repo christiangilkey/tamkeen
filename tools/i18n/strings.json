@@ -13915,13 +13915,13 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "64b10b10",
-  "k": "For looks only. Your creature has wings of its own, so these go in your bag for another creature.",
+  "id": "d0361c30",
+  "k": "For looks only. Your creature has wings of its own, so it can't wear things on its back. It goes in your bag for another creature.",
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "119e110a",
-  "k": "For looks only. Eggs only wear hats and wings, so it goes in your bag until your egg hatches.",
+  "id": "88005c4b",
+  "k": "For looks only. Eggs only wear hats and things on the back, so it goes in your bag until your egg hatches.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -13965,8 +13965,8 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "6da58d68",
-  "k": "Eggs wear a hat and wings. Everything else waits until they hatch.",
+  "id": "d1327f5a",
+  "k": "Eggs wear a hat and something on the back. Everything else waits until they hatch.",
   "f": "web/js/game/shop.js"
  },
  {
@@ -13975,13 +13975,13 @@
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "71464994",
-  "k": "Your creature has wings of its own, so it can't wear these. Another of your creatures can.",
+  "id": "0850a40c",
+  "k": "Your creature has wings of its own, so it can't wear things on its back. Another of your creatures can.",
   "f": "web/js/game/shop.js"
  },
  {
-  "id": "cf3d3c22",
-  "k": "Eggs only wear hats and wings. Your creature can wear this once it hatches.",
+  "id": "3b6edbb0",
+  "k": "Eggs only wear hats and things on the back. Your creature can wear this once it hatches.",
   "f": "web/js/game/shop.js"
  },
  {

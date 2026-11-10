@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Só para o visual. Sua criatura já tem asas próprias, então não pode usar nada nas costas. Isto vai para a sua bolsa para outra criatura.
+88005c4b	Só para o visual. Ovos só usam chapéus e coisas nas costas, então isto vai para a sua bolsa até o seu ovo chocar.
+d1327f5a	Ovos usam um chapéu e algo nas costas. O resto espera até eles chocarem.
+0850a40c	Sua criatura já tem asas próprias, então não pode usar nada nas costas. Outra das suas criaturas pode.
+3b6edbb0	Ovos só usam chapéus e coisas nas costas. Sua criatura pode usar isto quando o ovo chocar.

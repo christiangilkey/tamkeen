@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Només per a l'aspecte. La teva criatura ja té ales pròpies, així que no es pot posar res a l'esquena. Va a la bossa per a una altra criatura.
+88005c4b	Només per a l'aspecte. Els ous només porten barrets i coses a l'esquena, així que va a la bossa fins que l'ou surti.
+d1327f5a	Els ous porten un barret i alguna cosa a l'esquena. La resta espera fins que surtin de l'ou.
+0850a40c	La teva criatura ja té ales pròpies, així que no es pot posar res a l'esquena. Una altra de les teves criatures sí.
+3b6edbb0	Els ous només porten barrets i coses a l'esquena. La teva criatura s'ho podrà posar quan surti de l'ou.

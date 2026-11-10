@@ -1045,8 +1045,9 @@ export function buy(state, id) {
   return ""; // (wings for a creature with its own: kept in the bag, for another creature)
 }
 
-/** Why creature `genome` can't wear item `it`: "egg" (an egg wears only a hat and wings: data.eggCanWear), "wings"
- * (wings on a creature with wings of its own: data.canWear), or "" when it can. */
+/** Why creature `genome` can't wear item `it`: "egg" (an egg wears only a hat and things on its back:
+ * data.eggCanWear), "wings" (a creature with wings of its own wears nothing on its back: data.canWear), or "" when
+ * it can. */
 export function wearProblem(genome, it) {
   if (!it || it.slot === "decor") return "";
   try {

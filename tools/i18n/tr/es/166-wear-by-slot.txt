@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Solo estético. Tu criatura ya tiene alas propias, así que no puede llevar nada a la espalda. Va a tu bolsa para otra criatura.
+88005c4b	Solo estético. Los huevos solo llevan sombreros y cosas a la espalda, así que va a tu bolsa hasta que tu huevo eclosione.
+d1327f5a	Los huevos llevan un sombrero y algo a la espalda. Todo lo demás espera hasta que eclosionen.
+0850a40c	Tu criatura ya tiene alas propias, así que no puede llevar nada a la espalda. Otra de tus criaturas sí puede.
+3b6edbb0	Los huevos solo llevan sombreros y cosas a la espalda. Tu criatura podrá ponérselo cuando eclosione.

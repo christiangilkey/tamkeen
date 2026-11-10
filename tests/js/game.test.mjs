@@ -309,12 +309,18 @@ test("a grammar lesson finished pays once a day, more the first time and for mor
   assert.ok(earn(old, { type: "grammar", key: "review:20385", right: 6, of: 8 }, { now }), "a save from before grammar lessons");
 });
 
-test("a creature with wings of its own doesn't wear wings as well (the owner's rule)", async () => {
-  const { CATALOG, OWN_WINGS } = await import("../../web/js/game/data.js");
+test("a creature with wings of its own wears nothing on its back (the owner's rule, by slot)", async () => {
+  const { CATALOG, canWear, itemById } = await import("../../web/js/game/data.js");
   const { beastOf } = await import("../../web/js/game/genome.js");
   const { buy, equip, fits } = await import("../../web/js/game/rules.js");
-  assert.deepEqual([...OWN_WINGS].sort(), ["chick", "dragon_whelp", "griffin", "winged_fox"], "the four with wings in their drawing");
-  assert.ok([...OWN_WINGS].every((id) => BEASTS.some((b) => b.id === id)));
+  // The four drawn with wings are marked in their rig.json (beasts.js `wings`), so a new winged creature follows the rule.
+  assert.deepEqual(BEASTS.filter((b) => b.wings).map((b) => b.id).sort(), ["chick", "dragon_whelp", "griffin", "winged_fox"]);
+  for (const id of ["chick", "dragon_whelp", "griffin", "winged_fox"]) {
+    for (const it of CATALOG.filter((i) => i.slot === "back")) assert.equal(canWear(id, it), false, `${id}: ${it.id}`);
+    assert.equal(canWear(id, { id: "back/new_thing", slot: "back" }), false, "a back item added later too");
+    assert.equal(canWear(id, itemById("hat/cap")), true);
+  }
+  assert.ok(CATALOG.filter((i) => i.slot === "back").every((it) => canWear("cat", it)), "a creature without wings wears them all");
   assert.deepEqual(CATALOG.filter((it) => it.wings).map((it) => it.id).sort(), ["back/angel_wings", "back/bat_wings", "back/butterfly_wings"]);
   const kind = (id) => { for (let seed = 1; seed < 5000; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === id) return { ...g, growth: 0.3, equipped: {} }; } return null; };
   const fox = kind("winged_fox"), cat = kind("cat");
@@ -322,36 +328,40 @@ test("a creature with wings of its own doesn't wear wings as well (the owner's r
   s.roster = [fox, cat];
   s.active = 0;
   s.coins = 500;
-  assert.equal(fits(fox, CATALOG.find((it) => it.id === "back/bat_wings")), false);
-  assert.equal(fits(fox, CATALOG.find((it) => it.id === "back/cape_red")), true, "anything else fits");
-  assert.equal(buy(s, "back/butterfly_wings"), "", "wings can still be bought");
-  assert.ok(s.owned.includes("back/butterfly_wings"));
-  assert.equal(fox.equipped.back, undefined, "but they don't go on the winged fox");
-  equip(s, "back", "back/butterfly_wings");
+  assert.equal(fits(fox, itemById("back/bat_wings")), false);
+  assert.equal(fits(fox, itemById("back/cape_red")), false, "nor a cape");
+  assert.equal(fits(fox, itemById("neck/scarf") || itemById("hat/cap")), true, "anything else fits");
+  assert.equal(buy(s, "back/cape_red"), "", "a cape can still be bought");
+  assert.ok(s.owned.includes("back/cape_red"));
+  assert.equal(fox.equipped.back, undefined, "but it doesn't go on the winged fox");
+  equip(s, "back", "back/cape_red");
   assert.equal(fox.equipped.back, undefined, "and can't be put on it");
   s.active = 1;
-  equip(s, "back", "back/butterfly_wings");
-  assert.equal(cat.equipped.back, "back/butterfly_wings", "another creature can wear them");
-  // A save from before the rule: the winged fox's wings come off when the game loads; the cat keeps its own.
+  equip(s, "back", "back/cape_red");
+  assert.equal(cat.equipped.back, "back/cape_red", "another creature can wear it");
+  // A save from before the rule: the winged fox's back item comes off when the game loads; the cat keeps its own.
   fox.equipped.back = "back/butterfly_wings";
   const loaded = normalize(JSON.parse(JSON.stringify(s)));
   assert.equal(loaded.roster[0].equipped.back, undefined);
-  assert.equal(loaded.roster[1].equipped.back, "back/butterfly_wings");
+  assert.equal(loaded.roster[1].equipped.back, "back/cape_red");
 });
 
-test("an egg wears a hat and wings, and nothing else (the owner: because that's funny)", async () => {
+test("an egg wears a hat and anything on its back, and nothing else (the owner: because that's funny)", async () => {
   const { eggCanWear, itemById } = await import("../../web/js/game/data.js");
   const { beastOf } = await import("../../web/js/game/genome.js");
   const { buy, equip, wearProblem } = await import("../../web/js/game/rules.js");
   assert.equal(eggCanWear(itemById("hat/cap")), true);
   assert.equal(eggCanWear(itemById("back/bat_wings")), true);
-  assert.equal(eggCanWear(itemById("back/cape_red")), false, "a cape waits until it hatches");
+  assert.equal(eggCanWear(itemById("back/cape_red")), true, "a cape too: anything on the back");
+  assert.equal(eggCanWear({ id: "back/new_thing", slot: "back" }), true, "and a back item added later");
   assert.equal(eggCanWear(itemById("face/glasses") || itemById("neck/ribbon")), false);
-  // An egg that will hatch into a winged fox still wears wings: an egg has none of its own.
+  assert.equal(eggCanWear(itemById("neck/ribbon")), false);
+  // An egg that will hatch into a winged fox still wears things on its back: an egg has no wings of its own.
   let fox = null;
   for (let seed = 1; seed < 5000 && !fox; seed++) { const g = newGenome(seed, "dusk"); if (beastOf(g).id === "winged_fox") fox = { ...g, growth: 0, equipped: {} }; }
   assert.equal(stageOf(fox.growth).id, "egg");
   assert.equal(wearProblem(fox, itemById("back/butterfly_wings")), "");
+  assert.equal(wearProblem(fox, itemById("back/cape_red")), "");
   assert.equal(wearProblem(fox, itemById("neck/ribbon")), "egg");
   const s = newState(9);
   s.roster = [fox];
@@ -359,13 +369,13 @@ test("an egg wears a hat and wings, and nothing else (the owner: because that's 
   s.coins = 500;
   assert.equal(buy(s, "hat/cap"), "");
   assert.equal(fox.equipped.hat, "hat/cap", "a hat goes straight on the egg");
-  assert.equal(buy(s, "back/butterfly_wings"), "");
-  assert.equal(fox.equipped.back, "back/butterfly_wings", "and wings");
+  assert.equal(buy(s, "back/cape_red"), "");
+  assert.equal(fox.equipped.back, "back/cape_red", "and a cape");
   assert.equal(buy(s, "neck/ribbon"), "");
   assert.equal(fox.equipped.neck, undefined, "a ribbon goes in the bag");
   equip(s, "neck", "neck/ribbon");
   assert.equal(fox.equipped.neck, undefined, "and can't be put on the egg");
-  // Hatched into a winged fox, its own wings win: the worn ones come off when the game loads.
+  // Hatched into a winged fox, its own wings win: what it wore on its back comes off when the game loads.
   fox.growth = 0.3;
   const loaded = normalize(JSON.parse(JSON.stringify(s)));
   assert.equal(loaded.roster[0].equipped.back, undefined);

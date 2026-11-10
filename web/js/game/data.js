@@ -171,14 +171,16 @@ const WEARABLES = {
     ["argyle", "Argyle sweater", 35, { weight_by: { reader: 2 } }],
   ],
 };
-// The creatures with wings of their own in their drawing (game/art-src-16bit/creatures/_lineup_18_ff.png): they
-// don't wear wings as well (the owner: "wings shouldn't be able to be worn by creatures that already have wings").
-// The wings among the things worn are marked `wings: true` above.
-export const OWN_WINGS = new Set(["chick", "dragon_whelp", "griffin", "winged_fox"]);
-/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except wings when it has its own. */
-export const canWear = (beastId, it) => !(it && it.wings && OWN_WINGS.has(beastId));
-/** Can an egg wear item `it`? A hat and wings, whatever will hatch (the owner: "because that's funny"). */
-export const eggCanWear = (it) => !!it && (it.slot === "hat" || !!it.wings);
+// What can be worn goes by slot, so new creatures and new things follow it (the owner: "eggs have hats and back items
+// and creatures with wings can't be given back items. So when I add new creatures and items this rule holds"):
+// - a creature drawn with wings of its own ("wings": true in its rig.json, `wings` in beasts.js) wears nothing on its
+//   back;
+// - an egg wears a hat and anything on its back, whatever will hatch.
+// (The wings among the back items are marked `wings: true` above: an egg wears them as a pair, render.dressEgg.)
+/** Can a creature of kind `beastId` (beasts.js) wear item `it`? Everything, except on its back when it has wings. */
+export const canWear = (beastId, it) => !(it && it.slot === "back" && BEASTS.some((b) => b.id === beastId && b.wings));
+/** Can an egg wear item `it`? A hat and anything on the back (the owner: "because that's funny"). */
+export const eggCanWear = (it) => !!it && (it.slot === "hat" || it.slot === "back");
 export const ITEMS = Object.entries(WEARABLES).flatMap(([slot, list]) =>
   list.map(([id, name, price, extra = {}]) => ({ id: `${slot}/${id}`, slot, name, price, ...extra })));
 // Decorations stand in the habitat. `size` is the sprite's square size in pixels.

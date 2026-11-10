@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Juste pour le style. Ta créature a déjà ses propres ailes : elle ne peut rien porter sur le dos. Ça va dans ton sac pour une autre créature.
+88005c4b	Juste pour le style. Les œufs ne portent que des chapeaux et des choses sur le dos : ça va dans ton sac jusqu'à ce que ton œuf éclose.
+d1327f5a	Les œufs portent un chapeau et quelque chose sur le dos. Le reste attend qu'ils éclosent.
+0850a40c	Ta créature a déjà ses propres ailes, elle ne peut donc rien porter sur le dos. Une autre de tes créatures le peut.
+3b6edbb0	Les œufs ne portent que des chapeaux et des choses sur le dos. Ta créature pourra le porter une fois éclose.

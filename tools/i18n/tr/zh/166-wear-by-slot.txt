@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	仅用于外观。你的生物自己有翅膀，所以背上不能戴东西。这个会放进背包，留给别的生物。
+88005c4b	仅用于外观。蛋只能戴帽子和背在背上的东西，所以这个会放进背包，等你的蛋孵化。
+d1327f5a	蛋可以戴帽子和背一样东西。其他东西要等孵化后再戴。
+0850a40c	你的生物自己有翅膀，所以背上不能戴东西。你的其他生物可以。
+3b6edbb0	蛋只能戴帽子和背在背上的东西。你的生物孵化后就能戴这个了。

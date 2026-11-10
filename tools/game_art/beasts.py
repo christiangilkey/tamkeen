@@ -13,6 +13,8 @@ colour letters, `art`) and a rig.json that says how to cut it:
       "sockets": {"hat": [x, y], "face": [x, y], "neck": [x, y], "held": [x, y], "back": [x, y]},
       "shirt": {"box": [x0, y0, x1, y1], "letters": "123"} or null  - which body pixels a shirt covers
       "hover": 0                - pixels a floater stays off the ground
+      "wings": true             - only for a creature drawn with wings of its own: it wears nothing on its back
+                                  (data.canWear); leave it out otherwise
     }
 
 A creature may also have rig_hatchling.json (same fields, its baby drawing): the game shows it while the
@@ -287,21 +289,23 @@ def build(aseprite: bool) -> None:
                 f.unlink()
         rig = grown["rig"]
         entries.append({"id": cid, "name": rig["name"], "type": rig["type"], "set": rig["set"], "plan": rig["plan"],
-                        "hue": body_hue(grown["pal"]), "grown": grown, "young": young})
+                        "wings": bool(rig.get("wings")), "hue": body_hue(grown["pal"]), "grown": grown, "young": young})
     entries.sort(key=lambda e: (ORDER.index(e["type"]), SETS.index(e["set"])))
     lines = ["// Made by tools/game_art/beasts.py from game/art-src-16bit/creatures/*/rig.json: don't edit by hand.",
              "// One entry per creature: its name, element and look (original, cyberpunk or fantasy), its body plan",
-             "// (which sets its battle stats), the hue of its body, and for its juvenile look (and `young`, its",
+             "// (which sets its battle stats), `wings: true` when it is drawn with wings of its own (it wears nothing",
+             "// on its back: data.canWear), the hue of its body, and for its juvenile look (and `young`, its",
              "// hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how",
              "// high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things",
              "// sit (in its drawing's pixels).",
              "export const BEASTS = ["]
     for e in entries:
         young = f"young: {{ {look_js(e['young'])} }}" if e["young"] else "young: null"
+        wings = "wings: true, " if e["wings"] else ""
         lines.append(f'  {{ id: "{e["id"]}", name: "{e["name"]}", type: "{e["type"]}", set: "{e["set"]}", plan: "{e["plan"]}", '
-                     f'hue: {e["hue"]},\n    {look_js(e["grown"])},\n    {young} }},')
+                     f'{wings}hue: {e["hue"]},\n    {look_js(e["grown"])},\n    {young} }},')
     lines += ["];", ""]
-    JS.write_text("\n".join(lines), encoding="utf-8")
+    JS.write_text("\n".join(lines), encoding="utf-8", newline="\n")  # (LF, as committed)
     print(f"{len(entries)} creatures ({sum(1 for e in entries if e['young'])} with a hatchling look) -> "
           f"{OUT.relative_to(ROOT)} and {JS.relative_to(ROOT)}")
     if lua:

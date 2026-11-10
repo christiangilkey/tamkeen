@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Nur für den Look. Dein Wesen hat eigene Flügel und kann deshalb nichts auf dem Rücken tragen. Es kommt für ein anderes Wesen in deine Tasche.
+88005c4b	Nur für den Look. Eier tragen nur Hüte und Dinge auf dem Rücken, also kommt es in deine Tasche, bis dein Ei schlüpft.
+d1327f5a	Eier tragen einen Hut und etwas auf dem Rücken. Alles andere wartet, bis sie schlüpfen.
+0850a40c	Dein Wesen hat eigene Flügel und kann deshalb nichts auf dem Rücken tragen. Ein anderes deiner Wesen kann es.
+3b6edbb0	Eier tragen nur Hüte und Dinge auf dem Rücken. Dein Wesen kann es tragen, sobald es geschlüpft ist.

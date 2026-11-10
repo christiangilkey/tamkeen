@@ -6235,6 +6235,12 @@ Sheet of all 18 with their picks: `game/art-src-16bit/creatures/_lineup_18_ff.pn
   bottom centre, ~75% size; item `shift` x0.75), made by `tools/game_art/small_items.py` (takes out the rows/columns
   that repeat their neighbours, rare colours protected; antlers, beret, pirate, wizard and graduation drawn by hand
   in its DRAWN table; sources `game/art-src/item/hat_small/`). Since 2026-11-02 the same for glasses, neckwear, held things and capes: `tools/game_art/small_items.py` (was small_hats.py) makes `item/small/<slot>/<id>.png` for every slot but shirts (non-hat items shrink toward their slot anchor; heart glasses and locket hand-drawn in DRAWN), sources `game/art-src/item/<slot>_small/`.
+- **What can be worn** (the owner, 2026-11-09: "eggs have hats and back items and creatures with wings can't be given
+  back items. So when I add new creatures and items this rule holds"): by slot, in `data.canWear` / `data.eggCanWear`.
+  A creature drawn with wings has `"wings": true` in its rig.json (beasts.py carries it into beasts.js as `wings`) and
+  wears nothing on its back; an egg wears a hat and any back item (`render.dressEgg`: the hat on its crown, a back item
+  peeking out on its left, wings (items marked `wings: true`) as a mirrored pair). `rules.wearProblem` says why not
+  ("egg" / "wings"); `buy` puts what doesn't fit in the bag, `equip` refuses it, and `normalize` takes it off on load.
 - **Not done / follow-ups**: mouths/expressions other than
   shut eyes aren't drawn (happy = eyes shut); capes mostly hide behind big wings (dragon, griffin, winged fox) and
   stand up a little on four-legged backs (the cape item's shape); habitat bubbles assume the drawing's full height.

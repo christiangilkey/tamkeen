@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Solo estetico. La tua creatura ha già ali sue, quindi non può indossare niente sulla schiena. Va nella borsa per un'altra creatura.
+88005c4b	Solo estetico. Le uova indossano solo cappelli e cose sulla schiena, quindi va nella borsa finché il tuo uovo non si schiude.
+d1327f5a	Le uova indossano un cappello e qualcosa sulla schiena. Tutto il resto aspetta che si schiudano.
+0850a40c	La tua creatura ha già ali sue, quindi non può indossare niente sulla schiena. Un'altra delle tue creature può.
+3b6edbb0	Le uova indossano solo cappelli e cose sulla schiena. La tua creatura potrà indossarlo quando si schiude.

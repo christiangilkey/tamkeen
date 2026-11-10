@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Pang-itsura lang. May sariling pakpak ang nilalang mo, kaya hindi ito makapagsusuot ng kahit ano sa likod. Mapupunta ito sa bag mo para sa ibang nilalang.
+88005c4b	Pang-itsura lang. Sumbrero at mga bagay sa likod lang ang naisusuot ng itlog, kaya mapupunta ito sa bag mo hanggang mapisa ang itlog mo.
+d1327f5a	Nakasuot ang itlog ng sumbrero at isang bagay sa likod. Maghihintay ang iba hanggang mapisa ito.
+0850a40c	May sariling pakpak ang nilalang mo, kaya hindi ito makapagsusuot ng kahit ano sa likod. Kaya ng iba mong nilalang.
+3b6edbb0	Sumbrero at mga bagay sa likod lang ang naisusuot ng itlog. Maisusuot ito ng nilalang mo kapag napisa na.

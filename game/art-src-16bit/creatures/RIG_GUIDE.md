@@ -33,6 +33,9 @@ Fields:
 - `shirt`: {"box":[x0,y0,x1,y1], "letters":"..."} = which body pixels a shirt pattern covers (torso's main
   coat letters inside the box; not wings, tail, head, legs, glows), or null if a shirt makes no sense.
 - `hover`: pixels a floater stays above the ground (0 for walkers).
+- `wings`: `true` for a creature drawn with wings of its own (leave it out otherwise). It then wears nothing
+  on its back (no cape, pack or wings: the owner's rule), and the game reads it from here, so a new winged
+  creature follows the rule without a code change.
 - `name`, `type` (ember/tide/grove/spark/stone/dusk), `set` (original/cyberpunk/fantasy), `plan`
   (biped/quad/floater/blob: sets battle stats).
 

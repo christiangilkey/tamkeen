@@ -195,9 +195,10 @@ export function beastHeight(look) {
 const SHUT = new Set(["blink", "sleepy", "happy"]);
 
 // ---------- a dressed egg ----------
-// An egg wears a hat and wings (data.eggCanWear; the owner: "because that's funny"): the small versions a baby wears,
-// a hat on its crown and wings as a pair, one each side (the wing picture on the left and its mirror on the right:
-// one alone, as a creature wears it, hid behind the egg). Where they sit on the 32 x 32 egg (egg/<type>.png):
+// An egg wears a hat and anything on its back (data.eggCanWear; the owner: "because that's funny"): the small versions
+// a baby wears, a hat on its crown and a back item peeking out on the egg's left, its back (the hat's brim faces
+// right). Wings (`wings: true`) go on as a pair, the picture on the left and its mirror on the right: one alone hid
+// behind the egg. Where they sit on the 32 x 32 egg (egg/<type>.png):
 const EGG_SOCKETS = { hat: [16, 7], back: [9, 22] };
 /** How much bigger a dressed egg's picture is than the egg, in its pixels: room above for the hat and each side
  * for the wings. */
@@ -223,7 +224,7 @@ export async function dressEgg(egg, equipped) {
     const [sx, sy] = EGG_SOCKETS[slot], [ax, ay] = SLOTS[slot].anchor;
     const y = EGG_TOP + sy - ay;
     ctx.drawImage(img, EGG_SIDE + sx - ax, y);
-    if (slot !== "back") return;
+    if (slot !== "back" || !(itemById(equipped[slot]) || {}).wings) return;
     // the other wing: mirrored, as far right of the middle as the first is left of it
     const x = EGG_SIDE + 32 - sx - (img.width - ax);
     ctx.save();

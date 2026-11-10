@@ -1,0 +1,6 @@
+# What is worn goes by slot: eggs wear hats and back items, winged creatures nothing on the back (game/shop.js).
+d0361c30	Para sa hitsura ra. Ang imong linalang adunay kaugalingong pako, busa dili kini makasul-ob og bisan unsa sa likod. Moadto kini sa imong bag para sa laing linalang.
+88005c4b	Para sa hitsura ra. Kalo ug mga butang sa likod ra ang masul-ob sa itlog, busa moadto kini sa imong bag hangtod mapusa ang imong itlog.
+d1327f5a	Ang itlog makasul-ob og kalo ug usa ka butang sa likod. Ang uban maghulat hangtod mapusa.
+0850a40c	Ang imong linalang adunay kaugalingong pako, busa dili kini makasul-ob og bisan unsa sa likod. Ang laing linalang nimo makahimo.
+3b6edbb0	Kalo ug mga butang sa likod ra ang masul-ob sa itlog. Masul-ob kini sa imong linalang kung mapusa na.

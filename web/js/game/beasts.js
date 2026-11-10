@@ -1,11 +1,12 @@
 // Made by tools/game_art/beasts.py from game/art-src-16bit/creatures/*/rig.json: don't edit by hand.
 // One entry per creature: its name, element and look (original, cyberpunk or fantasy), its body plan
-// (which sets its battle stats), the hue of its body, and for its juvenile look (and `young`, its
+// (which sets its battle stats), `wings: true` when it is drawn with wings of its own (it wears nothing
+// on its back: data.canWear), the hue of its body, and for its juvenile look (and `young`, its
 // hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how
 // high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things
 // sit (in its drawing's pixels).
 export const BEASTS = [
-  { id: "chick", name: "Phoenix chick", type: "ember", set: "original", plan: "biped", hue: 29,
+  { id: "chick", name: "Phoenix chick", type: "ember", set: "original", plan: "biped", wings: true, hue: 29,
     size: [64, 64], box: [0, 1, 56, 62], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [41, 9], face: [45, 13], neck: [43, 25], held: [48, 38], back: [32, 28] },
     young: { size: [64, 64], box: [13, 21, 51, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
@@ -15,7 +16,7 @@ export const BEASTS = [
     sockets: { hat: [39, 8], face: [42, 16], neck: [37, 32], held: [33, 44], back: [25, 36] },
     young: { size: [64, 64], box: [12, 22, 51, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [40, 27], face: [43, 32], neck: [38, 44], held: [37, 54], back: [30, 48] } } },
-  { id: "dragon_whelp", name: "Dragon whelp", type: "ember", set: "fantasy", plan: "quad", hue: 40,
+  { id: "dragon_whelp", name: "Dragon whelp", type: "ember", set: "fantasy", plan: "quad", wings: true, hue: 40,
     size: [64, 64], box: [1, 4, 62, 57], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [54, 14], face: [55, 17], neck: [47, 29], held: [54, 47], back: [24, 46] },
     young: { size: [64, 64], box: [8, 25, 55, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
@@ -60,7 +61,7 @@ export const BEASTS = [
     sockets: { hat: [53, 18], face: [57, 23], neck: [49, 34], held: [55, 50], back: [28, 42] },
     young: { size: [64, 64], box: [5, 23, 57, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [47, 30], face: [48, 35], neck: [44, 45], held: [50, 56], back: [26, 51] } } },
-  { id: "griffin", name: "Thunder griffin", type: "spark", set: "fantasy", plan: "quad", hue: 43,
+  { id: "griffin", name: "Thunder griffin", type: "spark", set: "fantasy", plan: "quad", wings: true, hue: 43,
     size: [64, 64], box: [1, 0, 63, 61], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [54, 15], face: [54, 20], neck: [48, 31], held: [54, 48], back: [28, 40] },
     young: { size: [64, 64], box: [7, 20, 60, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
@@ -80,7 +81,7 @@ export const BEASTS = [
     sockets: { hat: [42, 11], face: [40, 16], neck: [42, 22], held: [10, 45], back: [22, 36] },
     young: { size: [64, 64], box: [9, 22, 54, 63], hover: 0, legs: ["legs_back", "legs_front"], shirt: true,
     sockets: { hat: [39, 30], face: [40, 37], neck: [40, 44], held: [16, 50], back: [20, 54] } } },
-  { id: "winged_fox", name: "Winged fox", type: "dusk", set: "original", plan: "floater", hue: 265,
+  { id: "winged_fox", name: "Winged fox", type: "dusk", set: "original", plan: "floater", wings: true, hue: 265,
     size: [64, 64], box: [1, 1, 62, 61], hover: 5, legs: [], shirt: true,
     sockets: { hat: [48, 13], face: [50, 20], neck: [48, 29], held: [51, 50], back: [32, 31] },
     young: { size: [64, 64], box: [14, 21, 57, 63], hover: 5, legs: [], shirt: true,
