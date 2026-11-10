@@ -7756,6 +7756,30 @@ outside the repo); only encrypted copies are in the repo.
   `..\tamkeen-shots\dli-decks\`. **Gotcha**: preview at `localhost:8871` reached another server (IPv6); use 127.0.0.1.
   **Not checked**: phones, the web app (audio comes from the published site, so only after a release), two devices.
 
+## DLI ICPT prep decks: by topic, then level; Arabic first (2026-11-09; main chat)
+The owner: DLI students take ICPTs (in-course proficiency tests, DLPT-style reading and listening on authentic passages)
+with no glossary, unlike unit tests, so he wants decks to study for them; students used to study by topic (health,
+economics, politics, sports, culture) and pick their weak areas. After research he chose **one deck per DLI language,
+Arabic first (MSA only), folders by topic then level, audio on Azure's free tier after the basic decks**.
+- **How it's made**: `tools/dli/ICPT.md` (the research, 14 topics, three levels, writing rules) and
+  `tools/dli/icpt_deck.mjs <lang>`: topic files `dli-content/<lang>/<lang>-icpt/src/<topic>.json` (private) → deck.json +
+  sentences/ in the basic decks' format. Chapter ids are fixed slots, level first, then topic (c001 Politics at Level
+  1–1+ … c042 News at Level 2+/3). **A released chapter's word list must stay final** (the app adds a chapter once).
+- **Links**: an ICPT word the basic deck has (same letters, the article, sun-letter shadda and tanween ي aside; same shadda
+  and verb-or-not when both are vowelled; the basic card's meaning has the ICPT word's first sense) gets `link` in
+  deck.json → `link: {deck, n}` in the packaged chapter → the app files the learner's basic card in the ICPT folder
+  instead of a second card (`dlicontent.js addDeck`, `others` = the language's other decks). Linked words get no audio.
+- **Arabic**: 2,120 words (587 linked, 1,533 new cards), 40 folders. Written by 14 writers and proofread by 7 more:
+  every sentence fully vowelled, American English, no real people, no invented events about real countries.
+  Content in `dli-content\ar\ar-icpt\`, with WRITING-ar.md and REVIEW-ar.md.
+- **Checked**: `check_sentences.mjs ar --deck ar-icpt` (0 to fix); `tests/js/icpt-deck.test.mjs`; and end to end in
+  a real app window (a worktree, a fresh data folder, the content packaged with a test password and its key set
+  directly): 40 ICPT folders beside the basic deck's 109, 1,546 new cards, 574 basic cards filed in ICPT folders, حكومة
+  one card in two folders. **Not checked**: phones, the web app, the real package.
+- **Left**: packaging needs the owner (`$env:DLI_PASSWORD` then `node tools/dli/encrypt.mjs`), then commit web/dli and
+  release. Audio: `voice_deck.py ar --deck ar-icpt` ≈ 133,000 Azure characters (its usage.json counts per deck folder,
+  so add the basic deck's for the month). Then the other DLI languages, one at a time, the same way.
+
 ## Word popup: Wiktionary's grammar line (2026-11-08; main chat)
 
 The owner: show whether a word is a noun, verb or adjective, the Arabic root and broken plurals, and for every
