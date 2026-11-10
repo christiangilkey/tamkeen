@@ -8178,3 +8178,55 @@ patterns that require the creature to stand upright ... add many more new items 
   Holofoil (only Tamkeen's own card review), and the raid reward counts for the creature out when it is claimed. Dark
   shirts (camo, confetti, circuit) nearly vanish on the darkest creatures, as galaxy already did. A few Bisaya item names
   may want a native speaker's look ("Antipara nga ilong-bigote", "Sinina nga murag baka", "Patay-buhi nga suga").
+
+## Creature game: walk, idle and fly animations for all 18 creatures (2026-11-09; side session "Walk and idle animations for all 18 creatures")
+The owner asked for a real walk and idle on every creature (both looks), approved the griffin draft ("I think the walking
+is fine"), asked for blinking in the idle and, mid-way, "Winged creatures need a flying animation". Method agreed: a script
+moves parts of the existing drawings (nothing redrawn), then hand pixel fixes. This replaces the layer nudges of
+"Creature game: 18 hand-designed creatures, cut into layers": body/head/blink/legs layer PNGs and their code are gone.
+- **What each look has**: `idle` 4 frames (breath, tail swish; frame 0 is the drawing exactly, so still pictures are
+  unchanged), `walk` 6 frames (legs in pairs, body dips when feet land, tail sways; the bunny hops, the seal galumphs,
+  the jellyfish pulses and trails, the forest stag glides, the winged fox hovers with slow wing beats), and `fly` 4
+  frames for the winged four (chick, dragon_whelp, griffin, winged_fox; hatchlings too). The game adds the blink: every
+  frame has its eyelids, and `render.animAt` shuts the eyes for 150 ms at the start of about one idle loop in three.
+- **Tool** `tools/game_art/anim.py` (guide `creatures/ANIM_GUIDE.md`): per look a parts grid (`_parts.txt`,
+  `_parts_hatchling.txt`: one letter per pixel, b body, h head, t tail, W/w wings, F/f/R/r legs, A/a arms, any other
+  letter for extra parts) and `anim.json` / `anim_hatchling.json` (hips, pivots, sizes of the moves, or `custom`
+  per-frame steps, plus `fix` pixel stamps). Moving pixel art without smearing: the drawing is enlarged 8x with EPX and
+  each frame pixel is fetched from where it came (RotSprite idea); unmoved pixels stay exact; pinholes a move opens are
+  filled, the drawing's own gaps kept. It also works out per frame the eyelids, the shirt mask (which drawing pixel
+  each shirt pixel came from, so patterns move with the body) and where each socket moved (a part that turns turns
+  what it holds: a third number, degrees). Commands: `grid`, `start`, `preview`, `zoom` (see its docstring).
+  Six helper agents (one per element) made the 17 others; I reviewed every look frame by frame.
+- **Game files**: `web/game-art/creature/beast/<id>/[hatchling/]<anim>.png` (frames on top, eyelids below) and
+  `<anim>_shirt.png`; beasts.js `anims: {cell: [w, h, x, y] (frame size, where the drawing's top-left is in it),
+  idle/walk/fly: {frames, ms, [once], at: {slot: [[dx, dy(, deg)], ...]}}}`. `beasts.py build` writes them (it now
+  needs both looks' anim files and stops otherwise; it deletes the old layer PNGs); `build --aseprite` saves
+  `<id>.aseprite` / `<id>_hatchling.aseprite` with every frame, a hidden eyelids layer and a tag per animation.
+  `beasts.py preview` draws its check sheet from the real frames (compose_frames).
+- **Renderer** (render.js): `composeCreature(look, {anim, frame, eyes, act, t, lift})` draws a frame, its eyelids when
+  shut, the shirt via `shirtedFrames` (light and shade against `torsoTone`, the idle still frame's median), worn things
+  at socket + the frame's offset (+ turn). `animAt(look, name, ms, seed, speed)` gives {anim, frame, eyes, done}.
+  Actions are named: anim.json may add any (`"run": {"like": "walk", ...}` or `custom`, `"loop": false` plays once);
+  a missing one falls back (`ACTION_FALLBACK`: run, swim, climb, hop, glide -> walk; anything else -> idle), so a
+  mini-game can ask for "swim" before it exists (the mini-game chat asked for this; nothing else decided yet).
+- **Where it plays**: habitat (walking, idle with blinks, slower breathing asleep; a winged creature flies about 40% of
+  its longer trips, rising and sinking at take-off and landing: `FLY_UP`), live battles (walk when moving, a winged one
+  flies its dashes, idle with blinks when still; warmUp composes every frame first), portraits and the Creatures page
+  (idle frame 0 = the drawing). The colourings session's hooks (formLayer on sheets via anims.cell, finishForm,
+  drawLiving) work on the frames.
+- **Python** `beasts.compose_frames` draws a frame as render.js does: 116 poses (every look: walking dressed with a
+  shirt, blinking, flying) hash-identical in the browser. Found on the way: `beasts.origin` used Python's round()
+  (12.5 -> 12) where render.js rounds up, so creatures whose centre fell on a half pixel were a pixel off: fixed.
+- **Tests**: tests/test_creature_anim.py (every look animates cleanly, idle frame 0 = the drawing, fly exactly for the
+  winged, EPX/pinhole/leg maths, compose_frames), tests/js/creature-anims.test.mjs (beasts.js anims and files,
+  animAt timing, blink, fallbacks); game.test.mjs's layer checks now use the frame files (data.beastLayers).
+- **Checked** in a real window (desktop server from source on a fresh data folder never signed in to Drive): the
+  griffin and dragon whelp walking, idling and flying in the habitat with a cap and book on, the dragon walking in a
+  live battle, every look composed in the browser without errors.
+- **Open**: (1) the owner's choice for the forest stag (in the Decisions chat): a new standing drawing for walking
+  (recommended) or the glide it has now; (2) where winged creatures fly (built: habitat now and then, battle dashes);
+  (3) the winged fox's and chick's downbeat frame is a little busy where the wing sweeps over the body; (4) tool
+  wishes from the helpers, for later: a built-in "repaint lost outline" pass, an underlay for parts that move over the
+  body, per-leg swing/lift, a hop and a galumph preset, rounding sway to whole pixels; (5) mini-game actions (run,
+  jump, cheer, sad, cast...) are not drawn yet.

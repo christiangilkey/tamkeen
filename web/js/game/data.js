@@ -54,9 +54,15 @@ export const PART = {
 export { BEASTS };
 export const beastById = (id) => BEASTS.find((b) => b.id === id) || BEASTS[0];
 export const beastsOf = (type) => BEASTS.filter((b) => b.type === type);
-/** The layer files a look has (a creature, or its `young` hatchling look): body, head, head with shut eyes,
- * its legs, and where a shirt goes. */
-export const beastLayers = (look) => ["body", "head", "blink", ...look.legs, ...(look.shirt ? ["shirt"] : [])];
+/** The art files a look has (a creature, or its `young` hatchling look): a strip per animation (idle, walk, and fly
+ * for the winged: tools/game_art/anim.py), its frames on top and their eyelids below, and for one that can wear a
+ * shirt, where the shirt goes in each frame. Each with its size: [name, [w, h]]. */
+export const beastLayers = (look) => {
+  const [cw, ch] = look.anims.cell;
+  const names = Object.keys(look.anims).filter((k) => k !== "cell");
+  return [...names.map((n) => [n, [cw * look.anims[n].frames, ch * 2]]),
+    ...(look.shirt ? names.map((n) => [`${n}_shirt`, [cw * look.anims[n].frames, ch]]) : [])];
+};
 
 // Body plans: they set a creature's battle stats and one move. (`legs`/`arms`/`wings`/`hover` were for the
 // old part-built creatures; the drawings now carry their own limbs.)
@@ -563,11 +569,11 @@ const SHEET = (frames, w, h) => ({ w: w * frames, h, frames });
 export function artFiles() {
   const out = [];
   const add = (file, [w, h], kind, hint = {}) => out.push({ file, w, h, kind, ...hint });
-  // The creatures: each one's layers, cut from its drawing by tools/game_art/beasts.py ("beast" art is
-  // hand-made only, so the placeholder generator leaves it alone).
+  // The creatures: each one's animation strips, made from its drawing by tools/game_art/beasts.py and anim.py
+  // ("beast" art is hand-made only, so the placeholder generator leaves it alone).
   for (const b of BEASTS) {
-    for (const layer of beastLayers(b)) add(`creature/beast/${b.id}/${layer}.png`, b.size, "beast", { id: b.id });
-    if (b.young) for (const layer of beastLayers(b.young)) add(`creature/beast/${b.id}/hatchling/${layer}.png`, b.young.size, "beast", { id: b.id });
+    for (const [name, size] of beastLayers(b)) add(`creature/beast/${b.id}/${name}.png`, size, "beast", { id: b.id });
+    if (b.young) for (const [name, size] of beastLayers(b.young)) add(`creature/beast/${b.id}/hatchling/${name}.png`, size, "beast", { id: b.id });
   }
   for (const t of TYPE_IDS) {
     add(`egg/${t}.png`, [32, 32], "egg", { type: t });

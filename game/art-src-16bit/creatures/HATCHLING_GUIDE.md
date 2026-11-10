@@ -23,4 +23,5 @@ Files in the creature's folder: `_hatch1.txt`, `_hatch1.png`, `_build_hatch1.py`
 
 Then cut it: `rig_hatchling.json` (same fields as RIG_GUIDE.md; art `_hatch1.txt`; same name/type/set/plan as
 rig.json), checked with `.venv/Scripts/python.exe tools/game_art/beasts.py preview <id> --hatchling`
-(-> `_rig_preview_hatchling.png`). Don't run `beasts.py build` (the lead does).
+(-> `_rig_preview_hatchling.png`), and animate it: `_parts_hatchling.txt` and `anim_hatchling.json` (ANIM_GUIDE.md;
+smaller moves than the juvenile's). Don't run `beasts.py build` (the lead does).

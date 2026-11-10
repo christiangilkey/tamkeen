@@ -1,29 +1,32 @@
-# Cutting a creature for the game (rig.json)
+# A creature's rig (rig.json)
 
-The game animates each creature from layers cut out of its finished drawing:
-- the **head** dips 1px on the walk's second step and 2px asleep (everything inside the head polygon moves);
-- the **near legs** (`legs_front`, drawn in front of the body) lift 1px on the walk's second step;
-- the **far legs** (`legs_back`) are drawn behind the body and never move;
-- for a **blink** (and asleep, and happy) the `blink` stamps are painted over the head.
-Worn things sit on **sockets** (pixel coordinates in the 64x64 drawing).
+The game shows each creature with frame animations made from its finished drawing (idle, walk, and fly for the
+winged ones: `tools/game_art/anim.py`, guide `ANIM_GUIDE.md`, since 2026-11-09). rig.json says what the game needs
+to know about the drawing itself:
+- the **head** polygon: the pixels the `blink` stamps belong to (the eyelids of every frame are worked out from
+  them) and that a shirt never covers;
+- the **leg** polygons (`legs_front`, `legs_back`): pixels a shirt never covers (the animation's own parts are in
+  its parts grid, `_parts.txt`);
+- the **blink** stamps: shut eyes, drawn with the creature's own letters;
+- **sockets**: where worn things sit (pixel coordinates in the 64x64 drawing); each animation frame moves them with
+  the part they ride on;
+- the **shirt** area, **hover**, **wings**, and its name, element, look and body plan.
 
-`tools/game_art/beasts.py` (don't edit it; ask the lead) does the cutting:
+`tools/game_art/beasts.py` makes the game's art from it:
 
     .venv/Scripts/python.exe tools/game_art/beasts.py preview <id>    -> creatures/<id>/_rig_preview.png
 
-The sheet shows: the cut (head red, far legs blue, near legs green, shirt area yellow, body grey), still,
-walk frames, blink, asleep, dressed (cap, round glasses, scarf, book, red cape), bat wings and a striped shirt.
-Worked example: `creatures/chick/rig.json`.
+The sheet shows: its parts (shirt area yellow), then as the game draws it: still, walking, blink, asleep, dressed
+(cap, round glasses, scarf, book, red cape), dressed and walking, bat wings, a striped shirt, and flying if it has
+wings. Worked example: `creatures/chick/rig.json`.
 
 Fields:
 - `art`: the final drawing file (e.g. `_ff2.txt`); `palette`: its full letter=hex string.
 - `head`: polygon(s) [[x,y],...]; a pixel belongs if its centre (x+0.5, y+0.5) is inside. Follow the neck
   line; include ears, horns, crest, beak/muzzle, head fur; leave out wings, body and tail pixels.
-  Only the real head: it is what dips and blinks, and hats sit on it. A beetle's head is the small part with
+  Only the real head: it is what blinks, and hats sit on it. A beetle's head is the small part with
   the eyes and antennae; the shell in front of its wing cases (the pronotum) and a horn on that shell are body
-  (the firefly was cut with its whole front shell as head until 2026-11-09). Where the body is right above the
-  head like that, the cutter keeps a hidden copy of the head's top edge in body.png, so the head can dip without
-  a see-through gap.
+  (the firefly was cut with its whole front shell as head until 2026-11-09).
 - `legs_front` / `legs_back`: polygon(s) round the near / far legs below the body (or null). A floater or
   a legless blob: null for both.
 - `blink`: [{"at":[x,y], "rows":["..."]}], '.' = leave. Draw properly shut eyes with the creature's own
@@ -51,5 +54,6 @@ Fields:
 - `name`, `type` (ember/tide/grove/spark/stone/dusk), `set` (original/cyberpunk/fantasy), `plan`
   (biped/quad/floater/blob: sets battle stats).
 
-Check the preview at full size (crop it): no jagged seams when the head dips or legs lift, shut eyes read
-as shut, items sit believably. Iterate until it's clean.
+Check the preview at full size (crop it): shut eyes read as shut, items sit believably in every panel, the
+shirt stays on the torso. Iterate until it's clean. Then animate it (ANIM_GUIDE.md): a new creature needs its
+anim.json and parts grid for both looks, or the build stops.

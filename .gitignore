@@ -10,3 +10,7 @@ app/sync/google_client.json
 mobile/node_modules/
 mobile/www/
 extension/store/upload/
+# creature animation work files (tools/game_art/anim.py): preview GIFs, zoom and grid sheets
+game/art-src-16bit/creatures/*/_anim*.gif
+game/art-src-16bit/creatures/*/_anim_zoom*.png
+game/art-src-16bit/creatures/*/_grid*.png

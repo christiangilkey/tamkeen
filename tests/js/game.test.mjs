@@ -212,7 +212,7 @@ test("levels, new days and old saves", () => {
   assert.ok(normalize(null).creature);
 });
 
-test("every creature is drawn, cut into layers, with somewhere for each worn thing", () => {
+test("every creature is drawn, animated, with somewhere for each worn thing", () => {
   assert.equal(BEASTS.length, 18);
   assert.equal(new Set(BEASTS.map((b) => b.id)).size, 18);
   for (const b of BEASTS) {
@@ -222,12 +222,12 @@ test("every creature is drawn, cut into layers, with somewhere for each worn thi
       const [x, y] = b.sockets[slot];
       assert.ok(x >= 0 && y >= 0 && x < b.size[0] && y < b.size[1], `${b.id} ${slot} socket inside its drawing`);
     }
-    for (const layer of beastLayers(b)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/${layer}.png`, import.meta.url)), `${b.id} ${layer}`);
-    // ...and a hatchling look of its own: smaller, with its own layers and sockets.
+    for (const [layer] of beastLayers(b)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/${layer}.png`, import.meta.url)), `${b.id} ${layer}`);
+    // ...and a hatchling look of its own: smaller, with its own frames and sockets.
     assert.ok(b.young, `${b.id} has a hatchling look`);
     assert.ok(b.young.box[3] - b.young.box[1] < b.box[3] - b.box[1], `${b.id}'s hatchling is smaller`);
     for (const slot of ["hat", "face", "neck", "held", "back"]) assert.ok(b.young.sockets[slot], `${b.id} hatchling ${slot}`);
-    for (const layer of beastLayers(b.young)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/hatchling/${layer}.png`, import.meta.url)), `${b.id} hatchling ${layer}`);
+    for (const [layer] of beastLayers(b.young)) assert.ok(existsSync(new URL(`../../web/game-art/creature/beast/${b.id}/hatchling/${layer}.png`, import.meta.url)), `${b.id} hatchling ${layer}`);
   }
 });
 

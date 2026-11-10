@@ -12,7 +12,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, composeCreature, drawLiving, icon, iconEl, loadImage } from "./render.js";
+import { FRAME, animAt, composeCreature, drawLiving, drawingOf, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
@@ -34,7 +34,6 @@ const VIEW_LONG = 560;
 const LEAD = 0.3;         // seconds of movement the camera looks ahead (a small lead where the creature is going)
 const FOLLOW = 5;         // how fast the camera catches up (higher: tighter)
 const ANIM_MS = 200;      // a frame of the water, lava and other moving ground (the same frame on every tile)
-const WALK_MS = 130;      // a frame of the walk cycle
 // Where each move and each answer sits: a 2 x 2 block shaped like the controller's face buttons turned a
 // quarter (X Y over A B), so the button on the controller is where its answer is on the screen.
 // `slot` is which move (or answer) the place holds; `keys` the keyboard's (U I over J K, or 1 2 over 3 4).
@@ -278,7 +277,7 @@ export function runLiveBattle(setup, vocab) {
 
   // ----- creatures: each pose composed once, then kept -----
   const frames = new Map();
-  const poseKey = (side, i, pose) => `${side}|${i}|${pose.walk}|${pose.bob}|${pose.act || ""}|${pose.t || 0}|${pose.eyes}`;
+  const poseKey = (side, i, pose) => `${side}|${i}|${pose.anim}|${pose.frame}|${pose.act || ""}|${pose.t || 0}|${pose.eyes}`;
   function creatureFrame(side, f, i, pose) {
     const key = poseKey(side, i, pose);
     if (!frames.has(key)) { frames.set(key, null); composeCreature(f.look, pose).then((c) => frames.set(key, c)); }
@@ -289,11 +288,14 @@ export function runLiveBattle(setup, vocab) {
     return null;
   }
   const team = (side) => (side === "me" ? b.mine : b.theirs);
-  function warmUp(side, i) { // the walk cycle and the idle bob ready before they are needed
+  function warmUp(side, i) { // every frame of its walk, wing beat and idle (and the blink) ready before they are needed
     const f = team(side)[i];
     if (!f) return;
-    for (let walk = 0; walk < 4; walk++) creatureFrame(side, f, i, { walk, bob: 0, eyes: "open" });
-    creatureFrame(side, f, i, { walk: 0, bob: 1, eyes: "open" });
+    const anims = drawingOf(f.look).anims;
+    for (const anim of ["idle", "walk", "fly"]) {
+      for (let frame = 0; anims[anim] && frame < anims[anim].frames; frame++) creatureFrame(side, f, i, { anim, frame, eyes: "open" });
+    }
+    creatureFrame(side, f, i, { anim: "idle", frame: 0, eyes: "blink" });
   }
 
   // ----- what is on the screen besides the world -----
@@ -746,8 +748,9 @@ export function runLiveBattle(setup, vocab) {
     if (!f) return;
     if (c.fainted && (!c.act || c.act.t > 0.17)) return; // the faint cloud covers it from its 3rd frame; the next steps in shortly
     const actT = c.act ? Math.min(7, Math.floor(c.act.t * 8)) / 8 : 0;
-    const pose = c.act ? { walk: 0, bob: 0, act: c.act.kind, t: actT, eyes: "open" }
-      : { walk: c.moving ? Math.floor(now / WALK_MS) % 4 : 0, bob: c.moving ? 0 : Math.floor(now / 520 + (side === "me" ? 0 : 1)) % 2, eyes: "open" };
+    // Walking when it moves (a winged creature flies its dashes), else breathing and now and then blinking.
+    const pose = c.act ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+      : c.moving ? animAt(f.look, c.dashing ? "fly" : "walk", now) : animAt(f.look, "idle", now, side === "me" ? 0 : 1);
     const img = creatureFrame(side, f, i, pose);
     const shadow = art.get("fx/shadow_m.png");
     ctx.save();

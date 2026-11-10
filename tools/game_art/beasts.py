@@ -1,38 +1,37 @@
-"""Cut the hand-designed creatures into the layers the game animates, and check them.
+"""The hand-designed creatures: their frame animations into the game's art and web/js/game/beasts.js, and checks.
 
 Each creature has a folder game/art-src-16bit/creatures/<id>/ holding its finished drawing (a grid of
-colour letters, `art`) and a rig.json that says how to cut it:
+colour letters, `art`), a rig.json with what the game needs to know about it, and its animations (anim.json and
+a parts grid: tools/game_art/anim.py, guide creatures/ANIM_GUIDE.md):
 
     {
       "id": "chick", "name": "Phoenix chick", "type": "ember", "set": "original", "plan": "biped",
       "art": "_ff1.txt", "palette": "4=#200808 1=#ffb43c ...",
-      "head":       polygon(s)  - pixels inside move with the head (it dips when walking or asleep)
-      "legs_back":  polygon(s)  - the far legs, drawn behind the body (or null)
-      "legs_front": polygon(s)  - the near legs, drawn in front; they lift a pixel on the walk's second step
+      "head":       polygon(s)  - the head: pixels the blink stamps belong to; not body for the shirt
+      "legs_back":  polygon(s)  - the far legs (or null): not body for the shirt
+      "legs_front": polygon(s)  - the near legs (or null): not body for the shirt
       "blink": [{"at": [x, y], "rows": ["..44..", ...]}]  - pixels painted over the head for shut eyes ('.' = leave)
       "sockets": {"hat": [x, y], "face": [x, y], "neck": [x, y], "held": [x, y], "back": [x, y]},
                                   - a socket may have a third number, an angle: [x, y, degrees], clockwise; the
-                                    item is turned about its anchor by that much (nearest pixel: rotated())
+                                    item is turned about its anchor by that much (nearest pixel: rotated()); each
+                                    animation frame moves the sockets with the parts they ride (anim.py)
       "shirt": {"box": [x0, y0, x1, y1], "letters": "123"} or null  - which body pixels a shirt covers
                                   (and "not": polygon(s) inside the box it leaves alone, if need be)
       "hover": 0                - pixels a floater stays off the ground
       "wings": true             - only for a creature drawn with wings of its own: it wears nothing on its back
-                                  (data.canWear); leave it out otherwise
+                                  (data.canWear) and it flies (anim.py); leave it out otherwise
     }
 
-A creature may also have rig_hatchling.json (same fields, its baby drawing): the game shows it while the
-creature is a hatchling (game art in creature/beast/<id>/hatchling/).
+A creature also has rig_hatchling.json (same fields, its baby drawing, with anim_hatchling.json): the game shows it
+while the creature is a hatchling (game art in creature/beast/<id>/hatchling/).
 
 A polygon is a list of [x, y] corners in pixel units; a pixel belongs to it when its centre is inside.
 "head" etc. may also be a list of polygons.
 
-Where the body is right above the head (a beetle's head under its shell), body.png also keeps a copy of the head's
-top two rows there, under the head (underlay()): at rest the head covers it exactly; when the head dips, it fills
-the strip the head leaves, so there is no see-through gap.
-
-    .venv/Scripts/python tools/game_art/beasts.py preview chick     its preview sheet (_rig_preview.png)
+    .venv/Scripts/python tools/game_art/beasts.py preview chick     its check sheet (_rig_preview.png)
     .venv/Scripts/python tools/game_art/beasts.py build             every creature: game art + web/js/game/beasts.js
-    .venv/Scripts/python tools/game_art/beasts.py build --aseprite  also the layered .aseprite sources
+    .venv/Scripts/python tools/game_art/beasts.py build --aseprite  also <id>.aseprite / <id>_hatchling.aseprite,
+                                                                     every frame with a tag per animation
 """
 
 from __future__ import annotations
@@ -40,11 +39,15 @@ from __future__ import annotations
 import colorsys
 import json
 import math
+import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
+
+import anim  # noqa: E402  (the frame animations; it imports this file back, which is fine: it only uses its functions)
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "game" / "art-src-16bit" / "creatures"
@@ -57,7 +60,6 @@ SLOTS = {"hat": (10, 13), "face": (8, 4), "neck": (8, 1), "held": (6, 11), "back
 ORDER = ["ember", "tide", "grove", "spark", "stone", "dusk"]
 SETS = ["original", "cyberpunk", "fantasy"]
 LAYERS = ["body", "head", "legs_back", "legs_front"]
-DIP = 2  # the most the head dips, in pixels (asleep; 1 walking): render.js composeCreature
 
 
 def hexrgb(h: str) -> tuple[int, int, int]:
@@ -116,21 +118,7 @@ def cut(rig: dict, rows: list[str]) -> dict[str, dict[tuple[int, int], str]]:
                 if ch != ".":
                     blink[(x0 + dx, y0 + dy)] = ch
     layers["blink"] = blink
-    layers["under"] = underlay(layers)
     return layers
-
-
-def underlay(layers) -> dict[tuple[int, int], str]:
-    """The head's pixels that the body keeps a copy of, under the head: the top DIP rows of the head wherever the
-    body is right above it. When the head dips they fill the strip it leaves instead of a see-through gap."""
-    head, body = layers["head"], layers["body"]
-    out = {}
-    for (x, y) in head:
-        if (x, y - 1) in body:
-            for k in range(DIP):
-                if (x, y + k) in head:
-                    out[(x, y + k)] = head[(x, y + k)]
-    return out
 
 
 def rotated(im: Image.Image, anchor, deg: float):
@@ -179,8 +167,9 @@ def bbox(rows: list[str]) -> list[int]:
 
 
 def origin(box: list[int], hover: int) -> tuple[int, int]:
-    """Where the art's top-left corner goes in the frame: centred, standing on the bottom edge."""
-    return round(FRAME / 2 - (box[0] + box[2] + 1) / 2), FRAME - (box[3] + 1) - hover
+    """Where the art's top-left corner goes in the frame: centred, standing on the bottom edge. (Halves round up, as
+    render.js beastOrigin's Math.round does: Python's round() would take 12.5 to 12.)"""
+    return math.floor(FRAME / 2 - (box[0] + box[2] + 1) / 2 + 0.5), FRAME - (box[3] + 1) - hover
 
 
 def body_hue(pal: dict) -> int:
@@ -190,40 +179,57 @@ def body_hue(pal: dict) -> int:
 
 # ---------- the preview sheet ----------
 
-def compose(rig, layers, pal, w, h, *, step=0, bob=0, shut=False, items=None, shirt=None) -> Image.Image:
-    """One frame as the game draws it (render.js composeBeast)."""
-    box = bbox_of(layers)
-    ox, oy = origin(box, rig.get("hover", 0))
-    f = Image.new("RGBA", (FRAME, FRAME), (0, 0, 0, 0))
-    items = items or {}
-    so = rig["sockets"]
+def shade(lum: float, mid: float) -> float:
+    """render.js shirtShade: how much a shirt pixel is lit, the body's brightness there against the torso's middle tone."""
+    return max(0.6, min(1.35, lum / (mid or 1)))
 
-    def put(im, x, y):
-        if im is not None:
-            f.alpha_composite(im, (x, y)) if 0 <= x and 0 <= y else f.paste(im, (x, y), im)
 
-    def item(slot, dy=0):
-        im = items.get(slot)
+def compose_frames(look: dict, folder: Path, name: str = "idle", frame: int = 0, *, shut=False, items=None,
+                   shirt: Image.Image | None = None) -> Image.Image:
+    """One frame as the game draws a creature (render.js composeCreature):
+    `look` is what build() gathers for one look (box, hover, shirt, sockets, anims), `folder` where its frames are.
+    Items are drawn at their sockets moved by the frame's offsets (no item shift: the preview's items have none)."""
+    a = look["anims"]
+    cw, ch, cx, cy = a["cell"]
+    an = a[name]
+    ox, oy = origin(look["box"], look["hover"])
+    sheet = Image.open(folder / f"{name}.png").convert("RGBA")
+    lum = lambda p: 0.299 * p[0] + 0.587 * p[1] + 0.114 * p[2]  # noqa: E731
+    if shirt is not None and look["shirt"]:  # render.js shirtedFrames / torsoTone
+        rest, rmask = Image.open(folder / "idle.png").convert("RGBA"), Image.open(folder / "idle_shirt.png").convert("RGBA")
+        under = sorted(lum(rest.getpixel((x, y))) for y in range(ch) for x in range(cw) if rmask.getpixel((x, y))[3])
+        mid = under[len(under) >> 1] if under else 1
+        mask = Image.open(folder / f"{name}_shirt.png").convert("RGBA")
+        for y in range(mask.height):
+            for x in range(mask.width):
+                m = mask.getpixel((x, y))
+                if not m[3]:
+                    continue
+                tp = shirt.getpixel((m[0] % shirt.width, m[1] % shirt.height))
+                if not tp[3]:
+                    continue
+                p = sheet.getpixel((x, y))
+                f = shade(lum(p), mid)
+                sheet.putpixel((x, y), tuple(min(255, math.floor(v * f + 0.5)) for v in tp[:3]) + (p[3],))  # (as Math.round)
+    out = Image.new("RGBA", (FRAME, FRAME), (0, 0, 0, 0))
+
+    def put(im, x, y, under=False):
+        layer = Image.new("RGBA", (FRAME, FRAME), (0, 0, 0, 0))
+        layer.paste(im, (x, y), im)
+        return Image.alpha_composite(layer, out) if under else Image.alpha_composite(out, layer)
+
+    out = put(sheet.crop((frame * cw, 0, frame * cw + cw, ch)), ox - cx, oy - cy)
+    if shut:
+        out = put(sheet.crop((frame * cw, ch, frame * cw + cw, 2 * ch)), ox - cx, oy - cy)
+    for slot in ("back", "hat", "face", "neck", "held"):
+        im = (items or {}).get(slot)
         if im is None:
-            return
-        sx, sy, *turn = so[slot]
-        im, (ax, ay) = rotated(im, SLOTS[slot], turn[0] if turn else 0)
-        put(im, ox + sx - ax, oy + sy - ay + dy)
-
-    item("back")
-    put(image(layers["legs_back"], pal, w, h), ox, oy)
-    body = image({**layers["under"], **layers["body"]}, pal, w, h)
-    if shirt is not None:
-        for (x, y) in shirt_mask(rig, layers):
-            body.putpixel((x, y), shirt.getpixel((x % shirt.width, y % shirt.height)))
-    put(body, ox, oy)
-    put(image(layers["legs_front"], pal, w, h), ox, oy - step)
-    put(image(layers["blink" if shut else "head"], pal, w, h), ox, oy + bob)
-    item("hat", bob)
-    item("face", bob)
-    item("neck")
-    item("held", step)
-    return f
+            continue
+        sx, sy, *turn = look["sockets"][slot]
+        mx, my, *more = an["at"][slot][frame]  # (a third number: the frame turns it further)
+        im, (ax, ay) = rotated(im, SLOTS[slot], (turn[0] if turn else 0) + (more[0] if more else 0))
+        out = put(im, ox + sx - ax + mx, oy + sy - ay + my, under=slot == "back")  # (capes and packs behind)
+    return out
 
 
 def bbox_of(layers) -> list[int]:
@@ -232,33 +238,45 @@ def bbox_of(layers) -> list[int]:
 
 
 def preview(cid: str, form: str = "juvenile") -> Path:
+    """Its check sheet (_rig_preview.png): its parts, then as the game draws it: still, walking, the blink, asleep,
+    dressed (cap, round glasses, scarf, book, red cape), dressed and walking, bat wings, a striped shirt, and flying
+    if it has wings. The frames are made into a scratch folder (anim.write), not the game's art."""
     rig, rows, pal = load(cid, form)
-    w, h = len(rows[0]), len(rows)
     layers = cut(rig, rows)
-    item = lambda f: Image.open(ITEMS / f).convert("RGBA") if (ITEMS / f).exists() else None  # noqa: E731
-    s = "small/" if form == "hatchling" else ""  # a baby wears the small versions, as in the game
-    dressed = {"hat": item(f"{s}hat/cap.png"), "face": item(f"{s}face/round_glasses.png"), "neck": item(f"{s}neck/scarf.png"),
-               "held": item(f"{s}held/book.png"), "back": item(f"{s}back/cape_red.png")}
-    frames = [
-        ("still", compose(rig, layers, pal, w, h)),
-        ("walk: head dips", compose(rig, layers, pal, w, h, bob=1)),
-        ("walk: front legs lift", compose(rig, layers, pal, w, h, step=1, bob=1)),
-        ("blink", compose(rig, layers, pal, w, h, shut=True)),
-        ("asleep", compose(rig, layers, pal, w, h, bob=2, shut=True)),
-        ("hat, glasses, scarf, book, cape", compose(rig, layers, pal, w, h, items=dressed)),
-        ("same, walking", compose(rig, layers, pal, w, h, items=dressed, step=1, bob=1)),
-        ("bat wings", compose(rig, layers, pal, w, h, items={"back": item(f"{s}back/bat_wings.png")})),
-        ("shirt", compose(rig, layers, pal, w, h, shirt=item("shirt/striped.png"))),
-    ]
-    # the cut itself: head red, far legs blue, near legs green, shirt yellow
+    tmp = Path(tempfile.mkdtemp())
+    try:
+        anims = anim.write(cid, form, tmp)
+        mask = shirt_mask(rig, layers)
+        look = {"box": bbox_of(layers), "hover": rig.get("hover", 0), "shirt": bool(mask), "sockets": rig["sockets"], "anims": anims}
+        item = lambda f: Image.open(ITEMS / f).convert("RGBA") if (ITEMS / f).exists() else None  # noqa: E731
+        s = "small/" if form == "hatchling" else ""  # a baby wears the small versions, as in the game
+        dressed = {"hat": item(f"{s}hat/cap.png"), "face": item(f"{s}face/round_glasses.png"), "neck": item(f"{s}neck/scarf.png"),
+                   "held": item(f"{s}held/book.png"), "back": item(f"{s}back/cape_red.png")}
+        frames = [
+            ("still", compose_frames(look, tmp)),
+            ("walking", compose_frames(look, tmp, "walk", 1)),
+            ("walking", compose_frames(look, tmp, "walk", 4)),
+            ("blink", compose_frames(look, tmp, shut=True)),
+            ("asleep", compose_frames(look, tmp, "idle", 2, shut=True)),
+            ("hat, glasses, scarf, book, cape", compose_frames(look, tmp, items=dressed)),
+            ("same, walking", compose_frames(look, tmp, "walk", 4, items=dressed)),
+            ("bat wings", compose_frames(look, tmp, items={"back": item(f"{s}back/bat_wings.png")})),
+            ("shirt", compose_frames(look, tmp, shirt=item("shirt/striped.png"))),
+        ]
+        if "fly" in anims:
+            frames.append(("flying", compose_frames(look, tmp, "fly", 2, items={k: v for k, v in dressed.items() if k != "back"})))
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+    # its parts (anim.py's parts grid, in anim.PART_COLOURS), the shirt area yellow
     tint = Image.new("RGBA", (FRAME, FRAME), (0, 0, 0, 0))
     ox, oy = origin(bbox_of(layers), rig.get("hover", 0))
-    colours = {"head": (255, 60, 60), "legs_back": (70, 120, 255), "legs_front": (60, 220, 90), "body": (200, 200, 200)}
-    sm = shirt_mask(rig, layers)
-    for name, c in colours.items():
-        for (x, y) in layers[name]:
-            tint.putpixel((ox + x, oy + y), ((255, 220, 40) if (x, y) in sm else c) + (255,))
-    frames.insert(0, ("the cut", tint))
+    prow = [r for r in (SRC / cid / anim.NAMES[form][1]).read_text(encoding="utf-8").split() if r]
+    for y, row in enumerate(prow):
+        for x, ch in enumerate(row):
+            if ch != ".":
+                c = (255, 220, 40) if (x, y) in mask else anim.PART_COLOURS.get(ch, (255, 255, 255))
+                tint.putpixel((ox + x, oy + y), c + (255,))
+    frames.insert(0, ("parts (shirt yellow)", tint))
     sc, pad = 3, 10
     font = ImageFont.truetype("arial.ttf", 13)
     sheet = Image.new("RGBA", (pad + len(frames) * (FRAME * sc + pad), FRAME * sc + 40), (48, 40, 66, 255))
@@ -276,55 +294,29 @@ def preview(cid: str, form: str = "juvenile") -> Path:
 
 # ---------- the build ----------
 
-def lua_for(cid: str, layers, pal, w, h, form: str = "juvenile") -> list[str]:
-    out = [f"do local spr = Sprite({w}, {h}, ColorMode.RGB)", "spr.layers[1].name = 'body'"]
-    names = ["body", "legs_back", "legs_front", "head", "blink"]
-    for i, name in enumerate(names):
-        if i:
-            out.append(f"local L = spr:newLayer() L.name = '{name}'" + (" L.isVisible = false" if name == "blink" else ""))
-            out.append("local cel = spr:newCel(L, 1) local img = cel.image")
-        else:
-            out.append("local img = spr.cels[1].image")
-        for (x, y), ch in sorted(layers[name].items()):
-            r, g, b = pal[ch]
-            out.append(f"img:drawPixel({x},{y},Color{{r={r},g={g},b={b},a=255}})")
-    # the far legs go under the body in the stack
-    out.append("spr.layers[2].stackIndex = 1")
-    path = (SRC / cid / (f"{cid}.aseprite" if form == "juvenile" else f"{cid}_{form}.aseprite")).as_posix()
-    out.append(f'spr:saveAs("{path}") spr:close() end')
-    return out
-
-
 def write_form(cid: str, form: str, aseprite: bool, lua: list) -> dict:
-    """Cut one look of a creature into its game layers; returns what beasts.js says about it."""
+    """One look of a creature into the game's art: its frame animations (anim.write); returns what beasts.js says
+    about it. With `aseprite`, adds the lines that save its .aseprite file to `lua`."""
     rig, rows, pal = load(cid, form)
     w, h = len(rows[0]), len(rows)
     layers = cut(rig, rows)
+    if not (SRC / cid / anim.NAMES[form][0]).exists():
+        raise SystemExit(f"{cid} {form}: no {anim.NAMES[form][0]}: every look is animated (creatures/ANIM_GUIDE.md)")
     folder = OUT / cid if form == "juvenile" else OUT / cid / form
     folder.mkdir(parents=True, exist_ok=True)
-    for name in ("body", "head", "blink", "legs_back", "legs_front"):
-        path = folder / f"{name}.png"
-        if layers[name] or name in ("body", "head", "blink"):
-            px = {**layers["under"], **layers["body"]} if name == "body" else layers[name]  # (underlay(): under the head)
-            image(px, pal, w, h).save(path)
-        elif path.exists():
-            path.unlink()
-    mask = shirt_mask(rig, layers)
-    if mask:
-        image({p: "x" for p in mask}, {"x": (255, 255, 255)}, w, h).save(folder / "shirt.png")
-    elif (folder / "shirt.png").exists():
-        (folder / "shirt.png").unlink()
-    if aseprite:
-        lua += lua_for(cid, layers, pal, w, h, form)
-    print(f"{cid} {form}: {', '.join(f'{n} {len(layers[n])}' for n in LAYERS)}")
+    for old in ("body", "head", "blink", "legs_back", "legs_front", "shirt"):  # (the cut layers the game used before)
+        if (folder / f"{old}.png").exists():
+            (folder / f"{old}.png").unlink()
+    anims = anim.write(cid, form, folder, lua if aseprite else None)
+    print(f"{cid} {form}: " + ", ".join(f"{k} {v['frames']}" for k, v in anims.items() if k != "cell"))
     return {"rig": rig, "pal": pal, "size": [w, h], "box": bbox_of(layers), "hover": rig.get("hover", 0),
-            "legs": [n for n in ("legs_back", "legs_front") if layers[n]], "shirt": bool(mask), "sockets": rig["sockets"]}
+            "shirt": bool(shirt_mask(rig, layers)), "sockets": rig["sockets"], "anims": anims}
 
 
 def look_js(f: dict) -> str:
     so = ", ".join(f"{k}: [{', '.join(str(n) for n in v)}]" for k, v in f["sockets"].items())
     return (f'size: [{f["size"][0]}, {f["size"][1]}], box: [{", ".join(map(str, f["box"]))}], hover: {f["hover"]}, '
-            f'legs: {json.dumps(f["legs"])}, shirt: {str(f["shirt"]).lower()},\n    sockets: {{ {so} }}')
+            f'shirt: {str(f["shirt"]).lower()},\n    sockets: {{ {so} }},\n    {anim.anim_js(f["anims"])}')
 
 
 def build(aseprite: bool) -> None:
@@ -345,8 +337,11 @@ def build(aseprite: bool) -> None:
              "// (which sets its battle stats), `wings: true` when it is drawn with wings of its own (it wears nothing",
              "// on its back: data.canWear), the hue of its body, and for its juvenile look (and `young`, its",
              "// hatchling look, drawn from rig_hatchling.json): its drawing's size and the box its pixels fill, how",
-             "// high a floater hovers, which leg layers it has, whether it can wear a shirt, and where worn things",
+             "// high a floater hovers, whether it can wear a shirt, and where worn things",
              "// sit (in its drawing's pixels; a third number is an angle: the item turned that many degrees clockwise).",
+             "// `anims` (tools/game_art/anim.py): the size of a frame and where the drawing's top-left is in it, then",
+             "// for idle, walk and (winged) fly: how many frames, each one's time in ms, and per frame how far each",
+             "// socket has moved (the frames are <anim>.png: the frames on top, their eyelids below).",
              "export const BEASTS = ["]
     for e in entries:
         young = f"young: {{ {look_js(e['young'])} }}" if e["young"] else "young: null"
@@ -362,7 +357,7 @@ def build(aseprite: bool) -> None:
         script.write_text("\n".join(lua), encoding="utf-8")
         subprocess.run([ASEPRITE, "-b", "--script", str(script)], check=True)
         script.unlink()
-        print("layered .aseprite sources saved in each creature's folder")
+        print("an .aseprite file per look saved in each creature's folder (every frame, a tag per animation)")
 
 
 if __name__ == "__main__":
