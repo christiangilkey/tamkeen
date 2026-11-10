@@ -671,7 +671,9 @@ export function retention(state) {
  * A question from the owner's own vocab: words that are due come first, so every player is
  * tested at their own level. Returns {uid, prompt, sentence, options, answer, reverse} or null
  * when there aren't enough different meanings to make four choices.
- * `reverse` questions show the meaning and ask for the word.
+ * Every question shows the card's meaning (the learner's own language) and the four choices are words in
+ * the language being learnt (`reverse` is always true; it stays for older callers). A word whose meaning
+ * would give the answer away, even with the word taken out of it, is not asked.
  * `dict` ({words: [{word, meaning}], forward}, from dictwords.js) puts one of the language's common
  * words in place of one of the learner's own: always as a word, and as a meaning only when `forward`
  * (the learner's meanings are in English, as the dictionary's are).
@@ -684,12 +686,15 @@ export function pickQuestion(state, vocab, rand = Math.random, now = new Date(),
   const fresh = pool.filter((v) => !avoid.includes(uidOf(v)));
   const from = fresh.length ? fresh : pool;
   const due = from.filter((v) => { const r = state.review[uidOf(v)]; return !r || r[1] <= today; });
-  const list = due.length ? due : from;
+  // The question shows the meaning, so the meaning must not contain the word itself.
+  const hintOf = (v) => hideAnswer(meaningOf(v), v.text);
+  const askable = (l) => l.filter((v) => hintOf(v));
+  const list = [due, from, pool].map(askable).find((l) => l.length);
+  if (!list) return null;
   const word = list[Math.floor(rand() * list.length)];
-  // A reverse question shows the meaning, so the meaning must not contain the word itself.
-  const hint = hideAnswer(meaningOf(word), word.text);
-  const reverse = rand() < 0.35 && !!hint;
-  const right = reverse ? String(word.text).trim() : meaningOf(word);
+  const hint = hintOf(word);
+  const reverse = true;
+  const right = String(word.text).trim();
   const seen = new Set([right.toLowerCase(), meaningOf(word).toLowerCase()]);
   const others = [];
   const shuffled = pool.slice();

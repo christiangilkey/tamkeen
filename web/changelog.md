@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Battle questions always show a card's meaning, in your own language, and the four choices are always words in the language you're learning. Before, about two questions in three were the other way round. A word whose meaning is just the word itself isn't asked.
+
 ## v0.50.0 — 2026-11-09
 
 - **New:** Eggs wear a **hat and wings** ("because that's funny"): the small ones a baby wears, on the egg in the habitat, the creature list and the Shop. Anything else you buy for an egg goes in your bag until it hatches, and the Shop says so. Creatures with wings of their own still wear no wings.

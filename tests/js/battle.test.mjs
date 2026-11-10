@@ -95,8 +95,12 @@ test("questions come from the owner's own words: due first, four distinct choice
     assert.equal(q.options.length, 4);
     assert.equal(new Set(q.options).size, 4);
     const word = words.find((w) => w.uid === q.uid);
-    assert.equal(q.options[q.answer], q.reverse ? word.text : word.meaning);
-    assert.equal(q.prompt, q.reverse ? word.meaning : word.text);
+    // Always the meaning on top and the learnt language's words as the choices.
+    assert.equal(q.reverse, true);
+    assert.equal(q.prompt, word.meaning);
+    assert.equal(q.sentence, "");
+    assert.equal(q.options[q.answer], word.text);
+    for (const o of q.options) assert.ok(words.some((w) => w.text === o), o);
   }
   // Everything answered today is no longer due, except the one word left.
   for (const w of words.slice(1)) answerQuestion(s, w.uid, true, now);
@@ -455,6 +459,14 @@ test("moves do what they say; a team fights on; feats and rewards are settled", 
   br.won = true; br.over = true; br.answers = { right: 4, wrong: 0, fast: 2 }; br.brink = true;
   assert.deepEqual(battleResult(br), { mode: "wild", won: true, flawless: true, comeback: true, rival: null });
   assert.deepEqual(checkBadges(newState(31), { words: 150 }), ["words_100"]);
+});
+
+test("a word whose meaning is only the word itself is never asked", () => {
+  const vocab = [];
+  for (let i = 0; i < 8; i++) vocab.push({ uid: "w" + i, text: "كلمة" + i, meaning: "meaning " + i });
+  vocab[0] = { uid: "w0", text: "شاي", meaning: "شاي" };
+  for (let i = 0; i < 30; i++) assert.notEqual(pickQuestion(newState(), vocab, rng(i + 1)).uid, "w0");
+  assert.equal(pickQuestion(newState(), [vocab[0]], rng(1)), null);
 });
 
 test("a reverse battle question never shows the word inside its meaning", () => {

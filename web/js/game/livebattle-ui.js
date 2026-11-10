@@ -962,7 +962,9 @@ export function runLiveBattle(setup, vocab) {
     panel.querySelector(".lbq-sentence").textContent = q.sentence || "";
     quizButtons = PLACES.map((place, i) => {
       const btn = h(`<button type="button" class="lbq-opt"><span class="lb-key"></span><span class="lbq-text" dir="auto"></span></button>`);
-      btn.querySelector(".lbq-text").textContent = q.options[i] ?? "";
+      const text = btn.querySelector(".lbq-text");
+      text.textContent = q.options[i] ?? "";
+      if (q.options[i]) setLang(text, detectLanguage(q.options[i]));
       if (q.options[i] === undefined) btn.disabled = true;
       btn.addEventListener("click", () => choose(i));
       panel.querySelector(".lbq-options").append(btn);
