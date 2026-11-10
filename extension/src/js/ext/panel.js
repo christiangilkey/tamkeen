@@ -31,6 +31,7 @@ import { markWord } from "../definer.js";
 import { baseLanguage, bestSubtitles, captionLines, cleanInfo, displayTitle, selectedSubtitles } from "../netflix-ttml.js";
 import { languageName, subtitleNote } from "../netflix.js";
 import { TITLE_KEY, WORD_KEY, savedWord, watchedTitle } from "../extbridge.js";
+import { loadCover, saveCover, track } from "../playcover.js";
 import { applySettings, flash as flashIn, followSettings, pagePort, savedFoot, transcriptWords, wordsHtml as wordsOf } from "./common.js";
 import { CONFIG } from "./config.js";
 
@@ -408,8 +409,27 @@ function titleName() { const i = titleInfo(); return i.title || i.show ? display
 /** Keep the title (with its subtitles) for the web app's library. */
 async function saveTitle() {
   if (!S.id || !S.lines.length || !isLanguage(S.lang)) return; // (subtitles Tamkeen can't look up: not for the library)
-  const rec = watchedTitle({ id: S.id, info: titleInfo(), language: S.lang, lines: S.lines });
+  const rec = watchedTitle({ id: S.id, info: titleInfo(), language: S.lang, lines: S.lines, finished: finishedHere.has(S.id) });
   if (rec) { await chrome.storage.local.set({ [TITLE_KEY + S.id]: rec }); S.titleSaved = S.id; }
+}
+
+// Watched to near the end without skipping (playcover.js): the title waiting for the web app says so ("finished"), and
+// the web app counts it toward the creature game's Broadcast colouring (game/rules.js finishedEpisode; once per title).
+const finishedHere = new Set();
+let cover = null;
+let coverSaved = 0;
+function trackWatch(s, at) {
+  if (!s.id || !(s.d > 0)) return;
+  if (!cover || cover.id !== s.id || Math.abs(cover.d - s.d) >= 2) {
+    if (cover) saveCover(cover.key, cover);
+    cover = Object.assign(loadCover(`netflix:${s.id}`, s.d), { id: s.id, key: `netflix:${s.id}` });
+    if (cover.done) finishedHere.add(s.id);
+  }
+  if (track(cover, Number(s.t) || 0, !s.paused, Number(s.rate) || 1, at)) {
+    finishedHere.add(s.id);
+    saveCover(cover.key, cover);
+    saveTitle();
+  } else if (at - coverSaved > 10000) { coverSaved = at; saveCover(cover.key, cover); }
 }
 
 async function newTitle(id) {
@@ -573,6 +593,7 @@ function onPage(m) {
     S.at = Number(m.at) || Date.now();
     if (s.id && s.id !== S.id) newTitle(s.id);
     else chooseFile();
+    trackWatch(s, S.at);
     if ($("#play").dataset.paused !== String(!!s.paused)) {
       $("#play").dataset.paused = String(!!s.paused);
       $("#play").innerHTML = icon(s.paused ? "play" : "pause", 20);

@@ -3044,6 +3044,8 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .cr-look.locked .cr-look-pic { opacity: .4; }
 .cr-look.locked .cr-look-name { color: var(--muted); }
 .cr-lock { position: absolute; top: 6px; inset-inline-end: 6px; line-height: 0; }
+/* (a colouring earned by a feat: how far this creature has got, "143 / 200 words") */
+.cr-look-progress { max-width: 100%; color: var(--muted); font-size: 11px; line-height: 1.2; text-align: center; font-variant-numeric: tabular-nums; }
 /* The four moves, in the places of the battle's buttons, each a tile in its element's colour; then the others it knows. */
 .mv-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .mv-slot { display: grid; grid-template-columns: 32px minmax(0, 1fr); align-items: center; column-gap: 8px; height: 76px; min-height: 0; padding: 8px 10px;

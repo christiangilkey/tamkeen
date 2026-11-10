@@ -9,9 +9,9 @@
 //   - the bonuses that are hard to fake pay best: words that become well known over weeks,
 //     answers that stay accurate, and days kept up.
 
-import { beastOf, bodyHue, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
+import { beastOf, bodyHue, featCount, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
-import { BADGES, BOSSES, CATALOG, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, itemById } from "./data.js";
+import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, featVariant, itemById } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 
@@ -101,6 +101,8 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     gyms: { beaten: 0, wins: {} }, // gym leaders beaten in order (gyms.js LEADERS), and wins against each
     showcase: null, // seed of the favourite creature friends see next to my name (null = the one in the habitat)
     curious20: true, // curiosity is counted on its 20-times-longer scale (see normalize for saves from before)
+    reading: {},  // books being read, for the Storybook colouring: book id -> {r: parts read, by: who was out, done} (readPage)
+    finished: { netflix: [], podcast: [] }, // episodes already counted as watched or heard to the end (finishedEpisode)
     badges: [],
     updated_at: 0,
   });
@@ -153,6 +155,7 @@ export function normalize(state) {
     g.grown = g.grown === true;
     g.moves = Array.isArray(g.moves) ? g.moves : [];
     if (!Number.isFinite(g.growth)) g.growth = 0;
+    g.feats = cleanFeats(g.feats); // (saves from before the feats have none: every count starts at 0)
     if (oldCuriosity) g.traits.curious = (Number(g.traits.curious) || 0) / 20; // the same lookups, on the new scale
   }
   for (const k of ["owned", "attacks", "decor", "tags", "badges"]) if (!Array.isArray(s[k])) s[k] = [];
@@ -175,6 +178,10 @@ export function normalize(state) {
   if (tickets) s.gems = (Number.isFinite(s.gems) ? s.gems : 0) + TICKET_GEMS * tickets;
   delete s.items.ticket;
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
+  s.reading = cleanReading(s.reading);
+  const done = s.finished && typeof s.finished === "object" ? s.finished : {};
+  s.finished = Object.fromEntries(["netflix", "podcast"].map((k) =>
+    [k, (Array.isArray(done[k]) ? done[k] : []).filter((id) => typeof id === "string" && id.length <= 80).slice(-FINISHED_KEPT)]));
   s.v = VERSION;
   return s;
 }
@@ -431,15 +438,19 @@ export function earn(state, event, ctx = {}) {
     if (!out.xp && !out.item) return null;
     out.stage = grow(state, out.xp, "curious");
   } else if (event.type === "save") {
+    out.colouring = featUp(state, "words", 1); // (every word counts toward the Glyph colouring, however many today)
     out.xp = Math.round(20 * fade(day.saves, 15, 45) * boost(state, now));
     day.saves++;
-    if (!out.xp) return null;
+    if (!out.xp) return onlyColouring(state, out, now);
     state.coins += 1;
     out.stage = grow(state, out.xp, "collector");
   } else if (event.type === "study") {
     if (UNPAID_TIME.has(event.source)) return null; // watching YouTube earns nothing (see UNPAID_TIME)
     const seconds = Math.max(0, Math.min(60, Number(event.seconds) || 0));
     if (!seconds) return null;
+    // Listening time counts toward the Synthwave colouring, all of it (past the day's goal too): the same time that
+    // counts toward the goal, so never YouTube's (UNPAID_TIME, above).
+    if (event.mode === "listen") out.colouring = featUp(state, "listen", seconds);
     const before = day.seconds;
     day.seconds += seconds;
     if (now.getHours() >= 22) grant(state, "night_owl");
@@ -452,7 +463,7 @@ export function earn(state, event, ctx = {}) {
     if (!day.done && day.seconds >= goal) {
       reachGoal(state, now, out);
     }
-    if (!out.xp) return null;
+    if (!out.xp) return onlyColouring(state, out, now);
   } else if (event.type === "review") {
     // The learner marks their own cards, so "remembered" and "not remembered" pay the same: there
     // is nothing to gain by fibbing. A card pays a quarter of what looking a word up would have
@@ -465,12 +476,13 @@ export function earn(state, event, ctx = {}) {
     out.xp = Math.round(out.base * fade(day.cards, 50, 150) * boost(state, now));
     day.cards++;
     state.stats.cards++;
+    out.colouring = featUp(state, "cards", 1); // toward the Holofoil colouring
     // Nothing left due after a real sitting: the day's cards are cleared (what that is worth is
     // decided where the garden and the battles are paid, not here).
     const clearedNow = Boolean(event.cleared) && !day.cardsCleared && day.cards >= REVIEW_CLEAR_CARDS;
     if (clearedNow) day.cardsCleared = true;
     out.cleared = clearedNow;
-    if (!out.xp && !clearedNow) return null;
+    if (!out.xp && !clearedNow) return onlyColouring(state, out, now);
     if (out.xp) out.stage = grow(state, out.xp, "collector");
     const both = clearedNow ? payBoth(state) : null; // the cards were the second half of the day's pair
     if (both) { out.both = both; out.xp += both.xp; out.stage = out.stage || both.stage; }
@@ -539,14 +551,172 @@ export function earn(state, event, ctx = {}) {
 
 // ---------- special colourings and eggs ----------
 
-/** Special forms and whether this owner has earned them: [{id, name, open, why}]. */
+/** Special forms and whether this owner has earned them: [{id, name, open, why, progress}]. `progress` is
+ * [done, goal] for a colouring earned by a feat (in the feat's own units: hours for listening). */
 export function variantOptions(state, genome) {
   return Object.entries(VARIANTS).map(([id, v]) => {
     let open;
+    let progress = null;
     if (id === "twin") open = state.roster.some((g) => g !== genome && formOf(g).id !== "egg" && g.type !== genome.type);
-    else open = [].concat(v.needs).some((t) => state.tags.includes(t));
-    return { id, name: v.name, open, why: open ? v.blurb : v.how };
+    else if (v.feat) {
+      const f = FEATS[v.feat];
+      const per = f.per || 1;
+      const n = featCount(genome, v.feat);
+      open = n >= f.goal;
+      progress = [Math.min(f.goal, n) / per, f.goal / per];
+    } else open = [].concat(v.needs).some((t) => state.tags.includes(t));
+    return { id, name: v.name, open, why: open ? v.blurb : v.how, progress };
   });
+}
+
+// ---------- colourings earned by feats (data.FEATS) ----------
+// Each creature counts what was done while it was the main one, the one out in the habitat (`state.creature`), in
+// its own genome (`feats`); the counts only ever grow, and only for the main creature. Reaching a feat's goal opens
+// its colouring for that creature (variantOptions); it shows on the Juvenile look, like the others.
+
+/** The feats a save may hold for a creature: known kinds, numbers of 0 or more (anything else dropped). */
+export function cleanFeats(v) {
+  const out = {};
+  if (!v || typeof v !== "object" || Array.isArray(v)) return out;
+  for (const kind of Object.keys(FEATS)) {
+    const n = Object.prototype.hasOwnProperty.call(v, kind) ? Number(v[kind]) : 0;
+    if (Number.isFinite(n) && n > 0) out[kind] = Math.min(n, 1e9);
+  }
+  return out;
+}
+
+/** Count `n` more of feat `kind` for the main creature. Returns the colouring it has just earned (a VARIANTS id), or
+ * null. */
+export function featUp(state, kind, n = 1) {
+  const f = FEATS[kind];
+  const g = state && state.creature;
+  const add = Number(n);
+  if (!f || !g || !Number.isFinite(add) || add <= 0) return null;
+  const feats = g.feats && typeof g.feats === "object" && !Array.isArray(g.feats) ? g.feats : (g.feats = {});
+  const before = featCount(g, kind);
+  feats[kind] = Math.min(before + add, 1e9);
+  return before < f.goal && feats[kind] >= f.goal ? featVariant(kind) : null;
+}
+
+/** A study event that paid nothing still tells of a colouring it has just earned. */
+function onlyColouring(state, out, now) {
+  if (!out.colouring) return null;
+  out.xp = 0;
+  state.updated_at = now.getTime() / 1000;
+  return out;
+}
+
+export const FINISHED_KEPT = 500; // episodes remembered as counted, per kind (the newest)
+
+/**
+ * An episode was watched (`kind` "netflix") or listened to ("podcast") to near its end without skipping
+ * (playcover.js says so). Each episode counts once, for the creature that is main at the time. Returns
+ * {kind, n, goal, colouring} (colouring: the one just earned, or null), or null when it had counted already.
+ */
+export function finishedEpisode(state, kind, id, now = new Date()) {
+  if (kind !== "netflix" && kind !== "podcast") return null;
+  const key = String(id ?? "").slice(0, 80);
+  if (!key) return null;
+  if (!state.finished || typeof state.finished !== "object") state.finished = { netflix: [], podcast: [] };
+  const list = Array.isArray(state.finished[kind]) ? state.finished[kind] : (state.finished[kind] = []);
+  if (list.includes(key)) return null;
+  list.push(key);
+  if (list.length > FINISHED_KEPT) list.splice(0, list.length - FINISHED_KEPT);
+  const colouring = featUp(state, kind, 1);
+  state.updated_at = now.getTime() / 1000;
+  return { kind, n: featCount(state.creature, kind), goal: FEATS[kind].goal, colouring };
+}
+
+// ---------- reading a whole book (the Storybook colouring) ----------
+// Skipping to the end mustn't count. The book reader (pages/book.js) reports a page only once it has been on screen
+// long enough to read it: at least PAGE_WPM words a minute's worth of time (fast reading; skimming a page in a second
+// counts nothing), and never less than PAGE_MIN seconds. Parts of the book are kept as ranges of BOOK_UNITS
+// (fractions of the book, so the same book split into words a little differently on another device still matches).
+// A book is finished when its last page has been read like that and at least BOOK_DONE of the whole book has been.
+// It counts for the creature that is main when it is finished, if at least BOOK_SHARE of the reading was done while it
+// was main (each part of the book is credited to whoever was main when that part was first read). A book counts
+// once, for one creature: read mostly with another creature out, it counts for nobody.
+export const PAGE_WPM = 400;
+export const PAGE_MIN = 1.5;
+export const BOOK_UNITS = 10000;
+export const BOOK_DONE = 0.8;
+export const BOOK_SHARE = 0.5;
+const READING_KEPT = 30; // books whose reading is remembered (the most recently read)
+
+/** Seconds a page of `words` words must be on screen before it counts as read. */
+export const pageNeeds = (words) => Math.max(PAGE_MIN, (Math.max(0, Number(words) || 0) * 60) / PAGE_WPM);
+
+/** Ranges [[from, to], ...] merged and sorted (whole numbers within 0..BOOK_UNITS). */
+function mergeRanges(list) {
+  const r = list.map(([a, b]) => [Math.max(0, Math.min(BOOK_UNITS, Math.round(a))), Math.max(0, Math.min(BOOK_UNITS, Math.round(b)))])
+    .filter(([a, b]) => b > a).sort((x, y) => x[0] - y[0]);
+  const out = [];
+  for (const [a, b] of r) {
+    const last = out[out.length - 1];
+    if (last && a <= last[1]) last[1] = Math.max(last[1], b);
+    else out.push([a, b]);
+  }
+  return out;
+}
+const rangeSize = (r) => r.reduce((n, [a, b]) => n + b - a, 0);
+
+/** The books' reading a save may hold, checked (at most READING_KEPT, the most recently read). */
+export function cleanReading(v) {
+  const out = {};
+  if (!v || typeof v !== "object" || Array.isArray(v)) return out;
+  const rows = [];
+  for (const [key, b] of Object.entries(v)) {
+    if (typeof key !== "string" || key.length > 80 || key in Object.prototype || !b || typeof b !== "object") continue;
+    const r = mergeRanges((Array.isArray(b.r) ? b.r : []).filter((x) => Array.isArray(x) && x.length === 2 && x.every(Number.isFinite)).slice(0, 2000));
+    const by = {};
+    if (b.by && typeof b.by === "object") for (const [seed, n] of Object.entries(b.by)) if (/^\d{1,10}$/.test(seed) && Number.isFinite(n) && n > 0) by[seed] = Math.min(BOOK_UNITS, n);
+    rows.push([key, { r, by, done: b.done === true, at: Number.isFinite(b.at) ? b.at : 0 }]);
+  }
+  rows.sort((x, y) => y[1].at - x[1].at);
+  for (const [key, b] of rows.slice(0, READING_KEPT)) out[key] = b;
+  return out;
+}
+
+/**
+ * A page of book `key` has been read (on screen for pageNeeds(its words) seconds): words `from` to `to` of `total`.
+ * Returns {done, share, credited, colouring, n, goal}: `done` once the book counts as finished (this call or
+ * before), `share` how much of the book has been read (0..1), `credited` whether this finish counted for the main
+ * creature, `colouring` the one just earned (or null).
+ */
+export function readPage(state, key, { from, to, total }, now = new Date()) {
+  const id = String(key ?? "").slice(0, 80);
+  const n = Math.max(0, Math.floor(Number(total) || 0));
+  const a = Math.max(0, Math.min(n, Math.floor(Number(from) || 0)));
+  const b = Math.max(a, Math.min(n, Math.floor(Number(to) || 0)));
+  if (!id || id in Object.prototype || !n || b <= a) return null;
+  if (!state.reading || typeof state.reading !== "object") state.reading = {};
+  const book = state.reading[id] && typeof state.reading[id] === "object" ? state.reading[id] : { r: [], by: {}, done: false, at: 0 };
+  state.reading[id] = book;
+  book.at = now.getTime();
+  const unit = (i) => Math.round((i / n) * BOOK_UNITS);
+  const before = rangeSize(book.r);
+  book.r = mergeRanges([...book.r, [unit(a), unit(b)]]);
+  const fresh = rangeSize(book.r) - before; // the part of the book read for the first time just now
+  const main = state.creature;
+  if (fresh > 0 && main) book.by[String(main.seed >>> 0)] = (Number(book.by[String(main.seed >>> 0)]) || 0) + fresh;
+  const read = rangeSize(book.r);
+  const out = { done: book.done, share: read / BOOK_UNITS, credited: false, colouring: null, n: 0, goal: FEATS.book.goal };
+  // Finished: its last page read, and most of the book.
+  if (!book.done && b >= n && read >= BOOK_DONE * BOOK_UNITS) {
+    book.done = true;
+    out.done = true;
+    const mine = main ? Number(book.by[String(main.seed >>> 0)]) || 0 : 0;
+    if (mine >= BOOK_SHARE * read) {
+      out.credited = true;
+      out.colouring = featUp(state, "book", 1);
+    }
+  }
+  out.n = main ? featCount(main, "book") : 0;
+  // (the most recently read books are remembered; older ones are let go)
+  const keys = Object.keys(state.reading);
+  if (keys.length > READING_KEPT) state.reading = cleanReading(state.reading);
+  state.updated_at = now.getTime() / 1000;
+  return out;
 }
 
 /** A new egg for the roster. Its element leans toward how its owner studies. */
@@ -904,8 +1074,9 @@ export function claimRaid(state, now = new Date()) {
   state.stats.raids++;
   state.coins += 20;
   grow(state, 150, null);
+  const colouring = featUp(state, "raid", 1); // the Raidforged colouring, for the creature that was out
   state.updated_at = now.getTime() / 1000;
-  return { xp: 150, coins: 20, badges: checkBadges(state) };
+  return { xp: 150, coins: 20, badges: checkBadges(state), colouring };
 }
 
 /** A defence result came in: a friend challenged this player's team while they were away. */

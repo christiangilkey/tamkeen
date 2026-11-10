@@ -4,6 +4,7 @@
 // worn things placed on its own sockets.
 
 import { SLOTS, TYPES, beastById, canWear, eggCanWear, itemById } from "./data.js";
+import { FORM_KINDS, formFinish, formParticles, formPixels, formRows, formSweep, seedOf } from "./forms.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
@@ -86,6 +87,16 @@ export function tintPixels(px, tint) {
 
 const layers = new Map(); // file + tint -> canvas
 
+// The colourings earned by feats (forms.js) colour a layer in its drawing's own coordinates: the drawing (drawingOf)
+// is looked up by its folder, so an animation's sheet is coloured frame by frame.
+const drawn = new Map(); // a drawing's folder -> the drawing (set by composeCreature)
+function formLayer(px, w, h, kind, file) {
+  const dir = file.slice(0, file.lastIndexOf("/") + 1);
+  const name = file.slice(dir.length).replace(/\.png$/, "");
+  const b = drawn.get(dir);
+  formPixels(px, w, h, kind, b ? b.box : undefined, b && b.anims && b.anims[name] ? b.anims.cell : null);
+}
+
 /** One of a creature's layers, in its special form's colours if it has one. */
 async function layer(file, tint) {
   const id = `${file}|${tint ? JSON.stringify(tint) : ""}`;
@@ -99,7 +110,8 @@ async function layer(file, tint) {
   ctx.drawImage(img, 0, 0);
   if (tint && tint.kind !== "champion") {
     const data = ctx.getImageData(0, 0, c.width, c.height);
-    tintPixels(data.data, tint);
+    if (FORM_KINDS.has(tint.kind)) formLayer(data.data, c.width, c.height, tint.kind, file);
+    else tintPixels(data.data, tint);
     ctx.putImageData(data, 0, 0);
   }
   layers.set(id, c);
@@ -333,6 +345,7 @@ const actOffset = (act, t) => {
 export async function composeCreature(look, pose = {}) {
   const b = drawingOf(look);
   const dir = b.dir;
+  drawn.set(dir, b); // (for the colourings' layers: formLayer)
   const tint = look.tint || null;
   const walk = Number.isInteger(pose.walk) ? ((pose.walk % 4) + 4) % 4 : (pose.step ? 1 : 0);
   const step = walk === 1 ? 1 : 0;             // the near legs lift
@@ -390,6 +403,7 @@ export async function composeCreature(look, pose = {}) {
   put(legsFront, -step);
   put(head, bob);
   if (tint && tint.kind === "champion") goldEdge(ctx);
+  else if (tint && FORM_KINDS.has(tint.kind)) finishForm(ctx, tint.kind, ox, oy, b.box); // (its edge, pattern or echoes)
   if (pose.act === "hurt" && t < 1 / 3) { // a white flash over the creature (not what it wears)
     ctx.globalCompositeOperation = "source-atop";
     ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
@@ -408,6 +422,104 @@ export async function composeCreature(look, pose = {}) {
   item("held", step);
   ctx.globalAlpha = 1;
   return c;
+}
+
+// ---------- the colourings earned by feats, alive (forms.js) ----------
+/** The whole creature finished in colouring `kind` (forms.formFinish), before what it wears goes on. */
+function finishForm(ctx, kind, ox, oy, box) {
+  const { width: w, height: h } = ctx.canvas;
+  const data = ctx.getImageData(0, 0, w, h);
+  formFinish(data.data, w, h, kind, ox, oy, box);
+  ctx.putImageData(data, 0, 0);
+}
+
+let scratch = null; // one spare frame-sized canvas for a shine across a creature
+/** The creature's box in its frame: [x0, y0, x1, y1]. */
+function frameBox(look) {
+  const b = drawingOf(look);
+  const [ox, oy] = beastOrigin(b);
+  return [ox + b.box[0], oy + b.box[1], ox + b.box[2], oy + b.box[3]];
+}
+
+/**
+ * Draw a composed creature `frame` (composeCreature) with its feet at (0, 0) of `ctx`'s current transform, as
+ * `ctx.drawImage(frame, -FRAME / 2, -FRAME)` does, plus what moves in a colouring earned by a feat: a ripple or a
+ * glitch, a shine, and its particles (forms.js). `now`: milliseconds (performance.now()). Cheap: a handful of
+ * rectangles, and a few more drawImage calls while a ripple or glitch is on.
+ */
+export function drawLiving(ctx, frame, look, now = performance.now()) {
+  if (!frame) return;
+  const kind = look && look.tint && look.tint.kind;
+  if (!FORM_KINDS.has(kind)) { ctx.drawImage(frame, -FRAME / 2, -FRAME); return; }
+  const seed = seedOf(look.beast);
+  const rows = formRows(kind, now, seed, frame.height);
+  const drawRows = (g, ox, oy) => { // the frame, each run of rows shifted as `rows` says
+    if (!rows) { g.drawImage(frame, ox, oy); return; }
+    for (let y = 0; y < frame.height;) {
+      let y2 = y + 1;
+      while (y2 < frame.height && rows[y2] === rows[y]) y2++;
+      g.drawImage(frame, 0, y, frame.width, y2 - y, ox + rows[y], oy + y, frame.width, y2 - y);
+      y = y2;
+    }
+  };
+  const sweep = formSweep(kind, now, seed, FRAME);
+  if (sweep) { // the creature with a shine across it, made on the spare canvas (the shine only where the creature is)
+    if (!scratch) { scratch = document.createElement("canvas"); scratch.width = scratch.height = FRAME; }
+    const g = scratch.getContext("2d");
+    g.globalCompositeOperation = "source-over";
+    g.clearRect(0, 0, FRAME, FRAME);
+    drawRows(g, 0, 0);
+    g.globalCompositeOperation = "source-atop";
+    g.globalAlpha = sweep.alpha;
+    g.fillStyle = "#ffffff";
+    if (sweep.kind === "band") {
+      g.beginPath();
+      g.moveTo(sweep.x, 0);
+      g.lineTo(sweep.x + sweep.width, 0);
+      g.lineTo(sweep.x + sweep.width + sweep.slope * FRAME, FRAME);
+      g.lineTo(sweep.x + sweep.slope * FRAME, FRAME);
+      g.closePath();
+      g.fill();
+    } else g.fillRect(0, sweep.y, FRAME, 2);
+    g.globalAlpha = 1;
+    g.globalCompositeOperation = "source-over";
+    ctx.drawImage(scratch, -FRAME / 2, -FRAME);
+  } else drawRows(ctx, -FRAME / 2, -FRAME);
+  const alpha = ctx.globalAlpha;
+  for (const p of formParticles(kind, now, frameBox(look), seed)) {
+    ctx.globalAlpha = alpha * p.a;
+    ctx.fillStyle = p.c;
+    ctx.fillRect(-FRAME / 2 + p.x, -FRAME + p.y, p.w, p.h);
+  }
+  ctx.globalAlpha = alpha;
+}
+
+// Portraits (battle-ui.js portrait) of a creature in a colouring that moves: one shared loop, about 12 times a second,
+// redraws them while they are on the page, and stops when none is left.
+const living = new Set(); // {canvas, frame, look, born}
+let livingTimer = 0;
+function paintLiving() {
+  livingTimer = 0;
+  const now = performance.now();
+  for (const p of living) {
+    if (!p.canvas.isConnected) { if (p.seen || now - p.born > 10000) living.delete(p); continue; } // (gone, or never shown)
+    p.seen = true;
+    if (document.hidden) continue;
+    const ctx = p.canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+    ctx.clearRect(0, 0, p.canvas.width, p.canvas.height);
+    ctx.save();
+    ctx.translate(FRAME / 2, FRAME);
+    drawLiving(ctx, p.frame, p.look, now);
+    ctx.restore();
+  }
+  if (living.size) livingTimer = setTimeout(paintLiving, 85);
+}
+/** Keep portrait `canvas` (FRAME x FRAME, showing `frame`) alive when `look` has a colouring that moves. */
+export function animatePortrait(canvas, frame, look) {
+  if (!frame || !look || !look.tint || !FORM_KINDS.has(look.tint.kind)) return;
+  living.add({ canvas, frame, look, born: performance.now(), seen: false });
+  if (!livingTimer) livingTimer = setTimeout(paintLiving, 0);
 }
 
 /** Draw frame `i` of a horizontal strip of square frames, centred on (x, y). */

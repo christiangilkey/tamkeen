@@ -12,7 +12,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, composeCreature, icon, iconEl, loadImage } from "./render.js";
+import { FRAME, composeCreature, drawLiving, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
@@ -755,7 +755,7 @@ export function runLiveBattle(setup, vocab) {
     ctx.translate(Math.round(c.x), Math.round(c.y));
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
     if (c.face < 0) ctx.scale(-1, 1);
-    if (img) ctx.drawImage(img, -FRAME / 2, -FRAME);
+    if (img) drawLiving(ctx, img, f.look, now); // (as drawImage(img, -FRAME / 2, -FRAME), with a colouring's particles)
     ctx.restore();
     const charge = c.charging && fx("charge", c.type);
     if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);

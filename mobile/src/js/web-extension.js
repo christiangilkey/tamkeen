@@ -83,6 +83,9 @@ async function takePending({ words, titles }) {
       try {
         await api("/netflix", { method: "POST", body: { id: t.id, info: t.info, language: t.language, lines: t.lines } });
         kept.titles.push({ id: t.id, at: t.at });
+        // Watched to near its end without skipping (the extension's playcover.js): toward the creature game's
+        // Broadcast colouring, for the creature out now (each title counts once).
+        if (t.finished) import("./game/game.js").then((g) => g.featEpisode("netflix", t.id)).catch(() => {});
       } catch (err) { console.warn("Couldn't keep a Netflix title:", err); }
     }
     const feed = await feedUid(NETFLIX_FEED);

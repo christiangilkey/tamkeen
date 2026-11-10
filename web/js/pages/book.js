@@ -12,7 +12,8 @@ import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { markWord } from "../definer.js";
-import { reward, trackStudy } from "../game/game.js";
+import { featBookPage, reward, trackStudy } from "../game/game.js";
+import { pageNeeds } from "../game/rules.js";
 import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, vowelsButton, watchVowels } from "../vowels.js";
@@ -81,6 +82,7 @@ export async function render(view, { id, data, query }) {
   const wordEls = new Array(n); // only the words on the page shown have an element
   let pages = [[0, n]];
   let page = 0;
+  let onPage = null; // the page on screen and how long it has been read ({a, b, secs, done}: the reading timer below)
   let seen = null; // seenWords for the page shown (its words only: a whole book is too much at once)
   let pageFirst = 0;
 
@@ -237,6 +239,7 @@ export async function render(view, { id, data, query }) {
     marked = null;
     if (remember) keep();
     if (cursor && cursor.on && !wordEls[cursor.at]) cursor.show(a);  // a new page: the highlight starts on its first word
+    if (!onPage || onPage.a !== a || onPage.b !== b) onPage = { a, b, secs: 0, done: false, since: Date.now() };
   }
   function rtlBook() { return getComputedStyle(tr).direction === "rtl"; }
   const turn = (d) => { if (page + d >= 0 && page + d < pages.length) { show(page + d); buzz("tick"); } };
@@ -525,8 +528,24 @@ export async function render(view, { id, data, query }) {
   tr.addEventListener("pointerdown", touch, { passive: true });
   view.querySelector(".book-foot").addEventListener("pointerdown", touch, { passive: true });
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 120000);
+  // Reading for real, for the creature game's Storybook colouring (game/rules.js readPage): a page counts once it has
+  // been on screen long enough to read it (the window showing, the reader in use), so skipping to the end counts nothing.
+  const bookKey = String(ep.uid || id);
+  let readAt = Date.now();
+  const readTimer = setInterval(() => {
+    const now = Date.now();
+    const dt = Math.min(2, (now - readAt) / 1000);
+    readAt = now;
+    if (!onPage || onPage.done || document.hidden || now - Math.max(lastActive, onPage.since) > 120000) return; // (a page turn is use too)
+    onPage.secs += dt;
+    if (onPage.secs >= pageNeeds(onPage.b - onPage.a)) {
+      onPage.done = true;
+      featBookPage(bookKey, onPage.a, onPage.b, n);
+    }
+  }, 500);
   return () => {
     offPad();
+    clearInterval(readTimer);
     stopStudy();
     stopVowels();
     if (seen) seen.close();

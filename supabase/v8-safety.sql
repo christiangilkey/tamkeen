@@ -786,7 +786,7 @@ begin
     if (c->>'growth')::numeric < 0 or (c->>'growth')::numeric > 10 then return false; end if;
   end if;
   if c ? 'variant' and jsonb_typeof(c->'variant') <> 'null' then
-    if not coalesce((c->>'variant') = any (array['twin', 'nocturne', 'champion']), false) then return false; end if;
+    if not coalesce((c->>'variant') = any (array['twin', 'nocturne', 'champion', 'glyph', 'synth', 'holo', 'papercut', 'broadcast', 'molten', 'chorus']), false) then return false; end if;
   end if;
   if c ? 'partnerHue' and jsonb_typeof(c->'partnerHue') not in ('number', 'null') then return false; end if;
   if c ? 'name' then

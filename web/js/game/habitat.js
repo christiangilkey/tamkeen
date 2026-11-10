@@ -19,7 +19,7 @@ import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./rules.js";
-import { FRAME, beastHeight, composeCreature, drawSheet, dressEgg, icon, loadImage } from "./render.js";
+import { FRAME, beastHeight, composeCreature, drawLiving, drawSheet, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
 import { openEarned, openEvolution } from "./info.js";
@@ -590,7 +590,7 @@ export function habitat() {
         ctx.save();
         ctx.translate(Math.round(pet.x), groundY - Math.round(pet.hop));
         if (pet.dir < 0) ctx.scale(-1, 1);
-        ctx.drawImage(frame, -FRAME / 2, -FRAME);
+        drawLiving(ctx, frame, look, now); // (as drawImage(frame, -FRAME / 2, -FRAME), with a colouring's particles)
         ctx.restore();
       }
       const top = groundY - beastHeight(look) - Math.round(pet.hop);

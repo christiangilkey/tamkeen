@@ -216,7 +216,36 @@ export const VARIANTS = {
   twin: { name: "Twin", how: "Raise it alongside a hatched creature of another element", blurb: "takes on its companion's colours" },
   nocturne: { name: "Nocturne", how: "Study after 10 at night", needs: "night_owl", blurb: "a night form with a moonlit glow" },
   champion: { name: "Champion", how: "Win a battle from the brink, or without a single wrong answer", needs: ["comeback", "flawless"], blurb: "crested and gold-marked" },
+  // Earned by a feat done while the creature is the main one, the one out in the habitat (FEATS below; counted in
+  // its genome's `feats`, rules.featUp). Each is drawn quite differently, not just in other colours (forms.js).
+  glyph: { name: "Glyph", feat: "words", how: "Save 200 words to your vocab with it as your main creature", blurb: "glowing letters written all over it" },
+  synth: { name: "Synthwave", feat: "listen", how: "Listen for 10 hours with it as your main creature", blurb: "a neon sunset that ripples to the beat" },
+  holo: { name: "Holofoil", feat: "cards", how: "Review 1000 cards with it as your main creature", blurb: "the rainbow shine of a rare foil card" },
+  papercut: { name: "Storybook", feat: "book", how: "Read a whole book with it as your main creature", blurb: "cut out of the pages of a storybook" },
+  broadcast: { name: "Broadcast", feat: "netflix", how: "Watch 10 Netflix episodes to the end with it as your main creature", blurb: "flickering in from a late-night TV" },
+  molten: { name: "Raidforged", feat: "raid", how: "Beat a raid boss with your guild with it as your main creature", blurb: "obsidian and magma, forged in a raid" },
+  chorus: { name: "Chorus", feat: "podcast", how: "Listen to 10 podcast episodes to the end with it as your main creature", blurb: "trailed by echoes of every voice it heard" },
 };
+// The feats, each counted per creature while it is the main one: `goal` is how many it takes (listening is counted
+// in seconds, shown in hours: `per`), `unit` names them on the locked colouring ("143 / 200 words").
+//   words    words saved to vocab (rules.earn "save")
+//   listen   seconds of listening that count toward the daily goal (rules.earn "study" listen: never YouTube's)
+//   cards    cards answered in the review (rules.earn "review")
+//   book     books read to the end for real, mostly with it out (rules.readPage)
+//   netflix  Netflix episodes watched to near the end without skipping (rules.finishedEpisode)
+//   raid     guild raid bosses beaten (rules.claimRaid)
+//   podcast  podcast episodes listened to near the end without skipping (rules.finishedEpisode)
+export const FEATS = {
+  words: { goal: 200, unit: "words" },
+  listen: { goal: 36000, per: 3600, unit: "hours" },
+  cards: { goal: 1000, unit: "cards" },
+  book: { goal: 1, unit: "book" },
+  netflix: { goal: 10, unit: "episodes" },
+  raid: { goal: 1, unit: "raid boss" },
+  podcast: { goal: 10, unit: "episodes" },
+};
+/** The colouring a feat earns (a VARIANTS id), or null. */
+export const featVariant = (kind) => Object.keys(VARIANTS).find((id) => VARIANTS[id].feat === kind) || null;
 
 // ---------- battles ----------
 // Battles are won by reviewing your own vocab, not by the size of your numbers: every creature

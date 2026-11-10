@@ -11,7 +11,7 @@ import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, w
 import { publicProfile, showcaseGenome } from "./battle.js";
 import { challengeChoice, portrait, startFriendBattle } from "./battle-ui.js";
 import { canChallenge } from "./challenge.js";
-import { announce, getGame, saveGame, sfx } from "./game.js";
+import { announce, getGame, saveGame, sfx, tellColouring } from "./game.js";
 import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { cleanName, cleanProfiles, cleanRival } from "./remote.js";
@@ -279,6 +279,7 @@ function raidBlock(game, me, guild, profiles, now, week, changed) {
       sfx("jackpot");
       announce({ type: "raid", xp: pay.xp, tier: "jackpot", badges: pay.badges });
       toast(`Raid won: +${pay.xp} XP and ${pay.coins} coins.`);
+      if (pay.colouring) tellColouring(pay.colouring);
       changed();
       btn.replaceWith(h(`<p class="gs-state muted">${icon("clock")}<span>Reward claimed. A new boss arrives on Monday.</span></p>`));
     };
