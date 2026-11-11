@@ -3427,3 +3427,13 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 /* ...and the game sheet's own column may never be wider than the screen, whatever is in it (as .modal-back). */
 .game-sheet-wrap { grid-template-columns: minmax(0, 1fr); }
 .game-sheet-wrap > .game-sheet { justify-self: center; min-width: 0; }
+/* Home: the aquarium under the Fishing tile (habitat.js paintAquarium): its name and how full it is, then the tank. */
+.habitat .hud-aq { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 12px 12px; border: 0;
+  border-radius: 14px; background: var(--surface-2); color: var(--text); white-space: normal; min-width: 0; }
+.habitat .hud-aq[hidden], .hud-aq-empty[hidden] { display: none; }
+.habitat .hud-aq:hover { background: var(--surface-2); filter: brightness(1.05); }
+.hud-aq-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 15px; font-weight: 700; }
+.hud-aq-n { color: var(--muted); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; direction: ltr; }
+.hud-aq-tank { display: grid; place-items: center; line-height: 0; min-width: 0; }
+.hud-aq-tank .aq-view { width: 100% !important; max-width: 480px; }
+.hud-aq-empty { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.4; text-align: center; }

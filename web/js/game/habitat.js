@@ -28,7 +28,8 @@ import { KINDS, SHOP_SEEN_KEY, collectables, gains, goalRing, nextScene, ringPix
 import { fly } from "./fly.js";
 import { fishWaiting, openPond } from "./fishing-ui.js";
 import { fishingOf } from "./fishing.js";
-import { drawTinyFish } from "./aquarium.js";
+import { aquariumView, drawTinyFish } from "./aquarium.js";
+import { TANK_SIZE } from "./fishdata.js";
 import { TIERS } from "./loot.js";
 import { TANK_X } from "./homecard.js";
 
@@ -91,6 +92,10 @@ export function habitat() {
         ${tile("shop", "nav_shop", "Shop")}${tile("garden", "structure/word_sprout_2", "Garden")}
         <button type="button" class="hud-tile hud-wide" id="g-fishing">${icon("fishing", 32)}<span class="hud-wide-text"><span class="tile-word">Fishing</span>
           <span class="tile-sub" hidden></span></span></button>
+        <button type="button" class="hud-aq" id="g-aquarium" hidden>
+          <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
+          <span class="hud-aq-tank"></span>
+          <span class="hud-aq-empty" hidden>Keep your best fish here. Your friends can see your aquarium.</span></button>
       </div>
     </div>
   </section>`);
@@ -208,6 +213,7 @@ export function habitat() {
     things = collectables(game, { gifts: online.gifts });
     const dots = tileDots(game, { online: { gifts: online.gifts.length, battles: online.battles }, seen: store.get(SHOP_SEEN_KEY) });
     for (const [id, on] of Object.entries(dots)) $(`#g-${id} .tile-dot`).hidden = !on;
+    paintAquarium();
     settle();
   }
   // The garden keeps time: glow builds up, and what studying earned here is paid out.
@@ -235,6 +241,22 @@ export function habitat() {
   $("#g-creatures").onclick = () => go("creatures");
   $("#g-garden").onclick = () => go("garden");
   $("#g-battle").onclick = () => openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
+  // The aquarium, under the Fishing tile once a fish has been caught: the fish kept in it, swimming. A tap opens the
+  // Basket, where fish go in and out. It is drawn again only when what is in the tank has changed.
+  let tankShown = null;
+  function paintAquarium() {
+    const F = fishingOf(game);
+    const box = $("#g-aquarium");
+    box.hidden = !(F.caught > 0 || F.tank.length);
+    if (box.hidden) return;
+    const key = JSON.stringify(F.tank);
+    if (key === tankShown) return;
+    tankShown = key;
+    box.querySelector(".hud-aq-n").textContent = `${F.tank.length} / ${TANK_SIZE}`;
+    box.querySelector(".hud-aq-tank").replaceChildren(aquariumView(F.tank, { w: 160, h: 44, scale: 2 }));
+    box.querySelector(".hud-aq-empty").hidden = F.tank.length > 0;
+  }
+  $("#g-aquarium").onclick = () => go("basket");
   // Fishing: straight to the pond. Its tile says how many fish are waiting (the words due for review).
   function paintFishing() {
     fishWaiting(game).then((n) => {

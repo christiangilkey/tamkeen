@@ -359,3 +359,15 @@ test("the habitat draws the aquarium on its own and answers a tap on it (not fro
   const data = readFileSync(new URL("../../web/js/game/data.js", import.meta.url), "utf8");
   assert.ok(data.indexOf("Fishing (fishdata.js)") < data.indexOf("const listed = new Set(out.map"), "the fishing art is listed before the arenas' leftovers are worked out");
 });
+
+test("Home shows the aquarium under the Fishing tile once a fish has been caught, with words for an empty tank", () => {
+  const src = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.ok(src.indexOf('id="g-fishing"') < src.indexOf('id="g-aquarium"'), "the aquarium comes after the Fishing tile");
+  assert.match(src, /box\.hidden = !\(F\.caught > 0 \|\| F\.tank\.length\)/, "nothing is shown before the first catch");
+  assert.match(src, /aquariumView\(F\.tank/, "the fish kept in the tank are the ones drawn");
+  assert.match(src, /hud-aq-empty"\)\.hidden = F\.tank\.length > 0/, "an empty tank says what it is for");
+  assert.match(src, /#g-aquarium"\)\.onclick = \(\) => go\("basket"\)/, "a tap opens the Basket");
+  // (its two lines of words are ones the Basket already has, so they are translated in every language)
+  const basket = readFileSync(new URL("../../web/js/game/fishscreen.js", import.meta.url), "utf8");
+  assert.ok(basket.includes("Keep your best fish here. Your friends can see your aquarium.") && src.includes("Keep your best fish here. Your friends can see your aquarium."));
+});
