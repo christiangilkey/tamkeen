@@ -573,15 +573,15 @@ export function habitat() {
       if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (sparkle + b.i) % FX_FRAMES.ready, PLOTS[b.i].x, b.y + b.img.height / 2);
       if (art.glowIcon) ctx.drawImage(art.glowIcon, PLOTS[b.i].x - 8, b.y - 14 + Math.round(Math.sin(now / 300 + b.i) * 2));
     }
-    // A friend's gift and an egg from the incubator wait on the ground, between the plots.
-    for (const th of things) {
-      if (th.kind === "gift" && art.gift) {
     // The aquarium stands between two plots once a fish has been caught, the fish kept in it swimming (very small).
     if (art.tank && fishingOf(game).caught > 0) {
       const tx = TANK_X - art.tank.width / 2, ty = groundY - art.tank.height + 2;
       ctx.drawImage(art.tank, tx, ty);
       drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
     }
+    // A friend's gift and an egg from the incubator wait on the ground, between the plots.
+    for (const th of things) {
+      if (th.kind === "gift" && art.gift) {
         const jump = Math.floor(now / 1400) % 2 ? 0 : Math.round(Math.abs(Math.sin(now / 120)) * 3); // a little hop now and then
         ctx.drawImage(art.gift, th.x - 8, groundY - 15 - jump);
         if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, th.x, groundY - 10);
@@ -788,6 +788,8 @@ export function habitat() {
     const th = !pressed && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > HABITAT.ground - 34 && y < HABITAT.ground + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
     if (th && th.kind === "egg") { if (th.ready) hatchAway(th); else go("creatures"); return; }
+    // The aquarium: your basket and the fish you keep.
+    if (!pressed && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
     const hit = pressed ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);
@@ -795,8 +797,6 @@ export function habitat() {
       collect(game, hit);
       for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: HABITAT.ground - 40 + Math.random() * 8, t: -i * 0.1 });
       sfx("lucky");
-    // The aquarium: your basket and the fish you keep.
-    if (!pressed && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
       saveGame();
       things = collectables(game, { gifts: online.gifts });
       settle(toScreen(PLOTS[hit].x, HABITAT.ground - 30)); // the glow flies from the building to the Garden tile

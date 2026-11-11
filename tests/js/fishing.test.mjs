@@ -348,3 +348,14 @@ test("the online database's check (supabase/v9-fishing.sql) allows what the app 
   for (let i = 0; i < 6; i++) { land(s, { pond: "tide", sp: "coelacanth", tier: 9 }, () => 0.99, T0); toTank(s, 0); }
   assert.ok(JSON.stringify(publicAquarium(s, T0)).length < 1500);
 });
+
+test("the habitat draws the aquarium on its own and answers a tap on it (not from inside the gifts' or the glow's code)", () => {
+  // (2df7fda6 had both blocks a few lines off: the tank only showed while a gift waited, and its tap did nothing)
+  const src = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.match(src, /drawTinyFish\([^\n]*\n {4}\}\n {4}\/\/ A friend's gift and an egg from the incubator[^\n]*\n {4}for \(const th of things\) \{/,
+    "the tank is drawn before the loop over gifts and eggs, not inside it");
+  assert.match(src, /TANK_X\) < 16[^\n]*\{ go\("basket"\); return; \}\n {4}\/\/ A building with glow waiting/,
+    "a tap on the tank is looked for before the buildings, not inside collecting glow");
+  const data = readFileSync(new URL("../../web/js/game/data.js", import.meta.url), "utf8");
+  assert.ok(data.indexOf("Fishing (fishdata.js)") < data.indexOf("const listed = new Set(out.map"), "the fishing art is listed before the arenas' leftovers are worked out");
+});
