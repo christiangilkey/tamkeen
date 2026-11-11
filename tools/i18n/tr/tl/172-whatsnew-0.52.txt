@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Bawat card na naaalala mo ay nagro-roll para sa gantimpala, sa sampung rarity
+b1cead75	Pangingisda: ang unang mini-game ng creature game, kung saan ang pag-review ng mga salita ang paraan ng pangingisda
+58c0900a	Nakikita ng mga kaibigan mo ang aquarium mo at ang pinakamalaki mong huli ngayong linggo
+c8eec786	Sa mga battle, binibigkas ang salita ng tamang sagot pagpili mo
+030bd6c8	Live battles: medyo mas maliit ang area attacks, mas mabilis ang lunges

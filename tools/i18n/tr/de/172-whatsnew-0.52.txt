@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Jede Karte, die du weißt, würfelt um eine Belohnung, in zehn Seltenheiten
+b1cead75	Angeln: das erste Minispiel des Kreaturenspiels, bei dem du durch Wiederholen von Wörtern angelst
+58c0900a	Freunde sehen dein Aquarium und deinen größten Fang der Woche
+c8eec786	In Kämpfen wird das Wort der richtigen Antwort gesprochen, sobald du wählst
+030bd6c8	Live-Kämpfe: Flächenangriffe etwas kleiner, Sprungangriffe schneller

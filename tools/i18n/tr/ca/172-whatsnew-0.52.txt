@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Cada targeta que recordes tira per una recompensa, en deu raresses
+b1cead75	La pesca: el primer minijoc del joc de criatures, on repassar paraules és com pesques
+58c0900a	Els amics poden veure el teu aquari i la teva captura més gran de la setmana
+c8eec786	A les batalles se sent la paraula de la resposta correcta quan tries
+030bd6c8	Batalles en directe: atacs d'àrea una mica més petits, envestides més ràpides

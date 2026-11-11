@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Ogni scheda che ricordi tira per una ricompensa, in dieci rarità
+b1cead75	La pesca: il primo minigioco del gioco delle creature, dove ripassare le parole è il modo di pescare
+58c0900a	Gli amici vedono il tuo acquario e la tua cattura più grande della settimana
+c8eec786	Nelle battaglie si sente la parola della risposta giusta quando scegli
+030bd6c8	Battaglie dal vivo: attacchi ad area un po' più piccoli, affondi più rapidi

@@ -23790,6 +23790,31 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "f532a2a9",
+  "k": "Every card you remember rolls for a reward, in ten rarities",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "b1cead75",
+  "k": "Fishing: the creature game's first mini-game, where reviewing words is how you fish",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "58c0900a",
+  "k": "Friends can see your aquarium and this week's biggest catch",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c8eec786",
+  "k": "Battles say the right answer's word when you choose",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "030bd6c8",
+  "k": "Live battles: area attacks a little smaller, lunges quicker",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "55b9b2d8",
   "k": "Creatures walk, breathe and blink, and the winged ones fly",
   "f": "web/js/whatsnew.js"

@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Cada tarjeta que recuerdas tira por una recompensa, en diez rarezas
+b1cead75	Pesca: el primer minijuego del juego de criaturas, donde repasar palabras es como pescas
+58c0900a	Tus amigos pueden ver tu acuario y tu mayor captura de la semana
+c8eec786	En las batallas suena la palabra de la respuesta correcta al elegir
+030bd6c8	Batallas en vivo: ataques de área un poco más pequeños, embestidas más rápidas

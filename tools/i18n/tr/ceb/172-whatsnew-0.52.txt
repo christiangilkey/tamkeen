@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Ang matag card nga imong mahinumdoman mo-roll para sa ganti, sa napulo ka rarity
+b1cead75	Pagpangisda: ang unang mini-game sa creature game, diin ang pag-review sa mga pulong mao ang paagi sa pagpangisda
+58c0900a	Makita sa imong mga higala ang imong aquarium ug ang pinakadako nimong nakuha karong semanaha
+c8eec786	Sa mga battle, madungog ang pulong sa sakto nga tubag inig pili nimo
+030bd6c8	Live battles: gamay-gamay nga mas gamay ang area attacks, mas paspas ang lunges

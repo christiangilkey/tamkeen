@@ -1,0 +1,6 @@
+# What's new in 0.52.0 (web/js/whatsnew.js).
+f532a2a9	Chaque carte que vous retenez tente une récompense, en dix raretés
+b1cead75	La pêche : le premier mini-jeu du jeu de créatures, où réviser des mots, c'est pêcher
+58c0900a	Vos amis voient votre aquarium et votre plus belle prise de la semaine
+c8eec786	En combat, le mot de la bonne réponse est prononcé quand vous choisissez
+030bd6c8	Combats en direct : attaques de zone un peu plus petites, ruées plus rapides

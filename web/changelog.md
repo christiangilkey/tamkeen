@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.52.0 — 2026-11-10
+
 - **Changed:** Live battles: area attacks are a little smaller (about 10%), and lunges rush in faster with a shorter wind-up, so they are harder to dodge.
 - **Fixed:** The creature on Home no longer freezes, goes invisible, or keeps showing what it wore before after you change its clothes. A picture drawn for its old clothes could land after the change and stay; a picture that failed to load once was never tried again; and one failed frame stopped the whole scene.
 - **New:** **Every card you remember is a roll.** In the flashcards, each card you remember now turns over a small reward in one of ten rarities, from Common (most cards) up to Eternal (1 in 250,000). Small finds flash by under the top bar; an Epic or better stops the table, climbs the rarities one colour at a time and bursts open. Most finds are glow for your garden (more of it the bigger your garden is); rarer ones are food, Streak shields, gems, an XP boost, a Mystery egg or something to wear. **Luck** raises the chances: a card that was due counts double, right answers in a row count more (10 in a row ×2, 25 ×3, 50 ×5, starting again each day), and now and then a roll starts a **Golden hour** of triple luck for 10 minutes. A word you have missed on four different days becomes a **boss word** with a gold edge: remember it and it pays at least a Legendary. A **Streak shield** saves a run of 10 or more from one wrong answer. Tap the luck chip in the reviewer's top bar for your chances and what you have found so far. Rolls only come from studying, never from money; an answer in under a second and a half doesn't roll; and nothing found adds strength in battles between people.
