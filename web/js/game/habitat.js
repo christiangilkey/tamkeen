@@ -446,10 +446,17 @@ export function habitat() {
     const key = `${pose.anim}|${pose.frame}|${pose.eyes}`;
     if (!(key in frames)) {
       frames[key] = null; // being made; draw the previous frame meanwhile
-      composeCreature(look, pose).then((c) => { frames[key] = c; });
+      const made = frames;
+      // (one that couldn't be made, say a picture that didn't load, is tried again a moment later, not never)
+      composeCreature(look, pose).then((c) => { if (made === frames) frames[key] = c; },
+        () => setTimeout(() => { if (made === frames && frames[key] === null) delete frames[key]; }, 2000));
     }
-    return frames[key] || Object.values(frames).find(Boolean) || null;
+    // While the new look is still being drawn, the last picture shown stays (the creature used to vanish).
+    const pic = frames[key] || Object.values(frames).find(Boolean) || lastPic;
+    if (pic) lastPic = pic;
+    return pic || null;
   }
+  let lastPic = null;
 
   /** The goal ring as two small pictures (behind and in front of the creature), redrawn only when it changes. */
   function ringArt(frac, done) {
@@ -693,10 +700,14 @@ export function habitat() {
     if (!el.isConnected && seen) { dispose(); return; } // the page was left
     seen = seen || el.isConnected;
     const now = performance.now();
-    tick(Math.min(0.1, (now - last0) / 1000), now);
-    last0 = now;
+    // The next frame is booked first: a frame that fails to draw is skipped, and the scene carries on
+    // (it used to stop for good: the Home card looked frozen). The first failure is logged, for finding it.
     raf = requestAnimationFrame(loop);
+    try { tick(Math.min(0.1, (now - last0) / 1000), now); }
+    catch (err) { if (!loopFailed) { loopFailed = true; console.error("Habitat frame failed:", err); } }
+    last0 = now;
   }
+  let loopFailed = false;
   timer = setInterval(() => { if (document.hidden) { const now = performance.now(); tick(0.1, now); last0 = now; } }, 1000);
   const gardenTimer = setInterval(gardenBeat, 5000);
 
