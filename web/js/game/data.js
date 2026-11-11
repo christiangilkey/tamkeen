@@ -443,9 +443,9 @@ export const LIVE_FORM_STATS = {
   shot: { range: 220, speed: 300, r: 5 },
   homing: { range: 260, speed: 170, r: 5, turn: 2.4 },
   beam: { range: 260, width: 10, warn: 0.3 },
-  burst: { range: 86, r: 62, reach: 24, warn: 0.2 }, // areas a good 1.4 times wider than they were (the owner: harder to dodge)
-  drop: { range: 230, r: 40, warn: 0.55 },
-  dash: { range: 100, speed: 380 },
+  burst: { range: 86, r: 56, reach: 24, warn: 0.2 }, // areas about 1.25 times wider than at first (the owner: wider, then "just a little smaller")
+  drop: { range: 230, r: 36, warn: 0.55 },
+  dash: { range: 100, speed: 500 }, // lunges: quick, so they are hard to dodge (the owner)
   self: { range: 0 },
   terrain: { range: 240, size: 1 },
 };
@@ -453,9 +453,9 @@ export const LIVE_FORM_STATS = {
 export const LIVE_TUNING = {
   pounce: { form: "dash", range: 110 },
   dawn_ray: { form: "beam" },
-  charge: { form: "dash", range: 170, speed: 420 },
+  charge: { form: "dash", range: 170, speed: 560 },
   thunderhead: { form: "beam", width: 20, range: 260 },
-  meteor: { form: "drop", r: 62 },
+  meteor: { form: "drop", r: 56 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
 };
@@ -467,7 +467,7 @@ export function liveMove(m) {
   const tuned = LIVE_TUNING[m.id] || {};
   const form = tuned.form || (m.kind === "terrain" ? "terrain" : m.kind === "attack" ? LIVE_AIM_FORM[m.aim] || "shot" : "self");
   return {
-    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * 1.5 : 0,
+    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * (form === "dash" ? 0.9 : 1.5) : 0, // (a lunge winds up quicker: harder to dodge)
     terrain: m.kind === "terrain" ? LIVE_TERRAIN[m.terrain] || m.terrain : null, where: m.where || null,
     ...LIVE_FORM_STATS[form], ...tuned, form,
   };

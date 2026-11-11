@@ -341,8 +341,9 @@ test("a move is \"in range\" exactly when it would land: a still rival just insi
       }
     }
   }
-  // the areas are a good 1.4 times wider than they were (the owner: harder to dodge)
-  assert.ok(liveMove(moveById("rockslide")).r >= 40 && liveMove(moveById("wildfire")).r >= 60 && liveMove(moveById("meteor")).r >= 60);
+  // the areas are wider than at first, then made "just a little smaller" (the owner)
+  assert.ok(liveMove(moveById("rockslide")).r >= 36 && liveMove(moveById("wildfire")).r >= 54 && liveMove(moveById("meteor")).r >= 54);
+  assert.ok(liveMove(moveById("rockslide")).r < 40 && liveMove(moveById("wildfire")).r < 62);
 });
 
 test("drops land where the rival stood, beams hit along a line, homing shots follow, dashes rush in", () => {
