@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Itinuturo ng Mga salita ang 1000 pinakakaraniwang salita, 50 bawat beses. May maiikling aralin ang Grammar para makabuo ka ng sarili mong mga pangungusap.

@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	「単語」ではよく使う1000語を50語ずつ学びます。「文法」は自分で文を作れるようになる短いレッスンです。

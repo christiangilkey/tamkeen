@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	«Слова» учат 1000 самых частых слов, по 50 за раз. «Грамматика» — короткие уроки, после которых вы строите свои фразы.

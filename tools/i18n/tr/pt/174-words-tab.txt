@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Palavras ensina as 1000 palavras mais comuns, 50 de cada vez. Gramática tem lições curtas para você formar suas próprias frases.

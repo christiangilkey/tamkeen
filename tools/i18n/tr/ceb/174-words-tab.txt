@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Ang Mga pulong nagtudlo sa 1000 ka labing kasagarang pulong, 50 matag higayon. Ang Grammar adunay mubong mga leksyon aron makahimo ka og kaugalingon nimong mga pangungusap.

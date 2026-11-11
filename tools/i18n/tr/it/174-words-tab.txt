@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Parole insegna le 1000 parole più comuni, 50 alla volta. Grammatica ha lezioni brevi per farti costruire frasi tue.

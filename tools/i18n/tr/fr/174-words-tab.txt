@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Mots enseigne les 1000 mots les plus courants, 50 à la fois. Grammaire propose de courtes leçons pour former vos propres phrases.

@@ -18345,11 +18345,6 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "5fcebeef",
-  "k": "Basics",
-  "f": "web/js/pages/library.js"
- },
- {
   "id": "dfe60ca9",
   "k": "Load more",
   "f": "web/js/pages/library.js"
@@ -18725,8 +18720,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "25bfc4b6",
-  "k": "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own.",
+  "id": "0c848101",
+  "k": "Words teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own.",
   "f": "web/js/pages/library.js"
  },
  {

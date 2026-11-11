@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	«الكلمات» تعلّم أكثر 1000 كلمة شيوعًا، 50 في كل مرة. و«القواعد» دروس قصيرة تجعلك تكوّن جملك بنفسك.

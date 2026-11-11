@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	단어는 가장 흔한 단어 1000개를 50개씩 가르쳐요. 문법은 내 문장을 만들게 해 주는 짧은 수업이에요.

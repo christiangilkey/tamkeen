@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	शब्द 1000 सबसे आम शब्द सिखाता है, एक बार में 50। ग्रामर में छोटे पाठ हैं जिनसे आप अपने वाक्य बनाने लगते हैं।

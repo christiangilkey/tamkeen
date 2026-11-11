@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	“单词”教最常用的 1000 个词，每次 50 个。“语法”是简短的课，让你自己造句。

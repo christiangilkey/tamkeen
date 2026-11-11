@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	«کلمه‌ها» ۱۰۰۰ واژهٔ پرکاربرد را یاد می‌دهد، هر بار ۵۰ تا. «دستور زبان» درس‌های کوتاهی دارد تا جمله‌های خودتان را بسازید.

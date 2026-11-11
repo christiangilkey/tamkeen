@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Wörter lehrt die 1000 häufigsten Wörter, 50 auf einmal. Grammatik hat kurze Lektionen, mit denen du eigene Sätze bildest.

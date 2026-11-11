@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	คำศัพท์สอนคำที่ใช้บ่อยที่สุด 1000 คำ ครั้งละ 50 คำ ไวยากรณ์มีบทเรียนสั้นๆ ที่ทำให้คุณแต่งประโยคเองได้

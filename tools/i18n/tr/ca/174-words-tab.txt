@@ -1,0 +1,2 @@
+# The Library's Courses tab "Basics" renamed "Words" (pages/library.js tour tip).
+0c848101	Paraules ensenya les 1000 paraules més comunes, de 50 en 50. Gramàtica té lliçons curtes perquè facis frases pròpies.
