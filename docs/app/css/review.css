@@ -459,3 +459,30 @@ body.rv-open { overflow: hidden; }
 .rv-back textarea, .rv-back input { -webkit-user-select: text; user-select: text; }
 @media (prefers-reduced-motion: reduce) { .rv-tok.rv-held { animation: none; } .rv-tok { transition: none; } }
 .rv-top .rv-help { font-size: 18px; font-weight: 700; line-height: 1; }
+
+/* ----- luck: every remembered card rolls for a reward (game/loot.js; the reveal is game/reveal.js, app.css) ----- */
+.rv-loot { position: absolute; inset: 0; z-index: 7; pointer-events: none; }
+/* The top bar's chip: right answers in a row, what the card on the table rolls at, a Golden hour's time left. */
+.rv-top .rv-streak { width: auto; height: auto; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 99px; background: rgba(255, 138, 61, .22); border: 1px solid rgba(255, 170, 90, .6); color: #ffd9a8; font-weight: 700; font-size: 13.5px; font-variant-numeric: tabular-nums; cursor: pointer; }
+.rv-top .rv-streak:hover:not(:disabled) { background: rgba(255, 138, 61, .34); }
+.rv-top .rv-streak:disabled { opacity: 1; cursor: default; }
+.rv-top .rv-streak[hidden] { display: none; }
+.rv-streak b { font-weight: 800; }
+.rv-streak span { color: #fff; }
+.rv-streak i { font-style: normal; opacity: .9; }
+.rv-streak .px-icon { vertical-align: 0; }
+.rv-top .rv-streak.golden, .rv-top .rv-streak.golden:hover { background: #ffb11f; border-color: #ffb11f; color: #2b1a00; }
+.rv-streak.golden span { color: #2b1a00; }
+@media (max-width: 420px) { .rv-top .rv-streak { padding: 3px 8px; gap: 4px; } .rv-streak i { display: none; } }  /* (the time left is on the Luck sheet) */
+/* A Golden hour warms the table's two lights to gold. */
+.rv.golden .rv-bg::before { background: #ffb11f; }
+.rv.golden .rv-bg::after { background: #ff8a3d; }
+/* A boss word (missed on four different days): its card is edged in gold and says so. */
+.rv-card.rv-bossed { outline: 3px solid #ffb11f; outline-offset: -3px; }
+.rv-boss { position: absolute; top: 18px; inset-inline-end: 20px; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; background: #ffb11f; color: #2b1a00; }
+.rv-boss-note { font-size: 13px; font-weight: 700; color: #9a6200; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rv-boss-note { color: #ffb11f; } }
+:root[data-theme="dark"] .rv-boss-note { color: #ffb11f; }
+/* The end of a session: what its rolls found, best first. */
+.rv-finds { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; }
+.rv-find { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; }

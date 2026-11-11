@@ -14,6 +14,7 @@ import { hideAnswer } from "../review/deck.js";
 import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, featVariant, itemById, prizeOf } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
+import { cleanLoot } from "./loot.js";
 
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -179,6 +180,7 @@ export function normalize(state) {
   delete s.items.ticket;
   s.known = Number.isFinite(s.known) && s.known > 0 ? Math.round(s.known) : 0;
   s.reading = cleanReading(s.reading);
+  s.loot = cleanLoot(s.loot); // the review rolls: streak, pity, finds (loot.js); older saves have none
   const done = s.finished && typeof s.finished === "object" ? s.finished : {};
   s.finished = Object.fromEntries(["netflix", "podcast"].map((k) =>
     [k, (Array.isArray(done[k]) ? done[k] : []).filter((id) => typeof id === "string" && id.length <= 80).slice(-FINISHED_KEPT)]));

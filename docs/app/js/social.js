@@ -894,9 +894,12 @@ export async function publishGame(row) {
   if (!user) return false;
   const c = await sb();
   let { error } = await c.from("game_profiles").upsert({ user_id: user.id, ...row });
-  // The online database may be older than this app: without the flashcard streak's columns
-  // (schema v7), or without any of the friends-list bar's (v6). Send what it has room for.
-  const { streak, streak_until, ...v6 } = row;
+  // The online database may be older than this app: without the aquarium's column (schema v9),
+  // without the flashcard streak's columns (v7), or without any of the friends-list bar's (v6).
+  // Send what it has room for.
+  const { aquarium, ...v8 } = row;
+  if (error && error.code === "PGRST204" && aquarium !== undefined) ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...v8 }));
+  const { streak, streak_until, ...v6 } = v8;
   if (error && error.code === "PGRST204") ({ error } = await c.from("game_profiles").upsert({ user_id: user.id, ...v6 }));
   if (error && error.code === "PGRST204") {
     const { language, xp_day, xp_today, showcase, ...old } = v6;
@@ -913,8 +916,9 @@ export async function gameProfiles(userIds) {
   const c = await sb();
   const base = "user_id, team, form, rating, league, week, goal_days, reviews, updated_at";
   const v6 = `${base}, language, xp_day, xp_today, showcase`;
-  let { data, error } = await c.from("game_profiles").select(`${v6}, streak, streak_until`).in("user_id", userIds);
-  // Older databases: without the flashcard streak (v7), or without the bar's columns (v6).
+  let { data, error } = await c.from("game_profiles").select(`${v6}, streak, streak_until, aquarium`).in("user_id", userIds);
+  // Older databases: without the aquarium (v9), without the flashcard streak (v7), or without the bar's columns (v6).
+  if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(`${v6}, streak, streak_until`).in("user_id", userIds));
   if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(v6).in("user_id", userIds));
   if (error && error.code === "42703") ({ data, error } = await c.from("game_profiles").select(base).in("user_id", userIds));
   if (error) throw new Error(friendly(error));

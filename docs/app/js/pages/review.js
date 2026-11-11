@@ -25,7 +25,12 @@ import { EDITABLE_SELECTOR, editPayload, editValue, editable, fieldOf, holdPaylo
 import { firstVisitTour, pageGuide, showGuide } from "../components/tour.js";
 import { canSay } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
-import { reward, trackStudy } from "../game/game.js";
+import { getGame, reward, rollCard, trackStudy } from "../game/game.js";
+import { BOSS_TIER, DUE_LUCK, EPIC, GOLDEN_LUCK, GOLDEN_MS, STREAK_STEPS, TIERS, golden, isBoss, lootState, luckFor } from "../game/loot.js";
+import { notice, reveal, tierBadge } from "../game/reveal.js";
+import { clock as luckClock, openLuck } from "../game/luck.js";
+import { gameOn } from "../components/gameswitch.js";
+import { icon as gameIcon } from "../game/render.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
@@ -185,7 +190,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       <div class="rv-progress" role="progressbar" aria-label="Session progress"><i></i></div>
       <span class="rv-clock" role="timer" title="Time in this session" aria-label="Time in this session" hidden>${ICON.clock}<span>0:00</span></span>
       <span class="rv-left"></span>
-      <span class="rv-streak" hidden></span>
+      <button type="button" class="rv-streak" title="Luck" aria-label="Luck" translate="no" hidden></button>
       <button type="button" class="rv-undo" title="Take back the last answer (Z)" aria-label="Undo the last answer" disabled>${ICON.undo}</button>
       <button type="button" class="rv-help" title="How to review" aria-label="How to review">?</button>
       <button type="button" class="rv-gear" title="Reviewer settings" aria-label="Reviewer settings">${ICON.gear}</button>
@@ -221,6 +226,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     </main>
     <footer class="rv-actions"></footer>
     <div class="rv-fx"></div>
+    <div class="rv-loot"></div>
   </div>`);
   const $ = (s) => el.querySelector(s);
   const card = $(".rv-card"), face = $(".rv-scroll"), actions = $(".rv-actions"), fx = $(".rv-fx"), panel = $(".rv-panel");
@@ -237,10 +243,27 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const cardWatch = stopwatch(), sessionWatch = stopwatch();
   let cardKind = "review";  // the card on the table: "new", "review" or "again" (for its time goal)
 
+  // ----- luck (game/loot.js): every remembered card rolls for a reward; game/reveal.js shows it -----
+  const lootHost = $(".rv-loot");
+  const extras = new Set();          // words learned past the day's number ("Learn 10 more"): they roll as extras
+  const finds = TIERS.map(() => 0);  // what this session's rolls found, by tier
+  let carryMs = 0;                   // the time already spent on a card whose answer was taken back
+  let showing = null;                // a big reveal in progress: the next card waits for it
+  /** Where a reveal's chip sits: just under the top bar. */
+  const slotTop = () => Math.round($(".rv-top").getBoundingClientRect().bottom - el.getBoundingClientRect().top + 4);
+  /** New words past the day's number roll as extras: note which of `fresh` those are (`list`, `allowance`:
+   * what the day's own number alone would have planned). */
+  function markExtras(fresh, list = words, allowance = perDay) {
+    if (!bonus) return;
+    const within = new Set(plan(list, cards, dayNumber(), Math.max(0, allowance)).fresh.map(uidOf));
+    for (const v of fresh) if (!within.has(uidOf(v))) extras.add(uidOf(v));
+  }
+
   function begin() {
     sessionWatch.go();
     tick();
     const p = plan(words, cards, dayNumber(), perDay + bonus);
+    markExtras(p.fresh);
     todo = queue(p.due, p.fresh);
     if (todo.length) show(); else finish();
   }
@@ -250,6 +273,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const current = $(".rv-wrap").hidden ? null : todo[0];
     const taken = current && !cards.has(uidOf(current)) ? 1 : 0;
     const p = plan(words.filter((v) => v !== current), cards, dayNumber(), perDay + bonus - taken);
+    markExtras(p.fresh, words.filter((v) => v !== current), perDay - taken);
     todo = [...(current ? [current] : []), ...queue(p.due, p.fresh)];
     if (!current) { if (todo.length) show(); else finish(); } else header();
   }
@@ -258,10 +282,33 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const total = session.finished + todo.length;
     $(".rv-progress i").style.width = `${total ? (session.finished / total) * 100 : 100}%`;
     $(".rv-left").textContent = todo.length ? `${todo.length} left` : "";
-    const streak = $(".rv-streak");
-    streak.hidden = session.streak < 2;
-    streak.textContent = `🔥 ${session.streak}`;
+    paintLuck();
     $(".rv-undo").disabled = !undo.length;
+  }
+
+  /** The top bar's chip: right answers in a row, the luck the card on the table rolls at, and the time
+   * left of a Golden hour. A tap opens the Luck sheet. (With the game off: the plain count, as before.) */
+  function paintLuck() {
+    const chip = $(".rv-streak");
+    if (!gameOn()) {
+      chip.hidden = session.streak < 2;
+      chip.disabled = true;
+      chip.textContent = `🔥 ${session.streak}`;
+      return;
+    }
+    const g = getGame();
+    const L = lootState(g);
+    const v = $(".rv-wrap").hidden ? null : todo[0];
+    const extra = !!v && extras.has(uidOf(v));
+    const next = luckFor(g, { due: !extra, extra, streak: L.streak + 1 });
+    const left = golden(g);
+    chip.hidden = false;
+    chip.disabled = false;
+    chip.classList.toggle("golden", left > 0);
+    el.classList.toggle("golden", left > 0);
+    // (kept short, for a phone's top bar: the luck shows once it is more or less than a due card's own)
+    const run = L.streak >= 2;
+    chip.innerHTML = `${run ? `${gameIcon("combo")}<b>${L.streak}</b>` : ""}${!run || next.luck !== DUE_LUCK ? `<span>×${Math.round(next.luck * 100) / 100}</span>` : ""}${left ? `<i>${luckClock(left)}</i>` : ""}`;
   }
 
   // ----- the timers: a bar on the card filling toward its time goal, a clock for the session -----
@@ -286,6 +333,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const clock = $(".rv-clock");
     clock.hidden = !timers.clock || (!session.answered && !panel.hidden);  // not on "All caught up"
     if (!clock.hidden) clock.lastElementChild.textContent = clockText(sessionWatch.ms());
+    if (el.classList.contains("golden")) paintLuck();  // (a Golden hour counts down)
   }
   const ticker = setInterval(() => { if (!document.hidden) tick(); }, 1000);
   // The app hidden (another window in front, the phone showing another app): every clock stops.
@@ -303,17 +351,23 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     putToolsAway();
     const p = prompt(v), state = cards.get(uidOf(v));
     const kind = !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
+    const boss = bossWord(v);
     face.classList.remove("more");
     face.onscroll = null;
     face.innerHTML = `<div class="rv-front">
       <span class="rv-kind ${kind[0]}">${kind[1]}</span>
+      ${boss ? `<span class="rv-boss">Boss word</span>` : ""}
       <div class="rv-meaning"${p.meaning.length > 34 ? ` style="font-size:clamp(22px, 5.8vw, 30px)"` : ""}>${esc(p.meaning)}</div>
       ${p.sentence.length ? `<div class="rv-sentence">${p.sentence.map(([text, hit]) => (hit ? `<b>${esc(text)}</b>` : esc(text))).join("")}</div>` : ""}
       <div class="rv-hint">Say the word to yourself, then turn the card</div>
+      ${boss ? `<div class="rv-boss-note">Remember it and it pays at least ${TIERS[BOSS_TIER].name}</div>` : ""}
     </div>`;
     actions.innerHTML = `<button type="button" class="rv-show"><span>Show the word <kbd>Space</kbd></span></button>`;
     actions.querySelector(".rv-show").onclick = flip;
   }
+
+  /** Is this word a boss (missed on four different days: game/loot.js)? Its card turns gold. */
+  const bossWord = (v) => gameOn() && !extras.has(uidOf(v)) && isBoss(getGame(), uidOf(v));
 
   // Every card can be heard: its own recording, or the voice chosen for cards without one (cardvoice.js).
   const hasWordAudio = (v) => canSay(v, "word");
@@ -627,6 +681,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     actions.hidden = false;
     lean(0);
     flipped = showBack;
+    if (!showBack) carryMs = 0;
+    card.classList.toggle("rv-bossed", bossWord(todo[0]));
     (showBack ? back : front)(todo[0]);
     const state = cards.get(uidOf(todo[0]));
     cardKind = !state ? "new" : state.learning && state.day === dayNumber() ? "again" : "review";
@@ -692,7 +748,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const day = before ? Math.max(dayNumber(), before.day) : dayNumber();
     cardWatch.stop();  // the time the card was looked at, without any time the app was hidden
     const entry = [t, rating, day, Math.min(60000, Math.round(cardWatch.ms()))];
-    undo.push({ word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid) });
+    const step = { word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid), lucky: null };
+    undo.push(step);
     (log[uid] = log[uid] || []).push(entry);
     cards.set(uid, answer(before, rating, day));
     send(uid, entry);
@@ -717,7 +774,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const cleared = remembered && !plan(allWords, cards, dayNumber(), 0).due.length;  // nothing left due anywhere
     const earned = reward({ type: "review", quiet: true, cleared });
     if (earned) session.xp += earned.xp;
-    cheer(remembered, earned);
+    // A remembered card rolls for a reward; a missed one ends the run of right answers (game/loot.js).
+    const lucky = rollCard({ correct: remembered, ms: entry[3] + carryMs, uid, due: !extras.has(uid), extra: extras.has(uid) });
+    step.lucky = lucky;
+    cheer(remembered, earned, lucky);
+    if (lucky && lucky.rolled) {
+      finds[lucky.tier]++;
+      const playing = reveal(lootHost, lucky, { top: slotTop() });
+      if (lucky.tier >= EPIC) { showing = playing; playing.then(() => { if (showing === playing) showing = null; }); }
+    }
     header();
     if (remembered) { const bar = $(".rv-progress"); bar.classList.remove("bump"); void bar.offsetWidth; bar.classList.add("bump"); }
 
@@ -730,8 +795,20 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     card.style.transform = "";
     card.classList.remove("dragging");
     stamp.style.opacity = "";
+    if (showing) await showing;  // a big find: the next card waits until it has been seen
+    if (lucky && lucky.golden) goldenHour();
     busy = false;
+    if (closed) return;
     if (todo.length) show(); else finish();
+  }
+
+  /** A roll has started a Golden hour: say so. (The chip counts it down; the table turns gold.) */
+  function goldenHour() {
+    shout(`Golden hour! Luck ×${GOLDEN_LUCK} for ${Math.round(GOLDEN_MS / 60000)} minutes`);
+    const r = el.getBoundingClientRect();
+    burst(r.width / 2, r.height * 0.3, 60, ["#ffb11f", "#ffe9a8", "#ffd54a", "#ffffff"], 320);
+    SOUND.cheer();
+    paintLuck();
   }
 
   function takeBack() {
@@ -746,8 +823,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     todo = last.todo.filter((x) => !x.deleted);
     Object.assign(session, last.session);
     if (last.firstTime) tried.delete(uid);
+    if (last.lucky) last.lucky.undo();  // (the run of right answers and its shield; what a roll paid stays paid)
     SOUND.undo();
     show(true);
+    carryMs = last.entry[3];            // the card has been looked at already: answering it again isn't "too fast"
   }
 
   // ----- deleting the word on the table -----
@@ -850,7 +929,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     fx.append(s);
     setTimeout(() => s.remove(), 1300);
   }
-  function cheer(remembered, earned) {
+  function cheer(remembered, earned, lucky = null) {
     const r = card.getBoundingClientRect(), x = r.left + r.width / 2, y = r.top + r.height / 2;
     if (!remembered) {
       SOUND.no();
@@ -863,21 +942,34 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       burst(x, y, 14 + Math.min(session.streak, 10) * 2, ["#f1cf7b", "#2ed597", "#7fe0ea", "#ffffff"]);
       const streak = $(".rv-streak");
       streak.classList.remove("pop"); void streak.offsetWidth; streak.classList.add("pop");
-      if (session.streak >= 5 && session.streak % 5 === 0) {
-        shout(`${session.streak} in a row!`);
+      // The run of right answers: the game's own count when it is on (it raises the luck at 10, 25 and 50).
+      const run = lucky ? lucky.streak : session.streak;
+      const step = lucky && lucky.rolled ? STREAK_STEPS.find(([n]) => n === run) : null;
+      if (step) {
+        shout(`${run} in a row! Luck ×${step[1]}`);
+        burst(x, y, 60, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 260);
+        SOUND.cheer();
+      } else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) {
+        shout(`${run} in a row!`);
         burst(x, y, 44, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 230);
         SOUND.cheer();
       }
     }
+    // What the roll has to say when it didn't roll: a shield spent, a run ended, an answer too quick to count.
+    if (lucky && !lucky.rolled) {
+      const top = slotTop();
+      if (lucky.shielded) notice(lootHost, { art: "icon/streak_shield", name: t("Streak shield used"), text: t("{0} in a row kept", lucky.streak), colour: "#4fd17a", top });
+      else if (lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) notice(lootHost, { art: "icon/combo", name: t("Run ended"), text: t("{0} in a row", lucky.lost), colour: "#aab4c3", top });
+      else if (lucky.why === "fast") notice(lootHost, { art: "icon/clock", name: t("Too fast"), text: t("No roll for that one"), colour: "#aab4c3", top });
+      else if (lucky.why === "spent") notice(lootHost, { art: "icon/clock", name: t("Extra rolls used up"), text: t("More tomorrow"), colour: "#aab4c3", top });
+    }
     if (earned && earned.cleared) shout(earned.glow ? `Today's cards cleared! +${earned.glow.toLocaleString()} glow` : "Today's cards cleared!");
     if (earned && earned.both) setTimeout(() => shout(`Battle and cards both done today: +${earned.both.xp} XP, +${earned.both.coins} coins`), 1400);
-    if (earned && earned.tier !== "common" && remembered) burst(x, y, earned.tier === "jackpot" ? 50 : 24, ["#ffd54a", "#ffe9a8", "#ffffff"], 200);
     if (earned && earned.xp && !calm()) {
       const bar = $(".rv-progress").getBoundingClientRect();
       const label = document.createElement("span");
       label.className = "rv-xp";
-      label.textContent = `${earned.tier === "jackpot" ? "Jackpot card! " : earned.tier === "lucky" ? "Lucky card! " : ""}+${earned.xp} XP`;
-      if (earned.tier !== "common") label.classList.add("big");
+      label.textContent = `+${earned.xp} XP`;  // (the card's luck is the roll's to show now: game/reveal.js)
       label.style.left = `${bar.left + bar.width * (session.finished / Math.max(1, session.finished + todo.length))}px`;
       label.style.top = `${bar.bottom + 30}px`;
       fx.append(label);
@@ -917,6 +1009,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div><b>${studied ? session.best : p.waiting}</b><span>${studied ? "best run" : "new words waiting"}</span></div>
         <div><b>${studied ? `+${session.xp}` : (cards.size)}</b><span>${studied ? "XP" : "words in review"}</span></div>
       </div>
+      ${studied && finds.some(Boolean) ? `<div class="rv-coming">Found this session</div><div class="rv-finds" translate="no"></div>` : ""}
       <div class="rv-coming">Coming back to you</div>
       <div class="rv-forecast">${ahead.map((n, i) => `<div class="${n ? "" : "none"}"><b>${n || ""}</b><i style="height:${Math.round((n / top) * 100)}%;animation-delay:${i * 60}ms"></i><span>${dayName(i + 1)}</span></div>`).join("")}</div>
       <div class="rv-panel-actions">
@@ -924,6 +1017,16 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <button type="button" class="rv-done">Done</button>
       </div>`;
     panel.querySelector(".rv-done").onclick = () => close();
+    const found = panel.querySelector(".rv-finds");
+    if (found) {
+      for (let i = TIERS.length - 1; i >= 0; i--) {
+        if (!finds[i]) continue;
+        const item = h(`<span class="rv-find"><span></span></span>`);
+        item.prepend(tierBadge(i, finds[i]));
+        item.lastElementChild.textContent = t(TIERS[i].name);
+        found.append(item);
+      }
+    }
     const moreBtn = panel.querySelector(".rv-more");
     if (moreBtn) moreBtn.onclick = () => { bonus += more; begin(); };
     if (share != null) {  // the ring fills and its number counts up
@@ -1068,6 +1171,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // ----- keys -----
   const onKey = (e) => {
     if (document.querySelector(".tour")) return;  // the first-time hint is showing: its buttons take the keys
+    if (document.querySelector(".game-sheet-wrap")) return;  // the Luck sheet is open over the cards: Esc is its own
     if (asking) {  // the "delete this word?" box is open: Esc keeps the word; its buttons take every other key
       if (e.key === "Escape") { e.preventDefault(); asking(); }
       return;
@@ -1099,7 +1203,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   document.addEventListener("keydown", onKey);
 
   // ----- game controller (gamepad.js; Settings → Controller): the same as the keys above -----
-  const padReady = () => !document.querySelector(".tour") && !asking && !editing;
+  const padReady = () => !document.querySelector(".tour") && !asking && !editing && !document.querySelector(".game-sheet-wrap");
   const padCard = () => (padReady() && panel.hidden ? todo[0] || null : null);
   const padSettled = () => flipped && Date.now() - flippedAt > KEY_GUARD_MS;
   // On the back, the D-pad's up and down walk through its boxes in order: the word, its meaning, the
@@ -1115,6 +1219,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const offPad = controllerArea("review", {
     turn: {
       run: () => {
+        if (showing) { showing.skip(); return; }  // a big find on screen: the button puts it away
         if (!padReady()) return;
         if (!panel.hidden) { close(); return; }
         if (!todo[0]) return;
@@ -1194,6 +1299,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (closed) return;
     if (editing) closeEditor(true);  // (the phone's back button with a text box open: what was typed is kept)
     closed = true;
+    for (const r of lootHost.querySelectorAll(".loot")) if (r.lootEnd) r.lootEnd();  // (a reveal still playing goes with it)
     putToolsAway();
     flushEdits();
     if (todo.length) memoDone(todo[0]);  // (closed with the notes still being typed: their capitals still count)
@@ -1213,6 +1319,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
   $(".rv-x").onclick = () => close();
   $(".rv-undo").onclick = takeBack;
+  $(".rv-streak").onclick = () => { if (gameOn() && !busy) openLuck(getGame()); };
   // The reviewer covers the top bar, so it has its own "?" (components/tour.js).
   pageGuide("review", el, [
     { target: ".rv-card", title: "A card", text: "The word you're learning. Try to remember what it means, then turn the card." },

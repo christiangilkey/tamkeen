@@ -9,6 +9,7 @@ import * as social from "../social.js";
 import { BOSSES, LEAGUES } from "./data.js";
 import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
 import { publicProfile, showcaseGenome } from "./battle.js";
+import { publicAquarium } from "./fishing.js";
 import { challengeChoice, portrait, startFriendBattle } from "./battle-ui.js";
 import { canChallenge } from "./challenge.js";
 import { announce, getGame, saveGame, sfx, tellColouring } from "./game.js";
@@ -28,8 +29,9 @@ let lastPublish = 0;
 let lastFlame = null; // the flashcard streak as last sent (JSON)
 
 /** Everything friends may see of my game: team, league, week numbers, today's XP, favourite
- * creature and the language I'm learning. Never words. */
-export const myPublicRow = () => ({ ...publicProfile(getGame(), weeklyRule()), language: hasStudyLanguage() ? studyLanguage() : null });
+ * creature, the language I'm learning, and my aquarium with this week's biggest catch. Never words. */
+export const myPublicRow = () => ({ ...publicProfile(getGame(), weeklyRule()), language: hasStudyLanguage() ? studyLanguage() : null,
+  aquarium: publicAquarium(getGame()) });
 
 /** Share my team, this week's numbers and my flashcard streak with friends (at most every few
  * minutes unless forced, or the streak has changed since it was last sent). */

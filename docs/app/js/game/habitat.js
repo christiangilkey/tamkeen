@@ -26,6 +26,11 @@ import { openEarned, openEvolution } from "./info.js";
 import { cleanName } from "./remote.js";
 import { KINDS, SHOP_SEEN_KEY, collectables, gains, goalRing, nextScene, ringPixels, tileDots, wallet } from "./homecard.js";
 import { fly } from "./fly.js";
+import { fishWaiting, openPond } from "./fishing-ui.js";
+import { fishingOf } from "./fishing.js";
+import { drawTinyFish } from "./aquarium.js";
+import { TIERS } from "./loot.js";
+import { TANK_X } from "./homecard.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -84,6 +89,8 @@ export function habitat() {
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
         ${tile("shop", "nav_shop", "Shop")}${tile("garden", "structure/word_sprout_2", "Garden")}
+        <button type="button" class="hud-tile hud-wide" id="g-fishing">${icon("fishing", 32)}<span class="hud-wide-text"><span class="tile-word">Fishing</span>
+          <span class="tile-sub" hidden></span></span></button>
       </div>
     </div>
   </section>`);
@@ -228,6 +235,17 @@ export function habitat() {
   $("#g-creatures").onclick = () => go("creatures");
   $("#g-garden").onclick = () => go("garden");
   $("#g-battle").onclick = () => openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
+  // Fishing: straight to the pond. Its tile says how many fish are waiting (the words due for review).
+  function paintFishing() {
+    fishWaiting(game).then((n) => {
+      if (disposed) return;
+      const sub = $("#g-fishing .tile-sub");
+      sub.hidden = !n;
+      sub.textContent = n === 1 ? t("1 fish waiting") : t("{0} fish waiting", n > 99 ? "99+" : String(n));
+    }).catch(() => {});
+  }
+  $("#g-fishing").onclick = () => openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
+  setTimeout(paintFishing, 600);
   $("#g-goal").onclick = () => goalBox();
   $(".habitat-name").onclick = () => nameBox();
 
@@ -316,6 +334,7 @@ export function habitat() {
   for (const size of Object.keys(SHADOW)) files[`shadow_${size}`] = `fx/shadow_${size}.png`;
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
+  files.tank = "fish/tank.png";
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
   const plotArt = {}; // building picture by file name
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
@@ -427,10 +446,17 @@ export function habitat() {
     const key = `${pose.anim}|${pose.frame}|${pose.eyes}`;
     if (!(key in frames)) {
       frames[key] = null; // being made; draw the previous frame meanwhile
-      composeCreature(look, pose).then((c) => { frames[key] = c; });
+      const made = frames;
+      // (one that couldn't be made, say a picture that didn't load, is tried again a moment later, not never)
+      composeCreature(look, pose).then((c) => { if (made === frames) frames[key] = c; },
+        () => setTimeout(() => { if (made === frames && frames[key] === null) delete frames[key]; }, 2000));
     }
-    return frames[key] || Object.values(frames).find(Boolean) || null;
+    // While the new look is still being drawn, the last picture shown stays (the creature used to vanish).
+    const pic = frames[key] || Object.values(frames).find(Boolean) || lastPic;
+    if (pic) lastPic = pic;
+    return pic || null;
   }
+  let lastPic = null;
 
   /** The goal ring as two small pictures (behind and in front of the creature), redrawn only when it changes. */
   function ringArt(frac, done) {
@@ -546,6 +572,12 @@ export function habitat() {
       ctx.restore();
       if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (sparkle + b.i) % FX_FRAMES.ready, PLOTS[b.i].x, b.y + b.img.height / 2);
       if (art.glowIcon) ctx.drawImage(art.glowIcon, PLOTS[b.i].x - 8, b.y - 14 + Math.round(Math.sin(now / 300 + b.i) * 2));
+    }
+    // The aquarium stands between two plots once a fish has been caught, the fish kept in it swimming (very small).
+    if (art.tank && fishingOf(game).caught > 0) {
+      const tx = TANK_X - art.tank.width / 2, ty = groundY - art.tank.height + 2;
+      ctx.drawImage(art.tank, tx, ty);
+      drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
     }
     // A friend's gift and an egg from the incubator wait on the ground, between the plots.
     for (const th of things) {
@@ -668,10 +700,14 @@ export function habitat() {
     if (!el.isConnected && seen) { dispose(); return; } // the page was left
     seen = seen || el.isConnected;
     const now = performance.now();
-    tick(Math.min(0.1, (now - last0) / 1000), now);
-    last0 = now;
+    // The next frame is booked first: a frame that fails to draw is skipped, and the scene carries on
+    // (it used to stop for good: the Home card looked frozen). The first failure is logged, for finding it.
     raf = requestAnimationFrame(loop);
+    try { tick(Math.min(0.1, (now - last0) / 1000), now); }
+    catch (err) { if (!loopFailed) { loopFailed = true; console.error("Habitat frame failed:", err); } }
+    last0 = now;
   }
+  let loopFailed = false;
   timer = setInterval(() => { if (document.hidden) { const now = performance.now(); tick(0.1, now); last0 = now; } }, 1000);
   const gardenTimer = setInterval(gardenBeat, 5000);
 
@@ -752,6 +788,8 @@ export function habitat() {
     const th = !pressed && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > HABITAT.ground - 34 && y < HABITAT.ground + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
     if (th && th.kind === "egg") { if (th.ready) hatchAway(th); else go("creatures"); return; }
+    // The aquarium: your basket and the fish you keep.
+    if (!pressed && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
     const hit = pressed ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);

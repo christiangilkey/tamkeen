@@ -7,6 +7,7 @@ import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, finishedEpisode, hearMulti
 import { VARIANTS, prizeOf } from "./data.js";
 import { t } from "../i18n.js";
 import { cardsGlow } from "./idle.js";
+import { restore, rollAnswer, snapshot } from "./loot.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
@@ -112,6 +113,24 @@ export function reward(event, anchor = null) {
   if (loud && !home) tell(result);
   for (const fn of listeners) { try { fn(result, g); } catch { /* a listener must not break studying */ } }
   return result;
+}
+
+/**
+ * An answer in the vocab reviewer: a right one rolls for a reward on the ten tiers (loot.js), a wrong one
+ * ends the answer streak. `ctx` is rollAnswer's: {correct, ms, uid, due, extra}. Returns what rollAnswer
+ * returned, with `undo()` for when the answer is taken back (the streak and its shield are put back; what
+ * a roll paid stays paid). Null with the game switched off.
+ */
+export function rollCard(ctx) {
+  if (!gameOn()) return null;
+  const g = getGame();
+  rollDay(g);
+  const before = snapshot(g, ctx.uid);
+  const out = rollAnswer(g, { source: "cards", ...ctx });
+  out.undo = () => { restore(g, before); saveGame(); };
+  saveGame();
+  if (out.rolled) for (const fn of listeners) { try { fn({ type: "loot", ...out }, g); } catch { /* a listener must not break studying */ } }
+  return out;
 }
 
 /** The rare big moments get a few words too (the app's own short note at the bottom): the day's goal, a new

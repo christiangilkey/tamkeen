@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.52.0",
+  "Every card you remember rolls for a reward, in ten rarities");
+notes("0.52.0",
+  "Fishing: the creature game's first mini-game, where reviewing words is how you fish");
+notes("0.52.0",
+  "Friends can see your aquarium and this week's biggest catch");
+notes("0.52.0",
+  "Battles say the right answer's word when you choose");
+notes("0.52.0",
+  "Live battles: area attacks a little smaller, lunges quicker");
 notes("0.51.0",
   "Creatures walk, breathe and blink, and the winged ones fly");
 notes("0.51.0",

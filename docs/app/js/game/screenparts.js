@@ -34,9 +34,10 @@ export function art(thing, box = 64) {
   return `<img class="px-icon gs-art" alt="" width="${a.w * k}" height="${a.h * k}" src="${attr(ART + a.file)}">`;
 }
 
-/** A price or an amount in its own colour: "coins", "gems" or "glow". `short`: not enough of it (shown muted). */
+/** A price or an amount in its own colour: "coins", "gems", "glow" or (fishing) "pearls". `short`: not enough of it
+ * (shown muted). */
 export function amount(kind, n, short = false) {
-  const pic = { coins: "coin", gems: "gem", glow: "glow" }[kind];
+  const pic = { coins: "coin", gems: "gem", glow: "glow", pearls: "pearl" }[kind];
   return `<span class="gs-amount cur-${pic}${short ? " short" : ""}">${icon(pic)}${fmt(n)}</span>`;
 }
 

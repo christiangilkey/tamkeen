@@ -1138,6 +1138,100 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 @keyframes fx-shake { 0%, 100% { transform: none; } 20% { transform: translate(-4px, 2px); } 40% { transform: translate(4px, -2px); } 60% { transform: translate(-3px, -1px); } 80% { transform: translate(2px, 2px); } }
 @media (prefers-reduced-motion: reduce) { .fx-p, .fx-shake, .fx-pop { animation: none; } .fx-p { display: none; } }
 
+/* ---------- creature game: the reveal of a roll (js/game/reveal.js) ---------- */
+/* A tile that lands face down, climbs the tiers one colour at a time and turns over. Small ones are a chip at
+   the top of their host; Epic and better dim the host and come to the middle. --tier is the colour showing. */
+#loot-layer { position: fixed; inset: 0; z-index: 85; pointer-events: none; }
+.loot { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 3; transform: translateX(-50%); pointer-events: none; --tier: #aab4c3; }
+.loot-pill { display: flex; align-items: center; padding: 4px; border-radius: 16px; background: #120e1c; border: 2px solid var(--tier); color: #fff; animation: loot-in .18s cubic-bezier(.3, 1.7, .5, 1) both; }
+@keyframes loot-in { from { transform: scale(.4); opacity: 0; } }
+.loot-tile { position: relative; width: 48px; height: 48px; flex: none; perspective: 320px; }
+.loot-tile.bump { animation: loot-bump .16s ease-out; }
+@keyframes loot-bump { 40% { transform: scale(1.22); } }
+.loot-flip { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .3s cubic-bezier(.3, 1.5, .5, 1); }
+.loot.open .loot-flip { transform: rotateY(180deg); }
+.loot-face { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; border: 3px solid var(--tier); background: #1d1830; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.loot-front { transform: rotateY(180deg); background: color-mix(in srgb, var(--tier) 26%, #120e1c); }
+.loot-art { display: block; width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; }
+.loot-back .loot-art { width: 24px; height: 24px; opacity: .8; }
+.loot-words { display: none; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot.open .loot-words { display: block; animation: loot-words .2s ease-out both; }
+@keyframes loot-words { from { opacity: 0; transform: translateX(-6px); } }
+.loot-name { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tier); }
+.loot-text { font-size: 15px; font-weight: 700; }
+.loot.out { opacity: 0; transition: opacity .2s; }
+.loot-flash, .loot-rays, .loot-big { display: none; }
+.loot-bit { position: absolute; z-index: 4; border-radius: 1px; pointer-events: none; animation: loot-bit 1s cubic-bezier(.1, .7, .3, 1) both; }
+@keyframes loot-bit { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 65% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(200deg) scale(1); opacity: 0; } }
+
+/* A big reveal fills its host. Before it breaks out it looks like any chip. */
+.loot.show { inset: 0; left: 0; top: 0; transform: none; pointer-events: auto; overflow: hidden; overflow: clip; cursor: pointer; touch-action: none; }
+.loot.show::before { content: ""; position: absolute; inset: 0; background: #0b0812; opacity: 0; transition: opacity .35s; }
+.loot.show.big::before { opacity: .93; }
+.loot.show .loot-pill { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 2; transform: translateX(-50%); animation: none;
+  transition: transform .4s cubic-bezier(.3, 1.45, .5, 1), background-color .2s, border-color .2s; }
+.loot.show.big .loot-pill { transform: translate(-50%, var(--loot-dy, 30vh)) scale(2); background: transparent; border-color: transparent; }
+.loot.show .loot-words { display: none; }
+/* Waiting on a tier, the tile trembles: harder the higher it has climbed. */
+.loot.show.big:not(.open) .loot-tile { animation: loot-tremble .1s linear infinite; }
+.loot.show.big:not(.open)[data-tier="4"] .loot-tile, .loot.show.big:not(.open)[data-tier="5"] .loot-tile { animation-name: loot-tremble-2; }
+.loot.show.big:not(.open)[data-tier="6"] .loot-tile, .loot.show.big:not(.open)[data-tier="7"] .loot-tile,
+.loot.show.big:not(.open)[data-tier="8"] .loot-tile { animation-name: loot-tremble-3; }
+@keyframes loot-tremble { 25% { transform: translate(-1px, 0); } 75% { transform: translate(1px, 0); } }
+@keyframes loot-tremble-2 { 25% { transform: translate(-1.5px, 1px) rotate(-2deg); } 75% { transform: translate(1.5px, -1px) rotate(2deg); } }
+@keyframes loot-tremble-3 { 25% { transform: translate(-2.5px, 1.5px) rotate(-4deg); } 75% { transform: translate(2.5px, -1.5px) rotate(4deg); } }
+.loot.show.open .loot-tile { animation: loot-land .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes loot-land { from { transform: scale(1.5); } }
+.loot.show .loot-flash { display: block; position: absolute; inset: 0; z-index: 1; background: var(--tier); opacity: 0; pointer-events: none; }
+.loot.show.open .loot-flash { animation: loot-flash .6s ease-out; }
+@keyframes loot-flash { from { opacity: .45; } to { opacity: 0; } }
+/* Legendary and better: rays in the tier's colour turning slowly behind the tile. */
+.loot.show.open .loot-rays { display: block; position: absolute; left: 50%; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 30px); z-index: 1; width: 150vmax; height: 150vmax; margin: -75vmax 0 0 -75vmax;
+  background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--tier) 30%, transparent) 0deg 9deg, transparent 9deg 30deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0, transparent 46%); mask-image: radial-gradient(circle, #000 0, transparent 46%);
+  opacity: 0; pointer-events: none; }
+.loot.show.open[data-tier="4"] .loot-rays, .loot.show.open[data-tier="5"] .loot-rays, .loot.show.open[data-tier="6"] .loot-rays,
+.loot.show.open[data-tier="7"] .loot-rays, .loot.show.open[data-tier="8"] .loot-rays, .loot.show.open[data-tier="9"] .loot-rays { opacity: 1; animation: loot-turn 26s linear infinite, loot-rise .5s ease-out; }
+@keyframes loot-turn { to { transform: rotate(360deg); } }
+@keyframes loot-rise { from { opacity: 0; } }
+.loot.show .loot-big { display: block; position: absolute; left: 0; right: 0; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 104px); z-index: 2; padding: 0 20px; text-align: center; color: #fff; animation: loot-up .34s cubic-bezier(.2, 1.4, .4, 1) both; }
+.loot.show .loot-big[hidden] { display: none; }
+@keyframes loot-up { from { transform: translateY(18px) scale(.9); opacity: 0; } }
+.loot-rank { font-size: clamp(32px, 10vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: .04em; text-transform: uppercase; color: var(--tier); }
+.loot-odds { margin-top: 2px; font-size: 13.5px; font-weight: 700; opacity: .7; font-variant-numeric: tabular-nums; }
+.loot-title { margin-top: 14px; font-size: 16px; font-weight: 700; opacity: .9; }
+.loot-prize { margin-top: 14px; font-size: clamp(19px, 5.4vw, 24px); font-weight: 800; line-height: 1.35; }
+.loot-title:not([hidden]) + .loot-prize { margin-top: 4px; }
+.loot-why { margin-top: 12px; font-size: 13px; font-weight: 600; opacity: .72; }
+.loot-hint { margin-top: 26px; font-size: 12.5px; opacity: 0; animation: loot-hint .4s ease 1.1s forwards; }
+@keyframes loot-hint { to { opacity: .55; } }
+/* The two rarest shimmer through every colour. */
+.loot.show.open[data-tier="8"] .loot-rank, .loot.show.open[data-tier="9"] .loot-rank { background: linear-gradient(90deg, #ff3d6e, #ffb11f, #4fd17a, #9fe8ff, #d14bff, #ff3d6e); background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: loot-shimmer 3s linear infinite; }
+@keyframes loot-shimmer { to { background-position: 300% 0; } }
+.loot.quake { animation: loot-quake .5s linear; }
+@keyframes loot-quake { 15% { transform: translate(-7px, 4px); } 30% { transform: translate(6px, -5px); } 45% { transform: translate(-5px, -3px); } 60% { transform: translate(4px, 4px); } 80% { transform: translate(-2px, 1px); } }
+/* A chip that only says something (reveal.js notice): no flip. */
+.loot.note .loot-face { border-width: 0; background: transparent; }
+/* The Luck sheet (js/game/luck.js). */
+.luck-golden { margin: 0; font-weight: 700; }
+.luck-table { display: flex; flex-direction: column; gap: 8px; }
+.luck-table p { margin: 0; }
+.luck-row { display: flex; align-items: center; gap: 10px; }
+.luck-what { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.luck-what span { font-size: 12.5px; color: var(--muted); }
+.luck-odds { flex: none; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* A square in a tier's colour (the luck sheet's table, a session's finds). */
+.loot-badge { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 6px; border-radius: 9px; border: 2px solid var(--tier); background: color-mix(in srgb, var(--tier) 22%, #120e1c);
+  color: #fff; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .loot-pill, .loot-tile, .loot-tile.bump, .loot.open .loot-words, .loot.show .loot-big, .loot.quake, .loot-hint, .loot-rank,
+  .loot.show.open .loot-flash, .loot.show.open .loot-rays, .loot.show.big:not(.open) .loot-tile, .loot.show.open .loot-tile { animation: none !important; }
+  .loot-flip, .loot.show .loot-pill, .loot.show::before { transition: none; }
+  .loot-hint { opacity: .55; }
+  .loot-bit { display: none; }
+}
+
 /* ---------- creature game: shop and wardrobe ---------- */
 .hud-chips { align-items: center; }
 .hud-chips button { font-size: 13px; padding: 4px 12px; }
@@ -3206,3 +3300,116 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .fr-part-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fr-part-n { font-variant-numeric: tabular-nums; text-align: end; }
 @media (prefers-reduced-motion: reduce) { .boss { animation: none; } }
+
+/* ---------- creature game: fishing (fishing-ui.js: the pond; fishscreen.js: the Fishing screens; 2026-11-10) ---------- */
+/* The pond is a full screen like a live battle (it shares .live-wrap): a bar on top (the pond, what is due, luck,
+   pearls, the basket, the X), the scene, and under it one thing at a time: the Cast button, a word card, or the
+   catch. Plain solid surfaces, centred. */
+.fish { position: relative; width: min(960px, 100%); height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px;
+  padding: max(10px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom)); overflow-y: auto; }
+.fish-top { display: flex; align-items: center; gap: 8px; min-height: 44px; flex: none; }
+.fish-pond, .fish-basket { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 12px; border: 0; border-radius: 12px;
+  background: #1d1830; color: #fff; font-size: 15px; font-weight: 700; white-space: nowrap; }
+.fish-pond:hover, .fish-basket:hover, button.fish-chip:hover { background: #2e2748; }
+.fish-pond svg { transform: rotate(90deg); opacity: .7; }
+.fish-pond-name { overflow: hidden; text-overflow: ellipsis; max-width: 34vw; }
+.fish-swatch { width: 14px; height: 14px; border-radius: 4px; flex: none; }
+.fish-chips { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; min-width: 0; }
+.fish-chip { display: inline-flex; align-items: center; gap: 5px; min-height: 32px; padding: 4px 10px; border: 0; border-radius: 99px;
+  background: #1d1830; color: #fff; font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.fish-chip[hidden] { display: none; }
+.fish-chip.fish-golden { background: #5a4410; color: #ffe9a0; }
+.fish-chip.practice { color: rgba(255, 255, 255, .7); }
+.fish-top .fish-close { color: #fff; flex: none; }
+.fish-stage { position: relative; flex: none; display: grid; place-items: center; }
+/* (the scene takes the width, but never so much height that the word card under it falls off the screen) */
+.fish-stage canvas { display: block; width: min(100%, max(260px, calc((100vh - 440px) * 320 / 180))); height: auto; aspect-ratio: 320 / 180; image-rendering: pixelated;
+  border-radius: 14px; background: #0a0814; cursor: crosshair; touch-action: none; outline: none; }
+.fish-say { position: absolute; top: 9%; left: 50%; transform: translateX(-50%); max-width: 90%; padding: 6px 14px; border-radius: 99px;
+  background: #1d1830; color: #fff; font-size: 16px; font-weight: 700; text-align: center; pointer-events: none; }
+.fish-say[hidden], .fish-gate[hidden], .fish-card[hidden], .fish-act[hidden] { display: none; }
+.fish-say.show { animation: fish-pop .22s ease-out both; }
+@keyframes fish-pop { from { opacity: 0; transform: translateX(-50%) scale(.85); } to { opacity: 1; transform: translateX(-50%) scale(1); } }
+.fish-gate { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(10, 8, 18, .6); border-radius: 14px; }
+.fish-gate-card { max-width: 420px; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 18px; border-radius: 18px;
+  background: #1d1830; text-align: center; }
+.fish-gate-card strong { font-size: 18px; }
+.fish-gate-card p { margin: 0; color: rgba(255, 255, 255, .75); line-height: 1.45; }
+.fish-foot { flex: 1 0 auto; display: flex; flex-direction: column; align-items: center; min-height: 150px; }
+.fish-act { display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 8px; width: 100%; }
+.fish-cast { min-width: min(260px, 100%); min-height: 56px; font-size: 20px; font-weight: 800; border-radius: 16px; }
+.fish-hint { margin: 0; color: rgba(255, 255, 255, .7); font-size: 14px; text-align: center; line-height: 1.4; }
+.fish-card { width: 100%; display: grid; place-items: start center; }
+.fish-card .lbq { padding: 14px; gap: 8px; outline: none; }
+.fish-cast[hidden] { display: none; }
+.fishq .lbq-prompt { font-size: clamp(22px, 5.5vw, 34px); }
+.fishq .lbq-opt { min-height: 60px; }
+.fishq-key { position: absolute; top: 6px; inset-inline-start: 9px; font-size: 12px; font-weight: 700; opacity: .45; }
+@media (hover: none) { .fishq-key { display: none; } }
+/* The catch: the fish, its tier in the tier colour, its length, what is new about it, what it holds. */
+.fish-catch { width: min(520px, 100%); display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 14px; box-sizing: border-box;
+  border-radius: 18px; background: #1d1830; text-align: center; animation: fish-rise .25s ease-out both; }
+@keyframes fish-rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.fish-catch-row { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.fish-catch-pic { display: grid; place-items: center; padding: 8px 12px; border-radius: 14px; line-height: 0;
+  background: color-mix(in srgb, var(--tier, #c9ced8) 20%, #120d1c); }
+.fish-catch-text { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: start; }
+.fish-tier { color: var(--tier, #c9ced8); font-size: 15px; font-weight: 800; }
+.fish-catch-name { font-size: 20px; line-height: 1.25; }
+.fish-catch-cm { color: rgba(255, 255, 255, .7); font-size: 15px; font-variant-numeric: tabular-nums; }
+.fish-catch-tags, .fish-catch-gains { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+.fish-catch-tags:empty { display: none; }
+.fish-tag { padding: 2px 10px; border-radius: 99px; background: var(--tier, #c9ced8); color: #120d1c; font-size: 13px; font-weight: 700; }
+.fish-catch-gains .gs-amount { color: #fff; }
+.fish-catch-gains .cur-coin { color: var(--coin); }
+.fish-pic { image-rendering: pixelated; display: block; }
+/* Choosing a pond, and luck explained (the app own boxes). */
+.fish-ponds, .fish-luck-list { display: flex; flex-direction: column; gap: 8px; }
+.fish-pond-row { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 10px 12px; border: 0; border-radius: 12px;
+  background: var(--surface-2); color: var(--text); text-align: start; white-space: normal; }
+.fish-pond-row.on { outline: 2px solid var(--accent); outline-offset: -2px; }
+.fish-pond-row:disabled { opacity: .6; }
+.fish-pond-row .fish-swatch { width: 28px; height: 28px; border-radius: 8px; }
+.fish-pond-text { flex: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.fish-pond-sub { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.35; }
+.fish-pond-end { line-height: 0; }
+.fish-luck-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 12px; border-radius: 10px;
+  background: var(--surface-2); }
+.fish-luck-row b { font-variant-numeric: tabular-nums; }
+@media (max-width: 480px) { .fish-top { gap: 6px; } .fish-pond, .fish-basket { padding: 6px 9px; } .fish-chip { padding: 4px 8px; font-size: 13px; } }
+@media (prefers-reduced-motion: reduce) { .fish-say.show, .fish-catch { animation: none; } }
+/* The Home card: the Fishing tile is one wide tile under the four (picture, word, and how many fish wait). */
+.habitat .hud-tile.hud-wide { grid-column: 1 / -1; flex-direction: row; justify-content: center; gap: 12px; min-height: 64px; }
+.hud-wide-text { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; text-align: start; }
+.hud-wide .tile-sub { color: var(--accent); font-size: 13px; font-weight: 700; }
+.hud-wide .tile-sub[hidden] { display: none; }
+/* The Fishing screens of the game sheet: Ponds, Basket, Fishdex (fishscreen.js). Pearls have their own colour. */
+:root { --pearl: #7a5fc7; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --pearl: #cdbcff; } }
+:root[data-theme="dark"] { --pearl: #cdbcff; }
+.cur-pearl { color: var(--pearl); }
+.fish-go { min-height: 56px; font-size: 18px; gap: 10px; }
+.fish-waiting { margin-top: 8px; }
+.fish-pond-pic { width: 76px; height: 52px; display: grid; place-items: center; border-radius: 10px; overflow: hidden; line-height: 0;
+  background: linear-gradient(var(--w2) 0 22%, var(--w1) 22% 60%, var(--w0) 60%); }
+.gs-tile.fish-locked .gs-tile-pic { opacity: .55; }
+.gs-row-word { font-weight: 700; color: var(--accent); }
+.fish-tier-mark { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.fish-dot { width: 10px; height: 10px; flex: none; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
+.fish-aq { display: grid; place-items: center; line-height: 0; }
+.aq-view { image-rendering: pixelated; border-radius: 12px; height: auto; }
+.gs-detail-pic .aq-view { border-radius: 10px; }
+.fish-sell-all { gap: 8px; margin-bottom: 8px; }
+.fish-tier-pic { display: grid; place-items: center; padding: 14px 18px; border-radius: 14px; line-height: 0;
+  background: color-mix(in srgb, var(--tier, #aab4c3) 22%, var(--surface-2)); }
+.fish-pips { display: inline-flex; gap: 3px; vertical-align: middle; }
+.fish-pip { width: 9px; height: 9px; border-radius: 2px; background: var(--surface); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 18%, transparent); }
+.fish-pip.on { background: var(--tier); box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .35); }
+.fish-unknown { opacity: .8; }
+.fish-dex-tiers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; width: 100%; }
+.fish-dex-tier { display: flex; align-items: center; min-height: 32px; padding: 4px 10px; border-radius: 8px; background: var(--surface-2); font-size: 14px; opacity: .4; }
+.fish-dex-tier.on { opacity: 1; font-weight: 700; }
+.fish-board-cm { font-weight: 700; font-variant-numeric: tabular-nums; }
+.fr-row .fish-pic { margin: 0 auto; }
+/* A phone: the pond's bar in two rows on purpose (the pond and the basket, then the counters), not wrapped by chance. */
+@media (max-width: 520px) { .fish-top { flex-wrap: wrap; row-gap: 6px; } .fish-top .fish-pond { margin-inline-end: auto; } .fish-chips { order: 3; flex-basis: 100%; } }

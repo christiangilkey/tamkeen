@@ -24,10 +24,15 @@ export const SECTIONS = {
   // (battle-ui.js and friends-game.js draw these two; their "?" is their own: battleHelp, friendsHelp)
   battle: { title: "Battle", icon: "battle", pills: [], help: "battle", pair: "battle", word: "Battle" },
   friends: { title: "Friends", icon: "rival", pills: [], help: "friends", pair: "battle", word: "Friends" },
+  // (fishscreen.js draws these three; the pond itself is fishing-ui.js; their "?" is their own: fishingHelp)
+  fishing: { title: "Fishing", icon: "fishing", pills: ["pearls"], help: "fishing", pair: "fishing", word: "Ponds" },
+  basket: { title: "Basket", icon: "basket", pills: ["coins", "pearls"], help: "fishing", pair: "fishing", word: "Basket" },
+  fishdex: { title: "Fishdex", icon: "fishdex", pills: [], help: "fishing", pair: "fishing", word: "Fishdex" },
 };
 /** Screens that share one switch, in the switch's order: a shop and your bag; a garden and what its glow buys;
- * your creatures and your badges; battles and battling friends. */
-export const PAIRS = { shop: ["shop", "mine"], garden: ["garden", "supplies"], creatures: ["creatures", "badges"], battle: ["battle", "friends"] };
+ * your creatures and your badges; battles and battling friends; the ponds, your basket of fish and the Fishdex. */
+export const PAIRS = { shop: ["shop", "mine"], garden: ["garden", "supplies"], creatures: ["creatures", "badges"], battle: ["battle", "friends"],
+  fishing: ["fishing", "basket", "fishdex"] };
 
 /** The section a button asks for; anything unknown opens the shop. */
 export const sectionOf = (tab) => (typeof tab === "string" && Object.hasOwn(SECTIONS, tab) ? tab : "shop");
@@ -42,12 +47,12 @@ export function screenOf(tab) {
   };
 }
 
-const PILL_ICON = { coins: "coin", gems: "gem", glow: "glow" };
+const PILL_ICON = { coins: "coin", gems: "gem", glow: "glow", pearls: "pearl" };
 /** The head's counters for a screen: [{kind, icon, n}], whole numbers. */
 export function pillsOf(tab, state) {
   return screenOf(tab).pills.map((kind) => ({
     kind, icon: PILL_ICON[kind],
-    n: Math.max(0, Math.floor(kind === "glow" ? garden(state).glow : Number(state[kind]) || 0)),
+    n: Math.max(0, Math.floor(kind === "glow" ? garden(state).glow : kind === "pearls" ? Number(state.fishing && state.fishing.pearls) || 0 : Number(state[kind]) || 0)),
   }));
 }
 

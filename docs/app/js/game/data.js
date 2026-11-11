@@ -7,6 +7,7 @@
 
 import { BEASTS } from "./beasts.js";
 import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND, terrainArtFiles as arenaArtFiles } from "./battlemap.js";
+import { FISH, FISH_ART, RODS } from "./fishdata.js";
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
@@ -442,9 +443,9 @@ export const LIVE_FORM_STATS = {
   shot: { range: 220, speed: 300, r: 5 },
   homing: { range: 260, speed: 170, r: 5, turn: 2.4 },
   beam: { range: 260, width: 10, warn: 0.3 },
-  burst: { range: 86, r: 62, reach: 24, warn: 0.2 }, // areas a good 1.4 times wider than they were (the owner: harder to dodge)
-  drop: { range: 230, r: 40, warn: 0.55 },
-  dash: { range: 100, speed: 380 },
+  burst: { range: 86, r: 56, reach: 24, warn: 0.2 }, // areas about 1.25 times wider than at first (the owner: wider, then "just a little smaller")
+  drop: { range: 230, r: 36, warn: 0.55 },
+  dash: { range: 100, speed: 500 }, // lunges: quick, so they are hard to dodge (the owner)
   self: { range: 0 },
   terrain: { range: 240, size: 1 },
 };
@@ -452,9 +453,9 @@ export const LIVE_FORM_STATS = {
 export const LIVE_TUNING = {
   pounce: { form: "dash", range: 110 },
   dawn_ray: { form: "beam" },
-  charge: { form: "dash", range: 170, speed: 420 },
+  charge: { form: "dash", range: 170, speed: 560 },
   thunderhead: { form: "beam", width: 20, range: 260 },
-  meteor: { form: "drop", r: 62 },
+  meteor: { form: "drop", r: 56 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
 };
@@ -466,7 +467,7 @@ export function liveMove(m) {
   const tuned = LIVE_TUNING[m.id] || {};
   const form = tuned.form || (m.kind === "terrain" ? "terrain" : m.kind === "attack" ? LIVE_AIM_FORM[m.aim] || "shot" : "self");
   return {
-    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * 1.5 : 0,
+    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * (form === "dash" ? 0.9 : 1.5) : 0, // (a lunge winds up quicker: harder to dodge)
     terrain: m.kind === "terrain" ? LIVE_TERRAIN[m.terrain] || m.terrain : null, where: m.where || null,
     ...LIVE_FORM_STATS[form], ...tuned, form,
   };
@@ -517,7 +518,8 @@ export const FOODS = [
   { id: "food_leaf", name: "Leaf", glow: 30, loves: "grove" }, { id: "food_spark", name: "Spark candy", glow: 30, loves: "spark" },
   { id: "food_crystal", name: "Rock sugar", glow: 30, loves: "stone" }, { id: "food_cake", name: "Moon cake", glow: 30, loves: "dusk" },
 ];
-// Supplies are bought with glow or with gems (gems come only from badges, raids, league rises and full bloom).
+// Supplies are bought with glow or with gems (gems come only from things done: badges, raids, league rises, full
+// bloom, and now and then a rare roll in the flashcards, loot.js).
 export const SUPPLIES = [
   { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
   { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
@@ -630,6 +632,7 @@ export function artFiles() {
   for (const s of STRUCTURES) for (const tier of [1, 2, 3]) extra(`structure/${s.id}_${tier}.png`, tier === 3 ? [48, 48] : [32, 32]);
   for (const f of FOODS) extra(`icon/${f.id}.png`, [16, 16]);
   for (const id of ["potion", "key", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
+  extra("icon/streak_shield.png", [16, 16]); // found in the flashcards' rolls (loot.js): it saves a run of right answers from one miss
   for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
   for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
   for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);
@@ -658,6 +661,12 @@ export function artFiles() {
     if (g.anim) { extra(g.art.edges.replace(".png", "_anim.png"), [256, 64]); extra(g.art.fill.replace(".png", "_anim.png"), [64, 64]); }
   }
   for (const pr of Object.values(ARENA_PROPS)) extra(pr.art, pr.size);
+  // Fishing (fishdata.js): each fish, the pond's pieces, the habitat's aquarium, and the icons of its screens.
+  for (const f of FISH) extra(`fish/${f.id}.png`, FISH_ART);
+  extra("fish/dock.png", [64, 28]);
+  extra("fish/bobber.png", [8, 8]);
+  extra("fish/tank.png", [32, 24]);
+  for (const id of ["fishing", "fish_shadow", "luck", "pearl", "basket", "fishdex", "aquarium", ...RODS.map((r) => `rod_${r.id}`)]) extra(`icon/${id}.png`, [16, 16]);
   // ...and anything else the arenas draw (the decals on the ground...), as battlemap.js lists it
   const listed = new Set(out.map((f) => f.file));
   for (const file of arenaArtFiles()) if (!listed.has(file)) { listed.add(file); extra(file, [16, 16]); }

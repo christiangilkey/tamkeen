@@ -1,5 +1,5 @@
-// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.51.0-mwaafjh8
-const CACHE = "tamkeen-0.51.0-mwaafjh8";
+// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.52.0-mwbsoj9e
+const CACHE = "tamkeen-0.52.0-mwbsoj9e";
 self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (e) => e.waitUntil((async () => {
   for (const key of await caches.keys()) if (key !== CACHE) await caches.delete(key);

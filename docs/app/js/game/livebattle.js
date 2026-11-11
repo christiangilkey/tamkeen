@@ -488,7 +488,7 @@ function ahead(b, f, o, lm) {
   const lead = b.brain && b.brain[f.side] ? b.brain[f.side].lead : 0;
   if (!(lead > 0) || !(Math.abs(o.vx) + Math.abs(o.vy) > 1)) return o;
   const d = dist(f, o);
-  const t = lm.form === "shot" || lm.form === "homing" ? d / (lm.speed || 300) : lm.form === "dash" ? d / (lm.speed || 380) : (lm.warn || 0) + (lm.windup || 0);
+  const t = lm.form === "shot" || lm.form === "homing" ? d / (lm.speed || 300) : lm.form === "dash" ? d / (lm.speed || 500) : (lm.warn || 0) + (lm.windup || 0);
   const s = Math.min(1, t) * lead;
   const p = { x: o.x + o.vx * s, y: o.y + o.vy * s };
   return fits(b, o, p.x, p.y) ? p : o;

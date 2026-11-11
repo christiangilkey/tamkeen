@@ -251,6 +251,13 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Sound effects switch**: Settings can turn off the game's chimes and jingles while keeping the game.
 - **Game off switch**: a Game features switch in Settings turns the whole creature game off or on.
 
+**Fishing**
+- **Fish for the words that are due**: the Fishing tile on Home says how many fish are waiting. Each word due for review is a fish shadow in the pond, bigger for words you often miss; tap the water to cast, and when a fish bites, pick the word that means what its card says. Right lands the fish, wrong or slow lets it get away, and every answer counts as a review.
+- **Rarity**: each fish is rolled on ten tiers, Common to Eternal. A Legendary or better fights back for one or two more right answers; one that breaks free waits in that pond all day.
+- **Six ponds**: one per element with three fish each (18 in all). Two are open at the start; the others open with gym leaders beaten or fish caught. Your creature is luckier in the water of its own element.
+- **Basket, aquarium and Fishdex**: sell fish for coins, feed one to your creature for a heart, keep up to six in an aquarium friends can see, and fill the Fishdex with every fish at every tier.
+- **Pearls and rods**: rarer fish hold pearls, which buy better rods that make every cast luckier.
+
 **Playing with friends**
 - **Challenge friends**: challenge a friend's team to a battle.
 - **Leagues**: climb from Bronze to Silver, Gold and Diamond.
