@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Has triat la IA per al Creador de mnemotècnies, però la IA està apagada o encara no té clau, així que aquestes s'han trobat en aquest dispositiu.
+e191f11d	Canvia-ho a Configuració
+cd13fafd	Paraules clau només per a {0}.
+6171b659	Paraula sencera
+d0632af8	Crea paraules clau per a {0}
+ee8aa540	Toca o arrossega sobre les síl·labes per crear paraules clau només per a aquesta part.
+272bddad	Crea paraules clau per a la paraula sencera

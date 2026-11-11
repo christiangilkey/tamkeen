@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	คุณเลือก AI สำหรับตัวช่วยจำ แต่ AI ปิดอยู่หรือยังไม่มีคีย์ คำเหล่านี้จึงหาบนอุปกรณ์นี้
+e191f11d	เปลี่ยนในการตั้งค่า
+cd13fafd	คำสำคัญเฉพาะ {0}
+6171b659	ทั้งคำ
+d0632af8	ทำคำสำคัญสำหรับ {0}
+ee8aa540	แตะหรือลากผ่านพยางค์เพื่อทำคำสำคัญเฉพาะส่วนนั้น
+272bddad	ทำคำสำคัญสำหรับทั้งคำ

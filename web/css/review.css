@@ -197,6 +197,17 @@ body.rv-open { overflow: hidden; }
 .rv-mnemo-said[hidden] { display: none; }
 .rv-mnemo-said-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-mnemo-syl { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: .02em; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+/* the syllables as buttons: a tap or a drag picks the part to make keywords for (cardtools.js syllableButtons) */
+.rv-mnemo-syl.pickable { user-select: none; -webkit-user-select: none; touch-action: pan-y; }
+.rv-syl { font: inherit; letter-spacing: inherit; color: inherit; background: none; border: 0; border-radius: 6px; padding: 0 2px; margin: 0;
+  min-height: 36px; cursor: pointer; }
+.rv-syl:hover { background: var(--hl-soft, rgba(127, 127, 127, .14)); }
+.rv-mnemo-syl .rv-syl.on, .rv-mnemo-syl .rv-syl.on:hover, .rv-mnemo-syl .rv-syl.on:focus { color: var(--hl-ink); background: var(--hl); }
+.rv-syl:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.rv-mnemo-syl.has-part .rv-syl:not(.on) { opacity: .55; }
+.rv-mnemo-part { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.rv-mnemo-part[hidden] { display: none; }
+.rv-mnemo-whole { font-size: 13px; }
 /* what the keywords leave out of the word (review/wordcore.js): "al- (“the”) left out" */
 .rv-mnemo-core { font-size: 13px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }

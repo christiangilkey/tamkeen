@@ -22005,6 +22005,41 @@
   "f": "web/js/review/cardtools.js"
  },
  {
+  "id": "1e208ce8",
+  "k": "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "e191f11d",
+  "k": "Change it in Settings",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "cd13fafd",
+  "k": "Keywords for {0} only.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "6171b659",
+  "k": "Whole word",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "d0632af8",
+  "k": "Make keywords for {0}",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "ee8aa540",
+  "k": "Tap or drag across syllables to make keywords for just that part.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "272bddad",
+  "k": "Make keywords for the whole word",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
   "id": "7893f7ae",
   "k": "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions.",
   "f": "web/js/review/cardtools.js"

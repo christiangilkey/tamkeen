@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Tu as choisi l'IA pour le Créateur de mnémoniques, mais l'IA est désactivée ou n'a pas encore de clé, alors ceux-ci ont été trouvés sur cet appareil.
+e191f11d	Le changer dans les Réglages
+cd13fafd	Mots-clés pour {0} seulement.
+6171b659	Mot entier
+d0632af8	Mots-clés pour {0}
+ee8aa540	Touche ou glisse sur les syllabes pour des mots-clés pour cette partie seulement.
+272bddad	Mots-clés pour le mot entier

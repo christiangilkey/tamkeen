@@ -20,8 +20,11 @@ test("aiMakes: the AI only when it can be used and Free wasn't chosen", () => {
 
 test("the review card's and the Vocab list's Mnemonic maker (review/cardtools.js)", () => {
   const src = read("web/js/review/cardtools.js");
-  assert.match(src, /import \{ aiMakes \} from "\.\.\/helpersource\.js"/);
-  assert.match(src, /if \(!aiMakes\(settings, "mnemonic", !noAi\(\) && !!definerConfig\(\)\.key\)\) got = await free\(\);/);
+  assert.match(src, /import \{ aiMakes, chosenSource \} from "\.\.\/helpersource\.js"/);
+  assert.match(src, /const aiUsable = !noAi\(\) && !!definerConfig\(\)\.key;/);
+  assert.match(src, /if \(!aiMakes\(settings, "mnemonic", aiUsable\)\) \{\s*got = await free\(\);/);
+  // AI chosen but unusable: the card says so (with the way to the setting), it doesn't quietly give free ones
+  assert.match(src, /aiMissing = chosenSource\(settings, "mnemonic"\) === "ai" && !aiUsable;/);
   assert.doesNotMatch(src, /if \(noAi\(\) \|\| !definerConfig\(\)\.key\)/, "no decision of its own left");
   assert.match(src, /const settings = \(app\.status && app\.status\.settings\) \|\| \{\};/);
 });

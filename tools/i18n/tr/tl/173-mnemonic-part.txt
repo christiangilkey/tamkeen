@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Pinili mo ang AI para sa Gawa ng mnemonic, pero naka-off ang AI o wala pa itong key, kaya nahanap ang mga ito sa device na ito.
+e191f11d	Baguhin sa Settings
+cd13fafd	Mga keyword para sa {0} lang.
+6171b659	Buong salita
+d0632af8	Gumawa ng keyword para sa {0}
+ee8aa540	I-tap o i-drag sa mga pantig para gumawa ng keyword para sa bahaging iyon lang.
+272bddad	Gumawa ng keyword para sa buong salita

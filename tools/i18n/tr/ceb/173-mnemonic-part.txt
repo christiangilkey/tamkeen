@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Gipili nimo ang AI para sa Mnemonic maker, apan naka-off ang AI o wala pay key, mao nga kini nakit-an dinhi sa device.
+e191f11d	Usba sa Settings
+cd13fafd	Mga keyword para sa {0} lang.
+6171b659	Tibuok pulong
+d0632af8	Paghimo og keyword para sa {0}
+ee8aa540	I-tap o i-drag sa mga silaba aron makahimo og keyword para nianang bahina lang.
+272bddad	Paghimo og keyword para sa tibuok pulong

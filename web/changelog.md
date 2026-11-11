@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** Choose which part of a word the Mnemonic maker works on. On the back of a review card (and in the Vocab list), the syllables under **How it sounds** can be tapped or dragged across: tap one and then another to pick the syllables between them, or drag over them. **Make keywords for …** then finds sound-alikes for just those syllables, with the free maker or with AI, and shows where they fit in the whole word; **Whole word** goes back. A long word or phrase such as *wa-TA-hu-fi-bay-da-i* no longer gets keywords for only its end.
+- **Improved:** With AI chosen for the Mnemonic maker in Settings → Word definitions, but AI turned off or no key yet, the card now says so, with a link to the setting, instead of quietly showing free sound-alikes.
 ## v0.52.0 — 2026-11-10
 
 - **Changed:** Live battles: area attacks are a little smaller (about 10%), and lunges rush in faster with a shorter wind-up, so they are harder to dodge.

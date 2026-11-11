@@ -695,3 +695,4 @@ b90d6e31  # Egyptian basics
 11b463eb  # Moroccan basics
 164bff8f  # Iraqi basics
 b4cfe1f4  # a key's name (game/reveal.js), never on screen
+5822af40  # The learner wants keywords only for this part… (mnemonic.js: told to the AI, not interface)

@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	你为谐音助记生成器选了 AI，但 AI 已关闭或还没有密钥，所以这些是在本设备上找到的。
+e191f11d	在设置中更改
+cd13fafd	只针对 {0} 的关键词。
+6171b659	整个词
+d0632af8	为 {0} 做关键词
+ee8aa540	点按或拖过音节，只为那一部分做关键词。
+272bddad	为整个词做关键词

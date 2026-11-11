@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Elegiste la IA para el Creador de mnemotecnias, pero la IA está apagada o aún no tiene clave, así que estas se encontraron en este dispositivo.
+e191f11d	Cámbialo en Ajustes
+cd13fafd	Palabras clave solo para {0}.
+6171b659	Palabra entera
+d0632af8	Crear palabras clave para {0}
+ee8aa540	Toca o arrastra sobre las sílabas para crear palabras clave solo para esa parte.
+272bddad	Crear palabras clave para la palabra entera

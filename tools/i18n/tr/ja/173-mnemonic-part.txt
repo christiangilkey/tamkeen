@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	語呂合わせメーカーに AI を選んでいますが、AI がオフかキーがまだないため、これらはこの端末で見つけたものです。
+e191f11d	設定で変更
+cd13fafd	{0} だけのキーワード。
+6171b659	単語全体
+d0632af8	{0} のキーワード
+ee8aa540	音節をタップするかなぞると、その部分だけのキーワードを作ります。
+272bddad	単語全体のキーワード

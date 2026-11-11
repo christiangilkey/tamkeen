@@ -1,0 +1,8 @@
+# Mnemonic maker: keywords for a part of the word chosen on How it sounds; AI chosen but unusable (review/cardtools.js).
+1e208ce8	Du hast für den Eselsbrücken-Macher die KI gewählt, aber die KI ist aus oder hat noch keinen Schlüssel, darum wurden diese auf diesem Gerät gefunden.
+e191f11d	In den Einstellungen ändern
+cd13fafd	Schlüsselwörter nur für {0}.
+6171b659	Ganzes Wort
+d0632af8	Schlüsselwörter für {0}
+ee8aa540	Tippe auf Silben oder wische darüber, um Schlüsselwörter nur für diesen Teil zu machen.
+272bddad	Schlüsselwörter für das ganze Wort
