@@ -20,7 +20,7 @@
 // because neither file uses the other at load time, only inside functions; keep it that way.)
 
 import { FOODS, ITEMS } from "./data.js";
-import { garden } from "./idle.js";
+import { garden, totalRate } from "./idle.js";
 import { MAX_CREATURES, dayKey, dayNumber, hearKey, layEgg } from "./rules.js";
 
 // ---------- the tiers ----------
@@ -58,7 +58,7 @@ export const BOSS_TIER = LEGENDARY;     // what a boss word pays at least
 export const BOSS_DAY = 5;              // boss words beaten in a day that pay their floor (after that, a full roll)
 export const EXTRA_DAY = 150;           // extra rolls a day; after that an extra answer rolls nothing
 export const FAST_MS = 1200;            // a right answer quicker than this doesn't roll
-export const FAST_MS_BY = {};           // a mini-game's own floor, by source (e.g. {fish: 900})
+export const FAST_MS_BY = { cards: 1500 }; // its own floor for a source (a card is read, turned and checked); a mini-game may set its own
 export const BONUS_MAX = 3;             // the most a caller's own luck factor may multiply by
 const MISS_KEPT = 400;                  // words whose misses are remembered (bosses are kept first)
 const ROLLED_KEPT = 1500;               // words remembered as rolled today
@@ -102,11 +102,12 @@ function part(state) {
   return state.loot;
 }
 
-/** The same, with the day's counts started again when the date has changed. */
+/** The same, with the day's counts started again when the date has changed. The answer streak is a day's
+ * climb too (10, 25, 50 in a row): it starts again each day, so the top luck is earned, not kept. */
 export function lootState(state, now = new Date()) {
   const L = part(state);
   const key = dayKey(now);
-  if (L.day.key !== key) L.day = freshDay(key);
+  if (L.day.key !== key) { L.day = freshDay(key); L.streak = 0; }
   return L;
 }
 
@@ -203,7 +204,10 @@ export function roll(state, luck = 1, rand = Math.random, opts = {}) {
 // ---------- rewards ----------
 // What each tier pays in the flashcards (a mini-game may pay its own instead). Each tier lists choices
 // with a weight; each choice is one or more grants:
-//   {kind: "glow" | "coins" | "gems", n}     currencies
+//   {kind: "glow", minutes, min}             glow: that many minutes of the garden's output (as clearing the
+//                                            day's cards pays an hour of it), never less than `min`; so a
+//                                            bigger garden makes every roll worth more
+//   {kind: "gems", n}                        gems
 //   {kind: "food", n}                        food, often the creature's favourite
 //   {kind: "supply", id, n}                  a supply (data.SUPPLIES), or "shield": a Streak shield
 //   {kind: "egg"}                            a Mystery egg (gems instead when the roster is full)
@@ -212,14 +216,15 @@ export function roll(state, luck = 1, rand = Math.random, opts = {}) {
 // No coins: flashcards and battles are paid apart (the owner's rule: battles pay coins, cards pay glow),
 // and coins buy battle moves, while nothing here may add strength in battles between people.
 export const REWARDS = [
-  [{ w: 1, grants: [{ kind: "glow", n: 2 }] }],
-  [{ w: 1, grants: [{ kind: "glow", n: 6 }] }],
-  [{ w: 3, grants: [{ kind: "glow", n: 20 }] }, { w: 1, grants: [{ kind: "supply", id: "shield", n: 1 }] }],
-  [{ w: 2, grants: [{ kind: "glow", n: 60 }] }, { w: 2, grants: [{ kind: "food", n: 1 }] }],
-  [{ w: 2, grants: [{ kind: "gems", n: 1 }] }, { w: 1, grants: [{ kind: "food", n: 3 }] }, { w: 1, grants: [{ kind: "glow", n: 200 }] }],
-  [{ w: 2, grants: [{ kind: "gems", n: 3 }] }, { w: 1, grants: [{ kind: "supply", id: "xp_boost", n: 1 }] },
-   { w: 1, grants: [{ kind: "supply", id: "shield", n: 3 }] }],
-  [{ w: 1, grants: [{ kind: "egg" }] }, { w: 1, grants: [{ kind: "gems", n: 6 }] }],
+  [{ w: 1, grants: [{ kind: "glow", minutes: 1, min: 1 }] }],
+  [{ w: 1, grants: [{ kind: "glow", minutes: 3, min: 3 }] }],
+  [{ w: 3, grants: [{ kind: "glow", minutes: 10, min: 10 }] }, { w: 1, grants: [{ kind: "supply", id: "shield", n: 1 }] }],
+  [{ w: 2, grants: [{ kind: "glow", minutes: 30, min: 30 }] }, { w: 2, grants: [{ kind: "food", n: 1 }] }],
+  [{ w: 3, grants: [{ kind: "glow", minutes: 180, min: 150 }] }, { w: 2, grants: [{ kind: "food", n: 3 }] },
+   { w: 2, grants: [{ kind: "supply", id: "shield", n: 2 }] }, { w: 1, grants: [{ kind: "gems", n: 1 }] }],
+  [{ w: 2, grants: [{ kind: "gems", n: 2 }] }, { w: 1, grants: [{ kind: "supply", id: "xp_boost", n: 1 }, { kind: "gems", n: 1 }] },
+   { w: 1, grants: [{ kind: "glow", minutes: 720, min: 600 }] }],
+  [{ w: 1, grants: [{ kind: "egg" }] }, { w: 1, grants: [{ kind: "gems", n: 5 }] }],
   [{ w: 1, grants: [{ kind: "wearable", min: 0 }, { kind: "gems", n: 5 }] }],
   [{ w: 1, grants: [{ kind: "wearable", min: 30 }, { kind: "gems", n: 15 }] }],
   [{ w: 1, grants: [{ kind: "wearable", min: 45 }, { kind: "gems", n: 50 }] }],
@@ -242,6 +247,10 @@ export function rewardFor(state, tier, rand = Math.random) {
   let choice = choices[choices.length - 1];
   for (const c of choices) { if (x < c.w) { choice = c; break; } x -= c.w; }
   const grants = choice.grants.map((g) => {
+    if (g.kind === "glow") {
+      const made = g.minutes ? Math.round((totalRate(state) * g.minutes) / 60) : 0;
+      return { kind: "glow", n: Math.max(g.min || 0, g.n || 0, made) };
+    }
     if (g.kind === "food") {
       const loved = state.creature && FOODS.find((f) => f.loves === state.creature.type);
       const food = loved && rand() < 0.5 ? loved : FOODS[Math.floor(rand() * FOODS.length)];
@@ -306,7 +315,7 @@ function missed(L, key, today) {
  *   ctx = {source: "cards" | "fish" | ..., correct, ms (time taken), uid (the word), due, extra,
  *          luck (the caller's own factor, e.g. 1.1), pay (default true: pay REWARDS; false: roll only)}
  * Returns {rolled: true, tier, id, name, colour, luck, parts, pity, boss, golden, streak, extra, reward}
- *      or {rolled: false, why: "wrong" | "fast" | "spent", streak, shielded}.
+ *      or {rolled: false, why: "wrong" | "fast" | "spent", streak, shielded, lost (the run a wrong answer ended)}.
  * `golden` is true when this roll started a Golden hour (from the next answer on). A word rolls in full
  * once a day, whatever the source: the same word again that day rolls as an extra.
  */
@@ -316,11 +325,12 @@ export function rollAnswer(state, ctx = {}, rand = Math.random, now = new Date()
   if (!ctx.correct) {
     missed(L, key, dayNumber(now));
     let shielded = false;
+    let lost = 0;
     if (L.streak >= STREAK_STEPS[0][0] && Number(state.items && state.items.shield) > 0) {
       state.items.shield--;
       shielded = true;
-    } else L.streak = 0;
-    return { rolled: false, why: "wrong", streak: L.streak, shielded };
+    } else { lost = L.streak; L.streak = 0; }
+    return { rolled: false, why: "wrong", streak: L.streak, shielded, lost };
   }
   const floorMs = FAST_MS_BY[ctx.source] ?? FAST_MS;
   if (Number.isFinite(ctx.ms) && ctx.ms < floorMs) return { rolled: false, why: "fast", streak: L.streak, shielded: false };
@@ -356,6 +366,29 @@ export function rollAnswer(state, ctx = {}, rand = Math.random, now = new Date()
   }
   return { rolled: true, ...r, parts, boss: bossPays, golden: started, streak: L.streak, extra, reward };
 }
+
+/** What an answer may change that Undo must put back: the streak, the shields, the word's misses.
+ * Take it before rollAnswer; give it to `restore` when the answer is taken back. (What a roll paid stays
+ * paid, and the word stays rolled for today, so answering it again rolls as an extra.) */
+export function snapshot(state, uid, now = new Date()) {
+  const L = lootState(state, now);
+  const key = wordKey(uid);
+  return { streak: L.streak, shield: Number(state.items && state.items.shield) || 0, key, miss: L.miss[key] ? [...L.miss[key]] : null };
+}
+
+/** Put back what `snapshot` took. A boss word beaten in between stays beaten (it was paid for). */
+export function restore(state, snap) {
+  if (!snap) return;
+  const L = part(state);
+  L.streak = snap.streak;
+  if (state.items) state.items.shield = Math.max(Number(state.items.shield) || 0, snap.shield);
+  if (!snap.key) return;
+  if (snap.miss && L.miss[snap.key]) L.miss[snap.key] = [...snap.miss];
+  else if (!snap.miss) delete L.miss[snap.key];
+}
+
+/** The words that are bosses now, as their keys (wordKey), for a screen that wants to count them. */
+export const bossCount = (state) => Object.values(part(state).miss).filter((m) => m[0] >= BOSS_MISSES).length;
 
 /** Where the pity counters stand: rolls left until an Epic (and a Legendary) is sure. */
 export function pityLeft(state) {

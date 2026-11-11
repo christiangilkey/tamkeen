@@ -5,13 +5,16 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
-  BOSS_DAY, BOSS_MISSES, BOSS_TIER, DUE_LUCK, EPIC, EXTRA_DAY, EXTRA_LUCK, FAST_MS, GOLDEN_LUCK, GOLDEN_MS, LEGENDARY,
-  REWARDS, STREAK_STEPS, TIERS, chances, cleanLoot, golden, isBoss, lootState, luckFor, payReward, pityLeft, rewardFor, roll,
-  rollAnswer, streakLuck, tierOf,
+  BOSS_DAY, BOSS_MISSES, BOSS_TIER, DUE_LUCK, EPIC, EXTRA_DAY, EXTRA_LUCK, FAST_MS, FAST_MS_BY, GOLDEN_LUCK, GOLDEN_MS, LEGENDARY,
+  REWARDS, STREAK_STEPS, TIERS, bossCount, chances, cleanLoot, golden, isBoss, lootState, luckFor, payReward, pityLeft, restore,
+  rewardFor, roll, rollAnswer, snapshot, streakLuck, tierOf,
 } from "../../web/js/game/loot.js";
 import { MAX_CREATURES, layEgg, newState, normalize } from "../../web/js/game/rules.js";
-import { garden } from "../../web/js/game/idle.js";
-import { ITEMS } from "../../web/js/game/data.js";
+import { build, garden, totalRate } from "../../web/js/game/idle.js";
+import { FOODS, ITEMS } from "../../web/js/game/data.js";
+import { climb, grantView, holdFor, luckText, rewardView } from "../../web/js/game/lootview.js";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 const NOW = new Date("2026-11-10T10:00:00");
 const day = (n) => new Date(NOW.getTime() + n * 86400000);
@@ -130,17 +133,62 @@ test("the answer streak: right answers build it, a wrong one resets it, a Streak
   rollAnswer(s, { correct: false, uid: "x2" }, unlucky, NOW);
   r = rollAnswer(s, { correct: false, uid: "x3" }, unlucky, NOW);
   assert.equal(r.streak, 0, "no shield left");
+  assert.equal(r.lost, 12, "it says how long the run was");
   assert.equal(s.items.shield, 0);
   assert.equal(lootState(s).best, 12);
 });
 
-test("an answer given too fast doesn't roll and doesn't move the streak", () => {
+test("the streak is a day's climb: it starts again the next day", () => {
+  const s = newState(51);
+  for (let i = 0; i < 30; i++) rollAnswer(s, right({ uid: `w${i}` }), always(0.999999), NOW);
+  assert.equal(lootState(s, NOW).streak, 30);
+  assert.equal(luckFor(s, { due: true, streak: lootState(s, NOW).streak + 1 }, NOW).luck, DUE_LUCK * 3);
+  const r = rollAnswer(s, right({ uid: "tomorrow" }), always(0.999999), day(1));
+  assert.equal(r.streak, 1);
+  assert.equal(lootState(s, day(1)).best, 30, "the best run is kept");
+});
+
+test("Undo: the streak, a shield spent and a miss counted are put back; what a roll paid stays", () => {
+  const s = newState(52);
+  const unlucky = always(0.999999);
+  for (let i = 0; i < 11; i++) rollAnswer(s, right({ uid: `w${i}` }), unlucky, NOW);
+  s.items.shield = 1;
+  // A wrong answer by mistake, with a shield: taken back, the shield and the clean record return.
+  let snap = snapshot(s, "slip", NOW);
+  rollAnswer(s, { correct: false, uid: "slip" }, unlucky, NOW);
+  assert.equal(s.items.shield, 0);
+  restore(s, snap);
+  assert.deepEqual([lootState(s, NOW).streak, s.items.shield, Object.keys(s.loot.miss).length], [11, 1, 0]);
+  // Without a shield: the run comes back.
+  s.items.shield = 0;
+  snap = snapshot(s, "slip", NOW);
+  assert.equal(rollAnswer(s, { correct: false, uid: "slip" }, unlucky, NOW).streak, 0);
+  restore(s, snap);
+  assert.equal(lootState(s, NOW).streak, 11);
+  // A right answer taken back: the streak steps back, the glow stays, and answering again is an extra.
+  const glow = garden(s).glow;
+  snap = snapshot(s, "again", NOW);
+  const first = rollAnswer(s, right({ uid: "again", due: true }), unlucky, NOW);
+  assert.equal(first.streak, 12);
+  restore(s, snap);
+  assert.equal(lootState(s, NOW).streak, 11);
+  assert.ok(garden(s).glow > glow);
+  const second = rollAnswer(s, right({ uid: "again", due: true }), unlucky, NOW);
+  assert.deepEqual([second.extra, second.luck, second.streak], [true, EXTRA_LUCK * 2, 12]);
+});
+
+test("an answer given too fast doesn't roll and doesn't move the streak; a source may have its own floor", () => {
   const s = newState(6);
   rollAnswer(s, right({ uid: "a" }), always(0.5), NOW);
-  const r = rollAnswer(s, right({ uid: "b", ms: FAST_MS - 1 }), always(0.5), NOW);
+  const r = rollAnswer(s, right({ uid: "b", ms: FAST_MS - 1, source: "pond" }), always(0.5), NOW);
   assert.deepEqual([r.rolled, r.why, r.streak], [false, "fast", 1]);
   assert.equal(lootState(s).rolls, 1);
-  assert.equal(rollAnswer(s, right({ uid: "b", ms: FAST_MS }), always(0.5), NOW).rolled, true);
+  assert.equal(rollAnswer(s, right({ uid: "b", ms: FAST_MS, source: "pond" }), always(0.5), NOW).rolled, true);
+  // A flashcard is read, turned and checked: its floor is higher.
+  assert.ok(FAST_MS_BY.cards > FAST_MS);
+  assert.equal(rollAnswer(s, right({ uid: "c", ms: FAST_MS_BY.cards - 1 }), always(0.5), NOW).why, "fast");
+  assert.equal(rollAnswer(s, right({ uid: "c", ms: FAST_MS_BY.cards }), always(0.5), NOW).rolled, true);
+  assert.equal(rollAnswer(s, right({ uid: "d", ms: undefined }), always(0.5), NOW).rolled, true, "no time given: it rolls");
 });
 
 test("a word rolls in full once a day, whatever the source; again it is an extra, and extras run out", () => {
@@ -167,6 +215,7 @@ test("boss words: missed on 4 different days, then right pays at least a Legenda
   for (let d = 1; d < BOSS_MISSES; d++) rollAnswer(s, { correct: false, uid: "hard" }, unlucky, day(d));
   assert.equal(isBoss(s, "hard"), true);
   assert.equal(isBoss(s, "other"), false);
+  assert.equal(bossCount(s), 1);
   const r = rollAnswer(s, right({ uid: "hard" }), unlucky, day(5));
   assert.equal(r.boss, true);
   assert.ok(r.tier >= BOSS_TIER);
@@ -205,9 +254,26 @@ test("the rewards: glow, food, gems, supplies, an egg and things to wear, never 
   const coins = s.coins;
   const r = rollAnswer(s, right({ uid: "a" }), always(0.999999), NOW);
   assert.equal(r.tier, 0);
-  assert.deepEqual(r.reward.grants, [{ kind: "glow", n: 2 }]);
-  assert.equal(g.glow, glow + 2);
+  assert.deepEqual(r.reward.grants, [{ kind: "glow", n: 1 }], "with nothing built, a Common's floor");
+  assert.equal(g.glow, glow + 1);
   assert.equal(s.coins, coins);
+  // Glow is so many minutes of the garden's output, so a bigger garden makes every roll worth more.
+  const rich = newState(101);
+  garden(rich).plots[0].open = true;
+  garden(rich).glow = 100000;
+  assert.equal(build(rich, 0, "word_sprout"), "");
+  const rate = totalRate(rich);
+  assert.ok(rate > 0);
+  const minutes = [1, 3, 10, 30, 180];
+  const floors = [1, 3, 10, 30, 150];
+  for (let t = 0; t < 5; t++) {
+    const poor = rewardFor(newState(102), t, always(0)).grants[0];
+    const well = rewardFor(rich, t, always(0)).grants[0];
+    assert.deepEqual(poor, { kind: "glow", n: floors[t] }, `tier ${t} with no garden`);
+    assert.equal(well.n, Math.max(floors[t], Math.round((rate * minutes[t]) / 60)), `tier ${t} with a garden`);
+  }
+  garden(rich).plots[0].tier = 3;
+  assert.ok(rewardFor(rich, 3, always(0)).grants[0].n > 30, "a grown building lifts an Epic over its floor");
   // Every tier's reward works out and pays.
   const rand = seeded(11);
   for (let t = 0; t < TIERS.length; t++) {
@@ -283,4 +349,50 @@ test("normalize: old saves gain a clean loot part, broken ones are put right, go
   assert.equal(again.loot.rolls, 20);
   assert.equal(again.loot.streak, 0);
   assert.equal(Object.keys(again.loot.miss).length, 1);
+});
+
+// ----- what the reveal shows (lootview.js) -----
+const artFile = (art) => fileURLToPath(new URL(`../../web/game-art/${art}.png`, import.meta.url));
+
+test("every reward a roll can pay has words and a picture that exists", () => {
+  const grants = [
+    { kind: "glow", n: 1 }, { kind: "glow", n: 12500 }, { kind: "gems", n: 1 }, { kind: "gems", n: 50 }, { kind: "egg" },
+    { kind: "supply", id: "shield", n: 1 }, { kind: "supply", id: "shield", n: 3 }, { kind: "supply", id: "xp_boost", n: 1 },
+    ...FOODS.map((f) => ({ kind: "food", id: f.id, n: 3 })),
+    ...ITEMS.filter((it) => !it.prize).map((it) => ({ kind: "wearable", id: it.id, n: 1 })),
+  ];
+  // (every kind the table can pay is in that list)
+  const kinds = new Set(REWARDS.flat().flatMap((c) => c.grants.map((g) => g.kind)));
+  assert.deepEqual([...kinds].sort(), ["egg", "food", "gems", "glow", "supply", "wearable"]);
+  for (const id of new Set(REWARDS.flat().flatMap((c) => c.grants.filter((g) => g.kind === "supply").map((g) => g.id)))) {
+    assert.ok(grants.some((g) => g.kind === "supply" && g.id === id), `supply ${id}`);
+  }
+  for (const g of grants) {
+    const v = grantView(g);
+    assert.ok(v.text, JSON.stringify(g));
+    assert.ok(existsSync(artFile(v.art)), `${v.art}.png for ${JSON.stringify(g)}`);
+  }
+  assert.equal(grantView({ kind: "glow", n: 12500 }).text, `+${(12500).toLocaleString()} glow`);
+  assert.equal(grantView({ kind: "gems", n: 1 }).text, "+1 gem");
+  assert.equal(grantView({ kind: "food", id: "food_fish", n: 3 }).text, "Fish ×3");
+  assert.equal(grantView({ kind: "supply", id: "shield", n: 2 }).text, "Streak shield ×2");
+  const two = rewardView({ tier: 9, grants: [{ kind: "wearable", id: "hat/crown", n: 1 }, { kind: "gems", n: 50 }] });
+  assert.deepEqual(two, { art: "item/hat/crown", text: "Crown + +50 gems", lines: ["Crown", "+50 gems"] });
+  assert.deepEqual(rewardView(null), { art: "", text: "", lines: [] });
+  assert.equal(luckText([{ id: "due", x: 2 }, { id: "streak", x: 3 }, { id: "bonus", x: 1.25 }]), "Due ×2 · Streak ×3 · Bonus ×1.25");
+});
+
+test("the reveal climbs one tier at a time, slower the higher it goes, and only Epic and better break out", () => {
+  for (let tier = 0; tier < TIERS.length; tier++) {
+    const steps = climb(tier);
+    assert.deepEqual(steps.map((x) => x.tier), [...Array(tier).keys()], `tier ${tier} passes every tier under it`);
+    assert.equal(steps.filter((x) => x.breakout).length, tier >= EPIC ? 1 : 0);
+    const total = steps.reduce((n, x) => n + x.ms, 0);
+    if (tier < EPIC) assert.ok(total <= 300, `a small find is quick (${total} ms)`);
+    for (let i = EPIC + 1; i < steps.length; i++) assert.ok(steps[i].ms > steps[i - 1].ms, "each tier past Epic waits longer");
+  }
+  assert.equal(climb(LEGENDARY).find((x) => x.breakout).tier, 2, "it looks like a Rare until it breaks out");
+  assert.ok(climb(9).reduce((n, x) => n + x.ms, 0) > 4000, "an Eternal keeps you waiting");
+  assert.equal(climb(1, true).filter((x) => x.breakout).length, 1, "a mini-game may ask for a big reveal of a small find");
+  assert.ok(holdFor(9) > holdFor(LEGENDARY) && holdFor(LEGENDARY) > holdFor(EPIC));
 });

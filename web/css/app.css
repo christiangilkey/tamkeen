@@ -1138,6 +1138,100 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 @keyframes fx-shake { 0%, 100% { transform: none; } 20% { transform: translate(-4px, 2px); } 40% { transform: translate(4px, -2px); } 60% { transform: translate(-3px, -1px); } 80% { transform: translate(2px, 2px); } }
 @media (prefers-reduced-motion: reduce) { .fx-p, .fx-shake, .fx-pop { animation: none; } .fx-p { display: none; } }
 
+/* ---------- creature game: the reveal of a roll (js/game/reveal.js) ---------- */
+/* A tile that lands face down, climbs the tiers one colour at a time and turns over. Small ones are a chip at
+   the top of their host; Epic and better dim the host and come to the middle. --tier is the colour showing. */
+#loot-layer { position: fixed; inset: 0; z-index: 85; pointer-events: none; }
+.loot { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 3; transform: translateX(-50%); pointer-events: none; --tier: #aab4c3; }
+.loot-pill { display: flex; align-items: center; padding: 4px; border-radius: 16px; background: #120e1c; border: 2px solid var(--tier); color: #fff; animation: loot-in .18s cubic-bezier(.3, 1.7, .5, 1) both; }
+@keyframes loot-in { from { transform: scale(.4); opacity: 0; } }
+.loot-tile { position: relative; width: 48px; height: 48px; flex: none; perspective: 320px; }
+.loot-tile.bump { animation: loot-bump .16s ease-out; }
+@keyframes loot-bump { 40% { transform: scale(1.22); } }
+.loot-flip { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .3s cubic-bezier(.3, 1.5, .5, 1); }
+.loot.open .loot-flip { transform: rotateY(180deg); }
+.loot-face { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; border: 3px solid var(--tier); background: #1d1830; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.loot-front { transform: rotateY(180deg); background: color-mix(in srgb, var(--tier) 26%, #120e1c); }
+.loot-art { display: block; width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; }
+.loot-back .loot-art { width: 24px; height: 24px; opacity: .8; }
+.loot-words { display: none; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot.open .loot-words { display: block; animation: loot-words .2s ease-out both; }
+@keyframes loot-words { from { opacity: 0; transform: translateX(-6px); } }
+.loot-name { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tier); }
+.loot-text { font-size: 15px; font-weight: 700; }
+.loot.out { opacity: 0; transition: opacity .2s; }
+.loot-flash, .loot-rays, .loot-big { display: none; }
+.loot-bit { position: absolute; z-index: 4; border-radius: 1px; pointer-events: none; animation: loot-bit 1s cubic-bezier(.1, .7, .3, 1) both; }
+@keyframes loot-bit { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 65% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(200deg) scale(1); opacity: 0; } }
+
+/* A big reveal fills its host. Before it breaks out it looks like any chip. */
+.loot.show { inset: 0; left: 0; top: 0; transform: none; pointer-events: auto; overflow: hidden; overflow: clip; cursor: pointer; touch-action: none; }
+.loot.show::before { content: ""; position: absolute; inset: 0; background: #0b0812; opacity: 0; transition: opacity .35s; }
+.loot.show.big::before { opacity: .93; }
+.loot.show .loot-pill { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 2; transform: translateX(-50%); animation: none;
+  transition: transform .4s cubic-bezier(.3, 1.45, .5, 1), background-color .2s, border-color .2s; }
+.loot.show.big .loot-pill { transform: translate(-50%, var(--loot-dy, 30vh)) scale(2); background: transparent; border-color: transparent; }
+.loot.show .loot-words { display: none; }
+/* Waiting on a tier, the tile trembles: harder the higher it has climbed. */
+.loot.show.big:not(.open) .loot-tile { animation: loot-tremble .1s linear infinite; }
+.loot.show.big:not(.open)[data-tier="4"] .loot-tile, .loot.show.big:not(.open)[data-tier="5"] .loot-tile { animation-name: loot-tremble-2; }
+.loot.show.big:not(.open)[data-tier="6"] .loot-tile, .loot.show.big:not(.open)[data-tier="7"] .loot-tile,
+.loot.show.big:not(.open)[data-tier="8"] .loot-tile { animation-name: loot-tremble-3; }
+@keyframes loot-tremble { 25% { transform: translate(-1px, 0); } 75% { transform: translate(1px, 0); } }
+@keyframes loot-tremble-2 { 25% { transform: translate(-1.5px, 1px) rotate(-2deg); } 75% { transform: translate(1.5px, -1px) rotate(2deg); } }
+@keyframes loot-tremble-3 { 25% { transform: translate(-2.5px, 1.5px) rotate(-4deg); } 75% { transform: translate(2.5px, -1.5px) rotate(4deg); } }
+.loot.show.open .loot-tile { animation: loot-land .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes loot-land { from { transform: scale(1.5); } }
+.loot.show .loot-flash { display: block; position: absolute; inset: 0; z-index: 1; background: var(--tier); opacity: 0; pointer-events: none; }
+.loot.show.open .loot-flash { animation: loot-flash .6s ease-out; }
+@keyframes loot-flash { from { opacity: .7; } to { opacity: 0; } }
+/* Legendary and better: rays in the tier's colour turning slowly behind the tile. */
+.loot.show.open .loot-rays { display: block; position: absolute; left: 50%; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 30px); z-index: 1; width: 150vmax; height: 150vmax; margin: -75vmax 0 0 -75vmax;
+  background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--tier) 30%, transparent) 0deg 9deg, transparent 9deg 30deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0, transparent 46%); mask-image: radial-gradient(circle, #000 0, transparent 46%);
+  opacity: 0; pointer-events: none; }
+.loot.show.open[data-tier="4"] .loot-rays, .loot.show.open[data-tier="5"] .loot-rays, .loot.show.open[data-tier="6"] .loot-rays,
+.loot.show.open[data-tier="7"] .loot-rays, .loot.show.open[data-tier="8"] .loot-rays, .loot.show.open[data-tier="9"] .loot-rays { opacity: 1; animation: loot-turn 26s linear infinite, loot-rise .5s ease-out; }
+@keyframes loot-turn { to { transform: rotate(360deg); } }
+@keyframes loot-rise { from { opacity: 0; } }
+.loot.show .loot-big { display: block; position: absolute; left: 0; right: 0; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 104px); z-index: 2; padding: 0 20px; text-align: center; color: #fff; animation: loot-up .34s cubic-bezier(.2, 1.4, .4, 1) both; }
+.loot.show .loot-big[hidden] { display: none; }
+@keyframes loot-up { from { transform: translateY(18px) scale(.9); opacity: 0; } }
+.loot-rank { font-size: clamp(32px, 10vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: .04em; text-transform: uppercase; color: var(--tier); }
+.loot-odds { margin-top: 2px; font-size: 13.5px; font-weight: 700; opacity: .7; font-variant-numeric: tabular-nums; }
+.loot-title { margin-top: 14px; font-size: 16px; font-weight: 700; opacity: .9; }
+.loot-prize { margin-top: 14px; font-size: clamp(19px, 5.4vw, 24px); font-weight: 800; line-height: 1.35; }
+.loot-title:not([hidden]) + .loot-prize { margin-top: 4px; }
+.loot-why { margin-top: 12px; font-size: 13px; font-weight: 600; opacity: .72; }
+.loot-hint { margin-top: 26px; font-size: 12.5px; opacity: 0; animation: loot-hint .4s ease 1.1s forwards; }
+@keyframes loot-hint { to { opacity: .55; } }
+/* The two rarest shimmer through every colour. */
+.loot.show.open[data-tier="8"] .loot-rank, .loot.show.open[data-tier="9"] .loot-rank { background: linear-gradient(90deg, #ff3d6e, #ffb11f, #4fd17a, #9fe8ff, #d14bff, #ff3d6e); background-size: 300% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent; animation: loot-shimmer 3s linear infinite; }
+@keyframes loot-shimmer { to { background-position: 300% 0; } }
+.loot.quake { animation: loot-quake .5s linear; }
+@keyframes loot-quake { 15% { transform: translate(-7px, 4px); } 30% { transform: translate(6px, -5px); } 45% { transform: translate(-5px, -3px); } 60% { transform: translate(4px, 4px); } 80% { transform: translate(-2px, 1px); } }
+/* A chip that only says something (reveal.js notice): no flip. */
+.loot.note .loot-face { border-width: 0; background: transparent; }
+/* The Luck sheet (js/game/luck.js). */
+.luck-golden { margin: 0; font-weight: 700; }
+.luck-table { display: flex; flex-direction: column; gap: 8px; }
+.luck-table p { margin: 0; }
+.luck-row { display: flex; align-items: center; gap: 10px; }
+.luck-what { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.25; }
+.luck-what span { font-size: 12.5px; color: var(--muted); }
+.luck-odds { flex: none; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+/* A square in a tier's colour (the luck sheet's table, a session's finds). */
+.loot-badge { display: inline-grid; place-items: center; min-width: 30px; height: 30px; padding: 0 6px; border-radius: 9px; border: 2px solid var(--tier); background: color-mix(in srgb, var(--tier) 22%, #120e1c);
+  color: #fff; font-size: 13px; font-weight: 800; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) {
+  .loot-pill, .loot-tile, .loot-tile.bump, .loot.open .loot-words, .loot.show .loot-big, .loot.quake, .loot-hint, .loot-rank,
+  .loot.show.open .loot-flash, .loot.show.open .loot-rays, .loot.show.big:not(.open) .loot-tile, .loot.show.open .loot-tile { animation: none !important; }
+  .loot-flip, .loot.show .loot-pill, .loot.show::before { transition: none; }
+  .loot-hint { opacity: .55; }
+  .loot-bit { display: none; }
+}
+
 /* ---------- creature game: shop and wardrobe ---------- */
 .hud-chips { align-items: center; }
 .hud-chips button { font-size: 13px; padding: 4px 12px; }
