@@ -3,7 +3,7 @@
 // face button or a key for each move), the question that freezes the action when a move is used,
 // the HUD and the end of the battle. The rules are livebattle.js's and rules.js's; this only shows them.
 
-import { h, toast } from "../app.js";
+import { h, state as appState, toast } from "../app.js";
 import { icon as lineIcon } from "../icons.js";
 import { openModal } from "../components/modal.js";
 import { controllerArea, controllerSetting, padInUse, padSteer, padStyle } from "../gamepad.js";
@@ -22,6 +22,8 @@ import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, gen
 import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 import { isChallengeWord } from "./challenge.js";
+import { snippetPlayer } from "../snippetplayer.js";
+import { cardSayer, stopDevice } from "../voiceplay.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const TILE = 16;
@@ -119,6 +121,16 @@ export function runLiveBattle(setup, vocab) {
   let dict = null; // until the built-in dictionary's list is ready, the wrong answers are the learner's own words
   battleDictionary().then((d) => { dict = d; });
   let asked = [];
+  // The right answer's word is said as soon as a choice is made (its own recording, else the card voice).
+  // It plays on by itself: the question closes as quickly as it always did. Game sound off: not said.
+  const player = snippetPlayer();
+  const sayCard = cardSayer(player.playSnippet);
+  const sayAnswer = (q) => {
+    const s = appState.status && appState.status.settings;
+    if (s && s.game_sound === false) return;
+    const v = words.find((w) => String(w.uid || w.id) === q.uid);
+    if (v) sayCard(v, "word").catch(() => {});
+  };
   const ask = () => {
     const q = pickQuestion(game, words, Math.random, new Date(), asked, dict);
     if (q) asked = [...asked.slice(-12), q.uid];
@@ -1053,6 +1065,7 @@ export function runLiveBattle(setup, vocab) {
     const q = quizShown.q;
     quizShown = null;
     const correct = choice !== null && choice === q.answer;
+    if (choice !== null) sayAnswer(q);
     for (const btn of quizButtons) btn.disabled = true;
     quizButtons[q.answer]?.classList.add("right");
     if (choice !== null && !correct) quizButtons[choice]?.classList.add("wrong");
@@ -1449,6 +1462,8 @@ export function runLiveBattle(setup, vocab) {
   function close() {
     if (closed) return;
     closed = true;
+    player.stop();
+    stopDevice();
     releasePad();
     ro.disconnect();
     window.removeEventListener("resize", fit);

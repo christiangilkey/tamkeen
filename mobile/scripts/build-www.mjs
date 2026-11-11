@@ -105,6 +105,7 @@ const SHARED = [
   "js/dialectvoice.js",
   "js/devicevoice.js",
   "js/voiceplay.js",
+  "js/snippetplayer.js",
   "js/oggjoin.js",
   "js/components/voicesetup.js",
   "js/addwords.js",
