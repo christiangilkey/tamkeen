@@ -80,6 +80,33 @@ def test_compose_frames_draws_the_still_frame_where_the_drawing_stands(tmp_path)
     assert {p.name for p in tmp_path.iterdir()} >= {"idle.png", "walk.png", "fly.png", "idle_shirt.png"}
 
 
+@pytest.mark.parametrize("cid,form", LOOKS)
+def test_a_drawn_shirt_comes_up_to_a_collar_where_the_neckwear_sits(cid, form):
+    """A shirt area drawn in Aseprite (rig.json "shirt": {"mask": "_shirt.png"}) stays on the body (and arms): never
+    on legs, wings, tail or head, so they stay bare in every frame. Its top is a collar where a bow tie or scarf sits
+    (the neck socket): the owner saw the dragon's shirt low on its side with the bow tie floating above it."""
+    look = anim.Look(cid, form)
+    if not (look.rig.get("shirt") or {}).get("mask"):
+        pytest.skip("shirt area still by colour letters in a box")
+    assert look.mask, "the drawn shirt covers something"
+    assert {chr(look.main.parts0[y, x]) for x, y in look.mask} <= set(anim.SHIRT_PARTS)
+    nx, ny = look.rig["sockets"]["neck"][:2]
+    collar = min(y for x, y in look.mask if abs(x - nx) <= 2)
+    assert -2 <= collar - ny <= 3, f"the collar (row {collar}) is where the neckwear sits (row {ny})"
+
+
+@pytest.mark.parametrize("form", ["juvenile", "hatchling"])
+def test_the_dragon_wears_its_shirt_over_its_chest(form):
+    """The dragon whelp's shirt covers the front of its body, the cream throat and chest plates, from the collar at the
+    base of the neck down: not just a patch low on its side."""
+    look = anim.Look("dragon_whelp", form)
+    nx, ny = look.rig["sockets"]["neck"][:2]
+    assert all(y >= ny - 1 for x, y in look.mask if x >= nx - 4), "nothing above the collar: the throat stays bare"
+    for y in range(ny + 1, ny + 11):
+        front = max(x for x in range(look.dw) if look.main.parts0[y, x] == ord("b"))
+        assert max(x for x, yy in look.mask if yy == y) >= front - 3, f"row {y}: the shirt reaches the chest's front"
+
+
 def test_a_look_can_walk_with_another_drawing():
     """The forest stag rests lying down and stands up to walk: its walk and getting-up frames come from its standing
     drawing, placed so both stand on the same ground, and its worn things move up with it."""

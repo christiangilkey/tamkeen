@@ -8,6 +8,6 @@
   "blink": [{"at": [41, 34], "rows": ["3k....", ".33kk.", "...333"]},
             {"at": [50, 34], "rows": ["..k3", ".33.", "3k.."]}],
   "sockets": {"hat": [46, 28], "face": [47, 35], "neck": [44, 41], "held": [47, 57], "back": [33, 43]},
-  "shirt": {"box": [31, 43, 46, 54], "letters": "dk3"},
+  "shirt": {"mask": "_shirt_hatchling.png"},
   "hover": 5
 }

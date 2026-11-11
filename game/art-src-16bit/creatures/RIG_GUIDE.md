@@ -35,7 +35,8 @@ Fields:
 - `sockets` (all required):
   - `hat`: bottom-centre of a 20x14 hat = top of the skull, between/just in front of the ears;
   - `face`: centre of 16x8 glasses = between the eyes (3/4 face: a little toward the near eye);
-  - `neck`: top-centre of a 16x10 collar/scarf = front of the neck where it meets the chest;
+  - `neck`: top-centre of a 16x10 collar/scarf = front of the neck where it meets the chest, on the shirt's
+    collar (below);
   - `held`: bottom-centre of a 12x12 held thing = the near hand/paw, or in front of the chest for a quad;
   - `back`: the point a 20x20 cape/pack's anchor (14,19 of the item) rests on = middle of the back. The item
     reaches up and back from there and is drawn behind the creature, so on a tall back put the socket near the
@@ -44,9 +45,18 @@ Fields:
     (negative: anticlockwise) about its anchor, taking the nearest pixel so it stays crisp. Use it for a head that
     leans (the firefly's cap tilts forward with its head) or a back that slopes. Keep it small: beyond about 30
     degrees pixel art looks ragged.
-- `shirt`: {"box":[x0,y0,x1,y1], "letters":"..."} = which body pixels a shirt pattern covers (torso's main
-  coat letters inside the box; not wings, tail, head, legs, glows), or null if a shirt makes no sense. Add
-  `"not": polygon(s)` for an area inside the box the shirt leaves alone (the firefly's front shell).
+- `shirt`: which body pixels a shirt pattern covers, or null if a shirt makes no sense. Draw it:
+  `{"mask": "_shirt.png"}` (`_shirt_hatchling.png` for the baby), a 64x64 picture where every opaque pixel is
+  shirt. Draw it in Aseprite (the pixel-plugin MCP: a new 64x64 canvas, the drawing imported as a layer `creature`,
+  the shirt drawn on a layer `shirt`; save that as `_shirt.aseprite`, then delete the `creature` layer and export
+  the PNG). The owner's rule (2026-11-11, after the dragon's shirt sat low on its side with the bow tie floating
+  above it): **the shirt comes up to a collar at the base of the neck, sloping a little higher at the back, and the
+  `neck` socket sits on that collar; it covers the front of the body, chest and belly (light chest plates or a
+  ruff too), and ends at the waist in front of the hind legs**, like a dog's T-shirt. Sketch over the edges freely:
+  the build keeps only body pixels (and arms, as sleeves: anim.py `SHIRT_PARTS`), never legs, wings, tail or head,
+  and leaves the creature's outline round the edge. The older way, still used by the creatures whose shirts looked
+  right: `{"box":[x0,y0,x1,y1], "letters":"..."}` (the torso's coat letters inside the box) with `"not":
+  polygon(s)` for an area inside the box to leave alone (the firefly's front shell).
 - `hover`: pixels a floater stays above the ground (0 for walkers).
 - `wings`: `true` for a creature drawn with wings of its own (leave it out otherwise). It then wears nothing
   on its back (no cape, pack or wings: the owner's rule), and the game reads it from here, so a new winged

@@ -7,7 +7,7 @@
   "legs_front": null,
   "blink": [{"at": [44, 19], "rows": ["3k....", ".33kk.", "...333"]},
             {"at": [53, 19], "rows": ["..k3", ".33.", "3k.."]}],
-  "sockets": {"hat": [48, 13], "face": [50, 20], "neck": [48, 29], "held": [51, 50], "back": [32, 31]},
-  "shirt": {"box": [38, 30, 50, 46], "letters": "dk3"},
+  "sockets": {"hat": [48, 13], "face": [50, 20], "neck": [48, 30], "held": [51, 50], "back": [32, 31]},
+  "shirt": {"mask": "_shirt.png"},
   "hover": 5
 }

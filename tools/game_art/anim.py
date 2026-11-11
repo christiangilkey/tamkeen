@@ -57,6 +57,7 @@ LEGS = "FfRr"
 WINGS = "Ww"
 ARMS = "Aa"
 SOCKET_PART = {"hat": "h", "face": "h", "neck": "b", "held": "b", "back": "b"}
+SHIRT_PARTS = "bAa"          # the parts a drawn shirt (rig.json "shirt": {"mask"}) may cover: body, and arms as sleeves
 NAMES = {"juvenile": ("anim.json", "_parts.txt"), "hatchling": ("anim_hatchling.json", "_parts_hatchling.txt")}
 
 
@@ -185,6 +186,8 @@ class Drawing:
         self.has = {chr(c) for c in np.unique(self.parts0)} - {"."}
         layers = beasts.cut(rig, rows)
         self.mask = beasts.shirt_mask(rig, layers)
+        if (rig.get("shirt") or {}).get("mask"):  # a drawn shirt stays on the body and arms: legs, wings, tail bare
+            self.mask = {(x, y) for (x, y) in self.mask if chr(self.parts0[y, x]) in SHIRT_PARTS}
         self.box = beasts.bbox_of(layers)
         self.shut0 = self.img0.copy()
         for (x, y), ch in layers["blink"].items():

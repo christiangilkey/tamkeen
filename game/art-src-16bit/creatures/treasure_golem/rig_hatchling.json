@@ -9,6 +9,6 @@
                  [21, 59], [23, 59]],
   "blink": [{"at": [33, 37], "rows": ["ddddd", ".KKKK"]}, {"at": [43, 37], "rows": ["dd", "KK"]}],
   "sockets": {"hat": [39, 30], "face": [40, 37], "neck": [40, 44], "held": [16, 50], "back": [23, 42]},
-  "shirt": {"box": [26, 41, 48, 58], "letters": "123"},
+  "shirt": {"mask": "_shirt_hatchling.png"},
   "hover": 0
 }

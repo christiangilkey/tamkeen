@@ -15,8 +15,10 @@ a parts grid: tools/game_art/anim.py, guide creatures/ANIM_GUIDE.md):
                                   - a socket may have a third number, an angle: [x, y, degrees], clockwise; the
                                     item is turned about its anchor by that much (nearest pixel: rotated()); each
                                     animation frame moves the sockets with the parts they ride (anim.py)
-      "shirt": {"box": [x0, y0, x1, y1], "letters": "123"} or null  - which body pixels a shirt covers
-                                  (and "not": polygon(s) inside the box it leaves alone, if need be)
+      "shirt": {"mask": "_shirt.png"} or null  - which body pixels a shirt covers: a picture drawn in Aseprite
+                                  over the drawing (shirt_mask); the older way, still used by some:
+                                  {"box": [x0, y0, x1, y1], "letters": "123"} (and "not": polygon(s) inside the
+                                  box it leaves alone, if need be)
       "hover": 0                - pixels a floater stays off the ground
       "wings": true             - only for a creature drawn with wings of its own: it wears nothing on its back
                                   (data.canWear) and it flies (anim.py); leave it out otherwise
@@ -143,9 +145,18 @@ def rotated(im: Image.Image, anchor, deg: float):
 
 
 def shirt_mask(rig: dict, layers) -> set[tuple[int, int]]:
+    """The drawing's pixels a shirt covers (body pixels: not the head or leg polygons). rig.json "shirt" is either
+    {"mask": "_shirt.png"}, a picture drawn in Aseprite over the drawing (any opaque pixel is shirt; the creature's
+    outline round the edge stays: a pixel next to empty space; anim.py also keeps it off legs, wings and tail), or
+    {"box", "letters"} (the body pixels of those colours in the box)."""
     s = rig.get("shirt")
     if not s:
         return set()
+    if s.get("mask"):
+        im = Image.open(SRC / rig["id"] / s["mask"]).convert("RGBA")
+        drawn = {p for n in LAYERS for p in layers[n]}
+        return {(x, y) for (x, y) in layers["body"] if x < im.width and y < im.height and im.getpixel((x, y))[3]
+                and all(q in drawn for q in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)))}
     x0, y0, x1, y1 = s["box"]
     skip = polys(s.get("not"))  # an area inside the box the shirt leaves alone (the firefly's front shell)
     return {p for p, ch in layers["body"].items() if ch in s["letters"] and x0 <= p[0] <= x1 and y0 <= p[1] <= y1

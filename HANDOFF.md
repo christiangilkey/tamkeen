@@ -8307,6 +8307,20 @@ moves parts of the existing drawings (nothing redrawn), then hand pixel fixes. T
   (2) tool wishes from the helpers, for later: a built-in "repaint lost outline" pass, an underlay for parts that move
   over the body, per-leg swing/lift, a hop and a galumph preset, rounding sway to whole pixels; (3) mini-game actions
   (run, jump, cheer, sad, cast...) are not drawn yet; (4) the stag doesn't get up or lie down in battles.
+- **Shirts drawn to fit** (2026-11-11, the owner on the dragon whelp: "The way shirts are mapped to this creature looks
+  really bad. It should take more into consideration his neck and how shirts generally fall on necks, and as well as
+  cover the front of his body"). A shirt area can now be a picture drawn in Aseprite through the MCP: rig.json
+  `"shirt": {"mask": "_shirt.png"}` (`_shirt_hatchling.png`; the source with the drawing as a reference layer is
+  `_shirt[_hatchling].aseprite`). The rule (RIG_GUIDE.md `shirt`): a collar at the base of the neck, sloping a
+  little higher at the back, with the `neck` socket on it; chest and belly covered; ends at the waist in front of
+  the hind legs. `beasts.shirt_mask` keeps the creature's outline round the edge; `anim.Drawing` keeps a drawn
+  shirt to the body and arms (`anim.SHIRT_PARTS`), so legs, wings and tail stay bare in every frame. Redrawn, both
+  looks: dragon whelp, moon wolf, chick, griffin, winged fox, rock golem, seal; and the baby treasure golem. Neck
+  sockets moved down onto the collars (dragon 29->35 / 41->44, wolf 27->30 / 43->45, chick 25->27, winged fox
+  29->30, seal 30->36 / 46->48). The others kept their box-and-letters shirts (they already sat right; the cat's
+  head hides its chest, the firefly's sits on its abdomen). Before/after sheet sent to the owner; tests
+  `test_a_drawn_shirt_comes_up_to_a_collar_where_the_neckwear_sits`, `test_the_dragon_wears_its_shirt_over_its_chest`;
+  Python compose and render.js still match pixel for pixel (62 poses of the redrawn creatures hashed in a real window).
 
 ## Creature game: Fishing, the first mini-game (2026-11-10; side session "Fishing mini-game: due words are the fish")
 The owner asked for mini-games on Roblox-style ideas (progression systems that feed each other, many rarity tiers,

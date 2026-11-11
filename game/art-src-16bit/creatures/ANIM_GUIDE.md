@@ -28,7 +28,8 @@ climb...) or idle (anything else): `render.js ACTION_FALLBACK`. A held thing tur
 ## An action with a drawing of its own (the forest stag stands up to walk)
 A creature drawn in a pose it can't move from (lying down) can have more drawings: anim.json
 `"drawings": {"stand": {"rig": "rig_stand.json", "parts": "_parts_stand.txt", "offset": [0, -11]}}`. The drawing's
-rig is a copy of rig.json with its own `art`, sockets, shirt area and leg polygons (same palette, head and blink if the
+rig is a copy of rig.json with its own `art`, sockets, shirt area (a drawn `_shirt_<name>.png` if the main one is
+drawn) and leg polygons (same palette, head and blink if the
 head is drawn at the same place); `offset` is where its top-left pixel sits in the main drawing, chosen so both stand on
 the same ground. An action then says `"drawing": "stand"` and gives its own `legs`, `pivot`, `z` for that drawing. A
 `rise` action (a few crouched frames, `"loop": false`) is played forwards before it walks and backwards when it stops
