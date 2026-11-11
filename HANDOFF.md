@@ -8423,6 +8423,10 @@ built on loot.js), (3) farming, (4) racing. His design, as built (every number i
   controller in hand, or between two devices.
 - **Translations**: `tools/i18n/tr/<code>/171-review-rolls.txt`, 16 languages. Pictures and a film for the owner:
   `../review-rolls-shots/`.
+- **Decided by the owner** (2026-11-10, through the Decisions chat, his words: "Go with your own recomendations fro all
+  4"): (1) the Streak shield stays its own item, found only in rolls and used by itself on a run of 10 or more; (2) the
+  run of right answers starts again each day; (3) only "Remembered" rolls; (4) the tiles stay plain coloured squares with
+  the game's icons (drawn frames only if he asks later). The tuning numbers stay as they are for now. Don't reopen these.
 - **Ideas not built**: badges for a first Legendary / Mythic (badge art needed); the Streak shield and the Luck sheet on
   the game's own screens (Supplies, Home); a friend seeing your best find; ten drawn tile frames instead of the plain
   coloured squares; something only an Eternal can give.
