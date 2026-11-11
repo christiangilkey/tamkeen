@@ -1,0 +1,24 @@
+# icon: pearl: a white pearl sitting in a small open pink shell
+K #3a1f4f
+w #f3e9fb
+l #d5aef0
+h #ffffff
+s #ff7ab8
+d #c2457f
+--
+................
+...KK.KKKK.KK...
+..KssKssssKssK..
+.KsssdssssdsssK.
+.KssssKKKKssssK.
+.KsssKwwwwKsssK.
+KsssKwhhwwwKsssK
+KsssKwhwwwlKsssK
+KKssKwwwwllKssKK
+KdKKKwwwlllKKKdK
+KdddKKllllKKdddK
+KdddddKKKKdddddK
+.KddddddddddddK.
+..KKddddddddKK..
+....KKKKKKKK....
+................

@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Lagon néon
+9f6560c3	Mare aux nénuphars
+2c039d0d	Source chaude
+40288610	Lac d'orage
+b213032e	Bassin de lune
+b5c7618d	Guppy bulle
+1332ef34	Poisson-clown néon
+ee56827f	Raie des marées
+727cda3e	Vairon feuille
+e5ab8697	Koï lotus
+2eb0ea04	Brochet moussu
+12854b69	Tétra braise
+a4905779	Poisson-globe magma
+29d1e4ee	Garpique de lave
+b5f0ba84	Danio éclair
+b3b8a72e	Poisson-ange néon
+460a42db	Anguille volt
+6beffc46	Loche galet
+dc71cadb	Truite de cristal
+2c87e4d6	Cœlacanthe fossile
+9d7fd5d5	Poisson-lune
+a91edea6	Baudroie lanterne
+621ac06c	Koï fantôme
+5d8164b7	Canne brindille
+7b1717ce	Canne bambou
+f21102f4	Canne néon
+2396c5cc	Canne étoile
+f5e1a027	Changer de mare
+fd16b79e	Mots à réviser : chacun est un poisson
+1e2db7a2	La chance d'un lancer ici
+b0e7db56	Perles
+e3ccfeef	Heure dorée : chance triplée
+d0a24ee1	Votre panier
+1ea575fe	La mare : touchez l'eau pour lancer
+60745aef	Lancer
+654b39f2	Il se débat ! Préparez-vous…
+8297bb17	Attrapé !
+7e23668d	Il s'est échappé…
+0bb2df3e	Remonter
+a258217d	Attendez que ça morde…
+6ea116ca	Plus de poissons pour l'instant. Revenez quand d'autres mots seront à réviser.
+30a5a6dd	Rien à réviser : ce sont des poissons d'entraînement, avec moins de chance.
+22f5f1c5	Touchez l'eau pour lancer. Une ombre plus grande, c'est plus de chance.
+fcd4323b	Trop lent : il s'est échappé
+77c53b8a	Mauvaise réponse : il s'est échappé
+dea9fad3	Ce mot est maintenant bien connu.
+8789254f	Ça mord !
+090d931a	C'est celui qui vous avait échappé !
+d4d0b0bb	Il se débat !
+316262b1	Tenez bon ! Encore une
+d0e3caee	Tenez bon ! Encore {0}
+cb73df46	Il s'est libéré ! Il rôde encore dans le coin…
+f636ca14	Continuer à pêcher
+dae9bda3	Celui qui vous avait échappé
+e4c6bee4	Nouveau poisson !
+2c9c57ba	Nouveau dans votre Fishdex
+cc332e84	Votre plus long à ce jour
+7c65cfb1	Mot boss battu
+a1e2f2a9	Son prix de vente
+e32ce617	Perles trouvées à l'intérieur
+c7a65b08	La chance de ce lancer
+6a432eaa	Heure dorée ! Chance triplée pendant 10 minutes.
+48bc8163	Mares
+f1da55b6	Battez {0} des chefs d'arène ou attrapez {1} poissons pour l'ouvrir.
+727c352e	Eau {0}. Votre créature y est dans son élément : chance ×{1}
+7eab0796	Eau {0}
+4fc5a645	Quelque chose de gros s'est échappé ici aujourd'hui. Ça rôde encore dans le coin…
+1c295a8a	Chance
+1bde5b86	Votre canne : {0}
+9b05ae05	Votre créature est dans son élément
+aa9b9fb6	Votre créature n'est pas dans son élément
+502eec8e	Un mot à réviser
+ad8b49d8	Un mot que vous ratez souvent (une grande ombre)
+c7c5876d	Un poisson d'entraînement (un mot qui n'est pas à réviser)
+252b249d	La chance rend les raretés les plus hautes plus probables. Les bonnes réponses d'affilée en ajoutent, et une Heure dorée aussi. Les meilleures cannes s'achètent avec des perles, que l'on trouve dans les poissons plus rares.
+f53bfbce	La mare est vide
+13d6164a	Les poissons sont vos mots enregistrés. Enregistrez au moins quatre mots avec leur sens, et ils viendront nager ici.
+9ebfea5c	Ce poisson n'est pas dans votre panier.
+f58aae7d	L'aquarium est plein. Retirez d'abord un poisson.
+a8b78cd0	Ce poisson n'est pas dans votre aquarium.
+257c0f9e	Votre panier est plein. Vendez d'abord quelques poissons.
+a6b82b99	Cette canne n'existe pas.
+7dc0e760	Il vous manque {0} perles.
+f3764c58	Aller pêcher
+6ef05b75	Rien à réviser : pêchez pour vous entraîner, avec moins de chance.
+03969c1c	1 poisson vous attend : un mot à réviser
+d9b7087f	{0} poissons vous attendent : vos mots à réviser
+25166bdb	Cannes à pêche
+a7e1cdb3	Poissons attrapés
+076b4b76	Fishdex
+0e520bb7	Dans votre panier
+34958467	Le plus gros de la semaine
+08d321a8	Chefs d'arène battus
+f1433030	L'un ou l'autre ouvre cette mare : battez {0} des chefs d'arène, ou attrapez {1} poissons. Son eau est de l'élément {2}, et elle a trois poissons bien à elle.
+d4c43b8e	Une meilleure canne donne plus de chance à chaque lancer, dans toutes les mares. Les perles se trouvent dans les poissons plus rares.
+377f415d	L'utiliser
+5639d93a	Plus grosse prise de la semaine
+ef73a3d1	Personne n'a encore attrapé de poisson cette semaine.
+179491c1	Aquarium de {0}
+14a507c2	Dans l'aquarium
+baada136	Son aquarium est vide pour l'instant.
+bc89ab2a	Aquarium
+a7e65514	Gardez ici vos meilleurs poissons. Vos amis peuvent voir votre aquarium.
+020b4183	Panier
+97b3200f	Votre panier est vide.
+d61ed78f	Vendre les {0} poissons Communs et Peu communs : +{1}
+f6cd9e3e	{0} poissons vendus : +{1} pièces
+a3e1e99f	Rareté
+3bade34e	Longueur
+156c1d9b	Prix de vente
+3690e6b5	L'aquarium est plein : retirez d'abord un poisson.
+fa3cf2ad	Vendre
+d859bff5	Un vrai régal ! {0} cœurs sur 5
+4351a5d2	Miam. {0} cœurs sur 5
+599d557a	Dans votre aquarium, où vos amis peuvent le voir.
+adb14a77	Retirer
+88e89a69	Tous les poissons dans toutes les raretés, de Commun à Éternel.
+691955e0	Le plus long
+1c89d7ea	Raretés attrapées
+ffc960c4	Meilleur prix de vente
+9ad04b29	Comment fonctionne la pêche
+30a8f681	La mare
+443c79b1	Chaque mot à réviser est un poisson dans l'eau. Une ombre plus grande, c'est plus de chance : un mot que vous ratez souvent, ou un mot boss.
+df9d041f	Quand il n'y a rien à réviser, vous pouvez quand même pêcher pour vous entraîner, avec moins de chance.
+1f5ffcc4	Lancez, ça mord, répondez
+ea1845a5	Touchez l'eau pour lancer. Quand un poisson mord, la carte de son mot apparaît : choisissez le mot qui correspond au sens affiché. Avec une bonne réponse, le poisson est pris à l'hameçon.
+9c750d6d	Une mauvaise réponse, ou aucune en 12 secondes, et il s'échappe : ce mot reviendra plus tôt.
+e3a07cb5	Chaque réponse compte comme une révision, comme en combat.
+ff2fcc9b	Pour chaque poisson attrapé, la rareté est tirée au sort parmi dix, de Commun à Éternel. La chance rend les plus rares plus probables : un mot qui était à réviser, les bonnes réponses d'affilée, votre canne, et votre créature quand elle pêche dans l'eau de son propre élément.
+068e173d	Un poisson Légendaire ou plus rare se débat : il faut encore une ou deux bonnes réponses d'affilée pour l'attraper. S'il se libère, il reste dans cette mare toute la journée, et le prochain poisson qui y mordra, ce sera lui.
+22fa76d4	Une réponse donnée trop vite pour avoir lu la carte rapporte au mieux un poisson Commun.
+591d814a	À quoi servent les poissons
+a729c3a5	Vendez-les contre des pièces, donnez-en un à manger à votre créature pour un cœur, ou gardez les meilleurs dans l'aquarium, où vos amis peuvent les voir.
+198f7712	Les poissons plus rares renferment des perles. Les perles permettent d'acheter de meilleures cannes, et une meilleure canne donne plus de chance à chaque lancer.
+61c60555	Le Fishdex garde chaque poisson, dans chaque rareté que vous avez attrapée.
+7c271a13	Chaque mare a trois poissons bien à elle. D'autres mares s'ouvrent à mesure que vous battez des chefs d'arène ou attrapez plus de poissons.
+142d55e3	Fair-play
+c3d13fa6	Ici, rien ne s'achète avec de l'argent, et rien ne rend une créature plus forte en combat.
+cadfb5be	Pêche
+0d4de321	1 poisson vous attend
+b3de3d27	{0} poissons vous attendent

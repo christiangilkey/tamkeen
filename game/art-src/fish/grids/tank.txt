@@ -1,0 +1,42 @@
+# habitat piece: a little aquarium (32x24) on a low dark stand; the game draws fish in the water, cols 3-28, rows 6-17
+K #1b1420
+F #4a4266
+H #6f6790
+g #7fd3e6
+a #b9e6ee
+l #74dcec
+w #1a98b8
+h #d8fbff
+p #46e062
+q #1f9c50
+s #e3c486
+S #b9935a
+t #4b4068
+d #2e2742
+x #231d35
+n #5ce1ff
+--
+................................
+................................
+..KKKKKKKKKKKKKKKKKKKKKKKKKKKK..
+.KHHHHHHHHFFFFFFFFFFFFFFFFFFnFK.
+.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.
+.KhaaaaaaaaaaaaaaaaaaaaaaaaaagK.
+.KhllllllllllllllllllllllllllgK.
+.KgwwwwwwwwwwwwwwwwwwwwwwwwhwgK.
+.KgwwpwwwwwwwwwwwwwwwwwwwwhwwgK.
+.KgwppwwwwwwwwwwwwwwwwwwwhwwhgK.
+.KgwwqpwwwwwwwwwwwwwwwwwwwwhwgK.
+.KgwpqwwwwwwwwwwwwwwwwwwwwwwwgK.
+.KgwwqpwwwwwwwwwwwwwwwwwwwwwwgK.
+.KgwpqwwwwwwwwwwwwwwwwwwwwwwwgK.
+.KgwwqpwwwwwwwwwwwwwwwwwwwwwwgK.
+.KgwpqpwwwwwwwwwwwwwwwwwwwwwwgK.
+.KgssssssssssSsssssssssSsssssgK.
+.KgSsSSSSsSSSSSSSsSSSSSSsSSSSgK.
+.KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK.
+KttttttttttttttttttttttttttttttK
+KddddddddddddddxxddddddddddddddK
+KddddddddddddndxxdnddddddddddddK
+KddddddddddddddxxddddddddddddddK
+KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK

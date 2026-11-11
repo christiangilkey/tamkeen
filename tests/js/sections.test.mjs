@@ -19,7 +19,7 @@ const hatched = (seed = 61) => { const s = newState(seed); s.creature.growth = 0
 const T0 = new Date("2026-11-06T09:00:00");
 
 test("each section is a screen of its own: its picture and name, no row of tabs", () => {
-  assert.deepEqual(Object.keys(SECTIONS).sort(), ["badges", "battle", "creatures", "friends", "garden", "mine", "shop", "supplies"]);
+  assert.deepEqual(Object.keys(SECTIONS).sort(), ["badges", "basket", "battle", "creatures", "fishdex", "fishing", "friends", "garden", "mine", "shop", "supplies"]);
   for (const id of Object.keys(SECTIONS)) {
     const s = screenOf(id);
     assert.equal(s.id, id);
@@ -35,7 +35,9 @@ test("each section is a screen of its own: its picture and name, no row of tabs"
 });
 
 test("Shop and My things share one switch, and so do Garden and Supplies, and Creatures and Badges; the switch marks where you are", () => {
-  assert.deepEqual(PAIRS, { shop: ["shop", "mine"], garden: ["garden", "supplies"], creatures: ["creatures", "badges"], battle: ["battle", "friends"] });
+  assert.deepEqual(PAIRS, { shop: ["shop", "mine"], garden: ["garden", "supplies"], creatures: ["creatures", "badges"], battle: ["battle", "friends"],
+    fishing: ["fishing", "basket", "fishdex"] });
+  assert.deepEqual(screenOf("basket").switch.map((o) => [o.id, o.word, o.on]), [["fishing", "Ponds", false], ["basket", "Basket", true], ["fishdex", "Fishdex", false]]);
   assert.deepEqual(screenOf("friends").switch.map((o) => [o.id, o.word, o.on]), [["battle", "Battle", false], ["friends", "Friends", true]]);
   assert.deepEqual(screenOf("shop").switch, [{ id: "shop", word: "Buy", on: true }, { id: "mine", word: "My things", on: false }]);
   assert.deepEqual(screenOf("supplies").switch.map((o) => [o.id, o.on]), [["garden", false], ["supplies", true]]);
@@ -52,6 +54,10 @@ test("every section can still be reached: from the home card's buttons, then a s
   assert.match(src("habitat.js"), /#g-battle"\)\.onclick = \(\) => openBattleMenu\(/);
   assert.match(src("battle-ui.js"), /openShop\("battle", /);
   reached.add("battle");
+  // The Fishing tile opens the pond (fishing-ui.js), whose basket button opens the Basket section of the sheet.
+  assert.match(src("habitat.js"), /#g-fishing"\)\.onclick = \(\) => openPond\(\{[^}]*sheet: go/);
+  assert.match(src("fishing-ui.js"), /opts\.sheet\("basket"\)/);
+  reached.add("basket");
   for (const pair of Object.values(PAIRS)) if (pair.some((id) => reached.has(id))) pair.forEach((id) => reached.add(id));
   assert.deepEqual([...reached].sort(), Object.keys(SECTIONS).sort());
 });
@@ -77,10 +83,14 @@ test("the head counts what the screen is paid with, and its '?' explains that", 
   assert.deepEqual(pillsOf("supplies", s).map((p) => [p.kind, p.n]), [["glow", 123], ["gems", 3]]);
   assert.deepEqual(pillsOf("creatures", s), []);
   assert.deepEqual(Object.fromEntries(Object.keys(SECTIONS).map((id) => [id, screenOf(id).help])),
-    { shop: "coin", mine: "coin", creatures: "evolve", badges: null, garden: "glow", supplies: "gem", battle: "battle", friends: "friends" });
+    { shop: "coin", mine: "coin", creatures: "evolve", badges: null, garden: "glow", supplies: "gem", battle: "battle", friends: "friends",
+      fishing: "fishing", basket: "fishing", fishdex: "fishing" });
+  s.fishing = { pearls: 7 };
+  assert.deepEqual(pillsOf("fishing", s), [{ kind: "pearls", icon: "pearl", n: 7 }]);
+  assert.deepEqual(pillsOf("basket", s).map((p) => [p.kind, p.n]), [["coins", 42], ["pearls", 7]]);
   assert.deepEqual(pillsOf("battle", s), [], "battles are paid with nothing");
   // The Battle screen's "?" and its Friends side's are their own explanations (shop.js picks them by name).
-  assert.match(src("shop.js"), /battle: battleHelp, friends: friendsHelp/);
+  assert.match(src("shop.js"), /battle: battleHelp, friends: friendsHelp, fishing: fishingHelp/);
 });
 
 test("pictures are drawn at whole-number sizes, and every thing on a screen has one", () => {

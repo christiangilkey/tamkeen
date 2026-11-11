@@ -8266,3 +8266,90 @@ moves parts of the existing drawings (nothing redrawn), then hand pixel fixes. T
   (2) tool wishes from the helpers, for later: a built-in "repaint lost outline" pass, an underlay for parts that move
   over the body, per-leg swing/lift, a hop and a galumph preset, rounding sway to whole pixels; (3) mini-game actions
   (run, jump, cheer, sad, cast...) are not drawn yet; (4) the stag doesn't get up or lie down in battles.
+
+## Creature game: Fishing, the first mini-game (2026-11-10; side session "Fishing mini-game: due words are the fish")
+The owner asked for mini-games on Roblox-style ideas (progression systems that feed each other, many rarity tiers,
+things others can see, an obvious loop, fluid movement) that "make reviewing words addictive", in this order: the
+review roll (loot.js, another chat), **fishing**, then farming (each word a plant; it will give bait to fishing), then
+racing. Fishing should feel like Animal Crossing. He approved the design below; the numbers are mine to tune.
+- **The loop.** Home's wide **Fishing** tile ("30 fish waiting") opens the pond straight away (`fishing-ui.js
+  openPond`): a full-screen scene like a live battle's (it shares `.live-wrap`; `role="dialog"`, so a controller
+  stays inside it). Each word due for review is a fish shadow; a bigger shadow is a luckier fish. Tap the water (or
+  **Cast**, Space, Enter) and the creature casts; the nearest shadow comes over, nibbles and bites, and that word's
+  card comes up: the meaning and four words, built by `rules.pickQuestion` (the battle's card and its `.lbq` styles),
+  12 seconds by the clock (`QUIZ_S`; leaving the app or closing the pond with a card open counts as a miss). Right:
+  hooked, and rolled. Wrong or too slow: it gets away. **Every answer goes through `fishing.record`, which calls
+  `rules.answerQuestion` (the same review record battles write) and then `loot.rollAnswer`** with `source: "fish"`,
+  `pay: false` (the fish is the reward), for wrong answers too (they end loot's answer streak and make boss words).
+  Keys 1 to 4 answer. Time in the pond counts as study time ("read", like the flashcards) while answers keep coming
+  (within a minute of the last one).
+- **Which words swim** (`fishing.pondShadows`, pure): due = the game's own review record says the wait is over, or
+  the game has never asked the word (as the Battle screen counts "words due"). Order: boss words (loot.isBoss), then
+  often-missed ones (wrong at least as often as right: a big shadow, luck x1.25), then the longest overdue, then
+  never-asked words the flashcards have due, then other never-asked ones; 12 at a time. Nothing due: six practice
+  shadows (the words that come due soonest), rolled as loot "extras" (luck x0.25). A missed word comes back after
+  three more bites. A word's fish is the same kind all day (seeded by word and day).
+- **Rarity.** The tier is loot.js's (ten tiers, luck, streak, pity, boss words, Golden hour: all shared with the
+  flashcards through `state.loot`). Fishing's own luck factor (`fishing.luckOf`): the rod (x1 to x1.35) times x1.25
+  when the creature out is in its own element's pond, times x1.25 for an often-missed word. **Legendary and up
+  fights back** (`fightLength`: one more right answer for Legendary to Ancient, two for Celestial and up), on other
+  words; the catch keeps the best tier rolled in the fight. A wrong answer in a fight: it breaks free and **waits in
+  that pond for the rest of the day** (`escape`, `state.fishing.escaped`); the next fish hooked there is it
+  (`hook`), and it must be fought again. An answer too fast for loot (under 1.2 s) doesn't roll: a Common at most.
+  The tier is told by the shared reveal (`reveal.js`): a chip over the scene for Common to Rare, the whole pond for
+  Epic and up; until it lands nothing gives the tier away (a fighting fish glows one pale gold, the fish leaps out in
+  its plain colours).
+- **Data** `fishdata.js` (imports nothing): six `PONDS` (one per element: Neon lagoon/tide and Lily pond/grove open
+  from the start; Hot spring/ember, Storm lake/spark, Crystal cave/stone, Moon pool/dusk open at 1, 2, 4, 6 gym
+  leaders beaten OR 30, 80, 160, 300 fish caught), 18 `FISH` (three per pond: small, middling, big; bigger shadows
+  are mostly the bigger kinds), `SELL` coins and `PEARLS` by tier, four `RODS` (0, 10, 30, 80 pearls), `SHADOWS`.
+- **Saved** in `state.fishing` (made and cleaned on first use by `fishing.fishingOf` / `cleanFishing`; rules.normalize
+  needed no change): pond, rod, rods, pearls, caught, `dex` (fish -> a bit per tier), `best` (longest per fish),
+  `bag` (the basket, 60 at most; past that the cheapest is sold for you), `tank` (the aquarium, six), `week` (this
+  week's biggest), `escaped`, `day` (catches today: the first 40 sell at full price, then less: rules.fade).
+- **What fish are for.** Sell (coins), feed to the creature out (a meal through idle.feed: hearts, three a day, Tide
+  loves fish), keep in the aquarium, fill the **Fishdex** (18 fish x 10 tiers = 180). Rarer fish hold **pearls**
+  (a new currency, `--pearl`, `amount("pearls")`, only found in fish), which buy rods. Nothing is bought with money
+  or coins that makes a roll, and nothing touches battle strength.
+- **Screens**: three new sections of the game sheet (`sections.js`: `fishing` "Ponds", `basket`, `fishdex`; one
+  switch; drawn by `fishscreen.js`; their "?" is `fishingHelp`). Ponds: Go fishing, pond tiles (locked ones say what
+  opens them), rods, your record, and "Biggest catch this week". Basket: the aquarium alive (`aquarium.js`), the
+  fish as tiles, a box per fish (Sell, Feed, Aquarium), "Sell the Common and Uncommon". Fishdex: a block per pond, a
+  pip per tier. The pond's basket button closes the pond and opens the Basket. In the habitat a small tank stands at
+  `homecard.TANK_X` (266) once a fish has been caught, its fish as tiny shapes in tier colours; a tap opens the Basket.
+- **Friends** see my aquarium and this week's biggest catch: `fishing.publicAquarium` rides in the game profile
+  (`friends-game.myPublicRow`, column `aquarium`), is checked on arrival by `remote.cleanAquarium` (only fish the game
+  has, tiers and lengths in range, six at most) and drawn without HTML (canvas pictures, names by textContent).
+  **Needs `supabase/v9-fishing.sql`, which the owner has NOT run yet** (one jsonb column on `game_profiles` with a
+  check; the row's existing rule already limits readers to friends and guild-mates, and v8's blocking covers it).
+  Until then social.js falls back (PGRST204 / 42703) and the board lists only you. Privacy policy updated
+  (docs/privacy.html, dated November 10, 2026).
+- **Animation.** The creature's own fishing frames (cast, wait, reel, catch, cheer) are NOT drawn. The pond asks
+  `render.animAt` for those action names, which fall back to idle today and will play real frames the day a look has
+  them; meanwhile the rod (a pixel line in the rod's colours, from the creature's front edge at hand height), the
+  line, the bobber's arc, a lean into the cast, the hop and happy eyes of a cheer and the fish held over its head are
+  drawn by the pond itself. An egg can fish too (its rod stands beside it). Drawing five actions for 36 looks is a
+  job the size of the walk/idle one: left as a decision for the owner (sent to the Decisions chat).
+- **Art**, all drawn in Aseprite through the MCP from text grids (the method Decisions #66 chose): 18 fish (24x16,
+  `web/game-art/fish/<id>.png`), `fish/dock.png`, `bobber.png`, `tank.png`, and icons `fishing`, `fish_shadow`,
+  `luck`, `pearl`, `basket`, `fishdex`, `aquarium`, `rod_<id>`. Grids `game/art-src/fish/grids/<name>.txt`, sources
+  `game/art-src/fish/<name>.aseprite`; `tools/game_art/fish_grids.py` previews a grid, prints it as the MCP's pixel
+  list, and checks each PNG equals its grid. From Rare up a fish gets an edge in its tier's colour (`fishart.js`).
+  The water, the shadows, ripples and splashes are drawn by code.
+- **Tests** `tests/js/fishing.test.mjs` (21); sections.test.mjs and friend-safety.test.mjs know the new sections and
+  the aquarium. Translations `tools/i18n/tr/<code>/170-fishing.txt` (141 strings).
+- **Checked** in a real window (pywebview against the dev server on a fresh data folder never signed in to Drive,
+  1000 px and phone width): Home tile, cast by tap and by button, bite, right and wrong answers, a forced Mythic that
+  fights, one that breaks free and comes back as "the one that got away", the reveal, catches saved, Basket, moving a
+  fish to the aquarium, Fishdex, the "?". Pictures and a GIF: `../tamkeen-shots/fishing/`. **Not checked**: a real
+  phone, a controller, two real accounts (the board and a friend's aquarium were only unit-tested), right-to-left by
+  eye, other ponds than the first two in play.
+- **Follow-ups**: (1) the creature's fishing frames (above); (2) run `supabase/v9-fishing.sql`; (3) farming's bait
+  should plug into `fishing.luckOf` (a factor) or `pondShadows`; (4) fish have no use for glow or gems on purpose;
+  (5) **the pond doesn't say the answered word aloud yet.** Battles are getting that (another chat's work: the shared
+  `web/js/snippetplayer.js`, not committed when fishing was, so fishing couldn't lean on it). Once it is in: in
+  fishing-ui.js make `const player = snippetPlayer(); const sayCard = cardSayer(player.playSnippet);` and call
+  `sayCard(word, "word")` in `choose()` when an answer was given (not with game sound off), and `player.stop();
+  stopDevice();` in `close()`, exactly as livebattle-ui.js `sayAnswer` does; (6) the pond has no sound of its own
+  beyond the game's chimes and the reveal's notes; (7) the pond's "Luck" box is fishing's own: loot's `luck.js
+  openLuck` could be linked from it.

@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Neon nga lagoon
+9f6560c3	Linaw sa liryo
+2c039d0d	Init nga tubod
+40288610	Lanaw sa bagyo
+b213032e	Linaw sa bulan
+b5c7618d	Guppy nga bula
+1332ef34	Clownfish nga neon
+ee56827f	Pagi sa balud
+727cda3e	Minnow nga dahon
+e5ab8697	Koi nga lotus
+2eb0ea04	Pike nga lumot
+12854b69	Tetra nga baga
+a4905779	Butete nga magma
+29d1e4ee	Gar nga lava
+b5f0ba84	Danio nga kuryente
+b3b8a72e	Angelfish nga neon
+460a42db	Kasili nga boltahe
+6beffc46	Loach nga bato
+dc71cadb	Trout nga kristal
+2c87e4d6	Coelacanth nga fossil
+9d7fd5d5	Isda sa bulan
+a91edea6	Anglerfish nga parol
+621ac06c	Koi nga multo
+5d8164b7	Pasol nga sanga
+7b1717ce	Pasol nga kawayan
+f21102f4	Pasol nga neon
+2396c5cc	Pasol nga bituon
+f5e1a027	Ilisan ang linaw
+fd16b79e	Mga pulong nga para sa review: isda ang matag usa
+1e2db7a2	Unsa ka suwerte ang paglabay dinhi
+b0e7db56	Mga perlas
+e3ccfeef	Golden hour: triple ang suwerte
+d0a24ee1	Imong basket
+1ea575fe	Ang linaw: i-tap ang tubig aron molabay
+60745aef	Ilabay
+654b39f2	Misukol kini! Pangandam…
+8297bb17	Nadakpan!
+7e23668d	Nakabuhi kini…
+0bb2df3e	Biraha
+a258217d	Paabot nga naay mokubit…
+6ea116ca	Wala nay isda sa pagkakaron. Balik kon naa nay dugang pulong nga para sa review.
+30a5a6dd	Walay para sa review: mga isda ni nga pang-praktis, mas ubos ang suwerte.
+22f5f1c5	I-tap ang tubig aron molabay. Mas dako nga anino, mas suwerte nga isda.
+fcd4323b	Hinay ra kaayo: nakabuhi kini
+77c53b8a	Sayop nga tubag: nakabuhi kini
+dea9fad3	Kabalo na kaayo ka niana nga pulong karon.
+8789254f	Naay mikubit!
+090d931a	Mao ni ang nakabuhi kaniadto!
+d4d0b0bb	Misukol kini!
+316262b1	Kupti pag-ayo! Usa pa
+d0e3caee	Kupti pag-ayo! {0} pa
+cb73df46	Nakabuhi kini! Naa pa kini diha…
+f636ca14	Mangisda pa
+dae9bda3	Ang nakabuhi kaniadto
+e4c6bee4	Bag-ong isda!
+2c9c57ba	Bag-o sa imong Fishdex
+cc332e84	Imong pinakataas hangtod karon
+7c65cfb1	Napildi ang boss nga pulong
+a1e2f2a9	Pila kini mabaligya
+e32ce617	Mga perlas nga nakuha sulod niini
+c7a65b08	Unsa ka suwerte kining paglabay
+6a432eaa	Golden hour! Triple ang suwerte sulod sa 10 ka minuto.
+48bc8163	Mga linaw
+f1da55b6	Pildiha ang {0} ka gym leader o pagdakop og {1} ka isda aron maablihan kini.
+727c352e	Tubig nga {0}. Puy-anan sa imong linalang: suwerte ×{1}
+7eab0796	Tubig nga {0}
+4fc5a645	Naay dako nga nakabuhi dinhi karong adlawa. Naa pa kini diha…
+1c295a8a	Suwerte
+1bde5b86	Imong pasol: {0}
+9b05ae05	Tubig nga puy-anan sa imong linalang
+aa9b9fb6	Dili tubig nga puy-anan sa imong linalang
+502eec8e	Pulong nga para sa review
+ad8b49d8	Pulong nga kanunay nimong masayop (dako nga anino)
+c7c5876d	Isda nga pang-praktis (pulong nga dili pa para sa review)
+252b249d	Kon mas taas ang suwerte, mas dako ang tsansa sa mas talagsaong lebel. Makadugang pa ang sunod-sunod nga sakto nga tubag, ug ang Golden hour usab. Perlas ang ipalit og mas maayong pasol, ug makit-an kini sulod sa mas talagsaong isda.
+f53bfbce	Walay sulod ang linaw
+13d6164a	Ang mga isda mao ang imong gi-save nga mga pulong. Pag-save og labing menos upat ka pulong nga naay kahulogan, ug manglangoy sila dinhi.
+9ebfea5c	Wala sa imong basket kanang isdaa.
+f58aae7d	Puno na ang aquarium. Pagkuha una og usa ka isda.
+a8b78cd0	Wala sa imong aquarium kanang isdaa.
+257c0f9e	Puno na ang imong basket. Pagbaligya una og pipila ka isda.
+a6b82b99	Walay ingon niana nga pasol.
+7dc0e760	Kinahanglan pa nimo og {0} ka perlas.
+f3764c58	Mangisda
+6ef05b75	Walay para sa review: mangisda para praktis, mas ubos ang suwerte.
+03969c1c	1 ka isda ang naghulat: usa ka pulong nga para sa review
+d9b7087f	{0} ka isda ang naghulat: imong mga pulong nga para sa review
+25166bdb	Mga pasol
+a7e1cdb3	Mga isda nga nadakpan
+076b4b76	Fishdex
+0e520bb7	Naa sa imong basket
+34958467	Pinakadako karong semanaha
+08d321a8	Mga gym leader nga napildi
+f1433030	Bisan asa sa duha ang moabli niining linaw: pildiha ang {0} ka gym leader, o pagdakop og {1} ka isda. Tubig nga {2} kini ug naay tulo ka kaugalingong isda.
+d4c43b8e	Ang mas maayong pasol mohimo sa matag paglabay nga mas suwerte, sa tanang linaw. Makit-an ang mga perlas sulod sa mas talagsaong isda.
+377f415d	Gamita kini
+5639d93a	Pinakadakong kuha karong semanaha
+ef73a3d1	Wala pay nakadakop og isda karong semanaha.
+179491c1	Aquarium ni {0}
+14a507c2	Naa sa aquarium
+baada136	Wala pay sulod ang iyang aquarium sa pagkakaron.
+bc89ab2a	Aquarium
+a7e65514	Ibutang dinhi ang imong pinakanindot nga mga isda. Makita sa imong mga higala ang imong aquarium.
+020b4183	Basket
+97b3200f	Walay sulod ang imong basket.
+d61ed78f	Ibaligya ang {0} ka isda nga Kasagaran ug Dili kasagaran: +{1}
+f6cd9e3e	Nabaligya ang {0} ka isda: +{1} ka coin
+a3e1e99f	Rarity
+3bade34e	Gitas-on
+156c1d9b	Presyo sa baligya
+3690e6b5	Puno na ang aquarium: pagkuha una og usa ka isda.
+fa3cf2ad	Ibaligya
+d859bff5	Ganahan kaayo kini! {0} sa 5 ka kasingkasing
+4351a5d2	Lami. {0} sa 5 ka kasingkasing
+599d557a	Naa sa imong aquarium, diin makita kini sa imong mga higala.
+adb14a77	Kuhaa
+88e89a69	Matag isda sa matag lebel, gikan sa Kasagaran hangtod sa Mahangtoron.
+691955e0	Pinakataas
+1c89d7ea	Mga lebel nga nadakpan
+ffc960c4	Pinakamahal nga baligya
+9ad04b29	Unsaon pagdula sa pangisda
+30a8f681	Ang linaw
+443c79b1	Matag pulong nga para sa review usa ka isda sa tubig. Mas dako nga anino, mas suwerte nga isda: pulong nga kanunay nimong masayop, o boss nga pulong.
+df9d041f	Kon walay para sa review, makapangisda gihapon ka para praktis, mas ubos lang ang suwerte.
+1f5ffcc4	Labay, kubit, tubag
+ea1845a5	I-tap ang tubig aron molabay. Kon naay mokubit nga isda, mogawas ang card sa pulong niini: pilia ang pulong nga mohaom sa kahulogan nga gipakita. Sa sakto nga tubag, masangit ang isda.
+9c750d6d	Kon sayop ang tubag, o walay tubag sulod sa 12 ka segundo, makabuhi kini: mas sayo mobalik kanang pulonga.
+e3a07cb5	Matag tubag maisip nga usa ka review, sama sa sangka.
+ff2fcc9b	Matag isda nga imong madakpan giripa sa napulo ka lebel, gikan sa Kasagaran hangtod sa Mahangtoron. Ang suwerte mopadako sa tsansa sa mga talagsaon: pulong nga para sa review, sunod-sunod nga sakto nga tubag, imong pasol, ug ang pagpangisda sa imong linalang sa tubig sa kaugalingon niining elemento.
+068e173d	Ang Legendaryo o mas taas pa mosukol: usa o duha pa ka sunod-sunod nga sakto nga tubag aron madakpan kini. Kon makabuhi kini, magpabilin kini nianang linawa tibuok adlaw, ug mao kini ang sunod nga isda nga imong masangit didto.
+22fa76d4	Ang tubag nga paspas ra kaayo aron mabasa pa ang pangutana makakuha ra og Kasagaran nga isda.
+591d814a	Para sa unsa ang mga isda
+a729c3a5	Ibaligya sila para sa coin, ipakaon ang usa sa imong linalang para sa usa ka kasingkasing, o ibutang ang imong pinakanindot sa aquarium, diin makita sila sa imong mga higala.
+198f7712	Naay perlas ang mas talagsaong isda. Perlas ang ipalit og mas maayong pasol, ug ang mas maayong pasol mohimo sa matag paglabay nga mas suwerte.
+61c60555	Gitipigan sa Fishdex ang matag isda sa matag lebel nga imong nadakpan.
+7c271a13	Matag linaw naay tulo ka kaugalingong isda. Mas daghang linaw ang maablihan samtang mopildi ka og mga gym leader o makadakop og dugang isda.
+142d55e3	Patas nga dula
+c3d13fa6	Walay bisan unsa dinhi nga paliton og kuwarta, ug walay bisan unsa dinhi nga mopakusog sa linalang sa mga sangka.
+cadfb5be	Pangisda
+0d4de321	1 ka isda ang naghulat
+b3de3d27	{0} ka isda ang naghulat

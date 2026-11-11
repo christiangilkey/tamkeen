@@ -1,0 +1,23 @@
+# icon: fishdex: a closed teal book with a small fish on its cover
+K #0b2f40
+t #1fc7b6
+d #128a80
+w #f2f4ff
+f #ffd95a
+--
+................
+.KKKKKKKKKKKK...
+.KdttttttttttK..
+.KdttttttttttKK.
+.KdttttttttttKwK
+.KdtfttffffttKwK
+.KdtffffffKftKwK
+.KdtfttffffttKwK
+.KdttttttttttKwK
+.KdttddddddttKwK
+.KdttttttttttKwK
+.KdttttttttttKwK
+.KdKKKKKKKKKKKwK
+.KKwwwwwwwwwwwwK
+..KKKKKKKKKKKKK.
+................

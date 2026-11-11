@@ -85,6 +85,8 @@ export function tileDots(state, { online = null, seen = null, now = new Date() }
 // Where things to collect stand in the scene (between the building plots, data.PLOTS).
 export const GIFT_X = 214;
 export const EGG_X = 106;
+/** Where the aquarium stands, once a fish has been caught (fishing.js; the tank is game-art/fish/tank.png). */
+export const TANK_X = 266;
 
 /**
  * Things in the scene to tap: a building with glow waiting {kind: "glow", plot, x}, a friend's gift

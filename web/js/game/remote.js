@@ -8,6 +8,7 @@
 
 import { CATALOG, LEAGUES, MOVES, SLOTS, STAGES, TYPES, VARIANTS } from "./data.js";
 import { newGenome } from "./genome.js";
+import { FISH, TANK_SIZE, TIER_COUNT } from "./fishdata.js";
 import { isLanguage } from "../languages.js";
 
 const own = (table, key) => typeof key === "string" && Object.prototype.hasOwnProperty.call(table, key);
@@ -94,6 +95,27 @@ export function cleanGenome(g) {
   return out;
 }
 
+/** A fish a friend shows ({sp, t, cm}): a kind the game has, a tier it has, a sane length; null otherwise. */
+export function cleanFish(v) {
+  if (!isObject(v) || typeof v.sp !== "string" || !FISH.some((f) => f.id === v.sp)) return null;
+  if (typeof v.cm !== "number" || !Number.isFinite(v.cm)) return null;
+  return { sp: v.sp, t: clampInt(v.t, 0, TIER_COUNT - 1, 0), cm: Math.max(1, Math.min(999, Math.round(v.cm * 10) / 10)) };
+}
+
+/**
+ * A friend's aquarium (fishing.publicAquarium), checked: {tank: up to TANK_SIZE fish, week, best: this week's biggest
+ * catch or null, dex: how much of the Fishdex they have}. null when it isn't one.
+ */
+export function cleanAquarium(v) {
+  if (!isObject(v)) return null;
+  return {
+    tank: (Array.isArray(v.tank) ? v.tank.slice(0, TANK_SIZE * 4) : []).map(cleanFish).filter(Boolean).slice(0, TANK_SIZE),
+    week: Number.isInteger(v.week) && v.week >= 0 && v.week < 1e6 ? v.week : null,
+    best: cleanFish(v.best),
+    dex: clampInt(v.dex, 0, FISH.length * TIER_COUNT, 0),
+  };
+}
+
 /** A friend's team: up to three checked creatures. */
 export function cleanTeam(team) {
   if (!Array.isArray(team)) return [];
@@ -118,6 +140,7 @@ export function cleanProfile(row) {
     xp_day: typeof row.xp_day === "string" && /^\d{4}-\d{2}-\d{2}$/.test(row.xp_day) ? row.xp_day : null,
     xp_today: clampInt(row.xp_today, 0, LIMITS.xpToday, 0),
     showcase: cleanGenome(row.showcase),
+    aquarium: cleanAquarium(row.aquarium), // (fishing: their aquarium and this week's biggest catch; null from an older app)
     updated_at: cleanDate(row.updated_at),
   };
   if (typeof row.user_id === "string" && row.user_id.length <= 64) out.user_id = row.user_id;

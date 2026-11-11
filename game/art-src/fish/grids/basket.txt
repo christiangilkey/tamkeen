@@ -1,0 +1,23 @@
+# icon: basket: a wicker fishing creel with a lid, a handle strap and a leather band with a buckle
+K #3a2418
+t #dcaa5e
+s #a8703a
+b #8a4f28
+h #f6d994
+--
+................
+....KKKKKKKK....
+...KbbbbbbbbK...
+..KbKKKKKKKKbK..
+..KbK......KbK..
+.KKKKKKKKKKKKKK.
+KhhhhhhhhhhhhttK
+KttttttttttttssK
+KKKKKKKKKKKKKKKK
+.KtstststststsK.
+.KststststststK.
+.KbbbbbKKbbbbbK.
+.KststsKKtststK.
+.KtstststststsK.
+..KststststssK..
+...KKKKKKKKKK...

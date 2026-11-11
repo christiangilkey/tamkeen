@@ -1,0 +1,21 @@
+# icon: rod_twig: a rough twig fishing rod with a twig stub and a knot
+D #3a2418
+M #8a5a34
+L #c9a070
+--
+................
+..............D.
+............DDL.
+...........DMDL.
+........D.DMD.L.
+.......DMDLD..L.
+.......DMMD...L.
+.......DMMD...L.
+......DLMD....L.
+.....DMMD...L.L.
+....DLMD....L.L.
+...DMMDDD....L..
+..DLDDMLMD......
+.DLMDDMMMD......
+DMMD..DDD.......
+DDD.............

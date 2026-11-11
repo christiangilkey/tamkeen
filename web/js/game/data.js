@@ -7,6 +7,7 @@
 
 import { BEASTS } from "./beasts.js";
 import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND, terrainArtFiles as arenaArtFiles } from "./battlemap.js";
+import { FISH, FISH_ART, RODS } from "./fishdata.js";
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
@@ -660,6 +661,12 @@ export function artFiles() {
   for (const pr of Object.values(ARENA_PROPS)) extra(pr.art, pr.size);
   // ...and anything else the arenas draw (the decals on the ground...), as battlemap.js lists it
   const listed = new Set(out.map((f) => f.file));
+  // Fishing (fishdata.js): each fish, the pond's pieces, the habitat's aquarium, and the icons of its screens.
+  for (const f of FISH) extra(`fish/${f.id}.png`, FISH_ART);
+  extra("fish/dock.png", [64, 28]);
+  extra("fish/bobber.png", [8, 8]);
+  extra("fish/tank.png", [32, 24]);
+  for (const id of ["fishing", "fish_shadow", "luck", "pearl", "basket", "fishdex", "aquarium", ...RODS.map((r) => `rod_${r.id}`)]) extra(`icon/${id}.png`, [16, 16]);
   for (const file of arenaArtFiles()) if (!listed.has(file)) { listed.add(file); extra(file, [16, 16]); }
   return out;
 }

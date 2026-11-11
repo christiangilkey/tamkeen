@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Laguna de neón
+9f6560c3	Estanque de nenúfares
+2c039d0d	Manantial termal
+40288610	Lago de la tormenta
+b213032e	Poza de la luna
+b5c7618d	Guppy burbuja
+1332ef34	Pez payaso neón
+ee56827f	Raya de marea
+727cda3e	Piscardo hoja
+e5ab8697	Koi de loto
+2eb0ea04	Lucio de musgo
+12854b69	Tetra brasa
+a4905779	Pez globo de magma
+29d1e4ee	Pejelagarto de lava
+b5f0ba84	Danio chispazo
+b3b8a72e	Pez ángel neón
+460a42db	Anguila voltio
+6beffc46	Locha de guijarros
+dc71cadb	Trucha de cristal
+2c87e4d6	Celacanto fósil
+9d7fd5d5	Pez luna
+a91edea6	Rape linterna
+621ac06c	Koi fantasma
+5d8164b7	Caña de ramita
+7b1717ce	Caña de bambú
+f21102f4	Caña de neón
+2396c5cc	Caña estelar
+f5e1a027	Cambiar de estanque
+fd16b79e	Palabras para repasar: cada una es un pez
+1e2db7a2	La suerte que tienes al lanzar aquí
+b0e7db56	Perlas
+e3ccfeef	Hora dorada: suerte triple
+d0a24ee1	Tu cesta
+1ea575fe	El estanque: toca el agua para lanzar
+60745aef	Lanzar
+654b39f2	¡Se resiste! Prepárate…
+8297bb17	¡Lo tienes!
+7e23668d	Se escapó…
+0bb2df3e	Recoger
+a258217d	Espera a que pique…
+6ea116ca	Por ahora no hay más peces. Vuelve cuando tengas más palabras para repasar.
+30a5a6dd	No hay nada pendiente: estos son peces de práctica, con menos suerte.
+22f5f1c5	Toca el agua para lanzar. Una sombra más grande es un pez con más suerte.
+fcd4323b	Demasiado lento: se escapó
+77c53b8a	Respuesta incorrecta: se escapó
+dea9fad3	Ahora te sabes bien esa palabra.
+8789254f	¡Pica!
+090d931a	¡Es el que se te escapó!
+d4d0b0bb	¡Se resiste!
+316262b1	¡Aguanta! Una más
+d0e3caee	¡Aguanta! {0} más
+cb73df46	¡Se soltó! Sigue por ahí…
+f636ca14	Seguir pescando
+dae9bda3	El que se te escapó
+e4c6bee4	¡Pez nuevo!
+2c9c57ba	Nuevo en tu Fishdex
+cc332e84	Tu récord de longitud
+7c65cfb1	Palabra jefe vencida
+a1e2f2a9	Por cuánto se vende
+e32ce617	Perlas que tenía dentro
+c7a65b08	La suerte que tuvo este lanzamiento
+6a432eaa	¡Hora dorada! Suerte triple durante 10 minutos.
+48bc8163	Estanques
+f1da55b6	Vence a {0} de los líderes de gimnasio o pesca {1} peces para abrirlo.
+727c352e	Agua de {0}. Es el elemento de tu criatura: suerte ×{1}
+7eab0796	Agua de {0}
+4fc5a645	Hoy se te escapó algo grande aquí. Sigue por ahí…
+1c295a8a	Suerte
+1bde5b86	Tu caña: {0}
+9b05ae05	Agua del elemento de tu criatura
+aa9b9fb6	No es agua del elemento de tu criatura
+502eec8e	Una palabra para repasar
+ad8b49d8	Una palabra que fallas a menudo (una sombra grande)
+c7c5876d	Un pez de práctica (una palabra que aún no toca repasar)
+252b249d	La suerte hace más probables las rarezas más altas. Las respuestas correctas seguidas dan más suerte, y una Hora dorada también. Las cañas mejores se compran con perlas, que salen de los peces más raros.
+f53bfbce	El estanque está vacío
+13d6164a	Los peces son tus palabras guardadas. Guarda al menos cuatro palabras con su significado y las verás nadando aquí.
+9ebfea5c	Ese pez no está en tu cesta.
+f58aae7d	El acuario está lleno. Saca un pez primero.
+a8b78cd0	Ese pez no está en tu acuario.
+257c0f9e	Tu cesta está llena. Vende algunos peces primero.
+a6b82b99	Esa caña no existe.
+7dc0e760	Perlas que te faltan: {0}.
+f3764c58	Ir a pescar
+6ef05b75	No hay nada pendiente: pesca para practicar, con menos suerte.
+03969c1c	1 pez te espera: una palabra para repasar
+d9b7087f	{0} peces te esperan: tus palabras para repasar
+25166bdb	Cañas
+a7e1cdb3	Peces pescados
+076b4b76	Fishdex
+0e520bb7	En tu cesta
+34958467	El más grande de la semana
+08d321a8	Líderes de gimnasio vencidos
+f1433030	Cualquiera de las dos cosas abre este estanque: vencer a {0} de los líderes de gimnasio o pescar {1} peces. Tiene agua de {2} y tres peces propios.
+d4c43b8e	Una caña mejor te da más suerte en cada lanzamiento, en todos los estanques. Las perlas están dentro de los peces más raros.
+377f415d	Usarla
+5639d93a	La mayor captura de la semana
+ef73a3d1	Nadie ha pescado nada aún esta semana.
+179491c1	El acuario de {0}
+14a507c2	En el acuario
+baada136	Su acuario está vacío por ahora.
+bc89ab2a	Acuario
+a7e65514	Guarda aquí tus mejores peces. Tus amigos pueden ver tu acuario.
+020b4183	Cesta
+97b3200f	Tu cesta está vacía.
+d61ed78f	Vender los Comunes y Poco comunes ({0}): +{1}
+f6cd9e3e	Peces vendidos: {0}. Monedas: +{1}
+a3e1e99f	Rareza
+3bade34e	Longitud
+156c1d9b	Se vende por
+3690e6b5	El acuario está lleno: saca un pez primero.
+fa3cf2ad	Vender
+d859bff5	¡Le encantó! {0} de 5 corazones
+4351a5d2	Ñam. {0} de 5 corazones
+599d557a	En tu acuario, donde tus amigos pueden verlo.
+adb14a77	Sacar
+88e89a69	Todos los peces en todas las rarezas, de Común a Eterno.
+691955e0	El más largo
+1c89d7ea	Rarezas pescadas
+ffc960c4	El mejor se vende por
+9ad04b29	Cómo funciona la pesca
+30a8f681	El estanque
+443c79b1	Cada palabra para repasar es un pez en el agua. Una sombra más grande es un pez con más suerte: una palabra que fallas a menudo, o una palabra jefe.
+df9d041f	Cuando no hay nada pendiente, puedes pescar igualmente para practicar, con menos suerte.
+1f5ffcc4	Lanzas, pica, respondes
+ea1845a5	Toca el agua para lanzar. Cuando un pez pica, aparece la tarjeta de su palabra: elige la palabra que significa lo que pone. Una respuesta correcta engancha al pez.
+9c750d6d	Con una respuesta incorrecta, o sin respuesta en 12 segundos, se escapa: esa palabra vuelve antes.
+e3a07cb5	Cada respuesta cuenta como un repaso, igual que en una batalla.
+ff2fcc9b	Cada pez que pescas sale con una de diez rarezas, de Común a Eterno. La suerte hace más probables las más altas. Dan suerte: una palabra que tocaba repasar, las respuestas correctas seguidas, tu caña y que tu criatura pesque en el agua de su propio elemento.
+068e173d	Un Legendario o mejor se resiste: hacen falta una o dos respuestas correctas seguidas más para sacarlo del agua. Si se suelta, se queda en ese estanque todo el día, y el siguiente pez que enganches allí será ese.
+22fa76d4	Si respondes tan rápido que no has podido leer, sale como mucho un pez Común.
+591d814a	Para qué sirven los peces
+a729c3a5	Véndelos por monedas, dale uno de comer a tu criatura para ganar un corazón, o guarda los mejores en el acuario, donde tus amigos pueden verlos.
+198f7712	Los peces más raros llevan perlas dentro. Con las perlas se compran cañas mejores, y una caña mejor te da más suerte en cada lanzamiento.
+61c60555	La Fishdex guarda cada pez en cada rareza que has pescado.
+7c271a13	Cada estanque tiene tres peces propios. Se abren más estanques a medida que vences a líderes de gimnasio o pescas más peces.
+142d55e3	Juego limpio
+c3d13fa6	Aquí nada se compra con dinero, y nada de esto hace más fuerte a una criatura en las batallas.
+cadfb5be	Pesca
+0d4de321	1 pez te espera
+b3de3d27	{0} peces te esperan

@@ -1,0 +1,24 @@
+# icon: aquarium: a glass fish tank with water, a small fish and a plant
+K #0c2f55
+w #18a6d9
+l #8fe9ff
+g #3ddc5a
+o #ff8a3d
+s #f0cf7a
+--
+................
+KKKKKKKKKKKKKKKK
+.K............K.
+.KllllllllllllK.
+.KwwwwwwwwwwwwK.
+.KwgwwwwwwwwlwK.
+.KwgwgwowooowwK.
+.KwggwwwoooKowK.
+.KwwgwwowooowwK.
+.KwggwwwwwwwwwK.
+.KwwgwgwwwwwwwK.
+.KwggggwwwwwwwK.
+.KssssssssssssK.
+.KKKKKKKKKKKKKK.
+KKKKKKKKKKKKKKKK
+................

@@ -1,0 +1,21 @@
+# icon: rod_star: a golden fishing rod with a small star at its tip
+D #4a2c08
+M #e0a020
+L #fff0a0
+--
+............DLD.
+...........DLLLD
+............DLD.
+...........DLDM.
+..........DLD.M.
+.........DMD..M.
+........DLD...M.
+.......DLMD...M.
+......DLMD....M.
+.....DLMD...M.M.
+....DLMD....M.M.
+...DLMDDD....M..
+..DLMDMLMD......
+.DLMDDMMMD......
+DMMD..DDD.......
+DDD.............

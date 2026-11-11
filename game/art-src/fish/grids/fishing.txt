@@ -1,0 +1,23 @@
+# icon: Fishing button: a rod with a cyan fish hanging from its line
+K #0c2f55
+t #05d9e8
+d #0a7fa6
+h #b8fbff
+r #c2701c
+--
+................
+..........KKd...
+.........KrKd...
+........KrK.d...
+.......KrK..d...
+......KrK...d...
+.....KrrK..KKK..
+....KrrK..KtttK.
+...KrrK..KtKttdK
+..KrrK...KhtttdK
+.KrrK....KhttddK
+KrrK......KtddK.
+KrK........KdK..
+KK........KtdtK.
+.........KtK.KtK
+.........KK...KK

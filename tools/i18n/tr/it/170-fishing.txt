@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Laguna al neon
+9f6560c3	Laghetto delle ninfee
+2c039d0d	Sorgente termale
+40288610	Lago della tempesta
+b213032e	Pozza di luna
+b5c7618d	Guppy bollicina
+1332ef34	Pesce pagliaccio al neon
+ee56827f	Razza della marea
+727cda3e	Vairone foglia
+e5ab8697	Koi del loto
+2eb0ea04	Luccio del muschio
+12854b69	Tetra brace
+a4905779	Pesce palla di magma
+29d1e4ee	Lepisosteo di lava
+b5f0ba84	Danio lampo
+b3b8a72e	Pesce angelo al neon
+460a42db	Anguilla volt
+6beffc46	Cobite sassolino
+dc71cadb	Trota di cristallo
+2c87e4d6	Celacanto fossile
+9d7fd5d5	Pesce luna
+a91edea6	Pescatrice lanterna
+621ac06c	Koi fantasma
+5d8164b7	Canna di rametto
+7b1717ce	Canna di bambù
+f21102f4	Canna al neon
+2396c5cc	Canna stellare
+f5e1a027	Cambia laghetto
+fd16b79e	Parole da ripassare: ognuna è un pesce
+1e2db7a2	Quanta fortuna ha un lancio qui
+b0e7db56	Perle
+e3ccfeef	Ora d'oro: fortuna tripla
+d0a24ee1	Il tuo cesto
+1ea575fe	Il laghetto: tocca l'acqua per lanciare
+60745aef	Lancia
+654b39f2	Si dibatte! Preparati…
+8297bb17	Preso!
+7e23668d	È scappato…
+0bb2df3e	Ritira
+a258217d	Aspetta che abbocchi…
+6ea116ca	Per ora non ci sono altri pesci. Torna quando avrai altre parole da ripassare.
+30a5a6dd	Niente da ripassare: questi sono pesci di allenamento, con meno fortuna.
+22f5f1c5	Tocca l'acqua per lanciare. Un'ombra più grande vuol dire più fortuna.
+fcd4323b	Troppo lento: è scappato
+77c53b8a	Risposta sbagliata: è scappato
+dea9fad3	Ora conosci bene quella parola.
+8789254f	Abbocca!
+090d931a	È quello che ti era scappato!
+d4d0b0bb	Si dibatte!
+316262b1	Tieni duro! Ancora una
+d0e3caee	Tieni duro! Ancora {0}
+cb73df46	Si è liberato! È ancora lì da qualche parte…
+f636ca14	Continua a pescare
+dae9bda3	Quello che ti era scappato
+e4c6bee4	Nuovo pesce!
+2c9c57ba	Nuovo nel tuo Fishdex
+cc332e84	Il tuo più lungo finora
+7c65cfb1	Parola boss battuta
+a1e2f2a9	Il suo prezzo di vendita
+e32ce617	Perle trovate al suo interno
+c7a65b08	Quanta fortuna ha avuto questo lancio
+6a432eaa	Ora d'oro! Fortuna tripla per 10 minuti.
+48bc8163	Laghetti
+f1da55b6	Batti {0} dei capipalestra o pesca {1} pesci per aprirlo.
+727c352e	Acqua {0}. La tua creatura è nel suo elemento: fortuna ×{1}
+7eab0796	Acqua {0}
+4fc5a645	Oggi qui è scappato qualcosa di grosso. È ancora lì da qualche parte…
+1c295a8a	Fortuna
+1bde5b86	La tua canna: {0}
+9b05ae05	La tua creatura è nel suo elemento
+aa9b9fb6	La tua creatura non è nel suo elemento
+502eec8e	Una parola da ripassare
+ad8b49d8	Una parola che sbagli spesso (un'ombra grande)
+c7c5876d	Un pesce di allenamento (una parola che non è da ripassare)
+252b249d	La fortuna rende più probabili le rarità più alte. Le risposte giuste di fila ne aggiungono altra, e così anche un'Ora d'oro. Le canne migliori si comprano con le perle, che si trovano dentro i pesci più rari.
+f53bfbce	Il laghetto è vuoto
+13d6164a	I pesci sono le tue parole salvate. Salva almeno quattro parole con il loro significato e le vedrai nuotare qui.
+9ebfea5c	Quel pesce non è nel tuo cesto.
+f58aae7d	L'acquario è pieno. Prima togli un pesce.
+a8b78cd0	Quel pesce non è nel tuo acquario.
+257c0f9e	Il tuo cesto è pieno. Prima vendi qualche pesce.
+a6b82b99	Questa canna non esiste.
+7dc0e760	Ti servono altre {0} perle.
+f3764c58	Vai a pescare
+6ef05b75	Niente da ripassare: pesca per allenarti, con meno fortuna.
+03969c1c	1 pesce ti aspetta: una parola da ripassare
+d9b7087f	{0} pesci ti aspettano: le tue parole da ripassare
+25166bdb	Canne da pesca
+a7e1cdb3	Pesci pescati
+076b4b76	Fishdex
+0e520bb7	Nel tuo cesto
+34958467	Il più grosso della settimana
+08d321a8	Capipalestra battuti
+f1433030	Basta una delle due cose per aprire questo laghetto: batti {0} dei capipalestra, oppure pesca {1} pesci. La sua acqua è dell'elemento {2}, e ha tre pesci tutti suoi.
+d4c43b8e	Una canna migliore porta più fortuna a ogni lancio, in ogni laghetto. Le perle si trovano dentro i pesci più rari.
+377f415d	Usala
+5639d93a	Cattura più grossa della settimana
+ef73a3d1	Questa settimana nessuno ha ancora pescato un pesce.
+179491c1	Acquario di {0}
+14a507c2	Nell'acquario
+baada136	Per ora il suo acquario è vuoto.
+bc89ab2a	Acquario
+a7e65514	Tieni qui i tuoi pesci migliori. I tuoi amici possono vedere il tuo acquario.
+020b4183	Cesto
+97b3200f	Il tuo cesto è vuoto.
+d61ed78f	Vendi i {0} pesci Comuni e Non comuni: +{1}
+f6cd9e3e	Hai venduto {0} pesci: +{1} monete
+a3e1e99f	Rarità
+3bade34e	Lunghezza
+156c1d9b	Prezzo di vendita
+3690e6b5	L'acquario è pieno: prima togli un pesce.
+fa3cf2ad	Vendi
+d859bff5	L'ha adorato! {0} cuori su 5
+4351a5d2	Gnam. {0} cuori su 5
+599d557a	Nel tuo acquario, dove i tuoi amici possono vederlo.
+adb14a77	Togli
+88e89a69	Tutti i pesci in tutte le rarità, da Comune a Eterno.
+691955e0	Il più lungo
+1c89d7ea	Rarità pescate
+ffc960c4	Miglior prezzo di vendita
+9ad04b29	Come funziona la pesca
+30a8f681	Il laghetto
+443c79b1	Ogni parola da ripassare è un pesce nell'acqua. Un'ombra più grande vuol dire più fortuna: è una parola che sbagli spesso, o una parola boss.
+df9d041f	Quando non c'è niente da ripassare puoi comunque pescare per allenarti, con meno fortuna.
+1f5ffcc4	Lancia, abbocca, rispondi
+ea1845a5	Tocca l'acqua per lanciare. Quando un pesce abbocca, compare la scheda della sua parola: scegli la parola che ha il significato indicato. Con una risposta giusta il pesce resta all'amo.
+9c750d6d	Con una risposta sbagliata, o nessuna entro 12 secondi, scappa: quella parola tornerà prima.
+e3a07cb5	Ogni risposta conta come un ripasso, proprio come in battaglia.
+ff2fcc9b	Per ogni pesce che prendi, la rarità viene estratta a sorte tra dieci, da Comune a Eterno. La fortuna rende più probabili quelle più rare: una parola che era da ripassare, le risposte giuste di fila, la tua canna e la tua creatura quando pesca nell'acqua del proprio elemento.
+068e173d	Un pesce Leggendario o più raro si dibatte: servono ancora una o due risposte giuste di fila per prenderlo. Se si libera resta in quel laghetto tutto il giorno, e il prossimo pesce che abbocca lì è lui.
+22fa76d4	Una risposta data troppo in fretta per aver letto la scheda fa prendere al massimo un pesce Comune.
+591d814a	A cosa servono i pesci
+a729c3a5	Vendili in cambio di monete, danne uno da mangiare alla tua creatura per un cuore, oppure tieni i migliori nell'acquario, dove i tuoi amici possono vederli.
+198f7712	I pesci più rari contengono perle. Con le perle compri canne migliori, e una canna migliore porta più fortuna a ogni lancio.
+61c60555	Il Fishdex conserva ogni pesce in ogni rarità che hai pescato.
+7c271a13	Ogni laghetto ha tre pesci tutti suoi. Altri laghetti si aprono man mano che batti i capipalestra o peschi altri pesci.
+142d55e3	Fair play
+c3d13fa6	Qui niente si compra con denaro, e niente rende una creatura più forte in battaglia.
+cadfb5be	Pesca
+0d4de321	1 pesce ti aspetta
+b3de3d27	{0} pesci ti aspettano

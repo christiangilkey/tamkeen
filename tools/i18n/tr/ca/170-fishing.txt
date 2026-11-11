@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Llacuna de neó
+9f6560c3	Estany dels nenúfars
+2c039d0d	Font termal
+40288610	Llac de la tempesta
+b213032e	Gorg de la lluna
+b5c7618d	Guppy bombolla
+1332ef34	Peix pallasso neó
+ee56827f	Rajada de marea
+727cda3e	Veró fulla
+e5ab8697	Koi de lotus
+2eb0ea04	Luci de molsa
+12854b69	Tetra brasa
+a4905779	Peix globus de magma
+29d1e4ee	Peix caiman de lava
+b5f0ba84	Dànio llampec
+b3b8a72e	Peix àngel neó
+460a42db	Anguila volt
+6beffc46	Llopet de còdol
+dc71cadb	Truita de cristall
+2c87e4d6	Celacant fòssil
+9d7fd5d5	Peix lluna
+a91edea6	Rap fanal
+621ac06c	Koi fantasma
+5d8164b7	Canya de branquilló
+7b1717ce	Canya de bambú
+f21102f4	Canya de neó
+2396c5cc	Canya d'estels
+f5e1a027	Canvia d'estany
+fd16b79e	Paraules per repassar: cadascuna és un peix
+1e2db7a2	La sort que tens quan llances aquí
+b0e7db56	Perles
+e3ccfeef	Hora daurada: sort triple
+d0a24ee1	El teu cistell
+1ea575fe	L'estany: toca l'aigua per llançar
+60745aef	Llança
+654b39f2	Es resisteix! Prepara't…
+8297bb17	Ja el tens!
+7e23668d	S'ha escapat…
+0bb2df3e	Recull
+a258217d	Espera que piqui…
+6ea116ca	De moment no hi ha més peixos. Torna quan tinguis més paraules per repassar.
+30a5a6dd	No hi ha res pendent: aquests són peixos de pràctica, amb menys sort.
+22f5f1c5	Toca l'aigua per llançar. Una ombra més grossa és un peix amb més sort.
+fcd4323b	Massa tard: s'ha escapat
+77c53b8a	Resposta incorrecta: s'ha escapat
+dea9fad3	Ara aquesta paraula te la saps bé.
+8789254f	Ha picat!
+090d931a	És el que se t'havia escapat!
+d4d0b0bb	Es resisteix!
+316262b1	Aguanta! Una més
+d0e3caee	Aguanta! {0} més
+cb73df46	S'ha desenganxat! Encara volta per aquí…
+f636ca14	Continua pescant
+dae9bda3	El que se t'havia escapat
+e4c6bee4	Peix nou!
+2c9c57ba	Nou a la teva Fishdex
+cc332e84	El teu rècord de llargada
+7c65cfb1	Paraula cap derrotada
+a1e2f2a9	Per quant es ven
+e32ce617	Perles que tenia a dins
+c7a65b08	La sort que ha tingut aquest llançament
+6a432eaa	Hora daurada! Sort triple durant 10 minuts.
+48bc8163	Estanys
+f1da55b6	Derrota {0} dels líders de gimnàs o pesca {1} peixos per obrir-lo.
+727c352e	Aigua {0}. És l'element de la teva criatura: sort ×{1}
+7eab0796	Aigua {0}
+4fc5a645	Avui se t'ha escapat un de gros aquí. Encara volta per aquí…
+1c295a8a	Sort
+1bde5b86	La teva canya: {0}
+9b05ae05	Aigua de l'element de la teva criatura
+aa9b9fb6	No és aigua de l'element de la teva criatura
+502eec8e	Una paraula per repassar
+ad8b49d8	Una paraula que falles sovint (una ombra grossa)
+c7c5876d	Un peix de pràctica (una paraula que encara no toca repassar)
+252b249d	La sort fa més probables les rareses més altes. Les respostes correctes seguides donen més sort, i una Hora daurada també. Les canyes millors es compren amb perles, que surten dels peixos més rars.
+f53bfbce	L'estany és buit
+13d6164a	Els peixos són les teves paraules desades. Desa almenys quatre paraules amb el seu significat i les veuràs nedant aquí.
+9ebfea5c	Aquest peix no és al teu cistell.
+f58aae7d	L'aquari és ple. Treu-ne un peix primer.
+a8b78cd0	Aquest peix no és al teu aquari.
+257c0f9e	El teu cistell és ple. Ven uns quants peixos primer.
+a6b82b99	Aquesta canya no existeix.
+7dc0e760	Perles que et falten: {0}.
+f3764c58	Ves a pescar
+6ef05b75	No hi ha res pendent: pesca per practicar, amb menys sort.
+03969c1c	1 peix t'espera: una paraula per repassar
+d9b7087f	{0} peixos t'esperen: les teves paraules per repassar
+25166bdb	Canyes
+a7e1cdb3	Peixos pescats
+076b4b76	Fishdex
+0e520bb7	Al teu cistell
+34958467	El més gros de la setmana
+08d321a8	Líders de gimnàs derrotats
+f1433030	Qualsevol de les dues coses obre aquest estany: derrotar {0} dels líders de gimnàs o pescar {1} peixos. Té aigua {2} i tres peixos propis.
+d4c43b8e	Una canya millor et dona més sort a cada llançament, a tots els estanys. Les perles són dins dels peixos més rars.
+377f415d	Fes-la servir
+5639d93a	La captura més grossa de la setmana
+ef73a3d1	Encara ningú no ha pescat res aquesta setmana.
+179491c1	L'aquari de {0}
+14a507c2	A l'aquari
+baada136	El seu aquari és buit de moment.
+bc89ab2a	Aquari
+a7e65514	Guarda aquí els teus millors peixos. Els teus amics poden veure el teu aquari.
+020b4183	Cistell
+97b3200f	El teu cistell és buit.
+d61ed78f	Ven els Comuns i Poc comuns ({0}): +{1}
+f6cd9e3e	Peixos venuts: {0}. Monedes: +{1}
+a3e1e99f	Raresa
+3bade34e	Llargada
+156c1d9b	Es ven per
+3690e6b5	L'aquari és ple: treu-ne un peix primer.
+fa3cf2ad	Ven
+d859bff5	Li ha encantat! {0} de 5 cors
+4351a5d2	Nyam. {0} de 5 cors
+599d557a	Al teu aquari, on els teus amics el poden veure.
+adb14a77	Treu-lo
+88e89a69	Tots els peixos en totes les rareses, de Comú a Etern.
+691955e0	El més llarg
+1c89d7ea	Rareses pescades
+ffc960c4	El millor es ven per
+9ad04b29	Com funciona la pesca
+30a8f681	L'estany
+443c79b1	Cada paraula per repassar és un peix a l'aigua. Una ombra més grossa és un peix amb més sort: una paraula que falles sovint, o una paraula cap.
+df9d041f	Quan no hi ha res pendent, pots pescar igualment per practicar, amb menys sort.
+1f5ffcc4	Llances, pica, respons
+ea1845a5	Toca l'aigua per llançar. Quan un peix pica, surt la targeta de la seva paraula: tria la paraula que vol dir el que hi posa. Una resposta correcta enganxa el peix.
+9c750d6d	Amb una resposta incorrecta, o sense resposta en 12 segons, s'escapa: aquesta paraula torna abans.
+e3a07cb5	Cada resposta compta com un repàs, igual que en una batalla.
+ff2fcc9b	Cada peix que pesques surt amb una de deu rareses, de Comú a Etern. La sort fa més probables les més altes. Donen sort: una paraula que tocava repassar, les respostes correctes seguides, la teva canya i que la teva criatura pesqui a l'aigua del seu propi element.
+068e173d	Un Llegendari o millor es resisteix: calen una o dues respostes correctes seguides més per treure'l de l'aigua. Si es desenganxa, es queda en aquell estany tot el dia, i el pròxim peix que enganxis allà serà ell.
+22fa76d4	Si respons tan de pressa que no has pogut llegir, surt com a molt un peix Comú.
+591d814a	Per a què serveixen els peixos
+a729c3a5	Ven-los per monedes, dona'n un a la teva criatura perquè guanyi un cor, o guarda els millors a l'aquari, on els teus amics els poden veure.
+198f7712	Els peixos més rars porten perles a dins. Amb les perles es compren canyes millors, i una canya millor et dona més sort a cada llançament.
+61c60555	La Fishdex guarda cada peix en cada raresa que has pescat.
+7c271a13	Cada estany té tres peixos propis. S'obren més estanys a mesura que derrotes líders de gimnàs o pesques més peixos.
+142d55e3	Joc net
+c3d13fa6	Aquí res no es compra amb diners, i res d'això no fa més forta una criatura a les batalles.
+cadfb5be	Pesca
+0d4de321	1 peix t'espera
+b3de3d27	{0} peixos t'esperen

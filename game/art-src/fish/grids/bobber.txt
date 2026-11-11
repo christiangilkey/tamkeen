@@ -1,0 +1,15 @@
+# pond piece: the fishing float (8x8); its waterline is at row 5, centred on columns 3 and 4
+K #1b1420
+w #f4fbff
+s #c3d2e6
+r #ff3b4e
+d #b81f3a
+--
+...rr...
+..KKKK..
+.KwwwsK.
+KwwwwwsK
+KrrrrrdK
+KrrrrrdK
+.KrrddK.
+..KKKK..

@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Neon na lagoon
+9f6560c3	Lawa ng liryo
+2c039d0d	Mainit na bukal
+40288610	Lawa ng bagyo
+b213032e	Lawa ng buwan
+b5c7618d	Guppy ng bula
+1332ef34	Clownfish na neon
+ee56827f	Pagi ng alon
+727cda3e	Minnow ng dahon
+e5ab8697	Koi ng lotus
+2eb0ea04	Pike ng lumot
+12854b69	Tetra ng baga
+a4905779	Butete ng magma
+29d1e4ee	Gar ng lava
+b5f0ba84	Danio ng kuryente
+b3b8a72e	Angelfish na neon
+460a42db	Igat ng boltahe
+6beffc46	Loach ng bato
+dc71cadb	Trout na kristal
+2c87e4d6	Coelacanth na fossil
+9d7fd5d5	Isdang buwan
+a91edea6	Anglerfish ng parol
+621ac06c	Multong koi
+5d8164b7	Pamingwit na sanga
+7b1717ce	Pamingwit na kawayan
+f21102f4	Pamingwit na neon
+2396c5cc	Pamingwit na bituin
+f5e1a027	Magpalit ng lawa
+fd16b79e	Mga salitang para sa review: isda ang bawat isa
+1e2db7a2	Gaano kasuwerte ang hagis dito
+b0e7db56	Mga perlas
+e3ccfeef	Golden hour: triple ang suwerte
+d0a24ee1	Ang basket mo
+1ea575fe	Ang lawa: i-tap ang tubig para maghagis
+60745aef	Ihagis
+654b39f2	Lumalaban ito! Humanda…
+8297bb17	Nahuli!
+7e23668d	Nakawala ito…
+0bb2df3e	Hilahin
+a258217d	Hintaying may kumagat…
+6ea116ca	Wala nang isda sa ngayon. Bumalik kapag may iba pang salitang para sa review.
+30a5a6dd	Walang para sa review: mga isdang pang-ensayo ito, mas mababa ang suwerte.
+22f5f1c5	I-tap ang tubig para maghagis. Mas malaking anino, mas masuwerteng isda.
+fcd4323b	Masyadong mabagal: nakawala ito
+77c53b8a	Maling sagot: nakawala ito
+dea9fad3	Kilalang-kilala mo na ang salitang iyan.
+8789254f	May kumagat!
+090d931a	Ito ang nakawala noon!
+d4d0b0bb	Lumalaban ito!
+316262b1	Kapit lang! Isa pa
+d0e3caee	Kapit lang! {0} pa
+cb73df46	Nakawala ito! Nandiyan pa rin ito…
+f636ca14	Mangisda pa
+dae9bda3	Ang nakawala noon
+e4c6bee4	Bagong isda!
+2c9c57ba	Bago sa Fishdex mo
+cc332e84	Pinakamahaba mo sa ngayon
+7c65cfb1	Natalo ang salitang boss
+a1e2f2a9	Magkano ito mabebenta
+e32ce617	Mga perlas na nakuha sa loob nito
+c7a65b08	Gaano kasuwerte ang hagis na ito
+6a432eaa	Golden hour! Triple ang suwerte sa loob ng 10 minuto.
+48bc8163	Mga lawa
+f1da55b6	Talunin ang {0} gym leader o humuli ng {1} isda para mabuksan ito.
+727c352e	Tubig ng {0}. Tahanan ng nilalang mo: suwerte ×{1}
+7eab0796	Tubig ng {0}
+4fc5a645	May malaking nakawala rito ngayong araw. Nandiyan pa rin ito…
+1c295a8a	Suwerte
+1bde5b86	Ang pamingwit mo: {0}
+9b05ae05	Tahanang tubig ng nilalang mo
+aa9b9fb6	Hindi tahanang tubig ng nilalang mo
+502eec8e	Salitang para sa review
+ad8b49d8	Salitang madalas mong mamali (malaking anino)
+c7c5876d	Isdang pang-ensayo (salitang hindi pa para sa review)
+252b249d	Mas mataas ang suwerte, mas malaki ang tsansa sa mas bihirang antas. Nadadagdagan pa ito ng sunod-sunod na tamang sagot, at ng Golden hour. Perlas ang pambili ng mas magagandang pamingwit, at nasa loob ito ng mas bihirang isda.
+f53bfbce	Walang laman ang lawa
+13d6164a	Ang mga isda ay ang mga naka-save mong salita. Mag-save ng kahit apat na salitang may kahulugan, at lalangoy sila rito.
+9ebfea5c	Wala sa basket mo ang isdang iyan.
+f58aae7d	Puno na ang aquarium. Maglabas muna ng isang isda.
+a8b78cd0	Wala sa aquarium mo ang isdang iyan.
+257c0f9e	Puno na ang basket mo. Magbenta muna ng ilang isda.
+a6b82b99	Walang ganyang pamingwit.
+7dc0e760	Kailangan mo pa ng {0} perlas.
+f3764c58	Mangisda
+6ef05b75	Walang para sa review: mangisda para mag-ensayo, mas mababa ang suwerte.
+03969c1c	1 isda ang naghihintay: isang salitang para sa review
+d9b7087f	{0} isda ang naghihintay: mga salita mong para sa review
+25166bdb	Mga pamingwit
+a7e1cdb3	Mga nahuling isda
+076b4b76	Fishdex
+0e520bb7	Nasa basket mo
+34958467	Pinakamalaki ngayong linggo
+08d321a8	Mga gym leader na natalo
+f1433030	Alinman sa dalawa ang magbubukas sa lawang ito: talunin ang {0} gym leader, o humuli ng {1} isda. Tubig ng {2} ito at may tatlong sariling isda.
+d4c43b8e	Mas masuwerte ang bawat hagis sa mas magandang pamingwit, sa lahat ng lawa. Nasa loob ng mas bihirang isda ang mga perlas.
+377f415d	Gamitin ito
+5639d93a	Pinakamalaking huli ngayong linggo
+ef73a3d1	Wala pang nakakahuli ng isda ngayong linggo.
+179491c1	Aquarium ni {0}
+14a507c2	Nasa aquarium
+baada136	Wala pang laman ang aquarium niya sa ngayon.
+bc89ab2a	Aquarium
+a7e65514	Dito mo ilagay ang pinakamagaganda mong isda. Nakikita ng mga kaibigan mo ang aquarium mo.
+020b4183	Basket
+97b3200f	Walang laman ang basket mo.
+d61ed78f	Ibenta ang {0} isdang Karaniwan at Di-karaniwan: +{1}
+f6cd9e3e	Naibenta ang {0} isda: +{1} barya
+a3e1e99f	Rarity
+3bade34e	Haba
+156c1d9b	Presyo ng benta
+3690e6b5	Puno na ang aquarium: maglabas muna ng isang isda.
+fa3cf2ad	Ibenta
+d859bff5	Gustong-gusto nito iyon! {0} sa 5 puso
+4351a5d2	Sarap. {0} sa 5 puso
+599d557a	Nasa aquarium mo, kung saan nakikita ito ng mga kaibigan mo.
+adb14a77	Ilabas
+88e89a69	Bawat isda sa bawat antas, mula Karaniwan hanggang Walang-hanggan.
+691955e0	Pinakamahaba
+1c89d7ea	Mga antas na nahuli
+ffc960c4	Pinakamataas na benta
+9ad04b29	Paano gumagana ang pangingisda
+30a8f681	Ang lawa
+443c79b1	Bawat salitang para sa review ay isang isda sa tubig. Mas malaking anino, mas masuwerteng isda: salitang madalas mong mamali, o salitang boss.
+df9d041f	Kapag walang para sa review, puwede ka pa ring mangisda para mag-ensayo, mas mababa lang ang suwerte.
+1f5ffcc4	Hagis, kagat, sagot
+ea1845a5	I-tap ang tubig para maghagis. Kapag may kumagat na isda, lalabas ang card ng salita nito: piliin ang salitang tugma sa kahulugang nakasulat. Kapag tama ang sagot, mabibingwit ang isda.
+9c750d6d	Kapag mali ang sagot, o walang sagot sa loob ng 12 segundo, makakawala ito: mas maagang babalik ang salitang iyon.
+e3a07cb5	Bawat sagot ay bilang na isang review, gaya sa laban.
+ff2fcc9b	Bawat isdang mahuli mo ay binubunot sa sampung antas, mula Karaniwan hanggang Walang-hanggan. Pinalalaki ng suwerte ang tsansa sa mga bihira: salitang para sa review, sunod-sunod na tamang sagot, ang pamingwit mo, at ang pangingisda ng nilalang mo sa tubig ng sarili nitong elemento.
+068e173d	Lumalaban ang Maalamat o mas mataas pa: isa o dalawa pang sunod-sunod na tamang sagot para mahuli ito. Kapag nakawala ito, mananatili ito sa lawang iyon buong araw, at ito ang susunod na isdang mabibingwit mo roon.
+22fa76d4	Kapag masyadong mabilis ang sagot para mabasa pa ang tanong, Karaniwang isda lang ang pinakamataas na mahuhuli.
+591d814a	Para saan ang mga isda
+a729c3a5	Ibenta ang mga ito para sa barya, ipakain ang isa sa nilalang mo para sa isang puso, o ilagay ang pinakamagaganda sa aquarium, kung saan makikita ng mga kaibigan mo.
+198f7712	May perlas ang mas bihirang isda. Perlas ang pambili ng mas magagandang pamingwit, at mas masuwerte ang bawat hagis sa mas magandang pamingwit.
+61c60555	Nasa Fishdex ang bawat isda sa bawat antas na nahuli mo na.
+7c271a13	May tatlong sariling isda ang bawat lawa. Mas maraming lawa ang bubukas habang tumatalo ka ng mga gym leader o nakakahuli ng mas maraming isda.
+142d55e3	Patas na laro
+c3d13fa6	Walang binibili ng pera dito, at walang nagpapalakas sa nilalang sa mga laban dito.
+cadfb5be	Pangingisda
+0d4de321	1 isda ang naghihintay
+b3de3d27	{0} isda ang naghihintay

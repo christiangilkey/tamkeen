@@ -24,13 +24,14 @@ import { battleHelp, battlePanel, moveHelp, portrait, startFriendBattle } from "
 import { moveRow, moveView } from "./movesui.js";
 import { SHOP_SEEN_KEY, shopSeen } from "./homecard.js";
 import { openEarned, openEvolution } from "./info.js";
+import { basketPanel, fishdexPanel, fishingHelp, fishingPanel } from "./fishscreen.js";
 import {
   KIND, POCKETS, isOn, lockedShelf, pillsOf, pocketBlocks, pocketCounts, pocketOf, screenOf, sectionOf, shelves, wearing,
 } from "./sections.js";
 import { amount, art, block, details, fact, grid, switcher, tile } from "./screenparts.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
-const PILL_WORD = { coins: "Coins", gems: "Gems", glow: "Glow" };
+const PILL_WORD = { coins: "Coins", gems: "Gems", glow: "Glow", pearls: "Pearls" };
 let pocket = "wear"; // the bag's pocket last open (for as long as the app is open)
 
 /**
@@ -83,7 +84,7 @@ export function openShop(tab, changed = () => {}, opts = {}) {
     const help = $(".sheet-help");
     help.classList.toggle("gs-off", !s.help); // (kept in its place, so the X never moves)
     help.disabled = !s.help;
-    const own = { evolve: openEvolution, battle: battleHelp, friends: friendsHelp }[s.help];
+    const own = { evolve: openEvolution, battle: battleHelp, friends: friendsHelp, fishing: fishingHelp }[s.help];
     help.onclick = () => (own ? own(game, go, { over: true }) : openEarned(s.help, game, go, { over: true }));
     const sw = $(".gs-switch");
     sw.hidden = !s.switch;
@@ -110,6 +111,10 @@ export function openShop(tab, changed = () => {}, opts = {}) {
     battle: (b) => { battlePanel(b, game, onChange, go, close, focus); focus = null; },
     // (what waits there is seen once it is open: the number on the switch goes at the next redraw)
     friends: (b) => { delete counts.friends; friendsPanel(b, game, onChange, (friend, profile, opts) => { close(); startFriendBattle(friend, profile, opts); }); },
+    // (fishing: the pond takes the whole screen, so the sheet closes for it; its basket button opens the sheet again)
+    fishing: (b) => fishingPanel(b, game, onChange, go, close, (section) => openShop(section, changed)),
+    basket: (b) => basketPanel(b, game, onChange, go, close, (section) => openShop(section, changed)),
+    fishdex: (b) => fishdexPanel(b, game),
   };
   document.body.append(wrap);
   paint(tab);

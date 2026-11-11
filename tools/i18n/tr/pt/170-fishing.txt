@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Lagoa neon
+9f6560c3	Lago dos nenúfares
+2c039d0d	Fonte termal
+40288610	Lago da tempestade
+b213032e	Poço da lua
+b5c7618d	Guppy bolha
+1332ef34	Peixe-palhaço neon
+ee56827f	Arraia da maré
+727cda3e	Lambari folha
+e5ab8697	Koi de lótus
+2eb0ea04	Lúcio de musgo
+12854b69	Tetra brasa
+a4905779	Baiacu de magma
+29d1e4ee	Peixe-jacaré de lava
+b5f0ba84	Dânio choque
+b3b8a72e	Peixe-anjo neon
+460a42db	Enguia volt
+6beffc46	Bótia de seixo
+dc71cadb	Truta de cristal
+2c87e4d6	Celacanto fóssil
+9d7fd5d5	Peixe-lua
+a91edea6	Peixe-pescador lanterna
+621ac06c	Koi fantasma
+5d8164b7	Vara de graveto
+7b1717ce	Vara de bambu
+f21102f4	Vara neon
+2396c5cc	Vara estelar
+f5e1a027	Trocar de lago
+fd16b79e	Palavras para revisar: cada uma é um peixe
+1e2db7a2	A sorte que você tem ao lançar aqui
+b0e7db56	Pérolas
+e3ccfeef	Hora dourada: sorte tripla
+d0a24ee1	Seu cesto
+1ea575fe	O lago: toque na água para lançar
+60745aef	Lançar
+654b39f2	Está brigando! Prepare-se…
+8297bb17	Pegou!
+7e23668d	Escapou…
+0bb2df3e	Recolher
+a258217d	Espere o peixe morder…
+6ea116ca	Sem mais peixes por enquanto. Volte quando tiver mais palavras para revisar.
+30a5a6dd	Nada está pendente: estes são peixes de prática, com menos sorte.
+22f5f1c5	Toque na água para lançar. Uma sombra maior é um peixe com mais sorte.
+fcd4323b	Devagar demais: escapou
+77c53b8a	Resposta errada: escapou
+dea9fad3	Agora você conhece bem essa palavra.
+8789254f	Mordeu!
+090d931a	É aquele que escapou!
+d4d0b0bb	Está brigando!
+316262b1	Aguente firme! Mais uma
+d0e3caee	Aguente firme! Mais {0}
+cb73df46	Ele se soltou! Ainda está por aí…
+f636ca14	Continuar pescando
+dae9bda3	Aquele que escapou
+e4c6bee4	Peixe novo!
+2c9c57ba	Novo na sua Fishdex
+cc332e84	Seu recorde de comprimento
+7c65cfb1	Palavra chefe vencida
+a1e2f2a9	Por quanto ele é vendido
+e32ce617	Pérolas encontradas nele
+c7a65b08	A sorte que este lançamento teve
+6a432eaa	Hora dourada! Sorte tripla por 10 minutos.
+48bc8163	Lagos
+f1da55b6	Vença {0} dos líderes de ginásio ou pesque {1} peixes para abrir.
+727c352e	Água de {0}. É o elemento da sua criatura: sorte ×{1}
+7eab0796	Água de {0}
+4fc5a645	Algo grande escapou aqui hoje. Ainda está por aí…
+1c295a8a	Sorte
+1bde5b86	Sua vara: {0}
+9b05ae05	Água do elemento da sua criatura
+aa9b9fb6	Não é água do elemento da sua criatura
+502eec8e	Uma palavra para revisar
+ad8b49d8	Uma palavra que você erra muito (uma sombra grande)
+c7c5876d	Um peixe de prática (uma palavra que ainda não está para revisar)
+252b249d	A sorte aumenta a chance das raridades mais altas. Respostas certas seguidas dão mais sorte, e uma Hora dourada também. Varas melhores são compradas com pérolas, que vêm dos peixes mais raros.
+f53bfbce	O lago está vazio
+13d6164a	Os peixes são suas palavras salvas. Salve pelo menos quatro palavras com os significados, e elas vão nadar por aqui.
+9ebfea5c	Esse peixe não está no seu cesto.
+f58aae7d	O aquário está cheio. Tire um peixe primeiro.
+a8b78cd0	Esse peixe não está no seu aquário.
+257c0f9e	Seu cesto está cheio. Venda alguns peixes primeiro.
+a6b82b99	Essa vara não existe.
+7dc0e760	Pérolas que faltam: {0}.
+f3764c58	Ir pescar
+6ef05b75	Nada está pendente: pesque para praticar, com menos sorte.
+03969c1c	1 peixe esperando: uma palavra para revisar
+d9b7087f	{0} peixes esperando: suas palavras para revisar
+25166bdb	Varas
+a7e1cdb3	Peixes pescados
+076b4b76	Fishdex
+0e520bb7	No seu cesto
+34958467	O maior da semana
+08d321a8	Líderes de ginásio vencidos
+f1433030	Qualquer um dos dois abre este lago: vencer {0} dos líderes de ginásio ou pescar {1} peixes. Ele tem água de {2} e três peixes só dele.
+d4c43b8e	Uma vara melhor dá mais sorte a cada lançamento, em todos os lagos. As pérolas ficam dentro dos peixes mais raros.
+377f415d	Usar
+5639d93a	Maior peixe da semana
+ef73a3d1	Ninguém pescou nada ainda esta semana.
+179491c1	Aquário de {0}
+14a507c2	No aquário
+baada136	Este aquário está vazio por enquanto.
+bc89ab2a	Aquário
+a7e65514	Guarde aqui seus melhores peixes. Seus amigos podem ver seu aquário.
+020b4183	Cesto
+97b3200f	Seu cesto está vazio.
+d61ed78f	Vender os Comuns e Incomuns ({0}): +{1}
+f6cd9e3e	Peixes vendidos: {0}. Moedas: +{1}
+a3e1e99f	Raridade
+3bade34e	Comprimento
+156c1d9b	Preço de venda
+3690e6b5	O aquário está cheio: tire um peixe primeiro.
+fa3cf2ad	Vender
+d859bff5	Ela adorou! {0} de 5 corações
+4351a5d2	Nham. {0} de 5 corações
+599d557a	No seu aquário, onde seus amigos podem ver.
+adb14a77	Tirar
+88e89a69	Todos os peixes em todas as raridades, de Comum a Eterno.
+691955e0	O mais comprido
+1c89d7ea	Raridades pescadas
+ffc960c4	Preço de venda do melhor
+9ad04b29	Como funciona a pescaria
+30a8f681	O lago
+443c79b1	Cada palavra para revisar é um peixe na água. Uma sombra maior é um peixe com mais sorte: uma palavra que você erra muito, ou uma palavra chefe.
+df9d041f	Quando nada está pendente, você ainda pode pescar para praticar, com menos sorte.
+1f5ffcc4	Lançou, mordeu, respondeu
+ea1845a5	Toque na água para lançar. Quando um peixe morde, aparece o cartão da palavra dele: escolha a palavra que significa o que está escrito. Uma resposta certa fisga o peixe.
+9c750d6d	Com uma resposta errada, ou sem resposta em 12 segundos, ele escapa: essa palavra volta mais cedo.
+e3a07cb5	Cada resposta conta como uma revisão, como em uma batalha.
+ff2fcc9b	Cada peixe que você pesca sai com uma de dez raridades, de Comum a Eterno. A sorte aumenta a chance das mais altas. Dão sorte: uma palavra que estava para revisar, respostas certas seguidas, sua vara e sua criatura pescando na água do próprio elemento.
+068e173d	Um Lendário ou melhor briga: é preciso mais uma ou duas respostas certas seguidas para tirá-lo da água. Se ele se soltar, fica naquele lago o dia todo, e o próximo peixe que você fisgar lá é ele.
+22fa76d4	Se você responder rápido demais para ter lido, sai no máximo um peixe Comum.
+591d814a	Para que servem os peixes
+a729c3a5	Venda por moedas, dê um para sua criatura comer e ganhar um coração, ou guarde os melhores no aquário, onde seus amigos podem ver.
+198f7712	Os peixes mais raros têm pérolas dentro. Com as pérolas você compra varas melhores, e uma vara melhor dá mais sorte a cada lançamento.
+61c60555	A Fishdex guarda cada peixe em cada raridade que você pescou.
+7c271a13	Cada lago tem três peixes só dele. Mais lagos abrem conforme você vence líderes de ginásio ou pesca mais peixes.
+142d55e3	Jogo limpo
+c3d13fa6	Nada aqui é comprado com dinheiro, e nada aqui deixa uma criatura mais forte nas batalhas.
+cadfb5be	Pescaria
+0d4de321	1 peixe esperando
+b3de3d27	{0} peixes esperando

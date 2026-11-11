@@ -1,0 +1,24 @@
+# Volt eel (Storm lake, big): a slate-violet electric eel in a gentle S, a yellow lightning zigzag along its side, pale belly, two sparks
+K #1b1420
+b #4a3f7a
+l #7568b0
+p #dcd2f0
+y #ffe14a
+h #ffffff
+--
+........................
+...............y........
+..............yhy.......
+......KKKK.....y....KK..
+.....KllllKK.......KllK.
+....KlbybbllK.....KlllK.
+...KlbybybyblKK..KllhylK
+...KlybbbybybllKKlbbyKbK
+..KlybppppbbybyllbbbbbbK
+..KbppKKKKpbbybybbbbbKK.
+.KbpKK....KpbbbbybypppK.
+KbbK.......KppbbbypKKK..
+.KK.....y...KKppppK.....
+.......yy.....KKKK......
+.......y................
+........................

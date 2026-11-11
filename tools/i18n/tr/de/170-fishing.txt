@@ -1,0 +1,142 @@
+# Fishing: the pond, the Basket, the aquarium and the Fishdex (web/js/game/fishing-ui.js, fishscreen.js, fishdata.js).
+94627c74	Neonlagune
+9f6560c3	Seerosenteich
+2c039d0d	Heiße Quelle
+40288610	Sturmsee
+b213032e	Mondteich
+b5c7618d	Blubber-Guppy
+1332ef34	Neon-Clownfisch
+ee56827f	Flutrochen
+727cda3e	Blatt-Elritze
+e5ab8697	Lotus-Koi
+2eb0ea04	Mooshecht
+12854b69	Glutsalmler
+a4905779	Magma-Kugelfisch
+29d1e4ee	Lava-Knochenhecht
+b5f0ba84	Blitz-Danio
+b3b8a72e	Neon-Skalar
+460a42db	Volt-Aal
+6beffc46	Kieselschmerle
+dc71cadb	Kristallforelle
+2c87e4d6	Fossil-Quastenflosser
+9d7fd5d5	Mondfisch
+a91edea6	Laternenangler
+621ac06c	Geister-Koi
+5d8164b7	Zweigrute
+7b1717ce	Bambusrute
+f21102f4	Neonrute
+2396c5cc	Sternenrute
+f5e1a027	Teich wechseln
+fd16b79e	Zur Wiederholung fällige Wörter: Jedes ist ein Fisch
+1e2db7a2	So viel Glück hat ein Wurf hier
+b0e7db56	Perlen
+e3ccfeef	Goldene Stunde: dreifaches Glück
+d0a24ee1	Dein Korb
+1ea575fe	Der Teich: Tippe aufs Wasser, um die Angel auszuwerfen
+60745aef	Auswerfen
+654b39f2	Er wehrt sich! Mach dich bereit…
+8297bb17	Gefangen!
+7e23668d	Er ist entwischt…
+0bb2df3e	Einholen
+a258217d	Warte auf einen Biss…
+6ea116ca	Vorerst keine Fische mehr. Komm wieder, wenn weitere Wörter fällig sind.
+30a5a6dd	Nichts ist fällig: Das sind Übungsfische, mit weniger Glück.
+22f5f1c5	Tippe aufs Wasser, um die Angel auszuwerfen. Ein größerer Schatten bringt mehr Glück.
+fcd4323b	Zu langsam: Er ist entwischt
+77c53b8a	Falsche Antwort: Er ist entwischt
+dea9fad3	Dieses Wort ist jetzt gut bekannt.
+8789254f	Ein Biss!
+090d931a	Das ist der, der dir entwischt ist!
+d4d0b0bb	Er wehrt sich!
+316262b1	Halt durch! Noch eine
+d0e3caee	Halt durch! Noch {0}
+cb73df46	Er hat sich losgerissen! Er ist noch irgendwo da draußen…
+f636ca14	Weiterangeln
+dae9bda3	Der, der dir entwischt ist
+e4c6bee4	Neuer Fisch!
+2c9c57ba	Neu in deinem Fishdex
+cc332e84	Dein bisher längster
+7c65cfb1	Boss-Wort besiegt
+a1e2f2a9	Sein Verkaufswert
+e32ce617	Darin gefundene Perlen
+c7a65b08	So viel Glück hatte dieser Wurf
+6a432eaa	Goldene Stunde! Dreifaches Glück für 10 Minuten.
+48bc8163	Teiche
+f1da55b6	Besiege {0} Arenaleiter oder fange {1} Fische, um ihn zu öffnen.
+727c352e	{0}-Wasser. Heimatgewässer deines Wesens: Glück ×{1}
+7eab0796	{0}-Wasser
+4fc5a645	Hier ist heute etwas Großes entwischt. Es ist noch irgendwo da draußen…
+1c295a8a	Glück
+1bde5b86	Deine Angelrute: {0}
+9b05ae05	Heimatgewässer deines Wesens
+aa9b9fb6	Nicht das Heimatgewässer deines Wesens
+502eec8e	Ein zur Wiederholung fälliges Wort
+ad8b49d8	Ein Wort, das du oft nicht weißt (ein großer Schatten)
+c7c5876d	Ein Übungsfisch (ein Wort, das nicht fällig ist)
+252b249d	Glück macht die selteneren Stufen wahrscheinlicher. Richtige Antworten in Folge bringen noch mehr, eine Goldene Stunde auch. Bessere Angelruten kaufst du mit Perlen, die in selteneren Fischen stecken.
+f53bfbce	Der Teich ist leer
+13d6164a	Fische sind deine gespeicherten Wörter. Speichere mindestens vier Wörter mit ihren Bedeutungen, und sie schwimmen hier.
+9ebfea5c	Dieser Fisch ist nicht in deinem Korb.
+f58aae7d	Das Aquarium ist voll. Nimm erst einen Fisch heraus.
+a8b78cd0	Dieser Fisch ist nicht in deinem Aquarium.
+257c0f9e	Dein Korb ist voll. Verkaufe erst ein paar Fische.
+a6b82b99	Diese Angelrute gibt es nicht.
+7dc0e760	Dir fehlen noch {0} Perlen.
+f3764c58	Angeln gehen
+6ef05b75	Nichts ist fällig: Angle zur Übung, mit weniger Glück.
+03969c1c	1 Fisch wartet: ein zur Wiederholung fälliges Wort
+d9b7087f	{0} Fische warten: deine zur Wiederholung fälligen Wörter
+25166bdb	Angelruten
+a7e1cdb3	Gefangene Fische
+076b4b76	Fishdex
+0e520bb7	In deinem Korb
+34958467	Größter der Woche
+08d321a8	Besiegte Arenaleiter
+f1433030	Eins von beiden öffnet diesen Teich: Besiege {0} Arenaleiter oder fange {1} Fische. Er hat {2}-Wasser und drei eigene Fische.
+d4c43b8e	Eine bessere Angelrute bringt bei jedem Wurf mehr Glück, in jedem Teich. Perlen stecken in selteneren Fischen.
+377f415d	Benutzen
+5639d93a	Größter Fang der Woche
+ef73a3d1	Diese Woche hat noch niemand einen Fisch gefangen.
+179491c1	Aquarium von {0}
+14a507c2	Im Aquarium
+baada136	Dieses Aquarium ist vorerst leer.
+bc89ab2a	Aquarium
+a7e65514	Bewahre hier deine besten Fische auf. Deine Freunde können dein Aquarium sehen.
+020b4183	Korb
+97b3200f	Dein Korb ist leer.
+d61ed78f	Die {0} gewöhnlichen und ungewöhnlichen Fische verkaufen: +{1}
+f6cd9e3e	{0} Fische verkauft: +{1} Münzen
+a3e1e99f	Seltenheit
+3bade34e	Länge
+156c1d9b	Verkaufswert
+3690e6b5	Das Aquarium ist voll: Nimm erst einen Fisch heraus.
+fa3cf2ad	Verkaufen
+d859bff5	Das hat ihm richtig geschmeckt! {0} von 5 Herzen
+4351a5d2	Lecker. {0} von 5 Herzen
+599d557a	In deinem Aquarium, wo deine Freunde ihn sehen können.
+adb14a77	Herausnehmen
+88e89a69	Jeder Fisch in jeder Stufe, von Gewöhnlich bis Ewig.
+691955e0	Längster
+1c89d7ea	Gefangene Stufen
+ffc960c4	Bester Verkaufswert
+9ad04b29	So funktioniert das Angeln
+30a8f681	Der Teich
+443c79b1	Jedes zur Wiederholung fällige Wort ist ein Fisch im Wasser. Ein größerer Schatten bringt mehr Glück: ein Wort, das du oft nicht weißt, oder ein Boss-Wort.
+df9d041f	Wenn nichts fällig ist, kannst du trotzdem zur Übung angeln, mit weniger Glück.
+1f5ffcc4	Auswerfen, anbeißen, antworten
+ea1845a5	Tippe aufs Wasser, um die Angel auszuwerfen. Wenn ein Fisch anbeißt, erscheint die Karte seines Wortes: Wähle das Wort, das die gezeigte Bedeutung hat. Mit einer richtigen Antwort hängt der Fisch am Haken.
+9c750d6d	Bei einer falschen Antwort, oder wenn 12 Sekunden lang keine kommt, entwischt er: Dieses Wort kommt dann früher wieder.
+e3a07cb5	Jede Antwort zählt als Wiederholung, genau wie in einem Kampf.
+ff2fcc9b	Für jeden Fisch, den du fängst, wird eine von zehn Stufen ausgewürfelt, von Gewöhnlich bis Ewig. Glück macht die seltenen wahrscheinlicher: ein Wort, das fällig war, richtige Antworten in Folge, deine Angelrute und dein Wesen, wenn es im Wasser seines eigenen Elements angelt.
+068e173d	Ein legendärer oder noch seltenerer Fisch wehrt sich: Du brauchst noch eine oder zwei richtige Antworten in Folge, um ihn zu fangen. Reißt er sich los, bleibt er den ganzen Tag in diesem Teich, und der nächste Fisch, der dort anbeißt, ist er.
+22fa76d4	Eine Antwort, die zu schnell kam, um die Karte gelesen zu haben, bringt höchstens einen gewöhnlichen Fisch.
+591d814a	Wozu Fische gut sind
+a729c3a5	Verkaufe sie für Münzen, verfüttere einen an dein Wesen für ein Herz, oder behalte deine besten im Aquarium, wo deine Freunde sie sehen können.
+198f7712	Seltenere Fische enthalten Perlen. Mit Perlen kaufst du bessere Angelruten, und eine bessere Angelrute bringt bei jedem Wurf mehr Glück.
+61c60555	Der Fishdex merkt sich jeden Fisch in jeder Stufe, die du gefangen hast.
+7c271a13	Jeder Teich hat drei eigene Fische. Weitere Teiche öffnen sich, wenn du Arenaleiter besiegst oder mehr Fische fängst.
+142d55e3	Fair Play
+c3d13fa6	Hier wird nichts mit Geld gekauft, und nichts hier macht ein Wesen in Kämpfen stärker.
+cadfb5be	Angeln
+0d4de321	1 Fisch wartet
+b3de3d27	{0} Fische warten

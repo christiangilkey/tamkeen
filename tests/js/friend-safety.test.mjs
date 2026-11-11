@@ -92,10 +92,13 @@ test("a whole hostile profile row comes out holding only known values in range",
     user_id: "u1", team: [hostileCreature()], form: 50, rating: "9e99", league: "constructor", week: "2900", goal_days: 99,
     reviews: 1e9, language: XSS, xp_day: "javascript:alert(1)", xp_today: 1e12, showcase: hostileCreature({ show: "juvenile" }),
     streak: XSS, streak_until: XSS, updated_at: { evil: true }, extra: XSS, __proto__: { polluted: 1 },
+    aquarium: { tank: [{ sp: XSS, t: 1, cm: 5 }, { sp: "koi", t: XSS, cm: 1e12 }], week: XSS, best: { sp: "constructor", t: 0, cm: 1 }, dex: XSS, more: XSS },
   };
   const p = cleanProfile(row);
-  assert.deepEqual(Object.keys(p).sort(), ["form", "goal_days", "language", "league", "rating", "reviews", "showcase", "streak",
+  assert.deepEqual(Object.keys(p).sort(), ["aquarium", "form", "goal_days", "language", "league", "rating", "reviews", "showcase", "streak",
     "streak_until", "team", "updated_at", "user_id", "week", "xp_day", "xp_today"]);
+  // (their aquarium, from fishing: only fish the game has, a tier and a length in range, nothing else)
+  assert.deepEqual(p.aquarium, { tank: [{ sp: "koi", t: 0, cm: 999 }], week: null, best: null, dex: 0 });
   assert.equal(p.form, 1);
   assert.equal(p.rating, 1000, "a rating sent as text");
   assert.equal(p.league, 0);

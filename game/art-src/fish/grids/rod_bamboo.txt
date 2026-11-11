@@ -1,0 +1,21 @@
+# icon: rod_bamboo: a bamboo fishing rod with joints
+D #2d3a14
+M #8fa83c
+L #dfe88a
+--
+................
+..............D.
+............DDM.
+...........DMDM.
+..........DLD.M.
+.........DLD..M.
+........DMD...M.
+.......DLDD...M.
+......DLMD....M.
+.....DMMD...M.M.
+....DLDD....M.M.
+...DLMDDD....M..
+..DMMDMLMD......
+.DLDDDMMMD......
+DLMD..DDD.......
+DDD.............

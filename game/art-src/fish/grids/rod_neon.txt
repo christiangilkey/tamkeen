@@ -1,0 +1,21 @@
+# icon: rod_neon: a sleek neon fishing rod with a glowing stripe
+D #0c2a44
+M #22a6d8
+L #9af4ff
+--
+................
+..............D.
+............DDM.
+...........DLDM.
+..........DLD.M.
+.........DLD..M.
+........DLD...M.
+.......DLMD...M.
+......DLMD....M.
+.....DLMD...M.M.
+....DLMD....M.M.
+...DLMDDD....M..
+..DLMDMLMD......
+.DMMDDMLMD......
+DMMD..DDD.......
+DDD.............
