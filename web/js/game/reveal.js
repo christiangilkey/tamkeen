@@ -12,13 +12,17 @@ import { buzz } from "../app.js";
 import { gameOn, soundOn } from "../components/gameswitch.js";
 import { t } from "../i18n.js";
 import { EPIC, LEGENDARY, MYTHIC, RARE, TIERS } from "./loot.js";
-import { climb, grantView, holdFor, luckText, rewardView } from "./lootview.js";
+import { climb, cornerSlot, grantView, holdFor, luckText, rewardView } from "./lootview.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
-if (typeof Image !== "undefined") new Image().src = `${ART}fx/question.png`;  // (the tile's back, ready before the first roll)
+// (The tile's back and the pictures a chip most often shows are fetched ahead: a chip is up for a second and a
+// half, and must not spend the first part of it with an empty tile.)
+if (typeof Image !== "undefined") {
+  for (const art of ["fx/question", "icon/glow", "icon/gem", "icon/xp", "icon/combo", "icon/clock", "icon/luck", "icon/streak_shield"]) new Image().src = `${ART}${art}.png`;
+}
 const calm = () => typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-export { climb, grantView, holdFor, luckText, rewardView };
+export { climb, cornerSlot, grantView, holdFor, luckText, rewardView };
 
 const BREAKOUT_MS = 400;
 const CHIP_HOLD_MS = 1500;
@@ -94,6 +98,21 @@ function bits(root, x, y, count, colour, reach) {
   }
 }
 
+/**
+ * Put a chip where it was asked for: centred at the host's top (the default), or with its corner `left` or
+ * `right` pixels in from that edge of the host (lootview.cornerSlot: a card's empty corner). `maxWidth` keeps
+ * it clear of what is beside it (longer words end in "…"); `small` is the one-line chip.
+ */
+function place(root, { top = 8, left = null, right = null, maxWidth = null, small = false } = {}) {
+  const px = (n) => `${Math.max(0, Math.round(Number(n) || 0))}px`;
+  root.style.setProperty("--loot-top", px(top));
+  if (left != null) { root.classList.add("at-left"); root.style.setProperty("--loot-x", px(left)); }
+  else if (right != null) { root.classList.add("at-right"); root.style.setProperty("--loot-x", px(right)); }
+  if (maxWidth) root.style.setProperty("--loot-max", px(maxWidth));
+  if (small) root.classList.add("small");
+  return left != null || right != null;
+}
+
 /** A small square in a tier's colour with a number or a picture in it (the luck sheet, a session's finds). */
 export function tierBadge(tier, inner = "") {
   const tr = TIERS[tier] || TIERS[0];
@@ -107,16 +126,18 @@ export function tierBadge(tier, inner = "") {
 
 /**
  * A chip in a reveal's place that only says something (a shield spent, an answer too quick to roll): nothing
- * turns over. `name` and `text` are shown as given (translate them first). Returns a Promise resolved when it has gone.
+ * turns over. `name` and `text` are shown as given (translate them first); `top`, `left`, `right`, `maxWidth` and
+ * `small` place it as reveal()'s do. Returns a Promise resolved when it has gone.
  */
-export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3", top = 8, hold = 1700 } = {}) {
+export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3", top = 8, left = null, right = null, maxWidth = null,
+  small = false, hold = 1700 } = {}) {
   const where = host || windowLayer();
   for (const old of where.querySelectorAll(":scope > .loot")) if (old.lootEnd) old.lootEnd();
   const root = document.createElement("div");
   root.className = "loot open note";
   root.setAttribute("translate", "no");
   root.setAttribute("role", "status");
-  root.style.setProperty("--loot-top", `${Math.max(0, Number(top) || 0)}px`);
+  place(root, { top, left, right, maxWidth, small });
   root.style.setProperty("--tier", colour);
   root.innerHTML = `<div class="loot-pill"><div class="loot-tile"><div class="loot-face"></div></div>
     <div class="loot-words"><div class="loot-name"></div><div class="loot-text"></div></div></div>`;
@@ -142,6 +163,11 @@ export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3
  *           text    the words under it, instead of the reward's own
  *           mode    "chip" (small, holds nothing up) or "show" (big); by default Epic and better are big
  *           top     where the chip sits, in pixels from the top of the host (default 8)
+ *           left, right   put the chip's corner that many pixels in from that edge of the host, instead of
+ *                   centring it (a card's empty corner: lootview.cornerSlot gives all of these); a big
+ *                   reveal starts there and comes to the middle
+ *           maxWidth      the widest the chip may be; small: the one-line chip, for where there is little room
+ *           also    a few more words after the reward's own, quieter (the XP an answer earned)
  *           hold    how long it stays once landed, in ms
  *           sound   false for none
  *           keys    false to leave the keyboard alone (a big reveal otherwise takes Space, Enter and Escape)}
@@ -163,7 +189,7 @@ export function reveal(host, result, opts = {}) {
   root.className = `loot${big ? " show" : ""}`;
   root.setAttribute("translate", "no"); // (its words are translated here, with t())
   root.setAttribute("role", "status");
-  root.style.setProperty("--loot-top", `${Math.max(0, Number(opts.top ?? 8) || 0)}px`);
+  const cornered = place(root, { ...opts, small: opts.small && !big });
   root.innerHTML = `<div class="loot-flash"></div><div class="loot-rays"></div>
     <div class="loot-pill"><div class="loot-tile"><div class="loot-flip">
       <div class="loot-face loot-back"></div><div class="loot-face loot-front"></div>
@@ -175,6 +201,12 @@ export function reveal(host, result, opts = {}) {
   $(".loot-front").append(picture(opts.art || view.art || "icon/gift", 32));
   const text = opts.text ?? view.text;
   $(".loot-text").textContent = text;
+  if (opts.also && !big) {
+    const more = document.createElement("span");
+    more.className = "loot-also";
+    more.textContent = opts.also;
+    $(".loot-text").append(" ", more);
+  }
   if (big) {
     $(".loot-title").textContent = opts.title || "";
     $(".loot-title").hidden = !opts.title;
@@ -248,8 +280,21 @@ export function reveal(host, result, opts = {}) {
   where.append(root);
   // Where the tile comes to rest in a big reveal: a little above the middle of the host.
   const size = root.getBoundingClientRect();
-  const dy = Math.max(0, size.height * 0.34 - (Number(opts.top ?? 8) || 0) - 30);
-  root.style.setProperty("--loot-dy", `${Math.round(dy)}px`);
+  const top = Math.max(0, Number(opts.top ?? 8) || 0);
+  const restY = Math.round(Math.max(top + 30, size.height * 0.34));
+  root.style.setProperty("--loot-cy", `${restY}px`);
+  root.style.setProperty("--loot-dy", `${restY - top - 30}px`);
+  /** The tile leaves the chip's place for the middle (from a corner: measured, so it lands dead centre). */
+  const breakOut = () => {
+    if (root.classList.contains("big")) return;
+    if (cornered) {
+      const pill = $(".loot-pill").getBoundingClientRect();
+      const box = root.getBoundingClientRect();
+      root.style.setProperty("--loot-dx", `${Math.round(box.width / 2 - (pill.left - box.left + pill.width / 2))}px`);
+      root.style.setProperty("--loot-dy", `${Math.round(restY - (pill.top - box.top + pill.height / 2))}px`);
+    }
+    root.classList.add("big");
+  };
 
   (async () => {
     paint(0);
@@ -261,13 +306,13 @@ export function reveal(host, result, opts = {}) {
       if (step.tier > 0) { bump(); if (sound && !hurried && !still) SOUND.step(step.tier, out); }
       await beat(step.ms);
       if (step.breakout && !ended) {
-        root.classList.add("big");
+        breakOut();
         if (sound && !hurried && !still) SOUND.breakout();
         await beat(BREAKOUT_MS);
       }
     }
     if (ended) return;
-    if (big) root.classList.add("big");
+    if (big) breakOut();
     paint(tier);
     root.classList.add("open");
     if (big) $(".loot-big").hidden = false;

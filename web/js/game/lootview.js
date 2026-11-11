@@ -56,5 +56,29 @@ export function climb(tier, big = tier >= EPIC) {
   if (big && tier <= RARE && steps.length) steps[steps.length - 1].breakout = true;
   return steps;
 }
+// ---------- a chip on a card, where it covers nothing ----------
+// A flashcard's front has one place that is always empty: its top corner on the far side from the status badge
+// ("New word", "Review"), level with the badge and under the card's timer bar. Numbers in CSS pixels.
+export const CHIP = { top: 16, height: 60, inset: 16, gap: 8, smallTop: 14, smallHeight: 30, badgeInset: 20, minWidth: 96 };
+
+/**
+ * Where a chip goes on a card: reveal()'s and notice()'s {top, left | right, maxWidth, small}.
+ *   card   {left, top, width}: the card's box within the host the chip is drawn in
+ *   host   {width}: that host
+ *   badge  the status badge's width (0 when the card shows none)
+ *   free   how far under the card's top its first line of content begins (Infinity when nothing is there)
+ *   rtl    the page reads right to left: the badge is on the right, so the empty corner is the left one
+ * `small` asks for the one-line chip: when the content starts too high for the usual one, the chip keeps to the
+ * badge's own band, which the card's padding always leaves free.
+ */
+export function cornerSlot({ card, host, badge = 0, free = Infinity, rtl = false }) {
+  const small = free < CHIP.top + CHIP.height + CHIP.gap;
+  const top = Math.round(card.top + (small ? CHIP.smallTop : CHIP.top));
+  const taken = badge > 0 ? CHIP.badgeInset + badge + CHIP.gap : CHIP.inset;
+  const maxWidth = Math.max(CHIP.minWidth, Math.floor(card.width - CHIP.inset - taken));
+  return rtl ? { top, left: Math.round(card.left + CHIP.inset), maxWidth, small }
+    : { top, right: Math.round(host.width - card.left - card.width + CHIP.inset), maxWidth, small };
+}
+
 /** How long a big reveal stays up by itself once it has landed (a tap ends it sooner). */
 export const holdFor = (tier) => (tier >= MYTHIC ? 9000 : tier >= LEGENDARY ? 6000 : 3800);

@@ -12,8 +12,8 @@ import {
 import { MAX_CREATURES, layEgg, newState, normalize } from "../../web/js/game/rules.js";
 import { build, garden, totalRate } from "../../web/js/game/idle.js";
 import { FOODS, ITEMS } from "../../web/js/game/data.js";
-import { climb, grantView, holdFor, luckText, rewardView } from "../../web/js/game/lootview.js";
-import { existsSync } from "node:fs";
+import { CHIP, climb, cornerSlot, grantView, holdFor, luckText, rewardView } from "../../web/js/game/lootview.js";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const NOW = new Date("2026-11-10T10:00:00");
@@ -395,4 +395,48 @@ test("the reveal climbs one tier at a time, slower the higher it goes, and only 
   assert.ok(climb(9).reduce((n, x) => n + x.ms, 0) > 4000, "an Eternal keeps you waiting");
   assert.equal(climb(1, true).filter((x) => x.breakout).length, 1, "a mini-game may ask for a big reveal of a small find");
   assert.ok(holdFor(9) > holdFor(LEGENDARY) && holdFor(LEGENDARY) > holdFor(EPIC));
+});
+
+// ----- where a chip goes on a flashcard (the owner: "so they do not cover any information on the screen") -----
+test("a chip sits in the card's empty top corner, across from the status badge and level with it", () => {
+  // A phone 412 px wide: the card 18 px in from each side, 60 px down; a "NEW WORD" badge 106 px wide.
+  const card = { left: 18, top: 60, width: 376 };
+  const at = cornerSlot({ card, host: { width: 412 }, badge: 106, free: 215 });
+  assert.deepEqual(at, { top: 60 + CHIP.top, right: 18 + CHIP.inset, maxWidth: 376 - CHIP.inset - (CHIP.badgeInset + 106 + CHIP.gap), small: false });
+  assert.ok(!("left" in at), "its corner is the right one");
+  // Right to left (the Arabic interface): the badge is on the right, so the empty corner is the left one.
+  const rtl = cornerSlot({ card, host: { width: 412 }, badge: 106, free: 215, rtl: true });
+  assert.deepEqual(rtl, { top: 60 + CHIP.top, left: 18 + CHIP.inset, maxWidth: at.maxWidth, small: false });
+  // A card in the middle of a wide window.
+  assert.equal(cornerSlot({ card: { left: 350, top: 70, width: 580 }, host: { width: 1280 }, badge: 80, free: 300 }).right, 1280 - 350 - 580 + CHIP.inset);
+  // No badge (the place a big find starts from, between two cards): the whole width less the two insets.
+  assert.equal(cornerSlot({ card, host: { width: 412 } }).maxWidth, 376 - 2 * CHIP.inset);
+  // It never asks for less room than it needs to say anything at all.
+  assert.equal(cornerSlot({ card: { left: 0, top: 0, width: 200 }, host: { width: 200 }, badge: 150 }).maxWidth, CHIP.minWidth);
+});
+
+test("a crowded card gets the one-line chip, which keeps to the badge's own band", () => {
+  const card = { left: 18, top: 60, width: 376 };
+  const need = CHIP.top + CHIP.height + CHIP.gap;
+  assert.equal(cornerSlot({ card, host: { width: 412 }, badge: 106, free: need }).small, false, "just enough room for the usual chip");
+  const tight = cornerSlot({ card, host: { width: 412 }, badge: 106, free: need - 1 });
+  assert.deepEqual([tight.small, tight.top], [true, 60 + CHIP.smallTop]);
+  // The numbers come from the stylesheets: a card's front keeps its top padding free, the timer bar is above
+  // the chip, and the one-line chip is as tall as its tile, padding and border make it.
+  const css = (file) => readFileSync(new URL(`../../web/css/${file}`, import.meta.url), "utf8");
+  const review = css("review.css"), app = css("app.css");
+  const padTop = Number(/\.rv-front \{[^}]*padding: (\d+)px/.exec(review)[1]);
+  const [, barTop, barHeight] = /\.rv-timer \{[^}]*top: (\d+)px;[^}]*height: (\d+)px/.exec(review).map(Number);
+  assert.ok(CHIP.smallTop + CHIP.smallHeight <= padTop, "the one-line chip ends where the card's padding does");
+  assert.ok(Math.min(CHIP.top, CHIP.smallTop) >= barTop + barHeight, "under the timer bar");
+  const tile = Number(/\.loot\.small \.loot-tile \{ width: (\d+)px/.exec(app)[1]);
+  const pad = Number(/\.loot\.small \.loot-pill \{ padding: (\d+)px/.exec(app)[1]);
+  assert.equal(tile + 2 * pad + 2 * 2, CHIP.smallHeight, "tile + padding + a 2px border each side");
+  const big = Number(/\.loot-tile \{[^}]*width: (\d+)px/.exec(app)[1]);
+  assert.equal(big + 2 * 4 + 2 * 2, CHIP.height);
+  // The reviewer asks for the corner, and puts the chips away when the card is turned.
+  const js = readFileSync(new URL("../../web/js/pages/review.js", import.meta.url), "utf8");
+  assert.match(js, /cornerSlot\(\{/);
+  assert.match(js, /busy = true;\s+clearChips\(\);/, "flip() clears the corner: the back has no empty one");
+  assert.match(js, /if \(showBack\) clearChips\(\);/);
 });

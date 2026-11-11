@@ -8430,3 +8430,40 @@ built on loot.js), (3) farming, (4) racing. His design, as built (every number i
 - **Ideas not built**: badges for a first Legendary / Mythic (badge art needed); the Streak shield and the Luck sheet on
   the game's own screens (Supplies, Home); a friend seeing your best find; ten drawn tile frames instead of the plain
   coloured squares; something only an Eternal can give.
+
+### Review rolls: what an answer earned shows in the card's empty corner (2026-11-11, after v0.52.0; the owner's request)
+His words, with a screenshot of a card's front on his phone and the top-right corner circled: "Popups for items earned
+while reviewing should appear in the empty space here so they do not cover any information on the screen". Before, the
+chip sat centred under the top bar, which on a phone is the card's top edge (the timer bar, and the word on the back).
+- **Where**: `lootview.cornerSlot({card, host, badge, free, rtl})` -> `{top, left | right, maxWidth, small}`: the card's top
+  corner on the far side from the status badge (`.rv-kind`), 16 px in, level with the badge and under the timer bar. Right
+  to left it is the left corner. `maxWidth` keeps it clear of the badge (longer words end in "…"). `small`: when the
+  card's first line starts less than 84 px down, the one-line chip (30 px tall, no tier name, the colour says it), which
+  fits the badge's own band (the front's 44 px top padding). `CHIP` holds the numbers; a test reads them against the
+  stylesheets (the front's padding, the timer bar, the tile sizes). reveal() and notice() take `left` / `right` /
+  `maxWidth` / `small`, and reveal() `also` (a few quieter words after the reward's: the XP). Fishing's centred chips
+  are unchanged (no `left` / `right` = centred as before).
+- **One thing at a time** (pages/review.js): `chipsFor(remembered, earned, lucky)` -> `{big, main, more}`; `say()` queues
+  them, `nextChip()` shows each after the last, `slot()` measures the card (the wrap's box and layout offsets, which the
+  card's entrance animation doesn't move). `main` is the roll's find with "+N XP" after it, or why nothing rolled (shield
+  used, run ended, too fast, extras used up), or the XP alone as a one-line chip. `more`: "N in a row!" (with "Luck xN" at
+  10 / 25 / 50), "Golden hour", "Today's cards cleared!" (with its glow, and the both-done XP and coins). These used to be
+  shouts across the card at 30% of its height, which on his phone is the word; they are still shouts over the summary
+  when the session's last card earned them (no card is left to show them on). The "+N XP" float under the top bar is
+  gone (it drifted over the badge and, late in a session, over this corner).
+- **Never over the back**: `flip()`, `show(true)` (Undo) and `close()` call `clearChips()`. Chips are made only after the
+  next card's front is drawn (they used to start while the answered card was still leaving).
+- **Big finds** (Epic and better) play on the empty table: after the answered card has flown off, the card is kept unseen
+  (`card.style.visibility`) until the reveal has been put away, then the next card is drawn. The tile starts at the same
+  corner and flies to the middle (reveal.js `breakOut` measures the distance: `--loot-dx`, `--loot-dy`, `--loot-cy`).
+  It dims the top bar and the buttons too while it plays; nothing can be read or pressed then anyway.
+- **The session's last card**: its chip shows where the card was (the table is empty) until it has landed and 0.9 s
+  more, then the summary.
+- **A boss word** says so in its status badge (`.rv-kind.bossword`, gold) instead of a second label in that corner.
+  (A class named `boss` is the raid boss's picture: it made the badge a 96 px circle on the first try.)
+- reveal.js fetches the chips' usual pictures ahead (a chip seen for 1.5 s must not start with an empty tile).
+- **Checked** in a hidden browser against the desktop server on a test folder never signed in to Drive, with a script
+  that also measures whether a chip's box touches the badge, the meaning, the sentence, the hint, the timer bar, the
+  buttons, the top bar or anything on the back: 412 x 915 (his phone), 360 x 520, 360 x 430 (crowded cards: the one-line
+  chip), 1280 x 800, and Arabic at 412 x 915. No overlap in any case. Not checked on a real phone.
+- **Still crossing the card for a moment** (older than the rolls, left alone): the confetti dots of a right answer.
