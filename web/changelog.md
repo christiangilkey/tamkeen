@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** In fishing, choosing an answer plays the right answer's word, as in battles: its own recording, or the card voice. Nothing waits for it, so the card closes as quickly as before. With game sound off, it stays quiet.
 - **New:** Your **aquarium** now shows on Home, right under the Fishing tile, with the fish you keep in it swimming. Tap it to open your Basket. It appears once you have caught your first fish; an empty tank says what it is for.
 - **Fixed:** *(phones)* Fishing's **Basket** screen was wider than the screen: the close button, the Ponds / Basket / Fishdex switch and the boxes ran off the right edge. The "Sell the Common and Uncommon fish" button now wraps onto two lines instead of pushing everything wider, fish names and rarities wrap inside their tiles, and no game screen can grow wider than the phone any more.
 - **New:** Choose which part of a word the Mnemonic maker works on. On the back of a review card (and in the Vocab list), the syllables under **How it sounds** can be tapped or dragged across: tap one and then another to pick the syllables between them, or drag over them. **Make keywords for …** then finds sound-alikes for just those syllables, with the free maker or with AI, and shows where they fit in the whole word; **Whole word** goes back. A long word or phrase such as *wa-TA-hu-fi-bay-da-i* no longer gets keywords for only its end.

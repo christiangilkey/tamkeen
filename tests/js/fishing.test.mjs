@@ -371,3 +371,15 @@ test("Home shows the aquarium under the Fishing tile once a fish has been caught
   const basket = readFileSync(new URL("../../web/js/game/fishscreen.js", import.meta.url), "utf8");
   assert.ok(basket.includes("Keep your best fish here. Your friends can see your aquarium.") && src.includes("Keep your best fish here. Your friends can see your aquarium."));
 });
+
+test("the pond says the right answer's word when a choice is made, as battles do, and never waits for it", () => {
+  const src = readFileSync(new URL("../../web/js/game/fishing-ui.js", import.meta.url), "utf8");
+  assert.match(src, /import \{ snippetPlayer \} from "\.\.\/snippetplayer\.js";/);
+  assert.match(src, /const sayCard = cardSayer\(player\.playSnippet\);/, "the shared player: one word at a time");
+  assert.match(src, /game_sound === false\) return;/, "game sound off: not said");
+  assert.match(src, /sayCard\(v, "word"\)\.catch\(\(\) => \{\}\);/, "not awaited: the card moves on at once");
+  assert.doesNotMatch(src, /await sayCard|await sayAnswer/);
+  assert.match(src, /if \(i !== null\) sayAnswer\(c\.q\);/, "said for a right or a wrong choice, not when the time ran out");
+  assert.match(src, /correct \? 500 : 1400/, "the card's own timings are as they were");
+  assert.match(src, /player\.stop\(\); stopDevice\(\);/, "leaving the pond stops it");
+});

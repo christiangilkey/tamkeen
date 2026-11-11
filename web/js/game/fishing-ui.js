@@ -14,12 +14,14 @@
 // actions its drawing has (render.animAt falls back to its idle), and the rod, the line and the little hop of a
 // cheer are drawn here, so the scene already reads as fishing.
 
-import { api, h, toast } from "../app.js";
+import { api, h, state as appState, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { icon as lineIcon } from "../icons.js";
 import { openModal } from "../components/modal.js";
 import { plan, states } from "../review/deck.js";
+import { snippetPlayer } from "../snippetplayer.js";
+import { cardSayer, stopDevice } from "../voiceplay.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { HABITAT, TYPES } from "./data.js";
 import { describe } from "./genome.js";
@@ -167,6 +169,17 @@ export function openPond(opts = {}) {
   loadScene();
   if (isEgg) loadImage(`egg/${look.type}.png`).then((img) => (img ? dressEgg(img, look.equipped) : null)).then((pic) => { eggPic = pic; });
 
+  // The right answer's word is said the moment a choice is made, as in battles (its own recording, else the card
+  // voice). It plays on by itself: nothing waits for it, and the card closes as quickly as it always did. A new
+  // answer takes over from a word still playing. Game sound off: not said.
+  const player = snippetPlayer();
+  const sayCard = cardSayer(player.playSnippet);
+  const sayAnswer = (q) => {
+    const s = appState.status && appState.status.settings;
+    if (s && s.game_sound === false) return;
+    const v = vocab.find((w) => uidOf(w) === q.uid);
+    if (v) sayCard(v, "word").catch(() => {});
+  };
   const stopStudy = trackStudy("read", () => !closed && Date.now() - lastAnswer < 60000);
 
   // ----- the bar on top -----
@@ -607,6 +620,7 @@ export function openPond(opts = {}) {
     verdict.textContent = correct ? t("Right!") : i === null ? t("Too slow: it got away") : t("Wrong answer: it got away");
     if (!correct) c.panel.querySelector(".lbq-bar i").style.width = "0%";
     sfx(correct ? "common" : "surprise");
+    if (i !== null) sayAnswer(c.q); // (a choice was made: not when the time ran out)
     lastAnswer = Date.now();
     setTimeout(() => {
       if (card === c) card = null;
@@ -954,6 +968,7 @@ export function openPond(opts = {}) {
     document.removeEventListener("keydown", onKey);
     document.removeEventListener("visibilitychange", onHide);
     try { if (lootOpen) lootOpen.close(); } catch { /* already gone */ }
+    try { player.stop(); stopDevice(); } catch { /* nothing was playing */ }
     wrap.remove();
     changed();
     if (opts.closed) opts.closed();
