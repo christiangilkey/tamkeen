@@ -26,7 +26,7 @@ import { firstVisitTour, pageGuide, showGuide } from "../components/tour.js";
 import { canSay } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
 import { getGame, reward, rollCard, trackStudy } from "../game/game.js";
-import { BOSS_TIER, EPIC, GOLDEN_LUCK, GOLDEN_MS, STREAK_STEPS, TIERS, golden, isBoss, lootState, luckFor } from "../game/loot.js";
+import { BOSS_TIER, DUE_LUCK, EPIC, GOLDEN_LUCK, GOLDEN_MS, STREAK_STEPS, TIERS, golden, isBoss, lootState, luckFor } from "../game/loot.js";
 import { notice, reveal, tierBadge } from "../game/reveal.js";
 import { clock as luckClock, openLuck } from "../game/luck.js";
 import { gameOn } from "../components/gameswitch.js";
@@ -306,7 +306,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     chip.disabled = false;
     chip.classList.toggle("golden", left > 0);
     el.classList.toggle("golden", left > 0);
-    chip.innerHTML = `${L.streak >= 2 ? `${gameIcon("combo")}<b>${L.streak}</b>` : ""}<span>×${Math.round(next.luck * 100) / 100}</span>${left ? `<i>${luckClock(left)}</i>` : ""}`;
+    // (kept short, for a phone's top bar: the luck shows once it is more or less than a due card's own)
+    const run = L.streak >= 2;
+    chip.innerHTML = `${run ? `${gameIcon("combo")}<b>${L.streak}</b>` : ""}${!run || next.luck !== DUE_LUCK ? `<span>×${Math.round(next.luck * 100) / 100}</span>` : ""}${left ? `<i>${luckClock(left)}</i>` : ""}`;
   }
 
   // ----- the timers: a bar on the card filling toward its time goal, a clock for the session -----
@@ -956,7 +958,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     // What the roll has to say when it didn't roll: a shield spent, a run ended, an answer too quick to count.
     if (lucky && !lucky.rolled) {
       const top = slotTop();
-      if (lucky.shielded) notice(lootHost, { art: "icon/defence", name: t("Streak shield used"), text: t("{0} in a row kept", lucky.streak), colour: "#4fd17a", top });
+      if (lucky.shielded) notice(lootHost, { art: "icon/streak_shield", name: t("Streak shield used"), text: t("{0} in a row kept", lucky.streak), colour: "#4fd17a", top });
       else if (lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) notice(lootHost, { art: "icon/combo", name: t("Run ended"), text: t("{0} in a row", lucky.lost), colour: "#aab4c3", top });
       else if (lucky.why === "fast") notice(lootHost, { art: "icon/clock", name: t("Too fast"), text: t("No roll for that one"), colour: "#aab4c3", top });
       else if (lucky.why === "spent") notice(lootHost, { art: "icon/clock", name: t("Extra rolls used up"), text: t("More tomorrow"), colour: "#aab4c3", top });

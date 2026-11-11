@@ -694,3 +694,4 @@ b90d6e31  # Egyptian basics
 394a7a5c  # Gulf Arabic basics
 11b463eb  # Moroccan basics
 164bff8f  # Iraqi basics
+b4cfe1f4  # a key's name (game/reveal.js), never on screen

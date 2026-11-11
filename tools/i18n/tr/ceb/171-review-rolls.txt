@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Hinumdomi ang usa ka card sa vocab reviewer: matag usa naay ripa para sa ganti, nga sagad sanag. Kon mas talagsaon ang ripa, mas daghang sanag sa imong tanaman ang dala niini, gikan sa katumbas sa usa ka minuto hangtod sa tunga sa adlaw, busa ang mas dakong tanaman mohimo sa matag card nga mas bililhon. I-tap ang button sa suwerte sa reviewer aron makita ang imong mga tsansa.
+e5e27ff5	Talagsaong ripa sa vocab reviewer: ang card nga imong nahinumdoman usahay makakita og usa ka mutya o labaw pa (ripa nga Legendaryo o mas taas pa).
+4a58cf8b	Ang mga card nga imong nahinumdoman sa vocab reviewer usahay makakita usab og pagkaon.
+7de90a65	Kasagaran
+630e0b25	Dili kasagaran
+cce370d2	Talagsaon
+b3efd0d2	Epiko
+b7e89165	Legendaryo
+f5eb17de	Mitiko
+a7c94b10	Karaan
+b2d383d1	Langitnon
+2060b680	Kosmiko
+2791d0df	Mahangtoron
+f3ed8a70	Streak shield
+16e9bae7	+1 ka mutya
+21cd8805	+{0} ka mutya
+222db0fc	Suplay
+8cfc4d29	Usa ka isul-ob
+145caf29	Takda
+2613fc96	Dugang
+1e3dc73a	Golden hour
+4d963cfa	Bonus
+733610f9	Gamay nga sanag
+2658a44d	Pipila ka sanag
+e1471379	Mas daghang sanag, o usa ka Streak shield
+a03eb247	Daghang sanag, o pagkaon
+a4a46d14	Usa ka tapok nga sanag, pagkaon, mga Streak shield o usa ka mutya
+52eda309	Mga mutya, usa ka Dugang-XP, o tunga sa adlaw nga sanag
+99d02b7f	Usa ka Misteryosong itlog, o 5 ka mutya
+7b07dda9	Usa ka isul-ob, ug 5 ka mutya
+e78cb369	Usa ka talagsaong isul-ob, ug 15 ka mutya
+e63a895e	Usa sa mga pinakatalagsaong isul-ob, ug 50 ka mutya
+f2107ea0	1 sa matag {0}
+eaab3ade	Naa kay {0} ka sunod-sunod nga sakto karong adlawa. Ang ripa sa imong sunod nga card nga takdang i-review naa sa suwerte nga {1}.
+6126fbbe	Golden hour: suwerte nga {0} sulod sa {1} pa.
+b69f5a3a	Matag card nga imong mahinumdoman naay usa ka ripa para sa ganti. Kon mas talagsaon kini, mas dugay kining mopakita.
+c193c93f	Ang card nga takdang i-review karong adlawa naay ripa sa suwerte nga {0}. Ang dugang nga card (bag-ong pulong nga lapas na sa imong ihap sa adlaw, o pulong nga ikaduha na karong adlawa) naay ripa sa ikaupat ra nga bahin sa suwerte.
+ed1b3efc	Ang sunod-sunod nga sakto nga tubag mopataas sa imong suwerte: {0}. Kon sayop ang tubag, mosugod pag-usab ang ihap, ug mao usab sa bag-ong adlaw.
+579de5c1	Ang Streak shield moluwas sa {0} o labaw pa nga sunod-sunod gikan sa usa ka sayop nga tubag. Naa kay {1}.
+5fcf4cdd	Mga boss nga pulong: ang pulong nga nasayop nimo sa {0} ka lainlaing adlaw mahimong bulawan. Hinumdomi kini ug mohatag kini og dili moubos sa {1}. Naghulat karon: {2}.
+1ea7f83c	Golden hour: usahay ang usa ka ripa mosugod og {0} ka minuto nga suwerte nga {1}.
+c7c416bd	Dili gyud magdugay ang suwerte: moabot ang {0} o mas taas pa sulod sa {1} pa ka ripa, ug ang {2} o mas taas pa sulod sa {3}.
+a29e3abb	Ang tubag nga gihatag sa wala pay {0} ka segundo walay ripa, busa walay makuha sa sige lang og tap sa mga card.
+b8c2d8b9	Ang mga ripa gikan ra sa pagtuon. Dili gyud kini ibaligya.
+72892d81	Unsay imong makit-an
+94e99c3d	Ang mga tsansa para sa imong sunod nga card nga takdang i-review, sa suwerte nga {0}.
+91412d6a	Ang numero sa matag kahon mao ang gidaghanon sa imong nakit-an hangtod karon.
+c7664f2f	Naabot ra gyud ang suwerte
+cbaabfdc	I-tap aron mopadayon
+c51857c2	Boss nga pulong
+d5cd80a3	Hinumdomi kini ug mohatag kini og dili moubos sa {0}
+f4a93bab	Golden hour! Suwerte ×{0} sulod sa {1} ka minuto
+8e28750e	{0} nga sunod-sunod! Suwerte ×{1}
+fe0b394a	Nagamit ang Streak shield
+4455afbf	Nagpabilin ang {0} nga sunod-sunod
+0704cf61	Naputol ang streak
+3d6a7660	{0} nga sunod-sunod
+d7822c63	Paspas ra kaayo
+7cc97348	Walay ripa para niana
+be9de189	Nahurot na ang mga dugang nga ripa
+72deef40	Dugang pa ugma
+04d20799	Nakit-an niining session
+85777c03	dili gayod
+7797da70	matag higayon

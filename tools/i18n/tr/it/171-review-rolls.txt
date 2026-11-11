@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Ricorda una carta nel ripasso del vocabolario: per ognuna viene estratta a sorte una ricompensa, il più delle volte bagliore. Più l'estrazione è rara, più bagliore porta: da quello che il tuo giardino produce in un minuto a quello di mezza giornata, quindi con un giardino più grande ogni carta vale di più. Tocca il pulsante della fortuna nel ripasso per vedere le tue probabilità.
+e5e27ff5	Un'estrazione rara nel ripasso del vocabolario: ogni tanto una carta che ricordi trova una gemma o più (un'estrazione Leggendaria o migliore).
+4a58cf8b	Le carte che ricordi nel ripasso del vocabolario a volte trovano anche del cibo.
+7de90a65	Comune
+630e0b25	Non comune
+cce370d2	Raro
+b3efd0d2	Epico
+b7e89165	Leggendario
+f5eb17de	Mitico
+a7c94b10	Antico
+b2d383d1	Celestiale
+2060b680	Cosmico
+2791d0df	Eterno
+f3ed8a70	Scudo della serie
+16e9bae7	+1 gemma
+21cd8805	+{0} gemme
+222db0fc	Rifornimento
+8cfc4d29	Qualcosa da indossare
+145caf29	Da ripassare
+2613fc96	Extra
+1e3dc73a	Ora d'oro
+4d963cfa	Bonus
+733610f9	Un pochino di bagliore
+2658a44d	Un po' di bagliore
+e1471379	Più bagliore, o uno Scudo della serie
+a03eb247	Tanto bagliore, o cibo
+a4a46d14	Un mucchio di bagliore, cibo, Scudi della serie o una gemma
+52eda309	Gemme, un bonus XP o mezza giornata di bagliore
+99d02b7f	Un Uovo misterioso, o 5 gemme
+7b07dda9	Qualcosa da indossare, e 5 gemme
+e78cb369	Qualcosa di raro da indossare, e 15 gemme
+e63a895e	Una delle cose più rare da indossare, e 50 gemme
+f2107ea0	1 su {0}
+eaab3ade	Risposte giuste di fila oggi: {0}. Per la tua prossima carta da ripassare l'estrazione avrà fortuna {1}.
+6126fbbe	Ora d'oro: fortuna {0} ancora per {1}.
+b69f5a3a	Per ogni carta che ricordi c'è un'estrazione con una ricompensa. Più la ricompensa è rara, più tempo ci mette a comparire.
+c193c93f	Per una carta che era da ripassare oggi l'estrazione ha fortuna {0}. Per una carta extra (una parola nuova oltre il tuo numero giornaliero, o una parola per la seconda volta oggi) ha un quarto di fortuna.
+ed1b3efc	Le risposte giuste di fila aumentano la tua fortuna: {0}. Una risposta sbagliata fa ripartire il conto, e così anche un nuovo giorno.
+579de5c1	Uno Scudo della serie salva una serie di {0} o più quando sbagli una risposta. Ne hai {1}.
+5fcf4cdd	Parole boss: una parola che hai sbagliato in {0} giorni diversi diventa d'oro. Se la ricordi, paga almeno {1}. In attesa ora: {2}.
+1ea7f83c	Ora d'oro: ogni tanto un'estrazione fa partire {0} minuti di fortuna {1}.
+c7c416bd	La fortuna non si fa mai aspettare a lungo: entro altre {1} estrazioni esce almeno un {0}, ed entro {3} almeno un {2}.
+a29e3abb	Una risposta data in meno di {0} secondi non dà diritto a un'estrazione, quindi scorrere le carte in fretta non fa guadagnare niente.
+b8c2d8b9	Le estrazioni arrivano solo dallo studio. Non si vendono mai.
+72892d81	Cosa puoi trovare
+94e99c3d	Le probabilità valgono per la tua prossima carta da ripassare, con fortuna {0}.
+91412d6a	Il numero in ogni quadrato indica quanti ne hai trovati finora.
+c7664f2f	La fortuna si faceva aspettare
+cbaabfdc	Tocca per continuare
+c51857c2	Parola boss
+d5cd80a3	Se la ricordi, paga almeno {0}
+f4a93bab	Ora d'oro! Fortuna ×{0} per {1} minuti
+8e28750e	{0} di fila! Fortuna ×{1}
+fe0b394a	Scudo della serie usato
+4455afbf	{0} di fila salvate
+0704cf61	Serie interrotta
+3d6a7660	{0} di fila
+d7822c63	Troppo veloce
+7cc97348	Questa volta niente estrazione
+be9de189	Estrazioni extra esaurite
+72deef40	Domani ce ne saranno altre
+04d20799	Trovato in questa sessione
+85777c03	mai
+7797da70	sempre

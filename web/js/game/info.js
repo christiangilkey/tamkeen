@@ -151,6 +151,7 @@ const EARNED = {
         `Tap a building with a light bobbing over it to gather its glow. After ${AUTO_GOALS} daily goals it gathers itself.`,
         "Reach your daily goal: every building makes half as much again for the rest of the day, and two hours of glow arrive at once.",
         `Clear the day's flashcards in the vocab reviewer (${REVIEW_CLEAR_CARDS} cards or more, with none left due): an hour of your garden's glow at once, and never less than ${CARDS_GLOW_MIN}. Battles pay coins instead.`,
+        "Remember a card in the vocab reviewer: each one rolls for a reward, most often glow. The rarer the roll, the more of your garden's glow it brings, from a minute's worth to half a day's, so a bigger garden makes every card worth more. Tap the luck chip in the reviewer to see your chances.",
         "Each kind of building makes more for one study habit, and each heart on your creature adds a little.",
       ],
       use: [
@@ -171,6 +172,7 @@ const EARNED = {
         "Your guild beats the weekly raid boss: 3.",
         "Rise a league (reach your daily goal on 5 days of a week): 2.",
         "Full bloom, when every garden plot holds a fully grown building: 10.",
+        "A rare roll in the vocab reviewer: a card you remember now and then finds a gem or more (a Legendary roll or better).",
         "Gems only come from things you do. They are never sold for money.",
       ],
       use: SUPPLIES.filter((s) => s.gems).map((s) => `<strong>${esc(s.name)}</strong> (${plural(s.gems, "gem")}): ${esc(s.text)}`),
@@ -187,6 +189,7 @@ const EARNED = {
       now: `${esc(c.name || "Your creature")} has ${n} of 5 hearts.`,
       get: [
         `Feed the creature in your habitat. Food costs ${FOODS[0].glow} glow, and it eats up to ${FEEDS_PER_DAY} times a day.`,
+        "Cards you remember in the vocab reviewer sometimes find food too.",
         `Two feedings fill one heart. Its favourite food counts double${favourite ? `: for a ${TYPES[c.type].name} creature that is ${favourite.name.toLowerCase()}` : ""}.`,
         "Hearts belong to each creature, and they never go down.",
       ],

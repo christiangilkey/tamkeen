@@ -8353,3 +8353,76 @@ racing. Fishing should feel like Animal Crossing. He approved the design below; 
   stopDevice();` in `close()`, exactly as livebattle-ui.js `sayAnswer` does; (6) the pond has no sound of its own
   beyond the game's chimes and the reveal's notes; (7) the pond's "Luck" box is fishing's own: loot's `luck.js
   openLuck` could be linked from it.
+
+## Flashcards: every remembered card is a roll (2026-11-10; side session "Review rolls", the first of the mini-game systems)
+The owner wants mini-games on Roblox-style ideas (systems that feed each other, many rarities, visible finds, an obvious
+loop) that above all make reviewing words addictive. Approved order: (1) this roll system, (2) fishing (its own session,
+built on loot.js), (3) farming, (4) racing. His design, as built (every number is a constant at the top of loot.js):
+- **Engine** `web/js/game/loot.js` (pure): `TIERS` (ten, Common 0 .. Eternal 9: id, name, odds "1 in N", colour: 4, 12, 40,
+  150, 600, 2,500, 10,000, 50,000, 250,000), `chances(luck)` (each tier's odds times the luck, the commonest giving way),
+  `luckFor(state, {due, extra, luck, streak})` -> {luck, parts}, `roll(state, luck, rand, {floor, pity})`,
+  `rollAnswer(state, {source, correct, ms, uid, due, extra, luck, pay}, rand, now)` (the one call a screen makes, for
+  right AND wrong answers), `rewardFor` / `payReward` and the `REWARDS` table, `isBoss`, `golden`, `pityLeft`, `bossCount`,
+  `snapshot` / `restore` (Undo), `lootState`, `cleanLoot` (rules.normalize calls it: old saves just gain `state.loot`).
+  loot.js and rules.js import each other; safe because neither uses the other while loading.
+- **Luck**: a due card x2 (`DUE_LUCK`), an extra x0.25 (a card that wasn't due, or a word that has already rolled today,
+  whatever the source; at most `EXTRA_DAY` 150 extra rolls a day), the answer streak 10 / 25 / 50 in a row x2 / x3 / x5
+  (`STREAK_STEPS`; a wrong answer resets it, and so does a new day: my change to the brief, so the top luck is a day's
+  climb and not a permanent state), a Golden hour x3 for 10 minutes (each full roll has a 1 in 150 chance to start one,
+  at most one a day), and a caller's own factor (capped at x3; fishing's pond and rod).
+- **Pity**: an Epic or better at the 50th roll without one, a Legendary or better at the 300th (`PITY`; extras neither
+  count nor get it).
+- **Boss words**: a word missed on 4 different days (`BOSS_MISSES`; one miss a day counts; kept in `state.loot.miss` by a
+  short hash of the uid, at most 400 words). Right, it rolls at least a Legendary (`BOSS_TIER`), for 5 bosses a day
+  (`BOSS_DAY`; the rest stay bosses for tomorrow).
+- **No pay for tapping**: a right answer under `FAST_MS` 1.2 s doesn't roll and doesn't move the streak; flashcards use
+  1.5 s (`FAST_MS_BY.cards`; a mini-game sets its own). A word rolls in full once a day.
+- **Rewards** (`REWARDS`, one list of weighted choices per tier): glow as minutes of the garden's output (1, 3, 10, 30,
+  180, 720; never under a floor of 1, 3, 10, 30, 150, 600), so building the garden makes every roll worth more; food
+  (often the creature's favourite); Streak shields; gems (1 at a Legendary one time in eight, 1 or 2 at a Mythic, 5 as an
+  Ancient's alternative to its Mystery egg, 5 / 15 / 50 with the wearable of the three rarest). **Never coins** (the owner's
+  rule: battles pay coins, cards pay glow; tests check it). An egg with a full roster and a wearable when all are owned
+  become gems. `pay: false` rolls without paying, for a mini-game with its own catch.
+- **Streak shield**: its own thing (`state.items.shield`), found only in rolls, spent by itself when a run of 10 or more
+  would end. The brief said the streak-freeze item "could" protect the run; I kept them apart, because a freeze guards the
+  daily streak and would be burnt by one mis-tapped card. Icon `icon/streak_shield.png`, drawn through the Aseprite MCP
+  (`game/art-src/icon/streak_shield.aseprite`). It isn't on the Supplies screen yet (the Luck sheet says how many are held).
+- **Reveal** `web/js/game/reveal.js` (shared: fishing calls it with its fish as `opts.art`): `reveal(host, result, opts)`
+  -> a Promise with `.landed`, `.skip()`, `.close()`. The tile lands face down and climbs the tiers one colour and one
+  note at a time (`lootview.climb`: the order and timing, pure). Common to Rare are a chip at the host's top that holds
+  nothing up; Epic and better "break out": the host dims, the tile comes to the middle, trembles harder at each further
+  tier, then lands with a flash, rays (Legendary+), a burst and the tier's name, "1 in N", the reward and what made the
+  luck; a tap, Space / Enter / Escape or a few seconds put it away. `notice()` is a plain chip in the same place.
+  `tierBadge()` a small square in a tier's colour. Sounds are synthesised and honour the game's sound switch; reduced
+  motion shows the result at once. `lootview.js` holds what a reward is called and looks like (`grantView`, `rewardView`,
+  `luckText`), with no screen code. Styles: app.css "the reveal of a roll" (class names start `loot-`), review.css's last
+  block for the reviewer's own bits.
+- **The reviewer** (pages/review.js): `grade()` calls `game.rollCard({correct, ms, uid, due, extra})` after the XP
+  (`reward({type: "review"})` is unchanged and still pays both answers the same); the reveal plays in `.rv-loot`; a big
+  one holds the next card until it has been seen (`showing`). New words past the day's number ("Learn 10 more") are
+  extras (`extras`, `markExtras`). The top bar's chip (`.rv-streak`, a button now; `paintLuck`) shows the run of right
+  answers, the luck once it differs from a due card's x2, and a Golden hour's time left (not on a narrow phone); a tap
+  opens the Luck sheet (`game/luck.js` `openLuck`: how it works, the chances at the luck now, how many of each tier have
+  been found). A boss word's card has a gold edge (`.rv-bossed`; not `.boss`, which is the raid boss's picture) and a
+  "Boss word" label. Undo puts back the streak, a shield spent and a miss counted (`rollCard(...).undo()`); what a roll
+  paid stays paid, and the time already spent on the card carries over so answering again isn't "too fast". The end of a
+  session lists what was found. "Lucky card!" / "Jackpot card!" are gone from the XP line (two kinds of luck on one screen
+  confused it); the XP itself is as before. With the game switched off none of this shows.
+- **Things to know**: (1) the learner marks their own cards, and now only "Remembered" rolls, where XP still pays both
+  answers alike so there is nothing to gain by fibbing. What keeps honesty cheap: a missed card rolls in full when it
+  comes back and is remembered, so a miss costs only the run (and a shield covers that), and every honest miss is a
+  quarter of a boss word. The owner has been told; watch for it. (2) Gems were scarce before (badges, raids, leagues,
+  full bloom); a learner doing 60 cards a day now finds roughly one every day or two. (3) `state.loot.day.rolled` holds up to 1,500
+  short keys a day and `miss` up to 400, in the synced game state.
+- **Tests**: `tests/js/loot.test.mjs` (the odds over 200,000 rolls, pity, luck, streak and shield, a new day, Undo, fast
+  answers, once a day, boss words, the Golden hour, every tier's reward and that glow follows the garden, `pay: false`,
+  normalize, every reward's words and picture, the reveal's order).
+- **Checked** in a real window (the desktop server from source, a fresh data folder never signed in to Drive, 60 Arabic
+  words): rolls, chips and big reveals from the real reviewer, the Luck sheet, a boss card, a shield spent, Undo, the
+  Golden hour's chip and shout, at desktop width and at 390 px in a hidden browser. Not checked on a real phone, with a
+  controller in hand, or between two devices.
+- **Translations**: `tools/i18n/tr/<code>/171-review-rolls.txt`, 16 languages. Pictures and a film for the owner:
+  `../review-rolls-shots/`.
+- **Ideas not built**: badges for a first Legendary / Mythic (badge art needed); the Streak shield and the Luck sheet on
+  the game's own screens (Supplies, Home); a friend seeing your best find; ten drawn tile frames instead of the plain
+  coloured squares; something only an Eternal can give.

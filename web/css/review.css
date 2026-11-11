@@ -473,7 +473,7 @@ body.rv-open { overflow: hidden; }
 .rv-streak .px-icon { vertical-align: 0; }
 .rv-top .rv-streak.golden, .rv-top .rv-streak.golden:hover { background: #ffb11f; border-color: #ffb11f; color: #2b1a00; }
 .rv-streak.golden span { color: #2b1a00; }
-@media (max-width: 420px) { .rv-top .rv-streak { padding: 3px 8px; gap: 4px; } }
+@media (max-width: 420px) { .rv-top .rv-streak { padding: 3px 8px; gap: 4px; } .rv-streak i { display: none; } }  /* (the time left is on the Luck sheet) */
 /* A Golden hour warms the table's two lights to gold. */
 .rv.golden .rv-bg::before { background: #ffb11f; }
 .rv.golden .rv-bg::after { background: #ff8a3d; }

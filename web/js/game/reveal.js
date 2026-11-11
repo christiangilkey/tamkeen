@@ -186,7 +186,7 @@ export function reveal(host, result, opts = {}) {
     const made = luckText(result && result.parts);
     if (made) why.push(made);
     $(".loot-why").textContent = why.join(" · ");
-    $(".loot-hint").textContent = t("Tap to carry on");
+    $(".loot-hint").textContent = t("Tap to continue");
   }
 
   const paint = (i) => {

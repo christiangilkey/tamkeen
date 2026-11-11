@@ -518,7 +518,8 @@ export const FOODS = [
   { id: "food_leaf", name: "Leaf", glow: 30, loves: "grove" }, { id: "food_spark", name: "Spark candy", glow: 30, loves: "spark" },
   { id: "food_crystal", name: "Rock sugar", glow: 30, loves: "stone" }, { id: "food_cake", name: "Moon cake", glow: 30, loves: "dusk" },
 ];
-// Supplies are bought with glow or with gems (gems come only from badges, raids, league rises and full bloom).
+// Supplies are bought with glow or with gems (gems come only from things done: badges, raids, league rises, full
+// bloom, and now and then a rare roll in the flashcards, loot.js).
 export const SUPPLIES = [
   { id: "potion", name: "Potion", glow: 150, text: "In a wild battle, restores half of a creature's health once." },
   { id: "xp_boost", name: "XP boost", gems: 2, text: "Doubles XP from looking up, saving and reviewing words for 20 minutes." },
@@ -631,6 +632,7 @@ export function artFiles() {
   for (const s of STRUCTURES) for (const tier of [1, 2, 3]) extra(`structure/${s.id}_${tier}.png`, tier === 3 ? [48, 48] : [32, 32]);
   for (const f of FOODS) extra(`icon/${f.id}.png`, [16, 16]);
   for (const id of ["potion", "key", "incubator", "xp_boost", "gem", "stardust", "heart_full", "heart_empty"]) extra(`icon/${id}.png`, [16, 16]);
+  extra("icon/streak_shield.png", [16, 16]); // found in the flashcards' rolls (loot.js): it saves a run of right answers from one miss
   for (const [id, s] of [["evolve", 64], ["ready", 32]]) extra(`fx/${id}.png`, [s * FX_FRAMES[id], s]);
   for (const id of ["faint", "glance"]) extra(`battle/${id}.png`, [32 * BATTLE_FRAMES[id], 32]);
   for (const [id, n, s] of [["surge", 6, 48], ["combo_fire", 4, 16]]) extra(`fx/${id}.png`, [s * n, s]);

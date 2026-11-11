@@ -365,6 +365,16 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "85777c03",
+  "k": "never",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "7797da70",
+  "k": "every time",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"
@@ -14150,6 +14160,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "8fe28ad4",
+  "k": "Remember a card in the vocab reviewer: each one rolls for a reward, most often glow. The rarer the roll, the more of your garden's glow it brings, from a minute's worth to half a day's, so a bigger garden makes every card worth more. Tap the luck chip in the reviewer to see your chances.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "5881fc72",
   "k": "Each kind of building makes more for one study habit, and each heart on your creature adds a little.",
   "f": "web/js/game/info.js"
@@ -14210,6 +14225,11 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "e5e27ff5",
+  "k": "A rare roll in the vocab reviewer: a card you remember now and then finds a gem or more (a Legendary roll or better).",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "03611593",
   "k": "Gems only come from things you do. They are never sold for money.",
   "f": "web/js/game/info.js"
@@ -14232,6 +14252,11 @@
  {
   "id": "ced05c8e",
   "k": "Feed the creature in your habitat. Food costs {0} glow, and it eats up to {1} times a day.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "4a58cf8b",
+  "k": "Cards you remember in the vocab reviewer sometimes find food too.",
   "f": "web/js/game/info.js"
  },
  {
@@ -15030,18 +15055,13 @@
   "f": "web/js/game/reveal.js"
  },
  {
-  "id": "637f41af",
-  "k": "Tap to carry on",
+  "id": "cbaabfdc",
+  "k": "Tap to continue",
   "f": "web/js/game/reveal.js"
  },
  {
   "id": "2b9eceb7",
   "k": "Enter",
-  "f": "web/js/game/reveal.js"
- },
- {
-  "id": "b4cfe1f4",
-  "k": "Escape",
   "f": "web/js/game/reveal.js"
  },
  {

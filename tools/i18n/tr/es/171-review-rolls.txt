@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Recuerda una tarjeta en el repaso de vocabulario: cada una te da una tirada de recompensa, que la mayoría de las veces es brillo. Cuanto más rara es la tirada, más brillo trae: desde lo que tu jardín produce en un minuto hasta lo que produce en medio día, así que con un jardín más grande cada tarjeta vale más. Toca el botón de la suerte en el repaso para ver tus probabilidades.
+e5e27ff5	Una tirada rara en el repaso de vocabulario: de vez en cuando, una tarjeta que recuerdas encuentra una gema o más (una tirada Legendaria o mejor).
+4a58cf8b	Las tarjetas que recuerdas en el repaso de vocabulario a veces también encuentran comida.
+7de90a65	Común
+630e0b25	Poco común
+cce370d2	Raro
+b3efd0d2	Épico
+b7e89165	Legendario
+f5eb17de	Mítico
+a7c94b10	Ancestral
+b2d383d1	Celestial
+2060b680	Cósmico
+2791d0df	Eterno
+f3ed8a70	Escudo de racha
+16e9bae7	+1 gema
+21cd8805	+{0} gemas
+222db0fc	Provisión
+8cfc4d29	Algo para ponerse
+145caf29	Pendiente
+2613fc96	Extra
+1e3dc73a	Hora dorada
+4d963cfa	Bonificación
+733610f9	Un poquito de brillo
+2658a44d	Un poco de brillo
+e1471379	Más brillo, o un Escudo de racha
+a03eb247	Mucho brillo, o comida
+a4a46d14	Un montón de brillo, comida, Escudos de racha o una gema
+52eda309	Gemas, un impulso de XP o medio día de brillo
+99d02b7f	Un Huevo misterioso, o 5 gemas
+7b07dda9	Algo para ponerse, y 5 gemas
+e78cb369	Algo raro para ponerse, y 15 gemas
+e63a895e	Una de las cosas más raras para ponerse, y 50 gemas
+f2107ea0	1 de cada {0}
+eaab3ade	Respuestas correctas seguidas hoy: {0}. La tirada de tu próxima tarjeta pendiente se hará con suerte {1}.
+6126fbbe	Hora dorada: suerte {0} durante {1} más.
+b69f5a3a	Cada tarjeta que recuerdas te da una tirada de recompensa. Cuanto más rara es la recompensa, más tarda en aparecer.
+c193c93f	La tirada de una tarjeta que estaba pendiente hoy se hace con suerte {0}. La de una tarjeta extra (una palabra nueva por encima de tu número diario, o una palabra por segunda vez hoy) se hace con un cuarto de suerte.
+ed1b3efc	Las respuestas correctas seguidas aumentan tu suerte: {0}. Una respuesta incorrecta reinicia la cuenta, y un día nuevo también.
+579de5c1	Un Escudo de racha salva una racha de {0} o más cuando fallas una respuesta. Tienes {1}.
+5fcf4cdd	Palabras jefe: una palabra que has fallado en {0} días distintos se vuelve dorada. Si la recuerdas, paga al menos {1}. En espera ahora: {2}.
+1ea7f83c	Hora dorada: de vez en cuando, una tirada inicia {0} minutos de suerte {1}.
+c7c416bd	La suerte nunca se hace esperar mucho: sale un {0} o mejor en las próximas {1} tiradas, y un {2} o mejor en las próximas {3}.
+a29e3abb	Una respuesta dada en menos de {0} segundos se queda sin tirada, así que pasar tarjetas a toda prisa no da nada.
+b8c2d8b9	Las tiradas solo salen de estudiar. Nunca se venden.
+72892d81	Lo que puedes encontrar
+94e99c3d	Las probabilidades son para tu próxima tarjeta pendiente, con suerte {0}.
+91412d6a	El número de cada cuadrado es cuántos has encontrado hasta ahora.
+c7664f2f	La suerte se hacía esperar
+cbaabfdc	Toca para continuar
+c51857c2	Palabra jefe
+d5cd80a3	Si la recuerdas, paga al menos {0}
+f4a93bab	¡Hora dorada! Suerte ×{0} durante {1} minutos
+8e28750e	¡{0} seguidas! Suerte ×{1}
+fe0b394a	Escudo de racha usado
+4455afbf	Conservas {0} seguidas
+0704cf61	Racha terminada
+3d6a7660	{0} seguidas
+d7822c63	Demasiado rápido
+7cc97348	Esta vez no hay tirada
+be9de189	Tiradas extra agotadas
+72deef40	Mañana habrá más
+04d20799	Encontrado en esta sesión
+85777c03	nunca
+7797da70	siempre

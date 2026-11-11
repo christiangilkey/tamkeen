@@ -45,11 +45,11 @@ export function openLuck(game, opts = {}) {
   const pity = pityLeft(game);
   const shields = Math.max(0, Math.floor(Number(game.items && game.items.shield) || 0));
   const bosses = bossCount(game);
-  const { body } = sheet(t("Luck"), "star", opts);
+  const { body } = sheet(t("Luck"), "luck", opts);
   const times = (x) => `×${Math.round(x * 100) / 100}`;
 
   body.append(h(`<p class="info-now">You have ${L.streak} right in a row today. Your next due card rolls at luck ${times(next.luck)}.</p>`));
-  if (left) body.append(h(`<p class="luck-golden">${icon("star")} Golden hour: luck ${times(GOLDEN_LUCK)} for another ${clock(left)}.</p>`));
+  if (left) body.append(h(`<p class="luck-golden">${icon("luck")} Golden hour: luck ${times(GOLDEN_LUCK)} for another ${clock(left)}.</p>`));
   const steps = STREAK_STEPS.map(([n, x]) => `${n} ${times(x)}`).join(", ");
   body.append(h(`<div><strong>How it works</strong><ul class="info-list">
     <li>Every card you remember rolls once for a reward. The rarer it is, the longer it takes to show.</li>

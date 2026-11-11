@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Lembre um cartão no revisor de vocabulário: cada um dá direito a um sorteio de recompensa, que na maioria das vezes é brilho. Quanto mais raro o sorteio, mais brilho ele traz: do que o seu jardim produz em um minuto até o que produz em meio dia, então um jardim maior faz cada cartão valer mais. Toque no botão da sorte no revisor para ver suas chances.
+e5e27ff5	Um sorteio raro no revisor de vocabulário: de vez em quando, um cartão que você lembra encontra uma gema ou mais (um sorteio Lendário ou melhor).
+4a58cf8b	Os cartões que você lembra no revisor de vocabulário às vezes também encontram comida.
+7de90a65	Comum
+630e0b25	Incomum
+cce370d2	Raro
+b3efd0d2	Épico
+b7e89165	Lendário
+f5eb17de	Mítico
+a7c94b10	Ancestral
+b2d383d1	Celestial
+2060b680	Cósmico
+2791d0df	Eterno
+f3ed8a70	Escudo de sequência
+16e9bae7	+1 gema
+21cd8805	+{0} gemas
+222db0fc	Suprimento
+8cfc4d29	Algo para usar
+145caf29	Pendente
+2613fc96	Extra
+1e3dc73a	Hora dourada
+4d963cfa	Bônus
+733610f9	Um pouquinho de brilho
+2658a44d	Um pouco de brilho
+e1471379	Mais brilho, ou um Escudo de sequência
+a03eb247	Muito brilho, ou comida
+a4a46d14	Um monte de brilho, comida, Escudos de sequência ou uma gema
+52eda309	Gemas, um bônus de XP ou meio dia de brilho
+99d02b7f	Um Ovo misterioso, ou 5 gemas
+7b07dda9	Algo para usar, e 5 gemas
+e78cb369	Algo raro para usar, e 15 gemas
+e63a895e	Uma das coisas mais raras para usar, e 50 gemas
+f2107ea0	1 em {0}
+eaab3ade	Respostas certas seguidas hoje: {0}. O sorteio do seu próximo cartão pendente será feito com sorte {1}.
+6126fbbe	Hora dourada: sorte {0} por mais {1}.
+b69f5a3a	Cada cartão que você lembra dá direito a um sorteio de recompensa. Quanto mais rara a recompensa, mais ela demora para aparecer.
+c193c93f	O sorteio de um cartão que estava pendente hoje é feito com sorte {0}. O de um cartão extra (uma palavra nova além do seu número diário, ou uma palavra pela segunda vez hoje) é feito com um quarto de sorte.
+ed1b3efc	Respostas certas seguidas aumentam sua sorte: {0}. Uma resposta errada recomeça a contagem, e um novo dia também.
+579de5c1	Um Escudo de sequência salva uma sequência de {0} ou mais quando você erra uma resposta. Você tem {1}.
+5fcf4cdd	Palavras chefe: uma palavra que você errou em {0} dias diferentes fica dourada. Se você lembrar dela, ela rende pelo menos {1}. Esperando agora: {2}.
+1ea7f83c	Hora dourada: de vez em quando, um sorteio dá início a {0} minutos de sorte {1}.
+c7c416bd	A sorte nunca demora muito: sai um {0} ou melhor nos próximos {1} sorteios, e um {2} ou melhor nos próximos {3}.
+a29e3abb	Uma resposta dada em menos de {0} segundos não dá direito a sorteio, então passar os cartões correndo não rende nada.
+b8c2d8b9	Os sorteios só vêm do estudo. Eles nunca são vendidos.
+72892d81	O que você pode encontrar
+94e99c3d	As chances são para o seu próximo cartão pendente, com sorte {0}.
+91412d6a	O número em cada quadrado mostra quantos você encontrou até agora.
+c7664f2f	A sorte estava demorando
+cbaabfdc	Toque para continuar
+c51857c2	Palavra chefe
+d5cd80a3	Se você lembrar, ela rende pelo menos {0}
+f4a93bab	Hora dourada! Sorte ×{0} por {1} minutos
+8e28750e	{0} seguidas! Sorte ×{1}
+fe0b394a	Escudo de sequência usado
+4455afbf	{0} seguidas mantidas
+0704cf61	Sequência encerrada
+3d6a7660	{0} seguidas
+d7822c63	Rápido demais
+7cc97348	Sem sorteio desta vez
+be9de189	Sorteios extras esgotados
+72deef40	Amanhã tem mais
+04d20799	Encontrado nesta sessão
+85777c03	nunca
+7797da70	sempre

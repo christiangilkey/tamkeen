@@ -6,8 +6,7 @@ import { FOODS, SUPPLIES, itemById } from "./data.js";
 import { EPIC, LEGENDARY, MYTHIC, RARE } from "./loot.js";
 
 // ---------- what a reward is called and looks like ----------
-// (The Streak shield has no drawing of its own yet: it borrows the battle's defence icon.)
-const SUPPLY_ART = { shield: "icon/defence", xp_boost: "icon/xp_boost" };
+const SUPPLY_ART = { shield: "icon/streak_shield", xp_boost: "icon/xp_boost" };
 const SUPPLY_NAME = { shield: "Streak shield" };
 
 /** One grant as {art, text}: a picture from game-art/ (no extension) and a few words, already translated. */

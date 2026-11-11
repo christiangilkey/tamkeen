@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Recorda una targeta al repàs de vocabulari: cadascuna et dona una tirada de recompensa, que la majoria de vegades és brill. Com més rara és la tirada, més brill porta: des del que el teu jardí fa en un minut fins al que fa en mig dia, així que amb un jardí més gran cada targeta val més. Toca el botó de la sort al repàs per veure les teves probabilitats.
+e5e27ff5	Una tirada rara al repàs de vocabulari: de tant en tant, una targeta que recordes troba una gemma o més (una tirada Llegendària o millor).
+4a58cf8b	Les targetes que recordes al repàs de vocabulari de vegades també troben menjar.
+7de90a65	Comú
+630e0b25	Poc comú
+cce370d2	Rar
+b3efd0d2	Èpic
+b7e89165	Llegendari
+f5eb17de	Mític
+a7c94b10	Ancestral
+b2d383d1	Celestial
+2060b680	Còsmic
+2791d0df	Etern
+f3ed8a70	Escut de ratxa
+16e9bae7	+1 gemma
+21cd8805	+{0} gemmes
+222db0fc	Provisió
+8cfc4d29	Alguna cosa per posar-se
+145caf29	Pendent
+2613fc96	Extra
+1e3dc73a	Hora daurada
+4d963cfa	Bonificació
+733610f9	Una miqueta de brill
+2658a44d	Una mica de brill
+e1471379	Més brill, o un Escut de ratxa
+a03eb247	Molt de brill, o menjar
+a4a46d14	Un munt de brill, menjar, Escuts de ratxa o una gemma
+52eda309	Gemmes, un impuls d'XP o mig dia de brill
+99d02b7f	Un Ou misteriós, o 5 gemmes
+7b07dda9	Alguna cosa per posar-se, i 5 gemmes
+e78cb369	Alguna cosa rara per posar-se, i 15 gemmes
+e63a895e	Una de les coses més rares per posar-se, i 50 gemmes
+f2107ea0	1 de cada {0}
+eaab3ade	Respostes correctes seguides avui: {0}. La tirada de la teva pròxima targeta pendent es farà amb sort {1}.
+6126fbbe	Hora daurada: sort {0} durant {1} més.
+b69f5a3a	Cada targeta que recordes et dona una tirada de recompensa. Com més rara és la recompensa, més triga a aparèixer.
+c193c93f	La tirada d'una targeta que estava pendent avui es fa amb sort {0}. La d'una targeta extra (una paraula nova per sobre del teu nombre diari, o una paraula per segona vegada avui) es fa amb un quart de sort.
+ed1b3efc	Les respostes correctes seguides augmenten la teva sort: {0}. Una resposta incorrecta fa tornar a començar el compte, i un dia nou també.
+579de5c1	Un Escut de ratxa salva una ratxa de {0} o més quan falles una resposta. En tens {1}.
+5fcf4cdd	Paraules cap: una paraula que has fallat en {0} dies diferents es torna daurada. Si la recordes, paga com a mínim {1}. En espera ara: {2}.
+1ea7f83c	Hora daurada: de tant en tant, una tirada fa començar {0} minuts de sort {1}.
+c7c416bd	La sort no es fa esperar mai gaire: surt un {0} o millor en les pròximes {1} tirades, i un {2} o millor en les pròximes {3}.
+a29e3abb	Una resposta donada en menys de {0} segons es queda sense tirada, així que passar targetes de pressa no dona res.
+b8c2d8b9	Les tirades només surten d'estudiar. No es venen mai.
+72892d81	El que pots trobar
+94e99c3d	Les probabilitats són per a la teva pròxima targeta pendent, amb sort {0}.
+91412d6a	El número de cada quadrat és quants n'has trobat fins ara.
+c7664f2f	La sort es feia esperar
+cbaabfdc	Toca per continuar
+c51857c2	Paraula cap
+d5cd80a3	Si la recordes, paga com a mínim {0}
+f4a93bab	Hora daurada! Sort ×{0} durant {1} minuts
+8e28750e	{0} seguides! Sort ×{1}
+fe0b394a	Escut de ratxa utilitzat
+4455afbf	Conserves {0} seguides
+0704cf61	Ratxa acabada
+3d6a7660	{0} seguides
+d7822c63	Massa de pressa
+7cc97348	Aquesta vegada no hi ha tirada
+be9de189	Tirades extra esgotades
+72deef40	Demà n'hi haurà més
+04d20799	Trobat en aquesta sessió
+85777c03	mai
+7797da70	sempre

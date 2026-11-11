@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Souvenez-vous d'une carte dans la révision du vocabulaire : chacune donne un tirage au sort pour une récompense, le plus souvent de la lueur. Plus le tirage est rare, plus il rapporte de lueur de votre jardin, d'une minute à une demi-journée de production : un jardin plus grand donne donc plus de valeur à chaque carte. Touchez l'indicateur de chance dans la révision pour voir les probabilités.
+e5e27ff5	Un tirage rare dans la révision du vocabulaire : de temps en temps, une carte dont vous vous souvenez trouve une gemme ou plus (un tirage Légendaire ou mieux).
+4a58cf8b	Les cartes dont vous vous souvenez dans la révision du vocabulaire trouvent parfois aussi de la nourriture.
+7de90a65	Commun
+630e0b25	Peu commun
+cce370d2	Rare
+b3efd0d2	Épique
+b7e89165	Légendaire
+f5eb17de	Mythique
+a7c94b10	Ancien
+b2d383d1	Céleste
+2060b680	Cosmique
+2791d0df	Éternel
+f3ed8a70	Bouclier de série
+16e9bae7	+1 gemme
+21cd8805	+{0} gemmes
+222db0fc	Fourniture
+8cfc4d29	Quelque chose à porter
+145caf29	À réviser
+2613fc96	Supplémentaire
+1e3dc73a	Heure dorée
+4d963cfa	Bonus
+733610f9	Un peu de lueur
+2658a44d	De la lueur
+e1471379	Plus de lueur, ou un Bouclier de série
+a03eb247	Beaucoup de lueur, ou de la nourriture
+a4a46d14	Un tas de lueur, de la nourriture, des Boucliers de série ou une gemme
+52eda309	Des gemmes, un Bonus d'XP, ou une demi-journée de lueur
+99d02b7f	Un Œuf mystère, ou 5 gemmes
+7b07dda9	Quelque chose à porter, et 5 gemmes
+e78cb369	Quelque chose de rare à porter, et 15 gemmes
+e63a895e	L'une des choses à porter les plus rares, et 50 gemmes
+f2107ea0	1 sur {0}
+eaab3ade	Bonnes réponses d'affilée aujourd'hui : {0}. Votre prochaine carte à réviser donnera un tirage avec une chance {1}.
+6126fbbe	Heure dorée : chance {0} pendant encore {1}.
+b69f5a3a	Chaque carte dont vous vous souvenez donne un tirage au sort pour une récompense. Plus la récompense est rare, plus elle met de temps à apparaître.
+c193c93f	Une carte qui était à réviser aujourd'hui donne un tirage avec une chance {0}. Une carte supplémentaire (un nouveau mot en plus de ceux du jour, ou un mot vu pour la deuxième fois aujourd'hui) donne un tirage avec une chance d'un quart.
+ed1b3efc	Les bonnes réponses d'affilée augmentent votre chance : {0}. Une mauvaise réponse remet le compte à zéro, et un nouveau jour aussi.
+579de5c1	Un Bouclier de série protège une série de {0} ou plus contre une mauvaise réponse. Vous en avez {1}.
+5fcf4cdd	Mots boss : un mot que vous avez raté lors de {0} jours différents devient doré. Souvenez-vous-en et il rapporte au moins un tirage {1}. En attente en ce moment : {2}.
+1ea7f83c	Heure dorée : de temps en temps, un tirage déclenche {0} minutes de chance {1}.
+c7c416bd	La chance ne se fait jamais attendre longtemps : un tirage {0} ou mieux arrive d'ici {1} tirages, et un tirage {2} ou mieux d'ici {3}.
+a29e3abb	Une réponse donnée en moins de {0} secondes ne donne pas de tirage : enchaîner les cartes à toute vitesse ne rapporte donc rien.
+b8c2d8b9	Les tirages ne viennent que de l'étude. Ils ne sont jamais vendus.
+72892d81	Ce que vous pouvez trouver
+94e99c3d	Ces probabilités valent pour votre prochaine carte à réviser, avec une chance {0}.
+91412d6a	Le nombre dans chaque carré indique combien vous en avez trouvé jusqu'ici.
+c7664f2f	La chance s'est fait attendre
+cbaabfdc	Touchez pour continuer
+c51857c2	Mot boss
+d5cd80a3	Souvenez-vous-en et il rapporte au moins un tirage {0}
+f4a93bab	Heure dorée ! Chance ×{0} pendant {1} minutes
+8e28750e	{0} d'affilée ! Chance ×{1}
+fe0b394a	Bouclier de série utilisé
+4455afbf	Série de {0} conservée
+0704cf61	Série terminée
+3d6a7660	{0} d'affilée
+d7822c63	Trop rapide
+7cc97348	Pas de tirage pour celle-ci
+be9de189	Tirages supplémentaires épuisés
+72deef40	Il y en aura d'autres demain
+04d20799	Trouvé pendant cette séance
+85777c03	jamais
+7797da70	à chaque fois

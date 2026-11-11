@@ -55,3 +55,6 @@ Power-up
 “oneself”
 # DLI students (web/js/dli.js DLI_LANGUAGES): the chip for Persian says Farsi, as DLI calls it.
 Farsi
+# game/luck.js: the chances column of the Luck sheet, beside "1 in {0}"
+never
+every time

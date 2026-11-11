@@ -1,0 +1,65 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Kapag naalala mo ang isang card sa vocab reviewer, may bunot ito para sa gantimpala, at kadalasan ay liwanag ang makukuha. Mas bihira ang bunot, mas maraming liwanag ng hardin mo ang dala nito, mula sa halagang isang minuto hanggang kalahating araw, kaya kapag mas malaki ang hardin, mas malaki ang halaga ng bawat card. I-tap ang button ng suwerte sa reviewer para makita ang mga tsansa mo.
+e5e27ff5	Bihirang bunot sa vocab reviewer: paminsan-minsan, nakakahanap ng isang hiyas o higit pa ang card na naalala mo (bunot na Maalamat o mas mataas pa).
+4a58cf8b	Minsan, nakakahanap din ng pagkain ang mga card na naalala mo sa vocab reviewer.
+7de90a65	Karaniwan
+630e0b25	Di-karaniwan
+cce370d2	Bihira
+b3efd0d2	Epiko
+b7e89165	Maalamat
+f5eb17de	Mitiko
+a7c94b10	Sinauna
+b2d383d1	Makalangit
+2060b680	Kosmiko
+2791d0df	Walang-hanggan
+f3ed8a70	Streak shield
+16e9bae7	+1 hiyas
+21cd8805	+{0} hiyas
+222db0fc	Gamit
+8cfc4d29	Bagay na maisusuot
+145caf29	Para sa review
+2613fc96	Dagdag
+1e3dc73a	Golden hour
+4d963cfa	Bonus
+733610f9	Kaunting liwanag
+2658a44d	Katamtamang dami ng liwanag
+e1471379	Mas maraming liwanag, o isang Streak shield
+a03eb247	Maraming liwanag, o pagkain
+a4a46d14	Napakaraming liwanag, pagkain, mga Streak shield o isang hiyas
+52eda309	Mga hiyas, isang Dagdag-XP, o kalahating araw na liwanag
+99d02b7f	Isang Mahiwagang itlog, o 5 hiyas
+7b07dda9	Isang bagay na maisusuot, at 5 hiyas
+e78cb369	Isang bihirang bagay na maisusuot, at 15 hiyas
+e63a895e	Isa sa mga pinakabihirang maisusuot, at 50 hiyas
+f2107ea0	1 sa {0}
+eaab3ade	May {0} kang sunod-sunod na tama ngayong araw. Suwerte {1} ang bunot ng susunod mong card na para sa review.
+6126fbbe	Golden hour: suwerte {0}, {1} pa.
+b69f5a3a	Bawat card na naalala mo ay may isang bunot para sa gantimpala. Kapag mas bihira ito, mas matagal bago ito lumabas.
+c193c93f	Suwerte {0} ang bunot ng card na para sa review ngayong araw. Sa dagdag na card (bagong salitang lampas sa bilang ng bagong salita mo bawat araw, o salitang pangalawang beses na ngayong araw), ikaapat na bahagi lang ang suwerte ng bunot.
+ed1b3efc	Pinapataas ng sunod-sunod na tamang sagot ang suwerte mo: {0}. Babalik sa simula ang bilang kapag may maling sagot, at ganoon din sa bagong araw.
+579de5c1	Inililigtas ng Streak shield ang sunod-sunod na {0} o higit pa mula sa isang maling sagot. Mayroon kang {1}.
+5fcf4cdd	Mga salitang boss: nagiging ginto ang salitang namali mo sa {0} magkakaibang araw. Kapag naalala mo ito, hindi bababa sa {1} ang ibibigay nito. Naghihintay ngayon: {2}.
+1ea7f83c	Golden hour: paminsan-minsan, may bunot na nagsisimula ng {0} minuto ng suwerte {1}.
+c7c416bd	Hindi nagtatagal ang paghihintay sa suwerte: darating ang {0} o mas mataas pa sa loob ng {1} pang bunot, at ang {2} o mas mataas pa sa loob ng {3}.
+a29e3abb	Walang bunot ang sagot na ibinigay nang wala pang {0} segundo, kaya walang mapapala sa mabilisang pag-tap sa mga card.
+b8c2d8b9	Sa pag-aaral lang nanggagaling ang mga bunot. Hindi kailanman ibinebenta ang mga ito.
+72892d81	Ang mga puwede mong mahanap
+94e99c3d	Ang mga tsansa ay para sa susunod mong card na para sa review, sa suwerte {0}.
+91412d6a	Ang numero sa bawat parisukat ay kung ilan na ang nahanap mo sa ngayon.
+c7664f2f	Matagal nang hinihintay ang suwerte
+cbaabfdc	I-tap para magpatuloy
+c51857c2	Salitang boss
+d5cd80a3	Kapag naalala mo ito, hindi bababa sa {0} ang ibibigay nito
+f4a93bab	Golden hour! Suwerte ×{0} sa loob ng {1} minuto
+8e28750e	{0} na sunod-sunod! Suwerte ×{1}
+fe0b394a	Nagamit ang Streak shield
+4455afbf	Napanatili ang {0} na sunod-sunod
+0704cf61	Naputol ang streak
+3d6a7660	{0} na sunod-sunod
+d7822c63	Masyadong mabilis
+7cc97348	Walang bunot para doon
+be9de189	Ubos na ang mga dagdag na bunot
+72deef40	Mayroon ulit bukas
+04d20799	Nahanap sa session na ito
+85777c03	hindi kailanman
+7797da70	palagi

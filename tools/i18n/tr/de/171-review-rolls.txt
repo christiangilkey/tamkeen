@@ -1,0 +1,66 @@
+# Review rolls: tiers, luck, the reveal, the Luck sheet (web/js/game/loot.js, lootview.js, reveal.js, luck.js, pages/review.js, info.js).
+8fe28ad4	Eine Karte im Vokabeltrainer wissen: Jede würfelt um eine Belohnung, meistens Glimmer. Je seltener der Wurf, desto mehr Glimmer deines Gartens bringt er, von einer Minute bis zu einem halben Tag. Ein größerer Garten macht also jede Karte wertvoller. Tippe im Trainer auf die Glücksanzeige, um deine Chancen zu sehen.
+e5e27ff5	Ein seltener Wurf im Vokabeltrainer: Eine Karte, die du gewusst hast, findet ab und zu einen Edelstein oder mehr (ein legendärer Wurf oder besser).
+4a58cf8b	Karten, die du im Vokabeltrainer gewusst hast, finden manchmal auch Futter.
+7de90a65	Gewöhnlich
+630e0b25	Ungewöhnlich
+cce370d2	Selten
+b3efd0d2	Episch
+b7e89165	Legendär
+f5eb17de	Mythisch
+a7c94b10	Uralt
+b2d383d1	Himmlisch
+2060b680	Kosmisch
+2791d0df	Ewig
+f3ed8a70	Serienschild
+16e9bae7	+1 Edelstein
+21cd8805	+{0} Edelsteine
+222db0fc	Vorrat
+8cfc4d29	Etwas zum Anziehen
+145caf29	Fällig
+2613fc96	Extra
+1e3dc73a	Goldene Stunde
+4d963cfa	Bonus
+733610f9	Ein wenig Glimmer
+2658a44d	Etwas Glimmer
+e1471379	Mehr Glimmer oder ein Serienschild
+a03eb247	Viel Glimmer oder Futter
+a4a46d14	Ein Haufen Glimmer, Futter, Serienschilde oder ein Edelstein
+52eda309	Edelsteine, ein EP-Boost oder ein halber Tag Glimmer
+99d02b7f	Ein Überraschungsei oder 5 Edelsteine
+7b07dda9	Etwas zum Anziehen und 5 Edelsteine
+e78cb369	Etwas Seltenes zum Anziehen und 15 Edelsteine
+e63a895e	Eins der seltensten Dinge zum Anziehen und 50 Edelsteine
+f2107ea0	1 von {0}
+eaab3ade	Du hast heute {0} in Folge richtig. Deine nächste fällige Karte würfelt mit Glück {1}.
+6126fbbe	Goldene Stunde: Glück {0}, noch {1}.
+b69f5a3a	Jede Karte, die du gewusst hast, würfelt einmal um eine Belohnung. Je seltener die Belohnung, desto länger dauert es, bis sie sich zeigt.
+c193c93f	Eine Karte, die heute fällig war, würfelt mit Glück {0}. Eine Extrakarte (ein neues Wort über die neuen Wörter des Tages hinaus oder ein Wort, das heute zum zweiten Mal drankommt) würfelt nur mit einem Viertel Glück.
+ed1b3efc	Richtige Antworten in Folge erhöhen dein Glück: {0}. Eine falsche Antwort lässt die Zählung von vorn beginnen, ein neuer Tag auch.
+579de5c1	Ein Serienschild rettet eine Serie von {0} oder mehr vor einer falschen Antwort. Du hast {1} davon.
+5fcf4cdd	Boss-Wörter: Ein Wort, das du an {0} verschiedenen Tagen nicht gewusst hast, wird golden. Weißt du es, bringt es mindestens die Stufe {1}. Gerade warten: {2}.
+1ea7f83c	Goldene Stunde: Ab und zu startet ein Wurf {0} Minuten Glück {1}.
+c7c416bd	Das Glück ist nie lange überfällig: {0} oder besser kommt spätestens nach {1} weiteren Würfen, und {2} oder besser spätestens nach {3}.
+a29e3abb	Eine Antwort in unter {0} Sekunden würfelt nicht. Sich schnell durch die Karten zu tippen bringt also nichts.
+b8c2d8b9	Würfe gibt es nur fürs Lernen. Sie werden nie verkauft.
+72892d81	Was du finden kannst
+94e99c3d	Die Chancen gelten für deine nächste fällige Karte, bei Glück {0}.
+91412d6a	Die Zahl in jedem Quadrat zeigt, wie viele du bisher gefunden hast.
+c7664f2f	Das Glück war überfällig
+cbaabfdc	Tippe, um weiterzumachen
+c51857c2	Boss-Wort
+d5cd80a3	Weißt du es, bringt es mindestens die Stufe {0}
+f4a93bab	Goldene Stunde! Glück ×{0} für {1} Minuten
+8e28750e	{0} in Folge! Glück ×{1}
+fe0b394a	Serienschild eingesetzt
+4455afbf	{0} in Folge gerettet
+0704cf61	Serie beendet
+3d6a7660	{0} in Folge
+d7822c63	Zu schnell
+7cc97348	Kein Wurf für diese Karte
+be9de189	Extra-Würfe aufgebraucht
+72deef40	Morgen gibt es mehr
+04d20799	In dieser Sitzung gefunden
+ac4792cf	Serie
+85777c03	nie
+7797da70	jedes Mal
