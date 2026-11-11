@@ -4,5 +4,10 @@ e191f11d	Baguhin sa Settings
 cd13fafd	Mga keyword para sa {0} lang.
 6171b659	Buong salita
 d0632af8	Gumawa ng keyword para sa {0}
-ee8aa540	I-tap o i-drag sa mga pantig para gumawa ng keyword para sa bahaging iyon lang.
 272bddad	Gumawa ng keyword para sa buong salita
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Gumawa ng keyword para sa
+9d142af2	I-drag ang mga asul na dulo para pumili ng bahagi lang ng salita.
+92217b92	{0} lang ang napili.
+a988a2bb	Ang bahagi ng salita na gagawan ng keyword. Kaliwa at kanan ang gumagalaw sa isang dulo ng highlight; Enter ang nagpapalit ng dulo.
+79e4bbbc	Walang sariling tunog ng patinig ang bahaging iyan na maihahambing. I-highlight nang kaunti pa ang salita.

@@ -4,5 +4,10 @@ e191f11d	Le changer dans les Réglages
 cd13fafd	Mots-clés pour {0} seulement.
 6171b659	Mot entier
 d0632af8	Mots-clés pour {0}
-ee8aa540	Touche ou glisse sur les syllabes pour des mots-clés pour cette partie seulement.
 272bddad	Mots-clés pour le mot entier
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Mots-clés pour
+9d142af2	Fais glisser les extrémités bleues pour ne choisir qu'une partie du mot.
+92217b92	Seul {0} est choisi.
+a988a2bb	La partie du mot pour laquelle créer des mots-clés. Gauche et droite déplacent une extrémité du surlignage ; Entrée change d'extrémité.
+79e4bbbc	Cette partie n'a pas de voyelle à comparer. Surligne un peu plus du mot.

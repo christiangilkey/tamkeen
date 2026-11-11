@@ -4,5 +4,10 @@ e191f11d	Mudar nas Configurações
 cd13fafd	Palavras-chave só para {0}.
 6171b659	Palavra inteira
 d0632af8	Palavras-chave para {0}
-ee8aa540	Toque ou arraste sobre as sílabas para criar palavras-chave só para essa parte.
 272bddad	Palavras-chave para a palavra inteira
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Criar palavras-chave para
+9d142af2	Arraste as pontas azuis para escolher só uma parte da palavra.
+92217b92	Só {0} está escolhido.
+a988a2bb	A parte da palavra para a qual criar palavras-chave. Esquerda e direita movem uma ponta do destaque; Enter troca de ponta.
+79e4bbbc	Essa parte não tem um som de vogal próprio para comparar. Destaque um pouco mais da palavra.

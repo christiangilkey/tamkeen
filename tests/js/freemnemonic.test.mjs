@@ -247,36 +247,3 @@ test("Arabic dialect courses get their own sentences and sounds; Bisaya gets Wol
   assert.ok(balay && /house/i.test(balay.english));
   assert.ok(!ceb.sentences.some((s) => s[2] === "d" && /[áéíóú()]/.test(s[0])), "in today's spelling, no stress marks or Wolff's brackets");
 });
-
-test("keywords for a part of the word the learner chose", async () => {
-  const { cleanPart, tapSyllable, partOf, partText, onWholeWord, makeMnemonics } = await import("../../web/js/review/mnemonic.js");
-  // Taps: one syllable, then the end of the run; a third tap starts again; the same syllable twice: whole word.
-  assert.deepEqual(tapSyllable(null, 1, 7), { from: 1, to: 1 });
-  assert.deepEqual(tapSyllable({ from: 1, to: 1 }, 2, 7), { from: 1, to: 2 });
-  assert.deepEqual(tapSyllable({ from: 3, to: 3 }, 1, 7), { from: 1, to: 3 }, "backwards too");
-  assert.deepEqual(tapSyllable({ from: 1, to: 2 }, 5, 7), { from: 5, to: 5 });
-  assert.equal(tapSyllable({ from: 1, to: 1 }, 1, 7), null);
-  assert.equal(cleanPart({ from: 0, to: 6 }, 7), null, "the whole word is no part");
-  // The owner's word: wa-TA-hu-fi-bay-da-i; keywords for TA-hu only.
-  const pron = { romanization: "watahufibaydai", ipa: "", stress: 1, syllables: "wa ta hu fi bay da i".split(" ").map((s) => ({ text: s, ipa: "" })) };
-  assert.equal(partText(pron, { from: 1, to: 2 }), "TA-hu");
-  const cut = partOf(pron, { from: 1, to: 2 });
-  assert.deepEqual(cut.syllables.map((s) => s.text), ["ta", "hu"]);
-  assert.equal(cut.stress, 0);
-  const moved = onWholeWord({ items: [{ keyword: "tahoe", from: 0, to: 1 }], parts: [{ keyword: "a + b", from: 0, to: 1, pieces: [{ from: 0, to: 0 }, { from: 1, to: 1 }] }] }, { from: 1, to: 2 });
-  assert.deepEqual([moved.items[0].from, moved.items[0].to], [1, 2], "shown on the whole word's syllables");
-  assert.deepEqual(moved.parts[0].pieces.map((p) => p.from), [1, 2]);
-  // The free maker on a part: Spanish "caballo", only "ba-yo" (bayou), checked against that part.
-  const whole = said("caballo", "es", "horse");
-  const run = { from: 1, to: 2 };
-  const free = onWholeWord(makeFreeMnemonics({ text: "caballo", meaning: "horse" }, { pron: partOf(whole, run), list }), run);
-  assert.ok(free.items.length && free.items.every((s) => s.from >= 1), free.items.map((s) => s.keyword).join(", "));
-  // The AI is told the part, and its keywords are checked against that part.
-  let asked = "";
-  const ask = async (p) => { asked = p.user; return { pronunciation: { romanization: "", ipa: "", syllables: [], stress: 0 },
-    keywords: [{ keyword: "tahoe", ipa: "təˈhoʊ", covers: [0, 1], meaning_link: "none", link: "", scene: "s" }], parts: [] }; };
-  const got = await makeMnemonics({ text: "وتاهو", meaning: "x" }, { ask, study: "Arabic", speaks: "English", whole: { ...pron, syllables: pron.syllables.map((s) => ({ ...s, ipa: s.text })) }, part: { from: 1, to: 2 } });
-  assert.match(asked, /only for this part of the word: TA-hu \(of wa-TA-hu-fi-bay-da-i\)/);
-  assert.equal(got.pron.syllables.length, 7, "the card keeps showing the whole word");
-  assert.deepEqual(got.part, { from: 1, to: 2 });
-});

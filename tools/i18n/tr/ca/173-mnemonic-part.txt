@@ -4,5 +4,10 @@ e191f11d	Canvia-ho a Configuració
 cd13fafd	Paraules clau només per a {0}.
 6171b659	Paraula sencera
 d0632af8	Crea paraules clau per a {0}
-ee8aa540	Toca o arrossega sobre les síl·labes per crear paraules clau només per a aquesta part.
 272bddad	Crea paraules clau per a la paraula sencera
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Crea paraules clau per a
+9d142af2	Arrossega els extrems blaus per triar només una part de la paraula.
+92217b92	Només s'ha triat {0}.
+a988a2bb	La part de la paraula per a la qual crear paraules clau. Esquerra i dreta mouen un extrem del ressaltat; Retorn canvia d'extrem.
+79e4bbbc	Aquesta part no té cap so vocàlic propi per comparar. Ressalta una mica més de la paraula.

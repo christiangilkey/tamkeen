@@ -4,5 +4,10 @@ e191f11d	설정에서 바꾸기
 cd13fafd	{0}만의 키워드예요.
 6171b659	단어 전체
 d0632af8	{0} 키워드 만들기
-ee8aa540	음절을 탭하거나 끌어서 그 부분만의 키워드를 만들어요.
 272bddad	단어 전체 키워드 만들기
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	키워드를 만들 부분
+9d142af2	파란 양 끝을 끌어서 단어의 일부만 고를 수 있어요.
+92217b92	{0}만 골랐어요.
+a988a2bb	키워드를 만들 단어의 부분. 왼쪽과 오른쪽으로 강조 표시의 끝을 옮기고, Enter로 끝을 바꿔요.
+79e4bbbc	이 부분에는 비교할 모음 소리가 없어요. 단어를 조금 더 강조 표시하세요.

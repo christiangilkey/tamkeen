@@ -88,6 +88,9 @@ function respell(group) {
   }).join("");
 }
 
+/** Sounds (phonemes.js phones) as an English speaker might write them: for a part of a word (review/wordpart.js). */
+export const respellPhones = (group) => respell(group);
+
 // ---------------------------------------------------------------- spelling rules
 
 // [letters, IPA], tried longest first at each place; `before`: a vowel letter must come next.
@@ -300,7 +303,12 @@ const AR = { ب: "b", ت: "t", ث: "θ", ج: "dʒ", ح: "ħ", خ: "x", د: "d", 
 const SUN = new Set(Array.from("تثدذرزسشصضطظلن"));
 /** Arabic (or Persian) spelling to IPA. With vowel marks it is read as written; without them, a short a
  * is guessed after each consonant that isn't followed by a long vowel (Persian: a short a or e). */
-function arabicIpa(word, lang) {
+function arabicIpa(text, lang) {
+  // (a phrase is read a word at a time: each word's own first letter, article and ending)
+  const words = String(text).trim().split(/\s+/u).filter(Boolean);
+  return words.length > 1 ? words.map((w) => arabicWordIpa(w, lang)).filter(Boolean).join(".") : arabicWordIpa(text, lang);
+}
+function arabicWordIpa(word, lang) {
   const chars = Array.from(String(word).normalize("NFC").replace(/ـ/g, ""));
   const marked = chars.some((c) => /[ًٌٍَُِْ]/.test(c));
   let out = "", guessed = false;
@@ -319,6 +327,8 @@ function arabicIpa(word, lang) {
         out += "ʔa";
         continue;
       }
+      // (the alef written after a verb's plural و says nothing: تاهوا is taahuu)
+      if (c === "ا" && lang === "ar" && !marked && i === chars.length - 1 && chars[i - 1] === "و" && i >= 3) continue;
       out += lang === "fa" ? "ɒː" : "aː";
       continue;
     }
@@ -326,7 +336,12 @@ function arabicIpa(word, lang) {
     if (c === "و" || c === "ي" || c === "ی") {
       const prevVowel = /[aiuːeoɒ]$/.test(out);
       const markNext = /[َُِ]/.test(next || "");
-      if (i === 0 || markNext || (prevVowel && !marked && !/ː$/.test(out) && isLetter(next) && false)) { out += c === "و" ? (lang === "fa" ? "v" : "w") : "j"; continue; }
+      if (i === 0 || markNext || (prevVowel && !marked && !/ː$/.test(out) && isLetter(next) && false)) {
+        out += c === "و" ? (lang === "fa" ? "v" : "w") : "j";
+        // (no vowel marks: a first و or ي before a consonant carries a short a, as و "and" does: وتاهوا is wa-taahuu)
+        if (i === 0 && !marked && chars.length > 2 && AR[next] !== undefined) out += "a";
+        continue;
+      }
       if (marked && /[َ]$/.test(chars[i - 1] || "")) { out += c === "و" ? "w" : "j"; continue; }
       out += c === "و" ? "uː" : "iː";
       continue;

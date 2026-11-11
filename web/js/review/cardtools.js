@@ -15,8 +15,9 @@ import { hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoic
 import { wordReading } from "../lexicon/readings.js";
 import { dictionaries, downloadDictionaries } from "../lexicon/seen.js";
 import { pickedCountry } from "../youtube-home.js";
-import { MNEMONIC_COUNT, cleanPart, englishSounds, makeMnemonics, noteText, partText, syllablePieces, tapSyllable, turnDown, turnedDown,
-  varietyOf } from "./mnemonic.js";
+import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "./mnemonic.js";
+import { partBar } from "./partbar.js";
+import { cleanSel, graphemes, isWhole, litLine, selText } from "./wordpart.js";
 import { askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { aiMakes, chosenSource } from "../helpersource.js";
 import { checkOwnKeywords, freeMnemonics, wordCoreOf } from "../examples.js";
@@ -272,6 +273,8 @@ export function holdWords(area, { onHold, can = () => true }) {
 // made on one show on the other. Keywords turned down are kept on this device (mnemonic.js turnDown)
 // and never suggested for the word again.
 const mnemonics = new Map();
+// The part of each card's word highlighted on the Mnemonic maker's bar while the app is open: uid -> {text, sel}.
+const chosen = new Map();
 // How a free keyword is tied to the word's meaning (freemnemonic.js ties), for its mark's tooltip.
 const TIE_NOTES = {
   s: "It means the same thing, or a kind of it", p: "One is a part of the other", d: "Its meaning is close to the word's",
@@ -391,12 +394,14 @@ export async function learnFromNote(v, before, after, { lang, at = null, quiet =
 let tipDone = false;
 const tipShown = () => { if (tipDone) return true; try { return localStorage.getItem(TIP_KEY) === "1"; } catch { return false; } };
 
-/** The Mnemonic maker's markup: its button, how the word sounds, a note, and the keywords. */
+/** The Mnemonic maker's markup: the part picker, its button, how the word sounds, a note, and the keywords. */
 export function mnemonicHtml() {
   return `<div class="rv-mnemo">
+    <div class="rv-part" hidden><div class="rv-part-label">Make keywords for</div><div class="rv-part-host"></div>
+      <p class="rv-part-hint" role="status"></p></div>
     <button type="button" class="rv-mnemo-go">${CARD_ICONS.bulb}<span>Mnemonic maker</span></button>
     <div class="rv-mnemo-said" hidden><div class="rv-mnemo-said-label">How it sounds</div><div class="rv-mnemo-syl" translate="no"></div><div class="rv-mnemo-core" translate="no" hidden></div>
-      <p class="rv-mnemo-part" role="status"></p></div>
+      <p class="rv-mnemo-part" hidden></p></div>
     <p class="rv-mnemo-note" hidden></p>
     <p class="rv-mnemo-few" hidden></p>
     <ul class="rv-mnemo-list" hidden></ul>
@@ -531,9 +536,18 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     const pieces = syllablePieces(st.pron);
     said.hidden = !pieces.length;
     const line = said.querySelector(".rv-mnemo-syl");
-    syllableButtons(line, pieces);
-    line.title = st.pron && st.pron.ipa ? `/${st.pron.ipa.replace(/^\/|\/$/g, "")}/` : "";
-    markPart(st);
+    // Keywords for a part of the word (the bar above): the whole word's sounds with that part lit, when the
+    // whole is known (the free maker); else the part's own sounds (the AI gave only those).
+    line.textContent = "";
+    const lit = st.wholePron && st.partSounds ? litLine(st.wholePron, st.partSounds[0], st.partSounds[1]) : [];
+    if (lit.length) {
+      for (const x of lit) { const el = document.createElement(x.lit ? "b" : "span"); el.textContent = x.text; line.append(el); }
+    } else line.textContent = pieces.map((p) => p.text).join("-");
+    const shownPron = lit.length ? st.wholePron : st.pron;
+    line.title = shownPron && shownPron.ipa ? `/${shownPron.ipa.replace(/^\/|\/$/g, "")}/` : "";
+    const only = said.querySelector(".rv-mnemo-part");
+    only.textContent = st.partSub ? t("Keywords for {0} only.", st.partSub) : "";
+    only.hidden = !st.partSub;
     // What the keywords leave out of the word (review/wordcore.js): "al- (“the”) left out" (translated by t() there,
     // hence translate="no"); its tooltip names each part's kind.
     const left = said.querySelector(".rv-mnemo-core");
@@ -542,8 +556,7 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       left.hidden = !left.textContent;
       left.title = leftWordParts(st.core).map((d) => `${d.part}: ${kindName(d.kind)}`).join("\n");
     }
-    label.textContent = "Make 5 more";
-    markPart(st);
+    relabel();
     if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
     else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
       say(st.keywordLangs.length > 1
@@ -570,95 +583,54 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     onLayout();
   }
 
-  // ----- choosing a part of the word: its syllables on "How it sounds" are buttons -----
-  // A tap picks a syllable, a second tap the end of the run (tapSyllable); a drag across them picks the run at once
-  // (mouse and touch); the game controller's A presses one like a tap. "Make 5 more" then works on that run only.
-  function syllableButtons(line, pieces) {
-    line.textContent = "";
-    line.classList.toggle("pickable", pieces.length > 1);
-    pieces.forEach((p, i) => {
-      if (i) { const dash = document.createElement("span"); dash.className = "rv-syl-dash"; dash.textContent = "-"; dash.setAttribute("aria-hidden", "true"); line.append(dash); }
-      if (pieces.length < 2) { const one = document.createElement("span"); one.textContent = p.text; line.append(one); return; }
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "rv-syl";
-      b.dataset.i = String(i);
-      b.textContent = p.text;
-      line.append(b);
-    });
+  // ----- choosing a part of the word: the bar above the button (partbar.js) -----
+  // The word as the card shows it, the whole of it highlighted; the learner drags the highlight's ends between
+  // letters. The choice is kept per card while the app is open (`chosen`), so the review card and the Vocab list agree.
+  const shownText = (shownWord() || v.text || "").trim();
+  const letters = graphemes(shownText);
+  const partBox = box.querySelector(".rv-part"), hint = box.querySelector(".rv-part-hint");
+  let bar = null;
+  const sel = () => {
+    const c = chosen.get(uid);
+    return c && c.text === shownText ? cleanSel(c.sel, letters.length) : { from: 0, to: letters.length };
+  };
+  /** The part chosen now: {key, sub, from, to}, or null for the whole word. */
+  const partNow = () => {
+    const c = sel();
+    if (!letters.length || isWhole(c, letters)) return null;
+    return { key: `${c.from}-${c.to}`, sub: selText(letters, c), from: c.from, to: c.to };
+  };
+  /** What the button will do: more of the same, or keywords for the part (or the whole word) chosen since. */
+  function relabel() {
+    const st = mnemonics.get(uid), now = partNow();
+    const madeFor = st ? st.partKey || "" : null;
+    if (madeFor !== null && madeFor === (now ? now.key : "")) label.textContent = "Make 5 more";
+    else if (now) label.textContent = t("Make keywords for {0}", now.sub);
+    else label.textContent = st ? t("Make keywords for the whole word") : "Mnemonic maker";
   }
-  /** Light the chosen run, and say under the line what will be done. */
-  function markPart(st) {
-    const line = said.querySelector(".rv-mnemo-syl"), info = said.querySelector(".rv-mnemo-part");
-    const n = syllablePieces(st.pron).length, p = cleanPart(st.part, n);
-    for (const b of line.querySelectorAll(".rv-syl")) {
-      const i = Number(b.dataset.i), on = !!p && i >= p.from && i <= p.to;
-      b.classList.toggle("on", on);
-      b.setAttribute("aria-pressed", String(on));
-    }
-    line.classList.toggle("has-part", !!p);
-    if (!info) return;
-    info.textContent = "";
-    if (n < 2) { info.hidden = true; return; }
-    info.hidden = false;
-    if (p) {
-      info.append(t("Keywords for {0} only.", partText(st.pron, p)), " ");
-      const whole = h(`<button type="button" class="link rv-mnemo-whole"></button>`);
-      whole.textContent = t("Whole word");
-      whole.onclick = () => { st.part = null; markPart(st); buzz("tick"); };
-      info.append(whole);
-      // (a part chosen since the keywords were made: the button says what it will do)
-      const made = cleanPart(st.madeFor, n);
-      if (!made || made.from !== p.from || made.to !== p.to) label.textContent = t("Make keywords for {0}", partText(st.pron, p));
-      else label.textContent = "Make 5 more";
-    } else {
-      info.textContent = t("Tap or drag across syllables to make keywords for just that part.");
-      label.textContent = cleanPart(st.madeFor, n) ? t("Make keywords for the whole word") : "Make 5 more";
-    }
-    onLayout();
+  function paintHint() {
+    const now = partNow();
+    hint.textContent = "";
+    if (!now) { hint.textContent = t("Drag the blue ends to pick just a part of the word."); return; }
+    hint.append(t("Only {0} is chosen.", now.sub), " ");
+    const whole = h(`<button type="button" class="link rv-part-whole"></button>`);
+    whole.textContent = t("Whole word");
+    whole.onclick = () => { chosen.delete(uid); if (bar) bar.set({ from: 0, to: letters.length }); buzz("tick"); paintHint(); relabel(); onLayout(); };
+    hint.append(whole);
   }
-  {
-    const line = said.querySelector(".rv-mnemo-syl");
-    let press = null;  // {anchor, moved, id}
-    let dragged = false;
-    const at = (e) => { const el = document.elementFromPoint(e.clientX, e.clientY); return el && el.closest ? el.closest(".rv-syl") : null; };
-    line.addEventListener("click", (e) => {
-      const b = e.target.closest && e.target.closest(".rv-syl");
-      const st = mnemonics.get(uid);
-      if (!b || !st) return;
-      if (dragged) { dragged = false; return; }  // (the end of a drag: the run is chosen already)
-      st.part = tapSyllable(st.part, Number(b.dataset.i), syllablePieces(st.pron).length);
-      buzz("tick");
-      markPart(st);
+  if (letters.filter((g) => /[\p{L}\p{N}]/u.test(g)).length > 1) {
+    partBox.hidden = false;
+    bar = partBar(box.querySelector(".rv-part-host"), {
+      text: shownText, lang, sel: sel(),
+      label: t("The part of the word to make keywords for. Left and right move an end of the highlight; Enter switches ends."),
+      onChange: (next) => { chosen.set(uid, { text: shownText, sel: next }); paintHint(); relabel(); onLayout(); },
     });
-    line.addEventListener("pointerdown", (e) => {
-      const b = e.target.closest && e.target.closest(".rv-syl");
-      if (!b || e.button > 0) return;
-      press = { anchor: Number(b.dataset.i), moved: false, id: e.pointerId };
-      dragged = false;
-    });
-    line.addEventListener("pointermove", (e) => {
-      if (!press || e.pointerId !== press.id) return;
-      const b = at(e), st = mnemonics.get(uid);
-      if (!b || !st) return;
-      const i = Number(b.dataset.i);
-      if (i === press.anchor && !press.moved) return;
-      if (!press.moved) { press.moved = true; try { line.setPointerCapture(e.pointerId); } catch { /* fine without */ } }
-      const n = syllablePieces(st.pron).length;
-      const next = cleanPart({ from: press.anchor, to: i }, n);
-      if (JSON.stringify(next) !== JSON.stringify(cleanPart(st.part, n))) { st.part = next; markPart(st); }
-    });
-    const end = (e) => {
-      if (!press || e.pointerId !== press.id) return;
-      if (press.moved) { dragged = true; buzz("tick"); setTimeout(() => { dragged = false; }, 400); }
-      press = null;
-    };
-    line.addEventListener("pointerup", end);
-    line.addEventListener("pointercancel", (e) => { if (press && e.pointerId === press.id) press = null; });
+    paintHint();
   }
 
   const had = mnemonics.get(uid);
   if (had) draw(had);
+  else relabel();
   go.onclick = async () => {
     go.disabled = true;
     label.textContent = "Thinking…";
@@ -684,8 +656,10 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       // sees a few of their notes as examples of their style; review/ownmnemonic.js)
       const own = learnsOwn(settings);
       // (a part of the word chosen on "How it sounds": keywords for those syllables only)
-      const part = before ? cleanPart(before.part, syllablePieces(before.pron).length) : null;
-      const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: settings.mnemonic_prefs, ownWords: own, core, part });
+      // (a part of the word highlighted on the bar: keywords for the sounds of those letters only)
+      const part = partNow();
+      const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: settings.mnemonic_prefs, ownWords: own, core,
+        part: part ? { shown: shownText, from: part.from, to: part.to } : null });
       const aiUsable = !noAi() && !!definerConfig().key;
       let got, aiMissing = false;
       if (!aiMakes(settings, "mnemonic", aiUsable)) {
@@ -698,7 +672,7 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
             variety: varietyOf(lang, pickedCountry(lang), studyName),
             ownSounds: uiLanguage() === "en" ? englishCheck() : null,
             examples: own ? ownExamples(settings.mnemonic_prefs).filter((e) => e.word !== v.text) : [],
-            whole: part ? before.pron : null, part,
+            partText: part ? part.sub : "",
           });
         } catch (e) {
           if (!(e && e.message === "NO_KEY")) throw e;
@@ -707,16 +681,17 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
         }
       }
       const st = { ...got, core: got.core || core, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set(),
-        part, madeFor: part, aiMissing };
+        partKey: part ? part.key : "", partSub: part ? part.sub : "", aiMissing };
       mnemonics.set(uid, st);
       if (go.isConnected) draw(st);
     } catch (e) {
       if (!go.isConnected) return;
-      label.textContent = mnemonics.get(uid) ? "Make 5 more" : "Mnemonic maker";
+      relabel();
       const why = e && e.message;
       say(why === "NO_KEY" ? "The Mnemonic maker uses your AI key. Add one in Settings → Word definitions."
         : why === "NO_KEYWORDS" ? t("The Mnemonic maker needs its list of English words the first time (0.2 MB). Check your connection and try again.")
         : why === "NO_SOUNDS" ? t("The word's sounds couldn't be worked out, so no keywords could be found.")
+        : why === "NO_PART_SOUND" ? t("That part has no vowel sound of its own to match. Highlight a little more of the word.")
         : why || "That didn't work. Try again.", true);
       offerFix(e);  // no key, or a refused one: the popup with the way to Settings
       const fix = troubleshootButton(e);

@@ -4,5 +4,10 @@ e191f11d	In den Einstellungen ändern
 cd13fafd	Schlüsselwörter nur für {0}.
 6171b659	Ganzes Wort
 d0632af8	Schlüsselwörter für {0}
-ee8aa540	Tippe auf Silben oder wische darüber, um Schlüsselwörter nur für diesen Teil zu machen.
 272bddad	Schlüsselwörter für das ganze Wort
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Schlüsselwörter für
+9d142af2	Zieh die blauen Enden, um nur einen Teil des Wortes zu wählen.
+92217b92	Nur {0} ist gewählt.
+a988a2bb	Der Teil des Wortes, für den Schlüsselwörter gemacht werden. Links und rechts bewegen ein Ende der Markierung; Enter wechselt das Ende.
+79e4bbbc	Dieser Teil hat keinen eigenen Vokallaut zum Vergleichen. Markiere etwas mehr vom Wort.

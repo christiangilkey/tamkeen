@@ -6881,6 +6881,47 @@ Tests: tests/test_lexicon.py `test_a_newer_published_file_replaces_the_downloade
 (the store with stand-ins for IndexedDB and the download site: v1 downloaded, v2 published, a day later replaced; not
 fetched again within a day; offline keeps the copy).
 
+### Mnemonic maker: a part of the word, highlighted on the word itself (2026-11-11, on main)
+Owner: "Allow user to manually select which part of the word should be processed for memorization mnemonics", then
+(replacing a first version, 0baffbc9, that made the syllables under How it sounds tappable): "when you click the mnemonic
+button, there should be a bar that appears below it that allows the user to highlight which part of the foreign
+language word … our brand's blue color … selectable and draggable across the word and in between letters."
+- **The bar** (`review/partbar.js` `partBar`; markup `.rv-part` at the top of cardtools.js `mnemonicHtml`, so the review
+  card and the Vocab list both have it): the card's word as shown (Arabic with its vowels when shown), ONE text node so
+  Arabic keeps its joined shapes; the highlight (`.rv-part-fill i`, `--accent` at 45%) and its two ends
+  (`.rv-part-handle.start/.end`) are drawn over it from each letter's box (a Range per grapheme). The whole word is
+  highlighted at first. Drag an end; or drag across the word for a new highlight; ends stop between graphemes (a letter
+  with its marks is one). `touch-action: none`, pointer capture, and `stopPropagation` on pointerdown (the review card
+  starts its swipe there). Keys with the bar focused: Left / Right move the end in use (visually, so right-to-left
+  scripts work), Enter / Space switch ends. Controller: gamepad.js `stepValue` sends Left / Right to an element marked
+  `data-pad-step` (the review layout has no left / right, so they fall to the general layer); its press is a click made
+  by code (`detail` 0), which switches ends. Choice kept per card while the app is open (cardtools.js `chosen`).
+  Hidden for a word of one letter. Hint line: "Drag the blue ends…" / "Only X is chosen. [Whole word]". The button
+  reads "Make keywords for X" (or "… the whole word") when the choice differs from what the keywords shown were for.
+- **Letters to sounds** (`review/wordpart.js`, pure): `alignLetters(text, lang, pron, core)` lays the pronunciation's
+  sounds along the letters with a small alignment: each letter is given the sounds nearest to what its own spelling says
+  (`spellingIpa` of the single letter; Arabic ا و ي as long vowels), an unwritten vowel going with the consonant before
+  it (0.12), a silent letter 0.35; letters whose sound isn't known share evenly, and when there are as many syllables
+  as letters each gets one (汉字, 한글, kana). Letters outside the word's core (ال, "der ") get none. `soundSpan` →
+  `cutPron(pron, from, to)` (a consonant cut off its syllable joins its neighbour; null without a vowel → error
+  NO_PART_SOUND "That part has no vowel sound…"); `litLine` = the whole sound line with the part lit.
+- **Makers**: free (`examples.js freeMnemonics(…, {part: {shown, from, to}})`): keywords matched against the cut
+  pronunciation; result `pron` = the part's, `wholePron` + `partSounds` for the lit line. AI (`mnemonic.js
+  makeMnemonics(…, {partText})`): asked about the chosen letters as the word, with a line saying it is a part of the
+  card's word (whose meaning the scenes still use); its pronunciation of the part is what its keywords are checked
+  against; the app's reading of the whole word isn't sent. The card: "Keywords for X only." under How it sounds.
+- **Also**: soundout.js reads an Arabic phrase a word at a time (each word's article and first letter; a first و / ي
+  before a consonant gets a short a; the alef after a verb's plural و is silent): وتاهوا في البيداء is now
+  wa-taa-huu-fii-al-bii-daa' (was wtaa-huu-aa-fii-aa-la-bii-daa'). `respellPhones` exported.
+- **AI chosen but unusable** (from 0baffbc9, kept): `mnemonic_source` "ai" with AI off or no key → the card says so
+  with a link to Settings → Word definitions → Mnemonic maker (`#/settings?s=words&show=mnemonicsource`).
+- i18n `173-mnemonic-part.txt` (11 strings × 16); ignore.txt: the line told to the AI. Tests: tests/js/wordpart.test.mjs.
+- **Checked** in the browser pane (scratch data folder, no Google sign-in), Arabic وتاهوا في البيداء on the Vocab list and
+  on a review card: both ends dragged with the mouse (the card didn't swipe), keywords for تاهوا (typhoon, tattoo, tie
+  shoe) with wa-[taa-huu]-… lit; touch-type pointer events; keys; gamepad.js `highlightMove("left")` and a coded click.
+  **Not checked**: a real phone's finger, a real controller, the AI path with a real key (a stand-in in the tests).
+
+
 ## What is Tamkeen (2026-11-06, main chat)
 Owner: a "What is Tamkeen" section with everything the app does, the creative solutions, and every design choice
 backed by studies, with the studies listed.

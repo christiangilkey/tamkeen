@@ -109,8 +109,8 @@ Before answering, check every keyword: is it real ${speaks}, does it really soun
     // (`coreLine`, wordcore.js corePromptLine: the card says الكتاب and `word` is كتاب, the part the keywords match)
     coreLine,
     meaning ? `Its meaning: ${meaning}` : "",
-    reading ? `How it is said, from the app's dictionary: ${reading}` : "",
     partLine,
+    reading ? `How it is said, from the app's dictionary: ${reading}` : "",
     avoid.length ? `Already suggested or turned down, so give different ones: ${avoid.join("; ")}` : "",
     mine.length ? `Mnemonics this learner wrote themselves (the keyword in capitals), to show the kind of scene they like. Write your scenes in a similar style, with new keywords that sound like this word:\n${mine.join("\n")}` : "",
     `Give ${KEYWORD_ASK} keywords in ${speaks}, each with its scene.`,
@@ -333,18 +333,20 @@ export function englishSounds(table) {
  * honestly on the card).
  */
 export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading = "", variety = "", ownSounds = null, examples = [], core = null, lang = "",
-  whole = null, part = null }) {
-  // A part of the word chosen (`part`, a run of the syllables of `whole`, the pronunciation the card shows): the AI
-  // is asked for keywords for that part, and they are checked against it.
-  part = whole ? cleanPart(part, whole.syllables.length) : null;
+  partText = "" }) {
   if (!core && lang) {
     core = soundCore(v.text, lang, { reading });
     reading = core.reading;
   }
-  const word = (core && core.core) || v.text;
+  // `partText`: the letters the learner highlighted on the card (review/partbar.js). The AI is asked about that
+  // part alone: it says how the part is said, and its keywords are checked against that.
+  const part = String(partText || "").trim();
+  const word = part || (core && core.core) || v.text;
+  if (part) reading = "";  // (the app's reading is of the whole word)
   const [answer, own] = await Promise.all([
-    ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples, coreLine: corePromptLine(v.text, core),
-      partLine: part ? `The learner wants keywords only for this part of the word: ${partText(whole, part)} (of ${syllableLine(whole)}). Every keyword and split keyword must sound like that part; its "covers" counts the part's syllables from 0.` : "" })),
+    ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples,
+      coreLine: part ? "" : corePromptLine(v.text, core),
+      partLine: part ? `This is only a part of the card's word, "${String(v.text).trim()}", which the learner chose: give the pronunciation of this part as it is said inside the whole word, and keywords that sound like this part. The meaning given is the whole word's, and each scene still links its keyword to that meaning.` : "" })),
     Promise.resolve(ownSounds).catch(() => null),
   ]);
   // (neither the card's word nor its core is a keyword: el taco is no "taco")
@@ -352,58 +354,7 @@ export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading
   const parts = readParts(answer, v.text).filter((k) => !sameKeyword(k.keyword, word));
   if (!keywords.length && !parts.length) throw new Error("No sound-alikes came back. Try again.");
   const pron = readPronunciation(answer);
-  if (part) {
-    const ranked = rankSuggestions({ pron: partOf(whole, part), keywords, parts, ownSounds: own, avoid });
-    return { pron: whole, core, part, asked: keywords.length + parts.length, ...onWholeWord(ranked, part) };
-  }
   return { pron, core, asked: keywords.length + parts.length, ...rankSuggestions({ pron, keywords, parts, ownSounds: own, avoid }) };
-}
-
-// ---------- a part of the word ----------
-// The owner: "Allow user to manually select which part of the word should be processed for memorization
-// mnemonics". On "How it sounds" the learner picks a run of syllables (cardtools.js); both makers then look for
-// keywords for that run only, and what they find is shown on the whole word.
-
-/** A run of syllables {from, to} kept within a word of `n` syllables; null for the whole word or nothing. */
-export function cleanPart(part, n) {
-  if (!part || !Number.isInteger(part.from) || !Number.isInteger(part.to) || n < 2) return null;
-  const from = Math.max(0, Math.min(part.from, part.to)), to = Math.min(n - 1, Math.max(part.from, part.to));
-  return from > to || (from === 0 && to === n - 1) ? null : { from, to };
-}
-
-/**
- * The learner's tap on syllable `i` of a word of `n` syllables, given the run chosen so far: nothing chosen → that
- * syllable; one syllable chosen → the run from it to `i` (or nothing again, a tap on the same one); a longer run
- * chosen → just syllable `i`, to start again. A run that is the whole word is no choice (null).
- */
-export function tapSyllable(part, i, n) {
-  const p = cleanPart(part, n) || (part && part.from === part.to ? part : null);
-  if (!p) return cleanPart({ from: i, to: i }, n);
-  if (p.from === p.to) return p.from === i ? null : cleanPart({ from: Math.min(p.from, i), to: Math.max(p.from, i) }, n);
-  return cleanPart({ from: i, to: i }, n);
-}
-
-/** The word's pronunciation (readPronunciation's) cut to the run `part`: its syllables, stress and spelling. */
-export function partOf(pron, part) {
-  const p = pron && cleanPart(part, pron.syllables.length);
-  if (!p) return pron;
-  const syllables = pron.syllables.slice(p.from, p.to + 1);
-  return { ...pron, syllables, romanization: syllables.map((s) => s.text).join(""), ipa: syllables.map((s) => s.ipa).filter(Boolean).join("."),
-    stress: pron.stress >= p.from && pron.stress <= p.to ? pron.stress - p.from : -1 };
-}
-
-/** The run's syllables as the learner sees them: "TA-hu". */
-export const partText = (pron, part) => {
-  const p = pron && cleanPart(part, pron.syllables.length);
-  return p ? syllablePieces(pron).slice(p.from, p.to + 1).map((x) => x.text).join("-") : "";
-};
-
-/** Keywords found for a part, placed on the whole word: the syllables each sounds like moved by `part.from`. */
-export function onWholeWord(result, part) {
-  if (!part || !part.from) return result;
-  const move = (s) => ({ ...s, from: (s.from || 0) + part.from, to: (s.to || 0) + part.from,
-    ...(s.pieces ? { pieces: s.pieces.map((x) => ({ ...x, from: x.from + part.from, to: x.to + part.from })) } : {}) });
-  return { ...result, items: result.items.map(move), parts: result.parts.map(move) };
 }
 
 /** What "Use" puts in Memorization notes: the keyword and its scene. */

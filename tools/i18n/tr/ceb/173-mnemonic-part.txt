@@ -4,5 +4,10 @@ e191f11d	Usba sa Settings
 cd13fafd	Mga keyword para sa {0} lang.
 6171b659	Tibuok pulong
 d0632af8	Paghimo og keyword para sa {0}
-ee8aa540	I-tap o i-drag sa mga silaba aron makahimo og keyword para nianang bahina lang.
 272bddad	Paghimo og keyword para sa tibuok pulong
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Paghimo og keyword para sa
+9d142af2	I-drag ang asul nga mga tumoy aron mopili og bahin lang sa pulong.
+92217b92	{0} ra ang napili.
+a988a2bb	Ang bahin sa pulong nga himoan og keyword. Ang wala ug tuo mobalhin sa usa ka tumoy sa highlight; ang Enter mobaylo sa tumoy.
+79e4bbbc	Kanang bahina walay kaugalingong tingog sa bokal nga ikatandi. I-highlight og gamay pa ang pulong.

@@ -427,7 +427,7 @@ test("the card shows what was left out under How it sounds, and every build carr
   assert.match(cardtools, /left\.textContent = leftOutLine\(st\.core\);/);
   assert.match(cardtools, /const core = await wordCoreOf\(v\.text, lang, reading\)/);
   assert.match(cardtools, /reading: core\.reading, core,/);
-  assert.match(cardtools, /ownWords: own, core, part \}\)/);
+  assert.match(cardtools, /ownWords: own, core,\s+part: /);
   assert.match(read("web/css/review.css"), /\.rv-mnemo-core \{/);
   // the phone and web app: js/review is copied whole (build-www SHARED)
   const shared = [...read("mobile/scripts/build-www.mjs").match(/const SHARED = \[([\s\S]*?)\];/)[1].matchAll(/"([^"]+)"/g)].map((m) => m[1]);

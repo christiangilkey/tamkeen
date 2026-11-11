@@ -4,5 +4,10 @@ e191f11d	Cámbialo en Ajustes
 cd13fafd	Palabras clave solo para {0}.
 6171b659	Palabra entera
 d0632af8	Crear palabras clave para {0}
-ee8aa540	Toca o arrastra sobre las sílabas para crear palabras clave solo para esa parte.
 272bddad	Crear palabras clave para la palabra entera
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Crear palabras clave para
+9d142af2	Arrastra los extremos azules para elegir solo una parte de la palabra.
+92217b92	Solo está elegido {0}.
+a988a2bb	La parte de la palabra para la que crear palabras clave. Izquierda y derecha mueven un extremo del resaltado; Intro cambia de extremo.
+79e4bbbc	Esa parte no tiene un sonido vocálico propio que comparar. Resalta un poco más de la palabra.

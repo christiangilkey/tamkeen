@@ -4,5 +4,10 @@ e191f11d	在设置中更改
 cd13fafd	只针对 {0} 的关键词。
 6171b659	整个词
 d0632af8	为 {0} 做关键词
-ee8aa540	点按或拖过音节，只为那一部分做关键词。
 272bddad	为整个词做关键词
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	为这部分做关键词
+9d142af2	拖动蓝色的两端，只选这个词的一部分。
+92217b92	只选了 {0}。
+a988a2bb	要做关键词的那部分。左右键移动高亮的一端；Enter 切换另一端。
+79e4bbbc	这一部分没有可比对的元音。请多选一点。

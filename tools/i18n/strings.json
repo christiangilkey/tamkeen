@@ -19640,6 +19640,11 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "c51857c2",
+  "k": "Boss word",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "b0bc2ae4",
   "k": "New word",
   "f": "web/js/pages/review.js"
@@ -19647,11 +19652,6 @@
  {
   "id": "b7d5d81b",
   "k": "Once more",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "c51857c2",
-  "k": "Boss word",
   "f": "web/js/pages/review.js"
  },
  {
@@ -19745,51 +19745,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "f4a93bab",
-  "k": "Golden hour! Luck ×{0} for {1} minutes",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "5ebeb223",
-  "k": "Delete this word?",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "0e347caf",
-  "k": "It will be removed from your vocab on all your devices, along with its review progress.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "d9f36924",
-  "k": "Keep it",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "a6e51c31",
-  "k": "Its card in your {0} deck in {1} is removed at the next sync too, <0>with that card's review history in {2}. That cannot be undone.</0>",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "54b886ee",
-  "k": "From now on, deleting a word removes its card without asking about this again.",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "720f5ef8",
-  "k": "The word wasn't deleted: {0}",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "8e28750e",
-  "k": "{0} in a row! Luck ×{1}",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "ed068c06",
-  "k": "{0} in a row!",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "fe0b394a",
   "k": "Streak shield used",
   "f": "web/js/pages/review.js"
@@ -19830,8 +19785,18 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "0126ed40",
-  "k": "Today's cards cleared! +{0} glow",
+  "id": "ed068c06",
+  "k": "{0} in a row!",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "8e28750e",
+  "k": "{0} in a row! Luck ×{1}",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "f4a93bab",
+  "k": "Golden hour! Luck ×{0} for {1} minutes",
   "f": "web/js/pages/review.js"
  },
  {
@@ -19840,8 +19805,43 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "0126ed40",
+  "k": "Today's cards cleared! +{0} glow",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "2c13c6b7",
   "k": "Battle and cards both done today: +{0} XP, +{1} coins",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "5ebeb223",
+  "k": "Delete this word?",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "0e347caf",
+  "k": "It will be removed from your vocab on all your devices, along with its review progress.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "d9f36924",
+  "k": "Keep it",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "a6e51c31",
+  "k": "Its card in your {0} deck in {1} is removed at the next sync too, <0>with that card's review history in {2}. That cannot be undone.</0>",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "54b886ee",
+  "k": "From now on, deleting a word removes its card without asking about this again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "720f5ef8",
+  "k": "The word wasn't deleted: {0}",
   "f": "web/js/pages/review.js"
  },
  {
@@ -21890,6 +21890,11 @@
   "f": "web/js/review/cardtools.js"
  },
  {
+  "id": "5514d9f4",
+  "k": "Make keywords for",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
   "id": "2f3a0211",
   "k": "How it sounds",
   "f": "web/js/review/cardtools.js"
@@ -21960,8 +21965,8 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "d878e2e3",
-  "k": "Make 5 more",
+  "id": "cd13fafd",
+  "k": "Keywords for {0} only.",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -22015,13 +22020,8 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "cd13fafd",
-  "k": "Keywords for {0} only.",
-  "f": "web/js/review/cardtools.js"
- },
- {
-  "id": "6171b659",
-  "k": "Whole word",
+  "id": "d878e2e3",
+  "k": "Make 5 more",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -22030,13 +22030,28 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "ee8aa540",
-  "k": "Tap or drag across syllables to make keywords for just that part.",
+  "id": "272bddad",
+  "k": "Make keywords for the whole word",
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "272bddad",
-  "k": "Make keywords for the whole word",
+  "id": "9d142af2",
+  "k": "Drag the blue ends to pick just a part of the word.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "92217b92",
+  "k": "Only {0} is chosen.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "6171b659",
+  "k": "Whole word",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "a988a2bb",
+  "k": "The part of the word to make keywords for. Left and right move an end of the highlight; Enter switches ends.",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -22052,6 +22067,11 @@
  {
   "id": "b498b54c",
   "k": "The word's sounds couldn't be worked out, so no keywords could be found.",
+  "f": "web/js/review/cardtools.js"
+ },
+ {
+  "id": "79e4bbbc",
+  "k": "That part has no vowel sound of its own to match. Highlight a little more of the word.",
   "f": "web/js/review/cardtools.js"
  },
  {

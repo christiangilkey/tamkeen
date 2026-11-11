@@ -4,5 +4,10 @@ e191f11d	Cambialo nelle Impostazioni
 cd13fafd	Parole chiave solo per {0}.
 6171b659	Parola intera
 d0632af8	Parole chiave per {0}
-ee8aa540	Tocca o trascina sulle sillabe per avere parole chiave solo per quella parte.
 272bddad	Parole chiave per la parola intera
+# The part picker (review/partbar.js): the word with a highlight dragged between letters.
+5514d9f4	Parole chiave per
+9d142af2	Trascina le estremità blu per scegliere solo una parte della parola.
+92217b92	È scelto solo {0}.
+a988a2bb	La parte della parola per cui creare parole chiave. Sinistra e destra spostano un'estremità dell'evidenziazione; Invio cambia estremità.
+79e4bbbc	Questa parte non ha un suono vocalico suo da confrontare. Evidenzia un po' di più della parola.

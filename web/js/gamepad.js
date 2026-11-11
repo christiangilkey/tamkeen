@@ -621,6 +621,12 @@ function nearSpot(list) {
 
 /** A slider or a number box under the highlight: left / right change it, as the arrow keys would. */
 function stepValue(el, dir) {
+  // (something that takes left / right itself, marked data-pad-step: the Mnemonic maker's part picker,
+  // review/partbar.js, moves an end of its highlight; it is sent the arrow key)
+  if (el && el.dataset && el.dataset.padStep !== undefined && (dir === "left" || dir === "right")) {
+    el.dispatchEvent(new KeyboardEvent("keydown", { key: dir === "left" ? "ArrowLeft" : "ArrowRight", bubbles: true, cancelable: true }));
+    return true;
+  }
   if (!el || el.tagName !== "INPUT" || !/^(range|number)$/.test(el.type)) return false;
   if (dir !== "left" && dir !== "right") return false;
   const rtl = getComputedStyle(el).direction === "rtl" && el.type === "range";
