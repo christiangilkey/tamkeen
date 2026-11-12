@@ -27,7 +27,7 @@ import { canSay } from "../cardvoice.js";
 import { addReadings } from "../lexicon/readings.js";
 import { getGame, reward, rollCard, trackStudy } from "../game/game.js";
 import { BOSS_TIER, DUE_LUCK, EPIC, GOLDEN_LUCK, GOLDEN_MS, STREAK_STEPS, TIERS, golden, isBoss, lootState, luckFor } from "../game/loot.js";
-import { notice, reveal, tierBadge } from "../game/reveal.js";
+import { cornerSlot, notice, reveal, tierBadge } from "../game/reveal.js";
 import { clock as luckClock, openLuck } from "../game/luck.js";
 import { gameOn } from "../components/gameswitch.js";
 import { icon as gameIcon } from "../game/render.js";
@@ -249,8 +249,45 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const finds = TIERS.map(() => 0);  // what this session's rolls found, by tier
   let carryMs = 0;                   // the time already spent on a card whose answer was taken back
   let showing = null;                // a big reveal in progress: the next card waits for it
-  /** Where a reveal's chip sits: just under the top bar. */
-  const slotTop = () => Math.round($(".rv-top").getBoundingClientRect().bottom - el.getBoundingClientRect().top + 4);
+  // What an answer earned is shown in the one place on a card that is always empty: its top corner on the far
+  // side from the status badge, level with the badge (the owner: "so they do not cover any information on the
+  // screen"). One chip at a time, each after the last. Turning the card puts them all away: the back has no
+  // empty corner. A big find doesn't go there: it plays on the empty table, between two cards.
+  let feed = [];                     // chips waiting their turn: (place) => the chip's Promise
+  let feeding = null;                // the chip showing now
+  const pause = (ms) => new Promise((done) => setTimeout(done, ms));
+  /** The corner's place on the card on the table (game/lootview.js cornerSlot), or null with no card there. */
+  function slot() {
+    const wrap = $(".rv-wrap");
+    if (wrap.hidden) return null;
+    // (the card's own box and layout numbers, which its entrance animation doesn't move)
+    const w = wrap.getBoundingClientRect(), all = el.getBoundingClientRect();
+    const badge = flipped ? null : face.querySelector(".rv-kind");
+    const first = flipped ? null : face.querySelector(".rv-meaning");
+    return cornerSlot({ card: { left: w.left - all.left, top: w.top - all.top, width: w.width }, host: { width: all.width },
+      badge: badge ? badge.offsetWidth : 0, free: first ? first.offsetTop - face.scrollTop : Infinity,
+      rtl: getComputedStyle(el).direction === "rtl" });
+  }
+  /** Show the next chip waiting, if the card's front is there to show it on. */
+  function nextChip() {
+    const make = feed.shift();
+    const place = make && !flipped ? slot() : null;
+    if (!place) { feed = []; feeding = null; return; }
+    const playing = make(place);
+    feeding = playing;
+    playing.then(() => { if (feeding === playing) nextChip(); });
+  }
+  /** Queue chips for the card's corner. */
+  function say(chips) {
+    feed.push(...chips);
+    if (!feeding) nextChip();
+  }
+  /** Put every chip away, waiting or showing (the card is turned, an answer taken back). A big reveal stays. */
+  function clearChips() {
+    feed = [];
+    feeding = null;
+    for (const chip of lootHost.querySelectorAll(".loot:not(.show)")) if (chip.lootEnd) chip.lootEnd();
+  }
   /** New words past the day's number roll as extras: note which of `fresh` those are (`list`, `allowance`:
    * what the day's own number alone would have planned). */
   function markExtras(fresh, list = words, allowance = perDay) {
@@ -350,13 +387,12 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (editing) closeEditor(true);
     putToolsAway();
     const p = prompt(v), state = cards.get(uidOf(v));
-    const kind = !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
     const boss = bossWord(v);
+    const kind = boss ? ["bossword", "Boss word"] : !state ? ["new", "New word"] : state.learning ? ["again", "Once more"] : ["", "Review"];
     face.classList.remove("more");
     face.onscroll = null;
     face.innerHTML = `<div class="rv-front">
       <span class="rv-kind ${kind[0]}">${kind[1]}</span>
-      ${boss ? `<span class="rv-boss">Boss word</span>` : ""}
       <div class="rv-meaning"${p.meaning.length > 34 ? ` style="font-size:clamp(22px, 5.8vw, 30px)"` : ""}>${esc(p.meaning)}</div>
       ${p.sentence.length ? `<div class="rv-sentence">${p.sentence.map(([text, hit]) => (hit ? `<b>${esc(text)}</b>` : esc(text))).join("")}</div>` : ""}
       <div class="rv-hint">Say the word to yourself, then turn the card</div>
@@ -681,6 +717,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     actions.hidden = false;
     lean(0);
     flipped = showBack;
+    if (showBack) clearChips();
     if (!showBack) carryMs = 0;
     card.classList.toggle("rv-bossed", bossWord(todo[0]));
     (showBack ? back : front)(todo[0]);
@@ -697,6 +734,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   async function flip() {
     if (flipped || busy || !todo.length || $(".rv-wrap").hidden) return;
     busy = true;
+    clearChips();  // (whatever the last answer earned leaves the corner: the back has no empty one)
     const v = todo[0];
     SOUND.flip();
     tilt(0, 0);
@@ -778,11 +816,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const lucky = rollCard({ correct: remembered, ms: entry[3] + carryMs, uid, due: !extras.has(uid), extra: extras.has(uid) });
     step.lucky = lucky;
     cheer(remembered, earned, lucky);
-    if (lucky && lucky.rolled) {
-      finds[lucky.tier]++;
-      const playing = reveal(lootHost, lucky, { top: slotTop() });
-      if (lucky.tier >= EPIC) { showing = playing; playing.then(() => { if (showing === playing) showing = null; }); }
-    }
+    if (lucky && lucky.rolled) finds[lucky.tier]++;
+    const told = chipsFor(remembered, earned, lucky);
+    clearChips();  // (the last card's, if it was answered this quickly)
     header();
     if (remembered) { const bar = $(".rv-progress"); bar.classList.remove("bump"); void bar.offsetWidth; bar.classList.add("bump"); }
 
@@ -795,20 +831,80 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     card.style.transform = "";
     card.classList.remove("dragging");
     stamp.style.opacity = "";
-    if (showing) await showing;  // a big find: the next card waits until it has been seen
-    if (lucky && lucky.golden) goldenHour();
+    // The answered card has gone. Until the next one is drawn, the table is empty (the card's box stays, unseen).
+    card.style.visibility = "hidden";
+    if (told.big && !closed) {  // a big find plays here, where it covers nothing, and the next card waits for it
+      showing = reveal(lootHost, lucky, { ...(slot() || {}) });
+      await showing;
+      showing = null;
+    }
+    if (lucky && lucky.golden && !closed) goldenHour();
+    if (!todo.length && told.main && !closed) {
+      // The session's last card: what it earned shows where the card was for a moment, then the summary.
+      const last = told.main(slot() || {});
+      await Promise.race([last, (last.landed || Promise.resolve()).then(() => pause(900))]);
+      clearChips();
+    }
+    card.style.visibility = "";
     busy = false;
     if (closed) return;
-    if (todo.length) show(); else finish();
+    if (todo.length) {
+      show();
+      say([...(told.main ? [told.main] : []), ...told.more.map((m) => m.chip)]);
+    } else {
+      finish();
+      told.more.forEach((m, i) => setTimeout(() => { if (!closed) shout(m.shout); }, i * 1400));  // (over the summary, as before)
+    }
   }
 
-  /** A roll has started a Golden hour: say so. (The chip counts it down; the table turns gold.) */
+  /** A roll has started a Golden hour: the table turns gold and the top bar's chip counts it down (what says
+   * so in words is one of chipsFor's). */
   function goldenHour() {
-    shout(`Golden hour! Luck ×${GOLDEN_LUCK} for ${Math.round(GOLDEN_MS / 60000)} minutes`);
     const r = el.getBoundingClientRect();
     burst(r.width / 2, r.height * 0.3, 60, ["#ffb11f", "#ffe9a8", "#ffd54a", "#ffffff"], 320);
     SOUND.cheer();
     paintLuck();
+  }
+
+  /**
+   * What an answer earned and what there is to say about it, as chips for the card's corner:
+   *   big   the roll found an Epic or better (reveal.js shows that on the empty table instead)
+   *   main  (place) => the chip: the roll's find with the XP after it; or why nothing rolled; or the XP alone
+   *   more  what follows, each {chip: (place) => ..., shout: the same in a line, for when no card is left to
+   *         show it on}: a run of right answers, a Golden hour begun, the day's cards cleared
+   */
+  function chipsFor(remembered, earned, lucky) {
+    const xp = earned && earned.xp ? t("+{0} XP", earned.xp) : "";
+    const note = (art, name, text, colour, more = {}) => (place) => notice(lootHost, { art, name, text, colour, ...more, ...place });
+    const out = { big: !!(lucky && lucky.rolled && lucky.tier >= EPIC), main: null, more: [] };
+    if (lucky && lucky.rolled) {
+      if (!out.big) out.main = (place) => reveal(lootHost, lucky, { ...place, also: xp });
+    } else if (lucky && lucky.shielded) out.main = note("icon/streak_shield", t("Streak shield used"), t("{0} in a row kept", lucky.streak), "#4fd17a");
+    else if (lucky && lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) out.main = note("icon/combo", t("Run ended"), t("{0} in a row", lucky.lost), "#aab4c3");
+    else if (lucky && lucky.why === "fast") out.main = note("icon/clock", t("Too fast"), t("No roll for that one"), "#aab4c3");
+    else if (lucky && lucky.why === "spent") out.main = note("icon/clock", t("Extra rolls used up"), t("More tomorrow"), "#aab4c3");
+    else if (xp) out.main = (place) => notice(lootHost, { art: "icon/xp", text: xp, colour: "#aab4c3", hold: 1200, ...place, small: true });
+    if (remembered) {
+      // The run of right answers: the game's own count when it is on (it raises the luck at 10, 25 and 50).
+      const run = lucky ? lucky.streak : session.streak;
+      const step = lucky && lucky.rolled ? STREAK_STEPS.find(([n]) => n === run) : null;
+      if (step) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), `${t("Luck")} ×${step[1]}`, "#ff8a3d"), shout: `${run} in a row! Luck ×${step[1]}` });
+      else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), "", "#ff8a3d"), shout: `${run} in a row!` });
+    }
+    if (lucky && lucky.golden) {
+      const minutes = Math.round(GOLDEN_MS / 60000);
+      out.more.push({ chip: note("icon/luck", t("Golden hour"), `${t("Luck")} ×${GOLDEN_LUCK} · ${luckClock(GOLDEN_MS)}`, "#ffb11f", { hold: 2600 }),
+        shout: `Golden hour! Luck ×${GOLDEN_LUCK} for ${minutes} minutes` });
+    }
+    if (earned && earned.cleared) {
+      const got = [earned.glow ? t("+{0} glow", earned.glow.toLocaleString()) : "", earned.both ? t("+{0} XP", earned.both.xp) : "",
+        earned.both ? t("+{0} coins", earned.both.coins) : ""].filter(Boolean).join(" · ");
+      out.more.push({ chip: note("icon/glow", t("Today's cards cleared!"), got, "#f1cf7b", { hold: 2600 }),
+        shout: earned.glow ? `Today's cards cleared! +${earned.glow.toLocaleString()} glow` : "Today's cards cleared!" });
+      if (earned.both) out.more.push({ chip: null, shout: `Battle and cards both done today: +${earned.both.xp} XP, +${earned.both.coins} coins` });
+    }
+    out.more = out.more.filter((m) => m.chip || !todo.length);  // (the both-done line is said by the cleared chip on a card)
+    return out;
   }
 
   function takeBack() {
@@ -824,6 +920,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     Object.assign(session, last.session);
     if (last.firstTime) tried.delete(uid);
     if (last.lucky) last.lucky.undo();  // (the run of right answers and its shield; what a roll paid stays paid)
+    clearChips();
     SOUND.undo();
     show(true);
     carryMs = last.entry[3];            // the card has been looked at already: answering it again isn't "too fast"
@@ -946,35 +1043,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       const run = lucky ? lucky.streak : session.streak;
       const step = lucky && lucky.rolled ? STREAK_STEPS.find(([n]) => n === run) : null;
       if (step) {
-        shout(`${run} in a row! Luck ×${step[1]}`);
         burst(x, y, 60, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 260);
         SOUND.cheer();
       } else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) {
-        shout(`${run} in a row!`);
         burst(x, y, 44, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 230);
         SOUND.cheer();
       }
     }
-    // What the roll has to say when it didn't roll: a shield spent, a run ended, an answer too quick to count.
-    if (lucky && !lucky.rolled) {
-      const top = slotTop();
-      if (lucky.shielded) notice(lootHost, { art: "icon/streak_shield", name: t("Streak shield used"), text: t("{0} in a row kept", lucky.streak), colour: "#4fd17a", top });
-      else if (lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) notice(lootHost, { art: "icon/combo", name: t("Run ended"), text: t("{0} in a row", lucky.lost), colour: "#aab4c3", top });
-      else if (lucky.why === "fast") notice(lootHost, { art: "icon/clock", name: t("Too fast"), text: t("No roll for that one"), colour: "#aab4c3", top });
-      else if (lucky.why === "spent") notice(lootHost, { art: "icon/clock", name: t("Extra rolls used up"), text: t("More tomorrow"), colour: "#aab4c3", top });
-    }
-    if (earned && earned.cleared) shout(earned.glow ? `Today's cards cleared! +${earned.glow.toLocaleString()} glow` : "Today's cards cleared!");
-    if (earned && earned.both) setTimeout(() => shout(`Battle and cards both done today: +${earned.both.xp} XP, +${earned.both.coins} coins`), 1400);
-    if (earned && earned.xp && !calm()) {
-      const bar = $(".rv-progress").getBoundingClientRect();
-      const label = document.createElement("span");
-      label.className = "rv-xp";
-      label.textContent = `+${earned.xp} XP`;  // (the card's luck is the roll's to show now: game/reveal.js)
-      label.style.left = `${bar.left + bar.width * (session.finished / Math.max(1, session.finished + todo.length))}px`;
-      label.style.top = `${bar.bottom + 30}px`;
-      fx.append(label);
-      setTimeout(() => label.remove(), 1050);
-    }
+    // (What was earned and what there is to say about it is written in the card's corner: chipsFor.)
   }
 
   // ----- the end of a session -----
@@ -1299,7 +1375,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (closed) return;
     if (editing) closeEditor(true);  // (the phone's back button with a text box open: what was typed is kept)
     closed = true;
-    for (const r of lootHost.querySelectorAll(".loot")) if (r.lootEnd) r.lootEnd();  // (a reveal still playing goes with it)
+    clearChips();
+    for (const r of lootHost.querySelectorAll(".loot")) if (r.lootEnd) r.lootEnd();  // (a big reveal still playing goes with it)
     putToolsAway();
     flushEdits();
     if (todo.length) memoDone(todo[0]);  // (closed with the notes still being typed: their capitals still count)

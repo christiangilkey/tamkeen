@@ -1143,7 +1143,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
    the top of their host; Epic and better dim the host and come to the middle. --tier is the colour showing. */
 #loot-layer { position: fixed; inset: 0; z-index: 85; pointer-events: none; }
 .loot { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 3; transform: translateX(-50%); pointer-events: none; --tier: #aab4c3; }
-.loot-pill { display: flex; align-items: center; padding: 4px; border-radius: 16px; background: #120e1c; border: 2px solid var(--tier); color: #fff; animation: loot-in .18s cubic-bezier(.3, 1.7, .5, 1) both; }
+.loot-pill { display: flex; align-items: center; box-sizing: border-box; max-width: var(--loot-max, none); padding: 4px; border-radius: 16px; background: #120e1c; border: 2px solid var(--tier); color: #fff; animation: loot-in .18s cubic-bezier(.3, 1.7, .5, 1) both; }
 @keyframes loot-in { from { transform: scale(.4); opacity: 0; } }
 .loot-tile { position: relative; width: 48px; height: 48px; flex: none; perspective: 320px; }
 .loot-tile.bump { animation: loot-bump .16s ease-out; }
@@ -1154,12 +1154,28 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot-front { transform: rotateY(180deg); background: color-mix(in srgb, var(--tier) 26%, #120e1c); }
 .loot-art { display: block; width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; }
 .loot-back .loot-art { width: 24px; height: 24px; opacity: .8; }
-.loot-words { display: none; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot-words { display: none; min-width: 0; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot-name, .loot-text { overflow: hidden; text-overflow: ellipsis; }  /* (words too long for their place end in "…") */
+.loot-text:empty { display: none; }
+.loot-also { font-weight: 600; opacity: .62; }
 .loot.open .loot-words { display: block; animation: loot-words .2s ease-out both; }
 @keyframes loot-words { from { opacity: 0; transform: translateX(-6px); } }
 .loot-name { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tier); }
 .loot-text { font-size: 15px; font-weight: 700; }
 .loot.out { opacity: 0; transition: opacity .2s; }
+/* With a corner at a given place instead of centred (a flashcard's empty corner: lootview.cornerSlot). */
+.loot.at-left { left: var(--loot-x, 8px); transform: none; }
+.loot.at-right { left: auto; right: var(--loot-x, 8px); transform: none; }
+.loot.at-left .loot-pill { transform-origin: 0 0; }
+.loot.at-right .loot-pill { transform-origin: 100% 0; }
+/* The one-line chip, as tall as a card's status badge, for where only the badge's own band is free. */
+.loot.small .loot-pill { padding: 2px; border-radius: 12px; }
+.loot.small .loot-tile { width: 22px; height: 22px; }
+.loot.small .loot-face { border-width: 0; border-radius: 8px; }
+.loot.small .loot-art, .loot.small .loot-back .loot-art { width: 16px; height: 16px; }
+.loot.small .loot-words { padding: 0 8px 0 6px; }
+.loot.small .loot-name { display: none; }
+.loot.small .loot-text { font-size: 13px; }
 .loot-flash, .loot-rays, .loot-big { display: none; }
 .loot-bit { position: absolute; z-index: 4; border-radius: 1px; pointer-events: none; animation: loot-bit 1s cubic-bezier(.1, .7, .3, 1) both; }
 @keyframes loot-bit { from { transform: translate(-50%, -50%) scale(.4); opacity: 1; } 65% { opacity: 1; } to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) rotate(200deg) scale(1); opacity: 0; } }
@@ -1171,6 +1187,11 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot.show .loot-pill { position: absolute; left: 50%; top: var(--loot-top, 8px); z-index: 2; transform: translateX(-50%); animation: none;
   transition: transform .4s cubic-bezier(.3, 1.45, .5, 1), background-color .2s, border-color .2s; }
 .loot.show.big .loot-pill { transform: translate(-50%, var(--loot-dy, 30vh)) scale(2); background: transparent; border-color: transparent; }
+/* (from a corner: the same flight, by the distance reveal.js measured) */
+.loot.show.at-left, .loot.show.at-right { left: 0; right: 0; }
+.loot.show.at-left .loot-pill { left: var(--loot-x, 8px); transform: none; transform-origin: 50% 50%; }
+.loot.show.at-right .loot-pill { left: auto; right: var(--loot-x, 8px); transform: none; transform-origin: 50% 50%; }
+.loot.show.big.at-left .loot-pill, .loot.show.big.at-right .loot-pill { transform: translate(var(--loot-dx, 0px), var(--loot-dy, 30vh)) scale(2); }
 .loot.show .loot-words { display: none; }
 /* Waiting on a tier, the tile trembles: harder the higher it has climbed. */
 .loot.show.big:not(.open) .loot-tile { animation: loot-tremble .1s linear infinite; }
@@ -1186,7 +1207,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot.show.open .loot-flash { animation: loot-flash .6s ease-out; }
 @keyframes loot-flash { from { opacity: .45; } to { opacity: 0; } }
 /* Legendary and better: rays in the tier's colour turning slowly behind the tile. */
-.loot.show.open .loot-rays { display: block; position: absolute; left: 50%; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 30px); z-index: 1; width: 150vmax; height: 150vmax; margin: -75vmax 0 0 -75vmax;
+.loot.show.open .loot-rays { display: block; position: absolute; left: 50%; top: var(--loot-cy, 34%); z-index: 1; width: 150vmax; height: 150vmax; margin: -75vmax 0 0 -75vmax;
   background: repeating-conic-gradient(from 0deg, color-mix(in srgb, var(--tier) 30%, transparent) 0deg 9deg, transparent 9deg 30deg);
   -webkit-mask-image: radial-gradient(circle, #000 0, transparent 46%); mask-image: radial-gradient(circle, #000 0, transparent 46%);
   opacity: 0; pointer-events: none; }
@@ -1194,7 +1215,7 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot.show.open[data-tier="7"] .loot-rays, .loot.show.open[data-tier="8"] .loot-rays, .loot.show.open[data-tier="9"] .loot-rays { opacity: 1; animation: loot-turn 26s linear infinite, loot-rise .5s ease-out; }
 @keyframes loot-turn { to { transform: rotate(360deg); } }
 @keyframes loot-rise { from { opacity: 0; } }
-.loot.show .loot-big { display: block; position: absolute; left: 0; right: 0; top: calc(var(--loot-top, 8px) + var(--loot-dy, 30vh) + 104px); z-index: 2; padding: 0 20px; text-align: center; color: #fff; animation: loot-up .34s cubic-bezier(.2, 1.4, .4, 1) both; }
+.loot.show .loot-big { display: block; position: absolute; left: 0; right: 0; top: calc(var(--loot-cy, 34%) + 74px); z-index: 2; padding: 0 20px; text-align: center; color: #fff; animation: loot-up .34s cubic-bezier(.2, 1.4, .4, 1) both; }
 .loot.show .loot-big[hidden] { display: none; }
 @keyframes loot-up { from { transform: translateY(18px) scale(.9); opacity: 0; } }
 .loot-rank { font-size: clamp(32px, 10vw, 58px); font-weight: 900; line-height: 1.05; letter-spacing: .04em; text-transform: uppercase; color: var(--tier); }
@@ -3413,3 +3434,27 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .fr-row .fish-pic { margin: 0 auto; }
 /* A phone: the pond's bar in two rows on purpose (the pond and the basket, then the counters), not wrapped by chance. */
 @media (max-width: 520px) { .fish-top { flex-wrap: wrap; row-gap: 6px; } .fish-top .fish-pond { margin-inline-end: auto; } .fish-chips { order: 3; flex-basis: 100%; } }
+/* Fishing on a phone (2026-11-11): the Basket's "Sell the ... fish" button is a sentence, and a button's words stay on
+   one line unless told otherwise, so it pushed the whole sheet wider than the screen. It wraps now; a tile's name and
+   tier wrap inside the tile; and nothing in a fishing block may be wider than the block. */
+.fish-sell-all { white-space: normal; line-height: 1.3; padding-block: 8px; text-align: center; }
+.fish-sell-all span { min-width: 0; overflow-wrap: anywhere; }
+.fish-go, .gs-detail .fish-tier-mark { white-space: normal; }
+.gs-tile .fish-tier-mark { white-space: normal; text-align: center; overflow-wrap: anywhere; min-width: 0; }
+.gs-tile .fish-tier-mark span { min-width: 0; }
+.gs-row .fish-tier-mark { white-space: normal; }
+.fish-aq, .fish-board-slot { min-width: 0; max-width: 100%; }
+.fish-pips { flex-wrap: wrap; }
+/* ...and the game sheet's own column may never be wider than the screen, whatever is in it (as .modal-back). */
+.game-sheet-wrap { grid-template-columns: minmax(0, 1fr); }
+.game-sheet-wrap > .game-sheet { justify-self: center; min-width: 0; }
+/* Home: the aquarium under the Fishing tile (habitat.js paintAquarium): its name and how full it is, then the tank. */
+.habitat .hud-aq { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: stretch; gap: 8px; padding: 10px 12px 12px; border: 0;
+  border-radius: 14px; background: var(--surface-2); color: var(--text); white-space: normal; min-width: 0; }
+.habitat .hud-aq[hidden], .hud-aq-empty[hidden] { display: none; }
+.habitat .hud-aq:hover { background: var(--surface-2); filter: brightness(1.05); }
+.hud-aq-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 15px; font-weight: 700; }
+.hud-aq-n { color: var(--muted); font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; direction: ltr; }
+.hud-aq-tank { display: grid; place-items: center; line-height: 0; min-width: 0; }
+.hud-aq-tank .aq-view { width: 100% !important; max-width: 480px; }
+.hud-aq-empty { color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.4; text-align: center; }

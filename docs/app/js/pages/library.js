@@ -226,7 +226,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           </label>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
-            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Basics</span></button>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Words</span></button>
             <button type="button" role="tab" data-tab="dli" hidden>${icon("lock", 18)} <span>DLI</span></button>
           </div>
           <div class="course" id="course" hidden></div>
@@ -1137,7 +1137,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     { target: "#feed-list", title: "What to show",
       text: "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
     { target: "#course-tabs", title: "Your courses",
-      text: "Basics teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
+      text: "Words teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

@@ -17,6 +17,7 @@ import { wolffReading } from "./meanings.js";
 import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
 import { judgeOwn } from "./review/ownmnemonic.js";
 import { englishSounds } from "./review/mnemonic.js";
+import { alignLetters, cutPron, soundSpan } from "./review/wordpart.js";
 
 const loaded = new Map(); // "examples|es", "keywords|en" -> Promise of the file's data, or null
 
@@ -179,7 +180,7 @@ export async function checkOwnKeywords(v, lang, keywords, { reading = "", speaks
  * be had (no connection the first time). `prefs` is what it learned (the setting `mnemonic_prefs`); `ownWords`
  * false leaves out the sound-alikes the learner wrote themselves ("Learn from my own mnemonics" off).
  */
-export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en", prefs = null, ownWords = true, core = null } = {}) {
+export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks = "en", prefs = null, ownWords = true, core = null, part = null } = {}) {
   // The learner's own language when it has a list (and isn't the language being learned): its keywords first,
   // with English ones after them when it has fewer than three that sound close enough.
   const own = speaks !== "en" && speaks !== lang && OWN_KEYWORDS.has(speaks);
@@ -189,6 +190,17 @@ export async function freeMnemonics(v, lang, { reading = "", avoid = [], speaks 
   // itself is no keyword, "taco" for el taco)
   core = (pron && pron.core) || core;
   if (core && core.core && core.core !== String(v.text || "").trim()) avoid = [...avoid, core.core];
+  // A part of the word highlighted on the card (`part`: {shown, from, to}, letters of the word as shown; review/
+  // wordpart.js): the keywords are matched against the sounds of those letters only. The result's `pron` is that
+  // part's; `wholePron` and `partSounds` let the card light the part on the whole word's sound line.
+  if (part && pron) {
+    const spans = alignLetters(part.shown, lang, pron, (core && core.core) || "");
+    const [from, to] = soundSpan(spans, part);
+    const cut = from < to ? cutPron(pron, from, to) : null;
+    if (!cut) throw new Error("NO_PART_SOUND");
+    const found = await keywordsFor(v, { pron: { ...cut, core: pron.core }, ownList, avoid, speaks, prefs, ownWords });
+    return { ...found, pron: cut, wholePron: pron, partSounds: [from, to], core };
+  }
   return { ...(await keywordsFor(v, { pron, ownList, avoid, speaks, prefs, ownWords })), core };
 }
 

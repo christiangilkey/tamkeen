@@ -197,6 +197,30 @@ body.rv-open { overflow: hidden; }
 .rv-mnemo-said[hidden] { display: none; }
 .rv-mnemo-said-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
 .rv-mnemo-syl { font-size: 24px; font-weight: 700; line-height: 1.3; letter-spacing: .02em; overflow-wrap: anywhere; user-select: text; -webkit-user-select: text; }
+.rv-mnemo-syl b { font-weight: 700; color: var(--hl-ink); background: var(--hl); border-radius: 6px; padding: 0 3px; }  /* the part the keywords are for */
+.rv-mnemo-part { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.rv-mnemo-part[hidden] { display: none; }
+/* The part picker (review/partbar.js): the word in its own script, a teal highlight whose ends are dragged between
+   letters. The highlight and its ends are drawn over the word from where each letter is (the word stays one text). */
+.rv-part { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.rv-part[hidden] { display: none; }
+.rv-part-label { font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
+.rv-part-bar { position: relative; align-self: stretch; padding: 12px 18px 16px; border-radius: 12px; background: var(--surface-2); text-align: center;
+  cursor: text; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; outline: none; }
+.rv-part-bar:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+.rv-part-word { position: relative; z-index: 1; font-size: 28px; font-weight: 700; line-height: 1.5; overflow-wrap: anywhere; pointer-events: none; }
+.rv-part-fill, .rv-part-fill i { position: absolute; }
+.rv-part-fill { inset: 0; pointer-events: none; }
+.rv-part-fill i { border-radius: 7px; background: var(--accent); opacity: .45; }
+.rv-part-handle { position: absolute; z-index: 2; width: 3px; margin-left: -1.5px; border-radius: 2px; background: var(--accent); cursor: ew-resize; }
+.rv-part-handle[hidden] { display: none; }
+.rv-part-handle::before { content: ""; position: absolute; left: 50%; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--accent); }
+.rv-part-handle.start::before { top: -11px; }
+.rv-part-handle.end::before { bottom: -11px; }
+.rv-part-handle::after { content: ""; position: absolute; inset: -12px -16px; }  /* (a finger-sized place to grab) */
+.rv-part-bar:focus-visible .rv-part-handle.active::before, .rv-part-bar.pad-focus .rv-part-handle.active::before { box-shadow: 0 0 0 3px var(--surface-2), 0 0 0 5px var(--accent); }
+.rv-part-hint { margin: 0; font-size: 13px; color: var(--muted); }
+.rv-part-whole { font-size: 13px; }
 /* what the keywords leave out of the word (review/wordcore.js): "al- (“the”) left out" */
 .rv-mnemo-core { font-size: 13px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
@@ -292,9 +316,6 @@ body.rv-open { overflow: hidden; }
 }
 .rv-shout { position: absolute; left: 50%; top: 30%; font-size: clamp(26px, 7vw, 44px); font-weight: 800; color: #ffe9a8; text-shadow: 0 3px 16px rgba(0, 0, 0, .5); width: min(92vw, 620px); text-align: center; line-height: 1.2; animation: rv-shout 1.25s cubic-bezier(.2, 1.3, .4, 1) both; }
 @keyframes rv-shout { from { transform: translate(-50%, 20px) scale(.5); opacity: 0; } 18% { transform: translate(-50%, 0) scale(1.1); opacity: 1; } 30% { transform: translate(-50%, 0) scale(1); } 78% { opacity: 1; } to { transform: translate(-50%, -40px); opacity: 0; } }
-.rv-xp { position: absolute; font-weight: 800; font-size: 15px; color: #ffe9a8; text-shadow: 0 2px 8px rgba(0, 0, 0, .5); animation: rv-xp 1s ease-out both; }
-.rv-xp.big { font-size: 21px; color: #ffd54a; animation-duration: 1.5s; }
-@keyframes rv-xp { from { transform: translate(-50%, 0); opacity: 0; } 15% { opacity: 1; } to { transform: translate(-50%, -46px); opacity: 0; } }
 .rv.miss .rv-stage { animation: rv-miss .3s ease; }
 @keyframes rv-miss { 25% { transform: translateX(-7px); } 50% { transform: translateX(6px); } 75% { transform: translateX(-3px); } }
 
@@ -460,7 +481,9 @@ body.rv-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .rv-tok.rv-held { animation: none; } .rv-tok { transition: none; } }
 .rv-top .rv-help { font-size: 18px; font-weight: 700; line-height: 1; }
 
-/* ----- luck: every remembered card rolls for a reward (game/loot.js; the reveal is game/reveal.js, app.css) ----- */
+/* ----- luck: every remembered card rolls for a reward (game/loot.js; the reveal is game/reveal.js, app.css) -----
+   What an answer earned is shown in the card's empty top corner, across from its status badge and under the
+   timer bar (game/lootview.js cornerSlot), so it never lies over the word, the sentence or the buttons. */
 .rv-loot { position: absolute; inset: 0; z-index: 7; pointer-events: none; }
 /* The top bar's chip: right answers in a row, what the card on the table rolls at, a Golden hour's time left. */
 .rv-top .rv-streak { width: auto; height: auto; display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 99px; background: rgba(255, 138, 61, .22); border: 1px solid rgba(255, 170, 90, .6); color: #ffd9a8; font-weight: 700; font-size: 13.5px; font-variant-numeric: tabular-nums; cursor: pointer; }
@@ -477,9 +500,9 @@ body.rv-open { overflow: hidden; }
 /* A Golden hour warms the table's two lights to gold. */
 .rv.golden .rv-bg::before { background: #ffb11f; }
 .rv.golden .rv-bg::after { background: #ff8a3d; }
-/* A boss word (missed on four different days): its card is edged in gold and says so. */
+/* A boss word (missed on four different days): its card is edged in gold and its badge says so. */
 .rv-card.rv-bossed { outline: 3px solid #ffb11f; outline-offset: -3px; }
-.rv-boss { position: absolute; top: 18px; inset-inline-end: 20px; font-size: 11.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; background: #ffb11f; color: #2b1a00; }
+.rv-kind.bossword { background: #ffb11f; color: #2b1a00; font-weight: 800; }  /* (its status badge says so; the corner beside it is for what an answer earned) */
 .rv-boss-note { font-size: 13px; font-weight: 700; color: #9a6200; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .rv-boss-note { color: #ffb11f; } }
 :root[data-theme="dark"] .rv-boss-note { color: #ffb11f; }

@@ -9,6 +9,15 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.53.0",
+  "Pick the part of a word the Mnemonic maker works on, right on the word");
+notes("0.53.0",
+  "Flashcard rewards show in the card's empty corner, never over the word");
+notes("0.53.0",
+  "Your aquarium shows on Home, and fishing says the right answer's word");
+notes("0.53.0",
+  "Shirts fit creatures properly, with a collar at the neck");
+
 notes("0.52.0",
   "Every card you remember rolls for a reward, in ten rarities");
 notes("0.52.0",

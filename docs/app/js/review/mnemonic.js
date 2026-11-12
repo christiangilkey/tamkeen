@@ -90,7 +90,7 @@ export const MNEMONIC_SCHEMA = {
  * was suggested or turned down before, so asking again brings new ones; `examples` are a few mnemonics the
  * learner wrote themselves ([{word, meaning, note}], review/ownmnemonic.js ownExamples), to show their style.
  */
-export function mnemonicPrompt({ word, meaning = "", study = "Arabic", speaks = "English", avoid = [], reading = "", variety = "", examples = [], coreLine = "" }) {
+export function mnemonicPrompt({ word, meaning = "", study = "Arabic", speaks = "English", avoid = [], reading = "", variety = "", examples = [], coreLine = "", partLine = "" }) {
   const said = variety ? ` in ${variety}` : "";
   // (the learner's own notes, one line each: the word, its meaning, the note as they wrote it, in quotes)
   const mine = (Array.isArray(examples) ? examples : []).slice(0, 3)
@@ -109,6 +109,7 @@ Before answering, check every keyword: is it real ${speaks}, does it really soun
     // (`coreLine`, wordcore.js corePromptLine: the card says الكتاب and `word` is كتاب, the part the keywords match)
     coreLine,
     meaning ? `Its meaning: ${meaning}` : "",
+    partLine,
     reading ? `How it is said, from the app's dictionary: ${reading}` : "",
     avoid.length ? `Already suggested or turned down, so give different ones: ${avoid.join("; ")}` : "",
     mine.length ? `Mnemonics this learner wrote themselves (the keyword in capitals), to show the kind of scene they like. Write your scenes in a similar style, with new keywords that sound like this word:\n${mine.join("\n")}` : "",
@@ -331,14 +332,21 @@ export function englishSounds(table) {
  * with no keywords at all is an error; one whose keywords all fail the sound check is not (it is said
  * honestly on the card).
  */
-export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading = "", variety = "", ownSounds = null, examples = [], core = null, lang = "" }) {
+export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading = "", variety = "", ownSounds = null, examples = [], core = null, lang = "",
+  partText = "" }) {
   if (!core && lang) {
     core = soundCore(v.text, lang, { reading });
     reading = core.reading;
   }
-  const word = (core && core.core) || v.text;
+  // `partText`: the letters the learner highlighted on the card (review/partbar.js). The AI is asked about that
+  // part alone: it says how the part is said, and its keywords are checked against that.
+  const part = String(partText || "").trim();
+  const word = part || (core && core.core) || v.text;
+  if (part) reading = "";  // (the app's reading is of the whole word)
   const [answer, own] = await Promise.all([
-    ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples, coreLine: corePromptLine(v.text, core) })),
+    ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples,
+      coreLine: part ? "" : corePromptLine(v.text, core),
+      partLine: part ? `This is only a part of the card's word, "${String(v.text).trim()}", which the learner chose: give the pronunciation of this part as it is said inside the whole word, and keywords that sound like this part. The meaning given is the whole word's, and each scene still links its keyword to that meaning.` : "" })),
     Promise.resolve(ownSounds).catch(() => null),
   ]);
   // (neither the card's word nor its core is a keyword: el taco is no "taco")
