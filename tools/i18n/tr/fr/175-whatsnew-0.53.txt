@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Choisissez la partie d'un mot sur laquelle travaille le Créateur de mnémoniques, directement sur le mot
+2ec6eacc	Les récompenses des cartes s'affichent dans le coin vide de la carte, jamais sur le mot
+c2cd231e	Votre aquarium s'affiche sur l'Accueil, et la pêche prononce le mot de la bonne réponse
+25a848b4	Les t-shirts vont bien aux créatures, avec un col au niveau du cou

@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Elige la parte de una palabra con la que trabaja el Creador de mnemotecnias, sobre la propia palabra
+2ec6eacc	Las recompensas de las tarjetas aparecen en la esquina vacía de la tarjeta, nunca encima de la palabra
+c2cd231e	Tu acuario aparece en Inicio, y la pesca dice la palabra de la respuesta correcta
+25a848b4	Las camisetas les quedan bien a las criaturas, con un cuello en el cuello

@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Wähle den Teil eines Wortes, mit dem der Eselsbrücken-Macher arbeitet, direkt am Wort
+2ec6eacc	Belohnungen der Lernkarten erscheinen in der leeren Ecke der Karte, nie über dem Wort
+c2cd231e	Dein Aquarium erscheint auf der Startseite, und beim Angeln wird das Wort der richtigen Antwort gesprochen
+25a848b4	Shirts sitzen richtig an den Kreaturen, mit einem Kragen am Hals

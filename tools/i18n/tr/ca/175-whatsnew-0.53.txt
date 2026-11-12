@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Tria la part d'una paraula amb què treballa el Creador de mnemotècnies, damunt mateix de la paraula
+2ec6eacc	Les recompenses de les targetes surten al racó buit de la targeta, mai damunt de la paraula
+c2cd231e	El teu aquari surt a l'Inici, i la pesca diu la paraula de la resposta correcta
+25a848b4	Les samarretes s'ajusten bé a les criatures, amb un coll al voltant del coll

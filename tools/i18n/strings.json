@@ -23840,6 +23840,26 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "27352f1e",
+  "k": "Pick the part of a word the Mnemonic maker works on, right on the word",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2ec6eacc",
+  "k": "Flashcard rewards show in the card's empty corner, never over the word",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c2cd231e",
+  "k": "Your aquarium shows on Home, and fishing says the right answer's word",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "25a848b4",
+  "k": "Shirts fit creatures properly, with a collar at the neck",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "f532a2a9",
   "k": "Every card you remember rolls for a reward, in ten rarities",
   "f": "web/js/whatsnew.js"

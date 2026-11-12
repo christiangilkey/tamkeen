@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Piliin ang bahagi ng salita na gagamitin ng Gawa ng mnemonic, mismo sa salita
+2ec6eacc	Lumalabas ang mga gantimpala ng card sa bakanteng sulok ng card, hindi kailanman sa ibabaw ng salita
+c2cd231e	Makikita ang iyong aquarium sa Home, at sinasabi ng pangingisda ang salita ng tamang sagot
+25a848b4	Akma na ang mga damit sa mga nilalang, may kuwelyo sa leeg

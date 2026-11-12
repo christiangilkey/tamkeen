@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Scegli la parte di una parola su cui lavora il Generatore di mnemotecniche, direttamente sulla parola
+2ec6eacc	Le ricompense delle schede compaiono nell'angolo vuoto della scheda, mai sopra la parola
+c2cd231e	Il tuo acquario compare nella Home, e la pesca dice la parola della risposta giusta
+25a848b4	Le magliette vestono bene le creature, con un colletto al collo

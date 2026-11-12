@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.53.0 — 2026-11-11
+
 - **Changed:** In Library → Courses, the **Basics** tab is now called **Words**.
 - **Fixed:** In the creature game, a shirt now sits on a creature the way a shirt would: it comes up to a collar at the base of the neck, with the bow tie or scarf on that collar, and covers the chest and belly, while wings, legs and tail stay bare. Before, the dragon whelp's shirt was a patch low on its side with its bow tie floating above it. Redrawn for the dragon whelp, moon wolf, phoenix chick, thunder griffin, winged fox, crystal golem and cyber seal (grown and baby) and the baby treasure golem, in every frame of standing, walking and flying.
 - **Improved:** In the flashcards, what an answer earns now shows in the empty top corner of the card, beside the **New word** / **Review** badge and under the timer bar, so it never covers the word, the sentence, the timer or the buttons. Before, it sat across the top of the card. One thing shows at a time: the roll's find with its XP after it, then anything else there is to say (10 in a row, a Golden hour, the day's cards cleared), which used to flash across the middle of the card. On a crowded card it shrinks to a single line as tall as the badge. Turning the card puts it away, because the back has no empty corner. A big find (Epic or better) now plays on the empty table between two cards, and a boss word says so in its badge. With the app in a right-to-left language the corner is the left one. The small "+XP" that floated under the top bar is gone: the XP is part of the same line.

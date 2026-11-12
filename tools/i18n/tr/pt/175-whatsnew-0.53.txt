@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Escolha a parte de uma palavra com que o Criador de mnemônicos trabalha, direto na palavra
+2ec6eacc	As recompensas dos cartões aparecem no canto vazio do cartão, nunca por cima da palavra
+c2cd231e	Seu aquário aparece no Início, e a pescaria fala a palavra da resposta certa
+25a848b4	As camisetas servem direito nas criaturas, com uma gola no pescoço

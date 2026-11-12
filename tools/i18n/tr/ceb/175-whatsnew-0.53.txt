@@ -1,0 +1,5 @@
+# What's new in 0.53.0 (web/js/whatsnew.js).
+27352f1e	Pilia ang bahin sa pulong nga tratrabahoon sa Mnemonic maker, diha mismo sa pulong
+2ec6eacc	Ang mga ganti sa card makita sa walay sulod nga kanto sa card, dili gyud ibabaw sa pulong
+c2cd231e	Ang imong aquarium makita sa Home, ug ang pangisda moingon sa pulong sa husto nga tubag
+25a848b4	Ang mga sinina mohaom na sa mga binuhat, nga adunay kwelyo sa liog
