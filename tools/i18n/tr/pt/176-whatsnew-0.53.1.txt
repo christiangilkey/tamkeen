@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	Os botões de resposta dos cartões voltam a funcionar depois de virar o cartão

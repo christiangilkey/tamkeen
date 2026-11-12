@@ -4766,6 +4766,7 @@
 "Downloading the vowel model… {0}%":"กำลังดาวน์โหลดโมเดลสระ… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"เครื่องหมายสระภาษาอาหรับต้องใช้โมเดลสระ ({0} MB ภาษาอาหรับมาตรฐาน){1}",
 "Watched":"ดูแล้ว",
+"The flashcards' answer buttons work again once a card is turned over":"ปุ่มคำตอบของแฟลชการ์ดกลับมาใช้งานได้แล้วหลังจากพลิกการ์ด",
 "Pick the part of a word the Mnemonic maker works on, right on the word":"เลือกส่วนของคำที่ตัวช่วยจำจะใช้ ได้บนตัวคำเลย",
 "Flashcard rewards show in the card's empty corner, never over the word":"รางวัลจากการ์ดแสดงที่มุมว่างของการ์ด ไม่บังคำเลย",
 "Your aquarium shows on Home, and fishing says the right answer's word":"ตู้ปลาของคุณแสดงในหน้าหลัก และการตกปลาจะอ่านคำของคำตอบที่ถูก",

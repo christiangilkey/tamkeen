@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	Gumagana na ulit ang mga button ng sagot sa flashcard pagkatapos baligtarin ang card

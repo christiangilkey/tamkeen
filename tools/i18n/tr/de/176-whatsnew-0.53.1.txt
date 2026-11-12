@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	Die Antwortknöpfe der Karteikarten funktionieren wieder, sobald eine Karte umgedreht ist

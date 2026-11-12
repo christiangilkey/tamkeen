@@ -4766,6 +4766,7 @@
 "Downloading the vowel model… {0}%":"母音モデルをダウンロード中… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"アラビア語の母音記号には母音モデルが必要です（{0} MB、標準アラビア語）。{1}",
 "Watched":"視聴済み",
+"The flashcards' answer buttons work again once a card is turned over":"カードをめくった後、単語カードの回答ボタンが再び使えるようになりました",
 "Pick the part of a word the Mnemonic maker works on, right on the word":"語呂合わせメーカーが使う単語の部分を、単語の上で直接選べます",
 "Flashcard rewards show in the card's empty corner, never over the word":"カードのごほうびはカードの空いている角に表示され、単語の上には出ません",
 "Your aquarium shows on Home, and fishing says the right answer's word":"ホームに水槽が表示され、釣りでは正解の単語が読み上げられます",

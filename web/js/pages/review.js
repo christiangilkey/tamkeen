@@ -736,9 +736,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   async function flip() {
     if (flipped || busy || !todo.length || $(".rv-wrap").hidden) return;
     busy = true;
+    clearChips();  // (whatever the last answer earned leaves the corner: the back has no empty one)
     // (try/finally: whatever goes wrong while the card turns, the answer buttons are never left dead)
     try {
-      clearChips();  // (whatever the last answer earned leaves the corner: the back has no empty one)
       const v = todo[0];
       SOUND.flip();
       tilt(0, 0);

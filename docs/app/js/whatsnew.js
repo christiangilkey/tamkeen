@@ -9,6 +9,9 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.53.1",
+  "The flashcards' answer buttons work again once a card is turned over");
+
 notes("0.53.0",
   "Pick the part of a word the Mnemonic maker works on, right on the word");
 notes("0.53.0",
