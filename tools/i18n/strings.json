@@ -23840,6 +23840,11 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "d556b3ab",
+  "k": "The flashcards' answer buttons work again once a card is turned over",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "27352f1e",
   "k": "Pick the part of a word the Mnemonic maker works on, right on the word",
   "f": "web/js/whatsnew.js"

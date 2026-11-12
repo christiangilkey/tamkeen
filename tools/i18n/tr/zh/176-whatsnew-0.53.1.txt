@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	翻开卡片后，闪卡的回答按钮又能用了

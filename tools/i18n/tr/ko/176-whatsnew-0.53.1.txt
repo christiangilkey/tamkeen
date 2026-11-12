@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	카드를 뒤집은 뒤 플래시카드의 답 버튼이 다시 작동합니다

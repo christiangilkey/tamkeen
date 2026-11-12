@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	I pulsanti di risposta delle flashcard funzionano di nuovo dopo aver girato la carta
