@@ -3615,3 +3615,41 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cv-part p[hidden] { display: none; }
 .cv-next { margin: 0; padding-inline-start: 22px; display: grid; gap: 6px; }
 .cv-all summary { cursor: pointer; font-weight: 600; margin-bottom: 8px; }
+
+/* ----- Library → Courses: every word of a course sentence can be tapped (components/coursewords.js) ----- */
+.tw-root .tw { cursor: pointer; border-radius: 4px; }
+.tw-root .tw:hover { background: var(--sel-range); }
+.tw-root .tw.tw-on { background: var(--hl); color: var(--hl-ink); }
+
+/* ----- A pronunciation score (components/pronresult.js): "Say it" on the flashcards and in the word editor, and
+   Conversation's "Say it yourself". Green said well, amber nearly, red said wrongly or left out. ----- */
+.pron-result { display: grid; gap: 8px; margin: 10px auto 0; padding: 10px 14px; max-width: 560px; border-radius: var(--radius);
+  background: var(--surface); border: 1px solid var(--border); text-align: start; }
+.pron-result p { margin: 0; }
+.pron-none { color: var(--muted); }
+.pron-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.pron-big { display: grid; justify-items: center; min-width: 76px; }
+.pron-big b { font-family: var(--display-font); font-size: 34px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.pron-big span { font-size: 12px; color: var(--muted); }
+.pron-big.good b { color: var(--accent); }
+.pron-big.fair b { color: var(--warn); }
+.pron-big.poor b { color: var(--danger); }
+.pron-parts { display: flex; flex-wrap: wrap; gap: 4px 16px; margin: 0; }
+.pron-parts div { display: grid; }
+.pron-parts dt { font-size: 12px; color: var(--muted); }
+.pron-parts dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pron-words { font-family: var(--ar-font); font-size: calc(var(--ar-size) * .78); line-height: 1.8; }
+.pron-word { display: inline; min-height: 0; padding: 0 3px; border: 0; border-radius: 6px; background: transparent; font: inherit;
+  white-space: normal; text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.pron-word.good { text-decoration-color: var(--accent); }
+.pron-word.fair { text-decoration-color: var(--warn); }
+.pron-word.poor { color: var(--danger); text-decoration-color: var(--danger); }
+.pron-word.gone { text-decoration-style: dashed; opacity: .75; }
+.pron-word.extra { text-decoration-style: dotted; }
+.pron-word.on { background: var(--surface-2); }
+.pron-note { display: grid; gap: 4px; padding: 8px 12px; border-radius: 12px; background: var(--surface-2); }
+.pron-note[hidden] { display: none; }
+.pron-note strong { font-family: var(--ar-font); font-size: 1.15em; }
+.pron-score { font-weight: 700; color: var(--muted); }
+.pron-say { justify-self: start; }
+.cv-heard .pron-result { margin: 6px 0 0; }

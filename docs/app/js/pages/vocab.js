@@ -22,6 +22,11 @@ import { snippetPlayer } from "../snippetplayer.js";
 import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
+import { heatmap } from "../review/heatmapview.js";
+import { longGoal } from "../review/longgoalview.js";
+import { DATE_OPS, answerDays, answerSeconds, dateValue, dayIso, fuzzy, insertFilter, matches, parseQuery, trigger } from "../review/vocabsearch.js";
+import { states as cardStates, uidOf } from "../review/deck.js";
+import { dayNumber } from "../review/fsrs.js";
 import { VIEW_DEFAULTS, changedView, folderCount, narrowed, sortFolders, stepFolder } from "../review/vocabedit.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
@@ -36,6 +41,7 @@ const SORTS = {
   changed_asc: ["Least recently changed", (a, b) => (a.updated_at || a.created_at) - (b.updated_at || b.created_at)],
   alpha: ["A–Z", (a, b) => a.text.localeCompare(b.text, studyLanguage())],
 };
+const DATE_FIELDS = { added: "Added", changed: "Changed", reviewed: "Reviewed", learned: "First learned" };
 const RANGES = { any: "Any time", today: "Today", week: "Last 7 days", month: "Last 30 days", year: "Last 12 months", custom: "Between dates…" };
 /** Holding a word on the list this long starts Select with it ticked (a phone's usual way). */
 const PICK_HOLD_MS = 500;
@@ -140,11 +146,12 @@ export async function render(view) {
   const st = {
     folder: prefs.folder || "",           // "" = all, "none" = not in any folder, else a folder uid
     sort: SORTS[prefs.sort] ? prefs.sort : VIEW_DEFAULTS.sort,
-    dateField: prefs.dateField === "changed" ? "changed" : "added",
+    dateField: DATE_FIELDS[prefs.dateField] ? prefs.dateField : "added",
     range: RANGES[prefs.range] ? prefs.range : "any",
     from: prefs.from || "",
     to: prefs.to || "",
     q: "",
+    filters: [],  // what the search box asks besides words: folder:, is:, added:… (review/vocabsearch.js)
   };
   const savePrefs = () => lsSet("vocabView", { folder: st.folder, sort: st.sort, dateField: st.dateField,
                                                range: st.range, from: st.from, to: st.to });
@@ -170,9 +177,13 @@ export async function render(view) {
         <span class="va-send" id="send-slot"></span>
         <button type="button" class="ghost va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
       </div>
+      <div class="progress-block" id="progress" hidden>
+        <div id="longgoal"></div>
+        <div id="heatmap"></div>
+      </div>
     </section>
     <div id="mywords">
-    <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto">
+    <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" title="Search your words. Also: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:">
     <div class="vocab-bar" id="vbar">
       <button type="button" class="vocab-folder" id="folder-pick" aria-haspopup="dialog" title="Choose a folder">
         ${icon("folder", 18)}<span class="vf-name"></span><span class="vf-n"></span><span class="vf-caret" aria-hidden="true">${icon("chevron", 16)}</span>
@@ -445,7 +456,7 @@ export async function render(view) {
       <section class="vs-sec"><h3 class="vs-h">Sort</h3>
         <div class="vs-opts" data-k="sort">${Object.entries(SORTS).map(([k, [label]]) => `<button type="button" class="vs-opt" data-v="${k}">${label}</button>`).join("")}</div></section>
       <section class="vs-sec"><h3 class="vs-h">Show words</h3>
-        <div class="vs-seg" data-k="dateField"><button type="button" class="vs-opt" data-v="added">Added</button><button type="button" class="vs-opt" data-v="changed">Changed</button></div>
+        <div class="vs-seg vs-seg4" data-k="dateField">${Object.entries(DATE_FIELDS).map(([k, label]) => `<button type="button" class="vs-opt" data-v="${k}">${label}</button>`).join("")}</div>
         <div class="vs-opts" data-k="range">${Object.entries(RANGES).map(([k, label]) => `<button type="button" class="vs-opt" data-v="${k}">${label}</button>`).join("")}</div>
         <div class="vs-dates" hidden><input type="date" class="vs-from" aria-label="From"><span class="muted">to</span><input type="date" class="vs-to" aria-label="To"></div>
       </section>
@@ -674,9 +685,20 @@ export async function render(view) {
     if (st.folder === "none") items = items.filter((v) => !v.folders.length);
     else if (st.folder) items = items.filter((v) => v.folders.includes(st.folder));
     const [from, to] = rangeBounds(st.range, st.from, st.to);
-    const when = (v) => (st.dateField === "changed" ? v.updated_at || v.created_at : v.created_at);
-    if (from !== null) items = items.filter((v) => when(v) >= from);
-    if (to !== null) items = items.filter((v) => when(v) < to);
+    if (st.dateField === "reviewed" || st.dateField === "learned") {
+      // (answered, or first remembered, in that time: from the answer log)
+      if (from !== null || to !== null) {
+        items = items.filter((v) => answerSeconds(log[uidOf(v)], st.dateField).some((t) => (from === null || t >= from) && (to === null || t < to)));
+      }
+    } else {
+      const when = (v) => (st.dateField === "changed" ? v.updated_at || v.created_at : v.created_at);
+      if (from !== null) items = items.filter((v) => when(v) >= from);
+      if (to !== null) items = items.filter((v) => when(v) < to);
+    }
+    if (st.filters.length) {
+      const ctx = { folders, cards: cardStates(log), days: answerDays(log), today: dayNumber() };
+      items = items.filter((v) => matches(v, st.filters, ctx));
+    }
     const sorted = [...items].sort(SORTS[st.sort][1]);
     if (!justAdded.size) return sorted;
     const fresh = sorted.filter((v) => justAdded.has(v.id)).sort((a, b) => b.created_at - a.created_at);  // in the order typed
@@ -690,6 +712,7 @@ export async function render(view) {
   function renderReview() {
     const banner = $("#review");
     banner.hidden = Boolean(st.q);
+    renderProgress();
     // No words yet (or none in the open folder): the box stays where it always is, in its usual colour
     // (the owner: "colored as if it did have words"), with nothing to start.
     const none = !reviewWords().length;
@@ -741,6 +764,18 @@ export async function render(view) {
   // Its "Send to …" link sits in the row under it, beside "Add words".
   const goal = goalBar($("#goal"), { sendSlot: $("#send-slot") });
   $("#goal").addEventListener("goalchange", renderReview);
+
+  // The long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js): over every
+  // answer on record, whichever folder is open; hidden while searching (the list is then narrowed).
+  const longgoal = longGoal($("#longgoal"));
+  const calendar = heatmap($("#heatmap"));
+  function renderProgress() {
+    const box = $("#progress");
+    box.hidden = Boolean(st.q) || (!all.length && !Object.keys(log || {}).length);
+    if (box.hidden) return;
+    longgoal.update(log);
+    calendar.update(all, log);
+  }
 
   function startReview() {
     closeOpen();  // (its edits saved: the cards show them)
@@ -849,7 +884,81 @@ export async function render(view) {
   };
 
   let debounce;
-  $("#q").oninput = (e) => { clearTimeout(debounce); debounce = setTimeout(() => { st.q = e.target.value.trim(); load(); }, 200); };
+  /** The search box read again: its words are searched by the computer or the phone (as before), the rest
+   * (folder:, is:, dates) narrows the list here. */
+  function runSearch() {
+    const asked = parseQuery($("#q").value);
+    st.filters = asked.filters;
+    if (asked.text !== st.q) { st.q = asked.text; load(); } else renderAll();
+  }
+  $("#q").oninput = (e) => {
+    clearTimeout(debounce);
+    // "folder:", "is:" or a date word just typed: a list (or two dates) to pick from.
+    const trig = trigger(e.target.value, e.target.selectionStart ?? e.target.value.length);
+    if (trig) { searchPicker(trig); return; }
+    debounce = setTimeout(runSearch, 200);
+  };
+
+  // ----- the search box's pickers (review/vocabsearch.js) -----
+  function searchPicker(trig) {
+    const input = $("#q");
+    const put = (value) => {
+      const r = insertFilter(input.value, trig, value);
+      input.value = r.text;
+      input.focus();
+      try { input.setSelectionRange(r.caret, r.caret); } catch { /* not every box can */ }
+      runSearch();
+    };
+    if (DATE_OPS.includes(trig.op)) { datePicker(trig, put); return; }
+    const options = trig.op === "folder"
+      ? [{ value: "none", label: t("Not in any folder") }, ...folders.map((f) => ({ value: f.name, label: f.name, n: folderCount(all, f.uid) }))]
+      : [{ value: "new", label: t("New: never answered") }, { value: "due", label: t("Due today") },
+         { value: "learned", label: t("Learned: remembered at least once") }];
+    const m = openModal({ title: trig.op === "folder" ? "Pick a folder" : "Show only" });
+    m.body.innerHTML = `<div class="sp">
+      <input type="search" class="sp-filter" placeholder="Type to narrow the list" aria-label="Narrow the list">
+      <p class="sp-hint muted small">Pieces with spaces between them can be in any order: b c o finds “vocabulary”. ~ in front of a word leaves it out.</p>
+      <div class="sp-list" role="listbox" aria-label="Choices"></div>
+    </div>`;
+    const filter = m.body.querySelector(".sp-filter"), listBox = m.body.querySelector(".sp-list");
+    m.body.querySelector(".sp-hint").hidden = trig.op !== "folder";
+    let shownOpts = [], at = 0;
+    const draw = () => {
+      shownOpts = options.filter((o) => fuzzy(filter.value, o.label));
+      at = Math.min(at, Math.max(0, shownOpts.length - 1));
+      listBox.innerHTML = shownOpts.length ? shownOpts.map((o, i) => `<button type="button" class="sp-opt${i === at ? " on" : ""}" role="option" aria-selected="${i === at}" data-i="${i}">
+        <span class="name" dir="auto">${esc(o.label)}</span>${o.n !== undefined ? `<span class="muted">${o.n}</span>` : ""}</button>`).join("")
+        : `<p class="muted small">Nothing matches.</p>`;
+    };
+    const pick = (i) => { const o = shownOpts[i]; if (!o) return; m.close(); put(o.value); };
+    filter.oninput = () => { at = 0; draw(); };
+    filter.onkeydown = (e) => {
+      const down = e.key === "ArrowDown" || (e.ctrlKey && e.key === "n"), up = e.key === "ArrowUp" || (e.ctrlKey && (e.key === "p" || e.key === "h"));
+      if (down || up) { e.preventDefault(); at = (at + (down ? 1 : -1) + shownOpts.length) % Math.max(1, shownOpts.length); draw(); listBox.querySelector(".on")?.scrollIntoView({ block: "nearest" }); }
+      else if (e.key === "Enter") { e.preventDefault(); pick(at); }
+    };
+    listBox.onclick = (e) => { const b = e.target.closest(".sp-opt"); if (b) pick(Number(b.dataset.i)); };
+    draw();
+    filter.focus();
+  }
+
+  /** Two dates (either may be left empty) or a quick choice, for added:, edited:, reviewed: and learned:. */
+  function datePicker(trig, put) {
+    const titles = { added: "Words added", edited: "Words changed", reviewed: "Words reviewed", learned: "Words first learned" };
+    const m = openModal({ title: titles[trig.op] });
+    const today = dayIso(dayNumber());
+    m.body.innerHTML = `<div class="sp">
+      <div class="rv-chips sp-quick"><button type="button" data-q="1">Today</button><button type="button" data-q="7">Last 7 days</button><button type="button" data-q="30">Last 30 days</button></div>
+      <div class="vs-dates"><input type="date" class="sp-from" aria-label="From" max="${today}"><span class="muted">to</span><input type="date" class="sp-to" aria-label="To" max="${today}"></div>
+      <div class="sp-foot"><button type="button" class="primary sp-use" disabled>Use these dates</button></div>
+    </div>`;
+    const from = m.body.querySelector(".sp-from"), to = m.body.querySelector(".sp-to"), use = m.body.querySelector(".sp-use");
+    const check = () => { use.disabled = !dateValue(from.value, to.value); };
+    from.oninput = check; to.oninput = check;
+    use.onclick = () => { const v = dateValue(from.value, to.value); if (!v) return; m.close(); put(v); };
+    for (const b of m.body.querySelectorAll("[data-q]")) b.onclick = () => { m.close(); put(b.dataset.q); };
+    from.focus();
+  }
   const exportUrl = (fmt) => {
     const ids = visible().map((v) => v.id);
     return `/api/vocab/export/${fmt}${ids.length === all.length && !st.q ? "" : `?ids=${encodeURIComponent(ids.join(","))}`}`;
@@ -901,9 +1010,13 @@ export async function render(view) {
     { target: "#review", title: "Review",
       text: "Your saved words as flashcards. It shows how many are due today and how many are new: press it to start." },
     { target: "#goal", title: "Daily goal", text: "How many new words you want to learn each day. Change it here." },
+    { target: "#longgoal", title: "Long-term goal",
+      text: "A goal for the next month or three. It shows the pace still needed, and a missed day just spreads the rest out." },
+    { target: "#heatmap", title: "Your reviews",
+      text: "One square a day: the darker, the more cards you reviewed. Tap a day to see its number." },
     { target: "#add-words", title: "Add words",
       text: "Type or paste new words, one or many at a time, or scan a photo of a list. Tamkeen can fill in their meanings, example sentences and audio, or you can." },
-    { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning." },
+    { target: "#q", title: "Search", text: "Find a saved word by the word itself or by its meaning. Type folder:, is:due or reviewed:7 to narrow it further." },
     { target: "#folder-pick", title: "Folders",
       text: "The folder on show. Tap it to choose another, or to make, rename or send one; Review then covers just its words." },
     { target: "#sort-pick", title: "Sort and filter", text: "Change the order, or show only the words added or changed on certain days." },
@@ -912,5 +1025,5 @@ export async function render(view) {
       text: "Tap a word to open it: hear it, put any part of it right, make a mnemonic, or find it an example sentence." },
     { target: "#more", title: "More", text: "Add words, scan words from a photo, export your words for Anki or as a spreadsheet, and Anki's settings." },
   ]);
-  return () => { closeOpen(); stopSnippet(); stopDevice(); reviewRoom.disconnect(); goal.close(); };
+  return () => { closeOpen(); stopSnippet(); stopDevice(); reviewRoom.disconnect(); goal.close(); longgoal.close(); calendar.close(); };
 }

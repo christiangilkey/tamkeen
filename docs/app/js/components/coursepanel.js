@@ -16,6 +16,7 @@ import { icon } from "../icons.js";
 import { langAttrs, langInfo } from "../languages.js";
 import { markedSentenceHtml } from "../cardtext.js";
 import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
+import { courseWords, tappable } from "./coursewords.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -50,6 +51,11 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
   let course = null, cards = [], prog = null;
   const attrs = langAttrs(lang);
   const name = (langInfo(lang) || {}).name || lang;
+  // Every word of a sentence can be tapped: it is said, its meaning shows, and it can be saved as a card
+  // (coursewords.js). A saved word that is one of the course's shows as in the cards at once.
+  let repaint = null;
+  const stopWords = courseWords(box, { dialect: id.includes("-") ? id.split("-")[1] : "",
+    onSaved: () => { refreshCards().then(() => { if (repaint) repaint(); onCards(); }); } });
 
   async function load() {
     box.innerHTML = `<div class="course-note muted">Loading the course…</div>`;
@@ -165,6 +171,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       row.querySelector(".cw-word").textContent = w.word;
       row.querySelector(".cw-meaning").textContent = w.meaning;
       if (w.note) row.querySelector(".cw-note").textContent = w.note; // (a dialect word that looks like a Standard one)
+      tappable(row.querySelector(".cw-sent"), lang, { tr: String(w.translation || "").replace(/[⟦⟧]/g, ""), source: course.title });
       for (const b of row.querySelectorAll(".cw-play")) b.onclick = () => play(w, b.dataset.part);
       row.querySelector(".cw-add").onclick = (e) => add([w], e.currentTarget);
       rows.set(w.n, row);
@@ -181,6 +188,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       }
     };
     paintRows();
+    repaint = () => { if (list.isConnected) { paintRows(); paintHead(); } };
     box.append(list);
     addAll.onclick = () => add(missing(), addAll);
     box.scrollIntoView({ block: "start" });
@@ -283,5 +291,5 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
   }
 
   load();
-  return () => { player.pause(); player.removeAttribute("src"); };
+  return () => { player.pause(); player.removeAttribute("src"); stopWords(); };
 }

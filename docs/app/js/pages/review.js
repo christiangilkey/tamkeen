@@ -36,6 +36,7 @@ import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
+import { cardScoring } from "../components/pronresult.js";
 import { addToNotes } from "../review/mnemonic.js";
 import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
          textBox } from "../review/cardtools.js";
@@ -43,6 +44,9 @@ import { wordTools } from "../components/wordtools.js";
 import { t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
 import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
+import { BACK_CHOICES, BOOST, answered as speedAnswered, barState, loadRecord, saveRecord, setSpeed, speedSettings, timedOut,
+         todayBest, useBoost } from "../review/speedstreak.js";
+import { icon } from "../icons.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -181,6 +185,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   let bonus = 0;                       // extra new words asked for at the end of a session
   let autoplay = pref("reviewAutoplay", true);
   let timers = timerSettings();        // the time bar on each card, the session clock, a card's time goal
+  let speed = speedSettings();         // the bar as a countdown (speed streak) or calm, seconds on the back, boosts
+  let record = loadRecord();           // the speed streak, the best ones and the boosts banked (this device)
   const pace = model(log, deviceTimes());  // how long this learner takes, for the "Auto" time goal
 
   const el = h(`<div class="rv" role="dialog" aria-modal="true" aria-label="Review your vocab">
@@ -206,16 +212,30 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <label class="rv-check"><input type="checkbox" class="rv-bar-on"> A time bar on each card</label>
         <label class="rv-check"><input type="checkbox" class="rv-clock-on"> A clock for the whole session</label>
       </div>
+      <div class="rv-speedset">
+        <h3>The time bar</h3>
+        <div class="rv-chips rv-modes"><button type="button" data-mode="speed">Speed streak</button><button type="button" data-mode="calm">Calm</button></div>
+        <p class="rv-note rv-mode-note"></p>
+        <h3 class="rv-back-h">Time on the back</h3>
+        <div class="rv-chips rv-backs">${BACK_CHOICES.map((n) => `<button type="button" data-back="${n}">${n} s</button>`).join("")}</div>
+        <label class="rv-check rv-boosts-row"><input type="checkbox" class="rv-boosts-on"> Time boosts</label>
+        <p class="rv-note rv-boosts-note">One for every ${BOOST.every} cards answered in time, up to ${BOOST.max}. Press B or tap +${BOOST.seconds} s to add ${BOOST.seconds} seconds to the bar.</p>
+      </div>
       <div class="rv-goal">
         <h3>Time goal for each card</h3>
         <div class="rv-chips">${GOAL_CHOICES.map((c) => `<button type="button" data-goal="${c}">${c === "auto" ? "Auto" : `${c} s`}</button>`).join("")}</div>
         <p class="rv-note rv-goal-auto"></p>
-        <p class="rv-note">Going over is fine: the bar just turns a calmer colour, and nothing else happens.</p>
+        <p class="rv-note rv-calm-note">Going over is fine: the bar just turns a calmer colour, and nothing else happens.</p>
       </div>
-      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> personal notes · <kbd>Del</kbd> delete the word</p>
+      <p class="rv-keys"><kbd>Space</kbd> turn the card, then remembered · <kbd>1</kbd> or <kbd>←</kbd> not remembered · <kbd>2</kbd> or <kbd>→</kbd> remembered · <kbd>Z</kbd> undo · <kbd>B</kbd> time boost · <kbd>W</kbd> word · <kbd>S</kbd> sentence · <kbd>P</kbd> practise saying it · <kbd>N</kbd> personal notes · <kbd>Del</kbd> delete the word</p>
     </div>
     <main class="rv-stage">
       <div class="rv-wrap">
+        <div class="rv-speedline" hidden>
+          <span class="rv-speed" role="status" title="Speed streak: cards answered before the bar ran out">${icon("bolt", 16)}<b>0</b></span>
+          <span class="rv-best"></span>
+          <button type="button" class="rv-boost" title="Add ${BOOST.seconds} seconds to the bar (B)" aria-label="Add ${BOOST.seconds} seconds to the bar">+${BOOST.seconds} s <i></i></button>
+        </div>
         <div class="rv-card">
           <div class="rv-timer" aria-hidden="true" hidden><i></i></div>
           <div class="rv-scroll"></div>
@@ -241,6 +261,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const undo = [];
   // Time with the reviewer in front (review/cardtimer.js): the card on the table, and the session.
   const cardWatch = stopwatch(), sessionWatch = stopwatch();
+  // The countdown (review/speedstreak.js): each side of the card has its own time; it waits while a text box
+  // on the card is open, the settings are open or any box is over the cards (`held`), as well as while the app is hidden.
+  const sideWatch = stopwatch();
+  let held = false;         // the countdown is waiting
+  let sideExtra = 0;        // seconds a boost added to this side
+  let sideOut = false;      // this side's time has run out
+  let cardOut = false;      // a side of the card on the table ran out: its answer doesn't add to the streak
   let cardKind = "review";  // the card on the table: "new", "review" or "again" (for its time goal)
 
   // ----- luck (game/loot.js): every remembered card rolls for a reward; game/reveal.js shows it -----
@@ -358,15 +385,91 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   function startBar() {
     const fill = bar.firstElementChild;
     bar.hidden = !timers.bar || $(".rv-wrap").hidden;
-    bar.classList.remove("over");
+    bar.classList.remove("over", "warn", "low", "out");
+    bar.classList.toggle("count", counting());
     fill.style.animation = "none";
+    paintSpeed();
     if (bar.hidden) return;
+    if (counting()) {
+      const seconds = sideSeconds(), ms = sideWatch.ms();
+      bar.title = `${flipped ? "Time on the back" : "Time on the front"}: ${seconds} s`;
+      const st = barState(ms, seconds);
+      if (st.step) bar.classList.add(st.step);
+      void fill.offsetWidth;
+      if (st.step !== "out") fill.style.animation = `rv-count ${seconds}s linear ${-ms / 1000}s forwards`;
+      return;
+    }
     const seconds = goalNow();
     bar.title = `Time goal for this card: ${seconds} s`;
     void fill.offsetWidth;  // so the animation starts again from the beginning
     fill.style.animation = `rv-time ${seconds}s linear ${-cardWatch.ms() / 1000}s forwards`;
   }
-  bar.firstElementChild.addEventListener("animationend", () => bar.classList.add("over"));
+  bar.firstElementChild.addEventListener("animationend", () => { if (!counting()) bar.classList.add("over"); });
+  /** The countdown is on: the bar shown and set to "Speed streak". */
+  const counting = () => timers.bar && speed.mode === "speed";
+  /** The seconds the side on the table has: the card's time goal on the front, the chosen seconds on the back. */
+  const sideSeconds = () => (flipped ? speed.back : goalNow()) + sideExtra;
+  /** A side was put on the table (a new card, or the card turned): its countdown starts from full. */
+  function startSide() {
+    sideExtra = 0;
+    sideOut = false;
+    sideWatch.start();
+    if (held || document.hidden) sideWatch.pause();
+    startBar();
+  }
+  /** Several times a second: hold the countdown while something else has the learner's attention, colour it
+   * as it runs low, and end the streak when it runs out (nothing else happens: the card stays). */
+  function watchSide() {
+    if (!counting() || bar.hidden || sideOut) return;
+    const hold = Boolean(editing) || !settings.hidden || Boolean(asking) || Boolean(document.querySelector(".tour, .game-sheet-wrap, .modal-back, [role=\"alertdialog\"]"));
+    if (hold !== held) {
+      held = hold;
+      if (hold) sideWatch.pause(); else if (!document.hidden) sideWatch.resume();
+      bar.classList.toggle("held", hold);
+      if (!hold) startBar();
+    }
+    const st = barState(sideWatch.ms(), sideSeconds());
+    for (const c of ["warn", "low", "out"]) bar.classList.toggle(c, st.step === c);
+    if (st.step !== "out") return;
+    sideOut = true;
+    cardOut = true;
+    bar.firstElementChild.style.animation = "none";  // (empty, whatever frame the animation was drawn at)
+    if (record.streak > 0) {
+      record = timedOut(record);
+      saveRecord(record);
+      shout("Time's up: the streak starts again");
+    }
+    paintSpeed();
+  }
+  const sideTicker = setInterval(() => { if (!document.hidden) watchSide(); }, 200);
+  /** The line above the card: the speed streak, the best ones and the boosts banked. */
+  function paintSpeed() {
+    const line = $(".rv-speedline");
+    line.hidden = !counting() || $(".rv-wrap").hidden;
+    el.classList.toggle("speed", !line.hidden);
+    if (line.hidden) return;
+    const today = todayBest(record, dayNumber());
+    $(".rv-speed b").textContent = String(record.streak);
+    const best = $(".rv-best");
+    best.textContent = `Best today ${today} · Best ${record.best}`;
+    const boost = $(".rv-boost");
+    boost.hidden = !speed.boosts;
+    boost.disabled = !record.boosts || sideOut;
+    boost.lastElementChild.textContent = `×${record.boosts}`;
+  }
+  /** Spend a boost: more seconds for the side on the table. */
+  function boost() {
+    if (!counting() || !speed.boosts || sideOut || $(".rv-wrap").hidden) return;
+    const r = useBoost(record);
+    if (!r) return;
+    record = r;
+    saveRecord(record);
+    sideExtra += BOOST.seconds;
+    startBar();
+    const b = $(".rv-boost");
+    b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop");
+  }
+  $(".rv-boost").onclick = boost;
   /** The session clock's number (and whether it shows at all). */
   function tick() {
     const clock = $(".rv-clock");
@@ -378,7 +481,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // The app hidden (another window in front, the phone showing another app): every clock stops.
   const onVisible = () => {
     const away = document.hidden;
-    for (const w of [cardWatch, sessionWatch]) away ? w.pause() : w.resume();
+    for (const w of [cardWatch, sessionWatch, ...(held ? [] : [sideWatch])]) away ? w.pause() : w.resume();
+    if (!away) startBar();  // (the countdown drawn again from where it really is)
     el.classList.toggle("away", away);
     if (!away) tick();
   };
@@ -608,8 +712,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const row = face.querySelector(".rv-listen");
     if (!row) return;
     const word = hasWordAudio(v), sentence = hasSentenceAudio(v);
+    // With an Azure key, "Say it" also scores the attempt against what the native recording says (pronresult.js).
+    const scoring = cardScoring(v, sentence ? "sentence" : "word", row);
     row.innerHTML = `${word ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}`
-      + `${sentence ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${word || sentence ? practiseButton() : ""}`;
+      + `${sentence ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${word || sentence ? practiseButton({ scored: !!scoring.score }) : ""}`;
     const pw = row.querySelector(".play-word"), ps = row.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
@@ -622,6 +728,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         modelSeconds: sentence ? sentenceSeconds(v) : wordSeconds(v),
         audioBusy: () => audioOverAt - Date.now(),
         onError: (m) => toast(m, { error: true }),
+        ...scoring,
       });
     }
   }
@@ -727,7 +834,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     cardKind = !state ? "new" : state.learning && state.day === dayNumber() ? "again" : "review";
     cardWatch.start();
     flippedAt = showBack ? Date.now() : 0;
-    startBar();
+    cardOut = false;
+    startSide();
     header();
     play(card, [{ transform: "translateY(20px) scale(.93)", opacity: 0 }, { transform: "none", opacity: 1 }],
          { duration: 280, easing: "cubic-bezier(.2, 1.35, .4, 1)" });
@@ -746,6 +854,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       back(v);
       flipped = true;
       flippedAt = Date.now();
+      startSide();  // (the back has its own time)
       // With a game controller, the highlight starts on the main answer, as on Xbox: A answers Remembered.
       if (padInUse()) highlightOn(actions.querySelector(".rv-yes"));
       if (autoplay && hasWordAudio(v)) sayWord(v, true);
@@ -792,7 +901,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const day = before ? Math.max(dayNumber(), before.day) : dayNumber();
     cardWatch.stop();  // the time the card was looked at, without any time the app was hidden
     const entry = [t, rating, day, Math.min(60000, Math.round(cardWatch.ms()))];
-    const step = { word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid), lucky: null };
+    const step = { word, entry, before, todo: [...todo], session: { ...session }, firstTime: !tried.has(uid), lucky: null, speed: record };
     undo.push(step);
     (log[uid] = log[uid] || []).push(entry);
     cards.set(uid, answer(before, rating, day));
@@ -800,6 +909,15 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     noteAnswer(log[uid], day);  // the time this word took today, for the estimate under the banner
 
     const remembered = rating === GOOD;
+    // The speed streak: either answer counts, so long as the bar hadn't run out (review/speedstreak.js).
+    if (counting()) {
+      const sp = speedAnswered(record, !cardOut, day);
+      record = sp.rec;
+      saveRecord(record);
+      if (sp.best && record.streak >= 5) shout(`New best speed streak: ${record.streak}`);
+      else if (sp.boost) shout(`+${BOOST.seconds} s boost earned`);
+      if (sp.best || sp.boost) { const b = $(sp.best ? ".rv-speed" : ".rv-boost"); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }
+    }
     session.answered++;
     if (!tried.has(uid)) {
       tried.add(uid);
@@ -924,6 +1042,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (last.before) cards.set(uid, last.before); else cards.delete(uid);
     todo = last.todo.filter((x) => !x.deleted);
     Object.assign(session, last.session);
+    if (last.speed) { record = last.speed; saveRecord(record); }  // (the speed streak as it was before that answer)
     if (last.firstTime) tried.delete(uid);
     if (last.lucky) last.lucky.undo();  // (the run of right answers and its shield; what a roll paid stays paid)
     clearChips();
@@ -1233,6 +1352,18 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     $(".rv-bar-on").checked = timers.bar;
     $(".rv-clock-on").checked = timers.clock;
     $(".rv-goal").hidden = !timers.bar;
+    $(".rv-speedset").hidden = !timers.bar;
+    for (const b of settings.querySelectorAll("[data-mode]")) b.classList.toggle("on", b.dataset.mode === speed.mode);
+    for (const b of settings.querySelectorAll("[data-back]")) b.classList.toggle("on", Number(b.dataset.back) === speed.back);
+    const fast = speed.mode === "speed";
+    $(".rv-mode-note").textContent = fast
+      ? "The bar counts down. Answer before it runs out, whichever answer, to build your streak. If it runs out, only the streak starts again."
+      : "The bar fills toward the card's time goal and never hurries.";
+    for (const s of [".rv-back-h", ".rv-backs", ".rv-boosts-row", ".rv-boosts-note"]) $(s).hidden = !fast;
+    $(".rv-boosts-on").checked = speed.boosts;
+    $(".rv-boosts-note").hidden = !fast || !speed.boosts;
+    $(".rv-calm-note").hidden = fast;
+    $(".rv-goal h3").textContent = fast ? "Time on the front" : "Time goal for each card";
     for (const b of settings.querySelectorAll("[data-goal]")) b.classList.toggle("on", b.dataset.goal === String(timers.goal));
     $(".rv-goal-auto").textContent = `Auto follows your own pace: about ${cardGoal(pace, "review")} s for a review, ${cardGoal(pace, "new")} s for a new word.`;
   };
@@ -1244,6 +1375,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // The timers' settings take effect on the card on the table at once.
   const changeTimer = (name, value) => { setTimer(name, value); timers = timerSettings(); drawSettings(); startBar(); tick(); };
   $(".rv-bar-on").onchange = (e) => changeTimer("bar", e.target.checked);
+  const changeSpeed = (name, value) => { setSpeed(name, value); speed = speedSettings(); drawSettings(); startBar(); };
+  for (const b of settings.querySelectorAll("[data-mode]")) b.onclick = () => changeSpeed("mode", b.dataset.mode);
+  for (const b of settings.querySelectorAll("[data-back]")) b.onclick = () => changeSpeed("back", Number(b.dataset.back));
+  $(".rv-boosts-on").onchange = (e) => changeSpeed("boosts", e.target.checked);
   $(".rv-clock-on").onchange = (e) => changeTimer("clock", e.target.checked);
   for (const b of settings.querySelectorAll("[data-goal]")) {
     b.onclick = () => changeTimer("goal", b.dataset.goal === "auto" ? "auto" : Number(b.dataset.goal));
@@ -1276,6 +1411,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     } else if (key === "1" || key === "ArrowLeft") { e.preventDefault(); if (settled) grade(AGAIN); }
     else if (key === "2" || key === "ArrowRight") { e.preventDefault(); if (settled) grade(GOOD); else if (!flipped) flip(); }
     else if (key === "z") takeBack();
+    else if (key === "b") boost();
     else if (flipped && key === "w" && hasWordAudio(v)) sayWord(v);
     else if (flipped && key === "s" && hasSentenceAudio(v)) saySentence(v);
     else if (flipped && key === "p") { const say = face.querySelector(".say-it"); if (say) say.click(); }
@@ -1388,6 +1524,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (todo.length) memoDone(todo[0]);  // (closed with the notes still being typed: their capitals still count)
     stopStudy();
     clearInterval(ticker);
+    clearInterval(sideTicker);
     document.removeEventListener("visibilitychange", onVisible);
     document.removeEventListener("keydown", onKey);
     offPad();

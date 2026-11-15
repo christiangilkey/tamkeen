@@ -1108,6 +1108,7 @@ export async function saveSettings(values) {
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   if ("grammar_progress" in values) requestSync(30000); // and grammar lessons finished
   if ("controller_map" in values) requestSync(30000); // and the game controller's buttons
+  if ("study_goal" in values) requestSync(30000); // and the long-term goal
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked
   if (isWeb) sendSettings(); // the browser extension, when it is there, follows (web-extension.js)
   return s;

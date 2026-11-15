@@ -35,6 +35,8 @@ import { dliState } from "../dli.js";
 import { reward } from "../game/game.js";
 import { hear, hearInfo } from "../hear-service.js";
 import { canRecord, listen } from "../hearmic.js";
+import { decodeToMono, RATE as MIC_RATE, trimToSpeech } from "../cardaudio.js";
+import { scorer, scoreView } from "./pronresult.js";
 import { LEVELS, MOCK_FORMS, MOCK_PARTS, MOCK_PHASES, TASKS, levelInfo, scenario, scenariosOf } from "../conversedata.js";
 import { LONG_TALK, allDone, applyMockOpening, applyMockTurn, applyOpening, applyTurn, cleanDebrief, cleanHint, cleanRating, closeness,
   corrections, debriefPrompt, hintPrompt, mockNext, mockOpeningPrompt, mockPart, mockTurnPrompt, newMock, newTalk, openingPrompt,
@@ -139,10 +141,14 @@ export function conversePanel(box, lang) {
     return b;
   }
 
-  /** "Say it": the learner says a line; what was heard shows in `out`, with whether that was it. */
+  /** "Say it": the learner says a line. With an Azure key and a language Azure checks, the attempt gets a
+   * pronunciation score (each word coloured: pronresult.js); otherwise what was heard shows in `out`, with
+   * whether that was it. */
   function sayAgain(line, out, live) {
-    if (!canRecord() || !hearInfo().can) return "";
+    const score = scorer({ text: line, lang, dialect: variety });
+    if (!canRecord() || (!score && !hearInfo().can)) return "";
     const b = h(`<button type="button" class="ghost icon cv-mic" data-state="idle" title="Say it yourself" aria-label="Say it yourself">${icon("mic", 17)}<i class="cv-level" aria-hidden="true"></i></button>`);
+    if (score) b.title = t("Say it yourself, and get a pronunciation score. Your attempt is sent to Azure to be scored, and isn't saved.");
     b.onclick = async () => {
       if (mic) { mic.stop(); return; }
       stopSaying();
@@ -158,6 +164,16 @@ export function conversePanel(box, lang) {
       b.dataset.state = "wait";
       b.disabled = true;
       try {
+        if (score) {
+          const speech = trimToSpeech(await decodeToMono(blob), MIC_RATE);
+          const result = speech ? await score(speech.samples, MIC_RATE) : { heard: false, words: [] };
+          if (!live()) return;
+          out.hidden = false;
+          out.innerHTML = "";
+          out.append(scoreView(result, { lang, dialect: variety }));
+          if (result.overall != null && result.overall >= 80) buzz("success");
+          return;
+        }
         const { text } = await hear(blob, lang);
         if (!live()) return;
         const c = closeness(text, line, lang);

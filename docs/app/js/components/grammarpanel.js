@@ -24,6 +24,7 @@ import { checkPrompt, cleanProgress, costCents, courseFor, finished, grammarUrl,
 import { courseKey, keep, kept, lessonKey, listKey } from "../grammarstore.js";
 import { ARABIC_VARIETIES } from "../coursedata.js";
 import { sayText, stopSaying } from "../saytext.js";
+import { courseWords, tappable } from "./coursewords.js";
 
 const AI_SETTINGS = "#/settings?s=words&show=key";
 const url = (name) => grammarUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
@@ -83,6 +84,9 @@ export function grammarPanel(box, lang, choice) {
   const taught = `${variety ? `${variety} ` : ""}${(langInfo(lang) || {}).name || lang}`;
   // Examples are said in the course's own kind of Arabic: a dialect course's by that dialect's voice (saytext.js).
   const say = (text) => sayText(text, lang, { dialect: choice.dialect || "" });
+  // A tap on one word of the language taught says that word and shows what it means, with Save (coursewords.js);
+  // a tap anywhere else on an example still says the whole of it.
+  const stopWords = courseWords(box, { dialect: choice.dialect || "" });
   let course = null, list = null, progress = {};
   let making = null;                  // {stop: false} while "Make the rest now" runs
   let currentTopic = "";              // the grammar of the lesson on screen (for the AI's look at "your turn")
@@ -379,6 +383,13 @@ export function grammarPanel(box, lang, choice) {
     const body = view.querySelector(".gl-body");
     for (const b of lesson.blocks || []) body.append(block(b));
     if ((lesson.mistakes || []).length) body.append(mistakes(lesson.mistakes));
+    // The lesson's own text in the language taught (not the practice: tapping there would give answers away).
+    const source = plainText(`${course.title} · ${plainText(src.title)}`).slice(0, 200);
+    for (const el of body.querySelectorAll(".gx .gx-t, .gb-line .gx-t, .gm-right .gm-text, .gt")) {
+      const line = el.closest(".gx, .gb-line");
+      const tr = line && line.querySelector(".gx-tr") ? line.querySelector(".gx-tr").textContent.trim() : "";
+      tappable(el, lang, { tr, source });
+    }
     body.append(practice(src, lesson, key));
     body.append(lessonNav(src));
     sayOnTap(view);
@@ -837,5 +848,5 @@ export function grammarPanel(box, lang, choice) {
   const onSynced = () => { refreshProgress().then(() => { if (alive && course && !box.querySelector(".gl-lesson")) drawCourse(); }); };
   window.addEventListener("tamkeen:grammar", onSynced);
   load();
-  return () => { alive = false; if (making) making.stop = true; stopSaying(); window.removeEventListener("tamkeen:grammar", onSynced); };
+  return () => { alive = false; if (making) making.stop = true; stopSaying(); stopWords(); window.removeEventListener("tamkeen:grammar", onSynced); };
 }

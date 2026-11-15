@@ -8,6 +8,7 @@ import { episodeUid, feedUid, findSpans, newUid, normalize, normalizeUrl } from 
 import { saveSettingsPatch, settings } from "./store.js";
 import { savedSites, setSite, typedSite } from "./browser-sites.js";
 import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
+import { folderLanguageOf, folderShows } from "./folderlang.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative, webFetch } from "./native.js";
@@ -478,7 +479,25 @@ function vocabOut(v) {
   return { ...v, id: v.uid, episode_id: v.episode_uid, folders: v.folders || [],
            audio_type: reachable ? e.audio_type || "" : v.episode_uid ? "missing" : null };
 }
-const folderOut = (f) => ({ uid: f.uid, name: f.name, created_at: f.created_at, updated_at: f.updated_at });
+const folderOut = (f) => ({ uid: f.uid, name: f.name, language: f.language || "", created_at: f.created_at, updated_at: f.updated_at });
+/** A folder from before folders had a language gets the one most of its words are in (folderlang.js, as
+ * app/db.py folder_languages does). An empty one stays "" (every language). */
+function folderLanguages() {
+  let set = 0;
+  for (const f of lib.folders || []) {
+    if (f.deleted || f.language) continue;
+    const lang = folderLanguageOf(f.uid, lib.vocab);
+    if (lang) { f.language = lang; f.updated_at = now(); set++; }
+  }
+  if (set) changed();
+}
+/** The folders of the language being learned (or of `language`; "all" for every one). */
+function folderList(language) {
+  folderLanguages();
+  if (language === "all") return liveFolders();
+  const lang = isLanguage(language) ? language : studyLanguage();
+  return liveFolders().filter((f) => folderShows(f, lang));
+}
 const liveFolders = () => (lib.folders || []).filter((f) => !f.deleted).sort((a, b) => a.name.localeCompare(b.name));
 
 async function loadTranscript(uid) {
@@ -921,12 +940,13 @@ const routes = [
     return { cards: made.map(vocabOut) };
   }],
   // ----- vocab folders (a word can be in several) -----
-  ["GET", /^\/vocab\/folders$/, () => liveFolders().map(folderOut)],
+  ["GET", /^\/vocab\/folders$/, (m, q) => folderList(q.get("language")).map(folderOut)],
   ["POST", /^\/vocab\/folders$/, (m, q, body) => {
     const name = (body.name || "").trim().slice(0, 80);
     if (!name) throw new ApiError("Give the folder a name.");
     const t = now();
-    const f = { uid: `d${newUid().slice(1)}`, name, deleted: 0, created_at: t, updated_at: t };
+    const language = isLanguage(body.language) ? body.language : studyLanguage();
+    const f = { uid: `d${newUid().slice(1)}`, name, language, deleted: 0, created_at: t, updated_at: t };
     (lib.folders = lib.folders || []).push(f);
     changed();
     return folderOut(f);

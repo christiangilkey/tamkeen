@@ -9,6 +9,20 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.56.0",
+  "Set a long-term goal: a bar shows how far you are and the pace still needed, even after missed days");
+notes("0.56.0",
+  "A review calendar: a square for every day, darker the more cards you answered");
+notes("0.56.0",
+  "The flashcard time bar is now a speed streak, with +10 s time boosts");
+notes("0.56.0",
+  "Search tools on the Vocab page: folder:, is:due, reviewed:7 and more");
+notes("0.56.0",
+  "A pronunciation score for Say it and Conversation, with an Azure key");
+notes("0.56.0",
+  "Tap any word in a course to hear it, see what it means and save it");
+notes("0.56.0",
+  "Vocab folders show only in the language they were made in");
 notes("0.55.0",
   "ICPT prep decks for DLI students in all seven DLI languages, by topic and level");
 notes("0.55.0",

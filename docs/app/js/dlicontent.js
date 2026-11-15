@@ -161,11 +161,12 @@ export async function addDeck(deck, language, key, settings, others = []) {
   const marks = dli.deckMarks(settings.get(), deck.id);
   const todo = deck.chapters.filter((ch) => !marks.has(place(ch)));
   // The folders of the new chapters, in course order (the Vocab page lists a deck's folders in the order made).
-  const folders = await api("/vocab/folders");
+  // (the deck's language's folders, each made in that language: folders show only in their own language)
+  const folders = await api(`/vocab/folders?language=${encodeURIComponent(language)}`);
   const uidOf = new Map(folders.map((f) => [f.name, f.uid]));
   for (const ch of todo) {
     const name = dli.deckFolderName(deck, ch);
-    if (!uidOf.has(name)) uidOf.set(name, (await api("/vocab/folders", { method: "POST", body: { name } })).uid);
+    if (!uidOf.has(name)) uidOf.set(name, (await api("/vocab/folders", { method: "POST", body: { name, language } })).uid);
   }
   const folderOf = (id) => { const ch = deck.chapters.find((c) => c.id === id); return ch ? uidOf.get(dli.deckFolderName(deck, ch)) : undefined; };
   // The deck's words already in the learner's cards, by number, and the cards of the language's other decks.

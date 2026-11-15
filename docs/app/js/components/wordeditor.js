@@ -32,6 +32,7 @@ import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, holdWords, learnFromN
 import { ADDS, missingParts } from "../review/vocabedit.js";
 import { addToNotes } from "../review/mnemonic.js";
 import { practise, practiseButton } from "../review/pronounce.js";
+import { cardScoring } from "./pronresult.js";
 import { wordTools } from "./wordtools.js";
 
 /** The notes, typed over as a whole (several lines). */
@@ -164,10 +165,11 @@ export function openWordEditor(el, v, deps) {
     const voice = voiceHere(cardLanguage(v));
     const word = canSay(v, "word", voice), sentence = canSay(v, "sentence", voice);
     const key = `${word}|${sentence}`;
+    const scoring = cardScoring(v, sentence ? "sentence" : "word", quick); // (a pronunciation score with an Azure key: pronresult.js)
     if (key === quickKey && !force) return;
     quickKey = key;
     quick.innerHTML = `${word ? `<button type="button" class="play-word">${icon("sound", 15)} Word</button>` : ""}`
-      + `${sentence ? `<button type="button" class="play-sent">${icon("sound", 15)} Sentence</button>` : ""}${word || sentence ? practiseButton() : ""}`;
+      + `${sentence ? `<button type="button" class="play-sent">${icon("sound", 15)} Sentence</button>` : ""}${word || sentence ? practiseButton({ scored: !!scoring.score }) : ""}`;
     quick.hidden = !word && !sentence;
     const pw = quick.querySelector(".play-word"), ps = quick.querySelector(".play-sent"), sayIt = quick.querySelector(".say-it");
     if (pw) pw.onclick = () => play("word");
@@ -180,6 +182,7 @@ export function openWordEditor(el, v, deps) {
         modelSeconds: partSeconds(v, sentence ? "sentence" : "word"),
         audioBusy: () => audioOverAt - Date.now(),
         onError: (m) => toast(m, { error: true }),
+        ...scoring,
       });
     }
   }
