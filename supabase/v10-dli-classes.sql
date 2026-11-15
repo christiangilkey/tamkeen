@@ -23,7 +23,7 @@
 --   a teacher   types the teacher code the owner gave them (dli_use_code). The owner reads that code on the
 --               Owner page and can replace it at any time.
 --   the owner   THE FIRST TIME this file is run it shows a one-time owner code at the bottom (the result
---               row). Type it in Tamkeen: Settings -> DLI students -> "Have a code?". It works once, for
+--               row). Type it in Tamkeen: Settings -> DLI students -> tick "I'm a DLI teacher" -> Teacher code. It works once, for
 --               seven days. Run the file again for a new one while there is no owner yet.
 --
 -- Leaving: a student who stops sharing, or deletes their online account, has their last name, class
@@ -611,7 +611,7 @@ end $$;
 -- Tell the API about the new functions straight away.
 notify pgrst, 'reload schema';
 
--- The result row. owner_code: type it in Tamkeen (Settings -> DLI students -> "Have a code?") within seven
+-- The result row. owner_code: type it in Tamkeen (Settings -> DLI students -> I'm a DLI teacher -> Teacher code) within seven
 -- days; it works once. After that this says an owner is set.
 select 'v10 DLI classes: in place' as result,
        coalesce(nullif(current_setting('tamkeen.dli_owner_code', true), ''), 'an owner is already set') as owner_code,
