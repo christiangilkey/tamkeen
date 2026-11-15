@@ -6,6 +6,9 @@ import { cardTranslation } from "../cardtext.js";
 
 export const NEW_CHOICES = [0, 5, 10, 20, 50];
 export const NEW_PER_DAY = 20;   // new words a day unless the learner chooses otherwise
+export const NEW_MAX = 500;      // the most new words a day that can be typed in (review/customchip.js)
+/** A new-words-a-day setting as it may be kept: a whole number 0 … NEW_MAX (a chip's, or one typed in), else null. */
+export const cleanNewPerDay = (n) => (Number.isInteger(n) && n >= 0 && n <= NEW_MAX ? n : null);
 export const REQUEUE_GAP = 4;    // a missed word comes back after about this many other cards
 
 const MARKED = /^[^⟦⟧]*(?:⟦[^⟦⟧]+⟧[^⟦⟧]*)+$/u;

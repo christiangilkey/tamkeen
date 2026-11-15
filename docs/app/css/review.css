@@ -250,6 +250,9 @@ body.rv-open { overflow: hidden; }
 .rv-mnemo-core { font-size: 13px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
 .rv-mnemo-note.error { color: var(--danger); }
+/* who made the keywords below: "Tamkeen" or the AI's name (review/cardtools.js, helpersource.js madeByName) */
+.rv-mnemo-src { display: flex; justify-content: center; }
+.rv-mnemo-src .rv-mn-mark { background: var(--surface-2); color: var(--text); }
 .rv-mnemo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .rv-mn { display: flex; flex-direction: column; gap: 5px; padding: 10px 8px 12px 14px; border-radius: 14px; background: var(--surface-2); }
 .rv-mn-top { display: flex; align-items: center; gap: 8px; }
@@ -563,7 +566,8 @@ body.rv-open { overflow: hidden; }
 .lg-nums b, .lg-parts b { color: var(--text); }
 .lg-pace { margin: 2px 0 0; font-family: var(--display-font); font-size: 17px; font-weight: 600; }
 .lg-line { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
-.lg-next, .lg-change { align-self: center; }
+.lg-next, .lg-change, .lg-learn, .lg-add { align-self: center; }
+.lg-add { display: inline-flex; align-items: center; gap: 6px; }
 .lg-edit-box { display: flex; flex-direction: column; gap: 8px; text-align: center; }
 .lg-edit-box h4 { margin: 8px 0 0; font-size: 14px; }
 .lg-edit-box .rv-chips { justify-content: center; margin-top: 0; }
@@ -620,3 +624,13 @@ body.rv-open { overflow: hidden; }
 /* Sort and filter: four ways to date a word (Added, Changed, Reviewed, First learned), two by two on a phone. */
 .vs-seg.vs-seg4 { grid-template-columns: repeat(4, 1fr); border-radius: 18px; }
 @media (max-width: 480px) { .vs-seg.vs-seg4 { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- a number of one's own after a row of chips (review/customchip.js) ---------- */
+.cust-input { width: 5.5em; min-height: 40px; box-sizing: border-box; padding: 0 10px; border-radius: 99px; text-align: center; font: inherit; font-variant-numeric: tabular-nums; }
+.rv-chips .cust-input { min-height: 36px; }
+/* The goal card with no goal (review/longgoalview.js): the same card, an empty bar with faint ticks; a tap sets one. */
+.lg-empty { cursor: pointer; }
+.lg-empty .lg-title { font-weight: 600; color: var(--muted); }
+.lg-empty .lg-tick { opacity: .5; }
+.lg-ways { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.lg-ways button { display: inline-flex; align-items: center; gap: 6px; }

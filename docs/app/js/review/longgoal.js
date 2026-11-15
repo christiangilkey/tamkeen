@@ -87,8 +87,10 @@ export const monday = (day) => day - ((((day + 3) % 7) + 7) % 7);
  *              move it; tomorrow it is worked out again from what is left then.
  *   todayTarget, todayLeft   today's part (pace rounded up) and what is left of it
  *   strain     pace / the goal's own steady pace (2 = twice the pace it started with)
- *   week       {done, target, days, fresh}: this week's part (from Monday, or the goal's first day),
- *              fixed for the week like the pace for the day; fresh = today is a Monday after the first week
+ *   week       {done, target, days, fresh}: this week's part. Weeks are counted from the goal's first day
+ *              (days 1–7, 8–14, …; the last may be shorter), so the first week is a whole week whatever day
+ *              the goal was set on. Fixed for the week like the pace for the day; fresh = today starts a
+ *              week after the first
  *   milestone  the last of 25/50/75/100 % passed (0 for none)
  */
 export function progress(goal, amounts, today) {
@@ -108,10 +110,11 @@ export function progress(goal, amounts, today) {
   const pace = daysLeft ? Math.max(0, N - doneBefore) / daysLeft : 0;
   const todayTarget = status === "active" ? Math.ceil(pace - 1e-9) : 0;
   const steady = N / total;
-  // This week's part: what was left on Monday morning (or on the first day), spread over the days left
-  // then, times this week's days.
-  const ws = Math.max(monday(Math.max(today, S)), S);
-  const weekDays = Math.max(0, Math.min(monday(ws) + 6, E) - ws + 1);
+  // This week's part: what was left on the week's first morning, spread over the days left then, times
+  // this week's days. (Before 2026-11-15 weeks ran Monday to Sunday, so a goal set on a Sunday had a
+  // first "week" of one day: "This week 3 of 20".)
+  const ws = S + 7 * Math.floor((Math.min(Math.max(today, S), E) - S) / 7);
+  const weekDays = Math.min(ws + 6, E) - ws + 1;
   const beforeWeek = ws > S ? sumDays(amounts, S, ws - 1) : 0;
   const weekLeftDays = E - ws + 1;
   const week = {
@@ -133,9 +136,10 @@ export function progress(goal, amounts, today) {
 
 /**
  * What the check-in line says, as a kind (review/longgoalview.js words it). In order: reached; ended;
- * not started; today's part done; a fresh week after falling behind; ahead; on track; a little behind
- * (the pace bent); behind enough that the goal may be worth changing (never a reproach: a goal you
- * finish beats a bigger one you drop).
+ * not started; today's part done; a fresh week after falling behind; ahead; on track (at or past the bar's
+ * gold mark, never before: "on track" with today's part still to do read as untrue); today's part still to
+ * do but not behind ("17 to go today"); a little behind (the pace bent); behind enough that the goal may be
+ * worth changing (never a reproach: a goal you finish beats a bigger one you drop).
  */
 export function checkIn(p) {
   if (p.status === "reached") return "reached";
@@ -144,8 +148,31 @@ export function checkIn(p) {
   if (p.todayTarget > 0 && p.todayLeft === 0) return "today-done";
   if (p.week.fresh && p.behind > 0) return "fresh-week";
   if (p.ahead >= Math.max(1, p.pace)) return "ahead";
-  if (p.behind <= 0) return "on-track";
+  if (p.ahead >= -1e-9) return "on-track";
+  if (p.behind <= 0) return "today-left";
   return p.strain > 2 ? "rethink" : "bent";
+}
+
+/**
+ * A "new words" goal and the reviewer's day: how many new words the goal wants offered today beyond what the
+ * day's own allowance (Settings: new words a day) already lets in. Never changes that setting: the extra is
+ * asked for one session at a time (pages/review.js `bonus`, as "Learn 10 more new words" does).
+ *   p           progress() of the goal today
+ *   waiting     words never answered yet that can be asked (deck.js plan().waiting)
+ *   started     words first answered today (plan().startedToday)
+ *   perDay      the new-words-a-day setting
+ * Returns {need, waiting, extra, bonus}: need = what is left of today's part; extra = how many more new words
+ * than today's plan would bring (enough for today's part, as far as there are words waiting); bonus = what to
+ * add to the allowance so the plan brings them; none = today's part wants words and none are waiting (time to
+ * add some). Null for other measures, or a goal not running today.
+ */
+export function goalNewWords(goal, p, waiting, started, perDay) {
+  if (!goal || goal.measure !== "learned" || p.status !== "active") return null;
+  const need = p.todayLeft;
+  const planned = Math.min(waiting, Math.max(0, perDay - started));
+  const want = Math.min(waiting, Math.max(planned, need));
+  const extra = want - planned;
+  return { need, waiting, extra, bonus: extra > 0 ? started + want - perDay : 0, none: need > 0 && waiting === 0 };
 }
 
 /** A milestone passed since `seen` (the last one celebrated), or 0. */

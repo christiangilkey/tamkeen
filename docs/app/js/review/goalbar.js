@@ -10,7 +10,8 @@
 import { toast } from "../app.js";
 import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
-import { NEW_CHOICES, states } from "./deck.js";
+import { NEW_CHOICES, NEW_MAX, states } from "./deck.js";
+import { customChip } from "./customchip.js";
 import { deviceTimes, estimate, expectedReviews, model, secondsText, timeText, today, wordCost } from "./goal.js";
 import { newPerDay, setNewPerDay } from "../pages/review.js";
 import { TARGET_NAMES, reviewTask, sendReviewTask, taskTarget } from "./sendtask.js";
@@ -80,8 +81,11 @@ export function goalBar(root, { sendSlot = null } = {}) {
       : `Add “${plan.title}” to ${TARGET_NAMES[taskTarget()]} for today (choose where in Settings)`;
     button.setAttribute("aria-label", `Today: new words ${t.newDone} of ${t.newTarget}, reviews ${t.revDone} of ${t.revTarget}. ${time.textContent}. Change the new words a day`);
 
-    for (const b of pop.querySelectorAll(".goal-chips button")) b.classList.toggle("on", Number(b.dataset.n) === goal);
-    const short = t.newDone + t.newLeft < goal ? `Only ${t.waiting} new word${t.waiting === 1 ? " is" : "s are"} waiting. ` : "";
+    for (const b of pop.querySelectorAll(".goal-chips [data-n]")) b.classList.toggle("on", Number(b.dataset.n) === goal);
+    custom.paint();
+    const short = !(t.newDone + t.newLeft < goal) ? ""
+      : t.waiting ? `Only ${t.waiting} new word${t.waiting === 1 ? " is" : "s are"} waiting. `
+      : "No new words are waiting to be learned: add some with Add words, or from Library → Courses → Words. ";
     $(".goal-help").textContent = `${short}Reviews are simply the words due today. In the long run expect about 10 a day per new word (Anki's manual): ${goal} new a day ≈ ${expectedReviews(goal)} reviews a day.`;
     // Per word, counting the looks a missed word takes coming back. Where the times come from: the
     // least measured of the kinds involved.
@@ -114,9 +118,10 @@ export function goalBar(root, { sendSlot = null } = {}) {
     try { await sendReviewTask(plan); } catch (err) { toast(err.message || "Couldn't send the task.", { error: true }); }
     finally { b.disabled = false; }
   };
-  for (const b of pop.querySelectorAll(".goal-chips button")) {
-    b.onclick = () => { setNewPerDay(Number(b.dataset.n)); draw(); root.dispatchEvent(new Event("goalchange", { bubbles: true })); };
-  }
+  const pick = (n) => { setNewPerDay(n); draw(); root.dispatchEvent(new Event("goalchange", { bubbles: true })); };
+  for (const b of pop.querySelectorAll(".goal-chips [data-n]")) b.onclick = () => pick(Number(b.dataset.n));
+  // (any other number, typed in: review/customchip.js)
+  const custom = customChip(pop.querySelector(".goal-chips"), { choices: NEW_CHOICES, min: 0, max: NEW_MAX, get: newPerDay, set: pick });
 
   return {
     update(w, l) { words = w || []; log = l || {}; draw(); },

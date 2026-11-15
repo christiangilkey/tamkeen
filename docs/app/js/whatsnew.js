@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.57.0",
+  "Learn the new words your long-term goal asks for, straight from the goal card");
+notes("0.57.0",
+  "Type your own number for new words a day and for the card times");
+notes("0.57.0",
+  "Pick several folders at once on the Vocab page and for battles");
+notes("0.57.0",
+  "Find a real one looks for sentences in your own books and transcripts first");
+notes("0.57.0",
+  "The Mnemonic maker keeps working when your AI key fails, and shows who made each set");
+notes("0.57.0",
+  "Guild raids in the Guilds tab, with a damage leaderboard and how to hit the boss");
 notes("0.56.0",
   "Set a long-term goal: a bar shows how far you are and the pace still needed, even after missed days");
 notes("0.56.0",

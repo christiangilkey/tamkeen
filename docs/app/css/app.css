@@ -3078,6 +3078,10 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .vf-count { flex: none; color: var(--muted); font-variant-numeric: tabular-nums; }
 .vf-row.on .vf-count { color: inherit; }
 .vf-on { flex: none; display: inline-flex; width: 18px; }
+.vf-hint { margin: 0 0 8px; font-size: 13.5px; line-height: 1.45; text-align: center; }
+.vf-tick { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 44px; min-width: 0; min-height: 0;
+  padding: 0; border: 0; border-radius: 12px; background: none; }
+button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .vf-more { flex: none; width: 44px; height: 44px; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 12px; background: none; color: var(--muted); }
 .vf-more[aria-expanded="true"], .vf-more:hover:not(:disabled) { background: var(--surface-2); color: var(--text); }
 .vf-gap { flex: none; width: 44px; }
@@ -3276,6 +3280,13 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .bt-folder-n { flex: none; font-size: 13px; font-weight: 500; color: var(--muted); }
 .bt-folder.on, .bt-folder.on:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .bt-folder:disabled { opacity: .5; }
+/* several folders at once (battles' "Battle words from a folder", the Vocab page's Folders): a tick box per row */
+.pick-box { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px;
+  border: 2px solid var(--muted); border-radius: 6px; color: transparent; }
+.pick-box.on { border-color: var(--accent); background: var(--accent); color: var(--accent-ink); }
+.bt-folder-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+.bt-folder-total { font-weight: 650; color: var(--muted); font-variant-numeric: tabular-nums; }
+.bt-folder-total.ok { color: var(--accent); }
 /* challenging a friend (battle-ui.js challengeChoice): two choices, each with a line under it */
 .bt-choice { min-height: 60px; }
 .bt-choice .bt-folder-name { display: flex; flex-direction: column; gap: 2px; }
@@ -3317,7 +3328,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .fr-boss-text strong { font-size: 16px; }
 .fr-boss-text span { color: var(--muted); font-size: 14px; line-height: 1.4; }
 .fr-hp .cr-bar i { background: var(--alert); }
-.fr-parts { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; font-size: 14px; }
+.fr-parts { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 6px 12px; font-size: 14px; }
+.fr-part-place { color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; display: inline-flex; justify-content: center; }
+.fr-part-name.me { font-weight: 700; }
+.fr-board-head { margin-top: 4px; }
+button.fr-boss { background: none; border: 0; padding: 0; margin: 0; color: inherit; font: inherit; text-align: start; cursor: pointer; width: 100%; }
+button.fr-boss:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
 .fr-part-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fr-part-n { font-variant-numeric: tabular-nums; text-align: end; }
 @media (prefers-reduced-motion: reduce) { .boss { animation: none; } }
@@ -3653,3 +3669,5 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .pron-score { font-weight: 700; color: var(--muted); }
 .pron-say { justify-self: start; }
 .cv-heard .pron-result { margin: 6px 0 0; }
+/* Friends → Guilds: each guild's raid under the list (pages/friends.js). */
+.guild-raids { display: grid; gap: 12px; margin-top: 12px; }

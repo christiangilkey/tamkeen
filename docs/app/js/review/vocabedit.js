@@ -5,6 +5,7 @@
 import { stripMarks } from "../cardtext.js";
 import { hasOwnAudio, voiceTimes } from "../cardvoice.js";
 import { readBatch } from "../addwords.js";
+import { inPicks } from "./folderpicks.js";
 
 // ---------------------------------------------------------------- the open word
 
@@ -67,10 +68,11 @@ export const narrowed = (st) => !!st && st.range !== "any" && !(st.range === "cu
 /** Is anything in the sort-and-filter sheet other than it starts (so "Reset" has something to do)? */
 export const changedView = (st) => !!st && Object.keys(VIEW_DEFAULTS).some((k) => (st[k] || "") !== VIEW_DEFAULTS[k]);
 
-/** How many of `words` a folder choice shows: "" every word, "none" those in no folder, else a folder's uid. */
+/** How many of `words` a folder choice shows: "" every word, "none" those in no folder, else a folder's uid,
+ * or several of these joined by commas (folderpicks.js: a word in any of them counts once). */
 export function folderCount(words, key) {
   if (!key) return words.length;
-  return words.filter((v) => (key === "none" ? !(v.folders || []).length : (v.folders || []).includes(key))).length;
+  return words.filter((v) => inPicks(v, key)).length;
 }
 
 const DECK_GROUP = /^(DLI [^·]{1,30}) · /u;  // a DLI deck's chapter folders (dli.js deckFolderName)

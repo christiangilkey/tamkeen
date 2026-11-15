@@ -6,14 +6,23 @@
 // The goal syncs like other settings (study_goal); the numbers come from the answer log, which syncs too, so
 // every device shows the same. It is drawn again whenever the Vocab page redraws its Review block, every
 // minute, and when the app comes back to the front, so the day rolling over at midnight shows at once.
+//
+// A "new words" goal also looks at the reviewer's day (longgoal.js goalNewWords): when today's part wants more
+// new words than the day's allowance lets in, the card offers "Learn N new words now" (one session with that
+// many extra, the setting left as it is; the Vocab page's Review banner offers the same), and when no words
+// are left to learn it says so and offers Add words.
 
 import { h, saveSettings, state, toast } from "../app.js";
 import { openModal } from "../components/modal.js";
 import { uiLanguage } from "../i18n.js";
 import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
+import { plan, states } from "./deck.js";
+import { newPerDay } from "../pages/review.js";
+import { dliState } from "../dli.js";
+import { studyLanguage } from "../languages.js";
 import { cleanSetting } from "./goalsetting.js";
-import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, progress, suggestTarget } from "./longgoal.js";
+import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, goalNewWords, progress, suggestTarget } from "./longgoal.js";
 
 const TITLE = {
   learned: (n, date) => `${n} new words by ${date}`,
@@ -24,6 +33,12 @@ const PACE = {
   learned: (n) => (n === 1 ? "About 1 new word a day" : `About ${n} new words a day`),
   reviews: (n) => (n === 1 ? "About 1 review a day" : `About ${n} reviews a day`),
   minutes: (n) => (n === 1 ? "About 1 minute a day" : `About ${n} minutes a day`),
+};
+/** "17 new words to go today": today's part still to do, when the learner isn't behind. */
+const TO_GO = {
+  learned: (n) => (n === 1 ? "1 new word to go today" : `${n} new words to go today`),
+  reviews: (n) => (n === 1 ? "1 review to go today" : `${n} reviews to go today`),
+  minutes: (n) => (n === 1 ? "1 minute to go today" : `${n} minutes to go today`),
 };
 const MEASURE_NAME = { learned: "New words learned", reviews: "Reviews", minutes: "Minutes on flashcards" };
 const LENGTH_NAME = { 14: "2 weeks", 30: "1 month", 60: "2 months", 90: "3 months" };
@@ -47,23 +62,47 @@ const dateText = (day) => {
 };
 const shown = (n) => Math.floor(n + 1e-9);  // an amount done (minutes are counted in fractions)
 
+/** Has this learner the DLI tab, with its decks, for the language studied now (components/dlipanel.js dliShown)? */
+const dliHere = () => { const st = dliState((state.status && state.status.settings) || {}); return Boolean(st.ready && st.language === studyLanguage()); };
+
 export const currentGoal = () => cleanSetting(state.status && state.status.settings && state.status.settings.study_goal).goal;
+
+/** What a "new words" goal wants of the reviewer today among `words` (longgoal.js goalNewWords), or null. */
+export function goalOffer(words, log) {
+  const goal = currentGoal();
+  if (!goal || goal.measure !== "learned") return null;
+  const today = dayNumber();
+  const p = progress(goal, dailyAmounts(log, goal.measure), today);
+  const day = plan(words, states(log), today, newPerDay());
+  return goalNewWords(goal, p, day.waiting, day.startedToday, newPerDay());
+}
 
 async function saveGoal(goal) {
   await saveSettings({ study_goal: { at: Date.now(), goal } });
 }
 
-/** Draw the goal into `root`. Returns {update(log), close()}. */
-export function longGoal(root) {
+/** Draw the goal into `root`. `onLearn(bonus)` opens the reviewer with that many more new words allowed today;
+ * `onAddWords()` opens Add words. Returns {update(log, words), close()}. */
+export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {}) {
   root.classList.add("lg");
-  let log = {};
+  let log = {}, words = [];
   let celebrate = false;  // milestones are only celebrated after the first drawing (not for ones passed long ago)
 
   function draw() {
     const goal = currentGoal();
     if (!goal) {
-      root.innerHTML = `<button type="button" class="ghost lg-set">${icon("target", 16)} Set a long-term goal</button>`;
-      root.querySelector(".lg-set").onclick = () => openGoalEditor(null, log);
+      // (the owner: "it should show a blank bar and the top part should say 'no long term goal set'": the card
+      // keeps its place and shape, and a tap anywhere on it, or its pencil, sets one)
+      root.innerHTML = `
+        <div class="lg-card lg-empty">
+          <div class="lg-top">
+            <span class="lg-title">${icon("target", 18)} <span>No long-term goal set</span></span>
+            <button type="button" class="ghost icon lg-edit" aria-label="Set a long-term goal" title="Set a long-term goal">${icon("edit", 16)}</button>
+          </div>
+          <div class="lg-bar" aria-hidden="true">${MILESTONES.slice(0, 3).map((m) => `<span class="lg-tick" style="inset-inline-start:${m}%"></span>`).join("")}</div>
+          <p class="lg-line">Tap the pencil to set one. Goals of 1 to 3 months work best.</p>
+        </div>`;
+      root.querySelector(".lg-card").onclick = () => openGoalEditor(null, log);
       return;
     }
     const today = dayNumber();
@@ -72,7 +111,8 @@ export function longGoal(root) {
     const left = p.status === "active" ? (p.daysLeft === 1 ? "Last day" : `${p.daysLeft} days left`)
       : p.status === "upcoming" ? `Starts ${dateText(goal.start)}` : "";
     const line = kind === "ended" ? `This goal has ended at ${Math.round(p.pct * 100)}%. That progress is real: set the next one when you're ready.`
-      : kind === "upcoming" ? `Starts ${dateText(goal.start)}.` : LINE[kind];
+      : kind === "upcoming" ? `Starts ${dateText(goal.start)}.` : kind === "today-left" ? TO_GO[goal.measure](Math.ceil(p.todayLeft - 1e-9)) : LINE[kind];
+    const offer = goalOffer(words, log);
     const plan = Math.min(100, (p.planToday / goal.target) * 100);
     root.innerHTML = `
       <div class="lg-card${p.status === "reached" ? " reached" : ""}">
@@ -93,6 +133,13 @@ export function longGoal(root) {
           <span>This week <b>${shown(p.week.done)}</b> of ${p.week.target}</span>
         </div>` : ""}
         <p class="lg-line"></p>
+        ${offer && offer.none ? `<p class="lg-line">No new words are waiting to be learned. Add your own, or take some from a course.</p>
+        <div class="lg-ways">
+          <button type="button" class="lg-add">${icon("plus", 16)} Add words</button>
+          <button type="button" class="ghost lg-course">${icon("learn", 16)} Words course</button>
+          ${dliHere() ? `<button type="button" class="ghost lg-dli">${icon("lock", 16)} DLI decks</button>` : ""}
+        </div>`
+          : offer && offer.extra > 0 ? `<button type="button" class="lg-learn">${offer.extra === 1 ? "Learn 1 new word now" : `Learn ${offer.extra} new words now`}</button>` : ""}
         ${kind === "ended" || kind === "reached" ? `<button type="button" class="lg-next">Set the next goal</button>` : ""}
         ${kind === "rethink" ? `<button type="button" class="ghost lg-change">Change goal</button>` : ""}
       </div>`;
@@ -102,6 +149,15 @@ export function longGoal(root) {
     root.querySelector(".lg-edit").onclick = () => openGoalEditor(goal, log);
     const next = root.querySelector(".lg-next");
     if (next) next.onclick = () => openGoalEditor({ ...goal, fresh: true }, log);
+    const learn = root.querySelector(".lg-learn");
+    if (learn) learn.onclick = () => onLearn(offer.bonus);
+    const add = root.querySelector(".lg-add");
+    if (add) add.onclick = () => onAddWords();
+    // (where else words come from: the Library's Words course, and a DLI student's decks)
+    const course = root.querySelector(".lg-course");
+    if (course) course.onclick = () => { location.hash = "#/library?tab=basics"; };
+    const dli = root.querySelector(".lg-dli");
+    if (dli) dli.onclick = () => { location.hash = "#/library?tab=dli"; };
     const change = root.querySelector(".lg-change");
     if (change) change.onclick = () => openGoalEditor(goal, log);
     // A milestone passed since the last one celebrated on this device: said once, gently.
@@ -125,7 +181,7 @@ export function longGoal(root) {
   window.addEventListener("tamkeen:goal", onSaved);
 
   return {
-    update(answers) { log = answers || {}; draw(); },
+    update(answers, list = words) { log = answers || {}; words = list || []; draw(); },
     close() { clearInterval(timer); document.removeEventListener("visibilitychange", onShow); window.removeEventListener("tamkeen:goal", onSaved); },
   };
 }

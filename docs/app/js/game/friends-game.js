@@ -252,9 +252,17 @@ function ruleBlock(now) {
 function raidBlock(game, me, guild, profiles, now, week, changed) {
   const boss = weeklyBoss(now);
   const r = raidState({ me, game, members: guild.members, profiles, now });
-  const b = block(t("Guild raid: {0}", guild.name));
+  // (its "?", and a tap on the boss: how to do damage. The owner: clicking the raid boss "should tell you how to do
+  // damage to the raid boss", on Home and in Friends → Guilds alike)
+  const ask = h(`<button type="button" class="ghost icon fr-raid-help">${lineIcon("question", 18)}</button>`);
+  ask.title = t("How to damage the boss");
+  ask.setAttribute("aria-label", ask.title);
+  ask.onclick = () => raidHelp();
+  const b = block(t("Guild raid: {0}", guild.name), ask);
   theirs(b.querySelector(".gs-label"));
-  const stage = h(`<div class="fr-boss"><span class="boss${r.down ? " down" : ""}"></span><span class="fr-boss-text"><strong></strong><span></span></span></div>`);
+  const stage = h(`<button type="button" class="fr-boss"><span class="boss${r.down ? " down" : ""}"></span><span class="fr-boss-text"><strong></strong><span></span></span></button>`);
+  stage.title = ask.title;
+  stage.onclick = () => raidHelp();
   stage.querySelector(".boss").style.backgroundImage = `url(${ART}boss/${boss.id}_${r.down ? "down" : "idle"}.png)`;
   stage.querySelector("strong").textContent = boss.name;
   stage.querySelector(".fr-boss-text span").textContent = boss.text;
@@ -264,13 +272,18 @@ function raidBlock(game, me, guild, profiles, now, week, changed) {
   hp.querySelector(".cr-pct").textContent = r.down ? t("Defeated!") : `${fmt(r.left)} / ${fmt(r.hp)}`;
   if (!r.down) hp.querySelector(".cr-pct").dir = "ltr"; // ("252 / 450" reads the same way round in Arabic)
   b.append(hp);
+  // Who has done the most damage this week, most first (the owner: "a leaderboard of who done the most damage to
+  // the raid boss currently"). raidState sorts them.
+  b.append(h(`<span class="gs-label fr-board-head">Damage this week</span>`));
   const parts = h(`<div class="fr-parts"></div>`);
-  for (const [name, dealt] of r.parts) {
+  r.parts.forEach(([name, dealt], i) => {
+    const place = h(`<span class="fr-part-place"></span>`);
+    if (i === 0 && dealt > 0) place.innerHTML = icon("trophy", 18); else place.textContent = String(i + 1);
     const who = h(`<span class="fr-part-name"></span>`);
-    who.textContent = name;
-    if (name !== "You") theirs(who);
-    parts.append(who, Object.assign(h(`<b class="fr-part-n"></b>`), { textContent: fmt(dealt) }));
-  }
+    who.textContent = name === "You" ? t("You") : name;
+    if (name !== "You") theirs(who); else who.classList.add("me");
+    parts.append(place, who, Object.assign(h(`<b class="fr-part-n"></b>`), { textContent: fmt(dealt) }));
+  });
   b.append(parts);
   if (r.down && game.raid !== week) {
     const btn = h(`<button type="button" class="primary gs-wide">${icon("trophy")}<span>Claim the reward</span></button>`);
@@ -351,6 +364,20 @@ function helpPart(title, ...items) {
   part.querySelector("strong").textContent = title;
   for (const it of items) part.querySelector("ul").append(h(`<li>${it}</li>`));
   return part;
+}
+
+/** How a guild raid is won: what does damage, the boss's health and the reward (the raid panel's "?" and its boss). */
+export function raidHelp() {
+  const { body } = helpSheet("How to damage the boss", "rival");
+  body.append(
+    helpPart("What does damage",
+      "Every right answer in a battle or while fishing takes 1 off the boss's health. Wrong answers do nothing.",
+      "Flashcard reviews don't count: battle or go fishing from Home to hit the boss."),
+    helpPart("The boss's health",
+      "150 for each member of the guild. Each member's hits count for at most 300, so it takes everyone."),
+    helpPart("The reward",
+      "Beat the boss together before Monday for 150 XP and 20 coins each, then claim it here. A new boss arrives on Monday."),
+  );
 }
 
 /** How the Friends side works, over it (its "?"): challenges, the league, the raid, gifts, and what friends see. */

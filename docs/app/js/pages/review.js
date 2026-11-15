@@ -34,7 +34,7 @@ import { icon as gameIcon } from "../game/render.js";
 import { vowelCard } from "../vowels.js";
 import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
-import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
+import { NEW_CHOICES, NEW_MAX, NEW_PER_DAY, cleanNewPerDay, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "../components/pronresult.js";
 import { addToNotes } from "../review/mnemonic.js";
@@ -43,8 +43,9 @@ import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlace
 import { wordTools } from "../components/wordtools.js";
 import { t, uiLanguage } from "../i18n.js";
 import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../review/goal.js";
-import { GOAL_CHOICES, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
-import { BACK_CHOICES, BOOST, answered as speedAnswered, barState, loadRecord, saveRecord, setSpeed, speedSettings, timedOut,
+import { GOAL_CHOICES, GOAL_MAX, GOAL_MIN, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
+import { customChip } from "../review/customchip.js";
+import { BACK_CHOICES, BACK_MAX, BACK_MIN, BOOST, answered as speedAnswered, barState, loadRecord, saveRecord, setSpeed, speedSettings, timedOut,
          todayBest, useBoost } from "../review/speedstreak.js";
 import { icon } from "../icons.js";
 
@@ -62,11 +63,11 @@ function setPref(key, value) {
 /** New words a day, as chosen in the reviewer's settings on this device. */
 export function newPerDay() {
   const n = pref("reviewNewPerDay", NEW_PER_DAY);
-  return NEW_CHOICES.includes(n) ? n : NEW_PER_DAY;
+  return cleanNewPerDay(n) ?? NEW_PER_DAY;
 }
 /** Change it (the reviewer's settings and the goal bar on the Vocab page share this one setting). */
 export function setNewPerDay(n) {
-  if (NEW_CHOICES.includes(n)) setPref("reviewNewPerDay", n);
+  if (cleanNewPerDay(n) !== null) setPref("reviewNewPerDay", n);
 }
 
 /** Every answer ever given, by word: {uid: [[t, rating, day, ms], ...]}. */
@@ -178,11 +179,14 @@ async function play(el, frames, options) {
  * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
 export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {},
-  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {} }) {
+  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {}, extraNew = 0 }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
-  let bonus = 0;                       // extra new words asked for at the end of a session
+  // Extra new words allowed this session: asked for at the end of a session ("Learn 10 more"), or by a
+  // long-term "new words" goal (`extraNew`, review/longgoal.js goalNewWords). The setting is never changed.
+  let bonus = Math.max(0, Math.floor(Number(extraNew) || 0));
+  const goalExtra = bonus;             // (a goal's words are today's own work: they don't roll as extras)
   let autoplay = pref("reviewAutoplay", true);
   let timers = timerSettings();        // the time bar on each card, the session clock, a card's time goal
   let speed = speedSettings();         // the bar as a countdown (speed streak) or calm, seconds on the back, boosts
@@ -319,8 +323,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
   /** New words past the day's number roll as extras: note which of `fresh` those are (`list`, `allowance`:
    * what the day's own number alone would have planned). */
-  function markExtras(fresh, list = words, allowance = perDay) {
-    if (!bonus) return;
+  function markExtras(fresh, list = words, allowance = perDay + goalExtra) {
+    if (bonus <= goalExtra) return;
     const within = new Set(plan(list, cards, dayNumber(), Math.max(0, allowance)).fresh.map(uidOf));
     for (const v of fresh) if (!within.has(uidOf(v))) extras.add(uidOf(v));
   }
@@ -339,7 +343,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const current = $(".rv-wrap").hidden ? null : todo[0];
     const taken = current && !cards.has(uidOf(current)) ? 1 : 0;
     const p = plan(words.filter((v) => v !== current), cards, dayNumber(), perDay + bonus - taken);
-    markExtras(p.fresh, words.filter((v) => v !== current), perDay - taken);
+    markExtras(p.fresh, words.filter((v) => v !== current), perDay + goalExtra - taken);
     todo = [...(current ? [current] : []), ...queue(p.due, p.fresh)];
     if (!current) { if (todo.length) show(); else finish(); } else header();
   }
@@ -1366,11 +1370,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     $(".rv-goal h3").textContent = fast ? "Time on the front" : "Time goal for each card";
     for (const b of settings.querySelectorAll("[data-goal]")) b.classList.toggle("on", b.dataset.goal === String(timers.goal));
     $(".rv-goal-auto").textContent = `Auto follows your own pace: about ${cardGoal(pace, "review")} s for a review, ${cardGoal(pace, "new")} s for a new word.`;
+    for (const c of customs) c.paint();
   };
   $(".rv-gear").onclick = () => { settings.hidden = !settings.hidden; drawSettings(); };
-  for (const b of settings.querySelectorAll("[data-n]")) {
-    b.onclick = () => { perDay = Number(b.dataset.n); setNewPerDay(perDay); bonus = 0; drawSettings(); replan(); };
-  }
+  const pickPerDay = (n) => { perDay = n; setNewPerDay(perDay); bonus = goalExtra; drawSettings(); replan(); };
+  for (const b of settings.querySelectorAll("[data-n]")) b.onclick = () => pickPerDay(Number(b.dataset.n));
   $(".rv-auto").onchange = (e) => { autoplay = e.target.checked; setPref("reviewAutoplay", autoplay); };
   // The timers' settings take effect on the card on the table at once.
   const changeTimer = (name, value) => { setTimer(name, value); timers = timerSettings(); drawSettings(); startBar(); tick(); };
@@ -1383,6 +1387,13 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   for (const b of settings.querySelectorAll("[data-goal]")) {
     b.onclick = () => changeTimer("goal", b.dataset.goal === "auto" ? "auto" : Number(b.dataset.goal));
   }
+  // A number of one's own after each row of chips (review/customchip.js): new words a day, the front's time, the back's.
+  const rowOf = (sel) => settings.querySelector(sel).parentElement;
+  const customs = [
+    customChip(rowOf("[data-n]"), { choices: NEW_CHOICES, min: 0, max: NEW_MAX, get: () => perDay, set: pickPerDay }),
+    customChip(rowOf("[data-goal]"), { choices: GOAL_CHOICES, min: GOAL_MIN, max: GOAL_MAX, unit: "s", get: () => timers.goal, set: (n) => changeTimer("goal", n) }),
+    customChip(rowOf("[data-back]"), { choices: BACK_CHOICES, min: BACK_MIN, max: BACK_MAX, unit: "s", get: () => speed.back, set: (n) => changeSpeed("back", n) }),
+  ];
   el.addEventListener("pointerdown", (e) => { if (!settings.hidden && !e.target.closest(".rv-settings, .rv-gear")) settings.hidden = true; });
 
   // ----- keys -----

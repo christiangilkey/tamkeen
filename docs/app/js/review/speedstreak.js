@@ -14,6 +14,8 @@
 
 export const MODES = ["speed", "calm"];
 export const BACK_CHOICES = [5, 10, 20, 30];   // seconds on the back
+export const BACK_MIN = 3, BACK_MAX = 120;      // seconds that can be typed in instead (review/customchip.js)
+const goodBack = (n) => Number.isInteger(n) && n >= BACK_MIN && n <= BACK_MAX;
 export const BOOST = { every: 10, max: 3, start: 1, seconds: 10 };
 
 /** A record as it may be kept: {streak, best, day, dayBest, boosts, toward}. */
@@ -82,11 +84,11 @@ function setPref(key, value) {
 /** {mode, back, boosts}: the countdown or the calm bar, seconds on the back, boosts on or off. */
 export function speedSettings() {
   const mode = pref(KEYS.mode, "speed"), back = pref(KEYS.back, 10);
-  return { mode: MODES.includes(mode) ? mode : "speed", back: BACK_CHOICES.includes(back) ? back : 10, boosts: pref(KEYS.boosts, true) !== false };
+  return { mode: MODES.includes(mode) ? mode : "speed", back: goodBack(back) ? back : 10, boosts: pref(KEYS.boosts, true) !== false };
 }
 export function setSpeed(name, value) {
   if (name === "mode" && MODES.includes(value)) setPref(KEYS.mode, value);
-  if (name === "back" && BACK_CHOICES.includes(value)) setPref(KEYS.back, value);
+  if (name === "back" && goodBack(value)) setPref(KEYS.back, value);
   if (name === "boosts") setPref(KEYS.boosts, Boolean(value));
 }
 export const loadRecord = () => cleanRecord(pref(KEYS.record, null));

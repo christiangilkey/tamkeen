@@ -18,6 +18,7 @@ import { KeywordList, makeFreeMnemonics } from "./review/freemnemonic.js";
 import { judgeOwn } from "./review/ownmnemonic.js";
 import { englishSounds } from "./review/mnemonic.js";
 import { alignLetters, cutPron, soundSpan } from "./review/wordpart.js";
+import { mainWordsOf } from "./review/librarysentence.js";
 
 const loaded = new Map(); // "examples|es", "keywords|en" -> Promise of the file's data, or null
 
@@ -89,16 +90,29 @@ async function lemmaFinder(lang) {
 export const NO_EXAMPLES = "NO_EXAMPLES";
 
 /**
- * An example sentence for `word` with no AI: {sentence, translation, source} or null when the file has
- * none. `meaning` puts ⟦ ⟧ round the word in the translation; `dialect` prefers an Arabic dialect's.
+ * An example sentence for `word` with no AI: {sentence, translation, source, readable} or null when the file
+ * has none (freeExamples' first; "Add words" fills a new card with it, so only one with the whole phrase).
+ * Throws as freeExamples does.
+ */
+export async function freeExample(word, lang, opts = {}) {
+  const found = await freeExamples(word, lang, { mainWord: false, ...opts, count: 1 });
+  return found[0] || null;
+}
+
+/**
+ * Up to `count` example sentences for `word` with no AI, best first: [{sentence, translation, source, readable, main}].
+ * `meaning` puts ⟦ ⟧ round the word in the translation; `dialect` prefers an Arabic dialect's; `skip`: sentences
+ * already shown. A phrase none of whose sentences has all its words ("وتاهوا في بيداء") gets sentences with its main
+ * words instead (review/librarysentence.js mainWordsOf), marked `main` (and `mark`: that word, to light up), unless
+ * `mainWord` is false.
  * Throws an Error with `code` NO_EXAMPLES (and a message for the learner) when the file couldn't be downloaded.
  */
-export async function freeExample(word, lang, { meaning = "", dialect = courseDialect(lang), skip = [] } = {}) {
+export async function freeExamples(word, lang, { meaning = "", dialect = courseDialect(lang), skip = [], count = 5, mainWord = true } = {}) {
   const p = await examplesOf(lang);
   if (!p) {
     // (a language with no sentences file, English: none found; one with a file that couldn't be had: say so)
     const st = await examplesStatus(lang).catch(() => null);
-    if (st && !st.needed) return null;
+    if (st && !st.needed) return [];
     const e = new Error(t("The example sentences couldn't be downloaded. Check your connection and try again."));
     e.code = NO_EXAMPLES;
     throw e;
@@ -108,13 +122,18 @@ export async function freeExample(word, lang, { meaning = "", dialect = courseDi
   // (a phrase's own words aren't new words of its sentence: "por favor" in "Pásame la sal, por favor.")
   const own = counter ? counter(word) : 0;
   const newWords = counter && ((s) => Math.max(0, counter(s) - own));
-  // The word without what is typed round it counts too: "der Teil, -e" finds sentences with Teil, "مشكلة ج مشاكل" with مشكلة.
-  const core = soundCore(word, lang, { isWord: knowsWord(p, lang) }).core;
-  const found = p.find(word, { lemmaOf, dialect, meaning, newWords, core, count: 1 + skip.length }).filter((x) => !skip.includes(x.text));
-  if (!found.length) return null;
-  const best = found[0];
-  // readable: every other word of the sentence is one the learner has seen (only told when that is known)
-  return { sentence: best.text, translation: markTranslation(best.english, meaning), source: best.source, readable: best.newWords === 0 };
+  const look = (w, main) => {
+    // The word without what is typed round it counts too: "der Teil, -e" finds sentences with Teil, "مشكلة ج مشاكل" with مشكلة.
+    const core = soundCore(w, lang, { isWord: knowsWord(p, lang) }).core;
+    return p.find(w, { lemmaOf, dialect, meaning, newWords, core, count: count + skip.length }).filter((x) => !skip.includes(x.text))
+      // readable: every other word of the sentence is one the learner has seen (only told when that is known)
+      .map((x) => ({ sentence: x.text, translation: markTranslation(x.english, meaning), source: x.source, readable: x.newWords === 0, main: !!main,
+        ...(main ? { mark: w } : {}) }));
+  };
+  let found = look(word, "");
+  // (no sentence with the whole phrase: one with its main words, the most important first, until one has some)
+  if (!found.length && mainWord) for (const main of mainWordsOf(word, lang).slice(0, 3)) if ((found = look(main, main)).length) break;
+  return found.slice(0, count);
 }
 
 /**
