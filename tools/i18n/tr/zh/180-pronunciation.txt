@@ -1,0 +1,19 @@
+# A pronunciation score from Azure (web/js/components/pronresult.js, web/js/pronscore.js, review/pronounce.js, conversepanel.js).
+55d5df73	练习发音（P）：说出来，然后听句子和你自己的声音，并得到发音评分。你的尝试会发送给 Azure 评分，不会被保存。
+8ff09e20	自己说一遍并得到发音评分。你的尝试会发送给 Azure 评分，不会被保存。
+b1d884e7	漏说了。
+ac3e9436	句子里没有：多说了。
+278bdf99	和母语者的说法不一样。
+732abe93	发音评分
+d82d0d2b	Azure 没有听到说话声。请靠近麦克风一点再试一次。
+edd4ff4d	发音
+12a3a4f4	准确度
+86f9da4d	流利度
+778184da	完整度
+c23ce670	{0} 分（满分 100）
+73697f74	需要练习的音：
+c31170a5	听正确的读法
+f9a14833	点按红色的词，看看哪里不对。
+a61437f4	每个词都说得很清楚。
+acd5ca5a	Azure 无法给这段录音评分。请靠近麦克风一点再试一次。
+b0c6aade	Azure 返回的内容不是评分。请稍后再试。

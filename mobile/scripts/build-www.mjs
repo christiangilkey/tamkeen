@@ -160,6 +160,9 @@ const SHARED = [
   "js/conversedata.js",
   "js/converse.js",
   "js/hearmic.js",
+  // A pronunciation score from Azure for Say it (review/pronounce.js) and Conversation
+  "js/pronscore.js",
+  "js/components/pronresult.js",
   "js/components/conversepanel.js",
   "js/components/selectsheet.js",
   "js/components/troubleshoot.js",

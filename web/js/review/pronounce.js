@@ -5,7 +5,9 @@
 // after that has finished, the learner's attempt, so the two can be compared by ear.
 //
 // The attempt is never kept: it lives in this page's memory for the few seconds it takes to play
-// and is dropped. Nothing is written to storage and nothing leaves the device.
+// and is dropped. Nothing is written to storage. It leaves the device only when the learner has an Azure
+// key and the language is one Azure checks: then it is also sent to Azure's pronunciation check (the
+// caller's `score`, components/pronresult.js), and the score shows under the button.
 //
 // Listening ends by itself a moment after the learner stops speaking (or at a press of the same
 // button). The silence before and after the attempt is cut off, and a quiet attempt is turned up,
@@ -86,10 +88,13 @@ export function canRecord() {
 
 const LABEL = { idle: "Say it", ready: "Say it", rec: "Listening", word: "Native", you: "You" };
 
-/** The button's markup, for the row of listen buttons under the word ("" where the device can't listen). */
-export function practiseButton() {
+/** The button's markup, for the row of listen buttons under the word ("" where the device can't listen).
+ * `scored`: the attempt will also get a pronunciation score from Azure (the button's tip says so). */
+export function practiseButton({ scored = false } = {}) {
   if (!canRecord()) return "";
-  return `<button type="button" class="say-it" data-state="idle" title="Practise saying it (P): say it, then hear the sentence and yourself. Your attempt isn't saved.">`
+  const tip = scored ? "Practise saying it (P): say it, then hear the sentence and yourself, and get a pronunciation score. Your attempt is sent to Azure to be scored, and isn't saved."
+    : "Practise saying it (P): say it, then hear the sentence and yourself. Your attempt isn't saved.";
+  return `<button type="button" class="say-it" data-state="idle" title="${tip}">`
     + `<i class="say-dot" aria-hidden="true"></i>${icon("speak", 17)}<span>${LABEL.idle}</span></button>`;
 }
 
@@ -114,8 +119,11 @@ export async function afterWord(playing, seconds, wait = sleep) {
  *   modelSeconds how long that recording lasts
  *   audioBusy    () => milliseconds until audio that is already playing ends (it must not be recorded)
  *   onError      (message) => void, for something the learner should be told
+ *   score        optional: (samples, rate) => Promise of a pronunciation score for the attempt (only the
+ *                speech, trimmed); sent while the recordings play
+ *   onScore      (score, error) => void, with what `score` gave (or why it failed), unless the card has gone
  */
-export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, onError = () => {} }) {
+export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, onError = () => {}, score = null, onScore = () => {} }) {
   const label = button.querySelector("span");
   let run = null;  // the attempt in progress: {stop(), cancelled}
 
@@ -186,6 +194,12 @@ export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, 
       } catch { /* nothing usable was recorded */ }
       if (gone(me)) return;
       if (!where) { onError("I couldn't hear you. Try again, a little closer to the microphone."); return; }
+      if (score) {
+        const rate = sound.sampleRate, all = sound.getChannelData(0);
+        const speech = all.slice(Math.floor(where.start * rate), Math.ceil(where.end * rate));
+        Promise.resolve().then(() => score(speech, rate))
+          .then((r) => { if (!gone(me)) onScore(r, null); }, (e) => { if (!gone(me)) onScore(null, e); });
+      }
 
       // ----- the word, then the attempt -----
       const settle = SETTLE_MS - (Date.now() - me.heardAt);

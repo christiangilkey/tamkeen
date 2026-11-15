@@ -1,0 +1,19 @@
+# A pronunciation score from Azure (web/js/components/pronresult.js, web/js/pronscore.js, review/pronounce.js, conversepanel.js).
+55d5df73	말하기 연습(P): 말해 본 다음 문장과 내 목소리를 듣고, 발음 점수도 받아요. 녹음은 채점을 위해 Azure로 보내지고 저장하지 않아요.
+8ff09e20	직접 말해 보고 발음 점수를 받아요. 녹음은 채점을 위해 Azure로 보내지고 저장하지 않아요.
+b1d884e7	빠졌어요.
+ac3e9436	문장에 없는 말: 더 말했어요.
+278bdf99	원어민과 다르게 발음했어요.
+732abe93	발음 점수
+d82d0d2b	Azure가 말소리를 듣지 못했어요. 마이크에 조금 더 가까이 대고 다시 해 보세요.
+edd4ff4d	발음
+12a3a4f4	정확도
+86f9da4d	유창성
+778184da	완성도
+c23ce670	100점 중 {0}점
+73697f74	더 연습할 소리:
+c31170a5	올바른 발음 듣기
+f9a14833	빨간 단어를 탭하면 무엇이 틀렸는지 볼 수 있어요.
+a61437f4	모든 단어가 또렷하게 들렸어요.
+acd5ca5a	Azure가 이 녹음을 채점하지 못했어요. 마이크에 조금 더 가까이 대고 다시 해 보세요.
+b0c6aade	Azure가 점수가 아닌 것을 보내왔어요. 잠시 후 다시 해 보세요.

@@ -1,0 +1,19 @@
+# A pronunciation score from Azure (web/js/components/pronresult.js, web/js/pronscore.js, review/pronounce.js, conversepanel.js).
+55d5df73	Practica la pronunciación (P): dila, luego escucha la frase y a ti mismo, y recibe una puntuación de pronunciación. Tu intento se envía a Azure para puntuarlo y no se guarda.
+8ff09e20	Dilo tú y recibe una puntuación de pronunciación. Tu intento se envía a Azure para puntuarlo y no se guarda.
+b1d884e7	Omitida.
+ac3e9436	No está en la frase: sobra.
+278bdf99	Dicha de otra forma que la nativa.
+732abe93	Puntuación de pronunciación
+d82d0d2b	Azure no oyó a nadie hablar. Inténtalo de nuevo, un poco más cerca del micrófono.
+edd4ff4d	Pronunciación
+12a3a4f4	Precisión
+86f9da4d	Fluidez
+778184da	Integridad
+c23ce670	{0} de 100
+73697f74	Sonidos para mejorar:
+c31170a5	Escúchala bien dicha
+f9a14833	Toca una palabra roja para ver qué falló.
+a61437f4	Todas las palabras se entendieron bien.
+acd5ca5a	Azure no pudo puntuar esta grabación. Inténtalo de nuevo, un poco más cerca del micrófono.
+b0c6aade	Azure devolvió algo que no es una puntuación. Inténtalo de nuevo en un momento.

@@ -704,3 +704,11 @@ fc3f8727  # Days studied (dliweeks.js: a spreadsheet heading for the owner, neve
 50de0fbb  # B2 · ILR 2
 9b3df240  # C1 · ILR 3
 8d787c89  # C2 · ILR 4
+# pronscore.js: what is sent to Azure (its header's values and the audio type), never on screen
+b3882a47  # Phoneme
+0ba756de  # Comprehensive
+88b33e4e  # True
+25f9146a  # Omission
+6ffaeff1  # Insertion
+526e2c45  # Mispronunciation
+e1a03c23  # audio/wav; codecs=audio/pcm; samplerate=16000

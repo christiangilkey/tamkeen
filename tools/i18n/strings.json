@@ -3430,6 +3430,11 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
+  "id": "8ff09e20",
+  "k": "Say it yourself, and get a pronunciation score. Your attempt is sent to Azure to be scored, and isn't saved.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
   "id": "0773bec6",
   "k": "Heard",
   "f": "web/js/components/conversepanel.js"
@@ -6598,6 +6603,76 @@
   "id": "946e2c5a",
   "k": "Right stick",
   "f": "web/js/components/paddiagram.js"
+ },
+ {
+  "id": "b1d884e7",
+  "k": "Left out.",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "ac3e9436",
+  "k": "Not in the line: said extra.",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "278bdf99",
+  "k": "Said differently from the native way.",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "732abe93",
+  "k": "Pronunciation score",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "d82d0d2b",
+  "k": "Azure couldn't hear any speech in that. Try again, a little closer to the microphone.",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "edd4ff4d",
+  "k": "Pronunciation",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "12a3a4f4",
+  "k": "Accuracy",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "86f9da4d",
+  "k": "Fluency",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "778184da",
+  "k": "Completeness",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "c23ce670",
+  "k": "{0} out of 100",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "73697f74",
+  "k": "Sounds to work on:",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "c31170a5",
+  "k": "Hear it said",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "f9a14833",
+  "k": "Tap a red word to see what was off.",
+  "f": "web/js/components/pronresult.js"
+ },
+ {
+  "id": "a61437f4",
+  "k": "Every word came through clearly.",
+  "f": "web/js/components/pronresult.js"
  },
  {
   "id": "6271a4fa",
@@ -24170,6 +24245,16 @@
   "f": "web/js/progress.js"
  },
  {
+  "id": "acd5ca5a",
+  "k": "Azure couldn't check this recording. Try again, a little closer to the microphone.",
+  "f": "web/js/pronscore.js"
+ },
+ {
+  "id": "b0c6aade",
+  "k": "Azure sent back something that isn't a score. Try again in a moment.",
+  "f": "web/js/pronscore.js"
+ },
+ {
   "id": "b5072f7e",
   "k": "Add to Google Calendar",
   "f": "web/js/review/calpopup.js"
@@ -24677,6 +24762,11 @@
  {
   "id": "4fc6e7f7",
   "k": "Native",
+  "f": "web/js/review/pronounce.js"
+ },
+ {
+  "id": "55d5df73",
+  "k": "Practise saying it (P): say it, then hear the sentence and yourself, and get a pronunciation score. Your attempt is sent to Azure to be scored, and isn't saved.",
   "f": "web/js/review/pronounce.js"
  },
  {

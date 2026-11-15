@@ -1,0 +1,19 @@
+# A pronunciation score from Azure (web/js/components/pronresult.js, web/js/pronscore.js, review/pronounce.js, conversepanel.js).
+55d5df73	S'entraîner à le dire (P) : dites-le, puis écoutez la phrase et vous-même, et recevez une note de prononciation. Votre essai est envoyé à Azure pour être noté et n'est pas enregistré.
+8ff09e20	Dites-le vous-même et recevez une note de prononciation. Votre essai est envoyé à Azure pour être noté et n'est pas enregistré.
+b1d884e7	Omis.
+ac3e9436	Absent de la phrase : en trop.
+278bdf99	Prononcé autrement qu'un natif.
+732abe93	Note de prononciation
+d82d0d2b	Azure n'a entendu personne parler. Réessayez, un peu plus près du micro.
+edd4ff4d	Prononciation
+12a3a4f4	Précision
+86f9da4d	Aisance
+778184da	Complétude
+c23ce670	{0} sur 100
+73697f74	Sons à travailler :
+c31170a5	L'entendre bien dit
+f9a14833	Touchez un mot en rouge pour voir ce qui n'allait pas.
+a61437f4	Chaque mot est passé clairement.
+acd5ca5a	Azure n'a pas pu noter cet enregistrement. Réessayez, un peu plus près du micro.
+b0c6aade	Azure a renvoyé autre chose qu'une note. Réessayez dans un instant.

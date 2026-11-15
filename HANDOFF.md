@@ -8714,3 +8714,46 @@ also an small popup shows up displaying the word and its translation as well as 
 - Checked in the preview: the Spanish Words course (a tap on "café" said it, showed "coffee", saved the card with
   "El ⟦café⟧ está muy caliente." and "The coffee is very hot."), and the Spanish grammar lesson 1 (a word's tap opened
   its popup and did not say the whole example; practice words not tappable). Not checked on a phone.
+
+## Pronunciation score: Azure's pronunciation check for "Say it" and Conversation (2026-11-15; side session of the forked chat; NOT yet tried with a real Azure key)
+
+**What the owner asked for.** He asked whether Tamkeen could check pronunciation; of the two ways offered (Azure's
+pronunciation check with his own key, or a model on the computer) he said "option 1".
+
+**What it does.** With an Azure key and region (`tts_key_azure`, `tts_region_azure`: Settings → Card voices; the voice
+mode doesn't matter, `pronscore.js azureKeyReady`) and a language Azure checks, "Say it" on the flashcards
+(`pages/review.js paintListen`) and in the word editor (`components/wordeditor.js paintQuick`) also sends the trimmed
+attempt to Azure while the recordings play (`review/pronounce.js practise`: new options `score` and `onScore`). The
+score shows under the row of listen buttons (`components/pronresult.js showScore`): the overall score, accuracy,
+fluency, completeness, and the line with each word underlined green (80+), amber (60-79) or red (under 60,
+mispronounced or left out); a tap on a word shows its score, what was off, the weak sounds when Azure names them
+(English and Chinese only) and "Hear it said" (`saytext.js sayText`). Conversation's "Say it yourself"
+(`conversepanel.js sayAgain`) shows the same score instead of the Whisper word check when Azure can score it, so on
+the phones it then works without online transcription.
+
+**The request** (`web/js/pronscore.js assess`): POST
+`https://{region}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language={locale}&format=detailed`,
+headers `Ocp-Apim-Subscription-Key`, `Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000` and
+`Pronunciation-Assessment` (base64 of UTF-8 JSON: ReferenceText, HundredMark, Phoneme, Comprehensive, EnableMiscue).
+The attempt is made a 16 kHz mono WAV (`wav16k`, at most 30 s, Azure's limit for this). Azure's preflight answers
+`Access-Control-Allow-Origin: *` (checked live 2026-11-15), so the page calls it directly on every version. Microsoft's
+pages show the scores in two places (on `NBest[0]` itself or under `NBest[0].PronunciationAssessment`):
+`parseAssessment` reads both.
+
+**Which accent** (`pronLocale`): the language's usual locale (es-MX, pt-BR, fr-FR, zh-CN, en-US…), or the locale of
+the Azure voice the learner hears when Azure checks that one (es-ES, pt-PT, fr-CA, zh-TW…). Arabic: Standard → ar-SA,
+Egyptian → ar-EG, other dialects → no score (they would be marked wrong as Standard Arabic). Not checked by Azure:
+Persian, Tagalog, Bisaya, Latin. Arabic vowel marks and the ⟦ ⟧ marks are taken off the reference text.
+
+**Cost.** Billed as Azure speech-to-text. The free tier has 5 audio hours a month; Microsoft's pricing page doesn't say
+whether those cover the pronunciation check.
+
+**Tested.** `tests/js/pronscore.test.mjs` (7: locale choice, key test, reference text and header with Arabic, the
+WAV file, both answer shapes, odd answers, the request and its errors). In the preview on a fresh test folder (never
+signed in to Drive), with a stand-in microphone (a tone) and a stand-in for Azure: "Say it" recorded, sent a 16 kHz WAV
+with the card's sentence to es-MX, and drew the score; tapping a red word showed its note; Arabic went to ar-SA without
+vowel marks; Levantine and Persian got no scorer. **Not tested:** a real Azure key (none here), so how strict real
+scores are, and whether Azure's answer really has one of the two shapes read; a real microphone; a phone.
+
+**Ideas not built.** Keeping a word's scores over time (a "sounds you find hard" list); scoring the learner's spoken
+replies during a conversation; a local, on-the-computer check (option 2).

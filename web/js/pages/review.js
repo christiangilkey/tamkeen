@@ -36,6 +36,7 @@ import { AGAIN, GOOD, answer, dayNumber, nextWait } from "../review/fsrs.js";
 import { controllerArea, highlightMove, highlightOn, highlightedEl, padInUse, padMenu, pressHighlighted } from "../gamepad.js";
 import { NEW_CHOICES, NEW_PER_DAY, forecast, plan, prompt, queue, requeue, reviewable, states, strength, uidOf, waitText } from "../review/deck.js";
 import { practise, practiseButton } from "../review/pronounce.js";
+import { cardScoring } from "../components/pronresult.js";
 import { addToNotes } from "../review/mnemonic.js";
 import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
          textBox } from "../review/cardtools.js";
@@ -608,8 +609,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const row = face.querySelector(".rv-listen");
     if (!row) return;
     const word = hasWordAudio(v), sentence = hasSentenceAudio(v);
+    // With an Azure key, "Say it" also scores the attempt against what the native recording says (pronresult.js).
+    const scoring = cardScoring(v, sentence ? "sentence" : "word", row);
     row.innerHTML = `${word ? `<button type="button" class="play-word">${ICON.sound} Word</button>` : ""}`
-      + `${sentence ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${word || sentence ? practiseButton() : ""}`;
+      + `${sentence ? `<button type="button" class="play-sent">${ICON.sound} Sentence</button>` : ""}${word || sentence ? practiseButton({ scored: !!scoring.score }) : ""}`;
     const pw = row.querySelector(".play-word"), ps = row.querySelector(".play-sent");
     if (pw) pw.onclick = () => sayWord(v);
     if (ps) ps.onclick = () => saySentence(v);
@@ -622,6 +625,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         modelSeconds: sentence ? sentenceSeconds(v) : wordSeconds(v),
         audioBusy: () => audioOverAt - Date.now(),
         onError: (m) => toast(m, { error: true }),
+        ...scoring,
       });
     }
   }

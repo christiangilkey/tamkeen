@@ -98,7 +98,8 @@ test("the open word has every tool of the review card's back, from the same code
   }
   assert.doesNotMatch(editor + review, /function (mnemonicTool|sentenceTool|recordTool|foldersTool)\b/, "no second copy of a tool left");
   assert.match(editor, /holdWords\(/, "hold a word of the sentence to light it up");
-  assert.match(editor, /practiseButton\(\)/, "Say it");
+  assert.match(editor, /practiseButton\(\{ scored: !!scoring\.score \}\)/, "Say it (scored with an Azure key: components/pronresult.js)");
+  assert.match(editor, /\.\.\.scoring,/);
   assert.doesNotMatch(review, /function mnemonicMaker|function copyText|const HOLD_MS/, "no second copy left in the reviewer");
   assert.ok(read("mobile/scripts/build-www.mjs").includes('"js/components/wordtools.js"'), "the phone and web app carry the tools");
   // in the reviewer's own colours (the owner: light blue on the brand's dark teal, like its other buttons)
