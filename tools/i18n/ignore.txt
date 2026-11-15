@@ -711,4 +711,4 @@ b3882a47  # Phoneme
 6ffaeff1  # Insertion
 526e2c45  # Mispronunciation
 e1a03c23  # audio/wav; codecs=audio/pcm; samplerate=16000
-01a271c9
+01a271c9  # rv-count {0}s linear {1}s forwards (review.js: the countdown's CSS animation, never on screen)
