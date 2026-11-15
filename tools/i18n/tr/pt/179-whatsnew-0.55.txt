@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Baralhos de preparação para o ICPT para alunos do DLI nos sete idiomas do DLI, por tema e nível
+01d76356	As palavras que você já tem do curso básico do DLI vão para as pastas ICPT, sem serem adicionadas duas vezes
+d5702418	OPI simulado para alunos do DLI: uma entrevista de prática completa, com um nível estimado no final

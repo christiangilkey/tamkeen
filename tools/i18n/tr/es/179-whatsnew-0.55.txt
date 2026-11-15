@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Mazos de preparación para el ICPT para estudiantes del DLI en los siete idiomas del DLI, por tema y nivel
+01d76356	Las palabras que ya tienes del curso básico del DLI se archivan en las carpetas ICPT, sin añadirlas dos veces
+d5702418	OPI de práctica para estudiantes del DLI: una entrevista de práctica completa, con un nivel estimado al final

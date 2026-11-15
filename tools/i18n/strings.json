@@ -26225,6 +26225,21 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "b6268ce2",
+  "k": "ICPT prep decks for DLI students in all seven DLI languages, by topic and level",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "01d76356",
+  "k": "Words you already have from your DLI basic course are filed in the ICPT folders, not added twice",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d5702418",
+  "k": "Mock OPI for DLI students: a full practice interview, with an estimated level at the end",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "20bc42aa",
   "k": "Conversation: practise speaking in the Library, with your own AI playing the other person",
   "f": "web/js/whatsnew.js"

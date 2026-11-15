@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Baralles de preparació per a l'ICPT per als estudiants del DLI en les set llengües del DLI, per tema i nivell
+01d76356	Les paraules que ja tens del curs bàsic del DLI es desen a les carpetes ICPT, sense afegir-les dues vegades
+d5702418	OPI de prova per als estudiants del DLI: una entrevista de pràctica completa, amb un nivell estimat al final

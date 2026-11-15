@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Mazzi di preparazione all'ICPT per gli studenti del DLI in tutte e sette le lingue del DLI, per tema e livello
+01d76356	Le parole che hai già dal corso base del DLI vanno nelle cartelle ICPT, senza essere aggiunte due volte
+d5702418	OPI di prova per gli studenti del DLI: un colloquio di pratica completo, con un livello stimato alla fine

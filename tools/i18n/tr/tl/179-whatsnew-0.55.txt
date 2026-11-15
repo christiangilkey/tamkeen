@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Mga deck na paghahanda sa ICPT para sa mga estudyante ng DLI sa lahat ng pitong wika ng DLI, ayon sa paksa at antas
+01d76356	Ang mga salitang mayroon ka na mula sa basic course ng DLI ay inilalagay sa mga folder ng ICPT, hindi dinodoble
+d5702418	Mock OPI para sa mga estudyante ng DLI: isang buong praktis na panayam, na may tantiyang antas sa dulo

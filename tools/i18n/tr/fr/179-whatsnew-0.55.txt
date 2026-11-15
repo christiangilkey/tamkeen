@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Paquets de préparation à l'ICPT pour les étudiants du DLI dans les sept langues du DLI, par thème et par niveau
+01d76356	Les mots que vous avez déjà du cours de base du DLI sont rangés dans les dossiers ICPT, sans être ajoutés deux fois
+d5702418	OPI blanc pour les étudiants du DLI : un entretien d'entraînement complet, avec un niveau estimé à la fin

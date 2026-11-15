@@ -9,6 +9,12 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.55.0",
+  "ICPT prep decks for DLI students in all seven DLI languages, by topic and level");
+notes("0.55.0",
+  "Words you already have from your DLI basic course are filed in the ICPT folders, not added twice");
+notes("0.55.0",
+  "Mock OPI for DLI students: a full practice interview, with an estimated level at the end");
 notes("0.54.0",
   "Conversation: practise speaking in the Library, with your own AI playing the other person");
 notes("0.54.0",

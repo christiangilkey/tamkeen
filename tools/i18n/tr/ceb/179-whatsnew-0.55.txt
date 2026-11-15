@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	Mga deck sa pagpangandam para sa ICPT alang sa mga estudyante sa DLI sa tanang pito ka pinulongan sa DLI, sumala sa topiko ug lebel
+01d76356	Ang mga pulong nga naa na nimo gikan sa basic course sa DLI ibutang sa mga folder sa ICPT, dili duhaon
+d5702418	Mock OPI alang sa mga estudyante sa DLI: usa ka tibuok praktis nga interbyu, nga adunay gibanabana nga lebel sa katapusan

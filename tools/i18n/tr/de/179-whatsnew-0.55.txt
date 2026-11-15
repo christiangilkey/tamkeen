@@ -1,0 +1,4 @@
+# What's new in 0.55.0 (web/js/whatsnew.js).
+b6268ce2	ICPT-Vorbereitungsdecks für DLI-Studierende in allen sieben DLI-Sprachen, nach Thema und Niveau
+01d76356	Wörter, die du schon aus dem DLI-Grundkurs hast, kommen in die ICPT-Ordner und nicht doppelt hinzu
+d5702418	Probe-OPI für DLI-Studierende: ein ganzes Übungsinterview mit einem geschätzten Niveau am Ende
