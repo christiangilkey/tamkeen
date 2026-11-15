@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	So schadest du dem Boss
+032ac179	Schaden diese Woche
+37793315	Was Schaden macht
+96fb7783	Jede richtige Antwort in einem Kampf oder beim Angeln zieht dem Boss 1 Gesundheit ab. Falsche Antworten bewirken nichts.
+eb52b135	Karteikarten-Wiederholungen zählen nicht: Kämpfe oder geh angeln (über die Startseite), um den Boss zu treffen.
+c934dbcc	Die Gesundheit des Bosses
+2637ddee	150 pro Gildenmitglied. Die Treffer jedes Mitglieds zählen höchstens bis 300, also braucht es alle.
+e1ae4e21	Die Belohnung
+1c8f13e8	Besiegt den Boss gemeinsam vor Montag: 150 XP und 20 Münzen für jeden, dann hier abholen. Am Montag kommt ein neuer Boss.

@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Come danneggiare il boss
+032ac179	Danni di questa settimana
+37793315	Cosa fa danni
+96fb7783	Ogni risposta giusta in una battaglia o mentre peschi toglie 1 alla salute del boss. Le risposte sbagliate non fanno nulla.
+eb52b135	I ripassi delle carte non contano: combatti o vai a pescare dalla Home per colpire il boss.
+c934dbcc	La salute del boss
+2637ddee	150 per ogni membro della gilda. I colpi di ciascun membro contano al massimo fino a 300, quindi servono tutti.
+e1ae4e21	La ricompensa
+1c8f13e8	Sconfiggete il boss insieme prima di lunedì per 150 XP e 20 monete a testa, poi riscuotetela qui. Lunedì arriva un nuovo boss.

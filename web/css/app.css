@@ -3317,7 +3317,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .fr-boss-text strong { font-size: 16px; }
 .fr-boss-text span { color: var(--muted); font-size: 14px; line-height: 1.4; }
 .fr-hp .cr-bar i { background: var(--alert); }
-.fr-parts { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; font-size: 14px; }
+.fr-parts { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 6px 12px; font-size: 14px; }
+.fr-part-place { color: var(--muted); font-variant-numeric: tabular-nums; text-align: center; display: inline-flex; justify-content: center; }
+.fr-part-name.me { font-weight: 700; }
+.fr-board-head { margin-top: 4px; }
+button.fr-boss { background: none; border: 0; padding: 0; margin: 0; color: inherit; font: inherit; text-align: start; cursor: pointer; width: 100%; }
+button.fr-boss:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
 .fr-part-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fr-part-n { font-variant-numeric: tabular-nums; text-align: end; }
 @media (prefers-reduced-motion: reduce) { .boss { animation: none; } }

@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Comment blesser le boss
+032ac179	Dégâts de la semaine
+37793315	Ce qui fait des dégâts
+96fb7783	Chaque bonne réponse en combat ou à la pêche retire 1 à la santé du boss. Les mauvaises réponses ne font rien.
+eb52b135	Les révisions de cartes ne comptent pas : combattez ou allez pêcher depuis l’Accueil pour frapper le boss.
+c934dbcc	La santé du boss
+2637ddee	150 par membre de la guilde. Les coups de chaque membre comptent jusqu’à 300 au plus : il faut donc tout le monde.
+e1ae4e21	La récompense
+1c8f13e8	Battez le boss ensemble avant lundi pour 150 XP et 20 pièces chacun, puis récupérez-la ici. Un nouveau boss arrive lundi.

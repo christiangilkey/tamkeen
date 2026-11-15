@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Cómo dañar al jefe
+032ac179	Daño de esta semana
+37793315	Qué hace daño
+96fb7783	Cada respuesta correcta en una batalla o pescando le quita 1 de salud al jefe. Las respuestas incorrectas no hacen nada.
+eb52b135	Los repasos de tarjetas no cuentan: lucha o ve a pescar desde Inicio para golpear al jefe.
+c934dbcc	La salud del jefe
+2637ddee	150 por cada miembro del gremio. Los golpes de cada miembro cuentan hasta 300 como máximo, así que hacen falta todos.
+e1ae4e21	La recompensa
+1c8f13e8	Venced al jefe juntos antes del lunes para ganar 150 XP y 20 monedas cada uno, y reclamadla aquí. El lunes llega un jefe nuevo.

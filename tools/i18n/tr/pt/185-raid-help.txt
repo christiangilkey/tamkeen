@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Como causar dano ao chefe
+032ac179	Dano desta semana
+37793315	O que causa dano
+96fb7783	Cada resposta certa numa batalha ou pescando tira 1 da saúde do chefe. Respostas erradas não fazem nada.
+eb52b135	Revisões de cartões não contam: lute ou vá pescar a partir do Início para acertar o chefe.
+c934dbcc	A saúde do chefe
+2637ddee	150 por membro da guilda. Os golpes de cada membro contam no máximo até 300, então é preciso todo mundo.
+e1ae4e21	A recompensa
+1c8f13e8	Derrotem o chefe juntos antes de segunda para ganhar 150 XP e 20 moedas cada um, e resgatem aqui. Na segunda chega um chefe novo.

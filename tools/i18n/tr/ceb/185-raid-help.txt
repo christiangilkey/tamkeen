@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Unsaon pagsamad sa boss
+032ac179	Samad karong semanaha
+37793315	Unsay makasamad
+96fb7783	Matag sakto nga tubag sa away o samtang nagpangisda mokuha og 1 sa kinabuhi sa boss. Ang sayop nga tubag walay epekto.
+eb52b135	Ang pagrepaso sa flashcard dili maihap: pakig-away o pangisda gikan sa Home aron maigo ang boss.
+c934dbcc	Kinabuhi sa boss
+2637ddee	150 matag miyembro sa guild. Ang mga igo sa matag miyembro maihap hangtod 300 lang, busa kinahanglan ang tanan.
+e1ae4e21	Ang ganti
+1c8f13e8	Pildiha ang boss nga magkauban sa dili pa Lunes para sa 150 XP ug 20 ka sensilyo matag usa, unya kuhaa dinhi. Usa ka bag-ong boss moabot sa Lunes.

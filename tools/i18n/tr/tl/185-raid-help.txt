@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Paano sasaktan ang boss
+032ac179	Pinsala ngayong linggo
+37793315	Ano ang nakapipinsala
+96fb7783	Bawat tamang sagot sa laban o habang nangingisda ay nagbabawas ng 1 sa buhay ng boss. Walang epekto ang maling sagot.
+eb52b135	Hindi bilang ang pagrepaso ng flashcard: lumaban o mangisda mula sa Home para tamaan ang boss.
+c934dbcc	Buhay ng boss
+2637ddee	150 bawat miyembro ng guild. Ang mga tama ng bawat miyembro ay bilang hanggang 300 lang, kaya kailangan ang lahat.
+e1ae4e21	Ang gantimpala
+1c8f13e8	Talunin ang boss nang magkakasama bago mag-Lunes para sa 150 XP at 20 barya bawat isa, saka kunin dito. May bagong boss sa Lunes.

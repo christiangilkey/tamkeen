@@ -15530,6 +15530,11 @@
   "f": "web/js/game/friends-game.js"
  },
  {
+  "id": "89fe94c1",
+  "k": "How to damage the boss",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
   "id": "d0753d11",
   "k": "Guild raid: {0}",
   "f": "web/js/game/friends-game.js"
@@ -15537,6 +15542,11 @@
  {
   "id": "17f11ae4",
   "k": "Defeated!",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "032ac179",
+  "k": "Damage this week",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -15567,6 +15577,41 @@
  {
   "id": "a2df9bd2",
   "k": "Join or found a guild (Friends tab) to take on the weekly raid boss together. This week: {0}.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "37793315",
+  "k": "What does damage",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "96fb7783",
+  "k": "Every right answer in a battle or while fishing takes 1 off the boss's health. Wrong answers do nothing.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "eb52b135",
+  "k": "Flashcard reviews don't count: battle or go fishing from Home to hit the boss.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "c934dbcc",
+  "k": "The boss's health",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "2637ddee",
+  "k": "150 for each member of the guild. Each member's hits count for at most 300, so it takes everyone.",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "e1ae4e21",
+  "k": "The reward",
+  "f": "web/js/game/friends-game.js"
+ },
+ {
+  "id": "1c8f13e8",
+  "k": "Beat the boss together before Monday for 150 XP and 20 coins each, then claim it here. A new boss arrives on Monday.",
   "f": "web/js/game/friends-game.js"
  },
  {

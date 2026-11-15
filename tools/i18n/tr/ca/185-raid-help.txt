@@ -1,0 +1,10 @@
+# How to damage a guild raid's boss, and its damage list (web/js/game/friends-game.js).
+89fe94c1	Com fer mal al cap
+032ac179	Mal d’aquesta setmana
+37793315	Què fa mal
+96fb7783	Cada resposta correcta en una batalla o pescant treu 1 de la salut del cap. Les respostes equivocades no fan res.
+eb52b135	Els repassos de targetes no compten: lluita o ves a pescar des de l’Inici per colpejar el cap.
+c934dbcc	La salut del cap
+2637ddee	150 per cada membre del gremi. Els cops de cada membre compten fins a 300 com a màxim, així que cal tothom.
+e1ae4e21	La recompensa
+1c8f13e8	Venceu el cap junts abans de dilluns i tindreu 150 XP i 20 monedes cadascú; després reclameu-la aquí. Un cap nou arriba dilluns.
