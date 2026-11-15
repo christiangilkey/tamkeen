@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** In Library → Courses, every word of a sentence can be tapped: in the Words course's example sentences, and in a grammar lesson's examples, conversation and corrected mistakes. A tap says the word and opens a small popup with what it means and a **Save** button that makes it a card, with the course sentence (the word marked) and its translation. **More** opens the full explanation. A tap elsewhere on a grammar example still says the whole sentence; the practice questions stay as they were, so nothing gives an answer away.
 - **Changed:** A Vocab folder now belongs to the language it was made in, and shows only while you are learning that language. Folders from before take the language most of their words are in; an empty old folder still shows in every language.
 ## v0.55.0 — 2026-11-15
 

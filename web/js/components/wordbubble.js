@@ -64,6 +64,7 @@ export function pauseSwitch(onChange) {
  *   onPlayWord: () => void, onPlaySentence: () => void, onPlayFrom: () => void,
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
+ *   noFrom?: boolean,    // no "Continue" button (there is nothing to go on playing: a course sentence)
  *   voiceless?: boolean, // a saved word gets no sound from here (YouTube, Netflix, a reel, a page, a book): while
  *                        // cards get no voice by themselves (cardvoice.js voicesOnSave), the popup shows
  *                        // "Add audio", which opens Settings → Card voices
@@ -346,7 +347,7 @@ export function createWordBubble(host, actions) {
         ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} <span class="wb-label">More</span></button>` : ""}
         ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again" aria-label="Phrase">${icon("sound", 15)} <span class="wb-label">Phrase</span></button>` : `<button type="button" data-act="word" title="Play this word again" aria-label="Word">${icon("sound", 15)} <span class="wb-label">Word</span></button>`}
         <button type="button" data-act="sentence" title="Play the whole sentence" aria-label="Sentence">${icon("sentence", 15)} <span class="wb-label">Sentence</span></button>`}
-        ${actions.noAudio || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
+        ${actions.noAudio || actions.noFrom || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
         <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
         ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices." aria-label="Add audio">${icon("mic", 15)} <span class="wb-label">Add audio</span></button>` : ""}
         ${unknownBtn ? unknownButton() : ""}
@@ -488,7 +489,9 @@ export function createWordBubble(host, actions) {
    *  `opts.host`: show it in this container from now on, instead of the one it was made in (a
    *  player with two transcripts shows it in the one the word was tapped in).
    *  `opts.docked`: it takes its place at the end of that container instead of floating by the
-   *  word (on a computer; a phone always shows it as a sheet). */
+   *  word (on a computer; a phone always shows it as a sheet).
+   *  `opts.quick`: true or false shows it short or full whatever the lookup switch says (a course word:
+   *  short, components/coursewords.js). */
   function show(anchorEl, context, opts = {}) {
     if (opts.host) host = opts.host;
     if (el.parentNode !== host) host.append(el);
@@ -501,7 +504,7 @@ export function createWordBubble(host, actions) {
     menuOpen = false;
     saved = !!opts.saved;
     unknownBtn = !context.phrase && opts.unknown ? { ...opts.unknown } : null;
-    quick = lookupMode() === "quick";
+    quick = typeof opts.quick === "boolean" ? opts.quick : lookupMode() === "quick";
     xpSlot.hidden = true;
     xpSlot.replaceChildren();
     xpSlot.wbAnchor = anchorEl; // (which word's reward goes in it)

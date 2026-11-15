@@ -3615,3 +3615,8 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cv-part p[hidden] { display: none; }
 .cv-next { margin: 0; padding-inline-start: 22px; display: grid; gap: 6px; }
 .cv-all summary { cursor: pointer; font-weight: 600; margin-bottom: 8px; }
+
+/* ----- Library → Courses: every word of a course sentence can be tapped (components/coursewords.js) ----- */
+.tw-root .tw { cursor: pointer; border-radius: 4px; }
+.tw-root .tw:hover { background: var(--sel-range); }
+.tw-root .tw.tw-on { background: var(--hl); color: var(--hl-ink); }

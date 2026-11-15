@@ -8694,3 +8694,23 @@ microphone.
 
 **Ideas not built.** A timer or a visible part name while the interview scrolls; the last few estimates as a small
 history; the interview's result sent to a DLI teacher (that would be a new shared number: the Teachers chat's area).
+
+## Courses: tap any word to hear it, see its meaning and save it (2026-11-15; forked chat)
+
+The owner: "clicked words in courses to be able to be added to vocab list as cards, tapping them plays the sound can
+also an small popup shows up displaying the word and its translation as well as a save button".
+- `web/js/components/coursewords.js`: `tappable(el, lang, {tr, source})` wraps each word of an element's text in a
+  `.tw` span (walking the text nodes, so a course sentence's highlighted word keeps its mark), with its offsets in the
+  element's text; `courseWords(box, {dialect, onSaved})` listens in the capture phase (so a word's tap doesn't also do
+  the sentence's: a grammar example would say the whole sentence) and opens the shared word popup in its short form
+  (`wordbubble.js` `show(..., {quick: true})`, new; and `noFrom`, new: no Continue button). Save posts the card with
+  the course sentence marked ⟦ ⟧ around the word, the course's translation of the sentence when the lookup gave none,
+  and the course (or "course · lesson") as its source; its voice comes from the card voice (`voiceNewCard`).
+- Wired into `coursepanel.js` (each word row's sentence; a saved word that is a course word shows as in the cards at
+  once) and `grammarpanel.js` (examples, the goal, conversation lines, the right form of a mistake, and the inline
+  words in the explanations; NOT the practice). The source deliberately isn't "course · word N": `markUpdates` and
+  `dialectOfCard` read that form as one of the course's own cards. The Arabic dialect of a saved word is then the one
+  chosen in Courses (`voiceplay.js cardDialect` falls back to it).
+- Checked in the preview: the Spanish Words course (a tap on "café" said it, showed "coffee", saved the card with
+  "El ⟦café⟧ está muy caliente." and "The coffee is very hot."), and the Spanish grammar lesson 1 (a word's tap opened
+  its popup and did not say the whole example; practice words not tappable). Not checked on a phone.
