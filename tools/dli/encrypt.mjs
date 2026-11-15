@@ -225,6 +225,9 @@ export async function packContent({ from = DEFAULT_FROM, out = DEFAULT_OUT, audi
       const path = join(folder, name);
       if (statSync(path).isDirectory()) {
         if (existsSync(join(path, "deck.json"))) { const k = await deck(path, code); if (k) items.push(k); continue; }
+        // A deck still being written (an ICPT deck's topic files, no deck.json yet), or a writer's scratch folder:
+        // not content. Left out until tools/dli/icpt_deck.mjs has made its deck.json.
+        if (/-(icpt|basic)$/.test(name) || /^[_.]|scratch|_work/i.test(name)) { result.notes.push(`${code}/${name}: no deck.json yet, left out`); continue; }
         const info = readPodcastIndex(path);
         if (info) { const p = await podcast(path, info, code); if (p) items.push(p); }
         else await walk(path, code, group ? `${group} / ${name}` : name, items);

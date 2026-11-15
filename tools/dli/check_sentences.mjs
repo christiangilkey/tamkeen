@@ -38,7 +38,8 @@ export function letters(text, lang) {
     t = t.replace(HARAKAT, "").replace(/ـ/gu, "").replace(/[إأآٱ]/gu, "ا").replace(/ى/gu, "ي").replace(/ی/gu, "ي")
       .replace(/ک/gu, "ك").replace(/ة/gu, "ه").replace(/[ؤئ]/gu, "ء").replace(/‌/gu, "");
   }
-  if (lang === "es") t = t.normalize("NFD").replace(/\p{M}/gu, "").normalize("NFC");
+  if (lang === "ru") t = t.replace(/ё/gu, "е"); // (the press often prints е for ё)
+  if (lang === "es" || lang === "fr") t = t.normalize("NFD").replace(/\p{M}/gu, "").normalize("NFC");
   return t.replace(/[^\p{L}\p{N}]/gu, "");
 }
 
@@ -50,7 +51,7 @@ export function looksLike(marked, word, lang) {
     const w = letters(c, lang);
     if (!w || !m) return false;
     if (m.includes(w) || w.includes(m)) return true;
-    if (lang === "es") return m.slice(0, 3) === w.slice(0, 3);
+    if (lang === "es" || lang === "fr" || lang === "ru") return m.slice(0, 3) === w.slice(0, 3);
     if (lang === "zh" || lang === "ko") return [...w].some((ch) => m.includes(ch));
     const need = new Set([...w].filter((ch) => !"اوي".includes(ch)));
     const have = [...need].filter((ch) => m.includes(ch)).length;
@@ -64,6 +65,8 @@ const SCRIPT = {
   zh: { need: /\p{Script=Han}/u, bad: /[A-Za-z̀-ͯ]|[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/u, what: "Chinese characters (no pinyin)" },
   ko: { need: /\p{Script=Hangul}/u, bad: /[A-Za-z]/u, what: "Hangul" },
   es: { need: /[a-záéíóúñü]/iu, bad: /[؀-ۿ\p{Script=Han}\p{Script=Hangul}]/u, what: "Spanish" },
+  fr: { need: /[a-zàâçéèêëîïôûùüÿœæ]/iu, bad: /[؀-ۿ\p{Script=Han}\p{Script=Hangul}\p{Script=Cyrillic}]/u, what: "French" },
+  ru: { need: /\p{Script=Cyrillic}/u, bad: /[A-Za-z؀-ۿ\p{Script=Han}\p{Script=Hangul}]/u, what: "Russian (Cyrillic, no Latin letters)" },
 };
 
 /** The problems of one entry: { errors: [], warnings: [] }. */
