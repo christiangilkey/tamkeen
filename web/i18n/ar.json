@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"تعذّر التحقق من نطقها هذه المرة.",
 "Only 1 keyword sounded close enough to show.":"كلمة مفتاحية واحدة فقط كانت قريبة بما يكفي في النطق لعرضها.",
 "Only {0} keywords sounded close enough to show.":"{0} كلمات مفتاحية فقط كانت قريبة بما يكفي في النطق لعرضها.",
+"These keywords were made by {0}.":"صنع {0} هذه الكلمات المفتاحية.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"لم يتمكن {0} من صنعها هذه المرة، فصنعها Tamkeen على هذا الجهاز.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"اخترت الذكاء الاصطناعي لصانع وسائل التذكّر، لكنه متوقف أو بلا مفتاح بعد، لذا وُجدت هذه على هذا الجهاز.",
 "Change it in Settings":"غيّره في الإعدادات",
 "Make 5 more":"اصنع 5 أخرى",

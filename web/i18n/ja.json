@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"今回は音を確かめられませんでした。",
 "Only 1 keyword sounded close enough to show.":"十分に近い音のキーワードは1つだけでした。",
 "Only {0} keywords sounded close enough to show.":"十分に近い音のキーワードは{0}つだけでした。",
+"These keywords were made by {0}.":"このキーワードは {0} が作りました。",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"今回は {0} が作れなかったので、Tamkeen がこの端末で作りました。",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"語呂合わせメーカーに AI を選んでいますが、AI がオフかキーがまだないため、これらはこの端末で見つけたものです。",
 "Change it in Settings":"設定で変更",
 "Make 5 more":"あと5つ作る",

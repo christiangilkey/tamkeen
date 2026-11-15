@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"Aquesta vegada no s'ha pogut comprovar com sonen.",
 "Only 1 keyword sounded close enough to show.":"Només 1 paraula clau sonava prou semblant per mostrar-la.",
 "Only {0} keywords sounded close enough to show.":"Només {0} paraules clau sonaven prou semblants per mostrar-les.",
+"These keywords were made by {0}.":"Aquestes paraules clau les ha fet {0}.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} no les ha pogut fer aquesta vegada, així que Tamkeen les ha fet en aquest dispositiu.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Has triat la IA per al Creador de mnemotècnies, però la IA està apagada o encara no té clau, així que aquestes s'han trobat en aquest dispositiu.",
 "Change it in Settings":"Canvia-ho a Configuració",
 "Make 5 more":"Fes-ne 5 més",

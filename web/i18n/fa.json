@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"این بار نشد صدایشان را بررسی کرد.",
 "Only 1 keyword sounded close enough to show.":"فقط ۱ کلیدواژه صدایش به اندازهٔ کافی نزدیک بود که نشان داده شود.",
 "Only {0} keywords sounded close enough to show.":"فقط {0} کلیدواژه صدایشان به اندازهٔ کافی نزدیک بود که نشان داده شوند.",
+"These keywords were made by {0}.":"این کلیدواژه‌ها را {0} ساخته است.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} این بار نتوانست آن‌ها را بسازد، پس Tamkeen آن‌ها را روی همین دستگاه ساخت.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"برای سازندهٔ یادیار هوش مصنوعی را انتخاب کرده‌ای، اما هوش مصنوعی خاموش است یا هنوز کلید ندارد، برای همین این‌ها روی همین دستگاه پیدا شدند.",
 "Change it in Settings":"در تنظیمات عوضش کن",
 "Make 5 more":"۵ تای دیگر بساز",

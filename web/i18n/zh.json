@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"这次无法检查它们的读音。",
 "Only 1 keyword sounded close enough to show.":"只有 1 个关键词的读音足够接近，可以显示。",
 "Only {0} keywords sounded close enough to show.":"只有 {0} 个关键词的读音足够接近，可以显示。",
+"These keywords were made by {0}.":"这些关键词由 {0} 生成。",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} 这次没能生成，所以 Tamkeen 在这台设备上生成了它们。",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"你为谐音助记生成器选了 AI，但 AI 已关闭或还没有密钥，所以这些是在本设备上找到的。",
 "Change it in Settings":"在设置中更改",
 "Make 5 more":"再生成 5 个",

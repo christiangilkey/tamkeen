@@ -1,0 +1,3 @@
+# The Mnemonic maker: who made the keywords, and the AI failing quietly (review/cardtools.js).
+7dd2b4a0	คีย์เวิร์ดเหล่านี้สร้างโดย {0}
+7cfc9bdb	ครั้งนี้ {0} สร้างไม่ได้ Tamkeen จึงสร้างให้บนอุปกรณ์นี้

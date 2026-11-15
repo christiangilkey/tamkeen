@@ -19,7 +19,8 @@ import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces,
 import { partBar } from "./partbar.js";
 import { cleanSel, graphemes, isWhole, litLine, selText } from "./wordpart.js";
 import { askMnemonic, definerConfig, noAi } from "../define-service.js";
-import { aiMakes, chosenSource } from "../helpersource.js";
+import { aiMakes, chosenSource, failureToShow, madeByName } from "../helpersource.js";
+import { PROVIDERS } from "../definer.js";
 import { checkOwnKeywords, freeMnemonics, wordCoreOf } from "../examples.js";
 import { kindName, leftOutLine, leftWordParts, soundCore } from "./wordcore.js";
 import { learn, writePrefs } from "./freemnemonic.js";
@@ -404,6 +405,7 @@ export function mnemonicHtml() {
       <p class="rv-mnemo-part" hidden></p></div>
     <p class="rv-mnemo-note" hidden></p>
     <p class="rv-mnemo-few" hidden></p>
+    <div class="rv-mnemo-src" hidden><span class="rv-mn-mark rv-mnemo-by" translate="no"></span></div>
     <ul class="rv-mnemo-list" hidden></ul>
   </div>`;
 }
@@ -570,6 +572,25 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       : n === 1 ? "Only 1 keyword sounded close enough to show." : n < MNEMONIC_COUNT ? `Only ${n} keywords sounded close enough to show.` : "");
     // AI chosen in Settings, but it can't be used (turned off, or no key): these came from the free maker, and the
     // card says so with the way to the setting, rather than quietly giving free ones.
+    // Who made this set (helpersource.js madeByName): "Tamkeen" for the free maker, else the AI's name.
+    const src = box.querySelector(".rv-mnemo-src");
+    if (src) {
+      const name = madeByName(st.source, PROVIDERS);
+      const by = src.querySelector(".rv-mnemo-by");
+      by.textContent = name;
+      by.title = t("These keywords were made by {0}.", name);
+      src.hidden = !all.length;
+    }
+    // The AI was tried and failed (a refused or expired key, quota, no connection, an answer that made no
+    // sense): Tamkeen's own maker made these instead, and a quiet line says so, with Troubleshoot.
+    if (st.aiFailed) {
+      const why = h(`<span class="rv-mnemo-ai-off"></span>`);
+      why.textContent = ` ${t("{0} couldn't make these this time, so Tamkeen made them on this device.", madeByName(st.aiFailed.provider, PROVIDERS))} `;
+      const fix = troubleshootButton(st.aiFailed.error);
+      if (fix) why.append(fix);
+      note.hidden = false;
+      note.append(why);
+    }
     if (st.aiMissing) {
       const why = h(`<span class="rv-mnemo-ai-off"></span>`);
       why.textContent = ` ${t("You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.")} `;
@@ -661,11 +682,12 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       const free = () => freeMnemonics(v, lang, { reading, avoid, speaks: uiLanguage(), prefs: settings.mnemonic_prefs, ownWords: own, core,
         part: part ? { shown: shownText, from: part.from, to: part.to } : null });
       const aiUsable = !noAi() && !!definerConfig().key;
-      let got, aiMissing = false;
+      let got, aiMissing = false, aiFailed = null, source = "free";
       if (!aiMakes(settings, "mnemonic", aiUsable)) {
         got = await free();
         aiMissing = chosenSource(settings, "mnemonic") === "ai" && !aiUsable;
       } else {
+        const provider = definerConfig().provider;
         try {
           got = await makeMnemonics(v, {
             ask: askMnemonic, study: studyName, speaks, avoid, reading: core.reading, core,
@@ -674,14 +696,18 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
             examples: own ? ownExamples(settings.mnemonic_prefs).filter((e) => e.word !== v.text) : [],
             partText: part ? part.sub : "",
           });
+          source = provider;
         } catch (e) {
-          if (!(e && e.message === "NO_KEY")) throw e;
-          got = await free();
-          aiMissing = true;
+          // Any failure of the AI (no key, a refused or expired one, quota, no connection, a bad answer): Tamkeen's
+          // own maker makes them instead, so the learner still gets keywords. A quiet line under them says the AI
+          // failed, with Troubleshoot (draw). Only if the free maker fails too is there an error.
+          try { got = await free(); } catch (freeError) { throw failureToShow(e, freeError); }
+          if (e && e.message === "NO_KEY") aiMissing = true;
+          else aiFailed = { provider, error: e };
         }
       }
       const st = { ...got, core: got.core || core, shown: [...shown, ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)], kept: before ? before.kept : new Set(),
-        partKey: part ? part.key : "", partSub: part ? part.sub : "", aiMissing };
+        partKey: part ? part.key : "", partSub: part ? part.sub : "", aiMissing, aiFailed, source };
       mnemonics.set(uid, st);
       if (go.isConnected) draw(st);
     } catch (e) {

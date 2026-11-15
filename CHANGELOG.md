@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** The **Mnemonic maker** no longer stops when your AI key fails (a refused or expired key, no credit left, no connection, or an answer that made no sense): Tamkeen's own maker, which needs no key, makes the keywords instead, with a quiet line under them saying the AI couldn't this time and a **Troubleshoot** button. Each set of keywords now shows who made it in a small pill: **Tamkeen**, or the AI's name (Claude, Gemini, OpenAI or Grok).
+
 ## v0.56.0 — 2026-11-15
 
 - **New:** **A pronunciation score.** With an Azure key (the same one as for card voices, Settings → Card voices, whichever voice you hear cards in), **Say it** on the flashcards and in the word editor also scores your attempt: a score out of 100 with accuracy, fluency and completeness, and the sentence with each word coloured green (said well), amber (nearly) or red (said wrongly, or left out). Tap a word to see its score and what was off, and to hear it said properly. Library → Conversation's **Say it yourself** gives the same score, and with an Azure key it no longer needs online transcription on the phones. Your attempt is sent to Azure to be scored and isn't kept. Azure checks Standard and Egyptian Arabic, Catalan, Chinese, English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish and Thai; the other languages, and the other Arabic dialects, keep Say it as before.

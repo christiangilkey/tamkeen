@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"ครั้งนี้ตรวจสอบการออกเสียงไม่ได้",
 "Only 1 keyword sounded close enough to show.":"มีคำหลักเพียง 1 คำที่ออกเสียงใกล้พอจะแสดง",
 "Only {0} keywords sounded close enough to show.":"มีคำหลักเพียง {0} คำที่ออกเสียงใกล้พอจะแสดง",
+"These keywords were made by {0}.":"คีย์เวิร์ดเหล่านี้สร้างโดย {0}",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"ครั้งนี้ {0} สร้างไม่ได้ Tamkeen จึงสร้างให้บนอุปกรณ์นี้",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"คุณเลือก AI สำหรับตัวช่วยจำ แต่ AI ปิดอยู่หรือยังไม่มีคีย์ คำเหล่านี้จึงหาบนอุปกรณ์นี้",
 "Change it in Settings":"เปลี่ยนในการตั้งค่า",
 "Make 5 more":"สร้างเพิ่มอีก 5 คำ",

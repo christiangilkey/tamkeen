@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"Questa volta non è stato possibile verificarne il suono.",
 "Only 1 keyword sounded close enough to show.":"Solo 1 parola chiave suonava abbastanza simile da mostrarla.",
 "Only {0} keywords sounded close enough to show.":"Solo {0} parole chiave suonavano abbastanza simili da mostrarle.",
+"These keywords were made by {0}.":"Queste parole chiave sono state create da {0}.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} non è riuscito a crearle questa volta, quindi Tamkeen le ha create su questo dispositivo.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Hai scelto l'IA per il Generatore di mnemotecniche, ma l'IA è spenta o non ha ancora una chiave, quindi queste sono state trovate su questo dispositivo.",
 "Change it in Settings":"Cambialo nelle Impostazioni",
 "Make 5 more":"Creane altre 5",

@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"На этот раз проверить звучание не удалось.",
 "Only 1 keyword sounded close enough to show.":"Достаточно похоже звучит только одно ключевое слово.",
 "Only {0} keywords sounded close enough to show.":"Достаточно похожих по звучанию ключевых слов: только {0}.",
+"These keywords were made by {0}.":"Эти ключевые слова создал {0}.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} не смог создать их в этот раз, поэтому Tamkeen создал их на этом устройстве.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Вы выбрали ИИ для генератора мнемоник, но ИИ выключен или ещё без ключа, поэтому эти слова найдены на этом устройстве.",
 "Change it in Settings":"Изменить в настройках",
 "Make 5 more":"Ещё 5",

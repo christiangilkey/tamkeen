@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"Wala ma-check ang ilang tingog karon.",
 "Only 1 keyword sounded close enough to show.":"Usa ra ka keyword ang igo nga kasingtunog aron ipakita.",
 "Only {0} keywords sounded close enough to show.":"{0} ra ka keyword ang igo nga kasingtunog aron ipakita.",
+"These keywords were made by {0}.":"Gihimo ni {0} kining mga keyword.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"Wala kini mahimo ni {0} karon, mao nga gihimo kini sa Tamkeen niining device.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Gipili nimo ang AI para sa Mnemonic maker, apan naka-off ang AI o wala pay key, mao nga kini nakit-an dinhi sa device.",
 "Change it in Settings":"Usba sa Settings",
 "Make 5 more":"Paghimo og 5 pa",

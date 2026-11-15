@@ -250,6 +250,9 @@ body.rv-open { overflow: hidden; }
 .rv-mnemo-core { font-size: 13px; line-height: 1.4; color: var(--muted); overflow-wrap: anywhere; }
 .rv-mnemo-note, .rv-mnemo-few { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); text-align: center; }
 .rv-mnemo-note.error { color: var(--danger); }
+/* who made the keywords below: "Tamkeen" or the AI's name (review/cardtools.js, helpersource.js madeByName) */
+.rv-mnemo-src { display: flex; justify-content: center; }
+.rv-mnemo-src .rv-mn-mark { background: var(--surface-2); color: var(--text); }
 .rv-mnemo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 .rv-mn { display: flex; flex-direction: column; gap: 5px; padding: 10px 8px 12px 14px; border-radius: 14px; background: var(--surface-2); }
 .rv-mn-top { display: flex; align-items: center; gap: 8px; }

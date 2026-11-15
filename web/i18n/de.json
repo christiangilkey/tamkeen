@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"Wie sie klingen, ließ sich diesmal nicht prüfen.",
 "Only 1 keyword sounded close enough to show.":"Nur 1 Schlüsselwort klang ähnlich genug, um es zu zeigen.",
 "Only {0} keywords sounded close enough to show.":"Nur {0} Schlüsselwörter klangen ähnlich genug, um sie zu zeigen.",
+"These keywords were made by {0}.":"Diese Schlüsselwörter stammen von {0}.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} konnte sie diesmal nicht erstellen, also hat Tamkeen sie auf diesem Gerät erstellt.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Du hast für den Eselsbrücken-Macher die KI gewählt, aber die KI ist aus oder hat noch keinen Schlüssel, darum wurden diese auf diesem Gerät gefunden.",
 "Change it in Settings":"In den Einstellungen ändern",
 "Make 5 more":"5 weitere machen",

@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"Leur son n'a pas pu être vérifié cette fois.",
 "Only 1 keyword sounded close enough to show.":"Seul 1 mot-clé sonnait assez proche pour être montré.",
 "Only {0} keywords sounded close enough to show.":"Seuls {0} mots-clés sonnaient assez proches pour être montrés.",
+"These keywords were made by {0}.":"Ces mots-clés ont été créés par {0}.",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} n'a pas pu les créer cette fois, alors Tamkeen les a créés sur cet appareil.",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"Tu as choisi l'IA pour le Créateur de mnémoniques, mais l'IA est désactivée ou n'a pas encore de clé, alors ceux-ci ont été trouvés sur cet appareil.",
 "Change it in Settings":"Le changer dans les Réglages",
 "Make 5 more":"En créer 5 de plus",

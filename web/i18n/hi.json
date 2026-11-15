@@ -4936,6 +4936,8 @@
 "Their sound couldn't be checked this time.":"इस बार इनकी आवाज़ जाँची नहीं जा सकी।",
 "Only 1 keyword sounded close enough to show.":"सिर्फ़ 1 कीवर्ड इतना मिलता-जुलता था कि दिखाया जा सके।",
 "Only {0} keywords sounded close enough to show.":"सिर्फ़ {0} कीवर्ड इतने मिलते-जुलते थे कि दिखाए जा सकें।",
+"These keywords were made by {0}.":"ये कीवर्ड {0} ने बनाए हैं।",
+"{0} couldn't make these this time, so Tamkeen made them on this device.":"{0} इस बार इन्हें नहीं बना सका, इसलिए Tamkeen ने इन्हें इसी डिवाइस पर बनाया।",
 "You chose AI for the Mnemonic maker, but AI is off or has no key yet, so these were found on this device.":"आपने याद-सहायक के लिए AI चुना है, पर AI बंद है या उसकी कुंजी अभी नहीं है, इसलिए ये इसी डिवाइस पर ढूँढे गए।",
 "Change it in Settings":"सेटिंग्स में बदलें",
 "Make 5 more":"5 और बनाएँ",
