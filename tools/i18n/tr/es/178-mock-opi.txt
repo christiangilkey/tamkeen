@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Calentamiento
+c74a9d6c	Cierre
+5a996bc8	Un juego de rol que se complica
+db18f205	Simulacro de OPI
+7ec6ca65	Una entrevista de práctica completa, en el orden de la real: calentamiento, comprobaciones de nivel, sondeos, un juego de rol y un cierre. Dura unos 15 minutos y termina con un nivel estimado y qué mejorar.
+e2dcf3ff	Condiciones de examen: sin pistas, sin significados y sin correcciones hasta el final.
+794194dd	La última vez: {0}
+aa6832ff	La entrevista
+c999d165	La entrevista ha terminado.
+6e6fd7cd	Ver tu resultado
+64c0dfd4	Juego de rol
+f8b49374	¿Terminar la entrevista ahora?
+23d697b0	Sin la entrevista completa no hay nivel estimado.
+02deb283	Terminarla
+ee6bcc9d	Nivel estimado
+b2c0a863	Una estimación de práctica, calculada a partir de una sola entrevista valorada por una IA. No es una calificación oficial.
+6ed5fc9f	Calculando tu resultado…
+360334a1	Tareas de nivel {0}: superadas
+5998ae67	Tareas de nivel {0}: superadas en parte
+7d4aa5a3	Tareas de nivel {0}: no superadas
+c1d79f30	Logrado a este nivel
+ed03c68d	En parte
+8de95fd5	Todavía no
+6992270d	No se llegó
+0b81b26d	La entrevista se terminó antes de tiempo, así que no hay estimación. Las partes que hiciste se valoran abajo.
+eb46bd16	Cómo fue cada parte
+8795fba4	Para llegar al siguiente nivel
+022ede44	Todas las correcciones
+f3721312	{0} de tus frases se podrían decir mejor
+f41d3aa0	Hasta el nivel 2
+3032d28e	Si estás entre 0+ y 2: hablar de ti con frases sencillas, luego contar, describir y un juego de rol que se complica.
+a9fa0f38	Hasta el nivel 3
+a7d1d7b2	Si estás entre 1+ y 3: contar e informar, un juego de rol que se complica, luego opinión, hipótesis y una idea.
+6e69e6fe	Comprobaciones de nivel
+6934b312	Sondeos
+ef1f9e84	Hablar de ti
+42243c9d	Hacer preguntas
+50e35548	Contar lo que pasó
+c6f5bb18	Describir o dar instrucciones
+48e5ff4a	Informar o describir
+57fa3f08	Defender una opinión
+6ccb6360	Decir qué pasaría si
+e55f0510	Hablar de una idea

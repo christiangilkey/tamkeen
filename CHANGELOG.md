@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** *(DLI)* **Mock OPI** in Library → Conversation, for DLI students while they study their DLI language: a whole practice interview in the order the real one goes (warm-up, level checks, probes, a role-play that goes wrong, wind-down), about 15 minutes, under test conditions: no hints, no meanings and no corrections until the end. There are two: **Up to Level 2** (if you are between 0+ and 2) and **Up to Level 3** (between 1+ and 3). The questions and the role-play are drawn afresh each time.
+- **New:** *(DLI)* After a mock OPI, an **estimated level** (0 to 3, with the plus levels) that the app works out itself from how each part went: the lower level's tasks must hold before the level above counts. With it come how each part went and why, what to practise to reach the next level, your best line, things to work on, and every correction from the interview in one list. It is a practice estimate, not an official rating. Everyone, DLI students included, still picks single conversations as before.
+
 ## v0.54.0 — 2026-11-14
 
 - **New:** **Conversation**, a new tab in the Library: practise speaking, with your own AI playing the other person. Pick one of 38 situations in five levels (Starter to Level 4, each with its CEFR and ILR level beside it), from ordering at a café to a missed flight, defending an opinion or saying a few words at a wedding. Each has three or four goals that are ticked as you get them done. What the other person knows (the next flight, the price, the Wi-Fi password) is chosen by the app anew every time, so you really have to find it out, and from Level 2 something goes wrong halfway through, as in a speaking test's role-play. It needs an AI key (Settings → Word definitions; Gemini has a free allowance).

@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Pagpainit
+c74a9d6c	Panapos
+5a996bc8	Role-play nga naay masayop
+db18f205	Mock OPI
+7ec6ca65	Usa ka tibuok nga interbyu nga pangpraktis, sa han-ay sa tinuod: pagpainit, mga pagsusi sa level, mga probe, usa ka role-play ug usa ka panapos. Mga 15 ka minuto kini ug matapos sa gibanabana nga level ug kung unsay angay pang bansayon.
+e2dcf3ff	Kondisyon sa eksamen: walay timaan, walay kahulogan ug walay koreksyon hangtod sa katapusan.
+794194dd	Sa miaging higayon: {0}
+aa6832ff	Ang interbyu
+c999d165	Human na ang interbyu.
+6e6fd7cd	Tan-awa ang imong resulta
+64c0dfd4	Role-play
+f8b49374	Tapuson na ang interbyu karon?
+23d697b0	Kung dili tibuok ang interbyu, walay gibanabana nga level.
+02deb283	Tapusa
+ee6bcc9d	Gibanabana nga level
+b2c0a863	Usa ka banabana nga pangpraktis, gikuwenta gikan sa usa ka interbyu nga gihukman sa AI. Dili kini opisyal nga marka.
+6ed5fc9f	Gikuwenta ang imong resulta…
+360334a1	Mga buluhaton sa level {0}: nakaya
+5998ae67	Mga buluhaton sa level {0}: nakaya sa bahin
+7d4aa5a3	Mga buluhaton sa level {0}: wala makaya
+c1d79f30	Nahimo niini nga level
+ed03c68d	Sa bahin
+8de95fd5	Wala pa
+6992270d	Wala maabot
+0b81b26d	Sayo nga gitapos ang interbyu, busa walay banabana. Ang mga bahin nga imong nahimo gihukman sa ubos.
+eb46bd16	Kumusta ang matag bahin
+8795fba4	Aron maabot ang sunod nga level
+022ede44	Tanang koreksyon
+f3721312	{0} sa imong mga linya ang mas maayo pa untang pagkasulti
+f41d3aa0	Hangtod sa Level 2
+3032d28e	Kung naa ka sa tunga sa 0+ ug 2: yano nga istorya bahin kanimo, dayon pag-asoy, paghulagway ug usa ka role-play nga naay masayop.
+a9fa0f38	Hangtod sa Level 3
+a7d1d7b2	Kung naa ka sa tunga sa 1+ ug 3: pag-asoy ug pagtaho, usa ka role-play nga naay masayop, dayon opinyon, pangagpas ug usa ka ideya.
+6e69e6fe	Mga pagsusi sa level
+6934b312	Mga probe
+ef1f9e84	Pagsulti bahin kanimo
+42243c9d	Pagpangutana
+50e35548	Pag-asoy sa nahitabo
+c6f5bb18	Paghulagway o paghatag og instruksyon
+48e5ff4a	Pagtaho o paghulagway
+57fa3f08	Pagdepensa og opinyon
+6ccb6360	Pagsulti kung unsay mahitabo kung
+e55f0510	Paghisgot og usa ka ideya

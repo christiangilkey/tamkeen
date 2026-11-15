@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Pampainit
+c74a9d6c	Pangwakas
+5a996bc8	Role-play na may nagkaproblema
+db18f205	Mock OPI
+7ec6ca65	Isang buong panayam na pang-ensayo, sa pagkakasunod-sunod ng totoo: pampainit, mga pagsusuri ng level, mga probe, isang role-play at isang pangwakas. Mga 15 minuto ito at nagtatapos sa tinatayang level at kung ano ang dapat pagbutihin.
+e2dcf3ff	Kondisyon ng pagsusulit: walang pahiwatig, walang kahulugan at walang pagwawasto hanggang sa dulo.
+794194dd	Noong huli: {0}
+aa6832ff	Ang panayam
+c999d165	Tapos na ang panayam.
+6e6fd7cd	Tingnan ang resulta mo
+64c0dfd4	Role-play
+f8b49374	Tapusin na ang panayam ngayon?
+23d697b0	Kung hindi buo ang panayam, walang tinatayang level.
+02deb283	Tapusin
+ee6bcc9d	Tinatayang level
+b2c0a863	Isang pagtatayang pang-ensayo, kinuwenta mula sa isang panayam na hinusgahan ng AI. Hindi ito opisyal na marka.
+6ed5fc9f	Kinukuwenta ang resulta mo…
+360334a1	Mga gawain sa level {0}: nakayanan
+5998ae67	Mga gawain sa level {0}: bahagyang nakayanan
+7d4aa5a3	Mga gawain sa level {0}: hindi nakayanan
+c1d79f30	Nagawa sa level na ito
+ed03c68d	Bahagya
+8de95fd5	Hindi pa
+6992270d	Hindi naabot
+0b81b26d	Maagang tinapos ang panayam, kaya walang pagtataya. Hinuhusgahan sa ibaba ang mga bahaging nagawa mo.
+eb46bd16	Kumusta ang bawat bahagi
+8795fba4	Para maabot ang susunod na level
+022ede44	Lahat ng pagwawasto
+f3721312	{0} sa mga linya mo ang puwedeng masabi nang mas mainam
+f41d3aa0	Hanggang Level 2
+3032d28e	Kung nasa pagitan ka ng 0+ at 2: simpleng usapan tungkol sa iyo, tapos pagkukuwento, paglalarawan at isang role-play na may nagkaproblema.
+a9fa0f38	Hanggang Level 3
+a7d1d7b2	Kung nasa pagitan ka ng 1+ at 3: pagkukuwento at pag-uulat, isang role-play na may nagkaproblema, tapos opinyon, haka-haka at isang ideya.
+6e69e6fe	Mga pagsusuri ng level
+6934b312	Mga probe
+ef1f9e84	Pagsasalita tungkol sa iyo
+42243c9d	Pagtatanong
+50e35548	Pagkukuwento ng nangyari
+c6f5bb18	Paglalarawan o pagbibigay ng panuto
+48e5ff4a	Pag-uulat o paglalarawan
+57fa3f08	Pagtatanggol ng opinyon
+6ccb6360	Pagsasabi kung ano ang mangyayari kung
+e55f0510	Pagtalakay sa isang ideya

@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Riscaldamento
+c74a9d6c	Chiusura
+5a996bc8	Un gioco di ruolo che si complica
+db18f205	Simulazione OPI
+7ec6ca65	Un colloquio di prova completo, nell'ordine di quello vero: riscaldamento, verifiche di livello, sondaggi, un gioco di ruolo e una chiusura. Dura circa 15 minuti e finisce con un livello stimato e su cosa lavorare.
+e2dcf3ff	Condizioni d'esame: niente suggerimenti, significati o correzioni fino alla fine.
+794194dd	L'ultima volta: {0}
+aa6832ff	Il colloquio
+c999d165	Il colloquio è finito.
+6e6fd7cd	Vedi il tuo risultato
+64c0dfd4	Gioco di ruolo
+f8b49374	Terminare il colloquio adesso?
+23d697b0	Senza il colloquio intero non c'è un livello stimato.
+02deb283	Termina
+ee6bcc9d	Livello stimato
+b2c0a863	Una stima di prova, calcolata da un solo colloquio valutato da un'IA. Non è una valutazione ufficiale.
+6ed5fc9f	Sto calcolando il tuo risultato…
+360334a1	Compiti di livello {0}: superati
+5998ae67	Compiti di livello {0}: superati in parte
+7d4aa5a3	Compiti di livello {0}: non superati
+c1d79f30	Riuscito a questo livello
+ed03c68d	In parte
+8de95fd5	Non ancora
+6992270d	Non raggiunto
+0b81b26d	Il colloquio è stato interrotto prima della fine, quindi non c'è una stima. Le parti che hai fatto sono valutate qui sotto.
+eb46bd16	Com'è andata ogni parte
+8795fba4	Per arrivare al livello successivo
+022ede44	Tutte le correzioni
+f3721312	{0} delle tue frasi si potevano dire meglio
+f41d3aa0	Fino al livello 2
+3032d28e	Se sei tra 0+ e 2: parlare di te con frasi semplici, poi raccontare, descrivere e un gioco di ruolo che si complica.
+a9fa0f38	Fino al livello 3
+a7d1d7b2	Se sei tra 1+ e 3: raccontare e riferire, un gioco di ruolo che si complica, poi opinione, ipotesi e un'idea.
+6e69e6fe	Verifiche di livello
+6934b312	Sondaggi
+ef1f9e84	Parlare di te
+42243c9d	Fare domande
+50e35548	Raccontare cos'è successo
+c6f5bb18	Descrivere o dare istruzioni
+48e5ff4a	Riferire o descrivere
+57fa3f08	Difendere un'opinione
+6ccb6360	Dire cosa succederebbe se
+e55f0510	Discutere un'idea

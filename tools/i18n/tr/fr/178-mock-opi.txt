@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Échauffement
+c74a9d6c	Retour au calme
+5a996bc8	Un jeu de rôle qui tourne mal
+db18f205	OPI blanc
+7ec6ca65	Un entretien d'entraînement complet, dans l'ordre du vrai : échauffement, vérifications de niveau, sondages, un jeu de rôle et un retour au calme. Il dure environ 15 minutes et se termine par un niveau estimé et ce qu'il faut travailler.
+e2dcf3ff	Conditions d'examen : ni indices, ni sens, ni corrections avant la fin.
+794194dd	La dernière fois : {0}
+aa6832ff	L'entretien
+c999d165	L'entretien est terminé.
+6e6fd7cd	Voir votre résultat
+64c0dfd4	Jeu de rôle
+f8b49374	Terminer l'entretien maintenant ?
+23d697b0	Sans l'entretien complet, il n'y a pas de niveau estimé.
+02deb283	Terminer
+ee6bcc9d	Niveau estimé
+b2c0a863	Une estimation d'entraînement, calculée à partir d'un seul entretien évalué par une IA. Ce n'est pas une note officielle.
+6ed5fc9f	Calcul de votre résultat…
+360334a1	Tâches de niveau {0} : tenues
+5998ae67	Tâches de niveau {0} : tenues en partie
+7d4aa5a3	Tâches de niveau {0} : non tenues
+c1d79f30	Réussi à ce niveau
+ed03c68d	En partie
+8de95fd5	Pas encore
+6992270d	Non atteint
+0b81b26d	L'entretien a été arrêté avant la fin : il n'y a donc pas d'estimation. Les parties que vous avez faites sont évaluées ci-dessous.
+eb46bd16	Comment s'est passée chaque partie
+8795fba4	Pour atteindre le niveau suivant
+022ede44	Toutes les corrections
+f3721312	{0} de vos répliques pourraient être mieux dites
+f41d3aa0	Jusqu'au niveau 2
+3032d28e	Si vous êtes entre 0+ et 2 : parler de vous simplement, puis raconter, décrire et un jeu de rôle qui tourne mal.
+a9fa0f38	Jusqu'au niveau 3
+a7d1d7b2	Si vous êtes entre 1+ et 3 : raconter et rapporter, un jeu de rôle qui tourne mal, puis opinion, hypothèse et une idée.
+6e69e6fe	Vérifications de niveau
+6934b312	Sondages
+ef1f9e84	Parler de vous
+42243c9d	Poser des questions
+50e35548	Raconter ce qui s'est passé
+c6f5bb18	Décrire ou donner des instructions
+48e5ff4a	Rapporter ou décrire
+57fa3f08	Défendre une opinion
+6ccb6360	Dire ce qui se passerait si
+e55f0510	Discuter d'une idée

@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Aufwärmen
+c74a9d6c	Ausklang
+5a996bc8	Ein Rollenspiel, das schiefgeht
+db18f205	Probe-OPI
+7ec6ca65	Ein ganzes Übungsinterview in der Reihenfolge des echten: Aufwärmen, Stufenchecks, Sondierungen, ein Rollenspiel und ein Ausklang. Es dauert etwa 15 Minuten und endet mit einer geschätzten Stufe und dem, woran du arbeiten solltest.
+e2dcf3ff	Prüfungsbedingungen: keine Tipps, keine Bedeutungen und keine Korrekturen bis zum Ende.
+794194dd	Letztes Mal: {0}
+aa6832ff	Das Interview
+c999d165	Das Interview ist vorbei.
+6e6fd7cd	Dein Ergebnis ansehen
+64c0dfd4	Rollenspiel
+f8b49374	Das Interview jetzt beenden?
+23d697b0	Ohne das ganze Interview gibt es keine geschätzte Stufe.
+02deb283	Beenden
+ee6bcc9d	Geschätzte Stufe
+b2c0a863	Eine Übungsschätzung, errechnet aus einem einzigen Interview, das eine KI beurteilt hat. Sie ist keine offizielle Bewertung.
+6ed5fc9f	Dein Ergebnis wird errechnet …
+360334a1	Aufgaben der Stufe {0}: gehalten
+5998ae67	Aufgaben der Stufe {0}: teilweise gehalten
+7d4aa5a3	Aufgaben der Stufe {0}: nicht gehalten
+c1d79f30	Auf dieser Stufe geschafft
+ed03c68d	Teilweise
+8de95fd5	Noch nicht
+6992270d	Nicht erreicht
+0b81b26d	Das Interview wurde vorzeitig beendet, deshalb gibt es keine Schätzung. Die Teile, die du gemacht hast, werden unten beurteilt.
+eb46bd16	Wie jeder Teil lief
+8795fba4	Um die nächste Stufe zu erreichen
+022ede44	Alle Korrekturen
+f3721312	{0} deiner Sätze ließen sich besser sagen
+f41d3aa0	Bis Stufe 2
+3032d28e	Wenn du zwischen 0+ und 2 bist: einfaches Reden über dich, dann erzählen, beschreiben und ein Rollenspiel, das schiefgeht.
+a9fa0f38	Bis Stufe 3
+a7d1d7b2	Wenn du zwischen 1+ und 3 bist: erzählen und berichten, ein Rollenspiel, das schiefgeht, dann Meinung, Hypothese und eine Idee.
+6e69e6fe	Stufenchecks
+6934b312	Sondierungen
+ef1f9e84	Über dich sprechen
+42243c9d	Fragen stellen
+50e35548	Erzählen, was passiert ist
+c6f5bb18	Beschreiben oder anleiten
+48e5ff4a	Berichten oder beschreiben
+57fa3f08	Eine Meinung verteidigen
+6ccb6360	Sagen, was wäre, wenn
+e55f0510	Über eine Idee sprechen

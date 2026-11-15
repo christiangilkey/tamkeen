@@ -58,3 +58,8 @@ Farsi
 # game/luck.js: the chances column of the Luck sheet, beside "1 in {0}"
 never
 every time
+# conversedata.js, the mock interview: two of its stages (a word with a hyphen is not taken for interface) and the name
+# of the part kept under the key "role" (a value after a key called role is taken for code).
+Warm-up
+Wind-down
+A role-play that goes wrong

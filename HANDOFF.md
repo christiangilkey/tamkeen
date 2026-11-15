@@ -8641,3 +8641,56 @@ rating; links from the debrief to the matching grammar lesson; pixel-art charact
 pronunciation scoring; XP or a reward roll for a finished conversation (needs an event in `game/rules.js`, within
 the reward rules); the results synced between devices (they are in `localStorage` `converseDone` only); and the
 teacher side.
+
+## Conversation: a mock OPI for DLI students (2026-11-14, after v0.54.0; forked chat; NOT yet tried with a real AI)
+
+**What the owner asked for** (his words, after v0.54.0 went out): "have the mock OPI option for dli users, other users
+will be able to just pick scenarios as well as the DLI students". So the list of conversations is unchanged for
+everyone, and DLI students get one more card on top of it.
+
+**Who sees it.** `conversepanel.js isDli`: `dli.js dliState` says ready (the DLI box ticked and the password
+entered) AND the DLI language is the one being learned: the same test as the Library's DLI tab (`dlipanel.js
+dliShown`). It does NOT ask for the sharing step of DLI classes (`dliclass.js gate`); say so if the owner wants it
+behind that too.
+
+**What it is.** Two interviews, each a fixed order of parts (converse.js `MOCK`):
+- "Up to Level 2" (form `2`): warm-up · checks at Level 1 (talking about yourself, asking questions) · probes at
+  Level 2 (telling what happened, describing or instructing, a role-play with a complication) · wind-down. It can say
+  0, 0+, 1, 1+ or 2.
+- "Up to Level 3" (form `3`): warm-up · checks at Level 2 (telling, reporting or describing, and the role-play) ·
+  probes at Level 3 (opinion with pushback, hypothesis, an abstract idea or an explanation) · wind-down. It can say 1,
+  1+, 2, 2+ or 3.
+The questions come from the same pools as the single conversations, and the role-play is one of nine Level 2
+situations (`MOCK_ROLES`), with its facts chosen by the app and its complication brought in on the second message.
+When the role-play begins the candidate gets the situation on a card in their own language, as in the real interview.
+
+**The rules the app keeps.**
+- *The order.* `mockNext` decides, before each candidate message is sent, whether the interviewer moves on: when the AI
+  said it had heard enough in this part (`enough`) and the part's least number of messages is reached, or at its most.
+  A message that was no real attempt doesn't use the part up, but two such messages over the most move it on anyway.
+  The AI never chooses the next part and is told the next part's instruction only at that moment.
+- *Test conditions.* In an interview the screen shows no hint button, no meanings, no tappable words and no
+  corrections. The corrections each answer carries are kept on the turns and shown together after it (`corrections`).
+- *The level.* `ratingPrompt` asks only for yes / partly / no on each part that counts (and the parts the candidate
+  never reached are not asked about); `mockLevel` does the rest. A group of tasks is "held" at a mean of 0.8 or more
+  (yes = 1, partly = 0.5), "partly held" from 0.4. Checks not held → the level below the base (0 or 1); partly → that
+  with a plus (0+ or 1+); held → the base, base+ or the reach level, by the probes. An interview ended early gives no
+  estimate. The last estimate of each form is kept in `localStorage converseMock` and shown on its button.
+
+**Files.** `web/js/converse.js` (the last part: `newMock`, `mockNext`, `mockOpeningPrompt`, `mockTurnPrompt`,
+`applyMockTurn`, `ratingPrompt`, `cleanRating`, `mockLevel`, `corrections`) · `web/js/conversedata.js`
+(`MOCK_FORMS`, `MOCK_PHASES`, `MOCK_PARTS`: what the screen says) · `web/js/components/conversepanel.js` (the
+card in the list, `startMock`, the talk screen's `mock` branches, `showRating`; the debrief's shared pieces are now
+`sayAgain`, `section` and `bestAndFixes`) · styles at the end of `web/css/app.css` · translations in
+`tools/i18n/tr/*/178-mock-opi.txt` (three labels the collector would skip are in `tools/i18n/extra.txt`).
+
+**Tested.** `tests/js/converse.test.mjs` (6 more: the two plans, the walk through an interview message by message,
+low-effort messages, what the interviewer is told and when, the level table, the tidying of a rating). In the preview
+on a test folder set up as a DLI student of Spanish, with stand-in AI answers: a whole "Up to Level 2" interview
+(stages ticking, the role-play card, the end) and its result (1+ from checks held and probes partly held).
+**Not tested:** a real AI provider, so how well a model keeps to one part at a time, how strict its yes / partly / no
+is, and whether 0.8 and 0.4 are the right lines are all still to be seen with real interviews; a phone; a real
+microphone.
+
+**Ideas not built.** A timer or a visible part name while the interview scrolls; the last few estimates as a small
+history; the interview's result sent to a DLI teacher (that would be a new shared number: the Teachers chat's area).

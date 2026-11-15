@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Aquecimento
+c74a9d6c	Encerramento
+5a996bc8	Uma encenação que se complica
+db18f205	Simulado de OPI
+7ec6ca65	Uma entrevista de prática completa, na ordem da de verdade: aquecimento, verificações de nível, sondagens, uma encenação e um encerramento. Leva uns 15 minutos e termina com um nível estimado e o que melhorar.
+e2dcf3ff	Condições de prova: sem dicas, sem significados e sem correções até o fim.
+794194dd	Da última vez: {0}
+aa6832ff	A entrevista
+c999d165	A entrevista acabou.
+6e6fd7cd	Ver seu resultado
+64c0dfd4	Encenação
+f8b49374	Encerrar a entrevista agora?
+23d697b0	Sem a entrevista inteira não há nível estimado.
+02deb283	Encerrar
+ee6bcc9d	Nível estimado
+b2c0a863	Uma estimativa de prática, calculada a partir de uma única entrevista avaliada por uma IA. Não é uma nota oficial.
+6ed5fc9f	Calculando seu resultado…
+360334a1	Tarefas de nível {0}: cumpridas
+5998ae67	Tarefas de nível {0}: cumpridas em parte
+7d4aa5a3	Tarefas de nível {0}: não cumpridas
+c1d79f30	Feito neste nível
+ed03c68d	Em parte
+8de95fd5	Ainda não
+6992270d	Não chegou lá
+0b81b26d	A entrevista foi encerrada antes do fim, então não há estimativa. As partes que você fez são avaliadas abaixo.
+eb46bd16	Como foi cada parte
+8795fba4	Para chegar ao próximo nível
+022ede44	Todas as correções
+f3721312	{0} das suas frases poderiam ser ditas melhor
+f41d3aa0	Até o nível 2
+3032d28e	Se você está entre 0+ e 2: falar de você com frases simples, depois contar, descrever e uma encenação que se complica.
+a9fa0f38	Até o nível 3
+a7d1d7b2	Se você está entre 1+ e 3: contar e relatar, uma encenação que se complica, depois opinião, hipótese e uma ideia.
+6e69e6fe	Verificações de nível
+6934b312	Sondagens
+ef1f9e84	Falar de você
+42243c9d	Fazer perguntas
+50e35548	Contar o que aconteceu
+c6f5bb18	Descrever ou dar instruções
+48e5ff4a	Relatar ou descrever
+57fa3f08	Defender uma opinião
+6ccb6360	Dizer o que aconteceria se
+e55f0510	Discutir uma ideia

@@ -15,6 +15,8 @@
 //   - One request per message, one for a hint, one for the debrief at the end. All through the learner's own
 //     AI key (define-service.js askAi).
 //
+// For DLI students there is also a whole mock interview (the last part of this file).
+//
 // Nothing in this file is shown to the learner as it is written (it is all instructions), so tools/i18n
 // leaves the file out.
 
@@ -508,6 +510,333 @@ export function closeness(heard, target, lang) {
   }
   return { score: table[0][0] / b.length, missed };
 }
+
+// ================================================================== the mock interview (DLI students)
+// A whole practice interview in the order a real oral proficiency interview goes: a warm-up, level checks
+// (tasks at the level the candidate should hold), probes (tasks one level up, to find where they break
+// down), a role-play, and a wind-down. As everywhere in this file, the app keeps the structure: it knows
+// which part the interview is in, decides when to move on (the AI only says when it has heard enough),
+// brings in the role-play's complication, and works out the level itself from the judgement of each part
+// (mockLevel). The AI is never asked "what level is this person?".
+// Test conditions: the screen shows no hints, meanings or corrections until the end (the corrections each
+// answer carries are kept for the review).
+//
+// Two interviews. "2": holds Level 1, reaches for Level 2 (it can say 0, 0+, 1, 1+ or 2).
+// "3": holds Level 2, reaches for Level 3 (1, 1+, 2, 2+ or 3).
+// A part: `kind` "warmup" | "check" | "probe" | "roleplay" | "winddown"; `counts`: which group a role-play
+// is judged with; `min` / `max`: how many candidate messages it lasts; `ask`: what the interviewer does
+// ({a|b} chosen per run, [[pool]] a question drawn from that conversation's pool); `judge`: what doing the
+// task at that level means. Names for the screen are in conversedata.js (MOCK_PARTS, by id).
+const WARM = { id: "warm", kind: "warmup", min: 1, max: 2,
+  ask: "Greet the candidate, put them at ease, and ask one or two easy questions: how they are, where they are from." };
+const WIND = { id: "wind", kind: "winddown", min: 1, max: 1,
+  ask: "Bring the level right down: thank the candidate and ask one easy, pleasant question, such as their plans for this evening or the weekend." };
+const STORY = { id: "story", level: "2", min: 2, max: 3,
+  ask: "Ask the candidate to tell you in detail about {what they did last weekend|a trip they took|a day they will never forget}. Then follow up on one moment: what happened next, and why.",
+  judge: "narrates in the past in connected, paragraph-length speech with a clear order of events, understandable to a native speaker who is not used to foreigners" };
+const ROLE = { id: "role", kind: "roleplay", level: "2", min: 3, max: 5,
+  judge: "gets the situation sorted out in the role-play: explains the problem, deals with the complication, and reaches a workable outcome politely" };
+const MOCK = {
+  2: { base: "1", reach: "2", parts: [
+    WARM,
+    { id: "you", kind: "check", level: "1", min: 2, max: 3,
+      ask: "Ask simple questions about {their family|their work or studies|an ordinary day of theirs|their free time}: who, what, where, when.",
+      judge: "answers simple questions about themselves in full sentences a patient listener understands, without each question having to be repeated" },
+    { id: "ask", kind: "check", level: "1", min: 2, max: 4,
+      ask: "Tell the candidate that {you are planning to visit their home town|you have just moved to their neighbourhood|you are thinking of taking up their favourite pastime} and invite them to ask YOU three or four questions about it. Answer each briefly, then wait for the next.",
+      judge: "asks several clear, different questions and shows they understood the answers" },
+    { ...STORY, kind: "probe" },
+    { id: "detail", kind: "probe", level: "2", min: 2, max: 3,
+      ask: "{Ask the candidate to describe their home in detail, room by room|Ask the candidate to explain, step by step, how to prepare a dish they know well|Ask the candidate to explain exactly how to get from the airport to their home}. Ask about one thing that was not clear.",
+      judge: "describes or gives instructions in connected, ordered, paragraph-length speech, with enough detail to picture it or follow it" },
+    { ...ROLE, counts: "probe" },
+    WIND,
+  ] },
+  3: { base: "2", reach: "3", parts: [
+    WARM,
+    { ...STORY, kind: "check" },
+    { id: "report", kind: "check", level: "2", min: 2, max: 3,
+      ask: "{Ask the candidate to tell you about something that was in the news this week: what exactly happened|Ask the candidate to describe a person who influenced them|Ask the candidate to explain, step by step, how something in their work or studies is done}. Ask one follow-up for more detail.",
+      judge: "reports facts, describes or explains in connected, paragraph-length speech, in the right time frames" },
+    { id: "opinion", kind: "probe", level: "3", min: 2, max: 3,
+      ask: "Put this question to the candidate and ask where they stand: [[opinion]] After their answer, disagree politely once and see whether they can hold and develop their position.",
+      judge: "states and supports an opinion on a matter of public interest in extended, organised speech (reasons, an example, an answer to the other side), speaking about the issue and not only about themselves, with errors that rarely get in the way" },
+    { id: "suppose", kind: "probe", level: "3", min: 2, max: 3,
+      ask: "Put this question to the candidate: [[suppose]] Then ask what that would lead to.",
+      judge: "hypothesises in extended speech, keeping the conditional forms under control and following the consequences" },
+    { id: "idea", kind: "probe", level: "3", min: 2, max: 3,
+      ask: "Put this question to the candidate: [[abstract|explain]] Keep them on the idea itself with one follow-up.",
+      judge: "discusses an abstract idea, or explains something complicated, in extended, organised speech with precise words" },
+    { ...ROLE, counts: "check" },
+    WIND,
+  ] },
+};
+// The role-plays a mock interview draws from: Level 2 situations with a complication, the candidate asking.
+const MOCK_ROLES = ["flight", "luggage", "nocash", "faulty", "phone", "conference", "accident", "borrowed", "dinner"];
+const pick = (list, rand) => list[Math.min(list.length - 1, Math.floor(rand() * list.length))];
+
+/** The two interviews' ids. */
+export const MOCK_IDS = Object.keys(MOCK);
+
+/**
+ * A new mock interview, "2" or "3": its questions and its role-play are chosen now. Null for another id.
+ * `talk.parts[n]`: {id, kind, group ("check" | "probe" | ""), level, min, max, ask, judge}, and for the
+ * role-play `scene` (the scenario's id: its situation is shown to the candidate), `who`, `facts`, `twist`, `yield`.
+ */
+export function newMock(form, { lang, variety = "", explain = "English", rand = Math.random } = {}) {
+  const plan = MOCK[form];
+  if (!plan) return null;
+  const parts = plan.parts.map((p) => {
+    const part = { id: p.id, kind: p.kind, group: p.kind === "roleplay" ? p.counts : p.kind === "check" || p.kind === "probe" ? p.kind : "",
+      level: p.level || "", min: p.min, max: p.max, judge: p.judge || "" };
+    if (p.kind === "roleplay") {
+      const scene = pick(MOCK_ROLES, rand), play = PLAY[scene];
+      return { ...part, scene, who: choose(play.who, rand), facts: (play.facts || []).map((f) => choose(f, rand)),
+        twist: play.twist || "", yield: play.yield || "", ask: "" };
+    }
+    const ask = choose(p.ask.replace(/\[\[([a-z|]+)\]\]/g, (all, names) => pick(PLAY[pick(names.split("|"), rand)].pool, rand)), rand);
+    return { ...part, ask };
+  });
+  return { mock: form, base: plan.base, reach: plan.reach, lang, variety, explain, parts,
+    at: 0,            // the part the interview is in
+    saidHere: 0,      // the candidate's real attempts in this part so far
+    triedHere: 0,     // all their messages in this part (one that was no real attempt doesn't use the part up, within limits)
+    enough: false,    // the interviewer has heard enough in this part
+    twistGiven: false,
+    turns: [],        // {who: "partner", text, meaning, part} | {who: "you", text, fix, note, effort, off, part}
+    ended: false };
+}
+
+/** The part the interview is in. */
+export const mockPart = (talk) => talk.parts[talk.at];
+
+/**
+ * What the app decides before the candidate's next message is sent: {advance, final, twist}. `advance`:
+ * the interviewer rounds this part off and opens the next one. `final`: it was the last part, so they
+ * say goodbye. `twist`: the role-play's complication comes with this reply (from its second message).
+ */
+export function mockNext(talk) {
+  const part = mockPart(talk), n = talk.saidHere + 1;
+  const waiting = part.kind === "roleplay" && !!part.twist && !talk.twistGiven; // its complication is still to come
+  const over = n >= part.max || talk.triedHere + 1 >= part.max + 2 || (talk.enough && n >= part.min && !waiting);
+  const last = talk.at === talk.parts.length - 1;
+  return { advance: over && !last, final: over && last, twist: !over && waiting && n >= 2 };
+}
+
+export const MOCK_TURN_SCHEMA = {
+  type: "object",
+  properties: {
+    reply: { type: "string", description: "Your next line as the interviewer (or, in the role-play, in your role), in the language of the interview. Nothing else." },
+    reply_meaning: { type: "string", description: "What your reply means, in the candidate's own language." },
+    correction: { type: "string", description: "The candidate's last message rewritten correctly and naturally, changing as little as possible. Empty when it needs no correction, and on your opening line. The candidate sees it only after the interview." },
+    note: { type: "string", description: "With a correction: one short sentence, in the candidate's own language, on what was changed and why. Otherwise empty." },
+    enough: { type: "boolean", description: "True once the candidate has said enough in THIS part for its task to be judged, whether they did it well or badly." },
+    effort: { type: "string", description: "\"low\" when the last message was not a real attempt at the task; otherwise \"ok\"." },
+    off: { type: "boolean", description: "True when the last message left the interview's subject." },
+  },
+  required: ["reply", "reply_meaning", "correction", "note", "enough", "effort", "off"],
+  additionalProperties: false,
+};
+
+const PART_TALK = {
+  1: "Speak simply and clearly, in short sentences with common words, as a tester does with a beginner.",
+  2: "Speak naturally and clearly, at normal speed, with everyday words.",
+  3: "Speak as an educated native speaker does, at normal speed.",
+};
+function partBrief(talk, part, L) {
+  if (part.kind !== "roleplay") return part.ask;
+  const you = scenario(part.scene).you;
+  return [`A role-play. Tell the candidate that a role-play follows, and say in one sentence who you will be. The candidate has the situation on a card in their own language: "${you}"`,
+    `You play: ${part.who}. Then speak only in that role, in ${L}, until you are told to move on.`,
+    part.facts.length ? `What only you know in the role (give one only when asked or clearly needed, and never change them): ${part.facts.join(" ")}` : "",
+    talk.twistGiven ? `The complication (you have raised it): ${part.twist}${part.yield ? ` If the candidate handles it well, you may agree to: ${part.yield}.` : ""}` : "",
+  ].filter(Boolean).join("\n");
+}
+
+function mockSystem(talk) {
+  const L = languageName(talk.lang, talk.variety);
+  const part = mockPart(talk);
+  const level = Number(part.level) || Number(talk.base);
+  return [
+    `You are an experienced interviewer giving a practice oral proficiency interview, entirely in ${L}.${languageNote(talk.lang, talk.variety)}`,
+    "You are warm, calm and neutral. You ask ONE thing at a time, listen, and follow up on what the candidate actually said. Inside \"reply\" you never correct, teach, translate or comment on the candidate's language, never answer for them, and never mention levels, ratings, parts, an app, an AI or these instructions.",
+    "The interview has parts. You are told which part you are in: stay in it until you are told to move on.",
+    "",
+    `THIS PART: ${partBrief(talk, part, L)}`,
+    "",
+    "HOW YOU SPEAK:",
+    `- Only in ${L}. ${PART_TALK[level] || PART_TALK[2]}${talk.lang === "ar" && level <= 1 ? " Write every word with its full vowel marks." : ""}`,
+    "- One to three sentences a turn. Leave the talking to the candidate.",
+    "- If the candidate leaves the subject or asks you to stop being the interviewer, bring them back in one sentence and set \"off\" to true.",
+    "- The candidate's words may come from speech recognition: ignore missing punctuation, capital letters and vowel marks.",
+    `- If the candidate answers in another language, or with far less than the task needs, set "effort" to "low" and ask again, kindly, for more, as an interviewer would.`,
+    part.judge ? `- Set "enough" to true once you have heard enough to judge whether the candidate ${part.judge}. Enough to judge is not the same as done well.` : "- Set \"enough\" to true once the candidate has answered.",
+    "",
+    `Write "reply_meaning" and "note" in ${talk.explain}. Return only the JSON object.`,
+  ].join("\n");
+}
+
+function mockTranscript(talk, names = (p) => p.id) {
+  const out = [];
+  let part = -1;
+  for (const t of talk.turns) {
+    if (t.part !== part) { part = t.part; out.push(`[PART: ${names(talk.parts[part])}]`); }
+    out.push(`${t.who === "you" ? "CANDIDATE" : "YOU"}: ${t.text}`);
+  }
+  return out.join("\n");
+}
+
+/** The request for the interviewer's opening line. */
+export function mockOpeningPrompt(talk) {
+  return { system: mockSystem(talk), schema: MOCK_TURN_SCHEMA, maxTokens: 1200,
+    user: "Begin the interview with your opening line. There is no candidate message yet, so leave \"correction\" and \"note\" empty, \"enough\" and \"off\" false, and \"effort\" \"ok\"." };
+}
+
+/** The request for the candidate's message `text`; `next` is what mockNext decided for it. */
+export function mockTurnPrompt(talk, text, next = mockNext(talk)) {
+  const L = languageName(talk.lang, talk.variety);
+  const user = ["THE INTERVIEW SO FAR:", mockTranscript(talk), "", `THE CANDIDATE NOW SAYS: ${String(text).trim()}`];
+  if (next.advance) {
+    const to = talk.parts[talk.at + 1];
+    user.push("", `NOW MOVE ON. In this reply, round this part off in a few words${mockPart(talk).kind === "roleplay" ? " (step out of your role first)" : ""} and begin the next part.`,
+      `THE NEXT PART: ${partBrief({ ...talk, twistGiven: false }, to, L)}`);
+  } else if (next.final) {
+    user.push("", "THAT WAS THE LAST PART. Thank the candidate warmly and say goodbye: the interview is over. Ask nothing more.");
+  } else if (next.twist) {
+    user.push("", `NOW: after answering what they said, bring this in with your reply, naturally and in your role: ${mockPart(talk).twist}`);
+  }
+  return { system: mockSystem(talk), user: user.join("\n"), schema: MOCK_TURN_SCHEMA, maxTokens: 1500 };
+}
+
+function cleanMockTurn(answer, talk, candidateText = "") {
+  const a = cleanTurn({ ...(answer && typeof answer === "object" ? answer : {}), done: [], end: false }, { goals: [] }, candidateText);
+  return { reply: a.reply, meaning: a.meaning, correction: a.correction, note: a.note, effort: a.effort, off: a.off,
+    enough: !!candidateText && !!answer && answer.enough === true };
+}
+
+/** Add the interviewer's opening line. */
+export function applyMockOpening(talk, answer) {
+  const a = cleanMockTurn(answer, talk);
+  talk.turns.push({ who: "partner", text: a.reply, meaning: a.meaning, part: talk.at });
+  return a;
+}
+
+/**
+ * Add the candidate's message and the answer to it. `next` must be what mockNext said before the request
+ * was made. Returns the tidied answer with `moved` (a new part began: its index) and `ended`.
+ */
+export function applyMockTurn(talk, candidateText, answer, next) {
+  const a = cleanMockTurn(answer, talk, candidateText);
+  talk.turns.push({ who: "you", text: String(candidateText).trim(), fix: a.correction, note: a.note, effort: a.effort, off: a.off, part: talk.at });
+  let moved = -1;
+  if (next.advance) {
+    talk.at += 1;
+    talk.saidHere = 0;
+    talk.triedHere = 0;
+    talk.enough = false;
+    moved = talk.at;
+  } else {
+    // (A message that was no real attempt doesn't use up the part: the interviewer asks again. mockNext
+    // still moves on after two such messages too many.)
+    talk.triedHere += 1;
+    if (a.effort !== "low" && !a.off) talk.saidHere += 1;
+    talk.enough = talk.enough || a.enough;
+    if (next.twist) talk.twistGiven = true;
+    if (next.final) talk.ended = true;
+  }
+  talk.turns.push({ who: "partner", text: a.reply, meaning: a.meaning, part: talk.at });
+  return { ...a, moved, ended: talk.ended };
+}
+
+/** The parts that count towards the level, in order. */
+export const ratedParts = (talk) => talk.parts.filter((p) => p.group);
+/** Did the candidate say anything in this part? */
+const spokeIn = (talk, part) => talk.turns.some((t) => t.who === "you" && talk.parts[t.part] === part);
+
+// ----- the rating: the AI judges each part; the app works out the level -----
+const LEVEL_SAYS = {
+  1: "Level 1: asks and answers simple questions on familiar subjects and gets through everyday needs, in sentences; a patient listener understands.",
+  2: "Level 2: narrates and describes in past, present and future, gives instructions and reports facts in connected paragraphs, and handles an everyday situation that goes wrong; a native speaker not used to foreigners understands without effort.",
+  3: "Level 3: supports opinions, hypothesises and discusses abstract subjects in extended, organised speech, and handles unfamiliar or formal situations; errors rarely disturb the listener.",
+};
+const rated = { type: "object", properties: { id: str, result: str, evidence: str }, required: ["id", "result", "evidence"], additionalProperties: false };
+export const RATING_SCHEMA = {
+  type: "object",
+  properties: {
+    parts: { type: "array", items: rated, description: "One entry for each part listed: id, result (\"yes\", \"partly\" or \"no\"), evidence (one sentence in the candidate's own language, pointing to what they said)." },
+    summary: { type: "string", description: "Two sentences in the candidate's own language: what held up, and what broke down." },
+    next: { type: "array", items: str, description: "Up to three concrete things to practise to reach the next level, in the candidate's own language, the most important first." },
+    best: { type: "string", description: "The candidate's best line, copied exactly. Empty if there is none." },
+    best_why: { type: "string", description: "One sentence in the candidate's own language on why it is good." },
+    fixes: { type: "array", items: fix, description: "Up to three mistakes that repeat or that would confuse a listener: point (a short label in the candidate's own language), said (the candidate's line, copied exactly), better (it said well, in the interview's language), why (one sentence in the candidate's own language)." },
+  },
+  required: ["parts", "summary", "next", "best", "best_why", "fixes"],
+  additionalProperties: false,
+};
+
+/** The request for the rating of a mock interview (finished, or ended early). */
+export function ratingPrompt(talk) {
+  const L = languageName(talk.lang, talk.variety);
+  const parts = ratedParts(talk).filter((p) => spokeIn(talk, p));
+  const sys = [
+    `You are an experienced, fair rater of oral proficiency interviews. Below is a practice interview in ${L}, in parts.`,
+    "For each part listed, judge whether the candidate did that part's task at its level: \"yes\" (clearly, and kept it up), \"partly\" (attempted, with real gaps: too short, broke down, hard to follow, or errors that often get in the way) or \"no\". Judge what was said, not what the candidate might be able to do. A single good sentence does not carry a task that needs a paragraph. Typing and speech-recognition slips (punctuation, spelling of names, missing vowel marks) do not count.",
+    [...new Set(parts.map((p) => p.level))].sort().map((l) => LEVEL_SAYS[l]).join("\n"),
+    "THE PARTS TO JUDGE:",
+    ...parts.map((p) => `- ${p.id} (Level ${p.level}): the candidate ${p.judge}.`),
+    `Quote the candidate exactly. Never invent a mistake: an empty "fixes" list is a good answer. Write "evidence", "summary", "next", "best_why", "point" and "why" in ${talk.explain}; "better" in ${L}.${languageNote(talk.lang, talk.variety)} Return only the JSON object.`,
+  ].join("\n");
+  return { system: sys, user: `THE INTERVIEW:\n${mockTranscript(talk).replace(/^YOU:/gm, "INTERVIEWER:")}`, schema: RATING_SCHEMA, maxTokens: 3000 };
+}
+
+const GROUP_STATE = (results) => {
+  if (!results.length) return { score: 0, state: "none" };
+  const score = results.reduce((n, r) => n + (r === "yes" ? 1 : r === "partly" ? 0.5 : 0), 0) / results.length;
+  return { score, state: score >= 0.8 ? "held" : score >= 0.4 ? "partly" : "not" };
+};
+const BELOW = { 1: ["0", "0+"], 2: ["1", "1+"] }; // base level -> [not held, partly held]
+
+/**
+ * The level a mock interview points to, worked out by the app from each part's result ({id: "yes" |
+ * "partly" | "no"}): the base level's tasks must hold before the level above counts, and a level is
+ * "held" when its tasks were done on average at least four times in five. "" while a part that counts
+ * has not been reached (an interview ended early gives no estimate).
+ */
+export function mockLevel(talk, results) {
+  const parts = ratedParts(talk);
+  const of = (group) => GROUP_STATE(parts.filter((p) => p.group === group).map((p) => results[p.id] || "no"));
+  const check = of("check"), probe = of("probe");
+  const complete = talk.ended || parts.every((p) => spokeIn(talk, p));
+  let level = "";
+  if (complete) {
+    if (check.state === "not") level = BELOW[talk.base][0];
+    else if (check.state === "partly") level = BELOW[talk.base][1];
+    else level = probe.state === "held" ? talk.reach : probe.state === "partly" ? `${talk.base}+` : talk.base;
+  }
+  return { level, check, probe, complete };
+}
+
+/** The rating, tidied: every part that counts gets a result ("no" when the AI left it out or it was never
+ * reached), quotes that are not the candidate's own lines are dropped, and the level is the app's. */
+export function cleanRating(answer, talk) {
+  const a = answer && typeof answer === "object" ? answer : {};
+  const given = new Map((Array.isArray(a.parts) ? a.parts : []).map((p) => [text(p && p.id), p]));
+  const results = {};
+  const parts = ratedParts(talk).map((p) => {
+    const g = given.get(p.id) || {};
+    const reached = spokeIn(talk, p);
+    const r = text(g.result).toLowerCase();
+    const result = !reached ? "none" : ["yes", "partly", "no"].includes(r) ? r : "no";
+    if (reached) results[p.id] = result;
+    return { id: p.id, group: p.group, level: p.level, result, evidence: reached ? text(g.evidence) : "" };
+  });
+  const d = cleanDebrief({ ...a, reached: "", culture: "", phrases: [] }, talk);
+  return { parts, ...mockLevel(talk, results), summary: d.summary, best: d.best, bestWhy: d.bestWhy, fixes: d.fixes,
+    next: (Array.isArray(a.next) ? a.next : []).map(text).filter(Boolean).slice(0, 3) };
+}
+
+/** Every line of the candidate's that came back with a correction, in order: [{said, better, note}]. */
+export const corrections = (talk) => talk.turns.filter((t) => t.who === "you" && t.fix).map((t) => ({ said: t.text, better: t.fix, note: t.note }));
 
 // ----- what has been done, kept on this device -----
 /** The record after a conversation: the best number of goals reached for each one, and how many times it

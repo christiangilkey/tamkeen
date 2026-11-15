@@ -375,6 +375,21 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "fb1869bf",
+  "k": "Warm-up",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "c74a9d6c",
+  "k": "Wind-down",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
+  "id": "5a996bc8",
+  "k": "A role-play that goes wrong",
+  "f": "tools/i18n/extra.txt"
+ },
+ {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"
@@ -3410,6 +3425,46 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
+  "id": "b9ed77d5",
+  "k": "Say it yourself",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "0773bec6",
+  "k": "Heard",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "24962f78",
+  "k": "That's it.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "5332f191",
+  "k": "Not quite yet. Listen once more, then say it again.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "1a1afed0",
+  "k": "Your best line",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "dd49414b",
+  "k": "Work on",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "f105abd5",
+  "k": "You said",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "303cfd6e",
+  "k": "Better",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
   "id": "a47c21fe",
   "k": "Practise speaking with someone who never tires. Pick a situation, get things done in it, and see what to work on.",
   "f": "web/js/components/conversepanel.js"
@@ -3427,6 +3482,26 @@
  {
   "id": "0d7e6609",
   "k": "Which Arabic to speak",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "db18f205",
+  "k": "Mock OPI",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7ec6ca65",
+  "k": "A whole practice interview, in the order the real one goes: a warm-up, level checks, probes, a role-play and a wind-down. It takes about 15 minutes and ends with an estimated level and what to work on.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "e2dcf3ff",
+  "k": "Test conditions: no hints, no meanings and no corrections until the end.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "794194dd",
+  "k": "Last time: {0}",
   "f": "web/js/components/conversepanel.js"
  },
  {
@@ -3485,6 +3560,21 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
+  "id": "aa6832ff",
+  "k": "The interview",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c999d165",
+  "k": "The interview is over.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "6e6fd7cd",
+  "k": "See your result",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
   "id": "b50909dc",
   "k": "Type or say your reply",
   "f": "web/js/components/conversepanel.js"
@@ -3525,11 +3615,6 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
-  "id": "303cfd6e",
-  "k": "Better",
-  "f": "web/js/components/conversepanel.js"
- },
- {
   "id": "01e62568",
   "k": "These lines aren't read out: this device has no voice for this language yet. Press a speaker button to see how to add one.",
   "f": "web/js/components/conversepanel.js"
@@ -3542,6 +3627,11 @@
  {
   "id": "dff63549",
   "k": "Listening to you…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "64c0dfd4",
+  "k": "Role-play",
   "f": "web/js/components/conversepanel.js"
  },
  {
@@ -3630,6 +3720,21 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
+  "id": "f8b49374",
+  "k": "End the interview now?",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "23d697b0",
+  "k": "Without the whole interview there is no estimated level.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "02deb283",
+  "k": "End it",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
   "id": "c41206ac",
   "k": "goals reached",
   "f": "web/js/components/conversepanel.js"
@@ -3665,21 +3770,6 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
-  "id": "1a1afed0",
-  "k": "Your best line",
-  "f": "web/js/components/conversepanel.js"
- },
- {
-  "id": "dd49414b",
-  "k": "Work on",
-  "f": "web/js/components/conversepanel.js"
- },
- {
-  "id": "f105abd5",
-  "k": "You said",
-  "f": "web/js/components/conversepanel.js"
- },
- {
   "id": "5ad49da6",
   "k": "Nothing stood out to fix. Try the same thing at the next level.",
   "f": "web/js/components/conversepanel.js"
@@ -3695,28 +3785,83 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
-  "id": "b9ed77d5",
-  "k": "Say it yourself",
-  "f": "web/js/components/conversepanel.js"
- },
- {
-  "id": "0773bec6",
-  "k": "Heard",
-  "f": "web/js/components/conversepanel.js"
- },
- {
-  "id": "24962f78",
-  "k": "That's it.",
-  "f": "web/js/components/conversepanel.js"
- },
- {
-  "id": "5332f191",
-  "k": "Not quite yet. Listen once more, then say it again.",
-  "f": "web/js/components/conversepanel.js"
- },
- {
   "id": "c0ae8f6e",
   "k": "Saved",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "ee6bcc9d",
+  "k": "Estimated level",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b2c0a863",
+  "k": "A practice estimate, worked out from one interview judged by an AI. It is not an official rating.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "6ed5fc9f",
+  "k": "Working out your result…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "360334a1",
+  "k": "Level {0} tasks: held",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "5998ae67",
+  "k": "Level {0} tasks: partly held",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7d4aa5a3",
+  "k": "Level {0} tasks: not held",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c1d79f30",
+  "k": "Done at this level",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "ed03c68d",
+  "k": "Partly",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "8de95fd5",
+  "k": "Not yet",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "6992270d",
+  "k": "Not reached",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "0b81b26d",
+  "k": "The interview was ended early, so there is no estimate. The parts you did are judged below.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "eb46bd16",
+  "k": "How each part went",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "8795fba4",
+  "k": "To reach the next level",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "022ede44",
+  "k": "Every correction",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "f3721312",
+  "k": "{0} of your lines could be said better",
   "f": "web/js/components/conversepanel.js"
  },
  {
@@ -10422,6 +10567,76 @@
  {
   "id": "91a3856c",
   "k": "Say whether you agree, and why",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f41d3aa0",
+  "k": "Up to Level 2",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "3032d28e",
+  "k": "If you are between 0+ and 2: simple talk about yourself, then telling, describing and a role-play that goes wrong.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a9fa0f38",
+  "k": "Up to Level 3",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a7d1d7b2",
+  "k": "If you are between 1+ and 3: telling and reporting, a role-play that goes wrong, then opinion, hypothesis and an idea.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6e69e6fe",
+  "k": "Level checks",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6934b312",
+  "k": "Probes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ef1f9e84",
+  "k": "Talking about yourself",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "42243c9d",
+  "k": "Asking questions",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "50e35548",
+  "k": "Telling what happened",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c6f5bb18",
+  "k": "Describing or giving instructions",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "48e5ff4a",
+  "k": "Reporting or describing",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "57fa3f08",
+  "k": "Defending an opinion",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6ccb6360",
+  "k": "Saying what would happen if",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e55f0510",
+  "k": "Discussing an idea",
   "f": "web/js/conversedata.js"
  },
  {

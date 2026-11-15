@@ -1,0 +1,44 @@
+# Library → Conversation: the mock interview for DLI students (web/js/conversedata.js, web/js/components/conversepanel.js).
+fb1869bf	Escalfament
+c74a9d6c	Tancament
+5a996bc8	Un joc de rol que es complica
+db18f205	Simulacre d'OPI
+7ec6ca65	Una entrevista de pràctica sencera, en l'ordre de la real: escalfament, comprovacions de nivell, sondejos, un joc de rol i un tancament. Dura uns 15 minuts i acaba amb un nivell estimat i què cal millorar.
+e2dcf3ff	Condicions d'examen: sense pistes, sense significats i sense correccions fins al final.
+794194dd	L'última vegada: {0}
+aa6832ff	L'entrevista
+c999d165	L'entrevista s'ha acabat.
+6e6fd7cd	Veure el teu resultat
+64c0dfd4	Joc de rol
+f8b49374	Vols acabar l'entrevista ara?
+23d697b0	Sense l'entrevista sencera no hi ha nivell estimat.
+02deb283	Acaba-la
+ee6bcc9d	Nivell estimat
+b2c0a863	Una estimació de pràctica, calculada a partir d'una sola entrevista valorada per una IA. No és una qualificació oficial.
+6ed5fc9f	Calculant el teu resultat…
+360334a1	Tasques de nivell {0}: superades
+5998ae67	Tasques de nivell {0}: superades en part
+7d4aa5a3	Tasques de nivell {0}: no superades
+c1d79f30	Assolit en aquest nivell
+ed03c68d	En part
+8de95fd5	Encara no
+6992270d	No s'hi ha arribat
+0b81b26d	L'entrevista s'ha acabat abans d'hora, així que no hi ha estimació. Les parts que has fet es valoren a sota.
+eb46bd16	Com ha anat cada part
+8795fba4	Per arribar al nivell següent
+022ede44	Totes les correccions
+f3721312	{0} de les teves frases es podrien dir millor
+f41d3aa0	Fins al nivell 2
+3032d28e	Si ets entre 0+ i 2: parlar de tu amb frases senzilles, després explicar, descriure i un joc de rol que es complica.
+a9fa0f38	Fins al nivell 3
+a7d1d7b2	Si ets entre 1+ i 3: explicar i informar, un joc de rol que es complica, després opinió, hipòtesi i una idea.
+6e69e6fe	Comprovacions de nivell
+6934b312	Sondejos
+ef1f9e84	Parlar de tu
+42243c9d	Fer preguntes
+50e35548	Explicar què va passar
+c6f5bb18	Descriure o donar instruccions
+48e5ff4a	Informar o descriure
+57fa3f08	Defensar una opinió
+6ccb6360	Dir què passaria si
+e55f0510	Parlar d'una idea

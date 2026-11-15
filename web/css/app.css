@@ -3475,7 +3475,7 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .cv-levels button.on { background: var(--surface); color: var(--text); }
 .cv-about { text-align: center; color: var(--muted); margin: 0 0 12px; }
 .cv-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
-.cv-card { display: flex; align-items: center; gap: 12px; text-align: start; padding: 12px 14px; min-height: 64px; border-radius: var(--radius);
+.cv-card { display: flex; align-items: center; gap: 12px; text-align: start; white-space: normal; padding: 12px 14px; min-height: 64px; border-radius: var(--radius);
   background: var(--surface); border: 1px solid var(--border); }
 .cv-card-ic { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); color: var(--accent); }
 .cv-card-text { flex: 1; min-width: 0; display: grid; }
@@ -3577,3 +3577,41 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cv-verdict.ok { color: var(--accent); }
 .cv-keep { margin-inline-start: auto; }
 .cv-again { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 18px 0 8px; }
+
+/* ----- the mock interview (DLI students): its card in the list, its stages, the role-play's card, the result ----- */
+.cv-mock { display: grid; gap: 8px; padding: 14px 16px; margin: 0 0 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.cv-mock[hidden] { display: none; }
+.cv-mock p { margin: 0; }
+.cv-mock-head { display: flex; align-items: center; gap: 12px; }
+.cv-mock-head > div { display: grid; }
+.cv-mock-head strong { font-size: 17px; }
+.cv-mock-forms { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 10px; margin-top: 4px; }
+/* (A button keeps its words on one line and centres them: these hold a sentence, so they wrap and start at the edge.) */
+.cv-mock-form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; justify-items: start; align-content: start; text-align: start; white-space: normal;
+  padding: 10px 14px; border-radius: var(--radius); background: var(--surface-2); border: 1px solid var(--border); }
+.cv-mock-form strong { font-size: 15px; }
+.cv-mock-last { font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.cv-mock-last:empty { display: none; }
+.cv-phases { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.cv-phases li { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+.cv-phases li.now { color: var(--text); font-weight: 650; }
+.cv-phases li.now .cv-tick { border-color: var(--accent); }
+.cv-phases li.on .cv-tick { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.cv-rolecard { justify-self: center; width: min(100%, 520px); padding: 10px 14px; border-radius: var(--radius); border: 1px dashed var(--accent); background: var(--surface); text-align: center; }
+.cv-rolecard strong { display: block; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); }
+.cv-rolecard p { margin: 4px 0 0; }
+.cv-rating .cv-result-n span { order: -1; }
+.cv-groups { margin: 0; text-align: center; font-weight: 600; }
+.cv-groups[hidden] { display: none; }
+.cv-rate-note { margin: 0; text-align: center; max-width: 52ch; }
+.cv-part { padding: 10px 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); margin-bottom: 8px; }
+.cv-part-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.cv-part-head strong { flex: 1 1 auto; }
+.cv-part-mark { font-weight: 700; color: var(--muted); }
+.cv-part.yes .cv-part-mark { color: var(--accent); }
+.cv-part.partly .cv-part-mark { color: var(--warn); }
+.cv-part.no .cv-part-mark { color: var(--danger); }
+.cv-part p { margin: 4px 0 0; }
+.cv-part p[hidden] { display: none; }
+.cv-next { margin: 0; padding-inline-start: 22px; display: grid; gap: 6px; }
+.cv-all summary { cursor: pointer; font-weight: 600; margin-bottom: 8px; }
