@@ -15,7 +15,7 @@ import { openModal } from "../components/modal.js";
 import { icon } from "../icons.js";
 import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
-import { battleFriend, publishNow } from "../game/friends-game.js";
+import { battleFriend, homeRaids, publishNow } from "../game/friends-game.js";
 import { lastStreak } from "../review/flame.js";
 import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
@@ -610,6 +610,14 @@ export async function render(view) {
         sec.append(row);
       }
       out.append(sec);
+
+      // Under the guilds: each guild's raid, the same block as on Home and the Battle screen (the owner: "Guild raids
+      // should show up in the guilds tab aswell"). Loaded on its own; shown once there is something in it.
+      if (gameOn() && gs.guilds.length) {
+        const raids = h(`<div class="guild-raids" hidden></div>`);
+        out.append(raids);
+        homeRaids(raids).catch(() => {});
+      }
     }
   }
 

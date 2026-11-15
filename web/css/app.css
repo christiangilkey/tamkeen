@@ -3653,3 +3653,5 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .pron-score { font-weight: 700; color: var(--muted); }
 .pron-say { justify-self: start; }
 .cv-heard .pron-result { margin: 6px 0 0; }
+/* Friends → Guilds: each guild's raid under the list (pages/friends.js). */
+.guild-raids { display: grid; gap: 12px; margin-top: 12px; }

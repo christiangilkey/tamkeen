@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Friends → Guilds now shows each guild's raid under your guilds (the boss, how much of it is left, who has hit it, and Claim once it is down), as on Home.
 - **Improved:** The **Mnemonic maker** no longer stops when your AI key fails (a refused or expired key, no credit left, no connection, or an answer that made no sense): Tamkeen's own maker, which needs no key, makes the keywords instead, with a quiet line under them saying the AI couldn't this time and a **Troubleshoot** button. Each set of keywords now shows who made it in a small pill: **Tamkeen**, or the AI's name (Claude, Gemini, OpenAI or Grok).
 
 ## v0.56.0 — 2026-11-15
