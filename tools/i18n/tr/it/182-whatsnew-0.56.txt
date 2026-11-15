@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Fissa un obiettivo a lungo termine: una barra mostra a che punto sei e il ritmo che serve ancora, anche dopo i giorni saltati
+6cd52e0b	Un calendario dei ripassi: un quadrato per giorno, più scuro quante più carte hai risposto
+0c10d54d	La barra del tempo delle carte ora è una serie di velocità, con bonus di +10 s
+ed5a8eb0	Strumenti di ricerca nella pagina Vocabolario: folder:, is:due, reviewed:7 e altro
+e9c01d34	Un punteggio di pronuncia per Dilla e Conversazione, con una chiave Azure
+d6b267d1	Tocca qualsiasi parola di un corso per sentirla, vedere cosa significa e salvarla
+bf2ab534	Le cartelle del vocabolario compaiono solo nella lingua in cui sono state create

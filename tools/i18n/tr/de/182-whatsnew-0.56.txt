@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Setz dir ein langfristiges Ziel: Ein Balken zeigt, wie weit du bist und welches Tempo noch nötig ist, auch nach verpassten Tagen
+6cd52e0b	Ein Wiederholungskalender: ein Feld pro Tag, dunkler, je mehr Karten du beantwortet hast
+0c10d54d	Die Zeitleiste der Karteikarten ist jetzt eine Tempo-Serie, mit +10-s-Zeitboosts
+ed5a8eb0	Suchwerkzeuge auf der Vokabelseite: folder:, is:due, reviewed:7 und mehr
+e9c01d34	Eine Ausspracheauswertung für Aussprechen und Gespräch, mit einem Azure-Schlüssel
+d6b267d1	Tippe auf ein beliebiges Wort in einem Kurs, um es zu hören, seine Bedeutung zu sehen und es zu speichern
+bf2ab534	Vokabelordner erscheinen nur in der Sprache, in der sie angelegt wurden

@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Magtakda ng pangmatagalang layunin: ipinapakita ng bar kung nasaan ka na at ang bilis na kailangan pa, kahit may nalaktawang araw
+6cd52e0b	Kalendaryo ng pagrepaso: isang kahon bawat araw, mas madilim kapag mas maraming card ang sinagot
+0c10d54d	Ang time bar ng flashcard ay isa nang speed streak, may +10 s na dagdag na oras
+ed5a8eb0	Mga kasangkapan sa paghahanap sa pahina ng Vocab: folder:, is:due, reviewed:7 at iba pa
+e9c01d34	Iskor sa pagbigkas para sa Bigkasin ito at Usapan, gamit ang Azure key
+d6b267d1	I-tap ang anumang salita sa kurso para marinig, makita ang kahulugan at i-save
+bf2ab534	Ang mga folder ng vocab ay lumalabas lang sa wikang pinaggawan ng mga ito

@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Fixa un objectiu a llarg termini: una barra mostra on ets i el ritme que cal, fins i tot després de dies perduts
+6cd52e0b	Un calendari de repassos: un quadrat per dia, més fosc com més targetes has respost
+0c10d54d	La barra de temps de les targetes ara és una ratxa de velocitat, amb impulsos de +10 s
+ed5a8eb0	Eines de cerca a la pàgina de Vocabulari: folder:, is:due, reviewed:7 i més
+e9c01d34	Una puntuació de pronunciació per a Digues-la i Conversa, amb una clau d’Azure
+d6b267d1	Toca qualsevol paraula d’un curs per sentir-la, veure què vol dir i desar-la
+bf2ab534	Les carpetes de vocabulari només surten a la llengua en què es van crear

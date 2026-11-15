@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Pagbutang og dugay nga tumong: ang bar magpakita kung asa ka na ug ang kadali nga gikinahanglan, bisan human sa nalaktawan nga mga adlaw
+6cd52e0b	Kalendaryo sa pagrepaso: usa ka kahon matag adlaw, mas ngitngit kon daghan kag gitubag nga kard
+0c10d54d	Ang time bar sa flashcard usa na ka speed streak, nga adunay +10 s nga dugang oras
+ed5a8eb0	Mga himan sa pagpangita sa panid sa Vocab: folder:, is:due, reviewed:7 ug uban pa
+e9c01d34	Iskor sa paglitok para sa Isulti ug sa Panag-istoryahanay, gamit ang Azure key
+d6b267d1	Tuploka ang bisan unsang pulong sa kurso aron madungog, makita ang kahulogan ug ma-save
+bf2ab534	Ang mga folder sa vocab makita ra sa pinulongan diin kini gihimo

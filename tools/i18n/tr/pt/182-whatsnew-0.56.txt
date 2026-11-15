@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Defina uma meta de longo prazo: uma barra mostra onde você está e o ritmo que ainda falta, mesmo depois de dias perdidos
+6cd52e0b	Um calendário de revisões: um quadrado por dia, mais escuro quanto mais cartões você respondeu
+0c10d54d	A barra de tempo dos cartões agora é uma sequência de velocidade, com bônus de +10 s
+ed5a8eb0	Ferramentas de busca na página de Vocabulário: folder:, is:due, reviewed:7 e mais
+e9c01d34	Uma nota de pronúncia para Diga e Conversa, com uma chave da Azure
+d6b267d1	Toque em qualquer palavra de um curso para ouvi-la, ver o que significa e salvá-la
+bf2ab534	As pastas de vocabulário só aparecem no idioma em que foram criadas

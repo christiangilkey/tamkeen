@@ -1,0 +1,8 @@
+# What's new in 0.56.0 (web/js/whatsnew.js).
+aebdc801	Fíjate una meta a largo plazo: una barra muestra cuánto llevas y el ritmo que aún hace falta, incluso tras días perdidos
+6cd52e0b	Un calendario de repasos: un cuadro por día, más oscuro cuantas más tarjetas respondiste
+0c10d54d	La barra de tiempo de las tarjetas ahora es una racha de velocidad, con impulsos de +10 s
+ed5a8eb0	Herramientas de búsqueda en la página de Vocabulario: folder:, is:due, reviewed:7 y más
+e9c01d34	Una puntuación de pronunciación para Dilo y Conversación, con una clave de Azure
+d6b267d1	Toca cualquier palabra de un curso para oírla, ver qué significa y guardarla
+bf2ab534	Las carpetas de vocabulario solo aparecen en el idioma en que se crearon

@@ -26800,6 +26800,41 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "aebdc801",
+  "k": "Set a long-term goal: a bar shows how far you are and the pace still needed, even after missed days",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6cd52e0b",
+  "k": "A review calendar: a square for every day, darker the more cards you answered",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0c10d54d",
+  "k": "The flashcard time bar is now a speed streak, with +10 s time boosts",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ed5a8eb0",
+  "k": "Search tools on the Vocab page: folder:, is:due, reviewed:7 and more",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "e9c01d34",
+  "k": "A pronunciation score for Say it and Conversation, with an Azure key",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d6b267d1",
+  "k": "Tap any word in a course to hear it, see what it means and save it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "bf2ab534",
+  "k": "Vocab folders show only in the language they were made in",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "b6268ce2",
   "k": "ICPT prep decks for DLI students in all seven DLI languages, by topic and level",
   "f": "web/js/whatsnew.js"
