@@ -8,6 +8,8 @@
 //
 // Everything in THIS file is shown to the learner, so it is translated with the rest of the interface
 // (tools/i18n). What only the AI is told (who it plays, what it knows, the complication) is in converse.js.
+// The end of the list is the mock interview's wording (DLI students: a whole practice interview with an
+// estimated level).
 
 /** The levels, easiest first. `scale`: the same level on the two scales learners know (CEFR · ILR). */
 export const LEVELS = [
@@ -168,6 +170,33 @@ export const SCENARIOS = [
     you: "The listener gives you a well-known saying and asks what you make of it.",
     goals: ["Say what the saying means", "Give an example from life", "Say whether you agree, and why"] },
 ];
+
+// ----- the mock interview, for DLI students (what the AI is told about it is in converse.js) -----
+/** The two interviews. `about`: what each is for, in the levels DLI students know (ILR). */
+export const MOCK_FORMS = [
+  { id: "2", name: "Up to Level 2", about: "If you are between 0+ and 2: simple talk about yourself, then telling, describing and a role-play that goes wrong." },
+  { id: "3", name: "Up to Level 3", about: "If you are between 1+ and 3: telling and reporting, a role-play that goes wrong, then opinion, hypothesis and an idea." },
+];
+/** The five stages of an interview, in order (a part's `kind` in converse.js). */
+export const MOCK_PHASES = [
+  { id: "warmup", name: "Warm-up" },
+  { id: "check", name: "Level checks" },
+  { id: "probe", name: "Probes" },
+  { id: "roleplay", name: "Role-play" },
+  { id: "winddown", name: "Wind-down" },
+];
+/** The parts that are judged, by id: what each is called in the result. */
+export const MOCK_PARTS = {
+  you: "Talking about yourself",
+  ask: "Asking questions",
+  story: "Telling what happened",
+  detail: "Describing or giving instructions",
+  report: "Reporting or describing",
+  opinion: "Defending an opinion",
+  suppose: "Saying what would happen if",
+  idea: "Discussing an idea",
+  role: "A role-play that goes wrong",
+};
 
 const byId = new Map(SCENARIOS.map((s) => [s.id, s]));
 /** The conversation with this id, or null. */
