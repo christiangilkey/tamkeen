@@ -1,0 +1,11 @@
+3203743c	nessuna parola nuova da imparare
+03f07c28	Tutto in pari · Nessuna parola nuova da imparare: guarda il tuo obiettivo qui sotto
+79e02351	Scrivi un numero da {0} a {1}
+081ae3fd	Altro
+7d1fb9f9	Un numero da {0} a {1}
+017ad219	Non ci sono parole nuove da imparare: aggiungine con Aggiungi parole, o da Libreria → Corsi → Parole.
+974ad32e	Nessun obiettivo a lungo termine
+07615dfd	Tocca la matita per fissarne uno. Gli obiettivi da 1 a 3 mesi funzionano meglio.
+0a3ae550	Mazzi DLI
+da015be4	Non ci sono parole nuove da imparare. Aggiungi le tue o prendine alcune da un corso.
+52308a65	Corso di parole

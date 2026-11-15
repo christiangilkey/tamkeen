@@ -19,6 +19,8 @@ import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
 import { plan, states } from "./deck.js";
 import { newPerDay } from "../pages/review.js";
+import { dliState } from "../dli.js";
+import { studyLanguage } from "../languages.js";
 import { cleanSetting } from "./goalsetting.js";
 import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, goalNewWords, progress, suggestTarget } from "./longgoal.js";
 
@@ -60,6 +62,9 @@ const dateText = (day) => {
 };
 const shown = (n) => Math.floor(n + 1e-9);  // an amount done (minutes are counted in fractions)
 
+/** Has this learner the DLI tab, with its decks, for the language studied now (components/dlipanel.js dliShown)? */
+const dliHere = () => { const st = dliState((state.status && state.status.settings) || {}); return Boolean(st.ready && st.language === studyLanguage()); };
+
 export const currentGoal = () => cleanSetting(state.status && state.status.settings && state.status.settings.study_goal).goal;
 
 /** What a "new words" goal wants of the reviewer today among `words` (longgoal.js goalNewWords), or null. */
@@ -86,8 +91,18 @@ export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {
   function draw() {
     const goal = currentGoal();
     if (!goal) {
-      root.innerHTML = `<button type="button" class="ghost lg-set">${icon("target", 16)} Set a long-term goal</button>`;
-      root.querySelector(".lg-set").onclick = () => openGoalEditor(null, log);
+      // (the owner: "it should show a blank bar and the top part should say 'no long term goal set'": the card
+      // keeps its place and shape, and a tap anywhere on it, or its pencil, sets one)
+      root.innerHTML = `
+        <div class="lg-card lg-empty">
+          <div class="lg-top">
+            <span class="lg-title">${icon("target", 18)} <span>No long-term goal set</span></span>
+            <button type="button" class="ghost icon lg-edit" aria-label="Set a long-term goal" title="Set a long-term goal">${icon("edit", 16)}</button>
+          </div>
+          <div class="lg-bar" aria-hidden="true">${MILESTONES.slice(0, 3).map((m) => `<span class="lg-tick" style="inset-inline-start:${m}%"></span>`).join("")}</div>
+          <p class="lg-line">Tap the pencil to set one. Goals of 1 to 3 months work best.</p>
+        </div>`;
+      root.querySelector(".lg-card").onclick = () => openGoalEditor(null, log);
       return;
     }
     const today = dayNumber();
@@ -118,8 +133,12 @@ export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {
           <span>This week <b>${shown(p.week.done)}</b> of ${p.week.target}</span>
         </div>` : ""}
         <p class="lg-line"></p>
-        ${offer && offer.none ? `<p class="lg-line">No new words are waiting to be learned. Add some to keep your goal going.</p>
-        <button type="button" class="lg-add">${icon("plus", 16)} Add words</button>`
+        ${offer && offer.none ? `<p class="lg-line">No new words are waiting to be learned. Add your own, or take some from a course.</p>
+        <div class="lg-ways">
+          <button type="button" class="lg-add">${icon("plus", 16)} Add words</button>
+          <button type="button" class="ghost lg-course">${icon("learn", 16)} Words course</button>
+          ${dliHere() ? `<button type="button" class="ghost lg-dli">${icon("lock", 16)} DLI decks</button>` : ""}
+        </div>`
           : offer && offer.extra > 0 ? `<button type="button" class="lg-learn">${offer.extra === 1 ? "Learn 1 new word now" : `Learn ${offer.extra} new words now`}</button>` : ""}
         ${kind === "ended" || kind === "reached" ? `<button type="button" class="lg-next">Set the next goal</button>` : ""}
         ${kind === "rethink" ? `<button type="button" class="ghost lg-change">Change goal</button>` : ""}
@@ -134,6 +153,11 @@ export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {
     if (learn) learn.onclick = () => onLearn(offer.bonus);
     const add = root.querySelector(".lg-add");
     if (add) add.onclick = () => onAddWords();
+    // (where else words come from: the Library's Words course, and a DLI student's decks)
+    const course = root.querySelector(".lg-course");
+    if (course) course.onclick = () => { location.hash = "#/library?tab=basics"; };
+    const dli = root.querySelector(".lg-dli");
+    if (dli) dli.onclick = () => { location.hash = "#/library?tab=dli"; };
     const change = root.querySelector(".lg-change");
     if (change) change.onclick = () => openGoalEditor(goal, log);
     // A milestone passed since the last one celebrated on this device: said once, gently.

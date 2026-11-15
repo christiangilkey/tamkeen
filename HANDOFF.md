@@ -8792,6 +8792,12 @@ the desktop, Android, iPhone and web app all have it; the only per-side code is 
   `reviewNewPerDay` is never changed. No words left to learn: "No new words are waiting…" + Add words. Weeks now count
   from the goal's first day (7-day blocks), and check-in "on-track" needs the gold mark reached; before it, "today-left"
   ("17 new words to go today"). The daily goal bar ("New 1/1") still shows the day's own setting only.
+- **Second round** (same day): no goal = the same card with "No long-term goal set", an empty bar and faint ticks (a tap
+  sets one). No words waiting = the goal card's Add words / Words course (`#/library?tab=basics`) / DLI decks (DLI students,
+  `#/library?tab=dli`) and the Review banner's "no new words left to learn". **Custom numbers** (review/customchip.js): a
+  "Custom" chip after a row of chips turns into a number box (Enter or leaving it keeps the number, Esc cancels): new words a
+  day 0–500 (deck.js `NEW_MAX`, `cleanNewPerDay`; the goal bar's popup and the reviewer's settings), the front's time 5–300 s
+  (cardtimer.js `GOAL_MIN/MAX`), the back's 3–120 s (speedstreak.js `BACK_MIN/MAX`).
 - **Goal sync**: setting `study_goal` = `{at, goal}` in app/db.py and mobile store.js defaults; library.json key
   `goal`; newer `at` wins (app/studygoal.py ↔ goalsetting.js, both run against tests/fixtures/studygoal_cases.json);
   in both `content` checks; desktop PATCH cleans it and `sync.request(30)`; phone `requestSync(30000)`.

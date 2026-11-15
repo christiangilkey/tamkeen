@@ -47,7 +47,7 @@ test("the session clock reads like a clock", () => {
   assert.equal(clockText(-5), "0:00");
 });
 
-test("timer settings: on at first, 'Auto' goal, only the offered goals kept", () => {
+test("timer settings: on at first, 'Auto' goal, a chip's goal or one typed in (5 to 300 s) kept", () => {
   const store = new Map();
   globalThis.localStorage = { getItem: (k) => (store.has(k) ? store.get(k) : null), setItem: (k, v) => store.set(k, String(v)) };
   try {
@@ -55,8 +55,10 @@ test("timer settings: on at first, 'Auto' goal, only the offered goals kept", ()
     setTimer("bar", false);
     setTimer("goal", 20);
     assert.deepEqual(timerSettings(), { bar: false, clock: true, goal: 20 });
-    setTimer("goal", 17);  // not one of the choices: ignored
-    assert.equal(timerSettings().goal, 20);
+    setTimer("goal", 17);  // typed in (review/customchip.js): kept
+    assert.equal(timerSettings().goal, 17);
+    for (const bad of [4, 301, 12.5, "12"]) setTimer("goal", bad);  // out of range or not a whole number: ignored
+    assert.equal(timerSettings().goal, 17);
     store.set("reviewCardGoal", "\"soon\"");
     assert.equal(timerSettings().goal, "auto", "a stored value that makes no sense");
   } finally {

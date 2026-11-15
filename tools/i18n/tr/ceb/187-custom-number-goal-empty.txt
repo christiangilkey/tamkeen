@@ -1,0 +1,11 @@
+3203743c	wala nay bag-ong pulong nga makat-onan
+03f07c28	Nahuman na tanan · Wala nay bag-ong pulong nga makat-onan: tan-awa ang imong tumong sa ubos
+79e02351	Pag-type og numero gikan sa {0} hangtod {1}
+081ae3fd	Kaugalingong ihap
+7d1fb9f9	Numero gikan sa {0} hangtod {1}
+017ad219	Wala nay bag-ong pulong nga naghulat: pagdugang pinaagi sa Pagdugang og mga pulong, o gikan sa Library → Mga kurso → Mga pulong.
+974ad32e	Walay gibutang nga dugay nga tumong
+07615dfd	I-tap ang lapis aron magbutang. Labing maayo ang mga tumong nga 1 ngadto sa 3 ka bulan.
+0a3ae550	Mga deck sa DLI
+da015be4	Wala nay bag-ong pulong nga naghulat nga makat-onan. Idugang ang imong kaugalingon, o pagkuha gikan sa usa ka kurso.
+52308a65	Kurso sa mga pulong

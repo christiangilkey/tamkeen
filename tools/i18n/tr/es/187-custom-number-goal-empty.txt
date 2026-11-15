@@ -1,0 +1,11 @@
+3203743c	no quedan palabras nuevas por aprender
+03f07c28	Todo al día · No quedan palabras nuevas por aprender: mira tu meta abajo
+79e02351	Escribe un número del {0} al {1}
+081ae3fd	Otro
+7d1fb9f9	Un número del {0} al {1}
+017ad219	No quedan palabras nuevas por aprender: añade algunas con Añadir palabras o desde Biblioteca → Cursos → Palabras.
+974ad32e	Sin meta a largo plazo
+07615dfd	Toca el lápiz para fijar una. Las metas de 1 a 3 meses funcionan mejor.
+0a3ae550	Mazos DLI
+da015be4	No quedan palabras nuevas por aprender. Añade las tuyas o toma algunas de un curso.
+52308a65	Curso de palabras

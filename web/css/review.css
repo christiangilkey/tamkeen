@@ -624,3 +624,13 @@ body.rv-open { overflow: hidden; }
 /* Sort and filter: four ways to date a word (Added, Changed, Reviewed, First learned), two by two on a phone. */
 .vs-seg.vs-seg4 { grid-template-columns: repeat(4, 1fr); border-radius: 18px; }
 @media (max-width: 480px) { .vs-seg.vs-seg4 { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- a number of one's own after a row of chips (review/customchip.js) ---------- */
+.cust-input { width: 5.5em; min-height: 40px; box-sizing: border-box; padding: 0 10px; border-radius: 99px; text-align: center; font: inherit; font-variant-numeric: tabular-nums; }
+.rv-chips .cust-input { min-height: 36px; }
+/* The goal card with no goal (review/longgoalview.js): the same card, an empty bar with faint ticks; a tap sets one. */
+.lg-empty { cursor: pointer; }
+.lg-empty .lg-title { font-weight: 600; color: var(--muted); }
+.lg-empty .lg-tick { opacity: .5; }
+.lg-ways { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+.lg-ways button { display: inline-flex; align-items: center; gap: 6px; }

@@ -1,0 +1,11 @@
+3203743c	no queden paraules noves per aprendre
+03f07c28	Tot al dia · No queden paraules noves per aprendre: mira el teu objectiu a sota
+79e02351	Escriu un nombre del {0} al {1}
+081ae3fd	Un altre
+7d1fb9f9	Un nombre del {0} al {1}
+017ad219	No queden paraules noves per aprendre: afegeix-ne amb Afegeix paraules o des de Biblioteca → Cursos → Paraules.
+974ad32e	Cap objectiu a llarg termini
+07615dfd	Toca el llapis per fixar-ne un. Els objectius d'1 a 3 mesos funcionen millor.
+0a3ae550	Baralles DLI
+da015be4	No queden paraules noves per aprendre. Afegeix les teves o agafa'n algunes d'un curs.
+52308a65	Curs de paraules

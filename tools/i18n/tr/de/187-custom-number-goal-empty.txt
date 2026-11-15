@@ -1,0 +1,11 @@
+3203743c	keine neuen Wörter mehr zu lernen
+03f07c28	Alles erledigt · Keine neuen Wörter mehr zu lernen: sieh dein Ziel unten
+79e02351	Gib eine Zahl von {0} bis {1} ein
+081ae3fd	Eigene
+7d1fb9f9	Eine Zahl von {0} bis {1}
+017ad219	Es warten keine neuen Wörter mehr: Füge welche über Wörter hinzufügen hinzu oder aus Bibliothek → Kurse → Wörter.
+974ad32e	Kein langfristiges Ziel gesetzt
+07615dfd	Tippe auf den Stift, um eins zu setzen. Ziele von 1 bis 3 Monaten funktionieren am besten.
+0a3ae550	DLI-Decks
+da015be4	Es warten keine neuen Wörter mehr. Füge eigene hinzu oder nimm welche aus einem Kurs.
+52308a65	Wörterkurs

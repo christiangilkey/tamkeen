@@ -1,7 +1,7 @@
 // The speed streak (web/js/review/speedstreak.js): the countdown's rules, the bests and the boosts.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { BOOST, answered, barState, cleanRecord, timedOut, todayBest, useBoost } from "../../web/js/review/speedstreak.js";
+import { BOOST, answered, setSpeed, speedSettings, barState, cleanRecord, timedOut, todayBest, useBoost } from "../../web/js/review/speedstreak.js";
 
 const DAY = 20400;
 
@@ -57,4 +57,18 @@ test("the bar's colour steps", () => {
   assert.equal(barState(9000, 10).step, "low");
   assert.deepEqual(barState(10000, 10), { left: 0, step: "out" });
   assert.equal(barState(50, 0).step, "out");
+});
+
+test("the back's time: a chip's, or one typed in from 3 to 120 seconds", () => {
+  const store = new Map();
+  globalThis.localStorage = { getItem: (k) => (store.has(k) ? store.get(k) : null), setItem: (k, v) => store.set(k, String(v)) };
+  try {
+    assert.equal(speedSettings().back, 10);
+    setSpeed("back", 45);
+    assert.equal(speedSettings().back, 45);
+    for (const bad of [2, 121, 7.5]) setSpeed("back", bad);
+    assert.equal(speedSettings().back, 45);
+  } finally {
+    delete globalThis.localStorage;
+  }
 });

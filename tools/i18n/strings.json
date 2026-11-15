@@ -11390,23 +11390,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "85149156",
-  "k": "Pick one or more. Together they need at least {0} words with a meaning.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0ac083d5",
-  "k": "Use these folders",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "889ab689",
-  "k": "Not in a folder",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "38132f5d",
-  "k": "Choose other folders",
+  "id": "af3575d7",
+  "k": "Choose another folder",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -11422,11 +11407,6 @@
  {
   "id": "b9a10733",
   "k": "{0} due for review",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "38a90644",
-  "k": "{0} in the folders",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -23335,23 +23315,18 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "19adc47b",
   "k": "Folders",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "66a7fc10",
-  "k": "Show these words too",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "0c89a43f",
   "k": "Rename, send or delete this folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "aed9253d",
-  "k": "Tap one to show it. Tick several to show their words together.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -23510,8 +23485,18 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "3203743c",
+  "k": "no new words left to learn",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "bb866ab5",
   "k": "Words that have a meaning turn up here as flashcards.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "03f07c28",
+  "k": "All caught up · No new words left to learn: see your goal below",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -24850,6 +24835,21 @@
   "f": "web/js/review/cardtools.js"
  },
  {
+  "id": "79e02351",
+  "k": "Type a number from {0} to {1}",
+  "f": "web/js/review/customchip.js"
+ },
+ {
+  "id": "081ae3fd",
+  "k": "Custom",
+  "f": "web/js/review/customchip.js"
+ },
+ {
+  "id": "7d1fb9f9",
+  "k": "A number from {0} to {1}",
+  "f": "web/js/review/customchip.js"
+ },
+ {
   "id": "15710324",
   "k": "Han",
   "f": "web/js/review/deck.js"
@@ -25032,6 +25032,11 @@
  {
   "id": "031683ab",
   "k": "Only {0} new word{1} waiting.",
+  "f": "web/js/review/goalbar.js"
+ },
+ {
+  "id": "017ad219",
+  "k": "No new words are waiting to be learned: add some with Add words, or from Library → Courses → Words.",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -25250,8 +25255,18 @@
   "f": "web/js/review/longgoalview.js"
  },
  {
+  "id": "974ad32e",
+  "k": "No long-term goal set",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
   "id": "15bb8286",
   "k": "Set a long-term goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "07615dfd",
+  "k": "Tap the pencil to set one. Goals of 1 to 3 months work best.",
   "f": "web/js/review/longgoalview.js"
  },
  {
@@ -25295,8 +25310,18 @@
   "f": "web/js/review/longgoalview.js"
  },
  {
-  "id": "09d363d2",
-  "k": "No new words are waiting to be learned. Add some to keep your goal going.",
+  "id": "0a3ae550",
+  "k": "DLI decks",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "da015be4",
+  "k": "No new words are waiting to be learned. Add your own, or take some from a course.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "52308a65",
+  "k": "Words course",
   "f": "web/js/review/longgoalview.js"
  },
  {

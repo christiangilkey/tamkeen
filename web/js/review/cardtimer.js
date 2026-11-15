@@ -12,6 +12,8 @@
 // tests/js/cardtimer.test.mjs; review.js draws them.
 
 export const GOAL_CHOICES = ["auto", 10, 20, 30, 60];  // a card's time goal: from the learner's own pace, or seconds
+export const GOAL_MIN = 5, GOAL_MAX = 300;              // seconds that can be typed in instead (review/customchip.js)
+const goodGoal = (g) => GOAL_CHOICES.includes(g) || (Number.isInteger(g) && g >= GOAL_MIN && g <= GOAL_MAX);
 const KEYS = { bar: "reviewCardTimer", clock: "reviewSessionTimer", goal: "reviewCardGoal" };
 
 function pref(key, fallback) {
@@ -24,12 +26,12 @@ function setPref(key, value) {
 /** This device's timer settings: {bar, clock, goal} (bar and clock on/off; goal "auto" or seconds). */
 export function timerSettings() {
   const goal = pref(KEYS.goal, "auto");
-  return { bar: pref(KEYS.bar, true) !== false, clock: pref(KEYS.clock, true) !== false, goal: GOAL_CHOICES.includes(goal) ? goal : "auto" };
+  return { bar: pref(KEYS.bar, true) !== false, clock: pref(KEYS.clock, true) !== false, goal: goodGoal(goal) ? goal : "auto" };
 }
 /** Change one of them: setTimer("bar", false), setTimer("goal", 20). */
 export function setTimer(name, value) {
   if (!(name in KEYS)) return;
-  if (name === "goal" && !GOAL_CHOICES.includes(value)) return;
+  if (name === "goal" && !goodGoal(value)) return;
   setPref(KEYS[name], name === "goal" ? value : Boolean(value));
 }
 

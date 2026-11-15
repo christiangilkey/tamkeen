@@ -1,0 +1,11 @@
+3203743c	wala nang bagong salitang matututunan
+03f07c28	Tapos na lahat · Wala nang bagong salitang matututunan: tingnan ang layunin mo sa ibaba
+79e02351	Mag-type ng numero mula {0} hanggang {1}
+081ae3fd	Sarili mong bilang
+7d1fb9f9	Numero mula {0} hanggang {1}
+017ad219	Wala nang bagong salitang naghihintay: magdagdag gamit ang Magdagdag ng mga salita, o mula sa Library → Mga kurso → Mga salita.
+974ad32e	Walang nakatakdang pangmatagalang layunin
+07615dfd	I-tap ang lapis para magtakda. Pinakamainam ang mga layuning 1 hanggang 3 buwan.
+0a3ae550	Mga deck ng DLI
+da015be4	Wala nang bagong salitang naghihintay na matutunan. Magdagdag ng sarili mo, o kumuha mula sa isang kurso.
+52308a65	Kurso ng mga salita

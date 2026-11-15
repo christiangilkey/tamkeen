@@ -1,0 +1,11 @@
+3203743c	nenhuma palavra nova para aprender
+03f07c28	Tudo em dia · Nenhuma palavra nova para aprender: veja sua meta abaixo
+79e02351	Digite um número de {0} a {1}
+081ae3fd	Outro
+7d1fb9f9	Um número de {0} a {1}
+017ad219	Não há palavras novas esperando para serem aprendidas: adicione algumas com Adicionar palavras ou em Biblioteca → Cursos → Palavras.
+974ad32e	Nenhuma meta de longo prazo
+07615dfd	Toque no lápis para definir uma. Metas de 1 a 3 meses funcionam melhor.
+0a3ae550	Baralhos DLI
+da015be4	Não há palavras novas esperando para serem aprendidas. Adicione as suas ou pegue algumas de um curso.
+52308a65	Curso de palavras

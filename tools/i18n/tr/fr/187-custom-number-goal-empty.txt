@@ -1,0 +1,11 @@
+3203743c	plus aucun nouveau mot à apprendre
+03f07c28	Tout est à jour · Plus aucun nouveau mot à apprendre : voyez votre objectif plus bas
+79e02351	Tapez un nombre de {0} à {1}
+081ae3fd	Autre
+7d1fb9f9	Un nombre de {0} à {1}
+017ad219	Aucun nouveau mot n'attend d'être appris : ajoutez-en avec Ajouter des mots, ou depuis Bibliothèque → Cours → Mots.
+974ad32e	Aucun objectif à long terme
+07615dfd	Touchez le crayon pour en fixer un. Les objectifs de 1 à 3 mois marchent le mieux.
+0a3ae550	Paquets DLI
+da015be4	Aucun nouveau mot n'attend d'être appris. Ajoutez les vôtres ou prenez-en dans un cours.
+52308a65	Cours de mots
