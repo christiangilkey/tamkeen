@@ -26010,6 +26010,31 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "20bc42aa",
+  "k": "Conversation: practise speaking in the Library, with your own AI playing the other person",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "aa271b31",
+  "k": "38 situations in five levels, from ordering at a café to defending an opinion",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ac96d603",
+  "k": "Tap any word in a conversation, get quiet corrections and hints, and a debrief at the end",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0c34e96c",
+  "k": "Answer by voice: on the computer your voice is written down there and never leaves it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "e850b501",
+  "k": "DLI teachers can make classes and follow their students' practice; it switches on for everyone soon",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "d556b3ab",
   "k": "The flashcards' answer buttons work again once a card is turned over",
   "f": "web/js/whatsnew.js"

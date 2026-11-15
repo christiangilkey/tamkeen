@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Gespräch: Übe das Sprechen in der Bibliothek, wobei deine eigene KI dein Gegenüber spielt
+aa271b31	38 Situationen in fünf Stufen, vom Bestellen im Café bis zum Verteidigen einer Meinung
+ac96d603	Tippe im Gespräch auf jedes Wort, bekomm leise Korrekturen und Tipps und am Ende eine Auswertung
+0c34e96c	Antworte mit der Stimme: Am Computer wird sie dort aufgeschrieben und verlässt ihn nie
+e850b501	DLI-Lehrkräfte können Klassen anlegen und das Üben ihrer Schüler verfolgen; für alle wird es bald freigeschaltet

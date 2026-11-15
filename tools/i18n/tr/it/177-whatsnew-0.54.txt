@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Conversazione: esercitati a parlare nella Libreria, con la tua IA che fa l'altra persona
+aa271b31	38 situazioni in cinque livelli, dall'ordinare al bar al difendere un'opinione
+ac96d603	Tocca qualsiasi parola di una conversazione, ricevi correzioni discrete e suggerimenti, e un bilancio alla fine
+0c34e96c	Rispondi a voce: sul computer la tua voce viene trascritta lì e non lo lascia mai
+e850b501	Gli insegnanti DLI possono creare classi e seguire l'esercizio dei loro studenti; presto si attiverà per tutti

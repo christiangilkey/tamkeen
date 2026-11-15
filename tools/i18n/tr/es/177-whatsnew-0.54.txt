@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Conversación: practica hablar en la Biblioteca, con tu propia IA haciendo de la otra persona
+aa271b31	38 situaciones en cinco niveles, desde pedir en una cafetería hasta defender una opinión
+ac96d603	Toca cualquier palabra de una conversación, recibe correcciones discretas y pistas, y un balance al final
+0c34e96c	Responde con la voz: en el ordenador tu voz se transcribe allí mismo y nunca sale de él
+e850b501	Los profesores de DLI pueden crear clases y seguir la práctica de sus alumnos; se activará para todos pronto

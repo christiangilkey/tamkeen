@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Usapan: magsanay magsalita sa Library, kung saan ang sarili mong AI ang gaganap na kausap mo
+aa271b31	38 sitwasyon sa limang level, mula sa pag-order sa café hanggang sa pagtatanggol ng opinyon
+ac96d603	I-tap ang kahit anong salita sa usapan, tumanggap ng tahimik na mga pagwawasto at hint, at isang pagbabalik-tanaw sa dulo
+0c34e96c	Sumagot gamit ang boses: sa computer, doon mismo isinusulat ang sinasabi mo at hindi kailanman lumalabas dito ang boses mo
+e850b501	Makakagawa ng mga klase ang mga guro ng DLI at masusubaybayan ang pagsasanay ng kanilang mga estudyante; malapit na itong buksan para sa lahat

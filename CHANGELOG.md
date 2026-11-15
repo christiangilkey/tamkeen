@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.54.0 — 2026-11-14
+
 - **New:** **Conversation**, a new tab in the Library: practise speaking, with your own AI playing the other person. Pick one of 38 situations in five levels (Starter to Level 4, each with its CEFR and ILR level beside it), from ordering at a café to a missed flight, defending an opinion or saying a few words at a wedding. Each has three or four goals that are ticked as you get them done. What the other person knows (the next flight, the price, the Wi-Fi password) is chosen by the app anew every time, so you really have to find it out, and from Level 2 something goes wrong halfway through, as in a speaking test's role-play. It needs an AI key (Settings → Word definitions; Gemini has a free allowance).
 - **New:** In a conversation, every word of the other person's lines can be tapped for its meaning and saved, and their lines are read out by your card voice (in Arabic, in the kind you choose: Standard, Levantine, Egyptian, Gulf, Moroccan or Iraqi). Your own line gets a small **Better** mark when there is a more correct way to say it, with one line on why. A one-word answer where a sentence was called for is met with "tell me more" and earns no tick. **Hint** helps a step at a time: what to say, how to start, then a whole sentence.
 - **New:** Answer by voice: press the microphone and speak, then check what was heard and send it. *(desktop)* Your voice is written down by the transcription model on your own computer and never leaves it. *(phones, web app)* It is written down by the online transcription service set up in Settings → Listening & transcripts; without one, use your keyboard's own microphone.

@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Conversation : entraînez-vous à parler dans la Bibliothèque, votre propre IA jouant votre interlocuteur
+aa271b31	38 situations sur cinq niveaux, de la commande au café à la défense d'une opinion
+ac96d603	Touchez n'importe quel mot d'une conversation, recevez des corrections discrètes et des indices, puis un bilan à la fin
+0c34e96c	Répondez à la voix : sur l'ordinateur, votre voix est transcrite sur place et ne le quitte jamais
+e850b501	Les enseignants DLI peuvent créer des classes et suivre l'entraînement de leurs élèves ; ce sera bientôt activé pour tous

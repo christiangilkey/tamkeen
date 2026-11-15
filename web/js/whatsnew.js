@@ -9,6 +9,17 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.54.0",
+  "Conversation: practise speaking in the Library, with your own AI playing the other person");
+notes("0.54.0",
+  "38 situations in five levels, from ordering at a café to defending an opinion");
+notes("0.54.0",
+  "Tap any word in a conversation, get quiet corrections and hints, and a debrief at the end");
+notes("0.54.0",
+  "Answer by voice: on the computer your voice is written down there and never leaves it");
+notes("0.54.0",
+  "DLI teachers can make classes and follow their students' practice; it switches on for everyone soon");
+
 notes("0.53.1",
   "The flashcards' answer buttons work again once a card is turned over");
 

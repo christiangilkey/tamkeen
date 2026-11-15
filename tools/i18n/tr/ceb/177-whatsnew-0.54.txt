@@ -1,0 +1,6 @@
+# What's new in 0.54.0 (web/js/whatsnew.js).
+20bc42aa	Panag-istoryahanay: pagpraktis og sulti sa Library, diin ang imong kaugalingong AI ang mobuhat sa papel sa imong kaistorya
+aa271b31	38 ka sitwasyon sa lima ka level, gikan sa pag-order sa café hangtod sa pagdepensa og opinyon
+ac96d603	I-tap ang bisan unsang pulong sa panag-istoryahanay, makadawat og hilom nga mga koreksyon ug hint, ug usa ka pagribyu sa katapusan
+0c34e96c	Tubaga pinaagi sa tingog: sa computer, didto mismo isulat ang imong tingog ug dili gyud kini mogawas niini
+e850b501	Ang mga magtutudlo sa DLI makahimo og mga klase ug makasubay sa praktis sa ilang mga estudyante; ma-on kini para sa tanan sa dili madugay
