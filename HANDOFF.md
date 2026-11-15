@@ -8785,6 +8785,13 @@ the desktop, Android, iPhone and web app all have it; the only per-side code is 
   ticks on the bar; a passed one gets a toast once per device (localStorage `longGoalMilestone`). Redrawn when the
   page redraws its Review block, every minute, on coming back to the front, and on `tamkeen:goal` (saved here, or
   synced in: desktop app.js on "sync", phone sync.js).
+- **Fix after v0.56.0** (the owner: "20 words to learn for today as my goal but the top button is grayed out"): a
+  "new words" goal now asks the reviewer for the new words today's part needs (longgoal.js `goalNewWords`): the goal card's
+  **Learn N new words now** and the Review banner's "N new for your goal" open the reviewer with `extraNew` = that many
+  more allowed today (pages/review.js `bonus`/`goalExtra`; they roll as the day's own words, not extras); the setting
+  `reviewNewPerDay` is never changed. No words left to learn: "No new words are waiting…" + Add words. Weeks now count
+  from the goal's first day (7-day blocks), and check-in "on-track" needs the gold mark reached; before it, "today-left"
+  ("17 new words to go today"). The daily goal bar ("New 1/1") still shows the day's own setting only.
 - **Goal sync**: setting `study_goal` = `{at, goal}` in app/db.py and mobile store.js defaults; library.json key
   `goal`; newer `at` wins (app/studygoal.py ↔ goalsetting.js, both run against tests/fixtures/studygoal_cases.json);
   in both `content` checks; desktop PATCH cleans it and `sync.request(30)`; phone `requestSync(30000)`.

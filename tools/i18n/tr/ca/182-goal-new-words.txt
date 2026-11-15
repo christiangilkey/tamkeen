@@ -1,0 +1,11 @@
+717fea49	més per al teu objectiu
+81ce8acb	noves per al teu objectiu
+d22bd366	Queda 1 paraula nova avui
+eff32a52	Queden {0} paraules noves avui
+2b4754c6	Queda 1 repàs avui
+a542b2c6	Queden {0} repassos avui
+784fa38c	Queda 1 minut avui
+e3b38720	Queden {0} minuts avui
+09d363d2	No queden paraules noves per aprendre. Afegeix-ne algunes per continuar amb el teu objectiu.
+1b9283de	Aprèn 1 paraula nova ara
+b8fa63d0	Aprèn {0} paraules noves ara

@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { AGAIN, GOOD } from "../../web/js/review/fsrs.js";
 import { cleanSetting, settingWins } from "../../web/js/review/goalsetting.js";
-import { checkIn, dailyAmounts, friendly, monday, newMilestone, niceTarget, progress, suggestTarget, sumDays } from "../../web/js/review/longgoal.js";
+import { checkIn, dailyAmounts, friendly, goalNewWords, monday, newMilestone, niceTarget, progress, suggestTarget, sumDays } from "../../web/js/review/longgoal.js";
 import { dailyCounts, stepper, streaks, weekday, yearEnd, yearOf, yearStart, yearStats, yearWeeks, years } from "../../web/js/review/heatmap.js";
 
 const CASES = JSON.parse(readFileSync(new URL("../fixtures/studygoal_cases.json", import.meta.url), "utf8"));
@@ -116,7 +116,9 @@ test("missed days bend the goal: the rest is spread over the days left, it never
   assert.ok(Math.abs(p.pace - 280 / 23) < 1e-9);  // about 12 a day instead of 10
   assert.equal(p.todayTarget, 13);
   assert.ok(Math.abs(p.behind - (300 * 7) / 30 + 20) < 1e-9);
-  assert.equal(checkIn(p), "bent");
+  assert.equal(p.week.fresh, true);  // day 8 starts the goal's second week: a fresh start after falling behind
+  assert.equal(checkIn(p), "fresh-week");
+  assert.equal(checkIn(progress(goal(), a, D + 8)), "bent");
   // The pace is worked out from the start of the day: doing today's part doesn't move it.
   a.set(D + 7, 13);
   const q = progress(goal(), a, D + 7);
@@ -164,4 +166,51 @@ test("numbers read as 'about …', and a target is suggested from the learner's 
   const recent = amounts(Array.from({ length: 28 }, (_, i) => [D - 1 - i, 20]));
   assert.equal(sumDays(recent, D - 28, D - 1), 560);
   assert.equal(suggestTarget(recent, "reviews", D, 30), 690);  // 20 a day, a little higher: 23 a day
+});
+
+// ----- 2026-11-15, the owner on v0.56.0: "1200 new words by Jan 13", set today, 3 learned, 1 new word a day in
+// the reviewer's own setting: "Today 3 of 20", "This week 3 of 20", "Right on track", and nothing to learn -----
+
+test("a goal's weeks are counted from its first day, so the first week is a whole week", () => {
+  const big = goal({ target: 1200, end: D + 59 });  // D was a Saturday: a Monday-to-Sunday week would be 2 days
+  const p = progress(big, amounts([[D, 3]]), D);
+  assert.equal(p.todayTarget, 20);
+  assert.deepEqual([p.week.done, p.week.target, p.week.days], [3, 140, 7]);
+  const later = progress(big, amounts([[D, 3]]), D + 9);  // week 2: days 8 to 14
+  assert.equal(later.week.days, 7);
+  assert.equal(later.week.target, Math.ceil((1197 * 7) / 53));
+  const last = progress(goal({ target: 100, end: D + 9 }), amounts([]), D + 8);  // a 10-day goal: its second week is 3 days
+  assert.equal(last.week.days, 3);
+});
+
+test("'on track' only at or past the gold mark; before it, what is left of today", () => {
+  const big = goal({ target: 1200, end: D + 59 });
+  const p = progress(big, amounts([[D, 3]]), D);
+  assert.ok(p.ahead < 0 && p.behind === 0);
+  assert.equal(checkIn(p), "today-left");
+  assert.equal(p.todayLeft, 17);
+  assert.equal(checkIn(progress(big, amounts([[D, 20]]), D)), "today-done");
+  // At the mark exactly (yesterday's and today's parts done, nothing more) is on track.
+  const steady = progress(goal({ target: 30, end: D + 29 }), amounts([[D, 1], [D + 1, 1]]), D + 1);
+  assert.equal(steady.ahead, 0);
+  assert.equal(checkIn({ ...steady, todayTarget: 0 }), "on-track");
+});
+
+test("a new-words goal asks the reviewer for the new words today's part needs, never more than are waiting", () => {
+  const big = goal({ target: 1200, end: D + 59 });
+  const p = progress(big, amounts([[D, 3]]), D);  // 17 to go today
+  // The setting lets in 1 a day and 1 was started: the goal asks for 17 more; the allowance is raised to 17 for the session.
+  assert.deepEqual(goalNewWords(big, p, 50, 1, 1), { need: 17, waiting: 50, extra: 17, bonus: 17, none: false });
+  // New words a day 0: the same 17, the bonus covering the word already started.
+  assert.deepEqual(goalNewWords(big, p, 50, 1, 0), { need: 17, waiting: 50, extra: 17, bonus: 18, none: false });
+  // Only 5 waiting: those 5.
+  assert.equal(goalNewWords(big, p, 5, 1, 1).extra, 5);
+  // The day's own allowance already brings enough: nothing extra.
+  assert.equal(goalNewWords(big, p, 50, 0, 20).extra, 0);
+  // Nothing waiting: say so (and offer Add words).
+  assert.deepEqual(goalNewWords(big, p, 0, 1, 1), { need: 17, waiting: 0, extra: 0, bonus: 0, none: true });
+  // Today's part done, another measure, or a goal not running today: nothing to ask.
+  assert.equal(goalNewWords(big, progress(big, amounts([[D, 20]]), D), 50, 1, 1).extra, 0);
+  assert.equal(goalNewWords(goal({ measure: "reviews" }), p, 50, 1, 1), null);
+  assert.equal(goalNewWords(big, progress(big, amounts([]), D + 60), 50, 1, 1), null);
 });

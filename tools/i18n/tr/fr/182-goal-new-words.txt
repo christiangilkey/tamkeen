@@ -1,0 +1,11 @@
+717fea49	de plus pour votre objectif
+81ce8acb	nouveaux pour votre objectif
+d22bd366	Encore 1 nouveau mot aujourd'hui
+eff32a52	Encore {0} nouveaux mots aujourd'hui
+2b4754c6	Encore 1 révision aujourd'hui
+a542b2c6	Encore {0} révisions aujourd'hui
+784fa38c	Encore 1 minute aujourd'hui
+e3b38720	Encore {0} minutes aujourd'hui
+09d363d2	Aucun nouveau mot n'attend d'être appris. Ajoutez-en pour poursuivre votre objectif.
+1b9283de	Apprendre 1 nouveau mot maintenant
+b8fa63d0	Apprendre {0} nouveaux mots maintenant

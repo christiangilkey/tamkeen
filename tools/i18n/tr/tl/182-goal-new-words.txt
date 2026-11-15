@@ -1,0 +1,11 @@
+717fea49	pa para sa layunin mo
+81ce8acb	bago para sa layunin mo
+d22bd366	1 bagong salita pa ngayon
+eff32a52	{0} bagong salita pa ngayon
+2b4754c6	1 review pa ngayon
+a542b2c6	{0} review pa ngayon
+784fa38c	1 minuto pa ngayon
+e3b38720	{0} minuto pa ngayon
+09d363d2	Wala nang bagong salitang naghihintay na matutunan. Magdagdag ng ilan para magpatuloy ang layunin mo.
+1b9283de	Matuto ng 1 bagong salita ngayon
+b8fa63d0	Matuto ng {0} bagong salita ngayon

@@ -1,0 +1,11 @@
+717fea49	a mais para sua meta
+81ce8acb	novas para sua meta
+d22bd366	Falta 1 palavra nova hoje
+eff32a52	Faltam {0} palavras novas hoje
+2b4754c6	Falta 1 revisão hoje
+a542b2c6	Faltam {0} revisões hoje
+784fa38c	Falta 1 minuto hoje
+e3b38720	Faltam {0} minutos hoje
+09d363d2	Não há palavras novas esperando para serem aprendidas. Adicione algumas para continuar sua meta.
+1b9283de	Aprender 1 palavra nova agora
+b8fa63d0	Aprender {0} palavras novas agora

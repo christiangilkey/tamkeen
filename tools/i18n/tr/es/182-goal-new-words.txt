@@ -1,0 +1,11 @@
+717fea49	más para tu meta
+81ce8acb	nuevas para tu meta
+d22bd366	Queda 1 palabra nueva hoy
+eff32a52	Quedan {0} palabras nuevas hoy
+2b4754c6	Queda 1 repaso hoy
+a542b2c6	Quedan {0} repasos hoy
+784fa38c	Queda 1 minuto hoy
+e3b38720	Quedan {0} minutos hoy
+09d363d2	No quedan palabras nuevas por aprender. Añade algunas para seguir con tu meta.
+1b9283de	Aprender 1 palabra nueva ahora
+b8fa63d0	Aprender {0} palabras nuevas ahora

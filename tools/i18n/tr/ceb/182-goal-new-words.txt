@@ -1,0 +1,11 @@
+717fea49	pa para sa imong tumong
+81ce8acb	bag-o para sa imong tumong
+d22bd366	1 pa ka bag-ong pulong karon
+eff32a52	{0} pa ka bag-ong pulong karon
+2b4754c6	1 pa ka review karon
+a542b2c6	{0} pa ka review karon
+784fa38c	1 pa ka minuto karon
+e3b38720	{0} pa ka minuto karon
+09d363d2	Wala nay bag-ong pulong nga naghulat nga makat-onan. Pagdugang og pipila aron magpadayon ang imong tumong.
+1b9283de	Pagkat-on og 1 ka bag-ong pulong karon
+b8fa63d0	Pagkat-on og {0} ka bag-ong pulong karon

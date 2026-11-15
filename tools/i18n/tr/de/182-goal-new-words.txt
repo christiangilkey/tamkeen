@@ -1,0 +1,11 @@
+717fea49	mehr für dein Ziel
+81ce8acb	neue für dein Ziel
+d22bd366	Heute noch 1 neues Wort
+eff32a52	Heute noch {0} neue Wörter
+2b4754c6	Heute noch 1 Wiederholung
+a542b2c6	Heute noch {0} Wiederholungen
+784fa38c	Heute noch 1 Minute
+e3b38720	Heute noch {0} Minuten
+09d363d2	Es warten keine neuen Wörter mehr. Füge welche hinzu, um an deinem Ziel dranzubleiben.
+1b9283de	Jetzt 1 neues Wort lernen
+b8fa63d0	Jetzt {0} neue Wörter lernen

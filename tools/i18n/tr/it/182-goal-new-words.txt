@@ -1,0 +1,11 @@
+717fea49	in più per il tuo obiettivo
+81ce8acb	nuove per il tuo obiettivo
+d22bd366	Manca 1 parola nuova oggi
+eff32a52	Mancano {0} parole nuove oggi
+2b4754c6	Manca 1 ripasso oggi
+a542b2c6	Mancano {0} ripassi oggi
+784fa38c	Manca 1 minuto oggi
+e3b38720	Mancano {0} minuti oggi
+09d363d2	Non ci sono parole nuove da imparare. Aggiungine qualcuna per continuare con il tuo obiettivo.
+1b9283de	Impara 1 parola nuova ora
+b8fa63d0	Impara {0} parole nuove ora

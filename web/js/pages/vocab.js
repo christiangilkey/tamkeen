@@ -23,7 +23,7 @@ import { CARDS_ICON, loadLog, openReview, overview } from "./review.js";
 import { waitText } from "../review/deck.js";
 import { goalBar } from "../review/goalbar.js";
 import { heatmap } from "../review/heatmapview.js";
-import { longGoal } from "../review/longgoalview.js";
+import { goalOffer, longGoal } from "../review/longgoalview.js";
 import { DATE_OPS, answerDays, answerSeconds, dateValue, dayIso, fuzzy, insertFilter, matches, parseQuery, trigger } from "../review/vocabsearch.js";
 import { states as cardStates, uidOf } from "../review/deck.js";
 import { dayNumber } from "../review/fsrs.js";
@@ -729,17 +729,23 @@ export async function render(view) {
       return;
     }
     const o = overview(reviewWords(), log);
+    // A "new words" goal that wants more new words today than the day's allowance lets in: the banner offers
+    // them too (one session's worth: the setting stays as it is).
+    const offer = goalOffer(reviewWords(), log);
+    const extra = offer ? offer.extra : 0;
+    reviewBonus = extra > 0 ? offer.bonus : 0;
     $("#goal").hidden = !o.askable;
     $("#send-slot").hidden = !o.askable;  // ("Send to …" goes with the goal; "Add words" beside it is always there)
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
-    const ready = o.due + o.fresh > 0;
+    const ready = o.due + o.fresh + extra > 0;
     banner.classList.toggle("idle", !ready);
     banner.querySelector("strong").textContent = scope ? `Review “${scope}”` : "Review";
     banner.querySelector(".rb-go").textContent = ready ? "Start" : "Open";
     const parts = [];
     if (o.due) parts.push(`<b>${o.due}</b> due`);
     if (o.fresh) parts.push(`<b>${o.fresh}</b> new`);
+    if (extra) parts.push(o.fresh ? `<b>${extra}</b> more for your goal` : `<b>${extra}</b> new for your goal`);
     banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run">${ready ? parts.join(" · ")
       : !o.askable ? "Words that have a meaning turn up here as flashcards."
       : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`}</span>`;
@@ -767,19 +773,23 @@ export async function render(view) {
 
   // The long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js): over every
   // answer on record, whichever folder is open; hidden while searching (the list is then narrowed).
-  const longgoal = longGoal($("#longgoal"));
+  // (a "new words" goal can open the reviewer with the extra new words today's part needs, or Add words)
+  const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra), onAddWords: () => openAdd() });
   const calendar = heatmap($("#heatmap"));
   function renderProgress() {
     const box = $("#progress");
     box.hidden = Boolean(st.q) || (!all.length && !Object.keys(log || {}).length);
     if (box.hidden) return;
-    longgoal.update(log);
+    longgoal.update(log, all);
     calendar.update(all, log);
   }
 
-  function startReview() {
+  let reviewBonus = 0;  // the extra new words a "new words" goal wants today (renderReview works it out)
+  /** Open the reviewer; `extra`: new words allowed today beyond the day's own number (a goal's). */
+  function startReview(extra = reviewBonus) {
     closeOpen();  // (its edits saved: the cards show them)
     openReview({
+      extraNew: extra,
       words: reviewWords(), allWords: all, log, playSnippet, say, highlight,
       scope: st.folder && st.folder !== "none" ? folderName(st.folder) || "" : "",
       onDelete: (v) => { all = all.filter((x) => x !== v); selected.delete(v.id); },  // a word deleted from its card
@@ -863,7 +873,7 @@ export async function render(view) {
   }
 
   // ----- wiring -----
-  $("#review").onclick = startReview;
+  $("#review").onclick = () => startReview();
   const pickedItems = () => all.filter((v) => selected.has(v.id));
   const below = (e) => { const r = e.currentTarget.getBoundingClientRect(); return [r.left, r.bottom + 4]; };
   $("#folder-pick").onclick = folderSheet;

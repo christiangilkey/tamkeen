@@ -178,11 +178,14 @@ async function play(el, frames, options) {
  * (The card lights the word in its sentence with the same renderer as the Vocab page: cardtext.js litTextHtml.)
  */
 export function openReview({ words, allWords = words, log, scope = "", playSnippet, say = null, onDelete = () => {},
-  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {} }) {
+  folders = () => [], setFolder = async () => false, newFolder = async () => null, onClose = () => {}, extraNew = 0 }) {
   if (document.querySelector(".rv")) return;
   const cards = states(log);
   let perDay = newPerDay();
-  let bonus = 0;                       // extra new words asked for at the end of a session
+  // Extra new words allowed this session: asked for at the end of a session ("Learn 10 more"), or by a
+  // long-term "new words" goal (`extraNew`, review/longgoal.js goalNewWords). The setting is never changed.
+  let bonus = Math.max(0, Math.floor(Number(extraNew) || 0));
+  const goalExtra = bonus;             // (a goal's words are today's own work: they don't roll as extras)
   let autoplay = pref("reviewAutoplay", true);
   let timers = timerSettings();        // the time bar on each card, the session clock, a card's time goal
   let speed = speedSettings();         // the bar as a countdown (speed streak) or calm, seconds on the back, boosts
@@ -319,8 +322,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   }
   /** New words past the day's number roll as extras: note which of `fresh` those are (`list`, `allowance`:
    * what the day's own number alone would have planned). */
-  function markExtras(fresh, list = words, allowance = perDay) {
-    if (!bonus) return;
+  function markExtras(fresh, list = words, allowance = perDay + goalExtra) {
+    if (bonus <= goalExtra) return;
     const within = new Set(plan(list, cards, dayNumber(), Math.max(0, allowance)).fresh.map(uidOf));
     for (const v of fresh) if (!within.has(uidOf(v))) extras.add(uidOf(v));
   }
@@ -339,7 +342,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const current = $(".rv-wrap").hidden ? null : todo[0];
     const taken = current && !cards.has(uidOf(current)) ? 1 : 0;
     const p = plan(words.filter((v) => v !== current), cards, dayNumber(), perDay + bonus - taken);
-    markExtras(p.fresh, words.filter((v) => v !== current), perDay - taken);
+    markExtras(p.fresh, words.filter((v) => v !== current), perDay + goalExtra - taken);
     todo = [...(current ? [current] : []), ...queue(p.due, p.fresh)];
     if (!current) { if (todo.length) show(); else finish(); } else header();
   }
@@ -1369,7 +1372,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   };
   $(".rv-gear").onclick = () => { settings.hidden = !settings.hidden; drawSettings(); };
   for (const b of settings.querySelectorAll("[data-n]")) {
-    b.onclick = () => { perDay = Number(b.dataset.n); setNewPerDay(perDay); bonus = 0; drawSettings(); replan(); };
+    b.onclick = () => { perDay = Number(b.dataset.n); setNewPerDay(perDay); bonus = goalExtra; drawSettings(); replan(); };
   }
   $(".rv-auto").onchange = (e) => { autoplay = e.target.checked; setPref("reviewAutoplay", autoplay); };
   // The timers' settings take effect on the card on the table at once.

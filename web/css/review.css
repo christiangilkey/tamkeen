@@ -566,7 +566,8 @@ body.rv-open { overflow: hidden; }
 .lg-nums b, .lg-parts b { color: var(--text); }
 .lg-pace { margin: 2px 0 0; font-family: var(--display-font); font-size: 17px; font-weight: 600; }
 .lg-line { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
-.lg-next, .lg-change { align-self: center; }
+.lg-next, .lg-change, .lg-learn, .lg-add { align-self: center; }
+.lg-add { display: inline-flex; align-items: center; gap: 6px; }
 .lg-edit-box { display: flex; flex-direction: column; gap: 8px; text-align: center; }
 .lg-edit-box h4 { margin: 8px 0 0; font-size: 14px; }
 .lg-edit-box .rv-chips { justify-content: center; margin-top: 0; }
