@@ -1,0 +1,296 @@
+# Library → Conversation: speaking practice (web/js/conversedata.js, web/js/components/conversepanel.js).
+a47c21fe	Pratique falar com alguém que nunca se cansa. Escolha uma situação, resolva o que for preciso nela e veja o que melhorar.
+35579e44	A Conversa precisa de uma chave de IA: a sua própria IA faz o papel da outra pessoa. O Gemini tem uma cota gratuita.
+0d7e6609	Qual árabe falar
+b27e39ef	Voltar às conversas
+b2d4d455	Ler em voz alta as falas da outra pessoa
+1bce6bb6	Seus objetivos
+bb4fb75a	Todos os objetivos cumpridos. Despeça-se ou veja como foi.
+dfd43738	Ver como foi
+c8fe96e0	Travou? Peça uma dica do que dizer
+663ffe26	Diga sua resposta
+b50909dc	Digite ou diga sua resposta
+bf9a79bf	Sua resposta
+77312bb4	As falas da outra pessoa são lidas em voz alta. Toque para desligar.
+2238fa32	As falas da outra pessoa não são lidas em voz alta. Toque para ligar.
+329a85c6	Diga um pouco mais
+cbe218c6	Volte ao assunto
+8aefde5f	Nada a corrigir
+303cfd6e	Melhor assim
+01e62568	Estas falas não são lidas em voz alta: este aparelho ainda não tem voz para este idioma. Toque em um botão de alto-falante para ver como adicionar uma.
+ace3708c	Preparando a cena…
+dff63549	Ouvindo você…
+404c955f	Pensando em uma dica…
+7f83df96	Comece com:
+86bfc103	Mais ajuda
+4a7c4256	Sua voz é transcrita neste computador e nunca sai dele.
+568e5fd8	Sua voz é enviada para {0} para ser transcrita.
+4f2cb15d	Este aparelho não consegue gravar som aqui.
+007441cb	Ouvindo… toque no microfone de novo quando terminar.
+def1020f	Escrevendo o que você disse…
+de5358cb	Confira o que foi ouvido, corrija se precisar e envie.
+cb90be4f	Responder por voz
+4e882311	Seu teclado tem um microfone próprio: toque na caixa de resposta, depois no microfone do teclado, e fale.
+7b232bb7	O Tamkeen também pode transcrever o que você diz com um serviço online e a sua própria chave (<0>Configurações → Escuta e transcrições</0>). O app para computador faz isso sozinho, e sua voz nunca sai do computador.
+5111c189	Sair desta conversa?
+bff348bb	Ela não fica guardada: da próxima vez, começa do início.
+c41206ac	objetivos cumpridos
+d5e47a3a	Revendo o que você disse…
+7cc0c77b	Tentar de novo
+9b090043	Outra conversa
+481315ed	Ainda não chegou a este nível: fique aqui por um tempo.
+3d0552f5	Bem neste nível.
+6f059077	Acima deste nível: tente o próximo.
+1a1afed0	Sua melhor frase
+dd49414b	Para melhorar
+f105abd5	Você disse
+5ad49da6	Nada chamou a atenção para corrigir. Tente a mesma coisa no próximo nível.
+438b57fe	Expressões que vale a pena guardar
+bd425a68	Como se faz de verdade
+b9ed77d5	Diga você
+0773bec6	Foi ouvido
+24962f78	Isso mesmo.
+5332f191	Ainda não. Ouça mais uma vez e diga de novo.
+438226dc	Iniciante
+313afa4f	Primeiras palavras: cumprimentar, pedir coisas, entender uma resposta curta.
+f25d3c50	Nível 1
+e2ba4a1f	Necessidades do dia a dia e conversa simples sobre você.
+ea5c4941	Nível 2
+755f2cfe	Contar, descrever, explicar e resolver um problema.
+ce0aa4e1	Nível 3
+c11179b7	Argumentar a favor de uma opinião, levantar hipóteses e lidar com momentos formais.
+0f2b7bbd	Nível 4
+9901e898	Convencer, adequar as palavras a quem escuta e falar em uma ocasião especial.
+2891d1cd	Descobrir
+e3f2ebd5	Pergunte uma coisa de cada vez e repita o que ouviu para conferir.
+5c4698b6	Sobre você
+82ee2494	Responda com frases completas, acrescente um detalhe que ninguém pediu e devolva uma pergunta.
+249aaa35	Algo dá errado
+5273ea80	Cumprimente, diga qual é o problema, recuse com educação uma primeira oferta fraca, sugira a sua própria saída, confirme e agradeça.
+60630704	Descrever
+2756a24e	Vá do geral ao detalhe, ou percorra o lugar em ordem. Compare as coisas.
+a775515c	Contar uma história
+30f9b86c	Dê a ela um começo, um problema e um fim, e fique no passado.
+261ba6ca	Dar instruções
+a30e8dba	Dê os passos em ordem: primeiro, depois, em seguida, por fim.
+fed5d0e8	Contar uma notícia
+87daa7aa	Primeiro os fatos: quem, o quê, onde, quando, por quê. Depois, uma frase sobre as consequências.
+f1b30c5b	Defender uma posição
+33527888	Posição, motivo, exemplo, um ponto para o outro lado, conclusão. Fale do assunto, não de você.
+9b0576a6	E se
+5690d1f9	Mantenha o padrão “se fosse…, seria…” do começo ao fim e acompanhe as consequências dois passos adiante.
+e7cf3256	Uma ideia
+dbc541d6	Defina a ideia, contraponha duas visões sobre ela, dê um exemplo real e volte à ideia.
+127e24a1	Explicar como funciona
+e3404c47	Nomeie as etapas, diga o que causa o quê e dê uma comparação.
+6ccd64b2	O inesperado
+816ca238	Diga que isso é novo para você, refaça a pergunta com suas palavras, ligue-a a algo que você conhece e então assuma uma posição.
+f33555c2	Um momento formal
+88b8f57b	Use as formas de tratamento educadas, suavize o que você pede e nunca escorregue para a fala informal.
+192fd2ba	Convencer
+0bdcebb1	Antes de começar, decida com quem você está falando e deixe isso definir seu tom e seus argumentos.
+35cf093d	Algumas palavras
+35c562bb	Caloroso e formal: cumprimente, diga por que estão reunidos, agradeça às pessoas pelo nome, acrescente um ditado, faça seus votos e encerre.
+5300e9f0	Lide com o imprevisto
+88a91268	Conhecer um vizinho
+60d5f23b	Você encontra um vizinho novo na escada do seu prédio.
+5a0fb694	Cumprimente e diga seu nome
+16977b8a	Descubra o nome dele
+846ddc8b	Descubra de onde ele é
+d46555a4	Despeça-se com educação
+a5f16ac1	Pedir em um café
+cba904b4	Você está em um café e quer algo para beber e algo para comer.
+ecbbd864	Peça uma bebida
+f38f75cb	Descubra o que tem para comer
+39ceccb5	Descubra quanto custa tudo
+ded13af4	Na feira
+5ac7485c	Você quer comprar frutas em uma banca da feira.
+7cf8342b	Peça as frutas que você quer
+752619e5	Descubra o preço
+a14322bf	Descubra quando a banca fecha
+4947285e	Pegar um táxi
+50410b59	Você entra em um táxi em frente à estação.
+e427e811	Diga ao motorista para onde você vai
+58026f36	Descubra quanto tempo leva
+1e355f7a	Descubra quanto vai custar
+928655b7	Sua família
+6e0f69ca	Um colega novo pergunta sobre sua família durante um café.
+9f3186e7	Descreva duas pessoas da sua família
+15d86581	Diga o que uma delas faz
+fdc10002	Pergunte sobre a família dele também
+a2cbabe5	Seu trabalho ou seus estudos
+473a4a7b	Alguém que você acabou de conhecer pergunta o que você faz.
+0e4612ab	Diga o que você faz e onde
+901c9c20	Descreva um dia comum
+e6904716	Diga do que você gosta no que faz
+63cb29fa	Seu tempo livre
+5a870409	Um colega de turma pergunta o que você faz quando não está trabalhando.
+2ca88455	Diga o que você faz no tempo livre
+7cfb2036	Diga com que frequência e com quem
+48c7988e	Pergunte o que ele gosta de fazer
+d9987751	Uma viagem que você fez
+12c48ae7	Um amigo pergunta sobre uma viagem que você fez.
+44e8f735	Diga aonde você foi e quando
+40460809	Diga o que você fez lá
+fe7fa293	Diga do que você mais gostou
+66967558	Por que você está aprendendo este idioma
+c574fd89	Alguém está curioso para saber por que você está aprendendo o idioma dele.
+5c024b19	Diga quando você começou e por quê
+62e12c32	Diga o que você acha difícil
+a6b58a49	Diga o que você quer fazer com ele
+e3229679	Check-in no hotel
+e90659ab	Você chega a um hotel onde tem uma reserva.
+b1c56ea0	Dê seu nome e diga que tem uma reserva
+29d76984	Descubra o horário do café da manhã
+dd54cf01	Descubra a senha do Wi-Fi
+05c30ffa	Descubra até que horas você deve sair do quarto
+c474a873	Comprar uma passagem de trem
+03c6e20a	Você está na bilheteria de uma estação e quer viajar hoje.
+29dba39b	Diga para onde você quer ir
+a46accc5	Descubra quando sai o próximo trem
+7e90233b	Descubra qual é a plataforma
+2203bb44	Descubra o preço e compre uma passagem
+27ef0ab5	Marcar uma consulta
+1f8621e0	Você liga para uma clínica porque está se sentindo mal.
+67532a85	Diga o que você tem
+346796d9	Descubra qual é o primeiro horário disponível
+877f3ac2	Descubra o que levar
+593d9499	Repita o dia e a hora para confirmar
+6a217bc8	Descrever um cômodo
+70c5083e	Descreva o cômodo onde você trabalha ou estuda, para que quem escuta consiga imaginá-lo com exatidão.
+784f5083	Percorra o cômodo em ordem
+70228054	Dê tamanhos, cores e o que há nele
+d353e819	Diga do que você gosta e o que mudaria
+a558ea3c	Um dia que você não vai esquecer
+fd0737e0	Conte a quem escuta sobre um dia que você nunca vai esquecer.
+a06cf43a	Dê um começo, um problema e um fim
+0c0d3e40	Fique no passado
+b543fcc5	Diga como você se sentiu e por quê
+f1c8be79	Como se faz
+6d4a39c9	Explique como fazer seu prato favorito a alguém que nunca o preparou.
+91de8142	Diga o que é preciso
+5efe2ea6	Dê os passos em ordem
+06d51ed3	Confira se quem escuta acompanhou
+94fe8b18	Nas notícias
+4f078354	Conte a quem escuta algo que foi notícia esta semana.
+d3305c6a	Diga quem, o quê, onde e quando
+19bdf349	Diga por que aconteceu
+1347a8b1	Diga o que pode acontecer depois
+90ce4412	Explicar o caminho
+91f0ebe6	Um amigo chegou à sua cidade pela primeira vez e está na estação de trem. Explique como chegar à sua casa.
+9808ccb5	Dê o caminho passo a passo
+8609f6eb	Cite pontos de referência impossíveis de não ver
+eb3b0450	Diga qual é a distância ou quanto tempo leva
+126266fd	Reservar uma sala para uma conferência
+ef20ee62	Você liga para um hotel para reservar uma sala para uma conferência de dois dias com cinquenta pessoas no mês que vem.
+aec1f0a4	Dê as datas e o número de pessoas
+839428e2	Descubra quantas pessoas cabem na sala e que equipamentos ela tem
+dba1eb4e	Descubra o que o preço inclui
+0a219a50	Peça um desconto
+4624c278	Voo perdido
+c0790736	Você perdeu seu voo e está no balcão da companhia aérea no aeroporto.
+cce1a690	Diga em poucas palavras o que aconteceu
+be422a03	Descubra quando sai o próximo voo
+40b22957	Descubra quanto custa remarcar
+a96d6c0e	Descubra o que acontece com a sua mala
+dbf53712	Comprar por telefone
+5e6ad652	Você liga para uma loja para comprar um celular novo.
+c24afd23	Descubra quais cores eles têm
+4840b736	Informe-se sobre a garantia
+58007243	Combine como receber o aparelho
+7fab0ee0	Planejar um jantar
+a84208fb	Você está planejando um jantar com colegas na sexta-feira e pede a um amigo que recomende um restaurante.
+518a49b9	Explique a ocasião e quem vai
+3e7dc631	Informe-se sobre a comida e o preço
+c5ea170d	Compare dois lugares e escolha
+27fd85b4	Bagagem extraviada
+d7bd57fd	Você pousou depois de um voo longo, mas sua mala não apareceu. Você está no balcão da companhia aérea.
+b213f866	Informe seu voo e de onde você veio
+6750956a	Descreva a mala
+6c5f59cb	Informe seu hotel e quanto tempo vai ficar
+a4cab8ea	Peça um número de protocolo e descubra quando ela vai chegar
+e3562921	Sem dinheiro vivo no restaurante
+796d4f41	Você terminou de comer e descobre que o restaurante só aceita dinheiro. Você só tem cartão.
+8c56686e	Peça desculpas e explique
+1d7bb4f9	Descubra onde fica o caixa eletrônico mais próximo
+ccff521b	Ofereça algo como garantia enquanto busca o dinheiro
+a1d19f2b	Um acidente de carro
+0644fed5	Você liga para a polícia para comunicar um pequeno acidente de carro em que se envolveu.
+ef89b6bb	Diga se alguém se feriu
+26f3d4ef	Informe o local exato
+8becb789	Conte o que aconteceu, em ordem
+e60afdea	Descubra o que fazer em seguida
+e1603163	Você quebrou o que pegou emprestado
+4a7d2a70	Você pegou emprestado o notebook de um amigo e o quebrou. Agora precisa contar a ele.
+3fc45a68	Peça desculpas com sinceridade
+11b3d390	Conte como aconteceu
+8f904749	Ofereça duas ou três formas de resolver
+0001c6f7	A reserva que não aparece
+6c50d144	Você chega a um hotel tarde da noite. Não encontram sua reserva, e o hotel está lotado.
+7777cc7f	Explique que você reservou, e quando
+162800ec	Recuse com educação a primeira resposta
+a7757465	Combine uma saída que você possa aceitar
+c1aa4233	Parou de funcionar
+69a76f8d	O celular que você comprou há dois dias parou de funcionar. Você volta à loja.
+e6d6aaf7	Diga qual é o problema e quando você comprou
+56e5e4e5	Peça um novo ou seu dinheiro de volta
+30721468	Combine o que acontece em seguida
+6b5e1377	Defender uma opinião
+d289ddbb	Pedem sua opinião sobre uma questão em que as pessoas discordam. Quem escuta vai contestar.
+b1e66d35	Declare sua posição
+15e9e623	Dê um motivo e um exemplo
+2d850407	Dê razão ao outro lado em um ponto e depois responda
+c875c70e	Resuma em uma frase
+8bca8f8e	E se…
+6a63ba5d	Pedem que você imagine algo que não é verdade e diga o que aconteceria.
+c799ca25	Diga o que aconteceria primeiro
+ec4fc5f9	Siga até onde isso levaria
+53314c80	Perguntam sobre uma ideia, não sobre uma coisa: o que ela significa e como as pessoas a veem de formas diferentes.
+77309e0c	Diga o que a ideia significa
+8860b942	Contraponha duas visões sobre ela
+2b2f71ee	Dê um exemplo da vida real
+c3d9214d	Pedem que você explique algo complicado a alguém que não sabe nada do assunto.
+79f978ed	Nomeie as etapas em ordem
+7141adb3	Diga o que causa o quê
+1ef54b90	Dê uma comparação que deixe tudo claro
+06a9a589	Uma pergunta que você não esperava
+5b179676	Perguntam sobre algo em que você provavelmente nunca pensou.
+99f2b3fc	Refaça a pergunta com suas palavras
+d31e29d9	Ligue-a a algo que você conhece
+6d88dca9	Assuma uma posição e dê um motivo
+4937ba3a	Pedir desculpas a um parceiro de negócios
+dde2a745	Você representa sua empresa em uma reunião formal. Seu projeto está meses atrasado, e o parceiro está insatisfeito.
+6e45113c	Peça desculpas formalmente pelo atraso
+12a81c86	Explique o que causou o atraso
+9d67324e	Ofereça um novo plano com datas
+faaa5a26	Convença o parceiro a continuar trabalhando com você
+5b01b793	O vizinho barulhento
+e5ae45ff	Seu vizinho faz festas barulhentas toda noite. Você bate à porta dele para falar sobre isso.
+7e05fd09	Levante o problema com educação
+12c10bef	Explique como isso afeta você
+fcbd04ea	Sugira um meio-termo
+0d484404	Despeça-se em bons termos
+4cb7ce35	Convencer uma autoridade
+35fe64ba	Você tem dez minutos com uma autoridade do governo. Convença-a a financiar o ensino de línguas estrangeiras nas escolas.
+6cdd0883	Comece de um jeito adequado a quem ela é
+5dedf164	Dê dois argumentos que importem para ela
+6ecdd1c8	Responda à objeção dela
+f9478dad	Peça uma decisão clara
+401edac7	Dar os pêsames
+5757c24e	Um colega perdeu alguém da família. Você vai visitá-lo.
+9e599874	Dê os pêsames com as palavras adequadas
+eec65358	Fale com carinho, sem se intrometer
+517107a3	Ofereça ajuda com algo concreto
+21386c90	Dizer algumas palavras
+323b8e32	Pedem que você se levante e diga algumas palavras em uma ocasião especial.
+b9778b1e	Cumprimente a todos e diga por que estão reunidos
+a0dc147e	Agradeça a alguém pelo nome
+5fab4552	Acrescente um ditado ou uma citação
+95f60da0	Encerre com bons votos
+9c7df7c8	Explicar um ditado
+3dd6b74e	Quem escuta apresenta um ditado conhecido e pergunta o que você acha dele.
+2c2d2215	Diga o que o ditado significa
+d607034e	Dê um exemplo da vida
+91a3856c	Diga se você concorda e por quê
+955e542c	O Tamkeen precisa de permissão para usar o microfone e ouvir você.
+9577b2a1	Essa gravação está vazia ou é longa demais.

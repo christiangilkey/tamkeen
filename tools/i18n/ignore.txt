@@ -699,3 +699,8 @@ b4cfe1f4  # a key's name (game/reveal.js), never on screen
 f37f0591  # Week starting (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 fc3f8727  # Days studied (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 606d04ea  # Words saved (dliweeks.js: a spreadsheet heading for the owner, never on screen)
+# conversedata.js: a level on the two scales learners know (CEFR · ILR), the same in every language
+6eeac97e  # A2 · ILR 1
+50de0fbb  # B2 · ILR 2
+9b3df240  # C1 · ILR 3
+8d787c89  # C2 · ILR 4

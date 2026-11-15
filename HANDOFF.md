@@ -8577,3 +8577,67 @@ sign-in); grades are NOT kept in Tamkeen (he keeps them and uses the spreadsheet
   named students before collecting.
 - **Follow-ups**: step 2 (assignments with due dates: a teacher assigns DLI deck chapters, students see them, the
   report shows who finished); listening and reading time in the numbers; server-held key for new content.
+
+## Conversation: speaking practice with the learner's AI, a new Library tab (2026-11-14; forked chat; NOT yet tried with a real AI)
+
+**What the owner asked for.** A "Conversation mode" tab in the Library to compete with a product he saw presented
+(Falcon AI: simulated conversations the student steers to find things out, voice turned to text locally, quiet
+grammar correction, automatic grading, an "effort lock", hover-for-definition), but better, and built on his own
+**MSA OPI Trainer** artifact (https://claude.ai/artifact/XU7PuXF7R3PPvcheF3PUKG) as the list of conversations.
+Teacher features are out of scope here (another chat: "DLI classes").
+
+**What it is.** Library → Conversation (`#/library?show=conversation`, second in the kinds, after Courses). 38
+conversations in five levels: Starter (A1), Level 1 (A2 · ILR 1), Level 2 (B2 · ILR 2), Level 3 (C1 · ILR 3),
+Level 4 (C2 · ILR 4). They follow the OPI Trainer: the warm-up about yourself (family, work, free time, travel,
+studies), the Level 2 tasks (describe, narrate, instruct, report) and its ten role-plays with a complication, the
+Level 3 tasks (opinion, hypothesis, abstract idea, explaining, the unexpected, two formal role-plays) and Level 4
+(persuade, condolences, a short speech, a proverb). Level 3's questions are drawn from pools (20 opinion, 10
+hypothesis, 7 abstract, 6 explain, 8 unexpected), so those are different each time.
+
+**The rules the app keeps (web/js/converse.js; this is what makes it better than letting an AI improvise).**
+- *The app holds the facts.* `PLAY[id].facts` has choices written `{a|b|c}`; `newTalk` picks them for each run and
+  the AI is handed them ("give one only when asked, never change them"). Prices are left to the AI as "an ordinary
+  amount in the local money" (they can't be language-neutral); times, days, counts and options are the app's.
+- *The app ticks the goals.* Each answer lists the goal ids done so far; `applyTurn` only ever adds, drops unknown
+  ids, and adds nothing on a low-effort or off-subject message (the "effort lock", which is scaled to the level in
+  `LEVEL_TALK`: a word is fine at Starter, a paragraph is expected at Level 2 when telling or describing).
+- *The app decides the complication.* `twistDue`: on the third message once half the goals are done, or on the
+  fourth whatever happened. Its goal ("Deal with the surprise", id `tw`) joins the list then.
+- One request per learner message (`turnPrompt` → `TURN_SCHEMA`: reply, its meaning, correction + note, done,
+  effort, off, end), one for the opening line, one for a hint (`hintPrompt`: clue, starter, full sentence), one for
+  the debrief (`debriefPrompt`). All through `define-service.js askAi` (the learner's own key, any of the four
+  providers). `cleanTurn` / `cleanHint` / `cleanDebrief` tidy what comes back: a "correction" that only differs in
+  punctuation or vowel marks is dropped, and a debrief may only quote lines the learner really wrote.
+- Arabic: the panel has its own dialect picker (all six kinds, kept in `converseVariety`, starting from the one
+  chosen in Courses); the AI is told the dialect and `sayText` reads the lines with that dialect's voice. At
+  Starter and Level 1 the AI is asked for full vowel marks.
+
+**Files.** `web/js/conversedata.js` (what the learner is shown: levels, task names and tips, the 38 titles,
+situations and goals; translated) · `web/js/converse.js` (what the AI is told and the rules above; left out of the
+translations in `tools/i18n/extract.mjs` EXCLUDE) · `web/js/components/conversepanel.js` (the three screens: list,
+talk, debrief) · `web/js/hearmic.js` (records one spoken message; ends by itself after 1.8 s of quiet) ·
+`web/js/hear-service.js` and `mobile/src/js/hear-service.js` (who writes it down: the computer posts it to
+`POST /api/stt/say`, the phone and web app send it to the online service with the learner's key, or say they
+can't) · `app/api/system.py` `stt_say` (decodes whatever the page recorded, runs `transcriber.get(language=…)`,
+keeps nothing; `local` in the answer says whether it left the computer) · `web/js/pages/library.js` (the kind;
+`panelKind` = kinds with a panel instead of episodes; the `courses-kind` class now covers both, `converse-kind`
+is Conversation alone) · `web/js/saytext.js` (`quiet`: a line read out unasked says nothing when there is no voice)
+· styles at the end of `web/css/app.css` (`.cv-*`) · `mobile/scripts/build-www.mjs` (the four shared files).
+
+**Tested.** `tests/js/converse.test.mjs` (11: every conversation is playable, facts chosen per run, ticks only
+added, effort lock, the complication's timing, tidying, hint, debrief, "say it again" closeness, the kept result)
+and `tests/test_say.py` (4: written in the language asked for, nothing left behind, 409 with no model, refused
+without the page's token). In the preview, with stand-in AI answers: a whole Level 2 conversation in Spanish on the
+desktop page (corrections, "Say a little more", ticks, the complication, hint steps, word popup and Save, debrief)
+and a Starter one in Arabic at phone size. `/api/stt/say` was run for real against the installed large-v3 model on
+the Spanish course's recordings: right text, about 7 s the first time (the model loading) and 0.4 s after.
+**Not tested:** a real AI provider (no key was used: the prompts have never met a real model, so how well each
+provider keeps to them, and what a conversation costs, is still to be seen), a real microphone, the phones' online
+transcription, an iPhone.
+
+**Not built (said to the owner as "after the first version").** Words due for review woven into a conversation
+(and counting as a review); "Talk about this episode" from a podcast, video or book; a whole mock interview with a
+rating; links from the debrief to the matching grammar lesson; pixel-art characters for the other person;
+pronunciation scoring; XP or a reward roll for a finished conversation (needs an event in `game/rules.js`, within
+the reward rules); the results synced between devices (they are in `localStorage` `converseDone` only); and the
+teacher side.

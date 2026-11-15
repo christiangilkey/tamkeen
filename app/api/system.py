@@ -7,10 +7,12 @@ import os
 import subprocess
 import sys
 import time
+import uuid
 from pathlib import Path
 from typing import Annotated, Any
 
 from fastapi import APIRouter, HTTPException, Request
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse, PlainTextResponse, StreamingResponse
 from pydantic import AfterValidator, BaseModel
 
@@ -185,6 +187,45 @@ def stt_test(body: SttTestIn) -> dict[str, Any]:
 def stt_usage() -> dict[str, Any]:
     """Audio sent to the cloud provider today from this computer."""
     return transcriber.cloud.usage()
+
+
+MAX_SAY_BYTES = 6 * 1024 * 1024  # a spoken message, whatever format the page's recorder made
+MAX_SAY_SECONDS = 120.0
+
+
+@router.post("/stt/say")
+async def stt_say(request: Request, lang: limits.Code = "") -> dict[str, Any]:
+    """Write down a short spoken message: Library → Conversation, where the learner answers by voice
+    (web/js/hear-service.js; raw request body). The same engine writes it as writes the transcripts: the
+    model on this computer, so the voice never leaves it, or the cloud provider when that is what
+    Settings → Listening & transcripts is set to (`local` in the answer says which). Nothing is kept."""
+    data = await request.body()
+    if not data or len(data) > MAX_SAY_BYTES:
+        raise HTTPException(400, "That recording is empty or too long.")
+    language = lang or languages.study()
+    tmp = paths.tmp_dir() / f"say-{uuid.uuid4().hex}.audio"
+    try:
+        tmp.write_bytes(data)
+        samples = await run_in_threadpool(audio.decode, tmp)
+    except audio.AudioError as exc:
+        raise HTTPException(400, "That recording couldn't be read as sound.") from exc
+    finally:
+        tmp.unlink(missing_ok=True)
+    if len(samples) > MAX_SAY_SECONDS * audio.SAMPLE_RATE:
+        raise HTTPException(400, "That recording is empty or too long.")
+
+    def write() -> tuple[str, str]:
+        engine = transcriber.get(language=language)
+        lines = [seg.text.strip() for seg in engine.transcribe(samples, language=language)]
+        return " ".join(line for line in lines if line), engine.engine
+
+    try:
+        text, engine = await run_in_threadpool(write)
+    except transcriber.NoModelError as exc:
+        raise HTTPException(409, str(exc)) from exc
+    except transcriber.cloud.CloudError as exc:
+        raise HTTPException(502, str(exc)) from exc
+    return {"text": text, "local": engine != "cloud"}
 
 
 @router.get("/hardware")

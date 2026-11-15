@@ -1,0 +1,296 @@
+# Library → Conversation: speaking practice (web/js/conversedata.js, web/js/components/conversepanel.js).
+a47c21fe	Pagpraktis og sulti uban sa usa nga dili gyud kapuyon. Pagpili og sitwasyon, humana ang angay buhaton didto, ug tan-awa kung unsay angay pang bansayon.
+35579e44	Kinahanglan og AI key ang Panag-istoryahanay: ang imong kaugalingong AI ang mahimong imong kaistorya. May libre nga allowance ang Gemini.
+0d7e6609	Unsang Arabe ang imong isulti
+b27e39ef	Balik sa mga panag-istoryahanay
+b2d4d455	Basaha og kusog ang mga linya sa imong kaistorya
+1bce6bb6	Imong mga tumong
+bb4fb75a	Nahuman na ang tanang tumong. Panamilit, o tan-awa kung kumusta kini.
+dfd43738	Tan-awa kung kumusta kini
+c8fe96e0	Na-stuck? Pagkuha og timaan kung unsay isulti
+663ffe26	Isulti ang imong tubag
+b50909dc	I-type o isulti ang imong tubag
+bf9a79bf	Imong tubag
+77312bb4	Basahon og kusog ang mga linya sa imong kaistorya. Pindota aron i-off kini.
+2238fa32	Dili basahon og kusog ang mga linya sa imong kaistorya. Pindota aron i-on kini.
+329a85c6	Sulti pa og gamay
+cbe218c6	Balik sa hilisgotan
+8aefde5f	Walay angay tul-iron
+303cfd6e	Mas maayo
+01e62568	Dili basahon og kusog kining mga linya: wala pay tingog alang niini nga pinulongan kining device. Pindota ang usa ka speaker button aron makita kung unsaon pagdugang.
+ace3708c	Giandam ang eksena…
+dff63549	Naminaw kanimo…
+404c955f	Naghunahuna og timaan…
+7f83df96	Sugdi niini:
+86bfc103	Dugang tabang
+4a7c4256	Isulat ang imong tingog dinhi mismo sa computer ug dili gyud kini mogawas niini.
+568e5fd8	Ipadala ang imong tingog ngadto sa {0} aron isulat.
+4f2cb15d	Dili maka-record og tingog dinhi kining device.
+007441cb	Naminaw… pindota pag-usab ang mikropono inig human nimo.
+def1020f	Gisulat ang imong gisulti…
+de5358cb	Susiha ang nadungog, tul-ira kung kinahanglan, dayon ipadala.
+cb90be4f	Pagtubag gamit ang tingog
+4e882311	Naay kaugalingong mikropono ang imong keyboard: i-tap ang kahon sa tubag, dayon ang mikropono sa keyboard, ug sulti.
+7b232bb7	Masulat usab sa Tamkeen ang imong gisulti gamit ang online service ug imong kaugalingong key (<0>Settings → Pagpaminaw ug mga transcript</0>). Sa computer, ang desktop app mismo ang mobuhat niini, ug dili gyud mogawas ang imong tingog.
+5111c189	Biyaan kining panag-istoryahanay?
+bff348bb	Dili kini tipigan: sa sunod, magsugod kini pag-usab gikan sa sinugdan.
+c41206ac	tumong ang naabot
+d5e47a3a	Gisusi pag-usab ang imong mga gisulti…
+7cc0c77b	Sulayi kini pag-usab
+9b090043	Laing panag-istoryahanay
+481315ed	Wala pa niini nga level: pabilin una dinhi.
+3d0552f5	Sakto gyud niini nga level.
+6f059077	Labaw na niini nga level: sulayi ang sunod.
+1a1afed0	Imong labing maayong linya
+dd49414b	Mga angay pang bansayon
+f105abd5	Imong gisulti
+5ad49da6	Walay nakit-ang angay ayohon. Sulayi ang samang butang sa sunod nga level.
+438b57fe	Mga hugpong sa pulong nga angay tipigan
+bd425a68	Giunsa gyud kini pagbuhat
+b9ed77d5	Isulti kini nimo mismo
+0773bec6	Nadungog
+24962f78	Mao na.
+5332f191	Dili pa kaayo. Paminaw pag-usab, dayon isulti kini pag-usab.
+438226dc	Sinugdanan
+313afa4f	Unang mga pulong: pangumusta, pagpangayo og butang, pagsabot sa mubo nga tubag.
+f25d3c50	Level 1
+e2ba4a1f	Adlaw-adlaw nga panginahanglan, ug yanong istorya bahin nimo.
+ea5c4941	Level 2
+755f2cfe	Pag-asoy, paghulagway, pagpatin-aw, ug pagsulbad og problema.
+ce0aa4e1	Level 3
+c11179b7	Pagdepensa og panglantaw, “unsa kaha kung”, ug pormal nga mga higayon.
+0f2b7bbd	Level 4
+9901e898	Pagkombinsi, pagpahaom sa imong mga pulong sa naminaw, pagsulti sa usa ka okasyon.
+2891d1cd	Hibaloa
+e3f2ebd5	Usa ra ka butang ang pangutan-a matag higayon, ug sublia ang imong nadungog aron masiguro.
+5c4698b6	Bahin kanimo
+82ee2494	Tubaga sa kompletong mga sentence, pagdugang og usa ka detalye nga walay nangutana, ug pangutana usab balik.
+249aaa35	Naay masayop
+5273ea80	Pangumusta, isulti ang problema, balibari sa matinahurong paagi ang dili maayong unang tanyag, isugyot ang imong solusyon, kumpirmaha kini, ug pagpasalamat.
+60630704	Ihulagway
+2756a24e	Gikan sa kinatibuk-an padulong sa detalye, o agii ang lugar sumala sa han-ay. Itandi ang mga butang.
+a775515c	Pag-asoy og istorya
+30f9b86c	Hatagi kini og sinugdanan, problema ug kataposan, ug pabilin sa past tense.
+261ba6ca	Paghatag og instruksyon
+a30e8dba	Ihatag ang mga lakang sumala sa han-ay: una, human niana, dayon, sa kataposan.
+fed5d0e8	Isugilon ang balita
+87daa7aa	Una ang mga kamatuoran: kinsa, unsa, asa, kanus-a, ngano. Dayon usa ka sentence kung asa kini mosangpot.
+f1b30c5b	Depensahi ang usa ka panglantaw
+33527888	Posisyon, rason, pananglitan, usa ka punto para sa pikas nga kiliran, konklusyon. Hisgoti ang isyu, dili ang imong kaugalingon.
+9b0576a6	Unsa kaha kung
+5690d1f9	Gamita ang “kung… unta…” nga porma hangtod sa kataposan, ug sunda ang mga resulta og duha pa ka lakang.
+e7cf3256	Usa ka ideya
+dbc541d6	Ipasabot ang ideya, itandi ang duha ka panglantaw niini, paghatag og usa ka tinuod nga pananglitan, dayon balik sa ideya.
+127e24a1	Ipatin-aw kung giunsa kini paglihok
+e3404c47	Nganli ang mga yugto, isulti kung unsay hinungdan sa unsa, dayon paghatag og usa ka pagtandi.
+6ccd64b2	Ang wala damha
+816ca238	Isulti nga bag-o kini nimo, isulti ang pangutana sa imong kaugalingong pulong, isumpay kini sa imong nahibaloan, dayon barogi ang usa ka panglantaw.
+f33555c2	Usa ka pormal nga higayon
+88b8f57b	Gamita ang matinahurong mga porma sa pagtawag, pahumoka ang imong hangyo, ug ayaw gyud pagbalhin sa kaswal nga sinultihan.
+192fd2ba	Kombinsiha
+0bdcebb1	Sa dili pa magsugod, hukmi kung kinsa ang imong kaistorya, ug pasagdi nga kana ang mopili sa imong tono ug mga argumento.
+35cf093d	Pipila ka pulong
+35c562bb	Mainiton ug pormal: pangumusta, isulti nganong nagtigom mo, pasalamati ang mga tawo sa ilang ngalan, pagdugang og panultihon, ihatag ang imong pangandoy, ug tapusa.
+5300e9f0	Atubanga ang sorpresa
+88a91268	Pakighimamat sa silingan
+60d5f23b	Nahimamat nimo ang usa ka bag-ong silingan sa hagdanan sa inyong building.
+5a0fb694	Kumustaha siya ug isulti ang imong ngalan
+16977b8a	Hibaloa ang iyang ngalan
+846ddc8b	Hibaloa kung taga-asa siya
+d46555a4	Panamilit sa matinahurong paagi
+a5f16ac1	Pag-order sa café
+cba904b4	Naa ka sa usa ka café ug gusto nimo og mainom ug makaon.
+ecbbd864	Pag-order og mainom
+f38f75cb	Hibaloa kung unsay makaon
+39ceccb5	Hibaloa kung pila ang tanan
+ded13af4	Sa merkado
+5ac7485c	Gusto kang mopalit og prutas sa puwesto sa merkado.
+7cf8342b	Pangayoa ang prutas nga imong gusto
+752619e5	Hibaloa ang presyo
+a14322bf	Hibaloa kung kanus-a magsira ang puwesto
+4947285e	Pagsakay og taxi
+50410b59	Misakay ka og taxi sa gawas sa estasyon.
+e427e811	Sultihi ang drayber kung asa ka paingon
+58026f36	Hibaloa kung unsa kadugay ang biyahe
+1e355f7a	Hibaloa kung pila ang bayad
+928655b7	Imong pamilya
+6e0f69ca	Usa ka bag-ong katrabaho ang nangutana bahin sa imong pamilya samtang nagkape mo.
+9f3186e7	Ihulagway ang duha ka tawo sa imong pamilya
+15d86581	Isulti kung unsay trabaho sa usa nila
+fdc10002	Pangutana usab bahin sa iyang pamilya
+a2cbabe5	Imong trabaho o pagtuon
+473a4a7b	Usa ka bag-ong kaila ang nangutana kung unsay imong ginabuhat.
+0e4612ab	Isulti kung unsay imong ginabuhat ug asa
+901c9c20	Ihulagway ang usa ka ordinaryong adlaw
+e6904716	Isulti kung unsay imong ganahan niini
+63cb29fa	Imong bakanteng oras
+5a870409	Usa ka klasmeyt ang nangutana kung unsay imong buhaton kung wala kay trabaho.
+2ca88455	Isulti kung unsay buhaton nimo sa bakanteng oras
+7cfb2036	Isulti kung kapila ug kinsay kauban
+48c7988e	Pangutan-a kung unsay ganahan niyang buhaton
+d9987751	Usa ka biyahe nimo
+12c48ae7	Usa ka higala ang nangutana bahin sa imong biyahe.
+44e8f735	Isulti kung asa ka miadto ug kanus-a
+40460809	Isulti kung unsay imong gibuhat didto
+fe7fa293	Isulti kung unsay imong pinakaganahan
+66967558	Nganong nagtuon ka niining pinulongana
+c574fd89	Naay tawo nga gustong mahibalo kung nganong nagtuon ka sa iyang pinulongan.
+5c024b19	Isulti kung kanus-a ka nagsugod ug ngano
+62e12c32	Isulti kung unsay lisod para nimo
+a6b58a49	Isulti kung unsay gusto nimong buhaton niini
+e3229679	Pag-check in
+e90659ab	Miabot ka sa usa ka hotel diin naa kay booking.
+b1c56ea0	Ihatag ang imong ngalan ug isulti nga naa kay booking
+29d76984	Hibaloa kung kanus-a ang pamahaw
+dd54cf01	Hibaloa ang password sa Wi-Fi
+05c30ffa	Hibaloa kung kanus-a ka angay mobiya sa kuwarto
+c474a873	Pagpalit og tiket sa tren
+03c6e20a	Naa ka sa bintana sa tiket sa estasyon ug gusto kang mobiyahe karong adlawa.
+29dba39b	Isulti kung asa ka gustong moadto
+a46accc5	Hibaloa kung kanus-a molarga ang sunod nga tren
+7e90233b	Hibaloa kung asang plataporma
+2203bb44	Hibaloa ang presyo ug pagpalit og tiket
+27ef0ab5	Paghimo og appointment
+1f8621e0	Mitawag ka sa klinika kay dili maayo ang imong gibati.
+67532a85	Isulti kung unsay imong gibati
+346796d9	Hibaloa ang pinakasayong appointment
+877f3ac2	Hibaloa kung unsay dad-on
+593d9499	Sublia ang adlaw ug oras aron makumpirma
+6a217bc8	Ihulagway ang usa ka kuwarto
+70c5083e	Ihulagway ang kuwarto diin ka nagtrabaho o nagtuon, aron mahanduraw gyud kini sa naminaw.
+784f5083	Agii ang kuwarto sumala sa han-ay
+70228054	Ihatag ang mga gidak-on, kolor ug unsay naa sa sulod
+d353e819	Isulti kung unsay imong ganahan ug unsay imong usbon
+a558ea3c	Usa ka adlaw nga dili nimo malimtan
+fd0737e0	Sultihi ang naminaw bahin sa usa ka adlaw nga dili gyud nimo malimtan.
+a06cf43a	Hatagi kini og sinugdanan, problema ug kataposan
+0c0d3e40	Pabilin sa past tense
+b543fcc5	Isulti kung unsay imong gibati ug ngano
+f1c8be79	Unsaon kini paghimo
+6d4a39c9	Ipatin-aw kung unsaon paghimo ang imong paboritong pagkaon ngadto sa tawo nga wala pa gyud makaluto niini.
+91de8142	Isulti kung unsay gikinahanglan
+5efe2ea6	Ihatag ang mga lakang sumala sa han-ay
+06d51ed3	Siguroa nga nakasabot ang naminaw
+94fe8b18	Sa balita
+4f078354	Sultihi ang naminaw bahin sa usa ka butang nga naa sa balita karong semanaha.
+d3305c6a	Isulti kung kinsa, unsa, asa ug kanus-a
+19bdf349	Isulti kung nganong nahitabo kini
+1347a8b1	Isulti kung unsay posibleng mahitabo sunod
+90ce4412	Paghatag og direksyon
+91f0ebe6	Usa ka higala ang miabot sa imong siyudad sa unang higayon ug naa sa estasyon sa tren. Ipatin-aw kung unsaon pag-adto sa imong balay.
+9808ccb5	Ihatag ang ruta matag lakang
+8609f6eb	Nganli ang mga landmark nga dili niya masipyat
+eb3b0450	Isulti kung unsa kalayo o unsa kadugay
+126266fd	Pag-book og function room para sa komperensya
+ef20ee62	Mitawag ka sa hotel aron mag-book og function room para sa duha ka adlaw nga komperensya sa kalim-an ka tawo sa sunod bulan.
+aec1f0a4	Ihatag ang mga petsa ug ang gidaghanon sa tawo
+839428e2	Hibaloa kung pila ka tawo ang masulod sa function room ug unsay kagamitan niini
+dba1eb4e	Hibaloa kung unsay apil sa presyo
+0a219a50	Pangayo og diskwento
+4624c278	Nabiyaan sa flight
+c0790736	Nabiyaan ka sa imong flight ug naa ka sa desk sa airline sa airport.
+cce1a690	Isulti sa mubo kung unsay nahitabo
+be422a03	Hibaloa kung kanus-a molarga ang sunod nga flight
+40b22957	Hibaloa kung pila ang bayad sa pag-ilis
+a96d6c0e	Hibaloa kung unsay mahitabo sa imong bag
+dbf53712	Pagpalit pinaagi sa telepono
+5e6ad652	Mitawag ka sa tindahan bahin sa pagpalit og bag-ong mobile phone.
+c24afd23	Hibaloa kung unsang mga kolor ang naa nila
+4840b736	Hibaloa ang bahin sa warranty
+58007243	Sabota kung unsaon nimo kini pagkuha
+7fab0ee0	Pagplano og panihapon
+a84208fb	Nagplano ka og panihapon uban sa mga katrabaho sa Biyernes ug mihangyo ka sa usa ka higala nga morekomendar og restawran.
+518a49b9	Ipatin-aw ang okasyon ug kinsay moadto
+3e7dc631	Hibaloa ang bahin sa pagkaon ug presyo
+c5ea170d	Itandi ang duha ka lugar ug pagpili
+27fd85b4	Nawala nga bagahe
+d7bd57fd	Mitugpa ka human sa taas nga flight, apan wala gyud mogawas ang imong bag. Naa ka sa desk sa airline.
+b213f866	Ihatag ang imong flight ug kung asa ka gikan
+6750956a	Ihulagway ang bag
+6c5f59cb	Ihatag ang imong hotel ug kung unsa ka kadugay mopabilin
+a4cab8ea	Pagkuha og reference number ug hibaloa kung kanus-a kini moabot
+e3562921	Walay cash sa restawran
+796d4f41	Nahuman ka na og kaon ug nasayran nimo nga cash ra ang dawaton sa restawran. Card ra ang naa nimo.
+8c56686e	Pangayo og pasaylo ug ipatin-aw
+1d7bb4f9	Hibaloa kung asa ang pinakaduol nga ATM
+ccff521b	Pagtanyag og butang isip garantiya samtang kuhaon nimo ang kuwarta
+a1d19f2b	Aksidente sa sakyanan
+0644fed5	Mitawag ka sa pulis aron i-report ang gamayng aksidente sa sakyanan nga imong naagian.
+ef89b6bb	Isulti kung naa bay nasamdan
+26f3d4ef	Ihatag ang eksaktong lugar
+8becb789	Isulti ang nahitabo, sumala sa han-ay
+e60afdea	Hibaloa kung unsay sunod nga buhaton
+e1603163	Nadaot nimo ang imong gihulam
+4a7d2a70	Gihulam nimo ang laptop sa usa ka higala ug nadaot nimo kini. Karon kinahanglan nimo siyang sultihan.
+3fc45a68	Pangayo og kinasingkasing nga pasaylo
+11b3d390	Isulti kung giunsa kini pagkahitabo
+8f904749	Pagtanyag og duha o tulo ka paagi aron matul-id kini
+0001c6f7	Ang booking nga wala didto
+6c50d144	Miabot ka sa usa ka hotel nga lawom na ang gabii. Dili nila makit-an ang imong booking, ug puno na ang hotel.
+7777cc7f	Ipatin-aw nga nag-book ka, ug kanus-a
+162800ec	Balibari ang unang tubag sa matinahurong paagi
+a7757465	Pakigsabot og solusyon nga madawat nimo
+c1aa4233	Dili na mogana
+69a76f8d	Ang telepono nga imong gipalit duha ka adlaw ang milabay dili na mogana. Mibalik ka sa tindahan.
+e6d6aaf7	Isulti kung unsay problema ug kanus-a nimo kini gipalit
+56e5e4e5	Pangayo og bag-o o nga iuli ang imong kuwarta
+30721468	Sabota kung unsay sunod nga mahitabo
+6b5e1377	Depensahi ang usa ka opinyon
+d289ddbb	Pangutan-on ka sa imong panglantaw bahin sa pangutana nga dili magkauyon ang mga tawo. Mosupak ang naminaw.
+b1e66d35	Ipahayag ang imong posisyon
+15e9e623	Paghatag og rason ug pananglitan
+2d850407	Dawata ang usa ka punto sa pikas nga kiliran, dayon tubaga kini
+c875c70e	I-summarize sa usa ka sentence
+8bca8f8e	Unsa kaha kung…
+6a63ba5d	Hangyoon ka nga handurawon ang butang nga dili tinuod, ug isulti kung unsay mosunod unta.
+c799ca25	Isulti kung unsay unang mahitabo unta
+ec4fc5f9	Sunda kini hangtod sa kung asa unta kini mosangpot
+53314c80	Pangutan-on ka bahin sa usa ka ideya, dili butang: unsay kahulogan niini ug giunsa kini pagtan-aw sa mga tawo sa lainlaing paagi.
+77309e0c	Isulti kung unsay kahulogan sa ideya
+8860b942	Itandi ang duha ka panglantaw niini
+2b2f71ee	Paghatag og usa ka pananglitan sa tinuod nga kinabuhi
+c3d9214d	Hangyoon ka nga ipatin-aw ang usa ka komplikadong butang ngadto sa tawo nga walay nahibaloan bahin niini.
+79f978ed	Nganli ang mga yugto sumala sa han-ay
+7141adb3	Isulti kung unsay hinungdan sa unsa
+1ef54b90	Paghatag og pagtandi nga makapaklaro niini
+06a9a589	Pangutana nga wala nimo damha
+5b179676	Pangutan-on ka bahin sa butang nga tingali wala pa gyud nimo mahunahunai.
+99f2b3fc	Isulti ang pangutana sa imong kaugalingong pulong
+d31e29d9	Isumpay kini sa imong nahibaloan
+6d88dca9	Barogi ang usa ka panglantaw ug paghatag og rason
+4937ba3a	Pagpangayo og pasaylo sa kasosyo sa negosyo
+dde2a745	Ikaw ang representante sa imong kompanya sa usa ka pormal nga miting. Pila na ka bulan nga ulahi ang inyong proyekto, ug dili malipayon ang kasosyo.
+6e45113c	Pangayo og pormal nga pasaylo sa pagkalangan
+12a81c86	Ipatin-aw kung unsay hinungdan niini
+9d67324e	Pagtanyag og bag-ong plano nga naay petsa
+faaa5a26	Kombinsiha sila nga magpadayon sa pagtrabaho uban kaninyo
+5b01b793	Ang saba nga silingan
+e5ae45ff	Ang imong silingan naay saba nga party matag gabii. Nanuktok ka sa iyang pultahan aron hisgotan kini.
+7e05fd09	Ipadayag ang problema sa matinahurong paagi
+12c10bef	Ipatin-aw kung unsay epekto niini kanimo
+fcbd04ea	Pagsugyot og kompromiso
+0d484404	Panamilit nga maayo gihapon ang inyong relasyon
+4cb7ce35	Kombinsiha ang usa ka opisyal
+35fe64ba	Naa kay napulo ka minuto uban sa usa ka opisyal sa gobyerno. Kombinsiha siya nga pundohan ang pagtudlo og langyaw nga pinulongan sa mga eskuylahan.
+6cdd0883	Sugdi sa paagi nga haom kung kinsa siya
+5dedf164	Paghatag og duha ka argumento nga importante kaniya
+6ecdd1c8	Tubaga ang iyang pagsupak
+f9478dad	Pangayo og klarong desisyon
+401edac7	Pagpaabot og pahasubo
+5757c24e	Usa ka katrabaho ang namatyan og sakop sa pamilya. Miadto ka aron duawon siya.
+9e599874	Ipaabot ang imong pahasubo sa hustong mga pulong
+eec65358	Pagsulti nga mainiton nga dili manghilabot
+517107a3	Pagtanyag og konkretong tabang
+21386c90	Pagsulti og pipila ka pulong
+323b8e32	Hangyoon ka nga motindog ug mosulti og pipila ka pulong sa usa ka okasyon.
+b9778b1e	Kumustaha ang tanan ug isulti kung nganong nagtigom mo
+a0dc147e	Pasalamati ang usa ka tawo sa iyang ngalan
+5fab4552	Pagdugang og panultihon o kinutlo
+95f60da0	Tapusa sa maayong mga pangandoy
+9c7df7c8	Ipatin-aw ang usa ka panultihon
+3dd6b74e	Hatagan ka sa naminaw og iladong panultihon ug pangutan-on kung unsay imong pagsabot niini.
+2c2d2215	Isulti kung unsay kahulogan sa panultihon
+d607034e	Paghatag og pananglitan sa kinabuhi
+91a3856c	Isulti kung mouyon ka ba, ug ngano
+955e542c	Nanginahanglan ang Tamkeen og pagtugot sa paggamit sa mikropono aron madungog ka.
+9577b2a1	Walay sulod o taas kaayo kana nga recording.

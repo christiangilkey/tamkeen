@@ -18,6 +18,7 @@ import { courseIndex, coursePanel } from "../components/coursepanel.js";
 import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpanel.js";
 import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
 import { dliPanel, dliShown } from "../components/dlipanel.js";
+import { conversePanel } from "../components/conversepanel.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
@@ -80,10 +81,13 @@ const BOOKS_FEED = "local:books";
 // only them.
 // "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
 // (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
+// "Conversation" is next: speaking practice with the learner's AI (components/conversepanel.js). Like
+// Courses it has no episodes: its own panel takes the place of the list.
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
-// + button. Courses is never empty.
+// + button. Courses and Conversation are never empty.
 const KINDS = [
   { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
+  { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
@@ -105,6 +109,8 @@ const KINDS = [
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
     empty: "Add audio of your own with the + button below." },
 ];
+/** Kinds with a panel of their own instead of a list of episodes. */
+const panelKind = (k) => k === "courses" || k === "conversation";
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
@@ -234,6 +240,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           <div class="course dli" id="dli" hidden></div>
           <p class="course-note" id="no-courses" hidden></p>
         </div>
+        <div class="lib-converse" id="lib-converse" hidden></div>
         <div id="lib-head"></div>
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
@@ -261,7 +268,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     // yet (nothing added) shows an empty page for that kind.
     const current = feedId ? feeds.find((x) => x.id === feedId) : null;
     if (current) kind = isAudiobookFeed(current.url) ? "audiobooks" : (KINDS.find((k) => k.feed === current.url) || { key: "podcasts" }).key;
-    else if (!manyFeeds(kind) && kind !== "courses") {
+    else if (!manyFeeds(kind) && !panelKind(kind)) {
       const own = feeds.find((x) => x.url === KINDS.find((k) => k.key === kind).feed);
       if (own) feedId = own.id;
     }
@@ -418,14 +425,16 @@ export async function render(view, { feedId: routeFeed, query }) {
   function renderHead() {
     const head = $("#lib-head");
     head.innerHTML = "";
-    root.classList.toggle("courses-kind", kind === "courses");
+    root.classList.toggle("courses-kind", panelKind(kind)); // (no list, no + button: the kind's own panel instead)
+    root.classList.toggle("converse-kind", kind === "conversation");
     root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
-    const emptyKind = !feedId && kind !== "podcasts" && kind !== "courses" && !(kind === "audiobooks" && myBooks().length)
+    const emptyKind = !feedId && kind !== "podcasts" && !panelKind(kind) && !(kind === "audiobooks" && myBooks().length)
       ? KINDS.find((k) => k.key === kind) : null;
     markEmpty("head", !!emptyKind);
     if (kind === "courses") { showCourses(); return; }
+    if (kind === "conversation") { showConversation(); return; }
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(emptyState(emptyKind));
@@ -812,7 +821,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
 
   async function loadEpisodes(append = false) {
-    if (kind === "courses") return; // no episodes: renderHead shows the courses
+    if (panelKind(kind)) return; // no episodes: renderHead shows the courses, or the conversations
     if (!append) offset = 0;
     if (!feedId && kind !== "podcasts") { // nothing of this kind yet, or the audiobooks' shelf: renderHead shows it
       renderTabs({});
@@ -889,6 +898,12 @@ export async function render(view, { feedId: routeFeed, query }) {
       try { sessionStorage.setItem("courseTab", b.dataset.tab); } catch { /* storage off */ }
       showCourseTab(b.dataset.tab);
     };
+  }
+  // ----- conversation: speaking practice (components/conversepanel.js), built the first time it shows -----
+  let closeConverse = null;
+  function showConversation() {
+    $("#lib-converse").hidden = false;
+    if (!closeConverse) closeConverse = conversePanel($("#lib-converse"), courseLang);
   }
   function showCourses() {
     $("#lib-courses").hidden = false;
@@ -1150,5 +1165,6 @@ export async function render(view, { feedId: routeFeed, query }) {
   return () => {
     offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
     if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();
+    if (closeConverse) closeConverse();
   };
 }

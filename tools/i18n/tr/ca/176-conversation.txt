@@ -1,0 +1,296 @@
+# Library → Conversation: speaking practice (web/js/conversedata.js, web/js/components/conversepanel.js).
+a47c21fe	Practica la conversa amb algú que no es cansa mai. Tria una situació, resol-hi el que calgui i mira què pots millorar.
+35579e44	Conversa necessita una clau d'IA: la teva pròpia IA fa el paper de l'altra persona. Gemini té una quota gratuïta.
+0d7e6609	Quin àrab vols parlar
+b27e39ef	Torna a les converses
+b2d4d455	Llegeix en veu alta el que diu l'altra persona
+1bce6bb6	Els teus objectius
+bb4fb75a	Tots els objectius complerts. Acomiada't o mira com ha anat.
+dfd43738	Mira com ha anat
+c8fe96e0	T'has encallat? Demana una pista sobre què pots dir
+663ffe26	Digues la teva resposta
+b50909dc	Escriu o digues la teva resposta
+bf9a79bf	La teva resposta
+77312bb4	El que diu l'altra persona es llegeix en veu alta. Prem per desactivar-ho.
+2238fa32	El que diu l'altra persona no es llegeix en veu alta. Prem per activar-ho.
+329a85c6	Digues una mica més
+cbe218c6	Torna al tema
+8aefde5f	Res a corregir
+303cfd6e	Millor així
+01e62568	Aquestes frases no es llegeixen en veu alta: aquest dispositiu encara no té veu per a aquesta llengua. Prem un botó d'altaveu per veure com afegir-ne una.
+ace3708c	Preparant l'escena…
+dff63549	Escoltant-te…
+404c955f	Pensant una pista…
+7f83df96	Comença amb:
+86bfc103	Més ajuda
+4a7c4256	La teva veu es transcriu en aquest ordinador i no en surt mai.
+568e5fd8	La teva veu s'envia a {0} perquè la transcrigui.
+4f2cb15d	Aquest dispositiu no pot gravar so aquí.
+007441cb	Escoltant… torna a prémer el micròfon quan hagis acabat.
+def1020f	Escrivint el que has dit…
+de5358cb	Revisa el que s'ha sentit, corregeix-ho si cal i envia-ho.
+cb90be4f	Respondre amb la veu
+4e882311	El teu teclat té un micròfon propi: toca el quadre de resposta, després el micròfon del teclat, i parla.
+7b232bb7	Tamkeen també pot transcriure el que dius amb un servei en línia i la teva pròpia clau (<0>Configuració → Escolta i transcripcions</0>). L'aplicació d'ordinador ho fa tota sola, i la teva veu no surt mai de l'ordinador.
+5111c189	Vols sortir d'aquesta conversa?
+bff348bb	No es desa: la propera vegada tornarà a començar des del principi.
+c41206ac	objectius complerts
+d5e47a3a	Repassant el que has dit…
+7cc0c77b	Torna-ho a provar
+9b090043	Una altra conversa
+481315ed	Encara no arribes a aquest nivell: queda-t'hi una temporada.
+3d0552f5	Just en aquest nivell.
+6f059077	Per sobre d'aquest nivell: prova el següent.
+1a1afed0	La teva millor frase
+dd49414b	Per millorar
+f105abd5	Has dit
+5ad49da6	No hi ha res destacable per corregir. Prova el mateix al nivell següent.
+438b57fe	Expressions que val la pena guardar
+bd425a68	Com es fa de debò
+b9ed77d5	Digues-ho tu
+0773bec6	S'ha sentit
+24962f78	Això mateix.
+5332f191	Encara no. Escolta-ho un cop més i torna-ho a dir.
+438226dc	Iniciació
+313afa4f	Primeres paraules: saludar, demanar coses i entendre una resposta curta.
+f25d3c50	Nivell 1
+e2ba4a1f	Necessitats del dia a dia i parlar de tu amb senzillesa.
+ea5c4941	Nivell 2
+755f2cfe	Narrar, descriure, explicar i resoldre un problema.
+ce0aa4e1	Nivell 3
+c11179b7	Argumentar una opinió, fer hipòtesis i desimboldre't en situacions formals.
+0f2b7bbd	Nivell 4
+9901e898	Convèncer, adaptar les paraules a qui t'escolta i parlar en una ocasió especial.
+2891d1cd	Esbrinar
+e3f2ebd5	Pregunta una sola cosa cada vegada i repeteix el que has sentit per comprovar-ho.
+5c4698b6	Sobre tu
+82ee2494	Respon amb frases completes, afegeix un detall que ningú t'ha demanat i torna una pregunta.
+249aaa35	Alguna cosa va malament
+5273ea80	Saluda, explica el problema, rebutja amb educació una primera oferta fluixa, proposa la teva pròpia sortida, confirma-la i dona les gràcies.
+60630704	Descriure
+2756a24e	Ves del general al detall, o recorre el lloc per ordre. Compara coses.
+a775515c	Explicar una història
+30f9b86c	Dona-li un començament, un problema i un final, i mantén-te en passat.
+261ba6ca	Donar instruccions
+a30e8dba	Dona els passos per ordre: primer, després, tot seguit, finalment.
+fed5d0e8	Explicar una notícia
+87daa7aa	Primer els fets: qui, què, on, quan i per què. Després, una frase sobre les conseqüències.
+f1b30c5b	Defensar una postura
+33527888	Postura, raó, exemple, un punt a favor de l'altra part i conclusió. Parla del tema, no de tu.
+9b0576a6	I si…?
+5690d1f9	Mantén l'estructura «si fos…, seria…» de principi a fi i segueix les conseqüències dos passos més enllà.
+e7cf3256	Una idea
+dbc541d6	Defineix la idea, contraposa dues maneres de veure-la, dona un exemple real i torna a la idea.
+127e24a1	Explicar com funciona
+e3404c47	Anomena les etapes, digues què causa què i dona una comparació.
+6ccd64b2	L'inesperat
+816ca238	Digues que és nou per a tu, planteja la pregunta amb les teves paraules, relaciona-la amb alguna cosa que coneguis i després pren una postura.
+f33555c2	Un moment formal
+88b8f57b	Fes servir les formes de tractament corteses, suavitza el que demanes i no caiguis mai en la parla informal.
+192fd2ba	Convèncer
+0bdcebb1	Abans de començar, decideix amb qui parles i deixa que això marqui el to i els arguments.
+35cf093d	Unes paraules
+35c562bb	Càlid i formal: saluda, digues el motiu de la trobada, dona les gràcies a la gent pel seu nom, afegeix una dita, expressa els teus bons desitjos i tanca.
+5300e9f0	Resol l'imprevist
+88a91268	Conèixer un veí
+60d5f23b	Et trobes un veí nou a l'escala del teu edifici.
+5a0fb694	Saluda i digues el teu nom
+16977b8a	Esbrina com es diu
+846ddc8b	Esbrina d'on és
+d46555a4	Acomiada't amb educació
+a5f16ac1	Demanar en una cafeteria
+cba904b4	Ets en una cafeteria i vols alguna cosa per beure i alguna cosa per menjar.
+ecbbd864	Demana una beguda
+f38f75cb	Esbrina què hi ha per menjar
+39ceccb5	Esbrina quant costa tot
+ded13af4	Al mercat
+5ac7485c	Vols comprar fruita en una parada del mercat.
+7cf8342b	Demana la fruita que vols
+752619e5	Esbrina el preu
+a14322bf	Esbrina a quina hora tanca la parada
+4947285e	Agafar un taxi
+50410b59	Puges a un taxi davant de l'estació.
+e427e811	Digues al conductor on vas
+58026f36	Esbrina quant es triga
+1e355f7a	Esbrina quant costarà
+928655b7	La teva família
+6e0f69ca	Un company de feina nou et pregunta per la teva família tot fent un cafè.
+9f3186e7	Descriu dues persones de la teva família
+15d86581	Digues a què es dedica una d'elles
+fdc10002	Pregunta també per la seva família
+a2cbabe5	La teva feina o els teus estudis
+473a4a7b	Algú que acabes de conèixer et pregunta a què et dediques.
+0e4612ab	Digues a què et dediques i on
+901c9c20	Descriu un dia normal
+e6904716	Digues què t'agrada del que fas
+63cb29fa	El teu temps lliure
+5a870409	Un company de classe et pregunta què fas quan no treballes.
+2ca88455	Digues què fas en el teu temps lliure
+7cfb2036	Digues amb quina freqüència i amb qui
+48c7988e	Pregunta-li què li agrada fer
+d9987751	Un viatge que vas fer
+12c48ae7	Un amic et pregunta per un viatge que vas fer.
+44e8f735	Digues on vas anar i quan
+40460809	Digues què hi vas fer
+fe7fa293	Digues què et va agradar més
+66967558	Per què aprens aquesta llengua
+c574fd89	Algú té curiositat per saber per què aprens la seva llengua.
+5c024b19	Digues quan vas començar i per què
+62e12c32	Digues què et costa
+a6b58a49	Digues què en vols fer
+e3229679	Registre a l'hotel
+e90659ab	Arribes a un hotel on tens una reserva.
+b1c56ea0	Dona el teu nom i digues que tens una reserva
+29d76984	Esbrina a quina hora és l'esmorzar
+dd54cf01	Esbrina la contrasenya del Wi-Fi
+05c30ffa	Esbrina a quina hora has de deixar l'habitació
+c474a873	Comprar un bitllet de tren
+03c6e20a	Ets a la taquilla d'una estació i vols viatjar avui.
+29dba39b	Digues on vols anar
+a46accc5	Esbrina quan surt el pròxim tren
+7e90233b	Esbrina de quina andana
+2203bb44	Esbrina el preu i compra un bitllet
+27ef0ab5	Demanar hora
+1f8621e0	Truques a una clínica perquè et trobes malament.
+67532a85	Digues què et passa
+346796d9	Esbrina quina és la primera hora disponible
+877f3ac2	Esbrina què has de portar
+593d9499	Repeteix el dia i l'hora per confirmar
+6a217bc8	Descriure una habitació
+70c5083e	Descriu l'habitació on treballes o estudies perquè qui t'escolta se la pugui imaginar amb exactitud.
+784f5083	Recorre l'habitació per ordre
+70228054	Dona mides, colors i què hi ha
+d353e819	Digues què t'agrada i què canviaries
+a558ea3c	Un dia que no oblidaràs
+fd0737e0	Explica a qui t'escolta un dia que no oblidaràs mai.
+a06cf43a	Dona-li un començament, un problema i un final
+0c0d3e40	Mantén-te en passat
+b543fcc5	Digues com et vas sentir i per què
+f1c8be79	Com es prepara
+6d4a39c9	Explica com es prepara el teu plat preferit a algú que no l'ha cuinat mai.
+91de8142	Digues què cal
+5efe2ea6	Dona els passos per ordre
+06d51ed3	Comprova que qui t'escolta ho ha seguit
+94fe8b18	A les notícies
+4f078354	Explica a qui t'escolta alguna cosa que ha estat notícia aquesta setmana.
+d3305c6a	Digues qui, què, on i quan
+19bdf349	Digues per què va passar
+1347a8b1	Digues què pot passar després
+90ce4412	Indicar el camí
+91f0ebe6	Un amic ha arribat a la teva ciutat per primera vegada i és a l'estació de tren. Explica-li com arribar a casa teva.
+9808ccb5	Dona la ruta pas a pas
+8609f6eb	Anomena punts de referència inconfusibles
+eb3b0450	Digues a quina distància és o quant es triga
+126266fd	Reservar una sala per a una conferència
+ef20ee62	Truques a un hotel per reservar una sala per a una conferència de dos dies amb cinquanta persones el mes vinent.
+aec1f0a4	Dona les dates i el nombre de persones
+839428e2	Esbrina quanta gent hi cap a la sala i quin equipament té
+dba1eb4e	Esbrina què inclou el preu
+0a219a50	Demana un descompte
+4624c278	Vol perdut
+c0790736	Has perdut el vol i ets al taulell de l'aerolínia a l'aeroport.
+cce1a690	Explica breument què ha passat
+be422a03	Esbrina quan surt el pròxim vol
+40b22957	Esbrina quant costa el canvi
+a96d6c0e	Esbrina què passa amb la teva maleta
+dbf53712	Comprar per telèfon
+5e6ad652	Truques a una botiga per comprar un mòbil nou.
+c24afd23	Esbrina quins colors tenen
+4840b736	Informa't sobre la garantia
+58007243	Acorda com el rebràs
+7fab0ee0	Organitzar un sopar
+a84208fb	Estàs organitzant un sopar amb companys de feina per divendres i demanes a un amic que et recomani un restaurant.
+518a49b9	Explica l'ocasió i qui hi va
+3e7dc631	Informa't sobre el menjar i el preu
+c5ea170d	Compara dos llocs i tria'n un
+27fd85b4	Equipatge perdut
+d7bd57fd	Has aterrat després d'un vol llarg, però la teva maleta no ha sortit. Ets al taulell de l'aerolínia.
+b213f866	Dona el teu vol i d'on venies
+6750956a	Descriu la maleta
+6c5f59cb	Dona el teu hotel i quant temps t'hi quedes
+a4cab8ea	Aconsegueix un número de referència i esbrina quan arribarà
+e3562921	Sense efectiu al restaurant
+796d4f41	Has acabat de menjar i descobreixes que el restaurant només accepta efectiu. Només portes targeta.
+8c56686e	Disculpa't i explica-ho
+1d7bb4f9	Esbrina on és el caixer automàtic més proper
+ccff521b	Ofereix alguna cosa com a garantia mentre vas a buscar els diners
+a1d19f2b	Un accident de cotxe
+0644fed5	Truques a la policia per informar d'un petit accident de cotxe que has tingut.
+ef89b6bb	Digues si hi ha algun ferit
+26f3d4ef	Dona el lloc exacte
+8becb789	Explica què ha passat, per ordre
+e60afdea	Esbrina què has de fer ara
+e1603163	Has trencat el que t'havien deixat
+4a7d2a70	Un amic et va deixar el portàtil i l'has trencat. Ara li ho has de dir.
+3fc45a68	Disculpa't amb sinceritat
+11b3d390	Explica com ha passat
+8f904749	Ofereix dues o tres maneres d'arreglar-ho
+0001c6f7	La reserva que no apareix
+6c50d144	Arribes a un hotel a altes hores de la nit. No troben la teva reserva i l'hotel és ple.
+7777cc7f	Explica que vas reservar, i quan
+162800ec	Rebutja amb educació la primera resposta
+a7757465	Acorda una sortida que puguis acceptar
+c1aa4233	Ha deixat de funcionar
+69a76f8d	El mòbil que vas comprar fa dos dies ha deixat de funcionar. Tornes a la botiga.
+e6d6aaf7	Digues què li passa i quan el vas comprar
+56e5e4e5	Demana'n un de nou o que et tornin els diners
+30721468	Acorda què passarà ara
+6b5e1377	Defensar una opinió
+d289ddbb	Et demanen l'opinió sobre una qüestió en què la gent no es posa d'acord. Qui t'escolta et portarà la contrària.
+b1e66d35	Exposa la teva postura
+15e9e623	Dona una raó i un exemple
+2d850407	Concedeix un punt a l'altra part i després respon-hi
+c875c70e	Resumeix-ho en una frase
+8bca8f8e	Què passaria si…?
+6a63ba5d	Et demanen que imaginis una cosa que no és així i que diguis què passaria.
+c799ca25	Digues què passaria primer
+ec4fc5f9	Segueix-ho fins on portaria això
+53314c80	Et pregunten per una idea, no per una cosa: què vol dir i de quines maneres diferents la veu la gent.
+77309e0c	Digues què vol dir la idea
+8860b942	Contraposa dues maneres de veure-la
+2b2f71ee	Dona un exemple de la vida real
+c3d9214d	Et demanen que expliquis una cosa complicada a algú que no en sap res.
+79f978ed	Anomena les etapes per ordre
+7141adb3	Digues què causa què
+1ef54b90	Dona una comparació que ho aclareixi
+06a9a589	Una pregunta que no t'esperaves
+5b179676	Et pregunten per una cosa en què probablement no has pensat mai.
+99f2b3fc	Planteja la pregunta amb les teves paraules
+d31e29d9	Relaciona-la amb alguna cosa que coneguis
+6d88dca9	Pren una postura i dona una raó
+4937ba3a	Disculpar-se davant d'un soci comercial
+dde2a745	Representes la teva empresa en una reunió formal. El teu projecte porta mesos de retard i el soci està descontent.
+6e45113c	Disculpa't formalment pel retard
+12a81c86	Explica què l'ha causat
+9d67324e	Ofereix un pla nou amb dates
+faaa5a26	Convenç el soci de continuar treballant amb tu
+5b01b793	El veí sorollós
+e5ae45ff	El teu veí fa festes sorolloses cada nit. Truques a la seva porta per parlar-ne.
+7e05fd09	Planteja el problema amb educació
+12c10bef	Explica com t'afecta
+fcbd04ea	Proposa una solució intermèdia
+0d484404	Acomiada't en bons termes
+4cb7ce35	Convèncer un alt càrrec
+35fe64ba	Tens deu minuts amb un alt càrrec del govern. Convenç-lo perquè financi l'ensenyament de llengües estrangeres a les escoles.
+6cdd0883	Comença d'una manera adequada a qui és
+5dedf164	Dona dos arguments que li importin
+6ecdd1c8	Respon a la seva objecció
+f9478dad	Demana una decisió clara
+401edac7	Donar el condol
+5757c24e	Un company de feina ha perdut algú de la família. El vas a veure.
+9e599874	Dona el condol amb les paraules adequades
+eec65358	Parla amb calidesa sense ficar-t'hi
+517107a3	Ofereix ajuda amb alguna cosa concreta
+21386c90	Dir unes paraules
+323b8e32	Et demanen que t'aixequis i diguis unes paraules en una ocasió especial.
+b9778b1e	Saluda tothom i digues el motiu de la trobada
+a0dc147e	Dona les gràcies a algú pel seu nom
+5fab4552	Afegeix una dita o una citació
+95f60da0	Tanca amb bons desitjos
+9c7df7c8	Explicar una dita
+3dd6b74e	Qui t'escolta et diu una dita molt coneguda i et pregunta què en penses.
+2c2d2215	Digues què vol dir la dita
+d607034e	Dona un exemple de la vida
+91a3856c	Digues si hi estàs d'acord i per què
+955e542c	Tamkeen necessita permís per fer servir el micròfon i poder sentir-te.
+9577b2a1	Aquest enregistrament és buit o massa llarg.

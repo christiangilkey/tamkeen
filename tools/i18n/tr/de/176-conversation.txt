@@ -1,0 +1,296 @@
+# Library → Conversation: speaking practice (web/js/conversedata.js, web/js/components/conversepanel.js).
+a47c21fe	Übe das Sprechen mit jemandem, der nie müde wird. Wähle eine Situation, erledige darin, was zu tun ist, und sieh, woran du noch arbeiten kannst.
+35579e44	Für „Gespräch“ brauchst du einen KI-Schlüssel: Dein Gegenüber wird von deiner eigenen KI gespielt. Gemini hat ein kostenloses Kontingent.
+0d7e6609	Welches Arabisch du sprichst
+b27e39ef	Zurück zu den Gesprächen
+b2d4d455	Die Sätze deines Gegenübers vorlesen
+1bce6bb6	Deine Ziele
+bb4fb75a	Alle Ziele sind erreicht. Verabschiede dich oder sieh dir an, wie es lief.
+dfd43738	Ansehen, wie es lief
+c8fe96e0	Kommst du nicht weiter? Hol dir einen Tipp, was du sagen kannst
+663ffe26	Sprich deine Antwort
+b50909dc	Schreib oder sprich deine Antwort
+bf9a79bf	Deine Antwort
+77312bb4	Die Sätze deines Gegenübers werden vorgelesen. Tippe, um das auszuschalten.
+2238fa32	Die Sätze deines Gegenübers werden nicht vorgelesen. Tippe, um das einzuschalten.
+329a85c6	Sag etwas mehr
+cbe218c6	Zurück zum Thema
+8aefde5f	Nichts zu korrigieren
+303cfd6e	Besser
+01e62568	Diese Sätze werden nicht vorgelesen: Dieses Gerät hat noch keine Stimme für diese Sprache. Tippe auf einen Lautsprecher-Knopf, um zu sehen, wie du eine hinzufügst.
+ace3708c	Die Szene wird vorbereitet …
+dff63549	Hört dir zu …
+404c955f	Überlegt sich einen Tipp …
+7f83df96	Fang an mit:
+86bfc103	Mehr Hilfe
+4a7c4256	Was du sagst, wird auf diesem Computer aufgeschrieben; deine Stimme verlässt ihn nie.
+568e5fd8	Deine Stimme wird an {0} gesendet und dort aufgeschrieben.
+4f2cb15d	Dieses Gerät kann hier keinen Ton aufnehmen.
+007441cb	Hört zu … Tippe noch einmal auf das Mikrofon, wenn du fertig bist.
+def1020f	Schreibt auf, was du gesagt hast …
+de5358cb	Prüfe, was verstanden wurde, korrigiere es bei Bedarf und sende es dann.
+cb90be4f	Mit der Stimme antworten
+4e882311	Deine Tastatur hat ein eigenes Mikrofon: Tippe auf das Antwortfeld, dann auf das Mikrofon der Tastatur, und sprich.
+7b232bb7	Tamkeen kann auch mit einem Onlinedienst und deinem eigenen Schlüssel aufschreiben, was du sagst (<0>Einstellungen → Hören & Transkripte</0>). Auf einem Computer macht das die Desktop-App selbst, und deine Stimme verlässt ihn nie.
+5111c189	Dieses Gespräch verlassen?
+bff348bb	Es wird nicht gespeichert: Beim nächsten Mal beginnt es wieder von vorn.
+c41206ac	Ziele erreicht
+d5e47a3a	Schaut noch einmal durch, was du gesagt hast …
+7cc0c77b	Dasselbe noch einmal
+9b090043	Ein anderes Gespräch
+481315ed	Noch nicht auf dieser Stufe: Bleib noch eine Weile hier.
+3d0552f5	Genau auf dieser Stufe.
+6f059077	Über dieser Stufe: Probier die nächste.
+1a1afed0	Dein bester Satz
+dd49414b	Daran arbeiten
+f105abd5	Du hast gesagt
+5ad49da6	Nichts Auffälliges zu verbessern. Probier das Gleiche auf der nächsten Stufe.
+438b57fe	Ausdrücke zum Merken
+bd425a68	So läuft es wirklich
+b9ed77d5	Sag es selbst
+0773bec6	Gehört
+24962f78	Genau so.
+5332f191	Noch nicht ganz. Hör es dir noch einmal an und sag es dann erneut.
+438226dc	Einstieg
+313afa4f	Erste Wörter: grüßen, um etwas bitten, eine kurze Antwort verstehen.
+f25d3c50	Stufe 1
+e2ba4a1f	Alltägliches erledigen und einfach über dich selbst sprechen.
+ea5c4941	Stufe 2
+755f2cfe	Erzählen, beschreiben, erklären und ein Problem lösen.
+ce0aa4e1	Stufe 3
+c11179b7	Einen Standpunkt vertreten, Annahmen durchspielen und förmliche Situationen meistern.
+0f2b7bbd	Stufe 4
+9901e898	Überzeugen, deine Worte auf dein Gegenüber abstimmen, bei einem Anlass sprechen.
+2891d1cd	Etwas herausfinden
+e3f2ebd5	Frag immer nur eine Sache und wiederhole, was du gehört hast, um es zu prüfen.
+5c4698b6	Über dich
+82ee2494	Antworte in ganzen Sätzen, füge ein Detail hinzu, nach dem niemand gefragt hat, und stell eine Gegenfrage.
+249aaa35	Etwas geht schief
+5273ea80	Grüße, schildere das Problem, lehne ein schwaches erstes Angebot höflich ab, schlag deine eigene Lösung vor, bestätige sie und bedanke dich.
+60630704	Beschreiben
+2756a24e	Geh vom Allgemeinen ins Detail oder geh den Ort der Reihe nach durch. Vergleiche Dinge miteinander.
+a775515c	Eine Geschichte erzählen
+30f9b86c	Gib deiner Geschichte einen Anfang, ein Problem und ein Ende und bleib in der Vergangenheitsform.
+261ba6ca	Eine Anleitung geben
+a30e8dba	Nenne die Schritte der Reihe nach: zuerst, danach, dann, zum Schluss.
+fed5d0e8	Von Nachrichten berichten
+87daa7aa	Zuerst die Fakten: wer, was, wo, wann, warum. Dann ein Satz dazu, wohin das führt.
+f1b30c5b	Einen Standpunkt vertreten
+33527888	Standpunkt, Grund, Beispiel, ein Punkt für die Gegenseite, Fazit. Sprich über die Sache, nicht über dich.
+9b0576a6	Was wäre, wenn
+5690d1f9	Bleib durchgehend beim Muster „wenn …, dann würde …“ und verfolge die Folgen zwei Schritte weit.
+e7cf3256	Eine Idee
+dbc541d6	Definiere die Idee, stelle zwei Sichtweisen darauf einander gegenüber, gib ein echtes Beispiel und komm dann zur Idee zurück.
+127e24a1	Erklären, wie es funktioniert
+e3404c47	Nenne die Phasen, sag, was was verursacht, und gib dann einen Vergleich.
+6ccd64b2	Das Unerwartete
+816ca238	Sag, dass das neu für dich ist, formuliere die Frage in eigenen Worten, verknüpfe sie mit etwas, das du kennst, und leg dich dann auf eine Meinung fest.
+f33555c2	Ein förmlicher Moment
+88b8f57b	Verwende die höflichen Anredeformen, formuliere deine Bitten zurückhaltend und rutsch nie in die Umgangssprache.
+192fd2ba	Überzeugen
+0bdcebb1	Überleg dir vorher, mit wem du sprichst, und richte Ton und Argumente danach aus.
+35cf093d	Ein paar Worte
+35c562bb	Herzlich und förmlich: Begrüße alle, sag, warum ihr zusammengekommen seid, danke Leuten namentlich, füge ein Sprichwort ein, sprich gute Wünsche aus und schließ ab.
+5300e9f0	Meistere die Überraschung
+88a91268	Einen Nachbarn kennenlernen
+60d5f23b	Du triffst im Treppenhaus deines Hauses einen neuen Nachbarn.
+5a0fb694	Begrüße ihn und sag deinen Namen
+16977b8a	Finde heraus, wie er heißt
+846ddc8b	Finde heraus, woher er kommt
+d46555a4	Verabschiede dich höflich
+a5f16ac1	Im Café bestellen
+cba904b4	Du bist in einem Café und möchtest etwas trinken und etwas essen.
+ecbbd864	Bestell ein Getränk
+f38f75cb	Finde heraus, was es zu essen gibt
+39ceccb5	Finde heraus, was alles zusammen kostet
+ded13af4	Auf dem Markt
+5ac7485c	Du möchtest an einem Marktstand Obst kaufen.
+7cf8342b	Sag, welches Obst du möchtest
+752619e5	Frag nach dem Preis
+a14322bf	Finde heraus, wann der Stand schließt
+4947285e	Taxi fahren
+50410b59	Du steigst vor dem Bahnhof in ein Taxi.
+e427e811	Sag dem Fahrer, wohin du möchtest
+58026f36	Finde heraus, wie lange die Fahrt dauert
+1e355f7a	Finde heraus, was es kosten wird
+928655b7	Deine Familie
+6e0f69ca	Ein neuer Kollege fragt dich beim Kaffee nach deiner Familie.
+9f3186e7	Beschreibe zwei Personen aus deiner Familie
+15d86581	Sag, was eine von ihnen macht
+fdc10002	Frag auch nach seiner Familie
+a2cbabe5	Deine Arbeit oder dein Studium
+473a4a7b	Jemand, den du gerade kennengelernt hast, fragt, was du machst.
+0e4612ab	Sag, was du machst und wo
+901c9c20	Beschreibe einen gewöhnlichen Tag
+e6904716	Sag, was dir daran gefällt
+63cb29fa	Deine Freizeit
+5a870409	Jemand aus deinem Kurs fragt, was du machst, wenn du nicht arbeitest.
+2ca88455	Sag, was du in deiner Freizeit machst
+7cfb2036	Sag, wie oft und mit wem
+48c7988e	Frag, was dein Gegenüber gern macht
+d9987751	Eine Reise, die du gemacht hast
+12c48ae7	Ein Freund fragt dich nach einer Reise, die du gemacht hast.
+44e8f735	Sag, wohin du gereist bist und wann
+40460809	Sag, was du dort gemacht hast
+fe7fa293	Sag, was dir am besten gefallen hat
+66967558	Warum du diese Sprache lernst
+c574fd89	Jemand möchte wissen, warum du seine Sprache lernst.
+5c024b19	Sag, wann du angefangen hast und warum
+62e12c32	Sag, was dir schwerfällt
+a6b58a49	Sag, was du damit vorhast
+e3229679	Einchecken
+e90659ab	Du kommst in einem Hotel an, in dem du gebucht hast.
+b1c56ea0	Nenne deinen Namen und sag, dass du gebucht hast
+29d76984	Finde heraus, wann es Frühstück gibt
+dd54cf01	Frag nach dem Wi-Fi-Passwort
+05c30ffa	Finde heraus, bis wann du das Zimmer räumen musst
+c474a873	Eine Zugfahrkarte kaufen
+03c6e20a	Du stehst am Fahrkartenschalter eines Bahnhofs und möchtest heute fahren.
+29dba39b	Sag, wohin du fahren möchtest
+a46accc5	Finde heraus, wann der nächste Zug fährt
+7e90233b	Finde heraus, von welchem Gleis
+2203bb44	Frag nach dem Preis und kauf eine Fahrkarte
+27ef0ab5	Einen Termin vereinbaren
+1f8621e0	Du rufst in einer Praxis an, weil du dich krank fühlst.
+67532a85	Sag, was dir fehlt
+346796d9	Frag nach dem frühesten Termin
+877f3ac2	Finde heraus, was du mitbringen sollst
+593d9499	Wiederhole Tag und Uhrzeit zur Bestätigung
+6a217bc8	Einen Raum beschreiben
+70c5083e	Beschreibe den Raum, in dem du arbeitest oder lernst, so genau, dass dein Gegenüber ihn sich vorstellen kann.
+784f5083	Geh den Raum der Reihe nach durch
+70228054	Nenne Größen, Farben und was darin steht
+d353e819	Sag, was dir gefällt und was du ändern würdest
+a558ea3c	Ein Tag, den du nie vergisst
+fd0737e0	Erzähl deinem Gegenüber von einem Tag, den du nie vergessen wirst.
+a06cf43a	Gib deiner Geschichte einen Anfang, ein Problem und ein Ende
+0c0d3e40	Bleib in der Vergangenheitsform
+b543fcc5	Sag, wie du dich gefühlt hast und warum
+f1c8be79	So wird es zubereitet
+6d4a39c9	Erkläre jemandem, der es noch nie gekocht hat, wie man dein Lieblingsgericht zubereitet.
+91de8142	Sag, was man braucht
+5efe2ea6	Nenne die Schritte der Reihe nach
+06d51ed3	Prüfe, ob dein Gegenüber mitgekommen ist
+94fe8b18	In den Nachrichten
+4f078354	Erzähl deinem Gegenüber von etwas, das diese Woche in den Nachrichten war.
+d3305c6a	Sag, wer, was, wo und wann
+19bdf349	Sag, warum es passiert ist
+1347a8b1	Sag, was als Nächstes passieren könnte
+90ce4412	Den Weg beschreiben
+91f0ebe6	Ein Freund ist zum ersten Mal in deiner Stadt angekommen und steht am Bahnhof. Erkläre ihm, wie er zu dir nach Hause kommt.
+9808ccb5	Beschreibe den Weg Schritt für Schritt
+8609f6eb	Nenne Orientierungspunkte, die man nicht übersehen kann
+eb3b0450	Sag, wie weit es ist oder wie lange es dauert
+126266fd	Einen Raum für eine Konferenz buchen
+ef20ee62	Du rufst in einem Hotel an, um für nächsten Monat einen Raum für eine zweitägige Konferenz mit fünfzig Personen zu buchen.
+aec1f0a4	Nenne das Datum und die Personenzahl
+839428e2	Finde heraus, wie viele Personen der Raum fasst und welche Ausstattung er hat
+dba1eb4e	Finde heraus, was im Preis enthalten ist
+0a219a50	Bitte um einen Rabatt
+4624c278	Flug verpasst
+c0790736	Du hast deinen Flug verpasst und stehst am Schalter der Fluggesellschaft im Flughafen.
+cce1a690	Sag kurz, was passiert ist
+be422a03	Finde heraus, wann der nächste Flug geht
+40b22957	Finde heraus, was das Umbuchen kostet
+a96d6c0e	Finde heraus, was mit deinem Gepäck passiert
+dbf53712	Am Telefon kaufen
+5e6ad652	Du rufst in einem Geschäft an, weil du ein neues Handy kaufen möchtest.
+c24afd23	Finde heraus, welche Farben es gibt
+4840b736	Frag nach der Garantie
+58007243	Kläre, wie du es bekommst
+7fab0ee0	Ein Abendessen planen
+a84208fb	Du planst für Freitag ein Abendessen mit Kollegen und bittest einen Freund, dir ein Restaurant zu empfehlen.
+518a49b9	Erkläre den Anlass und wer kommt
+3e7dc631	Frag nach dem Essen und dem Preis
+c5ea170d	Vergleiche zwei Lokale und entscheide dich
+27fd85b4	Verlorenes Gepäck
+d7bd57fd	Du bist nach einem langen Flug gelandet, aber dein Koffer ist nie aufs Band gekommen. Du stehst am Schalter der Fluggesellschaft.
+b213f866	Nenne deinen Flug und von wo du geflogen bist
+6750956a	Beschreibe den Koffer
+6c5f59cb	Nenne dein Hotel und wie lange du bleibst
+a4cab8ea	Lass dir eine Vorgangsnummer geben und finde heraus, wann er ankommt
+e3562921	Kein Bargeld im Restaurant
+796d4f41	Du hast fertig gegessen und merkst, dass das Restaurant nur Bargeld nimmt. Du hast nur eine Karte.
+8c56686e	Entschuldige dich und erkläre die Lage
+1d7bb4f9	Finde heraus, wo der nächste Geldautomat ist
+ccff521b	Biete etwas als Pfand an, während du das Geld holst
+a1d19f2b	Ein Autounfall
+0644fed5	Du rufst die Polizei an, um einen kleinen Autounfall zu melden, an dem du beteiligt warst.
+ef89b6bb	Sag, ob jemand verletzt ist
+26f3d4ef	Nenne den genauen Ort
+8becb789	Erzähl der Reihe nach, was passiert ist
+e60afdea	Finde heraus, was du als Nächstes tun sollst
+e1603163	Du hast etwas Geliehenes kaputt gemacht
+4a7d2a70	Du hast dir den Laptop eines Freundes geliehen und ihn kaputt gemacht. Jetzt musst du es ihm sagen.
+3fc45a68	Entschuldige dich aufrichtig
+11b3d390	Erzähl, wie es passiert ist
+8f904749	Biete zwei oder drei Wege an, es wiedergutzumachen
+0001c6f7	Die Buchung, die es nicht gibt
+6c50d144	Du kommst spät in der Nacht in einem Hotel an. Deine Buchung ist nicht zu finden, und das Hotel ist ausgebucht.
+7777cc7f	Erkläre, dass du gebucht hast und wann
+162800ec	Lehne die erste Antwort höflich ab
+a7757465	Einige dich auf eine Lösung, mit der du leben kannst
+c1aa4233	Es funktioniert nicht mehr
+69a76f8d	Das Handy, das du vor zwei Tagen gekauft hast, funktioniert nicht mehr. Du gehst zurück ins Geschäft.
+e6d6aaf7	Sag, was nicht stimmt und wann du es gekauft hast
+56e5e4e5	Verlange ein neues oder dein Geld zurück
+30721468	Vereinbare, wie es weitergeht
+6b5e1377	Eine Meinung verteidigen
+d289ddbb	Du wirst nach deiner Meinung zu einer umstrittenen Frage gefragt. Dein Gegenüber wird dagegenhalten.
+b1e66d35	Nenne deinen Standpunkt
+15e9e623	Nenne einen Grund und ein Beispiel
+2d850407	Gesteh der Gegenseite einen Punkt zu und antworte dann darauf
+c875c70e	Fass es in einem Satz zusammen
+8bca8f8e	Was wäre, wenn …
+6a63ba5d	Du sollst dir etwas vorstellen, das nicht so ist, und sagen, was daraus folgen würde.
+c799ca25	Sag, was zuerst passieren würde
+ec4fc5f9	Verfolge, wozu das führen würde
+53314c80	Du wirst nach einer Idee gefragt, nicht nach einer Sache: was sie bedeutet und wie unterschiedlich Menschen sie sehen.
+77309e0c	Sag, was die Idee bedeutet
+8860b942	Stelle zwei Sichtweisen darauf einander gegenüber
+2b2f71ee	Gib ein Beispiel aus dem echten Leben
+c3d9214d	Du sollst jemandem etwas Kompliziertes erklären, der nichts darüber weiß.
+79f978ed	Nenne die Phasen der Reihe nach
+7141adb3	Sag, was was verursacht
+1ef54b90	Gib einen Vergleich, der es klar macht
+06a9a589	Eine Frage, mit der du nicht gerechnet hast
+5b179676	Du wirst nach etwas gefragt, worüber du wahrscheinlich noch nie nachgedacht hast.
+99f2b3fc	Formuliere die Frage in eigenen Worten
+d31e29d9	Verknüpfe sie mit etwas, das du kennst
+6d88dca9	Leg dich auf eine Meinung fest und nenne einen Grund
+4937ba3a	Sich bei einem Geschäftspartner entschuldigen
+dde2a745	Du vertrittst deine Firma bei einem förmlichen Treffen. Euer Projekt ist Monate im Verzug, und der Partner ist unzufrieden.
+6e45113c	Entschuldige dich förmlich für die Verzögerung
+12a81c86	Erkläre, wodurch sie entstanden ist
+9d67324e	Schlag einen neuen Plan mit Terminen vor
+faaa5a26	Überzeuge ihn, weiter mit euch zusammenzuarbeiten
+5b01b793	Der laute Nachbar
+e5ae45ff	Dein Nachbar feiert jede Nacht laute Partys. Du klopfst an seine Tür, um darüber zu reden.
+7e05fd09	Sprich das Problem höflich an
+12c10bef	Erkläre, wie es dich beeinträchtigt
+fcbd04ea	Schlag einen Kompromiss vor
+0d484404	Verabschiede dich im Guten
+4cb7ce35	Einen Beamten überzeugen
+35fe64ba	Du hast zehn Minuten mit einem Regierungsbeamten. Überzeuge ihn, Fremdsprachenunterricht an Schulen zu finanzieren.
+6cdd0883	Beginne so, wie es zu deinem Gegenüber passt
+5dedf164	Nenne zwei Argumente, die ihm wichtig sind
+6ecdd1c8	Geh auf seinen Einwand ein
+f9478dad	Bitte um eine klare Entscheidung
+401edac7	Beileid aussprechen
+5757c24e	Ein Kollege hat jemanden aus seiner Familie verloren. Du besuchst ihn.
+9e599874	Sprich dein Beileid mit den passenden Worten aus
+eec65358	Sprich warmherzig, ohne nachzubohren
+517107a3	Biete konkrete Hilfe an
+21386c90	Ein paar Worte sagen
+323b8e32	Du wirst gebeten, bei einem Anlass aufzustehen und ein paar Worte zu sagen.
+b9778b1e	Begrüße alle und sag, warum ihr zusammengekommen seid
+a0dc147e	Danke jemandem namentlich
+5fab4552	Füge ein Sprichwort oder ein Zitat ein
+95f60da0	Schließ mit guten Wünschen
+9c7df7c8	Ein Sprichwort erklären
+3dd6b74e	Dein Gegenüber nennt dir ein bekanntes Sprichwort und fragt, was du davon hältst.
+2c2d2215	Sag, was das Sprichwort bedeutet
+d607034e	Gib ein Beispiel aus dem Leben
+91a3856c	Sag, ob du zustimmst und warum
+955e542c	Tamkeen braucht die Erlaubnis, das Mikrofon zu benutzen, um dich zu hören.
+9577b2a1	Diese Aufnahme ist leer oder zu lang.

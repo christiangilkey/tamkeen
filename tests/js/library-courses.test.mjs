@@ -13,8 +13,10 @@ test("Courses is the Library's first kind", () => {
   const kinds = library.slice(library.indexOf("const KINDS = ["), library.indexOf("];", library.indexOf("const KINDS = [")));
   const keys = [...kinds.matchAll(/key: "(\w+)"/g)].map((m) => m[1]);
   assert.equal(keys[0], "courses");
-  assert.equal(keys[1], "podcasts");
+  assert.equal(keys[1], "conversation"); // speaking practice, a panel of its own like Courses (conversepanel.js)
+  assert.equal(keys[2], "podcasts");
   assert.match(kinds, /key: "courses"[^}]*href: "#\/library\?show=courses"/);
+  assert.match(kinds, /key: "conversation"[^}]*href: "#\/library\?show=conversation"/);
   assert.match(kinds, /key: "podcasts"[^}]*href: "#\/library\?show=podcasts"/);
 });
 
@@ -36,7 +38,10 @@ test("links meant for the podcasts say so (plain #/library is now Courses)", () 
 test("Courses shows the basics and grammar panels, and no episodes", () => {
   assert.match(library, /import \{ courseIndex, coursePanel \} from "\.\.\/components\/coursepanel\.js";/);
   assert.match(library, /import \{ grammarFor, grammarIndex, grammarPanel \} from "\.\.\/components\/grammarpanel\.js";/);
-  assert.match(library, /if \(kind === "courses"\) return; \/\/ no episodes/);
+  assert.match(library, /const panelKind = \(k\) => k === "courses" \|\| k === "conversation";/);
+  assert.match(library, /if \(panelKind\(kind\)\) return; \/\/ no episodes/);
+  assert.match(library, /root\.classList\.toggle\("courses-kind", panelKind\(kind\)\)/, "no list and no + button for either");
+  assert.match(library, /if \(kind === "conversation"\) \{ showConversation\(\); return; \}/);
   assert.match(library, /data-tab="basics"/);
   assert.match(library, /data-tab="grammar"/);
 });

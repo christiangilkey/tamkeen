@@ -1,0 +1,296 @@
+# Library → Conversation: speaking practice (web/js/conversedata.js, web/js/components/conversepanel.js).
+a47c21fe	Magsanay magsalita kasama ang kausap na hindi napapagod. Pumili ng sitwasyon, gawin ang mga dapat gawin dito, at tingnan kung ano ang dapat pang pagbutihin.
+35579e44	Kailangan ng Usapan ng AI key: sarili mong AI ang gumaganap bilang kausap mo. May libreng allowance ang Gemini.
+0d7e6609	Aling Arabe ang sasalitain
+b27e39ef	Bumalik sa mga usapan
+b2d4d455	Basahin nang malakas ang mga linya ng kausap mo
+1bce6bb6	Ang mga layunin mo
+bb4fb75a	Tapos na ang lahat ng layunin. Magpaalam, o tingnan ang kinalabasan.
+dfd43738	Tingnan ang kinalabasan
+c8fe96e0	Natigilan? Kumuha ng pahiwatig kung ano ang sasabihin
+663ffe26	Sabihin ang sagot mo
+b50909dc	I-type o sabihin ang sagot mo
+bf9a79bf	Ang sagot mo
+77312bb4	Binabasa nang malakas ang mga linya ng kausap mo. Pindutin para i-off.
+2238fa32	Hindi binabasa nang malakas ang mga linya ng kausap mo. Pindutin para i-on.
+329a85c6	Magsalita pa nang kaunti
+cbe218c6	Bumalik sa paksa
+8aefde5f	Walang kailangang itama
+303cfd6e	Mas mainam
+01e62568	Hindi binabasa nang malakas ang mga linyang ito: wala pang boses para sa wikang ito ang device na ito. Pindutin ang isang speaker button para makita kung paano magdagdag.
+ace3708c	Inihahanda ang eksena…
+dff63549	Nakikinig sa iyo…
+404c955f	Nag-iisip ng pahiwatig…
+7f83df96	Simulan sa:
+86bfc103	Dagdag na tulong
+4a7c4256	Isinusulat ang sinasabi mo sa computer na ito, at hindi kailanman lumalabas dito ang boses mo.
+568e5fd8	Ipinapadala ang boses mo sa {0} para maisulat.
+4f2cb15d	Hindi makapag-record ng tunog dito ang device na ito.
+007441cb	Nakikinig… pindutin ulit ang mikropono kapag tapos ka na.
+def1020f	Isinusulat ang sinabi mo…
+de5358cb	Tingnan ang narinig, itama kung kailangan, saka ipadala.
+cb90be4f	Pagsagot gamit ang boses
+4e882311	May sariling mikropono ang keyboard mo: i-tap ang kahon ng sagot, tapos ang mikropono sa keyboard, at magsalita.
+7b232bb7	Kaya ring isulat ng Tamkeen ang sinasabi mo gamit ang isang online na serbisyo at ang sarili mong key (<0>Settings → Pakikinig at mga transcript</0>). Sa computer, ang desktop app na mismo ang gumagawa nito, at hindi kailanman lumalabas doon ang boses mo.
+5111c189	Umalis sa usapang ito?
+bff348bb	Hindi ito itinatago: sa susunod, magsisimula ulit ito sa umpisa.
+c41206ac	layuning naabot
+d5e47a3a	Binabalikan ang mga sinabi mo…
+7cc0c77b	Subukan ito ulit
+9b090043	Ibang usapan
+481315ed	Hindi pa abot ang level na ito: manatili muna rito.
+3d0552f5	Sakto sa level na ito.
+6f059077	Lampas na sa level na ito: subukan ang susunod.
+1a1afed0	Ang pinakamahusay mong linya
+dd49414b	Dapat pagbutihin
+f105abd5	Sinabi mo
+5ad49da6	Walang kapansin-pansing kailangang ayusin. Subukan ito ulit sa susunod na level.
+438b57fe	Mga pariralang sulit tandaan
+bd425a68	Paano ito talagang ginagawa
+b9ed77d5	Sabihin mo mismo
+0773bec6	Narinig
+24962f78	Ganyan nga.
+5332f191	Hindi pa eksakto. Pakinggan ulit, saka sabihin ulit.
+438226dc	Panimula
+313afa4f	Mga unang salita: bumati, humingi ng kailangan, umintindi ng maikling sagot.
+f25d3c50	Level 1
+e2ba4a1f	Mga pang-araw-araw na pangangailangan, at simpleng usapan tungkol sa sarili mo.
+ea5c4941	Level 2
+755f2cfe	Magkuwento, maglarawan, magpaliwanag, at lumutas ng problema.
+ce0aa4e1	Level 3
+c11179b7	Mangatwiran para sa isang pananaw, magpalagay, at humarap sa mga pormal na sandali.
+0f2b7bbd	Level 4
+9901e898	Manghikayat, iangkop ang pananalita sa nakikinig, magsalita sa isang okasyon.
+2891d1cd	Alamin
+e3f2ebd5	Isa-isa lang ang itanong, at ulitin ang narinig mo para matiyak ito.
+5c4698b6	Tungkol sa iyo
+82ee2494	Sumagot nang buong pangungusap, magdagdag ng isang detalyeng hindi itinanong, at magtanong din pabalik.
+249aaa35	May nagkaproblema
+5273ea80	Bumati, sabihin ang problema, magalang na tanggihan ang mahinang unang alok, magmungkahi ng sarili mong solusyon, kumpirmahin ito, at magpasalamat.
+60630704	Maglarawan
+2756a24e	Magsimula sa pangkalahatan papunta sa detalye, o daanan ang lugar nang sunod-sunod. Maghambing ng mga bagay.
+a775515c	Magkuwento
+30f9b86c	Bigyan ang kuwento ng simula, problema at wakas, at manatili sa past tense.
+261ba6ca	Magbigay ng panuto
+a30e8dba	Ibigay ang mga hakbang nang sunod-sunod: una, pagkatapos niyan, saka, sa huli.
+fed5d0e8	Mag-ulat ng balita
+87daa7aa	Mga datos muna: sino, ano, saan, kailan, bakit. Tapos isang pangungusap tungkol sa kahihinatnan nito.
+f1b30c5b	Ipagtanggol ang isang pananaw
+33527888	Posisyon, dahilan, halimbawa, isang punto para sa kabilang panig, kongklusyon. Ang isyu ang pag-usapan, hindi ang sarili mo.
+9b0576a6	Paano kung
+5690d1f9	Panatilihin ang padron na “kung… sana…” hanggang dulo, at sundan ang mga resulta nang dalawang hakbang pa.
+e7cf3256	Isang ideya
+dbc541d6	Bigyang-kahulugan ang ideya, pagtapatin ang dalawang pananaw tungkol dito, magbigay ng isang totoong halimbawa, saka bumalik sa ideya.
+127e24a1	Ipaliwanag kung paano ito gumagana
+e3404c47	Pangalanan ang mga yugto, sabihin kung ano ang sanhi ng ano, saka magbigay ng isang paghahambing.
+6ccd64b2	Ang di-inaasahan
+816ca238	Sabihing bago ito sa iyo, ulitin ang tanong sa sarili mong salita, iugnay ito sa bagay na alam mo, saka manindigan sa isang pananaw.
+f33555c2	Isang pormal na sandali
+88b8f57b	Gumamit ng magagalang na tawag, palambutin ang hinihiling mo, at huwag na huwag bumaling sa kaswal na pananalita.
+192fd2ba	Manghikayat
+0bdcebb1	Bago magsimula, alamin kung sino ang kausap mo, at hayaang iyon ang magtakda ng tono at mga argumento mo.
+35cf093d	Maikling pananalita
+35c562bb	Magiliw at pormal: bumati, sabihin kung bakit kayo nagtipon, pasalamatan ang mga tao sa pangalan, magdagdag ng kasabihan, magbigay ng mabuting hangarin, magtapos.
+5300e9f0	Harapin ang sorpresa
+88a91268	Pagkilala sa kapitbahay
+60d5f23b	May nakasalubong kang bagong kapitbahay sa hagdan ng gusali ninyo.
+5a0fb694	Batiin siya at sabihin ang pangalan mo
+16977b8a	Alamin ang pangalan niya
+846ddc8b	Alamin kung taga-saan siya
+d46555a4	Magpaalam nang magalang
+a5f16ac1	Pag-order sa café
+cba904b4	Nasa isang café ka at gusto mo ng maiinom at makakain.
+ecbbd864	Umorder ng inumin
+f38f75cb	Alamin kung ano ang makakain
+39ceccb5	Alamin kung magkano lahat
+ded13af4	Sa palengke
+5ac7485c	Gusto mong bumili ng prutas sa isang puwesto sa palengke.
+7cf8342b	Hingin ang prutas na gusto mo
+752619e5	Alamin ang presyo
+a14322bf	Alamin kung kailan magsasara ang puwesto
+4947285e	Pagsakay ng taxi
+50410b59	Sumakay ka ng taxi sa labas ng istasyon.
+e427e811	Sabihin sa driver kung saan ka pupunta
+58026f36	Alamin kung gaano katagal ang biyahe
+1e355f7a	Alamin kung magkano ang babayaran
+928655b7	Ang pamilya mo
+6e0f69ca	Tinanong ka ng isang bagong katrabaho tungkol sa pamilya mo habang nagkakape kayo.
+9f3186e7	Ilarawan ang dalawang tao sa pamilya mo
+15d86581	Sabihin kung ano ang ginagawa ng isa sa kanila
+fdc10002	Tanungin din ang tungkol sa pamilya niya
+a2cbabe5	Ang trabaho o pag-aaral mo
+473a4a7b	Tinanong ka ng isang kakikilala mo pa lang kung ano ang ginagawa mo.
+0e4612ab	Sabihin kung ano ang ginagawa mo at kung saan
+901c9c20	Ilarawan ang isang karaniwang araw
+e6904716	Sabihin kung ano ang gusto mo rito
+63cb29fa	Ang libreng oras mo
+5a870409	Tinanong ka ng isang kaklase kung ano ang ginagawa mo kapag hindi ka nagtatrabaho.
+2ca88455	Sabihin kung ano ang ginagawa mo sa libreng oras mo
+7cfb2036	Sabihin kung gaano kadalas at kung sino ang kasama
+48c7988e	Itanong kung ano ang gusto niyang gawin
+d9987751	Isang biyahe mo noon
+12c48ae7	Tinanong ka ng isang kaibigan tungkol sa isang biyahe mo noon.
+44e8f735	Sabihin kung saan ka pumunta at kailan
+40460809	Sabihin kung ano ang ginawa mo roon
+fe7fa293	Sabihin kung ano ang pinakanagustuhan mo
+66967558	Bakit mo pinag-aaralan ang wikang ito
+c574fd89	May nag-uusisa kung bakit mo pinag-aaralan ang wika nila.
+5c024b19	Sabihin kung kailan ka nagsimula at bakit
+62e12c32	Sabihin kung saan ka nahihirapan
+a6b58a49	Sabihin kung ano ang gusto mong gawin gamit ito
+e3229679	Pag-check in
+e90659ab	Dumating ka sa isang hotel kung saan may booking ka.
+b1c56ea0	Ibigay ang pangalan mo at sabihing may booking ka
+29d76984	Alamin kung anong oras ang almusal
+dd54cf01	Alamin ang password ng Wi-Fi
+05c30ffa	Alamin kung kailan ka dapat umalis sa kuwarto
+c474a873	Pagbili ng tiket sa tren
+03c6e20a	Nasa bilihan ka ng tiket sa isang istasyon at gusto mong bumiyahe ngayong araw.
+29dba39b	Sabihin kung saan mo gustong pumunta
+a46accc5	Alamin kung kailan aalis ang susunod na tren
+7e90233b	Alamin kung aling plataporma
+2203bb44	Alamin ang presyo at bumili ng tiket
+27ef0ab5	Pagkuha ng appointment
+1f8621e0	Tumawag ka sa isang klinika dahil masama ang pakiramdam mo.
+67532a85	Sabihin kung ano ang nararamdaman mo
+346796d9	Alamin ang pinakamaagang appointment
+877f3ac2	Alamin kung ano ang dadalhin
+593d9499	Ulitin ang araw at oras para kumpirmahin
+6a217bc8	Maglarawan ng silid
+70c5083e	Ilarawan ang silid kung saan ka nagtatrabaho o nag-aaral, para eksaktong maisip ito ng nakikinig.
+784f5083	Daanan ang silid nang sunod-sunod
+70228054	Ibigay ang mga sukat, kulay at kung ano ang laman nito
+d353e819	Sabihin kung ano ang gusto mo at kung ano ang babaguhin mo
+a558ea3c	Isang araw na hindi mo malilimutan
+fd0737e0	Ikuwento sa nakikinig ang isang araw na hindi mo kailanman malilimutan.
+a06cf43a	Bigyan ang kuwento ng simula, problema at wakas
+0c0d3e40	Manatili sa past tense
+b543fcc5	Sabihin kung ano ang naramdaman mo at bakit
+f1c8be79	Paano ito lutuin
+6d4a39c9	Ipaliwanag kung paano lutuin ang paborito mong ulam sa taong hindi pa ito kailanman nailuto.
+91de8142	Sabihin kung ano ang mga kailangan
+5efe2ea6	Ibigay ang mga hakbang nang sunod-sunod
+06d51ed3	Tiyaking nasundan ng nakikinig
+94fe8b18	Nasa balita
+4f078354	Ikuwento sa nakikinig ang isang bagay na nasa balita ngayong linggo.
+d3305c6a	Sabihin kung sino, ano, saan at kailan
+19bdf349	Sabihin kung bakit ito nangyari
+1347a8b1	Sabihin kung ano ang maaaring sumunod na mangyari
+90ce4412	Pagbibigay ng direksyon
+91f0ebe6	Unang beses na dumating sa lungsod mo ang isang kaibigan at nasa istasyon siya ng tren. Ipaliwanag kung paano pumunta sa bahay mo.
+9808ccb5	Ibigay ang ruta nang hakbang-hakbang
+8609f6eb	Banggitin ang mga palatandaang hindi niya malalampasan
+eb3b0450	Sabihin kung gaano kalayo o gaano katagal
+126266fd	Pag-book ng silid para sa kumperensiya
+ef20ee62	Tumawag ka sa isang hotel para mag-book ng silid para sa dalawang araw na kumperensiya ng limampung tao sa susunod na buwan.
+aec1f0a4	Ibigay ang mga petsa at ang bilang ng tao
+839428e2	Alamin kung ilan ang kasya sa silid at kung anong kagamitan ang mayroon
+dba1eb4e	Alamin kung ano ang kasama sa presyo
+0a219a50	Humingi ng diskwento
+4624c278	Naiwan ng flight
+c0790736	Naiwan ka ng flight mo at nasa counter ka ng airline sa airport.
+cce1a690	Sabihin nang maikli ang nangyari
+be422a03	Alamin kung kailan aalis ang susunod na flight
+40b22957	Alamin kung magkano ang pagpapalit ng flight
+a96d6c0e	Alamin kung ano ang mangyayari sa bagahe mo
+dbf53712	Pagbili sa telepono
+5e6ad652	Tumawag ka sa isang tindahan para bumili ng bagong cellphone.
+c24afd23	Alamin kung anong mga kulay ang mayroon sila
+4840b736	Alamin ang tungkol sa warranty
+58007243	Pagkasunduan kung paano mo ito makukuha
+7fab0ee0	Pagpaplano ng hapunan
+a84208fb	Nagpaplano ka ng hapunan kasama ang mga katrabaho sa Biyernes at humingi ka sa isang kaibigan ng mairerekomendang restawran.
+518a49b9	Ipaliwanag ang okasyon at kung sino ang darating
+3e7dc631	Alamin ang tungkol sa pagkain at presyo
+c5ea170d	Paghambingin ang dalawang lugar at pumili
+27fd85b4	Nawawalang bagahe
+d7bd57fd	Lumapag ka pagkatapos ng mahabang flight, pero hindi lumabas ang bagahe mo. Nasa counter ka ng airline.
+b213f866	Ibigay ang flight mo at kung saan ka nanggaling
+6750956a	Ilarawan ang bagahe
+6c5f59cb	Ibigay ang hotel mo at kung gaano ka katagal mananatili
+a4cab8ea	Kumuha ng reference number at alamin kung kailan ito darating
+e3562921	Walang cash sa restawran
+796d4f41	Tapos ka nang kumain at nalaman mong cash lang ang tinatanggap ng restawran. Card lang ang dala mo.
+8c56686e	Humingi ng paumanhin at magpaliwanag
+1d7bb4f9	Alamin kung nasaan ang pinakamalapit na ATM
+ccff521b	Mag-alok ng maiiwang bagay bilang garantiya habang kinukuha mo ang pera
+a1d19f2b	Aksidente sa sasakyan
+0644fed5	Tumawag ka sa pulis para i-report ang isang maliit na aksidente sa sasakyan na kinasangkutan mo.
+ef89b6bb	Sabihin kung may nasaktan
+26f3d4ef	Ibigay ang eksaktong lugar
+8becb789	Ikuwento ang nangyari, nang sunod-sunod
+e60afdea	Alamin kung ano ang susunod na gagawin
+e1603163	Nasira mo ang hiniram mo
+4a7d2a70	Hiniram mo ang laptop ng isang kaibigan at nasira mo ito. Ngayon, kailangan mo itong sabihin sa kanya.
+3fc45a68	Humingi ng taos-pusong paumanhin
+11b3d390	Ikuwento kung paano ito nangyari
+8f904749	Mag-alok ng dalawa o tatlong paraan para maitama ito
+0001c6f7	Ang booking na wala
+6c50d144	Gabing-gabi ka nang dumating sa isang hotel. Hindi nila makita ang booking mo, at puno na ang hotel.
+7777cc7f	Ipaliwanag na nag-book ka, at kung kailan
+162800ec	Magalang na tanggihan ang unang sagot
+a7757465	Magkasundo sa solusyong katanggap-tanggap sa iyo
+c1aa4233	Hindi na gumagana
+69a76f8d	Hindi na gumagana ang cellphone na binili mo dalawang araw na ang nakalipas. Bumalik ka sa tindahan.
+e6d6aaf7	Sabihin kung ano ang sira at kung kailan mo ito binili
+56e5e4e5	Humingi ng bago o ng refund
+30721468	Pagkasunduan ang susunod na mangyayari
+6b5e1377	Ipagtanggol ang isang opinyon
+d289ddbb	Tinanong ka ng pananaw mo sa isang tanong na pinagtatalunan ng mga tao. Kokontra ang nakikinig.
+b1e66d35	Sabihin ang posisyon mo
+15e9e623	Magbigay ng dahilan at halimbawa
+2d850407	Kilalanin ang isang punto ng kabilang panig, saka sagutin ito
+c875c70e	Ibuod sa isang pangungusap
+8bca8f8e	Paano kung…
+6a63ba5d	Hinihiling na isipin mo ang isang bagay na hindi totoo, at sabihin kung ano ang kasunod nito.
+c799ca25	Sabihin kung ano ang unang mangyayari
+ec4fc5f9	Sundan ito hanggang sa kahahantungan nito
+53314c80	Tinanong ka tungkol sa isang ideya, hindi isang bagay: kung ano ang kahulugan nito at kung paano ito iba-ibang tinitingnan ng mga tao.
+77309e0c	Sabihin ang kahulugan ng ideya
+8860b942	Pagtapatin ang dalawang pananaw tungkol dito
+2b2f71ee	Magbigay ng isang halimbawa mula sa totoong buhay
+c3d9214d	Hinihiling na ipaliwanag mo ang isang komplikadong bagay sa taong walang alam tungkol dito.
+79f978ed	Pangalanan ang mga yugto nang sunod-sunod
+7141adb3	Sabihin kung ano ang sanhi ng ano
+1ef54b90	Magbigay ng paghahambing na magpapalinaw nito
+06a9a589	Tanong na hindi mo inaasahan
+5b179676	Tinanong ka tungkol sa isang bagay na malamang ay hindi mo pa naisip kahit kailan.
+99f2b3fc	Ulitin ang tanong sa sarili mong salita
+d31e29d9	Iugnay ito sa bagay na alam mo
+6d88dca9	Manindigan sa isang pananaw at magbigay ng dahilan
+4937ba3a	Paghingi ng paumanhin sa kasosyo sa negosyo
+dde2a745	Kinakatawan mo ang kompanya mo sa isang pormal na pulong. Ilang buwan nang atrasado ang proyekto ninyo, at hindi natutuwa ang kasosyo.
+6e45113c	Pormal na humingi ng paumanhin sa pagkaantala
+12a81c86	Ipaliwanag kung ano ang sanhi nito
+9d67324e	Mag-alok ng bagong plano na may mga petsa
+faaa5a26	Hikayatin silang ituloy ang pakikipagtrabaho sa inyo
+5b01b793	Ang maingay na kapitbahay
+e5ae45ff	Gabi-gabing may maingay na party ang kapitbahay mo. Kumatok ka sa pinto niya para pag-usapan ito.
+7e05fd09	Magalang na banggitin ang problema
+12c10bef	Ipaliwanag kung paano ka naaapektuhan nito
+fcbd04ea	Magmungkahi ng kompromiso
+0d484404	Umalis nang walang samaan ng loob
+4cb7ce35	Hikayatin ang isang opisyal
+35fe64ba	May sampung minuto ka kasama ang isang opisyal ng gobyerno. Hikayatin siyang pondohan ang pagtuturo ng mga wikang banyaga sa mga paaralan.
+6cdd0883	Magsimula sa paraang angkop sa kung sino siya
+5dedf164	Magbigay ng dalawang argumentong mahalaga sa kanya
+6ecdd1c8	Sagutin ang pagtutol niya
+f9478dad	Humingi ng malinaw na desisyon
+401edac7	Pakikiramay
+5757c24e	Namatayan ng kapamilya ang isang katrabaho. Pinuntahan mo siya.
+9e599874	Makiramay gamit ang angkop na pananalita
+eec65358	Magsalita nang magiliw nang hindi nag-uusisa
+517107a3	Mag-alok ng tulong sa isang kongkretong bagay
+21386c90	Magbigay ng maikling pananalita
+323b8e32	Hiniling na tumayo ka at magbigay ng maikling pananalita sa isang okasyon.
+b9778b1e	Batiin ang lahat at sabihin kung bakit kayo nagtipon
+a0dc147e	Pasalamatan ang isang tao sa pangalan
+5fab4552	Magdagdag ng kasabihan o sipi
+95f60da0	Magtapos sa mabubuting hangarin
+9c7df7c8	Ipaliwanag ang isang kasabihan
+3dd6b74e	Binigyan ka ng nakikinig ng isang kilalang kasabihan at tinanong kung ano ang masasabi mo rito.
+2c2d2215	Sabihin ang kahulugan ng kasabihan
+d607034e	Magbigay ng halimbawa mula sa buhay
+91a3856c	Sabihin kung sang-ayon ka, at kung bakit
+955e542c	Kailangan ng Tamkeen ng pahintulot na gamitin ang mikropono para marinig ka.
+9577b2a1	Walang laman o masyadong mahaba ang recording na iyan.

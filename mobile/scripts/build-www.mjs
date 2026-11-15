@@ -154,6 +154,11 @@ const SHARED = [
   "js/grammarstore.js",
   "js/saytext.js",
   "js/components/grammarpanel.js",
+  // Library → Conversation: speaking practice (the phone's own hear-service.js is in src/)
+  "js/conversedata.js",
+  "js/converse.js",
+  "js/hearmic.js",
+  "js/components/conversepanel.js",
   "js/components/selectsheet.js",
   "js/components/troubleshoot.js",
   "js/components/tour.js",
