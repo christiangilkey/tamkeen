@@ -726,6 +726,12 @@ async function boot() {
   // After each sync, pass on the creature game's state in case another device saved a newer one.
   on("sync", () => api("/settings").then((s) => {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
+    // ...and the long-term goal on the Vocab page (review/longgoalview.js), if another device changed it.
+    const settings = state.status && state.status.settings;
+    if (settings && JSON.stringify(settings.study_goal || {}) !== JSON.stringify(s.study_goal || {})) {
+      settings.study_goal = s.study_goal;
+      window.dispatchEvent(new CustomEvent("tamkeen:goal"));
+    }
   }).catch(() => {}));
   if (state.status && state.status.desktop) startAppBadge();
   // A newer version? Tell the user once per start; a packaged build can install it in place.

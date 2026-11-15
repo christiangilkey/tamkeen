@@ -1,0 +1,29 @@
+{
+  "_about": "The long-term goal setting (study_goal), cleaned the same by app/studygoal.py and web/js/review/goalsetting.js.",
+  "clean": [
+    {"in": null, "out": {"at": 0, "goal": null}},
+    {"in": "x", "out": {"at": 0, "goal": null}},
+    {"in": {}, "out": {"at": 0, "goal": null}},
+    {"in": {"at": 1700000000000, "goal": null}, "out": {"at": 1700000000000, "goal": null}},
+    {"in": {"at": 5.7, "goal": {"measure": "learned", "target": 300, "start": 20400, "end": 20429, "made": 99}},
+     "out": {"at": 5, "goal": {"measure": "learned", "target": 300, "start": 20400, "end": 20429, "made": 99}}},
+    {"in": {"at": 1, "goal": {"measure": "reviews", "target": 12.9, "start": 20400.5, "end": 20400}},
+     "out": {"at": 1, "goal": {"measure": "reviews", "target": 12, "start": 20400, "end": 20400, "made": 0}}},
+    {"in": {"at": 1, "goal": {"measure": "minutes", "target": 0, "start": 20400, "end": 20429}}, "out": {"at": 1, "goal": null}},
+    {"in": {"at": 1, "goal": {"measure": "minutes", "target": 1000001, "start": 20400, "end": 20429}}, "out": {"at": 1, "goal": null}},
+    {"in": {"at": 1, "goal": {"measure": "words", "target": 10, "start": 20400, "end": 20429}}, "out": {"at": 1, "goal": null}},
+    {"in": {"at": 1, "goal": {"measure": "learned", "target": 10, "start": 20400, "end": 20399}}, "out": {"at": 1, "goal": null}},
+    {"in": {"at": 1, "goal": {"measure": "learned", "target": 10, "start": 20400, "end": 20767}}, "out": {"at": 1, "goal": null}},
+    {"in": {"at": 1, "goal": {"measure": "learned", "target": 10, "start": 20400, "end": 20766}},
+     "out": {"at": 1, "goal": {"measure": "learned", "target": 10, "start": 20400, "end": 20766, "made": 0}}},
+    {"in": {"at": true, "goal": {"measure": "learned", "target": true, "start": 20400, "end": 20429}}, "out": {"at": 0, "goal": null}},
+    {"in": {"at": -4, "goal": {"measure": "learned", "target": "10", "start": 20400, "end": 20429}}, "out": {"at": 0, "goal": null}}
+  ],
+  "wins": [
+    {"theirs": {"at": 2}, "mine": {"at": 1}, "out": true},
+    {"theirs": {"at": 1}, "mine": {"at": 1}, "out": false},
+    {"theirs": {"at": 1}, "mine": {"at": 2}, "out": false},
+    {"theirs": null, "mine": {}, "out": false},
+    {"theirs": {"at": 3, "goal": null}, "mine": {"at": 2, "goal": {"measure": "learned", "target": 5, "start": 2, "end": 3}}, "out": true}
+  ]
+}

@@ -1,0 +1,99 @@
+0ba41656	Ang time bar
+ffaae73c	Speed streak
+7930bf9f	Kalmado
+e56acfb6	Oras sa likod
+127e4074	Dagdag na oras
+76ec99b4	Isa sa bawat {0} card na nasagot sa oras, hanggang {1}. Pindutin ang B o i-tap ang +{2} s para magdagdag ng {3} segundo sa bar.
+53da378c	Speed streak: mga card na nasagot bago maubos ang bar
+c6823a19	Magdagdag ng {0} segundo sa bar (B)
+94e1d50e	Magdagdag ng {0} segundo sa bar
+bb2bfbf2	Oras sa harap
+ea023538	Ubos na ang oras: magsisimula ulit ang streak
+9234ec6f	Pinakamahusay ngayon {0} · Pinakamahusay {1}
+26894a3a	Bagong pinakamahabang speed streak: {0}
+1a3c2a92	Nakakuha ng +{0} s na dagdag na oras
+6d0a6c7a	Paubos ang bar. Sumagot bago ito maubos, kahit anong sagot, para humaba ang streak. Kapag naubos, ang streak lang ang magsisimula ulit.
+6bef5eed	Napupuno ang bar papunta sa target na oras ng card at hindi ka minamadali.
+31ef8593	Na-review
+8716c8b1	Unang natutunan
+c17a9183	Hanapin ang mga salita mo. Puwede rin: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	Wala sa anumang folder
+0e2d33c9	Bago: hindi pa nasasagot
+11ea0f15	Due ngayon
+1762adb9	Natutunan: naalala kahit isang beses
+556e154d	Pumili ng folder
+682aa1a7	Ipakita lang
+1859f8f1	Mag-type para paikliin ang listahan
+c38f1b9f	Paikliin ang listahan
+d30800a8	Ang mga bahaging may espasyo sa pagitan ay puwedeng nasa kahit anong ayos: nahahanap ng b c o ang "vocabulary". Inaalis ng ~ sa harap ng salita ang salitang iyon.
+7208e66f	Mga pagpipilian
+9f857673	Walang tugma.
+52171d6c	Mga salitang idinagdag
+250365ec	Mga salitang binago
+78e923ee	Mga salitang na-review
+7cf2d5a8	Mga salitang unang natutunan
+0075f3c7	Gamitin ang mga petsang ito
+45a8b73b	Pangmatagalang layunin
+26a97d70	Layunin para sa susunod na isa hanggang tatlong buwan. Ipinapakita nito ang bilis na kailangan pa, at ang lumampas na araw ay hinahati lang ang natitira.
+80a9a1cb	Mga review mo
+90792c7e	Isang parisukat bawat araw: mas madilim, mas maraming card ang na-review mo. I-tap ang isang araw para makita ang bilang.
+dd3d0996	Hanapin ang naka-save na salita gamit ang salita mismo o ang kahulugan nito. I-type ang folder:, is:due o reviewed:7 para mas paliitin pa.
+2d8a6f7c	1 araw
+2f866c70	Nakaraang taon
+22c6f667	Susunod na taon
+4391320d	Mga review bawat araw
+5800ffea	Pinakamahabang streak
+77fe685f	Karaniwan bawat araw
+624c6099	{0}: 1 card na due
+08f32f1a	{0}: {1} card na due
+7e95ee18	{0}: wala pang due
+7358eac7	{0}: 1 review
+b0a2bc9e	{0}: {1} review
+72376723	{0}: walang review
+cf9a414f	{0} bagong salita bago ang {1}
+33f75159	{0} review bago ang {1}
+f6162159	{0} minuto bago ang {1}
+665cd21b	Mga 1 bagong salita bawat araw
+e4645812	Mga {0} bagong salita bawat araw
+d8dbf561	Mga 1 review bawat araw
+a12b47aa	Mga {0} review bawat araw
+43ef0c53	Mga 1 minuto bawat araw
+ae2aedc6	Mga {0} minuto bawat araw
+29c85ab4	Mga bagong salitang natutunan
+daddbd48	Mga minuto sa mga card
+8c8660be	2 linggo
+42fa50c1	1 buwan
+9dbe1097	2 buwan
+b9e4e6ff	3 buwan
+294099a5	Naabot ang layunin! Magaling.
+ad8cb07f	Tapos na ang bahagi ngayong araw. Ang anumang dagdag ay pauna mo na.
+fe5e0215	Bagong linggo, bagong simula: ibabalik ka sa plano ng bahagi ngayong linggo.
+c810b702	Nauuna ka sa plano.
+dc35d157	Sakto sa plano.
+45036cef	Ang lumampas na araw ay hinahati lang ang natitira: inayos na ang bilis.
+1ab15da6	Tumaas ang kailangang bilis. Mas mabuti ang maliit na layuning natatapos kaysa sa malaking iniiwan: puwede mo itong baguhin.
+15bb8286	Magtakda ng pangmatagalang layunin
+2a177256	Huling araw
+5a316ee5	{0} araw pa
+38cb1840	Magsisimula sa {0}
+87441dca	Natapos ang layuning ito sa {0}%. Totoo ang pag-unlad na iyon: magtakda ng susunod kapag handa ka na.
+34d68d69	Magsisimula sa {0}.
+6b28ba90	Kung nasaan ang pantay na bilis ngayon
+b0a5848c	Ngayon <0>{0}</0> sa {1}
+703ef5c3	Ngayong linggo <0>{0}</0> sa {1}
+e68ab53c	Magtakda ng susunod na layunin
+a6bb4f78	Baguhin ang layunin
+5fef78b1	Progreso ng layunin
+50813f3b	sa {0} · {1}%
+8145446a	{0}% ng layunin mo ang tapos na!
+6a35918e	Baguhin ang layunin mo
+7e278422	Alisin ang layunin
+42033f3d	Ang mga layuning 1 hanggang 3 buwan ang pinakamadalas matapos ng mga tao. Hindi ito nasisira ng mga lumampas na araw: hinahati ang natitira sa mga araw na natitira.
+c81f6577	Ano ang binibilang
+e060745b	Gaano katagal
+503ce866	Ilan
+10dc22d4	I-save ang layunin
+203c7637	Matatapos sa {0}
+cd459e12	Hindi na-save ang layunin.
+fc3f8727	Mga araw na nag-aral
+72bd4b59	<0>Space</0> baligtarin ang card, saka naalala · <1>1</1> o <2>←</2> hindi naalala · <3>2</3> o <4>→</4> naalala · <5>Z</5> bawiin · <6>B</6> dagdag na oras · <7>W</7> salita · <8>S</8> pangungusap · <9>P</9> magsanay bigkasin · <10>N</10> mga personal na tala · <11>Del</11> burahin ang salita

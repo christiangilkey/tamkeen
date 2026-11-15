@@ -1,0 +1,99 @@
+0ba41656	A barra de tempo
+ffaae73c	Sequência de velocidade
+7930bf9f	Calma
+e56acfb6	Tempo no verso
+127e4074	Tempo extra
+76ec99b4	Um a cada {0} cartões respondidos a tempo, até {1}. Pressione B ou toque em +{2} s para adicionar {3} segundos à barra.
+53da378c	Sequência de velocidade: cartões respondidos antes de a barra acabar
+c6823a19	Adicionar {0} segundos à barra (B)
+94e1d50e	Adicionar {0} segundos à barra
+bb2bfbf2	Tempo na frente
+ea023538	O tempo acabou: a sequência recomeça
+9234ec6f	Melhor de hoje {0} · Melhor {1}
+26894a3a	Nova melhor sequência de velocidade: {0}
+1a3c2a92	+{0} s de tempo extra ganhos
+6d0a6c7a	A barra vai diminuindo. Responda antes que ela acabe, com qualquer resposta, para aumentar sua sequência. Se acabar, só a sequência recomeça.
+6bef5eed	A barra se enche rumo à meta de tempo do cartão e nunca apressa você.
+31ef8593	Revisadas
+8716c8b1	Aprendidas pela primeira vez
+c17a9183	Pesquise suas palavras. Também: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	Em nenhuma pasta
+0e2d33c9	Novas: nunca respondidas
+11ea0f15	Para revisar hoje
+1762adb9	Aprendidas: lembradas pelo menos uma vez
+556e154d	Escolha uma pasta
+682aa1a7	Mostrar só
+1859f8f1	Digite para encurtar a lista
+c38f1b9f	Encurtar a lista
+d30800a8	As partes separadas por espaços podem estar em qualquer ordem: b c o encontra “vocabulary”. ~ antes de uma palavra a exclui.
+7208e66f	Opções
+9f857673	Nada corresponde.
+52171d6c	Palavras adicionadas
+250365ec	Palavras alteradas
+78e923ee	Palavras revisadas
+7cf2d5a8	Palavras aprendidas pela primeira vez
+0075f3c7	Usar estas datas
+45a8b73b	Meta de longo prazo
+26a97d70	Uma meta para o próximo mês ou os próximos três. Mostra o ritmo que ainda falta, e um dia perdido só redistribui o resto.
+80a9a1cb	Suas revisões
+90792c7e	Um quadrado por dia: quanto mais escuro, mais cartões você revisou. Toque em um dia para ver o número.
+dd3d0996	Encontre uma palavra salva pela própria palavra ou pelo significado. Digite folder:, is:due ou reviewed:7 para filtrar mais.
+2d8a6f7c	1 dia
+2f866c70	Ano anterior
+22c6f667	Próximo ano
+4391320d	Revisões de cada dia
+5800ffea	Maior sequência
+77fe685f	Média diária
+624c6099	{0}: 1 cartão para revisar
+08f32f1a	{0}: {1} cartões para revisar
+7e95ee18	{0}: nada para revisar ainda
+7358eac7	{0}: 1 revisão
+b0a2bc9e	{0}: {1} revisões
+72376723	{0}: nenhuma revisão
+cf9a414f	{0} palavras novas até {1}
+33f75159	{0} revisões até {1}
+f6162159	{0} minutos até {1}
+665cd21b	Cerca de 1 palavra nova por dia
+e4645812	Cerca de {0} palavras novas por dia
+d8dbf561	Cerca de 1 revisão por dia
+a12b47aa	Cerca de {0} revisões por dia
+43ef0c53	Cerca de 1 minuto por dia
+ae2aedc6	Cerca de {0} minutos por dia
+29c85ab4	Palavras novas aprendidas
+daddbd48	Minutos nos cartões
+8c8660be	2 semanas
+42fa50c1	1 mês
+9dbe1097	2 meses
+b9e4e6ff	3 meses
+294099a5	Meta alcançada! Muito bem.
+ad8cb07f	A parte de hoje está feita. O resto é vantagem.
+fe5e0215	Uma semana nova, um novo começo: a parte desta semana coloca você em dia de novo.
+c810b702	Você está à frente do plano.
+dc35d157	Você está no ritmo certo.
+45036cef	Um dia perdido só redistribui o resto: o ritmo foi ajustado.
+1ab15da6	O ritmo necessário aumentou. Uma meta menor que você termina vale mais que uma grande que você abandona: dá para mudá-la.
+15bb8286	Definir uma meta de longo prazo
+2a177256	Último dia
+5a316ee5	Faltam {0} dias
+38cb1840	Começa em {0}
+87441dca	Esta meta terminou em {0}%. Esse progresso é real: defina a próxima quando quiser.
+34d68d69	Começa em {0}.
+6b28ba90	Onde um ritmo constante estaria hoje
+b0a5848c	Hoje <0>{0}</0> de {1}
+703ef5c3	Esta semana <0>{0}</0> de {1}
+e68ab53c	Definir a próxima meta
+a6bb4f78	Mudar a meta
+5fef78b1	Progresso da meta
+50813f3b	de {0} · {1}%
+8145446a	{0}% da sua meta feito!
+6a35918e	Mude sua meta
+7e278422	Remover a meta
+42033f3d	Metas de 1 a 3 meses são as que as pessoas mais terminam. Dias perdidos nunca a quebram: o resto é distribuído pelos dias que faltam.
+c81f6577	O que conta
+e060745b	Por quanto tempo
+503ce866	Quantas
+10dc22d4	Salvar a meta
+203c7637	Termina em {0}
+cd459e12	Não foi possível salvar a meta.
+fc3f8727	Dias estudados
+72bd4b59	<0>Espaço</0> virar o cartão e depois lembrei · <1>1</1> ou <2>←</2> não lembrei · <3>2</3> ou <4>→</4> lembrei · <5>Z</5> desfazer · <6>B</6> tempo extra · <7>W</7> palavra · <8>S</8> frase · <9>P</9> praticar a pronúncia · <10>N</10> notas pessoais · <11>Del</11> excluir a palavra

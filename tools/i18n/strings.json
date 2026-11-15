@@ -11045,6 +11045,11 @@
   "f": "web/js/dlicontent.js"
  },
  {
+  "id": "fc3f8727",
+  "k": "Days studied",
+  "f": "web/js/dliweeks.js"
+ },
+ {
   "id": "4d3ebfca",
   "k": "Remembered",
   "f": "web/js/dliweeks.js"
@@ -22095,6 +22100,36 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "0ba41656",
+  "k": "The time bar",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "ffaae73c",
+  "k": "Speed streak",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "7930bf9f",
+  "k": "Calm",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "e56acfb6",
+  "k": "Time on the back",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "127e4074",
+  "k": "Time boosts",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "76ec99b4",
+  "k": "One for every {0} cards answered in time, up to {1}. Press B or tap +{2} s to add {3} seconds to the bar.",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "73916e84",
   "k": "Time goal for each card",
   "f": "web/js/pages/review.js"
@@ -22105,8 +22140,23 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "1f434d3d",
-  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>W</6> word · <7>S</7> sentence · <8>P</8> practise saying it · <9>N</9> personal notes · <10>Del</10> delete the word",
+  "id": "72bd4b59",
+  "k": "<0>Space</0> turn the card, then remembered · <1>1</1> or <2>←</2> not remembered · <3>2</3> or <4>→</4> remembered · <5>Z</5> undo · <6>B</6> time boost · <7>W</7> word · <8>S</8> sentence · <9>P</9> practise saying it · <10>N</10> personal notes · <11>Del</11> delete the word",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "53da378c",
+  "k": "Speed streak: cards answered before the bar ran out",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "c6823a19",
+  "k": "Add {0} seconds to the bar (B)",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "94e1d50e",
+  "k": "Add {0} seconds to the bar",
   "f": "web/js/pages/review.js"
  },
  {
@@ -22115,8 +22165,23 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "bb2bfbf2",
+  "k": "Time on the front",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "14813a59",
   "k": "Time goal for this card: {0} s",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "ea023538",
+  "k": "Time's up: the streak starts again",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "9234ec6f",
+  "k": "Best today {0} · Best {1}",
   "f": "web/js/pages/review.js"
  },
  {
@@ -22222,6 +22287,16 @@
  {
   "id": "f0d4b821",
   "k": "That answer wasn't saved: {0}",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "26894a3a",
+  "k": "New best speed streak: {0}",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "1a3c2a92",
+  "k": "+{0} s boost earned",
   "f": "web/js/pages/review.js"
  },
  {
@@ -22387,6 +22462,16 @@
  {
   "id": "dce4bd3c",
   "k": "Coming back to you",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "6d0a6c7a",
+  "k": "The bar counts down. Answer before it runs out, whichever answer, to build your streak. If it runs out, only the streak starts again.",
+  "f": "web/js/pages/review.js"
+ },
+ {
+  "id": "6bef5eed",
+  "k": "The bar fills toward the card's time goal and never hurries.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -22980,6 +23065,21 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "cb5424f6",
+  "k": "Changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "31ef8593",
+  "k": "Reviewed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "8716c8b1",
+  "k": "First learned",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "d7854118",
   "k": "Any time",
   "f": "web/js/pages/vocab.js"
@@ -23107,6 +23207,11 @@
  {
   "id": "2fa9797f",
   "k": "Search vocab… {0}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "c17a9183",
+  "k": "Search your words. Also: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -23250,11 +23355,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "cb5424f6",
-  "k": "Changed",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "3f66052a",
   "k": "From",
   "f": "web/js/pages/vocab.js"
@@ -23360,6 +23460,86 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "2e66cf82",
+  "k": "Not in any folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "0e2d33c9",
+  "k": "New: never answered",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "11ea0f15",
+  "k": "Due today",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "1762adb9",
+  "k": "Learned: remembered at least once",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "556e154d",
+  "k": "Pick a folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "682aa1a7",
+  "k": "Show only",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "1859f8f1",
+  "k": "Type to narrow the list",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "c38f1b9f",
+  "k": "Narrow the list",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "d30800a8",
+  "k": "Pieces with spaces between them can be in any order: b c o finds “vocabulary”. ~ in front of a word leaves it out.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "7208e66f",
+  "k": "Choices",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "9f857673",
+  "k": "Nothing matches.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "52171d6c",
+  "k": "Words added",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "250365ec",
+  "k": "Words changed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "78e923ee",
+  "k": "Words reviewed",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "7cf2d5a8",
+  "k": "Words first learned",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "0075f3c7",
+  "k": "Use these dates",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "d6206ee4",
   "k": "Building the Anki deck with audio…",
   "f": "web/js/pages/vocab.js"
@@ -23390,13 +23570,33 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "45a8b73b",
+  "k": "Long-term goal",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "26a97d70",
+  "k": "A goal for the next month or three. It shows the pace still needed, and a missed day just spreads the rest out.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "80a9a1cb",
+  "k": "Your reviews",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "90792c7e",
+  "k": "One square a day: the darker, the more cards you reviewed. Tap a day to see its number.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "cbbd4e35",
   "k": "Type or paste new words, one or many at a time, or scan a photo of a list. Tamkeen can fill in their meanings, example sentences and audio, or you can.",
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "dc02b791",
-  "k": "Find a saved word by the word itself or by its meaning.",
+  "id": "dd3d0996",
+  "k": "Find a saved word by the word itself or by its meaning. Type folder:, is:due or reviewed:7 to narrow it further.",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -24753,6 +24953,291 @@
   "id": "a0b74487",
   "k": "Couldn't send the task.",
   "f": "web/js/review/goalbar.js"
+ },
+ {
+  "id": "2d8a6f7c",
+  "k": "1 day",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "2f866c70",
+  "k": "Previous year",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "22c6f667",
+  "k": "Next year",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "4391320d",
+  "k": "Reviews each day",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "5800ffea",
+  "k": "Longest streak",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "77fe685f",
+  "k": "Daily average",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "624c6099",
+  "k": "{0}: 1 card due",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "08f32f1a",
+  "k": "{0}: {1} cards due",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "7e95ee18",
+  "k": "{0}: nothing due yet",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "7358eac7",
+  "k": "{0}: 1 review",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "b0a2bc9e",
+  "k": "{0}: {1} reviews",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "72376723",
+  "k": "{0}: no reviews",
+  "f": "web/js/review/heatmapview.js"
+ },
+ {
+  "id": "cf9a414f",
+  "k": "{0} new words by {1}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "33f75159",
+  "k": "{0} reviews by {1}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "f6162159",
+  "k": "{0} minutes by {1}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "665cd21b",
+  "k": "About 1 new word a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "e4645812",
+  "k": "About {0} new words a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "d8dbf561",
+  "k": "About 1 review a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "a12b47aa",
+  "k": "About {0} reviews a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "43ef0c53",
+  "k": "About 1 minute a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "ae2aedc6",
+  "k": "About {0} minutes a day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "29c85ab4",
+  "k": "New words learned",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "daddbd48",
+  "k": "Minutes on flashcards",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "8c8660be",
+  "k": "2 weeks",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "42fa50c1",
+  "k": "1 month",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "9dbe1097",
+  "k": "2 months",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "b9e4e6ff",
+  "k": "3 months",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "294099a5",
+  "k": "Goal reached! Well done.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "ad8cb07f",
+  "k": "Today's part is done. Anything more is a head start.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "fe5e0215",
+  "k": "A new week, a fresh start: this week's part puts you back on track.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "c810b702",
+  "k": "You're ahead of plan.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "dc35d157",
+  "k": "Right on track.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "45036cef",
+  "k": "A missed day just spreads the rest out: the pace has adjusted.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "1ab15da6",
+  "k": "The pace needed has grown. A smaller goal you finish beats a big one you drop: you can change it.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "15bb8286",
+  "k": "Set a long-term goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "2a177256",
+  "k": "Last day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "5a316ee5",
+  "k": "{0} days left",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "38cb1840",
+  "k": "Starts {0}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "87441dca",
+  "k": "This goal has ended at {0}%. That progress is real: set the next one when you're ready.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "34d68d69",
+  "k": "Starts {0}.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "6b28ba90",
+  "k": "Where a steady pace would be today",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "b0a5848c",
+  "k": "Today <0>{0}</0> of {1}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "703ef5c3",
+  "k": "This week <0>{0}</0> of {1}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "e68ab53c",
+  "k": "Set the next goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "a6bb4f78",
+  "k": "Change goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "5fef78b1",
+  "k": "Goal progress",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "50813f3b",
+  "k": "of {0} · {1}%",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "8145446a",
+  "k": "{0}% of your goal done!",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "6a35918e",
+  "k": "Change your goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "7e278422",
+  "k": "Remove goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "42033f3d",
+  "k": "Goals of 1 to 3 months are the ones people finish most often. Missed days never break it: the rest is spread over the days left.",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "c81f6577",
+  "k": "What counts",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "e060745b",
+  "k": "How long",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "503ce866",
+  "k": "How many",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "10dc22d4",
+  "k": "Save goal",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "203c7637",
+  "k": "Ends {0}",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "cd459e12",
+  "k": "Couldn't save the goal.",
+  "f": "web/js/review/longgoalview.js"
  },
  {
   "id": "d4928a6e",

@@ -117,6 +117,7 @@ export const DEFAULTS = {
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
   grammar_progress: {}, // the grammar lessons finished, when and how well (web/js/grammardata.js); synced too
   controller_map: {},  // the game controller's buttons, as changed from the defaults (web/js/padmap.js); synced too
+  study_goal: {},      // the long-term goal on the Vocab page (web/js/review/goalsetting.js); synced too
   ig_collections: null, // saved Instagram collections found and the one chosen (web/js/igcollections.js); synced too
   game_sound: true,
   game_enabled: true,

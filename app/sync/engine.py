@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, reels, tashkeel, videos, youtube
+from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, reels, studygoal, tashkeel, videos, youtube
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -134,6 +134,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "sites": pages.clean_sites(db.get_setting("browser_sites")),
             "grammar": grammar.clean_progress(db.get_setting("grammar_progress")),
             "controller": controller.clean(db.get_setting("controller_map")),
+            "goal": studygoal.clean(db.get_setting("study_goal")),
             "ig_collections": reels.synced_collections(),
             "keys": aikeys.from_settings(db.get_settings()),
             "learning": learning.payload(db.get_settings())}
@@ -156,6 +157,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["sites"] = lib.get("sites") or []  # nor one from before sites could be saved to the browser's start page
     content["grammar"] = grammar.clean_progress(lib.get("grammar"))  # nor one from before the grammar courses
     content["controller"] = controller.clean(lib.get("controller"))  # nor one from before controllers could be mapped
+    content["goal"] = studygoal.clean(lib.get("goal"))  # nor one from before the long-term goal
     content["ig_collections"] = reels.clean_synced_collections(lib.get("ig_collections"))  # nor one from before collections were shared
     content["keys"] = aikeys.clean(lib.get("keys"))  # nor one from before AI keys were shared
     content["learning"] = learning.clean_payload(lib.get("learning"))  # nor one from before the languages being learned were
@@ -391,6 +393,12 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
     if isinstance(pad, dict) and controller.wins(pad, db.get_setting("controller_map")):
         db.set_settings({"controller_map": controller.clean(pad)})
         result.merged["controller"] = 1
+
+    # The long-term goal (app/studygoal.py): the one changed last wins.
+    aim = remote.get("goal")
+    if isinstance(aim, dict) and studygoal.wins(aim, db.get_setting("study_goal")):
+        db.set_settings({"study_goal": studygoal.clean(aim)})
+        result.merged["goal"] = 1
 
     # Saved Instagram collections: the list found last, and the collection chosen last.
     if isinstance(remote.get("ig_collections"), dict) and reels.take_synced_collections(remote["ig_collections"]):

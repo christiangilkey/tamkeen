@@ -1,0 +1,99 @@
+0ba41656	La barra de tiempo
+ffaae73c	Racha de velocidad
+7930bf9f	Tranquila
+e56acfb6	Tiempo en el reverso
+127e4074	Tiempo extra
+76ec99b4	Uno por cada {0} tarjetas respondidas a tiempo, hasta {1}. Pulsa B o toca +{2} s para añadir {3} segundos a la barra.
+53da378c	Racha de velocidad: tarjetas respondidas antes de que se acabe la barra
+c6823a19	Añadir {0} segundos a la barra (B)
+94e1d50e	Añadir {0} segundos a la barra
+bb2bfbf2	Tiempo en el anverso
+ea023538	Se acabó el tiempo: la racha vuelve a empezar
+9234ec6f	Mejor de hoy {0} · Mejor {1}
+26894a3a	Nueva mejor racha de velocidad: {0}
+1a3c2a92	+{0} s de tiempo extra ganados
+6d0a6c7a	La barra va hacia atrás. Responde antes de que se acabe, con cualquier respuesta, para sumar a tu racha. Si se acaba, solo la racha vuelve a empezar.
+6bef5eed	La barra se llena hacia la meta de tiempo de la tarjeta y nunca te apura.
+31ef8593	Repasadas
+8716c8b1	Aprendidas por primera vez
+c17a9183	Busca tus palabras. También: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	En ninguna carpeta
+0e2d33c9	Nuevas: nunca respondidas
+11ea0f15	Para hoy
+1762adb9	Aprendidas: recordadas al menos una vez
+556e154d	Elige una carpeta
+682aa1a7	Mostrar solo
+1859f8f1	Escribe para acortar la lista
+c38f1b9f	Acortar la lista
+d30800a8	Las partes separadas por espacios pueden ir en cualquier orden: b c o encuentra «vocabulary». ~ delante de una palabra la excluye.
+7208e66f	Opciones
+9f857673	Nada coincide.
+52171d6c	Palabras añadidas
+250365ec	Palabras cambiadas
+78e923ee	Palabras repasadas
+7cf2d5a8	Palabras aprendidas por primera vez
+0075f3c7	Usar estas fechas
+45a8b73b	Meta a largo plazo
+26a97d70	Una meta para el próximo mes o los próximos tres. Muestra el ritmo que aún hace falta, y un día perdido solo reparte el resto.
+80a9a1cb	Tus repasos
+90792c7e	Un cuadrado por día: cuanto más oscuro, más tarjetas repasaste. Toca un día para ver su número.
+dd3d0996	Encuentra una palabra guardada por la propia palabra o por su significado. Escribe folder:, is:due o reviewed:7 para acotar más.
+2d8a6f7c	1 día
+2f866c70	Año anterior
+22c6f667	Año siguiente
+4391320d	Repasos de cada día
+5800ffea	Racha más larga
+77fe685f	Media diaria
+624c6099	{0}: 1 tarjeta para repasar
+08f32f1a	{0}: {1} tarjetas para repasar
+7e95ee18	{0}: nada para repasar aún
+7358eac7	{0}: 1 repaso
+b0a2bc9e	{0}: {1} repasos
+72376723	{0}: sin repasos
+cf9a414f	{0} palabras nuevas antes del {1}
+33f75159	{0} repasos antes del {1}
+f6162159	{0} minutos antes del {1}
+665cd21b	Una palabra nueva al día, más o menos
+e4645812	Unas {0} palabras nuevas al día
+d8dbf561	Un repaso al día, más o menos
+a12b47aa	Unos {0} repasos al día
+43ef0c53	Un minuto al día, más o menos
+ae2aedc6	Unos {0} minutos al día
+29c85ab4	Palabras nuevas aprendidas
+daddbd48	Minutos con tarjetas
+8c8660be	2 semanas
+42fa50c1	1 mes
+9dbe1097	2 meses
+b9e4e6ff	3 meses
+294099a5	¡Meta cumplida! Bien hecho.
+ad8cb07f	La parte de hoy está hecha. Todo lo demás es ventaja.
+fe5e0215	Una semana nueva, un nuevo comienzo: la parte de esta semana te vuelve a poner al día.
+c810b702	Vas por delante del plan.
+dc35d157	Vas bien encaminado.
+45036cef	Un día perdido solo reparte el resto: el ritmo se ha ajustado.
+1ab15da6	El ritmo necesario ha subido. Una meta más pequeña que terminas vale más que una grande que abandonas: puedes cambiarla.
+15bb8286	Fijar una meta a largo plazo
+2a177256	Último día
+5a316ee5	Quedan {0} días
+38cb1840	Empieza el {0}
+87441dca	Esta meta terminó al {0} %. Ese progreso es real: fija la siguiente cuando quieras.
+34d68d69	Empieza el {0}.
+6b28ba90	Dónde estaría hoy un ritmo constante
+b0a5848c	Hoy <0>{0}</0> de {1}
+703ef5c3	Esta semana <0>{0}</0> de {1}
+e68ab53c	Fijar la siguiente meta
+a6bb4f78	Cambiar la meta
+5fef78b1	Progreso de la meta
+50813f3b	de {0} · {1} %
+8145446a	¡{0} % de tu meta hecho!
+6a35918e	Cambia tu meta
+7e278422	Quitar la meta
+42033f3d	Las metas de 1 a 3 meses son las que la gente termina más a menudo. Los días perdidos nunca la rompen: el resto se reparte entre los días que quedan.
+c81f6577	Qué cuenta
+e060745b	Cuánto tiempo
+503ce866	Cuántas
+10dc22d4	Guardar la meta
+203c7637	Termina el {0}
+cd459e12	No se pudo guardar la meta.
+fc3f8727	Días estudiados
+72bd4b59	<0>Espacio</0> girar la tarjeta y luego recordada · <1>1</1> o <2>←</2> no recordada · <3>2</3> o <4>→</4> recordada · <5>Z</5> deshacer · <6>B</6> tiempo extra · <7>W</7> palabra · <8>S</8> frase · <9>P</9> practicar la pronunciación · <10>N</10> notas personales · <11>Supr</11> borrar la palabra

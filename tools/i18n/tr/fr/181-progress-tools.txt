@@ -1,0 +1,99 @@
+0ba41656	La barre de temps
+ffaae73c	Série de vitesse
+7930bf9f	Calme
+e56acfb6	Temps au verso
+127e4074	Bonus de temps
+76ec99b4	Un pour {0} cartes répondues à temps, jusqu'à {1}. Appuyez sur B ou touchez +{2} s pour ajouter {3} secondes à la barre.
+53da378c	Série de vitesse : cartes répondues avant la fin de la barre
+c6823a19	Ajouter {0} secondes à la barre (B)
+94e1d50e	Ajouter {0} secondes à la barre
+bb2bfbf2	Temps au recto
+ea023538	Temps écoulé : la série recommence
+9234ec6f	Meilleure aujourd'hui {0} · Meilleure {1}
+26894a3a	Nouvelle meilleure série de vitesse : {0}
+1a3c2a92	+{0} s de bonus gagnées
+6d0a6c7a	La barre se vide. Répondez avant qu'elle soit vide, quelle que soit la réponse, pour faire grandir votre série. Si elle se vide, seule la série recommence.
+6bef5eed	La barre se remplit vers l'objectif de temps de la carte et ne vous presse jamais.
+31ef8593	Révisés
+8716c8b1	Appris pour la première fois
+c17a9183	Cherchez vos mots. Aussi : folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	Dans aucun dossier
+0e2d33c9	Nouveaux : jamais répondus
+11ea0f15	À réviser aujourd'hui
+1762adb9	Appris : retenus au moins une fois
+556e154d	Choisir un dossier
+682aa1a7	Afficher seulement
+1859f8f1	Tapez pour réduire la liste
+c38f1b9f	Réduire la liste
+d30800a8	Les morceaux séparés par des espaces peuvent être dans n'importe quel ordre : b c o trouve « vocabulary ». ~ devant un mot l'exclut.
+7208e66f	Choix
+9f857673	Aucun résultat.
+52171d6c	Mots ajoutés
+250365ec	Mots modifiés
+78e923ee	Mots révisés
+7cf2d5a8	Mots appris pour la première fois
+0075f3c7	Utiliser ces dates
+45a8b73b	Objectif à long terme
+26a97d70	Un objectif pour le mois ou les trois mois à venir. Il montre le rythme encore nécessaire, et un jour manqué répartit simplement le reste.
+80a9a1cb	Vos révisions
+90792c7e	Un carré par jour : plus il est foncé, plus vous avez révisé de cartes. Touchez un jour pour voir son nombre.
+dd3d0996	Trouvez un mot enregistré par le mot lui-même ou par son sens. Tapez folder:, is:due ou reviewed:7 pour affiner.
+2d8a6f7c	1 jour
+2f866c70	Année précédente
+22c6f667	Année suivante
+4391320d	Révisions de chaque jour
+5800ffea	Plus longue série
+77fe685f	Moyenne quotidienne
+624c6099	{0} : 1 carte à réviser
+08f32f1a	{0} : {1} cartes à réviser
+7e95ee18	{0} : rien à réviser pour l'instant
+7358eac7	{0} : 1 révision
+b0a2bc9e	{0} : {1} révisions
+72376723	{0} : aucune révision
+cf9a414f	{0} nouveaux mots d'ici le {1}
+33f75159	{0} révisions d'ici le {1}
+f6162159	{0} minutes d'ici le {1}
+665cd21b	Environ 1 nouveau mot par jour
+e4645812	Environ {0} nouveaux mots par jour
+d8dbf561	Environ 1 révision par jour
+a12b47aa	Environ {0} révisions par jour
+43ef0c53	Environ 1 minute par jour
+ae2aedc6	Environ {0} minutes par jour
+29c85ab4	Nouveaux mots appris
+daddbd48	Minutes sur les cartes
+8c8660be	2 semaines
+42fa50c1	1 mois
+9dbe1097	2 mois
+b9e4e6ff	3 mois
+294099a5	Objectif atteint ! Bravo.
+ad8cb07f	La part d'aujourd'hui est faite. Tout le reste est de l'avance.
+fe5e0215	Une nouvelle semaine, un nouveau départ : la part de cette semaine vous remet sur les rails.
+c810b702	Vous êtes en avance sur le plan.
+dc35d157	Vous êtes dans les temps.
+45036cef	Un jour manqué répartit simplement le reste : le rythme s'est ajusté.
+1ab15da6	Le rythme nécessaire a augmenté. Un petit objectif qu'on termine vaut mieux qu'un grand qu'on abandonne : vous pouvez le changer.
+15bb8286	Fixer un objectif à long terme
+2a177256	Dernier jour
+5a316ee5	Encore {0} jours
+38cb1840	Commence le {0}
+87441dca	Cet objectif s'est terminé à {0} %. Ces progrès sont réels : fixez le suivant quand vous voulez.
+34d68d69	Commence le {0}.
+6b28ba90	Où en serait un rythme régulier aujourd'hui
+b0a5848c	Aujourd'hui <0>{0}</0> sur {1}
+703ef5c3	Cette semaine <0>{0}</0> sur {1}
+e68ab53c	Fixer l'objectif suivant
+a6bb4f78	Changer l'objectif
+5fef78b1	Progression de l'objectif
+50813f3b	sur {0} · {1} %
+8145446a	{0} % de votre objectif atteint !
+6a35918e	Changer votre objectif
+7e278422	Supprimer l'objectif
+42033f3d	Les objectifs de 1 à 3 mois sont ceux que l'on termine le plus souvent. Les jours manqués ne le cassent jamais : le reste est réparti sur les jours restants.
+c81f6577	Ce qui compte
+e060745b	Combien de temps
+503ce866	Combien
+10dc22d4	Enregistrer l'objectif
+203c7637	Se termine le {0}
+cd459e12	Impossible d'enregistrer l'objectif.
+fc3f8727	Jours étudiés
+72bd4b59	<0>Espace</0> retourner la carte, puis « je m'en souviens » · <1>1</1> ou <2>←</2> oublié · <3>2</3> ou <4>→</4> je m'en souviens · <5>Z</5> annuler · <6>B</6> bonus de temps · <7>W</7> mot · <8>S</8> phrase · <9>P</9> m'entraîner à le dire · <10>N</10> notes personnelles · <11>Suppr</11> supprimer le mot

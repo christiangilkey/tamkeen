@@ -1,0 +1,99 @@
+0ba41656	La barra de temps
+ffaae73c	Ratxa de velocitat
+7930bf9f	Tranquil·la
+e56acfb6	Temps al revers
+127e4074	Temps extra
+76ec99b4	Un per cada {0} targetes respostes a temps, fins a {1}. Prem B o toca +{2} s per afegir {3} segons a la barra.
+53da378c	Ratxa de velocitat: targetes respostes abans que s'acabi la barra
+c6823a19	Afegeix {0} segons a la barra (B)
+94e1d50e	Afegeix {0} segons a la barra
+bb2bfbf2	Temps a l'anvers
+ea023538	S'ha acabat el temps: la ratxa torna a començar
+9234ec6f	Millor d'avui {0} · Millor {1}
+26894a3a	Nova millor ratxa de velocitat: {0}
+1a3c2a92	+{0} s de temps extra guanyats
+6d0a6c7a	La barra es buida. Respon abans que s'acabi, amb qualsevol resposta, per fer créixer la ratxa. Si s'acaba, només la ratxa torna a començar.
+6bef5eed	La barra s'omple cap a l'objectiu de temps de la targeta i mai no et fa córrer.
+31ef8593	Repassades
+8716c8b1	Apreses per primer cop
+c17a9183	Cerca les teves paraules. També: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	En cap carpeta
+0e2d33c9	Noves: mai respostes
+11ea0f15	Per repassar avui
+1762adb9	Apreses: recordades almenys un cop
+556e154d	Tria una carpeta
+682aa1a7	Mostra només
+1859f8f1	Escriu per escurçar la llista
+c38f1b9f	Escurça la llista
+d30800a8	Els trossos separats per espais poden anar en qualsevol ordre: b c o troba «vocabulary». ~ davant d'una paraula l'exclou.
+7208e66f	Opcions
+9f857673	Res no coincideix.
+52171d6c	Paraules afegides
+250365ec	Paraules canviades
+78e923ee	Paraules repassades
+7cf2d5a8	Paraules apreses per primer cop
+0075f3c7	Fes servir aquestes dates
+45a8b73b	Objectiu a llarg termini
+26a97d70	Un objectiu per al mes vinent o els tres vinents. Mostra el ritme que encara cal, i un dia perdut només reparteix la resta.
+80a9a1cb	Els teus repassos
+90792c7e	Un quadrat per dia: com més fosc, més targetes has repassat. Toca un dia per veure'n el nombre.
+dd3d0996	Troba una paraula desada per la mateixa paraula o pel seu significat. Escriu folder:, is:due o reviewed:7 per afinar més.
+2d8a6f7c	1 dia
+2f866c70	Any anterior
+22c6f667	Any següent
+4391320d	Repassos de cada dia
+5800ffea	Ratxa més llarga
+77fe685f	Mitjana diària
+624c6099	{0}: 1 targeta per repassar
+08f32f1a	{0}: {1} targetes per repassar
+7e95ee18	{0}: encara res per repassar
+7358eac7	{0}: 1 repàs
+b0a2bc9e	{0}: {1} repassos
+72376723	{0}: cap repàs
+cf9a414f	{0} paraules noves abans del {1}
+33f75159	{0} repassos abans del {1}
+f6162159	{0} minuts abans del {1}
+665cd21b	Una paraula nova al dia, més o menys
+e4645812	Unes {0} paraules noves al dia
+d8dbf561	Un repàs al dia, més o menys
+a12b47aa	Uns {0} repassos al dia
+43ef0c53	Un minut al dia, més o menys
+ae2aedc6	Uns {0} minuts al dia
+29c85ab4	Paraules noves apreses
+daddbd48	Minuts amb targetes
+8c8660be	2 setmanes
+42fa50c1	1 mes
+9dbe1097	2 mesos
+b9e4e6ff	3 mesos
+294099a5	Objectiu assolit! Molt bé.
+ad8cb07f	La part d'avui està feta. Tota la resta és avantatge.
+fe5e0215	Una setmana nova, un nou començament: la part d'aquesta setmana et torna a posar al dia.
+c810b702	Vas per davant del pla.
+dc35d157	Vas pel bon camí.
+45036cef	Un dia perdut només reparteix la resta: el ritme s'ha ajustat.
+1ab15da6	El ritme necessari ha pujat. Un objectiu més petit que acabes val més que un de gran que abandones: el pots canviar.
+15bb8286	Fixa un objectiu a llarg termini
+2a177256	Últim dia
+5a316ee5	Queden {0} dies
+38cb1840	Comença el {0}
+87441dca	Aquest objectiu s'ha acabat al {0} %. Aquest progrés és real: fixa el següent quan vulguis.
+34d68d69	Comença el {0}.
+6b28ba90	On seria avui un ritme constant
+b0a5848c	Avui <0>{0}</0> de {1}
+703ef5c3	Aquesta setmana <0>{0}</0> de {1}
+e68ab53c	Fixa el següent objectiu
+a6bb4f78	Canvia l'objectiu
+5fef78b1	Progrés de l'objectiu
+50813f3b	de {0} · {1} %
+8145446a	{0} % del teu objectiu fet!
+6a35918e	Canvia el teu objectiu
+7e278422	Treu l'objectiu
+42033f3d	Els objectius d'1 a 3 mesos són els que la gent acaba més sovint. Els dies perduts no el trenquen mai: la resta es reparteix entre els dies que queden.
+c81f6577	Què compta
+e060745b	Quant de temps
+503ce866	Quantes
+10dc22d4	Desa l'objectiu
+203c7637	S'acaba el {0}
+cd459e12	No s'ha pogut desar l'objectiu.
+fc3f8727	Dies estudiats
+72bd4b59	<0>Espai</0> gira la targeta i després recordada · <1>1</1> o <2>←</2> no recordada · <3>2</3> o <4>→</4> recordada · <5>Z</5> desfés · <6>B</6> temps extra · <7>W</7> paraula · <8>S</8> frase · <9>P</9> practica com es diu · <10>N</10> notes personals · <11>Supr</11> esborra la paraula

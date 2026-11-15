@@ -137,8 +137,12 @@ def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     result = db.set_settings(clean)
     if aikeys.TIMES in clean:
         sync.request(5)  # the key reaches the user's other devices
-    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean:
-        sync.request(30)  # followed channels, saved sites and grammar lessons done reach the user's other devices
+    if "study_goal" in clean:
+        from .. import studygoal
+
+        clean["study_goal"] = studygoal.clean(clean["study_goal"])
+    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean or "study_goal" in clean:
+        sync.request(30)  # followed channels, saved sites, grammar lessons done and the goal reach the user's other devices
     if "learning_languages" in clean and sorted(clean["learning_languages"]) != sorted(learning_before):
         sync.request(30)  # a language ticked or unticked reaches the user's other devices
     if "game_state" in clean:

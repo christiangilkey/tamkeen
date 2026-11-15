@@ -1,0 +1,99 @@
+0ba41656	Der Zeitbalken
+ffaae73c	Tempo-Serie
+7930bf9f	Ruhig
+e56acfb6	Zeit auf der Rückseite
+127e4074	Zeitboni
+76ec99b4	Einer für je {0} rechtzeitig beantwortete Karten, bis zu {1}. Drück B oder tippe auf +{2} s, um dem Balken {3} Sekunden hinzuzufügen.
+53da378c	Tempo-Serie: Karten, die beantwortet wurden, bevor der Balken ablief
+c6823a19	{0} Sekunden zum Balken hinzufügen (B)
+94e1d50e	{0} Sekunden zum Balken hinzufügen
+bb2bfbf2	Zeit auf der Vorderseite
+ea023538	Zeit abgelaufen: Die Serie beginnt von vorn
+9234ec6f	Heute am besten {0} · Bestwert {1}
+26894a3a	Neue beste Tempo-Serie: {0}
+1a3c2a92	+{0} s Zeitbonus verdient
+6d0a6c7a	Der Balken läuft ab. Antworte, bevor er leer ist, egal wie, um deine Serie zu verlängern. Läuft er ab, beginnt nur die Serie von vorn.
+6bef5eed	Der Balken füllt sich bis zum Zeitziel der Karte und drängt nie.
+31ef8593	Wiederholt
+8716c8b1	Zum ersten Mal gelernt
+c17a9183	Durchsuche deine Wörter. Auch: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	In keinem Ordner
+0e2d33c9	Neu: nie beantwortet
+11ea0f15	Heute fällig
+1762adb9	Gelernt: mindestens einmal gewusst
+556e154d	Ordner wählen
+682aa1a7	Nur anzeigen
+1859f8f1	Tippen, um die Liste einzugrenzen
+c38f1b9f	Liste eingrenzen
+d30800a8	Teile mit Leerzeichen dazwischen dürfen in jeder Reihenfolge stehen: b c o findet „vocabulary“. ~ vor einem Wort schließt es aus.
+7208e66f	Auswahl
+9f857673	Keine Treffer.
+52171d6c	Hinzugefügte Wörter
+250365ec	Geänderte Wörter
+78e923ee	Wiederholte Wörter
+7cf2d5a8	Zum ersten Mal gelernte Wörter
+0075f3c7	Diese Daten verwenden
+45a8b73b	Langfristiges Ziel
+26a97d70	Ein Ziel für den nächsten Monat oder die nächsten drei. Es zeigt das noch nötige Tempo, und ein verpasster Tag verteilt nur den Rest neu.
+80a9a1cb	Deine Wiederholungen
+90792c7e	Ein Quadrat pro Tag: je dunkler, desto mehr Karten hast du wiederholt. Tippe auf einen Tag, um seine Zahl zu sehen.
+dd3d0996	Finde ein gespeichertes Wort über das Wort selbst oder seine Bedeutung. Tippe folder:, is:due oder reviewed:7, um weiter einzugrenzen.
+2d8a6f7c	1 Tag
+2f866c70	Vorheriges Jahr
+22c6f667	Nächstes Jahr
+4391320d	Wiederholungen pro Tag
+5800ffea	Längste Serie
+77fe685f	Tagesdurchschnitt
+624c6099	{0}: 1 Karte fällig
+08f32f1a	{0}: {1} Karten fällig
+7e95ee18	{0}: noch nichts fällig
+7358eac7	{0}: 1 Wiederholung
+b0a2bc9e	{0}: {1} Wiederholungen
+72376723	{0}: keine Wiederholungen
+cf9a414f	{0} neue Wörter bis {1}
+33f75159	{0} Wiederholungen bis {1}
+f6162159	{0} Minuten bis {1}
+665cd21b	Etwa 1 neues Wort pro Tag
+e4645812	Etwa {0} neue Wörter pro Tag
+d8dbf561	Etwa 1 Wiederholung pro Tag
+a12b47aa	Etwa {0} Wiederholungen pro Tag
+43ef0c53	Etwa 1 Minute pro Tag
+ae2aedc6	Etwa {0} Minuten pro Tag
+29c85ab4	Neue Wörter gelernt
+daddbd48	Minuten mit Karten
+8c8660be	2 Wochen
+42fa50c1	1 Monat
+9dbe1097	2 Monate
+b9e4e6ff	3 Monate
+294099a5	Ziel erreicht! Gut gemacht.
+ad8cb07f	Der heutige Teil ist geschafft. Alles Weitere ist Vorsprung.
+fe5e0215	Eine neue Woche, ein neuer Anfang: Der Teil dieser Woche bringt dich wieder auf Kurs.
+c810b702	Du bist dem Plan voraus.
+dc35d157	Genau im Plan.
+45036cef	Ein verpasster Tag verteilt nur den Rest neu: Das Tempo hat sich angepasst.
+1ab15da6	Das nötige Tempo ist gestiegen. Ein kleineres Ziel, das du schaffst, ist besser als ein großes, das du aufgibst: Du kannst es ändern.
+15bb8286	Ein langfristiges Ziel setzen
+2a177256	Letzter Tag
+5a316ee5	Noch {0} Tage
+38cb1840	Beginnt am {0}
+87441dca	Dieses Ziel endete bei {0} %. Dieser Fortschritt ist echt: Setz das nächste, wann du willst.
+34d68d69	Beginnt am {0}.
+6b28ba90	Wo ein gleichmäßiges Tempo heute stünde
+b0a5848c	Heute <0>{0}</0> von {1}
+703ef5c3	Diese Woche <0>{0}</0> von {1}
+e68ab53c	Das nächste Ziel setzen
+a6bb4f78	Ziel ändern
+5fef78b1	Fortschritt des Ziels
+50813f3b	von {0} · {1} %
+8145446a	{0} % deines Ziels geschafft!
+6a35918e	Ändere dein Ziel
+7e278422	Ziel entfernen
+42033f3d	Ziele von 1 bis 3 Monaten werden am häufigsten erreicht. Verpasste Tage machen es nie kaputt: Der Rest wird auf die verbleibenden Tage verteilt.
+c81f6577	Was zählt
+e060745b	Wie lange
+503ce866	Wie viele
+10dc22d4	Ziel speichern
+203c7637	Endet am {0}
+cd459e12	Das Ziel konnte nicht gespeichert werden.
+fc3f8727	Lerntage
+72bd4b59	<0>Leertaste</0> Karte umdrehen, dann gewusst · <1>1</1> oder <2>←</2> nicht gewusst · <3>2</3> oder <4>→</4> gewusst · <5>Z</5> rückgängig · <6>B</6> Zeitbonus · <7>W</7> Wort · <8>S</8> Satz · <9>P</9> Aussprechen üben · <10>N</10> persönliche Notizen · <11>Entf</11> das Wort löschen

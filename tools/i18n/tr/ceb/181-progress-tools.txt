@@ -1,0 +1,99 @@
+0ba41656	Ang time bar
+ffaae73c	Speed streak
+7930bf9f	Kalmado
+e56acfb6	Oras sa likod
+127e4074	Dugang nga oras
+76ec99b4	Usa sa matag {0} ka card nga natubag sa oras, hangtod {1}. Pindota ang B o i-tap ang +{2} s aron madugangan og {3} segundos ang bar.
+53da378c	Speed streak: mga card nga natubag sa dili pa mahurot ang bar
+c6823a19	Dugangi og {0} segundos ang bar (B)
+94e1d50e	Dugangi og {0} segundos ang bar
+bb2bfbf2	Oras sa atubangan
+ea023538	Nahurot ang oras: magsugod pag-usab ang streak
+9234ec6f	Labing maayo karon {0} · Labing maayo {1}
+26894a3a	Bag-ong labing taas nga speed streak: {0}
+1a3c2a92	Nakadawat og +{0} s nga dugang oras
+6d0a6c7a	Mokunhod ang bar. Tubaga sa dili pa kini mahurot, bisan unsang tubag, aron motaas ang streak. Kon mahurot, ang streak ra ang magsugod pag-usab.
+6bef5eed	Mapuno ang bar padulong sa target nga oras sa card ug dili gayod magdali-dali.
+31ef8593	Na-review
+8716c8b1	Unang nakat-onan
+c17a9183	Pangitaa ang imong mga pulong. Mahimo usab: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	Wala sa bisan unsang folder
+0e2d33c9	Bag-o: wala pa matubag
+11ea0f15	Due karon
+1762adb9	Nakat-onan: nahinumdoman bisan kausa
+556e154d	Pagpili og folder
+682aa1a7	Ipakita lang
+1859f8f1	Pag-type aron mamubo ang lista
+c38f1b9f	Pamub-a ang lista
+d30800a8	Ang mga bahin nga may espasyo sa tunga mahimong bisan unsang han-ay: makit-an sa b c o ang "vocabulary". Ang ~ sa atubangan sa pulong motangtang niini.
+7208e66f	Mga kapilian
+9f857673	Walay katugma.
+52171d6c	Mga pulong nga gidugang
+250365ec	Mga pulong nga giusab
+78e923ee	Mga pulong nga na-review
+7cf2d5a8	Mga pulong nga unang nakat-onan
+0075f3c7	Gamita kining mga petsa
+45a8b73b	Dugay nga tumong
+26a97d70	Tumong para sa sunod nga usa ngadto sa tulo ka bulan. Gipakita niini ang kakusog nga gikinahanglan pa, ug ang nalaktawang adlaw mobahin lang sa nahabilin.
+80a9a1cb	Imong mga review
+90792c7e	Usa ka kahon kada adlaw: kon mas ngitngit, mas daghang card ang imong na-review. I-tap ang adlaw aron makita ang ihap.
+dd3d0996	Pangitaa ang na-save nga pulong pinaagi sa pulong mismo o sa kahulogan niini. I-type ang folder:, is:due o reviewed:7 aron mas mapiho.
+2d8a6f7c	1 ka adlaw
+2f866c70	Miaging tuig
+22c6f667	Sunod nga tuig
+4391320d	Mga review matag adlaw
+5800ffea	Labing taas nga streak
+77fe685f	Kasagaran matag adlaw
+624c6099	{0}: 1 ka card nga due
+08f32f1a	{0}: {1} ka card nga due
+7e95ee18	{0}: wala pay due
+7358eac7	{0}: 1 ka review
+b0a2bc9e	{0}: {1} ka review
+72376723	{0}: walay review
+cf9a414f	{0} ka bag-ong pulong sa dili pa ang {1}
+33f75159	{0} ka review sa dili pa ang {1}
+f6162159	{0} ka minuto sa dili pa ang {1}
+665cd21b	Mga 1 ka bag-ong pulong kada adlaw
+e4645812	Mga {0} ka bag-ong pulong kada adlaw
+d8dbf561	Mga 1 ka review kada adlaw
+a12b47aa	Mga {0} ka review kada adlaw
+43ef0c53	Mga 1 ka minuto kada adlaw
+ae2aedc6	Mga {0} ka minuto kada adlaw
+29c85ab4	Mga bag-ong pulong nga nakat-onan
+daddbd48	Mga minuto sa mga card
+8c8660be	2 ka semana
+42fa50c1	1 ka bulan
+9dbe1097	2 ka bulan
+b9e4e6ff	3 ka bulan
+294099a5	Naabot ang tumong! Maayo kaayo.
+ad8cb07f	Nahuman na ang bahin karong adlawa. Ang bisan unsang dugang kay abante na.
+fe5e0215	Bag-ong semana, bag-ong sugod: ibalik ka sa plano sa bahin karong semanaha.
+c810b702	Nag-una ka sa plano.
+dc35d157	Sakto sa plano.
+45036cef	Ang nalaktawang adlaw mobahin lang sa nahabilin: na-adjust na ang kakusog.
+1ab15da6	Mitaas ang gikinahanglang kakusog. Mas maayo ang gamay nga tumong nga imong mahuman kaysa dako nga imong biyaan: mahimo nimo kining usbon.
+15bb8286	Pagbutang og dugay nga tumong
+2a177256	Katapusang adlaw
+5a316ee5	{0} ka adlaw pa
+38cb1840	Magsugod sa {0}
+87441dca	Natapos kini nga tumong sa {0}%. Tinuod kana nga pag-uswag: ibutang ang sunod kon andam ka na.
+34d68d69	Magsugod sa {0}.
+6b28ba90	Asa unta ang patas nga kakusog karon
+b0a5848c	Karon <0>{0}</0> sa {1}
+703ef5c3	Karong semanaha <0>{0}</0> sa {1}
+e68ab53c	Ibutang ang sunod nga tumong
+a6bb4f78	Usba ang tumong
+5fef78b1	Pag-uswag sa tumong
+50813f3b	sa {0} · {1}%
+8145446a	{0}% sa imong tumong nahuman na!
+6a35918e	Usba ang imong tumong
+7e278422	Tangtanga ang tumong
+42033f3d	Ang mga tumong nga 1 ngadto sa 3 ka bulan maoy kasagarang mahuman sa mga tawo. Dili kini madaot sa mga nalaktawang adlaw: ang nahabilin bahinon sa mga adlaw nga nahabilin.
+c81f6577	Unsay giihap
+e060745b	Unsa ka dugay
+503ce866	Pila
+10dc22d4	I-save ang tumong
+203c7637	Matapos sa {0}
+cd459e12	Wala ma-save ang tumong.
+fc3f8727	Mga adlaw nga nagtuon
+72bd4b59	<0>Space</0> iliko ang card, dayon nahinumdoman · <1>1</1> o <2>←</2> wala mahinumdomi · <3>2</3> o <4>→</4> nahinumdoman · <5>Z</5> i-undo · <6>B</6> dugang nga oras · <7>W</7> pulong · <8>S</8> sentence · <9>P</9> praktisa ang paglitok · <10>N</10> personal nga mga note · <11>Del</11> tangtanga ang pulong

@@ -8757,3 +8757,57 @@ scores are, and whether Azure's answer really has one of the two shapes read; a 
 
 **Ideas not built.** Keeping a word's scores over time (a "sounds you find hard" list); scoring the learner's spoken
 replies during a conversation; a local, on-the-computer check (option 2).
+
+## Long-term goal, review calendar, speed streak and search tools (2026-11-15; side session of "Temkeen Main Chat")
+The owner: "I want the anki Review Heatmap feature built into Tamkeen, I also want a long term goals progress bar
+which can be set by the user, it will adapt to missed days and display real time information." Later in the same
+session: the reviewer's time bar to "work like" the Anki add-on Speed Streak (1237336370), and "the search functions"
+of BetterSearch (1052724801). All written from scratch: no code or art of those add-ons (Review Heatmap is AGPL;
+Tamkeen will be a paid app). Everything is in shared files (web/js/pages/vocab.js, review.js, web/js/review/*), so
+the desktop, Android, iPhone and web app all have it; the only per-side code is the goal's sync.
+- **Where**: the Vocab page's Review block, under the day's goal bar: `#progress` holds `#longgoal`
+  (review/longgoalview.js) and `#heatmap` (review/heatmapview.js); hidden while words are typed in the search box.
+- **Review calendar** (review/heatmap.js maths, heatmapview.js drawing): a calendar year, weeks as columns, Monday
+  to Sunday; colour step from the learner's own busiest tenth of days (`stepper`); future days show deck.js
+  `forecast` counts in faded purple; hover (mouse) or tap a day for its line; ← → ↑ ↓ on the focused grid; ‹ › years
+  from the first answer's year. Stats: streak (days with ≥1 answer; today doesn't break it while it lasts; NOT the
+  flame streak of review/streak.js, which counts days the whole day's work was done), longest, daily average and
+  share of days studied over the shown year from the first answer (days off included). Counts every answer in the
+  log, every language, deleted words too; Undo's rating-0 entries don't count.
+- **Long-term goal** (review/longgoal.js maths, longgoalview.js screen, review/goalsetting.js the setting): one
+  goal at a time, measure `learned` (a word's first Remembered) / `reviews` / `minutes` (looks capped at 60 s, as
+  dliweeks.js), 2 weeks / 1 / 2 / 3 months (a month preselected), target suggested = last-28-day pace × 1.15 (or 10
+  words / 80 reviews / 15 min a day). `progress()`: pace = what was left this morning ÷ days left (steady through
+  the day, recalculated each day: missed days raise it, never break it); today's part = pace rounded up; this
+  week's part fixed from Monday morning; the bar's gold mark = where a steady pace from day one would be by
+  tonight; `checkIn()` kinds: reached / ended / upcoming / today-done / fresh-week / ahead / on-track / bent /
+  rethink (pace > 2× the goal's own: "a smaller goal you finish beats a big one you drop"). Milestones 25/50/75
+  ticks on the bar; a passed one gets a toast once per device (localStorage `longGoalMilestone`). Redrawn when the
+  page redraws its Review block, every minute, on coming back to the front, and on `tamkeen:goal` (saved here, or
+  synced in: desktop app.js on "sync", phone sync.js).
+- **Goal sync**: setting `study_goal` = `{at, goal}` in app/db.py and mobile store.js defaults; library.json key
+  `goal`; newer `at` wins (app/studygoal.py ↔ goalsetting.js, both run against tests/fixtures/studygoal_cases.json);
+  in both `content` checks; desktop PATCH cleans it and `sync.request(30)`; phone `requestSync(30000)`.
+- **Speed streak** (review/speedstreak.js rules, review.js drawing; review.css "The countdown"): default mode
+  "speed" (localStorage `reviewTimerMode`; "calm" = the old filling bar). Front time = the card's time goal (Auto or
+  chosen), back time `reviewBackSeconds` 5/10/20/30 (10). The bar shrinks, gold at 40% left, red at 15%; running
+  out sets `cardOut` (the answer adds nothing) and resets the streak with a shout; nothing is answered. Either
+  answer in time adds 1. Record in localStorage `reviewSpeed` {streak, best, day, dayBest, boosts, toward}: carries
+  over sessions and days; Undo restores the record from before that answer. Boosts: 1 at first, +1 per 10 in time,
+  max 3, +10 s each (B key or the +10 s button), switchable (`reviewBoosts`). The countdown is held (`held`) while a
+  text box on the card, the settings, the delete box, a tour, the Luck sheet or any `.modal-back` is open, and while
+  the app is hidden. The line above the card (`.rv-speedline`; `.rv.speed` shortens the card by 36 px).
+- **Search tools** (review/vocabsearch.js; pages/vocab.js `runSearch`, `searchPicker`, `datePicker`):
+  `folder:` (`folder:"Two words"`, `folder:none`), `is:new|due|learned`, `added:|edited:|reviewed:|learned:` with N
+  days, a date or `from..to`; `-` negates; an unreadable filter shows nothing. The words left go to `/vocab?q=` as
+  before; the filters narrow the list in the page. Typing `folder:`/`is:` opens a picker (pieces in any order,
+  `~` excludes, ↑↓/Ctrl+N/P, Enter); a date word opens From/To + Today / 7 / 30 days. Sort and filter's date field
+  gained Reviewed and First learned (`answerSeconds`).
+- **Tests**: tests/js/longgoal.test.mjs (goal + calendar maths + the shared cases), speedstreak.test.mjs,
+  vocabsearch.test.mjs, tests/test_studygoal.py. Translations: tools/i18n/tr/<code>/181-progress-tools.txt.
+- **Checked** in the phone build (scratch copy of mobile/www with made-up words and 8 months of answers, never
+  signed in) at 375 × 812 and 1280 × 800: calendar, year arrows, stats; setting a Reviews goal and its card; the
+  countdown, the streak building 1-2-3-4, a boost (front 10 → 20 s), Undo restoring the streak, running out
+  resetting it, settings switching to Calm and back, back time 20 s; the folder picker ("b c o" → "Vocabulary
+  basics"), every filter and the date box. **Not checked**: the real desktop window, a real phone (touch), two
+  devices syncing a goal, the Arabic (right-to-left) layout by eye, a day rolling over with the page open.

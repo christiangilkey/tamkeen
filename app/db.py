@@ -465,6 +465,8 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "grammar_progress": {},
     # The game controller's buttons, as changed from the defaults (app/controller.py, web/js/padmap.js); travels too.
     "controller_map": {},
+    # The long-term goal on the Vocab page (app/studygoal.py, web/js/review/goalsetting.js); travels too.
+    "study_goal": {},
     # The Anki companion (see app/companion.py): its secret, and the daily totals it has reported.
     "anki_token": "",
     "anki_days": {},

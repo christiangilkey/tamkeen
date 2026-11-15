@@ -1,0 +1,99 @@
+0ba41656	La barra del tempo
+ffaae73c	Serie di velocità
+7930bf9f	Calma
+e56acfb6	Tempo sul retro
+127e4074	Tempo extra
+76ec99b4	Uno ogni {0} carte risposte in tempo, fino a {1}. Premi B o tocca +{2} s per aggiungere {3} secondi alla barra.
+53da378c	Serie di velocità: carte risposte prima che la barra finisca
+c6823a19	Aggiungi {0} secondi alla barra (B)
+94e1d50e	Aggiungi {0} secondi alla barra
+bb2bfbf2	Tempo sul fronte
+ea023538	Tempo scaduto: la serie ricomincia
+9234ec6f	Migliore di oggi {0} · Migliore {1}
+26894a3a	Nuova migliore serie di velocità: {0}
+1a3c2a92	+{0} s di tempo extra guadagnati
+6d0a6c7a	La barra si svuota. Rispondi prima che finisca, con qualsiasi risposta, per far crescere la serie. Se finisce, ricomincia solo la serie.
+6bef5eed	La barra si riempie verso l'obiettivo di tempo della carta e non ti mette mai fretta.
+31ef8593	Ripassate
+8716c8b1	Imparate per la prima volta
+c17a9183	Cerca le tue parole. Anche: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:
+2e66cf82	In nessuna cartella
+0e2d33c9	Nuove: mai risposte
+11ea0f15	Da ripassare oggi
+1762adb9	Imparate: ricordate almeno una volta
+556e154d	Scegli una cartella
+682aa1a7	Mostra solo
+1859f8f1	Scrivi per restringere l'elenco
+c38f1b9f	Restringi l'elenco
+d30800a8	I pezzi separati da spazi possono essere in qualsiasi ordine: b c o trova «vocabulary». ~ davanti a una parola la esclude.
+7208e66f	Scelte
+9f857673	Nessun risultato.
+52171d6c	Parole aggiunte
+250365ec	Parole modificate
+78e923ee	Parole ripassate
+7cf2d5a8	Parole imparate per la prima volta
+0075f3c7	Usa queste date
+45a8b73b	Obiettivo a lungo termine
+26a97d70	Un obiettivo per il prossimo mese o i prossimi tre. Mostra il ritmo che serve ancora, e un giorno saltato distribuisce solo il resto.
+80a9a1cb	I tuoi ripassi
+90792c7e	Un quadrato al giorno: più è scuro, più carte hai ripassato. Tocca un giorno per vedere il suo numero.
+dd3d0996	Trova una parola salvata con la parola stessa o con il suo significato. Scrivi folder:, is:due o reviewed:7 per restringere ancora.
+2d8a6f7c	1 giorno
+2f866c70	Anno precedente
+22c6f667	Anno successivo
+4391320d	Ripassi di ogni giorno
+5800ffea	Serie più lunga
+77fe685f	Media giornaliera
+624c6099	{0}: 1 carta da ripassare
+08f32f1a	{0}: {1} carte da ripassare
+7e95ee18	{0}: ancora niente da ripassare
+7358eac7	{0}: 1 ripasso
+b0a2bc9e	{0}: {1} ripassi
+72376723	{0}: nessun ripasso
+cf9a414f	{0} parole nuove entro il {1}
+33f75159	{0} ripassi entro il {1}
+f6162159	{0} minuti entro il {1}
+665cd21b	Circa 1 parola nuova al giorno
+e4645812	Circa {0} parole nuove al giorno
+d8dbf561	Circa 1 ripasso al giorno
+a12b47aa	Circa {0} ripassi al giorno
+43ef0c53	Circa 1 minuto al giorno
+ae2aedc6	Circa {0} minuti al giorno
+29c85ab4	Parole nuove imparate
+daddbd48	Minuti sulle carte
+8c8660be	2 settimane
+42fa50c1	1 mese
+9dbe1097	2 mesi
+b9e4e6ff	3 mesi
+294099a5	Obiettivo raggiunto! Ben fatto.
+ad8cb07f	La parte di oggi è fatta. Tutto il resto è vantaggio.
+fe5e0215	Una nuova settimana, un nuovo inizio: la parte di questa settimana ti rimette in pari.
+c810b702	Sei in anticipo sul piano.
+dc35d157	Sei in linea con il piano.
+45036cef	Un giorno saltato distribuisce solo il resto: il ritmo si è adattato.
+1ab15da6	Il ritmo necessario è salito. Un obiettivo più piccolo che finisci vale più di uno grande che abbandoni: puoi cambiarlo.
+15bb8286	Fissa un obiettivo a lungo termine
+2a177256	Ultimo giorno
+5a316ee5	Mancano {0} giorni
+38cb1840	Inizia il {0}
+87441dca	Questo obiettivo è finito al {0}%. Quel progresso è reale: fissa il prossimo quando vuoi.
+34d68d69	Inizia il {0}.
+6b28ba90	Dove sarebbe oggi un ritmo costante
+b0a5848c	Oggi <0>{0}</0> su {1}
+703ef5c3	Questa settimana <0>{0}</0> su {1}
+e68ab53c	Fissa il prossimo obiettivo
+a6bb4f78	Cambia obiettivo
+5fef78b1	Avanzamento dell'obiettivo
+50813f3b	su {0} · {1}%
+8145446a	{0}% del tuo obiettivo fatto!
+6a35918e	Cambia il tuo obiettivo
+7e278422	Rimuovi l'obiettivo
+42033f3d	Gli obiettivi da 1 a 3 mesi sono quelli che si portano a termine più spesso. I giorni saltati non lo rompono mai: il resto viene distribuito sui giorni rimasti.
+c81f6577	Cosa conta
+e060745b	Per quanto tempo
+503ce866	Quanti
+10dc22d4	Salva l'obiettivo
+203c7637	Finisce il {0}
+cd459e12	Impossibile salvare l'obiettivo.
+fc3f8727	Giorni di studio
+72bd4b59	<0>Spazio</0> gira la carta, poi ricordata · <1>1</1> o <2>←</2> non ricordata · <3>2</3> o <4>→</4> ricordata · <5>Z</5> annulla · <6>B</6> tempo extra · <7>W</7> parola · <8>S</8> frase · <9>P</9> esercitati a dirla · <10>N</10> note personali · <11>Canc</11> elimina la parola
