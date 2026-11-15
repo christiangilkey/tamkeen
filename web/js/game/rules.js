@@ -15,6 +15,7 @@ import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RUL
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
+import { inPicks, pickList } from "../review/folderpicks.js";
 
 export const VERSION = 2;
 export const GOALS = [5, 10, 20];           // minutes of study a day; the owner chooses
@@ -85,8 +86,9 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     owned: [],   // ids of items bought
     attacks: [], // ids of battle moves bought in the shop: any of the owner's creatures may use them
     battleMode: "last100", // which words battles ask: "last100" (the 100 newest), "unlimited" (all; see battle.knownScale),
-                           // "due" (those the flashcards have due for review) or "folder" (one folder's: battleFolder)
-    battleFolder: "",      // that folder's uid
+                           // "due" (those the flashcards have due for review) or "folder" (the picked folders' words)
+    battleFolder: "",      // the first folder picked (a uid, or "none": the words in no folder; what older versions read)
+    battleFolders: [],     // every folder picked (battlePicks): their words together make the battle's
     known: 0,    // how many words the owner knew when battles last counted them (shared with friends for Unlimited battles)
     decor: [],   // decorations standing in the habitat: {id, x}
     scene: "meadow", // which habitat the creature lives in (data.HABITAT.themes)
@@ -174,6 +176,7 @@ export function normalize(state) {
     for (const [slot, id] of Object.entries(on)) if (!fits(g, itemById(id))) delete on[slot];
   }
   if (typeof s.battleFolder !== "string" || s.battleFolder.length > 64) s.battleFolder = "";
+  s.battleFolders = pickList(Array.isArray(s.battleFolders) ? s.battleFolders : []); // (strings of up to 64, each once)
   // Battle tickets are gone (the owner's choice, 2026-11-09): each one still held comes back as the gems it cost.
   const tickets = Math.max(0, Math.floor(Number(s.items.ticket)) || 0);
   if (tickets) s.gems = (Number.isFinite(s.gems) ? s.gems : 0) + TICKET_GEMS * tickets;
@@ -795,17 +798,37 @@ export const LAST_WORDS = 100;
 export const MIN_SET = 20;
 
 /** The words of a "due" or "folder" choice that can be asked (newest first): those the flashcards have due for
- * review now (`due`, a Set of word ids), or those in folder `folder` (a uid). */
+ * review now (`due`, a Set of word ids), or those in the folders `folder` (a uid, "none" for the words in no
+ * folder, or a list of these: a word in any of them, once). */
 export function setWords(vocab, mode, { due = null, folder = "" } = {}) {
   const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
   if (mode === "due") return due ? pool.filter((v) => due.has(uidOf(v))) : [];
-  if (mode === "folder") return folder ? pool.filter((v) => Array.isArray(v.folders) && v.folders.includes(folder)) : [];
+  if (mode === "folder") {
+    const picks = pickList(folder);
+    return picks.length ? pool.filter((v) => inPicks(v, picks)) : [];
+  }
   return [];
+}
+
+/** The folders a battle's words come from (`state.battleFolders`). A save from an older version (or changed on a
+ * device with one) knows only `battleFolder`: when the list doesn't start with it, that one folder counts. */
+export function battlePicks(state) {
+  const one = (state && typeof state.battleFolder === "string" && state.battleFolder) || "";
+  const list = pickList(state && Array.isArray(state.battleFolders) ? state.battleFolders : []);
+  if (list.length && list[0] === one) return list;
+  return one ? [one] : [];
+}
+
+/** Keep the picked folders: the list, and its first for older versions (which read one folder). */
+export function setBattlePicks(state, picks) {
+  const list = pickList(picks);
+  state.battleFolders = list;
+  state.battleFolder = list[0] || "";
 }
 
 /** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
  * ("last100": the same size of pool for everyone), every one of them ("unlimited"), the words the flashcards
- * have due for review ("due") or one folder's ("folder"; see setWords). A "due" or "folder" choice with fewer
+ * have due for review ("due") or the picked folders' ("folder"; see setWords). A "due" or "folder" choice with fewer
  * than MIN_SET words that can be asked asks the newest words instead. */
 export function battleWords(vocab, mode = "last100", { due = null, folder = "" } = {}) {
   const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
@@ -824,9 +847,9 @@ export function markDue(vocab, ids) {
   return vocab;
 }
 
-/** The words a battle asks, by the owner's choice (`state.battleMode`, `state.battleFolder`). */
+/** The words a battle asks, by the owner's choice (`state.battleMode`, the folders picked: battlePicks). */
 export const battleWordsFor = (vocab, state) =>
-  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: state.battleFolder || "" });
+  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: battlePicks(state) });
 
 /** How many of these words the owner knows: remembered at least once in the flashcards (`learned`,
  * a Set of word ids, as the Review page counts them) or well known from battles. */

@@ -1,0 +1,6 @@
+85149156	Scegline una o più. Insieme devono avere almeno {0} parole con un significato.
+0ac083d5	Usa queste cartelle
+38132f5d	Scegli altre cartelle
+38a90644	{0} nelle cartelle
+66a7fc10	Mostra anche queste parole
+aed9253d	Tocca una cartella per vederla. Spuntane diverse per vedere le loro parole insieme.

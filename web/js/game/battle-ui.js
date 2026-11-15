@@ -14,12 +14,13 @@ import { dictionaryChoices } from "./dictwords.js";
 import { plan, states } from "../review/deck.js";
 import { dayNumber } from "../review/fsrs.js";
 import { sortFolders } from "../review/vocabedit.js";
+import { NONE, livePicks, pickList, picksName } from "../review/folderpicks.js";
 import { openModal } from "../components/modal.js";
 import { BADGES, BATTLE_UNLOCK_WORDS, LIVE_FORMS, LIVE_STYLE_TEXT, MOVE_STYLES, TYPES, beastById, liveMove } from "./data.js";
 import { describe } from "./genome.js";
 import { t } from "../i18n.js";
 import {
-  LAST_WORDS, MIN_SET, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setWords,
+  LAST_WORDS, MIN_SET, battlePicks, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setBattlePicks, setWords,
   weekNumber, weeklyRule,
 } from "./rules.js";
 import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
@@ -159,38 +160,60 @@ export function challengeChoice(friend, name, same) {
 }
 
 /** The choice of words for battles: a switch of four (the newest 100, all-time, the words due for review in the
- * flashcards, one folder's), and what the one chosen means, in facts that keep their place. A folder (or the words
- * due) counts once MIN_SET of its words have a meaning (the owner: "the folder must contain at least 20 words");
- * until then battles ask the newest words, and a line says so. `vocab`: the saved words (loadWords: with the ones
- * due marked); `folders`: the Vocab page's, in its order. */
+ * flashcards, folders'), and what the one chosen means, in facts that keep their place. The folders picked (one or
+ * several, and "Not in a folder" among them) count once MIN_SET of their words together have a meaning (the owner:
+ * "the folder must contain at least 20 words"); until then battles ask the newest words, and a line says so.
+ * `vocab`: the saved words (loadWords: with the ones due marked); `folders`: the Vocab page's, in its order. */
 export function wordModePicker(game, onChange = () => {}, { vocab = [], folders = [] } = {}) {
   const box = h(`<div class="bt-words"></div>`);
   const meanings = quizzable(vocab).length;
   const due = vocab.reviewDue || null;
-  const sizeOf = (mode, folder = game.battleFolder) => setWords(vocab, mode, { due, folder }).length;
-  const folderOf = (uid) => folders.find((f) => f.uid === uid) || null;
+  const picked = () => pickList(livePicks(battlePicks(game), folders)); // (a folder since deleted drops out)
+  const sizeOf = (mode, folder = picked()) => setWords(vocab, mode, { due, folder }).length;
+  const nameOf = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
   const choose = (mode) => { game.battleMode = mode; saveGame(); paint(); onChange(); };
 
-  /** The folders to choose from, each with how many of its words can be asked; one with fewer than MIN_SET can't be chosen. */
+  /** The folders to choose from ("Not in a folder" first), each with how many of its words can be asked. A tap
+   * ticks one or takes it off; their words together (each once) are counted live under the list, and "Use these
+   * folders" turns on once they reach MIN_SET. */
   function pickFolder() {
     const m = openModal({ title: t("Battle words from a folder"), cls: "bt-folder-back" });
     const list = h(`<div class="bt-folder-list"></div>`);
     const note = h(`<p class="bt-folder-note muted"></p>`);
-    note.textContent = folders.length ? t("A folder needs at least {0} words with a meaning.", MIN_SET)
-      : t("No folders yet. Make one on the Vocab page and put at least {0} words in it.", MIN_SET);
-    for (const f of folders) {
-      const n = sizeOf("folder", f.uid);
-      const ok = n >= MIN_SET;
-      const on = f.uid === game.battleFolder && game.battleMode === "folder";
-      const b = h(`<button type="button" class="bt-folder${on ? " on" : ""}" aria-pressed="${on}">${lineIcon(on ? "check" : "folder", 18)}<span class="bt-folder-name"></span><span class="bt-folder-n"></span></button>`);
-      b.querySelector(".bt-folder-name").textContent = f.name;
-      b.querySelector(".bt-folder-n").textContent = ok ? t("{0} words", fmt(n)) : t("{0} of {1} words", fmt(n), fmt(MIN_SET));
-      b.disabled = !ok;
-      b.onclick = () => { game.battleFolder = f.uid; m.close(); choose("folder"); };
+    note.textContent = t("Pick one or more. Together they need at least {0} words with a meaning.", MIN_SET);
+    const foot = h(`<div class="bt-folder-foot"><span class="bt-folder-total"></span><button type="button" class="primary bt-folder-use">Use these folders</button></div>`);
+    const total = foot.querySelector(".bt-folder-total");
+    const use = foot.querySelector(".bt-folder-use");
+    let picks = picked();
+    const count = () => {
+      const n = picks.length ? sizeOf("folder", picks) : 0;
+      total.textContent = t("{0} of {1} words", fmt(n), fmt(MIN_SET));
+      total.classList.toggle("ok", n >= MIN_SET);
+      use.disabled = n < MIN_SET;
+    };
+    const row = (uid, name, own) => {
+      const on = picks.includes(uid);
+      const b = h(`<button type="button" class="bt-folder${on ? " on" : ""}" aria-pressed="${on}"><span class="pick-box${on ? " on" : ""}" aria-hidden="true">${lineIcon("check", 14)}</span><span class="bt-folder-name"></span><span class="bt-folder-n"></span></button>`);
+      const label = b.querySelector(".bt-folder-name");
+      label.textContent = name;
+      if (own) label.setAttribute("translate", "no"); // (a folder's name is the learner's)
+      b.querySelector(".bt-folder-n").textContent = t("{0} words", fmt(sizeOf("folder", [uid])));
+      b.onclick = () => {
+        picks = picks.includes(uid) ? picks.filter((x) => x !== uid) : [...picks, uid];
+        const now = picks.includes(uid);
+        b.classList.toggle("on", now);
+        b.setAttribute("aria-pressed", String(now));
+        b.querySelector(".pick-box").classList.toggle("on", now);
+        count();
+      };
       list.append(b);
-    }
-    m.body.append(note, list);
-    (list.querySelector(".bt-folder.on") || list.querySelector(".bt-folder:not(:disabled)"))?.focus({ preventScroll: true }); // (for the controller)
+    };
+    row(NONE, "Not in a folder", false);
+    for (const f of folders) row(f.uid, f.name, true);
+    use.onclick = () => { setBattlePicks(game, picks); m.close(); choose("folder"); };
+    count();
+    m.body.append(note, list, foot);
+    (list.querySelector(".bt-folder.on") || list.querySelector(".bt-folder"))?.focus({ preventScroll: true }); // (for the controller)
   }
 
   const paint = () => {
@@ -198,20 +221,22 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
     const w = wordChoice(game.battleMode, { meanings, scale: cardScale(game.cards || 0), setSize: set ? sizeOf(game.battleMode) : 0 });
     const sw = switcher(WORD_MODES.map((id) => ({ id, word: MODE_NAME[id] })), w.mode, (id) => {
       // A folder chosen before (with enough words) comes straight back; else the list of folders opens.
-      if (id === "folder" && !(folderOf(game.battleFolder) && sizeOf("folder") >= MIN_SET)) { pickFolder(); return; }
+      if (id === "folder" && !(picked().length && sizeOf("folder") >= MIN_SET)) { pickFolder(); return; }
       choose(id);
     }, "bt-seg");
     const parts = [sw];
-    const folder = w.set === "folder" ? folderOf(game.battleFolder) : null;
+    const folder = w.set === "folder" ? picksName(picked(), nameOf, t("Not in a folder")) : "";
     if (w.set === "folder") {
-      const pick = h(`<button type="button" class="bt-folder-pick" title="Choose another folder">${lineIcon("folder", 18)}<span></span>${lineIcon("chevron", 16)}</button>`);
-      pick.querySelector("span").textContent = folder ? folder.name : t("Choose a folder");
+      const pick = h(`<button type="button" class="bt-folder-pick" title="Choose other folders">${lineIcon("folder", 18)}<span></span>${lineIcon("chevron", 16)}</button>`);
+      const label = pick.querySelector("span");
+      label.textContent = folder || t("Choose a folder");
+      if (folder) label.setAttribute("translate", "no"); // (folder names are the learner's; "Not in a folder" came translated)
       pick.onclick = pickFolder;
       parts.push(pick);
     }
     const from = w.all ? t("All {0} words", fmt(w.questions))
       : w.set === "due" && !w.short ? t("{0} due for review", fmt(w.questions))
-      : w.set === "folder" && !w.short ? t("{0} in the folder", fmt(w.questions))
+      : w.set === "folder" && !w.short ? (picked().length > 1 ? t("{0} in the folders", fmt(w.questions)) : t("{0} in the folder", fmt(w.questions)))
       : t("Newest {0}", fmt(w.questions));
     parts.push(factCells([
       fact("Questions from", esc(from)),
@@ -224,7 +249,7 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
       line.textContent = w.set === "due"
         ? dueNow ? t("Only {0} words are due for review. Battles need {1}, so until then they ask your newest words.", fmt(dueNow), fmt(MIN_SET))
           : t("No words are due for review right now. Battles need {0}, so until then they ask your newest words.", fmt(MIN_SET))
-        : folder ? t("“{0}” has fewer than {1} words with a meaning now, so battles ask your newest words.", folder.name, fmt(MIN_SET))
+        : folder ? t("“{0}” has fewer than {1} words with a meaning now, so battles ask your newest words.", folder, fmt(MIN_SET))
         : t("Choose a folder with at least {0} words.", fmt(MIN_SET));
       parts.push(line);
     }

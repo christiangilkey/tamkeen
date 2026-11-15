@@ -1,0 +1,6 @@
+85149156	Pili og usa o labaw pa. Kinahanglan nila nga magkauban ang labing menos {0} ka pulong nga may kahulogan.
+0ac083d5	Gamita kini nga mga folder
+38132f5d	Pili og laing mga folder
+38a90644	{0} sa mga folder
+66a7fc10	Ipakita usab kini nga mga pulong
+aed9253d	Tapika ang usa aron ipakita kini. Markahi ang daghan aron makita ang ilang mga pulong nga magkauban.

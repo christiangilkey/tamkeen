@@ -1,0 +1,6 @@
+85149156	Pumili ng isa o higit pa. Kailangan nilang magkasama ang hindi bababa sa {0} salitang may kahulugan.
+0ac083d5	Gamitin ang mga folder na ito
+38132f5d	Pumili ng ibang mga folder
+38a90644	{0} sa mga folder
+66a7fc10	Ipakita rin ang mga salitang ito
+aed9253d	I-tap ang isa para ipakita ito. Lagyan ng tsek ang ilan para makita nang sabay ang kanilang mga salita.

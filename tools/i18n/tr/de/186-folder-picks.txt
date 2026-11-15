@@ -1,0 +1,6 @@
+85149156	Wähle einen oder mehrere. Zusammen brauchen sie mindestens {0} Wörter mit Bedeutung.
+0ac083d5	Diese Ordner verwenden
+38132f5d	Andere Ordner wählen
+38a90644	{0} in den Ordnern
+66a7fc10	Diese Wörter auch zeigen
+aed9253d	Tippe auf einen, um ihn zu zeigen. Hake mehrere an, um ihre Wörter zusammen zu sehen.

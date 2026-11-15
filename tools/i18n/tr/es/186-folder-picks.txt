@@ -1,0 +1,6 @@
+85149156	Elige una o varias. Juntas necesitan al menos {0} palabras con significado.
+0ac083d5	Usar estas carpetas
+38132f5d	Elegir otras carpetas
+38a90644	{0} en las carpetas
+66a7fc10	Mostrar también estas palabras
+aed9253d	Toca una para verla. Marca varias para ver sus palabras juntas.

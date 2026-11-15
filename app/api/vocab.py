@@ -9,7 +9,7 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel
 
@@ -93,7 +93,29 @@ def _out(row: Any) -> dict[str, Any]:
     return item
 
 
-def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, Any]]:
+def folder_picks(folder: str | list[str] | None) -> list[str]:
+    """The folders asked for: one uid, "none" (the words in no folder), or several, as "a,b" or the value
+    repeated (?folder=a&folder=b). The same rule as web/js/review/folderpicks.js pickList."""
+    parts = [folder] if isinstance(folder, str) else list(folder or [])
+    out: list[str] = []
+    for part in parts:
+        for p in str(part or "").split(","):
+            p = p.strip()
+            if p and len(p) <= 64 and p not in out:
+                out.append(p)
+    return out[:50]
+
+
+def in_picks(word_folders: list[str], picks: list[str]) -> bool:
+    """Is a word (its folders) among the picks? A word in no folder is when "none" is picked."""
+    if not picks:
+        return True
+    if not word_folders:
+        return "none" in picks
+    return any(uid in picks for uid in word_folders)
+
+
+def _items(q: str | None = None, folder: str | list[str] | None = None) -> list[dict[str, Any]]:
     """The saved words in the language being learned (the others wait for theirs to be chosen), each
     with its episode's `audio_type` (web/js/cardvoice.js decides from it whether the word's own audio
     can be played, or a voice says it)."""
@@ -105,10 +127,9 @@ def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, An
                             "WHERE v.deleted = 0 AND COALESCE(v.language, ?) = ? ORDER BY v.created_at DESC",
                             (study, study)).fetchall()
     items = [_out(r) for r in rows]
-    if folder == "none":
-        items = [v for v in items if not v["folders"]]
-    elif folder:
-        items = [v for v in items if folder in v["folders"]]
+    picks = folder_picks(folder)
+    if picks:
+        items = [v for v in items if in_picks(v["folders"], picks)]
     if q:
         nq = arabic.normalize(q)
         lq = q.lower()
@@ -118,7 +139,7 @@ def _items(q: str | None = None, folder: str | None = None) -> list[dict[str, An
 
 
 @router.get("")
-def list_vocab(q: str | None = None, folder: str | None = None) -> list[dict[str, Any]]:
+def list_vocab(q: str | None = None, folder: list[str] | None = Query(None)) -> list[dict[str, Any]]:
     return _items(q, folder)
 
 
@@ -563,8 +584,8 @@ def _anki_clips(items: list[dict[str, Any]]) -> dict[str, dict[str, bytes]]:
 
 
 @router.get("/export/{fmt}")
-def export_vocab(fmt: str, folder: str | None = None, ids: str | None = None) -> Response:
-    """Export everything, one folder, or exactly the words shown on screen (``ids``)."""
+def export_vocab(fmt: str, folder: list[str] | None = Query(None), ids: str | None = None) -> Response:
+    """Export everything, one folder or several (folder_picks), or exactly the words shown on screen (``ids``)."""
     items = _items(None, folder)
     if ids:
         order = {int(x): n for n, x in enumerate(ids.split(",")) if x.strip().isdigit()}

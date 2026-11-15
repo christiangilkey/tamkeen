@@ -9,6 +9,7 @@ import { saveSettingsPatch, settings } from "./store.js";
 import { savedSites, setSite, typedSite } from "./browser-sites.js";
 import { detectLanguage, isLanguage, studyLanguage } from "./languages.js";
 import { folderLanguageOf, folderShows } from "./folderlang.js";
+import { inPicks, pickList } from "./review/folderpicks.js";
 import { MAX_UPLOAD_BYTES } from "./stt.js";
 import { lexiconData, lexiconDownload, lexiconRemove, lexiconStatus } from "./lexicon-store.js";
 import { NativeHttp, isNative, webFetch } from "./native.js";
@@ -883,9 +884,9 @@ const routes = [
   // ----- vocab -----
   ["GET", /^\/vocab$/, (m, q) => {
     let items = lib.vocab.filter((v) => !v.deleted && studying(wordLang(v))).sort((a, b) => b.created_at - a.created_at);
-    const folder = q.get("folder");
-    if (folder === "none") items = items.filter((v) => !(v.folders || []).length);
-    else if (folder) items = items.filter((v) => (v.folders || []).includes(folder));
+    // one folder, "none" (in no folder) or several: "a,b" or the value repeated (folderpicks.js, as on the computer)
+    const picks = pickList(q.getAll("folder").join(","));
+    if (picks.length) items = items.filter((v) => inPicks(v, picks));
     const query = q.get("q");
     if (query) {
       const nq = normalize(query);

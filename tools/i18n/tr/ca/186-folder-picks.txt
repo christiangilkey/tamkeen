@@ -1,0 +1,6 @@
+85149156	Tria'n una o més. Juntes necessiten almenys {0} paraules amb significat.
+0ac083d5	Fes servir aquestes carpetes
+38132f5d	Tria altres carpetes
+38a90644	{0} a les carpetes
+66a7fc10	Mostra també aquestes paraules
+aed9253d	Toca'n una per veure-la. Marca'n diverses per veure les seves paraules juntes.

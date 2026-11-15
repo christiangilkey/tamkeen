@@ -11390,8 +11390,23 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "af3575d7",
-  "k": "Choose another folder",
+  "id": "85149156",
+  "k": "Pick one or more. Together they need at least {0} words with a meaning.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0ac083d5",
+  "k": "Use these folders",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "38132f5d",
+  "k": "Choose other folders",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -11407,6 +11422,11 @@
  {
   "id": "b9a10733",
   "k": "{0} due for review",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "38a90644",
+  "k": "{0} in the folders",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -23315,18 +23335,23 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "889ab689",
-  "k": "Not in a folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "19adc47b",
   "k": "Folders",
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "66a7fc10",
+  "k": "Show these words too",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "0c89a43f",
   "k": "Rename, send or delete this folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "aed9253d",
+  "k": "Tap one to show it. Tick several to show their words together.",
   "f": "web/js/pages/vocab.js"
  },
  {
