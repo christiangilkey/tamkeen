@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Matutunan ang mga bagong salitang hinihingi ng iyong pangmatagalang layunin, diretso mula sa goal card
+408ceb59	I-type ang sarili mong bilang ng bagong salita bawat araw at ng oras ng mga card
+1dfe6407	Pumili ng maraming folder nang sabay sa pahina ng Vocab at para sa mga laban
+94b7ff65	Ang «Maghanap ng totoong pangungusap» ay naghahanap muna sa sarili mong mga libro at transcript
+c1a3cb29	Gumagana pa rin ang Gawa ng mnemonic kapag pumalya ang AI key, at ipinapakita kung sino ang gumawa ng bawat set
+79a5a023	Mga guild raid sa tab na Mga guild, may ranggo ng pinsala at kung paano tamaan ang boss

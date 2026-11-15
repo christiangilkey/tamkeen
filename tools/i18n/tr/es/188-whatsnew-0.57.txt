@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Aprende las palabras nuevas que pide tu meta a largo plazo, directamente desde la tarjeta de la meta
+408ceb59	Escribe tu propio número de palabras nuevas al día y de tiempos de las tarjetas
+1dfe6407	Elige varias carpetas a la vez en la página de Vocabulario y para las batallas
+94b7ff65	«Buscar una real» busca frases primero en tus propios libros y transcripciones
+c1a3cb29	El Creador de mnemotecnias sigue funcionando cuando falla tu clave de IA, y muestra quién hizo cada grupo
+79a5a023	Las incursiones del gremio en la pestaña Gremios, con una clasificación de daño y cómo golpear al jefe

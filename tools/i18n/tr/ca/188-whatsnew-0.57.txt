@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Aprèn les paraules noves que demana el teu objectiu a llarg termini, directament des de la targeta de l’objectiu
+408ceb59	Escriu el teu propi nombre de paraules noves al dia i per als temps de les targetes
+1dfe6407	Tria diverses carpetes alhora a la pàgina de Vocabulari i per a les batalles
+94b7ff65	«Troba’n una de real» busca primer frases als teus propis llibres i transcripcions
+c1a3cb29	El Creador de mnemotècnies continua funcionant quan falla la clau d’IA, i mostra qui ha fet cada conjunt
+79a5a023	Les incursions del gremi a la pestanya Gremis, amb una classificació de mal i com colpejar el cap

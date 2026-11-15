@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Tun-i ang bag-ong mga pulong nga gipangayo sa imong dugay nga tumong, direkta gikan sa goal card
+408ceb59	Isulat ang imong kaugalingong numero sa bag-ong pulong matag adlaw ug sa oras sa mga kard
+1dfe6407	Pagpili og daghang folder dungan sa panid sa Vocab ug para sa mga away
+94b7ff65	Ang «Pangitag tinuod nga sentence» mangita una sa imong kaugalingong mga libro ug transcript
+c1a3cb29	Ang Mnemonic maker padayon nga molihok bisan mapakyas ang imong AI key, ug ipakita kinsa ang naghimo sa matag set
+79a5a023	Mga guild raid sa tab nga Mga guild, uban ang ranggo sa samad ug unsaon pag-igo sa boss

@@ -26990,6 +26990,36 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "fd616dba",
+  "k": "Learn the new words your long-term goal asks for, straight from the goal card",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "408ceb59",
+  "k": "Type your own number for new words a day and for the card times",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "1dfe6407",
+  "k": "Pick several folders at once on the Vocab page and for battles",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "94b7ff65",
+  "k": "Find a real one looks for sentences in your own books and transcripts first",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c1a3cb29",
+  "k": "The Mnemonic maker keeps working when your AI key fails, and shows who made each set",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "79a5a023",
+  "k": "Guild raids in the Guilds tab, with a damage leaderboard and how to hit the boss",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "aebdc801",
   "k": "Set a long-term goal: a bar shows how far you are and the pace still needed, even after missed days",
   "f": "web/js/whatsnew.js"

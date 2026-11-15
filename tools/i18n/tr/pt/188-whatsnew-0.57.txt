@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Aprenda as palavras novas que sua meta de longo prazo pede, direto do cartão da meta
+408ceb59	Digite o seu próprio número de palavras novas por dia e dos tempos dos cartões
+1dfe6407	Escolha várias pastas de uma vez na página de Vocabulário e para as batalhas
+94b7ff65	«Encontrar uma real» procura frases primeiro nos seus próprios livros e transcrições
+c1a3cb29	O Criador de mnemônicos continua funcionando quando sua chave de IA falha, e mostra quem fez cada conjunto
+79a5a023	Os raides da guilda na aba Guildas, com um ranking de dano e como acertar o chefe

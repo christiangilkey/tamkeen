@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Apprenez les nouveaux mots que demande votre objectif à long terme, directement depuis sa carte
+408ceb59	Saisissez votre propre nombre de nouveaux mots par jour et pour les temps des cartes
+1dfe6407	Choisissez plusieurs dossiers à la fois sur la page Vocabulaire et pour les combats
+94b7ff65	« En trouver une vraie » cherche d’abord des phrases dans vos propres livres et transcriptions
+c1a3cb29	Le Créateur de mnémoniques continue de fonctionner quand votre clé d’IA échoue, et indique qui a fait chaque série
+79a5a023	Les raids de guilde dans l’onglet Guildes, avec un classement des dégâts et comment frapper le boss

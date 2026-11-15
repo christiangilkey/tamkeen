@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Impara le parole nuove che chiede il tuo obiettivo a lungo termine, direttamente dalla sua scheda
+408ceb59	Scrivi il tuo numero di parole nuove al giorno e dei tempi delle carte
+1dfe6407	Scegli più cartelle insieme nella pagina Vocabolario e per le battaglie
+94b7ff65	«Trovane una vera» cerca prima le frasi nei tuoi libri e nelle tue trascrizioni
+c1a3cb29	Il Generatore di mnemotecniche continua a funzionare quando la chiave IA non va, e mostra chi ha creato ogni serie
+79a5a023	Le incursioni della gilda nella scheda Gilde, con una classifica dei danni e come colpire il boss

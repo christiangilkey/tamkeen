@@ -1,0 +1,7 @@
+# What's new in 0.57.0 (web/js/whatsnew.js).
+fd616dba	Lerne die neuen Wörter, die dein langfristiges Ziel verlangt, direkt von der Zielkarte aus
+408ceb59	Gib deine eigene Zahl für neue Wörter pro Tag und für die Kartenzeiten ein
+1dfe6407	Wähle mehrere Ordner auf einmal, auf der Vokabelseite und für Kämpfe
+94b7ff65	„Einen echten finden“ sucht zuerst in deinen eigenen Büchern und Transkripten nach Sätzen
+c1a3cb29	Der Eselsbrücken-Macher funktioniert weiter, wenn dein KI-Schlüssel versagt, und zeigt, wer jeden Satz gemacht hat
+79a5a023	Gilden-Raids im Gilden-Tab, mit einer Schadensrangliste und wie man den Boss trifft
