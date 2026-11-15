@@ -28,6 +28,7 @@ import { DATE_OPS, answerDays, answerSeconds, dateValue, dayIso, fuzzy, insertFi
 import { states as cardStates, uidOf } from "../review/deck.js";
 import { dayNumber } from "../review/fsrs.js";
 import { VIEW_DEFAULTS, changedView, folderCount, narrowed, sortFolders, stepFolder } from "../review/vocabedit.js";
+import { firstFolder, hasFolder, inPicks, livePicks, pickList, picksName, togglePick } from "../review/folderpicks.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
 import { openWordEditor, vocabIcon } from "../components/wordeditor.js";
@@ -144,7 +145,7 @@ const TIP = `In any transcript, right-click (or long-press) a word or a selected
 export async function render(view) {
   const prefs = lsGet("vocabView", {});
   const st = {
-    folder: prefs.folder || "",           // "" = all, "none" = not in any folder, else a folder uid
+    folder: prefs.folder || "",           // "" = all, "none" = not in any folder, else a folder uid; several: joined by commas (folderpicks.js)
     sort: SORTS[prefs.sort] ? prefs.sort : VIEW_DEFAULTS.sort,
     dateField: DATE_FIELDS[prefs.dateField] ? prefs.dateField : "added",
     range: RANGES[prefs.range] ? prefs.range : "any",
@@ -218,7 +219,8 @@ export async function render(view) {
   let selecting = false;  // Select is on: a tap ticks a word instead of opening it
   let shown = [];    // the words listed right now (the open folder, narrowed by the search box and the dates)
   let justAdded = new Set();  // ids of the cards just added with "Add words": listed first, lit up a moment
-  const folderName = (uid) => (folders.find((f) => f.uid === uid) || {}).name;
+  /** A folder's name; for several picked ("a,b,none"), their names joined. */
+  const folderName = (key) => picksName(key, (uid) => (folders.find((f) => f.uid === uid) || {}).name, t("Not in a folder")) || undefined;
 
   // One shared audio element for snippet playback (snippetplayer.js).
   const { audio, playSnippet, stop: stopSnippet } = snippetPlayer();
@@ -254,7 +256,7 @@ export async function render(view) {
     if (!(await confirmBox(t("Delete the folder “{0}”?", f.name), "The words in it are kept.", { ok: "Delete", danger: true }))) return false;
     try {
       await api(`/vocab/folders/${f.uid}`, { method: "DELETE" });
-      if (st.folder === f.uid) { st.folder = ""; savePrefs(); }
+      if (pickList(st.folder).includes(f.uid)) { st.folder = togglePick(st.folder, f.uid); savePrefs(); }
       await load();
       return true;
     } catch (e) { toast(e.message, { error: true }); return false; }
@@ -277,7 +279,7 @@ export async function render(view) {
     } catch (e) { toast(e.message, { error: true }); return false; }
   }
 
-  /** Show folder `key` ("" every word, "none" those in no folder, else a folder's uid). */
+  /** Show folder `key` ("" every word, "none" those in no folder, else a folder's uid), and only it. */
   function chooseFolder(key) {
     if (key === st.folder) return;
     st.folder = key;
@@ -289,28 +291,38 @@ export async function render(view) {
   function renderFolderButton() {
     const b = $("#folder-pick");
     const name = b.querySelector(".vf-name");
-    const own = st.folder && st.folder !== "none";
+    const own = hasFolder(st.folder);
     name.textContent = !st.folder ? "All words" : st.folder === "none" ? "Not in a folder" : folderName(st.folder) || "";
     if (own) name.setAttribute("translate", "no"); else name.removeAttribute("translate");  // (a folder's name is the learner's)
     b.querySelector(".vf-n").textContent = String(folderCount(all, st.folder));
   }
 
-  /** The folder sheet: every word, those in no folder, then each folder with its count; a tap shows it.
-   * ⋯ on a folder opens its Rename / Send to a friend / Delete under it; New folder makes one. */
+  /** The folder sheet: every word, those in no folder, then each folder with its count; a tap shows it (only it).
+   * The tick box before one (or a long-press on it) adds it to those shown, or takes it off: several folders show
+   * their words together. ⋯ on a folder opens its Rename / Send to a friend / Delete under it; New folder makes one. */
   function folderSheet() {
     const m = openModal({ title: t("Folders"), cls: "vf-back" });
     let actsFor = "";  // the folder whose actions are open under it
-    const draw = () => {
+    const draw = (focusKey = null) => {
       const box = h(`<div class="vf-list"></div>`);
+      const picks = pickList(st.folder);
       const row = (key, label, isFolder) => {
-        const on = st.folder === key;
+        const on = key ? picks.includes(key) : !st.folder;
         const r = h(`<div class="vf-row${on ? " on" : ""}">
-          <button type="button" class="vf-pick" aria-pressed="${on}">${isFolder ? icon("folder", 18) : key ? vocabIcon("folderout", 18) : icon("vocab", 18)}<span class="vf-label"></span><span class="vf-count">${folderCount(all, key)}</span><span class="vf-on" aria-hidden="true">${on ? icon("check", 18) : ""}</span></button>
+          ${key ? `<button type="button" class="vf-tick" role="checkbox" aria-checked="${on}" title="Show these words too"><span class="pick-box${on ? " on" : ""}" aria-hidden="true">${icon("check", 14)}</span></button>` : `<span class="vf-tick" aria-hidden="true"></span>`}
+          <button type="button" class="vf-pick" aria-pressed="${on}">${isFolder ? icon("folder", 18) : key ? vocabIcon("folderout", 18) : icon("vocab", 18)}<span class="vf-label"></span><span class="vf-count">${folderCount(all, key)}</span><span class="vf-on" aria-hidden="true">${on && !key ? icon("check", 18) : ""}</span></button>
         </div>`);
         const text = r.querySelector(".vf-label");
         text.textContent = label;
         if (isFolder) text.setAttribute("translate", "no");
         r.querySelector(".vf-pick").onclick = () => { m.close(); chooseFolder(key); };
+        if (key) {
+          // (several at once: the list behind changes at once, and the sheet stays open for more)
+          const tick = () => { st.folder = togglePick(st.folder, key); savePrefs(); renderAll(); draw(key); };
+          r.querySelector(".vf-tick").onclick = tick;
+          r.querySelector(".vf-pick").oncontextmenu = (e) => { e.preventDefault(); tick(); };  // (a long-press, or a right-click)
+          r.dataset.key = key;
+        }
         if (isFolder) {
           const f = folders.find((x) => x.uid === key);
           const more = h(`<button type="button" class="vf-more" title="Rename, send or delete this folder" aria-expanded="${actsFor === key}">${icon("more", 18)}</button>`);
@@ -349,7 +361,9 @@ export async function render(view) {
         chooseFolder(f.uid);
       };
       box.append(add);
-      m.body.replaceChildren(box);
+      const hint = h(`<p class="vf-hint muted">Tap one to show it. Tick several to show their words together.</p>`);
+      m.body.replaceChildren(hint, box);
+      if (focusKey) [...box.querySelectorAll(".vf-row")].find((x) => x.dataset.key === focusKey)?.querySelector(".vf-tick")?.focus({ preventScroll: true });
     };
     draw();
   }
@@ -682,8 +696,7 @@ export async function render(view) {
 
   function visible() {
     let items = all;
-    if (st.folder === "none") items = items.filter((v) => !v.folders.length);
-    else if (st.folder) items = items.filter((v) => v.folders.includes(st.folder));
+    if (st.folder) items = items.filter((v) => inPicks(v, st.folder));  // (one folder, or several: folderpicks.js)
     const [from, to] = rangeBounds(st.range, st.from, st.to);
     if (st.dateField === "reviewed" || st.dateField === "learned") {
       // (answered, or first remembered, in that time: from the answer log)
@@ -706,8 +719,8 @@ export async function render(view) {
   }
 
   // ----- the reviewer -----
-  /** The words a review covers: the open folder's, or all of them. Never narrowed by the search box or the dates. */
-  const reviewWords = () => (st.folder && st.folder !== "none" ? all.filter((v) => v.folders.includes(st.folder)) : all);
+  /** The words a review covers: the open folders', or all of them. Never narrowed by the search box or the dates. */
+  const reviewWords = () => (hasFolder(st.folder) ? all.filter((v) => inPicks(v, st.folder)) : all);
 
   function renderReview() {
     const banner = $("#review");
@@ -834,7 +847,7 @@ export async function render(view) {
   }
 
   function renderAll() {
-    if (st.folder && st.folder !== "none" && !folderName(st.folder)) st.folder = "";
+    if (st.folder) st.folder = livePicks(st.folder, folders);  // (a folder since deleted drops out)
     // The open card is put away (saved) and opened again in the new list, if it is still in it.
     const reopen = openId;
     closeOpen();
@@ -991,7 +1004,7 @@ export async function render(view) {
     mode,
     existing: () => all,
     folders,
-    folder: st.folder && st.folder !== "none" ? st.folder : "",
+    folder: firstFolder(st.folder),  // (several open: the first; the builder puts new cards in one)
     onFolder: (f) => {  // a folder made in the builder shows among the folders at once
       if (folders.some((x) => x.uid === f.uid)) return;
       folders.push(f);
