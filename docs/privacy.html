@@ -11,7 +11,7 @@
 <main>
   <header>
     <img src="icon.png" alt="">
-    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen · Last updated November 10, 2026</div></div>
+    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen · Last updated November 14, 2026</div></div>
   </header>
 
   <p>Tamkeen is provided by <strong>Caliber Products LLC</strong>, a Florida limited liability company ("we", "us"),
@@ -21,7 +21,8 @@
   <p>Tamkeen is an open-source app that runs on your own devices. Your library, transcripts and vocabulary stay on
   your devices and, if you turn on sync, in your own Google Drive. Two services run for Tamkeen can receive data about
   you: the online database behind Friends, chat and guilds, only if you turn those on (see
-  <a href="#social">Friends</a>); and, in the web app only, a go-between server that fetches podcasts, web pages,
+  <a href="#social">Friends</a>), which also keeps a last name and weekly study numbers for students of the Defense
+  Language Institute who agree to it (see <a href="#dli">DLI students and teachers</a>); and, in the web app only, a go-between server that fetches podcasts, web pages,
   YouTube captions and Instagram reels for your browser (see <a href="#webapp">The web app</a>). This page explains
   where your data goes for each feature.</p>
 
@@ -242,6 +243,37 @@
   your name. You can block anyone and report a person or a message: see the
   <a href="terms.html">Terms of Service</a> (section 6).</p>
 
+  <h2 id="dli">DLI students and teachers</h2>
+  <p>This part is only for students and teachers at the Defense Language Institute (DLI) who use Tamkeen's DLI
+  content. It uses the same sign-in and the same online database (Supabase) as Friends. Tamkeen is an independent app:
+  it is not run, endorsed or sponsored by DLI or the U.S. Department of Defense.</p>
+  <p><strong>Students.</strong> To open the DLI content you sign in with Google and agree, on a screen that lists
+  exactly what follows, to share:</p>
+  <ul>
+    <li>your last name (no first name, rank or unit) and which DLI language you study;</li>
+    <li>one row of numbers for each week: the days you studied flashcards, the minutes you spent on them, how many
+      you reviewed and how many of those you remembered, how many new words you started, how many words you have
+      saved and how many of them you know;</li>
+    <li>the classes you join with a class code from your teacher, and the day you agreed.</li>
+  </ul>
+  <p><strong>Who sees it.</strong> We do: Tamkeen's developer sees every DLI student's last name, language, classes
+  and weekly numbers, to see how much DLI students use the app and how that goes with their results on the course. The
+  teachers of a class you join see your last name, your language and your weekly numbers from the week you joined
+  their class. Nobody else does: not other students, not your friends. <strong>Your words, their meanings, your
+  library and your recordings are never sent.</strong> This is the one case where numbers about your studying leave
+  your devices, and it applies only to DLI students who agree.</p>
+  <p>While the app is open it sends the current week's numbers when they change. In Settings → DLI students → "What is
+  shared" you can see exactly what is held, change your last name, leave a class or stop sharing. Stopping deletes
+  your last name, your class memberships and every weekly row from our service at once, and locks the DLI content
+  again until you share again. Deleting your online account does the same. Weekly rows older than about two years are
+  deleted.</p>
+  <p><strong>Teachers.</strong> A DLI teacher signs in with Google and types a teacher code that we give out. We
+  store the name they choose for their students to see and the classes they make (a name and two codes for joining).
+  The students of a class see its name and its teachers' names. We see the list of teachers, with their usernames.
+  A note a teacher writes about a student stays on that teacher's own device and is never sent.</p>
+  <p>To stop codes being guessed, the service counts the wrong codes each account typed in the last day (kept for two
+  days).</p>
+
   <h2>AI features (optional, with your own key)</h2>
   <p>Nothing is sent to an AI provider unless you add your own key and use one of the features below. Each request
   goes from your device to the provider you chose (Anthropic Claude, Google Gemini, OpenAI or xAI Grok), using your
@@ -308,7 +340,8 @@
   within 30 days. If you are in the EU or UK, you can also object to or restrict how we use it, and complain to your
   local data protection authority. Data on your own devices and in your own Google Drive is already in your hands.</p>
   <p><strong>Why we use it (legal bases, EU/UK).</strong> We use the data on our service to provide the online
-  features you turn on (performance of our agreement with you), short technical logs to keep the service secure (our
+  features you turn on (performance of our agreement with you; for a DLI student's last name and weekly numbers,
+  your consent, which you can take back at any time by stopping sharing), short technical logs to keep the service secure (our
   legitimate interest in security), and anything the law requires us to keep (legal obligation). We don't sell or share
   personal data, we don't use it for advertising, and we don't build profiles of you or make automated decisions about
   you.</p>
@@ -325,6 +358,9 @@
     <li>Battle results: 60 days. Opened gifts: 30 days. Live quiz questions and answers: not stored.</li>
     <li>Blocks: until you unblock the person or delete your account. Reports: until we have handled them, then 90
       days; at most a year. The daily counts of what was sent: two days.</li>
+    <li>DLI students: last name, classes and weekly numbers until you stop sharing or delete your account; a weekly
+      row for about two years at most. DLI teachers: their name and classes until they leave, delete their account or
+      stop being a teacher. Wrong codes typed: two days.</li>
     <li>Server logs: kept by Supabase and Cloudflare for a short time under their own policies.</li>
   </ul>
   <p><strong>Do Not Track.</strong> Tamkeen doesn't track you across other websites, so it works the same whether or

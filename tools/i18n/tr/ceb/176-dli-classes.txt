@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Usa na lang ka lakang aron maablihan kini
+fd197d1b	Usa na lang ka lakang sa ubos, dayon maabli na ang imong DLI content.
+f6bb0f46	Adlaw
+092f99ea	Minuto
+27481360	Bag-ong pulong
+62f0f1bc	Semana sa
+88cd30c1	Dili sakto kana nga code. Susiha ug sulayi pag-usab.
+27be8b25	Daghan na kaayong sayop nga code karong adlawa. Sulayi pag-usab ugma.
+3e084cdd	Puno na kana nga klase.
+096ea37c	Code kana sa klase. Humana una ang lakang sa pagpaambit, dayon apil sa klase.
+d872af15	Code kana para sa mga magtutudlo. Isulod una ang imong code sa magtutudlo.
+a9123adf	Usa na lang ka lakang
+ffcfef58	Ang DLI content para sa mga estudyante sa DLI, busa hangyoon ka nga mag-sign in ug isulti kon kinsa ka. Mag-sign in gamit ang imong Google account aron makapadayon.
+43bcb2c6	Imong apelyido
+ea8c542d	Ang ngalan nga nailhan ka sa imong mga magtutudlo sa DLI. Apelyido lang.
+b812e8fe	Uyon ug ipadayon
+7ceacdca	Palisiya sa privacy
+63fd8662	Makita sa imong mga magtutudlo ug sa developer sa Tamkeen ang imong apelyido ug ang imong mga numero sa pagtuon matag semana. Wala nay lain.
+d2008ef8	Unsa ang gipaambit
+08ec055e	Akong mga klase
+d4a60293	Hatagan ka sa imong magtutudlo og code sa klase. Sa usa ka klase, makita sa mga magtutudlo niini ang imong mga numero sukad sa semana nga miapil ka.
+0dc19e83	Nagpaambit isip {0}
+a7688f0d	Wala pa ka sa usa ka klase.
+7d913ed8	Magtutudlo: {0}
+a90b1c41	Dili na makita sa mga magtutudlo niini ang imong mga numero. Makaapil ka pag-usab gamit ang code sa klase.
+1636cd7d	Code sa klase
+84f14acb	Naa na ka sa {0}.
+f2d20c13	Ang imong ipaambit kon mopadayon ka
+140b3e11	Ang imong apelyido ug ang imong pinulongan sa DLI
+bca6292f	Ang imong mga numero sa pagtuon matag semana: mga adlaw nga nagtuon ka, minuto sa mga flashcard, mga review, pila ang imong nahinumdoman, bag-ong mga pulong ug nahibal-ang mga pulong
+a9faec61	Kinsa ang makakita niini
+e48192b5	Ang developer sa Tamkeen
+ef2be630	Ang mga magtutudlo sa mga klase nga imong giapilan
+3d4549dd	Dili gayod ipaambit: ang imong mga pulong, ang imong library, ang imong mga recording o bisan unsa pang imong gitun-an.
+8e6f9549	Makahunong ka bisan kanus-a dinhi sa Settings. Tangtangon dayon ang gipaambit, ug ma-lock pag-usab ang DLI content.
+adec36a8	Apelyido
+38db13be	Pinulongan sa DLI
+74720f49	Nagpaambit sukad
+22c5eafa	Imong mga numero matag semana
+6a31d392	Mao gayod kini ang makita sa imong mga magtutudlo ug sa developer sa Tamkeen. Makita kini sa usa ka magtutudlo sukad sa semana nga miapil ka sa iyang klase.
+666cd34b	Ilisi ang apelyido
+0e45aee6	Hunonga ang pagpaambit
+c288737b	Wala pa. Makita dinhi ang imong unang semana human ka mag-review og pipila ka flashcard.
+464127fb	Ang pinakaibabaw nga laray mao ang karong semanaha hangtod karon.
+c2d82849	Makita ka na karon sa imong mga magtutudlo isip {0}.
+9210ff4b	Hunongon ang pagpaambit?
+ab278b8b	Tangtangon dayon online ang imong apelyido, imong mga klase ug imong mga numero matag semana. Ma-lock ang DLI content sa tanan nimong device hangtod mopaambit ka pag-usab. Magpabilin ang bisan unsang nadugang na sa imong library.
+c2bcd564	Gihunong ang pagpaambit. Natangtang na ang gipaambit.
+7b72883e	Karong semanaha
+a4959fc4	4 ka semana
+cd1bbc78	12 ka semana
+76c1ed93	Miaging semana
+93a527fe	{0} ka semana ang milabay
+dd2ce2e2	Nakopya.
+42b32794	Estudyante
+96c6e32e	Kataposang pagtuon
+456f2901	Imong nota (magpabilin niini nga device, dili gayod ipadala)
+a3fe1bf4	Naa niini nga klase sukad
+9bd01ef1	Wala pay numero. Moabot kini human mag-review og flashcard ang estudyante samtang abli ang app.
+ef452b78	I-type kini sa mga estudyante sa Settings → Mga estudyante sa DLI.
+041eb889	Code para sa laing magtutudlo
+c7d0501b	I-type kini sa magtutudlo ubos sa “Magtutudlo ko sa DLI”.
+c057e571	1 ka estudyante
+5b895f42	{0} ka estudyante
+c799c91e	Wala pay estudyante. Ihatag kanila ang code sa klase: moapil sila sa Settings → Mga estudyante sa DLI.
+f18f49a5	Tangtanga sa klase
+0153fc22	Tangtangon si {0} sa klase?
+3485db47	Dili na nimo makita ang iyang mga numero. Makaapil siya pag-usab gamit ang code sa klase.
+7fe3069f	Ang Minuto mao ang oras nga gigugol sa mga flashcard. I-tap ang usa ka estudyante aron makita ang iyang mga semana; i-tap ang usa ka heading aron han-ayon.
+b00b4cb7	Bag-ong mga code
+68cd5b9d	Biyai ang klase
+dc7cdd05	Tangtanga ang klase
+2f6f8907	Ilisi ang ngalan sa klase
+59d7bbe0	Ngalan sa klase
+7a7e15d5	Maghimo og bag-ong mga code para niini nga klase?
+eca00d05	Dili na mogana ang mga daan nga code. Magpabilin ang tanan nga naa na sa klase.
+e5900940	Dili na nimo makita ang mga estudyante niini. Kon ikaw ra ang magtutudlo niini, masirado ang klase.
+4c92d153	Tangtangon ang {0}?
+039b0269	Masirado ang klase para sa matag magtutudlo ug estudyante nga naa niini. Magpabilin ang kaugalingong mga record sa mga estudyante.
+02e954ed	Tanang estudyante sa DLI
+fcfac3ef	Mga estudyante
+f2604f9b	Mga magtutudlo
+ed1846af	Mga klase
+89b86ab0	Pinulongan
+56488c32	Tanang pinulongan
+341576bd	Tanang klase
+adc18228	Wala sa klase
+e6c36594	Wala pay estudyante sa DLI. Makita sila dinhi kon mouyon na sila nga mopaambit sa Settings → Mga estudyante sa DLI.
+920ba1a9	Walay estudyante nga mitakdo.
+41ff354b	Klase
+eef6f0b4	Tangtanga ang DLI record niini nga estudyante
+3cb75d51	Tangtangon ang DLI record ni {0}?
+736fd85f	Tangtangon ang iyang apelyido, mga klase ug mga numero matag semana. Ma-lock ang iyang DLI content hangtod mopaambit siya pag-usab.
+dd41ae4c	Kopyaha para sa spreadsheet
+a8af98f0	I-download ang .csv
+3f346726	Nakopya. I-paste kini sa Excel o Google Sheets.
+9239b80c	Ang spreadsheet adunay usa ka laray para sa matag estudyante sa matag semana nga naay record, aron ikatapad sa imong mga grado.
+6994d113	Code sa magtutudlo
+5a6a56c9	Ihatag kini sa mga magtutudlo sa DLI. Ang bisan kinsa nga mo-type niini makahimo og mga klase; ang mga estudyante ra nga miapil sa ilang mga klase ang ilang makita.
+3e4cb409	Paghimo og bag-ong code sa magtutudlo
+105c8877	Maghimo og bag-ong code sa magtutudlo?
+c47b8500	Dili na mogana ang daan nga code. Ang mga magtutudlo nga nakagamit na niini magpabiling magtutudlo.
+6499c7af	Bag-ong code
+afa46df2	Wala pay magtutudlo.
+d2ac35cc	Magtutudlo nga wala pay ngalan
+156b8bc7	1 ka klase, sukad {0}
+38f8898f	{0} ka klase, sukad {1}
+d3573a52	Tangtangon kini nga magtutudlo?
+96879738	Mobiya siya sa iyang mga klase ug dili na makakita sa mga estudyante. Masirado ang klase nga wala nay magtutudlo.
+1de8e058	Magtutudlo ko sa DLI
+5f01a35c	Paghimo og mga klase ug sunda ang pagpraktis sa imong mga estudyante
+de13db19	Mag-sign in gamit ang imong Google account, dayon isulod ang code sa magtutudlo nga gihatag kanimo.
+b0eb67fd	Makahimo na ka og mga klase.
+64ddb22c	Kini nga account mao na ang tag-iya sa Tamkeen para sa DLI.
+8102267b	Nagtudlo na sab ka sa {0}.
+604e661a	Ang code nga gihatag kanimo sa Tamkeen. Gamit kini, makahimo ka og mga klase ug makita nimo ang mga estudyante nga moapil niini: ang ilang apelyido ug mga numero sa pagtuon matag semana, dili gayod ang ilang mga pulong.
+3c7d374f	Ang ngalan nga makita sa imong mga estudyante
+ed7a967c	Bag-ong klase
+6540f856	Klase sa laing magtutudlo
+7859f995	Aron magkauban nga magtudlo og klase, i-type ang code para sa laing magtutudlo nga gihatag kanimo sa magtutudlo niini.
+9d4af690	Na-save.
+9b6205e5	Wala pay klase. Paghimo og usa, dayon ihatag sa imong mga estudyante ang code niini.
+4ba106e5	code {0}
+4ef68935	Nganli ang klase
+994800f6	Himoa ang klase
+d7d648e6	Tag-iya sa Tamkeen
+ed14cf7c	Tanang nagpaambit, sumala sa pinulongan ug klase, nga adunay kopya para sa spreadsheet
+467eb5d9	Para sa mga estudyante ug magtutudlo sa Defense Language Institute.
+4e6edca3	Dili magamit kana nga ngalan. Gamit og mga letra, dili molapas sa 40.
+d86fe7c0	Pilia una ang imong pinulongan sa DLI.
+4d7c3f76	Isulod una ang imong code sa magtutudlo.
+1772cc1d	Dili kana usa sa imong mga klase.
+bcfb2123	Ang tag-iya ra sa Tamkeen ang makahimo niana.
+4fe4b72c	Naa na kay 20 ka klase. Pagtangtang una og usa.
+64415d71	Wala ma-save kadtong semanaha.
+5a352840	Wala pa ma-on ang mga klase sa DLI. Sulayi pag-usab unya.
+6a3e65a6	Mag-sign in una.
+5746f75a	Wala kana mogana. Sulayi pag-usab sa makadiyot.
+df0954ae	% nahinumdoman
+68626328	Biyaan ang klase nga {0}?
+d3130c44	Gidawat ang code. Tan-awa ang “Magtutudlo ko sa DLI” sa ubos.

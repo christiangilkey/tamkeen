@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Isang hakbang na lang para mabuksan ito
+fd197d1b	Isang hakbang na lang sa ibaba, tapos magbubukas na ang DLI content mo.
+f6bb0f46	Araw
+092f99ea	Minuto
+27481360	Bagong salita
+62f0f1bc	Linggo ng
+88cd30c1	Mali ang code na iyan. Tingnan ito at subukan ulit.
+27be8b25	Masyado nang maraming maling code ngayong araw. Subukan ulit bukas.
+3e084cdd	Puno na ang klaseng iyan.
+096ea37c	Code ng klase iyan. Tapusin muna ang hakbang ng pagbabahagi, saka sumali sa klase.
+d872af15	Code iyan para sa mga guro. Ilagay muna ang code pang-guro mo.
+a9123adf	Isang hakbang na lang
+ffcfef58	Para sa mga estudyante ng DLI ang DLI content, kaya hinihiling nitong mag-sign in ka at sabihin kung sino ka. Mag-sign in gamit ang Google account mo para magpatuloy.
+43bcb2c6	Apelyido mo
+ea8c542d	Ang pangalang alam ng mga guro mo sa DLI. Apelyido lang.
+b812e8fe	Sumang-ayon at ituloy
+7ceacdca	Patakaran sa privacy
+63fd8662	Nakikita ng mga guro mo at ng developer ng Tamkeen ang apelyido mo at ang mga lingguhang numero ng pag-aaral mo. Wala nang iba.
+d2008ef8	Ano ang ibinabahagi
+08ec055e	Mga klase ko
+d4a60293	Bibigyan ka ng guro mo ng code ng klase. Sa isang klase, nakikita ng mga guro nito ang mga numero mo mula sa linggong sumali ka.
+0dc19e83	Nagbabahagi bilang {0}
+a7688f0d	Wala ka pa sa isang klase.
+7d913ed8	Guro: {0}
+a90b1c41	Hindi na makikita ng mga guro nito ang mga numero mo. Puwede kang sumali ulit gamit ang code ng klase.
+1636cd7d	Code ng klase
+84f14acb	Nasa {0} ka na.
+f2d20c13	Ang ibinabahagi mo kapag nagpatuloy ka
+140b3e11	Ang apelyido mo at ang wika mo sa DLI
+bca6292f	Ang mga lingguhang numero ng pag-aaral mo: mga araw na nag-aral ka, minuto sa mga flashcard, mga review, ilan ang naalala mo, mga bagong salita at mga alam na salita
+a9faec61	Sino ang nakakakita nito
+e48192b5	Ang developer ng Tamkeen
+ef2be630	Ang mga guro ng mga klaseng sinalihan mo
+3d4549dd	Hindi kailanman ibinabahagi: ang mga salita mo, ang library mo, ang mga recording mo o anupamang pinag-aaralan mo.
+8e6f9549	Puwede kang huminto anumang oras dito sa Settings. Pagkatapos, buburahin ang naibahagi at mala-lock ulit ang DLI content.
+adec36a8	Apelyido
+38db13be	Wika sa DLI
+74720f49	Nagbabahagi mula noong
+22c5eafa	Mga lingguhang numero mo
+6a31d392	Ito mismo ang nakikita ng mga guro mo at ng developer ng Tamkeen. Nakikita ito ng isang guro mula sa linggong sumali ka sa klase niya.
+666cd34b	Palitan ang apelyido
+0e45aee6	Itigil ang pagbabahagi
+c288737b	Wala pa. Lalabas dito ang unang linggo mo pagkatapos mong mag-review ng ilang flashcard.
+464127fb	Ang pinakaitaas na hilera ay ang linggong ito, sa ngayon.
+c2d82849	Nakikita ka na ngayon ng mga guro mo bilang {0}.
+9210ff4b	Itigil ang pagbabahagi?
+ab278b8b	Buburahin na agad online ang apelyido mo, ang mga klase mo at ang mga lingguhang numero mo. Mala-lock ang DLI content sa lahat ng device mo hanggang magbahagi ka ulit. Mananatili ang anumang naidagdag na sa library mo.
+c2bcd564	Itinigil ang pagbabahagi. Nabura na ang naibahagi.
+7b72883e	Ngayong linggo
+a4959fc4	4 na linggo
+cd1bbc78	12 linggo
+76c1ed93	Nakaraang linggo
+93a527fe	{0} linggo na ang nakalipas
+dd2ce2e2	Nakopya.
+42b32794	Estudyante
+96c6e32e	Huling nag-aral
+456f2901	Tala mo (nananatili sa device na ito, hindi kailanman ipinapadala)
+a3fe1bf4	Nasa klaseng ito mula noong
+9bd01ef1	Wala pang numero. Darating ang mga ito pagkatapos mag-review ng mga flashcard ang estudyante habang bukas ang app.
+ef452b78	Tina-type ito ng mga estudyante sa Settings → Mga estudyante ng DLI.
+041eb889	Code para sa isa pang guro
+c7d0501b	Tina-type ito ng guro sa ilalim ng “Guro ako ng DLI”.
+c057e571	1 estudyante
+5b895f42	{0} estudyante
+c799c91e	Wala pang estudyante. Ibigay sa kanila ang code ng klase: sumasali sila sa Settings → Mga estudyante ng DLI.
+f18f49a5	Alisin sa klase
+0153fc22	Alisin si {0} sa klase?
+3485db47	Hindi mo na makikita ang mga numero niya. Puwede siyang sumali ulit gamit ang code ng klase.
+7fe3069f	Ang Minuto ay oras na ginugol sa mga flashcard. I-tap ang isang estudyante para makita ang mga linggo niya; i-tap ang isang heading para ayusin.
+b00b4cb7	Mga bagong code
+68cd5b9d	Umalis sa klase
+dc7cdd05	Burahin ang klase
+2f6f8907	Palitan ang pangalan ng klase
+59d7bbe0	Pangalan ng klase
+7a7e15d5	Gumawa ng mga bagong code para sa klaseng ito?
+eca00d05	Hindi na gagana ang mga lumang code. Mananatili ang lahat ng nasa klase na.
+e5900940	Hindi mo na makikita ang mga estudyante nito. Kung ikaw lang ang guro nito, magsasara ang klase.
+4c92d153	Burahin ang {0}?
+039b0269	Magsasara ang klase para sa bawat guro at estudyanteng kasali rito. Mananatili ang sariling mga record ng mga estudyante.
+02e954ed	Lahat ng estudyante ng DLI
+fcfac3ef	Mga estudyante
+f2604f9b	Mga guro
+ed1846af	Mga klase
+89b86ab0	Wika
+56488c32	Lahat ng wika
+341576bd	Lahat ng klase
+adc18228	Wala sa klase
+e6c36594	Wala pang estudyante ng DLI. Lalabas sila rito kapag pumayag silang magbahagi sa Settings → Mga estudyante ng DLI.
+920ba1a9	Walang tumutugmang estudyante.
+41ff354b	Klase
+eef6f0b4	Burahin ang DLI record ng estudyanteng ito
+3cb75d51	Burahin ang DLI record ni {0}?
+736fd85f	Buburahin ang apelyido, mga klase at mga lingguhang numero niya. Mala-lock ang DLI content niya hanggang magbahagi siya ulit.
+dd41ae4c	Kopyahin para sa spreadsheet
+a8af98f0	I-download ang .csv
+3f346726	Nakopya. I-paste ito sa Excel o Google Sheets.
+9239b80c	May isang hilera ang spreadsheet para sa bawat estudyante sa bawat linggong may record, para maitabi mo sa mga grado mo.
+6994d113	Code pang-guro
+5a6a56c9	Ibigay ito sa mga guro ng DLI. Makakagawa ng mga klase ang sinumang mag-type nito; ang mga estudyanteng sumali sa mga klase nila lang ang makikita nila.
+3e4cb409	Gumawa ng bagong code pang-guro
+105c8877	Gumawa ng bagong code pang-guro?
+c47b8500	Hindi na gagana ang lumang code. Mananatiling guro ang mga gurong nakagamit na nito.
+6499c7af	Bagong code
+afa46df2	Wala pang guro.
+d2ac35cc	Gurong wala pang pangalan
+156b8bc7	1 klase, mula {0}
+38f8898f	{0} klase, mula {1}
+d3573a52	Alisin ang gurong ito?
+96879738	Aalis siya sa mga klase niya at hindi na niya makikita ang mga estudyante. Magsasara ang klaseng wala nang natitirang guro.
+1de8e058	Guro ako ng DLI
+5f01a35c	Gumawa ng mga klase at subaybayan ang pagsasanay ng mga estudyante mo
+de13db19	Mag-sign in gamit ang Google account mo, saka ilagay ang code pang-guro na ibinigay sa iyo.
+b0eb67fd	Makakagawa ka na ng mga klase.
+64ddb22c	Ang account na ito na ang may-ari ng Tamkeen para sa DLI.
+8102267b	Tinuturuan mo na rin ang {0}.
+604e661a	Ang code na ibinigay sa iyo ng Tamkeen. Gamit ito, gumagawa ka ng mga klase at nakikita mo ang mga estudyanteng sumasali sa mga iyon: ang apelyido at mga lingguhang numero ng pag-aaral nila, hindi kailanman ang mga salita nila.
+3c7d374f	Ang pangalang nakikita ng mga estudyante mo
+ed7a967c	Bagong klase
+6540f856	Klase ng ibang guro
+7859f995	Para magkasamang magturo sa isang klase, i-type ang code para sa isa pang guro na ibinigay sa iyo ng guro nito.
+9d4af690	Na-save.
+9b6205e5	Wala pang klase. Gumawa ng isa, saka ibigay sa mga estudyante mo ang code nito.
+4ba106e5	code {0}
+4ef68935	Pangalanan ang klase
+994800f6	Gawin ang klase
+d7d648e6	May-ari ng Tamkeen
+ed14cf7c	Lahat ng nagbabahagi, ayon sa wika at klase, na may kopya para sa spreadsheet
+467eb5d9	Para sa mga estudyante at guro sa Defense Language Institute.
+4e6edca3	Hindi puwedeng gamitin ang pangalang iyan. Gumamit ng mga titik, hanggang 40 lang.
+d86fe7c0	Piliin muna ang wika mo sa DLI.
+4d7c3f76	Ilagay muna ang code pang-guro mo.
+1772cc1d	Hindi iyan isa sa mga klase mo.
+bcfb2123	Ang may-ari ng Tamkeen lang ang makakagawa niyan.
+4fe4b72c	May 20 klase ka na. Magbura muna ng isa.
+64415d71	Hindi na-save ang linggong iyon.
+5a352840	Hindi pa naka-on ang mga klase ng DLI. Subukan ulit mamaya.
+6a3e65a6	Mag-sign in muna.
+5746f75a	Hindi iyon gumana. Subukan ulit maya-maya.
+df0954ae	% naalala
+68626328	Umalis sa klaseng {0}?
+d3130c44	Tinanggap ang code. Tingnan ang “Guro ako ng DLI” sa ibaba.

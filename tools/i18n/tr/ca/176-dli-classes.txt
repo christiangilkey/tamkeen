@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Un pas més per obrir-lo
+fd197d1b	Un pas més aquí sota i s'obrirà el teu contingut del DLI.
+f6bb0f46	Dies
+092f99ea	Minuts
+27481360	Paraules noves
+62f0f1bc	Setmana del
+88cd30c1	Aquest codi no és correcte. Revisa'l i torna-ho a provar.
+27be8b25	Massa codis incorrectes avui. Torna-ho a provar demà.
+3e084cdd	Aquesta classe és plena.
+096ea37c	Això és un codi de classe. Primer acaba el pas de compartir i després uneix-te a la classe.
+d872af15	Aquest codi és per a professors. Primer escriu el teu codi de professor.
+a9123adf	Un pas més
+ffcfef58	El contingut del DLI és per a estudiants del DLI, i per això et demana que iniciïs la sessió i diguis qui ets. Inicia la sessió amb el teu compte de Google per continuar.
+43bcb2c6	El teu cognom
+ea8c542d	El nom amb què et coneixen els teus professors del DLI. Només el cognom.
+b812e8fe	Accepta i continua
+7ceacdca	Política de privadesa
+63fd8662	Els teus professors i el desenvolupador de Tamkeen veuen el teu cognom i les teves xifres setmanals d'estudi. Res més.
+d2008ef8	Què es comparteix
+08ec055e	Les meves classes
+d4a60293	El teu professor et dona un codi de classe. En una classe, els seus professors veuen les teves xifres des de la setmana en què t'hi vas unir.
+0dc19e83	Comparteixes com a {0}
+a7688f0d	Encara no ets a cap classe.
+7d913ed8	Amb {0}
+a90b1c41	Els seus professors deixen de veure les teves xifres. T'hi pots tornar a unir amb el codi de classe.
+1636cd7d	Codi de classe
+84f14acb	Ja ets a {0}.
+f2d20c13	Què comparteixes si continues
+140b3e11	El teu cognom i la teva llengua del DLI
+bca6292f	Les teves xifres setmanals d'estudi: dies estudiats, minuts amb les targetes, repassos, quantes n'has recordat, paraules noves i paraules conegudes
+a9faec61	Qui ho veu
+e48192b5	El desenvolupador de Tamkeen
+ef2be630	Els professors de les classes a les quals t'uneixis
+3d4549dd	No es comparteixen mai: les teves paraules, la teva biblioteca, els teus enregistraments ni res més del que estudies.
+8e6f9549	Pots deixar de compartir quan vulguis, aquí a Configuració. Aleshores s'esborra el que s'havia compartit i el contingut del DLI es torna a bloquejar.
+adec36a8	Cognom
+38db13be	Llengua del DLI
+74720f49	Compartint des del
+22c5eafa	Les teves xifres setmanals
+6a31d392	Exactament el que veuen els teus professors i el desenvolupador de Tamkeen. Un professor les veu des de la setmana en què et vas unir a la seva classe.
+666cd34b	Canvia el cognom
+0e45aee6	Deixa de compartir
+c288737b	Encara res. La teva primera setmana apareixerà aquí quan hagis repassat algunes targetes.
+464127fb	La primera fila és aquesta setmana, de moment.
+c2d82849	Ara els teus professors et veuen com a {0}.
+9210ff4b	Vols deixar de compartir?
+ab278b8b	El teu cognom, les teves classes i les teves xifres setmanals s'esborren ara d'internet. El contingut del DLI queda bloquejat a tots els teus dispositius fins que tornis a compartir. El que ja s'hagi afegit a la teva biblioteca s'hi queda.
+c2bcd564	Has deixat de compartir. El que s'havia compartit s'ha esborrat.
+7b72883e	Aquesta setmana
+a4959fc4	4 setmanes
+cd1bbc78	12 setmanes
+76c1ed93	La setmana passada
+93a527fe	Fa {0} setmanes
+dd2ce2e2	Copiat.
+42b32794	Estudiant
+96c6e32e	Últim estudi
+456f2901	La teva nota (es queda en aquest dispositiu, no s'envia mai)
+a3fe1bf4	En aquesta classe des del
+9bd01ef1	Encara no hi ha xifres. Arriben quan l'estudiant repassa targetes amb l'app oberta.
+ef452b78	Els estudiants l'escriuen a Configuració → Estudiants del DLI.
+041eb889	Codi per a un altre professor
+c7d0501b	Un professor l'escriu a «Soc professor del DLI».
+c057e571	1 estudiant
+5b895f42	{0} estudiants
+c799c91e	Encara no hi ha estudiants. Dona'ls el codi de classe: s'hi uneixen a Configuració → Estudiants del DLI.
+f18f49a5	Treu de la classe
+0153fc22	Vols treure {0} de la classe?
+3485db47	Deixes de veure les seves xifres. S'hi pot tornar a unir amb el codi de classe.
+7fe3069f	Els minuts són el temps amb les targetes. Toca un estudiant per veure'n les setmanes; toca una capçalera per ordenar.
+b00b4cb7	Codis nous
+68cd5b9d	Surt de la classe
+dc7cdd05	Esborra la classe
+2f6f8907	Canvia el nom de la classe
+59d7bbe0	Nom de la classe
+7a7e15d5	Vols crear codis nous per a aquesta classe?
+eca00d05	Els codis antics deixen de funcionar. Tothom que ja és a la classe s'hi queda.
+e5900940	Deixes de veure'n els estudiants. Si n'ets l'únic professor, la classe es tanca.
+4c92d153	Vols esborrar {0}?
+039b0269	La classe es tanca per a tots els seus professors i estudiants. Els registres dels estudiants es conserven.
+02e954ed	Tots els estudiants del DLI
+fcfac3ef	Estudiants
+f2604f9b	Professors
+ed1846af	Classes
+89b86ab0	Llengua
+56488c32	Totes les llengües
+341576bd	Totes les classes
+adc18228	Sense classe
+e6c36594	Encara no hi ha estudiants del DLI. Apareixen aquí quan accepten compartir a Configuració → Estudiants del DLI.
+920ba1a9	No hi ha cap estudiant que coincideixi.
+41ff354b	Classe
+eef6f0b4	Esborra el registre del DLI d'aquest estudiant
+3cb75d51	Vols esborrar el registre del DLI de {0}?
+736fd85f	S'esborren el seu cognom, les seves classes i les seves xifres setmanals. El seu contingut del DLI es bloqueja fins que torni a compartir.
+dd41ae4c	Copia per a un full de càlcul
+a8af98f0	Baixa .csv
+3f346726	Copiat. Enganxa-ho a Excel o Google Sheets.
+9239b80c	El full de càlcul té una fila per a cada estudiant i cada setmana registrada, per posar-la al costat de les teves qualificacions.
+6994d113	Codi de professor
+5a6a56c9	Dona'l als professors del DLI. Qui l'escrigui pot crear classes; només veu els estudiants que s'hi uneixen.
+3e4cb409	Crea un codi de professor nou
+105c8877	Vols crear un codi de professor nou?
+c47b8500	El codi antic deixa de funcionar. Els professors que ja l'han fet servir continuen sent professors.
+6499c7af	Codi nou
+afa46df2	Encara no hi ha professors.
+d2ac35cc	Un professor encara sense nom
+156b8bc7	1 classe, des del {0}
+38f8898f	{0} classes, des del {1}
+d3573a52	Vols treure aquest professor?
+96879738	Surt de les seves classes i deixa de veure els estudiants. Una classe que es queda sense professors es tanca.
+1de8e058	Soc professor del DLI
+5f01a35c	Crea classes i segueix la pràctica dels teus estudiants
+de13db19	Inicia la sessió amb el teu compte de Google i després escriu el codi de professor que t'han donat.
+b0eb67fd	Ja pots crear classes.
+64ddb22c	Aquest compte és ara el del propietari de Tamkeen per al DLI.
+8102267b	Ara també ets professor de {0}.
+604e661a	El codi que t'ha donat Tamkeen. Amb ell crees classes i veus els estudiants que s'hi uneixen: el cognom i les xifres setmanals d'estudi, mai les seves paraules.
+3c7d374f	El nom que veuen els teus estudiants
+ed7a967c	Classe nova
+6540f856	La classe d'un altre professor
+7859f995	Per fer una classe plegats, escriu el codi per a un altre professor que t'ha donat el seu professor.
+9d4af690	Desat.
+9b6205e5	Encara no hi ha classes. Crea'n una i després dona'n el codi als teus estudiants.
+4ba106e5	codi {0}
+4ef68935	Posa nom a la classe
+994800f6	Crea la classe
+d7d648e6	Propietari de Tamkeen
+ed14cf7c	Tothom que comparteix, per llengua i classe, amb una còpia per a un full de càlcul
+467eb5d9	Per a estudiants i professors del Defense Language Institute.
+4e6edca3	Aquest nom no es pot fer servir. Fes servir lletres, 40 com a màxim.
+d86fe7c0	Primer tria la teva llengua del DLI.
+4d7c3f76	Primer escriu el teu codi de professor.
+1772cc1d	Aquesta no és una de les teves classes.
+bcfb2123	Només el propietari de Tamkeen ho pot fer.
+4fe4b72c	Ja tens 20 classes. Primer esborra'n una.
+64415d71	No s'ha pogut desar aquesta setmana.
+5a352840	Les classes del DLI encara no estan activades. Torna-ho a provar més tard.
+6a3e65a6	Primer inicia la sessió.
+5746f75a	No ha funcionat. Torna-ho a provar d'aquí a un moment.
+df0954ae	% recordades
+68626328	Vols sortir de la classe {0}?
+d3130c44	Codi acceptat. Mira «Soc professor del DLI» més avall.

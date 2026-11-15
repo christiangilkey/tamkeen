@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Mais uma etapa para abrir
+fd197d1b	Mais uma etapa aqui embaixo e seu conteúdo do DLI abre.
+f6bb0f46	Dias
+092f99ea	Minutos
+27481360	Palavras novas
+62f0f1bc	Semana de
+88cd30c1	Esse código não está certo. Confira e tente de novo.
+27be8b25	Códigos errados demais hoje. Tente de novo amanhã.
+3e084cdd	Essa turma está cheia.
+096ea37c	Esse é um código de turma. Primeiro conclua a etapa de compartilhamento e depois entre na turma.
+d872af15	Esse código é para professores. Primeiro digite seu código de professor.
+a9123adf	Mais uma etapa
+ffcfef58	O conteúdo do DLI é para alunos do DLI, por isso ele pede que você entre e diga quem é. Entre com sua conta do Google para continuar.
+43bcb2c6	Seu sobrenome
+ea8c542d	O nome pelo qual seus professores do DLI conhecem você. Só o sobrenome.
+b812e8fe	Concordar e continuar
+7ceacdca	Política de privacidade
+63fd8662	Seus professores e o desenvolvedor do Tamkeen veem seu sobrenome e seus números semanais de estudo. Nada mais.
+d2008ef8	O que é compartilhado
+08ec055e	Minhas turmas
+d4a60293	Seu professor dá a você um código de turma. Em uma turma, os professores dela veem seus números a partir da semana em que você entrou.
+0dc19e83	Compartilhando como {0}
+a7688f0d	Você ainda não está em nenhuma turma.
+7d913ed8	Com {0}
+a90b1c41	Os professores dela deixam de ver seus números. Você pode entrar de novo com o código da turma.
+1636cd7d	Código da turma
+84f14acb	Você está em {0}.
+f2d20c13	O que você compartilha ao continuar
+140b3e11	Seu sobrenome e seu idioma do DLI
+bca6292f	Seus números semanais de estudo: dias estudados, minutos nos cartões, revisões, quantos você lembrou, palavras novas e palavras conhecidas
+a9faec61	Quem vê
+e48192b5	O desenvolvedor do Tamkeen
+ef2be630	Os professores das turmas em que você entrar
+3d4549dd	Nunca compartilhados: suas palavras, sua biblioteca, suas gravações ou qualquer outra coisa que você estude.
+8e6f9549	Você pode parar quando quiser, aqui em Configurações. Aí o que foi compartilhado é excluído e o conteúdo do DLI volta a ficar bloqueado.
+adec36a8	Sobrenome
+38db13be	Idioma do DLI
+74720f49	Compartilhando desde
+22c5eafa	Seus números semanais
+6a31d392	Exatamente o que seus professores e o desenvolvedor do Tamkeen veem. Um professor vê esses números a partir da semana em que você entrou na turma dele.
+666cd34b	Alterar sobrenome
+0e45aee6	Parar de compartilhar
+c288737b	Nada ainda. Sua primeira semana aparece aqui depois que você revisar alguns cartões.
+464127fb	A primeira linha é esta semana até agora.
+c2d82849	Agora seus professores veem você como {0}.
+9210ff4b	Parar de compartilhar?
+ab278b8b	Seu sobrenome, suas turmas e seus números semanais são excluídos da internet agora. O conteúdo do DLI fica bloqueado em todos os seus dispositivos até você compartilhar de novo. O que já foi adicionado à sua biblioteca continua lá.
+c2bcd564	Você parou de compartilhar. O que foi compartilhado foi excluído.
+7b72883e	Esta semana
+a4959fc4	4 semanas
+cd1bbc78	12 semanas
+76c1ed93	Semana passada
+93a527fe	Há {0} semanas
+dd2ce2e2	Copiado.
+42b32794	Aluno
+96c6e32e	Último estudo
+456f2901	Sua anotação (fica neste dispositivo, nunca é enviada)
+a3fe1bf4	Nesta turma desde
+9bd01ef1	Ainda sem números. Eles chegam depois que o aluno revisa cartões com o app aberto.
+ef452b78	Os alunos digitam esse código em Configurações → Alunos do DLI.
+041eb889	Código para outro professor
+c7d0501b	Um professor digita esse código em “Sou professor do DLI”.
+c057e571	1 aluno
+5b895f42	{0} alunos
+c799c91e	Ainda sem alunos. Passe o código da turma para eles: eles entram em Configurações → Alunos do DLI.
+f18f49a5	Remover da turma
+0153fc22	Remover {0} da turma?
+3485db47	Você deixa de ver os números desse aluno. Ele pode entrar de novo com o código da turma.
+7fe3069f	Os minutos são o tempo nos cartões. Toque em um aluno para ver as semanas dele; toque em um cabeçalho para ordenar.
+b00b4cb7	Novos códigos
+68cd5b9d	Sair da turma
+dc7cdd05	Excluir a turma
+2f6f8907	Renomear a turma
+59d7bbe0	Nome da turma
+7a7e15d5	Criar novos códigos para esta turma?
+eca00d05	Os códigos antigos param de funcionar. Quem já está na turma continua nela.
+e5900940	Você deixa de ver os alunos dela. Se você for o único professor, a turma é encerrada.
+4c92d153	Excluir {0}?
+039b0269	A turma é encerrada para todos os professores e alunos dela. Os registros dos alunos continuam.
+02e954ed	Todos os alunos do DLI
+fcfac3ef	Alunos
+f2604f9b	Professores
+ed1846af	Turmas
+89b86ab0	Idioma
+56488c32	Todos os idiomas
+341576bd	Todas as turmas
+adc18228	Sem turma
+e6c36594	Ainda não há alunos do DLI. Eles aparecem aqui quando concordam em compartilhar em Configurações → Alunos do DLI.
+920ba1a9	Nenhum aluno encontrado.
+41ff354b	Turma
+eef6f0b4	Excluir o registro do DLI deste aluno
+3cb75d51	Excluir o registro do DLI de {0}?
+736fd85f	O sobrenome, as turmas e os números semanais desse aluno são excluídos. O conteúdo do DLI dele fica bloqueado até que ele compartilhe de novo.
+dd41ae4c	Copiar para uma planilha
+a8af98f0	Baixar .csv
+3f346726	Copiado. Cole no Excel ou no Google Sheets.
+9239b80c	A planilha tem uma linha para cada aluno em cada semana registrada, para você colocar ao lado das suas notas.
+6994d113	Código de professor
+5a6a56c9	Passe este código aos professores do DLI. Quem digitar o código pode criar turmas e vê só os alunos que entram nelas.
+3e4cb409	Criar um novo código de professor
+105c8877	Criar um novo código de professor?
+c47b8500	O código antigo para de funcionar. Os professores que já usaram o código continuam sendo professores.
+6499c7af	Novo código
+afa46df2	Ainda não há professores.
+d2ac35cc	Um professor ainda sem nome
+156b8bc7	1 turma, desde {0}
+38f8898f	{0} turmas, desde {1}
+d3573a52	Remover este professor?
+96879738	Ele sai das turmas e deixa de ver os alunos. Uma turma que fica sem professor é encerrada.
+1de8e058	Sou professor do DLI
+5f01a35c	Crie turmas e acompanhe a prática dos seus alunos
+de13db19	Entre com sua conta do Google e depois digite o código de professor que você recebeu.
+b0eb67fd	Agora você pode criar turmas.
+64ddb22c	Esta conta agora é a do dono do Tamkeen para o DLI.
+8102267b	Agora você também é professor de {0}.
+604e661a	O código que o Tamkeen deu a você. Com ele você cria turmas e vê os alunos que entram nelas: o sobrenome e os números semanais de estudo, nunca as palavras deles.
+3c7d374f	O nome que seus alunos veem
+ed7a967c	Nova turma
+6540f856	Turma de outro professor
+7859f995	Para dar aula em uma turma junto com outro professor, digite o código para outro professor que o professor da turma passou a você.
+9d4af690	Salvo.
+9b6205e5	Ainda não há turmas. Crie uma e depois passe o código dela aos seus alunos.
+4ba106e5	código {0}
+4ef68935	Dê um nome à turma
+994800f6	Criar a turma
+d7d648e6	Dono do Tamkeen
+ed14cf7c	Todos que compartilham, por idioma e turma, com uma cópia para planilha
+467eb5d9	Para alunos e professores do Defense Language Institute.
+4e6edca3	Esse nome não pode ser usado. Use letras, no máximo 40.
+d86fe7c0	Primeiro escolha seu idioma do DLI.
+4d7c3f76	Primeiro digite seu código de professor.
+1772cc1d	Essa não é uma das suas turmas.
+bcfb2123	Só o dono do Tamkeen pode fazer isso.
+4fe4b72c	Você já tem 20 turmas. Exclua uma primeiro.
+64415d71	Não foi possível salvar essa semana.
+5a352840	As turmas do DLI ainda não estão ativadas. Tente de novo mais tarde.
+6a3e65a6	Primeiro entre na sua conta.
+5746f75a	Não funcionou. Tente de novo daqui a pouco.
+df0954ae	% lembrados
+68626328	Sair da turma {0}?
+d3130c44	Código aceito. Veja “Sou professor do DLI” abaixo.

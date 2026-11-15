@@ -41,6 +41,22 @@ service role or the Supabase SQL editor.
 | Delete account (`delete_my_account`) | yes, everything | no | no | no | no | anyone (`private.delete_user`) |
 | Helper checks (`private.*`) | through rules only | no | no | no | no | all |
 
+| DLI classes (`supabase/v10-dli-classes.sql`) | DLI student (me) | Teacher of a class I'm in | Another teacher | Owner | Anyone else signed in | Signed out |
+|---|---|---|---|---|---|---|
+| My last name, DLI language, day I agreed | see, change, delete (stop sharing) | see | no | see, delete | no | no |
+| My weekly numbers (days, minutes, reviews, remembered, new words, words, known) | see, send | see, from the week I joined their class | no | see | no | no |
+| My words, meanings, library, recordings | never sent | no | no | no | no | no |
+| A class: name, teachers' names | see if I'm in it; leave | rename, new codes, delete, remove a student | no | see name and counts | no | no |
+| A class's codes | no | see | no | no | no | no |
+| Teacher code | no | no | no | see, replace | no | no |
+| Becoming a teacher / the owner | no | by the teacher code | by the teacher code | by the one-time owner code (shown when the SQL file is first run) | wrong codes capped at 20 a day | no |
+| A teacher's note on a student | no | on that teacher's device only, never sent | no | no | no | no |
+
+The DLI tables have row-level security on and **no** reading or writing rule: everything goes through the `dli_*`
+functions, each of which checks who is asking (`tests/js/dliweeks.test.mjs` fails if a rule or an unlisted call
+appears). A student must agree on a screen that lists what is shared (`web/js/components/dlishare.js` SHARE_TEXT;
+raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to the live database either.
+
 Message size, uploads and daily counts are capped in SQL. `created_at` is set by the server. Friends' game
 data is validated again on arrival (`web/js/game/remote.js`) and drawn without raw HTML.
 

@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Noch ein Schritt zum Öffnen
+fd197d1b	Noch ein Schritt unten, dann öffnen sich deine DLI-Inhalte.
+f6bb0f46	Tage
+092f99ea	Minuten
+27481360	Neue Wörter
+62f0f1bc	Woche ab
+88cd30c1	Der Code stimmt nicht. Prüfe ihn und versuch es noch einmal.
+27be8b25	Zu viele falsche Codes heute. Versuch es morgen noch einmal.
+3e084cdd	Diese Klasse ist voll.
+096ea37c	Das ist ein Klassencode. Schließe zuerst den Schritt zum Teilen ab und tritt dann der Klasse bei.
+d872af15	Das ist ein Code für Lehrkräfte. Gib zuerst deinen Lehrkraft-Code ein.
+a9123adf	Noch ein Schritt
+ffcfef58	DLI-Inhalte sind für DLI-Studierende gedacht. Deshalb sollst du dich anmelden und sagen, wer du bist. Melde dich mit deinem Google-Konto an, um weiterzumachen.
+43bcb2c6	Dein Nachname
+ea8c542d	Der Name, unter dem dich deine DLI-Lehrkräfte kennen. Nur der Nachname.
+b812e8fe	Zustimmen und weiter
+7ceacdca	Datenschutzerklärung
+63fd8662	Deine Lehrkräfte und der Entwickler von Tamkeen sehen deinen Nachnamen und deine wöchentlichen Lernzahlen. Sonst nichts.
+d2008ef8	Was geteilt wird
+08ec055e	Meine Klassen
+d4a60293	Deine Lehrkraft gibt dir einen Klassencode. In einer Klasse sehen ihre Lehrkräfte deine Zahlen ab der Woche, in der du beigetreten bist.
+0dc19e83	Du teilst als {0}
+a7688f0d	Du bist noch in keiner Klasse.
+7d913ed8	Bei {0}
+a90b1c41	Die Lehrkräfte der Klasse sehen deine Zahlen dann nicht mehr. Mit dem Klassencode kannst du wieder beitreten.
+1636cd7d	Klassencode
+84f14acb	Du bist jetzt in {0}.
+f2d20c13	Was du teilst, wenn du weitermachst
+140b3e11	Dein Nachname und deine DLI-Sprache
+bca6292f	Deine wöchentlichen Lernzahlen: Lerntage, Minuten mit Karteikarten, Wiederholungen, wie viele du gewusst hast, neue Wörter und bekannte Wörter
+a9faec61	Wer es sieht
+e48192b5	Der Entwickler von Tamkeen
+ef2be630	Die Lehrkräfte der Klassen, denen du beitrittst
+3d4549dd	Nie geteilt: deine Wörter, deine Bibliothek, deine Aufnahmen oder irgendetwas anderes, das du lernst.
+8e6f9549	Du kannst jederzeit hier in den Einstellungen aufhören. Was geteilt wurde, wird dann gelöscht, und die DLI-Inhalte werden wieder gesperrt.
+adec36a8	Nachname
+38db13be	DLI-Sprache
+74720f49	Geteilt seit
+22c5eafa	Deine Wochenzahlen
+6a31d392	Genau das, was deine Lehrkräfte und der Entwickler von Tamkeen sehen. Eine Lehrkraft sieht sie ab der Woche, in der du ihrer Klasse beigetreten bist.
+666cd34b	Nachnamen ändern
+0e45aee6	Teilen beenden
+c288737b	Noch nichts. Deine erste Woche erscheint hier, sobald du ein paar Karteikarten wiederholt hast.
+464127fb	Die oberste Zeile ist diese Woche bis jetzt.
+c2d82849	Deine Lehrkräfte sehen dich jetzt als {0}.
+9210ff4b	Teilen beenden?
+ab278b8b	Dein Nachname, deine Klassen und deine Wochenzahlen werden jetzt online gelöscht. Die DLI-Inhalte sind auf allen deinen Geräten gesperrt, bis du wieder teilst. Was schon in deiner Bibliothek ist, bleibt.
+c2bcd564	Teilen beendet. Was geteilt wurde, ist gelöscht.
+7b72883e	Diese Woche
+a4959fc4	4 Wochen
+cd1bbc78	12 Wochen
+76c1ed93	Letzte Woche
+93a527fe	Vor {0} Wochen
+dd2ce2e2	Kopiert.
+42b32794	Studierende
+96c6e32e	Zuletzt gelernt
+456f2901	Deine Notiz (bleibt auf diesem Gerät, wird nie gesendet)
+a3fe1bf4	In dieser Klasse seit
+9bd01ef1	Noch keine Zahlen. Sie kommen, sobald bei geöffneter App Karteikarten wiederholt wurden.
+ef452b78	Studierende geben ihn unter Einstellungen → DLI-Studierende ein.
+041eb889	Code für eine weitere Lehrkraft
+c7d0501b	Eine Lehrkraft gibt ihn unter „Ich unterrichte am DLI“ ein.
+c057e571	1 Studierende/r
+5b895f42	{0} Studierende
+c799c91e	Noch keine Studierenden. Gib ihnen den Klassencode: Sie treten unter Einstellungen → DLI-Studierende bei.
+f18f49a5	Aus der Klasse entfernen
+0153fc22	{0} aus der Klasse entfernen?
+3485db47	Du siehst die Zahlen dann nicht mehr. Mit dem Klassencode ist ein erneuter Beitritt möglich.
+7fe3069f	Minuten sind die Zeit mit Karteikarten. Tippe auf einen Namen, um die Wochen zu sehen; tippe auf eine Überschrift, um zu sortieren.
+b00b4cb7	Neue Codes
+68cd5b9d	Klasse verlassen
+dc7cdd05	Klasse löschen
+2f6f8907	Klasse umbenennen
+59d7bbe0	Name der Klasse
+7a7e15d5	Neue Codes für diese Klasse erstellen?
+eca00d05	Die alten Codes funktionieren dann nicht mehr. Alle, die schon in der Klasse sind, bleiben.
+e5900940	Du siehst die Studierenden der Klasse dann nicht mehr. Bist du die einzige Lehrkraft, wird die Klasse geschlossen.
+4c92d153	{0} löschen?
+039b0269	Die Klasse wird für alle Lehrkräfte und Studierenden darin geschlossen. Die eigenen Einträge der Studierenden bleiben.
+02e954ed	Alle DLI-Studierenden
+fcfac3ef	Studierende
+f2604f9b	Lehrkräfte
+ed1846af	Klassen
+89b86ab0	Sprache
+56488c32	Alle Sprachen
+341576bd	Alle Klassen
+adc18228	In keiner Klasse
+e6c36594	Noch keine DLI-Studierenden. Sie erscheinen hier, sobald sie unter Einstellungen → DLI-Studierende dem Teilen zustimmen.
+920ba1a9	Keine passenden Studierenden.
+41ff354b	Klasse
+eef6f0b4	Diesen DLI-Eintrag löschen
+3cb75d51	DLI-Eintrag von {0} löschen?
+736fd85f	Nachname, Klassen und Wochenzahlen werden gelöscht. Die DLI-Inhalte bleiben gesperrt, bis wieder geteilt wird.
+dd41ae4c	Für eine Tabelle kopieren
+a8af98f0	.csv herunterladen
+3f346726	Kopiert. Füge es in Excel oder Google Sheets ein.
+9239b80c	Die Tabelle hat für alle Studierenden je eine Zeile pro erfasster Woche, um sie neben deine Noten zu legen.
+6994d113	Lehrkraft-Code
+5a6a56c9	Gib ihn den DLI-Lehrkräften. Wer ihn eingibt, kann Klassen erstellen und sieht nur die Studierenden, die diesen beitreten.
+3e4cb409	Neuen Lehrkraft-Code erstellen
+105c8877	Neuen Lehrkraft-Code erstellen?
+c47b8500	Der alte Code funktioniert dann nicht mehr. Lehrkräfte, die ihn schon benutzt haben, bleiben Lehrkräfte.
+6499c7af	Neuer Code
+afa46df2	Noch keine Lehrkräfte.
+d2ac35cc	Lehrkraft noch ohne Namen
+156b8bc7	1 Klasse, seit {0}
+38f8898f	{0} Klassen, seit {1}
+d3573a52	Diese Lehrkraft entfernen?
+96879738	Sie verlässt ihre Klassen und sieht keine Studierenden mehr. Eine Klasse ohne Lehrkraft wird geschlossen.
+1de8e058	Ich unterrichte am DLI
+5f01a35c	Klassen erstellen und verfolgen, wie deine Studierenden üben
+de13db19	Melde dich mit deinem Google-Konto an und gib dann den Lehrkraft-Code ein, den du bekommen hast.
+b0eb67fd	Du kannst jetzt Klassen erstellen.
+64ddb22c	Dieses Konto ist jetzt Betreiber von Tamkeen für das DLI.
+8102267b	Du unterrichtest jetzt auch {0}.
+604e661a	Der Code, den du von Tamkeen bekommen hast. Damit erstellst du Klassen und siehst die Studierenden, die ihnen beitreten: ihren Nachnamen und ihre wöchentlichen Lernzahlen, nie ihre Wörter.
+3c7d374f	Der Name, den deine Studierenden sehen
+ed7a967c	Neue Klasse
+6540f856	Klasse einer anderen Lehrkraft
+7859f995	Um eine Klasse gemeinsam zu unterrichten, gib den Code für eine weitere Lehrkraft ein, den dir die Lehrkraft der Klasse gegeben hat.
+9d4af690	Gespeichert.
+9b6205e5	Noch keine Klassen. Erstelle eine und gib deinen Studierenden dann den Code.
+4ba106e5	Code {0}
+4ef68935	Klasse benennen
+994800f6	Klasse erstellen
+d7d648e6	Betreiber von Tamkeen
+ed14cf7c	Alle, die teilen, nach Sprache und Klasse, mit einer Kopie für eine Tabelle
+467eb5d9	Für Studierende und Lehrkräfte am Defense Language Institute.
+4e6edca3	Dieser Name geht nicht. Verwende Buchstaben, höchstens 40.
+d86fe7c0	Wähle zuerst deine DLI-Sprache.
+4d7c3f76	Gib zuerst deinen Lehrkraft-Code ein.
+1772cc1d	Das ist keine deiner Klassen.
+bcfb2123	Das kann nur der Betreiber von Tamkeen.
+4fe4b72c	Du hast schon 20 Klassen. Lösche zuerst eine.
+64415d71	Die Woche konnte nicht gespeichert werden.
+5a352840	DLI-Klassen sind noch nicht eingeschaltet. Versuch es später noch einmal.
+6a3e65a6	Melde dich zuerst an.
+5746f75a	Das hat nicht funktioniert. Versuch es gleich noch einmal.
+df0954ae	% gewusst
+68626328	Klasse {0} verlassen?
+d3130c44	Code angenommen. Sieh unten unter „Ich unterrichte am DLI“ nach.

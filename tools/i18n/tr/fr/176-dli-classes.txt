@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Encore une étape pour l'ouvrir
+fd197d1b	Encore une étape ci-dessous, puis votre contenu DLI s'ouvre.
+f6bb0f46	Jours
+092f99ea	Minutes
+27481360	Nouveaux mots
+62f0f1bc	Semaine du
+88cd30c1	Ce code n'est pas le bon. Vérifiez-le et réessayez.
+27be8b25	Trop de codes erronés aujourd'hui. Réessayez demain.
+3e084cdd	Cette classe est complète.
+096ea37c	C'est un code de classe. Terminez d'abord l'étape de partage, puis rejoignez la classe.
+d872af15	C'est un code pour les enseignants. Saisissez d'abord votre code enseignant.
+a9123adf	Encore une étape
+ffcfef58	Le contenu DLI est réservé aux étudiants du DLI : il vous faut donc vous connecter et dire qui vous êtes. Connectez-vous avec votre compte Google pour continuer.
+43bcb2c6	Votre nom de famille
+ea8c542d	Le nom sous lequel vos enseignants du DLI vous connaissent. Nom de famille seulement.
+b812e8fe	Accepter et continuer
+7ceacdca	Politique de confidentialité
+63fd8662	Vos enseignants et le développeur de Tamkeen voient votre nom de famille et vos chiffres d'étude hebdomadaires. Rien d'autre.
+d2008ef8	Ce qui est partagé
+08ec055e	Mes classes
+d4a60293	Votre enseignant vous donne un code de classe. Dans une classe, ses enseignants voient vos chiffres à partir de la semaine où vous l'avez rejointe.
+0dc19e83	Partage sous le nom {0}
+a7688f0d	Vous n'êtes encore dans aucune classe.
+7d913ed8	Avec {0}
+a90b1c41	Ses enseignants ne voient plus vos chiffres. Vous pouvez la rejoindre à nouveau avec le code de classe.
+1636cd7d	Code de classe
+84f14acb	Vous avez rejoint {0}.
+f2d20c13	Ce que vous partagez en continuant
+140b3e11	Votre nom de famille et votre langue au DLI
+bca6292f	Vos chiffres d'étude hebdomadaires : jours étudiés, minutes sur les cartes, révisions, combien vous en avez retenu, nouveaux mots et mots connus
+a9faec61	Qui le voit
+e48192b5	Le développeur de Tamkeen
+ef2be630	Les enseignants des classes que vous rejoignez
+3d4549dd	Jamais partagés : vos mots, votre bibliothèque, vos enregistrements ou quoi que ce soit d'autre que vous étudiez.
+8e6f9549	Vous pouvez arrêter à tout moment ici, dans les Réglages. Ce qui a été partagé est alors supprimé, et le contenu DLI est de nouveau verrouillé.
+adec36a8	Nom de famille
+38db13be	Langue au DLI
+74720f49	Partage depuis le
+22c5eafa	Vos chiffres hebdomadaires
+6a31d392	Exactement ce que voient vos enseignants et le développeur de Tamkeen. Un enseignant les voit à partir de la semaine où vous avez rejoint sa classe.
+666cd34b	Modifier le nom de famille
+0e45aee6	Arrêter le partage
+c288737b	Rien pour l'instant. Votre première semaine s'affichera ici une fois que vous aurez révisé quelques cartes.
+464127fb	La première ligne est cette semaine, pour l'instant.
+c2d82849	Vos enseignants vous voient maintenant sous le nom {0}.
+9210ff4b	Arrêter le partage ?
+ab278b8b	Votre nom de famille, vos classes et vos chiffres hebdomadaires sont supprimés en ligne dès maintenant. Le contenu DLI est verrouillé sur tous vos appareils jusqu'à ce que vous partagiez à nouveau. Ce qui a déjà été ajouté à votre bibliothèque reste.
+c2bcd564	Partage arrêté. Ce qui avait été partagé a été supprimé.
+7b72883e	Cette semaine
+a4959fc4	4 semaines
+cd1bbc78	12 semaines
+76c1ed93	La semaine dernière
+93a527fe	Il y a {0} semaines
+dd2ce2e2	Copié.
+42b32794	Étudiant
+96c6e32e	Dernière activité
+456f2901	Votre note (reste sur cet appareil, jamais envoyée)
+a3fe1bf4	Dans cette classe depuis le
+9bd01ef1	Pas encore de chiffres. Ils arrivent une fois que l'étudiant a révisé des cartes avec l'application ouverte.
+ef452b78	Les étudiants le saisissent dans Réglages → Étudiants du DLI.
+041eb889	Code pour un autre enseignant
+c7d0501b	Un enseignant le saisit sous « Je suis enseignant au DLI ».
+c057e571	1 étudiant
+5b895f42	{0} étudiants
+c799c91e	Pas encore d'étudiants. Donnez-leur le code de classe : ils rejoignent la classe dans Réglages → Étudiants du DLI.
+f18f49a5	Retirer de la classe
+0153fc22	Retirer {0} de la classe ?
+3485db47	Vous ne voyez plus ses chiffres. L'étudiant peut rejoindre la classe à nouveau avec le code de classe.
+7fe3069f	Les minutes sont le temps passé sur les cartes. Touchez un étudiant pour voir ses semaines ; touchez un en-tête pour trier.
+b00b4cb7	Nouveaux codes
+68cd5b9d	Quitter la classe
+dc7cdd05	Supprimer la classe
+2f6f8907	Renommer la classe
+59d7bbe0	Nom de la classe
+7a7e15d5	Créer de nouveaux codes pour cette classe ?
+eca00d05	Les anciens codes ne fonctionnent plus. Tous ceux qui sont déjà dans la classe y restent.
+e5900940	Vous ne voyez plus ses étudiants. Si vous êtes son seul enseignant, la classe est fermée.
+4c92d153	Supprimer {0} ?
+039b0269	La classe est fermée pour tous ses enseignants et étudiants. Les dossiers des étudiants, eux, restent.
+02e954ed	Tous les étudiants du DLI
+fcfac3ef	Étudiants
+f2604f9b	Enseignants
+ed1846af	Classes
+89b86ab0	Langue
+56488c32	Toutes les langues
+341576bd	Toutes les classes
+adc18228	Sans classe
+e6c36594	Pas encore d'étudiants du DLI. Ils apparaissent ici dès qu'ils acceptent de partager dans Réglages → Étudiants du DLI.
+920ba1a9	Aucun étudiant ne correspond.
+41ff354b	Classe
+eef6f0b4	Supprimer le dossier DLI de cet étudiant
+3cb75d51	Supprimer le dossier DLI de {0} ?
+736fd85f	Son nom de famille, ses classes et ses chiffres hebdomadaires sont supprimés. Son contenu DLI est verrouillé jusqu'à ce qu'il partage à nouveau.
+dd41ae4c	Copier pour un tableur
+a8af98f0	Télécharger le .csv
+3f346726	Copié. Collez-le dans Excel ou Google Sheets.
+9239b80c	Dans le tableur, il y a une ligne par étudiant et par semaine enregistrée, à mettre à côté de vos notes.
+6994d113	Code enseignant
+5a6a56c9	Donnez-le aux enseignants du DLI. Toute personne qui le saisit peut créer des classes ; elle ne voit que les étudiants qui les rejoignent.
+3e4cb409	Créer un nouveau code enseignant
+105c8877	Créer un nouveau code enseignant ?
+c47b8500	L'ancien code ne fonctionne plus. Les enseignants qui l'ont déjà utilisé restent enseignants.
+6499c7af	Nouveau code
+afa46df2	Pas encore d'enseignants.
+d2ac35cc	Un enseignant encore sans nom
+156b8bc7	1 classe, depuis le {0}
+38f8898f	{0} classes, depuis le {1}
+d3573a52	Retirer cet enseignant ?
+96879738	Il quitte ses classes et ne voit plus les étudiants. Une classe qui n'a plus d'enseignant est fermée.
+1de8e058	Je suis enseignant au DLI
+5f01a35c	Créez des classes et suivez l'entraînement de vos étudiants
+de13db19	Connectez-vous avec votre compte Google, puis saisissez le code enseignant qu'on vous a donné.
+b0eb67fd	Vous pouvez maintenant créer des classes.
+64ddb22c	Ce compte est maintenant celui du propriétaire de Tamkeen pour le DLI.
+8102267b	Vous enseignez maintenant aussi dans {0}.
+604e661a	Le code que Tamkeen vous a donné. Il vous permet de créer des classes et de voir les étudiants qui les rejoignent : leur nom de famille et leurs chiffres d'étude hebdomadaires, jamais leurs mots.
+3c7d374f	Le nom que voient vos étudiants
+ed7a967c	Nouvelle classe
+6540f856	La classe d'un autre enseignant
+7859f995	Pour enseigner dans une classe à plusieurs, saisissez le code pour un autre enseignant que son enseignant vous a donné.
+9d4af690	Enregistré.
+9b6205e5	Pas encore de classes. Créez-en une, puis donnez son code à vos étudiants.
+4ba106e5	code {0}
+4ef68935	Nommer la classe
+994800f6	Créer la classe
+d7d648e6	Propriétaire de Tamkeen
+ed14cf7c	Tous ceux qui partagent, par langue et par classe, avec une copie pour un tableur
+467eb5d9	Pour les étudiants et les enseignants du Defense Language Institute.
+4e6edca3	Ce nom ne peut pas être utilisé. Utilisez des lettres, 40 au maximum.
+d86fe7c0	Choisissez d'abord votre langue au DLI.
+4d7c3f76	Saisissez d'abord votre code enseignant.
+1772cc1d	Ce n'est pas l'une de vos classes.
+bcfb2123	Seul le propriétaire de Tamkeen peut faire cela.
+4fe4b72c	Vous avez déjà 20 classes. Supprimez-en une d'abord.
+64415d71	Cette semaine-là n'a pas pu être enregistrée.
+5a352840	Les classes DLI ne sont pas encore activées. Réessayez plus tard.
+6a3e65a6	Connectez-vous d'abord.
+5746f75a	Ça n'a pas marché. Réessayez dans un instant.
+df0954ae	% retenu
+68626328	Quitter la classe {0} ?
+d3130c44	Code accepté. Voyez « Je suis enseignant au DLI » ci-dessous.

@@ -8522,3 +8522,58 @@ chip sat centred under the top bar, which on a phone is the card's top edge (the
   buttons, the top bar or anything on the back: 412 x 915 (his phone), 360 x 520, 360 x 430 (crowded cards: the one-line
   chip), 1280 x 800, and Arabic at 412 x 915. No overlap in any case. Not checked on a real phone.
 - **Still crossing the card for a moment** (older than the rolls, left alone): the confetti dots of a right answer.
+
+## DLI classes: students share a last name and weekly numbers; teachers see their classes; the owner sees everyone (2026-11-14; main chat; database NOT applied)
+The owner's decisions (2026-11-14): teacher access by a code he hands out, checked by the database; teachers see study
+numbers only; students show by last name; sharing with him is REQUIRED to use DLI content (so DLI now needs the Google
+sign-in); grades are NOT kept in Tamkeen (he keeps them and uses the spreadsheet copy); two steps, a release after each:
+(1) classes and the progress view, DONE here; (2) assignments with due dates, NOT started.
+- **Database**: `supabase/v10-dli-classes.sql` (idempotent; works before or after v8 and v9; **the owner has NOT run
+  it**). Tables `dli_students` (last name, language, agreed_at, agreed_version), `dli_teachers` (name), `dli_classes`
+  (name, `code` 6 characters for students, `staff_code` CO + 8 for a second teacher), `dli_class_teachers`,
+  `dli_class_students`, `dli_weeks` (one row per student per Monday). All reference `profiles` (or the student / teacher
+  row) with `on delete cascade`, so stopping sharing, being removed as a teacher or deleting the account clears them. Row-level security
+  on, **no policies**: everything goes through `security definer` functions (`dli_me`, `dli_register`,
+  `dli_unregister`, `dli_report_week`, `dli_use_code`, `dli_set_teacher_name`, `dli_create_class`,
+  `dli_rename_class`, `dli_new_codes`, `dli_delete_class`, `dli_leave_class`, `dli_remove_student`,
+  `dli_class_report`, `dli_owner_report`, `dli_owner_new_teacher_code`, `dli_owner_remove_teacher`,
+  `dli_owner_remove_student`). Codes are in `private.dli_config`; the owner is `private.dli_owners`. A trigger closes a
+  class when its last teacher goes. Parameters named like columns are copied into `v_...` variables first (plpgsql
+  would otherwise call the name ambiguous at run time).
+- **Becoming the owner**: the first run of the SQL file shows a one-time **owner code** in its result row (kept only as a
+  SHA-256 fingerprint, good for 7 days, single use). He types it in Settings → DLI students → I'm a DLI teacher. Nothing
+  about him is in the repository. Re-running the file while there is no owner makes a fresh code. The **teacher code**
+  (TCH + 12) is made on first run; he reads and replaces it on the "All DLI students" page.
+- **Self-test**: `supabase/test_rls_dli.sql` (ends in an error on purpose; must say `bad=[ none]`). NOT run: there is no
+  Postgres on this machine (Docker Desktop is installed but was not running). The SQL has therefore never executed.
+- **App**: `web/js/dliweeks.js` (pure: a week's numbers from `/vocab` + `/reviews`, the tables' sums, the spreadsheet rows,
+  and the checks on everything that arrives), `web/js/dliclass.js` (the calls; the gate; sending the numbers),
+  `web/js/components/dlishare.js` (the student's step, classes, "What is shared"), `web/js/components/dliteach.js` (the
+  teacher's card, a class, the owner's page). Wired into `dlicard.js`, `dlipanel.js` (the step shows in place of the
+  content), `dlicontent.js` (nothing is added before the step; `startDli` also refreshes and sends the numbers after each
+  sync), both Settings pages, `settingsui.js` FINDS (`dliteacher`), `mobile/scripts/build-www.mjs` SHARED.
+- **The gate** (`dliclass.js gate`): "closed" (no password / language), "share" (the step is still to do) or "open".
+  Device-only state in localStorage, not settings (so one device signing out doesn't lock the others through sync):
+  `tamkeenDliShare` (sharing is on for this account), `tamkeenDliService` = "on" once the database was found to
+  have the DLI functions ("off" when it answered PGRST202; asked without signing in too, where a missing function and
+  a refused one answer differently): **until the owner runs the SQL, and on a device that hasn't been online since,
+  the content opens exactly as before and both new parts hide**.
+  Offline never locks (`sessionState` answers "unknown"); signing out (`social.disconnect`) and deleting the account do.
+  **This gate is in the app**: the encrypted files are public and the key comes from the password alone, so an old
+  version of the app, or changed code, still opens the content without sharing. Making it airtight would need new
+  content sealed with a key the database hands only to registered students (not built).
+- **The numbers**: only while the DLI language is the one being studied (`/vocab` answers for that language). Sent
+  when they change, at most every 5 minutes, this week and (once, after it ended) last week; never weeks before the
+  student agreed. Minutes are flashcard looks (60 s a look at most), so listening and reading don't count yet.
+- **Checked** in the browser pane against the desktop server on a fresh test folder never signed in to Drive, with the
+  Supabase client's `rpc` and `auth.getSession` replaced by a stand-in that plays the SQL in memory: the sign-in step, the
+  last-name form, "Sharing as", joining a class by code (typed in small letters with a dash), the teacher code, a new
+  class, the class table (sort, a student's weeks), the owner code, the owner's page and its spreadsheet copy, "What is
+  shared", Stop sharing (the Library's DLI tab then shows the step), the service switched off and on again, and a real
+  week sent from three test words. NOT checked: against the real database, on a phone, the web app's Google hop.
+- **Owner's steps**: (1) run `supabase/v10-dli-classes.sql` in the Supabase SQL editor, copy the owner code from the
+  result; (2) run `supabase/test_rls_dli.sql` and check `bad=[ none]`; (3) in Tamkeen, sign in, tick I'm a DLI teacher,
+  type the owner code; (4) hand the teacher code to teachers. He was told to check DLI's own rules on outside apps and
+  named students before collecting.
+- **Follow-ups**: step 2 (assignments with due dates: a teacher assigns DLI deck chapters, students see them, the
+  report shows who finished); listening and reading time in the numbers; server-held key for new content.

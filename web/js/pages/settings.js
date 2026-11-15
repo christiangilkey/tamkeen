@@ -9,6 +9,7 @@ import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
 import { dliCard, dliSummary } from "../components/dlicard.js";
+import { teachCard } from "../components/dliteach.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
@@ -98,7 +99,8 @@ function home(view, status) {
 const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
 
 // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
-function dliSection(body) { return [dliCard(body)]; }
+// and under it "I'm a DLI teacher": classes and the students' weekly numbers (components/dliteach.js)
+function dliSection(body) { return [dliCard(body), teachCard(body)]; }
 
 function languages(body, status) {
   const s = status.settings;

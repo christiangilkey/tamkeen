@@ -3,13 +3,17 @@
 // learner's podcasts with every episode transcribed (added by themselves on unlocking; "Add to my
 // podcasts" brings one back after it was removed); vocabulary decks are in the Vocab tab, a folder per chapter;
 // other files open in a box. Until there is material
-// for a language it says it is coming soon. Shared by the computer and the phone.
+// for a language it says it is coming soon. Before any of it, a student says who they are (the sharing step,
+// components/dlishare.js): until then the step shows here in place of the content.
+// Shared by the computer and the phone.
 
 import { api, esc, h, state, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { contentFor, deckMarks, dliLanguageName, dliState } from "../dli.js";
 import { addPodcast, loadIndex, onDeckProgress, openFile, runDli } from "../dlicontent.js";
+import { gate, refresh } from "../dliclass.js";
+import { sharePart } from "./dlishare.js";
 import { openModal } from "./modal.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -163,8 +167,20 @@ export function dliPanel(el, language) {
     }
   }
 
-  loadIndex(st.key).then(async (index) => {
-    if (!alive) return;
+  /** The sharing step, in place of the content, until it is done. */
+  function step() {
+    bodyEl.innerHTML = "";
+    const card = h(`<div class="dli-soon dli-step"><div class="dli-step-part"></div></div>`);
+    bodyEl.append(card);
+    cleanups.push(sharePart(card.querySelector(".dli-step-part"), { onChange: () => {
+      if (!alive || gate(settings()) !== "open") return;
+      runDli();
+      content();
+    } }));
+  }
+
+  const content = () => loadIndex(st.key).then(async (index) => {
+    if (!alive || gate(settings()) !== "open") return; // (asking meanwhile found the step is still to do: it shows instead)
     const items = contentFor(index, language);
     if (!items.length) { soon(); return; }
     bodyEl.innerHTML = "";
@@ -193,7 +209,7 @@ export function dliPanel(el, language) {
       bodyEl.append(sec);
     }
   }).catch((e) => {
-    if (!alive) return;
+    if (!alive || gate(settings()) !== "open") return;
     console.warn("DLI content", e);
     bodyEl.innerHTML = "";
     const p = h(`<div class="dli-soon"><p></p><a class="btn" href="#/settings?s=dli"></a></div>`);
@@ -201,6 +217,11 @@ export function dliPanel(el, language) {
     p.querySelector("a").textContent = t("Open Settings");
     bodyEl.append(p);
   });
+
+  // Ask the online service first (a student who agreed on another device is let straight in; one whose
+  // record is gone is asked again). Offline, what this device last knew stands.
+  if (gate(settings()) === "open") { content(); refresh().then(() => { if (alive && gate(settings()) === "share") step(); }); }
+  else refresh().then(() => { if (alive) (gate(settings()) === "open" ? content() : step()); });
 
   return () => { alive = false; urls.forEach((u) => URL.revokeObjectURL(u)); cleanups.forEach((fn) => fn()); };
 }
@@ -219,6 +240,10 @@ if (typeof document !== "undefined" && !document.getElementById("dli-panel-css")
     .dli-soon { text-align: center; padding: 28px 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border);
       display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .dli-soon p { margin: 0; color: var(--muted); font-size: 15px; max-width: 420px; }
+    .dli-step { text-align: start; align-items: stretch; }
+    .dli-step-part { width: 100%; max-width: 460px; margin: 0 auto; }
+    .dli-step .dls-terms p { color: var(--text); font-size: 14px; max-width: none; }
+    .dli-step .set-hint { max-width: none; font-size: 14px; }
     .dli-sec { margin-bottom: 16px; }
     .dli-sec h3 { font-size: 15px; margin: 0 0 8px; color: var(--muted); }
     .dli-list { border-radius: 16px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; }

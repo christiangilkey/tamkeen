@@ -1,0 +1,142 @@
+# DLI classes: the sharing step, classes, the teacher's and the owner's screens (dlishare.js, dliteach.js, dliclass.js).
+546ff74e	Un paso más para abrirlo
+fd197d1b	Un paso más aquí abajo y se abrirá tu contenido del DLI.
+f6bb0f46	Días
+092f99ea	Minutos
+27481360	Palabras nuevas
+62f0f1bc	Semana del
+88cd30c1	Ese código no es correcto. Revísalo e inténtalo de nuevo.
+27be8b25	Demasiados códigos incorrectos hoy. Inténtalo de nuevo mañana.
+3e084cdd	Esa clase está llena.
+096ea37c	Ese es un código de clase. Primero termina el paso de compartir y luego únete a la clase.
+d872af15	Ese código es para profesores. Primero escribe tu código de profesor.
+a9123adf	Un paso más
+ffcfef58	El contenido del DLI es para estudiantes del DLI, así que te pide iniciar sesión y decir quién eres. Inicia sesión con tu cuenta de Google para continuar.
+43bcb2c6	Tu apellido
+ea8c542d	El nombre por el que te conocen tus profesores del DLI. Solo el apellido.
+b812e8fe	Aceptar y continuar
+7ceacdca	Política de privacidad
+63fd8662	Tus profesores y el desarrollador de Tamkeen ven tu apellido y tus cifras semanales de estudio. Nada más.
+d2008ef8	Qué se comparte
+08ec055e	Mis clases
+d4a60293	Tu profesor te da un código de clase. En una clase, sus profesores ven tus cifras desde la semana en que te uniste.
+0dc19e83	Compartes como {0}
+a7688f0d	Todavía no estás en ninguna clase.
+7d913ed8	Con {0}
+a90b1c41	Sus profesores dejan de ver tus cifras. Puedes volver a unirte con el código de clase.
+1636cd7d	Código de clase
+84f14acb	Ya estás en {0}.
+f2d20c13	Qué compartes al continuar
+140b3e11	Tu apellido y tu idioma del DLI
+bca6292f	Tus cifras semanales de estudio: días estudiados, minutos con las tarjetas, repasos, cuántas recordaste, palabras nuevas y palabras conocidas
+a9faec61	Quién lo ve
+e48192b5	El desarrollador de Tamkeen
+ef2be630	Los profesores de las clases a las que te unas
+3d4549dd	Nunca se comparten: tus palabras, tu biblioteca, tus grabaciones ni nada más de lo que estudias.
+8e6f9549	Puedes dejar de compartir cuando quieras, aquí en Ajustes. Entonces se borra lo compartido y el contenido del DLI vuelve a bloquearse.
+adec36a8	Apellido
+38db13be	Idioma del DLI
+74720f49	Compartiendo desde
+22c5eafa	Tus cifras semanales
+6a31d392	Exactamente lo que ven tus profesores y el desarrollador de Tamkeen. Un profesor las ve desde la semana en que te uniste a su clase.
+666cd34b	Cambiar apellido
+0e45aee6	Dejar de compartir
+c288737b	Aún nada. Tu primera semana aparecerá aquí cuando repases algunas tarjetas.
+464127fb	La primera fila es esta semana, hasta ahora.
+c2d82849	Ahora tus profesores te ven como {0}.
+9210ff4b	¿Dejar de compartir?
+ab278b8b	Tu apellido, tus clases y tus cifras semanales se borran ahora de internet. El contenido del DLI queda bloqueado en todos tus dispositivos hasta que vuelvas a compartir. Lo que ya se haya añadido a tu biblioteca se queda.
+c2bcd564	Has dejado de compartir. Lo que se compartió se ha borrado.
+7b72883e	Esta semana
+a4959fc4	4 semanas
+cd1bbc78	12 semanas
+76c1ed93	La semana pasada
+93a527fe	Hace {0} semanas
+dd2ce2e2	Copiado.
+42b32794	Estudiante
+96c6e32e	Último estudio
+456f2901	Tu nota (se queda en este dispositivo, nunca se envía)
+a3fe1bf4	En esta clase desde
+9bd01ef1	Aún no hay cifras. Llegan cuando el estudiante repasa tarjetas con la app abierta.
+ef452b78	Los estudiantes lo escriben en Ajustes → Estudiantes del DLI.
+041eb889	Código para otro profesor
+c7d0501b	Un profesor lo escribe en «Soy profesor del DLI».
+c057e571	1 estudiante
+5b895f42	{0} estudiantes
+c799c91e	Aún no hay estudiantes. Dales el código de clase: se unen en Ajustes → Estudiantes del DLI.
+f18f49a5	Quitar de la clase
+0153fc22	¿Quitar a {0} de la clase?
+3485db47	Dejas de ver sus cifras. Puede volver a unirse con el código de clase.
+7fe3069f	Los minutos son el tiempo con las tarjetas. Toca un estudiante para ver sus semanas; toca un encabezado para ordenar.
+b00b4cb7	Códigos nuevos
+68cd5b9d	Salir de la clase
+dc7cdd05	Borrar la clase
+2f6f8907	Cambiar el nombre de la clase
+59d7bbe0	Nombre de la clase
+7a7e15d5	¿Crear códigos nuevos para esta clase?
+eca00d05	Los códigos antiguos dejan de funcionar. Quienes ya están en la clase se quedan.
+e5900940	Dejas de ver a sus estudiantes. Si eres su único profesor, la clase se cierra.
+4c92d153	¿Borrar {0}?
+039b0269	La clase se cierra para todos sus profesores y estudiantes. Los registros de los estudiantes se conservan.
+02e954ed	Todos los estudiantes del DLI
+fcfac3ef	Estudiantes
+f2604f9b	Profesores
+ed1846af	Clases
+89b86ab0	Idioma
+56488c32	Todos los idiomas
+341576bd	Todas las clases
+adc18228	Sin clase
+e6c36594	Aún no hay estudiantes del DLI. Aparecen aquí cuando aceptan compartir en Ajustes → Estudiantes del DLI.
+920ba1a9	Ningún estudiante coincide.
+41ff354b	Clase
+eef6f0b4	Borrar el registro del DLI de este estudiante
+3cb75d51	¿Borrar el registro del DLI de {0}?
+736fd85f	Se borran su apellido, sus clases y sus cifras semanales. Su contenido del DLI se bloquea hasta que vuelva a compartir.
+dd41ae4c	Copiar para una hoja de cálculo
+a8af98f0	Descargar .csv
+3f346726	Copiado. Pégalo en Excel o Google Sheets.
+9239b80c	La hoja de cálculo tiene una fila por estudiante y por cada semana registrada, para ponerla junto a tus calificaciones.
+6994d113	Código de profesor
+5a6a56c9	Dáselo a los profesores del DLI. Quien lo escriba puede crear clases; solo ve a los estudiantes que se unen a ellas.
+3e4cb409	Crear un código de profesor nuevo
+105c8877	¿Crear un código de profesor nuevo?
+c47b8500	El código antiguo deja de funcionar. Los profesores que ya lo usaron siguen siendo profesores.
+6499c7af	Código nuevo
+afa46df2	Aún no hay profesores.
+d2ac35cc	Un profesor todavía sin nombre
+156b8bc7	1 clase, desde el {0}
+38f8898f	{0} clases, desde el {1}
+d3573a52	¿Quitar a este profesor?
+96879738	Sale de sus clases y deja de ver a los estudiantes. Una clase que se queda sin profesores se cierra.
+1de8e058	Soy profesor del DLI
+5f01a35c	Crea clases y sigue la práctica de tus estudiantes
+de13db19	Inicia sesión con tu cuenta de Google y luego escribe el código de profesor que te dieron.
+b0eb67fd	Ya puedes crear clases.
+64ddb22c	Esta cuenta es ahora la del propietario de Tamkeen para el DLI.
+8102267b	Ahora también eres profesor de {0}.
+604e661a	El código que te dio Tamkeen. Con él creas clases y ves a los estudiantes que se unen a ellas: su apellido y sus cifras semanales de estudio, nunca sus palabras.
+3c7d374f	El nombre que ven tus estudiantes
+ed7a967c	Clase nueva
+6540f856	La clase de otro profesor
+7859f995	Para dar una clase juntos, escribe el código para otro profesor que te dio su profesor.
+9d4af690	Guardado.
+9b6205e5	Aún no hay clases. Crea una y luego dales su código a tus estudiantes.
+4ba106e5	código {0}
+4ef68935	Ponle nombre a la clase
+994800f6	Crear la clase
+d7d648e6	Propietario de Tamkeen
+ed14cf7c	Todos los que comparten, por idioma y clase, con una copia para una hoja de cálculo
+467eb5d9	Para estudiantes y profesores del Defense Language Institute.
+4e6edca3	Ese nombre no se puede usar. Usa letras, 40 como máximo.
+d86fe7c0	Primero elige tu idioma del DLI.
+4d7c3f76	Primero escribe tu código de profesor.
+1772cc1d	Esa no es una de tus clases.
+bcfb2123	Solo el propietario de Tamkeen puede hacer eso.
+4fe4b72c	Ya tienes 20 clases. Primero borra una.
+64415d71	No se pudo guardar esa semana.
+5a352840	Las clases del DLI aún no están activadas. Inténtalo más tarde.
+6a3e65a6	Primero inicia sesión.
+5746f75a	Eso no funcionó. Inténtalo de nuevo en un momento.
+df0954ae	% recordadas
+68626328	¿Salir de la clase {0}?
+d3130c44	Código aceptado. Mira «Soy profesor del DLI» más abajo.

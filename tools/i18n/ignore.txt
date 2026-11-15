@@ -696,3 +696,6 @@ b90d6e31  # Egyptian basics
 164bff8f  # Iraqi basics
 b4cfe1f4  # a key's name (game/reveal.js), never on screen
 201f1a05  # This is only a part of the card's word… (mnemonic.js: told to the AI, not interface)
+f37f0591  # Week starting (dliweeks.js: a spreadsheet heading for the owner, never on screen)
+fc3f8727  # Days studied (dliweeks.js: a spreadsheet heading for the owner, never on screen)
+606d04ea  # Words saved (dliweeks.js: a spreadsheet heading for the owner, never on screen)

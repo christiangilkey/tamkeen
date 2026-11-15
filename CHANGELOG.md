@@ -14,6 +14,12 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** *(DLI)* **Classes for DLI teachers.** In Settings → DLI students, a teacher ticks **I'm a DLI teacher**, types the teacher code Tamkeen gave them and makes classes. Each class has a short code that students type to join. Opening a class shows every student's last name with their study numbers for this week, the last 4 weeks or the last 12: days studied, minutes on flashcards, reviews, how many were remembered, new words, words known and when they last studied. Tap a heading to sort by it, tap a student for their weeks. A class can have several teachers (a second code lets another teacher in), and a teacher can keep a private note on a student that never leaves their device. Teachers never see a student's words or library.
+- **Changed:** *(DLI)* **DLI content now asks who you are.** After the password there is one more step: sign in with Google, type your last name and agree to share it, with your weekly study numbers, with Tamkeen's developer and the teachers of the classes you join. The screen lists exactly what is shared and who sees it. **What is shared** shows your numbers as the others see them and lets you change your name; **Stop sharing** deletes them online at once and locks the DLI content again. Students who already use the DLI content are asked the next time they open it; what is already in their library stays. Being offline never locks anything.
+- **New:** *(DLI)* Students join a class with its code under **My classes** in Settings → DLI students, see who teaches it, and can leave it at any time.
+- **New:** *(owner)* **All DLI students**: for Tamkeen's owner, every DLI student who shares, by language and class, with the same weekly numbers, **Copy for a spreadsheet** (a row per student per week, to set beside grades), the teacher code with a button to replace it, and the list of teachers.
+- **Security:** Who may see a DLI student's last name and numbers is decided by the online database, not the app: a student their own, a teacher only the students of their own classes (from the week each joined), the owner everyone, anyone else nothing. Wrong codes are capped at 20 a day. The Privacy Policy has a new section, "DLI students and teachers".
+
 ## v0.53.0 — 2026-11-11
 
 - **Changed:** In Library → Courses, the **Basics** tab is now called **Words**.

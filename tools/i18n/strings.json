@@ -3570,6 +3570,11 @@
   "f": "web/js/components/dlicard.js"
  },
  {
+  "id": "546ff74e",
+  "k": "One more step to open it",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
   "id": "b3da7025",
   "k": "Unlocked",
   "f": "web/js/components/dlicard.js"
@@ -3637,6 +3642,11 @@
  {
   "id": "c5aedd6b",
   "k": "Choose your DLI language above to see its content.",
+  "f": "web/js/components/dlicard.js"
+ },
+ {
+  "id": "fd197d1b",
+  "k": "One more step below, then your DLI content opens.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -3768,6 +3778,691 @@
   "id": "3ff33014",
   "k": "The DLI content couldn't be opened. Unlock it again in Settings.",
   "f": "web/js/components/dlipanel.js"
+ },
+ {
+  "id": "f6bb0f46",
+  "k": "Days",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "092f99ea",
+  "k": "Minutes",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "b83c4cda",
+  "k": "Reviews",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "df0954ae",
+  "k": "% remembered",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "27481360",
+  "k": "New words",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "80263722",
+  "k": "Words known",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "62f0f1bc",
+  "k": "Week of",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "4a0b7281",
+  "k": "Sign in with Google",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "c66b2adc",
+  "k": "Signing in…",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "88cd30c1",
+  "k": "That code isn't right. Check it and try again.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "27be8b25",
+  "k": "Too many wrong codes today. Try again tomorrow.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "3e084cdd",
+  "k": "That class is full.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "096ea37c",
+  "k": "That's a class code. Finish the sharing step first, then join the class.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "d872af15",
+  "k": "That's a code for teachers. Enter your teacher code first.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "a9123adf",
+  "k": "One more step",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "ffcfef58",
+  "k": "DLI content is for DLI students, so it asks you to sign in and say who you are. Sign in with your Google account to go on.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "1d7a1d2e",
+  "k": "Couldn't reach the online service. Check your internet connection.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "43bcb2c6",
+  "k": "Your last name",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "ea8c542d",
+  "k": "The name your DLI teachers know you by. Last name only.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "b812e8fe",
+  "k": "Agree and continue",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "7ceacdca",
+  "k": "Privacy policy",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "63fd8662",
+  "k": "Your teachers and Tamkeen's developer see your last name and your weekly study numbers. Nothing else.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "d2008ef8",
+  "k": "What is shared",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "08ec055e",
+  "k": "My classes",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "d4a60293",
+  "k": "Your teacher gives you a class code. In a class, its teachers see your numbers from the week you joined.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "0dc19e83",
+  "k": "Sharing as {0}",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "a7688f0d",
+  "k": "You aren't in a class yet.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "7e3520a9",
+  "k": "Leave",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "7d913ed8",
+  "k": "With {0}",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "68626328",
+  "k": "Leave the class {0}?",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "a90b1c41",
+  "k": "Its teachers stop seeing your numbers. You can join again with the class code.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "1636cd7d",
+  "k": "Class code",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "e0d73143",
+  "k": "Join",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "84f14acb",
+  "k": "You're in {0}.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "d3130c44",
+  "k": "Code accepted. See “I'm a DLI teacher” below.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "f2d20c13",
+  "k": "What you share by going on",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "140b3e11",
+  "k": "Your last name and your DLI language",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "bca6292f",
+  "k": "Your weekly study numbers: days studied, minutes on flashcards, reviews, how many you remembered, new words and words known",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "a9faec61",
+  "k": "Who sees it",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "e48192b5",
+  "k": "Tamkeen's developer",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "ef2be630",
+  "k": "The teachers of the classes you join",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "3d4549dd",
+  "k": "Never shared: your words, your library, your recordings or anything else you study.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "8e6f9549",
+  "k": "You can stop at any time here in Settings. What was shared is then deleted, and the DLI content is locked again.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "adec36a8",
+  "k": "Last name",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "38db13be",
+  "k": "DLI language",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "74720f49",
+  "k": "Sharing since",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "22c5eafa",
+  "k": "Your weekly numbers",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "6a31d392",
+  "k": "Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "666cd34b",
+  "k": "Change last name",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "0e45aee6",
+  "k": "Stop sharing",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "c288737b",
+  "k": "Nothing yet. Your first week shows here after you review some flashcards.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "464127fb",
+  "k": "The top row is this week so far.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "c2d82849",
+  "k": "Your teachers now see you as {0}.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "9210ff4b",
+  "k": "Stop sharing?",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "ab278b8b",
+  "k": "Your last name, your classes and your weekly numbers are deleted online now. The DLI content is locked on all your devices until you share again. Anything already added to your library stays.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "c2bcd564",
+  "k": "Sharing stopped. What was shared has been deleted.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "7b72883e",
+  "k": "This week",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "a4959fc4",
+  "k": "4 weeks",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "cd1bbc78",
+  "k": "12 weeks",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "76c1ed93",
+  "k": "Last week",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "93a527fe",
+  "k": "{0} weeks ago",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "af74f7c5",
+  "k": "Copy",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "dd2ce2e2",
+  "k": "Copied.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "42b32794",
+  "k": "Student",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "96c6e32e",
+  "k": "Last studied",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "456f2901",
+  "k": "Your note (stays on this device, never sent)",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "a3fe1bf4",
+  "k": "In this class since",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "9bd01ef1",
+  "k": "No numbers yet. They arrive after the student reviews flashcards with the app open.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "ef452b78",
+  "k": "Students type it in Settings → DLI students.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "041eb889",
+  "k": "Code for another teacher",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c7d0501b",
+  "k": "A teacher types it under “I'm a DLI teacher”.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c057e571",
+  "k": "1 student",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "5b895f42",
+  "k": "{0} students",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c799c91e",
+  "k": "No students yet. Give them the class code: they join in Settings → DLI students.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "f18f49a5",
+  "k": "Remove from the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "0153fc22",
+  "k": "Remove {0} from the class?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3485db47",
+  "k": "You stop seeing their numbers. They can join again with the class code.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "7fe3069f",
+  "k": "Minutes are time on flashcards. Tap a student for their weeks; tap a heading to sort.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "d3f4cb89",
+  "k": "Rename",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "b00b4cb7",
+  "k": "New codes",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "68cd5b9d",
+  "k": "Leave the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "dc7cdd05",
+  "k": "Delete the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "2f6f8907",
+  "k": "Rename the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "59d7bbe0",
+  "k": "Class name",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "7a7e15d5",
+  "k": "Make new codes for this class?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "eca00d05",
+  "k": "The old codes stop working. Everyone already in the class stays.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "e5900940",
+  "k": "You stop seeing its students. If you are its only teacher, the class closes.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "4c92d153",
+  "k": "Delete {0}?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "039b0269",
+  "k": "The class closes for every teacher and student in it. The students' own records stay.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "02e954ed",
+  "k": "All DLI students",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "fcfac3ef",
+  "k": "Students",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "f2604f9b",
+  "k": "Teachers",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "ed1846af",
+  "k": "Classes",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "89b86ab0",
+  "k": "Language",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "56488c32",
+  "k": "All languages",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "341576bd",
+  "k": "All classes",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "adc18228",
+  "k": "Not in a class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "e6c36594",
+  "k": "No DLI students yet. They show here once they agree to share in Settings → DLI students.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "920ba1a9",
+  "k": "No students match.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "41ff354b",
+  "k": "Class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "eef6f0b4",
+  "k": "Delete this student's DLI record",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3cb75d51",
+  "k": "Delete {0}'s DLI record?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "736fd85f",
+  "k": "Their last name, classes and weekly numbers are deleted. Their DLI content locks until they share again.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "dd41ae4c",
+  "k": "Copy for a spreadsheet",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "a8af98f0",
+  "k": "Download .csv",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3f346726",
+  "k": "Copied. Paste it into Excel or Google Sheets.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "9239b80c",
+  "k": "The spreadsheet has a row for each student for each week on record, to set beside your grades.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "6994d113",
+  "k": "Teacher code",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "5a6a56c9",
+  "k": "Give it to DLI teachers. Whoever types it can make classes; they see only the students who join them.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3e4cb409",
+  "k": "Make a new teacher code",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "105c8877",
+  "k": "Make a new teacher code?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c47b8500",
+  "k": "The old code stops working. Teachers who already used it stay teachers.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "6499c7af",
+  "k": "New code",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "afa46df2",
+  "k": "No teachers yet.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "d2ac35cc",
+  "k": "A teacher with no name yet",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "156b8bc7",
+  "k": "1 class, since {0}",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "38f8898f",
+  "k": "{0} classes, since {1}",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "d3573a52",
+  "k": "Remove this teacher?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "96879738",
+  "k": "They leave their classes and stop seeing students. A class with no teacher left closes.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "1de8e058",
+  "k": "I'm a DLI teacher",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "5f01a35c",
+  "k": "Make classes and follow your students' practice",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "de13db19",
+  "k": "Sign in with your Google account, then enter the teacher code you were given.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "b0eb67fd",
+  "k": "You can now make classes.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "64ddb22c",
+  "k": "This account is now Tamkeen's owner for DLI.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "8102267b",
+  "k": "You now teach {0} too.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "604e661a",
+  "k": "The code Tamkeen gave you. With it you make classes and see the students who join them: their last name and weekly study numbers, never their words.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3c7d374f",
+  "k": "The name your students see",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "ed7a967c",
+  "k": "New class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "6540f856",
+  "k": "Another teacher's class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "7859f995",
+  "k": "To teach a class together, type the code for another teacher that its teacher gave you.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "9d4af690",
+  "k": "Saved.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "9b6205e5",
+  "k": "No classes yet. Make one, then give your students its code.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "4ba106e5",
+  "k": "code {0}",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "4ef68935",
+  "k": "Name the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "994800f6",
+  "k": "Make the class",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "d7d648e6",
+  "k": "Tamkeen's owner",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "ed14cf7c",
+  "k": "Everyone who shares, by language and class, with a copy for a spreadsheet",
+  "f": "web/js/components/dliteach.js"
  },
  {
   "id": "70afe9ef",
@@ -5785,8 +6480,8 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "358337dd",
-  "k": "Unlock your course from the Defense Language Institute.",
+  "id": "467eb5d9",
+  "k": "For students and teachers at the Defense Language Institute.",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -7875,11 +8570,6 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "7e3520a9",
-  "k": "Leave",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
   "id": "c420e532",
   "k": "Grammar notes",
   "f": "web/js/components/wordeditor.js"
@@ -8505,6 +9195,56 @@
   "f": "web/js/dli.js"
  },
  {
+  "id": "4e6edca3",
+  "k": "That name can't be used. Use letters, at most 40 of them.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "d86fe7c0",
+  "k": "Choose your DLI language first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "4d7c3f76",
+  "k": "Enter your teacher code first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "1772cc1d",
+  "k": "That isn't one of your classes.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "bcfb2123",
+  "k": "Only Tamkeen's owner can do that.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "4fe4b72c",
+  "k": "You have 20 classes already. Delete one first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "64415d71",
+  "k": "That week couldn't be saved.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "5a352840",
+  "k": "DLI classes aren't switched on yet. Try again later.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "6a3e65a6",
+  "k": "Sign in first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "5746f75a",
+  "k": "That didn't work. Try again in a moment.",
+  "f": "web/js/dliclass.js"
+ },
+ {
   "id": "ea5a129e",
   "k": "The DLI file couldn't be read (HTTP {0}).",
   "f": "web/js/dlicontent.js"
@@ -8528,6 +9268,11 @@
   "id": "b5ce3290",
   "k": "{0} more words from {1} are in your Vocab.",
   "f": "web/js/dlicontent.js"
+ },
+ {
+  "id": "4d3ebfca",
+  "k": "Remembered",
+  "f": "web/js/dliweeks.js"
  },
  {
   "id": "a2211902",
@@ -9047,11 +9792,6 @@
  {
   "id": "375cbb72",
   "k": "Right lately",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "80263722",
-  "k": "Words known",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -16410,11 +17150,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "4d3ebfca",
-  "k": "Remembered",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "fc3e111e",
   "k": "Highlight the box or button above",
   "f": "web/js/padmap.js"
@@ -17575,16 +18310,6 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "4a0b7281",
-  "k": "Sign in with Google",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "c66b2adc",
-  "k": "Signing in…",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "49421c8e",
   "k": "Pick a username first, so friends can find you.",
   "f": "web/js/pages/friends.js"
@@ -17795,11 +18520,6 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "e0d73143",
-  "k": "Join",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "8343796d",
   "k": "You joined {0}.",
   "f": "web/js/pages/friends.js"
@@ -17862,11 +18582,6 @@
  {
   "id": "f318af38",
   "k": "Invited {0} to {1}.",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "d3f4cb89",
-  "k": "Rename",
   "f": "web/js/pages/friends.js"
  },
  {
@@ -21840,11 +22555,6 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "af74f7c5",
-  "k": "Copy",
-  "f": "web/js/review/cardtools.js"
- },
- {
   "id": "c4d31fcf",
   "k": "It means the same thing, or a kind of it",
   "f": "web/js/review/cardtools.js"
@@ -22202,11 +22912,6 @@
  {
   "id": "6403f2b7",
   "k": "New",
-  "f": "web/js/review/goalbar.js"
- },
- {
-  "id": "b83c4cda",
-  "k": "Reviews",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -22727,11 +23432,6 @@
  {
   "id": "d2155ca5",
   "k": "That report couldn't be sent.",
-  "f": "web/js/safety.js"
- },
- {
-  "id": "1d7a1d2e",
-  "k": "Couldn't reach the online service. Check your internet connection.",
   "f": "web/js/safety.js"
  },
  {
