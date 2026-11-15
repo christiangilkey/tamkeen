@@ -119,7 +119,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, memo, "
             "episode_title, folders, clip, language, voice, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
-            "SELECT uid, name, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
+            "SELECT uid, name, language, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
             "SELECT key, word, sentence, data, provider, model, created_at FROM definitions ORDER BY key")]
         lexemes = [dict(r) for r in conn.execute(
@@ -276,13 +276,15 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
         # Vocab folders
         for r in remote.get("folders", []):
             local = conn.execute("SELECT * FROM vocab_folders WHERE uid = ?", (r["uid"],)).fetchone()
+            # (an older app's folder has no language: the one known here is kept, else it is worked out below)
+            lang = r.get("language") or ""
             if local is None:
-                conn.execute("INSERT INTO vocab_folders(uid, name, deleted, created_at, updated_at) VALUES(?,?,?,?,?)",
-                             (r["uid"], r["name"], r["deleted"], r["created_at"], r["updated_at"]))
+                conn.execute("INSERT INTO vocab_folders(uid, name, language, deleted, created_at, updated_at) VALUES(?,?,?,?,?,?)",
+                             (r["uid"], r["name"], lang, r["deleted"], r["created_at"], r["updated_at"]))
                 result.merged["folders"] += 1
             elif _newer(r, local):
-                conn.execute("UPDATE vocab_folders SET name=?, deleted=?, updated_at=? WHERE id=?",
-                             (r["name"], r["deleted"], r["updated_at"], local["id"]))
+                conn.execute("UPDATE vocab_folders SET name=?, language=?, deleted=?, updated_at=? WHERE id=?",
+                             (r["name"], lang or local["language"] or "", r["deleted"], r["updated_at"], local["id"]))
                 result.merged["folders"] += 1
 
         # Definitions (immutable cache entries): union

@@ -243,6 +243,9 @@ _SYNC_COLUMNS = {
               # play: JSON {"start", "end", "sent_start", "sent_end"} inside clips/<uid>.ogg (the same file
               # and Drive name as a friend's clip, c_<uid>.ogg; a word never has both). '' = none yet.
               ("voice", "TEXT NOT NULL DEFAULT ''")],
+    # The language a folder was made in: the Vocab page lists only the language being learned's folders.
+    # '' = not known (an empty folder from before): shown in every language.
+    "vocab_folders": [("language", "TEXT NOT NULL DEFAULT ''")],
     "segments": [("kind", "TEXT")],
     # Arabic vowel marks (app/tashkeel.py): each word's vowelled copy (NULL = the word as it is).
     "words": [("vowelled", "TEXT")],
@@ -283,13 +286,25 @@ BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 CREATE TRIGGER IF NOT EXISTS folders_ins AFTER INSERT ON vocab_folders WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)
 BEGIN UPDATE vocab_folders SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 CREATE TRIGGER IF NOT EXISTS folders_upd AFTER UPDATE ON vocab_folders
-WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.name IS NOT OLD.name OR NEW.deleted IS NOT OLD.deleted)
+WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.name IS NOT OLD.name OR NEW.deleted IS NOT OLD.deleted
+  OR NEW.language IS NOT OLD.language)
 BEGIN UPDATE vocab_folders SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 """
 
 
 def _columns(conn: sqlite3.Connection, table: str) -> set[str]:
     return {r[1] for r in conn.execute(f"PRAGMA table_info({table})")}
+
+
+def folder_languages(conn: sqlite3.Connection) -> None:
+    """Give a folder made before folders had a language the language most of its words are in (a word with
+    no language of its own is Arabic, as everything was then). A folder with no words stays '' (every language)."""
+    for uid, in conn.execute("SELECT uid FROM vocab_folders WHERE language = '' AND deleted = 0").fetchall():
+        row = conn.execute(
+            "SELECT COALESCE(NULLIF(language, ''), 'ar') AS lang, COUNT(*) AS n FROM vocab "
+            "WHERE deleted = 0 AND folders LIKE ? GROUP BY lang ORDER BY n DESC, lang LIMIT 1", (f'%"{uid}"%',)).fetchone()
+        if row:
+            conn.execute("UPDATE vocab_folders SET language = ? WHERE uid = ?", (row[0], uid))
 
 
 def _migrate(conn: sqlite3.Connection) -> None:
@@ -315,6 +330,7 @@ def _migrate(conn: sqlite3.Connection) -> None:
     conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_feeds_uid ON feeds(uid)")
     conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_episodes_uid ON episodes(uid)")
     conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_vocab_uid ON vocab(uid)")
+    folder_languages(conn)
 
     # Backfill global ids for rows created before sync existed.
     for row in conn.execute("SELECT id, url, created_at FROM feeds WHERE uid IS NULL").fetchall():

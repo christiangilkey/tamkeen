@@ -206,6 +206,45 @@ def test_vocab_folder_api(client):
     assert len(client.get("/api/vocab").json()) == 2
 
 
+def test_a_folder_shows_only_in_the_language_it_was_made_in(client):
+    """The owner: "vocab folders should only show in the language that they were created in"."""
+    client.patch("/api/settings", json={"study_language": "es"})
+    es = client.post("/api/vocab/folders", json={"name": "Comida"}).json()
+    assert es["language"] == "es"
+    client.patch("/api/settings", json={"study_language": "ar"})
+    ar = client.post("/api/vocab/folders", json={"name": "طعام"}).json()
+    assert ar["language"] == "ar"
+    assert [f["name"] for f in client.get("/api/vocab/folders").json()] == ["طعام"]
+    assert [f["name"] for f in client.get("/api/vocab/folders?language=es").json()] == ["Comida"]
+    assert len(client.get("/api/vocab/folders?language=all").json()) == 2
+    # Made for another language on purpose (a DLI deck): it goes to that language.
+    assert client.post("/api/vocab/folders", json={"name": "Deck", "language": "fa"}).json()["language"] == "fa"
+    # Folders from before folders had a language: the one most of their words are in; an empty one shows everywhere.
+    w = client.post("/api/vocab", json={"text": "hola", "language": "es"}).json()
+    with db.session() as conn:
+        conn.execute("INSERT INTO vocab_folders(uid, name, created_at) VALUES('dold', 'Old Spanish', 1)")
+        conn.execute("INSERT INTO vocab_folders(uid, name, created_at) VALUES('dempty', 'Old empty', 1)")
+        conn.execute("UPDATE vocab SET folders = ? WHERE id = ?", ('["dold"]', w["id"]))
+        db.folder_languages(conn)
+        got = dict(conn.execute("SELECT uid, language FROM vocab_folders WHERE uid IN ('dold', 'dempty')").fetchall())
+    assert got == {"dold": "es", "dempty": ""}
+    assert "Old empty" in [f["name"] for f in client.get("/api/vocab/folders").json()]
+    assert "Old Spanish" not in [f["name"] for f in client.get("/api/vocab/folders").json()]
+    assert "Old Spanish" in [f["name"] for f in client.get("/api/vocab/folders?language=es").json()]
+
+
+def test_a_folder_language_syncs(world):
+    drive, a, b = world
+    with a:
+        with db.session() as conn:
+            conn.execute("INSERT INTO vocab_folders(uid, name, language, created_at) VALUES('dsp', 'Comida', 'es', 1)")
+    a.sync(drive)
+    b.sync(drive)
+    with b:
+        with db.session() as conn:
+            assert conn.execute("SELECT language FROM vocab_folders WHERE uid='dsp'").fetchone()[0] == "es"
+
+
 def test_video_api_upload_list_and_delete(client, monkeypatch):
     monkeypatch.setattr(audio, "probe_duration", lambda p: 12.0)
     monkeypatch.setattr(jobs, "enqueue", lambda ids_: list(ids_))

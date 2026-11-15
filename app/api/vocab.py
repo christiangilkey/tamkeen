@@ -75,6 +75,7 @@ class VocabPatch(BaseModel):
 
 class FolderIn(BaseModel):
     name: str
+    language: str | None = None  # (made for another language than the one being learned: the DLI decks)
 
 
 class BulkFolders(BaseModel):
@@ -123,11 +124,21 @@ def list_vocab(q: str | None = None, folder: str | None = None) -> list[dict[str
 
 # ----- folders -----
 
+FOLDER_COLUMNS = "uid, name, language, created_at, updated_at"
+
+
 @router.get("/folders")
-def list_folders() -> list[dict[str, Any]]:
+def list_folders(language: str | None = None) -> list[dict[str, Any]]:
+    """The folders of the language being learned (or of `language`; "all" for every one). A folder whose
+    language isn't known (an empty one from before folders had one) shows in every language."""
     with db.session() as conn:
-        rows = conn.execute("SELECT uid, name, created_at, updated_at FROM vocab_folders WHERE deleted = 0 "
-                            "ORDER BY name COLLATE NOCASE").fetchall()
+        if language == "all":
+            rows = conn.execute(f"SELECT {FOLDER_COLUMNS} FROM vocab_folders WHERE deleted = 0 "
+                                "ORDER BY name COLLATE NOCASE").fetchall()
+        else:
+            lang = language if languages.valid(language) else languages.study()
+            rows = conn.execute(f"SELECT {FOLDER_COLUMNS} FROM vocab_folders WHERE deleted = 0 AND language IN (?, '') "
+                                "ORDER BY name COLLATE NOCASE", (lang,)).fetchall()
     return db.rows_to_dicts(rows)
 
 
@@ -137,9 +148,11 @@ def add_folder(body: FolderIn) -> dict[str, Any]:
     if not name:
         raise HTTPException(400, "Give the folder a name.")
     uid = "d" + ids.new_uid()[1:]
+    lang = body.language if languages.valid(body.language) else languages.study()
     with db.session() as conn:
-        conn.execute("INSERT INTO vocab_folders(uid, name, created_at) VALUES(?,?,?)", (uid, name[:80], time.time()))
-        row = conn.execute("SELECT uid, name, created_at, updated_at FROM vocab_folders WHERE uid = ?", (uid,)).fetchone()
+        conn.execute("INSERT INTO vocab_folders(uid, name, language, created_at) VALUES(?,?,?,?)",
+                     (uid, name[:80], lang, time.time()))
+        row = conn.execute(f"SELECT {FOLDER_COLUMNS} FROM vocab_folders WHERE uid = ?", (uid,)).fetchone()
     sync.request()
     return dict(row)
 
@@ -151,7 +164,7 @@ def rename_folder(uid: str, body: FolderIn) -> dict[str, Any]:
         raise HTTPException(400, "Give the folder a name.")
     with db.session() as conn:
         conn.execute("UPDATE vocab_folders SET name = ? WHERE uid = ?", (name[:80], uid))
-        row = conn.execute("SELECT uid, name, created_at, updated_at FROM vocab_folders WHERE uid = ?", (uid,)).fetchone()
+        row = conn.execute(f"SELECT {FOLDER_COLUMNS} FROM vocab_folders WHERE uid = ?", (uid,)).fetchone()
     if row is None:
         raise HTTPException(404, "Folder not found.")
     sync.request()

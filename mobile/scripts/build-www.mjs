@@ -75,6 +75,7 @@ const SHARED = [
   "js/pages/home.js",
   "js/progress.js",
   "js/watched.js",
+  "js/folderlang.js",
   "js/playcover.js",
   "js/pages/reader.js",
   "js/pages/book.js",

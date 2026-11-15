@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** A Vocab folder now belongs to the language it was made in, and shows only while you are learning that language. Folders from before take the language most of their words are in; an empty old folder still shows in every language.
 ## v0.55.0 — 2026-11-15
 
 - **New:** *(DLI)* **ICPT prep decks for all seven DLI languages**: Arabic, Chinese, Farsi, Korean, Spanish, French and Russian, about 2,000 words each from the news, ads and signs that ICPT and DLPT passages are made of. Each deck has 40 Vocab folders: 14 topics (politics, military, economy, crime, health, disasters and weather, science, society, culture, sports, geography and travel, signs and ads, numbers and dates, and the language of news itself), each at Level 1–1+, 2 and 2+/3. Every word has a sentence in news or ad style with its translation, and notes in that language’s way (pinyin, hanja, gender, stress, aspect, Persian plurals). Words you already have from your basic course are filed in the ICPT folders, not added twice. Audio comes later; until then your device’s voice reads them.
