@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	来自你的资料库：{0}
+621521f9	无标题
+4f7ad2a9	没有找到整个短语，所以这个句子包含它的主要词。

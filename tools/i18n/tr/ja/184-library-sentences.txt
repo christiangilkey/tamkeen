@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	あなたのライブラリから: {0}
+621521f9	無題
+4f7ad2a9	フレーズ全体は見つからなかったので、この文にはその主な単語が入っています。

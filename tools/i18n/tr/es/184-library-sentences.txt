@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	De tu biblioteca: {0}
+621521f9	Sin título
+4f7ad2a9	No se encontró la frase completa, así que esta oración tiene su palabra principal.

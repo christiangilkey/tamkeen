@@ -236,11 +236,12 @@ export class ExamplePack {
 
   /**
    * Sentences that have phrase `text`'s words one after another, given to `add(i, cost)`: cost 0 as written,
-   * 0.5 with و ف ب ل ك ال in front of a word (Arabic, Persian), 1 with another form of a word (`lemmaOf`, the
+   * 0.5 with و ف ب ل ك ال in front of a word, or not (Arabic, Persian), 1 with another form of a word (`lemmaOf`, the
    * word tables, when they are on the device). At most `max` sentences.
    */
   phraseIn(text, { lemmaOf = null, add, max = 400 } = {}) {
-    const want = wordsOf(text, this.lang).k;
+    // (Arabic, Persian: `bare` is each word of the phrase without و ف ب ل ك ال in front too: وتاهوا finds تاهوا)
+    const { k: want, b: bare } = wordsOf(text, this.lang);
     if (want.length < 2) return;
     const forms = want.map((k) => this.formsOf(k, lemmaOf));
     const seqs = this.sequences();
@@ -253,7 +254,7 @@ export class ExamplePack {
         for (let t = 0; t < want.length && cost < Infinity; t++) {
           const got = k[s + t];
           if (got === want[t]) continue;
-          if (b && b[s + t] === want[t]) cost = Math.max(cost, 0.5);
+          if (b && (b[s + t] === want[t] || got === bare[t] || b[s + t] === bare[t])) cost = Math.max(cost, 0.5);
           else if (forms[t].has(got)) cost = Math.max(cost, 1);
           else cost = Infinity;
         }

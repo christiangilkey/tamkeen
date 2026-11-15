@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	आपकी लाइब्रेरी से: {0}
+621521f9	बिना शीर्षक
+4f7ad2a9	पूरा वाक्यांश नहीं मिला, इसलिए इस वाक्य में उसका मुख्य शब्द है।

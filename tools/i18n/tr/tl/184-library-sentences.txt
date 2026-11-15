@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	Mula sa iyong library: {0}
+621521f9	Walang pamagat
+4f7ad2a9	Hindi nakita ang buong parirala, kaya ang pangungusap na ito ay may pangunahing salita nito.

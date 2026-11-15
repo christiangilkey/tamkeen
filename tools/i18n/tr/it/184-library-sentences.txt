@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	Dalla tua libreria: {0}
+621521f9	Senza titolo
+4f7ad2a9	L'espressione intera non è stata trovata, quindi questa frase contiene la sua parola principale.

@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	Из вашей библиотеки: {0}
+621521f9	Без названия
+4f7ad2a9	Вся фраза не нашлась, поэтому в этом предложении есть её главное слово.

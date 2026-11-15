@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	De la teva biblioteca: {0}
+621521f9	Sense títol
+4f7ad2a9	No s'ha trobat l'expressió sencera, així que aquesta frase té la seva paraula principal.

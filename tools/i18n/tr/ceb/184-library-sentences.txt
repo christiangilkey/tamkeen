@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	Gikan sa imong library: {0}
+621521f9	Walay titulo
+4f7ad2a9	Wala makit-i ang tibuok hugpong, mao nga kini nga sentence adunay panguna nga pulong niini.

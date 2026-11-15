@@ -12,7 +12,7 @@ import { setLang } from "../languages.js";
 import { litParts, litTextHtml, markedSentenceHtml, stripMarks } from "../cardtext.js";
 import { hasMnemonics, mnemonicHtml, mnemonicMaker } from "../review/cardtools.js";
 import { TOOLS, toolsFor } from "../review/vocabedit.js";
-import { SENTENCE_SOURCE, aiWrites, findSentence, freeChosen } from "../review/sentencefind.js";
+import { SENTENCE_SOURCE, aiWrites, findSentence, findSentences, freeChosen } from "../review/sentencefind.js";
 import { sourceOf } from "../lexicon/exampledata.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
 import { offerFix } from "./fixit.js";
@@ -150,7 +150,12 @@ export function wordTools(row, panel, v, opts) {
     const skip = [];
     let way = ai ? "ai" : "free";
     let got = null;
-    async function run(w = way) {
+    // With no AI, everything found is gathered once (sentencefind.js findSentences: the card's own source, the
+    // library, then Tatoeba, Wiktionary and the courses) and Another one steps through it, round to the first again.
+    let finds = null, at = 0;
+    const FSI = String.fromCharCode(0x2068), PDI = String.fromCharCode(0x2069);  // (a title's own writing direction, kept apart)
+    async function run(w = way, next = false) {
+      if (w === "free" && next && finds && finds.length > 1) { at = (at + 1) % finds.length; got = finds[at]; paint(); return; }
       way = w;
       for (const b of box.querySelectorAll("[data-way]")) b.setAttribute("aria-pressed", String(b.dataset.way === way));
       for (const b of box.querySelectorAll("button")) b.disabled = true;
@@ -160,7 +165,8 @@ export function wordTools(row, panel, v, opts) {
       onLayout();
       const lang = studyLang();
       try {
-        got = await findSentence(v, lang, { way, skip });
+        if (way === "free") { finds = await findSentences(v, lang); at = 0; got = finds[0] || null; }
+        else got = await findSentence(v, lang, { way, skip });
       } catch (e) {
         got = null;
         if (!stillOpen("sentence")) return;
@@ -174,34 +180,54 @@ export function wordTools(row, panel, v, opts) {
         for (const b of box.querySelectorAll("button")) b.disabled = false;
       }
       if (!stillOpen("sentence")) return;
+      paint();
+    }
+    /** Draw `got`, or say none was found. */
+    function paint() {
+      const lang = studyLang();
       if (!got) {
         say(way === "ai" ? t("The AI sent nothing back for this word. Try again.")
-          : skip.length ? t("No other example sentence was found for this word.") : t("No example sentence was found for this word. Type one, or leave it empty."));
+          : t("No example sentence was found for this word. Type one, or leave it empty."));
         pick.hidden = way !== "ai";
         box.querySelector(".vi-sent-use").hidden = true;
+        box.querySelector(".vi-sent-again").hidden = false;
         onLayout();
         return;
       }
-      skip.push(got.sentence);
+      if (got.by === "ai") skip.push(got.sentence);
       const text = box.querySelector(".vi-sent-text");
       setLang(text, lang);
-      text.innerHTML = markedSentenceHtml(got.sentence, v.text, esc);
+      text.innerHTML = markedSentenceHtml(got.sentence, got.mark || v.text, esc);  // (`mark`: the main word, when only it was found)
       const trans = box.querySelector(".vi-sent-trans");
       const { text: plain, marks } = litParts(got.translation || "", null);
       trans.innerHTML = marks.length ? litTextHtml(plain, marks, esc) : esc(plain);
       trans.dir = "auto";
       trans.hidden = !plain.trim();
+      // Where it is from, in a small pill (as the Mnemonic maker says who made its keywords), then which of how many.
       const from = box.querySelector(".vi-sent-from");
-      from.textContent = got.by === "ai" ? t("Written for you by the AI") : t("From {0}", t(sourceOf(got.source).name));
-      if (got.readable) from.textContent += ` · ${t("Every other word in this sentence is one you know.")}`;
+      from.textContent = "";
+      const pill = h(`<span class="rv-mn-mark vi-sent-src" translate="no"></span>`);
+      pill.textContent = got.by === "ai" ? t("Written for you by the AI")
+        // (the title kept apart from the words round it, so an Arabic title doesn't pull "1 of 8" into itself)
+        : got.source === "library" ? t("From your library: {0}", FSI + (got.title || t("Untitled")) + PDI)
+        : t(sourceOf(got.source).name);
+      from.append(pill);
+      const total = got.by === "free" && finds ? finds.length : 0;
+      const bits = [];
+      if (total > 1) bits.push(t("{0} of {1}", at + 1, total));
+      if (got.main) bits.push(t("The whole phrase wasn't found, so this sentence has its main word."));
+      if (got.readable) bits.push(t("Every other word in this sentence is one you know."));
+      if (bits.length) from.append(` ${bits.join(" · ")}`);
       found.hidden = false;
       say("");
       box.querySelector(".vi-sent-use").hidden = false;
+      // (one real sentence only: nothing to step to)
+      box.querySelector(".vi-sent-again").hidden = got.by === "free" && total < 2;
       pick.hidden = false;
       onLayout();
     }
-    for (const b of box.querySelectorAll("[data-way]")) b.onclick = () => { skip.length = 0; run(b.dataset.way); };
-    box.querySelector(".vi-sent-again").onclick = () => run();
+    for (const b of box.querySelectorAll("[data-way]")) b.onclick = () => { skip.length = 0; finds = null; run(b.dataset.way); };
+    box.querySelector(".vi-sent-again").onclick = () => run(way, true);
     box.querySelector(".vi-sent-use").onclick = () => {
       if (!got) return;
       save({ sentence: got.sentence, translation: got.translation || "" });

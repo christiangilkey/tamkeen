@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	จากคลังของคุณ: {0}
+621521f9	ไม่มีชื่อ
+4f7ad2a9	ไม่พบวลีทั้งหมด ประโยคนี้จึงมีคำหลักของวลีนั้น

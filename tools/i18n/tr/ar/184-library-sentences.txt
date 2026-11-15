@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	من مكتبتك: {0}
+621521f9	بلا عنوان
+4f7ad2a9	لم تُوجد العبارة كاملة، فهذه الجملة فيها كلمتها الرئيسية.

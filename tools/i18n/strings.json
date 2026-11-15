@@ -9410,18 +9410,23 @@
   "f": "web/js/components/wordtools.js"
  },
  {
-  "id": "9f8fe3c2",
-  "k": "No other example sentence was found for this word.",
-  "f": "web/js/components/wordtools.js"
- },
- {
   "id": "5fd33173",
   "k": "Written for you by the AI",
   "f": "web/js/components/wordtools.js"
  },
  {
-  "id": "957db23d",
-  "k": "From {0}",
+  "id": "5aa50048",
+  "k": "From your library: {0}",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "621521f9",
+  "k": "Untitled",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "4f7ad2a9",
+  "k": "The whole phrase wasn't found, so this sentence has its main word.",
   "f": "web/js/components/wordtools.js"
  },
  {

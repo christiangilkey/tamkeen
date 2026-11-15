@@ -1,0 +1,4 @@
+# The word editor's Sentence tool: sentences from your library (components/wordtools.js, review/librarysentence.js).
+5aa50048	내 라이브러리에서: {0}
+621521f9	제목 없음
+4f7ad2a9	구문 전체를 찾지 못해, 이 문장에는 그 핵심 단어가 들어 있습니다.
