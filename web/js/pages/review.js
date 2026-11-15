@@ -277,8 +277,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     feeding = playing;
     playing.then(() => { if (feeding === playing) nextChip(); });
   }
-  /** Queue chips for the card's corner. */
-  function say(chips) {
+  /** Queue chips for the card's corner. (Not called `say`: that name is openReview's own `say` option, the
+   * Vocab page's voice, and a function by the same name here took its place, so turning a card that says its
+   * word threw and left the answer buttons dead: v0.53.0.) */
+  function sayChips(chips) {
     feed.push(...chips);
     if (!feeding) nextChip();
   }
@@ -735,18 +737,22 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (flipped || busy || !todo.length || $(".rv-wrap").hidden) return;
     busy = true;
     clearChips();  // (whatever the last answer earned leaves the corner: the back has no empty one)
-    const v = todo[0];
-    SOUND.flip();
-    tilt(0, 0);
-    await play(card, [{ transform: "rotateY(0deg)" }, { transform: "rotateY(90deg)" }], { duration: 140, easing: "ease-in" });
-    back(v);
-    flipped = true;
-    flippedAt = Date.now();
-    // With a game controller, the highlight starts on the main answer, as on Xbox: A answers Remembered.
-    if (padInUse()) highlightOn(actions.querySelector(".rv-yes"));
-    if (autoplay && hasWordAudio(v)) sayWord(v, true);
-    await play(card, [{ transform: "rotateY(-90deg)" }, { transform: "rotateY(0deg)" }], { duration: 260, easing: "cubic-bezier(.2, 1.4, .4, 1)" });
-    busy = false;
+    // (try/finally: whatever goes wrong while the card turns, the answer buttons are never left dead)
+    try {
+      const v = todo[0];
+      SOUND.flip();
+      tilt(0, 0);
+      await play(card, [{ transform: "rotateY(0deg)" }, { transform: "rotateY(90deg)" }], { duration: 140, easing: "ease-in" });
+      back(v);
+      flipped = true;
+      flippedAt = Date.now();
+      // With a game controller, the highlight starts on the main answer, as on Xbox: A answers Remembered.
+      if (padInUse()) highlightOn(actions.querySelector(".rv-yes"));
+      if (autoplay && hasWordAudio(v)) sayWord(v, true);
+      await play(card, [{ transform: "rotateY(-90deg)" }, { transform: "rotateY(0deg)" }], { duration: 260, easing: "cubic-bezier(.2, 1.4, .4, 1)" });
+    } finally {
+      busy = false;
+    }
     editHint();
   }
 
@@ -850,7 +856,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (closed) return;
     if (todo.length) {
       show();
-      say([...(told.main ? [told.main] : []), ...told.more.map((m) => m.chip)]);
+      sayChips([...(told.main ? [told.main] : []), ...told.more.map((m) => m.chip)]);
     } else {
       finish();
       told.more.forEach((m, i) => setTimeout(() => { if (!closed) shout(m.shout); }, i * 1400));  // (over the summary, as before)

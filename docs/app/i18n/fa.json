@@ -4766,6 +4766,7 @@
 "Downloading the vowel model… {0}%":"در حال دانلود مدل اعراب… {0}٪",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"اعراب عربی به یک مدل اعراب نیاز دارد ({0} مگابایت، عربی فصیح).{1}",
 "Watched":"دیده‌شده",
+"The flashcards' answer buttons work again once a card is turned over":"دکمه‌های پاسخ فلش‌کارت‌ها پس از برگرداندن کارت دوباره کار می‌کنند",
 "Pick the part of a word the Mnemonic maker works on, right on the word":"بخشی از واژه را که سازندهٔ یادیار رویش کار می‌کند، روی خود واژه انتخاب کنید",
 "Flashcard rewards show in the card's empty corner, never over the word":"جایزه‌های کارت‌ها در گوشهٔ خالی کارت نشان داده می‌شوند، هرگز روی واژه",
 "Your aquarium shows on Home, and fishing says the right answer's word":"آکواریوم شما در صفحهٔ خانه دیده می‌شود، و ماهیگیری واژهٔ پاسخ درست را می‌گوید",

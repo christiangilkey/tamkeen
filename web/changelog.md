@@ -20,6 +20,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 - **New:** *(owner)* **All DLI students**: for Tamkeen's owner, every DLI student who shares, by language and class, with the same weekly numbers, **Copy for a spreadsheet** (a row per student per week, to set beside grades), the teacher code with a button to replace it, and the list of teachers.
 - **Security:** Who may see a DLI student's last name and numbers is decided by the online database, not the app: a student their own, a teacher only the students of their own classes (from the week each joined), the owner everyone, anyone else nothing. Wrong codes are capped at 20 a day. The Privacy Policy has a new section, "DLI students and teachers".
 
+## v0.53.1 — 2026-11-12
+
+- **Fixed:** In the flashcards, **Remembered** and **Not remembered** did nothing once a card was turned over, and neither did the keys, a swipe or the **Word** and **Sentence** buttons, until the reviewer was closed. This came with v0.53.0, on cards whose word plays by itself when turned. They all work again, and a card that runs into any other problem while turning now leaves its answer buttons working.
+
 ## v0.53.0 — 2026-11-11
 
 - **Changed:** In Library → Courses, the **Basics** tab is now called **Words**.

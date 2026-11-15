@@ -4766,6 +4766,7 @@
 "Downloading the vowel model… {0}%":"جارٍ تنزيل نموذج الحركات… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"تحتاج حركات العربية إلى نموذج حركات ({0} ميغابايت، العربية الفصحى). {1}",
 "Watched":"تمت المشاهدة",
+"The flashcards' answer buttons work again once a card is turned over":"أزرار الإجابة في البطاقات التعليمية تعمل من جديد بعد قلب البطاقة",
 "Pick the part of a word the Mnemonic maker works on, right on the word":"اختر جزء الكلمة الذي يعمل عليه صانع وسائل التذكّر، على الكلمة نفسها",
 "Flashcard rewards show in the card's empty corner, never over the word":"مكافآت البطاقات تظهر في الركن الفارغ من البطاقة، لا فوق الكلمة أبدًا",
 "Your aquarium shows on Home, and fishing says the right answer's word":"حوض الأسماك يظهر في الصفحة الرئيسية، وصيد السمك ينطق كلمة الإجابة الصحيحة",

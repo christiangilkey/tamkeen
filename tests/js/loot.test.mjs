@@ -440,3 +440,15 @@ test("a crowded card gets the one-line chip, which keeps to the badge's own band
   assert.match(js, /busy = true;\s+clearChips\(\);/, "flip() clears the corner: the back has no empty one");
   assert.match(js, /if \(showBack\) clearChips\(\);/);
 });
+
+test("the reviewer's chip helper never takes the place of its `say` option (v0.53.0: dead answer buttons)", () => {
+  // openReview({ say }) is the Vocab page's voice. In v0.53.0 a `function say(chips)` inside openReview took
+  // its place, so turning a card that says its word threw inside flip() and left `busy` set: Remembered and
+  // Not remembered did nothing.
+  const js = readFileSync(new URL("../../web/js/pages/review.js", import.meta.url), "utf8");
+  assert.match(js, /export function openReview\(\{[^}]*\bsay = null\b/, "openReview still takes `say`");
+  assert.doesNotMatch(js, /\bfunction say\s*\(/, "no function named `say` in the reviewer (it would replace the option everywhere)");
+  assert.match(js, /function sayChips\(chips\)/);
+  // And flip() always lets the answer buttons go, whatever goes wrong while the card turns.
+  assert.match(js, /async function flip\(\) \{[\s\S]*?try \{[\s\S]*?\} finally \{\s*busy = false;\s*\}/);
+});

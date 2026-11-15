@@ -1,0 +1,2 @@
+# What's new 0.53.1 (web/js/whatsnew.js).
+d556b3ab	Els botons de resposta de les targetes tornen a funcionar quan es gira una targeta

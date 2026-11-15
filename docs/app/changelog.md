@@ -14,6 +14,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.53.1 — 2026-11-12
+
+- **Fixed:** In the flashcards, **Remembered** and **Not remembered** did nothing once a card was turned over, and neither did the keys, a swipe or the **Word** and **Sentence** buttons, until the reviewer was closed. This came with v0.53.0, on cards whose word plays by itself when turned. They all work again, and a card that runs into any other problem while turning now leaves its answer buttons working.
+
 ## v0.53.0 — 2026-11-11
 
 - **Changed:** In Library → Courses, the **Basics** tab is now called **Words**.
