@@ -91,6 +91,14 @@ export async function connectWithIdToken({ token, nonce }) {
 export async function disconnect() {
   const c = await sb();
   await c.auth.signOut().catch(() => {});
+  forgetDliShare();
+}
+
+/** Signed out, or the online account deleted: this device no longer knows a DLI student who shares
+ *  (dliclass.js SHARE_KEY; named here because that file loads this one). */
+function forgetDliShare() {
+  try { localStorage.removeItem("tamkeenDliShare"); localStorage.removeItem("tamkeenDliSent"); } catch { /* storage off */ }
+  if (typeof window !== "undefined") window.dispatchEvent(new CustomEvent("tamkeen:dli-share"));
 }
 
 /** {id, username, email} of the signed-in user; creates the profile row if it's missing. */
@@ -1029,5 +1037,7 @@ export async function deleteMyAccount() {
   for (const r of members.data || []) partners.add(r.user_id);
   for (const r of mail.data || []) partners.add(r.sender).add(r.recipient);
   partners.delete(user.id);
-  return safety.deleteAccount(c, { userId: user.id, partnerIds: [...partners] });
+  const done = await safety.deleteAccount(c, { userId: user.id, partnerIds: [...partners] });
+  forgetDliShare(); // (a DLI student's last name and weekly numbers went with the account)
+  return done;
 }

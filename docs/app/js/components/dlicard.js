@@ -2,7 +2,9 @@
 // it asks which language is studied there (one of seven) and the password that unlocks that language's
 // material (dli.js: only a hash of the password is in the app). The answers follow the learner to their
 // other devices (aikeys.js). Unticking locks it again after an in-app yes/no box; what was added to the
-// library meanwhile, such as a podcast, stays. On the computer and the phone.
+// library meanwhile, such as a podcast, stays. Once unlocked, one more step opens the content: signing in and
+// agreeing to share a last name and weekly study numbers with the teachers and Tamkeen's developer
+// (components/dlishare.js, dliclass.js); the classes joined are listed there too. On the computer and the phone.
 
 import { h, saveSettings, state, toast } from "../app.js";
 import { t } from "../i18n.js";
@@ -10,6 +12,8 @@ import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
 import { DLI_LANGUAGES, checkPassword, contentKey, dliLanguageName, dliState } from "../dli.js";
 import { runDli } from "../dlicontent.js";
+import { SHARE_EVENT, dliOpen, gate, register, shareInfo } from "../dliclass.js";
+import { sharePart } from "./dlishare.js";
 import { learningList, setLearning, switchTo } from "./langswitch.js";
 import { confirmBox } from "./modal.js";
 
@@ -35,6 +39,7 @@ export function dliSummary(s) {
   if (!st.student) return null;
   if (!st.language) return { text: "Choose your DLI language", warn: true };
   const name = t("DLI {0}", t(dliLanguageName(st.language)));
+  if (gate(s) === "share") return [{ text: name }, { text: "One more step to open it", warn: true }];
   return [{ text: name }, st.unlocked ? { text: "Unlocked" } : { text: "Needs the DLI password", warn: true }];
 }
 
@@ -64,6 +69,7 @@ export function dliCard(body) {
         <p class="small dli-arabic" hidden>For DLI Arabic students: podcasts are added to your Library with every episode already transcribed.</p>
         <div class="set-actions"><a class="btn primary dli-go" href="${DLI_PLACE}">Open DLI content</a></div>
       </div>
+      <div class="dli-part dli-sharing" hidden></div>
     </div>
   </section>`);
   body.append(card);
@@ -71,6 +77,7 @@ export function dliCard(body) {
   const box = $(".dli-student input");
   const pw = $("#dli-pw");
   let busy = false;
+  let closeShare = null; // the sharing step and the classes (dlishare.js), there while the content is unlocked
 
   function paint() {
     const s = settings(), st = dliState(s);
@@ -92,11 +99,23 @@ export function dliCard(body) {
     $(".dli-pass").hidden = st.unlocked;
     $(".dli-open").hidden = !st.unlocked;
     for (const el of card.querySelectorAll(".dli-arabic")) el.hidden = st.language !== "ar";
+    const step = gate(s) === "share"; // unlocked, but who they are is still to say
     if (st.unlocked) {
       $(".dli-where").textContent = !st.language ? t("Choose your DLI language above to see its content.")
+        : step ? t("One more step below, then your DLI content opens.")
         : studyLanguage() === st.language ? t("Your DLI content is in Library → Courses → DLI.")
         : t("Your DLI content is in Library → Courses → DLI, while you're studying {0}.", name);
-      $(".dli-go").hidden = !st.language || missing;
+      $(".dli-go").hidden = !st.language || missing || step;
+    }
+    const sharing = $(".dli-sharing");
+    if (st.ready && !closeShare) {
+      sharing.hidden = false;
+      closeShare = sharePart(sharing, { onChange: () => { paint(); if (dliOpen(settings())) runDli().then(paint); } });
+    } else if (!st.ready && closeShare) {
+      closeShare();
+      closeShare = null;
+      sharing.innerHTML = "";
+      sharing.hidden = true;
     }
   }
 
@@ -127,7 +146,10 @@ export function dliCard(body) {
       busy = false;
       paint();
       if (!learningList(settings()).includes(code)) { await offerLanguage(code); paint(); }
-      if (dliState(settings()).ready) runDli().then(paint);
+      // (someone already sharing: their record follows the new language, with the same last name)
+      const share = shareInfo();
+      if (share && share.language !== code) register(share.last_name, code).catch(() => {});
+      if (dliOpen(settings())) runDli().then(paint);
     };
   }
   $(".dli-addlang").onclick = async () => {
@@ -165,7 +187,7 @@ export function dliCard(body) {
       pw.value = "";
       await saveSettings({ dli_student: "on", dli_key: key });
       paint();
-      if (dliState(settings()).ready) runDli().then(paint);
+      if (dliOpen(settings())) runDli().then(paint);
     } catch (err) {
       toast(err.message, { error: true });
     } finally {
@@ -176,8 +198,11 @@ export function dliCard(body) {
   };
   pw.oninput = () => { $(".dli-wrong").hidden = true; };
 
+  // Sharing switched on or off somewhere else on this screen (the teacher's card, the "What is shared" box).
+  const onShare = () => paint();
+  window.addEventListener(SHARE_EVENT, onShare);
   paint();
-  return () => {};
+  return () => { window.removeEventListener(SHARE_EVENT, onShare); if (closeShare) closeShare(); };
 }
 
 // ---------- looks (added once; plain solid surfaces, like the rest of Settings) ----------

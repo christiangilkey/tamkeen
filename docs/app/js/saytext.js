@@ -69,8 +69,10 @@ async function computerUrl(text, lang, s) {
  * Resolves to {ended}; never rejects: when the chosen voice fails, the device's own voice says it, and when
  * nothing can, one calm message says so (not on every tap). The computer's and the device's voices speak
  * only Standard Arabic and skip گ / چ, so they get ق / ك instead (grammardata.js sayable).
+ * `quiet`: nothing is said about a voice that is missing (a line read out by itself, not asked for:
+ * Library → Conversation); the answer then carries `failed`, the message that would have been shown.
  */
-export async function sayText(text, lang, { dialect = "" } = {}) {
+export async function sayText(text, lang, { dialect = "", quiet = false } = {}) {
   const s = settings();
   const raw = String(text || "").replace(/[⟦⟧]/g, "").trim();
   const clean = sayable(raw, lang);
@@ -88,6 +90,7 @@ export async function sayText(text, lang, { dialect = "" } = {}) {
     return await speakDevice(clean, lang);
   } catch (e) {
     const message = (e && e.message) || "This device has no voice for this language.";
+    if (quiet) return { ended: Promise.resolve(), failed: message };
     if (message !== told) { told = message; toast(message, { timeout: 9000 }); }
     return { ended: Promise.resolve() };
   }

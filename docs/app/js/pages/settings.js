@@ -8,6 +8,7 @@ import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js"
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
 import { dliCard, dliSummary } from "../components/dlicard.js";
+import { teachCard } from "../components/dliteach.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
 import { waitingForComputer } from "../cardvoice.js";
@@ -125,7 +126,8 @@ function home(view) {
 const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
 
 // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
-function dliSection(body) { return [dliCard(body)]; }
+// and under it "I'm a DLI teacher": classes and the students' weekly numbers (components/dliteach.js)
+function dliSection(body) { return [dliCard(body), teachCard(body)]; }
 
 function languages(body) {
   const s = settings;

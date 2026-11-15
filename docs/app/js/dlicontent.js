@@ -19,6 +19,7 @@ import { courseUrl } from "./coursedata.js";
 import { t } from "./i18n.js";
 import { studyLanguage } from "./languages.js";
 import * as dli from "./dli.js";
+import { dliOpen, refresh, reportWeeks } from "./dliclass.js";
 
 const BASE = new URL("../dli/", import.meta.url);
 let cached = null; // { key, index }
@@ -90,7 +91,7 @@ export async function addPodcast(pod, language, key, { follow = true } = {}) {
 export async function addDliPodcasts({ quiet = false } = {}) {
   let s = await settingsNow();
   const st = dli.dliState(s);
-  if (!st.ready) return { added: 0, stored: 0 };
+  if (!st.ready || !dliOpen(s)) return { added: 0, stored: 0 }; // (nothing is added before the sharing step)
   const index = await loadIndex(st.key);
   let added = 0, stored = 0;
   for (const pod of dli.contentFor(index, st.language).filter((x) => x.kind === "podcast")) {
@@ -220,7 +221,7 @@ export async function addDeck(deck, language, key, settings, others = []) {
 export async function addDliDecks({ quiet = false } = {}) {
   let s = await settingsNow();
   const st = dli.dliState(s);
-  if (!st.ready || studyLanguage() !== st.language) return { added: 0, voiced: 0 };
+  if (!st.ready || !dliOpen(s) || studyLanguage() !== st.language) return { added: 0, voiced: 0 };
   const index = await loadIndex(st.key);
   let added = 0, voiced = 0;
   const decks = dli.contentFor(index, st.language).filter((x) => x.kind === "deck");
@@ -259,11 +260,16 @@ export function runDli(opts) {
 
 /** On starting the app: a first look a little after the page is up, then after each sync. */
 export function startDli() {
-  setTimeout(() => runDli(), 4000);
+  // First where the learner stands online (dliclass.js: sharing on, or still to do), then the content, then
+  // this week's study numbers for the teachers.
+  const run = () => runDli().then(() => reportWeeks());
+  setTimeout(() => { (dli.dliState(state.status && state.status.settings).ready ? refresh() : Promise.resolve()).then(run, run); }, 4000);
   let timer = 0;
   on("sync", (st) => {
     if (st && st.state && st.state !== "idle") return;
     clearTimeout(timer);
-    timer = setTimeout(() => runDli(), 3000);
+    timer = setTimeout(run, 3000);
   });
+  // Leaving the app (a review just done, perhaps with no sync to follow): the week's numbers go now.
+  document.addEventListener("visibilitychange", () => { if (document.hidden) reportWeeks(); });
 }
