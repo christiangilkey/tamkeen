@@ -3395,6 +3395,331 @@
   "f": "web/js/components/controllerpanel.js"
  },
  {
+  "id": "4f79e08b",
+  "k": "Add an AI key in Settings → Word definitions first.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "2a20c750",
+  "k": "Conversation",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c518fb06",
+  "k": "Listen",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "a47c21fe",
+  "k": "Practise speaking with someone who never tires. Pick a situation, get things done in it, and see what to work on.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "35579e44",
+  "k": "Conversation needs an AI key: the other person is played by your own AI. Gemini has a free allowance.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "379c494a",
+  "k": "Add an AI key",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "0d7e6609",
+  "k": "Which Arabic to speak",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "a13e07aa",
+  "k": "AI is turned off (Settings → Word definitions → No AI), so this isn't available.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b27e39ef",
+  "k": "Back to the conversations",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b2d4d455",
+  "k": "Read the other person's lines out",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b74bdee9",
+  "k": "Finish",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "1bce6bb6",
+  "k": "Your goals",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "bb4fb75a",
+  "k": "Every goal is done. Say goodbye, or see how it went.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "dfd43738",
+  "k": "See how it went",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c8fe96e0",
+  "k": "Stuck? Get a hint on what to say",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "2284d040",
+  "k": "Hint",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "663ffe26",
+  "k": "Say your reply",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "9bc2575c",
+  "k": "Send",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b50909dc",
+  "k": "Type or say your reply",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "bf9a79bf",
+  "k": "Your reply",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "77312bb4",
+  "k": "The other person's lines are read out. Press to switch that off.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "2238fa32",
+  "k": "The other person's lines are not read out. Press to switch that on.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "19cd7d18",
+  "k": "Meaning",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "329a85c6",
+  "k": "Say a little more",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "cbe218c6",
+  "k": "Back to the subject",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "8aefde5f",
+  "k": "Nothing to correct",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "303cfd6e",
+  "k": "Better",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "01e62568",
+  "k": "These lines aren't read out: this device has no voice for this language yet. Press a speaker button to see how to add one.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "ace3708c",
+  "k": "Setting the scene…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "dff63549",
+  "k": "Listening to you…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "404c955f",
+  "k": "Thinking of a hint…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7f83df96",
+  "k": "Start with:",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "86bfc103",
+  "k": "More help",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "bbfa773e",
+  "k": "Close",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "4a7c4256",
+  "k": "Your voice is written down on this computer and never leaves it.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "568e5fd8",
+  "k": "Your voice is sent to {0} to be written down.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "4f2cb15d",
+  "k": "This device can't record sound here.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "007441cb",
+  "k": "Listening… press the microphone again when you have finished.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "a970acc5",
+  "k": "I couldn't hear you. Try again, a little closer to the microphone.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "def1020f",
+  "k": "Writing down what you said…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "de5358cb",
+  "k": "Check what was heard, put it right if you need to, then send it.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "cb90be4f",
+  "k": "Answering by voice",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "4e882311",
+  "k": "Your keyboard has a microphone of its own: tap the reply box, then the microphone on the keyboard, and speak.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7b232bb7",
+  "k": "Tamkeen can also write down what you say with an online service and your own key (<0>Settings → Listening & transcripts</0>). On a computer, the desktop app does it by itself, and your voice never leaves it.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "5111c189",
+  "k": "Leave this conversation?",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "bff348bb",
+  "k": "It isn't kept: next time it starts again from the beginning.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7e3520a9",
+  "k": "Leave",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c41206ac",
+  "k": "goals reached",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "d5e47a3a",
+  "k": "Looking back over what you said…",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "7cc0c77b",
+  "k": "Try it again",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "9b090043",
+  "k": "Another conversation",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "481315ed",
+  "k": "Not yet at this level: stay here a while.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "3d0552f5",
+  "k": "Right at this level.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "6f059077",
+  "k": "Above this level: try the next one.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "1a1afed0",
+  "k": "Your best line",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "dd49414b",
+  "k": "Work on",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "f105abd5",
+  "k": "You said",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "5ad49da6",
+  "k": "Nothing stood out to fix. Try the same thing at the next level.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "438b57fe",
+  "k": "Phrases worth keeping",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "bd425a68",
+  "k": "How it's really done",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "b9ed77d5",
+  "k": "Say it yourself",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "0773bec6",
+  "k": "Heard",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "24962f78",
+  "k": "That's it.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "5332f191",
+  "k": "Not quite yet. Listen once more, then say it again.",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
+  "id": "c0ae8f6e",
+  "k": "Saved",
+  "f": "web/js/components/conversepanel.js"
+ },
+ {
   "id": "b5ffacdb",
   "k": "Loading the course…",
   "f": "web/js/components/coursepanel.js"
@@ -3912,11 +4237,6 @@
  {
   "id": "a7688f0d",
   "k": "You aren't in a class yet.",
-  "f": "web/js/components/dlishare.js"
- },
- {
-  "id": "7e3520a9",
-  "k": "Leave",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4760,11 +5080,6 @@
   "f": "web/js/components/geminicaptions.js"
  },
  {
-  "id": "bbfa773e",
-  "k": "Close",
-  "f": "web/js/components/geminicaptions.js"
- },
- {
   "id": "512a61d4",
   "k": "This needs your own Gemini key: add one in Settings → Word definitions.",
   "f": "web/js/components/geminicaptions.js"
@@ -4798,11 +5113,6 @@
   "id": "6588286e",
   "k": "Gemini couldn't make captions. Try again.",
   "f": "web/js/components/geminicaptions.js"
- },
- {
-  "id": "4f79e08b",
-  "k": "Add an AI key in Settings → Word definitions first.",
-  "f": "web/js/components/grammarpanel.js"
  },
  {
   "id": "a3cec11b",
@@ -4867,11 +5177,6 @@
  {
   "id": "a3eb7ec1",
   "k": "These lessons are written in {0}. Tamkeen can put them into {1} for you with your own AI key: add one in Settings → Word definitions.",
-  "f": "web/js/components/grammarpanel.js"
- },
- {
-  "id": "379c494a",
-  "k": "Add an AI key",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -4977,11 +5282,6 @@
  {
   "id": "a87476c8",
   "k": "By the end of this lesson, you can say",
-  "f": "web/js/components/grammarpanel.js"
- },
- {
-  "id": "2a20c750",
-  "k": "Conversation",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -6440,11 +6740,6 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "9bc2575c",
-  "k": "Send",
-  "f": "web/js/components/sendmedia.js"
- },
- {
   "id": "39a2069e",
   "k": "Send to a friend",
   "f": "web/js/components/sendmedia.js"
@@ -7785,11 +8080,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "c0ae8f6e",
-  "k": "Saved",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "a4e14198",
   "k": "Where this meaning comes from. Tap to use another source",
   "f": "web/js/components/wordbubble.js"
@@ -7948,11 +8238,6 @@
   "id": "501bcf6c",
   "k": "Not known yet: keep this word amber, without saving it, until you know it",
   "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "19cd7d18",
-  "k": "Meaning",
-  "f": "web/js/components/wordbuilder.js"
  },
  {
   "id": "93f49c5b",
@@ -8935,6 +9220,1211 @@
   "f": "web/js/components/wordtools.js"
  },
  {
+  "id": "438226dc",
+  "k": "Starter",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "313afa4f",
+  "k": "First words: greet, ask for things, understand a short answer.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f25d3c50",
+  "k": "Level 1",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e2ba4a1f",
+  "k": "Everyday needs, and simple talk about yourself.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ea5c4941",
+  "k": "Level 2",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "755f2cfe",
+  "k": "Tell, describe, explain, and sort out a problem.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ce0aa4e1",
+  "k": "Level 3",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c11179b7",
+  "k": "Argue a view, suppose, and handle formal moments.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0f2b7bbd",
+  "k": "Level 4",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9901e898",
+  "k": "Persuade, fit your words to the listener, speak at an occasion.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2891d1cd",
+  "k": "Find out",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e3f2ebd5",
+  "k": "Ask one thing at a time, and say back what you heard to check it.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5c4698b6",
+  "k": "About you",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "82ee2494",
+  "k": "Answer in full sentences, add one detail nobody asked for, and ask a question back.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "249aaa35",
+  "k": "Something goes wrong",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5273ea80",
+  "k": "Greet, say the problem, turn down a poor first offer politely, suggest your own way out, confirm it, and say thanks.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "60630704",
+  "k": "Describe",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2756a24e",
+  "k": "Go from the general to the detail, or walk through the place in order. Compare things.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a775515c",
+  "k": "Tell a story",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "30f9b86c",
+  "k": "Give it a beginning, a problem and an ending, and keep to the past.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "261ba6ca",
+  "k": "Give instructions",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a30e8dba",
+  "k": "Give the steps in order: first, after that, then, finally.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "fed5d0e8",
+  "k": "Report the news",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "87daa7aa",
+  "k": "Facts first: who, what, where, when, why. Then one sentence on what it leads to.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f1b30c5b",
+  "k": "Defend a view",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "33527888",
+  "k": "Position, reason, example, a point for the other side, conclusion. Talk about the issue, not about yourself.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9b0576a6",
+  "k": "What if",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5690d1f9",
+  "k": "Keep the “if… would…” pattern all the way through, and follow the results two steps out.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e7cf3256",
+  "k": "An idea",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "dbc541d6",
+  "k": "Define the idea, set two views of it against each other, give one real example, then come back to the idea.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "127e24a1",
+  "k": "Explain how it works",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e3404c47",
+  "k": "Name the stages, say what causes what, then give one comparison.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6ccd64b2",
+  "k": "The unexpected",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "816ca238",
+  "k": "Say it is new to you, put the question in your own words, tie it to something you know, then commit to a view.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f33555c2",
+  "k": "A formal moment",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "88b8f57b",
+  "k": "Use the polite forms of address, soften what you ask for, and never slip into casual speech.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "192fd2ba",
+  "k": "Persuade",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0bdcebb1",
+  "k": "Decide who you are talking to before you start, and let that choose your tone and your arguments.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "35cf093d",
+  "k": "A few words",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "35c562bb",
+  "k": "Warm and formal: greet, say why you are gathered, thank people by name, add a saying, give your wishes, close.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5300e9f0",
+  "k": "Deal with the surprise",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "88a91268",
+  "k": "Meeting a neighbour",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "60d5f23b",
+  "k": "You meet a new neighbour on the stairs of your building.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5a0fb694",
+  "k": "Greet them and say your name",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "16977b8a",
+  "k": "Find out their name",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "846ddc8b",
+  "k": "Find out where they are from",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d46555a4",
+  "k": "Say goodbye politely",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a5f16ac1",
+  "k": "Ordering at a café",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "cba904b4",
+  "k": "You are at a café and want something to drink and something to eat.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ecbbd864",
+  "k": "Order a drink",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f38f75cb",
+  "k": "Find out what there is to eat",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "39ceccb5",
+  "k": "Find out how much it all costs",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ded13af4",
+  "k": "At the market",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5ac7485c",
+  "k": "You want to buy fruit at a market stall.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7cf8342b",
+  "k": "Ask for the fruit you want",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "752619e5",
+  "k": "Find out the price",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a14322bf",
+  "k": "Find out when the stall closes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4947285e",
+  "k": "Taking a taxi",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "50410b59",
+  "k": "You get into a taxi outside the station.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e427e811",
+  "k": "Tell the driver where you are going",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "58026f36",
+  "k": "Find out how long it takes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "1e355f7a",
+  "k": "Find out what it will cost",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "928655b7",
+  "k": "Your family",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6e0f69ca",
+  "k": "A new colleague asks about your family over coffee.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9f3186e7",
+  "k": "Describe two people in your family",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "15d86581",
+  "k": "Say what one of them does",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "fdc10002",
+  "k": "Ask about their family too",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a2cbabe5",
+  "k": "Your work or studies",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "473a4a7b",
+  "k": "Someone you have just met asks what you do.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0e4612ab",
+  "k": "Say what you do and where",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "901c9c20",
+  "k": "Describe an ordinary day",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e6904716",
+  "k": "Say what you like about it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "63cb29fa",
+  "k": "Your free time",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5a870409",
+  "k": "A classmate asks what you do when you are not working.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2ca88455",
+  "k": "Say what you do in your free time",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7cfb2036",
+  "k": "Say how often and who with",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "48c7988e",
+  "k": "Ask what they like to do",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d9987751",
+  "k": "A trip you took",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "12c48ae7",
+  "k": "A friend asks about a trip you took.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "44e8f735",
+  "k": "Say where you went and when",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "40460809",
+  "k": "Say what you did there",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "fe7fa293",
+  "k": "Say what you liked most",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "66967558",
+  "k": "Why you are learning this language",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c574fd89",
+  "k": "Someone is curious about why you are learning their language.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5c024b19",
+  "k": "Say when you started and why",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "62e12c32",
+  "k": "Say what you find hard",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a6b58a49",
+  "k": "Say what you want to do with it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e3229679",
+  "k": "Checking in",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e90659ab",
+  "k": "You arrive at a hotel where you have a booking.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "b1c56ea0",
+  "k": "Give your name and say you have a booking",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "29d76984",
+  "k": "Find out when breakfast is",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "dd54cf01",
+  "k": "Find out the Wi-Fi password",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "05c30ffa",
+  "k": "Find out when you must leave the room",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c474a873",
+  "k": "Buying a train ticket",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "03c6e20a",
+  "k": "You are at a station ticket window and want to travel today.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "29dba39b",
+  "k": "Say where you want to go",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a46accc5",
+  "k": "Find out when the next train leaves",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7e90233b",
+  "k": "Find out which platform",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2203bb44",
+  "k": "Find out the price and buy a ticket",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "27ef0ab5",
+  "k": "Making an appointment",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "1f8621e0",
+  "k": "You phone a clinic because you feel ill.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "67532a85",
+  "k": "Say what is wrong",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "346796d9",
+  "k": "Find out the earliest appointment",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "877f3ac2",
+  "k": "Find out what to bring",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "593d9499",
+  "k": "Repeat the day and time to confirm",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6a217bc8",
+  "k": "Describe a room",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "70c5083e",
+  "k": "Describe the room you work or study in, so the listener can picture it exactly.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "784f5083",
+  "k": "Move through the room in order",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "70228054",
+  "k": "Give sizes, colours and what is in it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d353e819",
+  "k": "Say what you like and what you would change",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a558ea3c",
+  "k": "A day you won't forget",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "fd0737e0",
+  "k": "Tell the listener about a day you will never forget.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a06cf43a",
+  "k": "Give it a beginning, a problem and an ending",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0c0d3e40",
+  "k": "Keep to the past",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "b543fcc5",
+  "k": "Say how you felt and why",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f1c8be79",
+  "k": "How to make it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6d4a39c9",
+  "k": "Explain how to make your favourite dish to someone who has never cooked it.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "91de8142",
+  "k": "Say what is needed",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5efe2ea6",
+  "k": "Give the steps in order",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "06d51ed3",
+  "k": "Check that the listener followed",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "94fe8b18",
+  "k": "In the news",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4f078354",
+  "k": "Tell the listener about something that was in the news this week.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d3305c6a",
+  "k": "Say who, what, where and when",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "19bdf349",
+  "k": "Say why it happened",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "1347a8b1",
+  "k": "Say what may happen next",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "90ce4412",
+  "k": "Giving directions",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "91f0ebe6",
+  "k": "A friend has arrived in your city for the first time and is at the train station. Explain how to get to your home.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9808ccb5",
+  "k": "Give the route step by step",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8609f6eb",
+  "k": "Name landmarks they can't miss",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "eb3b0450",
+  "k": "Say how far it is or how long it takes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "126266fd",
+  "k": "Booking a room for a conference",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ef20ee62",
+  "k": "You phone a hotel to book a room for a two-day conference for fifty people next month.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "aec1f0a4",
+  "k": "Give the dates and the number of people",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "839428e2",
+  "k": "Find out how many the room holds and what equipment it has",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "dba1eb4e",
+  "k": "Find out what the price includes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0a219a50",
+  "k": "Ask for a discount",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4624c278",
+  "k": "Missed flight",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c0790736",
+  "k": "You missed your flight and are at the airline's desk in the airport.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "cce1a690",
+  "k": "Say briefly what happened",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "be422a03",
+  "k": "Find out when the next flight leaves",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "40b22957",
+  "k": "Find out what it costs to change",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a96d6c0e",
+  "k": "Find out what happens to your bag",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "dbf53712",
+  "k": "Buying by phone",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5e6ad652",
+  "k": "You phone a shop about buying a new mobile phone.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c24afd23",
+  "k": "Find out which colours they have",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4840b736",
+  "k": "Find out about the guarantee",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "58007243",
+  "k": "Arrange how to get it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7fab0ee0",
+  "k": "Planning a dinner",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a84208fb",
+  "k": "You are planning a dinner with colleagues on Friday and ask a friend to recommend a restaurant.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "518a49b9",
+  "k": "Explain the occasion and who is coming",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "3e7dc631",
+  "k": "Find out about the food and the price",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c5ea170d",
+  "k": "Compare two places and choose",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "27fd85b4",
+  "k": "Lost luggage",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d7bd57fd",
+  "k": "You have landed after a long flight, but your bag never came out. You are at the airline's desk.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "b213f866",
+  "k": "Give your flight and where you flew from",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6750956a",
+  "k": "Describe the bag",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6c5f59cb",
+  "k": "Give your hotel and how long you are staying",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a4cab8ea",
+  "k": "Get a reference number and find out when it will come",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e3562921",
+  "k": "No cash at the restaurant",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "796d4f41",
+  "k": "You have finished your meal and find the restaurant takes cash only. You have only a card.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8c56686e",
+  "k": "Apologise and explain",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "1d7bb4f9",
+  "k": "Find out where the nearest cash machine is",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ccff521b",
+  "k": "Offer something as a guarantee while you fetch the money",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a1d19f2b",
+  "k": "A car accident",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0644fed5",
+  "k": "You phone the police to report a small car accident you were in.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ef89b6bb",
+  "k": "Say whether anyone is hurt",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "26f3d4ef",
+  "k": "Give the exact place",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8becb789",
+  "k": "Tell what happened, in order",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e60afdea",
+  "k": "Find out what to do next",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e1603163",
+  "k": "You broke what you borrowed",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4a7d2a70",
+  "k": "You borrowed a friend's laptop and broke it. Now you have to tell them.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "3fc45a68",
+  "k": "Apologise sincerely",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "11b3d390",
+  "k": "Tell how it happened",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8f904749",
+  "k": "Offer two or three ways to put it right",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0001c6f7",
+  "k": "The booking that isn't there",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6c50d144",
+  "k": "You arrive at a hotel late at night. They can't find your booking, and the hotel is full.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7777cc7f",
+  "k": "Explain that you booked, and when",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "162800ec",
+  "k": "Turn down the first answer politely",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a7757465",
+  "k": "Agree a way out that you can accept",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c1aa4233",
+  "k": "It stopped working",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "69a76f8d",
+  "k": "The phone you bought two days ago has stopped working. You go back to the shop.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e6d6aaf7",
+  "k": "Say what is wrong and when you bought it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "56e5e4e5",
+  "k": "Ask for a new one or your money back",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "30721468",
+  "k": "Agree what happens next",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6b5e1377",
+  "k": "Defend an opinion",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d289ddbb",
+  "k": "You are asked for your view on a question people disagree about. The listener will push back.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "b1e66d35",
+  "k": "State your position",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "15e9e623",
+  "k": "Give a reason and an example",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2d850407",
+  "k": "Grant the other side a point, then answer it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c875c70e",
+  "k": "Sum up in one sentence",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8bca8f8e",
+  "k": "What if…",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6a63ba5d",
+  "k": "You are asked to imagine something that isn't so, and say what would follow.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c799ca25",
+  "k": "Say what would happen first",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "ec4fc5f9",
+  "k": "Follow it to what that would lead to",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "53314c80",
+  "k": "You are asked about an idea, not a thing: what it means and how people see it differently.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "77309e0c",
+  "k": "Say what the idea means",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "8860b942",
+  "k": "Set two views of it against each other",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2b2f71ee",
+  "k": "Give one example from real life",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "c3d9214d",
+  "k": "You are asked to explain something complicated to someone who knows nothing about it.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "79f978ed",
+  "k": "Name the stages in order",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7141adb3",
+  "k": "Say what causes what",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "1ef54b90",
+  "k": "Give a comparison that makes it clear",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "06a9a589",
+  "k": "A question you didn't expect",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5b179676",
+  "k": "You are asked about something you have probably never thought about.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "99f2b3fc",
+  "k": "Put the question in your own words",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d31e29d9",
+  "k": "Tie it to something you know",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6d88dca9",
+  "k": "Commit to a view and give a reason",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4937ba3a",
+  "k": "Apologising to a business partner",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "dde2a745",
+  "k": "You represent your company at a formal meeting. Your project is months late, and the partner is unhappy.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6e45113c",
+  "k": "Apologise formally for the delay",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "12a81c86",
+  "k": "Explain what caused it",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9d67324e",
+  "k": "Offer a new plan with dates",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "faaa5a26",
+  "k": "Persuade them to carry on working with you",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5b01b793",
+  "k": "The noisy neighbour",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "e5ae45ff",
+  "k": "Your neighbour has loud parties every night. You knock on their door to talk about it.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "7e05fd09",
+  "k": "Raise the problem politely",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "12c10bef",
+  "k": "Explain how it affects you",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "fcbd04ea",
+  "k": "Suggest a compromise",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "0d484404",
+  "k": "Leave on good terms",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "4cb7ce35",
+  "k": "Persuade an official",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "35fe64ba",
+  "k": "You have ten minutes with a government official. Persuade them to pay for foreign-language teaching in schools.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6cdd0883",
+  "k": "Open in a way that suits who they are",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5dedf164",
+  "k": "Give two arguments that matter to them",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "6ecdd1c8",
+  "k": "Answer their objection",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "f9478dad",
+  "k": "Ask for a clear decision",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "401edac7",
+  "k": "Offering condolences",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5757c24e",
+  "k": "A colleague has lost someone in their family. You go to see them.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9e599874",
+  "k": "Offer your condolences in the proper words",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "eec65358",
+  "k": "Speak warmly without prying",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "517107a3",
+  "k": "Offer help with something real",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "21386c90",
+  "k": "Say a few words",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "323b8e32",
+  "k": "You are asked to stand up and say a few words at an occasion.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "b9778b1e",
+  "k": "Greet everyone and say why you are gathered",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "a0dc147e",
+  "k": "Thank someone by name",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "5fab4552",
+  "k": "Add a saying or a quotation",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "95f60da0",
+  "k": "Close with good wishes",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "9c7df7c8",
+  "k": "Explain a saying",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "3dd6b74e",
+  "k": "The listener gives you a well-known saying and asks what you make of it.",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "2c2d2215",
+  "k": "Say what the saying means",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "d607034e",
+  "k": "Give an example from life",
+  "f": "web/js/conversedata.js"
+ },
+ {
+  "id": "91a3856c",
+  "k": "Say whether you agree, and why",
+  "f": "web/js/conversedata.js"
+ },
+ {
   "id": "6a640cc3",
   "k": "Standard Arabic (MSA)",
   "f": "web/js/coursedata.js"
@@ -8963,11 +10453,6 @@
   "id": "c60ce439",
   "k": "Iraqi",
   "f": "web/js/coursedata.js"
- },
- {
-  "id": "a13e07aa",
-  "k": "AI is turned off (Settings → Word definitions → No AI), so this isn't available.",
-  "f": "web/js/define-service.js"
  },
  {
   "id": "3de9e752",
@@ -16195,6 +17680,11 @@
   "f": "web/js/gamepad.js"
  },
  {
+  "id": "955e542c",
+  "k": "Tamkeen needs permission to use the microphone to hear you.",
+  "f": "web/js/hearmic.js"
+ },
+ {
   "id": "d0673c80",
   "k": "Collection {0}",
   "f": "web/js/igcollections.js"
@@ -17205,11 +18695,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "b74bdee9",
-  "k": "Finish",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "81f54719",
   "k": "Previous page",
   "f": "web/js/padmap.js"
@@ -17397,11 +18882,6 @@
  {
   "id": "16c0060c",
   "k": "Use a hint card (in a question)",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "2284d040",
-  "k": "Hint",
   "f": "web/js/padmap.js"
  },
  {
@@ -20645,11 +22125,6 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "c518fb06",
-  "k": "Listen",
-  "f": "web/js/pages/review.js"
- },
- {
   "id": "dfe6f9a8",
   "k": "Hear the word, or its whole sentence.",
   "f": "web/js/pages/review.js"
@@ -22997,11 +24472,6 @@
  {
   "id": "a679d9ee",
   "k": "Tamkeen needs permission to use the microphone to hear you say the word.",
-  "f": "web/js/review/pronounce.js"
- },
- {
-  "id": "a970acc5",
-  "k": "I couldn't hear you. Try again, a little closer to the microphone.",
   "f": "web/js/review/pronounce.js"
  },
  {
@@ -27090,6 +28560,16 @@
   "f": "app/api/system.py"
  },
  {
+  "id": "9577b2a1",
+  "k": "That recording is empty or too long.",
+  "f": "app/api/system.py"
+ },
+ {
+  "id": "0bca0cff",
+  "k": "That recording couldn't be read as sound.",
+  "f": "app/api/system.py"
+ },
+ {
   "id": "8b90ee48",
   "k": "Couldn't open the folder: {0}",
   "f": "app/api/system.py"
@@ -27142,11 +28622,6 @@
  {
   "id": "24cf9ded",
   "k": "That recording is empty or too large.",
-  "f": "app/api/vocab.py"
- },
- {
-  "id": "0bca0cff",
-  "k": "That recording couldn't be read as sound.",
   "f": "app/api/vocab.py"
  },
  {
