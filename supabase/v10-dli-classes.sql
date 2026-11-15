@@ -337,7 +337,7 @@ begin
     insert into public.profiles (id) values (me) on conflict do nothing;
     insert into private.dli_owners (user_id) values (me) on conflict do nothing;
     insert into public.dli_teachers (user_id) values (me) on conflict do nothing;
-    update private.dli_config set owner_code_hash = null, owner_code_until = null;
+    update private.dli_config set owner_code_hash = null, owner_code_until = null where only_one;
     return jsonb_build_object('status', 'owner');
   end if;
 
@@ -549,7 +549,7 @@ declare
 begin
   if auth.uid() is null then raise exception 'Not signed in'; end if;
   if not private.dli_is_owner(auth.uid()) then raise exception 'dli_not_owner'; end if;
-  update private.dli_config set teacher_code = v_code, teacher_code_at = now();
+  update private.dli_config set teacher_code = v_code, teacher_code_at = now() where only_one;
   return v_code;
 end $$;
 
@@ -602,7 +602,7 @@ begin
   if not exists (select 1 from private.dli_owners) then
     v_code := 'OWN' || private.dli_code(20);
     update private.dli_config set owner_code_hash = encode(sha256(convert_to(v_code, 'UTF8')), 'hex'),
-                                  owner_code_until = now() + interval '7 days';
+                                  owner_code_until = now() + interval '7 days' where only_one;
     perform set_config('tamkeen.dli_owner_code',
       regexp_replace(v_code, '^(.{3})(.{5})(.{5})(.{5})(.{5})$', '\1-\2-\3-\4-\5'), false);
   end if;

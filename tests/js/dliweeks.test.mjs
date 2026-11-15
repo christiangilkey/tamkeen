@@ -187,3 +187,12 @@ test("the SQL files hold together (they can't be run here: there is no database 
     assert.ok(/auth\.uid\(\) is null|me is null/.test(body.slice(0, body.indexOf("end $$;"))), `${name} refuses a signed-out caller`);
   }
 });
+
+test("every UPDATE and DELETE in the database file has a WHERE (the API refuses one without: found live, 2026-11-15)", () => {
+  // Supabase loads "safeupdate" for calls that come through the API, not for the SQL editor, so the self-test
+  // passed while the app's call failed with "UPDATE requires a WHERE clause".
+  const sql = readFileSync(new URL("../../supabase/v10-dli-classes.sql", import.meta.url), "utf8").replace(/--[^\n]*/g, "");
+  const statements = sql.split(";").map((s) => s.replace(/\s+/g, " ").trim());
+  const risky = statements.filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));
+  assert.deepEqual(risky.map((s) => s.slice(0, 80)), []);
+});

@@ -25,9 +25,9 @@ begin
   insert into auth.users (id, aud, role, email)
   select u, 'authenticated', 'authenticated', u::text || '@test.invalid' from unnest(array[uo, ut, u2, ua, ub, ux]) u;
   insert into public.profiles (id) select u from unnest(array[uo, ut, u2, ua, ub, ux]) u on conflict do nothing;
-  delete from private.dli_owners;  -- (rolled back at the end, like everything here)
+  delete from private.dli_owners where true;  -- (rolled back at the end, like everything here)
   update private.dli_config set owner_code_hash = encode(sha256(convert_to(c_owner, 'UTF8')), 'hex'),
-    owner_code_until = now() + interval '1 day', teacher_code = c_teacher;
+    owner_code_until = now() + interval '1 day', teacher_code = c_teacher where only_one;
 
   -- ---------------------------------------------------------------- 1. nothing runs signed out; tables are closed
   select string_agg(p.proname, ',') into t from pg_proc p join pg_namespace s on s.oid = p.pronamespace
