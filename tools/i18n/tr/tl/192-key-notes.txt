@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	Kailangan ng Conversation ng AI key
+4740edbd	Ang kausap mo ay ginagampanan ng AI gamit ang sarili mong key, kaya direkta kang nagbabayad sa AI company at walang dumadaan sa Tamkeen. May libreng allowance ang Gemini.
+4439d2e5	Kailangan ng transcription key ang mga transcript
+054e99ab	Walang salitang mababasa sa mga ito, kaya isinusulat ng isang speech-to-text na serbisyo mula sa tunog gamit ang sarili mong key (may libreng allowance ang Groq). Maisusulat ito nang libre ng Tamkeen app sa computer.
+682526d6	Ano ang makukuha mo sa app
+bdabc88e	Mga reel mula sa iyong mga naka-save at koleksyon sa Instagram, at mga reel na may kanta mula sa music library ng Instagram
+1ab3c8d7	Mga video sa YouTube na hinaharangan ng YouTube sa web app (madalas sa musika)
+9e4b882b	Built-in na web browser: mag-import ng anumang web page, at hanapin ang sandaling binigkas ang isang salita sa video
+cae4cb80	Dalawang-direksyong Anki sync: ang Anki add-on sa computer, AnkiDroid sa Android
+73fc86e0	Sa computer: libreng transcript na walang key, mga tanda ng patinig sa Arabe, mga boses na gumagana offline, at backup ng buong library mo
+048f0c6a	Maliwanag na tema

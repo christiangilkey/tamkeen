@@ -272,6 +272,8 @@ if (typeof document !== "undefined" && !document.getElementById("settings-css"))
     .set-back .ic { transform: rotate(180deg); }
     [dir="rtl"] .set-back .ic { transform: none; }
     .set-back:hover { text-decoration: none; }
+    .getapp-h { font-size: 15px; margin: 6px 0 0; }
+    .getapp-gains { margin: 0; padding-inline-start: 20px; display: grid; gap: 4px; font-size: 14px; line-height: 1.45; }
     .set-v2 .card h2 { font-size: 18px; margin: 0 0 4px; }
     .set-v2 .card h3 { font-size: 15px; margin: 0 0 4px; }
     .set-hint { font-size: 13.5px; color: var(--muted); margin: 0 0 12px; }

@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	La conversa necessita una clau d’IA
+4740edbd	L’altra persona la fa una IA, amb la teva pròpia clau, així pagues directament a l’empresa d’IA i res no passa per Tamkeen. Gemini té una quota gratuïta.
+4439d2e5	Les transcripcions necessiten una clau de transcripció
+054e99ab	Això no porta paraules per llegir, així que un servei de veu a text les escriu a partir del so, amb la teva pròpia clau (Groq té una quota gratuïta). L’app Tamkeen en un ordinador les pot escriure gratis.
+682526d6	El que obtens amb l’app
+bdabc88e	Reels de les teves desades i col·leccions d’Instagram, i reels amb una cançó de la biblioteca musical d’Instagram
+1ab3c8d7	Vídeos de YouTube que YouTube bloqueja a l’app web (sovint ho fa amb la música)
+9e4b882b	Un navegador web integrat: importa qualsevol pàgina web i troba el moment en què es diu una paraula en un vídeo
+cae4cb80	Sincronització d’Anki en els dos sentits: el complement d’Anki en un ordinador, AnkiDroid a Android
+73fc86e0	En un ordinador: transcripcions gratuïtes sense clau, vocals de l’àrab, veus que funcionen sense connexió i còpies de seguretat de tota la teva biblioteca
+048f0c6a	Un tema clar

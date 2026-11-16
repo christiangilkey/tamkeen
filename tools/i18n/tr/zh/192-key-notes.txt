@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	对话需要 AI 密钥
+4740edbd	对方由 AI 扮演，用的是你自己的密钥，所以你直接付费给 AI 公司，不经过 Tamkeen。Gemini 有免费额度。
+4439d2e5	文字稿需要转写密钥
+054e99ab	这些内容没有可读的文字，所以由语音转文字服务用你自己的密钥从声音写出来（Groq 有免费额度）。电脑上的 Tamkeen 应用也可以免费写出来。
+682526d6	用应用能得到什么
+bdabc88e	Instagram 收藏和合集里的短视频，以及带有 Instagram 音乐库歌曲的短视频
+1ab3c8d7	YouTube 在网页版中屏蔽的视频（音乐类经常如此）
+9e4b882b	内置网页浏览器：导入任何网页，并找到视频中说出某个词的那一刻
+cae4cb80	Anki 双向同步：电脑上的 Anki 插件，Android 上的 AnkiDroid
+73fc86e0	在电脑上：无需密钥的免费文字稿、阿拉伯语元音符号、离线可用的语音，以及整个资料库的备份
+048f0c6a	浅色主题

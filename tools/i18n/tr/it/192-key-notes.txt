@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	La conversazione richiede una chiave IA
+4740edbd	L’altra persona è interpretata da un’IA, con la tua chiave: paghi direttamente l’azienda di IA e niente passa da Tamkeen. Gemini ha una quota gratuita.
+4439d2e5	Le trascrizioni richiedono una chiave di trascrizione
+054e99ab	Questi contenuti non hanno parole da leggere, quindi un servizio di sintesi da voce a testo le scrive dal suono, con la tua chiave (Groq ha una quota gratuita). L’app Tamkeen su un computer può scriverle gratis.
+682526d6	Cosa ottieni con l’app
+bdabc88e	I reel dai tuoi salvati e dalle tue raccolte di Instagram, e i reel con una canzone dalla libreria musicale di Instagram
+1ab3c8d7	I video di YouTube che YouTube blocca per l’app web (spesso per la musica)
+9e4b882b	Un browser web integrato: importa qualsiasi pagina web e trova il momento in cui una parola viene detta in un video
+cae4cb80	Sincronizzazione Anki nei due sensi: il componente aggiuntivo di Anki su un computer, AnkiDroid su Android
+73fc86e0	Su un computer: trascrizioni gratuite senza chiave, vocali dell’arabo, voci che funzionano offline e backup di tutta la tua libreria
+048f0c6a	Un tema chiaro

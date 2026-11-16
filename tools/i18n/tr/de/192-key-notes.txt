@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	Gespräche brauchen einen KI-Schlüssel
+4740edbd	Die andere Person spielt eine KI, mit deinem eigenen Schlüssel: Du bezahlst die KI-Firma direkt, und nichts läuft über Tamkeen. Gemini hat ein kostenloses Kontingent.
+4439d2e5	Transkripte brauchen einen Transkriptionsschlüssel
+054e99ab	Hier gibt es keine Wörter zum Lesen, also schreibt ein Sprache-zu-Text-Dienst sie aus dem Ton auf, mit deinem eigenen Schlüssel (Groq hat ein kostenloses Kontingent). Die Tamkeen-App auf einem Computer kann sie stattdessen kostenlos schreiben.
+682526d6	Was du mit der App bekommst
+bdabc88e	Reels aus deinen Instagram-Speicherungen und -Sammlungen, und Reels mit einem Song aus Instagrams Musikbibliothek
+1ab3c8d7	YouTube-Videos, die YouTube für die Web-App sperrt (oft bei Musik)
+9e4b882b	Ein eingebauter Webbrowser: Importiere jede Webseite und finde die Stelle, an der ein Wort in einem Video gesagt wird
+cae4cb80	Anki-Synchronisierung in beide Richtungen: das Anki-Add-on auf dem Computer, AnkiDroid auf Android
+73fc86e0	Auf dem Computer: kostenlose Transkripte ohne Schlüssel, arabische Vokalzeichen, Stimmen, die offline funktionieren, und Backups deiner ganzen Bibliothek
+048f0c6a	Ein helles Design

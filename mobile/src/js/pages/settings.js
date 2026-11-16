@@ -324,14 +324,20 @@ async function getapp(body) {
       <h2>Get the app</h2>
       <p class="set-hint">The web app works like the app, with a few things that need Tamkeen on your phone or computer.
         Sign in to Google Drive in both and your library follows you.</p>
+      <h3 class="getapp-h">What you get with the app</h3>
+      <ul class="getapp-gains">
+        <li>Reels from your Instagram saves and collections, and reels with a song from Instagram's music library</li>
+        <li>YouTube videos that YouTube blocks for the web app (it often does for music)</li>
+        <li>A built-in web browser: import any web page, and find the moment a word is said in a video</li>
+        <li>Two-way Anki sync: the Anki add-on on a computer, AnkiDroid on Android</li>
+        <li>On a computer: transcripts written for free with no key, Arabic vowel marks, voices that work offline, and backups of your whole library</li>
+        <li>A light theme</li>
+      </ul>
       <nav class="card set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
         <a class="set-row" href="${esc(href(d))}" target="_blank" rel="noopener">
           <span class="set-ico">${icon(d.phone ? "link" : "computer", 22)}</span>
           <span class="set-text"><span class="set-name">${esc(d.name)}</span><span class="set-sum">${esc(d.how)}</span></span>
           <span class="set-chev">${icon("chevron", 18)}</span></a>`).join("")}</nav>
-      <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves, reels with
-        a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the
-        number on the app icon. What you add in the app shows up here after a sync.</details>
       <div><a class="btn" href="${RELEASES}/latest" target="_blank" rel="noopener">All downloads</a></div>
     </section>
   </div>`));

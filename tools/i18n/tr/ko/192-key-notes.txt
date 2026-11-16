@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	대화에는 AI 키가 필요해요
+4740edbd	상대방은 내 키를 쓰는 AI가 맡아요. 그래서 AI 회사에 직접 비용을 내고, Tamkeen을 거치는 건 없어요. Gemini에는 무료 사용량이 있어요.
+4439d2e5	대본에는 받아쓰기 키가 필요해요
+054e99ab	이것들은 읽을 글이 없어서, 음성 인식 서비스가 내 키로 소리를 듣고 받아 적어요(Groq에는 무료 사용량이 있어요). 컴퓨터의 Tamkeen 앱은 무료로 받아 적을 수 있어요.
+682526d6	앱으로 얻는 것
+bdabc88e	Instagram에 저장한 릴스와 컬렉션, Instagram 음악 라이브러리의 노래가 들어간 릴스
+1ab3c8d7	YouTube가 웹 앱에서 막는 영상(음악은 자주 막혀요)
+9e4b882b	내장 웹 브라우저: 어떤 웹페이지든 가져오고, 영상에서 단어가 나오는 순간을 찾아요
+cae4cb80	Anki 양방향 동기화: 컴퓨터에서는 Anki 애드온, Android에서는 AnkiDroid
+73fc86e0	컴퓨터에서: 키 없이 무료 대본, 아랍어 모음 부호, 오프라인에서도 되는 음성, 라이브러리 전체 백업
+048f0c6a	밝은 테마

@@ -15,7 +15,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 ## Unreleased
 
 - **Changed:** **Out of new words for your goal?** When everything is reviewed and your goal wants new words that aren't there, the **Review** box on the Vocab page turns purple, and its blue **Get words** button opens the Library's Words course. The long-term goal card no longer says this too, so it has less text.
-- **New:** **Get the app** is now a section of its own at the top of Settings in the web app, with a download for Windows, Mac, Linux, Android and iPhone (and how to install each). *(web app)*
+- **New:** **Get the app** is now a section of its own at the top of Settings in the web app, with a download for Windows, Mac, Linux, Android and iPhone (and how to install each), and a list of what the app adds: reels from your Instagram saves, YouTube videos blocked for the web app, the built-in browser, Anki sync, and on a computer free transcripts, vowel marks, offline voices and backups. *(web app)*
+- **New:** **Library tabs that need a key say so.** Podcasts, Audiobooks, Reels, My videos and My audio show a small purple note when no transcription key is added: what is needed, why (these come with no words to read, so a speech-to-text service writes them down), and an **Add a key** button to Settings. Conversation's note about its AI key now looks the same. *(phones, web app; Conversation everywhere. On the computer, transcripts are written without a key.)*
 
 ## v0.58.0 — 2026-11-16
 

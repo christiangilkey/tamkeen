@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	Ang Conversation nanginahanglan og AI key
+4740edbd	Ang laing tawo gidula sa AI, gamit ang imong kaugalingong key, busa direkta ka nga mobayad sa AI company ug walay moagi sa Tamkeen. Ang Gemini adunay libre nga allowance.
+4439d2e5	Ang mga transcript nanginahanglan og transcription key
+054e99ab	Kini walay mga pulong nga mabasa, busa usa ka speech-to-text nga serbisyo ang mosulat niini gikan sa tingog, gamit ang imong kaugalingong key (ang Groq adunay libre nga allowance). Ang Tamkeen app sa kompyuter makasulat niini nga libre.
+682526d6	Unsay imong makuha sa app
+bdabc88e	Mga reel gikan sa imong mga gi-save ug koleksyon sa Instagram, ug mga reel nga adunay kanta gikan sa music library sa Instagram
+1ab3c8d7	Mga video sa YouTube nga gibabagan sa YouTube para sa web app (kasagaran sa musika)
+9e4b882b	Built-in nga web browser: mag-import og bisan unsang web page, ug pangitaa ang higayon nga gisulti ang usa ka pulong sa video
+cae4cb80	Duha ka direksyon nga Anki sync: ang Anki add-on sa kompyuter, AnkiDroid sa Android
+73fc86e0	Sa kompyuter: libre nga mga transcript nga walay key, mga marka sa bokales sa Arabiko, mga tingog nga molihok bisan offline, ug mga backup sa imong tibuok library
+048f0c6a	Hayag nga tema

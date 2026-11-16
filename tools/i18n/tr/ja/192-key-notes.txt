@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	会話には AI キーが必要です
+4740edbd	相手役はあなた自身のキーを使う AI が演じます。料金は AI 会社に直接支払い、Tamkeen を経由するものはありません。Gemini には無料枠があります。
+4439d2e5	文字起こしには文字起こし用のキーが必要です
+054e99ab	これらには読む文字がないため、音声認識サービスがあなた自身のキーで音声から書き起こします（Groq には無料枠があります）。パソコンの Tamkeen アプリなら無料で書き起こせます。
+682526d6	アプリで使えるもの
+bdabc88e	Instagram の保存済みやコレクションのリール、Instagram の音楽ライブラリの曲付きリール
+1ab3c8d7	YouTube がウェブ版でブロックする動画（音楽でよくあります）
+9e4b882b	内蔵ブラウザー：どんなウェブページも取り込め、動画で単語が言われた瞬間を探せます
+cae4cb80	Anki の双方向同期：パソコンでは Anki アドオン、Android では AnkiDroid
+73fc86e0	パソコンでは：キーなしの無料文字起こし、アラビア語の母音記号、オフラインで使える音声、ライブラリ全体のバックアップ
+048f0c6a	ライトテーマ

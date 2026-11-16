@@ -1,0 +1,12 @@
+# Library key notes (pages/library.js keyNote, components/conversepanel.js) and Get the app's list (mobile/src/js/pages/settings.js).
+bca66680	La conversation nécessite une clé d’IA
+4740edbd	L’autre personne est jouée par une IA, avec votre propre clé : vous payez directement l’entreprise d’IA et rien ne passe par Tamkeen. Gemini offre un quota gratuit.
+4439d2e5	Les transcriptions nécessitent une clé de transcription
+054e99ab	Ces contenus n’ont pas de mots à lire : un service de reconnaissance vocale les écrit à partir du son, avec votre propre clé (Groq offre un quota gratuit). L’application Tamkeen sur un ordinateur peut les écrire gratuitement à la place.
+682526d6	Ce que l’application vous apporte
+bdabc88e	Les reels de vos enregistrements et collections Instagram, et les reels avec une chanson de la bibliothèque musicale d’Instagram
+1ab3c8d7	Les vidéos YouTube que YouTube bloque pour l’application web (souvent pour la musique)
+9e4b882b	Un navigateur web intégré : importez n’importe quelle page web et trouvez le moment où un mot est dit dans une vidéo
+cae4cb80	La synchronisation Anki dans les deux sens : le module Anki sur un ordinateur, AnkiDroid sur Android
+73fc86e0	Sur un ordinateur : des transcriptions gratuites sans clé, les voyelles de l’arabe, des voix qui fonctionnent hors ligne et des sauvegardes de toute votre bibliothèque
+048f0c6a	Un thème clair
