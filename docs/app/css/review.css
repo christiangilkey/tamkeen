@@ -29,6 +29,11 @@
 /* No words to review yet: the same box in its usual colour (vocab.js; the owner, 2026-10-25), with nothing to press */
 .review-banner:disabled { opacity: 1; cursor: default; }
 .review-banner .rb-go:empty { display: none; }
+/* All done, and the goal wants new words that aren't there (vocab.js, the owner 2026-11-16): the brand's purple,
+   with the banner's own blue on its "Get words" button, which opens the Library's Words course. */
+.review-banner.out, .review-banner.out:hover:not(:disabled) { background: #8f1d84; color: #fff; border-color: transparent; }
+.review-banner.out .rb-icon { background: rgba(255, 255, 255, .16); color: #fff; }
+.review-banner.out .rb-go { background: #22c7d6; color: #022a2f; }
 .vocab-item .memo { border-style: dashed; }
 .folder-chip.active .ic .fill { opacity: .3; }  /* the open folder's icon is softly filled in */
 
@@ -566,8 +571,7 @@ body.rv-open { overflow: hidden; }
 .lg-nums b, .lg-parts b { color: var(--text); }
 .lg-pace { margin: 2px 0 0; font-family: var(--display-font); font-size: 17px; font-weight: 600; }
 .lg-line { margin: 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
-.lg-next, .lg-change, .lg-learn, .lg-add { align-self: center; }
-.lg-add { display: inline-flex; align-items: center; gap: 6px; }
+.lg-next, .lg-change, .lg-learn { align-self: center; }
 .lg-edit-box { display: flex; flex-direction: column; gap: 8px; text-align: center; }
 .lg-edit-box h4 { margin: 8px 0 0; font-size: 14px; }
 .lg-edit-box .rv-chips { justify-content: center; margin-top: 0; }
@@ -632,5 +636,3 @@ body.rv-open { overflow: hidden; }
 .lg-empty { cursor: pointer; }
 .lg-empty .lg-title { font-weight: 600; color: var(--muted); }
 .lg-empty .lg-tick { opacity: .5; }
-.lg-ways { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-.lg-ways button { display: inline-flex; align-items: center; gap: 6px; }

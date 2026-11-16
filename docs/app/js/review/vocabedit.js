@@ -20,6 +20,8 @@ export const TOOLS = [
   ["sentence", "example", "Sentence", "An example sentence: a real one found, or one written for you"],
   ["record", "mic", "Record", "Record the word, or choose a sound file"],
   ["folders", "folder", "Folders", "Put it in folders"],
+  // Not a panel: a switch (components/wordtools.js). Important words come first in reviews and new words (deck.js plan).
+  ["important", "flag", "Important", "Important: it comes first in reviews and among new words"],
 ];
 
 const has = (v, field) => !!stripMarks((v && v[field]) || "").trim();

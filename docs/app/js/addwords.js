@@ -172,6 +172,13 @@ export function splitLine(line) {
  * the language being learned (a line written "meaning – word" is turned round when the word's script
  * says so). Blank lines are skipped; only the first `max` cards are kept (`cut` says some were left).
  */
+/** Is pasted `text` a list of cards (more than one line with something on it, or a spreadsheet's columns), rather
+ * than one word? (components/wordbuilder.js: a list goes into "Paste a list" to be looked over first.) */
+export function isList(text) {
+  const lines = String(text ?? "").split(/\r\n?|\n/).filter((l) => l.trim());
+  return lines.length > 1 || (lines.length === 1 && /\t/.test(lines[0].trim()));
+}
+
 export function parseList(text, { lang = "", max = MAX_ROWS } = {}) {
   const script = SCRIPTS[lang];
   const cards = [];

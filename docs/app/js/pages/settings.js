@@ -5,6 +5,7 @@
 
 import { taskTargetCard } from "../components/tasktarget.js";
 import { api, checkForUpdate, esc, h, on, toast, saveSettings } from "../app.js";
+import { icon } from "../icons.js";
 import { aiSetup } from "../components/aisetup.js";
 import { freeHelpersCard } from "../components/freehelpers.js";
 import { dliCard, dliSummary } from "../components/dlicard.js";
@@ -22,6 +23,7 @@ import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
+import { contactCard } from "../components/contact.js";
 import { parkAll } from "../reset.js";
 import { speakPicker } from "../components/langpicker.js";
 import { learningList, learningSettings, learningSummary } from "../components/langswitch.js";
@@ -50,7 +52,7 @@ const THEMES = { system: "System", light: "Light", dark: "Dark" };
 const THEME_LINE = { system: "System theme", light: "Light theme", dark: "Dark theme" };
 // On the phone some sections hold other things than on the computer.
 const ABOUTS = {
-  apps: isWeb ? "Google Calendar, Google Tasks, Onyx, and the Tamkeen app." : android ? "AnkiDroid, Google Calendar, Google Tasks and Onyx." : "Google Calendar, Google Tasks and Onyx.",
+  apps: isWeb ? "Google Calendar, Google Tasks and Onyx." : android ? "AnkiDroid, Google Calendar, Google Tasks and Onyx." : "Google Calendar, Google Tasks and Onyx.",
   data: isWeb ? "Starting again, the privacy policy and licenses." : "Updates, starting again, the privacy policy and licenses.",
 };
 
@@ -65,7 +67,7 @@ function ago(ts) {
 export async function render(view, { query } = {}) {
   const show = (query && query.get("show")) || "";
   const id = (query && query.get("s")) || sectionOfFind(show);
-  if (!SECTIONS.some((x) => x.id === id)) { home(view); return; }
+  if (!SECTIONS.some((x) => x.id === id) || (id === "getapp" && !isWeb)) { home(view); return; }  // ("Get the app" is the web app's)
   const { body } = sectionPage(view, id, { about: ABOUTS[id] });
   const cleanups = (await BUILD[id](body)) || [];
   revealFind(view, show);
@@ -80,6 +82,7 @@ function home(view) {
   settingsHome(view, {
     abouts: ABOUTS,
     finds: findsFor({ phone: true, android, ios: isIOS, web: isWeb, vibrates }, studyLanguage()),
+    hide: isWeb ? [] : ["getapp"],  // (on a phone this is the app)
     summaries: {
       languages: () => [{ text: learningSummary(learningList(s)) }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       dli: () => dliSummary(s),
@@ -123,7 +126,13 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
+const BUILD = { getapp, languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data, contact };
+
+// Contact: email SGT Gilkey a problem or a question (components/contact.js), with this version and device
+async function contact(body) {
+  const { APP_VERSION } = await import("../version.js");
+  body.append(contactCard({ version: APP_VERSION, device: isIOS ? "iPhone" : isWeb ? "the web app" : "Android" }));
+}
 
 // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
 // and under it "I'm a DLI teacher": classes and the students' weekly numbers (components/dliteach.js)
@@ -298,17 +307,47 @@ function apps(body) {
       <div id="anki-sync" class="stack"></div>
     </section>` : ""}
     <section class="card" id="task-target" data-find="tasks"></section>
-    ${isWeb ? `<section class="card set-card stack" data-find="getapp">
-      <h2>Tamkeen on the web</h2>
-      <p class="set-hint">This works like the app, with a few things that need the Tamkeen app on your phone or computer.</p>
-      <details class="set-info"><summary>What needs the app?</summary>Reels from your Instagram saves, reels with
-        a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the
-        number on the app icon. What you add in the app shows up here after a sync.</details>
-      <div><a class="btn primary" href="https://github.com/christiangilkey/tamkeen/releases/latest" target="_blank" rel="noopener">Get the app</a></div>
-    </section>` : ""}
   </div>`));
   taskTargetCard(body.querySelector("#task-target"));
   return android ? [ankiSyncPanel(body.querySelector("#anki-sync"))] : [];
+}
+
+// The web app's "Get the app": a download for each device, from this version's release on GitHub (the web
+// app is built with the release, so its version names the files); "0.0.0-dev" links to the latest release page.
+const RELEASES = "https://github.com/christiangilkey/tamkeen/releases";
+const DOWNLOADS = [
+  { name: "Windows", file: "Windows-Setup.exe", how: "Run the installer." },
+  { name: "Mac", file: "macOS-AppleSilicon.dmg", how: "For Macs with Apple chips (M1 and later)." },
+  { name: "Linux", file: "Linux-x86_64.AppImage", how: "Make the file runnable, then open it." },
+  { name: "Android", phone: true, file: "Android.apk", how: "Open the file on your phone and allow the install." },
+  { name: "iPhone", phone: true, file: "iPhone.ipa", how: "Open the file with AltStore (Tamkeen isn't in the App Store)." },
+];
+async function getapp(body) {
+  const { APP_VERSION } = await import("../version.js");
+  const real = /^\d+\.\d+\.\d+$/.test(APP_VERSION);
+  const href = (d) => real ? `${RELEASES}/download/v${APP_VERSION}/Tamkeen-${APP_VERSION}-${d.file}` : `${RELEASES}/latest`;
+  body.append(h(`<div>
+    <section class="card set-card stack" data-find="getapp">
+      <h2>Get the app</h2>
+      <p class="set-hint">The web app works like the app, with a few things that need Tamkeen on your phone or computer.
+        Sign in to Google Drive in both and your library follows you.</p>
+      <h3 class="getapp-h">What you get with the app</h3>
+      <ul class="getapp-gains">
+        <li>Reels from your Instagram saves and collections, and reels with a song from Instagram's music library</li>
+        <li>YouTube videos that YouTube blocks for the web app (it often does for music)</li>
+        <li>A built-in web browser: import any web page, and find the moment a word is said in a video</li>
+        <li>Two-way Anki sync: the Anki add-on on a computer, AnkiDroid on Android</li>
+        <li>On a computer: transcripts written for free with no key, Arabic vowel marks, voices that work offline, and backups of your whole library</li>
+        <li>A light theme</li>
+      </ul>
+      <nav class="card set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
+        <a class="set-row" href="${esc(href(d))}" target="_blank" rel="noopener">
+          <span class="set-ico">${icon(d.phone ? "link" : "computer", 22)}</span>
+          <span class="set-text"><span class="set-name">${esc(d.name)}</span><span class="set-sum">${esc(d.how)}</span></span>
+          <span class="set-chev">${icon("chevron", 18)}</span></a>`).join("")}</nav>
+      <div><a class="btn" href="${RELEASES}/latest" target="_blank" rel="noopener">All downloads</a></div>
+    </section>
+  </div>`));
 }
 
 function data(body) {

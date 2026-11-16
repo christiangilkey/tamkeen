@@ -58,6 +58,14 @@ export const SELL = [1, 1, 2, 4, 8, 15, 25, 40, 60, 100];
 export const TIER_COUNT = SELL.length;
 /** Fish an aquarium holds. */
 export const TANK_SIZE = 6;
+/** The aquariums, bought with pearls (like the rods): each holds more fish (the owner, 2026-11-16). The first is free.
+ * Friends see the best TANK_SIZE of them, whatever the size (the online check, supabase/v9-fishing.sql, allows six). */
+export const TANKS = [
+  { id: "small", name: "Small tank", size: 6, pearls: 0 },
+  { id: "big", name: "Big tank", size: 9, pearls: 15 },
+  { id: "reef", name: "Reef tank", size: 12, pearls: 40 },
+  { id: "grand", name: "Grand aquarium", size: 18, pearls: 100 },
+];
 /** Pearls found in a fish when it is landed, by tier. A share below 1 is a chance of one. */
 export const PEARLS = [0, 0, 0.25, 1, 2, 3, 5, 8, 12, 20];
 

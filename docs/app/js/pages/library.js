@@ -1,6 +1,8 @@
 // Library: feeds sidebar, episode list with live status, multi-select transcription.
 
-import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix } from "../app.js";
+import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix, state } from "../app.js";
+import { sttConfig } from "../stt.js";
+import { settingsHref } from "../fixes.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
 import { allProgress, isUnfinished } from "../progress.js";
@@ -109,6 +111,24 @@ const KINDS = [
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
     empty: "Add audio of your own with the + button below." },
 ];
+// The kinds whose things come with no words to read: a transcript is written from the sound. The computer
+// does that itself (Whisper); the phones and the web app need a transcription key (or the computer).
+const HEARD_KINDS = ["podcasts", "audiobooks", "reels", "videos", "audio"];
+/** A small purple note at the top of a tab that needs a key not added yet (the owner, 2026-11-16): what is
+ * needed, why, and a button to Settings. Conversation has its own (conversepanel.js); YouTube explains its
+ * own key where it is needed (geminicaptions.js), so it has none. */
+function keyNote(kind) {
+  if (!HEARD_KINDS.includes(kind) || platform === "desktop") return null;
+  const cfg = sttConfig((state.status && state.status.settings) || {});
+  if (cfg.on || cfg.blocked) return null;  // (a key is there, or this language is only heard on the computer)
+  return h(`<aside class="key-note" role="note">
+    <span class="kn-ico" aria-hidden="true">${icon("lock", 18)}</span>
+    <span class="kn-text"><strong>Transcripts need a transcription key</strong>
+      <span>These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.</span></span>
+    <a class="kn-go" href="${settingsHref("listening", "sttkey")}">Add a key</a>
+  </aside>`);
+}
+
 /** Kinds with a panel of their own instead of a list of episodes. */
 const panelKind = (k) => k === "courses" || k === "conversation";
 // The kind showing last time, kept on this device, for the Library tab to open on again.
@@ -435,6 +455,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     markEmpty("head", !!emptyKind);
     if (kind === "courses") { showCourses(); return; }
     if (kind === "conversation") { showConversation(); return; }
+    const note = keyNote(kind);
+    if (note) head.append(note);
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
     if (emptyKind) {
       head.append(emptyState(emptyKind));

@@ -989,6 +989,7 @@ const routes = [
     if (!v) throw new ApiError("Not found.");
     if (Array.isArray(body.folders)) v.folders = [...new Set(body.folders)].sort();
     for (const k of ["meaning", "notes", "memo"]) if (body[k] !== undefined && body[k] !== null) v[k] = body[k];
+    if (typeof body.important === "boolean") v.important = body.important ? 1 : 0;  // (as on the computer)
     // The word itself only when something is left of it (as on the computer, app/api/vocab.py).
     if (typeof body.text === "string" && body.text.trim()) v.text = body.text.trim();
     // The sentence; with sentence_if, only while it is still exactly that (as on the computer).

@@ -3033,6 +3033,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .vi-tool span { max-width: 100%; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }  /* (a long name is hyphenated, never cut anywhere) */
 .vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
+/* A word marked important (pages/vocab.js, components/wordtools.js): a flag in the warning colour, filled when on. */
+.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--warn); }
+.vi-tool[data-tool="important"][aria-pressed="true"] .ic .fill, #bulk-important[aria-pressed="true"] .ic .fill { opacity: 1; }
+.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--warn); }
+.vi-imp[hidden] { display: none; }
+.vi-imp .ic .fill { opacity: 1; }
 .vi-tool-danger { color: var(--danger); }
 /* What a tool opens, under the row. */
 .vi-panel { display: flex; flex-direction: column; gap: 10px; }
@@ -3479,10 +3485,17 @@ button.fr-boss:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .library.converse-kind .lib-courses, .library:not(.converse-kind) .lib-converse { display: none; }
 .cv { position: relative; max-width: 760px; margin: 0 auto; }
 .cv-lead { color: var(--muted); text-align: center; margin: 6px auto 14px; max-width: 52ch; font-size: 15px; }
-.cv-need { display: grid; gap: 10px; justify-items: center; text-align: center; padding: 14px 16px; margin: 0 0 14px;
-  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-.cv-need[hidden] { display: none; }
-.cv-need p { margin: 0; }
+/* A Library tab that needs a key not added yet (library.js keyNote, conversepanel.js; the owner, 2026-11-16):
+   a small note in the brand's purple, the same in both themes, with a button to the setting. */
+.key-note { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 0 12px; border-radius: var(--radius);
+  background: #8f1d84; color: #fff; font-size: 13px; line-height: 1.4; text-align: start; }
+.key-note[hidden] { display: none; }
+.key-note .kn-ico { flex: none; display: inline-flex; }
+.key-note .kn-text { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.key-note strong { font-size: 14px; }
+.key-note .kn-go { flex: none; padding: 7px 14px; border-radius: 99px; background: #fff; color: #8f1d84; font-weight: 700; white-space: nowrap; }
+.key-note .kn-go:hover { text-decoration: none; filter: brightness(.95); }
+@media (max-width: 560px) { .key-note { flex-wrap: wrap; } .key-note .kn-go { margin-inline-start: 30px; } }
 .cv-levels { display: flex; gap: 4px; padding: 4px; margin: 12px 0 8px; border-radius: 18px; background: var(--surface-2); border: 1px solid var(--border); overflow-x: auto; }
 .cv-levels button { flex: 1 0 auto; display: grid; justify-items: center; min-height: 46px; padding: 4px 12px; border: 0; border-radius: 14px;
   background: transparent; color: var(--muted); }

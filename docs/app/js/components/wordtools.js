@@ -33,6 +33,8 @@ const OWN_ICONS = {
   // a folder with a plus (put the chosen words in a folder) or a minus (take them out of one)
   folderin: `<path class="fill" d="${FOLDER}"/><path d="${FOLDER}"/><path d="M9.6 13h4.8M12 10.6v4.8"/>`,
   folderout: `<path class="fill" d="${FOLDER}"/><path d="${FOLDER}"/><path d="M9.6 13h4.8"/>`,
+  // a flag on a pole: a word marked important
+  flag: `<path class="fill" d="M6 4.5h11.5l-2.6 4 2.6 4H6z"/><path d="M6 21V4.5h11.5l-2.6 4 2.6 4H6"/>`,
 };
 
 /** A line icon for the Vocab page and the tools: its own (above), else icons.js's. */
@@ -78,10 +80,21 @@ export function wordTools(row, panel, v, opts) {
     row.innerHTML = "";
     for (const id of toolsFor(v)) {
       const [, ic, label, about] = TOOLS.find((x) => x[0] === id);
-      const b = h(`<button type="button" class="vi-tool" data-tool="${id}" title="${about}" aria-pressed="${tool === id}">${vocabIcon(ic, 20)}<span>${label}</span></button>`);
-      b.onclick = () => openTool(id);
+      const on = id === "important" ? Boolean(v.important) : tool === id;
+      const b = h(`<button type="button" class="vi-tool" data-tool="${id}" title="${about}" aria-pressed="${on}">${vocabIcon(ic, 20)}<span>${label}</span></button>`);
+      b.onclick = () => (id === "important" ? toggleImportant(b) : openTool(id));
       row.append(b);
     }
+  }
+
+  /** Important is a switch, not a panel: marked, it comes first in reviews and among new words. */
+  function toggleImportant(b) {
+    if (closed) return;
+    const on = !v.important;
+    save({ important: on });
+    v.important = on ? 1 : 0;
+    b.setAttribute("aria-pressed", String(on));
+    toast(on ? t("Marked important: it comes first in reviews and new words") : t("No longer marked important"));
   }
 
   function openTool(id) {
@@ -89,7 +102,7 @@ export function wordTools(row, panel, v, opts) {
     if (tool === id) { closeTool(); return; }
     closeTool();
     tool = id;
-    for (const b of row.querySelectorAll(".vi-tool[aria-pressed]")) b.setAttribute("aria-pressed", String(b.dataset.tool === id));
+    for (const b of row.querySelectorAll(".vi-tool[aria-pressed]:not([data-tool=important])")) b.setAttribute("aria-pressed", String(b.dataset.tool === id));
     panel.hidden = false;
     panel.innerHTML = "";
     panel.dataset.tool = id;
@@ -108,7 +121,7 @@ export function wordTools(row, panel, v, opts) {
     panel.hidden = true;
     panel.innerHTML = "";
     delete panel.dataset.tool;
-    for (const b of row.querySelectorAll(".vi-tool[aria-pressed]")) b.setAttribute("aria-pressed", "false");
+    for (const b of row.querySelectorAll(".vi-tool[aria-pressed]:not([data-tool=important])")) b.setAttribute("aria-pressed", "false");
     if (was) onLayout();
   }
   const stillOpen = (id) => !closed && tool === id;

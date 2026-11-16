@@ -61,7 +61,7 @@ const PLACES = {
     text: "There is no one to send this to yet: add a friend on the Friends page.", button: "Find friends" },
   language: { s: "languages", show: "learn", icon: "page", title: "Choose a language to learn",
     text: "Tamkeen needs to know which language you're learning: choose it in Settings → Languages.", button: "Choose a language" },
-  getapp: { s: "apps", show: "getapp", icon: "computer", title: "This needs the Tamkeen app",
+  getapp: { s: "getapp", show: "getapp", icon: "computer", title: "This needs the Tamkeen app",
     text: "", button: "Get the app" }, // (its text is the message itself)
 };
 

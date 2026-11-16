@@ -242,10 +242,12 @@ export function conversePanel(box, lang) {
     box.append(bubble.el);
     const page = h(`<div class="cv-list">
       <p class="cv-lead">Practise speaking with someone who never tires. Pick a situation, get things done in it, and see what to work on.</p>
-      <div class="cv-need" hidden>
-        <p>Conversation needs an AI key: the other person is played by your own AI. Gemini has a free allowance.</p>
-        <a class="btn primary" href="#/settings?s=words">Add an AI key</a>
-      </div>
+      <aside class="key-note cv-need" role="note" hidden>
+        <span class="kn-ico" aria-hidden="true">${icon("lock", 18)}</span>
+        <span class="kn-text"><strong>Conversation needs an AI key</strong>
+          <span>The other person is played by an AI, with your own key, so you pay the AI company directly and nothing goes through Tamkeen. Gemini has a free allowance.</span></span>
+        <a class="kn-go" href="#/settings?s=words&amp;show=key">Add an AI key</a>
+      </aside>
       <label class="course-variety" hidden><span>Dialect</span><select aria-label="Which Arabic to speak"></select></label>
       <div class="cv-mock" hidden>
         <div class="cv-mock-head"><span class="cv-card-ic">${icon("target", 22)}</span>

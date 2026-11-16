@@ -184,7 +184,7 @@ export async function render(view) {
       </div>
     </section>
     <div id="mywords">
-    <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" title="Search your words. Also: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:">
+    <input type="search" id="q" class="vocab-search" placeholder="Search vocab… ${esc(langInfo(studyLanguage()).search)}" dir="auto" title="Search your words. Also: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:">
     <div class="vocab-bar" id="vbar">
       <button type="button" class="vocab-folder" id="folder-pick" aria-haspopup="dialog" title="Choose a folder">
         ${icon("folder", 18)}<span class="vf-name"></span><span class="vf-n"></span><span class="vf-caret" aria-hidden="true">${icon("chevron", 16)}</span>
@@ -201,6 +201,7 @@ export async function render(view) {
       <div class="vsb-acts">
         <button type="button" class="vi-tool" id="bulk-add">${vocabIcon("folderin", 20)}<span>Add to folder</span></button>
         <button type="button" class="vi-tool" id="bulk-remove">${vocabIcon("folderout", 20)}<span>Remove from folder</span></button>
+        <button type="button" class="vi-tool" id="bulk-important" aria-pressed="false">${vocabIcon("flag", 20)}<span>Important</span></button>
         <button type="button" class="vi-tool" id="bulk-send">${icon("send", 20)}<span>Send</span></button>
         <button type="button" class="vi-tool vi-tool-danger" id="bulk-delete">${icon("trash", 20)}<span>Delete</span></button>
       </div>
@@ -527,7 +528,9 @@ export async function render(view) {
     button.textContent = every ? "Deselect all" : t("Select all {0}", shown.length);
     button.title = every ? "Untick every word listed below" : "Tick every word listed below, to file or send them together";
     const picked = pickedItems();
-    for (const id of ["#bulk-add", "#bulk-send", "#bulk-delete"]) $(id).disabled = !picked.length;
+    for (const id of ["#bulk-add", "#bulk-send", "#bulk-delete", "#bulk-important"]) $(id).disabled = !picked.length;
+    // (pressed when every ticked word is important already: a tap then takes the mark off them all)
+    $("#bulk-important").setAttribute("aria-pressed", String(picked.length > 0 && picked.every((v) => v.important)));
     $("#bulk-remove").disabled = !picked.some((v) => v.folders.length);
   }
 
@@ -565,6 +568,7 @@ export async function render(view) {
       <div class="vi-head">
         <input type="checkbox" class="pick" tabindex="-1" aria-hidden="true">
         <div class="vi-main"></div>
+        <span class="vi-imp" title="Important" role="img" aria-label="Important" hidden>${vocabIcon("flag", 18)}</span>
         <button type="button" class="ghost icon vi-chev">${icon("chevron", 20)}</button>
       </div>
     </div>`);
@@ -576,6 +580,7 @@ export async function render(view) {
     let pw = null, ps = null, quick = null;
     function drawClosed() {
       const lang = langAttrs(detectLanguage(v.sentence || v.text));
+      el.querySelector(".vi-imp").hidden = !v.important;  // (the flag beside the arrow: marked important)
       main.innerHTML = `<div class="word" ${lang}></div>
         <div class="vi-meaning" translate="no"></div>
         ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
@@ -733,7 +738,8 @@ export async function render(view) {
     if (banner.hidden || none) {
       goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
-      banner.classList.remove("idle");
+      banner.classList.remove("idle", "out");
+      getWords = false;
       banner.querySelector("strong").textContent = "Review";
       banner.querySelector(".rb-go").textContent = "";
       banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;
@@ -754,9 +760,13 @@ export async function render(view) {
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh + extra > 0;
-    banner.classList.toggle("idle", !ready);
+    // Everything done and the goal wants new words that aren't there: the banner turns the brand's purple and
+    // its button takes the learner to the Library's Words course for more (the owner, 2026-11-16).
+    getWords = !ready && o.askable && noneLeft;
+    banner.classList.toggle("idle", !ready && !getWords);
+    banner.classList.toggle("out", getWords);
     banner.querySelector("strong").textContent = scope ? `Review “${scope}”` : "Review";
-    banner.querySelector(".rb-go").textContent = ready ? "Start" : "Open";
+    banner.querySelector(".rb-go").textContent = ready ? "Start" : getWords ? "Get words" : "Open";
     const parts = [];
     if (o.due) parts.push(`<b>${o.due}</b> due`);
     if (o.fresh) parts.push(`<b>${o.fresh}</b> new`);
@@ -764,7 +774,7 @@ export async function render(view) {
     if (noneLeft) parts.push("no new words left to learn");
     banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run">${ready ? parts.join(" · ")
       : !o.askable ? "Words that have a meaning turn up here as flashcards."
-      : noneLeft ? "All caught up · No new words left to learn: see your goal below"
+      : noneLeft ? "All caught up · No new words left for your goal"
       : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`}</span>`;
     fitReview();
   }
@@ -790,8 +800,8 @@ export async function render(view) {
 
   // The long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js): over every
   // answer on record, whichever folder is open; hidden while searching (the list is then narrowed).
-  // (a "new words" goal can open the reviewer with the extra new words today's part needs, or Add words)
-  const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra), onAddWords: () => openAdd() });
+  // (a "new words" goal can open the reviewer with the extra new words today's part needs)
+  const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra) });
   const calendar = heatmap($("#heatmap"));
   function renderProgress() {
     const box = $("#progress");
@@ -801,6 +811,7 @@ export async function render(view) {
     calendar.update(all, log);
   }
 
+  let getWords = false;  // the banner is the purple "Get words" one (renderReview)
   let reviewBonus = 0;  // the extra new words a "new words" goal wants today (renderReview works it out)
   /** Open the reviewer; `extra`: new words allowed today beyond the day's own number (a goal's). */
   function startReview(extra = reviewBonus) {
@@ -890,7 +901,7 @@ export async function render(view) {
   }
 
   // ----- wiring -----
-  $("#review").onclick = () => startReview();
+  $("#review").onclick = () => { if (getWords) location.hash = "#/library?tab=basics"; else startReview(); };
   const pickedItems = () => all.filter((v) => selected.has(v.id));
   const below = (e) => { const r = e.currentTarget.getBoundingClientRect(); return [r.left, r.bottom + 4]; };
   $("#folder-pick").onclick = folderSheet;
@@ -903,6 +914,23 @@ export async function render(view) {
   $("#bulk-remove").onclick = (e) => folderMenu(...below(e), pickedItems(), "remove");
   $("#bulk-send").onclick = (e) => sendMenu(...below(e), pickedItems());
   $("#bulk-delete").onclick = () => removeWords(pickedItems());
+  // Important for every ticked word (or, when they all are, for none of them): first in reviews and new words.
+  $("#bulk-important").onclick = async () => {
+    const words = pickedItems();
+    if (!words.length) return;
+    const on = !words.every((v) => v.important);
+    const now = Date.now() / 1000;
+    try {
+      for (const v of words) {
+        if (Boolean(v.important) === on) continue;
+        await api(`/vocab/${v.id}`, { method: "PATCH", body: { important: on } });
+        v.important = on ? 1 : 0;
+        v.updated_at = now;
+      }
+      toast(on ? t("{0} marked important", words.length) : t("{0} no longer marked important", words.length));
+    } catch (e) { toast(e.message, { error: true }); }
+    renderAll();
+  };
   $("#select-all").onclick = () => {
     const every = shown.every((v) => selected.has(v.id));
     for (const v of shown) every ? selected.delete(v.id) : selected.add(v.id);
@@ -940,7 +968,7 @@ export async function render(view) {
     const options = trig.op === "folder"
       ? [{ value: "none", label: t("Not in any folder") }, ...folders.map((f) => ({ value: f.name, label: f.name, n: folderCount(all, f.uid) }))]
       : [{ value: "new", label: t("New: never answered") }, { value: "due", label: t("Due today") },
-         { value: "learned", label: t("Learned: remembered at least once") }];
+         { value: "learned", label: t("Learned: remembered at least once") }, { value: "important", label: t("Important: marked with a flag") }];
     const m = openModal({ title: trig.op === "folder" ? "Pick a folder" : "Show only" });
     m.body.innerHTML = `<div class="sp">
       <input type="search" class="sp-filter" placeholder="Type to narrow the list" aria-label="Narrow the list">
