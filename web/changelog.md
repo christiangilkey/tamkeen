@@ -14,7 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
-- **Improved:** When the line under **Review** on the Vocab page is too long to fit, its cut-off edge now fades out, so you can see there is more before it slides along to show it.
+- **Improved:** When the line under **Review** on the Vocab page is too long to fit, its cut-off edge now fades out, so you can see there is more before it slides along to show it. It also waits less at each end: about a second instead of two or three.
 
 ## v0.59.0 — 2026-11-16
 

@@ -787,7 +787,8 @@ export async function render(view) {
     const hidden = line.scrollWidth - line.clientWidth;  // how much of the line doesn't fit
     if (!line.clientWidth || hidden < 2) return;
     line.style.setProperty("--rb-shift", `${-(hidden + 4)}px`);
-    line.style.setProperty("--rb-time", `${Math.max(6, 5 + hidden / 20)}s`);
+    // (sliding at about 40 px a second, 40% of the cycle each way; the waits at each end are a tenth of it: review.css)
+    line.style.setProperty("--rb-time", `${Math.max(4, hidden / 16).toFixed(1)}s`);
     line.classList.add("scroll");
   }
   // The room changes with the window (and is nothing at all while the page is hidden).

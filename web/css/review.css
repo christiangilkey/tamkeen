@@ -32,9 +32,10 @@
   -webkit-mask-image: linear-gradient(to left, transparent 0, #000 var(--rb-fade-a), #000 calc(100% - var(--rb-fade-b)), transparent 100%);
   mask-image: linear-gradient(to left, transparent 0, #000 var(--rb-fade-a), #000 calc(100% - var(--rb-fade-b)), transparent 100%);
 }
-@keyframes rb-fade { 0%, 20% { --rb-fade-a: 0px; --rb-fade-b: 28px; } 50%, 70% { --rb-fade-a: 28px; --rb-fade-b: 0px; } 100% { --rb-fade-a: 0px; --rb-fade-b: 28px; } }
+@keyframes rb-fade { 0%, 10% { --rb-fade-a: 0px; --rb-fade-b: 28px; } 50%, 60% { --rb-fade-a: 28px; --rb-fade-b: 0px; } 100% { --rb-fade-a: 0px; --rb-fade-b: 28px; } }
 .review-banner .rb-sub.scroll .rb-run { display: inline-block; animation: rb-scroll var(--rb-time, 8s) ease-in-out infinite; }
-@keyframes rb-scroll { 0%, 20% { transform: translateX(0); } 50%, 70% { transform: translateX(var(--rb-shift, 0)); } 100% { transform: translateX(0); } }
+/* (a short wait at each end, a tenth of the cycle each, about a second: the owner found the longer waits too long) */
+@keyframes rb-scroll { 0%, 10% { transform: translateX(0); } 50%, 60% { transform: translateX(var(--rb-shift, 0)); } 100% { transform: translateX(0); } }
 .review-banner .rb-sub b { color: inherit; font-weight: 800; font-size: 17px; }
 .review-banner .rb-go { flex: none; padding: 11px 24px; border-radius: 99px; background: #022a2f; color: #22c7d6; font-weight: 700; font-size: 16px; }
 .review-banner.idle, .review-banner.idle:hover:not(:disabled) { background: var(--surface); color: var(--text); border-color: var(--border); }
