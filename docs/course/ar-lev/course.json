@@ -49,6 +49,11 @@
     "end": 0.796,
     "sent_start": 1.696,
     "sent_end": 3.325
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 0,
+    "size": 12575
    }
   },
   {
@@ -64,6 +69,11 @@
     "end": 0.355,
     "sent_start": 1.255,
     "sent_end": 2.503
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 12575,
+    "size": 9208
    }
   },
   {
@@ -80,6 +90,11 @@
     "end": 0.599,
     "sent_start": 1.499,
     "sent_end": 2.87
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 21783,
+    "size": 10954
    }
   },
   {
@@ -95,6 +110,11 @@
     "end": 0.498,
     "sent_start": 1.398,
     "sent_end": 2.236
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 32737,
+    "size": 7948
    }
   },
   {
@@ -110,6 +130,11 @@
     "end": 0.527,
     "sent_start": 1.427,
     "sent_end": 2.785
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 40685,
+    "size": 10345
    }
   },
   {
@@ -126,6 +151,11 @@
     "end": 0.553,
     "sent_start": 1.453,
     "sent_end": 2.935
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 51030,
+    "size": 11056
    }
   },
   {
@@ -142,6 +172,11 @@
     "end": 0.573,
     "sent_start": 1.473,
     "sent_end": 2.992
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 62086,
+    "size": 11067
    }
   },
   {
@@ -158,6 +193,11 @@
     "end": 0.605,
     "sent_start": 1.505,
     "sent_end": 2.126
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 73153,
+    "size": 7576
    }
   },
   {
@@ -174,6 +214,11 @@
     "end": 0.651,
     "sent_start": 1.551,
     "sent_end": 3.007
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 80729,
+    "size": 11429
    }
   },
   {
@@ -189,6 +234,11 @@
     "end": 0.609,
     "sent_start": 1.509,
     "sent_end": 2.358
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 92158,
+    "size": 8626
    }
   },
   {
@@ -204,6 +254,11 @@
     "end": 0.554,
     "sent_start": 1.454,
     "sent_end": 2.495
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 100784,
+    "size": 9203
    }
   },
   {
@@ -220,6 +275,11 @@
     "end": 0.657,
     "sent_start": 1.557,
     "sent_end": 2.709
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 109987,
+    "size": 10541
    }
   },
   {
@@ -236,6 +296,11 @@
     "end": 0.682,
     "sent_start": 1.582,
     "sent_end": 3.442
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 120528,
+    "size": 12900
    }
   },
   {
@@ -251,6 +316,11 @@
     "end": 0.725,
     "sent_start": 1.625,
     "sent_end": 3.621
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 133428,
+    "size": 14093
    }
   },
   {
@@ -267,6 +337,11 @@
     "end": 0.592,
     "sent_start": 1.492,
     "sent_end": 3.212
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 147521,
+    "size": 12244
    }
   },
   {
@@ -282,6 +357,11 @@
     "end": 0.749,
     "sent_start": 1.649,
     "sent_end": 2.53
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 159765,
+    "size": 9260
    }
   },
   {
@@ -297,6 +377,11 @@
     "end": 0.588,
     "sent_start": 1.488,
     "sent_end": 2.854
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 169025,
+    "size": 10805
    }
   },
   {
@@ -312,6 +397,11 @@
     "end": 0.752,
     "sent_start": 1.652,
     "sent_end": 3.084
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 179830,
+    "size": 11636
    }
   },
   {
@@ -327,6 +417,11 @@
     "end": 0.494,
     "sent_start": 1.394,
     "sent_end": 2.27
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 191466,
+    "size": 8326
    }
   },
   {
@@ -342,6 +437,11 @@
     "end": 0.576,
     "sent_start": 1.476,
     "sent_end": 3.252
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 199792,
+    "size": 12482
    }
   },
   {
@@ -357,6 +457,11 @@
     "end": 0.785,
     "sent_start": 1.685,
     "sent_end": 3.001
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 212274,
+    "size": 10393
    }
   },
   {
@@ -373,6 +478,11 @@
     "end": 0.609,
     "sent_start": 1.51,
     "sent_end": 3.382
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 222667,
+    "size": 12501
    }
   },
   {
@@ -388,6 +498,11 @@
     "end": 0.675,
     "sent_start": 1.575,
     "sent_end": 2.85
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 235168,
+    "size": 10659
    }
   },
   {
@@ -403,6 +518,11 @@
     "end": 0.684,
     "sent_start": 1.584,
     "sent_end": 3.067
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 245827,
+    "size": 11680
    }
   },
   {
@@ -419,6 +539,11 @@
     "end": 0.662,
     "sent_start": 1.562,
     "sent_end": 3.274
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 257507,
+    "size": 12355
    }
   },
   {
@@ -435,6 +560,11 @@
     "end": 0.657,
     "sent_start": 1.557,
     "sent_end": 4.069
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 269862,
+    "size": 15441
    }
   },
   {
@@ -450,6 +580,11 @@
     "end": 0.671,
     "sent_start": 1.571,
     "sent_end": 3.504
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 285303,
+    "size": 13500
    }
   },
   {
@@ -465,6 +600,11 @@
     "end": 0.664,
     "sent_start": 1.564,
     "sent_end": 3.109
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 298803,
+    "size": 11753
    }
   },
   {
@@ -481,6 +621,11 @@
     "end": 0.613,
     "sent_start": 1.513,
     "sent_end": 2.804
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 310556,
+    "size": 10545
    }
   },
   {
@@ -496,6 +641,11 @@
     "end": 0.714,
     "sent_start": 1.614,
     "sent_end": 2.873
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 321101,
+    "size": 10521
    }
   },
   {
@@ -512,6 +662,11 @@
     "end": 0.574,
     "sent_start": 1.474,
     "sent_end": 2.903
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 331622,
+    "size": 11213
    }
   },
   {
@@ -527,6 +682,11 @@
     "end": 0.702,
     "sent_start": 1.602,
     "sent_end": 3.261
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 342835,
+    "size": 12484
    }
   },
   {
@@ -543,6 +703,11 @@
     "end": 0.728,
     "sent_start": 1.628,
     "sent_end": 2.959
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 355319,
+    "size": 11195
    }
   },
   {
@@ -559,6 +724,11 @@
     "end": 0.66,
     "sent_start": 1.56,
     "sent_end": 2.905
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 366514,
+    "size": 10883
    }
   },
   {
@@ -575,6 +745,11 @@
     "end": 0.718,
     "sent_start": 1.618,
     "sent_end": 4.252
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 377397,
+    "size": 16446
    }
   },
   {
@@ -590,6 +765,11 @@
     "end": 0.652,
     "sent_start": 1.552,
     "sent_end": 3.175
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 393843,
+    "size": 12901
    }
   },
   {
@@ -606,6 +786,11 @@
     "end": 0.823,
     "sent_start": 1.723,
     "sent_end": 3.389
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 406744,
+    "size": 12377
    }
   },
   {
@@ -621,6 +806,11 @@
     "end": 0.698,
     "sent_start": 1.598,
     "sent_end": 3.175
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 419121,
+    "size": 12183
    }
   },
   {
@@ -637,6 +827,11 @@
     "end": 0.679,
     "sent_start": 1.579,
     "sent_end": 3.458
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 431304,
+    "size": 13151
    }
   },
   {
@@ -653,6 +848,11 @@
     "end": 0.752,
     "sent_start": 1.652,
     "sent_end": 3.172
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 444455,
+    "size": 11975
    }
   },
   {
@@ -668,6 +868,11 @@
     "end": 0.852,
     "sent_start": 1.752,
     "sent_end": 3.443
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 456430,
+    "size": 12908
    }
   },
   {
@@ -684,6 +889,11 @@
     "end": 0.732,
     "sent_start": 1.632,
     "sent_end": 3.7
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 469338,
+    "size": 13801
    }
   },
   {
@@ -700,6 +910,11 @@
     "end": 0.685,
     "sent_start": 1.585,
     "sent_end": 2.83
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 483139,
+    "size": 10699
    }
   },
   {
@@ -716,6 +931,11 @@
     "end": 0.487,
     "sent_start": 1.387,
     "sent_end": 2.745
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 493838,
+    "size": 10384
    }
   },
   {
@@ -731,6 +951,11 @@
     "end": 0.631,
     "sent_start": 1.531,
     "sent_end": 2.832
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 504222,
+    "size": 11215
    }
   },
   {
@@ -746,6 +971,11 @@
     "end": 0.569,
     "sent_start": 1.469,
     "sent_end": 2.41
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 515437,
+    "size": 8943
    }
   },
   {
@@ -761,6 +991,11 @@
     "end": 0.819,
     "sent_start": 1.719,
     "sent_end": 2.981
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 524380,
+    "size": 11388
    }
   },
   {
@@ -776,6 +1011,11 @@
     "end": 0.716,
     "sent_start": 1.616,
     "sent_end": 2.846
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 535768,
+    "size": 10723
    }
   },
   {
@@ -791,6 +1031,11 @@
     "end": 0.467,
     "sent_start": 1.367,
     "sent_end": 2.618
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 546491,
+    "size": 9722
    }
   },
   {
@@ -806,6 +1051,11 @@
     "end": 0.716,
     "sent_start": 1.616,
     "sent_end": 3.443
+   },
+   "clip": {
+    "pack": "audio/u01-6838b8845d.pack",
+    "at": 556213,
+    "size": 13178
    }
   },
   {
@@ -821,6 +1071,11 @@
     "end": 0.659,
     "sent_start": 1.559,
     "sent_end": 3.072
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 0,
+    "size": 11431
    }
   },
   {
@@ -836,6 +1091,11 @@
     "end": 0.645,
     "sent_start": 1.545,
     "sent_end": 2.938
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 11431,
+    "size": 11199
    }
   },
   {
@@ -852,6 +1112,11 @@
     "end": 0.658,
     "sent_start": 1.558,
     "sent_end": 3.162
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 22630,
+    "size": 11958
    }
   },
   {
@@ -867,6 +1132,11 @@
     "end": 0.48,
     "sent_start": 1.38,
     "sent_end": 2.51
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 34588,
+    "size": 9249
    }
   },
   {
@@ -883,6 +1153,11 @@
     "end": 0.689,
     "sent_start": 1.589,
     "sent_end": 2.851
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 43837,
+    "size": 10255
    }
   },
   {
@@ -898,6 +1173,11 @@
     "end": 0.604,
     "sent_start": 1.504,
     "sent_end": 2.841
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 54092,
+    "size": 11311
    }
   },
   {
@@ -914,6 +1194,11 @@
     "end": 0.542,
     "sent_start": 1.442,
     "sent_end": 3.344
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 65403,
+    "size": 12726
    }
   },
   {
@@ -929,6 +1214,11 @@
     "end": 0.577,
     "sent_start": 1.477,
     "sent_end": 3.059
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 78129,
+    "size": 11121
    }
   },
   {
@@ -944,6 +1234,11 @@
     "end": 0.637,
     "sent_start": 1.537,
     "sent_end": 3.447
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 89250,
+    "size": 13045
    }
   },
   {
@@ -960,6 +1255,11 @@
     "end": 0.661,
     "sent_start": 1.561,
     "sent_end": 3.592
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 102295,
+    "size": 13563
    }
   },
   {
@@ -975,6 +1275,11 @@
     "end": 0.722,
     "sent_start": 1.622,
     "sent_end": 3.258
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 115858,
+    "size": 12344
    }
   },
   {
@@ -990,6 +1295,11 @@
     "end": 0.635,
     "sent_start": 1.535,
     "sent_end": 2.736
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 128202,
+    "size": 10117
    }
   },
   {
@@ -1006,6 +1316,11 @@
     "end": 0.607,
     "sent_start": 1.507,
     "sent_end": 2.909
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 138319,
+    "size": 10892
    }
   },
   {
@@ -1021,6 +1336,11 @@
     "end": 0.746,
     "sent_start": 1.646,
     "sent_end": 3.303
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 149211,
+    "size": 12954
    }
   },
   {
@@ -1037,6 +1357,11 @@
     "end": 0.757,
     "sent_start": 1.657,
     "sent_end": 3.301
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 162165,
+    "size": 12628
    }
   },
   {
@@ -1052,6 +1377,11 @@
     "end": 0.593,
     "sent_start": 1.493,
     "sent_end": 3.165
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 174793,
+    "size": 13115
    }
   },
   {
@@ -1068,6 +1398,11 @@
     "end": 0.833,
     "sent_start": 1.733,
     "sent_end": 3.709
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 187908,
+    "size": 14131
    }
   },
   {
@@ -1083,6 +1418,11 @@
     "end": 0.68,
     "sent_start": 1.58,
     "sent_end": 3.357
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 202039,
+    "size": 14187
    }
   },
   {
@@ -1098,6 +1438,11 @@
     "end": 0.71,
     "sent_start": 1.61,
     "sent_end": 3.328
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 216226,
+    "size": 12556
    }
   },
   {
@@ -1113,6 +1458,11 @@
     "end": 0.732,
     "sent_start": 1.632,
     "sent_end": 3.268
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 228782,
+    "size": 12372
    }
   },
   {
@@ -1128,6 +1478,11 @@
     "end": 0.704,
     "sent_start": 1.604,
     "sent_end": 3.204
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 241154,
+    "size": 12128
    }
   },
   {
@@ -1143,6 +1498,11 @@
     "end": 0.7,
     "sent_start": 1.6,
     "sent_end": 2.582
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 253282,
+    "size": 9428
    }
   },
   {
@@ -1159,6 +1519,11 @@
     "end": 0.596,
     "sent_start": 1.496,
     "sent_end": 3.109
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 262710,
+    "size": 11729
    }
   },
   {
@@ -1174,6 +1539,11 @@
     "end": 0.761,
     "sent_start": 1.661,
     "sent_end": 2.655
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 274439,
+    "size": 9952
    }
   },
   {
@@ -1190,6 +1560,11 @@
     "end": 0.583,
     "sent_start": 1.483,
     "sent_end": 2.73
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 284391,
+    "size": 10168
    }
   },
   {
@@ -1205,6 +1580,11 @@
     "end": 0.654,
     "sent_start": 1.554,
     "sent_end": 2.924
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 294559,
+    "size": 11141
    }
   },
   {
@@ -1220,6 +1600,11 @@
     "end": 0.776,
     "sent_start": 1.677,
     "sent_end": 3.217
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 305700,
+    "size": 12139
    }
   },
   {
@@ -1235,6 +1620,11 @@
     "end": 0.722,
     "sent_start": 1.622,
     "sent_end": 3.067
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 317839,
+    "size": 12167
    }
   },
   {
@@ -1250,6 +1640,11 @@
     "end": 0.901,
     "sent_start": 1.801,
     "sent_end": 2.953
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 330006,
+    "size": 10991
    }
   },
   {
@@ -1265,6 +1660,11 @@
     "end": 0.783,
     "sent_start": 1.683,
     "sent_end": 3.72
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 340997,
+    "size": 14326
    }
   },
   {
@@ -1280,6 +1680,11 @@
     "end": 0.664,
     "sent_start": 1.564,
     "sent_end": 3.445
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 355323,
+    "size": 12873
    }
   },
   {
@@ -1296,6 +1701,11 @@
     "end": 0.508,
     "sent_start": 1.408,
     "sent_end": 2.573
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 368196,
+    "size": 9736
    }
   },
   {
@@ -1312,6 +1722,11 @@
     "end": 0.656,
     "sent_start": 1.556,
     "sent_end": 2.489
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 377932,
+    "size": 9188
    }
   },
   {
@@ -1327,6 +1742,11 @@
     "end": 0.589,
     "sent_start": 1.489,
     "sent_end": 3.037
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 387120,
+    "size": 11413
    }
   },
   {
@@ -1342,6 +1762,11 @@
     "end": 0.561,
     "sent_start": 1.461,
     "sent_end": 2.768
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 398533,
+    "size": 11148
    }
   },
   {
@@ -1358,6 +1783,11 @@
     "end": 0.745,
     "sent_start": 1.645,
     "sent_end": 2.966
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 409681,
+    "size": 12429
    }
   },
   {
@@ -1374,6 +1804,11 @@
     "end": 0.876,
     "sent_start": 1.776,
     "sent_end": 2.807
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 422110,
+    "size": 10339
    }
   },
   {
@@ -1390,6 +1825,11 @@
     "end": 0.569,
     "sent_start": 1.469,
     "sent_end": 3.503
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 432449,
+    "size": 13786
    }
   },
   {
@@ -1405,6 +1845,11 @@
     "end": 0.679,
     "sent_start": 1.579,
     "sent_end": 3.456
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 446235,
+    "size": 13015
    }
   },
   {
@@ -1420,6 +1865,11 @@
     "end": 0.551,
     "sent_start": 1.451,
     "sent_end": 2.774
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 459250,
+    "size": 10363
    }
   },
   {
@@ -1435,6 +1885,11 @@
     "end": 0.527,
     "sent_start": 1.427,
     "sent_end": 3.187
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 469613,
+    "size": 13325
    }
   },
   {
@@ -1451,6 +1906,11 @@
     "end": 0.633,
     "sent_start": 1.534,
     "sent_end": 2.73
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 482938,
+    "size": 10303
    }
   },
   {
@@ -1466,6 +1926,11 @@
     "end": 0.726,
     "sent_start": 1.626,
     "sent_end": 2.777
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 493241,
+    "size": 10404
    }
   },
   {
@@ -1482,6 +1947,11 @@
     "end": 0.665,
     "sent_start": 1.565,
     "sent_end": 2.912
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 503645,
+    "size": 11099
    }
   },
   {
@@ -1498,6 +1968,11 @@
     "end": 0.621,
     "sent_start": 1.521,
     "sent_end": 3.156
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 514744,
+    "size": 11519
    }
   },
   {
@@ -1513,6 +1988,11 @@
     "end": 0.653,
     "sent_start": 1.553,
     "sent_end": 3.392
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 526263,
+    "size": 13036
    }
   },
   {
@@ -1528,6 +2008,11 @@
     "end": 0.662,
     "sent_start": 1.562,
     "sent_end": 2.859
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 539299,
+    "size": 10745
    }
   },
   {
@@ -1543,6 +2028,11 @@
     "end": 0.467,
     "sent_start": 1.367,
     "sent_end": 2.755
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 550044,
+    "size": 10275
    }
   },
   {
@@ -1558,6 +2048,11 @@
     "end": 0.732,
     "sent_start": 1.632,
     "sent_end": 2.97
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 560319,
+    "size": 11118
    }
   },
   {
@@ -1574,6 +2069,11 @@
     "end": 0.675,
     "sent_start": 1.575,
     "sent_end": 3.049
+   },
+   "clip": {
+    "pack": "audio/u02-30a7d78787.pack",
+    "at": 571437,
+    "size": 11338
    }
   },
   {
@@ -1590,6 +2090,11 @@
     "end": 0.757,
     "sent_start": 1.657,
     "sent_end": 3.176
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 0,
+    "size": 12078
    }
   },
   {
@@ -1605,6 +2110,11 @@
     "end": 0.733,
     "sent_start": 1.633,
     "sent_end": 2.514
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 12078,
+    "size": 9626
    }
   },
   {
@@ -1621,6 +2131,11 @@
     "end": 0.827,
     "sent_start": 1.727,
     "sent_end": 3.227
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 21704,
+    "size": 12342
    }
   },
   {
@@ -1636,6 +2151,11 @@
     "end": 0.338,
     "sent_start": 1.238,
     "sent_end": 2.808
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 34046,
+    "size": 10344
    }
   },
   {
@@ -1651,6 +2171,11 @@
     "end": 0.856,
     "sent_start": 1.756,
     "sent_end": 3.901
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 44390,
+    "size": 15243
    }
   },
   {
@@ -1666,6 +2191,11 @@
     "end": 0.676,
     "sent_start": 1.576,
     "sent_end": 3.652
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 59633,
+    "size": 13955
    }
   },
   {
@@ -1681,6 +2211,11 @@
     "end": 0.666,
     "sent_start": 1.566,
     "sent_end": 3.314
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 73588,
+    "size": 13296
    }
   },
   {
@@ -1696,6 +2231,11 @@
     "end": 0.624,
     "sent_start": 1.524,
     "sent_end": 2.409
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 86884,
+    "size": 8807
    }
   },
   {
@@ -1711,6 +2251,11 @@
     "end": 0.545,
     "sent_start": 1.445,
     "sent_end": 2.551
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 95691,
+    "size": 9462
    }
   },
   {
@@ -1727,6 +2272,11 @@
     "end": 0.758,
     "sent_start": 1.658,
     "sent_end": 3.706
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 105153,
+    "size": 14302
    }
   },
   {
@@ -1742,6 +2292,11 @@
     "end": 0.572,
     "sent_start": 1.472,
     "sent_end": 3.05
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 119455,
+    "size": 11543
    }
   },
   {
@@ -1758,6 +2313,11 @@
     "end": 0.798,
     "sent_start": 1.698,
     "sent_end": 3.19
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 130998,
+    "size": 12037
    }
   },
   {
@@ -1773,6 +2333,11 @@
     "end": 0.573,
     "sent_start": 1.473,
     "sent_end": 3.122
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 143035,
+    "size": 11823
    }
   },
   {
@@ -1788,6 +2353,11 @@
     "end": 0.782,
     "sent_start": 1.682,
     "sent_end": 3.471
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 154858,
+    "size": 13267
    }
   },
   {
@@ -1803,6 +2373,11 @@
     "end": 0.773,
     "sent_start": 1.673,
     "sent_end": 3.001
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 168125,
+    "size": 11418
    }
   },
   {
@@ -1818,6 +2393,11 @@
     "end": 0.549,
     "sent_start": 1.449,
     "sent_end": 3.272
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 179543,
+    "size": 12252
    }
   },
   {
@@ -1833,6 +2413,11 @@
     "end": 0.694,
     "sent_start": 1.594,
     "sent_end": 3.084
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 191795,
+    "size": 11664
    }
   },
   {
@@ -1848,6 +2433,11 @@
     "end": 0.593,
     "sent_start": 1.493,
     "sent_end": 3.042
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 203459,
+    "size": 10979
    }
   },
   {
@@ -1864,6 +2454,11 @@
     "end": 0.711,
     "sent_start": 1.611,
     "sent_end": 2.871
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 214438,
+    "size": 11122
    }
   },
   {
@@ -1879,6 +2474,11 @@
     "end": 0.71,
     "sent_start": 1.61,
     "sent_end": 3.318
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 225560,
+    "size": 13594
    }
   },
   {
@@ -1894,6 +2494,11 @@
     "end": 0.669,
     "sent_start": 1.569,
     "sent_end": 2.655
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 239154,
+    "size": 10095
    }
   },
   {
@@ -1909,6 +2514,11 @@
     "end": 0.707,
     "sent_start": 1.607,
     "sent_end": 3.112
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 249249,
+    "size": 11709
    }
   },
   {
@@ -1924,6 +2534,11 @@
     "end": 0.597,
     "sent_start": 1.497,
     "sent_end": 3.268
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 260958,
+    "size": 12357
    }
   },
   {
@@ -1940,6 +2555,11 @@
     "end": 0.722,
     "sent_start": 1.622,
     "sent_end": 3.022
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 273315,
+    "size": 11311
    }
   },
   {
@@ -1955,6 +2575,11 @@
     "end": 0.664,
     "sent_start": 1.564,
     "sent_end": 3.052
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 284626,
+    "size": 12549
    }
   },
   {
@@ -1970,6 +2595,11 @@
     "end": 0.861,
     "sent_start": 1.761,
     "sent_end": 3.526
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 297175,
+    "size": 13448
    }
   },
   {
@@ -1986,6 +2616,11 @@
     "end": 0.695,
     "sent_start": 1.595,
     "sent_end": 2.572
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 310623,
+    "size": 9525
    }
   },
   {
@@ -2001,6 +2636,11 @@
     "end": 0.474,
     "sent_start": 1.374,
     "sent_end": 3.066
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 320148,
+    "size": 11533
    }
   },
   {
@@ -2016,6 +2656,11 @@
     "end": 0.752,
     "sent_start": 1.652,
     "sent_end": 3.562
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 331681,
+    "size": 13730
    }
   },
   {
@@ -2031,6 +2676,11 @@
     "end": 0.597,
     "sent_start": 1.497,
     "sent_end": 3.27
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 345411,
+    "size": 12285
    }
   },
   {
@@ -2046,6 +2696,11 @@
     "end": 0.679,
     "sent_start": 1.579,
     "sent_end": 2.921
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 357696,
+    "size": 10903
    }
   },
   {
@@ -2061,6 +2716,11 @@
     "end": 0.582,
     "sent_start": 1.482,
     "sent_end": 3.163
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 368599,
+    "size": 12124
    }
   },
   {
@@ -2076,6 +2736,11 @@
     "end": 0.933,
     "sent_start": 1.833,
     "sent_end": 3.862
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 380723,
+    "size": 14870
    }
   },
   {
@@ -2091,6 +2756,11 @@
     "end": 0.771,
     "sent_start": 1.671,
     "sent_end": 3.473
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 395593,
+    "size": 13195
    }
   },
   {
@@ -2106,6 +2776,11 @@
     "end": 0.75,
     "sent_start": 1.65,
     "sent_end": 3.306
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 408788,
+    "size": 12572
    }
   },
   {
@@ -2122,6 +2797,11 @@
     "end": 0.544,
     "sent_start": 1.444,
     "sent_end": 2.69
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 421360,
+    "size": 10117
    }
   },
   {
@@ -2137,6 +2817,11 @@
     "end": 0.573,
     "sent_start": 1.473,
     "sent_end": 2.505
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 431477,
+    "size": 9060
    }
   },
   {
@@ -2152,6 +2837,11 @@
     "end": 0.775,
     "sent_start": 1.675,
     "sent_end": 2.96
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 440537,
+    "size": 11152
    }
   },
   {
@@ -2167,6 +2857,11 @@
     "end": 0.672,
     "sent_start": 1.572,
     "sent_end": 3.544
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 451689,
+    "size": 13488
    }
   },
   {
@@ -2182,6 +2877,11 @@
     "end": 0.688,
     "sent_start": 1.588,
     "sent_end": 3.106
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 465177,
+    "size": 11883
    }
   },
   {
@@ -2197,6 +2897,11 @@
     "end": 0.647,
     "sent_start": 1.547,
     "sent_end": 2.727
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 477060,
+    "size": 10347
    }
   },
   {
@@ -2212,6 +2917,11 @@
     "end": 0.672,
     "sent_start": 1.572,
     "sent_end": 3.353
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 487407,
+    "size": 12769
    }
   },
   {
@@ -2228,6 +2938,11 @@
     "end": 0.695,
     "sent_start": 1.595,
     "sent_end": 3.344
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 500176,
+    "size": 13046
    }
   },
   {
@@ -2243,6 +2958,11 @@
     "end": 0.729,
     "sent_start": 1.629,
     "sent_end": 2.98
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 513222,
+    "size": 11195
    }
   },
   {
@@ -2258,6 +2978,11 @@
     "end": 0.772,
     "sent_start": 1.672,
     "sent_end": 3.075
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 524417,
+    "size": 11633
    }
   },
   {
@@ -2273,6 +2998,11 @@
     "end": 0.827,
     "sent_start": 1.727,
     "sent_end": 3.718
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 536050,
+    "size": 14282
    }
   },
   {
@@ -2288,6 +3018,11 @@
     "end": 0.801,
     "sent_start": 1.701,
     "sent_end": 2.873
+   },
+   "clip": {
+    "pack": "audio/u03-7358ceed92.pack",
+    "at": 550332,
+    "size": 10970
    }
   }
  ]

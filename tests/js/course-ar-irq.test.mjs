@@ -88,6 +88,6 @@ test("ar-irq: the published course is the word list as built", { skip: !existsSy
   built.words.forEach((b, i) => {
     const w = course.words[i];
     assert.deepEqual([b.word, b.sentence, b.translation, b.note || ""], [w.word, w.sentence, w.translation, w.note || ""], `${b.n}: build again`);
-    assert.ok(existsSync(at(`docs/course/ar-irq/${b.audio}`)), `${b.n}: its audio ${b.audio}`);
+    assert.ok(b.clip && existsSync(at(`docs/course/ar-irq/${b.clip.pack}`)), `${b.n}: its audio (the unit's pack)`);
   });
 });

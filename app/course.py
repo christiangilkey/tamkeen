@@ -7,7 +7,10 @@ The computer's page asks for the files through /api/course/... (app/api/course.p
     APS_COURSE_DIR (a preview built on this computer, tools/course/build/preview);
   - otherwise the published files, downloaded once and kept in the data folder (course/), so a unit
     already opened works without a connection. The phones and the web app fetch the published files
-    themselves (web/js/course.js).
+    themselves (web/js/coursedata.js courseUrl).
+A course's audio is one pack per unit (audio/uNN-<checksum>.pack, tools/course/packs.py), from which the page
+cuts each word's clip (web/js/coursepacks.js); a pack is named by what is in it, so a kept one is used as it is.
+The old one-file-per-word audio (audio/NNNN.ogg) is still served for app versions from before the packs.
 """
 
 from __future__ import annotations
@@ -26,7 +29,7 @@ BASE_URL = "https://christiangilkey.github.io/tamkeen/course/"
 # language ("ar") or an Arabic dialect ("ar-lev": tools/course/build_course.py).
 # And the DLI decks' audio bundles (tools/dli/encrypt.mjs: encrypted, named by a random id; web/js/dlicontent.js).
 NAME = re.compile(r"^(index\.json|[a-z]{2,3}(-[a-z]{3})?/course\.json|[a-z]{2,3}(-[a-z]{3})?/audio/\d{4}\.ogg"
-                  r"|dli/[0-9a-f]{32}\.bin)$")
+                  r"|[a-z]{2,3}(-[a-z]{3})?/audio/u\d{2}-[0-9a-f]{10}\.pack|dli/[0-9a-f]{32}\.bin)$")
 
 
 class CourseError(RuntimeError):
@@ -50,7 +53,8 @@ def cache_dir() -> Path:
 
 
 def get(name: str) -> bytes:
-    """A course file by its published name ("index.json", "ar/course.json", "ar/audio/0001.ogg")."""
+    """A course file by its published name ("index.json", "ar/course.json", "ar/audio/u01-0c935ca6df.pack",
+    "ar/audio/0001.ogg")."""
     if not NAME.match(name):
         raise CourseError("There is no such course file.")
     src = _source_dir()
@@ -70,8 +74,9 @@ def get(name: str) -> bytes:
         return r.content
     kept = cache_dir() / name
     # The list and the courses change as units are added: asked afresh, kept for when there is no
-    # connection. Audio files never change once made, so a kept one is used as it is.
-    if kept.exists() and name.endswith(".ogg"):
+    # connection. Audio files never change once made (a pack's name changes with what is in it), so a
+    # kept one is used as it is.
+    if kept.exists() and name.endswith((".ogg", ".pack")):
         return kept.read_bytes()
     try:
         r = httpx.get(BASE_URL + name, timeout=60, follow_redirects=True)

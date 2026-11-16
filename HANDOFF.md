@@ -8831,3 +8831,43 @@ the desktop, Android, iPhone and web app all have it; the only per-side code is 
   resetting it, settings switching to Calm and back, back time 20 s; the folder picker ("b c o" → "Vocabulary
   basics"), every filter and the date box. **Not checked**: the real desktop window, a real phone (touch), two
   devices syncing a goal, the Arabic (right-to-left) layout by eye, a day rolling over with the page open.
+
+## Course audio packs: one file per unit (2026-11-15, on main; "Course audio packs" session)
+Main chat's brief (owner had said "Yes please"): GitHub Pages' build kept timing out on docs/ (20,469 files, 17,456 of
+them course `.ogg`, one per word); pack each course's audio into a few files the apps download once and keep.
+- **Format** (`tools/course/packs.py`): one pack per unit of 50 words, `docs/course/<id>/audio/uNN-<10 hex>.pack`,
+  the unit's Ogg clips one after another (no header; the hex is the sha256 of the contents, so a kept pack never goes
+  stale). Each word in course.json gains `"clip": {"pack", "at", "size"}` (byte offset and length), after `times`.
+  Nothing else in course.json changed (index.json: each course's `bytes`/`sha256` and `audio_bytes` = the packs).
+  350 packs for 21 voiced courses (ar-mor has no audio, so no packs).
+- **Building**: `build_course.py` writes each new clip to `audio/NNNN.ogg` at once (a stopped build keeps its work),
+  then packs (`packs.pack_course`). Audio made before is read back out of the old pack when its own file is gone
+  (`packs.clip_bytes`), so nothing is ever voiced twice. `tools/course/pack_audio.py [ids]` repacks without making
+  audio (used once for all courses). `check_audio.py` reads clips the same way.
+- **Old files**: `packs.KEEP_SINGLE_FILES = True` keeps `audio/NNNN.ogg` and each word's `"audio"` for app versions
+  up to v0.57.0 (they only know single files). Owner asked in the Decisions chat (2026-11-15): A = keep them one
+  release (recommended), B = remove now. **Release step (the release after the first one with packs, or this
+  one if the owner chose B):** set `KEEP_SINGLE_FILES = False` in tools/course/packs.py, run
+  `.venv/Scripts/python -I tools/course/pack_audio.py` (removes the 17,456 .ogg and the `"audio"` lines; docs/
+  drops to about 3,363 files), run the JS tests, commit. With `"audio"` gone an old app shows no Word / Sentence
+  buttons (its `hasAudio` needs `audio`) and its new course cards use the card voice: nothing breaks.
+- **Apps** (`web/js/coursepacks.js`, shared): `clipOf(w)` (pack clip, else the old own file), `packStore` fetches a
+  pack once (in memory, the 6 latest) and on the phones and the web app keeps it in Cache Storage
+  `tamkeen-keep-course-packs` (desktop: `keep: false`; its server keeps packs in `<data>/course/` like the .ogg,
+  `app/course.py` NAME allows `uNN-<hex>.pack`, `Cache-Control: immutable`). A clip = `Blob.slice(at, at+size,
+  "audio/ogg")`: played through an object URL, saved as a card voice by `saveVoice`. `warm` starts a unit's pack
+  when the unit opens; `tidy` drops kept packs the course no longer names. coursepanel.js makes the store on first
+  use (`packs()`): it is loaded before app.js's `platform` exists (an eager one blanked the app). The web app's
+  service worker (webapp/build-web.mjs) now spares caches named `tamkeen-keep-…`. learntamkeen.com's copy of the web
+  app fetches packs from github.io like the rest of the courses (Pages sends `Access-Control-Allow-Origin: *`).
+- **Size**: while both copies exist the site is about 780 MB of GitHub's 1 GB (570 MB after the single files go);
+  the repo grows once by about 215 MB (the packs are new files).
+- **Tests**: tests/js/coursepacks.test.mjs (10: the store, Cache Storage, a cut-short download, tidy, and every
+  published clip checked against its pack, OGG header and the old file's size), tests/test_course_packs.py (6),
+  tests/test_course.py (+1, the desktop server); dialect-course / course-ar-irq / course-ar-lev check `clip`.
+- **Checked**: desktop from source (`packs-desktop`, throwaway data folder): unit 1 fetched one pack, Word and
+  Sentence played from a blob URL, Add saved a card voice byte-identical to the old 0006.ogg. Phone build at 375 x 812
+  (scratch copy of mobile/www, course URLs pointed at the local docs/course, never signed in): Sentence played,
+  the pack was kept in Cache Storage, Add saved the audio. Chromium only. **Not checked**: a real phone or iPhone
+  (WKWebView may not give Cache Storage to `capacitor://`: the store then just keeps packs in memory), the
+  installed desktop app downloading from the published site (unit-tested), GitHub Pages itself (packs not pushed).

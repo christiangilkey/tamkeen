@@ -9,9 +9,12 @@ written and checked by hand, see tools/course/README.md) and writes, into docs/c
 the website, like docs/lexicon):
     <lang>/course.json      the course: units of 50 words, each word with its meaning, sentence,
                             translation, audio file and where the word and the sentence are in it
-    <lang>/audio/NNNN.ogg   one file per word: the word, a pause, then its sentence (Ogg Opus), the
+    <lang>/audio/uNN-*.pack  the audio, one pack per unit of 50 words (tools/course/packs.py): each
+                            word's clip is the word, a pause, then its sentence (Ogg Opus), the
                             same shape as a card voice (app/voices.py card_audio), so a word added to
                             the learner's cards keeps its audio exactly as a voiced card does
+    <lang>/audio/NNNN.ogg   each clip on its own too, for app versions before the packs, while
+                            packs.KEEP_SINGLE_FILES says so (and while a build is under way)
     index.json              every course there is, with its size and checksum
 
 A word said alone can come out in the wrong reading (Chinese 的 as "dí", Japanese は as "ha", Portuguese
@@ -38,7 +41,8 @@ have no audio file or times and its course.json "voice" is null; the app shows n
 and a card made from it is read by the learner's card voice, like any card without audio.
 
 Audio already made for the same text and voice is kept (a small list next to it says which), so a
-second run only makes what is new or changed.
+second run only makes what is new or changed. It is read back out of the course's packs when the word's own
+file is gone.
 
 Voices
   azure  Microsoft Azure's neural voices, the most natural there are for most languages. Needs the
@@ -69,6 +73,8 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
+sys.path.insert(0, str(HERE))
+import packs  # noqa: E402  (tools/course/packs.py: the audio, one file per unit)
 OUT = ROOT / "docs" / "course"
 UNIT = 50
 PLANNED = 1000
@@ -445,12 +451,15 @@ def main() -> None:
     made: dict[str, str] = json.loads(made_list.read_text(encoding="utf-8")) if made_list.exists() else {}
     old = json.loads((folder / "course.json").read_text(encoding="utf-8")) if (folder / "course.json").exists() else {}
     old_times = {w["n"]: w.get("times") for w in old.get("words", [])}
+    old_words = {w["n"]: w for w in old.get("words", [])}
+    # A word's audio made before: its own file, or its clip in the pack it was put in.
+    made_before = lambda n: packs.clip_bytes(folder, old_words.get(n) or {"n": n})
 
     if engine == "mms":  # everything still to make, said in one run
         todo = [w for w in words if args.redo or made.get(f"{w['n']:04d}.ogg") != fingerprint(w, engine, lang)
-                or not (folder / "audio" / f"{w['n']:04d}.ogg").exists() or not old_times.get(w["n"])]
+                or made_before(w["n"]) is None or not old_times.get(w["n"])]
         mms_prepare([t for w in todo for t in (spoken(w), unmarked(w["sentence"]))], lang)
-    items = []
+    items, clips = [], {}
     for w in words:
         item = {"n": w["n"], "word": w["word"], "pos": w.get("pos", ""), "meaning": w["meaning"],
                 "sentence": w["sentence"], "translation": w["translation"]}
@@ -463,13 +472,19 @@ def main() -> None:
         fp = fingerprint(w, engine, lang)
         path = folder / "audio" / name
         times = old_times.get(w["n"])
-        if args.redo or made.get(name) != fp or not path.exists() or not times:
+        ogg = None if args.redo or made.get(name) != fp or not times else made_before(w["n"])
+        if ogg is None:
             log(f"{w['n']:4d}  {plain(w['word'])}")
             ogg, times = make_audio(w["word"], unmarked(w["sentence"]), lang, engine, w.get("say"))
-            path.write_bytes(ogg)
+            path.write_bytes(ogg)  # (at once: a build stopped half way keeps what it made)
             made[name] = fp
-            made_list.write_text(json.dumps(made, indent=0), encoding="utf-8")
-        items.append({**item, "audio": f"audio/{name}", "times": times})
+            made_list.write_text(json.dumps(made, indent=0), encoding="utf-8", newline="
+")
+        clips[w["n"]] = ogg
+        items.append({**item, "times": times})
+    if clips:  # one pack per unit; each word's "clip" says where its audio is in it
+        packs.pack_course(folder, items, clips)
+        items = [packs.order_word(it) for it in items]
 
     units = []
     for u in range((planned + UNIT - 1) // UNIT):
@@ -487,12 +502,12 @@ def main() -> None:
 
     index_path = out / "index.json"
     index = json.loads(index_path.read_text(encoding="utf-8")) if index_path.exists() else {"format": 1, "courses": {}}
-    audio_bytes = sum((folder / it["audio"]).stat().st_size for it in items if it.get("audio"))
+    audio_bytes = sum((folder / p).stat().st_size for p in {it["clip"]["pack"] for it in items if it.get("clip")})
     index["courses"][lang] = {"file": f"{lang}/course.json", **({"lang": language, "dialect": dialect} if dialect else {}),
                               "title": data["title"], "variety": data.get("variety", ""),
                               "words": len(items), "planned": planned, "bytes": len(body), "audio_bytes": audio_bytes,
                               "sha256": hashlib.sha256(body).hexdigest(), "voice": course["voice"], "built": course["built"]}
-    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8")
+    index_path.write_bytes(json.dumps(index, ensure_ascii=False, indent=1).encode("utf-8"))  # (LF, as committed)
     log(f"{len(items)} words, {len(units)} units ({sum(u['ready'] for u in units)} ready), "
         f"{audio_bytes / 1e6:.1f} MB of audio -> {folder}")
 

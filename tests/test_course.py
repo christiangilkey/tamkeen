@@ -46,6 +46,33 @@ def test_only_course_files_can_be_asked_for(client):
         course.get("../../etc/passwd")
 
 
+def test_a_units_audio_pack_is_served_and_kept_like_an_audio_file(client, course_dir, tmp_path, monkeypatch):
+    # (tools/course/packs.py: one file per unit, named by what is in it)
+    (course_dir / "ar" / "audio" / "u01-0c935ca6df.pack").write_bytes(b"OggS-oneOggS-two")
+    r = client.get("/api/course/ar/audio/u01-0c935ca6df.pack")
+    assert r.status_code == 200 and r.content == b"OggS-oneOggS-two"
+    assert "immutable" in r.headers["cache-control"], "a pack never changes: its name does"
+    for bad in ("ar/audio/u1-0c935ca6df.pack", "ar/audio/u01-0C935CA6DF.pack", "ar/audio/u01-0c935ca6d.pack", "ar/audio/u01.pack",
+                "ar/audio/u01-0c935ca6df.pack/../x"):
+        assert client.get(f"/api/course/{bad}").status_code == 404, bad
+    from app import paths
+
+    monkeypatch.setattr(course, "_source_dir", lambda: None)
+    monkeypatch.setattr(paths, "data_dir", lambda: tmp_path / "data")
+    asked = []
+
+    class Answer:
+        content = b"OggS-pack"
+
+        def raise_for_status(self):
+            return None
+
+    monkeypatch.setattr(course.httpx, "get", lambda url, **kw: asked.append(url) or Answer())
+    for _ in range(2):
+        assert course.get("es/audio/u03-0123456789.pack") == b"OggS-pack"
+    assert asked == [course.BASE_URL + "es/audio/u03-0123456789.pack"], "downloaded once, then kept"
+
+
 def test_a_published_audio_file_is_kept_and_used_without_asking_again(tmp_path, monkeypatch):
     from app import paths
 

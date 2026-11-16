@@ -42,6 +42,11 @@
     "end": 0.655,
     "sent_start": 1.554,
     "sent_end": 2.865
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 0,
+    "size": 10685
    }
   },
   {
@@ -57,6 +62,11 @@
     "end": 0.541,
     "sent_start": 1.441,
     "sent_end": 2.399
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 10685,
+    "size": 8659
    }
   },
   {
@@ -73,6 +83,11 @@
     "end": 0.739,
     "sent_start": 1.639,
     "sent_end": 3.148
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 19344,
+    "size": 12014
    }
   },
   {
@@ -88,6 +103,11 @@
     "end": 0.7,
     "sent_start": 1.6,
     "sent_end": 3.33
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 31358,
+    "size": 12862
    }
   },
   {
@@ -104,6 +124,11 @@
     "end": 0.693,
     "sent_start": 1.593,
     "sent_end": 3.16
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 44220,
+    "size": 11990
    }
   },
   {
@@ -119,6 +144,11 @@
     "end": 0.465,
     "sent_start": 1.365,
     "sent_end": 2.491
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 56210,
+    "size": 9165
    }
   },
   {
@@ -135,6 +165,11 @@
     "end": 0.671,
     "sent_start": 1.571,
     "sent_end": 2.814
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 65375,
+    "size": 10645
    }
   },
   {
@@ -150,6 +185,11 @@
     "end": 0.792,
     "sent_start": 1.692,
     "sent_end": 3.105
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 76020,
+    "size": 12950
    }
   },
   {
@@ -165,6 +205,11 @@
     "end": 0.536,
     "sent_start": 1.436,
     "sent_end": 2.596
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 88970,
+    "size": 9745
    }
   },
   {
@@ -180,6 +225,11 @@
     "end": 0.556,
     "sent_start": 1.456,
     "sent_end": 2.989
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 98715,
+    "size": 11337
    }
   },
   {
@@ -196,6 +246,11 @@
     "end": 0.602,
     "sent_start": 1.502,
     "sent_end": 3.055
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 110052,
+    "size": 11897
    }
   },
   {
@@ -211,6 +266,11 @@
     "end": 0.465,
     "sent_start": 1.365,
     "sent_end": 2.982
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 121949,
+    "size": 11110
    }
   },
   {
@@ -227,6 +287,11 @@
     "end": 0.372,
     "sent_start": 1.272,
     "sent_end": 2.588
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 133059,
+    "size": 9768
    }
   },
   {
@@ -243,6 +308,11 @@
     "end": 0.578,
     "sent_start": 1.478,
     "sent_end": 4.268
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 142827,
+    "size": 16724
    }
   },
   {
@@ -259,6 +329,11 @@
     "end": 0.65,
     "sent_start": 1.55,
     "sent_end": 2.589
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 159551,
+    "size": 9665
    }
   },
   {
@@ -274,6 +349,11 @@
     "end": 0.741,
     "sent_start": 1.641,
     "sent_end": 3.266
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 169216,
+    "size": 12403
    }
   },
   {
@@ -290,6 +370,11 @@
     "end": 0.536,
     "sent_start": 1.436,
     "sent_end": 3.367
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 181619,
+    "size": 12780
    }
   },
   {
@@ -306,6 +391,11 @@
     "end": 0.538,
     "sent_start": 1.438,
     "sent_end": 3.007
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 194399,
+    "size": 11417
    }
   },
   {
@@ -322,6 +412,11 @@
     "end": 0.882,
     "sent_start": 1.782,
     "sent_end": 3.363
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 205816,
+    "size": 12761
    }
   },
   {
@@ -337,6 +432,11 @@
     "end": 0.624,
     "sent_start": 1.524,
     "sent_end": 2.863
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 218577,
+    "size": 10626
    }
   },
   {
@@ -353,6 +453,11 @@
     "end": 0.563,
     "sent_start": 1.463,
     "sent_end": 2.897
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 229203,
+    "size": 11018
    }
   },
   {
@@ -369,6 +474,11 @@
     "end": 0.706,
     "sent_start": 1.606,
     "sent_end": 3.307
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 240221,
+    "size": 12939
    }
   },
   {
@@ -385,6 +495,11 @@
     "end": 0.539,
     "sent_start": 1.439,
     "sent_end": 3.324
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 253160,
+    "size": 12465
    }
   },
   {
@@ -400,6 +515,11 @@
     "end": 0.62,
     "sent_start": 1.52,
     "sent_end": 3.149
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 265625,
+    "size": 11838
    }
   },
   {
@@ -415,6 +535,11 @@
     "end": 0.57,
     "sent_start": 1.47,
     "sent_end": 2.852
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 277463,
+    "size": 10547
    }
   },
   {
@@ -430,6 +555,11 @@
     "end": 0.717,
     "sent_start": 1.617,
     "sent_end": 3.736
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 288010,
+    "size": 14604
    }
   },
   {
@@ -445,6 +575,11 @@
     "end": 0.56,
     "sent_start": 1.46,
     "sent_end": 2.705
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 302614,
+    "size": 9977
    }
   },
   {
@@ -461,6 +596,11 @@
     "end": 0.571,
     "sent_start": 1.471,
     "sent_end": 2.828
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 312591,
+    "size": 10607
    }
   },
   {
@@ -476,6 +616,11 @@
     "end": 0.816,
     "sent_start": 1.716,
     "sent_end": 3.57
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 323198,
+    "size": 13517
    }
   },
   {
@@ -491,6 +636,11 @@
     "end": 0.767,
     "sent_start": 1.667,
     "sent_end": 3.031
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 336715,
+    "size": 11963
    }
   },
   {
@@ -507,6 +657,11 @@
     "end": 0.569,
     "sent_start": 1.47,
     "sent_end": 3.972
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 348678,
+    "size": 14940
    }
   },
   {
@@ -522,6 +677,11 @@
     "end": 0.886,
     "sent_start": 1.786,
     "sent_end": 3.937
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 363618,
+    "size": 14966
    }
   },
   {
@@ -538,6 +698,11 @@
     "end": 0.548,
     "sent_start": 1.448,
     "sent_end": 2.77
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 378584,
+    "size": 10525
    }
   },
   {
@@ -554,6 +719,11 @@
     "end": 0.564,
     "sent_start": 1.464,
     "sent_end": 3.231
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 389109,
+    "size": 12803
    }
   },
   {
@@ -570,6 +740,11 @@
     "end": 0.711,
     "sent_start": 1.611,
     "sent_end": 3.084
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 401912,
+    "size": 11591
    }
   },
   {
@@ -586,6 +761,11 @@
     "end": 0.795,
     "sent_start": 1.695,
     "sent_end": 3.469
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 413503,
+    "size": 12764
    }
   },
   {
@@ -602,6 +782,11 @@
     "end": 0.517,
     "sent_start": 1.417,
     "sent_end": 2.897
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 426267,
+    "size": 10923
    }
   },
   {
@@ -618,6 +803,11 @@
     "end": 0.878,
     "sent_start": 1.778,
     "sent_end": 3.272
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 437190,
+    "size": 12529
    }
   },
   {
@@ -634,6 +824,11 @@
     "end": 0.366,
     "sent_start": 1.266,
     "sent_end": 2.628
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 449719,
+    "size": 9456
    }
   },
   {
@@ -650,6 +845,11 @@
     "end": 0.595,
     "sent_start": 1.495,
     "sent_end": 3.128
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 459175,
+    "size": 11976
    }
   },
   {
@@ -665,6 +865,11 @@
     "end": 0.76,
     "sent_start": 1.66,
     "sent_end": 3.166
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 471151,
+    "size": 12854
    }
   },
   {
@@ -680,6 +885,11 @@
     "end": 0.776,
     "sent_start": 1.676,
     "sent_end": 3.611
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 484005,
+    "size": 13245
    }
   },
   {
@@ -696,6 +906,11 @@
     "end": 0.585,
     "sent_start": 1.486,
     "sent_end": 2.729
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 497250,
+    "size": 10188
    }
   },
   {
@@ -711,6 +926,11 @@
     "end": 0.672,
     "sent_start": 1.572,
     "sent_end": 3.02
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 507438,
+    "size": 11268
    }
   },
   {
@@ -726,6 +946,11 @@
     "end": 0.575,
     "sent_start": 1.475,
     "sent_end": 3.075
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 518706,
+    "size": 11775
    }
   },
   {
@@ -742,6 +967,11 @@
     "end": 0.763,
     "sent_start": 1.663,
     "sent_end": 2.96
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 530481,
+    "size": 10911
    }
   },
   {
@@ -757,6 +987,11 @@
     "end": 0.613,
     "sent_start": 1.513,
     "sent_end": 3.632
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 541392,
+    "size": 14098
    }
   },
   {
@@ -772,6 +1007,11 @@
     "end": 0.92,
     "sent_start": 1.82,
     "sent_end": 3.279
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 555490,
+    "size": 12578
    }
   },
   {
@@ -787,6 +1027,11 @@
     "end": 0.966,
     "sent_start": 1.866,
     "sent_end": 3.706
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 568068,
+    "size": 14204
    }
   },
   {
@@ -803,6 +1048,11 @@
     "end": 0.566,
     "sent_start": 1.466,
     "sent_end": 3.303
+   },
+   "clip": {
+    "pack": "audio/u01-9d61c20c35.pack",
+    "at": 582272,
+    "size": 12444
    }
   },
   {
@@ -818,6 +1068,11 @@
     "end": 0.857,
     "sent_start": 1.757,
     "sent_end": 4.584
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 0,
+    "size": 15701
    }
   },
   {
@@ -834,6 +1089,11 @@
     "end": 0.607,
     "sent_start": 1.507,
     "sent_end": 3.092
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 15701,
+    "size": 11869
    }
   },
   {
@@ -850,6 +1110,11 @@
     "end": 0.863,
     "sent_start": 1.763,
     "sent_end": 3.525
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 27570,
+    "size": 12446
    }
   },
   {
@@ -865,6 +1130,11 @@
     "end": 0.56,
     "sent_start": 1.46,
     "sent_end": 3.048
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 40016,
+    "size": 11392
    }
   },
   {
@@ -881,6 +1151,11 @@
     "end": 0.503,
     "sent_start": 1.403,
     "sent_end": 2.734
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 51408,
+    "size": 10033
    }
   },
   {
@@ -896,6 +1171,11 @@
     "end": 0.594,
     "sent_start": 1.494,
     "sent_end": 2.83
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 61441,
+    "size": 10683
    }
   },
   {
@@ -911,6 +1191,11 @@
     "end": 0.62,
     "sent_start": 1.52,
     "sent_end": 2.731
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 72124,
+    "size": 10182
    }
   },
   {
@@ -926,6 +1211,11 @@
     "end": 0.927,
     "sent_start": 1.827,
     "sent_end": 3.575
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 82306,
+    "size": 13681
    }
   },
   {
@@ -941,6 +1231,11 @@
     "end": 0.714,
     "sent_start": 1.614,
     "sent_end": 3.322
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 95987,
+    "size": 12561
    }
   },
   {
@@ -957,6 +1252,11 @@
     "end": 0.505,
     "sent_start": 1.405,
     "sent_end": 2.697
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 108548,
+    "size": 10248
    }
   },
   {
@@ -972,6 +1272,11 @@
     "end": 0.659,
     "sent_start": 1.559,
     "sent_end": 3.239
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 118796,
+    "size": 12793
    }
   },
   {
@@ -987,6 +1292,11 @@
     "end": 0.617,
     "sent_start": 1.517,
     "sent_end": 3.728
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 131589,
+    "size": 14247
    }
   },
   {
@@ -1002,6 +1312,11 @@
     "end": 0.523,
     "sent_start": 1.423,
     "sent_end": 2.83
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 145836,
+    "size": 10765
    }
   },
   {
@@ -1017,6 +1332,11 @@
     "end": 0.764,
     "sent_start": 1.664,
     "sent_end": 3.228
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 156601,
+    "size": 12531
    }
   },
   {
@@ -1032,6 +1352,11 @@
     "end": 0.657,
     "sent_start": 1.557,
     "sent_end": 3.857
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 169132,
+    "size": 14729
    }
   },
   {
@@ -1047,6 +1372,11 @@
     "end": 0.573,
     "sent_start": 1.473,
     "sent_end": 3.398
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 183861,
+    "size": 12457
    }
   },
   {
@@ -1062,6 +1392,11 @@
     "end": 0.571,
     "sent_start": 1.471,
     "sent_end": 3.235
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 196318,
+    "size": 12205
    }
   },
   {
@@ -1077,6 +1412,11 @@
     "end": 0.639,
     "sent_start": 1.539,
     "sent_end": 2.881
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 208523,
+    "size": 10734
    }
   },
   {
@@ -1092,6 +1432,11 @@
     "end": 0.843,
     "sent_start": 1.743,
     "sent_end": 3.337
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 219257,
+    "size": 12700
    }
   },
   {
@@ -1107,6 +1452,11 @@
     "end": 0.6,
     "sent_start": 1.5,
     "sent_end": 3.84
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 231957,
+    "size": 14556
    }
   },
   {
@@ -1122,6 +1472,11 @@
     "end": 0.73,
     "sent_start": 1.63,
     "sent_end": 2.924
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 246513,
+    "size": 10973
    }
   },
   {
@@ -1137,6 +1492,11 @@
     "end": 0.779,
     "sent_start": 1.679,
     "sent_end": 3.492
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 257486,
+    "size": 13067
    }
   },
   {
@@ -1152,6 +1512,11 @@
     "end": 0.832,
     "sent_start": 1.732,
     "sent_end": 3.356
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 270553,
+    "size": 12773
    }
   },
   {
@@ -1167,6 +1532,11 @@
     "end": 0.566,
     "sent_start": 1.466,
     "sent_end": 2.998
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 283326,
+    "size": 11474
    }
   },
   {
@@ -1182,6 +1552,11 @@
     "end": 0.517,
     "sent_start": 1.417,
     "sent_end": 3.823
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 294800,
+    "size": 14772
    }
   },
   {
@@ -1197,6 +1572,11 @@
     "end": 0.742,
     "sent_start": 1.642,
     "sent_end": 3.666
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 309572,
+    "size": 14244
    }
   },
   {
@@ -1212,6 +1592,11 @@
     "end": 0.888,
     "sent_start": 1.788,
     "sent_end": 3.253
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 323816,
+    "size": 12068
    }
   },
   {
@@ -1227,6 +1612,11 @@
     "end": 0.486,
     "sent_start": 1.386,
     "sent_end": 3.276
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 335884,
+    "size": 12471
    }
   },
   {
@@ -1242,6 +1632,11 @@
     "end": 0.68,
     "sent_start": 1.58,
     "sent_end": 3.915
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 348355,
+    "size": 15065
    }
   },
   {
@@ -1257,6 +1652,11 @@
     "end": 0.765,
     "sent_start": 1.665,
     "sent_end": 3.83
+   },
+   "clip": {
+    "pack": "audio/u02-f49ca9efd5.pack",
+    "at": 363420,
+    "size": 14831
    }
   }
  ]

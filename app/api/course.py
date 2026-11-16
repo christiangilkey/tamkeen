@@ -18,4 +18,6 @@ def course_file(name: str) -> Response:
     except course.CourseError as exc:
         raise HTTPException(404, str(exc)) from exc
     kind = next((t for ext, t in TYPES.items() if name.endswith(ext)), "application/octet-stream")
-    return Response(body, media_type=kind, headers={"Cache-Control": "no-cache" if kind == "application/json" else "max-age=86400"})
+    # (a pack is named by what is in it: it never changes)
+    keep = "max-age=31536000, immutable" if name.endswith(".pack") else "max-age=86400"
+    return Response(body, media_type=kind, headers={"Cache-Control": "no-cache" if kind == "application/json" else keep})

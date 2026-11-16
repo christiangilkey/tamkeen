@@ -19,11 +19,14 @@ import json
 import os
 import re
 import sys
+import tempfile
 import unicodedata
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent.parent
+sys.path.insert(0, str(HERE))
+import packs  # noqa: E402  (a word's clip: its own file, or cut out of its unit's pack)
 
 MARKS = re.compile(r"[ؐ-ًؚ-ٰٟۖ-ۭـ]")
 PUNCT = re.compile(r"[^\w\s]", re.UNICODE)
@@ -91,8 +94,16 @@ def main() -> None:
     results, low = [], []
     hear = lambda pcm: " ".join(seg.text.strip() for seg in model.transcribe(
         pcm, language=asked, beam_size=5, vad_filter=False, condition_on_previous_text=False)[0])
+    def decoded(w):  # 16 kHz mono
+        data = packs.clip_bytes(folder, w)
+        if data is None:
+            raise SystemExit(f"{w['n']}: no audio found")
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "clip.ogg").write_bytes(data)
+            return audio.decode(Path(tmp) / "clip.ogg")
+
     for w in course["words"]:
-        pcm = audio.decode(folder / w["audio"])  # 16 kHz mono
+        pcm = decoded(w)
         t = w["times"]
         cut = lambda a, b: pcm[max(0, int((a - 0.05) * 16000)): int((b + 0.1) * 16000)]
         # The sentence is what counts: a single word on its own is often misheard even when said well.

@@ -7,7 +7,8 @@
 //     Sentence to hear them, and "Add" to put it in the learner's cards; "Add all" for the unit.
 // An added word is an ordinary card (POST /vocab/batch, in a folder named after the course, e.g.
 // "Arabic basics") with the course's audio kept as its voice (saveVoice, the road a card voice takes),
-// so it is reviewed, synced, played and put in an Anki export like any other card. Each word added earns
+// so it is reviewed, synced, played and put in an Anki export like any other card. The audio comes one pack per
+// unit (coursepacks.js: fetched once when the unit opens, kept on the phones and the web app). Each word added earns
 // a little XP in the creature game ("basics" in game/rules.js: the same for "Add all" as one by one, up
 // to a daily cap).
 
@@ -17,12 +18,18 @@ import { langAttrs, langInfo } from "../languages.js";
 import { markedSentenceHtml } from "../cardtext.js";
 import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 import { courseWords, tappable } from "./coursewords.js";
+import { clipOf, packStore } from "../coursepacks.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch { /* storage off */ } };
-// A word with its own audio (every word, except in a course built without any: build_course.py --voice none).
-const hasAudio = (w) => !!(w && w.audio && w.times);
+// A word with its own audio (every word, except in a course built without any: build_course.py --voice none):
+// its clip in the unit's pack, or its own file in a course from before the packs (coursepacks.js clipOf).
+const hasAudio = (w) => !!clipOf(w);
+// The units' audio packs, downloaded once (the computer's server keeps them itself: app/course.py). Made on
+// first use: this file is loaded while app.js (and its `platform`) is still loading.
+let store = null;
+const packs = () => (store ||= packStore({ keep: platform !== "desktop" }));
 
 /** The courses there are ({courses: {"ar": {...}, "ar-lev": {...}}}), or null when they can't be reached. */
 export async function courseIndex() {
@@ -63,6 +70,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       const r = await fetch(url(`${id}/course.json`), { cache: "no-cache" });
       if (!r.ok) throw new Error(r.status === 404 ? "none" : "unreachable");
       course = await r.json();
+      packs().tidy(course, audioUrl).catch(() => {}); // (packs kept from before the course was rebuilt)
     } catch (e) {
       box.innerHTML = `<div class="course-note"></div>`;
       box.firstChild.textContent = e.message === "none"
@@ -84,6 +92,9 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
       try { await api(`/vocab/${u.id}`, { method: "PATCH", body: { sentence: u.sentence, sentence_if: u.sentence_if } }); } catch { /* next time */ }
     }
   }
+
+  /** The address of a file of this course ("audio/u01-….pack"). */
+  function audioUrl(file) { return url(`${courseIdOf(course)}/${file}`); }
 
   async function refreshCards() {
     try { cards = await api("/vocab"); } catch { cards = []; }
@@ -190,6 +201,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     paintRows();
     repaint = () => { if (list.isConnected) { paintRows(); paintHead(); } };
     box.append(list);
+    packs().warm(unit.words, audioUrl); // (the unit's audio, so Word and Sentence play at once)
     addAll.onclick = () => add(missing(), addAll);
     box.scrollIntoView({ block: "start" });
 
@@ -247,9 +259,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     for (let i = 0; i < voiced.length; i += 4) {
       await Promise.all(voiced.slice(i, i + 4).map(async ([card, w]) => {
         try {
-          const r = await fetch(url(`${courseIdOf(course)}/${w.audio}`));
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          await saveVoice(card.id, await r.blob(), w.times);
+          await saveVoice(card.id, await packs().clip(w, audioUrl), w.times);
         } catch { failed++; }
       }));
     }
@@ -271,15 +281,20 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     const t = w.times || {};
     const [from, to] = part === "word" ? [t.start, t.end] : [t.sent_start, t.sent_end];
     if (!Number.isFinite(from)) return;
-    const src = url(`${courseIdOf(course)}/${w.audio}`);
+    const key = `${courseIdOf(course)}:${w.n}`;
     try {
-      if (player.dataset.src !== src) {
+      if (player.dataset.word !== key) {
+        const clip = await packs().clip(w, audioUrl).catch(() => { throw new Error("This word's audio couldn't be loaded. Check your connection."); });
+        if (player.dataset.blob) URL.revokeObjectURL(player.dataset.blob);
+        const src = URL.createObjectURL(clip);
+        player.dataset.word = "";
         player.src = src;
-        player.dataset.src = src;
+        player.dataset.blob = src;
         await new Promise((ok, bad) => {
           player.addEventListener("loadedmetadata", ok, { once: true });
           player.addEventListener("error", () => bad(new Error("This word's audio couldn't be loaded.")), { once: true });
         });
+        player.dataset.word = key; // (loaded: the next Word / Sentence of this word plays it straight away)
       }
       player.currentTime = Math.max(0, from - 0.05);
       stopAt = (Number.isFinite(to) ? to : from + 3) + 0.15;
@@ -291,5 +306,10 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
   }
 
   load();
-  return () => { player.pause(); player.removeAttribute("src"); stopWords(); };
+  return () => {
+    player.pause();
+    player.removeAttribute("src");
+    if (player.dataset.blob) URL.revokeObjectURL(player.dataset.blob);
+    stopWords();
+  };
 }
