@@ -41,7 +41,7 @@ export async function render(view, { query } = {}) {
   const status = await loadStatus();
   const show = (query && query.get("show")) || "";
   const id = (query && query.get("s")) || sectionOfFind(show);
-  if (!SECTIONS.some((x) => x.id === id)) { home(view, status); return; }
+  if (!SECTIONS.some((x) => x.id === id) || !BUILD[id]) { home(view, status); return; }  // ("Get the app" is the web app's)
   const { body } = sectionPage(view, id);
   const cleanups = (await BUILD[id](body, status)) || [];
   revealFind(view, show);
@@ -55,6 +55,7 @@ function home(view, status) {
   const ui = isUiLanguage(s.ui_language) ? s.ui_language : "en";
   settingsHome(view, {
     finds: findsFor({ desktop: true }, studyLanguage()),
+    hide: ["getapp"],  // (this is the app)
     summaries: {
       languages: () => [{ text: learningSummary(learningList(s)) }, { text: `App in ${UI_LANGUAGES[ui].native}` }],
       dli: () => dliSummary(s),

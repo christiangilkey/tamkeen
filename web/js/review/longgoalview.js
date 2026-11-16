@@ -21,7 +21,6 @@ import { icon } from "../icons.js";
 import { dayNumber } from "./fsrs.js";
 import { plan, states } from "./deck.js";
 import { newPerDay } from "../pages/review.js";
-import { dliState } from "../dli.js";
 import { studyLanguage } from "../languages.js";
 import { goalOf, migrateGoal, withGoal } from "./goalsetting.js";
 import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, goalNewWords, langLog, progress, suggestTarget } from "./longgoal.js";
@@ -64,9 +63,6 @@ const dateText = (day) => {
 };
 const shown = (n) => Math.floor(n + 1e-9);  // an amount done (minutes are counted in fractions)
 
-/** Has this learner the DLI tab, with its decks, for the language studied now (components/dlipanel.js dliShown)? */
-const dliHere = () => { const st = dliState((state.status && state.status.settings) || {}); return Boolean(st.ready && st.language === studyLanguage()); };
-
 const settingsNow = () => (state.status && state.status.settings) || {};
 
 /** The goal of language `lang` (the one being learned). The one goal from before goals had a language becomes
@@ -99,8 +95,8 @@ async function saveGoal(goal) {
 }
 
 /** Draw the goal into `root`. `onLearn(bonus)` opens the reviewer with that many more new words allowed today;
- * `onAddWords()` opens Add words. Returns {update(log, words), close()}. */
-export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {}) {
+ * Returns {update(log, words), close()}. (No new words to learn: the Vocab page's Review banner offers them.) */
+export function longGoal(root, { onLearn = () => {} } = {}) {
   root.classList.add("lg");
   let log = {}, words = [];
   let celebrate = false;  // milestones are only celebrated after the first drawing (not for ones passed long ago)
@@ -151,13 +147,7 @@ export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {
           <span>This week <b>${shown(p.week.done)}</b> of ${p.week.target}</span>
         </div>` : ""}
         <p class="lg-line"></p>
-        ${offer && offer.none ? `<p class="lg-line">No new words are waiting to be learned. Add your own, or take some from a course.</p>
-        <div class="lg-ways">
-          <button type="button" class="lg-add">${icon("plus", 16)} Add words</button>
-          <button type="button" class="ghost lg-course">${icon("learn", 16)} Words course</button>
-          ${dliHere() ? `<button type="button" class="ghost lg-dli">${icon("lock", 16)} DLI decks</button>` : ""}
-        </div>`
-          : offer && offer.extra > 0 ? `<button type="button" class="lg-learn">${offer.extra === 1 ? "Learn 1 new word now" : `Learn ${offer.extra} new words now`}</button>` : ""}
+        ${offer && !offer.none && offer.extra > 0 ? `<button type="button" class="lg-learn">${offer.extra === 1 ? "Learn 1 new word now" : `Learn ${offer.extra} new words now`}</button>` : ""}
         ${kind === "ended" || kind === "reached" ? `<button type="button" class="lg-next">Set the next goal</button>` : ""}
         ${kind === "rethink" ? `<button type="button" class="ghost lg-change">Change goal</button>` : ""}
       </div>`;
@@ -169,13 +159,6 @@ export function longGoal(root, { onLearn = () => {}, onAddWords = () => {} } = {
     if (next) next.onclick = () => openGoalEditor({ ...goal, fresh: true }, own);
     const learn = root.querySelector(".lg-learn");
     if (learn) learn.onclick = () => onLearn(offer.bonus);
-    const add = root.querySelector(".lg-add");
-    if (add) add.onclick = () => onAddWords();
-    // (where else words come from: the Library's Words course, and a DLI student's decks)
-    const course = root.querySelector(".lg-course");
-    if (course) course.onclick = () => { location.hash = "#/library?tab=basics"; };
-    const dli = root.querySelector(".lg-dli");
-    if (dli) dli.onclick = () => { location.hash = "#/library?tab=dli"; };
     const change = root.querySelector(".lg-change");
     if (change) change.onclick = () => openGoalEditor(goal, own);
     // A milestone passed since the last one celebrated on this device: said once, gently.

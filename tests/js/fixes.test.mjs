@@ -117,7 +117,7 @@ test("each popup has a title, one sentence and a button that goes to the right p
   assert.equal(fixFor("drive").href, "#/settings?s=account&show=drive");
   assert.equal(fixFor("friends").href, "#/settings?s=account&show=friends");
   assert.equal(fixFor("language").href, "#/settings?s=languages&show=learn");
-  assert.equal(fixFor("getapp").href, "#/settings?s=apps&show=getapp");
+  assert.equal(fixFor("getapp").href, "#/settings?s=getapp&show=getapp");
   assert.equal(fixFor("nofriends").href, "#/friends");
   assert.ok(goesToSettings(fixFor("aikey")) && !goesToSettings(fixFor("nofriends")) && !goesToSettings(fixFor("mic")));
   // A sign-in the caller makes itself: the button runs it, there is no page to go to.

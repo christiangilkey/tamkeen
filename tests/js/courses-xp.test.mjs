@@ -210,6 +210,6 @@ test("every Library kind but Courses and Conversation says how to add things wit
 test("the Vocab page's review box keeps its colour when there are no cards", () => {
   const vocab = read("web/js/pages/vocab.js");
   const none = vocab.slice(vocab.indexOf("if (banner.hidden || none) {"), vocab.indexOf("fitReview();", vocab.indexOf("if (banner.hidden || none) {")));
-  assert.match(none, /banner\.classList\.remove\("idle"\)/);
+  assert.match(none, /banner\.classList\.remove\("idle", "out"\)/);
   assert.match(none, /"No cards to study"/);
 });

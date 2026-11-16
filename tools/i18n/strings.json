@@ -6985,6 +6985,16 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
+  "id": "f3534216",
+  "k": "Get the app",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "c0d74d95",
+  "k": "Tamkeen for Windows, Mac, Linux, Android and iPhone.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "db07be18",
   "k": "Languages",
   "f": "web/js/components/settingsui.js"
@@ -7267,11 +7277,6 @@
  {
   "id": "e9940534",
   "k": "Today's review as a to-do",
-  "f": "web/js/components/settingsui.js"
- },
- {
-  "id": "f3534216",
-  "k": "Get the app",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -23505,6 +23510,11 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "2e53d8fc",
+  "k": "Get words",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "30cdf73e",
   "k": "due",
   "f": "web/js/pages/vocab.js"
@@ -23535,8 +23545,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "03f07c28",
-  "k": "All caught up · No new words left to learn: see your goal below",
+  "id": "5e108a92",
+  "k": "All caught up · No new words left for your goal",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -25347,21 +25357,6 @@
  {
   "id": "703ef5c3",
   "k": "This week <0>{0}</0> of {1}",
-  "f": "web/js/review/longgoalview.js"
- },
- {
-  "id": "0a3ae550",
-  "k": "DLI decks",
-  "f": "web/js/review/longgoalview.js"
- },
- {
-  "id": "da015be4",
-  "k": "No new words are waiting to be learned. Add your own, or take some from a course.",
-  "f": "web/js/review/longgoalview.js"
- },
- {
-  "id": "52308a65",
-  "k": "Words course",
   "f": "web/js/review/longgoalview.js"
  },
  {
@@ -28705,18 +28700,13 @@
   "f": "mobile/src/js/lexicon-store.js"
  },
  {
-  "id": "23989160",
-  "k": "Google Calendar, Google Tasks, Onyx, and the Tamkeen app.",
+  "id": "38c02660",
+  "k": "Google Calendar, Google Tasks and Onyx.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
   "id": "59636398",
   "k": "AnkiDroid, Google Calendar, Google Tasks and Onyx.",
-  "f": "mobile/src/js/pages/settings.js"
- },
- {
-  "id": "38c02660",
-  "k": "Google Calendar, Google Tasks and Onyx.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -28785,13 +28775,48 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "16b02880",
-  "k": "Tamkeen on the web",
+  "id": "833500f1",
+  "k": "Run the installer.",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
-  "id": "5cbc70fe",
-  "k": "This works like the app, with a few things that need the Tamkeen app on your phone or computer.",
+  "id": "08bce2d9",
+  "k": "Mac",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "f2a54f6d",
+  "k": "For Macs with Apple chips (M1 and later).",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "6b19f5cd",
+  "k": "Make the file runnable, then open it.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "1928f95c",
+  "k": "Android",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "64d3caea",
+  "k": "Open the file on your phone and allow the install.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "25114755",
+  "k": "Open the file with AltStore (Tamkeen isn't in the App Store).",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "d824405e",
+  "k": "The web app works like the app, with a few things that need Tamkeen on your phone or computer. Sign in to Google Drive in both and your library follows you.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "a862c2b2",
+  "k": "Downloads",
   "f": "mobile/src/js/pages/settings.js"
  },
  {
@@ -28802,6 +28827,11 @@
  {
   "id": "953d951a",
   "k": "Reels from your Instagram saves, reels with a song from Instagram's music library, the built-in web browser (Import Page), AnkiDroid sync, and the number on the app icon. What you add in the app shows up here after a sync.",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
+  "id": "b396c5bf",
+  "k": "All downloads",
   "f": "mobile/src/js/pages/settings.js"
  },
  {

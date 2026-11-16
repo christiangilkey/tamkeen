@@ -1,0 +1,14 @@
+# Review banner's Get words (web/js/pages/vocab.js) and the web app's Get the app section (mobile/src/js/pages/settings.js).
+c0d74d95	Tamkeen สำหรับ Windows, Mac, Linux, Android และ iPhone
+2e53d8fc	หาคำศัพท์
+5e108a92	ทำครบแล้ว · ไม่มีคำใหม่เหลือสำหรับเป้าหมายของคุณ
+833500f1	เรียกใช้ตัวติดตั้ง
+08bce2d9	Mac
+f2a54f6d	สำหรับ Mac ที่ใช้ชิป Apple (M1 ขึ้นไป)
+6b19f5cd	ทำให้ไฟล์รันได้ แล้วเปิด
+1928f95c	Android
+64d3caea	เปิดไฟล์บนโทรศัพท์และอนุญาตให้ติดตั้ง
+25114755	เปิดไฟล์ด้วย AltStore (Tamkeen ไม่มีใน App Store)
+d824405e	เว็บแอปทำงานเหมือนแอป ยกเว้นบางอย่างที่ต้องใช้ Tamkeen บนโทรศัพท์หรือคอมพิวเตอร์ ลงชื่อเข้า Google Drive ทั้งสองที่ แล้วคลังของคุณจะตามไปด้วย
+a862c2b2	ดาวน์โหลด
+b396c5bf	ดาวน์โหลดทั้งหมด

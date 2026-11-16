@@ -1,0 +1,14 @@
+# Review banner's Get words (web/js/pages/vocab.js) and the web app's Get the app section (mobile/src/js/pages/settings.js).
+c0d74d95	Tamkeen для Windows, Mac, Linux, Android и iPhone.
+2e53d8fc	Найти слова
+5e108a92	Всё сделано · Новых слов для вашей цели не осталось
+833500f1	Запустите установщик.
+08bce2d9	Mac
+f2a54f6d	Для Mac с чипом Apple (M1 и новее).
+6b19f5cd	Сделайте файл исполняемым, затем откройте его.
+1928f95c	Android
+64d3caea	Откройте файл на телефоне и разрешите установку.
+25114755	Откройте файл в AltStore (Tamkeen нет в App Store).
+d824405e	Веб-версия работает как приложение, но для некоторых вещей нужен Tamkeen на телефоне или компьютере. Войдите в Google Диск в обоих, и библиотека будет с вами.
+a862c2b2	Загрузки
+b396c5bf	Все загрузки

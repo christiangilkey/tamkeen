@@ -14,6 +14,8 @@ import { pageGuide } from "./tour.js";
 
 /** The sections, in the order a learner thinks of them. */
 export const SECTIONS = [
+  // The web app only (the owner, 2026-11-16): a section of its own at the top, with a download for each device
+  { id: "getapp", icon: "computer", title: "Get the app", about: "Tamkeen for Windows, Mac, Linux, Android and iPhone." },
   { id: "languages", icon: "page", title: "Languages", about: "The language you speak and the one you're learning." },
   // DLI students (components/dlicard.js): a section of its own (the owner's wish), no longer inside Languages
   { id: "dli", icon: "lock", title: "DLI students", about: "For students and teachers at the Defense Language Institute." },
@@ -86,7 +88,7 @@ export const FINDS = [
   { s: "apps", id: "anki", label: "Anki", words: "flashcards deck addon cards", on: ["desktop"] },
   { s: "apps", id: "anki", label: "AnkiDroid", words: "flashcards deck cards", on: ["android"] },
   { s: "apps", id: "tasks", label: "Today's review as a to-do", words: "google tasks onyx calendar" },
-  { s: "apps", id: "getapp", label: "Get the app", words: "download install android iphone windows", on: ["web"] },
+  { s: "getapp", id: "getapp", label: "Get the app", words: "download install android iphone windows mac linux desktop computer phone apk altstore", on: ["web"] },
   { s: "data", id: "backup", label: "Your data", words: "export import backup folder zip", on: ["desktop"] },
   { s: "data", id: "updates", label: "Updates", words: "version update latest", on: ["desktop", "android", "ios"] },
   { s: "data", id: "whatis", label: "What is Tamkeen", words: "features abilities everything design research studies science sources about how it works how to use guide help getting started special techniques" },

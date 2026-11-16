@@ -1,0 +1,14 @@
+# Review banner's Get words (web/js/pages/vocab.js) and the web app's Get the app section (mobile/src/js/pages/settings.js).
+c0d74d95	适用于 Windows、Mac、Linux、Android 和 iPhone 的 Tamkeen。
+2e53d8fc	获取单词
+5e108a92	全部完成 · 你的目标已没有新词可学
+833500f1	运行安装程序。
+08bce2d9	Mac
+f2a54f6d	适用于搭载 Apple 芯片的 Mac（M1 及更新）。
+6b19f5cd	将文件设为可执行，然后打开。
+1928f95c	Android
+64d3caea	在手机上打开文件并允许安装。
+25114755	用 AltStore 打开文件（Tamkeen 不在 App Store 上）。
+d824405e	网页版和应用一样好用，只有少数功能需要手机或电脑上的 Tamkeen。两边都登录 Google 云端硬盘，你的资料库就会跟着你。
+a862c2b2	下载
+b396c5bf	全部下载

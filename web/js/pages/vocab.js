@@ -733,7 +733,8 @@ export async function render(view) {
     if (banner.hidden || none) {
       goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
       if (banner.hidden) return;
-      banner.classList.remove("idle");
+      banner.classList.remove("idle", "out");
+      getWords = false;
       banner.querySelector("strong").textContent = "Review";
       banner.querySelector(".rb-go").textContent = "";
       banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run"></span>`;
@@ -754,9 +755,13 @@ export async function render(view) {
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh + extra > 0;
-    banner.classList.toggle("idle", !ready);
+    // Everything done and the goal wants new words that aren't there: the banner turns the brand's purple and
+    // its button takes the learner to the Library's Words course for more (the owner, 2026-11-16).
+    getWords = !ready && o.askable && noneLeft;
+    banner.classList.toggle("idle", !ready && !getWords);
+    banner.classList.toggle("out", getWords);
     banner.querySelector("strong").textContent = scope ? `Review “${scope}”` : "Review";
-    banner.querySelector(".rb-go").textContent = ready ? "Start" : "Open";
+    banner.querySelector(".rb-go").textContent = ready ? "Start" : getWords ? "Get words" : "Open";
     const parts = [];
     if (o.due) parts.push(`<b>${o.due}</b> due`);
     if (o.fresh) parts.push(`<b>${o.fresh}</b> new`);
@@ -764,7 +769,7 @@ export async function render(view) {
     if (noneLeft) parts.push("no new words left to learn");
     banner.querySelector(".rb-sub").innerHTML = `<span class="rb-run">${ready ? parts.join(" · ")
       : !o.askable ? "Words that have a meaning turn up here as flashcards."
-      : noneLeft ? "All caught up · No new words left to learn: see your goal below"
+      : noneLeft ? "All caught up · No new words left for your goal"
       : `All caught up${o.next ? ` · ${o.next.count} word${o.next.count === 1 ? "" : "s"} back ${o.next.days === 1 ? "" : "in "}${waitText(o.next.days)}` : ""}`}</span>`;
     fitReview();
   }
@@ -790,8 +795,8 @@ export async function render(view) {
 
   // The long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js): over every
   // answer on record, whichever folder is open; hidden while searching (the list is then narrowed).
-  // (a "new words" goal can open the reviewer with the extra new words today's part needs, or Add words)
-  const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra), onAddWords: () => openAdd() });
+  // (a "new words" goal can open the reviewer with the extra new words today's part needs)
+  const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra) });
   const calendar = heatmap($("#heatmap"));
   function renderProgress() {
     const box = $("#progress");
@@ -801,6 +806,7 @@ export async function render(view) {
     calendar.update(all, log);
   }
 
+  let getWords = false;  // the banner is the purple "Get words" one (renderReview)
   let reviewBonus = 0;  // the extra new words a "new words" goal wants today (renderReview works it out)
   /** Open the reviewer; `extra`: new words allowed today beyond the day's own number (a goal's). */
   function startReview(extra = reviewBonus) {
@@ -890,7 +896,7 @@ export async function render(view) {
   }
 
   // ----- wiring -----
-  $("#review").onclick = () => startReview();
+  $("#review").onclick = () => { if (getWords) location.hash = "#/library?tab=basics"; else startReview(); };
   const pickedItems = () => all.filter((v) => selected.has(v.id));
   const below = (e) => { const r = e.currentTarget.getBoundingClientRect(); return [r.left, r.bottom + 4]; };
   $("#folder-pick").onclick = folderSheet;

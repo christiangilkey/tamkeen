@@ -1,0 +1,14 @@
+# Review banner's Get words (web/js/pages/vocab.js) and the web app's Get the app section (mobile/src/js/pages/settings.js).
+c0d74d95	Tamkeen para sa Windows, Mac, Linux, Android at iPhone.
+2e53d8fc	Kumuha ng salita
+5e108a92	Tapos na lahat · Wala nang bagong salita para sa layunin mo
+833500f1	Patakbuhin ang installer.
+08bce2d9	Mac
+f2a54f6d	Para sa mga Mac na may Apple chip (M1 pataas).
+6b19f5cd	Gawing napapatakbo ang file, saka buksan.
+1928f95c	Android
+64d3caea	Buksan ang file sa iyong telepono at payagan ang pag-install.
+25114755	Buksan ang file gamit ang AltStore (wala ang Tamkeen sa App Store).
+d824405e	Gumagana ang web app tulad ng app, maliban sa ilang bagay na kailangan ang Tamkeen sa iyong telepono o computer. Mag-sign in sa Google Drive sa dalawa at susunod sa iyo ang iyong library.
+a862c2b2	Mga download
+b396c5bf	Lahat ng download

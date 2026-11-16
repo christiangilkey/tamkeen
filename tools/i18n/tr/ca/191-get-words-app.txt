@@ -1,0 +1,14 @@
+# Review banner's Get words (web/js/pages/vocab.js) and the web app's Get the app section (mobile/src/js/pages/settings.js).
+c0d74d95	Tamkeen per a Windows, Mac, Linux, Android i iPhone.
+2e53d8fc	Aconsegueix paraules
+5e108a92	Tot al dia · No queden paraules noves per al teu objectiu
+833500f1	Executa l’instal·lador.
+08bce2d9	Mac
+f2a54f6d	Per a Macs amb xip d’Apple (M1 o posterior).
+6b19f5cd	Fes que el fitxer es pugui executar i obre’l.
+1928f95c	Android
+64d3caea	Obre el fitxer al telèfon i permet la instal·lació.
+25114755	Obre el fitxer amb AltStore (Tamkeen no és a l’App Store).
+d824405e	L’app web funciona com l’app, amb unes quantes coses que necessiten Tamkeen al telèfon o a l’ordinador. Inicia la sessió a Google Drive a tots dos i la teva biblioteca et segueix.
+a862c2b2	Baixades
+b396c5bf	Totes les baixades

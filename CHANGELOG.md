@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** **Out of new words for your goal?** When everything is reviewed and your goal wants new words that aren't there, the **Review** box on the Vocab page turns purple, and its blue **Get words** button opens the Library's Words course. The long-term goal card no longer says this too, so it has less text.
+- **New:** **Get the app** is now a section of its own at the top of Settings in the web app, with a download for Windows, Mac, Linux, Android and iPhone (and how to install each). *(web app)*
+
 ## v0.58.0 — 2026-11-16
 
 - **Changed:** **Each language now has its own long-term goal**, so you can have a Spanish goal as well as an Arabic one. The goal card on the Vocab page shows the goal of the language you are learning (switch languages and you see that language's goal, or "No long-term goal set"), and it counts only that language's words, reviews and minutes; before, it counted every language together. A goal you had already set becomes the goal of the language you are learning when you first open the Vocab page. Goals sync between your devices, each language on its own.
