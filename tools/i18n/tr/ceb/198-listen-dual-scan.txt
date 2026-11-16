@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Hubad ilalom sa matag linya (D)
+bd6a8abf	Hubad ilalom sa matag linya
+ea5965fb	Ang mga hubad nanginahanglan sa AI
+3cce9f74	Ang mga hubad nanginahanglan og AI key
+880ae3dd	Gipili nimo ang Walay AI sa Settings → Kahulogan sa pulong, busa walay mohubad sa mga linya. Pilia didto ang AI ug idugang ang imong key (ang Gemini adunay libre nga allowance).
+06a444a9	Ang matag linya gihubad sa imong pinulongan sa AI, gamit ang imong kaugalingong key: mao ra nga nagpasabot sa mga pulong. Direkta kang mobayad sa AI company ug walay moagi sa Tamkeen (ang Gemini adunay libre nga allowance).
+dc881931	Walay caption ang YouTube sa imong pinulongan para niini nga video.
+6f07a6cf	Walay hubad sa tubag sa AI. Pindota pag-usab ang button aron sulayan.
+3cf2fad4	Dili mahubad ang mga linya: {0}
+f68951f2	Naminaw ang Tamkeen. Ayaw sirhi ang app, unya pindota ang Hunonga.
+4c004ab4	Hunonga ug i-save
+543bfd8f	Recording, {0}
+aeb8de23	Nag-save… {0}%
+24081e29	Ang recording magpabilin dinhi hangtod imong i-save o ilabay.
+36fff63c	Ilabay
+53512be2	Walay na-record. Sulayi pag-usab.
+852d864e	Ilabay kini nga recording?
+90e250a5	Wala pa kini ma-save ug dili na mabawi.
+2ecdc1d5	Lisod basahon: itandi sa litrato, ug ayoha sa kahon kung sayop.
+f7f5a2e3	Ang teksto gikan sa litrato
+c69ac806	Ibilin isip mga card ang gusto nimo, usa matag linya, ug papasa ang uban. Human sa pulong mahimo nimong idugang ang kahulogan niini gamit ang dash (<0/>), o pasagdi kini aron pangitaon sa Pun-a.
+830e45df	Ang teksto sa ubang pinulongan nga parehas og letra magpabilin sa kahon: papasa ang dili nimo kinahanglan.
+0eb4b0a4	Pagkuha og litrato sa usa ka panid, lista sa mga pulong o usa ka pulong: ang teksto niini sa {0} mosulod sa usa ka kahon, andam himoong mga card.
+8d7d91ba	Pagpili og hulagway sa usa ka panid, lista sa mga pulong o usa ka pulong: ang teksto niini sa {0} mosulod sa usa ka kahon, andam himoong mga card.
+8f98365c	Walay teksto sa {0} nga mabasa niini nga litrato.
+950c03e1	Ilisan ang teksto sa kahon?
+3e6e8793	Mawala ang mga kausaban nga imong gihimo niini.
+a7cf7b25	Ilisan
+43f7fb15	Pilia ang mga pulong para nako
+26b30f90	Ipakita ang tanang teksto
+f42d82ae	Mag-record gikan sa mikropono hangtod imong pindoton ang Hunonga, unya i-transcribe kini
+d6aa6cf3	Hubad ilalom sa matag linya (on / off)
+ae0717fa	Dili mabasa kana nga recording. Sulayi pag-usab.

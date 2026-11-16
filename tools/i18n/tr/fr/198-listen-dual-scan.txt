@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Traduction sous chaque ligne (D)
+bd6a8abf	Traduction sous chaque ligne
+ea5965fb	Les traductions demandent l’IA
+3cce9f74	Les traductions demandent une clé d’IA
+880ae3dd	Vous avez choisi Sans IA dans Réglages → Définitions des mots : il n’y a donc rien pour traduire les lignes. Choisissez l’IA là-bas et ajoutez votre propre clé (Gemini offre un quota gratuit).
+06a444a9	Chaque ligne est traduite dans votre langue par une IA, avec votre propre clé : celle qui explique les mots. Vous payez directement l’entreprise d’IA et rien ne passe par Tamkeen (Gemini offre un quota gratuit).
+dc881931	YouTube n’a pas de sous-titres dans votre langue pour cette vidéo.
+6f07a6cf	La réponse de l’IA ne contenait aucune traduction. Appuyez de nouveau sur le bouton pour réessayer.
+3cf2fad4	Impossible de traduire les lignes : {0}
+f68951f2	Tamkeen écoute. Gardez l’application ouverte, puis appuyez sur Arrêter.
+4c004ab4	Arrêter et enregistrer
+543bfd8f	Enregistrement, {0}
+aeb8de23	Enregistrement… {0} %
+24081e29	L’enregistrement reste ici jusqu’à ce que vous le gardiez ou le supprimiez.
+36fff63c	Supprimer
+53512be2	Rien n’a été enregistré. Réessayez.
+852d864e	Supprimer cet enregistrement ?
+90e250a5	Il n’a pas été sauvegardé et ne pourra pas être récupéré.
+2ecdc1d5	Difficile à lire : comparez avec la photo, et corrigez dans le cadre si c’est faux.
+f7f5a2e3	Le texte de la photo
+c69ac806	Gardez comme cartes ce que vous voulez, une par ligne, et effacez le reste. Après un mot, vous pouvez ajouter son sens avec un tiret (<0/>), ou laisser Remplir le chercher.
+830e45df	Le texte dans d’autres langues écrites avec les mêmes lettres reste dans le cadre : effacez ce dont vous n’avez pas besoin.
+0eb4b0a4	Prenez en photo une page, une liste de mots ou un seul mot : son texte en {0} arrive dans un cadre, prêt à devenir des cartes.
+8d7d91ba	Choisissez l’image d’une page, d’une liste de mots ou d’un seul mot : son texte en {0} arrive dans un cadre, prêt à devenir des cartes.
+8f98365c	Aucun texte en {0} n’a pu être lu sur cette photo.
+950c03e1	Remplacer le texte du cadre ?
+3e6e8793	Les modifications que vous y avez faites seront perdues.
+a7cf7b25	Remplacer
+43f7fb15	Trouver les mots pour moi
+26b30f90	Afficher tout le texte
+f42d82ae	Enregistre au micro jusqu’à ce que vous appuyiez sur Arrêter, puis le transcrit
+d6aa6cf3	Traduction sous chaque ligne (activée / désactivée)
+ae0717fa	Cet enregistrement n’a pas pu être lu. Réessayez.

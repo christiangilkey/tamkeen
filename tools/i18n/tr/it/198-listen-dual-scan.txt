@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Traduzione sotto ogni riga (D)
+bd6a8abf	Traduzione sotto ogni riga
+ea5965fb	Le traduzioni richiedono l’IA
+3cce9f74	Le traduzioni richiedono una chiave IA
+880ae3dd	Hai scelto Senza IA in Impostazioni → Definizioni delle parole, quindi non c’è niente con cui tradurre le righe. Scegli l’IA lì e aggiungi la tua chiave (Gemini ha una quota gratuita).
+06a444a9	Ogni riga viene tradotta nella tua lingua da un’IA, con la tua chiave: la stessa che spiega le parole. Paghi direttamente l’azienda di IA e niente passa da Tamkeen (Gemini ha una quota gratuita).
+dc881931	YouTube non ha sottotitoli nella tua lingua per questo video.
+6f07a6cf	La risposta dell’IA non conteneva traduzioni. Premi di nuovo il pulsante per riprovare.
+3cf2fad4	Impossibile tradurre le righe: {0}
+f68951f2	Tamkeen sta ascoltando. Tieni l’app aperta, poi premi Ferma.
+4c004ab4	Ferma e salva
+543bfd8f	Registrazione, {0}
+aeb8de23	Salvataggio… {0}%
+24081e29	La registrazione resta qui finché non la salvi o la butti via.
+36fff63c	Scarta
+53512be2	Non è stato registrato niente. Riprova.
+852d864e	Scartare questa registrazione?
+90e250a5	Non è stata salvata e non si può recuperare.
+2ecdc1d5	Difficile da leggere: confrontalo con la foto e correggilo nel riquadro se è sbagliato.
+f7f5a2e3	Il testo della foto
+c69ac806	Tieni come schede quello che vuoi, una per riga, e cancella il resto. Dopo una parola puoi aggiungerne il significato con un trattino (<0/>), oppure lasciare che Compila lo cerchi.
+830e45df	Il testo in altre lingue scritte con le stesse lettere resta nel riquadro: cancella quello che non ti serve.
+0eb4b0a4	Fotografa una pagina, un elenco di parole o una sola parola: il suo testo in {0} arriva in un riquadro, pronto per farne schede.
+8d7d91ba	Scegli l’immagine di una pagina, di un elenco di parole o di una sola parola: il suo testo in {0} arriva in un riquadro, pronto per farne schede.
+8f98365c	In questa foto non è stato possibile leggere testo in {0}.
+950c03e1	Sostituire il testo nel riquadro?
+3e6e8793	Le modifiche che ci hai fatto andranno perse.
+a7cf7b25	Sostituisci
+43f7fb15	Trova le parole per me
+26b30f90	Mostra tutto il testo
+f42d82ae	Registra dal microfono finché premi Ferma, poi lo trascrive
+d6aa6cf3	Traduzione sotto ogni riga (sì / no)
+ae0717fa	Non è stato possibile leggere quella registrazione. Riprova.

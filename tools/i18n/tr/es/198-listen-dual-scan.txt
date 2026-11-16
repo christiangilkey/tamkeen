@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Traducción bajo cada línea (D)
+bd6a8abf	Traducción bajo cada línea
+ea5965fb	Las traducciones necesitan la IA
+3cce9f74	Las traducciones necesitan una clave de IA
+880ae3dd	Elegiste Sin IA en Ajustes → Definiciones de palabras, así que no hay con qué traducir las líneas. Elige IA ahí y añade tu propia clave (Gemini tiene una cuota gratuita).
+06a444a9	Una IA traduce cada línea a tu idioma con tu propia clave: la misma que explica las palabras. Pagas directamente a la empresa de IA y nada pasa por Tamkeen (Gemini tiene una cuota gratuita).
+dc881931	YouTube no tiene subtítulos en tu idioma para este video.
+6f07a6cf	La respuesta de la IA no traía traducciones. Pulsa el botón otra vez para volver a intentarlo.
+3cf2fad4	No se pudieron traducir las líneas: {0}
+f68951f2	Tamkeen está escuchando. Deja la app abierta y luego pulsa Detener.
+4c004ab4	Detener y guardar
+543bfd8f	Grabación, {0}
+aeb8de23	Guardando… {0} %
+24081e29	La grabación se queda aquí hasta que la guardes o la descartes.
+36fff63c	Descartar
+53512be2	No se grabó nada. Inténtalo de nuevo.
+852d864e	¿Descartar esta grabación?
+90e250a5	No se ha guardado y no se puede recuperar.
+2ecdc1d5	Difícil de leer: compáralo con la foto y corrígelo en el cuadro si está mal.
+f7f5a2e3	El texto de la foto
+c69ac806	Deja como tarjetas lo que quieras, una por línea, y borra el resto. Después de una palabra puedes añadir su significado con un guion (<0/>), o dejar que Rellenar lo busque.
+830e45df	El texto en otros idiomas escrito con las mismas letras se queda en el cuadro: borra lo que no necesites.
+0eb4b0a4	Haz una foto de una página, una lista de palabras o una sola palabra: su texto en {0} llega a un cuadro, listo para hacer tarjetas.
+8d7d91ba	Elige una imagen de una página, una lista de palabras o una sola palabra: su texto en {0} llega a un cuadro, listo para hacer tarjetas.
+8f98365c	No se pudo leer texto en {0} en esta foto.
+950c03e1	¿Reemplazar el texto del cuadro?
+3e6e8793	Se perderán los cambios que hiciste en él.
+a7cf7b25	Reemplazar
+43f7fb15	Sácame las palabras
+26b30f90	Mostrar todo el texto
+f42d82ae	Graba del micrófono hasta que pulses Detener y luego lo transcribe
+d6aa6cf3	Traducción bajo cada línea (sí / no)
+ae0717fa	No se pudo leer esa grabación. Inténtalo de nuevo.

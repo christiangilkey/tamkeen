@@ -8872,3 +8872,34 @@ them course `.ogg`, one per word); pack each course's audio into a few files the
   the pack was kept in Cache Storage, Add saved the audio. Chromium only. **Not checked**: a real phone or iPhone
   (WKWebView may not give Cache Storage to `capacitor://`: the store then just keeps packs in memory), the
   installed desktop app downloading from the published site (unit-tested), GitHub Pages itself (packs not pushed).
+
+## Listen, translation under each line, Scan's text box (2026-11-16, built by three helpers of the main chat)
+
+- **Listen in My audio** (`web/js/listenrec.js`, `web/js/components/listenbox.js`, `web/js/pages/library.js`): records until Stop
+  (`cardaudio.startRecording` gained `untilStopped`, `maxSeconds`, `cancel()`, `type`), 32 kbit/s, stops at
+  `LISTEN_MAX_MINUTES = 90` (~21 MB, under cloud transcription's 24 MB). Chromium's WebM has no length or index, so the page
+  moves its Opus packets into an Ogg Opus file without decoding (Safari's .m4a and Firefox's Ogg are kept as they are; an
+  unreadable WebM is sent as it is and the computer re-encodes it). Saved through `uploadVideo(…, {title, recording,
+  duration})`, so it travels as any own audio file (`v_<uid>.ogg` in Drive, `local:audio`). `recording=true` on POST /videos
+  (app/videos.py, app/api/episodes.py) makes a .webm count as audio. `ownFilesBlocked()` (both shells' app.js) = the Drive
+  sign-in check before recording on the phones and the web app. Fixture: tests/fixtures/chromium-recording.webm.
+  **Not tried:** a real microphone and speech, a real phone (Capacitor microphone permission, Safari's recorder, screen
+  lock), a real Drive upload and cloud or Whisper transcription of a recording.
+- **Translation under each line** (`web/js/dualsubs.js` logic, `web/js/dualstore.js` IndexedDB `tamkeen-dualsubs`,
+  `web/js/components/dualline.js`; player.js `setDual`/`startDual`/`capLine`, reels.js its own): toggle remembered in
+  localStorage `dualSubs`, the D key, the controller's options. Language = `definer_language`. Batches of `BATCH` 20 to the
+  learner's AI (`askAi`), only when an untranslated line is within `AHEAD` lines of where they are; cached by line text per
+  item + language (keys `dual:<uid | netflix guid | id:N>:<language>`, at most 400 items). YouTube: its own captions in the
+  learner's language first (ytcaptions `fetchCaptions`, matched by time overlap), the AI fills gaps. Netflix: AI only (its own
+  track would mean switching the viewer's track). Books and web pages: no button yet. Lines are `span.seg-tr`/`span.cap-tr`,
+  `translate="no"`, never `.w` words. tools/i18n/extract.mjs skips dualsubs.js (AI instructions). **Not tried:** a real AI key,
+  a real YouTube track in the learner's language, Netflix on the desktop, the reel player, Android and iPhone.
+- **Scan's text box** (`web/js/components/wordscan.js` rewritten; `web/js/scanwords.js` `TEXT_SCHEMA`, `textPrompt`,
+  `studyScript`, `keepStudyLines`, `readScanText`, `ocrText`, `pagesText`, `addPage`; `web/js/scanread.js` `keepCopy`,
+  `readAllWithAi`, `readAllOnDevice`): the panel's state is `view` ("text" by default, or "words"), each photo's `reads`
+  {text, words} each {text, doubts}, and `made` (the box text as last written; different = the learner edited). The paste
+  preview became wordbuilder's `showPreview(el, text, {doubt})`, shared. A photo keeps a ~1 MB JPEG copy while in the batch
+  (to read it again the other way), dropped on Use these or close. Device reader: PSM 6 then 4 only when none of the study
+  script was found, confidence 70 per line, 75 per word. The older Scan notes in this file describe the word list, which
+  is now the "Pick out the words for me" view. **Not tried:** a real camera, real phones, a real AI key on real photos,
+  device reading of languages other than Arabic.

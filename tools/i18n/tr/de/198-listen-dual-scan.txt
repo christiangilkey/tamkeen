@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Übersetzung unter jeder Zeile (D)
+bd6a8abf	Übersetzung unter jeder Zeile
+ea5965fb	Übersetzungen brauchen die KI
+3cce9f74	Übersetzungen brauchen einen KI-Schlüssel
+880ae3dd	Du hast in Einstellungen → Worterklärungen „Ohne KI“ gewählt, also gibt es nichts, womit die Zeilen übersetzt werden könnten. Wähle dort KI und füge deinen eigenen Schlüssel hinzu (Gemini hat ein kostenloses Kontingent).
+06a444a9	Jede Zeile wird von einer KI in deine Sprache übersetzt, mit deinem eigenen Schlüssel: demselben, der Wörter erklärt. Du bezahlst die KI-Firma direkt, und nichts läuft über Tamkeen (Gemini hat ein kostenloses Kontingent).
+dc881931	YouTube hat für dieses Video keine Untertitel in deiner Sprache.
+6f07a6cf	Die Antwort der KI enthielt keine Übersetzungen. Drück die Schaltfläche noch einmal für einen neuen Versuch.
+3cf2fad4	Die Zeilen konnten nicht übersetzt werden: {0}
+f68951f2	Tamkeen hört zu. Lass die App offen und drück dann Stopp.
+4c004ab4	Stoppen und speichern
+543bfd8f	Aufnahme, {0}
+aeb8de23	Wird gespeichert … {0} %
+24081e29	Die Aufnahme bleibt hier, bis du sie speicherst oder verwirfst.
+36fff63c	Verwerfen
+53512be2	Es wurde nichts aufgenommen. Versuch es noch einmal.
+852d864e	Diese Aufnahme verwerfen?
+90e250a5	Sie wurde nicht gespeichert und lässt sich nicht wiederherstellen.
+2ecdc1d5	Schwer zu lesen: Vergleiche es mit dem Foto und korrigiere es im Feld, wenn es falsch ist.
+f7f5a2e3	Der Text vom Foto
+c69ac806	Behalte, was du als Karten willst, eine pro Zeile, und lösche den Rest. Nach einem Wort kannst du seine Bedeutung mit einem Gedankenstrich anfügen (<0/>) oder es Ausfüllen zum Nachschlagen überlassen.
+830e45df	Text in anderen Sprachen mit denselben Buchstaben bleibt im Feld: Lösch, was du nicht brauchst.
+0eb4b0a4	Fotografiere eine Seite, eine Wortliste oder ein einzelnes Wort: Der Text auf {0} kommt in ein Feld, bereit für Karten.
+8d7d91ba	Wähle ein Bild einer Seite, einer Wortliste oder eines einzelnen Worts: Der Text auf {0} kommt in ein Feld, bereit für Karten.
+8f98365c	Auf diesem Foto konnte kein Text auf {0} gelesen werden.
+950c03e1	Den Text im Feld ersetzen?
+3e6e8793	Deine Änderungen darin gehen verloren.
+a7cf7b25	Ersetzen
+43f7fb15	Die Wörter für mich heraussuchen
+26b30f90	Den ganzen Text zeigen
+f42d82ae	Vom Mikrofon aufnehmen, bis du Stopp drückst, und dann transkribieren
+d6aa6cf3	Übersetzung unter jeder Zeile (an / aus)
+ae0717fa	Diese Aufnahme konnte nicht gelesen werden. Versuch es noch einmal.

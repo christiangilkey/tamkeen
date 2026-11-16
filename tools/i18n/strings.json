@@ -4975,6 +4975,51 @@
   "f": "web/js/components/dliteach.js"
  },
  {
+  "id": "3d880774",
+  "k": "Translation under each line (D)",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "bd6a8abf",
+  "k": "Translation under each line",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "ea5965fb",
+  "k": "Translations need the AI",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "3cce9f74",
+  "k": "Translations need an AI key",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "880ae3dd",
+  "k": "You chose No AI in Settings → Word definitions, so there is nothing to translate the lines with. Choose AI there and add your own key (Gemini has a free allowance).",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "06a444a9",
+  "k": "Each line is translated into your language by an AI, with your own key: the same one that explains words. You pay the AI company directly and nothing goes through Tamkeen (Gemini has a free allowance).",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "dc881931",
+  "k": "YouTube has no captions in your language for this video.",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "6f07a6cf",
+  "k": "The AI's answer had no translations in it. Press the button again to try once more.",
+  "f": "web/js/components/dualline.js"
+ },
+ {
+  "id": "3cf2fad4",
+  "k": "Couldn't translate the lines: {0}",
+  "f": "web/js/components/dualline.js"
+ },
+ {
   "id": "70afe9ef",
   "k": "Dismiss",
   "f": "web/js/components/fixit.js"
@@ -6333,6 +6378,61 @@
   "id": "7611c839",
   "k": "Couldn't load the list. Try again later.",
   "f": "web/js/components/licenses.js"
+ },
+ {
+  "id": "dc353487",
+  "k": "Listening",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "f68951f2",
+  "k": "Tamkeen is listening. Keep the app open, then press Stop.",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "709a2322",
+  "k": "Name",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "4c004ab4",
+  "k": "Stop and save",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "543bfd8f",
+  "k": "Recording, {0}",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "aeb8de23",
+  "k": "Saving… {0}%",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "24081e29",
+  "k": "The recording is kept here until you save it or throw it away.",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "36fff63c",
+  "k": "Discard",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "53512be2",
+  "k": "Nothing was recorded. Try again.",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "852d864e",
+  "k": "Discard this recording?",
+  "f": "web/js/components/listenbox.js"
+ },
+ {
+  "id": "90e250a5",
+  "k": "It hasn't been saved and can't be recovered.",
+  "f": "web/js/components/listenbox.js"
  },
  {
   "id": "a70803bd",
@@ -8965,6 +9065,16 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "d70f8708",
+  "k": "Check it",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "2ecdc1d5",
+  "k": "Hard to read: compare it with the photo, and fix it in the box if it's wrong.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "02b5a0b9",
   "k": "Only {0} of them fit: at most 100 cards can be added at a time.",
   "f": "web/js/components/wordbuilder.js"
@@ -9190,8 +9300,13 @@
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "90c9157a",
-  "k": "Edit as text",
+  "id": "f7f5a2e3",
+  "k": "The text from the photo",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "c69ac806",
+  "k": "Keep what you want as cards, one per line, and delete the rest. After a word you can add its meaning with a dash (<0/>), or leave it for Fill in to look up.",
   "f": "web/js/components/wordscan.js"
  },
  {
@@ -9255,6 +9370,11 @@
   "f": "web/js/components/wordscan.js"
  },
  {
+  "id": "830e45df",
+  "k": "Text in other languages written in the same letters stays in the box: delete what you don't need.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
   "id": "4eb8f703",
   "k": "Reading {0} on this device needs a one-time download of {1} MB.",
   "f": "web/js/components/wordscan.js"
@@ -9265,13 +9385,13 @@
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "e7c6795e",
-  "k": "Take a photo of a list of words, a page of your book, or a single word.",
+  "id": "0eb4b0a4",
+  "k": "Take a photo of a page, a list of words or a single word: its {0} text comes into a box, ready to make cards from.",
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "78781426",
-  "k": "Choose a picture of a list of words, a page of a book, or a single word.",
+  "id": "8d7d91ba",
+  "k": "Choose a picture of a page, a list of words or a single word: its {0} text comes into a box, ready to make cards from.",
   "f": "web/js/components/wordscan.js"
  },
  {
@@ -9345,6 +9465,11 @@
   "f": "web/js/components/wordscan.js"
  },
  {
+  "id": "8f98365c",
+  "k": "No {0} text could be read in this photo.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
   "id": "16794cc5",
   "k": "Good light, without shadows or glare.",
   "f": "web/js/components/wordscan.js"
@@ -9365,8 +9490,18 @@
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "92ce39c1",
-  "k": "One word read from the photo: it's in the card.",
+  "id": "950c03e1",
+  "k": "Replace the text in the box?",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "3e6e8793",
+  "k": "The changes you made in it will be lost.",
+  "f": "web/js/components/wordscan.js"
+ },
+ {
+  "id": "a7cf7b25",
+  "k": "Replace",
   "f": "web/js/components/wordscan.js"
  },
  {
@@ -9385,38 +9520,13 @@
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "31f04a66",
-  "k": "Already in your words",
+  "id": "43f7fb15",
+  "k": "Pick out the words for me",
   "f": "web/js/components/wordscan.js"
  },
  {
-  "id": "d70f8708",
-  "k": "Check it",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "2fd6a925",
-  "k": "Hard to read: compare it with the photo, or fix it with Edit as text.",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "904fef0d",
-  "k": "1 word found",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "92907f9b",
-  "k": "{0} words found",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "faa7e5b9",
-  "k": "{0} left out: already in your words, or twice",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "d3336fe8",
-  "k": "Use these ({0})",
+  "id": "26b30f90",
+  "k": "Show all the text",
   "f": "web/js/components/wordscan.js"
  },
  {
@@ -12447,11 +12557,6 @@
  {
   "id": "af4b8454",
   "k": "Defence",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "dc353487",
-  "k": "Listening",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -16492,11 +16597,6 @@
  {
   "id": "55da47da",
   "k": "Daily goal",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "709a2322",
-  "k": "Name",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -21110,6 +21210,21 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "f42d82ae",
+  "k": "Record from the microphone until you press Stop, then transcribe it",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "8d8f6306",
+  "k": "It's being transcribed now.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "69e00218",
+  "k": "Added “{0}”. {1}",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "0d4800a7",
   "k": "Web pages you imported. Open one to read it with every word clickable. Press + to add more.",
   "f": "web/js/pages/library.js"
@@ -21407,16 +21522,6 @@
  {
   "id": "727c19e4",
   "k": "Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "8d8f6306",
-  "k": "It's being transcribed now.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "69e00218",
-  "k": "Added “{0}”. {1}",
   "f": "web/js/pages/library.js"
  },
  {
@@ -21787,6 +21892,11 @@
  {
   "id": "8d79c7fd",
   "k": "Save subtitles as VTT",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "d6aa6cf3",
+  "k": "Translation under each line (on / off)",
   "f": "web/js/pages/player.js"
  },
  {
@@ -28522,6 +28632,11 @@
  {
   "id": "e916be2e",
   "k": "Sign in with Google (Settings) first: your files are stored in your Drive.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "ae0717fa",
+  "k": "That recording couldn't be read. Try again.",
   "f": "mobile/src/js/app.js"
  },
  {

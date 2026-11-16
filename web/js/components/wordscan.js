@@ -77,7 +77,7 @@ export function scanPanel({ lang, preview, onUse = () => {}, onDirty = () => {},
     <div class="cb-scan-found" hidden>
       <div class="cb-scan-pics"></div>
       <textarea class="cb-scan-box" rows="8" dir="auto" spellcheck="false" aria-label="The text from the photo"></textarea>
-      <p class="small muted cb-scan-help">Keep what you want as cards, one per line, and delete the rest. You can add a meaning after a word with a dash (<span translate="no">word – meaning</span>).</p>
+      <p class="small muted cb-scan-help">Keep what you want as cards, one per line, and delete the rest. After a word you can add its meaning with a dash (<span translate="no">word – meaning</span>), or leave it for Fill in to look up.</p>
       <div class="cb-scan-preview" aria-live="polite"></div>
       <div class="cb-scan-go">
         <button type="button" class="cb-scan-view"></button>

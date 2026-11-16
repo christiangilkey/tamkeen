@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Traducció sota cada línia (D)
+bd6a8abf	Traducció sota cada línia
+ea5965fb	Les traduccions necessiten la IA
+3cce9f74	Les traduccions necessiten una clau d’IA
+880ae3dd	Has triat Sense IA a Configuració → Definicions de paraules, així que no hi ha res amb què traduir les línies. Tria-hi IA i afegeix la teva clau (Gemini té una quota gratuïta).
+06a444a9	Una IA tradueix cada línia a la teva llengua amb la teva pròpia clau, la mateixa que explica les paraules. Pagues directament l’empresa d’IA i res no passa per Tamkeen (Gemini té una quota gratuïta).
+dc881931	YouTube no té subtítols en la teva llengua per a aquest vídeo.
+6f07a6cf	La resposta de la IA no tenia traduccions. Torna a prémer el botó per provar-ho de nou.
+3cf2fad4	No s’han pogut traduir les línies: {0}
+f68951f2	Tamkeen escolta. Mantén l’app oberta i després prem Atura.
+4c004ab4	Atura i desa
+543bfd8f	Enregistrament, {0}
+aeb8de23	S’està desant… {0}%
+24081e29	L’enregistrament es queda aquí fins que el desis o el llencis.
+36fff63c	Descarta
+53512be2	No s’ha enregistrat res. Torna-ho a provar.
+852d864e	Vols descartar aquest enregistrament?
+90e250a5	No s’ha desat i no es pot recuperar.
+2ecdc1d5	Difícil de llegir: compara-ho amb la foto i corregeix-ho al quadre si és incorrecte.
+f7f5a2e3	El text de la foto
+c69ac806	Deixa com a targetes el que vulguis, una per línia, i esborra la resta. Després d’una paraula pots afegir-ne el significat amb un guió (<0/>), o deixar que Omple el busqui.
+830e45df	El text en altres llengües escrit amb les mateixes lletres es queda al quadre: esborra el que no et calgui.
+0eb4b0a4	Fes una foto d’una pàgina, d’una llista de paraules o d’una sola paraula: el seu text en {0} arriba a un quadre, a punt per fer-ne targetes.
+8d7d91ba	Tria una imatge d’una pàgina, d’una llista de paraules o d’una sola paraula: el seu text en {0} arriba a un quadre, a punt per fer-ne targetes.
+8f98365c	No s’ha pogut llegir cap text en {0} en aquesta foto.
+950c03e1	Vols substituir el text del quadre?
+3e6e8793	Es perdran els canvis que hi has fet.
+a7cf7b25	Substitueix
+43f7fb15	Tria’m les paraules
+26b30f90	Mostra tot el text
+f42d82ae	Enregistra del micròfon fins que premis Atura i després transcriu-ho
+d6aa6cf3	Traducció sota cada línia (activa / desactiva)
+ae0717fa	No s’ha pogut llegir aquest enregistrament. Torna-ho a provar.

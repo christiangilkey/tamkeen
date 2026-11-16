@@ -1,0 +1,34 @@
+# Listen in My audio (components/listenbox.js), translation under each line (components/dualline.js, pages/player.js), Scan's text box (components/wordscan.js).
+3d880774	Tradução embaixo de cada linha (D)
+bd6a8abf	Tradução embaixo de cada linha
+ea5965fb	As traduções precisam da IA
+3cce9f74	As traduções precisam de uma chave de IA
+880ae3dd	Você escolheu Sem IA em Configurações → Definições de palavras, então não há com o que traduzir as linhas. Escolha IA ali e adicione sua própria chave (o Gemini tem uma cota gratuita).
+06a444a9	Cada linha é traduzida para o seu idioma por uma IA, com a sua própria chave: a mesma que explica as palavras. Você paga direto à empresa de IA e nada passa pelo Tamkeen (o Gemini tem uma cota gratuita).
+dc881931	O YouTube não tem legendas no seu idioma para este vídeo.
+6f07a6cf	A resposta da IA não trouxe traduções. Aperte o botão de novo para tentar outra vez.
+3cf2fad4	Não foi possível traduzir as linhas: {0}
+f68951f2	O Tamkeen está ouvindo. Deixe o app aberto e depois aperte Parar.
+4c004ab4	Parar e salvar
+543bfd8f	Gravação, {0}
+aeb8de23	Salvando… {0}%
+24081e29	A gravação fica aqui até você salvar ou descartar.
+36fff63c	Descartar
+53512be2	Nada foi gravado. Tente de novo.
+852d864e	Descartar esta gravação?
+90e250a5	Ela não foi salva e não pode ser recuperada.
+2ecdc1d5	Difícil de ler: compare com a foto e corrija no quadro se estiver errado.
+f7f5a2e3	O texto da foto
+c69ac806	Deixe como cartões o que quiser, um por linha, e apague o resto. Depois de uma palavra você pode pôr o significado com um travessão (<0/>), ou deixar o Preencher procurar.
+830e45df	Texto em outros idiomas escritos com as mesmas letras fica no quadro: apague o que não precisar.
+0eb4b0a4	Tire uma foto de uma página, uma lista de palavras ou uma só palavra: o texto em {0} vai para um quadro, pronto para virar cartões.
+8d7d91ba	Escolha a imagem de uma página, uma lista de palavras ou uma só palavra: o texto em {0} vai para um quadro, pronto para virar cartões.
+8f98365c	Não foi possível ler texto em {0} nesta foto.
+950c03e1	Substituir o texto do quadro?
+3e6e8793	As mudanças que você fez nele serão perdidas.
+a7cf7b25	Substituir
+43f7fb15	Separe as palavras para mim
+26b30f90	Mostrar todo o texto
+f42d82ae	Grava do microfone até você apertar Parar e depois transcreve
+d6aa6cf3	Tradução embaixo de cada linha (liga / desliga)
+ae0717fa	Não foi possível ler essa gravação. Tente de novo.
