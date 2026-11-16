@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Marca paraules com a Important amb una bandera: surten primer als repassos i entre les paraules noves
+465855a7	Sense paraules noves per al teu objectiu? El quadre de Repàs es torna morat, amb un botó Aconsegueix paraules
+825cb2f4	Compra un aquari més gran amb perles, i canvia-hi un peix nou quan sigui ple
+0eefa09e	Les pestanyes de la Biblioteca que necessiten una clau ara diuen què cal i per què, amb un botó per afegir-la
+2a93d673	Contacte a la Configuració: envia un problema o una pregunta a SGT Gilkey
+97d7dd55	Enganxar una llista a Afegeix paraules ja no obre Escaneja: corregeix-la al quadre de la llista i després fes-la servir
+f8d6571f	A l’app web, Aconsegueix l'app a la Configuració, amb una baixada per a cada dispositiu

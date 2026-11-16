@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Marquez des mots comme Important avec un drapeau : ils passent en premier dans les révisions et parmi les nouveaux mots
+465855a7	Plus de nouveaux mots pour votre objectif ? Le cadre Révision devient violet, avec un bouton Obtenir des mots
+825cb2f4	Achetez un aquarium plus grand avec des perles, et échangez un nouveau poisson quand il est plein
+0eefa09e	Les onglets de la Bibliothèque qui demandent une clé disent désormais ce qu’il faut et pourquoi, avec un bouton pour l’ajouter
+2a93d673	Contact dans les Réglages : envoyez un problème ou une question à SGT Gilkey
+97d7dd55	Coller une liste dans Ajouter des mots n’ouvre plus Scanner : corrigez-la dans le cadre de la liste, puis utilisez-la
+f8d6571f	Dans l’application web, Obtenir l'application dans les Réglages, avec un téléchargement pour chaque appareil

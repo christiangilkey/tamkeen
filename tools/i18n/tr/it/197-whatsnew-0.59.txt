@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Segna le parole come Importante con una bandierina: vengono prima nei ripassi e tra le parole nuove
+465855a7	Niente più parole nuove per il tuo obiettivo? Il riquadro Ripasso diventa viola, con un pulsante Prendi parole
+825cb2f4	Compra un acquario più grande con le perle, e scambia dentro un pesce nuovo quando è pieno
+0eefa09e	Le schede della Libreria che richiedono una chiave ora dicono cosa serve e perché, con un pulsante per aggiungerla
+2a93d673	Contatti nelle Impostazioni: invia un problema o una domanda a SGT Gilkey
+97d7dd55	Incollare un elenco in Aggiungi parole non apre più Scansiona: correggilo nel riquadro dell’elenco, poi usalo
+f8d6571f	Nell’app web, Scarica l'app nelle Impostazioni, con un download per ogni dispositivo

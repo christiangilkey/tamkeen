@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Markahi ang mga pulong nga Importante gamit ang bandila: una kini sa mga review ug sa bag-ong mga pulong
+465855a7	Nahutdan og bag-ong pulong para sa imong tumong? Ang Review nga kahon mahimong purpura, nga adunay button nga Pagkuhag mga pulong
+825cb2f4	Palit og mas dako nga aquarium gamit ang mga perlas, ug ilisi og bag-ong isda kung puno na
+0eefa09e	Ang mga tab sa Library nga nanginahanglan og key mosulti na kung unsay kinahanglan ug ngano, uban ang button aron idugang kini
+2a93d673	Kontaka sa Settings: ipadala ang problema o pangutana kang SGT Gilkey
+97d7dd55	Ang pag-paste og lista sa Pagdugang og mga pulong dili na moabli sa I-scan: ayoha kini sa kahon sa lista, dayon gamita
+f8d6571f	Sa web app, Kuhaa ang app sa Settings, nga adunay download para sa matag device

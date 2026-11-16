@@ -9,6 +9,20 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.59.0",
+  "Mark words Important with a flag: they come first in reviews and among new words");
+notes("0.59.0",
+  "Out of new words for your goal? The Review box turns purple, with a Get words button");
+notes("0.59.0",
+  "Buy a bigger aquarium with pearls, and swap a new fish in when it is full");
+notes("0.59.0",
+  "Library tabs that need a key now say what is needed and why, with a button to add it");
+notes("0.59.0",
+  "Contact in Settings: send a problem or a question to SGT Gilkey");
+notes("0.59.0",
+  "Pasting a list into Add words no longer opens Scan: fix it in the list box, then use it");
+notes("0.59.0",
+  "In the web app, Get the app in Settings, with a download for every device");
 notes("0.58.0",
   "Each language now has its own long-term goal: set one for Spanish and one for Arabic");
 notes("0.58.0",

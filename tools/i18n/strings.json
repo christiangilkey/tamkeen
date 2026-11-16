@@ -27160,6 +27160,41 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "6e4a9901",
+  "k": "Mark words Important with a flag: they come first in reviews and among new words",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "465855a7",
+  "k": "Out of new words for your goal? The Review box turns purple, with a Get words button",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "825cb2f4",
+  "k": "Buy a bigger aquarium with pearls, and swap a new fish in when it is full",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0eefa09e",
+  "k": "Library tabs that need a key now say what is needed and why, with a button to add it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2a93d673",
+  "k": "Contact in Settings: send a problem or a question to SGT Gilkey",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "97d7dd55",
+  "k": "Pasting a list into Add words no longer opens Scan: fix it in the list box, then use it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "f8d6571f",
+  "k": "In the web app, Get the app in Settings, with a download for every device",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "942ebf29",
   "k": "Each language now has its own long-term goal: set one for Spanish and one for Arabic",
   "f": "web/js/whatsnew.js"

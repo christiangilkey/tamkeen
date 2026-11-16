@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.59.0 — 2026-11-16
+
+- **Removed:** **The old one-file-per-word course audio.** Since v0.58.0 the courses' audio comes one pack per unit; the 17,456 single files kept for older versions are now gone from the website. Versions up to v0.57.0 show no Word / Sentence buttons on course words (their cards use your card voice instead); update to hear the course recordings.
 - **Fixed:** **Pasting a list into Add words.** A list copied from a spreadsheet or a document opened Scan, because such a copy also carries a picture of itself. Pasted text now always wins: a list (several lines, or spreadsheet columns) goes into the **Paste a list** box, where you can put it right first, and nothing becomes a card until you press **Use these**. The choices under "For these cards" are used for every card in the list. A single word pastes where you put it, as before.
 - **New:** **Important words.** Mark a word as important with the new **Important** flag in its tools (on the Vocab list or on the back of a review card), or mark many at once with **Important** after ticking them. Important words come first: the first reviews in a session, and the first new words let in each day. A small flag shows on them in the list, and `is:important` in the search box finds them. The mark syncs between your devices.
 - **New:** **Contact** in Settings. Its own section at the bottom of Settings lets you send a problem or a question to SGT Gilkey, MLI UAD, who makes Tamkeen. **Report a problem** and **Ask a question** open your own email with the address, a subject, and your Tamkeen version and device already filled in. The address is shown too, with a **Copy** button, for a device with no email app set up.

@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Marca palabras como Importante con una bandera: van primero en los repasos y entre las palabras nuevas
+465855a7	¿Sin palabras nuevas para tu meta? El cuadro de Repaso se vuelve morado, con un botón Conseguir palabras
+825cb2f4	Compra un acuario más grande con perlas, y mete un pez nuevo cambiándolo por otro cuando esté lleno
+0eefa09e	Las pestañas de la Biblioteca que necesitan una clave ahora dicen qué hace falta y por qué, con un botón para añadirla
+2a93d673	Contacto en Ajustes: envía un problema o una pregunta a SGT Gilkey
+97d7dd55	Pegar una lista en Añadir palabras ya no abre Escanear: corrígela en el cuadro de la lista y luego úsala
+f8d6571f	En la app web, Descargar la app en Ajustes, con una descarga para cada dispositivo

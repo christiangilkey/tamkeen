@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Marque palavras como Importante com uma bandeira: elas vêm primeiro nas revisões e entre as palavras novas
+465855a7	Acabaram as palavras novas para sua meta? O quadro de Revisão fica roxo, com um botão Pegar palavras
+825cb2f4	Compre um aquário maior com pérolas, e troque um peixe novo para dentro quando estiver cheio
+0eefa09e	As abas da Biblioteca que precisam de uma chave agora dizem o que é preciso e por quê, com um botão para adicioná-la
+2a93d673	Contato nas Configurações: envie um problema ou uma pergunta para SGT Gilkey
+97d7dd55	Colar uma lista em Adicionar palavras não abre mais o Escanear: corrija no quadro da lista e depois use
+f8d6571f	No app web, Baixar o app nas Configurações, com um download para cada aparelho

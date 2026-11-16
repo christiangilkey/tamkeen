@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Markiere Wörter mit einer Flagge als Wichtig: Sie kommen zuerst bei Wiederholungen und unter den neuen Wörtern
+465855a7	Keine neuen Wörter mehr für dein Ziel? Das Wiederholungsfeld wird lila, mit einer Schaltfläche Wörter holen
+825cb2f4	Kauf mit Perlen ein größeres Aquarium und tausche einen neuen Fisch ein, wenn es voll ist
+0eefa09e	Bibliotheks-Tabs, die einen Schlüssel brauchen, sagen jetzt, was nötig ist und warum, mit einer Schaltfläche zum Hinzufügen
+2a93d673	Kontakt in den Einstellungen: Schick SGT Gilkey ein Problem oder eine Frage
+97d7dd55	Eine Liste in Wörter hinzufügen einzufügen öffnet nicht mehr Scannen: Korrigiere sie im Listenfeld und übernimm sie dann
+f8d6571f	In der Web-App: Die App holen in den Einstellungen, mit einem Download für jedes Gerät

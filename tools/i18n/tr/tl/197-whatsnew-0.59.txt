@@ -1,0 +1,8 @@
+# What's new in 0.59.0 (web/js/whatsnew.js).
+6e4a9901	Markahan ang mga salita bilang Mahalaga gamit ang bandila: mauuna ang mga ito sa mga review at sa mga bagong salita
+465855a7	Naubos ang mga bagong salita para sa layunin mo? Magiging purple ang kahong Review, may button na Kumuha ng salita
+825cb2f4	Bumili ng mas malaking aquarium gamit ang mga perlas, at magpalit ng bagong isda kapag puno na
+0eefa09e	Sinasabi na ng mga tab sa Library na nangangailangan ng key kung ano ang kailangan at bakit, may button para idagdag ito
+2a93d673	Makipag-ugnayan sa Settings: magpadala ng problema o tanong kay SGT Gilkey
+97d7dd55	Hindi na nagbubukas ng I-scan ang pag-paste ng listahan sa Magdagdag ng mga salita: ayusin ito sa kahon ng listahan, saka gamitin
+f8d6571f	Sa web app, Kunin ang app sa Settings, may download para sa bawat device
