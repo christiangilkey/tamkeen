@@ -1,0 +1,3 @@
+# Course audio packs (web/js/coursepacks.js, components/coursepanel.js).
+995cb5b4	โหลดเสียงของคำนี้ไม่ได้ ตรวจสอบการเชื่อมต่อของคุณ
+9b2fdb5b	เสียงของหน่วยนี้ดาวน์โหลดมาไม่ครบ

@@ -4010,6 +4010,11 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "995cb5b4",
+  "k": "This word's audio couldn't be loaded. Check your connection.",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "c37636be",
   "k": "This word's audio couldn't be loaded.",
   "f": "web/js/components/coursepanel.js"
@@ -10748,6 +10753,16 @@
   "id": "c60ce439",
   "k": "Iraqi",
   "f": "web/js/coursedata.js"
+ },
+ {
+  "id": "9b2fdb5b",
+  "k": "This unit's audio came down incomplete.",
+  "f": "web/js/coursepacks.js"
+ },
+ {
+  "id": "7c1e44a9",
+  "k": "This word has no audio.",
+  "f": "web/js/coursepacks.js"
  },
  {
   "id": "3de9e752",
@@ -26990,6 +27005,16 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "942ebf29",
+  "k": "Each language now has its own long-term goal: set one for Spanish and one for Arabic",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "fde8cf7a",
+  "k": "Course audio now comes in one download per unit and is kept on your device",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "fd616dba",
   "k": "Learn the new words your long-term goal asks for, straight from the goal card",
   "f": "web/js/whatsnew.js"
@@ -29677,11 +29702,6 @@
  {
   "id": "63947c8e",
   "k": "At most {0} cards can be added at a time.",
-  "f": "app/api/vocab.py"
- },
- {
-  "id": "7c1e44a9",
-  "k": "This word has no audio.",
   "f": "app/api/vocab.py"
  },
  {

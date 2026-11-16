@@ -1,0 +1,3 @@
+# Course audio packs (web/js/coursepacks.js, components/coursepanel.js).
+995cb5b4	इस शब्द का ऑडियो लोड नहीं हो सका। अपना कनेक्शन जाँचें।
+9b2fdb5b	इस इकाई का ऑडियो अधूरा आया।

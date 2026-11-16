@@ -1,0 +1,3 @@
+# What's new in 0.58.0 (web/js/whatsnew.js).
+942ebf29	Bawat wika ay may sarili nang pangmatagalang layunin: isa para sa Espanyol at isa para sa Arabe
+fde8cf7a	Ang audio ng kurso ay dina-download na nang minsanan bawat unit at nananatili sa iyong device

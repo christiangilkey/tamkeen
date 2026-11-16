@@ -1,0 +1,3 @@
+# Course audio packs (web/js/coursepacks.js, components/coursepanel.js).
+995cb5b4	이 단어의 음성을 불러오지 못했습니다. 연결을 확인하세요.
+9b2fdb5b	이 단원의 음성이 일부만 내려받아졌습니다.

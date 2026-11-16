@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.58.0 — 2026-11-16
+
 - **Changed:** **Each language now has its own long-term goal**, so you can have a Spanish goal as well as an Arabic one. The goal card on the Vocab page shows the goal of the language you are learning (switch languages and you see that language's goal, or "No long-term goal set"), and it counts only that language's words, reviews and minutes; before, it counted every language together. A goal you had already set becomes the goal of the language you are learning when you first open the Vocab page. Goals sync between your devices, each language on its own.
 - **Improved:** **Basics course audio now comes one unit at a time.** When you open a unit, the audio for all 50 of its words downloads in one go, so **Word** and **Sentence** play straight away. On the phones and the web app that audio is then kept, so a unit you have opened plays without a connection (the desktop app already kept it). Behind the scenes, the courses' 17,456 small audio files become 350 packs, so new versions of the app and its courses are published reliably.
 

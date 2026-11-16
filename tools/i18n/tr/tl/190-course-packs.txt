@@ -1,0 +1,3 @@
+# Course audio packs (web/js/coursepacks.js, components/coursepanel.js).
+995cb5b4	Hindi ma-load ang audio ng salitang ito. Tingnan ang iyong koneksyon.
+9b2fdb5b	Kulang ang dumating na audio ng unit na ito.

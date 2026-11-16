@@ -1,0 +1,3 @@
+# What's new in 0.58.0 (web/js/whatsnew.js).
+942ebf29	Ahora cada idioma tiene su propia meta a largo plazo: una para español y otra para árabe
+fde8cf7a	El audio de los cursos ahora se descarga de una vez por unidad y se guarda en tu dispositivo
