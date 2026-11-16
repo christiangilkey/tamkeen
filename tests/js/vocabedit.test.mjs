@@ -18,14 +18,14 @@ test("an open word offers only the parts it hasn't got, a translation once it ha
 });
 
 test("Record only for a card with no sound of its own (a card keeps its first, like a voice)", () => {
-  assert.deepEqual(TOOLS.map(([id]) => id), ["mnemonic", "sentence", "record", "folders"]);
+  assert.deepEqual(TOOLS.map(([id]) => id), ["mnemonic", "sentence", "record", "folders", "important"]);
   assert.equal(canKeepRecording({ text: "hola" }), true, "typed in: nothing to hear yet");
   assert.equal(canKeepRecording({ text: "hola", clip: 1 }), false, "a friend's clip");
   assert.equal(canKeepRecording({ text: "hola", voice: JSON.stringify({ start: 0, end: 1.2 }) }), false, "a kept voice");
   assert.equal(canKeepRecording({ text: "hola", episode_id: 3, start: 1, end: 2 }), false, "its episode's recording");
   assert.equal(canKeepRecording(null), false);
-  assert.deepEqual(toolsFor({ text: "hola" }), ["mnemonic", "sentence", "record", "folders"]);
-  assert.deepEqual(toolsFor({ text: "hola", clip: 1 }), ["mnemonic", "sentence", "folders"]);
+  assert.deepEqual(toolsFor({ text: "hola" }), ["mnemonic", "sentence", "record", "folders", "important"]);
+  assert.deepEqual(toolsFor({ text: "hola", clip: 1 }), ["mnemonic", "sentence", "folders", "important"]);
 });
 
 test("Sentence asks the AI for one sentence and its translation, in the card's sense, and skips ones shown", () => {

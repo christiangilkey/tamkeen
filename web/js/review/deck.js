@@ -116,21 +116,31 @@ export function states(log) {
  */
 export function plan(words, cards, today, newPerDay = NEW_PER_DAY) {
   const list = (words || []).filter(reviewable);
+  // Words marked important (the owner, 2026-11-16) come first: the first reviews of a session, and the first
+  // new words the day lets in.
+  const imp = (v) => (v && v.important ? 1 : 0);
   const due = list.filter((v) => { const c = cards.get(uidOf(v)); return c && (c.learning || c.due <= today); })
     .sort((a, b) => {
       const x = cards.get(uidOf(a)), y = cards.get(uidOf(b));
-      return (y.learning - x.learning) || (x.due - y.due) || (uidOf(a) < uidOf(b) ? -1 : 1);
+      return (imp(b) - imp(a)) || (y.learning - x.learning) || (x.due - y.due) || (uidOf(a) < uidOf(b) ? -1 : 1);
     });
   const unseen = list.filter((v) => !cards.has(uidOf(v)))
-    .sort((a, b) => (b.created_at || 0) - (a.created_at || 0) || (uidOf(a) < uidOf(b) ? -1 : 1));
+    .sort((a, b) => (imp(b) - imp(a)) || (b.created_at || 0) - (a.created_at || 0) || (uidOf(a) < uidOf(b) ? -1 : 1));
   let startedToday = 0;
   for (const c of cards.values()) if (c.first === today) startedToday++;
   const allowance = Math.max(0, newPerDay - startedToday);
   return { due, fresh: unseen.slice(0, allowance), waiting: unseen.length, startedToday };
 }
 
-/** One session's order: the due words with the new ones spread evenly among them. */
+/** One session's order: the due words with the new ones spread evenly among them; important ones first. */
 export function queue(due, fresh) {
+  const imp = (v) => Boolean(v && v.important);
+  if (!fresh.some(imp)) return spread(due, fresh);
+  // (the important new words go in among the important reviews at the front, the rest after)
+  return [...spread(due.filter(imp), fresh.filter(imp)), ...spread(due.filter((v) => !imp(v)), fresh.filter((v) => !imp(v)))];
+}
+/** The due words with the new ones spread evenly among them. */
+function spread(due, fresh) {
   const out = [...due];
   fresh.forEach((v, i) => {
     const at = Math.round(((i + 1) * (due.length + fresh.length)) / (fresh.length + 1));

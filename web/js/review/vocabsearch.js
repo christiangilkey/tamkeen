@@ -4,7 +4,8 @@
 //
 // What can be typed in the search box, besides words (each can be put after a "-" to leave those words out):
 //   folder:Name   folder:"Two words"   folder:none      the words in a folder (or in none)
-//   is:new   is:due   is:learned                         never answered / due today / remembered at least once
+//   is:new   is:due   is:learned   is:important          never answered / due today / remembered at least once /
+//                                                        marked important
 //   added:…   edited:…   reviewed:…   learned:…          when a word was saved, last changed, answered, or first
 //                                                        remembered; … is a number of days (reviewed:7 = the last
 //                                                        7 days, today included), a date (2026-04-15), or two
@@ -20,7 +21,7 @@ import { GOOD, answers, dayNumber } from "./fsrs.js";
 
 export const DATE_OPS = ["added", "edited", "reviewed", "learned"];
 export const OPS = ["folder", "is", ...DATE_OPS];
-export const IS_VALUES = ["new", "due", "learned"];
+export const IS_VALUES = ["new", "due", "learned", "important"];
 const TOKEN = /(-?)(\w+):("([^"]*)"?|\S*)/gu;
 
 /** The search box's text, taken apart: {text: the words left over, filters: [{op, value, not}]}. An "x:"
@@ -95,7 +96,7 @@ export function matches(v, filters, ctx) {
       const c = ctx.cards && ctx.cards.get(uid);
       const value = f.value.toLowerCase();
       yes = value === "new" ? !c : value === "due" ? Boolean(c && (c.learning || c.due <= ctx.today))
-        : value === "learned" ? Boolean(c && c.known) : false;
+        : value === "learned" ? Boolean(c && c.known) : value === "important" ? Boolean(v.important) : false;
     } else {
       const range = dateRange(f.value, ctx.today);
       const d = ctx.days && ctx.days.get(uid);

@@ -3033,6 +3033,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .vi-tool span { max-width: 100%; overflow-wrap: break-word; -webkit-hyphens: auto; hyphens: auto; }  /* (a long name is hyphenated, never cut anywhere) */
 .vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
+/* A word marked important (pages/vocab.js, components/wordtools.js): a flag in the warning colour, filled when on. */
+.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--warn); }
+.vi-tool[data-tool="important"][aria-pressed="true"] .ic .fill, #bulk-important[aria-pressed="true"] .ic .fill { opacity: 1; }
+.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--warn); }
+.vi-imp[hidden] { display: none; }
+.vi-imp .ic .fill { opacity: 1; }
 .vi-tool-danger { color: var(--danger); }
 /* What a tool opens, under the row. */
 .vi-panel { display: flex; flex-direction: column; gap: 10px; }

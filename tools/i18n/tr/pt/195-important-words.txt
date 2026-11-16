@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	Marcada como importante: vem primeiro nas revisões e nas palavras novas
+2be8c726	Não está mais marcada como importante
+4b6d6a30	Importante
+4f3a61a7	{0} marcadas como importantes
+57509ec3	{0} não estão mais marcadas como importantes
+d5026b0d	Importantes: marcadas com uma bandeira
+ce857ade	Importante: vem primeiro nas revisões e entre as palavras novas
+0b484587	Pesquise suas palavras. Também: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

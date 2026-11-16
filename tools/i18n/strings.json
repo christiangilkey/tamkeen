@@ -9415,6 +9415,16 @@
   "f": "web/js/components/wordscan.js"
  },
  {
+  "id": "076bfabb",
+  "k": "Marked important: it comes first in reviews and new words",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
+  "id": "2be8c726",
+  "k": "No longer marked important",
+  "f": "web/js/components/wordtools.js"
+ },
+ {
   "id": "52378927",
   "k": "Type my own",
   "f": "web/js/components/wordtools.js"
@@ -23420,8 +23430,8 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "c17a9183",
-  "k": "Search your words. Also: folder:, is:new, is:due, is:learned, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:",
+  "id": "0b484587",
+  "k": "Search your words. Also: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -23447,6 +23457,11 @@
  {
   "id": "24d51d52",
   "k": "Remove from folder",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "4b6d6a30",
+  "k": "Important",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -23700,6 +23715,16 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "4f3a61a7",
+  "k": "{0} marked important",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "57509ec3",
+  "k": "{0} no longer marked important",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "2e66cf82",
   "k": "Not in any folder",
   "f": "web/js/pages/vocab.js"
@@ -23717,6 +23742,11 @@
  {
   "id": "1762adb9",
   "k": "Learned: remembered at least once",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "d5026b0d",
+  "k": "Important: marked with a flag",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -25672,6 +25702,11 @@
  {
   "id": "b68a4cb2",
   "k": "Put it in folders",
+  "f": "web/js/review/vocabedit.js"
+ },
+ {
+  "id": "ce857ade",
+  "k": "Important: it comes first in reviews and among new words",
   "f": "web/js/review/vocabedit.js"
  },
  {

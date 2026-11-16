@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	عُلّمت مهمة: تأتي أولًا في المراجعات والكلمات الجديدة
+2be8c726	لم تعد معلّمة مهمة
+4b6d6a30	مهمة
+4f3a61a7	عُلّمت {0} مهمة
+57509ec3	لم تعد {0} معلّمة مهمة
+d5026b0d	مهمة: معلّمة بعَلَم
+ce857ade	مهمة: تأتي أولًا في المراجعات وبين الكلمات الجديدة
+0b484587	ابحث في كلماتك. وأيضًا: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

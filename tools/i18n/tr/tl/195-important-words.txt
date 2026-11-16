@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	Minarkahang mahalaga: mauuna ito sa mga review at bagong salita
+2be8c726	Hindi na minarkahang mahalaga
+4b6d6a30	Mahalaga
+4f3a61a7	{0} ang minarkahang mahalaga
+57509ec3	{0} ang hindi na minarkahang mahalaga
+d5026b0d	Mahalaga: may markang bandila
+ce857ade	Mahalaga: mauuna ito sa mga review at sa mga bagong salita
+0b484587	Hanapin ang mga salita mo. Puwede rin: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

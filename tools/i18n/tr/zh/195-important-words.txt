@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	已标为重要：复习和新词中会优先出现
+2be8c726	已取消重要标记
+4b6d6a30	重要
+4f3a61a7	已将 {0} 个标为重要
+57509ec3	已取消 {0} 个的重要标记
+d5026b0d	重要：带有旗帜标记
+ce857ade	重要：在复习和新词中优先出现
+0b484587	搜索你的单词。还可以：folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

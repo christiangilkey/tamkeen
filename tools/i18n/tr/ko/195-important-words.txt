@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	중요로 표시했어요: 복습과 새 단어에서 먼저 나와요
+2be8c726	더 이상 중요로 표시되지 않아요
+4b6d6a30	중요
+4f3a61a7	{0}개를 중요로 표시했어요
+57509ec3	{0}개의 중요 표시를 지웠어요
+d5026b0d	중요: 깃발로 표시된 단어
+ce857ade	중요: 복습과 새 단어 중에서 먼저 나와요
+0b484587	단어를 검색하세요. 이것도 됩니다: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

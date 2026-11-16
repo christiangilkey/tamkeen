@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	महत्वपूर्ण चिह्नित: यह दोहराव और नए शब्दों में पहले आता है
+2be8c726	अब महत्वपूर्ण चिह्नित नहीं
+4b6d6a30	महत्वपूर्ण
+4f3a61a7	{0} महत्वपूर्ण चिह्नित
+57509ec3	{0} अब महत्वपूर्ण चिह्नित नहीं
+d5026b0d	महत्वपूर्ण: झंडे से चिह्नित
+ce857ade	महत्वपूर्ण: यह दोहराव में और नए शब्दों में पहले आता है
+0b484587	अपने शब्द खोजें। ये भी: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

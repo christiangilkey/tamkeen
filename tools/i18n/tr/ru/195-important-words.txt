@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	Отмечено как важное: идёт первым в повторениях и новых словах
+2be8c726	Больше не отмечено как важное
+4b6d6a30	Важное
+4f3a61a7	Отмечено как важные: {0}
+57509ec3	Больше не отмечены как важные: {0}
+d5026b0d	Важные: отмечены флажком
+ce857ade	Важное: идёт первым в повторениях и среди новых слов
+0b484587	Ищите свои слова. А также: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

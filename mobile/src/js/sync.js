@@ -78,6 +78,7 @@ export function merge(remote) {
       // A device with an older version sends no translation or memo; keep the ones already known.
       // A card's voice is never taken away by a copy without one (keepVoice).
       vocab.set(r.uid, { ...keepVoice(r, l), translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
+                         important: r.important ?? l.important ?? 0,  // (an older app's copy has no important mark)
                          language: r.language || l.language || null });
       changed++;
     }
@@ -236,7 +237,7 @@ export function snapshot() {
     feeds: [...lib.feeds].sort(byUid),
     episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
     // Words saved before translations (or memos, or card voices) were kept have none; the desktop writes those as "".
-    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "", voice: v.voice || "" })).sort(byUid),
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "", voice: v.voice || "", important: v.important ? 1 : 0 })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
     lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),

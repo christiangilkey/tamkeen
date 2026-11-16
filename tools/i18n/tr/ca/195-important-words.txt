@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	Marcada com a important: surt primer a les revisions i les paraules noves
+2be8c726	Ja no està marcada com a important
+4b6d6a30	Important
+4f3a61a7	{0} marcades com a importants
+57509ec3	{0} ja no estan marcades com a importants
+d5026b0d	Importants: marcades amb una bandera
+ce857ade	Important: surt primer a les revisions i entre les paraules noves
+0b484587	Cerca les teves paraules. També: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

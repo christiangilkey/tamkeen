@@ -1,0 +1,9 @@
+# Important words (web/js/components/wordtools.js, pages/vocab.js, review/vocabedit.js).
+076bfabb	Gimarkahan nga importante: una kini sa mga review ug bag-ong pulong
+2be8c726	Dili na markado nga importante
+4b6d6a30	Importante
+4f3a61a7	{0} ang gimarkahan nga importante
+57509ec3	{0} ang dili na markado nga importante
+d5026b0d	Importante: gimarkahan og bandila
+ce857ade	Importante: una kini sa mga review ug sa bag-ong mga pulong
+0b484587	Pangitaa ang imong mga pulong. Mahimo usab: folder:, is:new, is:due, is:learned, is:important, added:7, reviewed:2026-04-15..2026-04-19, learned:30, edited:

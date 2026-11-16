@@ -71,6 +71,8 @@ class VocabPatch(BaseModel):
     sentence_if: str | None = None
     # The sentence's translation, put right on the review card; ⟦ ⟧ round the part that renders the word.
     translation: str | None = None
+    # Marked important: first in reviews and among new words (web/js/review/deck.js plan).
+    important: bool | None = None
 
 
 class FolderIn(BaseModel):
@@ -507,6 +509,8 @@ def update_vocab(vocab_id: int, body: VocabPatch) -> dict[str, Any]:
             conn.execute("UPDATE vocab SET translation = ? WHERE id = ?", (body.translation.strip()[:2000], vocab_id))
         if body.folders is not None:
             conn.execute("UPDATE vocab SET folders = ? WHERE id = ?", (json.dumps(sorted(set(body.folders))), vocab_id))
+        if body.important is not None:
+            conn.execute("UPDATE vocab SET important = ? WHERE id = ?", (1 if body.important else 0, vocab_id))
         if body.sentence is not None:
             if body.sentence_if is None:
                 conn.execute("UPDATE vocab SET sentence = ? WHERE id = ?", (body.sentence[:2000], vocab_id))
