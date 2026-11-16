@@ -14,7 +14,7 @@ import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanProgress, mergeProgress } from "./grammardata.js";
 import { cleanSetting as cleanController, settingWins as controllerWins } from "./padmap.js";
-import { cleanSetting as cleanGoal, settingWins as goalWins } from "./review/goalsetting.js";
+import { cleanGoals, cleanSetting as cleanGoal, mergeGoals, settingWins as goalWins } from "./review/goalsetting.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 import { keepVoice } from "./cardvoice.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
@@ -178,6 +178,18 @@ export function merge(remote) {
     changed++;
   }
 
+  // The long-term goals, one per language (review/goalsetting.js): for each language, the one changed last wins.
+  if (remote.goals && typeof remote.goals === "object") {
+    const mine = cleanGoals(settings.study_goals);
+    const merged = mergeGoals(mine, remote.goals);
+    if (JSON.stringify(merged) !== JSON.stringify(mine)) {
+      settings.study_goals = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      window.dispatchEvent(new CustomEvent("tamkeen:goal"));
+      changed++;
+    }
+  }
+
   // Saved Instagram collections: the list found last, and the collection chosen last.
   if (remote.ig_collections && typeof remote.ig_collections === "object") {
     const before = cleanCollections(settings.ig_collections);
@@ -235,6 +247,7 @@ export function snapshot() {
     grammar: cleanProgress(settings.grammar_progress),
     controller: cleanController(settings.controller_map),
     goal: cleanGoal(settings.study_goal),
+    goals: cleanGoals(settings.study_goals),
     ig_collections: cleanCollections(settings.ig_collections),
     keys: keysFromSettings(settings),
     learning: learningPayload(settings),
@@ -251,7 +264,7 @@ function canonical(value) {
 const content = (l) => canonical({ feeds: l.feeds, episodes: l.episodes, vocab: l.vocab, folders: l.folders || [],
                                    definitions: l.definitions, lexemes: l.lexemes || [], reviews: l.reviews || {}, game: l.game || null,
                                    channels: l.channels || [], sites: l.sites || [], grammar: cleanProgress(l.grammar),
-                                   controller: cleanController(l.controller), goal: cleanGoal(l.goal),
+                                   controller: cleanController(l.controller), goal: cleanGoal(l.goal), goals: cleanGoals(l.goals),
                                    ig_collections: cleanCollections(l.ig_collections),
                                    keys: cleanKeys(l.keys), learning: cleanPayload(l.learning) });
 

@@ -9,6 +9,10 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.58.0",
+  "Each language now has its own long-term goal: set one for Spanish and one for Arabic");
+notes("0.58.0",
+  "Course audio now comes in one download per unit and is kept on your device");
 notes("0.57.0",
   "Learn the new words your long-term goal asks for, straight from the goal card");
 notes("0.57.0",

@@ -1,8 +1,10 @@
-// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.57.0-mwic9vpe
-const CACHE = "tamkeen-0.57.0-mwic9vpe";
+// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.58.0-mwit94kd
+const CACHE = "tamkeen-0.58.0-mwit94kd";
 self.addEventListener("install", () => self.skipWaiting());
+// (a cache named "tamkeen-keep-…" isn't the app's files but what the learner downloaded, kept across builds:
+// the courses' audio packs, web/js/coursepacks.js)
 self.addEventListener("activate", (e) => e.waitUntil((async () => {
-  for (const key of await caches.keys()) if (key !== CACHE) await caches.delete(key);
+  for (const key of await caches.keys()) if (key !== CACHE && !key.startsWith("tamkeen-keep-")) await caches.delete(key);
   await self.clients.claim();
 })()));
 // A chat notification tapped (web/js/chatnotify.js via mobile/src/js/app.js): open that chat in the
