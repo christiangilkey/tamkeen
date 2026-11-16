@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Ouvir em Meus áudios: grave do microfone e receba a transcrição
+0ed4a4c3	Tradução embaixo de cada linha: ligue no player para ver seu idioma embaixo de cada linha
+16ddf95c	Escanear agora põe todo o texto de uma foto num quadro que você pode editar e depois transformar em cartões
+9204ff4a	A linha embaixo de Revisão esmaece onde é cortada, e espera menos antes de deslizar

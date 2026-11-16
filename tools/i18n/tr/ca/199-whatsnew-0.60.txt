@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Escolta a El meu àudio: enregistra del micròfon i obtén-ne la transcripció
+0ed4a4c3	Traducció sota cada línia: activa-la al reproductor per veure la teva llengua sota cada línia
+16ddf95c	Escaneja ara posa tot el text d’una foto en un quadre que pots editar i després convertir en targetes
+9204ff4a	La línia sota Repàs s’esvaeix on queda tallada, i espera menys abans de lliscar

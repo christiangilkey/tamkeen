@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Escuchar en Mi audio: graba del micrófono y obtén la transcripción
+0ed4a4c3	Traducción bajo cada línea: actívala en el reproductor para ver tu idioma bajo cada línea
+16ddf95c	Escanear ahora pone todo el texto de una foto en un cuadro que puedes editar y luego convertir en tarjetas
+9204ff4a	La línea bajo Repaso se desvanece donde se corta, y espera menos antes de deslizarse

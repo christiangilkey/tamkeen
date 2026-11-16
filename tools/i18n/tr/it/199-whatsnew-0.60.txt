@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Ascolta in I miei audio: registra dal microfono e ottieni la trascrizione
+0ed4a4c3	Traduzione sotto ogni riga: attivala nel lettore per vedere la tua lingua sotto ogni riga
+16ddf95c	Scansiona ora mette tutto il testo di una foto in un riquadro che puoi modificare e poi trasformare in schede
+9204ff4a	La riga sotto Ripasso sfuma dove è tagliata, e aspetta meno prima di scorrere

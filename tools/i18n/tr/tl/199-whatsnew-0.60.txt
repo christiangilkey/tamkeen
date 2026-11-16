@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Pakinggan sa Audio ko: mag-record mula sa mikropono at kumuha ng transcript
+0ed4a4c3	Salin sa ilalim ng bawat linya: i-on sa player para makita ang iyong wika sa ilalim ng bawat linya
+16ddf95c	Inilalagay na ngayon ng I-scan ang buong teksto ng larawan sa kahong mae-edit mo, saka gawing mga card
+9204ff4a	Lumalabo ang linya sa ilalim ng Review kung saan ito naputol, at mas maikli ang hintay bago dumausdos

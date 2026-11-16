@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Anhören in Mein Audio: vom Mikrofon aufnehmen und ein Transkript bekommen
+0ed4a4c3	Übersetzung unter jeder Zeile: im Player einschalten und unter jeder Zeile deine Sprache sehen
+16ddf95c	Scannen legt jetzt den ganzen Text eines Fotos in ein Feld, das du bearbeiten und dann zu Karten machen kannst
+9204ff4a	Die Zeile unter Wiederholung wird dort ausgeblendet, wo sie abgeschnitten ist, und wartet kürzer, bevor sie weitergleitet

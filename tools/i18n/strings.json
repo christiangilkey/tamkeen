@@ -27270,6 +27270,26 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "3fd3a173",
+  "k": "Listen in My audio: record from the microphone and get a transcript",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0ed4a4c3",
+  "k": "Translation under each line: turn it on in the player to see your language under every line",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "16ddf95c",
+  "k": "Scan now puts all the text in a photo into a box you can edit, then make cards from",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "9204ff4a",
+  "k": "The line under Review fades where it is cut off, and waits less before sliding",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "6e4a9901",
   "k": "Mark words Important with a flag: they come first in reviews and among new words",
   "f": "web/js/whatsnew.js"

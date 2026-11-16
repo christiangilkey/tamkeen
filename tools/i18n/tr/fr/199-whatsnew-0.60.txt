@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Écouter dans Mon audio : enregistrez au micro et obtenez une transcription
+0ed4a4c3	Traduction sous chaque ligne : activez-la dans le lecteur pour voir votre langue sous chaque ligne
+16ddf95c	Scanner met désormais tout le texte d’une photo dans un cadre que vous pouvez modifier, puis transformer en cartes
+9204ff4a	La ligne sous Révision s’estompe là où elle est coupée, et attend moins avant de défiler

@@ -1,0 +1,5 @@
+# What's new in 0.60.0 (web/js/whatsnew.js).
+3fd3a173	Paminaw sa Akong audio: mag-record gikan sa mikropono ug pagkuha og transcript
+0ed4a4c3	Hubad ilalom sa matag linya: i-on kini sa player aron makita ang imong pinulongan ilalom sa matag linya
+16ddf95c	Ang I-scan karon mobutang sa tanang teksto sa litrato sa kahon nga imong ma-edit, unya himoong mga card
+9204ff4a	Ang linya ilalom sa Review mohanaw diin kini maputol, ug mohulat og mas mubo sa dili pa modagan
