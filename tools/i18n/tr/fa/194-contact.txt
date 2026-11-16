@@ -1,0 +1,8 @@
+# Settings -> Contact (web/js/components/contact.js, components/settingsui.js). The name stays as it is.
+b37456c4	تماس
+71a8cbcf	مشکلی پیدا کرده‌اید، یا پرسش یا ایده‌ای دارید؟ به SGT Gilkey, MLI UAD، سازندهٔ تمکین، بنویسید.
+24f3f52d	گزارش یک مشکل
+cf94bdf3	پرسیدن یک سؤال
+0f6a76b9	پیامتان از ایمیل خودتان فرستاده می‌شود. برای یک مشکل، بنویسید درست پیش از آن چه کردید: به پیدا کردنش کمک می‌کند.
+bc31343c	نشانی ایمیل کپی شد
+6dcc3d74	یک مشکل یا پرسش برای SGT Gilkey بفرستید.

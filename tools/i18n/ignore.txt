@@ -712,3 +712,18 @@ b3882a47  # Phoneme
 526e2c45  # Mispronunciation
 e1a03c23  # audio/wav; codecs=audio/pcm; samplerate=16000
 01a271c9  # rv-count {0}s linear {1}s forwards (review.js: the countdown's CSS animation, never on screen)
+# Settings -> Contact: the email's own words, sent to the developer in English (web/js/components/contact.js)
+cf6ee26b  # SGT Gilkey, MLI UAD (a name)
+cbfbc927
+81584ca6
+3992398e
+a5f6c56a
+af65e90a
+44a694ec
+c382a522
+44fbc731
+763927bc
+695615f0
+e5e9301a
+af3aa963
+b595dcb8

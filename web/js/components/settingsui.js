@@ -27,6 +27,8 @@ export const SECTIONS = [
   { id: "account", icon: "cloud", title: "Account & sync", about: "Google Drive sync, and Friends." },
   { id: "apps", icon: "link", title: "Apps & connections", about: "Other apps Tamkeen works with." },
   { id: "data", icon: "data", title: "Data & updates", about: "Backups, updates and starting again." },
+  // Every device (the owner, 2026-11-16): email the developer a problem or a question (components/contact.js)
+  { id: "contact", icon: "message", title: "Contact", about: "Send a problem or a question to SGT Gilkey." },
 ];
 export const sectionInfo = (id) => SECTIONS.find((x) => x.id === id) || null;
 
@@ -96,6 +98,7 @@ export const FINDS = [
   { s: "data", id: "reset", label: "Reset Tamkeen", words: "start again sign out first" },
   { s: "data", id: "privacy", label: "Privacy policy, terms and cookies", words: "privacy data terms service conditions cookies legal" },
   { s: "data", id: "about", label: "About and open-source licenses", words: "licenses licences credits version source code" },
+  { s: "contact", id: "contact", label: "Contact", words: "email mail help support problem bug question feedback report idea developer gilkey" },
 ];
 
 /** The search entries for this device (`where`: { desktop, phone, android, ios, web }) and study language. */

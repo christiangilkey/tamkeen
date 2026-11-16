@@ -4,6 +4,7 @@
 // the phone's page (mobile/src/js/pages/settings.js) has the same sections.
 
 import { taskTargetCard } from "../components/tasktarget.js";
+import { contactCard } from "../components/contact.js";
 import { api, esc, h, on, toast, download, loadStatus, saveSettings, fmtBytes, state, offerUpdate } from "../app.js";
 import { modelManager, gpuPanel } from "../components/models.js";
 import { aiSetup } from "../components/aisetup.js";
@@ -97,7 +98,14 @@ function home(view, status) {
 
 // ---------- the sections ----------
 
-const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
+const BUILD = { languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data, contact };
+
+// Contact: email SGT Gilkey a problem or a question (components/contact.js), with this computer's version
+function contact(body, status) {
+  const ua = (typeof navigator !== "undefined" && navigator.userAgent) || "";
+  const device = /Windows/i.test(ua) ? "a Windows computer" : /Mac/i.test(ua) ? "a Mac" : /Linux/i.test(ua) ? "a Linux computer" : "a computer";
+  body.append(contactCard({ version: status.version, device, outside: true }));
+}
 
 // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
 // and under it "I'm a DLI teacher": classes and the students' weekly numbers (components/dliteach.js)

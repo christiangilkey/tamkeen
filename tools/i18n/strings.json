@@ -3270,6 +3270,41 @@
   "f": "web/js/components/changelog.js"
  },
  {
+  "id": "b37456c4",
+  "k": "Contact",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "71a8cbcf",
+  "k": "Found a problem, or have a question or an idea? Write to SGT Gilkey, MLI UAD, who makes Tamkeen.",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "24f3f52d",
+  "k": "Report a problem",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "cf94bdf3",
+  "k": "Ask a question",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "af74f7c5",
+  "k": "Copy",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "0f6a76b9",
+  "k": "Your message goes from your own email. For a problem, say what you did just before it happened: it helps to find it.",
+  "f": "web/js/components/contact.js"
+ },
+ {
+  "id": "bc31343c",
+  "k": "Email address copied",
+  "f": "web/js/components/contact.js"
+ },
+ {
   "id": "b0827a06",
   "k": "No controller connected",
   "f": "web/js/components/controllerpanel.js"
@@ -4562,11 +4597,6 @@
  {
   "id": "93a527fe",
   "k": "{0} weeks ago",
-  "f": "web/js/components/dliteach.js"
- },
- {
-  "id": "af74f7c5",
-  "k": "Copy",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -7092,6 +7122,11 @@
  {
   "id": "dca7d5e7",
   "k": "Backups, updates and starting again.",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "6dcc3d74",
+  "k": "Send a problem or a question to SGT Gilkey.",
   "f": "web/js/components/settingsui.js"
  },
  {
@@ -28815,6 +28850,11 @@
   "f": "mobile/src/js/pages/settings.js"
  },
  {
+  "id": "1928f95c",
+  "k": "Android",
+  "f": "mobile/src/js/pages/settings.js"
+ },
+ {
   "id": "6dd88449",
   "k": "Tick each language you're learning: the switch at the top of the screen lists them, here and on your other devices. The one you're studying now is used for web pages you import here, for word explanations and for anything transcribed from this phone.",
   "f": "mobile/src/js/pages/settings.js"
@@ -28877,11 +28917,6 @@
  {
   "id": "6b19f5cd",
   "k": "Make the file runnable, then open it.",
-  "f": "mobile/src/js/pages/settings.js"
- },
- {
-  "id": "1928f95c",
-  "k": "Android",
   "f": "mobile/src/js/pages/settings.js"
  },
  {

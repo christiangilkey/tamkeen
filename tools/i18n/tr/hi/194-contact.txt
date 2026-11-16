@@ -1,0 +1,8 @@
+# Settings -> Contact (web/js/components/contact.js, components/settingsui.js). The name stays as it is.
+b37456c4	संपर्क
+71a8cbcf	कोई समस्या मिली, या कोई सवाल या सुझाव है? Tamkeen बनाने वाले SGT Gilkey, MLI UAD को लिखें।
+24f3f52d	समस्या बताएँ
+cf94bdf3	सवाल पूछें
+0f6a76b9	आपका संदेश आपके अपने ईमेल से जाता है। समस्या हो तो बताएँ कि उससे ठीक पहले आपने क्या किया था: इससे उसे ढूँढने में मदद मिलती है।
+bc31343c	ईमेल पता कॉपी हो गया
+6dcc3d74	SGT Gilkey को कोई समस्या या सवाल भेजें।

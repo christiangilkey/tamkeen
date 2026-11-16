@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** **Contact** in Settings. Its own section at the bottom of Settings lets you send a problem or a question to SGT Gilkey, MLI UAD, who makes Tamkeen. **Report a problem** and **Ask a question** open your own email with the address, a subject, and your Tamkeen version and device already filled in. The address is shown too, with a **Copy** button, for a device with no email app set up.
 - **New:** **Bigger aquariums.** In Fishing → Basket, buy a bigger aquarium with pearls, the same way rods are bought: the Big tank holds 9 fish (15 pearls), the Reef tank 12 (40 pearls) and the Grand aquarium 18 (100 pearls). A full aquarium now lets a new fish in: **Swap in** asks which fish makes room, and that one goes back to your basket. Friends see your six best fish.
 - **Changed:** **Out of new words for your goal?** When everything is reviewed and your goal wants new words that aren't there, the **Review** box on the Vocab page turns purple, and its blue **Get words** button opens the Library's Words course. The long-term goal card no longer says this too, so it has less text.
 - **New:** **Get the app** is now a section of its own at the top of Settings in the web app, with a download for Windows, Mac, Linux, Android and iPhone (and how to install each), and a list of what the app adds: reels from your Instagram saves, YouTube videos blocked for the web app, the built-in browser, Anki sync, and on a computer free transcripts, vowel marks, offline voices and backups. *(web app)*

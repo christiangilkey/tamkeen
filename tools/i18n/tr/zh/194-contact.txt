@@ -1,0 +1,8 @@
+# Settings -> Contact (web/js/components/contact.js, components/settingsui.js). The name stays as it is.
+b37456c4	联系
+71a8cbcf	发现问题，或有疑问或想法？请写信给 Tamkeen 的作者 SGT Gilkey, MLI UAD。
+24f3f52d	报告问题
+cf94bdf3	提个问题
+0f6a76b9	邮件从你自己的邮箱发出。如果是问题，请说说出问题前你刚做了什么，这有助于找到原因。
+bc31343c	已复制邮箱地址
+6dcc3d74	向 SGT Gilkey 发送问题或疑问。

@@ -1,0 +1,8 @@
+# Settings -> Contact (web/js/components/contact.js, components/settingsui.js). The name stays as it is.
+b37456c4	ติดต่อ
+71a8cbcf	เจอปัญหา หรือมีคำถามหรือไอเดียไหม เขียนถึง SGT Gilkey, MLI UAD ผู้สร้าง Tamkeen
+24f3f52d	แจ้งปัญหา
+cf94bdf3	ถามคำถาม
+0f6a76b9	ข้อความจะส่งจากอีเมลของคุณเอง หากเป็นปัญหา บอกด้วยว่าคุณทำอะไรก่อนเกิดปัญหา จะช่วยให้หาเจอ
+bc31343c	คัดลอกที่อยู่อีเมลแล้ว
+6dcc3d74	ส่งปัญหาหรือคำถามถึง SGT Gilkey

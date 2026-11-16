@@ -23,6 +23,7 @@ import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
+import { contactCard } from "../components/contact.js";
 import { parkAll } from "../reset.js";
 import { speakPicker } from "../components/langpicker.js";
 import { learningList, learningSettings, learningSummary } from "../components/langswitch.js";
@@ -125,7 +126,13 @@ function home(view) {
 
 // ---------- the sections ----------
 
-const BUILD = { getapp, languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data };
+const BUILD = { getapp, languages, dli: dliSection, words, listening, voices, look, controller: controllerSection, account, apps, data, contact };
+
+// Contact: email SGT Gilkey a problem or a question (components/contact.js), with this version and device
+async function contact(body) {
+  const { APP_VERSION } = await import("../version.js");
+  body.append(contactCard({ version: APP_VERSION, device: isIOS ? "iPhone" : isWeb ? "the web app" : "Android" }));
+}
 
 // DLI students: "I'm a DLI student", their DLI language and the password (components/dlicard.js)
 // and under it "I'm a DLI teacher": classes and the students' weekly numbers (components/dliteach.js)

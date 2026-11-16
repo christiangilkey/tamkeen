@@ -192,6 +192,7 @@ const SHARED = [
   "js/helpersource.js",
   "js/components/settingsui.js",
   "js/components/licenses.js",
+  "js/components/contact.js",
   "js/tokenuse.js",
   "js/stt.js",
   "js/components/sttsetup.js",
