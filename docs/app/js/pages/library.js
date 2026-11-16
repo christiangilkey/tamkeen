@@ -1,6 +1,6 @@
 // Library: feeds sidebar, episode list with live status, multi-select transcription.
 
-import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, openYouTube, platform, netflixSupport, openNetflix, state } from "../app.js";
+import { api, esc, h, fmtDate, fmtDuration, on, toast, requestNotifications, uploadVideo, ownFilesBlocked, openYouTube, platform, netflixSupport, openNetflix, state } from "../app.js";
 import { sttConfig } from "../stt.js";
 import { settingsHref } from "../fixes.js";
 import { icon } from "../icons.js";
@@ -24,6 +24,7 @@ import { conversePanel } from "../components/conversepanel.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
+import { canRecord, listenAndSave } from "../components/listenbox.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -417,7 +418,28 @@ export async function render(view, { feedId: routeFeed, query }) {
       <p class="le-text">${k.empty}</p>
     </div>`);
     if (k.key === "books") el.append(bookButtons());
+    if (k.key === "audio") { const row = listenRow(); if (row) el.append(row); }
     return el;
+  }
+  /** My audio's Listen button: record from the microphone until Stop, then it is added and transcribed
+   * like an audio file of the learner's own (components/listenbox.js). None where nothing can record. */
+  function listenRow() {
+    if (!canRecord()) return null;
+    const row = h(`<div class="row lr-row"><button type="button" class="primary lr-listen" title="Record from the microphone until you press Stop, then transcribe it">${icon("mic", 16)} Listen</button></div>`);
+    row.querySelector("button").onclick = listen;
+    return row;
+  }
+  async function listen() {
+    // (On a phone or the web app the recording goes to Google Drive: say so before, not after, recording.)
+    const blocked = ownFilesBlocked();
+    if (blocked) { toast(blocked, { error: true }); return; }
+    const ep = await listenAndSave({
+      save: (file, { title, duration, onProgress }) => uploadVideo(file, onProgress, { title, duration, recording: true }),
+    });
+    if (!ep) return;
+    toast(`Added “${ep.title}”. ${ep.note || "It's being transcribed now."}`);
+    location.hash = `#/feed/${ep.feed_id}`;
+    scheduleReload();
   }
   /** Show (or stop showing) the empty state's arrow: while the heading says the kind is empty (no list
    * of it yet) or its list came back empty. It points the other way if the + button is on the left. */
@@ -538,9 +560,12 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     if (isLocalFeed(f.url)) {
       const what = f.url === AUDIO_FEED ? "Audio" : "Video";
-      head.append(h(`<div class="lib-head"><div class="ph video-ph">${localIcon(f.url, 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
+      const el = h(`<div class="lib-head"><div class="ph video-ph">${localIcon(f.url, 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
         <div class="desc small">${what} files you added yourself. They're transcribed on your computer and stored in your
-        Google Drive, so every device can play them. Press + to add more.</div></div></div>`));
+        Google Drive, so every device can play them. Press + to add more.</div></div></div>`);
+      const row = f.url === AUDIO_FEED ? listenRow() : null;
+      if (row) el.querySelector(".meta").append(row);
+      head.append(el);
       return;
     }
     const el = h(`<div class="lib-head">

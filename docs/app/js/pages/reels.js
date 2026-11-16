@@ -31,6 +31,7 @@ import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
+import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -616,6 +617,42 @@ async function renderPlayer(view, { query }) {
   vowelsBtn.hidden = true;
   if (surface) $("#rc-left").append(vowelsBtn);
   else $("#reel-prev").before(vowelsBtn);
+  // Translation under each line (dual subtitles: components/dualline.js), beside it: the reel's lines, each
+  // with its translation into the learner's own language under it, by the learner's AI, kept on the device.
+  // A reel is short: all its lines are asked for at once. Remembered on this device (the same switch as the
+  // other player's).
+  const own = ownLanguage();
+  let dualShown = false;
+  let dual = null;   // the translations of the reel showing (dualsubs.js createTranslator)
+  const dualBtn = dualButton(() => setDual(!dualShown, true));
+  if (surface) $("#rc-left").append(dualBtn);
+  else $("#reel-prev").before(dualBtn);
+  function setDual(on, pressed = false) {
+    if (on && !aiReady()) {
+      if (pressed) explainDual();
+      on = false;
+    }
+    dualShown = on;
+    if (pressed) setDualOn(on);
+    view.querySelector(".reelplay").classList.toggle("dual", on);
+    dualBtn.paint(on);
+    if (on) startDual();
+  }
+  /** Translations for the reel showing (again: the same reel keeps its own). */
+  function startDual() {
+    const reel = cur;
+    if (!dualShown || !reel || !reel.segments.length) return;
+    if (dual && dual.reel === reel) { if (dual.failed) dual.retry(); return; }
+    if (dual) dual.stop();
+    const segEls = [...wordsEl.querySelectorAll(".seg")];
+    dual = translatorFor({
+      ep: reel.ep, segments: reel.segments, study: reel.lang, own, size: 30, ahead: 1e6,
+      onLines: (list) => { if (!disposed && cur === reel) for (const k of list) setLine(segEls[k], dual.textAt(k), own); },
+      onError: (e) => { if (!disposed && dualShown && cur === reel) reportDual(e); },
+    });
+    dual.reel = reel;
+    dual.want(0);
+  }
   const offVowels = on("vowels", async (d) => {
     const reel = cur;
     if (!reel || !d || String(d.episode_id) !== String(reel.ep.id)) return;
@@ -788,7 +825,7 @@ async function renderPlayer(view, { query }) {
         wordsEl.setAttribute("lang", lang);
         wordsEl.setAttribute("dir", langInfo(lang).dir);
         cur = { ep, lang, starts: Float64Array.from(W.start), ends: Float64Array.from(W.end), segOf: Int32Array.from(W.seg),
-                texts: W.text, els: wordsEl.querySelectorAll(".w"), vowels: data.vowels || null };
+                texts: W.text, els: wordsEl.querySelectorAll(".w"), vowels: data.vowels || null, segments: data.segments };
         const reel = cur;
         cur.fixer = wordFixer({
           episodeId: ep.id, texts: W.text, editable: W === data.words, contextFor: contextAt,
@@ -803,6 +840,7 @@ async function renderPlayer(view, { query }) {
       }
       vowelsBtn.hidden = !cur || cur.lang !== "ar";
       vowelsBtn.repaint();
+      startDual();
     }
     if (!surface) {
       stage.innerHTML = "";
@@ -953,9 +991,11 @@ async function renderPlayer(view, { query }) {
     },
   });
 
+  setDual(dualOn());
   await show(index);
   return () => {
     disposed = true;
+    if (dual) dual.stop();
     offPad();
     offVowels();
     offState();

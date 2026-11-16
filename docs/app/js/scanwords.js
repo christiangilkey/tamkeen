@@ -1,12 +1,14 @@
-// "Add words" → Scan: words read from a photo of a list (components/wordscan.js). Its pure part, kept
+// "Add words" → Scan: the text of a photo, for making cards (components/wordscan.js). Its pure part, kept
 // apart from the screen so it can be tested on its own (tests/js/scanwords.test.mjs). Every version has it.
 //
 // A photo is read one of two ways:
 //   - by the learner's own AI, when it can read pictures (all four providers in Settings can): the
-//     photo, made smaller, goes to it with the question below, and a strict JSON list comes back;
-//   - on this device, by Tesseract (web/js/ocr.js): its lines become the text of a pasted list, which
-//     goes through the same reading as "Paste a list" (addwords.js parseList).
-// Either way the words then become rows of the builder exactly as a pasted list does: their meanings,
+//     photo, made smaller, goes to it with one of the questions below, and strict JSON comes back;
+//   - on this device, by Tesseract (web/js/ocr.js).
+// What is read is, first, all the text in the language being learned, line by line (textPrompt,
+// ocrText), into a box like "Paste a list"'s; or, with "Pick out the words for me", the words alone
+// with their meanings (scanPrompt, ocrList), into the same box. The box is read like a pasted list
+// (addwords.js parseList), and its cards become rows of the builder exactly as a pasted list's do: their meanings,
 // sentences and audio are filled in by "For these cards" (cards from a photo have no recording of
 // their own, so the card voice says them, like typed ones).
 
@@ -98,6 +100,136 @@ Keep the page's order: top to bottom, and the columns in the order they are read
 If no ${study} words can be read in the photo, answer {"items": []}.
 Answer with JSON only: {"items": [{"word": "...", "meaning": "...", "sentence": "...", "sentence_translation": "..."}]}.`;
   return { system, user: `The photo: read the ${study} vocabulary on it.`, schema: SCAN_SCHEMA };
+}
+
+// ---------------------------------------------------------------- all the text (what Scan does first)
+
+export const TEXT_SCHEMA = {
+  type: "object",
+  properties: {
+    lines: {
+      type: "array",
+      description: "The text's lines in reading order, \"\" between paragraphs.",
+      items: { type: "string" },
+    },
+  },
+  required: ["lines"],
+  additionalProperties: false,
+};
+
+/** The question sent with the photo when all its text is wanted (the learner then picks the cards out
+ * of it, as from a pasted list): {system, user, schema}; `study` is the language, in English. */
+export function textPrompt({ study = "Spanish" } = {}) {
+  const system = `You copy the ${study} text in a photo, exactly as it is written, for a learner of ${study} who will choose parts of it to make flashcards. The photo may be a page of a book, a textbook exercise, an article, a sign, a menu, handwritten notes, a word list or a single word.
+Copy every line of ${study} text in reading order: top to bottom, and a page in columns one column after another. Keep the page's own line breaks: one string for each line on the page. Put an empty string "" between paragraphs.
+Copy each line exactly: the same spelling, letters, vowel marks, accents, tone marks, capital letters and punctuation. Never correct, complete, translate, explain or summarise it, and never add vowel marks or accents that aren't there.
+Leave out lines with no ${study} in them: text in other languages (such as translations or notes in English), page numbers, and anything in the photo's background. A line with ${study} and another language on it is copied whole, as it is (it may be a word with its meaning beside it).
+If ${study} words and their meanings are side by side in two columns, put each word and its meaning on one line with " – " between them, the ${study} first.
+No commentary, headings of your own or notes: only the text.
+If no ${study} text can be read in the photo, answer {"lines": []}.
+Answer with JSON only: {"lines": ["...", "..."]}.`;
+  return { system, user: `The photo: copy the ${study} text on it.`, schema: TEXT_SCHEMA };
+}
+
+/** The script a language is written in, for keeping only its lines: its own (addwords.js SCRIPTS), else
+ * Latin letters. */
+export const studyScript = (lang) => SCRIPTS[lang] || /\p{Script=Latin}/u;
+
+/** Lines of text without the ones with none of the language being learned in them (a line in English
+ * under an Arabic one goes; "كتاب – book" stays whole). Blank lines are paragraph breaks: at most one
+ * in a row, none at the start or the end. */
+export function keepStudyLines(text, lang = "") {
+  const script = studyScript(lang);
+  const out = [];
+  for (const raw of String(text ?? "").replace(/\r\n?/g, "\n").split("\n")) {
+    const line = bare(raw).replace(/[⟦⟧]/g, "").replace(/[ \t]+$/, "");
+    if (!line.trim()) { if (out.length && out[out.length - 1] !== "") out.push(""); continue; }
+    if (script.test(line)) out.push(line.trim());
+  }
+  while (out.length && out[out.length - 1] === "") out.pop();
+  return out.join("\n");
+}
+
+/** The AI's answer when all the text was asked for (textPrompt) as text, one line of the page a line:
+ * {lines: [...]} (or text, or a bare list), or the model's own text when it answered without JSON
+ * (``` fences and a sentence before them go). Only lines in the language being learned stay. */
+export function readScanText(answer, { lang = "", max = 20000 } = {}) {
+  let data = typeof answer === "string" ? jsonIn(answer) : answer;
+  let text = "";
+  if (data && !Array.isArray(data) && typeof data === "object") {
+    const list = ["lines", "text", "items"].map((k) => data[k]).find((v) => Array.isArray(v) || typeof v === "string");
+    data = list === undefined ? [] : list;
+  }
+  if (Array.isArray(data)) text = data.map((l) => (typeof l === "string" ? l : l && typeof l === "object" ? fieldOf(l, ["text", "line"]) : "")).join("\n");
+  else if (typeof data === "string") text = data;
+  else if (typeof answer === "string") text = answer.replace(/```[a-z]*\n?|```/gi, "");
+  return keepStudyLines(text, lang).slice(0, max);
+}
+
+/**
+ * All the text Tesseract read in the language being learned, in its order, as the box's text: {text,
+ * doubts}. A paragraph's lines stay lines; a paragraph of more than one line, and each block of text,
+ * is set apart by a blank line (a list read as one line a paragraph stays together). Lines with none
+ * of the language's script go (for a language written in Latin letters, other languages in Latin
+ * letters stay: the learner deletes them), and so do barely readable lines and noise; Chinese,
+ * Japanese and Thai lose the spaces Tesseract puts between their letters. `doubts` are the lines with
+ * a word it was unsure of (the preview says "check it").
+ */
+export function ocrText(data, { lang = "", minConfidence = MIN_CONFIDENCE, minWord = 0 } = {}) {
+  const script = studyScript(lang);
+  const doubts = [];
+  const paras = [];  // [{lines, block}]
+  const keep = (text, conf, least) => {
+    const line = text.replace(UNSPACED, "$1").replace(/[  ]+/g, " ").trim();
+    if (!line || (conf !== null && conf < minConfidence) || (minWord && least !== null && least < minWord)) return "";
+    if (!script.test(line) || noise(line)) return "";
+    if (least !== null && least < DOUBT_CONFIDENCE) doubts.push(line);
+    return line;
+  };
+  const blocks = data && Array.isArray(data.blocks) ? data.blocks : null;
+  if (blocks) {
+    blocks.forEach((b, bi) => {
+      for (const p of (b && b.paragraphs) || []) {
+        const lines = [];
+        for (const l of (p && p.lines) || []) {
+          const words = ((l && l.words) || []).filter((w) => w && bare(w.text));
+          const confs = words.map((w) => w.confidence).filter(Number.isFinite);
+          const conf = confs.length ? confs.reduce((a, c) => a + c, 0) / confs.length : Number.isFinite(l && l.confidence) ? l.confidence : null;
+          const line = keep(words.map((w) => bare(w.text)).join(" "), conf, confs.length ? Math.min(...confs) : null);
+          if (line) lines.push(line);
+        }
+        if (lines.length) paras.push({ lines, block: bi });
+      }
+    });
+  } else {
+    let para = { lines: [], block: 0 };
+    for (const raw of String((data && data.text) || "").split(/\r?\n/)) {
+      if (!bare(raw)) { if (para.lines.length) paras.push(para); para = { lines: [], block: paras.length }; continue; }
+      const line = keep(bare(raw), null, null);
+      if (line) para.lines.push(line);
+    }
+    if (para.lines.length) paras.push(para);
+  }
+  const out = [];
+  paras.forEach((p, i) => {
+    const before = paras[i - 1];
+    if (before && (p.block !== before.block || p.lines.length > 1 || before.lines.length > 1)) out.push("");
+    out.push(...p.lines);
+  });
+  return { text: out.join("\n"), doubts };
+}
+
+/** The text of the photos read one way (`view`: "text" or "words"; each photo's `reads[view].text`),
+ * page after page, a blank line between. */
+export function pagesText(photos, view) {
+  return (photos || []).map((p) => (p && p.reads && p.reads[view] && p.reads[view].text) || "").filter((s) => s.trim()).join("\n\n");
+}
+
+/** `text` with a page's text added at the end, a blank line between. */
+export function addPage(text, page) {
+  const before = String(text ?? "").replace(/\s+$/, "");
+  const more = String(page ?? "").replace(/^(?:[ \t]*\n)+/, "").replace(/\s+$/, "");
+  return before && more ? `${before}\n\n${more}` : before || more;
 }
 
 const tidy = (v, max) => String(v ?? "").replace(/[⟦⟧]/g, "").replace(/\s+/g, " ").trim()

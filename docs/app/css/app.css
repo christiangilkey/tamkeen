@@ -478,6 +478,19 @@ label.check input { margin-top: 3px; }
 }
 @media (max-width: 1060px) { .transcript .seg::before { display: none; } }
 .transcript .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
+/* Translation under each line (dual subtitles: components/dualline.js): the line in the learner's own language,
+   on a line (or more) of its own under its line, smaller and quieter, never a word to tap, never selected with
+   the words. Drawn only while the switch is on (.dual on the player). */
+.seg-tr, .cap-tr { display: none; }
+.dual .seg-tr, .dual .cap-tr { display: block; }
+.transcript .seg-tr {
+  font-family: var(--ui-font); font-size: max(14px, .58em); line-height: 1.5; color: var(--muted);
+  margin: .1em 0 .25em; cursor: default; user-select: none; -webkit-user-select: none;
+}
+/* On the same side as its line, whichever way each of the two languages runs (Arabic lines with English under
+   them: both on the right; English lines with Arabic or Persian under them: both on the left). */
+.transcript[dir="rtl"] .seg-tr, .reel-words[dir="rtl"] .seg-tr { text-align: right; }
+.transcript[dir="ltr"] .seg-tr, .reel-words[dir="ltr"] .seg-tr { text-align: left; }
 .transcript .w:hover { background: var(--surface-2); }
 .transcript .w.cur { background: var(--hl); color: var(--hl-ink); }
 .transcript .w.loop { background: var(--sel-range); }
@@ -707,6 +720,7 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
 .captions .w { cursor: pointer; border-radius: 5px; padding: 0 .05em; transition: background-color .08s; }
 .captions .w:hover { background: rgba(255, 255, 255, .2); }
 .captions .w.cur { background: var(--hl); color: var(--hl-ink); }
+.captions .cap-tr { font-family: var(--ui-font); font-size: max(13px, .6em); line-height: 1.4; color: #d9d9d4; margin: .05em 0 .2em; white-space: normal; }
 .pending-video { width: 100%; max-height: 50vh; border-radius: 10px; background: #000; margin-bottom: 8px; }
 @media (max-width: 760px) {
   /* Phone: video on top, transcript panel rises from the bottom. */
@@ -2204,8 +2218,8 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 
 /* pasting a list */
 .cb-paste { display: flex; flex-direction: column; gap: 10px; }
-.cb-paste-box { min-height: 170px; font-size: 17px; line-height: 1.5; border-radius: 14px; padding: 12px 14px; }
-.cb-paste-help { margin: 0; text-align: center; }
+.cb-paste-box, .cb-scan-box { min-height: 170px; font-size: 17px; line-height: 1.5; border-radius: 14px; padding: 12px 14px; }
+.cb-paste-help, .cb-scan-help { margin: 0; text-align: center; }
 .cb-pv-count { margin: 0; text-align: center; }
 .cb-pv { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; max-height: 260px; overflow-y: auto; border: 1px solid var(--border); border-radius: 14px; }
 .cb-pv li { display: flex; align-items: baseline; gap: 10px; padding: 7px 12px; min-width: 0; counter-increment: pv; }
@@ -2217,7 +2231,8 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-paste-go { display: flex; justify-content: center; }
 .cb-paste-go button { min-height: 44px; min-width: 180px; border-radius: 12px; font-weight: 650; }
 
-/* scanning a photo (components/wordscan.js): one plain box to start, then the photos, the list and its buttons */
+/* scanning a photo (components/wordscan.js): one plain box to start, then the photos, the box of their text with
+   its preview (as "Paste a list"), and its buttons */
 .cb-scan-wrap[hidden], .cb-scan [hidden] { display: none; }
 .cb-scan { display: flex; flex-direction: column; gap: 12px; }
 .cb-scan-pick { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 26px 18px 22px; border-radius: 16px; background: var(--surface-2); text-align: center; }
@@ -2231,7 +2246,7 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-scan-found { display: flex; flex-direction: column; gap: 10px; }
 .cb-scan-pics { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px; }
 .cb-scan-pic { position: relative; height: 96px; min-height: 0; padding: 0; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--surface-2); }
-.cb-scan-pics.one .cb-scan-pic { height: 170px; }  /* (one photo: big enough to compare with the list) */
+.cb-scan-pics.one .cb-scan-pic { height: 170px; }  /* (one photo: big enough to compare with the text) */
 .cb-scan-pic img { display: block; height: 100%; width: auto; max-width: 128px; object-fit: cover; object-position: top; }
 .cb-scan-pics.one .cb-scan-pic img { max-width: min(56vw, 420px); object-fit: contain; }
 .cb-scan-pic.is-reading img { opacity: .45; }
@@ -2240,12 +2255,9 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-scan-more { height: 96px; min-width: 96px; padding: 6px 10px; border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center;
   gap: 4px; font-size: 13px; font-weight: 650; color: var(--accent); }
 .cb-scan-more:hover:not(:disabled) { color: var(--accent); }
-.cb-scan-list { max-height: 340px; }
-.cb-scan-list li { padding: 0; }
-.cb-scan-list li::before { content: none; }
-.cb-scan-item { display: flex; align-items: baseline; gap: 10px; flex: 1; min-width: 0; padding: 8px 12px; cursor: pointer; }
-.cb-scan-item input { flex: none; align-self: center; width: 19px; height: 19px; margin: 0; accent-color: var(--accent); }
-.cb-scan-list li.is-off .cb-pv-word, .cb-scan-list li.is-off .cb-pv-rest { opacity: .45; }
+.cb-scan-box { min-height: 220px; }  /* (a page of text: room to read it and cut it down) */
+.cb-scan-preview { display: flex; flex-direction: column; gap: 10px; }
+.cb-scan-preview:empty { display: none; }
 .cb-scan-go { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .cb-scan-go button { min-height: 46px; min-width: 170px; padding: 6px 18px; border-radius: 12px; font-weight: 650; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
 .cb-scan-status { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 16px; border-radius: 14px; background: var(--surface-2); text-align: center; }

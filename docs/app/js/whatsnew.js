@@ -9,6 +9,14 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.60.0",
+  "Listen in My audio: record from the microphone and get a transcript");
+notes("0.60.0",
+  "Translation under each line: turn it on in the player to see your language under every line");
+notes("0.60.0",
+  "Scan now puts all the text in a photo into a box you can edit, then make cards from");
+notes("0.60.0",
+  "The line under Review fades where it is cut off, and waits less before sliding");
 notes("0.59.0",
   "Mark words Important with a flag: they come first in reviews and among new words");
 notes("0.59.0",

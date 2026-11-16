@@ -112,6 +112,9 @@
 .reel-words .w.new { color: #eaa6e4; }
 .reel-words .w.new.cur { color: var(--hl-ink); }
 .reel-words .w:active { display: inline-block; transform: scale(.9); }
+/* The translation under each line (components/dualline.js; shown while .reelplay has .dual: app.css). */
+.reel-words .seg-tr { font-size: .6em; line-height: 1.4; color: #c9c8c2; font-family: var(--ui-font); margin: .05em 0 .1em;
+  user-select: none; -webkit-user-select: none; }
 .reel-pop { border-left: 1px solid #383838; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
 /* The word popup is part of the bar here, not a floating card or a sheet. It fills its half of the
    bar: the heading stays at the top and only the explanation under it scrolls. */
@@ -137,6 +140,8 @@
 .reelplay:not(.no-video) .reel-words::-webkit-scrollbar { display: none; }
 .reelplay:not(.no-video) .reel-words .seg { display: inline-block; margin: 0; } /* a box each, so the space between them holds in right-to-left text too */
 .reelplay:not(.no-video) .reel-words .seg + .seg { margin-inline-start: .9em; }
+/* (one line of words: the translation wraps within its line's own width, and never makes that line wider) */
+.reelplay:not(.no-video) .reel-words .seg-tr { white-space: normal; width: 0; min-width: 100%; }
 .reelplay:not(.no-video) .reel-words > p.muted { white-space: normal; margin: 4px 0; }
 .reelplay:not(.no-video) .reel-pop { flex: 1 1 auto; border-left: 0; }
 /* What a lookup earned in the creature game: a line under the explanation, above the buttons strip
