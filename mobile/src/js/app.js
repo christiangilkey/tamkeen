@@ -957,15 +957,23 @@ function videoDuration(file) {
   });
 }
 
+/** Why the user's own files can't be kept yet ("" when they can): they live in their Google Drive, so a
+ *  sign-in is needed first (Library → My audio → Listen asks before recording, not after). */
+export function ownFilesBlocked() {
+  return settings.signed_in ? "" : "Sign in with Google (Settings) first: your files are stored in your Drive.";
+}
+
 /** Upload a video or audio file to Drive; the computer transcribes it on its next sync (or this phone, with
  *  cloud transcription). `book` ({key, title}): a chapter of an audiobook of the user's own (audiobooks.js);
- *  `transcribe: false` leaves it for later. */
-export async function uploadVideo(file, onProgress, { book = null, transcribe = true } = {}) {
+ *  `transcribe: false` leaves it for later. `title`: the item's name instead of the file's; `recording`: made
+ *  with Library → My audio → Listen (web/js/listenrec.js), always audio, `duration` its length in seconds. */
+export async function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false, duration = null } = {}) {
   if (isAudibleFile(file.name)) throw new Error(AUDIBLE_MESSAGE); // copy-protected: never opened
-  if (!settings.signed_in) throw new Error("Sign in with Google (Settings) first: your files are stored in your Drive.");
+  if (ownFilesBlocked()) throw new Error(ownFilesBlocked());
   // Video or audio: the file's type decides (the same button path serves both).
   let audioExt = (file.name.match(AUDIO_EXT) || [])[1];
-  if (book && !audioExt && /\.webm$/i.test(file.name)) audioExt = "webm";
+  if ((book || recording) && !audioExt && /\.webm$/i.test(file.name)) audioExt = "webm";
+  if (recording && !audioExt) throw new Error("That recording couldn't be read. Try again.");
   const audio = !!audioExt || (file.type || "").startsWith("audio/");
   if (book && !audio) throw new Error("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).");
   const ext = audio ? audioExt : (file.name.match(VIDEO_EXT) || [])[1];
@@ -978,13 +986,14 @@ export async function uploadVideo(file, onProgress, { book = null, transcribe = 
   const mime = (audioExt && AUDIO_TYPES[`.${audioExt.toLowerCase()}`]) || file.type || (audio ? "audio/mpeg" : "video/mp4");
   const uid = `e${newUid().slice(1)}`;
   const driveName = `v_${uid}${suffix}`;
-  const duration = await videoDuration(file);
+  // (A recording's length is known; a recorder's WebM doesn't say it.)
+  const length = recording && duration > 0 ? duration :await videoDuration(file);
   const meta = await drive.uploadLarge(driveName, file, mime, onProgress);
   const files = (await kv.get("drive_files")) || {};
   files[driveName] = meta;
   await kv.set("drive_files", files);
-  const title = file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
-  const ep = await addUploadedVideo({ uid, title, driveName, mime, duration, audio, file, book, transcribe });
+  const name = String(title || "").replace(/\s+/g, " ").trim().slice(0, 300) || file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
+  const ep = await addUploadedVideo({ uid, title: name, driveName, mime, duration: length, audio, file, book, transcribe });
   return { ...ep, note: ep.here ? "It's being transcribed now." : "Your computer transcribes it the next time it syncs." };
 }
 

@@ -116,12 +116,14 @@ def transcribe(body: TranscribeIn) -> dict[str, Any]:
 
 @router.post("/videos")
 async def upload_video(request: Request, filename: str, title: str | None = None, book: str | None = None,
-                       book_title: str | None = None, transcribe: bool = True) -> dict[str, Any]:
+                       book_title: str | None = None, transcribe: bool = True, recording: bool = False) -> dict[str, Any]:
     """Raw request body = the video or audio file (streamed to disk, so any size works). `book`/`book_title`: a
     chapter of the learner's own audiobook (app/videos.py); `transcribe=false` leaves it for later (an
-    audiobook's chapters after the first are transcribed as the learner gets to them)."""
+    audiobook's chapters after the first are transcribed as the learner gets to them). `recording`: made with
+    Library → My audio → Listen (always audio)."""
     try:
-        ep = await videos.save_upload(filename, request.stream(), title, book=book, book_title=book_title)
+        ep = await videos.save_upload(filename, request.stream(), title, book=book, book_title=book_title,
+                                      recording=recording)
     except videos.UploadError as exc:
         raise HTTPException(400, str(exc)) from exc
     if transcribe:

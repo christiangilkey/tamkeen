@@ -112,6 +112,8 @@ const SHARED = [
   "js/addwords.js",
   "js/examples.js",
   "js/cardaudio.js",
+  "js/listenrec.js",
+  "js/components/listenbox.js",
   "js/components/wordbuilder.js",
   "js/components/wordeditor.js",
   "js/components/wordtools.js",

@@ -447,14 +447,24 @@ export async function openInstagramSignIn() {
   return openBrowser("https://www.instagram.com/accounts/login/", { signIn: true });
 }
 
+/** Why the learner's own files can't be kept yet ("" when they can). The computer keeps them itself; a phone
+ * needs the Google sign-in first (mobile/src/js/app.js). */
+export function ownFilesBlocked() {
+  return "";
+}
+
 /** Add one of the user's own video or audio files. Resolves to the new episode. `book` ({key, title}): a
  *  chapter of an audiobook of their own (audiobooks.js); `transcribe: false` leaves it for later. */
-export function uploadVideo(file, onProgress, { book = null, transcribe = true } = {}) {
+export function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false } = {}) {
+  // (`title`: the item's name instead of the file's; `recording`: made with Library → My audio → Listen,
+  // always audio, whatever its ending; the computer works out its length itself.)
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
     const q = new URLSearchParams({ filename: file.name });
     if (book) { q.set("book", book.key); q.set("book_title", book.title); }
     if (!transcribe) q.set("transcribe", "false");
+    if (title) q.set("title", title);
+    if (recording) q.set("recording", "true");
     xhr.open("POST", `/api/videos?${q}`);
     for (const [k, v] of Object.entries(sessionHeaders())) xhr.setRequestHeader(k, v);
     xhr.upload.onprogress = (e) => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };

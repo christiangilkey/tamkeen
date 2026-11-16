@@ -105,13 +105,17 @@ def ensure_feed(conn: Any, audio: bool = False) -> int:
 
 
 async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | None = None,
-                      book: str | None = None, book_title: str | None = None) -> dict[str, Any]:
+                      book: str | None = None, book_title: str | None = None,
+                      recording: bool = False) -> dict[str, Any]:
     """Store an uploaded video or audio file and create its episode. Returns the episode row.
-    `book`: the key of the learner's own audiobook it is a chapter of (`book_title` names a new one)."""
+    `book`: the key of the learner's own audiobook it is a chapter of (`book_title` names a new one).
+    `recording`: made with Library → My audio → Listen (web/js/listenrec.js): always audio, in My audio."""
     ext = os.path.splitext(filename)[1].lower()
     if ext in AUDIBLE:
         raise UploadError(AUDIBLE_MESSAGE)
-    is_audio = ext in AUDIO_TYPES and (ext not in VIDEO_TYPES or bool(book))
+    is_audio = ext in AUDIO_TYPES and (ext not in VIDEO_TYPES or bool(book) or recording)
+    if recording and (not is_audio or book):
+        raise UploadError("That recording couldn't be read. Try again.")
     if book and not is_audio:
         raise UploadError("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).")
     if not is_audio and ext not in VIDEO_TYPES:
@@ -131,8 +135,10 @@ async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | 
         except audio.AudioError as exc:
             raise UploadError(f"This file has no readable sound ({exc}).") from exc
         mime = AUDIO_TYPES[ext] if is_audio else mime_for(filename)
-        if ext in PLAYABLE_COPY:
-            # (WMA, AMR, AIFF: the players can't play them, so the sound is kept as Opus, which every device plays.)
+        if ext in PLAYABLE_COPY or (recording and ext == ".webm"):
+            # (WMA, AMR, AIFF: the players can't play them, so the sound is kept as Opus, which every device plays.
+            # A browser recorder's WebM, which the page couldn't turn into Ogg itself: it has no index, so a
+            # player couldn't jump to a word in it.)
             playable = tmp.with_name(tmp.name + ".ogg")
             try:
                 audio.encode_speech_copy(tmp, playable)

@@ -209,11 +209,13 @@ export async function cardAudio({ word, sentence = null }) {
 }
 
 /**
- * Start recording from the microphone. Resolves to {stop(), done}: `done` resolves to the recording
- * (a Blob) once it has stopped: at stop(), a moment after the speaking ends, or at the longest kept.
- * `onLevel(0..1)` hears how loud it is now. Rejects with plain words when the microphone can't be used.
+ * Start recording from the microphone. Resolves to {stop(), cancel(), done, type}: `done` resolves to the
+ * recording (a Blob) once it has stopped: at stop(), a moment after the speaking ends, or at the longest
+ * kept; after cancel(), to null. `onLevel(0..1, ms)` hears how loud it is now. Rejects with plain words
+ * when the microphone can't be used. `untilStopped` (Library → My audio → Listen, listenrec.js): it goes
+ * on through any silence until stop() or `maxSeconds`, at a speech bitrate, gathered a second at a time.
  */
-export async function startRecording({ which = "word", onLevel = () => {} } = {}) {
+export async function startRecording({ which = "word", onLevel = () => {}, untilStopped = false, maxSeconds = 0 } = {}) {
   let stream;
   try {
     stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: true, autoGainControl: true } });
@@ -221,10 +223,12 @@ export async function startRecording({ which = "word", onLevel = () => {} } = {}
     throw problem(e && (e.name === "NotAllowedError" || e.name === "SecurityError") ? "mic" : micProblem(e) === AUDIO_ERRORS.none ? "none" : "busy");
   }
   const release = () => stream.getTracks().forEach((t) => t.stop());
-  let recorder, ctx;
+  let recorder, ctx, type;
   try {
-    const type = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg;codecs=opus"].find((t) => MediaRecorder.isTypeSupported(t));
-    recorder = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
+    type = ["audio/webm;codecs=opus", "audio/webm", "audio/mp4", "audio/ogg;codecs=opus"].find((t) => MediaRecorder.isTypeSupported(t));
+    // (A long recording at a speech bitrate, about 14 MB an hour, so cloud transcription can take it whole.)
+    const opts = { ...(type ? { mimeType: type } : {}), ...(untilStopped ? { audioBitsPerSecond: 32000 } : {}) };
+    recorder = new MediaRecorder(stream, Object.keys(opts).length ? opts : undefined);
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     if (ctx.state === "suspended") await ctx.resume().catch(() => {});
   } catch {
@@ -237,17 +241,20 @@ export async function startRecording({ which = "word", onLevel = () => {} } = {}
   ear.fftSize = 1024;
   mic.connect(ear);
   const heard = new Float32Array(ear.fftSize);
-  const maxMs = (MAX_SECONDS[which] || 10) * 1000;
-  const enough = listener({ quietMs: which === "word" ? 1100 : 1500, nothingMs: 7000, maxMs });
+  const maxMs = (maxSeconds || MAX_SECONDS[which] || 10) * 1000;
+  const enough = untilStopped ? (level, ms) => ms >= maxMs
+    : listener({ quietMs: which === "word" ? 1100 : 1500, nothingMs: 7000, maxMs });
   const began = Date.now();
+  let dropped = false;
   const stop = () => { if (recorder.state !== "inactive") recorder.stop(); };
+  const cancel = () => { dropped = true; stop(); };
   const done = new Promise((resolve) => {
     recorder.onstop = () => {
       clearInterval(watch);
       try { mic.disconnect(); } catch { /* gone */ }
       release();
       ctx.close().catch(() => {});
-      resolve(new Blob(chunks, { type: recorder.mimeType || "audio/webm" }));
+      resolve(dropped ? null : new Blob(chunks, { type: recorder.mimeType || type || "audio/webm" }));
     };
   });
   const watch = setInterval(() => {
@@ -258,6 +265,6 @@ export async function startRecording({ which = "word", onLevel = () => {} } = {}
     onLevel(Math.min(1, level * 9), Date.now() - began);
     if (enough(level, Date.now() - began)) stop();
   }, 50);
-  recorder.start();
-  return { stop, done };
+  recorder.start(untilStopped ? 1000 : undefined);
+  return { stop, cancel, done, type: recorder.mimeType || type || "" };
 }
