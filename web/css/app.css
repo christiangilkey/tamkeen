@@ -478,6 +478,19 @@ label.check input { margin-top: 3px; }
 }
 @media (max-width: 1060px) { .transcript .seg::before { display: none; } }
 .transcript .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s; }
+/* Translation under each line (dual subtitles: components/dualline.js): the line in the learner's own language,
+   on a line (or more) of its own under its line, smaller and quieter, never a word to tap, never selected with
+   the words. Drawn only while the switch is on (.dual on the player). */
+.seg-tr, .cap-tr { display: none; }
+.dual .seg-tr, .dual .cap-tr { display: block; }
+.transcript .seg-tr {
+  font-family: var(--ui-font); font-size: max(14px, .58em); line-height: 1.5; color: var(--muted);
+  margin: .1em 0 .25em; cursor: default; user-select: none; -webkit-user-select: none;
+}
+/* On the same side as its line, whichever way each of the two languages runs (Arabic lines with English under
+   them: both on the right; English lines with Arabic or Persian under them: both on the left). */
+.transcript[dir="rtl"] .seg-tr, .reel-words[dir="rtl"] .seg-tr { text-align: right; }
+.transcript[dir="ltr"] .seg-tr, .reel-words[dir="ltr"] .seg-tr { text-align: left; }
 .transcript .w:hover { background: var(--surface-2); }
 .transcript .w.cur { background: var(--hl); color: var(--hl-ink); }
 .transcript .w.loop { background: var(--sel-range); }
@@ -707,6 +720,7 @@ button.wb-srcopt.on:hover:not(:disabled) { background: var(--accent-soft); }
 .captions .w { cursor: pointer; border-radius: 5px; padding: 0 .05em; transition: background-color .08s; }
 .captions .w:hover { background: rgba(255, 255, 255, .2); }
 .captions .w.cur { background: var(--hl); color: var(--hl-ink); }
+.captions .cap-tr { font-family: var(--ui-font); font-size: max(13px, .6em); line-height: 1.4; color: #d9d9d4; margin: .05em 0 .2em; white-space: normal; }
 .pending-video { width: 100%; max-height: 50vh; border-radius: 10px; background: #000; margin-bottom: 8px; }
 @media (max-width: 760px) {
   /* Phone: video on top, transcript panel rises from the bottom. */

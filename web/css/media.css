@@ -287,6 +287,8 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   min-height: calc(1.75em * 2 + .7em); /* room for two lines, so the video doesn't jump as lines change */
 }
 .player.yt .captions:empty { display: block; }
+/* With the translation under each line: room for it too (two lines of it), so the video doesn't jump. */
+.player.yt.dual .captions { min-height: calc(1.75em * 2 + .7em + 1.8em); }
 /* Which captions these are (YouTube's automatic ones, its translation, another language) and a
    dubbed audio track: one or two small lines on the same black bar, under the captions. */
 .player.yt .yt-note { background: #111; color: #a8a8a8; font-size: 12px; line-height: 1.4; padding: 0 .8em .4em; }
@@ -512,6 +514,10 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 
 /* Arabic vowels switch (js/vowels.js): حَ, filled in while the words show their vowel marks. */
 .vowels-btn { font-family: var(--ar-font); font-size: 18px; line-height: 1; min-width: 34px; }
+/* The "translation under each line" switch (components/dualline.js): filled like the vowels switch while on. */
+.dual-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
+button.ghost.dual-btn.on, button.ghost.dual-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.reel-controls .dual-btn { height: 26px; min-height: 0; padding: 0 8px; }
 button.ghost.vowels-btn.on, button.ghost.vowels-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
 button.ghost.vowels-btn.on.held { background: transparent; color: var(--accent); border: 1px dashed var(--accent); }
 .reel-controls .vowels-btn { height: 26px; min-height: 0; padding: 0 8px; }

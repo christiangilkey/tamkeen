@@ -139,6 +139,9 @@ const PATHS = {
   // A screen with two lines of text along its bottom: subtitles (the Netflix bar's Subtitles menu).
   subtitles: `<rect class="fill" x="3" y="5" width="18" height="14" rx="2.6"/><rect x="3" y="5" width="18" height="14" rx="2.6"/>
     <path d="M7 12.5h4M13.5 12.5H17M7 15.5h7M16.5 15.5H17"/>`,
+  // Two lines of subtitles, the second shorter and fainter: the translation under each line (dualline.js).
+  dualsubs: `<rect class="fill" x="3" y="5" width="18" height="14" rx="2.6"/><rect x="3" y="5" width="18" height="14" rx="2.6"/>
+    <path d="M7 10.5h10"/><path d="M7 14.5h6.5" opacity=".55"/>`,
   // A computer screen on its stand (Settings → Listening & transcripts: "This computer" / "My computer").
   computer: `<rect class="fill" x="3.5" y="4.5" width="17" height="11.5" rx="2"/><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/>
     <path d="M12 16v3.5"/><path d="M8.5 19.5h7"/>`,

@@ -23,7 +23,9 @@ const SOURCES = ["web/js", "mobile/src/js", "app", "web/index.html", "mobile/src
 const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js\/i18n\.js$/, /dev-seed\.js$/,
   /instagram-worker\.js$/, /web\/js\/languages\.js$/, /__pycache__/, /app\/smoke\.py$/,
   // (the grammar courses' checks, for whoever writes a course, and what the AI is told: never on screen)
-  /web\/js\/grammardata\.js$/, /web\/js\/converse\.js$/];
+  /web\/js\/grammardata\.js$/, /web\/js\/converse\.js$/,
+  // (what the AI is asked when it translates the lines for "Translation under each line": dual subtitles)
+  /web\/js\/dualsubs\.js$/];
 
 function files(p) {
   const full = join(root, p);
