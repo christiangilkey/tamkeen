@@ -728,8 +728,9 @@ async function boot() {
     window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }));
     // ...and the long-term goal on the Vocab page (review/longgoalview.js), if another device changed it.
     const settings = state.status && state.status.settings;
-    if (settings && JSON.stringify(settings.study_goal || {}) !== JSON.stringify(s.study_goal || {})) {
+    if (settings && JSON.stringify([settings.study_goal || {}, settings.study_goals || {}]) !== JSON.stringify([s.study_goal || {}, s.study_goals || {}])) {
       settings.study_goal = s.study_goal;
+      settings.study_goals = s.study_goals;
       window.dispatchEvent(new CustomEvent("tamkeen:goal"));
     }
   }).catch(() => {}));

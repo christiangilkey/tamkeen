@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** **Each language now has its own long-term goal**, so you can have a Spanish goal as well as an Arabic one. The goal card on the Vocab page shows the goal of the language you are learning (switch languages and you see that language's goal, or "No long-term goal set"), and it counts only that language's words, reviews and minutes; before, it counted every language together. A goal you had already set becomes the goal of the language you are learning when you first open the Vocab page. Goals sync between your devices, each language on its own.
+
 ## v0.57.0 — 2026-11-15
 
 - **New:** **Several folders at once.** On the Vocab page, **Folders** now has a tick box before **Not in a folder** and each folder (or long-press a row): tick several and the list shows the words in any of them, with one count; tapping a row still shows just that folder, and **All words** clears the picks. Review then covers the picked folders' words, and the choice is remembered as before. In a battle, **Battle words from a folder** now offers **Not in a folder** too and lets you tick several folders: their words count together towards the 20 a battle needs, shown live under the list ("34 of 20 words"), and **Use these folders** turns on once there are enough.

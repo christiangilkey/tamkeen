@@ -467,6 +467,9 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "controller_map": {},
     # The long-term goal on the Vocab page (app/studygoal.py, web/js/review/goalsetting.js); travels too.
     "study_goal": {},
+    # The long-term goals, one per language (app/studygoal.py clean_all); travels too. (study_goal above is the
+    # single goal from before, kept for older versions; the page gives it to a language once.)
+    "study_goals": {},
     # The Anki companion (see app/companion.py): its secret, and the daily totals it has reported.
     "anki_token": "",
     "anki_days": {},

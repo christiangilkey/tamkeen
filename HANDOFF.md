@@ -8798,6 +8798,13 @@ the desktop, Android, iPhone and web app all have it; the only per-side code is 
   "Custom" chip after a row of chips turns into a number box (Enter or leaving it keeps the number, Esc cancels): new words a
   day 0–500 (deck.js `NEW_MAX`, `cleanNewPerDay`; the goal bar's popup and the reviewer's settings), the front's time 5–300 s
   (cardtimer.js `GOAL_MIN/MAX`), the back's 3–120 s (speedstreak.js `BACK_MIN/MAX`).
+- **One goal per language** (the owner: "a user can have Spanish goals as well as an Arabic goal"): setting `study_goals`
+  = `{goals: {<code>: {at, goal}}, legacy}` (goalsetting.js `cleanGoals/mergeGoals/goalOf/withGoal/migrateGoal`, app/studygoal.py
+  `clean_all/merge_all`, shared cases in tests/fixtures/studygoal_cases.json), library.json key `goals`, merged language by language
+  (newer `at` wins; the desktop PATCH merges with what is kept). The goal counts only the answers to the study language's words
+  (longgoal.js `langLog` over the Vocab page's words). **The old `study_goal` / `goal` is left untouched** for older versions; the
+  page gives it once to the language being learned (`legacy` = its `made`). Daily settings (new words a day, the card times, the
+  timer mode) are per device in localStorage and NOT per language.
 - **Goal sync**: setting `study_goal` = `{at, goal}` in app/db.py and mobile store.js defaults; library.json key
   `goal`; newer `at` wins (app/studygoal.py ↔ goalsetting.js, both run against tests/fixtures/studygoal_cases.json);
   in both `content` checks; desktop PATCH cleans it and `sync.request(30)`; phone `requestSync(30000)`.

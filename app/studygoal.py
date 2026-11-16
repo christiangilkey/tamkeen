@@ -11,6 +11,7 @@ tidy and synced between devices, where the one changed last wins (mobile/src/js/
 from __future__ import annotations
 
 import math
+import re
 from typing import Any
 
 MEASURES = ("learned", "reviews", "minutes")
@@ -48,3 +49,29 @@ def clean(raw: Any) -> dict[str, Any]:
 def wins(theirs: Any, mine: Any) -> bool:
     """Does another device's goal replace this one's? The one changed last wins."""
     return clean(theirs)["at"] > clean(mine)["at"]
+
+
+# ----- one goal per language: the setting "study_goals" (web/js/review/goalsetting.js has the rules) -----
+# {"goals": {<language code>: {"at", "goal"}}, "legacy": <ms>}; two devices' maps merge language by language,
+# the entry changed last winning. The single goal from before ("study_goal") is left as it is, for older versions.
+
+_LANG = re.compile(r"^[a-z]{2,3}$")
+
+
+def clean_all(raw: Any) -> dict[str, Any]:
+    """The per-language setting as it may be kept."""
+    raw = raw if isinstance(raw, dict) else {}
+    given = raw.get("goals") if isinstance(raw.get("goals"), dict) else {}
+    goals = {code: clean(given[code]) for code in sorted(given) if isinstance(code, str) and _LANG.match(code)}
+    legacy = _whole(raw.get("legacy"))
+    return {"goals": goals, "legacy": legacy if legacy and legacy > 0 else 0}
+
+
+def merge_all(mine: Any, theirs: Any) -> dict[str, Any]:
+    """Two devices' maps as one: for each language the entry changed last (on a tie, `mine`); the later legacy."""
+    a, b = clean_all(mine), clean_all(theirs)
+    goals = dict(a["goals"])
+    for code, entry in b["goals"].items():
+        if code not in goals or entry["at"] > goals[code]["at"]:
+            goals[code] = entry
+    return clean_all({"goals": goals, "legacy": max(a["legacy"], b["legacy"])})

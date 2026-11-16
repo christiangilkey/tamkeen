@@ -6,7 +6,8 @@
 // pace needed rather than a bare total, and a goal that bends instead of breaking. A missed day is never
 // a failure: the rest is spread over the days left, so the needed pace simply goes up a little.
 //
-// Everything is worked out from the answer log (which syncs): every answer counts, in every language.
+// Everything is worked out from the answer log (which syncs), taking only the answers to the words of the goal's own
+// language (`langLog`): each language has its own goal (review/goalsetting.js).
 //   learned  words remembered for the first time (a word's first "Remembered")
 //   reviews  flashcard answers given
 //   minutes  time spent looking at flashcards (a look counts 60 seconds at most, like the DLI weeks)
@@ -32,6 +33,16 @@ export function dailyAmounts(log, measure) {
       else if (measure === "minutes") add(day, Math.min(Math.max(step.ms, 0), LOOK_CAP) / 60000);
       else if (measure === "learned" && !learned && step.rating === GOOD) { learned = true; add(day, 1); }
     }
+  }
+  return out;
+}
+
+/** The answers to `words` only (the words of the language being learned: a goal counts its own language). */
+export function langLog(log, words) {
+  const out = {};
+  for (const v of words || []) {
+    const uid = String(v.uid || v.id);
+    if (log && log[uid]) out[uid] = log[uid];
   }
   return out;
 }

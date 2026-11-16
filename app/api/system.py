@@ -134,14 +134,21 @@ def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     clean = learning.with_learning(clean, db.get_settings(), int(time.time() * 1000))
     # A changed AI key notes when, so it wins over older copies on the user's other devices.
     clean = aikeys.stamp(db.get_settings(), clean, time.time())
-    result = db.set_settings(clean)
-    if aikeys.TIMES in clean:
-        sync.request(5)  # the key reaches the user's other devices
+    # The long-term goal: the one from before goals had a language (kept tidy), and one per language.
     if "study_goal" in clean:
         from .. import studygoal
 
         clean["study_goal"] = studygoal.clean(clean["study_goal"])
-    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean or "study_goal" in clean:
+    if "study_goals" in clean:
+        from .. import studygoal
+
+        # (merged with what is kept, language by language, so a page that read the setting before the sync
+        # brought another language's goal can't drop it)
+        clean["study_goals"] = studygoal.merge_all(db.get_settings().get("study_goals"), clean["study_goals"])
+    result = db.set_settings(clean)
+    if aikeys.TIMES in clean:
+        sync.request(5)  # the key reaches the user's other devices
+    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean or "study_goal" in clean or "study_goals" in clean:
         sync.request(30)  # followed channels, saved sites, grammar lessons done and the goal reach the user's other devices
     if "learning_languages" in clean and sorted(clean["learning_languages"]) != sorted(learning_before):
         sync.request(30)  # a language ticked or unticked reaches the user's other devices

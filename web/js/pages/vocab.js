@@ -744,7 +744,7 @@ export async function render(view) {
     const o = overview(reviewWords(), log);
     // A "new words" goal that wants more new words today than the day's allowance lets in: the banner offers
     // them too (one session's worth: the setting stays as it is).
-    const offer = goalOffer(reviewWords(), log);
+    const offer = goalOffer(reviewWords(), log, all);  // (the goal counts the whole language's answers)
     const extra = offer ? offer.extra : 0;
     reviewBonus = extra > 0 ? offer.bonus : 0;
     // ...and when it wants some but none are waiting, the card says so (the goal card offers where to get them).

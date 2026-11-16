@@ -4,8 +4,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { AGAIN, GOOD } from "../../web/js/review/fsrs.js";
-import { cleanSetting, settingWins } from "../../web/js/review/goalsetting.js";
-import { checkIn, dailyAmounts, friendly, goalNewWords, monday, newMilestone, niceTarget, progress, suggestTarget, sumDays } from "../../web/js/review/longgoal.js";
+import { cleanGoals, cleanSetting, goalOf, mergeGoals, migrateGoal, settingWins, withGoal } from "../../web/js/review/goalsetting.js";
+import { checkIn, dailyAmounts, friendly, goalNewWords, langLog, monday, newMilestone, niceTarget, progress, suggestTarget, sumDays } from "../../web/js/review/longgoal.js";
 import { dailyCounts, stepper, streaks, weekday, yearEnd, yearOf, yearStart, yearStats, yearWeeks, years } from "../../web/js/review/heatmap.js";
 
 const CASES = JSON.parse(readFileSync(new URL("../fixtures/studygoal_cases.json", import.meta.url), "utf8"));
@@ -213,4 +213,57 @@ test("a new-words goal asks the reviewer for the new words today's part needs, n
   assert.equal(goalNewWords(big, progress(big, amounts([[D, 20]]), D), 50, 1, 1).extra, 0);
   assert.equal(goalNewWords(goal({ measure: "reviews" }), p, 50, 1, 1), null);
   assert.equal(goalNewWords(big, progress(big, amounts([]), D + 60), 50, 1, 1), null);
+});
+
+// ----- one goal per language (the owner: "a user can have Spanish goals as well as an Arabic goal") -----
+
+test("goals per language are cleaned and merged the same as on the computer", () => {
+  for (const c of CASES.clean_all) assert.deepEqual(cleanGoals(c.in), c.out, JSON.stringify(c.in));
+  for (const c of CASES.merge_all) assert.deepEqual(mergeGoals(c.mine, c.theirs), c.out, JSON.stringify(c));
+});
+
+test("an Arabic goal and a Spanish goal side by side, each counting only its own language's answers", () => {
+  const ar = goal({ target: 300 }), es = goal({ measure: "reviews", target: 500, made: 2 });
+  let all = withGoal({}, "ar", ar, 10);
+  all = withGoal(all, "es", es, 11);
+  assert.deepEqual(goalOf(all, "ar"), ar);
+  assert.deepEqual(goalOf(all, "es"), es);
+  assert.equal(goalOf(all, "fr"), null);
+  // Removing the Spanish goal leaves the Arabic one, and the removal is kept (it wins over an older copy).
+  const removed = withGoal(all, "es", null, 12);
+  assert.equal(goalOf(removed, "es"), null);
+  assert.deepEqual(goalOf(removed, "ar"), ar);
+  assert.equal(goalOf(mergeGoals(removed, all), "es"), null);
+  // The log holds both languages' answers; each goal counts its own words only.
+  const log = {
+    a1: [[1, GOOD, D, 1000]], a2: [[2, GOOD, D, 1000]],                // Arabic: 2 learned, 2 reviews
+    e1: [[3, GOOD, D, 1000], [4, GOOD, D + 1, 1000]], e2: [[5, AGAIN, D, 1000]],  // Spanish: 3 reviews
+  };
+  const arWords = [{ uid: "a1" }, { uid: "a2" }], esWords = [{ uid: "e1" }, { id: "e2" }];
+  assert.deepEqual(Object.keys(langLog(log, arWords)), ["a1", "a2"]);
+  assert.equal(progress(ar, dailyAmounts(langLog(log, arWords), "learned"), D + 1).done, 2);
+  assert.equal(progress(es, dailyAmounts(langLog(log, esWords), "reviews"), D + 1).done, 3);
+  assert.equal(progress(ar, dailyAmounts(log, "learned"), D + 1).done, 3);  // (what counting every language would say)
+});
+
+test("the goal from before goals had a language becomes the language being learned's, once", () => {
+  const old = { at: 50, goal: goal({ made: 40 }) };
+  const moved = migrateGoal({}, old, "ar");
+  assert.deepEqual(goalOf(moved, "ar"), old.goal);
+  assert.equal(moved.legacy, 40);
+  assert.equal(moved.goals.ar.at, 50);
+  // Done once: switching to Spanish later doesn't move it again, nor does another device that synced the map.
+  assert.equal(migrateGoal(moved, old, "es"), null);
+  // Nothing from before, or a removed one: nothing to do.
+  assert.equal(migrateGoal({}, { at: 9, goal: null }, "ar"), null);
+  assert.equal(migrateGoal({}, {}, "ar"), null);
+  // The language already has a goal of its own (set on this version): the old one is only marked as dealt with.
+  const own = withGoal({}, "ar", goal({ target: 77, made: 60 }), 70);
+  const marked = migrateGoal(own, old, "ar");
+  assert.equal(goalOf(marked, "ar").target, 77);
+  assert.equal(marked.legacy, 40);
+  // A goal set again later on an older version (newer "made") moves to the language being learned then.
+  const again = migrateGoal(moved, { at: 90, goal: goal({ target: 600, made: 80 }) }, "es");
+  assert.equal(goalOf(again, "es").target, 600);
+  assert.equal(goalOf(again, "ar").target, 300);
 });

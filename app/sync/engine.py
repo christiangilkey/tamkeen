@@ -135,6 +135,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "grammar": grammar.clean_progress(db.get_setting("grammar_progress")),
             "controller": controller.clean(db.get_setting("controller_map")),
             "goal": studygoal.clean(db.get_setting("study_goal")),
+            "goals": studygoal.clean_all(db.get_setting("study_goals")),
             "ig_collections": reels.synced_collections(),
             "keys": aikeys.from_settings(db.get_settings()),
             "learning": learning.payload(db.get_settings())}
@@ -158,6 +159,7 @@ def _content(lib: dict[str, Any]) -> str:
     content["grammar"] = grammar.clean_progress(lib.get("grammar"))  # nor one from before the grammar courses
     content["controller"] = controller.clean(lib.get("controller"))  # nor one from before controllers could be mapped
     content["goal"] = studygoal.clean(lib.get("goal"))  # nor one from before the long-term goal
+    content["goals"] = studygoal.clean_all(lib.get("goals"))  # nor one from before goals per language
     content["ig_collections"] = reels.clean_synced_collections(lib.get("ig_collections"))  # nor one from before collections were shared
     content["keys"] = aikeys.clean(lib.get("keys"))  # nor one from before AI keys were shared
     content["learning"] = learning.clean_payload(lib.get("learning"))  # nor one from before the languages being learned were
@@ -399,6 +401,15 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
     if isinstance(aim, dict) and studygoal.wins(aim, db.get_setting("study_goal")):
         db.set_settings({"study_goal": studygoal.clean(aim)})
         result.merged["goal"] = 1
+
+    # The long-term goals, one per language (app/studygoal.py): for each language, the one changed last wins.
+    aims = remote.get("goals")
+    if isinstance(aims, dict):
+        mine = studygoal.clean_all(db.get_setting("study_goals"))
+        merged = studygoal.merge_all(mine, aims)
+        if merged != mine:
+            db.set_settings({"study_goals": merged})
+            result.merged["goals"] = 1
 
     # Saved Instagram collections: the list found last, and the collection chosen last.
     if isinstance(remote.get("ig_collections"), dict) and reels.take_synced_collections(remote["ig_collections"]):
