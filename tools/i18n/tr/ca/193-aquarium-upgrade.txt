@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Peixera petita
+37d76b56	Peixera gran
+8e3a6bf5	Peixera d’escull
+25dfca45	Gran aquari
+68ab9642	L’aquari és ple. Canvia un peix, o aconsegueix una peixera més gran.
+5d401641	El teu aquari ja és tan gran com pot ser.
+14d6017e	Els teus amics veuen els teus sis millors peixos.
+09aecd39	Hi caben {0} peixos
+cbdae7e8	L’aquari és ple: canvia un peix, o aconsegueix una peixera més gran.
+1f927654	Canvia’l
+980b07e1	Fes entrar el {0}
+f3251109	Tria el peix que deixa lloc. Tornarà al teu cistell.
+b1c8168d	Capacitat
+fde53ebb	Les teves perles
+cd70677e	Un aquari més gran hi fa cabre més peixos. Les perles són dins dels peixos més rars.
+4870d354	El teu aquari ara té lloc per a {0} peixos
+907450a3	Els peixos més rars porten perles a dins. Amb les perles es compren canyes millors, que et donen més sort a cada llançament, i aquaris més grans, on hi caben més peixos.

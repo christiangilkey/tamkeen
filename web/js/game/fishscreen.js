@@ -15,8 +15,8 @@ import { hearts } from "./idle.js";
 import { amount, block, details, fact, fmt, grid, row, tile } from "./screenparts.js";
 import { RODS, SELL, fishOf } from "./fishdata.js";
 import {
-  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, buyRod, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, pondById, pondNeed,
-  publicAquarium, sell, sellCommon, toTank,
+  BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, buyRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
+  pondById, pondNeed, publicAquarium, sell, sellCommon, swapTank, tankSize, toTank,
 } from "./fishing.js";
 import { fishPicture, fishShape } from "./fishart.js";
 import { aquariumView } from "./aquarium.js";
@@ -209,7 +209,7 @@ export function friendAquarium(name, aquarium) {
     title: t("{0}'s aquarium", name),
     pic: aquarium && aquarium.tank.length ? aquariumView(aquarium.tank, { w: 136, h: 64, scale: 2 }) : null,
     facts: [
-      fact("In the aquarium", `<span translate="no">${aquarium ? aquarium.tank.length : 0} / ${TANK_SIZE}</span>`),
+      fact("In the aquarium", `<span translate="no">${aquarium ? aquarium.tank.length : 0}</span>`),  // (their best six at most)
       fact("Fishdex", `<span translate="no">${aquarium ? aquarium.dex : 0} / ${DEX_TOTAL}</span>`),
     ],
     text: aquarium && aquarium.tank.length ? "" : t("Their aquarium is empty for now."),
@@ -225,10 +225,10 @@ export function basketPanel(body, game, changed, go, close, reopen) {
   body.replaceChildren();
 
   // The aquarium: your best fish, swimming. Friends see it.
-  const aq = block("Aquarium", `${F.tank.length} / ${TANK_SIZE}`);
+  const aq = block("Aquarium", `${F.tank.length} / ${tankSize(game)}`);
   if (F.tank.length) {
     const view = h(`<div class="fish-aq"></div>`);
-    view.append(aquariumView(F.tank));
+    view.append(aquariumView(F.tank, { h: 64 + F.tankLv * 12 }));  // (a bigger aquarium is a taller one)
     aq.append(view);
     const g = grid();
     F.tank.forEach((fish) => {
@@ -237,7 +237,18 @@ export function basketPanel(body, game, changed, go, close, reopen) {
       g.append(b);
     });
     aq.append(g);
+    if (F.tank.length > TANK_SIZE) aq.append(h(`<p class="gs-state muted">Your friends see your six best fish.</p>`));
   } else aq.append(h(`<p class="gs-state muted">Keep your best fish here. Your friends can see your aquarium.</p>`));
+  // A bigger aquarium, bought with pearls (like the rods).
+  const next = nextTank(game);
+  if (next) {
+    aq.append(row({
+      pic: icon("aquarium", 32), name: next.name,
+      sub: `<span>${t("Holds {0} fish", next.size)}</span>`,
+      end: amount("pearls", next.pearls, F.pearls < next.pearls),
+      open: () => tankUpgradeBox(game, again),
+    }));
+  }
   body.append(aq);
 
   // The basket: what you caught, the rarest first.
@@ -272,13 +283,13 @@ function fishBox(game, fish, again) {
     const i = F.bag.indexOf(fish);
     if (i < 0) return null;
     const kind = fishById(fish.sp);
-    const full = F.tank.length >= TANK_SIZE;
+    const full = F.tank.length >= tankSize(game);
     const done = (problem, sound) => { if (typeof problem === "string" && problem) { toast(problem, { error: true }); return; } sfx(sound); d.close(); again(); };
     return {
       title: kind.name, pic: tierPic(fish, 5),
       facts: [fact("Rarity", tierMark(fish.t)), fact("Length", `<span translate="no">${cm(fish.cm)}</span>`),
         fact("Pond", `<span>${pondById(kind.pond).name}</span>`), fact("Sells for", amount("coins", fish.w))],
-      note: full ? t("The aquarium is full: take a fish out first.") : "",
+      note: full ? t("The aquarium is full: swap a fish out, or get a bigger tank.") : "",
       buttons: [
         { word: "Sell", extra: amount("coins", fish.w), run: () => { sell(game, [F.bag.indexOf(fish)]); done("", "common"); } },
         { word: "Feed", pic: icon("heart_full"), run: () => {
@@ -287,7 +298,62 @@ function fishBox(game, fish, again) {
           toast(r.loved ? t("It loved that! {0} of 5 hearts", hearts(game.creature)) : t("Yum. {0} of 5 hearts", hearts(game.creature)));
           done("", "pet");
         } },
-        { word: "Aquarium", primary: true, disabled: full, run: () => done(toTank(game, F.bag.indexOf(fish)), "lucky") },
+        { word: full ? "Swap in" : "Aquarium", primary: true,
+          run: () => { if (full) { d.close(); swapBox(game, fish, again); } else done(toTank(game, F.bag.indexOf(fish)), "lucky"); } },
+      ],
+    };
+  });
+}
+
+/** A full aquarium lets `fish` (in the basket) in: pick the aquarium's fish that goes back to the basket. */
+function swapBox(game, fish, again) {
+  details((d) => {
+    const F = fishingOf(game);
+    if (!F.bag.includes(fish)) return null;
+    const g = grid();
+    F.tank.forEach((out, j) => {
+      const b = tile({ pic: "", name: fishById(out.sp).name, sub: tierMark(out.t), open: () => {
+        const problem = swapTank(game, F.bag.indexOf(fish), j);
+        if (problem) { toast(problem, { error: true }); return; }
+        sfx("lucky");
+        d.close();
+        again();
+      } });
+      b.querySelector(".gs-tile-pic").append(fishPicture(out.sp, out.t, 2));
+      g.append(b);
+    });
+    return {
+      title: t("Swap in the {0}", fishById(fish.sp).name), pic: tierPic(fish, 4),
+      text: "Pick the fish that makes room. It goes back to your basket.",
+      more: g,
+      buttons: [{ word: "Cancel", run: () => d.close() }],
+    };
+  });
+}
+
+/** The next, bigger aquarium: what it holds and its price in pearls. */
+function tankUpgradeBox(game, again) {
+  details((d) => {
+    const F = fishingOf(game);
+    const next = nextTank(game);
+    if (!next) return null;
+    const short = F.pearls < next.pearls;
+    return {
+      title: next.name, pic: icon("aquarium", 96),
+      facts: [fact("Holds", `<span translate="no">${tankSize(game)} → ${next.size}</span>`), fact("Price", amount("pearls", next.pearls)),
+        fact("Your pearls", amount("pearls", F.pearls))],
+      text: "A bigger aquarium lets more fish in. Pearls are found inside rarer fish.",
+      buttons: [
+        { word: "Close", run: () => d.close() },
+        { word: "Buy", primary: true, disabled: short, extra: amount("pearls", next.pearls),
+          run: () => {
+            const problem = buyTank(game);
+            if (problem) { toast(problem, { error: true }); return; }
+            sfx("lucky");
+            toast(t("Your aquarium now holds {0} fish", tankSize(game)));
+            d.close();
+            again();
+          } },
       ],
     };
   });
@@ -391,7 +457,7 @@ export function fishingHelp(game, go, opts = {}) {
       t("An answer given too fast to have been read lands a Common fish at most.")),
     helpPart(t("What fish are for"),
       t("Sell them for coins, feed one to your creature for a heart, or keep your best in the aquarium, where your friends can see them."),
-      t("Rarer fish hold pearls. Pearls buy better rods, and a better rod makes every cast luckier."),
+      t("Rarer fish hold pearls. Pearls buy better rods, which make every cast luckier, and bigger aquariums, which hold more fish."),
       t("The Fishdex keeps every fish at every tier you have caught.")),
     helpPart(t("Ponds"),
       t("Each pond has three fish of its own. More ponds open as you beat gym leaders or catch more fish.")),

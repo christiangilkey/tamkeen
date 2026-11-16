@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Vasca piccola
+37d76b56	Vasca grande
+8e3a6bf5	Vasca di barriera
+25dfca45	Grande acquario
+68ab9642	L’acquario è pieno. Scambia un pesce, o prendi una vasca più grande.
+5d401641	Il tuo acquario è già il più grande possibile.
+14d6017e	I tuoi amici vedono i tuoi sei pesci migliori.
+09aecd39	Contiene {0} pesci
+cbdae7e8	L’acquario è pieno: scambia un pesce, o prendi una vasca più grande.
+1f927654	Scambia
+980b07e1	Metti dentro il {0}
+f3251109	Scegli il pesce che fa posto. Torna nel tuo cesto.
+b1c8168d	Contiene
+fde53ebb	Le tue perle
+cd70677e	Un acquario più grande accoglie più pesci. Le perle si trovano nei pesci più rari.
+4870d354	Ora il tuo acquario contiene {0} pesci
+907450a3	I pesci più rari contengono perle. Con le perle compri canne migliori, che portano più fortuna a ogni lancio, e acquari più grandi, che contengono più pesci.

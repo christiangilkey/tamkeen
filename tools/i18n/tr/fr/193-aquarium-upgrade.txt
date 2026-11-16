@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Petit bocal
+37d76b56	Grand bocal
+8e3a6bf5	Bac récifal
+25dfca45	Grand aquarium
+68ab9642	L’aquarium est plein. Échangez un poisson, ou prenez un bac plus grand.
+5d401641	Votre aquarium est déjà aussi grand que possible.
+14d6017e	Vos amis voient vos six meilleurs poissons.
+09aecd39	Contient {0} poissons
+cbdae7e8	L’aquarium est plein : échangez un poisson, ou prenez un bac plus grand.
+1f927654	Échanger
+980b07e1	Mettre le {0}
+f3251109	Choisissez le poisson qui laisse sa place. Il retourne dans votre panier.
+b1c8168d	Contient
+fde53ebb	Vos perles
+cd70677e	Un aquarium plus grand accueille plus de poissons. Les perles se trouvent dans les poissons plus rares.
+4870d354	Votre aquarium contient maintenant {0} poissons
+907450a3	Les poissons plus rares renferment des perles. Les perles permettent d'acheter de meilleures cannes, qui donnent plus de chance à chaque lancer, et des aquariums plus grands, qui accueillent plus de poissons.

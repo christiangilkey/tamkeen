@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Aquário pequeno
+37d76b56	Aquário grande
+8e3a6bf5	Aquário de recife
+25dfca45	Grande aquário
+68ab9642	O aquário está cheio. Troque um peixe, ou consiga um aquário maior.
+5d401641	Seu aquário já está do maior tamanho possível.
+14d6017e	Seus amigos veem seus seis melhores peixes.
+09aecd39	Cabem {0} peixes
+cbdae7e8	O aquário está cheio: troque um peixe, ou consiga um aquário maior.
+1f927654	Trocar
+980b07e1	Colocar o {0}
+f3251109	Escolha o peixe que vai abrir espaço. Ele volta para o seu cesto.
+b1c8168d	Capacidade
+fde53ebb	Suas pérolas
+cd70677e	Num aquário maior cabem mais peixes. As pérolas ficam dentro dos peixes mais raros.
+4870d354	Agora cabem {0} peixes no seu aquário
+907450a3	Os peixes mais raros têm pérolas dentro. Com as pérolas você compra varas melhores, que dão mais sorte a cada lançamento, e aquários maiores, onde cabem mais peixes.

@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Kleines Becken
+37d76b56	Großes Becken
+8e3a6bf5	Riffbecken
+25dfca45	Großaquarium
+68ab9642	Das Aquarium ist voll. Tausche einen Fisch aus oder hol dir ein größeres Becken.
+5d401641	Dein Aquarium ist so groß, wie es geht.
+14d6017e	Deine Freunde sehen deine sechs besten Fische.
+09aecd39	Fasst {0} Fische
+cbdae7e8	Das Aquarium ist voll: Tausche einen Fisch aus oder hol dir ein größeres Becken.
+1f927654	Austauschen
+980b07e1	{0} einsetzen
+f3251109	Wähle den Fisch, der Platz macht. Er kommt zurück in deinen Korb.
+b1c8168d	Fasst
+fde53ebb	Deine Perlen
+cd70677e	In ein größeres Aquarium passen mehr Fische. Perlen stecken in selteneren Fischen.
+4870d354	Dein Aquarium fasst jetzt {0} Fische
+907450a3	Seltenere Fische enthalten Perlen. Mit Perlen kaufst du bessere Angelruten, die bei jedem Wurf mehr Glück bringen, und größere Aquarien, in die mehr Fische passen.

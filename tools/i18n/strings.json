@@ -14680,6 +14680,26 @@
   "f": "web/js/game/fishdata.js"
  },
  {
+  "id": "8f7a3196",
+  "k": "Small tank",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "37d76b56",
+  "k": "Big tank",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "8e3a6bf5",
+  "k": "Reef tank",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "25dfca45",
+  "k": "Grand aquarium",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
   "id": "5d8164b7",
   "k": "Twig rod",
   "f": "web/js/game/fishdata.js"
@@ -14970,8 +14990,8 @@
   "f": "web/js/game/fishing.js"
  },
  {
-  "id": "f58aae7d",
-  "k": "The aquarium is full. Take a fish out first.",
+  "id": "68ab9642",
+  "k": "The aquarium is full. Swap a fish out, or get a bigger tank.",
   "f": "web/js/game/fishing.js"
  },
  {
@@ -14985,13 +15005,18 @@
   "f": "web/js/game/fishing.js"
  },
  {
-  "id": "a6b82b99",
-  "k": "There is no such rod.",
+  "id": "5d401641",
+  "k": "Your aquarium is as big as it gets.",
   "f": "web/js/game/fishing.js"
  },
  {
   "id": "7dc0e760",
   "k": "You need {0} more pearls.",
+  "f": "web/js/game/fishing.js"
+ },
+ {
+  "id": "a6b82b99",
+  "k": "There is no such rod.",
   "f": "web/js/game/fishing.js"
  },
  {
@@ -15105,8 +15130,18 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
+  "id": "14d6017e",
+  "k": "Your friends see your six best fish.",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
   "id": "a7e65514",
   "k": "Keep your best fish here. Your friends can see your aquarium.",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "09aecd39",
+  "k": "Holds {0} fish",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -15145,8 +15180,8 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "3690e6b5",
-  "k": "The aquarium is full: take a fish out first.",
+  "id": "cbdae7e8",
+  "k": "The aquarium is full: swap a fish out, or get a bigger tank.",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -15167,6 +15202,41 @@
  {
   "id": "4351a5d2",
   "k": "Yum. {0} of 5 hearts",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "1f927654",
+  "k": "Swap in",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "980b07e1",
+  "k": "Swap in the {0}",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "f3251109",
+  "k": "Pick the fish that makes room. It goes back to your basket.",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "b1c8168d",
+  "k": "Holds",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "fde53ebb",
+  "k": "Your pearls",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "cd70677e",
+  "k": "A bigger aquarium lets more fish in. Pearls are found inside rarer fish.",
+  "f": "web/js/game/fishscreen.js"
+ },
+ {
+  "id": "4870d354",
+  "k": "Your aquarium now holds {0} fish",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -15265,8 +15335,8 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "198f7712",
-  "k": "Rarer fish hold pearls. Pearls buy better rods, and a better rod makes every cast luckier.",
+  "id": "907450a3",
+  "k": "Rarer fish hold pearls. Pearls buy better rods, which make every cast luckier, and bigger aquariums, which hold more fish.",
   "f": "web/js/game/fishscreen.js"
  },
  {

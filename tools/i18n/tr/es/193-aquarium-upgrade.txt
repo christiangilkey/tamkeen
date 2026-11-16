@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Pecera pequeña
+37d76b56	Pecera grande
+8e3a6bf5	Pecera de arrecife
+25dfca45	Gran acuario
+68ab9642	El acuario está lleno. Cambia un pez, o consigue una pecera más grande.
+5d401641	Tu acuario ya es tan grande como puede ser.
+14d6017e	Tus amigos ven tus seis mejores peces.
+09aecd39	Caben {0} peces
+cbdae7e8	El acuario está lleno: cambia un pez, o consigue una pecera más grande.
+1f927654	Cambiar
+980b07e1	Meter el {0}
+f3251109	Elige el pez que deja sitio. Vuelve a tu cesta.
+b1c8168d	Capacidad
+fde53ebb	Tus perlas
+cd70677e	En un acuario más grande caben más peces. Las perlas están dentro de los peces más raros.
+4870d354	Ahora en tu acuario caben {0} peces
+907450a3	Los peces más raros llevan perlas dentro. Con las perlas se compran cañas mejores, que te dan más suerte en cada lanzamiento, y acuarios más grandes, donde caben más peces.

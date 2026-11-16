@@ -17,14 +17,14 @@
 // which only fishing finds); nothing adds strength in battles between people; an answer given too fast to have
 // been read doesn't roll (loot.js decides: a Common is all it lands), and a wrong one makes the creature re-bait.
 
-import { FISH, FISH_ART, HARD_LUCK, HOME_LUCK, PEARLS, PONDS, RODS, SELL, SHADOWS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
+import { FISH, FISH_ART, HARD_LUCK, HOME_LUCK, PEARLS, PONDS, RODS, SELL, SHADOWS, TANKS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
 import { answerQuestion, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
 import { rng } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { feed } from "./idle.js";
 import { LEGENDARY, TIERS, rollAnswer } from "./loot.js";
 
-export { FISH, PONDS, RODS, TANK_SIZE, fishById, fishOf, pondById };
+export { FISH, PONDS, RODS, TANKS, TANK_SIZE, fishById, fishOf, pondById };
 
 export const TIERS_N = TIERS.length;  // Common .. Eternal (loot.js)
 export const BAG_SIZE = 60;           // fish the basket holds; past that the cheapest is sold for you
@@ -50,6 +50,7 @@ const blank = () => ({
   best: {},              // fish id -> the longest caught, in cm
   bag: [],               // the basket: {sp, t, cm, w (coins it sells for)}
   tank: [],              // the aquarium: {sp, t, cm}
+  tankLv: 0,             // which aquarium (TANKS index): how many fish it holds
   week: { n: 0, best: null },   // this week's biggest catch {sp, t, cm}
   escaped: null,         // the big one that got away today: {day, pond, sp, t}
   day: { key: "", n: 0 },       // catches today (selling price fades after CATCH_FULL)
@@ -75,7 +76,8 @@ export function cleanFishing(v) {
   if (isObj(v.dex)) for (const fish of FISH) if (Number.isInteger(v.dex[fish.id])) f.dex[fish.id] = v.dex[fish.id] & ((1 << TIERS_N) - 1);
   if (isObj(v.best)) for (const fish of FISH) if (Number(v.best[fish.id]) > 0) f.best[fish.id] = Math.min(999, Number(v.best[fish.id]));
   f.bag = (Array.isArray(v.bag) ? v.bag : []).map((x) => cleanFish(x, true)).filter(Boolean).slice(-BAG_SIZE);
-  f.tank = (Array.isArray(v.tank) ? v.tank : []).map((x) => cleanFish(x)).filter(Boolean).slice(0, TANK_SIZE);
+  f.tankLv = int(v.tankLv, 0, TANKS.length - 1, 0);
+  f.tank = (Array.isArray(v.tank) ? v.tank : []).map((x) => cleanFish(x)).filter(Boolean).slice(0, TANKS[f.tankLv].size);
   if (isObj(v.week)) f.week = { n: int(v.week.n, 0, 1e6, 0), best: cleanFish(v.week.best) };
   if (isObj(v.escaped) && typeof v.escaped.day === "string" && fishById(v.escaped.sp)) {
     f.escaped = { day: v.escaped.day.slice(0, 10), pond: pondById(v.escaped.pond).id, sp: v.escaped.sp, t: int(v.escaped.t, 0, TIERS_N - 1, 0) };
@@ -336,11 +338,16 @@ export function feedFish(state, index, now = new Date()) {
 
 // ---------- the aquarium ----------
 
+/** How many fish the aquarium holds now. */
+export const tankSize = (state) => TANKS[fishingOf(state).tankLv].size;
+/** The next, bigger aquarium ({id, name, size, pearls}), or null when this is the biggest. */
+export const nextTank = (state) => TANKS[fishingOf(state).tankLv + 1] || null;
+
 /** Move the basket's fish at `index` into the aquarium (refused when the aquarium is full): "" or why not. */
 export function toTank(state, index) {
   const f = fishingOf(state);
   if (!(index >= 0 && index < f.bag.length)) return "That fish isn't in your basket.";
-  if (f.tank.length >= TANK_SIZE) return "The aquarium is full. Take a fish out first.";
+  if (f.tank.length >= tankSize(state)) return "The aquarium is full. Swap a fish out, or get a bigger tank.";
   const [fish] = f.bag.splice(index, 1);
   f.tank.push({ sp: fish.sp, t: fish.t, cm: fish.cm });
   return "";
@@ -352,6 +359,29 @@ export function fromTank(state, index) {
   if (f.bag.length >= BAG_SIZE) return "Your basket is full. Sell some fish first.";
   const [fish] = f.tank.splice(index, 1);
   f.bag.push({ ...fish, w: SELL[fish.t] });
+  return "";
+}
+
+/** A full aquarium lets a new fish in: the basket's fish at `bagIndex` takes the place of the aquarium's fish at
+ * `tankIndex`, which goes back to the basket (so the basket never overflows): "" or why not. */
+export function swapTank(state, bagIndex, tankIndex) {
+  const f = fishingOf(state);
+  if (!(bagIndex >= 0 && bagIndex < f.bag.length)) return "That fish isn't in your basket.";
+  if (!(tankIndex >= 0 && tankIndex < f.tank.length)) return "That fish isn't in your aquarium.";
+  const [fish] = f.bag.splice(bagIndex, 1);
+  const [out] = f.tank.splice(tankIndex, 1, { sp: fish.sp, t: fish.t, cm: fish.cm });
+  f.bag.push({ ...out, w: SELL[out.t] });
+  return "";
+}
+
+/** Buy the next, bigger aquarium with pearls: "" or why not. */
+export function buyTank(state) {
+  const f = fishingOf(state);
+  const next = nextTank(state);
+  if (!next) return "Your aquarium is as big as it gets.";
+  if (f.pearls < next.pearls) return `You need ${next.pearls - f.pearls} more pearls.`;
+  f.pearls -= next.pearls;
+  f.tankLv++;
   return "";
 }
 
@@ -395,7 +425,9 @@ export function dexRow(state, sp) {
 export function publicAquarium(state, now = new Date()) {
   const f = fishingOf(state);
   const week = weekNumber(now);
-  return { tank: f.tank.map((x) => ({ sp: x.sp, t: x.t, cm: x.cm })), week, best: f.week.n === week ? f.week.best : null, dex: dexCount(state) };
+  // (the best TANK_SIZE, rarest and then longest first: the online check allows six, whatever the aquarium holds)
+  const best = [...f.tank].sort((a, b) => b.t - a.t || b.cm - a.cm).slice(0, TANK_SIZE);
+  return { tank: best.map((x) => ({ sp: x.sp, t: x.t, cm: x.cm })), week, best: f.week.n === week ? f.week.best : null, dex: dexCount(state) };
 }
 
 /** The biggest catch board: friends' (checked) aquariums and mine, this week's only, longest first.

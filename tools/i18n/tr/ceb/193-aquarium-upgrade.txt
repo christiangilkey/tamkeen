@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Gamay nga tangke
+37d76b56	Dako nga tangke
+8e3a6bf5	Tangke nga reef
+25dfca45	Dakong aquarium
+68ab9642	Puno na ang aquarium. Ilisi ang usa ka isda, o pagkuha og mas dako nga tangke.
+5d401641	Ang imong aquarium kinadak-an na.
+14d6017e	Makita sa imong mga higala ang imong unom ka labing maayong isda.
+09aecd39	Masudlan og {0} ka isda
+cbdae7e8	Puno na ang aquarium: ilisi ang usa ka isda, o pagkuha og mas dako nga tangke.
+1f927654	Ilisi
+980b07e1	Isulod ang {0}
+f3251109	Pilia ang isda nga mohatag og luna. Mobalik kini sa imong basket.
+b1c8168d	Masudlan
+fde53ebb	Imong mga perlas
+cd70677e	Ang mas dako nga aquarium makasulod og mas daghang isda. Ang mga perlas makita sulod sa mas talagsaong isda.
+4870d354	Ang imong aquarium makasulod na og {0} ka isda
+907450a3	Naay perlas ang mas talagsaong isda. Perlas ang ipalit og mas maayong pasol, nga mohimo sa matag paglabay nga mas suwerte, ug mas dagkong aquarium, nga makasulod og mas daghang isda.

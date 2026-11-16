@@ -1,0 +1,18 @@
+# Bigger aquariums and swapping a fish in (web/js/game/fishdata.js TANKS, fishing.js, fishscreen.js).
+8f7a3196	Maliit na tangke
+37d76b56	Malaking tangke
+8e3a6bf5	Tangkeng reef
+25dfca45	Engrandeng aquarium
+68ab9642	Puno na ang aquarium. Magpalit ng isang isda, o kumuha ng mas malaking tangke.
+5d401641	Pinakamalaki na ang aquarium mo.
+14d6017e	Nakikita ng mga kaibigan mo ang anim na pinakamagaling mong isda.
+09aecd39	Kasya ang {0} isda
+cbdae7e8	Puno na ang aquarium: magpalit ng isang isda, o kumuha ng mas malaking tangke.
+1f927654	Ipalit
+980b07e1	Ipasok ang {0}
+f3251109	Piliin ang isdang magbibigay ng puwang. Babalik ito sa basket mo.
+b1c8168d	Kasya
+fde53ebb	Mga perlas mo
+cd70677e	Mas maraming isda ang kasya sa mas malaking aquarium. Nasa loob ng mas bihirang isda ang mga perlas.
+4870d354	Kasya na ang {0} isda sa aquarium mo
+907450a3	May perlas ang mas bihirang isda. Perlas ang pambili ng mas magagandang pamingwit, na nagpapasuwerte sa bawat hagis, at mas malalaking aquarium, na mas maraming isda ang kasya.
