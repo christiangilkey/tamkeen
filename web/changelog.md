@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** When the line under **Review** on the Vocab page is too long to fit, its cut-off edge now fades out, so you can see there is more before it slides along to show it.
+
 ## v0.59.0 — 2026-11-16
 
 - **Removed:** **The old one-file-per-word course audio.** Since v0.58.0 the courses' audio comes one pack per unit; the 17,456 single files kept for older versions are now gone from the website. Versions up to v0.57.0 show no Word / Sentence buttons on course words (their cards use your card voice instead); update to hear the course recordings.
