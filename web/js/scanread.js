@@ -4,8 +4,8 @@
 
 import { askAi } from "./define-service.js";
 import { SCRIPTS, parseList } from "./addwords.js";
-import { AI_SIDE, JPEG_QUALITY, OCR_SIDE, THUMB_SIDE, fitSize, markOddOnes, ocrList, readScan, readingScore, scanPrompt,
-  worthAnotherLook } from "./scanwords.js";
+import { AI_SIDE, JPEG_QUALITY, OCR_SIDE, THUMB_SIDE, fitSize, markOddOnes, ocrList, ocrText, readScan, readScanText,
+  readingScore, scanPrompt, studyScript, textPrompt, worthAnotherLook } from "./scanwords.js";
 import { readText } from "./ocr.js";
 
 /** A picture the learner chose, took or pasted, decoded: {img, width, height}. The phone's way up
@@ -79,6 +79,37 @@ async function base64(blob) {
  * object address in memory, let go of when "Add words" closes. */
 export async function previewCopy(pic) {
   return URL.createObjectURL(await jpeg(scaled(pic, THUMB_SIDE), 0.85));
+}
+
+/** A copy kept in memory (a JPEG, about 1 MB) while the photo is in the batch, so that it can be read
+ * again the other way ("Pick out the words for me", "Show all the text") after the decoded picture
+ * was let go of. Never saved. */
+export function keepCopy(pic) {
+  return jpeg(scaled(pic, OCR_SIDE), 0.92);
+}
+
+/** All the text in the photo in the language being learned (`lang`; `study` is its name in English),
+ * read by the learner's AI: {text, doubts: []} (scanwords.js textPrompt, readScanText). */
+export async function readAllWithAi(pic, { study, lang }) {
+  const data = await base64(await jpeg(scaled(pic, AI_SIDE)));
+  const answer = await askAi({ ...textPrompt({ study }), images: [{ mime: "image/jpeg", data }], maxTokens: 12000 });
+  return { text: readScanText(answer, { lang }), doubts: [] };
+}
+
+/** All the text in the photo in the language being learned, read on this device (Tesseract): {text,
+ * doubts} (scanwords.js ocrText). When the page's layout found none of it: the page again as one
+ * block (and, for a language with its own script, as one column), counting only lines it is sure of
+ * word for word (a shadow can look like letters read these ways). */
+export async function readAllOnDevice(pic, { pair, lang, zhScript = "", onProgress = () => {} }) {
+  const page = scaled(pic, OCR_SIDE, { grey: true });
+  let read = ocrText(await readText(page, pair, { zhScript, onProgress }), { lang });
+  const script = studyScript(lang);
+  for (const psm of ["6", ...(SCRIPTS[lang] ? ["4"] : [])]) {
+    if (script.test(read.text)) break;
+    read = ocrText(await readText(page, pair, { zhScript, psm, onProgress: (f, what) => onProgress(f, what, true) }),
+      { lang, minConfidence: 70, minWord: 75 });
+  }
+  return read;
 }
 
 /** Read the photo with the learner's AI: {cards, total, cut} (scanwords.js readScan). `study` is

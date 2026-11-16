@@ -390,6 +390,7 @@ fc118a44  # and {0}  (wordbuilder.js: a word-by-word meaning's "and", joined to 
 # "Add words" → Scan (web/js/scanwords.js scanPrompt): what the app tells the AI with the photo. (Its longer
 # instructions have JSON in them, so the extractor passes over them by itself.)
 32a9ff53  # The photo: read the {0} vocabulary on it.
+189b4218  # The photo: copy the {0} text on it.  (scanwords.js textPrompt: all the text, to the AI)
 # The folder Android's camera app leaves photos in (mobile/src/js/app.js forgetPhotos), not shown.
 935edbe9  # Pictures
 # The grammar courses: internal errors and 404s the page never shows (grammarstore.js, saytext.js, app/grammar.py).

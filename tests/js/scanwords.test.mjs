@@ -1,12 +1,13 @@
-// "Add words" → Scan (web/js/scanwords.js): reading the AI's answer, turning what Tesseract read into
+// "Add words" → Scan (web/js/scanwords.js): reading the AI's answer (all the text, or a word list), turning what Tesseract read into
 // the text of a pasted list, the photo's size, which reader reads it, and the files to download.
 // Run with: node --test tests/js/
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import {
-  AI_SIDE, OCR_BYTES, OCR_LANGS, SCAN_SCHEMA, VISION, chooseReader, fitSize, itemsToPaste, markOddOnes, ocrLines, ocrList,
-  ocrNames, ocrPaste, ocrPair, ownLanguage, readScan, readingScore, scanPrompt, tesseractLangs, worthAnotherLook,
+  AI_SIDE, OCR_BYTES, OCR_LANGS, SCAN_SCHEMA, TEXT_SCHEMA, VISION, addPage, chooseReader, fitSize, itemsToPaste, keepStudyLines,
+  markOddOnes, ocrLines, ocrList, ocrNames, ocrPaste, ocrPair, ocrText, ownLanguage, pagesText, readScan, readScanText,
+  readingScore, scanPrompt, studyScript, tesseractLangs, textPrompt, worthAnotherLook,
 } from "../../web/js/scanwords.js";
 import { parseList } from "../../web/js/addwords.js";
 import { askJson } from "../../web/js/definer.js";
@@ -269,6 +270,129 @@ test("itemsToPaste: read back by parseList as the same cards", () => {
   assert.equal(text.split("\n")[1], "comer; to eat; Vamos a comer.; Let's eat.");
   assert.deepEqual(parseList(text, { lang: "es" }).cards, cards);
   assert.equal(itemsToPaste([]), "");
+});
+
+// ---------------------------------------------------------------- all the text, into the box
+
+test("textPrompt: all the text in the language, line by line, exact, no translation or commentary", () => {
+  const p = textPrompt({ study: "Arabic" });
+  assert.match(p.system, /copy the Arabic text in a photo, exactly/);
+  assert.match(p.system, /reading order/);
+  assert.match(p.system, /one string for each line/);
+  assert.match(p.system, /empty string "" between paragraphs/);
+  assert.match(p.system, /Never correct, complete, translate, explain or summarise/);
+  assert.match(p.system, /vowel marks, accents/);
+  assert.match(p.system, /Leave out lines with no Arabic in them/);
+  assert.match(p.system, /copied whole/, "a line with a word and its meaning on it stays");
+  assert.match(p.system, /No commentary/);
+  assert.match(p.system, /\{"lines": \[\]\}/);
+  assert.equal(p.user, "The photo: copy the Arabic text on it.");
+  assert.equal(p.schema, TEXT_SCHEMA);
+  assert.deepEqual(TEXT_SCHEMA.required, ["lines"]);
+  assert.equal(TEXT_SCHEMA.properties.lines.items.type, "string");
+  assert.equal(TEXT_SCHEMA.additionalProperties, false);
+});
+
+test("readScanText: the AI's lines as the box's text; other languages' lines go, mixed ones stay", () => {
+  const answer = { lines: ["الدرس الأول", "", "", "ذهب الولد إلى المدرسة.", "The boy went to school.", "كتاب – book", "", "12", "⟦قلم⟧"] };
+  assert.equal(readScanText(answer, { lang: "ar" }), "الدرس الأول\n\nذهب الولد إلى المدرسة.\nكتاب – book\n\nقلم");
+  // The answer as the model's text: fences, a sentence before, {text}, a bare list.
+  assert.equal(readScanText('Here it is:\n```json\n{"lines": ["la casa", "", "el perro"]}\n```', { lang: "es" }), "la casa\n\nel perro");
+  assert.equal(readScanText({ text: "Hola, ¿qué tal?\nBien." }, { lang: "es" }), "Hola, ¿qué tal?\nBien.");
+  assert.equal(readScanText(["猫", "dog", "犬"], { lang: "ja" }), "猫\n犬");
+  assert.equal(readScanText("```\nпривет\nhello\n```", { lang: "ru" }), "привет");
+  assert.equal(readScanText({ lines: [] }, { lang: "es" }), "");
+  assert.equal(readScanText({ nothing: true }, { lang: "es" }), "");
+  assert.equal(readScanText(null, { lang: "es" }), "");
+  // A language written in Latin letters keeps every line with letters (English can't be told apart by its letters).
+  assert.equal(readScanText({ lines: ["la casa", "the house", "1"] }, { lang: "es" }), "la casa\nthe house");
+});
+
+test("askJson: all the text is asked for with the photo, and the answer read into the box's text", async () => {
+  const calls = [];
+  const answer = { stop_reason: "end_turn", content: [{ type: "text", text: '{"lines": ["Había una vez", "una casa.", "", "Once upon a time"]}' }] };
+  const out = await askJson({ provider: "claude", key: "k", model: "m" },
+    { ...textPrompt({ study: "Spanish" }), images: [{ mime: "image/jpeg", data: "QUJD" }], maxTokens: 12000 },
+    async (req) => { calls.push(req); return { status: 200, text: JSON.stringify(answer) }; });
+  assert.equal(readScanText(out, { lang: "es" }), "Había una vez\nuna casa.\n\nOnce upon a time", "(same letters: the learner deletes the English)");
+  const body = calls[0].body;
+  assert.equal(body.max_tokens, 12000);
+  assert.equal(body.messages[0].content[0].type, "image");
+  assert.match(body.messages[0].content[1].text, /copy the Spanish text/);
+  assert.match(JSON.stringify(body), /"lines"/, "the schema goes with it");
+});
+
+test("keepStudyLines and studyScript: the language's own script, else Latin letters; blank lines tidied", () => {
+  assert.ok(studyScript("ar").test("كتاب"));
+  assert.ok(studyScript("es").test("niño"));
+  assert.ok(!studyScript("es").test("кот"));
+  assert.equal(keepStudyLines("\n\nкот\r\ncat\n\n\n\nсобака  \n\n", "ru"), "кот\n\nсобака");
+  assert.equal(keepStudyLines("‏كتاب‎\nbook", "ar"), "كتاب", "direction marks go");
+  assert.equal(keepStudyLines("", "ar"), "");
+});
+
+/** Tesseract's answer in blocks of paragraphs: [[ [line, confidence?] ... ] (a paragraph) ...] (a block). */
+function tessText(blocks) {
+  return {
+    blocks: blocks.map((paras) => ({
+      paragraphs: paras.map((lines) => ({
+        lines: lines.map(([text, confidence = 92]) => ({ words: text.split(" ").map((w) => ({ text: w, confidence })) })),
+      })),
+    })),
+  };
+}
+
+test("ocrText: all the text in its order, paragraphs apart, only the language's script, noise and blur gone", () => {
+  const data = tessText([
+    [[["الدرس الأول"]], [["ذهب الولد إلى", 90], ["المدرسة صباحا.", 64]]],  // a heading, then a paragraph of two lines
+    [[["The boy went to school"]], [["كتاب – book"]], [["%# ~", 30]], [["[rl ry a 0 5"]], [["42"]]],
+    [[["قلم"]], [["بيت"]]],                                                // a list: one line a paragraph
+  ]);
+  const read = ocrText(data, { lang: "ar" });
+  assert.equal(read.text, "الدرس الأول\n\nذهب الولد إلى\nالمدرسة صباحا.\n\nكتاب – book\n\nقلم\nبيت");
+  assert.deepEqual(read.doubts, ["المدرسة صباحا."]);
+  // Stricter (the second look, when the first found none of it): every word sure.
+  assert.equal(ocrText(data, { lang: "ar", minConfidence: 70, minWord: 75 }).text.includes("المدرسة"), false);
+  // Spanish: English lines stay (same letters); Japanese loses Tesseract's spaces; plain text without blocks.
+  assert.equal(ocrText(tessText([[[["la casa"], ["the house"]]]]), { lang: "es" }).text, "la casa\nthe house");
+  assert.equal(ocrText(tessText([[[["ね こ が い る"]]]]), { lang: "ja" }).text, "ねこがいる");
+  assert.equal(ocrText({ text: "Hola\nmundo\n\nhello\n\n42\n" }, { lang: "es" }).text, "Hola\nmundo\n\nhello");
+  assert.equal(ocrText({ text: "кот\ncat\n\nсобака" }, { lang: "ru" }).text, "кот\n\nсобака");
+  assert.deepEqual(ocrText(null, { lang: "es" }), { text: "", doubts: [] });
+});
+
+test("the box's text is read like a pasted list: a line a card, the learner's dashes make meanings", () => {
+  const box = "ذهب الولد إلى المدرسة.\n\nكتاب – book\nقلم";
+  assert.deepEqual(parseList(box, { lang: "ar" }).cards.map((c) => [c.text, c.meaning]),
+    [["ذهب الولد إلى المدرسة.", ""], ["كتاب", "book"], ["قلم", ""]]);
+});
+
+test("pagesText and addPage: the pages of one text in the box, a blank line between", () => {
+  const photos = [
+    { reads: { text: { text: "página uno" }, words: null } },
+    { reads: { text: { text: "" }, words: { text: "casa – house" } } },
+    { reads: { text: { text: "página dos\nmás" }, words: { text: "perro – dog" } } },
+  ];
+  assert.equal(pagesText(photos, "text"), "página uno\n\npágina dos\nmás");
+  assert.equal(pagesText(photos, "words"), "casa – house\n\nperro – dog");
+  assert.equal(pagesText([], "text"), "");
+  assert.equal(addPage("mi texto  \n\n", "\n\notra página\n"), "mi texto\n\notra página");
+  assert.equal(addPage("", "otra página"), "otra página");
+  assert.equal(addPage("mi texto", ""), "mi texto");
+});
+
+test("Scan: the text box comes first; the word list is a button; photos are never stored", () => {
+  const src = readFileSync(new URL("../../web/js/components/wordscan.js", import.meta.url), "utf8");
+  assert.match(src, /let view = "text";/, "all the text is the default");
+  assert.match(src, /readAllWithAi\(/);
+  assert.match(src, /readAllOnDevice\(/);
+  assert.match(src, /Pick out the words for me/);
+  assert.match(src, /Show all the text/);
+  assert.match(src, /<textarea class="cb-scan-box"/);
+  assert.doesNotMatch(src, /localStorage\.setItem\([^)]*(photo|pic|keep)/i);
+  assert.doesNotMatch(src, /indexedDB|api\(/, "nothing is saved or sent to the app's own server");
+  const builder = readFileSync(new URL("../../web/js/components/wordbuilder.js", import.meta.url), "utf8");
+  assert.match(builder, /preview: showPreview/, "the same preview as Paste a list");
 });
 
 // ---------------------------------------------------------------- the files to download

@@ -1,7 +1,7 @@
 // "Add words": the Vocab page's card builder (its "Add words" button and ⋯ menu). Every version has it.
 //
-// One card or many at once, typed one by one, pasted as a list, or scanned from a photo of a list
-// (components/wordscan.js: its words become rows exactly as a pasted list's do), with as much or as little done for
+// One card or many at once, typed one by one, pasted as a list, or scanned from a photo (components/wordscan.js:
+// the photo's text in a box like the paste box, made into rows exactly as a pasted list), with as much or as little done for
 // the learner as they like: for each part of the cards ("For these cards") the app fills it in, leaves
 // it out, or the learner types it. Whatever the learner typed is never replaced (addwords.js).
 //   - Meanings: the learner's lookup setting (Settings → Word definitions): the built-in dictionary,
@@ -573,7 +573,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   let dirty = false;
   const dirtied = () => { dirty = true; warned = false; footNote(""); countUp(); };
   const hasInput = () => !done && (dirty || rows.some((r) => r.text.trim() || hasValue(r.meaning) || r.audio.word)
-    || $(".cb-paste-box").value.trim() || (scan && scan.hasInput()));
+    || pasteBox.value.trim() || (scan && scan.hasInput()));
 
   // ---------------------------------------------------------------- the card's own audio
 
@@ -699,19 +699,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   pasteBox.placeholder = [`${info.word} – ${meaningWord}`, `${info.word} = ${meaningWord}`, `${info.word}; ${meaningWord}; ${t("a sentence")}`,
     info.wordOrPhrase || info.word].join("\n");
   let pasted = { cards: [], total: 0, cut: false };
-  function preview() {
-    pasted = parseList(pasteBox.value, { lang, max: MAX_ROWS });
-    const box = $(".cb-preview");
-    box.innerHTML = "";
-    $(".cb-use").disabled = !pasted.cards.length;
-    if (!pasted.cards.length) return;
-    const saved = duplicates(pasted.cards.map((c) => c.text), existing().map((v) => v.text));
+  /** The cards each line of `text` would make, shown in `el` (the paste box's preview, and Scan's under
+   * its box of text from the photo): {cards, total, cut} (addwords.js parseList). `doubt(card)` says a
+   * card's line was hard to read on this device ("Check it"). */
+  function showPreview(el, text, { doubt = () => false } = {}) {
+    const parsed = parseList(text, { lang, max: MAX_ROWS });
+    el.innerHTML = "";
+    if (!parsed.cards.length) return parsed;
+    const saved = duplicates(parsed.cards.map((c) => c.text), existing().map((v) => v.text));
     const head = h(`<p class="cb-pv-count"><strong></strong></p>`);
-    head.querySelector("strong").textContent = `${pasted.cards.length} card${pasted.cards.length === 1 ? "" : "s"}`;
-    if (pasted.cut) head.append(" ", h(`<span class="muted">Only the first 100 are used: at most 100 cards can be added at a time.</span>`));
-    box.append(head);
+    head.querySelector("strong").textContent = `${parsed.cards.length} card${parsed.cards.length === 1 ? "" : "s"}`;
+    if (parsed.cut) head.append(" ", h(`<span class="muted">Only the first 100 are used: at most 100 cards can be added at a time.</span>`));
+    el.append(head);
     const list = h(`<ol class="cb-pv"></ol>`);
-    pasted.cards.forEach((c, i) => {
+    parsed.cards.forEach((c, i) => {
       const li = h(`<li><span class="cb-pv-word ar" ${langAttrs(lang)}></span><span class="cb-pv-rest" dir="auto"></span></li>`);
       li.querySelector(".cb-pv-word").textContent = c.text;
       li.querySelector(".cb-pv-rest").textContent = [c.meaning, c.sentence, clean(c.translation)].filter(Boolean).join(" · ");
@@ -719,10 +720,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         const tag = h(`<span class="cb-pv-tag"></span>`);
         tag.textContent = saved[i].saved ? t("Already saved") : t("Twice in the list");
         li.append(tag);
+      } else if (doubt(c)) {
+        const tag = h(`<span class="cb-pv-tag"></span>`);
+        tag.textContent = t("Check it");
+        tag.title = t("Hard to read: compare it with the photo, and fix it in the box if it's wrong.");
+        li.append(tag);
       }
       list.append(li);
     });
-    box.append(list);
+    el.append(list);
+    return parsed;
+  }
+  function preview() {
+    pasted = showPreview($(".cb-paste .cb-preview"), pasteBox.value);
+    $(".cb-use").disabled = !pasted.cards.length;
   }
   pasteBox.oninput = () => { preview(); dirty = true; };
   /** Cards from a pasted list or a photo become rows (typed = the learner's own), after the others. */
@@ -749,16 +760,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   function scanner() {
     if (!scan) {
       scan = scanPanel({
-        lang, existing,
+        lang,
+        preview: showPreview,
         onUse: (cards) => useCards(cards),
-        onText: (text) => {  // "Edit as text": the paste box, with anything already in it kept
-          const before = pasteBox.value.replace(/\s+$/, "");
-          pasteBox.value = before ? `${before}\n${text}` : text;
-          preview();
-          dirty = true;
-          setMode("paste");
-        },
         onDirty: () => { dirty = true; },
+        confirm: (title, text, ok) => confirmBox(title, text, { ok }),
         goTo: async (hash) => {  // going to Settings closes the builder (asking first when something would be lost)
           if (!(await beforeClose())) return;
           done = true;
