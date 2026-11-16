@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	Non viene aggiunto niente finché non premi il pulsante: correggi prima qui l’elenco, se serve. Le scelte sotto «Per queste schede» valgono per ogni scheda dell’elenco.

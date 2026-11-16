@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	버튼을 누르기 전에는 아무것도 추가되지 않아요. 필요하면 여기서 목록을 먼저 고치세요. '이 카드들은' 아래의 선택은 목록의 모든 카드에 쓰여요.

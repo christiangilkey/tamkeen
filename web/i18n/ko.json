@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"한 번에 카드를 최대 100장까지 추가할 수 있어요.",
 "Your list, one card per line":"내 목록, 한 줄에 카드 한 장",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"한 줄에 카드 한 장: 단어든 표현이든 괜찮아요. 그 뒤에 대시, 등호, 세미콜론으로 뜻을 붙일 수 있어요(<0/>). 스프레드시트의 열(단어, 뜻, 예문, 번역)을 그대로 붙여넣어도 돼요.",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"버튼을 누르기 전에는 아무것도 추가되지 않아요. 필요하면 여기서 목록을 먼저 고치세요. '이 카드들은' 아래의 선택은 목록의 모든 카드에 쓰여요.",
 "Use these":"이대로 쓰기",
 "For these cards":"이 카드들은",
 "Fill in the meanings and sentences now, to look them over before adding":"뜻과 예문을 지금 채워서 추가하기 전에 살펴보기",

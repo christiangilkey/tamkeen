@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	按下按钮之前不会添加任何内容：如有需要，先在这里修正列表。“这些卡片”下的选项会用于列表中的每张卡片。

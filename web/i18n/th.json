@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"เพิ่มการ์ดได้ครั้งละไม่เกิน 100 ใบ",
 "Your list, one card per line":"รายการของคุณ หนึ่งการ์ดต่อบรรทัด",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"หนึ่งการ์ดต่อบรรทัด: คำหรือวลีก็ได้ หลังจากนั้นคุณใส่ความหมายได้ด้วยขีด เครื่องหมายเท่ากับ หรืออัฒภาค (<0/>) หรือวางคอลัมน์จากสเปรดชีต: คำ ความหมาย ประโยค คำแปล",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"จะไม่มีอะไรถูกเพิ่มจนกว่าคุณจะกดปุ่ม แก้รายการตรงนี้ก่อนได้ถ้าจำเป็น ตัวเลือกใต้ «สำหรับการ์ดเหล่านี้» ใช้กับทุกการ์ดในรายการ",
 "Use these":"ใช้รายการนี้",
 "For these cards":"สำหรับการ์ดเหล่านี้",
 "Fill in the meanings and sentences now, to look them over before adding":"เติมความหมายและประโยคตอนนี้ เพื่อตรวจดูก่อนเพิ่ม",

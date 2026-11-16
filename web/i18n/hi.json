@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"एक बार में ज़्यादा से ज़्यादा 100 कार्ड जोड़े जा सकते हैं।",
 "Your list, one card per line":"आपकी सूची, हर पंक्ति में एक कार्ड",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"हर पंक्ति में एक कार्ड: एक शब्द या एक वाक्यांश। उसके बाद आप डैश, बराबर के चिह्न या अर्धविराम से उसका अर्थ जोड़ सकते हैं (<0/>), या किसी स्प्रेडशीट से कॉलम चिपका सकते हैं: शब्द, अर्थ, वाक्य, अनुवाद।",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"बटन दबाने तक कुछ नहीं जुड़ता: ज़रूरत हो तो पहले सूची यहीं ठीक करें। «इन कार्डों के लिए» के नीचे के विकल्प इसके हर कार्ड पर लागू होते हैं।",
 "Use these":"इन्हें इस्तेमाल करें",
 "For these cards":"इन कार्डों के लिए",
 "Fill in the meanings and sentences now, to look them over before adding":"अर्थ और वाक्य अभी भरें, ताकि जोड़ने से पहले उन्हें देख सकें",

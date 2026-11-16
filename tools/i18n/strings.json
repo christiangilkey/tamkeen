@@ -8615,6 +8615,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "fa60ba48",
+  "k": "Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "4786ee9c",
   "k": "Use these",
   "f": "web/js/components/wordbuilder.js"

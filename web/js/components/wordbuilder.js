@@ -31,7 +31,7 @@ import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
-         fillIn, firstSense, hasValue, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
+         fillIn, firstSense, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
@@ -117,6 +117,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       <textarea class="cb-paste-box" rows="7" dir="auto" spellcheck="false" aria-label="Your list, one card per line"></textarea>
       <p class="small muted cb-paste-help">One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<span translate="no">word – meaning</span>), or paste columns from a spreadsheet: word, meaning, sentence, translation.</p>
       <div class="cb-preview" aria-live="polite"></div>
+      <p class="small muted cb-paste-wait">Nothing is added until you press the button: fix the list here first if you need to. The choices under "For these cards" are used for every card in it.</p>
       <div class="cb-paste-go"><button type="button" class="primary cb-use" disabled>Use these</button></div>
     </div>
     <section class="cb-for" aria-label="For these cards">
@@ -786,7 +787,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   for (const b of box.querySelectorAll(".cb-modes .seg-btn")) b.onclick = () => setMode(b.dataset.mode);
 
   // A picture dropped anywhere on the builder (or beside it: the window would otherwise open the picture
-  // in place of the app), or pasted (Ctrl+V) anywhere in it, is scanned.
+  // in place of the app), or pasted (Ctrl+V) anywhere in it, is scanned. Pasted text always wins over a picture
+  // (a copy from a spreadsheet or a document carries a picture of itself too: the owner's 2026-11-16 report).
   const pictures = (list) => [...(list || [])].filter((f) => f && /^image\//.test(f.type || ""));
   const hasPicture = (dt) => !!dt && [...(dt.items || [])].some((i) => i.kind === "file" && /^image\//.test(i.type || ""));
   sheet.el.addEventListener("dragover", (e) => {
@@ -806,6 +808,24 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   });
   const onPaste = (e) => {
     if (!sheet.el.isConnected || busy) return;
+    const text = (e.clipboardData && e.clipboardData.getData("text/plain")) || "";
+    if (text.trim()) {
+      // A list (more than one line, or a spreadsheet's columns) pasted anywhere but the list box goes into the list
+      // box to be looked over and put right: nothing becomes a card until "Use these" is pressed.
+      const target = e.target && e.target.closest ? e.target : null;
+      const inList = target && target.closest(".cb-paste-box");
+      const inOtherBox = target && !target.closest(".cb-word") && target.closest("input, textarea, [contenteditable]");
+      if (!inList && !inOtherBox && isList(text)) {
+        e.preventDefault();
+        const list = text.replace(/\r\n?/g, "\n").replace(/\s+$/, "");
+        const before = pasteBox.value.replace(/\s+$/, "");
+        pasteBox.value = before ? `${before}\n${list}` : list;
+        setMode("paste");
+        preview();
+        dirty = true;
+      }
+      return;  // (a word or a single line: pasted where it was, as usual)
+    }
     const files = pictures([...((e.clipboardData && e.clipboardData.items) || [])].filter((i) => i.kind === "file").map((i) => i.getAsFile()));
     if (!files.length) return;
     // (A picture pasted while typing in a box would do nothing there: it is scanned too.)

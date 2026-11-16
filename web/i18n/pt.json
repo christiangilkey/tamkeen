@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"Dá para adicionar no máximo 100 cartões de uma vez.",
 "Your list, one card per line":"Sua lista, um cartão por linha",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"Um cartão por linha: uma palavra ou uma expressão. Depois, você pode adicionar o significado com um travessão, um sinal de igual ou um ponto e vírgula (<0/>), ou colar colunas de uma planilha: palavra, significado, frase, tradução.",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"Nada é adicionado até você apertar o botão: corrija a lista aqui primeiro, se precisar. As escolhas em «Para estes cartões» valem para todos os cartões da lista.",
 "Use these":"Usar estas",
 "For these cards":"Para estes cartões",
 "Fill in the meanings and sentences now, to look them over before adding":"Preencher agora os significados e as frases, para revisar antes de adicionar",

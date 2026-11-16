@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	Walang maidadagdag hangga't hindi mo pinipindot ang button: ayusin muna dito ang listahan kung kailangan. Ang mga pinili sa ilalim ng «Para sa mga card na ito» ay gagamitin sa bawat card dito.

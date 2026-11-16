@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"هر بار حداکثر ۱۰۰ کارت می‌توان اضافه کرد.",
 "Your list, one card per line":"فهرست شما، هر خط یک کارت",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"هر خط یک کارت: یک کلمه یا یک عبارت. بعد از آن می‌توانید معنی‌اش را با خط تیره، علامت مساوی یا نقطه‌ویرگول اضافه کنید (<0/>)، یا ستون‌هایی را از یک جدول بچسبانید: کلمه، معنی، جمله، ترجمه.",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"تا دکمه را نزنید چیزی افزوده نمی‌شود: اگر لازم است اول فهرست را همین‌جا درست کنید. گزینه‌های زیر «برای این کارت‌ها» برای همهٔ کارت‌های آن به کار می‌روند.",
 "Use these":"استفاده از این‌ها",
 "For these cards":"برای این کارت‌ها",
 "Fill in the meanings and sentences now, to look them over before adding":"معنی‌ها و جمله‌ها را همین حالا پر کن تا پیش از افزودن مرورشان کنید",

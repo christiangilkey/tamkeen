@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	No s’afegeix res fins que premis el botó: corregeix la llista aquí primer si cal. Les opcions de «Per a aquestes targetes» s’apliquen a cada targeta.

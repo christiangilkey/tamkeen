@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	No se añade nada hasta que pulses el botón: corrige la lista aquí primero si hace falta. Las opciones de «Para estas tarjetas» se usan para cada tarjeta de la lista.

@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"一度に追加できるカードは100枚までです。",
 "Your list, one card per line":"リスト（1行に1枚のカード）",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"1行に1枚のカード（単語でもフレーズでも）。そのあとに、ダッシュ、イコール、セミコロンで意味を付けられます（<0/>）。表計算ソフトの列（単語、意味、例文、訳）をそのまま貼り付けることもできます。",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"ボタンを押すまで何も追加されません。必要ならここでリストを先に直してください。「これらのカードについて」の設定はリストのすべてのカードに使われます。",
 "Use these":"これを使う",
 "For these cards":"これらのカードについて",
 "Fill in the meanings and sentences now, to look them over before adding":"意味と例文をいま入れて、追加する前に確認する",

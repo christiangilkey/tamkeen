@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"Puoi aggiungere al massimo 100 schede alla volta.",
 "Your list, one card per line":"Il tuo elenco, una scheda per riga",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"Una scheda per riga: una parola o un'espressione. Dopo puoi aggiungere il significato con un trattino, un segno di uguale o un punto e virgola (<0/>), oppure incollare colonne da un foglio di calcolo: parola, significato, frase, traduzione.",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"Non viene aggiunto niente finché non premi il pulsante: correggi prima qui l’elenco, se serve. Le scelte sotto «Per queste schede» valgono per ogni scheda dell’elenco.",
 "Use these":"Usa queste",
 "For these cards":"Per queste schede",
 "Fill in the meanings and sentences now, to look them over before adding":"Compila ora i significati e le frasi, per controllarli prima di aggiungere",

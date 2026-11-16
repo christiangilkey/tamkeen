@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"За один раз можно добавить не больше 100 карточек.",
 "Your list, one card per line":"Ваш список, по карточке на строку",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"По карточке на строку: слово или выражение. После него можно добавить значение через тире, знак равенства или точку с запятой (<0/>), либо вставить столбцы из таблицы: слово, значение, предложение, перевод.",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"Ничего не добавится, пока вы не нажмёте кнопку: если нужно, сначала исправьте список здесь. Выбор в разделе «Для этих карточек» применяется к каждой карточке в нём.",
 "Use these":"Использовать",
 "For these cards":"Для этих карточек",
 "Fill in the meanings and sentences now, to look them over before adding":"Заполнить значения и предложения сейчас, чтобы проверить их перед добавлением",

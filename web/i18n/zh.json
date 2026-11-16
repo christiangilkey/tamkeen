@@ -1721,6 +1721,7 @@
 "At most 100 cards can be added at a time.":"一次最多可以添加 100 张卡片。",
 "Your list, one card per line":"你的列表，每行一张卡片",
 "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.":"每行一张卡片：一个单词或一个短语。后面可以用破折号、等号或分号加上意思（<0/>），也可以粘贴电子表格中的几列：单词、意思、例句、翻译。",
+"Nothing is added until you press the button: fix the list here first if you need to. The choices under \"For these cards\" are used for every card in it.":"按下按钮之前不会添加任何内容：如有需要，先在这里修正列表。“这些卡片”下的选项会用于列表中的每张卡片。",
 "Use these":"使用这些",
 "For these cards":"这些卡片",
 "Fill in the meanings and sentences now, to look them over before adding":"现在就填好意思和例句，添加前先检查一遍",

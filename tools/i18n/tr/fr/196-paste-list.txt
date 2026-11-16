@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	Rien n’est ajouté tant que vous n’appuyez pas sur le bouton : corrigez d’abord la liste ici si besoin. Les choix sous « Pour ces cartes » s’appliquent à chaque carte de la liste.

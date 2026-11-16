@@ -1,0 +1,2 @@
+# Add words → Paste a list (web/js/components/wordbuilder.js).
+fa60ba48	ボタンを押すまで何も追加されません。必要ならここでリストを先に直してください。「これらのカードについて」の設定はリストのすべてのカードに使われます。
