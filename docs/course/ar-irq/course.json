@@ -37,7 +37,6 @@
    "sentence": "أَرِيد ⟦بَسّ⟧ چَاي.",
    "translation": "I ⟦just⟧ want tea.",
    "note": "Not MSA بَسَّ (to crush).",
-   "audio": "audio/0001.ogg",
    "times": {
     "start": 0.06,
     "end": 0.72,
@@ -58,7 +57,6 @@
    "sentence": "هَذَا ⟦مُو⟧ بَيْتِي.",
    "translation": "This is ⟦not⟧ my house.",
    "note": "Not MSA مُو (a plant). MSA says لَيْسَ.",
-   "audio": "audio/0002.ogg",
    "times": {
     "start": 0.06,
     "end": 0.467,
@@ -78,7 +76,6 @@
    "meaning": "this (for a feminine word)",
    "sentence": "⟦هَاي⟧ بِنْتِي.",
    "translation": "⟦This⟧ is my daughter.",
-   "audio": "audio/0003.ogg",
    "times": {
     "start": 0.06,
     "end": 0.399,
@@ -98,7 +95,6 @@
    "meaning": "what?",
    "sentence": "⟦شِنُو⟧ اسْمَك؟",
    "translation": "⟦What's⟧ your name?",
-   "audio": "audio/0004.ogg",
    "times": {
     "start": 0.06,
     "end": 0.582,
@@ -118,7 +114,6 @@
    "meaning": "like this, like that, so",
    "sentence": "لَيْش تِحْچِي ⟦هِيچ⟧؟",
    "translation": "Why are you talking ⟦like that⟧?",
-   "audio": "audio/0005.ogg",
    "times": {
     "start": 0.06,
     "end": 0.546,
@@ -138,7 +133,6 @@
    "meaning": "very",
    "sentence": "الْأَكِل ⟦كُلِّش⟧ طَيِّب.",
    "translation": "The food is ⟦very⟧ tasty.",
-   "audio": "audio/0006.ogg",
    "times": {
     "start": 0.06,
     "end": 0.611,
@@ -158,7 +152,6 @@
    "meaning": "now; just now",
    "sentence": "وَيْنَك ⟦هَسَّه⟧؟",
    "translation": "Where are you ⟦now⟧?",
-   "audio": "audio/0007.ogg",
    "times": {
     "start": 0.06,
     "end": 0.545,
@@ -178,7 +171,6 @@
    "meaning": "why?",
    "sentence": "⟦لَيْش⟧ مَا جِيت؟",
    "translation": "⟦Why⟧ didn't you come?",
-   "audio": "audio/0008.ogg",
    "times": {
     "start": 0.06,
     "end": 0.539,
@@ -198,7 +190,6 @@
    "meaning": "with",
    "sentence": "تِجِي ⟦وِيَّاي⟧ لِلسُّوگ؟",
    "translation": "Will you come to the market ⟦with me⟧?",
-   "audio": "audio/0009.ogg",
    "times": {
     "start": 0.06,
     "end": 0.545,
@@ -219,7 +210,6 @@
    "sentence": "⟦شِفِت⟧ أَخُوك الْبَارْحَة.",
    "translation": "I ⟦saw⟧ your brother yesterday.",
    "note": "In MSA شافَ only means “to look down at”.",
-   "audio": "audio/0010.ogg",
    "times": {
     "start": 0.06,
     "end": 0.676,
@@ -239,7 +229,6 @@
    "meaning": "there is, there are",
    "sentence": "⟦أَكُو⟧ مَطْعَم زَيْن هْنَا.",
    "translation": "⟦There's⟧ a good restaurant here.",
-   "audio": "audio/0011.ogg",
    "times": {
     "start": 0.06,
     "end": 0.487,
@@ -259,7 +248,6 @@
    "meaning": "how much? how many? how long?",
    "sentence": "⟦شْگَدّ⟧ سِعْرَه؟",
    "translation": "⟦How much⟧ is it?",
-   "audio": "audio/0012.ogg",
    "times": {
     "start": 0.06,
     "end": 0.502,
@@ -280,7 +268,6 @@
    "sentence": "أَرِيد ⟦أَحْچِي⟧ وِيَّاك شْوَيَّة.",
    "translation": "I want ⟦to talk⟧ to you for a bit.",
    "note": "MSA حَكَى means to tell, to narrate.",
-   "audio": "audio/0013.ogg",
    "times": {
     "start": 0.06,
     "end": 0.52,
@@ -300,7 +287,6 @@
    "meaning": "how?",
    "sentence": "⟦شْلَوْن⟧ رِحِت لِلشُّغُل؟",
    "translation": "⟦How⟧ did you get to work?",
-   "audio": "audio/0014.ogg",
    "times": {
     "start": 0.06,
     "end": 0.546,
@@ -320,7 +306,6 @@
    "meaning": "we",
    "sentence": "⟦إِحْنَا⟧ مِن بَغْدَاد.",
    "translation": "⟦We're⟧ from Baghdad.",
-   "audio": "audio/0015.ogg",
    "times": {
     "start": 0.06,
     "end": 0.537,
@@ -340,7 +325,6 @@
    "meaning": "who?",
    "sentence": "⟦مِنُو⟧ هَذَا؟",
    "translation": "⟦Who's⟧ this?",
-   "audio": "audio/0016.ogg",
    "times": {
     "start": 0.06,
     "end": 0.556,
@@ -360,7 +344,6 @@
    "meaning": "to come",
    "sentence": "أَخُويَه ⟦إِجَا⟧ مِن الْبَصْرَة.",
    "translation": "My brother ⟦came⟧ from Basra.",
-   "audio": "audio/0017.ogg",
    "times": {
     "start": 0.06,
     "end": 0.457,
@@ -380,7 +363,6 @@
    "meaning": "where?",
    "sentence": "⟦وَيْن⟧ الْحَمَّام؟",
    "translation": "⟦Where's⟧ the bathroom?",
-   "audio": "audio/0018.ogg",
    "times": {
     "start": 0.06,
     "end": 0.512,
@@ -401,7 +383,6 @@
    "sentence": "أَحِبّ بَغْدَاد ⟦هْوَايَة⟧.",
    "translation": "I love Baghdad ⟦a lot⟧.",
    "note": "Not MSA هِوَايَة (hobby).",
-   "audio": "audio/0019.ogg",
    "times": {
     "start": 0.06,
     "end": 0.598,
@@ -422,7 +403,6 @@
    "sentence": "الْحَمْدُ لِلّٰه، آنِي ⟦زَيْن⟧.",
    "translation": "Thank God, I'm ⟦fine⟧.",
    "note": "Not MSA زَيْن (beauty).",
-   "audio": "audio/0020.ogg",
    "times": {
     "start": 0.06,
     "end": 0.572,
@@ -442,7 +422,6 @@
    "meaning": "for, for the sake of; so that",
    "sentence": "جِيت ⟦عَلَمُود⟧ أَشُوفَك.",
    "translation": "I came ⟦so that⟧ I could see you.",
-   "audio": "audio/0021.ogg",
    "times": {
     "start": 0.06,
     "end": 0.67,
@@ -462,7 +441,6 @@
    "meaning": "a little, a bit",
    "sentence": "أَحْچِي عِرَاقِي ⟦شْوَيَّة⟧.",
    "translation": "I speak Iraqi ⟦a little⟧.",
-   "audio": "audio/0022.ogg",
    "times": {
     "start": 0.06,
     "end": 0.576,
@@ -482,7 +460,6 @@
    "meaning": "later; then",
    "sentence": "⟦بَعْدَيْن⟧ أَخَابْرَك.",
    "translation": "I'll phone you ⟦later⟧.",
-   "audio": "audio/0023.ogg",
    "times": {
     "start": 0.06,
     "end": 0.729,
@@ -502,7 +479,6 @@
    "meaning": "when?",
    "sentence": "⟦شْوَكِت⟧ تِرْجَع؟",
    "translation": "⟦When⟧ are you coming back?",
-   "audio": "audio/0024.ogg",
    "times": {
     "start": 0.06,
     "end": 0.541,
@@ -522,7 +498,6 @@
    "meaning": "so then, in that case",
    "sentence": "⟦لَعَد⟧ خَلّ نْرُوح.",
    "translation": "⟦Well then⟧, let's go.",
-   "audio": "audio/0025.ogg",
    "times": {
     "start": 0.06,
     "end": 0.483,
@@ -542,7 +517,6 @@
    "meaning": "you (talking to several people)",
    "sentence": "⟦إِنْتُو⟧ شْتْرِيدُون؟",
    "translation": "What do ⟦you all⟧ want?",
-   "audio": "audio/0026.ogg",
    "times": {
     "start": 0.06,
     "end": 0.54,
@@ -563,7 +537,6 @@
    "sentence": "الصَّيْدَلِيَّة ⟦يَمّ⟧ الْمَطْعَم.",
    "translation": "The pharmacy is ⟦next to⟧ the restaurant.",
    "note": "Not MSA يَمّ (sea).",
-   "audio": "audio/0027.ogg",
    "times": {
     "start": 0.06,
     "end": 0.522,
@@ -584,7 +557,6 @@
    "sentence": "هَذَا ⟦خَوْش⟧ مَطْعَم.",
    "translation": "This is a ⟦good⟧ restaurant.",
    "note": "Not the MSA verb خَوَّشَ (to countersink).",
-   "audio": "audio/0028.ogg",
    "times": {
     "start": 0.06,
     "end": 0.579,
@@ -605,7 +577,6 @@
    "sentence": "اشْتِغَلِت ⟦حَيْل⟧ الْيَوْم.",
    "translation": "I worked ⟦hard⟧ today.",
    "note": "Not MSA حَيْل (strength).",
-   "audio": "audio/0029.ogg",
    "times": {
     "start": 0.06,
     "end": 0.488,
@@ -625,7 +596,6 @@
    "meaning": "to give",
    "sentence": "⟦اِنْطِينِي⟧ التَّلَفَوْن.",
    "translation": "⟦Give me⟧ the phone.",
-   "audio": "audio/0030.ogg",
    "times": {
     "start": 0.06,
     "end": 0.319,
@@ -646,7 +616,6 @@
    "sentence": "أَشُوفَك ⟦بَاچِر⟧.",
    "translation": "See you ⟦tomorrow⟧.",
    "note": "Not MSA بَاكِر (early).",
-   "audio": "audio/0031.ogg",
    "times": {
     "start": 0.06,
     "end": 0.686,
@@ -666,7 +635,6 @@
    "meaning": "Dad!; (to friends) mate, guys",
    "sentence": "⟦يَابَه⟧، تَعَال شُوف!",
    "translation": "⟦Mate⟧, come and look!",
-   "audio": "audio/0032.ogg",
    "times": {
     "start": 0.06,
     "end": 0.581,
@@ -686,7 +654,6 @@
    "meaning": "a, one (before a noun)",
    "sentence": "عِنْدِي ⟦فَدّ⟧ سُؤَال.",
    "translation": "I have ⟦a⟧ question.",
-   "audio": "audio/0033.ogg",
    "times": {
     "start": 0.06,
     "end": 0.441,
@@ -706,7 +673,6 @@
    "meaning": "thing, matter; job (to do)",
    "sentence": "عِنْدِي ⟦شَغْلَة⟧ لَازِم أَخَلُّصْهَا.",
    "translation": "I have ⟦a job⟧ I need to finish.",
-   "audio": "audio/0034.ogg",
    "times": {
     "start": 0.06,
     "end": 0.484,
@@ -726,7 +692,6 @@
    "meaning": "to look (at)",
    "sentence": "⟦بَاوِع⟧ عَلَى هَذَا!",
    "translation": "⟦Look⟧ at this!",
-   "audio": "audio/0035.ogg",
    "times": {
     "start": 0.06,
     "end": 0.602,
@@ -746,7 +711,6 @@
    "meaning": "these",
    "sentence": "⟦هَذَوْل⟧ جِيرَانَّا.",
    "translation": "⟦These⟧ are our neighbours.",
-   "audio": "audio/0036.ogg",
    "times": {
     "start": 0.06,
     "end": 0.57,
@@ -766,7 +730,6 @@
    "meaning": "where from?",
    "sentence": "⟦مْنَيْن⟧ إِنْتَ؟",
    "translation": "⟦Where⟧ are you from?",
-   "audio": "audio/0037.ogg",
    "times": {
     "start": 0.06,
     "end": 0.609,
@@ -786,7 +749,6 @@
    "meaning": "to get fed up, to get bored",
    "sentence": "⟦ضِجِت⟧ مِن الْبَيْت.",
    "translation": "I'm ⟦fed up⟧ with being at home.",
-   "audio": "audio/0038.ogg",
    "times": {
     "start": 0.06,
     "end": 0.567,
@@ -807,7 +769,6 @@
    "sentence": "⟦الْجَهَّال⟧ يِلْعَبُون بَرَّه.",
    "translation": "⟦The kids⟧ are playing outside.",
    "note": "Not MSA جَاهِل (ignorant).",
-   "audio": "audio/0039.ogg",
    "times": {
     "start": 0.06,
     "end": 0.63,
@@ -827,7 +788,6 @@
    "meaning": "hi!",
    "sentence": "⟦هَلَو⟧، شْلَوْنَك؟",
    "translation": "⟦Hi⟧, how are you?",
-   "audio": "audio/0040.ogg",
    "times": {
     "start": 0.06,
     "end": 0.506,
@@ -847,7 +807,6 @@
    "meaning": "to chat",
    "sentence": "گْعَدْنَا ⟦نْسَوْلِف⟧ لِلصُّبُح.",
    "translation": "We sat ⟦chatting⟧ till morning.",
-   "audio": "audio/0041.ogg",
    "times": {
     "start": 0.06,
     "end": 0.674,
@@ -868,7 +827,6 @@
    "sentence": "أَكَلْنَا ⟦تِمَّن⟧ وِمَرَگ الْيَوْم.",
    "translation": "We ate ⟦rice⟧ and stew today.",
    "note": "Not MSA ثَمَن (price).",
-   "audio": "audio/0042.ogg",
    "times": {
     "start": 0.06,
     "end": 0.559,
@@ -889,7 +847,6 @@
    "sentence": "عِنْدَك ⟦طَوْبَة⟧؟ خَلّ نِلْعَب.",
    "translation": "Have you got a ⟦ball⟧? Let's play.",
    "note": "Not MSA طَوْبَة (brick).",
-   "audio": "audio/0043.ogg",
    "times": {
     "start": 0.06,
     "end": 0.379,
@@ -909,7 +866,6 @@
    "meaning": "to send",
    "sentence": "⟦دِزّلِي⟧ الصُّورَة.",
    "translation": "⟦Send me⟧ the picture.",
-   "audio": "audio/0044.ogg",
    "times": {
     "start": 0.06,
     "end": 0.591,
@@ -929,7 +885,6 @@
    "meaning": "under, down, downstairs",
    "sentence": "الْمِفْتَاح ⟦جَوَّه⟧ الْمَيْز.",
    "translation": "The key is ⟦under⟧ the table.",
-   "audio": "audio/0045.ogg",
    "times": {
     "start": 0.06,
     "end": 0.576,
@@ -950,7 +905,6 @@
    "sentence": "أَكُو ⟦كَوْمَة⟧ نَاس بِالشَّارِع.",
    "translation": "There are ⟦a lot of⟧ people in the street.",
    "note": "Not MSA كَوْمَة (heap, pile).",
-   "audio": "audio/0046.ogg",
    "times": {
     "start": 0.06,
     "end": 0.449,
@@ -970,7 +924,6 @@
    "meaning": "donkey; (as an insult) idiot",
    "sentence": "جَدِّي عِنْدَه ⟦مُطِي⟧ بِالْمَزْرَعَة.",
    "translation": "My grandad has a ⟦donkey⟧ on the farm.",
-   "audio": "audio/0047.ogg",
    "times": {
     "start": 0.06,
     "end": 0.583,
@@ -990,7 +943,6 @@
    "meaning": "man, guy",
    "sentence": "هَذَا ⟦الزِّلْمَة⟧ جَارْنَا.",
    "translation": "This ⟦man⟧ is our neighbour.",
-   "audio": "audio/0048.ogg",
    "times": {
     "start": 0.06,
     "end": 0.544,
@@ -1010,7 +962,6 @@
    "meaning": "so, then; well?",
    "sentence": "⟦چَا⟧ شْتْرِيد؟",
    "translation": "⟦So⟧ what do you want?",
-   "audio": "audio/0049.ogg",
    "times": {
     "start": 0.06,
     "end": 0.432,
@@ -1030,7 +981,6 @@
    "meaning": "nose",
    "sentence": "⟦خَشْمَه⟧ أَحْمَر مِن الْبَرْد.",
    "translation": "⟦His nose⟧ is red from the cold.",
-   "audio": "audio/0050.ogg",
    "times": {
     "start": 0.06,
     "end": 0.565,
@@ -1050,7 +1000,6 @@
    "meaning": "well; all right then",
    "sentence": "⟦خَوْب⟧، شْتْرِيد هَسَّه؟",
    "translation": "⟦Well⟧, what do you want now?",
-   "audio": "audio/0051.ogg",
    "times": {
     "start": 0.06,
     "end": 0.43,
@@ -1070,7 +1019,6 @@
    "meaning": "cat",
    "sentence": "⟦الْبَزُّون⟧ يْحِبّ الْحَلِيب.",
    "translation": "⟦The cat⟧ likes milk.",
-   "audio": "audio/0052.ogg",
    "times": {
     "start": 0.06,
     "end": 0.716,
@@ -1090,7 +1038,6 @@
    "meaning": "grandma",
    "sentence": "⟦بِيبِي⟧ تْسَوِّي أَطْيَب كُبَّة.",
    "translation": "⟦Grandma⟧ makes the best kubba.",
-   "audio": "audio/0053.ogg",
    "times": {
     "start": 0.06,
     "end": 0.527,
@@ -1111,7 +1058,6 @@
    "sentence": "⟦خَابِرْنِي⟧ لَمَّن تُوصَل.",
    "translation": "⟦Call me⟧ when you get there.",
    "note": "MSA خَابَرَ means to write to, to contact.",
-   "audio": "audio/0054.ogg",
    "times": {
     "start": 0.06,
     "end": 0.534,
@@ -1131,7 +1077,6 @@
    "meaning": "bread (Iraqi oval rolls)",
    "sentence": "⟦الصَّمُّون⟧ حَارّ، هَسَّه طِلَع.",
    "translation": "⟦The bread⟧ is hot, it's just come out.",
-   "audio": "audio/0055.ogg",
    "times": {
     "start": 0.06,
     "end": 0.706,
@@ -1152,7 +1097,6 @@
    "sentence": "الْكُتُب عَلَى ⟦الْمَيْز⟧.",
    "translation": "The books are on ⟦the table⟧.",
    "note": "Not MSA مَيَّزَ (to tell apart).",
-   "audio": "audio/0056.ogg",
    "times": {
     "start": 0.06,
     "end": 0.646,
@@ -1172,7 +1116,6 @@
    "meaning": "ice cream",
    "sentence": "أَرِيد ⟦مَوْطَة⟧ بِالشُّكُولَاتَة.",
    "translation": "I want chocolate ⟦ice cream⟧.",
-   "audio": "audio/0057.ogg",
    "times": {
     "start": 0.06,
     "end": 0.382,
@@ -1192,7 +1135,6 @@
    "meaning": "spoon",
    "sentence": "⟦الْخَاشُوگَة⟧ وُگْعَت.",
    "translation": "⟦The spoon⟧ fell.",
-   "audio": "audio/0058.ogg",
    "times": {
     "start": 0.06,
     "end": 0.714,
@@ -1212,7 +1154,6 @@
    "meaning": "air conditioner (split unit)",
    "sentence": "⟦السْبِلِت⟧ مَا يِشْتُغُل.",
    "translation": "⟦The air conditioner⟧ isn't working.",
-   "audio": "audio/0059.ogg",
    "times": {
     "start": 0.06,
     "end": 0.496,
@@ -1232,7 +1173,6 @@
    "meaning": "disaster, big trouble",
    "sentence": "صَارَت ⟦طِرْگَاعَة⟧!",
    "translation": "There's been ⟦a disaster⟧!",
-   "audio": "audio/0060.ogg",
    "times": {
     "start": 0.06,
     "end": 0.643,
@@ -1252,7 +1192,6 @@
    "meaning": "wire, cable",
    "sentence": "⟦تَيْل⟧ الشَّاحِن مَگْطُوع.",
    "translation": "The charger ⟦cable⟧ is broken.",
-   "audio": "audio/0061.ogg",
    "times": {
     "start": 0.06,
     "end": 0.372,
@@ -1272,7 +1211,6 @@
    "meaning": "fare (for a taxi or bus)",
    "sentence": "⟦الْكَرْوَة⟧ خَمِس تَالَاف.",
    "translation": "⟦The fare⟧ is five thousand.",
-   "audio": "audio/0062.ogg",
    "times": {
     "start": 0.06,
     "end": 0.446,
@@ -1292,7 +1230,6 @@
    "meaning": "to have breakfast",
    "sentence": "⟦تْرَيَّگِت⟧ صَمُّون وِگَيْمَر.",
    "translation": "I ⟦had breakfast⟧: bread and cream.",
-   "audio": "audio/0063.ogg",
    "times": {
     "start": 0.06,
     "end": 0.623,
@@ -1312,7 +1249,6 @@
    "meaning": "bicycle",
    "sentence": "عِنْدِي ⟦بَايْسِكِل⟧ جِدِيد.",
    "translation": "I've got a new ⟦bike⟧.",
-   "audio": "audio/0064.ogg",
    "times": {
     "start": 0.06,
     "end": 0.738,
@@ -1332,7 +1268,6 @@
    "meaning": "fan (electric, often on the ceiling)",
    "sentence": "شَغِّل ⟦الْبَنْكَة⟧، الْجَوّ حَارّ.",
    "translation": "Turn on ⟦the fan⟧, it's hot.",
-   "audio": "audio/0065.ogg",
    "times": {
     "start": 0.06,
     "end": 0.513,
@@ -1352,7 +1287,6 @@
    "meaning": "kettle",
    "sentence": "حُطّ ⟦الْكِتْلِي⟧ عَلَى النَّار.",
    "translation": "Put ⟦the kettle⟧ on.",
-   "audio": "audio/0066.ogg",
    "times": {
     "start": 0.06,
     "end": 0.508,
@@ -1372,7 +1306,6 @@
    "meaning": "rude, ill-mannered",
    "sentence": "لَا تْصِير ⟦أَدَبْسِز⟧.",
    "translation": "Don't be ⟦rude⟧.",
-   "audio": "audio/0067.ogg",
    "times": {
     "start": 0.06,
     "end": 0.874,
@@ -1393,7 +1326,6 @@
    "sentence": "اِلْبَس ⟦الشَّفْقَة⟧، الشَّمِس حَارَّة.",
    "translation": "Put on ⟦your hat⟧, the sun's hot.",
    "note": "Not MSA شَفَقَة (pity).",
-   "audio": "audio/0068.ogg",
    "times": {
     "start": 0.06,
     "end": 0.498,
@@ -1413,7 +1345,6 @@
    "meaning": "sofa",
    "sentence": "اُگْعُد عَلَى ⟦الْقَنَفَة⟧.",
    "translation": "Sit on ⟦the sofa⟧.",
-   "audio": "audio/0069.ogg",
    "times": {
     "start": 0.06,
     "end": 0.563,
@@ -1433,7 +1364,6 @@
    "meaning": "motor: a water pump, a generator; motorbike",
    "sentence": "⟦مَاطَوْر⟧ الْمَاي عَاطِل.",
    "translation": "The water ⟦pump⟧ is broken.",
-   "audio": "audio/0070.ogg",
    "times": {
     "start": 0.06,
     "end": 0.606,
@@ -1453,7 +1383,6 @@
    "meaning": "towel",
    "sentence": "وَيْن ⟦الْخَاوْلِي⟧؟",
    "translation": "Where's ⟦the towel⟧?",
-   "audio": "audio/0071.ogg",
    "times": {
     "start": 0.06,
     "end": 0.569,
@@ -1473,7 +1402,6 @@
    "meaning": "mattress",
    "sentence": "نِمِت عَلَى ⟦دَوْشَگ⟧ بِالْگَاع.",
    "translation": "I slept on a ⟦mattress⟧ on the floor.",
-   "audio": "audio/0072.ogg",
    "times": {
     "start": 0.06,
     "end": 0.54,
@@ -1493,7 +1421,6 @@
    "meaning": "puncture, flat tyre",
    "sentence": "السَّيَّارَة بِيهَا ⟦بَنْچَر⟧.",
    "translation": "The car has a ⟦flat tyre⟧.",
-   "audio": "audio/0073.ogg",
    "times": {
     "start": 0.06,
     "end": 0.621,
@@ -1513,7 +1440,6 @@
    "meaning": "fork",
    "sentence": "اِنْطِينِي ⟦چَطَل⟧ وِخَاشُوگَة.",
    "translation": "Give me a ⟦fork⟧ and a spoon.",
-   "audio": "audio/0074.ogg",
    "times": {
     "start": 0.06,
     "end": 0.542,
@@ -1533,7 +1459,6 @@
    "meaning": "desert, wasteland",
    "sentence": "كُلَّه ⟦چَوْل⟧، مَاكُو بُيُوت.",
    "translation": "It's all ⟦desert⟧, there are no houses.",
-   "audio": "audio/0075.ogg",
    "times": {
     "start": 0.06,
     "end": 0.377,
@@ -1553,7 +1478,6 @@
    "meaning": "frog",
    "sentence": "أَكُو ⟦عَگْرُوگ⟧ بِالْحَدِيگَة.",
    "translation": "There's a ⟦frog⟧ in the garden.",
-   "audio": "audio/0076.ogg",
    "times": {
     "start": 0.06,
     "end": 0.641,
@@ -1573,7 +1497,6 @@
    "meaning": "bed",
    "sentence": "⟦الْقَرْيَوْلَة⟧ زْغَيْرَة.",
    "translation": "⟦The bed⟧ is small.",
-   "audio": "audio/0077.ogg",
    "times": {
     "start": 0.06,
     "end": 0.566,
@@ -1593,7 +1516,6 @@
    "meaning": "throat",
    "sentence": "⟦زَرْدُومِي⟧ يَوْجَعْنِي.",
    "translation": "⟦My throat⟧ hurts.",
-   "audio": "audio/0078.ogg",
    "times": {
     "start": 0.06,
     "end": 0.692,
@@ -1613,7 +1535,6 @@
    "meaning": "wheel",
    "sentence": "⟦چَرِخ⟧ الْبَايْسِكِل مَكْسُور.",
    "translation": "The bike's ⟦wheel⟧ is broken.",
-   "audio": "audio/0079.ogg",
    "times": {
     "start": 0.06,
     "end": 0.503,

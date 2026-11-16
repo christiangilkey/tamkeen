@@ -36,7 +36,6 @@
    "meaning": "only, just; but; enough",
    "sentence": "أَبِي قَهْوَة ⟦بَسّ⟧.",
    "translation": "I ⟦just⟧ want coffee.",
-   "audio": "audio/0001.ogg",
    "times": {
     "start": 0.06,
     "end": 0.655,
@@ -56,7 +55,6 @@
    "meaning": "what",
    "sentence": "⟦وِشْ⟧ اسْمِك؟",
    "translation": "⟦What⟧'s your name?",
-   "audio": "audio/0002.ogg",
    "times": {
     "start": 0.06,
     "end": 0.541,
@@ -77,7 +75,6 @@
    "sentence": "أَنَا مَشْغُول ⟦الْحِين⟧.",
    "translation": "I'm busy ⟦now⟧.",
    "note": "Not MSA حِين “time, while”.",
-   "audio": "audio/0003.ogg",
    "times": {
     "start": 0.06,
     "end": 0.739,
@@ -97,7 +94,6 @@
    "meaning": "because (of); so that",
    "sentence": "تَأَخَّرْت ⟦عَشَان⟧ الزَّحْمَة.",
    "translation": "I was late ⟦because of⟧ the traffic.",
-   "audio": "audio/0004.ogg",
    "times": {
     "start": 0.06,
     "end": 0.7,
@@ -118,7 +114,6 @@
    "sentence": "⟦شِفْت⟧ أَحْمَد أَمْس.",
    "translation": "I ⟦saw⟧ Ahmad yesterday.",
    "note": "MSA شَافَ is a rare word for “to look down at”.",
-   "audio": "audio/0005.ogg",
    "times": {
     "start": 0.06,
     "end": 0.693,
@@ -138,7 +133,6 @@
    "meaning": "not (with nouns and adjectives)",
    "sentence": "الْأَكِل ⟦مُو⟧ حَارّ.",
    "translation": "The food is ⟦not⟧ spicy.",
-   "audio": "audio/0006.ogg",
    "times": {
     "start": 0.06,
     "end": 0.465,
@@ -159,7 +153,6 @@
    "sentence": "أَبِي ⟦شْوَيّ⟧ سُكَّر.",
    "translation": "I want ⟦a little⟧ sugar.",
    "note": "Not MSA شَوَى “to grill”.",
-   "audio": "audio/0007.ogg",
    "times": {
     "start": 0.06,
     "end": 0.671,
@@ -179,7 +172,6 @@
    "meaning": "later; then",
    "sentence": "أَكَلِّمِك ⟦بَعْدَيْن⟧.",
    "translation": "I'll talk to you ⟦later⟧.",
-   "audio": "audio/0008.ogg",
    "times": {
     "start": 0.06,
     "end": 0.792,
@@ -199,7 +191,6 @@
    "meaning": "where",
    "sentence": "⟦وَيْن⟧ السَّيَّارَة؟",
    "translation": "⟦Where⟧'s the car?",
-   "audio": "audio/0009.ogg",
    "times": {
     "start": 0.06,
     "end": 0.536,
@@ -219,7 +210,6 @@
    "meaning": "why",
    "sentence": "⟦لَيْش⟧ مَا جِيت أَمْس؟",
    "translation": "⟦Why⟧ didn't you come yesterday?",
-   "audio": "audio/0010.ogg",
    "times": {
     "start": 0.06,
     "end": 0.556,
@@ -240,7 +230,6 @@
    "sentence": "وَلَدَه ⟦زَيّ⟧ أَبُوه.",
    "translation": "His son is ⟦like⟧ his father.",
    "note": "Not MSA زِيّ “uniform, costume”.",
-   "audio": "audio/0011.ogg",
    "times": {
     "start": 0.06,
     "end": 0.602,
@@ -260,7 +249,6 @@
    "meaning": "come on; let's go",
    "sentence": "⟦يَلَّا⟧، تَأَخَّرْنَا!",
    "translation": "⟦Come on⟧, we're late!",
-   "audio": "audio/0012.ogg",
    "times": {
     "start": 0.06,
     "end": 0.465,
@@ -281,7 +269,6 @@
    "sentence": "⟦قِطّ⟧ الزِّبَالَة بَرَّا.",
    "translation": "⟦Throw⟧ the rubbish outside.",
    "note": "Not MSA قَطَّ “to trim” or قِطّ “cat”.",
-   "audio": "audio/0013.ogg",
    "times": {
     "start": 0.06,
     "end": 0.372,
@@ -302,7 +289,6 @@
    "sentence": "⟦جِيب⟧ لِي مُويَة، الله يِعَافِيك.",
    "translation": "⟦Bring⟧ me some water, please.",
    "note": "Not MSA جَابَ “to roam, explore”.",
-   "audio": "audio/0014.ogg",
    "times": {
     "start": 0.06,
     "end": 0.578,
@@ -323,7 +309,6 @@
    "sentence": "الْأَكِل ⟦زَيْن⟧.",
    "translation": "The food is ⟦good⟧.",
    "note": "MSA زَيْن means “beauty, adornment”.",
-   "audio": "audio/0015.ogg",
    "times": {
     "start": 0.06,
     "end": 0.65,
@@ -343,7 +328,6 @@
    "meaning": "how",
    "sentence": "⟦وِشْلُون⟧ الشُّغُل مَعَك؟",
    "translation": "⟦How⟧'s work going?",
-   "audio": "audio/0016.ogg",
    "times": {
     "start": 0.06,
     "end": 0.741,
@@ -364,7 +348,6 @@
    "sentence": "⟦هَلَا⟧ وَالله، تَفَضَّل!",
    "translation": "⟦Hi⟧ there, come in!",
    "note": "Not MSA هَلَّا “why not, won't you”.",
-   "audio": "audio/0017.ogg",
    "times": {
     "start": 0.06,
     "end": 0.536,
@@ -385,7 +368,6 @@
    "sentence": "انْتَظِرْنِي ⟦لَيْن⟧ أَجِي.",
    "translation": "Wait for me ⟦until⟧ I come.",
    "note": "Not MSA لِين “softness”.",
-   "audio": "audio/0018.ogg",
    "times": {
     "start": 0.06,
     "end": 0.538,
@@ -406,7 +388,6 @@
    "sentence": "مَا عِنْدِي ⟦فْلُوس⟧.",
    "translation": "I don't have any ⟦money⟧.",
    "note": "MSA فُلُوس are “fils, small coins”.",
-   "audio": "audio/0019.ogg",
    "times": {
     "start": 0.06,
     "end": 0.882,
@@ -426,7 +407,6 @@
    "meaning": "water",
    "sentence": "عَطْنِي ⟦مُويَة⟧ بَارْدَة.",
    "translation": "Give me some cold ⟦water⟧.",
-   "audio": "audio/0020.ogg",
    "times": {
     "start": 0.06,
     "end": 0.624,
@@ -447,7 +427,6 @@
    "sentence": "طَالِع مَع ⟦رَبْع⟧ِي.",
    "translation": "I'm going out with my ⟦friends⟧.",
    "note": "Not MSA رُبْع “quarter”.",
-   "audio": "audio/0021.ogg",
    "times": {
     "start": 0.06,
     "end": 0.563,
@@ -468,7 +447,6 @@
    "sentence": "عِنْدِي ثَلَاث ⟦عِيَال⟧.",
    "translation": "I have three ⟦kids⟧.",
    "note": "MSA عِيَال means “dependents”.",
-   "audio": "audio/0022.ogg",
    "times": {
     "start": 0.06,
     "end": 0.706,
@@ -489,7 +467,6 @@
    "sentence": "⟦بَوَدِّي⟧ك الْمَطَار بَاكِر.",
    "translation": "I'll ⟦take⟧ you to the airport tomorrow.",
    "note": "Not MSA وَدَى “to pay blood money”.",
-   "audio": "audio/0023.ogg",
    "times": {
     "start": 0.06,
     "end": 0.539,
@@ -509,7 +486,6 @@
    "meaning": "story; matter, thing",
    "sentence": "عِنْدِي ⟦سَالْفَة⟧ حِلْوَة لَك.",
    "translation": "I've got a good ⟦story⟧ for you.",
-   "audio": "audio/0024.ogg",
    "times": {
     "start": 0.06,
     "end": 0.62,
@@ -529,7 +505,6 @@
    "meaning": "not (also مُب, مَهُوب “he isn't”)",
    "sentence": "هَذَا ⟦مُوب⟧ صَحِيح.",
    "translation": "That's ⟦not⟧ true.",
-   "audio": "audio/0025.ogg",
    "times": {
     "start": 0.06,
     "end": 0.57,
@@ -549,7 +524,6 @@
    "meaning": "I don't know",
    "sentence": "⟦مَدْرِي⟧ وَيْن حَطَّيْت الْمِفْتَاح.",
    "translation": "⟦I don't know⟧ where I put the key.",
-   "audio": "audio/0026.ogg",
    "times": {
     "start": 0.06,
     "end": 0.717,
@@ -569,7 +543,6 @@
    "meaning": "hometown; home country",
    "sentence": "هَذِي ⟦دِيرَة⟧ أَهْلِي.",
    "translation": "This is my family's ⟦hometown⟧.",
-   "audio": "audio/0027.ogg",
    "times": {
     "start": 0.06,
     "end": 0.56,
@@ -590,7 +563,6 @@
    "sentence": "الْجَوّ حَارّ ⟦بَرَّا⟧.",
    "translation": "It's hot ⟦outside⟧.",
    "note": "Not MSA بَرًّا “by land”.",
-   "audio": "audio/0028.ogg",
    "times": {
     "start": 0.06,
     "end": 0.571,
@@ -610,7 +582,6 @@
    "meaning": "here's hoping (you're) next",
    "sentence": "⟦عُقْبَال⟧ مَا نِفْرَح فِيك.",
    "translation": "⟦Here's hoping⟧ we celebrate you next.",
-   "audio": "audio/0029.ogg",
    "times": {
     "start": 0.06,
     "end": 0.816,
@@ -630,7 +601,6 @@
    "meaning": "these",
    "sentence": "⟦هَذُولَا⟧ عِيَالِي.",
    "translation": "⟦These⟧ are my children.",
-   "audio": "audio/0030.ogg",
    "times": {
     "start": 0.06,
     "end": 0.767,
@@ -651,7 +621,6 @@
    "sentence": "⟦أَبْشِر⟧، الْحِين أَجِيبَه لَك.",
    "translation": "⟦Sure⟧, I'll bring it to you now.",
    "note": "MSA أَبْشِرْ means “rejoice, good news!”.",
-   "audio": "audio/0031.ogg",
    "times": {
     "start": 0.06,
     "end": 0.569,
@@ -671,7 +640,6 @@
    "meaning": "sorry; never mind",
    "sentence": "⟦مَعْلِيش⟧، مَا انْتَبَهْت.",
    "translation": "⟦Sorry⟧, I didn't notice.",
-   "audio": "audio/0032.ogg",
    "times": {
     "start": 0.06,
     "end": 0.886,
@@ -692,7 +660,6 @@
    "sentence": "كَلَامَه ⟦قِهَر⟧نِي.",
    "translation": "What he said ⟦upset⟧ me.",
    "note": "MSA قَهَرَ means “to conquer, overpower”.",
-   "audio": "audio/0033.ogg",
    "times": {
     "start": 0.06,
     "end": 0.548,
@@ -713,7 +680,6 @@
    "sentence": "⟦دِقّ⟧ عَلَيّ إِذَا وَصَلْت.",
    "translation": "⟦Call⟧ me when you arrive.",
    "note": "In MSA دَقَّ only means “to knock, pound”.",
-   "audio": "audio/0034.ogg",
    "times": {
     "start": 0.06,
     "end": 0.564,
@@ -734,7 +700,6 @@
    "sentence": "أَبُوي ⟦عَصَّب⟧ عَلَيّ.",
    "translation": "My dad ⟦got angry⟧ with me.",
    "note": "MSA عَصَّبَ means “to bandage”.",
-   "audio": "audio/0035.ogg",
    "times": {
     "start": 0.06,
     "end": 0.711,
@@ -755,7 +720,6 @@
    "sentence": "عِنْدِي شُغُل ⟦وَاجِد⟧.",
    "translation": "I have ⟦a lot of⟧ work.",
    "note": "Not MSA وَاجِد “finding”.",
-   "audio": "audio/0036.ogg",
    "times": {
     "start": 0.06,
     "end": 0.795,
@@ -776,7 +740,6 @@
    "sentence": "تِعِبْت ⟦حَيْل⟧ الْيَوْم.",
    "translation": "I got ⟦really⟧ tired today.",
    "note": "MSA حَيْل means “strength”.",
-   "audio": "audio/0037.ogg",
    "times": {
     "start": 0.06,
     "end": 0.517,
@@ -797,7 +760,6 @@
    "sentence": "⟦اسْتَانَسْنَا⟧ فِي الْكَشْتَة.",
    "translation": "We ⟦had a great time⟧ on the desert picnic.",
    "note": "MSA اِسْتَأْنَسَ means “to be sociable, become tame”.",
-   "audio": "audio/0038.ogg",
    "times": {
     "start": 0.06,
     "end": 0.878,
@@ -818,7 +780,6 @@
    "sentence": "لَا ⟦تِطِقّ⟧ أَخُوك!",
    "translation": "Don't ⟦hit⟧ your brother!",
    "note": "MSA طَقَّ means “to crack, snap”.",
-   "audio": "audio/0039.ogg",
    "times": {
     "start": 0.06,
     "end": 0.366,
@@ -839,7 +800,6 @@
    "sentence": "الْغَدَا ⟦عَيْش⟧ وْلَحَم.",
    "translation": "Lunch is ⟦rice⟧ and meat.",
    "note": "MSA عَيْش means “living, life”.",
-   "audio": "audio/0040.ogg",
    "times": {
     "start": 0.06,
     "end": 0.595,
@@ -859,7 +819,6 @@
    "meaning": "early",
    "sentence": "نِمْت ⟦بَدْرِي⟧ أَمْس.",
    "translation": "I went to bed ⟦early⟧ yesterday.",
-   "audio": "audio/0041.ogg",
    "times": {
     "start": 0.06,
     "end": 0.76,
@@ -879,7 +838,6 @@
    "meaning": "nonsense",
    "sentence": "لَا تْصَدِّق هَالْ⟦خَرَابِيط⟧.",
    "translation": "Don't believe this ⟦nonsense⟧.",
-   "audio": "audio/0042.ogg",
    "times": {
     "start": 0.06,
     "end": 0.776,
@@ -900,7 +858,6 @@
    "sentence": "هَالتَّصَرُّف ⟦شَيْن⟧.",
    "translation": "That behaviour is ⟦bad⟧.",
    "note": "MSA شَيْن means “disgrace”.",
-   "audio": "audio/0043.ogg",
    "times": {
     "start": 0.06,
     "end": 0.585,
@@ -920,7 +877,6 @@
    "meaning": "that (masculine)",
    "sentence": "مِن ⟦هَذَاك⟧ الرِّجَّال؟",
    "translation": "Who's ⟦that⟧ man?",
-   "audio": "audio/0044.ogg",
    "times": {
     "start": 0.06,
     "end": 0.672,
@@ -940,7 +896,6 @@
    "meaning": "nose",
    "sentence": "عِنْدَه ⟦خَشْم⟧ كْبِير.",
    "translation": "He has a big ⟦nose⟧.",
-   "audio": "audio/0045.ogg",
    "times": {
     "start": 0.06,
     "end": 0.575,
@@ -961,7 +916,6 @@
    "sentence": "الْفِلْم ⟦رَهِيب⟧!",
    "translation": "The film is ⟦awesome⟧!",
    "note": "In MSA رَهِيب means “terrible, dreadful”.",
-   "audio": "audio/0046.ogg",
    "times": {
     "start": 0.06,
     "end": 0.763,
@@ -981,7 +935,6 @@
    "meaning": "to chat",
    "sentence": "جِلَسْنَا ⟦نْسَوْلِف⟧ لَيْن الْفَجِر.",
    "translation": "We sat ⟦chatting⟧ until dawn.",
-   "audio": "audio/0047.ogg",
    "times": {
     "start": 0.06,
     "end": 0.613,
@@ -1001,7 +954,6 @@
    "meaning": "for free",
    "sentence": "الدُّخُول ⟦بِبَلَاش⟧.",
    "translation": "Entry is ⟦free⟧.",
-   "audio": "audio/0048.ogg",
    "times": {
     "start": 0.06,
     "end": 0.92,
@@ -1021,7 +973,6 @@
    "meaning": "fun, a good time",
    "sentence": "الطَّلْعَة كَانَت ⟦وَنَاسَة⟧.",
    "translation": "The trip was ⟦fun⟧.",
-   "audio": "audio/0049.ogg",
    "times": {
     "start": 0.06,
     "end": 0.966,
@@ -1042,7 +993,6 @@
    "sentence": "الْبَقَّالَة ⟦يَمّ⟧ الْمَسْجِد.",
    "translation": "The corner shop is ⟦next to⟧ the mosque.",
    "note": "Not MSA يَمّ “sea”.",
-   "audio": "audio/0050.ogg",
    "times": {
     "start": 0.06,
     "end": 0.566,
@@ -1062,7 +1012,6 @@
    "meaning": "get well soon",
    "sentence": "⟦سَلَامَات⟧! وِشْ فِيك؟",
    "translation": "⟦Get well soon⟧! What's wrong?",
-   "audio": "audio/0051.ogg",
    "times": {
     "start": 0.06,
     "end": 0.857,
@@ -1083,7 +1032,6 @@
    "sentence": "لَا تْسَوِّي زَيّ الْ⟦بَزْر⟧!",
    "translation": "Don't act like a ⟦kid⟧!",
    "note": "Not MSA بِزْر “seed”.",
-   "audio": "audio/0052.ogg",
    "times": {
     "start": 0.06,
     "end": 0.607,
@@ -1104,7 +1052,6 @@
    "sentence": "شِرَى ⟦دَبَّاب⟧ جْدِيد.",
    "translation": "He bought a new ⟦motorbike⟧.",
    "note": "MSA دَبَّاب means “crawling”.",
-   "audio": "audio/0053.ogg",
    "times": {
     "start": 0.06,
     "end": 0.863,
@@ -1124,7 +1071,6 @@
    "meaning": "to move aside, get out of the way",
    "sentence": "⟦وَخِّر⟧ عَن الطَّرِيق!",
    "translation": "⟦Move⟧ out of the way!",
-   "audio": "audio/0054.ogg",
    "times": {
     "start": 0.06,
     "end": 0.56,
@@ -1145,7 +1091,6 @@
    "sentence": "⟦طِفِشْت⟧ مِن الْبَيْت.",
    "translation": "I ⟦got bored⟧ of being at home.",
    "note": "MSA طَفَشَ means “to run away”.",
-   "audio": "audio/0055.ogg",
    "times": {
     "start": 0.06,
     "end": 0.503,
@@ -1165,7 +1110,6 @@
    "meaning": "proper, well-mannered",
    "sentence": "هَذَا الْوَلَد ⟦سَنَع⟧.",
    "translation": "This boy is ⟦well-mannered⟧.",
-   "audio": "audio/0056.ogg",
    "times": {
     "start": 0.06,
     "end": 0.594,
@@ -1185,7 +1129,6 @@
    "meaning": "mess",
    "sentence": "الْغُرْفَة ⟦حَوْسَة⟧!",
    "translation": "The room is a ⟦mess⟧!",
-   "audio": "audio/0057.ogg",
    "times": {
     "start": 0.06,
     "end": 0.62,
@@ -1205,7 +1148,6 @@
    "meaning": "shemagh (red-checked headscarf)",
    "sentence": "لِبَس ⟦شِمَاغ⟧ جْدِيد.",
    "translation": "He put on a new ⟦shemagh⟧.",
-   "audio": "audio/0058.ogg",
    "times": {
     "start": 0.06,
     "end": 0.927,
@@ -1225,7 +1167,6 @@
    "meaning": "that (feminine)",
    "sentence": "⟦هَذِيك⟧ سَيَّارَة أَخُوي.",
    "translation": "⟦That⟧'s my brother's car.",
-   "audio": "audio/0059.ogg",
    "times": {
     "start": 0.06,
     "end": 0.714,
@@ -1246,7 +1187,6 @@
    "sentence": "رَاسِي ⟦يْعَوِّر⟧نِي.",
    "translation": "My head ⟦hurts⟧.",
    "note": "MSA عَوَّرَ means “to blind in one eye”.",
-   "audio": "audio/0060.ogg",
    "times": {
     "start": 0.06,
     "end": 0.505,
@@ -1266,7 +1206,6 @@
    "meaning": "there's time to; can manage to",
    "sentence": "⟦يِمْدِي⟧نَا نِلْحَق الْفِلْم؟",
    "translation": "Do we ⟦have time to⟧ catch the film?",
-   "audio": "audio/0061.ogg",
    "times": {
     "start": 0.06,
     "end": 0.659,
@@ -1286,7 +1225,6 @@
    "meaning": "to drift, spin a car's wheels",
    "sentence": "الشَّبَاب ⟦يْفَحِّطُون⟧ فِي الشَّارِع.",
    "translation": "The young men are ⟦drifting⟧ in the street.",
-   "audio": "audio/0062.ogg",
    "times": {
     "start": 0.06,
     "end": 0.617,
@@ -1306,7 +1244,6 @@
    "meaning": "smart, stylish",
    "sentence": "لِبْسَك الْيَوْم ⟦كَشْخَة⟧.",
    "translation": "Your outfit is ⟦smart⟧ today.",
-   "audio": "audio/0063.ogg",
    "times": {
     "start": 0.06,
     "end": 0.523,
@@ -1326,7 +1263,6 @@
    "meaning": "what a pity; alas",
    "sentence": "⟦حَسَافَة⟧ مَا جِيت مَعَنَا!",
    "translation": "⟦What a pity⟧ you didn't come with us!",
-   "audio": "audio/0064.ogg",
    "times": {
     "start": 0.06,
     "end": 0.764,
@@ -1346,7 +1282,6 @@
    "meaning": "to lie down",
    "sentence": "تِعْبَان، ⟦بَنْسَدِح⟧ شْوَيّ.",
    "translation": "I'm tired, I'll ⟦lie down⟧ for a bit.",
-   "audio": "audio/0065.ogg",
    "times": {
     "start": 0.06,
     "end": 0.657,
@@ -1366,7 +1301,6 @@
    "meaning": "welcome!",
    "sentence": "⟦ارْحَب⟧، حَيَّاك الله!",
    "translation": "⟦Welcome⟧, come on in!",
-   "audio": "audio/0066.ogg",
    "times": {
     "start": 0.06,
     "end": 0.573,
@@ -1386,7 +1320,6 @@
    "meaning": "ghutra (white headscarf)",
    "sentence": "الْ⟦غُتْرَة⟧ الْبَيْضَا لِلصَّيْف.",
    "translation": "The white ⟦ghutra⟧ is for summer.",
-   "audio": "audio/0067.ogg",
    "times": {
     "start": 0.06,
     "end": 0.571,
@@ -1406,7 +1339,6 @@
    "meaning": "rubbish, of bad quality",
    "sentence": "هَالْجَوَّال ⟦خَرْطِي⟧.",
    "translation": "This phone is ⟦rubbish⟧.",
-   "audio": "audio/0068.ogg",
    "times": {
     "start": 0.06,
     "end": 0.639,
@@ -1426,7 +1358,6 @@
    "meaning": "groceries, shopping",
    "sentence": "جِبْت ⟦مَقَاضِي⟧ الْبَيْت.",
    "translation": "I got the ⟦groceries⟧ for the house.",
-   "audio": "audio/0069.ogg",
    "times": {
     "start": 0.06,
     "end": 0.843,
@@ -1446,7 +1377,6 @@
    "meaning": "to ignore",
    "sentence": "رَسَّلْت لَه، وْ⟦طَنَّش⟧نِي.",
    "translation": "I texted him, and he ⟦ignored⟧ me.",
-   "audio": "audio/0070.ogg",
    "times": {
     "start": 0.06,
     "end": 0.6,
@@ -1466,7 +1396,6 @@
    "meaning": "to have a shower",
    "sentence": "⟦بَتْسَبَّح⟧ وْأَجِي.",
    "translation": "I'll ⟦shower⟧ and come.",
-   "audio": "audio/0071.ogg",
    "times": {
     "start": 0.06,
     "end": 0.73,
@@ -1486,7 +1415,6 @@
    "meaning": "to get into trouble, get stuck",
    "sentence": "⟦تْوَهَّقْت⟧ بِالشُّغُل الْيَوْم.",
    "translation": "I ⟦got stuck⟧ with work today.",
-   "audio": "audio/0072.ogg",
    "times": {
     "start": 0.06,
     "end": 0.779,
@@ -1506,7 +1434,6 @@
    "meaning": "small tea glass",
    "sentence": "عَطْنِي ⟦بِيَالَة⟧ شَاهِي.",
    "translation": "Give me a ⟦glass⟧ of tea.",
-   "audio": "audio/0073.ogg",
    "times": {
     "start": 0.06,
     "end": 0.832,
@@ -1526,7 +1453,6 @@
    "meaning": "talk, chatter",
    "sentence": "كِلَّه ⟦هَرْجَة⟧ وْبَسّ.",
    "translation": "It's all just ⟦talk⟧.",
-   "audio": "audio/0074.ogg",
    "times": {
     "start": 0.06,
     "end": 0.566,
@@ -1546,7 +1472,6 @@
    "meaning": "sand dune",
    "sentence": "فِيه ⟦طَعْس⟧ كْبِير وَرَا الْمُخَيَّم.",
    "translation": "There's a big ⟦dune⟧ behind the camp.",
-   "audio": "audio/0075.ogg",
    "times": {
     "start": 0.06,
     "end": 0.517,
@@ -1566,7 +1491,6 @@
    "meaning": "undershirt, vest",
    "sentence": "لِبِسْت ⟦فَنِيلَة⟧ تَحْت الثَّوْب.",
    "translation": "I wore an ⟦undershirt⟧ under my thobe.",
-   "audio": "audio/0076.ogg",
    "times": {
     "start": 0.06,
     "end": 0.742,
@@ -1586,7 +1510,6 @@
    "meaning": "nosy",
    "sentence": "لَا تْصِير ⟦مَلْقُوف⟧!",
    "translation": "Don't be ⟦nosy⟧!",
-   "audio": "audio/0077.ogg",
    "times": {
     "start": 0.06,
     "end": 0.888,
@@ -1606,7 +1529,6 @@
    "meaning": "desert picnic, outing",
    "sentence": "بِنْرُوح ⟦كَشْتَة⟧ يَوْم الْجُمْعَة.",
    "translation": "We'll go on a ⟦desert picnic⟧ on Friday.",
-   "audio": "audio/0078.ogg",
    "times": {
     "start": 0.06,
     "end": 0.486,
@@ -1626,7 +1548,6 @@
    "meaning": "bland; unfunny",
    "sentence": "الْأَكِل ⟦مَاصِخ⟧، يَبِي مِلِح.",
    "translation": "The food is ⟦bland⟧, it needs salt.",
-   "audio": "audio/0079.ogg",
    "times": {
     "start": 0.06,
     "end": 0.68,
@@ -1646,7 +1567,6 @@
    "meaning": "steering wheel",
    "sentence": "⟦دِرْكْسُون⟧ السَّيَّارَة ثَقِيل.",
    "translation": "The car's ⟦steering wheel⟧ is heavy.",
-   "audio": "audio/0080.ogg",
    "times": {
     "start": 0.06,
     "end": 0.765,

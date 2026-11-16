@@ -29,7 +29,7 @@ from typing import Any
 
 # The old one-file-per-word audio, for app versions before the packs (v0.57.0 and older). Kept for one
 # release, then removed (the owner's decision; HANDOFF "Course audio packs").
-KEEP_SINGLE_FILES = True
+KEEP_SINGLE_FILES = False
 
 UNIT = 50
 

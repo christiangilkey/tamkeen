@@ -8844,7 +8844,8 @@ them course `.ogg`, one per word); pack each course's audio into a few files the
   then packs (`packs.pack_course`). Audio made before is read back out of the old pack when its own file is gone
   (`packs.clip_bytes`), so nothing is ever voiced twice. `tools/course/pack_audio.py [ids]` repacks without making
   audio (used once for all courses). `check_audio.py` reads clips the same way.
-- **Old files**: `packs.KEEP_SINGLE_FILES = True` keeps `audio/NNNN.ogg` and each word's `"audio"` for app versions
+- **Old files: removed in v0.59.0** (the owner chose A: kept one release). `KEEP_SINGLE_FILES` is now False and docs/course has the packs only. What follows is how it was:
+  `packs.KEEP_SINGLE_FILES = True` kept `audio/NNNN.ogg` and each word's `"audio"` for app versions
   up to v0.57.0 (they only know single files). Owner asked in the Decisions chat (2026-11-15): A = keep them one
   release (recommended), B = remove now. **Release step (the release after the first one with packs, or this
   one if the owner chose B):** set `KEEP_SINGLE_FILES = False` in tools/course/packs.py, run
