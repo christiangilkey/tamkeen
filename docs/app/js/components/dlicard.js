@@ -3,7 +3,7 @@
 // material (dli.js: only a hash of the password is in the app). The answers follow the learner to their
 // other devices (aikeys.js). Unticking locks it again after an in-app yes/no box; what was added to the
 // library meanwhile, such as a podcast, stays. Once unlocked, one more step opens the content: signing in and
-// agreeing to share a last name and weekly study numbers with the teachers and Tamkeen's developer
+// agreeing to share a username and weekly study numbers with the teachers and Tamkeen's developer
 // (components/dlishare.js, dliclass.js); the classes joined are listed there too. On the computer and the phone.
 
 import { h, saveSettings, state, toast } from "../app.js";
@@ -146,9 +146,9 @@ export function dliCard(body) {
       busy = false;
       paint();
       if (!learningList(settings()).includes(code)) { await offerLanguage(code); paint(); }
-      // (someone already sharing: their record follows the new language, with the same last name)
+      // (someone already sharing: their record follows the new language)
       const share = shareInfo();
-      if (share && share.language !== code) register(share.last_name, code).catch(() => {});
+      if (share && share.language !== code) register(code).catch(() => {});
       if (dliOpen(settings())) runDli().then(paint);
     };
   }

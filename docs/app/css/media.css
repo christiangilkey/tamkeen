@@ -524,3 +524,79 @@ button.ghost.vowels-btn.on.held { background: transparent; color: var(--accent);
 .vowels-row label { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
 /* Add words: a row whose meaning needs the dictionary offers to download it right there (wordbuilder.js dictButton). */
 .cb-getdict-row { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; margin: 2px 0 4px; padding: 6px 14px; font-size: 14px; }
+
+/* ---------- "Type what you hear" (dictation: js/components/dictation.js) ----------
+   The panel takes the place of the words: in a player the transcript, the captions and the transcript's handle
+   go while it is open (the video stays), in a reel the words bar, in a course the unit's list. */
+.dict-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
+button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.reel-controls .dict-btn { height: 26px; min-height: 0; padding: 0 8px; }
+.player.dictating .transcript-wrap, .player.dictating .panel-handle, .player.dictating .captions,
+.player.dictating .back-to-current { display: none !important; }
+.player.dictating .stage { flex: 1 1 42%; min-height: 150px; }
+.player .dict { flex: 1 1 58%; min-height: 0; overflow-y: auto; border-top: 1px solid var(--border); background: var(--bg); }
+.player:not(.video):not(.yt) .dict { flex: 1 1 auto; border-top: 0; }
+.dict { display: flex; flex-direction: column; align-items: stretch; padding: 14px max(16px, calc((100% - 760px) / 2)) 20px; gap: 12px; }
+.dict-head { display: flex; align-items: center; gap: 10px; }
+.dict-icon { color: var(--accent); display: grid; place-items: center; }
+.dict-headtext { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.dict-close { width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; }
+.dict-body, .dict-done { display: flex; flex-direction: column; gap: 12px; }
+.dict-body[hidden], .dict-done[hidden] { display: none; }
+.dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: 1.8; text-align: center;
+  padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
+.dict-real { background: var(--surface); border: 1px solid var(--border); }
+.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--muted); padding-top: 0; }
+.dict-real[hidden], .dict-yours[hidden], .dict-input[hidden], .dict-score[hidden] { display: none; }
+.dict .dw { border-radius: 5px; padding: 0 .06em; }
+.dict-real .dw-right { color: var(--accent); }
+.dict-real .dw-near { color: var(--warn); text-decoration: underline dotted; text-underline-offset: .25em; }
+.dict-real .dw-missed { color: var(--danger); background: var(--danger-soft); }
+.dict-yours .dw-right, .dict-yours .dw-near { color: var(--text); }
+.dict-yours .dw-extra { color: var(--danger); text-decoration: line-through; }
+.dict-input { width: 100%; box-sizing: border-box; resize: none; min-height: 3.2em; font-family: var(--ar-font);
+  font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
+  border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.dict-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.dict-score { margin: 0; text-align: center; font-weight: 600; }
+.dict-score.all { color: var(--accent); }
+.dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
+button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.dict-go { min-width: 110px; justify-content: center; }
+.dict-hint { margin: 0; text-align: center; }
+@media (hover: none) { .dict-hint { display: none; } }
+.dict-done { align-items: center; text-align: center; padding: 18px 0; }
+.dict-done-score { font-size: 18px; font-weight: 600; margin: 0; }
+.dict-done .dict-actions { justify-content: center; }
+@media (max-width: 640px) {
+  .dict { padding: 10px 12px 14px; gap: 10px; }
+  .player.dictating .stage { flex: 0 1 34%; min-height: 120px; }
+}
+/* A reel: the panel in place of the words bar (the reel itself stays). A course: in place of the unit's list. */
+.reelplay.dictating .reel-bar { display: none !important; } /* (reels.css lays the bar out with a rule as strong) */
+.reelplay .dict { flex: none; height: 46%; min-height: 210px; overflow-y: auto; padding: 8px 12px 10px; gap: 8px;
+  background: #111; border-top: 1px solid #2c2c2c; color: #f2f1ec;
+  --bg: #111; --surface: #1c1c1c; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+.cu-dict .dict { padding-left: 0; padding-right: 0; }
+.cu-dict-btn { display: inline-flex; align-items: center; gap: 6px; }
+button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.cu-dict { margin: 0 0 16px; }
+.dict-yours .muted { font-family: var(--ui-font); font-size: 15px; }
+/* Word · Sentence · Gist, and the gist's 2–5 sentences: a row of pill switches under the title. */
+.dict-modes { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; justify-content: center; }
+.dict-modes[hidden], .dict-sizes[hidden] { display: none; }
+.dict-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 99px; background: var(--surface-2); }
+.dict-seg button, .dict-sizes button { min-height: 0; border: 0; box-shadow: none; background: transparent; color: var(--muted);
+  border-radius: 99px; padding: 5px 14px; font-size: 14px; }
+.dict-seg button.on, .dict-sizes button.on { background: var(--accent); color: var(--accent-ink); }
+.dict-sizes { display: inline-flex; align-items: center; gap: 2px; }
+.dict-sizes button { padding: 4px 11px; }
+.dict-sizes .muted { margin-inline-end: 4px; }
+/* The gist: a few sentences, read as a paragraph. One word: big, on one line. */
+.dict.gist .dict-real, .dict.gist .dict-yours { text-align: start; font-size: clamp(17px, calc(var(--ar-size) * .75), 26px); line-height: 1.9; }
+.dict.gist .dict-input { text-align: start; min-height: 6.5em; }
+.dict.gist .dict-real .dw-other { color: var(--text); }
+.dict.gist .dict-real .dw-right, .dict.gist .dict-real .dw-near { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+.dict.word .dict-real { font-size: clamp(26px, calc(var(--ar-size) * 1.2), 42px); }
+.dict.word .dict-input { min-height: 0; }

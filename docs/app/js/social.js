@@ -1038,6 +1038,6 @@ export async function deleteMyAccount() {
   for (const r of mail.data || []) partners.add(r.sender).add(r.recipient);
   partners.delete(user.id);
   const done = await safety.deleteAccount(c, { userId: user.id, partnerIds: [...partners] });
-  forgetDliShare(); // (a DLI student's last name and weekly numbers went with the account)
+  forgetDliShare(); // (a DLI student's record and weekly numbers went with the account)
   return done;
 }

@@ -10,7 +10,9 @@ import { cardsGlow } from "./idle.js";
 import { restore, rollAnswer, snapshot } from "./loot.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
+import { noteStudy } from "../dlitime.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
+import { appOut } from "../appvolume.js";
 
 let game = null;
 let saveTimer = 0;
@@ -211,10 +213,17 @@ export function featBookPage(key, from, to, total) {
 }
 
 /** Count study time while `active()` is true. Returns a function that stops counting. `source` "youtube":
- * nothing is counted, since time watching YouTube earns nothing (rules.UNPAID_TIME). */
-export function trackStudy(mode, active, source = null) {
-  if (UNPAID_TIME.has(source)) return () => {};
-  const timer = setInterval(() => { if (!document.hidden && active()) reward({ type: "study", seconds: 5, mode }); }, 5000);
+ * nothing is earned, since time watching YouTube earns nothing (rules.UNPAID_TIME). `dli` ("listen", "watch",
+ * "read", or null for none) is what the time counts as in a DLI student's weekly numbers (dlitime.js), YouTube's
+ * included: that is a count, not a reward. Flashcard time passes null (the answers count it themselves). */
+export function trackStudy(mode, active, source = null, dli = mode) {
+  const paid = !UNPAID_TIME.has(source);
+  if (!paid && !dli) return () => {};
+  const timer = setInterval(() => {
+    if (document.hidden || !active()) return;
+    if (dli) noteStudy(dli, 5);
+    if (paid) reward({ type: "study", seconds: 5, mode });
+  }, 5000);
   return () => clearInterval(timer);
 }
 
@@ -230,7 +239,7 @@ function tone(freq, start, length, type = "sine", volume = 0.08) {
     osc.frequency.setValueAtTime(freq, t);
     gain.gain.setValueAtTime(volume, t);
     gain.gain.exponentialRampToValueAtTime(0.0001, t + length);
-    osc.connect(gain).connect(audioCtx.destination);
+    osc.connect(gain).connect(appOut(audioCtx));
     osc.start(t);
     osc.stop(t + length);
   } catch { /* no sound available */ }

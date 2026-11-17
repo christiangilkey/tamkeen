@@ -48,7 +48,7 @@ export const FINDS = [
   { s: "languages", id: "reading", label: "Furigana", words: "kana kanji reading", langs: ["ja"] },
   { s: "languages", id: "reading", label: "Pinyin and characters", words: "tones simplified traditional", langs: ["zh"] },
   { s: "languages", id: "reading", label: "Korean readings", words: "romanization romanisation pronunciation hangul", langs: ["ko"] },
-  { s: "dli", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course class code last name share" },
+  { s: "dli", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course class code username share" },
   { s: "dli", id: "dliteacher", label: "I'm a DLI teacher", words: "defense language institute dli teacher instructor class classes students progress code" },
   { s: "words", id: "mode", label: "AI explanations or built-in dictionary", words: "offline wiktionary free definitions meanings" },
   { s: "words", id: "key", label: "AI provider and API key", words: "claude gemini openai chatgpt grok key test" },
@@ -75,6 +75,7 @@ export const FINDS = [
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
+  { s: "look", id: "volume", label: "Sound volume", words: "volume loud louder quiet quieter softer level sounds voice audio chimes mute" },
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
   { s: "look", id: "sound", label: "Sound effects", words: "sounds chimes jingles mute silent quiet noise audio sfx" },
   { s: "controller", id: "padconnect", label: "Connect a game controller", words: "gamepad xbox playstation switch bluetooth usb joystick" },

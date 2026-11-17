@@ -5,6 +5,7 @@
 //     first unit not finished, and the 20 units as tiles (50 words each; units still being made say so).
 //   - A unit: its 50 words, each with its meaning, its everyday sentence and translation, Word and
 //     Sentence to hear them, and "Add" to put it in the learner's cards; "Add all" for the unit.
+//     "Type what you hear" (components/dictation.js) plays the unit's words or sentences one at a time, unseen, to be typed.
 // An added word is an ordinary card (POST /vocab/batch, in a folder named after the course, e.g.
 // "Arabic basics") with the course's audio kept as its voice (saveVoice, the road a card voice takes),
 // so it is reviewed, synced, played and put in an Anki export like any other card. The audio comes one pack per
@@ -19,6 +20,8 @@ import { markedSentenceHtml } from "../cardtext.js";
 import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 import { courseWords, tappable } from "./coursewords.js";
 import { clipOf, packStore } from "../coursepacks.js";
+import { dictationOn, dictationPanel } from "./dictation.js";
+import { appSound } from "../appvolume.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -52,9 +55,10 @@ export async function hasCourse(lang) {
  */
 export function coursePanel(box, lang, { onCards = () => {}, course: courseId = "" } = {}) {
   const id = courseId || lang; // the course's folder ("ar", "ar-lev")
-  const player = new Audio();
+  const player = appSound(new Audio());
   let stopAt = Infinity;
   player.addEventListener("timeupdate", () => { if (player.currentTime >= stopAt) player.pause(); });
+  let closeDict = null; // "Type what you hear", while it is open in a unit
   let course = null, cards = [], prog = null;
   const attrs = langAttrs(lang);
   const name = (langInfo(lang) || {}).name || lang;
@@ -151,9 +155,10 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     const head = h(`<div class="cu-head">
       <button type="button" class="btn ghost cu-back" title="All units" aria-label="All units">←</button>
       <div class="cu-headtext"><h2>Unit ${n}</h2><span class="muted cu-count"></span></div>
+      <button type="button" class="ghost cu-dict-btn" aria-pressed="false" title="Type what you hear: the unit's words or sentences, one at a time">${icon("keyboard", 16)} Type what you hear</button>
       <button type="button" class="primary cu-addall"></button>
     </div>`);
-    head.querySelector(".cu-back").onclick = () => { player.pause(); drawCourse(); };
+    head.querySelector(".cu-back").onclick = () => { if (closeDict) closeDict(); player.pause(); drawCourse(); };
     const addAll = head.querySelector(".cu-addall");
     const paintHead = () => {
       const left = missing().length;
@@ -202,6 +207,48 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     repaint = () => { if (list.isConnected) { paintRows(); paintHead(); } };
     box.append(list);
     packs().warm(unit.words, audioUrl); // (the unit's audio, so Word and Sentence play at once)
+
+    // "Type what you hear": the unit's sentences in place of its list, each played unseen, typed, then shown.
+    // It goes on from the sentence last played in this unit.
+    // One word at a time: the unit's words themselves.
+    const sayable = unit.words.filter((w) => hasAudio(w) && String(w.sentence || "").trim() && Number.isFinite((w.times || {}).sent_start));
+    const sayWords = unit.words.filter((w) => hasAudio(w) && String(w.word || "").trim() && Number.isFinite((w.times || {}).start));
+    const dictBtn = head.querySelector(".cu-dict-btn");
+    dictBtn.hidden = !dictationOn() || (!sayable.length && !sayWords.length); // (not released yet: dictation.js)
+    const atKey = (mode) => `course:${id}:dict:${n}${mode === "word" ? ":word" : ""}`;
+    dictBtn.onclick = async () => {
+      if (closeDict) { closeDict(); return; }
+      const sentences = sayable.map((w) => ({ text: String(w.sentence).replace(/[⟦⟧]/g, ""), w, part: "sentence" }));
+      const words = sayWords.map((w) => ({ text: String(w.word).trim(), w, part: "word" }));
+      const wrap = h(`<div class="cu-dict"></div>`);
+      let stopStudy = null;
+      const dict = dictationPanel({
+        words, sentences, lang, startIndex: { word: Number(lsGet(atKey("word"))) || 0, sentence: Number(lsGet(atKey("sentence"))) || 0 },
+        play: (u) => play(u.w, u.part),
+        onMove: (mode, k) => lsSet(atKey(mode), String(k)),
+        stop: () => player.pause(),
+        slow: (on) => { player.defaultPlaybackRate = player.playbackRate = on ? 0.75 : 1; },
+        onClose: () => {
+          closeDict = null;
+          if (stopStudy) stopStudy();
+          wrap.remove();
+          list.hidden = false;
+          dictBtn.classList.remove("on");
+          dictBtn.setAttribute("aria-pressed", "false");
+        },
+      });
+      closeDict = dict.close;
+      wrap.append(dict.el);
+      head.after(wrap);
+      list.hidden = true;
+      dictBtn.classList.add("on");
+      dictBtn.setAttribute("aria-pressed", "true");
+      // Typing what was heard is listening: the minutes count, as in the players (game/game.js trackStudy).
+      try {
+        const { trackStudy } = await import("../game/game.js");
+        if (closeDict === dict.close) stopStudy = trackStudy("listen", () => dict.active());
+      } catch { /* no game here */ }
+    };
     addAll.onclick = () => add(missing(), addAll);
     box.scrollIntoView({ block: "start" });
 
@@ -307,6 +354,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
 
   load();
   return () => {
+    if (closeDict) closeDict();
     player.pause();
     player.removeAttribute("src");
     if (player.dataset.blob) URL.revokeObjectURL(player.dataset.blob);

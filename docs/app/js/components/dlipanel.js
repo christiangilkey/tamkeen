@@ -15,6 +15,7 @@ import { addPodcast, loadIndex, onDeckProgress, openFile, runDli } from "../dlic
 import { gate, refresh } from "../dliclass.js";
 import { sharePart } from "./dlishare.js";
 import { openModal } from "./modal.js";
+import { mediaSound } from "../appvolume.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 
@@ -146,8 +147,8 @@ export function dliPanel(el, language) {
       urls.push(url);
       box.body.innerHTML = "";
       const type = item.type;
-      if (type.startsWith("audio/")) box.body.append(h(`<audio controls src="${url}"></audio>`));
-      else if (type.startsWith("video/")) box.body.append(h(`<video controls playsinline src="${url}"></video>`));
+      if (type.startsWith("audio/")) box.body.append(mediaSound(h(`<audio controls src="${url}"></audio>`)));
+      else if (type.startsWith("video/")) box.body.append(mediaSound(h(`<video controls playsinline src="${url}"></video>`)));
       else if (type.startsWith("image/")) box.body.append(h(`<img alt="" src="${url}">`));
       else if (type.startsWith("text/") || type === "application/json") {
         const pre = h(`<pre class="dli-text" dir="auto"></pre>`);

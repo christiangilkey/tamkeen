@@ -12,6 +12,7 @@ import { AZURE_FREE, AZURE_PORTAL, AZURE_PRICING, AZURE_VOICES, azureReady, azur
          voicesForLanguage, waitingForComputer, withPickedVoice } from "../cardvoice.js";
 import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice } from "../devicevoice.js";
 import { azureVoiceOf, cardLanguage, voiceMaker } from "../voiceplay.js";
+import { appSound } from "../appvolume.js";
 
 /** Common Azure regions, for the region box's suggestions (any region with Speech works). */
 const REGIONS = ["eastus", "eastus2", "westus", "westus2", "westus3", "centralus", "northcentralus", "southcentralus", "canadacentral",
@@ -286,7 +287,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       const voice = await azureVoiceOf(lang, s);
       if (!voice) throw new Error(`Switched off: ${name} cards that have no recording aren't read out.`);
       const bytes = await azureSpeak({ key: s.tts_key_azure, region: s.tts_region_azure, ssml: buildSsml(spokenText(sampleText, lang), voice) });
-      const a = new Audio(URL.createObjectURL(new Blob([bytes], { type: "audio/ogg" })));
+      const a = appSound(new Audio(URL.createObjectURL(new Blob([bytes], { type: "audio/ogg" }))));
       await a.play();
     } catch (err) {
       toast(err.message, { error: true });
@@ -414,7 +415,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     box.querySelectorAll("[data-del]").forEach((b) => { b.onclick = () => computer.remove(b.dataset.del).then(paintComputer); });
     box.querySelectorAll("[data-use]").forEach((b) => { b.onclick = () => computer.pick(lang, b.dataset.use).then(paintComputer); });
     box.querySelectorAll("[data-cancel]").forEach((b) => { b.onclick = () => computer.cancel().then(paintComputer); });
-    box.querySelectorAll("[data-try]").forEach((b) => { b.onclick = () => new Audio(computer.sampleUrl(lang, sampleText)).play().catch((e) => toast(e.message, { error: true })); });
+    box.querySelectorAll("[data-try]").forEach((b) => { b.onclick = () => appSound(new Audio(computer.sampleUrl(lang, sampleText))).play().catch((e) => toast(e.message, { error: true })); });
   }
 
   section.querySelectorAll("input[name=vo-mode]").forEach((r) => {

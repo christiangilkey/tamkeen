@@ -9,6 +9,7 @@ import { AZURE_VOICES, LOCAL_VOICE_LANGUAGES, azureReady, azureSpeak, buildSsml,
 import { azureVoiceOf } from "./voiceplay.js";
 import { speakDevice, stopDevice } from "./devicevoice.js";
 import { sayable } from "./grammardata.js";
+import { appSound } from "./appvolume.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 const made = new Map(); // "<voice>\u0000<text>" -> object URL of its sound (this run of the app)
@@ -24,7 +25,7 @@ export function stopSaying() {
 
 async function playUrl(url) {
   stopSaying();
-  const a = new Audio(url);
+  const a = appSound(new Audio(url));
   player = a;
   await a.play();
   return { ended: new Promise((done) => { a.onended = done; a.onerror = done; a.onpause = done; }) };

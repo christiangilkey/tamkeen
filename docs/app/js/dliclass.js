@@ -1,6 +1,6 @@
-// DLI classes, the online side (supabase/v10-dli-classes.sql, through social.js's connection).
+// DLI classes, the online side (supabase/v10-dli-classes.sql and v11-dli-activity.sql, through social.js's connection).
 //
-// A DLI student must share their last name and weekly study numbers (dliweeks.js) with Tamkeen's developer and
+// A DLI student must share their username and weekly study numbers (dliweeks.js) with Tamkeen's developer and
 // with the teachers of classes they join: the owner's rule, agreed to on a screen that says so
 // (components/dlishare.js). Until they have, the DLI material stays closed (`gate`). Teachers make classes and
 // see their own students; the owner sees every DLI student (components/dliteach.js).
@@ -9,11 +9,13 @@
 // who is asking. What comes back is still checked again before it is shown (dliweeks.js cleanMe and the rest).
 //
 // On this device (localStorage, not synced, so one device signing out doesn't lock the others):
-//   tamkeenDliShare    { user, last_name, language, agreed_at }: sharing is on for this account
+//   tamkeenDliShare    { user, username, language, agreed_at }: sharing is on for this account (no name: DLI keeps
+//                      none since v0.61, and one left here by an older version is removed when this file loads)
 //   tamkeenDliService  "on" once the online service was found to have DLI classes (the SQL file run), "off" when
 //                      it was found not to. Until it is known to be on, the material opens as it did before, with
 //                      nothing shared: nobody is locked out by an update, or while offline on first start
 //   tamkeenDliSent     the weekly numbers last sent, so the same ones aren't sent again
+//   tamkeenDliTime, tamkeenDliDevice   this device's listening, watching and reading time (dlitime.js)
 // Being offline never closes the material: only signing out, or stopping sharing, does.
 
 import { api, state } from "./app.js";
@@ -22,13 +24,14 @@ import { onlineStatus } from "./agegate.js";
 import { dliState } from "./dli.js";
 import { hasStudyLanguage, studyLanguage } from "./languages.js";
 import { dayNumber } from "./review/fsrs.js";
-import { cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { dayMask, deviceId, timeLog, weekTime } from "./dlitime.js";
 
 export { CLASS_NAME_MAX, NAME_MAX, spaced } from "./dliweeks.js";
 
 /** The number of the sharing text a student agrees to (components/dlishare.js SHARE_TEXT). Raise it when that
- *  text changes what is shared: students are then asked again. */
-export const WORDING = 1;
+ *  text changes what is shared: students are then asked again. (2, v0.61: listening, watching and reading time.) */
+export const WORDING = 2;
 export const SHARE_KEY = "tamkeenDliShare";
 const SERVICE_KEY = "tamkeenDliService";
 const SENT_KEY = "tamkeenDliSent";
@@ -43,13 +46,18 @@ const write = (key, value) => {
 
 // ---------- what this device knows ----------
 
-/** { user, last_name, language, agreed_at } while sharing is on for this device's account, else null. */
+/** { user, username, language, agreed_at } while sharing is on for this device's account, else null. */
 export function shareInfo() {
   try {
     const v = JSON.parse(read(SHARE_KEY) || "null");
-    return v && typeof v.user === "string" && typeof v.last_name === "string" && v.last_name ? v : null;
+    return v && typeof v.user === "string" && v.user && typeof v.language === "string" ? v : null;
   } catch { return null; }
 }
+// A last name kept on this device by an older version: deleted.
+try {
+  const old = JSON.parse(read(SHARE_KEY) || "null");
+  if (old && typeof old === "object" && "last_name" in old) { delete old.last_name; write(SHARE_KEY, JSON.stringify(old)); }
+} catch { /* nothing kept, or storage off */ }
 function keepShare(value) {
   const before = read(SHARE_KEY);
   const after = value ? JSON.stringify(value) : null;
@@ -79,6 +87,11 @@ const MESSAGES = {
   dli_not_owner: "Only Tamkeen's owner can do that.",
   dli_class_limit: "You have 20 classes already. Delete one first.",
   dli_bad_week: "That week couldn't be saved.",
+  // lessons (supabase/v12-dli-lessons.sql, dlilessons.js)
+  dli_not_your_lesson: "That lesson isn't for one of your classes.",
+  dli_lesson_needs_title: "Give the lesson a title first.",
+  dli_too_many_lessons: "This class has 300 lessons already. Remove one first.",
+  dli_not_in_class: "That student isn't in the class any more.",
 };
 
 /** An error with words that are safe to show. `notReady`: the online service has no DLI classes yet.
@@ -149,21 +162,30 @@ export async function refresh() {
   const st = dliState(settings());
   // (the DLI language was changed on another device: the record follows it)
   if (me.student && st.language && me.student.language !== st.language) {
-    try { me = cleanMe(await rpc("dli_register", { last_name: me.student.last_name, language: st.language, wording: WORDING })); } catch { /* next time */ }
+    try { me = await agree(st.language); } catch { /* next time */ }
   }
   keepShare(me.student && user && me.student.agreed_version >= WORDING ? { user: user.id, ...me.student } : null);
   return { signedIn: true, me };
 }
 
-/** Agree to share: my last name, with my DLI language. Resolves to `me`. */
-export async function register(lastName, language) {
-  const me = cleanMe(await rpc("dli_register", { last_name: String(lastName || ""), language, wording: WORDING }));
+/** dli_agree (v11), or on a database without v11 yet the older dli_register with a dash where a last name went:
+ *  no name is ever sent. */
+async function agree(language) {
+  try { return cleanMe(await rpc("dli_agree", { language, wording: WORDING })); } catch (e) {
+    if (!e.notReady) throw e;
+    return cleanMe(await rpc("dli_register", { last_name: "-", language, wording: WORDING }));
+  }
+}
+
+/** Agree to share my username and weekly numbers, with my DLI language. Resolves to `me`. */
+export async function register(language) {
+  const me = await agree(language);
   const user = await social.currentUser();
   keepShare(me.student && user ? { user: user.id, ...me.student } : null);
   return me;
 }
 
-/** Stop sharing: my last name, classes and weekly numbers are deleted online; the DLI material closes here. */
+/** Stop sharing: my record, classes and weekly numbers are deleted online; the DLI material closes here. */
 export async function unregister() {
   await rpc("dli_unregister");
   keepShare(null);
@@ -179,7 +201,6 @@ export const leaveClass = (id) => rpc("dli_leave_class", { class: id });
 
 // ---------- teachers ----------
 
-export const setTeacherName = (name) => rpc("dli_set_teacher_name", { name: String(name || "") });
 export async function createClass(name) {
   return cleanClass({ ...(await rpc("dli_create_class", { name: String(name || "") })), role: "teacher", students: 0 });
 }
@@ -228,6 +249,7 @@ export function reportWeeks({ force = false } = {}) {
     const user = await social.currentUser();
     if (!user || user.id !== share.user) return 0;
     const [words, log] = await Promise.all([api("/vocab"), api("/reviews").then((r) => (r && r.reviews) || {})]);
+    const times = timeLog();
     const current = weekStart(dayNumber());
     const agreed = share.agreed_at ? weekStart(dayNumber(new Date(share.agreed_at))) : current;
     const record = sentRecord(user.id);
@@ -235,12 +257,14 @@ export function reportWeeks({ force = false } = {}) {
     for (const start of [current - 7, current]) {
       if (start < agreed) continue;
       const done = start < current; // (a week that has ended is sent one last time, then left alone)
-      const numbers = weekNumbers(Array.isArray(words) ? words : [], log, start);
-      const sig = JSON.stringify(numbers);
+      const { numbers, time } = weekOf(words, log, times, st.language, start);
+      const sig = JSON.stringify([numbers, time]);
       const before = record.weeks[numbers.week];
       if (before && (before.done || (before.sig === sig && !done))) continue;
       const ok = await rpc("dli_report_week", numbers);
       if (ok === false) { keepShare(null); return sent; } // (no record online any more: sharing was stopped elsewhere)
+      // (this device's time: refused only by a database without v11 yet, which then simply goes without it)
+      try { await rpc("dli_report_time", { week: numbers.week, device: deviceId(), ...time }); } catch { /* v11 not run yet */ }
       record.weeks[numbers.week] = { sig, done };
       sent++;
     }
@@ -254,14 +278,30 @@ export function reportWeeks({ force = false } = {}) {
   return sending;
 }
 
+/** A week as this device sends it: the flashcard numbers (dli_report_week) and this device's time
+ *  (dli_report_time: minutes, and the days with any study as bits, flashcard days included). */
+function weekOf(words, log, times, language, start) {
+  const list = Array.isArray(words) ? words : [];
+  const numbers = weekNumbers(list, log, start);
+  const spent = weekTime(times, language, start);
+  const days = new Set([...answerDays(list, log, start), ...spent.days]);
+  return { numbers, time: { listening: spent.listening, watching: spent.watching, reading: spent.reading, day_mask: dayMask(days, start) },
+    active_days: days.size };
+}
+
 /** The numbers of this week as they would be sent now (the "What is shared" box), or null when the DLI
- *  language isn't the one being studied. */
+ *  language isn't the one being studied. (Only this device's time: the others' arrive with the next report.) */
 export async function myWeekNow() {
   const st = dliState(settings());
   if (!st.language || !hasStudyLanguage() || studyLanguage() !== st.language) return null;
   const [words, log] = await Promise.all([api("/vocab"), api("/reviews").then((r) => (r && r.reviews) || {})]);
-  return weekNumbers(Array.isArray(words) ? words : [], log, weekStart(dayNumber()));
+  const { numbers, time, active_days } = weekOf(words, log, timeLog(), st.language, weekStart(dayNumber()));
+  const { day_mask, ...minutes } = time;
+  return { ...numbers, ...minutes, active_days };
 }
 
 /** The Monday this week started on, as a date ("2026-11-09"). */
 export const thisWeek = () => dayDate(weekStart(dayNumber()));
+
+/** The same checked call for the lessons' functions (dlilessons.js, supabase/v12-dli-lessons.sql). */
+export { rpc as dliRpc };

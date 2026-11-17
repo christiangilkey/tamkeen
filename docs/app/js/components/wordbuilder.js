@@ -48,6 +48,7 @@ import { voiceMaker } from "../voiceplay.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
 import { scanPanel } from "./wordscan.js";
 import { offerFix } from "./fixit.js";
+import { appSound } from "../appvolume.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
 const settings = () => (state.status && state.status.settings) || {};
@@ -636,7 +637,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   function play(part) {
     try {
       if (player) { player.pause(); URL.revokeObjectURL(player.src); }
-      player = new Audio(URL.createObjectURL(previewBlob(part)));
+      player = appSound(new Audio(URL.createObjectURL(previewBlob(part))));
       player.play().catch(() => {});
     } catch { /* nothing to play */ }
   }

@@ -25,7 +25,8 @@ import { cardSayer, stopDevice } from "../voiceplay.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { HABITAT, TYPES } from "./data.js";
 import { describe } from "./genome.js";
-import { dayNumber, pickQuestion } from "./rules.js";
+import { battleWordsFor, dayNumber, markDue, pickQuestion } from "./rules.js";
+import { sortFolders } from "../review/vocabedit.js";
 import { FRAME, animAt, beastHeight, beastOrigin, composeCreature, drawLiving, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { getGame, saveGame, sfx, trackStudy } from "./game.js";
 import { battleDictionary } from "./battle-ui.js";
@@ -57,20 +58,33 @@ const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const uidOf = (v) => String(v.uid || v.id);
 
-/** The saved words, and which of them the flashcards have due for review now (a Set of word ids). */
-async function loadWords() {
+/** The words the pond asks: the game's word choice, the same one battles use (rules.battleWordsFor: the newest 100,
+ * all-time, the words due for review or the folders picked; the owner: "if you set the current vocab list, that it
+ * sets the vocab for all games"), and which of the saved words the flashcards have due now (a Set of word ids).
+ * `all`: every saved word, with the due ones marked (markDue), for the word choice itself. */
+async function loadWords(game = getGame()) {
   let vocab = [];
   let log = {};
   try { vocab = await api("/vocab"); } catch { /* shown as an empty pond */ }
   try { log = (await api("/reviews")).reviews || {}; } catch { /* the game's own record decides alone */ }
   let flashDue = new Set();
   try { flashDue = new Set(plan(vocab, states(log), reviewDay(), 0).due.map(uidOf)); } catch { /* as above */ }
-  return { vocab, flashDue };
+  markDue(vocab, flashDue);
+  return { vocab: battleWordsFor(vocab, game), all: vocab, flashDue };
+}
+
+/** What the word choice on the Fishing screen needs: every saved word (the due ones marked) and the Vocab page's
+ * folders, in its order. */
+export async function wordChoiceData(game = getGame()) {
+  const { all } = await loadWords(game);
+  let folders = [];
+  try { folders = sortFolders(await api("/vocab/folders")); } catch { /* no folders to choose from */ }
+  return { vocab: all, folders };
 }
 
 /** How many fish are waiting: the words due for review (what the Home tile shows). Resolves to a number. */
 export async function fishWaiting(game = getGame()) {
-  const { vocab, flashDue } = await loadWords();
+  const { vocab, flashDue } = await loadWords(game);
   if (!canFish(game, vocab)) return 0;
   return pondShadows(game, vocab, { pond: fishingOf(game).pond, flashDue, boss: (uid) => isBoss(game, uid) }).due;
 }
@@ -180,7 +194,7 @@ export function openPond(opts = {}) {
     const v = vocab.find((w) => uidOf(w) === q.uid);
     if (v) sayCard(v, "word").catch(() => {});
   };
-  const stopStudy = trackStudy("read", () => !closed && Date.now() - lastAnswer < 60000);
+  const stopStudy = trackStudy("read", () => !closed && Date.now() - lastAnswer < 60000, null, null);
 
   // ----- the bar on top -----
   function paintHud() {
@@ -977,7 +991,7 @@ export function openPond(opts = {}) {
   paintHud();
   hint();
   loop();
-  Promise.all([loadWords(), battleDictionary().catch(() => null)]).then(([w, d]) => {
+  Promise.all([loadWords(game), battleDictionary().catch(() => null)]).then(([w, d]) => {
     if (closed) return;
     vocab = w.vocab;
     flashDue = w.flashDue;

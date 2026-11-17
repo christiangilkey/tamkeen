@@ -18,6 +18,7 @@ import { micProblem } from "../review/pronounce.js";
 import { pageGuide } from "../components/tour.js";
 import { t } from "../i18n.js";
 import { readChallenge } from "../game/challenge.js";
+import { appSound } from "../appvolume.js";
 
 const fmtClock = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
 const fmtDay = (iso) => new Date(iso).toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
@@ -75,7 +76,7 @@ export async function render(view, { friendId }) {
   let lastDay = "";
   const seen = new Set();
   const bubbles = new Map(); // message id -> element
-  const player = new Audio();
+  const player = appSound(new Audio());
   let playingBtn = null;
   player.addEventListener("ended", () => { if (playingBtn) playingBtn.textContent = playingBtn.dataset.label; playingBtn = null; });
 

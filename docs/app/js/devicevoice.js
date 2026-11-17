@@ -8,6 +8,7 @@
 import { platform, speechPlugin, state } from "./app.js";
 import { addVoiceHelp, deviceTag, pickDeviceVoice, readBy, spokenText, voiceOff } from "./cardvoice.js";
 import { langInfo } from "./languages.js";
+import { speechVolume } from "./appvolume.js";
 
 /** Which device this is, for the words on adding a voice. */
 export function deviceKind() {
@@ -81,7 +82,7 @@ export async function speakDevice(text, lang) {
   }
   stopDevice();
   if (speechPlugin) {
-    const ended = speechPlugin.speak({ text, lang: deviceTag(lang), rate: 0.95 }).then(() => {}, (e) => {
+    const ended = speechPlugin.speak({ text, lang: deviceTag(lang), rate: 0.95, volume: speechVolume() }).then(() => {}, (e) => {
       if (e && /NO_VOICE/.test(String(e.code || e.message))) known.set(lang, Promise.resolve(false));
     });
     return { ended };
@@ -93,6 +94,7 @@ export async function speakDevice(text, lang) {
   u.lang = voice ? voice.lang : deviceTag(lang);
   if (voice) u.voice = voice;
   u.rate = 0.95;
+  u.volume = speechVolume();
   current = u;
   const ended = new Promise((done) => {
     u.onend = done;

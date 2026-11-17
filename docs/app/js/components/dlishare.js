@@ -2,7 +2,8 @@
 // supabase/v10-dli-classes.sql). Shown in Settings → DLI students (components/dlicard.js) once the content is
 // unlocked, and in place of the content in Library → Courses → DLI (components/dlipanel.js) until it is done:
 //   1. sign in with Google (the same sign-in as Friends);
-//   2. type a last name and agree to what is shared, said in plain words (SHARE_TEXT);
+//   2. agree to what is shared, said in plain words (SHARE_TEXT), choosing a username first if they have none.
+//      Never a real name: students show to their teachers by username (the owner's rule, 2026-11-16);
 //   3. then: "Sharing as …", the classes joined, a box for a class code, and "What is shared" (the numbers
 //      exactly as the teachers and the developer see them, a way to change the name and to stop sharing).
 // While the online service has no DLI classes yet, the part hides itself and the content opens as before.
@@ -14,7 +15,7 @@ import { icon } from "../icons.js";
 import * as social from "../social.js";
 import { onlineStatus, youngNote } from "../agegate.js";
 import { dliLanguageName, dliState } from "../dli.js";
-import { NAME_MAX, gate, leaveClass, myWeekNow, refresh, register, reportWeeks, shareInfo, thisWeek, unregister, useCode } from "../dliclass.js";
+import { gate, leaveClass, myWeekNow, refresh, register, reportWeeks, shareInfo, thisWeek, unregister, useCode } from "../dliclass.js";
 import { confirmBox, openModal } from "./modal.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -27,11 +28,14 @@ export function weekLabel(week) {
 }
 export const dayLabel = (iso) => (iso ? new Date(iso).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "");
 
-/** The headings of a table of weekly numbers, and one week's cells in the same order. */
+/** The headings of a table of weekly numbers, and one week's cells in the same order. "Days" are days with any
+ *  study; the four kinds of minutes follow. */
 // ("% remembered", not the answer button's "Remembered": in other languages that button says "I remembered it")
-export const NUMBER_HEADS = ["Days", "Minutes", "Reviews", "% remembered", "New words", "Words known"];
-export const numberCells = (w) => [w.days, w.minutes, w.reviews,
-  w.reviews ? `${Math.round((100 * w.remembered) / w.reviews)}%` : "–", w.new_words, w.known].map((v) => (typeof v === "number" ? v.toLocaleString() : v));
+export const NUMBER_HEADS = ["Days", "Flashcards (min)", "Listening (min)", "Watching (min)", "Reading (min)", "Reviews", "% remembered", "New words", "Words known"];
+export const percent = (w) => (w.reviews ? `${Math.round((100 * w.remembered) / w.reviews)}%` : "–");
+const shown = (v) => (typeof v === "number" ? v.toLocaleString() : v);
+export const numberCells = (w) => [w.active_days ?? w.days, w.minutes, w.listening || 0, w.watching || 0, w.reading || 0, w.reviews,
+  percent(w), w.new_words, w.known].map(shown);
 
 /** A table of weeks, newest first: Week of | Days | Minutes | … */
 export function weeksTable(weeks) {
@@ -129,7 +133,7 @@ export function sharePart(el, { onChange = () => {} } = {}) {
     if (r.notReady) return;
     if (!r.signedIn) { signIn(); return; }
     if (!r.me) { unreachable(r.error); return; }
-    if (!r.me.student || !shareInfo()) form(r.me);
+    if (!r.me.student || !shareInfo()) form();
     else shared(r.me);
   }
 
@@ -149,30 +153,43 @@ export function sharePart(el, { onChange = () => {} } = {}) {
     el.append(box);
   }
 
-  function form(me) {
+  async function form() {
     const language = dliState(settings()).language;
+    let profile = null;
+    try { profile = await social.myProfile(); } catch { /* offline: asked for below */ }
+    if (!alive) return;
+    const has = !!(profile && profile.username);
     const box = h(`<form class="dls-step dls-form">
-      <h3><label for="dls-name">Your last name</label></h3>
-      <p class="set-hint">The name your DLI teachers know you by. Last name only.</p>
-      <input type="text" id="dls-name" maxlength="${NAME_MAX}" autocomplete="family-name" autocapitalize="words" spellcheck="false" translate="no">
+      <div class="dls-uname">
+        <h3><label for="dls-uname">Choose a username</label></h3>
+        <p class="set-hint">Your teachers see you by it. Pick a nickname, not your real name.</p>
+        <input type="text" id="dls-uname" maxlength="20" autocomplete="off" autocapitalize="none" spellcheck="false" translate="no" placeholder="e.g. layla_learns">
+      </div>
+      <p class="set-hint dls-as-will"></p>
       <div class="dls-terms">${SHARE_TEXT}</div>
       <p class="small dls-wrong" role="alert" hidden></p>
       <div class="set-actions"><button type="submit" class="primary">Agree and continue</button></div>
       <p class="small muted dls-policy"><a href="${PRIVACY}" target="_blank" rel="noopener">Privacy policy</a></p>
     </form>`);
-    const input = box.querySelector("#dls-name");
+    const input = box.querySelector("#dls-uname");
     const wrong = box.querySelector(".dls-wrong");
     const button = box.querySelector("button[type=submit]");
-    if (me && me.student) input.value = me.student.last_name;
+    box.querySelector(".dls-uname").hidden = has;
+    box.querySelector(".dls-as-will").hidden = !has;
+    if (has) box.querySelector(".dls-as-will").textContent = t("Your teachers will see you as {0}. You can change your username in Settings → Account & sync.", profile.username);
     input.oninput = () => { wrong.hidden = true; };
     box.onsubmit = async (e) => {
       e.preventDefault();
-      const name = input.value.replace(/\s+/g, " ").trim();
-      if (!name) { input.focus(); return; }
+      const name = input.value.trim();
+      if (!has) {
+        const problem = social.checkUsername(name);
+        if (problem) { wrong.textContent = name ? problem : t("Choose a username first."); wrong.hidden = false; input.focus(); return; }
+      }
       button.disabled = true;
       button.textContent = t("Saving…");
       try {
-        await register(name, language);
+        if (!has) await social.setUsername(name);
+        await register(language);
         if (!alive) return;
         reportWeeks({ force: true });
         await paint();
@@ -190,13 +207,13 @@ export function sharePart(el, { onChange = () => {} } = {}) {
   function shared(me) {
     const box = h(`<div class="dls-step">
       <div class="set-state"><span class="dls-ico">${icon("check", 18)}</span><strong class="dls-as"></strong></div>
-      <p class="set-hint">Your teachers and Tamkeen's developer see your last name and your weekly study numbers. Nothing else.</p>
+      <p class="set-hint">Your teachers and Tamkeen's developer see your username and your weekly study numbers. Nothing else.</p>
       <div class="set-actions"><button type="button" class="dls-what">What is shared</button></div>
       <h3>My classes</h3>
       <div class="dls-list"></div>
       <p class="set-hint">Your teacher gives you a class code. In a class, its teachers see your numbers from the week you joined.</p>
     </div>`);
-    box.querySelector(".dls-as").textContent = t("Sharing as {0}", me.student.last_name);
+    box.querySelector(".dls-as").textContent = t("Sharing as {0}", me.student.username || "–");
     box.querySelector(".dls-what").onclick = () => whatIsShared(me, { onChange: () => { if (alive) paint().then(onChange); } });
     const list = box.querySelector(".dls-list");
     const mine = me.classes.filter((c) => c.role === "student");
@@ -231,31 +248,31 @@ export function sharePart(el, { onChange = () => {} } = {}) {
 
 /** What a student agrees to, in plain words. Changing what is shared here means raising dliclass.js WORDING. */
 export const SHARE_TEXT = `<p><strong>What you share by going on</strong></p>
-  <ul><li>Your last name and your DLI language</li>
-    <li>Your weekly study numbers: days studied, minutes on flashcards, reviews, how many you remembered, new words and words known</li></ul>
+  <ul><li>Your username and your DLI language (never your real name)</li>
+    <li>Your weekly study numbers: days studied; minutes on flashcards and minutes listening, watching and reading in your DLI language; reviews, how many you remembered, new words and words known</li></ul>
   <p><strong>Who sees it</strong></p>
   <ul><li>Tamkeen's developer</li><li>The teachers of the classes you join</li></ul>
   <p>Never shared: your words, your library, your recordings or anything else you study.</p>
   <p>You can stop at any time here in Settings. What was shared is then deleted, and the DLI content is locked again.</p>`;
 
-/** The box "What is shared": my record as the others see it, changing the name, stopping. */
+/** The box "What is shared": my record as the others see it, and stopping. */
 export function whatIsShared(me, { onChange = () => {} } = {}) {
   const box = openModal({ title: t("What is shared"), wide: true, cls: "dlt-back" });
   const view = h(`<div class="dls dls-what-box">
     <div class="dls-facts">
-      <div><span class="small muted">Last name</span><strong class="dls-f-name" translate="no"></strong></div>
+      <div><span class="small muted">Username</span><strong class="dls-f-name" translate="no"></strong></div>
       <div><span class="small muted">DLI language</span><strong class="dls-f-lang"></strong></div>
       <div><span class="small muted">Sharing since</span><strong class="dls-f-since" translate="no"></strong></div>
     </div>
     <h3>Your weekly numbers</h3>
-    <p class="set-hint">Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class.</p>
+    <p class="set-hint">Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class. Listening, watching and reading are counted on each of your devices and added up online.</p>
     <div class="dls-weeks"><p class="small muted">Loading…</p></div>
     <h3>Who sees it</h3>
     <ul class="dls-who"><li>Tamkeen's developer</li></ul>
-    <div class="set-actions"><button type="button" class="dls-rename">Change last name</button>
-      <button type="button" class="ghost danger dls-stop">Stop sharing</button></div>
+    <p class="small muted">You can change your username in Settings → Account & sync.</p>
+    <div class="set-actions"><button type="button" class="ghost danger dls-stop">Stop sharing</button></div>
   </div>`);
-  view.querySelector(".dls-f-name").textContent = me.student.last_name;
+  view.querySelector(".dls-f-name").textContent = me.student.username || "–";
   view.querySelector(".dls-f-lang").textContent = t(dliLanguageName(me.student.language));
   view.querySelector(".dls-f-since").textContent = dayLabel(me.student.agreed_at);
   const who = view.querySelector(".dls-who");
@@ -274,19 +291,9 @@ export function whatIsShared(me, { onChange = () => {} } = {}) {
     else spot.append(weeksTable(weeks.slice(0, 12)));
     if (now && now.week === thisWeek()) spot.append(h(`<p class="small muted">The top row is this week so far.</p>`));
   });
-  view.querySelector(".dls-rename").onclick = async () => {
-    const name = await askLastName(me.student.last_name);
-    if (!name || name === me.student.last_name) return;
-    try {
-      await register(name, me.student.language);
-      toast(t("Your teachers now see you as {0}.", name));
-      box.close();
-      onChange();
-    } catch (err) { toast(err.message, { error: true }); }
-  };
   view.querySelector(".dls-stop").onclick = async () => {
     if (!(await confirmBox(t("Stop sharing?"),
-      t("Your last name, your classes and your weekly numbers are deleted online now. The DLI content is locked on all your devices until you share again. Anything already added to your library stays."),
+      t("Your classes and your weekly numbers are deleted online now. The DLI content is locked on all your devices until you share again. Anything already added to your library stays."),
       { ok: t("Stop sharing"), danger: true }))) return;
     try {
       await unregister();
@@ -297,23 +304,6 @@ export function whatIsShared(me, { onChange = () => {} } = {}) {
   };
   box.body.append(view);
   return box;
-}
-
-/** A small box asking for a last name. Resolves to it, or "" when closed. */
-function askLastName(value) {
-  return new Promise((resolve) => {
-    let answer = "";
-    const m = openModal({ title: t("Change last name"), onClose: () => resolve(answer) });
-    const form = h(`<form class="stack"><input type="text" maxlength="${NAME_MAX}" autocomplete="family-name" spellcheck="false" translate="no">
-      <div class="confirm-buttons"><button type="button" data-close>Cancel</button><button type="submit" class="primary">Save</button></div></form>`);
-    const input = form.querySelector("input");
-    input.value = value;
-    input.setAttribute("aria-label", t("Your last name"));
-    form.onsubmit = (e) => { e.preventDefault(); answer = input.value.replace(/\s+/g, " ").trim(); m.close(); };
-    m.body.append(form);
-    input.focus();
-    input.select();
-  });
 }
 
 // ---------- looks (added once; plain solid surfaces) ----------

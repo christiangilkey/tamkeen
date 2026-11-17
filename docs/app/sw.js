@@ -1,5 +1,5 @@
-// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.60.0-mwjrzgmq
-const CACHE = "tamkeen-0.60.0-mwjrzgmq";
+// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.61.0-mwl8604p
+const CACHE = "tamkeen-0.61.0-mwl8604p";
 self.addEventListener("install", () => self.skipWaiting());
 // (a cache named "tamkeen-keep-…" isn't the app's files but what the learner downloaded, kept across builds:
 // the courses' audio packs, web/js/coursepacks.js)

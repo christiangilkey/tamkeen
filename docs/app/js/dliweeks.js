@@ -9,6 +9,10 @@
 //   new_words   words answered for the first time
 //   words       words saved in the language (as of now)
 //   known       of those, the ones remembered at least once by the end of the week
+// and, from each device (dlitime.js; supabase/v11-dli-activity.sql adds the devices up):
+//   listening, watching, reading   minutes in the DLI language (podcasts and audio; videos and reels; books
+//                                  and web pages)
+//   active_days days of the week with any of it, flashcards included (at least `days`)
 //
 // A week starts on Monday, on the device's own calendar. Pure: shared by every version, tested in
 // tests/js/dliweeks.test.mjs.
@@ -26,7 +30,11 @@ export const dateDay = (text) => Math.round(Date.parse(`${String(text).slice(0, 
 
 /** The numbers of the week that starts on day `start`. `words`: the saved words of the language; `log`: every
  *  answer by word, { uid: [[t, rating, day, ms], …] }. */
-export function weekNumbers(words, log, start) {
+export const weekNumbers = (words, log, start) => scanWeek(words, log, start).numbers;
+/** The days of that week (day numbers) with at least one flashcard answer. */
+export const answerDays = (words, log, start) => scanWeek(words, log, start).days;
+
+function scanWeek(words, log, start) {
   const end = start + 6;
   const days = new Set();
   let ms = 0, reviews = 0, remembered = 0, fresh = 0, saved = 0, known = 0;
@@ -47,10 +55,12 @@ export function weekNumbers(words, log, start) {
     }
     if (knew) known++;
   }
-  return { week: dayDate(start), days: days.size, minutes: Math.round(ms / 60000), reviews, remembered, new_words: fresh, words: saved, known };
+  return { days, numbers: { week: dayDate(start), days: days.size, minutes: Math.round(ms / 60000), reviews, remembered, new_words: fresh, words: saved, known } };
 }
 
 const NUMBERS = ["days", "minutes", "reviews", "remembered", "new_words", "words", "known"];
+/** The time numbers: each device's share, added up by the database (none from an app before v0.61). */
+export const TIME_NUMBERS = ["listening", "watching", "reading"];
 const whole = (v, most) => (Number.isFinite(Number(v)) ? Math.min(most, Math.max(0, Math.round(Number(v)))) : 0);
 
 /** One week as it arrived from the online service, made safe to show: a Monday's date and whole numbers in range,
@@ -59,41 +69,96 @@ export function cleanWeek(raw) {
   if (!raw || typeof raw !== "object" || !/^\d{4}-\d{2}-\d{2}$/.test(String(raw.week || ""))) return null;
   const out = { week: String(raw.week) };
   for (const k of NUMBERS) out[k] = whole(raw[k], k === "days" ? 7 : 1000000);
+  for (const k of TIME_NUMBERS) out[k] = whole(raw[k], 10080);
+  out.active_days = Math.max(out.days, whole(raw.active_days, 7));
   return out;
 }
+
+/** Did the student study at all that week (any flashcard, minute or day)? */
+export const studied = (w) => w.active_days > 0 || w.reviews > 0 || w.listening + w.watching + w.reading > 0;
 /** A list of weeks, newest first, bad ones dropped. */
 export const cleanWeeks = (list) => (Array.isArray(list) ? list : []).map(cleanWeek).filter(Boolean)
   .sort((a, b) => (a.week < b.week ? 1 : a.week > b.week ? -1 : 0));
 
+const SUMMED = ["days", "active_days", "minutes", ...TIME_NUMBERS, "reviews", "remembered", "new_words"];
+
 /** The last `count` weeks up to the week starting on `current` (a date), added up: what the tables show.
- *  days, minutes, reviews, remembered and new words are sums; words and known are the newest week's;
- *  `active` is the newest week with any answer ("" when there is none in the list at all). */
+ *  The weekly numbers are sums; words and known are the newest week's; `total` is every kind of minute;
+ *  `active` is the newest week with any study ("" when there is none in the list at all). */
 export function totals(weeks, current, count) {
   const first = dayDate(dateDay(current) - 7 * (Math.max(1, count) - 1));
-  const out = { days: 0, minutes: 0, reviews: 0, remembered: 0, new_words: 0, words: 0, known: 0, active: "" };
+  const out = { words: 0, known: 0, total: 0, active: "" };
+  for (const k of SUMMED) out[k] = 0;
   const list = cleanWeeks(weeks);
   for (const w of list) {
-    if (!out.active && w.reviews > 0) out.active = w.week;
+    if (!out.active && studied(w)) out.active = w.week;
     if (w.week > current || w.week < first) continue;
-    for (const k of ["days", "minutes", "reviews", "remembered", "new_words"]) out[k] += w[k];
+    for (const k of SUMMED) out[k] += w[k];
   }
+  out.total = out.minutes + out.listening + out.watching + out.reading;
   if (list.length) { out.words = list[0].words; out.known = list[0].known; }
+  return out;
+}
+
+/** How many whole weeks before this one the activity level looks at. */
+export const LEVEL_WEEKS = 4;
+/** The activity levels, most first: what each means is in `activity` below. */
+export const LEVELS = ["active", "some", "little", "stopped", "none"];
+
+/** A student's activity level from their weeks, by the days a week they studied anything:
+ *   active   4 or more days a week on average      some   2 or 3      little  less than 2
+ *   stopped  studied before, but not this week or last      none  never studied since sharing
+ *  The average is over the LEVEL_WEEKS whole weeks before `current` (a Monday's date), from the week they joined
+ *  (`since`, a date or time; "" for any), so a student who joined two weeks ago is averaged over two; one who
+ *  joined this week is judged on this week so far. Returns { level, perWeek } (days a week, one decimal). */
+export function activity(weeks, current, since = "") {
+  const list = cleanWeeks(weeks);
+  if (!list.some(studied)) return { level: "none", perWeek: 0 };
+  const cur = dateDay(current);
+  if (!list.some((w) => studied(w) && dateDay(w.week) >= cur - 7 && dateDay(w.week) <= cur)) return { level: "stopped", perWeek: 0 };
+  const joined = since ? weekStart(dateDay(since)) : -Infinity;
+  const counted = [];
+  for (let n = 1; n <= LEVEL_WEEKS; n++) if (cur - 7 * n >= joined) counted.push(dayDate(cur - 7 * n));
+  if (!counted.length) counted.push(current);
+  const days = list.filter((w) => counted.includes(w.week)).reduce((sum, w) => sum + w.active_days, 0);
+  const perWeek = Math.round((10 * days) / counted.length) / 10;
+  return { level: perWeek >= 4 ? "active" : perWeek >= 2 ? "some" : "little", perWeek };
+}
+
+/** When a student joined, as far as the one looking can tell: their class (a teacher's report), else the day they
+ *  first agreed to share (the owner's, v11), else the day they last agreed. */
+export const joinedOf = (s) => (s && (s.joined_at || s.since || s.agreed_at)) || "";
+
+/** How many students are at each level: { active: n, … }. `students`: [{ weeks, joined_at | since | agreed_at }]. */
+export function levelCounts(students, current) {
+  const out = Object.fromEntries(LEVELS.map((l) => [l, 0]));
+  for (const s of Array.isArray(students) ? students : []) out[activity(s.weeks, current, joinedOf(s)).level]++;
   return out;
 }
 
 /** How many weeks ago `week` was, from the week starting on `current` (0 = this week). */
 export const weeksAgo = (week, current) => Math.round((dateDay(current) - dateDay(week)) / 7);
 
-/** Spreadsheet rows, one per student per week: [[header…], [row…], …]. `students`: [{ last_name, language,
- *  classes: [names], weeks }]. A student with no week yet still gets one row, so nobody is missing. */
+/** "2026-11-03" for a time, on this device's calendar (as the tables show it), or "". */
+export function localDate(when) {
+  const d = new Date(when || "");
+  if (!when || Number.isNaN(d.getTime())) return "";
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/** Spreadsheet rows, one per student per week: [[header…], [row…], …]. `students`: [{ username, language,
+ *  classes: [names], agreed_at | joined_at, weeks }]. A student with no week yet still gets one row, so nobody is
+ *  missing. "Days studied" counts any study; "Flashcard days" only the days with flashcard answers. */
 export function sheetRows(students) {
-  const rows = [["Last name", "Language", "Class", "Week starting", "Days studied", "Minutes", "Reviews", "Remembered",
-    "New words", "Words saved", "Words known"]];
+  const rows = [["Username", "Language", "Class", "Joined", "Week starting", "Days studied", "Flashcard days", "Flashcard minutes",
+    "Listening minutes", "Watching minutes", "Reading minutes", "Total minutes", "Reviews", "Remembered", "New words", "Words saved", "Words known"]];
   for (const s of Array.isArray(students) ? students : []) {
-    const who = [String(s.last_name || ""), String(s.language || ""), (Array.isArray(s.classes) ? s.classes : []).join("; ")];
+    const who = [String(s.username || ""), String(s.language || ""), (Array.isArray(s.classes) ? s.classes : []).join("; "),
+      localDate(joinedOf(s))];
     const weeks = cleanWeeks(s.weeks).reverse();
-    if (!weeks.length) rows.push([...who, "", 0, 0, 0, 0, 0, 0, 0]);
-    for (const w of weeks) rows.push([...who, w.week, w.days, w.minutes, w.reviews, w.remembered, w.new_words, w.words, w.known]);
+    if (!weeks.length) rows.push([...who, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    for (const w of weeks) rows.push([...who, w.week, w.active_days, w.days, w.minutes, w.listening, w.watching, w.reading,
+      w.minutes + w.listening + w.watching + w.reading, w.reviews, w.remembered, w.new_words, w.words, w.known]);
   }
   return rows;
 }
@@ -110,15 +175,19 @@ export const pasteText = (rows) => rows.map((r) => r.map((v) => safeCell(v).repl
 // (A friend's or a stranger's device can't write these, the database decides who reads what; but nothing that
 // arrives is drawn without being cut to size and stripped of markup first.)
 
-export const NAME_MAX = 40;
+/** A username as Tamkeen keeps them (social.js USERNAME_RE), or "user-" and six characters of the account's id from
+ *  the database for someone with none yet (v11 private.dli_handle). DLI keeps no one's real name (the owner's rule,
+ *  2026-11-16): students and teachers show to each other by username. */
+export const NAME_MAX = 20;
 export const CLASS_NAME_MAX = 60;
+const handle = (v) => (/^[A-Za-z0-9_.-]{3,20}$/.test(String(v || "")) ? String(v) : "");
 
 const text = (v, most) => String(v ?? "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, most);
 const uuid = (v) => (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(v || "")) ? String(v).toLowerCase() : "");
 const when = (v) => (typeof v === "string" && Number.isFinite(Date.parse(v)) ? v : "");
 const count = (v) => (Number.isFinite(Number(v)) ? Math.max(0, Math.min(100000, Math.round(Number(v)))) : 0);
 const codeText = (v, shape) => (shape.test(String(v || "")) ? String(v) : "");
-const names = (list) => (Array.isArray(list) ? list : []).map((n) => text(n, NAME_MAX)).filter(Boolean).slice(0, 10);
+const names = (list) => (Array.isArray(list) ? list : []).map(handle).filter(Boolean).slice(0, 10);
 
 /** A class, made safe: { id, name, role, teachers } and, for its teachers, { code, staff_code, students }. */
 export function cleanClass(raw) {
@@ -137,21 +206,24 @@ export function cleanClass(raw) {
 export function cleanMe(raw) {
   const r = raw && typeof raw === "object" ? raw : {};
   const s = r.student && typeof r.student === "object" ? r.student : null;
-  const student = s && text(s.last_name, NAME_MAX) && DLI_CODES.includes(s.language)
-    ? { last_name: text(s.last_name, NAME_MAX), language: s.language, agreed_at: when(s.agreed_at), agreed_version: count(s.agreed_version) || 1 } : null;
-  const teacher = r.teacher && typeof r.teacher === "object" ? { name: text(r.teacher.name, NAME_MAX) } : null;
+  // (never a last name: a database without v11 still sends one, and it is left out here)
+  const student = s && DLI_CODES.includes(s.language)
+    ? { username: handle(s.username), language: s.language, agreed_at: when(s.agreed_at), joined_at: when(s.joined_at),
+      agreed_version: count(s.agreed_version) || 1 } : null;
+  const teacher = r.teacher && typeof r.teacher === "object" ? { username: handle(r.teacher.username) } : null;
   return { student, teacher, owner: r.owner === true,
     classes: (Array.isArray(r.classes) ? r.classes : []).map(cleanClass).filter(Boolean).slice(0, 40),
     weeks: cleanWeeks(r.weeks) };
 }
 
-/** A list of students as a report gives it, made safe: [{ id, last_name, language, joined_at | agreed_at, classes, weeks }]. */
+/** A list of students as a report gives it, made safe: [{ id, username, language, joined_at | agreed_at, since, classes, weeks }].
+ *  joined_at: when they joined the teacher's class; since: when they first agreed to share (the owner's report, v11). */
 export function cleanStudents(list) {
   return (Array.isArray(list) ? list : []).map((s) => {
     const id = uuid(s && s.id);
     if (!id) return null;
-    return { id, last_name: text(s.last_name, NAME_MAX) || "?", language: DLI_CODES.includes(s.language) ? s.language : "",
-      joined_at: when(s.joined_at), agreed_at: when(s.agreed_at),
+    return { id, username: handle(s.username) || "?", language: DLI_CODES.includes(s.language) ? s.language : "",
+      joined_at: when(s.joined_at), agreed_at: when(s.agreed_at), since: when(s.since),
       classes: (Array.isArray(s.classes) ? s.classes : []).map((n) => text(n, CLASS_NAME_MAX)).filter(Boolean).slice(0, 10),
       weeks: cleanWeeks(s.weeks) };
   }).filter(Boolean);
@@ -162,8 +234,8 @@ export function cleanOwner(raw) {
   const r = raw && typeof raw === "object" ? raw : {};
   return {
     students: cleanStudents(r.students),
-    teachers: (Array.isArray(r.teachers) ? r.teachers : []).map((t) => ({ id: uuid(t && t.id), name: text(t && t.name, NAME_MAX),
-      username: text(t && t.username, 20), since: when(t && t.since), classes: count(t && t.classes) })).filter((t) => t.id),
+    teachers: (Array.isArray(r.teachers) ? r.teachers : []).map((t) => ({ id: uuid(t && t.id),
+      username: handle(t && t.username), since: when(t && t.since), classes: count(t && t.classes) })).filter((t) => t.id),
     classes: (Array.isArray(r.classes) ? r.classes : []).map((c) => ({ id: uuid(c && c.id), name: text(c && c.name, CLASS_NAME_MAX),
       students: count(c && c.students), teachers: names(c && c.teachers) })).filter((c) => c.id),
     teacher_code: teacherCode(r.teacher_code),

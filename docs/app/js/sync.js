@@ -13,6 +13,7 @@ import { cleanFollows, mergeFollows } from "./ytfollow.js";
 import { cleanSites, mergeSites } from "./browser-sites.js";
 import { cleanCollections, mergeCollections } from "./igcollections.js";
 import { cleanProgress, mergeProgress } from "./grammardata.js";
+import { cleanState as cleanLessons, mergeStates as mergeLessons } from "./lessons.js";
 import { cleanSetting as cleanController, settingWins as controllerWins } from "./padmap.js";
 import { cleanGoals, cleanSetting as cleanGoal, mergeGoals, settingWins as goalWins } from "./review/goalsetting.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
@@ -152,6 +153,18 @@ export function merge(remote) {
     }
   }
 
+  // Lesson bundles (lessons.js): for each lesson, the copy changed last wins (app/lessons.py, twin).
+  if (remote.lessons && typeof remote.lessons === "object" && Object.keys(remote.lessons).length) {
+    const before = cleanLessons(settings.lesson_state);
+    const merged = mergeLessons(before, remote.lessons);
+    if (JSON.stringify(merged) !== JSON.stringify(before)) {
+      settings.lesson_state = merged;
+      kv.set("settings", { ...settings }).catch(console.error);
+      window.dispatchEvent(new CustomEvent("tamkeen:lessons")); // an open Lessons tab redraws
+      changed++;
+    }
+  }
+
   // Grammar lessons finished (grammardata.js): for each lesson, the finish made last wins.
   if (remote.grammar && typeof remote.grammar === "object" && Object.keys(remote.grammar).length) {
     const before = cleanProgress(settings.grammar_progress);
@@ -246,6 +259,7 @@ export function snapshot() {
     channels: cleanFollows(settings.youtube_follows),
     sites: cleanSites(settings.browser_sites),
     grammar: cleanProgress(settings.grammar_progress),
+    lessons: cleanLessons(settings.lesson_state),
     controller: cleanController(settings.controller_map),
     goal: cleanGoal(settings.study_goal),
     goals: cleanGoals(settings.study_goals),

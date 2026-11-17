@@ -48,6 +48,7 @@ import { customChip } from "../review/customchip.js";
 import { BACK_CHOICES, BACK_MAX, BACK_MIN, BOOST, answered as speedAnswered, barState, loadRecord, saveRecord, setSpeed, speedSettings, timedOut,
          todayBest, useBoost } from "../review/speedstreak.js";
 import { icon } from "../icons.js";
+import { appOut } from "../appvolume.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -115,7 +116,7 @@ function tone(freq, start, length, type = "sine", volume = 0.07) {
     osc.frequency.setValueAtTime(freq, t);
     gain.gain.setValueAtTime(volume, t);
     gain.gain.exponentialRampToValueAtTime(0.0001, t + length);
-    osc.connect(gain).connect(audioCtx.destination);
+    osc.connect(gain).connect(appOut(audioCtx));
     osc.start(t);
     osc.stop(t + length);
   } catch { /* no sound available */ }
@@ -1521,7 +1522,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onPop = () => close(true);
   window.addEventListener("popstate", onPop);
   window.addEventListener("hashchange", onPop);
-  const stopStudy = trackStudy("read", () => panel.hidden);  // time spent on cards counts as study time
+  const stopStudy = trackStudy("read", () => panel.hidden, null, null);  // time spent on cards counts as study time
 
   let closed = false;
   function close(byHistory = false) {
