@@ -48,11 +48,11 @@ test("looking words up and saving them while watching YouTube still pay", () => 
 
 test("the player tells the game which videos are YouTube's", () => {
   const src = readFileSync(new URL("../../web/js/pages/player.js", import.meta.url), "utf8");
-  assert.match(src, /trackStudy\("listen", \(\) => !audio\.paused, yt \? "youtube" : null, /);
+  assert.match(src, /trackStudy\("listen", \(\) => !audio\.paused( \|\| [^,]+)?, yt \? "youtube" : null, /); // (or the typing box in use)
   const game = readFileSync(new URL("../../web/js/game/game.js", import.meta.url), "utf8");
   assert.match(game, /const paid = !UNPAID_TIME\.has\(source\);/, "and then rewards nothing for them");
   assert.match(game, /if \(paid\) reward\(\{ type: "study"/, "(a DLI student's minutes still count: a count, not a reward)");
   // Reels are Instagram's, not YouTube's: they keep their time.
   const reels = readFileSync(new URL("../../web/js/pages/reels.js", import.meta.url), "utf8");
-  assert.match(reels, /trackStudy\("listen", \(\) => playing, null, "watch"\)/);
+  assert.match(reels, /trackStudy\("listen", \(\) => playing( \|\| [^,]+)?, null, "watch"\)/);
 });

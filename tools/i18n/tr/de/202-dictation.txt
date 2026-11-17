@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Schreib, was du hörst: die Sätze der Lektion, einer nach dem anderen
+41975898	Schreib, was du hörst
+a3fa69ab	Schreib, was du hörst (W)
+069c9e6a	Die Sätze langsamer abspielen
+0720e977	Zurück zu den Wörtern
+b290f68c	Noch einmal hören
+4b5e84be	Prüfen
+4ee3ef0c	Enter prüft · Umschalt+Enter spielt den Satz noch einmal
+b6fffc5a	Von vorn beginnen
+209b330d	Schreib, was du gehört hast
+087d440e	Was du gehört hast
+21449063	Bisher {0} % richtig
+7031fe71	Satz {0} von {1}
+825401d6	(nichts geschrieben)
+94409161	{0} von {1} Buchstaben richtig
+d5efb407	{0} von {1} Wörtern richtig
+99d158a7	Jeder Buchstabe richtig.
+dbf9f7f2	Jedes Wort richtig.
+4c768dc3	{0} fast richtig
+51dfb3c5	Fertig: {0} % richtig in {1} Sätzen.
+a1c12a4d	Hier gibt es noch keine Sätze zum Schreiben.
+ea54afdd	Schreib, was du hörst (an / aus)

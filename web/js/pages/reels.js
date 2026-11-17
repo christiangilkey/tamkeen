@@ -32,6 +32,8 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
+import { dictationButton, dictationPanel } from "../components/dictation.js";
+import { sentencesFromWords } from "../dictation.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -653,6 +655,37 @@ async function renderPlayer(view, { query }) {
     dual.reel = reel;
     dual.want(0);
   }
+  // "Type what you hear" (dictation: components/dictation.js), beside it, where reels play (the phone): the
+  // words bar gives way to a box, one sentence of the reel plays at a time, the learner types it and then sees
+  // the real sentence above what they typed. After the last one, Next reel carries on with the next reel.
+  let dict = null;
+  let dictOn = false; // the learner is typing: a reel shown next opens with the box too
+  const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation(true)));
+  if (surface) $("#rc-left").append(dictBtn);
+  function openDictation(autoplay) {
+    if (dict || !cur || !surface || disposed) return;
+    const sentences = sentencesFromWords({ texts: cur.texts, starts: cur.starts, ends: cur.ends, segOf: cur.segOf, lang: cur.lang });
+    if (!sentences.length) { toast("There are no sentences to type here yet."); return; }
+    bubble.hide();
+    if (cursor) cursor.hide();
+    dictOn = true;
+    dict = dictationPanel({
+      sentences, lang: cur.lang, autoplay,
+      play: (k) => playClip(sentences[k].start, sentences[k].end, { always: true }),
+      stop: () => { clipEnd = null; if (last && !last.paused) surface.do("pause"); },
+      end: reels.length > 1 ? { label: "Next reel", run: () => show(index + 1) } : null,
+      onClose: () => {
+        dict = null;
+        dictOn = false;
+        if (disposed) return;
+        view.querySelector(".reelplay").classList.remove("dictating");
+        dictBtn.paint(false);
+      },
+    });
+    view.querySelector(".reelplay").classList.add("dictating");
+    $("#reel-controls").before(dict.el);
+    dictBtn.paint(true);
+  }
   const offVowels = on("vowels", async (d) => {
     const reel = cur;
     if (!reel || !d || String(d.episode_id) !== String(reel.ep.id)) return;
@@ -703,10 +736,11 @@ async function renderPlayer(view, { query }) {
 
   // Play a word or a sentence, then pause right after it (or keep playing from there, if that is
   // what the switch says).
-  function playClip(start, end) {
+  function playClip(start, end, { always = false } = {}) {
     if (!surface) return;
-    clipEnd = pauseAfterWord() ? end + 0.08 : null;
-    clip = { from: Math.max(0, start - 0.05), end: end + 0.08, at: Date.now(), there: false };
+    const after = always ? 0.15 : 0.08;
+    clipEnd = always || pauseAfterWord() ? end + after : null;
+    clip = { from: Math.max(0, start - (always ? 0.08 : 0.05)), end: end + after, at: Date.now(), there: false };
     surface.do("seek", clip.from);
     surface.do("play");
   }
@@ -783,6 +817,7 @@ async function renderPlayer(view, { query }) {
     // The same reel once more (its ordinary page after the embed page, or "Try again"): its words
     // stay on screen as they are. Drawing them again made the bar flash, and their colours fade in again.
     const again = !!cur && cur.ep === ep;
+    if (dict && !again) { dict.close(); dictOn = true; } // (opened again below, on this reel's sentences)
     bubble.hide();
     clipEnd = null;
     target = null;
@@ -841,6 +876,7 @@ async function renderPlayer(view, { query }) {
       vowelsBtn.hidden = !cur || cur.lang !== "ar";
       vowelsBtn.repaint();
       startDual();
+      if (dictOn && cur && !dict) openDictation(false); // (its first sentence waits for "Hear it again": the reel is loading)
     }
     if (!surface) {
       stage.innerHTML = "";
@@ -913,7 +949,7 @@ async function renderPlayer(view, { query }) {
       seenEnds = s.ends;
       markWatched(ep.id);
       // A reel that ended because a word was being replayed stays; otherwise the next one starts.
-      if (clipEnd === null && !bubble.open && !menuOpen() && Date.now() - loadedAt > 1500) show(index + 1);
+      if (clipEnd === null && !bubble.open && !dict && !menuOpen() && Date.now() - loadedAt > 1500) show(index + 1);
       else clipEnd = null;
     }
   }
@@ -926,7 +962,7 @@ async function renderPlayer(view, { query }) {
   const settle = setInterval(onResize, 1500); // the bar can change the stage's size (fonts loading, keyboard)
   const menuWatch = new MutationObserver(onResize); // a menu opened or closed: see stageRect
   if (menu) menuWatch.observe(menu, { attributes: true, attributeFilter: ["hidden"] });
-  const stopStudy = trackStudy("listen", () => playing, null, "watch");
+  const stopStudy = trackStudy("listen", () => playing || !!(dict && dict.active()), null, "watch");
   const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w")) bubble.hide(); };
   document.addEventListener("pointerdown", onOutside);
 
@@ -972,6 +1008,7 @@ async function renderPlayer(view, { query }) {
     prevLine: () => { const ls = lineStartsNow(); if (ls.length && last) jumpTo(ls[Math.max(0, lineAt(ls, last.t) - 1)]); },
     nextLine: () => { const ls = lineStartsNow(); const k = last ? lineAt(ls, last.t) + 1 : 0; if (k < ls.length) jumpTo(ls[k]); },
     replayLine: () => {
+      if (dict) { dict.again(); return; }
       const ls = lineStartsNow();
       if (!ls.length || !last || !surface) return;
       jumpTo(ls[lineAt(ls, last.t)]);
@@ -987,6 +1024,7 @@ async function renderPlayer(view, { query }) {
     nextVideo: () => show(index + 1),
     back: () => {
       if (bubble.open) { bubble.hide(); return true; }
+      if (dict) { dict.close(); return true; }
       return cursor.hide();  // the highlight put away: the words follow the reel again
     },
   });
@@ -995,6 +1033,7 @@ async function renderPlayer(view, { query }) {
   await show(index);
   return () => {
     disposed = true;
+    if (dict) dict.close();
     if (dual) dual.stop();
     offPad();
     offVowels();

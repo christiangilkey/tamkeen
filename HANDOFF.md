@@ -8952,3 +8952,40 @@ is by days studied a week.
   `last_name` left in `tamkeenDliShare`, and `agree()` falls back to v10's `dli_register` with "-" (never a name) on a
   database without v11. `dliweeks.js` keeps usernames only (`handle`), never a `last_name` an older database sends.
   The teacher's private note on a student (this device only) is unchanged.
+
+## Type what you hear (dictation) (2026-11-16; main chat; not released)
+
+The owner: "add a transcription option for each audio media type, where it plays a sentence (not showing the user), lets
+the user type what they heard, then shows them the actual subtitle above it, the user clicks the next button and it moves
+on to the next sentence".
+- **Logic** `web/js/dictation.js` (no screen): `sentencesFromWords({texts, starts, ends, segOf, lang, lineTimed})` cuts the
+  player's words into sentences: at a word ending a sentence (`ENDS`, once 1.5 s long), at a line's end once `LONG` 6 s or
+  joining the next line would pass `LONGEST` 15 s, always at a `PAUSE` of 2 s between words (the real transcript had a 26 s
+  gap inside one line: music), inside a line at a comma past 15 s or anywhere past 22 s (never inside a line when
+  `lineTimed`: subtitles); `cleanSentence` drops `[Music]`, ♪; lines with nothing to type are left out.
+  `compareTyped(real, typed, lang)` → `{real, typed, right, near, total, letters}`: pieces are words (graphemes for
+  `unspaced` ja/zh/th), lined up by dynamic programming (3 exact `strictKey`, 2 `looseKey`, 1 a slip: Damerau distance 1
+  from 5 letters, 2 from 9); `strictKey` drops Arabic marks/tatweel, folds أ إ آ ٱ ى ی ک, Arabic-Indic digits, punctuation,
+  case; `looseKey` also accents, ß, ё, ة→ه, ؤ ئ. `shareRight` counts nearly as half. Tests: `tests/js/dictation.test.mjs`.
+- **Panel** `web/js/components/dictation.js`: `dictationButton` (keyboard icon, new `keyboard` in icons.js) and
+  `dictationPanel({sentences, lang, at, play(k), stop, slow, end, autoplay, onClose})` → `{el, close, active, at, again}`.
+  Enter checks / goes on (not while an IME is composing), Shift+Enter plays again; the placeholder is set with t() (the box
+  has the study language's `lang`, which the page's translation skips). `active()` = used in the last 30 s: the hosts add it
+  to `trackStudy`, so the minutes count as listening (and for DLI time).
+- **Hosts**: `pages/player.js` (podcasts, audiobooks, own audio/video, recordings, YouTube, Netflix, DLI): button before
+  A−, W key (preventDefault, or the w lands in the box), R / the controller's replay plays the sentence again, the
+  controller's options and back; `.player.dictating` hides the transcript, captions, handle and "Back to current", the
+  panel sits before `.controls`, the video stays (nothing is drawn over YouTube's or Netflix's player; Netflix's own
+  subtitles are hidden by netflix-player.js anyway). `playClip(…, {always: true})` stops after the sentence whatever the
+  popup's pause switch says. `pages/reels.js`: only where reels play (the phones), in `#rc-left`; the panel replaces the
+  words bar; no auto-advance while open; `end` = Next reel, and a reel shown while typing reopens the panel on its
+  sentences without autoplay (the reel is loading). `components/coursepanel.js`: "Type what you hear" in a unit's head
+  plays the unit's example sentences (⟦ ⟧ removed) through `play(w, "sentence")`, Slower sets `playbackRate`, remembers
+  the sentence in localStorage `course:<id>:dict:<unit>`. CSS: the `.dict*` block at the end of web/css/media.css.
+  build-www's SHARED has both files. Translations `tools/i18n/tr/<l>/202-dictation.txt` (20 strings).
+- **Checked** in the computer app's page on a fresh `APS_DATA_DIR` with one real 10-minute Arabic podcast copied in
+  (68 sentences, median 7.7 s): opening by button and W, a sentence plays and stops by itself with no text on screen,
+  the check (right / nearly / missed and the extra words), Next, Shift+Enter, Slower (0.75× and back), closing (transcript,
+  speed and highlight back), the end screen, 375 px width; a course unit (plays 1.1–3.2 s and stops, check). **Not tried:**
+  reels (they play only on the phones), YouTube, Netflix, a real phone or iPhone (the on-screen keyboard), a UI language
+  other than English on screen.

@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Isulat ang naririnig mo: ang mga pangungusap ng unit, isa-isa
+41975898	Isulat ang naririnig mo
+a3fa69ab	Isulat ang naririnig mo (W)
+069c9e6a	I-play nang mas mabagal ang mga pangungusap
+0720e977	Bumalik sa mga salita
+b290f68c	Pakinggan muli
+4b5e84be	Suriin
+4ee3ef0c	Enter para suriin · Shift+Enter para i-play muli ang pangungusap
+b6fffc5a	Magsimula ulit
+209b330d	Isulat ang narinig mo
+087d440e	Ang narinig mo
+21449063	{0}% tama sa ngayon
+7031fe71	Pangungusap {0} sa {1}
+825401d6	(walang naisulat)
+94409161	{0} sa {1} titik ang tama
+d5efb407	{0} sa {1} salita ang tama
+99d158a7	Tama ang lahat ng titik.
+dbf9f7f2	Tama ang lahat ng salita.
+4c768dc3	{0} halos tama
+51dfb3c5	Tapos na: {0}% tama sa {1} pangungusap.
+a1c12a4d	Wala pang pangungusap na isusulat dito.
+ea54afdd	Isulat ang naririnig mo (on / off)

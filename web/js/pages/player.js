@@ -52,6 +52,8 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor,
   youTubeTranslations } from "../components/dualline.js";
+import { dictationButton, dictationPanel } from "../components/dictation.js";
+import { sentencesFromWords } from "../dictation.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -870,9 +872,9 @@ export async function render(view, { id, query }) {
 
   // ---------- clips: play one word or one sentence, then pause ----------
   // (or keep playing from there, if that is what the switch in the word popup says)
-  function playClip(start, end) {
-    const from = Math.max(0, start - 0.04);
-    if (!pauseAfterWord()) {
+  function playClip(start, end, { always = false } = {}) {
+    const from = Math.max(0, start - (always ? 0.08 : 0.04));
+    if (!always && !pauseAfterWord()) {
       clipEnd = null;
       clearTimeout(clipTimer);
       audio.currentTime = from;
@@ -880,7 +882,7 @@ export async function render(view, { id, query }) {
       kick();
       return;
     }
-    clipEnd = end + 0.03;  // just past the word: more would start highlighting the next one
+    clipEnd = end + (always ? 0.15 : 0.03);  // just past the word: more would start highlighting the next one
     audio.currentTime = from;
     if (audio.paused) play();
     kick();
@@ -1295,6 +1297,50 @@ export async function render(view, { id, query }) {
   }, { passive: true });
   setDual(dualOn());
 
+  // ---------- "Type what you hear" (dictation: components/dictation.js) ----------
+  // The words go away (the transcript, the captions, the popup) and one sentence plays at a time, from the one
+  // being heard; the learner types it and then sees the real sentence above what they typed. The video stays.
+  let dict = null;
+  let dictSentences = null;
+  const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
+  $("#font-down").before(dictBtn);
+  dictBtn.disabled = !n;
+  function openDictation() {
+    if (dict || !n || disposed) return;
+    dictSentences = dictSentences || sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed });
+    if (!dictSentences.length) { toast("There are no sentences to type here yet."); return; }
+    clearLoop();
+    bubble.hide();
+    if (cursor) cursor.hide();
+    const now = audio.currentTime || 0;
+    const at = Math.max(0, dictSentences.findIndex((s) => s.end > now + 0.05));
+    let before = speed;
+    dict = dictationPanel({
+      sentences: dictSentences, lang, at,
+      play: (k) => playClip(dictSentences[k].start, dictSentences[k].end, { always: true }),
+      stop: () => { clipEnd = null; if (!audio.paused) audio.pause(); },
+      slow: (on) => {
+        if (on) { before = speed; if (speed > 0.75) setSpeed(0.75); }
+        else if (speed !== before) setSpeed(before);
+      },
+      onClose: () => {
+        dict = null;
+        if (disposed) return;
+        playerEl.classList.remove("dictating");
+        dictBtn.paint(false);
+        follow = true;
+        $("#back").hidden = true;
+        capStart = -1;
+        showCaption(curIdx);
+        if (curIdx >= 0) ensureVisible(wordEls[curIdx], true);
+        fitBubble();
+      },
+    });
+    playerEl.classList.add("dictating");
+    $(".controls").before(dict.el);
+    dictBtn.paint(true);
+  }
+
   tr.addEventListener("scroll", () => bubble.position(), { passive: true });
   const onFullscreen = () => setTimeout(() => bubble.position(), 100);
   document.addEventListener("fullscreenchange", onFullscreen);
@@ -1351,7 +1397,8 @@ export async function render(view, { id, query }) {
     if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : audio.pause(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
-    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) $("#restart").click();
+    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else $("#restart").click(); }
+    else if ((e.key === "w" || e.key === "W") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); dictBtn.click(); } // (not typed into its box)
     else if (e.key === "Escape") { if (bubble.open) bubble.hide(); else clearLoop(); }
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
@@ -1405,6 +1452,7 @@ export async function render(view, { id, query }) {
       vid ? { label: "Captions on the video (on / off)", run: () => padH.captions() } : null,
       vid ? { label: "Transcript panel (open / close)", run: () => padH.transcript() } : null,
       { label: "Translation under each line (on / off)", run: () => dualBtn.click() },
+      n ? { label: "Type what you hear (on / off)", run: () => dictBtn.click() } : null,
       { label: "Larger text", run: () => $("#font-up").click() },
       { label: "Smaller text", run: () => $("#font-down").click() },
       vid && document.fullscreenEnabled ? { label: "Full screen", run: () => toggleFullscreen() } : null,
@@ -1434,7 +1482,7 @@ export async function render(view, { id, query }) {
     fwd5: () => $("#fwd5").click(),
     prevLine: () => { if (lineStarts.length) seekTo(lineStarts[Math.max(0, lineAt(audio.currentTime) - 1)], false); },
     nextLine: () => { const k = lineAt(audio.currentTime) + 1; if (k < lineStarts.length) seekTo(lineStarts[k], false); },
-    replayLine: () => { if (lineStarts.length) seekTo(lineStarts[lineAt(audio.currentTime)], true); },
+    replayLine: () => { if (dict) dict.again(); else if (lineStarts.length) seekTo(lineStarts[lineAt(audio.currentTime)], true); },
     loopLine: () => {
       if (loop) { clearLoop(); return; }
       const i = cursor.on ? cursor.at : wordNow();  // the highlighted word's line, else the one being said
@@ -1457,6 +1505,7 @@ export async function render(view, { id, query }) {
     } : {}),
     back: () => {
       if (bubble && bubble.open) { bubble.hide(); return true; }
+      if (dict) { dict.close(); return true; }
       if (loop) { clearLoop(); return true; }
       if (cursor.hide()) return true;  // the highlight put away: the words follow the sound again
       return false;
@@ -1488,9 +1537,11 @@ export async function render(view, { id, query }) {
 
   // Minutes actually played count toward today's goal, except a YouTube video's: YouTube's rules don't allow
   // rewarding watching, so its time earns nothing (rules.UNPAID_TIME). Words looked up or saved still pay.
-  const stopStudy = trackStudy("listen", () => !audio.paused, yt ? "youtube" : null, vid || embed ? "watch" : "listen");
+  // (Typing what was heard is listening too: the minutes count while the panel is in use.)
+  const stopStudy = trackStudy("listen", () => !audio.paused || !!(dict && dict.active()), yt ? "youtube" : null, vid || embed ? "watch" : "listen");
   return () => {
     disposed = true;
+    if (dict) dict.close();
     if (dual) dual.stop();
     clearTimeout(dualScroll);
     stopStudy();

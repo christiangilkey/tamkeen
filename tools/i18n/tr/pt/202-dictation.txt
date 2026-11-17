@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Escreva o que você ouve: as frases da unidade, uma por vez
+41975898	Escreva o que você ouve
+a3fa69ab	Escreva o que você ouve (W)
+069c9e6a	Tocar as frases mais devagar
+0720e977	Voltar às palavras
+b290f68c	Ouvir de novo
+4b5e84be	Conferir
+4ee3ef0c	Enter confere · Shift+Enter toca a frase de novo
+b6fffc5a	Começar de novo
+209b330d	Escreva o que você ouviu
+087d440e	O que você ouviu
+21449063	{0}% certo até agora
+7031fe71	Frase {0} de {1}
+825401d6	(nada escrito)
+94409161	{0} de {1} letras certas
+d5efb407	{0} de {1} palavras certas
+99d158a7	Todas as letras certas.
+dbf9f7f2	Todas as palavras certas.
+4c768dc3	{0} quase certas
+51dfb3c5	Fim: {0}% certo em {1} frases.
+a1c12a4d	Ainda não há frases para escrever aqui.
+ea54afdd	Escreva o que você ouve (liga / desliga)

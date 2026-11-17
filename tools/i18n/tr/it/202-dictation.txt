@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Scrivi quello che senti: le frasi dell'unità, una alla volta
+41975898	Scrivi quello che senti
+a3fa69ab	Scrivi quello che senti (W)
+069c9e6a	Riproduci le frasi più lentamente
+0720e977	Torna alle parole
+b290f68c	Riascolta
+4b5e84be	Controlla
+4ee3ef0c	Invio controlla · Maiusc+Invio riproduce di nuovo la frase
+b6fffc5a	Ricomincia
+209b330d	Scrivi quello che hai sentito
+087d440e	Quello che hai sentito
+21449063	{0}% giusto finora
+7031fe71	Frase {0} di {1}
+825401d6	(niente scritto)
+94409161	{0} lettere giuste su {1}
+d5efb407	{0} parole giuste su {1}
+99d158a7	Tutte le lettere giuste.
+dbf9f7f2	Tutte le parole giuste.
+4c768dc3	{0} quasi giuste
+51dfb3c5	Finito: {0}% giusto su {1} frasi.
+a1c12a4d	Qui non ci sono ancora frasi da scrivere.
+ea54afdd	Scrivi quello che senti (sì / no)

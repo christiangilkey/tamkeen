@@ -142,6 +142,9 @@ const PATHS = {
   // Two lines of subtitles, the second shorter and fainter: the translation under each line (dualline.js).
   dualsubs: `<rect class="fill" x="3" y="5" width="18" height="14" rx="2.6"/><rect x="3" y="5" width="18" height="14" rx="2.6"/>
     <path d="M7 10.5h10"/><path d="M7 14.5h6.5" opacity=".55"/>`,
+  // A keyboard: "Type what you hear" (components/dictation.js), in the players and the courses.
+  keyboard: `<rect class="fill" x="2.5" y="6" width="19" height="12" rx="2.4"/><rect x="2.5" y="6" width="19" height="12" rx="2.4"/>
+    <path d="M6.5 10h.01M10 10h.01M13.5 10h.01M17.5 10h.01M6.5 13.5h.01M17.5 13.5h.01M9.5 14.5h5"/>`,
   // A computer screen on its stand (Settings → Listening & transcripts: "This computer" / "My computer").
   computer: `<rect class="fill" x="3.5" y="4.5" width="17" height="11.5" rx="2"/><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"/>
     <path d="M12 16v3.5"/><path d="M8.5 19.5h7"/>`,

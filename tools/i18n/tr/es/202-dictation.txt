@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Escribe lo que oyes: las frases de la unidad, una por una
+41975898	Escribe lo que oyes
+a3fa69ab	Escribe lo que oyes (W)
+069c9e6a	Reproducir las frases más despacio
+0720e977	Volver a las palabras
+b290f68c	Volver a escuchar
+4b5e84be	Comprobar
+4ee3ef0c	Enter comprueba · Mayús+Enter vuelve a reproducir la frase
+b6fffc5a	Empezar de nuevo
+209b330d	Escribe lo que oíste
+087d440e	Lo que oíste
+21449063	{0} % bien hasta ahora
+7031fe71	Frase {0} de {1}
+825401d6	(no escribiste nada)
+94409161	{0} de {1} letras bien
+d5efb407	{0} de {1} palabras bien
+99d158a7	Todas las letras bien.
+dbf9f7f2	Todas las palabras bien.
+4c768dc3	{0} casi bien
+51dfb3c5	Terminado: {0} % bien en {1} frases.
+a1c12a4d	Aquí todavía no hay frases para escribir.
+ea54afdd	Escribe lo que oyes (sí / no)

@@ -159,6 +159,9 @@ const SHARED = [
   "js/dualsubs.js",
   "js/dualstore.js",
   "js/components/dualline.js",
+  // Type what you hear (dictation), in every player with sound
+  "js/dictation.js",
+  "js/components/dictation.js",
   "js/saytext.js",
   "js/components/grammarpanel.js",
   "js/components/coursewords.js",

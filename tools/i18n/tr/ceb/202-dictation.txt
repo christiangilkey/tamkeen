@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Isulat ang imong madungog: ang mga sentence sa unit, usa-usa
+41975898	Isulat ang imong madungog
+a3fa69ab	Isulat ang imong madungog (W)
+069c9e6a	Hinayhinaya ang pagpatokar sa mga sentence
+0720e977	Balik sa mga pulong
+b290f68c	Paminawa pag-usab
+4b5e84be	Susiha
+4ee3ef0c	Enter aron susihon · Shift+Enter aron patokaron pag-usab ang sentence
+b6fffc5a	Sugdi pag-usab
+209b330d	Isulat ang imong nadungog
+087d440e	Ang imong nadungog
+21449063	{0}% sakto hangtod karon
+7031fe71	Sentence {0} sa {1}
+825401d6	(walay gisulat)
+94409161	{0} sa {1} ka letra ang sakto
+d5efb407	{0} sa {1} ka pulong ang sakto
+99d158a7	Sakto ang tanang letra.
+dbf9f7f2	Sakto ang tanang pulong.
+4c768dc3	{0} hapit na sakto
+51dfb3c5	Nahuman: {0}% sakto sa {1} ka sentence.
+a1c12a4d	Wala pay sentence nga isulat dinhi.
+ea54afdd	Isulat ang imong madungog (on / off)

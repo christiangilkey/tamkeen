@@ -1,0 +1,23 @@
+# "Type what you hear" (dictation: components/dictation.js, the players and the courses).
+f3a0a519	Écrivez ce que vous entendez : les phrases de l'unité, une à une
+41975898	Écrivez ce que vous entendez
+a3fa69ab	Écrivez ce que vous entendez (W)
+069c9e6a	Lire les phrases plus lentement
+0720e977	Revenir aux mots
+b290f68c	Réécouter
+4b5e84be	Vérifier
+4ee3ef0c	Entrée vérifie · Maj+Entrée relit la phrase
+b6fffc5a	Recommencer
+209b330d	Écrivez ce que vous avez entendu
+087d440e	Ce que vous avez entendu
+21449063	{0} % juste jusqu'ici
+7031fe71	Phrase {0} sur {1}
+825401d6	(rien d'écrit)
+94409161	{0} lettres justes sur {1}
+d5efb407	{0} mots justes sur {1}
+99d158a7	Toutes les lettres sont justes.
+dbf9f7f2	Tous les mots sont justes.
+4c768dc3	{0} presque justes
+51dfb3c5	Terminé : {0} % juste sur {1} phrases.
+a1c12a4d	Il n'y a pas encore de phrases à écrire ici.
+ea54afdd	Écrivez ce que vous entendez (activé / désactivé)

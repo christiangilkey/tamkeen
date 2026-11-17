@@ -3990,6 +3990,16 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "f3a0a519",
+  "k": "Type what you hear: the unit's sentences, one at a time",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "41975898",
+  "k": "Type what you hear",
+  "f": "web/js/components/coursepanel.js"
+ },
+ {
   "id": "56459cba",
   "k": "Words {0}–{1} · {2} of {3} in your cards",
   "f": "web/js/components/coursepanel.js"
@@ -4063,6 +4073,111 @@
   "id": "5f2b15f8",
   "k": "This word's audio couldn't be played.",
   "f": "web/js/components/coursepanel.js"
+ },
+ {
+  "id": "a3fa69ab",
+  "k": "Type what you hear (W)",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "069c9e6a",
+  "k": "Play the sentences slower",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "cf606d09",
+  "k": "Slower",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "0720e977",
+  "k": "Back to the words",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "b290f68c",
+  "k": "Hear it again",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "4b5e84be",
+  "k": "Check",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "4ee3ef0c",
+  "k": "Enter checks it · Shift+Enter plays the sentence again",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "b6fffc5a",
+  "k": "Start again",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "209b330d",
+  "k": "Type what you heard",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "087d440e",
+  "k": "What you heard",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "21449063",
+  "k": "{0}% right so far",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "7031fe71",
+  "k": "Sentence {0} of {1}",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "825401d6",
+  "k": "(nothing typed)",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "94409161",
+  "k": "{0} of {1} letters right",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "d5efb407",
+  "k": "{0} of {1} words right",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "99d158a7",
+  "k": "Every letter right.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "dbf9f7f2",
+  "k": "Every word right.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "4c768dc3",
+  "k": "{0} nearly right",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "bc981983",
+  "k": "Next",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "51dfb3c5",
+  "k": "Finished: {0}% right over {1} sentences.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "a1c12a4d",
+  "k": "There are no sentences to type here yet.",
+  "f": "web/js/components/dictation.js"
  },
  {
   "id": "a2484f02",
@@ -8007,11 +8122,6 @@
  {
   "id": "3da47453",
   "k": "Skip",
-  "f": "web/js/components/tour.js"
- },
- {
-  "id": "bc981983",
-  "k": "Next",
   "f": "web/js/components/tour.js"
  },
  {
@@ -19160,11 +19270,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "cf606d09",
-  "k": "Slower",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "0fb3f212",
   "k": "Loop this line (on / off)",
   "f": "web/js/padmap.js"
@@ -21972,6 +22077,11 @@
  {
   "id": "d6aa6cf3",
   "k": "Translation under each line (on / off)",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "ea54afdd",
+  "k": "Type what you hear (on / off)",
   "f": "web/js/pages/player.js"
  },
  {
