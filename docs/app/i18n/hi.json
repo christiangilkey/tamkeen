@@ -813,6 +813,8 @@
 "This word's audio couldn't be loaded. Check your connection.":"इस शब्द का ऑडियो लोड नहीं हो सका। अपना कनेक्शन जाँचें।",
 "This word's audio couldn't be loaded.":"इस शब्द का ऑडियो लोड नहीं हो सका।",
 "This word's audio couldn't be played.":"इस शब्द का ऑडियो चल नहीं सका।",
+"Type what you hear is on for this device. Open a player or a course unit to try it.":"\"जो सुनें वह लिखें\" इस डिवाइस पर चालू है। इसे आज़माने के लिए कोई प्लेयर या कोर्स की इकाई खोलें।",
+"Type what you hear is off for this device.":"\"जो सुनें वह लिखें\" इस डिवाइस पर बंद है।",
 "Type what you hear (W)":"जो सुनें वह लिखें (W)",
 "Gist":"सार",
 "Play it slower":"धीमे चलाएँ",

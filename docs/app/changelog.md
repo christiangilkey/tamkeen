@@ -16,6 +16,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 - **New:** **Type what you hear.** Every player with sound has a new keyboard button (or press W on a computer): the words go away and you write down what you hear, three ways. **Word:** one word plays and you type it. **Sentence:** one sentence plays; you type it and the real sentence then appears above what you typed, each word marked right, nearly right or missed (with your extra words crossed out). **Gist:** 2 to 5 sentences play in a row (you choose how many); you write what you heard, the words you caught or what it was about, in any language, and then see everything that was said with the words you caught marked. Next plays the next one. Vowel marks, capitals and punctuation never count against you; accents, the forms of a letter and a one-letter slip count as nearly right; Japanese, Chinese and Thai are checked letter by letter. It starts from where you are, cuts long lines at full stops and pauses (so a jingle is never part of a sentence), has Hear it again (Shift+Enter) and Slower, and shows how much you have got right so far. It is in podcasts, audiobooks, your own audio, recordings and videos, YouTube, Netflix, reels (the phones and the web app: after the last piece, Next reel carries on with the next reel) and every course unit, which plays its 50 words or example sentences. One word at a time is left out where only whole lines have times (Netflix, subtitles written by a person). The minutes spent count as listening.
 
+## v0.61.1 — 2026-11-17
+
+- **Changed:** A small change behind the scenes, for testing a feature that is not out yet. Nothing changes on screen.
+
 ## v0.61.0 — 2026-11-17
 
 - **Fixed:** **One word list for every game.** The words you choose for the games (the newest 100, all-time, the words due for review, or one or more folders) now set the fish in the fishing pond too, not only the battles. The Fishing screen has the same **Words** choice as the Battle screen, and changing it on either changes both.
