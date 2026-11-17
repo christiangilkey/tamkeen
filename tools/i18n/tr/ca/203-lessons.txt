@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Una resposta
+c54e3734	Diverses respostes
+e0d72b64	Cert o fals
+a1667bd4	Resposta escrita
+8b399d3b	Edita les preguntes
+4c764717	Vols sortir sense desar?
+d529c5aa	Es perdran els canvis a les preguntes.
+076e5e91	Afegeix una pregunta
+6a25457f	Marca les respostes correctes per fer una clau de respostes: permet als alumnes comprovar-se ells mateixos i et mostra qui ha encertat què. Els estudiants no la veuen mai.
+991367ef	On va
+b06c9e85	Abans del text
+085a6178	Després del paràgraf {0}
+50740da7	Encara no hi ha preguntes.
+f45e8d6d	Tipus de pregunta
+b4f57cd0	Mou amunt
+260ff8ae	Mou avall
+3130d87c	Esborra la pregunta
+d79cce54	La pregunta
+97cdbdc7	Fals
+70ca5a4f	Espai per escriure
+375e9b88	Resposta (opcional)
+57944561	Una paraula o una línia
+fe25bb27	Unes quantes frases
+583975b9	Un paràgraf o més
+390068ce	La resposta correcta
+f8ad7e45	Una opció
+bc4d5b31	Esborra l'opció
+20799e77	Una pregunta amb opcions en necessita almenys dues.
+dab0cff1	Afegeix una opció
+d2eaa339	Corregeix el text
+73a3e0d6	Es perdran els canvis al text.
+b2daa0a9	Corregeix tot el que el lector de fitxers hagi llegit malament. Un paràgraf buit es treu.
+2da4ec57	Un paràgraf
+5e72fdc0	Tria un PDF, un fitxer de Word (.docx) o un fitxer de text, i els MP3 que hi vagin.
+721e255f	S'està fent la lliçó
+ebec44d5	Llegint la pàgina escanejada {0}…
+ae825af9	{0} és massa gran (més de 200 MB).
+ee942125	{0} no és un tipus de fitxer que pugui fer servir una lliçó.
+b867e7a6	{0} està protegit amb contrasenya, així que no se'n pot llegir el text.
+71155623	No s'ha pogut llegir {0}.
+a17edadb	No s'ha pogut llegir res d'aquests fitxers.
+64d8f75f	Afegint la pista {0} de {1}…
+e2bcda84	Fet.
+d64c6da1	S'han llegit {0} pàgines escanejades amb el lector de text: revisa el text i les preguntes.
+26f394cd	S'han trobat {0} preguntes. Revisa-les amb Edita les preguntes.
+6a83cf74	No s'ha trobat cap pregunta: afegeix-les amb Edita les preguntes.
+cb9ce97b	Lliçons
+b26ec7b7	Un text de lectura amb el seu àudio i les seves preguntes. Afegeix un PDF (els seus sons hi venen inclosos) o un fitxer de Word amb els seus MP3.
+190f32c2	Afegeix una lliçó
+70c585e1	Encara no hi ha lliçons.
+6f18f6c8	Tria el PDF o el fitxer de Word d'un professor amb Afegeix una lliçó. Tria'n els MP3 alhora, o afegeix-los més tard.
+efa4d993	1 pregunta
+e9b5e3e3	{0} preguntes
+5e917161	1 pista
+5e337b64	{0} pistes
+6826198c	{0} de {1} contestades
+d1ed31d2	Lliurat
+122abe40	Enviat a {0}
+f8aa40dc	Dels teus professors
+002b124d	Data límit: {0}
+7939cea4	Baixant…
+cc5aa220	Pista {0} de {1}…
+3ff1093b	El teu professor ha actualitzat {0}.
+ab3a1f62	El teu professor t'ha donat 1 paraula d'estudi de {0}. És al teu Vocabulari.
+c5304818	El teu professor t'ha donat {0} paraules d'estudi de {1}. Són al teu Vocabulari.
+b12fcedc	Respostes
+a6bb66d4	{0} de {1} estudiants l'han lliurat.
+4b813253	Encara no hi ha estudiants en aquesta classe.
+4120a09f	Per llegir
+7cb7b42e	Paraules d'estudi
+faa9e7e7	Començat
+d0bfed8b	{0}, al seu Vocabulari
+0c2d5a0e	{0}, de camí
+66fbe1ac	Correcte compta les preguntes amb clau de respostes (marca les respostes correctes a Edita les preguntes). Toca un estudiant per llegir les seves respostes i donar-li paraules d'estudi.
+ed5dda1c	Tots els estudiants
+69ec9739	Lliurat: {0}
+c5c89b5f	Encara no lliurat
+32ad2ff0	(sense resposta)
+bbec3c9c	Paraules d'estudi per a aquest estudiant
+81b12978	Toca paraules del text. La seva app les posa al seu Vocabulari, en una carpeta amb el nom de la lliçó, cadascuna amb la seva frase.
+77298fec	Dona aquestes paraules
+86d0fcc3	Triades:
+f9fb1839	Encara no has triat cap paraula.
+8c7bf9b5	No s'ha pogut obtenir el text.
+f77dea1c	S'ha donat 1 paraula d'estudi a {0}.
+fff1058e	S'han donat {0} paraules d'estudi a {1}.
+86390619	Encara no has enviat cap lliçó. Afegeix-ne una a Biblioteca → Lliçons i després prem Envia a una classe.
+bae0475b	Mira les respostes
+3d5aafae	{0} de {1} l'han lliurat
+c04ec853	Les lliçons encara no estan activades.
+926814d0	Afegint {0}…
+3a62cb5c	Aquesta lliçó no té àudio.
+7099f7e8	Pista {0}
+7e0eff48	Encara no és en aquest dispositiu: arribarà amb la propera sincronització.
+4a457499	Transcripció revisada pel teu professor
+55f8fb47	Transcrit
+60de7696	Esperant la transcripció
+18895ccb	S'està transcrivint…
+fec300a6	No s'ha pogut transcriure
+52811034	Encara no transcrit
+5f0c00fc	Corregeix la transcripció
+36961ea5	Treu de la lliçó
+b101aef3	Vols treure «{0}» de la lliçó?
+5c7cb360	També se n'esborra el fitxer d'àudio.
+b1af1869	Es queda a la teva Biblioteca.
+e48fbff3	Incorrecte
+f252276e	Aquesta la llegeix el teu professor
+69bdd2a3	Les respostes escrites no es corregeixen.
+9e4ccf3a	Text
+a539171f	Llegeix amb ajuda de paraules
+dae5068c	Aquesta lliçó no té text. Afegeix preguntes amb Edita les preguntes.
+624d22f1	Torna a lliurar
+865f5839	Lliura
+d42d0475	Amaga les respostes
+e5eac900	Comprova les meves respostes
+721902d8	{0} correctes, {1} incorrectes, {2} encara sense resposta.
+2e721f65	Envia a una classe
+5c69414a	Vols lliurar {0}?
+ff654aa0	{0} preguntes encara no tenen resposta. El teu professor veu el que lliures.
+d4d50c5e	El teu professor veu les teves respostes. Encara les pots canviar i tornar a lliurar.
+7350303f	Lliurat.
+319bb810	Enviat a
+78fec7bb	Envia la còpia corregida
+c950d1f7	Retira
+e64d8b85	Vols retirar {0} de {1}?
+f5363feb	Desapareix per als estudiants, amb les seves respostes. La teva còpia es queda aquí.
+52b000dc	S'ha enviat a totes les teves classes. Per enviar una còpia canviada, fes servir Envia la còpia corregida.
+fa1fb9b8	Els estudiants reben el text, el seu àudio amb les transcripcions tal com les has corregit, i les preguntes. La clau de respostes es queda amb tu.
+9a709e97	Enviant a {0}
+ccb1e935	Preparant les pistes…
+81481b92	«{0}» encara no és en aquest dispositiu. Espera la sincronització i torna a enviar.
+3c1e60d2	Pujant {0}…
+f1ca5fb9	La còpia corregida és de camí cap a {0}.
+94e82063	Troba les preguntes amb la meva IA
+7b00af04	Treu la lliçó
+e210afb9	Canvia el nom de la lliçó
+69062f87	S'esborra d'aquest dispositiu i dels altres. El teu professor conserva el que has lliurat.
+1ecc951d	El seu text, preguntes, respostes i fitxers d'àudio propis s'esborren d'aquest dispositiu i dels altres.
+26e25686	Vols trobar les preguntes amb la teva IA?
+354be23e	El text de la lliçó només va al teu proveïdor d'IA, perquè el llegeixi, i no es guarda. El que trobi substitueix les preguntes; les pots revisar després.
+399c6d5f	Troba-les
+b387b8f3	Preguntant a la teva IA…
+3dd9f940	La teva IA no hi ha trobat cap pregunta.
+9749e624	Encara no hi ha cap transcripció per corregir.
+7bd9fbe5	Es perdran les correccions a la transcripció.
+d43a7c66	Segueix l'àudio
+df251b06	Cerca
+a252e954	Cerca a la transcripció
+a8d53309	Escriu sobre qualsevol línia. Enter: línia següent · Alt+P: torna a escoltar la línia · Ctrl+S: desa.
+c1e9bba5	Això es reprodueix a YouTube, així que aquí no se sent: obre-ho al reproductor del costat. Enter: línia següent · Ctrl+S: desa.
+a4c6e6e5	Aquest àudio no es pot reproduir aquí.
+9dd3eb0c	1 línia canviada
+d4144282	{0} línies canviades
+73e11c09	Escolta aquesta línia (Alt+P)
+9198770a	Talla la línia en dues al cursor
+dc3fd1f0	Uneix amb la línia següent
+433dff59	Torna la línia com era
+6780ea4e	Primer posa el cursor entre dues paraules.
+9f5f5b8a	No ha canviat res.
+ce46eada	S'ha desat la transcripció.
+6c255b7c	Aquesta lliçó no és per a cap de les teves classes.
+d9aedff7	Primer posa un títol a la lliçó.
+12f1e434	Aquesta classe ja té 300 lliçons. Primer treu-ne una.
+a3f257e2	Aquest estudiant ja no és a la classe.
+d6c71625	No s'han pogut obtenir els fitxers de la lliçó. Comprova la connexió a internet i torna-ho a provar.
+8c02a2ab	Aquesta lliçó encara no té fitxers.
+060613c8	No s'ha trobat en aquest dispositiu el fitxer de so d'una pista.
+733c5448	«{0}» fa més de 25 MB, massa gran per enviar. Fes-lo més petit (amb una taxa de bits més baixa) i torna-ho a provar.
+5c90ca14	No s'ha pogut pujar «{0}». {1}
+07e7e94f	No s'ha pogut pujar la lliçó. {0}
+b1c5a7af	Pista
+a346652d	Això no té gravació: canvia'n el text.
+9a5d8db4	Lliçons: textos i les seves pistes d'àudio.
+e393c9dc	Tria fitxers d'àudio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

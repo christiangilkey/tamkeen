@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Une seule réponse
+c54e3734	Plusieurs réponses
+e0d72b64	Vrai ou faux
+a1667bd4	Réponse écrite
+8b399d3b	Modifier les questions
+4c764717	Quitter sans enregistrer ?
+d529c5aa	Vos modifications des questions seront perdues.
+076e5e91	Ajouter une question
+6a25457f	Cochez les bonnes réponses pour faire un corrigé : il permet aux étudiants de se vérifier eux-mêmes et vous montre qui a eu juste à quoi. Les étudiants ne le voient jamais.
+991367ef	Où la placer
+b06c9e85	Avant le texte
+085a6178	Après le paragraphe {0}
+50740da7	Pas encore de questions.
+f45e8d6d	Type de question
+b4f57cd0	Monter
+260ff8ae	Descendre
+3130d87c	Supprimer la question
+d79cce54	La question
+97cdbdc7	Faux
+70ca5a4f	Place pour écrire
+375e9b88	Réponse (facultative)
+57944561	Un mot ou une ligne
+fe25bb27	Quelques phrases
+583975b9	Un paragraphe ou plus
+390068ce	La bonne réponse
+f8ad7e45	Un choix
+bc4d5b31	Supprimer le choix
+20799e77	Une question à choix en demande au moins deux.
+dab0cff1	Ajouter un choix
+d2eaa339	Corriger le texte
+73a3e0d6	Vos modifications du texte seront perdues.
+b2daa0a9	Corrigez ce que le lecteur de fichiers a mal lu. Un paragraphe vide est retiré.
+2da4ec57	Un paragraphe
+5e72fdc0	Choisissez un PDF, un fichier Word (.docx) ou un fichier texte, et les MP3 qui vont avec.
+721e255f	Création de la leçon
+ebec44d5	Lecture de la page scannée {0}…
+ae825af9	{0} est trop gros (plus de 200 MB).
+ee942125	{0} n'est pas un type de fichier qu'une leçon peut utiliser.
+b867e7a6	{0} est protégé par un mot de passe : son texte ne peut pas être lu.
+71155623	{0} n'a pas pu être lu.
+a17edadb	Rien n'a pu être lu dans ces fichiers.
+64d8f75f	Ajout de la piste {0} sur {1}…
+e2bcda84	Terminé.
+d64c6da1	{0} pages scannées ont été lues avec le lecteur de texte : vérifiez le texte et les questions.
+26f394cd	{0} questions trouvées. Vérifiez-les avec Modifier les questions.
+6a83cf74	Aucune question trouvée : ajoutez-les avec Modifier les questions.
+cb9ce97b	Leçons
+b26ec7b7	Un texte à lire avec son audio et ses questions. Ajoutez un PDF (ses sons viennent avec) ou un fichier Word avec ses MP3.
+190f32c2	Ajouter une leçon
+70c585e1	Pas encore de leçons.
+6f18f6c8	Choisissez le PDF ou le fichier Word d'un enseignant avec Ajouter une leçon. Choisissez ses MP3 en même temps, ou ajoutez-les plus tard.
+efa4d993	1 question
+e9b5e3e3	{0} questions
+5e917161	1 piste
+5e337b64	{0} pistes
+6826198c	{0} sur {1} répondues
+d1ed31d2	Rendue
+122abe40	Envoyée à {0}
+f8aa40dc	De vos enseignants
+002b124d	À rendre : {0}
+7939cea4	Téléchargement…
+cc5aa220	Piste {0} sur {1}…
+3ff1093b	{0} a été mise à jour par votre enseignant.
+ab3a1f62	Votre enseignant vous a donné 1 mot à étudier de {0}. Il est dans votre Vocabulaire.
+c5304818	Votre enseignant vous a donné {0} mots à étudier de {1}. Ils sont dans votre Vocabulaire.
+b12fcedc	Réponses
+a6bb66d4	{0} étudiants sur {1} l'ont rendue.
+4b813253	Pas encore d'étudiants dans cette classe.
+4120a09f	À lire
+7cb7b42e	Mots à étudier
+faa9e7e7	Commencée
+d0bfed8b	{0}, dans son Vocabulaire
+0c2d5a0e	{0}, en route
+66fbe1ac	Juste compte les questions qui ont un corrigé (cochez les bonnes réponses dans Modifier les questions). Touchez un étudiant pour lire ses réponses et lui donner des mots à étudier.
+ed5dda1c	Tous les étudiants
+69ec9739	Rendue le {0}
+c5c89b5f	Pas encore rendue
+32ad2ff0	(pas de réponse)
+bbec3c9c	Mots à étudier pour cet étudiant
+81b12978	Touchez des mots dans le texte. Son application les met dans son Vocabulaire, dans un dossier au nom de la leçon, chacun avec sa phrase.
+77298fec	Donner ces mots
+86d0fcc3	Choisis :
+f9fb1839	Aucun mot choisi pour l'instant.
+8c7bf9b5	Le texte n'a pas pu être récupéré.
+f77dea1c	1 mot à étudier donné à {0}.
+fff1058e	{0} mots à étudier donnés à {1}.
+86390619	Aucune leçon envoyée pour l'instant. Ajoutez-en une dans Bibliothèque → Leçons, puis appuyez sur Envoyer à une classe.
+bae0475b	Voir les réponses
+3d5aafae	{0} sur {1} rendues
+c04ec853	Les leçons ne sont pas encore activées.
+926814d0	Ajout de {0}…
+3a62cb5c	Pas d'audio dans cette leçon.
+7099f7e8	Piste {0}
+7e0eff48	Pas encore sur cet appareil : elle arrive à la prochaine synchronisation.
+4a457499	Transcription vérifiée par votre enseignant
+55f8fb47	Transcrite
+60de7696	En attente de transcription
+18895ccb	Transcription en cours…
+fec300a6	Impossible de transcrire
+52811034	Pas encore transcrite
+5f0c00fc	Corriger la transcription
+36961ea5	Retirer de la leçon
+b101aef3	Retirer « {0} » de la leçon ?
+5c7cb360	Son fichier audio est retiré aussi.
+b1af1869	Il reste dans votre Bibliothèque.
+e48fbff3	Faux
+f252276e	Votre enseignant lit celle-ci
+69bdd2a3	Les réponses écrites ne sont pas notées.
+9e4ccf3a	Texte
+a539171f	Lire avec l'aide aux mots
+dae5068c	Cette leçon n'a pas de texte. Ajoutez des questions avec Modifier les questions.
+624d22f1	Rendre à nouveau
+865f5839	Rendre
+d42d0475	Masquer les réponses
+e5eac900	Vérifier mes réponses
+721902d8	{0} justes, {1} fausses, {2} sans réponse pour l'instant.
+2e721f65	Envoyer à une classe
+5c69414a	Rendre {0} ?
+ff654aa0	{0} questions n'ont pas encore de réponse. Votre enseignant voit ce que vous rendez.
+d4d50c5e	Votre enseignant voit vos réponses. Vous pouvez encore les changer et rendre à nouveau.
+7350303f	Rendue.
+319bb810	Envoyée à
+78fec7bb	Envoyer la copie corrigée
+c950d1f7	Reprendre
+e64d8b85	Reprendre {0} à {1} ?
+f5363feb	Elle disparaît pour les étudiants, avec leurs réponses. Votre copie reste ici.
+52b000dc	Elle a été envoyée à toutes vos classes. Pour envoyer une copie modifiée, utilisez Envoyer la copie corrigée.
+fa1fb9b8	Les étudiants reçoivent le texte, son audio avec les transcriptions telles que vous les avez corrigées, et les questions. Le corrigé reste chez vous.
+9a709e97	Envoi à {0}
+ccb1e935	Préparation des pistes…
+81481b92	« {0} » n'est pas encore sur cet appareil. Attendez la synchronisation, puis envoyez à nouveau.
+3c1e60d2	Envoi de {0}…
+f1ca5fb9	La copie corrigée est en route vers {0}.
+94e82063	Trouver les questions avec mon IA
+7b00af04	Supprimer la leçon
+e210afb9	Renommer la leçon
+69062f87	Elle est supprimée de cet appareil et de vos autres appareils. Votre enseignant garde ce que vous avez rendu.
+1ecc951d	Son texte, ses questions, ses réponses et ses propres fichiers audio sont supprimés de cet appareil et de vos autres appareils.
+26e25686	Trouver les questions avec votre IA ?
+354be23e	Le texte de la leçon va seulement à votre fournisseur d'IA, pour être lu, et n'est pas conservé. Ce qu'elle trouve remplace les questions ; vous pourrez les vérifier ensuite.
+399c6d5f	Les trouver
+b387b8f3	Question à votre IA…
+3dd9f940	Votre IA n'y a trouvé aucune question.
+9749e624	Il n'y a pas encore de transcription à corriger.
+7bd9fbe5	Vos corrections de la transcription seront perdues.
+d43a7c66	Suivre l'audio
+df251b06	Rechercher
+a252e954	Rechercher dans la transcription
+a8d53309	Écrivez par-dessus n'importe quelle ligne. Enter : ligne suivante · Alt+P : réécouter la ligne · Ctrl+S : enregistrer.
+c1e9bba5	Ceci se lit sur YouTube, donc on ne peut pas l'entendre ici : ouvrez-le dans le lecteur à côté. Enter : ligne suivante · Ctrl+S : enregistrer.
+a4c6e6e5	Cet audio ne peut pas être lu ici.
+9dd3eb0c	1 ligne modifiée
+d4144282	{0} lignes modifiées
+73e11c09	Écouter cette ligne (Alt+P)
+9198770a	Couper la ligne en deux au curseur
+dc3fd1f0	Joindre à la ligne suivante
+433dff59	Remettre la ligne comme avant
+6780ea4e	Placez d'abord le curseur entre deux mots.
+9f5f5b8a	Rien n'a changé.
+ce46eada	Transcription enregistrée.
+6c255b7c	Cette leçon n'est pour aucune de vos classes.
+d9aedff7	Donnez d'abord un titre à la leçon.
+12f1e434	Cette classe a déjà 300 leçons. Supprimez-en une d'abord.
+a3f257e2	Cet étudiant n'est plus dans la classe.
+d6c71625	Impossible de récupérer les fichiers de la leçon. Vérifiez votre connexion internet et réessayez.
+8c02a2ab	Cette leçon n'a pas encore de fichiers.
+060613c8	Le fichier son d'une piste est introuvable sur cet appareil.
+733c5448	« {0} » dépasse 25 MB : trop gros pour être envoyé. Réduisez sa taille (un débit plus bas) et réessayez.
+5c90ca14	Impossible d'envoyer « {0} ». {1}
+07e7e94f	Impossible d'envoyer la leçon. {0}
+b1c5a7af	Piste
+a346652d	Ceci n'a pas d'enregistrement : modifiez plutôt son texte.
+9a5d8db4	Leçons : des textes et leurs pistes audio.
+e393c9dc	Choisissez des fichiers audio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

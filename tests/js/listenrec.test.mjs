@@ -149,6 +149,6 @@ test("Listen is wired in every version", () => {
   assert.match(read("mobile/src/js/app.js"), /export function ownFilesBlocked\(\) \{\n  return settings\.signed_in \? "" :/);
   // Both shells' uploads take a recording's name and treat it as audio.
   assert.match(read("web/js/app.js"), /q\.set\("recording", "true"\)/);
-  assert.match(read("mobile/src/js/app.js"), /\(book \|\| recording\) && !audioExt/);
+  assert.match(read("mobile/src/js/app.js"), /\(book \|\| recording(?: \|\| lesson)?\) && !audioExt/);
   assert.match(read("app/api/episodes.py"), /recording: bool = False/);
 });

@@ -87,6 +87,11 @@ const MESSAGES = {
   dli_not_owner: "Only Tamkeen's owner can do that.",
   dli_class_limit: "You have 20 classes already. Delete one first.",
   dli_bad_week: "That week couldn't be saved.",
+  // lessons (supabase/v12-dli-lessons.sql, dlilessons.js)
+  dli_not_your_lesson: "That lesson isn't for one of your classes.",
+  dli_lesson_needs_title: "Give the lesson a title first.",
+  dli_too_many_lessons: "This class has 300 lessons already. Remove one first.",
+  dli_not_in_class: "That student isn't in the class any more.",
 };
 
 /** An error with words that are safe to show. `notReady`: the online service has no DLI classes yet.
@@ -297,3 +302,6 @@ export async function myWeekNow() {
 
 /** The Monday this week started on, as a date ("2026-11-09"). */
 export const thisWeek = () => dayDate(weekStart(dayNumber()));
+
+/** The same checked call for the lessons' functions (dlilessons.js, supabase/v12-dli-lessons.sql). */
+export { rpc as dliRpc };

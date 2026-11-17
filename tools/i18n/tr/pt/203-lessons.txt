@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Uma resposta
+c54e3734	Várias respostas
+e0d72b64	Verdadeiro ou falso
+a1667bd4	Resposta escrita
+8b399d3b	Editar perguntas
+4c764717	Sair sem salvar?
+d529c5aa	Suas mudanças nas perguntas serão perdidas.
+076e5e91	Adicionar uma pergunta
+6a25457f	Marque as respostas certas para criar um gabarito: com ele os alunos podem se corrigir sozinhos, e você vê quem acertou o quê. Os alunos nunca o veem.
+991367ef	Onde ela fica
+b06c9e85	Antes do texto
+085a6178	Depois do parágrafo {0}
+50740da7	Nenhuma pergunta ainda.
+f45e8d6d	Tipo de pergunta
+b4f57cd0	Mover para cima
+260ff8ae	Mover para baixo
+3130d87c	Excluir a pergunta
+d79cce54	A pergunta
+97cdbdc7	Falso
+70ca5a4f	Espaço para escrever
+375e9b88	Resposta (opcional)
+57944561	Uma palavra ou uma linha
+fe25bb27	Algumas frases
+583975b9	Um parágrafo ou mais
+390068ce	A resposta certa
+f8ad7e45	Uma opção
+bc4d5b31	Excluir a opção
+20799e77	Uma pergunta com opções precisa de pelo menos duas.
+dab0cff1	Adicionar uma opção
+d2eaa339	Corrigir o texto
+73a3e0d6	Suas mudanças no texto serão perdidas.
+b2daa0a9	Conserte o que o leitor de arquivos leu errado. Um parágrafo vazio é retirado.
+2da4ec57	Um parágrafo
+5e72fdc0	Escolha um PDF, um arquivo do Word (.docx) ou um arquivo de texto, e os MP3 que vêm com ele.
+721e255f	Criando a lição
+ebec44d5	Lendo a página digitalizada {0}…
+ae825af9	{0} é grande demais (mais de 200 MB).
+ee942125	{0} não é um tipo de arquivo que uma lição possa usar.
+b867e7a6	{0} é protegido por senha, então o texto dele não pode ser lido.
+71155623	Não foi possível ler {0}.
+a17edadb	Nada pôde ser lido nesses arquivos.
+64d8f75f	Adicionando a faixa {0} de {1}…
+e2bcda84	Pronto.
+d64c6da1	{0} páginas digitalizadas foram lidas com o leitor de texto: confira o texto e as perguntas.
+26f394cd	{0} perguntas encontradas. Confira com Editar perguntas.
+6a83cf74	Nenhuma pergunta encontrada: adicione com Editar perguntas.
+cb9ce97b	Lições
+b26ec7b7	Um texto para ler com seu áudio e suas perguntas. Adicione um PDF (os sons vêm junto) ou um arquivo do Word com os MP3 dele.
+190f32c2	Adicionar uma lição
+70c585e1	Nenhuma lição ainda.
+6f18f6c8	Escolha o PDF ou o arquivo do Word de um professor com Adicionar uma lição. Escolha os MP3 ao mesmo tempo ou adicione depois.
+efa4d993	1 pergunta
+e9b5e3e3	{0} perguntas
+5e917161	1 faixa
+5e337b64	{0} faixas
+6826198c	{0} de {1} respondidas
+d1ed31d2	Entregue
+122abe40	Enviada para {0}
+f8aa40dc	Dos seus professores
+002b124d	Prazo: {0}
+7939cea4	Baixando…
+cc5aa220	Faixa {0} de {1}…
+3ff1093b	{0} foi atualizada pelo seu professor.
+ab3a1f62	Seu professor deu a você 1 palavra para estudar de {0}. Ela está no seu Vocabulário.
+c5304818	Seu professor deu a você {0} palavras para estudar de {1}. Elas estão no seu Vocabulário.
+b12fcedc	Respostas
+a6bb66d4	{0} de {1} alunos entregaram.
+4b813253	Ainda não há alunos nesta turma.
+4120a09f	Para ler
+7cb7b42e	Palavras para estudar
+faa9e7e7	Começada
+d0bfed8b	{0}, no Vocabulário dele
+0c2d5a0e	{0}, a caminho
+66fbe1ac	Certo conta as perguntas que têm gabarito (marque as respostas certas em Editar perguntas). Toque em um aluno para ler as respostas dele e dar palavras para estudar.
+ed5dda1c	Todos os alunos
+69ec9739	Entregue em {0}
+c5c89b5f	Ainda não entregue
+32ad2ff0	(sem resposta)
+bbec3c9c	Palavras para este aluno estudar
+81b12978	Toque em palavras do texto. O app dele as coloca no Vocabulário dele, numa pasta com o nome da lição, cada uma com a sua frase.
+77298fec	Dar estas palavras
+86d0fcc3	Escolhidas:
+f9fb1839	Nenhuma palavra escolhida ainda.
+8c7bf9b5	Não foi possível buscar o texto.
+f77dea1c	1 palavra para estudar dada a {0}.
+fff1058e	{0} palavras para estudar dadas a {1}.
+86390619	Nenhuma lição enviada ainda. Adicione uma em Biblioteca → Lições e depois toque em Enviar para uma turma.
+bae0475b	Ver respostas
+3d5aafae	{0} de {1} entregaram
+c04ec853	As lições ainda não estão ativadas.
+926814d0	Adicionando {0}…
+3a62cb5c	Nenhum áudio nesta lição.
+7099f7e8	Faixa {0}
+7e0eff48	Ainda não está neste dispositivo: chega na próxima sincronização.
+4a457499	Transcrição conferida pelo seu professor
+55f8fb47	Transcrita
+60de7696	Esperando a transcrição
+18895ccb	Transcrevendo…
+fec300a6	Não foi possível transcrever
+52811034	Ainda não transcrita
+5f0c00fc	Corrigir a transcrição
+36961ea5	Tirar da lição
+b101aef3	Tirar “{0}” da lição?
+5c7cb360	O arquivo de áudio dela também é removido.
+b1af1869	Ela continua na sua Biblioteca.
+e48fbff3	Errado
+f252276e	Seu professor lê esta
+69bdd2a3	Respostas escritas não são corrigidas.
+9e4ccf3a	Texto
+a539171f	Ler com ajuda nas palavras
+dae5068c	Esta lição não tem texto. Adicione perguntas com Editar perguntas.
+624d22f1	Entregar de novo
+865f5839	Entregar
+d42d0475	Esconder as respostas
+e5eac900	Conferir minhas respostas
+721902d8	{0} certas, {1} erradas, {2} ainda sem resposta.
+2e721f65	Enviar para uma turma
+5c69414a	Entregar {0}?
+ff654aa0	{0} perguntas ainda não têm resposta. Seu professor vê o que você entrega.
+d4d50c5e	Seu professor vê suas respostas. Você ainda pode mudá-las e entregar de novo.
+7350303f	Entregue.
+319bb810	Enviada para
+78fec7bb	Enviar a cópia corrigida
+c950d1f7	Retirar
+e64d8b85	Retirar {0} de {1}?
+f5363feb	Ela some para os alunos, com as respostas deles. Sua cópia continua aqui.
+52b000dc	Ela já foi enviada para todas as suas turmas. Para enviar uma cópia alterada, use Enviar a cópia corrigida.
+fa1fb9b8	Os alunos recebem o texto, o áudio dele com as transcrições do jeito que você corrigiu, e as perguntas. O gabarito fica com você.
+9a709e97	Enviando para {0}
+ccb1e935	Preparando as faixas…
+81481b92	“{0}” ainda não está neste dispositivo. Espere a sincronização e envie de novo.
+3c1e60d2	Enviando {0}…
+f1ca5fb9	A cópia corrigida está a caminho de {0}.
+94e82063	Encontrar as perguntas com minha IA
+7b00af04	Excluir a lição
+e210afb9	Renomear a lição
+69062f87	Ela é excluída deste dispositivo e dos seus outros. Seu professor fica com o que você entregou.
+1ecc951d	O texto, as perguntas, as respostas e os arquivos de áudio dela são excluídos deste dispositivo e dos seus outros.
+26e25686	Encontrar as perguntas com sua IA?
+354be23e	O texto da lição vai só para o seu provedor de IA, para ser lido, e não é guardado. O que ela encontrar substitui as perguntas; você pode conferi-las depois.
+399c6d5f	Encontrar
+b387b8f3	Perguntando à sua IA…
+3dd9f940	Sua IA não encontrou perguntas nela.
+9749e624	Ainda não há transcrição para corrigir.
+7bd9fbe5	Suas correções na transcrição serão perdidas.
+d43a7c66	Acompanhar o áudio
+df251b06	Buscar
+a252e954	Buscar na transcrição
+a8d53309	Escreva por cima de qualquer linha. Enter: próxima linha · Alt+P: ouvir a linha de novo · Ctrl+S: salvar.
+c1e9bba5	Isto toca no YouTube, então não dá para ouvir aqui: abra no player ao lado. Enter: próxima linha · Ctrl+S: salvar.
+a4c6e6e5	Este áudio não pode ser tocado aqui.
+9dd3eb0c	1 linha alterada
+d4144282	{0} linhas alteradas
+73e11c09	Ouvir esta linha (Alt+P)
+9198770a	Dividir a linha em duas no cursor
+dc3fd1f0	Juntar com a próxima linha
+433dff59	Deixar a linha como era
+6780ea4e	Primeiro coloque o cursor entre duas palavras.
+9f5f5b8a	Nada mudou.
+ce46eada	Transcrição salva.
+6c255b7c	Essa lição não é de nenhuma das suas turmas.
+d9aedff7	Primeiro dê um título à lição.
+12f1e434	Esta turma já tem 300 lições. Exclua uma primeiro.
+a3f257e2	Esse aluno não está mais na turma.
+d6c71625	Não foi possível buscar os arquivos da lição. Verifique sua conexão com a internet e tente de novo.
+8c02a2ab	Esta lição ainda não tem arquivos.
+060613c8	O arquivo de som de uma faixa não foi encontrado neste dispositivo.
+733c5448	“{0}” passa de 25 MB, grande demais para enviar. Deixe o arquivo menor (com uma taxa de bits mais baixa) e tente de novo.
+5c90ca14	Não foi possível enviar “{0}”. {1}
+07e7e94f	Não foi possível enviar a lição. {0}
+b1c5a7af	Faixa
+a346652d	Isto não tem gravação: mude o texto em vez disso.
+9a5d8db4	Lições: textos e suas faixas de áudio.
+e393c9dc	Escolha arquivos de áudio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

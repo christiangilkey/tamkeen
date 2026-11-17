@@ -734,3 +734,10 @@ c07d0f60  # Flashcard days (dliweeks.js: a spreadsheet heading for the owner, ne
 658f8474  # Watching minutes (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 45aabf5b  # Reading minutes (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 8f536159  # Total minutes (dliweeks.js: a spreadsheet heading for the owner, never on screen)
+# Lesson bundles: internal errors and names never shown as interface text
+27751ea2  # Audio {0}.{1} (lessonfiles.js: a file name given to a sound found in a PDF)
+a7275edb  # Audio {0} (lessonfiles.js: a file name)
+b11a6ff8  # not a lesson (lessons.js: an internal error)
+00fd56ca  # no audio (lessonstore.js: an internal error)
+582ba174  # audio {0} (lessonstore.js: an internal error)
+2fd2fbcb  # the lesson's language (lessonview.js: told to the AI only)

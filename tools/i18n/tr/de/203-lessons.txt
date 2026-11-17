@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Eine Antwort
+c54e3734	Mehrere Antworten
+e0d72b64	Richtig oder falsch
+a1667bd4	Schriftliche Antwort
+8b399d3b	Fragen bearbeiten
+4c764717	Ohne Speichern verlassen?
+d529c5aa	Deine Änderungen an den Fragen gehen verloren.
+076e5e91	Frage hinzufügen
+6a25457f	Hake die richtigen Antworten an, um einen Lösungsschlüssel zu machen: Damit können sich Lernende selbst prüfen, und du siehst, wer was richtig hat. Studierende sehen ihn nie.
+991367ef	Wo sie hinkommt
+b06c9e85	Vor dem Text
+085a6178	Nach Absatz {0}
+50740da7	Noch keine Fragen.
+f45e8d6d	Art der Frage
+b4f57cd0	Nach oben
+260ff8ae	Nach unten
+3130d87c	Frage löschen
+d79cce54	Die Frage
+97cdbdc7	Falsch
+70ca5a4f	Platz zum Schreiben
+375e9b88	Antwort (optional)
+57944561	Ein Wort oder eine Zeile
+fe25bb27	Ein paar Sätze
+583975b9	Ein Absatz oder mehr
+390068ce	Die richtige Antwort
+f8ad7e45	Eine Auswahlmöglichkeit
+bc4d5b31	Auswahlmöglichkeit löschen
+20799e77	Eine Frage mit Auswahlmöglichkeiten braucht mindestens zwei.
+dab0cff1	Auswahlmöglichkeit hinzufügen
+d2eaa339	Text korrigieren
+73a3e0d6	Deine Änderungen am Text gehen verloren.
+b2daa0a9	Korrigiere alles, was beim Einlesen der Datei falsch erkannt wurde. Ein leerer Absatz wird entfernt.
+2da4ec57	Ein Absatz
+5e72fdc0	Wähle ein PDF, eine Word-Datei (.docx) oder eine Textdatei und die MP3s, die dazugehören.
+721e255f	Lektion wird erstellt
+ebec44d5	Gescannte Seite {0} wird gelesen …
+ae825af9	{0} ist zu groß (über 200 MB).
+ee942125	{0} ist keine Dateiart, die eine Lektion verwenden kann.
+b867e7a6	{0} ist passwortgeschützt, daher kann der Text nicht gelesen werden.
+71155623	{0} konnte nicht gelesen werden.
+a17edadb	Aus diesen Dateien konnte nichts gelesen werden.
+64d8f75f	Track {0} von {1} wird hinzugefügt …
+e2bcda84	Fertig.
+d64c6da1	{0} gescannte Seiten wurden mit der Texterkennung gelesen: Prüfe den Text und die Fragen.
+26f394cd	{0} Fragen gefunden. Prüfe sie mit „Fragen bearbeiten“.
+6a83cf74	Es wurden keine Fragen gefunden: Füge sie mit „Fragen bearbeiten“ hinzu.
+cb9ce97b	Lektionen
+b26ec7b7	Ein Lesetext mit Audio und Fragen. Füge ein PDF hinzu (seine Töne kommen mit) oder eine Word-Datei mit ihren MP3s.
+190f32c2	Lektion hinzufügen
+70c585e1	Noch keine Lektionen.
+6f18f6c8	Wähle mit „Lektion hinzufügen“ ein PDF oder eine Word-Datei von einer Lehrkraft. Wähle die MP3s gleich mit oder füge sie später hinzu.
+efa4d993	1 Frage
+e9b5e3e3	{0} Fragen
+5e917161	1 Track
+5e337b64	{0} Tracks
+6826198c	{0} von {1} beantwortet
+d1ed31d2	Abgegeben
+122abe40	An {0} gesendet
+f8aa40dc	Von deinen Lehrkräften
+002b124d	Fällig: {0}
+7939cea4	Wird geholt …
+cc5aa220	Track {0} von {1} …
+3ff1093b	{0} wurde von deiner Lehrkraft aktualisiert.
+ab3a1f62	Deine Lehrkraft hat dir 1 Lernwort aus {0} gegeben. Es ist in deinen Vokabeln.
+c5304818	Deine Lehrkraft hat dir {0} Lernwörter aus {1} gegeben. Sie sind in deinen Vokabeln.
+b12fcedc	Antworten
+a6bb66d4	{0} von {1} Studierenden haben abgegeben.
+4b813253	Noch keine Studierenden in dieser Klasse.
+4120a09f	Zu lesen
+7cb7b42e	Lernwörter
+faa9e7e7	Angefangen
+d0bfed8b	{0}, in den Vokabeln
+0c2d5a0e	{0}, unterwegs
+66fbe1ac	„Richtig“ zählt die Fragen mit Lösungsschlüssel (hake die richtigen Antworten unter „Fragen bearbeiten“ an). Tippe auf jemanden, um die Antworten zu lesen und Lernwörter zu geben.
+ed5dda1c	Alle Studierenden
+69ec9739	Abgegeben: {0}
+c5c89b5f	Noch nicht abgegeben
+32ad2ff0	(keine Antwort)
+bbec3c9c	Lernwörter für diese Person
+81b12978	Tippe auf Wörter im Text. Die App der Person legt sie in ihre Vokabeln, in einen Ordner mit dem Namen der Lektion, jedes mit seinem Satz.
+77298fec	Diese Wörter geben
+86d0fcc3	Ausgewählt:
+f9fb1839	Noch keine Wörter ausgewählt.
+8c7bf9b5	Der Text konnte nicht geladen werden.
+f77dea1c	1 Lernwort an {0} gegeben.
+fff1058e	{0} Lernwörter an {1} gegeben.
+86390619	Noch keine Lektionen gesendet. Füge eine unter Bibliothek → Lektionen hinzu und tippe dann auf „An eine Klasse senden“.
+bae0475b	Antworten ansehen
+3d5aafae	{0} von {1} abgegeben
+c04ec853	Lektionen sind noch nicht eingeschaltet.
+926814d0	{0} wird hinzugefügt …
+3a62cb5c	Kein Audio in dieser Lektion.
+7099f7e8	Track {0}
+7e0eff48	Noch nicht auf diesem Gerät: Es kommt mit der nächsten Synchronisierung.
+4a457499	Transkript von deiner Lehrkraft geprüft
+55f8fb47	Transkribiert
+60de7696	Wartet auf Transkription
+18895ccb	Wird transkribiert …
+fec300a6	Konnte nicht transkribiert werden
+52811034	Noch nicht transkribiert
+5f0c00fc	Transkript korrigieren
+36961ea5	Aus der Lektion nehmen
+b101aef3	„{0}“ aus der Lektion nehmen?
+5c7cb360	Die Audiodatei wird auch entfernt.
+b1af1869	Es bleibt in deiner Bibliothek.
+e48fbff3	Nicht richtig
+f252276e	Das liest deine Lehrkraft
+69bdd2a3	Schriftliche Antworten werden nicht bewertet.
+9e4ccf3a	Text
+a539171f	Mit Worthilfe lesen
+dae5068c	Diese Lektion hat keinen Text. Füge Fragen mit „Fragen bearbeiten“ hinzu.
+624d22f1	Erneut abgeben
+865f5839	Abgeben
+d42d0475	Antworten ausblenden
+e5eac900	Meine Antworten prüfen
+721902d8	{0} richtig, {1} nicht richtig, {2} noch nicht beantwortet.
+2e721f65	An eine Klasse senden
+5c69414a	{0} abgeben?
+ff654aa0	{0} Fragen haben noch keine Antwort. Deine Lehrkraft sieht, was du abgibst.
+d4d50c5e	Deine Lehrkraft sieht deine Antworten. Du kannst sie noch ändern und erneut abgeben.
+7350303f	Abgegeben.
+319bb810	Gesendet an
+78fec7bb	Korrigierte Fassung senden
+c950d1f7	Zurücknehmen
+e64d8b85	{0} von {1} zurücknehmen?
+f5363feb	Sie verschwindet bei den Studierenden, mit ihren Antworten. Deine Fassung bleibt hier.
+52b000dc	Sie wurde an alle deine Klassen gesendet. Um eine geänderte Fassung zu senden, nimm „Korrigierte Fassung senden“.
+fa1fb9b8	Die Studierenden bekommen den Text, das Audio mit den Transkripten so, wie du sie korrigiert hast, und die Fragen. Der Lösungsschlüssel bleibt bei dir.
+9a709e97	Senden an {0}
+ccb1e935	Tracks werden vorbereitet …
+81481b92	„{0}“ ist noch nicht auf diesem Gerät. Warte auf die Synchronisierung und sende dann noch einmal.
+3c1e60d2	{0} wird hochgeladen …
+f1ca5fb9	Die korrigierte Fassung ist unterwegs zu {0}.
+94e82063	Fragen mit meiner KI finden
+7b00af04	Lektion entfernen
+e210afb9	Lektion umbenennen
+69062f87	Sie wird von diesem und deinen anderen Geräten entfernt. Deine Lehrkraft behält, was du abgegeben hast.
+1ecc951d	Ihr Text, ihre Fragen, Antworten und eigenen Audiodateien werden von diesem und deinen anderen Geräten entfernt.
+26e25686	Fragen mit deiner KI finden?
+354be23e	Der Text der Lektion geht nur an deinen KI-Anbieter, zum Lesen, und wird nicht gespeichert. Was die KI findet, ersetzt die Fragen; du kannst sie danach prüfen.
+399c6d5f	Finden
+b387b8f3	Deine KI wird gefragt …
+3dd9f940	Deine KI hat darin keine Fragen gefunden.
+9749e624	Es gibt noch kein Transkript zum Korrigieren.
+7bd9fbe5	Deine Korrekturen am Transkript gehen verloren.
+d43a7c66	Mitlaufen
+df251b06	Suchen
+a252e954	Im Transkript suchen
+a8d53309	Überschreibe eine beliebige Zeile. Enter: nächste Zeile · Alt+P: Zeile noch einmal hören · Ctrl+S: speichern.
+c1e9bba5	Das läuft auf YouTube und ist hier nicht zu hören: Öffne es im Player daneben. Enter: nächste Zeile · Ctrl+S: speichern.
+a4c6e6e5	Dieses Audio kann hier nicht abgespielt werden.
+9dd3eb0c	1 Zeile geändert
+d4144282	{0} Zeilen geändert
+73e11c09	Diese Zeile hören (Alt+P)
+9198770a	Zeile am Cursor teilen
+dc3fd1f0	Mit der nächsten Zeile verbinden
+433dff59	Zeile wiederherstellen
+6780ea4e	Setze den Cursor zuerst zwischen zwei Wörter.
+9f5f5b8a	Es hat sich nichts geändert.
+ce46eada	Transkript gespeichert.
+6c255b7c	Diese Lektion ist für keine deiner Klassen.
+d9aedff7	Gib der Lektion zuerst einen Titel.
+12f1e434	Diese Klasse hat schon 300 Lektionen. Entferne zuerst eine.
+a3f257e2	Diese Person ist nicht mehr in der Klasse.
+d6c71625	Die Dateien der Lektion konnten nicht geladen werden. Prüfe deine Internetverbindung und versuche es noch einmal.
+8c02a2ab	Diese Lektion hat noch keine Dateien.
+060613c8	Die Audiodatei eines Tracks wurde auf diesem Gerät nicht gefunden.
+733c5448	„{0}“ ist über 25 MB und zu groß zum Senden. Mach die Datei kleiner (niedrigere Bitrate) und versuche es noch einmal.
+5c90ca14	„{0}“ konnte nicht hochgeladen werden. {1}
+07e7e94f	Die Lektion konnte nicht hochgeladen werden. {0}
+b1c5a7af	Track
+a346652d	Dafür gibt es keine Aufnahme: Ändere stattdessen den Text.
+9a5d8db4	Lektionen: Texte und ihre Audiotracks.
+e393c9dc	Wähle Audiodateien (MP3, M4A, WAV, OGG, Opus, FLAC, AAC …).

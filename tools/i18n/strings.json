@@ -6650,6 +6650,766 @@
   "f": "web/js/components/langswitch.js"
  },
  {
+  "id": "b7d40cd6",
+  "k": "One answer",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "c54e3734",
+  "k": "Several answers",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "e0d72b64",
+  "k": "True or false",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "a1667bd4",
+  "k": "Written answer",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "8b399d3b",
+  "k": "Edit questions",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "4c764717",
+  "k": "Leave without saving?",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "d529c5aa",
+  "k": "Your changes to the questions are lost.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "076e5e91",
+  "k": "Add a question",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "6a25457f",
+  "k": "Tick the right answers to make an answer key: it lets learners check themselves, and shows you who got what right. Students never see it.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "991367ef",
+  "k": "Where it goes",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "b06c9e85",
+  "k": "Before the passage",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "085a6178",
+  "k": "After paragraph {0}",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "50740da7",
+  "k": "No questions yet.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "f45e8d6d",
+  "k": "Kind of question",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "b4f57cd0",
+  "k": "Move up",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "260ff8ae",
+  "k": "Move down",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "3130d87c",
+  "k": "Delete the question",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "d79cce54",
+  "k": "The question",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "97cdbdc7",
+  "k": "False",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "70ca5a4f",
+  "k": "Room to write",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "375e9b88",
+  "k": "Answer (optional)",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "57944561",
+  "k": "A word or a line",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "fe25bb27",
+  "k": "A few sentences",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "583975b9",
+  "k": "A paragraph or more",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "390068ce",
+  "k": "The right answer",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "f8ad7e45",
+  "k": "A choice",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "bc4d5b31",
+  "k": "Delete the choice",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "20799e77",
+  "k": "A question with choices needs two at least.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "dab0cff1",
+  "k": "Add a choice",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "d2eaa339",
+  "k": "Correct the passage's text",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "73a3e0d6",
+  "k": "Your changes to the text are lost.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "b2daa0a9",
+  "k": "Fix anything the file reader got wrong. An empty paragraph is taken out.",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "2da4ec57",
+  "k": "A paragraph",
+  "f": "web/js/components/lessonedit.js"
+ },
+ {
+  "id": "5e72fdc0",
+  "k": "Choose a PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "721e255f",
+  "k": "Making the lesson",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "ebec44d5",
+  "k": "Reading scanned page {0}…",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "ae825af9",
+  "k": "{0} is too big (over 200 MB).",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "ee942125",
+  "k": "{0} isn't a kind of file a lesson can use.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "b867e7a6",
+  "k": "{0} is password-protected, so its text can't be read.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "71155623",
+  "k": "{0} couldn't be read.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "a17edadb",
+  "k": "Nothing could be read from those files.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "188ecdea",
+  "k": "Lesson",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "64d8f75f",
+  "k": "Adding track {0} of {1}…",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "e2bcda84",
+  "k": "Done.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "d64c6da1",
+  "k": "{0} scanned pages were read with the text reader: check the text and the questions.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "26f394cd",
+  "k": "{0} questions found. Check them with Edit questions.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "6a83cf74",
+  "k": "No questions were found: add them with Edit questions.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "5746f75a",
+  "k": "That didn't work. Try again in a moment.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "cb9ce97b",
+  "k": "Lessons",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "b26ec7b7",
+  "k": "A reading passage with its audio and its questions. Add a PDF (its sounds come with it) or a Word file with its MP3s.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "190f32c2",
+  "k": "Add a lesson",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "70c585e1",
+  "k": "No lessons yet.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "6f18f6c8",
+  "k": "Choose a teacher's PDF or Word file with Add a lesson. Pick its MP3s at the same time, or add them later.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "efa4d993",
+  "k": "1 question",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "e9b5e3e3",
+  "k": "{0} questions",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "5e917161",
+  "k": "1 track",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "5e337b64",
+  "k": "{0} tracks",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "6826198c",
+  "k": "{0} of {1} answered",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "d1ed31d2",
+  "k": "Handed in",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "122abe40",
+  "k": "Sent to {0}",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "f8aa40dc",
+  "k": "From your teachers",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "002b124d",
+  "k": "Due {0}",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "7939cea4",
+  "k": "Getting it…",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "cc5aa220",
+  "k": "Track {0} of {1}…",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "3ff1093b",
+  "k": "{0} was updated by your teacher.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "ab3a1f62",
+  "k": "Your teacher gave you 1 study word from {0}. It's in your Vocab.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "c5304818",
+  "k": "Your teacher gave you {0} study words from {1}. They're in your Vocab.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "b12fcedc",
+  "k": "Answers",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "a6bb66d4",
+  "k": "{0} of {1} students handed it in.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "4b813253",
+  "k": "No students in this class yet.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "4120a09f",
+  "k": "To read",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "7cb7b42e",
+  "k": "Study words",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "faa9e7e7",
+  "k": "Started",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "d0bfed8b",
+  "k": "{0}, in their Vocab",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "0c2d5a0e",
+  "k": "{0}, on the way",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "66fbe1ac",
+  "k": "Right counts the questions with an answer key (tick the right answers in Edit questions). Tap a student to read their answers and give them study words.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "ed5dda1c",
+  "k": "All students",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "69ec9739",
+  "k": "Handed in {0}",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "c5c89b5f",
+  "k": "Not handed in yet",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "32ad2ff0",
+  "k": "(no answer)",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "bbec3c9c",
+  "k": "Study words for this student",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "81b12978",
+  "k": "Tap words in the passage. Their app puts them in their Vocab, in a folder named after the lesson, each with its sentence.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "77298fec",
+  "k": "Give these words",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "86d0fcc3",
+  "k": "Picked:",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "f9fb1839",
+  "k": "No words picked yet.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "8c7bf9b5",
+  "k": "The passage couldn't be fetched.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "f77dea1c",
+  "k": "1 study word given to {0}.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "fff1058e",
+  "k": "{0} study words given to {1}.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "86390619",
+  "k": "No lessons sent yet. Add one in Library → Lessons, then press Send to a class.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "bae0475b",
+  "k": "See answers",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "3d5aafae",
+  "k": "{0} of {1} handed in",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "c04ec853",
+  "k": "Lessons aren't switched on yet.",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "acdac205",
+  "k": "Audio",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "926814d0",
+  "k": "Adding {0}…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "3a62cb5c",
+  "k": "No audio in this lesson.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "7099f7e8",
+  "k": "Track {0}",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "7e0eff48",
+  "k": "Not on this device yet: it arrives with the next sync.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "4a457499",
+  "k": "Transcript checked by your teacher",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "55f8fb47",
+  "k": "Transcribed",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "60de7696",
+  "k": "Waiting to be transcribed",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "18895ccb",
+  "k": "Being transcribed…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "fec300a6",
+  "k": "Couldn't be transcribed",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "52811034",
+  "k": "Not transcribed yet",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5d12bd53",
+  "k": "Play",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5f0c00fc",
+  "k": "Correct the transcript",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5a635355",
+  "k": "Transcribe",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "36961ea5",
+  "k": "Take out of the lesson",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "b101aef3",
+  "k": "Take “{0}” out of the lesson?",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5c7cb360",
+  "k": "Its audio file is removed too.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "b1af1869",
+  "k": "It stays in your Library.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "adb14a77",
+  "k": "Take out",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "e48fbff3",
+  "k": "Not right",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "f252276e",
+  "k": "Your teacher reads this one",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "69bdd2a3",
+  "k": "Written answers aren't marked.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "9e4ccf3a",
+  "k": "Passage",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "a539171f",
+  "k": "Read with word help",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "dae5068c",
+  "k": "This lesson has no text. Add questions with Edit questions.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "624d22f1",
+  "k": "Hand in again",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "865f5839",
+  "k": "Hand in",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "d42d0475",
+  "k": "Hide the answers",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "e5eac900",
+  "k": "Check my answers",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "721902d8",
+  "k": "{0} right, {1} not right, {2} not answered yet.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "2e721f65",
+  "k": "Send to a class",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5c69414a",
+  "k": "Hand in {0}?",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "ff654aa0",
+  "k": "{0} questions have no answer yet. Your teacher sees what you hand in.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "d4d50c5e",
+  "k": "Your teacher sees your answers. You can still change them and hand in again.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "7350303f",
+  "k": "Handed in.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "319bb810",
+  "k": "Sent to",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "78fec7bb",
+  "k": "Send the corrected copy",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "c950d1f7",
+  "k": "Take back",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "4b0a3f2d",
+  "k": "Version {0}",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "e64d8b85",
+  "k": "Take {0} back from {1}?",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "f5363feb",
+  "k": "It disappears for the students, with their answers. Your copy stays here.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "52b000dc",
+  "k": "It's been sent to all your classes. To send a changed copy, use Send the corrected copy.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "fa1fb9b8",
+  "k": "The students get the passage, its audio with the transcripts as you corrected them, and the questions. The answer key stays with you.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "9a709e97",
+  "k": "Sending to {0}",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "ccb1e935",
+  "k": "Getting the tracks ready…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "81481b92",
+  "k": "“{0}” isn't on this device yet. Wait for the sync, then send again.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "3c1e60d2",
+  "k": "Uploading {0}…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "f1ca5fb9",
+  "k": "The corrected copy is on its way to {0}.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "d19372ac",
+  "k": "Sent to {0}.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "94e82063",
+  "k": "Find the questions with my AI",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "7b00af04",
+  "k": "Remove the lesson",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "e210afb9",
+  "k": "Rename the lesson",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "1ada4056",
+  "k": "Remove {0}?",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "69062f87",
+  "k": "It's removed from this device and your others. Your teacher keeps what you handed in.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "1ecc951d",
+  "k": "Its passage, questions, answers and own audio files are removed from this device and your others.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "26e25686",
+  "k": "Find the questions with your AI?",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "354be23e",
+  "k": "The lesson's text goes to your AI provider only, to be read, and isn't kept. What it finds replaces the questions; you can check them after.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "399c6d5f",
+  "k": "Find them",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "b387b8f3",
+  "k": "Asking your AI…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "3dd9f940",
+  "k": "Your AI found no questions in it.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
   "id": "30dced67",
   "k": "Open-source licenses",
   "f": "web/js/components/licenses.js"
@@ -7367,11 +8127,6 @@
  {
   "id": "35e8f150",
   "k": "Sent to {0}, without its words: they are too long to send.",
-  "f": "web/js/components/sendmedia.js"
- },
- {
-  "id": "d19372ac",
-  "k": "Sent to {0}.",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -8210,6 +8965,101 @@
   "f": "web/js/components/tour.js"
  },
  {
+  "id": "9749e624",
+  "k": "There is no transcript to correct yet.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "7bd9fbe5",
+  "k": "Your corrections to the transcript are lost.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "8cfc8cf6",
+  "k": "Play / pause",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "d43a7c66",
+  "k": "Follow along",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "df251b06",
+  "k": "Find",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "a252e954",
+  "k": "Find in the transcript",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "a8d53309",
+  "k": "Type over any line. Enter: next line · Alt+P: hear the line again · Ctrl+S: save.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "c1e9bba5",
+  "k": "This plays on YouTube, so it can't be heard here: open it in the player beside this. Enter: next line · Ctrl+S: save.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "a4c6e6e5",
+  "k": "This audio can't be played here.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "9dd3eb0c",
+  "k": "1 line changed",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "d4144282",
+  "k": "{0} lines changed",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "73e11c09",
+  "k": "Hear this line (Alt+P)",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "ea967600",
+  "k": "Line",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "9198770a",
+  "k": "Cut the line in two at the cursor",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "dc3fd1f0",
+  "k": "Join with the next line",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "433dff59",
+  "k": "Put the line back as it was",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "6780ea4e",
+  "k": "Put the cursor between two words first.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "9f5f5b8a",
+  "k": "Nothing has changed.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
+  "id": "ce46eada",
+  "k": "Transcript saved.",
+  "f": "web/js/components/transcripteditor.js"
+ },
+ {
   "id": "7a1e17bc",
   "k": "Troubleshoot",
   "f": "web/js/components/troubleshoot.js"
@@ -8907,11 +9757,6 @@
  {
   "id": "b02efb72",
   "k": "No sentence",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "acdac205",
-  "k": "Audio",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11470,6 +12315,26 @@
   "f": "web/js/dliclass.js"
  },
  {
+  "id": "6c255b7c",
+  "k": "That lesson isn't for one of your classes.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "d9aedff7",
+  "k": "Give the lesson a title first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "12f1e434",
+  "k": "This class has 300 lessons already. Remove one first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "a3f257e2",
+  "k": "That student isn't in the class any more.",
+  "f": "web/js/dliclass.js"
+ },
+ {
   "id": "5a352840",
   "k": "DLI classes aren't switched on yet. Try again later.",
   "f": "web/js/dliclass.js"
@@ -11477,11 +12342,6 @@
  {
   "id": "6a3e65a6",
   "k": "Sign in first.",
-  "f": "web/js/dliclass.js"
- },
- {
-  "id": "5746f75a",
-  "k": "That didn't work. Try again in a moment.",
   "f": "web/js/dliclass.js"
  },
  {
@@ -11508,6 +12368,36 @@
   "id": "b5ce3290",
   "k": "{0} more words from {1} are in your Vocab.",
   "f": "web/js/dlicontent.js"
+ },
+ {
+  "id": "d6c71625",
+  "k": "Couldn't get the lesson's files. Check your internet connection and try again.",
+  "f": "web/js/dlilessons.js"
+ },
+ {
+  "id": "8c02a2ab",
+  "k": "This lesson has no files yet.",
+  "f": "web/js/dlilessons.js"
+ },
+ {
+  "id": "060613c8",
+  "k": "A track's sound file couldn't be found on this device.",
+  "f": "web/js/dlilessons.js"
+ },
+ {
+  "id": "733c5448",
+  "k": "“{0}” is over 25 MB, too big to send. Make it smaller (a lower bit rate) and try again.",
+  "f": "web/js/dlilessons.js"
+ },
+ {
+  "id": "5c90ca14",
+  "k": "Couldn't upload “{0}”. {1}",
+  "f": "web/js/dlilessons.js"
+ },
+ {
+  "id": "07e7e94f",
+  "k": "Couldn't upload the lesson. {0}",
+  "f": "web/js/dlilessons.js"
  },
  {
   "id": "fc3f8727",
@@ -15675,11 +16565,6 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "adb14a77",
-  "k": "Take out",
-  "f": "web/js/game/fishscreen.js"
- },
- {
   "id": "88e89a69",
   "k": "Every fish at every tier, Common to Eternal.",
   "f": "web/js/game/fishscreen.js"
@@ -18575,6 +19460,11 @@
   "f": "web/js/igcollections.js"
  },
  {
+  "id": "b1c5a7af",
+  "k": "Track",
+  "f": "web/js/lessons.js"
+ },
+ {
   "id": "080c79ed",
   "k": "This Chinese dictionary is from a different version of the app.",
   "f": "web/js/lexicon/chinese.js"
@@ -19260,11 +20150,6 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "8cfc8cf6",
-  "k": "Play / pause",
-  "f": "web/js/padmap.js"
- },
- {
   "id": "862bd9b2",
   "k": "Hear this line again",
   "f": "web/js/padmap.js"
@@ -19287,11 +20172,6 @@
  {
   "id": "5562abb3",
   "k": "Highlight the line above",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "ea967600",
-  "k": "Line",
   "f": "web/js/padmap.js"
  },
  {
@@ -19642,11 +20522,6 @@
  {
   "id": "20924038",
   "k": "Previous lesson",
-  "f": "web/js/padmap.js"
- },
- {
-  "id": "188ecdea",
-  "k": "Lesson",
   "f": "web/js/padmap.js"
  },
  {
@@ -20063,11 +20938,6 @@
   "id": "100892d9",
   "k": "No readable text was found on that page. Try opening it in the app's browser and pressing the round teal button there.",
   "f": "web/js/pageimport.js"
- },
- {
-  "id": "4b0a3f2d",
-  "k": "Version {0}",
-  "f": "web/js/pages/about.js"
  },
  {
   "id": "2cf6a510",
@@ -20840,11 +21710,6 @@
   "f": "web/js/pages/friends.js"
  },
  {
-  "id": "1ada4056",
-  "k": "Remove {0}?",
-  "f": "web/js/pages/friends.js"
- },
- {
   "id": "ee7e971c",
   "k": "{0} will no longer be on your friends list. You can add each other again later.",
   "f": "web/js/pages/friends.js"
@@ -21172,11 +22037,6 @@
  {
   "id": "f7c5032d",
   "k": "It grows with the XP you earn while studying, and the ring round it fills toward today's goal.",
-  "f": "web/js/pages/home.js"
- },
- {
-  "id": "5d12bd53",
-  "k": "Play",
   "f": "web/js/pages/home.js"
  },
  {
@@ -21642,11 +22502,6 @@
  {
   "id": "9f5cd8a2",
   "k": "Retry",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "5a635355",
-  "k": "Transcribe",
   "f": "web/js/pages/library.js"
  },
  {
@@ -29160,6 +30015,16 @@
   "f": "mobile/src/js/backend.js"
  },
  {
+  "id": "f1124044",
+  "k": "Not found.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
+  "id": "a346652d",
+  "k": "This has no recording: change its text instead.",
+  "f": "mobile/src/js/backend.js"
+ },
+ {
   "id": "96d03b0f",
   "k": "Nothing to save.",
   "f": "mobile/src/js/backend.js"
@@ -29172,11 +30037,6 @@
  {
   "id": "08f351d2",
   "k": "Folder not found.",
-  "f": "mobile/src/js/backend.js"
- },
- {
-  "id": "f1124044",
-  "k": "Not found.",
   "f": "mobile/src/js/backend.js"
  },
  {
@@ -30735,6 +31595,11 @@
   "f": "app/jobs.py"
  },
  {
+  "id": "9a5d8db4",
+  "k": "Lessons: passages and their audio tracks.",
+  "f": "app/lessons.py"
+ },
+ {
   "id": "2e99c4f9",
   "k": "Couldn't download the dictionaries ({0}). Check your connection and try again.",
   "f": "app/lexicon.py"
@@ -31222,6 +32087,11 @@
  {
   "id": "c41c8edb",
   "k": "{0} files you added yourself. They're stored in your Google Drive.",
+  "f": "app/videos.py"
+ },
+ {
+  "id": "e393c9dc",
+  "k": "Choose audio files (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).",
   "f": "app/videos.py"
  },
  {

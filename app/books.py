@@ -18,7 +18,7 @@ from __future__ import annotations
 import time
 from typing import Any
 
-from . import arabic, db, ids, languages
+from . import arabic, db, ids, languages, lessons
 from .blockmarks import BLOCK_KINDS, block_kind
 
 LOCAL_FEED_URL = "local:books"
@@ -65,8 +65,10 @@ def clean_blocks(blocks: list[dict[str, Any]]) -> list[tuple[str, str]]:
     return out
 
 
-def save_book(guid: str, title: str, author: str, lang: str, blocks: list[dict[str, Any]], source: str = "") -> dict[str, Any]:
-    """Create (or replace) the book's episode and store its text. Returns the episode row."""
+def save_book(guid: str, title: str, author: str, lang: str, blocks: list[dict[str, Any]], source: str = "",
+              list_name: str = "books") -> dict[str, Any]:
+    """Create (or replace) the book's episode and store its text. Returns the episode row. `list_name` "lessons":
+    a lesson's passage (app/lessons.py), kept in the lessons' own list instead of My books."""
     guid = (guid or "").strip()[:300]
     if not guid.startswith(("book:", "file:")):
         raise BookError("Unknown book.")
@@ -78,7 +80,7 @@ def save_book(guid: str, title: str, author: str, lang: str, blocks: list[dict[s
     language = lang if languages.valid(lang) else languages.detect(" ".join(text for _kind, text in items[:80]))
     now = time.time()
     with db.session() as conn:
-        feed_id = ensure_feed(conn)
+        feed_id = lessons.ensure_feed(conn) if list_name == "lessons" else ensure_feed(conn)
         feed_uid = conn.execute("SELECT uid FROM feeds WHERE id = ?", (feed_id,)).fetchone()["uid"]
         uid = ids.episode_uid(feed_uid, guid)
         row = conn.execute("SELECT id FROM episodes WHERE uid = ?", (uid,)).fetchone()

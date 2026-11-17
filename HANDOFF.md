@@ -9047,3 +9047,140 @@ on to the next sentence".
   never started: Netflix's page sat on `watch-video-loading-view` with `document.visibilityState` "hidden" and no
   `<video>`; showing the window (off-screen) made the video appear at once and playback carried on. So a hidden player
   window can wait forever, at least in a new profile (a new user's first Netflix title). The owner's own profile plays.
+
+## Lesson bundles: a teacher's PDF / Word file with its audio as a lesson; DLI classes; transcript editor (2026-11-17; side chat of the main chat; database NOT applied)
+
+The owner: "My organization usually hands out materials to students by use of pdfs with embedded audios, or word docs with
+related mp3 files that are separate. I want to be able to bundle those into a lesson product … for both students to open
+both on their own or by being assigned by teachers … multiple choice questions or written response … clickable and typeable
+fields … teachers see students' responses and assign them words from the passages as study words … proofread [transcripts]
+in a sleek easy to use editor, these then proofread versions will then be sent to their students".
+
+**Decisions waiting for the owner** (the "Decisions" chat couldn't be reached from the side chat; written to the shared notes
+folder as `lesson-bundles-decisions.md`, and built with the recommended option meanwhile):
+(1) scanned pages and question finding: **Tesseract (already in the app for Scan, Apache-2.0) + Tamkeen's own rules +
+optional own AI** (recommended, built) vs a computer-only layout model (PaddleOCR PP-Structure Apache-2.0 / Docling MIT;
+hundreds of MB, new install) vs Surya/Marker (NOT allowed: licence limits paid use); (2) where sent lessons live: **private
+Supabase bucket `dli-lessons`, 25 MB a file** (recommended, built; the free plan has 1 GB for everything) vs teachers send files
+themselves vs Supabase Pro; (3) multiple choice right/wrong: **teacher only, no grade kept** (recommended, built) vs students too.
+
+**Where it is.** Library → **Lessons** (third kind, after Conversation; a panel kind like Courses: `panelKind`, `.lessons-kind`).
+- **Add a lesson** (one file picker: documents and audio together): `web/js/lessonfiles.js readLessonFiles` reads
+  - PDF: PDF.js text a line at a time (paragraphs by gaps, headings by size, page numbers dropped), `getAttachments()`, page
+    FileAttachment annotations, and `audioInPdf(bytes)`: its own scan of the file's streams (`>> stream`, the dictionary from
+    the last `N 0 obj`, FlateDecode inflated only for `/EmbeddedFile` or `/Subtype /audio`, images/fonts/XRef skipped, sound
+    known by its first bytes `soundKind`: ID3/MPEG frame, RIFF…WAVE, OggS, fLaC, ftyp M4A; names from the Filespec `/UF`/`/F`
+    pointing at the stream). That is how Acrobat's "Add sound" media clips are found (PDF.js doesn't show them).
+    A page with under 12 characters of text is drawn and read with Tesseract (`web/js/lessonocr.js`: `ar+en` etc., every line
+    kept, not only the study language's; downloads the reader once like Scan).
+  - Word .docx: `docxLines(document.xml, numbering.xml)` with regexes (testable in Node): Word's own numbering worked out per
+    numId/ilvl (decimal, letters, roman, Arabic abjad; a deeper level restarts under each item), tick boxes (w14:checkbox
+    checked or not, old FORMCHECKBOX, Wingdings boxes), Title/Heading/Quote styles; sound inside the document
+    (word/media/*.mp3 or an embedded object, found by `findSound`). Separate MP3s are picked with it (file-name order).
+  - .txt / .md: `lessonparse.js linesOfText`.
+- **Finding the questions** `web/js/lessonparse.js findQuestions(lines)` → `{items, key}`: numbered questions (1. 1) (1) Q1
+  "Question 1" ١. السؤال ١ س١ Вопрос 第1题 …; Word numbering level 0), options a) b) (a) A. أ) ب- а) (capital A./Arabic only when
+  options are due), tick boxes ☐ ☒ [ ] [x] ( ) ●, several on one line ("a) x b) y"), True/False in 11 languages (the
+  document's own words become the two choices), "Choose all that apply"-like = several answers, writing lines (underscores /
+  dots) = room to write, a gap in the sentence = short answer. Key: "Answer: b" lines (any of ~15 languages), ticked boxes,
+  "(correct)"/✓/* after an option, and an "Answer key" section at the end ("1. b 2. c", matched by number). Options keep the
+  letter alone (`label` "a"; `optionLabel` shows "a)"). The words it looks for are left out of the translations (extract.mjs EXCLUDE).
+  **Find the questions with my AI** (⋯ menu): `web/js/lessonai.js` (prompt + schema, EXCLUDE too) through the learner's own
+  key (`askAi`); only the text is sent, after a confirm box; the answer replaces the questions.
+- **The lesson screen** `components/lessonview.js`: Audio (each track: Play → the ordinary player, Correct the transcript,
+  Transcribe, take out; Add audio), the passage with the questions in place (`bodyOf`: a question's `at` = how many passage
+  blocks come before it), choice = radios, several = tick boxes, true/false = two radios, written = a box sized by `lines`.
+  Answers save as they are given (record below). **Read with word help** opens the passage in the book reader (word popup).
+  Own lessons: **Edit questions** (`components/lessonedit.js`: kind, wording, choices, tick the right answer(s) = answer key,
+  written answer's room and optional answer, where it goes, move, delete, add), **Check my answers** (marks against the key;
+  a written answer counts right only if it matches letter for letter, ignoring marks/case/punctuation), ⋯ Rename, Correct the
+  passage's text (`openPassageEditor`), Find the questions with my AI, Remove the lesson.
+- **Correct the transcript** `components/transcripteditor.js` + `web/js/transcriptedit.js`: also a pencil button in the
+  player's head for any recording (not Netflix). Lines with their time (tap = hear that line, stops at its end), typed over,
+  ✂ cut at the cursor, ⤓ join with the next, ↺ put back, Find, Follow along, speed 1/0.75/0.5, Enter = next line, Alt+P, Ctrl+S,
+  a leave-without-saving box. `retime(line, text)`: kept words (lined up by longest common run, marks/punctuation ignored)
+  keep their times, new words share the gap by length, all inside the line. Saved with the new route **PUT
+  /episodes/{id}/transcript** `{segments: [{start, end, text, words: [[s, e, w]]}], model}` (app/api/episodes.py, checked by
+  shared.py `clean_segments`, stored by `jobs._store`, a waiting transcription cancelled, sync in 30 s; refused for books and
+  web pages; twin in mobile/src/js/backend.js via `cloud.storeTranscript`). YouTube tracks can't be heard in the editor (a note says so).
+
+**How a lesson is kept (every version, no new table).** `web/js/lessons.js` (rules, no screen) / `web/js/lessonstore.js` (talks to /api):
+- the passage = a book-like episode `guid "file:lesson:<id>"` in the new built-in list **`local:lessons`** (`POST /books` with
+  `list: "lessons"`; app/books.py `list_name`, app/lessons.py `ensure_feed`; backend.js `lessonsFeed`). Built-in `local:` lists
+  stay out of Podcasts, so lessons show only in the Lessons tab (and search).
+- each MP3 = an own audio file in the same list (`uploadVideo(file, …, {lesson: true})` → desktop `POST /videos?lesson=true`
+  (app/videos.py `lesson`), phone `addUploadedVideo({lesson})`), transcribed as usual. A YouTube video or podcast episode
+  used as a track stays where it is (kind "youtube"/"podcast").
+- everything else = one record per lesson in the synced setting **`lesson_state`** ({id: record}: title, lang, made, updated,
+  passage uid, tracks [{uid, title, kind}], questions, key, answers, handed, `from` (a class's lesson: online ids, class,
+  teachers, version, due, words_at), `sent` (a teacher's: where it was sent, version, track uids uploaded)). Merged lesson by
+  lesson, the copy changed last wins; removal = {id, gone} kept 60 days (lessons.js `mergeStates` / app/lessons.py
+  `merge_state`, twins; tests/test_lessons.py runs both). Wired into: app/sync/engine.py snapshot "lessons" + merge (imported
+  as `clean_lessons`/`merge_lessons`: `merge()` has a local variable named `lessons`), PATCH /settings merges with what is kept,
+  db DEFAULT_SETTINGS, mobile store DEFAULTS, mobile sync.js payload + merge (event `tamkeen:lessons`), mobile saveSettings syncs in 30 s.
+- new route **GET /episodes/uid/{uid}** (desktop looks it up; on the phone an episode's id is its uid).
+
+**DLI classes (`supabase/v12-dli-lessons.sql`, after v10 and v11; NOT run).** Tables `dli_lessons` (class, teacher, title,
+language, questions, answer_key, files, version (0 = uploading), due) and `dli_lesson_work` (lesson, student, answers ≤300,
+handed_at, words ≤200 {word, sentence}, words_at, words_taken_at): RLS on, no table rules; functions `dli_add_lesson`,
+`dli_send_lesson` (version +1, file names cleaned), `dli_set_lesson_due`, `dli_remove_lesson`, `dli_class_lessons`,
+`dli_lesson_report` (teachers: key + every student's work, by username), `dli_give_words`, `dli_my_lessons` (students: never
+the key), `dli_save_work(lesson, answers, hand_in)`, `dli_took_words`. Storage bucket **`dli-lessons`** (private, 25 MB a file,
+gzip + audio types) at `<class>/<lesson>/<file>` with three storage rules (`private.dli_lesson_reader` / `_writer`: the class's
+teachers read/add/remove, its students read once sent). `private.dli_lesson_orphans()` lists files whose class closed (the owner
+deletes them in the dashboard). Self-test `supabase/test_rls_dli_lessons.sql` (two teachers, two students, a stranger;
+`RESULTS ok=… bad=[ none]`). **Never executed** (no Postgres here). The app's calls: `web/js/dlilessons.js` (through
+`dliclass.js` `dliRpc`, new messages in its MESSAGES; tests/js/lessons.test.mjs checks every call is in the SQL with grant/revoke).
+- Teacher (a DLI teacher with a class, own lesson): **Send to a class** → picks a class → `dli_add_lesson`, uploads each file
+  track (`track-N.ext`) and `lesson-V.json.gz` = `packLesson` (passage blocks, questions WITHOUT key, each track's transcript
+  as now corrected, YouTube/podcast tracks by reference), `dli_send_lesson`, removes files no longer used. **Sent to** box:
+  See answers, **Send the corrected copy** (only new tracks are uploaded again; the version goes up), Take back (files first,
+  then `dli_remove_lesson`). The class box (dliteach.js `openClass`) lists the class's lessons too (lessonteach.js `classLessonsPart`).
+  **See answers** (`components/lessonteach.js openLessonReport`): handed in, right / keyed, written to read, study words;
+  a student's answers marked; the passage as word buttons → **Give these words** (`dli_give_words`). Works for a second teacher
+  of the class too (the passage is fetched from the class's files).
+- Student (gate open, in a class): **From your teachers** in the Lessons tab → Open = download + `takeAssigned` (passage,
+  each file track uploaded as own audio with `transcribe=false` and the teacher's transcript PUT, model "teacher";
+  YouTube/podcast through sharetext `acceptInto`). Answers are kept on the student's devices and sent ONLY on **Hand in**
+  (confirm box; Hand in again allowed). On every Lessons tab visit: a newer version is taken in by itself (same lesson,
+  answers kept, toast "… was updated by your teacher"); new study words are added once to the Vocab in a folder named after
+  the lesson (`addStudyWords`, POST /vocab/batch with the sentence and the lesson as source), then `dli_took_words`.
+
+**Every version.** All shared code (build-www SHARED has the 13 new files). Gaps: on the phones and the web app a lesson's audio is
+an own file, kept in the learner's Google Drive, so it needs the Google sign-in (`ownFilesBlocked`, the existing rule; without it
+a document still becomes a lesson, and adding audio says to sign in). iPhone: never run (as for everything iOS). Scanned-PDF
+reading on a phone uses the same Tesseract build as Scan (not tried on a phone).
+
+**Tests.** tests/js/lessons.test.mjs (18: worksheet → passage/6 questions/kinds/key, numbering in 5 scripts, false
+alarms, unnumbered question, Word numbering and tick boxes, labels/inline/key entries, record clean/merge/removal, marking,
+split/body order, pack has no key, study-word sentence, docx XML, sound by bytes, sound inside a PDF's streams with its name
+(and an image stream ignored), retime/split/join/segments, AI answer, OCR pair, SQL ↔ app). tests/test_lessons.py (7: merge
+incl. a Node run of the JS twin, PATCH merge, passage + track in local:lessons and found by uid, PUT transcript (+ refusals,
+token), lesson track must be sound, the record in the sync snapshot and merge). Updated: courses-xp, library-courses,
+listenrec (the new kind / the `lesson` upload flag). JS and pytest all pass except the changelog copy test, which was already
+failing (copied over now).
+
+**Checked** in the browser pane: the desktop server on a fresh data folder never signed in to Drive (launch config
+`lessons-desktop`, port 8961) with made-up files (`scratchpad/make_samples.py`: a .docx with Word numbering and a ticked box
+plus a WAV beside it; a PDF with text and a WAV embedded as an EmbeddedFile): both became lessons (3 questions each, keys
+found, the PDF's sound became its track), answering + kept, Check my answers, Edit questions (added one with a written
+answer key), remove, the transcript editor (typed correction → word kept its 2.5–2.8 s timing; a line played), the player's
+pencil button; then the whole class round trip with the Supabase client's `rpc`, `auth.getSession` and storage replaced by an
+in-memory stand-in (scratch only, deleted after): send (track + pack uploaded, pack has no key and the corrected words),
+student sees From your teachers, Open, answers, Hand in, teacher's See answers (2/2 right, 1 to read), Give these words →
+student's Vocab folder with 2 cards and sentences + toast, Send the corrected copy (version 2, old pack removed, track not
+re-sent) → the student's copy updated itself with answers kept and no duplicate words; the class box's Lessons list. The
+phone build (`lessons-phone`, port 8963) at 375 px: the Lessons strip, a .docx lesson, the screen, the editor as a bottom sheet,
+PUT transcript / uid / the refusal on the phone backend. **Not checked:** the real database and storage (SQL never run),
+a real PDF made by Acrobat with "Add sound" (the stream scan is built for it but was only tried on a hand-made PDF), a
+real scanned PDF, a real Whisper transcript of a track (no model in the test folder: transcripts were PUT), a real AI,
+Android/iPhone devices, the web app on GitHub Pages.
+
+**Owner's steps:** run `supabase/v12-dli-lessons.sql` in the Supabase SQL editor (after v10 and v11), then
+`supabase/test_rls_dli_lessons.sql` and check `bad=[ none]`. Until then the class parts stay hidden (the student list asks
+`dli_my_lessons`, which isn't there; "Send to a class" shows only for a signed-in DLI teacher) and Lessons works on its own.
+
+**Follow-ups:** due dates (stored and shown to students; no screen for a teacher to set one yet: `setDue` exists);
+a teacher's written-answer comment back to the student; showing students their marks after the teacher "returns" a lesson
+(decision 3B); audio larger than 25 MB (compress on the computer before upload); the passage's words tappable inside the
+lesson screen itself (now through Read with word help).

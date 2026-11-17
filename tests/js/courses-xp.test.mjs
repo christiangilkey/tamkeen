@@ -187,14 +187,14 @@ test("the Library puts Grammar first and keeps a chosen tab for this visit only"
 
 // ---------- the Library's empty kinds ----------
 
-test("every Library kind but Courses and Conversation says how to add things with the + button", () => {
+test("every Library kind but Courses, Conversation and Lessons says how to add things with the + button", () => {
   const library = read("web/js/pages/library.js");
   const kinds = library.slice(library.indexOf("const KINDS = ["), library.indexOf("];", library.indexOf("const KINDS = [")));
   const entries = kinds.split(/\n\s*\{ key: /).slice(1);
-  assert.equal(entries.length, 11); // (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh)
+  assert.equal(entries.length, 12); // (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh; Lessons, with its own Add button, the twelfth)
   for (const e of entries) {
     const key = /^"(\w+)"/.exec(e)[1];
-    if (key === "courses" || key === "conversation") { assert.doesNotMatch(e, /empty:/); continue; }
+    if (key === "courses" || key === "conversation" || key === "lessons") { assert.doesNotMatch(e, /empty:/); continue; }
     assert.match(e, /empty: "Add [^"]+ with the \+ button below[^"]*"/, key);
   }
   assert.match(library, /<h2 class="le-title">Nothing here yet<\/h2>/);

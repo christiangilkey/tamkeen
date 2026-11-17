@@ -127,6 +127,12 @@ def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         # (merged with what is kept, so a page that read the setting before the sync brought another
         # device's lessons can't drop them)
         clean["grammar_progress"] = grammar.merge_progress(db.get_settings().get("grammar_progress"), clean["grammar_progress"])
+    if "lesson_state" in clean:
+        from .. import lessons
+
+        # (merged lesson by lesson with what is kept: a page that read the setting before the sync brought another
+        # device's lessons can't drop them; a removal is a newer record, so it still wins)
+        clean["lesson_state"] = lessons.merge_state(db.get_settings().get("lesson_state"), clean["lesson_state"])
     # The languages being learned: when each was ticked or unticked, by this computer's clock
     # (app/learning.py), so the newer change wins on the user's other devices.
     clean.pop("learning_times", None)
@@ -148,7 +154,7 @@ def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
     result = db.set_settings(clean)
     if aikeys.TIMES in clean:
         sync.request(5)  # the key reaches the user's other devices
-    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean or "study_goal" in clean or "study_goals" in clean:
+    if "youtube_follows" in clean or "browser_sites" in clean or "grammar_progress" in clean or "study_goal" in clean or "study_goals" in clean             or "lesson_state" in clean:
         sync.request(30)  # followed channels, saved sites, grammar lessons done and the goal reach the user's other devices
     if "learning_languages" in clean and sorted(clean["learning_languages"]) != sorted(learning_before):
         sync.request(30)  # a language ticked or unticked reaches the user's other devices

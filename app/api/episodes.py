@@ -4,11 +4,11 @@ from __future__ import annotations
 
 import mimetypes
 import re
-from typing import Any
+from typing import Any, Literal
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse, Response, StreamingResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from . import limits
 from .. import audiobooks, books, googlecalendar, googletasks, corrections, db, events, exporters, jobs, languages, pages, paths, sync, tashkeel, videos, youtube
@@ -116,14 +116,15 @@ def transcribe(body: TranscribeIn) -> dict[str, Any]:
 
 @router.post("/videos")
 async def upload_video(request: Request, filename: str, title: str | None = None, book: str | None = None,
-                       book_title: str | None = None, transcribe: bool = True, recording: bool = False) -> dict[str, Any]:
+                       book_title: str | None = None, transcribe: bool = True, recording: bool = False,
+                       lesson: bool = False) -> dict[str, Any]:
     """Raw request body = the video or audio file (streamed to disk, so any size works). `book`/`book_title`: a
     chapter of the learner's own audiobook (app/videos.py); `transcribe=false` leaves it for later (an
     audiobook's chapters after the first are transcribed as the learner gets to them). `recording`: made with
-    Library → My audio → Listen (always audio)."""
+    Library → My audio → Listen (always audio). `lesson`: an audio track of a lesson bundle (app/lessons.py)."""
     try:
         ep = await videos.save_upload(filename, request.stream(), title, book=book, book_title=book_title,
-                                      recording=recording)
+                                      recording=recording, lesson=lesson)
     except videos.UploadError as exc:
         raise HTTPException(400, str(exc)) from exc
     if transcribe:
@@ -237,6 +238,8 @@ class BookIn(BaseModel):
     lang: limits.Code = ""
     blocks: list[dict[str, Any]]
     source: limits.AnyUrlText = ""
+    # "lessons": a lesson bundle's passage (app/lessons.py). Sent as "list"; named apart from Python's own `list`.
+    list_name: Literal["books", "lessons"] = Field("books", alias="list")
 
 
 @router.post("/books")
@@ -244,7 +247,7 @@ def add_book(body: BookIn) -> dict[str, Any]:
     """A book from the free shelf or an uploaded file, already split into headings and paragraphs
     in the app's page (web/js/books.js)."""
     try:
-        ep = books.save_book(body.guid, body.title, body.author, body.lang, body.blocks, body.source)
+        ep = books.save_book(body.guid, body.title, body.author, body.lang, body.blocks, body.source, body.list_name)
     except books.BookError as exc:
         raise HTTPException(400, str(exc)) from exc
     events.publish("feeds", {"refreshed": True})
@@ -312,6 +315,44 @@ def correct_words(episode_id: int, body: CorrectIn) -> dict[str, Any]:
         raise HTTPException(409, str(exc)) from exc
     sync.request(delay=30)  # the other devices get the corrected transcript
     return out
+
+
+class TranscriptIn(BaseModel):
+    segments: list[dict[str, Any]]
+    model: limits.Name = "edited"
+
+
+@router.put("/episodes/{episode_id}/transcript")
+def replace_transcript(episode_id: int, body: TranscriptIn) -> dict[str, Any]:
+    """The whole transcript put right by hand (web/js/components/transcripteditor.js), or a lesson track's
+    transcript as its teacher corrected it (web/js/lessonstore.js): [{start, end, text, words: [[s, e, w]]}].
+    Not for books and web pages, whose text is their blocks (POST /books, POST /pages)."""
+    from .shared import PODCAST_SEGMENTS, PODCAST_WORDS, clean_segments
+
+    ep = _episode(episode_id)
+    if ep.get("audio_type") in (books.BOOK_TYPE, "text/html"):
+        raise HTTPException(400, "This has no recording: change its text instead.")
+    segments = clean_segments(body.segments, PODCAST_SEGMENTS, PODCAST_WORDS)
+    if not segments:
+        raise HTTPException(400, "Nothing to save.")
+    jobs.cancel(episode_id)  # (a transcription still waiting would write over the corrected one)
+    words = jobs._store(episode_id, segments, " ".join(body.model.split())[:80] or "edited",
+                        ep.get("language") or languages.study())
+    events.publish("feeds", {"refreshed": True})
+    sync.request(delay=30)  # the user's other devices get the corrected transcript
+    return {"episode": _episode(episode_id), "words": words}
+
+
+@router.get("/episodes/uid/{uid}")
+def episode_by_uid(uid: str) -> dict[str, Any]:
+    """An episode found by the id it has on every device (a lesson's record names its tracks this way)."""
+    if not re.fullmatch(r"[\w-]{1,64}", uid or ""):
+        raise HTTPException(404, "Not found.")
+    with db.session() as conn:
+        row = conn.execute("SELECT id FROM episodes WHERE uid = ? AND deleted = 0", (uid,)).fetchone()
+    if row is None:
+        raise HTTPException(404, "Not found.")
+    return _episode(int(row["id"]))
 
 
 @router.get("/episodes/{episode_id}/transcript")

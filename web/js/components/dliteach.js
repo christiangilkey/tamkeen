@@ -20,6 +20,7 @@ import * as cls from "../dliclass.js";
 import { LEVELS, LEVEL_WEEKS, activity, csvText, joinedOf, levelCounts, pasteText, sheetRows, totals, weeksAgo } from "../dliweeks.js";
 import { codeBox, codeProblem, dayLabel, percent, signInSpot, weeksTable } from "./dlishare.js";
 import { askName, confirmBox, openModal } from "./modal.js";
+import { classLessonsPart } from "./lessonteach.js";
 
 const SHOW_KEY = "tamkeenDliTeacher"; // "on" / "off": the tick of "I'm a DLI teacher" on this device
 const NOTES_KEY = "tamkeenDliNotes";  // { student id: note }, this device only
@@ -256,6 +257,7 @@ export function openClass(klass, { changed = () => {} } = {}) {
       foot.textContent = `${levelsFoot()} ${t("Tap a student for their weeks; tap a heading to sort.")}`;
       view.append(foot);
     }
+    view.append(classLessonsPart(klass.id)); // the lessons sent to the class (lessonteach.js)
     const acts = h(`<div class="set-actions dlt-acts"><button type="button" data-a="rename">Rename</button>
       <button type="button" data-a="codes">New codes</button><button type="button" class="ghost danger" data-a="leave">Leave the class</button>
       <button type="button" class="ghost danger" data-a="delete">Delete the class</button></div>`);

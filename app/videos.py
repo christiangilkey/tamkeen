@@ -22,7 +22,7 @@ from collections.abc import AsyncIterator
 from pathlib import Path
 from typing import Any
 
-from . import audio, audiobooks, db, ids, languages, paths
+from . import audio, audiobooks, db, ids, languages, lessons, paths
 
 LOCAL_FEED_URL = "local:videos"
 LOCAL_FEED_TITLE = "My videos"
@@ -106,14 +106,17 @@ def ensure_feed(conn: Any, audio: bool = False) -> int:
 
 async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | None = None,
                       book: str | None = None, book_title: str | None = None,
-                      recording: bool = False) -> dict[str, Any]:
+                      recording: bool = False, lesson: bool = False) -> dict[str, Any]:
     """Store an uploaded video or audio file and create its episode. Returns the episode row.
     `book`: the key of the learner's own audiobook it is a chapter of (`book_title` names a new one).
-    `recording`: made with Library → My audio → Listen (web/js/listenrec.js): always audio, in My audio."""
+    `recording`: made with Library → My audio → Listen (web/js/listenrec.js): always audio, in My audio.
+    `lesson`: an audio track of a lesson bundle (app/lessons.py): always audio, in the lessons' own list."""
     ext = os.path.splitext(filename)[1].lower()
     if ext in AUDIBLE:
         raise UploadError(AUDIBLE_MESSAGE)
-    is_audio = ext in AUDIO_TYPES and (ext not in VIDEO_TYPES or bool(book) or recording)
+    is_audio = ext in AUDIO_TYPES and (ext not in VIDEO_TYPES or bool(book) or recording or lesson)
+    if lesson and (not is_audio or book or recording):
+        raise UploadError("Choose audio files (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).")
     if recording and (not is_audio or book):
         raise UploadError("That recording couldn't be read. Try again.")
     if book and not is_audio:
@@ -148,7 +151,8 @@ async def save_upload(filename: str, chunks: AsyncIterator[bytes], title: str | 
             ext, mime = ".ogg", "audio/ogg"
         guid = uuid.uuid4().hex
         with db.session() as conn:
-            feed_id = ensure_book(conn, book, book_title or "") if book else ensure_feed(conn, audio=is_audio)
+            feed_id = (ensure_book(conn, book, book_title or "") if book else lessons.ensure_feed(conn) if lesson
+                       else ensure_feed(conn, audio=is_audio))
             feed_uid = conn.execute("SELECT uid FROM feeds WHERE id = ?", (feed_id,)).fetchone()["uid"]
             uid = ids.episode_uid(feed_uid, guid)
             name = (title or "").strip() or os.path.splitext(os.path.basename(filename))[0] or ("Audio" if is_audio else "Video")

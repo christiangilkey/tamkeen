@@ -455,7 +455,7 @@ export function ownFilesBlocked() {
 
 /** Add one of the user's own video or audio files. Resolves to the new episode. `book` ({key, title}): a
  *  chapter of an audiobook of their own (audiobooks.js); `transcribe: false` leaves it for later. */
-export function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false } = {}) {
+export function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false, lesson = false } = {}) {
   // (`title`: the item's name instead of the file's; `recording`: made with Library → My audio → Listen,
   // always audio, whatever its ending; the computer works out its length itself.)
   return new Promise((resolve, reject) => {
@@ -465,6 +465,7 @@ export function uploadVideo(file, onProgress, { book = null, transcribe = true, 
     if (!transcribe) q.set("transcribe", "false");
     if (title) q.set("title", title);
     if (recording) q.set("recording", "true");
+    if (lesson) q.set("lesson", "true"); // (an audio track of a lesson bundle: app/lessons.py)
     xhr.open("POST", `/api/videos?${q}`);
     for (const [k, v] of Object.entries(sessionHeaders())) xhr.setRequestHeader(k, v);
     xhr.upload.onprogress = (e) => { if (e.lengthComputable && onProgress) onProgress(e.loaded / e.total); };

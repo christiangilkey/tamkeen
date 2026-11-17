@@ -51,6 +51,9 @@ service role or the Supabase SQL editor.
 | Teacher code | no | no | no | see, replace | no | no |
 | Becoming a teacher / the owner | no | by the teacher code | by the teacher code | by the one-time owner code (shown when the SQL file is first run) | wrong codes capped at 20 a day | no |
 | A teacher's note on a student | no | on that teacher's device only, never sent | no | no | no | no |
+| A lesson sent to a class (`supabase/v12-dli-lessons.sql`): title, questions, passage, audio files, corrected transcripts | see, once sent | add, correct, take back | no | no | no | no |
+| A lesson's answer key | never | see, change | no | no | no | no |
+| My answers to a lesson (sent only when I press Hand in) and the study words a teacher gave me | see, hand in again | see; give study words | no | no | no | no |
 
 The DLI tables have row-level security on and **no** reading or writing rule: everything goes through the `dli_*`
 functions, each of which checks who is asking (`tests/js/dliweeks.test.mjs` fails if a rule or an unlisted call

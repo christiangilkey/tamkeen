@@ -21,6 +21,7 @@ import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpan
 import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
 import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { conversePanel } from "../components/conversepanel.js";
+import { lessonPanel } from "../components/lessonpanel.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
@@ -91,6 +92,8 @@ const BOOKS_FEED = "local:books";
 const KINDS = [
   { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
+  // Lesson bundles: a teacher's PDF or Word file with its audio, as a passage, tracks and questions (components/lessonpanel.js).
+  { key: "lessons", label: "Lessons", icon: "list", href: "#/library?show=lessons" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
@@ -131,7 +134,7 @@ function keyNote(kind) {
 }
 
 /** Kinds with a panel of their own instead of a list of episodes. */
-const panelKind = (k) => k === "courses" || k === "conversation";
+const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons";
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
@@ -262,6 +265,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           <p class="course-note" id="no-courses" hidden></p>
         </div>
         <div class="lib-converse" id="lib-converse" hidden></div>
+        <div class="lib-lessons" id="lib-lessons" hidden></div>
         <div id="lib-head"></div>
         <div class="upload-status" id="upload-status" hidden>
           <div class="small"><span id="upload-name"></span> <span class="muted" id="upload-pct"></span></div>
@@ -469,6 +473,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     head.innerHTML = "";
     root.classList.toggle("courses-kind", panelKind(kind)); // (no list, no + button: the kind's own panel instead)
     root.classList.toggle("converse-kind", kind === "conversation");
+    root.classList.toggle("lessons-kind", kind === "lessons");
     root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
@@ -477,6 +482,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     markEmpty("head", !!emptyKind);
     if (kind === "courses") { showCourses(); return; }
     if (kind === "conversation") { showConversation(); return; }
+    if (kind === "lessons") { showLessons(); return; }
     const note = keyNote(kind);
     if (note) head.append(note);
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
@@ -948,6 +954,12 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   // ----- conversation: speaking practice (components/conversepanel.js), built the first time it shows -----
   let closeConverse = null;
+  // ----- lessons: lesson bundles (components/lessonpanel.js), built the first time they show -----
+  let closeLessons = null;
+  function showLessons() {
+    $("#lib-lessons").hidden = false;
+    if (!closeLessons) closeLessons = lessonPanel($("#lib-lessons"), courseLang);
+  }
   function showConversation() {
     $("#lib-converse").hidden = false;
     if (!closeConverse) closeConverse = conversePanel($("#lib-converse"), courseLang);
@@ -1213,5 +1225,6 @@ export async function render(view, { feedId: routeFeed, query }) {
     offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
     if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();
     if (closeConverse) closeConverse();
+    if (closeLessons) closeLessons();
   };
 }

@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any
 
 from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, reels, studygoal, tashkeel, videos, youtube
+from ..lessons import clean_state as clean_lessons, merge_state as merge_lessons
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -133,6 +134,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "channels": youtube.clean_follows(db.get_setting("youtube_follows")),
             "sites": pages.clean_sites(db.get_setting("browser_sites")),
             "grammar": grammar.clean_progress(db.get_setting("grammar_progress")),
+            "lessons": clean_lessons(db.get_setting("lesson_state")),
             "controller": controller.clean(db.get_setting("controller_map")),
             "goal": studygoal.clean(db.get_setting("study_goal")),
             "goals": studygoal.clean_all(db.get_setting("study_goals")),
@@ -375,6 +377,21 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
                              (json.dumps(merged, ensure_ascii=False),))
                 result.merged["sites"] = len(merged)
+
+        # Lesson bundles (app/lessons.py): for each lesson, the copy changed last wins.
+        bundles = remote.get("lessons")
+        if isinstance(bundles, dict) and bundles:
+            row = conn.execute("SELECT value FROM settings WHERE key = 'lesson_state'").fetchone()
+            try:
+                mine_l = clean_lessons(json.loads(row["value"]) if row else {})
+            except json.JSONDecodeError:
+                mine_l = {}
+            merged_l = merge_lessons(mine_l, bundles)
+            if merged_l != mine_l:
+                conn.execute("INSERT INTO settings(key, value) VALUES('lesson_state', ?) "
+                             "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
+                             (json.dumps(merged_l, ensure_ascii=False),))
+                result.merged["lessons"] = len(merged_l)
 
         # Grammar lessons finished (app/grammar.py): for each lesson, the finish made last wins.
         lessons = remote.get("grammar")

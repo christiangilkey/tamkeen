@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Isang sagot
+c54e3734	Ilang sagot
+e0d72b64	Tama o mali
+a1667bd4	Nakasulat na sagot
+8b399d3b	I-edit ang mga tanong
+4c764717	Aalis nang hindi nagse-save?
+d529c5aa	Mawawala ang mga binago mo sa mga tanong.
+076e5e91	Magdagdag ng tanong
+6a25457f	Lagyan ng tsek ang mga tamang sagot para makagawa ng answer key: makakapag-check ang mga nag-aaral ng sarili nilang sagot, at makikita mo kung sino ang tumama sa ano. Hindi ito kailanman nakikita ng mga estudyante.
+991367ef	Kung saan ilalagay
+b06c9e85	Bago ang babasahin
+085a6178	Pagkatapos ng talata {0}
+50740da7	Wala pang tanong.
+f45e8d6d	Uri ng tanong
+b4f57cd0	Iakyat
+260ff8ae	Ibaba
+3130d87c	Burahin ang tanong
+d79cce54	Ang tanong
+97cdbdc7	Mali
+70ca5a4f	Lugar para magsulat
+375e9b88	Sagot (opsyonal)
+57944561	Isang salita o isang linya
+fe25bb27	Ilang pangungusap
+583975b9	Isang talata o higit pa
+390068ce	Ang tamang sagot
+f8ad7e45	Isang pagpipilian
+bc4d5b31	Burahin ang pagpipilian
+20799e77	Kailangan ng tanong na may pagpipilian ng hindi bababa sa dalawa.
+dab0cff1	Magdagdag ng pagpipilian
+d2eaa339	Itama ang teksto ng babasahin
+73a3e0d6	Mawawala ang mga binago mo sa teksto.
+b2daa0a9	Ayusin ang anumang mali ang pagkabasa mula sa file. Inaalis ang talatang walang laman.
+2da4ec57	Isang talata
+5e72fdc0	Pumili ng PDF, Word file (.docx) o text file, at ng anumang MP3 na kasama nito.
+721e255f	Ginagawa ang aralin
+ebec44d5	Binabasa ang na-scan na page {0}…
+ae825af9	Masyadong malaki ang {0} (higit sa 200 MB).
+ee942125	Hindi uri ng file na magagamit ng aralin ang {0}.
+b867e7a6	May password ang {0}, kaya hindi mabasa ang teksto nito.
+71155623	Hindi mabasa ang {0}.
+a17edadb	Walang nabasa mula sa mga file na iyon.
+64d8f75f	Idinadagdag ang track {0} sa {1}…
+e2bcda84	Tapos na.
+d64c6da1	{0} na-scan na page ang binasa ng text reader: tingnan ang teksto at ang mga tanong.
+26f394cd	{0} tanong ang nakita. Tingnan ang mga ito sa I-edit ang mga tanong.
+6a83cf74	Walang nakitang tanong: idagdag ang mga ito sa I-edit ang mga tanong.
+cb9ce97b	Mga aralin
+b26ec7b7	Isang babasahin kasama ang audio at mga tanong nito. Magdagdag ng PDF (kasama na ang mga tunog nito) o Word file kasama ang mga MP3 nito.
+190f32c2	Magdagdag ng aralin
+70c585e1	Wala pang aralin.
+6f18f6c8	Pumili ng PDF o Word file ng guro gamit ang Magdagdag ng aralin. Piliin ang mga MP3 nito nang sabay, o idagdag ang mga ito mamaya.
+efa4d993	1 tanong
+e9b5e3e3	{0} tanong
+5e917161	1 track
+5e337b64	{0} track
+6826198c	{0} sa {1} ang nasagot
+d1ed31d2	Naipasa na
+122abe40	Naipadala sa {0}
+f8aa40dc	Mula sa mga guro mo
+002b124d	Takdang {0}
+7939cea4	Kinukuha…
+cc5aa220	Track {0} sa {1}…
+3ff1093b	Binago ng guro mo ang {0}.
+ab3a1f62	Binigyan ka ng guro mo ng 1 salitang pag-aaralan mula sa {0}. Nasa Vocab mo na ito.
+c5304818	Binigyan ka ng guro mo ng {0} salitang pag-aaralan mula sa {1}. Nasa Vocab mo na ang mga ito.
+b12fcedc	Mga sagot
+a6bb66d4	{0} sa {1} estudyante ang nakapagpasa na.
+4b813253	Wala pang estudyante sa klaseng ito.
+4120a09f	Para basahin
+7cb7b42e	Mga salitang pag-aaralan
+faa9e7e7	Nasimulan na
+d0bfed8b	{0}, nasa Vocab na nila
+0c2d5a0e	{0}, papunta na
+66fbe1ac	Ang Tama ay binibilang lang ang mga tanong na may answer key (lagyan ng tsek ang mga tamang sagot sa I-edit ang mga tanong). Pindutin ang isang estudyante para basahin ang mga sagot niya at bigyan siya ng mga salitang pag-aaralan.
+ed5dda1c	Lahat ng estudyante
+69ec9739	Naipasa noong {0}
+c5c89b5f	Hindi pa naipapasa
+32ad2ff0	(walang sagot)
+bbec3c9c	Mga salitang pag-aaralan para sa estudyanteng ito
+81b12978	Pindutin ang mga salita sa babasahin. Ilalagay ng app niya ang mga ito sa Vocab niya, sa folder na may pangalan ng aralin, bawat isa kasama ang pangungusap nito.
+77298fec	Ibigay ang mga salitang ito
+86d0fcc3	Napili:
+f9fb1839	Wala pang napiling salita.
+8c7bf9b5	Hindi makuha ang babasahin.
+f77dea1c	Nabigyan si {0} ng 1 salitang pag-aaralan.
+fff1058e	Nabigyan si {1} ng {0} salitang pag-aaralan.
+86390619	Wala pang naipadalang aralin. Magdagdag ng isa sa Library → Mga aralin, saka pindutin ang Ipadala sa klase.
+bae0475b	Tingnan ang mga sagot
+3d5aafae	{0} sa {1} ang nakapagpasa
+c04ec853	Hindi pa naka-on ang mga aralin.
+926814d0	Idinadagdag ang {0}…
+3a62cb5c	Walang audio sa araling ito.
+7099f7e8	Track {0}
+7e0eff48	Wala pa sa device na ito: darating ito sa susunod na sync.
+4a457499	Sinuri ng guro mo ang transcript
+55f8fb47	Naka-transcribe na
+60de7696	Naghihintay na ma-transcribe
+18895ccb	Tina-transcribe…
+fec300a6	Hindi ma-transcribe
+52811034	Hindi pa naka-transcribe
+5f0c00fc	Itama ang transcript
+36961ea5	Alisin sa aralin
+b101aef3	Alisin ang “{0}” sa aralin?
+5c7cb360	Aalisin din ang audio file nito.
+b1af1869	Mananatili ito sa Library mo.
+e48fbff3	Hindi tama
+f252276e	Babasahin ito ng guro mo
+69bdd2a3	Hindi minamarkahan ang mga nakasulat na sagot.
+9e4ccf3a	Babasahin
+a539171f	Basahin nang may tulong sa salita
+dae5068c	Walang teksto ang araling ito. Magdagdag ng mga tanong sa I-edit ang mga tanong.
+624d22f1	Ipasa ulit
+865f5839	Ipasa
+d42d0475	Itago ang mga sagot
+e5eac900	I-check ang mga sagot ko
+721902d8	{0} tama, {1} hindi tama, {2} hindi pa nasasagot.
+2e721f65	Ipadala sa klase
+5c69414a	Ipasa ang {0}?
+ff654aa0	{0} tanong ang wala pang sagot. Nakikita ng guro mo ang ipinapasa mo.
+d4d50c5e	Nakikita ng guro mo ang mga sagot mo. Puwede mo pa rin itong baguhin at ipasa ulit.
+7350303f	Naipasa na.
+319bb810	Naipadala sa
+78fec7bb	Ipadala ang naitamang kopya
+c950d1f7	Bawiin
+e64d8b85	Bawiin ang {0} mula sa {1}?
+f5363feb	Mawawala ito sa mga estudyante, kasama ang mga sagot nila. Mananatili rito ang kopya mo.
+52b000dc	Naipadala na ito sa lahat ng klase mo. Para magpadala ng binagong kopya, gamitin ang Ipadala ang naitamang kopya.
+fa1fb9b8	Matatanggap ng mga estudyante ang babasahin, ang audio nito kasama ang mga transcript ayon sa pagkakatama mo, at ang mga tanong. Sa iyo lang mananatili ang answer key.
+9a709e97	Ipinapadala sa {0}
+ccb1e935	Inihahanda ang mga track…
+81481b92	Wala pa sa device na ito ang “{0}”. Hintayin ang sync, saka ipadala ulit.
+3c1e60d2	Ina-upload ang {0}…
+f1ca5fb9	Papunta na kay {0} ang naitamang kopya.
+94e82063	Hanapin ang mga tanong gamit ang AI ko
+7b00af04	Alisin ang aralin
+e210afb9	Palitan ang pangalan ng aralin
+69062f87	Aalisin ito sa device na ito at sa iba mo pang device. Itatago ng guro mo ang naipasa mo.
+1ecc951d	Aalisin sa device na ito at sa iba mo pang device ang babasahin, mga tanong, mga sagot at sariling mga audio file nito.
+26e25686	Hanapin ang mga tanong gamit ang AI mo?
+354be23e	Sa AI provider mo lang ipinapadala ang teksto ng aralin, para mabasa, at hindi ito itinatago. Papalitan ng makikita nito ang mga tanong; puwede mo itong tingnan pagkatapos.
+399c6d5f	Hanapin
+b387b8f3	Tinatanong ang AI mo…
+3dd9f940	Walang nakitang tanong dito ang AI mo.
+9749e624	Wala pang transcript na itatama.
+7bd9fbe5	Mawawala ang mga itinama mo sa transcript.
+d43a7c66	Sabayan ang audio
+df251b06	Hanapin
+a252e954	Hanapin sa transcript
+a8d53309	Isulat sa ibabaw ng kahit anong linya. Enter: susunod na linya · Alt+P: pakinggan ulit ang linya · Ctrl+S: i-save.
+c1e9bba5	Sa YouTube ito nagpe-play, kaya hindi ito maririnig dito: buksan ito sa player sa tabi nito. Enter: susunod na linya · Ctrl+S: i-save.
+a4c6e6e5	Hindi ma-play dito ang audio na ito.
+9dd3eb0c	1 linya ang binago
+d4144282	{0} linya ang binago
+73e11c09	Pakinggan ang linyang ito (Alt+P)
+9198770a	Hatiin sa dalawa ang linya sa cursor
+dc3fd1f0	Isama sa susunod na linya
+433dff59	Ibalik ang linya sa dati
+6780ea4e	Ilagay muna ang cursor sa pagitan ng dalawang salita.
+9f5f5b8a	Walang nabago.
+ce46eada	Na-save ang transcript.
+6c255b7c	Hindi para sa isa sa mga klase mo ang araling iyan.
+d9aedff7	Bigyan muna ng pamagat ang aralin.
+12f1e434	May 300 aralin na ang klaseng ito. Mag-alis muna ng isa.
+a3f257e2	Wala na sa klase ang estudyanteng iyan.
+d6c71625	Hindi makuha ang mga file ng aralin. Tingnan ang koneksyon mo sa internet at subukan ulit.
+8c02a2ab	Wala pang file ang araling ito.
+060613c8	Hindi makita sa device na ito ang sound file ng isang track.
+733c5448	Higit sa 25 MB ang “{0}”, masyadong malaki para ipadala. Paliitin ito (mas mababang bit rate) at subukan ulit.
+5c90ca14	Hindi ma-upload ang “{0}”. {1}
+07e7e94f	Hindi ma-upload ang aralin. {0}
+b1c5a7af	Track
+a346652d	Walang recording ito: palitan na lang ang teksto nito.
+9a5d8db4	Mga aralin: mga babasahin at ang mga audio track nila.
+e393c9dc	Pumili ng mga audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

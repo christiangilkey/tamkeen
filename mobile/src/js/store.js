@@ -116,6 +116,7 @@ export const DEFAULTS = {
   youtube_follows: [], // followed YouTube channels (web/js/ytfollow.js); synced with the library
   browser_sites: [],   // sites saved to the in-app browser's start page (web/js/browser-sites.js); synced too
   grammar_progress: {}, // the grammar lessons finished, when and how well (web/js/grammardata.js); synced too
+  lesson_state: {},     // lesson bundles: each lesson's questions, answers and tracks (web/js/lessons.js); synced too
   controller_map: {},  // the game controller's buttons, as changed from the defaults (web/js/padmap.js); synced too
   study_goal: {},      // the long-term goal on the Vocab page (web/js/review/goalsetting.js); synced too
   study_goals: {},     // ...one per language (goalsetting.js cleanGoals; study_goal is the one from before); synced too

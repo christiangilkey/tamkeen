@@ -967,15 +967,15 @@ export function ownFilesBlocked() {
  *  cloud transcription). `book` ({key, title}): a chapter of an audiobook of the user's own (audiobooks.js);
  *  `transcribe: false` leaves it for later. `title`: the item's name instead of the file's; `recording`: made
  *  with Library → My audio → Listen (web/js/listenrec.js), always audio, `duration` its length in seconds. */
-export async function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false, duration = null } = {}) {
+export async function uploadVideo(file, onProgress, { book = null, transcribe = true, title = "", recording = false, duration = null, lesson = false } = {}) {
   if (isAudibleFile(file.name)) throw new Error(AUDIBLE_MESSAGE); // copy-protected: never opened
   if (ownFilesBlocked()) throw new Error(ownFilesBlocked());
   // Video or audio: the file's type decides (the same button path serves both).
   let audioExt = (file.name.match(AUDIO_EXT) || [])[1];
-  if ((book || recording) && !audioExt && /\.webm$/i.test(file.name)) audioExt = "webm";
+  if ((book || recording || lesson) && !audioExt && /\.webm$/i.test(file.name)) audioExt = "webm";
   if (recording && !audioExt) throw new Error("That recording couldn't be read. Try again.");
   const audio = !!audioExt || (file.type || "").startsWith("audio/");
-  if (book && !audio) throw new Error("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).");
+  if ((book || lesson) && !audio) throw new Error("Choose audio files (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).");
   const ext = audio ? audioExt : (file.name.match(VIDEO_EXT) || [])[1];
   if (!audio && !ext && !(file.type || "").startsWith("video/")) {
     throw new Error("Choose a video file (MP4, MOV, WebM, MKV, AVI, 3GP) or an audio file (MP3, M4A, M4B, WAV, OGG, Opus, FLAC, AAC).");
@@ -993,7 +993,7 @@ export async function uploadVideo(file, onProgress, { book = null, transcribe = 
   files[driveName] = meta;
   await kv.set("drive_files", files);
   const name = String(title || "").replace(/\s+/g, " ").trim().slice(0, 300) || file.name.replace(/\.[^.]+$/, "") || (audio ? "Audio" : "Video");
-  const ep = await addUploadedVideo({ uid, title: name, driveName, mime, duration: length, audio, file, book, transcribe });
+  const ep = await addUploadedVideo({ uid, title: name, driveName, mime, duration: length, audio, file, book, transcribe, lesson: !!lesson });
   return { ...ep, note: ep.here ? "It's being transcribed now." : "Your computer transcribes it the next time it syncs." };
 }
 
@@ -1116,6 +1116,7 @@ export async function saveSettings(values) {
   if ("youtube_follows" in values) requestSync(30000); // so do followed channels
   if ("browser_sites" in values) requestSync(30000); // and sites saved to the browser's start page
   if ("grammar_progress" in values) requestSync(30000); // and grammar lessons finished
+  if ("lesson_state" in values) requestSync(30000); // and lessons: their questions, answers and tracks
   if ("controller_map" in values) requestSync(30000); // and the game controller's buttons
   if ("study_goal" in values || "study_goals" in values) requestSync(30000); // and the long-term goals
   if (JSON.stringify(s.learning_times || {}) !== learningTimes) requestSync(30000); // and languages ticked or unticked

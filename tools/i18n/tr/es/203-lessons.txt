@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Una respuesta
+c54e3734	Varias respuestas
+e0d72b64	Verdadero o falso
+a1667bd4	Respuesta escrita
+8b399d3b	Editar preguntas
+4c764717	¿Salir sin guardar?
+d529c5aa	Se pierden tus cambios en las preguntas.
+076e5e91	Añadir una pregunta
+6a25457f	Marca las respuestas correctas para crear una clave de respuestas: así los estudiantes pueden comprobarse solos y tú ves quién acertó qué. Los estudiantes nunca la ven.
+991367ef	Dónde va
+b06c9e85	Antes de la lectura
+085a6178	Después del párrafo {0}
+50740da7	Aún no hay preguntas.
+f45e8d6d	Tipo de pregunta
+b4f57cd0	Subir
+260ff8ae	Bajar
+3130d87c	Borrar la pregunta
+d79cce54	La pregunta
+97cdbdc7	Falso
+70ca5a4f	Espacio para escribir
+375e9b88	Respuesta (opcional)
+57944561	Una palabra o una línea
+fe25bb27	Unas cuantas frases
+583975b9	Un párrafo o más
+390068ce	La respuesta correcta
+f8ad7e45	Una opción
+bc4d5b31	Borrar la opción
+20799e77	Una pregunta con opciones necesita al menos dos.
+dab0cff1	Añadir una opción
+d2eaa339	Corregir el texto de la lectura
+73a3e0d6	Se pierden tus cambios en el texto.
+b2daa0a9	Arregla lo que el lector de archivos haya leído mal. Un párrafo vacío se quita.
+2da4ec57	Un párrafo
+5e72fdc0	Elige un PDF, un archivo de Word (.docx) o un archivo de texto, y los MP3 que vayan con él.
+721e255f	Creando la lección
+ebec44d5	Leyendo la página escaneada {0}…
+ae825af9	{0} es demasiado grande (más de 200 MB).
+ee942125	{0} no es un tipo de archivo que pueda usar una lección.
+b867e7a6	{0} está protegido con contraseña, así que no se puede leer su texto.
+71155623	No se ha podido leer {0}.
+a17edadb	No se ha podido leer nada de esos archivos.
+64d8f75f	Añadiendo la pista {0} de {1}…
+e2bcda84	Hecho.
+d64c6da1	Se han leído {0} páginas escaneadas con el lector de texto: revisa el texto y las preguntas.
+26f394cd	Se han encontrado {0} preguntas. Revísalas con Editar preguntas.
+6a83cf74	No se ha encontrado ninguna pregunta: añádelas con Editar preguntas.
+cb9ce97b	Lecciones
+b26ec7b7	Una lectura con su audio y sus preguntas. Añade un PDF (sus sonidos vienen con él) o un archivo de Word con sus MP3.
+190f32c2	Añadir una lección
+70c585e1	Aún no hay lecciones.
+6f18f6c8	Elige el PDF o el archivo de Word de un profesor con Añadir una lección. Elige sus MP3 a la vez, o añádelos después.
+efa4d993	1 pregunta
+e9b5e3e3	{0} preguntas
+5e917161	1 pista
+5e337b64	{0} pistas
+6826198c	{0} de {1} respondidas
+d1ed31d2	Entregada
+122abe40	Enviada a {0}
+f8aa40dc	De tus profesores
+002b124d	Entrega: {0}
+7939cea4	Descargando…
+cc5aa220	Pista {0} de {1}…
+3ff1093b	Tu profesor ha actualizado {0}.
+ab3a1f62	Tu profesor te ha dado 1 palabra de estudio de {0}. Está en tu Vocabulario.
+c5304818	Tu profesor te ha dado {0} palabras de estudio de {1}. Están en tu Vocabulario.
+b12fcedc	Respuestas
+a6bb66d4	{0} de {1} estudiantes la han entregado.
+4b813253	Aún no hay estudiantes en esta clase.
+4120a09f	Por leer
+7cb7b42e	Palabras de estudio
+faa9e7e7	Empezada
+d0bfed8b	{0}, en su Vocabulario
+0c2d5a0e	{0}, en camino
+66fbe1ac	Correcto cuenta las preguntas que tienen clave de respuestas (marca las respuestas correctas en Editar preguntas). Toca a un estudiante para leer sus respuestas y darle palabras de estudio.
+ed5dda1c	Todos los estudiantes
+69ec9739	Entregada el {0}
+c5c89b5f	Aún no entregada
+32ad2ff0	(sin respuesta)
+bbec3c9c	Palabras de estudio para este estudiante
+81b12978	Toca palabras de la lectura. Su app las pone en su Vocabulario, en una carpeta con el nombre de la lección, cada una con su frase.
+77298fec	Dar estas palabras
+86d0fcc3	Elegidas:
+f9fb1839	Aún no has elegido ninguna palabra.
+8c7bf9b5	No se ha podido obtener la lectura.
+f77dea1c	1 palabra de estudio dada a {0}.
+fff1058e	{0} palabras de estudio dadas a {1}.
+86390619	Aún no has enviado ninguna lección. Añade una en Biblioteca → Lecciones y luego pulsa Enviar a una clase.
+bae0475b	Ver respuestas
+3d5aafae	{0} de {1} entregadas
+c04ec853	Las lecciones aún no están activadas.
+926814d0	Añadiendo {0}…
+3a62cb5c	Esta lección no tiene audio.
+7099f7e8	Pista {0}
+7e0eff48	Aún no está en este dispositivo: llega con la próxima sincronización.
+4a457499	Transcripción revisada por tu profesor
+55f8fb47	Transcrita
+60de7696	Esperando la transcripción
+18895ccb	Transcribiendo…
+fec300a6	No se ha podido transcribir
+52811034	Aún sin transcribir
+5f0c00fc	Corregir la transcripción
+36961ea5	Quitar de la lección
+b101aef3	¿Quitar «{0}» de la lección?
+5c7cb360	Su archivo de audio también se quita.
+b1af1869	Se queda en tu Biblioteca.
+e48fbff3	Incorrecto
+f252276e	Esta la lee tu profesor
+69bdd2a3	Las respuestas escritas no se corrigen.
+9e4ccf3a	Lectura
+a539171f	Leer con ayuda de palabras
+dae5068c	Esta lección no tiene texto. Añade preguntas con Editar preguntas.
+624d22f1	Volver a entregar
+865f5839	Entregar
+d42d0475	Ocultar las respuestas
+e5eac900	Comprobar mis respuestas
+721902d8	{0} correctas, {1} incorrectas, {2} sin responder todavía.
+2e721f65	Enviar a una clase
+5c69414a	¿Entregar {0}?
+ff654aa0	{0} preguntas aún no tienen respuesta. Tu profesor ve lo que entregas.
+d4d50c5e	Tu profesor ve tus respuestas. Aún puedes cambiarlas y volver a entregar.
+7350303f	Entregada.
+319bb810	Enviada a
+78fec7bb	Enviar la copia corregida
+c950d1f7	Retirar
+e64d8b85	¿Retirar {0} de {1}?
+f5363feb	Desaparece para los estudiantes, con sus respuestas. Tu copia se queda aquí.
+52b000dc	Ya se ha enviado a todas tus clases. Para enviar una copia cambiada, usa Enviar la copia corregida.
+fa1fb9b8	Los estudiantes reciben la lectura, su audio con las transcripciones tal como las corregiste, y las preguntas. La clave de respuestas se queda contigo.
+9a709e97	Enviando a {0}
+ccb1e935	Preparando las pistas…
+81481b92	«{0}» aún no está en este dispositivo. Espera a la sincronización y vuelve a enviar.
+3c1e60d2	Subiendo {0}…
+f1ca5fb9	La copia corregida va de camino a {0}.
+94e82063	Buscar las preguntas con mi IA
+7b00af04	Borrar la lección
+e210afb9	Cambiar el nombre de la lección
+69062f87	Se borra de este dispositivo y de los demás. Tu profesor conserva lo que entregaste.
+1ecc951d	Su lectura, sus preguntas, sus respuestas y sus propios archivos de audio se borran de este dispositivo y de los demás.
+26e25686	¿Buscar las preguntas con tu IA?
+354be23e	El texto de la lección solo va a tu proveedor de IA, para que lo lea, y no se guarda. Lo que encuentre sustituye a las preguntas; puedes revisarlas después.
+399c6d5f	Buscarlas
+b387b8f3	Preguntando a tu IA…
+3dd9f940	Tu IA no ha encontrado preguntas.
+9749e624	Aún no hay ninguna transcripción que corregir.
+7bd9fbe5	Se pierden tus correcciones de la transcripción.
+d43a7c66	Seguir el audio
+df251b06	Buscar
+a252e954	Buscar en la transcripción
+a8d53309	Escribe encima de cualquier línea. Enter: línea siguiente · Alt+P: volver a oír la línea · Ctrl+S: guardar.
+c1e9bba5	Esto se reproduce en YouTube, así que aquí no se puede oír: ábrelo en el reproductor de al lado. Enter: línea siguiente · Ctrl+S: guardar.
+a4c6e6e5	Este audio no se puede reproducir aquí.
+9dd3eb0c	1 línea cambiada
+d4144282	{0} líneas cambiadas
+73e11c09	Oír esta línea (Alt+P)
+9198770a	Partir la línea en dos en el cursor
+dc3fd1f0	Unir con la línea siguiente
+433dff59	Dejar la línea como estaba
+6780ea4e	Primero pon el cursor entre dos palabras.
+9f5f5b8a	No ha cambiado nada.
+ce46eada	Transcripción guardada.
+6c255b7c	Esa lección no es de ninguna de tus clases.
+d9aedff7	Primero ponle un título a la lección.
+12f1e434	Esta clase ya tiene 300 lecciones. Borra una primero.
+a3f257e2	Ese estudiante ya no está en la clase.
+d6c71625	No se han podido obtener los archivos de la lección. Comprueba tu conexión a internet y vuelve a intentarlo.
+8c02a2ab	Esta lección aún no tiene archivos.
+060613c8	No se ha encontrado en este dispositivo el archivo de sonido de una pista.
+733c5448	«{0}» pasa de 25 MB, es demasiado grande para enviarlo. Hazlo más pequeño (con una tasa de bits más baja) y vuelve a intentarlo.
+5c90ca14	No se ha podido subir «{0}». {1}
+07e7e94f	No se ha podido subir la lección. {0}
+b1c5a7af	Pista
+a346652d	Esto no tiene grabación: cambia su texto.
+9a5d8db4	Lecciones: lecturas y sus pistas de audio.
+e393c9dc	Elige archivos de audio (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

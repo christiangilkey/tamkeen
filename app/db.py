@@ -465,6 +465,8 @@ DEFAULT_SETTINGS: dict[str, Any] = {
     "browser_sites": [],
     # The grammar courses: when each lesson was finished, and how well (app/grammar.py); travels too.
     "grammar_progress": {},
+    # Lesson bundles (app/lessons.py, web/js/lessons.js): each lesson's questions, answers and tracks; travels too.
+    "lesson_state": {},
     # The game controller's buttons, as changed from the defaults (app/controller.py, web/js/padmap.js); travels too.
     "controller_map": {},
     # The long-term goal on the Vocab page (app/studygoal.py, web/js/review/goalsetting.js); travels too.

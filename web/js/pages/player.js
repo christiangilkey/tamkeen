@@ -615,6 +615,17 @@ export async function render(view, { id, query }) {
   // button says so.
   // (Not a Netflix title: its words are Netflix's subtitles, from the user's own Netflix, for his own study.)
   if (!nf) $(".player-head > .row").prepend(sendButton(() => mediaFromEpisode(ep, { at: audio.currentTime || 0 })));
+  // "Correct the transcript" (components/transcripteditor.js): any recording's words put right a line at a time while
+  // hearing them; the page is drawn again with them once saved. (Not Netflix: its words are Netflix's own subtitles.)
+  if (!nf && data.segments.length) {
+    const fix = h(`<button type="button" class="ghost icon" title="Correct the transcript" aria-label="Correct the transcript">${icon("edit", 20)}</button>`);
+    fix.onclick = async () => {
+      audio.pause();
+      (await import("../components/transcripteditor.js")).openTranscriptEditor(ep, {
+        onSaved: () => window.dispatchEvent(new HashChangeEvent("hashchange")) });
+    };
+    $(".player-head > .row").prepend(fix);
+  }
 
   // ---------- an audiobook's next chapter (audiobooks.js) ----------
   // A button to it (it lights up when this chapter ends), and the next chapter is transcribed while

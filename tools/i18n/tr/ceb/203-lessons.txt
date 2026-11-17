@@ -1,0 +1,175 @@
+# Lesson bundles (components/lessonpanel.js, lessonview.js, lessonedit.js, lessonteach.js, transcripteditor.js).
+b7d40cd6	Usa ka tubag
+c54e3734	Pipila ka tubag
+e0d72b64	Tinuod o bakak
+a1667bd4	Sinulat nga tubag
+8b399d3b	Usba ang mga pangutana
+4c764717	Mobiya nga dili i-save?
+d529c5aa	Mawala ang imong mga kausaban sa mga pangutana.
+076e5e91	Pagdugang og pangutana
+6a25457f	Markahi ang sakto nga mga tubag aron makahimo og answer key: makasusi ang mga nagtuon sa ilang kaugalingong tubag, ug makita nimo kung kinsa ang nakasakto sa unsa. Dili gyud kini makita sa mga estudyante.
+991367ef	Asa kini ibutang
+b06c9e85	Sa wala pa ang basahon
+085a6178	Human sa parapo {0}
+50740da7	Wala pay pangutana.
+f45e8d6d	Klase sa pangutana
+b4f57cd0	Ipataas
+260ff8ae	Ipaubos
+3130d87c	Tangtanga ang pangutana
+d79cce54	Ang pangutana
+97cdbdc7	Bakak
+70ca5a4f	Luna sa pagsulat
+375e9b88	Tubag (opsyonal)
+57944561	Usa ka pulong o usa ka linya
+fe25bb27	Pipila ka sentence
+583975b9	Usa ka parapo o labaw pa
+390068ce	Ang sakto nga tubag
+f8ad7e45	Usa ka pilianan
+bc4d5b31	Tangtanga ang pilianan
+20799e77	Ang pangutana nga may mga pilianan nagkinahanglan og duha ka pilianan labing menos.
+dab0cff1	Pagdugang og pilianan
+d2eaa339	Tul-ira ang teksto sa basahon
+73a3e0d6	Mawala ang imong mga kausaban sa teksto.
+b2daa0a9	Ayuha ang bisan unsa nga sayop ang pagkabasa gikan sa file. Ang parapo nga walay sulod tangtangon.
+2da4ec57	Usa ka parapo
+5e72fdc0	Pili og PDF, Word file (.docx) o text file, ug bisan unsang MP3 nga kauban niini.
+721e255f	Gihimo ang leksyon
+ebec44d5	Gibasa ang na-scan nga page {0}…
+ae825af9	Dako ra kaayo ang {0} (labaw sa 200 MB).
+ee942125	Ang {0} dili klase sa file nga magamit sa leksyon.
+b867e7a6	Naay password ang {0}, busa dili mabasa ang teksto niini.
+71155623	Dili mabasa ang {0}.
+a17edadb	Walay nabasa gikan niadtong mga file.
+64d8f75f	Gidugang ang track {0} sa {1}…
+e2bcda84	Nahuman na.
+d64c6da1	{0} ka na-scan nga page ang gibasa sa text reader: susiha ang teksto ug ang mga pangutana.
+26f394cd	{0} ka pangutana ang nakit-an. Susiha kini sa Usba ang mga pangutana.
+6a83cf74	Walay pangutana nga nakit-an: idugang kini sa Usba ang mga pangutana.
+cb9ce97b	Mga leksyon
+b26ec7b7	Usa ka basahon uban ang audio ug mga pangutana niini. Pagdugang og PDF (kauban na ang mga tingog niini) o Word file uban ang mga MP3 niini.
+190f32c2	Pagdugang og leksyon
+70c585e1	Wala pay leksyon.
+6f18f6c8	Pili og PDF o Word file sa magtutudlo gamit ang Pagdugang og leksyon. Pilia ang mga MP3 niini dungan, o idugang kini unya.
+efa4d993	1 ka pangutana
+e9b5e3e3	{0} ka pangutana
+5e917161	1 ka track
+5e337b64	{0} ka track
+6826198c	{0} sa {1} ang natubag
+d1ed31d2	Napasa na
+122abe40	Gipadala sa {0}
+f8aa40dc	Gikan sa imong mga magtutudlo
+002b124d	Takdang adlaw {0}
+7939cea4	Gikuha…
+cc5aa220	Track {0} sa {1}…
+3ff1093b	Gi-update sa imong magtutudlo ang {0}.
+ab3a1f62	Gihatagan ka sa imong magtutudlo og 1 ka pulong nga tun-an gikan sa {0}. Anaa na kini sa imong Vocab.
+c5304818	Gihatagan ka sa imong magtutudlo og {0} ka pulong nga tun-an gikan sa {1}. Anaa na kini sa imong Vocab.
+b12fcedc	Mga tubag
+a6bb66d4	{0} sa {1} ka estudyante ang nakapasa na.
+4b813253	Wala pay estudyante niini nga klase.
+4120a09f	Para basahon
+7cb7b42e	Mga pulong nga tun-an
+faa9e7e7	Nasugdan na
+d0bfed8b	{0}, anaa na sa ilang Vocab
+0c2d5a0e	{0}, padulong na
+66fbe1ac	Ang Sakto moihap ra sa mga pangutana nga may answer key (markahi ang sakto nga mga tubag sa Usba ang mga pangutana). I-tap ang usa ka estudyante aron basahon ang iyang mga tubag ug hatagan siya og mga pulong nga tun-an.
+ed5dda1c	Tanang estudyante
+69ec9739	Gipasa niadtong {0}
+c5c89b5f	Wala pa mapasa
+32ad2ff0	(walay tubag)
+bbec3c9c	Mga pulong nga tun-an para niini nga estudyante
+81b12978	I-tap ang mga pulong sa basahon. Ibutang kini sa iyang app sa iyang Vocab, sa folder nga ginganlan sunod sa leksyon, ang matag usa uban ang sentence niini.
+77298fec	Ihatag kini nga mga pulong
+86d0fcc3	Napili:
+f9fb1839	Wala pay napili nga pulong.
+8c7bf9b5	Dili makuha ang basahon.
+f77dea1c	1 ka pulong nga tun-an ang gihatag kang {0}.
+fff1058e	{0} ka pulong nga tun-an ang gihatag kang {1}.
+86390619	Wala pay leksyon nga napadala. Pagdugang og usa sa Library → Mga leksyon, dayon pindota ang Ipadala sa klase.
+bae0475b	Tan-awa ang mga tubag
+3d5aafae	{0} sa {1} ang nakapasa
+c04ec853	Wala pa ma-on ang mga leksyon.
+926814d0	Gidugang ang {0}…
+3a62cb5c	Walay audio niini nga leksyon.
+7099f7e8	Track {0}
+7e0eff48	Wala pa niini nga device: moabot kini sa sunod nga sync.
+4a457499	Gisusi sa imong magtutudlo ang transcript
+55f8fb47	Na-transcribe na
+60de7696	Naghulat nga ma-transcribe
+18895ccb	Gi-transcribe…
+fec300a6	Dili ma-transcribe
+52811034	Wala pa ma-transcribe
+5f0c00fc	Tul-ira ang transcript
+36961ea5	Kuhaa sa leksyon
+b101aef3	Kuhaon ang “{0}” sa leksyon?
+5c7cb360	Matangtang usab ang audio file niini.
+b1af1869	Magpabilin kini sa imong Library.
+e48fbff3	Dili sakto
+f252276e	Basahon kini sa imong magtutudlo
+69bdd2a3	Ang sinulat nga mga tubag dili markahan.
+9e4ccf3a	Basahon
+a539171f	Basaha uban ang tabang sa pulong
+dae5068c	Walay teksto kini nga leksyon. Pagdugang og mga pangutana sa Usba ang mga pangutana.
+624d22f1	Ipasa pag-usab
+865f5839	Ipasa
+d42d0475	Tagoa ang mga tubag
+e5eac900	Susiha ang akong mga tubag
+721902d8	{0} sakto, {1} dili sakto, {2} wala pa matubag.
+2e721f65	Ipadala sa klase
+5c69414a	Ipasa ang {0}?
+ff654aa0	{0} ka pangutana ang wala pay tubag. Makita sa imong magtutudlo ang imong ipasa.
+d4d50c5e	Makita sa imong magtutudlo ang imong mga tubag. Mausab pa nimo kini ug ipasa pag-usab.
+7350303f	Napasa na.
+319bb810	Gipadala sa
+78fec7bb	Ipadala ang natul-id nga kopya
+c950d1f7	Bawia
+e64d8b85	Bawion ang {0} gikan sa {1}?
+f5363feb	Mawala kini sa mga estudyante, uban ang ilang mga tubag. Magpabilin dinhi ang imong kopya.
+52b000dc	Napadala na kini sa tanan nimong klase. Aron magpadala og giusab nga kopya, gamita ang Ipadala ang natul-id nga kopya.
+fa1fb9b8	Madawat sa mga estudyante ang basahon, ang audio niini uban ang mga transcript sumala sa imong pagtul-id, ug ang mga pangutana. Ang answer key magpabilin kanimo.
+9a709e97	Gipadala sa {0}
+ccb1e935	Giandam ang mga track…
+81481b92	Ang “{0}” wala pa niini nga device. Hulata ang sync, dayon ipadala pag-usab.
+3c1e60d2	Gi-upload ang {0}…
+f1ca5fb9	Padulong na sa {0} ang natul-id nga kopya.
+94e82063	Pangitaa ang mga pangutana gamit ang akong AI
+7b00af04	Tangtanga ang leksyon
+e210afb9	Ilisi ang ngalan sa leksyon
+69062f87	Matangtang kini niini nga device ug sa imong ubang device. Ang imong gipasa magpabilin sa imong magtutudlo.
+1ecc951d	Ang basahon, mga pangutana, mga tubag ug kaugalingong mga audio file niini matangtang niini nga device ug sa imong ubang device.
+26e25686	Pangitaon ang mga pangutana gamit ang imong AI?
+354be23e	Ang teksto sa leksyon moadto ra sa imong AI provider, aron basahon, ug dili kini tipigan. Ang makit-an niini mopuli sa mga pangutana; masusi nimo kini human.
+399c6d5f	Pangitaa
+b387b8f3	Gipangutana ang imong AI…
+3dd9f940	Walay pangutana nga nakit-an ang imong AI niini.
+9749e624	Wala pay transcript nga tul-iron.
+7bd9fbe5	Mawala ang imong mga pagtul-id sa transcript.
+d43a7c66	Sunda ang audio
+df251b06	Pangitaa
+a252e954	Pangitaa sa transcript
+a8d53309	Isulat sa ibabaw sa bisan unsang linya. Enter: sunod nga linya · Alt+P: paminawa pag-usab ang linya · Ctrl+S: i-save.
+c1e9bba5	Sa YouTube kini mo-play, busa dili kini madungog dinhi: ablihi kini sa player sa kilid niini. Enter: sunod nga linya · Ctrl+S: i-save.
+a4c6e6e5	Dili ma-play dinhi kini nga audio.
+9dd3eb0c	1 ka linya ang nausab
+d4144282	{0} ka linya ang nausab
+73e11c09	Paminawa kining linyaha (Alt+P)
+9198770a	Bahina sa duha ang linya diin ang cursor
+dc3fd1f0	Iduyog sa sunod nga linya
+433dff59	Ibalik ang linya sa sama kaniadto
+6780ea4e	Ibutang una ang cursor taliwala sa duha ka pulong.
+9f5f5b8a	Walay nausab.
+ce46eada	Na-save ang transcript.
+6c255b7c	Kana nga leksyon dili para sa usa sa imong mga klase.
+d9aedff7	Hatagi una og titulo ang leksyon.
+12f1e434	Kini nga klase naa nay 300 ka leksyon. Pagtangtang una og usa.
+a3f257e2	Kana nga estudyante wala na sa klase.
+d6c71625	Dili makuha ang mga file sa leksyon. Susiha ang imong koneksyon sa internet ug sulayi pag-usab.
+8c02a2ab	Wala pay file kini nga leksyon.
+060613c8	Dili makit-an niini nga device ang sound file sa usa ka track.
+733c5448	Ang “{0}” labaw sa 25 MB, dako ra kaayo aron ipadala. Gamaya kini (mas ubos nga bit rate) ug sulayi pag-usab.
+5c90ca14	Dili ma-upload ang “{0}”. {1}
+07e7e94f	Dili ma-upload ang leksyon. {0}
+b1c5a7af	Track
+a346652d	Walay recording kini: usba na lang ang teksto niini.
+9a5d8db4	Mga leksyon: mga basahon ug ang ilang mga audio track.
+e393c9dc	Pili og mga audio file (MP3, M4A, WAV, OGG, Opus, FLAC, AAC…).

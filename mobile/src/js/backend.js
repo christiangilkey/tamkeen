@@ -39,6 +39,8 @@ const MAX_PAGE_WORDS = 30000;
 // Books (same layout as the desktop's app/books.py): a free classic or an uploaded file, already
 // split into headings and paragraphs by web/js/books.js; read a page at a time (pages/book.js).
 const BOOKS_FEED_URL = "local:books";
+// Lesson bundles (web/js/lessons.js): the passages and audio tracks of lessons, a built-in list of their own (app/lessons.py).
+const LESSONS_FEED_URL = "local:lessons";
 const MAX_BOOK_WORDS = 500000;
 const YOUTUBE_FEED_URL = "local:youtube";
 const MAX_YOUTUBE_WORDS = 60000;
@@ -110,6 +112,10 @@ async function savePage(body) {
   return { ...episodeOut(ep), words: words.text.length };
 }
 
+/** The built-in list of lessons' passages and tracks (app/lessons.py ensure_feed). */
+const lessonsFeed = (fuid, t) => ({ uid: fuid, url: LESSONS_FEED_URL, title: "Lessons", description: "Lessons: passages and their audio tracks.",
+  image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t });
+
 /** Store a book: its text is its "transcript", one segment per heading or paragraph. */
 async function saveBook(body) {
   const guid = String(body.guid || "").trim().slice(0, 300);
@@ -128,9 +134,13 @@ async function saveBook(body) {
   }
   if (!segments.length) throw new ApiError("No readable text was found in that book.");
   const t = now();
-  const fuid = await feedUid(BOOKS_FEED_URL);
+  const lesson = body.list === "lessons"; // (a lesson bundle's passage: in the lessons' own list, as on the computer)
+  const fuid = await feedUid(lesson ? LESSONS_FEED_URL : BOOKS_FEED_URL);
   let feed = feedOf(fuid);
-  if (!feed) {
+  if (!feed && lesson) {
+    feed = lessonsFeed(fuid, t);
+    lib.feeds.push(feed);
+  } else if (!feed) {
     feed = { uid: fuid, url: BOOKS_FEED_URL, title: "My books", description: "Books to read a page at a time with clickable words.",
              image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t };
     lib.feeds.push(feed);
@@ -386,14 +396,18 @@ export function checkFeeds({ force = false, only = null } = {}) {
 /** Record a video or audio file this phone just uploaded to Drive. The computer transcribes it on
  * its next sync; with cloud transcription on, a file small enough to send (`file`) is transcribed
  * from here straight away instead. */
-export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false, file = null, book = null, transcribe = true }) {
-  // (`book`: a chapter of an audiobook of the user's own, in a list of its own, as on the computer: app/videos.py.)
+export async function addUploadedVideo({ uid, title, driveName, mime, duration, audio = false, file = null, book = null, transcribe = true, lesson = false }) {
+  // (`book`: a chapter of an audiobook of the user's own, in a list of its own, as on the computer: app/videos.py.
+  //  `lesson`: an audio track of a lesson bundle, in the lessons' own list.)
   if (book && !/^[A-Za-z0-9_-]{1,64}$/.test(book.key || "")) throw new ApiError("That audiobook can't be found.");
-  const url = book ? OWN_BOOK_PREFIX + book.key : audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
+  const url = lesson ? LESSONS_FEED_URL : book ? OWN_BOOK_PREFIX + book.key : audio ? AUDIO_FEED_URL : LOCAL_FEED_URL;
   const fuid = await feedUid(url);
   const t = now();
   let feed = feedOf(fuid);
-  if (!feed && book) {
+  if (!feed && lesson) {
+    feed = lessonsFeed(fuid, t);
+    lib.feeds.push(feed);
+  } else if (!feed && book) {
     feed = { uid: fuid, url, title: String(book.title || "").replace(/\s+/g, " ").trim().slice(0, 300) || "Audiobook", description: "",
              image: null, link: null, auto_transcribe: 0, deleted: 0, created_at: t, updated_at: t, language: studyLanguage() };
     lib.feeds.push(feed);
@@ -857,6 +871,28 @@ const routes = [
     const e = episodeOf(m[1]);
     if (!e) throw new ApiError("Episode not found.");
     return episodeOut(e);
+  }],
+  // An episode by the id it has on every device (here that is its id already; the computer's twin looks it up).
+  ["GET", /^\/episodes\/uid\/([\w-]+)$/, (m) => {
+    const e = episodeOf(m[1]);
+    if (!e || e.deleted) throw new ApiError("Not found.");
+    return episodeOut(e);
+  }],
+  // The whole transcript put right by hand (components/transcripteditor.js) or a lesson track's transcript as its
+  // teacher corrected it (lessonstore.js): stored as a transcript made here is, and sent to Drive (app/api/episodes.py).
+  ["PUT", /^\/episodes\/([\w]+)\/transcript$/, async (m, q, body) => {
+    const e = episodeOf(m[1]);
+    if (!e) throw new ApiError("Episode not found.");
+    if (e.audio_type === "text/book" || e.audio_type === "text/html") throw new ApiError("This has no recording: change its text instead.");
+    const packed = unpackTranscript({ segments: Array.isArray(body.segments) ? body.segments : [] });
+    const segments = packed && packed.segments ? packed.segments.map((s) => ({
+      start: s.start, end: s.end, text: s.text, words: s.words.map(([start, end, text]) => ({ start, end, text })) })) : [];
+    if (!segments.length) throw new ApiError("Nothing to save.");
+    cloud.cancel(e.uid); // (a transcription still waiting would write over the corrected one)
+    const model = String(body.model || "edited").replace(/\s+/g, " ").trim().slice(0, 80) || "edited";
+    const words = await cloud.storeTranscript(e.uid, segments, model, { language: episodeLang(e) });
+    changed();
+    return { episode: episodeOut(episodeOf(e.uid) || e), words };
   }],
 
   // ----- search (transcripts stored on this phone) -----
