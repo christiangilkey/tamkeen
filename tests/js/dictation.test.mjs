@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { cleanSentence, compareTyped, distance, looseKey, piecesOf, sentencesFromWords, shareRight, strictKey } from "../../web/js/dictation.js";
+import { caughtWords, cleanSentence, compareTyped, distance, looseKey, passages, piecesOf, sentencesFromWords, shareRight, strictKey, wordUnits } from "../../web/js/dictation.js";
 
 const states = (r) => r.real.filter((p) => p.state).map((p) => `${p.text}:${p.state}`);
 
@@ -86,6 +86,33 @@ test("captions for the deaf are left out", () => {
   assert.equal(cleanSentence("[Music] ♪ hello  there ♪"), "hello there");
   const ws = { texts: ["[Music]", "Hi", "there."], starts: [0, 3, 3.5], ends: [2, 3.4, 5], segOf: [0, 1, 1], lang: "en" };
   assert.deepEqual(sentencesFromWords(ws).map((s) => s.text), ["Hi there."], "a line that was only [Music] is not a sentence");
+});
+
+test("one word at a time: each word with letters, without its punctuation", () => {
+  const u = wordUnits({ texts: ["«Hola,", "—", "amigo!"], starts: [0, 1, 2], ends: [0.5, 1.2, 2.6] });
+  assert.deepEqual(u, [{ text: "Hola", start: 0, end: 0.5, i: 0 }, { text: "amigo", start: 2, end: 2.6, i: 2 }]);
+  assert.equal(compareTyped("amigo", "amigo", "es").right, 1);
+});
+
+test("the gist: 2 to 5 sentences at a time, never across a long pause", () => {
+  const s = [0, 1, 2, 3, 4, 5, 6].map((k) => ({ text: `s${k}.`, start: k * 5, end: k * 5 + 4 }));
+  assert.deepEqual(passages(s, 3, "en").map((p) => p.text), ["s0. s1. s2.", "s3. s4. s5.", "s6."]);
+  assert.deepEqual(passages(s, 3, "en")[0], { text: "s0. s1. s2.", start: 0, end: 14, parts: s.slice(0, 3) });
+  assert.equal(passages(s, 9, "en")[0].parts.length, 5, "five at most");
+  assert.equal(passages(s, 1, "en")[0].parts.length, 2, "two at least");
+  const gap = [{ text: "a.", start: 0, end: 4 }, { text: "b.", start: 30, end: 34 }, { text: "c.", start: 35, end: 38 }];
+  assert.deepEqual(passages(gap, 3, "en").map((p) => p.text), ["a.", "b. c."], "an advert between two sentences starts a new part");
+  assert.equal(passages([{ text: "我。", start: 0, end: 1 }, { text: "你。", start: 1, end: 2 }], 2, "zh")[0].text, "我。你。");
+});
+
+test("the gist marks the words caught, in any order, and nothing is 'missed'", () => {
+  const r = caughtWords("El gato duerme en la cocina.", "cocina gato... a cat sleeping in the kitchen", "es");
+  assert.deepEqual(r.real.filter((p) => p.state).map((p) => `${p.text}:${p.state}`),
+    ["El:other", "gato:right", "duerme:other", "en:other", "la:other", "cocina.:right"]);
+  assert.equal(r.right, 2);
+  assert.equal(r.total, 6);
+  assert.equal(caughtWords("Él está aquí", "esta", "es").near, 1);
+  assert.equal(caughtWords("Hola", "hello", "es").right, 0, "written in another language: nothing caught, nothing marked wrong");
 });
 
 test("every player with sound offers it", () => {

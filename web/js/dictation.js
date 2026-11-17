@@ -57,6 +57,43 @@ export function sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed
   return out;
 }
 
+// ---------- words and passages ----------
+const EDGE = /^[^\p{L}\p{N}\p{M}]+|[^\p{L}\p{N}\p{M}]+$/gu;
+
+/** One word at a time: [{text, start, end, i}] for each word with letters in it (i: its place in the
+ * player's words), its text without the punctuation round it. */
+export function wordUnits({ texts, starts, ends }) {
+  const out = [];
+  for (let i = 0; i < texts.length; i++) {
+    const text = cleanSentence(texts[i]).replace(EDGE, "");
+    if (text && strictKey(text)) out.push({ text, start: starts[i], end: ends[i], i });
+  }
+  return out;
+}
+
+export const GIST_SIZES = [2, 3, 4, 5];
+const GAP = 3; // seconds between two sentences: a passage stops there (a jingle, an advert is never played inside one)
+
+/** The gist: `size` sentences (2–5) at a time, one after another: [{text, start, end, parts}], shorter where a
+ * pause comes first. */
+export function passages(sentences, size, lang) {
+  const n = Math.max(2, Math.min(5, Math.round(size) || 3));
+  const sep = langInfo(lang).unspaced ? "" : " ";
+  const out = [];
+  let part = [];
+  const flush = () => {
+    if (part.length) out.push({ text: part.map((s) => s.text).join(sep), start: part[0].start, end: part[part.length - 1].end, parts: part });
+    part = [];
+  };
+  for (const s of sentences) {
+    if (part.length && s.start - part[part.length - 1].end > GAP) flush();
+    part.push(s);
+    if (part.length >= n) flush();
+  }
+  flush();
+  return out;
+}
+
 // ---------- comparing ----------
 const ARABIC_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۨ-ۭـ]/g;  // vowel marks and the stretching line
 const LETTERS = { "آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ى": "ي", "ی": "ي", "ک": "ك", "ۀ": "ه", "‌": "" };
@@ -178,6 +215,27 @@ export function compareTyped(realText, typedText, lang) {
   for (const p of out.real) {
     if (p.state === "right") out.right++;
     else if (p.state === "near") out.near++;
+  }
+  return out;
+}
+
+/**
+ * The gist: which words of what was said turn up anywhere in what was written (order doesn't matter, and
+ * what was written may be partly in the learner's own language). Returns {real: [{text, state}], right, near,
+ * total, letters}, a real piece's state being "right", "near", "other" (not caught) or "".
+ */
+export function caughtWords(realText, typedText, lang) {
+  const letters = !!langInfo(lang).unspaced;
+  const typed = piecesOf(typedText, lang).filter((p) => p.key);
+  const strict = new Set(typed.map((p) => p.key));
+  const loose = new Set(typed.map((p) => p.loose));
+  const out = { real: [], right: 0, near: 0, total: 0, letters };
+  for (const p of piecesOf(realText, lang)) {
+    const state = !p.key ? "" : strict.has(p.key) ? "right" : loose.has(p.loose) ? "near" : "other";
+    if (p.key) out.total++;
+    if (state === "right") out.right++;
+    if (state === "near") out.near++;
+    out.real.push({ text: p.text, state });
   }
   return out;
 }

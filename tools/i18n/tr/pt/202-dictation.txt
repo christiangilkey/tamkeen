@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	Escreva o que você ouve: as frases da unidade, uma por vez
 41975898	Escreva o que você ouve
 a3fa69ab	Escreva o que você ouve (W)
-069c9e6a	Tocar as frases mais devagar
 0720e977	Voltar às palavras
 b290f68c	Ouvir de novo
 4b5e84be	Conferir
-4ee3ef0c	Enter confere · Shift+Enter toca a frase de novo
 b6fffc5a	Começar de novo
 209b330d	Escreva o que você ouviu
 087d440e	O que você ouviu
@@ -21,3 +18,22 @@ dbf9f7f2	Todas as palavras certas.
 51dfb3c5	Fim: {0}% certo em {1} frases.
 a1c12a4d	Ainda não há frases para escrever aqui.
 ea54afdd	Escreva o que você ouve (liga / desliga)
+70c05707	Escreva o que você ouve: as palavras ou frases da unidade, uma por vez
+46f80905	Ideia geral
+8076f8c5	Tocar mais devagar
+d01da89d	Quanto de cada vez
+0e3748c5	Frases de cada vez
+77a797e9	Frases:
+ed28f7ec	Escreva o que você ouviu: as palavras que entendeu, ou do que se tratava
+ba8b50a5	Escreva a palavra que você ouviu
+6737578e	Enter mostra o que foi dito · Shift+Enter começa uma nova linha
+4bf51692	Enter confere · Shift+Enter toca de novo
+f9a30e73	Palavra {0} de {1}
+c33d4998	Parte {0} de {1}
+75587d8b	Você pegou {0} das {1} palavras.
+9f3d87c9	Isto é tudo o que foi dito.
+fbc63d40	Certo.
+0fba00ab	Quase certo.
+5e277236	Desta vez não.
+992aea9d	Fim: {0} partes ouvidas.
+93eac742	Fim: {0}% certo em {1} palavras.

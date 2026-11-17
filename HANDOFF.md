@@ -8989,3 +8989,23 @@ on to the next sentence".
   speed and highlight back), the end screen, 375 px width; a course unit (plays 1.1–3.2 s and stops, check). **Not tried:**
   reels (they play only on the phones), YouTube, Netflix, a real phone or iPhone (the on-screen keyboard), a UI language
   other than English on screen.
+- **Word and Gist modes (the owner, the same day):** "freedom to do just 1 word for transcription, and also a GIST mode where
+  they do multiple sentences 2 - 5, write what they heard and then it shows them all what was actually written". The panel
+  now has Word · Sentence · Gist (a pill switch, `dictMode` in localStorage) and, for Gist, Sentences 2–5 (`dictGist`).
+  `dictationPanel({words, sentences, gist, from, startIndex, play(unit, mode), onMove, …})`: `words` from
+  `dictation.js wordUnits` (the player's words without edge punctuation; hosts play them with `wordClip`), left out where
+  `lineTimed` (word times are guesses there); gist = `passages(sentences, size, lang)`, which also stops a part at a 3 s gap
+  between sentences, played as one clip; checked with `caughtWords` (bag of words: right/near/other, nothing "missed",
+  no % so far). Switching keeps the place (`firstFrom`: the first piece STARTING in the current one; word times overlap).
+  Courses: Word (the unit's words, `play(w, "word")`) and Sentence, no Gist (the sentences don't follow on).
+- **Second round of checks (YouTube, reels):** YouTube (`ViRDl1ttisM`, automatic captions, 544 sentences, median 7.2 s) in the
+  computer app's page: the video plays in YouTube's own player with the box under it and no captions of ours, a sentence
+  stops by itself (7.4 → paused 7.6), Word (0–1.0 s), Gist of 2 (0–14.4 s, caught words lit). Reels in the WEB APP (it plays
+  reels in an ordinary `<video>`: mobile/www served on port 8791, the go-between server's allowed test address, with two
+  of the owner's Spanish reels as a `?seed=1` dev-seed.json): found and fixed (1) the words bar stayed on screen while typing
+  (reels.css's `.reelplay:not(.no-video) .reel-bar` is as strong as the hiding rule: now `!important`), (2) it began at
+  sentence 1 instead of where the reel was, (3) the next reel played on by itself after Next reel (`dictWaiting`: its first
+  piece plays once the reel reports `ready`, then stops). Then: sentence 2.18–10.22 stopped at 10.58, Word, Gist of 3,
+  Finish → Next reel → reel 2's first sentence played and stopped, closing brings the bar back, 375 px. **Netflix not
+  tried:** it plays only in Tamkeen for Windows' own window, signed in to Netflix, and that sign-in is in the owner's real
+  data folder (signed in to his Drive).

@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	听写：本单元的句子，一次一句
 41975898	听写
 a3fa69ab	听写 (W)
-069c9e6a	放慢句子速度
 0720e977	回到文字
 b290f68c	再听一遍
 4b5e84be	检查
-4ee3ef0c	Enter 检查 · Shift+Enter 重播这句
 b6fffc5a	重新开始
 209b330d	写下你听到的内容
 087d440e	你听到的内容
@@ -21,3 +18,22 @@ dbf9f7f2	每个词都对了。
 51dfb3c5	完成：{1} 句，正确率 {0}%。
 a1c12a4d	这里还没有可听写的句子。
 ea54afdd	听写（开 / 关）
+70c05707	听写：本单元的词或句子，一次一个
+46f80905	大意
+8076f8c5	放慢播放
+d01da89d	一次多少
+0e3748c5	一次几句
+77a797e9	句数：
+ed28f7ec	写下你听到的：听懂的词，或者大概在说什么
+ba8b50a5	写下你听到的词
+6737578e	Enter 显示原文 · Shift+Enter 换行
+4bf51692	Enter 检查 · Shift+Enter 再播一遍
+f9a30e73	第 {0} 个词，共 {1} 个
+c33d4998	第 {0} 段，共 {1} 段
+75587d8b	这段的 {1} 个词里你听出了 {0} 个。
+9f3d87c9	这就是说的全部内容。
+fbc63d40	对了。
+0fba00ab	差不多对了。
+5e277236	这次没对。
+992aea9d	完成：听了 {0} 段。
+93eac742	完成：{1} 个词，正确率 {0}%。

@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	Schreib, was du hörst: die Sätze der Lektion, einer nach dem anderen
 41975898	Schreib, was du hörst
 a3fa69ab	Schreib, was du hörst (W)
-069c9e6a	Die Sätze langsamer abspielen
 0720e977	Zurück zu den Wörtern
 b290f68c	Noch einmal hören
 4b5e84be	Prüfen
-4ee3ef0c	Enter prüft · Umschalt+Enter spielt den Satz noch einmal
 b6fffc5a	Von vorn beginnen
 209b330d	Schreib, was du gehört hast
 087d440e	Was du gehört hast
@@ -21,3 +18,22 @@ dbf9f7f2	Jedes Wort richtig.
 51dfb3c5	Fertig: {0} % richtig in {1} Sätzen.
 a1c12a4d	Hier gibt es noch keine Sätze zum Schreiben.
 ea54afdd	Schreib, was du hörst (an / aus)
+70c05707	Schreib, was du hörst: die Wörter oder Sätze der Lektion, eins nach dem anderen
+46f80905	Grobverständnis
+8076f8c5	Langsamer abspielen
+d01da89d	Wie viel auf einmal
+0e3748c5	Sätze auf einmal
+77a797e9	Sätze:
+ed28f7ec	Schreib, was du gehört hast: die Wörter, die du verstanden hast, oder worum es ging
+ba8b50a5	Schreib das Wort, das du gehört hast
+6737578e	Enter zeigt, was gesagt wurde · Umschalt+Enter beginnt eine neue Zeile
+4bf51692	Enter prüft · Umschalt+Enter spielt es noch einmal
+f9a30e73	Wort {0} von {1}
+c33d4998	Teil {0} von {1}
+75587d8b	Du hast {0} der {1} Wörter verstanden.
+9f3d87c9	Das ist alles, was gesagt wurde.
+fbc63d40	Richtig.
+0fba00ab	Fast richtig.
+5e277236	Diesmal nicht.
+992aea9d	Fertig: {0} Teile angehört.
+93eac742	Fertig: {0} % richtig bei {1} Wörtern.

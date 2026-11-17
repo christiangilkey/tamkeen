@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	Escribe lo que oyes: las frases de la unidad, una por una
 41975898	Escribe lo que oyes
 a3fa69ab	Escribe lo que oyes (W)
-069c9e6a	Reproducir las frases más despacio
 0720e977	Volver a las palabras
 b290f68c	Volver a escuchar
 4b5e84be	Comprobar
-4ee3ef0c	Enter comprueba · Mayús+Enter vuelve a reproducir la frase
 b6fffc5a	Empezar de nuevo
 209b330d	Escribe lo que oíste
 087d440e	Lo que oíste
@@ -21,3 +18,22 @@ dbf9f7f2	Todas las palabras bien.
 51dfb3c5	Terminado: {0} % bien en {1} frases.
 a1c12a4d	Aquí todavía no hay frases para escribir.
 ea54afdd	Escribe lo que oyes (sí / no)
+70c05707	Escribe lo que oyes: las palabras o las frases de la unidad, una por una
+46f80905	Idea general
+8076f8c5	Reproducir más despacio
+d01da89d	Cuánto cada vez
+0e3748c5	Frases cada vez
+77a797e9	Frases:
+ed28f7ec	Escribe lo que oíste: las palabras que entendiste, o de qué hablaba
+ba8b50a5	Escribe la palabra que oíste
+6737578e	Enter muestra lo que se dijo · Mayús+Enter empieza una línea nueva
+4bf51692	Enter comprueba · Mayús+Enter lo vuelve a reproducir
+f9a30e73	Palabra {0} de {1}
+c33d4998	Parte {0} de {1}
+75587d8b	Entendiste {0} de sus {1} palabras.
+9f3d87c9	Esto es todo lo que se dijo.
+fbc63d40	Correcto.
+0fba00ab	Casi bien.
+5e277236	Esta vez no.
+992aea9d	Terminado: {0} partes escuchadas.
+93eac742	Terminado: {0} % bien en {1} palabras.

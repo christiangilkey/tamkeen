@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	Isulat ang imong madungog: ang mga sentence sa unit, usa-usa
 41975898	Isulat ang imong madungog
 a3fa69ab	Isulat ang imong madungog (W)
-069c9e6a	Hinayhinaya ang pagpatokar sa mga sentence
 0720e977	Balik sa mga pulong
 b290f68c	Paminawa pag-usab
 4b5e84be	Susiha
-4ee3ef0c	Enter aron susihon · Shift+Enter aron patokaron pag-usab ang sentence
 b6fffc5a	Sugdi pag-usab
 209b330d	Isulat ang imong nadungog
 087d440e	Ang imong nadungog
@@ -21,3 +18,22 @@ dbf9f7f2	Sakto ang tanang pulong.
 51dfb3c5	Nahuman: {0}% sakto sa {1} ka sentence.
 a1c12a4d	Wala pay sentence nga isulat dinhi.
 ea54afdd	Isulat ang imong madungog (on / off)
+70c05707	Isulat ang imong madungog: ang mga pulong o sentence sa unit, usa-usa
+46f80905	Kinatibuk-an
+8076f8c5	Hinayhinaya ang pagpatokar
+d01da89d	Pila matag higayon
+0e3748c5	Pila ka sentence matag higayon
+77a797e9	Mga sentence:
+ed28f7ec	Isulat ang imong nadungog: ang mga pulong nga imong nasabtan, o unsa ang hisgutan
+ba8b50a5	Isulat ang pulong nga imong nadungog
+6737578e	Enter aron ipakita ang giingon · Shift+Enter alang sa bag-ong linya
+4bf51692	Enter aron susihon · Shift+Enter aron patokaron pag-usab
+f9a30e73	Pulong {0} sa {1}
+c33d4998	Bahin {0} sa {1}
+75587d8b	Nasabtan nimo ang {0} sa {1} ka pulong niini.
+9f3d87c9	Mao kini tanan ang giingon.
+fbc63d40	Sakto.
+0fba00ab	Hapit na sakto.
+5e277236	Dili pa karon.
+992aea9d	Nahuman: {0} ka bahin ang napaminaw.
+93eac742	Nahuman: {0}% sakto sa {1} ka pulong.

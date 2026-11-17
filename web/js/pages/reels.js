@@ -33,7 +33,7 @@ import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
 import { dictationButton, dictationPanel } from "../components/dictation.js";
-import { sentencesFromWords } from "../dictation.js";
+import { sentencesFromWords, wordUnits } from "../dictation.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -655,28 +655,33 @@ async function renderPlayer(view, { query }) {
     dual.reel = reel;
     dual.want(0);
   }
-  // "Type what you hear" (dictation: components/dictation.js), beside it, where reels play (the phone): the
-  // words bar gives way to a box, one sentence of the reel plays at a time, the learner types it and then sees
-  // the real sentence above what they typed. After the last one, Next reel carries on with the next reel.
+  // "Type what you hear" (dictation: components/dictation.js), beside it, where reels play (the phones and the web
+  // app): the words bar gives way to a box, one word, sentence or few sentences of the reel play at a time, the
+  // learner types them and then sees what was said above what they typed. After the last, Next reel carries on.
   let dict = null;
   let dictOn = false; // the learner is typing: a reel shown next opens with the box too
+  let dictWaiting = false; // ... and its first piece plays once the reel has loaded (not the whole reel by itself)
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation(true)));
   if (surface) $("#rc-left").append(dictBtn);
   function openDictation(autoplay) {
     if (dict || !cur || !surface || disposed) return;
-    const sentences = sentencesFromWords({ texts: cur.texts, starts: cur.starts, ends: cur.ends, segOf: cur.segOf, lang: cur.lang });
+    const reel = cur;
+    const sentences = sentencesFromWords({ texts: reel.texts, starts: reel.starts, ends: reel.ends, segOf: reel.segOf, lang: reel.lang });
     if (!sentences.length) { toast("There are no sentences to type here yet."); return; }
     bubble.hide();
     if (cursor) cursor.hide();
     dictOn = true;
     dict = dictationPanel({
-      sentences, lang: cur.lang, autoplay,
-      play: (k) => playClip(sentences[k].start, sentences[k].end, { always: true }),
+      words: wordUnits(reel), sentences, gist: true, lang: reel.lang, autoplay, from: autoplay && last ? last.t : 0,
+      play: (u, mode) => (mode === "word"
+        ? playClip(...wordClip({ starts: reel.starts, ends: reel.ends, texts: reel.texts, i: u.i, lang: reel.lang }), { always: true })
+        : playClip(u.start, u.end, { always: true })),
       stop: () => { clipEnd = null; if (last && !last.paused) surface.do("pause"); },
       end: reels.length > 1 ? { label: "Next reel", run: () => show(index + 1) } : null,
       onClose: () => {
         dict = null;
         dictOn = false;
+        dictWaiting = false;
         if (disposed) return;
         view.querySelector(".reelplay").classList.remove("dictating");
         dictBtn.paint(false);
@@ -876,7 +881,7 @@ async function renderPlayer(view, { query }) {
       vowelsBtn.hidden = !cur || cur.lang !== "ar";
       vowelsBtn.repaint();
       startDual();
-      if (dictOn && cur && !dict) openDictation(false); // (its first sentence waits for "Hear it again": the reel is loading)
+      if (dictOn && cur && !dict) { openDictation(false); dictWaiting = !!dict; } // (its first piece plays once the reel is loaded)
     }
     if (!surface) {
       stage.innerHTML = "";
@@ -908,6 +913,7 @@ async function renderPlayer(view, { query }) {
     // paused (the owner: "bring the view to the currently highlighted word once audio is unpaused").
     if (resumed && cur && curIdx >= 0 && cur.els[curIdx]) { slidAt = 0; keepInView(cur.els[curIdx]); }
     if (s.ready) failsInRow = 0;
+    if (s.ready && dictWaiting) { dictWaiting = false; if (dict) dict.again(); }
     if (s.nav && s.nav !== seenNav) {
       seenNav = s.nav;
       show(index + (s.nav.startsWith("prev") ? -1 : 1));

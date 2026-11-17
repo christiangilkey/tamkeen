@@ -5,7 +5,7 @@
 //     first unit not finished, and the 20 units as tiles (50 words each; units still being made say so).
 //   - A unit: its 50 words, each with its meaning, its everyday sentence and translation, Word and
 //     Sentence to hear them, and "Add" to put it in the learner's cards; "Add all" for the unit.
-//     "Type what you hear" (components/dictation.js) plays the unit's sentences one at a time, unseen, to be typed.
+//     "Type what you hear" (components/dictation.js) plays the unit's words or sentences one at a time, unseen, to be typed.
 // An added word is an ordinary card (POST /vocab/batch, in a folder named after the course, e.g.
 // "Arabic basics") with the course's audio kept as its voice (saveVoice, the road a card voice takes),
 // so it is reviewed, synced, played and put in an Anki export like any other card. The audio comes one pack per
@@ -154,7 +154,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     const head = h(`<div class="cu-head">
       <button type="button" class="btn ghost cu-back" title="All units" aria-label="All units">←</button>
       <div class="cu-headtext"><h2>Unit ${n}</h2><span class="muted cu-count"></span></div>
-      <button type="button" class="ghost cu-dict-btn" aria-pressed="false" title="Type what you hear: the unit's sentences, one at a time">${icon("keyboard", 16)} Type what you hear</button>
+      <button type="button" class="ghost cu-dict-btn" aria-pressed="false" title="Type what you hear: the unit's words or sentences, one at a time">${icon("keyboard", 16)} Type what you hear</button>
       <button type="button" class="primary cu-addall"></button>
     </div>`);
     head.querySelector(".cu-back").onclick = () => { if (closeDict) closeDict(); player.pause(); drawCourse(); };
@@ -209,18 +209,22 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
 
     // "Type what you hear": the unit's sentences in place of its list, each played unseen, typed, then shown.
     // It goes on from the sentence last played in this unit.
+    // One word at a time: the unit's words themselves.
     const sayable = unit.words.filter((w) => hasAudio(w) && String(w.sentence || "").trim() && Number.isFinite((w.times || {}).sent_start));
+    const sayWords = unit.words.filter((w) => hasAudio(w) && String(w.word || "").trim() && Number.isFinite((w.times || {}).start));
     const dictBtn = head.querySelector(".cu-dict-btn");
-    dictBtn.hidden = !sayable.length;
-    const atKey = `course:${id}:dict:${n}`;
+    dictBtn.hidden = !sayable.length && !sayWords.length;
+    const atKey = (mode) => `course:${id}:dict:${n}${mode === "word" ? ":word" : ""}`;
     dictBtn.onclick = async () => {
       if (closeDict) { closeDict(); return; }
-      const sentences = sayable.map((w) => ({ text: String(w.sentence).replace(/[⟦⟧]/g, ""), w }));
+      const sentences = sayable.map((w) => ({ text: String(w.sentence).replace(/[⟦⟧]/g, ""), w, part: "sentence" }));
+      const words = sayWords.map((w) => ({ text: String(w.word).trim(), w, part: "word" }));
       const wrap = h(`<div class="cu-dict"></div>`);
       let stopStudy = null;
       const dict = dictationPanel({
-        sentences, lang, at: Math.min(Number(lsGet(atKey)) || 0, sentences.length - 1),
-        play: (k) => { lsSet(atKey, String(k)); play(sentences[k].w, "sentence"); },
+        words, sentences, lang, startIndex: { word: Number(lsGet(atKey("word"))) || 0, sentence: Number(lsGet(atKey("sentence"))) || 0 },
+        play: (u) => play(u.w, u.part),
+        onMove: (mode, k) => lsSet(atKey(mode), String(k)),
         stop: () => player.pause(),
         slow: (on) => { player.defaultPlaybackRate = player.playbackRate = on ? 0.75 : 1; },
         onClose: () => {

@@ -53,7 +53,7 @@ import { playerSteps } from "../components/guideart.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor,
   youTubeTranslations } from "../components/dualline.js";
 import { dictationButton, dictationPanel } from "../components/dictation.js";
-import { sentencesFromWords } from "../dictation.js";
+import { sentencesFromWords, wordUnits } from "../dictation.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -1298,10 +1298,12 @@ export async function render(view, { id, query }) {
   setDual(dualOn());
 
   // ---------- "Type what you hear" (dictation: components/dictation.js) ----------
-  // The words go away (the transcript, the captions, the popup) and one sentence plays at a time, from the one
-  // being heard; the learner types it and then sees the real sentence above what they typed. The video stays.
+  // The words go away (the transcript, the captions, the popup) and one word, one sentence or a few sentences (the
+  // gist) play at a time, from where the learner is; they type it and then see what was really said above what
+  // they typed. The video stays. One word at a time only where each word has its own time (not subtitles).
   let dict = null;
   let dictSentences = null;
+  let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
   $("#font-down").before(dictBtn);
   dictBtn.disabled = !n;
@@ -1309,15 +1311,16 @@ export async function render(view, { id, query }) {
     if (dict || !n || disposed) return;
     dictSentences = dictSentences || sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed });
     if (!dictSentences.length) { toast("There are no sentences to type here yet."); return; }
+    if (!dictWords) dictWords = lineTimed ? [] : wordUnits({ texts, starts, ends });
     clearLoop();
     bubble.hide();
     if (cursor) cursor.hide();
-    const now = audio.currentTime || 0;
-    const at = Math.max(0, dictSentences.findIndex((s) => s.end > now + 0.05));
     let before = speed;
     dict = dictationPanel({
-      sentences: dictSentences, lang, at,
-      play: (k) => playClip(dictSentences[k].start, dictSentences[k].end, { always: true }),
+      words: dictWords, sentences: dictSentences, gist: true, lang, from: audio.currentTime || 0,
+      play: (u, mode) => (mode === "word"
+        ? playClip(...wordClip({ starts, ends, texts, i: u.i, lang }), { always: true })
+        : playClip(u.start, u.end, { always: true })),
       stop: () => { clipEnd = null; if (!audio.paused) audio.pause(); },
       slow: (on) => {
         if (on) { before = speed; if (speed > 0.75) setSpeed(0.75); }

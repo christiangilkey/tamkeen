@@ -3990,8 +3990,8 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "f3a0a519",
-  "k": "Type what you hear: the unit's sentences, one at a time",
+  "id": "70c05707",
+  "k": "Type what you hear: the unit's words or sentences, one at a time",
   "f": "web/js/components/coursepanel.js"
  },
  {
@@ -4080,8 +4080,13 @@
   "f": "web/js/components/dictation.js"
  },
  {
-  "id": "069c9e6a",
-  "k": "Play the sentences slower",
+  "id": "46f80905",
+  "k": "Gist",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "8076f8c5",
+  "k": "Play it slower",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -4095,6 +4100,21 @@
   "f": "web/js/components/dictation.js"
  },
  {
+  "id": "d01da89d",
+  "k": "How much at a time",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "0e3748c5",
+  "k": "Sentences at a time",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "77a797e9",
+  "k": "Sentences:",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "b290f68c",
   "k": "Hear it again",
   "f": "web/js/components/dictation.js"
@@ -4105,13 +4125,18 @@
   "f": "web/js/components/dictation.js"
  },
  {
-  "id": "4ee3ef0c",
-  "k": "Enter checks it · Shift+Enter plays the sentence again",
+  "id": "b6fffc5a",
+  "k": "Start again",
   "f": "web/js/components/dictation.js"
  },
  {
-  "id": "b6fffc5a",
-  "k": "Start again",
+  "id": "ed28f7ec",
+  "k": "Write what you heard: the words you caught, or what it was about",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "ba8b50a5",
+  "k": "Type the word you heard",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -4125,8 +4150,28 @@
   "f": "web/js/components/dictation.js"
  },
  {
+  "id": "6737578e",
+  "k": "Enter shows what was said · Shift+Enter starts a new line",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "4bf51692",
+  "k": "Enter checks it · Shift+Enter plays it again",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "21449063",
   "k": "{0}% right so far",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "f9a30e73",
+  "k": "Word {0} of {1}",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "c33d4998",
+  "k": "Part {0} of {1}",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -4140,6 +4185,16 @@
   "f": "web/js/components/dictation.js"
  },
  {
+  "id": "75587d8b",
+  "k": "You caught {0} of its {1} words.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "9f3d87c9",
+  "k": "Here is everything that was said.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "94409161",
   "k": "{0} of {1} letters right",
   "f": "web/js/components/dictation.js"
@@ -4147,6 +4202,21 @@
  {
   "id": "d5efb407",
   "k": "{0} of {1} words right",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "fbc63d40",
+  "k": "Right.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "0fba00ab",
+  "k": "Nearly right.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "5e277236",
+  "k": "Not this time.",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -4167,6 +4237,16 @@
  {
   "id": "bc981983",
   "k": "Next",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "992aea9d",
+  "k": "Finished: {0} parts listened to.",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "93eac742",
+  "k": "Finished: {0}% right over {1} words.",
   "f": "web/js/components/dictation.js"
  },
  {

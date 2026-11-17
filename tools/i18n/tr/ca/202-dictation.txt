@@ -1,12 +1,9 @@
 # "Type what you hear" (dictation: components/dictation.js, the players and the courses).
-f3a0a519	Escriu el que sents: les frases de la unitat, d'una en una
 41975898	Escriu el que sents
 a3fa69ab	Escriu el que sents (W)
-069c9e6a	Reprodueix les frases més a poc a poc
 0720e977	Torna a les paraules
 b290f68c	Torna a escoltar
 4b5e84be	Comprova
-4ee3ef0c	Enter ho comprova · Maj+Enter torna a reproduir la frase
 b6fffc5a	Torna a començar
 209b330d	Escriu el que has sentit
 087d440e	El que has sentit
@@ -21,3 +18,22 @@ dbf9f7f2	Totes les paraules són correctes.
 51dfb3c5	Acabat: {0}% correcte en {1} frases.
 a1c12a4d	Encara no hi ha frases per escriure aquí.
 ea54afdd	Escriu el que sents (activa / desactiva)
+70c05707	Escriu el que sents: les paraules o les frases de la unitat, d'una en una
+46f80905	Idea general
+8076f8c5	Reprodueix-ho més a poc a poc
+d01da89d	Quant cada vegada
+0e3748c5	Frases cada vegada
+77a797e9	Frases:
+ed28f7ec	Escriu el que has sentit: les paraules que has entès, o de què parlava
+ba8b50a5	Escriu la paraula que has sentit
+6737578e	Enter mostra el que s'ha dit · Maj+Enter fa una línia nova
+4bf51692	Enter ho comprova · Maj+Enter ho torna a reproduir
+f9a30e73	Paraula {0} de {1}
+c33d4998	Part {0} de {1}
+75587d8b	Has entès {0} de les seves {1} paraules.
+9f3d87c9	Això és tot el que s'ha dit.
+fbc63d40	Correcte.
+0fba00ab	Gairebé correcte.
+5e277236	Aquesta vegada no.
+992aea9d	Acabat: {0} parts escoltades.
+93eac742	Acabat: {0}% correcte en {1} paraules.
