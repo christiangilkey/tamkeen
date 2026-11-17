@@ -6141,8 +6141,8 @@ does, on the browse pages.
 - **Why, on the browse pages**: the owner's Chrome loads the extension *unpacked* from `C:UserschrisDocuments	amkeen-netflix`
   (Chrome profile Default, id idaadgfdhmpmeiaeckdjdhcjecpkjdfj), and that folder is **version 0.35.0 from 2026-10-23**,
   before both fixes (05ce3933, a92d92b5). Its netflix-player.js turns `tk-only-video` on whenever Netflix has *any* player
-  session, on any page, so a hover preview blacks out everything. Unpacked copies never update by themselves. (It was
-  disabled in Chrome on 2026-11-17, "disabled by the user".) **The owner needs to refresh it**: replace that folder's
+  session, on any page, so a hover preview blacks out everything. Unpacked copies never update by themselves. (It is
+  turned off in Chrome now, "disabled by the user", date unknown.) **The owner needs to refresh it**: replace that folder's
   contents with a new build (`node extension/scripts/build.mjs --out C:UserschrisDocuments	amkeen-netflix`, or unzip
   docs/extension/tamkeen-netflix.zip over it), then chrome://extensions -> Tamkeen for Netflix -> turn on, Reload (same
   folder = same id, so words waiting in the extension are kept). The current code was already right on browse pages.
