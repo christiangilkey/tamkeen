@@ -1,0 +1,4 @@
+# Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
+0e68bfb1	Lautstärke
+7be0d70f	App-Töne
+574ec420	Kartenstimmen, Wort- und Satzaudio, der Gesprächspartner, Klänge und jeder andere Ton von Tamkeen. Podcasts, Hörbücher, Videos, YouTube, Netflix und Reels behalten ihre eigene Lautstärke.

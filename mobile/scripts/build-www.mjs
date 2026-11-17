@@ -177,6 +177,9 @@ const SHARED = [
   "js/components/lessonteach.js",
   "js/components/transcripteditor.js",
   "js/saytext.js",
+  // Settings → Sound volume: the level of the app's own sounds (not the media)
+  "js/appvolume.js",
+  "js/components/soundvolume.js",
   "js/components/grammarpanel.js",
   "js/components/coursewords.js",
   // Library → Conversation: speaking practice (the phone's own hear-service.js is in src/)

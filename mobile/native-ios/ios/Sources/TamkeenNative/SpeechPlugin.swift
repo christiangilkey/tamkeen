@@ -5,7 +5,8 @@ import Foundation
 /// The iPhone's own voice for flashcards that have no recording (Settings → Card voices, "This device's
 /// voice"; web/js/devicevoice.js): the twin of SpeechPlugin.java (same name, same calls), with the
 /// iPhone's AVSpeechSynthesizer. Nothing is recorded or kept.
-///   speak({text, lang, rate})  resolves once it has been said (rejects "NO_VOICE")
+///   speak({text, lang, rate, volume})  resolves once it has been said (rejects "NO_VOICE");
+///                              volume 0..1 is Settings' Sound volume (web/js/appvolume.js)
 ///   stop()                     stops whatever is being said
 ///   hasVoice({lang})           {available, engine}: can the iPhone say this language?
 ///   openSettings()             {opened: false}: an app can't open Spoken Content (the page says where it is)
@@ -47,6 +48,7 @@ public class SpeechPlugin: CAPPlugin, CAPBridgedPlugin {
         let text = call.getString("text") ?? ""
         let tag = call.getString("lang") ?? "en-US"
         let rate = call.getFloat("rate") ?? 1.0
+        let volume = max(0, min(1, call.getFloat("volume") ?? 1.0))
         DispatchQueue.main.async {
             guard let voice = Self.voice(tag) else {
                 call.reject("This iPhone has no voice for this language.", "NO_VOICE")
@@ -60,6 +62,7 @@ public class SpeechPlugin: CAPPlugin, CAPBridgedPlugin {
             let utterance = AVSpeechUtterance(string: text)
             utterance.voice = voice
             utterance.rate = AVSpeechUtteranceDefaultSpeechRate * max(0.5, min(1.5, rate))
+            utterance.volume = volume
             self.ears.waiting = call
             self.ears.utterance = utterance
             self.synth.speak(utterance)

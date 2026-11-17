@@ -13,6 +13,7 @@ import { gameOn, soundOn } from "../components/gameswitch.js";
 import { t } from "../i18n.js";
 import { EPIC, LEGENDARY, MYTHIC, RARE, TIERS } from "./loot.js";
 import { climb, cornerSlot, grantView, holdFor, luckText, rewardView } from "./lootview.js";
+import { appOut } from "../appvolume.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 // (The tile's back and the pictures a chip most often shows are fetched ahead: a chip is up for a second and a
@@ -41,7 +42,7 @@ function tone(freq, start, length, type = "triangle", volume = 0.06) {
     osc.frequency.setValueAtTime(freq, at);
     gain.gain.setValueAtTime(volume, at);
     gain.gain.exponentialRampToValueAtTime(0.0001, at + length);
-    osc.connect(gain).connect(audioCtx.destination);
+    osc.connect(gain).connect(appOut(audioCtx));
     osc.start(at);
     osc.stop(at + length);
   } catch { /* no sound available */ }

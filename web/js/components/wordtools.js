@@ -17,6 +17,7 @@ import { sourceOf } from "../lexicon/exampledata.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
 import { offerFix } from "./fixit.js";
 import { troubleshootButton } from "./troubleshoot.js";
+import { appSound } from "../appvolume.js";
 
 // The Vocab page's own line drawings, in icons.js's style (24 x 24, thin rounded lines, a "fill" tint that
 // shows when the button is on): the Mnemonic maker (a light bulb), an example sentence (a speech bubble with
@@ -318,7 +319,7 @@ export function wordTools(row, panel, v, opts) {
     function hear(part) {
       try {
         if (player) { player.pause(); URL.revokeObjectURL(player.src); }
-        player = new Audio(URL.createObjectURL(previewBlob(part)));
+        player = appSound(new Audio(URL.createObjectURL(previewBlob(part))));
         player.play().catch(() => {});
       } catch { /* nothing to play */ }
     }

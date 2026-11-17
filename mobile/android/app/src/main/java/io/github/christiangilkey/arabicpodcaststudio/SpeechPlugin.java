@@ -24,7 +24,8 @@ import java.util.UUID;
  * voice"; web/js/devicevoice.js). Android's web view has no speech of its own, so the page asks here:
  * Android's TextToSpeech (Google's speech engine on most phones) says the word or the sentence. Nothing
  * is recorded or kept. The iPhone twin is SpeechPlugin.swift (same name, same calls).
- *   speak({text, lang, rate})  resolves once it has been said (rejects "NO_VOICE" / "NO_ENGINE")
+ *   speak({text, lang, rate, volume})  resolves once it has been said (rejects "NO_VOICE" / "NO_ENGINE");
+ *                              volume 0..1 is Settings' Sound volume (web/js/appvolume.js)
  *   stop()                     stops whatever is being said
  *   hasVoice({lang})           {available, engine}: can the phone say this language?
  *   openSettings()             opens Android's text-to-speech settings, where voices are added
@@ -106,6 +107,7 @@ public class SpeechPlugin extends Plugin {
         String text = call.getString("text", "");
         String tag = call.getString("lang", "en-US");
         float rate = call.getFloat("rate", 1.0f);
+        float volume = Math.max(0f, Math.min(1f, call.getFloat("volume", 1.0f)));
         ready(() -> {
             if (status != TextToSpeech.SUCCESS) {
                 call.reject("This phone has no text-to-speech engine.", "NO_ENGINE");
@@ -121,7 +123,9 @@ public class SpeechPlugin extends Plugin {
             String id = UUID.randomUUID().toString();
             synchronized (this) { speaking.put(id, call); }
             call.setKeepAlive(false);
-            if (tts.speak(text, TextToSpeech.QUEUE_FLUSH, new Bundle(), id) != TextToSpeech.SUCCESS) finish(id, "FAILED");
+            Bundle params = new Bundle();
+            params.putFloat(TextToSpeech.Engine.KEY_PARAM_VOLUME, volume);
+            if (tts.speak(text, TextToSpeech.QUEUE_FLUSH, params, id) != TextToSpeech.SUCCESS) finish(id, "FAILED");
         });
     }
 

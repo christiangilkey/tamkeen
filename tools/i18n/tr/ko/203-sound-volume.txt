@@ -1,0 +1,4 @@
+# Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
+0e68bfb1	소리 크기
+7be0d70f	앱 소리
+574ec420	카드 음성, 단어와 문장 오디오, 대화 상대, 효과음 등 Tamkeen이 내는 모든 소리입니다. 팟캐스트, 오디오북, 동영상, YouTube, Netflix, 릴스는 각자의 음량을 유지합니다.

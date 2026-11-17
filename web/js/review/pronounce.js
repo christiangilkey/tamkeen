@@ -15,6 +15,7 @@
 // loudness.
 
 import { icon } from "../icons.js";
+import { appOut } from "../appvolume.js";
 
 const QUIET_MS = 650;     // this long without speech, after some, ends the listening
 const NOTHING_MS = 4000;  // nothing said at all: give up
@@ -212,7 +213,7 @@ export function practise(button, { sayModel, modelSeconds, audioBusy = () => 0, 
       const source = ctx.createBufferSource(), volume = ctx.createGain();
       source.buffer = sound;
       volume.gain.value = boost(where.peak);
-      source.connect(volume).connect(ctx.destination);
+      source.connect(volume).connect(appOut(ctx));
       const played = new Promise((done) => { source.onended = done; });
       me.stop = () => { try { source.stop(); } catch { /* already over */ } };
       source.start(0, where.start, where.end - where.start);

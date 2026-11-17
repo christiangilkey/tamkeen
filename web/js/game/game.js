@@ -12,6 +12,7 @@ import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
 import { noteStudy } from "../dlitime.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
+import { appOut } from "../appvolume.js";
 
 let game = null;
 let saveTimer = 0;
@@ -238,7 +239,7 @@ function tone(freq, start, length, type = "sine", volume = 0.08) {
     osc.frequency.setValueAtTime(freq, t);
     gain.gain.setValueAtTime(volume, t);
     gain.gain.exponentialRampToValueAtTime(0.0001, t + length);
-    osc.connect(gain).connect(audioCtx.destination);
+    osc.connect(gain).connect(appOut(audioCtx));
     osc.start(t);
     osc.stop(t + length);
   } catch { /* no sound available */ }

@@ -30,6 +30,7 @@ import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { applyPageSize, pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
+import { soundVolume } from "../components/soundvolume.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
 import { controllerSection, controllerSummary } from "../components/controllerpanel.js";
@@ -258,6 +259,7 @@ function look(body, status) {
         <input type="range" id="page-font" min="${PAGE_SIZE_MIN}" max="${PAGE_SIZE_MAX}" step="1" value="${pageSize(s.page_font_size)}"><output id="page-font-val">${pageSizeLabel(s.page_font_size)}</output></div>
       <div class="set-sample ar reader-sample" ${langAttrs(lang)}>${esc(langInfo(lang).pageSample)}</div>
     </section>
+    <section class="card set-card" id="sound-volume" data-find="volume"></section>
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
       <h2>Page guides</h2>
@@ -267,6 +269,7 @@ function look(body, status) {
   </div>`));
   const $ = (q) => body.querySelector(q);
   gameSwitch($("#game-switch"));
+  soundVolume($("#sound-volume"));
   $("#guides-again").onclick = () => { resetTours(); $("#guides-done").textContent = "They'll show the next time you open each page."; };
   body.querySelectorAll("input[name=theme]").forEach((r) => (r.onchange = () => saveSettings({ theme: r.value })));
   let fontTimer;

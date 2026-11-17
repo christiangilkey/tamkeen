@@ -1,0 +1,4 @@
+# Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
+0e68bfb1	आवाज़ का स्तर
+7be0d70f	ऐप की आवाज़ें
+574ec420	कार्ड की आवाज़ें, शब्दों और वाक्यों का ऑडियो, बातचीत का साथी, घंटियाँ और Tamkeen की हर दूसरी आवाज़। पॉडकास्ट, ऑडियोबुक, वीडियो, YouTube, Netflix और रील्स अपनी आवाज़ का स्तर अलग रखते हैं।

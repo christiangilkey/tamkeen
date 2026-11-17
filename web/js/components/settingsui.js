@@ -75,6 +75,7 @@ export const FINDS = [
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
+  { s: "look", id: "volume", label: "Sound volume", words: "volume loud louder quiet quieter softer level sounds voice audio chimes mute" },
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
   { s: "look", id: "sound", label: "Sound effects", words: "sounds chimes jingles mute silent quiet noise audio sfx" },
   { s: "controller", id: "padconnect", label: "Connect a game controller", words: "gamepad xbox playstation switch bluetooth usb joystick" },

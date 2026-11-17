@@ -8410,6 +8410,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "0e68bfb1",
+  "k": "Sound volume",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "cdf6a886",
   "k": "Connect a game controller",
   "f": "web/js/components/settingsui.js"
@@ -8528,6 +8533,21 @@
   "id": "ac1abab9",
   "k": "Back to all the settings.",
   "f": "web/js/components/settingsui.js"
+ },
+ {
+  "id": "574ec420",
+  "k": "Card voices, word and sentence audio, the conversation partner, chimes and every other sound Tamkeen makes. Podcasts, audiobooks, videos, YouTube, Netflix and reels keep their own volume.",
+  "f": "web/js/components/soundvolume.js"
+ },
+ {
+  "id": "7be0d70f",
+  "k": "App sounds",
+  "f": "web/js/components/soundvolume.js"
+ },
+ {
+  "id": "e3de5ab0",
+  "k": "Off",
+  "f": "web/js/components/soundvolume.js"
  },
  {
   "id": "095ba688",
@@ -12102,11 +12122,6 @@
  {
   "id": "81970e30",
   "k": "lowest cost of the general models",
-  "f": "web/js/definer.js"
- },
- {
-  "id": "e3de5ab0",
-  "k": "Off",
   "f": "web/js/definer.js"
  },
  {

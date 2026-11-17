@@ -21,6 +21,7 @@ import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, units
 import { courseWords, tappable } from "./coursewords.js";
 import { clipOf, packStore } from "../coursepacks.js";
 import { dictationPanel } from "./dictation.js";
+import { appSound } from "../appvolume.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
 const lsGet = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
@@ -54,7 +55,7 @@ export async function hasCourse(lang) {
  */
 export function coursePanel(box, lang, { onCards = () => {}, course: courseId = "" } = {}) {
   const id = courseId || lang; // the course's folder ("ar", "ar-lev")
-  const player = new Audio();
+  const player = appSound(new Audio());
   let stopAt = Infinity;
   player.addEventListener("timeupdate", () => { if (player.currentTime >= stopAt) player.pause(); });
   let closeDict = null; // "Type what you hear", while it is open in a unit

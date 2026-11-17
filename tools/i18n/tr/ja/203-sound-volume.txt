@@ -1,0 +1,4 @@
+# Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
+0e68bfb1	音量
+7be0d70f	アプリの音
+574ec420	カードの音声、単語と文の音声、会話の相手、効果音など、Tamkeen が鳴らすすべての音。ポッドキャスト、オーディオブック、動画、YouTube、Netflix、リールはそれぞれの音量のままです。

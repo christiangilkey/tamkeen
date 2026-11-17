@@ -4,10 +4,11 @@
 
 import { audioUrl, clipUrl } from "./app.js";
 import { audioKey, failedHere, loadError } from "./cardvoice.js";
+import { appSound } from "./appvolume.js";
 
 /** A player of its own: { audio, playSnippet(v, start, end, {voice}), stop() }. */
 export function snippetPlayer() {
-  const audio = new Audio();
+  const audio = appSound(new Audio());
   let stopAt = Infinity;
   let raf = 0;
   const watch = () => {

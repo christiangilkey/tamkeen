@@ -9184,3 +9184,19 @@ Android/iPhone devices, the web app on GitHub Pages.
 a teacher's written-answer comment back to the student; showing students their marks after the teacher "returns" a lesson
 (decision 3B); audio larger than 25 MB (compress on the computer before upload); the passage's words tappable inside the
 lesson screen itself (now through Read with word help).
+
+## Sound volume (2026-11-17)
+
+The owner: "a volume slider in settings which controls the volume for everything in the app other than the media being
+played". `web/js/appvolume.js` holds the level (localStorage `appSoundVolume`, 0–100, per device; loudness = (p/100)²
+so the middle sounds about half as loud). `appSound(el)` for the app's own `<audio>` (set now, on every `play`, and while
+playing via WeakRefs), `appOut(ctx)` in place of `ctx.destination` for synthesised chimes and the pronunciation
+playback, `speechVolume()` for the browser's speech and the phones' SpeechPlugin (`volume` 0..1: Android
+`KEY_PARAM_VOLUME`, iPhone `utterance.volume`; needs the next app build). Wrapped: snippetplayer (cards, Vocab, battles,
+fishing), saytext (grammar, Conversation), coursepanel, chat voice notes, voicesetup samples, wordbuilder/wordtools
+previews, game.js/reveal.js/review.js chimes, pronounce.js. NOT wrapped, on purpose (the media): pages/player.js (also
+dictation and a lesson's tracks), the transcript editor, reels, Netflix, YouTube, the DLI panel's `<audio controls>`.
+The slider: `components/soundvolume.js` in both Settings pages' Look & feel (`data-find="volume"`, in settingsui FINDS).
+`tests/js/appvolume.test.mjs` fails if a new `new Audio(` outside the media players isn't wrapped, or a sound connects
+straight to `.destination`. Checked in the web app (slider kept across a reload, a card player followed 40% → off →
+70% live, a reel's video stayed at full volume) and the computer's Settings page.
