@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Mga card (min)
+4090f2ff	Pakikinig (min)
+b0cfbe77	Panonood (min)
+6bf0e6d0	Pagbabasa (min)
+50792d2a	Ang iyong lingguhang bilang ng pag-aaral: mga araw ng pag-aaral; minuto sa mga card at minuto ng pakikinig, panonood at pagbabasa sa iyong wika sa DLI; mga review, ilan ang naalala mo, mga bagong salita at mga salitang alam mo
+3f317b30	Eksaktong ito ang nakikita ng iyong mga guro at ng developer ng Tamkeen. Nakikita ito ng guro mula sa linggong sumali ka sa klase niya. Binibilang ang pakikinig, panonood at pagbabasa sa bawat device mo at pinagsasama online.
+a733b809	Aktibo
+00b2aad4	Medyo
+c73bd54b	Kaunti
+51e9111b	Huminto
+6b069382	Hindi pa nag-aaral
+4ead1176	Wala ngayong linggo o noong nakaraan
+87d43111	1 araw bawat linggo
+23ca8089	{0} araw bawat linggo
+b4d06cb8	Minuto bawat linggo, karaniwan
+ec2a0732	Binibilang ng mga araw at minuto ang mga card, pakikinig, panonood at pagbabasa sa wika ng DLI. Ang aktibidad ay ang mga araw ng pag-aaral bawat linggo sa huling {0} linggo (mula nang sumali): Aktibo 4 o higit pa, Medyo 2 o 3, Kaunti mas mababa sa 2, Huminto kung wala ngayong linggo o noong nakaraan.
+43a1c626	Sumali
+74a6fdab	Mga card {0} · Pakikinig {1} · Panonood {2} · Pagbabasa {3}
+c04152a0	I-tap ang estudyante para makita ang mga linggo niya; i-tap ang heading para pag-ayusin.
+b9509d28	Antas ng aktibidad

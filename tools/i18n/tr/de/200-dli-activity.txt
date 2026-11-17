@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Karteikarten (Min.)
+4090f2ff	Hören (Min.)
+b0cfbe77	Anschauen (Min.)
+6bf0e6d0	Lesen (Min.)
+50792d2a	Deine wöchentlichen Lernzahlen: Lerntage; Minuten mit Karteikarten und Minuten Hören, Anschauen und Lesen in deiner DLI-Sprache; Wiederholungen, wie viele du gewusst hast, neue Wörter und bekannte Wörter
+3f317b30	Genau das sehen deine Lehrkräfte und der Entwickler von Tamkeen. Eine Lehrkraft sieht sie ab der Woche, in der du ihrer Klasse beigetreten bist. Hören, Anschauen und Lesen werden auf jedem deiner Geräte gezählt und online zusammengerechnet.
+a733b809	Aktiv
+00b2aad4	Etwas
+c73bd54b	Wenig
+51e9111b	Aufgehört
+6b069382	Hat noch nicht gelernt
+4ead1176	Nichts diese Woche und letzte
+87d43111	1 Tag pro Woche
+23ca8089	{0} Tage pro Woche
+b4d06cb8	Minuten pro Woche, im Schnitt
+ec2a0732	Tage und Minuten zählen Karteikarten, Hören, Anschauen und Lesen in der DLI-Sprache. Die Aktivität sind die Lerntage pro Woche in den letzten {0} Wochen (seit dem Beitritt): Aktiv 4 oder mehr, Etwas 2 oder 3, Wenig unter 2, Aufgehört, wenn diese und letzte Woche nichts kam.
+43a1c626	Beigetreten
+74a6fdab	Karteikarten {0} · Hören {1} · Anschauen {2} · Lesen {3}
+c04152a0	Tippe auf jemanden für die Wochen; tippe auf eine Überschrift zum Sortieren.
+b9509d28	Aktivitätsstufe

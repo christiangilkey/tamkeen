@@ -1,4 +1,4 @@
-// DLI classes, the online side (supabase/v10-dli-classes.sql, through social.js's connection).
+// DLI classes, the online side (supabase/v10-dli-classes.sql and v11-dli-activity.sql, through social.js's connection).
 //
 // A DLI student must share their last name and weekly study numbers (dliweeks.js) with Tamkeen's developer and
 // with the teachers of classes they join: the owner's rule, agreed to on a screen that says so
@@ -14,6 +14,7 @@
 //                      it was found not to. Until it is known to be on, the material opens as it did before, with
 //                      nothing shared: nobody is locked out by an update, or while offline on first start
 //   tamkeenDliSent     the weekly numbers last sent, so the same ones aren't sent again
+//   tamkeenDliTime, tamkeenDliDevice   this device's listening, watching and reading time (dlitime.js)
 // Being offline never closes the material: only signing out, or stopping sharing, does.
 
 import { api, state } from "./app.js";
@@ -22,13 +23,14 @@ import { onlineStatus } from "./agegate.js";
 import { dliState } from "./dli.js";
 import { hasStudyLanguage, studyLanguage } from "./languages.js";
 import { dayNumber } from "./review/fsrs.js";
-import { cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { dayMask, deviceId, timeLog, weekTime } from "./dlitime.js";
 
 export { CLASS_NAME_MAX, NAME_MAX, spaced } from "./dliweeks.js";
 
 /** The number of the sharing text a student agrees to (components/dlishare.js SHARE_TEXT). Raise it when that
- *  text changes what is shared: students are then asked again. */
-export const WORDING = 1;
+ *  text changes what is shared: students are then asked again. (2, v0.61: listening, watching and reading time.) */
+export const WORDING = 2;
 export const SHARE_KEY = "tamkeenDliShare";
 const SERVICE_KEY = "tamkeenDliService";
 const SENT_KEY = "tamkeenDliSent";
@@ -228,6 +230,7 @@ export function reportWeeks({ force = false } = {}) {
     const user = await social.currentUser();
     if (!user || user.id !== share.user) return 0;
     const [words, log] = await Promise.all([api("/vocab"), api("/reviews").then((r) => (r && r.reviews) || {})]);
+    const times = timeLog();
     const current = weekStart(dayNumber());
     const agreed = share.agreed_at ? weekStart(dayNumber(new Date(share.agreed_at))) : current;
     const record = sentRecord(user.id);
@@ -235,12 +238,14 @@ export function reportWeeks({ force = false } = {}) {
     for (const start of [current - 7, current]) {
       if (start < agreed) continue;
       const done = start < current; // (a week that has ended is sent one last time, then left alone)
-      const numbers = weekNumbers(Array.isArray(words) ? words : [], log, start);
-      const sig = JSON.stringify(numbers);
+      const { numbers, time } = weekOf(words, log, times, st.language, start);
+      const sig = JSON.stringify([numbers, time]);
       const before = record.weeks[numbers.week];
       if (before && (before.done || (before.sig === sig && !done))) continue;
       const ok = await rpc("dli_report_week", numbers);
       if (ok === false) { keepShare(null); return sent; } // (no record online any more: sharing was stopped elsewhere)
+      // (this device's time: refused only by a database without v11 yet, which then simply goes without it)
+      try { await rpc("dli_report_time", { week: numbers.week, device: deviceId(), ...time }); } catch { /* v11 not run yet */ }
       record.weeks[numbers.week] = { sig, done };
       sent++;
     }
@@ -254,13 +259,26 @@ export function reportWeeks({ force = false } = {}) {
   return sending;
 }
 
+/** A week as this device sends it: the flashcard numbers (dli_report_week) and this device's time
+ *  (dli_report_time: minutes, and the days with any study as bits, flashcard days included). */
+function weekOf(words, log, times, language, start) {
+  const list = Array.isArray(words) ? words : [];
+  const numbers = weekNumbers(list, log, start);
+  const spent = weekTime(times, language, start);
+  const days = new Set([...answerDays(list, log, start), ...spent.days]);
+  return { numbers, time: { listening: spent.listening, watching: spent.watching, reading: spent.reading, day_mask: dayMask(days, start) },
+    active_days: days.size };
+}
+
 /** The numbers of this week as they would be sent now (the "What is shared" box), or null when the DLI
- *  language isn't the one being studied. */
+ *  language isn't the one being studied. (Only this device's time: the others' arrive with the next report.) */
 export async function myWeekNow() {
   const st = dliState(settings());
   if (!st.language || !hasStudyLanguage() || studyLanguage() !== st.language) return null;
   const [words, log] = await Promise.all([api("/vocab"), api("/reviews").then((r) => (r && r.reviews) || {})]);
-  return weekNumbers(Array.isArray(words) ? words : [], log, weekStart(dayNumber()));
+  const { numbers, time, active_days } = weekOf(words, log, timeLog(), st.language, weekStart(dayNumber()));
+  const { day_mask, ...minutes } = time;
+  return { ...numbers, ...minutes, active_days };
 }
 
 /** The Monday this week started on, as a date ("2026-11-09"). */

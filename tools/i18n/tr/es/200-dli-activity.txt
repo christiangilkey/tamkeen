@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Tarjetas (min)
+4090f2ff	Escucha (min)
+b0cfbe77	Vídeo (min)
+6bf0e6d0	Lectura (min)
+50792d2a	Tus cifras de estudio semanales: días de estudio; minutos con tarjetas y minutos escuchando, viendo y leyendo en tu idioma del DLI; repasos, cuántos recordaste, palabras nuevas y palabras conocidas
+3f317b30	Exactamente lo que ven tus profesores y el desarrollador de Tamkeen. Un profesor las ve desde la semana en que te uniste a su clase. La escucha, el vídeo y la lectura se cuentan en cada uno de tus dispositivos y se suman en línea.
+a733b809	Activo
+00b2aad4	Algo
+c73bd54b	Poco
+51e9111b	Parado
+6b069382	Aún no ha estudiado
+4ead1176	Nada esta semana ni la pasada
+87d43111	1 día a la semana
+23ca8089	{0} días a la semana
+b4d06cb8	Minutos por semana, de media
+ec2a0732	Los días y los minutos cuentan tarjetas, escucha, vídeo y lectura en el idioma del DLI. La actividad son los días de estudio por semana en las últimas {0} semanas (desde que se unió): Activo 4 o más, Algo 2 o 3, Poco menos de 2, Parado si no hizo nada esta semana ni la pasada.
+43a1c626	Se unió
+74a6fdab	Tarjetas {0} · Escucha {1} · Vídeo {2} · Lectura {3}
+c04152a0	Toca un estudiante para ver sus semanas; toca un encabezado para ordenar.
+b9509d28	Nivel de actividad

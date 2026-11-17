@@ -191,6 +191,7 @@ const SHARED = [
   // DLI classes: the sharing step, the teacher's and the owner's screens, the weekly numbers
   "js/dliweeks.js",
   "js/dliclass.js",
+  "js/dlitime.js",
   "js/components/dlishare.js",
   "js/components/dliteach.js",
   "dli",

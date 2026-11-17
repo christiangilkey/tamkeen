@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Schede (min)
+4090f2ff	Ascolto (min)
+b0cfbe77	Video (min)
+6bf0e6d0	Lettura (min)
+50792d2a	I tuoi numeri di studio settimanali: giorni di studio; minuti sulle schede e minuti di ascolto, video e lettura nella tua lingua del DLI; ripassi, quanti ne hai ricordati, parole nuove e parole conosciute
+3f317b30	Esattamente ciò che vedono i tuoi insegnanti e lo sviluppatore di Tamkeen. Un insegnante li vede dalla settimana in cui sei entrato nella sua classe. Ascolto, video e lettura sono contati su ciascuno dei tuoi dispositivi e sommati online.
+a733b809	Attivo
+00b2aad4	Abbastanza
+c73bd54b	Poco
+51e9111b	Fermo
+6b069382	Non ha ancora studiato
+4ead1176	Niente questa settimana né la scorsa
+87d43111	1 giorno a settimana
+23ca8089	{0} giorni a settimana
+b4d06cb8	Minuti a settimana, in media
+ec2a0732	Giorni e minuti contano schede, ascolto, video e lettura nella lingua del DLI. L'attività sono i giorni di studio a settimana nelle ultime {0} settimane (da quando è entrato): Attivo 4 o più, Abbastanza 2 o 3, Poco meno di 2, Fermo se niente questa settimana né la scorsa.
+43a1c626	Entrato
+74a6fdab	Schede {0} · Ascolto {1} · Video {2} · Lettura {3}
+c04152a0	Tocca uno studente per le sue settimane; tocca un'intestazione per ordinare.
+b9509d28	Livello di attività

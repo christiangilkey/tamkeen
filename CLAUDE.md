@@ -43,8 +43,8 @@ service role or the Supabase SQL editor.
 
 | DLI classes (`supabase/v10-dli-classes.sql`) | DLI student (me) | Teacher of a class I'm in | Another teacher | Owner | Anyone else signed in | Signed out |
 |---|---|---|---|---|---|---|
-| My last name, DLI language, day I agreed | see, change, delete (stop sharing) | see | no | see, delete | no | no |
-| My weekly numbers (days, minutes, reviews, remembered, new words, words, known) | see, send | see, from the week I joined their class | no | see | no | no |
+| My last name, DLI language, day I agreed (and first joined, v11) | see, change, delete (stop sharing) | see | no | see, delete | no | no |
+| My weekly numbers (days, flashcard minutes, listening/watching/reading minutes per device (v11), reviews, remembered, new words, words, known; the activity level made from them) | see, send | see, from the week I joined their class | no | see | no | no |
 | My words, meanings, library, recordings | never sent | no | no | no | no | no |
 | A class: name, teachers' names | see if I'm in it; leave | rename, new codes, delete, remove a student | no | see name and counts | no | no |
 | A class's codes | no | see | no | no | no | no |

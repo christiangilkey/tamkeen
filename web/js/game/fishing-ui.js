@@ -180,7 +180,7 @@ export function openPond(opts = {}) {
     const v = vocab.find((w) => uidOf(w) === q.uid);
     if (v) sayCard(v, "word").catch(() => {});
   };
-  const stopStudy = trackStudy("read", () => !closed && Date.now() - lastAnswer < 60000);
+  const stopStudy = trackStudy("read", () => !closed && Date.now() - lastAnswer < 60000, null, null);
 
   // ----- the bar on top -----
   function paintHud() {

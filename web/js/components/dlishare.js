@@ -27,11 +27,14 @@ export function weekLabel(week) {
 }
 export const dayLabel = (iso) => (iso ? new Date(iso).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }) : "");
 
-/** The headings of a table of weekly numbers, and one week's cells in the same order. */
+/** The headings of a table of weekly numbers, and one week's cells in the same order. "Days" are days with any
+ *  study; the four kinds of minutes follow. */
 // ("% remembered", not the answer button's "Remembered": in other languages that button says "I remembered it")
-export const NUMBER_HEADS = ["Days", "Minutes", "Reviews", "% remembered", "New words", "Words known"];
-export const numberCells = (w) => [w.days, w.minutes, w.reviews,
-  w.reviews ? `${Math.round((100 * w.remembered) / w.reviews)}%` : "–", w.new_words, w.known].map((v) => (typeof v === "number" ? v.toLocaleString() : v));
+export const NUMBER_HEADS = ["Days", "Flashcards (min)", "Listening (min)", "Watching (min)", "Reading (min)", "Reviews", "% remembered", "New words", "Words known"];
+export const percent = (w) => (w.reviews ? `${Math.round((100 * w.remembered) / w.reviews)}%` : "–");
+const shown = (v) => (typeof v === "number" ? v.toLocaleString() : v);
+export const numberCells = (w) => [w.active_days ?? w.days, w.minutes, w.listening || 0, w.watching || 0, w.reading || 0, w.reviews,
+  percent(w), w.new_words, w.known].map(shown);
 
 /** A table of weeks, newest first: Week of | Days | Minutes | … */
 export function weeksTable(weeks) {
@@ -232,7 +235,7 @@ export function sharePart(el, { onChange = () => {} } = {}) {
 /** What a student agrees to, in plain words. Changing what is shared here means raising dliclass.js WORDING. */
 export const SHARE_TEXT = `<p><strong>What you share by going on</strong></p>
   <ul><li>Your last name and your DLI language</li>
-    <li>Your weekly study numbers: days studied, minutes on flashcards, reviews, how many you remembered, new words and words known</li></ul>
+    <li>Your weekly study numbers: days studied; minutes on flashcards and minutes listening, watching and reading in your DLI language; reviews, how many you remembered, new words and words known</li></ul>
   <p><strong>Who sees it</strong></p>
   <ul><li>Tamkeen's developer</li><li>The teachers of the classes you join</li></ul>
   <p>Never shared: your words, your library, your recordings or anything else you study.</p>
@@ -248,7 +251,7 @@ export function whatIsShared(me, { onChange = () => {} } = {}) {
       <div><span class="small muted">Sharing since</span><strong class="dls-f-since" translate="no"></strong></div>
     </div>
     <h3>Your weekly numbers</h3>
-    <p class="set-hint">Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class.</p>
+    <p class="set-hint">Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class. Listening, watching and reading are counted on each of your devices and added up online.</p>
     <div class="dls-weeks"><p class="small muted">Loading…</p></div>
     <h3>Who sees it</h3>
     <ul class="dls-who"><li>Tamkeen's developer</li></ul>

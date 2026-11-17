@@ -1488,7 +1488,7 @@ export async function render(view, { id, query }) {
 
   // Minutes actually played count toward today's goal, except a YouTube video's: YouTube's rules don't allow
   // rewarding watching, so its time earns nothing (rules.UNPAID_TIME). Words looked up or saved still pay.
-  const stopStudy = trackStudy("listen", () => !audio.paused, yt ? "youtube" : null);
+  const stopStudy = trackStudy("listen", () => !audio.paused, yt ? "youtube" : null, vid || embed ? "watch" : "listen");
   return () => {
     disposed = true;
     if (dual) dual.stop();

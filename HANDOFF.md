@@ -8903,3 +8903,37 @@ them course `.ogg`, one per word); pack each course's audio into a few files the
   script was found, confidence 70 per line, 75 per word. The older Scan notes in this file describe the word list, which
   is now the "Pick out the words for me" view. **Not tried:** a real camera, real phones, a real AI key on real photos,
   device reading of languages other than Arabic.
+
+## DLI activity: listening, watching and reading time; joined; activity levels (2026-11-16; main chat; database NOT applied)
+The owner asked to see every DLI student's language, last name, time joined and real activity level, and for teachers to
+see the same for their students, "to make data driven decisions about if the app is working". He had no preference
+between the options offered, so the recommended ones were built: time counts (with students asked again), and the level
+is by days studied a week.
+- **Database**: `supabase/v11-dli-activity.sql` (after v10; safe to re-run; **the owner has NOT run it**). Table
+  `dli_week_time` (user, week, `device` 16 hex, `listening`/`watching`/`reading` minutes, `day_mask` 7 bits Monday =
+  bit 0), RLS on and no rules; written only by `dli_report_time(week, device, listening, watching, reading, day_mask)`
+  (same checks as `dli_report_week`; at most 6 devices a week). `private.dli_weeks_of` is redefined: weeks from either
+  table, minutes summed over devices (capped 10080), `active_days` = popcount of the OR of the masks, never below the
+  flashcard `days`. So `dli_me`, `dli_class_report` and `dli_owner_report` all carry the time without changes.
+  `dli_students.joined_at` (new): when they FIRST agreed (`agreed_at` moves on re-agreeing to a newer wording; for
+  students already on record it is set to the earliest of agreed_at, first weekly row, first class join);
+  `dli_owner_report` is redefined to return it as `since`. Self-test: `supabase/test_rls_dli_activity.sql`
+  (`RESULTS ok=… bad=[ none]`). Run v11 before (or soon after) releasing the app, so re-agreeing students keep their day.
+- **Device**: `web/js/dlitime.js`. `game.js trackStudy(mode, active, source, dli = mode)` calls `noteStudy(kind, 5)`
+  every 5 s of study, before the YouTube no-reward check (it is a count, not a reward). Kinds: player `watch` for video,
+  YouTube and Netflix, else `listen`; reels `watch`; book and reader `read`; the flashcard reviewer and fishing pass
+  null (flashcard time comes from the answers). Kept only while `tamkeenDliShare` is set, under the study language, in
+  localStorage `tamkeenDliTime` ({lang: {day: [listen, watch, read] seconds}}, 21 days, 16 h a day at most per kind);
+  `tamkeenDliDevice` is a random id. A day counts as studied with a minute of one kind. `dliclass.js reportWeeks` sends
+  `dli_report_time` after each `dli_report_week` (a missing v11 function is ignored); the sent signature covers both.
+  `WORDING` = 2 (students asked again; SHARE_TEXT and docs/privacy.html updated).
+- **Pages**: `dliweeks.js` `activity(weeks, current, since)` (average active days over the `LEVEL_WEEKS` = 4 whole weeks
+  before this one, from the join week; this week alone for someone who joined this week; "stopped" = nothing this week
+  or last; "none" = never), `levelCounts`, `joinedOf` (class join for a teacher, else `since`, else `agreed_at`),
+  `totals` (+ time, `active_days`, `total`), `sheetRows` (17 columns: Joined, Days studied (any), Flashcard days, four
+  kinds of minutes and the total). `dliteach.js`: the level tiles + average minutes a week above both tables; Joined and
+  Activity level columns; Days = any study; Minutes = all kinds (hover: by kind); the student box shows the level and days a week.
+  `dlishare.js` weeks table: Days, then minutes by kind.
+- **Checked** in the browser pane (fresh data folder, Supabase `rpc` replaced by stand-in answers): the owner page (levels,
+  sorting, the student box, the spreadsheet rows), a class at desktop and phone width, and the time log on a sharing
+  device. **Not checked**: against the real database (the SQL has never run), the re-agree step, a phone.

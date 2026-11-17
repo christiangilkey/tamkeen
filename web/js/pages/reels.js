@@ -926,7 +926,7 @@ async function renderPlayer(view, { query }) {
   const settle = setInterval(onResize, 1500); // the bar can change the stage's size (fonts loading, keyboard)
   const menuWatch = new MutationObserver(onResize); // a menu opened or closed: see stageRect
   if (menu) menuWatch.observe(menu, { attributes: true, attributeFilter: ["hidden"] });
-  const stopStudy = trackStudy("listen", () => playing);
+  const stopStudy = trackStudy("listen", () => playing, null, "watch");
   const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w")) bubble.hide(); };
   document.addEventListener("pointerdown", onOutside);
 

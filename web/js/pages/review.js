@@ -1521,7 +1521,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onPop = () => close(true);
   window.addEventListener("popstate", onPop);
   window.addEventListener("hashchange", onPop);
-  const stopStudy = trackStudy("read", () => panel.hidden);  // time spent on cards counts as study time
+  const stopStudy = trackStudy("read", () => panel.hidden, null, null);  // time spent on cards counts as study time
 
   let closed = false;
   function close(byHistory = false) {

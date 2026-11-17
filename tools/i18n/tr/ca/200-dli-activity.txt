@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Targetes (min)
+4090f2ff	Escolta (min)
+b0cfbe77	Vídeo (min)
+6bf0e6d0	Lectura (min)
+50792d2a	Les teves xifres d'estudi setmanals: dies d'estudi; minuts amb targetes i minuts escoltant, mirant i llegint en la teva llengua del DLI; repassos, quants n'has recordat, paraules noves i paraules conegudes
+3f317b30	Exactament el que veuen els teus professors i el desenvolupador de Tamkeen. Un professor les veu des de la setmana que et vas unir a la seva classe. L'escolta, el vídeo i la lectura es compten a cadascun dels teus dispositius i se sumen en línia.
+a733b809	Actiu
+00b2aad4	Una mica
+c73bd54b	Poc
+51e9111b	Aturat
+6b069382	Encara no ha estudiat
+4ead1176	Res aquesta setmana ni la passada
+87d43111	1 dia a la setmana
+23ca8089	{0} dies a la setmana
+b4d06cb8	Minuts per setmana, de mitjana
+ec2a0732	Els dies i els minuts compten targetes, escolta, vídeo i lectura en la llengua del DLI. L'activitat són els dies d'estudi per setmana en les últimes {0} setmanes (des que es va unir): Actiu 4 o més, Una mica 2 o 3, Poc menys de 2, Aturat si no ha fet res aquesta setmana ni la passada.
+43a1c626	Unió
+74a6fdab	Targetes {0} · Escolta {1} · Vídeo {2} · Lectura {3}
+c04152a0	Toca un estudiant per veure les seves setmanes; toca un encapçalament per ordenar.
+b9509d28	Nivell d'activitat

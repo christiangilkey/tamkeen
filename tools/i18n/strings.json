@@ -4305,8 +4305,23 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "092f99ea",
-  "k": "Minutes",
+  "id": "8ffed171",
+  "k": "Flashcards (min)",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "4090f2ff",
+  "k": "Listening (min)",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "b0cfbe77",
+  "k": "Watching (min)",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "6bf0e6d0",
+  "k": "Reading (min)",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4480,8 +4495,8 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "bca6292f",
-  "k": "Your weekly study numbers: days studied, minutes on flashcards, reviews, how many you remembered, new words and words known",
+  "id": "50792d2a",
+  "k": "Your weekly study numbers: days studied; minutes on flashcards and minutes listening, watching and reading in your DLI language; reviews, how many you remembered, new words and words known",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4530,8 +4545,8 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "6a31d392",
-  "k": "Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class.",
+  "id": "3f317b30",
+  "k": "Exactly what your teachers and Tamkeen's developer see. A teacher sees them from the week you joined their class. Listening, watching and reading are counted on each of your devices and added up online.",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4600,6 +4615,61 @@
   "f": "web/js/components/dliteach.js"
  },
  {
+  "id": "a733b809",
+  "k": "Active",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "00b2aad4",
+  "k": "Some",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c73bd54b",
+  "k": "A little",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "51e9111b",
+  "k": "Stopped",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "db2c45d5",
+  "k": "Not started",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "6b069382",
+  "k": "Hasn't studied yet",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "4ead1176",
+  "k": "Nothing this week or last",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "87d43111",
+  "k": "1 day a week",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "23ca8089",
+  "k": "{0} days a week",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "b4d06cb8",
+  "k": "Minutes a week, on average",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "ec2a0732",
+  "k": "Days and minutes count flashcards, listening, watching and reading in the DLI language. Activity is days studied a week over the last {0} weeks (from when they joined): Active 4 or more, Some 2 or 3, A little under 2, Stopped when nothing this week or last.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
   "id": "dd2ce2e2",
   "k": "Copied.",
   "f": "web/js/components/dliteach.js"
@@ -4610,8 +4680,28 @@
   "f": "web/js/components/dliteach.js"
  },
  {
+  "id": "43a1c626",
+  "k": "Joined",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "b9509d28",
+  "k": "Activity level",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "092f99ea",
+  "k": "Minutes",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
   "id": "96c6e32e",
   "k": "Last studied",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "74a6fdab",
+  "k": "Flashcards {0} · Listening {1} · Watching {2} · Reading {3}",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -4660,6 +4750,11 @@
   "f": "web/js/components/dliteach.js"
  },
  {
+  "id": "89b86ab0",
+  "k": "Language",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
   "id": "f18f49a5",
   "k": "Remove from the class",
   "f": "web/js/components/dliteach.js"
@@ -4675,8 +4770,8 @@
   "f": "web/js/components/dliteach.js"
  },
  {
-  "id": "7fe3069f",
-  "k": "Minutes are time on flashcards. Tap a student for their weeks; tap a heading to sort.",
+  "id": "c04152a0",
+  "k": "Tap a student for their weeks; tap a heading to sort.",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -4752,11 +4847,6 @@
  {
   "id": "ed1846af",
   "k": "Classes",
-  "f": "web/js/components/dliteach.js"
- },
- {
-  "id": "89b86ab0",
-  "k": "Language",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -20962,11 +21052,6 @@
  {
   "id": "f5f5658b",
   "k": "No computer? An online service can write them here instead, for a few cents an hour of audio: <0>Settings → Listening & transcripts</0>.",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "db2c45d5",
-  "k": "Not started",
   "f": "web/js/pages/library.js"
  },
  {

@@ -1,0 +1,21 @@
+# DLI students' activity: listening, watching and reading time, levels, joined (dlishare.js, dliteach.js).
+8ffed171	Mga card (min)
+4090f2ff	Pagpaminaw (min)
+b0cfbe77	Pagtan-aw (min)
+6bf0e6d0	Pagbasa (min)
+50792d2a	Imong senemanang numero sa pagtuon: mga adlaw nga nagtuon; mga minuto sa mga card ug mga minuto sa pagpaminaw, pagtan-aw ug pagbasa sa imong pinulongan sa DLI; mga review, pila ang imong nahinumdoman, bag-ong mga pulong ug mga pulong nga nahibaloan
+3f317b30	Mao gyud kini ang makita sa imong mga magtutudlo ug sa developer sa Tamkeen. Makita kini sa magtutudlo sukad sa semana nga ikaw miapil sa ilang klase. Ang pagpaminaw, pagtan-aw ug pagbasa giihap sa matag usa sa imong mga device ug gidugang online.
+a733b809	Aktibo
+00b2aad4	Pipila
+c73bd54b	Gamay
+51e9111b	Mihunong
+6b069382	Wala pa nagtuon
+4ead1176	Wala karong semanaha ni sa miaging semana
+87d43111	1 ka adlaw kada semana
+23ca8089	{0} ka adlaw kada semana
+b4d06cb8	Minuto kada semana, sa aberids
+ec2a0732	Ang mga adlaw ug minuto nag-ihap sa mga card, pagpaminaw, pagtan-aw ug pagbasa sa pinulongan sa DLI. Ang kalihokan mao ang mga adlaw sa pagtuon kada semana sa kataposang {0} ka semana (sukad sa pag-apil): Aktibo 4 o labaw pa, Pipila 2 o 3, Gamay ubos sa 2, Mihunong kung wala karong semanaha ni sa miaging semana.
+43a1c626	Miapil
+74a6fdab	Mga card {0} · Pagpaminaw {1} · Pagtan-aw {2} · Pagbasa {3}
+c04152a0	I-tap ang usa ka estudyante aron makita ang ilang mga semana; i-tap ang ulohan aron mahan-ay.
+b9509d28	Lebel sa kalihokan

@@ -6,7 +6,7 @@ import { readFileSync } from "node:fs";
 import { AGAIN, GOOD } from "../../web/js/review/fsrs.js";
 import {
   CLASS_NAME_MAX, NAME_MAX, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, cleanWeek, cleanWeeks, csvText,
-  dateDay, dayDate, pasteText, sheetRows, spaced, teacherCode, totals, weekNumbers, weekStart, weeksAgo,
+  activity, answerDays, dateDay, dayDate, levelCounts, pasteText, sheetRows, spaced, teacherCode, totals, weekNumbers, weekStart, weeksAgo,
 } from "../../web/js/dliweeks.js";
 
 const MON = dateDay("2026-11-09"); // a Monday
@@ -48,7 +48,9 @@ test("weeks from the online service are checked, and sorted newest first", () =>
   assert.equal(cleanWeek({ week: "soon", days: 1 }), null);
   assert.equal(cleanWeek(null), null);
   assert.deepEqual(cleanWeek({ week: "2026-11-09", days: 99, minutes: -4, reviews: "12", remembered: 3.6, new_words: "x", words: 5, known: 2, extra: "<b>" }),
-    { week: "2026-11-09", days: 7, minutes: 0, reviews: 12, remembered: 4, new_words: 0, words: 5, known: 2 });
+    { week: "2026-11-09", days: 7, minutes: 0, reviews: 12, remembered: 4, new_words: 0, words: 5, known: 2, listening: 0, watching: 0, reading: 0, active_days: 7 });
+  const timed = cleanWeek({ week: "2026-11-09", days: 2, listening: 45.4, watching: 99999, reading: "x", active_days: 1 });
+  assert.deepEqual([timed.listening, timed.watching, timed.reading, timed.active_days], [45, 10080, 0, 2], "time is capped, and active days are at least the flashcard days");
   assert.deepEqual(cleanWeeks([{ week: "2026-11-02" }, "junk", { week: "2026-11-09" }]).map((w) => w.week), ["2026-11-09", "2026-11-02"]);
   assert.deepEqual(cleanWeeks("nope"), []);
 });
@@ -59,7 +61,11 @@ test("a table's sums over the last weeks", () => {
     { week: "2026-11-02", days: 5, minutes: 60, reviews: 200, remembered: 150, new_words: 20, words: 45, known: 25 },
     { week: "2026-10-12", days: 7, minutes: 90, reviews: 300, remembered: 290, new_words: 40, words: 20, known: 10 },
   ];
-  assert.deepEqual(totals(weeks, "2026-11-09", 1), { days: 2, minutes: 10, reviews: 0, remembered: 0, new_words: 1, words: 50, known: 30, active: "2026-11-02" });
+  assert.deepEqual(totals(weeks, "2026-11-09", 1), { days: 2, active_days: 2, minutes: 10, listening: 0, watching: 0, reading: 0, reviews: 0, remembered: 0,
+    new_words: 1, words: 50, known: 30, total: 10, active: "2026-11-09" });
+  const withTime = totals([{ week: "2026-11-09", days: 1, minutes: 5, listening: 30, watching: 20, reading: 10, active_days: 3 }], "2026-11-09", 1);
+  assert.deepEqual([withTime.total, withTime.active_days, withTime.listening], [65, 3, 30]);
+  assert.equal(totals([{ week: "2026-11-02", listening: 20, active_days: 1 }], "2026-11-09", 4).active, "2026-11-02", "listening alone is studying");
   const four = totals(weeks, "2026-11-09", 4);
   assert.deepEqual([four.days, four.minutes, four.reviews, four.new_words], [7, 70, 200, 21], "the week of 12 October is five weeks back");
   assert.equal(totals(weeks, "2026-11-09", 12).reviews, 500);
@@ -74,15 +80,40 @@ test("the spreadsheet: a row per student per week, nobody missing, nothing a spr
       { week: "2026-11-02", days: 1, minutes: 5, reviews: 9, remembered: 9, new_words: 2, words: 50, known: 30 }] },
     { last_name: "=cmd|' /C calc'!A0", language: "Korean", classes: [], weeks: [] },
   ]);
-  assert.equal(rows[0].length, 11);
-  assert.deepEqual(rows[1], ["Smith", "Arabic", "A 101; Evening", "2026-11-02", 1, 5, 9, 9, 2, 50, 30], "oldest week first");
+  assert.equal(rows[0].length, 17);
+  assert.ok(rows.every((r) => r.length === 17), "every row has every column");
+  assert.deepEqual(rows[1], ["Smith", "Arabic", "A 101; Evening", "", "2026-11-02", 1, 1, 5, 0, 0, 0, 5, 9, 9, 2, 50, 30], "oldest week first");
   assert.equal(rows.length, 4);
-  assert.equal(rows[3][3], "", "a student with no week yet still has a row");
+  assert.equal(rows[3][4], "", "a student with no week yet still has a row");
   const csv = csvText(rows).split("\r\n");
-  assert.equal(csv[1], "Smith,Arabic,A 101; Evening,2026-11-02,1,5,9,9,2,50,30");
+  assert.equal(csv[1], "Smith,Arabic,A 101; Evening,,2026-11-02,1,1,5,0,0,0,5,9,9,2,50,30");
+  const joined = sheetRows([{ last_name: "Lee", agreed_at: "2026-11-03T12:00:00", weeks: [{ week: "2026-11-09", days: 1, minutes: 4, listening: 30, watching: 10, reading: 6, active_days: 4 }] }]);
+  assert.deepEqual(joined[1].slice(3), ["2026-11-03", "2026-11-09", 4, 1, 4, 30, 10, 6, 50, 0, 0, 0, 0, 0], "the day they joined, every kind of minute and the total");
   assert.ok(csv[3].startsWith("'=cmd"), "a name that starts like a formula is made plain text");
   assert.equal(csvText([["a,b", 'say "hi"', -5]]), '"a,b","say ""hi""",-5');
   assert.equal(pasteText([["a\tb", "c\nd"], [1, 2]]), "a b\tc d\n1\t2");
+});
+
+test("a student's activity level: days a week over the last four whole weeks, from the week they joined", () => {
+  const wk = (week, active_days, more = {}) => ({ week, days: 0, active_days, ...more });
+  const now = "2026-11-30";
+  assert.deepEqual(activity([], now), { level: "none", perWeek: 0 }, "never studied");
+  assert.equal(activity([wk("2026-11-02", 5)], now).level, "stopped", "nothing this week or last");
+  assert.deepEqual(activity([wk("2026-11-23", 5), wk("2026-11-16", 4), wk("2026-11-09", 4), wk("2026-11-02", 3)], now), { level: "active", perWeek: 4 });
+  assert.equal(activity([wk("2026-11-23", 3), wk("2026-11-16", 2)], now).level, "little", "five days over four weeks is 1.3 a week");
+  assert.deepEqual(activity([wk("2026-11-23", 3), wk("2026-11-16", 2)], now, "2026-11-17T10:00:00Z"), { level: "some", perWeek: 2.5 },
+    "joined two weeks ago: averaged over two");
+  assert.deepEqual(activity([wk("2026-11-30", 2)], now, "2026-11-30T10:00:00Z"), { level: "some", perWeek: 2 }, "joined this week: this week so far");
+  assert.equal(activity([wk("2026-11-30", 0, { listening: 20 })], now, "2026-11-30T10:00:00Z").level, "little", "listening alone counts as studying");
+  assert.equal(activity([wk("2026-11-30", 1), wk("2026-10-05", 7)], now).level, "little", "studied this week after a long gap");
+  const counts = levelCounts([{ weeks: [] }, { weeks: [wk("2026-11-23", 6), wk("2026-11-16", 6), wk("2026-11-09", 6), wk("2026-11-02", 6)] },
+    { weeks: [wk("2026-10-05", 4)] }], now);
+  assert.deepEqual(counts, { active: 1, some: 0, little: 0, stopped: 1, none: 1 });
+});
+
+test("the days with flashcard answers, for the week's studied days", () => {
+  const log = { 1: [[Date.parse("2026-11-10T10:00:00Z"), GOOD, MON + 1, 4000]], 2: [[Date.parse("2026-11-12T10:00:00Z"), AGAIN, MON + 3, 4000]] };
+  assert.deepEqual([...answerDays([word(1), word(2)], log, MON)].sort(), [MON + 1, MON + 3]);
 });
 
 test("what the online service says about me is cut to size and stripped of markup", () => {
@@ -133,14 +164,16 @@ test("codes are read out in groups", () => {
 
 test("the database file and the app agree on names and limits", () => {
   const sql = readFileSync(new URL("../../supabase/v10-dli-classes.sql", import.meta.url), "utf8");
+  const v11 = readFileSync(new URL("../../supabase/v11-dli-activity.sql", import.meta.url), "utf8");
   const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
-  // every database function the app calls exists in the file, and is open to signed-in people only
+  // every database function the app calls exists in the files, and is open to signed-in people only
   const called = [...app.matchAll(/rpc\("(dli_[a-z_]+)"/g)].map((m) => m[1]);
-  assert.ok(called.length >= 15, "the app's calls were found");
+  assert.ok(called.length >= 16, "the app's calls were found");
   for (const name of new Set(called)) {
-    assert.ok(sql.includes(`create or replace function public.${name}(`), `${name} is in the SQL file`);
-    assert.ok(new RegExp(`grant execute on function[^;]*public\\.${name}\\(`).test(sql), `${name} may be run by signed-in people`);
-    assert.ok(new RegExp(`revoke all on function[^;]*public\\.${name}\\(`).test(sql), `${name} is closed to everyone else`);
+    const file = sql.includes(`create or replace function public.${name}(`) ? sql : v11;
+    assert.ok(file.includes(`create or replace function public.${name}(`), `${name} is in a SQL file`);
+    assert.ok(new RegExp(`grant execute on function[^;]*public\\.${name}\\(`).test(file), `${name} may be run by signed-in people`);
+    assert.ok(new RegExp(`revoke all on function[^;]*public\\.${name}\\(`).test(file), `${name} is closed to everyone else`);
   }
   // the week's numbers go by the names the database function takes
   const report = /create or replace function public\.dli_report_week\(([^)]*)\)/.exec(sql)[1];
