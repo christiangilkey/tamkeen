@@ -9006,6 +9006,12 @@ on to the next sentence".
   (reels.css's `.reelplay:not(.no-video) .reel-bar` is as strong as the hiding rule: now `!important`), (2) it began at
   sentence 1 instead of where the reel was, (3) the next reel played on by itself after Next reel (`dictWaiting`: its first
   piece plays once the reel reports `ready`, then stops). Then: sentence 2.18–10.22 stopped at 10.58, Word, Gist of 3,
-  Finish → Next reel → reel 2's first sentence played and stopped, closing brings the bar back, 375 px. **Netflix not
-  tried:** it plays only in Tamkeen for Windows' own window, signed in to Netflix, and that sign-in is in the owner's real
-  data folder (signed in to his Drive).
+  Finish → Next reel → reel 2's first sentence played and stopped, closing brings the bar back, 375 px.
+- **Netflix checked (2026-11-16)** in a real Tamkeen for Windows window on a test data folder (not signed in to Drive; the
+  owner signed in to Netflix in it himself), driven by a script (pywebview `evaluate_js` through a command file): only
+  Sentence and Gist are offered (line-timed), the transcript and captions hide, sentence 46 (305.9–310.9) stopped at 311.1,
+  "Every word right.", a gist played and stopped. **Found on the way, NOT fixed (not dictation):** in that fresh browser
+  profile the Netflix player window (`app/netflix_overlay.py`, created `hidden=True`, shown only once `video` is true)
+  never started: Netflix's page sat on `watch-video-loading-view` with `document.visibilityState` "hidden" and no
+  `<video>`; showing the window (off-screen) made the video appear at once and playback carried on. So a hidden player
+  window can wait forever, at least in a new profile (a new user's first Netflix title). The owner's own profile plays.
