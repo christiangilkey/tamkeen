@@ -13,7 +13,7 @@
 // (`play(unit)`), so the same panel serves every player with sound: podcasts, audiobooks, your own audio and
 // videos, YouTube, Netflix, reels and courses.
 
-import { esc, h } from "../app.js";
+import { esc, h, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { langAttrs } from "../languages.js";
@@ -27,6 +27,25 @@ export const DICTATION_RELEASED = false;
 export function dictationOn() {
   if (DICTATION_RELEASED) return true;
   try { return localStorage.getItem("tamkeenTryDictation") === "1"; } catch { return false; }
+}
+
+/** The owner's private test switch (2026-11-17): five quick taps on `el` (the version in Settings; the About
+ *  heading in the web app, which shows no version) turn "Type what you hear" on or off on this device. Nothing
+ *  shows that it is there. Gone once it is released. */
+export function dictationTaps(el) {
+  if (DICTATION_RELEASED || !el) return;
+  let taps = 0, timer = null;
+  el.addEventListener("click", () => {
+    taps += 1;
+    clearTimeout(timer);
+    timer = setTimeout(() => { taps = 0; }, 1500);
+    if (taps < 5) return;
+    taps = 0;
+    const on = !dictationOn();
+    try { if (on) localStorage.setItem("tamkeenTryDictation", "1"); else localStorage.removeItem("tamkeenTryDictation"); } catch { return; }
+    toast(on ? "Type what you hear is on for this device. Open a player or a course unit to try it."
+      : "Type what you hear is off for this device.");
+  });
 }
 
 /** The button that opens it: a keyboard, beside the other switches of a player. */

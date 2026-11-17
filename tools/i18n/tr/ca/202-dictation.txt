@@ -37,3 +37,5 @@ fbc63d40	Correcte.
 5e277236	Aquesta vegada no.
 992aea9d	Acabat: {0} parts escoltades.
 93eac742	Acabat: {0}% correcte en {1} paraules.
+f97571cf	«Escriu el que sents» està activat en aquest dispositiu. Obre un reproductor o una unitat d'un curs per provar-ho.
+99f22104	«Escriu el que sents» està desactivat en aquest dispositiu.

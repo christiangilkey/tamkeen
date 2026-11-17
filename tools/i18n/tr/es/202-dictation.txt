@@ -37,3 +37,5 @@ fbc63d40	Correcto.
 5e277236	Esta vez no.
 992aea9d	Terminado: {0} partes escuchadas.
 93eac742	Terminado: {0} % bien en {1} palabras.
+f97571cf	«Escribe lo que oyes» está activado en este dispositivo. Abre un reproductor o una unidad de un curso para probarlo.
+99f22104	«Escribe lo que oyes» está desactivado en este dispositivo.

@@ -137,3 +137,10 @@ test("held back from v0.61.0: hidden everywhere until it is released or switched
   assert.match(src("../../web/js/pages/reels.js"), /if \(dictShown\) \$\("#rc-left"\)\.append\(dictBtn\)/);
   assert.match(src("../../web/js/components/coursepanel.js"), /dictBtn\.hidden = !dictationOn\(\) \|\|/);
 });
+
+test("the owner's private test switch: five taps on the version (the About heading in the web app)", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  assert.match(src("../../web/js/components/dictation.js"), /export function dictationTaps\(el\) \{\s+if \(DICTATION_RELEASED \|\| !el\) return;/);
+  assert.match(src("../../web/js/pages/settings.js"), /dictationTaps\(\$\("#app-version"\)\)/);
+  assert.match(src("../../mobile/src/js/pages/settings.js"), /dictationTaps\(isWeb \? body\.querySelector\('\[data-find~="about"\] h2'\) : \$\("#app-version"\)\)/);
+});

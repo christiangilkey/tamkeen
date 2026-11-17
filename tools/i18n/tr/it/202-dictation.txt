@@ -37,3 +37,5 @@ fbc63d40	Giusto.
 5e277236	Non questa volta.
 992aea9d	Finito: {0} parti ascoltate.
 93eac742	Finito: {0}% giusto su {1} parole.
+f97571cf	«Scrivi quello che senti» è attivo su questo dispositivo. Apri un lettore o un'unità di un corso per provarlo.
+99f22104	«Scrivi quello che senti» è disattivato su questo dispositivo.

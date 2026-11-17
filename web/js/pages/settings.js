@@ -31,6 +31,7 @@ import { licensesFold } from "../components/licenses.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { applyPageSize, pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { soundVolume } from "../components/soundvolume.js";
+import { dictationTaps } from "../components/dictation.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
 import { controllerSection, controllerSummary } from "../components/controllerpanel.js";
@@ -418,7 +419,7 @@ function data(body, status) {
     </section>
     <section class="card set-card stack" data-find="updates">
       <h2>Updates</h2>
-      <div class="row"><span>Version ${esc(status.version)}</span><span class="spacer"></span><button type="button" id="check-updates">Check for updates</button></div>
+      <div class="row"><span id="app-version">Version ${esc(status.version)}</span><span class="spacer"></span><button type="button" id="check-updates">Check for updates</button></div>
       <div id="update-result" class="small"></div>
     </section>
     <section class="card set-card stack" data-find="whatis">
@@ -490,6 +491,7 @@ function data(body, status) {
   };
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   for (const b of document.querySelectorAll("[data-whatis]")) b.onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs(b.dataset.whatis));
+  dictationTaps($("#app-version")); // (the owner's private test switch: components/dictation.js)
   $("#check-updates").onclick = async () => {
     const box = $("#update-result");
     box.textContent = "Checking…";

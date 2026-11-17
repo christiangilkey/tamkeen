@@ -37,3 +37,5 @@ fbc63d40	Richtig.
 5e277236	Diesmal nicht.
 992aea9d	Fertig: {0} Teile angehört.
 93eac742	Fertig: {0} % richtig bei {1} Wörtern.
+f97571cf	„Schreib, was du hörst“ ist auf diesem Gerät an. Öffne einen Player oder eine Kurseinheit, um es auszuprobieren.
+99f22104	„Schreib, was du hörst“ ist auf diesem Gerät aus.

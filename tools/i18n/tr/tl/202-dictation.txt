@@ -37,3 +37,5 @@ fbc63d40	Tama.
 5e277236	Hindi pa ngayon.
 992aea9d	Tapos na: {0} bahagi ang napakinggan.
 93eac742	Tapos na: {0}% tama sa {1} salita.
+f97571cf	Naka-on ang "Isulat ang naririnig mo" sa device na ito. Magbukas ng player o isang unit ng kurso para subukan ito.
+99f22104	Naka-off ang "Isulat ang naririnig mo" sa device na ito.

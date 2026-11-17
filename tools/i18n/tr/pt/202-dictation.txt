@@ -37,3 +37,5 @@ fbc63d40	Certo.
 5e277236	Desta vez não.
 992aea9d	Fim: {0} partes ouvidas.
 93eac742	Fim: {0}% certo em {1} palavras.
+f97571cf	"Escreva o que você ouve" está ativado neste aparelho. Abra um player ou uma unidade de curso para experimentar.
+99f22104	"Escreva o que você ouve" está desativado neste aparelho.

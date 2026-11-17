@@ -37,3 +37,5 @@ fbc63d40	Sakto.
 5e277236	Dili pa karon.
 992aea9d	Nahuman: {0} ka bahin ang napaminaw.
 93eac742	Nahuman: {0}% sakto sa {1} ka pulong.
+f97571cf	Naka-on ang "Isulat ang imong madungog" niini nga device. Ablihi ang player o usa ka unit sa kurso aron sulayan kini.
+99f22104	Naka-off ang "Isulat ang imong madungog" niini nga device.

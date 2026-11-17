@@ -37,3 +37,5 @@ fbc63d40	Juste.
 5e277236	Pas cette fois.
 992aea9d	Terminé : {0} parties écoutées.
 93eac742	Terminé : {0} % juste sur {1} mots.
+f97571cf	« Écrivez ce que vous entendez » est activé sur cet appareil. Ouvrez un lecteur ou une unité de cours pour l'essayer.
+99f22104	« Écrivez ce que vous entendez » est désactivé sur cet appareil.
