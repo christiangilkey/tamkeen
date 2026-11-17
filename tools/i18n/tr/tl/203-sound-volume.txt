@@ -1,4 +1,6 @@
 # Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
 0e68bfb1	Lakas ng tunog
 7be0d70f	Mga tunog ng app
-574ec420	Ang mga boses ng card, ang audio ng salita at pangungusap, ang kausap sa pag-uusap, ang mga chime at lahat ng iba pang tunog ng Tamkeen. Ang mga podcast, audiobook, video, YouTube, Netflix at reels ay may sariling lakas ng tunog.
+3a55315b	Mga podcast, video at aralin
+37434634	Mga podcast, audiobook, sarili mong audio at video file, mga recording at ang audio ng mga aralin. May sariling lakas ng tunog ang YouTube, Netflix at reels sa kanilang mga player.
+c349fe82	Ang mga boses ng card, ang audio ng salita at pangungusap, ang kausap sa pag-uusap, ang mga chime at lahat ng iba pang tunog ng Tamkeen.

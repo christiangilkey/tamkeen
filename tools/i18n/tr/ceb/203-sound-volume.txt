@@ -1,4 +1,6 @@
 # Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
 0e68bfb1	Kakusog sa tingog
 7be0d70f	Mga tingog sa app
-574ec420	Ang mga tingog sa kard, ang audio sa pulong ug sentence, ang kauban sa panag-istorya, ang mga chime ug ang tanang ubang tingog nga gihimo sa Tamkeen. Ang mga podcast, audiobook, video, YouTube, Netflix ug reels adunay kaugalingong kakusog.
+3a55315b	Mga podcast, video ug leksyon
+37434634	Mga podcast, audiobook, imong kaugalingong audio ug video, mga recording ug ang audio sa mga leksyon. Ang YouTube, Netflix ug reels adunay kaugalingong kakusog sa ilang player.
+c349fe82	Ang mga tingog sa kard, ang audio sa pulong ug sentence, ang kauban sa panag-istorya, ang mga chime ug ang tanang ubang tingog nga gihimo sa Tamkeen.

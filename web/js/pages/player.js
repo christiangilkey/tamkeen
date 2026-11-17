@@ -54,6 +54,7 @@ import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setD
   youTubeTranslations } from "../components/dualline.js";
 import { dictationButton, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
+import { mediaSound } from "../appvolume.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -349,6 +350,7 @@ export async function render(view, { id, query }) {
       onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();
   if (!embed) {
+    mediaSound(audio);  // Settings → Sound volume's media slider (YouTube and Netflix keep their own)
     audio.preload = "auto";
     audio.src = await audioUrl(id);
   }

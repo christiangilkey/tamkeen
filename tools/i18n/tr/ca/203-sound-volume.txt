@@ -1,4 +1,6 @@
 # Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
 0e68bfb1	Volum del so
 7be0d70f	Sons de l'aplicació
-574ec420	Les veus de les targetes, l'àudio de paraules i frases, l'interlocutor de la conversa, els sons de joc i qualsevol altre so que fa Tamkeen. Els pòdcasts, els audiollibres, els vídeos, YouTube, Netflix i els reels mantenen el seu propi volum.
+3a55315b	Pòdcasts, vídeos i lliçons
+37434634	Pòdcasts, audiollibres, els teus fitxers d'àudio i vídeo, enregistraments i l'àudio de les lliçons. YouTube, Netflix i els reels tenen el seu propi volum als seus reproductors.
+c349fe82	Les veus de les targetes, l'àudio de paraules i frases, l'interlocutor de la conversa, els sons de joc i qualsevol altre so que fa Tamkeen.

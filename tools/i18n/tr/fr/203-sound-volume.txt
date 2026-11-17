@@ -1,4 +1,6 @@
 # Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
 0e68bfb1	Volume sonore
 7be0d70f	Sons de l'appli
-574ec420	Les voix des cartes, l'audio des mots et des phrases, le partenaire de conversation, les carillons et tout autre son de Tamkeen. Les podcasts, livres audio, vidéos, YouTube, Netflix et reels gardent leur propre volume.
+3a55315b	Podcasts, vidéos et leçons
+37434634	Podcasts, livres audio, vos propres fichiers audio et vidéo, enregistrements et l'audio des leçons. YouTube, Netflix et les reels ont leur propre volume dans leur lecteur.
+c349fe82	Les voix des cartes, l'audio des mots et des phrases, le partenaire de conversation, les carillons et tout autre son de Tamkeen.

@@ -10,6 +10,7 @@ import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { changedLines, joinLines, linesOf, retime, splitLine, toSegments } from "../transcriptedit.js";
 import { confirmBox, openModal } from "./modal.js";
+import { mediaSound } from "../appvolume.js";
 
 const clock = (s) => { const x = Math.max(0, Math.floor(s)); const h_ = Math.floor(x / 3600), m = Math.floor((x % 3600) / 60), sec = x % 60;
   return `${h_ ? `${h_}:${String(m).padStart(2, "0")}` : m}:${String(sec).padStart(2, "0")}`; };
@@ -45,7 +46,7 @@ export async function openTranscriptEditor(ep, { onSaved = () => {} } = {}) {
   box.body.append(wrap);
   wrap.querySelector(".te-name").textContent = ep.title || "";
   const listEl = wrap.querySelector(".te-lines");
-  const audio = new Audio();
+  const audio = mediaSound(new Audio());
   audio.preload = "metadata";
   const youtube = String(ep.audio_type || "") === "video/youtube";
   if (youtube) {

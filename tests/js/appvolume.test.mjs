@@ -1,4 +1,4 @@
-// Settings → Sound volume (web/js/appvolume.js): the app's own sounds follow the slider, the media never does.
+// Settings → Sound volume (web/js/appvolume.js): the app's own sounds follow one slider, the media the other.
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, statSync } from "node:fs";
@@ -62,22 +62,44 @@ test("an app player and an AudioContext follow the slider, now and while playing
   vol.setAppVolume(100);
 });
 
-// The media being played keeps its own volume: these players never pass through appSound.
+// The media players follow the media slider instead (YouTube, Netflix and reels have their own players).
 const MEDIA = new Set(["pages/player.js", "components/transcripteditor.js"]);
 
-test("every <audio> the app makes for its own sounds follows the slider; the media players don't", () => {
+test("every <audio> the app makes follows a slider: the media's the media one, the rest the app one", () => {
   const loose = [];
   for (const p of files(WEB)) {
     const name = rel(p);
     const src = read(p);
     for (const m of src.matchAll(/new Audio\(/g)) {
-      const before = src.slice(Math.max(0, m.index - 9), m.index);
-      const wrapped = before.endsWith("appSound(");
-      if (MEDIA.has(name)) assert.ok(!wrapped, `${name} plays media: it keeps its own volume`);
-      else if (!wrapped) loose.push(name);
+      const before = src.slice(Math.max(0, m.index - 11), m.index);
+      if (MEDIA.has(name)) assert.ok(!before.endsWith("appSound("), `${name} plays media: not an app sound`);
+      else if (!before.endsWith("appSound(")) loose.push(name);
     }
   }
   assert.deepEqual(loose, [], "wrap these in appSound() (appvolume.js), or add them to MEDIA if they play the media itself");
+  assert.match(read(join(WEB, "pages/player.js")), /if \(!embed\) \{\s+mediaSound\(audio\);/, "the player's own audio and video");
+  assert.match(read(join(WEB, "components/transcripteditor.js")), /const audio = mediaSound\(new Audio\(\)\)/);
+  const dli = read(join(WEB, "components/dlipanel.js"));
+  assert.match(dli, /mediaSound\(h\(`<audio controls/);
+  assert.match(dli, /mediaSound\(h\(`<video controls/);
+});
+
+test("the two sliders are separate: moving one leaves the other alone", () => {
+  vol.setAppVolume(100);
+  vol.setMediaVolume(100);
+  const a = { volume: 1, addEventListener() {} }, m = { volume: 1, addEventListener() {} };
+  vol.appSound(a);
+  vol.mediaSound(m);
+  vol.setMediaVolume(50);
+  assert.equal(m.volume, 0.25);
+  assert.equal(a.volume, 1);
+  assert.equal(store.get("mediaVolume"), "50");
+  assert.equal(vol.mediaVolumePercent(), 50);
+  vol.setAppVolume(0);
+  assert.equal(a.volume, 0);
+  assert.equal(m.volume, 0.25);
+  vol.setAppVolume(100);
+  vol.setMediaVolume(100);
 });
 
 test("the app's synthesised sounds go out through appOut, not straight to the speakers", () => {

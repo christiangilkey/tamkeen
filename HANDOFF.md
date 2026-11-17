@@ -9200,3 +9200,14 @@ The slider: `components/soundvolume.js` in both Settings pages' Look & feel (`da
 `tests/js/appvolume.test.mjs` fails if a new `new Audio(` outside the media players isn't wrapped, or a sound connects
 straight to `.destination`. Checked in the web app (slider kept across a reload, a card player followed 40% → off →
 70% live, a reel's video stayed at full volume) and the computer's Settings page.
+- **Media slider too (the owner, the same day):** "podcasts, uploaded videos and audio and files such as those that a teacher
+  would assign and be attached to packets, those should also be able to adjust the volume". `appvolume.js` now has two
+  channels (`channel(key)`): app (`appSoundVolume`: appSound/appOut/speechVolume) and media (`mediaVolume`:
+  `mediaSound(el)`). Media: the player's own `<audio>`/`<video>` when not YouTube/Netflix (`if (!embed) mediaSound(audio)`:
+  podcasts, audiobooks, own files, recordings, a lesson's tracks, which open in the player, and dictation, which plays
+  through it), the transcript editor, the DLI panel's audio/video. YouTube, Netflix and reels: their players' own volume.
+  **iPhone:** WKWebView ignores `HTMLMediaElement.volume` (Apple: the hardware buttons own it), so on the iPhone only the
+  chimes (Web Audio) and the iPhone's voice (SpeechPlugin) follow; podcasts and card audio don't. A fix would be a native
+  player or routing through Web Audio (`createMediaElementSource`, which silences cross-origin streams without CORS and
+  can stop background playback): not done. Checked on the computer: Settings shows both sliders; episode 1's audio was at
+  0.25 with the media slider at 50%, followed it to 80% live, and didn't move when the app slider went to 0.

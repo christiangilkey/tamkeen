@@ -1,4 +1,6 @@
 # Settings → Look & feel → Sound volume (web/js/components/soundvolume.js).
 0e68bfb1	音量
 7be0d70f	应用声音
-574ec420	卡片语音、单词和句子音频、对话伙伴、提示音以及 Tamkeen 发出的其他所有声音。播客、有声书、视频、YouTube、Netflix 和短视频保持各自的音量。
+3a55315b	播客、视频和课程
+37434634	播客、有声书、你自己的音频和视频文件、录音以及课程的音频。YouTube、Netflix 和短视频在各自的播放器里调节音量。
+c349fe82	卡片语音、单词和句子音频、对话伙伴、提示音以及 Tamkeen 发出的其他所有声音。
