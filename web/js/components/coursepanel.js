@@ -20,7 +20,7 @@ import { markedSentenceHtml } from "../cardtext.js";
 import { cardOf, courseIdOf, courseUrl, markUpdates, markedHtml, progress, unitsOf } from "../coursedata.js";
 import { courseWords, tappable } from "./coursewords.js";
 import { clipOf, packStore } from "../coursepacks.js";
-import { dictationPanel } from "./dictation.js";
+import { dictationOn, dictationPanel } from "./dictation.js";
 import { appSound } from "../appvolume.js";
 
 const url = (name) => courseUrl(name, { platform, host: typeof location !== "undefined" ? location.hostname : "" });
@@ -214,7 +214,7 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
     const sayable = unit.words.filter((w) => hasAudio(w) && String(w.sentence || "").trim() && Number.isFinite((w.times || {}).sent_start));
     const sayWords = unit.words.filter((w) => hasAudio(w) && String(w.word || "").trim() && Number.isFinite((w.times || {}).start));
     const dictBtn = head.querySelector(".cu-dict-btn");
-    dictBtn.hidden = !sayable.length && !sayWords.length;
+    dictBtn.hidden = !dictationOn() || (!sayable.length && !sayWords.length); // (not released yet: dictation.js)
     const atKey = (mode) => `course:${id}:dict:${n}${mode === "word" ? ":word" : ""}`;
     dictBtn.onclick = async () => {
       if (closeDict) { closeDict(); return; }

@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Une seule liste de mots pour tous les jeux : les mots choisis pour les combats remplissent aussi l'étang de pêche
+06bb2df2	Volume du son : un curseur pour les podcasts, vidéos et leçons, un autre pour les sons de l'appli
+d38ad1d5	Leçons : le PDF ou le fichier Word d'un professeur, avec son audio, devient une leçon avec des questions auxquelles répondre
+f90c4de3	Corriger la transcription : un bouton crayon dans le lecteur permet de corriger n'importe quelle ligne
+2c02aa34	Les classes DLI montrent chacun par son nom d'utilisateur, jamais son vrai nom, avec le temps d'écoute, de visionnage et de lecture

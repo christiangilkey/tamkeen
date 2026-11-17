@@ -123,3 +123,17 @@ test("every player with sound offers it", () => {
   const build = readFileSync(new URL("../../mobile/scripts/build-www.mjs", import.meta.url), "utf8");
   assert.ok(build.includes('"js/dictation.js"') && build.includes('"js/components/dictation.js"'), "the phones get it too");
 });
+
+test("held back from v0.61.0: hidden everywhere until it is released or switched on on the device", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  const panel = src("../../web/js/components/dictation.js");
+  assert.match(panel, /export const DICTATION_RELEASED = (true|false);/);
+  assert.match(panel, /localStorage\.getItem\("tamkeenTryDictation"\) === "1"/);
+  const player = src("../../web/js/pages/player.js");
+  assert.match(player, /const dictShown = dictationOn\(\);/);
+  assert.match(player, /if \(dictShown\) \$\("#font-down"\)\.before\(dictBtn\)/);
+  assert.match(player, /dictShown && \(e\.key === "w"/);
+  assert.match(player, /n && dictShown \? \{ label: "Type what you hear/);
+  assert.match(src("../../web/js/pages/reels.js"), /if \(dictShown\) \$\("#rc-left"\)\.append\(dictBtn\)/);
+  assert.match(src("../../web/js/components/coursepanel.js"), /dictBtn\.hidden = !dictationOn\(\) \|\|/);
+});

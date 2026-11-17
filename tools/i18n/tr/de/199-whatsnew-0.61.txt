@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Eine Wortliste für alle Spiele: Die Wörter, die du für Kämpfe wählst, füllen jetzt auch den Angelteich
+06bb2df2	Lautstärke: ein Regler für Podcasts, Videos und Lektionen, ein anderer für die Töne der App
+d38ad1d5	Lektionen: Die PDF- oder Word-Datei einer Lehrkraft mit ihrem Audio wird zu einer Lektion mit Fragen zum Beantworten
+f90c4de3	Transkript korrigieren: Mit dem Stift-Knopf im Player kannst du jede Zeile verbessern
+2c02aa34	DLI-Klassen zeigen alle mit Benutzernamen, nie mit echtem Namen, mit der Zeit fürs Hören, Schauen und Lesen

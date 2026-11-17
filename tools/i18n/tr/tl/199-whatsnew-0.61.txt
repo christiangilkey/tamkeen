@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Iisang listahan ng salita para sa lahat ng laro: ang mga salitang pinili mo para sa laban ay nasa lawa ng pangingisda na rin
+06bb2df2	Lakas ng tunog: isang slider para sa podcast, video at aralin, at isa pa para sa sariling tunog ng app
+d38ad1d5	Mga aralin: ang PDF o Word file ng guro kasama ang audio nito ay nagiging aralin na may mga tanong na sasagutin
+f90c4de3	Itama ang transcript: ang lapis na button sa player ay hinahayaan kang ayusin ang kahit anong linya
+2c02aa34	Ipinapakita ng mga klase ng DLI ang lahat sa username, hindi kailanman sa tunay na pangalan, kasama ang oras ng pakikinig, panonood at pagbabasa

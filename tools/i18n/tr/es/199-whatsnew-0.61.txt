@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Una sola lista de palabras para todos los juegos: las palabras que eliges para las batallas también llenan el estanque de pesca
+06bb2df2	Volumen del sonido: un control para pódcasts, vídeos y lecciones, y otro para los sonidos de la aplicación
+d38ad1d5	Lecciones: el PDF o Word de un profesor con su audio se convierte en una lección con preguntas para responder
+f90c4de3	Corrige la transcripción: un botón de lápiz en el reproductor te deja arreglar cualquier línea
+2c02aa34	Las clases DLI muestran a todos por su nombre de usuario, nunca por su nombre real, con el tiempo de escuchar, ver y leer

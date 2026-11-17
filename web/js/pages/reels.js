@@ -32,7 +32,7 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
-import { dictationButton, dictationPanel } from "../components/dictation.js";
+import { dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 
 export const REEL_TYPE = "video/instagram";
@@ -662,9 +662,10 @@ async function renderPlayer(view, { query }) {
   let dictOn = false; // the learner is typing: a reel shown next opens with the box too
   let dictWaiting = false; // ... and its first piece plays once the reel has loaded (not the whole reel by itself)
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation(true)));
-  if (surface) $("#rc-left").append(dictBtn);
+  const dictShown = surface && dictationOn(); // (not released yet: components/dictation.js)
+  if (dictShown) $("#rc-left").append(dictBtn);
   function openDictation(autoplay) {
-    if (dict || !cur || !surface || disposed) return;
+    if (dict || !cur || !dictShown || disposed) return;
     const reel = cur;
     const sentences = sentencesFromWords({ texts: reel.texts, starts: reel.starts, ends: reel.ends, segOf: reel.segOf, lang: reel.lang });
     if (!sentences.length) { toast("There are no sentences to type here yet."); return; }

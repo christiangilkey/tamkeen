@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Una sola llista de paraules per a tots els jocs: les paraules que tries per a les batalles omplen també l'estany de pesca
+06bb2df2	Volum del so: un control per a pòdcasts, vídeos i lliçons, i un altre per als sons de l'aplicació
+d38ad1d5	Lliçons: el PDF o el Word d'un professor amb el seu àudio es converteix en una lliçó amb preguntes per respondre
+f90c4de3	Corregeix la transcripció: un botó de llapis al reproductor et deixa arreglar qualsevol línia
+2c02aa34	Les classes DLI mostren tothom pel nom d'usuari, mai pel nom real, amb el temps d'escoltar, mirar i llegir

@@ -1,0 +1,6 @@
+# What's new in 0.61.0 (web/js/whatsnew.js).
+86a8dcbd	Un solo elenco di parole per tutti i giochi: le parole scelte per le battaglie riempiono anche lo stagno di pesca
+06bb2df2	Volume: un cursore per podcast, video e lezioni, un altro per i suoni dell'app
+d38ad1d5	Lezioni: il PDF o il file Word di un insegnante con il suo audio diventa una lezione con domande a cui rispondere
+f90c4de3	Correggi la trascrizione: un pulsante a matita nel lettore ti fa sistemare qualsiasi riga
+2c02aa34	Le classi DLI mostrano tutti con il nome utente, mai con il nome vero, con il tempo di ascolto, visione e lettura

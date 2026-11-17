@@ -28420,6 +28420,31 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "86a8dcbd",
+  "k": "One word list for every game: the words you pick for battles now fill the fishing pond too",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "06bb2df2",
+  "k": "Sound volume: one slider for podcasts, videos and lessons, another for the app's own sounds",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d38ad1d5",
+  "k": "Lessons: a teacher's PDF or Word file with its audio becomes a lesson with questions to answer",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "f90c4de3",
+  "k": "Correct the transcript: a pencil button in the player lets you fix any line",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2c02aa34",
+  "k": "DLI classes show everyone by username, never a real name, with listening, watching and reading time",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "3fd3a173",
   "k": "Listen in My audio: record from the microphone and get a transcript",
   "f": "web/js/whatsnew.js"

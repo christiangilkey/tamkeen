@@ -52,7 +52,7 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor,
   youTubeTranslations } from "../components/dualline.js";
-import { dictationButton, dictationPanel } from "../components/dictation.js";
+import { dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
 
@@ -1318,10 +1318,11 @@ export async function render(view, { id, query }) {
   let dictSentences = null;
   let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
-  $("#font-down").before(dictBtn);
+  const dictShown = dictationOn(); // (not released yet: components/dictation.js)
+  if (dictShown) $("#font-down").before(dictBtn);
   dictBtn.disabled = !n;
   function openDictation() {
-    if (dict || !n || disposed) return;
+    if (dict || !n || disposed || !dictShown) return;
     dictSentences = dictSentences || sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed });
     if (!dictSentences.length) { toast("There are no sentences to type here yet."); return; }
     if (!dictWords) dictWords = lineTimed ? [] : wordUnits({ texts, starts, ends });
@@ -1414,7 +1415,7 @@ export async function render(view, { id, query }) {
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
     else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else $("#restart").click(); }
-    else if ((e.key === "w" || e.key === "W") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); dictBtn.click(); } // (not typed into its box)
+    else if (dictShown && (e.key === "w" || e.key === "W") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); dictBtn.click(); } // (not typed into its box)
     else if (e.key === "Escape") { if (bubble.open) bubble.hide(); else clearLoop(); }
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
@@ -1468,7 +1469,7 @@ export async function render(view, { id, query }) {
       vid ? { label: "Captions on the video (on / off)", run: () => padH.captions() } : null,
       vid ? { label: "Transcript panel (open / close)", run: () => padH.transcript() } : null,
       { label: "Translation under each line (on / off)", run: () => dualBtn.click() },
-      n ? { label: "Type what you hear (on / off)", run: () => dictBtn.click() } : null,
+      n && dictShown ? { label: "Type what you hear (on / off)", run: () => dictBtn.click() } : null,
       { label: "Larger text", run: () => $("#font-up").click() },
       { label: "Smaller text", run: () => $("#font-down").click() },
       vid && document.fullscreenEnabled ? { label: "Full screen", run: () => toggleFullscreen() } : null,

@@ -19,6 +19,16 @@ import { icon } from "../icons.js";
 import { langAttrs } from "../languages.js";
 import { GIST_SIZES, caughtWords, compareTyped, passages, shareRight } from "../dictation.js";
 
+// Not released yet: the owner tests it first (2026-11-17, v0.61.0 went out without it). Hidden everywhere (the
+// players' button, the W key, the controller's option, the courses' button) unless this device has it switched on
+// with localStorage `tamkeenTryDictation` = "1". To release it, set DICTATION_RELEASED to true.
+export const DICTATION_RELEASED = false;
+/** Whether "Type what you hear" is offered on this device. */
+export function dictationOn() {
+  if (DICTATION_RELEASED) return true;
+  try { return localStorage.getItem("tamkeenTryDictation") === "1"; } catch { return false; }
+}
+
 /** The button that opens it: a keyboard, beside the other switches of a player. */
 export function dictationButton(onPress) {
   const b = h(`<button type="button" class="ghost dict-btn" aria-pressed="false" title="Type what you hear (W)" aria-label="Type what you hear">${icon("keyboard", 18)}</button>`);

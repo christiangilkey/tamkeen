@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.61.0",
+  "One word list for every game: the words you pick for battles now fill the fishing pond too");
+notes("0.61.0",
+  "Sound volume: one slider for podcasts, videos and lessons, another for the app's own sounds");
+notes("0.61.0",
+  "Lessons: a teacher's PDF or Word file with its audio becomes a lesson with questions to answer");
+notes("0.61.0",
+  "Correct the transcript: a pencil button in the player lets you fix any line");
+notes("0.61.0",
+  "DLI classes show everyone by username, never a real name, with listening, watching and reading time");
 notes("0.60.0",
   "Listen in My audio: record from the microphone and get a transcript");
 notes("0.60.0",
