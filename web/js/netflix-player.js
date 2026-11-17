@@ -92,6 +92,24 @@
   function boxOf(v) {
     try { return typeof v.getBoundingClientRect === "function" ? v.getBoundingClientRect() : null; } catch (e) { return null; }
   }
+  function inExtension() {
+    var root = document.documentElement;
+    return !!(root.classList && root.classList.contains && root.classList.contains("tk-ext"));
+  }
+  /** How big Netflix makes a picture, and the space to compare that with. In the browser extension the
+   * title's picture is stretched into Tamkeen's video box (content/netflix.js), so its own size would
+   * always say "fills" once it is: Netflix's box around it is measured instead (the nearest with a size),
+   * against the whole window, as Netflix sizes it (it shrinks that box when the title ends). */
+  function measure(v) {
+    if (inExtension()) {
+      var el = v.parentElement;
+      for (var i = 0; el && i < 3; i++, el = el.parentElement) {
+        var b = boxOf(el);
+        if (b && Number(b.width) > 1 && Number(b.height) > 1) return { box: b, space: { w: Number(window.innerWidth), h: Number(window.innerHeight) } };
+      }
+    }
+    return { box: boxOf(v), space: space() };
+  }
   /** The title's picture: the biggest <video> on the page, or null. `fills`: it fills the window,
    * as the title playing does (lib.fills); a preview card or the shrunken end credits don't. */
   function video() {
@@ -99,13 +117,20 @@
     var best = null;
     var area = -1;
     for (var i = 0; i < list.length; i++) {
-      var b = boxOf(list[i]);
+      var b = measure(list[i]).box;
       var a = b ? Number(b.width) * Number(b.height) : 0;
       if (a >= area) { best = list[i]; area = a; } // (equal sizes: the newest, as Netflix adds them last)
     }
     return best;
   }
-  function fillsWindow(v) { return !!v && lib.fills(boxOf(v), space()); }
+  function fillsWindow(v) { var m = v ? measure(v) : null; return !!m && lib.fills(m.box, m.space); }
+  /** Marks the title's picture (`data-tk-picture`), the only one the extension's video box stretches:
+   * a preview card's <video> elsewhere on the page keeps its own size. */
+  function markPicture(v) {
+    var list = document.querySelectorAll("video[data-tk-picture]");
+    for (var i = 0; i < list.length; i++) if (list[i] !== v && list[i].removeAttribute) list[i].removeAttribute("data-tk-picture");
+    if (v && v.setAttribute && !(v.hasAttribute && v.hasAttribute("data-tk-picture"))) v.setAttribute("data-tk-picture", "");
+  }
   function call(p, name) {
     try { return typeof p[name] === "function" ? p[name]() : undefined; } catch (e) { return undefined; }
   }
@@ -182,8 +207,13 @@
     // And only while the title's picture fills the window: on a watch page Netflix also shows titles
     // to pick (when a title ends, say), and the pointer resting on one plays a preview in a small
     // card. Taken for the title, it hid everything but that card, and Netflix couldn't be used.
+    // (In the browser extension the picture is measured by Netflix's box around it, `measure`: once
+    // stretched into Tamkeen's video box its own size would keep the page dark over Netflix's end screen.)
     var found = pageKind() === "watch" ? player() : null;
-    document.documentElement.classList.toggle("tk-only-video", !!(found && fillsWindow(video()) && !prompt() && !errorText()));
+    var v = found ? video() : null;
+    var only = !!(found && fillsWindow(v) && !prompt() && !errorText());
+    markPicture(only ? v : null);
+    document.documentElement.classList.toggle("tk-only-video", only);
     if (found) choose(found);
   }
   setInterval(tick, 400);

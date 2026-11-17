@@ -119,10 +119,19 @@ try {
   });
 
   // 1. The extension is loaded, and opened the web app once (onInstalled).
-  const sw = await until("the extension's background part", async () => (await targets()).find((t) => t.type === "service_worker" && /background\.js$/.test(t.url)), 15000);
+  // (Edge has background parts of its own named background.js too: Tamkeen's is the one whose manifest says so.)
+  let swSession = null;
+  const sw = await until("the extension's background part", async () => {
+    for (const t of (await targets()).filter((x) => x.type === "service_worker" && /background\.js$/.test(x.url))) {
+      const s = await attach(t.targetId);
+      const name = await evaluate(s, `chrome.runtime.getManifest().name`).catch(() => "");
+      if (/^Tamkeen for Netflix/.test(name)) { swSession = s; return t; } // ("… (test build)")
+      await cdp.send("Target.detachFromTarget", { sessionId: s }).catch(() => {});
+    }
+    return null;
+  }, 15000);
   const extId = new URL(sw.url).host;
   check("the extension is loaded", true, extId);
-  const swSession = await attach(sw.targetId);
   const appTarget = await until("the web app tab the extension opens", async () => (await targets()).find((t) => t.type === "page" && t.url.startsWith(WEBAPP)), 15000);
   check("on install it opens the web app", !!appTarget);
   const app = await attach(appTarget.targetId);
@@ -159,11 +168,16 @@ try {
     await evaluate(app, `document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape" })); document.querySelectorAll(".modal-back").forEach((x) => x.remove())`);
     return text;
   }
-  const withExt = await netflixSheet("1-webapp-netflix-with-extension");
-  check("with the extension: Open Netflix", /Open Netflix/.test(withExt) && /new tab/.test(withExt), withExt.replace(/\s+/g, " ").slice(0, 120));
-  await evaluate(app, `delete document.documentElement.dataset.tamkeenExtension`);
-  const noExt = await netflixSheet("2-webapp-netflix-without-extension");
-  check("without it: get the Tamkeen extension", /Get the Tamkeen extension/.test(noExt) && /browser extension/.test(noExt), noExt.replace(/\s+/g, " ").slice(0, 120));
+  try { // (a failure here is reported, and the Netflix steps still run)
+    const withExt = await netflixSheet("1-webapp-netflix-with-extension");
+    check("with the extension: Open Netflix", /Open Netflix/.test(withExt) && /new tab/.test(withExt), withExt.replace(/\s+/g, " ").slice(0, 120));
+    await evaluate(app, `delete document.documentElement.dataset.tamkeenExtension`);
+    const noExt = await netflixSheet("2-webapp-netflix-without-extension");
+    check("without it: get the Tamkeen extension", /Get the Tamkeen extension/.test(noExt) && /browser extension/.test(noExt), noExt.replace(/\s+/g, " ").slice(0, 120));
+  } catch (e) {
+    check("the web app's Netflix section", false, e.message);
+    await shot(app, "1-webapp-netflix-section-failed").catch(() => {});
+  }
   await evaluate(app, `document.documentElement.dataset.tamkeenExtension = ${JSON.stringify(mark)}`);
 
   // (Screenshots for the store, --size: without the one-time note about Netflix remembering the subtitles.)
@@ -178,6 +192,20 @@ try {
   check("browse by language: Arabic chosen", !!browsed, browsed);
   await sleep(700);
   await shot(nf, "3-netflix-browse");
+
+  // 4b. The pointer resting on a title: Netflix plays its preview in a card, and its page stays as it is
+  // (owner, 2026-11-16: in Chrome "hovering over a show makes the page go black").
+  const hoverAt = await until("a title card to rest on", () => centre(nf, ".title-card"));
+  await cdp.send("Input.dispatchMouseEvent", { type: "mouseMoved", x: hoverAt.x, y: hoverAt.y }, nf);
+  await until("the preview card", () => evaluate(nf, `!!document.querySelector(".previewModal--wrapper video")`), 5000);
+  await sleep(1500); // (netflix-player.js looks every 0.4 s)
+  const hovered = await evaluate(nf, `({ only: document.documentElement.classList.contains("tk-only-video"),
+    nav: getComputedStyle(document.querySelector("nav h1")).visibility, card: getComputedStyle(document.querySelector(".previewModal--info")).visibility,
+    bar: !!document.querySelector("tamkeen-netflix"), touched: (window.__previewLog || []).join(",") })`);
+  check("resting on a title: its preview plays and Netflix's page stays (no blackout, no bar)",
+    !hovered.only && hovered.nav === "visible" && hovered.card === "visible" && !hovered.bar && !hovered.touched, JSON.stringify(hovered));
+  await shot(nf, "3b-netflix-browse-preview");
+  await evaluate(nf, `__unpreview()`);
 
   // 5. A title picked: Netflix's watch page, with Tamkeen's bar and sidebar.
   const card = await until("a title card", () => centre(nf, ".title-card"));
@@ -304,6 +332,18 @@ try {
   await click(nf, tab.x, tab.y);
   await sleep(400);
   check("the slim tab brings the sidebar back", await evaluate(panel, `!document.querySelector("#side").hidden`));
+
+  // 10b. The title ends: Netflix shrinks its picture into a corner and offers titles to watch next (with
+  // previews of their own). Netflix's end screen shows, not a black page with a stretched picture.
+  await evaluate(nf, `__postplay()`);
+  const ended = await until("Netflix's end screen showing", () => evaluate(nf, `!document.documentElement.classList.contains("tk-only-video") &&
+    getComputedStyle(document.querySelector(".postplay-still-container")).visibility === "visible"`), 4000)
+    .catch(() => false);
+  const endState = await evaluate(nf, `(() => { const v = document.querySelector("#v").getBoundingClientRect();
+    return { only: document.documentElement.classList.contains("tk-only-video"), title: Math.round(v.width) + "x" + Math.round(v.height),
+      next: getComputedStyle(document.querySelector(".postplay-still-container")).visibility }; })()`);
+  check("the title ended: Netflix's own end screen shows (the picture isn't stretched over it)", !!ended, JSON.stringify(endState));
+  await shot(nf, "9b-netflix-end-screen");
 
   // 11. Leaving the watch page takes the bar away.
   await evaluate(nf, `history.back()`);

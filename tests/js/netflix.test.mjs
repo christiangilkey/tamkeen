@@ -302,7 +302,14 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
     getAudioTrackList: () => audioList,
     getAudioTrack: () => currentAudio, setAudioTrack: (x) => { log.push(`audio ${x.displayName}`); currentAudio = x; },
   };
-  const sized = (v) => (v && v.w !== undefined ? { ...v, getBoundingClientRect: () => ({ width: v.w, height: v.h }) } : v);
+  // ({w, h}: a <video>'s size; parent {w, h}: the size of Netflix's box around it. Attributes are kept.)
+  const sized = (v) => {
+    if (!v || v.w === undefined) return v;
+    const attrs = {};
+    const parentElement = v.parent ? { getBoundingClientRect: () => ({ width: v.parent.w, height: v.parent.h }), parentElement: null } : null;
+    return { ...v, attrs, parentElement, getBoundingClientRect: () => ({ width: v.w, height: v.h }),
+      setAttribute: (k, x) => { attrs[k] = String(x); }, removeAttribute: (k) => { delete attrs[k]; }, hasAttribute: (k) => k in attrs };
+  };
   let shown = videos ? videos.map(sized) : [video];
   let list = sessions;
   const doc = {
@@ -310,7 +317,7 @@ function watchPage(href, { tracks = REAL_TRACKS, audio = null, prompt = false, l
       style: { getPropertyValue: (name) => vars[name] || "" }, appendChild() {} },
     head: { appendChild() {} },
     createElement: () => ({ style: {} }),
-    querySelectorAll: (sel) => (sel === "video" ? shown : []),
+    querySelectorAll: (sel) => (sel === "video" ? shown : sel === "video[data-tk-picture]" ? shown.filter((v) => v.attrs && "data-tk-picture" in v.attrs) : []),
     querySelector: (sel) => (prompt && /interrupt/.test(sel) ? { getBoundingClientRect: () => ({ width: 300, height: 100 }), innerText: "Are you still watching?", querySelector: () => ({ click: () => log.push("continue") }) } : null),
   };
   const url = new URL(href);
@@ -492,6 +499,53 @@ test("in Netflix's page: only a picture that fills the window is the title playi
   const ext = watchPage(WATCH, { ...box, ext: true, vars: { "--tk-side": "380px", "--tk-bar": "260px" } });
   assert.ok(ext.classes.has("tk-only-video"), "the extension's video box: still only the picture");
   assert.ok(!watchPage(WATCH, box).classes.has("tk-only-video"), "(that size in the whole window is not the title)");
+});
+
+// The owner (2026-11-16): in Chrome, with the extension, "hovering over a show on Netflix's browse pages
+// makes the page go black". (The Chrome he tried it in had a copy of the extension from 2026-10-23, from
+// before the two fixes for this; these keep them.)
+test("on Netflix's browse pages: a preview or a trailer playing never blacks out the page", () => {
+  for (const href of ["https://www.netflix.com/browse", "https://www.netflix.com/browse/original-audio/ar",
+    "https://www.netflix.com/browse?jbv=81946364", "https://www.netflix.com/title/81946364", "https://www.netflix.com/search?q=x"]) {
+    for (const ext of [false, true]) {
+      const plog = [];
+      // the pointer resting on a title: its preview in a card; the home page's trailer across the top
+      const page = watchPage(href, { viewport: STAGE, ext, sessions: [{ sid: "motion-preview-7", movie: 80000001, player: previewPlayer(plog) }],
+        videos: [{ w: 1415, h: 797, parent: { w: 1415, h: 797 } }, { w: 427, h: 241, parent: { w: 427, h: 331 } }] });
+      for (let i = 0; i < 5; i++) { page.wait(1000); page.tick(); }
+      assert.ok(!page.classes.has("tk-only-video"), `${href}${ext ? " (extension)" : ""}: Netflix's page shows`);
+      assert.deepEqual(plog, [], "the preview's soundtrack and subtitles are left alone");
+    }
+  }
+});
+
+test("in the extension: its video box stretches only the title's picture, and Netflix's end screen still shows", () => {
+  // The extension stretches the title's picture into the space its bar and sidebar leave (content/netflix.js),
+  // so the picture's own size can't tell any more whether Netflix still shows it full size: Netflix's box
+  // around it can. Before, once stretched it always "filled", and the page stayed black over Netflix's end screen.
+  const vars = { "--tk-side": "380px", "--tk-bar": "260px" };
+  const page = watchPage(WATCH, { ext: true, vars, viewport: { w: 1440, h: 900 }, videos: [{ w: 1060, h: 640, parent: { w: 1440, h: 900 } }] });
+  assert.ok(page.classes.has("tk-only-video"), "the title playing: only its picture, in the video box");
+  const title = page.win.document.querySelectorAll("video")[0];
+  assert.ok("data-tk-picture" in title.attrs, "marked as the picture the video box stretches");
+  // A preview starts elsewhere on the page (Netflix's player is still full size): only the title is stretched.
+  page.page({ videos: [{ w: 1060, h: 640, parent: { w: 1440, h: 900 } }, { w: 427, h: 241, parent: { w: 427, h: 241 } }] });
+  page.tick();
+  const [t2, preview] = page.win.document.querySelectorAll("video");
+  assert.ok(page.classes.has("tk-only-video"));
+  assert.ok("data-tk-picture" in t2.attrs && !("data-tk-picture" in preview.attrs), "the preview keeps its own size");
+  // Stretched by the box, equal in size to the title: still not taken for it.
+  page.page({ videos: [{ w: 1060, h: 640, parent: { w: 1440, h: 900 } }, { w: 1060, h: 640, parent: { w: 427, h: 241 } }] });
+  page.tick();
+  assert.ok("data-tk-picture" in page.win.document.querySelectorAll("video")[0].attrs, "the title's, whatever the stretched sizes say");
+  // The title ends: Netflix shrinks its player into a corner (the picture itself still stretched by the box).
+  page.page({ videos: [{ w: 1060, h: 640, parent: { w: 400, h: 225 } }] });
+  page.tick();
+  assert.ok(!page.classes.has("tk-only-video"), "Netflix's end screen shows");
+  assert.deepEqual(page.win.document.querySelectorAll("video[data-tk-picture]"), [], "and nothing is stretched over it");
+  // Without a box of Netflix's around it to measure, the picture's own size against the video box, as before.
+  const bare = watchPage(WATCH, { ext: true, vars, viewport: { w: 1440, h: 900 }, videos: [{ w: 1060, h: 640 }] });
+  assert.ok(bare.classes.has("tk-only-video"));
 });
 
 test("which of Netflix's players is the title's, and which pictures fill the window", () => {

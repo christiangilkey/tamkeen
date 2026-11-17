@@ -52,8 +52,9 @@
   }
 
   // The video box: while a title plays (netflix-player.js marks the page tk-only-video), its picture
-  // fills the space to the left of the sidebar and above the bar.
-  var VIDEO_BOX = "html.tk-ext.tk-only-video video {" +
+  // fills the space to the left of the sidebar and above the bar. Only the title's own picture
+  // (data-tk-picture, also set by netflix-player.js): a preview's <video> keeps the size Netflix gives it.
+  var VIDEO_BOX = "html.tk-ext.tk-only-video video[data-tk-picture] {" +
     "position: fixed !important; left: 0 !important; top: 0 !important; right: auto !important; bottom: auto !important;" +
     "width: calc(100vw - var(--tk-side, 0px)) !important; height: calc(100vh - var(--tk-bar, 0px)) !important;" +
     "max-width: none !important; max-height: none !important; margin: 0 !important; transform: none !important;" +

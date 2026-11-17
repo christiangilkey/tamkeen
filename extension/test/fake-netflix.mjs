@@ -51,8 +51,49 @@ function browse(lang) {
   <div class="menu"><a href="/browse/original-audio/en">English</a><a href="/browse/original-audio/ar">Arabic</a><a href="/browse/original-audio/es">Spanish</a></div></div>
   <p id="shown">Showing: ${lang || "(choose a language)"}</p></nav>
   <div class="row">${lang === "ar" ? `<a class="title-card" aria-label="حكايات الحي" href="/watch/${TITLE}?tctx=0">حكايات الحي</a>
-  <a class="title-card" aria-label="بيت الجدة" href="/watch/80002002">بيت الجدة</a>` : ""}</div>`);
+  <a class="title-card" aria-label="بيت الجدة" href="/watch/80002002">بيت الجدة</a>` : ""}</div>
+${PREVIEWS}`);
 }
+
+// As on Netflix's browse pages: the pointer resting on a title card plays its preview in a bigger card
+// (a <video> and a player session of its own, named like Netflix's); Netflix's page stays usable around it.
+// window.__preview(card) opens one by hand, window.__unpreview() closes it.
+const PREVIEWS = `<script>
+(() => {
+  const sessions = [];
+  const quiet = { getCurrentTime: () => 3000, getDuration: () => 60000, isPaused: () => false, getPlaybackRate: () => 1,
+    getAudioTrackList: () => [{ bcp47: "en", displayName: "English" }], getAudioTrack: () => ({ bcp47: "en", displayName: "English" }),
+    setAudioTrack: () => (window.__previewLog = window.__previewLog || []).push("audio"),
+    getTextTrackList: () => [], getTextTrack: () => null, setTextTrack: () => (window.__previewLog = window.__previewLog || []).push("text") };
+  if (!window.netflix) window.netflix = { appContext: { state: { playerApp: {
+    getAPI: () => ({ videoPlayer: { getAllPlayerSessionIds: () => sessions.slice(), getVideoPlayerBySessionId: (id) => (sessions.includes(id) ? quiet : null) } }),
+    getState: () => ({ videoPlayer: { videoMetadata: {} } }),
+  } } } };
+  let open = null;
+  window.__unpreview = () => { if (open) open.remove(); open = null; sessions.length = 0; };
+  window.__preview = (card) => {
+    window.__unpreview();
+    const r = card.getBoundingClientRect();
+    const box = document.createElement("div");
+    box.className = "previewModal--wrapper mini-modal";
+    box.setAttribute("style", "position:fixed;z-index:10;pointer-events:none;background:#181818;border-radius:6px;overflow:hidden;width:427px;" +
+      "left:" + Math.max(0, r.left - 100) + "px;top:" + Math.max(0, r.top - 60) + "px");
+    const v = document.createElement("video");
+    v.muted = true;
+    v.setAttribute("style", "display:block;width:427px;height:241px;background:#2a5");
+    const info = document.createElement("div");
+    info.className = "previewModal--info";
+    info.setAttribute("style", "padding:10px;height:90px");
+    info.textContent = "PREVIEW CARD: " + (card.getAttribute("aria-label") || "");
+    box.append(v, info);
+    // (pointer-events none: a click still reaches the title card under it, as the test clicks one next)
+    document.body.appendChild(box);
+    open = box;
+    sessions.push("motion-preview-" + Date.now());
+  };
+  document.querySelectorAll(".title-card").forEach((card) => card.addEventListener("mouseenter", () => window.__preview(card)));
+})();
+</script>`;
 
 function watch(id, video) {
   return page("Netflix", `<div class="watch-video" style="position:fixed;inset:0;background:#000">
@@ -104,6 +145,21 @@ function watch(id, video) {
     getState: () => ({ videoPlayer: { videoMetadata: {} } }),
   } } } };
   window.__player = player;
+  // The title ends: as Netflix does, its picture shrinks into a corner and titles to watch next are
+  // offered beside it; the pointer resting on one plays its preview in a card of its own.
+  window.__postplay = () => {
+    const canvas = document.querySelector("[data-uia=video-canvas]");
+    canvas.setAttribute("style", "position:absolute;left:40px;top:40px;width:400px;height:225px;display:flex");
+    const next = document.createElement("div");
+    next.className = "postplay-still-container";
+    next.setAttribute("style", "position:absolute;left:480px;top:40px;width:300px;padding:10px;background:#333");
+    next.textContent = "MORE LIKE THIS (Netflix's end screen)";
+    const v = document.createElement("video");
+    v.muted = true;
+    v.setAttribute("style", "display:block;width:280px;height:158px;background:#a52");
+    next.appendChild(v);
+    document.querySelector(".watch-video").appendChild(next);
+  };
 })();
 </script>`);
 }

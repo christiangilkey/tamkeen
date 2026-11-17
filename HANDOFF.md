@@ -6135,6 +6135,38 @@ image in the controller settings". The layout table was sent first and approved 
     owner's Bluetooth Xbox layout stubbed; NOT checked on netflix.com itself (no sign-in) — Netflix's class names
     (`previewModal-closebtn`, `.handleNext`) may change.
 
+## Netflix extension: hover blackout in Chrome was an old copy; end screen no longer black (2026-11-17)
+Owner (2026-11-16): the computer's Netflix window no longer blacks out on hover, but "Tamkeen for Netflix" in Chrome still
+does, on the browse pages.
+- **Why, on the browse pages**: the owner's Chrome loads the extension *unpacked* from `C:UserschrisDocuments	amkeen-netflix`
+  (Chrome profile Default, id idaadgfdhmpmeiaeckdjdhcjecpkjdfj), and that folder is **version 0.35.0 from 2026-10-23**,
+  before both fixes (05ce3933, a92d92b5). Its netflix-player.js turns `tk-only-video` on whenever Netflix has *any* player
+  session, on any page, so a hover preview blacks out everything. Unpacked copies never update by themselves. (It was
+  disabled in Chrome on 2026-11-17, "disabled by the user".) **The owner needs to refresh it**: replace that folder's
+  contents with a new build (`node extension/scripts/build.mjs --out C:UserschrisDocuments	amkeen-netflix`, or unzip
+  docs/extension/tamkeen-netflix.zip over it), then chrome://extensions -> Tamkeen for Netflix -> turn on, Reload (same
+  folder = same id, so words waiting in the extension are kept). The current code was already right on browse pages.
+- **A real extension-only blackout, fixed**: on a watch page the extension's video box (content/netflix.js `VIDEO_BOX`)
+  stretched *every* `<video>` into the space left of the sidebar and above the bar while `tk-only-video` was on. So the
+  title's picture always "filled" (lib.fills), even when Netflix had shrunk its player into a corner at the end of a title:
+  the page stayed black over Netflix's end screen, and a preview's `<video>` there was stretched too. **Now**:
+  netflix-player.js marks the title's picture `data-tk-picture` (`markPicture`) and the video box stretches only that one;
+  in the extension (`html.tk-ext`) a picture is measured by Netflix's box around it (`measure`: the nearest of 3 ancestors
+  with a size) against the whole window, falling back to the old way (the picture against the window less bar/sidebar).
+  The computer's window is unchanged (no tk-ext: the picture itself, as before).
+- Tests: netflix.test.mjs +2 (browse/title/search pages with a preview and a trailer, with and without the extension; the
+  video box stretching only the title, a preview equal in stretched size not taken for it, end screen shows). The second
+  fails on the old code. **End to end in Edge 157** against the fake Netflix (`node extension/test/e2e.mjs`, Chromium like
+  Chrome): fake-netflix.mjs now has a hover preview card on the browse page (`__preview`, a "motion-preview-…" session)
+  and `__postplay()` (the picture shrinks to 400x225 in a corner, a "More like this" card); e2e checks 4b (resting on a
+  title: no blackout, no bar, preview untouched) and 10b (end screen shows). Old code: 4b passes, 10b fails (1020x686
+  stretched, end screen hidden); new code: both pass, 32/33. e2e.mjs also fixed: it took Edge's own "Gemini in Chrome"
+  service worker (also background.js) for Tamkeen's; now picks the one whose manifest name starts "Tamkeen for Netflix".
+- **Still to do**: e2e step 3 (the web app's Netflix sheet) fails before and after: the Library now opens on Courses,
+  with no `#add-fab` (the test now reports it and carries on). **Not checked on real Netflix** (no sign-in): that Netflix's
+  box around the `<video>` shrinks at the end of a title (if it doesn't, the end screen stays dark as before; if the box is
+  smaller than the window while playing, Netflix's controls would show over the picture: look at `measure`).
+
 ## Netflix: hover previews no longer black out the page; subtitles follow a change of language (2026-10-31; on main)
 Owner: "in netflix if i hover over a title it blacks everything and shows this, making it imposisble to navigate"
 (screenshot: all black but a 427 x 241 preview card, rounded top corners, at the top left of a 1415 x 797 = 16:9 area,
