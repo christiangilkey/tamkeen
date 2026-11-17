@@ -4400,13 +4400,13 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "43bcb2c6",
-  "k": "Your last name",
+  "id": "81d5a343",
+  "k": "Choose a username",
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "ea8c542d",
-  "k": "The name your DLI teachers know you by. Last name only.",
+  "id": "10cfdce8",
+  "k": "Your teachers see you by it. Pick a nickname, not your real name.",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4420,8 +4420,18 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "63fd8662",
-  "k": "Your teachers and Tamkeen's developer see your last name and your weekly study numbers. Nothing else.",
+  "id": "3ec4bff8",
+  "k": "Your teachers will see you as {0}. You can change your username in Settings → Account & sync.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "64bbac11",
+  "k": "Choose a username first.",
+  "f": "web/js/components/dlishare.js"
+ },
+ {
+  "id": "bf791e50",
+  "k": "Your teachers and Tamkeen's developer see your username and your weekly study numbers. Nothing else.",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4490,8 +4500,8 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "140b3e11",
-  "k": "Your last name and your DLI language",
+  "id": "23fc951b",
+  "k": "Your username and your DLI language (never your real name)",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4525,11 +4535,6 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "adec36a8",
-  "k": "Last name",
-  "f": "web/js/components/dlishare.js"
- },
- {
   "id": "38db13be",
   "k": "DLI language",
   "f": "web/js/components/dlishare.js"
@@ -4550,8 +4555,8 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "666cd34b",
-  "k": "Change last name",
+  "id": "d2c190e1",
+  "k": "You can change your username in Settings → Account & sync.",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4570,18 +4575,13 @@
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "c2d82849",
-  "k": "Your teachers now see you as {0}.",
-  "f": "web/js/components/dlishare.js"
- },
- {
   "id": "9210ff4b",
   "k": "Stop sharing?",
   "f": "web/js/components/dlishare.js"
  },
  {
-  "id": "ab278b8b",
-  "k": "Your last name, your classes and your weekly numbers are deleted online now. The DLI content is locked on all your devices until you share again. Anything already added to your library stays.",
+  "id": "b1dc793f",
+  "k": "Your classes and your weekly numbers are deleted online now. The DLI content is locked on all your devices until you share again. Anything already added to your library stays.",
   "f": "web/js/components/dlishare.js"
  },
  {
@@ -4890,8 +4890,8 @@
   "f": "web/js/components/dliteach.js"
  },
  {
-  "id": "736fd85f",
-  "k": "Their last name, classes and weekly numbers are deleted. Their DLI content locks until they share again.",
+  "id": "ce519f7a",
+  "k": "Their record, classes and weekly numbers are deleted. Their DLI content locks until they share again.",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -4950,11 +4950,6 @@
   "f": "web/js/components/dliteach.js"
  },
  {
-  "id": "d2ac35cc",
-  "k": "A teacher with no name yet",
-  "f": "web/js/components/dliteach.js"
- },
- {
   "id": "156b8bc7",
   "k": "1 class, since {0}",
   "f": "web/js/components/dliteach.js"
@@ -5005,13 +5000,8 @@
   "f": "web/js/components/dliteach.js"
  },
  {
-  "id": "604e661a",
-  "k": "The code Tamkeen gave you. With it you make classes and see the students who join them: their last name and weekly study numbers, never their words.",
-  "f": "web/js/components/dliteach.js"
- },
- {
-  "id": "3c7d374f",
-  "k": "The name your students see",
+  "id": "34a66933",
+  "k": "The code Tamkeen gave you. With it you make classes and see the students who join them: their username and weekly study numbers, never their words.",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -5030,8 +5020,13 @@
   "f": "web/js/components/dliteach.js"
  },
  {
-  "id": "9d4af690",
-  "k": "Saved.",
+  "id": "32dd77b0",
+  "k": "Your students see you as {0}. You can change your username in Settings → Account & sync.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "155138a4",
+  "k": "Choose a username in Settings → Account & sync so your students know who you are. Pick a nickname, not your real name.",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -20492,11 +20487,6 @@
  {
   "id": "49421c8e",
   "k": "Pick a username first, so friends can find you.",
-  "f": "web/js/pages/friends.js"
- },
- {
-  "id": "81d5a343",
-  "k": "Choose a username",
   "f": "web/js/pages/friends.js"
  },
  {

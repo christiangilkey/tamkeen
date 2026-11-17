@@ -8937,3 +8937,18 @@ is by days studied a week.
 - **Checked** in the browser pane (fresh data folder, Supabase `rpc` replaced by stand-in answers): the owner page (levels,
   sorting, the student box, the spreadsheet rows), a class at desktop and phone width, and the time log on a sharing
   device. **Not checked**: against the real database (the SQL has never run), the re-agree step, a phone.
+- **No names (the owner, 2026-11-16, after the above):** "I don't want to track students last names anymore … students
+  will show using their usernames to teachers and vice versa, do not ask any student for their last name", and delete
+  any names stored anywhere. v11 now also: `private.dli_handle(person)` = the profile username, or `user-` + 6 hex of
+  the id; `dli_teacher_names`, `dli_me` (student `username`, teacher `username`), `dli_class_report`,
+  `dli_owner_report` all by handle, each also sending the handle as `last_name` / `name` so apps before v0.61 keep
+  working and show the username; new `dli_agree(language, wording)`; the old `dli_register(last_name, …)` and
+  `dli_set_teacher_name` accept and DISCARD the name; then `drop column` `dli_students.last_name` and
+  `dli_teachers.name` (the result row's `name_columns_left` must be 0). Dropped data stays in the table's files until
+  `vacuum full public.dli_students, public.dli_teachers;` is run on its own (not inside the file: VACUUM can't run in a
+  transaction). Re-running v10 after v11 puts the name functions back: run v11 again after it. App: the sharing step
+  asks for a username only when the account has none (`social.setUsername`, "Pick a nickname, not your real name"),
+  "Change last name" is gone, the teacher's name field became a line naming their username, `dliclass.js` deletes a
+  `last_name` left in `tamkeenDliShare`, and `agree()` falls back to v10's `dli_register` with "-" (never a name) on a
+  database without v11. `dliweeks.js` keeps usernames only (`handle`), never a `last_name` an older database sends.
+  The teacher's private note on a student (this device only) is unchanged.

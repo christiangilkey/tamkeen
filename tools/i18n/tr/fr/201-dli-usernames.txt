@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	Vos enseignants vous voient sous ce nom. Choisissez un pseudo, pas votre vrai nom.
+3ec4bff8	Vos enseignants vous verront sous le nom {0}. Vous pouvez changer votre nom d'utilisateur dans Réglages → Compte et synchronisation.
+64bbac11	Choisissez d'abord un nom d'utilisateur.
+bf791e50	Vos enseignants et le développeur de Tamkeen voient votre nom d'utilisateur et vos chiffres d'étude de la semaine. Rien d'autre.
+23fc951b	Votre nom d'utilisateur et votre langue au DLI (jamais votre vrai nom)
+d2c190e1	Vous pouvez changer votre nom d'utilisateur dans Réglages → Compte et synchronisation.
+b1dc793f	Vos classes et vos chiffres de la semaine sont supprimés en ligne maintenant. Le contenu du DLI est verrouillé sur tous vos appareils jusqu'à ce que vous partagiez à nouveau. Ce que vous avez déjà ajouté à votre bibliothèque reste.
+ce519f7a	Son dossier, ses classes et ses chiffres de la semaine sont supprimés. Son contenu du DLI est verrouillé jusqu'à ce qu'il partage à nouveau.
+34a66933	Le code que Tamkeen vous a donné. Avec lui, vous créez des classes et voyez les étudiants qui les rejoignent : leur nom d'utilisateur et leurs chiffres d'étude de la semaine, jamais leurs mots.
+32dd77b0	Vos étudiants vous voient sous le nom {0}. Vous pouvez changer votre nom d'utilisateur dans Réglages → Compte et synchronisation.
+155138a4	Choisissez un nom d'utilisateur dans Réglages → Compte et synchronisation pour que vos étudiants sachent qui vous êtes. Choisissez un pseudo, pas votre vrai nom.

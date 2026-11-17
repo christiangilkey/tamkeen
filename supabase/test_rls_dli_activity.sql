@@ -1,4 +1,4 @@
--- Self-test of the DLI time numbers (schema v11, supabase/v11-dli-activity.sql). Run in the Supabase SQL
+-- Self-test of schema v11 (supabase/v11-dli-activity.sql): no names kept, usernames shown, and the time numbers. Run in the Supabase SQL
 -- editor after v11. It plays made-up people (a teacher, two students, a stranger), checks what each may and
 -- may not do, then ends with an error on purpose: that rolls everything back, so no test data is left behind.
 -- The error message is the report:
@@ -24,6 +24,8 @@ begin
   insert into auth.users (id, aud, role, email)
   select u, 'authenticated', 'authenticated', u::text || '@test.invalid' from unnest(array[ut, ua, ub, ux]) u;
   insert into public.profiles (id) select u from unnest(array[ut, ua, ub, ux]) u on conflict do nothing;
+  update public.profiles p set username = 'tst_teacher_' || left(replace(p.id::text, '-', ''), 6) where p.id = ut;
+  update public.profiles p set username = 'tst_stu_' || left(replace(p.id::text, '-', ''), 6) where p.id = ua;
   update private.dli_config set teacher_code = c_teacher where only_one;
 
   -- ---------------------------------------------------------------- 1. the table is closed; nothing runs signed out
@@ -33,6 +35,10 @@ begin
   then ok := ok + 1; else bad := bad || ' table-open'; end if;
   if not has_function_privilege('anon', 'public.dli_report_time(date, text, integer, integer, integer, integer)', 'execute')
   then ok := ok + 1; else bad := bad || ' signed-out-can-report'; end if;
+  -- no column can hold a name any more
+  if not exists (select 1 from information_schema.columns where table_schema = 'public'
+                 and ((table_name = 'dli_students' and column_name = 'last_name') or (table_name = 'dli_teachers' and column_name = 'name')))
+  then ok := ok + 1; else bad := bad || ' name-columns-still-there'; end if;
 
   -- ---------------------------------------------------------------- 2. a teacher's class, two students
   perform set_config('request.jwt.claims', json_build_object('sub', ut, 'role', 'authenticated')::text, true);
@@ -43,8 +49,13 @@ begin
   execute 'reset role';
   perform set_config('request.jwt.claims', json_build_object('sub', ua, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
-  perform public.dli_register('Smith', 'ar', 2);
+  got := public.dli_agree('ar', 2);
+  if got->'student'->>'username' like 'tst_stu_%' then ok := ok + 1; else bad := bad || ' student-not-by-username:' || got::text; end if;
+  -- an older app sending a last name: accepted, and the name goes nowhere
+  got := public.dli_register('Smith', 'ar', 2);
+  if got::text not like '%Smith%' then ok := ok + 1; else bad := bad || ' last-name-kept'; end if;
   perform public.dli_use_code(code);
+  if (public.dli_me()->'classes'->0->'teachers'->>0) like 'tst_teacher_%' then ok := ok + 1; else bad := bad || ' teacher-not-by-username'; end if;
   -- two devices' shares of this week: minutes add up, days are put together (Mon+Tue and Tue+Wed = 3 days)
   if public.dli_report_week(monday, 1, 10, 20, 15, 5, 40, 20) then ok := ok + 1; else bad := bad || ' week-refused'; end if;
   if public.dli_report_time(monday, d1, 30, 10, 5, 3) then ok := ok + 1; else bad := bad || ' time-refused'; end if;
@@ -81,7 +92,8 @@ begin
   -- ---------------------------------------------------------------- 3. a student with only listening still shows
   perform set_config('request.jwt.claims', json_build_object('sub', ub, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
-  perform public.dli_register('Lee', 'ar', 2);
+  got := public.dli_agree('ar', 2);
+  if got->'student'->>'username' ~ '^user-[0-9a-f]{6}$' then ok := ok + 1; else bad := bad || ' no-username-stand-in:' || got::text; end if;
   perform public.dli_report_time(monday, d1, 25, 0, 0, 1);
   wk := public.dli_me()->'weeks'->0;
   if (wk->>'listening')::int = 25 and (wk->>'active_days')::int = 1 and (wk->>'reviews')::int = 0 then ok := ok + 1;
@@ -91,8 +103,10 @@ begin
   -- ---------------------------------------------------------------- 4. the teacher sees the time of their own students only
   perform set_config('request.jwt.claims', json_build_object('sub', ut, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
+  perform public.dli_set_teacher_name('Ms. Rivera');  -- (an older app: nothing is stored)
   got := public.dli_class_report(cls, 4);
   if jsonb_array_length(got->'students') = 1 and (got->'students'->0->'weeks'->0->>'listening')::int = 55
+     and got->'students'->0->>'username' like 'tst_stu_%' and got::text not like '%Rivera%'
   then ok := ok + 1; else bad := bad || ' teacher-report-wrong:' || got::text; end if;
   begin
     select count(*) into n from public.dli_week_time;
@@ -126,7 +140,7 @@ begin
   update public.dli_students s set joined_at = now() - interval '30 days' where s.user_id = ub;
   perform set_config('request.jwt.claims', json_build_object('sub', ub, 'role', 'authenticated')::text, true);
   execute 'set local role authenticated';
-  perform public.dli_register('Lee', 'ar', 3);
+  perform public.dli_agree('ar', 3);
   execute 'reset role';
   select count(*) into n from public.dli_students s where s.user_id = ub and s.joined_at < now() - interval '29 days'
     and s.agreed_at > now() - interval '1 minute';

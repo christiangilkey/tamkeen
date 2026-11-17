@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	Els teus professors et veuen amb aquest nom. Tria un sobrenom, no el teu nom real.
+3ec4bff8	Els teus professors et veuran com a {0}. Pots canviar el nom d'usuari a Configuració → Compte i sincronització.
+64bbac11	Primer tria un nom d'usuari.
+bf791e50	Els teus professors i el desenvolupador de Tamkeen veuen el teu nom d'usuari i les teves xifres d'estudi setmanals. Res més.
+23fc951b	El teu nom d'usuari i la teva llengua del DLI (mai el teu nom real)
+d2c190e1	Pots canviar el nom d'usuari a Configuració → Compte i sincronització.
+b1dc793f	Les teves classes i les teves xifres setmanals s'esborren en línia ara. El contingut del DLI queda bloquejat a tots els teus dispositius fins que tornis a compartir. El que ja hagis afegit a la biblioteca es queda.
+ce519f7a	S'esborren el seu registre, les seves classes i les seves xifres setmanals. El seu contingut del DLI es bloqueja fins que torni a compartir.
+34a66933	El codi que et va donar Tamkeen. Amb ell crees classes i veus els estudiants que s'hi uneixen: el seu nom d'usuari i les xifres d'estudi setmanals, mai les seves paraules.
+32dd77b0	Els teus estudiants et veuen com a {0}. Pots canviar el nom d'usuari a Configuració → Compte i sincronització.
+155138a4	Tria un nom d'usuari a Configuració → Compte i sincronització perquè els teus estudiants sàpiguen qui ets. Tria un sobrenom, no el teu nom real.

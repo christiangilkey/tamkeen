@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	I tuoi insegnanti ti vedono con questo nome. Scegli un soprannome, non il tuo vero nome.
+3ec4bff8	I tuoi insegnanti ti vedranno come {0}. Puoi cambiare il nome utente in Impostazioni → Account e sincronizzazione.
+64bbac11	Prima scegli un nome utente.
+bf791e50	I tuoi insegnanti e lo sviluppatore di Tamkeen vedono il tuo nome utente e i tuoi numeri di studio settimanali. Nient'altro.
+23fc951b	Il tuo nome utente e la tua lingua del DLI (mai il tuo vero nome)
+d2c190e1	Puoi cambiare il nome utente in Impostazioni → Account e sincronizzazione.
+b1dc793f	Le tue classi e i tuoi numeri settimanali vengono cancellati online ora. Il contenuto del DLI resta bloccato su tutti i tuoi dispositivi finché non condividi di nuovo. Ciò che hai già aggiunto alla libreria resta.
+ce519f7a	Vengono cancellati il suo profilo, le sue classi e i suoi numeri settimanali. Il suo contenuto del DLI si blocca finché non condivide di nuovo.
+34a66933	Il codice che ti ha dato Tamkeen. Con esso crei classi e vedi gli studenti che vi entrano: il loro nome utente e i numeri di studio settimanali, mai le loro parole.
+32dd77b0	I tuoi studenti ti vedono come {0}. Puoi cambiare il nome utente in Impostazioni → Account e sincronizzazione.
+155138a4	Scegli un nome utente in Impostazioni → Account e sincronizzazione perché i tuoi studenti sappiano chi sei. Scegli un soprannome, non il tuo vero nome.

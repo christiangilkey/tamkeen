@@ -1,6 +1,6 @@
 // DLI classes, the online side (supabase/v10-dli-classes.sql and v11-dli-activity.sql, through social.js's connection).
 //
-// A DLI student must share their last name and weekly study numbers (dliweeks.js) with Tamkeen's developer and
+// A DLI student must share their username and weekly study numbers (dliweeks.js) with Tamkeen's developer and
 // with the teachers of classes they join: the owner's rule, agreed to on a screen that says so
 // (components/dlishare.js). Until they have, the DLI material stays closed (`gate`). Teachers make classes and
 // see their own students; the owner sees every DLI student (components/dliteach.js).
@@ -9,7 +9,8 @@
 // who is asking. What comes back is still checked again before it is shown (dliweeks.js cleanMe and the rest).
 //
 // On this device (localStorage, not synced, so one device signing out doesn't lock the others):
-//   tamkeenDliShare    { user, last_name, language, agreed_at }: sharing is on for this account
+//   tamkeenDliShare    { user, username, language, agreed_at }: sharing is on for this account (no name: DLI keeps
+//                      none since v0.61, and one left here by an older version is removed when this file loads)
 //   tamkeenDliService  "on" once the online service was found to have DLI classes (the SQL file run), "off" when
 //                      it was found not to. Until it is known to be on, the material opens as it did before, with
 //                      nothing shared: nobody is locked out by an update, or while offline on first start
@@ -45,13 +46,18 @@ const write = (key, value) => {
 
 // ---------- what this device knows ----------
 
-/** { user, last_name, language, agreed_at } while sharing is on for this device's account, else null. */
+/** { user, username, language, agreed_at } while sharing is on for this device's account, else null. */
 export function shareInfo() {
   try {
     const v = JSON.parse(read(SHARE_KEY) || "null");
-    return v && typeof v.user === "string" && typeof v.last_name === "string" && v.last_name ? v : null;
+    return v && typeof v.user === "string" && v.user && typeof v.language === "string" ? v : null;
   } catch { return null; }
 }
+// A last name kept on this device by an older version: deleted.
+try {
+  const old = JSON.parse(read(SHARE_KEY) || "null");
+  if (old && typeof old === "object" && "last_name" in old) { delete old.last_name; write(SHARE_KEY, JSON.stringify(old)); }
+} catch { /* nothing kept, or storage off */ }
 function keepShare(value) {
   const before = read(SHARE_KEY);
   const after = value ? JSON.stringify(value) : null;
@@ -151,21 +157,30 @@ export async function refresh() {
   const st = dliState(settings());
   // (the DLI language was changed on another device: the record follows it)
   if (me.student && st.language && me.student.language !== st.language) {
-    try { me = cleanMe(await rpc("dli_register", { last_name: me.student.last_name, language: st.language, wording: WORDING })); } catch { /* next time */ }
+    try { me = await agree(st.language); } catch { /* next time */ }
   }
   keepShare(me.student && user && me.student.agreed_version >= WORDING ? { user: user.id, ...me.student } : null);
   return { signedIn: true, me };
 }
 
-/** Agree to share: my last name, with my DLI language. Resolves to `me`. */
-export async function register(lastName, language) {
-  const me = cleanMe(await rpc("dli_register", { last_name: String(lastName || ""), language, wording: WORDING }));
+/** dli_agree (v11), or on a database without v11 yet the older dli_register with a dash where a last name went:
+ *  no name is ever sent. */
+async function agree(language) {
+  try { return cleanMe(await rpc("dli_agree", { language, wording: WORDING })); } catch (e) {
+    if (!e.notReady) throw e;
+    return cleanMe(await rpc("dli_register", { last_name: "-", language, wording: WORDING }));
+  }
+}
+
+/** Agree to share my username and weekly numbers, with my DLI language. Resolves to `me`. */
+export async function register(language) {
+  const me = await agree(language);
   const user = await social.currentUser();
   keepShare(me.student && user ? { user: user.id, ...me.student } : null);
   return me;
 }
 
-/** Stop sharing: my last name, classes and weekly numbers are deleted online; the DLI material closes here. */
+/** Stop sharing: my record, classes and weekly numbers are deleted online; the DLI material closes here. */
 export async function unregister() {
   await rpc("dli_unregister");
   keepShare(null);
@@ -181,7 +196,6 @@ export const leaveClass = (id) => rpc("dli_leave_class", { class: id });
 
 // ---------- teachers ----------
 
-export const setTeacherName = (name) => rpc("dli_set_teacher_name", { name: String(name || "") });
 export async function createClass(name) {
   return cleanClass({ ...(await rpc("dli_create_class", { name: String(name || "") })), role: "teacher", students: 0 });
 }

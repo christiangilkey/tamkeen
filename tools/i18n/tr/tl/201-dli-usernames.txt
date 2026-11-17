@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	Ito ang makikita ng mga guro mo. Pumili ng palayaw, hindi ang tunay mong pangalan.
+3ec4bff8	Makikita ka ng mga guro mo bilang {0}. Mapapalitan mo ang username mo sa Settings → Account at sync.
+64bbac11	Pumili muna ng username.
+bf791e50	Ang username mo at ang lingguhang bilang ng pag-aaral mo lang ang nakikita ng mga guro mo at ng developer ng Tamkeen. Wala nang iba.
+23fc951b	Ang username mo at ang wika mo sa DLI (hindi kailanman ang tunay mong pangalan)
+d2c190e1	Mapapalitan mo ang username mo sa Settings → Account at sync.
+b1dc793f	Buburahin na online ang mga klase at lingguhang bilang mo. Naka-lock ang DLI content sa lahat ng device mo hanggang magbahagi ka ulit. Mananatili ang anumang naidagdag mo na sa library.
+ce519f7a	Buburahin ang record, mga klase at lingguhang bilang nila. Naka-lock ang DLI content nila hanggang magbahagi sila ulit.
+34a66933	Ang code na ibinigay sa iyo ng Tamkeen. Dito ka gagawa ng mga klase at makikita ang mga estudyanteng sasali: ang username nila at lingguhang bilang ng pag-aaral, hindi kailanman ang mga salita nila.
+32dd77b0	Makikita ka ng mga estudyante mo bilang {0}. Mapapalitan mo ang username mo sa Settings → Account at sync.
+155138a4	Pumili ng username sa Settings → Account at sync para malaman ng mga estudyante mo kung sino ka. Pumili ng palayaw, hindi ang tunay mong pangalan.

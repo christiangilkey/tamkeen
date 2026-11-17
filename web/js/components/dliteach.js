@@ -4,8 +4,8 @@
 //   has a code its students type; a tap on a class opens its students with their weekly study numbers
 //   (dliweeks.js): days studied, minutes (flashcards, listening, watching, reading), reviews, share remembered,
 //   new words, words known, when they joined and their activity level (dliweeks.js activity), with how many
-//   students are at each level above the table. Last names and numbers only: a teacher never sees a student's
-//   words or library.
+//   students are at each level above the table. Usernames and numbers only (no one's real name is kept: the
+//   owner's rule, 2026-11-16): a teacher never sees a student's words or library.
 //   The owner (made by the one-time owner code) also gets "All DLI students": every student, by language and
 //   class, the same numbers, a copy for a spreadsheet, the teacher code and the list of teachers.
 // A teacher can keep a private note on a student ("sits by the window"): it stays on that device
@@ -125,7 +125,7 @@ function studentsTable(students, { range, current, more = [], open }) {
   const marks = notes();
   const rows = students.map((s) => ({ s, tot: totals(s.weeks, current, range), act: activity(s.weeks, current, joinedOf(s)) }));
   const columns = [
-    { label: "Student", sort: (r) => r.s.last_name.toLowerCase() },
+    { label: "Student", sort: (r) => r.s.username.toLowerCase() },
     ...more.map((m) => ({ label: m.label, sort: (r) => m.get(r.s).toLowerCase(), cell: (r) => m.get(r.s) })),
     { label: "Joined", sort: (r) => joinedOf(r.s) || "9" },
     { label: "Activity level", sort: (r) => LEVELS.indexOf(r.act.level) * 100 - r.act.perWeek },
@@ -144,7 +144,7 @@ function studentsTable(students, { range, current, more = [], open }) {
   const paint = () => {
     const sorted = [...rows].sort((a, b) => {
       const x = columns[by].sort(a), y = columns[by].sort(b);
-      return x < y ? -1 : x > y ? 1 : a.s.last_name.localeCompare(b.s.last_name);
+      return x < y ? -1 : x > y ? 1 : a.s.username.localeCompare(b.s.username);
     });
     body.innerHTML = "";
     for (const r of sorted) {
@@ -154,7 +154,7 @@ function studentsTable(students, { range, current, more = [], open }) {
         ${more.map(() => `<td class="dlt-more" translate="no"></td>`).join("")}
         <td class="dlt-joined" translate="no"></td><td class="dlt-act"></td>
         ${numbers.map((v) => `<td translate="no">${esc(v)}</td>`).join("")}<td></td></tr>`);
-      tr.querySelector("strong").textContent = r.s.last_name;
+      tr.querySelector("strong").textContent = r.s.username;
       tr.querySelector(".dlt-note").textContent = marks[r.s.id] || "";
       tr.querySelectorAll(".dlt-more").forEach((td, i) => { td.textContent = more[i].get(r.s); });
       tr.querySelector(".dlt-joined").textContent = dayLabel(joinedOf(r.s)) || "–";
@@ -178,7 +178,7 @@ function studentsTable(students, { range, current, more = [], open }) {
 
 /** One student: their weeks, the teacher's private note, and the way out (`remove`: { label, text, ok, run }). */
 function studentBox(student, { remove, changed = () => {} }) {
-  const box = openModal({ title: student.last_name, wide: true, cls: "dlt-back" });
+  const box = openModal({ title: student.username, wide: true, cls: "dlt-back" });
   const view = h(`<div class="dls dls-what-box">
     <div class="dls-facts">
       <div><span class="small muted">DLI language</span><strong class="dlt-f-lang"></strong></div>
@@ -248,7 +248,7 @@ export function openClass(klass, { changed = () => {} } = {}) {
       view.append(studentsTable(report.students, { range, current: cls.thisWeek(),
         more: [{ label: "Language", get: (s) => (s.language ? t(dliLanguageName(s.language)) : "") }], open: (s) => studentBox(s, {
         changed: load,
-        remove: { label: t("Remove from the class"), title: t("Remove {0} from the class?", s.last_name),
+        remove: { label: t("Remove from the class"), title: t("Remove {0} from the class?", s.username),
           text: t("You stop seeing their numbers. They can join again with the class code."), ok: t("Remove"),
           run: () => cls.removeStudent(klass.id, s.id) },
       }) }));
@@ -347,8 +347,8 @@ export function openOwner() {
       view.append(studentsTable(shown, { range, current: cls.thisWeek(),
         more: [{ label: "Language", get: (s) => (s.language ? t(dliLanguageName(s.language)) : "") }, { label: "Class", get: (s) => s.classes.join(", ") }],
         open: (s) => studentBox(s, { changed: load,
-          remove: { label: t("Delete this student's DLI record"), title: t("Delete {0}'s DLI record?", s.last_name),
-            text: t("Their last name, classes and weekly numbers are deleted. Their DLI content locks until they share again."), ok: t("Delete"),
+          remove: { label: t("Delete this student's DLI record"), title: t("Delete {0}'s DLI record?", s.username),
+            text: t("Their record, classes and weekly numbers are deleted. Their DLI content locks until they share again."), ok: t("Delete"),
             run: () => cls.ownerRemoveStudent(s.id) } }) }));
     }
 
@@ -393,7 +393,7 @@ export function openOwner() {
     for (const who of report.teachers) {
       const row = h(`<div class="dls-row"><span class="dls-row-text"><strong translate="no"></strong><span class="small muted"></span></span>
         <button type="button" class="ghost danger">Remove</button></div>`);
-      row.querySelector("strong").textContent = [who.name, who.username ? `@${who.username}` : ""].filter(Boolean).join(" · ") || t("A teacher with no name yet");
+      row.querySelector("strong").textContent = who.username || "–";
       row.querySelector(".muted").textContent = who.classes === 1 ? t("1 class, since {0}", dayLabel(who.since))
         : t("{0} classes, since {1}", who.classes, dayLabel(who.since));
       row.querySelector("button").onclick = async () => {
@@ -466,7 +466,7 @@ export function teachCard(body) {
 
   function enterCode() {
     const box = h(`<div class="dls-step dli-part"><h3>Teacher code</h3>
-      <p class="set-hint">The code Tamkeen gave you. With it you make classes and see the students who join them: their last name and
+      <p class="set-hint">The code Tamkeen gave you. With it you make classes and see the students who join them: their username and
         weekly study numbers, never their words.</p></div>`);
     box.append(codeBox({ label: t("Teacher code"), placeholder: "TCH-…", button: t("Continue"), go: typed }));
     part.append(box);
@@ -474,22 +474,18 @@ export function teachCard(body) {
 
   function teacher(me) {
     const box = h(`<div class="dls-step dli-part">
-      <h3><label for="dlt-name">The name your students see</label></h3>
-      <div class="dls-code"><input type="text" id="dlt-name" maxlength="${cls.NAME_MAX}" autocomplete="off" spellcheck="false" translate="no" placeholder="Ms. Rivera">
-        <button type="button" class="dlt-savename">Save</button></div>
+      <p class="set-hint dlt-seenas"></p>
       <h3>My classes</h3>
       <div class="dls-list"></div>
       <div class="set-actions"><button type="button" class="primary dlt-new">New class</button></div>
       <h3>Another teacher's class</h3>
       <p class="set-hint">To teach a class together, type the code for another teacher that its teacher gave you.</p>
     </div>`);
-    const name = box.querySelector("#dlt-name");
-    name.style.textTransform = "none";
-    name.style.letterSpacing = "0";
-    name.value = (me.teacher && me.teacher.name) || "";
-    box.querySelector(".dlt-savename").onclick = async () => {
-      try { await cls.setTeacherName(name.value); toast("Saved."); } catch (err) { toast(err.message, { error: true }); }
-    };
+    // (by username: no one's real name is kept. "user-…" is the database's stand-in for someone with no username yet)
+    const seen = (me.teacher && me.teacher.username) || "";
+    box.querySelector(".dlt-seenas").textContent = seen && !seen.startsWith("user-")
+      ? t("Your students see you as {0}. You can change your username in Settings → Account & sync.", seen)
+      : t("Choose a username in Settings → Account & sync so your students know who you are. Pick a nickname, not your real name.");
     const list = box.querySelector(".dls-list");
     const mine = me.classes.filter((c) => c.role === "teacher");
     if (!mine.length) list.append(h(`<p class="small muted dls-none">No classes yet. Make one, then give your students its code.</p>`));

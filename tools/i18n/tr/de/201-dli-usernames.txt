@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	Deine Lehrkräfte sehen dich unter diesem Namen. Wähle einen Spitznamen, nicht deinen echten Namen.
+3ec4bff8	Deine Lehrkräfte sehen dich als {0}. Deinen Benutzernamen änderst du unter Einstellungen → Konto & Synchronisierung.
+64bbac11	Wähle zuerst einen Benutzernamen.
+bf791e50	Deine Lehrkräfte und der Entwickler von Tamkeen sehen deinen Benutzernamen und deine wöchentlichen Lernzahlen. Sonst nichts.
+23fc951b	Dein Benutzername und deine DLI-Sprache (nie dein echter Name)
+d2c190e1	Deinen Benutzernamen änderst du unter Einstellungen → Konto & Synchronisierung.
+b1dc793f	Deine Klassen und deine wöchentlichen Zahlen werden jetzt online gelöscht. Die DLI-Inhalte sind auf allen deinen Geräten gesperrt, bis du wieder teilst. Was du schon in deine Bibliothek übernommen hast, bleibt.
+ce519f7a	Eintrag, Klassen und wöchentliche Zahlen werden gelöscht. Die DLI-Inhalte sind gesperrt, bis wieder geteilt wird.
+34a66933	Der Code, den du von Tamkeen bekommen hast. Damit erstellst du Klassen und siehst die Lernenden, die beitreten: ihren Benutzernamen und ihre wöchentlichen Lernzahlen, nie ihre Wörter.
+32dd77b0	Deine Lernenden sehen dich als {0}. Deinen Benutzernamen änderst du unter Einstellungen → Konto & Synchronisierung.
+155138a4	Wähle unter Einstellungen → Konto & Synchronisierung einen Benutzernamen, damit deine Lernenden wissen, wer du bist. Wähle einen Spitznamen, nicht deinen echten Namen.

@@ -48,7 +48,7 @@ export const FINDS = [
   { s: "languages", id: "reading", label: "Furigana", words: "kana kanji reading", langs: ["ja"] },
   { s: "languages", id: "reading", label: "Pinyin and characters", words: "tones simplified traditional", langs: ["zh"] },
   { s: "languages", id: "reading", label: "Korean readings", words: "romanization romanisation pronunciation hangul", langs: ["ko"] },
-  { s: "dli", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course class code last name share" },
+  { s: "dli", id: "dli", label: "DLI students", words: "defense language institute dli student military password unlock content course class code username share" },
   { s: "dli", id: "dliteacher", label: "I'm a DLI teacher", words: "defense language institute dli teacher instructor class classes students progress code" },
   { s: "words", id: "mode", label: "AI explanations or built-in dictionary", words: "offline wiktionary free definitions meanings" },
   { s: "words", id: "key", label: "AI provider and API key", words: "claude gemini openai chatgpt grok key test" },

@@ -21,7 +21,7 @@
   <p>Tamkeen is an open-source app that runs on your own devices. Your library, transcripts and vocabulary stay on
   your devices and, if you turn on sync, in your own Google Drive. Two services run for Tamkeen can receive data about
   you: the online database behind Friends, chat and guilds, only if you turn those on (see
-  <a href="#social">Friends</a>), which also keeps a last name and weekly study numbers for students of the Defense
+  <a href="#social">Friends</a>), which also keeps weekly study numbers for students of the Defense
   Language Institute who agree to it (see <a href="#dli">DLI students and teachers</a>); and, in the web app only, a go-between server that fetches podcasts, web pages,
   YouTube captions and Instagram reels for your browser (see <a href="#webapp">The web app</a>). This page explains
   where your data goes for each feature.</p>
@@ -252,7 +252,9 @@
   <p><strong>Students.</strong> To open the DLI content you sign in with Google and agree, on a screen that lists
   exactly what follows, to share:</p>
   <ul>
-    <li>your last name (no first name, rank or unit) and which DLI language you study;</li>
+    <li>which DLI language you study. You are known by your Tamkeen username (choose a nickname, not your real
+      name). <strong>We do not ask for or keep anyone's real name.</strong> Last names collected by earlier versions,
+      and the names teachers chose for their students to see, have been deleted;</li>
     <li>one row of numbers for each week: the days you studied, the minutes you spent on flashcards, the minutes
       you spent listening, watching and reading in your DLI language (only how long, never what), how many cards
       you reviewed and how many of those you remembered, how many new words you started, how many words you have
@@ -262,20 +264,20 @@
   <p>Listening, watching and reading time is counted on each of your devices while you share, and each device sends
   its own minutes under a random number made for that purpose (nothing else about the device), so the minutes can be
   added up. From these numbers the app shows your teachers and us an activity level (how many days a week you study).</p>
-  <p><strong>Who sees it.</strong> We do: Tamkeen's developer sees every DLI student's last name, language, classes
+  <p><strong>Who sees it.</strong> We do: Tamkeen's developer sees every DLI student's username, language, classes
   and weekly numbers, to see how much DLI students use the app and how that goes with their results on the course. The
-  teachers of a class you join see your last name, your language and your weekly numbers from the week you joined
+  teachers of a class you join see your username, your language and your weekly numbers from the week you joined
   their class. Nobody else does: not other students, not your friends. <strong>Your words, their meanings, your
   library and your recordings are never sent.</strong> This is the one case where numbers about your studying leave
   your devices, and it applies only to DLI students who agree.</p>
   <p>While the app is open it sends the current week's numbers when they change. In Settings → DLI students → "What is
-  shared" you can see exactly what is held, change your last name, leave a class or stop sharing. Stopping deletes
-  your last name, your class memberships and every weekly row from our service at once, and locks the DLI content
+  shared" you can see exactly what is held, leave a class or stop sharing (your username is changed in Settings →
+  Account &amp; sync). Stopping deletes your DLI record, your class memberships and every weekly row from our service at once, and locks the DLI content
   again until you share again. Deleting your online account does the same. Weekly rows older than about two years are
   deleted.</p>
   <p><strong>Teachers.</strong> A DLI teacher signs in with Google and types a teacher code that we give out. We
-  store the name they choose for their students to see and the classes they make (a name and two codes for joining).
-  The students of a class see its name and its teachers' names. We see the list of teachers, with their usernames.
+  store the classes they make (a name and two codes for joining). The students of a class see its name and its
+  teachers' usernames. We see the list of teachers, by username.
   A note a teacher writes about a student stays on that teacher's own device and is never sent.</p>
   <p>To stop codes being guessed, the service counts the wrong codes each account typed in the last day (kept for two
   days).</p>
@@ -346,7 +348,7 @@
   within 30 days. If you are in the EU or UK, you can also object to or restrict how we use it, and complain to your
   local data protection authority. Data on your own devices and in your own Google Drive is already in your hands.</p>
   <p><strong>Why we use it (legal bases, EU/UK).</strong> We use the data on our service to provide the online
-  features you turn on (performance of our agreement with you; for a DLI student's last name and weekly numbers,
+  features you turn on (performance of our agreement with you; for a DLI student's record and weekly numbers,
   your consent, which you can take back at any time by stopping sharing), short technical logs to keep the service secure (our
   legitimate interest in security), and anything the law requires us to keep (legal obligation). We don't sell or share
   personal data, we don't use it for advertising, and we don't build profiles of you or make automated decisions about
@@ -364,8 +366,8 @@
     <li>Battle results: 60 days. Opened gifts: 30 days. Live quiz questions and answers: not stored.</li>
     <li>Blocks: until you unblock the person or delete your account. Reports: until we have handled them, then 90
       days; at most a year. The daily counts of what was sent: two days.</li>
-    <li>DLI students: last name, classes and weekly numbers until you stop sharing or delete your account; a weekly
-      row for about two years at most. DLI teachers: their name and classes until they leave, delete their account or
+    <li>DLI students: language, classes and weekly numbers until you stop sharing or delete your account; a weekly
+      row for about two years at most. DLI teachers: their classes until they leave, delete their account or
       stop being a teacher. Wrong codes typed: two days.</li>
     <li>Server logs: kept by Supabase and Cloudflare for a short time under their own policies.</li>
   </ul>

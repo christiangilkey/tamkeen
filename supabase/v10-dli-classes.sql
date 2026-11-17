@@ -1,6 +1,8 @@
 -- Schema v10: DLI classes. Students share their last name and weekly study numbers; teachers see their own
 -- classes; the app's owner sees every DLI student. Run once in the Supabase SQL editor (safe to re-run).
 -- It works before or after v8-safety.sql and v9-fishing.sql.
+-- AFTER v11-dli-activity.sql has been run, run v11 again whenever this file is re-run: v11 replaces the functions
+-- here that used names (no one's real name is kept since v11) and this file would put them back.
 --
 -- WHAT IS STORED, AND NOTHING ELSE
 --   a student   their last name (no first name, rank or unit), which of the seven DLI languages they study,

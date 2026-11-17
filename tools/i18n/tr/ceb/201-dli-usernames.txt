@@ -1,0 +1,12 @@
+# DLI by username, no real names (dlishare.js, dliteach.js).
+10cfdce8	Makita ka sa imong mga magtutudlo pinaagi niini. Pagpili og nickname, dili ang imong tinuod nga ngalan.
+3ec4bff8	Makita ka sa imong mga magtutudlo isip {0}. Mausab nimo ang imong username sa Settings → Account ug sync.
+64bbac11	Pagpili una og username.
+bf791e50	Ang imong mga magtutudlo ug ang developer sa Tamkeen makakita sa imong username ug sa imong senemanang numero sa pagtuon. Wala nay lain.
+23fc951b	Ang imong username ug ang imong pinulongan sa DLI (dili gyud ang imong tinuod nga ngalan)
+d2c190e1	Mausab nimo ang imong username sa Settings → Account ug sync.
+b1dc793f	Ang imong mga klase ug senemanang numero mapapas online karon. Ma-lock ang DLI content sa tanan nimong device hangtod mopaambit ka pag-usab. Magpabilin ang tanan nga nadugang na sa imong library.
+ce519f7a	Mapapas ang ilang rekord, mga klase ug senemanang numero. Ma-lock ang ilang DLI content hangtod mopaambit sila pag-usab.
+34a66933	Ang code nga gihatag kanimo sa Tamkeen. Pinaagi niini makahimo ka og mga klase ug makita ang mga estudyante nga moapil: ilang username ug senemanang numero sa pagtuon, dili gyud ang ilang mga pulong.
+32dd77b0	Makita ka sa imong mga estudyante isip {0}. Mausab nimo ang imong username sa Settings → Account ug sync.
+155138a4	Pagpili og username sa Settings → Account ug sync aron mahibal-an sa imong mga estudyante kinsa ka. Pagpili og nickname, dili ang imong tinuod nga ngalan.

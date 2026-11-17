@@ -49,11 +49,15 @@ test("the v11 file: closed table, checked caller, WHERE on every change, the app
   for (const k of ["listening", "watching", "reading", "day_mask"]) assert.ok(app.includes(k), `the app sends ${k}`);
   assert.ok(app.includes('rpc("dli_report_time"'));
   const heads = [...sql.matchAll(/create or replace function ([\w.]+)\([^\n]*\n(?:[^\n]*\n)?(language [^\n]+) as \$\$/g)];
-  assert.equal(heads.length, 3, "dli_report_time, dli_weeks_of, dli_owner_report");
+  assert.equal(heads.length, 10, "the time, the usernames and the reports that use them");
   for (const [, name, head] of heads) {
     assert.ok(head.includes("set search_path = ''") && head.includes("security definer"), `${name} pins its search path`);
   }
   assert.ok(/me is null then raise exception 'Not signed in'/.test(sql.slice(sql.indexOf("public.dli_report_time("))));
+  for (const [, name] of heads.filter((h) => h[1].startsWith("public."))) {
+    const body = sql.slice(sql.indexOf(`create or replace function ${name}(`));
+    assert.ok(/auth\.uid\(\) is null|me is null/.test(body.slice(0, body.indexOf("end $$;"))), `${name} refuses a signed-out caller`);
+  }
   const bare = sql.replace(/--[^\n]*/g, "");
   const risky = bare.split(";").map((s) => s.replace(/\s+/g, " ").trim())
     .filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));

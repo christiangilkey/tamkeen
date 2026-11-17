@@ -1,4 +1,5 @@
 -- Self-test of the DLI class rules (schema v10, supabase/v10-dli-classes.sql). Run in the Supabase SQL
+-- (Written for v10 alone. After v11-dli-activity.sql, which deletes names, use test_rls_dli_activity.sql instead.)
 -- editor after v10. It plays made-up people (the owner, two teachers, two students, a stranger), checks
 -- what each may and may not do, then ends with an error on purpose: that rolls everything back, so no test
 -- data is left behind and the real codes are untouched. The error message is the report:

@@ -76,18 +76,19 @@ test("a table's sums over the last weeks", () => {
 
 test("the spreadsheet: a row per student per week, nobody missing, nothing a spreadsheet would run", () => {
   const rows = sheetRows([
-    { last_name: "Smith", language: "Arabic", classes: ["A 101", "Evening"], weeks: [{ week: "2026-11-09", days: 3, minutes: 40, reviews: 100, remembered: 90, new_words: 10, words: 60, known: 40 },
+    { username: "smith_ar", language: "Arabic", classes: ["A 101", "Evening"], weeks: [{ week: "2026-11-09", days: 3, minutes: 40, reviews: 100, remembered: 90, new_words: 10, words: 60, known: 40 },
       { week: "2026-11-02", days: 1, minutes: 5, reviews: 9, remembered: 9, new_words: 2, words: 50, known: 30 }] },
-    { last_name: "=cmd|' /C calc'!A0", language: "Korean", classes: [], weeks: [] },
+    { username: "=cmd|' /C calc'!A0", language: "Korean", classes: [], weeks: [] },
   ]);
   assert.equal(rows[0].length, 17);
   assert.ok(rows.every((r) => r.length === 17), "every row has every column");
-  assert.deepEqual(rows[1], ["Smith", "Arabic", "A 101; Evening", "", "2026-11-02", 1, 1, 5, 0, 0, 0, 5, 9, 9, 2, 50, 30], "oldest week first");
+  assert.equal(rows[0][0], "Username", "no name column: DLI keeps no one's real name");
+  assert.deepEqual(rows[1], ["smith_ar", "Arabic", "A 101; Evening", "", "2026-11-02", 1, 1, 5, 0, 0, 0, 5, 9, 9, 2, 50, 30], "oldest week first");
   assert.equal(rows.length, 4);
   assert.equal(rows[3][4], "", "a student with no week yet still has a row");
   const csv = csvText(rows).split("\r\n");
-  assert.equal(csv[1], "Smith,Arabic,A 101; Evening,,2026-11-02,1,1,5,0,0,0,5,9,9,2,50,30");
-  const joined = sheetRows([{ last_name: "Lee", agreed_at: "2026-11-03T12:00:00", weeks: [{ week: "2026-11-09", days: 1, minutes: 4, listening: 30, watching: 10, reading: 6, active_days: 4 }] }]);
+  assert.equal(csv[1], "smith_ar,Arabic,A 101; Evening,,2026-11-02,1,1,5,0,0,0,5,9,9,2,50,30");
+  const joined = sheetRows([{ username: "lee", agreed_at: "2026-11-03T12:00:00", weeks: [{ week: "2026-11-09", days: 1, minutes: 4, listening: 30, watching: 10, reading: 6, active_days: 4 }] }]);
   assert.deepEqual(joined[1].slice(3), ["2026-11-03", "2026-11-09", 4, 1, 4, 30, 10, 6, 50, 0, 0, 0, 0, 0], "the day they joined, every kind of minute and the total");
   assert.ok(csv[3].startsWith("'=cmd"), "a name that starts like a formula is made plain text");
   assert.equal(csvText([["a,b", 'say "hi"', -5]]), '"a,b","say ""hi""",-5');
@@ -118,34 +119,41 @@ test("the days with flashcard answers, for the week's studied days", () => {
 
 test("what the online service says about me is cut to size and stripped of markup", () => {
   const me = cleanMe({
-    student: { last_name: "  <b>Smith</b>\n", language: "ar", agreed_at: "2026-11-10T08:00:00Z", agreed_version: 1 },
-    teacher: { name: "Ms. Rivera".repeat(20) }, owner: "yes",
-    classes: [{ id: ID, name: "A <script>101", role: "teacher", code: "ABC234", staff_code: "COABCD2345", students: "12", teachers: ["Ms. R", 5, "<i>x</i>"] },
+    student: { username: "smith_ar", last_name: "Smith", language: "ar", agreed_at: "2026-11-10T08:00:00Z", agreed_version: 1 },
+    teacher: { username: "<b>rivera</b>", name: "Ms. Rivera" }, owner: "yes",
+    classes: [{ id: ID, name: "A <script>101", role: "teacher", code: "ABC234", staff_code: "COABCD2345", students: "12", teachers: ["rivera", 5, "<i>x</i>", "Ms. R", "user-1a2b3c"] },
       { id: "nope", name: "x" }, { id: ID.toUpperCase(), name: "", role: "admin", code: "ABC234", teachers: "none" }],
     weeks: [{ week: "2026-11-09", days: 3 }, { week: "bad" }],
   });
-  assert.equal(me.student.last_name, "b Smith /b");
-  assert.equal(me.teacher.name.length, NAME_MAX);
+  assert.equal(me.student.username, "smith_ar");
+  assert.ok(!JSON.stringify(me).includes("Smith") && !JSON.stringify(me).includes("Rivera"), "a name sent by an older database is never kept");
+  assert.equal(me.teacher.username, "", "only a username, nothing with markup");
+  assert.equal(cleanMe({ student: { language: "ar" } }).student.username, "", "no username yet: still a student");
   assert.equal(me.owner, false, "only a real yes makes an owner");
   assert.equal(me.classes.length, 2);
-  assert.deepEqual(me.classes[0], { id: ID, name: "A script 101", role: "teacher", teachers: ["Ms. R", "5", "i x /i"], code: "ABC234", staff_code: "COABCD2345", students: 12 });
+  assert.deepEqual(me.classes[0], { id: ID, name: "A script 101", role: "teacher", teachers: ["rivera", "user-1a2b3c"], code: "ABC234", staff_code: "COABCD2345", students: 12 },
+    "teachers by username only");
   assert.equal(me.classes[1].role, "student");
   assert.equal(me.classes[1].name, "Class");
   assert.equal(me.classes[1].code, undefined, "a student never gets a class's codes");
   assert.equal(me.weeks.length, 1);
   assert.equal(cleanMe(null).student, null);
-  assert.equal(cleanMe({ student: { last_name: "Smith", language: "de" } }).student, null, "German isn't taught there");
+  assert.equal(cleanMe({ student: { username: "smith_ar", language: "de" } }).student, null, "German isn't taught there");
   assert.equal(cleanClass({ id: ID, name: "x".repeat(200) }).name.length, CLASS_NAME_MAX);
 });
 
 test("reports, codes and code answers are checked too", () => {
-  const students = cleanStudents([{ id: ID, last_name: "Baker", language: "ko", joined_at: "2026-11-01T00:00:00Z", classes: ["K1", 7], weeks: [{ week: "2026-11-09" }] },
-    { last_name: "No id" }, null]);
+  const students = cleanStudents([{ id: ID, username: "baker1", last_name: "Baker", language: "ko", joined_at: "2026-11-01T00:00:00Z", classes: ["K1", 7], weeks: [{ week: "2026-11-09" }] },
+    { username: "noid" }, null]);
   assert.equal(students.length, 1);
+  assert.equal(students[0].username, "baker1");
+  assert.ok(!("last_name" in students[0]), "a last name is never kept");
+  assert.equal(cleanStudents([{ id: ID, last_name: "Baker" }])[0].username, "?", "a database without v11: no name shown");
   assert.deepEqual(students[0].classes, ["K1", "7"]);
-  const owner = cleanOwner({ students: [{ id: ID, last_name: "Baker", language: "ko" }], teachers: [{ id: ID, name: "T", username: "tee", classes: 2 }, { name: "ghost" }],
+  const owner = cleanOwner({ students: [{ id: ID, username: "baker1", language: "ko" }], teachers: [{ id: ID, name: "T", username: "tee", classes: 2 }, { name: "ghost" }],
     classes: [{ id: ID, name: "K1", students: 3, teachers: ["T"] }], teacher_code: "TCHABCDEFGH2345" });
   assert.equal(owner.students.length + owner.teachers.length + owner.classes.length, 3);
+  assert.deepEqual(Object.keys(owner.teachers[0]).sort(), ["classes", "id", "since", "username"], "a teacher's name isn't kept either");
   assert.equal(owner.teacher_code, "TCHABCDEFGH2345");
   assert.equal(cleanOwner({ teacher_code: "<script>" }).teacher_code, "");
   assert.equal(teacherCode("TCH123"), "");
@@ -183,7 +191,13 @@ test("the database file and the app agree on names and limits", () => {
   assert.equal(tables.length, 6);
   for (const name of tables) assert.ok(sql.includes(`alter table public.${name} enable row level security;`), `${name} is closed`);
   assert.ok(!/create policy/i.test(sql), "no reading or writing rule at all: everything goes through the functions");
-  assert.ok(sql.includes(`length(last_name) between 1 and ${NAME_MAX}`) && sql.includes(`length(name) between 1 and ${CLASS_NAME_MAX}`));
+  assert.ok(sql.includes(`length(name) between 1 and ${CLASS_NAME_MAX}`));
+  // no one's real name: v11 deletes the columns that held them, and the app never sends one
+  assert.ok(v11.includes("alter table public.dli_students drop column if exists last_name;"));
+  assert.ok(v11.includes("alter table public.dli_teachers drop column if exists name;"));
+  assert.ok(!/rpc\("dli_set_teacher_name"/.test(app), "the app no longer sends a teacher's name");
+  assert.ok(/rpc\("dli_register", \{ last_name: "-",/.test(app), "the only last name ever sent is a dash, to a database without v11");
+  assert.equal(NAME_MAX, 20, "a username's length");
   // never the owner's address, the DLI password or a real code in the file
   assert.ok(!/@gmail|@[a-z0-9-]+\.(com|org|net)\b/i.test(sql), "no email address in the SQL file");
 });

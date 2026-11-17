@@ -146,14 +146,14 @@ export function localDate(when) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-/** Spreadsheet rows, one per student per week: [[header…], [row…], …]. `students`: [{ last_name, language,
+/** Spreadsheet rows, one per student per week: [[header…], [row…], …]. `students`: [{ username, language,
  *  classes: [names], agreed_at | joined_at, weeks }]. A student with no week yet still gets one row, so nobody is
  *  missing. "Days studied" counts any study; "Flashcard days" only the days with flashcard answers. */
 export function sheetRows(students) {
-  const rows = [["Last name", "Language", "Class", "Joined", "Week starting", "Days studied", "Flashcard days", "Flashcard minutes",
+  const rows = [["Username", "Language", "Class", "Joined", "Week starting", "Days studied", "Flashcard days", "Flashcard minutes",
     "Listening minutes", "Watching minutes", "Reading minutes", "Total minutes", "Reviews", "Remembered", "New words", "Words saved", "Words known"]];
   for (const s of Array.isArray(students) ? students : []) {
-    const who = [String(s.last_name || ""), String(s.language || ""), (Array.isArray(s.classes) ? s.classes : []).join("; "),
+    const who = [String(s.username || ""), String(s.language || ""), (Array.isArray(s.classes) ? s.classes : []).join("; "),
       localDate(joinedOf(s))];
     const weeks = cleanWeeks(s.weeks).reverse();
     if (!weeks.length) rows.push([...who, "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -175,15 +175,19 @@ export const pasteText = (rows) => rows.map((r) => r.map((v) => safeCell(v).repl
 // (A friend's or a stranger's device can't write these, the database decides who reads what; but nothing that
 // arrives is drawn without being cut to size and stripped of markup first.)
 
-export const NAME_MAX = 40;
+/** A username as Tamkeen keeps them (social.js USERNAME_RE), or "user-" and six characters of the account's id from
+ *  the database for someone with none yet (v11 private.dli_handle). DLI keeps no one's real name (the owner's rule,
+ *  2026-11-16): students and teachers show to each other by username. */
+export const NAME_MAX = 20;
 export const CLASS_NAME_MAX = 60;
+const handle = (v) => (/^[A-Za-z0-9_.-]{3,20}$/.test(String(v || "")) ? String(v) : "");
 
 const text = (v, most) => String(v ?? "").replace(/[\u0000-\u001f\u007f<>]/g, " ").replace(/\s+/g, " ").trim().slice(0, most);
 const uuid = (v) => (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(v || "")) ? String(v).toLowerCase() : "");
 const when = (v) => (typeof v === "string" && Number.isFinite(Date.parse(v)) ? v : "");
 const count = (v) => (Number.isFinite(Number(v)) ? Math.max(0, Math.min(100000, Math.round(Number(v)))) : 0);
 const codeText = (v, shape) => (shape.test(String(v || "")) ? String(v) : "");
-const names = (list) => (Array.isArray(list) ? list : []).map((n) => text(n, NAME_MAX)).filter(Boolean).slice(0, 10);
+const names = (list) => (Array.isArray(list) ? list : []).map(handle).filter(Boolean).slice(0, 10);
 
 /** A class, made safe: { id, name, role, teachers } and, for its teachers, { code, staff_code, students }. */
 export function cleanClass(raw) {
@@ -202,21 +206,23 @@ export function cleanClass(raw) {
 export function cleanMe(raw) {
   const r = raw && typeof raw === "object" ? raw : {};
   const s = r.student && typeof r.student === "object" ? r.student : null;
-  const student = s && text(s.last_name, NAME_MAX) && DLI_CODES.includes(s.language)
-    ? { last_name: text(s.last_name, NAME_MAX), language: s.language, agreed_at: when(s.agreed_at), agreed_version: count(s.agreed_version) || 1 } : null;
-  const teacher = r.teacher && typeof r.teacher === "object" ? { name: text(r.teacher.name, NAME_MAX) } : null;
+  // (never a last name: a database without v11 still sends one, and it is left out here)
+  const student = s && DLI_CODES.includes(s.language)
+    ? { username: handle(s.username), language: s.language, agreed_at: when(s.agreed_at), joined_at: when(s.joined_at),
+      agreed_version: count(s.agreed_version) || 1 } : null;
+  const teacher = r.teacher && typeof r.teacher === "object" ? { username: handle(r.teacher.username) } : null;
   return { student, teacher, owner: r.owner === true,
     classes: (Array.isArray(r.classes) ? r.classes : []).map(cleanClass).filter(Boolean).slice(0, 40),
     weeks: cleanWeeks(r.weeks) };
 }
 
-/** A list of students as a report gives it, made safe: [{ id, last_name, language, joined_at | agreed_at, since, classes, weeks }].
+/** A list of students as a report gives it, made safe: [{ id, username, language, joined_at | agreed_at, since, classes, weeks }].
  *  joined_at: when they joined the teacher's class; since: when they first agreed to share (the owner's report, v11). */
 export function cleanStudents(list) {
   return (Array.isArray(list) ? list : []).map((s) => {
     const id = uuid(s && s.id);
     if (!id) return null;
-    return { id, last_name: text(s.last_name, NAME_MAX) || "?", language: DLI_CODES.includes(s.language) ? s.language : "",
+    return { id, username: handle(s.username) || "?", language: DLI_CODES.includes(s.language) ? s.language : "",
       joined_at: when(s.joined_at), agreed_at: when(s.agreed_at), since: when(s.since),
       classes: (Array.isArray(s.classes) ? s.classes : []).map((n) => text(n, CLASS_NAME_MAX)).filter(Boolean).slice(0, 10),
       weeks: cleanWeeks(s.weeks) };
@@ -228,8 +234,8 @@ export function cleanOwner(raw) {
   const r = raw && typeof raw === "object" ? raw : {};
   return {
     students: cleanStudents(r.students),
-    teachers: (Array.isArray(r.teachers) ? r.teachers : []).map((t) => ({ id: uuid(t && t.id), name: text(t && t.name, NAME_MAX),
-      username: text(t && t.username, 20), since: when(t && t.since), classes: count(t && t.classes) })).filter((t) => t.id),
+    teachers: (Array.isArray(r.teachers) ? r.teachers : []).map((t) => ({ id: uuid(t && t.id),
+      username: handle(t && t.username), since: when(t && t.since), classes: count(t && t.classes) })).filter((t) => t.id),
     classes: (Array.isArray(r.classes) ? r.classes : []).map((c) => ({ id: uuid(c && c.id), name: text(c && c.name, CLASS_NAME_MAX),
       students: count(c && c.students), teachers: names(c && c.teachers) })).filter((c) => c.id),
     teacher_code: teacherCode(r.teacher_code),
