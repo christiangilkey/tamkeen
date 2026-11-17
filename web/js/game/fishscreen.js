@@ -20,7 +20,8 @@ import {
 } from "./fishing.js";
 import { fishPicture, fishShape } from "./fishart.js";
 import { aquariumView } from "./aquarium.js";
-import { fishWaiting, openPond } from "./fishing-ui.js";
+import { fishWaiting, openPond, wordChoiceData } from "./fishing-ui.js";
+import { wordModePicker } from "./battle-ui.js";
 import { cleanName, cleanProfiles } from "./remote.js";
 
 /** A tier's name with a dot of its colour (the colours alone don't all read on a light panel). */
@@ -66,10 +67,18 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
   const waiting = h(`<p class="gs-state muted fish-waiting"></p>`);
   top.append(start, waiting);
   body.append(top);
-  fishWaiting(game).then((n) => {
+  const countWaiting = () => fishWaiting(game).then((n) => {
     if (!waiting.isConnected) return;
     waiting.textContent = n === 0 ? t("Nothing is due: fish for practice, with less luck.") : n === 1 ? t("1 fish waiting: a word due for review")
       : t("{0} fish waiting: your words due for review", fmt(n));
+  }).catch(() => {});
+  countWaiting();
+
+  // Which words are fish: the same choice as the battles' (one choice for every game), changed here or there.
+  const words = block("Words");
+  body.append(words);
+  wordChoiceData(game).then(({ vocab, folders }) => {
+    if (words.isConnected) words.append(wordModePicker(game, () => { changed(); countWaiting(); }, { vocab, folders, battle: false }));
   }).catch(() => {});
 
   // The ponds: one per element; the creature out is luckier in its own element's water.

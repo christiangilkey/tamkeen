@@ -383,3 +383,25 @@ test("the pond says the right answer's word when a choice is made, as battles do
   assert.match(src, /correct \? 500 : 1400/, "the card's own timings are as they were");
   assert.match(src, /player\.stop\(\); stopDevice\(\);/, "leaving the pond stops it");
 });
+
+// One word choice for every game (the owner: "if you set the current vocab list, that it sets the vocab for all
+// games"): the pond's fish are the words battles ask (rules.battleWordsFor), and the Fishing screen has the same picker.
+test("the pond fishes the game's word choice, the same words as battles", async () => {
+  const { battleWordsFor, setBattlePicks } = await import("../../web/js/game/rules.js");
+  const s = hatched();
+  // 30 words: the first 22 in folder "f1", the rest in no folder.
+  const many = Array.from({ length: 30 }, (_, i) => ({ uid: `m${i}`, text: `كلمة${i}`, meaning: `meaning ${i}`, created_at: i,
+    folders: i < 22 ? ["f1"] : [] }));
+  s.battleMode = "folder";
+  setBattlePicks(s, ["f1"]);
+  const pool = battleWordsFor(many, s);
+  assert.equal(pool.length, 22);
+  const fish = pondShadows(s, pool, { now: T0 }).shadows.map((x) => x.uid);
+  assert.ok(fish.length > 0);
+  assert.ok(fish.every((uid) => Number(uid.slice(1)) < 22), "only the folder's words swim");
+  const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
+  const ui = src("fishing-ui.js");
+  assert.match(ui, /vocab: battleWordsFor\(vocab, game\)/, "loadWords hands the pond the game's word choice");
+  assert.match(ui, /loadWords\(game\), battleDictionary\(\)/);
+  assert.match(src("fishscreen.js"), /wordModePicker\(game, .*battle: false \}\)/, "the Fishing screen has the same picker");
+});

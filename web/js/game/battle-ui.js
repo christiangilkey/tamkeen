@@ -164,7 +164,7 @@ export function challengeChoice(friend, name, same) {
  * several, and "Not in a folder" among them) count once MIN_SET of their words together have a meaning (the owner:
  * "the folder must contain at least 20 words"); until then battles ask the newest words, and a line says so.
  * `vocab`: the saved words (loadWords: with the ones due marked); `folders`: the Vocab page's, in its order. */
-export function wordModePicker(game, onChange = () => {}, { vocab = [], folders = [] } = {}) {
+export function wordModePicker(game, onChange = () => {}, { vocab = [], folders = [], battle = true } = {}) {
   const box = h(`<div class="bt-words"></div>`);
   const meanings = quizzable(vocab).length;
   const due = vocab.reviewDue || null;
@@ -177,7 +177,7 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
    * ticks one or takes it off; their words together (each once) are counted live under the list, and "Use these
    * folders" turns on once they reach MIN_SET. */
   function pickFolder() {
-    const m = openModal({ title: t("Battle words from a folder"), cls: "bt-folder-back" });
+    const m = openModal({ title: t("Game words from a folder"), cls: "bt-folder-back" });
     const list = h(`<div class="bt-folder-list"></div>`);
     const note = h(`<p class="bt-folder-note muted"></p>`);
     note.textContent = t("Pick one or more. Together they need at least {0} words with a meaning.", MIN_SET);
@@ -240,19 +240,21 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
       : t("Newest {0}", fmt(w.questions));
     parts.push(factCells([
       fact("Questions from", esc(from)),
-      fact("Strength", w.all ? `×${w.strength.toFixed(2)}` : t("Same for all")),
+      ...(battle ? [fact("Strength", w.all ? `×${w.strength.toFixed(2)}` : t("Same for all"))] : []), // (how strong creatures fight)
       fact("Words due", fmt(reviewSummary(game, battleWordsFor(vocab, game)).due)),
     ]));
     if (w.short) {
       const line = h(`<p class="bt-words-note muted"></p>`);
       const dueNow = w.set === "due" ? sizeOf("due") : 0;
       line.textContent = w.set === "due"
-        ? dueNow ? t("Only {0} words are due for review. Battles need {1}, so until then they ask your newest words.", fmt(dueNow), fmt(MIN_SET))
-          : t("No words are due for review right now. Battles need {0}, so until then they ask your newest words.", fmt(MIN_SET))
-        : folder ? t("“{0}” has fewer than {1} words with a meaning now, so battles ask your newest words.", folder, fmt(MIN_SET))
+        ? dueNow ? t("Only {0} words are due for review. The games need {1}, so until then they ask your newest words.", fmt(dueNow), fmt(MIN_SET))
+          : t("No words are due for review right now. The games need {0}, so until then they ask your newest words.", fmt(MIN_SET))
+        : folder ? t("“{0}” has fewer than {1} words with a meaning now, so the games ask your newest words.", folder, fmt(MIN_SET))
         : t("Choose a folder with at least {0} words.", fmt(MIN_SET));
       parts.push(line);
     }
+    const both = h(`<p class="bt-words-note muted">Battles and fishing both ask these words.</p>`);
+    parts.push(both);
     box.replaceChildren(...parts);
   };
   paint();
