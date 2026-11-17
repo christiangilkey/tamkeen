@@ -9209,5 +9209,7 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
   **iPhone:** WKWebView ignores `HTMLMediaElement.volume` (Apple: the hardware buttons own it), so on the iPhone only the
   chimes (Web Audio) and the iPhone's voice (SpeechPlugin) follow; podcasts and card audio don't. A fix would be a native
   player or routing through Web Audio (`createMediaElementSource`, which silences cross-origin streams without CORS and
-  can stop background playback): not done. Checked on the computer: Settings shows both sliders; episode 1's audio was at
+  can stop background playback): not done. **Owner's choice (2026-11-17): leave the iPhone as it is** (its buttons set
+  the media's volume). Looked into: a native AVPlayer can't play the synced copies (`a_<uid>.ogg`, Ogg Opus), and
+  WebKit's Web Audio stops on a locked screen in several iOS 17 versions (WebKit bugs 261554, 276016). Checked on the computer: Settings shows both sliders; episode 1's audio was at
   0.25 with the media slider at 50%, followed it to 80% live, and didn't move when the app slider went to 0.
