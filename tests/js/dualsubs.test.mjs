@@ -276,23 +276,22 @@ test("the learner's own language is found from the name written in Settings", ()
 
 // ---------- the players ----------
 
-test("the players have the switch, and the translation lines are never words to tap", () => {
+test("the switch is out of the players (kept for later), and the translation lines are never words to tap", () => {
   const line = read("web/js/components/dualline.js");
   assert.ok(ICON_NAMES.includes("dualsubs"), "a line icon of its own");
   assert.match(line, /el\.setAttribute\("translate", "no"\)/, "left alone by the page's own translation");
   assert.match(line, /el\.dir = own\.dir/, "each line has its own direction");
   assert.doesNotMatch(line, /className = "w"|class="w"|classList\.add\("w"\)/, "never a .w word (those are tapped and counted as seen)");
   assert.match(line, /settingsHref\("words", "key"\)/, "no key: the way to Settings → Word definitions");
+  assert.match(line, /youTubeTranslations/, "YouTube's own captions in the learner's language first");
+  // The owner, 2026-11-18: "I want to get rid of the show translation button". Out of both players, its "D" key
+  // and the controller's menu with it; a switch left on before isn't turned back on. The code stays for later.
   for (const page of ["web/js/pages/player.js", "web/js/pages/reels.js"]) {
     const src = read(page);
-    assert.match(src, /dualButton\(/, `${page}: the button`);
-    assert.match(src, /setDual\(dualOn\(\)\)/, `${page}: on again where it was left on`);
-    assert.match(src, /setDualOn\(on\)/, `${page}: a press is remembered`);
-    assert.match(src, /explainDual\(/, `${page}: with nothing to translate with, it says what is needed`);
+    assert.doesNotMatch(src, /dualline\.js|dualButton|setDual|dualOn/, `${page}: no translation button`);
+    assert.doesNotMatch(src, /e\.key === "d"/, `${page}: no "D" key`);
+    assert.doesNotMatch(src, /Translation under each line/, `${page}: not in the controller's menu`);
   }
-  const player = read("web/js/pages/player.js");
-  assert.match(player, /youTubeTranslations/, "YouTube's own captions in the learner's language first");
-  assert.match(player, /"cap-tr"/, "the captions on and under videos get theirs too");
   const css = read("web/css/app.css");
   assert.match(css, /\.seg-tr, \.cap-tr \{ display: none; \}/, "hidden while switched off");
   assert.match(css, /\.transcript \.seg-tr \{[^}]*user-select: none/, "never selected with the words");

@@ -36,8 +36,6 @@ notes("0.61.0",
 notes("0.60.0",
   "Listen in My audio: record from the microphone and get a transcript");
 notes("0.60.0",
-  "Translation under each line: turn it on in the player to see your language under every line");
-notes("0.60.0",
   "Scan now puts all the text in a photo into a box you can edit, then make cards from");
 notes("0.60.0",
   "The line under Review fades where it is cut off, and waits less before sliding");
