@@ -8,7 +8,7 @@ import { h, toast } from "../app.js";
 import * as social from "../social.js";
 import { BOSSES, LEAGUES } from "./data.js";
 import { claimRaid, giveEgg, giveItem, receiveGift, recordDefence, showcaseOf, weekNumber, weeklyBoss, weeklyRule } from "./rules.js";
-import { publicProfile, showcaseGenome } from "./battle.js";
+import { friendTeam, publicProfile, showcaseGenome } from "./battle.js";
 import { publicAquarium } from "./fishing.js";
 import { challengeChoice, portrait, startFriendBattle } from "./battle-ui.js";
 import { canChallenge } from "./challenge.js";
@@ -312,7 +312,7 @@ export async function battleFriend(user) {
   let profile = null;
   try { profile = cleanProfiles(await social.gameProfiles([user.id])).get(user.id) || null; } // (from their device: checked, remote.js)
   catch (e) { toast(e.message, { error: true }); return; }
-  if (!profile || !profile.team || !profile.team.length) { toast("They haven't opened the game online yet"); return; }
+  if (!profile || !friendTeam(profile, weeklyRule()).length) { toast("They haven't opened the game online yet"); return; }
   const name = cleanName(user.username, 40) || "A friend";
   const pick = await challengeChoice(user, name, canChallenge(profile, hasStudyLanguage() ? studyLanguage() : null));
   if (pick) startFriendBattle(user, profile, pick);

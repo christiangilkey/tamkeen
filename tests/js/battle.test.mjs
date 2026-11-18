@@ -576,3 +576,29 @@ test("a battle's XP comes from the words it made well known, and is never 0 (coi
   assert.equal(pays[10].coins, 0, "but no coins by then");
   for (const odd of [-2, "x", null, undefined, 1.7]) assert.ok([3, 28].includes(fight(true, odd).xp), `a bad count (${odd}) pays no more than it should`);
 });
+
+test("the week's element rule never shuts a player out of friend battles (the owner: \"Battles vs players are not working\")", async () => {
+  const { friendTeam, publicProfile, ruleTeam } = await import("../../web/js/game/battle.js");
+  const { cleanProfile } = await import("../../web/js/game/remote.js");
+  const { teamOf } = await import("../../web/js/game/battlescreen.js");
+  const cool = WEEKLY_RULES.find((r) => r.id === "cool");
+  assert.ok(cool && cool.types, "a rule that keeps to some elements");
+  const s = newState(31);
+  s.creature.growth = 0.3; // hatched
+  s.creature.type = "ember"; // not one of the week's elements
+  assert.equal(eligible(s, cool).length, 0, "none of the week's elements");
+  assert.deepEqual(ruleTeam(s, cool), eligible(s, null), "the usual creature battles instead");
+  assert.equal(teamOf(s, cool).length, 1);
+  const shared = cleanProfile(JSON.parse(JSON.stringify(publicProfile(s, cool))));
+  assert.equal(shared.team.length, 1, "and is shared with friends, so they can challenge it");
+  assert.equal(friendTeam(shared, cool).length, 1);
+  // A friend on an older app shared no team this week: the creature on their bar fights.
+  const old = cleanProfile({ team: [], showcase: { seed: 7, type: "stone", growth: 0.3 } });
+  assert.equal(friendTeam(old, cool).length, 1);
+  assert.equal(friendTeam(old, cool)[0].type, "stone");
+  // Someone with only an egg still has no team.
+  assert.equal(friendTeam(cleanProfile({ team: [], showcase: { seed: 7, type: "stone", growth: 0 } }), cool).length, 0);
+  // When some creatures do fit, only they fight.
+  const both = cleanProfile({ team: [{ seed: 1, type: "ember", growth: 0.3 }, { seed: 2, type: "tide", growth: 0.3 }] });
+  assert.deepEqual(friendTeam(both, cool).map((g) => g.type), ["tide"]);
+});

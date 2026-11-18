@@ -23,7 +23,7 @@ import {
   LAST_WORDS, MIN_SET, battlePicks, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setBattlePicks, setWords,
   weekNumber, weeklyRule,
 } from "./rules.js";
-import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
+import { WORD_MODES, fighters, friendTeam, rentalPool, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
 import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
@@ -528,7 +528,7 @@ export async function startFriendBattle(friend, row, { words = null, folder = nu
   if (!set && !pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
   const mineIdx = teamOf(game, rule);
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
-  const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
+  const theirTeam = friendTeam(profile, rule);
   if (!theirTeam.length) { toast(`${rivalName} has no creatures that fit this week's rule (${rule.name}).`); return; }
   const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule });
   const theirs = fighters(null, theirTeam, { rule });

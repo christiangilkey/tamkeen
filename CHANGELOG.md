@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Battling a friend said "They haven't opened the game online yet" whenever none of their creatures were of the week's elements (this week: Tide, Grove and Dusk), which shut most players out of friend battles. A player with none of the week's elements now battles with their usual creatures, and a friend whose older app shared no team this week battles with the creature shown on their bar.
 - **Changed:** The two sound volume sliders (podcasts, videos & lessons; app sounds) are now at the top of Settings, right under the search, instead of inside Look & feel.
 - **Changed:** Library → Lessons is now called **My files** and sits at the end of the Library's list, with My videos and My audio.
 - **Changed:** The games' words have a button of their own on Home, beside Fishing: **Words** says what the games ask now (your newest words, all of them, the ones due for review, or the folders you picked) and opens the choice. It is one choice for battles and fishing, so the Battle and Fishing screens no longer have their own copy.
