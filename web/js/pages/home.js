@@ -8,6 +8,7 @@ import { continueItems, forgetProgress, fraction, leftLabel } from "../progress.
 import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
+import { feature } from "../prototype.js";
 import { icon } from "../icons.js";
 import { firstVisitTour } from "../components/tour.js";
 import { t } from "../i18n.js";
@@ -59,6 +60,7 @@ export async function render(view) {
     <div class="home-more" id="more"></div>
     <div class="home-today" id="today"></div>
     <div id="habitat"></div>
+    <div id="home-tavern" class="home-tavern" hidden></div>
     <div id="home-raid" class="home-raid" hidden></div>
   </div>`));
   // The daily streak (days in a row the flashcard goal was met: review/flame.js), at the right of the
@@ -79,6 +81,8 @@ export async function render(view) {
   if (gameOn()) view.querySelector("#habitat").append(habitat().el);
   // Under it, in a guild: the guild raid (game/friends-game.js), loaded on its own so Home never waits for it.
   if (gameOn()) import("../game/friends-game.js").then((m) => m.homeRaids(view.querySelector("#home-raid"))).catch(() => {});
+  // In a guild: its tavern, with the members' favourite creatures (a prototype: game/tavern.js).
+  if (gameOn() && feature("guild_tavern")) import("../game/tavern.js").then((m) => m.tavernBlock(view.querySelector("#home-tavern"))).catch(() => {});
   const main = view.querySelector("#main");
   const more = view.querySelector("#more");
 

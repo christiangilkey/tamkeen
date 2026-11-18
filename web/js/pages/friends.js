@@ -16,6 +16,7 @@ import { icon } from "../icons.js";
 import { gameBar } from "../game/friend-bar.js";
 import { gameOn } from "../components/gameswitch.js";
 import { battleFriend, homeRaids, publishNow } from "../game/friends-game.js";
+import { feature } from "../prototype.js";
 import { lastStreak } from "../review/flame.js";
 import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
@@ -611,6 +612,12 @@ export async function render(view) {
       }
       out.append(sec);
 
+      // Under the guilds: the guild tavern (a prototype: game/tavern.js), the same one as on Home, with what is loaded here.
+      if (gameOn() && gs.guilds.length && feature("guild_tavern")) {
+        const tavern = h(`<div class="guild-tavern" hidden></div>`);
+        out.append(tavern);
+        import("../game/tavern.js").then((m) => m.tavernBlock(tavern, { me: st.me.id, guilds: gs.guilds })).catch(() => {});
+      }
       // Under the guilds: each guild's raid, the same block as on Home and the Battle screen (the owner: "Guild raids
       // should show up in the guilds tab aswell"). Loaded on its own; shown once there is something in it.
       if (gameOn() && gs.guilds.length) {

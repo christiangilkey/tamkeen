@@ -3851,3 +3851,24 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
   .te-at { grid-column: 1 / -1; justify-self: start; min-width: 0; }
   .lsn-title { font-size: 1.3rem; }
 }
+
+/* ---------- the guild tavern (a prototype: game/tavern.js) ---------- */
+.home-tavern, .guild-tavern { margin-top: 12px; }
+.tavern { padding: 0; overflow: hidden; }
+.tavern-head { display: flex; align-items: center; gap: 8px; padding: 8px 10px; }
+.tavern-title { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0; }
+.tavern-title strong { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tavern-head button[hidden] { display: inline-flex; visibility: hidden; }
+.tavern-scene { position: relative; background: #2a170f; }
+.tavern-scene canvas { display: block; width: 100%; height: auto; image-rendering: pixelated; image-rendering: crisp-edges; cursor: pointer; }
+.tavern-tag { position: absolute; transform: translate(-50%, -50%); color: #f4d878; font-weight: 800; letter-spacing: .04em;
+  font-size: clamp(9px, 2.6vw, 15px); text-shadow: 0 1px 0 #4a1418; pointer-events: none; white-space: nowrap; max-width: 8%; overflow: visible; }
+.tavern-say { position: absolute; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; width: max-content;
+  max-width: min(260px, 80%); pointer-events: none; text-align: center; color: #fff; background: #000; border: 2px solid #fff; padding: 4px 10px; line-height: 1.25; }
+.tavern-say[hidden] { display: none; }
+.tavern-say b { font-size: 13px; }
+.tavern-say span { font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+.tavern-say.show { animation: tavern-say 4s ease-out both; }
+@keyframes tavern-say { from { opacity: 0; } 5% { opacity: 1; } 85% { opacity: 1; } to { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .tavern-say.show { animation: none; } }
+.tavern-foot { margin: 0; padding: 8px 12px 10px; text-align: center; }

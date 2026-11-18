@@ -9221,3 +9221,17 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
   the media's volume). Looked into: a native AVPlayer can't play the synced copies (`a_<uid>.ogg`, Ogg Opus), and
   WebKit's Web Audio stops on a locked screen in several iOS 17 versions (WebKit bugs 261554, 276016). Checked on the computer: Settings shows both sliders; episode 1's audio was at
   0.25 with the media slider at 50%, followed it to 80% live, and didn't move when the app slider went to 0.
+
+### Guild tavern (prototype `guild_tavern`, 2026-11-17, "Creature game section updates" chat; NOT committed when written)
+- Owner's request: a tavern where guild members' creatures appear, on Home and on the Guilds page, with new art.
+  Owner's choices: plain fantasy tavern; one tavern at a time with arrows to switch guilds (remembered per device,
+  localStorage `tamkeenTavernGuild`); creatures live there and a tap shows the owner; art made by a script into Aseprite.
+- Art: `tools/game_art/tavern.py` (pixel by pixel, `build --aseprite` writes `web/game-art/tavern/*.png` and sources in
+  `game/art-src/tavern/`): room 400x200, fire (4 frames), candle flame (4 frames), round table, long table, stool.
+- Code: `web/js/game/tavernrules.js` (pure: who is inside: me first, then online, then recently seen, at most 6;
+  spots, props and their positions in the picture) and `web/js/game/tavern.js` (`tavernBlock(host, given?)`,
+  `tavernScene`). Each member's creature is their favourite (`showcase` in game_profiles, checked by remote.js);
+  mine comes from the local game. The guild's tag is written on the banner. Home `#home-tavern` (under the habitat)
+  and the Guilds tab (above the raids) call it only when `feature("guild_tavern")`. Styles at the end of app.css.
+- Tests `tests/js/tavern.test.mjs` (6). Seen in the preview with six made-up creatures (drawing, wandering, tap
+  bubble); never yet with a real signed-in guild.
