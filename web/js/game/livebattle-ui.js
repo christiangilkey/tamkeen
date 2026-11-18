@@ -59,7 +59,10 @@ const LIGHT = { night: "rgba(18, 24, 70, .32)", dim: "rgba(0, 0, 0, .22)", warm:
 const FX_OLD = { projectile: (el) => `battle/shot_${el}.png`, impact: (el) => `battle/hit_${el}.png`, guard: () => "battle/shield.png",
   heal: () => "battle/heal.png", power: () => "battle/boost.png", faint: () => "battle/faint.png", miss: () => "battle/glance.png",
   dust: () => "fx/dust.png", charge: () => "fx/surge.png", burst: (el) => `battle/hit_${el}.png` };
-const PER_ELEMENT = new Set(["projectile", "impact", "burst", "beam", "trail"]);
+const PER_ELEMENT = new Set(["projectile", "impact", "burst", "beam", "trail", "wave", "orb", "strike", "mark", "slash"]);
+// The more kinds of attack (prototype "move_variety", game/art-src/battle-fx/moves2.py): waves (copies of one front make
+// cone and ring waves), orbs, strikes falling from above, ground marks round an area's edge, slashes, burrowing earth.
+const NEW_FX = ["wave", "orb", "strike", "mark", "slash"];
 // How each effect plays (web/game-art/battle/fx/README.md): ms per frame (one number, or one per frame), whether it
 // loops, and its anchor: the point of the frame put on the spot in the world, as a share of the frame's size (so the
 // older, smaller art stands in at the same place).
@@ -80,8 +83,17 @@ const FX_INFO = {
   dust: { ms: [60, 70, 80, 90], at: [0.5, 0.75] },
   miss: { ms: [70, 90, 90, 110], at: [0.5, 0.5] },
   status: { ms: 120, loop: true, at: [0.5, 0.5] },
+  wave: { ms: 70, loop: true, at: [0.5, 0.5] },
+  orb: { ms: 80, loop: true, at: [0.5, 0.5] },
+  strike: { ms: [70, 60, 70, 90, 100, 120], at: [0.5, 0.875] }, // (its ground point is (32, 56) of the 64 px frame)
+  mark: { ms: 120, loop: true, at: [0.5, 0.65] },
+  slash: { ms: [40, 50, 60, 70, 90], at: [0.5, 0.5] },
+  burrow: { ms: [70, 80, 90, 110], at: [0.5, 0.75] },
 };
+const STRIKE_FALL = 0.13; // seconds a strike from above takes to fall: it starts this long before its area lands
+const SKY = 70;           // px a sky dive rises
 const BODY_UP = 22; // a creature's body: this far above its feet
+const VARIETY = feature("move_variety"); // the more kinds of attack, and areas shown by their art (a prototype)
 /** Which frame of an effect shows `ms` after it started (frames from..to of its strip), or -1 once a "once" effect is over. */
 function frameAt(info, frames, ms, from = 0, to = frames - 1) {
   const n = to - from + 1;
@@ -185,6 +197,8 @@ export function runLiveBattle(setup, vocab) {
       || (FX_OLD[kind] ? want(FX_OLD[kind](el2)) : null);
     return img ? { img, frames: Math.max(1, Math.round(img.width / img.height)) } : null;
   };
+  for (const el of Object.keys(TYPES)) for (const k of NEW_FX) fx(k, el);
+  fx("burrow");
   const ARENA_TERRAIN = new Set([...map.tiles, map.base, "spring", "coals", "mud"]);
   for (const id of [...ARENA_TERRAIN]) if (TERRAIN[id] && TERRAIN[id].under) ARENA_TERRAIN.add(TERRAIN[id].under);
   if (arena.SHEETS && arena.SHEETS.bridge_v && ARENA_TERRAIN.has("bridge")) ARENA_TERRAIN.add("bridge_v");
@@ -321,7 +335,24 @@ export function runLiveBattle(setup, vocab) {
   let shake = 0;
   let target = null;   // where a click or a finger sent the creature (a small ring there)
   /** Play an effect once at a spot in the world (its anchor goes there); `range` plays only some of its frames. */
-  const play = (kind, element, x, y, opts = {}) => { const f = fx(kind, element); if (f) effects.push({ ...f, kind, x, y, t: 0, flip: !!opts.flip, range: opts.range || null }); };
+  const play = (kind, element, x, y, opts = {}) => { const f = fx(kind, element); if (f) effects.push({ ...f, kind, x, y, t: 0, flip: !!opts.flip, range: opts.range || null, dir: opts.dir || null }); };
+  // Waves going out from a point: copies of the element's wave front along an arc (a cone) or all round (a ring),
+  // moving out from `from` to `to` px over `dur` seconds.
+  const waves = []; // {element, x, y, from, to, a0, a1, full, t, dur}
+  const addWaves = (element, x, y, to, { from = 10, a0 = 0, a1 = Math.PI * 2, dur = 0.35 } = {}) =>
+    waves.push({ element, x, y, from, to, a0, a1, full: a1 - a0 >= Math.PI * 2 - 1e-6, t: 0, dur });
+  const ring = (element, x, y, r, dur = 0.35) => addWaves(element, x, y, r, { dur });
+  /** Draw frame `i` of an effect that faces right turned to face `dir`, its anchor on (x, y). */
+  function drawTurned(f, kind, i, x, y, dir) {
+    const size = f.img.height;
+    const [ax, ay] = (FX_INFO[kind] || FX_INFO.impact).at;
+    ctx.save();
+    ctx.translate(Math.round(x), Math.round(y));
+    if (dir.x < 0) ctx.scale(-1, 1);
+    ctx.rotate(Math.atan2(dir.y, Math.abs(dir.x)));
+    ctx.drawImage(f.img, i * size, 0, size, size, Math.round(-ax * size), Math.round(-ay * size), size, size);
+    ctx.restore();
+  }
   /** Draw frame `i` of an effect with its anchor on (x, y). */
   function drawFx(f, kind, i, x, y, flip = false) {
     const size = f.img.height;
@@ -331,6 +362,22 @@ export function runLiveBattle(setup, vocab) {
     if (flip) ctx.restore();
   }
   const loopFrame = (kind, f, now, from, to) => frameAt(FX_INFO[kind], f.frames, now, from, to);
+  const landed = new Set(); // areas and cones whose landing has been shown
+  const struck = new Set(); // drops whose strike from above has started
+  const mounds = { me: null, foe: null }; // where a burrowing creature last pushed up earth
+  /** An area or a cone lands: its own art (prototype "move_variety"): waves out along a cone or all round a ring, a
+   * strike from above for a drop (started in time already), more bursts across a wide burst. */
+  function landing(p) {
+    if (!VARIETY) return;
+    if (p.kind === "cone") {
+      const a = Math.atan2(p.dir.y, p.dir.x);
+      addWaves(p.element, p.x, p.y, p.len, { a0: a - p.half, a1: a + p.half, dur: 0.32 });
+    } else if (p.form === "ring") ring(p.element, p.x, p.y, p.r);
+    else if (p.form === "drop" && !struck.has(p.id)) { struck.add(p.id); play("strike", p.element, p.x, p.y, { range: [2, 5] }); }
+    else if (p.form === "burst" && p.r > 34) {
+      for (let j = 0; j < 4; j++) { const a = j * Math.PI / 2 + 0.6; play("burst", p.element, p.x + Math.cos(a) * p.r * 0.5, p.y + Math.sin(a) * p.r * 0.45); }
+    }
+  }
 
   // Damage and healing numbers in the game's pixel digits (ui/digits.png: 8x10 glyphs, white), tinted.
   const GLYPHS = "0123456789+-x.,%!?kM";
@@ -532,16 +579,24 @@ export function runLiveBattle(setup, vocab) {
 
     // Where something is about to land, on the ground: a wind-up, a beam or an area warning (gold yours, red theirs).
     const pulse = 0.22 + 0.16 * Math.sin(now / 110);
+    const moveEl = (side, id) => { const m = moveById(id); return m.own ? v[side].type : m.element || null; };
     for (const side of ["me", "foe"]) {
       const c = v[side].charging;
-      if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0));
+      if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0), false, moveEl(side, c.move));
+      const trip = v[side].air || v[side].under; // a sky dive or a burrow: where it will come down
+      if (trip) warnShape(side, { x: trip.to.x, y: trip.to.y, r: trip.r }, pulse + 0.1, false, v[side].type);
     }
     for (const p of v.fx) {
-      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
-      else if (p.kind === "area") warnShape(p.side, p, 0.3 * (1 - (p.t || 0))); // as it lands: the whole circle it hit, fading (the art is smaller)
+      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0), false, p.element);
+      else if (p.kind === "area" || p.kind === "cone") warnShape(p.side, p, 0.3 * (1 - (p.t || 0)), false, null); // as it lands: the shape it hit, fading
+      if (p.kind === "area" && p.form === "drop" && p.warn && !struck.has(p.id) && (1 - (p.t || 0)) * (p.warnS || 0) <= STRIKE_FALL) {
+        struck.add(p.id); // a strike called down from above: it falls so as to hit the ground as the area lands
+        play("strike", p.element, p.x, p.y);
+      }
+      if (!p.warn && (p.kind === "area" || p.kind === "cone") && !landed.has(p.id)) { landed.add(p.id); landing(p); }
     }
     if (AIMING && v.aiming) { // the aim moment: where the move will land if it goes now, pulsing
-      warnShape("me", v.aiming.area, 0.45 + 0.15 * Math.sin(now / 80), true);
+      warnShape("me", v.aiming.area, 0.45 + 0.15 * Math.sin(now / 80), true, moveEl("me", v.aiming.move));
       if (v.aim) drawCrosshair(v.aim, now, true);
     } else if (AIMING && v.aim && !b.quiz && !v.me.fainted) drawCrosshair(v.aim, now, false);
     if (target) {
@@ -589,7 +644,24 @@ export function runLiveBattle(setup, vocab) {
       const [from, to] = e.range || [0, e.frames - 1];
       const k = frameAt({ ...info, loop: false }, e.frames, e.t * 1000, Math.min(from, e.frames - 1), Math.min(to, e.frames - 1));
       if (k < 0) { effects.splice(i, 1); continue; }
-      drawFx(e, e.kind, k, e.x, e.y, e.flip);
+      if (e.dir) drawTurned(e, e.kind, k, e.x, e.y, e.dir);
+      else drawFx(e, e.kind, k, e.x, e.y, e.flip);
+    }
+    for (let i = waves.length - 1; i >= 0; i--) {
+      const w = waves[i];
+      w.t += dt;
+      const k = w.t / w.dur;
+      const f = fx("wave", w.element);
+      if (k >= 1 || !f) { waves.splice(i, 1); continue; }
+      const r = w.from + (w.to - w.from) * (1 - (1 - k) ** 2); // fast, then easing out
+      const n = Math.max(w.full ? 8 : 3, Math.round(((w.a1 - w.a0) * r) / 15));
+      const frame = loopFrame("wave", f, w.t * 1000);
+      if (k > 0.7) ctx.globalAlpha = Math.max(0, (1 - k) / 0.3);
+      for (let j = 0; j < n; j++) {
+        const a = w.full ? w.a0 + (j / n) * Math.PI * 2 : w.a0 + ((w.a1 - w.a0) * (j + 0.5)) / n;
+        drawTurned(f, "wave", frame, w.x + Math.cos(a) * r, w.y + Math.sin(a) * r - 6, { x: Math.cos(a), y: Math.sin(a) });
+      }
+      ctx.globalAlpha = 1;
     }
     for (let i = numbers.length - 1; i >= 0; i--) {
       const n = numbers[i];
@@ -763,15 +835,37 @@ export function runLiveBattle(setup, vocab) {
     ctx.restore();
   }
 
-  /** `edge`: also a dark outline (the player's aim, so it reads on light ground). */
-  function warnShape(side, shape, alpha, edge = false) {
+  /** `edge`: also a dark outline (the player's aim, so it reads on light ground). `element`: an area or a cone is shown
+   * by that element's marks round its edge, a thin line and only a faint wash (prototype "move_variety"; without it,
+   * the plain filled shape as before). */
+  function warnShape(side, shape, alpha, edge = false, element = null) {
     ctx.fillStyle = side === "me" ? `rgba(255, 213, 74, ${alpha})` : `rgba(255, 64, 64, ${alpha})`;
     if (edge) { ctx.strokeStyle = "rgba(20, 12, 40, .55)"; ctx.lineWidth = 1; }
-    if (shape.r && !shape.len) {
+    const marks = VARIETY && element ? fx("mark", element) : null;
+    const cone = shape.half > 0 && shape.len > 0;
+    if ((shape.r && !shape.len) || cone) {
+      const ang = cone ? Math.atan2(shape.dy ?? (shape.dir && shape.dir.y), shape.dx ?? (shape.dir && shape.dir.x)) : 0;
+      const r = cone ? shape.len : shape.r;
       ctx.beginPath();
-      ctx.arc(shape.x, shape.y, shape.r, 0, Math.PI * 2);
+      if (cone) { ctx.moveTo(shape.x, shape.y); ctx.arc(shape.x, shape.y, r, ang - shape.half, ang + shape.half); ctx.closePath(); }
+      else ctx.arc(shape.x, shape.y, r, 0, Math.PI * 2);
+      if (!marks && !cone) { ctx.fill(); if (edge) ctx.stroke(); return; }
+      ctx.save();
+      ctx.fillStyle = side === "me" ? `rgba(255, 213, 74, ${alpha * 0.4})` : `rgba(255, 64, 64, ${alpha * 0.4})`;
       ctx.fill();
-      if (edge) ctx.stroke();
+      ctx.lineWidth = 1; // the thin warning edge
+      ctx.strokeStyle = side === "me" ? `rgba(255, 213, 74, ${Math.min(1, alpha * 2.4)})` : `rgba(255, 70, 70, ${Math.min(1, alpha * 2.4)})`;
+      ctx.stroke();
+      ctx.restore();
+      if (marks) { // the element's marks round the edge (along the arc for a cone)
+        const span = cone ? shape.half * 2 : Math.PI * 2;
+        const n = Math.max(cone ? 3 : 6, Math.round((span * r) / 18));
+        const k = loopFrame("mark", marks, performance.now());
+        for (let j = 0; j < n; j++) {
+          const a = cone ? ang - shape.half + (span * (j + 0.5)) / n : (j / n) * Math.PI * 2;
+          drawFx(marks, "mark", (k + j) % marks.frames, shape.x + Math.cos(a) * r, shape.y + Math.sin(a) * r);
+        }
+      }
       return;
     }
     const dx = shape.dx ?? (shape.dir && shape.dir.x), dy = shape.dy ?? (shape.dir && shape.dir.y);
@@ -791,21 +885,42 @@ export function runLiveBattle(setup, vocab) {
     const f = team(side)[i];
     if (!f) return;
     if (c.fainted && (!c.act || c.act.t > 0.17)) return; // the faint cloud covers it from its 3rd frame; the next steps in shortly
+    if (c.under) { // underground: only the earth it pushes up shows, every few px
+      const last = mounds[side];
+      if (!last || Math.hypot(c.x - last.x, c.y - last.y) >= 11) { mounds[side] = { x: c.x, y: c.y }; play("burrow", null, c.x, c.y); }
+      return;
+    }
+    mounds[side] = null;
     const actT = c.act ? Math.min(7, Math.floor(c.act.t * 8)) / 8 : 0;
     // Walking when it moves (a winged creature flies its dashes), else breathing and now and then blinking.
-    const pose = c.act ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+    const pose = c.act && !c.air ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+      : c.air ? animAt(f.look, "fly", now) : c.thrown ? { anim: "idle", frame: 0, act: "hurt", t: 0, eyes: "open" }
       : c.moving ? animAt(f.look, c.dashing ? "fly" : "walk", now) : animAt(f.look, "idle", now, side === "me" ? 0 : 1);
     const img = creatureFrame(side, f, i, pose);
     const shadow = art.get("fx/shadow_m.png");
+    // How high it is off the ground: up and down in a sky dive (fast up, a drop at the end), an arc when thrown.
+    let lift = 0, spin = 0;
+    if (c.air) {
+      const t = c.air.t, rise = c.air.rise || 0.5;
+      lift = t < rise ? SKY * (1 - (1 - t / rise) ** 2) : SKY * (1 - ((t - rise) / (1 - rise)) ** 2);
+    } else if (c.thrown) { lift = Math.sin(c.thrown.t * Math.PI) * 26; spin = c.thrown.t * Math.PI * 2 * (c.face < 0 ? -1 : 1); }
     ctx.save();
     if (c.grace) ctx.globalAlpha = Math.floor(now / 90) % 2 ? 0.45 : 1; // just stepped in: it can't be hit yet
     ctx.translate(Math.round(c.x), Math.round(c.y));
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
+    if (lift) ctx.translate(0, -Math.round(lift));
+    if (spin) { ctx.translate(0, -BODY_UP); ctx.rotate(spin); ctx.translate(0, BODY_UP); }
     if (c.face < 0) ctx.scale(-1, 1);
     if (img) drawLiving(ctx, img, f.look, now); // (as drawImage(img, -FRAME / 2, -FRAME), with a colouring's particles)
     ctx.restore();
-    const charge = c.charging && fx("charge", c.type);
+    const orbing = c.charging && c.charging.form === "orb" && fx("orb", moveById(c.charging.move).own ? c.type : moveById(c.charging.move).element || c.type);
+    const charge = !orbing && c.charging && fx("charge", c.type);
     if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);
+    if (orbing) { // an energy orb gathering in front of it
+      ctx.globalAlpha = 0.35 + 0.65 * (c.charging.t || 0);
+      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16, c.y - BODY_UP);
+      ctx.globalAlpha = 1;
+    }
     const has = (id) => c.statuses.some((s) => s.id === id);
     const guard = has("guard") && fx("guard");
     if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - BODY_UP); // the bubble holds while the guard lasts
@@ -829,6 +944,15 @@ export function runLiveBattle(setup, vocab) {
   function drawFlying(p, now) {
     const lift = 12;
     const dir = p.dir || { x: 1, y: 0 };
+    if (p.kind === "projectile" && p.form === "orb") { // an energy orb: a big ball, not turned, its shadow under it
+      const f = fx("orb", p.element);
+      ctx.fillStyle = "rgba(0, 0, 0, .25)";
+      ctx.fillRect(Math.round(p.x) - 6, Math.round(p.y) - 1, 12, 3);
+      if (f) drawFx(f, "orb", loopFrame("orb", f, now), p.x, p.y - lift);
+      const last = trailAt.get(p.id);
+      if (!last || Math.hypot(p.x - last.x, p.y - last.y) >= 10) { trailAt.set(p.id, { x: p.x, y: p.y }); trails.push({ x: p.x, y: p.y - lift, t: 0, element: p.element }); }
+      return;
+    }
     if (p.kind === "projectile") {
       const f = fx("projectile", p.element);
       ctx.fillStyle = "rgba(0, 0, 0, .25)";
@@ -860,6 +984,8 @@ export function runLiveBattle(setup, vocab) {
         }
       } else { ctx.fillStyle = "rgba(255, 255, 255, .85)"; ctx.fillRect(0, -(p.width || 8) / 4, p.len, (p.width || 8) / 2); }
       ctx.restore();
+    } else if (p.kind === "area" && VARIETY && (p.form === "ring" || p.form === "drop")) {
+      // (a ring's waves and a drop's strike from above are drawn as effects when it lands: landing())
     } else if (p.kind === "area") {
       const f = fx("burst", p.element);
       if (f) { const k = frameAt(FX_INFO.burst, f.frames, (p.t || 0) * 900); if (k >= 0) drawFx(f, "burst", k, p.x, p.y); }
@@ -1175,6 +1301,21 @@ export function runLiveBattle(setup, vocab) {
           if (ev.why === "dodged") float(ev.side === "foe" ? t("Dodged!") : t("Missed"), x, y - 50, "missed");
           break;
         case "charge": sfx("lucky"); break;
+        // the more kinds of attack ("move_variety")
+        case "slash": play("slash", ev.element, x, y, { dir: ev.dir }); shake = Math.max(shake, 0.1); sfx("lucky"); break;
+        case "slam": play("impact", ev.element, x, y - BODY_UP); ring(ev.element, x, y, 28, 0.25); play("dust", null, x, y); shake = Math.max(shake, 0.2); break;
+        case "grab": float(t("Grabbed!"), x, y - 58, "strong"); play("dust", null, x, y); sfx("common"); break;
+        case "land": play("dust", null, x, y); play("impact", ev.element, x, y - 8); shake = Math.max(shake, 0.12); break;
+        case "skydive": play("dust", null, x, y); sfx("lucky"); break;
+        case "burrow": play("burrow", null, x, y); sfx("common"); break;
+        case "crash": play("strike", ev.element, x, y, { range: [2, 5] }); ring(ev.element, x, y, ev.r || 30); play("dust", null, x, y); shake = Math.max(shake, 0.22); break;
+        case "erupt":
+          play("burst", ev.element, x, y);
+          ring(ev.element, x, y, ev.r || 30);
+          for (let j = 0; j < 4; j++) play("burrow", null, x + Math.cos(j * Math.PI / 2) * 12, y + Math.sin(j * Math.PI / 2) * 9);
+          shake = Math.max(shake, 0.18);
+          break;
+        case "blast": play("burst", ev.element, x, y); ring(ev.element, x, y, ev.r || 30, 0.25); shake = Math.max(shake, 0.12); break;
         case "aim": // the right answer: now point it (the world still waits)
           banner(device === "touch" ? t("Tap where to fire") : device === "pad" ? t("Aim with the right stick, then press a button")
             : t("Click where to fire"), AIM_S * 1000);

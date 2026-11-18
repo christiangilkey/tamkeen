@@ -8,6 +8,9 @@ web/game-art/battle/fx/, then checks each export pixel for pixel against the des
     .venv/Scripts/python game/art-src/battle-fx/build_fx.py           build everything (needs Aseprite)
     .venv/Scripts/python game/art-src/battle-fx/build_fx.py check     draw and check sizes and edges only
     .venv/Scripts/python game/art-src/battle-fx/build_fx.py preview   preview sheets + animated GIF of the exports
+    .venv/Scripts/python game/art-src/battle-fx/build_fx.py new       build only the second set (moves2.py: waves, orbs,
+                                                                      strikes from above, ground marks, slashes, burrow)
+    .venv/Scripts/python game/art-src/battle-fx/build_fx.py checknew  check the second set only
 
 Re-running the build overwrites the .aseprite files: if one is edited by hand in Aseprite, export its strip from
 Aseprite instead (File > Export Sprite Sheet, horizontal strip, no padding).
@@ -162,8 +165,8 @@ end
 """
 
 
-def build():
-    items = effects()
+def build(items=None):
+    items = items or effects()
     problems = check(items)
     for p in problems:
         print("CHECK:", p)
@@ -201,6 +204,13 @@ if __name__ == "__main__":
         items = effects()
         probs = check(items)
         print("\n".join(probs) or f"{len(items)} effects: sizes, frame counts and edges OK")
+    elif cmd in ("new", "checknew"):
+        import moves2
+        items = moves2.effects2()
+        if cmd == "new":
+            build(items)
+        else:
+            print(chr(10).join(check(items)) or f"{len(items)} effects: sizes, frame counts and edges OK")
     elif cmd == "preview":
         import make_preview
         make_preview.main()

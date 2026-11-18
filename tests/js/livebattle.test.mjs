@@ -77,9 +77,9 @@ test("every move has a real-time form with its numbers", () => {
     assert.ok(LIVE_FORMS[lm.form], `${m.id} has a known form`);
     assert.ok(lm.cooldown > 0, `${m.id} cools down`);
     assert.ok(Number.isFinite(lm.range), `${m.id} has a range`);
-    if (m.kind === "attack") assert.ok(["shot", "homing", "beam", "burst", "drop", "dash"].includes(lm.form), `${m.id} is an attack form`);
+    if (m.kind === "attack") assert.ok(["shot", "homing", "beam", "burst", "drop", "dash", "slam", "slash", "throw", "skydive", "burrow", "orb", "cone", "ring"].includes(lm.form), `${m.id} is an attack form`);
     if (m.style === "charge") assert.ok(lm.windup > 0, `${m.id} winds up`);
-    else assert.equal(lm.windup, 0);
+    else assert.equal(lm.windup, lm.hold || 0, `${m.id}: only an orb gathers (hold) without being a charge`);
     if (m.kind === "terrain") assert.ok(lm.terrain && ["self", "foe", "row"].includes(lm.where), `${m.id} lays live ground`);
     if (lm.form === "shot" || lm.form === "homing") assert.ok(lm.speed > 0 && lm.r > 0);
     if (lm.form === "drop" || lm.form === "burst") assert.ok(lm.r > 0 && lm.warn > 0);

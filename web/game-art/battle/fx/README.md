@@ -63,3 +63,16 @@ Show one or two drifting around the affected creature's upper body while the sta
 
 Every effect has a dark edge or a dark core plus bright highlights, so it stays readable on grass, sand, water,
 stone, snow, lava rock and dark moss (the preview GIF plays them over a patchwork of all of these).
+
+## The second set (more kinds of attack, 2026-11-17)
+
+Built by `game/art-src/battle-fx/moves2.py` (`build_fx.py new`), in each element's palette and materials.
+
+| File | Frames | Size | Timing (ms per frame) | Anchor | What it is for |
+|---|---|---|---|---|---|
+| `<element>_wave.png` | 4 | 24x24 | 70 each, loop | (12, 12) | A crescent wave front facing **right**. Copies of it, turned outward, make a cone wave (along an arc) or a ring wave (all round), moving out from the user. |
+| `<element>_orb.png` | 4 | 32x32 | 80 each, loop | (16, 16) | An energy orb: gathering in front of the user, then flying (not turned). |
+| `<element>_strike.png` | 6 | 64x64 | 70, 60, 70, 90, 100, 120, once | (32, 56) on the ground | Something falling from above onto the point (meteor, torrent, thorn spear, bolt, boulder, dark spear): frames 1-2 fall, 3 is the hit, 4-6 fade. Start it 130 ms before the area lands. |
+| `<element>_mark.png` | 4 | 16x16 | 120 each, loop | (8, 10) | A small sign on the ground, set every ~18 px round an area's edge (or along a cone's arc) while it warns. |
+| `<element>_slash.png` | 5 | 48x48 | 40, 50, 60, 70, 90, once | (24, 24) on the hit point | A crescent slash facing **right**: turn it to the rush's direction. |
+| `burrow.png` | 4 | 16x16 | 70, 80, 90, 110, once | (8, 12) | Earth pushed up by a creature burrowing: drop one every ~11 px of its path. |

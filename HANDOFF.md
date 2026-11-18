@@ -9253,3 +9253,27 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
   and the Guilds tab (above the raids) call it only when `feature("guild_tavern")`. Styles at the end of app.css.
 - Tests `tests/js/tavern.test.mjs` (6). Seen in the preview with six made-up creatures (drawing, wandering, tap
   bubble); never yet with a real signed-in guild.
+
+### More kinds of battle moves (prototype `move_variety`, 2026-11-17, "Creature game section updates" chat; NOT committed when written)
+- Owner's request: slams, sky dives, burrows, grab-and-throw, cone waves, ring waves, beams, energy orbs, lunges,
+  slashes through and past, strikes called down from above, all in various elements, and real sprites for areas
+  instead of the red circle. Owner's choices: new shop moves AND new shapes for some older moves; body attacks take
+  the creature's own element; areas = element marks round the edge + a thin warning line + a faint wash; art by script.
+- Art: `game/art-src/battle-fx/moves2.py` (`build_fx.py new` / `checknew`): per element wave, orb, strike, mark,
+  slash, plus shared burrow (31 strips, sources beside them; README section "The second set").
+- Data (`data.js`): LIVE_FORMS/LIVE_FORM_STATS gain slam, slash, throw, skydive, burrow, orb, cone, ring. Ten new
+  shop moves with `proto: "move_variety"` and `own: true` (Body Slam, Slash Through, Grapple Toss, Sky Dive, Burrow,
+  Energy Orb, Cone Wave, Shockwave, Call Down, Focus Beam), forms and cooldowns in LIVE_TUNING; SHOP_MOVES leaves
+  them out while the prototype is off (read at load: switching prototype mode on needs the app opened again).
+  LIVE_RESHAPE (only with the prototype on): wildfire/overgrowth cone, riptide/resonance ring, pounce slash, charge slam.
+- Engine (`livebattle.js`): `f.air` (sky dive: out of reach, lerps to the point, `comeDown` = area hit), `f.under`
+  (burrow: straight to the point under walls, then erupts), `o.thrown` (grabbed by a throw rush, lands hurt and
+  dazed), slam (knock x2.4 + daze), slash (passes through, one hit, `separate` skipped), orb (`hold` = gathering via
+  `charging`, then a slow projectile that `blast`s where it stops), cone fx (fan by angle), ring = an area round the
+  user. Every new form goes through `aimTo`, so the battle-aim prototype aims them too. The rival dodges them (threatTo).
+- Screen (`livebattle-ui.js`, `VARIETY`): warnShape draws marks + thin edge (circles and cones), waves for cones,
+  rings, slams, blasts, crashes and eruptions; strikes start STRIKE_FALL before a drop lands; sky dive lift, burrow
+  mounds, thrown arc and spin; the orb in flight and gathering.
+- Tests: `tests/js/moveforms.test.mjs` (12); livebattle/movepick tests updated for the new forms and per-move waits.
+  Seen in a hidden preview pane (2 frames a second): sky dive rise and landing circle, cone warning fan. Not yet seen
+  smoothly, on a phone, or against a friend.

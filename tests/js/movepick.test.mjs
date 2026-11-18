@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { LIVE_COOLDOWN, MOVES, TYPES, moveIcon } from "../../web/js/game/data.js";
+import { LIVE_COOLDOWN, MOVES, TYPES, liveMove, moveIcon } from "../../web/js/game/data.js";
 import { newGenome } from "../../web/js/game/genome.js";
 import { newState } from "../../web/js/game/rules.js";
 import { knownMoves, loadout, publicProfile } from "../../web/js/game/battle.js";
@@ -104,7 +104,8 @@ test("every move has its numbers for the details popup", () => {
     assert.ok(f.kind && f.text, m.id);
     assert.ok(labels.has(f.effect.label), m.id);
     assert.ok(String(f.effect.value).length > 0, `${m.id} has a value`);
-    assert.equal(f.wait, LIVE_COOLDOWN[m.style], m.id);
+    assert.equal(f.wait, liveMove(m).cooldown, m.id); // (the style's wait, or the move's own: LIVE_TUNING)
+    if (!liveMove(m).cooldown || !(m.id in { body_slam: 1, slash_through: 1, grapple_toss: 1, sky_dive: 1, burrow: 1, energy_orb: 1, cone_wave: 1, shockwave: 1, call_down: 1, focus_beam: 1 })) assert.equal(f.wait, LIVE_COOLDOWN[m.style], m.id);
     assert.ok(existsSync(new URL(`../../web/game-art/${moveIcon(m)}.png`, import.meta.url)), `${m.id} has an icon`);
   }
   assert.deepEqual(moveFacts(MOVES.find((m) => m.id === "guard")).effect, { label: "Blocks", value: "50%" });

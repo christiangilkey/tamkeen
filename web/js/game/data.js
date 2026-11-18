@@ -8,6 +8,7 @@
 import { BEASTS } from "./beasts.js";
 import { PROPS as ARENA_PROPS, TERRAIN as ARENA_GROUND, terrainArtFiles as arenaArtFiles } from "./battlemap.js";
 import { FISH, FISH_ART, RODS } from "./fishdata.js";
+import { feature } from "../prototype.js";
 
 // ---------- colours ----------
 // Parts are drawn in these exact "key" colours; the app swaps them for each creature's own.
@@ -400,11 +401,25 @@ export const MOVES = [
   shop("bloom", "Bloom", "terrain", 0, 65, { terrain: "spring", where: "self" }),
   shop("scorch", "Scorch", "terrain", 0, 75, { terrain: "coals", where: "foe" }),
   shop("mudslide", "Mudslide", "terrain", 0, 80, { terrain: "puddle", where: "row" }),
+  // More kinds of attack (a prototype, "move_variety": only in the shop while it is on). Each takes its user's own
+  // element (`own`), so one move has six looks and counts as that element on the type chart. Their live forms are
+  // in LIVE_TUNING below.
+  shop("body_slam", "Body Slam", "strike", 50, 70, { own: true, proto: "move_variety" }),
+  shop("slash_through", "Slash Through", "strike", 46, 80, { own: true, proto: "move_variety" }),
+  shop("grapple_toss", "Grapple Toss", "strike", 52, 95, { own: true, proto: "move_variety" }),
+  shop("sky_dive", "Sky Dive", "strike", 60, 100, { own: true, proto: "move_variety" }),
+  shop("burrow", "Burrow", "strike", 54, 90, { own: true, proto: "move_variety" }),
+  shop("energy_orb", "Energy Orb", "strike", 60, 85, { own: true, proto: "move_variety" }),
+  shop("cone_wave", "Cone Wave", "strike", 48, 75, { own: true, proto: "move_variety" }),
+  shop("shockwave", "Shockwave", "strike", 44, 80, { own: true, proto: "move_variety" }),
+  shop("call_down", "Call Down", "strike", 56, 90, { own: true, proto: "move_variety" }),
+  shop("focus_beam", "Focus Beam", "strike", 50, 85, { own: true, proto: "move_variety" }),
 ];
 export const moveById = (id) => MOVES.find((m) => m.id === id) || MOVES[0];
 /** The art file of a move's icon (moves bought in the shop may use their style's icon). */
 export const moveIcon = (m) => (m.icon ? `icon/${m.icon}` : `icon/move/${m.id}`);
-export const SHOP_MOVES = MOVES.filter((m) => m.price);
+// (a prototype move is only offered while its prototype is on: prototype.js; switching it on needs the app opened again)
+export const SHOP_MOVES = MOVES.filter((m) => m.price && (!m.proto || feature(m.proto)));
 
 // ---------- live battles (livebattle.js) ----------
 // In live battles the creatures run around an arena, and every move takes a real-time form. Distances
@@ -417,6 +432,14 @@ export const LIVE_FORMS = {
   burst: { name: "Burst", text: "Hits all around the user, up close." },
   drop: { name: "Drop", text: "Lands where the other creature stood, after a warning circle. Move off the circle." },
   dash: { name: "Dash", text: "The user rushes at the other creature. Sidestep it." },
+  slam: { name: "Slam", text: "The user throws its whole body at the other creature: a heavy knock back and a moment's daze. Sidestep it." },
+  slash: { name: "Slash", text: "The user cuts straight through the other creature and out past it. Sidestep it." },
+  throw: { name: "Throw", text: "The user rushes in, grabs the other creature and throws it: the landing hurts. Sidestep the rush." },
+  skydive: { name: "Sky dive", text: "The user flies up out of reach and crashes down where it aimed. Get out from under the circle." },
+  burrow: { name: "Burrow", text: "The user digs underground and bursts up where it aimed. Watch the earth moving toward you." },
+  orb: { name: "Orb", text: "The user gathers a ball of energy, then sends it slowly forward; it bursts on whatever it meets." },
+  cone: { name: "Cone wave", text: "A wave fans out in front of the user. Step out of the cone or out of its reach." },
+  ring: { name: "Ring wave", text: "A wave goes out from the user in every direction. Keep your distance." },
   self: { name: "Itself", text: "It works on the creature using it" },
   terrain: { name: "Ground", text: "Changes the ground." },
 };
@@ -448,6 +471,17 @@ export const LIVE_FORM_STATS = {
   dash: { range: 100, speed: 500 }, // lunges: quick, so they are hard to dodge (the owner)
   self: { range: 0 },
   terrain: { range: 240, size: 1 },
+  // The more kinds of attack ("move_variety"). `knock` (times the usual knock back) and `daze` (seconds stunned) for
+  // a slam; `toss` (px) for a throw; `rise`/`fall` (s) for a sky dive; `hold` (s gathering) and `blast` (px) for an
+  // orb; `half` (radians either side of the aim) for a cone.
+  slam: { range: 120, speed: 540, knock: 2.4, daze: 0.35 },
+  slash: { range: 150, speed: 650 },
+  throw: { range: 110, speed: 520, toss: 90, daze: 0.4 },
+  skydive: { range: 200, r: 34, rise: 0.4, fall: 0.45 },
+  burrow: { range: 220, speed: 210, r: 30, daze: 0.25 },
+  orb: { range: 230, speed: 175, r: 9, hold: 0.5, blast: 34 },
+  cone: { range: 112, half: 0.55, warn: 0.3 },
+  ring: { range: 0, r: 64, warn: 0.35 },
 };
 // Moves that work differently from their aim's usual form, or with other numbers.
 export const LIVE_TUNING = {
@@ -458,18 +492,37 @@ export const LIVE_TUNING = {
   meteor: { form: "drop", r: 56 },
   quick_jab: { range: 150, speed: 340 },
   bloom: { range: 0 },
+  body_slam: { form: "slam", cooldown: 3 },
+  slash_through: { form: "slash", cooldown: 2.6 },
+  grapple_toss: { form: "throw", cooldown: 5 },
+  sky_dive: { form: "skydive", cooldown: 5 },
+  burrow: { form: "burrow", cooldown: 5 },
+  energy_orb: { form: "orb", cooldown: 4 },
+  cone_wave: { form: "cone", cooldown: 3 },
+  shockwave: { form: "ring", cooldown: 4 },
+  call_down: { form: "drop", r: 30, warn: 0.65, cooldown: 4 },
+  focus_beam: { form: "beam", width: 14, cooldown: 4 },
+};
+// With "move_variety" on, some older moves take the new shapes too (so every creature gets variety straight away).
+export const LIVE_RESHAPE = {
+  wildfire: { form: "cone" }, overgrowth: { form: "cone" },
+  riptide: { form: "ring" }, resonance: { form: "ring", r: 70 },
+  pounce: { form: "slash", range: 120 }, charge: { form: "slam", range: 170, speed: 560 },
 };
 // The live arena's ground (battlemap.js TERRAIN ids) that each terrain move lays.
 export const LIVE_TERRAIN = { spring: "spring", coals: "coals", puddle: "mud" };
 const LIVE_AIM_FORM = { line: "shot", column: "drop", burst: "burst", homing: "homing", self: "self" };
 /** How a move works in a live battle: {id, form, cooldown, windup (a charge's wind-up), range, ...form numbers, terrain}. */
 export function liveMove(m) {
-  const tuned = LIVE_TUNING[m.id] || {};
+  const tuned = { ...(LIVE_TUNING[m.id] || {}), ...(LIVE_RESHAPE[m.id] && feature("move_variety") ? LIVE_RESHAPE[m.id] : {}) };
   const form = tuned.form || (m.kind === "terrain" ? "terrain" : m.kind === "attack" ? LIVE_AIM_FORM[m.aim] || "shot" : "self");
+  const stats = { ...LIVE_FORM_STATS[form], ...tuned };
+  const rush = form === "dash" || form === "slam"; // (a lunge winds up quicker: harder to dodge)
   return {
-    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2, windup: m.style === "charge" ? (m.cast || 1) * (form === "dash" ? 0.9 : 1.5) : 0, // (a lunge winds up quicker: harder to dodge)
+    id: m.id, cooldown: LIVE_COOLDOWN[m.style] || 2,
     terrain: m.kind === "terrain" ? LIVE_TERRAIN[m.terrain] || m.terrain : null, where: m.where || null,
-    ...LIVE_FORM_STATS[form], ...tuned, form,
+    ...stats, form,
+    windup: m.style === "charge" ? (m.cast || 1) * (rush ? 0.9 : 1.5) : stats.hold || 0, // (an orb gathers for `hold`)
   };
 }
 
