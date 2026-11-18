@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	AI
+d4b4760e	你的 AI 密钥被拒绝了
+85c32238	{0} 拒绝了你的 API 密钥，所以这些卡片是在不用 AI 的情况下填写的：释义来自内置词典，例句是真实的句子。密钥很可能已经过期。你可以在 设置 → 单词释义 里换一个新的，或者不用密钥继续。
+ae095e42	保留我的密钥
+573efe59	不用密钥
+53f9372f	AI 已关闭。可以在 设置 → 单词释义 里重新打开。

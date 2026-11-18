@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	La IA
+d4b4760e	Tu clave de IA fue rechazada
+85c32238	{0} rechazó tu clave de API, así que estas tarjetas se completaron sin IA: los significados del diccionario integrado y frases de ejemplo reales. Lo más probable es que la clave haya caducado. Puedes conseguir una nueva en Ajustes → Definiciones de palabras, o seguir sin clave.
+ae095e42	Mantener mi clave
+573efe59	Usar sin clave
+53f9372f	La IA está desactivada. Vuelve a activarla en Ajustes → Definiciones de palabras.

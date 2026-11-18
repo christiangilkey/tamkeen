@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	Ang AI
+d4b4760e	Tinanggihan ang AI key mo
+85c32238	Tinanggihan ng {0} ang API key mo, kaya pinunan ang mga card na ito nang walang AI: mga kahulugan mula sa built-in na diksiyonaryo, at totoong mga halimbawang pangungusap. Malamang ay expired na ang key. Makakakuha ka ng bago sa Settings → Kahulugan ng mga salita, o magpatuloy nang walang key.
+ae095e42	Panatilihin ang key ko
+573efe59	Gamitin nang walang key
+53f9372f	Naka-off na ang AI. I-on ulit ito sa Settings → Kahulugan ng mga salita.

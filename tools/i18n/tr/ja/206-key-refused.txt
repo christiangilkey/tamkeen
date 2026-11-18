@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	AI
+d4b4760e	AIキーが拒否されました
+85c32238	{0}がAPIキーを拒否したため、これらのカードはAIなしで入力しました：意味は内蔵の辞書から、例文は実際の文です。キーの期限が切れている可能性が高いです。設定 → 単語の解説で新しいキーを入れるか、キーなしで続けてください。
+ae095e42	キーをそのままにする
+573efe59	キーなしで使う
+53f9372f	AIをオフにしました。設定 → 単語の解説でまたオンにできます。

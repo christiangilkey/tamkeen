@@ -9294,3 +9294,12 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
 - Tests: `tests/js/battlerace.test.mjs` (7). Checked in a test copy (rAF stubbed with a timer, as the hidden pane stops
   animation frames): the dodge box, "answered quicker: full damage" with the right answer shown, a right dodge losing 13
   HP with "Dodged: half damage", the player's attack out-answered ("half damage", into the aim moment), prototype off = no race.
+
+### A refused AI key in Add words (prototype `key_fallback`, 2026-11-18, main chat)
+- Owner: "If my key is rejected don't give me a warning just generate it without the key", with a popup that says so
+  and a "use without key" button. `components/wordbuilder.js`: an AI request answered "key refused" (`err.kind === "key"`)
+  puts its rows aside; they are filled in again as with No AI (that key isn't tried again while the app is open:
+  module-level `refusedKey`), then `keyRefusedPopup` (once per key): "Keep my key" / "Use without a key" (saves
+  `definer_mode: "dictionary"`). Without prototype mode: the red note as before. Tests `tests/js/keyfallback.test.mjs`;
+  translations `tools/i18n/tr/*/206-key-refused.txt` (strings.json not rebuilt yet: other prototypes' strings are
+  still untranslated, and rebuilding makes the i18n test fail until they are). Checked in a test copy with a made-up key.

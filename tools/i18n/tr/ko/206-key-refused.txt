@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	AI
+d4b4760e	AI 키가 거부되었어요
+85c32238	{0}에서 API 키를 거부해서 이 카드들은 AI 없이 채웠어요. 뜻은 내장 사전에서, 예문은 실제 문장이에요. 키가 만료되었을 가능성이 커요. 설정 → 단어 설명에서 새 키를 넣거나, 키 없이 계속할 수 있어요.
+ae095e42	내 키 유지
+573efe59	키 없이 사용
+53f9372f	AI가 꺼졌어요. 설정 → 단어 설명에서 다시 켤 수 있어요.

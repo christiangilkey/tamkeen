@@ -29,7 +29,9 @@ const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js
   // (lesson bundles: what the AI is told when it finds a lesson's questions, and the words the question finder looks for)
   /web\/js\/lessonai\.js$/, /web\/js\/lessonparse\.js$/,
   // (Ask by voice: the patterns a spoken question is read with, and what the AI is told)
-  /web\/js\/voiceask\.js$/];
+  /web\/js\/voiceask\.js$/,
+  // (prototype mode: the features' names and the secret switch's messages are for the owner only)
+  /web\/js\/prototype\.js$/];
 
 function files(p) {
   const full = join(root, p);

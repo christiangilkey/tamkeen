@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	Ang AI
+d4b4760e	Gibalibaran ang imong AI key
+85c32238	Gibalibaran sa {0} ang imong API key, busa kining mga card gipuno nga walay AI: mga kahulogan gikan sa built-in nga diksiyonaryo, ug tinuod nga mga pananglitan nga sentence. Lagmit na-expire na ang key. Makakuha ka og bag-o sa Settings → Kahulogan sa pulong, o padayon nga walay key.
+ae095e42	Ipabilin ang akong key
+573efe59	Gamita nga walay key
+53f9372f	Off na ang AI. I-on kini pag-usab sa Settings → Kahulogan sa pulong.

@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	Die KI
+d4b4760e	Dein KI-Schlüssel wurde abgelehnt
+85c32238	{0} hat deinen API-Schlüssel abgelehnt, deshalb wurden diese Karten ohne KI ausgefüllt: Bedeutungen aus dem eingebauten Wörterbuch und echte Beispielsätze. Der Schlüssel ist höchstwahrscheinlich abgelaufen. Einen neuen bekommst du unter Einstellungen → Worterklärungen, oder du machst ohne Schlüssel weiter.
+ae095e42	Meinen Schlüssel behalten
+573efe59	Ohne Schlüssel nutzen
+53f9372f	Die KI ist aus. Schalte sie unter Einstellungen → Worterklärungen wieder ein.

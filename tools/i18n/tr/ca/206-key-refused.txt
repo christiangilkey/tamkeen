@@ -1,0 +1,7 @@
+# Add words: a refused AI key (prototype key_fallback, components/wordbuilder.js keyRefusedPopup).
+ed345408	La IA
+d4b4760e	La teva clau d'IA ha estat rebutjada
+85c32238	{0} ha rebutjat la teva clau d'API, així que aquestes targetes s'han omplert sense IA: els significats del diccionari integrat i frases d'exemple reals. El més probable és que la clau hagi caducat. Pots aconseguir-ne una de nova a Configuració → Definicions de paraules, o continuar sense clau.
+ae095e42	Mantén la meva clau
+573efe59	Fes-ho servir sense clau
+53f9372f	La IA està desactivada. Torna-la a activar a Configuració → Definicions de paraules.
