@@ -82,6 +82,27 @@ test("the dictionary the other way round: the everyday word first, verbs for “
   assert.equal(top.pos, "noun");
 });
 
+test("Wiktionary's translation tables first, then the backwards search; readings and senses kept", () => {
+  const file = { ...FILE, english: {
+    dog: [["perro", "noun", "animal"], ["can", "noun", "animal"], ["vaca", "noun", "dull, unattractive girl"]],
+    eat: [["comer", "verb", "to ingest — see also consume, ingest"]],
+    "i'm hungry": [["tengo hambre", "phrase", "I'm hungry"]],
+    "thank you": [["谢谢", "intj", "an expression of gratitude", "xièxie"]],
+  } };
+  const got = (q) => va.translationsFor([file], q, "es");
+  assert.deepEqual(got("dog").map((x) => x.word).slice(0, 3), ["perro", "can", "vaca"], "the first sense's words, then one of the next");
+  assert.ok(got("dog").some((x) => x.word === "tuso"), "the backwards search fills the rest");
+  assert.equal(new Set(got("dog").map((x) => x.word)).size, got("dog").length, "no word twice");
+  assert.deepEqual(got("dog")[0], { word: "perro", meaning: "dog", sense: "animal", pos: "noun", reading: "" });
+  assert.equal(got("to eat")[0].word, "comer");
+  assert.equal(got("to eat")[0].meaning, "to eat");
+  assert.equal(got("to eat")[0].sense, "to ingest", "Wiktionary's cross-references go");
+  assert.equal(got("I'm hungry")[0].sense, "", "a sense that only repeats what was asked goes");
+  assert.equal(got("thank you")[0].reading, "xièxie");
+  assert.equal(got("colourful")[0].word, "variopinto", "no table row: the backwards search alone");
+  assert.equal(got("dog").length, 4);
+});
+
 test("with an AI: one small question, and its answer tidied", () => {
   const p = va.askPrompt({ phrase: "colorful", heard: "how do I say colorful in Spanish", language: "Spanish", explain: "English" });
   assert.match(p.system, /Spanish teacher/);

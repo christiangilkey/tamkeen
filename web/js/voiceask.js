@@ -201,6 +201,50 @@ export function findTranslations(files, phrase, lang, { common = [], max = 4 } =
   return [...best.values()].sort((a, b) => b.score - a.score).slice(0, max).map(({ word, meaning, pos }) => ({ word, meaning: shortGloss(meaning), pos }));
 }
 
+/**
+ * How to say `phrase` (English) from the dictionary, best first: [{word, meaning, sense, pos, reading}], at most
+ * `max`. First Wiktionary's own translation tables (the meanings files' `english`, tools/build_meanings.py
+ * --english: dog -> perro, fork -> tenedor), the words of the first sense listed first; then the backwards search
+ * of the meanings (findTranslations), which finds what the tables lack (colorful: variopinto). `meaning` is the
+ * card's front: the English asked for; `sense` which meaning of it the word is ("eating utensil").
+ */
+export function translationsFor(files, phrase, lang, { common = [], max = 4 } = {}) {
+  const asked = tidy(phrase).toLowerCase().replace(ARTICLE, "");
+  if (!asked) return [];
+  const verb = TO.test(asked);
+  const keys = [...new Set(spellings(asked).flatMap((s) => [s, s.replace(TO, "")]))];
+  const out = [];
+  const seen = new Set();
+  const push = (item) => {
+    const k = matchKey(item.word, lang);
+    if (!item.word || seen.has(k) || out.length >= max) return;
+    seen.add(k);
+    out.push(item);
+  };
+  const front = asked.replace(TO, verb ? "to " : "");
+  for (const data of files || []) {
+    const table = data && data.english && typeof data.english === "object" ? data.english : null;
+    if (!table) continue;
+    let rows = [];
+    for (const k of keys) if (Array.isArray(table[k])) { rows = table[k].filter((r) => Array.isArray(r) && typeof r[0] === "string"); break; }
+    if (verb) rows = [...rows.filter((r) => r[1] === "verb"), ...rows.filter((r) => r[1] !== "verb")];
+    if (!rows.length) continue;
+    const first = String(rows[0][2] || "");
+    // the words of the first sense (the main one), then the first word of each other sense
+    const main = rows.filter((r) => String(r[2] || "") === first).slice(0, 3);
+    const others = rows.filter((r) => String(r[2] || "") !== first && r === rows.find((x) => String(x[2] || "") === String(r[2] || "")));
+    for (const r of [...main, ...others.slice(0, 1)]) {
+      // (the sense without Wiktionary's cross-references, and not when it only repeats what was asked)
+      let sense = tidy(String(r[2] || "").replace(/\s*[—–-]\s*see also\b.*$/i, "")).slice(0, 120);
+      if (sense.toLowerCase() === front.toLowerCase() || sense.toLowerCase() === `to ${front}`.toLowerCase()) sense = "";
+      push({ word: tidy(r[0]), meaning: front, sense, pos: String(r[1] || ""), reading: typeof r[3] === "string" ? tidy(r[3]) : "" });
+    }
+    break;
+  }
+  for (const f of findTranslations(files, phrase, lang, { common, max })) push({ word: f.word, meaning: f.meaning, sense: "", pos: f.pos, reading: "" });
+  return out;
+}
+
 /** A dictionary meaning short enough for a card's front: its first few senses, at most about 80 letters. */
 export function shortGloss(gloss) {
   const s = tidy(String(gloss || "").replace(/\s*\([^)]*\)\s*$/, ""));

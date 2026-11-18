@@ -27,7 +27,7 @@ import { sayText, stopSaying } from "../saytext.js";
 import { languageName } from "../converse.js";
 import { chosenDialect } from "../voiceplay.js";
 import { isPhrase, wordKey } from "../addwords.js";
-import { askPrompt, cleanAsk, findTranslations, hearingTag, hearingWays, readQuestion } from "../voiceask.js";
+import { askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, translationsFor } from "../voiceask.js";
 
 const EXAMPLE = "How do I say colorful in Spanish?";
 const browserRecognition = () => window.SpeechRecognition || window.webkitSpeechRecognition || null;
@@ -215,9 +215,15 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     const files = await dictionaryFiles(lang);
     if (!files) throw new Error(t("The {0} dictionary couldn't be got: check the internet connection, or add an AI in Settings → Word definitions.", t(langInfo(lang).name)));
     const common = await commonWords(lang).catch(() => []);
-    const found = findTranslations(files, phrase, lang, { common });
+    const found = translationsFor(files, phrase, lang, { common });
     if (found.length) {
-      return { items: found.map((f) => ({ word: f.word, meaning: f.meaning, notes: f.pos ? f.pos : "" })), source: t("From the built-in dictionary (Wiktionary)") };
+      return {
+        items: found.map((f) => ({
+          word: f.word, reading: f.reading, meaning: f.meaning, note: f.sense,
+          notes: [f.reading && lang !== "ar" ? `Reading: ${f.reading}` : "", f.pos].filter(Boolean).join(" · "),
+        })),
+        source: t("From the built-in dictionary (Wiktionary)"),
+      };
     }
     return null;
   }
