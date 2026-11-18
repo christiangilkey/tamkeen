@@ -2091,6 +2091,8 @@
 "No meaning was found. Type its meaning.":"Значение не найдено. Введите его значение.",
 "The AI sent nothing back for this word. Press Fill in to try again.":"ИИ ничего не вернул для этого слова. Нажмите «Заполнить», чтобы попробовать ещё раз.",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"Часть не удалось заполнить. Введите её или нажмите «Заполнить», чтобы попробовать ещё раз.",
+"From your own library: {0}":"Из вашей библиотеки: {0}",
+"your library":"ваша библиотека",
 "Every other word in this sentence is one you know.":"Все остальные слова в этом предложении вы уже знаете.",
 "No example sentence was found for this word. Type one, or leave it empty.":"Для этого слова не нашлось примера предложения. Напишите своё или оставьте поле пустым.",
 "No example sentence was found for this phrase. Type one, or leave it empty.":"Для этого выражения не нашлось примера предложения. Напишите своё или оставьте поле пустым.",

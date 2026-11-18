@@ -86,6 +86,7 @@ test("each examples file's size and sha256 in index.json match the file (devices
     const blob = raw(meta.file);
     assert.equal(meta.bytes, blob.length, `${meta.file} bytes`);
     assert.equal(meta.sha256, createHash("sha256").update(blob).digest("hex"), `${meta.file} sha256`);
-    assert.ok(blob.length < 5e6, `${meta.file} stays a sensible size`);
+    // (Russian, with every rarer word Tatoeba has, is the largest: 8.4 MB, downloaded once; a meanings file is about 10)
+    assert.ok(blob.length < 9e6, `${meta.file} stays a sensible size`);
   }
 });

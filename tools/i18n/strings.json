@@ -10465,6 +10465,16 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "331a95c9",
+  "k": "From your own library: {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c3d1c6d0",
+  "k": "your library",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "5516980a",
   "k": "Every other word in this sentence is one you know.",
   "f": "web/js/components/wordbuilder.js"

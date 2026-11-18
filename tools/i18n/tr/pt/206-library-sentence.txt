@@ -1,0 +1,3 @@
+# Add words: a sentence from the learner's own library when the files have none (components/wordbuilder.js).
+331a95c9	Da sua própria biblioteca: {0}
+c3d1c6d0	sua biblioteca

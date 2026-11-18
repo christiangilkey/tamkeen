@@ -18,6 +18,9 @@ forms of a word ("hablo", "كتبت"), which word they are a form of. Read by we
     python tools/build_meanings.py --fill tl ceb         (only fill the gaps of the Tagalog and Bisaya files there)
     python tools/build_meanings.py --translations ceb    (add the Bisaya words that English entries' translation
                                                           tables give and the Bisaya entries lack; reads English)
+    python tools/build_meanings.py --english [<English .jsonl.gz>] es fr ...   (every language: the same, and the
+                                                          `english` list, English word -> the language's words, from
+                                                          those tables; one reading of the English file for all)
 
 Each language is read straight from kaikki.org (a .jsonl.gz of 15-400 MB) and never stored.
 Writes the files and adds them to docs/lexicon/index.json. Chinese also reads CC-CEDICT (about 4 MB,
@@ -27,6 +30,9 @@ everyday meaning first; Japanese needs `pip install wordfreq`, to choose between
 The file: {"kind": "meanings", "lang", "source", "license",
            "words": {key: [[shown, pos, [gloss, ...], extra, grammar?], ...]},
            "forms": {key: [[lemma key, what form it is], ...]}}
+`english` (from --english): {English word or phrase, lower case: [[the language's word as written, part of speech,
+the sense it translates, reading?], ...]}, Wiktionary's translation tables turned round ("colorful": colorido,
+vistoso), main sense first, for "How do I say …?" (web/js/voiceask.js) with no AI.
 `key` is the word as Tamkeen matches it (see KEY below and web/js/meanings.js); `extra` is
 "root|reading|dialect" (any part may be empty; trailing empty parts are left off); `grammar`, when the
 headword line says something, is [grammar words, [[label, form, romanization?], ...]] (grammar_info).
@@ -34,6 +40,7 @@ headword line says something, is [grammar words, [[label, form, romanization?], 
 
 from __future__ import annotations
 
+import collections
 import gzip
 import hashlib
 import io
@@ -1123,7 +1130,7 @@ def write(lang: str, data: dict) -> None:
         "words": len(data["words"]), "forms": len(data["forms"]),
     }
     index["files"] = dict(sorted(index["files"].items()))
-    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")  # (LF, as the repository keeps it)
     print(f"  {lang}: wrote {name}, {len(packed) / 1e6:.1f} MB", flush=True)
 
 
@@ -1309,6 +1316,139 @@ def add_translations(lang: str, source: str) -> None:
     for k, groups in new.items():
         data["words"][k] = groups[:3]
     print(f"  {lang}: {len(new)} words added from English entries' translation tables", flush=True)
+    write(lang, data)
+
+
+# ---------- Every language: English entries' translation tables (--english) ----------
+# The English entries of Wiktionary list each sense's translations ("colorful": Spanish colorido, vistoso; French
+# coloré). Read once for every language: (1) the words a language's own entries lack get the English word as their
+# meaning, as add_translations does for Bisaya, and (2) the tables turned round are kept as `english`, so "how do I say
+# colorful" finds colorido, which the Spanish entries only call "colored". Same source and licence as the rest.
+WIKT_CODES = {"zh": ["zh", "cmn"]}
+# Arabic's rows are all "ar", a dialect's tagged with it (Egyptian-Arabic): the file's dialect codes (DIALECTS).
+ARABIC_TAGS = {"Egyptian-Arabic": "arz", "North-Levantine-Arabic": "apc", "South-Levantine-Arabic": "ajp", "Levantine-Arabic": "apc",
+               "Gulf-Arabic": "afb", "Hijazi-Arabic": "acw", "Moroccan-Arabic": "ary", "Tunisian-Arabic": "aeb"}
+OLD_TAGS = {"obsolete", "archaic", "dated", "historical"}
+SCRIPT = {"ar": "[؀-ۿ]", "fa": "[؀-ۿ]", "ru": "[Ѐ-ӿ]", "ja": "[぀-ヿ一-鿿]",
+          "zh": "[一-鿿]", "ko": "[가-힯]", "th": "[฀-๿]", "hi": "[ऀ-ॿ]"}
+LATIN = "[A-Za-zÀ-ɏ]"
+MAX_ENGLISH = 6       # words kept for one English word or phrase
+MAX_PHRASE = 4        # words in a translation, at most (longer ones are explanations, not ways to say it)
+KANA = re.compile("^[぀-ヿー ]+$")
+
+
+def all_translations(source: str, langs: list[str]) -> dict[str, list]:
+    """For each language: [(word, English word, part of speech, sense, reading, dialect)] from every English entry.
+    Chinese: Mandarin only, in simplified characters (the table gives "顏色 /颜色"); the reading is kept for Japanese
+    (kana) and Chinese (pinyin), the forms the files use. Arabic: each dialect's row marked with its code."""
+    codes = {c: lang for lang in langs for c in WIKT_CODES.get(lang, [lang])}
+    out: dict[str, list] = {lang: [] for lang in langs}
+    for n, line in enumerate(read_lines(source)):
+        if '"translations"' not in line:
+            continue
+        e = json.loads(line)
+        if e.get("lang_code") != "en":
+            continue
+        en = e.get("word", "")
+        tables = [(None, e.get("translations") or [])] + [(sn, sn.get("translations") or []) for sn in e.get("senses") or []]
+        # How many translations (into every language) each sense has: the main sense has by far the most ("dog":
+        # the animal, not a male dog or an unattractive person), so its words come first in `english`.
+        sense_of = lambda sense, t: t.get("sense") or ((sense or {}).get("glosses") or [""])[0]
+        weight = collections.Counter(sense_of(sense, t) for sense, rows in tables for t in rows)
+        # Pieces of a phrase listed beside it ("lleno", "de color" next to "lleno de color"): left out.
+        said = collections.defaultdict(set)
+        for sense, rows in tables:
+            for t in rows:
+                said[(t.get("lang_code"), sense_of(sense, t))].update(w.strip() for w in re.split(r",\s*", t.get("word") or ""))
+        pieces = set()
+        for group, words in said.items():
+            for phrase in words:
+                parts = phrase.split(" ")
+                for i in range(1, len(parts)):
+                    a, b = " ".join(parts[:i]), " ".join(parts[i:])
+                    if a in words and b in words:
+                        pieces.update({(group, a), (group, b)})
+        for sense, rows in tables:
+            for t in rows:
+                lang = codes.get(t.get("lang_code") or t.get("code") or "")
+                if not lang or not t.get("word"):
+                    continue
+                tags = set(t.get("tags") or [])
+                if tags & OLD_TAGS:
+                    continue
+                if lang == "zh" and "Mandarin" not in (t.get("lang") or ""):
+                    continue
+                dialect = ""
+                if lang == "ar":
+                    ar_tags = [x for x in tags if x.endswith("-Arabic")]
+                    if ar_tags:
+                        dialect = ARABIC_TAGS.get(ar_tags[0], "")
+                        if not dialect:
+                            continue  # (a dialect the file doesn't have)
+                gloss = sense_of(sense, t)
+                alt = t.get("alt") or ""
+                reading = alt if lang == "ja" and KANA.match(alt) else (t.get("roman") or "") if lang == "zh" else ""
+                for word in re.split(r",\s*", t["word"]):
+                    word = word.strip()
+                    if ((t.get("lang_code"), gloss), word) in pieces:
+                        continue
+                    if lang == "zh" and "/" in word:
+                        word = word.split("/")[-1].strip()
+                    out[lang].append((word, en, e.get("pos", ""), gloss, reading, dialect, weight[gloss]))
+        if n and n % 200000 == 0:
+            print(f"  English entries read: {n}", flush=True)
+    return out
+
+
+def add_english(lang: str, rows: list) -> None:
+    path = OUT / f"{lang}-meanings.json.gz"
+    data = json.loads(gzip.decompress(path.read_bytes()))
+    script = re.compile(SCRIPT.get(lang, LATIN))
+    wolff = json.loads(gzip.decompress((OUT / "ceb-wolff-meanings.json.gz").read_bytes())) if lang == "ceb" else None
+
+    def has_own(d, k):
+        if d is None:
+            return False
+        if k in d["forms"]:
+            return True
+        return any(g[1] != "name" and (g[3].split("|") + ["", "", ""])[2] not in BORROWED for g in d["words"].get(k, []))
+
+    english: dict[str, list] = {}
+    new: dict[str, list] = {}
+    for word, en, pos, sense, reading, dialect, weight in sorted(rows, key=lambda r: (r[1].strip().lower(), -r[6])):
+        word = clean(word)
+        if not word or not script.search(word) or len(word.split()) > MAX_PHRASE or re.search(r"[()\[\]=/]", word):
+            continue
+        p = TRANSLATION_POS.get(pos, "")
+        if p == "name":
+            continue
+        sense = clean(sense)[:MAX_GLOSS]
+        # (1) the table turned round
+        ek = en.strip().lower()
+        if ek:
+            have = english.setdefault(ek, [])
+            if len(have) < MAX_ENGLISH and not any(h[0] == word for h in have):
+                have.append([word, p, sense] + ([reading] if reading else []))
+        # (2) a word the language's own entries lack
+        k = key(word, lang)
+        if not k or has_own(data, k) or has_own(wolff, k):
+            continue
+        if lang == "ja" and len(word) == 1 and KANA.match(word):
+            continue  # (a single kana is a piece of other words: お "oh" would answer for every honorific お)
+        gloss = clean(en if not sense or sense.lower() == en.lower() else f"{en} ({sense})")[:MAX_GLOSS]
+        groups = new.setdefault(k, [])
+        group = next((g for g in groups if g[1] == p and g[0] == word), None)
+        if group is None:
+            extra = "|".join(["", reading, dialect]).rstrip("|")
+            groups.append([word, p, [], extra])
+            group = groups[-1]
+        if gloss not in group[2] and len(group[2]) < MAX_SENSES:
+            group[2].append(gloss)
+    for k, groups in new.items():
+        data["words"][k] = groups[:3]
+    data["english"] = english
+    print(f"  {lang}: {len(new)} words added from English entries' translation tables; {len(english)} English words "
+          f"turned round", flush=True)
     write(lang, data)
 
 
@@ -1933,7 +2073,7 @@ def tagalog_root_forms(notes: list[dict], root_of: dict[str, str], ud: dict | No
                   "db": "wordfreq (fil) + Wiktionary conjugation tables + UD_Tagalog-NewsCrawl",
                   "forms": len(out), "lexemes": len(lemmas)})
     idx["files"]["tl"] = entry
-    index_path.write_text(json.dumps(idx, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    index_path.write_text(json.dumps(idx, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
     print(f"  tl: the root finder's list knows {len(out)} verb forms' roots ({len(blob) / 1e6:.2f} MB)", flush=True)
 
 
@@ -2067,6 +2207,14 @@ def main(args: list[str]) -> None:
     if args and args[0] == "--fill":
         for lang in args[1:] or list(WORD_LISTS):
             fill(lang)
+        return
+    if args and args[0] == "--english":
+        rest = args[1:]
+        source = rest.pop(0) if rest and rest[0].endswith(".gz") else url(NAMES["en"])
+        langs = rest or [l for l in NAMES if l != "en" and (OUT / f"{l}-meanings.json.gz").exists()]
+        found = all_translations(source, langs)
+        for lang in langs:
+            add_english(lang, found[lang])
         return
     if args and args[0] == "--translations":
         for arg in args[1:] or list(WORD_LISTS):

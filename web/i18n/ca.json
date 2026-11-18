@@ -2091,6 +2091,8 @@
 "No meaning was found. Type its meaning.":"No s'ha trobat cap significat. Escriu-ne el significat.",
 "The AI sent nothing back for this word. Press Fill in to try again.":"La IA no ha retornat res per a aquesta paraula. Prem Omple per tornar-ho a provar.",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"Una part no s'ha pogut omplir. Escriu-la, o prem Omple per tornar-ho a provar.",
+"From your own library: {0}":"De la teva pròpia biblioteca: {0}",
+"your library":"la teva biblioteca",
 "Every other word in this sentence is one you know.":"Totes les altres paraules d'aquesta frase ja les coneixes.",
 "No example sentence was found for this word. Type one, or leave it empty.":"No s'ha trobat cap frase d'exemple per a aquesta paraula. Escriu-ne una o deixa-ho buit.",
 "No example sentence was found for this phrase. Type one, or leave it empty.":"No s'ha trobat cap frase d'exemple per a aquesta expressió. Escriu-ne una o deixa-ho buit.",

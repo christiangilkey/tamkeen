@@ -16,6 +16,7 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
 
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
     python tools/build_examples.py build <cache dir> <tatoeba dir> es de ... [--wolff <pg40074.txt>]
+    python tools/build_examples.py more <tatoeba dir> es de ...      (tops up a built file: more Tatoeba, see more())
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
     python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
@@ -304,6 +305,57 @@ def build(cache: Path, tatoeba: Path, lang: str) -> None:
           extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(ipa)})
 
 
+# ---------------------------------------------------------------- 2b. More Tatoeba for rarer words
+
+# `build` keeps at most MAX_SENTENCES Tatoeba sentences, which covers nearly all common words but leaves about half of the
+# words ranked 10,000-30,000 with none (Spanish, 2026-11-17: 52%; Catalan 15%). `more` tops a built file up: every Tatoeba
+# sentence (with an English translation, of a good length) that has a word form still under PER_WORD sentences, easiest
+# first, up to MORE_SENTENCES Tatoeba sentences in all. Unspaced languages (no word forms to count): the next shortest,
+# up to MORE_UNSPACED. The file's other parts (Wiktionary's examples and their `words`, pronunciations) are kept as
+# they are; the Basics course sentences at the end are taken off (tools/enrich_examples.mjs puts them back).
+MORE_SENTENCES = 150000
+MORE_UNSPACED = 90000
+
+
+def more(tatoeba: Path, lang: str) -> None:
+    name = f"{lang}-examples.json.gz"
+    pack = json.loads(gzip.decompress((OUT / name).read_bytes()))
+    sentences = pack["sentences"]
+    end = next((i for i, s in enumerate(sentences) if str(s[2]).startswith("b")), len(sentences))
+    sentences = sentences[:end]
+    pack["words"] = {k: kept for k, v in pack["words"].items() if (kept := [i for i in v if i < end])}
+    seen = {s[0] for s in sentences}
+    had = sum(1 for s in sentences if str(s[2]).startswith("t"))
+    pairs = [p for p in tatoeba_pairs(tatoeba, lang) if good_length(p[0], lang) and p[0] not in seen]
+    added = 0
+    if lang in UNSPACED:
+        for p in sorted(pairs, key=lambda p: (abs(len(p[0]) - 12), p[0]))[:max(0, MORE_UNSPACED - had)]:
+            sentences.append(list(p))
+            added += 1
+    else:
+        have = collections.Counter(t for s in sentences for t in set(tokens(s[0], lang)))
+        counts = collections.Counter(t for p in pairs for t in set(tokens(p[0], lang)))
+        def hardness(p):
+            ts = tokens(p[0], lang)
+            return (sum(1 for t in ts if counts[t] + have[t] < 3), abs(len(ts) - 7), len(p[0]))
+        for p in sorted(pairs, key=hardness):
+            if had + added >= MORE_SENTENCES:
+                break
+            ts = set(tokens(p[0], lang))
+            if any(have[t] < PER_WORD for t in ts):
+                sentences.append(list(p))
+                have.update(ts)
+                added += 1
+    pack["sentences"] = sentences
+    for k in ("forms", "also"):
+        pack.pop(k, None)  # (made again by enrich_examples.mjs)
+    n_wik = sum(1 for s in sentences if str(s[2]).startswith("w"))
+    write(name, f"ex-{lang}", pack, title=f"{NAMES[lang]} example sentences",
+          db="Tatoeba + English Wiktionary (Wiktextract)", license="CC-BY-2.0-FR + CC-BY-SA-4.0",
+          extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(pack.get("ipa", {}))})
+    print(f"  {lang}: {had} Tatoeba sentences + {added} more", flush=True)
+
+
 # ---------------------------------------------------------------- Bisaya: Wolff's example sentences
 
 WOLFF = None  # the Project Gutenberg text of Wolff's Dictionary of Cebuano Visayan (ebook 40074), when given
@@ -358,7 +410,7 @@ def write(name: str, entry: str, data: dict, title: str, db: str, license: str, 
     index["files"][entry] = {"file": name, "bytes": len(packed), "sha256": hashlib.sha256(packed).hexdigest(),
                              "title": title, "db": db, "license": license, **extra}
     index["files"] = dict(sorted(index["files"].items()))
-    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    index_path.write_text(json.dumps(index, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")  # (LF, as the repository keeps it)
     print(f"  wrote {name}: {len(packed) / 1e6:.2f} MB, {extra}", flush=True)
 
 
@@ -656,6 +708,9 @@ if __name__ == "__main__":
             del args[at:at + 2]
         for lang in args[3:]:
             build(Path(args[1]), Path(args[2]), lang)
+    elif args[0] == "more":
+        for lang in args[2:]:
+            more(Path(args[1]), lang)
     elif args[0] == "ownkeywords":
         for lang in args[4:]:
             own_keywords(Path(args[1]), Path(args[2]), Path(args[3]), lang)

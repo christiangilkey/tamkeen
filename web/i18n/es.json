@@ -2091,6 +2091,8 @@
 "No meaning was found. Type its meaning.":"No se encontró ningún significado. Escribe su significado.",
 "The AI sent nothing back for this word. Press Fill in to try again.":"La IA no devolvió nada para esta palabra. Pulsa Rellenar para intentarlo de nuevo.",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"Una parte no se pudo rellenar. Escríbela, o pulsa Rellenar para intentarlo de nuevo.",
+"From your own library: {0}":"De tu propia biblioteca: {0}",
+"your library":"tu biblioteca",
 "Every other word in this sentence is one you know.":"Todas las demás palabras de esta frase ya las conoces.",
 "No example sentence was found for this word. Type one, or leave it empty.":"No se encontró ninguna frase de ejemplo para esta palabra. Escribe una o déjalo vacío.",
 "No example sentence was found for this phrase. Type one, or leave it empty.":"No se encontró ninguna frase de ejemplo para esta expresión. Escribe una o déjalo vacío.",

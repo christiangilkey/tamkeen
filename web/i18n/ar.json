@@ -2091,6 +2091,8 @@
 "No meaning was found. Type its meaning.":"لم يُعثر على معنى. اكتب معناها.",
 "The AI sent nothing back for this word. Press Fill in to try again.":"لم يُرجع الذكاء الاصطناعي شيئًا لهذه الكلمة. اضغط «املأ» لتحاول مرة أخرى.",
 "Part of it couldn't be filled in. Type it, or press Fill in to try again.":"تعذّر ملء جزء منها. اكتبه، أو اضغط «املأ» لتحاول مرة أخرى.",
+"From your own library: {0}":"من مكتبتك: {0}",
+"your library":"مكتبتك",
 "Every other word in this sentence is one you know.":"تعرف كل الكلمات الأخرى في هذه الجملة.",
 "No example sentence was found for this word. Type one, or leave it empty.":"لم تُوجد جملة مثال لهذه الكلمة. اكتب واحدة، أو اتركها فارغة.",
 "No example sentence was found for this phrase. Type one, or leave it empty.":"لم تُوجد جملة مثال لهذه العبارة. اكتب واحدة، أو اتركها فارغة.",

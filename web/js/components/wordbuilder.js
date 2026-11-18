@@ -34,6 +34,7 @@ import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cle
          fillIn, firstSense, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
+import { librarySentence } from "../review/sentencefind.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
 import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
 import { learnFromNote } from "../review/cardtools.js";
@@ -1004,12 +1005,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         let found = null, failed = null;
         // (no connection the first time: said as such, not as "none found")
         try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch (e) { failed = e && e.code === NO_EXAMPLES ? e : null; }
+        // None in the files (a rarer word): a real sentence from the learner's own transcripts, books and pages, the one
+        // the word was met in being the likeliest. It has no translation (the AI isn't asked here).
+        let fromLibrary = null;
+        if (!found) {
+          try { fromLibrary = await librarySentence({ text: r.text.trim(), meaning: meaningOf(r) }, lang); } catch { /* no library search here */ }
+          if (fromLibrary) { found = { sentence: fromLibrary.sentence, translation: "", readable: false }; failed = null; }
+        }
         if (found) {
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
-          setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
+          setStatus(r, fromLibrary ? { kind: "note", text: t("From your own library: {0}", fromLibrary.title || t("your library")) }
+            : found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
             : failed ? { kind: "note", text: failed.message }
             : { kind: "note", text: r.kind === "word" ? t("No example sentence was found for this word. Type one, or leave it empty.")
               : t("No example sentence was found for this phrase. Type one, or leave it empty.") });
