@@ -2876,7 +2876,8 @@ docs/app at every release** so the web app matches.
   phone apps couldn't fetch dictionaries, books or courses. Each address keeps its own browser storage. Needed outside
   the repo: DNS at Porkbun (apex A/AAAA to GitHub Pages, www CNAME to christiangilkey.github.io), the Google OAuth
   client's origins/redirect (`https://learntamkeen.com`, redirect `https://learntamkeen.com/`), and worker.js pasted
-  into Cloudflare (it now allows `https://learntamkeen.com`). Then "Enforce HTTPS" on the learntamkeen repo's Pages.
+  into Cloudflare (it now allows `https://learntamkeen.com`; deployed 2026-11-18, checked: learntamkeen.com and github.io
+  get 200 with their CORS header, any other origin 403). Then "Enforce HTTPS" on the learntamkeen repo's Pages.
 - **Go-between server** = `webapp/worker.js`, a Cloudflare Worker on the owner's Cloudflare account (free plan),
   live at `https://tamkeen-proxy.christiangilkey.workers.dev` (address in `webapp/proxy-url.txt`). The owner
   pasted the code into Cloudflare's editor (Workers → tamkeen-proxy → Edit code → Deploy); a change to
@@ -2903,7 +2904,7 @@ docs/app at every release** so the web app matches.
   user's cloud transcription key. Saves/collections/random reels and music reels stay app-only (note in Settings and
   on the Reels page). `native.js webFetch` retries 403/429 (YouTube and Apple refuse some Cloudflare requests);
   Apple's directory is asked directly (it allows web pages, and refuses most Cloudflare requests).
-  **The worker.js change for Instagram has to be pasted into Cloudflare by the owner.**
+  The deployed worker matches `webapp/worker.js` as of 2026-11-18 (pasted in Workers → tamkeen-proxy → Edit code → Deploy).
 
 ## No AI: built-in dictionary (2026-10-18; v0.28.0)
 Owner asked for an option, on every version, to use no AI tool, with AI shown as heavily recommended in Settings,
