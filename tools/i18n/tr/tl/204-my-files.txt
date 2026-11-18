@@ -1,0 +1,3 @@
+# Library → Lessons became "My files", the last tab (pages/library.js, components/lessonteach.js).
+71d01a41	Mga file ko
+0e563e29	Wala pang naipadalang aralin. Magdagdag ng isa sa Library → Mga file ko, saka pindutin ang Ipadala sa klase.

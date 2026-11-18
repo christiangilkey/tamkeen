@@ -1,0 +1,3 @@
+# Library → Lessons became "My files", the last tab (pages/library.js, components/lessonteach.js).
+71d01a41	Akong mga file
+0e563e29	Wala pay leksyon nga napadala. Pagdugang og usa sa Library → Akong mga file, dayon pindota ang Ipadala sa klase.

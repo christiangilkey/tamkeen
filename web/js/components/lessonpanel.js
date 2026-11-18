@@ -67,7 +67,7 @@ async function importFiles(files, { onDone }) {
   }
 }
 
-/** Fill `el` with the Lessons tab. Returns a cleanup function. */
+/** Fill `el` with the My files tab (key "lessons"). Returns a cleanup function. */
 export function lessonPanel(el, language) {
   let alive = true;
   let roles = { teacher: [], student: false, cls: null };
@@ -75,7 +75,7 @@ export function lessonPanel(el, language) {
   let open = null; // the lesson screen's cleanup while one is open
   el.innerHTML = "";
   const page = h(`<div class="lsn-panel">
-    <div class="lsn-top"><div><h2>Lessons</h2>
+    <div class="lsn-top"><div><h2>My files</h2>
       <p class="small muted">A reading passage with its audio and its questions. Add a PDF (its sounds come with it) or a Word file with its MP3s.</p></div>
       <label class="btn primary lsn-add">${icon("upload", 18)} <span>Add a lesson</span>
         <input type="file" multiple hidden accept="${esc(`${LESSON_DOC_ACCEPT},audio/*,${LESSON_AUDIO_EXT.map((e) => `.${e}`).join(",")}`)}"></label></div>

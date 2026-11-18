@@ -1,0 +1,3 @@
+# Library → Lessons became "My files", the last tab (pages/library.js, components/lessonteach.js).
+71d01a41	Els meus fitxers
+0e563e29	Encara no has enviat cap lliçó. Afegeix-ne una a Biblioteca → Els meus fitxers i després prem Envia a una classe.

@@ -1,0 +1,3 @@
+# Library → Lessons became "My files", the last tab (pages/library.js, components/lessonteach.js).
+71d01a41	मेरी फ़ाइलें
+0e563e29	अभी कोई पाठ नहीं भेजा गया। लाइब्रेरी → मेरी फ़ाइलें में एक जोड़ें, फिर “क्लास को भेजें” दबाएँ।

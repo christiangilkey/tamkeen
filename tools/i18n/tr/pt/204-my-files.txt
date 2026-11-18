@@ -1,0 +1,3 @@
+# Library → Lessons became "My files", the last tab (pages/library.js, components/lessonteach.js).
+71d01a41	Meus arquivos
+0e563e29	Nenhuma lição enviada ainda. Adicione uma em Biblioteca → Meus arquivos e depois toque em Enviar para uma turma.

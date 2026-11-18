@@ -6900,8 +6900,8 @@
   "f": "web/js/components/lessonpanel.js"
  },
  {
-  "id": "cb9ce97b",
-  "k": "Lessons",
+  "id": "71d01a41",
+  "k": "My files",
   "f": "web/js/components/lessonpanel.js"
  },
  {
@@ -7100,8 +7100,13 @@
   "f": "web/js/components/lessonteach.js"
  },
  {
-  "id": "86390619",
-  "k": "No lessons sent yet. Add one in Library → Lessons, then press Send to a class.",
+  "id": "cb9ce97b",
+  "k": "Lessons",
+  "f": "web/js/components/lessonteach.js"
+ },
+ {
+  "id": "0e563e29",
+  "k": "No lessons sent yet. Add one in Library → My files, then press Send to a class.",
   "f": "web/js/components/lessonteach.js"
  },
  {

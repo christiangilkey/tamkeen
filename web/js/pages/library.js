@@ -92,8 +92,6 @@ const BOOKS_FEED = "local:books";
 const KINDS = [
   { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
-  // Lesson bundles: a teacher's PDF or Word file with its audio, as a passage, tracks and questions (components/lessonpanel.js).
-  { key: "lessons", label: "Lessons", icon: "list", href: "#/library?show=lessons" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
   { key: "youtube", label: "YouTube", icon: "video", feed: YOUTUBE_FEED,
@@ -114,6 +112,9 @@ const KINDS = [
     empty: "Add videos of your own with the + button below." },
   { key: "audio", label: "My audio", icon: "audio", feed: AUDIO_FEED,
     empty: "Add audio of your own with the + button below." },
+  // Lesson bundles: a teacher's PDF or Word file with its audio, as a passage, tracks and questions (components/lessonpanel.js).
+  // Called "My files" and last, with My videos and My audio (the owner, 2026-11-17); its key stays "lessons".
+  { key: "lessons", label: "My files", icon: "list", href: "#/library?show=lessons" },
 ];
 // The kinds whose things come with no words to read: a transcript is written from the sound. The computer
 // does that itself (Whisper); the phones and the web app need a transcription key (or the computer).

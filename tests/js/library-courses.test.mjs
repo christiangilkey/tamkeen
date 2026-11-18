@@ -14,8 +14,11 @@ test("Courses is the Library's first kind", () => {
   const keys = [...kinds.matchAll(/key: "(\w+)"/g)].map((m) => m[1]);
   assert.equal(keys[0], "courses");
   assert.equal(keys[1], "conversation"); // speaking practice, a panel of its own like Courses (conversepanel.js)
-  assert.equal(keys[2], "lessons"); // lesson bundles, a panel of its own too (lessonpanel.js)
-  assert.equal(keys[3], "podcasts");
+  assert.equal(keys[2], "podcasts");
+  // Lesson bundles (a panel of its own too, lessonpanel.js) are "My files", the last kind, after My videos and My audio
+  // (the owner, 2026-11-17: "Lessons should be My Files and should be at the far right with my videos and my audios").
+  assert.deepEqual(keys.slice(-3), ["videos", "audio", "lessons"]);
+  assert.match(kinds, /key: "lessons", label: "My files"/);
   assert.match(kinds, /key: "courses"[^}]*href: "#\/library\?show=courses"/);
   assert.match(kinds, /key: "conversation"[^}]*href: "#\/library\?show=conversation"/);
   assert.match(kinds, /key: "lessons"[^}]*href: "#\/library\?show=lessons"/);
