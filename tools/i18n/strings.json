@@ -23680,11 +23680,6 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "d6aa6cf3",
-  "k": "Translation under each line (on / off)",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "ea54afdd",
   "k": "Type what you hear (on / off)",
   "f": "web/js/pages/player.js"
@@ -29127,11 +29122,6 @@
  {
   "id": "3fd3a173",
   "k": "Listen in My audio: record from the microphone and get a transcript",
-  "f": "web/js/whatsnew.js"
- },
- {
-  "id": "0ed4a4c3",
-  "k": "Translation under each line: turn it on in the player to see your language under every line",
   "f": "web/js/whatsnew.js"
  },
  {
