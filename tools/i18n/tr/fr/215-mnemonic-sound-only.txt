@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Astuces mnémotechniques : un mot que tu connais et qui sonne comme le nouveau mot, écrit en syllabes (MUR-DER).
+4344eac4	Ton IA propose les mots qui sonnent pareil.
+70338b4d	La méthode du mot-clé : relie le nouveau mot à un mot que tu connais déjà et qui sonne pareil. L'espagnol perro, « chien » : PIL-LOW. Seul le mot qui sonne pareil est donné, écrit en syllabes en majuscules, sans image ni histoire à lire.
+4c33ba8b	Un mot-clé qui colle aussi au sens passe en premier, marqué « Colle au sens » ou « Proche par le sens » (l'allemand Hund, « chien » : HOUND). Viennent ensuite les choses faciles à imaginer, comme les animaux, les outils et la nourriture.
+6a76f173	Quand tu écris une mnémonique dans Notes de mémorisation, écris en MAJUSCULES le mot qui sonne pareil : dans « un canard assis sur un POT », il apprend POT, et MUR-DER compte comme un seul mot. Seuls les mots en majuscules comptent, et seulement s'ils sonnent vraiment comme le mot ; le reste de la note est ignoré. Un de tes mots peut revenir pour d'autres mots qui sonnent pareil, marqué « Tu l'as déjà utilisé ». Quand ton IA crée les mnémoniques, quelques-unes des tiennes lui sont envoyées comme exemples de ton style. « Apprendre de mes propres mnémoniques », ici, désactive tout cela.
+8b6a7114	Ton IA propose des mots-clés, avec le modèle et le niveau de réflexion choisis dans Plus d'options. Elle peut être plus inventive, mais propose parfois des mots qui ne sonnent pas vraiment pareil. Il faut ta clé d'IA, et chaque appui coûte environ un centime ou moins.
+0b3975cf	Des mots qui sonnent comme le mot, mis dans les notes de mémorisation. Créés par ton IA.
+f610a5c3	Des mots de ta langue qui sonnent comme le mot, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA. <0>L'IA peut les créer à la place</0>
+eb594599	Des mots anglais qui sonnent comme le mot, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA. <0>L'IA peut les créer à la place</0>
+8f6f4361	Des mots de ta langue qui sonnent comme le mot, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA.
+a08b3edb	Des mots anglais qui sonnent comme le mot, mis dans les notes de mémorisation. Créés sur cet appareil, sans IA.
+a5be0f3d	Le mot qui sonne pareil en MAJUSCULES : MUR-DER…
+a47a280d	Un mot qui sonne pareil
+5960d6a1	Trouvez un mot qui sonne pareil pour retenir le mot, obtenez une nouvelle phrase d'exemple ou rangez le mot dans un dossier.
+9c56229a	Un mot qui sonne pareil, où vous l'avez entendu…
+5f328495	Des mots de ta langue, et d'autres en anglais, qui sonnent comme lui, trouvés sur cet appareil sans IA. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.
+9e45a8e6	Des mots de ta langue qui sonnent comme lui, trouvés sur cet appareil sans IA. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.
+caa6d892	Des mots anglais qui sonnent comme lui, trouvés sur cet appareil sans IA. Utiliser en met un dans les Notes de mémorisation ; le pouce vers le bas l'écarte pour de bon.
+db7e7310	Des mots de votre langue qui sonnent comme lui. Utiliser en met un dans Notes de mémorisation ; le pouce baissé l'écarte pour de bon.

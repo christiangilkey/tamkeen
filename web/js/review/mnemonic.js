@@ -1,6 +1,8 @@
 // The review card's "Mnemonic maker": keywords in the learner's own language that SOUND like the word
-// being learned, each with a picture that ties it to the word's MEANING (the keyword method's two
-// steps). The owner found the old suggestions "really bad" ("now-ee-ah"; words that don't sound like
+// being learned, and nothing else: the owner (2026-11-18), "I want mnemonics to just offer the part that sounds
+// like the word, not a visualization or description or story along with it. Good example: MUR-DER". So no
+// picture, scene or story is asked for or shown, and Use writes the keyword as its syllables in capitals
+// (soundAlike: "MUR-DER"). The owner found the old suggestions "really bad" ("now-ee-ah"; words that don't sound like
 // the word at all) and asked for keywords that "BOTH sound like the word and also be as closely related
 // to the meaning as possible". So:
 //
@@ -15,7 +17,7 @@
 // 3. Ranking (the owner, later: "I'd also ideally like the mnemonics to try to be related to the meaning
 //    of the word"): sound must pass first; among those that pass, a keyword that itself points to the
 //    meaning ("strong", shown "Fits the meaning") comes first, the rest follow by how close they sound
-//    (a "loose" link counts a little). Where no keyword points to the meaning, the picture links them.
+//    (a "loose" link counts a little).
 // 4. Long words (3+ syllables) also get split keywords: two or three short ones, each for a chunk.
 // 5. A keyword the learner turns down is never suggested for that word again (kept on this device,
 //    `turnDown`), and is sent as "avoid".
@@ -60,8 +62,8 @@ export const MNEMONIC_SCHEMA = {
       description: `About ${KEYWORD_ASK} keywords.`,
       items: {
         type: "object",
-        properties: { keyword: str, ipa: str, covers: COVERS, meaning_link: MEANING_LINK, link: str, scene: str },
-        required: ["keyword", "ipa", "covers", "meaning_link", "link", "scene"],
+        properties: { keyword: str, ipa: str, covers: COVERS, meaning_link: MEANING_LINK, link: str },
+        required: ["keyword", "ipa", "covers", "meaning_link", "link"],
         additionalProperties: false,
       },
     },
@@ -72,9 +74,9 @@ export const MNEMONIC_SCHEMA = {
         type: "object",
         properties: {
           pieces: { type: "array", items: { type: "object", properties: { keyword: str, ipa: str, covers: COVERS }, required: ["keyword", "ipa", "covers"], additionalProperties: false } },
-          meaning_link: MEANING_LINK, link: str, scene: str,
+          meaning_link: MEANING_LINK, link: str,
         },
-        required: ["pieces", "meaning_link", "link", "scene"],
+        required: ["pieces", "meaning_link", "link"],
         additionalProperties: false,
       },
     },
@@ -97,13 +99,13 @@ export function mnemonicPrompt({ word, meaning = "", study = "Arabic", speaks = 
     .map((e) => [text((e || {}).word, 60), text((e || {}).meaning, 120), text((e || {}).note, 240)])
     .filter(([w, , n]) => w && n)
     .map(([w, m, n]) => `- ${w}${m ? ` (${m})` : ""}: "${n.replace(/"/g, "'")}"`);
-  const system =`You help language learners remember words with the keyword method. A keyword is a real ${speaks} word or short phrase that SOUNDS like the ${study} word; a scene is a vivid picture that joins the keyword to the word's meaning, so that hearing the word brings back the keyword, and the keyword brings back the meaning.
+  const system =`You help language learners remember words with the keyword method. A keyword is a real ${speaks} word or short phrase that SOUNDS like the ${study} word, so that hearing the word brings back the keyword. The learner wants only the sound-alike itself: no picture, scene, description or story.
 1. First work out exactly how the ${study} word is said${said}: a simple romanization, its IPA, its syllables (each with its own romanization and IPA, together making the whole word) and which syllable is stressed (0 = the first; in a language without word stress, the most prominent one). When the message gives the app's reading of the word, follow it.
 2. Then find ${KEYWORD_ASK} keywords. Each is made only of real ${speaks} words that a ${speaks} speaker knows (dictionary words, everyday phrases, well-known names), at most four words, in the usual ${speaks} spelling and script. Say it aloud in your head and compare it sound by sound with the word's IPA; the first sound and the stressed syllable matter most. A keyword may sound like the whole word or like only some of its syllables. Never spell out the word's sounds (like "nah-wee-yah"), never invent a word, never translate the word, never repeat it.
-For each keyword give: "ipa", how a ${speaks} speaker says the keyword; "covers", the numbers of the word's syllables it sounds like; "meaning_link": "strong" when the keyword itself already points to the word's meaning (for German "Ente", duck: a keyword about birds or ponds), "loose" when it is only distantly related, "none" when it isn't related; "link", a few words on how it connects to the meaning ("" for none); "scene", one sentence in ${speaks} of at most 18 words: a concrete, vivid, slightly absurd picture in which the keyword and the meaning meet.
+For each keyword give: "ipa", how a ${speaks} speaker says the keyword; "covers", the numbers of the word's syllables it sounds like; "meaning_link": "strong" when the keyword itself already points to the word's meaning (for German "Ente", duck: a keyword about birds or ponds), "loose" when it is only distantly related, "none" when it isn't related; "link", a few words on how it connects to the meaning ("" for none).
 Sound comes first: a keyword that doesn't sound like the word is useless, however well it fits the meaning. Among the keywords that sound right, prefer those that also point to the meaning.
-3. If the word has 3 or more syllables, also give up to ${SPLIT_COUNT} split keywords in "parts": 2 or 3 short keywords said one after the other, each sounding like a chunk of the word and together covering all of it, each with its IPA and the syllables it covers, and one scene that uses them all. For a shorter word, "parts" is an empty list.
-Before answering, check every keyword: is it real ${speaks}, does it really sound like the word, and does its scene make the meaning clear? Replace any that fail. Return only the JSON object.`;
+3. If the word has 3 or more syllables, also give up to ${SPLIT_COUNT} split keywords in "parts": 2 or 3 short keywords said one after the other, each sounding like a chunk of the word and together covering all of it, each with its IPA and the syllables it covers. For a shorter word, "parts" is an empty list.
+Before answering, check every keyword: is it real ${speaks}, and does it really sound like the word? Replace any that fail. Return only the JSON object.`;
   const user = [
     `${study} word: ${word}`,
     // (`coreLine`, wordcore.js corePromptLine: the card says الكتاب and `word` is كتاب, the part the keywords match)
@@ -112,8 +114,8 @@ Before answering, check every keyword: is it real ${speaks}, does it really soun
     partLine,
     reading ? `How it is said, from the app's dictionary: ${reading}` : "",
     avoid.length ? `Already suggested or turned down, so give different ones: ${avoid.join("; ")}` : "",
-    mine.length ? `Mnemonics this learner wrote themselves (the keyword in capitals), to show the kind of scene they like. Write your scenes in a similar style, with new keywords that sound like this word:\n${mine.join("\n")}` : "",
-    `Give ${KEYWORD_ASK} keywords in ${speaks}, each with its scene.`,
+    mine.length ? `Mnemonics this learner wrote themselves (the keyword in capitals), to show the kind of keywords they like. Give new keywords of that kind that sound like this word:\n${mine.join("\n")}` : "",
+    `Give ${KEYWORD_ASK} keywords in ${speaks}.`,
   ].filter(Boolean).join("\n");
   return { system, user, schema: MNEMONIC_SCHEMA };
 }
@@ -192,7 +194,7 @@ const linkOf = (v) => {
 const coversOf = (v) => (Array.isArray(v) ? v.map(Number).filter((n) => Number.isInteger(n) && n >= 0).slice(0, 12) : []);
 const text = (v, max = 220) => String(v ?? "").replace(/\s+/g, " ").trim().slice(0, max);
 
-/** The answer's keywords, tidied: [{keyword, ipa, covers, link 0..2, linkNote, scene}]. Never the word
+/** The answer's keywords, tidied: [{keyword, ipa, covers, link 0..2, linkNote}]. Never the word
  * itself, nothing spelled out, no repeats. */
 export function readKeywords(answer, word = "") {
   const list = Array.isArray(answer && answer.keywords) ? answer.keywords : Array.isArray(answer && answer.items) ? answer.items : [];
@@ -201,12 +203,12 @@ export function readKeywords(answer, word = "") {
     const k = typeof raw === "string" ? { keyword: raw } : raw || {};
     const keyword = cleanKeyword(k.keyword);
     if (!keyword || sameKeyword(keyword, word) || spelledOut(keyword) || out.some((x) => sameKeyword(x.keyword, keyword))) continue;
-    out.push({ keyword, ipa: text(k.ipa, 80), covers: coversOf(k.covers), link: linkOf(k.meaning_link), linkNote: text(k.link, 120), scene: text(k.scene) });
+    out.push({ keyword, ipa: text(k.ipa, 80), covers: coversOf(k.covers), link: linkOf(k.meaning_link), linkNote: text(k.link, 120) });
   }
   return out;
 }
 
-/** The answer's split keywords: [{keyword ("shatter + ling"), pieces: [{keyword, ipa, covers}], link, linkNote, scene}]. */
+/** The answer's split keywords: [{keyword ("shatter + ling"), pieces: [{keyword, ipa, covers}], link, linkNote}]. */
 export function readParts(answer, word = "") {
   const list = Array.isArray(answer && answer.parts) ? answer.parts : [];
   const out = [];
@@ -217,7 +219,7 @@ export function readParts(answer, word = "") {
     if (pieces.length < 2 || pieces.length > 3) continue;
     const keyword = pieces.map((p) => p.keyword).join(" + ");
     if (sameKeyword(keyword, word) || out.some((x) => sameKeyword(x.keyword, keyword))) continue;
-    out.push({ keyword, pieces, link: linkOf(raw.meaning_link), linkNote: text(raw.link, 120), scene: text(raw.scene) });
+    out.push({ keyword, pieces, link: linkOf(raw.meaning_link), linkNote: text(raw.link, 120) });
   }
   return out;
 }
@@ -260,7 +262,7 @@ function chunk(pieces, word) {
  * The suggestions to show, checked and ranked. `pron` is readPronunciation's; `keywords` and `parts`
  * readKeywords' and readParts'; `ownSounds(keyword)` the learner's dictionary (see keywordSounds);
  * `avoid` keywords never to show again. Returns {items, parts, checked} where each item is
- * {keyword, scene, link, linkNote, sound ("close" / "partial", or "" when the word's sounds aren't
+ * {keyword, link, linkNote, sound ("close" / "partial", or "" when the word's sounds aren't
  * known), score, from, to, heard ("dictionary" / "ai" / "spelling"), pieces?}, best first, at most
  * MNEMONIC_COUNT items (or `count`: the free maker orders them itself) and SPLIT_COUNT parts; `checked` is
  * false when nothing could be measured.
@@ -283,7 +285,7 @@ export function rankSuggestions({ pron, keywords = [], parts = [], ownSounds = n
     if (!sounds) continue;  // not a real word of the learner's language
     const j = judge(sounds);
     if (word && j.score < PASS) continue;  // doesn't sound like the word
-    items.push({ keyword: k.keyword, scene: k.scene, link: k.link, linkNote: k.linkNote, heard: sounds.from, ...j });
+    items.push({ keyword: k.keyword, link: k.link, linkNote: k.linkNote, heard: sounds.from, ...j });
   }
   const split = [];
   if (word && word.syllables.length >= SPLIT_FROM) {
@@ -294,7 +296,7 @@ export function rankSuggestions({ pron, keywords = [], parts = [], ownSounds = n
       const all = pieces.flatMap((x) => x.sounds.phones);
       const m = match(all, word);
       if (m.score < PASS) continue;
-      split.push({ keyword: p.keyword, scene: p.scene, link: p.link, linkNote: p.linkNote, heard: pieces.every((x) => x.sounds.from === "dictionary") ? "dictionary" : "ai",
+      split.push({ keyword: p.keyword, link: p.link, linkNote: p.linkNote, heard: pieces.every((x) => x.sounds.from === "dictionary") ? "dictionary" : "ai",
         score: m.score, sound: soundLabel(m.score, m.coverage), from: m.from, to: m.to, pieces: chunk(pieces, word) });
     }
   }
@@ -346,7 +348,7 @@ export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading
   const [answer, own] = await Promise.all([
     ask(mnemonicPrompt({ word, meaning: v.meaning, study, speaks, avoid, reading, variety, examples,
       coreLine: part ? "" : corePromptLine(v.text, core),
-      partLine: part ? `This is only a part of the card's word, "${String(v.text).trim()}", which the learner chose: give the pronunciation of this part as it is said inside the whole word, and keywords that sound like this part. The meaning given is the whole word's, and each scene still links its keyword to that meaning.` : "" })),
+      partLine: part ? `This is only a part of the card's word, "${String(v.text).trim()}", which the learner chose: give the pronunciation of this part as it is said inside the whole word, and keywords that sound like this part. The meaning given is the whole word's.` : "" })),
     Promise.resolve(ownSounds).catch(() => null),
   ]);
   // (neither the card's word nor its core is a keyword: el taco is no "taco")
@@ -357,8 +359,64 @@ export async function makeMnemonics(v, { ask, study, speaks, avoid = [], reading
   return { pron, core, asked: keywords.length + parts.length, ...rankSuggestions({ pron, keywords, parts, ownSounds: own, avoid }) };
 }
 
-/** What "Use" puts in Memorization notes: the keyword and its scene. */
-export const noteText = (s) => (s.scene ? `${s.keyword} — ${s.scene}` : s.keyword);
+// ---------- how a keyword is written: its syllables in capitals ("MUR-DER") ----------
+const VOWEL = /[aeiouyáéíóúàèìòùâêîôûäëïöüãõåæœøаеёиоуыэюяіїєі]/i;
+// Two consonants that start a syllable together (a-pron, ta-ble), and pairs written for one sound (fa-ther).
+const ONSET = new Set(["bl", "br", "cl", "cr", "dr", "fl", "fr", "gl", "gr", "pl", "pr", "tr", "sc", "sk", "sl", "sm", "sn", "sp", "st", "sw", "tw",
+  "ch", "sh", "th", "ph", "wh", "gh", "qu"]);
+
+/** A word of the keyword split into its written syllables, by its vowels: "murder" -> ["mur", "der"], "table" ->
+ * ["ta", "ble"], "pillow" -> ["pil", "low"], "taro" -> ["ta", "ro"]. A rule of thumb for any alphabet with these
+ * vowels (Latin, Cyrillic); a word without them stays whole. `lang`: the keyword's language (English's silent final
+ * e: "home" is one syllable, German "Ente" two). */
+export function writtenSyllables(word, lang = "en") {
+  const w = String(word || "");
+  const chars = Array.from(w);
+  const isV = (i) => {
+    const c = chars[i];
+    if (!c || !VOWEL.test(c)) return false;
+    // (y before a vowel starts a syllable: yes, ba-you)
+    return !(/y/i.test(c) && VOWEL.test(chars[i + 1] || "") && !/y/i.test(chars[i + 1] || ""));
+  };
+  // Vowel groups: [start, end) of each
+  const groups = [];
+  for (let i = 0; i < chars.length; i++) {
+    if (!isV(i)) continue;
+    if (groups.length && groups[groups.length - 1][1] === i) groups[groups.length - 1][1] = i + 1;
+    else groups.push([i, i + 1]);
+  }
+  // A silent e at the end (take, home), but not "-le" after a consonant (ta-ble).
+  const last = groups[groups.length - 1];
+  if (lang === "en" && groups.length > 1 && last[0] === chars.length - 1 && /e/i.test(chars[last[0]]) && !/l/i.test(chars[last[0] - 1] || "")) groups.pop();
+  if (groups.length < 2) return [w];
+  const cuts = [];
+  for (let g = 0; g + 1 < groups.length; g++) {
+    const from = groups[g][1], to = groups[g + 1][0];  // the consonants between two vowel groups
+    const run = chars.slice(from, to).join("").toLowerCase();
+    let cut;
+    if (run.length <= 1) cut = run === "x" ? to : from;                       // ta-ro (but tax-i)
+    else if (run.length === 2) cut = ONSET.has(run) && run !== "ck" ? from : from + 1;  // mur-der, a-pron
+    else cut = ONSET.has(run.slice(-2)) ? to - 2 : from + 1;                // chil-dren, mon-ster
+    cuts.push(cut);
+  }
+  const out = [];
+  let at = 0;
+  for (const c of cuts) { out.push(chars.slice(at, c).join("")); at = c; }
+  out.push(chars.slice(at).join(""));
+  return out.filter(Boolean);
+}
+
+/** A suggestion written as the learner sees it and Use writes it: only the sound-alike, its syllables in capitals,
+ * joined by hyphens ("murder" -> "MUR-DER"; "pay rue" -> "PAY-RUE"; a split keyword's pieces one after the other).
+ * `lang`: the keyword's language (the suggestion's own `lang` when it has one), English when not known. */
+export function soundAlike(s, lang = "") {
+  const in_ = lang || (s && s.lang) || "en";
+  const text = typeof s === "string" ? s : (s && s.pieces && s.pieces.length ? s.pieces.map((p) => p.keyword).join(" ") : (s && s.keyword) || "");
+  return String(text).split(/\s*\+\s*|[\s-]+/u).filter(Boolean).flatMap((w) => writtenSyllables(w, in_)).join("-").toLocaleUpperCase();
+}
+
+/** What "Use" puts in Memorization notes: only the sound-alike ("MUR-DER"), no picture or story. */
+export const noteText = (s, lang = "") => soundAlike(s, lang);
 
 /** Memorization notes with `text` added: nothing the learner typed is lost, and a blank line keeps
  * it apart from what was there. Text that is already in the notes isn't added twice. */

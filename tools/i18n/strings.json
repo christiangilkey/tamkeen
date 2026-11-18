@@ -5485,8 +5485,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "cf7ab8b6",
-  "k": "Memory tricks: a word that sounds like the new word, with a picture that links it to the meaning.",
+  "id": "9cf52f22",
+  "k": "Memory tricks: a word you know that sounds like the new word, written as its syllables (MUR-DER).",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -5495,8 +5495,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "9e203b13",
-  "k": "Your AI suggests the sound-alike words and writes the pictures.",
+  "id": "4344eac4",
+  "k": "Your AI suggests the sound-alike words.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -5510,8 +5510,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "fe273af7",
-  "k": "The keyword method: link the new word to a word you already know that sounds like it, and picture the two together. Spanish pato, “duck”: picture a duck balanced on top of a POT.",
+  "id": "70338b4d",
+  "k": "The keyword method: link the new word to a word you already know that sounds like it. Spanish perro, “dog”: PIL-LOW. Only the sound-alike is given, written as its syllables in capitals, with no picture or story to read.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -5530,8 +5530,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "ae65ca21",
-  "k": "A keyword that also fits the meaning comes first, marked “Fits the meaning” or “Related in meaning” (German Hund, “dog”: HOUND). Then come things that are easy to picture, such as animals, tools and food. Each keyword gets a picture line that joins it to the meaning.",
+  "id": "4c33ba8b",
+  "k": "A keyword that also fits the meaning comes first, marked “Fits the meaning” or “Related in meaning” (German Hund, “dog”: HOUND). Then come things that are easy to imagine, such as animals, tools and food.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -5560,8 +5560,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "8ee516ce",
-  "k": "When you write a mnemonic in Memorization notes, put the sound-alike word in CAPITALS: in “a duck sitting on a POT” it learns from POT. Only words in capitals count, and only when they really sound like the word; the rest of the note is ignored. A sound-alike of yours can come back for other words that sound like it, marked “You've used this before”. When your AI makes the mnemonics, a few of your own are sent to it as examples of your style. “Learn from my own mnemonics” here turns this off.",
+  "id": "6a76f173",
+  "k": "When you write a mnemonic in Memorization notes, put the sound-alike word in CAPITALS: in “a duck sitting on a POT” it learns from POT, and MUR-DER counts as one word. Only words in capitals count, and only when they really sound like the word; the rest of the note is ignored. A sound-alike of yours can come back for other words that sound like it, marked “You've used this before”. When your AI makes the mnemonics, a few of your own are sent to it as examples of your style. “Learn from my own mnemonics” here turns this off.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -5570,8 +5570,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "285e63cd",
-  "k": "Your AI suggests keywords and writes the pictures, using the model and thinking level under More options. It can be more inventive, but sometimes suggests words that don't really sound alike. It needs your AI key, and each press costs about a cent or less.",
+  "id": "8b6a7114",
+  "k": "Your AI suggests keywords, using the model and thinking level under More options. It can be more inventive, but sometimes suggests words that don't really sound alike. It needs your AI key, and each press costs about a cent or less.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -10260,28 +10260,28 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "786c4251",
-  "k": "Words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made by your AI.",
+  "id": "0b3975cf",
+  "k": "Words that sound like the word, put in Memorization notes. Made by your AI.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "7e5e5822",
-  "k": "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
+  "id": "f610a5c3",
+  "k": "Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "bd2053cf",
-  "k": "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
+  "id": "eb594599",
+  "k": "English words that sound like the word, put in Memorization notes. Made on this device, with no AI. <0>AI can make them instead</0>",
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "ebd5d05b",
-  "k": "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.",
+  "id": "8f6f4361",
+  "k": "Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "a19c2ced",
-  "k": "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.",
+  "id": "a08b3edb",
+  "k": "English words that sound like the word, put in Memorization notes. Made on this device, with no AI.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -10400,13 +10400,13 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "64df8757",
-  "k": "Sound-alike in CAPITALS: a duck sitting on a POT…",
+  "id": "a5be0f3d",
+  "k": "Sound-alike in CAPITALS: MUR-DER…",
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "bea10c94",
-  "k": "A mnemonic, a picture",
+  "id": "a47a280d",
+  "k": "A sound-alike",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -24655,8 +24655,8 @@
   "f": "web/js/pages/review.js"
  },
  {
-  "id": "2772a106",
-  "k": "Make a sound-alike picture to help the word stick, get a new example sentence, or put the word in a folder.",
+  "id": "5960d6a1",
+  "k": "Make a sound-alike to help the word stick, get a new example sentence, or put the word in a folder.",
   "f": "web/js/pages/review.js"
  },
  {
@@ -26735,8 +26735,8 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "887fed4a",
-  "k": "A mnemonic, a picture, where you heard it…",
+  "id": "9c56229a",
+  "k": "A sound-alike, where you heard it…",
   "f": "web/js/review/cardtools.js"
  },
  {
@@ -26835,23 +26835,23 @@
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "7208744b",
-  "k": "Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "id": "5f328495",
+  "k": "Words of your language, and English ones, that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good.",
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "ee432df0",
-  "k": "Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "id": "9e45a8e6",
+  "k": "Words of your language that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good.",
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "52e3278d",
-  "k": "English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "id": "caa6d892",
+  "k": "English words that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good.",
   "f": "web/js/review/cardtools.js"
  },
  {
-  "id": "9e43c50e",
-  "k": "{0} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.",
+  "id": "db7e7310",
+  "k": "{0} words that sound like it. Use puts one in Memorization notes; thumbs down drops it for good.",
   "f": "web/js/review/cardtools.js"
  },
  {

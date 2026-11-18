@@ -6,7 +6,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { gunzipSync } from "node:zlib";
 import { kanaRomaji, pronunciationOf, spellingIpa, syllabify } from "../../web/js/review/soundout.js";
-import { KeywordList, PREF_LIMIT, findKeywords, learn, makeFreeMnemonics, meaningPicture, prefBonus, readPrefs, sceneFor, traitsOf } from "../../web/js/review/freemnemonic.js";
+import { KeywordList, PREF_LIMIT, findKeywords, learn, makeFreeMnemonics, meaningPicture, prefBonus, readPrefs, traitsOf } from "../../web/js/review/freemnemonic.js";
 import { ExamplePack, markTranslation, sentenceKeys, sourceOf } from "../../web/js/lexicon/exampledata.js";
 import { noteText } from "../../web/js/review/mnemonic.js";
 
@@ -99,7 +99,7 @@ test("among keywords that sound alike, one tied to the meaning comes first", () 
   assert.equal(hund.keyword, "hound", "HOUND: it sounds like Hund and is a kind of dog");
   assert.equal(hund.link, 2, "shown 'Fits the meaning'");
   assert.equal(hund.tie, "s");
-  assert.match(hund.scene, /HOUND is a kind of dog/);
+  assert.equal(hund.scene, undefined, "only the sound-alike: no picture line");
   assert.notEqual(top("Hund", "de", "dog", { meaningWeight: 0 }).keyword, "hound", "without the ties it was a sound-alike only");
   assert.equal(top("caballo", "es", "horse").keyword, "cob");
   assert.equal(top("پرنده", "fa", "bird").keyword, "parrot");
@@ -126,18 +126,16 @@ test("turned-down keywords never come back", () => {
   for (const s of [...r.items, ...r.parts]) assert.ok(!before.includes(s.keyword), s.keyword);
 });
 
-test("the picture line joins the keyword to the meaning", () => {
-  const cart = list.byWord.get("cart"), calf = list.byWord.get("calf"), lettuce = list.byWord.get("lettuce");
-  assert.match(sceneFor(cart, meaningPicture("letter", list), "carta"), /\bCART\b/);
-  assert.match(sceneFor(cart, meaningPicture("letter", list), "carta"), /\ba letter\b/);
-  assert.match(sceneFor(calf, meaningPicture("dog", list), "kalb"), /^Picture a CALF .*a dog/);
-  assert.match(sceneFor(calf, meaningPicture("to write", list), "x"), /\bwrite\b/);
-  assert.match(sceneFor(lettuce, meaningPicture("happy, glad", list), "laetus"), /happy/);
-  assert.doesNotMatch(sceneFor(cart, meaningPicture("water", list), "x"), /a water/, "no 'a' before what isn't counted");
+test("only the sound-alike: no picture line, and Use writes its syllables in capitals", () => {
   assert.equal(meaningPicture("(of a person) big; large", list).pos, "adj");
   assert.equal(meaningPicture("to eat", list).pos, "verb");
   const r = makeFreeMnemonics({ text: "pato", meaning: "duck" }, { pron: said("pato", "es"), list });
-  assert.match(noteText(r.items[0]), /^[a-z ]+ — (?:“[A-Z ]+”: )?Picture /, "Use puts 'keyword — picture' in Memorization notes");
+  for (const s of [...r.items, ...r.parts]) {
+    assert.equal(s.scene, undefined, s.keyword);
+    assert.equal(s.lang, "en", "each says its keyword's language");
+  }
+  // The owner (2026-11-18): "Good example: MUR-DER. Bad example: imagine a MURDER happening in spain".
+  assert.match(noteText(r.items[0]), /^[A-Z]+(?:-[A-Z]+)*$/, "Use puts only 'POT' or 'PAD-DLE' in Memorization notes");
   assert.equal(r.free, true);
 });
 
@@ -204,7 +202,8 @@ test("keywords in the learner's own language when the app isn't in English", () 
   assert.equal(r.keywordLang, "it");
   assert.equal(top.keyword, "gatta", "Arabic qiṭṭa: Italian GATTA, a she-cat");
   assert.ok(top.link >= 1);
-  assert.match(top.scene, /GATTA e «gatto»/, "a picture line in Italian");
+  assert.equal(top.lang, "it");
+  assert.equal(noteText(top), "GAT-TA", "an Italian keyword, its syllables in capitals");
   const de = new KeywordList(read("de-keywords.json.gz"), list);
   const hund = makeFreeMnemonics({ text: "perro", meaning: "Hund" }, { pron: said("perro", "es"), list: de });
   assert.ok(hund.items.length >= 3);

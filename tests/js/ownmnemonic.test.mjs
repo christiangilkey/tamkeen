@@ -26,7 +26,12 @@ const keys = (text) => capitalKeywords(text).map((k) => k.shown);
 test("only words in CAPITALS are keywords; words one after another make one", () => {
   assert.deepEqual(keys("pot — Picture a duck sitting on a POT"), ["POT"], "the rest of the note is ignored");
   assert.deepEqual(keys("Picture a PIE on your TOE, or a PIE TOE"), ["PIE", "TOE", "PIE TOE"]);
-  assert.deepEqual(keys("A PIE-TOE dance"), ["PIE TOE"], "a hyphen joins them too");
+  // Syllables in capitals joined by hyphens are one word, as Use writes a sound-alike (mnemonic.js soundAlike): MUR-DER.
+  assert.deepEqual(keys("MUR-DER"), ["MURDER"]);
+  assert.deepEqual(capitalKeywords("MUR-DER")[0], { key: "murder", shown: "MURDER", alt: "mur der" }, "two words joined are tried too");
+  assert.deepEqual(keys("A-PRON and TAX-I"), ["APRON", "TAXI"], "a one-letter syllable counts inside one");
+  assert.deepEqual(keys("A PIE-TOE dance"), ["PIETOE"]);
+  assert.equal(capitalKeywords("A PIE-TOE dance")[0].alt, "pie toe");
   assert.deepEqual(keys("I saw A POT. I think A cat"), ["POT"], "I and A don't count");
   assert.deepEqual(keys("SAW A POT"), ["SAW", "POT"], "and they break a run");
   assert.deepEqual(keys("PIE\nTOE"), ["PIE", "TOE"], "a new line breaks it");
@@ -168,7 +173,8 @@ test("a sound-alike the learner wrote comes back for another word that sounds li
   // Not in the keyword list at all: still offered, with its kept sounds, when it sounds like the word.
   const odd = writePrefs({ o: [["pottah", "ˈpɑtə"]], n: 1 });
   const offered = all(makeFreeMnemonics(pata, { pron: said("pata"), list, prefs: odd })).find((s) => s.keyword === "pottah");
-  assert.ok(offered && offered.own && offered.scene.includes("POTTAH"));
+  assert.ok(offered && offered.own);
+  assert.equal(offered.scene, undefined, "only the sound-alike: no picture line");
   assert.ok(!all(makeFreeMnemonics({ text: "perro", meaning: "dog" }, { pron: said("perro"), list, prefs })).some((s) => s.own),
     "never for a word it doesn't sound like");
 });
@@ -205,5 +211,5 @@ test("Learn from my own mnemonics is on unless switched off, syncs, and Forget i
   for (const f of ["web/js/pages/review.js", "web/js/components/wordeditor.js", "web/js/components/wordbuilder.js"]) {
     assert.ok(source(f).includes("learnFromNote("), `${f} learns from saved notes`);
   }
-  assert.ok(source("web/js/review/cardtools.js").includes("Sound-alike in CAPITALS: a duck sitting on a POT…"));
+  assert.ok(source("web/js/review/cardtools.js").includes("Sound-alike in CAPITALS: MUR-DER…"));
 });

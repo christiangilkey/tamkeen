@@ -10,7 +10,7 @@ import {
   readBatch, usableSense, wordByWord, wordsIn,
 } from "../../web/js/addwords.js";
 import { ExamplePack, markTranslation, wordsOf } from "../../web/js/lexicon/exampledata.js";
-import { KeywordList, meaningPicture, sceneFor } from "../../web/js/review/freemnemonic.js";
+import { KeywordList, meaningPicture } from "../../web/js/review/freemnemonic.js";
 
 const read = (name) => JSON.parse(gunzipSync(readFileSync(new URL(`../../docs/lexicon/${name}`, import.meta.url))));
 const packs = {};
@@ -183,9 +183,9 @@ test("a sentence the file has gives its own translation", () => {
   assert.equal(pack("es").translationOf("zzz qqq"), "");
 });
 
-// ----- a phrase's meaning in a mnemonic picture -----
+// ----- a phrase's meaning, for which keywords fit it -----
 
-test("a phrase's meaning is pictured being said, not as a thing", () => {
+test("a phrase's meaning is something said, not a thing", () => {
   const list = new KeywordList(read("en-keywords.json.gz"));
   const said = meaningPicture("please", list, "phrase");
   assert.equal(said.pos, "said");
@@ -193,8 +193,4 @@ test("a phrase's meaning is pictured being said, not as a thing", () => {
   assert.equal(meaningPicture("however", list, "adv").pos, "said");
   assert.equal(meaningPicture("to realize", list, "phrase").pos, "verb", "a phrase that means doing something is a verb");
   assert.equal(meaningPicture("house", list, "").pos, "noun", "a word is as before");
-  const line = sceneFor({ word: "banana", pos: "n", kind: "food" }, meaningPicture("you're welcome", list, "phrase"), "de nada");
-  assert.match(line, /BANANA/);
-  assert.match(line, /“you're welcome”/);
-  assert.doesNotMatch(line, /a you're welcome/);
 });

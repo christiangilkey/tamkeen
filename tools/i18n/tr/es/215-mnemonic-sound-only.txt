@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Trucos de memoria: una palabra que ya conoces y que suena como la palabra nueva, escrita en sílabas (MUR-DER).
+4344eac4	Tu IA sugiere las palabras que suenan parecido.
+70338b4d	El método de la palabra clave: une la palabra nueva a una palabra que ya conoces y que suena parecido. El español perro: PIL-LOW. Solo se da la palabra parecida, escrita en sílabas en mayúsculas, sin imagen ni historia que leer.
+4c33ba8b	Una palabra clave que además encaja con el significado va primero, marcada «Encaja con el significado» o «Relacionada en significado» (el alemán Hund, «perro»: HOUND). Luego vienen cosas fáciles de imaginar, como animales, herramientas y comida.
+6a76f173	Cuando escribas una mnemotecnia en Notas para memorizar, pon en MAYÚSCULAS la palabra que suena parecido: en «un pato sentado en un POT» aprende de POT, y MUR-DER cuenta como una sola palabra. Solo cuentan las palabras en mayúsculas, y solo si de verdad suenan como la palabra; el resto de la nota no se tiene en cuenta. Una palabra parecida tuya puede volver para otras palabras que suenen igual, marcada «Ya la has usado». Cuando tu IA hace las mnemotecnias, se le envían algunas de las tuyas como ejemplo de tu estilo. «Aprender de mis propias mnemotecnias», aquí, lo desactiva.
+8b6a7114	Tu IA sugiere palabras clave, con el modelo y el nivel de razonamiento de Más opciones. Puede ser más creativa, pero a veces sugiere palabras que en realidad no suenan parecido. Necesita tu clave de IA, y cada pulsación cuesta alrededor de un céntimo o menos.
+0b3975cf	Palabras que suenan como la palabra, puestas en Notas para memorizar. Las crea tu IA.
+f610a5c3	Palabras de tu idioma que suenan como la palabra, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA. <0>La IA puede crearlas en su lugar</0>
+eb594599	Palabras en inglés que suenan como la palabra, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA. <0>La IA puede crearlas en su lugar</0>
+8f6f4361	Palabras de tu idioma que suenan como la palabra, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA.
+a08b3edb	Palabras en inglés que suenan como la palabra, puestas en Notas para memorizar. Se crean en este dispositivo, sin IA.
+a5be0f3d	La palabra parecida en MAYÚSCULAS: MUR-DER…
+a47a280d	Una palabra parecida
+5960d6a1	Crea una palabra que suene parecido para que la palabra se te quede, consigue una nueva frase de ejemplo o pon la palabra en una carpeta.
+9c56229a	Una palabra parecida, dónde la oíste…
+5f328495	Palabras de tu idioma, y otras en inglés, que suenan como ella, encontradas en este dispositivo sin IA. Usar pone una en Notas para memorizar; el pulgar abajo la descarta para siempre.
+9e45a8e6	Palabras de tu idioma que suenan como ella, encontradas en este dispositivo sin IA. Usar pone una en Notas para memorizar; el pulgar abajo la descarta para siempre.
+caa6d892	Palabras inglesas que suenan como ella, encontradas en este dispositivo sin IA. Usar pone una en Notas para memorizar; el pulgar abajo la descarta para siempre.
+db7e7310	Palabras de tu idioma que suenan parecido. Usar pone una en Notas para memorizar; el pulgar abajo la descarta para siempre.

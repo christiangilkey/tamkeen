@@ -9,7 +9,7 @@
 //   - Example sentences and their translations: the learner's AI (one request for many words); with no AI,
 //     or Free chosen in Settings → Word definitions (helpersource.js aiMakes), a real sentence from Tatoeba
 //     or Wiktionary with its English translation (examples.js, downloaded once).
-//   - A mnemonic in Memorization notes: keywords that sound like the word, with a picture for its meaning:
+//   - A mnemonic in Memorization notes: only a keyword that sounds like the word, as its syllables ("MUR-DER"):
 //     the AI's when it makes them (the same choice), else made on the device (examples.js freeMnemonics,
 //     the review card's free Mnemonic maker).
 //   - Audio: the card voice chosen in Settings → Card voices (made and kept now with Azure; the
@@ -277,15 +277,15 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       } else if (choices.sentence === "auto") html = "A short sentence that uses the word the way a native speaker would, with its translation.";
     } else if (key === "mnemonic") {
       if (choices.mnemonic === "auto" && makes("mnemonic")) {
-        html = "Words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made by your AI.";
+        html = "Words that sound like the word, put in Memorization notes. Made by your AI.";
       } else if (choices.mnemonic === "auto") {
         const own = OWN_KEYWORDS.has(uiLanguage()) && uiLanguage() !== lang;
         // (chose Free in Settings although the AI could make them: the way back to that choice)
         html = freeChosen("mnemonic")
-          ? (own ? `Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`
-            : `English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`)
-          : own ? "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI."
-          : "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.";
+          ? (own ? `Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`
+            : `English words that sound like the word, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`)
+          : own ? "Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI."
+          : "English words that sound like the word, put in Memorization notes. Made on this device, with no AI.";
       }
     } else if (key === "audio") {
       const s = settings();
@@ -360,7 +360,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       audioNote: null,
       fillNotes: {},     // {meaning, memo}: a line about what Fill in put there (a phrase's meaning word by word…)
       kind: "word",      // "word", "phrase" or "sentence" (addwords.js entryKind), worked out when filling in
-      meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for the mnemonic's picture line
+      meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for which keywords fit the meaning
       meaningFrom: "",   // "entry" (the dictionary's for the whole card), "words" (word by word), "ai"
       el: null,
     };
@@ -463,7 +463,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       sentence: wants ? (found ? "Found for you" : "Written for you") : "A sentence that uses it",
       translation: wants ? (found ? "Found for you" : "Written for you") : "The sentence in your language",
       // (with "Learn from my own mnemonics" on, a mnemonic typed here teaches the maker: its sound-alike in CAPITALS)
-      memo: wants ? "A mnemonic made for you" : learnsOwn(settings()) ? "Sound-alike in CAPITALS: a duck sitting on a POT…" : "A mnemonic, a picture",
+      memo: wants ? "A mnemonic made for you" : learnsOwn(settings()) ? "Sound-alike in CAPITALS: MUR-DER…" : "A sound-alike",
     }[f];
     // (A text box's placeholder isn't translated again by itself when it changes, and the sentence box is in
     // the language being learned: so those are translated here.)
@@ -1151,7 +1151,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     // for a word leaves it to the free one.
     // ("Learn from my own mnemonics": the learner's own sound-alikes offered again, their notes shown to the AI)
     // A phrase too long for sound-alikes (addwords.js mnemonicFits) gets none, and a line that says why. A phrase's
-    // meaning is pictured being said ("a BANANA saying “you're welcome”"): its part of speech goes with it.
+    // part of speech goes with it (which keywords fit its meaning).
     const own = learnsOwn(settings()), prefs = settings().mnemonic_prefs;
     const posOf = (r) => r.meaningPos || (r.kind !== "word" ? "phrase" : "");
     const freeMemo = (r) => freeMnemonics({ text: r.text.trim(), meaning: meaningOf(r), pos: posOf(r) }, lang, { speaks: uiLanguage(), prefs, ownWords: own });
@@ -1173,7 +1173,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       // (the maker's own keywords: a note edited after it was filled in doesn't teach the maker its own words)
       if (got) r.made = [...(r.made || []), ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)];
       const best = got && (got.items[0] || got.parts[0]);
-      if (best) r.memo = fillIn(r.memo, noteText(best));
+      // (only the sound-alike, "MUR-DER": the free maker's say their language, the AI writes in the learner's)
+      if (best) r.memo = fillIn(r.memo, noteText(best, best.lang || uiLanguage()));
       if (r.status && r.status.kind === "busy") setStatus(r, null);
       paintRow(r);
     });

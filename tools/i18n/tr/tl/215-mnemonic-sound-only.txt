@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Mga paraan para matandaan: isang salitang alam mo na kahawig ang tunog ng bagong salita, nakasulat nang pantig-pantig (MUR-DER).
+4344eac4	Nagmumungkahi ang AI mo ng mga salitang kahawig ang tunog.
+70338b4d	Ang paraang keyword: iugnay ang bagong salita sa isang salitang alam mo na na kahawig ang tunog. Espanyol na perro, “aso”: PIL-LOW. Ang kahawig na salita lang ang ibinibigay, nakasulat nang pantig-pantig sa malalaking titik, walang larawan o kuwentong babasahin.
+4c33ba8b	Nauuna ang keyword na bagay rin sa kahulugan, na may markang “Bagay sa kahulugan” o “Kaugnay sa kahulugan” (Aleman na Hund, “aso”: HOUND). Kasunod ang mga bagay na madaling ilarawan sa isip, gaya ng mga hayop, kasangkapan at pagkain.
+6a76f173	Kapag sumulat ka ng mnemonic sa Mga tala sa pagsasaulo, isulat sa MALALAKING TITIK ang salitang kahawig ang tunog: sa “isang bibeng nakaupo sa isang POT” natututo ito mula sa POT, at iisang salita ang MUR-DER. Ang mga salitang nasa malalaking titik lang ang binibilang, at kung talagang kahawig ang tunog nila ng salita; hindi pinapansin ang iba pang bahagi ng tala. Puwedeng bumalik ang salita mo para sa ibang salitang kahawig ang tunog, na may markang “Nagamit mo na ito”. Kapag AI mo ang gumagawa ng mga mnemonic, ipinapadala rito ang ilan sa mga sarili mong mnemonic bilang halimbawa ng istilo mo. Pinapatay ito ng “Matuto mula sa sarili kong mga mnemonic” dito.
+8b6a7114	Nagmumungkahi ang AI mo ng mga keyword, gamit ang model at antas ng pag-iisip sa Iba pang opsyon. Maaari itong maging mas malikhain, pero kung minsan nagmumungkahi ito ng mga salitang hindi talaga magkatunog. Kailangan nito ang AI key mo, at bawat pindot ay nagkakahalaga ng mga isang sentimo o mas mababa pa.
+0b3975cf	Mga salitang kahawig ng tunog ng salita, inilalagay sa Mga tala sa pagsasaulo. Gawa ng iyong AI.
+f610a5c3	Mga salita sa wika mo na kahawig ng tunog ng salita, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI. <0>Puwedeng ang AI na lang ang gumawa ng mga ito</0>
+eb594599	Mga salitang Ingles na kahawig ng tunog ng salita, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI. <0>Puwedeng ang AI na lang ang gumawa ng mga ito</0>
+8f6f4361	Mga salita sa wika mo na kahawig ng tunog ng salita, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI.
+a08b3edb	Mga salitang Ingles na kahawig ng tunog ng salita, inilalagay sa Mga tala sa pagsasaulo. Ginagawa sa device na ito, walang AI.
+a5be0f3d	Ang kahawig na salita sa MALALAKING TITIK: MUR-DER…
+a47a280d	Isang kahawig na salita
+5960d6a1	Humanap ng salitang magkatunog para matandaan ang salita, kumuha ng bagong halimbawang pangungusap, o ilagay ang salita sa isang folder.
+9c56229a	Isang kahawig na salita, kung saan mo narinig…
+5f328495	Mga salita ng sarili mong wika, at mga salitang Ingles, na kahawig ang tunog, nahanap sa device na ito nang walang AI. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.
+9e45a8e6	Mga salita ng sarili mong wika na kahawig ang tunog, nahanap sa device na ito nang walang AI. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.
+caa6d892	Mga salitang Ingles na kahawig ang tunog, nahanap sa device na ito nang walang AI. Inilalagay ng Gamitin ang isa sa Mga tala sa pagsasaulo; tinatanggal ito nang tuluyan ng thumbs down.
+db7e7310	Mga salita sa wika mo na katunog nito. Ang Gamitin ay naglalagay ng isa sa Mga tala sa pagsasaulo; ang thumbs down ay tuluyang nag-aalis nito.

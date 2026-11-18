@@ -18,7 +18,7 @@ f4e6c37a  # Couldn't download the course ({0})... (app/course.py: a 404 the page
 3e3abaad  # in {0} (mnemonic.js, to the AI: the variety the word is said in)
 bb23363f  # How it is said, from the app's dictionary: {0} (mnemonic.js, to the AI)
 c7971c28  # Already suggested or turned down, so give different ones: {0} (mnemonic.js, to the AI)
-0878c59b  # Give {0} keywords in {1}, each with its scene. (mnemonic.js, to the AI)
+57c52d8a  # Give {0} keywords in {1}. (mnemonic.js, to the AI)
 66b96383  # {0} as spoken in {1} (mnemonic.js, to the AI: the variety the word is said in)
 a0363e40  # Egyptian Arabic (mnemonic.js, to the AI: the variety the word is said in)
 f45a08c9  # Levantine Arabic (mnemonic.js, to the AI)
@@ -30,7 +30,7 @@ bd7ef16e  # Saudi Arabic (mnemonic.js, to the AI)
 849c584d  # Tunisian Arabic (mnemonic.js, to the AI)
 5f9c869a  # Libyan Arabic (mnemonic.js, to the AI)
 ed816526  # Yemeni Arabic (mnemonic.js, to the AI)
-5b06776c  # Mnemonics this learner wrote themselves (the keyword in capitals)... {0} (mnemonic.js, to the AI: the learner's own notes as examples)
+52f6302b  # Mnemonics this learner wrote themselves (the keyword in capitals)... {0} (mnemonic.js, to the AI: the learner's own notes as examples)
 # Pieces of sentences the code glues together at run time (the whole is never on screen like this).
 56806a1f  # Take
 99e68eaa  # off the start page
@@ -696,7 +696,7 @@ b90d6e31  # Egyptian basics
 11b463eb  # Moroccan basics
 164bff8f  # Iraqi basics
 b4cfe1f4  # a key's name (game/reveal.js), never on screen
-201f1a05  # This is only a part of the card's word… (mnemonic.js: told to the AI, not interface)
+90ae822a  # This is only a part of the card's word… (mnemonic.js: told to the AI, not interface)
 f37f0591  # Week starting (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 606d04ea  # Words saved (dliweeks.js: a spreadsheet heading for the owner, never on screen)
 # conversedata.js: a level on the two scales learners know (CEFR · ILR), the same in every language

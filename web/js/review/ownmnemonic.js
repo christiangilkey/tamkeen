@@ -2,8 +2,9 @@
 // Memorization notes, not only from Use and thumbs down on its own suggestions (owner, 2026-11-06).
 //
 // Only the words written in CAPITALS count: in "pot — Picture a duck sitting on a POT" it is POT, and the rest
-// of the note, the story, is ignored. Capitals are already Tamkeen's own way of writing a keyword (Use puts
-// "… a duck balanced on top of a POT" in the notes: freemnemonic.js sceneFor). A word in capitals counts only
+// of the note, the story, is ignored. Capitals are already Tamkeen's own way of writing a keyword (Use puts the
+// sound-alike as its syllables in capitals, "MUR-DER": mnemonic.js soundAlike; syllables in capitals joined by
+// hyphens make one word, so MUR-DER is "murder" and A-PRON "apron"). A word in capitals counts only
 // when it is new in the note (editing another part of it doesn't learn again), isn't one the maker suggested for
 // the card itself (Use learned those already), and really sounds like the card's word: the same sound check as
 // the makers' own keywords (mnemonic.js rankSuggestions), with the keyword's sounds from the free maker's word
@@ -32,13 +33,21 @@ export const learnsOwn = (settings) => (settings || {}).mnemonic_learn_own !== "
 // allowed (DON'T); a plural "s" or "'s" written small after it is dropped (POTs). Not inside a longer word.
 const CAPS = /(?<![\p{L}\p{M}\p{N}])(\p{Lu}[\p{Lu}\p{Lt}\p{M}]*(?:['’]\p{Lu}[\p{Lu}\p{Lt}\p{M}]*)*)(?:['’]?s)?(?![\p{L}\p{M}\p{N}])/gu;
 const letters = (w) => (w.match(/\p{L}/gu) || []).length;
+// Syllables in capitals joined by hyphens, with nothing else round them: one word written as it is said (MUR-DER, A-PRON).
+const SYLLABLES = /(?<![\p{L}\p{M}\p{N}-])\p{Lu}[\p{Lu}\p{M}]*(?:-\p{Lu}[\p{Lu}\p{M}]*)+(?![\p{L}\p{M}\p{N}-])/gu;
 
 /**
  * The keywords written in capitals in `text`, in order, each once: [{key: "pie toe" (small letters, as kept),
  * shown: "PIE TOE" (as written)}]. Single capital letters ("I", "A") don't count, and break a run.
  */
 export function capitalKeywords(text) {
-  const s = String(text || "").normalize("NFC");
+  // (MUR-DER is read as MURDER; `alt` keeps "mur der", in case it was two words joined: FISH-HOOK, "fish hook")
+  const alts = new Map();
+  const s = String(text || "").normalize("NFC").replace(SYLLABLES, (m) => {
+    const glued = m.replace(/-/g, "");
+    alts.set(glued.toLowerCase(), m.replace(/-/g, " ").toLowerCase());
+    return glued;
+  });
   const words = [];
   for (const m of s.matchAll(CAPS)) {
     if (letters(m[1]) < 2) continue;
@@ -58,7 +67,7 @@ export function capitalKeywords(text) {
     const key = shown.toLowerCase();
     if (seen.has(key)) return;
     seen.add(key);
-    out.push({ key, shown });
+    out.push(ws.length === 1 && alts.has(key) ? { key, shown, alt: alts.get(key) } : { key, shown });
   };
   for (const run of runs) {
     if (run.length <= RUN_MAX) add(run);
@@ -67,8 +76,9 @@ export function capitalKeywords(text) {
   return out;
 }
 
-/** A keyword as compared: small letters, no "+", one space between words ("pie + toe" = "pie toe"). */
-const plain = (k) => cleanKeyword(k).toLowerCase().replace(/\s*\+\s*/g, " ").replace(/\s+/g, " ").trim();
+/** A keyword as compared: small letters, no "+", no spaces or hyphens ("pie + toe" = "PIE-TOE" = "pietoe"), since
+ * Use writes a suggestion as its syllables joined by hyphens (MUR-DER). */
+const plain = (k) => cleanKeyword(k).toLowerCase().replace(/[\s+-]+/g, "").trim();
 
 /**
  * The capitalised keywords that are new in a note: in `after` and not in `before` (what it said when it was last
@@ -79,7 +89,7 @@ export function newCapitals(before, after, { skip = [], word = "", meaning = "" 
   const had = new Set(capitalKeywords(before).map((k) => k.key));
   const skipped = new Set([...skip, word].map(plain).filter(Boolean));
   const meant = new Set(String(meaning || "").toLowerCase().split(/[^\p{L}\p{M}']+/u).filter(Boolean));
-  return capitalKeywords(after).filter((k) => !had.has(k.key) && !skipped.has(k.key) && !k.key.split(" ").every((w) => meant.has(w)));
+  return capitalKeywords(after).filter((k) => !had.has(k.key) && !skipped.has(plain(k.key)) && !k.key.split(" ").every((w) => meant.has(w)));
 }
 
 /**
@@ -92,15 +102,19 @@ export function newCapitals(before, after, { skip = [], word = "", meaning = "" 
 export function judgeOwn(v, pron, keywords, { lists = [], english = null } = {}) {
   if (!pron) return null;
   const passed = [], failed = [];
-  for (const k of keywords) {
-    let ipa = null, list = null;
-    for (const l of lists) {
-      const x = l && l.ipaOf(k.key);
-      if (x) { ipa = x; list = l; break; }
+  for (const k0 of keywords) {
+    let ipa = null, list = null, k = k0;
+    // (the word as written, then, for syllables joined by hyphens, as separate words: FISH-HOOK is "fish hook")
+    for (const key of [k0.key, k0.alt].filter(Boolean)) {
+      for (const l of lists) {
+        const x = l && l.ipaOf(key);
+        if (x) { ipa = x; list = l; break; }
+      }
+      if (!ipa && english) ipa = english(key) || null;
+      if (ipa) { k = key === k0.key ? k0 : { ...k0, key }; break; }
     }
-    if (!ipa && english) ipa = english(k.key) || null;
     if (!ipa) continue;  // (its sounds aren't known: ignored)
-    const r = rankSuggestions({ pron, keywords: [{ keyword: k.key, ipa, covers: [], link: 0, linkNote: "", scene: "" }], ownSounds: () => ipa, count: 1 });
+    const r = rankSuggestions({ pron, keywords: [{ keyword: k.key, ipa, covers: [], link: 0, linkNote: "" }], ownSounds: () => ipa, count: 1 });
     if (!r.checked) return null;
     const s = r.items[0];
     if (!s) { failed.push(k); continue; }

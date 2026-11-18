@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Trucs de memòria: una paraula que ja coneixes i que sona com la paraula nova, escrita en síl·labes (MUR-DER).
+4344eac4	La teva IA suggereix les paraules que sonen semblant.
+70338b4d	El mètode de la paraula clau: lliga la paraula nova a una paraula que ja coneixes i que sona semblant. El castellà perro, «gos»: PIL-LOW. Només es dona la paraula que sona semblant, escrita en síl·labes en majúscules, sense imatge ni història per llegir.
+4c33ba8b	Una paraula clau que a més encaixa amb el significat va primer, marcada «Encaixa amb el significat» o «Relacionada pel significat» (l'alemany Hund, «gos»: HOUND). Després venen coses fàcils d'imaginar, com animals, eines i menjar.
+6a76f173	Quan escriguis una mnemotècnia a Notes per memoritzar, posa en MAJÚSCULES la paraula que sona semblant: a «un ànec assegut sobre un POT» aprèn de POT, i MUR-DER compta com una sola paraula. Només compten les paraules en majúscules, i només si sonen de debò com la paraula; la resta de la nota no compta. Una paraula teva pot tornar per a altres paraules que sonin semblant, marcada «Ja l'has fet servir». Quan la teva IA fa les mnemotècnies, se li envien algunes de les teves com a exemples del teu estil. «Aprendre de les meves mnemotècnies», aquí, ho desactiva.
+8b6a7114	La teva IA suggereix paraules clau, amb el model i el nivell de raonament de Més opcions. Pot ser més inventiva, però de vegades suggereix paraules que no sonen gaire semblant. Necessita la teva clau d'IA, i cada toc costa al voltant d'un cèntim o menys.
+0b3975cf	Paraules que sonen com la paraula, posades a les Notes per memoritzar. Les fa la teva IA.
+f610a5c3	Paraules de la teva llengua que sonen com la paraula, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA. <0>La IA les pot fer en lloc seu</0>
+eb594599	Paraules angleses que sonen com la paraula, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA. <0>La IA les pot fer en lloc seu</0>
+8f6f4361	Paraules de la teva llengua que sonen com la paraula, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA.
+a08b3edb	Paraules angleses que sonen com la paraula, posades a les Notes per memoritzar. Es fan en aquest dispositiu, sense IA.
+a5be0f3d	La paraula que sona semblant en MAJÚSCULES: MUR-DER…
+a47a280d	Una paraula que sona semblant
+5960d6a1	Troba una paraula que soni semblant perquè la paraula se't quedi, aconsegueix una frase d'exemple nova o posa la paraula en una carpeta.
+9c56229a	Una paraula que sona semblant, on la vas sentir…
+5f328495	Paraules de la teva llengua, i d'altres en anglès, que sonen com ella, trobades en aquest dispositiu sense IA. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.
+9e45a8e6	Paraules de la teva llengua que sonen com ella, trobades en aquest dispositiu sense IA. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.
+caa6d892	Paraules angleses que sonen com ella, trobades en aquest dispositiu sense IA. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.
+db7e7310	Paraules de la teva llengua que sonen semblant. Fes-la servir en posa una a Notes per memoritzar; el polze avall la descarta per sempre.

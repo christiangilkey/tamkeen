@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Eselsbrücken: ein Wort, das du kennst und das wie das neue Wort klingt, in Silben geschrieben (MUR-DER).
+4344eac4	Deine KI schlägt die ähnlich klingenden Wörter vor.
+70338b4d	Die Schlüsselwortmethode: Verknüpfe das neue Wort mit einem Wort, das du schon kennst und das ähnlich klingt. Spanisch perro, „Hund“: PIL-LOW. Es kommt nur das ähnlich klingende Wort, in Silben in Großbuchstaben geschrieben, ohne Bild oder Geschichte zum Lesen.
+4c33ba8b	Ein Schlüsselwort, das auch zur Bedeutung passt, kommt zuerst und ist mit „Passt zur Bedeutung“ oder „Bedeutung verwandt“ markiert (deutsch Hund: HOUND). Danach kommen Dinge, die man sich leicht vorstellen kann, etwa Tiere, Werkzeuge und Essen.
+6a76f173	Wenn du eine Eselsbrücke in die Merknotizen schreibst, schreib das ähnlich klingende Wort in GROSSBUCHSTABEN: Bei „eine Ente, die auf einem POT sitzt“ lernt es POT, und MUR-DER zählt als ein Wort. Nur Wörter in Großbuchstaben zählen, und nur, wenn sie wirklich wie das Wort klingen; der Rest der Notiz wird nicht beachtet. Ein Wort von dir kann bei anderen Wörtern, die ähnlich klingen, wiederkommen, markiert mit „Hast du schon benutzt“. Wenn deine KI die Eselsbrücken macht, werden ihr ein paar deiner eigenen als Beispiele für deinen Stil geschickt. „Aus meinen eigenen Eselsbrücken lernen“ hier schaltet das aus.
+8b6a7114	Deine KI schlägt Schlüsselwörter vor, mit dem Modell und der Stufe fürs Nachdenken unter Weitere Optionen. Sie kann einfallsreicher sein, schlägt aber manchmal Wörter vor, die nicht wirklich ähnlich klingen. Sie braucht deinen KI-Schlüssel, und jedes Drücken kostet etwa einen Cent oder weniger.
+0b3975cf	Wörter, die wie das Wort klingen, in die Merknotizen gesetzt. Von deiner KI gemacht.
+f610a5c3	Wörter deiner Sprache, die wie das Wort klingen, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI. <0>Die KI kann sie stattdessen machen</0>
+eb594599	Englische Wörter, die wie das Wort klingen, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI. <0>Die KI kann sie stattdessen machen</0>
+8f6f4361	Wörter deiner Sprache, die wie das Wort klingen, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI.
+a08b3edb	Englische Wörter, die wie das Wort klingen, in die Merknotizen gesetzt. Auf diesem Gerät gemacht, ohne KI.
+a5be0f3d	Ähnlich klingendes Wort in GROSSBUCHSTABEN: MUR-DER…
+a47a280d	Ein ähnlich klingendes Wort
+5960d6a1	Such ein ähnlich klingendes Wort, damit das Wort hängen bleibt, hol dir einen neuen Beispielsatz oder leg das Wort in einen Ordner.
+9c56229a	Ein ähnlich klingendes Wort, wo du es gehört hast …
+5f328495	Wörter deiner Sprache und englische Wörter, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.
+9e45a8e6	Wörter deiner Sprache, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.
+caa6d892	Englische Wörter, die so ähnlich klingen, auf diesem Gerät ohne KI gefunden. Nutzen setzt eines in die Merknotizen; Daumen runter verwirft es für immer.
+db7e7310	Wörter deiner Sprache, die ähnlich klingen. Nutzen übernimmt eines in die Merknotizen; Daumen runter verwirft es endgültig.

@@ -31,7 +31,7 @@ const NIYYA = {
   parts: [],
 };
 
-test("the AI is asked for the word's pronunciation first, then many keywords, each with its sounds, meaning link and a picture", () => {
+test("the AI is asked for the word's pronunciation first, then many keywords, each with its sounds and meaning link, and no picture", () => {
   const p = mnemonicPrompt({ word: "نية", meaning: "intention", study: "Arabic", speaks: "Spanish", reading: "نِيَّة", variety: "Egyptian Arabic", avoid: ["a czar", "hazard"] });
   assert.match(p.system, /First work out exactly how the Arabic word is said in Egyptian Arabic/);
   assert.match(p.system, /its IPA, its syllables/);
@@ -42,7 +42,9 @@ test("the AI is asked for the word's pronunciation first, then many keywords, ea
   assert.match(p.system, /Never spell out the word's sounds/);
   assert.match(p.system, /never translate the word/);
   assert.match(p.system, /"strong" when the keyword itself already points to the word's meaning/);
-  assert.match(p.system, /"scene", one sentence in Spanish/);
+  // The owner: "just offer the part that sounds like the word, not a visualization or description or story".
+  assert.match(p.system, /only the sound-alike itself: no picture, scene, description or story/);
+  assert.doesNotMatch(p.system + p.user, /"scene"|its scene|each scene/);
   assert.match(p.system, /Sound comes first/);
   assert.match(p.system, /3 or more syllables, also give up to 3 split keywords/);
   assert.match(p.user, /Arabic word: نية/);
@@ -53,7 +55,8 @@ test("the AI is asked for the word's pronunciation first, then many keywords, ea
   assert.doesNotMatch(plain.user, /Its meaning|app's dictionary|Already suggested/);
   assert.doesNotMatch(plain.system, / said in /, "no variety chosen: none named");
   assert.deepEqual(p.schema.required, ["pronunciation", "keywords", "parts"]);
-  assert.deepEqual(MNEMONIC_SCHEMA.properties.keywords.items.required, ["keyword", "ipa", "covers", "meaning_link", "link", "scene"]);
+  assert.deepEqual(MNEMONIC_SCHEMA.properties.keywords.items.required, ["keyword", "ipa", "covers", "meaning_link", "link"]);
+  assert.deepEqual(MNEMONIC_SCHEMA.properties.parts.items.required, ["pieces", "meaning_link", "link"]);
   assert.deepEqual(MNEMONIC_SCHEMA.properties.keywords.items.properties.meaning_link.enum, ["strong", "loose", "none"]);
 });
 
@@ -172,8 +175,10 @@ test("makeMnemonics asks once, waits for the dictionary, and is honest when noth
   assert.equal(unchecked.checked, false);
   assert.equal(unchecked.items[0].sound, "");
   await assert.rejects(makeMnemonics({ text: "x" }, { ask: async () => ({ keywords: [] }), study: "Arabic", speaks: "English" }), /No sound-alikes/);
-  assert.equal(noteText({ keyword: "knee yeah", scene: "A knee says yeah." }), "knee yeah — A knee says yeah.");
-  assert.equal(noteText({ keyword: "pot", scene: "" }), "pot");
+  // Only the sound-alike, as its syllables in capitals: the owner's "MUR-DER", never "imagine a MURDER happening in spain".
+  assert.equal(noteText({ keyword: "murder" }), "MUR-DER");
+  assert.equal(noteText({ keyword: "knee yeah", scene: "A knee says yeah." }), "KNEE-YEAH", "an old answer's scene is left out");
+  assert.equal(noteText({ keyword: "pot" }), "POT");
 });
 
 test("Use adds a keyword to Memorization notes a blank line under what the learner typed, never twice", () => {

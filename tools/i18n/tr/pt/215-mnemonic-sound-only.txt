@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Truques de memória: uma palavra que você conhece e que soa como a palavra nova, escrita em sílabas (MUR-DER).
+4344eac4	Sua IA sugere as palavras de som parecido.
+70338b4d	O método da palavra-chave: ligue a palavra nova a uma palavra que você já conhece e que soa parecido. O espanhol perro, “cachorro”: PIL-LOW. Só a palavra de som parecido é dada, escrita em sílabas em maiúsculas, sem imagem nem história para ler.
+4c33ba8b	Uma palavra-chave que também combina com o significado vem primeiro, marcada com “Combina com o significado” ou “Relacionada no sentido” (o alemão Hund, “cachorro”: HOUND). Depois vêm coisas fáceis de imaginar, como animais, ferramentas e comida.
+6a76f173	Quando você escrever um mnemônico em Notas para memorizar, ponha em MAIÚSCULAS a palavra de som parecido: em “um pato sentado num POT” ele aprende com POT, e MUR-DER conta como uma palavra só. Só contam as palavras em maiúsculas, e só se soarem mesmo como a palavra; o resto da nota é ignorado. Uma palavra sua pode voltar para outras palavras de som parecido, marcada “Você já usou esta”. Quando sua IA cria os mnemônicos, alguns dos seus são enviados a ela como exemplos do seu estilo. “Aprender com meus próprios mnemônicos”, aqui, desliga isso.
+8b6a7114	Sua IA sugere palavras-chave, usando o modelo e o nível de raciocínio de Mais opções. Ela pode ser mais criativa, mas às vezes sugere palavras que não soam realmente parecido. Precisa da sua chave de IA, e cada toque custa cerca de um centavo ou menos.
+0b3975cf	Palavras que soam como a palavra, colocadas em Notas para memorizar. Feitas pela sua IA.
+f610a5c3	Palavras do seu idioma que soam como a palavra, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA. <0>A IA pode fazê-las no lugar</0>
+eb594599	Palavras em inglês que soam como a palavra, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA. <0>A IA pode fazê-las no lugar</0>
+8f6f4361	Palavras do seu idioma que soam como a palavra, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA.
+a08b3edb	Palavras em inglês que soam como a palavra, colocadas em Notas para memorizar. Feitas neste aparelho, sem IA.
+a5be0f3d	A palavra de som parecido em MAIÚSCULAS: MUR-DER…
+a47a280d	Uma palavra de som parecido
+5960d6a1	Encontre uma palavra de som parecido para a palavra ficar na memória, obtenha uma nova frase de exemplo ou coloque a palavra numa pasta.
+9c56229a	Uma palavra de som parecido, onde você ouviu…
+5f328495	Palavras do seu idioma, e outras em inglês, que soam como ela, encontradas neste aparelho sem IA. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.
+9e45a8e6	Palavras do seu idioma que soam como ela, encontradas neste aparelho sem IA. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.
+caa6d892	Palavras em inglês que soam como ela, encontradas neste aparelho sem IA. Usar coloca uma nas Notas para memorizar; o polegar para baixo descarta para sempre.
+db7e7310	Palavras do seu idioma que soam parecido. Usar coloca uma em Notas para memorizar; o polegar para baixo a descarta de vez.

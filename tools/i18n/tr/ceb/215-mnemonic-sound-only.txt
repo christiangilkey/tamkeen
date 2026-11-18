@@ -1,0 +1,20 @@
+# Mnemonics: only the sound-alike (MUR-DER), no picture or story (review/cardtools.js, components/freehelpers.js, wordbuilder.js).
+9cf52f22	Mga paagi sa paghinumdom: usa ka pulong nga nahibaw-an nimo nga susama og tingog sa bag-ong pulong, gisulat sa mga silaba (MUR-DER).
+4344eac4	Ang imong AI mosugyot sa mga pulong nga susama og tingog.
+70338b4d	Ang keyword nga paagi: idugtong ang bag-ong pulong sa usa ka pulong nga nahibaw-an na nimo nga susama og tingog. Espanyol nga perro, “iro”: PIL-LOW. Ang susama nga pulong lang ang ihatag, gisulat sa mga silaba sa dagkong letra, walay hulagway o istorya nga basahon.
+4c33ba8b	Mauna ang keyword nga haom usab sa kahulogan, nga may marka nga “Haom sa kahulogan” o “May kalabutan sa kahulogan” (Aleman nga Hund, “iro”: HOUND). Sunod ang mga butang nga sayon handurawon, sama sa mga hayop, himan ug pagkaon.
+6a76f173	Kung mosulat ka og mnemonic sa Mga nota sa pagsag-ulo, isulat sa DAGKONG LETRA ang pulong nga susama og tingog: sa “usa ka itik nga naglingkod sa usa ka POT” makat-on kini gikan sa POT, ug usa ra ka pulong ang MUR-DER. Ang mga pulong nga nakasulat sa dagkong letra lang ang maihap, ug kung tinuod gyud nga susama ang tingog niini sa pulong; ang uban pang bahin sa nota dili tagdon. Ang imong pulong mahimong mobalik alang sa ubang mga pulong nga susama og tingog, nga adunay marka nga “Nagamit na nimo kini”. Kung ang imong AI ang mohimo sa mga mnemonic, ipadala ngadto niini ang pipila sa imong kaugalingong mga mnemonic isip ehemplo sa imong estilo. Ang “Makat-on gikan sa akong kaugalingong mga mnemonic” dinhi mopalong niini.
+8b6a7114	Ang imong AI mosugyot og mga keyword, gamit ang model ug lebel sa paghunahuna sa Dugang mga opsyon. Mahimong mas mamugnaon kini, apan usahay mosugyot kini og mga pulong nga dili gyud susama og tingog. Nagkinahanglan kini sa imong AI key, ug ang matag pindot mogasto og mga usa ka sentimo o ubos pa.
+0b3975cf	Mga pulong susama og tingog sa pulong, ibutang sa Mga nota sa pagsag-ulo. Gihimo sa imong AI.
+f610a5c3	Mga pulong sa imong pinulongan nga susama og tingog sa pulong, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI. <0>Puwede nga ang AI na lang ang mohimo niini</0>
+eb594599	Mga pulong nga English nga susama og tingog sa pulong, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI. <0>Puwede nga ang AI na lang ang mohimo niini</0>
+8f6f4361	Mga pulong sa imong pinulongan nga susama og tingog sa pulong, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI.
+a08b3edb	Mga pulong nga English nga susama og tingog sa pulong, ibutang sa Mga nota sa pagsag-ulo. Gihimo niini nga device, walay AI.
+a5be0f3d	Ang susama nga pulong sa DAGKONG LETRA: MUR-DER…
+a47a280d	Usa ka susama nga pulong
+5960d6a1	Pangitag pulong nga parehas og tingog aron dili nimo makalimtan ang pulong, pagkuha og bag-ong pananglitan nga sentence, o ibutang ang pulong sa usa ka folder.
+9c56229a	Usa ka susama nga pulong, asa nimo kini nadungog…
+5f328495	Mga pulong sa imong kaugalingong pinulongan, ug mga pulong sa English, nga pareho og tingog, nakit-an dinhi sa device nga walay AI. Ang Gamita mobutang og usa sa Mga nota sa pagsag-ulo; ang thumbs down motangtang niini hangtod sa kahangtoran.
+9e45a8e6	Mga pulong sa imong kaugalingong pinulongan nga pareho og tingog, nakit-an dinhi sa device nga walay AI. Ang Gamita mobutang og usa sa Mga nota sa pagsag-ulo; ang thumbs down motangtang niini hangtod sa kahangtoran.
+caa6d892	Mga pulong sa English nga pareho og tingog, nakit-an dinhi sa device nga walay AI. Ang Gamita mobutang og usa sa Mga nota sa pagsag-ulo; ang thumbs down motangtang niini hangtod sa kahangtoran.
+db7e7310	Mga pulong sa imong pinulongan nga susama og tingog. Ang Gamita mobutang og usa sa Mga nota sa pagsag-ulo; ang thumbs down motangtang niini hangtod sa hangtod.
