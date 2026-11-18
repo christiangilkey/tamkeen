@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Unsaon pag-ingon og “colorful” sa Espanyol?
+f79cb586	Pangutana gamit ang tingog
+f3e3de3f	…o i-type dinhi
+0ba83cb8	Imong pangutana
+3562777b	Pangutana
+3f3aa3fc	Pindota ang mikropono ug ingna “idugang”, o pangutana og lain.
+d958c6cc	Pindota ang mikropono ug pangutana: “{0}”
+bc58b803	Naminaw… pindota pag-usab kung nahuman na ka.
+54c86bf7	Gisulat…
+6c19a476	Naminaw…
+3c2836f4	I-type na lang ang imong pangutana.
+514f5a4c	Dili makadungog og pangutana kining device dinhi. I-type kini: sa telepono, mogana ang mikropono sa keyboard.
+889287f2	Wala koy nadungog. Pindota ang mikropono ug sulayi pag-usab.
+bcd1e57b	Gikuha ang diksiyonaryo sa {0} (kausa ra)…
+a8f25f5a	Tubag gikan sa {0}
+60b81ac9	Dili makuha ang diksiyonaryo sa {0}: susiha ang koneksiyon sa internet, o pagdugang og AI sa Settings → Kahulogan sa pulong.
+3bc05a1f	Gikan sa built-in nga diksiyonaryo (Wiktionary)
+514ce603	Gikan sa built-in nga diksiyonaryo ({0})
+46cf8ce8	Pangutana una og pulong, dayon ingna “idugang”.
+f0a9b666	Wala nako masabti ang pangutana. Sulayi: “{0}”
+99f5118f	Gipangita…
+a9be9043	Walay tubag para sa “{0}”. Sulayi og laing paagi sa pag-ingon.
+2828488f	Wala ang “{0}” sa built-in nga diksiyonaryo. Sulayi og laing pulong, o pagdugang og AI sa Settings → Kahulogan sa pulong para sa tibuok nga mga sentence.
+1675cac1	Anaa na sa imong mga card
+fc475678	Idugang isip card
+f7d30058	Paminawa
+dd705eff	Ubang paagi
+0658be3f	Ang imong mga card karon kay {0}. Aron makadugang og mga pulong sa {1}, ilisi una ang pinulongan sa ibabaw.
+010ab30b	Ilisi ang pinulongan sa ibabaw ngadto sa {0} aron madugang kini.
+166b4126	Anaa na kana sa imong mga card.
+bf65108f	Gihimo ang card…
+0ca08066	Nadugang ang “{0}” sa imong mga card.
+5b5b22f1	Nadugang ang {0} ka card.
+711d34d7	Pangutana gamit ang tingog: “Unsaon pag-ingon og colorful sa Espanyol?”, dayon “idugang”

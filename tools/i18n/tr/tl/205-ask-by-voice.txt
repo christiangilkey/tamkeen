@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Paano sabihin ang “colorful” sa Spanish?
+f79cb586	Magtanong gamit ang boses
+f3e3de3f	…o i-type dito
+0ba83cb8	Ang tanong mo
+3562777b	Magtanong
+3f3aa3fc	Pindutin ang mikropono at sabihing “idagdag mo”, o magtanong ng iba.
+d958c6cc	Pindutin ang mikropono at itanong: “{0}”
+bc58b803	Nakikinig… pindutin ulit kapag tapos ka na.
+54c86bf7	Isinusulat…
+6c19a476	Nakikinig…
+3c2836f4	I-type na lang ang tanong mo.
+514f5a4c	Hindi makarinig ng tanong ang device na ito rito. I-type ito: sa telepono, gumagana ang mikropono ng keyboard.
+889287f2	Wala akong narinig. Pindutin ang mikropono at subukan ulit.
+bcd1e57b	Kinukuha ang diksiyonaryo ng {0} (isang beses lang)…
+a8f25f5a	Sagot mula sa {0}
+60b81ac9	Hindi makuha ang diksiyonaryo ng {0}: tingnan ang koneksiyon sa internet, o magdagdag ng AI sa Settings → Kahulugan ng mga salita.
+3bc05a1f	Mula sa built-in na diksiyonaryo (Wiktionary)
+514ce603	Mula sa built-in na diksiyonaryo ({0})
+46cf8ce8	Magtanong muna ng salita, saka sabihing “idagdag mo”.
+f0a9b666	Hindi ko naintindihan ang tanong. Subukan: “{0}”
+99f5118f	Hinahanap…
+a9be9043	Walang sagot para sa “{0}”. Subukang sabihin sa ibang paraan.
+2828488f	Wala ang “{0}” sa built-in na diksiyonaryo. Sumubok ng ibang salita, o magdagdag ng AI sa Settings → Kahulugan ng mga salita para sa buong pangungusap.
+1675cac1	Nasa mga card mo na
+fc475678	Idagdag bilang card
+f7d30058	Pakinggan
+dd705eff	Iba pang paraan
+0658be3f	Nasa {0} ang mga card mo ngayon. Para magdagdag ng mga salitang {1}, palitan muna ang wika sa itaas.
+010ab30b	Palitan ang wika sa itaas sa {0} para maidagdag ito.
+166b4126	Nasa mga card mo na iyan.
+bf65108f	Ginagawa ang card…
+0ca08066	Naidagdag ang “{0}” sa mga card mo.
+5b5b22f1	Naidagdag ang {0} card.
+711d34d7	Magtanong gamit ang boses: “Paano sabihin ang colorful sa Spanish?”, saka “idagdag mo”

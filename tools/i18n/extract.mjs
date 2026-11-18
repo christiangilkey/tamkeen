@@ -27,7 +27,9 @@ const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js
   // (what the AI is asked when it translates the lines for "Translation under each line": dual subtitles)
   /web\/js\/dualsubs\.js$/,
   // (lesson bundles: what the AI is told when it finds a lesson's questions, and the words the question finder looks for)
-  /web\/js\/lessonai\.js$/, /web\/js\/lessonparse\.js$/];
+  /web\/js\/lessonai\.js$/, /web\/js\/lessonparse\.js$/,
+  // (Ask by voice: the patterns a spoken question is read with, and what the AI is told)
+  /web\/js\/voiceask\.js$/];
 
 function files(p) {
   const full = join(root, p);

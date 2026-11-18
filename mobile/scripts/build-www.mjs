@@ -186,6 +186,9 @@ const SHARED = [
   "js/conversedata.js",
   "js/converse.js",
   "js/hearmic.js",
+  // Vocab → Ask by voice, the microphone beside Add words (how do I say colorful in Spanish?)
+  "js/voiceask.js",
+  "js/components/voiceask.js",
   // A pronunciation score from Azure for Say it (review/pronounce.js) and Conversation
   "js/pronscore.js",
   "js/components/pronresult.js",

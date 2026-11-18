@@ -10,6 +10,8 @@ import Foundation
 ///   stop()                     stops whatever is being said
 ///   hasVoice({lang})           {available, engine}: can the iPhone say this language?
 ///   openSettings()             {opened: false}: an app can't open Spoken Content (the page says where it is)
+///   recognize({lang, prompt})  rejects "NO_RECOGNIZER": Vocab's "Ask by voice" (web/js/components/voiceask.js) is
+///                              typed on the iPhone, where the keyboard's own dictation hears it with no key
 @objc(SpeechPlugin)
 public class SpeechPlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "SpeechPlugin"
@@ -18,7 +20,8 @@ public class SpeechPlugin: CAPPlugin, CAPBridgedPlugin {
         CAPPluginMethod(name: "speak", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "stop", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "hasVoice", returnType: CAPPluginReturnPromise),
-        CAPPluginMethod(name: "openSettings", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "openSettings", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "recognize", returnType: CAPPluginReturnPromise)
     ]
 
     private let synth = AVSpeechSynthesizer()
@@ -79,6 +82,10 @@ public class SpeechPlugin: CAPPlugin, CAPBridgedPlugin {
 
     @objc func openSettings(_ call: CAPPluginCall) {
         call.resolve(["opened": false])
+    }
+
+    @objc func recognize(_ call: CAPPluginCall) {
+        call.reject("The iPhone app doesn't hear questions itself: type it, or use the keyboard's microphone.", "NO_RECOGNIZER")
     }
 }
 

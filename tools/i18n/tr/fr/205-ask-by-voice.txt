@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Comment dit-on « colorful » en espagnol ?
+f79cb586	Demander à voix haute
+f3e3de3f	…ou tapez-la ici
+0ba83cb8	Votre question
+3562777b	Demander
+3f3aa3fc	Appuyez sur le micro et dites « ajoute-le », ou posez une autre question.
+d958c6cc	Appuyez sur le micro et demandez : « {0} »
+bc58b803	J'écoute… appuyez de nouveau quand vous avez fini.
+54c86bf7	Transcription…
+6c19a476	J'écoute…
+3c2836f4	Tapez plutôt votre question.
+514f5a4c	Cet appareil ne peut pas entendre de questions ici. Tapez-la : sur un téléphone, le micro du clavier fonctionne.
+889287f2	Je n'ai rien entendu. Appuyez sur le micro et réessayez.
+bcd1e57b	Téléchargement du dictionnaire {0} (une seule fois)…
+a8f25f5a	Réponse de {0}
+60b81ac9	Impossible de télécharger le dictionnaire {0} : vérifiez la connexion Internet, ou ajoutez une IA dans Réglages → Définitions des mots.
+3bc05a1f	Du dictionnaire intégré (Wiktionary)
+514ce603	Du dictionnaire intégré ({0})
+46cf8ce8	Demandez d'abord un mot, puis dites « ajoute-le ».
+f0a9b666	Je n'ai pas compris la question. Essayez : « {0} »
+99f5118f	Recherche…
+a9be9043	Pas de réponse pour « {0} ». Essayez de le dire autrement.
+2828488f	« {0} » n'est pas dans le dictionnaire intégré. Essayez un autre mot, ou ajoutez une IA dans Réglages → Définitions des mots pour des phrases entières.
+1675cac1	Déjà dans vos cartes
+fc475678	Ajouter comme carte
+f7d30058	Écouter
+dd705eff	Autres façons de le dire
+0658be3f	Vos cartes sont maintenant en {0}. Pour ajouter des mots en {1}, changez d'abord la langue en haut.
+010ab30b	Passez la langue en haut à {0} pour ajouter celui-ci.
+166b4126	C'est déjà dans vos cartes.
+bf65108f	Création de la carte…
+0ca08066	« {0} » ajouté à vos cartes.
+5b5b22f1	{0} cartes ajoutées.
+711d34d7	Demander à voix haute : « Comment dit-on colorful en espagnol ? », puis « ajoute-le »

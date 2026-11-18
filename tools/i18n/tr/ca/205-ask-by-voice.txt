@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Com es diu «colorful» en castellà?
+f79cb586	Pregunta amb la veu
+f3e3de3f	…o escriu-la aquí
+0ba83cb8	La teva pregunta
+3562777b	Pregunta
+3f3aa3fc	Prem el micròfon i digues «afegeix-la», o pregunta una altra cosa.
+d958c6cc	Prem el micròfon i pregunta: «{0}»
+bc58b803	T'escolto… torna a prémer quan acabis.
+54c86bf7	S'està escrivint…
+6c19a476	T'escolto…
+3c2836f4	Escriu la teva pregunta.
+514f5a4c	Aquest dispositiu no pot sentir preguntes aquí. Escriu-la: en un telèfon, el micròfon del teclat funciona.
+889287f2	No he sentit res. Prem el micròfon i torna-ho a provar.
+bcd1e57b	S'està baixant el diccionari de {0} (només un cop)…
+a8f25f5a	Resposta de {0}
+60b81ac9	No s'ha pogut baixar el diccionari de {0}: comprova la connexió a internet o afegeix una IA a Configuració → Definicions de paraules.
+3bc05a1f	Del diccionari integrat (Wiktionary)
+514ce603	Del diccionari integrat ({0})
+46cf8ce8	Primer pregunta per una paraula i després digues «afegeix-la».
+f0a9b666	No he entès la pregunta. Prova: «{0}»
+99f5118f	S'està cercant…
+a9be9043	No hi ha resposta per a «{0}». Prova de dir-ho d'una altra manera.
+2828488f	«{0}» no és al diccionari integrat. Prova una altra paraula, o afegeix una IA a Configuració → Definicions de paraules per a frases senceres.
+1675cac1	Ja és a les teves targetes
+fc475678	Afegeix com a targeta
+f7d30058	Escolta
+dd705eff	Altres maneres
+0658be3f	Ara les teves targetes són en {0}. Per afegir paraules en {1}, canvia primer l'idioma de dalt.
+010ab30b	Canvia l'idioma de dalt a {0} per afegir aquesta.
+166b4126	Ja és a les teves targetes.
+bf65108f	S'està creant la targeta…
+0ca08066	«{0}» afegida a les teves targetes.
+5b5b22f1	{0} targetes afegides.
+711d34d7	Pregunta amb la veu: «Com es diu colorful en castellà?» i després «afegeix-la»

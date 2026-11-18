@@ -78,8 +78,12 @@ const clean = (s) => String(s ?? "").replace(/[⟦⟧]/g, "");
  * ([{uid, name}]), `folder` the one open on the Vocab page (its cards go there unless another is
  * chosen). `onFolder(folder)` hears of a folder made here; `onAdded(cards)` gets the cards once added.
  * `mode` is the way in it opens on: "one" (one by one), "paste" or "scan" (the ⋯ menu's "Scan words").
+ * `start` is cards to begin with ([{text, meaning, notes}]), and `addNow` adds them straight away, filling in the
+ * rest as Add does (Vocab's "Ask by voice", components/voiceask.js): it closes by itself once they are in, and
+ * stays open when one needs a look (a word already saved, a red note).
  */
-export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {}, mode: startMode = "one" } = {}) {
+export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {}, mode: startMode = "one",
+  start = null, addNow = false } = {}) {
   const lang = studyLanguage();
   const info = langInfo(lang);
   const choices = cleanChoices(lsGet());
@@ -1197,8 +1201,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   $(".cb-another").onclick = () => addRow();
   drawOptions();
-  addRow({}, { open: true, focus: startMode === "one" });
+  const given = (Array.isArray(start) ? start : []).filter((c) => c && String(c.text || "").trim());
+  if (given.length) for (const c of given) addRow(c, { open: true, focus: false });
+  else addRow({}, { open: true, focus: startMode === "one" });
   if (startMode === "paste" || startMode === "scan") setMode(startMode);
+  if (given.length && addNow) setTimeout(() => $(".cb-add").click(), 0);
   meaningsStatus(lang).then((st) => { dict = st; paintOptions(); }, () => {});
   return sheet;
 }

@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Wie sagt man „colorful“ auf Spanisch?
+f79cb586	Per Stimme fragen
+f3e3de3f	…oder hier eintippen
+0ba83cb8	Deine Frage
+3562777b	Fragen
+3f3aa3fc	Tippe auf das Mikrofon und sag „füg es hinzu“, oder frag etwas anderes.
+d958c6cc	Tippe auf das Mikrofon und frag: „{0}“
+bc58b803	Ich höre zu… tippe noch einmal, wenn du fertig bist.
+54c86bf7	Wird aufgeschrieben…
+6c19a476	Ich höre zu…
+3c2836f4	Tippe deine Frage stattdessen ein.
+514f5a4c	Dieses Gerät kann hier keine Fragen hören. Tippe sie ein: Auf einem Handy funktioniert das Mikrofon der Tastatur.
+889287f2	Ich habe nichts gehört. Tippe auf das Mikrofon und versuch es noch einmal.
+bcd1e57b	Das Wörterbuch für {0} wird geladen (nur einmal)…
+a8f25f5a	Antwort von {0}
+60b81ac9	Das Wörterbuch für {0} konnte nicht geladen werden: Prüfe die Internetverbindung oder füge unter Einstellungen → Wortdefinitionen eine KI hinzu.
+3bc05a1f	Aus dem eingebauten Wörterbuch (Wiktionary)
+514ce603	Aus dem eingebauten Wörterbuch ({0})
+46cf8ce8	Frag zuerst nach einem Wort und sag dann „füg es hinzu“.
+f0a9b666	Ich habe keine Frage verstanden. Versuch es mit: „{0}“
+99f5118f	Wird nachgeschlagen…
+a9be9043	Keine Antwort für „{0}“. Versuch es anders zu sagen.
+2828488f	„{0}“ steht nicht im eingebauten Wörterbuch. Versuch ein anderes Wort oder füge unter Einstellungen → Wortdefinitionen eine KI für ganze Sätze hinzu.
+1675cac1	Schon in deinen Karten
+fc475678	Als Karte hinzufügen
+f7d30058	Anhören
+dd705eff	Andere Möglichkeiten
+0658be3f	Deine Karten sind jetzt auf {0}. Um Wörter auf {1} hinzuzufügen, wechsle zuerst oben die Sprache.
+010ab30b	Wechsle oben die Sprache zu {0}, um dieses hinzuzufügen.
+166b4126	Das ist schon in deinen Karten.
+bf65108f	Karte wird erstellt…
+0ca08066	„{0}“ zu deinen Karten hinzugefügt.
+5b5b22f1	{0} Karten hinzugefügt.
+711d34d7	Per Stimme fragen: „Wie sagt man colorful auf Spanisch?“, dann „füg es hinzu“

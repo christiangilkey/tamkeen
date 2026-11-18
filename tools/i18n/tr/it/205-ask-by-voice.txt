@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Come si dice «colorful» in spagnolo?
+f79cb586	Chiedi a voce
+f3e3de3f	…oppure scrivila qui
+0ba83cb8	La tua domanda
+3562777b	Chiedi
+3f3aa3fc	Premi il microfono e di' «aggiungila», oppure chiedi altro.
+d958c6cc	Premi il microfono e chiedi: «{0}»
+bc58b803	Ti ascolto… premi di nuovo quando hai finito.
+54c86bf7	Lo sto scrivendo…
+6c19a476	Ti ascolto…
+3c2836f4	Scrivi invece la tua domanda.
+514f5a4c	Questo dispositivo non può sentire domande qui. Scrivila: su un telefono funziona il microfono della tastiera.
+889287f2	Non ho sentito nulla. Premi il microfono e riprova.
+bcd1e57b	Scarico il dizionario di {0} (solo una volta)…
+a8f25f5a	Risposta di {0}
+60b81ac9	Impossibile scaricare il dizionario di {0}: controlla la connessione a internet, oppure aggiungi un'IA in Impostazioni → Definizioni delle parole.
+3bc05a1f	Dal dizionario integrato (Wiktionary)
+514ce603	Dal dizionario integrato ({0})
+46cf8ce8	Prima chiedi una parola, poi di' «aggiungila».
+f0a9b666	Non ho capito la domanda. Prova: «{0}»
+99f5118f	Cerco…
+a9be9043	Nessuna risposta per «{0}». Prova a dirlo in un altro modo.
+2828488f	«{0}» non è nel dizionario integrato. Prova un'altra parola, oppure aggiungi un'IA in Impostazioni → Definizioni delle parole per frasi intere.
+1675cac1	Già tra le tue schede
+fc475678	Aggiungi come scheda
+f7d30058	Ascolta
+dd705eff	Altri modi
+0658be3f	Ora le tue schede sono in {0}. Per aggiungere parole in {1}, cambia prima la lingua in alto.
+010ab30b	Cambia la lingua in alto in {0} per aggiungere questa.
+166b4126	È già tra le tue schede.
+bf65108f	Creo la scheda…
+0ca08066	«{0}» aggiunta alle tue schede.
+5b5b22f1	{0} schede aggiunte.
+711d34d7	Chiedi a voce: «Come si dice colorful in spagnolo?», poi «aggiungila»

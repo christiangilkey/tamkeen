@@ -9130,6 +9130,181 @@
   "f": "web/js/components/troubleshoot.js"
  },
  {
+  "id": "14377a8f",
+  "k": "How do I say colorful in Spanish?",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "f79cb586",
+  "k": "Ask by voice",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "f3e3de3f",
+  "k": "…or type it here",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "0ba83cb8",
+  "k": "Your question",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "3562777b",
+  "k": "Ask",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "3f3aa3fc",
+  "k": "Press the microphone and say “add it”, or ask another.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "d958c6cc",
+  "k": "Press the microphone and ask: “{0}”",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "bc58b803",
+  "k": "Listening… press again when you're done.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "54c86bf7",
+  "k": "Writing it down…",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "6c19a476",
+  "k": "Listening…",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "3c2836f4",
+  "k": "Type your question instead.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "514f5a4c",
+  "k": "This device can't hear questions here. Type it instead: on a phone, your keyboard's microphone works.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "889287f2",
+  "k": "I didn't hear anything. Press the microphone and try again.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "bcd1e57b",
+  "k": "Getting the {0} dictionary (once only)…",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "a8f25f5a",
+  "k": "Answer from {0}",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "60b81ac9",
+  "k": "The {0} dictionary couldn't be got: check the internet connection, or add an AI in Settings → Word definitions.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "3bc05a1f",
+  "k": "From the built-in dictionary (Wiktionary)",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "514ce603",
+  "k": "From the built-in dictionary ({0})",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "382f42b1",
+  "k": "Wiktionary",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "46cf8ce8",
+  "k": "Ask for a word first, then say “add it”.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "f0a9b666",
+  "k": "I didn't catch a question. Try: “{0}”",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "99f5118f",
+  "k": "Looking it up…",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "a9be9043",
+  "k": "No answer for “{0}”. Try saying it another way.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "2828488f",
+  "k": "“{0}” isn't in the built-in dictionary. Try another word, or add an AI in Settings → Word definitions for whole sentences.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "1675cac1",
+  "k": "Already in your cards",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "b68734c2",
+  "k": "Added",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "fc475678",
+  "k": "Add as a card",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "f7d30058",
+  "k": "Hear it",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "dd705eff",
+  "k": "Other ways",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "0658be3f",
+  "k": "Your cards are in {0} now. To add {1} words, switch the language at the top first.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "010ab30b",
+  "k": "Switch the language at the top to {0} to add this one.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "166b4126",
+  "k": "That's already in your cards.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "bf65108f",
+  "k": "Making the card…",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "0ca08066",
+  "k": "Added “{0}” to your cards.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "5b5b22f1",
+  "k": "Added {0} cards.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
   "id": "5de162ff",
   "k": "Azure voices",
   "f": "web/js/components/voicesetup.js"
@@ -10322,11 +10497,6 @@
  {
   "id": "1d786947",
   "k": "{0} of the cards need a look (the red notes). Press Add again to add them as they are.",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "b68734c2",
-  "k": "Added",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -12202,11 +12372,6 @@
  {
   "id": "f745fc22",
   "k": "CAMeL Arabic",
-  "f": "web/js/definer.js"
- },
- {
-  "id": "382f42b1",
-  "k": "Wiktionary",
   "f": "web/js/definer.js"
  },
  {
@@ -24712,6 +24877,11 @@
  {
   "id": "62a03440",
   "k": "Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "711d34d7",
+  "k": "Ask by voice: “How do I say colorful in Spanish?”, then “add it”",
   "f": "web/js/pages/vocab.js"
  },
  {

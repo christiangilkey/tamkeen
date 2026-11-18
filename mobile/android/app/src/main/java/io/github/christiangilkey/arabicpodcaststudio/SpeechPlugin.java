@@ -1,8 +1,10 @@
 package io.github.christiangilkey.arabicpodcaststudio;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 
@@ -10,7 +12,10 @@ import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
+import com.getcapacitor.annotation.ActivityCallback;
 import com.getcapacitor.annotation.CapacitorPlugin;
+
+import androidx.activity.result.ActivityResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +34,10 @@ import java.util.UUID;
  *   stop()                     stops whatever is being said
  *   hasVoice({lang})           {available, engine}: can the phone say this language?
  *   openSettings()             opens Android's text-to-speech settings, where voices are added
+ *   recognize({lang, prompt})  hears one question (Vocab's microphone, web/js/components/voiceask.js): Android's
+ *                              own speech recognition (Google's on most phones, as the keyboard's microphone),
+ *                              in its own small window. No key. Resolves {text, cancelled}; rejects
+ *                              "NO_RECOGNIZER" when the phone has none. (Not on the iPhone: there it is typed.)
  */
 @CapacitorPlugin(name = "TamkeenSpeech")
 public class SpeechPlugin extends Plugin {
@@ -149,6 +158,38 @@ public class SpeechPlugin extends Plugin {
         } catch (ActivityNotFoundException e) {
             out.put("opened", false);
         }
+        call.resolve(out);
+    }
+
+    @PluginMethod
+    public void recognize(PluginCall call) {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_MAX_RESULTS, 1);
+        String tag = call.getString("lang", "");
+        if (tag != null && !tag.isEmpty()) intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, tag);
+        String prompt = call.getString("prompt", "");
+        if (prompt != null && !prompt.isEmpty()) intent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt);
+        try {
+            startActivityForResult(call, intent, "recognized");
+        } catch (ActivityNotFoundException e) {
+            call.reject("This phone has no speech recognition.", "NO_RECOGNIZER");
+        }
+    }
+
+    @ActivityCallback
+    private void recognized(PluginCall call, ActivityResult result) {
+        if (call == null) return;
+        String text = "";
+        boolean ok = result.getResultCode() == Activity.RESULT_OK;
+        Intent data = result.getData();
+        if (ok && data != null) {
+            ArrayList<String> heard = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+            if (heard != null && !heard.isEmpty() && heard.get(0) != null) text = heard.get(0);
+        }
+        JSObject out = new JSObject();
+        out.put("text", text);
+        out.put("cancelled", !ok);
         call.resolve(out);
     }
 

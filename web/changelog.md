@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **New:** A microphone beside **Add words** on the Vocab page. Ask out loud, such as "How do I say colorful in Spanish?" or "What does bonito mean?", and Tamkeen shows the answer, reads it aloud, and offers other ways to say it. Press **Add as a card**, or say "add it" (or "…and add it" in the same breath), and the card is made the way Add words makes it, with its sentence and audio. It needs no key: the computer hears you with its own transcription model, Android with the phone's own speech recognition, and the web app with the browser's; the answer comes from your AI if you have one set up, otherwise from the built-in dictionary (downloaded once). Where nothing can hear you (the iPhone app), type the question, or use the keyboard's microphone.
 - **Fixed:** Battling a friend said "They haven't opened the game online yet" whenever none of their creatures were of the week's elements (this week: Tide, Grove and Dusk), which shut most players out of friend battles. A player with none of the week's elements now battles with their usual creatures, and a friend whose older app shared no team this week battles with the creature shown on their bar.
 - **Changed:** The two sound volume sliders (podcasts, videos & lessons; app sounds) are now at the top of Settings, right under the search, instead of inside Look & feel.
 - **Changed:** Library → Lessons is now called **My files** and sits at the end of the Library's list, with My videos and My audio.

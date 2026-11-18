@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	¿Cómo se dice «colorful» en español?
+f79cb586	Preguntar con la voz
+f3e3de3f	…o escríbelo aquí
+0ba83cb8	Tu pregunta
+3562777b	Preguntar
+3f3aa3fc	Pulsa el micrófono y di «añádela», o pregunta otra cosa.
+d958c6cc	Pulsa el micrófono y pregunta: «{0}»
+bc58b803	Escuchando… pulsa otra vez cuando termines.
+54c86bf7	Escribiéndolo…
+6c19a476	Escuchando…
+3c2836f4	Escribe tu pregunta.
+514f5a4c	Este dispositivo no puede oír preguntas aquí. Escríbela: en un teléfono, el micrófono del teclado funciona.
+889287f2	No he oído nada. Pulsa el micrófono e inténtalo de nuevo.
+bcd1e57b	Descargando el diccionario de {0} (solo una vez)…
+a8f25f5a	Respuesta de {0}
+60b81ac9	No se pudo descargar el diccionario de {0}: revisa la conexión a internet o añade una IA en Ajustes → Definiciones de palabras.
+3bc05a1f	Del diccionario integrado (Wiktionary)
+514ce603	Del diccionario integrado ({0})
+46cf8ce8	Primero pregunta por una palabra y luego di «añádela».
+f0a9b666	No he entendido la pregunta. Prueba: «{0}»
+99f5118f	Buscando…
+a9be9043	No hay respuesta para «{0}». Prueba a decirlo de otra forma.
+2828488f	«{0}» no está en el diccionario integrado. Prueba otra palabra, o añade una IA en Ajustes → Definiciones de palabras para frases enteras.
+1675cac1	Ya está en tus tarjetas
+fc475678	Añadir como tarjeta
+f7d30058	Escuchar
+dd705eff	Otras formas
+0658be3f	Tus tarjetas ahora son de {0}. Para añadir palabras de {1}, cambia primero el idioma de arriba.
+010ab30b	Cambia el idioma de arriba a {0} para añadir esta.
+166b4126	Ya está en tus tarjetas.
+bf65108f	Creando la tarjeta…
+0ca08066	«{0}» añadida a tus tarjetas.
+5b5b22f1	{0} tarjetas añadidas.
+711d34d7	Preguntar con la voz: «¿Cómo se dice colorful en español?» y luego «añádela»

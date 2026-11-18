@@ -1,0 +1,35 @@
+# Vocab → Ask by voice: the microphone beside Add words (components/voiceask.js).
+14377a8f	Como se diz “colorful” em espanhol?
+f79cb586	Perguntar por voz
+f3e3de3f	…ou digite aqui
+0ba83cb8	Sua pergunta
+3562777b	Perguntar
+3f3aa3fc	Toque no microfone e diga “adiciona”, ou pergunte outra coisa.
+d958c6cc	Toque no microfone e pergunte: “{0}”
+bc58b803	Ouvindo… toque de novo quando terminar.
+54c86bf7	Escrevendo…
+6c19a476	Ouvindo…
+3c2836f4	Digite sua pergunta.
+514f5a4c	Este aparelho não consegue ouvir perguntas aqui. Digite: no celular, o microfone do teclado funciona.
+889287f2	Não ouvi nada. Toque no microfone e tente de novo.
+bcd1e57b	Baixando o dicionário de {0} (só uma vez)…
+a8f25f5a	Resposta de {0}
+60b81ac9	Não foi possível baixar o dicionário de {0}: verifique a conexão com a internet ou adicione uma IA em Configurações → Definições de palavras.
+3bc05a1f	Do dicionário embutido (Wiktionary)
+514ce603	Do dicionário embutido ({0})
+46cf8ce8	Primeiro pergunte por uma palavra, depois diga “adiciona”.
+f0a9b666	Não entendi a pergunta. Tente: “{0}”
+99f5118f	Procurando…
+a9be9043	Sem resposta para “{0}”. Tente dizer de outro jeito.
+2828488f	“{0}” não está no dicionário embutido. Tente outra palavra ou adicione uma IA em Configurações → Definições de palavras para frases inteiras.
+1675cac1	Já está nos seus cartões
+fc475678	Adicionar como cartão
+f7d30058	Ouvir
+dd705eff	Outras formas
+0658be3f	Seus cartões agora são de {0}. Para adicionar palavras de {1}, troque primeiro o idioma lá em cima.
+010ab30b	Troque o idioma lá em cima para {0} para adicionar esta.
+166b4126	Isso já está nos seus cartões.
+bf65108f	Criando o cartão…
+0ca08066	“{0}” adicionada aos seus cartões.
+5b5b22f1	{0} cartões adicionados.
+711d34d7	Perguntar por voz: “Como se diz colorful em espanhol?”, depois “adiciona”
