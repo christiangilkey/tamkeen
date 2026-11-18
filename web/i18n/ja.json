@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"母音モデルをダウンロード中… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"アラビア語の母音記号には母音モデルが必要です（{0} MB、標準アラビア語）。{1}",
 "Watched":"視聴済み",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Google Drive の自分のオーディオブックや音声が、Web アプリですぐに再生されるようになりました",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"アクセントなしで入力した単語（vacio）でも意味（vacío）が見つかり、カードも正しくつづられます",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"声で質問：「単語を追加」の横のマイクが「…は…語で何と言う？」に答えて、カードを作ります",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"AIキーなしでも、無料の意味と例文が増えました。ウィキペディアと日本語の辞書からも",
 "The sound volume sliders are now at the top of Settings":"音量のスライダーが設定のいちばん上に移りました",

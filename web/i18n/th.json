@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"กำลังดาวน์โหลดโมเดลสระ… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"เครื่องหมายสระภาษาอาหรับต้องใช้โมเดลสระ ({0} MB ภาษาอาหรับมาตรฐาน){1}",
 "Watched":"ดูแล้ว",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"หนังสือเสียงและไฟล์เสียงของคุณจาก Google Drive เล่นได้ทันทีในเว็บแอปแล้ว",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"คำที่พิมพ์โดยไม่มีเครื่องหมายเน้นเสียง (vacio) หาความหมายเจอแล้ว (vacío) และบัตรสะกดถูกต้อง",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"ถามด้วยเสียง: ไมโครโฟนข้าง “เพิ่มคำ” ตอบคำถาม “… ภาษา … พูดว่าอย่างไร” และสร้างบัตรให้",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"ความหมายและประโยคตัวอย่างฟรีมากขึ้นโดยไม่ต้องใช้คีย์ AI จากวิกิพีเดียและพจนานุกรมภาษาญี่ปุ่นด้วย",
 "The sound volume sliders are now at the top of Settings":"แถบปรับเสียงย้ายไปอยู่บนสุดของการตั้งค่าแล้ว",

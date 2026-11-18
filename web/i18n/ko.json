@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"모음 모델 다운로드하는 중… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"아랍어 모음 부호에는 모음 모델이 필요해요({0} MB, 표준 아랍어).{1}",
 "Watched":"시청 완료",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Google Drive에 있는 내 오디오북과 오디오가 이제 웹 앱에서 바로 재생돼요",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"악센트 없이 입력한 단어(vacio)도 이제 뜻(vacío)을 찾고, 카드도 바른 철자로 적혀요",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"목소리로 묻기: ‘단어 추가’ 옆의 마이크가 “…를 …어로 어떻게 말해요?”에 답하고 카드를 만들어요",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"AI 키 없이도 무료 뜻과 예문이 더 많아졌어요. 위키백과와 일본어 사전에서도 가져와요",
 "The sound volume sliders are now at the top of Settings":"음량 슬라이더가 이제 설정 맨 위에 있어요",

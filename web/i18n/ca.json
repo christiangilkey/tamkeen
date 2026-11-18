@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"Baixant el model de vocals… {0} %",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Les vocals de l'àrab necessiten un model de vocals ({0} MB, àrab estàndard).{1}",
 "Watched":"Vist",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Els teus audiollibres i àudios de Google Drive ara sonen de seguida a l'aplicació web",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"Una paraula escrita sense accents (vacio) ara troba el seu significat (vacío), i la targeta s'escriu bé",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"Pregunta amb la veu: un micròfon al costat d'Afegeix paraules respon «Com es diu … en …?» i en fa la targeta",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"Més significats i frases d'exemple gratuïts sense clau d'IA, també de la Viquipèdia i d'un diccionari japonès",
 "The sound volume sliders are now at the top of Settings":"Els controls de volum ara són a dalt de tot de Configuració",

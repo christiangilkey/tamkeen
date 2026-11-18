@@ -1,0 +1,3 @@
+# What's new in v0.62.1 (web/js/whatsnew.js).
+eff82c1e	Seus audiolivros e áudios do Google Drive agora tocam na hora no app web
+ae28af93	Uma palavra digitada sem acentos (vacio) agora encontra o significado (vacío), e o cartão fica escrito certo

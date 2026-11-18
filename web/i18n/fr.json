@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"Téléchargement du modèle de voyelles… {0} %",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Les voyelles de l'arabe nécessitent un modèle de voyelles ({0} Mo, arabe standard). {1}",
 "Watched":"Vu",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Tes livres audio et tes audios de Google Drive se lancent maintenant tout de suite dans l'application web",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"Un mot tapé sans ses accents (vacio) trouve maintenant son sens (vacío), et la carte est bien écrite",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"Demander à voix haute : un micro à côté d'Ajouter des mots répond à « Comment dit-on … en … ? » et crée la carte",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"Plus de sens et de phrases d'exemple gratuits sans clé d'IA, aussi de Wikipédia et d'un dictionnaire japonais",
 "The sound volume sliders are now at the top of Settings":"Les curseurs de volume sont maintenant tout en haut des Réglages",

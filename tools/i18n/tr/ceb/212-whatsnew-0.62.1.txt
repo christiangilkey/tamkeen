@@ -1,0 +1,3 @@
+# What's new in v0.62.1 (web/js/whatsnew.js).
+eff82c1e	Ang imong kaugalingong audiobook ug audio gikan sa Google Drive modula na dayon sa web app
+ae28af93	Ang pulong nga gisulat nga walay accent (vacio) makakita na sa kahulogan niini (vacío), ug husto na ang pagsulat sa card

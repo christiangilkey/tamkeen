@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"正在下载元音模型… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"阿拉伯语元音符号需要元音模型（{0} MB，标准阿拉伯语）。{1}",
 "Watched":"已看完",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"你在 Google Drive 里的有声书和音频，现在在网页版里能马上播放",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"不带重音符号输入的词（vacio）现在也能找到释义（vacío），卡片也会拼写正确",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"用声音提问：“添加单词”旁边的麦克风回答“……用……怎么说？”，并做成卡片",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"没有 AI 密钥也有更多免费的释义和例句，也来自维基百科和一本日语词典",
 "The sound volume sliders are now at the top of Settings":"音量滑块现在在设置的最上面",

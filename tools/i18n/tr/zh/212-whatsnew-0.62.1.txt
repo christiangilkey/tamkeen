@@ -1,0 +1,3 @@
+# What's new in v0.62.1 (web/js/whatsnew.js).
+eff82c1e	你在 Google Drive 里的有声书和音频，现在在网页版里能马上播放
+ae28af93	不带重音符号输入的词（vacio）现在也能找到释义（vacío），卡片也会拼写正确

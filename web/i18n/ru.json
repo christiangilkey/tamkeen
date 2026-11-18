@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"Скачивается модель огласовок… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Для арабских огласовок нужна модель огласовок ({0} МБ, литературный арабский). {1}",
 "Watched":"Просмотрено",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Ваши аудиокниги и аудио из Google Drive теперь сразу играют в веб-приложении",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"Слово, набранное без ударений (vacio), теперь находит своё значение (vacío), и карточка пишется правильно",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"Спросите голосом: микрофон рядом с «Добавить слова» отвечает на «Как сказать … по-…?» и делает карточку",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"Больше бесплатных значений и примеров предложений без ключа ИИ, также из Википедии и японского словаря",
 "The sound volume sliders are now at the top of Settings":"Ползунки громкости теперь в самом верху настроек",

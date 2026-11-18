@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"मात्रा मॉडल डाउनलोड हो रहा है… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"अरबी मात्रा-चिह्नों के लिए मात्रा मॉडल चाहिए ({0} MB, मानक अरबी)।{1}",
 "Watched":"देखा गया",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"Google Drive से आपकी अपनी ऑडियोबुक और ऑडियो अब वेब ऐप में तुरंत चलती हैं",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"बिना एक्सेंट के लिखा शब्द (vacio) अब अपना अर्थ (vacío) ढूँढ लेता है, और कार्ड सही लिखा जाता है",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"आवाज़ से पूछें: «शब्द जोड़ें» के पास एक माइक «… में … कैसे कहते हैं?» का जवाब देता है और कार्ड बनाता है",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"बिना AI कुंजी के ज़्यादा मुफ़्त अर्थ और उदाहरण वाक्य, विकिपीडिया और एक जापानी शब्दकोश से भी",
 "The sound volume sliders are now at the top of Settings":"आवाज़ के स्लाइडर अब सेटिंग्स में सबसे ऊपर हैं",

@@ -1,0 +1,3 @@
+# What's new in v0.62.1 (web/js/whatsnew.js).
+eff82c1e	Tes livres audio et tes audios de Google Drive se lancent maintenant tout de suite dans l'application web
+ae28af93	Un mot tapé sans ses accents (vacio) trouve maintenant son sens (vacío), et la carte est bien écrite

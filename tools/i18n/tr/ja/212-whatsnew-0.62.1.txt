@@ -1,0 +1,3 @@
+# What's new in v0.62.1 (web/js/whatsnew.js).
+eff82c1e	Google Drive の自分のオーディオブックや音声が、Web アプリですぐに再生されるようになりました
+ae28af93	アクセントなしで入力した単語（vacio）でも意味（vacío）が見つかり、カードも正しくつづられます

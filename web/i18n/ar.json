@@ -5786,6 +5786,8 @@
 "Downloading the vowel model… {0}%":"جارٍ تنزيل نموذج الحركات… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"تحتاج حركات العربية إلى نموذج حركات ({0} ميغابايت، العربية الفصحى). {1}",
 "Watched":"تمت المشاهدة",
+"Your own audiobooks and audio from Google Drive now play straight away in the web app":"كتبك الصوتية وملفاتك الصوتية من Google Drive تعمل الآن فورًا في تطبيق الويب",
+"A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right":"الكلمة المكتوبة بلا علامات النبر (vacio) تجد الآن معناها (vacío)، وتُكتب البطاقة صحيحة",
 "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card":"اسأل بصوتك: ميكروفون بجانب «أضف كلمات» يجيب عن «كيف أقول … بـ…؟» ويصنع البطاقة",
 "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too":"معانٍ وجمل أمثلة مجانية أكثر بلا مفتاح ذكاء اصطناعي، من ويكيبيديا ومن قاموس ياباني أيضًا",
 "The sound volume sliders are now at the top of Settings":"شريطا مستوى الصوت أصبحا الآن في أعلى الإعدادات",

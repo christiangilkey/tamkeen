@@ -28940,6 +28940,16 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "eff82c1e",
+  "k": "Your own audiobooks and audio from Google Drive now play straight away in the web app",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ae28af93",
+  "k": "A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "ab8c42fc",
   "k": "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card",
   "f": "web/js/whatsnew.js"

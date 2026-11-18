@@ -9,6 +9,10 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.62.1",
+  "Your own audiobooks and audio from Google Drive now play straight away in the web app");
+notes("0.62.1",
+  "A word typed without its accents (vacio) now finds its meaning (vacío), and the card is spelled right");
 notes("0.62.0",
   "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card");
 notes("0.62.0",
