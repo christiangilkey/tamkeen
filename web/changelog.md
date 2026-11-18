@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** A word typed without its accents, such as "vacio" for **vacío** or "corazon" for **corazón**, wasn't found in the built-in dictionary when making cards. It is now, and the card takes the right spelling. *(Spanish, French, Italian, Portuguese, Catalan, German, Tagalog)*
 - **Fixed:** **Ask by voice** in the web app said it needed the microphone without the browser ever asking for it. It now asks first, and if the microphone is blocked, a popup says how to allow it. *(Web app)*
 - **Fixed:** In the reel player on a phone, the switches at the left end (lookup, translation, typing) were squashed together and ran under the Back 5 s button. They now have room, and the middle buttons move over for them. *(Phones, web app)*
 - **Fixed:** **Retry** on a reel that failed sent Instagram's page instead of the reel's sound to the transcription service, so it failed again with "could not process file". It now listens to the reel the way adding reels does. *(Phones, web app)*

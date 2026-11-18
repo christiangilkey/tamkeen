@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"كلمة بكلمة: {0}",
 "Filling in…":"جارٍ الملء…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"ليس في القاموس مدخل للعبارة كلها، لذا هذا المعنى كلمة بكلمة. قد يكون للعبارة معنى آخر: غيّره إن كنت تعرفه.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"مكتوبة «{0}» في القاموس، لذا كُتبت البطاقة هكذا أيضًا.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"القاموس المدمج ليس على هذا الجهاز بعد. نزّله، أو اكتب المعنى.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"هذه العبارة ليست في القاموس المدمج. اكتب معناها.",
 "This word isn't in the built-in dictionary. Type its meaning.":"هذه الكلمة ليست في القاموس المدمج. اكتب معناها.",

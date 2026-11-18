@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"逐词：{0}",
 "Filling in…":"正在填写…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"词典里没有整个短语，所以这是逐词的意思。这个短语可能另有含义：如果你知道，请改一下。",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"词典里写作“{0}”，所以卡片也这样写。",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"内置词典还不在这台设备上。下载它，或输入意思。",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"内置词典里没有这个短语。请输入它的意思。",
 "This word isn't in the built-in dictionary. Type its meaning.":"内置词典里没有这个单词。请输入它的意思。",

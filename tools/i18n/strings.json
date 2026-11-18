@@ -10470,6 +10470,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "bff3048a",
+  "k": "Spelled “{0}” in the dictionary, so the card is spelled that way too.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "db2fea69",
   "k": "The built-in dictionary isn't on this device yet. Download it, or type the meaning.",
   "f": "web/js/components/wordbuilder.js"

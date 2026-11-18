@@ -159,3 +159,15 @@ test("the browser's microphone question comes first, and a blocked microphone ge
   assert.match(box, /else if \(failed === "not-allowed"\) reject\(micRefused\(\)\);/);
   assert.match(box, /if \(micBlocked\) offerFix\("mic"\);/);
 });
+
+test("a word typed without its accents finds the dictionary's spelling (the owner, 2026-11-18: vacio)", async () => {
+  const md = await import("../../web/js/lexicon/meaningdata.js");
+  const file = { lang: "es", source: "Wiktionary", forms: {}, words: {
+    "vacío": [["vacío", "adj", ["empty, vacant"], ""]], "vació": [["vació", "verb", ["he emptied"], ""]], casa: [["casa", "noun", ["house"], ""]] } };
+  assert.deepEqual(md.respellings([file], "vacio", "es"), ["vacío", "vació"]);
+  assert.deepEqual(md.respellings([file], "Vacio", "es"), ["vacío", "vació"]);
+  assert.deepEqual(md.respellings([file], "vacio", "ar"), [], "only languages whose spelling has accents");
+  assert.deepEqual(md.respellings([file], "casa", "es"), [], "a word with no marks matches as typed already");
+  const builder = read("web/js/components/wordbuilder.js");
+  assert.match(builder, /if \(d\.spelled && d\.spelled !== r\.text\.trim\(\)\) \{\s+r\.text = d\.spelled;/);
+});

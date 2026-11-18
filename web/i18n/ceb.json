@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"Matag pulong: {0}",
 "Filling in…":"Gipun-an…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"Walay entry sa diksiyonaryo para sa tibuok hugpong sa pulong, mao nga kini matag pulong. Lahi tingali ang kahulogan sa hugpong: usba kini kon kahibalo ka.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"Gisulat og “{0}” sa diksiyonaryo, busa ingon usab niana ang pagsulat sa card.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"Wala pa sa kini nga device ang built-in nga diksiyonaryo. I-download kini, o isulat ang kahulogan.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"Wala kini nga hugpong sa pulong sa built-in nga diksiyonaryo. I-type ang kahulogan niini.",
 "This word isn't in the built-in dictionary. Type its meaning.":"Wala kini nga pulong sa built-in nga diksiyonaryo. I-type ang kahulogan niini.",

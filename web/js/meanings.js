@@ -9,7 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, respellings, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
@@ -145,11 +145,21 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
     const { keys, rank } = await candidates(ctx.word, lang);
     found = lookUp(files, keys, ctx.word, lang, { rank });
   }
+  // Typed without its accents ("vacio" for vacío): the dictionary's spelling, said in the answer (`spelled`).
+  let spelled = "";
+  if ((!found || !found.groups.length) && !ctx.phrase) {
+    for (const alt of respellings(files, ctx.word, lang)) {
+      const keys = lang === "de" ? null : (await candidates(alt, lang)).keys;
+      const hit = lang === "de" ? germanLookUp(files, alt, ctx.marked || "", {}) : lookUp(files, keys, alt, lang, {});
+      if (hit && hit.groups.length) { found = hit; spelled = alt; break; }
+    }
+  }
   if ((!found || !found.groups.length) && ctx.phrase) {
     throw new DefinerError("This phrase isn't in the built-in dictionary. Tap its words one at a time to look them up.");
   }
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
-  return answerFrom(found, ctx.word, lang, { quick, language, source: found.source });
+  const answer = answerFrom(found, spelled || ctx.word, lang, { quick, language, source: found.source });
+  return spelled ? { ...answer, spelled } : answer;
 }

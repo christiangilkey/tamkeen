@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"逐語訳：{0}",
 "Filling in…":"入力中…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"辞書にこのフレーズ全体の項目がないため、一語ずつの意味です。フレーズとしては別の意味かもしれません。わかる場合は書き換えてください。",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"辞書では「{0}」と書くので、カードもそう書きました。",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"内蔵辞書はまだこの端末にありません。ダウンロードするか、意味を入力してください。",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"このフレーズは内蔵の辞書にありません。意味を入力してください。",
 "This word isn't in the built-in dictionary. Type its meaning.":"この単語は内蔵の辞書にありません。意味を入力してください。",

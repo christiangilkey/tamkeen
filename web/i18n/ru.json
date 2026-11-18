@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"Дословно: {0}",
 "Filling in…":"Заполнение…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"В словаре нет всего выражения, поэтому это дословно. У выражения может быть другое значение: измените его, если знаете.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"В словаре пишется «{0}», поэтому и на карточке так.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"Встроенного словаря ещё нет на этом устройстве. Скачайте его или введите значение.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"Этого выражения нет во встроенном словаре. Введите его значение.",
 "This word isn't in the built-in dictionary. Type its meaning.":"Этого слова нет во встроенном словаре. Введите его значение.",

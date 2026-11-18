@@ -1,0 +1,2 @@
+# Add words: a word typed without its accents takes the dictionary's spelling (meanings.js respellings).
+bff3048a	ในพจนานุกรมสะกดว่า “{0}” บัตรจึงสะกดแบบนั้นด้วย

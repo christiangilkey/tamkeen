@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"Bawat salita: {0}",
 "Filling in…":"Pinupunan…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"Walang entry ang diksiyonaryo para sa buong parirala, kaya ito ay bawat salita. Maaaring iba ang ibig sabihin ng parirala: palitan ito kung alam mo.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"Nakasulat na “{0}” sa diksiyonaryo, kaya ganoon din ang baybay sa card.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"Wala pa sa device na ito ang built-in na diksiyonaryo. I-download ito, o i-type ang kahulugan.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"Wala ang pariralang ito sa built-in na diksiyonaryo. I-type ang kahulugan nito.",
 "This word isn't in the built-in dictionary. Type its meaning.":"Wala ang salitang ito sa built-in na diksiyonaryo. I-type ang kahulugan nito.",

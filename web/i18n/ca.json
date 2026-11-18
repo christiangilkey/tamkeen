@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"Paraula per paraula: {0}",
 "Filling in…":"S'està omplint…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"El diccionari no té l'expressió sencera, així que això és paraula per paraula. L'expressió pot voler dir una altra cosa: canvia-ho si ho saps.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"Al diccionari s'escriu «{0}», així que la targeta també s'escriu així.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"El diccionari integrat encara no és en aquest dispositiu. Baixa'l, o escriu el significat.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"Aquesta expressió no és al diccionari integrat. Escriu-ne el significat.",
 "This word isn't in the built-in dictionary. Type its meaning.":"Aquesta paraula no és al diccionari integrat. Escriu-ne el significat.",

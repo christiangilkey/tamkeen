@@ -1,0 +1,2 @@
+# Add words: a word typed without its accents takes the dictionary's spelling (meanings.js respellings).
+bff3048a	Nakasulat na “{0}” sa diksiyonaryo, kaya ganoon din ang baybay sa card.

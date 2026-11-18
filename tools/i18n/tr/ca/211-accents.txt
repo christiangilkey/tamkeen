@@ -1,0 +1,2 @@
+# Add words: a word typed without its accents takes the dictionary's spelling (meanings.js respellings).
+bff3048a	Al diccionari s'escriu «{0}», així que la targeta també s'escriu així.

@@ -33,6 +33,43 @@ export function matchKey(word, lang) {
   return w.toLowerCase();
 }
 
+// ---------- a word typed without its accents ----------
+// "vacio" for vacío, "cafe" for café, "uber" for über (the owner, 2026-11-18: "Vacio is a very common word"): a keyboard
+// without the accent, or a learner who doesn't know it yet. Where nothing matches as typed, the entries are matched
+// again with their marks taken off (Latin-script languages whose spelling has them), and the spelling the dictionary
+// has is given back, so the card can be spelled that way.
+export const ACCENT_LANGS = new Set(["es", "fr", "it", "pt", "ca", "de", "tl"]);
+export const accentless = (s) => String(s || "").normalize("NFD").replace(/\p{M}/gu, "").normalize("NFC").toLowerCase().replace(/ß/g, "ss");
+const folded = new WeakMap(); // a meanings file -> Map(accentless key -> its keys as spelled)
+function foldedIndex(data) {
+  let map = folded.get(data);
+  if (map) return map;
+  map = new Map();
+  for (const table of [data.words || {}, data.forms || {}]) {
+    for (const k of Object.keys(table)) {
+      const f = accentless(k);
+      if (f === k) continue; // (no marks: it would have matched as typed)
+      const list = map.get(f);
+      if (!list) map.set(f, [k]); else if (!list.includes(k)) list.push(k);
+    }
+  }
+  folded.set(data, map);
+  return map;
+}
+/** The spellings in `files` that `word` is with its accents put back ("vacio" -> ["vacío"]), entries first. */
+export function respellings(files, word, lang) {
+  if (!ACCENT_LANGS.has(lang)) return [];
+  const f = accentless(String(word || "").trim());
+  if (!f || f.length < 2) return [];
+  const out = [];
+  for (const data of files || []) {
+    if (!data) continue;
+    for (const k of foldedIndex(data).get(f) || []) if (!out.includes(k)) out.push(k);
+  }
+  const entry = (k) => (files || []).some((d) => d && d.words && d.words[k] && d.words[k].length);
+  return [...out.filter(entry), ...out.filter((k) => !entry(k))];
+}
+
 // Arabic words carry their little words with them: and/so, with/for/like, the; and pronouns at the
 // end ("and with the book", "her book"). These are tried off when the word itself isn't found.
 const AR_FRONT = ["و", "ف"];

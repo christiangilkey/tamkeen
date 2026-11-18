@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"단어별 뜻: {0}",
 "Filling in…":"채우는 중…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"사전에 이 표현 전체가 없어서 단어별 뜻을 이어 붙였어요. 표현의 뜻은 다를 수 있어요. 알고 있다면 고쳐 주세요.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"사전에는 ‘{0}’(으)로 적혀 있어서 카드도 그렇게 적었어요.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"기본 사전이 아직 이 기기에 없어요. 다운로드하거나 뜻을 입력하세요.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"이 표현은 내장 사전에 없어요. 뜻을 입력하세요.",
 "This word isn't in the built-in dictionary. Type its meaning.":"이 단어는 내장 사전에 없어요. 뜻을 입력하세요.",

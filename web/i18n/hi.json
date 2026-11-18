@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"शब्दशः: {0}",
 "Filling in…":"भरा जा रहा है…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"शब्दकोश में पूरे वाक्यांश की प्रविष्टि नहीं है, इसलिए यह शब्दशः अर्थ है। वाक्यांश का अर्थ कुछ और हो सकता है: अगर आप जानते हैं तो इसे बदल दें।",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"शब्दकोश में «{0}» लिखा है, इसलिए कार्ड पर भी ऐसे ही लिखा गया है।",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"बिल्ट-इन शब्दकोश अभी इस डिवाइस पर नहीं है। इसे डाउनलोड करें, या अर्थ लिखें।",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"यह वाक्यांश बिल्ट-इन शब्दकोश में नहीं है। इसका अर्थ लिखें।",
 "This word isn't in the built-in dictionary. Type its meaning.":"यह शब्द बिल्ट-इन शब्दकोश में नहीं है। इसका अर्थ लिखें।",

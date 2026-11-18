@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"Parola per parola: {0}",
 "Filling in…":"Compilazione…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"Il dizionario non ha una voce per l'espressione intera, quindi questo è parola per parola. L'espressione potrebbe significare altro: cambialo se lo sai.",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"Nel dizionario si scrive «{0}», quindi anche la scheda lo scrive così.",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"Il dizionario integrato non è ancora su questo dispositivo. Scaricalo, o scrivi il significato.",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"Questa espressione non è nel dizionario integrato. Scrivi il suo significato.",
 "This word isn't in the built-in dictionary. Type its meaning.":"Questa parola non è nel dizionario integrato. Scrivi il suo significato.",

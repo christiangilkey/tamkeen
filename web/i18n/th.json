@@ -2092,6 +2092,7 @@
 "Word by word: {0}":"แปลทีละคำ: {0}",
 "Filling in…":"กำลังเติม…",
 "The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.":"พจนานุกรมไม่มีวลีนี้ทั้งวลี ความหมายนี้จึงแปลทีละคำ วลีนี้อาจมีความหมายอื่น ถ้าคุณรู้ ให้แก้ได้เลย",
+"Spelled “{0}” in the dictionary, so the card is spelled that way too.":"ในพจนานุกรมสะกดว่า “{0}” บัตรจึงสะกดแบบนั้นด้วย",
 "The built-in dictionary isn't on this device yet. Download it, or type the meaning.":"พจนานุกรมในตัวยังไม่อยู่ในอุปกรณ์นี้ ดาวน์โหลดเลย หรือพิมพ์ความหมายเอง",
 "This phrase isn't in the built-in dictionary. Type its meaning.":"วลีนี้ไม่มีในพจนานุกรมในตัว พิมพ์ความหมายของวลีนี้",
 "This word isn't in the built-in dictionary. Type its meaning.":"คำนี้ไม่มีในพจนานุกรมในตัว พิมพ์ความหมายของคำนี้",
