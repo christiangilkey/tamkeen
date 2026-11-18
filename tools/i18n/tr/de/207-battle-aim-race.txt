@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Zieh in der Arena, um dich zu bewegen; ein zweiter Finger zielt. Tippe auf einen Zug, um ihn einzusetzen, antworte und tippe dann, wohin er gehen soll.
+0ed0185b	Linker Stick: laufen. Rechter Stick: zielen. Die Knöpfe setzen deine Züge ein; nach einer richtigen Antwort feuert jeder von ihnen.
+1d7963ac	Lauf mit W A S D oder den Pfeiltasten; die Maus zielt. Züge: U I J K (oder 1 2 3 4). Klick nach einer richtigen Antwort dorthin, wohin gefeuert werden soll (oder drück die Leertaste).
+5ec797f3	{0} ausweichen: antworte vor deinem Gegner
+030980a1	{0} hat schneller geantwortet: voller Schaden
+02e0ad9e	{0} hat schneller geantwortet: halber Schaden
+712c09e4	Ausgewichen: halber Schaden
+a1f2f562	Zu langsam: voller Schaden
+0f15d6dd	Falsche Antwort: voller Schaden
+2655bb03	Halber Schaden
+5c1f8fe2	Gepackt!
+ae00822e	Tippe, wohin gefeuert wird
+12b1f620	Ziel mit dem rechten Stick, dann drück einen Knopf
+931a32c7	Klick, wohin gefeuert wird
+f1ac9e75	Dein Gegner antwortet auch: Ist er zuerst richtig, macht dein Angriff halben Schaden. Wenn er angreift, bekommst du eine Frage: Antworte vor ihm richtig, dann nimmst du nur halben Schaden.
+abbc6f40	Lauf mit dem linken Stick, dem Steuerkreuz, W A S D oder den Pfeiltasten, oder zieh mit einem Finger in der Arena.
+0d450809	Nach einer richtigen Antwort wartet der Kampf noch einen Moment, während du zielst: Klick oder tippe dorthin, wo der Zug hin soll (oder richte den rechten Stick aus und drück einen Knopf). Davor zielen die Maus, ein zweiter Finger oder der rechte Stick; ohne Ziel geht er auf den Gegner.

@@ -1,0 +1,40 @@
+# More kinds of battle moves (prototype move_variety, game/data.js) and the guild tavern (prototype guild_tavern, game/tavern.js)
+6fee68d1	Pancada de Corpo
+1a0bffb3	Corte Atravessado
+bdffbe67	Agarrar e Arremessar
+3addbb78	Mergulho Aéreo
+f6d3ac1a	Escavar
+59287a58	Orbe de Energia
+3cae532e	Onda em Cone
+f9cf560f	Onda de Choque
+ccdd21de	Golpe do Céu
+dd44039f	Raio Concentrado
+1edb76c0	Pancada
+7626b3a4	Quem usa se joga com o corpo todo contra a outra criatura: um forte empurrão para trás e um instante de atordoamento. Desvie para o lado.
+a2c169fc	Corte
+490b6bc4	Quem usa corta direto através da outra criatura e sai do outro lado. Desvie para o lado.
+5319f3b8	Arremesso
+a11d8b1a	Quem usa avança, agarra a outra criatura e a arremessa: a queda dói. Desvie da investida para o lado.
+a3c9aca4	Mergulho aéreo
+e802e65e	Quem usa voa para fora de alcance e despenca onde mirou. Saia de baixo do círculo.
+388db1fb	Quem usa cava por baixo da terra e irrompe onde mirou. Fique de olho na terra que se move na sua direção.
+98014370	Orbe
+31ae2452	Quem usa junta uma bola de energia e depois a manda devagar para a frente; ela explode no que encontrar.
+1361bfae	Onda em cone
+fd3949aa	Uma onda se abre em leque na frente de quem usa. Saia do cone ou do alcance dele.
+ce2c250e	Onda em anel
+79589a9a	Uma onda sai de quem usa em todas as direções. Mantenha distância.
+4deb4e1c	Guilda anterior
+bddf7907	Taverna da guilda
+77e7219d	Próxima guilda
+46d71258	Ainda não há nenhuma criatura aqui.
+7fbc007b	1 criatura lá dentro: toque nela para ver de quem é.
+f8a4cb50	{0} criaturas lá dentro: toque em uma para ver de quem é.
+bdd963df	Mais 1 está fora por enquanto.
+c6b84c8e	Mais {0} estão fora por enquanto.
+6d13ccc9	1 membro ainda não chocou uma criatura para mostrar.
+a418b094	{0} membros ainda não chocaram uma criatura para mostrar.
+b0cc4e5b	Taverna de {0}
+fad74ee8	Você · {0}
+a7f239af	Sua criatura favorita
+c93011be	Online agora

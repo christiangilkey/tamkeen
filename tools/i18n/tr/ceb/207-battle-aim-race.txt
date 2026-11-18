@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Guyora sa arena aron molihok; ang ikaduhang tudlo ang motumong. I-tap ang usa ka lihok aron gamiton, tubaga, unya i-tap kon asa kini ipusil.
+0ed0185b	Wala nga stick: lakaw. Tuo nga stick: tumong. Ang mga button mogamit sa imong mga lihok; human sa sakto nga tubag, bisan unsa niini mopusil.
+1d7963ac	Lakaw gamit ang W A S D o ang mga arrow key; ang mouse ang motumong. Mga lihok: U I J K (o 1 2 3 4). Human sa sakto nga tubag, i-click kon asa ipusil (o pindota ang Space).
+5ec797f3	Likayi ang {0}: tubaga una sa imong kaatbang
+030980a1	Mas paspas mitubag si {0}: tibuok nga danyos
+02e0ad9e	Mas paspas mitubag si {0}: tunga nga danyos
+712c09e4	Nalikayan: tunga nga danyos
+a1f2f562	Hinay ra kaayo: tibuok nga danyos
+0f15d6dd	Sayop nga tubag: tibuok nga danyos
+2655bb03	Tunga nga danyos
+5c1f8fe2	Nadakpan!
+ae00822e	I-tap kon asa ipusil
+12b1f620	Tumong gamit ang tuo nga stick, unya pindota ang usa ka button
+931a32c7	I-click kon asa ipusil
+f1ac9e75	Motubag usab ang imong kaatbang: kon siya ang unang makasakto, tunga ra ang danyos sa imong atake. Kon siya moatake, mogawas ang pangutana para nimo: tubaga og sakto una kaniya aron tunga ra ang danyos nga madawat nimo.
+abbc6f40	Lakaw gamit ang wala nga stick, ang D-pad, W A S D o ang mga arrow key, o guyora sa arena gamit ang usa ka tudlo.
+0d450809	Human sa sakto nga tubag, maghulat pa gamay ang sangka samtang motumong ka: i-click o i-tap kon asa moadto ang lihok (o itumong ang tuo nga stick ug pindota ang usa ka button). Sa wala pa niana, ang mouse, ang ikaduhang tudlo o ang tuo nga stick ang motumong; kon walay tumong, moadto kini sa kaatbang.

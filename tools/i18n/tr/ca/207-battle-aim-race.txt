@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Arrossega per l'arena per moure't; un segon dit apunta. Toca un moviment per fer-lo servir, respon i després toca on disparar.
+0ed0185b	Palanca esquerra: caminar. Palanca dreta: apuntar. Els botons fan servir els teus moviments; després d'una resposta correcta, qualsevol d'ells dispara.
+1d7963ac	Camina amb W A S D o les fletxes; el ratolí apunta. Moviments: U I J K (o 1 2 3 4). Després d'una resposta correcta, fes clic on disparar (o prem Espai).
+5ec797f3	Esquiva {0}: respon abans que el teu rival
+030980a1	{0} ha respost més ràpid: dany complet
+02e0ad9e	{0} ha respost més ràpid: meitat de dany
+712c09e4	Esquivat: meitat de dany
+a1f2f562	Massa tard: dany complet
+0f15d6dd	Resposta incorrecta: dany complet
+2655bb03	Meitat de dany
+5c1f8fe2	Agafat!
+ae00822e	Toca on disparar
+12b1f620	Apunta amb la palanca dreta i després prem un botó
+931a32c7	Fes clic on disparar
+f1ac9e75	El teu rival també respon: si encerta primer, el teu atac fa la meitat de dany. Quan ataca, et surt una pregunta: respon bé abans que ell per rebre la meitat de dany.
+abbc6f40	Camina amb la palanca esquerra, la creueta, W A S D o les fletxes, o arrossega per l'arena amb un dit.
+0d450809	Després d'una resposta correcta, la batalla s'espera una mica més mentre apuntes: fes clic o toca on ha d'anar el moviment (o mou la palanca dreta i prem un botó). Abans d'això, apunten el ratolí, un segon dit o la palanca dreta; si no apuntes, va cap al rival.

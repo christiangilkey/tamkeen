@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Faites glisser sur l'arène pour vous déplacer ; un deuxième doigt vise. Touchez une attaque pour l'utiliser, répondez, puis touchez l'endroit où tirer.
+0ed0185b	Joystick gauche : marcher. Joystick droit : viser. Les boutons lancent vos attaques ; après une bonne réponse, n'importe lequel tire.
+1d7963ac	Marchez avec W A S D ou les touches fléchées ; la souris vise. Attaques : U I J K (ou 1 2 3 4). Après une bonne réponse, cliquez là où tirer (ou appuyez sur Espace).
+5ec797f3	Esquivez {0} : répondez avant votre adversaire
+030980a1	{0} a répondu plus vite : dégâts complets
+02e0ad9e	{0} a répondu plus vite : moitié des dégâts
+712c09e4	Esquivé : moitié des dégâts
+a1f2f562	Trop lent : dégâts complets
+0f15d6dd	Mauvaise réponse : dégâts complets
+2655bb03	Moitié des dégâts
+5c1f8fe2	Attrapé !
+ae00822e	Touchez là où tirer
+12b1f620	Visez avec le joystick droit, puis appuyez sur un bouton
+931a32c7	Cliquez là où tirer
+f1ac9e75	Votre adversaire répond aussi : s'il trouve la bonne réponse en premier, votre attaque fait moitié moins de dégâts. Quand il attaque, une question s'affiche pour vous : répondez juste avant lui pour ne subir que la moitié des dégâts.
+abbc6f40	Marchez avec le joystick gauche, la croix directionnelle, W A S D ou les touches fléchées, ou faites glisser un doigt sur l'arène.
+0d450809	Après une bonne réponse, le combat attend encore un instant pendant que vous visez : cliquez ou touchez l'endroit où l'attaque doit aller (ou orientez le joystick droit et appuyez sur un bouton). Avant cela, la souris, un deuxième doigt ou le joystick droit vise ; sans visée, elle part vers l'adversaire.

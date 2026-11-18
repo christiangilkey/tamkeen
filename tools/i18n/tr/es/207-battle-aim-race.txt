@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Arrastra en la arena para moverte; un segundo dedo apunta. Toca un movimiento para usarlo, responde y luego toca dónde disparar.
+0ed0185b	Stick izquierdo: caminar. Stick derecho: apuntar. Los botones usan tus movimientos; tras una respuesta correcta, cualquiera de ellos dispara.
+1d7963ac	Camina con W A S D o las teclas de flecha; el ratón apunta. Movimientos: U I J K (o 1 2 3 4). Tras una respuesta correcta, haz clic donde disparar (o pulsa Espacio).
+5ec797f3	Esquiva {0}: responde antes que tu rival
+030980a1	{0} respondió más rápido: daño completo
+02e0ad9e	{0} respondió más rápido: mitad de daño
+712c09e4	Esquivado: mitad de daño
+a1f2f562	Demasiado lento: daño completo
+0f15d6dd	Respuesta incorrecta: daño completo
+2655bb03	Mitad de daño
+5c1f8fe2	¡Agarrado!
+ae00822e	Toca dónde disparar
+12b1f620	Apunta con el stick derecho y luego pulsa un botón
+931a32c7	Haz clic donde disparar
+f1ac9e75	Tu rival también responde: si acierta primero, tu ataque hace la mitad de daño. Cuando ataca, te sale una pregunta: responde bien antes que él para recibir la mitad de daño.
+abbc6f40	Camina con el stick izquierdo, la cruceta, W A S D o las teclas de flecha, o arrastra en la arena con un dedo.
+0d450809	Tras una respuesta correcta, la batalla espera un momento más mientras apuntas: haz clic o toca donde debe ir el movimiento (o mueve el stick derecho y pulsa un botón). Antes de eso, apuntan el ratón, un segundo dedo o el stick derecho; sin apuntar, va hacia el rival.

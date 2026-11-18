@@ -1,0 +1,40 @@
+# More kinds of battle moves (prototype move_variety, game/data.js) and the guild tavern (prototype guild_tavern, game/tavern.js)
+6fee68d1	Körperwurf
+1a0bffb3	Durchschnitt
+bdffbe67	Packen und Werfen
+3addbb78	Sturzflug
+f6d3ac1a	Eingraben
+59287a58	Energiekugel
+3cae532e	Kegelwelle
+f9cf560f	Schockwelle
+ccdd21de	Schlag von oben
+dd44039f	Bündelstrahl
+1edb76c0	Rempler
+7626b3a4	Der Anwender wirft sich mit dem ganzen Körper auf das andere Wesen: ein harter Rückstoß und kurz benommen. Weich zur Seite aus.
+a2c169fc	Schnitt
+490b6bc4	Der Anwender schneidet geradewegs durch das andere Wesen und kommt dahinter heraus. Weich zur Seite aus.
+5319f3b8	Wurf
+a11d8b1a	Der Anwender stürmt heran, packt das andere Wesen und wirft es: Die Landung tut weh. Weich dem Ansturm zur Seite aus.
+a3c9aca4	Sturzflug
+e802e65e	Der Anwender fliegt außer Reichweite nach oben und stürzt dort herab, wo er gezielt hat. Geh unter dem Kreis weg.
+388db1fb	Der Anwender gräbt sich ein und bricht dort aus dem Boden, wo er gezielt hat. Achte auf die Erde, die sich auf dich zubewegt.
+98014370	Kugel
+31ae2452	Der Anwender sammelt eine Energiekugel und schickt sie dann langsam nach vorn; sie platzt an allem, worauf sie trifft.
+1361bfae	Kegelwelle
+fd3949aa	Eine Welle fächert sich vor dem Anwender auf. Geh aus dem Kegel oder aus seiner Reichweite.
+ce2c250e	Ringwelle
+79589a9a	Eine Welle geht vom Anwender in alle Richtungen aus. Halte Abstand.
+4deb4e1c	Vorherige Gilde
+bddf7907	Gildentaverne
+77e7219d	Nächste Gilde
+46d71258	Noch ist kein Wesen hier.
+7fbc007b	1 Wesen drinnen: Tippe es an, um zu sehen, wem es gehört.
+f8a4cb50	{0} Wesen drinnen: Tippe eins an, um zu sehen, wem es gehört.
+bdd963df	1 weiteres ist gerade unterwegs.
+c6b84c8e	{0} weitere sind gerade unterwegs.
+6d13ccc9	1 Mitglied hat noch kein Wesen zum Zeigen ausgebrütet.
+a418b094	{0} Mitglieder haben noch kein Wesen zum Zeigen ausgebrütet.
+b0cc4e5b	Taverne von {0}
+fad74ee8	Du · {0}
+a7f239af	Dein Lieblingswesen
+c93011be	Gerade online

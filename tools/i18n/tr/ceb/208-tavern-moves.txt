@@ -1,0 +1,40 @@
+# More kinds of battle moves (prototype move_variety, game/data.js) and the guild tavern (prototype guild_tavern, game/tavern.js)
+6fee68d1	Lawas nga Bangga
+1a0bffb3	Laslas nga Molapos
+bdffbe67	Kupot ug Labay
+3addbb78	Kalit nga Unlod gikan sa Langit
+f6d3ac1a	Kalot
+59287a58	Bola sa Kusog
+3cae532e	Balod nga Kono
+f9cf560f	Balod nga Mokaylap
+ccdd21de	Ipaulan gikan sa Ibabaw
+dd44039f	Tutok nga Silaw
+1edb76c0	Bangga
+7626b3a4	Ibangga sa migamit ang tibuok lawas niini sa laing linalang: kusog nga pagtukmod ug kadiyot nga pagkalipong. Likay patagilid.
+a2c169fc	Laslas
+490b6bc4	Laslason sa migamit tadlong ang laing linalang ug molapos sa likod niini. Likay patagilid.
+5319f3b8	Labay
+a11d8b1a	Modasmag ang migamit, kuptan ang laing linalang ug ilabay kini: sakit ang pagtugpa. Likayi patagilid ang dasmag.
+a3c9aca4	Unlod gikan sa langit
+e802e65e	Molupad ang migamit pataas nga dili maabot ug mohapak paubos kung asa kini mitutok. Gawas gikan sa ilalom sa lingin.
+388db1fb	Mokalot ang migamit ilalom sa yuta ug mobuto pataas kung asa kini mitutok. Tan-awa ang yuta nga naglihok paingon kanimo.
+98014370	Bola
+31ae2452	Magtigom ang migamit og bola sa kusog, dayon hinay nga ipadala kini paabante; mobuto kini sa bisan unsa nga maigo.
+1361bfae	Balod nga kono
+fd3949aa	Mokaylap ang balod atubangan sa migamit. Gawas sa kono o layo sa maabot niini.
+ce2c250e	Balod nga lingin
+79589a9a	Mogawas ang balod gikan sa migamit sa tanang direksyon. Pagpalayo.
+4deb4e1c	Miaging guild
+bddf7907	Tavern sa guild
+77e7219d	Sunod nga guild
+46d71258	Wala pay linalang ni bisan kinsa dinhi.
+7fbc007b	1 ka linalang sa sulod: i-tap kini aron makita kung kang kinsa.
+f8a4cb50	{0} ka linalang sa sulod: i-tap ang usa aron makita kung kang kinsa.
+bdd963df	1 pa ang wala dinhi karon.
+c6b84c8e	{0} pa ang wala dinhi karon.
+6d13ccc9	1 ka miyembro ang wala pa makapapusa og linalang nga ipakita.
+a418b094	{0} ka miyembro ang wala pa makapapusa og linalang nga ipakita.
+b0cc4e5b	Tavern sa {0}
+fad74ee8	Ikaw · {0}
+a7f239af	Ang imong paboritong linalang
+c93011be	Online karon

@@ -1,0 +1,40 @@
+# More kinds of battle moves (prototype move_variety, game/data.js) and the guild tavern (prototype guild_tavern, game/tavern.js)
+6fee68d1	Schianto
+1a0bffb3	Fendente Passante
+bdffbe67	Presa e Lancio
+3addbb78	Picchiata
+f6d3ac1a	Scavo
+59287a58	Sfera d'Energia
+3cae532e	Onda a Cono
+f9cf560f	Onda d'Urto
+ccdd21de	Colpo dal Cielo
+dd44039f	Raggio Concentrato
+1edb76c0	Schianto
+7626b3a4	Chi la usa si scaglia con tutto il corpo contro l'altra creatura: un forte contraccolpo e un attimo di stordimento. Schivala di lato.
+a2c169fc	Fendente
+490b6bc4	Chi la usa taglia in due l'altra creatura passandole attraverso ed esce dall'altra parte. Schivala di lato.
+5319f3b8	Lancio
+a11d8b1a	Chi la usa si lancia, afferra l'altra creatura e la scaglia via: l'atterraggio fa male. Schiva la carica di lato.
+a3c9aca4	Picchiata
+e802e65e	Chi la usa vola in alto fuori portata e piomba giù dove ha mirato. Esci da sotto il cerchio.
+388db1fb	Chi la usa scava sottoterra e sbuca fuori dove ha mirato. Guarda la terra che si muove verso di te.
+98014370	Sfera
+31ae2452	Chi la usa raccoglie una sfera di energia, poi la spinge piano in avanti; esplode su qualunque cosa incontri.
+1361bfae	Onda a cono
+fd3949aa	Un'onda si apre a ventaglio davanti a chi la usa. Esci dal cono o dalla sua portata.
+ce2c250e	Onda ad anello
+79589a9a	Un'onda parte da chi la usa in ogni direzione. Mantieni le distanze.
+4deb4e1c	Gilda precedente
+bddf7907	Taverna della gilda
+77e7219d	Gilda successiva
+46d71258	Qui non c'è ancora nessuna creatura.
+7fbc007b	1 creatura dentro: toccala per vedere di chi è.
+f8a4cb50	{0} creature dentro: toccane una per vedere di chi è.
+bdd963df	1 altra per ora è fuori.
+c6b84c8e	Altre {0} per ora sono fuori.
+6d13ccc9	1 membro non ha ancora fatto schiudere una creatura da mostrare.
+a418b094	{0} membri non hanno ancora fatto schiudere una creatura da mostrare.
+b0cc4e5b	Taverna di {0}
+fad74ee8	Tu · {0}
+a7f239af	La tua creatura preferita
+c93011be	Online ora

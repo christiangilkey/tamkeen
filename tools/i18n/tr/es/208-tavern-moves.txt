@@ -1,0 +1,40 @@
+# More kinds of battle moves (prototype move_variety, game/data.js) and the guild tavern (prototype guild_tavern, game/tavern.js)
+6fee68d1	Golpe Corporal
+1a0bffb3	Tajo Pasante
+bdffbe67	Agarre y Lanzamiento
+3addbb78	Picado Aéreo
+f6d3ac1a	Excavar
+59287a58	Orbe de Energía
+3cae532e	Onda en Cono
+f9cf560f	Onda Expansiva
+ccdd21de	Golpe del Cielo
+dd44039f	Rayo Concentrado
+1edb76c0	Golpe
+7626b3a4	Quien lo usa se lanza con todo el cuerpo contra la otra criatura: un fuerte empujón y un momento de aturdimiento. Esquívala de lado.
+a2c169fc	Tajo
+490b6bc4	Quien lo usa atraviesa de un tajo a la otra criatura y sale por detrás. Esquívala de lado.
+5319f3b8	Lanzamiento
+a11d8b1a	Quien lo usa se lanza, agarra a la otra criatura y la arroja: la caída duele. Esquiva la embestida de lado.
+a3c9aca4	Picado aéreo
+e802e65e	Quien lo usa sube volando fuera de alcance y cae en picado donde apuntó. Sal de debajo del círculo.
+388db1fb	Quien lo usa se mete bajo tierra y sale de golpe donde apuntó. Fíjate en la tierra que se mueve hacia ti.
+98014370	Orbe
+31ae2452	Quien lo usa reúne una bola de energía y luego la lanza despacio hacia delante; estalla en lo primero que toca.
+1361bfae	Onda en cono
+fd3949aa	Una onda se abre en abanico delante de quien lo usa. Sal del cono o de su alcance.
+ce2c250e	Onda en anillo
+79589a9a	Una onda sale de quien lo usa en todas direcciones. Mantén la distancia.
+4deb4e1c	Gremio anterior
+bddf7907	Taberna del gremio
+77e7219d	Gremio siguiente
+46d71258	Todavía no hay ninguna criatura aquí.
+7fbc007b	1 criatura dentro: tócala para ver de quién es.
+f8a4cb50	{0} criaturas dentro: toca una para ver de quién es.
+bdd963df	Hay 1 más fuera por ahora.
+c6b84c8e	Hay {0} más fuera por ahora.
+6d13ccc9	1 miembro aún no ha hecho nacer una criatura que mostrar.
+a418b094	{0} miembros aún no han hecho nacer una criatura que mostrar.
+b0cc4e5b	Taberna de {0}
+fad74ee8	Tú · {0}
+a7f239af	Tu criatura favorita
+c93011be	En línea ahora

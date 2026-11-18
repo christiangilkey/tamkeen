@@ -6,6 +6,7 @@
 // shows the owner. The art is web/game-art/tavern/ (tools/game_art/tavern.py); who is inside: tavernrules.js.
 
 import { h } from "../app.js";
+import { t } from "../i18n.js";
 import { icon as lineIcon } from "../icons.js";
 import * as social from "../social.js";
 import { beastById } from "./data.js";
@@ -74,11 +75,13 @@ export async function tavernBlock(host, given = null) {
     remember(g.id);
     card.querySelector(".tavern-title strong").textContent = g.name;
     const cast = castOf(g.members, { meId, genomes, seen });
-    const foot = [];
-    foot.push(cast.inside.length ? `${cast.inside.length} creature${cast.inside.length === 1 ? "" : "s"} inside: tap one to see whose it is.`
-      : "No one's creature is here yet.");
-    if (cast.out) foot.push(`${cast.out} more ${cast.out === 1 ? "is" : "are"} out for now.`);
-    if (cast.none) foot.push(`${cast.none} member${cast.none === 1 ? " hasn't" : "s haven't"} hatched a creature to show yet.`);
+    // (whole sentences, each translated on its own: joined into one line the page's translator can't match them)
+    const n = cast.inside.length;
+    const foot = [n === 0 ? t("No one's creature is here yet.")
+      : n === 1 ? t("1 creature inside: tap it to see whose it is.") : t("{0} creatures inside: tap one to see whose it is.", n)];
+    if (cast.out) foot.push(cast.out === 1 ? t("1 more is out for now.") : t("{0} more are out for now.", cast.out));
+    if (cast.none) foot.push(cast.none === 1 ? t("1 member hasn't hatched a creature to show yet.")
+      : t("{0} members haven't hatched a creature to show yet.", cast.none));
     card.querySelector(".tavern-foot").textContent = foot.join(" ");
     scene = tavernScene(card.querySelector(".tavern-scene"), cast.inside, g, statuses);
   }

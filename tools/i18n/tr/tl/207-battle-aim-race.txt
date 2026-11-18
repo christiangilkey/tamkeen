@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Mag-drag sa arena para gumalaw; ang ikalawang daliri ang pumupuntirya. I-tap ang isang galaw para gamitin ito, sumagot, tapos i-tap kung saan ito ipapatama.
+0ed0185b	Kaliwang stick: lakad. Kanang stick: puntirya. Ginagamit ng mga button ang mga galaw mo; pagkatapos ng tamang sagot, kahit alin sa mga ito ay magpapaputok.
+1d7963ac	Lumakad gamit ang W A S D o ang mga arrow key; ang mouse ang pumupuntirya. Mga galaw: U I J K (o 1 2 3 4). Pagkatapos ng tamang sagot, mag-click kung saan ipapatama (o pindutin ang Space).
+5ec797f3	Iwasan ang {0}: sumagot bago ang kalaban mo
+030980a1	Mas mabilis sumagot si {0}: buong pinsala
+02e0ad9e	Mas mabilis sumagot si {0}: kalahating pinsala
+712c09e4	Naiwasan: kalahating pinsala
+a1f2f562	Masyadong mabagal: buong pinsala
+0f15d6dd	Maling sagot: buong pinsala
+2655bb03	Kalahating pinsala
+5c1f8fe2	Nahuli!
+ae00822e	I-tap kung saan ipapatama
+12b1f620	Pumuntirya gamit ang kanang stick, tapos pumindot ng button
+931a32c7	Mag-click kung saan ipapatama
+f1ac9e75	Sumasagot din ang kalaban mo: kapag nauna siyang tumama ng sagot, kalahati lang ang pinsala ng atake mo. Kapag umatake siya, may lalabas na tanong para sa iyo: sumagot nang tama bago siya para kalahati lang ang pinsalang matanggap mo.
+abbc6f40	Lumakad gamit ang kaliwang stick, ang D-pad, W A S D o ang mga arrow key, o mag-drag sa arena gamit ang isang daliri.
+0d450809	Pagkatapos ng tamang sagot, maghihintay pa nang kaunti ang laban habang pumupuntirya ka: mag-click o mag-tap kung saan dapat pumunta ang galaw (o itutok ang kanang stick at pumindot ng button). Bago iyon, ang mouse, ang ikalawang daliri o ang kanang stick ang pumupuntirya; kapag walang puntirya, papunta ito sa kalaban.

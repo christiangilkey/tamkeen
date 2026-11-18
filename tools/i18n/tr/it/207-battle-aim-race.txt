@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Trascina sull'arena per muoverti; un secondo dito mira. Tocca una mossa per usarla, rispondi, poi tocca dove sparare.
+0ed0185b	Levetta sinistra: camminare. Levetta destra: mirare. I pulsanti usano le tue mosse; dopo una risposta giusta, uno qualsiasi spara.
+1d7963ac	Cammina con W A S D o i tasti freccia; il mouse mira. Mosse: U I J K (o 1 2 3 4). Dopo una risposta giusta, fai clic dove sparare (o premi Spazio).
+5ec797f3	Schiva {0}: rispondi prima del tuo rivale
+030980a1	{0} ha risposto prima: danno pieno
+02e0ad9e	{0} ha risposto prima: metà danno
+712c09e4	Schivato: metà danno
+a1f2f562	Troppo lento: danno pieno
+0f15d6dd	Risposta sbagliata: danno pieno
+2655bb03	Metà danno
+5c1f8fe2	Afferrato!
+ae00822e	Tocca dove sparare
+12b1f620	Mira con la levetta destra, poi premi un pulsante
+931a32c7	Fai clic dove sparare
+f1ac9e75	Anche il tuo rivale risponde: se indovina per primo, il tuo attacco fa metà danno. Quando attacca, compare una domanda per te: rispondi giusto prima di lui per subire metà danno.
+abbc6f40	Cammina con la levetta sinistra, la croce direzionale, W A S D o i tasti freccia, oppure trascina sull'arena con un dito.
+0d450809	Dopo una risposta giusta la battaglia aspetta ancora un momento mentre miri: fai clic o tocca dove deve andare la mossa (o punta la levetta destra e premi un pulsante). Prima di allora mirano il mouse, un secondo dito o la levetta destra; senza mira, va verso il rivale.

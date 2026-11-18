@@ -1,0 +1,18 @@
+# Live battles: aiming your own attacks (prototype battle_aim) and the answer race (prototype battle_race).
+414c5fa6	Arraste na arena para se mover; um segundo dedo mira. Toque em um golpe para usá-lo, responda e depois toque onde disparar.
+0ed0185b	Analógico esquerdo: andar. Analógico direito: mirar. Os botões usam seus golpes; depois de uma resposta certa, qualquer um deles dispara.
+1d7963ac	Ande com W A S D ou as teclas de seta; o mouse mira. Golpes: U I J K (ou 1 2 3 4). Depois de uma resposta certa, clique onde disparar (ou aperte Espaço).
+5ec797f3	Desvie de {0}: responda antes do seu rival
+030980a1	{0} respondeu mais rápido: dano total
+02e0ad9e	{0} respondeu mais rápido: metade do dano
+712c09e4	Desviou: metade do dano
+a1f2f562	Devagar demais: dano total
+0f15d6dd	Resposta errada: dano total
+2655bb03	Metade do dano
+5c1f8fe2	Agarrado!
+ae00822e	Toque onde disparar
+12b1f620	Mire com o analógico direito e aperte um botão
+931a32c7	Clique onde disparar
+f1ac9e75	Seu rival também responde: se ele acertar primeiro, seu ataque causa metade do dano. Quando ele ataca, aparece uma pergunta para você: acerte antes dele para levar metade do dano.
+abbc6f40	Ande com o analógico esquerdo, o direcional, W A S D ou as teclas de seta, ou arraste na arena com um dedo.
+0d450809	Depois de uma resposta certa, a batalha espera mais um instante enquanto você mira: clique ou toque onde o golpe deve ir (ou aponte o analógico direito e aperte um botão). Antes disso, o mouse, um segundo dedo ou o analógico direito mira; sem mira, ele vai em direção ao rival.
