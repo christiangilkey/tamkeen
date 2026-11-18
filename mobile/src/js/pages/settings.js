@@ -21,7 +21,6 @@ import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
-import { soundVolume } from "../components/soundvolume.js";
 import { dictationTaps } from "../components/dictation.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
@@ -230,7 +229,6 @@ function look(body) {
       <label class="check"><input type="checkbox" id="haptics" ${s.haptics !== false ? "checked" : ""}>
         <span>Vibrate lightly when I tap a word or save one</span></label>
     </section>` : ""}
-    <section class="card set-card" id="sound-volume" data-find="volume"></section>
     <section class="card" id="game-switch" data-find="game"></section>
     <section class="card set-card" data-find="guides">
       <h2>Page guides</h2>
@@ -252,7 +250,6 @@ function look(body) {
     saveSettings({ page_font_size: v });
   };
   gameSwitch($("#game-switch"));
-  soundVolume($("#sound-volume"));
   return [];
 }
 

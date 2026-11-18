@@ -118,12 +118,15 @@ test("the device's voice is given the level; the slider is in both Settings page
   assert.match(dv, /volume: speechVolume\(\)/);
   assert.match(read(join(ROOT, "mobile/android/app/src/main/java/io/github/christiangilkey/arabicpodcaststudio/SpeechPlugin.java")), /KEY_PARAM_VOLUME/);
   assert.match(read(join(ROOT, "mobile/native-ios/ios/Sources/TamkeenNative/SpeechPlugin.swift")), /utterance\.volume = volume/);
+  // On the Settings home, under the search, for every device (the owner, 2026-11-17), not in Look & feel.
+  const ui = read(join(WEB, "components/settingsui.js"));
+  assert.ok(ui.indexOf('id="set-find"') < ui.indexOf('id="sound-volume"'), "under the search");
+  assert.ok(ui.indexOf('id="sound-volume"') < ui.indexOf('<nav class="card set-list"'), "above the sections");
+  assert.ok(ui.includes("soundVolume(volume, { short: true })"));
+  assert.ok(ui.includes("none.hidden = hits.length > 0 || forVolume"), "searching for it shows it, not \"Nothing found\"");
   for (const page of ["web/js/pages/settings.js", "mobile/src/js/pages/settings.js"]) {
-    const src = read(join(ROOT, page));
-    assert.match(src, /data-find="volume"/, page);
-    assert.match(src, /soundVolume\(\$\("#sound-volume"\)\)/, page);
+    assert.doesNotMatch(read(join(ROOT, page)), /sound-volume/, page + ": no second copy in Look & feel");
   }
-  assert.match(read(join(WEB, "components/settingsui.js")), /id: "volume", label: "Sound volume"/);
   const build = read(join(ROOT, "mobile/scripts/build-www.mjs"));
   assert.match(build, /"js\/appvolume\.js"/);
   assert.match(build, /"js\/components\/soundvolume\.js"/);
