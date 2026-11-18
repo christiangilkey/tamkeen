@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	رجوع: هذا الجزء مرة أخرى، أو الذي قبله
+e4414200	الجزء التالي

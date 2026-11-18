@@ -27,6 +27,23 @@ import { feature } from "../prototype.js";
 /** Whether "Type what you hear" is offered on this device. */
 export const dictationOn = () => feature("dictation");
 
+const BACK_AGAIN_MS = 1500; // Back within this long of a piece starting goes to the one before (as a music player's)
+
+/** While typing, a player's 5-second buttons step by the piece instead (`dict.back()`, `dict.next()`): they show
+ *  plain arrows then. Returns the way back to how they were. */
+export function arrowButtons(backBtn, fwdBtn) {
+  const was = [backBtn, fwdBtn].map((b) => b && [b.innerHTML, b.title, b.getAttribute("aria-label")]);
+  const set = (b, html, title) => { if (!b) return; b.innerHTML = html; b.title = title; b.setAttribute("aria-label", title); b.classList.add("dict-step"); };
+  set(backBtn, icon("chevronLeft", 20), t("Back: this piece again, or the one before"));
+  set(fwdBtn, icon("chevron", 20), t("The next piece"));
+  return () => [backBtn, fwdBtn].forEach((b, i) => {
+    if (!b || !was[i]) return;
+    [b.innerHTML, b.title] = was[i];
+    if (was[i][2] === null) b.removeAttribute("aria-label"); else b.setAttribute("aria-label", was[i][2]);
+    b.classList.remove("dict-step");
+  });
+}
+
 /** The button that opens it: a keyboard, beside the other switches of a player. */
 export function dictationButton(onPress) {
   const b = h(`<button type="button" class="ghost dict-btn" aria-pressed="false" title="Type what you hear (W)" aria-label="Type what you hear">${icon("keyboard", 18)}</button>`);
@@ -109,6 +126,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   let used = Date.now();
   let slowed = false;
   let closed = false;
+  let playedAt = 0; // when the piece showing last started playing (Back: it again, or the one before)
   const scores = { word: new Map(), sentence: new Map(), gist: new Map() }; // piece -> share right (0..1)
   const touch = () => { used = Date.now(); };
   const timed = (list) => list.length > 0 && Number.isFinite(list[0].start);
@@ -182,6 +200,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     if (autoplayNow) playNow();
   }
   function playNow() {
+    playedAt = Date.now();
     onMove(mode, k);
     play(units[k], mode);
   }
@@ -299,5 +318,19 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     active: () => !closed && Date.now() - used < 30000,
     /** The piece playing again (the player's own key for it while the panel is open). */
     again: () => { if (!closed && units.length) $(".dict-again").click(); },
+    /** The player's back and forward buttons while typing (the owner, 2026-11-18): by the piece in the way chosen
+     *  (a word, a sentence, or a gist's 2 to 5 sentences), not 5 seconds. Back: the start of this piece again when it
+     *  has been playing for a moment, else the piece before. Forward: the next piece. */
+    back: () => {
+      if (closed || !units.length || !$(".dict-done").hidden) return;
+      stop();
+      show(Date.now() - playedAt > BACK_AGAIN_MS || k === 0 ? k : k - 1);
+    },
+    next: () => {
+      if (closed || !units.length || !$(".dict-done").hidden) return;
+      stop();
+      if (k + 1 < units.length) show(k + 1);
+      else finish();
+    },
   };
 }

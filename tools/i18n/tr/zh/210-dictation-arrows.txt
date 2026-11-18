@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	后退：再听这一段，或上一段
+e4414200	下一段

@@ -32,7 +32,7 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
-import { dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
+import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 
 export const REEL_TYPE = "video/instagram";
@@ -660,6 +660,7 @@ async function renderPlayer(view, { query }) {
   // learner types them and then sees what was said above what they typed. After the last, Next reel carries on.
   let dict = null;
   let dictOn = false; // the learner is typing: a reel shown next opens with the box too
+  let unArrow = () => {}; // the 5-second buttons as they were, once typing ends
   let dictWaiting = false; // ... and its first piece plays once the reel has loaded (not the whole reel by itself)
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation(true)));
   const dictShown = surface && dictationOn(); // (not released yet: components/dictation.js)
@@ -686,11 +687,13 @@ async function renderPlayer(view, { query }) {
         if (disposed) return;
         view.querySelector(".reelplay").classList.remove("dictating");
         dictBtn.paint(false);
+        unArrow();
       },
     });
     view.querySelector(".reelplay").classList.add("dictating");
     $("#reel-controls").before(dict.el);
     dictBtn.paint(true);
+    unArrow = arrowButtons($("#rc-back"), $("#rc-fwd")); // (back and forward step by the piece meanwhile)
   }
   const offVowels = on("vowels", async (d) => {
     const reel = cur;
@@ -729,8 +732,8 @@ async function renderPlayer(view, { query }) {
     surface.do("seek", Math.max(0, Math.min(t, Math.max(0, (last.d || t) - 0.3))));
   };
   $("#rc-play").onclick = () => { if (surface) { clipEnd = null; surface.do(last && !last.paused ? "pause" : "play"); } };
-  $("#rc-back").onclick = () => last && jumpTo(last.t - 5);
-  $("#rc-fwd").onclick = () => last && jumpTo(last.t + 5);
+  $("#rc-back").onclick = () => (dict ? dict.back() : last && jumpTo(last.t - 5));
+  $("#rc-fwd").onclick = () => (dict ? dict.next() : last && jumpTo(last.t + 5));
   $("#rc-seek").addEventListener("input", (e) => { dragging = true; $("#rc-cur").textContent = formatTime(Number(e.target.value)); });
   $("#rc-seek").addEventListener("change", (e) => { dragging = false; jumpTo(Number(e.target.value)); });
   function paintControls(s) {

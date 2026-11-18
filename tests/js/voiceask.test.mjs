@@ -152,3 +152,10 @@ test("Android hears with its own speech recognition, no key", () => {
   assert.match(java, /"NO_RECOGNIZER"/);
   assert.match(read("mobile/android/app/src/main/AndroidManifest.xml"), /android\.speech\.action\.RECOGNIZE_SPEECH/);
 });
+
+test("the browser's microphone question comes first, and a blocked microphone gets the popup that says how to allow it", () => {
+  const box = read("web/js/components/voiceask.js");
+  assert.match(box, /async function byBrowser\(\) \{[\s\S]{0,700}navigator\.mediaDevices\.getUserMedia\(\{ audio: true \}\)/);
+  assert.match(box, /else if \(failed === "not-allowed"\) reject\(micRefused\(\)\);/);
+  assert.match(box, /if \(micBlocked\) offerFix\("mic"\);/);
+});

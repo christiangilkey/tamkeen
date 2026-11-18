@@ -4075,6 +4075,16 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "2d41f8a1",
+  "k": "Back: this piece again, or the one before",
+  "f": "web/js/components/dictation.js"
+ },
+ {
+  "id": "e4414200",
+  "k": "The next piece",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "a3fa69ab",
   "k": "Type what you hear (W)",
   "f": "web/js/components/dictation.js"
@@ -9122,6 +9132,11 @@
  {
   "id": "14377a8f",
   "k": "How do I say colorful in Spanish?",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "955e542c",
+  "k": "Tamkeen needs permission to use the microphone to hear you.",
   "f": "web/js/components/voiceask.js"
  },
  {
@@ -19978,11 +19993,6 @@
   "id": "2dcd9603",
   "k": "Show the button guide",
   "f": "web/js/gamepad.js"
- },
- {
-  "id": "955e542c",
-  "k": "Tamkeen needs permission to use the microphone to hear you.",
-  "f": "web/js/hearmic.js"
  },
  {
   "id": "d0673c80",

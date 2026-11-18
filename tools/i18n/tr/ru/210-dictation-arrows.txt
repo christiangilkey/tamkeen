@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	Назад: этот отрывок ещё раз или предыдущий
+e4414200	Следующий отрывок

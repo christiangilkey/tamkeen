@@ -85,6 +85,7 @@ const PATHS = {
   // Points right; turned round with CSS where it should point the other way (the video player's
   // handle for folding the transcript panel away).
   chevron: `<path d="M9.5 5.5 16 12l-6.5 6.5"/>`,
+  chevronLeft: `<path d="M14.5 5.5 8 12l6.5 6.5"/>`,
   // Three dots in a row: "more" (a menu of the less used things, such as the Vocab page's exports).
   transcript: `<rect class="fill" x="4" y="4" width="16" height="16" rx="2.6"/><rect x="4" y="4" width="16" height="16" rx="2.6"/>
     <path d="M8 9h8M8 12.5h8M8 16h5"/>`,

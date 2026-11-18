@@ -52,7 +52,7 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor,
   youTubeTranslations } from "../components/dualline.js";
-import { dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
+import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
 
@@ -597,11 +597,11 @@ export async function render(view, { id, query }) {
     kick();
   };
   $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : audio.pause(); };
-  $("#back5").onclick = () => seekTo(audio.currentTime - 5, false);
+  $("#back5").onclick = () => (dict ? dict.back() : seekTo(audio.currentTime - 5, false)); // (typing: by the piece)
   // Back to the start of the line being heard (again within a second: the line before).
   const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
   $("#restart").onclick = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
-  $("#fwd5").onclick = () => seekTo(audio.currentTime + 5, false);
+  $("#fwd5").onclick = () => (dict ? dict.next() : seekTo(audio.currentTime + 5, false));
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
     audio.playbackRate = speed;
@@ -1315,6 +1315,7 @@ export async function render(view, { id, query }) {
   // gist) play at a time, from where the learner is; they type it and then see what was really said above what
   // they typed. The video stays. One word at a time only where each word has its own time (not subtitles).
   let dict = null;
+  let unArrow = () => {}; // the 5-second buttons as they were, once typing ends
   let dictSentences = null;
   let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
@@ -1345,6 +1346,7 @@ export async function render(view, { id, query }) {
         if (disposed) return;
         playerEl.classList.remove("dictating");
         dictBtn.paint(false);
+        unArrow();
         follow = true;
         $("#back").hidden = true;
         capStart = -1;
@@ -1356,6 +1358,7 @@ export async function render(view, { id, query }) {
     playerEl.classList.add("dictating");
     $(".controls").before(dict.el);
     dictBtn.paint(true);
+    unArrow = arrowButtons($("#back5"), $("#fwd5")); // (back and forward step by the piece meanwhile)
   }
 
   tr.addEventListener("scroll", () => bubble.position(), { passive: true });

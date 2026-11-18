@@ -142,3 +142,19 @@ test("the owner's secret switch for prototype mode: five taps on the version (th
   assert.match(src("../../web/js/pages/settings.js"), /prototypeTaps\(\$\("#app-version"\), toast\)/);
   assert.match(src("../../mobile/src/js/pages/settings.js"), /prototypeTaps\(isWeb \? body\.querySelector\('\[data-find~="about"\] h2'\) : \$\("#app-version"\), toast\)/);
 });
+
+test("while typing, back and forward step by the piece (the owner, 2026-11-18), shown as plain arrows", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  const panel = src("../../web/js/components/dictation.js");
+  assert.match(panel, /show\(Date\.now\(\) - playedAt > BACK_AGAIN_MS \|\| k === 0 \? k : k - 1\);/, "this piece again, or the one before");
+  assert.match(panel, /if \(k \+ 1 < units\.length\) show\(k \+ 1\);\s+else finish\(\);/);
+  assert.match(panel, /export function arrowButtons\(backBtn, fwdBtn\)/);
+  const reels = src("../../web/js/pages/reels.js"), player = src("../../web/js/pages/player.js");
+  assert.match(reels, /\$\("#rc-back"\)\.onclick = \(\) => \(dict \? dict\.back\(\) :/);
+  assert.match(reels, /\$\("#rc-fwd"\)\.onclick = \(\) => \(dict \? dict\.next\(\) :/);
+  assert.match(reels, /unArrow = arrowButtons\(\$\("#rc-back"\), \$\("#rc-fwd"\)\);/);
+  assert.match(player, /\$\("#back5"\)\.onclick = \(\) => \(dict \? dict\.back\(\) :/);
+  assert.match(player, /\$\("#fwd5"\)\.onclick = \(\) => \(dict \? dict\.next\(\) :/);
+  assert.match(player, /unArrow = arrowButtons\(\$\("#back5"\), \$\("#fwd5"\)\);/);
+  assert.ok(/onClose: \(\) => \{[\s\S]{0,400}unArrow\(\);/.test(player), "the 5-second buttons come back when typing ends");
+});

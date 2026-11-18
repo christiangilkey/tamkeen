@@ -16,6 +16,7 @@ import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
 import { isLanguage, langAttrs, langInfo, studyLanguage, vocabFromDefinition } from "../languages.js";
 import { openModal } from "./modal.js";
+import { offerFix } from "./fixit.js";
 import { askAi, definerConfig, getDefinition, noAi } from "../define-service.js";
 import { PROVIDERS } from "../definer.js";
 import { downloadMeanings, installedMeanings } from "../meanings.js";
@@ -34,6 +35,8 @@ const browserRecognition = () => window.SpeechRecognition || window.webkitSpeech
 
 /** A way of hearing that isn't there on this device: the next one is tried. */
 class Unavailable extends Error {}
+/** The microphone isn't allowed: said, and the popup with the way to allow it follows (fixit.js). */
+const micRefused = () => Object.assign(new Unavailable(t("Tamkeen needs permission to use the microphone to hear you.")), { said: true, mic: true });
 
 /**
  * Open the box. `existing()` gives the saved words (an answer already among them says so instead of offering to
@@ -80,7 +83,11 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   async function byRecording() {
     if (!canRecord()) throw new Unavailable("no microphone");
     let ctl;
-    try { ctl = await listen({ onLevel: (v) => mic.style.setProperty("--level", String(v)) }); } catch (e) { throw new Error(e && e.message ? e.message : String(e)); }
+    try { ctl = await listen({ onLevel: (v) => mic.style.setProperty("--level", String(v)) }); } catch (e) {
+      const text = e && e.message ? e.message : String(e);
+      if (/permission/i.test(text)) throw micRefused(); // (the popup with the way to allow it follows)
+      throw new Error(text);
+    }
     active = { stop: (cancel) => (cancel ? ctl.cancel() : ctl.stop()) };
     micState("rec");
     say(t("Listening… press again when you're done."));
@@ -100,9 +107,17 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   }
 
   /** What was said, by the browser's own speech recognition. */
-  function byBrowser() {
+  async function byBrowser() {
     const R = browserRecognition();
-    if (!R) return Promise.reject(new Unavailable("none"));
+    if (!R) throw new Unavailable("none");
+    // The browser's own question about the microphone, asked first (the owner, 2026-11-18: "I don't get a request
+    // popup for mic"): its speech recognition alone can be refused with no question at all (the web app opened from a
+    // phone's home screen), and then nothing said why. The sound is switched straight off again.
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      micState("wait");
+      try { const stream = await navigator.mediaDevices.getUserMedia({ audio: true }); stream.getTracks().forEach((tr) => tr.stop()); }
+      catch (e) { if (e && (e.name === "NotAllowedError" || e.name === "SecurityError")) throw micRefused(); }
+    }
     return new Promise((resolve, reject) => {
       const r = new R();
       r.lang = ownTag();
@@ -123,7 +138,8 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
         active = null;
         const said = (finalText || partial).trim();
         if (said) resolve(said);
-        else if (["not-allowed", "service-not-allowed", "network", "audio-capture", "language-not-supported", "error"].includes(failed)) reject(new Unavailable(failed));
+        else if (failed === "not-allowed") reject(micRefused());
+        else if (["service-not-allowed", "network", "audio-capture", "language-not-supported", "error"].includes(failed)) reject(new Unavailable(failed));
         else resolve("");
       };
       active = { stop: (cancel) => { try { if (cancel) r.abort(); else r.stop(); } catch { /* ended */ } } };
@@ -149,12 +165,13 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     if (busy) { if (active) active.stop(false); return; }
     busy = true;
     stopSaying();
-    let heard = null, problem = "";
+    let heard = null, problem = "", micBlocked = false;
     try {
       for (const way of ways()) {
         try { heard = await BY[way](); break; } catch (e) {
           if (!(e instanceof Unavailable)) throw e;
           if (e.said) problem = e.message;  // (kept to say if nothing else can hear)
+          if (e.mic) micBlocked = true;
         }
       }
     } catch (e) {
@@ -171,6 +188,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
       // Nothing here can hear: the question is typed (on a phone, the keyboard's own microphone hears it).
       say(problem ? `${problem} ${t("Type your question instead.")}` : t("This device can't hear questions here. Type it instead: on a phone, your keyboard's microphone works."), problem ? "error" : "");
       input.focus();
+      if (micBlocked) offerFix("mic"); // where to allow it, and a button that asks again
       return;
     }
     if (!heard) { say(t("I didn't hear anything. Press the microphone and try again.")); return; }

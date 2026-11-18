@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	Balik: kining bahina pag-usab, o ang sa wala pa
+e4414200	Ang sunod nga bahin

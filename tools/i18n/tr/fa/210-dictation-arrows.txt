@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	برگشت: همین تکه دوباره، یا تکهٔ قبلی
+e4414200	تکهٔ بعدی

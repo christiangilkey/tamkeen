@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	पीछे: यही हिस्सा फिर से, या उससे पहले वाला
+e4414200	अगला हिस्सा

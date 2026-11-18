@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	ย้อนกลับ: ท่อนนี้อีกครั้ง หรือท่อนก่อนหน้า
+e4414200	ท่อนถัดไป

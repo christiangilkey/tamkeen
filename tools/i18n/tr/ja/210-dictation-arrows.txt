@@ -1,0 +1,3 @@
+# Type what you hear: the back and forward arrows while typing (components/dictation.js arrowButtons).
+2d41f8a1	戻る：この部分をもう一度、または前の部分
+e4414200	次の部分
