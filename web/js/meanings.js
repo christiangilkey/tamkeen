@@ -9,7 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonness, findIn, germanLookUp, lookUp, matchKey, respellings, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonestFirst, commonness, findIn, germanLookUp, lookUp, matchKey, respellings, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
@@ -160,6 +160,8 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
+  // The everyday meaning first, as Wiktionary's translation tables tell it (meaningdata.js commonestFirst).
+  found = commonestFirst(found, files, lang, spelled || ctx.word);
   const answer = answerFrom(found, spelled || ctx.word, lang, { quick, language, source: found.source });
   return spelled ? { ...answer, spelled } : answer;
 }

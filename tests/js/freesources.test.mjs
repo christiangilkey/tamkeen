@@ -79,7 +79,9 @@ test("JMdict: the Japanese words Wiktionary lacks, as a small second file on eve
   assert.ok(Object.keys(jm.words).length > 40000);
   assert.ok(!("common" in jm), "the build's working list taken out");
   for (const k of Object.keys(jm.words)) {
-    assert.ok(!wik.words[k] && !wik.forms[k], `${k} is in Wiktionary already`);
+    // (only words Wiktionary lacks, or has only as a name: かける is the name Kakeru there, the verb only under 掛ける)
+    const real = (w) => (wik.words[w] || []).some((g) => g[1] !== "name");
+    assert.ok(!real(k) && !(wik.forms[k] || []).some((f) => real(f[0])), `${k} is in Wiktionary already`);
     assert.ok(!/^[぀-ヿ]$/.test(k), `${k}: a single kana`);
   }
   assert.match(read("app/lexicon.py"), /"ja": \("mean-ja", "mean-jaj"\)/);

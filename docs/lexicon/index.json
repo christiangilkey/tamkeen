@@ -576,12 +576,12 @@
   },
   "mean-jaj": {
    "file": "ja-jmdict-meanings.json.gz",
-   "bytes": 1515682,
-   "sha256": "32d26eef6af5d3b8e603bcaab841f519de23cc67e1e6fd26c410e4f3dd9bdac1",
+   "bytes": 1583676,
+   "sha256": "ef8a554a99914c22cda374ba5b9ef26f4be3c491bbf802a7f18ad674d8822618",
    "title": "Japanese meanings (JMdict)",
    "db": "JMdict (EDRDG)",
    "license": "CC-BY-SA-4.0",
-   "words": 57212,
+   "words": 60221,
    "forms": 0
   },
   "mean-ko": {

@@ -50,7 +50,13 @@ def pos_of(texts: list[str]) -> str:
 
 def build(source: Path) -> None:
     wik = json.loads(gzip.decompress((OUT / "ja-meanings.json.gz").read_bytes()))
-    have = set(wik["words"]) | set(wik["forms"])
+    # (a word Wiktionary has only as a name counts as missing: かける is a male given name there, and the verb is only
+    # under its kanji, 掛ける, so the word as written in kana found nothing better)
+    real = lambda k: any(g[1] != "name" for g in wik["words"].get(k, []))
+    # (and a form that leads only to names: かける is listed as a spelling of 翔, the name Kakeru)
+    have = {k for k in wik["words"] if real(k)} | {k for k, rows in wik["forms"].items() if any(real(r[0]) for r in rows)}
+    names_only = ({k for k, groups in wik["words"].items() if groups and not real(k)}
+                  | {k for k in wik["forms"] if k not in have})
     words: dict[str, list] = {}
     commons: list[str] = []  # (for tools/trim_jmdict.mjs, which takes this list out again)
     entries = 0
@@ -90,10 +96,15 @@ def build(source: Path) -> None:
             reading = rebs[0][0] if rebs else ""
             common = kanji_common or any(c for _r, c in rebs)
             keys = [k for k in kebs if k]
-            if usually_kana or not keys:
-                for reb, common in rebs:
-                    if reb and (len(reb) >= 3 or (len(reb) == 2 and (common or kanji_common))):
+            kana_ok = usually_kana or not keys
+            for reb, common_reb in rebs:
+                if not reb:
+                    continue
+                if kana_ok:
+                    if len(reb) >= 3 or (len(reb) == 2 and (common_reb or kanji_common)):
                         keys.append(reb)
+                elif reb in names_only and (common_reb or kanji_common):
+                    keys.append(reb)  # (a common word's kana spelling, which Wiktionary has only as a name)
             for k in keys:
                 if k in have or k in words or not re.search(r"[\w]", k):
                     continue
