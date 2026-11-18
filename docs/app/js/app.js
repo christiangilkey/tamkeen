@@ -947,10 +947,16 @@ async function refreshMediaToken() {
 async function videoUrl(ep) {
   if (!settings.signed_in) throw new Error("Sign in with Google (Settings) to watch videos stored in your Drive.");
   if (!ep.remote_audio) throw new Error("This video is still uploading from your computer.");
-  if (isWeb) { // a browser can't add the sign-in to a video's address, so the video is fetched first
+  if (isWeb) { // a browser can't add the sign-in to a video's address
     if (objectUrls.has(ep.uid)) return objectUrls.get(ep.uid);
     const id = await driveFileId(ep.audio_url.slice("drive:".length));
     if (!id) throw new Error("The video isn't in your Google Drive any more.");
+    // The offline helper (sw.js) adds it and streams the file a piece at a time, as the phones do: a whole
+    // audiobook fetched first never started (the owner, 2026-11-18: "My audio book is not playing at all").
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      await accessToken(); // (signed out of Google here, or its hour is up: say so now, not as a silent player)
+      return new URL(`_drive/${encodeURIComponent(id)}`, document.baseURI).href;
+    }
     toast("Loading video…");
     const url = URL.createObjectURL(await drive.downloadBlob(id));
     objectUrls.set(ep.uid, url);
@@ -1485,6 +1491,14 @@ async function boot() {
   mountXpBadge(document.querySelector(".topbar"), document.querySelector(".topbar .top-help")); // the game's level and XP (game/xpbadge.js)
   startBadge();
   startChatNotices();
+  // The web app's own files from Drive stream through the offline helper (sw.js "_drive/"), which asks this page for
+  // the Google sign-in (it can't sign in itself). `fresh`: Google turned the one it had down.
+  if (isWeb && navigator.serviceWorker) {
+    navigator.serviceWorker.addEventListener("message", async (e) => {
+      if (!e.data || e.data.tamkeen !== "drive-token" || !e.ports[0]) return;
+      try { e.ports[0].postMessage({ token: await accessToken(!!e.data.fresh) }); } catch { e.ports[0].postMessage({ token: "" }); }
+    });
+  }
   setTimeout(() => checkForUpdate(), 3000);
   startAppBadge();
   // YouTube links tapped inside the app stay in the app (see openYouTubeLink).

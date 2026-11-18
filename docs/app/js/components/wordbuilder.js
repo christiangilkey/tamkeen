@@ -913,7 +913,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     for (const [word, several] of tries) {
       try {
         const d = await ask(word, several);
-        if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry" };
+        if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "" };
       } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
     }
     if (phrase && byWords) {
@@ -971,8 +971,15 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           r.meaning = fillIn(r.meaning, d.meaning);
           r.meaningPos = d.pos;
           r.meaningFrom = d.from;
+          // Typed without its accents ("vacio"): the card takes the dictionary's spelling (meanings.js respellings).
+          if (d.spelled && d.spelled !== r.text.trim()) {
+            r.text = d.spelled;
+            const box = r.el && r.el.querySelector(".cb-word");
+            if (box) box.value = d.spelled;
+          }
           setNote(r, "meaning", d.from === "words"
-            ? t("The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.") : "");
+            ? t("The dictionary has no entry for the whole phrase, so this is word by word. The phrase may mean something else: change it if you know.")
+            : d.spelled ? t("Spelled “{0}” in the dictionary, so the card is spelled that way too.", d.spelled) : "");
         } catch (err) {
           noDictionary = !!err && err.message === NO_MEANINGS;
           dictionaryFailed = noDictionary

@@ -614,13 +614,23 @@ const routes = [
     const limit = Number(q.get("limit") || 100);
     return { total: eps.length, items: eps.slice(offset, offset + limit).map(episodeOut), counts, current: null };
   }],
-  ["POST", /^\/episodes\/transcribe$/, (m, q, body) => {
+  ["POST", /^\/episodes\/transcribe$/, async (m, q, body) => {
     const wanted = (body.ids || []).filter((id) => { const e = episodeOf(id); return e && !e.transcript_rev; });
     // Bisaya is written only by the computer, with its Bisaya model: no cloud provider knows the
     // language (they hear it as Tagalog, or fail). Queued for the computer whatever is set here.
     const bisaya = studyLanguage() === "ceb";
-    // With a cloud provider set up (Settings), the phone transcribes them itself, starting now.
-    if (cloud.cloudOn() && !bisaya) return { queued: cloud.enqueue(wanted), here: true };
+    // With a cloud provider set up (Settings), the phone transcribes them itself, starting now. A reel goes to the
+    // reels' own listener (reels-phone.js), which fetches its sound from Instagram first: its address is a page, and
+    // sent as it was the provider answered "could not process file" (the owner, 2026-11-18: Retry on a failed reel).
+    if (cloud.cloudOn() && !bisaya) {
+      const reels = wanted.filter((id) => episodeOf(id).audio_type === "video/instagram");
+      const rest = wanted.filter((id) => !reels.includes(id));
+      if (reels.length) {
+        await phoneReels.startSelected(reels.map((id) => episodeOf(id).guid)); // (a refusal, e.g. Instagram busy already, is the toast)
+        for (const id of reels) cloud.cancel(id); // the old "Failed" from the queue goes; the reel's words replace it
+      }
+      return { queued: [...reels, ...cloud.enqueue(rest)], here: true };
+    }
     for (const id of wanted) Object.assign(episodeOf(id), { transcribe_requested_at: now(), updated_at: now() });
     if (wanted.length) changed();
     return { queued: wanted, note: "Your computer will transcribe these the next time it syncs.", ...(bisaya ? { computer_only: "ceb" } : {}) };

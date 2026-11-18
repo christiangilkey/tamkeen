@@ -153,11 +153,11 @@ export async function render(view, { query }) {
       <input type="search" placeholder="Search YouTube" aria-label="Search YouTube" style="flex:1" value="${esc(q)}">
       <button class="primary" type="submit">Search</button>
     </form>
-    ${topic ? `<div class="tabs web-yt-topics" style="flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0">${topicsFor(lang).map((t) =>
+    ${topic ? `<div class="tabs web-yt-topics" style="flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:12px 0 0">${topicsFor(lang).map((t) =>
       `<button type="button" data-topic="${t.key}" class="${t.key === topic.key ? "active" : ""}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px">${icon(t.icon, 16)}<span>${esc(t.label.replace("{0}", name))}</span></button>`).join("")}</div>` : ""}
-    <label class="row small" style="gap:8px;align-items:center;margin:0"${given ? " hidden" : ""}>
+    <label class="row small" style="gap:8px;align-items:center"${given ? " hidden" : ""}>
       <input type="checkbox" class="web-yt-handmade"${handmade ? " checked" : ""}> Only videos with handmade subtitles</label>
-    <p class="small muted" style="margin:0">${q ? "" : given ? "This channel's videos." : topic.key === "popular" ? "Popular this week."
+    <p class="small muted" style="margin:8px 0 0">${q ? "" : given ? "This channel's videos." : topic.key === "popular" ? "Popular this week."
       : (topic.within || TOPIC_WITHIN[lang]) === THIS_YEAR ? "Most watched this year." : "Most watched this month."} Tap a video to watch it with its captions as words you can tap. It needs captions.</p>
     <div class="web-yt-list stack"><p class="muted">Loading videos…</p></div>
   </div>`;

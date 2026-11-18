@@ -171,9 +171,12 @@
 .reel-controls { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 4px 8px calc(6px + env(safe-area-inset-bottom));
   background: #0b0b0b; border-top: 1px solid #2c2c2c; color: #f2f1ec; }
 .rc-seekrow { display: flex; align-items: center; gap: 6px; }
-.rc-btnrow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 6px; }
-.rc-mid { display: flex; align-items: center; gap: 6px; }
-.rc-side { display: flex; align-items: center; min-width: 0; }
+/* (The left end holds up to four switches: lookup, translation, vowels, typing. Its column takes the room they need,
+   so they never run under Back 5 s, and the three middle buttons sit in the middle of what is left.) */
+.rc-btnrow { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; }
+.rc-mid { display: flex; align-items: center; gap: 6px; justify-self: center; }
+.rc-side { display: flex; align-items: center; gap: 6px; min-width: 0; }
+#rc-left button { min-width: 36px; padding: 2px 6px; }
 #rc-right { justify-content: flex-end; }
 .reel-controls button { flex: none; min-height: 34px; padding: 2px 8px; font-size: 12px; white-space: nowrap; }
 .reel-controls button:not(.primary) { background: #1d1d1d; border-color: #383838; color: inherit; }
