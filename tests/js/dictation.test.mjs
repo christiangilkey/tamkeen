@@ -127,8 +127,7 @@ test("every player with sound offers it", () => {
 test("held back from v0.61.0: hidden everywhere until it is released or switched on on the device", () => {
   const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
   const panel = src("../../web/js/components/dictation.js");
-  assert.match(panel, /export const DICTATION_RELEASED = (true|false);/);
-  assert.match(panel, /localStorage\.getItem\("tamkeenTryDictation"\) === "1"/);
+  assert.match(panel, /export const dictationOn = \(\) => feature\("dictation"\);/, "behind prototype mode (prototype.js)");
   const player = src("../../web/js/pages/player.js");
   assert.match(player, /const dictShown = dictationOn\(\);/);
   assert.match(player, /if \(dictShown\) \$\("#font-down"\)\.before\(dictBtn\)/);
@@ -138,9 +137,8 @@ test("held back from v0.61.0: hidden everywhere until it is released or switched
   assert.match(src("../../web/js/components/coursepanel.js"), /dictBtn\.hidden = !dictationOn\(\) \|\|/);
 });
 
-test("the owner's private test switch: five taps on the version (the About heading in the web app)", () => {
+test("the owner's secret switch for prototype mode: five taps on the version (the About heading in the web app)", () => {
   const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
-  assert.match(src("../../web/js/components/dictation.js"), /export function dictationTaps\(el\) \{\s+if \(DICTATION_RELEASED \|\| !el\) return;/);
-  assert.match(src("../../web/js/pages/settings.js"), /dictationTaps\(\$\("#app-version"\)\)/);
-  assert.match(src("../../mobile/src/js/pages/settings.js"), /dictationTaps\(isWeb \? body\.querySelector\('\[data-find~="about"\] h2'\) : \$\("#app-version"\)\)/);
+  assert.match(src("../../web/js/pages/settings.js"), /prototypeTaps\(\$\("#app-version"\), toast\)/);
+  assert.match(src("../../mobile/src/js/pages/settings.js"), /prototypeTaps\(isWeb \? body\.querySelector\('\[data-find~="about"\] h2'\) : \$\("#app-version"\), toast\)/);
 });

@@ -21,7 +21,7 @@ import { commonWordsButton } from "../commonwords.js";
 import { accountSection } from "../components/account.js";
 import { ankiSyncPanel } from "../components/ankisync.js";
 import { gameOn, gameSwitch } from "../components/gameswitch.js";
-import { dictationTaps } from "../components/dictation.js";
+import { prototypeTaps } from "../prototype.js";
 import { resetSection } from "../components/resetapp.js";
 import { licensesFold } from "../components/licenses.js";
 import { contactCard } from "../components/contact.js";
@@ -396,7 +396,7 @@ function data(body) {
   resetSection($("#reset-app"), parkAll);
   import("../version.js").then(({ APP_VERSION }) => { $("#app-version").textContent = `Version ${APP_VERSION}`; }).catch(() => {});
   // The owner's private test switch (components/dictation.js): the version, or the About heading in the web app.
-  dictationTaps(isWeb ? body.querySelector('[data-find~="about"] h2') : $("#app-version"));
+  prototypeTaps(isWeb ? body.querySelector('[data-find~="about"] h2') : $("#app-version"), toast); // (the owner's secret switch for prototype mode: prototype.js)
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   for (const b of document.querySelectorAll("[data-whatis]")) b.onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs(b.dataset.whatis));
   $("#check-updates").onclick = async () => {
