@@ -23,7 +23,7 @@ import {
   LAST_WORDS, MIN_SET, battlePicks, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setBattlePicks, setWords,
   weekNumber, weeklyRule,
 } from "./rules.js";
-import { WORD_MODES, fighters, fits, rentalPool, teamSize, wildTeam } from "./battle.js";
+import { WORD_MODES, fighters, friendTeam, rentalPool, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
 import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
@@ -159,6 +159,45 @@ export function challengeChoice(friend, name, same) {
   });
 }
 
+/** Where the questions come from, in a few words (wordChoice's answer `w`; `n`: how many folders are picked). */
+const fromWords = (w, n) => (w.all ? t("All {0} words", fmt(w.questions))
+  : w.set === "due" && !w.short ? t("{0} due for review", fmt(w.questions))
+  : w.set === "folder" && !w.short ? (n > 1 ? t("{0} in the folders", fmt(w.questions)) : t("{0} in the folder", fmt(w.questions)))
+  : t("Newest {0}", fmt(w.questions)));
+
+/** What the games ask now, for the Words tile on Home: { text, own } (`own`: the folders' names, the learner's
+ * own words, not to be translated). Resolves to null when the words can't be loaded. */
+export async function wordChoiceLine(game = getGame()) {
+  let vocab;
+  try { vocab = await loadWords(game); } catch { return null; }
+  const meanings = quizzable(vocab).length;
+  const picks = pickList(livePicks(battlePicks(game), folderList));
+  const due = vocab.reviewDue || null;
+  const set = game.battleMode === "due" || game.battleMode === "folder";
+  const size = set ? setWords(vocab, game.battleMode, { due, folder: picks }).length : 0;
+  const w = wordChoice(game.battleMode, { meanings, scale: cardScale(game.cards || 0), setSize: size });
+  if (w.set === "folder" && !w.short) {
+    const nameOf = (uid) => (folderList.find((f) => f.uid === uid) || {}).name;
+    return { text: picksName(picks, nameOf, t("Not in a folder")), own: true };
+  }
+  return { text: fromWords(w, picks.length), own: false };
+}
+
+/** The games' words, in a box of their own (the Words tile on Home; the owner: "the words folder picker should be
+ * here as a button", one choice for battles and fishing). `changed()` runs after a change. */
+export function openWordChoice({ changed = () => {} } = {}) {
+  const game = getGame();
+  const m = openModal({ title: t("Game words"), cls: "bt-words-back" });
+  const wait = h(`<p class="gs-state muted">Loading your words…</p>`);
+  m.body.append(wait);
+  loadWords(game).then((vocab) => {
+    if (!wait.isConnected) return;
+    wait.replaceWith(wordModePicker(game, changed, { vocab, folders: folderList }),
+      h(`<p class="bt-words-note muted">Battles and fishing both ask these words.</p>`));
+  }).catch(() => { wait.textContent = t("Your words couldn't be loaded. Try again."); });
+  return m;
+}
+
 /** The choice of words for battles: a switch of four (the newest 100, all-time, the words due for review in the
  * flashcards, folders'), and what the one chosen means, in facts that keep their place. The folders picked (one or
  * several, and "Not in a folder" among them) count once MIN_SET of their words together have a meaning (the owner:
@@ -234,10 +273,7 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
       pick.onclick = pickFolder;
       parts.push(pick);
     }
-    const from = w.all ? t("All {0} words", fmt(w.questions))
-      : w.set === "due" && !w.short ? t("{0} due for review", fmt(w.questions))
-      : w.set === "folder" && !w.short ? (picked().length > 1 ? t("{0} in the folders", fmt(w.questions)) : t("{0} in the folder", fmt(w.questions)))
-      : t("Newest {0}", fmt(w.questions));
+    const from = fromWords(w, picked().length);
     parts.push(factCells([
       fact("Questions from", esc(from)),
       ...(battle ? [fact("Strength", w.all ? `×${w.strength.toFixed(2)}` : t("Same for all"))] : []), // (how strong creatures fight)
@@ -253,8 +289,7 @@ export function wordModePicker(game, onChange = () => {}, { vocab = [], folders 
         : t("Choose a folder with at least {0} words.", fmt(MIN_SET));
       parts.push(line);
     }
-    const both = h(`<p class="bt-words-note muted">Battles and fishing both ask these words.</p>`);
-    parts.push(both);
+    if (!battle) parts.push(h(`<p class="bt-words-note muted">Battles and fishing both ask these words.</p>`));
     box.replaceChildren(...parts);
   };
   paint();
@@ -301,7 +336,6 @@ function battleBlocks(game, vocab, ctx) {
     teamBlock(game, ctx.go),
     quickBlock(game, vocab, ctx.close),
     gymsBlock(game, vocab, ctx.close),
-    wordsBlock(game, vocab),
     recordBlock(game),
   ];
 }
@@ -426,12 +460,6 @@ function rentalBox(game, vocab, close) {
 
 // ---------- words and record ----------
 
-function wordsBlock(game, vocab) {
-  const b = block("Words");
-  b.append(wordModePicker(game, () => {}, { vocab, folders: folderList }));
-  return b;
-}
-
 /** Your record, like a trainer's card: skill, wins, how many answers were right lately, words known. */
 function recordBlock(game) {
   const acc = retention(game);
@@ -500,7 +528,7 @@ export async function startFriendBattle(friend, row, { words = null, folder = nu
   if (!set && !pickQuestion(game, vocab)) { toast("Your words need meanings before they can be asked. Fill some in on the Vocab page."); return; }
   const mineIdx = teamOf(game, rule);
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
-  const theirTeam = ((profile && profile.team) || []).filter((g) => fits(g, rule)).slice(0, teamSize(rule));
+  const theirTeam = friendTeam(profile, rule);
   if (!theirTeam.length) { toast(`${rivalName} has no creatures that fit this week's rule (${rule.name}).`); return; }
   const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule });
   const theirs = fighters(null, theirTeam, { rule });

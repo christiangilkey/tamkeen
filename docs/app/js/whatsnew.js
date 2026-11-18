@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.62.0",
+  "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card");
+notes("0.62.0",
+  "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too");
+notes("0.62.0",
+  "The sound volume sliders are now at the top of Settings");
+notes("0.62.0",
+  "Library → Lessons is now called My files");
+notes("0.62.0",
+  "The games' words have their own button on Home, beside Fishing");
 notes("0.61.0",
   "One word list for every game: the words you pick for battles now fill the fishing pond too");
 notes("0.61.0",

@@ -31,6 +31,7 @@ import { VIEW_DEFAULTS, changedView, folderCount, narrowed, sortFolders, stepFol
 import { firstFolder, hasFolder, inPicks, livePicks, pickList, picksName, togglePick } from "../review/folderpicks.js";
 import { firstVisitTour } from "../components/tour.js";
 import { openWordBuilder } from "../components/wordbuilder.js";
+import { openVoiceAsk } from "../components/voiceask.js";
 import { openWordEditor, vocabIcon } from "../components/wordeditor.js";
 import { offerFix } from "../components/fixit.js";
 
@@ -177,6 +178,7 @@ export async function render(view) {
       <div class="vocab-actions">
         <span class="va-send" id="send-slot"></span>
         <button type="button" class="ghost va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
+        <button type="button" class="ghost va-mic" id="ask-voice" title="Ask by voice: “How do I say colorful in Spanish?”, then “add it”" aria-label="Ask by voice">${icon("mic", 20)}</button>
       </div>
       <div class="progress-block" id="progress" hidden>
         <div id="longgoal"></div>
@@ -1029,8 +1031,10 @@ export async function render(view) {
   // "Add words": the card builder (components/wordbuilder.js). The open folder's cards go into it; the
   // new cards come first in the list, lit up for a moment, whatever it is sorted by. "Scan words" opens
   // it on Scan (a photo of a list, components/wordscan.js).
-  const openAdd = (mode = "one") => openWordBuilder({
+  const openAdd = (mode = "one", { start = null, addNow = false, added = null } = {}) => openWordBuilder({
     mode,
+    start,
+    addNow,
     existing: () => all,
     folders,
     folder: firstFolder(st.folder),  // (several open: the first; the builder puts new cards in one)
@@ -1043,9 +1047,16 @@ export async function render(view) {
     onAdded: (cards) => {
       justAdded = new Set(cards.map((v) => v.id));
       if (view.isConnected) load().then(() => list.firstElementChild && list.firstElementChild.scrollIntoView({ block: "nearest", behavior: "smooth" }), () => {});
+      if (added) added(cards);
     },
   });
   $("#add-words").onclick = () => openAdd();
+  // The microphone beside it: "How do I say colorful in Spanish?", then "add it" (components/voiceask.js). Its cards
+  // are made by Add words itself, straight away.
+  $("#ask-voice").onclick = () => openVoiceAsk({
+    existing: () => all,
+    addCards: (start, added) => openAdd("one", { start, addNow: true, added }),
+  });
   // The ⋯ menu: the things used now and then.
   $("#more").onclick = (e) => {
     const r = e.currentTarget.getBoundingClientRect();

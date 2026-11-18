@@ -221,7 +221,12 @@ const objectUrls = new Map();
  * page: its cards fall back to their voice when the original can't be played either). */
 export async function audioUrl(uid, { quiet = false } = {}) {
   const ep = lib.episodes.find((e) => e.uid === uid);
-  if (ep && (ep.audio_url || "").startsWith("drive:")) return videoUrl(ep);
+  if (ep && (ep.audio_url || "").startsWith("drive:")) {
+    // The web app would fetch the whole video from Drive for one word (the owner, 2026-11-18: "Loading video…" on
+    // a card's Word and Sentence). A card says it in its voice instead, unless the video is already loaded here.
+    if (quiet && isWeb && !objectUrls.has(uid)) return "";
+    return videoUrl(ep);
+  }
   if (ep && ep.remote_audio && settings.signed_in) {
     if (objectUrls.has(uid)) return objectUrls.get(uid);
     try {
@@ -284,10 +289,15 @@ export async function goToGoogleSignIn({ quiet = false, renew = false, tasks = f
   const state = randomHex(16);
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(nonce));
   const hashed = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+  const trip = JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks || calendar, then, at: Date.now() });
   try {
-    sessionStorage.setItem(WEB_SIGNIN_KEY, JSON.stringify({ nonce, state, back: location.hash || "#/", quiet, renew: renew || tasks || calendar, then }));
+    sessionStorage.setItem(WEB_SIGNIN_KEY, trip);
     if (quiet) localStorage.setItem(QUIET_TRY_KEY, String(Date.now()));
   } catch { if (quiet) return false; }
+  // Kept in the app's storage too: an app opened from an Android home screen can come back from Google in a
+  // fresh window, where the tab's own storage is empty, and the trip would look like one never asked for (the
+  // owner, 2026-11-18: "Sign-in was cancelled." twice each time the web app opened). keptTrip() reads it.
+  try { localStorage.setItem(WEB_SIGNIN_KEY, trip); } catch { /* storage off */ }
   const q = new URLSearchParams({
     client_id: GOOGLE_WEB_CLIENT_ID, response_type: "id_token token",
     scope: `openid email ${DRIVE_SCOPE}${tasks ? ` ${TASKS_SCOPE}` : ""}${calendar ? ` ${CALENDAR_SCOPE}` : ""}`,
@@ -396,16 +406,29 @@ export function idTokenEmail(idToken) {
   } catch { return ""; }
 }
 
+/** The trip to Google this answer belongs to ({nonce, state, back, quiet, renew, then}), or null: from the tab's
+ *  own storage, else from the app's (a fresh window after Google, on an Android home-screen app), when it is
+ *  under 15 minutes old and its `state` matches. Both copies are removed: an answer is used once. */
+function keptTrip(state) {
+  let tab = null, app = null;
+  try { tab = JSON.parse(sessionStorage.getItem(WEB_SIGNIN_KEY) || "null"); sessionStorage.removeItem(WEB_SIGNIN_KEY); } catch { /* storage off */ }
+  try { app = JSON.parse(localStorage.getItem(WEB_SIGNIN_KEY) || "null"); localStorage.removeItem(WEB_SIGNIN_KEY); } catch { /* storage off */ }
+  if (tab) return tab;
+  return app && app.state === state && Date.now() - (Number(app.at) || 0) < 15 * 60 * 1000 ? app : null;
+}
+
 /** Back from Google's sign-in page (the address ends "#id_token=…&access_token=…" or "#error=…"): put
  *  the screen the learner was on back, keep the Drive pass and sync, and sign in to Friends. A quiet
  *  renewal (renewQuietly) says nothing: syncing just carries on, or the "Reconnect Google" button shows. */
 async function finishWebSignIn() {
   const answer = new URLSearchParams(location.hash.slice(1));
-  let kept = null;
-  try { kept = JSON.parse(sessionStorage.getItem(WEB_SIGNIN_KEY) || "null"); sessionStorage.removeItem(WEB_SIGNIN_KEY); } catch { /* storage off */ }
+  const kept = keptTrip(answer.get("state"));
   history.replaceState(null, "", location.pathname + location.search + ((kept && kept.back) || "#/"));
   const quiet = !!(kept && kept.quiet);
   if (quiet && (answer.get("error") || answer.get("state") !== kept.state)) { quietFailed(); return; } // Google wants a tap
+  // A "no" from Google for a trip this app has no record of: nothing the learner asked for here, so nothing to
+  // say (the "Reconnect Google" button shows when the pass has run out). Never a red message on opening the app.
+  if (answer.get("error") && !kept) { if (settings.signed_in) quietFailed(); return; }
   if (answer.get("error")) { toast(answer.get("error") === "access_denied" ? "Sign-in was cancelled." : "Google didn't sign you in.", { error: true }); return; }
   if (!kept || answer.get("state") !== kept.state) { toast("That sign-in came back without being asked for here. Try again.", { error: true }); return; }
   const renewing = quiet || !!kept.renew; // renewing the Drive pass (or allowing Google Tasks), not "Sign in"

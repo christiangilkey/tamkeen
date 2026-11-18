@@ -1,5 +1,6 @@
 // The creature's home card at the bottom of Home: a small living scene, and under it a thin level bar,
-// two currencies and the goal streak, and four big tiles (Battle, Creatures, Shop, Garden).
+// two currencies and the goal streak, and six big tiles: Battle, Creatures, Shop, Garden, then Fishing and Words (which
+// words every game asks) side by side, each with a short line under its word.
 //
 // It is learnt by playing rather than by reading (the owner, 2026-11-06): the day's goal is a ring on the
 // ground around the creature that fills as you study, its hearts float over its head, buildings glow when
@@ -16,7 +17,7 @@ import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES
 import { automated, collect, garden, hearts, tick as gardenTick } from "./idle.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
-import { badgeToast, openBattleMenu } from "./battle-ui.js";
+import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
 import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./rules.js";
 import { FRAME, animAt, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
@@ -66,6 +67,10 @@ function holdable(btn, onTap, onHold) {
 const tile = (id, pic, word) => `<button type="button" class="hud-tile" id="g-${id}">${icon(pic, 32)}<span class="tile-word">${word}</span>`
   + `<span class="tile-dot" hidden></span><span class="tile-plus" hidden></span></button>`;
 
+/** A tile the same size as those, with a short line under its word (how many fish wait; which words the games ask). */
+const subTile = (id, pic, word) => `<button type="button" class="hud-tile has-sub" id="g-${id}">${icon(pic, 32)}<span class="tile-text">`
+  + `<span class="tile-word">${word}</span><span class="tile-sub" hidden></span></span></button>`;
+
 /** Build the habitat section. Returns {el, dispose}. */
 export function habitat() {
   const game = getGame();
@@ -90,8 +95,7 @@ export function habitat() {
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
         ${tile("shop", "nav_shop", "Shop")}${tile("garden", "structure/word_sprout_2", "Garden")}
-        <button type="button" class="hud-tile hud-wide" id="g-fishing">${icon("fishing", 32)}<span class="hud-wide-text"><span class="tile-word">Fishing</span>
-          <span class="tile-sub" hidden></span></span></button>
+        ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
           <span class="hud-aq-tank"></span>
@@ -268,6 +272,19 @@ export function habitat() {
   }
   $("#g-fishing").onclick = () => openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
   setTimeout(paintFishing, 600);
+  // Words: the one choice of words for battles and fishing (the newest, all, the ones due, or folders). Its tile says
+  // what is chosen now; a change there changes how many fish are waiting too.
+  function paintWords() {
+    wordChoiceLine(game).then((line) => {
+      if (disposed || !line) return;
+      const sub = $("#g-words .tile-sub");
+      sub.textContent = line.text;
+      if (line.own) sub.setAttribute("translate", "no"); else sub.removeAttribute("translate");
+      sub.hidden = !line.text;
+    }).catch(() => {});
+  }
+  $("#g-words").onclick = () => openWordChoice({ changed: () => { paintWords(); paintFishing(); } });
+  setTimeout(paintWords, 700);
   $("#g-goal").onclick = () => goalBox();
   $(".habitat-name").onclick = () => nameBox();
 

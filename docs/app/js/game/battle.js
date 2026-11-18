@@ -70,7 +70,7 @@ export function fits(g, rule) {
 /** What a player shares with friends: the team they may challenge (with its chosen moves), how
  * accurately the player answers their own words, and this week's numbers. No words are shared. */
 export function publicProfile(state, rule, now = new Date()) {
-  const team = eligible(state, rule).slice(0, teamSize(rule)).map((i) => {
+  const team = ruleTeam(state, rule).slice(0, teamSize(rule)).map((i) => {
     const g = state.roster[i];
     return { seed: g.seed, type: g.type, growth: Math.round(g.growth * 1000) / 1000,
              variant: g.variant || null, partnerHue: g.partnerHue, name: (g.name || "").slice(0, 20), equipped: g.equipped || {},
@@ -138,6 +138,24 @@ export function eligible(state, rule = null) {
 }
 
 export const teamSize = (rule) => (rule && rule.team) || TEAM_SIZE;
+
+/** The creatures that battle under the week's rule: those of its elements; a player with none of them brings their
+ * usual creatures instead, so the element limit never shuts anyone out of friend battles for a week (it did: most
+ * players have one or two creatures, and "They haven't opened the game online yet" was all a friend saw). */
+export function ruleTeam(state, rule) {
+  const fit = eligible(state, rule);
+  return fit.length ? fit : eligible(state, null);
+}
+
+/** A friend's team for the week's rule, from their shared (checked) profile: the same bend as ruleTeam, and when their
+ * app shared no team at all this week (an older app keeps to the elements), the creature they show on their bar. */
+export function friendTeam(profile, rule) {
+  const team = (profile && Array.isArray(profile.team)) ? profile.team : [];
+  const fit = team.filter((g) => fits(g, rule));
+  const any = fit.length ? fit : team.filter((g) => fits(g, null));
+  const out = any.length ? any : [profile && profile.showcase].filter((g) => fits(g, null));
+  return out.slice(0, teamSize(rule));
+}
 
 function grown(seed, growth) {
   const g = newGenome(seed);

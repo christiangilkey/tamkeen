@@ -11,6 +11,7 @@ import { icon } from "../icons.js";
 import { t } from "../i18n.js";
 import { openModal } from "./modal.js";
 import { pageGuide } from "./tour.js";
+import { soundVolume } from "./soundvolume.js";
 
 /** The sections, in the order a learner thinks of them. */
 export const SECTIONS = [
@@ -75,7 +76,6 @@ export const FINDS = [
   { s: "look", id: "theme", label: "Theme", words: "dark light night colours", on: ["desktop", "android", "ios"] }, // (the web app is always dark)
   { s: "look", id: "textsize", label: "Text size", words: "font bigger smaller larger" },
   { s: "look", id: "haptics", label: "Vibration", words: "haptics buzz vibrate", on: ["vibrates"] }, // (no iPhone or computer can)
-  { s: "look", id: "volume", label: "Sound volume", words: "volume loud louder quiet quieter softer level sounds voice audio chimes mute" },
   { s: "look", id: "game", label: "Game features", words: "creature rewards chimes sounds" },
   { s: "look", id: "sound", label: "Sound effects", words: "sounds chimes jingles mute silent quiet noise audio sfx" },
   { s: "controller", id: "padconnect", label: "Connect a game controller", words: "gamepad xbox playstation switch bluetooth usb joystick" },
@@ -130,6 +130,10 @@ function paintSummary(el, parts) {
   el.innerHTML = list.map((p) => `<span class="${p.warn ? "set-warn" : ""}">${esc(p.text)}</span>`).join(`<span aria-hidden="true"> · </span>`);
 }
 
+// The sound volume sliders are on the home screen itself, under the search (the owner, 2026-11-17: "the app sounds
+// volume bar should go on the top here right under search settings"). Searching for them keeps them in view and rings them.
+const VOLUME_WORDS = "sound volume loud louder quiet quieter softer level sounds voice audio chimes mute";
+
 /**
  * The home screen. `summaries` = { sectionId: () => parts or a promise of them } (what the section
  * is set to now); `abouts` = { sectionId: text } replaces a section's own line on this device;
@@ -142,12 +146,15 @@ export function settingsHome(view, { summaries = {}, abouts = {}, finds = [], hi
     <div class="set-head"><h1>Settings</h1></div>
     <label class="set-search">${icon("search", 18)}
       <input type="search" id="set-find" placeholder="Search settings" aria-label="Search settings" autocomplete="off" spellcheck="false"></label>
+    <section class="card set-card set-volume" id="sound-volume"></section>
     <nav class="card set-list" aria-label="Settings">${shown.map((x) =>
       rowHtml({ href: `#/settings?s=${x.id}`, ic: x.icon, name: x.title, sum: abouts[x.id] || x.about, s: x.id })).join("")}</nav>
     <div class="card set-list set-results" hidden></div>
     <p class="set-none muted" hidden>Nothing found. Try another word.</p>
   </div>`);
   view.append(page);
+  const volume = page.querySelector("#sound-volume");
+  soundVolume(volume, { short: true });
   pageGuide("settings", page, [ // the "?" in the top bar
     { target: ".set-search", title: "Find a setting", text: "Type a word (voice, dark, key…) to go straight to the setting." },
     { target: "nav.set-list", title: "The sections", text: "Settings are grouped: your languages, how words are explained, listening, card voices, the look, your account… Under each name, what it is set to now." },
@@ -167,6 +174,8 @@ export function settingsHome(view, { summaries = {}, abouts = {}, finds = [], hi
   input.addEventListener("input", () => {
     const words = fold(input.value).split(/\s+/).filter(Boolean);
     list.hidden = words.length > 0;
+    const forVolume = words.length > 0 && words.every((w) => fold([VOLUME_WORDS, t("Sound volume")].join(" ")).includes(w));
+    volume.classList.toggle("set-found", forVolume);
     if (!words.length) { results.hidden = true; none.hidden = true; return; }
     const hits = finds.filter((f) => {
       const sec = sectionInfo(f.s);
@@ -177,7 +186,7 @@ export function settingsHome(view, { summaries = {}, abouts = {}, finds = [], hi
     results.innerHTML = hits.map((f) => rowHtml({ href: `#/settings?s=${f.s}&show=${f.id}`, ic: sectionInfo(f.s).icon,
                                                   name: f.label, sum: sectionInfo(f.s).title })).join("");
     results.hidden = !hits.length;
-    none.hidden = hits.length > 0;
+    none.hidden = hits.length > 0 || forVolume; // (the sliders above are what was looked for)
   });
   // Enter opens the first thing found.
   input.addEventListener("keydown", (e) => {
@@ -310,6 +319,7 @@ if (typeof document !== "undefined" && !document.getElementById("settings-css"))
     .stack > .set-hint { margin-bottom: 0; }
     .stack > h2 + .set-hint { margin-top: 0; }
     .set-found { animation: set-ring 1.8s ease-out; border-radius: 12px; }
+    .set-volume h2 { font-size: 16px; }
     @keyframes set-ring { 0%, 40% { outline: 3px solid var(--accent); outline-offset: 3px; } 100% { outline: 3px solid transparent; outline-offset: 3px; } }
     .ai-more { display: flex; flex-direction: column; gap: 12px; }
     .ai-more-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; align-items: end; }

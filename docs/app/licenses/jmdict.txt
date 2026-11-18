@@ -1,0 +1,16 @@
+JMdict: Japanese word meanings for No AI (optional download)
+
+When "No AI" (or "Dictionary first") is chosen in Settings → Word definitions and the English Wiktionary has no entry
+for a Japanese word, its meaning comes from JMdict, downloaded with the Japanese dictionary
+(docs/lexicon/ja-jmdict-meanings.json.gz, made by tools/build_jmdict.py and tools/trim_jmdict.mjs). It is not part of
+this program.
+
+JMdict (the Japanese-Multilingual Dictionary) is the property of the Electronic Dictionary Research and Development
+Group (EDRDG), https://www.edrdg.org/, and is used in conformance with the Group's licence
+(https://www.edrdg.org/edrdg/licence.html). It is made available under the Creative Commons Attribution-ShareAlike 4.0
+International License (https://creativecommons.org/licenses/by-sa/4.0/). Source: JMdict_e
+(http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz), project page https://www.edrdg.org/jmdict/j_jmdict.html.
+
+What was changed: only the words the Wiktionary file lacks were kept, and of those only the ones Tamkeen's Japanese
+word splitter gives as one word or that JMdict marks as common; each with its first two senses (their first two
+glosses, shortened), its part of speech and its reading. The file is shared under CC BY-SA 4.0.

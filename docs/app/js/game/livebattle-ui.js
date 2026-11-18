@@ -6,7 +6,8 @@
 import { h, state as appState, toast } from "../app.js";
 import { icon as lineIcon } from "../icons.js";
 import { openModal } from "../components/modal.js";
-import { controllerArea, controllerSetting, padInUse, padSteer, padStyle } from "../gamepad.js";
+import { claimRightStick, controllerArea, controllerSetting, padAim, padInUse, padSteer, padStyle } from "../gamepad.js";
+import { feature } from "../prototype.js";
 import { fullMap, inputName } from "../padmap.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
@@ -19,7 +20,7 @@ import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
 import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
-import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
+import { AIM_S, COMBO, answer, axeAngle, battleResult, crackAt, fire, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 import { isChallengeWord } from "./challenge.js";
 import { snippetPlayer } from "../snippetplayer.js";
@@ -58,7 +59,10 @@ const LIGHT = { night: "rgba(18, 24, 70, .32)", dim: "rgba(0, 0, 0, .22)", warm:
 const FX_OLD = { projectile: (el) => `battle/shot_${el}.png`, impact: (el) => `battle/hit_${el}.png`, guard: () => "battle/shield.png",
   heal: () => "battle/heal.png", power: () => "battle/boost.png", faint: () => "battle/faint.png", miss: () => "battle/glance.png",
   dust: () => "fx/dust.png", charge: () => "fx/surge.png", burst: (el) => `battle/hit_${el}.png` };
-const PER_ELEMENT = new Set(["projectile", "impact", "burst", "beam", "trail"]);
+const PER_ELEMENT = new Set(["projectile", "impact", "burst", "beam", "trail", "wave", "orb", "strike", "mark", "slash"]);
+// The more kinds of attack (prototype "move_variety", game/art-src/battle-fx/moves2.py): waves (copies of one front make
+// cone and ring waves), orbs, strikes falling from above, ground marks round an area's edge, slashes, burrowing earth.
+const NEW_FX = ["wave", "orb", "strike", "mark", "slash"];
 // How each effect plays (web/game-art/battle/fx/README.md): ms per frame (one number, or one per frame), whether it
 // loops, and its anchor: the point of the frame put on the spot in the world, as a share of the frame's size (so the
 // older, smaller art stands in at the same place).
@@ -79,8 +83,17 @@ const FX_INFO = {
   dust: { ms: [60, 70, 80, 90], at: [0.5, 0.75] },
   miss: { ms: [70, 90, 90, 110], at: [0.5, 0.5] },
   status: { ms: 120, loop: true, at: [0.5, 0.5] },
+  wave: { ms: 70, loop: true, at: [0.5, 0.5] },
+  orb: { ms: 80, loop: true, at: [0.5, 0.5] },
+  strike: { ms: [70, 60, 70, 90, 100, 120], at: [0.5, 0.875] }, // (its ground point is (32, 56) of the 64 px frame)
+  mark: { ms: 120, loop: true, at: [0.5, 0.65] },
+  slash: { ms: [40, 50, 60, 70, 90], at: [0.5, 0.5] },
+  burrow: { ms: [70, 80, 90, 110], at: [0.5, 0.75] },
 };
+const STRIKE_FALL = 0.13; // seconds a strike from above takes to fall: it starts this long before its area lands
+const SKY = 70;           // px a sky dive rises
 const BODY_UP = 22; // a creature's body: this far above its feet
+const VARIETY = feature("move_variety"); // the more kinds of attack, and areas shown by their art (a prototype)
 /** Which frame of an effect shows `ms` after it started (frames from..to of its strip), or -1 once a "once" effect is over. */
 function frameAt(info, frames, ms, from = 0, to = frames - 1) {
   const n = to - from + 1;
@@ -136,7 +149,13 @@ export function runLiveBattle(setup, vocab) {
     if (q) asked = [...asked.slice(-12), q.uid];
     return q;
   };
-  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask });
+  // Prototype "battle_aim" (the owner: aim and fire after the right answer; aim with a second finger, the mouse or the
+  // right stick, and walk with W A S D or the left stick): the player points their own attacks.
+  const AIMING = feature("battle_aim");
+  // Prototype "battle_race" (the owner: the other side answers too; whoever is first wins; "(rival's name) answered
+  // quicker" closes the question at once with the right answer shown and said; out-answered attacks do half damage).
+  const RACING = feature("battle_race");
+  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING, race: RACING });
   const map = b.map; // the battle's own copy: terrain moves repaint its tiles
   const W = b.width;
   const H = b.height;
@@ -181,6 +200,8 @@ export function runLiveBattle(setup, vocab) {
       || (FX_OLD[kind] ? want(FX_OLD[kind](el2)) : null);
     return img ? { img, frames: Math.max(1, Math.round(img.width / img.height)) } : null;
   };
+  for (const el of Object.keys(TYPES)) for (const k of NEW_FX) fx(k, el);
+  fx("burrow");
   const ARENA_TERRAIN = new Set([...map.tiles, map.base, "spring", "coals", "mud"]);
   for (const id of [...ARENA_TERRAIN]) if (TERRAIN[id] && TERRAIN[id].under) ARENA_TERRAIN.add(TERRAIN[id].under);
   if (arena.SHEETS && arena.SHEETS.bridge_v && ARENA_TERRAIN.has("bridge")) ARENA_TERRAIN.add("bridge_v");
@@ -317,7 +338,24 @@ export function runLiveBattle(setup, vocab) {
   let shake = 0;
   let target = null;   // where a click or a finger sent the creature (a small ring there)
   /** Play an effect once at a spot in the world (its anchor goes there); `range` plays only some of its frames. */
-  const play = (kind, element, x, y, opts = {}) => { const f = fx(kind, element); if (f) effects.push({ ...f, kind, x, y, t: 0, flip: !!opts.flip, range: opts.range || null }); };
+  const play = (kind, element, x, y, opts = {}) => { const f = fx(kind, element); if (f) effects.push({ ...f, kind, x, y, t: 0, flip: !!opts.flip, range: opts.range || null, dir: opts.dir || null }); };
+  // Waves going out from a point: copies of the element's wave front along an arc (a cone) or all round (a ring),
+  // moving out from `from` to `to` px over `dur` seconds.
+  const waves = []; // {element, x, y, from, to, a0, a1, full, t, dur}
+  const addWaves = (element, x, y, to, { from = 10, a0 = 0, a1 = Math.PI * 2, dur = 0.35 } = {}) =>
+    waves.push({ element, x, y, from, to, a0, a1, full: a1 - a0 >= Math.PI * 2 - 1e-6, t: 0, dur });
+  const ring = (element, x, y, r, dur = 0.35) => addWaves(element, x, y, r, { dur });
+  /** Draw frame `i` of an effect that faces right turned to face `dir`, its anchor on (x, y). */
+  function drawTurned(f, kind, i, x, y, dir) {
+    const size = f.img.height;
+    const [ax, ay] = (FX_INFO[kind] || FX_INFO.impact).at;
+    ctx.save();
+    ctx.translate(Math.round(x), Math.round(y));
+    if (dir.x < 0) ctx.scale(-1, 1);
+    ctx.rotate(Math.atan2(dir.y, Math.abs(dir.x)));
+    ctx.drawImage(f.img, i * size, 0, size, size, Math.round(-ax * size), Math.round(-ay * size), size, size);
+    ctx.restore();
+  }
   /** Draw frame `i` of an effect with its anchor on (x, y). */
   function drawFx(f, kind, i, x, y, flip = false) {
     const size = f.img.height;
@@ -327,6 +365,22 @@ export function runLiveBattle(setup, vocab) {
     if (flip) ctx.restore();
   }
   const loopFrame = (kind, f, now, from, to) => frameAt(FX_INFO[kind], f.frames, now, from, to);
+  const landed = new Set(); // areas and cones whose landing has been shown
+  const struck = new Set(); // drops whose strike from above has started
+  const mounds = { me: null, foe: null }; // where a burrowing creature last pushed up earth
+  /** An area or a cone lands: its own art (prototype "move_variety"): waves out along a cone or all round a ring, a
+   * strike from above for a drop (started in time already), more bursts across a wide burst. */
+  function landing(p) {
+    if (!VARIETY) return;
+    if (p.kind === "cone") {
+      const a = Math.atan2(p.dir.y, p.dir.x);
+      addWaves(p.element, p.x, p.y, p.len, { a0: a - p.half, a1: a + p.half, dur: 0.32 });
+    } else if (p.form === "ring") ring(p.element, p.x, p.y, p.r);
+    else if (p.form === "drop" && !struck.has(p.id)) { struck.add(p.id); play("strike", p.element, p.x, p.y, { range: [2, 5] }); }
+    else if (p.form === "burst" && p.r > 34) {
+      for (let j = 0; j < 4; j++) { const a = j * Math.PI / 2 + 0.6; play("burst", p.element, p.x + Math.cos(a) * p.r * 0.5, p.y + Math.sin(a) * p.r * 0.45); }
+    }
+  }
 
   // Damage and healing numbers in the game's pixel digits (ui/digits.png: 8x10 glyphs, white), tinted.
   const GLYPHS = "0123456789+-x.,%!?kM";
@@ -528,14 +582,26 @@ export function runLiveBattle(setup, vocab) {
 
     // Where something is about to land, on the ground: a wind-up, a beam or an area warning (gold yours, red theirs).
     const pulse = 0.22 + 0.16 * Math.sin(now / 110);
+    const moveEl = (side, id) => { const m = moveById(id); return m.own ? v[side].type : m.element || null; };
     for (const side of ["me", "foe"]) {
       const c = v[side].charging;
-      if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0));
+      if (c && c.area) warnShape(side, c.area, pulse + (side === "foe" ? 0.08 : 0), false, moveEl(side, c.move));
+      const trip = v[side].air || v[side].under; // a sky dive or a burrow: where it will come down
+      if (trip) warnShape(side, { x: trip.to.x, y: trip.to.y, r: trip.r }, pulse + 0.1, false, v[side].type);
     }
     for (const p of v.fx) {
-      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
-      else if (p.kind === "area") warnShape(p.side, p, 0.3 * (1 - (p.t || 0))); // as it lands: the whole circle it hit, fading (the art is smaller)
+      if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0), false, p.element);
+      else if (p.kind === "area" || p.kind === "cone") warnShape(p.side, p, 0.3 * (1 - (p.t || 0)), false, null); // as it lands: the shape it hit, fading
+      if (p.kind === "area" && p.form === "drop" && p.warn && !struck.has(p.id) && (1 - (p.t || 0)) * (p.warnS || 0) <= STRIKE_FALL) {
+        struck.add(p.id); // a strike called down from above: it falls so as to hit the ground as the area lands
+        play("strike", p.element, p.x, p.y);
+      }
+      if (!p.warn && (p.kind === "area" || p.kind === "cone") && !landed.has(p.id)) { landed.add(p.id); landing(p); }
     }
+    if (AIMING && v.aiming) { // the aim moment: where the move will land if it goes now, pulsing
+      warnShape("me", v.aiming.area, 0.45 + 0.15 * Math.sin(now / 80), true, moveEl("me", v.aiming.move));
+      if (v.aim) drawCrosshair(v.aim, now, true);
+    } else if (AIMING && v.aim && !b.quiz && !v.me.fainted) drawCrosshair(v.aim, now, false);
     if (target) {
       ctx.strokeStyle = "rgba(255, 255, 255, .7)";
       ctx.beginPath();
@@ -581,7 +647,24 @@ export function runLiveBattle(setup, vocab) {
       const [from, to] = e.range || [0, e.frames - 1];
       const k = frameAt({ ...info, loop: false }, e.frames, e.t * 1000, Math.min(from, e.frames - 1), Math.min(to, e.frames - 1));
       if (k < 0) { effects.splice(i, 1); continue; }
-      drawFx(e, e.kind, k, e.x, e.y, e.flip);
+      if (e.dir) drawTurned(e, e.kind, k, e.x, e.y, e.dir);
+      else drawFx(e, e.kind, k, e.x, e.y, e.flip);
+    }
+    for (let i = waves.length - 1; i >= 0; i--) {
+      const w = waves[i];
+      w.t += dt;
+      const k = w.t / w.dur;
+      const f = fx("wave", w.element);
+      if (k >= 1 || !f) { waves.splice(i, 1); continue; }
+      const r = w.from + (w.to - w.from) * (1 - (1 - k) ** 2); // fast, then easing out
+      const n = Math.max(w.full ? 8 : 3, Math.round(((w.a1 - w.a0) * r) / 15));
+      const frame = loopFrame("wave", f, w.t * 1000);
+      if (k > 0.7) ctx.globalAlpha = Math.max(0, (1 - k) / 0.3);
+      for (let j = 0; j < n; j++) {
+        const a = w.full ? w.a0 + (j / n) * Math.PI * 2 : w.a0 + ((w.a1 - w.a0) * (j + 0.5)) / n;
+        drawTurned(f, "wave", frame, w.x + Math.cos(a) * r, w.y + Math.sin(a) * r - 6, { x: Math.cos(a), y: Math.sin(a) });
+      }
+      ctx.globalAlpha = 1;
     }
     for (let i = numbers.length - 1; i >= 0; i--) {
       const n = numbers[i];
@@ -735,12 +818,57 @@ export function runLiveBattle(setup, vocab) {
   }
 
   /** A warning on the ground: a circle (an area: what is inside it is hit) or a strip (a beam or a shot's line). */
-  function warnShape(side, shape, alpha) {
+  /** The player's aim (prototype "battle_aim"): a small cross in a ring at the point, brighter in the aim moment. */
+  function drawCrosshair(p, now, strong) {
+    const r = 6 + (strong ? Math.sin(now / 90) : 0);
+    const x = Math.round(p.x) + 0.5, y = Math.round(p.y) + 0.5;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      ctx.moveTo(x + dx * (r - 3), y + dy * (r - 3));
+      ctx.lineTo(x + dx * (r + 3), y + dy * (r + 3));
+    }
+    ctx.lineWidth = 3; // a dark edge first, so it shows on snow and sand as well as on dark ground
+    ctx.strokeStyle = "rgba(20, 12, 40, .7)";
+    ctx.stroke();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = strong ? "rgba(255, 213, 74, 1)" : "rgba(255, 255, 255, .9)";
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /** `edge`: also a dark outline (the player's aim, so it reads on light ground). `element`: an area or a cone is shown
+   * by that element's marks round its edge, a thin line and only a faint wash (prototype "move_variety"; without it,
+   * the plain filled shape as before). */
+  function warnShape(side, shape, alpha, edge = false, element = null) {
     ctx.fillStyle = side === "me" ? `rgba(255, 213, 74, ${alpha})` : `rgba(255, 64, 64, ${alpha})`;
-    if (shape.r && !shape.len) {
+    if (edge) { ctx.strokeStyle = "rgba(20, 12, 40, .55)"; ctx.lineWidth = 1; }
+    const marks = VARIETY && element ? fx("mark", element) : null;
+    const cone = shape.half > 0 && shape.len > 0;
+    if ((shape.r && !shape.len) || cone) {
+      const ang = cone ? Math.atan2(shape.dy ?? (shape.dir && shape.dir.y), shape.dx ?? (shape.dir && shape.dir.x)) : 0;
+      const r = cone ? shape.len : shape.r;
       ctx.beginPath();
-      ctx.arc(shape.x, shape.y, shape.r, 0, Math.PI * 2);
+      if (cone) { ctx.moveTo(shape.x, shape.y); ctx.arc(shape.x, shape.y, r, ang - shape.half, ang + shape.half); ctx.closePath(); }
+      else ctx.arc(shape.x, shape.y, r, 0, Math.PI * 2);
+      if (!marks && !cone) { ctx.fill(); if (edge) ctx.stroke(); return; }
+      ctx.save();
+      ctx.fillStyle = side === "me" ? `rgba(255, 213, 74, ${alpha * 0.4})` : `rgba(255, 64, 64, ${alpha * 0.4})`;
       ctx.fill();
+      ctx.lineWidth = 1; // the thin warning edge
+      ctx.strokeStyle = side === "me" ? `rgba(255, 213, 74, ${Math.min(1, alpha * 2.4)})` : `rgba(255, 70, 70, ${Math.min(1, alpha * 2.4)})`;
+      ctx.stroke();
+      ctx.restore();
+      if (marks) { // the element's marks round the edge (along the arc for a cone)
+        const span = cone ? shape.half * 2 : Math.PI * 2;
+        const n = Math.max(cone ? 3 : 6, Math.round((span * r) / 18));
+        const k = loopFrame("mark", marks, performance.now());
+        for (let j = 0; j < n; j++) {
+          const a = cone ? ang - shape.half + (span * (j + 0.5)) / n : (j / n) * Math.PI * 2;
+          drawFx(marks, "mark", (k + j) % marks.frames, shape.x + Math.cos(a) * r, shape.y + Math.sin(a) * r);
+        }
+      }
       return;
     }
     const dx = shape.dx ?? (shape.dir && shape.dir.x), dy = shape.dy ?? (shape.dir && shape.dir.y);
@@ -750,6 +878,7 @@ export function runLiveBattle(setup, vocab) {
     ctx.translate(shape.x, shape.y);
     ctx.rotate(Math.atan2(dy, dx));
     ctx.fillRect(0, -w / 2, shape.len, w);
+    if (edge) ctx.strokeRect(0.5, -w / 2 + 0.5, shape.len - 1, w - 1);
     ctx.restore();
   }
 
@@ -759,21 +888,42 @@ export function runLiveBattle(setup, vocab) {
     const f = team(side)[i];
     if (!f) return;
     if (c.fainted && (!c.act || c.act.t > 0.17)) return; // the faint cloud covers it from its 3rd frame; the next steps in shortly
+    if (c.under) { // underground: only the earth it pushes up shows, every few px
+      const last = mounds[side];
+      if (!last || Math.hypot(c.x - last.x, c.y - last.y) >= 11) { mounds[side] = { x: c.x, y: c.y }; play("burrow", null, c.x, c.y); }
+      return;
+    }
+    mounds[side] = null;
     const actT = c.act ? Math.min(7, Math.floor(c.act.t * 8)) / 8 : 0;
     // Walking when it moves (a winged creature flies its dashes), else breathing and now and then blinking.
-    const pose = c.act ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+    const pose = c.act && !c.air ? { anim: "idle", frame: 0, act: c.act.kind, t: actT, eyes: "open" }
+      : c.air ? animAt(f.look, "fly", now) : c.thrown ? { anim: "idle", frame: 0, act: "hurt", t: 0, eyes: "open" }
       : c.moving ? animAt(f.look, c.dashing ? "fly" : "walk", now) : animAt(f.look, "idle", now, side === "me" ? 0 : 1);
     const img = creatureFrame(side, f, i, pose);
     const shadow = art.get("fx/shadow_m.png");
+    // How high it is off the ground: up and down in a sky dive (fast up, a drop at the end), an arc when thrown.
+    let lift = 0, spin = 0;
+    if (c.air) {
+      const t = c.air.t, rise = c.air.rise || 0.5;
+      lift = t < rise ? SKY * (1 - (1 - t / rise) ** 2) : SKY * (1 - ((t - rise) / (1 - rise)) ** 2);
+    } else if (c.thrown) { lift = Math.sin(c.thrown.t * Math.PI) * 26; spin = c.thrown.t * Math.PI * 2 * (c.face < 0 ? -1 : 1); }
     ctx.save();
     if (c.grace) ctx.globalAlpha = Math.floor(now / 90) % 2 ? 0.45 : 1; // just stepped in: it can't be hit yet
     ctx.translate(Math.round(c.x), Math.round(c.y));
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
+    if (lift) ctx.translate(0, -Math.round(lift));
+    if (spin) { ctx.translate(0, -BODY_UP); ctx.rotate(spin); ctx.translate(0, BODY_UP); }
     if (c.face < 0) ctx.scale(-1, 1);
     if (img) drawLiving(ctx, img, f.look, now); // (as drawImage(img, -FRAME / 2, -FRAME), with a colouring's particles)
     ctx.restore();
-    const charge = c.charging && fx("charge", c.type);
+    const orbing = c.charging && c.charging.form === "orb" && fx("orb", moveById(c.charging.move).own ? c.type : moveById(c.charging.move).element || c.type);
+    const charge = !orbing && c.charging && fx("charge", c.type);
     if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);
+    if (orbing) { // an energy orb gathering in front of it
+      ctx.globalAlpha = 0.35 + 0.65 * (c.charging.t || 0);
+      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16, c.y - BODY_UP);
+      ctx.globalAlpha = 1;
+    }
     const has = (id) => c.statuses.some((s) => s.id === id);
     const guard = has("guard") && fx("guard");
     if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - BODY_UP); // the bubble holds while the guard lasts
@@ -797,6 +947,15 @@ export function runLiveBattle(setup, vocab) {
   function drawFlying(p, now) {
     const lift = 12;
     const dir = p.dir || { x: 1, y: 0 };
+    if (p.kind === "projectile" && p.form === "orb") { // an energy orb: a big ball, not turned, its shadow under it
+      const f = fx("orb", p.element);
+      ctx.fillStyle = "rgba(0, 0, 0, .25)";
+      ctx.fillRect(Math.round(p.x) - 6, Math.round(p.y) - 1, 12, 3);
+      if (f) drawFx(f, "orb", loopFrame("orb", f, now), p.x, p.y - lift);
+      const last = trailAt.get(p.id);
+      if (!last || Math.hypot(p.x - last.x, p.y - last.y) >= 10) { trailAt.set(p.id, { x: p.x, y: p.y }); trails.push({ x: p.x, y: p.y - lift, t: 0, element: p.element }); }
+      return;
+    }
     if (p.kind === "projectile") {
       const f = fx("projectile", p.element);
       ctx.fillStyle = "rgba(0, 0, 0, .25)";
@@ -828,6 +987,8 @@ export function runLiveBattle(setup, vocab) {
         }
       } else { ctx.fillStyle = "rgba(255, 255, 255, .85)"; ctx.fillRect(0, -(p.width || 8) / 4, p.len, (p.width || 8) / 2); }
       ctx.restore();
+    } else if (p.kind === "area" && VARIETY && (p.form === "ring" || p.form === "drop")) {
+      // (a ring's waves and a drop's strike from above are drawn as effects when it lands: landing())
     } else if (p.kind === "area") {
       const f = fx("burst", p.element);
       if (f) { const k = frameAt(FX_INFO.burst, f.frames, (p.t || 0) * 900); if (k >= 0) drawFx(f, "burst", k, p.x, p.y); }
@@ -987,7 +1148,10 @@ export function runLiveBattle(setup, vocab) {
   function paintKeys() {
     for (const m of moveEls) m.btn.querySelector(".lb-key").innerHTML = keyLabel(m.place);
     for (const [i, btn] of quizButtons.entries()) btn.querySelector(".lb-key").innerHTML = keyLabel(PLACES[i]);
-    $(".lb-help").textContent = device === "touch" ? t("Drag on the arena to move. Tap a move to use it.")
+    $(".lb-help").textContent = AIMING ? (device === "touch" ? t("Drag on the arena to move; a second finger aims. Tap a move to use it, answer, then tap where to fire.")
+      : device === "pad" ? t("Left stick: walk. Right stick: aim. The buttons use your moves; after a right answer, any of them fires.")
+        : t("Walk with W A S D or the arrow keys; the mouse aims. Moves: U I J K (or 1 2 3 4). After a right answer, click where to fire (or press Space)."))
+      : device === "touch" ? t("Drag on the arena to move. Tap a move to use it.")
       : device === "pad" ? t("Left stick or D-pad: walk. The buttons use your moves.")
         : t("Walk with W A S D or the arrow keys, or click where to go. Moves: U I J K (or 1 2 3 4).");
   }
@@ -1012,7 +1176,7 @@ export function runLiveBattle(setup, vocab) {
       <div class="lbq-foot"><button type="button" class="ghost small lbq-hint" hidden></button><span class="lbq-verdict" hidden></span></div>
     </div>`);
     panel.querySelector(".lbq-move").innerHTML = icon(moveIcon(m), 16);
-    panel.querySelector(".lbq-move").append(" ", m.name);
+    panel.querySelector(".lbq-move").append(" ", quiz.side === "foe" ? t("Dodge {0}: answer before your rival", m.name) : m.name);
     panel.querySelector(".lbq-ask").textContent = q.reverse ? t("Which of your words means this?") : t("What does this mean?");
     const prompt = panel.querySelector(".lbq-prompt");
     prompt.textContent = q.prompt;
@@ -1061,20 +1225,32 @@ export function runLiveBattle(setup, vocab) {
     settle(answer(b, i), i);
   }
   /** The question is over (answered, or out of time): show how it went, then carry on. */
+  /** Who the rival is, for "... answered quicker": its owner's name in a friend, gym or rental battle, else the creature. */
+  function rivalName() {
+    if (setup.rival && setup.rival.name) return setup.rival.name;
+    const f = team("foe")[v.index.foe];
+    return (f && f.name) || whose("foe");
+  }
   function settle(events, choice) {
     const q = quizShown.q;
+    const dodging = quizShown.side === "foe";
     quizShown = null;
+    const ans = (events || []).find((e) => e.kind === "answer");
+    const rival = !!(ans && ans.rival); // the rival answered first: the right answer is shown and said, nothing is marked
     const correct = choice !== null && choice === q.answer;
-    if (choice !== null) sayAnswer(q);
+    if (choice !== null || rival) sayAnswer(q);
     for (const btn of quizButtons) btn.disabled = true;
     quizButtons[q.answer]?.classList.add("right");
     if (choice !== null && !correct) quizButtons[choice]?.classList.add("wrong");
     const verdict = $(".lbq-verdict");
     verdict.hidden = false;
     verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
-    verdict.textContent = correct ? t("Right!") : choice === null ? t("Too slow: failed") : t("Wrong answer: failed");
+    verdict.textContent = rival ? (dodging ? t("{0} answered quicker: full damage", rivalName()) : t("{0} answered quicker: half damage", rivalName()))
+      : dodging ? (correct ? t("Dodged: half damage") : choice === null ? t("Too slow: full damage") : t("Wrong answer: full damage"))
+        : correct ? t("Right!") : choice === null ? t("Too slow: failed") : t("Wrong answer: failed");
     $(".lbq-bar i").style.width = correct ? $(".lbq-bar i").style.width : "0%";
     sfx(correct ? "common" : "surprise");
+    if (rival) { holdUntil = performance.now() + 900; pending = events; setTimeout(() => { if (!closed && !b.quiz) $(".lb-quiz").hidden = true; }, 900); return; }
     const r = answerQuestion(game, q.uid, correct);
     if (isChallengeWord(q.uid)) delete game.review[q.uid]; // a challenge's word the player doesn't have: answered, not kept
     if (r.graduated) { graduated++; toast(t("That word is now well known: +{0} XP", WELL_KNOWN_XP)).prepend(h(icon("star")), " "); }
@@ -1127,6 +1303,7 @@ export function runLiveBattle(setup, vocab) {
           play("impact", ev.element, x, y - BODY_UP);
           numbers.push({ text: `-${ev.dmg}`, x, y: y - 44, t: 0, color: ev.mult > 1 ? "#ffd54a" : ev.mult < 1 ? "#a9b8d6" : "#ffffff" });
           if (ev.guarded) play("guard", null, x, y - BODY_UP, { range: [4, 5] }); // the bubble breaks
+          if (ev.half) float(ev.target === "me" ? t("Dodged: half damage") : t("Half damage"), x, y - 72, "weak");
           if (ev.mult > 1) float(t("Strong hit!"), x, y - 58, "strong");
           else if (ev.mult < 1) float(t("Weak hit"), x, y - 58, "weak");
           shake = ev.target === "me" ? 0.18 : 0.1;
@@ -1140,6 +1317,25 @@ export function runLiveBattle(setup, vocab) {
           if (ev.why === "dodged") float(ev.side === "foe" ? t("Dodged!") : t("Missed"), x, y - 50, "missed");
           break;
         case "charge": sfx("lucky"); break;
+        // the more kinds of attack ("move_variety")
+        case "slash": play("slash", ev.element, x, y, { dir: ev.dir }); shake = Math.max(shake, 0.1); sfx("lucky"); break;
+        case "slam": play("impact", ev.element, x, y - BODY_UP); ring(ev.element, x, y, 28, 0.25); play("dust", null, x, y); shake = Math.max(shake, 0.2); break;
+        case "grab": float(t("Grabbed!"), x, y - 58, "strong"); play("dust", null, x, y); sfx("common"); break;
+        case "land": play("dust", null, x, y); play("impact", ev.element, x, y - 8); shake = Math.max(shake, 0.12); break;
+        case "skydive": play("dust", null, x, y); sfx("lucky"); break;
+        case "burrow": play("burrow", null, x, y); sfx("common"); break;
+        case "crash": play("strike", ev.element, x, y, { range: [2, 5] }); ring(ev.element, x, y, ev.r || 30); play("dust", null, x, y); shake = Math.max(shake, 0.22); break;
+        case "erupt":
+          play("burst", ev.element, x, y);
+          ring(ev.element, x, y, ev.r || 30);
+          for (let j = 0; j < 4; j++) play("burrow", null, x + Math.cos(j * Math.PI / 2) * 12, y + Math.sin(j * Math.PI / 2) * 9);
+          shake = Math.max(shake, 0.18);
+          break;
+        case "blast": play("burst", ev.element, x, y); ring(ev.element, x, y, ev.r || 30, 0.25); shake = Math.max(shake, 0.12); break;
+        case "aim": // the right answer: now point it (the world still waits)
+          banner(device === "touch" ? t("Tap where to fire") : device === "pad" ? t("Aim with the right stick, then press a button")
+            : t("Click where to fire"), AIM_S * 1000);
+          break;
         case "refused": nope(ev.move); break;
         case "heal": play("heal", null, x, y); numbers.push({ text: `+${ev.amount}`, x, y: y - 46, t: 0, color: "#7dffb0" }); break;
         case "guard": play("guard", null, x, y - BODY_UP, { range: [0, 1] }); break; // it forms; it holds while the guard lasts
@@ -1193,10 +1389,42 @@ export function runLiveBattle(setup, vocab) {
   };
   const clampWorld = (p) => ({ x: Math.max(4, Math.min(W - 4, p.x)), y: Math.max(4, Math.min(H - 2, p.y)) });
   const openedAt = performance.now(); // a tap in the first moment is the end of the one that opened the battle: the creature stands still
+  // Aiming (prototype "battle_aim"): `aimPointer` is a finger (or the mouse button) pointing the aim; `mouseAim` where
+  // the mouse is over the arena; `stickAim` the right stick's last direction and tilt. In the aim moment after a right
+  // answer, a press on the arena points the move and letting go fires it.
+  let aimPointer = null;   // {id, cx, cy}
+  let mouseAim = null;     // {cx, cy}
+  let stickAim = null;     // {x, y, tilt}
+  function shoot() {
+    if (!b.aiming) return;
+    const events = fire(b);
+    stickAim = null;
+    aimPointer = null;
+    show(events);
+  }
   canvas.addEventListener("pointerdown", (e) => {
+    if (AIMING && b.aiming && !paused()) { // the aim moment: point it; letting go fires
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      aimPointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* it still fires on pointerup */ }
+      e.preventDefault();
+      return;
+    }
     if (b.over || b.quiz || paused() || performance.now() - openedAt < 500) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
+    if (AIMING && e.pointerType === "mouse") { // the mouse aims, the keys walk: a click only breaks open a cracked wall
+      const p = clampWorld(toWorld(e));
+      if (crackAt(b, p.x, p.y)) { target = p; input(b, { open: p }); }
+      e.preventDefault();
+      return;
+    }
+    if (AIMING && pointer && pointer.id !== e.pointerId) { // a second finger: it aims while the first walks
+      aimPointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* the aim still ends on pointerup */ }
+      e.preventDefault();
+      return;
+    }
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* the drag still ends on pointerup */ }
     target = clampWorld(toWorld(e));
@@ -1205,6 +1433,8 @@ export function runLiveBattle(setup, vocab) {
     e.preventDefault();
   });
   canvas.addEventListener("pointermove", (e) => {
+    if (aimPointer && aimPointer.id === e.pointerId) { aimPointer.cx = e.clientX; aimPointer.cy = e.clientY; return; }
+    if (AIMING && e.pointerType === "mouse") { mouseAim = { cx: e.clientX, cy: e.clientY }; if (device === "touch") setDevice("keys"); }
     if (!pointer && e.pointerType === "mouse" && secrets.length) { const p0 = toWorld(e); canvas.style.cursor = crackAt(b, p0.x, p0.y) ? "pointer" : ""; }
     if (!pointer || pointer.id !== e.pointerId || b.quiz || pointer.crack) return;
     pointer.cx = e.clientX;
@@ -1214,15 +1444,39 @@ export function runLiveBattle(setup, vocab) {
     target = to;
     input(b, { goTo: target });
   });
-  const lift = (e) => { if (pointer && pointer.id === e.pointerId) pointer = null; };
+  const lift = (e) => {
+    if (aimPointer && aimPointer.id === e.pointerId) { // the aim's finger (or button) let go: in the aim moment, it fires
+      if (e.type === "pointerup" && b.aiming) { aimPointer.cx = e.clientX; aimPointer.cy = e.clientY; aimNow(); shoot(); }
+      aimPointer = null;
+      return;
+    }
+    if (pointer && pointer.id === e.pointerId) pointer = null;
+  };
   canvas.addEventListener("pointerup", lift);
   canvas.addEventListener("pointercancel", lift);
+  canvas.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") mouseAim = null; });
+  if (AIMING) { canvas.style.cursor = "crosshair"; claimRightStick(true); }
+  /** Where the player is aiming now (a point in the world), told to the battle; null = at the rival. */
+  function aimNow() {
+    if (!AIMING) return null;
+    let p = null;
+    const me = v.me;
+    const stick = padAim();
+    const tilt = Math.hypot(stick.x, stick.y);
+    if (tilt > 0.35) { stickAim = { x: stick.x / tilt, y: stick.y / tilt, tilt: Math.min(1, tilt) }; setDevice("pad"); }
+    if (aimPointer) p = clampWorld(toWorld({ clientX: aimPointer.cx, clientY: aimPointer.cy }));
+    else if (stickAim && device === "pad") { const reach = 40 + 190 * stickAim.tilt; p = { x: me.x + stickAim.x * reach, y: me.y + stickAim.y * reach }; }
+    else if (mouseAim && device !== "touch") p = clampWorld(toWorld({ clientX: mouseAim.cx, clientY: mouseAim.cy }));
+    input(b, { aim: p });
+    return p;
+  }
 
   function nope(id) { const m = moveEls.find((x) => x.id === id); if (!m) return; m.btn.classList.remove("nope"); void m.btn.offsetWidth; m.btn.classList.add("nope"); }
   /** A move's place pressed (a button, a key, the controller): its move, or in a question its answer. */
   function use(slot) {
     if (b.over || closed) return;
     if (b.quiz) { const i = PLACES.findIndex((p) => p.slot === slot); if (i >= 0) choose(i); return; }
+    if (b.aiming) { aimNow(); shoot(); return; } // the aim moment: any move's button fires
     if (quizShown || performance.now() < holdUntil) return;
     const id = b.mine[v.index.me].moves[slot];
     if (!id) return;
@@ -1244,6 +1498,7 @@ export function runLiveBattle(setup, vocab) {
     if (place && !b.over) { setDevice("keys"); e.preventDefault(); use(place.slot); return; }
     if (k === "h" && b.quiz) { e.preventDefault(); useHint(); return; }
     if (k === "p" && !b.quiz) { e.preventDefault(); drinkPotion(); return; }
+    if (b.aiming && (e.key === " " || e.key === "Enter")) { e.preventDefault(); aimNow(); shoot(); return; }
     if (e.key === "Escape" && !b.over) { e.preventDefault(); pause(); }
   };
   const onKeyUp = (e) => { held.delete(e.code); };
@@ -1317,7 +1572,11 @@ export function runLiveBattle(setup, vocab) {
     held.clear();
     const within = b.quizS === 5 ? t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")
       : t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within {0} seconds or the move fails.", String(b.quizS));
-    const text = `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
+    const race = RACING ? ` ${t("Your rival answers too: if it is right first, your attack does half damage. When it attacks, a question comes up for you: answer right before it to take half damage.")}` : "";
+    const text = race ? `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within}${race} ${t("The ground matters: look under your creature to see what it does.")}`
+      : AIMING
+      ? `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or drag on the arena with one finger.")} ${within} ${t("After a right answer the battle waits a moment more while you aim: click or tap where the move should go (or point the right stick and press a button). Before that, the mouse, a second finger or the right stick aims; with no aim it goes at the rival.")} ${t("The ground matters: look under your creature to see what it does.")}`
+      : `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
     const leave = await pauseBox(help ? t("How to play") : t("Paused"), text);
     pausedBy--;
     if (!leave || closed) return;
@@ -1437,6 +1696,7 @@ export function runLiveBattle(setup, vocab) {
       if (pending) { show(pending); pending = null; }
       const s = b.quiz ? null : steer();
       if (s) { target = null; input(b, { move: s }); } else input(b, { move: null });
+      if (AIMING && !b.quiz) aimNow();
       const events = step(b, dt);
       if (b.quiz && !quizShown) { held.clear(); showQuiz(b.quiz); }
       else if (!b.quiz && quizShown) settle(events, null); // the time ran out
@@ -1444,7 +1704,7 @@ export function runLiveBattle(setup, vocab) {
     }
     v = view(b);
     if (target && Math.hypot(v.me.x - target.x, v.me.y - target.y) < 5 && !pointer) target = null;
-    if (!b.quiz && !paused()) moveCamera(dt);
+    if (!b.quiz && !b.aiming && !paused()) moveCamera(dt);
     // a mouse button or finger held on the arena: what is under it changes as the camera follows, so it keeps steering
     if (pointer && !b.quiz && !paused()) {
       const to = clampWorld(toWorld({ clientX: pointer.cx, clientY: pointer.cy }));
@@ -1471,6 +1731,7 @@ export function runLiveBattle(setup, vocab) {
     window.removeEventListener("keyup", onKeyUp);
     window.removeEventListener("blur", onBlur);
     document.removeEventListener("visibilitychange", onHide);
+    if (AIMING) claimRightStick(false);
     el.remove();
   }
 

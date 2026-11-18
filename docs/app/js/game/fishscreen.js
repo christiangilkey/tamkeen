@@ -20,8 +20,7 @@ import {
 } from "./fishing.js";
 import { fishPicture, fishShape } from "./fishart.js";
 import { aquariumView } from "./aquarium.js";
-import { fishWaiting, openPond, wordChoiceData } from "./fishing-ui.js";
-import { wordModePicker } from "./battle-ui.js";
+import { fishWaiting, openPond } from "./fishing-ui.js";
 import { cleanName, cleanProfiles } from "./remote.js";
 
 /** A tier's name with a dot of its colour (the colours alone don't all read on a light panel). */
@@ -73,13 +72,7 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
       : t("{0} fish waiting: your words due for review", fmt(n));
   }).catch(() => {});
   countWaiting();
-
-  // Which words are fish: the same choice as the battles' (one choice for every game), changed here or there.
-  const words = block("Words");
-  body.append(words);
-  wordChoiceData(game).then(({ vocab, folders }) => {
-    if (words.isConnected) words.append(wordModePicker(game, () => { changed(); countWaiting(); }, { vocab, folders, battle: false }));
-  }).catch(() => {});
+  // (Which words are fish: the games' one word choice, the Words tile on Home: battle-ui.js openWordChoice.)
 
   // The ponds: one per element; the creature out is luckier in its own element's water.
   const ponds = block("Ponds", `${PONDS.filter((p) => pondNeed(game, p.id).open).length} / ${PONDS.length}`);

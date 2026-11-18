@@ -11,6 +11,7 @@
 
 import { beastOf, bodyHue, featCount, formOf, isGrown, newGenome, rng, stageOf, weightedPick } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
+import { feature } from "../prototype.js";
 import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RULES, canWear, eggCanWear, featVariant, itemById, prizeOf } from "./data.js";
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
@@ -985,7 +986,11 @@ export function reviewSummary(state, vocab, now = new Date()) {
 }
 
 // ---------- battles: what they pay ----------
-export const weeklyRule = (now = new Date()) => WEEKLY_RULES[weekNumber(now) % WEEKLY_RULES.length];
+// Prototype (../prototype.js "open_weeks"; the owner, 2026-11-18): no weeks that allow only some elements. Most
+// players have the same few elements, or only one or two creatures, so those weeks shut them out. To release it,
+// take the rules with `types` out of WEEKLY_RULES (data.js) and this filter with them.
+const weekRules = () => (feature("open_weeks") ? WEEKLY_RULES.filter((r) => !r.types) : WEEKLY_RULES);
+export const weeklyRule = (now = new Date()) => { const list = weekRules(); return list[weekNumber(now) % list.length]; };
 
 // A battle's own XP comes from the words it made well known (the owner: "The amount battles give in XP should be
 // determined by how many cards are now well known"): WELL_KNOWN_XP for each, on top of BATTLE_XP_FLOOR for a win or a

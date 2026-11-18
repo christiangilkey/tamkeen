@@ -141,6 +141,25 @@ export function padSteer() {
   return len > 1 ? { x: x / len, y: y / len } : { x, y };
 }
 
+/** The right stick, read as it is pushed (battle aiming, prototype "battle_aim"): {x, y} each -1..1 past the dead
+ * zone (right and down are +), 0, 0 at rest. While a battle claims it (claimRightStick) it doesn't scroll the page. */
+export function padAim() {
+  let x = 0;
+  let y = 0;
+  if (typeof document === "undefined" || document.hidden || !windowInFront() || capture) return { x, y };
+  for (const p of rawPads()) {
+    const h = held.get(p.index);
+    if (!h) continue;
+    x += (h.strength["a2+"] || 0) - (h.strength["a2-"] || 0);
+    y += (h.strength["a3+"] || 0) - (h.strength["a3-"] || 0);
+  }
+  const len = Math.hypot(x, y);
+  return len > 1 ? { x: x / len, y: y / len } : { x, y };
+}
+let stickAims = false;
+/** A screen that aims with the right stick takes it from the page's scrolling (true), and gives it back (false). */
+export function claimRightStick(on) { stickAims = !!on; }
+
 /** The on-screen button guide: on (the default) or off, on this device. */
 export function legendOn() {
   try { return localStorage.getItem("padLegend") !== "off"; } catch { return true; }
@@ -860,6 +879,7 @@ function scrollHeld(down, strength, dt) {
   let amount = 0;
   const list = layers();
   for (const id of down) {
+    if (stickAims && /^a[23][+-]$/.test(id)) continue; // the right stick is aiming in a battle
     const r = resolve(id, list);
     if (!r || r.area !== "general") continue;
     const sign = r.action === "scrollUp" ? -1 : r.action === "scrollDown" ? 1 : 0;

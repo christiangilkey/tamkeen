@@ -29,7 +29,7 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   const teacher = own && (roles.teacher || []).length > 0;
   el.innerHTML = "";
   const page = h(`<div class="lsn-view">
-    <div class="lsn-bar"><button type="button" class="ghost" data-a="back">${icon("back", 18)} <span>Lessons</span></button><span class="lsn-bar-gap"></span>
+    <div class="lsn-bar"><button type="button" class="ghost" data-a="back">${icon("back", 18)} <span>My files</span></button><span class="lsn-bar-gap"></span>
       <button type="button" class="ghost icon" data-a="more" title="More" aria-label="More">${icon("more", 20)}</button></div>
     <h2 class="lsn-title"></h2><p class="small muted lsn-meta"></p>
     <section class="lsn-tracks"></section>

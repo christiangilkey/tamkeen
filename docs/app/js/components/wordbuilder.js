@@ -24,7 +24,7 @@
 // Looks: plain solid surfaces, one centred column; on a phone a full-height sheet, on a computer a
 // centred box (app.css "Add words").
 
-import { api, esc, h, platform, saveRecording, showMenu, state, toast } from "../app.js";
+import { api, esc, h, platform, saveRecording, saveSettings, showMenu, state, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
@@ -34,6 +34,7 @@ import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cle
          fillIn, firstSense, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
+import { librarySentence } from "../review/sentencefind.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
 import { learnsOwn, ownExamples } from "../review/ownmnemonic.js";
 import { learnFromNote } from "../review/cardtools.js";
@@ -41,7 +42,8 @@ import { sortFolders } from "../review/vocabedit.js";
 import { askAi, askMnemonic, definerConfig, noAi } from "../define-service.js";
 import { aiMakes, chosenSource } from "../helpersource.js";
 import { pickedCountry } from "../youtube-home.js";
-import { definerModeOf } from "../definer.js";
+import { PROVIDERS, definerModeOf } from "../definer.js";
+import { feature } from "../prototype.js";
 import { NO_MEANINGS, dictionaryDefine, downloadMeanings, meaningsStatus } from "../meanings.js";
 import { azureReady, voiceChars, voiceMode } from "../cardvoice.js";
 import { voiceMaker } from "../voiceplay.js";
@@ -54,6 +56,36 @@ const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these card
 const settings = () => (state.status && state.status.settings) || {};
 const lsGet = () => { try { return JSON.parse(localStorage.getItem(CHOICES_KEY) || "{}"); } catch { return {}; } };
 const lsSet = (v) => { try { localStorage.setItem(CHOICES_KEY, JSON.stringify(v)); } catch { /* storage off */ } };
+
+// A key the AI refused (prototype "key_fallback", the owner 2026-11-18: "If my key is rejected don't give me a warning
+// just generate it without the key"). Until the learner changes the key, Add words fills cards in as with No AI,
+// and says so once in a popup that can switch to No AI for good. Kept while the app is open, not saved.
+let refusedKey = "";
+let refusedTold = "";
+const refusedHere = (key) => !!key && key === refusedKey && feature("key_fallback");
+
+/** The popup: the key was refused, the cards were made without it; "Use without a key" turns AI off (No AI). */
+function keyRefusedPopup(provider) {
+  if (refusedTold === refusedKey) return;
+  refusedTold = refusedKey;
+  const name = (PROVIDERS[provider] && PROVIDERS[provider].label) || "The AI";
+  const m = openModal({ title: t("Your AI key was refused") });
+  const p = h(`<p class="muted confirm-text"></p>`);
+  p.textContent = t("{0} refused your API key, so these cards were filled in without AI: meanings from the built-in dictionary, and real example sentences. The key has most likely expired. You can get a new one in Settings → Word definitions, or carry on without a key.", name);
+  const row = h(`<div class="confirm-buttons"><button type="button" class="ghost"></button><button type="button" class="primary"></button></div>`);
+  row.firstElementChild.textContent = t("Keep my key");
+  row.lastElementChild.textContent = t("Use without a key");
+  row.firstElementChild.onclick = () => m.close();
+  row.lastElementChild.onclick = async () => {
+    m.close();
+    try {
+      await saveSettings({ definer_mode: "dictionary" });
+      toast(t("AI is off. Turn it back on in Settings → Word definitions."));
+    } catch (e) { toast(e.message || String(e), { error: true }); }
+  };
+  m.body.append(p, row);
+  row.lastElementChild.focus();
+}
 
 const AI_SETTINGS = "#/settings?s=words&show=key";
 const MODE_SETTINGS = "#/settings?s=words&show=mode";
@@ -78,8 +110,12 @@ const clean = (s) => String(s ?? "").replace(/[⟦⟧]/g, "");
  * ([{uid, name}]), `folder` the one open on the Vocab page (its cards go there unless another is
  * chosen). `onFolder(folder)` hears of a folder made here; `onAdded(cards)` gets the cards once added.
  * `mode` is the way in it opens on: "one" (one by one), "paste" or "scan" (the ⋯ menu's "Scan words").
+ * `start` is cards to begin with ([{text, meaning, notes}]), and `addNow` adds them straight away, filling in the
+ * rest as Add does (Vocab's "Ask by voice", components/voiceask.js): it closes by itself once they are in, and
+ * stays open when one needs a look (a word already saved, a red note).
  */
-export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {}, mode: startMode = "one" } = {}) {
+export function openWordBuilder({ existing = () => [], folders = [], folder = "", onFolder = () => {}, onAdded = () => {}, mode: startMode = "one",
+  start = null, addNow = false } = {}) {
   const lang = studyLanguage();
   const info = langInfo(lang);
   const choices = cleanChoices(lsGet());
@@ -140,7 +176,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   // ---------------------------------------------------------------- the choices
 
-  const aiReady = () => !noAi() && !!definerConfig().key;
+  const aiReady = () => !noAi() && !!definerConfig().key && !refusedHere(definerConfig().key);
   // Example sentences and mnemonics: the AI's only when it can be used and the learner hasn't chosen Free
   // (helpersource.js aiMakes). The meaning lookup keeps to aiReady and the lookup setting.
   const makes = (kind) => aiMakes(settings(), kind, aiReady());
@@ -918,6 +954,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     }
     const todo = list.filter((r) => needsAny(r, choices) || needsMemo(r, choices));
     if (!todo.length) { for (const r of list) paintRow(r); return; }
+    const refused = []; // rows whose AI request found the key refused: filled in again without AI at the end
     for (const r of todo) setStatus(r, { kind: "busy", text: t("Filling in…") });
 
     // 1. Meanings from the built-in dictionary first, where the lookup setting says so. A phrase: the entry for
@@ -964,6 +1001,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       try {
         answers = readBatch(await askAi(batchPrompt(items, { study: info.name, speaks: cfg.language || "English" })), items);
       } catch (err) {
+        if (err && err.kind === "key" && feature("key_fallback")) { refusedKey = cfg.key; refusedProvider = err.provider; refused.push(...group); return; }
         const text = err && err.message ? err.message : String(err);
         for (const r of group) setStatus(r, { kind: "error", text });
         return;
@@ -1000,12 +1038,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         let found = null, failed = null;
         // (no connection the first time: said as such, not as "none found")
         try { found = await freeExample(r.text.trim(), lang, { meaning: meaningOf(r) }); } catch (e) { failed = e && e.code === NO_EXAMPLES ? e : null; }
+        // None in the files (a rarer word): a real sentence from the learner's own transcripts, books and pages, the one
+        // the word was met in being the likeliest. It has no translation (the AI isn't asked here).
+        let fromLibrary = null;
+        if (!found) {
+          try { fromLibrary = await librarySentence({ text: r.text.trim(), meaning: meaningOf(r) }, lang); } catch { /* no library search here */ }
+          if (fromLibrary) { found = { sentence: fromLibrary.sentence, translation: "", readable: false }; failed = null; }
+        }
         if (found) {
           r.sentence = fillIn(r.sentence, found.sentence);
           r.translation = fillIn(r.translation, found.translation);
         }
         if (!needs(r, choices).meaning) {
-          setStatus(r, found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
+          setStatus(r, fromLibrary ? { kind: "note", text: t("From your own library: {0}", fromLibrary.title || t("your library")) }
+            : found ? (found.readable ? { kind: "note", text: t("Every other word in this sentence is one you know.") } : null)
             : failed ? { kind: "note", text: failed.message }
             : { kind: "note", text: r.kind === "word" ? t("No example sentence was found for this word. Type one, or leave it empty.")
               : t("No example sentence was found for this phrase. Type one, or leave it empty.") });
@@ -1045,7 +1091,14 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       if (r.status && r.status.kind === "busy") setStatus(r, null);
       paintRow(r);
     });
+
+    // 5. The key was refused: those rows again, now without AI (aiReady() is false for this key), and the popup.
+    if (refused.length) {
+      await fill(refused);
+      keyRefusedPopup(refusedProvider);
+    }
   }
+  let refusedProvider = "";
 
   $(".cb-fill").onclick = async () => {
     if (busy) return;
@@ -1197,8 +1250,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   $(".cb-another").onclick = () => addRow();
   drawOptions();
-  addRow({}, { open: true, focus: startMode === "one" });
+  const given = (Array.isArray(start) ? start : []).filter((c) => c && String(c.text || "").trim());
+  if (given.length) for (const c of given) addRow(c, { open: true, focus: false });
+  else addRow({}, { open: true, focus: startMode === "one" });
   if (startMode === "paste" || startMode === "scan") setMode(startMode);
+  if (given.length && addNow) setTimeout(() => $(".cb-add").click(), 0);
   meaningsStatus(lang).then((st) => { dict = st; paintOptions(); }, () => {});
   return sheet;
 }

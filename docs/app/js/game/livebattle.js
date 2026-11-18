@@ -5,10 +5,20 @@
 // wrong or out of time, it fails. The rival's moves never ask the player anything: dodge them by
 // moving. When a creature faints the next of its team steps in; the battle ends when a side has none.
 //
+// With `aim: true` (prototype "battle_aim") the player aims their own attacks: a right answer doesn't set the move off
+// straight away; the world stays frozen for an aim moment (AIM_S) while the player points it (input's `aim`, a
+// point in the world), and it goes off with fire(b) or when the moment runs out. Without an aim it goes at the rival.
+//
+// With `race: true` (prototype "battle_race") every question is a race with the rival, whose answer is simulated (right
+// as often as foeForm, at a time from its brain's `fast`). The player's attack: right first, it goes off in full; the
+// rival right first ("answered quicker"), the rival dodged: half damage. The rival's attack opens a dodge question for
+// the player (quiz.side "foe"): right first, half damage; wrong, or the rival quicker, full damage.
+//
 //   const b = newLiveBattle({ mine, theirs, map, mode, wordMode, cards, ask, foeForm, rival, rule, rand });
-//   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId });  // only the keys given change
+//   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId, aim: {x, y} | null });  // only the keys given change
 //   const events = step(b, dt);      // dt in seconds; while b.quiz is open only its timer runs
 //   answer(b, choiceIndex | null);   // null = no answer (out of time)
+//   fire(b);                         // with `aim`: the aimed move goes off now (b.aiming is open after a right answer)
 //   spendHint(b);                    // in a question: one of the hint cards picked up on the arena (b.hints)
 //   view(b);                         // everything the screen draws
 //   battleResult(b);                 // for rules.finishBattle once b.over
@@ -23,6 +33,9 @@ import * as battlemap from "./battlemap.js";
 export const TILE = battlemap.TILE;
 export const QUIZ_S = 5;            // seconds to answer a question
 export const FAST_S = 2;            // answered within this: a fast answer, and the combo chain grows
+export const AIM_S = 1.5;           // with player aiming: how long the world waits after a right answer while the move is aimed
+export const DODGE = 0.5;           // the answer race: what's left of an attack the other side out-answered (half damage)
+export const RIVAL = "rival";       // answer(b, RIVAL): the rival answered first
 export const COMBO = [1, 1.15, 1.3, 1.5]; // the chain's multiplier on the next move; the last step is a "surge"
 export const SIDES = ["me", "foe"];
 // A creature's shapes: FEET touches walls and the ground (small, so it fits through a one-tile gap),
@@ -57,6 +70,7 @@ export const HINT_MAX = 2;          // never more than this many lying about at 
 export const HINT_PICK = 14;        // px from the creature's feet that picks one up
 const HINT_CLEAR = 56;              // px a new one keeps from both creatures and from the others
 const SHOW_S = 0.25;                // how long a beam or area stays on screen after it lands
+const THROW_S = 0.45;               // how long a thrown creature is in the air
 const MAX_DT = 1 / 30;              // the simulation runs in steps no longer than this
 const MAX_STEP = 0.25;              // and never jumps more than this at once (a hidden tab)
 /** Top speed in px/s from the speed stat (16..24 -> 100..120). */
@@ -117,6 +131,9 @@ const inHurt = (f, x, y, pad) => ((x - f.x) / (HURT.rx + pad)) ** 2 + ((y - (f.y
 const sightOf = (v) => ({ w: Math.max(160, Number(v && v.w) || SIGHT.w), h: Math.max(160, Number(v && v.h) || SIGHT.h) });
 /** Whether `p` is well inside the view of a camera centred on `o` (a margin for the creature's own size). */
 const inSight = (b, p, o) => Math.abs(p.x - o.x) <= b.sight.w / 2 - 30 && Math.abs(p.y - o.y) <= b.sight.h / 2 - 30;
+/** Out of reach for a moment: up in the air (a sky dive) or underground (a burrow). */
+const away = (f) => !!(f.air || f.under);
+const RUSH = new Set(["dash", "slam", "slash", "throw"]); // forms where the user itself rushes at the rival
 const touching = (a, c, pad = 0) => ((c.x - a.x) / (2 * BODY.rx + pad)) ** 2 + ((c.y - a.y) / (2 * BODY.ry + pad)) ** 2 <= 1;
 
 // ---------- starting ----------
@@ -131,7 +148,7 @@ function liveFighter(f, side, index, scale) {
            x: 0, y: 0, vx: 0, vy: 0, face: side === "me" ? 1 : -1, cd: {}, recover: 0, guard: 0, guardLeft: 0, boost: 0, boostMult: 1, boostLeft: 0,
            haste: 0, slow: 0, stun: 0, grace: 0, charging: null, dash: null, act: null, stride: 0, tick: 0, speed: 0, groundHealed: 0, fainted: false };
 }
-const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0, open: null });
+const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0, open: null, aim: null });
 const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
 
 /**
@@ -176,7 +193,7 @@ export function brainOf(skill = 0.7, over = null) {
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
   foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
-  brain = null, quizSeconds = QUIZ_S } = {}) {
+  brain = null, quizSeconds = QUIZ_S, aim = false, race = false } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
@@ -186,7 +203,7 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    quiz: null, aimMode: !!aim, aiming: null, race: !!race, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
     hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
@@ -273,6 +290,10 @@ export function input(b, cmd = {}) {
     if (tiles) { c.open = { tiles, walking: false }; c.move = null; }
   }
   if (cmd.attack) c.attack = cmd.attack;
+  if ("aim" in cmd) { // a point in the world the player's attacks go at (null: at the rival)
+    const p = cmd.aim;
+    c.aim = p && Number.isFinite(p.x) && Number.isFinite(p.y) ? { x: p.x, y: p.y } : null;
+  }
   if (cmd.sight) b.sight = sightOf(cmd.sight);
 }
 
@@ -360,9 +381,9 @@ export function whyNot(b, side, moveId) {
   if (b.over) return "over";
   if (!f || f.fainted || b.swap[side] != null) return "fainted";
   if (!f.moves.includes(moveId)) return "unknown";
-  if (side === "me" && b.quiz) return "busy";
-  if (f.stun > 0) return "stunned";
-  if (f.charging || f.dash || f.recover > 0) return "busy";
+  if (side === "me" && (b.quiz || b.aiming)) return "busy";
+  if (f.stun > 0 || f.thrown) return "stunned";
+  if (f.charging || f.dash || f.recover > 0 || away(f)) return "busy";
   if (f.cd[moveId] > 0) return "cooldown";
   if (moveById(moveId).kind === "heal" && f.heals <= 0) return "used up";
   return null;
@@ -385,11 +406,13 @@ export function reachOf(lm, ux, uy) {
   const across = (a, c) => 1 / Math.hypot(ux / a, uy / c); // an ellipse's radius in this direction
   const hurt = (pad) => across(HURT.rx + pad, HURT.ry + pad) + HURT.lift * uy; // its middle sits `lift` above the feet
   switch (lm.form) {
-    case "shot": case "homing": return 8 + lm.range + hurt(lm.r || 0); // it starts 8 px out
+    case "shot": case "homing": case "orb": return 8 + lm.range + hurt(lm.r || 0); // it starts 8 px out
     case "beam": return lm.range + hurt((lm.width || 0) / 2);
+    case "cone": return lm.range + hurt(0);
     case "burst": return (lm.reach || 0) + lm.r + 6;
-    case "drop": return lm.range + lm.r + 6;
-    case "dash": return lm.range + across(2 * BODY.rx + 6, 2 * BODY.ry + 6);
+    case "ring": return lm.r + 6;
+    case "drop": case "skydive": case "burrow": return lm.range + lm.r + 6;
+    case "dash": case "slam": case "slash": case "throw": return lm.range + across(2 * BODY.rx + 6, 2 * BODY.ry + 6);
     default: return lm.range || 0;
   }
 }
@@ -401,7 +424,9 @@ function pressAttack(b, moveId, events) {
   if (why) { events.push({ kind: "refused", side: "me", move: moveId, why, x: f.x, y: f.y }); return false; }
   const q = b.ask ? b.ask(moveId, b) : null;
   if (q && Array.isArray(q.options) && q.options.length) {
-    b.quiz = { side: "me", move: moveId, q, timeLeft: b.quizS, total: b.quizS };
+    // The answer race: the rival tries to answer too (only an attack has anything to dodge).
+    const rivalAt = b.race && moveById(moveId).kind === "attack" && b.rand() < b.foeForm ? rivalTime(b, "foe", b.rand() < b.brain.foe.fast) : null;
+    b.quiz = { side: "me", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt };
     events.push({ kind: "quiz", side: "me", move: moveId, x: f.x, y: f.y });
     return true;
   }
@@ -418,9 +443,20 @@ function pressAttack(b, moveId, events) {
 export function answer(b, choice) {
   const qz = b.quiz;
   if (!qz) return [];
+  if (qz.side === "foe") return dodgeAnswer(b, choice);
   b.quiz = null;
   const f = current(b, "me");
   const m = moveById(qz.move);
+  if (choice === RIVAL) { // the rival answered first: the move still goes, but it dodges half of it; this word isn't marked
+    const power = COMBO[Math.min(b.combo, COMBO.length - 1)] * DODGE;
+    b.combo = 0;
+    const events = [{ kind: "answer", side: "me", move: m.id, uid: qz.q.uid, correct: false, rival: true, fast: false, choice: null, right: qz.q.answer, x: f.x, y: f.y }];
+    if (b.aimMode && m.kind === "attack") {
+      b.aiming = { move: m.id, power, surged: false, half: true, timeLeft: AIM_S, total: AIM_S };
+      events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
+    } else use(b, "me", m.id, power, events, { half: true });
+    return events;
+  }
   const picked = Number.isInteger(choice) && choice >= 0 ? choice : null;
   const correct = picked !== null && picked === qz.q.answer;
   const fast = correct && qz.total - qz.timeLeft <= FAST_S;
@@ -430,8 +466,44 @@ export function answer(b, choice) {
   const power = correct ? (fast ? 1.1 : 1) * COMBO[Math.min(b.combo, COMBO.length - 1)] : 0;
   const surged = correct && b.combo >= COMBO.length - 1;
   b.combo = fast ? Math.min(COMBO.length - 1, b.combo + 1) : 0;
-  if (correct) use(b, "me", m.id, power, events, { surged });
+  if (correct && b.aimMode && m.kind === "attack") { // the player aims it now: the world keeps waiting
+    b.aiming = { move: m.id, power, surged, timeLeft: AIM_S, total: AIM_S };
+    events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
+  } else if (correct) use(b, "me", m.id, power, events, { surged });
   else fail(b, f, m, picked === null ? "time" : "wrong", events);
+  return events;
+}
+
+/** The aimed move goes off, at the player's aim (or at the rival when there is none). Returns the events. */
+export function fire(b) {
+  const a = b.aiming;
+  if (!a) return [];
+  b.aiming = null;
+  const events = [];
+  use(b, "me", a.move, a.power, events, { surged: a.surged, half: !!a.half });
+  return events;
+}
+
+/** When a side's simulated answer comes, in seconds after its question opened: within FAST_S for a fast one. */
+function rivalTime(b, side, fast) {
+  const r = b.rand();
+  return fast ? 0.8 + r * (FAST_S - 0.8) : FAST_S + r * Math.max(0.2, b.quizS * 0.9 - FAST_S);
+}
+
+/** The player's answer to a dodge question (the rival is attacking): right before the rival, its attack does half
+ * damage; wrong, out of time, or the rival first (RIVAL), it lands in full. Returns the events (the first is "answer"). */
+function dodgeAnswer(b, choice) {
+  const qz = b.quiz;
+  b.quiz = null;
+  const f = current(b, "me");
+  const m = moveById(qz.move);
+  const rival = choice === RIVAL;
+  const picked = Number.isInteger(choice) && choice >= 0 ? choice : null;
+  const correct = picked !== null && picked === qz.q.answer;
+  const events = [{ kind: "answer", side: "me", dodge: true, move: m.id, uid: qz.q.uid, correct, rival, fast: false, choice: picked, right: qz.q.answer, x: f.x, y: f.y }];
+  if (!rival) { if (correct) b.answers.right++; else b.answers.wrong++; }
+  const why = whyNot(b, "foe", m.id);
+  if (!why) use(b, "foe", m.id, correct ? qz.power * DODGE : qz.power, events, { half: correct });
   return events;
 }
 
@@ -461,6 +533,14 @@ function rivalUse(b, side, moveId, events) {
   const fast = b.rand() < b.brain[side].fast;
   const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
   b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
+  // The answer race: the player (not the computer playing for them) gets a dodge question about the attack.
+  const q = b.race && side === "foe" && !b.ai.me && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
+  if (q && Array.isArray(q.options) && q.options.length) {
+    b.quiz = { side: "foe", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt: rivalTime(b, side, fast), power };
+    faceToward(f, current(b, "me"));
+    events.push({ kind: "quiz", side: "foe", move: moveId, x: f.x, y: f.y });
+    return;
+  }
   use(b, side, moveId, power, events);
 }
 
@@ -471,14 +551,24 @@ const attackOf = (b, f) => f.atk * (f.boost > 0 ? f.boostMult : 1) * groundAt(b,
 function faceToward(f, o) { if (o && Math.abs(o.x - f.x) > 1) f.face = o.x < f.x ? -1 : 1; }
 
 /** Where a move goes, aimed at the rival where it stands now. */
-function aimFor(b, f, rival, lm) {
-  const o = ahead(b, f, rival, lm);
+function aimFor(b, f, rival, lm) { return aimTo(b, f, ahead(b, f, rival, lm), lm); }
+
+/** The player's own aim, when they are aiming (`aim: true` and a point given), else null. */
+function playerAim(b, f) {
+  const p = f.side === "me" && b.aimMode ? b.ctl.me.aim : null;
+  return p && dist(f, p) >= 2 ? p : null;
+}
+
+/** Where a move goes, aimed at the point o: along the line to it; a drop lands on it (as far as the move reaches). */
+function aimTo(b, f, o, lm) {
   const d = unit(o.x - f.x, o.y - f.y);
-  if (lm.form === "drop") {
+  if (lm.form === "drop" || lm.form === "skydive" || lm.form === "burrow") { // lands on the point, as far as it reaches
     const reach = Math.min(dist(f, o), lm.range);
     return { x: f.x + d.x * reach, y: f.y + d.y * reach, r: lm.r };
   }
   if (lm.form === "burst") return { x: f.x + d.x * lm.reach, y: f.y + d.y * lm.reach, r: lm.r };
+  if (lm.form === "ring") return { x: f.x, y: f.y, r: lm.r };
+  if (lm.form === "cone") return { x: f.x, y: f.y, dx: d.x, dy: d.y, len: lm.range, half: lm.half };
   if (lm.form === "beam") return { x: f.x, y: f.y, dx: d.x, dy: d.y, len: beamLength(b, f.x, f.y, d, lm.range), width: lm.width };
   return { x: f.x, y: f.y, dx: d.x, dy: d.y, len: lm.range };
 }
@@ -488,7 +578,9 @@ function ahead(b, f, o, lm) {
   const lead = b.brain && b.brain[f.side] ? b.brain[f.side].lead : 0;
   if (!(lead > 0) || !(Math.abs(o.vx) + Math.abs(o.vy) > 1)) return o;
   const d = dist(f, o);
-  const t = lm.form === "shot" || lm.form === "homing" ? d / (lm.speed || 300) : lm.form === "dash" ? d / (lm.speed || 500) : (lm.warn || 0) + (lm.windup || 0);
+  const t = lm.form === "shot" || lm.form === "homing" || lm.form === "burrow" ? d / (lm.speed || 300)
+    : lm.form === "orb" ? (lm.hold || 0) + d / (lm.speed || 300) : RUSH.has(lm.form) ? d / (lm.speed || 500)
+    : lm.form === "skydive" ? (lm.rise || 0) + (lm.fall || 0) : (lm.warn || 0) + (lm.windup || 0);
   const s = Math.min(1, t) * lead;
   const p = { x: o.x + o.vx * s, y: o.y + o.vy * s };
   return fits(b, o, p.x, p.y) ? p : o;
@@ -506,14 +598,15 @@ function use(b, side, moveId, power, events, extra = {}) {
   const lm = liveMove(m);
   f.cd[m.id] = lm.cooldown;
   f.recover = RECOVER_S;
-  faceToward(f, o);
+  const aimed = playerAim(b, f);
+  faceToward(f, aimed || o);
   f.act = { kind: "lunge", t: 0, dur: 0.3 };
   const element = m.own ? f.type : m.element || null;
   events.push({ kind: "attack", side, move: m.id, name: m.name, style: m.style, form: lm.form, element: element || "plain", power, x: f.x, y: f.y, ...extra });
   if (m.kind === "attack") {
-    const shot = { side, move: m.id, element, atype: f.type, atk: attackOf(b, f), power, style: m.style, mpower: m.power, delay: m.delay || 0 };
+    const shot = { side, move: m.id, element, atype: f.type, atk: attackOf(b, f), power, style: m.style, mpower: m.power, delay: m.delay || 0, half: !!extra.half };
     if (f.boost > 0 && --f.boost === 0) f.boostLeft = 0;
-    const aim = aimFor(b, f, o, lm);
+    const aim = aimed ? aimTo(b, f, aimed, lm) : aimFor(b, f, o, lm);
     if (lm.windup) {
       f.charging = { move: m.id, t: 0, total: lm.windup, aim, shot, lm };
       events.push({ kind: "charge", side, move: m.id, form: lm.form, element: element || "plain", area: aim, total: lm.windup, x: f.x, y: f.y });
@@ -577,33 +670,46 @@ function terrainTiles(b, f, o, lm) {
 function launch(b, f, lm, aim, shot, events, charged) {
   const id = b.nextId++;
   const base = { id, side: f.side, move: shot.move, form: lm.form, element: shot.element || "plain", shot };
-  if (lm.form === "shot" || lm.form === "homing") {
-    const p = { ...base, kind: "projectile", x: f.x + aim.dx * 8, y: f.y + aim.dy * 8, dx: aim.dx, dy: aim.dy, speed: lm.speed, r: lm.r, left: lm.range, turn: lm.turn || 0 };
+  if (lm.form === "shot" || lm.form === "homing" || lm.form === "orb") {
+    const p = { ...base, kind: "projectile", x: f.x + aim.dx * 8, y: f.y + aim.dy * 8, dx: aim.dx, dy: aim.dy, speed: lm.speed, r: lm.r, left: lm.range, turn: lm.turn || 0,
+                blast: lm.blast || 0 }; // (an orb bursts where it ends, hitting what is near)
     b.fx.push(p);
     events.push({ kind: "projectile", side: f.side, move: shot.move, form: lm.form, element: base.element, id, x: p.x, y: p.y, dir: { x: p.dx, y: p.dy } });
   } else if (lm.form === "beam") {
     const p = { ...base, kind: "beam", x: aim.x, y: aim.y, dx: aim.dx, dy: aim.dy, len: aim.len, width: aim.width, warn: charged ? 0.05 : lm.warn, t: 0, landed: false };
     b.fx.push(p);
     events.push({ kind: "beam", side: f.side, move: shot.move, element: base.element, id, x: p.x, y: p.y, dir: { x: p.dx, y: p.dy }, len: p.len, width: p.width, warn: p.warn });
-  } else if (lm.form === "burst" || lm.form === "drop") {
+  } else if (lm.form === "cone") {
+    const p = { ...base, kind: "cone", x: aim.x, y: aim.y, dx: aim.dx, dy: aim.dy, len: aim.len, half: aim.half, warn: charged ? 0.1 : lm.warn, t: 0, landed: false };
+    b.fx.push(p);
+    events.push({ kind: "cone", side: f.side, move: shot.move, element: base.element, id, x: p.x, y: p.y, dir: { x: p.dx, y: p.dy }, len: p.len, half: p.half, warn: p.warn });
+  } else if (lm.form === "skydive" || lm.form === "burrow") {
+    const to = nearestFit(b, f, aim.x, aim.y);
+    const trip = { move: shot.move, shot, r: lm.r, daze: lm.daze || 0, to };
+    if (lm.form === "skydive") f.air = { ...trip, t: 0, total: lm.rise + lm.fall, rise: lm.rise, from: { x: f.x, y: f.y } };
+    else f.under = { ...trip, speed: lm.speed };
+    f.vx = 0; f.vy = 0;
+    events.push({ kind: lm.form, side: f.side, move: shot.move, element: base.element, x: f.x, y: f.y, to, r: lm.r });
+  } else if (lm.form === "burst" || lm.form === "drop" || lm.form === "ring") {
     const p = { ...base, kind: "area", x: aim.x, y: aim.y, r: aim.r, warn: charged ? 0.15 : lm.warn, t: 0, landed: false };
     b.fx.push(p);
     events.push({ kind: "area", side: f.side, move: shot.move, form: lm.form, element: base.element, id, x: p.x, y: p.y, r: p.r, warn: p.warn });
-  } else if (lm.form === "dash") {
-    f.dash = { move: shot.move, dx: aim.dx, dy: aim.dy, left: lm.range, speed: lm.speed, shot };
-    events.push({ kind: "dash", side: f.side, move: shot.move, element: base.element, x: f.x, y: f.y, dir: { x: aim.dx, y: aim.dy } });
+  } else if (RUSH.has(lm.form)) {
+    f.dash = { move: shot.move, form: lm.form, dx: aim.dx, dy: aim.dy, left: lm.range, speed: lm.speed, shot, knock: lm.knock || 1, daze: lm.daze || 0, toss: lm.toss || 0, struck: false };
+    events.push({ kind: "dash", side: f.side, move: shot.move, form: lm.form, element: base.element, x: f.x, y: f.y, dir: { x: aim.dx, y: aim.dy } });
   }
 }
 
 /** An attack reaches its target: damage, with the type chart and both creatures' ground. */
 function hit(b, shot, d, dir, events) {
-  if (d.fainted || d.grace > 0) return false;
+  if (d.fainted || d.grace > 0 || away(d) || d.thrown) return false;
   const m = moveById(shot.move);
   const mult = matchup(shot.element, d.type);
   const same = shot.element && shot.element === shot.atype ? 1.1 : 1;
   const g = groundAt(b, d);
   let dmg = shot.mpower * DAMAGE * (shot.atk / (d.def * g.def)) * mult * same * shot.power * (0.92 + b.rand() * 0.16);
   const ev = { kind: "hit", side: shot.side, target: d.side, move: m.id, element: shot.element || "plain", mult, x: d.x, y: d.y };
+  if (shot.half) ev.half = true; // the answer race: the target out-answered it
   if (d.guard > 0) { dmg *= 1 - d.guard; ev.guarded = true; d.guard = 0; d.guardLeft = 0; }
   dmg = Math.max(1, Math.round(dmg));
   d.hp = Math.max(0, d.hp - dmg);
@@ -638,7 +744,7 @@ function miss(b, p, why, events, x = p.x, y = p.y) {
 /** A creature faints: the next of its team steps in after FAINT_S, or the battle is over. */
 function faint(b, d, events) {
   if (d.fainted) return;
-  Object.assign(d, { hp: 0, fainted: true, charging: null, dash: null, vx: 0, vy: 0, act: { kind: "faint", t: 0, dur: FAINT_S } });
+  Object.assign(d, { hp: 0, fainted: true, charging: null, dash: null, air: null, under: null, thrown: null, vx: 0, vy: 0, act: { kind: "faint", t: 0, dur: FAINT_S } });
   events.push({ kind: "faint", side: d.side, index: d.index, x: d.x, y: d.y });
   for (const p of b.fx) if (p.side === d.side && p.kind !== "projectile" && !p.landed) p.done = true; // its wind-ups don't land
   b.ctl[d.side] = newControl();
@@ -670,7 +776,13 @@ export function step(b, dt) {
   if (b.over) { for (const side of SIDES) acts(current(b, side), time); return events; }
   if (b.quiz) {
     b.quiz.timeLeft = Math.max(0, b.quiz.timeLeft - time);
-    if (b.quiz.timeLeft <= 0) events.push(...answer(b, null));
+    if (b.quiz.rivalAt != null && b.quiz.total - b.quiz.timeLeft >= b.quiz.rivalAt) events.push(...answer(b, RIVAL)); // the rival was quicker
+    else if (b.quiz.timeLeft <= 0) events.push(...answer(b, null));
+    return events;
+  }
+  if (b.aiming) { // the aim moment: still frozen; when it runs out the move goes where it is pointed
+    b.aiming.timeLeft = Math.max(0, b.aiming.timeLeft - time);
+    if (b.aiming.timeLeft <= 0) events.push(...fire(b));
     return events;
   }
   for (let left = time; left > 1e-9 && !b.over && !b.quiz; left -= MAX_DT) tick(b, Math.min(left, MAX_DT), events);
@@ -776,6 +888,11 @@ function run(b, f, h, events) {
   const g = groundAt(b, f);
   const o = current(b, other(f.side));
   const x0 = f.x, y0 = f.y;
+  if (f.thrown || f.air || f.under) { // thrown through the air, flying a sky dive, or digging along underground
+    if (f.thrown) thrownOn(b, f, h, events); else if (f.air) airOn(b, f, o, h, events); else underOn(b, f, o, h, events);
+    f.speed = f.under ? Math.hypot(f.x - x0, f.y - y0) / h : 0;
+    return;
+  }
   if (f.dash) dashOn(b, f, o, h, events);
   else {
     const top = speedOf(f.spd) * g.speed * (f.haste > 0 ? HASTE : 1) * (f.slow > 0 ? SLOW : 1);
@@ -810,23 +927,93 @@ function dashOn(b, f, o, h, events) {
   d.left -= len;
   f.vx = d.dx * d.speed;
   f.vy = d.dy * d.speed;
-  if (!o.fainted && touching(f, o, 6)) {
-    hit(b, d.shot, o, { x: d.dx, y: d.dy }, events);
-    f.dash = null;
-    f.vx *= 0.2; f.vy *= 0.2;
-    return;
+  const dir = { x: d.dx, y: d.dy };
+  const el = d.shot.element || "plain";
+  if (!o.fainted && !d.struck && touching(f, o, 6)) {
+    if (d.form === "throw" && !away(o) && !o.thrown && !(o.grace > 0)) { // grabbed: thrown on along the rush, hurt on landing
+      o.thrown = { dx: d.dx, dy: d.dy, t: 0, total: THROW_S, speed: d.toss / THROW_S, shot: d.shot, daze: d.daze };
+      Object.assign(o, { vx: 0, vy: 0, charging: null, dash: null });
+      events.push({ kind: "grab", side: f.side, target: o.side, element: el, x: o.x, y: o.y, dir });
+      f.dash = null;
+      f.vx = 0; f.vy = 0;
+      return;
+    }
+    const landed = d.form !== "throw" && hit(b, d.shot, o, dir, events);
+    if (landed && d.form === "slam") { // a heavy knock back, and a moment's daze
+      o.vx += d.dx * KNOCK * (d.knock - 1);
+      o.vy += d.dy * KNOCK * (d.knock - 1);
+      o.stun = Math.max(o.stun, d.daze);
+      events.push({ kind: "slam", side: f.side, target: o.side, element: el, x: o.x, y: o.y, dir });
+    }
+    if (d.form === "slash") { // through and out the other side: one hit, and the rush goes on
+      if (landed) { d.struck = true; events.push({ kind: "slash", side: f.side, target: o.side, element: el, x: o.x, y: o.y - HURT.lift, dir }); }
+    } else {
+      f.dash = null;
+      f.vx *= 0.2; f.vy *= 0.2;
+      return;
+    }
   }
   if (d.left <= 0 || !whole || Math.hypot(f.x - x0, f.y - y0) < 0.5) {
-    miss(b, { side: f.side, move: d.move, x: f.x, y: f.y }, "dodged", events);
+    if (!d.struck) miss(b, { side: f.side, move: d.move, x: f.x, y: f.y }, "dodged", events);
     f.dash = null;
     f.vx *= 0.3; f.vy *= 0.3;
   }
+}
+
+/** Thrown: carried on along the throw (stopped by a wall), hurt and dazed on landing. */
+function thrownOn(b, f, h, events) {
+  const t = f.thrown;
+  t.t += h;
+  const whole = slide(b, f, t.dx * t.speed * h, t.dy * t.speed * h);
+  f.vx = 0; f.vy = 0;
+  if (t.t < t.total && whole) return;
+  f.thrown = null;
+  events.push({ kind: "land", side: f.side, element: t.shot.element || "plain", x: f.x, y: f.y });
+  if (hit(b, t.shot, f, { x: t.dx, y: t.dy }, events)) f.stun = Math.max(f.stun, t.daze || 0);
+}
+
+/** A sky dive: up out of reach, across to the point, and down on it. */
+function airOn(b, f, o, h, events) {
+  const a = f.air;
+  a.t += h;
+  const k = Math.min(1, a.t / a.total);
+  f.x = a.from.x + (a.to.x - a.from.x) * k;
+  f.y = a.from.y + (a.to.y - a.from.y) * k;
+  f.vx = 0; f.vy = 0;
+  if (a.t < a.total) return;
+  f.air = null;
+  comeDown(b, f, o, a, "crash", events);
+}
+
+/** A burrow: along underground (under walls and water too) to the point, then up through the ground. */
+function underOn(b, f, o, h, events) {
+  const u = f.under;
+  const d = dist(f, u.to);
+  const step = u.speed * h;
+  f.vx = 0; f.vy = 0;
+  if (d > step) { f.x += ((u.to.x - f.x) / d) * step; f.y += ((u.to.y - f.y) / d) * step; return; }
+  f.under = null;
+  comeDown(b, f, o, u, "erupt", events);
+}
+
+/** Landing from a sky dive or bursting up from a burrow: everything within r of the point is hit. */
+function comeDown(b, f, o, trip, kind, events) {
+  f.x = trip.to.x;
+  f.y = trip.to.y;
+  f.recover = Math.max(f.recover, 0.4);
+  faceToward(f, o.fainted ? null : o);
+  events.push({ kind, side: f.side, move: trip.move, element: trip.shot.element || "plain", x: f.x, y: f.y, r: trip.r });
+  const struck = !o.fainted && Math.hypot(o.x - f.x, o.y - f.y) <= trip.r + 6;
+  if (struck && hit(b, trip.shot, o, unit(o.x - f.x, o.y - f.y), events)) { if (trip.daze) o.stun = Math.max(o.stun, trip.daze); }
+  else miss(b, { side: f.side, move: trip.move, x: f.x, y: f.y }, "dodged", events);
 }
 
 /** The two creatures never stand inside each other. */
 function separate(b) {
   const a = current(b, "me"), c = current(b, "foe");
   if (a.fainted || c.fainted) return;
+  const passing = (f) => away(f) || f.thrown || (f.dash && f.dash.form === "slash");
+  if (passing(a) || passing(c)) return;
   const nx = (c.x - a.x) / (2 * BODY.rx), ny = (c.y - a.y) / (2 * BODY.ry);
   const d = Math.hypot(nx, ny);
   if (d >= 1) return;
@@ -859,15 +1046,30 @@ function flight(b, h, events) {
         p.x += (p.dx * len) / n;
         p.y += (p.dy * len) / n;
         p.left -= len / n;
-        if (!target.fainted && target.grace <= 0 && inHurt(target, p.x, p.y, p.r)) { hit(b, p.shot, target, { x: p.dx, y: p.dy }, events); p.done = true; }
-        else if (b.ground.blocksShot(b.map, p.x, p.y)) { miss(b, p, "wall", events); p.done = true; }
-        else if (p.left <= 0) { miss(b, p, "range", events); p.done = true; }
+        if (!target.fainted && target.grace <= 0 && !away(target) && inHurt(target, p.x, p.y, p.r)) {
+          hit(b, p.shot, target, { x: p.dx, y: p.dy }, events);
+          p.done = true;
+          if (p.blast) events.push({ kind: "blast", side: p.side, move: p.move, element: p.element, x: p.x, y: p.y, r: p.blast });
+        } else if (b.ground.blocksShot(b.map, p.x, p.y) || p.left <= 0) {
+          p.done = true;
+          if (p.blast) { // an orb bursts where it stops: what is close enough is still hit
+            events.push({ kind: "blast", side: p.side, move: p.move, element: p.element, x: p.x, y: p.y, r: p.blast });
+            const near = !target.fainted && Math.hypot(target.x - p.x, target.y - HURT.lift - p.y) <= p.blast + 6;
+            if (!(near && hit(b, p.shot, target, unit(target.x - p.x, target.y - p.y), events))) miss(b, p, "dodged", events);
+          } else miss(b, p, p.left <= 0 ? "range" : "wall", events);
+        }
       }
     } else {
       p.t += h;
       if (!p.landed && p.t >= p.warn) {
         p.landed = true;
-        if (p.kind === "area") {
+        if (p.kind === "cone") { // inside the fan: in front, near enough, and within its angle
+          const rx = target.x - p.x, ry = target.y - HURT.lift - p.y;
+          const along = rx * p.dx + ry * p.dy;
+          const ang = Math.atan2(Math.abs(rx * p.dy - ry * p.dx), along);
+          const struck = !target.fainted && along > -6 && Math.hypot(rx, ry) <= p.len + HURT.rx && ang <= p.half + 0.12;
+          if (!(struck && hit(b, p.shot, target, unit(rx, ry), events))) miss(b, p, "dodged", events);
+        } else if (p.kind === "area") {
           const struck = !target.fainted && Math.hypot(target.x - p.x, target.y - p.y) <= p.r + 6;
           if (!(struck && hit(b, p.shot, target, unit(target.x - p.x, target.y - p.y), events))) miss(b, p, "dodged", events);
         } else {
@@ -892,7 +1094,7 @@ function traps(b, events) {
   b.spikesUp = up;
   for (const side of SIDES) {
     const f = current(b, side);
-    if (b.over || f.fainted || f.grace > 0) continue;
+    if (b.over || f.fainted || f.grace > 0 || away(f)) continue;
     if (rising) {
       const g = groundAt(b, f);
       if (g.spikes > 0) {
@@ -965,7 +1167,7 @@ export function spendHint(b) {
 }
 
 function groundTick(b, f, h, events) {
-  if (f.fainted || b.over) return;
+  if (f.fainted || b.over || away(f)) return;
   f.tick += h;
   if (f.tick < 1) return;
   f.tick -= 1;
@@ -993,7 +1195,7 @@ function groundTick(b, f, h, events) {
 function think(b, side, h, events) {
   const ai = b.ai[side];
   const f = current(b, side), o = current(b, other(side));
-  if (b.over || f.fainted || o.fainted) return;
+  if (b.over || f.fainted || o.fainted || away(f) || f.thrown) return;
   if ((ai.think -= h) > 0) return;
   const brain = b.brain[side];
   ai.think = brain.react + b.rand() * 0.15;
@@ -1029,6 +1231,8 @@ function threatTo(b, f) {
       if (Math.abs(rx * p.dy - ry * p.dx) < HURT.ry + p.r + 6 || (p.turn && along < 100)) return { line: { dx: p.dx, dy: p.dy } };
     } else if (!p.landed && p.kind === "area") {
       if (Math.hypot(f.x - p.x, f.y - p.y) < p.r + 12) return { area: { x: p.x, y: p.y, r: p.r } };
+    } else if (!p.landed && p.kind === "cone") { // out of its reach is the sure way out of a fan
+      if (Math.hypot(f.x - p.x, f.y - p.y) < p.len + 16) return { area: { x: p.x, y: p.y, r: p.len } };
     } else if (!p.landed && p.kind === "beam") {
       const rx = f.x - p.x, ry = f.y - p.y;
       const along = rx * p.dx + ry * p.dy;
@@ -1036,6 +1240,8 @@ function threatTo(b, f) {
     }
   }
   const o = current(b, other(f.side));
+  const trip = !o.fainted && (o.air || o.under);
+  if (trip && Math.hypot(f.x - trip.to.x, f.y - trip.to.y) < trip.r + 12) return { area: { x: trip.to.x, y: trip.to.y, r: trip.r } };
   const busy = !o.fainted && (o.charging || o.dash);
   if (busy) {
     const a = o.charging ? o.charging.aim : { x: o.x, y: o.y, dx: o.dash.dx, dy: o.dash.dy };
@@ -1095,8 +1301,8 @@ function choose(b, f, o) {
   const reach = by("attack").filter((id) => {
     if (!inRange(b, f.side, id)) return false;
     const form = liveMove(moveById(id)).form;
-    if (form === "shot" || form === "beam") return clearShot(b, f.x, f.y, o.x, o.y);
-    if (form === "dash") return walkable(b, f, f.x, f.y, o.x, o.y);
+    if (form === "shot" || form === "beam" || form === "orb") return clearShot(b, f.x, f.y, o.x, o.y);
+    if (RUSH.has(form)) return walkable(b, f, f.x, f.y, o.x, o.y);
     return true;
   }).sort((x, y) => hitValue(f, o, y, brain.types) - hitValue(f, o, x, brain.types));
   if (!reach.length) return null;
@@ -1106,7 +1312,8 @@ function choose(b, f, o) {
 /** The distance a move likes to be used from. */
 function liking(lm) {
   if (lm.form === "burst") return 34;
-  if (lm.form === "dash") return lm.range * 0.7;
+  if (lm.form === "ring") return lm.r * 0.6;
+  if (RUSH.has(lm.form) || lm.form === "skydive" || lm.form === "burrow") return lm.range * 0.7;
   return lm.range * 0.6;
 }
 
@@ -1118,7 +1325,7 @@ function bestSpot(b, f, o, idle = 0) {
   const best = idle > 6 && ids.length ? ids[Math.floor(b.rand() * ids.length)] : ids[0];
   const lm = liveMove(moveById(best || "tackle"));
   const want = (attackIds(f).every((id) => f.cd[id] > 1.2) ? 150 : liking(lm)) * (idle > 4 ? 0.6 : 1);
-  const needsLine = lm.form === "shot" || lm.form === "beam" || lm.form === "dash";
+  const needsLine = lm.form === "shot" || lm.form === "beam" || lm.form === "orb" || RUSH.has(lm.form);
   const spots = [{ x: f.x, y: f.y }];
   const a0 = b.rand() * Math.PI * 2;
   // A ring round the rival at that distance, squashed to fit the player's view.
@@ -1167,7 +1374,10 @@ function fighterView(b, side) {
     act: f.act ? { kind: f.act.kind, t: Math.min(1, f.act.t / f.act.dur) } : null,
     statuses: statusesOf(b, f), terrain: g.id, ground: g,
     charging: f.charging ? { move: f.charging.move, form: f.charging.lm.form, t: Math.min(1, f.charging.t / f.charging.total), area: f.charging.aim } : null,
-    dashing: !!f.dash, fainted: f.fainted, grace: f.grace > 0, waiting: b.swap[side] != null,
+    dashing: !!f.dash, dash: f.dash ? { form: f.dash.form || "dash", dir: { x: f.dash.dx, y: f.dash.dy } } : null,
+    air: f.air ? { t: Math.min(1, f.air.t / f.air.total), rise: f.air.rise / f.air.total, to: f.air.to, r: f.air.r, from: f.air.from } : null,
+    under: f.under ? { to: f.under.to, r: f.under.r } : null, thrown: f.thrown ? { t: Math.min(1, f.thrown.t / f.thrown.total) } : null,
+    fainted: f.fainted, grace: f.grace > 0, waiting: b.swap[side] != null,
   };
 }
 
@@ -1182,11 +1392,21 @@ function movesView(b) {
   });
 }
 
+/** The aim moment: the move, its time, and the shape it would make if it went off now (as `charging.area`). */
+function aimingView(b) {
+  const f = current(b, "me"), o = current(b, "foe");
+  const lm = liveMove(moveById(b.aiming.move));
+  const p = playerAim(b, f);
+  return { move: b.aiming.move, form: lm.form, timeLeft: b.aiming.timeLeft, total: b.aiming.total, aimed: !!p,
+           area: p ? aimTo(b, f, p, lm) : aimFor(b, f, o, lm) };
+}
+
 function fxView(p) {
   const v = { id: p.id, kind: p.kind, form: p.form, side: p.side, move: p.move, element: p.element, x: p.x, y: p.y };
-  if (p.kind === "projectile") return { ...v, dir: { x: p.dx, y: p.dy }, r: p.r };
+  if (p.kind === "projectile") return { ...v, dir: { x: p.dx, y: p.dy }, r: p.r, blast: p.blast || 0 };
+  if (p.kind === "cone") return { ...v, dir: { x: p.dx, y: p.dy }, len: p.len, half: p.half, warn: !p.landed, t: p.landed ? Math.min(1, (p.t - p.warn) / SHOW_S) : Math.min(1, p.t / p.warn) };
   if (p.kind === "beam") return { ...v, dir: { x: p.dx, y: p.dy }, len: p.len, width: p.width, warn: !p.landed, t: p.landed ? Math.min(1, (p.t - p.warn) / SHOW_S) : Math.min(1, p.t / p.warn) };
-  return { ...v, r: p.r, warn: !p.landed, t: p.landed ? Math.min(1, (p.t - p.warn) / SHOW_S) : Math.min(1, p.t / p.warn) };
+  return { ...v, r: p.r, warnS: p.warn, warn: !p.landed, t: p.landed ? Math.min(1, (p.t - p.warn) / SHOW_S) : Math.min(1, p.t / p.warn) };
 }
 
 /**
@@ -1199,7 +1419,8 @@ function fxView(p) {
 export function view(b) {
   return {
     time: b.time, over: b.over, won: b.won, combo: b.combo, mode: b.mode, wordMode: b.wordMode,
-    quiz: b.quiz ? { move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
+    quiz: b.quiz ? { side: b.quiz.side, move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
+    aiming: b.aiming ? aimingView(b) : null, aim: b.aimMode ? b.ctl.me.aim : null,
     map: b.map, width: b.width, height: b.height, traps: b.traps, opening: !!b.ctl.me.open,
     me: fighterView(b, "me"), foe: fighterView(b, "foe"),
     teams: { me: b.mine.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })), foe: b.theirs.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })) },

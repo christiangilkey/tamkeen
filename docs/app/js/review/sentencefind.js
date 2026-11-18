@@ -71,6 +71,13 @@ export async function findSentences(v, lang, { skip = [] } = {}) {
   return all;
 }
 
+/** One sentence with card `v`'s word or phrase (the whole of it) from the learner's own library, or null: "Add words"
+ * takes it when the examples file has none for a word (components/wordbuilder.js). It has no translation. */
+export async function librarySentence(v, lang) {
+  const found = (await fromLibrary(v, lang, [])).filter((x) => !x.main);
+  return found[0] || null;
+}
+
 /** Sentences with card `v`'s word or phrase in the learner's library (`/search`: the same route on the computer,
  * the phone and the web app); none when the search fails. */
 async function fromLibrary(v, lang, skip) {

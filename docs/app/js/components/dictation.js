@@ -13,40 +13,19 @@
 // (`play(unit)`), so the same panel serves every player with sound: podcasts, audiobooks, your own audio and
 // videos, YouTube, Netflix, reels and courses.
 
-import { esc, h, toast } from "../app.js";
+import { esc, h } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { langAttrs } from "../languages.js";
 import { GIST_SIZES, caughtWords, compareTyped, passages, shareRight } from "../dictation.js";
+import { feature } from "../prototype.js";
 
 // Not released yet: the owner tests it first (2026-11-17, v0.61.0 went out without it). Hidden everywhere (the
-// players' button, the W key, the controller's option, the courses' button) unless this device has it switched on
-// with localStorage `tamkeenTryDictation` = "1". To release it, set DICTATION_RELEASED to true.
-export const DICTATION_RELEASED = false;
+// players' button, the W key, the controller's option, the courses' button) unless this device is in prototype
+// mode (../prototype.js: five quick taps on the version in Settings). To release it, set PROTOTYPES.dictation's
+// `released` to true there.
 /** Whether "Type what you hear" is offered on this device. */
-export function dictationOn() {
-  if (DICTATION_RELEASED) return true;
-  try { return localStorage.getItem("tamkeenTryDictation") === "1"; } catch { return false; }
-}
-
-/** The owner's private test switch (2026-11-17): five quick taps on `el` (the version in Settings; the About
- *  heading in the web app, which shows no version) turn "Type what you hear" on or off on this device. Nothing
- *  shows that it is there. Gone once it is released. */
-export function dictationTaps(el) {
-  if (DICTATION_RELEASED || !el) return;
-  let taps = 0, timer = null;
-  el.addEventListener("click", () => {
-    taps += 1;
-    clearTimeout(timer);
-    timer = setTimeout(() => { taps = 0; }, 1500);
-    if (taps < 5) return;
-    taps = 0;
-    const on = !dictationOn();
-    try { if (on) localStorage.setItem("tamkeenTryDictation", "1"); else localStorage.removeItem("tamkeenTryDictation"); } catch { return; }
-    toast(on ? "Type what you hear is on for this device. Open a player or a course unit to try it."
-      : "Type what you hear is off for this device.");
-  });
-}
+export const dictationOn = () => feature("dictation");
 
 /** The button that opens it: a keyboard, beside the other switches of a player. */
 export function dictationButton(onPress) {

@@ -65,7 +65,12 @@
   "file": "wiktionary.txt"
  },
  {
-  "name": "Tatoeba, Wiktionary, WordNet, GloVe and FrequencyWords: example sentences and the free Mnemonic maker (optional download)",
+  "name": "JMdict (EDRDG): Japanese word meanings Wiktionary lacks, for No AI (optional download)",
+  "license": "CC BY-SA 4.0",
+  "file": "jmdict.txt"
+ },
+ {
+  "name": "Tatoeba, Wiktionary, Wikipedia (WikiMatrix), WordNet, GloVe and FrequencyWords: example sentences and the free Mnemonic maker (optional download)",
   "license": "CC BY 2.0 FR; CC BY-SA 4.0; WordNet licence; PDDL 1.0",
   "file": "card-helpers.txt"
  },

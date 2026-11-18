@@ -300,6 +300,7 @@ export function wordKeys(word, lang, lemmaOf = null) {
 export function dictionaryName(source) {
   if (/Wolff/.test(source || "")) return "Wolff's Dictionary of Cebuano Visayan";
   if (/CAMeL/.test(source || "")) return "the CAMeL Arabic databases";
+  if (/JMdict/.test(source || "")) return "JMdict (EDRDG)";
   return "Wiktionary";
 }
 

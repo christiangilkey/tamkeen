@@ -4,7 +4,7 @@
 // tests/js/battlescreen.test.mjs can check it.
 
 import { BATTLE_UNLOCK_WORDS, RAID_HP_PER_MEMBER } from "./data.js";
-import { WORD_MODES, eligible, teamSize } from "./battle.js";
+import { WORD_MODES, friendTeam, ruleTeam, teamSize } from "./battle.js";
 import { GYM_COUNT, LEADERS, gymProgress, gymStatus, leaderElement } from "./gyms.js";
 import { LAST_WORDS, MIN_SET, leaguePercent, raidDamage, weekNumber } from "./rules.js";
 import { raidShare } from "./remote.js";
@@ -28,8 +28,8 @@ export function battleGate({ words = 0, meanings = 0, canAsk = meanings > 0, hat
 }
 
 /** The creatures that fight for you (roster indexes): the first hatched ones, as many as a team holds (this week's
- * rule, in friend battles, may leave some out or make the team smaller). */
-export const teamOf = (state, rule = null) => eligible(state, rule).slice(0, teamSize(rule));
+ * rule, in friend battles, may leave some out or make the team smaller; with none of its elements, the usual ones). */
+export const teamOf = (state, rule = null) => ruleTeam(state, rule).slice(0, teamSize(rule));
 
 /** The team as the screen shows it: a place for each member of a full team, `null` where there is no one yet. */
 export function teamSlots(state) {
@@ -108,7 +108,7 @@ export function leagueRows({ me, game, people, profiles, now = new Date() }) {
   for (const [id, p] of people) {
     const gp = profiles.get(id);
     rows.push({ id, name: p.username, league: gp ? gp.league : 0, rating: gp ? gp.rating : null,
-      pct: gp && gp.week === week ? leaguePercent(gp.goal_days, now) : 0, mine: false, team: gp ? gp.team || [] : [], profile: gp || null, user: p });
+      pct: gp && gp.week === week ? leaguePercent(gp.goal_days, now) : 0, mine: false, team: gp ? friendTeam(gp, null) : [], profile: gp || null, user: p }); // (with their shown creature when no team came)
   }
   return rows.sort((a, b) => b.pct - a.pct || (b.rating || 0) - (a.rating || 0));
 }
