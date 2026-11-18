@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Per Stimme fragen: Ein Mikrofon neben „Wörter hinzufügen“ beantwortet „Wie sagt man … auf …?“ und macht die Karte
+06cdcfab	Mehr kostenlose Bedeutungen und Beispielsätze ohne KI-Schlüssel, auch aus Wikipedia und einem japanischen Wörterbuch
+2433b56b	Die Lautstärkeregler sind jetzt ganz oben in den Einstellungen
+3cb02668	Bibliothek → Lektionen heißt jetzt Meine Dateien
+048ad49e	Die Wörter der Spiele haben einen eigenen Knopf auf der Startseite, neben Angeln

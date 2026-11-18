@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Pregunta con la voz: un micrófono junto a Añadir palabras responde «¿Cómo se dice … en …?» y crea la tarjeta
+06cdcfab	Más significados y frases de ejemplo gratis sin clave de IA, también de Wikipedia y de un diccionario japonés
+2433b56b	Los controles de volumen ahora están arriba del todo en Ajustes
+3cb02668	Biblioteca → Lecciones ahora se llama Mis archivos
+048ad49e	Las palabras de los juegos tienen su propio botón en Inicio, junto a Pesca

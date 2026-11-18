@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Chiedi a voce: un microfono accanto ad Aggiungi parole risponde a «Come si dice … in …?» e crea la scheda
+06cdcfab	Più significati e frasi d'esempio gratis senza chiave IA, anche da Wikipedia e da un dizionario giapponese
+2433b56b	I cursori del volume ora sono in cima alle Impostazioni
+3cb02668	Libreria → Lezioni ora si chiama I miei file
+048ad49e	Le parole dei giochi hanno un pulsante tutto loro nella Home, accanto a Pesca

@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Pergunte com a voz: um microfone ao lado de Adicionar palavras responde “Como se diz … em …?” e cria o cartão
+06cdcfab	Mais significados e frases de exemplo grátis sem chave de IA, também da Wikipédia e de um dicionário japonês
+2433b56b	Os controles de volume agora ficam no topo das Configurações
+3cb02668	Biblioteca → Lições agora se chama Meus arquivos
+048ad49e	As palavras dos jogos têm um botão próprio no Início, ao lado de Pescaria

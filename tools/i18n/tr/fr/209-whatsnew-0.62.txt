@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Demander à voix haute : un micro à côté d'Ajouter des mots répond à « Comment dit-on … en … ? » et crée la carte
+06cdcfab	Plus de sens et de phrases d'exemple gratuits sans clé d'IA, aussi de Wikipédia et d'un dictionnaire japonais
+2433b56b	Les curseurs de volume sont maintenant tout en haut des Réglages
+3cb02668	Bibliothèque → Leçons s'appelle maintenant Mes fichiers
+048ad49e	Les mots des jeux ont leur propre bouton sur l'Accueil, à côté de Pêche

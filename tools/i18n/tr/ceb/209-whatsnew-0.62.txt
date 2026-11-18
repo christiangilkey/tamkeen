@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Pangutana gamit ang tingog: usa ka mikropono tupad sa Pagdugang og mga pulong motubag sa “Unsaon pag-ingon og … sa …?” ug mohimo sa card
+06cdcfab	Mas daghang libre nga kahulogan ug pananglitan nga sentence bisan walay AI key, gikan usab sa Wikipedia ug sa usa ka diksiyonaryo sa Japanese
+2433b56b	Ang mga slider sa kakusog sa tingog anaa na sa ibabaw sa Settings
+3cb02668	Ang Library → Mga leksyon gitawag na karon og Akong mga file
+048ad49e	Ang mga pulong sa mga dula adunay kaugalingong button sa Home, tupad sa Pangisda

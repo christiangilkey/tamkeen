@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Pregunta amb la veu: un micròfon al costat d'Afegeix paraules respon «Com es diu … en …?» i en fa la targeta
+06cdcfab	Més significats i frases d'exemple gratuïts sense clau d'IA, també de la Viquipèdia i d'un diccionari japonès
+2433b56b	Els controls de volum ara són a dalt de tot de Configuració
+3cb02668	Biblioteca → Lliçons ara es diu Els meus fitxers
+048ad49e	Les paraules dels jocs tenen un botó propi a l'Inici, al costat de Pesca

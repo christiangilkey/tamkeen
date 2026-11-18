@@ -1,0 +1,6 @@
+# What's new in v0.62.0 (web/js/whatsnew.js).
+ab8c42fc	Magtanong gamit ang boses: may mikropono sa tabi ng Magdagdag ng mga salita na sumasagot sa “Paano sabihin ang … sa …?” at gumagawa ng card
+06cdcfab	Mas maraming libreng kahulugan at halimbawang pangungusap kahit walang AI key, mula rin sa Wikipedia at sa isang Japanese na diksiyonaryo
+2433b56b	Nasa itaas na ng Settings ang mga slider ng lakas ng tunog
+3cb02668	Ang Library → Mga aralin ay tinatawag na ngayong Mga file ko
+048ad49e	May sariling button na sa Home ang mga salita ng mga laro, sa tabi ng Pangingisda

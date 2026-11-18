@@ -28925,6 +28925,31 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "ab8c42fc",
+  "k": "Ask by voice: a microphone beside Add words answers “How do I say … in …?” and makes the card",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "06cdcfab",
+  "k": "More free meanings and example sentences without an AI key, from Wikipedia and a Japanese dictionary too",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2433b56b",
+  "k": "The sound volume sliders are now at the top of Settings",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "3cb02668",
+  "k": "Library → Lessons is now called My files",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "048ad49e",
+  "k": "The games' words have their own button on Home, beside Fishing",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "86a8dcbd",
   "k": "One word list for every game: the words you pick for battles now fill the fishing pond too",
   "f": "web/js/whatsnew.js"
