@@ -151,6 +151,15 @@ Arabic has a second meanings file, asked when Wiktionary lacks a word (or has it
 
 Rebuilt with `tools/build_arabic_glosses.py` (see the top of that file).
 
+Japanese has a second meanings file too, asked when Wiktionary lacks a word:
+
+| File | Made from | Licence |
+|---|---|---|
+| `ja-jmdict-meanings.json.gz` | [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html) (`JMdict_e`, the Electronic Dictionary Research and Development Group): only the words the Wiktionary file has no entry or form for, and of those the ones Tamkeen's Japanese word splitter gives as one word (`ja-ipadic.bin.gz`) or JMdict marks as common; each with its first two senses (two glosses each, shortened), part of speech and reading. No archaic or obsolete senses, no single kana. About 57,000 words in 1.5 MB | CC BY-SA 4.0 under the EDRDG licence (commercial use allowed with credit): `LICENSE-JMdict.txt` |
+
+Rebuilt with `python tools/build_jmdict.py <JMdict_e.gz>`, then `node tools/trim_jmdict.mjs`. JMdict's example sentences
+(the Tanaka corpus) are not used: they are Tatoeba's, which the examples files already have.
+
 
 ## Example sentences and the free Mnemonic maker (no AI key)
 
@@ -165,7 +174,17 @@ are needed:
 | `en-keywords.json.gz` | 10,000 common English dictionary words with their US pronunciation (the CMU dictionary, from `en-lemmas.json.gz`), what kind of thing each names (WordNet 3.0's lexicographer files: animal, artifact, food...) and how common it is (FrequencyWords' OpenSubtitles counts), 2,600 common adjectives, and for 22,500 common meaning words (and "to <verb>"s) the keywords tied to them: WordNet's synonyms, kinds, parts, broader words, definition words and sister words, and GloVe 6B's nearest neighbours (only the ties are kept) | CMUdict, WordNet 3.0 licence, CC BY-SA 4.0, GloVe PDDL 1.0: `LICENSE-card-helpers.txt` |
 | `<lang>-keywords.json.gz` (es, fr, de, it, pt, ru, ca) | Keywords in that app language: FrequencyWords' common words (rank ≤ 25,000) that its meanings file has as a noun, verb, adjective or adverb (main sense), with Wiktionary's IPA and the English words its first meanings come down to (for WordNet's kinds and en-keywords' ties) | CC BY-SA 4.0 (FrequencyWords, Wiktionary), WordNet 3.0 licence: `LICENSE-card-helpers.txt` |
 
-Since 2026-11-17 the files also keep every further Tatoeba sentence that has a word form with fewer than three sentences (`tools/build_examples.py more <tatoeba dir> <langs>`, up to 150,000 Tatoeba sentences; Japanese and Chinese the next shortest, up to 90,000).
+Since 2026-11-17 the files also keep a further Tatoeba sentence for every word form that has none yet
+(`tools/build_examples.py more <tatoeba dir> <langs> --wiki <dir>`, up to 150,000 Tatoeba sentences; Japanese and Chinese
+the next shortest, up to 60,000), and, where Tatoeba is thin, sentences from Wikipedia with their English for word forms
+with no sentence at all (source `p`): Catalan, Arabic, Korean, Persian, Tagalog and Latin, from
+[OPUS](https://opus.nlpl.eu)'s WikiMatrix v1 (Schwenk et al. 2019; Wikipedia's text, CC BY-SA), at most 15,000 a language.
+WikiMatrix's pairs are matched by machine and often wrong, so a pair is kept only when it is short and tidy (no numbers,
+brackets or lists, a full stop at the end, an English line of a like length, no Latin letters in Arabic, Persian or Korean)
+and the language's meanings file agrees with it: at least 40% (Tagalog and Latin 50%) of its words that the file knows, and
+at least two, have a meaning with a word of the English line. The app ranks them after Tatoeba's
+(`web/js/lexicon/exampledata.js`). Thai's OPUS wikimedia pairs and Hindi's WikiMatrix pairs were tried and left out
+(nearly all names or wrongly matched). Licence: `LICENSE-card-helpers.txt`.
 
 Rebuilt with `tools/build_examples.py` (see the top of that file), then `node tools/enrich_examples.mjs` (adds the
 Basics course sentences and the forms table to every examples file, and updates their sha256 in index.json).

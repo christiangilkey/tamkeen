@@ -368,9 +368,11 @@ export class ExamplePack {
       const untidy = !ended && !UNSPACED.has(lang) ? 1.5 : 0;
       // (Chinese, Japanese, Thai: Wiktionary's examples are often literary or phrases; Tatoeba's everyday sentences first)
       const literary = UNSPACED.has(lang) && source.startsWith("w") ? 0.6 : 0;
+      // (Wikipedia's sentences, kept only for words nothing else has, are encyclopedic: after Tatoeba's and Wiktionary's)
+      const encyclopedic = source.startsWith("p") ? 1.2 : 0;
       // a sentence whose translation has the meaning is about this sense of the word (manzana: apple, not block)
       const sense = meaning ? (markTranslation(this.sentences[i][1], meaning).includes("⟦") ? -0.6 : 1.5) : 0;
-      return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + literary + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
+      return picked.get(i) + Math.abs(n - 7) * 0.12 + (n > 12 ? 1 : 0) + (phrase ? 3 : 0) + untidy + literary + encyclopedic + (this.sentences[i][1].length > 100 ? 1 : 0) + sense
         // the dialect being studied first (−0.8), Standard Arabic next (+0.4), another dialect last (+2.5)
         + (own && wanted.includes(own) ? -0.8 : own ? 2.5 : wanted.length ? 0.4 : 0)
         // A sentence the learner can read comes first (i+1): every other word one they have seen.
@@ -412,6 +414,7 @@ export function sourceOf(source) {
   if (s.startsWith("b")) return { name: "Tamkeen's Basics course", url: "" };
   if (s.startsWith("d")) return { name: "Wolff, A Dictionary of Cebuano Visayan", url: "https://www.gutenberg.org/ebooks/40074" };
   if (s.startsWith("c")) return { name: "Tamkeen's dialect course", url: "" };
+  if (s.startsWith("p")) return { name: "Wikipedia", url: "https://www.wikipedia.org/" };
   if (s.startsWith("t")) {
     const id = s.slice(1).split(":")[0];
     return { name: "Tatoeba", url: `https://tatoeba.org/en/sentences/show/${id}` };

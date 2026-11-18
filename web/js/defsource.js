@@ -24,7 +24,8 @@ const modelName = (p, settings) => {
 /** The dictionaries a language's built-in dictionary is made of, in the order they are asked
  * (meanings.js: Bisaya asks Wolff's first). `names` are its files (lexicon status `names`). */
 export function dictionaryNames(lang, names) {
-  const list = (names || []).map((n) => (n === "mean-arc" ? "CAMeL Arabic" : n === "mean-cebw" ? "Wolff's dictionary" : "Wiktionary"));
+  const list = (names || []).map((n) => (n === "mean-arc" ? "CAMeL Arabic" : n === "mean-cebw" ? "Wolff's dictionary"
+    : n === "mean-jaj" ? "JMdict" : "Wiktionary"));
   if (lang === "ceb") list.reverse();
   return [...new Set(list)].join(" + ");
 }

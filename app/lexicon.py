@@ -47,10 +47,13 @@ FILES = {"msa": "ar-msa.json.gz", "egy": "ar-egy.json.gz", "lev": "ar-lev.json.g
 # Word meanings for "No AI" in Settings (tools/build_meanings.py, from Wiktionary): one file a language,
 # downloaded only when that is chosen. `kind="meanings"` below.
 # Arabic and Bisaya have a second file, asked when Wiktionary lacks a word: the CAMeL databases' glosses
-# (tools/build_arabic_glosses.py), and John Wolff's Dictionary of Cebuano Visayan (tools/build_cebuano_glosses.py).
-MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc"), "ceb": ("mean-ceb", "mean-cebw")}
+# (tools/build_arabic_glosses.py), and John Wolff's Dictionary of Cebuano Visayan (tools/build_cebuano_glosses.py);
+# Japanese too: JMdict's words Wiktionary lacks (tools/build_jmdict.py).
+MEANINGS = {lang: (f"mean-{lang}",) for lang in LANGUAGES} | {"ar": ("mean-ar", "mean-arc"), "ceb": ("mean-ceb", "mean-cebw"),
+                                                             "ja": ("mean-ja", "mean-jaj")}
 FILES.update({f"mean-{lang}": f"{lang}-meanings.json.gz" for lang in LANGUAGES}
-             | {"mean-arc": "ar-camel-meanings.json.gz", "mean-cebw": "ceb-wolff-meanings.json.gz"})
+             | {"mean-arc": "ar-camel-meanings.json.gz", "mean-cebw": "ceb-wolff-meanings.json.gz",
+                "mean-jaj": "ja-jmdict-meanings.json.gz"})
 # Card helpers with no AI (tools/build_examples.py): each language's example sentences with Wiktionary's
 # pronunciations ("Add words", the free Mnemonic maker), and the English keyword list of the free Mnemonic
 # maker (kind "keywords", lang "en"). Downloaded the first time they are needed.

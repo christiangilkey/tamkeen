@@ -1332,7 +1332,9 @@ OLD_TAGS = {"obsolete", "archaic", "dated", "historical"}
 SCRIPT = {"ar": "[؀-ۿ]", "fa": "[؀-ۿ]", "ru": "[Ѐ-ӿ]", "ja": "[぀-ヿ一-鿿]",
           "zh": "[一-鿿]", "ko": "[가-힯]", "th": "[฀-๿]", "hi": "[ऀ-ॿ]"}
 LATIN = "[A-Za-zÀ-ɏ]"
-MAX_ENGLISH = 6       # words kept for one English word or phrase
+MAX_ENGLISH = 4       # words kept for one English word or phrase (the owner wants the files as small as can be)
+MAX_ENGLISH_WORDS = 3  # English phrases longer than this aren't kept turned round
+MAX_SENSE = 40        # characters of the sense a translation is for
 MAX_PHRASE = 4        # words in a translation, at most (longer ones are explanations, not ways to say it)
 KANA = re.compile("^[぀-ヿー ]+$")
 
@@ -1422,20 +1424,23 @@ def add_english(lang: str, rows: list) -> None:
         p = TRANSLATION_POS.get(pos, "")
         if p == "name":
             continue
-        sense = clean(sense)[:MAX_GLOSS]
+        sense = clean(sense)
         # (1) the table turned round
         ek = en.strip().lower()
-        if ek:
+        if ek and len(ek.split()) <= MAX_ENGLISH_WORDS:
             have = english.setdefault(ek, [])
             if len(have) < MAX_ENGLISH and not any(h[0] == word for h in have):
-                have.append([word, p, sense] + ([reading] if reading else []))
+                short = sense if len(sense) <= MAX_SENSE else sense[:MAX_SENSE].rsplit(" ", 1)[0].rstrip(",;") + "…"
+                have.append([word, p, short] + ([reading] if reading else []))
         # (2) a word the language's own entries lack
         k = key(word, lang)
         if not k or has_own(data, k) or has_own(wolff, k):
             continue
         if lang == "ja" and len(word) == 1 and KANA.match(word):
             continue  # (a single kana is a piece of other words: お "oh" would answer for every honorific お)
-        gloss = clean(en if not sense or sense.lower() == en.lower() else f"{en} ({sense})")[:MAX_GLOSS]
+        gloss = clean(en if not sense or sense.lower() == en.lower() else f"{en} ({sense})")
+        if len(gloss) > 80:
+            gloss = gloss[:80].rsplit(" ", 1)[0].rstrip(",;(") + "…"
         groups = new.setdefault(k, [])
         group = next((g for g in groups if g[1] == p and g[0] == word), None)
         if group is None:

@@ -13,9 +13,9 @@ const LANGUAGES = { ar: ["msa", "egy", "lev", "glf"], es: ["es"], fr: ["fr"], it
   pt: ["pt"], ca: ["ca"], ceb: ["ceb"], th: ["th"], de: ["de"], fa: ["fa"], hi: ["hi"], ko: ["ko"], la: ["la"] };
 // Word meanings for "No AI" (web/js/meanings.js): one file a language, only when that is chosen.
 // Arabic and Bisaya have a second file, asked when Wiktionary lacks a word (the CAMeL databases' glosses;
-// Wolff's Dictionary of Cebuano Visayan).
+// Wolff's Dictionary of Cebuano Visayan; for Japanese, JMdict's words Wiktionary lacks).
 const MEANINGS = { ...Object.fromEntries(Object.keys(LANGUAGES).map((l) => [l, [`mean-${l}`]])), ar: ["mean-ar", "mean-arc"],
-  ceb: ["mean-ceb", "mean-cebw"] };
+  ceb: ["mean-ceb", "mean-cebw"], ja: ["mean-ja", "mean-jaj"] };
 // Card helpers with no AI (tools/build_examples.py, as app/lexicon.py EXAMPLES): example sentences with
 // pronunciations, one file a language, and the free Mnemonic maker's English keywords.
 const EXAMPLES = Object.fromEntries(Object.keys(LANGUAGES).filter((l) => l !== "en").map((l) => [l, [`ex-${l}`]]));

@@ -68,6 +68,7 @@ test("each language names its own dictionaries, in the order they are asked", ()
   assert.equal(dictionaryNames("ar", ["mean-ar", "mean-arc"]), "Wiktionary + CAMeL Arabic");
   assert.equal(dictionaryNames("ceb", ["mean-ceb", "mean-cebw"]), "Wolff's dictionary + Wiktionary"); // Wolff's is asked first
   assert.equal(dictionaryNames("ja", ["mean-ja"]), "Wiktionary");
+  assert.equal(dictionaryNames("ja", ["mean-ja", "mean-jaj"]), "Wiktionary + JMdict"); // JMdict only for the words Wiktionary lacks
   assert.equal(sourceChoices({}, here("ceb", ["mean-ceb", "mean-cebw"])).find((c) => c.id === "dictionary").detail,
     "Wolff's dictionary + Wiktionary");
 });

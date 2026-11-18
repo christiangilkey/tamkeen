@@ -16,7 +16,8 @@ card's Mnemonic maker; web/js/examples.js, web/js/review/freemnemonic.js).
 
     python tools/build_examples.py extract <cache dir> es de ...      (Wiktionary: read from kaikki.org, kept small in the cache)
     python tools/build_examples.py build <cache dir> <tatoeba dir> es de ... [--wolff <pg40074.txt>]
-    python tools/build_examples.py more <tatoeba dir> es de ...      (tops up a built file: more Tatoeba, see more())
+    python tools/build_examples.py more <tatoeba dir> es de ... [--wiki <dir>]   (tops up a built file: more Tatoeba,
+                                                          and Wikipedia sentence pairs where Tatoeba is thin; see more())
     python tools/build_examples.py keywords <WordNet dict dir> <en_50k.txt> [<glove.6B.100d.txt>]
     python tools/build_examples.py ownkeywords <WordNet dict dir> <FrequencyWords dir> <cache dir> es fr de it pt ru ca
 
@@ -40,6 +41,7 @@ import bz2
 import collections
 import gzip
 import hashlib
+import io
 import json
 import re
 import sys
@@ -309,12 +311,91 @@ def build(cache: Path, tatoeba: Path, lang: str) -> None:
 
 # `build` keeps at most MAX_SENTENCES Tatoeba sentences, which covers nearly all common words but leaves about half of the
 # words ranked 10,000-30,000 with none (Spanish, 2026-11-17: 52%; Catalan 15%). `more` tops a built file up: every Tatoeba
-# sentence (with an English translation, of a good length) that has a word form still under PER_WORD sentences, easiest
+# sentence (with an English translation, of a good length) that has a word form with no sentence yet, easiest
 # first, up to MORE_SENTENCES Tatoeba sentences in all. Unspaced languages (no word forms to count): the next shortest,
 # up to MORE_UNSPACED. The file's other parts (Wiktionary's examples and their `words`, pronunciations) are kept as
 # they are; the Basics course sentences at the end are taken off (tools/enrich_examples.mjs puts them back).
 MORE_SENTENCES = 150000
-MORE_UNSPACED = 90000
+MORE_UNSPACED = 60000
+MORE_PER_WORD = 1     # (one sentence is what a card needs; more would only make the download bigger)
+
+
+# Where Tatoeba is thin (Catalan, Thai, Hindi, Persian, Korean...), sentences from Wikipedia with their English: OPUS's
+# WikiMatrix v1 (sentences of the language's Wikipedia matched to English ones by meaning; Schwenk et al. 2019, CC BY-SA)
+# and, for Thai (not in WikiMatrix), OPUS's wikimedia corpus (Wikipedia articles translated with Wikimedia's Content
+# Translation, CC BY-SA). Encyclopedic and less sure than Tatoeba's, so only for a word form with no sentence at all,
+# short, tidy ones only (no numbers, brackets or lists, a full stop at the end, a translation of a like length), and
+# ranked after Tatoeba's in the app (web/js/lexicon/exampledata.js). Source "p". The zips, as OPUS gives them (moses):
+WIKI = {"ca": "ca-en.zip", "fa": "en-fa.zip", "ko": "en-ko.zip", "tl": "en-tl.zip", "ar": "ar-en.zip", "la": "en-la.zip"}
+# (Tried 2026-11-17 and left out: Thai's wikimedia pairs, nearly all English names and references; Hindi's WikiMatrix,
+# 85 pairs the dictionary agreed with, many half in English.)
+# Many pairs are matched wrongly (a Hindi sentence beside an unrelated English one), so a pair is kept only when the
+# dictionary agrees: at least AGREE of the sentence's words that the language's meanings file knows, and at least two,
+# have a meaning one of whose words is in the English (a name spelled the same counts too).
+AGREE = 0.4
+AGREE_MORE = {"tl": 0.5, "la": 0.5}   # (more wrong pairs among these: a stricter check)
+NOT_LATIN = {"ar", "fa", "ko"}      # (a line with Latin letters in it is half English)
+EN_STOP = set("the a an of to in on at by for from with as is are was were be been and or but not it its this that these those "
+              "he she they we you i his her their our your him them us me my".split())
+MORE_WIKI = 15000      # Wikipedia sentences kept per language at most
+WIKI_DIR = None        # --wiki <dir>
+ENDS = re.compile(r"[.!?؟۔।。]$")
+UNTIDY = re.compile(r"[\d()\[\]{}|=<>/\:;\"«»“”#@*_~^]")
+
+
+def en_words(text: str) -> set[str]:
+    out = set()
+    for w in re.findall(r"[a-z]+", text.lower()):
+        if len(w) < 3 or w in EN_STOP:
+            continue
+        out.add(w)
+        for end in ("ing", "ed", "es", "s", "ly"):
+            if w.endswith(end) and len(w) - len(end) >= 3:
+                out.add(w[: -len(end)])
+    return out
+
+
+def agrees(text: str, english: str, lang: str, meanings: dict) -> bool:
+    """Does the dictionary say `english` translates `text` (see AGREE)?"""
+    words, forms = meanings.get("words", {}), meanings.get("forms", {})
+    eng = en_words(english)
+    known = matched = 0
+    for t in tokens(text, lang):
+        keys = [t] + [f[0] for f in forms.get(t, [])][:3]
+        glosses = [g for k in keys for grp in words.get(k, []) for g in (grp[2] if len(grp) > 2 else [])]
+        if not glosses:
+            if t in eng:  # (a name, spelled the same)
+                known += 1
+                matched += 1
+            continue
+        known += 1
+        if any(en_words(g) & eng for g in glosses[:12]) or t in eng:
+            matched += 1
+    return known >= 2 and matched >= 2 and matched / known >= AGREE_MORE.get(lang, AGREE)
+
+
+def wiki_pairs(lang: str):
+    """(text, english, "p") for each Wikipedia pair of the language that is tidy enough to be an example sentence."""
+    import zipfile
+    path = WIKI_DIR / WIKI[lang]
+    with zipfile.ZipFile(path) as z:
+        names = z.namelist()
+        mine = next(n for n in names if n.endswith(f".{lang}"))
+        english = next(n for n in names if n.endswith(".en"))
+        with z.open(mine) as a, z.open(english) as b:
+            for la, lb in zip(io.TextIOWrapper(a, encoding="utf-8"), io.TextIOWrapper(b, encoding="utf-8")):
+                text, en = clean(la), clean(lb)
+                if not text or not en or UNTIDY.search(text) or UNTIDY.search(en):
+                    continue
+                if not ENDS.search(text) or not en.endswith((".", "!", "?")) or not en[:1].isupper():
+                    continue
+                if len(text) > 100 or len(en) > 120 or not 0.45 <= len(en) / max(1, len(text)) <= 2.2:
+                    continue
+                if lang not in UNSPACED and text[:1].islower():
+                    continue
+                if lang in NOT_LATIN and re.search(r"[A-Za-z]", text):
+                    continue
+                yield text, en, "p"
 
 
 def more(tatoeba: Path, lang: str) -> None:
@@ -342,18 +423,44 @@ def more(tatoeba: Path, lang: str) -> None:
             if had + added >= MORE_SENTENCES:
                 break
             ts = set(tokens(p[0], lang))
-            if any(have[t] < PER_WORD for t in ts):
+            if any(have[t] < MORE_PER_WORD for t in ts):
                 sentences.append(list(p))
                 have.update(ts)
                 added += 1
+    wiki = 0
+    if WIKI_DIR and lang in WIKI and (WIKI_DIR / WIKI[lang]).exists():
+        seen = {s[0] for s in sentences}
+        meanings = json.loads(gzip.decompress((OUT / f"{lang}-meanings.json.gz").read_bytes()))
+        found = [p for p in wiki_pairs(lang) if good_length(p[0], lang) and p[0] not in seen and agrees(p[0], p[1], lang, meanings)]
+        if lang in UNSPACED:
+            for p in sorted(set(found), key=lambda p: (abs(len(p[0]) - 14), p[0]))[:MORE_WIKI]:
+                sentences.append(list(p))
+                wiki += 1
+        else:
+            have = collections.Counter(t for s in sentences for t in set(tokens(s[0], lang)))
+            counts = collections.Counter(t for p in found for t in set(tokens(p[0], lang)))
+            def easy(p):
+                ts = tokens(p[0], lang)
+                return (sum(1 for t in ts if counts[t] + have[t] < 3), abs(len(ts) - 8), len(p[0]))
+            for p in sorted(set(found), key=easy):
+                if wiki >= MORE_WIKI:
+                    break
+                ts = set(tokens(p[0], lang))
+                if any(have[t] < 1 for t in ts):
+                    sentences.append(list(p))
+                    have.update(ts)
+                    wiki += 1
     pack["sentences"] = sentences
+    if wiki:
+        pack["source"] = pack.get("source", "").replace(" and Tamkeen's Basics course", "") + " and Wikipedia (OPUS WikiMatrix / wikimedia)"
+        pack["license"] = pack.get("license", "") + ", CC-BY-SA (Wikipedia sentences)"
     for k in ("forms", "also"):
         pack.pop(k, None)  # (made again by enrich_examples.mjs)
     n_wik = sum(1 for s in sentences if str(s[2]).startswith("w"))
     write(name, f"ex-{lang}", pack, title=f"{NAMES[lang]} example sentences",
           db="Tatoeba + English Wiktionary (Wiktextract)", license="CC-BY-2.0-FR + CC-BY-SA-4.0",
           extra={"sentences": len(sentences), "wiktionary": n_wik, "pronunciations": len(pack.get("ipa", {}))})
-    print(f"  {lang}: {had} Tatoeba sentences + {added} more", flush=True)
+    print(f"  {lang}: {had} Tatoeba sentences + {added} more, + {wiki} from Wikipedia", flush=True)
 
 
 # ---------------------------------------------------------------- Bisaya: Wolff's example sentences
@@ -709,6 +816,10 @@ if __name__ == "__main__":
         for lang in args[3:]:
             build(Path(args[1]), Path(args[2]), lang)
     elif args[0] == "more":
+        if "--wiki" in args:
+            at = args.index("--wiki")
+            WIKI_DIR = Path(args[at + 1])
+            del args[at:at + 2]
         for lang in args[2:]:
             more(Path(args[1]), lang)
     elif args[0] == "ownkeywords":

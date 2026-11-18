@@ -1,4 +1,4 @@
-Example sentences and the free Mnemonic maker: Tatoeba, Wiktionary, WordNet, FrequencyWords, CMUdict (optional download)
+Example sentences and the free Mnemonic maker: Tatoeba, Wiktionary, Wikipedia (WikiMatrix), WordNet, FrequencyWords, CMUdict (optional download)
 
 With no AI key, "Add words" can fill in a real example sentence for a word, and the review card's Mnemonic
 maker finds English words that sound like it. What they use is not part of this program: the app downloads
@@ -18,6 +18,12 @@ Example sentences and their English translations:
   The same files keep each word's pronunciation (IPA) from Wiktionary, and Chinese words' pinyin from
   CC-CEDICT (CC BY-SA 4.0, https://cc-cedict.org). The files are shared under CC BY-SA 4.0.
 
+- Sentences from Wikipedia with their English (Catalan, Arabic, Korean, Persian, Tagalog and Latin, only for words with
+  no other sentence), from OPUS (https://opus.nlpl.eu): WikiMatrix v1 (H. Schwenk, V. Chaudhary, S. Sun, H. Gong and
+  F. Guzmán, "WikiMatrix: Mining 135M Parallel Sentences in 1620 Language Pairs from Wikipedia", 2019), sentences of
+  the Wikipedias (by their contributors) under the Creative Commons Attribution-ShareAlike licence
+  (https://creativecommons.org/licenses/by-sa/3.0/). Only short sentences whose English the app's dictionary agrees
+  with were kept; nothing in them was changed. Each is marked as from Wikipedia where it is shown.
 - Bisaya example sentences from John U. Wolff, A Dictionary of Cebuano Visayan (1972), public domain in the USA, as
   transcribed for Project Gutenberg (ebook 40074, https://www.gutenberg.org/ebooks/40074) by Jeroen Hellingman, Scott
   Robertson and the Online Distributed Proofreading Team: each example with its English, in today's spelling.
