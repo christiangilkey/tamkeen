@@ -9277,3 +9277,20 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
 - Tests: `tests/js/moveforms.test.mjs` (12); livebattle/movepick tests updated for the new forms and per-move waits.
   Seen in a hidden preview pane (2 frames a second): sky dive rise and landing circle, cone warning fan. Not yet seen
   smoothly, on a phone, or against a friend.
+
+### Answer race in live battles (prototype `battle_race`, 2026-11-18; not committed when written)
+- Owner: when one side attacks, the other answers too, and the faster one wins. If the rival is first, the player sees
+  "(rival name) answered quicker", the right answer is selected and said, and the question closes at once (nobody waits).
+  A dodge does half damage (owner chose half over a full miss). Plan and decisions: side-session note answer-race-plan.md.
+- Engine (`livebattle.js`, option `race: true`): the rival is always the computer, so its answer is simulated: right as
+  often as foeForm, at `rivalTime()` (a fast answer, chance brain.fast, within FAST_S; else up to 90% of the question time).
+  The player's attack: `quiz.rivalAt`; the rival first = `answer(b, RIVAL)`: the move still goes (or opens the aim moment)
+  at power x `DODGE` (0.5), the word is not marked right or wrong. The rival's attack (rivalUse, when its owner's answer
+  comes off): a dodge question for the player, `quiz.side = "foe"` (dodgeAnswer): right first = half damage; wrong or the
+  rival first = full. Only attack moves are raced. Hits out-answered carry `half` (shot.half -> hit event).
+- Screen (`livebattle-ui.js`): the dodge box says "Dodge <move>: answer before your rival"; verdicts "<name> answered
+  quicker: half / full damage", "Dodged: half damage"; a float "Dodged: half damage" / "Half damage" on such hits; How to
+  play explains it. Name: the rival owner's (friend, gym, rental), else the creature's, else "The wild creature".
+- Tests: `tests/js/battlerace.test.mjs` (7). Checked in a test copy (rAF stubbed with a timer, as the hidden pane stops
+  animation frames): the dodge box, "answered quicker: full damage" with the right answer shown, a right dodge losing 13
+  HP with "Dodged: half damage", the player's attack out-answered ("half damage", into the aim moment), prototype off = no race.

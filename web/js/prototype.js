@@ -18,6 +18,7 @@ export const PROTOTYPES = {
   move_variety: { name: "More kinds of battle moves: slams, sky dives, burrows, throws, waves, orbs, slashes, strikes from above", released: false, since: "2026-11-17" },
   guild_tavern: { name: "Guild tavern: guild-mates' creatures in a tavern on Home and the Guilds page", released: false, since: "2026-11-17" },
   battle_aim: { name: "Aim your own attacks in battles (mouse, a second finger, the right stick)", released: false, since: "2026-11-18" },
+  battle_race: { name: "Answer race in battles: the rival answers too; out-answered attacks do half damage", released: false, since: "2026-11-18" },
 };
 
 const KEY = "tamkeenPrototype";

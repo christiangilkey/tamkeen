@@ -152,7 +152,10 @@ export function runLiveBattle(setup, vocab) {
   // Prototype "battle_aim" (the owner: aim and fire after the right answer; aim with a second finger, the mouse or the
   // right stick, and walk with W A S D or the left stick): the player points their own attacks.
   const AIMING = feature("battle_aim");
-  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING });
+  // Prototype "battle_race" (the owner: the other side answers too; whoever is first wins; "(rival's name) answered
+  // quicker" closes the question at once with the right answer shown and said; out-answered attacks do half damage).
+  const RACING = feature("battle_race");
+  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING, race: RACING });
   const map = b.map; // the battle's own copy: terrain moves repaint its tiles
   const W = b.width;
   const H = b.height;
@@ -1173,7 +1176,7 @@ export function runLiveBattle(setup, vocab) {
       <div class="lbq-foot"><button type="button" class="ghost small lbq-hint" hidden></button><span class="lbq-verdict" hidden></span></div>
     </div>`);
     panel.querySelector(".lbq-move").innerHTML = icon(moveIcon(m), 16);
-    panel.querySelector(".lbq-move").append(" ", m.name);
+    panel.querySelector(".lbq-move").append(" ", quiz.side === "foe" ? t("Dodge {0}: answer before your rival", m.name) : m.name);
     panel.querySelector(".lbq-ask").textContent = q.reverse ? t("Which of your words means this?") : t("What does this mean?");
     const prompt = panel.querySelector(".lbq-prompt");
     prompt.textContent = q.prompt;
@@ -1222,20 +1225,32 @@ export function runLiveBattle(setup, vocab) {
     settle(answer(b, i), i);
   }
   /** The question is over (answered, or out of time): show how it went, then carry on. */
+  /** Who the rival is, for "... answered quicker": its owner's name in a friend, gym or rental battle, else the creature. */
+  function rivalName() {
+    if (setup.rival && setup.rival.name) return setup.rival.name;
+    const f = team("foe")[v.index.foe];
+    return (f && f.name) || whose("foe");
+  }
   function settle(events, choice) {
     const q = quizShown.q;
+    const dodging = quizShown.side === "foe";
     quizShown = null;
+    const ans = (events || []).find((e) => e.kind === "answer");
+    const rival = !!(ans && ans.rival); // the rival answered first: the right answer is shown and said, nothing is marked
     const correct = choice !== null && choice === q.answer;
-    if (choice !== null) sayAnswer(q);
+    if (choice !== null || rival) sayAnswer(q);
     for (const btn of quizButtons) btn.disabled = true;
     quizButtons[q.answer]?.classList.add("right");
     if (choice !== null && !correct) quizButtons[choice]?.classList.add("wrong");
     const verdict = $(".lbq-verdict");
     verdict.hidden = false;
     verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
-    verdict.textContent = correct ? t("Right!") : choice === null ? t("Too slow: failed") : t("Wrong answer: failed");
+    verdict.textContent = rival ? (dodging ? t("{0} answered quicker: full damage", rivalName()) : t("{0} answered quicker: half damage", rivalName()))
+      : dodging ? (correct ? t("Dodged: half damage") : choice === null ? t("Too slow: full damage") : t("Wrong answer: full damage"))
+        : correct ? t("Right!") : choice === null ? t("Too slow: failed") : t("Wrong answer: failed");
     $(".lbq-bar i").style.width = correct ? $(".lbq-bar i").style.width : "0%";
     sfx(correct ? "common" : "surprise");
+    if (rival) { holdUntil = performance.now() + 900; pending = events; setTimeout(() => { if (!closed && !b.quiz) $(".lb-quiz").hidden = true; }, 900); return; }
     const r = answerQuestion(game, q.uid, correct);
     if (isChallengeWord(q.uid)) delete game.review[q.uid]; // a challenge's word the player doesn't have: answered, not kept
     if (r.graduated) { graduated++; toast(t("That word is now well known: +{0} XP", WELL_KNOWN_XP)).prepend(h(icon("star")), " "); }
@@ -1288,6 +1303,7 @@ export function runLiveBattle(setup, vocab) {
           play("impact", ev.element, x, y - BODY_UP);
           numbers.push({ text: `-${ev.dmg}`, x, y: y - 44, t: 0, color: ev.mult > 1 ? "#ffd54a" : ev.mult < 1 ? "#a9b8d6" : "#ffffff" });
           if (ev.guarded) play("guard", null, x, y - BODY_UP, { range: [4, 5] }); // the bubble breaks
+          if (ev.half) float(ev.target === "me" ? t("Dodged: half damage") : t("Half damage"), x, y - 72, "weak");
           if (ev.mult > 1) float(t("Strong hit!"), x, y - 58, "strong");
           else if (ev.mult < 1) float(t("Weak hit"), x, y - 58, "weak");
           shake = ev.target === "me" ? 0.18 : 0.1;
@@ -1556,7 +1572,9 @@ export function runLiveBattle(setup, vocab) {
     held.clear();
     const within = b.quizS === 5 ? t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")
       : t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within {0} seconds or the move fails.", String(b.quizS));
-    const text = AIMING
+    const race = RACING ? ` ${t("Your rival answers too: if it is right first, your attack does half damage. When it attacks, a question comes up for you: answer right before it to take half damage.")}` : "";
+    const text = race ? `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within}${race} ${t("The ground matters: look under your creature to see what it does.")}`
+      : AIMING
       ? `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or drag on the arena with one finger.")} ${within} ${t("After a right answer the battle waits a moment more while you aim: click or tap where the move should go (or point the right stick and press a button). Before that, the mouse, a second finger or the right stick aims; with no aim it goes at the rival.")} ${t("The ground matters: look under your creature to see what it does.")}`
       : `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
     const leave = await pauseBox(help ? t("How to play") : t("Paused"), text);

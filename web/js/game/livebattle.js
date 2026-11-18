@@ -9,6 +9,11 @@
 // straight away; the world stays frozen for an aim moment (AIM_S) while the player points it (input's `aim`, a
 // point in the world), and it goes off with fire(b) or when the moment runs out. Without an aim it goes at the rival.
 //
+// With `race: true` (prototype "battle_race") every question is a race with the rival, whose answer is simulated (right
+// as often as foeForm, at a time from its brain's `fast`). The player's attack: right first, it goes off in full; the
+// rival right first ("answered quicker"), the rival dodged: half damage. The rival's attack opens a dodge question for
+// the player (quiz.side "foe"): right first, half damage; wrong, or the rival quicker, full damage.
+//
 //   const b = newLiveBattle({ mine, theirs, map, mode, wordMode, cards, ask, foeForm, rival, rule, rand });
 //   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId, aim: {x, y} | null });  // only the keys given change
 //   const events = step(b, dt);      // dt in seconds; while b.quiz is open only its timer runs
@@ -29,6 +34,8 @@ export const TILE = battlemap.TILE;
 export const QUIZ_S = 5;            // seconds to answer a question
 export const FAST_S = 2;            // answered within this: a fast answer, and the combo chain grows
 export const AIM_S = 1.5;           // with player aiming: how long the world waits after a right answer while the move is aimed
+export const DODGE = 0.5;           // the answer race: what's left of an attack the other side out-answered (half damage)
+export const RIVAL = "rival";       // answer(b, RIVAL): the rival answered first
 export const COMBO = [1, 1.15, 1.3, 1.5]; // the chain's multiplier on the next move; the last step is a "surge"
 export const SIDES = ["me", "foe"];
 // A creature's shapes: FEET touches walls and the ground (small, so it fits through a one-tile gap),
@@ -186,7 +193,7 @@ export function brainOf(skill = 0.7, over = null) {
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
   foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
-  brain = null, quizSeconds = QUIZ_S, aim = false } = {}) {
+  brain = null, quizSeconds = QUIZ_S, aim = false, race = false } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
@@ -196,7 +203,7 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, aimMode: !!aim, aiming: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    quiz: null, aimMode: !!aim, aiming: null, race: !!race, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
     hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
@@ -417,7 +424,9 @@ function pressAttack(b, moveId, events) {
   if (why) { events.push({ kind: "refused", side: "me", move: moveId, why, x: f.x, y: f.y }); return false; }
   const q = b.ask ? b.ask(moveId, b) : null;
   if (q && Array.isArray(q.options) && q.options.length) {
-    b.quiz = { side: "me", move: moveId, q, timeLeft: b.quizS, total: b.quizS };
+    // The answer race: the rival tries to answer too (only an attack has anything to dodge).
+    const rivalAt = b.race && moveById(moveId).kind === "attack" && b.rand() < b.foeForm ? rivalTime(b, "foe", b.rand() < b.brain.foe.fast) : null;
+    b.quiz = { side: "me", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt };
     events.push({ kind: "quiz", side: "me", move: moveId, x: f.x, y: f.y });
     return true;
   }
@@ -434,9 +443,20 @@ function pressAttack(b, moveId, events) {
 export function answer(b, choice) {
   const qz = b.quiz;
   if (!qz) return [];
+  if (qz.side === "foe") return dodgeAnswer(b, choice);
   b.quiz = null;
   const f = current(b, "me");
   const m = moveById(qz.move);
+  if (choice === RIVAL) { // the rival answered first: the move still goes, but it dodges half of it; this word isn't marked
+    const power = COMBO[Math.min(b.combo, COMBO.length - 1)] * DODGE;
+    b.combo = 0;
+    const events = [{ kind: "answer", side: "me", move: m.id, uid: qz.q.uid, correct: false, rival: true, fast: false, choice: null, right: qz.q.answer, x: f.x, y: f.y }];
+    if (b.aimMode && m.kind === "attack") {
+      b.aiming = { move: m.id, power, surged: false, half: true, timeLeft: AIM_S, total: AIM_S };
+      events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
+    } else use(b, "me", m.id, power, events, { half: true });
+    return events;
+  }
   const picked = Number.isInteger(choice) && choice >= 0 ? choice : null;
   const correct = picked !== null && picked === qz.q.answer;
   const fast = correct && qz.total - qz.timeLeft <= FAST_S;
@@ -460,7 +480,30 @@ export function fire(b) {
   if (!a) return [];
   b.aiming = null;
   const events = [];
-  use(b, "me", a.move, a.power, events, { surged: a.surged });
+  use(b, "me", a.move, a.power, events, { surged: a.surged, half: !!a.half });
+  return events;
+}
+
+/** When a side's simulated answer comes, in seconds after its question opened: within FAST_S for a fast one. */
+function rivalTime(b, side, fast) {
+  const r = b.rand();
+  return fast ? 0.8 + r * (FAST_S - 0.8) : FAST_S + r * Math.max(0.2, b.quizS * 0.9 - FAST_S);
+}
+
+/** The player's answer to a dodge question (the rival is attacking): right before the rival, its attack does half
+ * damage; wrong, out of time, or the rival first (RIVAL), it lands in full. Returns the events (the first is "answer"). */
+function dodgeAnswer(b, choice) {
+  const qz = b.quiz;
+  b.quiz = null;
+  const f = current(b, "me");
+  const m = moveById(qz.move);
+  const rival = choice === RIVAL;
+  const picked = Number.isInteger(choice) && choice >= 0 ? choice : null;
+  const correct = picked !== null && picked === qz.q.answer;
+  const events = [{ kind: "answer", side: "me", dodge: true, move: m.id, uid: qz.q.uid, correct, rival, fast: false, choice: picked, right: qz.q.answer, x: f.x, y: f.y }];
+  if (!rival) { if (correct) b.answers.right++; else b.answers.wrong++; }
+  const why = whyNot(b, "foe", m.id);
+  if (!why) use(b, "foe", m.id, correct ? qz.power * DODGE : qz.power, events, { half: correct });
   return events;
 }
 
@@ -490,6 +533,14 @@ function rivalUse(b, side, moveId, events) {
   const fast = b.rand() < b.brain[side].fast;
   const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
   b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
+  // The answer race: the player (not the computer playing for them) gets a dodge question about the attack.
+  const q = b.race && side === "foe" && !b.ai.me && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
+  if (q && Array.isArray(q.options) && q.options.length) {
+    b.quiz = { side: "foe", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt: rivalTime(b, side, fast), power };
+    faceToward(f, current(b, "me"));
+    events.push({ kind: "quiz", side: "foe", move: moveId, x: f.x, y: f.y });
+    return;
+  }
   use(b, side, moveId, power, events);
 }
 
@@ -553,7 +604,7 @@ function use(b, side, moveId, power, events, extra = {}) {
   const element = m.own ? f.type : m.element || null;
   events.push({ kind: "attack", side, move: m.id, name: m.name, style: m.style, form: lm.form, element: element || "plain", power, x: f.x, y: f.y, ...extra });
   if (m.kind === "attack") {
-    const shot = { side, move: m.id, element, atype: f.type, atk: attackOf(b, f), power, style: m.style, mpower: m.power, delay: m.delay || 0 };
+    const shot = { side, move: m.id, element, atype: f.type, atk: attackOf(b, f), power, style: m.style, mpower: m.power, delay: m.delay || 0, half: !!extra.half };
     if (f.boost > 0 && --f.boost === 0) f.boostLeft = 0;
     const aim = aimed ? aimTo(b, f, aimed, lm) : aimFor(b, f, o, lm);
     if (lm.windup) {
@@ -658,6 +709,7 @@ function hit(b, shot, d, dir, events) {
   const g = groundAt(b, d);
   let dmg = shot.mpower * DAMAGE * (shot.atk / (d.def * g.def)) * mult * same * shot.power * (0.92 + b.rand() * 0.16);
   const ev = { kind: "hit", side: shot.side, target: d.side, move: m.id, element: shot.element || "plain", mult, x: d.x, y: d.y };
+  if (shot.half) ev.half = true; // the answer race: the target out-answered it
   if (d.guard > 0) { dmg *= 1 - d.guard; ev.guarded = true; d.guard = 0; d.guardLeft = 0; }
   dmg = Math.max(1, Math.round(dmg));
   d.hp = Math.max(0, d.hp - dmg);
@@ -724,7 +776,8 @@ export function step(b, dt) {
   if (b.over) { for (const side of SIDES) acts(current(b, side), time); return events; }
   if (b.quiz) {
     b.quiz.timeLeft = Math.max(0, b.quiz.timeLeft - time);
-    if (b.quiz.timeLeft <= 0) events.push(...answer(b, null));
+    if (b.quiz.rivalAt != null && b.quiz.total - b.quiz.timeLeft >= b.quiz.rivalAt) events.push(...answer(b, RIVAL)); // the rival was quicker
+    else if (b.quiz.timeLeft <= 0) events.push(...answer(b, null));
     return events;
   }
   if (b.aiming) { // the aim moment: still frozen; when it runs out the move goes where it is pointed
@@ -1366,7 +1419,7 @@ function fxView(p) {
 export function view(b) {
   return {
     time: b.time, over: b.over, won: b.won, combo: b.combo, mode: b.mode, wordMode: b.wordMode,
-    quiz: b.quiz ? { move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
+    quiz: b.quiz ? { side: b.quiz.side, move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
     aiming: b.aiming ? aimingView(b) : null, aim: b.aimMode ? b.ctl.me.aim : null,
     map: b.map, width: b.width, height: b.height, traps: b.traps, opening: !!b.ctl.me.open,
     me: fighterView(b, "me"), foe: fighterView(b, "foe"),
