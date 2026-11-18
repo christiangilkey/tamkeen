@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** In the reel player on a phone, the switches at the left end (lookup, translation, typing) were squashed together and ran under the Back 5 s button. They now have room, and the middle buttons move over for them. *(Phones, web app)*
 - **Fixed:** **Retry** on a reel that failed sent Instagram's page instead of the reel's sound to the transcription service, so it failed again with "could not process file". It now listens to the reel the way adding reels does. *(Phones, web app)*
 - **Fixed:** In the web app, your own audiobooks, audio and videos from Google Drive (My audio, My videos) didn't play, or took very long to start: the whole file was downloaded first. They now stream a piece at a time, as in the phone and computer apps, so they start at once and you can jump around. *(Web app)*
 - **Fixed:** On the web app's YouTube page, the topic buttons sat right against the search bar and the text under them. They have room again. *(Web app)*
