@@ -1,0 +1,3 @@
+# The games' one word choice, in a box from the Words tile on Home (game/battle-ui.js openWordChoice).
+5630e062	游戏词语
+f2d6c8f0	无法加载你的词语。请重试。

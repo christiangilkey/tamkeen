@@ -26,7 +26,6 @@ import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { HABITAT, TYPES } from "./data.js";
 import { describe } from "./genome.js";
 import { battleWordsFor, dayNumber, markDue, pickQuestion } from "./rules.js";
-import { sortFolders } from "../review/vocabedit.js";
 import { FRAME, animAt, beastHeight, beastOrigin, composeCreature, drawLiving, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { getGame, saveGame, sfx, trackStudy } from "./game.js";
 import { battleDictionary } from "./battle-ui.js";
@@ -71,15 +70,6 @@ async function loadWords(game = getGame()) {
   try { flashDue = new Set(plan(vocab, states(log), reviewDay(), 0).due.map(uidOf)); } catch { /* as above */ }
   markDue(vocab, flashDue);
   return { vocab: battleWordsFor(vocab, game), all: vocab, flashDue };
-}
-
-/** What the word choice on the Fishing screen needs: every saved word (the due ones marked) and the Vocab page's
- * folders, in its order. */
-export async function wordChoiceData(game = getGame()) {
-  const { all } = await loadWords(game);
-  let folders = [];
-  try { folders = sortFolders(await api("/vocab/folders")); } catch { /* no folders to choose from */ }
-  return { vocab: all, folders };
 }
 
 /** How many fish are waiting: the words due for review (what the Home tile shows). Resolves to a number. */

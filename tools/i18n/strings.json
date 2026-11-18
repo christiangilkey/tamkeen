@@ -12770,36 +12770,6 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "95582c3d",
-  "k": "Game words from a folder",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "85149156",
-  "k": "Pick one or more. Together they need at least {0} words with a meaning.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0ac083d5",
-  "k": "Use these folders",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "889ab689",
-  "k": "Not in a folder",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "38132f5d",
-  "k": "Choose other folders",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0df0b09f",
-  "k": "Choose a folder",
-  "f": "web/js/game/battle-ui.js"
- },
- {
   "id": "4c8044d7",
   "k": "All {0} words",
   "f": "web/js/game/battle-ui.js"
@@ -12822,6 +12792,56 @@
  {
   "id": "3254a11b",
   "k": "Newest {0}",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "5630e062",
+  "k": "Game words",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0dca7b14",
+  "k": "Loading your words…",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "65d2defc",
+  "k": "Battles and fishing both ask these words.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "f2d6c8f0",
+  "k": "Your words couldn't be loaded. Try again.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "95582c3d",
+  "k": "Game words from a folder",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "85149156",
+  "k": "Pick one or more. Together they need at least {0} words with a meaning.",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0ac083d5",
+  "k": "Use these folders",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "38132f5d",
+  "k": "Choose other folders",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0df0b09f",
+  "k": "Choose a folder",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -12862,16 +12882,6 @@
  {
   "id": "e164f846",
   "k": "Choose a folder with at least {0} words.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "65d2defc",
-  "k": "Battles and fishing both ask these words.",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "0dca7b14",
-  "k": "Loading your words…",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -12962,11 +12972,6 @@
  {
   "id": "dca34e30",
   "k": "Rival",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "d26d55c7",
-  "k": "Words",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -17732,6 +17737,11 @@
  {
   "id": "98f011af",
   "k": "Goal streak: days in a row you reached your daily goal",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "d26d55c7",
+  "k": "Words",
   "f": "web/js/game/habitat.js"
  },
  {

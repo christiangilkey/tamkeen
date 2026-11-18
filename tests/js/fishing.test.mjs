@@ -403,5 +403,13 @@ test("the pond fishes the game's word choice, the same words as battles", async 
   const ui = src("fishing-ui.js");
   assert.match(ui, /vocab: battleWordsFor\(vocab, game\)/, "loadWords hands the pond the game's word choice");
   assert.match(ui, /loadWords\(game\), battleDictionary\(\)/);
-  assert.match(src("fishscreen.js"), /wordModePicker\(game, .*battle: false \}\)/, "the Fishing screen has the same picker");
+  // One place to choose them (the owner, 2026-11-17: "the words folder picker should be here as a button"): the Words
+  // tile on the games home, not a copy in the Battle and Fishing screens.
+  const home = src("habitat.js");
+  assert.match(home, /id="g-words"/, "the games home has a Words tile");
+  assert.match(home, /openWordChoice\(\{ changed: \(\) => \{ paintWords\(\); paintFishing\(\); \} \}\)/, "a change repaints Words and the fish waiting");
+  assert.doesNotMatch(src("fishscreen.js"), /wordModePicker/, "the Fishing screen has no copy of its own");
+  const battleUi = src("battle-ui.js");
+  assert.doesNotMatch(battleUi, /wordsBlock/, "nor the Battle screen");
+  assert.match(battleUi, /export function openWordChoice[\s\S]*?wordModePicker\(game, changed/, "the box holds the one picker");
 });
