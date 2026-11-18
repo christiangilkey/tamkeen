@@ -5,10 +5,15 @@
 // wrong or out of time, it fails. The rival's moves never ask the player anything: dodge them by
 // moving. When a creature faints the next of its team steps in; the battle ends when a side has none.
 //
+// With `aim: true` (prototype "battle_aim") the player aims their own attacks: a right answer doesn't set the move off
+// straight away; the world stays frozen for an aim moment (AIM_S) while the player points it (input's `aim`, a
+// point in the world), and it goes off with fire(b) or when the moment runs out. Without an aim it goes at the rival.
+//
 //   const b = newLiveBattle({ mine, theirs, map, mode, wordMode, cards, ask, foeForm, rival, rule, rand });
-//   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId });  // only the keys given change
+//   input(b, { move: {x, y} | null, goTo: {x, y} | null, attack: moveId, aim: {x, y} | null });  // only the keys given change
 //   const events = step(b, dt);      // dt in seconds; while b.quiz is open only its timer runs
 //   answer(b, choiceIndex | null);   // null = no answer (out of time)
+//   fire(b);                         // with `aim`: the aimed move goes off now (b.aiming is open after a right answer)
 //   spendHint(b);                    // in a question: one of the hint cards picked up on the arena (b.hints)
 //   view(b);                         // everything the screen draws
 //   battleResult(b);                 // for rules.finishBattle once b.over
@@ -23,6 +28,7 @@ import * as battlemap from "./battlemap.js";
 export const TILE = battlemap.TILE;
 export const QUIZ_S = 5;            // seconds to answer a question
 export const FAST_S = 2;            // answered within this: a fast answer, and the combo chain grows
+export const AIM_S = 1.5;           // with player aiming: how long the world waits after a right answer while the move is aimed
 export const COMBO = [1, 1.15, 1.3, 1.5]; // the chain's multiplier on the next move; the last step is a "surge"
 export const SIDES = ["me", "foe"];
 // A creature's shapes: FEET touches walls and the ground (small, so it fits through a one-tile gap),
@@ -131,7 +137,7 @@ function liveFighter(f, side, index, scale) {
            x: 0, y: 0, vx: 0, vy: 0, face: side === "me" ? 1 : -1, cd: {}, recover: 0, guard: 0, guardLeft: 0, boost: 0, boostMult: 1, boostLeft: 0,
            haste: 0, slow: 0, stun: 0, grace: 0, charging: null, dash: null, act: null, stride: 0, tick: 0, speed: 0, groundHealed: 0, fainted: false };
 }
-const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0, open: null });
+const newControl = () => ({ move: null, dest: null, path: null, attack: null, stuck: 0, tries: 0, open: null, aim: null });
 const newAi = () => ({ think: 0, replan: 0, dodgeUntil: 0, lastMove: 0 });
 
 /**
@@ -176,7 +182,7 @@ export function brainOf(skill = 0.7, over = null) {
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
   foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
-  brain = null, quizSeconds = QUIZ_S } = {}) {
+  brain = null, quizSeconds = QUIZ_S, aim = false } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
@@ -186,7 +192,7 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    quiz: null, aimMode: !!aim, aiming: null, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
     hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
@@ -273,6 +279,10 @@ export function input(b, cmd = {}) {
     if (tiles) { c.open = { tiles, walking: false }; c.move = null; }
   }
   if (cmd.attack) c.attack = cmd.attack;
+  if ("aim" in cmd) { // a point in the world the player's attacks go at (null: at the rival)
+    const p = cmd.aim;
+    c.aim = p && Number.isFinite(p.x) && Number.isFinite(p.y) ? { x: p.x, y: p.y } : null;
+  }
   if (cmd.sight) b.sight = sightOf(cmd.sight);
 }
 
@@ -360,7 +370,7 @@ export function whyNot(b, side, moveId) {
   if (b.over) return "over";
   if (!f || f.fainted || b.swap[side] != null) return "fainted";
   if (!f.moves.includes(moveId)) return "unknown";
-  if (side === "me" && b.quiz) return "busy";
+  if (side === "me" && (b.quiz || b.aiming)) return "busy";
   if (f.stun > 0) return "stunned";
   if (f.charging || f.dash || f.recover > 0) return "busy";
   if (f.cd[moveId] > 0) return "cooldown";
@@ -430,8 +440,21 @@ export function answer(b, choice) {
   const power = correct ? (fast ? 1.1 : 1) * COMBO[Math.min(b.combo, COMBO.length - 1)] : 0;
   const surged = correct && b.combo >= COMBO.length - 1;
   b.combo = fast ? Math.min(COMBO.length - 1, b.combo + 1) : 0;
-  if (correct) use(b, "me", m.id, power, events, { surged });
+  if (correct && b.aimMode && m.kind === "attack") { // the player aims it now: the world keeps waiting
+    b.aiming = { move: m.id, power, surged, timeLeft: AIM_S, total: AIM_S };
+    events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
+  } else if (correct) use(b, "me", m.id, power, events, { surged });
   else fail(b, f, m, picked === null ? "time" : "wrong", events);
+  return events;
+}
+
+/** The aimed move goes off, at the player's aim (or at the rival when there is none). Returns the events. */
+export function fire(b) {
+  const a = b.aiming;
+  if (!a) return [];
+  b.aiming = null;
+  const events = [];
+  use(b, "me", a.move, a.power, events, { surged: a.surged });
   return events;
 }
 
@@ -471,8 +494,16 @@ const attackOf = (b, f) => f.atk * (f.boost > 0 ? f.boostMult : 1) * groundAt(b,
 function faceToward(f, o) { if (o && Math.abs(o.x - f.x) > 1) f.face = o.x < f.x ? -1 : 1; }
 
 /** Where a move goes, aimed at the rival where it stands now. */
-function aimFor(b, f, rival, lm) {
-  const o = ahead(b, f, rival, lm);
+function aimFor(b, f, rival, lm) { return aimTo(b, f, ahead(b, f, rival, lm), lm); }
+
+/** The player's own aim, when they are aiming (`aim: true` and a point given), else null. */
+function playerAim(b, f) {
+  const p = f.side === "me" && b.aimMode ? b.ctl.me.aim : null;
+  return p && dist(f, p) >= 2 ? p : null;
+}
+
+/** Where a move goes, aimed at the point o: along the line to it; a drop lands on it (as far as the move reaches). */
+function aimTo(b, f, o, lm) {
   const d = unit(o.x - f.x, o.y - f.y);
   if (lm.form === "drop") {
     const reach = Math.min(dist(f, o), lm.range);
@@ -506,14 +537,15 @@ function use(b, side, moveId, power, events, extra = {}) {
   const lm = liveMove(m);
   f.cd[m.id] = lm.cooldown;
   f.recover = RECOVER_S;
-  faceToward(f, o);
+  const aimed = playerAim(b, f);
+  faceToward(f, aimed || o);
   f.act = { kind: "lunge", t: 0, dur: 0.3 };
   const element = m.own ? f.type : m.element || null;
   events.push({ kind: "attack", side, move: m.id, name: m.name, style: m.style, form: lm.form, element: element || "plain", power, x: f.x, y: f.y, ...extra });
   if (m.kind === "attack") {
     const shot = { side, move: m.id, element, atype: f.type, atk: attackOf(b, f), power, style: m.style, mpower: m.power, delay: m.delay || 0 };
     if (f.boost > 0 && --f.boost === 0) f.boostLeft = 0;
-    const aim = aimFor(b, f, o, lm);
+    const aim = aimed ? aimTo(b, f, aimed, lm) : aimFor(b, f, o, lm);
     if (lm.windup) {
       f.charging = { move: m.id, t: 0, total: lm.windup, aim, shot, lm };
       events.push({ kind: "charge", side, move: m.id, form: lm.form, element: element || "plain", area: aim, total: lm.windup, x: f.x, y: f.y });
@@ -671,6 +703,11 @@ export function step(b, dt) {
   if (b.quiz) {
     b.quiz.timeLeft = Math.max(0, b.quiz.timeLeft - time);
     if (b.quiz.timeLeft <= 0) events.push(...answer(b, null));
+    return events;
+  }
+  if (b.aiming) { // the aim moment: still frozen; when it runs out the move goes where it is pointed
+    b.aiming.timeLeft = Math.max(0, b.aiming.timeLeft - time);
+    if (b.aiming.timeLeft <= 0) events.push(...fire(b));
     return events;
   }
   for (let left = time; left > 1e-9 && !b.over && !b.quiz; left -= MAX_DT) tick(b, Math.min(left, MAX_DT), events);
@@ -1182,6 +1219,15 @@ function movesView(b) {
   });
 }
 
+/** The aim moment: the move, its time, and the shape it would make if it went off now (as `charging.area`). */
+function aimingView(b) {
+  const f = current(b, "me"), o = current(b, "foe");
+  const lm = liveMove(moveById(b.aiming.move));
+  const p = playerAim(b, f);
+  return { move: b.aiming.move, form: lm.form, timeLeft: b.aiming.timeLeft, total: b.aiming.total, aimed: !!p,
+           area: p ? aimTo(b, f, p, lm) : aimFor(b, f, o, lm) };
+}
+
 function fxView(p) {
   const v = { id: p.id, kind: p.kind, form: p.form, side: p.side, move: p.move, element: p.element, x: p.x, y: p.y };
   if (p.kind === "projectile") return { ...v, dir: { x: p.dx, y: p.dy }, r: p.r };
@@ -1200,6 +1246,7 @@ export function view(b) {
   return {
     time: b.time, over: b.over, won: b.won, combo: b.combo, mode: b.mode, wordMode: b.wordMode,
     quiz: b.quiz ? { move: b.quiz.move, q: b.quiz.q, timeLeft: b.quiz.timeLeft, total: b.quiz.total } : null,
+    aiming: b.aiming ? aimingView(b) : null, aim: b.aimMode ? b.ctl.me.aim : null,
     map: b.map, width: b.width, height: b.height, traps: b.traps, opening: !!b.ctl.me.open,
     me: fighterView(b, "me"), foe: fighterView(b, "foe"),
     teams: { me: b.mine.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })), foe: b.theirs.map((f) => ({ hp: f.hp, max: f.max, fainted: f.fainted })) },

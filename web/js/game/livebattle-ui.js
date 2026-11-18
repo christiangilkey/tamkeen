@@ -6,7 +6,8 @@
 import { h, state as appState, toast } from "../app.js";
 import { icon as lineIcon } from "../icons.js";
 import { openModal } from "../components/modal.js";
-import { controllerArea, controllerSetting, padInUse, padSteer, padStyle } from "../gamepad.js";
+import { claimRightStick, controllerArea, controllerSetting, padAim, padInUse, padSteer, padStyle } from "../gamepad.js";
+import { feature } from "../prototype.js";
 import { fullMap, inputName } from "../padmap.js";
 import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
@@ -19,7 +20,7 @@ import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
 import { HAZARDS, ORNAMENTS, PROPS, ROOFS, ROOF_EXTRAS, TERRAIN, drawLayers, generateMap, roofRows } from "./battlemap.js";
-import { COMBO, answer, axeAngle, battleResult, crackAt, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
+import { AIM_S, COMBO, answer, axeAngle, battleResult, crackAt, fire, input, newLiveBattle, spendHint, spikeFrame, step, usePotion, view } from "./livebattle.js";
 import { leaderById } from "./gyms.js";
 import { isChallengeWord } from "./challenge.js";
 import { snippetPlayer } from "../snippetplayer.js";
@@ -136,7 +137,10 @@ export function runLiveBattle(setup, vocab) {
     if (q) asked = [...asked.slice(-12), q.uid];
     return q;
   };
-  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask });
+  // Prototype "battle_aim" (the owner: aim and fire after the right answer; aim with a second finger, the mouse or the
+  // right stick, and walk with W A S D or the left stick): the player points their own attacks.
+  const AIMING = feature("battle_aim");
+  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING });
   const map = b.map; // the battle's own copy: terrain moves repaint its tiles
   const W = b.width;
   const H = b.height;
@@ -536,6 +540,10 @@ export function runLiveBattle(setup, vocab) {
       if (p.warn && p.kind !== "projectile") warnShape(p.side, p, 0.18 + 0.3 * (p.t || 0));
       else if (p.kind === "area") warnShape(p.side, p, 0.3 * (1 - (p.t || 0))); // as it lands: the whole circle it hit, fading (the art is smaller)
     }
+    if (AIMING && v.aiming) { // the aim moment: where the move will land if it goes now, pulsing
+      warnShape("me", v.aiming.area, 0.45 + 0.15 * Math.sin(now / 80), true);
+      if (v.aim) drawCrosshair(v.aim, now, true);
+    } else if (AIMING && v.aim && !b.quiz && !v.me.fainted) drawCrosshair(v.aim, now, false);
     if (target) {
       ctx.strokeStyle = "rgba(255, 255, 255, .7)";
       ctx.beginPath();
@@ -735,12 +743,35 @@ export function runLiveBattle(setup, vocab) {
   }
 
   /** A warning on the ground: a circle (an area: what is inside it is hit) or a strip (a beam or a shot's line). */
-  function warnShape(side, shape, alpha) {
+  /** The player's aim (prototype "battle_aim"): a small cross in a ring at the point, brighter in the aim moment. */
+  function drawCrosshair(p, now, strong) {
+    const r = 6 + (strong ? Math.sin(now / 90) : 0);
+    const x = Math.round(p.x) + 0.5, y = Math.round(p.y) + 0.5;
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) {
+      ctx.moveTo(x + dx * (r - 3), y + dy * (r - 3));
+      ctx.lineTo(x + dx * (r + 3), y + dy * (r + 3));
+    }
+    ctx.lineWidth = 3; // a dark edge first, so it shows on snow and sand as well as on dark ground
+    ctx.strokeStyle = "rgba(20, 12, 40, .7)";
+    ctx.stroke();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = strong ? "rgba(255, 213, 74, 1)" : "rgba(255, 255, 255, .9)";
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /** `edge`: also a dark outline (the player's aim, so it reads on light ground). */
+  function warnShape(side, shape, alpha, edge = false) {
     ctx.fillStyle = side === "me" ? `rgba(255, 213, 74, ${alpha})` : `rgba(255, 64, 64, ${alpha})`;
+    if (edge) { ctx.strokeStyle = "rgba(20, 12, 40, .55)"; ctx.lineWidth = 1; }
     if (shape.r && !shape.len) {
       ctx.beginPath();
       ctx.arc(shape.x, shape.y, shape.r, 0, Math.PI * 2);
       ctx.fill();
+      if (edge) ctx.stroke();
       return;
     }
     const dx = shape.dx ?? (shape.dir && shape.dir.x), dy = shape.dy ?? (shape.dir && shape.dir.y);
@@ -750,6 +781,7 @@ export function runLiveBattle(setup, vocab) {
     ctx.translate(shape.x, shape.y);
     ctx.rotate(Math.atan2(dy, dx));
     ctx.fillRect(0, -w / 2, shape.len, w);
+    if (edge) ctx.strokeRect(0.5, -w / 2 + 0.5, shape.len - 1, w - 1);
     ctx.restore();
   }
 
@@ -987,7 +1019,10 @@ export function runLiveBattle(setup, vocab) {
   function paintKeys() {
     for (const m of moveEls) m.btn.querySelector(".lb-key").innerHTML = keyLabel(m.place);
     for (const [i, btn] of quizButtons.entries()) btn.querySelector(".lb-key").innerHTML = keyLabel(PLACES[i]);
-    $(".lb-help").textContent = device === "touch" ? t("Drag on the arena to move. Tap a move to use it.")
+    $(".lb-help").textContent = AIMING ? (device === "touch" ? t("Drag on the arena to move; a second finger aims. Tap a move to use it, answer, then tap where to fire.")
+      : device === "pad" ? t("Left stick: walk. Right stick: aim. The buttons use your moves; after a right answer, any of them fires.")
+        : t("Walk with W A S D or the arrow keys; the mouse aims. Moves: U I J K (or 1 2 3 4). After a right answer, click where to fire (or press Space)."))
+      : device === "touch" ? t("Drag on the arena to move. Tap a move to use it.")
       : device === "pad" ? t("Left stick or D-pad: walk. The buttons use your moves.")
         : t("Walk with W A S D or the arrow keys, or click where to go. Moves: U I J K (or 1 2 3 4).");
   }
@@ -1140,6 +1175,10 @@ export function runLiveBattle(setup, vocab) {
           if (ev.why === "dodged") float(ev.side === "foe" ? t("Dodged!") : t("Missed"), x, y - 50, "missed");
           break;
         case "charge": sfx("lucky"); break;
+        case "aim": // the right answer: now point it (the world still waits)
+          banner(device === "touch" ? t("Tap where to fire") : device === "pad" ? t("Aim with the right stick, then press a button")
+            : t("Click where to fire"), AIM_S * 1000);
+          break;
         case "refused": nope(ev.move); break;
         case "heal": play("heal", null, x, y); numbers.push({ text: `+${ev.amount}`, x, y: y - 46, t: 0, color: "#7dffb0" }); break;
         case "guard": play("guard", null, x, y - BODY_UP, { range: [0, 1] }); break; // it forms; it holds while the guard lasts
@@ -1193,10 +1232,42 @@ export function runLiveBattle(setup, vocab) {
   };
   const clampWorld = (p) => ({ x: Math.max(4, Math.min(W - 4, p.x)), y: Math.max(4, Math.min(H - 2, p.y)) });
   const openedAt = performance.now(); // a tap in the first moment is the end of the one that opened the battle: the creature stands still
+  // Aiming (prototype "battle_aim"): `aimPointer` is a finger (or the mouse button) pointing the aim; `mouseAim` where
+  // the mouse is over the arena; `stickAim` the right stick's last direction and tilt. In the aim moment after a right
+  // answer, a press on the arena points the move and letting go fires it.
+  let aimPointer = null;   // {id, cx, cy}
+  let mouseAim = null;     // {cx, cy}
+  let stickAim = null;     // {x, y, tilt}
+  function shoot() {
+    if (!b.aiming) return;
+    const events = fire(b);
+    stickAim = null;
+    aimPointer = null;
+    show(events);
+  }
   canvas.addEventListener("pointerdown", (e) => {
+    if (AIMING && b.aiming && !paused()) { // the aim moment: point it; letting go fires
+      if (e.pointerType === "mouse" && e.button !== 0) return;
+      aimPointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* it still fires on pointerup */ }
+      e.preventDefault();
+      return;
+    }
     if (b.over || b.quiz || paused() || performance.now() - openedAt < 500) return;
     if (e.pointerType === "mouse" && e.button !== 0) return;
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
+    if (AIMING && e.pointerType === "mouse") { // the mouse aims, the keys walk: a click only breaks open a cracked wall
+      const p = clampWorld(toWorld(e));
+      if (crackAt(b, p.x, p.y)) { target = p; input(b, { open: p }); }
+      e.preventDefault();
+      return;
+    }
+    if (AIMING && pointer && pointer.id !== e.pointerId) { // a second finger: it aims while the first walks
+      aimPointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* the aim still ends on pointerup */ }
+      e.preventDefault();
+      return;
+    }
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* the drag still ends on pointerup */ }
     target = clampWorld(toWorld(e));
@@ -1205,6 +1276,8 @@ export function runLiveBattle(setup, vocab) {
     e.preventDefault();
   });
   canvas.addEventListener("pointermove", (e) => {
+    if (aimPointer && aimPointer.id === e.pointerId) { aimPointer.cx = e.clientX; aimPointer.cy = e.clientY; return; }
+    if (AIMING && e.pointerType === "mouse") { mouseAim = { cx: e.clientX, cy: e.clientY }; if (device === "touch") setDevice("keys"); }
     if (!pointer && e.pointerType === "mouse" && secrets.length) { const p0 = toWorld(e); canvas.style.cursor = crackAt(b, p0.x, p0.y) ? "pointer" : ""; }
     if (!pointer || pointer.id !== e.pointerId || b.quiz || pointer.crack) return;
     pointer.cx = e.clientX;
@@ -1214,15 +1287,39 @@ export function runLiveBattle(setup, vocab) {
     target = to;
     input(b, { goTo: target });
   });
-  const lift = (e) => { if (pointer && pointer.id === e.pointerId) pointer = null; };
+  const lift = (e) => {
+    if (aimPointer && aimPointer.id === e.pointerId) { // the aim's finger (or button) let go: in the aim moment, it fires
+      if (e.type === "pointerup" && b.aiming) { aimPointer.cx = e.clientX; aimPointer.cy = e.clientY; aimNow(); shoot(); }
+      aimPointer = null;
+      return;
+    }
+    if (pointer && pointer.id === e.pointerId) pointer = null;
+  };
   canvas.addEventListener("pointerup", lift);
   canvas.addEventListener("pointercancel", lift);
+  canvas.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") mouseAim = null; });
+  if (AIMING) { canvas.style.cursor = "crosshair"; claimRightStick(true); }
+  /** Where the player is aiming now (a point in the world), told to the battle; null = at the rival. */
+  function aimNow() {
+    if (!AIMING) return null;
+    let p = null;
+    const me = v.me;
+    const stick = padAim();
+    const tilt = Math.hypot(stick.x, stick.y);
+    if (tilt > 0.35) { stickAim = { x: stick.x / tilt, y: stick.y / tilt, tilt: Math.min(1, tilt) }; setDevice("pad"); }
+    if (aimPointer) p = clampWorld(toWorld({ clientX: aimPointer.cx, clientY: aimPointer.cy }));
+    else if (stickAim && device === "pad") { const reach = 40 + 190 * stickAim.tilt; p = { x: me.x + stickAim.x * reach, y: me.y + stickAim.y * reach }; }
+    else if (mouseAim && device !== "touch") p = clampWorld(toWorld({ clientX: mouseAim.cx, clientY: mouseAim.cy }));
+    input(b, { aim: p });
+    return p;
+  }
 
   function nope(id) { const m = moveEls.find((x) => x.id === id); if (!m) return; m.btn.classList.remove("nope"); void m.btn.offsetWidth; m.btn.classList.add("nope"); }
   /** A move's place pressed (a button, a key, the controller): its move, or in a question its answer. */
   function use(slot) {
     if (b.over || closed) return;
     if (b.quiz) { const i = PLACES.findIndex((p) => p.slot === slot); if (i >= 0) choose(i); return; }
+    if (b.aiming) { aimNow(); shoot(); return; } // the aim moment: any move's button fires
     if (quizShown || performance.now() < holdUntil) return;
     const id = b.mine[v.index.me].moves[slot];
     if (!id) return;
@@ -1244,6 +1341,7 @@ export function runLiveBattle(setup, vocab) {
     if (place && !b.over) { setDevice("keys"); e.preventDefault(); use(place.slot); return; }
     if (k === "h" && b.quiz) { e.preventDefault(); useHint(); return; }
     if (k === "p" && !b.quiz) { e.preventDefault(); drinkPotion(); return; }
+    if (b.aiming && (e.key === " " || e.key === "Enter")) { e.preventDefault(); aimNow(); shoot(); return; }
     if (e.key === "Escape" && !b.over) { e.preventDefault(); pause(); }
   };
   const onKeyUp = (e) => { held.delete(e.code); };
@@ -1317,7 +1415,9 @@ export function runLiveBattle(setup, vocab) {
     held.clear();
     const within = b.quizS === 5 ? t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")
       : t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within {0} seconds or the move fails.", String(b.quizS));
-    const text = `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
+    const text = AIMING
+      ? `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or drag on the arena with one finger.")} ${within} ${t("After a right answer the battle waits a moment more while you aim: click or tap where the move should go (or point the right stick and press a button). Before that, the mouse, a second finger or the right stick aims; with no aim it goes at the rival.")} ${t("The ground matters: look under your creature to see what it does.")}`
+      : `${t("Walk with the left stick, the D-pad, W A S D or the arrow keys, or click or drag on the arena.")} ${within} ${t("The ground matters: look under your creature to see what it does.")}`;
     const leave = await pauseBox(help ? t("How to play") : t("Paused"), text);
     pausedBy--;
     if (!leave || closed) return;
@@ -1437,6 +1537,7 @@ export function runLiveBattle(setup, vocab) {
       if (pending) { show(pending); pending = null; }
       const s = b.quiz ? null : steer();
       if (s) { target = null; input(b, { move: s }); } else input(b, { move: null });
+      if (AIMING && !b.quiz) aimNow();
       const events = step(b, dt);
       if (b.quiz && !quizShown) { held.clear(); showQuiz(b.quiz); }
       else if (!b.quiz && quizShown) settle(events, null); // the time ran out
@@ -1444,7 +1545,7 @@ export function runLiveBattle(setup, vocab) {
     }
     v = view(b);
     if (target && Math.hypot(v.me.x - target.x, v.me.y - target.y) < 5 && !pointer) target = null;
-    if (!b.quiz && !paused()) moveCamera(dt);
+    if (!b.quiz && !b.aiming && !paused()) moveCamera(dt);
     // a mouse button or finger held on the arena: what is under it changes as the camera follows, so it keeps steering
     if (pointer && !b.quiz && !paused()) {
       const to = clampWorld(toWorld({ clientX: pointer.cx, clientY: pointer.cy }));
@@ -1471,6 +1572,7 @@ export function runLiveBattle(setup, vocab) {
     window.removeEventListener("keyup", onKeyUp);
     window.removeEventListener("blur", onBlur);
     document.removeEventListener("visibilitychange", onHide);
+    if (AIMING) claimRightStick(false);
     el.remove();
   }
 

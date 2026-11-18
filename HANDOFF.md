@@ -9222,6 +9222,24 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
   WebKit's Web Audio stops on a locked screen in several iOS 17 versions (WebKit bugs 261554, 276016). Checked on the computer: Settings shows both sliders; episode 1's audio was at
   0.25 with the media slider at 50%, followed it to 80% live, and didn't move when the app slider went to 0.
 
+### Aim your own attacks in live battles (prototype `battle_aim`, 2026-11-18; not committed when written)
+- Owner: "creature moves aim and fire after selecting the right answer, not once the box pops up", and choose where
+  the fire goes "by using a seperate finger (or by mouse on keyboard ... WASD ... left stick on controller and aim being
+  right stick". Behind `feature("battle_aim")` (web/js/prototype.js); without prototype mode battles are as before.
+- Engine (`livebattle.js`, option `aim: true`): a right answer to an attack move no longer sets it off; `b.aiming` opens an
+  aim moment of `AIM_S` = 1.5 s with the world still frozen; `fire(b)` (or the moment running out) sets it off at
+  `input(b, {aim: {x, y}})`, a world point (null = at the rival, as before). Shots, beams, dashes and bursts go along the
+  line to the point; drops land on it, no further than their range. Guard, heal, boosts and terrain moves need no aim.
+  `view(b).aiming.area` is the shape it would make now; `whyNot` says "busy" during the moment. Tests: `tests/js/battleaim.test.mjs`.
+- Screen (`livebattle-ui.js`): desktop: the mouse aims (crosshair cursor), W A S D / arrows walk, a click no longer walks
+  (it still breaks a cracked wall); in the aim moment a click fires (or Space / Enter / a move key). Touch: the first finger
+  walks, a second finger aims; in the aim moment tap (or drag and let go) where to fire. Controller: left stick walks,
+  right stick aims (`gamepad.padAim`; `claimRightStick` stops it scrolling the page meanwhile), any move button fires.
+  The aim moment shows its shape in gold with a dark edge and a banner ("Click where to fire" / "Tap where to fire").
+- Checked in a test copy (port 8937, empty data): mouse (a drop landed on the clicked spot, clamped to its range), two-finger
+  touch at phone width, a simulated standard controller (right stick left, a face button: landed 230 px left), and
+  prototype off (clicks walk, no aim). Not tried on a real phone or a real controller.
+
 ### Guild tavern (prototype `guild_tavern`, 2026-11-17, "Creature game section updates" chat; NOT committed when written)
 - Owner's request: a tavern where guild members' creatures appear, on Home and on the Guilds page, with new art.
   Owner's choices: plain fantasy tavern; one tavern at a time with arrows to switch guilds (remembered per device,
