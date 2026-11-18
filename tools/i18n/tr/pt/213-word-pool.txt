@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	Ou crie um segundo cartão:
+2584d632	Agora também em {0}
+b1239d7d	Você já tem: em {0}
+470fb0d3	Você já tem: em nenhuma pasta
+a14be316	Colocar em outra pasta
+92a732b0	Você já tem esta palavra
+553acc7b	“{0}” já está nas suas palavras, em {1}.
+291dee83	“{0}” já está nas suas palavras, em nenhuma pasta.
+086900b2	Coloque o mesmo cartão em outra pasta também:
+173801b6	Ainda não há pastas.
+a22fa8d8	Colocar lá
+0f594f52	“{0}” agora também está em {1}.

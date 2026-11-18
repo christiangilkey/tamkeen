@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	O paghimo og ikaduhang kard:
+2584d632	Naa na usab sa {0}
+b1239d7d	Naa na nimo: sa {0}
+470fb0d3	Naa na nimo: wala sa folder
+a14be316	Ibutang sa laing folder
+92a732b0	Naa na nimo kini nga pulong
+553acc7b	Ang “{0}” naa na sa imong mga pulong, sa {1}.
+291dee83	Ang “{0}” naa na sa imong mga pulong, wala sa folder.
+086900b2	Ibutang usab ang samang kard sa laing folder:
+173801b6	Wala pay mga folder.
+a22fa8d8	Ibutang didto
+0f594f52	Ang “{0}” naa na usab sa {1}.

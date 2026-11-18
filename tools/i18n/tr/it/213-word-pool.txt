@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	Oppure crea una seconda carta:
+2584d632	Ora anche in {0}
+b1239d7d	Ce l’hai già: in {0}
+470fb0d3	Ce l’hai già: in nessuna cartella
+a14be316	Mettila in un’altra cartella
+92a732b0	Hai già questa parola
+553acc7b	«{0}» è già tra le tue parole, in {1}.
+291dee83	«{0}» è già tra le tue parole, in nessuna cartella.
+086900b2	Metti la stessa carta anche in un’altra cartella:
+173801b6	Nessuna cartella per ora.
+a22fa8d8	Mettila lì
+0f594f52	«{0}» ora è anche in {1}.

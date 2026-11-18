@@ -20,6 +20,7 @@ export const PROTOTYPES = {
   battle_aim: { name: "Aim your own attacks in battles (mouse, a second finger, the right stick)", released: false, since: "2026-11-18" },
   battle_race: { name: "Answer race in battles: the rival answers too; out-answered attacks do half damage", released: false, since: "2026-11-18" },
   key_fallback: { name: "A refused AI key: Add words fills the cards in without it, and a popup offers No AI", released: false, since: "2026-11-18" },
+  word_pool: { name: "One card per word: a word you have already says which folder it is in and can go in another; DLI decks and study words use the card you have", released: false, since: "2026-11-18" },
 };
 
 const KEY = "tamkeenPrototype";

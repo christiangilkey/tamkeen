@@ -2239,6 +2239,11 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .cb-status.is-error > .cb-st:first-child, .cb-st.is-error-text { color: var(--danger); }
 .cb-status.is-ok > .cb-st:first-child { color: var(--accent); }
 .cb-dup { color: var(--warn); cursor: pointer; }
+.cb-have { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; min-height: 0; padding: 3px 10px; border-radius: 99px; font-size: 13px; font-weight: 600; color: var(--text); }
+.cb-have-where { margin: 0 0 10px; }
+.cb-have-list { display: flex; flex-direction: column; gap: 6px; margin: 6px 0 10px; max-height: 40vh; overflow: auto; }
+.cb-have-folder { display: flex; align-items: center; gap: 8px; }
+.cb-have-new { margin-bottom: 12px; }
 .cb-anyway-box { display: inline-flex; align-items: center; gap: 4px; color: var(--text); font-weight: 600; }
 .cb-row.is-repeat .cb-word { opacity: .55; }
 .cb-spin { width: 13px; height: 13px; flex: none; border-radius: 50%; border: 2px solid currentColor; border-top-color: transparent; animation: spin .9s linear infinite; }

@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	O fes una segona targeta:
+2584d632	Ara també a {0}
+b1239d7d	Ja la tens: a {0}
+470fb0d3	Ja la tens: no és a cap carpeta
+a14be316	Posa-la en una altra carpeta
+92a732b0	Ja tens aquesta paraula
+553acc7b	«{0}» ja és a les teves paraules, a {1}.
+291dee83	«{0}» ja és a les teves paraules, sense carpeta.
+086900b2	Posa la mateixa targeta també en una altra carpeta:
+173801b6	Encara no hi ha carpetes.
+a22fa8d8	Posa-la-hi
+0f594f52	«{0}» ara també és a {1}.

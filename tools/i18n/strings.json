@@ -10355,6 +10355,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "7d4f43ed",
+  "k": "Or make a second card:",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "52bb6712",
   "k": "Already in your words.",
   "f": "web/js/components/wordbuilder.js"
@@ -10362,6 +10367,61 @@
  {
   "id": "9a283ec1",
   "k": "The same word as card {0}.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "2584d632",
+  "k": "Now also in {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b1239d7d",
+  "k": "You have it already: in {0}",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "470fb0d3",
+  "k": "You have it already: not in a folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a14be316",
+  "k": "Put it in another folder",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "92a732b0",
+  "k": "You have this word already",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "553acc7b",
+  "k": "“{0}” is in your words already, in {1}.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "291dee83",
+  "k": "“{0}” is in your words already, in no folder.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "086900b2",
+  "k": "Put the same card in another folder too:",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "173801b6",
+  "k": "No folders yet.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "a22fa8d8",
+  "k": "Put it there",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "0f594f52",
+  "k": "“{0}” is in {1} now too.",
   "f": "web/js/components/wordbuilder.js"
  },
  {

@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	O gumawa ng ikalawang kard:
+2584d632	Nasa {0} na rin
+b1239d7d	Mayroon ka na nito: sa {0}
+470fb0d3	Mayroon ka na nito: wala sa folder
+a14be316	Ilagay sa ibang folder
+92a732b0	Mayroon ka nang ganitong salita
+553acc7b	Ang “{0}” ay nasa mga salita mo na, sa {1}.
+291dee83	Ang “{0}” ay nasa mga salita mo na, wala sa folder.
+086900b2	Ilagay din ang parehong kard sa ibang folder:
+173801b6	Wala pang folder.
+a22fa8d8	Ilagay doon
+0f594f52	Ang “{0}” ay nasa {1} na rin.

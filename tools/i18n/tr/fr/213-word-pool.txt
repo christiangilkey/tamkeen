@@ -1,0 +1,13 @@
+# One card per word (prototype word_pool, components/wordbuilder.js).
+7d4f43ed	Ou crée une deuxième carte :
+2584d632	Maintenant aussi dans {0}
+b1239d7d	Tu l’as déjà : dans {0}
+470fb0d3	Tu l’as déjà : dans aucun dossier
+a14be316	La mettre dans un autre dossier
+92a732b0	Tu as déjà ce mot
+553acc7b	« {0} » est déjà dans tes mots, dans {1}.
+291dee83	« {0} » est déjà dans tes mots, dans aucun dossier.
+086900b2	Mettre la même carte dans un autre dossier aussi :
+173801b6	Pas encore de dossiers.
+a22fa8d8	L’y mettre
+0f594f52	« {0} » est maintenant aussi dans {1}.
