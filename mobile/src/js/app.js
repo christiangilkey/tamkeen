@@ -221,7 +221,12 @@ const objectUrls = new Map();
  * page: its cards fall back to their voice when the original can't be played either). */
 export async function audioUrl(uid, { quiet = false } = {}) {
   const ep = lib.episodes.find((e) => e.uid === uid);
-  if (ep && (ep.audio_url || "").startsWith("drive:")) return videoUrl(ep);
+  if (ep && (ep.audio_url || "").startsWith("drive:")) {
+    // The web app would fetch the whole video from Drive for one word (the owner, 2026-11-18: "Loading video…" on
+    // a card's Word and Sentence). A card says it in its voice instead, unless the video is already loaded here.
+    if (quiet && isWeb && !objectUrls.has(uid)) return "";
+    return videoUrl(ep);
+  }
   if (ep && ep.remote_audio && settings.signed_in) {
     if (objectUrls.has(uid)) return objectUrls.get(uid);
     try {
