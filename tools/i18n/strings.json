@@ -8425,11 +8425,6 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "0e68bfb1",
-  "k": "Sound volume",
-  "f": "web/js/components/settingsui.js"
- },
- {
   "id": "cdf6a886",
   "k": "Connect a game controller",
   "f": "web/js/components/settingsui.js"
@@ -8535,6 +8530,11 @@
   "f": "web/js/components/settingsui.js"
  },
  {
+  "id": "0e68bfb1",
+  "k": "Sound volume",
+  "f": "web/js/components/settingsui.js"
+ },
+ {
   "id": "3dd9f3e0",
   "k": "Changes here are saved straight away: there is no Save button. They reach your other devices with your other settings.",
   "f": "web/js/components/settingsui.js"
@@ -8550,23 +8550,23 @@
   "f": "web/js/components/settingsui.js"
  },
  {
-  "id": "3a55315b",
-  "k": "Podcasts, videos & lessons",
-  "f": "web/js/components/soundvolume.js"
- },
- {
   "id": "37434634",
   "k": "Podcasts, audiobooks, your own audio and video files, recordings and the audio of lessons. YouTube, Netflix and reels have their own volume in their players.",
   "f": "web/js/components/soundvolume.js"
  },
  {
-  "id": "7be0d70f",
-  "k": "App sounds",
+  "id": "c349fe82",
+  "k": "Card voices, word and sentence audio, the conversation partner, chimes and every other sound Tamkeen makes.",
   "f": "web/js/components/soundvolume.js"
  },
  {
-  "id": "c349fe82",
-  "k": "Card voices, word and sentence audio, the conversation partner, chimes and every other sound Tamkeen makes.",
+  "id": "3a55315b",
+  "k": "Podcasts, videos & lessons",
+  "f": "web/js/components/soundvolume.js"
+ },
+ {
+  "id": "7be0d70f",
+  "k": "App sounds",
   "f": "web/js/components/soundvolume.js"
  },
  {
@@ -17690,6 +17690,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "d26d55c7",
+  "k": "Words",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "993750ae",
   "k": "Your creature's habitat",
   "f": "web/js/game/habitat.js"
@@ -17742,11 +17747,6 @@
  {
   "id": "98f011af",
   "k": "Goal streak: days in a row you reached your daily goal",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "d26d55c7",
-  "k": "Words",
   "f": "web/js/game/habitat.js"
  },
  {
