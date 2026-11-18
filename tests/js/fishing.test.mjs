@@ -362,7 +362,8 @@ test("the habitat draws the aquarium on its own and answers a tap on it (not fro
 
 test("Home shows the aquarium under the Fishing tile once a fish has been caught, with words for an empty tank", () => {
   const src = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
-  assert.ok(src.indexOf('id="g-fishing"') < src.indexOf('id="g-aquarium"'), "the aquarium comes after the Fishing tile");
+  const fishing = src.indexOf('subTile("fishing"');
+  assert.ok(fishing > 0 && fishing < src.indexOf('id="g-aquarium"'), "the aquarium comes after the Fishing tile");
   assert.match(src, /box\.hidden = !\(F\.caught > 0 \|\| F\.tank\.length\)/, "nothing is shown before the first catch");
   assert.match(src, /aquariumView\(F\.tank/, "the fish kept in the tank are the ones drawn");
   assert.match(src, /hud-aq-empty"\)\.hidden = F\.tank\.length > 0/, "an empty tank says what it is for");
@@ -406,7 +407,9 @@ test("the pond fishes the game's word choice, the same words as battles", async 
   // One place to choose them (the owner, 2026-11-17: "the words folder picker should be here as a button"): the Words
   // tile on the games home, not a copy in the Battle and Fishing screens.
   const home = src("habitat.js");
-  assert.match(home, /id="g-words"/, "the games home has a Words tile");
+  // (the owner: "the fishing and the words button should be on the same line, equal to the size of the other buttons")
+  assert.ok(home.includes('${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}'), "Words sits beside Fishing");
+  assert.ok(home.includes('class="hud-tile has-sub" id="g-${id}"'), "a tile like the others (no wide tile)");
   assert.match(home, /openWordChoice\(\{ changed: \(\) => \{ paintWords\(\); paintFishing\(\); \} \}\)/, "a change repaints Words and the fish waiting");
   assert.doesNotMatch(src("fishscreen.js"), /wordModePicker/, "the Fishing screen has no copy of its own");
   const battleUi = src("battle-ui.js");
