@@ -1,0 +1,14 @@
+# DLI classes: a class's teachers, adding one by username (dliteach.js, dliclass.js).
+5b728cf3	Nakikita ng bawat guro ng klaseng ito ang mga linggo, aralin at sagot ng mga estudyante nito. Nakikita ng mga estudyante ang username ng bawat guro.
+2d18acb5	Hindi pa naka-on ang pagdaragdag ng mga guro.
+b6b0a9d7	Mula {0}
+4bddc890	Alisin si {0} sa klase?
+49b09caf	Hindi na niya makikita ang mga estudyante, aralin at sagot ng klaseng ito. Puwede mo siyang idagdag ulit.
+382ea70c	Username ng isa pang guro
+25007360	Magdagdag ng guro
+c37caf46	Nagtuturo na rin si {0} sa klaseng ito.
+3fb72eb0	Nagtuturo na si {0} sa klaseng ito.
+960a5b7d	May 10 guro na ang klaseng ito.
+563e52b2	Masyado nang maraming pangalang hindi gumana ngayong araw. Subukan ulit bukas.
+98471eab	Walang guro ng DLI na may ganyang username. Kailangan muna niyang ilagay ang code pang-guro niya, sa ilalim ng “Guro ako ng DLI”.
+86e9b645	Ang gurong nauna sa kanya sa klase lang ang puwedeng mag-alis ng guro.

@@ -173,12 +173,13 @@ test("codes are read out in groups", () => {
 test("the database file and the app agree on names and limits", () => {
   const sql = readFileSync(new URL("../../supabase/v10-dli-classes.sql", import.meta.url), "utf8");
   const v11 = readFileSync(new URL("../../supabase/v11-dli-activity.sql", import.meta.url), "utf8");
+  const v13 = readFileSync(new URL("../../supabase/v13-dli-class-teachers.sql", import.meta.url), "utf8");
   const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
   // every database function the app calls exists in the files, and is open to signed-in people only
   const called = [...app.matchAll(/rpc\("(dli_[a-z_]+)"/g)].map((m) => m[1]);
   assert.ok(called.length >= 16, "the app's calls were found");
   for (const name of new Set(called)) {
-    const file = sql.includes(`create or replace function public.${name}(`) ? sql : v11;
+    const file = [sql, v11, v13].find((f) => f.includes(`create or replace function public.${name}(`)) || sql;
     assert.ok(file.includes(`create or replace function public.${name}(`), `${name} is in a SQL file`);
     assert.ok(new RegExp(`grant execute on function[^;]*public\\.${name}\\(`).test(file), `${name} may be run by signed-in people`);
     assert.ok(new RegExp(`revoke all on function[^;]*public\\.${name}\\(`).test(file), `${name} is closed to everyone else`);
@@ -242,4 +243,41 @@ test("every UPDATE and DELETE in the database file has a WHERE (the API refuses 
   const statements = sql.split(";").map((s) => s.replace(/\s+/g, " ").trim());
   const risky = statements.filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));
   assert.deepEqual(risky.map((s) => s.slice(0, 80)), []);
+});
+
+test("a class's teachers (v13): the list and the answer to adding one are checked, and the file keeps the rules", async () => {
+  const { cleanTeachers, cleanAdded } = await import("../../web/js/dliweeks.js");
+  const list = cleanTeachers([{ id: ID, username: "ms.rivera", added_at: "2026-11-01T00:00:00Z", me: true, can_drop: "yes" },
+    { id: ID.replace("0f", "1f"), username: "<b>x</b>", can_drop: true }, { username: "no id" }, null]);
+  assert.equal(list.length, 2);
+  assert.deepEqual(list[0], { id: ID, username: "ms.rivera", added_at: "2026-11-01T00:00:00Z", me: true, can_drop: false });
+  assert.equal(list[1].username, "?", "markup is never a username");
+  assert.equal(list[1].can_drop, true);
+  assert.deepEqual(cleanAdded({ status: "added", username: "mr_haddad" }), { status: "added", username: "mr_haddad" });
+  assert.deepEqual(cleanAdded({ status: "<img>", username: "a b" }), { status: "no", username: "" });
+  assert.deepEqual(cleanAdded(null), { status: "no", username: "" });
+
+  const sql = readFileSync(new URL("../../supabase/v13-dli-class-teachers.sql", import.meta.url), "utf8");
+  const bare = sql.replace(/--[^\n]*/g, "");
+  assert.ok(!/create table|create policy|alter table/i.test(bare), "no new table and no table rule: three functions only");
+  assert.equal(sql.split("$$").length - 1, 6, "three functions, each opened and closed");
+  for (const name of ["dli_class_teachers", "dli_add_teacher", "dli_drop_teacher"]) {
+    const body = sql.slice(sql.indexOf(`create or replace function public.${name}(`));
+    const fn = body.slice(0, body.indexOf("end $$;"));
+    assert.ok(/security definer set search_path = ''/.test(fn), `${name} pins its search path`);
+    assert.ok(/me is null/.test(fn), `${name} refuses a signed-out caller`);
+    assert.ok(/dli_teaches\(me, class\)|v_mine is null/.test(fn), `${name} is for a teacher of that class only`);
+  }
+  // only someone who is already a DLI teacher can be added, and "no such user" looks the same as "not a teacher"
+  assert.ok(/join public\.dli_teachers t on t\.user_id = p\.id/.test(sql));
+  assert.equal((bare.match(/'status', 'no'/g) || []).length, 1, "one answer for every name that can't be added");
+  // every UPDATE and DELETE has a WHERE (the API refuses one without)
+  const risky = bare.split(";").map((s) => s.replace(/\s+/g, " ").trim())
+    .filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));
+  assert.deepEqual(risky, []);
+  // the feature waits in prototype mode
+  const proto = readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8");
+  assert.ok(/class_teachers: \{[^}]*released: false/.test(proto));
+  const screen = readFileSync(new URL("../../web/js/components/dliteach.js", import.meta.url), "utf8");
+  assert.ok(screen.includes('if (feature("class_teachers"))'));
 });

@@ -54,6 +54,7 @@ service role or the Supabase SQL editor.
 | My weekly numbers (days, flashcard minutes, listening/watching/reading minutes per device (v11), reviews, remembered, new words, words, known; the activity level made from them) | see, send | see, from the week I joined their class | no | see | no | no |
 | My words, meanings, library, recordings | never sent | no | no | no | no | no |
 | A class: name, teachers' usernames | see if I'm in it; leave | rename, new codes, delete, remove a student | no | see name and counts | no | no |
+| A class's teachers (`supabase/v13-dli-class-teachers.sql`, prototype `class_teachers`) | see their usernames under the class | list; add another DLI teacher by username; take out one who joined after them | no | as before | no | no |
 | A class's codes | no | see | no | no | no | no |
 | Teacher code | no | no | no | see, replace | no | no |
 | Becoming a teacher / the owner | no | by the teacher code | by the teacher code | by the one-time owner code (shown when the SQL file is first run) | wrong codes capped at 20 a day | no |

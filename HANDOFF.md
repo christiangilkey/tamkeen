@@ -9304,3 +9304,25 @@ straight to `.destination`. Checked in the web app (slider kept across a reload,
   `definer_mode: "dictionary"`). Without prototype mode: the red note as before. Tests `tests/js/keyfallback.test.mjs`;
   translations `tools/i18n/tr/*/206-key-refused.txt` (strings.json not rebuilt yet: other prototypes' strings are
   still untranslated, and rebuilding makes the i18n test fail until they are). Checked in a test copy with a made-up key.
+
+## DLI classes: several teachers for a student (2026-11-18; "Teachers" chat; prototype `class_teachers`; database NOT applied)
+The owner: "Add ability to assign multiple teachers to a student".
+- **What already worked** (v10): a class holds up to 10 teachers (a second teacher types the class's CO- code) and a
+  student can be in up to 10 classes. Every teacher of a class sees its students' weeks (from the week each joined),
+  and its lessons and answers (v12 checks `private.dli_teaches`). So a student could already have several teachers.
+- **What was missing and is built**: in the class box, a **Teachers** section (`dliteach.js teachersPart`, behind
+  `feature("class_teachers")`): the teachers by username, a box to add another DLI teacher by Tamkeen username, and
+  Remove beside teachers who joined the class after you. `dliclass.js classTeachers / addTeacher / dropTeacher`,
+  cleaners `dliweeks.js cleanTeachers / cleanAdded`.
+- **Database**: `supabase/v13-dli-class-teachers.sql` (three functions, no table, no new data; run after v10 and v11;
+  **the owner has NOT run it**), self-test `supabase/test_rls_dli_teachers.sql` (expects `bad=[ none]`). Without v13 the
+  section says "Adding teachers isn't switched on yet." Neither file has been executed (no database here).
+- **Rules kept**: a student is seen only by teachers of a class that student joined, from the week they joined; the
+  student sees every teacher's username under the class. Only someone who already typed the teacher code can be
+  added; "no such user" and "not a teacher" get the same answer, and wrong names share the 20-a-day cap of wrong codes.
+  A teacher added later can't take out an earlier one.
+- **Not built, a decision for the owner**: giving ONE student an extra teacher without the rest of the class. Today
+  that needs a second class the student joins. A teacher adding someone to a single student directly would change who
+  sees a student without the student doing anything, which the sharing text ("the teachers of the classes you join")
+  doesn't cover; it would need new wording (raise `WORDING`) and a line in the Privacy Policy.
+- No CHANGELOG or whatis-special line yet (prototype). 13 new strings, 16 languages (tr `214-dli-class-teachers.txt`).

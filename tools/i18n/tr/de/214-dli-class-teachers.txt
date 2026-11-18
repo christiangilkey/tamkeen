@@ -1,0 +1,14 @@
+# DLI classes: a class's teachers, adding one by username (dliteach.js, dliclass.js).
+5b728cf3	Jede Lehrkraft dieser Klasse sieht die Wochen, Lektionen und Antworten ihrer Studierenden. Studierende sehen den Benutzernamen jeder Lehrkraft.
+2d18acb5	Das Hinzufügen von Lehrkräften ist noch nicht eingeschaltet.
+b6b0a9d7	Seit {0}
+4bddc890	{0} aus der Klasse entfernen?
+49b09caf	Diese Lehrkraft sieht die Studierenden, Lektionen und Antworten dieser Klasse dann nicht mehr. Du kannst sie wieder hinzufügen.
+382ea70c	Benutzername einer weiteren Lehrkraft
+25007360	Lehrkraft hinzufügen
+c37caf46	{0} unterrichtet diese Klasse jetzt auch.
+3fb72eb0	{0} unterrichtet diese Klasse schon.
+960a5b7d	Diese Klasse hat schon 10 Lehrkräfte.
+563e52b2	Zu viele Namen heute, die nicht funktioniert haben. Versuch es morgen noch einmal.
+98471eab	Keine DLI-Lehrkraft hat diesen Benutzernamen. Sie muss zuerst unter „Ich unterrichte am DLI“ ihren Lehrkraft-Code eingeben.
+86e9b645	Nur eine Lehrkraft, die schon vorher in der Klasse war, kann eine Lehrkraft entfernen.

@@ -4925,6 +4925,76 @@
   "f": "web/js/components/dliteach.js"
  },
  {
+  "id": "f2604f9b",
+  "k": "Teachers",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "5b728cf3",
+  "k": "Every teacher of this class sees its students' weeks, lessons and answers. Students see each teacher's username.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "2d18acb5",
+  "k": "Adding teachers isn't switched on yet.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "905cb326",
+  "k": "You",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "b6b0a9d7",
+  "k": "Since {0}",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "4bddc890",
+  "k": "Take {0} out of the class?",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "49b09caf",
+  "k": "They stop seeing this class's students, lessons and answers. You can add them again.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "382ea70c",
+  "k": "Another teacher's username",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "25007360",
+  "k": "Add teacher",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "c37caf46",
+  "k": "{0} now teaches this class too.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "3fb72eb0",
+  "k": "{0} already teaches this class.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "960a5b7d",
+  "k": "This class has 10 teachers already.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "563e52b2",
+  "k": "Too many names that didn't work today. Try again tomorrow.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
+  "id": "98471eab",
+  "k": "No DLI teacher has that username. They enter their teacher code first, under “I'm a DLI teacher”.",
+  "f": "web/js/components/dliteach.js"
+ },
+ {
   "id": "ef452b78",
   "k": "Students type it in Settings → DLI students.",
   "f": "web/js/components/dliteach.js"
@@ -5042,11 +5112,6 @@
  {
   "id": "fcfac3ef",
   "k": "Students",
-  "f": "web/js/components/dliteach.js"
- },
- {
-  "id": "f2604f9b",
-  "k": "Teachers",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -12615,6 +12680,11 @@
   "f": "web/js/dliclass.js"
  },
  {
+  "id": "86e9b645",
+  "k": "Only a teacher who was in the class before them can take a teacher out.",
+  "f": "web/js/dliclass.js"
+ },
+ {
   "id": "bcfb2123",
   "k": "Only Tamkeen's owner can do that.",
   "f": "web/js/dliclass.js"
@@ -13928,11 +13998,6 @@
   "id": "a904e72a",
   "k": "Fortress",
   "f": "web/js/game/battlemap.js"
- },
- {
-  "id": "905cb326",
-  "k": "You",
-  "f": "web/js/game/battlescreen.js"
  },
  {
   "id": "ae8298e9",

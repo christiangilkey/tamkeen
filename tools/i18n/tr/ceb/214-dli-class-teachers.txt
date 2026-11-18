@@ -1,0 +1,14 @@
+# DLI classes: a class's teachers, adding one by username (dliteach.js, dliclass.js).
+5b728cf3	Makita sa matag magtutudlo niini nga klase ang mga semana, leksyon ug tubag sa mga estudyante niini. Makita sa mga estudyante ang username sa matag magtutudlo.
+2d18acb5	Wala pa ma-on ang pagdugang og mga magtutudlo.
+b6b0a9d7	Sukad {0}
+4bddc890	Tangtangon si {0} sa klase?
+49b09caf	Dili na niya makita ang mga estudyante, leksyon ug tubag niini nga klase. Mahimo nimo siyang idugang pag-usab.
+382ea70c	Username sa laing magtutudlo
+25007360	Pagdugang og magtutudlo
+c37caf46	Nagtudlo na sab si {0} niini nga klase.
+3fb72eb0	Nagtudlo na si {0} niini nga klase.
+960a5b7d	Naa nay 10 ka magtutudlo kini nga klase.
+563e52b2	Daghan na kaayong ngalan nga wala mogana karong adlawa. Sulayi pag-usab ugma.
+98471eab	Walay magtutudlo sa DLI nga adunay ingon nga username. Kinahanglan una niyang isulod ang iyang code sa magtutudlo, ubos sa “Magtutudlo ko sa DLI”.
+86e9b645	Ang magtutudlo ra nga nauna kaniya sa klase ang makatangtang og magtutudlo.

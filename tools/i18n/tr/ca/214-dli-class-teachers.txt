@@ -1,0 +1,14 @@
+# DLI classes: a class's teachers, adding one by username (dliteach.js, dliclass.js).
+5b728cf3	Tots els professors d'aquesta classe veuen les setmanes, les lliçons i les respostes dels seus estudiants. Els estudiants veuen el nom d'usuari de cada professor.
+2d18acb5	Afegir professors encara no està activat.
+b6b0a9d7	Des del {0}
+4bddc890	Vols treure {0} de la classe?
+49b09caf	Deixa de veure els estudiants, les lliçons i les respostes d'aquesta classe. El pots tornar a afegir.
+382ea70c	Nom d'usuari d'un altre professor
+25007360	Afegeix professor
+c37caf46	Ara {0} també és professor d'aquesta classe.
+3fb72eb0	{0} ja és professor d'aquesta classe.
+960a5b7d	Aquesta classe ja té 10 professors.
+563e52b2	Massa noms que no han funcionat avui. Torna-ho a provar demà.
+98471eab	Cap professor del DLI té aquest nom d'usuari. Primer ha d'escriure el seu codi de professor, a «Soc professor del DLI».
+86e9b645	Només un professor que ja era a la classe abans que ell pot treure un professor.

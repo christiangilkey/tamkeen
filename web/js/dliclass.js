@@ -24,7 +24,7 @@ import { onlineStatus } from "./agegate.js";
 import { dliState } from "./dli.js";
 import { hasStudyLanguage, studyLanguage } from "./languages.js";
 import { dayNumber } from "./review/fsrs.js";
-import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanStudents, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanAdded, cleanStudents, cleanTeachers, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
 import { dayMask, deviceId, timeLog, weekTime } from "./dlitime.js";
 
 export { CLASS_NAME_MAX, NAME_MAX, spaced } from "./dliweeks.js";
@@ -84,6 +84,7 @@ const MESSAGES = {
   dli_bad_language: "Choose your DLI language first.",
   dli_not_teacher: "Enter your teacher code first.",
   dli_not_your_class: "That isn't one of your classes.",
+  dli_cannot_drop: "Only a teacher who was in the class before them can take a teacher out.",
   dli_not_owner: "Only Tamkeen's owner can do that.",
   dli_class_limit: "You have 20 classes already. Delete one first.",
   dli_bad_week: "That week couldn't be saved.",
@@ -208,6 +209,15 @@ export const renameClass = (id, name) => rpc("dli_rename_class", { class: id, na
 export const deleteClass = (id) => rpc("dli_delete_class", { class: id });
 export const removeStudent = (id, student) => rpc("dli_remove_student", { class: id, student });
 export const newCodes = async (id) => cleanCodes(await rpc("dli_new_codes", { class: id }));
+
+// A class's teachers (supabase/v13-dli-class-teachers.sql; prototype "class_teachers"). Against a database
+// without v13 these throw an error whose `notReady` is true.
+/** The teachers of one of my classes: [{ id, username, added_at, me, can_drop }]. */
+export const classTeachers = async (id) => cleanTeachers(await rpc("dli_class_teachers", { class: id }));
+/** Add a DLI teacher to one of my classes by username: { status, username }. */
+export const addTeacher = async (id, username) => cleanAdded(await rpc("dli_add_teacher", { class: id, username: String(username || "").slice(0, 40) }));
+/** Take out a teacher who joined the class after me. */
+export const dropTeacher = (id, person) => rpc("dli_drop_teacher", { class: id, person });
 
 /** One of my classes with its students' numbers: { class, students }. */
 export async function classReport(id, weeks = 12) {

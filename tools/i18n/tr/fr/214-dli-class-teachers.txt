@@ -1,0 +1,14 @@
+# DLI classes: a class's teachers, adding one by username (dliteach.js, dliclass.js).
+5b728cf3	Chaque enseignant de cette classe voit les semaines, les leçons et les réponses de ses étudiants. Les étudiants voient le nom d'utilisateur de chaque enseignant.
+2d18acb5	L'ajout d'enseignants n'est pas encore activé.
+b6b0a9d7	Depuis le {0}
+4bddc890	Retirer {0} de la classe ?
+49b09caf	Cet enseignant ne voit plus les étudiants, les leçons ni les réponses de cette classe. Vous pouvez l'ajouter à nouveau.
+382ea70c	Nom d'utilisateur d'un autre enseignant
+25007360	Ajouter l'enseignant
+c37caf46	{0} enseigne maintenant aussi dans cette classe.
+3fb72eb0	{0} enseigne déjà dans cette classe.
+960a5b7d	Cette classe a déjà 10 enseignants.
+563e52b2	Trop de noms qui n'ont pas marché aujourd'hui. Réessayez demain.
+98471eab	Aucun enseignant du DLI n'a ce nom d'utilisateur. Il doit d'abord saisir son code enseignant, sous « Je suis enseignant au DLI ».
+86e9b645	Seul un enseignant qui était dans la classe avant lui peut retirer un enseignant.
