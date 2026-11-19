@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Better:** **YouTube player's bar is less crowded.** **Type what you hear** (the keyboard button) now sits in the bar beside the speed, as in the reel player, instead of at the far end of the top line. The 5-second buttons are smaller, and the "start of the sentence" button is gone from YouTube's bar (the R key still does it). The play button stays in the middle.
+
 ## v0.63.0 — 2026-11-18
 
 - **New:** **One card per word.** A word you already have is kept once, in its own language, and folders only sort it. In **Add words**, typing a word you have shows a small button saying so and which folders it is in; tap it to put the same card in another folder (or a new one) instead of making a second card (**Add anyway** still can). DLI decks and the study words a teacher gives you use the card you already have, put in the chapter's or the lesson's folder, and it gets the chapter's recording if it had no sound.

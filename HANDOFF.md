@@ -9327,3 +9327,20 @@ The owner: "Add ability to assign multiple teachers to a student".
   sees a student without the student doing anything, which the sharing text ("the teachers of the classes you join")
   doesn't cover; it would need new wording (raise `WORDING`) and a line in the Privacy Policy.
 - No CHANGELOG or whatis-special line yet (prototype). 13 new strings, 16 languages (tr `214-dli-class-teachers.txt`).
+
+### YouTube player's bar: Type what you hear in it, smaller skips, no start-of-sentence button (2026-11-19, "YouTube bar" chat)
+The owner: "the transcription button is only on the reels player, it should be on the YouTube player, the YouTube
+players bar is also currently crowded, the time skip buttons should be smaller and the second rewind Button should be
+remove".
+- **Cause**: the keyboard button was on the YouTube player, but only as a small icon at the far right end of the top banner
+  (after the "more" menu on a phone). In the reel player it sits in the bottom bar, so the owner looked there.
+- `web/js/pages/player.js`: on YouTube (`yt`, not Netflix) the button goes into `.btnrow` (beside the speed chooser);
+  `#restart` (sentence-start icon, the "second rewind button" next to Back 5 s) isn't drawn on YouTube. The R key now calls
+  `lineAgain()` directly, so it works with or without the button (the controller has its own replay). The guide's
+  "#restart" step skips itself where the button is missing (tour.js). Podcasts, own videos and Netflix are unchanged.
+- `web/css/media.css` (after the play-centred section): `.player.yt:not(.nf)` only. Back/forward 5 s are 30 px tall, 12 px
+  text; the keyboard is positioned absolutely (left 66 px; 64 px on phones; 52 px with a narrower speed chooser at
+  ≤350 px), so the play button stays exactly centred; the looping chip moves right of it on computers.
+- Checked in a real pywebview window (fresh data folder, not signed in) at 1200, 400, 360 and 320 px wide: play centred
+  (0 px off) in all; 9 px between the keyboard and Back 5 s at 360, 5 px at 320. Typing mode turns the 5-second buttons
+  into piece arrows and back. Pictures: `..\yt-bar-shots\` (outside the repository).
