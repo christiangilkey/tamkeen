@@ -101,6 +101,35 @@ export function wordKey(text) {
     .replace(/\s+/g, " ").trim().toLowerCase();
 }
 
+// ---------------------------------------------------------------- one card per word (prototype "word_pool")
+// A learner keeps each word once per language: every card is in one store of words, and folders only sort them
+// (a card can be in several). So a word they have already is found, and put in another folder, not made twice.
+// (the owner, 2026-11-18: "a base pool (all words) of words ... the folders just organize the base pool", "separated
+// by language".)
+
+/** The vowel marks of a word (Arabic harakat and the like), in order. */
+const marksOf = (s) => String(s ?? "").normalize("NFC").match(ARABIC_MARKS) || [];
+/** Is one list of marks the other with some left out? (كِتاب is كِتَاب written with fewer.) */
+const within = (a, b) => { let i = 0; for (const m of b) if (m === a[i]) i++; return i === a.length; };
+
+/** Are `a` and `b` the same word? Compared as wordKey compares; where both are written with vowel marks they must
+ *  agree as well: كَتَبَ "he wrote" and كُتُب "books" are two words, كتاب and كِتَاب one. */
+export function sameWord(a, b) {
+  const ka = wordKey(a);
+  if (!ka || ka !== wordKey(b)) return false;
+  const ma = marksOf(a), mb = marksOf(b);
+  return !ma.length || !mb.length || (ma.length <= mb.length ? within(ma, mb) : within(mb, ma));
+}
+
+/** The card in `cards` that `text` already is, in language `lang` (a card with no language counts as any). */
+export function cardFor(cards, text, lang) {
+  const here = (c) => c && !c.deleted && (!lang || !c.language || c.language === lang);
+  return (cards || []).find((c) => here(c) && sameWord(c.text, text)) || null;
+}
+
+/** The names of the folders a card is in, in `folders`' order ([{uid, name}]). */
+export const folderNames = (card, folders) => (folders || []).filter((f) => ((card && card.folders) || []).includes(f.uid)).map((f) => f.name);
+
 /**
  * Which rows repeat a word: for each row, {saved} when the word is already in `existing` (the saved
  * words, as texts), {sameAs: n} when an earlier row of the batch has it (n counts from 0), else {}.

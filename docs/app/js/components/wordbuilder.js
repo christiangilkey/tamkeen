@@ -9,7 +9,7 @@
 //   - Example sentences and their translations: the learner's AI (one request for many words); with no AI,
 //     or Free chosen in Settings → Word definitions (helpersource.js aiMakes), a real sentence from Tatoeba
 //     or Wiktionary with its English translation (examples.js, downloaded once).
-//   - A mnemonic in Memorization notes: keywords that sound like the word, with a picture for its meaning:
+//   - A mnemonic in Memorization notes: only a keyword that sounds like the word, as its syllables ("MUR-DER"):
 //     the AI's when it makes them (the same choice), else made on the device (examples.js freeMnemonics,
 //     the review card's free Mnemonic maker).
 //   - Audio: the card voice chosen in Settings → Card voices (made and kept now with Azure; the
@@ -30,8 +30,8 @@ import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
-import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
-         fillIn, firstSense, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
+import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardFor, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
+         fillIn, firstSense, folderNames, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { librarySentence } from "../review/sentencefind.js";
@@ -277,15 +277,15 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       } else if (choices.sentence === "auto") html = "A short sentence that uses the word the way a native speaker would, with its translation.";
     } else if (key === "mnemonic") {
       if (choices.mnemonic === "auto" && makes("mnemonic")) {
-        html = "Words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made by your AI.";
+        html = "Words that sound like the word, put in Memorization notes. Made by your AI.";
       } else if (choices.mnemonic === "auto") {
         const own = OWN_KEYWORDS.has(uiLanguage()) && uiLanguage() !== lang;
         // (chose Free in Settings although the AI could make them: the way back to that choice)
         html = freeChosen("mnemonic")
-          ? (own ? `Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`
-            : `English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`)
-          : own ? "Words of your language that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI."
-          : "English words that sound like the word, each with a picture for its meaning, put in Memorization notes. Made on this device, with no AI.";
+          ? (own ? `Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`
+            : `English words that sound like the word, put in Memorization notes. Made on this device, with no AI. <a href="${SOURCE_SETTINGS.mnemonic}" class="cb-go">AI can make them instead</a>`)
+          : own ? "Words of your language that sound like the word, put in Memorization notes. Made on this device, with no AI."
+          : "English words that sound like the word, put in Memorization notes. Made on this device, with no AI.";
       }
     } else if (key === "audio") {
       const s = settings();
@@ -360,7 +360,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       audioNote: null,
       fillNotes: {},     // {meaning, memo}: a line about what Fill in put there (a phrase's meaning word by word…)
       kind: "word",      // "word", "phrase" or "sentence" (addwords.js entryKind), worked out when filling in
-      meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for the mnemonic's picture line
+      meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for which keywords fit the meaning
       meaningFrom: "",   // "entry" (the dictionary's for the whole card), "words" (word by word), "ai"
       el: null,
     };
@@ -463,7 +463,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       sentence: wants ? (found ? "Found for you" : "Written for you") : "A sentence that uses it",
       translation: wants ? (found ? "Found for you" : "Written for you") : "The sentence in your language",
       // (with "Learn from my own mnemonics" on, a mnemonic typed here teaches the maker: its sound-alike in CAPITALS)
-      memo: wants ? "A mnemonic made for you" : learnsOwn(settings()) ? "Sound-alike in CAPITALS: a duck sitting on a POT…" : "A mnemonic, a picture",
+      memo: wants ? "A mnemonic made for you" : learnsOwn(settings()) ? "Sound-alike in CAPITALS: MUR-DER…" : "A sound-alike",
     }[f];
     // (A text box's placeholder isn't translated again by itself when it changes, and the sentence box is in
     // the language being learned: so those are translated here.)
@@ -528,8 +528,10 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   // ----- repeats: already saved, or twice in this batch -----
   let repeats = [];
+  /** The saved words in the language these cards are in (the Vocab page can hold several languages' words). */
+  const mine = () => existing().filter((v) => v && (!v.language || v.language === lang));
   function checkRepeats() {
-    repeats = duplicates(rows.map((r) => r.text), existing().map((v) => v.text));
+    repeats = duplicates(rows.map((r) => r.text), mine().map((v) => v.text));
     for (const r of rows) paintStatus(r);
     countUp();
   }
@@ -576,9 +578,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       // just show up to allow them to download it right there, no sending users through navigations").
       if (row.status.getDict) box.append(dictButton());
     }
+    const have = rep.saved && feature("word_pool") ? cardFor(mine(), row.text, lang) : null;
+    if (have) box.append(haveLine(row, have));
     if (rep.saved || rep.sameAs !== undefined) {
       const line = h(`<label class="cb-st cb-dup"><span></span> <span class="cb-anyway-box"><input type="checkbox" class="cb-anyway"> Add anyway</span></label>`);
-      line.querySelector("span").textContent = rep.saved ? t("Already in your words.") : t("The same word as card {0}.", rep.sameAs + 1);
+      line.querySelector("span").textContent = rep.saved ? (have ? t("Or make a second card:") : t("Already in your words.")) : t("The same word as card {0}.", rep.sameAs + 1);
       line.querySelector(".cb-anyway").checked = row.anyway;
       box.append(line);
     }
@@ -596,6 +600,81 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     row.el.classList.toggle("is-repeat", !!(rep.saved || rep.sameAs !== undefined) && !row.anyway);
   }
 
+  /** A word they have already (prototype "word_pool"): a small button saying so and which folders it is in; it opens
+   *  the choice of more folders to put that card in. Nothing new is made unless "Add anyway" is ticked. */
+  function haveLine(row, card) {
+    const names = folderNames(card, folderList);
+    const b = h(`<button type="button" class="cb-have">${icon("folder", 15)}<span></span></button>`);
+    b.querySelector("span").textContent = row.filed ? t("Now also in {0}", row.filed)
+      : names.length ? t("You have it already: in {0}", names.join(", ")) : t("You have it already: not in a folder");
+    b.title = t("Put it in another folder");
+    b.onclick = () => fileIt(row, card);
+    return b;
+  }
+
+  /** "Put it in another folder": this language's folders, ticked where it is already; a new one can be made here. */
+  function fileIt(row, card) {
+    const m = openModal({ title: t("You have this word already") });
+    const names = folderNames(card, folderList);
+    const where = h(`<p class="cb-have-where"></p>`);
+    where.textContent = names.length ? t("“{0}” is in your words already, in {1}.", card.text, names.join(", "))
+      : t("“{0}” is in your words already, in no folder.", card.text);
+    const ask = h(`<p class="small muted"></p>`);
+    ask.textContent = t("Put the same card in another folder too:");
+    const list = h(`<div class="cb-have-list" role="group"></div>`);
+    const paint = (tick = null) => {
+      list.innerHTML = "";
+      const here = folderList.filter((f) => !f.language || f.language === lang);
+      for (const f of here) {
+        const isIn = (card.folders || []).includes(f.uid);
+        const l = h(`<label class="cb-have-folder"><input type="checkbox"> <span></span></label>`);
+        const tickBox = l.querySelector("input");
+        tickBox.value = f.uid;
+        tickBox.checked = isIn || (tick ? tick.has(f.uid) : f.uid === choices.folder);
+        tickBox.disabled = isIn;
+        l.querySelector("span").textContent = f.name;
+        list.append(l);
+      }
+      if (!here.length) list.append(Object.assign(document.createElement("p"), { className: "small muted", textContent: t("No folders yet.") }));
+    };
+    paint();
+    const neu = h(`<button type="button" class="ghost cb-have-new">${icon("plus", 16)} <span></span></button>`);
+    neu.querySelector("span").textContent = t("New folder");
+    neu.onclick = async () => {
+      const name = await askName("New folder", "Name for the new folder");
+      if (!name) return;
+      try {
+        const made = await api("/vocab/folders", { method: "POST", body: { name, language: lang } });
+        folderList = sortFolders([...folderList, made]);
+        onFolder(made);
+        const tick = new Set([...list.querySelectorAll("input:checked:not(:disabled)")].map((x) => x.value));
+        tick.add(made.uid);
+        paint(tick);
+      } catch (err) { toast(err.message, { error: true }); }
+    };
+    const buttons = h(`<div class="confirm-buttons"><button type="button" class="ghost"></button><button type="button" class="primary"></button></div>`);
+    const [cancel, go] = buttons.querySelectorAll("button");
+    cancel.textContent = t("Cancel");
+    go.textContent = t("Put it there");
+    cancel.onclick = () => m.close();
+    go.onclick = async () => {
+      const add = [...list.querySelectorAll("input:checked:not(:disabled)")].map((x) => x.value);
+      if (!add.length) { m.close(); return; }
+      go.disabled = true;
+      try {
+        await api("/vocab/bulk-folders", { method: "POST", body: { ids: [card.id], add } });
+        card.folders = [...new Set([...(card.folders || []), ...add])];
+        const put = folderNames({ folders: add }, folderList).join(", ");
+        row.filed = put;
+        toast(t("“{0}” is in {1} now too.", card.text, put));
+        onAdded([]);  // (the Vocab page shows the folders it is in now)
+        m.close();
+        paintStatus(row);
+      } catch (err) { go.disabled = false; toast(err.message, { error: true }); }
+    };
+    m.body.append(where, ask, list, neu, buttons);
+  }
+
   /** The cards that would be added now, and the button that adds them. */
   function countUp() {
     const n = addable(rows, repeats).length;
@@ -609,7 +688,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   let dirty = false;
   const dirtied = () => { dirty = true; warned = false; footNote(""); countUp(); };
-  const hasInput = () => !done && (dirty || rows.some((r) => r.text.trim() || hasValue(r.meaning) || r.audio.word)
+  const hasInput = () => !done && (dirty || rows.some((r) => !r.filed && r.text.trim() || hasValue(r.meaning) || r.audio.word)
     || pasteBox.value.trim() || (scan && scan.hasInput()));
 
   // ---------------------------------------------------------------- the card's own audio
@@ -1072,7 +1151,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     // for a word leaves it to the free one.
     // ("Learn from my own mnemonics": the learner's own sound-alikes offered again, their notes shown to the AI)
     // A phrase too long for sound-alikes (addwords.js mnemonicFits) gets none, and a line that says why. A phrase's
-    // meaning is pictured being said ("a BANANA saying “you're welcome”"): its part of speech goes with it.
+    // part of speech goes with it (which keywords fit its meaning).
     const own = learnsOwn(settings()), prefs = settings().mnemonic_prefs;
     const posOf = (r) => r.meaningPos || (r.kind !== "word" ? "phrase" : "");
     const freeMemo = (r) => freeMnemonics({ text: r.text.trim(), meaning: meaningOf(r), pos: posOf(r) }, lang, { speaks: uiLanguage(), prefs, ownWords: own });
@@ -1094,7 +1173,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       // (the maker's own keywords: a note edited after it was filled in doesn't teach the maker its own words)
       if (got) r.made = [...(r.made || []), ...got.items.map((s) => s.keyword), ...got.parts.map((s) => s.keyword)];
       const best = got && (got.items[0] || got.parts[0]);
-      if (best) r.memo = fillIn(r.memo, noteText(best));
+      // (only the sound-alike, "MUR-DER": the free maker's say their language, the AI writes in the learner's)
+      if (best) r.memo = fillIn(r.memo, noteText(best, best.lang || uiLanguage()));
       if (r.status && r.status.kind === "busy") setStatus(r, null);
       paintRow(r);
     });

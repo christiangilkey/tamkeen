@@ -4,7 +4,7 @@
 //     with Copy under it;
 //   - the sentence (or its translation) drawn with each word in a box of its own, and a word held down
 //     to light it up as part of what is being learned, or to put it out;
-//   - the Mnemonic maker: keywords that sound like the word, each with a picture for its meaning.
+//   - the Mnemonic maker: keywords that sound like the word, only the sound-alike ("MUR-DER": mnemonic.js soundAlike).
 // What is saved is worked out in cardedit.js (no screen there); the Mnemonic maker's own logic is in
 // mnemonic.js (the AI's) and freemnemonic.js (the free one, no key).
 
@@ -15,7 +15,7 @@ import { hasOwnAudio, speakingSeconds, voiceText, voiceTimes } from "../cardvoic
 import { wordReading } from "../lexicon/readings.js";
 import { dictionaries, downloadDictionaries } from "../lexicon/seen.js";
 import { pickedCountry } from "../youtube-home.js";
-import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, syllablePieces, turnDown, turnedDown, varietyOf } from "./mnemonic.js";
+import { MNEMONIC_COUNT, englishSounds, makeMnemonics, noteText, soundAlike, syllablePieces, turnDown, turnedDown, varietyOf } from "./mnemonic.js";
 import { partBar } from "./partbar.js";
 import { cleanSel, graphemes, isWhole, litLine, selText } from "./wordpart.js";
 import { askMnemonic, definerConfig, noAi } from "../define-service.js";
@@ -321,8 +321,8 @@ export const hasMnemonics = (v) => mnemonics.has(uidOf(v));
 const appSettings = () => (app.status && app.status.settings) || {};
 /** What an empty Memorization notes box says: with "Learn from my own mnemonics" on, that the sound-alike goes
  * in capitals (only those words teach the Mnemonic maker). */
-export const memoPlaceholder = () => (learnsOwn(appSettings()) ? t("Sound-alike in CAPITALS: a duck sitting on a POT…")
-  : t("A mnemonic, a picture, where you heard it…"));
+export const memoPlaceholder = () => (learnsOwn(appSettings()) ? t("Sound-alike in CAPITALS: MUR-DER…")
+  : t("A sound-alike, where you heard it…"));
 
 const TIP_KEY = "tamkeen.mnemonicCapsTip";  // (this device: the tip about capitals has been shown)
 const LINE_MS = 4000;
@@ -414,7 +414,7 @@ export function mnemonicHtml() {
  * Make the Mnemonic maker in `box` (mnemonicHtml) work for card `v`.
  *   lang        the language being learned (the card's)
  *   shownWord   () => the word as the card shows it now (Arabic with its vowels, when shown)
- *   onUse(text) Use was pressed: put `text` (the keyword and its picture) at the end of Memorization notes
+ *   onUse(text) Use was pressed: put `text` (the sound-alike, "MUR-DER") at the end of Memorization notes
  *   onLayout()  the maker grew or shrank (the review card measures whether there is more below)
  */
 export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () => {}, onLayout = () => {} }) {
@@ -459,10 +459,10 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     }
   }
 
-  /** Use: put `s` (keyword and picture) at the end of Memorization notes, a blank line under what the
-   * learner wrote, saved like typing. */
+  /** Use: put `s` (only the sound-alike: "MUR-DER") at the end of Memorization notes, a blank line under what
+   * the learner wrote, saved like typing. */
   function keep(s, st, button) {
-    onUse(noteText(s));
+    onUse(noteText(s, keywordLang(s, st)));
     st.kept.add(s.keyword);
     tasteFrom(s, +1, st);
     buzz("tick");
@@ -476,6 +476,10 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     button.title = t("Added to Memorization notes");
   };
 
+  /** The language suggestion `s`'s keyword is in: its own (the free maker's), else the learner's (the AI writes
+   * in it), for how it is written in syllables. */
+  const keywordLang = (s, st) => s.lang || (st.free ? "en" : uiLanguage());
+
   function row(s, st) {
     const li = h(`<li class="rv-mn">
       <div class="rv-mn-top">
@@ -486,9 +490,9 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
         </span>
       </div>
       <div class="rv-mn-how"><span class="rv-mn-sounds" translate="no"></span></div>
-      <p class="rv-mn-scene" translate="no"></p>
     </li>`);
-    li.querySelector(".rv-mn-word").textContent = s.keyword;
+    // Only the sound-alike, written as its syllables in capitals ("MUR-DER"): no picture or story with it (the owner).
+    li.querySelector(".rv-mn-word").textContent = soundAlike(s, keywordLang(s, st));
     soundsLine(li.querySelector(".rv-mn-sounds"), st.pron, s);
     const how = li.querySelector(".rv-mn-how");
     if (s.sound === "close") how.append(h(`<span class="rv-mn-mark close" title="It sounds close to the word">Close match</span>`));
@@ -511,9 +515,6 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
       mine.title = t("You wrote this sound-alike in CAPITALS in one of your own notes");
       how.append(mine);
     }
-    const scene = li.querySelector(".rv-mn-scene");
-    scene.textContent = s.scene || "";
-    scene.hidden = !s.scene;
     const up = li.querySelector(".rv-mn-use");
     if (st.kept.has(s.keyword)) kept(up);
     else up.onclick = () => keep(s, st, up);
@@ -562,10 +563,10 @@ export function mnemonicMaker(box, v, { lang, shownWord = () => "", onUse = () =
     if (!all.length) say("No new keywords sounded close enough to the word. Press Make 5 more to try again.");
     else if (st.free && st.keywordLangs && st.keywordLangs[0] !== "en") {
       say(st.keywordLangs.length > 1
-        ? t("Words of your language, and English ones, that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.")
-        : t("Words of your language that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
-    } else if (st.free) say(t("English words that sound like it, found on this device without AI, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good."));
-    else say(`${speaks} words that sound like it, each with a picture for its meaning. Use puts one in Memorization notes; thumbs down drops it for good.`);
+        ? t("Words of your language, and English ones, that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good.")
+        : t("Words of your language that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good."));
+    } else if (st.free) say(t("English words that sound like it, found on this device without AI. Use puts one in Memorization notes; thumbs down drops it for good."));
+    else say(`${speaks} words that sound like it. Use puts one in Memorization notes; thumbs down drops it for good.`);
     // Fewer than five that pass: only those are shown, and the card says so.
     const n = all.length;
     sayFew(!n ? "" : !st.checked ? "Their sound couldn't be checked this time."

@@ -113,7 +113,7 @@ export const THINKING = [
 export const SAME_MODEL = "same";
 
 // What one press of the Mnemonic maker uses, roughly: the instructions and the answer's outline go in;
-// the word's pronunciation and about 15 keywords, each with its sounds and a one-line picture, come out.
+// the word's pronunciation and about 15 keywords, each with its sounds, come out (no picture or story: only the sound-alike).
 export const MNEMONIC_TOKENS = { in: 1300, out: 1700 };
 /** About what one press of the Mnemonic maker costs with `model` (an entry of a provider's `models`), in US cents. */
 export const mnemonicCents = (model) => (model.in * MNEMONIC_TOKENS.in + model.out * MNEMONIC_TOKENS.out) / 1e6;

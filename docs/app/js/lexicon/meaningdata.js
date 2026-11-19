@@ -3,6 +3,7 @@
 // popup's answer. No screen or network code here.
 
 import { EDGE_PUNCT } from "../wordlookup.js";
+import ENGLISH_COMMON from "../wordlists/en.js";
 import { compoundLemma, compoundParts, germanLemma, rankOf, separableAt, startsSentence, tableVerb } from "./german.js";
 import { markedTokens } from "./words.js";
 import { persianKey } from "./persian.js";
@@ -358,6 +359,175 @@ const ROMANCE_LANGS = new Set(["es", "fr", "it", "pt", "ca"]);
 // noun, not the pronoun or particle spelled the same ("to see" before "we").
 const LITTLE = new Set(["pron", "det", "article", "conj", "prep", "particle", "postp", "contraction"]);
 
+// ---------- the commonest meaning first ----------
+// Wiktionary lists a word's entries by etymology and its senses in its editors' order, so a rare entry can come first
+// (Spanish guapo: "arrowroot" before "handsome"; Chinese 东西: "east and west" before "thing"; Japanese 日: "ordinal day
+// of a month"). The students noticed (2026-11-18). A meanings file's `english` list (tools/build_meanings.py --english:
+// Wiktionary's English entries' translation tables turned round, main sense first) says which words are the everyday
+// translation of an English word: guapo is listed for "handsome", 东西 for "thing", 日 for "day". So a meaning whose
+// English word lists this very word is a common one, and the more so the higher it is listed.
+const SUPPORT = new WeakMap(); // a meanings file -> Map(key -> [[English word, place in its list, word as written]])
+const VOWEL_MARKS = /[ً-ْٰ]/;
+
+function supportOf(data) {
+  if (!data || !data.english) return null;
+  let map = SUPPORT.get(data);
+  if (!map) {
+    map = new Map();
+    for (const [en, rows] of Object.entries(data.english)) {
+      if (!Array.isArray(rows)) continue;
+      rows.forEach((r, i) => {
+        const k = r && matchKey(r[0], data.lang);
+        if (!k) return;
+        const list = map.get(k);
+        if (list) list.push([en, i, r[0]]); else map.set(k, [[en, i, r[0]]]);
+      });
+    }
+    SUPPORT.set(data, map);
+  }
+  return map;
+}
+
+/** The English words a meaning is made of, as the `english` list keys them: "to take, catch (a ball)" -> ["take", "catch"];
+ * a longer one also by its first word ("to fly through the air": "fly"; "room in a house, etc.": "room"). */
+export function glossHeads(gloss) {
+  const out = [];
+  for (const part of String(gloss || "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/]/)) {
+    const h = part.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").replace(/[.!?]+$/, "").trim();
+    if (!h) continue;
+    const words = h.split(/\s+/);
+    if (words.length <= 3) out.push(h);
+    if (words.length > 1 && /^[a-z-]{3,}$/.test(words[0])) out.push(words[0]);
+  }
+  return out;
+}
+
+/** How strongly the translation tables back `group` (one entry of the word whose key is `key`) as the everyday word: 0
+ * (not at all) to 4 (the first word listed for its first meaning). `tables` are supportOf() maps (several files: Bisaya's
+ * Wolff entries are backed by the Wiktionary file's list). Arabic and Persian: a listed spelling with vowel marks counts
+ * only for the entry written that way (مَدْرَسَة "school", not مُدَرِّسَة "teacher"). */
+export function groupSupport(group, key, tables, lang) {
+  // (each entry under its own word: when a form shows the word it is a form of first, faig's entries are fer's)
+  const own = Array.isArray(group) && group[0] ? matchKey(String(group[0]).replace(/\s+[IVX]+$/, ""), lang) : "";
+  const rows = tables.flatMap((t) => (t && (t.get(own) || t.get(key))) || []);
+  if (!rows.length || !Array.isArray(group)) return 0;
+  const shown = String(group[0] || "");
+  const marked = (lang === "ar" || lang === "fa") && VOWEL_MARKS.test(shown);
+  let best = 0;
+  (Array.isArray(group[2]) ? group[2] : []).forEach((gloss, gi) => {
+    const heads = new Set(glossHeads(gloss));
+    for (const [en, i, written] of rows) {
+      if (!heads.has(en)) continue;
+      if (marked && VOWEL_MARKS.test(written) && written !== shown) continue;
+      // (a spelling without vowels fits every entry with those letters: it counts for less than one written the same)
+      const loose = marked && !VOWEL_MARKS.test(written) ? 2 : 0;
+      best = Math.max(best, 4 - i - Math.min(2, gi * 0.25) - loose);
+    }
+  });
+  return best;
+}
+
+/** Is a word's own entry the everyday word for one of its meanings (backed at least 3: listed first or second)? */
+function ownIsCommon(data, key, own) {
+  const table = supportOf(data);
+  return !!table && own.some((g) => ordinary(g) && groupSupport(g, key, [table], data.lang) >= 3);
+}
+
+// A first meaning that only describes grammar or names a letter ("forms the perfect aspect", "The name of the Latin
+// script letter D"): an everyday meaning backed by the tables goes before it.
+const GRAMMAR_NOTE = /^(?:\(.*?\)\s*)?(?:used|forms?|makes?|marks?|denotes?|indicates?|expresses|precedes|introduces|the name of|short forms?|same as|see |alternative (?:form|spelling)|variant of|(?:nominative|accusative|dative|genitive|feminine|masculine|plural|singular|first|second|third)[- ])/i;
+// Proper names (Yuan Dynasty) and the little words, whose English translations are too many and too loose to go by.
+const PROPER = /^\p{Lu}\p{Ll}+(?:\s+\p{Lu}\p{Ll}+)+/u;
+// A first meaning in one of the 1,000 commonest English words ("to be", "time", "all") is an everyday one already, even
+// when its word is crowded out of that English word's short translation list (es is ser, "to be", not "a being").
+const EVERYDAY = new Set(ENGLISH_COMMON);
+// (only the first meaning, as it is written: "to be enraged" is no "be")
+const everyday = (g) => (Array.isArray(g[2]) ? g[2].slice(0, 1) : []).some((gloss) => String(gloss).replace(/\([^)]*\)/g, " ")
+  .split(/[;,/:.]/).some((part) => EVERYDAY.has(part.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").replace(/[!?]+$/, "").trim())));
+// An entry spelled otherwise than the word (Somit for somit, CE for ce), and a meaning that is a name ("Sunday", "Yi (an
+// ethnic group)"), never move ahead. An entry that is only a letter's name, or spelled otherwise, gives way even to a little
+// word: mi is "my" before "mu, the Greek letter".
+const LETTER = /\bletter\b|^the name of/i;
+const spelledOtherwise = (g, word) => /^\p{Ll}/u.test(word) && /^\p{Lu}/u.test(String(g[0] || ""));
+const named = (g) => {
+  const gloss = String((Array.isArray(g[2]) && g[2][0]) || "");
+  return /^\p{Lu}\p{Ll}/u.test(gloss) && !GRAMMAR_NOTE.test(gloss) && !/^(?:I|I'm)\b/.test(gloss);  // ("Indicates the…" is no name)
+};
+// ("only used in 們渾": a character's reading that is only part of rarer words, not a meaning of its own)
+const ONLY_IN = /^(?:\(.*?\)\s*)?(?:only )?used in\b/i;
+// Words spelled alike that are different words, where the tables are too thin to choose between them: Korean (싸다
+// "cheap" and "to wrap"), a Chinese character on its own (的 de and dì). They keep Wiktionary's order.
+const homographs = (lang, key) => lang === "ko" || (lang === "zh" && [...key].length === 1);
+const KANA_ONLY = /^[぀-ヿー]+$/;
+// (what a verb's inflected form says it is: "first-person singular present of", "past participle of")
+const INFLECTED = /person|singular|plural|tense|participle|imperative|subjunctive|indicative|gerund|infinitive|preterite|imperfect|conditional|future|present|past/i;
+
+/**
+ * `found` (a lookUp / findIn answer) with the commonest meaning first, by the translation tables of `files` (see
+ * groupSupport). Careful, as Wiktionary's own order is right far more often than not:
+ *  - an entry moves to the front only over a first entry the tables back hardly at all (2 or less: guapo's "arrowroot",
+ *    listed third for that word) when they back it clearly (3 or more: listed first or second for its meaning, guapo
+ *    "handsome"); never over a little word (de, من, は: their tables are too loose), never a name;
+ *  - inside the first entry, an everyday meaning goes before a first one that only describes grammar or names a letter.
+ * Bisaya: Wiktionary translates few English words into Bisaya, so where the tables say nothing about a word, the other
+ * dictionary's first meaning counts as backing (Wolff's asa is "pay attention to" first; Wiktionary's asa is "where").
+ */
+export function commonestFirst(found, files, lang, word = "") {
+  if (!found || !Array.isArray(found.groups) || !found.groups.length) return found;
+  const tables = (files || []).map(supportOf).filter(Boolean);
+  const key = found.key || "";
+  const others = new Set();
+  const told = tables.some((t) => t.has(key));
+  for (const data of told ? [] : files || []) {
+    if (!data || !data.words || data.source === found.source) continue;
+    const first = (data.words[key] || []).find(ordinary);
+    if (first && Array.isArray(first[2]) && first[2][0]) for (const h of glossHeads(first[2][0])) others.add(h);
+  }
+  if (!tables.length && !others.size) return found;
+  const groups = [...found.groups];
+  const agrees = (gloss) => glossHeads(gloss).some((h) => others.has(h));
+  const backing = (g) => Math.max(groupSupport(g, key, tables, lang),
+    (Array.isArray(g[2]) ? g[2] : []).slice(0, 2).some(agrees) ? 3 : 0);
+  const head = groups[0];
+  const typed = String(word || key);
+  const weakHead = LETTER.test(String((head[2] || [])[0] || "")) || spelledOtherwise(head, typed);
+  // (Japanese written only in kana is many words: なる "to become" and the rare なる "love"; it keeps Wiktionary's order)
+  if (ordinary(head) && !LITTLE.has(head[1]) && head[1] !== "intj" && !(lang === "ja" && KANA_ONLY.test(key))) {
+    // (a verb's form shows that verb first, as findIn chose: es is ser's "to be", not its noun "a being")
+    const verbForm = head[1] === "verb" && INFLECTED.test(found.formOf || "");
+    const first = weakHead ? 0 : homographs(lang, key) || verbForm ? 3 : Math.max(backing(head), everyday(head) ? 2.5 : 0);
+    if (first <= 2.5) {
+      // (only entries of the word itself compete, not those of a longer word it leads to: 日 is not 日本 "japan")
+      const self = matchKey(String(head[0] || "").replace(/\s+[IVX]+$/, ""), lang);
+      const fit = (g, i) => i > 0 && ordinary(g) && !(LITTLE.has(g[1]) && !weakHead)
+        && (weakHead || matchKey(String(g[0] || "").replace(/\s+[IVX]+$/, ""), lang) === self) && !PROPER.test(String((g[2] || [])[0] || ""))
+        && !spelledOtherwise(g, typed) && !named(g) && !LETTER.test(String((g[2] || [])[0] || "")) && !ONLY_IN.test(String((g[2] || [])[0] || ""));
+      // After a letter's name, the next little word or clearly backed entry in Wiktionary's order (Italian a is "to, at",
+      // not the A of a motorway); else the entry the tables back most, if clearly (guapo "handsome", 东西 "thing").
+      const score = (g) => Math.max(backing(g), everyday(g) ? 2.5 : 0);
+      let best = -1;
+      if (weakHead) {
+        best = groups.findIndex((g, i) => fit(g, i) && LITTLE.has(g[1]));
+        if (best < 0) best = groups.findIndex((g, i) => fit(g, i) && score(g) >= 3);
+        if (best < 0) best = groups.findIndex(fit);
+      } else {
+        let top = 0;
+        groups.forEach((g, i) => { if (fit(g, i)) { const v = score(g); if (v > top) { top = v; best = i; } } });
+        if (!(top >= 3 && top >= first + 1.5)) best = -1;
+      }
+      if (best > 0) groups.unshift(...groups.splice(best, 1));
+    }
+  }
+  const lead = groups[0];
+  const glosses = Array.isArray(lead[2]) ? lead[2] : [];
+  if (glosses.length > 1 && GRAMMAR_NOTE.test(String(glosses[0]))) {
+    const one = (gloss) => Math.max(groupSupport([lead[0], lead[1], [gloss]], key, tables, lang), agrees(gloss) ? 3 : 0);
+    const i = glosses.findIndex((gloss, j) => j > 0 && !GRAMMAR_NOTE.test(String(gloss)) && one(gloss) >= 2);
+    if (i > 0) groups[0] = [lead[0], lead[1], [glosses[i], ...glosses.filter((_, j) => j !== i)], ...lead.slice(3)];
+  }
+  return { ...found, groups };
+}
+
 /** Every entry for a word: {groups: [[shown, pos, glosses, extra], ...], formOf: "what form it is"}.
  * `keys` is the word as written first, then the dictionary form the language's word table found. */
 export function findIn(data, keys) {
@@ -391,8 +561,12 @@ export function findIn(data, keys) {
     // (A Spanish, French, Italian, Portuguese, Catalan or Hindi word with no entry of its own shows first the
     // word the word table counts it as: podés is poder, not podar; idos is ir, not idus; लगा is लगना "it
     // stuck", not the stem of लगाना.)
-    const formFirst = agreed && (rival.length ? rival.every(rare) : ROMANCE_LANGS.has(data.lang) || data.lang === "de" || data.lang === "hi"
-      || data.lang === "la");
+    // (Not when the form is a noun's or an adjective's, a feminine or a plural, and Wiktionary's translation tables give
+    // the word's own entry as the everyday word for its meaning: Arabic مدرسة is "school" before it is "teacher",
+    // feminine, a form of مدرس. A verb's form still comes first: faig is fer's "I do", not "beech".)
+    const verbLemma = agreed && (data.words[agreed[0]] || []).some((g) => g[1] === "verb");
+    const formFirst = agreed && (rival.length ? rival.every(rare) && !(!verbLemma && own.length && ownIsCommon(data, k, own))
+      : ROMANCE_LANGS.has(data.lang) || data.lang === "de" || data.lang === "hi" || data.lang === "la");
     const formRows = formFirst ? [agreed, ...forms.filter((f) => f[0] !== agreed[0])] : forms;
     const lemmas = formRows.flatMap(([lemmaKey]) => data.words[lemmaKey] || []);
     let all = formFirst ? [...lemmas, ...own] : [...own, ...lemmas];

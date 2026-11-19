@@ -22,7 +22,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
-import { displayWords, paintWords, vowelsButton } from "../vowels.js";
+import { displayWords, paintWords } from "../vowels.js";
 import { clipEnded, wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
@@ -31,7 +31,6 @@ import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
-import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor } from "../components/dualline.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 
@@ -611,50 +610,11 @@ async function renderPlayer(view, { query }) {
   // has no controls row.
   if (surface) $("#rc-left").append(lookupToggle({ compact: true }));
   else $("#reel-prev").before(lookupToggle());
-  // Arabic reels: the vowels switch beside it (vowels.js), and their vowels once the computer has made them.
+  // Arabic reels: their vowels once the computer has made them (vowels.js). Showing them is Settings' switch: the
+  // players' own button was taken out (the owner, 2026-11-18: "remove it").
   const redrawVowels = () => {
     if (cur) paintWords(cur.els, displayWords(cur.texts, cur.vowels, (i) => cur.segOf[i]));
   };
-  const vowelsBtn = vowelsButton("ar", redrawVowels, () => cur && cur.vowels);
-  vowelsBtn.hidden = true;
-  if (surface) $("#rc-left").append(vowelsBtn);
-  else $("#reel-prev").before(vowelsBtn);
-  // Translation under each line (dual subtitles: components/dualline.js), beside it: the reel's lines, each
-  // with its translation into the learner's own language under it, by the learner's AI, kept on the device.
-  // A reel is short: all its lines are asked for at once. Remembered on this device (the same switch as the
-  // other player's).
-  const own = ownLanguage();
-  let dualShown = false;
-  let dual = null;   // the translations of the reel showing (dualsubs.js createTranslator)
-  const dualBtn = dualButton(() => setDual(!dualShown, true));
-  if (surface) $("#rc-left").append(dualBtn);
-  else $("#reel-prev").before(dualBtn);
-  function setDual(on, pressed = false) {
-    if (on && !aiReady()) {
-      if (pressed) explainDual();
-      on = false;
-    }
-    dualShown = on;
-    if (pressed) setDualOn(on);
-    view.querySelector(".reelplay").classList.toggle("dual", on);
-    dualBtn.paint(on);
-    if (on) startDual();
-  }
-  /** Translations for the reel showing (again: the same reel keeps its own). */
-  function startDual() {
-    const reel = cur;
-    if (!dualShown || !reel || !reel.segments.length) return;
-    if (dual && dual.reel === reel) { if (dual.failed) dual.retry(); return; }
-    if (dual) dual.stop();
-    const segEls = [...wordsEl.querySelectorAll(".seg")];
-    dual = translatorFor({
-      ep: reel.ep, segments: reel.segments, study: reel.lang, own, size: 30, ahead: 1e6,
-      onLines: (list) => { if (!disposed && cur === reel) for (const k of list) setLine(segEls[k], dual.textAt(k), own); },
-      onError: (e) => { if (!disposed && dualShown && cur === reel) reportDual(e); },
-    });
-    dual.reel = reel;
-    dual.want(0);
-  }
   // "Type what you hear" (dictation: components/dictation.js), beside it, where reels play (the phones and the web
   // app): the words bar gives way to a box, one word, sentence or few sentences of the reel play at a time, the
   // learner types them and then sees what was said above what they typed. After the last, Next reel carries on.
@@ -692,6 +652,8 @@ async function renderPlayer(view, { query }) {
     });
     view.querySelector(".reelplay").classList.add("dictating");
     $("#reel-controls").before(dict.el);
+    // The controls' buttons leave the box focused (the keyboard button puts it away, as before).
+    dict.keepTyping([$("#reel-controls")], { except: [dictBtn] });
     dictBtn.paint(true);
     unArrow = arrowButtons($("#rc-back"), $("#rc-fwd")); // (back and forward step by the piece meanwhile)
   }
@@ -700,7 +662,7 @@ async function renderPlayer(view, { query }) {
     if (!reel || !d || String(d.episode_id) !== String(reel.ep.id)) return;
     try {
       const r = await api(`/episodes/${reel.ep.id}/vowels`);
-      if (r && r.vowels && cur === reel) { reel.vowels = r.vowels; redrawVowels(); vowelsBtn.repaint(); }
+      if (r && r.vowels && cur === reel) { reel.vowels = r.vowels; redrawVowels(); }
     } catch { /* shown next time */ }
   });
   // Send the reel being watched to a friend (components/sendmedia.js): the paper-airplane button
@@ -882,9 +844,6 @@ async function renderPlayer(view, { query }) {
         // every form of that word "seen" (js/lexicon/seen.js).
         seen = seenWords({ tokens: W.text, lang, els: cur.els });
       }
-      vowelsBtn.hidden = !cur || cur.lang !== "ar";
-      vowelsBtn.repaint();
-      startDual();
       if (dictOn && cur && !dict) { openDictation(false); dictWaiting = !!dict; } // (its first piece plays once the reel is loaded)
     }
     if (!surface) {
@@ -1039,12 +998,10 @@ async function renderPlayer(view, { query }) {
     },
   });
 
-  setDual(dualOn());
   await show(index);
   return () => {
     disposed = true;
     if (dict) dict.close();
-    if (dual) dual.stop();
     offPad();
     offVowels();
     offState();

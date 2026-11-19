@@ -13,8 +13,8 @@
 //    of it, a part of it, a broader word, named in its definition (WordNet), or near it in GloVe's word vectors
 //    (tools/build_examples.py). Sound stays the gate: a tied word that doesn't sound like the word is never shown.
 //    Then picturable, common words (an animal, a tool, a food: things one can see), then the rest.
-// 4. Each keyword gets a short picture line from a template joining it to the meaning ("Picture a CALF
-//    dressed up as a dog."): not as clever as an AI's scene, but always about the meaning.
+// 4. Only the sound-alike is offered: no picture line or story with it (the owner, 2026-11-18: "just offer the part
+//    that sounds like the word"). The meaning still decides which keywords come first (step 3).
 //
 // The answer has the AI's shape, so mnemonic.js rankSuggestions checks and orders it and review.js shows it
 // the same way. No page code: tests/js/freemnemonic.test.mjs.
@@ -223,15 +223,7 @@ export function findKeywords(pron, list, { skip = [], count = 24, tieOf = () => 
 const range = (a, b) => Array.from({ length: b - a + 1 }, (_, i) => a + i);
 const piece = (e, a, b) => ({ keyword: e.word, ipa: e.ipa, covers: range(a, b), entry: e });
 
-// ---------------------------------------------------------------- the picture line
-
-// Things one doesn't count ("water", not "a water").
-const MASS = new Set(`water bread cheese milk rice sugar salt meat money coffee tea juice wine beer soup butter oil sand snow
-rain ice fire air music news food hair paper wood gold silver honey flour pasta chocolate meat fish soap grass smoke
-blood weather furniture luggage advice information homework work love time sleep mud dust steam cream jam`.split(/\s+/));
-const article = (w) => (/^(?:[aeiou]|hour|honest|heir)/i.test(w) && !/^(?:uni|use|euro|one|once|u[bcfhjkqrstn][aeiou])/i.test(w) ? "an" : "a");
-const withArticle = (w) => (/^(?:a|an|the|some|my|your)\s/i.test(w) || MASS.has(w.toLowerCase()) || /s$/.test(w) && !/ss$/.test(w) && w.length > 4 ? w : `${article(w)} ${w}`);
-const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+// ---------------------------------------------------------------- the meaning, for the ties
 
 /** The meaning as one short thing to picture: its first sense, without notes in brackets, and whether it
  * is a thing ("noun"), an action ("verb": "to write") or a quality ("adj"), by `pos` when the card has it,
@@ -255,105 +247,6 @@ export function meaningPicture(meaning, list = null, pos = "") {
     .map((x) => x.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").split(/\s+/))
     .map((ws) => (verb ? ws[0] : ws[ws.length - 1]) || "")].filter((x, i, all) => /^\p{L}+$/u.test(x) && all.indexOf(x) === i);
   return { text: m.slice(0, 60), pos: verb ? "verb" : adj ? "adj" : "noun", head, heads, kind: entry && entry.pos === "n" ? entry.kind : "" };
-}
-
-// A few lines for each kind of keyword; one is picked by the word, so each word keeps its own.
-const LINES = {
-  animal: ["Picture {k} dressed up as {m}.", "Picture {k} proudly carrying {m} in its mouth.", "Picture {k} that turns into {m} when you blink."],
-  person: ["Picture {k} holding {m} high above their head.", "Picture {k} who is sure they are {m}.", "Picture {k} hugging {m} tightly."],
-  artifact: ["Picture {m} squeezed inside {k}.", "Picture {k} shaped exactly like {m}.", "Picture {m} balanced on top of {k}."],
-  object: ["Picture {m} squeezed inside {k}.", "Picture {k} shaped exactly like {m}.", "Picture {m} balanced on top of {k}."],
-  food: ["Picture {m} made entirely of {K}.", "Picture someone serving {m} on a plate of {K}.", "Picture {m} covered in {K}."],
-  plant: ["Picture {m} growing out of {k}.", "Picture {m} wrapped in {K}.", "Picture {k} with {m} hanging from it."],
-  substance: ["Picture {m} made entirely of {K}.", "Picture {m} dripping with {K}.", "Picture {m} covered in {K}."],
-  body: ["Picture {m} with a giant {K}.", "Picture {m} sitting on {k}.", "Picture {k} painted to look like {m}."],
-  place: ["Picture {m} in the middle of {k}.", "Picture {m} the size of {k}.", "Picture {k} full of {m}."],
-  nature: ["Picture {m} caught in {k}.", "Picture {k} raining down {m}.", "Picture {m} glowing in {k}."],
-  noun: ["Picture {k} next to a huge {M}.", "Picture {m} stamped with the word {K}.", "Picture {k} and {m} side by side."],
-  word: ["Shout “{K}!” as you picture {m}.", "Picture {m} with “{K}” written on it.", "Hear someone say “{K}” and see {m}."],
-};
-const VERB_LINES = {
-  thing: ["Picture {k} trying to {m}.", "Picture {k} that can only {m}.", "Picture yourself as you {m} with {k}."],
-  word: ["Shout “{K}!” as you {m}.", "Hear “{K}” each time you {m}.", "Picture someone who says “{K}” whenever they {m}."],
-};
-const ADJ_LINES = {
-  thing: ["Picture {k} that is incredibly {m}.", "Picture a really {m} {K}, the only one in the world.", "Picture {k}: so {m} that everyone stares."],
-  word: ["Shout “{K}!” at something very {m}.", "Picture something very {m} with “{K}” written on it.", "Hear “{K}” and think {m}."],
-};
-// A phrase's meaning that is said ("please", "how are you?"): the keyword says it.
-const SAID_LINES = {
-  thing: ["Picture {k} turning to you and saying “{M}”.", "Picture {k} that can only say one thing: “{M}”.", "Picture {k} with a speech bubble: “{M}”."],
-  word: ["Hear someone say “{K}” when they mean “{M}”.", "Picture a speech bubble with “{K}” in it, meaning “{M}”.", "Shout “{K}!” whenever you mean “{M}”."],
-};
-
-const pick = (lines, seed) => lines[Math.abs(hash(seed)) % lines.length];
-function hash(s) {
-  let h = 0;
-  for (const c of String(s)) h = (h * 31 + c.codePointAt(0)) | 0;
-  return h;
-}
-
-// A keyword tied to the meaning gets a line that says how (tie codes as tools/build_examples.py TIES).
-const TIED_LINES = {
-  noun: { s: "{K} is a kind of {M}: picture {k} and you see {m}.", p: "Picture {m} and {k}: one is part of the other.",
-    d: "{K} and {M} are close in meaning: picture {k} that is {m}.", k: "Picture {k}: {m} is one.",
-    g: "Picture {m} with {k}: the two go together.", v: "Picture {m} with {k}: the two go together." },
-  verb: { s: "To {K} is a way to {m}: picture yourself as you {m}, then {K}.", other: "Picture yourself as you {m} with {k}: the two go together." },
-  adj: { s: "{K} means much the same as {m}: picture something {m}, shouting “{K}!”", other: "Picture something {m} with {k}: the two go together." },
-  said: { other: "Picture {k} saying “{M}”: the two go together." },
-};
-
-// Picture lines in the app languages: no article or case ending to get right, so one plain line each (and one
-// for a keyword tied to the meaning, and one for no meaning). Not interface text: they go in the learner's notes.
-const OWN_LINES = {
-  es: ["Une {K} con «{m}» en una imagen que no olvides.", "{K} y «{m}» ya van juntos: imagina los dos a la vez.", "Imagina {K} y únelo al significado de la palabra."],
-  fr: ["Associe {K} à « {m} » dans une image que tu n'oublieras pas.", "{K} et « {m} » vont déjà ensemble : imagine les deux à la fois.", "Imagine {K} et relie-le au sens du mot."],
-  de: ["Verbinde {K} mit „{m}“ zu einem Bild, das du nicht vergisst.", "{K} und „{m}“ gehören schon zusammen: Stell dir beides zugleich vor.", "Stell dir {K} vor und verbinde es mit der Bedeutung des Wortes."],
-  it: ["Unisci {K} a «{m}» in un'immagine che non dimentichi.", "{K} e «{m}» vanno già insieme: immagina le due cose insieme.", "Immagina {K} e collegalo al significato della parola."],
-  pt: ["Junte {K} a “{m}” numa imagem que você não vai esquecer.", "{K} e “{m}” já combinam: imagine os dois ao mesmo tempo.", "Imagine {K} e ligue-o ao significado da palavra."],
-  ru: ["Представьте: {K} и «{m}» — вместе, в одной яркой картинке.", "{K} и «{m}» и так связаны: представьте их вместе.", "Представьте {K} и свяжите это со значением слова."],
-  ca: ["Uneix {K} amb «{m}» en una imatge que no oblidis.", "{K} i «{m}» ja van junts: imagina'ls tots dos alhora.", "Imagina {K} i uneix-ho al significat de la paraula."],
-};
-
-/** The picture line joining `keyword` (one entry, or several for a split keyword) to the meaning. `tie` (a
- * tie code, when the keyword is tied to the meaning) picks a line that says how; `lang` is the keywords'
- * language (an app language's lines for its own keywords). */
-export function sceneFor(entries, meaning, seed = "", tie = "", lang = "en") {
-  const list = Array.isArray(entries) ? entries : [entries];
-  const shown = list.map((e) => e.word.toUpperCase()).join(" ");
-  if (lang !== "en" && OWN_LINES[lang]) {
-    const [plain, tied, none] = OWN_LINES[lang];
-    const line = !meaning.text ? none : tie ? tied : plain;
-    return line.replace(/\{K\}/g, shown).replace(/\{m\}/g, meaning.text);
-  }
-  // The piece to picture: the most picturable noun of the keyword, else the keyword as a word said aloud.
-  const thing = [...list].sort((a, b) => bonus(b) - bonus(a)).find((e) => e.pos === "n");
-  const many = list.length > 1;
-  const fill = (line, k, K) => line.replace(/\{k\}/g, k).replace(/\{K\}/g, K).replace(/\{M\}/g, meaning.text).replace(/\{m\}/g, meaning.pos === "noun" ? withArticle(meaning.text) : meaning.text);
-  if (!meaning.text) {
-    return many ? `Say “${shown}” and link it to the word's meaning in your own picture.` : `Picture ${withArticle(shown)} and link it to the word's meaning.`;
-  }
-  let line;
-  if (tie && !many) {
-    const e = list[0];
-    const K = e.word.toUpperCase();
-    const lines = TIED_LINES[meaning.pos];
-    const template = (meaning.pos === "noun" ? lines[tie] : tie === "s" ? lines.s : lines.other) || lines.other || lines.g;
-    return cap(fill(template, e.pos === "n" ? withArticle(K) : K, K));
-  }
-  if (thing) {
-    const K = thing.word.toUpperCase();
-    const k = withArticle(K);
-    if (meaning.pos === "verb") line = fill(pick(VERB_LINES.thing, seed + thing.word), k, K);
-    else if (meaning.pos === "adj") line = fill(pick(ADJ_LINES.thing, seed + thing.word), k, K);
-    else if (meaning.pos === "said") line = fill(pick(SAID_LINES.thing, seed + thing.word), k, K);
-    else line = fill(pick(LINES[thing.kind] || LINES.noun, seed + thing.word), k, K);
-    if (many) line = `“${shown}”: ${line}`;
-  } else {
-    const lines = meaning.pos === "verb" ? VERB_LINES.word : meaning.pos === "adj" ? ADJ_LINES.word : meaning.pos === "said" ? SAID_LINES.word : LINES.word;
-    line = fill(pick(lines, seed + shown), shown, shown);
-  }
-  return cap(line);
 }
 
 /**
@@ -381,11 +274,11 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
   const linkOf = (t) => (t.weight >= FITS ? 2 : t.weight >= RELATED ? 1 : 0);
   const keywords = found.keywords.map((k) => {
     const t = tieOf([k.entry]);
-    return { ...k, tie: t, scene: sceneFor(k.entry, meaning, v.text, linkOf(t) ? t.tie : "", list.lang) };
+    return { ...k, tie: t };
   });
   const parts = found.parts.map((p) => {
     const t = tieOf(p.pieces.map((x) => x.entry));
-    return { pieces: p.pieces, tie: t, scene: sceneFor(p.pieces.map((x) => x.entry), meaning, v.text, list.lang !== "en" && linkOf(t) ? t.tie : "", list.lang) };
+    return { pieces: p.pieces, tie: t };
   });
   // The sound-alikes the learner wrote in CAPITALS in their own notes (review/ownmnemonic.js), in this list's
   // language: offered again here when they pass the same sound check as the rest, marked "You've used this
@@ -398,18 +291,18 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
     if (keywords.some((x) => x.keyword.toLowerCase() === k)) continue;  // (found anyway: marked below)
     const entries = k.split(" ").map((w) => list.byWord.get(w) || { word: w, pos: "", kind: "", rank: 1e5 });
     const t = tieOf(entries);
-    keywords.push({ keyword: k, ipa, covers: [], entry: entries[0], tie: t, scene: sceneFor(entries, meaning, v.text, linkOf(t) && entries.length === 1 ? t.tie : "", list.lang) });
+    keywords.push({ keyword: k, ipa, covers: [], entry: entries[0], tie: t });
   }
   const heardAs = (keyword) => list.ipaOf(keyword) || ownIpa.get(String(keyword).toLowerCase()) || null;
   const marks = (t) => ({ link: linkOf(t), linkNote: "", tie: linkOf(t) ? t.tie : "", tieWeight: t.weight });
-  const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, scene: k.scene, ...marks(k.tie) });
+  const tidy = (k) => ({ keyword: k.keyword, ipa: k.ipa, covers: k.covers, ...marks(k.tie) });
   // Two-word keywords for a two-syllable word are shown as keywords ("cab eye"); longer words' as split ones.
   const twoWord = pron.syllables.length < SPLIT_FROM
     ? parts.filter((p) => p.pieces.length === 2).map((p) => ({ keyword: p.pieces.map((x) => x.keyword).join(" "), ipa: p.pieces.map((x) => x.ipa).join(" "),
-      covers: range(0, pron.syllables.length - 1), scene: p.scene, ...marks(p.tie) }))
+      covers: range(0, pron.syllables.length - 1), ...marks(p.tie) }))
     : [];
   const split = parts.map((p) => ({ keyword: p.pieces.map((x) => x.keyword).join(" + "), pieces: p.pieces.map(({ keyword, ipa, covers }) => ({ keyword, ipa, covers })),
-    scene: p.scene, ...marks(p.tie) }));
+    ...marks(p.tie) }));
   // Checked like the AI's (rankSuggestions), but all of them, so that a picturable word that sounds
   // nearly as close can go before the closest one.
   const ranked = rankSuggestions({ pron, keywords: [...keywords.map(tidy), ...twoWord.slice(0, 6)], parts: split, ownSounds: heardAs, avoid, count: 1000 });
@@ -422,7 +315,8 @@ export function makeFreeMnemonics(v, { pron, list, avoid = [], meaningWeight = M
   }
   // (a keyword of two words is harder to keep in mind than one word: it must sound clearly closer)
   // (and what the learner's own choices taught: prefs, readPrefs)
-  for (const s of [...ranked.items, ...ranked.parts]) s.traits = traitsOf(s, list);
+  // (and each says its keyword's language: how it is written, soundAlike's syllables, depends on it)
+  for (const s of [...ranked.items, ...ranked.parts]) { s.traits = traitsOf(s, list); s.lang = list.lang || "en"; }
   const worth = (s) => s.score + prefBonus(taste, s.traits) + meaningWeight * (s.tieWeight || 0) - (s.keyword.includes(" ") && !s.pieces ? TWO_WORDS : 0)
     + (s.own ? OWN_BONUS : 0)
     + (s.pieces ? 0 : Math.max(...s.keyword.split(" ").map((w) => bonus(list.byWord.get(w.toLowerCase()) || { pos: "", rank: 1e5 }))));

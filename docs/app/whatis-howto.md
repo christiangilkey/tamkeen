@@ -180,10 +180,10 @@ Press the round **?** button in the top bar (or the ? key on a computer) and Tam
 - **Scanning with or without AI**: your AI reads print and handwriting, and without AI or offline the photo is read on the device itself, best with printed text, and photos are never kept.
 
 **Mnemonics**
-- **Mnemonic maker**: on the back of a card, the Mnemonic maker suggests words that sound like the word you're learning, each with a picture line that ties it to the meaning.
+- **Mnemonic maker**: on the back of a card, the Mnemonic maker suggests words that sound like the word you're learning, written as their syllables in capitals (MUR-DER), with no picture or story.
 - **How the word is really said**: with an AI key, it first shows how the word is said, in syllables with the stressed one in capitals, then checks each suggestion really sounds like it.
 - **Close or partial, and fits the meaning**: each suggestion says whether it's a close or partial sound match, ones that also point to the meaning come first, and long words get keywords for each part or of two or three words.
-- **Use or thumbs down**: Use adds a keyword and its picture to Memorization notes, and thumbs down drops it so it's never suggested for that word again.
+- **Use or thumbs down**: Use adds the sound-alike (MUR-DER) to Memorization notes, and thumbs down drops it so it's never suggested for that word again.
 - **Mnemonics without AI**: with no AI key, the Mnemonic maker finds sound-alike words from a pronunciation dictionary, in English or in Spanish, French, German, Italian, Portuguese, Russian or Catalan when the app is shown in one of those.
 - **It learns your taste**: the free Mnemonic maker learns what kinds of keywords you like from Use and thumbs down, on all your devices, and Settings can make it forget.
 - **It learns from your own mnemonics**: write the sound-alike in CAPITALS in Memorization notes ("a duck sitting on a POT") and, if it really sounds like the word, the Mnemonic maker learns from it, offers it again for other words that sound alike ("You've used this before"), and shows your AI a few of your notes as examples of your style.

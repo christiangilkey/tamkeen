@@ -42,7 +42,7 @@ import { sentenceStart } from "../sentencestart.js";
 import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { wordHtml } from "../wordface.js";
-import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
+import { displayWords, paintWords, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
@@ -50,8 +50,6 @@ import { NO_AUDIO_KINDS } from "../cardvoice.js";
 import { voiceNewCard } from "../voiceplay.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
-import { aiReady, dualButton, dualOn, explainDual, ownLanguage, reportDual, setDualOn, setLine, translatorFor,
-  youTubeTranslations } from "../components/dualline.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { sentencesFromWords, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
@@ -402,12 +400,6 @@ export async function render(view, { id, query }) {
   let capHeld = false;
   let bubble = null;
   let cursor = null;  // the controller's highlight in the words (padcursor.js), made further down
-  // Translation under each line (dual subtitles, components/dualline.js): made when first switched on.
-  const segPos = new Map(data.segments.map((s, k) => [s.idx, k])); // a line's number -> its place in the list
-  const own = ownLanguage();
-  let dual = null;        // the translations (dualsubs.js createTranslator)
-  let dualShown = false;  // switched on
-  let dualAt = -1;        // the line the translations were last asked around
   function showCaption(idx) {
     if (cursor && cursor.on) idx = cursor.at;  // the captions show the highlighted word's line while it is out
     // Keep the tapped word in place while its popup is open. (Not on YouTube when the choice is
@@ -428,17 +420,10 @@ export async function render(view, { id, query }) {
       : Array.from({ length: end - start + 1 }, (_, k) =>
         `${k ? gap(texts[start + k - 1], texts[start + k], lang) : ""}<span class="w" data-i="${start + k}">${wordHtml(shown[start + k], lang)}</span>`).join("");
     capEls = [...capEl.querySelectorAll(".w")];
-    capLine();
     if (start >= 0) seen.paint(capEls, start);
     if (cursor) cursor.repaint();
   }
   const capWord = (i) => (capStart >= 0 ? capEls[i - capStart] : null);
-  /** The captions' translation line: the translation of the line they show, under its words. */
-  function capLine() {
-    if (!capEl) return;
-    const pos = capStart >= 0 ? segPos.get(segOf[capStart]) : undefined;
-    setLine(capEl, dual && pos !== undefined ? dual.textAt(pos) : "", own, "cap-tr");
-  }
   seen.onPaint = () => { if (capStart >= 0) seen.paint(capEls, capStart); };
 
   function setActive(idx) {
@@ -449,7 +434,6 @@ export async function render(view, { id, query }) {
     }
     curIdx = idx;
     showCaption(idx);
-    if (dualShown) dualFocus();
     if (idx >= 0) {
       wordEls[idx].classList.add("cur");
       capWord(idx)?.classList.add("cur");
@@ -540,31 +524,6 @@ export async function render(view, { id, query }) {
     if (vid) markWatched(id);
     if (!disposed) $("#play").textContent = "▶";
   });
-  /** Ask for the translations missing near the line being heard, or near the lines scrolled to. */
-  function dualFocus() {
-    if (!dual) return;
-    let pos;
-    if (!follow && segEls.length) pos = visibleSeg();
-    else {
-      const i = curIdx >= 0 ? curIdx : n ? activeWordIndex(starts, ends, (audio.currentTime || startAt || 0) + 0.01, 1e9) : -1;
-      pos = i >= 0 ? segPos.get(segOf[i]) ?? 0 : 0;
-    }
-    if (pos === dualAt) return;
-    dualAt = pos;
-    dual.want(pos);
-  }
-  /** The first line showing at the top of the transcript (while it is scrolled away from the one heard). */
-  function visibleSeg() {
-    const top = tr.scrollTop;
-    let lo = 0;
-    let hi = segEls.length - 1;
-    while (lo < hi) {
-      const m = (lo + hi) >> 1;
-      if (segEls[m].offsetTop + segEls[m].offsetHeight < top) lo = m + 1; else hi = m;
-    }
-    return lo;
-  }
-
   // Manual scrolling is detected from user input (wheel, touch, keys, scrollbar drag), never
   // from 'scroll' events, which our own auto-scroll also fires (possibly late, e.g. when the
   // window is in the background and smooth scrolling stalls).
@@ -1074,15 +1033,14 @@ export async function render(view, { id, query }) {
   // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
-  // Arabic: the vowels switch (vowels.js), and the vowels themselves once the computer has made them.
+  // Arabic: the vowels themselves once the computer has made them (vowels.js). Showing them is Settings' switch: the
+  // player's own button was taken out (the owner, 2026-11-18: "remove it").
   const redrawVowels = () => {
     shown = displayWords(texts, vowels, (i) => segOf[i]);
     paintWords(wordEls, shown);
     if (capStart >= 0) paintWords(capEls, shown, capStart);
   };
-  const vowelsBtn = vowelsButton(lang, redrawVowels, () => vowels);
-  if (vowelsBtn) $("#font-down").before(vowelsBtn);
-  const stopVowels = watchVowels(id, (v) => { vowels = v; redrawVowels(); if (vowelsBtn) vowelsBtn.repaint(); });
+  const stopVowels = watchVowels(id, (v) => { vowels = v; redrawVowels(); });
   // Misheard words, put right in the transcript when a lookup finds them (fixword.js). Only where
   // the words on screen are the stored ones (not Japanese or Chinese, regrouped for display).
   const fixer = wordFixer({
@@ -1257,59 +1215,6 @@ export async function render(view, { id, query }) {
     else $("#fullscreen").hidden = true;
   }
 
-  // ---------- translation under each line (dual subtitles: components/dualline.js) ----------
-  // Switched on, each line of the transcript (and the captions on or under a video) gets its translation into
-  // the learner's own language on a line of its own under it. A YouTube video's own captions in that language
-  // are used where YouTube has them; otherwise the learner's AI translates the lines near where they are, a
-  // batch at a time, and every translation is kept on the device. Remembered on this device.
-  const dualBtn = dualButton(() => setDual(!dualShown, true));
-  $("#font-down").before(dualBtn);
-  function paintDual(list) {
-    for (const k of list) setLine(segEls[k], dual.textAt(k), own);
-    capLine();
-    if (bubble && bubble.open) { bubble.position(); fitBubble(); }
-  }
-  function setDual(on, pressed = false) {
-    // Nothing to translate with (no AI, and no YouTube captions to try): say what is needed instead.
-    if (on && !aiReady() && !yt) {
-      if (pressed) explainDual();
-      on = false;
-    }
-    dualShown = on;
-    if (pressed) setDualOn(on);
-    playerEl.classList.toggle("dual", on);
-    dualBtn.paint(on);
-    if (on) startDual(pressed);
-    capLine();
-    if (curIdx >= 0 && follow) ensureVisible(wordEls[curIdx], true);
-    fitBubble();
-  }
-  function startDual(pressed) {
-    if (!n) return;
-    if (!dual) {
-      dual = translatorFor({
-        ep, segments: data.segments, study: lang, own,
-        free: yt ? youTubeTranslations : null,
-        onLines: (list) => { if (!disposed) paintDual(list); },
-        onError: (e) => { if (!disposed && dualShown) reportDual(e); },
-      });
-      dual.ready.then(() => {
-        // A YouTube video with no captions in the learner's language, and no AI to translate it.
-        if (disposed || !dualShown || aiReady() || dual.known()) return;
-        if (pressed) explainDual({ video: true });
-        setDual(false, pressed);
-      });
-    } else if (dual.failed) dual.retry();
-    dualAt = -1;
-    dualFocus();
-  }
-  let dualScroll = 0;
-  tr.addEventListener("scroll", () => {
-    if (!dualShown || follow || dualScroll) return;
-    dualScroll = setTimeout(() => { dualScroll = 0; if (!disposed) dualFocus(); }, 300);
-  }, { passive: true });
-  setDual(dualOn());
-
   // ---------- "Type what you hear" (dictation: components/dictation.js) ----------
   // The words go away (the transcript, the captions, the popup) and one word, one sentence or a few sentences (the
   // gist) play at a time, from where the learner is; they type it and then see what was really said above what
@@ -1357,6 +1262,8 @@ export async function render(view, { id, query }) {
     });
     playerEl.classList.add("dictating");
     $(".controls").before(dict.el);
+    // The bar's buttons and the head's leave the box focused (the keyboard button puts it away, as before).
+    dict.keepTyping([$(".controls"), $(".player-head .row")], { except: [dictBtn] });
     dictBtn.paint(true);
     unArrow = arrowButtons($("#back5"), $("#fwd5")); // (back and forward step by the piece meanwhile)
   }
@@ -1423,8 +1330,6 @@ export async function render(view, { id, query }) {
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
     else if (vid && (e.key === "f" || e.key === "F") && document.fullscreenEnabled) toggleFullscreen();
-    else if (vowelsBtn && (e.key === "v" || e.key === "V") && !e.ctrlKey && !e.metaKey) vowelsBtn.click();
-    else if ((e.key === "d" || e.key === "D") && !e.ctrlKey && !e.metaKey && !e.altKey) dualBtn.click();
   };
   document.addEventListener("keydown", onKey);
 
@@ -1471,7 +1376,6 @@ export async function render(view, { id, query }) {
       { label: "Loop this line (on / off)", run: () => padH.loopLine() },
       vid ? { label: "Captions on the video (on / off)", run: () => padH.captions() } : null,
       vid ? { label: "Transcript panel (open / close)", run: () => padH.transcript() } : null,
-      { label: "Translation under each line (on / off)", run: () => dualBtn.click() },
       n && dictShown ? { label: "Type what you hear (on / off)", run: () => dictBtn.click() } : null,
       { label: "Larger text", run: () => $("#font-up").click() },
       { label: "Smaller text", run: () => $("#font-down").click() },
@@ -1562,8 +1466,6 @@ export async function render(view, { id, query }) {
   return () => {
     disposed = true;
     if (dict) dict.close();
-    if (dual) dual.stop();
-    clearTimeout(dualScroll);
     stopStudy();
     stopVowels();
     seen.close();

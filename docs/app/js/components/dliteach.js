@@ -21,6 +21,7 @@ import { LEVELS, LEVEL_WEEKS, activity, csvText, joinedOf, levelCounts, pasteTex
 import { codeBox, codeProblem, dayLabel, percent, signInSpot, weeksTable } from "./dlishare.js";
 import { askName, confirmBox, openModal } from "./modal.js";
 import { classLessonsPart } from "./lessonteach.js";
+import { feature } from "../prototype.js";
 
 const SHOW_KEY = "tamkeenDliTeacher"; // "on" / "off": the tick of "I'm a DLI teacher" on this device
 const NOTES_KEY = "tamkeenDliNotes";  // { student id: note }, this device only
@@ -211,6 +212,61 @@ function studentBox(student, { remove, changed = () => {} }) {
   box.body.append(view);
 }
 
+/** The class's teachers (v13): their usernames, a box to add another DLI teacher by username, and Remove beside
+ *  the ones who joined after me. Every teacher of a class sees its students' weeks, lessons and answers, and the
+ *  students see every teacher's username, so this is how a student gets one more teacher. `changed` runs when
+ *  the list changed (the card behind shows the teachers too). */
+function teachersPart(classId, changed = () => {}) {
+  const part = h(`<div class="dlt-teachers"><h3>Teachers</h3>
+    <p class="set-hint">Every teacher of this class sees its students' weeks, lessons and answers. Students see each teacher's username.</p>
+    <div class="dls-list"><p class="small muted dls-none">Loading…</p></div></div>`);
+  const list = part.querySelector(".dls-list");
+  async function load() {
+    let teachers;
+    try { teachers = await cls.classTeachers(classId); } catch (err) {
+      list.innerHTML = "";
+      const p = h(`<p class="small muted dls-none"></p>`);
+      p.textContent = err.notReady ? t("Adding teachers isn't switched on yet.") : err.message;
+      list.append(p);
+      return false;
+    }
+    list.innerHTML = "";
+    for (const who of teachers) {
+      const row = h(`<div class="dls-row"><span class="dls-row-text"><strong translate="no"></strong><span class="small muted"></span></span></div>`);
+      row.querySelector("strong").textContent = who.username;
+      row.querySelector(".muted").textContent = who.me ? t("You") : t("Since {0}", dayLabel(who.added_at));
+      if (who.can_drop) {
+        const out = h(`<button type="button" class="ghost danger">Remove</button>`);
+        out.onclick = async () => {
+          if (!(await confirmBox(t("Take {0} out of the class?", who.username), t("They stop seeing this class's students, lessons and answers. You can add them again."),
+            { ok: t("Remove"), danger: true }))) return;
+          try { await cls.dropTeacher(classId, who.id); changed(); } catch (err) { toast(err.message, { error: true }); }
+          load();
+        };
+        row.append(out);
+      }
+      list.append(row);
+    }
+    return true;
+  }
+  load().then((ready) => {
+    if (!ready) return;
+    part.append(codeBox({ label: t("Another teacher's username"), placeholder: t("Another teacher's username"), button: t("Add teacher"), go: async (name) => {
+      const r = await cls.addTeacher(classId, name);
+      if (r.status === "added") { toast(t("{0} now teaches this class too.", r.username)); changed(); load(); return true; }
+      if (r.status === "already") { toast(t("{0} already teaches this class.", r.username)); return true; }
+      toast(r.status === "full" ? t("This class has 10 teachers already.") : r.status === "wait" ? t("Too many names that didn't work today. Try again tomorrow.")
+        : t("No DLI teacher has that username. They enter their teacher code first, under “I'm a DLI teacher”."), { error: true });
+      return false;
+    } }));
+    const input = part.querySelector(".dls-code input");
+    input.style.textTransform = "none"; // (a username, not a code)
+    input.style.letterSpacing = "0";
+    input.setAttribute("autocapitalize", "none");
+  });
+  return part;
+}
+
 /** A class as its teacher sees it. `changed` runs when the class was renamed, left or deleted. */
 export function openClass(klass, { changed = () => {} } = {}) {
   const box = openModal({ title: klass.name, wide: true, cls: "dlt-back" });
@@ -257,6 +313,7 @@ export function openClass(klass, { changed = () => {} } = {}) {
       foot.textContent = `${levelsFoot()} ${t("Tap a student for their weeks; tap a heading to sort.")}`;
       view.append(foot);
     }
+    if (feature("class_teachers")) view.append(teachersPart(klass.id, changed)); // who teaches the class, and adding one
     view.append(classLessonsPart(klass.id)); // the lessons sent to the class (lessonteach.js)
     const acts = h(`<div class="set-actions dlt-acts"><button type="button" data-a="rename">Rename</button>
       <button type="button" data-a="codes">New codes</button><button type="button" class="ghost danger" data-a="leave">Leave the class</button>

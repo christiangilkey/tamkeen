@@ -13,13 +13,15 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
-  dictation: { name: "Type what you hear", released: false, since: "2026-11-17" },
-  open_weeks: { name: "Weekly battle rules without the element-only weeks", released: false, since: "2026-11-18" },
-  move_variety: { name: "More kinds of battle moves: slams, sky dives, burrows, throws, waves, orbs, slashes, strikes from above", released: false, since: "2026-11-17" },
-  guild_tavern: { name: "Guild tavern: guild-mates' creatures in a tavern on Home and the Guilds page", released: false, since: "2026-11-17" },
-  battle_aim: { name: "Aim your own attacks in battles (mouse, a second finger, the right stick)", released: false, since: "2026-11-18" },
-  battle_race: { name: "Answer race in battles: the rival answers too; out-answered attacks do half damage", released: false, since: "2026-11-18" },
-  key_fallback: { name: "A refused AI key: Add words fills the cards in without it, and a popup offers No AI", released: false, since: "2026-11-18" },
+  dictation: { name: "Type what you hear", released: true, since: "2026-11-17" },
+  open_weeks: { name: "Weekly battle rules without the element-only weeks", released: true, since: "2026-11-18" },
+  move_variety: { name: "More kinds of battle moves: slams, sky dives, burrows, throws, waves, orbs, slashes, strikes from above", released: true, since: "2026-11-17" },
+  guild_tavern: { name: "Guild tavern: guild-mates' creatures in a tavern on Home and the Guilds page", released: true, since: "2026-11-17" },
+  battle_aim: { name: "Aim your own attacks in battles (mouse, a second finger, the right stick)", released: true, since: "2026-11-18" },
+  battle_race: { name: "Answer race in battles: the rival answers too; out-answered attacks do half damage", released: true, since: "2026-11-18" },
+  key_fallback: { name: "A refused AI key: Add words fills the cards in without it, and a popup offers No AI", released: true, since: "2026-11-18" },
+  word_pool: { name: "One card per word: a word you have already says which folder it is in and can go in another; DLI decks and study words use the card you have", released: true, since: "2026-11-18" },
+  class_teachers: { name: "DLI classes: a class's teachers listed in the class, add another teacher by username, remove one", released: true, since: "2026-11-18" },
 };
 
 const KEY = "tamkeenPrototype";

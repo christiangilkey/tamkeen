@@ -679,7 +679,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (again) again.classList.add("rv-held");  // a short ring round the word that changed
   }
 
-  // ----- the Mnemonic maker (review/cardtools.js mnemonicMaker): keywords that sound like the word, each with a picture -----
+  // ----- the Mnemonic maker (review/cardtools.js mnemonicMaker): keywords that sound like the word ("MUR-DER") -----
   // Use puts one at the end of Memorization notes, a blank line under what the learner wrote, saved like typing.
   function useMnemonic(v, text) {
     const memo = face.querySelector(".memo");
@@ -1560,7 +1560,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     { target: ".rv-answer", title: "Put a card right", text: "Tap any text on the back to edit it. Hold a word in the sentence to highlight it." },
     { target: ".rv-no", title: "Not remembered", text: "It comes back in a few cards. Swiping the card left does the same." },
     { target: ".rv-yes", title: "Remembered", text: "It comes back later, a little later each time you remember it. Swiping the card right does the same." },
-    { target: ".rv-tools", title: "Memory hooks and sentences", text: "Make a sound-alike picture to help the word stick, get a new example sentence, or put the word in a folder." },
+    { target: ".rv-tools", title: "Memory hooks and sentences", text: "Make a sound-alike to help the word stick, get a new example sentence, or put the word in a folder." },
     { target: ".rv-undo", title: "Undo", text: "Take back your last answer." },
     { target: ".rv-gear", title: "Reviewer settings", text: "New words a day, saying the word when the card turns, and the timers." },
     { target: ".rv-x", title: "Close", text: "Stop for now. Your answers so far are kept." },

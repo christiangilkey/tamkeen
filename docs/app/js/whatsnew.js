@@ -9,6 +9,22 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.63.0",
+  "Type what you hear: a keyboard button in every player plays a word, a sentence or a few, and you write what you heard");
+notes("0.63.0",
+  "One card per word: a word you already have says which folders it is in, and can go in another");
+notes("0.63.0",
+  "Live battles: aim your own attacks, and race the rival to the right answer");
+notes("0.63.0",
+  "Ten new kinds of battle moves in the shop, each with its own art");
+notes("0.63.0",
+  "A guild tavern on Home, where your guild-mates' favourite creatures gather");
+notes("0.63.0",
+  "Without an AI key, a word's everyday meaning now comes first");
+notes("0.63.0",
+  "The Mnemonic maker now gives just the sound-alike, like MUR-DER");
+notes("0.63.0",
+  "The play button always stays in the middle of the player's bar");
 notes("0.62.1",
   "Your own audiobooks and audio from Google Drive now play straight away in the web app");
 notes("0.62.1",
@@ -35,8 +51,6 @@ notes("0.61.0",
   "DLI classes show everyone by username, never a real name, with listening, watching and reading time");
 notes("0.60.0",
   "Listen in My audio: record from the microphone and get a transcript");
-notes("0.60.0",
-  "Translation under each line: turn it on in the player to see your language under every line");
 notes("0.60.0",
   "Scan now puts all the text in a photo into a box you can edit, then make cards from");
 notes("0.60.0",

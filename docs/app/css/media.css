@@ -467,6 +467,13 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
    smaller) at the left, the quick / detailed lookup switch at the right. Anything added to
    .btnrow later must be positioned the same way, or it will push the play button off-centre. */
 .player .btnrow { position: relative; flex-wrap: nowrap; }
+/* Back to the start of the sentence sits left of Back 5 s in a column as wide as the empty one on the right, so it
+   doesn't push play off the middle either (the owner, 2026-11-18: "the play button should always stay centered"). */
+.player .btnrow { display: grid; grid-template-columns: 1fr auto auto auto 1fr; }
+.player .btnrow #restart { grid-column: 1; justify-self: end; }
+.player .btnrow #back5 { grid-column: 2; }
+.player .btnrow #play { grid-column: 3; }
+.player .btnrow #fwd5 { grid-column: 4; }
 .player .btnrow #speed {
   position: absolute; left: 0; top: 50%; transform: translateY(-50%);
   width: auto; min-width: 0; height: 30px; padding: 2px 4px; font-size: 12px;
@@ -558,12 +565,13 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
   font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
   border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
 .dict-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* The hint in the box: the app's own font, centred, so it fits on a phone (not the big Arabic font). */
+.dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
 .dict-score { margin: 0; text-align: center; font-weight: 600; }
 .dict-score.all { color: var(--accent); }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-.dict-go { min-width: 110px; justify-content: center; }
 .dict-hint { margin: 0; text-align: center; }
 @media (hover: none) { .dict-hint { display: none; } }
 .dict-done { align-items: center; text-align: center; padding: 18px 0; }
@@ -585,7 +593,11 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 .dict-yours .muted { font-family: var(--ui-font); font-size: 15px; }
 /* Word · Sentence · Gist, and the gist's 2–5 sentences: a row of pill switches under the title. */
 .dict-modes { display: flex; align-items: center; gap: 10px 16px; flex-wrap: wrap; justify-content: center; }
-.dict-modes[hidden], .dict-sizes[hidden] { display: none; }
+.dict-modes[hidden], .dict-sizes[hidden], .dict-seg[hidden], .dict-go[hidden] { display: none; }
+/* The round button right of them: a check mark, then an arrow for the next one. Up here a phone's keyboard never
+   covers it. */
+.dict-line { display: inline-flex; align-items: center; gap: 8px; }
+.dict-go { flex: none; width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; }
 .dict-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 99px; background: var(--surface-2); }
 .dict-seg button, .dict-sizes button { min-height: 0; border: 0; box-shadow: none; background: transparent; color: var(--muted);
   border-radius: 99px; padding: 5px 14px; font-size: 14px; }

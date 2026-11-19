@@ -241,6 +241,16 @@ export function cleanOwner(raw) {
     teacher_code: teacherCode(r.teacher_code),
   };
 }
+/** A class's teachers as dli_class_teachers answers (v13), made safe: [{ id, username, added_at, me, can_drop }]. */
+export function cleanTeachers(list) {
+  return (Array.isArray(list) ? list : []).map((x) => ({ id: uuid(x && x.id), username: handle(x && x.username) || "?",
+    added_at: when(x && x.added_at), me: !!x && x.me === true, can_drop: !!x && x.can_drop === true })).filter((x) => x.id).slice(0, 10);
+}
+/** What dli_add_teacher answered: { status, username }. */
+export function cleanAdded(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  return { status: /^[a-z_]{1,20}$/.test(String(r.status || "")) ? String(r.status) : "no", username: handle(r.username) };
+}
 /** A teacher code as the owner reads it, or "". */
 export const teacherCode = (v) => codeText(v, /^TCH[A-Z2-9]{12}$/);
 /** What dli_use_code answered: { status, id, name }. */

@@ -1,3 +1,7 @@
+// NOT USED since 2026-11-18: the owner took the button out of both players ("I want to get rid of the show
+// translation button"). This file, dualsubs.js and dualstore.js are kept so it can come back: the commit that
+// removed it ("Players: the Translation under each line button taken out") shows the wiring in pages/player.js
+// (button, "D" key, controller menu, captions line) and pages/reels.js to put back.
 // The players' "translation under each line" switch (dual subtitles): the button, the line drawn under each
 // line of the language being learned, where the translations come from, and what is said when there is
 // nothing to translate them with. The logic is dualsubs.js; pages/player.js (podcasts, the learner's own

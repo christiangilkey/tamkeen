@@ -295,8 +295,6 @@ body.rv-open { overflow: hidden; }
 .rv-mn-mark.own { color: var(--text); }  /* a sound-alike the learner wrote themselves (review/ownmnemonic.js) */
 /* "Learn from my own mnemonics": a quiet line under Memorization notes for a moment ("Learned from POT"; cardtools.js noteLine) */
 .mn-learned { margin: 0; padding-inline-start: 2px; font-size: 13px; line-height: 1.45; color: var(--muted); overflow-wrap: anywhere; }
-.rv-mn-scene { margin: 0; font-size: 14.5px; line-height: 1.45; user-select: text; -webkit-user-select: text; }
-.rv-mn-scene[hidden] { display: none; }
 .rv-source { display: flex; align-items: center; gap: 10px; min-height: 38px; font-size: 12px; color: var(--muted); }
 .rv-source > span:first-child { flex: 1; text-align: start; }
 .rv-trash { flex: none; width: 38px; height: 38px; min-height: 0; padding: 0; border: 0; border-radius: 50%; display: grid; place-items: center; background: transparent; color: var(--muted); margin-inline-end: -6px; }

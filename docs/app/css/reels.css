@@ -171,11 +171,13 @@
 .reel-controls { flex: none; display: flex; flex-direction: column; gap: 2px; padding: 4px 8px calc(6px + env(safe-area-inset-bottom));
   background: #0b0b0b; border-top: 1px solid #2c2c2c; color: #f2f1ec; }
 .rc-seekrow { display: flex; align-items: center; gap: 6px; }
-/* (The left end holds up to four switches: lookup, translation, vowels, typing. Its column takes the room they need,
-   so they never run under Back 5 s, and the three middle buttons sit in the middle of what is left.) */
-.rc-btnrow { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; }
+/* Play always sits in the exact middle of the bar, whatever the ends hold (the owner, 2026-11-18: "the play button
+   should always stay centered in the players bar, do not move it when adding new buttons"): the two ends are columns
+   of the same width, and a switch that doesn't fit scrolls within its end rather than pushing the middle over. */
+.rc-btnrow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px; }
 .rc-mid { display: flex; align-items: center; gap: 6px; justify-self: center; }
-.rc-side { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.rc-side { display: flex; align-items: center; gap: 6px; min-width: 0; overflow-x: auto; scrollbar-width: none; }
+.rc-side::-webkit-scrollbar { display: none; }
 #rc-left button { min-width: 36px; padding: 2px 6px; }
 #rc-right { justify-content: flex-end; }
 .reel-controls button { flex: none; min-height: 34px; padding: 2px 8px; font-size: 12px; white-space: nowrap; }

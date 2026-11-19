@@ -13,6 +13,8 @@
 // episodes may have come), and from Settings right after unlocking or choosing the language.
 
 import { api, on, saveSettings, saveVoice, state, toast } from "./app.js";
+import { cardFor } from "./addwords.js";
+import { feature } from "./prototype.js";
 import { platform } from "./app.js";
 import { voiceTimes } from "./cardvoice.js";
 import { courseUrl } from "./coursedata.js";
@@ -172,12 +174,17 @@ export async function addDeck(deck, language, key, settings, others = []) {
   // The deck's words already in the learner's cards, by number, and the cards of the language's other decks.
   const have = new Map();
   const theirs = new Map(); // "deck id:n" -> card
+  // The learner's own cards of the language, not from this deck (prototype "word_pool": a deck word they have already is
+  // that card, put in the chapter's folder too, not a second card; the owner, 2026-11-18: DLI words "should go to the
+  // base pool but also have them organized into their correct folders").
+  const pool = [];
   for (const c of await api("/vocab")) {
     const n = dli.deckWordOf(deck, c);
     if (n && !have.has(n)) have.set(n, c);
+    if (!n && (!c.language || c.language === language)) pool.push(c);
     for (const o of others) { const m = dli.deckWordOf(o, c); if (m && !theirs.has(`${o.id}:${m}`)) theirs.set(`${o.id}:${m}`, c); }
   }
-  let added = 0, voiced = 0, step = 0;
+  let added = 0, voiced = 0, filed = 0, step = 0;
   for (const ch of [...todo].reverse()) {
     tell({ deck: deck.title, chapter: ch.title, step: ++step, of: todo.length, words: added });
     const sealed = await fetchSealed(ch.file);
@@ -188,6 +195,15 @@ export async function addDeck(deck, language, key, settings, others = []) {
     for (const w of data.words) {
       const c = !have.has(w.n) && w.link ? theirs.get(`${w.link.deck}:${w.link.n}`) : null;
       if (c) have.set(w.n, c);
+    }
+    // A word the learner has already, typed in or saved from a video (prototype "word_pool"): that card.
+    const reused = new Map();
+    if (feature("word_pool")) {
+      for (const w of data.words) {
+        if (w.also || have.has(w.n)) continue;
+        const c = cardFor(pool, w.text, language);
+        if (c) { have.set(w.n, c); reused.set(w.n, c); }
+      }
     }
     // A word written in an earlier chapter (or another deck) that is also in this one: into this folder too.
     const also = [...new Set(data.words.filter((w) => have.has(w.n)).map((w) => have.get(w.n)))]
@@ -205,7 +221,9 @@ export async function addDeck(deck, language, key, settings, others = []) {
       (answer.cards || []).forEach((c, k) => { have.set(part[k].n, c); mine.set(part[k].n, c); });
     }
     added += mine.size;
-    try { voiced += await voiceChapter(ch, key, mine); } catch (e) { console.warn("DLI audio", ch.id, e); }
+    filed += reused.size;
+    // (a card of theirs with no sound yet gets the chapter's recording: voiceChapter leaves one with its own alone)
+    try { voiced += await voiceChapter(ch, key, new Map([...mine, ...reused])); } catch (e) { console.warn("DLI audio", ch.id, e); }
     settings.set(await saveSettings({ dli_decks: dli.withDeckMarks(settings.get(), deck.id, [place(ch)]) }));
   }
   // Audio that came after its words: chapters added before, whose cards still have none.
@@ -215,7 +233,7 @@ export async function addDeck(deck, language, key, settings, others = []) {
     try { voiced += await voiceChapter(ch, key, cards); } catch (e) { console.warn("DLI audio", ch.id, e); }
   }
   tell(null);
-  return { added, voiced, first: marks.size === 0 };
+  return { added, voiced, filed, first: marks.size === 0 };
 }
 
 /** The decks of the learner's DLI language, while it is the language being learned. */
@@ -231,9 +249,10 @@ export async function addDliDecks({ quiet = false } = {}) {
       decks.filter((d) => d !== deck));
     added += r.added;
     voiced += r.voiced;
-    if (r.added && !quiet) {
-      toast(r.first ? t("{0} is in your Vocab: {1} words, a folder for each chapter.", deck.title, r.added.toLocaleString())
-        : t("{0} more words from {1} are in your Vocab.", r.added.toLocaleString(), deck.title));
+    const n = r.added + (r.filed || 0);  // (words they had already count: they are in the chapter folders too)
+    if (n && !quiet) {
+      toast(r.first ? t("{0} is in your Vocab: {1} words, a folder for each chapter.", deck.title, n.toLocaleString())
+        : t("{0} more words from {1} are in your Vocab.", n.toLocaleString(), deck.title));
     }
   }
   return { added, voiced };

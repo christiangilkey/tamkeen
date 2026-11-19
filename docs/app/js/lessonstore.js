@@ -3,6 +3,8 @@
 // the app's /api, which the computer's server and the phones' backend.js both answer the same way).
 
 import { api, audioUrl, saveSettings, state, uploadVideo } from "./app.js";
+import { cardFor } from "./addwords.js";
+import { feature } from "./prototype.js";
 import { STATE_KEY, cleanLesson, cleanState, cleanWords, dropLesson, fromClass, liveLessons, newLessonId, putLesson, splitItems, unpackLesson } from "./lessons.js";
 import { acceptInto, unpackTranscript } from "./sharetext.js";
 
@@ -185,15 +187,31 @@ export async function addStudyWords(rec, words, language) {
     if (!folder) folder = await api("/vocab/folders", { method: "POST", body: { name, language: language || rec.lang || "" } });
   } catch { folder = null; }
   const have = new Set();
+  let filed = 0;  // (cards they had already, put in the lesson's folder)
   if (folder) {
     try {
       const v = await api(`/vocab?folder=${encodeURIComponent(folder.uid)}`);
       for (const c of (Array.isArray(v) ? v : v.items || [])) have.add(c.text);
     } catch { /* add them all */ }
   }
-  const cards = list.filter((w) => !have.has(w.word)).map((w) => ({
+  // A study word the student has already (prototype "word_pool"): that card goes in the lesson's folder as well.
+  let todo = list.filter((w) => !have.has(w.word));
+  if (feature("word_pool") && folder && todo.length) {
+    const lang = language || rec.lang || "";
+    let pool = [];
+    try { pool = await api("/vocab"); } catch { /* make them all */ }
+    pool = Array.isArray(pool) ? pool : (pool && pool.items) || [];
+    const ids = new Set(), taken = new Set();
+    for (const w of todo) { const c = cardFor(pool, w.word, lang); if (c) { ids.add(c.id); taken.add(w); } }
+    if (ids.size) {
+      await api("/vocab/bulk-folders", { method: "POST", body: { ids: [...ids], add: [folder.uid] } });
+      todo = todo.filter((w) => !taken.has(w));
+      filed = ids.size;
+    }
+  }
+  const cards = todo.map((w) => ({
     text: w.word, sentence: w.sentence, source: rec.title, language: language || rec.lang || "", folders: folder ? [folder.uid] : [],
   }));
   for (let i = 0; i < cards.length; i += 100) await api("/vocab/batch", { method: "POST", body: { cards: cards.slice(i, i + 100) } });
-  return cards.length;
+  return cards.length + filed;
 }
