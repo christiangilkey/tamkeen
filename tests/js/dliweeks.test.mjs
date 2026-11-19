@@ -275,9 +275,9 @@ test("a class's teachers (v13): the list and the answer to adding one are checke
   const risky = bare.split(";").map((s) => s.replace(/\s+/g, " ").trim())
     .filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));
   assert.deepEqual(risky, []);
-  // the feature waits in prototype mode
+  // released for everyone (released in v0.63.0, the owner, 2026-11-18); its code still asks feature("class_teachers")
   const proto = readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8");
-  assert.ok(/class_teachers: \{[^}]*released: false/.test(proto));
+  assert.ok(/class_teachers: \{[^}]*released: true/.test(proto));
   const screen = readFileSync(new URL("../../web/js/components/dliteach.js", import.meta.url), "utf8");
   assert.ok(screen.includes('if (feature("class_teachers"))'));
 });

@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Scrivi ciò che senti: un pulsante tastiera in ogni lettore riproduce una parola, una frase o qualcuna, e scrivi ciò che hai sentito
+1b98f8f0	Una carta per parola: una parola che hai già dice in quali cartelle si trova e può andare in un’altra
+a6c6658d	Battaglie dal vivo: mira tu i tuoi attacchi e gareggia con il rivale per la risposta giusta
+553cc33a	Dieci nuovi tipi di mosse di battaglia nel negozio, ognuna con il suo disegno
+c7b126fa	Una taverna della gilda nella Home, dove si radunano le creature preferite dei tuoi compagni di gilda
+984c0603	Senza chiave IA, ora viene prima il significato di tutti i giorni di una parola
+e9de854e	Il creatore di mnemotecniche ora dà solo la parola che suona simile, come MUR-DER
+534c7ecb	Il pulsante di riproduzione resta sempre al centro della barra del lettore

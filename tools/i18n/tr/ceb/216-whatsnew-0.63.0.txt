@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Isulat ang imong nadungog: usa ka buton sa keyboard sa matag player nagpatokar og usa ka pulong, usa ka sentence o pipila, ug imong isulat ang imong nadungog
+1b98f8f0	Usa ka kard matag pulong: ang pulong nga naa na nimo moingon kung asang mga folder kini, ug mahimong ibutang sa lain
+a6c6658d	Live nga mga away: ikaw ang motumong sa imong mga atake, ug pakigdagan sa kaatbang sa husto nga tubag
+553cc33a	Napulo ka bag-ong klase sa mga lihok sa away sa tindahan, matag usa adunay kaugalingong drowing
+c7b126fa	Usa ka tavern sa guild sa Home, diin magtigom ang paboritong mga binuhat sa imong mga kauban sa guild
+984c0603	Kung walay AI key, ang adlaw-adlaw nga kahulogan sa pulong mao na ang una
+e9de854e	Ang Mnemonic maker naghatag na lang og pulong nga parehas og tingog, sama sa MUR-DER
+534c7ecb	Ang play nga buton kanunay nga magpabilin sa tunga sa bar sa player

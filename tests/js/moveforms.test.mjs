@@ -29,8 +29,8 @@ function run(b, secs) {
 const kinds = (events, kind) => events.filter((e) => e.kind === kind);
 const NEW = ["body_slam", "slash_through", "grapple_toss", "sky_dive", "burrow", "energy_orb", "cone_wave", "shockwave", "call_down", "focus_beam"];
 
-test("the new moves: a prototype, bought in the shop, each with its own form, all taking the user's element", () => {
-  assert.equal(PROTOTYPES.move_variety.released, false);
+test("the new moves: released (released in v0.63.0, the owner, 2026-11-18), bought in the shop, each with its own form, all taking the user's element", () => {
+  assert.equal(PROTOTYPES.move_variety.released, true);
   const forms = { body_slam: "slam", slash_through: "slash", grapple_toss: "throw", sky_dive: "skydive", burrow: "burrow",
                   energy_orb: "orb", cone_wave: "cone", shockwave: "ring", call_down: "drop", focus_beam: "beam" };
   for (const id of NEW) {
@@ -39,11 +39,11 @@ test("the new moves: a prototype, bought in the shop, each with its own form, al
     assert.ok(m.price > 0 && m.own && m.proto === "move_variety" && m.kind === "attack", id);
     assert.equal(liveMove(m).form, forms[id], id);
     assert.ok(LIVE_FORMS[liveMove(m).form], `${id}'s form is explained`);
-    assert.ok(!SHOP_MOVES.includes(m), `${id} stays out of the shop while the prototype is off`);
+    assert.ok(SHOP_MOVES.includes(m), `${id} is in the shop`);
   }
-  // With the prototype off, the older moves keep their shapes.
-  for (const id of Object.keys(LIVE_RESHAPE)) assert.notEqual(liveMove(moveById(id)).form, LIVE_RESHAPE[id].form, id);
-  assert.equal(liveMove(moveById("wildfire")).form, "burst");
+  // Released, some older moves take the new shapes (Wildfire a cone, Pounce a slash, Charge a slam…).
+  for (const id of Object.keys(LIVE_RESHAPE)) assert.equal(liveMove(moveById(id)).form, LIVE_RESHAPE[id].form, id);
+  assert.equal(liveMove(moveById("wildfire")).form, "cone");
   assert.equal(liveMove(moveById("energy_orb")).windup, 0.5, "an orb gathers before it flies");
   assert.equal(MOVES.filter((m) => m.proto).length, NEW.length);
 });

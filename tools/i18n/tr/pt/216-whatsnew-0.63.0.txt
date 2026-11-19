@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Escreva o que ouve: um botão de teclado em cada player toca uma palavra, uma frase ou algumas, e você escreve o que ouviu
+1b98f8f0	Um cartão por palavra: uma palavra que você já tem diz em quais pastas está e pode ir para outra
+a6c6658d	Batalhas ao vivo: mire você mesmo os seus ataques e dispute com o rival a resposta certa
+553cc33a	Dez novos tipos de golpes de batalha na loja, cada um com seu próprio desenho
+c7b126fa	Uma taverna da guilda no Início, onde se reúnem as criaturas favoritas dos seus colegas de guilda
+984c0603	Sem chave de IA, o significado do dia a dia de uma palavra agora vem primeiro
+e9de854e	O criador de mnemônicos agora dá só a palavra de som parecido, como MUR-DER
+534c7ecb	O botão de reproduzir sempre fica no meio da barra do player

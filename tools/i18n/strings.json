@@ -4115,6 +4115,11 @@
   "f": "web/js/components/dictation.js"
  },
  {
+  "id": "4b5e84be",
+  "k": "Check",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "0e3748c5",
   "k": "Sentences at a time",
   "f": "web/js/components/dictation.js"
@@ -4130,13 +4135,13 @@
   "f": "web/js/components/dictation.js"
  },
  {
-  "id": "4b5e84be",
-  "k": "Check",
+  "id": "b6fffc5a",
+  "k": "Start again",
   "f": "web/js/components/dictation.js"
  },
  {
-  "id": "b6fffc5a",
-  "k": "Start again",
+  "id": "bc981983",
+  "k": "Next",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -4242,11 +4247,6 @@
  {
   "id": "4c768dc3",
   "k": "{0} nearly right",
-  "f": "web/js/components/dictation.js"
- },
- {
-  "id": "bc981983",
-  "k": "Next",
   "f": "web/js/components/dictation.js"
  },
  {
@@ -29058,6 +29058,46 @@
   "id": "de9a3242",
   "k": "Watched",
   "f": "web/js/watched.js"
+ },
+ {
+  "id": "a983d561",
+  "k": "Type what you hear: a keyboard button in every player plays a word, a sentence or a few, and you write what you heard",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "1b98f8f0",
+  "k": "One card per word: a word you already have says which folders it is in, and can go in another",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a6c6658d",
+  "k": "Live battles: aim your own attacks, and race the rival to the right answer",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "553cc33a",
+  "k": "Ten new kinds of battle moves in the shop, each with its own art",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c7b126fa",
+  "k": "A guild tavern on Home, where your guild-mates' favourite creatures gather",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "984c0603",
+  "k": "Without an AI key, a word's everyday meaning now comes first",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "e9de854e",
+  "k": "The Mnemonic maker now gives just the sound-alike, like MUR-DER",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "534c7ecb",
+  "k": "The play button always stays in the middle of the player's bar",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "eff82c1e",

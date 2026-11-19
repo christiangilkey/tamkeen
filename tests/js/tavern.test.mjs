@@ -12,9 +12,9 @@ const sizeOf = (file) => { // a PNG's width and height, from its header
   return [b.readUInt32BE(16), b.readUInt32BE(20)];
 };
 
-test("the tavern is a prototype: off unless released or prototype mode is on", () => {
-  assert.equal(PROTOTYPES.guild_tavern.released, false);
-  assert.equal(feature("guild_tavern"), false); // (no prototype mode outside a browser)
+test("the tavern is released for everyone (released in v0.63.0, the owner, 2026-11-18)", () => {
+  assert.equal(PROTOTYPES.guild_tavern.released, true);
+  assert.equal(feature("guild_tavern"), true); // (on without prototype mode)
 });
 
 test("inside: me first, then whoever is online, then the most recently seen; members without a creature stay out", () => {

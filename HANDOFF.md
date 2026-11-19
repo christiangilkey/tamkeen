@@ -15,7 +15,8 @@ Paste this into a new Claude session (Claude Code, working directory
 - **New features go in as prototypes first** (2026-11-18): hidden behind `feature("<id>")` and a row in
   `web/js/prototype.js`, on only in prototype mode (five quick taps on the version in Settings; the About heading
   in the web app). I try them myself, then tell you to release them for everyone (`released: true`). Waiting now:
-  "Type what you hear" (dictation) and the weekly battle rules without the element-only weeks (open_weeks).
+  none (all nine released in v0.63.0, 2026-11-18: dictation, open_weeks, move_variety, guild_tavern, battle_aim,
+  battle_race, key_fallback, word_pool, class_teachers).
 - **When you finish a piece of work, message "Temkeen Main Chat"** (SendMessage; ListAgents shows it). Give
   what it does in one or two plain sentences, the commit hashes (or the files changed if not committed),
   whether pytest and the JS tests pass, and what's unfinished. That chat commits and releases, and without

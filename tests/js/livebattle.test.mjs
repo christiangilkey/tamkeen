@@ -87,9 +87,9 @@ test("every move has a real-time form with its numbers", () => {
   for (const s of Object.keys(MOVE_STYLES)) assert.ok(LIVE_STYLE_TEXT[s], `the ${s} style is explained for live battles`);
   assert.equal(liveMove(moveById("zap")).form, "shot");
   assert.equal(liveMove(moveById("rockslide")).form, "drop");
-  assert.equal(liveMove(moveById("wildfire")).form, "burst");
+  assert.equal(liveMove(moveById("wildfire")).form, "cone"); // (a burst until the new shapes, v0.63.0)
   assert.equal(liveMove(moveById("seeker")).form, "homing");
-  assert.equal(liveMove(moveById("pounce")).form, "dash");
+  assert.equal(liveMove(moveById("pounce")).form, "slash"); // (a dash until the new shapes, v0.63.0)
   assert.equal(liveMove(moveById("dawn_ray")).form, "beam");
   assert.ok(liveMove(moveById("quick_jab")).cooldown < liveMove(moveById("tackle")).cooldown, "quick moves are ready again sooner");
 });
@@ -325,7 +325,8 @@ test("shots fly straight: step aside and they miss; boulders stop them", () => {
 
 test("a move is \"in range\" exactly when it would land: a still rival just inside its reach is hit, just outside is not", () => {
   // the owner: moves showed "Out of range" while the rival was in range (the button used one rough distance per move)
-  for (const id of ["tackle", "seeker", "dawn_ray", "wildfire", "rockslide", "charge"]) { // shot, homing, beam, burst, drop, dash
+  // (Wildfire and Charge, the burst and the dash, became a cone and a slam in v0.63.0: their reach is moveforms.test.mjs'.)
+  for (const id of ["tackle", "seeker", "dawn_ray", "rockslide"]) { // shot, homing, beam, drop
     for (const [ux, uy] of [[1, 0], [0, -1], [0.6, 0.8]]) {
       const reach = reachOf(liveMove(moveById(id)), ux, uy);
       for (const [d, lands] of [[reach - 3, true], [reach + 4, false]]) {
@@ -342,8 +343,9 @@ test("a move is \"in range\" exactly when it would land: a still rival just insi
     }
   }
   // the areas are wider than at first, then made "just a little smaller" (the owner)
-  assert.ok(liveMove(moveById("rockslide")).r >= 36 && liveMove(moveById("wildfire")).r >= 54 && liveMove(moveById("meteor")).r >= 54);
-  assert.ok(liveMove(moveById("rockslide")).r < 40 && liveMove(moveById("wildfire")).r < 62);
+  // (Wildfire, a round area until v0.63.0, is a cone now: moveforms.test.mjs.)
+  assert.ok(liveMove(moveById("rockslide")).r >= 36 && liveMove(moveById("meteor")).r >= 54);
+  assert.ok(liveMove(moveById("rockslide")).r < 40 && liveMove(moveById("meteor")).r < 62);
 });
 
 test("drops land where the rival stood, beams hit along a line, homing shots follow, dashes rush in", () => {

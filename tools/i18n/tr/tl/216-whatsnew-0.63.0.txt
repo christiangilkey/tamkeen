@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Isulat ang naririnig mo: may keyboard na buton sa bawat player na nagpapatugtog ng isang salita, isang pangungusap o ilan, at isusulat mo ang narinig mo
+1b98f8f0	Isang kard bawat salita: sinasabi ng salitang mayroon ka na kung saang mga folder ito naroon, at maaari itong ilagay sa iba
+a6c6658d	Mga live na laban: ikaw ang magtututok ng mga atake mo, at makipag-unahan sa kalaban sa tamang sagot
+553cc33a	Sampung bagong uri ng galaw sa laban sa tindahan, bawat isa may sariling larawan
+c7b126fa	Isang tavern ng guild sa Home, kung saan nagtitipon ang mga paboritong nilalang ng mga kasama mo sa guild
+984c0603	Kahit walang AI key, nauuna na ngayon ang pang-araw-araw na kahulugan ng salita
+e9de854e	Ang Mnemonic maker ay nagbibigay na lang ng salitang kapareho ang tunog, gaya ng MUR-DER
+534c7ecb	Laging nasa gitna ng bar ng player ang play na buton

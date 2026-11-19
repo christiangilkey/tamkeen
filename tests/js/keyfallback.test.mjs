@@ -22,7 +22,7 @@ test("the popup: keep the key, or use without one (No AI)", () => {
   assert.match(body, /if \(refusedTold === refusedKey\) return;/, "said once for a key");
 });
 
-test("a prototype: everyone else keeps the red note", async () => {
+test("released for everyone (released in v0.63.0, the owner, 2026-11-18)", async () => {
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
-  assert.equal(PROTOTYPES.key_fallback.released, false);
+  assert.equal(PROTOTYPES.key_fallback.released, true);
 });

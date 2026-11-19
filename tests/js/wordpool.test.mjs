@@ -39,8 +39,8 @@ test("the folders a card is in, by name", () => {
   assert.deepEqual(folderNames(null, folders), []);
 });
 
-test("it waits behind prototype mode until the owner releases it", () => {
-  assert.equal(PROTOTYPES.word_pool.released, false);
+test("released for everyone (released in v0.63.0, the owner, 2026-11-18); the code still asks feature(\"word_pool\")", () => {
+  assert.equal(PROTOTYPES.word_pool.released, true);
   const builder = read("web/js/components/wordbuilder.js");
   assert.match(builder, /rep\.saved && feature\("word_pool"\) \? cardFor\(mine\(\), row\.text, lang\)/);
   assert.match(builder, /\/vocab\/bulk-folders/, "Add words puts the card it has in the folders chosen");

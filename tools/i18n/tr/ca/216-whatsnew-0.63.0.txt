@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Escriu el que sents: un botó de teclat a cada reproductor fa sonar una paraula, una frase o unes quantes, i escrius el que has sentit
+1b98f8f0	Una targeta per paraula: una paraula que ja tens diu en quines carpetes és, i pot anar en una altra
+a6c6658d	Batalles en directe: apunta els teus atacs i competeix amb el rival per la resposta correcta
+553cc33a	Deu tipus nous de moviments de batalla a la botiga, cadascun amb el seu dibuix
+c7b126fa	Una taverna del gremi a l’Inici, on es reuneixen les criatures preferides dels companys del gremi
+984c0603	Sense clau d’IA, ara surt primer el significat de cada dia d’una paraula
+e9de854e	El creador de mnemotècnics ara només dona la paraula que sona igual, com MUR-DER
+534c7ecb	El botó de reproduir sempre es queda al mig de la barra del reproductor

@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Schreib, was du hörst: Eine Tastatur-Schaltfläche in jedem Player spielt ein Wort, einen Satz oder ein paar, und du schreibst, was du gehört hast
+1b98f8f0	Eine Karte pro Wort: Ein Wort, das du schon hast, zeigt, in welchen Ordnern es ist, und kann in einen weiteren
+a6c6658d	Live-Kämpfe: Ziele selbst mit deinen Angriffen und liefere dir mit dem Gegner ein Rennen um die richtige Antwort
+553cc33a	Zehn neue Arten von Kampfzügen im Laden, jede mit eigener Grafik
+c7b126fa	Eine Gildentaverne auf der Startseite, in der sich die Lieblingskreaturen deiner Gildenmitglieder versammeln
+984c0603	Ohne KI-Schlüssel kommt jetzt die alltägliche Bedeutung eines Wortes zuerst
+e9de854e	Der Eselsbrücken-Macher gibt jetzt nur das ähnlich klingende Wort, wie MUR-DER
+534c7ecb	Die Wiedergabetaste bleibt immer in der Mitte der Player-Leiste

@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Écris ce que tu entends : un bouton clavier dans chaque lecteur joue un mot, une phrase ou quelques-unes, et tu écris ce que tu as entendu
+1b98f8f0	Une carte par mot : un mot que tu as déjà indique dans quels dossiers il est, et peut aller dans un autre
+a6c6658d	Combats en direct : vise toi-même tes attaques, et fais la course avec le rival pour la bonne réponse
+553cc33a	Dix nouveaux types de mouvements de combat dans la boutique, chacun avec son propre dessin
+c7b126fa	Une taverne de guilde sur l’Accueil, où se réunissent les créatures préférées de tes compagnons de guilde
+984c0603	Sans clé d’IA, le sens courant d’un mot vient désormais en premier
+e9de854e	Le créateur de moyens mnémotechniques ne donne plus que le mot qui sonne pareil, comme MUR-DER
+534c7ecb	Le bouton lecture reste toujours au milieu de la barre du lecteur

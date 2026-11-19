@@ -1,0 +1,9 @@
+# What's new in v0.63.0 (web/js/whatsnew.js).
+a983d561	Escribe lo que oyes: un botón de teclado en cada reproductor reproduce una palabra, una frase o unas pocas, y escribes lo que oíste
+1b98f8f0	Una tarjeta por palabra: una palabra que ya tienes dice en qué carpetas está y puede ir en otra
+a6c6658d	Batallas en vivo: apunta tú mismo tus ataques y compite con el rival por la respuesta correcta
+553cc33a	Diez tipos nuevos de movimientos de batalla en la tienda, cada uno con su propio dibujo
+c7b126fa	Una taberna del gremio en Inicio, donde se reúnen las criaturas favoritas de tus compañeros de gremio
+984c0603	Sin clave de IA, ahora aparece primero el significado cotidiano de una palabra
+e9de854e	El creador de mnemotecnias ahora da solo la palabra que suena parecido, como MUR-DER
+534c7ecb	El botón de reproducir siempre se queda en el centro de la barra del reproductor
