@@ -42,7 +42,7 @@ import { sentenceStart } from "../sentencestart.js";
 import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { wordHtml } from "../wordface.js";
-import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
+import { displayWords, paintWords, watchVowels } from "../vowels.js";
 import { wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
@@ -1033,15 +1033,14 @@ export async function render(view, { id, query }) {
   // under the captions when a caption word was tapped (see defineAt).
   // Quick or detailed lookup: the switch sits with the play controls (podcasts, videos, YouTube).
   $("#speed").after(lookupToggle());
-  // Arabic: the vowels switch (vowels.js), and the vowels themselves once the computer has made them.
+  // Arabic: the vowels themselves once the computer has made them (vowels.js). Showing them is Settings' switch: the
+  // player's own button was taken out (the owner, 2026-11-18: "remove it").
   const redrawVowels = () => {
     shown = displayWords(texts, vowels, (i) => segOf[i]);
     paintWords(wordEls, shown);
     if (capStart >= 0) paintWords(capEls, shown, capStart);
   };
-  const vowelsBtn = vowelsButton(lang, redrawVowels, () => vowels);
-  if (vowelsBtn) $("#font-down").before(vowelsBtn);
-  const stopVowels = watchVowels(id, (v) => { vowels = v; redrawVowels(); if (vowelsBtn) vowelsBtn.repaint(); });
+  const stopVowels = watchVowels(id, (v) => { vowels = v; redrawVowels(); });
   // Misheard words, put right in the transcript when a lookup finds them (fixword.js). Only where
   // the words on screen are the stored ones (not Japanese or Chinese, regrouped for display).
   const fixer = wordFixer({
@@ -1263,6 +1262,8 @@ export async function render(view, { id, query }) {
     });
     playerEl.classList.add("dictating");
     $(".controls").before(dict.el);
+    // The bar's buttons and the head's leave the box focused (the keyboard button puts it away, as before).
+    dict.keepTyping([$(".controls"), $(".player-head .row")], { except: [dictBtn] });
     dictBtn.paint(true);
     unArrow = arrowButtons($("#back5"), $("#fwd5")); // (back and forward step by the piece meanwhile)
   }
@@ -1329,7 +1330,6 @@ export async function render(view, { id, query }) {
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));
     else if (vid && (e.key === "c" || e.key === "C")) setCaptions(playerEl.classList.contains("cc-off"));
     else if (vid && (e.key === "f" || e.key === "F") && document.fullscreenEnabled) toggleFullscreen();
-    else if (vowelsBtn && (e.key === "v" || e.key === "V") && !e.ctrlKey && !e.metaKey) vowelsBtn.click();
   };
   document.addEventListener("keydown", onKey);
 

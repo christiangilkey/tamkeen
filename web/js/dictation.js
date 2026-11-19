@@ -242,3 +242,21 @@ export function caughtWords(realText, typedText, lang) {
 
 /** A result as a share of the sentence, 0..1: a nearly-right word counts half. */
 export const shareRight = (r) => (r.total ? (r.right + r.near / 2) / r.total : 0);
+
+// ---------- the player's speed menu while typing ----------
+
+/** A drop-down's next choice (the last goes round to the first), as if chosen from its list: while the typing box
+ * is in use, a tap on the player's speed menu steps instead of opening the list (components/dictation.js keepTyping). */
+export function stepChoice(sel) {
+  const opts = [...sel.options];
+  if (!opts.length) return;
+  for (let j = 1; j <= opts.length; j++) {
+    const o = opts[(sel.selectedIndex + j) % opts.length];
+    if (o.disabled || o.hidden) continue;
+    if (o.selected) return;
+    o.selected = true;
+    sel.dispatchEvent(new Event("input", { bubbles: true }));
+    sel.dispatchEvent(new Event("change", { bubbles: true }));
+    return;
+  }
+}

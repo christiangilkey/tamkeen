@@ -22,7 +22,7 @@ import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { wordHtml } from "../wordface.js";
-import { displayWords, paintWords, vowelsButton } from "../vowels.js";
+import { displayWords, paintWords } from "../vowels.js";
 import { clipEnded, wordClip } from "../wordclip.js";
 import { phrasePicker } from "../components/phrasepick.js";
 import { isPhrase, phraseText } from "../phrase.js";
@@ -610,14 +610,11 @@ async function renderPlayer(view, { query }) {
   // has no controls row.
   if (surface) $("#rc-left").append(lookupToggle({ compact: true }));
   else $("#reel-prev").before(lookupToggle());
-  // Arabic reels: the vowels switch beside it (vowels.js), and their vowels once the computer has made them.
+  // Arabic reels: their vowels once the computer has made them (vowels.js). Showing them is Settings' switch: the
+  // players' own button was taken out (the owner, 2026-11-18: "remove it").
   const redrawVowels = () => {
     if (cur) paintWords(cur.els, displayWords(cur.texts, cur.vowels, (i) => cur.segOf[i]));
   };
-  const vowelsBtn = vowelsButton("ar", redrawVowels, () => cur && cur.vowels);
-  vowelsBtn.hidden = true;
-  if (surface) $("#rc-left").append(vowelsBtn);
-  else $("#reel-prev").before(vowelsBtn);
   // "Type what you hear" (dictation: components/dictation.js), beside it, where reels play (the phones and the web
   // app): the words bar gives way to a box, one word, sentence or few sentences of the reel play at a time, the
   // learner types them and then sees what was said above what they typed. After the last, Next reel carries on.
@@ -655,6 +652,8 @@ async function renderPlayer(view, { query }) {
     });
     view.querySelector(".reelplay").classList.add("dictating");
     $("#reel-controls").before(dict.el);
+    // The controls' buttons leave the box focused (the keyboard button puts it away, as before).
+    dict.keepTyping([$("#reel-controls")], { except: [dictBtn] });
     dictBtn.paint(true);
     unArrow = arrowButtons($("#rc-back"), $("#rc-fwd")); // (back and forward step by the piece meanwhile)
   }
@@ -663,7 +662,7 @@ async function renderPlayer(view, { query }) {
     if (!reel || !d || String(d.episode_id) !== String(reel.ep.id)) return;
     try {
       const r = await api(`/episodes/${reel.ep.id}/vowels`);
-      if (r && r.vowels && cur === reel) { reel.vowels = r.vowels; redrawVowels(); vowelsBtn.repaint(); }
+      if (r && r.vowels && cur === reel) { reel.vowels = r.vowels; redrawVowels(); }
     } catch { /* shown next time */ }
   });
   // Send the reel being watched to a friend (components/sendmedia.js): the paper-airplane button
@@ -845,8 +844,6 @@ async function renderPlayer(view, { query }) {
         // every form of that word "seen" (js/lexicon/seen.js).
         seen = seenWords({ tokens: W.text, lang, els: cur.els });
       }
-      vowelsBtn.hidden = !cur || cur.lang !== "ar";
-      vowelsBtn.repaint();
       if (dictOn && cur && !dict) { openDictation(false); dictWaiting = !!dict; } // (its first piece plays once the reel is loaded)
     }
     if (!surface) {

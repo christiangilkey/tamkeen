@@ -9,7 +9,9 @@
 //   - Gist: 2–5 sentences play in a row (they choose how many); they write what they heard (the words they
 //     caught, or what it was about, in any language) and then see everything that was said, the words they
 //     caught marked.
-// Next plays the next one. The comparing is web/js/dictation.js; the player the panel sits in plays the pieces
+// The round button right of the three (a check mark, then an arrow) checks what was typed, then goes on: up there,
+// a phone's keyboard never covers it. While typing, the player's own buttons (play, pause, the arrows, speed) leave
+// the box focused, so the keyboard stays up (keepTyping). Next plays the next one. The comparing is web/js/dictation.js; the player the panel sits in plays the pieces
 // (`play(unit)`), so the same panel serves every player with sound: podcasts, audiobooks, your own audio and
 // videos, YouTube, Netflix, reels and courses.
 
@@ -17,8 +19,9 @@ import { esc, h } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { langAttrs } from "../languages.js";
-import { GIST_SIZES, caughtWords, compareTyped, passages, shareRight } from "../dictation.js";
+import { GIST_SIZES, caughtWords, compareTyped, passages, shareRight, stepChoice } from "../dictation.js";
 import { feature } from "../prototype.js";
+import { selectAt } from "./selectsheet.js";
 
 // Not released yet: the owner tests it first (2026-11-17, v0.61.0 went out without it). Hidden everywhere (the
 // players' button, the W key, the controller's option, the courses' button) unless this device is in prototype
@@ -75,6 +78,9 @@ const MODE_NAMES = { word: "Word", sentence: "Sentence", gist: "Gist" };
 export function dictationPanel({ words = null, sentences = null, gist = false, lang, from = null, startIndex = {}, play,
   stop = () => {}, slow = null, end = null, autoplay = true, onMove = () => {}, onClose = () => {} }) {
   const attrs = langAttrs(lang);
+  // The typing box takes its direction from what is in it: an English hint in a right-to-left box was cut off at the
+  // edge on Android (the owner, 2026-11-18), and a gist may be written in any language.
+  const boxAttrs = attrs.replace(/dir="[^"]*"/, `dir="auto"`);
   const offered = [words && words.length ? "word" : "", sentences && sentences.length ? "sentence" : "",
     gist && sentences && sentences.length > 1 ? "gist" : ""].filter(Boolean);
   const el = h(`<section class="dict" aria-label="Type what you hear">
@@ -83,9 +89,12 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
       <div class="dict-headtext"><b>Type what you hear</b><span class="dict-count small muted"></span></div>
       <button type="button" class="ghost dict-close" title="Back to the words" aria-label="Back to the words">${icon("close", 18)}</button>
     </div>
-    <div class="dict-modes" ${offered.length > 1 ? "" : "hidden"}>
-      <div class="dict-seg" role="radiogroup" aria-label="How much at a time">
-        ${offered.map((m) => `<button type="button" role="radio" aria-checked="false" data-mode="${m}">${MODE_NAMES[m]}</button>`).join("")}
+    <div class="dict-modes" ${offered.length ? "" : "hidden"}>
+      <div class="dict-line">
+        <div class="dict-seg" role="radiogroup" aria-label="How much at a time" ${offered.length > 1 ? "" : "hidden"}>
+          ${offered.map((m) => `<button type="button" role="radio" aria-checked="false" data-mode="${m}">${MODE_NAMES[m]}</button>`).join("")}
+        </div>
+        <button type="button" class="primary dict-go" title="Check" aria-label="Check">${icon("check", 20)}</button>
       </div>
       <div class="dict-sizes" role="radiogroup" aria-label="Sentences at a time" hidden>
         <span class="small muted">Sentences:</span>
@@ -94,14 +103,12 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     </div>
     <div class="dict-body">
       <div class="dict-real ar" ${attrs} translate="no" hidden></div>
-      <textarea class="dict-input ar" ${attrs} rows="2" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
+      <textarea class="dict-input ar" ${boxAttrs} rows="2" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
       <div class="dict-yours ar" ${attrs} translate="no" hidden></div>
       <p class="dict-score" hidden></p>
       <div class="dict-actions">
         <button type="button" class="dict-again">${icon("sound", 16)} Hear it again</button>
         ${slow ? `<button type="button" class="ghost dict-slow" aria-pressed="false" title="Play it slower">Slower</button>` : ""}
-        <span class="spacer"></span>
-        <button type="button" class="primary dict-go">Check</button>
       </div>
       <p class="dict-hint small muted"></p>
     </div>
@@ -132,6 +139,14 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   const timed = (list) => list.length > 0 && Number.isFinite(list[0].start);
   const firstAfter = (list, time) => Math.max(0, list.findIndex((u) => u.end > time + 0.05));   // (the one being heard)
   const firstFrom = (list, time) => Math.max(0, list.findIndex((u) => u.start >= time - 0.05));  // (word times overlap a little)
+
+  /** The round button: "check" (what was typed), "next" or "finish" (once it has been checked). */
+  function paintGo(face) {
+    const label = face === "check" ? t("Check") : face === "next" ? t("Next") : t("Finish");
+    go.innerHTML = icon(face === "check" ? "check" : "chevron", 20);
+    go.title = label;
+    go.setAttribute("aria-label", label);
+  }
 
   function unitsOf(m) {
     if (m === "word") return words || [];
@@ -192,7 +207,8 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     $(".dict-score").hidden = true;
     input.hidden = false;
     input.value = "";
-    go.textContent = t("Check");
+    go.hidden = false;
+    paintGo("check");
     paintCount();
     input.focus({ preventScroll: true });
     input.scrollIntoView({ block: "nearest" });
@@ -233,10 +249,10 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     }
     score.classList.toggle("all", !gistNow && all);
     score.hidden = false;
-    go.textContent = k + 1 < units.length ? t("Next") : t("Finish");
+    paintGo(k + 1 < units.length ? "next" : "finish");
     paintCount();
     go.focus({ preventScroll: true });
-    go.scrollIntoView({ block: "nearest" }); // (a long gist pushes the buttons down)
+    $(".dict-modes").scrollIntoView({ block: "nearest" }); // (the button, and what was said just under it)
   }
 
   function finish() {
@@ -245,6 +261,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     const avg = done.length ? Math.round((done.reduce((a, b) => a + b, 0) / done.length) * 100) : 0;
     $(".dict-body").hidden = true;
     $(".dict-done").hidden = false;
+    go.hidden = true;
     $(".dict-done-score").textContent = mode === "gist" ? t("Finished: {0} parts listened to.", done.length)
       : mode === "word" ? t("Finished: {0}% right over {1} words.", avg, done.length)
       : t("Finished: {0}% right over {1} sentences.", avg, done.length);
@@ -291,11 +308,65 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   });
   // On a phone the keyboard covers half the screen: the box stays where it can be seen.
   input.addEventListener("focus", () => setTimeout(() => { if (!closed) el.scrollIntoView({ block: "nearest" }); }, 300));
+  // ---- keeping the keyboard up (the owner, 2026-11-18: "I don't want pressing the play or pause button, or any of
+  // the buttons on the player bar OTHER THAN pressing the transcription button again ... to get rid of the user's on
+  // screen keyboard, so they can seamlessly transcribe while listening") ----
+  // While the box has the focus, a press on a button in `bars` doesn't take it: the press's mousedown (also sent
+  // after a tap) is cancelled, which is what moves the focus. A browser that moves it anyway gets it back as the
+  // press ends (still part of the tap, so a phone shows its keyboard again). A drop-down there (speed) steps to its
+  // next choice instead of opening its list, which would cover the keyboard or put it away. Buttons in `except`
+  // (the keyboard button, which puts the panel away) and the seek slider work as before.
+  const offs = [];
+  const typing = () => !closed && !input.hidden && document.activeElement === input;
+  function keepTyping(bars, { except = [] } = {}) {
+    bars = bars.filter(Boolean);
+    const inBars = (x) => bars.some((b) => b.contains(x));
+    const controlAt = (e) => {
+      const t0 = e.target instanceof Element ? e.target : null;
+      if (!t0 || !inBars(t0)) return null;
+      // (On a touch screen a drop-down takes no taps itself, selectsheet.js: the tap lands on what holds it.)
+      const c = t0.closest("button, select") || selectAt(e.clientX, e.clientY, t0);
+      return c && inBars(c) && !c.disabled && !except.some((x) => x && x.contains(c)) ? c : null;
+    };
+    let pressed = null; // the control pressed while typing
+    let refocus = false;
+    const back = () => {
+      if (closed || input.hidden || document.activeElement === input) return;
+      const a = document.activeElement;
+      if (a && a !== document.body && !inBars(a)) return; // something else took it on purpose (a menu, a sheet)
+      input.focus({ preventScroll: true });
+    };
+    const onPointer = (e) => { pressed = typing() ? controlAt(e) : null; };
+    const onMouse = (e) => { if (pressed && controlAt(e) === pressed) e.preventDefault(); };
+    const onClickFirst = (e) => {
+      const c = pressed;
+      pressed = null;
+      refocus = false;
+      if (!c || controlAt(e) !== c) return;
+      if (c instanceof HTMLSelectElement) {
+        e.preventDefault();
+        e.stopPropagation();
+        stepChoice(c);
+        back();
+        return;
+      }
+      refocus = true; // (once the button has done its job: onClickLast)
+    };
+    const onClickLast = () => { if (refocus) { refocus = false; back(); } };
+    const on = (type, fn, capture) => { window.addEventListener(type, fn, capture); offs.push(() => window.removeEventListener(type, fn, capture)); };
+    on("pointerdown", onPointer, true);
+    on("mousedown", onMouse, true);
+    on("click", onClickFirst, true);  // (before the drop-downs' own list opens: selectsheet.js listens on the document)
+    on("click", onClickLast, false);
+  }
+  keepTyping([$(".dict-modes"), $(".dict-body .dict-actions")]); // the panel's own buttons too
+
   $(".dict-restart").onclick = () => { scores[mode].clear(); show(0); };
   $(".dict-end").onclick = () => end && end.run();
   const close = () => {
     if (closed) return;
     closed = true;
+    for (const off of offs.splice(0)) off();
     stop();
     if (slowed && slow) slow(false);
     el.remove();
@@ -315,6 +386,9 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   return {
     el,
     close,
+    /** The player's own bars (play, pause, the arrows, speed…): pressing their buttons leaves the box focused.
+     *  `except`: the buttons that may take the focus (the keyboard button). Undone when the panel is put away. */
+    keepTyping,
     active: () => !closed && Date.now() - used < 30000,
     /** The piece playing again (the player's own key for it while the panel is open). */
     again: () => { if (!closed && units.length) $(".dict-again").click(); },

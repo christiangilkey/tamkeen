@@ -158,3 +158,68 @@ test("while typing, back and forward step by the piece (the owner, 2026-11-18), 
   assert.match(player, /unArrow = arrowButtons\(\$\("#back5"\), \$\("#fwd5"\)\);/);
   assert.ok(/onClose: \(\) => \{[\s\S]{0,400}unArrow\(\);/.test(player), "the 5-second buttons come back when typing ends");
 });
+
+test("the check is a round button right of Word · Sentence · Gist, where a phone's keyboard never covers it (the owner, 2026-11-18)", () => {
+  const panel = readFileSync(new URL("../../web/js/components/dictation.js", import.meta.url), "utf8");
+  const line = panel.slice(panel.indexOf('<div class="dict-line">'), panel.indexOf('<div class="dict-sizes"'));
+  assert.ok(line.indexOf('class="dict-seg"') < line.indexOf('class="primary dict-go"'), "right of the three");
+  assert.match(line, /class="primary dict-go" title="Check" aria-label="Check">\$\{icon\("check", 20\)\}/);
+  assert.doesNotMatch(panel.slice(panel.indexOf('<div class="dict-body">'), panel.indexOf('<div class="dict-done"')), /dict-go/, "no longer under the box");
+  assert.match(panel, /<div class="dict-modes" \$\{offered\.length \? "" : "hidden"\}>/, "shown with a single way too (a course's)");
+  assert.match(panel, /paintGo\(k \+ 1 < units\.length \? "next" : "finish"\)/, "then an arrow: Next, or Finish");
+  const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
+  assert.match(css, /\.dict-go \{[^}]*border-radius: 50%/);
+});
+
+test("while typing, the player bar's buttons leave the box focused; the keyboard button still puts it away", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  const panel = src("../../web/js/components/dictation.js");
+  assert.match(panel, /const onMouse = \(e\) => \{ if \(pressed && controlAt\(e\) === pressed\) e\.preventDefault\(\); \};/, "the press doesn't take the focus");
+  assert.match(panel, /on\("click", onClickFirst, true\);/, "a drop-down (speed) steps before its list can open");
+  assert.match(panel, /t0\.closest\("button, select"\)/, "buttons and drop-downs only: the seek slider works as before");
+  assert.match(panel, /for \(const off of offs\.splice\(0\)\) off\(\);/, "undone when the panel is put away");
+  assert.match(src("../../web/js/pages/player.js"), /dict\.keepTyping\(\[\$\("\.controls"\), \$\("\.player-head \.row"\)\], \{ except: \[dictBtn\] \}\);/);
+  assert.match(src("../../web/js/pages/reels.js"), /dict\.keepTyping\(\[\$\("#reel-controls"\)\], \{ except: \[dictBtn\] \}\);/);
+});
+
+test("while typing, a tap on the speed menu gives the next speed (its list would cover the keyboard)", async () => {
+  const { stepChoice } = await import("../../web/js/dictation.js");
+  const menu = (values, at, off = []) => {
+    const options = values.map((v, i) => ({ value: v, selected: i === at, disabled: off.includes(v), hidden: false }));
+    const sent = [];
+    const sel = { options, get selectedIndex() { return options.findIndex((o) => o.selected); },
+      dispatchEvent: (e) => sent.push(e.type) };
+    for (const o of options) {
+      let on = o.selected;
+      Object.defineProperty(o, "selected", { get: () => on, set: (x) => { if (x) for (const p of options) if (p !== o) p.selected = false; on = !!x; } });
+    }
+    return { sel, sent, value: () => options[sel.selectedIndex].value };
+  };
+  const a = menu(["0.75", "1", "1.25"], 1);
+  stepChoice(a.sel);
+  assert.equal(a.value(), "1.25");
+  assert.deepEqual(a.sent, ["input", "change"], "as if chosen from its list");
+  stepChoice(a.sel);
+  assert.equal(a.value(), "0.75", "the last goes round to the first");
+  const b = menu(["0.75", "1", "1.25"], 0, ["1"]);
+  stepChoice(b.sel);
+  assert.equal(b.value(), "1.25", "one that can't be chosen is passed over");
+});
+
+test("the typing box takes its direction from what is in it, and its hint is in the app's font (cut off on Android, the owner, 2026-11-18)", () => {
+  const panel = readFileSync(new URL("../../web/js/components/dictation.js", import.meta.url), "utf8");
+  assert.match(panel, /const boxAttrs = attrs\.replace\(\/dir="\[\^"\]\*"\/, `dir="auto"`\);/);
+  assert.match(panel, /<textarea class="dict-input ar" \$\{boxAttrs\}/);
+  const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
+  assert.match(css, /\.dict-input::placeholder \{ font-family: var\(--ui-font\);[^}]*text-align: center; \}/);
+});
+
+test("the players have no vowels button (Settings' switch shows the marks) and play stays in the middle of the bar (the owner, 2026-11-18)", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  for (const f of ["../../web/js/pages/player.js", "../../web/js/pages/reels.js"]) assert.doesNotMatch(src(f), /vowelsButton|vowelsBtn/, f);
+  const reels = src("../../web/css/reels.css");
+  assert.match(reels, /\.rc-btnrow \{ display: grid; grid-template-columns: minmax\(0, 1fr\) auto minmax\(0, 1fr\);/, "the reels bar's ends are the same width");
+  const media = src("../../web/css/media.css");
+  assert.match(media, /\.player \.btnrow \{ display: grid; grid-template-columns: 1fr auto auto auto 1fr; \}/);
+  assert.match(media, /\.player \.btnrow #play \{ grid-column: 3; \}/, "the middle of five columns, the outer two the same width");
+});
