@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Substantiv
+33817a63	Verb
+39e85465	Adjektiv
+7915daba	Adverb
+f01f76f5	Pronomen
+c79ca7ec	Artikelwort
+c31466ff	Ausruf
+ba1dd0b6	Partikel
+b7baa1d4	Zahl
+46bdef07	Welche Bedeutung?
+8c021d19	Welche Bedeutungen?
+859b2dc5	Dieses Wort hat mehr als eine Bedeutung. Für welche ist die Karte?
+c3328977	Diese Wörter haben mehr als eine Bedeutung. Für welche ist jede Karte?
+573e5011	Bedeutung von {0}
+d8aa33f5	Alle diese
+3cde8643	Meine eigene Bedeutung
+ecdc356f	Bedeutung eintippen
+9d8e886f	Deine eigene Bedeutung für {0}
+c7d93472	Karte hinzufügen
+8834e61f	Karten hinzufügen
+8dbef4a2	Nichts wurde hinzugefügt. Wähle die Bedeutungen und tippe dann noch einmal auf Hinzufügen.

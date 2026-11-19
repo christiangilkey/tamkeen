@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Nombre
+33817a63	Berbo
+39e85465	Adhetibo
+7915daba	Adberbyo
+f01f76f5	Pronombre
+c79ca7ec	Determiner
+c31466ff	Eksklamasyon
+ba1dd0b6	Partikula
+b7baa1d4	Numero
+46bdef07	Unsang kahulogan?
+8c021d19	Unsang mga kahulogan?
+859b2dc5	Kapin sa usa ang kahulogan niining pulonga. Para asa ang card?
+c3328977	Kapin sa usa ang kahulogan niining mga pulonga. Para asa ang matag card?
+573e5011	Kahulogan sa {0}
+d8aa33f5	Kining tanan
+3cde8643	Akong kaugalingong kahulogan
+ecdc356f	I-type ang kahulogan
+9d8e886f	Imong kaugalingong kahulogan para sa {0}
+c7d93472	Idugang ang card
+8834e61f	Idugang ang mga card
+8dbef4a2	Walay nadugang. Pilia ang mga kahulogan, dayon pindota pag-usab ang Idugang.

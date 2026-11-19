@@ -367,13 +367,21 @@ export const BATCH_SCHEMA = {
   additionalProperties: false,
 };
 
+/** BATCH_SCHEMA with each card's other meanings too ("senses"), for Add words' "Which meaning?" (prototype sense_choice). */
+export const SENSES_SCHEMA = (() => {
+  const card = BATCH_SCHEMA.properties.cards.items;
+  return { ...BATCH_SCHEMA, properties: { cards: { ...BATCH_SCHEMA.properties.cards, items: { ...card,
+    properties: { ...card.properties, senses: { type: "array", items: { type: "string" }, description: "The word's clearly different meanings, commonest first; [] when it has one." } },
+    required: [...card.required, "senses"] } } } };
+})();
+
 /**
  * The question for one request. `items`: [{word, meaning, sentence, phrase, want: {meaning, sentence,
  * translation}}] (meaning and sentence: what the card already has, so the sentence uses that sense
  * and a translation translates that sentence; `phrase`: several words learned together, explained as
  * one unit). `study` and `speaks` are language names in English.
  */
-export function batchPrompt(items, { study = "Arabic", speaks = "English" } = {}) {
+export function batchPrompt(items, { study = "Arabic", speaks = "English", senses = false } = {}) {
   const phrases = (items || []).some((it) => it.phrase)
     ? `\nA "phrase:" line is several words learned together (a set phrase, idiom, greeting or collocation). Its "meaning" is what the whole phrase means as one unit, the way a native speaker understands it, never its words translated one by one. Its "sentence" uses the whole phrase, in a form natives use.`
     : "";
@@ -387,7 +395,7 @@ export function batchPrompt(items, { study = "Arabic", speaks = "English" } = {}
 - be short and clear for a beginner to intermediate learner (about 5 to 12 words), written in ${study}'s usual everyday script, as natives write it.
 Before answering, check each sentence: would a native speaker say it just like this, and does it make sense? If not, rewrite it until it does.
 "translation": the sentence (the one given, or the one you wrote) in natural, everyday ${speaks} (the meaning, not word for word), with ⟦ ⟧ round the part that translates the word.
-Answer with JSON only: {"cards": [...]}, one entry per word, in the same order, with "word" exactly as given.`;
+${senses ? `"senses": when a word you give a meaning for has two or more clearly different everyday meanings (not synonyms of one meaning), each of them in a few ${speaks} words, the commonest first, with its part of speech in brackets when they differ, as "(verb)"; [] when it has only one.\n` : ""}Answer with JSON only: {"cards": [...]}, one entry per word, in the same order, with "word" exactly as given.`;
   const lines = (items || []).map((it, i) => {
     const asks = ["meaning", "sentence", "translation"].filter((k) => it.want && it.want[k]);
     const parts = [`${i + 1}. ${it.phrase ? "phrase" : "word"}: ${it.word}`, `fill in: ${asks.join(", ") || "nothing"}`];
@@ -395,7 +403,7 @@ Answer with JSON only: {"cards": [...]}, one entry per word, in the same order, 
     if (it.sentence) parts.push(`sentence: ${it.sentence}`);
     return parts.join(" | ");
   });
-  return { system, user: lines.join("\n"), schema: BATCH_SCHEMA };
+  return { system, user: lines.join("\n"), schema: senses ? SENSES_SCHEMA : BATCH_SCHEMA };
 }
 
 /** The JSON in a model's answer, whatever came round it (a sentence before, ``` fences): the object or
@@ -453,6 +461,8 @@ export function readBatch(answer, items) {
     let translation = tidy(entry.translation, 1000);
     if (!MARKED.test(translation)) translation = translation.replace(/[⟦⟧]/g, "");
     const out = {
+      // (the word's clearly different meanings, when asked for: batchPrompt senses)
+      ...(Array.isArray(entry.senses) && want.meaning ? { senses: entry.senses.map((x) => tidy(x, 120)).filter(Boolean).slice(0, 6) } : {}),
       meaning: want.meaning ? tidy(entry.meaning, 300).replace(/[⟦⟧]/g, "") : "",
       sentence: want.sentence ? tidy(entry.sentence, 600).replace(/[⟦⟧]/g, "") : "",
       translation: want.translation ? translation : "",

@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	명사
+33817a63	동사
+39e85465	형용사
+7915daba	부사
+f01f76f5	대명사
+c79ca7ec	한정사
+c31466ff	감탄사
+ba1dd0b6	조사
+b7baa1d4	수사
+46bdef07	어떤 뜻?
+8c021d19	어떤 뜻들?
+859b2dc5	이 단어는 뜻이 여러 개예요. 카드를 어떤 뜻으로 만들까요?
+c3328977	이 단어들은 뜻이 여러 개예요. 각 카드를 어떤 뜻으로 만들까요?
+573e5011	{0}의 뜻
+d8aa33f5	모두
+3cde8643	내가 정한 뜻
+ecdc356f	뜻 입력
+9d8e886f	{0}에 대한 나만의 뜻
+c7d93472	카드 추가
+8834e61f	카드 추가
+8dbef4a2	아무것도 추가되지 않았어요. 뜻을 고른 뒤 추가를 다시 누르세요.

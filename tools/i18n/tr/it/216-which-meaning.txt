@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Sostantivo
+33817a63	Verbo
+39e85465	Aggettivo
+7915daba	Avverbio
+f01f76f5	Pronome
+c79ca7ec	Determinante
+c31466ff	Esclamazione
+ba1dd0b6	Particella
+b7baa1d4	Numero
+46bdef07	Quale significato?
+8c021d19	Quali significati?
+859b2dc5	Questa parola ha più di un significato. Per quale è la scheda?
+c3328977	Queste parole hanno più di un significato. Per quale è ogni scheda?
+573e5011	Significato di {0}
+d8aa33f5	Tutti questi
+3cde8643	Il mio significato
+ecdc356f	Scrivi il significato
+9d8e886f	Il tuo significato per {0}
+c7d93472	Aggiungi la scheda
+8834e61f	Aggiungi le schede
+8dbef4a2	Non è stato aggiunto nulla. Scegli i significati, poi premi di nuovo Aggiungi.

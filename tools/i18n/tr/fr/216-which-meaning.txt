@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Nom
+33817a63	Verbe
+39e85465	Adjectif
+7915daba	Adverbe
+f01f76f5	Pronom
+c79ca7ec	Déterminant
+c31466ff	Interjection
+ba1dd0b6	Particule
+b7baa1d4	Nombre
+46bdef07	Quel sens ?
+8c021d19	Quels sens ?
+859b2dc5	Ce mot a plusieurs sens. Pour lequel est la carte ?
+c3328977	Ces mots ont plusieurs sens. Pour lequel est chaque carte ?
+573e5011	Sens de {0}
+d8aa33f5	Tous ceux-ci
+3cde8643	Mon propre sens
+ecdc356f	Tapez le sens
+9d8e886f	Votre propre sens pour {0}
+c7d93472	Ajouter la carte
+8834e61f	Ajouter les cartes
+8dbef4a2	Rien n'a été ajouté. Choisissez les sens, puis appuyez de nouveau sur Ajouter.

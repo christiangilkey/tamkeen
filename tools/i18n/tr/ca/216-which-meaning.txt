@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Nom
+33817a63	Verb
+39e85465	Adjectiu
+7915daba	Adverbi
+f01f76f5	Pronom
+c79ca7ec	Determinant
+c31466ff	Exclamació
+ba1dd0b6	Partícula
+b7baa1d4	Nombre
+46bdef07	Quin significat?
+8c021d19	Quins significats?
+859b2dc5	Aquesta paraula té més d'un significat. Per a quin és la targeta?
+c3328977	Aquestes paraules tenen més d'un significat. Per a quin és cada targeta?
+573e5011	Significat de {0}
+d8aa33f5	Tots aquests
+3cde8643	El meu propi significat
+ecdc356f	Escriu el significat
+9d8e886f	El teu propi significat per a {0}
+c7d93472	Afegeix la targeta
+8834e61f	Afegeix les targetes
+8dbef4a2	No s'ha afegit res. Tria els significats i torna a prémer Afegeix.

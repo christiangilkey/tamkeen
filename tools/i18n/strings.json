@@ -8235,6 +8235,121 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
+  "id": "4ac73437",
+  "k": "Noun",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "33817a63",
+  "k": "Verb",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "39e85465",
+  "k": "Adjective",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "7915daba",
+  "k": "Adverb",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "f01f76f5",
+  "k": "Pronoun",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "c79ca7ec",
+  "k": "Determiner",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "ad3287cc",
+  "k": "Preposition",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "8458445d",
+  "k": "Conjunction",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "c31466ff",
+  "k": "Exclamation",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "ba1dd0b6",
+  "k": "Particle",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "25eaeaa8",
+  "k": "Phrase",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "b7baa1d4",
+  "k": "Number",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "46bdef07",
+  "k": "Which meaning?",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "8c021d19",
+  "k": "Which meanings?",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "859b2dc5",
+  "k": "This word has more than one meaning. Which one is the card for?",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "c3328977",
+  "k": "These words have more than one meaning. Which one is each card for?",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "573e5011",
+  "k": "Meaning of {0}",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "d8aa33f5",
+  "k": "All of these",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "3cde8643",
+  "k": "My own meaning",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "ecdc356f",
+  "k": "Type the meaning",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "9d8e886f",
+  "k": "Your own meaning for {0}",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "c7d93472",
+  "k": "Add the card",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
+  "id": "8834e61f",
+  "k": "Add the cards",
+  "f": "web/js/components/sensechoice.js"
+ },
+ {
   "id": "f3534216",
   "k": "Get the app",
   "f": "web/js/components/settingsui.js"
@@ -9985,11 +10100,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "25eaeaa8",
-  "k": "Phrase",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "859533fe",
   "k": "Play this word again",
   "f": "web/js/components/wordbubble.js"
@@ -10672,6 +10782,11 @@
  {
   "id": "1d786947",
   "k": "{0} of the cards need a look (the red notes). Press Add again to add them as they are.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "8dbef4a2",
+  "k": "Nothing was added. Choose the meanings, then press Add again.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -27617,16 +27732,6 @@
  {
   "id": "4360c2dc",
   "k": "Article",
-  "f": "web/js/review/wordcore.js"
- },
- {
-  "id": "8458445d",
-  "k": "Conjunction",
-  "f": "web/js/review/wordcore.js"
- },
- {
-  "id": "ad3287cc",
-  "k": "Preposition",
   "f": "web/js/review/wordcore.js"
  },
  {

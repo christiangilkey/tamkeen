@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	名词
+33817a63	动词
+39e85465	形容词
+7915daba	副词
+f01f76f5	代词
+c79ca7ec	限定词
+c31466ff	感叹词
+ba1dd0b6	助词
+b7baa1d4	数词
+46bdef07	哪个意思？
+8c021d19	哪些意思？
+859b2dc5	这个词有不止一个意思。这张卡片用哪个意思？
+c3328977	这些词有不止一个意思。每张卡片用哪个意思？
+573e5011	{0} 的意思
+d8aa33f5	以上全部
+3cde8643	我自己的意思
+ecdc356f	输入意思
+9d8e886f	你给 {0} 的意思
+c7d93472	添加卡片
+8834e61f	添加卡片
+8dbef4a2	没有添加任何内容。请选择意思，然后再按一次“添加”。

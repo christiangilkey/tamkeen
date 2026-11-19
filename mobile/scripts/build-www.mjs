@@ -115,6 +115,9 @@ const SHARED = [
   "js/listenrec.js",
   "js/components/listenbox.js",
   "js/components/wordbuilder.js",
+  // Add words → Which meaning? (prototype sense_choice)
+  "js/senses.js",
+  "js/components/sensechoice.js",
   "js/components/wordeditor.js",
   "js/components/wordtools.js",
   "js/components/wordscan.js",

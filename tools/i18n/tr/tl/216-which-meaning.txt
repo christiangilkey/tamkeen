@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Pangngalan
+33817a63	Pandiwa
+39e85465	Pang-uri
+7915daba	Pang-abay
+f01f76f5	Panghalip
+c79ca7ec	Pantukoy
+c31466ff	Padamdam
+ba1dd0b6	Partikulo
+b7baa1d4	Bilang
+46bdef07	Aling kahulugan?
+8c021d19	Aling mga kahulugan?
+859b2dc5	Higit sa isa ang kahulugan ng salitang ito. Para saan ang card?
+c3328977	Higit sa isa ang kahulugan ng mga salitang ito. Para saan ang bawat card?
+573e5011	Kahulugan ng {0}
+d8aa33f5	Lahat ng ito
+3cde8643	Sarili kong kahulugan
+ecdc356f	I-type ang kahulugan
+9d8e886f	Sarili mong kahulugan para sa {0}
+c7d93472	Idagdag ang card
+8834e61f	Idagdag ang mga card
+8dbef4a2	Walang naidagdag. Piliin ang mga kahulugan, saka pindutin muli ang Idagdag.

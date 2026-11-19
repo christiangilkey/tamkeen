@@ -1,0 +1,22 @@
+# Add words → Which meaning? (components/sensechoice.js, wordbuilder.js; prototype sense_choice).
+4ac73437	Sustantivo
+33817a63	Verbo
+39e85465	Adjetivo
+7915daba	Adverbio
+f01f76f5	Pronombre
+c79ca7ec	Determinante
+c31466ff	Exclamación
+ba1dd0b6	Partícula
+b7baa1d4	Número
+46bdef07	¿Qué significado?
+8c021d19	¿Qué significados?
+859b2dc5	Esta palabra tiene más de un significado. ¿Para cuál es la tarjeta?
+c3328977	Estas palabras tienen más de un significado. ¿Para cuál es cada tarjeta?
+573e5011	Significado de {0}
+d8aa33f5	Todos estos
+3cde8643	Mi propio significado
+ecdc356f	Escribe el significado
+9d8e886f	Tu propio significado para {0}
+c7d93472	Añadir la tarjeta
+8834e61f	Añadir las tarjetas
+8dbef4a2	No se añadió nada. Elige los significados y vuelve a pulsar Añadir.
