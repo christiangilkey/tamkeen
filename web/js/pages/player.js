@@ -314,6 +314,27 @@ export async function render(view, { id, query }) {
   const tr = $("#transcript");
   pageGuide("player", view.querySelector(".player"), playerSteps("player")); // the "?" in the top bar
 
+  // ---------- audio ----------
+  const posKey = `pos:${id}`;
+  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
+  let duration = ep.duration || 0;
+  // A YouTube video is driven through an object that behaves like an <audio> element.
+  // YouTube's own captions prefer the language being learned; when these captions are in another
+  // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
+  const study = studyLanguage();
+  // YouTube's player starts loading before the transcript is drawn (the owner, 2026-11-20: long videos showed a black
+  // screen for a while). Drawing a long video's words (7,500 for 53 minutes) took the page ~0.1 s on a computer, more
+  // on a phone, and YouTube's player was only made after it; on Android the two share one thread.
+  const ytMedia = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
+    { start: startAt, duration, captions: { lang: study, show: lang !== study } }) : null;
+  if (ytMedia) await null; // (its player is made now, before the words are drawn)
+  // ... and which words are new (a pass over every word, with the dictionaries) waits until it has loaded.
+  const ytLoaded = ytMedia ? new Promise((done) => {
+    ytMedia.addEventListener("loadedmetadata", done, { once: true });
+    ytMedia.addEventListener("error", done, { once: true });
+    setTimeout(done, 5000);
+  }) : null;
+
   // Build transcript HTML in one pass (fast even for 10k+ words).
   const parts = [];
   let w = 0;
@@ -339,21 +360,12 @@ export async function render(view, { id, query }) {
   const wordEls = tr.querySelectorAll(".w");
   const segEls = [...tr.querySelectorAll(".seg")]; // one per line, in order (none while Netflix's are awaited)
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
-  const seen = seenWords({ tokens: texts, lang, els: wordEls });
+  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded });
 
-  // ---------- audio ----------
-  const posKey = `pos:${id}`;
-  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
-  let duration = ep.duration || 0;
-  // A YouTube video is driven through an object that behaves like an <audio> element.
-  // YouTube's own captions prefer the language being learned; when these captions are in another
-  // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
-  const study = studyLanguage();
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was
   // first watched in: after a change of language, Netflix's subtitles follow it).
-  const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
-    { start: startAt, duration, captions: { lang: study, show: lang !== study } })
+  const audio = yt ? ytMedia
     : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: study, duration,
       onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();

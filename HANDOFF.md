@@ -9459,3 +9459,23 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
   player loaded (~0.75 s here), play pressed at once kept and played, the line under the video while starting and after a jump; a
   player stubbed to never load showed the message and Try again after 20 s; the component on a `<video>` that never answers too.
   Not checked: a real phone, a real slow connection, Netflix. Pictures: `Documents/arabic-tts/video-wait-shots/`.
+
+### Long YouTube videos: why they were slower to start (2026-11-20, "YouTube bar" chat)
+
+- Measured with timing marks in a scratch copy of the app (never the shared checkout), in a real window: a 53-minute video
+  (7,576 words) and a short one, both saved at 20:22, with and without the Arabic dictionaries.
+  - Tamkeen's own part grew with length: the transcript request ~35 ms (368 KB), then drawing 7,576 words in one ~80–106 ms block.
+    YouTube's player was only made after that block (createYouTubeMedia was called after the transcript was drawn, and its
+    `new YT.Player` runs in a promise callback, i.e. after the rest of render). With the dictionaries, the new-word pass
+    (seen.js `lexemesFor` over every word, then a class on each) added another ~50–110 ms block soon after. On Android, YouTube's iframe
+    and the page share one thread, and a phone is several times slower.
+  - YouTube's own part was the larger one: ~0.2–0.4 s for its player to load, then ~0.3–0.5 s from play to the picture.
+  - On the phone only (`mobile/src/js/backend.js` loadTranscript): if the phone's copy of the transcript is missing or older
+    than the episode's (`transcript_rev`, e.g. after the computer added vowels), it is downloaded from Drive (sometimes after
+    listing the whole app folder) BEFORE the player is drawn. A long video's file is far bigger. Not changed: it happens before the
+    page shows, not during the black screen.
+- Changed: player.js makes YouTube's player (`ytMedia`) right after the page's markup, `await null` so `new YT.Player` runs,
+  THEN draws the words; seen.js `seenWords({..., wait})` waits for the player's loadedmetadata (or an error, or 5 s) before
+  working out new words. Result on the computer: YouTube's player made at ~35 ms (was 115–147), ready at ~225–240 ms for the
+  long video (was 357–577), the same as the short one.
+- Not done (bigger): drawing the transcript in pieces. Not checked on a real phone.

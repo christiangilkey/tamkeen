@@ -89,3 +89,15 @@ test("the spinner: in the video's place while YouTube's player loads (hidden und
   assert.match(player, /disposed = true;\s*stopWait\(\);/);
   assert.match(player, /if \(text && !action\) frame\.prepend\(h\(`<span class="spinner nf-spin"/, "Netflix: a spinner beside Opening Netflix…");
 });
+
+test("a long YouTube video: its player is made before the transcript is drawn, and the new words are worked out once it has loaded (the owner, 2026-11-20)", () => {
+  const player = src("../../web/js/pages/player.js");
+  const made = player.indexOf("const ytMedia = yt ? createYouTubeMedia(");
+  assert.ok(made > 0 && made < player.indexOf('tr.innerHTML = parts.join("");'), "YouTube's player first, then the words");
+  assert.match(player, /if \(ytMedia\) await null;/, "a moment for it to be made before the long drawing");
+  assert.match(player, /const seen = seenWords\(\{ tokens: texts, lang, els: wordEls, wait: ytLoaded \}\);/);
+  assert.match(player, /const audio = yt \? ytMedia\s*: nf \?/);
+  const seen = src("../../web/js/lexicon/seen.js");
+  assert.match(seen, /export function seenWords\(\{ tokens, lang, els, wait = null \}\)/);
+  assert.match(seen, /async analyze\(\) \{\s*if \(wait\) \{ await wait; wait = null; \}/);
+});
