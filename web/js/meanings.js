@@ -9,7 +9,7 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonestFirst, commonness, findIn, germanLookUp, lookUp, matchKey, keyedTables, respellings, translatedForms, wolffSpelling, wordKeys, cardRepair } from "./lexicon/meaningdata.js";
+import { answerFrom, commonestFirst, commonness, findIn, germanLookUp, lookUp, matchKey, keyedTables, respellings, translatedForms, wolffSpelling, wordKeys, cardRepair, alikeIn } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
@@ -168,6 +168,8 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   // A translation, not "active participle of …" or "plural of …" (meaningdata.js translatedForms).
   found = translatedForms(found, files, lang);
   const answer = answerFrom(found, spelled || ctx.word, lang, { quick, language, source: found.source });
+  // (which of its meanings are one sense said with two English words: Add words' "Which meaning?" asks nothing for them)
+  if (!quick) answer.alike = alikeIn(files, [answer.meaning, ...answer.other_meanings]);
   return spelled ? { ...answer, spelled } : answer;
 }
 

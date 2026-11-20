@@ -664,6 +664,31 @@ export function translatedForms(found, files, lang) {
     if (gi === 0 && !formOf) formOf = forms.find(Boolean).head;
     return [g[0], g[1], kept, ...g.slice(3)];
   });
+  // Entries of another word the forms list leads to, when this word is that word's participle or verbal noun (findIn:
+  // مبتل is also مُبْتَلٍ, a participle of اِبْتَلَى "to test, to afflict"; comiendo is comer's gerund): its meanings made into
+  // that form ("testing, afflicting", "eating"), never the bare verb ("to test, to try") as this word's meaning. One that
+  // can't be made into it is left out (its noun, say), unless nothing would be left.
+  const key = found.key || "";
+  const formsOf = new Map(); // lemma key -> its "form-of" line, read
+  for (const data of files || []) {
+    for (const [lemmaKey, line] of (data && data.forms && data.forms[key]) || []) {
+      if (lemmaKey !== key && !formsOf.has(lemmaKey)) formsOf.set(lemmaKey, readFormOf(line, known));
+    }
+  }
+  if (formsOf.size) {
+    const made = groups.map((g) => {
+      const k = matchKey(String(g[0] || "").replace(/\s+[IVX]+$/, ""), lang);
+      const form = k !== key && formsOf.get(k);
+      if (!form || (form.kind !== "ing" && form.kind !== "ed")) return g;
+      const english = [];
+      for (const gloss of Array.isArray(g[2]) ? g[2] : []) {
+        const m = readFormOf(gloss, known) ? "" : formMeaning(form.kind, gloss);
+        if (m && !english.includes(m)) english.push(m);
+      }
+      return english.length ? [g[0], g[1], english, ...g.slice(3)] : null;
+    });
+    if (made.some(Boolean)) groups.splice(0, groups.length, ...made.filter(Boolean));
+  }
   // A word that is only another word's form: that form's English before the other word's meaning.
   if (found.formOf && !/^also /.test(found.formOf)) {
     const form = readFormOf(found.formOf, known);
@@ -694,6 +719,30 @@ export function cardRepair(card, raw, answer) {
   const notes = String((card && card.notes) || "").trim();
   if (!/^also /.test(note) && !notes.includes(note)) change.notes = notes ? `${notes} · ${note}` : note;
   return change;
+}
+
+// ---------- near-synonyms ----------
+const SAME = new WeakMap(); // a meanings file -> Set("enchantment|magic", ...)
+
+/** The pairs of English words, among `glosses` (a dictionary answer's meanings), that the meanings files list as one
+ * sense (their "same" list: tools/add_same_senses.py, English Wiktionary's synonyms that list each other), as
+ * "a|b" with a before b. Add words' "Which meaning?" counts two meanings made of them as one (../senses.js). */
+export function alikeIn(files, glosses) {
+  const sets = (files || []).filter((d) => d && Array.isArray(d.same) && d.same.length).map((d) => {
+    let set = SAME.get(d);
+    if (!set) { set = new Set(d.same); SAME.set(d, set); }
+    return set;
+  });
+  if (!sets.length) return [];
+  const heads = [...new Set((glosses || []).flatMap((g) => glossHeads(g)))];
+  const out = [];
+  for (let i = 0; i < heads.length; i++) {
+    for (let j = i + 1; j < heads.length; j++) {
+      const pair = heads[i] < heads[j] ? `${heads[i]}|${heads[j]}` : `${heads[j]}|${heads[i]}`;
+      if (sets.some((s) => s.has(pair)) && !out.includes(pair)) out.push(pair);
+    }
+  }
+  return out;
 }
 
 /** Every entry for a word: {groups: [[shown, pos, glosses, extra], ...], formOf: "what form it is"}.

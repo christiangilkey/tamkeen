@@ -1001,7 +1001,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         // (`form`: what form the word is, "plural of كِتَاب", for its Grammar notes: meaningdata.js translatedForms)
         if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "",
           form: d.morphology && !/^also /.test(d.morphology) ? d.morphology : "",
-          senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings)) : null };
+          senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings), { alike: d.alike }) : null };
       } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
     }
     if (phrase && byWords) {

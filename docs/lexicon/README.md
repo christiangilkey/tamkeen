@@ -139,6 +139,12 @@ downloaded only then.
 
 Each meanings file also has words its language's own entries lack, from the translation tables of Wiktionary's English entries (the English word, with the sense it translates, as their meaning), and `english`: those tables turned round (English word: the language's words, main sense first), added by `tools/build_meanings.py --english` in one reading of the English file. Same source and licence.
 
+Every meanings file (the second ones below too) also has `same`: pairs of English words that are one sense, among a
+word's meanings ("enchantment|magic", "gratuity|tip"), so Add words' "Which meaning?" doesn't ask between them. A pair is
+listed only when English Wiktionary gives each word as a synonym of the other (one-way links are left out). Added by
+`python tools/add_same_senses.py <English .jsonl.gz>`, which must be run again after any of the build tools rewrites a
+meanings file (they write it without the list; `tests/js/senses.test.mjs` fails until it is back). Same source and licence.
+
 Rebuilt with `tools/build_meanings.py` (see the top of that file). The later languages (pt, ca, ceb, th, de)
 are made the same way; German's keys write ß as ss, so today's spelling, the one from before 1996 and
 Switzerland's (Straße, Strasse) find the same entries.

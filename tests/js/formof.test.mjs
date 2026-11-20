@@ -153,3 +153,20 @@ test("old cards: only a meaning that is the dictionary's own form-of line, lette
   assert.match(meanings, /if \(st && !st\.installed\) return null;/, "never downloads a dictionary for it");
   assert.match(meanings, /found = translatedForms\(found, files, lang\);/);
 });
+
+test("another word of the same spelling that this one is a participle of: its meanings in the participle's form, never the bare verb", () => {
+  const wet = define("مبتل", "ar");
+  // (مبتل is also مُبْتَلٍ, a participle of اِبْتَلَى "to test, to try, to afflict", and of اِبْتَلَّ "to recover")
+  assert.ok(!wet.other_meanings.some((m) => /^to /.test(m)), `no bare verb: ${wet.other_meanings.join(" | ")}`);
+  assert.ok(wet.other_meanings.includes("testing, trying (verb)"));
+  assert.ok(wet.other_meanings.some((m) => /^afflicting/.test(m)));
+  const eating = define("comiendo", "es");
+  assert.equal(eating.meaning, "eating");
+  assert.ok(!eating.other_meanings.some((m) => /^to /.test(m)), `comer's meanings as a gerund: ${eating.other_meanings.join(" | ")}`);
+  assert.ok(define("comido", "es").other_meanings.slice(0, 2).every((m) => !/^to /.test(m)));
+  assert.match(define("fui", "es").meaning, /^to go/, "a verb's person and tense: the verb's meaning, as before");
+  assert.equal(fo.formMeaning("ing", "to eat away, corrode"), "eating away", "only the meanings that are verbs");
+  assert.equal(fo.formMeaning("ing", "to inform, to notify (construed with a direct object, or through بِ (bi))"),
+    "informing, notifying (construed with a direct object, or through بِ (bi))", "no split inside brackets");
+  assert.equal(fo.formMeaning("ed", "mountain"), "");
+});

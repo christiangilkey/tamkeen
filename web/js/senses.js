@@ -51,13 +51,28 @@ export function dictionarySenses(meaning, pos = "", others = []) {
   return out.filter((x) => x.text.trim());
 }
 
+/** The English words a meaning is made of, as the meanings files' "same" list keys them (meaningdata.js glossHeads):
+ * "to take, catch (a ball)" -> ["take", "catch"]. */
+function headsOf(text) {
+  const out = [];
+  for (const part of String(text ?? "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/]/)) {
+    const h = part.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").replace(/[.!?]+$/, "").trim();
+    if (h && h.split(/\s+/).length <= 3) out.push(h);
+  }
+  return out;
+}
+
 /**
  * The senses of a word that really differ, best first: [{text, full, pos}] (text shortened to choose by, full as given), at most `max` (four: more is a dictionary, not a choice). A meaning that
  * shares a word with one already kept is the same sense said again ("school" after "school, academy"; "a while, period
  * of time" after "time"), and meanings that only describe grammar or name a letter are left out. Fewer than two: the
- * word needs no question.
+ * word needs no question. `alike`: pairs of English words that are one sense ("enchantment|magic": the dictionary
+ * answer's, meanings.js dictionaryDefine, from English Wiktionary's synonyms, tools/add_same_senses.py): two meanings
+ * made of such words are one sense too (سحر "magic" and "enchantment" ask nothing).
  */
-export function distinctSenses(list, { max = 4 } = {}) {
+export function distinctSenses(list, { max = 4, alike = [] } = {}) {
+  const same = new Set(Array.isArray(alike) ? alike : []);
+  const synonyms = (a, b) => a.some((x) => b.some((y) => x !== y && same.has(x < y ? `${x}|${y}` : `${y}|${x}`)));
   const kept = [];
   for (const item of list || []) {
     const text = typeof item === "string" ? item : String((item && item.text) || "");
@@ -68,8 +83,9 @@ export function distinctSenses(list, { max = 4 } = {}) {
     let words = senseWords(plain);
     if (!words.size) words = new Set(plain.toLowerCase().match(/\p{L}+/gu) || []);
     if (!words.size) continue;
-    if (kept.some((k) => [...words].some((w) => k.words.has(w)))) continue;
-    kept.push({ text: shortSense(plain), full: plain, pos, words });
+    const heads = same.size ? headsOf(plain) : [];
+    if (kept.some((k) => [...words].some((w) => k.words.has(w)) || (heads.length && synonyms(heads, k.heads)))) continue;
+    kept.push({ text: shortSense(plain), full: plain, pos, words, heads });
     if (kept.length >= max) break;
   }
   return kept.map(({ text, full, pos }) => ({ text, full, pos }));

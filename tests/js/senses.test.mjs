@@ -90,3 +90,34 @@ test("Add words asks, on one screen, before the cards are saved; nothing changes
   assert.match(build, /"js\/senses\.js"/);
   assert.match(build, /"js\/components\/sensechoice\.js"/);
 });
+
+test("near-synonyms are one sense, when English Wiktionary's synonyms say so both ways (tools/add_same_senses.py)", () => {
+  // ("magic" and "enchantment" list each other: one sense; nothing lists "time" and "tense" both ways: two)
+  assert.deepEqual(se.distinctSenses(["enchantment, charm", "witchcraft, magic", "dawn"], { alike: ["enchantment|magic"] }).map((s) => s.text),
+    ["enchantment, charm", "dawn"]);
+  assert.deepEqual(se.distinctSenses(["time", "tense", "weather"], { alike: [] }).map((s) => s.text), ["time", "tense", "weather"]);
+  assert.equal(se.distinctSenses(["tip", "gratuity"], { alike: ["gratuity|tip"] }).length, 1, "nothing to ask");
+  assert.equal(se.distinctSenses(["tip", "gratuity"]).length, 2, "no evidence: as before");
+  // from the meanings files: سحر is asked about less; زنجفر (cinnabar, vermilion: no such evidence), tiempo and banco as before
+  const alikeOf = (word, lang) => {
+    const files = dict(lang);
+    const found = md.lookUp(files, md.wordKeys(word, lang, null), word, lang, {});
+    const a = md.answerFrom(md.translatedForms(md.commonestFirst(found, files, lang, word), files, lang), word, lang, {});
+    return { a, alike: md.alikeIn(files, [a.meaning, ...a.other_meanings]) };
+  };
+  const sihr = alikeOf("سحر", "ar");
+  assert.ok(sihr.alike.includes("enchantment|magic"));
+  const asked = se.distinctSenses(se.dictionarySenses(sihr.a.meaning, sihr.a.pos, sihr.a.other_meanings), { alike: sihr.alike }).map((s) => s.text);
+  assert.ok(!asked.some((t) => /magic/.test(t)), "magic is the enchantment sense said again");
+  assert.deepEqual(alikeOf("زنجفر", "ar").alike, []);
+  assert.deepEqual(alikeOf("tiempo", "es").alike, []);
+  assert.deepEqual(alikeOf("banco", "es").alike, []);
+  for (const lang of ["ar", "es", "fr", "de", "ru", "zh", "ja", "ko", "pt", "it", "ca", "fa", "hi", "th", "tl", "ceb", "la"]) {
+    const same = dict(lang)[0].same;
+    assert.ok(Array.isArray(same) && same.length > 50 && same.every((p) => /^[^|]+\|[^|]+$/.test(p) && p.split("|")[0] < p.split("|")[1]),
+      `${lang}-meanings has its "same" list (run tools/add_same_senses.py after build_meanings.py)`);
+  }
+  const b = read("web/js/components/wordbuilder.js");
+  assert.match(b, /distinctSenses\(dictionarySenses\(d\.meaning, d\.pos, d\.other_meanings\), \{ alike: d\.alike \}\)/);
+  assert.match(read("web/js/meanings.js"), /if \(!quick\) answer\.alike = alikeIn\(files, \[answer\.meaning, \.\.\.answer\.other_meanings\]\);/);
+});

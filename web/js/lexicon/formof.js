@@ -191,6 +191,20 @@ export function comparedOf(adj) {
   return [`more ${w}`, `most ${w}`];
 }
 
+/** A meaning's parts, split at "," and ";" outside brackets. */
+function topParts(text) {
+  const out = [];
+  let depth = 0, cur = "";
+  for (const ch of String(text)) {
+    if (ch === "(" || ch === "[") depth++;
+    else if ((ch === ")" || ch === "]") && depth) depth--;
+    if (!depth && (ch === "," || ch === ";")) { out.push(cur.trim()); cur = ""; continue; }
+    cur += ch;
+  }
+  out.push(cur.trim());
+  return out.filter(Boolean);
+}
+
 /**
  * The English for `kind` of a word whose meaning is `gloss` (the other word's), or "" when it can't be made safely:
  * "ing" of "to become wet, to become moist" is "becoming wet, becoming moist"; "ed" of "to write" is "written"; "plural"
@@ -201,8 +215,13 @@ export function formMeaning(kind, gloss) {
   const g = String(gloss ?? "").trim().replace(/[.;:]+$/, "");
   if (!g) return "";
   if (kind === "same") return g;
-  // (an adjective's first two meanings at most, its first only for both degrees: "wider, widest")
-  const parts = g.split(/\s*[;,]\s*/).filter(Boolean).slice(0, kind === "elative" ? 1 : kind === "comparative" || kind === "superlative" ? 2 : 3);
+  // A verb's: its meanings that are verbs ("to eat away, corrode": "eating away"; "to become wet, moist": "becoming wet"),
+  // split where no bracket is open ("to inform, to notify (construed with …, or through بِ)"). An adjective's first two
+  // meanings at most, its first only for both degrees: "wider, widest".
+  const verbal = kind === "ing" || kind === "ed";
+  const parts = verbal ? topParts(g).filter((p) => /^to [a-z]/i.test(p)).slice(0, 3)
+    : g.split(/\s*[;,]\s*/).filter(Boolean).slice(0, kind === "elative" ? 1 : kind === "comparative" || kind === "superlative" ? 2 : 3);
+  if (!parts.length) return "";
   const verbs = parts.every((p) => /^to [a-z]/i.test(p));
   const out = [];
   for (const part of parts) {
