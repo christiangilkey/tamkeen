@@ -9417,3 +9417,26 @@ through it, arrow keys; the waiting page of an untranscribed track playing; the 
 the phone build at 375 px (bar, spots, no folder button); a class copy (`takeAssigned` with a stand-in download) → 30 spots on the
 student's own tracks. **Not checked:** a real phone's file picker with many files, the controller on the bar, a real class.
 Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
+
+### Type what you hear: the ✓ with a phone's keyboard up, and tapping the checked sentence's words (2026-11-20, "YouTube bar" chat)
+
+- **Cause of the hidden ✓ (YouTube, Android):** while typing, a phone's stage was squeezed to `flex: 0 1 34%; min-height: 120px`, but
+  YouTube's `.screen` keeps `min-height: 200px` (YouTube's rule). With the keyboard up the stage became ~120 px and the 200 px video,
+  plus the "automatic captions" note under it, hung over the top ~100 px of the panel: Word · Sentence · Gist and the ✓.
+  Fix (media.css): on phones while dictating `.player.yt` stage is `flex: none`, the video exactly 200 px, `#yt-note` hidden.
+- **Every player:** `.dict-modes` (the row with the ✓) is `position: sticky` at the panel's top (`.player .dict`, `.reelplay .dict`; the
+  course panel scrolls with its page, so not there). components/dictation.js `reveal()` sets `scroll-padding-top` to the row's height,
+  scrolls the box (or, once checked, the real text) into view under it, and past the title so half a title line never peeks out; a
+  window `resize` (the keyboard coming up) does it again. Short screens (≤600 px tall): the gist box is two lines high and the
+  switches are narrower, the 2–5 on the same line, "Sentences:" not shown.
+- **Tapping the checked sentence:** the panel numbers the real text's words (`data-p`, the pieces with letters, as piecesOf) and calls
+  the new `onReal(el, unit, mode)`. dictation.js `pieceWords(unit, texts, lang)` maps those numbers to the player's word numbers
+  (sentences now carry `first`/`last`; gist through `parts`; a word its `i`), `wordNear` is the fallback by letters. player.js calls
+  `defineAt(i, i, span, {host: .player})` (and `bubbleHome` puts the popup back for the next transcript tap); reels.js `define(i, i,
+  {host: .reelplay, anchor})`, with `--dock-bottom` keeping a phone's sheet above the controls (the words bar is hidden while typing);
+  coursepanel.js makes the real text `tappable()` (coursewords.js). The marks stay on the words.
+- **Checked** in a real window (fresh data folder, not signed in to Drive), YouTube and podcast players, gist and sentence, at 400×800,
+  400×520 and 360×500 (keyboard up) and 400×430: the ✓ visible and pressable in all; the box visible except YouTube at 430 tall (73 px
+  left under a 200 px video). A word tap opened the popup with Save in all 12 cases; in a course unit too. Not checked: reels (no reel
+  surface in the desktop app), Netflix (needs its window), the course with a keyboard up (the desktop window's library keeps its side
+  list at phone width), a real phone. Pictures: `Documents/arabic-tts/dict-kb-shots/`.

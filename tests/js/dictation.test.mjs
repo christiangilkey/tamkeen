@@ -3,7 +3,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { caughtWords, cleanSentence, compareTyped, distance, looseKey, passages, piecesOf, sentencesFromWords, shareRight, strictKey, wordUnits } from "../../web/js/dictation.js";
+import { caughtWords, cleanSentence, compareTyped, distance, looseKey, passages, pieceWords, piecesOf, sentencesFromWords, shareRight, strictKey, wordNear, wordUnits } from "../../web/js/dictation.js";
 
 const states = (r) => r.real.filter((p) => p.state).map((p) => `${p.text}:${p.state}`);
 
@@ -63,7 +63,7 @@ test("sentences: cut at full stops, kept whole when short, cut when long", () =>
   const ws = { texts: words.map((w) => w[0]), starts: words.map((w) => w[1]), ends: words.map((w) => w[2]), segOf: words.map((w) => w[3]), lang: "en" };
   assert.deepEqual(sentencesFromWords(ws).map((s) => s.text), ["Hello. My name is Sam.", "I like tea"],
     "a very short sentence joins the next");
-  assert.deepEqual(sentencesFromWords(ws)[1], { text: "I like tea", start: 2.5, end: 3.5 });
+  assert.deepEqual(sentencesFromWords(ws)[1], { text: "I like tea", start: 2.5, end: 3.5, first: 5, last: 7 });
   // Lines with no full stops (YouTube's automatic captions): joined until long enough.
   const lines = [];
   for (let k = 0; k < 6; k++) for (let w = 0; w < 4; w++) lines.push([`w${k}${w}`, k * 2.5 + w * 0.6, k * 2.5 + w * 0.6 + 0.5, k]);
@@ -235,4 +235,52 @@ test("the players have no vowels button (Settings' switch shows the marks) and p
   const media = src("../../web/css/media.css");
   assert.match(media, /\.player \.btnrow \{ display: grid; grid-template-columns: 1fr auto auto auto 1fr; \}/);
   assert.match(media, /\.player \.btnrow #play \{ grid-column: 3; \}/, "the middle of five columns, the outer two the same width");
+});
+
+test("a word of what was said, once checked, is the player's word it came from (a tap opens its popup, the owner 2026-11-20)", () => {
+  const texts = ["Hello.", "My", "[Music]", "name", "is", "Sam.", "I", "like", "tea"];
+  const n = texts.length;
+  const ws = { texts, starts: texts.map((_, i) => i), ends: texts.map((_, i) => i + 0.9), segOf: texts.map(() => 0), lang: "en" };
+  const ss = sentencesFromWords(ws);
+  assert.equal(ss[0].text, "Hello. My name is Sam.");
+  assert.deepEqual(pieceWords(ss[0], texts, "en"), [0, 1, 3, 4, 5], "[Music] is no word of the sentence");
+  const gist = passages(ss, 2, "en")[0];
+  assert.deepEqual(pieceWords(gist, texts, "en"), [0, 1, 3, 4, 5, 6, 7, 8], "a gist: its sentences' words in turn");
+  assert.deepEqual(pieceWords(wordUnits(ws)[3], texts, "en"), [4], "one word: itself");
+  // Where no spaces are written each letter is a piece: all of a word's letters are that word.
+  const zh = ["你好", "朋友。"];
+  const z = sentencesFromWords({ texts: zh, starts: [0, 1], ends: [0.9, 1.9], segOf: [0, 0], lang: "zh" })[0];
+  assert.deepEqual(pieceWords(z, zh, "zh"), [0, 0, 1, 1]);
+  assert.equal(pieceWords({ text: "a b c" }, texts, "en"), null, "no word numbers: found by its letters instead");
+  assert.equal(pieceWords({ text: "Hello there", first: 0, last: 0 }, texts, "en"), null, "not lining up: the same");
+  assert.equal(wordNear("Sam", texts, 0, n - 1, "en"), 5);
+  assert.equal(wordNear("tea", texts, 0, 5, "en"), -1, "only between first and last");
+});
+
+test("Type what you hear: the round button stays in sight with a phone's keyboard up, and the real sentence's words open the popup (the owner, 2026-11-20)", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  const media = src("../../web/css/media.css");
+  // YouTube's video can't be less than 200 px tall: squeezed, it hung over the switches.
+  assert.match(media, /\.player\.yt\.dictating \.stage \{ flex: none; min-height: 0; \}/);
+  assert.match(media, /\.player\.yt\.dictating \.screen \{ aspect-ratio: auto; height: 200px; min-height: 0; \}/);
+  assert.match(media, /\.player\.yt\.dictating \.yt-note \{ display: none; \}/);
+  assert.match(media, /\.player \.dict-modes, \.reelplay \.dict-modes \{ position: sticky;/, "the switches row stays at the panel's top");
+  const panel = src("../../web/js/components/dictation.js");
+  assert.match(panel, /el\.style\.scrollPaddingTop = /, "what is scrolled to stays below that row");
+  assert.match(panel, /window\.addEventListener\("resize", onResize\);/, "the keyboard coming up brings the box back into view");
+  assert.match(panel, /const offs = \[\(\) => window\.removeEventListener\("resize", onResize\)\];/);
+  // The words, numbered, and handed to the player.
+  assert.match(panel, /real\.innerHTML = pieceHtml\(r\.real, !!onReal\);/);
+  assert.match(panel, /if \(onReal\) onReal\(real, u, mode\);/);
+  assert.match(panel, /\$\{numbered \? ` data-p="\$\{n\+\+\}"` : ""\}/);
+  const player = src("../../web/js/pages/player.js");
+  assert.match(player, /const map = pieceWords\(u, texts, lang\);/);
+  assert.match(player, /defineAt\(i, i, w, \{ host: playerEl, docked: false \}\);/);
+  assert.match(player, /if \(!opts\.host\) opts\.host = bubbleHome;/, "a tap in the transcript afterwards: back where it was");
+  const reels = src("../../web/js/pages/reels.js");
+  assert.match(reels, /const map = pieceWords\(u, reel\.texts, reel\.lang\);/);
+  assert.match(reels, /define\(i, i, \{ host, anchor: w \}\);/);
+  assert.match(reels, /host: where \? where\.host : \$\("#reel-pop"\) \}\);/);
+  const course = src("../../web/js/components/coursepanel.js");
+  assert.match(course, /onReal: \(realEl, u\) => \{\s*realEl\.classList\.remove\("tw-root"\);\s*tappable\(realEl, lang,/);
 });
