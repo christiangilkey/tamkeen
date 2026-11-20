@@ -5,9 +5,10 @@
 import { api, esc, h, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
-import { LESSON_AUDIO_EXT, isLessonAudio } from "../lessonfiles.js";
+import { LESSON_AUDIO_EXT, LESSON_DOC_ACCEPT, isLessonAudio, readLessonFiles } from "../lessonfiles.js";
+import { findQuestions } from "../lessonparse.js";
 import { feature } from "../prototype.js";
-import { bodyOf, mark, optionLabel, tally } from "../lessons.js";
+import { bodyOf, mark, optionLabel, respot, splitItems, tally } from "../lessons.js";
 import { addAudioFiles, addTrack, episodeByUid, passageBlocks, removeLesson, saveLesson, savePassage, trackBlob, trackOfEpisode } from "../lessonstore.js";
 import { packTranscript } from "../sharetext.js";
 import { confirmBox, openModal } from "./modal.js";
@@ -103,8 +104,18 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
         : t("{0} of {1} sounds in this lesson haven't arrived yet.", missing, rec.spots.length);
       box.append(note);
     }
+    // (a lesson made before files' links to sound files were read, v0.64.0: its file read again finds them; the
+    // file itself isn't kept, so it is picked again)
+    if (own && feature("lesson_links") && !rec.linked && !(rec.spots || []).length) {
+      const again = h(`<div class="lsn-relink"><p class="small muted"></p><label class="btn ghost small">${icon("page", 16)} <span></span><input type="file" hidden accept="${esc(LESSON_DOC_ACCEPT)}"></label></div>`);
+      again.querySelector("p").textContent = t("This lesson was made before Tamkeen read a file's links to sound files. If its PDF or Word file has sound buttons, add the file again to find them.");
+      again.querySelector("label span").textContent = t("Add the file again to find its sound links");
+      const fin = again.querySelector("input");
+      fin.onchange = () => { const f = fin.files[0]; fin.value = ""; if (f) relink(f); };
+      box.append(again);
+    }
     if (!rec.tracks.length) {
-      box.append(h(`<p class="small muted">No audio in this lesson.</p>`));
+      if (!(rec.spots || []).length) box.append(h(`<p class="small muted">No audio in this lesson.</p>`));
       return;
     }
     await trackRows(box);
@@ -137,6 +148,25 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
         : !out.matched ? t("{0} added to the lesson's audio.", out.general)
         : t("{0} added in their places, {1} to the lesson's audio.", out.matched, out.general));
     } catch (e) { toast(e.message, { error: true }); }
+    tracks();
+    paintBody();
+  }
+
+  /** The lesson's PDF or Word file read again for its links to sound files (a lesson made before they were read): the
+   *  spots go where the links are in the lesson as it is now; audio already in the lesson fills them by name. */
+  async function relink(file) {
+    try {
+      toast(t("Reading the file…"));
+      const read = await readLessonFiles([file], { links: true });
+      if (read.problems.length) throw new Error(t("{0} couldn't be read.", file.name));
+      const found = splitItems(findQuestions(read.lines).items);
+      const spots = respot(rec, blocks, found);
+      rec = await saveLesson({ ...rec, spots, linked: 1 });
+      const have = spots.filter((sp) => sp.track).length;
+      toast(!spots.length ? t("That file has no links to sound files.")
+        : have ? t("{0} sound links found: {1} of them already have their sound in the lesson.", spots.length, have)
+        : t("{0} sound links found. Add the sound files: each goes to its place by its name.", spots.length));
+    } catch (e) { toast(e.message || t("That didn't work. Try again in a moment."), { error: true }); }
     tracks();
     paintBody();
   }

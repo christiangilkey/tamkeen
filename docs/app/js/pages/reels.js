@@ -32,7 +32,7 @@ import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { markWatched, watchedIds, watchedPill } from "../watched.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
-import { sentencesFromWords, wordUnits } from "../dictation.js";
+import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 
 export const REEL_TYPE = "video/instagram";
 export const REELS_FEED = "local:reels";
@@ -640,7 +640,24 @@ async function renderPlayer(view, { query }) {
         : playClip(u.start, u.end, { always: true })),
       stop: () => { clipEnd = null; if (last && !last.paused) surface.do("pause"); },
       end: reels.length > 1 ? { label: "Next reel", run: () => show(index + 1) } : null,
+      // What was said, once checked: a tap on one of its words opens the popup (the owner, 2026-11-20), on the reel's
+      // page, since the words bar it lives in is put away while typing.
+      onReal: (realEl, u) => {
+        realEl.onclick = (e) => {
+          const w = e.target.closest("[data-p]");
+          if (!w || cur !== reel) return;
+          const parts = u.parts || [u];
+          const map = pieceWords(u, reel.texts, reel.lang);
+          let i = map ? map[Number(w.dataset.p)] : -1;
+          if (!Number.isInteger(i) || i < 0) i = wordNear(w.textContent, reel.texts, parts[0].first ?? 0, parts[parts.length - 1].last ?? reel.texts.length - 1, reel.lang);
+          if (i < 0) return;
+          const host = view.querySelector(".reelplay");
+          if (getComputedStyle(host).position === "static") host.style.position = "relative"; // (it is placed in it)
+          define(i, i, { host, anchor: w });
+        };
+      },
       onClose: () => {
+        bubble.hide();
         dict = null;
         dictOn = false;
         dictWaiting = false;
@@ -729,13 +746,19 @@ async function renderPlayer(view, { query }) {
     } };
   }
 
-  /** Look up words i..j (one word, or several dragged across together). */
-  function define(i, j = i) {
+  /** Look up words i..j (one word, or several dragged across together). `where`: {host, anchor} to show the popup
+   *  somewhere else than the words bar (Type what you hear's panel, which the bar gives way to). */
+  function define(i, j = i, where = null) {
     const { si, sj, word, ctx } = contextAt(i, j);
     target = { i, j, si, sj, text: word };
     buzz("tick");
     playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
-    bubble.show(cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j && seen ? seen.unknownButton(i) : null });
+    bubble.show(where ? where.anchor : cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j && seen ? seen.unknownButton(i) : null,
+      host: where ? where.host : $("#reel-pop") });
+    if (where) { // (a phone's popup is a sheet: it stops just above the controls, media.css)
+      const top = $("#reel-controls").getBoundingClientRect().top;
+      bubble.el.style.setProperty("--dock-bottom", `${Math.max(0, Math.round(innerHeight - top))}px`);
+    }
     reward({ type: "word", key: `${cur.lang}:${word.toLowerCase()}` }, cur.els[i]);
     if (seen) seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }

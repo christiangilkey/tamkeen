@@ -3036,12 +3036,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 /* The row over the list: the folder on show (a tap: the folder sheet), sort and filter, Select. */
 .vocab-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 .vocab-folder { flex: 1; min-width: 0; justify-content: flex-start; gap: 8px; min-height: 42px; padding: 0 10px 0 14px; border: 0; border-radius: 12px;
-  background: var(--surface-2); color: var(--text); font-size: 15px; font-weight: 650; }
-.vocab-folder:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
-.vocab-folder > .ic-folder { color: var(--accent); }
+  background: var(--accent); color: var(--accent-ink); font-size: 15px; font-weight: 650; }  /* (the accent, so it reads as the thing to tap: the owner, 2026-11-20) */
+.vocab-folder:hover:not(:disabled) { background: var(--accent); filter: brightness(1.08); }
+.vocab-folder > .ic-folder { color: currentColor; }
 .vf-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.vf-n { flex: none; color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
-.vf-caret { flex: none; display: inline-flex; margin-inline-start: auto; color: var(--muted); }
+.vf-n { flex: none; color: currentColor; opacity: .75; font-weight: 500; font-variant-numeric: tabular-nums; }
+.vf-caret { flex: none; display: inline-flex; margin-inline-start: auto; color: currentColor; opacity: .8; }
 .vf-caret .ic { transform: rotate(90deg); }
 .vocab-tool { position: relative; flex: none; display: grid; place-items: center; width: 42px; height: 42px; min-width: 0; min-height: 0; padding: 0;
   border: 0; border-radius: 12px; background: var(--surface-2); color: var(--text); }
@@ -3936,4 +3936,6 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .lsn-spot-missing { border-style: dashed; }
 .lsn-spot-missing .lsn-spot-ico { color: var(--muted); }
 .lsn-missing { margin: 0; color: var(--warn); }
+.lsn-relink { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 4px 0 8px; }
+.lsn-relink p { margin: 0; flex: 1 1 260px; }
 .pending-audio { width: 100%; margin-bottom: 8px; }

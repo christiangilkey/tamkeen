@@ -61,7 +61,8 @@ async function importFiles(files, { onDone }) {
     box.close();
     const n = rec.questions.length;
     const missing = (rec.spots || []).filter((sp) => !sp.track).length;
-    if (missing) toast(t("The file links to {0} sound files that aren't in it. Add them on the lesson page: each goes to its place by its name.", missing));
+    if (found.cut) toast(t("This file has {0} questions; a lesson keeps the first {1}. To keep the rest, make a second lesson from the file's later part.", n + found.cut, n), { error: true });
+    else if (missing) toast(t("The file links to {0} sound files that aren't in it. Add them on the lesson page: each goes to its place by its name.", missing));
     else toast(read.scanned ? t("{0} scanned pages were read with the text reader: check the text and the questions.", read.scanned)
       : n ? t("{0} questions found. Check them with Edit questions.", n) : t("No questions were found: add them with Edit questions."));
     onDone(rec);
