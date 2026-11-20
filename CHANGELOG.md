@@ -16,6 +16,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 - **Fixed:** A lesson made before v0.64.0 showed "No audio in this lesson" even when its PDF or Word file has sound buttons: it now offers **Add the file again to find its sound links**, which puts the spots where a new import would (the lesson's own text and answers stay as they are), and sounds already in the lesson fill the spots they are named for.
 - **Fixed:** Finding the questions in a long file of passages: a question in slightly bigger print than the rest of its page is no longer taken for a heading, a line such as "Answers" part-way through no longer turns the rest of the file into the answer key, a file can now have three times as many paragraphs, and a file with more than 200 questions says that only the first 200 were kept instead of dropping the rest silently.
+- **Fixed:** In a Word or PDF lesson, a question without a number now counts as a question when it ends with a colon and its options a, b, c… follow ("Two men were executed for:"), as it already did when it ended with a question mark. In the owner's "100 Passages" file, everything from text 33 on had turned into plain text: all 100 texts now have their questions (137 instead of 77). Options with no question line before them become a question for the teacher to word, and an option's last words that Word put on a line of their own join the option.
 
 ## v0.64.0 — 2026-11-19
 

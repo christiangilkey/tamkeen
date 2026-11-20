@@ -100,3 +100,40 @@ test("more questions than a lesson keeps: the rest are counted, for the screen t
   assert.equal(r.cut, 30);
   assert.equal(findQuestions([{ text: "1. One?" }, { text: "a) x" }, { text: "b) y" }]).cut, 0);
 });
+
+// The owner's "100 Passages_ Questions.docx": texts 1–32 number their two questions; from text 33 a text with one
+// question doesn't number it ("Two men were executed for:"), its options a.–d. in Word's own numbering.
+const word = (text, label = "") => ({ text, para: true, ...(label ? { list: { level: 0, label, fmt: /\d/.test(label) ? "decimal" : "lowerLetter" } } : {}) });
+const opts = (...texts) => texts.map((t, k) => word(t, `${"abcd"[k]}.`));
+
+test("a question with no number that ends with a colon, its options a. b. c. d. after it, is a question", () => {
+  const lines = [word("Text# 32:"), word("Al-ittihad: 2/25/2000"), word("The ministry:", "1."), ...opts("Met students.", "Honored Mr. Dubi.", "Organized a party.", "Launched a campaign."),
+    word("TEXT#33:"), word("Al-Sharq Al awast: 6/20/2001"), word("Two men were executed for:"), ...opts("Smuggling drugs.", "Taking hashish.", "Refusing to pray.", "Selling heroin.")];
+  const qs = findQuestions(lines).items.filter((it) => it.type === "q").map((it) => it.q);
+  assert.deepEqual(qs.map((q) => [q.prompt, q.kind, q.options.length]), [["The ministry:", "choice", 4], ["Two men were executed for:", "choice", 4]]);
+  // the paper's name and date ("…: 6/20/2001") and "TEXT#33:" stay passage text
+  assert.ok(findQuestions(lines).items.some((it) => it.type === "block" && it.text === "Al-Sharq Al awast: 6/20/2001"));
+});
+
+test("options with no question line before them (left out of the file) still make a question, its wording blank", () => {
+  const lines = [word("TEXT# 49:"), word("This text is about:"), ...opts("One.", "Two.", "Three.", "Four."),
+    word("TEXT# 50:"), word("Al-Sharq Alawsat: 8/10/2001"), ...opts("Proved that few hours…", "Revealed a relationship.", "Confirmed experts.", "Did not contradict.")];
+  const qs = findQuestions(lines).items.filter((it) => it.type === "q").map((it) => it.q);
+  assert.equal(qs.length, 2);
+  assert.equal(qs[1].prompt, "", "for the teacher to fill in with Edit questions");
+  assert.deepEqual(qs[1].options.map((o) => o.label), ["a", "b", "c", "d"]);
+});
+
+test("an option's last words in a paragraph of their own join the option", () => {
+  const lines = [word("The Australian woman:"), ...opts("Said the film is better.", "Set the record.", "Was a survivor.", "Bought all the tickets to give to friends and family"),
+    word("members."), word("TEXT# 87:")];
+  const { items } = findQuestions(lines);
+  const q = items.find((it) => it.type === "q").q;
+  assert.equal(q.options[3].text, "Bought all the tickets to give to friends and family members.");
+  assert.deepEqual(items.filter((it) => it.type === "block").map((it) => it.text), ["TEXT# 87:"]);
+});
+
+test("a passage line ending in a colon before a bulleted (not lettered) list stays passage text", () => {
+  const lines = [word("The reasons were:"), { text: "money", para: true, list: { level: 0, label: "•", fmt: "bullet" } }, { text: "time", para: true, list: { level: 0, label: "•", fmt: "bullet" } }];
+  assert.equal(findQuestions(lines).items.filter((it) => it.type === "q").length, 0);
+});

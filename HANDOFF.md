@@ -9396,7 +9396,13 @@ tracks that no spot plays fill spots by name. New lessons are saved with `linked
 the button never shows for them. **Question finder on long files** (owner: "100 passages… until question 45 the formatting into
 questions goes away"; the file wasn't on the PC yet): a question line the page reader took for a heading (bigger print) is a
 question when options or a blank follow; a KEY_HEAD line ("Answers") stops being the key when a question with options follows;
-MAX_ITEMS 2000 → 6000; `findQuestions().cut` counts questions past MAX_QUESTIONS (200) and My files says so. Tests:
+MAX_ITEMS 2000 → 6000; `findQuestions().cut` counts questions past MAX_QUESTIONS (200) and My files says so. **The real cause**
+(`Downloads/drive-download-20261120T003725Z-1-001/100 Passages_ Questions.docx`): from TEXT#33 on, a text with one question
+doesn't number it ("Two men were executed for:" + Word's a.–d.), and an unnumbered question was only taken when it ended in "?".
+`findQuestions` `unnumberedAt(i)`: also a line ending in ":" with two or more options after it, starting at a/أ (or tick boxes);
+`orphanAt(i)`: options a, b with no question line (texts 50, 77, 87, 92 leave it out) start a question with an empty prompt; a
+lowercase line after a question's last option that doesn't end a sentence joins it ("…friends and family" / "members."). That
+file now gives 137 multiple-choice questions over all 100 texts (was 77); the U9 PDF's result is byte-for-byte the same. Tests:
 `tests/js/lessonrelink.test.mjs` (7). Checked in the browser pane (desktop `links-desktop` and the phone build at 375 px, both on
 data never signed in to Drive): an old U9 lesson → button → 30 spots in the same places as a fresh import, its 5 tracks back in
 their spots; a fresh U9 import with no MP3s → 30 spots "not added yet" and 30 greyed bar buttons.
