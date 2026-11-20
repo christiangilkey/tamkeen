@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 用{0}收听
+da5a4863 不再显示
+92f3d12d YouTube 会先用原始语言播放此视频。它也有{0}音轨，但 Tamkeen 无法替你切换。在 YouTube 播放器中：
+628e9ba6 点按 ⚙（设置）。
+79e6533c 点按“音轨”。
+d86ad273 选择{0}。
+18abf81f 视频下方的文字是 YouTube 对原文的翻译，因此不会与{0}音频完全一致。

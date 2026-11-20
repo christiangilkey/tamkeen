@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 Escúchalo en {0}
+da5a4863 No volver a mostrar
+92f3d12d YouTube reproduce este vídeo primero en su idioma original. También tiene sonido en {0}, pero Tamkeen no puede cambiarlo por ti. En el reproductor de YouTube:
+628e9ba6 Toca ⚙ (Configuración).
+79e6533c Toca Pista de audio.
+d86ad273 Elige {0}.
+18abf81f Las palabras bajo el vídeo son la traducción de YouTube del original, así que no coincidirán exactamente con el sonido en {0}.

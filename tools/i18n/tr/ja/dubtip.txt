@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 {0}で聞く
+da5a4863 今後は表示しない
+92f3d12d YouTube はこの動画をまず元の言語で再生します。{0}の音声もありますが、Tamkeen からは切り替えられません。YouTube のプレーヤーで:
+628e9ba6 ⚙（設定）をタップします。
+79e6533c 「音声トラック」をタップします。
+d86ad273 {0}を選びます。
+18abf81f 動画の下の言葉は YouTube による元の言語からの翻訳なので、{0}の音声とは完全には一致しません。

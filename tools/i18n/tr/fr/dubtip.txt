@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 L'écouter en {0}
+da5a4863 Ne plus afficher
+92f3d12d YouTube lit d'abord cette vidéo dans sa langue d'origine. Elle a aussi un son en {0}, mais Tamkeen ne peut pas le choisir à votre place. Dans le lecteur YouTube :
+628e9ba6 Touchez ⚙ (Paramètres).
+79e6533c Touchez Piste audio.
+d86ad273 Choisissez {0}.
+18abf81f Les mots sous la vidéo sont la traduction de l'original par YouTube : ils ne correspondront pas exactement au son en {0}.

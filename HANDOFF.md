@@ -9479,3 +9479,23 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
   working out new words. Result on the computer: YouTube's player made at ~35 ms (was 115–147), ready at ~225–240 ms for the
   long video (was 357–577), the same as the short one.
 - Not done (bigger): drawing the transcript in pieces. Not checked on a real phone.
+
+### YouTube: a dubbed track in the language learned, how to choose it (2026-11-20, "YouTube bar" chat)
+
+- How Tamkeen knows: the same player answer it already reads for the captions (ytcaptions.js `audioInLanguage` →
+  `dubbedAudio`): `streamingData.adaptiveFormats[].audioTrack` lists the audio tracks, `audioIsDefault` marks the original.
+  `youtube.js dubbedTrack(ep)` → {id, name} when there is a track in the study language that isn't the original. A video with
+  one soundtrack has no `audioTrack` at all, so there its original language can't be told this way; and if the question
+  fails we know nothing. So the box only shows when a study-language track is known to exist (the "if it has one" wording
+  was not needed). Tamkeen doesn't switch the track: YouTube's IFrame API has no official way to.
+- `web/js/components/dubtip.js` (new): the box, on the black band under the video (after `#yt-note`), NOT a modal: the modal's
+  dimmed back would be drawn over YouTube's player. Title "Hear it in {language}", three steps (⚙ (Settings) → Audio track →
+  {language}), a line when the captions are YouTube's translation, "Don't show this again" (localStorage `dubTipOff`, this
+  device; counts on OK or ✕), OK. Ticked: player.js shows the old 12-second note under the video instead.
+- Captions with a dub: Tamkeen picks a person's track in the study language, then YouTube's automatic one in it, then YouTube's
+  translation of the original. YouTube's automatic captions are usually of the original sound only, so for a dubbed video
+  the words are often the translated kind, timed to the ORIGINAL speech and worded from it: they won't match the dub word for
+  word or in timing (the box says so). A person's track in the study language may match better, if it was made for the dub.
+- Checked in a real window (fresh data folder, not signed in to Drive, studying Arabic): dubbedTrack found an Arabic track on
+  three MrBeast videos (0e3GPea1Tyg, tnTPaLOaHz8, KrLj6nc516A); the box opened under the video at 420 px and 1280 px, not over
+  it; ticked + OK stored `dubTipOff`, and on reopening the note showed instead. Not checked on a real phone.

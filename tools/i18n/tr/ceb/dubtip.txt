@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 Paminawa kini sa {0}
+da5a4863 Ayaw na ipakita pag-usab
+92f3d12d Ipatugtog una sa YouTube kining video sa orihinal nga pinulongan niini. Aduna usab kini'y tingog sa {0}, apan dili kini mausab sa Tamkeen para nimo. Sa YouTube player:
+628e9ba6 I-tap ang ⚙ (Settings).
+79e6533c I-tap ang Audio track.
+d86ad273 Pilia ang {0}.
+18abf81f Ang mga pulong ubos sa video kay hubad sa YouTube gikan sa orihinal, mao nga dili kini eksaktong mohaom sa tingog sa {0}.

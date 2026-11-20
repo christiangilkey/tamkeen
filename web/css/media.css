@@ -685,3 +685,19 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 .dict.gist .dict-real .dw-right, .dict.gist .dict-real .dw-near { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
 .dict.word .dict-real { font-size: clamp(26px, calc(var(--ar-size) * 1.2), 42px); }
 .dict.word .dict-input { min-height: 0; }
+
+/* ---------- a YouTube video with a dubbed track in the language learned: how to choose it (components/dubtip.js) ----------
+   On the black band under the video, never over YouTube's player (nothing may be): the video gets shorter meanwhile. */
+.dub-tip { flex: none; background: #111; color: #f2f1ec; border-top: 1px solid #2c2c2c; padding: 10px max(14px, calc((100% - 760px) / 2)) 12px;
+  font-size: 14px; line-height: 1.5; max-height: 55vh; overflow-y: auto;
+  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+.dub-tip-head { display: flex; align-items: center; gap: 8px; }
+.dub-tip-head h3 { flex: 1; margin: 0; font-size: 16px; }
+.dub-tip-x { width: 32px; height: 32px; min-height: 0; padding: 0; color: inherit; }
+.dub-tip-text { margin: 6px 0 6px; }
+.dub-steps { margin: 0 0 8px; padding-inline-start: 1.4em; }
+.dub-tip .dub-tr { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.dub-tip-end { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dub-off { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.dub-off input { width: 18px; height: 18px; margin: 0; }
+.dub-ok { min-width: 96px; }

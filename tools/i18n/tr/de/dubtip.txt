@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 Auf {0} anhören
+da5a4863 Nicht mehr anzeigen
+92f3d12d YouTube spielt dieses Video zuerst in seiner Originalsprache ab. Es hat auch Ton auf {0}, aber Tamkeen kann ihn nicht für dich auswählen. Im YouTube-Player:
+628e9ba6 Tippe auf ⚙ (Einstellungen).
+79e6533c Tippe auf Audiospur.
+d86ad273 Wähle {0}.
+18abf81f Die Wörter unter dem Video sind YouTubes Übersetzung des Originals und passen daher nicht genau zum Ton auf {0}.

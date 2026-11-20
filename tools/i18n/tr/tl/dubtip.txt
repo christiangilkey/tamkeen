@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 Pakinggan ito sa {0}
+da5a4863 Huwag nang ipakita ulit
+92f3d12d Pinapatugtog muna ng YouTube ang video na ito sa orihinal nitong wika. May tunog din ito sa {0}, pero hindi ito mapapalitan ng Tamkeen para sa iyo. Sa YouTube player:
+628e9ba6 I-tap ang ⚙ (Mga Setting).
+79e6533c I-tap ang Audio track.
+d86ad273 Piliin ang {0}.
+18abf81f Ang mga salita sa ilalim ng video ay salin ng YouTube mula sa orihinal, kaya hindi ito eksaktong tutugma sa tunog sa {0}.

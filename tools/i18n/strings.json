@@ -5390,6 +5390,41 @@
   "f": "web/js/components/dualline.js"
  },
  {
+  "id": "da5a4863",
+  "k": "Don't show this again",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "3aa8bce4",
+  "k": "Hear it in {0}",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "92f3d12d",
+  "k": "YouTube plays this video in its original language first. It has {0} sound too, but Tamkeen can't switch to it for you. In the YouTube player:",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "628e9ba6",
+  "k": "Tap ⚙ (Settings).",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "79e6533c",
+  "k": "Tap Audio track.",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "d86ad273",
+  "k": "Choose {0}.",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
+  "id": "18abf81f",
+  "k": "The words under the video are YouTube's translation of the original, so they won't match the {0} sound exactly.",
+  "f": "web/js/components/dubtip.js"
+ },
+ {
   "id": "70afe9ef",
   "k": "Dismiss",
   "f": "web/js/components/fixit.js"

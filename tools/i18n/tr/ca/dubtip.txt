@@ -1,0 +1,8 @@
+# A YouTube video with a dubbed track in the language learned (components/dubtip.js), 2026-11-20
+3aa8bce4 Escolta'l en {0}
+da5a4863 No ho tornis a mostrar
+92f3d12d YouTube reprodueix primer aquest vídeo en l'idioma original. També té so en {0}, però Tamkeen no el pot canviar per tu. Al reproductor de YouTube:
+628e9ba6 Toca ⚙ (Configuració).
+79e6533c Toca Pista d'àudio.
+d86ad273 Tria {0}.
+18abf81f Les paraules sota el vídeo són la traducció de l'original feta per YouTube, així que no coincidiran exactament amb el so en {0}.

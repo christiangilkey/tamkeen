@@ -168,6 +168,7 @@ const SHARED = [
   "js/dictation.js",
   "js/components/dictation.js",
   "js/components/mediawait.js",  // a video still loading: the spinner, then Try again
+  "js/components/dubtip.js",  // a YouTube video with a dubbed track in the language learned: how to choose it
   // lesson bundles: a teacher's PDF / Word file with its audio as a passage, tracks and questions
   "js/lessons.js",
   "js/lessonparse.js",

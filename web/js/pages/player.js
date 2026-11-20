@@ -55,6 +55,7 @@ import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../c
 import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
 import { mediaWait } from "../components/mediawait.js";
+import { dubTipOff, showDubTip } from "../components/dubtip.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -715,9 +716,15 @@ export async function render(view, { id, query }) {
     };
     paint();
     // A dubbed version in the language being learned (YouTube's "multi-language audio"). Tamkeen
-    // can't choose it from outside YouTube's player, so the way to it is shown.
+    // can't choose it from outside YouTube's player, so the way to it is shown: in a box (components/dubtip.js;
+    // the owner, 2026-11-20), or, once "Don't show this again" was ticked, a short note under the video.
     dubbedTrack(ep).then((track) => {
       if (!track || disposed) return;
+      if (!dubTipOff()) {
+        showDubTip({ after: $("#yt-note"), language: studyName, translated: captionKind(ep) === "translated", onClose: () => { if (!disposed) fitBubble(); } });
+        fitBubble(); // (the band under the video is taller while it is open)
+        return;
+      }
       temp = `This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`;
       paint();
       // Shown for 12 seconds, fading out over the last one (media.css .yt-note-temp), then gone.
