@@ -1,11 +1,9 @@
 // "Type what you hear" (dictation): the parts that need no screen. The panel is components/dictation.js.
 //
-// A transcript is cut into sentences a learner can hold in their head (`sentencesFromWords`), and what they
-// typed is set against the sentence's real words (`compareTyped`): each real word is right, nearly right or
-// missed, and each typed word that matches none is marked as extra. Vowel marks, capitals and punctuation
-// never count against anyone (subtitles are written with and without them); accents, the forms of a letter
-// and a one-letter slip make a word "nearly right". Languages written without spaces (Japanese, Chinese,
-// Thai) are compared letter by letter instead.
+// A transcript is cut into sentences a learner can hold in their head (`sentencesFromWords`), one word at a time
+// (`wordUnits`) or a few sentences at a time (`passages`). What they typed is NOT marked against what was said: the
+// owner (2026-11-20) wanted the real words shown plainly, the learner comparing for themselves. `pieceWords` tells
+// which of the player's words each shown word is, for a tap on it (the word popup).
 
 import { joinWords, langInfo } from "./languages.js";
 
@@ -124,14 +122,14 @@ export function wordNear(piece, texts, first, last, lang) {
   return -1;
 }
 
-// ---------- comparing ----------
+// ---------- the words of a piece, as they are shown ----------
 const ARABIC_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۜ۟-۪ۨ-ۭـ]/g;  // vowel marks and the stretching line
 const LETTERS = { "آ": "ا", "أ": "ا", "إ": "ا", "ٱ": "ا", "ى": "ي", "ی": "ي", "ک": "ك", "ۀ": "ه", "‌": "" };
 const DIGITS = /[٠-٩۰-۹]/g;
 const digit = (c) => String(c.charCodeAt(0) - (c.charCodeAt(0) >= 0x6f0 ? 0x6f0 : 0x660));
 
-/** A piece of text as it counts as right: no vowel marks or punctuation, one spelling for Arabic letters
- * written several ways, lower case. */
+/** A piece of text as its letters: no vowel marks or punctuation, one spelling for Arabic letters written several
+ * ways, lower case ("" for a piece with no letters: a dash, a lone punctuation mark). */
 export function strictKey(text) {
   return String(text ?? "").normalize("NFKC")
     .replace(ARABIC_MARKS, "")
@@ -142,12 +140,6 @@ export function strictKey(text) {
     .toLowerCase();
 }
 
-/** The same with accents and the like taken off too: a word that differs only there is nearly right. */
-export function looseKey(text) {
-  return strictKey(text).normalize("NFD").replace(/[̀-ͯ]/g, "").normalize("NFC")
-    .replace(/ß/g, "ss").replace(/ё/g, "е").replace(/ة/g, "ه").replace(/[ؤئ]/g, (c) => (c === "ؤ" ? "و" : "ي"));
-}
-
 const graphemes = (text, lang) => {
   if (typeof Intl !== "undefined" && Intl.Segmenter) {
     return [...new Intl.Segmenter(lang || undefined, { granularity: "grapheme" }).segment(text)].map((s) => s.segment);
@@ -155,123 +147,17 @@ const graphemes = (text, lang) => {
   return Array.from(text);
 };
 
-/** The pieces a text is compared in, as they are shown: words, or letters where no spaces are written.
- * Each is {text, key, loose}; a piece with no letters (a dash, a lone punctuation mark) has key "". */
+/** The pieces a text is shown in: words, or letters where no spaces are written. Each is {text, key, space}; a
+ * piece with no letters has key "" (the panel numbers only those with letters: pieceWords). */
 export function piecesOf(text, lang) {
   const clean = String(text ?? "").normalize("NFC");
   const raw = langInfo(lang).unspaced ? graphemes(clean, lang) : clean.split(/(\s+)/);
   return raw.filter((p) => p !== "").map((p) => {
     const space = /^\s+$/.test(p);
-    return { text: p, key: space ? "" : strictKey(p), loose: space ? "" : looseKey(p), space };
+    return { text: p, key: space ? "" : strictKey(p), space };
   });
 }
 const keysOf = (text, lang) => piecesOf(text, lang).filter((p) => p.key);
-
-/** How many single-letter changes (a letter added, left out, changed, or two swapped) turn a into b
- * (stops counting past `most`). */
-export function distance(a, b, most = 3) {
-  const A = [...a];
-  const B = [...b];
-  if (Math.abs(A.length - B.length) > most) return most + 1;
-  let before = null;
-  let prev = Array.from({ length: B.length + 1 }, (_, j) => j);
-  for (let i = 1; i <= A.length; i++) {
-    const row = [i];
-    let low = i;
-    for (let j = 1; j <= B.length; j++) {
-      row[j] = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (A[i - 1] === B[j - 1] ? 0 : 1));
-      if (before && i > 1 && j > 1 && A[i - 1] === B[j - 2] && A[i - 2] === B[j - 1]) row[j] = Math.min(row[j], before[j - 2] + 1);
-      low = Math.min(low, row[j]);
-    }
-    if (low > most) return most + 1;
-    before = prev;
-    prev = row;
-  }
-  return prev[B.length];
-}
-
-/** How well a typed piece matches a real one: 3 right, 2 nearly (accents, letter forms), 1 nearly (a slip
- * of a letter in a word of five letters or more, two from nine), 0 not at all. */
-function score(real, typed, letters) {
-  if (real.key === typed.key) return 3;
-  if (real.loose === typed.loose) return 2;
-  if (letters) return 0;
-  const len = [...real.loose].length;
-  if (len < 5) return 0;  // (a short word one letter off is often another word: went, want)
-  return distance(real.loose, typed.loose, 2) <= (len >= 9 ? 2 : 1) ? 1 : 0;
-}
-
-/**
- * What was typed against the real sentence. Returns
- * {real: [{text, state}], typed: [{text, state}], right, near, total, letters}
- * where a real piece's state is "right", "near", "missed" or "" (spaces and punctuation, never counted),
- * and a typed piece's is "right", "near", "extra" or "". The pieces line up in order (the longest run of
- * matches, preferring exact ones), so a word typed in the wrong place counts once at most.
- */
-export function compareTyped(realText, typedText, lang) {
-  const letters = !!langInfo(lang).unspaced;
-  const real = piecesOf(realText, lang);
-  const typed = piecesOf(typedText, lang);
-  const R = real.filter((p) => p.key);
-  const T = typed.filter((p) => p.key);
-  // The best line-up: most points, by dynamic programming over the two lists.
-  const best = Array.from({ length: R.length + 1 }, () => new Int32Array(T.length + 1));
-  for (let i = R.length - 1; i >= 0; i--) {
-    for (let j = T.length - 1; j >= 0; j--) {
-      const s = score(R[i], T[j], letters);
-      best[i][j] = Math.max(best[i + 1][j], best[i][j + 1], s ? s + best[i + 1][j + 1] : 0);
-    }
-  }
-  const realState = new Map();
-  const typedState = new Map();
-  let i = 0;
-  let j = 0;
-  while (i < R.length && j < T.length) {
-    const s = score(R[i], T[j], letters);
-    if (s && best[i][j] === s + best[i + 1][j + 1]) {
-      const state = s === 3 ? "right" : "near";
-      realState.set(R[i], state);
-      typedState.set(T[j], state);
-      i++;
-      j++;
-    } else if (best[i + 1][j] >= best[i][j + 1]) i++;
-    else j++;
-  }
-  const out = {
-    real: real.map((p) => ({ text: p.text, state: p.key ? realState.get(p) || "missed" : "" })),
-    typed: typed.map((p) => ({ text: p.text, state: p.key ? typedState.get(p) || "extra" : "" })),
-    right: 0, near: 0, total: R.length, letters,
-  };
-  for (const p of out.real) {
-    if (p.state === "right") out.right++;
-    else if (p.state === "near") out.near++;
-  }
-  return out;
-}
-
-/**
- * The gist: which words of what was said turn up anywhere in what was written (order doesn't matter, and
- * what was written may be partly in the learner's own language). Returns {real: [{text, state}], right, near,
- * total, letters}, a real piece's state being "right", "near", "other" (not caught) or "".
- */
-export function caughtWords(realText, typedText, lang) {
-  const letters = !!langInfo(lang).unspaced;
-  const typed = piecesOf(typedText, lang).filter((p) => p.key);
-  const strict = new Set(typed.map((p) => p.key));
-  const loose = new Set(typed.map((p) => p.loose));
-  const out = { real: [], right: 0, near: 0, total: 0, letters };
-  for (const p of piecesOf(realText, lang)) {
-    const state = !p.key ? "" : strict.has(p.key) ? "right" : loose.has(p.loose) ? "near" : "other";
-    if (p.key) out.total++;
-    if (state === "right") out.right++;
-    if (state === "near") out.near++;
-    out.real.push({ text: p.text, state });
-  }
-  return out;
-}
-
-/** A result as a share of the sentence, 0..1: a nearly-right word counts half. */
-export const shareRight = (r) => (r.total ? (r.right + r.near / 2) / r.total : 0);
 
 // ---------- the player's speed menu while typing ----------
 

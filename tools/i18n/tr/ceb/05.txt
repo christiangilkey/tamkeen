@@ -9,7 +9,6 @@ bfd6bf51 Hain sa imong mga pulong ang nagpasabot niini?
 63d63141 Kabalo na kaayo ka niana nga pulong karon. +15 XP
 18a80fec Tukma sa tibuok semana: +60 XP ug 5 ka coin
 19bb2852 Sakto, ug paspas!
-fbc63d40 Sakto.
 c04b920c Nahutdan sa oras.
 e8849508 Dili pa gyud: gimarkahan ang sakto nga tubag.
 0639028d Wala masultihi si {0}: {1}

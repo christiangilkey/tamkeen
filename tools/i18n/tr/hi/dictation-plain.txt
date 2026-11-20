@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 दिखाएँ क्या कहा गया
+6162f3a9 Enter दिखाता है क्या कहा गया · Shift+Enter फिर से चलाता है
+870b91fe पूरा हुआ: {0} शब्द सुने।
+bcd3080b पूरा हुआ: {0} वाक्य सुने।

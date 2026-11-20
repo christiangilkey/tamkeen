@@ -193,7 +193,6 @@ bfd6bf51 Alin sa mga salita mo ang may ganitong kahulugan?
 63d63141 Kilalang-kilala mo na ang salitang iyan. +15 XP
 18a80fec Tumpak buong linggo: +60 XP at 5 barya
 19bb2852 Tama, at mabilis!
-fbc63d40 Tama.
 c04b920c Ubos na ang oras.
 e8849508 Hindi pa: may marka ang tamang sagot.
 0639028d Hindi matukoy ang {0}: {1}

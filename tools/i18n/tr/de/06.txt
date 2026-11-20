@@ -101,7 +101,6 @@ bfd6bf51 Welches deiner Wörter bedeutet das?
 63d63141 Dieses Wort ist jetzt gut bekannt. +15 EP
 18a80fec Die ganze Woche genau: +60 EP und 5 Münzen
 19bb2852 Richtig, und schnell!
-fbc63d40 Richtig.
 c04b920c Die Zeit ist um.
 e8849508 Nicht ganz: Die richtige Antwort ist markiert.
 0639028d {0} konnte nicht mitgeteilt werden: {1}

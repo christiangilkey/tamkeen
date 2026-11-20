@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Zeigen, was gesagt wurde
+6162f3a9 Eingabe zeigt, was gesagt wurde · Umschalt+Eingabe spielt es noch einmal ab
+870b91fe Fertig: {0} Wörter angehört.
+bcd3080b Fertig: {0} Sätze angehört.

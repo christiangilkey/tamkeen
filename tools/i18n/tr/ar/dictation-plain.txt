@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 أظهر ما قيل
+6162f3a9 Enter يُظهر ما قيل · Shift+Enter يشغّله مرة أخرى
+870b91fe انتهيت: استمعت إلى {0} كلمة.
+bcd3080b انتهيت: استمعت إلى {0} جملة.

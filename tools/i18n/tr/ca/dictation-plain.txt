@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Mostra el que s'ha dit
+6162f3a9 Retorn mostra el que s'ha dit · Maj+Retorn ho torna a reproduir
+870b91fe Acabat: {0} paraules escoltades.
+bcd3080b Acabat: {0} frases escoltades.

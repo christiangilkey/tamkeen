@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Ipakita ang sinabi
+6162f3a9 Ipinapakita ng Enter ang sinabi · Pinapatugtog ulit ng Shift+Enter
+870b91fe Tapos na: {0} salitang napakinggan.
+bcd3080b Tapos na: {0} pangungusap na napakinggan.

@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 แสดงสิ่งที่พูด
+6162f3a9 Enter แสดงสิ่งที่พูด · Shift+Enter เล่นอีกครั้ง
+870b91fe เสร็จแล้ว: ฟังไป {0} คำ
+bcd3080b เสร็จแล้ว: ฟังไป {0} ประโยค

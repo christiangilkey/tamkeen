@@ -9499,3 +9499,17 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
 - Checked in a real window (fresh data folder, not signed in to Drive, studying Arabic): dubbedTrack found an Arabic track on
   three MrBeast videos (0e3GPea1Tyg, tnTPaLOaHz8, KrLj6nc516A); the box opened under the video at 420 px and 1280 px, not over
   it; ticked + OK stored `dubTipOff`, and on reopening the note showed instead. Not checked on a real phone.
+
+### Type what you hear: nothing marked, no score (2026-11-20, "YouTube bar" chat)
+
+- The owner: "I don't want my transcription answers to be checked against the scripts with having it red and cross through
+  ... the user can determine that on their own volition." After the ✓ the panel shows what was said (components/dictation.js
+  `wordsHtml`: plain `.dw` spans, numbered `data-p` for the word popup) above what was typed (plain text), in the normal text
+  colour. Gone: the right / nearly right / missed / extra marks and their CSS, the "N of M words right" line (`.dict-score`),
+  "N% right so far" in the header, and the % in "Finished". The round button's label is "Show what was said".
+- web/js/dictation.js: `compareTyped`, `caughtWords`, `shareRight`, `looseKey`, `distance` and `score` removed (nothing
+  else used them: no XP, stats, Home tile or seen-word effect came from the score). `strictKey`/`piecesOf` stay (word pieces,
+  pieceWords). The listening minutes still count (`active()`), as before.
+- 15 strings no longer used were taken out (strings.json, web/i18n, and their lines in tools/i18n/tr/*/{03,05,06,202-dictation}.txt);
+  4 new ones in tools/i18n/tr/*/dictation-plain.txt. web/whatis-special.md's bullet rewritten ("Listening practice in everything
+  you watch, with nothing to get marked wrong").

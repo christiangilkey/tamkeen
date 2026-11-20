@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 نشان بده چه گفته شد
+6162f3a9 Enter نشان می‌دهد چه گفته شد · Shift+Enter دوباره پخش می‌کند
+870b91fe تمام شد: {0} کلمه شنیده شد.
+bcd3080b تمام شد: {0} جمله شنیده شد.

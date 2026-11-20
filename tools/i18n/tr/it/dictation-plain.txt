@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Mostra cosa è stato detto
+6162f3a9 Invio mostra cosa è stato detto · Maiusc+Invio lo riproduce di nuovo
+870b91fe Finito: {0} parole ascoltate.
+bcd3080b Finito: {0} frasi ascoltate.

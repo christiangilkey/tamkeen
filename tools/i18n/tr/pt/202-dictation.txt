@@ -3,19 +3,11 @@
 a3fa69ab	Escreva o que você ouve (W)
 0720e977	Voltar às palavras
 b290f68c	Ouvir de novo
-4b5e84be	Conferir
 b6fffc5a	Começar de novo
 209b330d	Escreva o que você ouviu
 087d440e	O que você ouviu
-21449063	{0}% certo até agora
 7031fe71	Frase {0} de {1}
 825401d6	(nada escrito)
-94409161	{0} de {1} letras certas
-d5efb407	{0} de {1} palavras certas
-99d158a7	Todas as letras certas.
-dbf9f7f2	Todas as palavras certas.
-4c768dc3	{0} quase certas
-51dfb3c5	Fim: {0}% certo em {1} frases.
 a1c12a4d	Ainda não há frases para escrever aqui.
 ea54afdd	Escreva o que você ouve (liga / desliga)
 70c05707	Escreva o que você ouve: as palavras ou frases da unidade, uma por vez
@@ -27,15 +19,8 @@ d01da89d	Quanto de cada vez
 ed28f7ec	Escreva o que você ouviu: as palavras que entendeu, ou do que se tratava
 ba8b50a5	Escreva a palavra que você ouviu
 6737578e	Enter mostra o que foi dito · Shift+Enter começa uma nova linha
-4bf51692	Enter confere · Shift+Enter toca de novo
 f9a30e73	Palavra {0} de {1}
 c33d4998	Parte {0} de {1}
-75587d8b	Você pegou {0} das {1} palavras.
-9f3d87c9	Isto é tudo o que foi dito.
-fbc63d40	Certo.
-0fba00ab	Quase certo.
-5e277236	Desta vez não.
 992aea9d	Fim: {0} partes ouvidas.
-93eac742	Fim: {0}% certo em {1} palavras.
 f97571cf	"Escreva o que você ouve" está ativado neste aparelho. Abra um player ou uma unidade de curso para experimentar.
 99f22104	"Escreva o que você ouve" está desativado neste aparelho.

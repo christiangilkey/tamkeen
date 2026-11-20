@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Ipakita ang giingon
+6162f3a9 Ang Enter mopakita sa giingon · Ang Shift+Enter mopatugtog pag-usab
+870b91fe Nahuman: {0} ka pulong ang napaminaw.
+bcd3080b Nahuman: {0} ka sentensiya ang napaminaw.

@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 말한 내용 보기
+6162f3a9 Enter: 말한 내용 보기 · Shift+Enter: 다시 재생
+870b91fe 끝: 단어 {0}개를 들었습니다.
+bcd3080b 끝: 문장 {0}개를 들었습니다.

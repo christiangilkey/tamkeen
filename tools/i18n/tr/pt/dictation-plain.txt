@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Mostrar o que foi dito
+6162f3a9 Enter mostra o que foi dito · Shift+Enter toca de novo
+870b91fe Concluído: {0} palavras ouvidas.
+bcd3080b Concluído: {0} frases ouvidas.

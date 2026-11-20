@@ -3,19 +3,11 @@
 a3fa69ab	Escribe lo que oyes (W)
 0720e977	Volver a las palabras
 b290f68c	Volver a escuchar
-4b5e84be	Comprobar
 b6fffc5a	Empezar de nuevo
 209b330d	Escribe lo que oíste
 087d440e	Lo que oíste
-21449063	{0} % bien hasta ahora
 7031fe71	Frase {0} de {1}
 825401d6	(no escribiste nada)
-94409161	{0} de {1} letras bien
-d5efb407	{0} de {1} palabras bien
-99d158a7	Todas las letras bien.
-dbf9f7f2	Todas las palabras bien.
-4c768dc3	{0} casi bien
-51dfb3c5	Terminado: {0} % bien en {1} frases.
 a1c12a4d	Aquí todavía no hay frases para escribir.
 ea54afdd	Escribe lo que oyes (sí / no)
 70c05707	Escribe lo que oyes: las palabras o las frases de la unidad, una por una
@@ -27,15 +19,8 @@ d01da89d	Cuánto cada vez
 ed28f7ec	Escribe lo que oíste: las palabras que entendiste, o de qué hablaba
 ba8b50a5	Escribe la palabra que oíste
 6737578e	Enter muestra lo que se dijo · Mayús+Enter empieza una línea nueva
-4bf51692	Enter comprueba · Mayús+Enter lo vuelve a reproducir
 f9a30e73	Palabra {0} de {1}
 c33d4998	Parte {0} de {1}
-75587d8b	Entendiste {0} de sus {1} palabras.
-9f3d87c9	Esto es todo lo que se dijo.
-fbc63d40	Correcto.
-0fba00ab	Casi bien.
-5e277236	Esta vez no.
 992aea9d	Terminado: {0} partes escuchadas.
-93eac742	Terminado: {0} % bien en {1} palabras.
 f97571cf	«Escribe lo que oyes» está activado en este dispositivo. Abre un reproductor o una unidad de un curso para probarlo.
 99f22104	«Escribe lo que oyes» está desactivado en este dispositivo.

@@ -3,19 +3,11 @@
 a3fa69ab	Écrivez ce que vous entendez (W)
 0720e977	Revenir aux mots
 b290f68c	Réécouter
-4b5e84be	Vérifier
 b6fffc5a	Recommencer
 209b330d	Écrivez ce que vous avez entendu
 087d440e	Ce que vous avez entendu
-21449063	{0} % juste jusqu'ici
 7031fe71	Phrase {0} sur {1}
 825401d6	(rien d'écrit)
-94409161	{0} lettres justes sur {1}
-d5efb407	{0} mots justes sur {1}
-99d158a7	Toutes les lettres sont justes.
-dbf9f7f2	Tous les mots sont justes.
-4c768dc3	{0} presque justes
-51dfb3c5	Terminé : {0} % juste sur {1} phrases.
 a1c12a4d	Il n'y a pas encore de phrases à écrire ici.
 ea54afdd	Écrivez ce que vous entendez (activé / désactivé)
 70c05707	Écrivez ce que vous entendez : les mots ou les phrases de l'unité, un à un
@@ -27,15 +19,8 @@ d01da89d	Combien à la fois
 ed28f7ec	Écrivez ce que vous avez entendu : les mots compris, ou de quoi il était question
 ba8b50a5	Écrivez le mot que vous avez entendu
 6737578e	Entrée montre ce qui a été dit · Maj+Entrée passe à la ligne
-4bf51692	Entrée vérifie · Maj+Entrée relit
 f9a30e73	Mot {0} sur {1}
 c33d4998	Partie {0} sur {1}
-75587d8b	Vous avez saisi {0} de ses {1} mots.
-9f3d87c9	Voici tout ce qui a été dit.
-fbc63d40	Juste.
-0fba00ab	Presque juste.
-5e277236	Pas cette fois.
 992aea9d	Terminé : {0} parties écoutées.
-93eac742	Terminé : {0} % juste sur {1} mots.
 f97571cf	« Écrivez ce que vous entendez » est activé sur cet appareil. Ouvrez un lecteur ou une unité de cours pour l'essayer.
 99f22104	« Écrivez ce que vous entendez » est désactivé sur cet appareil.

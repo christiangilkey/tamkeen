@@ -1,0 +1,5 @@
+# Type what you hear without marking (components/dictation.js), 2026-11-20
+3b7d7780 Afficher ce qui a été dit
+6162f3a9 Entrée affiche ce qui a été dit · Maj+Entrée le rejoue
+870b91fe Terminé : {0} mots écoutés.
+bcd3080b Terminé : {0} phrases écoutées.

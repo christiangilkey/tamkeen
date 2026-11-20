@@ -595,22 +595,16 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
 .dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: 1.8; text-align: center;
   padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
 .dict-real { background: var(--surface); border: 1px solid var(--border); }
-.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--muted); padding-top: 0; }
-.dict-real[hidden], .dict-yours[hidden], .dict-input[hidden], .dict-score[hidden] { display: none; }
+/* What was said, and under it what they typed: both plain, nothing marked (the owner, 2026-11-20). */
+.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--text); padding-top: 0; }
+.dict-real[hidden], .dict-yours[hidden], .dict-input[hidden] { display: none; }
 .dict .dw { border-radius: 5px; padding: 0 .06em; }
-.dict-real .dw-right { color: var(--accent); }
-.dict-real .dw-near { color: var(--warn); text-decoration: underline dotted; text-underline-offset: .25em; }
-.dict-real .dw-missed { color: var(--danger); background: var(--danger-soft); }
-.dict-yours .dw-right, .dict-yours .dw-near { color: var(--text); }
-.dict-yours .dw-extra { color: var(--danger); text-decoration: line-through; }
 .dict-input { width: 100%; box-sizing: border-box; resize: none; min-height: 3.2em; font-family: var(--ar-font);
   font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
   border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
 .dict-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* The hint in the box: the app's own font, centred, so it fits on a phone (not the big Arabic font). */
 .dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
-.dict-score { margin: 0; text-align: center; font-weight: 600; }
-.dict-score.all { color: var(--accent); }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
@@ -681,8 +675,6 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 /* The gist: a few sentences, read as a paragraph. One word: big, on one line. */
 .dict.gist .dict-real, .dict.gist .dict-yours { text-align: start; font-size: clamp(17px, calc(var(--ar-size) * .75), 26px); line-height: 1.9; }
 .dict.gist .dict-input { text-align: start; min-height: 6.5em; }
-.dict.gist .dict-real .dw-other { color: var(--text); }
-.dict.gist .dict-real .dw-right, .dict.gist .dict-real .dw-near { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
 .dict.word .dict-real { font-size: clamp(26px, calc(var(--ar-size) * 1.2), 42px); }
 .dict.word .dict-input { min-height: 0; }
 

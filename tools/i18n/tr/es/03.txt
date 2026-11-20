@@ -193,7 +193,6 @@ bfd6bf51 ¿Cuál de tus palabras significa esto?
 63d63141 Ahora te sabes bien esa palabra. +15 XP
 18a80fec Preciso toda la semana: +60 XP y 5 monedas
 19bb2852 ¡Correcto, y rápido!
-fbc63d40 Correcto.
 c04b920c Se acabó el tiempo.
 e8849508 No exactamente: la respuesta correcta está marcada.
 0639028d No se pudo saber {0}: {1}

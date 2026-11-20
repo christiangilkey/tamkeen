@@ -9,7 +9,6 @@ bfd6bf51 Quina de les teves paraules vol dir això?
 63d63141 Ara aquesta paraula te la saps bé. +15 XP
 18a80fec Precís tota la setmana: +60 XP i 5 monedes
 19bb2852 Correcte, i ràpid!
-fbc63d40 Correcte.
 c04b920c S'ha acabat el temps.
 e8849508 No del tot: la resposta correcta està marcada.
 0639028d No s'ha pogut avisar {0}: {1}

@@ -3,19 +3,11 @@
 a3fa69ab	Isulat ang naririnig mo (W)
 0720e977	Bumalik sa mga salita
 b290f68c	Pakinggan muli
-4b5e84be	Suriin
 b6fffc5a	Magsimula ulit
 209b330d	Isulat ang narinig mo
 087d440e	Ang narinig mo
-21449063	{0}% tama sa ngayon
 7031fe71	Pangungusap {0} sa {1}
 825401d6	(walang naisulat)
-94409161	{0} sa {1} titik ang tama
-d5efb407	{0} sa {1} salita ang tama
-99d158a7	Tama ang lahat ng titik.
-dbf9f7f2	Tama ang lahat ng salita.
-4c768dc3	{0} halos tama
-51dfb3c5	Tapos na: {0}% tama sa {1} pangungusap.
 a1c12a4d	Wala pang pangungusap na isusulat dito.
 ea54afdd	Isulat ang naririnig mo (on / off)
 70c05707	Isulat ang naririnig mo: ang mga salita o pangungusap ng unit, isa-isa
@@ -27,15 +19,8 @@ d01da89d	Gaano karami bawat beses
 ed28f7ec	Isulat ang narinig mo: ang mga salitang nakuha mo, o kung tungkol saan ito
 ba8b50a5	Isulat ang salitang narinig mo
 6737578e	Enter para ipakita ang sinabi · Shift+Enter para sa bagong linya
-4bf51692	Enter para suriin · Shift+Enter para i-play muli
 f9a30e73	Salita {0} sa {1}
 c33d4998	Bahagi {0} sa {1}
-75587d8b	Nakuha mo ang {0} sa {1} salita nito.
-9f3d87c9	Ito ang lahat ng sinabi.
-fbc63d40	Tama.
-0fba00ab	Halos tama.
-5e277236	Hindi pa ngayon.
 992aea9d	Tapos na: {0} bahagi ang napakinggan.
-93eac742	Tapos na: {0}% tama sa {1} salita.
 f97571cf	Naka-on ang "Isulat ang naririnig mo" sa device na ito. Magbukas ng player o isang unit ng kurso para subukan ito.
 99f22104	Naka-off ang "Isulat ang naririnig mo" sa device na ito.

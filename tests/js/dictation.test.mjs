@@ -1,57 +1,33 @@
-// "Type what you hear" (web/js/dictation.js): sentences cut from a transcript, and what was typed set
-// against them.
+// "Type what you hear" (web/js/dictation.js): sentences cut from a transcript, shown plainly once typed (nothing is
+// marked right or wrong: the owner, 2026-11-20).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { caughtWords, cleanSentence, compareTyped, distance, looseKey, passages, pieceWords, piecesOf, sentencesFromWords, shareRight, strictKey, wordNear, wordUnits } from "../../web/js/dictation.js";
+import { cleanSentence, passages, pieceWords, piecesOf, sentencesFromWords, strictKey, wordNear, wordUnits } from "../../web/js/dictation.js";
 
-const states = (r) => r.real.filter((p) => p.state).map((p) => `${p.text}:${p.state}`);
-
-test("capitals, punctuation and Arabic vowel marks never count", () => {
-  const r = compareTyped("Hola, ¿cómo estás?", "hola cómo estás", "es");
-  assert.deepEqual(states(r), ["Hola,:right", "¿cómo:right", "estás?:right"]);
-  assert.equal(r.right, 3);
-  assert.equal(r.total, 3);
-  const ar = compareTyped("مَرْحَبًا بِكُمْ فِي حَلْقَةٍ جَدِيدَةٍ.", "مرحبا بكم في حلقة جديدة", "ar");
-  assert.equal(ar.right, 5, "typed without vowels: all right");
+test("a word's letters: no vowel marks, capitals or punctuation; letters where no spaces are written", () => {
   assert.equal(strictKey("أحمد"), strictKey("احمد"), "the forms of alef are one letter");
   assert.equal(strictKey("ی"), strictKey("ي"), "Persian's own y");
   assert.equal(strictKey("٣"), "3");
   assert.equal(strictKey("кни́га"), "книга", "a stress mark is not a letter");
-});
-
-test("accents, letter forms and a slip of a letter are nearly right", () => {
-  const r = compareTyped("Él está en la ciudad", "el esta en la cuidad", "es");
-  assert.deepEqual(states(r), ["Él:near", "está:near", "en:right", "la:right", "ciudad:near"]);
-  assert.equal(shareRight(r), (2 + 3 / 2) / 5);
-  assert.equal(looseKey("Straße"), "strasse");
-  assert.equal(compareTyped("مدرسة", "مدرسه", "ar").near, 1, "taa marbuta typed as haa");
-  assert.equal(compareTyped("cat", "car", "en").near, 0, "a short word must be typed right");
-  assert.equal(distance("kitten", "sitting"), 3);
-  assert.equal(distance("abcdefgh", "zzzzzzzz", 2), 3, "stops counting past the most allowed");
-});
-
-test("missed words, extra words, and words in the wrong place", () => {
-  const r = compareTyped("I went to the big market", "I want to the market today", "en");
-  assert.deepEqual(states(r), ["I:right", "went:missed", "to:right", "the:right", "big:missed", "market:right"]);
-  assert.deepEqual(r.typed.filter((p) => p.state).map((p) => `${p.text}:${p.state}`),
-    ["I:right", "want:extra", "to:right", "the:right", "market:right", "today:extra"]);
-  const swapped = compareTyped("one two three", "three one two", "en");
-  assert.equal(swapped.right, 2, "the longest run in order: a word out of place counts once at most");
-  const empty = compareTyped("one two", "", "en");
-  assert.equal(empty.right, 0);
-  assert.ok(empty.real.every((p) => p.state === "missed" || p.state === ""));
-  assert.equal(compareTyped("Yes — no", "yes no", "en").total, 2, "a lone dash is not a word");
-});
-
-test("Japanese, Chinese and Thai are compared letter by letter", () => {
-  const r = compareTyped("我喜欢喝咖啡。", "我喜换喝咖啡", "zh");
-  assert.equal(r.letters, true);
-  assert.equal(r.total, 6, "the full stop is not counted");
-  assert.deepEqual(states(r), ["我:right", "喜:right", "欢:missed", "喝:right", "咖:right", "啡:right"]);
+  assert.equal(strictKey("Hola,"), "hola");
+  assert.deepEqual(piecesOf("Yes — no", "en").filter((p) => p.key).map((p) => p.text), ["Yes", "no"], "a lone dash is not a word");
   const th = piecesOf("สวัสดี", "th");
   assert.ok(th.length < [..."สวัสดี"].length, "a Thai vowel mark stays with its letter");
-  assert.equal(compareTyped("ありがとう", "ありがとう", "ja").right, 5);
+  assert.equal(piecesOf("我喜欢。", "zh").filter((p) => p.key).length, 3, "Chinese: letter by letter, the full stop not a word");
+});
+
+test("nothing is marked right or wrong, and there is no score (the owner, 2026-11-20)", async () => {
+  const mod = await import("../../web/js/dictation.js");
+  for (const gone of ["compareTyped", "caughtWords", "shareRight", "looseKey", "distance"]) assert.equal(mod[gone], undefined, gone);
+  const panel = readFileSync(new URL("../../web/js/components/dictation.js", import.meta.url), "utf8");
+  assert.match(panel, /real\.innerHTML = wordsHtml\(u\.text, lang, !!onReal\);/, "what was said, plainly");
+  assert.match(panel, /: esc\(typed\);/, "what was typed, plainly");
+  assert.doesNotMatch(panel, /dict-score|right so far|words right|dw-\$\{|dw-right|dw-missed|dw-extra/);
+  assert.match(panel, /t\("Finished: \{0\} sentences listened to\.", done\)/);
+  const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
+  assert.doesNotMatch(css, /dw-right|dw-near|dw-missed|dw-extra|dict-score/);
+  assert.match(css, /\.dict-yours \{[^}]*color: var\(--text\);/, "what was typed in the normal text colour");
 });
 
 test("sentences: cut at full stops, kept whole when short, cut when long", () => {
@@ -91,7 +67,6 @@ test("captions for the deaf are left out", () => {
 test("one word at a time: each word with letters, without its punctuation", () => {
   const u = wordUnits({ texts: ["«Hola,", "—", "amigo!"], starts: [0, 1, 2], ends: [0.5, 1.2, 2.6] });
   assert.deepEqual(u, [{ text: "Hola", start: 0, end: 0.5, i: 0 }, { text: "amigo", start: 2, end: 2.6, i: 2 }]);
-  assert.equal(compareTyped("amigo", "amigo", "es").right, 1);
 });
 
 test("the gist: 2 to 5 sentences at a time, never across a long pause", () => {
@@ -103,16 +78,6 @@ test("the gist: 2 to 5 sentences at a time, never across a long pause", () => {
   const gap = [{ text: "a.", start: 0, end: 4 }, { text: "b.", start: 30, end: 34 }, { text: "c.", start: 35, end: 38 }];
   assert.deepEqual(passages(gap, 3, "en").map((p) => p.text), ["a.", "b. c."], "an advert between two sentences starts a new part");
   assert.equal(passages([{ text: "我。", start: 0, end: 1 }, { text: "你。", start: 1, end: 2 }], 2, "zh")[0].text, "我。你。");
-});
-
-test("the gist marks the words caught, in any order, and nothing is 'missed'", () => {
-  const r = caughtWords("El gato duerme en la cocina.", "cocina gato... a cat sleeping in the kitchen", "es");
-  assert.deepEqual(r.real.filter((p) => p.state).map((p) => `${p.text}:${p.state}`),
-    ["El:other", "gato:right", "duerme:other", "en:other", "la:other", "cocina.:right"]);
-  assert.equal(r.right, 2);
-  assert.equal(r.total, 6);
-  assert.equal(caughtWords("Él está aquí", "esta", "es").near, 1);
-  assert.equal(caughtWords("Hola", "hello", "es").right, 0, "written in another language: nothing caught, nothing marked wrong");
 });
 
 test("every player with sound offers it", () => {
@@ -172,11 +137,11 @@ test("while typing, back and forward step by the piece (the owner, 2026-11-18), 
   assert.ok(/onClose: \(\) => \{[\s\S]{0,400}unArrow\(\);/.test(player), "the 5-second buttons come back when typing ends");
 });
 
-test("the check is a round button right of Word · Sentence · Gist, where a phone's keyboard never covers it (the owner, 2026-11-18)", () => {
+test("the round ✓ is right of Word · Sentence · Gist, where a phone's keyboard never covers it (the owner, 2026-11-18)", () => {
   const panel = readFileSync(new URL("../../web/js/components/dictation.js", import.meta.url), "utf8");
   const line = panel.slice(panel.indexOf('<div class="dict-line">'), panel.indexOf('<div class="dict-sizes"'));
   assert.ok(line.indexOf('class="dict-seg"') < line.indexOf('class="primary dict-go"'), "right of the three");
-  assert.match(line, /class="primary dict-go" title="Check" aria-label="Check">\$\{icon\("check", 20\)\}/);
+  assert.match(line, /class="primary dict-go" title="Show what was said" aria-label="Show what was said">\$\{icon\("check", 20\)\}/);
   assert.doesNotMatch(panel.slice(panel.indexOf('<div class="dict-body">'), panel.indexOf('<div class="dict-done"')), /dict-go/, "no longer under the box");
   assert.match(panel, /<div class="dict-modes" \$\{offered\.length \? "" : "hidden"\}>/, "shown with a single way too (a course's)");
   assert.match(panel, /paintGo\(k \+ 1 < units\.length \? "next" : "finish"\)/, "then an arrow: Next, or Finish");
@@ -270,7 +235,7 @@ test("Type what you hear: the round button stays in sight with a phone's keyboar
   assert.match(panel, /window\.addEventListener\("resize", onResize\);/, "the keyboard coming up brings the box back into view");
   assert.match(panel, /const offs = \[\(\) => window\.removeEventListener\("resize", onResize\)\];/);
   // The words, numbered, and handed to the player.
-  assert.match(panel, /real\.innerHTML = pieceHtml\(r\.real, !!onReal\);/);
+  assert.match(panel, /real\.innerHTML = wordsHtml\(u\.text, lang, !!onReal\);/);
   assert.match(panel, /if \(onReal\) onReal\(real, u, mode\);/);
   assert.match(panel, /\$\{numbered \? ` data-p="\$\{n\+\+\}"` : ""\}/);
   const player = src("../../web/js/pages/player.js");

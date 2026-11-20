@@ -3,19 +3,11 @@
 a3fa69ab	Scrivi quello che senti (W)
 0720e977	Torna alle parole
 b290f68c	Riascolta
-4b5e84be	Controlla
 b6fffc5a	Ricomincia
 209b330d	Scrivi quello che hai sentito
 087d440e	Quello che hai sentito
-21449063	{0}% giusto finora
 7031fe71	Frase {0} di {1}
 825401d6	(niente scritto)
-94409161	{0} lettere giuste su {1}
-d5efb407	{0} parole giuste su {1}
-99d158a7	Tutte le lettere giuste.
-dbf9f7f2	Tutte le parole giuste.
-4c768dc3	{0} quasi giuste
-51dfb3c5	Finito: {0}% giusto su {1} frasi.
 a1c12a4d	Qui non ci sono ancora frasi da scrivere.
 ea54afdd	Scrivi quello che senti (sì / no)
 70c05707	Scrivi quello che senti: le parole o le frasi dell'unità, una alla volta
@@ -27,15 +19,8 @@ d01da89d	Quanto alla volta
 ed28f7ec	Scrivi quello che hai sentito: le parole che hai capito, o di cosa si parlava
 ba8b50a5	Scrivi la parola che hai sentito
 6737578e	Invio mostra cosa è stato detto · Maiusc+Invio va a capo
-4bf51692	Invio controlla · Maiusc+Invio riproduce di nuovo
 f9a30e73	Parola {0} di {1}
 c33d4998	Parte {0} di {1}
-75587d8b	Hai colto {0} delle sue {1} parole.
-9f3d87c9	Ecco tutto quello che è stato detto.
-fbc63d40	Giusto.
-0fba00ab	Quasi giusto.
-5e277236	Non questa volta.
 992aea9d	Finito: {0} parti ascoltate.
-93eac742	Finito: {0}% giusto su {1} parole.
 f97571cf	«Scrivi quello che senti» è attivo su questo dispositivo. Apri un lettore o un'unità di un corso per provarlo.
 99f22104	«Scrivi quello che senti» è disattivato su questo dispositivo.

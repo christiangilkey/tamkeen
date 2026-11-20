@@ -193,7 +193,6 @@ bfd6bf51 Lequel de vos mots veut dire ceci ?
 63d63141 Ce mot est maintenant bien connu. +15 XP
 18a80fec Précis toute la semaine : +60 XP et 5 pièces
 19bb2852 Juste, et rapide !
-fbc63d40 Juste.
 c04b920c Temps écoulé.
 e8849508 Pas tout à fait : la bonne réponse est indiquée.
 0639028d Impossible de savoir {0} : {1}

@@ -9,7 +9,6 @@ bfd6bf51 Qual das suas palavras significa isto?
 63d63141 Agora você conhece bem essa palavra. +15 XP
 18a80fec Precisão a semana toda: +60 XP e 5 moedas
 19bb2852 Certo, e rápido!
-fbc63d40 Certo.
 c04b920c Acabou o tempo.
 e8849508 Não exatamente: a resposta certa está marcada.
 0639028d Não foi possível avisar {0}: {1}
