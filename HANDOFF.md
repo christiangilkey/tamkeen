@@ -9538,3 +9538,35 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
   rules that were `.player.yt:not(.nf) .btnrow …` are now `.player .btnrow …`. The page guide's "The line again" step is gone.
 - Checked in a real window: YouTube, a podcast and your own video at 1200, 400, 360 and 320 px: the same bar, play 0 px off
   centre, nothing past the edge; closest gaps 2 px (speed → keyboard) and 5 px (keyboard → Back 5 s at 320 px), as YouTube's was.
+
+### Phone and web app: long episodes survive a dropped connection, and Retry carries on (2026-11-20, "Groq long episode" chat)
+The owner (Android phone, v0.65.0, battery 5%): a 2 h 3 min episode of بدون ورق failed with "Couldn't reach Groq. Check
+your internet connection. (NetworkError when attempting to fetch resource.)".
+- **Where it happened:** that wording is Firefox's (Gecko); Chrome and Android's web view say "Failed to fetch", and the
+  Android app's own requests (NativeHttp) give Java messages. So it was **the web app (learntamkeen.com) in Firefox on
+  Android**, and the request that failed was the upload of an 8-minute piece straight to Groq (`postAudio`'s plain
+  fetch; "Couldn't reach Groq" only comes from there). Groq's API answers with CORS headers even on errors (checked), so
+  it wasn't a hidden refusal. The episode is a 119 MB, 128 kbit/s MP3 from Simplecast's advert injector (16 pieces).
+- **Why:** phones cut the internet to a browser that is in the background or asleep (battery saver at 5% does it hard).
+  Each piece had 4 quick tries (pauses 3, 6, 9 s), one failed piece failed the whole episode, and Retry began again from
+  minute 0 (downloading and paying for the audio again). The queue and progress lived in memory only.
+- **Now** (`web/js/sttjob.js`, pure, used by `mobile/src/js/transcribe-service.js`): an episode's job is `patient`.
+  `throughDrops` tries a dropped request again after 5, 10, 20, 40, 60 s (about 2¼ min) and says so under the progress
+  bar (`job.say` → the episode's `waiting`, shown by library.js `.waiting`). A drop while the page was hidden or the
+  phone said it was offline (`net` in transcribe-service: visibilitychange / offline events, `navigator.onLine`) isn't
+  counted: it waits until both are back ("Paused while Tamkeen is in the background…", "Waiting for the internet to come
+  back…"), at most 40 times. Downloads of the episode go through the same. `streamMp3` keeps every finished piece in kv
+  `stt_partial:<uid>` ({address, model, language, total, src, byte, start, segments, at}); `Mp3Splitter` now gives each
+  piece's `end` byte and takes `start`/`offset` to carry on mid-file. A later try (Retry, or Transcribe after the app was
+  closed) carries on from `byte` when `canResume` says it is the very same file (same size and stitched-file path,
+  same model and language, under 14 days old). `stopMessage` words the final failure (where it stopped, Retry carries on,
+  keep the app open with the screen on and plug the phone in, plus the browser's own words in brackets). The web app
+  holds a screen wake lock while a job runs (`navigator.wakeLock`; Android's web view has none). Test the key, reels and
+  Hear keep the old quick tries (`QUICK_PAUSES`).
+- Tests: `tests/js/sttjob.test.mjs` (10), including a 118 MB fake 2 h 3 min MP3 whose connection goes away at piece 9 and
+  Retry finishing it from piece 9. Checked in a real browser too: a private build of the web app on a fresh data folder,
+  with a pretend go-between server and a pretend Groq on this computer (made-up key), the 2-hour file: stopped after
+  ~2 min at 1:04:00 / 2:03:00 with the new message; Retry (with the phone "offline") waited, then downloaded from byte
+  61,299,000, sent only pieces 9–16 and finished with 16 lines in order. Not tried on a real phone or with real Groq.
+- Not changed: the desktop (`app/transcriber/cloud.py` has its own retries and doesn't sleep) and the Android app's
+  native requests in the background (Android may still stop them; the app then waits and carries on when reopened).

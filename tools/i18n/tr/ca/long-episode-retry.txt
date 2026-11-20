@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df S'ha tallat la connexió. Es torna a provar d'aquí a {0} segons…
+ed2dc627 el servidor de l'episodi
+4e352a4a No s'ha pogut connectar amb {0} durant uns {1} minuts, així que s'ha aturat a {2}. «Torna-ho a provar» continua des d'allà. Els telèfons tallen internet a les aplicacions en segon pla, i més quan queda poca bateria: deixa Tamkeen obert amb la pantalla encesa i connecta el telèfon al carregador. ({3})
+199d66bc {0} «Torna-ho a provar» continua des d'on s'ha aturat.
+471da4a5 S'espera que torni internet…
+7accaa77 En pausa mentre Tamkeen és en segon pla. Continua quan hi tornis.

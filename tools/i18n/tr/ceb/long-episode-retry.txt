@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df Naputol ang koneksyon. Sulayan pag-usab human sa {0} ka segundo…
+ed2dc627 ang server sa episode
+4e352a4a Wala makaabot sa {0} sulod sa mga {1} ka minuto, mao nga mihunong kini sa {2}. Ang "Sulayi pag-usab" mopadayon gikan didto. Ang mga telepono mopalong sa internet sa mga app nga naa sa luyo, labi na kung ubos na ang baterya: ablihi lang ang Tamkeen nga naka-on ang screen, ug i-charge ang telepono. ({3})
+199d66bc {0} Ang "Sulayi pag-usab" mopadayon gikan kung asa kini mihunong.
+471da4a5 Naghulat nga mobalik ang internet…
+7accaa77 Gi-pause samtang naa sa luyo ang Tamkeen. Mopadayon kini inig balik nimo.

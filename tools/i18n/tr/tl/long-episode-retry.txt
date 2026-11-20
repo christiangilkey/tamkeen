@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df Naputol ang koneksyon. Susubukan ulit sa loob ng {0} segundo…
+ed2dc627 ang server ng episode
+4e352a4a Hindi maabot ang {0} nang mga {1} minuto, kaya huminto ito sa {2}. Ang "Subukan ulit" ay magpapatuloy mula roon. Pinuputol ng mga telepono ang internet ng mga app na nasa background, lalo na kapag mahina ang baterya: panatilihing bukas ang Tamkeen na nakabukas ang screen, at i-charge ang telepono. ({3})
+199d66bc {0} Ang "Subukan ulit" ay magpapatuloy mula sa kung saan ito huminto.
+471da4a5 Hinihintay na bumalik ang internet…
+7accaa77 Naka-pause habang nasa background ang Tamkeen. Magpapatuloy ito pagbalik mo.

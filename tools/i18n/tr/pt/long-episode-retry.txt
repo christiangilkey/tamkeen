@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df A conexão caiu. Tentando de novo em {0} segundos…
+ed2dc627 o servidor do episódio
+4e352a4a Não deu para alcançar {0} por cerca de {1} minutos, então parou em {2}. "Tentar de novo" continua dali. Os celulares cortam a internet dos apps em segundo plano, ainda mais com a bateria baixa: deixe o Tamkeen aberto com a tela ligada e coloque o celular para carregar. ({3})
+199d66bc {0} "Tentar de novo" continua de onde parou.
+471da4a5 Esperando a internet voltar…
+7accaa77 Pausado enquanto o Tamkeen está em segundo plano. Continua quando você voltar.

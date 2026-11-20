@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df La connexion a été coupée. Nouvel essai dans {0} secondes…
+ed2dc627 le serveur de l'épisode
+4e352a4a Impossible de joindre {0} pendant environ {1} minutes : arrêt à {2}. « Réessayer » reprend à partir de là. Les téléphones coupent internet aux applis en arrière-plan, surtout quand la batterie est faible : garde Tamkeen ouvert avec l'écran allumé et branche le téléphone. ({3})
+199d66bc {0} « Réessayer » reprend là où ça s'est arrêté.
+471da4a5 En attente du retour d'internet…
+7accaa77 En pause tant que Tamkeen est en arrière-plan. Ça reprend quand tu reviens.

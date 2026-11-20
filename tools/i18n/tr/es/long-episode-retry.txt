@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df Se cortó la conexión. Se vuelve a intentar en {0} segundos…
+ed2dc627 el servidor del episodio
+4e352a4a No se pudo conectar con {0} durante unos {1} minutos, así que se detuvo en {2}. «Reintentar» sigue desde ahí. Los teléfonos cortan internet a las apps en segundo plano, y más con poca batería: deja Tamkeen abierto con la pantalla encendida y conecta el teléfono al cargador. ({3})
+199d66bc {0} «Reintentar» sigue desde donde se detuvo.
+471da4a5 Esperando a que vuelva internet…
+7accaa77 En pausa mientras Tamkeen está en segundo plano. Sigue cuando vuelvas.

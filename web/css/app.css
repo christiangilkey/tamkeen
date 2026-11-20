@@ -424,6 +424,7 @@ label.check input { margin-top: 3px; }
 .ep .status { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; min-width: 190px; }
 .ep .status .row { justify-content: flex-end; }
 .ep .err { color: var(--danger); font-size: 12px; max-width: 320px; text-align: right; }
+.ep .waiting { color: var(--muted); font-size: 12px; max-width: 320px; text-align: right; }
 .ep .progress { width: 160px; }
 /* Transcribing on the computer: the scan for speech (the new-word purple) above the writing, each with
    its percentage; the whole is a button that explains them (library.js progressBars). */

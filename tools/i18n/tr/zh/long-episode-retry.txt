@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df 连接断开了。{0} 秒后重试…
+ed2dc627 节目的服务器
+4e352a4a 大约 {1} 分钟连不上 {0}，所以停在了 {2}。点“重试”会从那里接着做。手机会切断后台应用的网络，电量低时更是如此：请让 Tamkeen 保持打开、屏幕亮着，并给手机充上电。（{3}）
+199d66bc {0} 点“重试”会从停下的地方接着做。
+471da4a5 正在等待网络恢复…
+7accaa77 Tamkeen 在后台，已暂停。你回来后会继续。

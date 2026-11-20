@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df La connessione si è interrotta. Nuovo tentativo tra {0} secondi…
+ed2dc627 il server dell'episodio
+4e352a4a Impossibile raggiungere {0} per circa {1} minuti, quindi si è fermato a {2}. «Riprova» continua da lì. I telefoni tolgono internet alle app in background, ancora di più con la batteria scarica: tieni Tamkeen aperto con lo schermo acceso e metti il telefono in carica. ({3})
+199d66bc {0} «Riprova» continua da dove si è fermato.
+471da4a5 In attesa che torni internet…
+7accaa77 In pausa mentre Tamkeen è in background. Continua quando torni.

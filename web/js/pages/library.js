@@ -820,6 +820,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     box.append(line);
     const bars = progressBars(st);
     if (bars) box.append(bars);
+    // The phone's own cloud transcription waiting for something (mobile/src/js/transcribe-service.js):
+    // the internet to come back, the app to be back on screen, the provider's "slow down".
+    if (ep.waiting && (ep.status === "downloading" || ep.status === "transcribing" || ep.status === "queued")) {
+      const wait = h(`<div class="waiting"></div>`);
+      wait.textContent = ep.waiting;
+      box.append(wait);
+    }
     if (ep.status === "failed" && ep.error) {
       const err = h(`<div class="err"></div>`);
       err.textContent = ep.error;

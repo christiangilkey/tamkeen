@@ -1,0 +1,7 @@
+# Long episodes on the phone and web app: retrying, waiting for the connection, carrying on (web/js/sttjob.js), 2026-11-20
+f3d910df Die Verbindung ist abgebrochen. Neuer Versuch in {0} Sekunden…
+ed2dc627 der Server der Folge
+4e352a4a {0:upper} war etwa {1} Minuten lang nicht erreichbar, daher wurde bei {2} angehalten. „Erneut versuchen“ macht dort weiter. Handys kappen Apps im Hintergrund das Internet, erst recht bei schwachem Akku: Lass Tamkeen mit eingeschaltetem Bildschirm offen und schließ das Handy ans Ladegerät an. ({3})
+199d66bc {0} „Erneut versuchen“ macht dort weiter, wo es aufgehört hat.
+471da4a5 Warten, bis das Internet wieder da ist…
+7accaa77 Pausiert, solange Tamkeen im Hintergrund ist. Es geht weiter, wenn du zurückkommst.
