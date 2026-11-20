@@ -54,6 +54,7 @@ import { playerSteps } from "../components/guideart.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
+import { mediaWait } from "../components/mediawait.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -362,6 +363,10 @@ export async function render(view, { id, query }) {
     audio.src = await audioUrl(id);
   }
   window.__apsAudio = audio; // handy for debugging from the devtools console
+  // A spinner while the video loads, jumps or buffers, then Try again if it takes too long (components/mediawait.js;
+  // the owner, 2026-11-20: YouTube showed a black screen until it had loaded). Netflix says "Opening Netflix…".
+  const stopWait = yt ? mediaWait(audio, { screen: $("#screen"), band: $("#captions") })
+    : vid && !embed ? mediaWait(audio, { screen: $("#screen") }) : () => {};
   let speed = lsGet("speed", 1);
   $("#speed").value = String(speed);
 
@@ -750,6 +755,7 @@ export async function render(view, { id, query }) {
       const frame = $("#nf-frame");
       frame.innerHTML = `<p class="nf-msg"></p>`;
       frame.firstChild.textContent = text;
+      if (text && !action) frame.prepend(h(`<span class="spinner nf-spin" aria-hidden="true"></span>`)); // (opening: it is on its way)
       if (action === "signin") {
         const open = h(`<button type="button">${icon("film", 16)} Open Netflix</button>`);
         open.onclick = () => openNetflix().catch((e) => toast(e.message, { error: true }));
@@ -1500,6 +1506,7 @@ export async function render(view, { id, query }) {
   const stopStudy = trackStudy("listen", () => !audio.paused || !!(dict && dict.active()), yt ? "youtube" : null, vid || embed ? "watch" : "listen");
   return () => {
     disposed = true;
+    stopWait();
     if (dict) dict.close();
     stopStudy();
     stopVowels();

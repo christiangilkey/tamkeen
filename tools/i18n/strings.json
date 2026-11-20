@@ -7735,6 +7735,11 @@
   "f": "web/js/components/lookupmode.js"
  },
  {
+  "id": "e40c346f",
+  "k": "The video is taking a long time to load. Check your connection.",
+  "f": "web/js/components/mediawait.js"
+ },
+ {
   "id": "6ae84e4a",
   "k": "Close (Esc)",
   "f": "web/js/components/modal.js"
@@ -30682,11 +30687,6 @@
  {
   "id": "b2b518b0",
   "k": "This video was removed or made private.",
-  "f": "web/js/ytmedia.js"
- },
- {
-  "id": "269fa6c0",
-  "k": "the YouTube player is still loading",
   "f": "web/js/ytmedia.js"
  },
  {

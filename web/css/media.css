@@ -322,6 +322,26 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   .player.yt .btnrow { margin-top: 0; }
   .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
 }
+/* ---------- a video still loading (components/mediawait.js) ----------
+   A plain spinner in the middle of the video; past 20 s a short message and Try again. YouTube's player may have
+   nothing in front of it: its spinner is under the player, which is hidden only until it has loaded
+   (.media-loading); after that the waiting shows on the band under the video (.media-wait-line). */
+.media-wait { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 10px; padding: 16px; text-align: center; color: #c9c8c2; pointer-events: none; }
+.media-wait[hidden], .media-wait-line[hidden], .media-wait [hidden], .media-wait-line [hidden] { display: none; }
+.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait .media-wait-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* (said, not shown) */
+.media-wait .media-wait-slow { margin: 0; max-width: 30em; font-size: 15px; line-height: 1.5; }
+.media-wait button { pointer-events: auto; }
+.player.yt .media-wait { z-index: 0; background: #000; }
+.player.yt .screen iframe { position: relative; z-index: 1; }
+.player.yt .screen.media-loading iframe { visibility: hidden; }
+.media-wait-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 8px; background: #111;
+  color: #a8a8a8; font-size: 13px; line-height: 1.4; padding: .3em .8em; }
+.media-wait-line .spinner { width: 13px; height: 13px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait-line button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
+.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+
 /* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
    the stage says what is happening while there is no picture (opening, a sign-in needed). */
 .player.nf .nf-frame {

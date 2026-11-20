@@ -1,0 +1,2 @@
+# A video still loading (components/mediawait.js), 2026-11-20
+e40c346f 视频加载时间过长。请检查你的网络连接。

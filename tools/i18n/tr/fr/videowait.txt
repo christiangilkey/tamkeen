@@ -1,0 +1,2 @@
+# A video still loading (components/mediawait.js), 2026-11-20
+e40c346f La vidéo met beaucoup de temps à charger. Vérifiez votre connexion.

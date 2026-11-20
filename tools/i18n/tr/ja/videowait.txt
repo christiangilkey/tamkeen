@@ -1,0 +1,2 @@
+# A video still loading (components/mediawait.js), 2026-11-20
+e40c346f 動画の読み込みに時間がかかっています。接続を確認してください。

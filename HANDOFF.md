@@ -9440,3 +9440,22 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
   left under a 200 px video). A word tap opened the popup with Save in all 12 cases; in a course unit too. Not checked: reels (no reel
   surface in the desktop app), Netflix (needs its window), the course with a keyboard up (the desktop window's library keeps its side
   list at phone width), a real phone. Pictures: `Documents/arabic-tts/dict-kb-shots/`.
+
+### A video still loading: spinner, then Try again (2026-11-20, "YouTube bar" chat)
+
+- The owner (Android): a YouTube video showed a black screen "for a while until it loads". That is YouTube's player itself
+  loading (the IFrame API, then its iframe); a play pressed then used to fail with "the YouTube player is still loading".
+- `web/js/ytmedia.js`: `loading` (true from the start until `onReady`; after `play()` until YouTube reports playing; buffering
+  state 3; off on playing/paused/ended/cued and on errors), `ready`, a "loadingchange" event, a play pressed before ready
+  is kept (`wantPlay`) and done in onReady, and `retry()` builds a fresh player in the same place from the current position.
+- `web/js/components/mediawait.js` (new): `mediaWait(media, {screen, band})`. YouTube allows nothing in front of its player, so its
+  spinner sits UNDER the iframe (z-index 0, the iframe z-index 1) and the iframe is `visibility: hidden` only until it is ready
+  (`.screen.media-loading`); after that, waiting shows as a "Loading…" line on the band under the captions. A `<video>` (own videos)
+  gets the spinner over the picture (readyState/seeking based). Past `SLOW_MS` (20 s): "The video is taking a long time to load.
+  Check your connection." + Try again (YouTube: `retry()`; a video: `load()` back to its place). Netflix: a spinner beside
+  "Opening Netflix…" (its window covers the stage once open). Reels: not done, because their video is a native window laid over the stage
+  (reelsurface), so nothing of the page can show there.
+- Checked in a real window (fresh data folder, not signed in to Drive), YouTube at 400×800: the spinner in the video's place until the
+  player loaded (~0.75 s here), play pressed at once kept and played, the line under the video while starting and after a jump; a
+  player stubbed to never load showed the message and Try again after 20 s; the component on a `<video>` that never answers too.
+  Not checked: a real phone, a real slow connection, Netflix. Pictures: `Documents/arabic-tts/video-wait-shots/`.

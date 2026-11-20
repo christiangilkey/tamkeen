@@ -167,6 +167,7 @@ const SHARED = [
   // Type what you hear (dictation), in every player with sound
   "js/dictation.js",
   "js/components/dictation.js",
+  "js/components/mediawait.js",  // a video still loading: the spinner, then Try again
   // lesson bundles: a teacher's PDF / Word file with its audio as a passage, tracks and questions
   "js/lessons.js",
   "js/lessonparse.js",

@@ -11,6 +11,11 @@
 // player is allowed to show its translations (`setOption("captions", "track", ...)`). Either way
 // `cc_lang_pref` makes the language being learned YouTube's first choice. The audio track (a dubbed
 // version) can't be chosen from outside YouTube's player: its ⚙ menu has "Audio track".
+//
+// Waiting (the owner, 2026-11-20: a black screen "for a while until it loads"): `loading` is true while YouTube's
+// player is still loading, and while the video is (after play is pressed, or a jump, or buffering), with a
+// "loadingchange" event each time it changes; `ready` once the player has loaded. A play pressed before then is kept
+// and done once it can be. `retry()` starts the player afresh, from where it was (components/mediawait.js).
 
 import { baseLanguage, youTubeLanguage } from "./ytcaptions.js";
 
@@ -65,6 +70,10 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
   let pendingStart = start > 0 ? start : null; // where the first play should begin
   let playAsked = 0;       // when play() was last called (to ignore a stale "paused" report)
   let timer = 0;
+  let loading = true;      // the player, or the video, is loading (see the top)
+  let wantPlay = false;    // play was pressed before the player was ready
+  let host = null;         // where the player is (its parent), and its element's id, for retry()
+  let mountId = "";
   const ccLang = (captions && captions.lang) || "";
   const showOwn = !!(captions && captions.show && ccLang);
   let ownShown = false;    // YouTube's captions are on in the language being learned
@@ -92,6 +101,12 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
     fire("timeupdate");
   }
 
+  function setLoading(value) {
+    if (loading === value || disposed) return;
+    loading = value;
+    fire("loadingchange");
+  }
+
   function setPaused(value) {
     if (paused === value) return;
     paused = value;
@@ -101,6 +116,9 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
   function onState(e) {
     if (disposed) return;
     state = e.data;
+    // Buffering: loading. Playing, paused, ended or ready to play (cued): not. (Unstarted says nothing.)
+    if (state === 3) setLoading(true);
+    else if (state === 0 || state === 1 || state === 5) setLoading(false);
     if (state === 1) {
       // The first play may need to jump to where the user left off.
       if (!started && pendingStart !== null && Math.abs(reported() - pendingStart) > 2) {
@@ -124,6 +142,7 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
     } else if (state === 2) {
       // Right after play() YouTube may still report the old paused state: ignore that one.
       if (playAsked && now() - playAsked < 1000) return;
+      setLoading(false);
       if (!hold) base = reported();
       setPaused(true);
     } else if (state === 0) {
@@ -189,6 +208,8 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
       },
     },
     paused: { get: () => paused },
+    loading: { get: () => loading },
+    ready: { get: () => ready },
     duration: { get: () => { try { return (ready && player.getDuration()) || duration; } catch { return duration; } } },
     playbackRate: {
       get: () => rate,
@@ -204,8 +225,10 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
   });
 
   media.play = () => {
-    if (!ready) return Promise.reject(new Error("the YouTube player is still loading"));
+    // Still loading: played once it has (it used to fail with "the YouTube player is still loading").
+    if (!ready) { wantPlay = true; return Promise.resolve(); }
     playAsked = now();
+    setLoading(true); // (until YouTube says it is playing)
     try {
       if (!started && pendingStart !== null) {
         const t = pendingStart;
@@ -220,6 +243,8 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
   };
   media.pause = () => {
     playAsked = 0;
+    wantPlay = false;
+    if (ready && state !== 3) setLoading(false);
     try { if (ready) player.pauseVideo(); } catch { /* player gone */ }
     if (started) { if (!hold) base = position(); setPaused(true); }
   };
@@ -230,36 +255,70 @@ export function createYouTubeMedia(mount, videoId, { start = 0, duration = 0, ca
   };
   /** Text describing a failure, set before the "error" event fires. */
   media.errorMessage = "";
-
-  loadApi().then((YT) => {
+  /** Start YouTube's player afresh, from where it was (a load that never finished), and play if it was playing or
+   *  play had been pressed. */
+  media.retry = () => {
     if (disposed) return;
-    player = new YT.Player(mount, {
-      videoId,
-      width: "100%",
-      height: "100%",
-      playerVars: {
-        cc_load_policy: showOwn ? 1 : 0, // YouTube's own captions: see the top of this file
-        cc_lang_pref: ccLang ? youTubeLanguage(ccLang) : undefined,
-        playsinline: 1,      // on phones, play in the page rather than jumping to full screen
-        rel: 0,              // at the end, only suggest videos from the same channel
-        start: Math.floor(start) || undefined,
-        origin: location.origin,
-      },
-      events: {
-        onReady: () => {
-          if (disposed) return;
-          ready = true;
-          try { rate = player.getPlaybackRate() || 1; } catch { /* keep 1 */ }
-          timer = setInterval(poll, POLL_MS);
-          fire("loadedmetadata");
+    const at = position();
+    const again = wantPlay || !paused;
+    clearInterval(timer);
+    const fresh = document.createElement("div");
+    fresh.id = mountId;
+    const old = player && typeof player.getIframe === "function" ? player.getIframe() : document.getElementById(mountId);
+    if (old && old.parentNode) old.replaceWith(fresh); else if (host) host.append(fresh);
+    try { if (player) player.destroy(); } catch { /* already gone */ }
+    player = null;
+    ready = false;
+    started = false;
+    state = -1;
+    hold = null;
+    base = lastGiven = at;
+    pendingStart = at > 0 ? at : null;
+    start = at;
+    wantPlay = again;
+    if (!paused) setPaused(true);
+    loading = false;
+    setLoading(true);
+    build(fresh);
+  };
+
+  host = mount.parentNode;
+  mountId = mount.id || "yt-frame";
+  build(mount);
+
+  function build(where) {
+    loadApi().then((YT) => {
+      if (disposed) return;
+      player = new YT.Player(where, {
+        videoId,
+        width: "100%",
+        height: "100%",
+        playerVars: {
+          cc_load_policy: showOwn ? 1 : 0, // YouTube's own captions: see the top of this file
+          cc_lang_pref: ccLang ? youTubeLanguage(ccLang) : undefined,
+          playsinline: 1,      // on phones, play in the page rather than jumping to full screen
+          rel: 0,              // at the end, only suggest videos from the same channel
+          start: Math.floor(start) || undefined,
+          origin: location.origin,
         },
-        onStateChange: onState,
-        onApiChange: () => { if (showOwn && !disposed) captionsInLanguage(); }, // the captions part has loaded
-        onPlaybackRateChange: (e) => { base = position(); baseAt = now(); rate = e.data || rate; },
-        onError: (e) => { media.errorMessage = errorText(e.data); fire("error"); },
-      },
-    });
-  }).catch((e) => { media.errorMessage = e.message; fire("error"); });
+        events: {
+          onReady: () => {
+            if (disposed) return;
+            ready = true;
+            try { rate = player.getPlaybackRate() || 1; } catch { /* keep 1 */ }
+            timer = setInterval(poll, POLL_MS);
+            setLoading(false);
+            fire("loadedmetadata");
+            if (wantPlay) { wantPlay = false; media.play(); }
+          },
+          onStateChange: onState,
+          onApiChange: () => { if (showOwn && !disposed) captionsInLanguage(); }, // the captions part has loaded
+          onPlaybackRateChange: (e) => { base = position(); baseAt = now(); rate = e.data || rate; },
+          onError: (e) => { media.errorMessage = errorText(e.data); wantPlay = false; setLoading(false); fire("error"); },
+        },
+      });
+    }).catch((e) => { media.errorMessage = e.message; wantPlay = false; setLoading(false); fire("error"); });
+  }
 
   return media;
 }
