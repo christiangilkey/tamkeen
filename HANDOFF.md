@@ -9528,3 +9528,13 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
 - Checked in a real window (fresh data folder): a real local file with play interrupted by a new load: no message, played on;
   a refused server: the message + Try again in place, no toast; a server that never answers: Loading… at once, then the message
   when the connection gave up, Try again back to Loading…. Not checked on a real phone.
+
+### Every player's bar is YouTube's (2026-11-20, "YouTube bar" chat)
+
+- The owner (Android, a podcast): the bar's start-of-sentence button was cut off, and "I also need podcasts to have a
+  transcription feature" (Type what you hear, which was up in the top row there). Now in every player (podcasts, audiobooks,
+  your own audio and videos, Netflix too): no `#restart` button (the R key: `lineAgain()`), the keyboard button in `.btnrow`
+  hung beside the speed, smaller 5-second buttons, and on screens ≤760 px the 38 px play button YouTube had. The media.css
+  rules that were `.player.yt:not(.nf) .btnrow …` are now `.player .btnrow …`. The page guide's "The line again" step is gone.
+- Checked in a real window: YouTube, a podcast and your own video at 1200, 400, 360 and 320 px: the same bar, play 0 px off
+  centre, nothing past the edge; closest gaps 2 px (speed → keyboard) and 5 px (keyboard → Back 5 s at 320 px), as YouTube's was.

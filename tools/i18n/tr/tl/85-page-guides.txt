@@ -38,8 +38,6 @@ dbd24142 Ang switch sa itaas ng popup: pagkatapos ng salitang na-tap mo, i-pause
 3841cab3 I-play o i-pause. Sa computer, puwede rin ang space bar.
 d094b09b Atras o abante nang 5 segundo
 a1b42fd3 Pakinggan ulit ang isang bahagi, o lumaktaw pasulong.
-a239b8ff Ulitin ang linya
-df7d1084 Bumalik sa simula ng linyang naririnig mo. Dalawang beses nang mabilis: ang naunang linya.
 a13692da Bagalan habang nasasanay ka sa wika.
 0ce86704 Ang buong transcript
 d20c2888 Ipakita o itago ang lahat ng linya ng video sa tabi nito.

@@ -95,24 +95,25 @@ test("held back from v0.61.0: hidden everywhere until it is released or switched
   assert.match(panel, /export const dictationOn = \(\) => feature\("dictation"\);/, "behind prototype mode (prototype.js)");
   const player = src("../../web/js/pages/player.js");
   assert.match(player, /const dictShown = dictationOn\(\);/);
-  assert.match(player, /if \(dictShown\) \(yt \? \$\("\.btnrow"\)\.append\(dictBtn\) : \$\("#font-down"\)\.before\(dictBtn\)\)/);
+  assert.match(player, /if \(dictShown\) \$\("\.btnrow"\)\.append\(dictBtn\);/);
   assert.match(player, /dictShown && \(e\.key === "w"/);
   assert.match(player, /n && dictShown \? \{ label: "Type what you hear/);
   assert.match(src("../../web/js/pages/reels.js"), /if \(dictShown\) \$\("#rc-left"\)\.append\(dictBtn\)/);
   assert.match(src("../../web/js/components/coursepanel.js"), /dictBtn\.hidden = !dictationOn\(\) \|\|/);
 });
 
-test("YouTube's bar (the owner, 2026-11-19): the keyboard beside the speed, no start-of-sentence button, R still works", () => {
+test("every player's bar is YouTube's (the owner, 2026-11-19 / 2026-11-20): the keyboard beside the speed, no start-of-sentence button, R still works", () => {
   const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
   const player = src("../../web/js/pages/player.js");
-  assert.match(player, /\$\{yt \? "" : `<button type="button" id="restart"/, "no second rewind button on YouTube");
-  assert.match(player, /if \(\$\("#restart"\)\) \$\("#restart"\)\.onclick = lineAgain;/);
+  assert.doesNotMatch(player, /id="restart"|#restart/, "no second rewind button in any player");
+  assert.match(player, /if \(dictShown\) \$\("\.btnrow"\)\.append\(dictBtn\);/, "the keyboard in the bar, in every player");
   assert.match(player, /if \(dict\) dict\.again\(\); else lineAgain\(\);/, "the R key needs no button");
-  assert.ok(!/\$\("#restart"\)\.click\(\)/.test(player), "nothing presses a button that may not be there");
   const css = src("../../web/css/media.css");
-  // Out of the bar's grid (hung on its left end), so play stays in the middle; Netflix keeps its bar.
-  assert.match(css, /\.player\.yt:not\(\.nf\) \.btnrow \.dict-btn \{\s*position: absolute;/);
-  assert.match(css, /\.player\.yt:not\(\.nf\) \.btnrow #back5, \.player\.yt:not\(\.nf\) \.btnrow #fwd5 \{\s*height: 30px;/);
+  // Out of the bar's grid (hung on its left end), so play stays in the middle.
+  assert.match(css, /\.player \.btnrow \.dict-btn \{\s*position: absolute;/);
+  assert.match(css, /\.player \.btnrow #back5, \.player \.btnrow #fwd5 \{ height: 30px;/);
+  assert.doesNotMatch(css, /\.player\.yt:not\(\.nf\) \.btnrow/, "no longer YouTube's alone");
+  assert.doesNotMatch(src("../../web/js/components/guideart.js"), /#restart/, "the page guide has no step for it");
 });
 
 test("the owner's secret switch for prototype mode: five taps on the version (the About heading in the web app)", () => {

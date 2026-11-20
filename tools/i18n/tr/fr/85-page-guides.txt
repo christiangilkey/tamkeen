@@ -38,8 +38,6 @@ dbd24142 L'interrupteur en haut de la fenêtre : après un mot touché, faire un
 3841cab3 Lancer ou mettre en pause. Sur un ordinateur, la barre d'espace le fait aussi.
 d094b09b Reculer ou avancer de 5 secondes
 a1b42fd3 Réentendre un passage, ou avancer.
-a239b8ff La ligne à nouveau
-df7d1084 Revenir au début de la ligne entendue. Deux fois rapidement : la ligne d'avant.
 a13692da Ralentissez le temps de vous habituer à la langue.
 0ce86704 Toute la transcription
 d20c2888 Afficher ou masquer toutes les lignes de la vidéo à côté d'elle.

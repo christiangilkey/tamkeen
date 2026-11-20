@@ -38,8 +38,6 @@ dbd24142 Der Schalter oben im Fenster: nach einem angetippten Wort anhalten, dam
 3841cab3 Abspielen oder anhalten. Am Computer geht das auch mit der Leertaste.
 d094b09b 5 Sekunden zurück oder vor
 a1b42fd3 Ein Stück noch einmal hören oder vorspringen.
-a239b8ff Die Zeile noch einmal
-df7d1084 Zurück zum Anfang der Zeile, die du hörst. Zweimal schnell: die Zeile davor.
 a13692da Spiel es langsamer ab, während du dich an die Sprache gewöhnst.
 0ce86704 Das ganze Transkript
 d20c2888 Alle Zeilen des Videos daneben zeigen oder ausblenden.

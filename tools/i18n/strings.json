@@ -6285,16 +6285,6 @@
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "a239b8ff",
-  "k": "The line again",
-  "f": "web/js/components/guideart.js"
- },
- {
-  "id": "df7d1084",
-  "k": "Back to the start of the line you're hearing. Twice quickly: the line before.",
-  "f": "web/js/components/guideart.js"
- },
- {
   "id": "2d2cb022",
   "k": "Speed",
   "f": "web/js/components/guideart.js"
@@ -23805,16 +23795,6 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "9973352b",
-  "k": "Back to the start of the sentence (R)",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "570eb463",
-  "k": "Back to the start of the sentence",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "9c3ebd2a",
   "k": "{0} · {1} words",
   "f": "web/js/pages/player.js"
@@ -33397,6 +33377,16 @@
  {
   "id": "7dc4ee01",
   "k": "Show the transcript",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "9973352b",
+  "k": "Back to the start of the sentence (R)",
+  "f": "extension/src/js/ext/panel.js"
+ },
+ {
+  "id": "570eb463",
+  "k": "Back to the start of the sentence",
   "f": "extension/src/js/ext/panel.js"
  },
  {

@@ -38,8 +38,6 @@ dbd24142 El interruptor de arriba de la ventana: tras una palabra que tocaste, p
 3841cab3 Reproduce o pausa. En un ordenador, también con la barra espaciadora.
 d094b09b Atrás o adelante 5 segundos
 a1b42fd3 Vuelve a oír un trozo o salta hacia delante.
-a239b8ff La línea otra vez
-df7d1084 Vuelve al principio de la línea que estás oyendo. Dos veces seguidas: la línea anterior.
 a13692da Ve más despacio mientras te acostumbras al idioma.
 0ce86704 Toda la transcripción
 d20c2888 Muestra u oculta todas las líneas del vídeo a su lado.

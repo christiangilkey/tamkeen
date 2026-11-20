@@ -38,8 +38,6 @@ dbd24142 L'interruptor de dalt de la finestra: després d'una paraula tocada, at
 3841cab3 Reprodueix o atura. A l'ordinador, també amb la barra d'espai.
 d094b09b Enrere o endavant 5 segons
 a1b42fd3 Torna a sentir un tros o salta endavant.
-a239b8ff La línia un altre cop
-df7d1084 Torna al començament de la línia que sents. Dos cops seguits: la línia anterior.
 a13692da Alenteix-ho mentre t'acostumes a l'idioma.
 0ce86704 Tota la transcripció
 d20c2888 Mostra o amaga totes les línies del vídeo al seu costat.

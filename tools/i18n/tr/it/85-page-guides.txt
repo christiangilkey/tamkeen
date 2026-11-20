@@ -38,8 +38,6 @@ dbd24142 L'interruttore in alto nel riquadro: dopo una parola toccata, fermarsi 
 3841cab3 Avvia o metti in pausa. Sul computer, anche con la barra spaziatrice.
 d094b09b Indietro o avanti di 5 secondi
 a1b42fd3 Riascolta un pezzo o vai avanti.
-a239b8ff Di nuovo la riga
-df7d1084 Torna all'inizio della riga che stai ascoltando. Due volte di seguito: la riga prima.
 a13692da Rallenta mentre ti abitui alla lingua.
 0ce86704 Tutta la trascrizione
 d20c2888 Mostra o nascondi tutte le righe del video accanto a esso.

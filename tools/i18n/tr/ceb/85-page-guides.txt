@@ -38,8 +38,6 @@ dbd24142 Ang switch sa ibabaw sa popup: human sa pulong nga imong gi-tap, i-paus
 3841cab3 I-play o i-pause. Sa kompyuter, mahimo usab ang space bar.
 d094b09b Atras o abante og 5 ka segundo
 a1b42fd3 Paminawa pag-usab ang usa ka bahin, o lukso sa unahan.
-a239b8ff Ang linya pag-usab
-df7d1084 Balik sa sinugdanan sa linya nga imong gipaminaw. Kaduha nga paspas: ang miaging linya.
 a13692da Hinaya kini samtang nagkat-on ka pa sa pinulongan.
 0ce86704 Ang tibuok transcript
 d20c2888 Ipakita o tagoa ang tanang linya sa video sa kilid niini.

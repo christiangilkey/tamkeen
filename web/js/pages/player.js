@@ -302,7 +302,6 @@ export async function render(view, { id, query }) {
         </div>
         <div class="btnrow">
           <span id="loop-chip" class="chip" hidden>⟲ Looping sentence <button type="button" id="loop-off" title="Stop looping">✕</button></span>
-          ${yt ? "" : `<button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>`}
           <button type="button" id="back5" title="Back 5 seconds (←)">⟲ 5s</button>
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
@@ -610,12 +609,11 @@ export async function render(view, { id, query }) {
   };
   $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : pause(); };
   $("#back5").onclick = () => (dict ? dict.back() : seekTo(audio.currentTime - 5, false)); // (typing: by the piece)
-  // Back to the start of the line being heard (again within a second: the line before). The R key everywhere; a
-  // button too, except on YouTube, whose bar keeps only the 5-second ones (the owner, 2026-11-19: "the second rewind
-  // button should be removed").
+  // Back to the start of the line being heard (again within a second: the line before): the R key. No button: every
+  // player's bar keeps only the 5-second ones (the owner, 2026-11-19 for YouTube: "the second rewind button should be
+  // removed"; 2026-11-20 the others, whose bar was cut off on a phone).
   const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
   const lineAgain = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
-  if ($("#restart")) $("#restart").onclick = lineAgain;
   $("#fwd5").onclick = () => (dict ? dict.next() : seekTo(audio.currentTime + 5, false));
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
@@ -1293,9 +1291,9 @@ export async function render(view, { id, query }) {
   let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
   const dictShown = dictationOn(); // (not released yet: components/dictation.js)
-  // YouTube: in the play bar, beside the speed, as in the reel player (the owner, 2026-11-19: up in the banner it went
-  // unseen). Elsewhere with the other switches at the top.
-  if (dictShown) (yt ? $(".btnrow").append(dictBtn) : $("#font-down").before(dictBtn));
+  // In the play bar, beside the speed, as in the reel player (the owner: 2026-11-19 on YouTube, where up in the banner
+  // it went unseen; 2026-11-20 in every player, "I also need podcasts to have a transcription feature").
+  if (dictShown) $(".btnrow").append(dictBtn);
   dictBtn.disabled = !n;
   function openDictation() {
     if (dict || !n || disposed || !dictShown) return;

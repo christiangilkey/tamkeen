@@ -38,8 +38,6 @@ dbd24142 O botão no alto da janela: depois de uma palavra tocada, pausar para v
 3841cab3 Tocar ou pausar. No computador, a barra de espaço também faz isso.
 d094b09b Voltar ou avançar 5 segundos
 a1b42fd3 Ouvir um trecho de novo, ou pular para a frente.
-a239b8ff A linha de novo
-df7d1084 Voltar ao começo da linha que você está ouvindo. Duas vezes rápido: a linha anterior.
 a13692da Deixe mais devagar enquanto se acostuma com o idioma.
 0ce86704 A transcrição inteira
 d20c2888 Mostrar ou esconder todas as linhas do vídeo ao lado dele.
