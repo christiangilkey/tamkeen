@@ -1,0 +1,3 @@
+# Live battle: the X in the corner asks before leaving (game/livebattle-ui.js leave()).
+e2b9f81b	ترک نبرد؟
+6050ab40	نبرد همین‌جا تمام می‌شود، بی‌جایزه و بی‌آنکه چیزی از دست بدهی. پاسخ‌هایی که دادی برای واژه‌هایت حساب می‌شوند.

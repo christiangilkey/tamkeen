@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Better:** **An X to leave any battle.** Every creature battle (wild, rental duel, gym leader, friend) now has an X in its top corner. It asks "Leave the battle?" first, with Carry on highlighted; leaving ends the fight with no reward and nothing lost (your answers still count for your words). On a phone the back gesture does the same, instead of changing the page hidden under the battle. Esc and the controller's Menu button still pause, with Leave the battle in the box.
+
 - **Better:** **YouTube player's bar is less crowded.** **Type what you hear** (the keyboard button) now sits in the bar beside the speed, as in the reel player, instead of at the far end of the top line. The 5-second buttons are smaller, and the "start of the sentence" button is gone from YouTube's bar (the R key still does it). The play button stays in the middle.
 
 ## v0.63.0 — 2026-11-18

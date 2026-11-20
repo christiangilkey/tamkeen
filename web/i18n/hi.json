@@ -3869,6 +3869,8 @@
 "Paused":"रुका हुआ",
 "Leave the battle":"मुक़ाबला छोड़ें",
 "Carry on":"जारी रखें",
+"Leave the battle?":"मुक़ाबला छोड़ें?",
+"The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.":"मुक़ाबला यहीं ख़त्म होगा: न कोई इनाम, न कोई नुक़सान। आपके दिए जवाब आपके शब्दों के लिए गिने जाते रहेंगे।",
 "Couldn't tell {0}: {1}":"{0} को बताया नहीं जा सका: {1}",
 "· {0} {1} coins":"· {0} {1} सिक्के",
 "+{0} XP{1}":"+{0} XP{1}",

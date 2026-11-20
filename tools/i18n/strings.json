@@ -19355,6 +19355,16 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "e2b9f81b",
+  "k": "Leave the battle?",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "6050ab40",
+  "k": "The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "0639028d",
   "k": "Couldn't tell {0}: {1}",
   "f": "web/js/game/livebattle-ui.js"

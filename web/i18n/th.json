@@ -3869,6 +3869,8 @@
 "Paused":"หยุดชั่วคราว",
 "Leave the battle":"ออกจากการต่อสู้",
 "Carry on":"เรียนต่อ",
+"Leave the battle?":"ออกจากการต่อสู้ไหม",
+"The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.":"การต่อสู้จะจบตรงนี้ ไม่มีรางวัลและไม่เสียอะไร คำตอบที่ให้ไปแล้วยังนับให้คำศัพท์ของคุณ",
 "Couldn't tell {0}: {1}":"บอก {0} ไม่ได้: {1}",
 "· {0} {1} coins":"· {0} {1} เหรียญ",
 "+{0} XP{1}":"+{0} XP{1}",

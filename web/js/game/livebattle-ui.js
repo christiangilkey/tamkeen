@@ -171,6 +171,7 @@ export function runLiveBattle(setup, vocab) {
       <button type="button" class="ghost icon lb-pause" title="Pause">${lineIcon("pause")}</button>
       <div class="lb-card foe"><div class="lb-name"><span class="lb-who"></span><span class="lb-el"></span></div>
         <div class="hud-bar"><i></i></div><div class="lb-pips"></div></div>
+      <button type="button" class="ghost icon lb-exit" title="Leave the battle" aria-label="Leave the battle">${lineIcon("close")}</button>
     </div>
     <div class="lb-stage"><div class="lb-arena"><canvas width="${viewport.w}" height="${viewport.h}"></canvas><div class="lb-floats" aria-hidden="true"></div>
       <canvas class="lb-mini" hidden aria-hidden="true"></canvas>
@@ -1598,6 +1599,25 @@ export function runLiveBattle(setup, vocab) {
     });
   }
   $(".lb-pause").onclick = () => pause();
+
+  // ----- leaving (the X in the corner; the phone's back gesture presses it, gamepad.js closeTopBox) -----
+  // It asks first, with Carry on highlighted, and leaving ends the fight as "Leave the battle" in the pause box always
+  // has: no reward and nothing lost (the answers given so far still count for their words). On the end card it is
+  // Done (the result was paid as the card came up). Not while a question is on screen: it covers the X, can't be
+  // paused, and leaving mustn't mark its word wrong; nor in the moment between the last hit and the end card.
+  async function leave() {
+    if (closed || pausedBy) return;
+    if (b.over) { if ($(".lb-end").innerHTML) close(); return; }
+    if (quizShown) return; // (a question waiting to come up never does if the player leaves: nothing is marked)
+    pausedBy++;
+    held.clear();
+    const go = await pauseBox(t("Leave the battle?"), t("The battle ends here, with no reward and nothing lost. The answers you gave still count for your words."));
+    pausedBy--;
+    if (!go || closed) return;
+    saveGame();
+    close();
+  }
+  $(".lb-exit").onclick = () => leave();
   // Going to another app or tab with a question open counts as running out of time (else the word could be
   // looked up meanwhile); without one, the battle simply waits (the frames stop while it can't be seen).
   const onHide = () => { if (document.hidden && b.quiz && quizShown) settle(answer(b, null), null); };

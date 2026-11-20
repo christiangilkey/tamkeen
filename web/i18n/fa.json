@@ -3869,6 +3869,8 @@
 "Paused":"مکث",
 "Leave the battle":"ترک نبرد",
 "Carry on":"ادامه بده",
+"Leave the battle?":"ترک نبرد؟",
+"The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.":"نبرد همین‌جا تمام می‌شود، بی‌جایزه و بی‌آنکه چیزی از دست بدهی. پاسخ‌هایی که دادی برای واژه‌هایت حساب می‌شوند.",
 "Couldn't tell {0}: {1}":"{0} گفته نشد: {1}",
 "· {0} {1} coins":"· {0} {1} سکه",
 "+{0} XP{1}":"+{0} XP{1}",

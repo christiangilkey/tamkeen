@@ -752,6 +752,10 @@ export function pressHighlighted() {
 export function closeTopBox() {
   const box = overlay();
   if (box) { closeBox(box); return true; }
+  // a live battle (game/livebattle-ui.js) covers the page: back is its X, which asks "Leave the battle?" first
+  // (else the page under the battle would change, unseen, while the fight went on)
+  const exit = document.querySelector(".live-wrap .lb-exit");
+  if (exit) { exit.click(); return true; }
   const bubble = inBubble("[data-act='close']");
   if (bubble) { bubble.click(); return true; }
   return false;

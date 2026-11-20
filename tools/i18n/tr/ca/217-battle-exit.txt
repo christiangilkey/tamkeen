@@ -1,0 +1,3 @@
+# Live battle: the X in the corner asks before leaving (game/livebattle-ui.js leave()).
+e2b9f81b	Vols sortir de la batalla?
+6050ab40	La batalla s'acaba aquí, sense recompensa i sense perdre res. Les respostes que has donat continuen comptant per a les teves paraules.

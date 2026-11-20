@@ -1,0 +1,3 @@
+# Live battle: the X in the corner asks before leaving (game/livebattle-ui.js leave()).
+e2b9f81b	مغادرة المعركة؟
+6050ab40	تنتهي المعركة هنا بلا مكافأة ولا خسارة. الإجابات التي قدّمتها تبقى محسوبة لكلماتك.

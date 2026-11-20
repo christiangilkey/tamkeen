@@ -3869,6 +3869,8 @@
 "Paused":"일시정지됨",
 "Leave the battle":"배틀 나가기",
 "Carry on":"이어 하기",
+"Leave the battle?":"배틀에서 나갈까요?",
+"The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.":"배틀이 여기서 끝나요. 보상도 없고 잃는 것도 없어요. 지금까지 한 답은 단어 기록에 그대로 남아요.",
 "Couldn't tell {0}: {1}":"{0}에게 알리지 못했어요: {1}",
 "· {0} {1} coins":"· {0} 코인 {1}개",
 "+{0} XP{1}":"경험치 +{0}{1}",

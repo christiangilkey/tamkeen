@@ -1,0 +1,3 @@
+# Live battle: the X in the corner asks before leaving (game/livebattle-ui.js leave()).
+e2b9f81b	离开对战？
+6050ab40	对战到此结束，没有奖励，也不会损失什么。你已经给出的答案仍会计入你的单词。
