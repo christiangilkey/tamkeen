@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	May umiikot na palatandaan habang naglo-load ang video, at mas maagang nagsisimula ang mahahabang video sa YouTube
+320acb01	Isulat ang naririnig mo: i-tap ang isang salita sa nasuring pangungusap para hanapin ito
+f8cac91b	Isulat ang naririnig mo: nakikita pa rin ang buton ng pagsuri kahit bukas ang keyboard ng telepono
+459a7d46	Ang mga dating aralin ay makakahanap ng mga buton ng tunog ng kanilang file: idagdag muli ang file
+ea19a61f	Mas maraming tanong ang nahahanap ng mga aralin sa isang file, gaya ng mga nagtatapos sa tutuldok
+4bcc2dd2	Asul na ang bar ng folder sa Vocab, para malinaw na puwede itong i-tap

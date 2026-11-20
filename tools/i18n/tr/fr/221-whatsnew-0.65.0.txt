@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Un indicateur de chargement pendant qu’une vidéo charge, et les longues vidéos YouTube démarrent plus vite
+320acb01	Écris ce que tu entends : touche un mot de la phrase corrigée pour le chercher
+f8cac91b	Écris ce que tu entends : le bouton de vérification reste visible avec le clavier du téléphone ouvert
+459a7d46	Les leçons plus anciennes peuvent retrouver les boutons de son de leur fichier : ajoute le fichier à nouveau
+ea19a61f	Les leçons trouvent plus de questions dans un fichier, comme celles qui finissent par deux-points
+4bcc2dd2	La barre des dossiers du Vocabulaire est maintenant bleue, pour montrer qu’on peut la toucher

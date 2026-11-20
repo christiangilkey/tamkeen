@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Un indicador de càrrega mentre es carrega un vídeo, i els vídeos llargs de YouTube comencen abans
+320acb01	Escriu el que sents: toca una paraula de la frase corregida per buscar-la
+f8cac91b	Escriu el que sents: el botó de comprovar es veu amb el teclat del telèfon obert
+459a7d46	Les lliçons d’abans poden trobar els botons de so del seu fitxer: torna a afegir el fitxer
+ea19a61f	Les lliçons troben més preguntes d’un fitxer, com les que acaben amb dos punts
+4bcc2dd2	La barra de carpetes de Vocabulari ara és blava, perquè quedi clar que es pot tocar

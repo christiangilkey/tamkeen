@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Un indicador de carga mientras se carga un vídeo, y los vídeos largos de YouTube empiezan antes
+320acb01	Escribe lo que oyes: toca una palabra de la frase corregida para buscarla
+f8cac91b	Escribe lo que oyes: el botón de comprobar se ve con el teclado del teléfono abierto
+459a7d46	Las lecciones de antes pueden encontrar los botones de sonido de su archivo: vuelve a añadir el archivo
+ea19a61f	Las lecciones encuentran más preguntas de un archivo, como las que terminan en dos puntos
+4bcc2dd2	La barra de carpetas de Vocabulario ahora es azul, para que quede claro que se puede tocar

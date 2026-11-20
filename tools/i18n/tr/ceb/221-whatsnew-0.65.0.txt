@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Usa ka spinner samtang nag-load ang video, ug ang tag-as nga mga video sa YouTube mas dali nang magsugod
+320acb01	Isulat ang imong madungog: pindota ang usa ka pulong sa nasusi nga sentence aron pangitaon kini
+f8cac91b	Isulat ang imong madungog: makita gihapon ang buton sa pagsusi bisan bukas ang keyboard sa telepono
+459a7d46	Ang mga daan nga leksyon makakita na sa mga buton sa tingog sa ilang file: idugang pag-usab ang file
+ea19a61f	Ang mga leksyon makakita og mas daghang pangutana sa file, sama sa mga nagtapos sa colon
+4bcc2dd2	Ang bar sa folder sa Vocab asul na karon, aron klaro nga mapindot kini

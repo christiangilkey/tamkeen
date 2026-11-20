@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Un indicatore di caricamento mentre un video si carica, e i video lunghi di YouTube partono prima
+320acb01	Scrivi quello che senti: tocca una parola della frase corretta per cercarla
+f8cac91b	Scrivi quello che senti: il pulsante di verifica resta visibile con la tastiera del telefono aperta
+459a7d46	Le lezioni di prima possono trovare i pulsanti audio del loro file: aggiungi di nuovo il file
+ea19a61f	Le lezioni trovano più domande in un file, come quelle che finiscono con i due punti
+4bcc2dd2	La barra delle cartelle nel Vocabolario ora è blu, così è chiaro che si può toccare
