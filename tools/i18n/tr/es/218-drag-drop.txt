@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Suelta para añadirlo a Mis libros
+183e9554	Suelta un libro cada vez.
+4ff855f8	Eso no es un archivo de libro. Suelta un archivo EPUB, PDF, TXT, Kindle AZW3 o Word.
+cec7c4fd	Suelta para crear una lección
+7b790f8b	Un PDF, un archivo de Word (.docx) o un archivo de texto, y los MP3 que lo acompañen.
+4ab5632d	Suelta para añadir audio a esta lección
+9456bda0	MP3, M4A, WAV, OGG… Cada archivo se convierte en una pista.
+8288a1cb	Eso no es un archivo de audio. Suelta aquí archivos de audio, como MP3.
+f11de0e1	Suelta un archivo cada vez aquí.
+045962d4	Ese tipo de archivo no se puede añadir aquí.
+b97cec9c	Suelta para usarla como foto de perfil
+13fe0af6	Tus amigos la ven junto a tu nombre.
+15fb8372	Suelta una sola imagen.
+1887b737	Eso no es una imagen. Suelta una foto aquí (JPG, PNG, WebP…).
+df0861b8	Suelta para añadirlo a Mis vídeos
+0c089e3f	Un archivo de vídeo tuyo: MP4, MKV, MOV, WebM…
+5a97924a	Eso no es un archivo de vídeo. Suelta un vídeo aquí, como un archivo MP4, MKV, MOV o WebM.
+f429a92d	Suelta para añadirlo a Mi audio
+2356ff51	Una grabación tuya: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Eso no es un archivo de audio. Suelta una grabación aquí, como un archivo MP3, M4A, WAV u OGG.
+1727d970	Suelta para añadir un audiolibro
+54002ff8	Varios archivos forman un solo libro, un capítulo cada uno, por orden de nombre de archivo.
+a35806a8	Esos no son archivos de audio. Suelta aquí los archivos del audiolibro (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Suelta para importar esta copia de seguridad
+1d4e7755	Reemplaza tu biblioteca actual: te lo preguntaremos antes.
+8c952cd3	Suelta una copia de seguridad cada vez.

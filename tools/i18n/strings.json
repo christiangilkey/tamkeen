@@ -680,6 +680,26 @@
   "f": "web/js/bookfiles.js"
  },
  {
+  "id": "92edd39e",
+  "k": "Drop to add to My books",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "d993cd1c",
+  "k": "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "183e9554",
+  "k": "Drop one book at a time.",
+  "f": "web/js/books.js"
+ },
+ {
+  "id": "4ff855f8",
+  "k": "That isn't a book file. Drop an EPUB, PDF, TXT, Kindle AZW3 or Word file.",
+  "f": "web/js/books.js"
+ },
+ {
   "id": "6d3042c8",
   "k": "Couldn't reach Tamkeen's book shelf. Check your connection and try again.",
   "f": "web/js/books.js"
@@ -2357,11 +2377,6 @@
  {
   "id": "4e20f045",
   "k": "Add a book of your own",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "d993cd1c",
-  "k": "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -6725,6 +6740,21 @@
   "f": "web/js/components/langswitch.js"
  },
  {
+  "id": "8cfc8cf6",
+  "k": "Play / pause",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
+  "id": "7e0eff48",
+  "k": "Not on this device yet: it arrives with the next sync.",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
+  "id": "a4c6e6e5",
+  "k": "This audio can't be played here.",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
   "id": "b7d40cd6",
   "k": "One answer",
   "f": "web/js/components/lessonedit.js"
@@ -6980,6 +7010,16 @@
   "f": "web/js/components/lessonpanel.js"
  },
  {
+  "id": "cec7c4fd",
+  "k": "Drop to make a lesson",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "7b790f8b",
+  "k": "A PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
   "id": "70c585e1",
   "k": "No lessons yet.",
   "f": "web/js/components/lessonpanel.js"
@@ -7195,23 +7235,18 @@
   "f": "web/js/components/lessonview.js"
  },
  {
-  "id": "926814d0",
-  "k": "Adding {0}…",
-  "f": "web/js/components/lessonview.js"
- },
- {
   "id": "3a62cb5c",
   "k": "No audio in this lesson.",
   "f": "web/js/components/lessonview.js"
  },
  {
-  "id": "7099f7e8",
-  "k": "Track {0}",
+  "id": "926814d0",
+  "k": "Adding {0}…",
   "f": "web/js/components/lessonview.js"
  },
  {
-  "id": "7e0eff48",
-  "k": "Not on this device yet: it arrives with the next sync.",
+  "id": "7099f7e8",
+  "k": "Track {0}",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -7487,6 +7522,21 @@
  {
   "id": "3dd9f940",
   "k": "Your AI found no questions in it.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "4ab5632d",
+  "k": "Drop to add audio to this lesson",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "9456bda0",
+  "k": "MP3, M4A, WAV, OGG… Each file becomes a track.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "8288a1cb",
+  "k": "That isn't an audio file. Drop audio files here, such as MP3s.",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -9200,11 +9250,6 @@
   "f": "web/js/components/transcripteditor.js"
  },
  {
-  "id": "8cfc8cf6",
-  "k": "Play / pause",
-  "f": "web/js/components/transcripteditor.js"
- },
- {
   "id": "d43a7c66",
   "k": "Follow along",
   "f": "web/js/components/transcripteditor.js"
@@ -9227,11 +9272,6 @@
  {
   "id": "c1e9bba5",
   "k": "This plays on YouTube, so it can't be heard here: open it in the player beside this. Enter: next line · Ctrl+S: save.",
-  "f": "web/js/components/transcripteditor.js"
- },
- {
-  "id": "a4c6e6e5",
-  "k": "This audio can't be played here.",
   "f": "web/js/components/transcripteditor.js"
  },
  {
@@ -12913,6 +12953,16 @@
   "id": "a2211902",
   "k": "The example sentences couldn't be downloaded. Check your connection and try again.",
   "f": "web/js/examples.js"
+ },
+ {
+  "id": "f11de0e1",
+  "k": "Drop one file at a time here.",
+  "f": "web/js/filedrop.js"
+ },
+ {
+  "id": "045962d4",
+  "k": "That kind of file can't be added here.",
+  "f": "web/js/filedrop.js"
  },
  {
   "id": "174bac74",
@@ -19065,6 +19115,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "3184f22c",
+  "k": "Leave the battle",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "5e2d8f0d",
   "k": "A cracked wall! Tap it to break it open.",
   "f": "web/js/game/livebattle-ui.js"
@@ -19342,11 +19397,6 @@
  {
   "id": "c7dfb6f1",
   "k": "Paused",
-  "f": "web/js/game/livebattle-ui.js"
- },
- {
-  "id": "3184f22c",
-  "k": "Leave the battle",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -22430,6 +22480,26 @@
   "f": "web/js/pages/friends.js"
  },
  {
+  "id": "b97cec9c",
+  "k": "Drop to use as your profile photo",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "13fe0af6",
+  "k": "Friends see it next to your name.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "15fb8372",
+  "k": "Drop one picture.",
+  "f": "web/js/pages/friends.js"
+ },
+ {
+  "id": "1887b737",
+  "k": "That isn't a picture. Drop a photo here (JPG, PNG, WebP…).",
+  "f": "web/js/pages/friends.js"
+ },
+ {
   "id": "cf2f49f6",
   "k": "Photo removed.",
   "f": "web/js/pages/friends.js"
@@ -23435,6 +23505,51 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "df0861b8",
+  "k": "Drop to add to My videos",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "0c089e3f",
+  "k": "A video file of your own: MP4, MKV, MOV, WebM…",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "5a97924a",
+  "k": "That isn't a video file. Drop a video here, such as an MP4, MKV, MOV or WebM file.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "f429a92d",
+  "k": "Drop to add to My audio",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "2356ff51",
+  "k": "A recording of your own: MP3, M4A, WAV, OGG, FLAC…",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "cc9d793f",
+  "k": "That isn't an audio file. Drop a recording here, such as an MP3, M4A, WAV or OGG file.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "1727d970",
+  "k": "Drop to add an audiobook",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "54002ff8",
+  "k": "Several files become one book, a chapter each, in file-name order.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "a35806a8",
+  "k": "Those aren't audio files. Drop audiobook files here (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "f5b39567",
   "k": "What to show",
   "f": "web/js/pages/library.js"
@@ -23595,6 +23710,16 @@
   "f": "web/js/pages/player.js"
  },
  {
+  "id": "9973352b",
+  "k": "Back to the start of the sentence (R)",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "570eb463",
+  "k": "Back to the start of the sentence",
+  "f": "web/js/pages/player.js"
+ },
+ {
   "id": "9c3ebd2a",
   "k": "{0} · {1} words",
   "f": "web/js/pages/player.js"
@@ -23612,16 +23737,6 @@
  {
   "id": "a4130b72",
   "k": "Stop looping",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "9973352b",
-  "k": "Back to the start of the sentence (R)",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "570eb463",
-  "k": "Back to the start of the sentence",
   "f": "web/js/pages/player.js"
  },
  {
@@ -25257,6 +25372,26 @@
  {
   "id": "9293dd01",
   "k": "Backup ready ({0})",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "088643ae",
+  "k": "Drop to import this backup",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "1d4e7755",
+  "k": "It replaces your current library: you'll be asked first.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "8c952cd3",
+  "k": "Drop one backup at a time.",
+  "f": "web/js/pages/settings.js"
+ },
+ {
+  "id": "f1e6281f",
+  "k": "This file isn't a Tamkeen backup.",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -32188,11 +32323,6 @@
   "id": "5d9b4909",
   "k": "The audio libraries (FFmpeg via PyAV) failed to load: {0} Reinstall the app. If you are running from source, run: pip install av",
   "f": "app/audio.py"
- },
- {
-  "id": "f1e6281f",
-  "k": "This file isn't a Tamkeen backup.",
-  "f": "app/backup.py"
  },
  {
   "id": "8e11cc63",

@@ -23,6 +23,7 @@ import { startTranslating } from "./i18n.js";
 import { applyPageSize, isAbsurdPageSize, PAGE_SIZE_DEFAULT } from "./textsize.js";
 import { initScrollHints } from "./scrollhint.js";
 import { installSelectSheets } from "./components/selectsheet.js";
+import { blockStrayDrops } from "./filedrop.js";
 import { shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
 import { refreshButton } from "./components/refreshbutton.js";
@@ -702,6 +703,7 @@ function setupLater() { try { return !!localStorage.getItem(SETUP_LATER); } catc
 
 async function boot() {
   installSelectSheets(); // drop-down menus open Tamkeen's own list on a touch screen (components/selectsheet.js)
+  blockStrayDrops(); // a file dropped outside a place that takes files never replaces the app (filedrop.js)
   connectEvents();
   if (EMBED) return bootEmbed();
   try {

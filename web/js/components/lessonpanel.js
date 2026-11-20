@@ -13,6 +13,7 @@ import { liveLessons } from "../lessons.js";
 import { EVENT, addStudyWords, createLesson, readState, saveLesson, takeAssigned } from "../lessonstore.js";
 import { openModal } from "./modal.js";
 import { lessonView } from "./lessonview.js";
+import { dropZone } from "../filedrop.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 const dateText = (iso) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); };
@@ -91,6 +92,19 @@ export function lessonPanel(el, language) {
     input.value = "";
     if (files.length) importFiles(files, { onDone: (rec) => show(rec) });
   };
+  // Files dropped on My files (prototype drag_drop, filedrop.js): the same import as Add a lesson, which sorts the
+  // files itself (a document and its MP3s; anything else is named in a message). An open lesson has its own drop.
+  // (over the whole Library area beside the kinds, not just this list, which is short while it has few lessons)
+  const offDrop = dropZone(el.closest(".lib-main") || page, {
+    label: "Drop to make a lesson",
+    hint: "A PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+    accept: input.accept,
+    check: "some",
+    wrongKind: "Choose a PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+    active: () => !page.hidden && page.getClientRects().length > 0, // (shown: My files is the tab, no lesson open)
+    onFiles: (files) => importFiles(files, { onDone: (rec) => show(rec) }),
+    say: toast,
+  });
 
   function show(rec) {
     if (open) open();
@@ -188,5 +202,5 @@ export function lessonPanel(el, language) {
   window.addEventListener(EVENT, redraw);
   paint();
   checkAssigned();
-  return () => { alive = false; window.removeEventListener(EVENT, redraw); if (open) open(); };
+  return () => { alive = false; offDrop(); window.removeEventListener(EVENT, redraw); if (open) open(); };
 }

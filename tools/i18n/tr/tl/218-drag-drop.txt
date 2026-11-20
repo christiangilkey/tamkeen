@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Bitawan para idagdag sa Mga libro ko
+183e9554	Isang libro lang bawat bitaw.
+4ff855f8	Hindi ito file ng libro. Bitawan ang EPUB, PDF, TXT, Kindle AZW3 o Word na file.
+cec7c4fd	Bitawan para gumawa ng aralin
+7b790f8b	Isang PDF, Word file (.docx) o text file, at anumang MP3 na kasama nito.
+4ab5632d	Bitawan para magdagdag ng audio sa araling ito
+9456bda0	MP3, M4A, WAV, OGG… Bawat file ay magiging isang track.
+8288a1cb	Hindi ito audio file. Bitawan dito ang mga audio file, gaya ng MP3.
+f11de0e1	Isang file lang bawat bitaw dito.
+045962d4	Hindi maidaragdag dito ang ganitong uri ng file.
+b97cec9c	Bitawan para gawing profile photo mo
+13fe0af6	Nakikita ito ng mga kaibigan mo sa tabi ng pangalan mo.
+15fb8372	Isang larawan lang ang bitawan.
+1887b737	Hindi ito larawan. Bitawan dito ang isang litrato (JPG, PNG, WebP…).
+df0861b8	Bitawan para idagdag sa Mga video ko
+0c089e3f	Sarili mong video file: MP4, MKV, MOV, WebM…
+5a97924a	Hindi ito video file. Bitawan dito ang isang video, gaya ng MP4, MKV, MOV o WebM na file.
+f429a92d	Bitawan para idagdag sa Audio ko
+2356ff51	Sarili mong recording: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Hindi ito audio file. Bitawan dito ang isang recording, gaya ng MP3, M4A, WAV o OGG na file.
+1727d970	Bitawan para magdagdag ng audiobook
+54002ff8	Ang maraming file ay magiging isang libro, isang kabanata bawat file, ayon sa pagkakasunod ng pangalan ng file.
+a35806a8	Hindi audio file ang mga ito. Bitawan dito ang mga file ng audiobook (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Bitawan para i-import ang backup na ito
+1d4e7755	Papalitan nito ang kasalukuyang library mo: tatanungin ka muna.
+8c952cd3	Isang backup lang bawat bitaw.

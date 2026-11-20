@@ -21,6 +21,7 @@ import { lastStreak } from "../review/flame.js";
 import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
 import { moreButton } from "../components/safetyui.js";
+import { dropZone } from "../filedrop.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
 const SEGMENT = "friends:segment";
@@ -71,6 +72,7 @@ export async function render(view) {
   const segBar = view.querySelector(".segmented");
   const photoInput = view.querySelector("#photo-file");
   let disposed = false;
+  let offPhotoDrop = () => {}; // (my profile's picture drop, made again each time it is drawn)
   let editing = false; // true while a form is open: live updates must not redraw over typing
   let friendQuery = ""; // what is typed in "Find a friend": kept across the list's live redraws
   const openGuilds = new Set(); // guilds whose member list is showing
@@ -325,6 +327,18 @@ export async function render(view) {
         me.querySelector(".me-head .spacer").after(myBar);
       }
       me.querySelector(".me-photo").onclick = () => photoInput.click();
+      // A picture dropped on my profile (prototype drag_drop, filedrop.js) becomes my photo, as one chosen by tapping it.
+      offPhotoDrop();
+      offPhotoDrop = dropZone(me, {
+        label: "Drop to use as your profile photo",
+        hint: "Friends see it next to your name.",
+        accept: "image/*",
+        multiple: false,
+        many: "Drop one picture.",
+        wrongKind: "That isn't a picture. Drop a photo here (JPG, PNG, WebP…).",
+        onFiles: ([file]) => setPhoto(file),
+        say: toast,
+      });
       const removeBtn = me.querySelector("#photo-remove");
       if (removeBtn) {
         removeBtn.onclick = async () => {
@@ -628,10 +642,13 @@ export async function render(view) {
     }
   }
 
-  photoInput.onchange = async () => {
+  photoInput.onchange = () => {
     const file = photoInput.files[0];
     photoInput.value = "";
-    if (!file) return;
+    if (file) setPhoto(file);
+  };
+  /** Make `file` my profile photo (chosen by tapping my picture, or dropped on my profile). */
+  async function setPhoto(file) {
     try {
       toast("Uploading your photo…", { timeout: 1500 });
       await social.uploadAvatar(file);
@@ -640,7 +657,7 @@ export async function render(view) {
       toast(e.message, { error: true });
     }
     load();
-  };
+  }
 
   await load();
   // Live: requests, invitations, messages, cards and guild changes appear without reloading;
@@ -648,5 +665,5 @@ export async function render(view) {
   let timer;
   const off = await social.onActivity(() => { clearTimeout(timer); timer = setTimeout(load, 300); });
   const tick = setInterval(load, 60000);
-  return () => { disposed = true; off(); clearTimeout(timer); clearInterval(tick); };
+  return () => { disposed = true; offPhotoDrop(); off(); clearTimeout(timer); clearInterval(tick); };
 }

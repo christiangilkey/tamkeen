@@ -12,6 +12,7 @@ import { packTranscript } from "../sharetext.js";
 import { confirmBox, openModal } from "./modal.js";
 import { openQuestionEditor, openPassageEditor } from "./lessonedit.js";
 import { openTranscriptEditor } from "./transcripteditor.js";
+import { dropZone } from "../filedrop.js";
 
 const dir = (text) => (/[֐-ࣿ]/.test(text) ? "rtl" : "auto");
 const youTubeId = (url) => ((String(url || "").match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || [])[1] || "");
@@ -72,17 +73,10 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
     if (own) {
       const add = h(`<label class="btn ghost small">${icon("plus", 16)} <span>Add audio</span><input type="file" multiple hidden accept="${esc(`audio/*,${LESSON_AUDIO_EXT.map((x) => `.${x}`).join(",")}`)}"></label>`);
       const input = add.querySelector("input");
-      input.onchange = async () => {
-        const files = [...input.files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+      input.onchange = () => {
+        const files = [...input.files];
         input.value = "";
-        for (const f of files) {
-          try {
-            toast(t("Adding {0}…", f.name));
-            const tr = await addTrack(rec, f, { title: f.name.replace(/\.[^.]+$/, "") });
-            rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: tr.uid, title: tr.title, kind: "file" }] });
-          } catch (e) { toast(e.message, { error: true }); }
-        }
-        tracks();
+        addAudio(files);
       };
       headRow.append(add);
     }
@@ -91,6 +85,23 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
       box.append(h(`<p class="small muted">No audio in this lesson.</p>`));
       return;
     }
+    await trackRows(box);
+  }
+
+  /** Add audio files to this lesson as tracks, in file-name order (Add audio, or files dropped on the lesson). */
+  async function addAudio(picked) {
+    const files = [...picked].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    for (const f of files) {
+      try {
+        toast(t("Adding {0}…", f.name));
+        const tr = await addTrack(rec, f, { title: f.name.replace(/\.[^.]+$/, "") });
+        rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: tr.uid, title: tr.title, kind: "file" }] });
+      } catch (e) { toast(e.message, { error: true }); }
+    }
+    tracks();
+  }
+
+  async function trackRows(box) {
     for (const [n, tr] of rec.tracks.entries()) {
       const row = h(`<div class="lsn-track"><span class="lsn-track-n"></span><span class="lsn-track-text"><strong></strong><span class="small muted"></span></span>
         <span class="lsn-track-acts"></span></div>`);
@@ -396,5 +407,14 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   passageBlocks(rec).then((p) => { if (!alive) return; blocks = p.blocks; passageEp = p.episode; paintBody(); })
     .catch(() => { if (alive) paintBody(); });
   void assigned;
-  return () => { alive = false; flush(); };
+  // Audio files dropped on a lesson made here (prototype drag_drop, filedrop.js): the same as its Add audio.
+  const offDrop = own ? dropZone(page, {
+    label: "Drop to add audio to this lesson",
+    hint: "MP3, M4A, WAV, OGG… Each file becomes a track.",
+    accept: `audio/*,${LESSON_AUDIO_EXT.map((x) => `.${x}`).join(",")}`,
+    wrongKind: "That isn't an audio file. Drop audio files here, such as MP3s.",
+    onFiles: (files) => addAudio(files),
+    say: toast,
+  }) : () => {};
+  return () => { alive = false; offDrop(); flush(); };
 }

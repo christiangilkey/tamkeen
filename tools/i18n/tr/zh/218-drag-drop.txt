@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	松开即可添加到“我的书”
+183e9554	请一次只拖入一本书。
+4ff855f8	这不是书籍文件。请拖入 EPUB、PDF、TXT、Kindle AZW3 或 Word 文件。
+cec7c4fd	松开即可创建课程
+7b790f8b	一个 PDF、Word 文件（.docx）或文本文件，以及配套的 MP3。
+4ab5632d	松开即可为这节课添加音频
+9456bda0	MP3、M4A、WAV、OGG… 每个文件成为一条音轨。
+8288a1cb	这不是音频文件。请在这里拖入音频文件，例如 MP3。
+f11de0e1	这里请一次只拖入一个文件。
+045962d4	这里不能添加这种文件。
+b97cec9c	松开即可设为头像
+13fe0af6	好友会在你的名字旁边看到它。
+15fb8372	请只拖入一张图片。
+1887b737	这不是图片。请在这里拖入一张照片（JPG、PNG、WebP…）。
+df0861b8	松开即可添加到“我的视频”
+0c089e3f	你自己的视频文件：MP4、MKV、MOV、WebM…
+5a97924a	这不是视频文件。请在这里拖入视频，例如 MP4、MKV、MOV 或 WebM 文件。
+f429a92d	松开即可添加到“我的音频”
+2356ff51	你自己的录音：MP3、M4A、WAV、OGG、FLAC…
+cc9d793f	这不是音频文件。请在这里拖入录音，例如 MP3、M4A、WAV 或 OGG 文件。
+1727d970	松开即可添加有声书
+54002ff8	多个文件会按文件名顺序合成一本书，每个文件一章。
+a35806a8	这些不是音频文件。请在这里拖入有声书文件（MP3、M4B、M4A、AAC、OGG、Opus、FLAC、WAV…）。
+088643ae	松开即可导入这个备份
+1d4e7755	它会替换你现在的资料库：我们会先问你。
+8c952cd3	请一次只拖入一个备份。

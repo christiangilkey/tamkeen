@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Deixa-ho anar per afegir-ho a Els meus llibres
+183e9554	Deixa anar un llibre cada vegada.
+4ff855f8	Això no és un fitxer de llibre. Deixa anar un fitxer EPUB, PDF, TXT, Kindle AZW3 o Word.
+cec7c4fd	Deixa-ho anar per fer una lliçó
+7b790f8b	Un PDF, un fitxer de Word (.docx) o un fitxer de text, i els MP3 que hi van.
+4ab5632d	Deixa-ho anar per afegir àudio a aquesta lliçó
+9456bda0	MP3, M4A, WAV, OGG… Cada fitxer es converteix en una pista.
+8288a1cb	Això no és un fitxer d'àudio. Deixa anar aquí fitxers d'àudio, com ara MP3.
+f11de0e1	Deixa anar un fitxer cada vegada aquí.
+045962d4	Aquest tipus de fitxer no es pot afegir aquí.
+b97cec9c	Deixa-la anar per fer-la servir com a foto de perfil
+13fe0af6	Els amics la veuen al costat del teu nom.
+15fb8372	Deixa anar una sola imatge.
+1887b737	Això no és una imatge. Deixa anar una foto aquí (JPG, PNG, WebP…).
+df0861b8	Deixa-ho anar per afegir-ho a Els meus vídeos
+0c089e3f	Un fitxer de vídeo teu: MP4, MKV, MOV, WebM…
+5a97924a	Això no és un fitxer de vídeo. Deixa anar un vídeo aquí, com ara un fitxer MP4, MKV, MOV o WebM.
+f429a92d	Deixa-ho anar per afegir-ho a El meu àudio
+2356ff51	Una gravació teva: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Això no és un fitxer d'àudio. Deixa anar una gravació aquí, com ara un fitxer MP3, M4A, WAV o OGG.
+1727d970	Deixa-ho anar per afegir un audiollibre
+54002ff8	Diversos fitxers es converteixen en un sol llibre, un capítol cadascun, per ordre de nom de fitxer.
+a35806a8	Aquests no són fitxers d'àudio. Deixa anar aquí els fitxers de l'audiollibre (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Deixa-la anar per importar aquesta còpia de seguretat
+1d4e7755	Substitueix la teva biblioteca actual: abans t'ho preguntarem.
+8c952cd3	Deixa anar una còpia de seguretat cada vegada.

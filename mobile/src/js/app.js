@@ -21,6 +21,7 @@ import { mountInstallButton } from "./web-install.js";
 import { startBadge } from "./social.js";
 import { initSwipe } from "./swipe.js";
 import { installSelectSheets } from "./components/selectsheet.js";
+import { blockStrayDrops } from "./filedrop.js";
 import { isNewer, showUpdateNotice } from "./updatenotice.js";
 import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
@@ -1418,6 +1419,7 @@ function startAppBadge() {
 async function boot() {
   // Drop-down menus open Tamkeen's own list, not the system's (on phones and touch screens; components/selectsheet.js).
   installSelectSheets({ always: isNative });
+  blockStrayDrops(); // a file dropped outside a place that takes files never replaces the app (the web app on a computer: filedrop.js)
   await loadParked(); // after Reset Tamkeen: the library is set aside until sign-in (reset.js)
   await loadSettings();
   await loadLibrary();

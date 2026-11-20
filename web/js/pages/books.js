@@ -5,8 +5,9 @@
 import { api, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { BOOK_FILES, addFromFile, addFromShelf, shelfFor, shelfGuid } from "../books.js";
+import { BOOK_DROP, BOOK_FILES, addFromFile, addFromShelf, shelfFor, shelfGuid } from "../books.js";
 import { pageGuide } from "../components/tour.js";
+import { dropZone } from "../filedrop.js";
 
 const yearText = (y) => (y < 0 ? `${-y} BC` : y < 1000 ? `${y} AD` : String(y));
 
@@ -17,24 +18,29 @@ export function uploadBook(lang = studyLanguage()) {
     const input = Object.assign(document.createElement("input"), { type: "file", accept: BOOK_FILES });
     input.onchange = async () => {
       const file = input.files && input.files[0];
-      if (!file) { resolve(null); return; }
-      const note = h(`<div class="toast"><span>Adding “${esc(file.name)}”…</span></div>`);
-      document.getElementById("toasts").append(note);
-      try {
-        const ep = await addFromFile(file, lang, (step) => { note.firstChild.textContent = step; });
-        toast(`Added “${ep.title}” to My books.`);
-        location.hash = `#/episode/${ep.id}`;
-        resolve(ep);
-      } catch (err) {
-        toast(err.message || "Couldn't read that file.", { error: true });
-        resolve(null);
-      } finally {
-        note.remove();
-      }
+      resolve(file ? await addBook(file, lang) : null);
     };
     input.click();
   });
 }
+
+/** Add one book file (chosen with the button, or dropped: filedrop.js) and open it. Resolves to the book, or null. */
+export async function addBook(file, lang = studyLanguage()) {
+  const note = h(`<div class="toast"><span>Adding “${esc(file.name)}”…</span></div>`);
+  document.getElementById("toasts").append(note);
+  try {
+    const ep = await addFromFile(file, lang, (step) => { note.firstChild.textContent = step; });
+    toast(`Added “${ep.title}” to My books.`);
+    location.hash = `#/episode/${ep.id}`;
+    return ep;
+  } catch (err) {
+    toast(err.message || "Couldn't read that file.", { error: true });
+    return null;
+  } finally {
+    note.remove();
+  }
+}
+
 
 export async function render(view) {
   const lang = studyLanguage();
@@ -53,6 +59,7 @@ export async function render(view) {
       <div class="books-grid" id="shelf"><p class="muted">Loading the shelf…</p></div>
     </div>`));
   view.querySelector("#upload").onclick = () => uploadBook(lang);
+  dropZone(view.querySelector(".books-page"), { ...BOOK_DROP, say: toast, onFiles: ([file]) => addBook(file, lang) });
   pageGuide("books", view.querySelector(".books-page"), [
     { target: "#upload", title: "Your own book", text: "Add a book file of your own: EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM." },
     { target: "#shelf", title: "Free books", text: "Famous books in the language you're learning, free to read. Add one and read it a page at a time, tapping any word." },

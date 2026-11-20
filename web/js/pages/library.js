@@ -26,6 +26,8 @@ import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrd
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
 import { canRecord, listenAndSave } from "../components/listenbox.js";
+import { dropZone } from "../filedrop.js";
+import { BOOK_DROP } from "../books.js";
 
 /** The phone (or web app) asked to transcribe Bisaya: only the computer can, with its Bisaya model
  *  (no cloud provider knows the language). The episodes are queued for the computer; this says so. */
@@ -1136,11 +1138,14 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
   }
   // Video and audio files are added the same way; the file's type decides where it goes.
-  $("#video-file").onchange = $("#audio-file").onchange = async (e) => {
+  $("#video-file").onchange = $("#audio-file").onchange = (e) => {
     const file = e.target.files[0];
-    const btn = $("#add-fab");
     e.target.value = "";
-    if (!file) return;
+    if (file) addOwnFile(file);
+  };
+  /** Add one video or audio file of the learner's own (chosen with the + button, or dropped on My videos or My audio). */
+  async function addOwnFile(file) {
+    const btn = $("#add-fab");
     if (isAudibleFile(file.name)) { toast(AUDIBLE_MESSAGE); return; } // (copy-protected: never opened)
     const box = $("#upload-status");
     btn.disabled = true;
@@ -1162,7 +1167,38 @@ export async function render(view, { feedId: routeFeed, query }) {
       btn.disabled = false;
       box.hidden = true;
     }
+  }
+  // Files dropped on the tab showing (prototype drag_drop, filedrop.js): the same import as its + button, with the
+  // same kinds of file. My files has its own (components/lessonpanel.js); other tabs take no files.
+  const DROPS = {
+    videos: { label: "Drop to add to My videos", hint: "A video file of your own: MP4, MKV, MOV, WebM…", accept: "video/*,.mkv",
+      multiple: false, wrongKind: "That isn't a video file. Drop a video here, such as an MP4, MKV, MOV or WebM file.",
+      onFiles: ([file]) => addOwnFile(file) },
+    audio: { label: "Drop to add to My audio", hint: "A recording of your own: MP3, M4A, WAV, OGG, FLAC…", accept: AUDIO_FILE_ACCEPT,
+      multiple: false, wrongKind: "That isn't an audio file. Drop a recording here, such as an MP3, M4A, WAV or OGG file.",
+      onFiles: ([file]) => addOwnFile(file) },
+    // (the audiobook import itself sorts the files: Audible's are refused with a word on why, others are left out)
+    audiobooks: { label: "Drop to add an audiobook", hint: "Several files become one book, a chapter each, in file-name order.",
+      accept: `${AUDIO_FILE_ACCEPT},.aa,.aax`, check: "some",
+      wrongKind: "Those aren't audio files. Drop audiobook files here (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).",
+      onFiles: (files) => addBookFiles(files) },
+    books: { ...BOOK_DROP, onFiles: async ([file]) => (await import("./books.js")).addBook(file, studyLanguage()) },
   };
+  // (single files: one at a time, as the + button takes them)
+  for (const d of Object.values(DROPS)) if (d.multiple === false && !d.many) d.many = "Drop one file at a time here.";
+  // (the list beside the kinds, not the kinds themselves: a drop on My videos while My audio shows would mislead)
+  const offDrop = dropZone($(".lib-main") || root, {
+    active: () => !!DROPS[kind],
+    label: () => (DROPS[kind] ? DROPS[kind].label : ""),
+    hint: () => (DROPS[kind] ? DROPS[kind].hint : ""),
+    get accept() { return DROPS[kind] ? DROPS[kind].accept : ""; },
+    get multiple() { return DROPS[kind] ? DROPS[kind].multiple !== false : true; },
+    get check() { return DROPS[kind] ? DROPS[kind].check || "all" : "all"; },
+    get many() { return DROPS[kind] ? DROPS[kind].many : ""; },
+    get wrongKind() { return DROPS[kind] ? DROPS[kind].wrongKind : ""; },
+    onFiles: (files) => DROPS[kind].onFiles(files),
+    say: toast,
+  });
   let debounce;
   $("#title-filter").oninput = (e) => {
     clearTimeout(debounce);
@@ -1223,6 +1259,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   ]);
 
   return () => {
+    offDrop();
     offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
     if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();
     if (closeConverse) closeConverse();

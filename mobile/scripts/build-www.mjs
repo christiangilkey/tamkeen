@@ -199,6 +199,7 @@ const SHARED = [
   "js/components/pronresult.js",
   "js/components/conversepanel.js",
   "js/components/selectsheet.js",
+  "js/filedrop.js",
   "js/components/troubleshoot.js",
   "js/components/tour.js",
   "js/components/guideart.js",

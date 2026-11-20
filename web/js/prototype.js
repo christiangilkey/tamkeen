@@ -23,6 +23,7 @@ export const PROTOTYPES = {
   word_pool: { name: "One card per word: a word you have already says which folder it is in and can go in another; DLI decks and study words use the card you have", released: true, since: "2026-11-18" },
   class_teachers: { name: "DLI classes: a class's teachers listed in the class, add another teacher by username, remove one", released: true, since: "2026-11-18" },
   sense_choice: { name: "Add words asks which meaning a word with several meanings is for (one screen for all the words)", released: false, since: "2026-11-19" },
+  drag_drop: { name: "Drag and drop files onto My audio, My videos, My files, Books, Audiobooks, a lesson, Import data and your profile photo", released: false, since: "2026-11-19" },
 };
 
 const KEY = "tamkeenPrototype";

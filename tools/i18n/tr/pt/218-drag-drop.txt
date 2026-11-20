@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Solte para adicionar a Meus livros
+183e9554	Solte um livro de cada vez.
+4ff855f8	Isso não é um arquivo de livro. Solte um arquivo EPUB, PDF, TXT, Kindle AZW3 ou Word.
+cec7c4fd	Solte para criar uma lição
+7b790f8b	Um PDF, um arquivo do Word (.docx) ou um arquivo de texto, e os MP3 que o acompanham.
+4ab5632d	Solte para adicionar áudio a esta lição
+9456bda0	MP3, M4A, WAV, OGG… Cada arquivo vira uma faixa.
+8288a1cb	Isso não é um arquivo de áudio. Solte aqui arquivos de áudio, como MP3.
+f11de0e1	Solte um arquivo de cada vez aqui.
+045962d4	Esse tipo de arquivo não pode ser adicionado aqui.
+b97cec9c	Solte para usar como foto de perfil
+13fe0af6	Seus amigos a veem ao lado do seu nome.
+15fb8372	Solte uma imagem só.
+1887b737	Isso não é uma imagem. Solte uma foto aqui (JPG, PNG, WebP…).
+df0861b8	Solte para adicionar a Meus vídeos
+0c089e3f	Um arquivo de vídeo seu: MP4, MKV, MOV, WebM…
+5a97924a	Isso não é um arquivo de vídeo. Solte um vídeo aqui, como um arquivo MP4, MKV, MOV ou WebM.
+f429a92d	Solte para adicionar a Meus áudios
+2356ff51	Uma gravação sua: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Isso não é um arquivo de áudio. Solte uma gravação aqui, como um arquivo MP3, M4A, WAV ou OGG.
+1727d970	Solte para adicionar um audiolivro
+54002ff8	Vários arquivos viram um só livro, um capítulo cada, na ordem dos nomes dos arquivos.
+a35806a8	Esses não são arquivos de áudio. Solte aqui os arquivos do audiolivro (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Solte para importar este backup
+1d4e7755	Ele substitui sua biblioteca atual: vamos perguntar antes.
+8c952cd3	Solte um backup de cada vez.

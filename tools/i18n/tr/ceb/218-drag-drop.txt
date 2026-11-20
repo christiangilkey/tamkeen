@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Ihulog aron idugang sa Akong mga libro
+183e9554	Usa ra ka libro matag higayon.
+4ff855f8	Dili kini file sa libro. Ihulog ang EPUB, PDF, TXT, Kindle AZW3 o Word nga file.
+cec7c4fd	Ihulog aron maghimo og leksyon
+7b790f8b	Usa ka PDF, Word file (.docx) o text file, ug bisan unsang MP3 nga kauban niini.
+4ab5632d	Ihulog aron idugang ang audio niining leksyona
+9456bda0	MP3, M4A, WAV, OGG… Ang matag file mahimong usa ka track.
+8288a1cb	Dili kini audio file. Ihulog dinhi ang mga audio file, sama sa MP3.
+f11de0e1	Usa ra ka file matag higayon dinhi.
+045962d4	Dili madugang dinhi kining klase sa file.
+b97cec9c	Ihulog aron gamiton nga imong profile photo
+13fe0af6	Makita kini sa imong mga higala tupad sa imong ngalan.
+15fb8372	Usa ra ka hulagway ang ihulog.
+1887b737	Dili kini hulagway. Ihulog dinhi ang litrato (JPG, PNG, WebP…).
+df0861b8	Ihulog aron idugang sa Akong mga video
+0c089e3f	Imong kaugalingong video file: MP4, MKV, MOV, WebM…
+5a97924a	Dili kini video file. Ihulog dinhi ang video, sama sa MP4, MKV, MOV o WebM nga file.
+f429a92d	Ihulog aron idugang sa Akong audio
+2356ff51	Imong kaugalingong recording: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Dili kini audio file. Ihulog dinhi ang recording, sama sa MP3, M4A, WAV o OGG nga file.
+1727d970	Ihulog aron magdugang og audiobook
+54002ff8	Ang daghang file mahimong usa ka libro, usa ka kapitulo matag file, sumala sa han-ay sa ngalan sa file.
+a35806a8	Dili kini mga audio file. Ihulog dinhi ang mga file sa audiobook (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Ihulog aron i-import kining backup
+1d4e7755	Ilisan niini ang imong kasamtangang library: pangutan-on ka una.
+8c952cd3	Usa ra ka backup matag higayon.

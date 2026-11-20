@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Loslassen, um es zu Meine Bücher hinzuzufügen
+183e9554	Bitte jeweils nur ein Buch ablegen.
+4ff855f8	Das ist keine Buchdatei. Lege eine EPUB-, PDF-, TXT-, Kindle-AZW3- oder Word-Datei ab.
+cec7c4fd	Loslassen, um eine Lektion zu erstellen
+7b790f8b	Eine PDF-, Word- (.docx) oder Textdatei und die MP3s, die dazugehören.
+4ab5632d	Loslassen, um dieser Lektion Audio hinzuzufügen
+9456bda0	MP3, M4A, WAV, OGG … Jede Datei wird ein Titel.
+8288a1cb	Das ist keine Audiodatei. Lege hier Audiodateien ab, zum Beispiel MP3s.
+f11de0e1	Hier bitte jeweils nur eine Datei ablegen.
+045962d4	Diese Art von Datei kann hier nicht hinzugefügt werden.
+b97cec9c	Loslassen, um es als Profilfoto zu verwenden
+13fe0af6	Freunde sehen es neben deinem Namen.
+15fb8372	Bitte nur ein Bild ablegen.
+1887b737	Das ist kein Bild. Lege hier ein Foto ab (JPG, PNG, WebP …).
+df0861b8	Loslassen, um es zu Meine Videos hinzuzufügen
+0c089e3f	Eine eigene Videodatei: MP4, MKV, MOV, WebM …
+5a97924a	Das ist keine Videodatei. Lege hier ein Video ab, zum Beispiel eine MP4-, MKV-, MOV- oder WebM-Datei.
+f429a92d	Loslassen, um es zu Mein Audio hinzuzufügen
+2356ff51	Eine eigene Aufnahme: MP3, M4A, WAV, OGG, FLAC …
+cc9d793f	Das ist keine Audiodatei. Lege hier eine Aufnahme ab, zum Beispiel eine MP3-, M4A-, WAV- oder OGG-Datei.
+1727d970	Loslassen, um ein Hörbuch hinzuzufügen
+54002ff8	Mehrere Dateien werden ein Buch, je eine Datei ein Kapitel, nach Dateinamen sortiert.
+a35806a8	Das sind keine Audiodateien. Lege hier Hörbuchdateien ab (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV …).
+088643ae	Loslassen, um diese Sicherung zu importieren
+1d4e7755	Sie ersetzt deine jetzige Bibliothek: Du wirst vorher gefragt.
+8c952cd3	Bitte jeweils nur eine Sicherung ablegen.

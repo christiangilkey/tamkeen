@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Déposez pour l'ajouter à Mes livres
+183e9554	Déposez un seul livre à la fois.
+4ff855f8	Ce n'est pas un fichier de livre. Déposez un fichier EPUB, PDF, TXT, Kindle AZW3 ou Word.
+cec7c4fd	Déposez pour créer une leçon
+7b790f8b	Un PDF, un fichier Word (.docx) ou un fichier texte, et les MP3 qui vont avec.
+4ab5632d	Déposez pour ajouter de l'audio à cette leçon
+9456bda0	MP3, M4A, WAV, OGG… Chaque fichier devient une piste.
+8288a1cb	Ce n'est pas un fichier audio. Déposez ici des fichiers audio, comme des MP3.
+f11de0e1	Déposez un seul fichier à la fois ici.
+045962d4	Ce type de fichier ne peut pas être ajouté ici.
+b97cec9c	Déposez pour en faire votre photo de profil
+13fe0af6	Vos amis la voient à côté de votre nom.
+15fb8372	Déposez une seule image.
+1887b737	Ce n'est pas une image. Déposez une photo ici (JPG, PNG, WebP…).
+df0861b8	Déposez pour l'ajouter à Mes vidéos
+0c089e3f	Un fichier vidéo à vous : MP4, MKV, MOV, WebM…
+5a97924a	Ce n'est pas un fichier vidéo. Déposez une vidéo ici, par exemple un fichier MP4, MKV, MOV ou WebM.
+f429a92d	Déposez pour l'ajouter à Mon audio
+2356ff51	Un enregistrement à vous : MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Ce n'est pas un fichier audio. Déposez un enregistrement ici, par exemple un fichier MP3, M4A, WAV ou OGG.
+1727d970	Déposez pour ajouter un livre audio
+54002ff8	Plusieurs fichiers forment un seul livre, un chapitre chacun, dans l'ordre des noms de fichiers.
+a35806a8	Ce ne sont pas des fichiers audio. Déposez ici les fichiers du livre audio (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Déposez pour importer cette sauvegarde
+1d4e7755	Elle remplace votre bibliothèque actuelle : on vous le demandera d'abord.
+8c952cd3	Déposez une seule sauvegarde à la fois.

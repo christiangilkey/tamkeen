@@ -31,6 +31,7 @@ import { licensesFold } from "../components/licenses.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { applyPageSize, pageSize, pageSizeLabel, PAGE_SIZE_MAX, PAGE_SIZE_MIN } from "../textsize.js";
 import { prototypeTaps } from "../prototype.js";
+import { dropZone } from "../filedrop.js";
 import { TARGET_NAMES, taskTarget } from "../review/sendtask.js";
 import { resetTours } from "../components/tour.js";
 import { controllerSection, controllerSummary } from "../components/controllerpanel.js";
@@ -472,10 +473,23 @@ function data(body, status) {
     }
   };
   $("#import").onclick = () => $("#import-file").click();
-  $("#import-file").onchange = async (e) => {
+  $("#import-file").onchange = (e) => {
     const file = e.target.files[0];
     e.target.value = "";
-    if (!file) return;
+    if (file) importBackup(file);
+  };
+  // A backup dropped on "Your data" (prototype drag_drop, filedrop.js): the same import, asked first as always.
+  dropZone($("[data-find=backup]"), {
+    label: "Drop to import this backup",
+    hint: "It replaces your current library: you'll be asked first.",
+    accept: ".zip,application/zip",
+    multiple: false,
+    many: "Drop one backup at a time.",
+    wrongKind: "This file isn't a Tamkeen backup.",
+    onFiles: ([file]) => importBackup(file),
+    say: toast,
+  });
+  async function importBackup(file) {
     if (!(await confirmBox("Import data?", `Import “${file.name}”? This REPLACES your current library, transcripts and vocab with the backup's contents.`,
                            { ok: "Import", danger: true }))) return;
     try {
@@ -485,7 +499,7 @@ function data(body, status) {
     } catch (err) {
       toast(err.message, { error: true });
     }
-  };
+  }
   $("#open-changelog").onclick = () => import("../components/changelog.js").then((m) => m.openChangelog());
   for (const b of document.querySelectorAll("[data-whatis]")) b.onclick = () => import("../components/whatis.js").then((m) => m.openWhatIs(b.dataset.whatis));
   prototypeTaps($("#app-version"), toast); // (the owner's secret switch for prototype mode: prototype.js)

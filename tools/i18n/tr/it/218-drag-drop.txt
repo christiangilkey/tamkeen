@@ -1,0 +1,27 @@
+# Drag and drop files (web/js/filedrop.js and the places that take files; prototype drag_drop).
+92edd39e	Rilascia per aggiungerlo a I miei libri
+183e9554	Rilascia un libro alla volta.
+4ff855f8	Questo non è un file di libro. Rilascia un file EPUB, PDF, TXT, Kindle AZW3 o Word.
+cec7c4fd	Rilascia per creare una lezione
+7b790f8b	Un PDF, un file Word (.docx) o un file di testo, e gli MP3 che lo accompagnano.
+4ab5632d	Rilascia per aggiungere audio a questa lezione
+9456bda0	MP3, M4A, WAV, OGG… Ogni file diventa una traccia.
+8288a1cb	Questo non è un file audio. Rilascia qui file audio, come gli MP3.
+f11de0e1	Qui rilascia un file alla volta.
+045962d4	Questo tipo di file non si può aggiungere qui.
+b97cec9c	Rilascia per usarla come foto del profilo
+13fe0af6	Gli amici la vedono accanto al tuo nome.
+15fb8372	Rilascia una sola immagine.
+1887b737	Questa non è un'immagine. Rilascia una foto qui (JPG, PNG, WebP…).
+df0861b8	Rilascia per aggiungerlo a I miei video
+0c089e3f	Un tuo file video: MP4, MKV, MOV, WebM…
+5a97924a	Questo non è un file video. Rilascia un video qui, ad esempio un file MP4, MKV, MOV o WebM.
+f429a92d	Rilascia per aggiungerlo a I miei audio
+2356ff51	Una tua registrazione: MP3, M4A, WAV, OGG, FLAC…
+cc9d793f	Questo non è un file audio. Rilascia una registrazione qui, ad esempio un file MP3, M4A, WAV o OGG.
+1727d970	Rilascia per aggiungere un audiolibro
+54002ff8	Più file diventano un solo libro, un capitolo ciascuno, in ordine di nome del file.
+a35806a8	Questi non sono file audio. Rilascia qui i file dell'audiolibro (MP3, M4B, M4A, AAC, OGG, Opus, FLAC, WAV…).
+088643ae	Rilascia per importare questo backup
+1d4e7755	Sostituisce la tua libreria attuale: ti verrà chiesto prima.
+8c952cd3	Rilascia un backup alla volta.
