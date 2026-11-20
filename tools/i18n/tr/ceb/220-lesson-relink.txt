@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	Kini nga file adunay {0} ka pangutana; ang leksyon motipig sa unang {1}. Aron matipigan ang uban, paghimo og ikaduhang leksyon gikan sa ulahing bahin sa file.
+59e056b1	Kini nga leksyon gihimo sa wala pa basaha sa Tamkeen ang mga link sa file ngadto sa mga sound file. Kung ang PDF o Word file adunay mga buton sa tingog, idugang pag-usab ang file aron makit-an kini.
+a1b57228	Idugang pag-usab ang file aron makit-an ang mga link sa tingog niini
+cb9a4cc2	Kana nga file walay mga link ngadto sa mga sound file.
+42766232	{0} ka link sa tingog ang nakit-an: {1} niini aduna nay tingog sa leksyon.
+d044b6f5	{0} ka link sa tingog ang nakit-an. Idugang ang mga sound file: ang matag usa moadto sa iyang dapit pinaagi sa iyang ngalan.

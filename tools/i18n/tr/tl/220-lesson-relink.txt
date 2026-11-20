@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	May {0} tanong ang file na ito; itinatago ng aralin ang unang {1}. Para maitago ang iba, gumawa ng ikalawang aralin mula sa huling bahagi ng file.
+59e056b1	Ginawa ang araling ito bago binasa ng Tamkeen ang mga link ng file sa mga sound file. Kung may mga button ng tunog ang PDF o Word file nito, idagdag muli ang file para mahanap ang mga ito.
+a1b57228	Idagdag muli ang file para mahanap ang mga link ng tunog nito
+cb9a4cc2	Walang link sa mga sound file ang file na iyon.
+42766232	{0} link ng tunog ang nahanap: {1} sa mga ito ang may tunog na sa aralin.
+d044b6f5	{0} link ng tunog ang nahanap. Idagdag ang mga sound file: bawat isa ay pupunta sa lugar nito ayon sa pangalan.

@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	Ce fichier contient {0} questions ; une leçon garde les {1} premières. Pour garder le reste, fais une deuxième leçon avec la fin du fichier.
+59e056b1	Cette leçon a été créée avant que Tamkeen lise les liens d'un fichier vers des fichiers son. Si son PDF ou son fichier Word a des boutons son, ajoute à nouveau le fichier pour les trouver.
+a1b57228	Ajouter à nouveau le fichier pour trouver ses liens son
+cb9a4cc2	Ce fichier n'a aucun lien vers des fichiers son.
+42766232	{0} liens son trouvés : {1} ont déjà leur son dans la leçon.
+d044b6f5	{0} liens son trouvés. Ajoute les fichiers son : chacun va à sa place d'après son nom.

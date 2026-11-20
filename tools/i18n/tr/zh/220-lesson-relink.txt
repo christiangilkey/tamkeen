@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	这个文件有 {0} 道题；一节课保留前 {1} 道。要保留其余的，请用文件的后半部分再做一节课。
+59e056b1	这节课是在 Tamkeen 读取文件中指向音频文件的链接之前做的。如果它的 PDF 或 Word 文件里有声音按钮，请再次添加该文件来找到它们。
+a1b57228	再次添加文件以找到其中的声音链接
+cb9a4cc2	该文件没有指向音频文件的链接。
+42766232	找到 {0} 个声音链接：其中 {1} 个在课里已经有声音。
+d044b6f5	找到 {0} 个声音链接。请添加音频文件：每个文件会按名称放到它的位置。

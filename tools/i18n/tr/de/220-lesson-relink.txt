@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	Diese Datei hat {0} Fragen; eine Lektion behält die ersten {1}. Um den Rest zu behalten, mach eine zweite Lektion aus dem hinteren Teil der Datei.
+59e056b1	Diese Lektion wurde erstellt, bevor Tamkeen die Links einer Datei zu Audiodateien gelesen hat. Wenn die PDF- oder Word-Datei Ton-Knöpfe hat, füge die Datei noch einmal hinzu, um sie zu finden.
+a1b57228	Datei noch einmal hinzufügen, um ihre Audio-Links zu finden
+cb9a4cc2	Diese Datei hat keine Links zu Audiodateien.
+42766232	{0} Audio-Links gefunden: {1} davon haben ihren Ton schon in der Lektion.
+d044b6f5	{0} Audio-Links gefunden. Füge die Audiodateien hinzu: Jede kommt anhand ihres Namens an ihre Stelle.

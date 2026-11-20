@@ -91,7 +91,7 @@ export async function addTrack(rec, file, { title = "", transcribe = true, onPro
  *  {title, lang, items, key, audio: [{name, blob}]}. `onStep({done, of, name})` hears each track's upload. */
 export async function createLesson({ title, lang, items, key = {}, audio = [], onStep = () => {} }) {
   const { blocks, questions, spots } = splitItems(items);
-  let rec = cleanLesson({ id: newLessonId(), title, lang, made: Date.now() / 1000, updated: Date.now() / 1000, questions, key, tracks: [], spots });
+  let rec = cleanLesson({ id: newLessonId(), title, lang, made: Date.now() / 1000, updated: Date.now() / 1000, questions, key, tracks: [], spots, linked: 1 });
   const ep = await savePassage(rec, blocks);
   rec = { ...rec, passage: ep.uid || ep.id, lang: rec.lang || ep.language || "" };
   rec = await saveLesson(rec);

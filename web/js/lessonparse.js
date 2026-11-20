@@ -71,6 +71,7 @@ const ENDS_SENTENCE = /[.!?؟。！？:：;؛]$/u;
 const ENDS_QUESTION = /[?؟？]$/u;
 
 export const MAX_QUESTIONS = 200;
+export const MAX_ITEMS = 6000; // passage paragraphs, headings, questions and sound links, all together
 export const MAX_OPTIONS = 12;
 export const MAX_PROMPT = 2000;
 export const MAX_OPTION = 500;
@@ -242,7 +243,14 @@ export function findQuestions(lines) {
     const next = list[i + 1];
     const text = line.text;
     if (line.audioLink) { if (!inKey) pending.push(line.audioLink); continue; }
+    // (a line like "Answers" part-way through is only the key if no question with its options comes after it: a long file
+    // of passages can have one after a passage, and the questions go on)
+    if (inKey && !line.list && questionStart(line) && next && !questionStart(next) && optionStart(next, true)) inKey = false;
     if (inKey) { keyLines.push(text); continue; }
+    // (a question in slightly bigger print than the rest of its page is still a question, not a heading)
+    if (line.heading && questionStart(line) && (ENDS_QUESTION.test(text) || HAS_BLANK.test(text) || (next && !questionStart(next) && optionStart(next, true)))) {
+      line.heading = 0;
+    }
     if (pending.length) {
       // a link just before a question is that question's; one among a question's lines is that question's; any other is a
       // sound of its own in the passage, where it is
@@ -310,7 +318,11 @@ export function findQuestions(lines) {
     }
   }
   // (a document with nothing but questions in it still makes a lesson; one with neither is empty)
-  return { items: items.slice(0, 2000).filter((it, k, all) => it.type !== "q" || all.slice(0, k + 1).filter((x) => x.type === "q").length <= MAX_QUESTIONS), key };
+  // (questions past MAX_QUESTIONS are left out, and `cut` says how many, for the screen to tell)
+  let seen = 0;
+  const kept = items.slice(0, MAX_ITEMS).filter((it) => it.type !== "q" || ++seen <= MAX_QUESTIONS);
+  const all = items.filter((it) => it.type === "q").length;
+  return { items: kept, key, cut: Math.max(0, all - kept.filter((it) => it.type === "q").length) };
 }
 
 /** Lines out of plain text (a .txt file, a scanned page's text, the text box): a blank line starts a paragraph. */

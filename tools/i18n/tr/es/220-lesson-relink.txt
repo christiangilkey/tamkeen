@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	Este archivo tiene {0} preguntas; una lección guarda las primeras {1}. Para guardar el resto, haz una segunda lección con la parte final del archivo.
+59e056b1	Esta lección se hizo antes de que Tamkeen leyera los enlaces de un archivo a archivos de sonido. Si su PDF o Word tiene botones de sonido, vuelve a añadir el archivo para encontrarlos.
+a1b57228	Vuelve a añadir el archivo para encontrar sus enlaces de sonido
+cb9a4cc2	Ese archivo no tiene enlaces a archivos de sonido.
+42766232	Se encontraron {0} enlaces de sonido: {1} ya tienen su sonido en la lección.
+d044b6f5	Se encontraron {0} enlaces de sonido. Añade los archivos de sonido: cada uno va a su lugar por su nombre.

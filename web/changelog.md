@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** A lesson made before v0.64.0 showed "No audio in this lesson" even when its PDF or Word file has sound buttons: it now offers **Add the file again to find its sound links**, which puts the spots where a new import would (the lesson's own text and answers stay as they are), and sounds already in the lesson fill the spots they are named for.
+- **Fixed:** Finding the questions in a long file of passages: a question in slightly bigger print than the rest of its page is no longer taken for a heading, a line such as "Answers" part-way through no longer turns the rest of the file into the answer key, a file can now have three times as many paragraphs, and a file with more than 200 questions says that only the first 200 were kept instead of dropping the rest silently.
+
 ## v0.64.0 — 2026-11-19
 
 - **New:** **Drag and drop.** On a computer (the desktop app and the web app), files can be dropped onto My audio, My videos, Audiobooks and Books in the Library, My files (a new lesson) and an open lesson, the Books page, Settings → Import data, and your profile photo on Friends. Dragging shows a drop area saying what dropping does; the drop works like the button, with the same checks, and a wrong kind of file gets a message. A file dropped anywhere else no longer opens in place of the app.

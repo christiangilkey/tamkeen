@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	이 파일에는 질문이 {0}개 있습니다. 레슨 하나에는 처음 {1}개가 들어갑니다. 나머지를 남기려면 파일 뒷부분으로 두 번째 레슨을 만드세요.
+59e056b1	이 레슨은 Tamkeen이 파일의 소리 파일 링크를 읽기 전에 만들어졌습니다. PDF나 Word 파일에 소리 버튼이 있으면 파일을 다시 추가해 찾으세요.
+a1b57228	파일을 다시 추가해 소리 링크 찾기
+cb9a4cc2	그 파일에는 소리 파일 링크가 없습니다.
+42766232	소리 링크 {0}개를 찾았습니다. 그중 {1}개는 이미 레슨에 소리가 있습니다.
+d044b6f5	소리 링크 {0}개를 찾았습니다. 소리 파일을 추가하세요. 각 파일이 이름에 따라 제자리로 갑니다.

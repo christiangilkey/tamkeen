@@ -1,0 +1,7 @@
+# Lessons: an old lesson's file added again for its sound links; a file with more questions than a lesson keeps (components/lessonview.js, lessonpanel.js).
+8b3281c4	Aquest fitxer té {0} preguntes; una lliçó en conserva les primeres {1}. Per conservar la resta, fes una segona lliçó amb la part final del fitxer.
+59e056b1	Aquesta lliçó es va fer abans que Tamkeen llegís els enllaços d'un fitxer a fitxers de so. Si el PDF o el Word té botons de so, torna a afegir el fitxer per trobar-los.
+a1b57228	Torna a afegir el fitxer per trobar-ne els enllaços de so
+cb9a4cc2	Aquest fitxer no té enllaços a fitxers de so.
+42766232	S'han trobat {0} enllaços de so: {1} ja tenen el seu so a la lliçó.
+d044b6f5	S'han trobat {0} enllaços de so. Afegeix els fitxers de so: cadascun va al seu lloc pel seu nom.

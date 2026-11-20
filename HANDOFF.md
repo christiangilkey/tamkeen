@@ -9387,6 +9387,20 @@ nothing changes (links aren't read, no spots, no bar, the waiting page as before
   gets an `<audio controls>` (play, pause, seek) on its waiting page, with "You can listen now; the transcript appears once it's
   transcribed." (videos already had one). Every audio kind: lesson tracks, My audio, podcasts not yet transcribed.
 
+**Lessons made before v0.64.0** (2026-11-20, the owner's phone: "No audio in this lesson" on U9): spots are only made at import and
+the original file isn't kept (only its passage blocks), so an own lesson with no spots and no `linked` flag shows **Add the file
+again to find its sound links** (`lessonview.js relink`): the file is read again (links only, no OCR), and `lessons.js respot(rec,
+blocks, splitItems(found))` puts each spot on the lesson as it is now (a question's by its wording, else its number; a passage spot
+before the paragraph with the same text, else after the one before, else at the same share of the way through); the lesson's file
+tracks that no spot plays fill spots by name. New lessons are saved with `linked: 1` (any lesson with spots counts as linked), so
+the button never shows for them. **Question finder on long files** (owner: "100 passages… until question 45 the formatting into
+questions goes away"; the file wasn't on the PC yet): a question line the page reader took for a heading (bigger print) is a
+question when options or a blank follow; a KEY_HEAD line ("Answers") stops being the key when a question with options follows;
+MAX_ITEMS 2000 → 6000; `findQuestions().cut` counts questions past MAX_QUESTIONS (200) and My files says so. Tests:
+`tests/js/lessonrelink.test.mjs` (7). Checked in the browser pane (desktop `links-desktop` and the phone build at 375 px, both on
+data never signed in to Drive): an old U9 lesson → button → 30 spots in the same places as a fresh import, its 5 tracks back in
+their spots; a fresh U9 import with no MP3s → 30 spots "not added yet" and 30 greyed bar buttons.
+
 **Tests:** `tests/js/lessonlinks.test.mjs` (9: link names, placing by height, links to questions vs passage, 30 links on 15 pages,
 the "Passage N" heading rule, matching (30 reversed + a stray file, last-number rule, no guessing), record/pack/unpack, Word
 hyperlinks, off without prototype mode). JS and pytest pass.

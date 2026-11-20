@@ -6990,6 +6990,11 @@
   "f": "web/js/components/lessonpanel.js"
  },
  {
+  "id": "8b3281c4",
+  "k": "This file has {0} questions; a lesson keeps the first {1}. To keep the rest, make a second lesson from the file's later part.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
   "id": "fa862a17",
   "k": "The file links to {0} sound files that aren't in it. Add them on the lesson page: each goes to its place by its name.",
   "f": "web/js/components/lessonpanel.js"
@@ -7275,6 +7280,16 @@
   "f": "web/js/components/lessonview.js"
  },
  {
+  "id": "59e056b1",
+  "k": "This lesson was made before Tamkeen read a file's links to sound files. If its PDF or Word file has sound buttons, add the file again to find them.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "a1b57228",
+  "k": "Add the file again to find its sound links",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
   "id": "3a62cb5c",
   "k": "No audio in this lesson.",
   "f": "web/js/components/lessonview.js"
@@ -7307,6 +7322,21 @@
  {
   "id": "e59d04e9",
   "k": "{0} added in their places, {1} to the lesson's audio.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "cb9a4cc2",
+  "k": "That file has no links to sound files.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "42766232",
+  "k": "{0} sound links found: {1} of them already have their sound in the lesson.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "d044b6f5",
+  "k": "{0} sound links found. Add the sound files: each goes to its place by its name.",
   "f": "web/js/components/lessonview.js"
  },
  {
