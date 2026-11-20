@@ -322,6 +322,26 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   .player.yt .btnrow { margin-top: 0; }
   .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
 }
+/* ---------- a video still loading (components/mediawait.js) ----------
+   A plain spinner in the middle of the video; past 20 s a short message and Try again. YouTube's player may have
+   nothing in front of it: its spinner is under the player, which is hidden only until it has loaded
+   (.media-loading); after that the waiting shows on the band under the video (.media-wait-line). */
+.media-wait { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 10px; padding: 16px; text-align: center; color: #c9c8c2; pointer-events: none; }
+.media-wait[hidden], .media-wait-line[hidden], .media-wait [hidden], .media-wait-line [hidden] { display: none; }
+.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait .media-wait-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* (said, not shown) */
+.media-wait .media-wait-slow { margin: 0; max-width: 30em; font-size: 15px; line-height: 1.5; }
+.media-wait button { pointer-events: auto; }
+.player.yt .media-wait { z-index: 0; background: #000; }
+.player.yt .screen iframe { position: relative; z-index: 1; }
+.player.yt .screen.media-loading iframe { visibility: hidden; }
+.media-wait-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 8px; background: #111;
+  color: #a8a8a8; font-size: 13px; line-height: 1.4; padding: .3em .8em; }
+.media-wait-line .spinner { width: 13px; height: 13px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait-line button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
+.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+
 /* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
    the stage says what is happening while there is no picture (opening, a sign-in needed). */
 .player.nf .nf-frame {
@@ -603,6 +623,37 @@ button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--a
   .dict { padding: 10px 12px 14px; gap: 10px; }
   .player.dictating .stage { flex: 0 1 34%; min-height: 120px; }
 }
+/* YouTube and Netflix on a phone: their video can't be smaller than 200 px tall (YouTube asks for 200 x 200). Squeezed
+   below that, as the stage above was when a phone's keyboard came up, it hung over the top of the panel, hiding
+   Word · Sentence · Gist and the round check button (the owner, 2026-11-20). While typing the video is just those
+   200 px, the stage holds it all, and the line about which captions these are makes room. */
+@media (max-width: 760px) {
+  .player.yt.dictating .stage { flex: none; min-height: 0; }
+  .player.yt.dictating .screen { aspect-ratio: auto; height: 200px; min-height: 0; }
+  .player.yt.dictating .yt-note { display: none; }
+}
+/* The switches row (with the round button) stays at the top of the panel while what is under it scrolls, so a
+   phone's keyboard never hides it (dictation.js keeps what it scrolls to just below it). A course's panel is part of
+   its page and scrolls with it. */
+.player .dict-modes, .reelplay .dict-modes { position: sticky; top: -10px; z-index: 2; background: var(--bg);
+  margin: -10px 0 0; padding: 10px 0 4px; }
+/* A short screen (a phone with its keyboard up): the gist's box is two lines high and scrolls inside. */
+@media (max-height: 600px) {
+  .player .dict.gist .dict-input, .reelplay .dict.gist .dict-input { min-height: 0; height: calc(2 * 1.6em + 22px); }
+  /* ... and the switches are narrower, so the gist's 2–5 fit on the same line where the screen is wide enough. */
+  .player .dict-seg button, .reelplay .dict-seg button { padding: 4px 10px; }
+  .player .dict-sizes button, .reelplay .dict-sizes button { padding: 3px 8px; }
+  .player .dict-sizes .muted, .reelplay .dict-sizes .muted { display: none; }
+  .player .dict-modes, .reelplay .dict-modes { gap: 6px 10px; }
+}
+/* A word of what was said, once checked: one tap opens the word popup, as in the transcript. */
+.dict-real.dict-tap [data-p] { cursor: pointer; }
+.dict-real.dict-tap [data-p]:hover { text-decoration: underline; text-underline-offset: .25em; }
+/* A reel: the popup for such a word sits on the reel's page (its words bar is put away), dark like the bar, and on
+   a phone just above the controls (reels.js sets --dock-bottom). */
+.reelplay > .word-bubble { --surface: #1c1c1c; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+  color: var(--text); }
+.reelplay > .word-bubble.sheet { bottom: var(--dock-bottom, 0px); }
 /* A reel: the panel in place of the words bar (the reel itself stays). A course: in place of the unit's list. */
 .reelplay.dictating .reel-bar { display: none !important; } /* (reels.css lays the bar out with a rule as strong) */
 .reelplay .dict { flex: none; height: 46%; min-height: 210px; overflow-y: auto; padding: 8px 12px 10px; gap: 8px;

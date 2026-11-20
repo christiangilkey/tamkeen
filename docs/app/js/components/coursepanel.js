@@ -226,6 +226,12 @@ export function coursePanel(box, lang, { onCards = () => {}, course: courseId = 
         words, sentences, lang, startIndex: { word: Number(lsGet(atKey("word"))) || 0, sentence: Number(lsGet(atKey("sentence"))) || 0 },
         play: (u) => play(u.w, u.part),
         onMove: (mode, k) => lsSet(atKey(mode), String(k)),
+        // What was said, once checked: its words open the word popup when tapped, as the unit's sentences do (the
+        // owner, 2026-11-20). The same box is filled again for each piece, so it is made tappable afresh.
+        onReal: (realEl, u) => {
+          realEl.classList.remove("tw-root");
+          tappable(realEl, lang, { tr: String(u.w.translation || "").replace(/[⟦⟧]/g, ""), source: course.title });
+        },
         stop: () => player.pause(),
         slow: (on) => { player.defaultPlaybackRate = player.playbackRate = on ? 0.75 : 1; },
         onClose: () => {

@@ -71,6 +71,7 @@ const ENDS_SENTENCE = /[.!?؟。！？:：;؛]$/u;
 const ENDS_QUESTION = /[?؟？]$/u;
 
 export const MAX_QUESTIONS = 200;
+export const MAX_ITEMS = 6000; // passage paragraphs, headings, questions and sound links, all together
 export const MAX_OPTIONS = 12;
 export const MAX_PROMPT = 2000;
 export const MAX_OPTION = 500;
@@ -237,16 +238,45 @@ export function findQuestions(lines) {
   };
 
   const list = (lines || []).map((l) => ({ ...l, text: tidy(l.text) })).filter((l) => l.text || l.box || l.audioLink);
+  // A question without a number: it ends with "?" and options come straight after it; or it ends with ":" ("Two men were
+  // executed for:", the owner's "100 Passages" file from its 33rd text on) and at least two options follow, starting at a
+  // or أ (a list in the passage that runs a, b, c after a colon is taken as a question too: in a lesson it nearly always is)
+  const unnumberedAt = (i) => {
+    const line = list[i], next = list[i + 1], after = list[i + 2];
+    if (!line || !next || line.audioLink || questionStart(line) || questionStart(next)) return false;
+    const opt = optionStart(next, true);
+    if (!opt) return false;
+    if (ENDS_QUESTION.test(line.text)) return true;
+    if (!/[:：]$/u.test(line.text) || !after || questionStart(after) || !optionStart(after, true)) return false;
+    const first = labelKey(next.list ? next.list.label : opt.label);
+    return first === "a" || (!opt.label && !next.list); // (tick boxes have no letters)
+  };
+  // Options a, b… with no question line before them (the question's wording left out of the file: "100 Passages", text
+  // 50): a question with no wording, for the teacher to fill in with Edit questions.
+  const optionKey = (l, o) => labelKey(l.list ? l.list.label : o.label);
+  const orphanAt = (i) => {
+    const line = list[i], next = list[i + 1];
+    if (!line || !next || line.heading || line.audioLink || questionStart(line) || questionStart(next)) return false;
+    const a = optionStart(line, true), b = optionStart(next, true);
+    return !!(a && b && a.label !== undefined && optionKey(line, a) === "a" && optionKey(next, b) === "b");
+  };
   for (let i = 0; i < list.length; i++) {
     const line = list[i];
     const next = list[i + 1];
     const text = line.text;
     if (line.audioLink) { if (!inKey) pending.push(line.audioLink); continue; }
+    // (a line like "Answers" part-way through is only the key if no question with its options comes after it: a long file
+    // of passages can have one after a passage, and the questions go on)
+    if (inKey && !line.list && questionStart(line) && next && !questionStart(next) && optionStart(next, true)) inKey = false;
     if (inKey) { keyLines.push(text); continue; }
+    // (a question in slightly bigger print than the rest of its page is still a question, not a heading)
+    if (line.heading && questionStart(line) && (ENDS_QUESTION.test(text) || HAS_BLANK.test(text) || (next && !questionStart(next) && optionStart(next, true)))) {
+      line.heading = 0;
+    }
     if (pending.length) {
       // a link just before a question is that question's; one among a question's lines is that question's; any other is a
       // sound of its own in the passage, where it is
-      const nextQ = questionStart(line) || (ENDS_QUESTION.test(text) && next && !questionStart(next) && optionStart(next, true));
+      const nextQ = questionStart(line) || unnumberedAt(i) || ((!q || q.options.length) && orphanAt(i));
       if (nextQ && !line.heading) carry = pending;
       else if (q && (optionStart(line, true) || (!q.options.length && !ENDS_SENTENCE.test(q.prompt) && !line.para))) (q._audio = q._audio || []).push(...pending);
       else { flushPara(); closeQuestion(); for (const a of pending) items.push(audioItem(a)); }
@@ -255,6 +285,13 @@ export function findQuestions(lines) {
     if (KEY_HEAD.test(text) && !line.list) { flushPara(); closeQuestion(); inKey = true; continue; }
     if (line.heading) { flushPara(); closeQuestion(); items.push({ type: "block", kind: `h${Math.min(3, line.heading)}`, text }); continue; }
 
+    // (a second run of options starting at a again, after a question's own: the next question, its wording left out)
+    if ((!q || (q.options.length && q.options.some((o) => labelKey(o.label) === "a"))) && orphanAt(i)) {
+      flushPara();
+      closeQuestion();
+      q = newQuestion(0, "");
+      if (carry.length) { q._audio = carry; carry = []; }
+    }
     const expect = !!q && q.options.length > 0 || (!!q && !q.tf && !HAS_BLANK.test(q.prompt));
     // an answer line for the question just read
     const ans = q ? ANSWER_RE.exec(text) : null;
@@ -274,7 +311,7 @@ export function findQuestions(lines) {
     }
     const start = questionStart(line);
     // a question either has a number, or ends with "?" and options come straight after it
-    const unnumbered = !start && ENDS_QUESTION.test(text) && next && !questionStart(next) && optionStart(next, true);
+    const unnumbered = !start && unnumberedAt(i);
     if (start || unnumbered) {
       flushPara();
       closeQuestion();
@@ -286,6 +323,9 @@ export function findQuestions(lines) {
     if (q) {
       // the question goes on over another line, until its options start or a sentence ends
       if (!q.options.length && !ENDS_SENTENCE.test(q.prompt) && !line.para && text.length < 300) { q.prompt = `${q.prompt} ${text}`; continue; }
+      // an option's last words that Word put in a paragraph of their own ("…to friends and family" / "members.")
+      const last = q.options[q.options.length - 1];
+      if (last && !line.list && /^\p{Ll}/u.test(text) && !ENDS_SENTENCE.test(last.text) && text.length < 200) { last.text = `${last.text} ${text}`; continue; }
       closeQuestion();
     }
     // passage text: lines join into paragraphs
@@ -310,7 +350,11 @@ export function findQuestions(lines) {
     }
   }
   // (a document with nothing but questions in it still makes a lesson; one with neither is empty)
-  return { items: items.slice(0, 2000).filter((it, k, all) => it.type !== "q" || all.slice(0, k + 1).filter((x) => x.type === "q").length <= MAX_QUESTIONS), key };
+  // (questions past MAX_QUESTIONS are left out, and `cut` says how many, for the screen to tell)
+  let seen = 0;
+  const kept = items.slice(0, MAX_ITEMS).filter((it) => it.type !== "q" || ++seen <= MAX_QUESTIONS);
+  const all = items.filter((it) => it.type === "q").length;
+  return { items: kept, key, cut: Math.max(0, all - kept.filter((it) => it.type === "q").length) };
 }
 
 /** Lines out of plain text (a .txt file, a scanned page's text, the text box): a blank line starts a paragraph. */

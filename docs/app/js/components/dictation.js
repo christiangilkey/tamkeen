@@ -58,7 +58,12 @@ export function dictationButton(onPress) {
   return b;
 }
 
-const pieceHtml = (pieces) => pieces.map((p) => (p.state ? `<span class="dw dw-${p.state}">${esc(p.text)}</span>` : esc(p.text))).join("");
+// `numbered`: each word gets its place among the words (data-p), for a tap on it (onReal).
+const pieceHtml = (pieces, numbered = false) => {
+  let n = 0;
+  return pieces.map((p) => (!p.state ? esc(p.text)
+    : `<span class="dw dw-${p.state}"${numbered ? ` data-p="${n++}"` : ""}>${esc(p.text)}</span>`)).join("");
+};
 const lsGet = (k, d) => { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch { return d; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, String(v)); } catch { /* storage off */ } };
 const MODE_NAMES = { word: "Word", sentence: "Sentence", gist: "Gist" };
@@ -72,11 +77,13 @@ const MODE_NAMES = { word: "Word", sentence: "Sentence", gist: "Gist" };
  * is {text, start, end, parts}. `stop()` stops it. `slow(on)`, if given, slows the sound down and back. `end`
  * {label, run}: what Next does after the last piece besides starting again (the next reel). `autoplay` false:
  * the first piece waits for "Hear it again" (a reel still loading). `onMove(mode, k)` each time a piece plays.
- * `onClose()` once it is put away. Returns {el, close(), active(), again()}; `active()` is true while it is
- * being used (for the study minutes).
+ * `onClose()` once it is put away. `onReal(el, unit, mode)`, if given, each time a piece has been checked and what
+ * was really said is shown in `el`: its words, each a span numbered `data-p` (0, 1, … the words of the piece's text
+ * that have letters, dictation.js pieceWords), open the word popup when tapped (the owner, 2026-11-20). Returns
+ * {el, close(), active(), again()}; `active()` is true while it is being used (for the study minutes).
  */
 export function dictationPanel({ words = null, sentences = null, gist = false, lang, from = null, startIndex = {}, play,
-  stop = () => {}, slow = null, end = null, autoplay = true, onMove = () => {}, onClose = () => {} }) {
+  stop = () => {}, slow = null, end = null, autoplay = true, onMove = () => {}, onClose = () => {}, onReal = null }) {
   const attrs = langAttrs(lang);
   // The typing box takes its direction from what is in it: an English hint in a right-to-left box was cut off at the
   // edge on Android (the owner, 2026-11-18), and a gist may be written in any language.
@@ -148,6 +155,22 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     go.setAttribute("aria-label", label);
   }
 
+  // The row of switches with the round button stays at the top of the panel while it scrolls (media.css): what is
+  // scrolled into view is kept below it, not under it.
+  const padTop = () => { el.style.scrollPaddingTop = `${$(".dict-modes").hidden ? 0 : $(".dict-modes").offsetHeight}px`; };
+  /** `target` into view in the panel, below that row. Where the panel scrolls at all, it goes on to just past the
+   *  title (as long as `target`'s top stays in sight, where the typing starts): half a title line peeking out above
+   *  the row looked broken. */
+  function reveal(target) {
+    padTop();
+    target.scrollIntoView({ block: "nearest" });
+    if (el.scrollHeight <= el.clientHeight || el.scrollTop <= 0) return;
+    const box = el.getBoundingClientRect();
+    const headEnd = Math.round($(".dict-head").getBoundingClientRect().bottom - box.top + el.scrollTop);
+    const targetTop = target.getBoundingClientRect().top - box.top + el.scrollTop;
+    if (el.scrollTop < headEnd && targetTop - headEnd >= $(".dict-modes").offsetHeight) el.scrollTop = headEnd;
+  }
+
   function unitsOf(m) {
     if (m === "word") return words || [];
     if (m === "gist") return passages(sentences, size, lang);
@@ -211,7 +234,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     paintGo("check");
     paintCount();
     input.focus({ preventScroll: true });
-    input.scrollIntoView({ block: "nearest" });
+    reveal(input);
     touch();
     if (autoplayNow) playNow();
   }
@@ -230,8 +253,10 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     checked = true;
     touch();
     const real = $(".dict-real");
-    real.innerHTML = pieceHtml(r.real);
+    real.innerHTML = pieceHtml(r.real, !!onReal);
+    real.classList.toggle("dict-tap", !!onReal);
     real.hidden = false;
+    if (onReal) onReal(real, u, mode);
     const yours = $(".dict-yours");
     yours.innerHTML = !typed ? `<span class="muted" translate="yes">${esc(t("(nothing typed)"))}</span>`
       : gistNow ? esc(typed) : pieceHtml(r.typed);
@@ -252,7 +277,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     paintGo(k + 1 < units.length ? "next" : "finish");
     paintCount();
     go.focus({ preventScroll: true });
-    $(".dict-modes").scrollIntoView({ block: "nearest" }); // (the button, and what was said just under it)
+    reveal(real); // (what was said, just under the button)
   }
 
   function finish() {
@@ -306,8 +331,14 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     if (e.shiftKey) $(".dict-again").click();
     else go.click();
   });
-  // On a phone the keyboard covers half the screen: the box stays where it can be seen.
+  // On a phone the keyboard covers half the screen: the box stays where it can be seen. As the keyboard comes up the
+  // page gets shorter: the box is brought back into view under the round button (the owner, 2026-11-20).
   input.addEventListener("focus", () => setTimeout(() => { if (!closed) el.scrollIntoView({ block: "nearest" }); }, 300));
+  const onResize = () => {
+    if (closed || input.hidden || document.activeElement !== input) return;
+    reveal(input);
+  };
+  window.addEventListener("resize", onResize);
   // ---- keeping the keyboard up (the owner, 2026-11-18: "I don't want pressing the play or pause button, or any of
   // the buttons on the player bar OTHER THAN pressing the transcription button again ... to get rid of the user's on
   // screen keyboard, so they can seamlessly transcribe while listening") ----
@@ -316,7 +347,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   // press ends (still part of the tap, so a phone shows its keyboard again). A drop-down there (speed) steps to its
   // next choice instead of opening its list, which would cover the keyboard or put it away. Buttons in `except`
   // (the keyboard button, which puts the panel away) and the seek slider work as before.
-  const offs = [];
+  const offs = [() => window.removeEventListener("resize", onResize)];
   const typing = () => !closed && !input.hidden && document.activeElement === input;
   function keepTyping(bars, { except = [] } = {}) {
     bars = bars.filter(Boolean);

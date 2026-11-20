@@ -52,8 +52,9 @@ import { voiceNewCard } from "../voiceplay.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
-import { sentencesFromWords, wordUnits } from "../dictation.js";
+import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
+import { mediaWait } from "../components/mediawait.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -313,6 +314,27 @@ export async function render(view, { id, query }) {
   const tr = $("#transcript");
   pageGuide("player", view.querySelector(".player"), playerSteps("player")); // the "?" in the top bar
 
+  // ---------- audio ----------
+  const posKey = `pos:${id}`;
+  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
+  let duration = ep.duration || 0;
+  // A YouTube video is driven through an object that behaves like an <audio> element.
+  // YouTube's own captions prefer the language being learned; when these captions are in another
+  // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
+  const study = studyLanguage();
+  // YouTube's player starts loading before the transcript is drawn (the owner, 2026-11-20: long videos showed a black
+  // screen for a while). Drawing a long video's words (7,500 for 53 minutes) took the page ~0.1 s on a computer, more
+  // on a phone, and YouTube's player was only made after it; on Android the two share one thread.
+  const ytMedia = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
+    { start: startAt, duration, captions: { lang: study, show: lang !== study } }) : null;
+  if (ytMedia) await null; // (its player is made now, before the words are drawn)
+  // ... and which words are new (a pass over every word, with the dictionaries) waits until it has loaded.
+  const ytLoaded = ytMedia ? new Promise((done) => {
+    ytMedia.addEventListener("loadedmetadata", done, { once: true });
+    ytMedia.addEventListener("error", done, { once: true });
+    setTimeout(done, 5000);
+  }) : null;
+
   // Build transcript HTML in one pass (fast even for 10k+ words).
   const parts = [];
   let w = 0;
@@ -338,21 +360,12 @@ export async function render(view, { id, query }) {
   const wordEls = tr.querySelectorAll(".w");
   const segEls = [...tr.querySelectorAll(".seg")]; // one per line, in order (none while Netflix's are awaited)
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
-  const seen = seenWords({ tokens: texts, lang, els: wordEls });
+  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded });
 
-  // ---------- audio ----------
-  const posKey = `pos:${id}`;
-  const startAt = query.get("t") !== null ? Number(query.get("t")) : lsGet(posKey, 0);
-  let duration = ep.duration || 0;
-  // A YouTube video is driven through an object that behaves like an <audio> element.
-  // YouTube's own captions prefer the language being learned; when these captions are in another
-  // language, YouTube's are switched on in it (translated by YouTube; see ytmedia.js).
-  const study = studyLanguage();
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was
   // first watched in: after a change of language, Netflix's subtitles follow it).
-  const audio = yt ? createYouTubeMedia($("#yt-frame"), youTubeId(ep.audio_url) || ep.guid,
-    { start: startAt, duration, captions: { lang: study, show: lang !== study } })
+  const audio = yt ? ytMedia
     : nf ? createNetflixMedia($("#screen"), ep.guid, { bridge: netflixBridge(), lang: study, duration,
       onState: (s) => netflixState(s) })
     : vid ? $("#video") : new Audio();
@@ -362,6 +375,10 @@ export async function render(view, { id, query }) {
     audio.src = await audioUrl(id);
   }
   window.__apsAudio = audio; // handy for debugging from the devtools console
+  // A spinner while the video loads, jumps or buffers, then Try again if it takes too long (components/mediawait.js;
+  // the owner, 2026-11-20: YouTube showed a black screen until it had loaded). Netflix says "Opening Netflix…".
+  const stopWait = yt ? mediaWait(audio, { screen: $("#screen"), band: $("#captions") })
+    : vid && !embed ? mediaWait(audio, { screen: $("#screen") }) : () => {};
   let speed = lsGet("speed", 1);
   $("#speed").value = String(speed);
 
@@ -750,6 +767,7 @@ export async function render(view, { id, query }) {
       const frame = $("#nf-frame");
       frame.innerHTML = `<p class="nf-msg"></p>`;
       frame.firstChild.textContent = text;
+      if (text && !action) frame.prepend(h(`<span class="spinner nf-spin" aria-hidden="true"></span>`)); // (opening: it is on its way)
       if (action === "signin") {
         const open = h(`<button type="button">${icon("film", 16)} Open Netflix</button>`);
         open.onclick = () => openNetflix().catch((e) => toast(e.message, { error: true }));
@@ -1066,7 +1084,8 @@ export async function render(view, { id, query }) {
       if (seen.analyze) seen.analyze(); // the changed words may be new to the learner, or not
     },
   });
-  bubble = createWordBubble(vid && !embed ? $("#stage") : $(".transcript-wrap"), {
+  const bubbleHome = vid && !embed ? $("#stage") : $(".transcript-wrap"); // (where the popup goes back to)
+  bubble = createWordBubble(bubbleHome, {
     voiceless,
     fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
     onCorrect: async (def) => {
@@ -1111,7 +1130,8 @@ export async function render(view, { id, query }) {
     },
   });
 
-  function defineAt(i, j = i, anchor = null) {
+  /** Look up words i..j. `where`: {host, docked} to show the popup somewhere else (Type what you hear's panel). */
+  function defineAt(i, j = i, anchor = null, where = null) {
     const c = contextFor(i, j);
     bubbleTarget = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
@@ -1123,7 +1143,9 @@ export async function render(view, { id, query }) {
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
     // (unknown: the popup's ? for a word, lexicon/seen.js.)
     const opts = { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null };
-    if (embed && !bubbleInPanel && !phone) {
+    if (where) {
+      Object.assign(opts, where);
+    } else if (embed && !bubbleInPanel && !phone) {
       // Tapped in the captions: the popup joins the black bar right under them (it may not cover
       // YouTube's or Netflix's player, so the video gets shorter while it is open). The panel stays as it is.
       Object.assign(opts, { host: $(".yt-col"), docked: true });
@@ -1136,6 +1158,7 @@ export async function render(view, { id, query }) {
       $("#back").hidden = true;
       ensureVisible(wordEls[i]);
     }
+    if (!opts.host) opts.host = bubbleHome;
     bubble.show(anchor || wordEls[i], c.ctx, opts);
     fitBubble();
     requestAnimationFrame(() => requestAnimationFrame(fitBubble)); // again once it has taken its place
@@ -1260,9 +1283,25 @@ export async function render(view, { id, query }) {
         if (on) { before = speed; if (speed > 0.75) setSpeed(0.75); }
         else if (speed !== before) setSpeed(before);
       },
+      // What was said, once checked: a tap on one of its words opens the popup, as in the transcript (the owner,
+      // 2026-11-20: "those should be one-click with the popup dictionary"), over the panel.
+      onReal: (realEl, u) => {
+        realEl.onclick = (e) => {
+          const w = e.target.closest("[data-p]");
+          if (!w) return;
+          const parts = u.parts || [u];
+          const map = pieceWords(u, texts, lang);
+          let i = map ? map[Number(w.dataset.p)] : -1;
+          if (!Number.isInteger(i) || i < 0) i = wordNear(w.textContent, texts, parts[0].first ?? 0, parts[parts.length - 1].last ?? n - 1, lang);
+          if (i < 0) return;
+          if (getComputedStyle(playerEl).position === "static") playerEl.style.position = "relative"; // (it is placed in it)
+          defineAt(i, i, w, { host: playerEl, docked: false });
+        };
+      },
       onClose: () => {
         dict = null;
         if (disposed) return;
+        bubble.hide();
         playerEl.classList.remove("dictating");
         dictBtn.paint(false);
         unArrow();
@@ -1479,6 +1518,7 @@ export async function render(view, { id, query }) {
   const stopStudy = trackStudy("listen", () => !audio.paused || !!(dict && dict.active()), yt ? "youtube" : null, vid || embed ? "watch" : "listen");
   return () => {
     disposed = true;
+    stopWait();
     if (dict) dict.close();
     stopStudy();
     stopVowels();

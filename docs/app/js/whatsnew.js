@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.65.0",
+  "A spinner while a video loads, and long YouTube videos start sooner");
+notes("0.65.0",
+  "Type what you hear: tap a word in the checked sentence to look it up");
+notes("0.65.0",
+  "Type what you hear: the check button stays in sight with a phone's keyboard up");
+notes("0.65.0",
+  "Lessons made before can find their file's sound buttons: add the file again");
+notes("0.65.0",
+  "Lessons find more of a file's questions, such as ones ending in a colon");
+notes("0.65.0",
+  "The Vocab folder bar is now blue, so it's clear you can tap it");
 notes("0.64.0",
   "Drag files onto any place that takes them, in the desktop app and the web app on a computer");
 notes("0.64.0",

@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Um indicador de carregamento enquanto um vídeo carrega, e vídeos longos do YouTube começam mais cedo
+320acb01	Escreva o que você ouve: toque numa palavra da frase corrigida para consultá-la
+f8cac91b	Escreva o que você ouve: o botão de verificar fica visível com o teclado do celular aberto
+459a7d46	Aulas feitas antes podem encontrar os botões de som do seu arquivo: adicione o arquivo de novo
+ea19a61f	As aulas encontram mais perguntas num arquivo, como as que terminam em dois-pontos
+4bcc2dd2	A barra de pastas do Vocabulário agora é azul, para ficar claro que dá para tocar nela

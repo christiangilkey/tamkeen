@@ -207,6 +207,43 @@ export function matchFiles(spots, names) {
   return out;
 }
 
+/** The sound spots a lesson's file gives when it is read again (a lesson made before links were read: v0.64.0), put on
+ *  the lesson as it is now. `found` is splitItems() of the file read again; `blocks` the lesson's passage blocks now.
+ *  A question's spot goes to the question with the same wording (else the same number); a passage spot before the
+ *  block with the same text (else after the one before it, else at the same share of the way through). The lesson's
+ *  tracks that no spot plays yet fill the spots with their name ("1" for "1.mp3"). */
+export function respot(rec, blocks, found) {
+  const norm = (x) => String(x || "").normalize("NFKC").toLowerCase().replace(/\s+/g, " ").trim();
+  const qs = rec.questions || [];
+  const byPrompt = new Map();
+  for (const q of qs) if (!byPrompt.has(norm(q.prompt))) byPrompt.set(norm(q.prompt), q);
+  const texts = (blocks || []).map((b) => norm(b.text));
+  const oldTexts = (found.blocks || []).map((b) => norm(b.text));
+  const spots = [];
+  for (const sp of found.spots || []) {
+    let qid = "";
+    let at = 0;
+    if (sp.qid) {
+      const was = (found.questions || []).find((q) => q.id === sp.qid);
+      const q = (was && byPrompt.get(norm(was.prompt))) || qs.find((x) => x.id === sp.qid);
+      if (q) { qid = q.id; at = q.at; }
+    }
+    if (!qid) {
+      const after = oldTexts[sp.at] ? texts.indexOf(oldTexts[sp.at]) : -1;
+      const before = sp.at > 0 && oldTexts[sp.at - 1] ? texts.indexOf(oldTexts[sp.at - 1]) : -1;
+      at = after >= 0 ? after : before >= 0 ? before + 1
+        : Math.round(sp.at * texts.length / Math.max(1, oldTexts.length));
+    }
+    spots.push({ id: `s${spots.length + 1}`, name: sp.name, at: Math.min(at, texts.length), qid, track: "" });
+  }
+  const out = cleanSpots(spots, qs);
+  const used = new Set((rec.spots || []).map((sp) => sp.track).filter(Boolean));
+  const free = (rec.tracks || []).filter((t) => t.kind === "file" && !used.has(t.uid));
+  const forSpot = matchFiles(out, free.map((t) => t.title));
+  free.forEach((t, i) => { const sp = out.find((x) => x.id === forSpot[i]); if (sp) sp.track = t.uid; });
+  return out;
+}
+
 /** A lesson record as kept, or null. */
 export function cleanLesson(x) {
   if (!x || typeof x !== "object" || !ID_RE.test(String(x.id || ""))) return null;
@@ -236,6 +273,8 @@ export function cleanLesson(x) {
     made: num(x.made) || updated, updated, passage: /^[\w-]{1,64}$/.test(String(x.passage || "")) ? String(x.passage) : "",
     tracks, questions, key, answers: cleanAnswers(questions, x.answers), handed: num(x.handed),
     from: cleanFrom(x.from), sent, spots,
+    // (its file was read for links to sound files: lessons made before that was done can have it read again)
+    ...(x.linked || spots.length ? { linked: 1 } : {}),
   };
 }
 

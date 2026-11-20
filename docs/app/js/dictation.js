@@ -29,6 +29,7 @@ export function cleanSentence(text) {
  * end of a line once there is enough to type, and always at a pause (a jingle, an advert: never played as part of
  * a sentence); a long one is cut at a comma. `lineTimed`: only whole lines
  * have real times (subtitles), so a sentence is never cut inside a line. Lines with nothing to type are left out.
+ * `first` and `last`: the player's words it is made of (see pieceWords).
  */
 export function sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed = false }) {
   const out = [];
@@ -36,7 +37,7 @@ export function sentencesFromWords({ texts, starts, ends, segOf, lang, lineTimed
   let first = 0;
   const flush = (last) => {
     const text = cleanSentence(joinWords(texts.slice(first, last + 1), lang));
-    if (keysOf(text, lang).length) out.push({ text, start: starts[first], end: ends[last] });
+    if (keysOf(text, lang).length) out.push({ text, start: starts[first], end: ends[last], first, last });
     first = last + 1;
   };
   for (let i = 0; i < n; i++) {
@@ -92,6 +93,35 @@ export function passages(sentences, size, lang) {
   }
   flush();
   return out;
+}
+
+/**
+ * Which of the player's words each word of a piece is, once it has been checked and its real text is shown (a tap
+ * on one opens the player's word popup for it, the owner 2026-11-20). `unit`: a sentence (its `first` and `last`),
+ * a gist passage (its `parts`) or one word (its `i`); `texts`: the player's words. Returns one word number for each
+ * piece of the unit's text that has letters (piecesOf, in order: what the panel numbers), or null when they don't
+ * line up (the player then finds the word by its letters: wordNear).
+ */
+export function pieceWords(unit, texts, lang) {
+  if (!unit) return null;
+  const count = keysOf(unit.text, lang).length;
+  if (Number.isInteger(unit.i)) return Array(count).fill(unit.i);
+  const out = [];
+  for (const s of unit.parts || [unit]) {
+    if (!Number.isInteger(s.first) || !Number.isInteger(s.last)) return null;
+    for (let k = s.first; k <= s.last; k++) for (const p of keysOf(cleanSentence(texts[k]), lang)) out.push(k);
+  }
+  return out.length === count ? out : null;
+}
+
+/** The player's word, between `first` and `last`, written like `piece` (the same letters: strictKey), or -1. */
+export function wordNear(piece, texts, first, last, lang) {
+  const key = strictKey(piece);
+  if (!key) return -1;
+  for (let k = Math.max(0, first); k <= Math.min(last, texts.length - 1); k++) {
+    if (keysOf(cleanSentence(texts[k]), lang).some((p) => p.key === key)) return k;
+  }
+  return -1;
 }
 
 // ---------- comparing ----------

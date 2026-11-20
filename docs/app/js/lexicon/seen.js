@@ -451,8 +451,9 @@ async function backfill(lang, dicts) {
  *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
  *   .onPaint             set to a function to be told whenever colours change
  *   .close()             the screen is going away
+ * `wait`: a promise to wait for before starting (a YouTube player loading: player.js).
  */
-export function seenWords({ tokens, lang, els }) {
+export function seenWords({ tokens, lang, els, wait = null }) {
   const view = {
     lang, lexemes: null, onPaint: null,
     isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key) && !unknown.has(view.lexemes[i].key)),
@@ -523,6 +524,8 @@ export function seenWords({ tokens, lang, els }) {
         : { label: "↺ Mark as new", run: () => forgetLexemes(words) }];
     },
     async analyze() {
+      if (wait) { await wait; wait = null; } // (the page has something to start first: a YouTube video)
+      if (!views.has(view)) return;
       const [dicts] = await Promise.all([dictionaries(lang), loadKnown(true)]);
       if (!views.has(view)) return;
       // No dictionaries yet: Arabic isn't coloured; Spanish, French and Italian go by spelling.

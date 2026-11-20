@@ -1,0 +1,7 @@
+# What's new in v0.65.0 (web/js/whatsnew.js).
+c949928e	Ein Ladekreis, während ein Video lädt, und lange YouTube-Videos starten schneller
+320acb01	Schreib, was du hörst: Tippe auf ein Wort im geprüften Satz, um es nachzuschlagen
+f8cac91b	Schreib, was du hörst: Der Prüfknopf bleibt sichtbar, wenn die Handytastatur offen ist
+459a7d46	Ältere Lektionen finden die Tonknöpfe ihrer Datei: Füge die Datei noch einmal hinzu
+ea19a61f	Lektionen finden mehr Fragen in einer Datei, etwa solche, die mit einem Doppelpunkt enden
+4bcc2dd2	Die Ordnerleiste unter Vokabeln ist jetzt blau, damit klar ist, dass man darauf tippen kann
