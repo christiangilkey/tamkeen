@@ -466,6 +466,21 @@ export async function sayCard(v, part, deps) {
   return speakDevice(say, lang);
 }
 
+/** Start utterance `u` on `synth`, after stopping what it is saying. Safari (the web app on a Mac, 2026-11-19) cuts
+ * off or drops an utterance started straight after cancel(): it says the first sound of a word and none of its
+ * sentence. So cancel() only when something is being said or waits, give Safari a moment after it, and wake a
+ * speech queue left paused. `still()`: whether `u` is still wanted after that moment (not when another press came). */
+export async function speakAfresh(synth, u, { settle = 120, still = () => true } = {}) {
+  if (synth.speaking || synth.pending) {
+    synth.cancel();
+    await new Promise((r) => setTimeout(r, settle));
+    if (!still()) return false;
+  }
+  if (synth.paused) { try { synth.resume(); } catch { /* not paused after all */ } }
+  synth.speak(u);
+  return true;
+}
+
 /** Roughly how long saying `text` takes, in seconds (a voice spoken live gives no length beforehand). */
 export function speakingSeconds(text) {
   return Math.min(20, 0.6 + String(text || "").length * 0.075);
