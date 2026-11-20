@@ -73,8 +73,8 @@ test("YouTube: loading until its player is ready, a play pressed before then is 
 test("the spinner: in the video's place while YouTube's player loads (hidden under it), then on the band under the video; Try again after 20 s", () => {
   const wait = src("../../web/js/components/mediawait.js");
   assert.match(wait, /export const SLOW_MS = 20000;/);
-  assert.match(wait, /const inScreen = on && \(!yt \|\| !media\.ready\);/, "YouTube: in its place only until its player is there");
-  assert.match(wait, /screen\.classList\.toggle\("media-loading", yt && !media\.ready && !media\.errorMessage\);/);
+  assert.match(wait, /const inScreen = \(on \|\| bad\) && !!cover && \(!yt \|\| !media\.ready\);/, "YouTube: in its place only until its player is there");
+  assert.match(wait, /if \(screen\) screen\.classList\.toggle\("media-loading", yt && !media\.ready && !media\.errorMessage\);/);
   assert.match(wait, /t\("The video is taking a long time to load\. Check your connection\."\)/);
   assert.match(wait, /if \(yt\) \{ media\.retry\(\); paint\(\); return; \}/);
   assert.match(wait, /media\.load\(\);/, "a video of your own is loaded again, from where it was");
@@ -85,7 +85,9 @@ test("the spinner: in the video's place while YouTube's player loads (hidden und
   assert.match(css, /\.player\.yt \.screen\.media-loading iframe \{ visibility: hidden; \}/);
   assert.match(css, /\.media-wait \{[^}]*pointer-events: none;/, "a tap on the video still plays or pauses it");
   const player = src("../../web/js/pages/player.js");
-  assert.match(player, /const stopWait = yt \? mediaWait\(audio, \{ screen: \$\("#screen"\), band: \$\("#captions"\) \}\)\s*: vid && !embed \? mediaWait\(audio, \{ screen: \$\("#screen"\) \}\) : \(\) => \{\};/);
+  assert.match(player, /const stopWait = yt \? mediaWait\(audio, \{ screen: \$\("#screen"\), band: \$\("#captions"\) \}\)/);
+  assert.match(player, /: mediaWait\(audio, \{ screen: vid \? \$\("#screen"\) : null, band: vid \? null : \$\("\.seekrow"\), wanted: \(\) => wantPlay, errorText: loadFailed \}\);/,
+    "your own videos: over the picture; audio: beside the time bar");
   assert.match(player, /disposed = true;\s*stopWait\(\);/);
   assert.match(player, /if \(text && !action\) frame\.prepend\(h\(`<span class="spinner nf-spin"/, "Netflix: a spinner beside Opening Netflix…");
 });
@@ -100,4 +102,19 @@ test("a long YouTube video: its player is made before the transcript is drawn, a
   const seen = src("../../web/js/lexicon/seen.js");
   assert.match(seen, /export function seenWords\(\{ tokens, lang, els, wait = null \}\)/);
   assert.match(seen, /async analyze\(\) \{\s*if \(wait\) \{ await wait; wait = null; \}/);
+});
+
+test("audio still loading (the owner, 2026-11-20: a podcast said 'Playback failed … aborted' and then worked): no error, it plays once it can", () => {
+  const player = src("../../web/js/pages/player.js");
+  assert.match(player, /if \(e && e\.name === "AbortError"\) \{\s*audio\.addEventListener\("canplay", \(\) => \{ if \(wantPlay && audio\.paused && !disposed\) audio\.play\(\)/,
+    "a play turned down while loading plays once it can, unless paused meanwhile");
+  assert.match(player, /const pause = \(\) => \{ wantPlay = false; audio\.pause\(\);/);
+  assert.match(player, /\$\("#play"\)\.onclick = \(\) => \{ clipEnd = null; audio\.paused \? play\(\) : pause\(\); \};/);
+  assert.match(player, /if \(!embed && audio\.error && audio\.error\.code !== 1\) \{ stopWait\.paint\?\.\(\); return; \}/, "a real failure is said in place, not twice");
+  assert.match(player, /if \(disposed \|\| !embed\) return;/, "your own audio and videos: no message that goes away");
+  const wait = src("../../web/js/components/mediawait.js");
+  assert.match(wait, /const ABORTED = 1;/);
+  assert.match(wait, /const failed = \(\) => !yt && !!media\.error && media\.error\.code !== ABORTED;/, "an interrupted load is no failure");
+  assert.match(wait, /\(\(!media\.paused \|\| wanted\(\)\) && media\.readyState < 3\)/, "a paused one with its length is not 'loading' (a phone may load no more until play)");
+  assert.match(wait, /t\("The audio is taking a long time to load\. Check your connection\."\)/);
 });

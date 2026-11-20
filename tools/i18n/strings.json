@@ -7720,6 +7720,11 @@
   "f": "web/js/components/mediawait.js"
  },
  {
+  "id": "a12433b3",
+  "k": "The audio is taking a long time to load. Check your connection.",
+  "f": "web/js/components/mediawait.js"
+ },
+ {
   "id": "6ae84e4a",
   "k": "Close (Esc)",
   "f": "web/js/components/modal.js"
@@ -23855,16 +23860,6 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "af85b75e",
-  "k": "YouTube couldn't play this video.",
-  "f": "web/js/pages/player.js"
- },
- {
-  "id": "4275284b",
-  "k": "Netflix couldn't play this title.",
-  "f": "web/js/pages/player.js"
- },
- {
   "id": "b66fc2d7",
   "k": "Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in.",
   "f": "web/js/pages/player.js"
@@ -23872,6 +23867,16 @@
  {
   "id": "6a9b0c2f",
   "k": "Couldn't load the audio. If it streams from the podcast's server, check your connection.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "af85b75e",
+  "k": "YouTube couldn't play this video.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "4275284b",
+  "k": "Netflix couldn't play this title.",
   "f": "web/js/pages/player.js"
  },
  {
@@ -28805,6 +28810,36 @@
   "f": "web/js/stt.js"
  },
  {
+  "id": "606d8615",
+  "k": "{0} sent back something that isn't a transcript.",
+  "f": "web/js/sttjob.js"
+ },
+ {
+  "id": "5a4f2a6b",
+  "k": "{0} asks to wait {1}…",
+  "f": "web/js/sttjob.js"
+ },
+ {
+  "id": "253b5798",
+  "k": "{0} is having trouble (error {1}). Try again in a little while.",
+  "f": "web/js/sttjob.js"
+ },
+ {
+  "id": "d80623c2",
+  "k": "The download stopped part-way (the server answered {0}).",
+  "f": "web/js/sttjob.js"
+ },
+ {
+  "id": "d580b524",
+  "k": "This audio couldn't be read as an MP3.",
+  "f": "web/js/sttjob.js"
+ },
+ {
+  "id": "802c66c5",
+  "k": "This episode's audio isn't an MP3 and is too large to send in one piece. Transcribe it on your computer.",
+  "f": "web/js/sttjob.js"
+ },
+ {
   "id": "82fb1d51",
   "k": "Up to date",
   "f": "web/js/syncpace.js"
@@ -31810,26 +31845,6 @@
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
-  "id": "606d8615",
-  "k": "{0} sent back something that isn't a transcript.",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
-  "id": "5a4f2a6b",
-  "k": "{0} asks to wait {1}…",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
-  "id": "253b5798",
-  "k": "{0} is having trouble (error {1}). Try again in a little while.",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
-  "id": "cb8c9ee7",
-  "k": "{0} didn't answer.",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
   "id": "dc8e1cb0",
   "k": "Unknown provider.",
   "f": "mobile/src/js/transcribe-service.js"
@@ -31845,23 +31860,8 @@
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
-  "id": "d80623c2",
-  "k": "The download stopped part-way (the server answered {0}).",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
-  "id": "d580b524",
-  "k": "This audio couldn't be read as an MP3.",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
   "id": "b37be079",
   "k": "This episode's audio isn't an MP3 and is {0}: more than {1} takes in one piece (25 MB). Transcribe it on your computer, or use Groq as the provider.",
-  "f": "mobile/src/js/transcribe-service.js"
- },
- {
-  "id": "802c66c5",
-  "k": "This episode's audio isn't an MP3 and is too large to send in one piece. Transcribe it on your computer.",
   "f": "mobile/src/js/transcribe-service.js"
  },
  {
@@ -33187,6 +33187,11 @@
  {
   "id": "93cf51f7",
   "k": "{0} kept asking the app to slow down.",
+  "f": "app/transcriber/cloud.py"
+ },
+ {
+  "id": "cb8c9ee7",
+  "k": "{0} didn't answer.",
   "f": "app/transcriber/cloud.py"
  },
  {

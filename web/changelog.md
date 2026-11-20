@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** A podcast, audiobook or your own audio that is still loading no longer says "Playback failed: The fetching process for the media resource was aborted…". Play pressed while the sound is on its way is kept, and it plays as soon as it can; meanwhile a small **Loading…** line shows under the time bar. A sound that really can't be loaded says so there, with **Try again** (and after 20 seconds of loading, that it is taking a long time). Your own videos get the same in-place message and Try again.
 - **Changed:** **Type what you hear** no longer marks your answer. After the ✓, what was really said (the word, the sentence or the gist) is shown plainly above what you typed, with nothing in red, nothing crossed out and no score ("0 of 12 words right" and "…% right so far" are gone), so you compare them yourself. Every word of what was said still opens the word popup with one tap, and the minutes still count as listening.
 - **Improved:** **YouTube videos with a dubbed track in the language you're learning** (YouTube's multi-language audio): YouTube starts them in their original language, and Tamkeen can't switch the track for you. So when one opens, a box under the video now explains how: tap ⚙ (Settings) in the YouTube player → Audio track → your language. It has **Don't show this again**; after that, the short note under the video says it instead. When the captions are YouTube's translation of the original, the box says they won't match the dubbed sound exactly.
 

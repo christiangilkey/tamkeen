@@ -9513,3 +9513,18 @@ Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).
 - 15 strings no longer used were taken out (strings.json, web/i18n, and their lines in tools/i18n/tr/*/{03,05,06,202-dictation}.txt);
   4 new ones in tools/i18n/tr/*/dictation-plain.txt. web/whatis-special.md's bullet rewritten ("Listening practice in everything
   you watch, with nothing to get marked wrong").
+
+### Podcast audio still loading: no "Playback failed … aborted" (2026-11-20, "YouTube bar" chat)
+
+- The owner (Android, v0.65.0, a podcast at 0:00 / 0:00): "Playback failed: The fetching process for the media resource was
+  aborted by the user agent at the user's request." then it worked. That is play()'s AbortError (MEDIA_ERR_ABORTED wording):
+  the load was interrupted on its way. player.js `play()` now keeps such a play (`wantPlay`) and plays on the next `canplay`
+  unless the learner paused meanwhile (`pause()`: the button, Space, the phone's media controls, a tap on your own video).
+- components/mediawait.js now also covers audio: a "Loading…" line after `.seekrow` while play is wanted without enough to go on
+  (or nothing is known yet while it is fetched; a paused one that has its length is NOT loading, since a phone may load no more
+  until play), "The audio is taking a long time…" + Try again after 20 s, and a load that really failed (MediaError other than
+  ABORTED) said in place in red with Try again (`load()` back to the same place, playing if it was). Your own videos: the same
+  over the picture. The old error toast is gone for your own audio and videos (YouTube and Netflix keep theirs).
+- Checked in a real window (fresh data folder): a real local file with play interrupted by a new load: no message, played on;
+  a refused server: the message + Try again in place, no toast; a server that never answers: Loading… at once, then the message
+  when the connection gave up, Try again back to Loading…. Not checked on a real phone.

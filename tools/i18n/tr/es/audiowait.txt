@@ -1,0 +1,2 @@
+# Audio still loading (components/mediawait.js), 2026-11-20
+a12433b3 El audio está tardando mucho en cargar. Comprueba tu conexión.

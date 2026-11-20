@@ -1,0 +1,2 @@
+# Audio still loading (components/mediawait.js), 2026-11-20
+a12433b3 بارگیری صدا خیلی طول می‌کشد. اتصال خود را بررسی کنید.
