@@ -38,6 +38,7 @@ import { NEW_CHOICES, NEW_MAX, NEW_PER_DAY, cleanNewPerDay, forecast, plan, prom
 import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "../components/pronresult.js";
 import { addToNotes } from "../review/mnemonic.js";
+import { repairFormMeaning } from "../review/formrepair.js";
 import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
          textBox } from "../review/cardtools.js";
 import { wordTools } from "../components/wordtools.js";
@@ -511,6 +512,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     </div>`;
     actions.innerHTML = `<button type="button" class="rv-show"><span>Show the word <kbd>Space</kbd></span></button>`;
     actions.querySelector(".rv-show").onclick = flip;
+    // An old card whose meaning is the dictionary's "active participle of …": the translation now (review/formrepair.js).
+    repairFormMeaning(v, studyOf(v), (change) => {
+      if (closed || todo[0] !== v) return;
+      saveCard(v, change);
+      const shown = face.querySelector(".rv-front .rv-meaning");
+      if (shown) shown.textContent = prompt(v).meaning;
+      drawMeaning(v);
+    });
   }
 
   /** Is this word a boss (missed on four different days: game/loot.js)? Its card turns gold. */

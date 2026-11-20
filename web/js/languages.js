@@ -271,6 +271,9 @@ export function vocabFromDefinition(def, word, code) {
   const notes = [
     !vowelled && def.vocalized && def.vocalized !== word && `Reading: ${def.vocalized}`,
     def.lemma && `Dictionary form: ${def.lemma}`,
+    // (the built-in dictionary's "what form it is", "active participle of اِبْتَلَّ", now that the meaning is the
+    // translation: meaningdata.js translatedForms)
+    def.provider === "dictionary" && def.morphology && !/^also /.test(def.morphology) && def.morphology,
     def.root && `${L.root || "Root"}: ${def.root}`,
     def.pos, def.dialect_note,
   ].filter(Boolean).join(" · ");

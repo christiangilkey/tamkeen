@@ -998,7 +998,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     for (const [word, several] of tries) {
       try {
         const d = await ask(word, several, !senses);
+        // (`form`: what form the word is, "plural of كِتَاب", for its Grammar notes: meaningdata.js translatedForms)
         if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "",
+          form: d.morphology && !/^also /.test(d.morphology) ? d.morphology : "",
           senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings)) : null };
       } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
     }
@@ -1058,6 +1060,12 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           r.meaningPos = d.pos;
           r.meaningFrom = d.from;
           r.senses = d.senses && d.senses.length > 1 ? d.senses : null;
+          // What form it is goes in the card's Grammar notes, when the learner wrote none (the owner, 2026-11-20).
+          if (d.form && !String(r.notes || "").trim()) {
+            r.notes = d.form;
+            const box = r.el && r.el.querySelector(".cb-notes");
+            if (box) box.value = d.form;
+          }
           // Typed without its accents ("vacio"): the card takes the dictionary's spelling (meanings.js respellings).
           if (d.spelled && d.spelled !== r.text.trim()) {
             r.text = d.spelled;
