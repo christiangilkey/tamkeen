@@ -402,11 +402,12 @@ test("a chip sits in the card's empty top corner, across from the status badge a
   // A phone 412 px wide: the card 18 px in from each side, 60 px down; a "NEW WORD" badge 106 px wide.
   const card = { left: 18, top: 60, width: 376 };
   const at = cornerSlot({ card, host: { width: 412 }, badge: 106, free: 215 });
-  assert.deepEqual(at, { top: 60 + CHIP.top, right: 18 + CHIP.inset, maxWidth: 376 - CHIP.inset - (CHIP.badgeInset + 106 + CHIP.gap), small: false });
+  assert.deepEqual(at, { top: 60 + CHIP.top, right: 18 + CHIP.inset, maxWidth: 376 - CHIP.inset - (CHIP.badgeInset + 106 + CHIP.gap),
+    room: 215 - CHIP.top - CHIP.gap, small: false });
   assert.ok(!("left" in at), "its corner is the right one");
   // Right to left (the Arabic interface): the badge is on the right, so the empty corner is the left one.
   const rtl = cornerSlot({ card, host: { width: 412 }, badge: 106, free: 215, rtl: true });
-  assert.deepEqual(rtl, { top: 60 + CHIP.top, left: 18 + CHIP.inset, maxWidth: at.maxWidth, small: false });
+  assert.deepEqual(rtl, { top: 60 + CHIP.top, left: 18 + CHIP.inset, maxWidth: at.maxWidth, room: at.room, small: false });
   // A card in the middle of a wide window.
   assert.equal(cornerSlot({ card: { left: 350, top: 70, width: 580 }, host: { width: 1280 }, badge: 80, free: 300 }).right, 1280 - 350 - 580 + CHIP.inset);
   // No badge (the place a big find starts from, between two cards): the whole width less the two insets.
@@ -421,6 +422,9 @@ test("a crowded card gets the one-line chip, which keeps to the badge's own band
   assert.equal(cornerSlot({ card, host: { width: 412 }, badge: 106, free: need }).small, false, "just enough room for the usual chip");
   const tight = cornerSlot({ card, host: { width: 412 }, badge: 106, free: need - 1 });
   assert.deepEqual([tight.small, tight.top], [true, 60 + CHIP.smallTop]);
+  // `room` is how tall a chip may be before it would reach the card's first line; with nothing there, any height.
+  assert.equal(cornerSlot({ card, host: { width: 412 }, badge: 106, free: need }).room, CHIP.height);
+  assert.equal(cornerSlot({ card, host: { width: 412 } }).room, Infinity);
   // The numbers come from the stylesheets: a card's front keeps its top padding free, the timer bar is above
   // the chip, and the one-line chip is as tall as its tile, padding and border make it.
   const css = (file) => readFileSync(new URL(`../../web/css/${file}`, import.meta.url), "utf8");
@@ -439,6 +443,36 @@ test("a crowded card gets the one-line chip, which keeps to the badge's own band
   assert.match(js, /cornerSlot\(\{/);
   assert.match(js, /busy = true;\s+clearChips\(\);/, "flip() clears the corner: the back has no empty one");
   assert.match(js, /if \(showBack\) clearChips\(\);/);
+});
+
+test("the corner is the card's own, whatever is drawn above the card (v0.56 to v0.65: chips on the speed streak's line)", () => {
+  // The box round the card (.rv-wrap) came to hold the speed streak's line too, 36 px of it above the card. The
+  // chips were placed from that box's top, so they lay on the line, its "+10 s" button and the card's timer bar.
+  const js = readFileSync(new URL("../../web/js/pages/review.js", import.meta.url), "utf8");
+  const slot = /function slot\(\) \{[\s\S]*?\n  \}/.exec(js)[0];
+  assert.match(slot, /top: w\.top - all\.top \+ card\.offsetTop/, "the card's top: the wrap's, plus where the card sits in it");
+  assert.match(slot, /left: w\.left - all\.left \+ card\.offsetLeft/);
+  assert.match(slot, /width: card\.offsetWidth/);
+  // The card is placed inside the wrap (so its offsets are measured from the wrap), and the line is above it there.
+  const css = readFileSync(new URL("../../web/css/review.css", import.meta.url), "utf8");
+  assert.match(css, /\.rv-wrap \{[^}]*position: relative/);
+  assert.match(js, /<div class="rv-wrap">\s*<div class="rv-speedline"[\s\S]*?<div class="rv-card">/);
+  // What the speed streak says is said in its own line, never across the card.
+  assert.doesNotMatch(js, /shout\((`New best speed streak|`\+\$\{BOOST\.seconds\} s boost earned|"Time's up)/);
+  assert.match(js, /speedSay\("Time's up: the streak starts again"\)/);
+});
+
+test("a chip's words are made to fit before any are cut: the XP under the reward, then smaller letters", () => {
+  const js = readFileSync(new URL("../../web/js/game/reveal.js", import.meta.url), "utf8");
+  const fit = /function fit\(root, room = Infinity\) \{[\s\S]*?\n\}/.exec(js)[0];
+  assert.ok(fit.indexOf('"stack"') < fit.indexOf('"tight"'), "first the quieter words on their own line, then smaller letters");
+  assert.match(fit, /pill\.offsetHeight > room/, "a chip grown taller than its room becomes the one-line chip");
+  assert.match(js, /root\.classList\.add\("open"\);\s+if \(!big\) fit\(root, opts\.room\);/, "measured once the words show");
+  assert.match(js, /got\.className = "loot-got"/);
+  const app = readFileSync(new URL("../../web/css/app.css", import.meta.url), "utf8");
+  assert.match(app, /\.loot\.stack \.loot-also \{ display: block; \}/);
+  assert.match(app, /\.loot\.tight \.loot-text \{ font-size: 13px; \}/);
+  assert.match(app, /\.loot-got, \.loot-also \{ display: inline-block; max-width: 100%;/);
 });
 
 test("the reviewer's chip helper never takes the place of its `say` option (v0.53.0: dead answer buttons)", () => {

@@ -171,6 +171,12 @@ body.rv-open { overflow: hidden; }
 /* The line above the card: the streak, the best ones, the boosts banked. */
 .rv-speedline { display: flex; align-items: center; justify-content: center; gap: 14px; height: 30px; margin-bottom: 6px; font-size: 13.5px; font-variant-numeric: tabular-nums; }
 .rv-speedline[hidden] { display: none; }
+/* A few words about the streak take the place of the line's "Best today" words for a moment (review.js speedSay):
+   said here, above the card, they lie over nothing. The count and the +10 s button stay. Two lines at most fit. */
+.rv-speedmsg { display: none; flex: 0 1 auto; min-width: 0; font-size: 13px; font-weight: 700; line-height: 1.12; text-align: center; color: #ffe9a8; }
+.rv-speedline.saying > .rv-best { display: none; }
+.rv-speedline.saying > .rv-speedmsg { display: block; animation: rv-pop .36s cubic-bezier(.3, 1.9, .5, 1); }
+@media (prefers-reduced-motion: reduce) { .rv-speedline.saying > .rv-speedmsg { animation: none; } }
 .rv-speed { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: #ffe9a8; }
 .rv-speed b { font-size: 16px; }
 .rv-best { opacity: .78; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }

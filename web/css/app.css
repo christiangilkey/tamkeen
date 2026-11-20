@@ -1169,10 +1169,21 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot-front { transform: rotateY(180deg); background: color-mix(in srgb, var(--tier) 26%, #120e1c); }
 .loot-art { display: block; width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; }
 .loot-back .loot-art { width: 24px; height: 24px; opacity: .8; }
-.loot-words { display: none; min-width: 0; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
-.loot-name, .loot-text { overflow: hidden; text-overflow: ellipsis; }  /* (words too long for their place end in "…") */
+.loot-words { display: none; min-width: 0; overflow: hidden; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot-name, .loot-text, .loot-got, .loot-also { overflow: hidden; text-overflow: ellipsis; }  /* (a last resort: reveal.js fit() makes the words fit first) */
 .loot-text:empty { display: none; }
+.loot-got, .loot-also { display: inline-block; max-width: 100%; vertical-align: top; }
 .loot-also { font-weight: 600; opacity: .62; }
+/* Words too wide for the chip's place (reveal.js fit, in this order): the quieter ones on a line of their own and
+   a notice's sentence over two lines; then smaller letters and a smaller tile. */
+.loot.stack .loot-also { display: block; }
+.loot.stack.note .loot-text, .loot.stack.note .loot-name { white-space: normal; }
+.loot.tight .loot-name { font-size: 10px; letter-spacing: .04em; }
+.loot.tight .loot-text { font-size: 13px; }
+.loot.tight .loot-words { padding: 0 9px 0 7px; }
+.loot.tight:not(.small) .loot-tile { width: 40px; height: 40px; }
+.loot.small.tight .loot-text { font-size: 12px; }
+.loot.brief .loot-also { display: none; }  /* (still too wide: the reward's own words alone, whole) */
 .loot.open .loot-words { display: block; animation: loot-words .2s ease-out both; }
 @keyframes loot-words { from { opacity: 0; transform: translateX(-6px); } }
 .loot-name { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tier); }

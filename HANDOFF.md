@@ -8562,6 +8562,38 @@ chip sat centred under the top bar, which on a phone is the card's top edge (the
   chip), 1280 x 800, and Arabic at 412 x 915. No overlap in any case. Not checked on a real phone.
 - **Still crossing the card for a moment** (older than the rolls, left alone): the confetti dots of a right answer.
 
+### Review rolls: the chip is back in the card's corner, and its words always fit (2026-11-20, after v0.65.0; the owner's request)
+His words, with a phone screenshot (v0.65.0) of the chip lying on the speed streak's line, the "+10 s" button and the
+card's timing bar, its text cut ("+47 glow +33 …"): "In the reviewer, I'd like the popups to appear in the right corner
+of the black space below the timing bar so as to not cover anything and utilize the vacant space."
+- **Why it had moved**: on 2026-11-11 `slot()` (pages/review.js) took the box round the card (`.rv-wrap`) as the card,
+  which it then was. v0.56.0 put the speed streak's line (`.rv-speedline`, 36 px) inside that box, above the card, so
+  every chip sat 36 px too high. `slot()` now measures the card itself: the wrap's place plus `card.offsetTop /
+  offsetLeft`, and `card.offsetWidth` (layout numbers, which the card's entrance animation doesn't move). **Anything
+  added inside `.rv-wrap` above the card no longer matters; never measure the wrap as the card.** A test reads `slot()`.
+- **Measured after the translator**: `sayChips()` waits one microtask before the first chip. The card has only just
+  been drawn and i18n.js rewrites its badge and hint in a MutationObserver right after; measured before that, a longer
+  badge ("NEUES WORT", "WIEDERHOLUNG") ended up under the chip.
+- **Words that fit** (reveal.js `fit(root, room)`, run once the words show; app.css `.loot.stack / .tight / .brief`):
+  in turn and only as far as needed, (1) the XP (`.loot-also`) goes on a line of its own under the reward
+  (`.loot-got`), and a notice's sentence may take two lines; (2) smaller letters and a 40 px tile; (3) a chip grown
+  taller than `room` (cornerSlot's new number: how tall a chip may be before it reaches the card's first line) becomes
+  the one-line chip; (4) on the narrowest phones with a five-figure find the XP is left out rather than shown as "…".
+  Widths are compared to a fraction of a pixel (a Range's box against the element's): a line half a pixel too wide
+  loses its whole last piece to "…", and `scrollWidth` (whole pixels) doesn't see it.
+- A corner chip's sparks only fly downwards (`bits(..., down)`), so none cross the bar or the line above it.
+- **The speed streak's own words** ("New best speed streak: N", "+10 s boost earned", "Time's up: the streak starts
+  again") were shouts across the card (on a phone, across the word). `speedSay(text, pop)` shows them in the streak's
+  line instead: `.rv-speedmsg` takes the place of the "Best today" words for 2.2 s (the count and the +10 s button
+  stay), then the part it was about springs. With no card on the table they are still a line over the summary.
+- **Checked** in a hidden browser against the desktop server on a fresh test folder never signed in to Drive, with the
+  script that measures each chip against the badge, word, sentence, hint, timing bar, speed line, +10 s button, top
+  bar, buttons and the card's edges, and (new) whether any of its words is cut: 400 x 850, 360 x 640, 320 x 568,
+  360 x 430 (crowded cards), 1280 x 800, German and Arabic at 400 x 850, with finds of up to "+25,110 glow". No
+  overlap and nothing cut. The script (side-session notes, `review-rolls-record.py`): `--script corner | fit | mini`.
+  Not checked on a real phone.
+- No new interface strings. Tests: tests/js/loot.test.mjs (24).
+
 ## DLI classes: students share a last name and weekly numbers; teachers see their classes; the owner sees everyone (2026-11-14; main chat; database NOT applied)
 The owner's decisions (2026-11-14): teacher access by a code he hands out, checked by the database; teachers see study
 numbers only; students show by last name; sharing with him is REQUIRED to use DLI content (so DLI now needs the Google

@@ -62,22 +62,25 @@ export function climb(tier, big = tier >= EPIC) {
 export const CHIP = { top: 16, height: 60, inset: 16, gap: 8, smallTop: 14, smallHeight: 30, badgeInset: 20, minWidth: 96 };
 
 /**
- * Where a chip goes on a card: reveal()'s and notice()'s {top, left | right, maxWidth, small}.
+ * Where a chip goes on a card: reveal()'s and notice()'s {top, left | right, maxWidth, room, small}.
  *   card   {left, top, width}: the card's box within the host the chip is drawn in
  *   host   {width}: that host
  *   badge  the status badge's width (0 when the card shows none)
  *   free   how far under the card's top its first line of content begins (Infinity when nothing is there)
  *   rtl    the page reads right to left: the badge is on the right, so the empty corner is the left one
  * `small` asks for the one-line chip: when the content starts too high for the usual one, the chip keeps to the
- * badge's own band, which the card's padding always leaves free.
+ * badge's own band, which the card's padding always leaves free. `room` is how tall a chip may be there before it
+ * would reach the content (a chip whose words need more lines than usual turns into the one-line chip: reveal.js fit).
+ * `card` must be the card itself, never a box round it: whatever is drawn above the card is not part of it.
  */
 export function cornerSlot({ card, host, badge = 0, free = Infinity, rtl = false }) {
-  const small = free < CHIP.top + CHIP.height + CHIP.gap;
+  const room = free - CHIP.top - CHIP.gap;
+  const small = room < CHIP.height;
   const top = Math.round(card.top + (small ? CHIP.smallTop : CHIP.top));
   const taken = badge > 0 ? CHIP.badgeInset + badge + CHIP.gap : CHIP.inset;
   const maxWidth = Math.max(CHIP.minWidth, Math.floor(card.width - CHIP.inset - taken));
-  return rtl ? { top, left: Math.round(card.left + CHIP.inset), maxWidth, small }
-    : { top, right: Math.round(host.width - card.left - card.width + CHIP.inset), maxWidth, small };
+  return rtl ? { top, left: Math.round(card.left + CHIP.inset), maxWidth, room, small }
+    : { top, right: Math.round(host.width - card.left - card.width + CHIP.inset), maxWidth, room, small };
 }
 
 /** How long a big reveal stays up by itself once it has landed (a tap ends it sooner). */
