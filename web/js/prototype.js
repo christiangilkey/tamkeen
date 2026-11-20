@@ -24,6 +24,7 @@ export const PROTOTYPES = {
   class_teachers: { name: "DLI classes: a class's teachers listed in the class, add another teacher by username, remove one", released: true, since: "2026-11-18" },
   sense_choice: { name: "Add words asks which meaning a word with several meanings is for (one screen for all the words)", released: false, since: "2026-11-19" },
   drag_drop: { name: "Drag and drop files onto My audio, My videos, My files, Books, Audiobooks, a lesson, Import data and your profile photo", released: false, since: "2026-11-19" },
+  lesson_links: { name: "Lessons: a PDF's or Word file's links to sound files (\"Audio Files/1.mp3\") become sound spots, filled by adding the files (several, a folder, or dropped), matched by name", released: false, since: "2026-11-19" },
 };
 
 const KEY = "tamkeenPrototype";

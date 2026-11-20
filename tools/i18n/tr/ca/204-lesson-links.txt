@@ -1,0 +1,16 @@
+# Lessons: links to sound files and the audio bar (components/lessonview.js, lessonbar.js, lessonpanel.js; pages/player.js).
+f905c157	Àudio de la lliçó
+cf1c85ad	Posició
+2125f487	{0} (encara no afegit)
+fa862a17	El fitxer enllaça {0} fitxers de so que no hi són. Afegeix-los a la pàgina de la lliçó: cadascun va al seu lloc pel seu nom.
+981fd0f4	Afegeix una carpeta
+7f334c7c	{0} de {1} enllaços de so del fitxer encara no tenen so. Afegeix els fitxers (diversos alhora, o una carpeta): cadascun va al seu lloc pel seu nom.
+2b52f4f5	{0} de {1} enllaços de so del fitxer encara no tenen so. Afegeix els fitxers (en pots triar diversos alhora): cadascun va al seu lloc pel seu nom.
+0affcad1	{0} de {1} sons d'aquesta lliçó encara no han arribat.
+068ec270	Aquests no són fitxers de so.
+4938afdc	Afegint {0} de {1}…
+4fc7347c	{0} afegits, cadascun al seu lloc.
+82127bad	{0} afegits a l'àudio de la lliçó.
+e59d04e9	{0} afegits al seu lloc, {1} a l'àudio de la lliçó.
+85ae28e0	encara no afegit
+6b24f703	Ja ho pots escoltar; la transcripció apareix quan s'hagi transcrit.

@@ -3909,3 +3909,31 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
   background: var(--accent-soft); color: var(--accent); border: 3px solid var(--accent); }
 .file-drop-box strong { font-size: 20px; color: var(--text); }
 .file-drop-box .small { color: var(--muted); max-width: 420px; }
+
+/* ---------- Lessons: sound links and the audio bar (components/lessonview.js, lessonbar.js, prototype lesson_links) ---------- */
+.lsn-abar { position: sticky; top: 0; z-index: 5; display: grid; gap: 6px; padding: 8px 10px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--surface);
+  box-shadow: 0 -16px 0 0 var(--bg); } /* (a band of the page's own colour above it, so text scrolling under it doesn't show there) */
+.lsn-abar[hidden] { display: none; }
+.lsn-abar-ctl { display: flex; align-items: center; gap: 8px; }
+.lsn-abar-now { font-weight: 600; min-width: 2.5em; }
+.lsn-abar-seek { flex: 1; min-width: 60px; accent-color: var(--accent); }
+.lsn-abar-time { font-variant-numeric: tabular-nums; }
+.lsn-abar-row { display: flex; gap: 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; padding: 2px; }
+.lsn-abar-row::after { content: ""; flex: 1 0 0; } /* (with few sounds the row sits centred) */
+.lsn-abar-row::before { content: ""; flex: 1 0 0; }
+.lsn-abar-btn { flex: none; min-width: 44px; padding: 8px 12px; border-radius: 10px; border: 1px solid var(--border);
+  background: var(--surface-2); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.lsn-abar-btn:hover:not([disabled]) { border-color: var(--accent); }
+.lsn-abar-btn.on { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.lsn-abar-btn.missing { opacity: .45; cursor: default; }
+.lsn-spot { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface-2); }
+.lsn-spot-ico { color: var(--accent); display: inline-flex; }
+.lsn-spot-name { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lsn-spot-act { display: flex; align-items: center; gap: 8px; }
+.lsn-spot-act .btn { display: inline-flex; align-items: center; gap: 4px; }
+.lsn-spot-missing { border-style: dashed; }
+.lsn-spot-missing .lsn-spot-ico { color: var(--muted); }
+.lsn-missing { margin: 0; color: var(--warn); }
+.pending-audio { width: 100%; margin-bottom: 8px; }

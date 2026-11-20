@@ -180,6 +180,7 @@ const SHARED = [
   "js/components/lessonview.js",
   "js/components/lessonedit.js",
   "js/components/lessonteach.js",
+  "js/components/lessonbar.js",
   "js/components/transcripteditor.js",
   "js/saytext.js",
   // Settings → Sound volume: the level of the app's own sounds (not the media)

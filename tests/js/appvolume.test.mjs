@@ -63,7 +63,7 @@ test("an app player and an AudioContext follow the slider, now and while playing
 });
 
 // The media players follow the media slider instead (YouTube, Netflix and reels have their own players).
-const MEDIA = new Set(["pages/player.js", "components/transcripteditor.js"]);
+const MEDIA = new Set(["pages/player.js", "components/transcripteditor.js", "components/lessonbar.js"]);
 
 test("every <audio> the app makes follows a slider: the media's the media one, the rest the app one", () => {
   const loose = [];

@@ -38,6 +38,7 @@ import { loadCover, saveCover, track } from "../playcover.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { feature } from "../prototype.js";
 import { sentenceStart } from "../sentencestart.js";
 import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
@@ -102,6 +103,14 @@ function renderPending(view, ep) {
     panel.querySelector(".status-panel").prepend(v);
     panel.querySelector("#st").insertAdjacentHTML("afterend",
       `<p class="small muted">You can watch it now; captions and the transcript appear once it's transcribed.</p>`);
+  } else if (feature("lesson_links")) {
+    // (prototype lesson_links, the owner 2026-11-19: "Audios attached should be able to be played even if they arent
+    // transcribed yet": a lesson's track or My audio while it waits; the transcript appears once it's made)
+    const a = mediaSound(h(`<audio class="pending-audio" controls preload="metadata"></audio>`));
+    audioUrl(ep.id).then((url) => { if (url) a.src = url; }).catch(() => {});
+    panel.querySelector(".status-panel").prepend(a);
+    panel.querySelector("#st").insertAdjacentHTML("afterend",
+      `<p class="small muted">You can listen now; the transcript appears once it's transcribed.</p>`);
   }
   view.append(panel);
   const paint = () => {

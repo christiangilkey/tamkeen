@@ -9344,3 +9344,55 @@ remove".
 - Checked in a real pywebview window (fresh data folder, not signed in) at 1200, 400, 360 and 320 px wide: play centred
   (0 px off) in all; 9 px between the keyboard and Back 5 s at 360, 5 px at 320. Typing mode turns the 5-second buttons
   into piece arrows and back. Pictures: `..\yt-bar-shots\` (outside the repository).
+
+## Lessons: a file's links to sound files, play before transcription, the audio bar (prototype `lesson_links`, 2026-11-19; "Lesson bundles" chat)
+
+The owner, importing `U9 ABC Authentic Listening.pdf`: "the formatting of the questions and MCQ is perfect, but the embedded
+audios didnt show, they are Launch actions". That PDF carries no sound: its 30 link annotations are Acrobat **Launch**
+actions to files on the teacher's own PC (`/C/Users/<teacher>/Desktop/…/Unit 9/Audio Files/1.mp3` … `30.mp3`), some inside
+compressed object streams. Then: "Audios attached should be able to be played even if they arent transcribed yet" and "the
+audios should be selectable from a sideways scrollable bar on top which stays even as the user scrolls downwards". (A
+transcript hidden until "Finish assignment" was asked for and then withdrawn by the owner; nothing of it was built.)
+
+Everything below is behind `feature("lesson_links")` (row in `web/js/prototype.js`, `released: false`); with prototype mode off
+nothing changes (links aren't read, no spots, no bar, the waiting page as before). No CHANGELOG / whatis-special line yet.
+
+- **Reading links** (`web/js/lessonfiles.js`, `readLessonFiles(files, {links})`): PDF.js `getAnnotations()` already reports a Launch
+  link's file as `unsafeUrl` (compressed streams included); `audioLinkName(url)` keeps only sound files (file name from `/C/…`,
+  `file:///…%20…`, `Audio Files\3.m4a`; never http). `placeLinks(pageLines, links)` puts each link among the page's lines by
+  height (before the first line below the top of its box; PDF y goes up), as a line `{text: "", audioLink: {name, path}}`.
+  Word: `docxRels` (word/_rels/document.xml.rels, external targets) + `<w:hyperlink r:id>` and `HYPERLINK "…"` fields.
+- **Spots** (`lessonparse.js findQuestions`): a link straight before a question is that question's; one among a question's lines
+  is that question's; any other is a spot of its own where it is (items `{type: "audio", name, path, qid?}`).
+  `lessons.js splitItems` → `spots: [{id, name, at, qid, track}]` (track = the track's uid, "" = not added yet), kept in the
+  lesson record (`cleanSpots`, at most 100). `bodyOf(blocks, questions, spots)`: a question's spots just before it, others at
+  their place; a spot at a short heading ("Passage 1") comes just under it. On U9 all 30 links are found, one under each
+  "Passage N" heading.
+- **Matching** `lessons.js matchFiles(spots, names)`: same name (no folder, no ending, case, spaces/dashes/underscores alike,
+  "01" = "1"), then the last number when only one file and one spot fit ("Track 01.mp3" → "1.mp3"); unfilled spots first.
+  `lessonstore.js createLesson` matches the audio picked with the document (d); `addAudioFiles(rec, files)` matches files added
+  later; files that match nothing are the lesson's general audio. `packLesson` sends spots with their track's number;
+  `takeAssigned` points them at the student's own copies (`uidAt`).
+- **The lesson page** (`components/lessonview.js`): spots in the passage ("1.mp3 — not added yet" with its own Add button for
+  an own lesson; a play button once filled), a note "N of M sound links in the file have no sound yet…", **Add audio** with
+  several files, **Add a folder** (`webkitdirectory`, only where there's a fine pointer and folder picking: computer, web app),
+  and the drag-drop chat's drop (`addAudio(files)`, prototype `drag_drop`) all go through `addMatched` → `addAudioFiles`.
+  My files' import toasts how many linked files aren't in the file.
+- **The audio bar** (`components/lessonbar.js`, new): one button per sound (spots in order, then other tracks), a row that
+  scrolls sideways, `position: sticky` at the top of the lesson (the scroller is `.lib-main`), with play/pause, a seek line and
+  the time; the one playing is marked (`.on`, aria-pressed); not-added spots are greyed and disabled. Passage spots play through
+  the bar's one player. Left/Right/Home/End move along the row (RTL-aware); ordinary buttons for Tab and the controller.
+- **Play before transcription** (`pages/player.js renderPending`): an audio item that is queued, being transcribed or failed
+  gets an `<audio controls>` (play, pause, seek) on its waiting page, with "You can listen now; the transcript appears once it's
+  transcribed." (videos already had one). Every audio kind: lesson tracks, My audio, podcasts not yet transcribed.
+
+**Tests:** `tests/js/lessonlinks.test.mjs` (9: link names, placing by height, links to questions vs passage, 30 links on 15 pages,
+the "Passage N" heading rule, matching (30 reversed + a stray file, last-number rule, no guessing), record/pack/unpack, Word
+hyperlinks, off without prototype mode). JS and pytest pass.
+**Checked** in the browser pane on a fresh data folder never signed in to Drive (config `links-desktop`): the real U9 PDF → 30
+greyed bar buttons and 30 "not added yet" spots; 30 dummy MP3s added at once in reverse order (+ intro.mp3) → all 30 in their
+places, intro as general audio; the bar playing "5" and marked, staying pinned while scrolling 3000 px, a passage spot playing
+through it, arrow keys; the waiting page of an untranscribed track playing; the PDF picked with 01–05.mp3 → matched at import;
+the phone build at 375 px (bar, spots, no folder button); a class copy (`takeAssigned` with a stand-in download) → 30 spots on the
+student's own tracks. **Not checked:** a real phone's file picker with many files, the controller on the bar, a real class.
+Translations `tools/i18n/tr/*/204-lesson-links.txt` (15 strings × 16).

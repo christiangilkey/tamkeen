@@ -1,0 +1,16 @@
+# Lessons: links to sound files and the audio bar (components/lessonview.js, lessonbar.js, lessonpanel.js; pages/player.js).
+f905c157	Audio ng aralin
+cf1c85ad	Posisyon
+2125f487	{0} (hindi pa naidagdag)
+fa862a17	Naka-link ang file sa {0} sound file na wala rito. Idagdag ang mga ito sa pahina ng aralin: bawat isa ay pupunta sa lugar nito ayon sa pangalan.
+981fd0f4	Magdagdag ng folder
+7f334c7c	{0} sa {1} sound link ng file ang wala pang tunog. Idagdag ang mga file (marami nang sabay, o isang folder): bawat isa ay pupunta sa lugar nito ayon sa pangalan.
+2b52f4f5	{0} sa {1} sound link ng file ang wala pang tunog. Idagdag ang mga file (puwede kang pumili ng marami nang sabay): bawat isa ay pupunta sa lugar nito ayon sa pangalan.
+0affcad1	{0} sa {1} tunog ng araling ito ang hindi pa dumarating.
+068ec270	Hindi sound file ang mga iyan.
+4938afdc	Idinadagdag ang {0} sa {1}…
+4fc7347c	{0} ang naidagdag, bawat isa sa lugar nito.
+82127bad	{0} ang naidagdag sa audio ng aralin.
+e59d04e9	{0} ang naidagdag sa kanilang lugar, {1} sa audio ng aralin.
+85ae28e0	hindi pa naidagdag
+6b24f703	Puwede mo na itong pakinggan; lalabas ang transcript kapag na-transcribe na.

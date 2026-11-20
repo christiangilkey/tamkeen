@@ -6740,8 +6740,23 @@
   "f": "web/js/components/langswitch.js"
  },
  {
+  "id": "f905c157",
+  "k": "Lesson audio",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
   "id": "8cfc8cf6",
   "k": "Play / pause",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
+  "id": "cf1c85ad",
+  "k": "Position",
+  "f": "web/js/components/lessonbar.js"
+ },
+ {
+  "id": "2125f487",
+  "k": "{0} (not added yet)",
   "f": "web/js/components/lessonbar.js"
  },
  {
@@ -6972,6 +6987,11 @@
  {
   "id": "e2bcda84",
   "k": "Done.",
+  "f": "web/js/components/lessonpanel.js"
+ },
+ {
+  "id": "fa862a17",
+  "k": "The file links to {0} sound files that aren't in it. Add them on the lesson page: each goes to its place by its name.",
   "f": "web/js/components/lessonpanel.js"
  },
  {
@@ -7235,6 +7255,26 @@
   "f": "web/js/components/lessonview.js"
  },
  {
+  "id": "981fd0f4",
+  "k": "Add a folder",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "7f334c7c",
+  "k": "{0} of {1} sound links in the file have no sound yet. Add the files (several at once, or a folder): each goes to its place by its name.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "2b52f4f5",
+  "k": "{0} of {1} sound links in the file have no sound yet. Add the files (you can pick several at once): each goes to its place by its name.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "0affcad1",
+  "k": "{0} of {1} sounds in this lesson haven't arrived yet.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
   "id": "3a62cb5c",
   "k": "No audio in this lesson.",
   "f": "web/js/components/lessonview.js"
@@ -7242,6 +7282,41 @@
  {
   "id": "926814d0",
   "k": "Adding {0}…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "068ec270",
+  "k": "Those aren't sound files.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "4938afdc",
+  "k": "Adding {0} of {1}…",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "4fc7347c",
+  "k": "{0} added, each in its place.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "82127bad",
+  "k": "{0} added to the lesson's audio.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "e59d04e9",
+  "k": "{0} added in their places, {1} to the lesson's audio.",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "85ae28e0",
+  "k": "not added yet",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "5d12bd53",
+  "k": "Play",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -7277,11 +7352,6 @@
  {
   "id": "52811034",
   "k": "Not transcribed yet",
-  "f": "web/js/components/lessonview.js"
- },
- {
-  "id": "5d12bd53",
-  "k": "Play",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -23617,6 +23687,11 @@
  {
   "id": "4ce6ed15",
   "k": "You can watch it now; captions and the transcript appear once it's transcribed.",
+  "f": "web/js/pages/player.js"
+ },
+ {
+  "id": "6b24f703",
+  "k": "You can listen now; the transcript appears once it's transcribed.",
   "f": "web/js/pages/player.js"
  },
  {

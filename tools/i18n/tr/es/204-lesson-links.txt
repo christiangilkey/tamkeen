@@ -1,0 +1,16 @@
+# Lessons: links to sound files and the audio bar (components/lessonview.js, lessonbar.js, lessonpanel.js; pages/player.js).
+f905c157	Audio de la lección
+cf1c85ad	Posición
+2125f487	{0} (aún no añadido)
+fa862a17	El archivo enlaza {0} archivos de sonido que no están en él. Añádelos en la página de la lección: cada uno va a su lugar por su nombre.
+981fd0f4	Añadir una carpeta
+7f334c7c	{0} de {1} enlaces de sonido del archivo aún no tienen sonido. Añade los archivos (varios a la vez, o una carpeta): cada uno va a su lugar por su nombre.
+2b52f4f5	{0} de {1} enlaces de sonido del archivo aún no tienen sonido. Añade los archivos (puedes elegir varios a la vez): cada uno va a su lugar por su nombre.
+0affcad1	{0} de {1} sonidos de esta lección aún no han llegado.
+068ec270	Esos no son archivos de sonido.
+4938afdc	Añadiendo {0} de {1}…
+4fc7347c	{0} añadidos, cada uno en su lugar.
+82127bad	{0} añadidos al audio de la lección.
+e59d04e9	{0} añadidos en su lugar, {1} al audio de la lección.
+85ae28e0	aún no añadido
+6b24f703	Ya puedes escucharlo; la transcripción aparece cuando esté transcrito.
