@@ -5,7 +5,7 @@
 import { api, audioUrl, saveSettings, state, uploadVideo } from "./app.js";
 import { cardFor } from "./addwords.js";
 import { feature } from "./prototype.js";
-import { STATE_KEY, cleanLesson, cleanState, cleanWords, dropLesson, fromClass, liveLessons, newLessonId, putLesson, splitItems, unpackLesson } from "./lessons.js";
+import { STATE_KEY, cleanLesson, cleanState, cleanWords, dropLesson, fromClass, liveLessons, matchFiles, newLessonId, putLesson, splitItems, unpackLesson } from "./lessons.js";
 import { acceptInto, unpackTranscript } from "./sharetext.js";
 
 const settings = () => (state.status && state.status.settings) || {};
@@ -90,20 +90,42 @@ export async function addTrack(rec, file, { title = "", transcribe = true, onPro
 /** A new lesson from what the files gave (lessonfiles.js + lessonparse.js findQuestions):
  *  {title, lang, items, key, audio: [{name, blob}]}. `onStep({done, of, name})` hears each track's upload. */
 export async function createLesson({ title, lang, items, key = {}, audio = [], onStep = () => {} }) {
-  const { blocks, questions } = splitItems(items);
-  let rec = cleanLesson({ id: newLessonId(), title, lang, made: Date.now() / 1000, updated: Date.now() / 1000, questions, key, tracks: [] });
+  const { blocks, questions, spots } = splitItems(items);
+  let rec = cleanLesson({ id: newLessonId(), title, lang, made: Date.now() / 1000, updated: Date.now() / 1000, questions, key, tracks: [], spots });
   const ep = await savePassage(rec, blocks);
   rec = { ...rec, passage: ep.uid || ep.id, lang: rec.lang || ep.language || "" };
   rec = await saveLesson(rec);
+  // (sound files picked with the document go to the spots its links make, by name: prototype lesson_links)
+  const forSpot = matchFiles(rec.spots, audio.map((a) => a.name));
   for (const [n, a] of audio.entries()) {
     onStep({ done: n, of: audio.length, name: a.name });
     const file = a.blob instanceof File ? a.blob : new File([a.blob], a.name, { type: a.blob.type || "" });
     const t = await addTrack(rec, file, { title: a.name.replace(/\.[^.]+$/, ""),
       onProgress: (f) => onStep({ done: n + f, of: audio.length, name: a.name }) });
-    rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: t.uid, title: t.title, kind: "file" }] });
+    rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: t.uid, title: t.title, kind: "file" }],
+      spots: rec.spots.map((sp) => (sp.id === forSpot[n] ? { ...sp, track: t.uid } : sp)) });
   }
   onStep({ done: audio.length, of: audio.length });
   return rec;
+}
+
+/** Sound files added to a lesson (Add audio with several files, a folder, or files dropped on it): each goes to the sound
+ *  spot with its name (prototype lesson_links), the rest are the lesson's general audio. Only sound files are taken, in
+ *  file-name order. `onStep({done, of, name})` hears the uploads. Resolves to {rec, matched, general}. */
+export async function addAudioFiles(recIn, files, { onStep = () => {}, isAudio = () => true } = {}) {
+  let rec = recIn;
+  const list = [...files].filter(isAudio).sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+  const forSpot = matchFiles(rec.spots || [], list.map((f) => f.name));
+  let matched = 0;
+  for (const [n, f] of list.entries()) {
+    onStep({ done: n, of: list.length, name: f.name });
+    const t = await addTrack(rec, f, { title: f.name.replace(/\.[^.]+$/, ""), onProgress: (x) => onStep({ done: n + x, of: list.length, name: f.name }) });
+    if (forSpot[n]) matched++;
+    rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: t.uid, title: t.title, kind: "file" }],
+      spots: (rec.spots || []).map((sp) => (sp.id === forSpot[n] ? { ...sp, track: t.uid } : sp)) });
+  }
+  onStep({ done: list.length, of: list.length });
+  return { rec, matched, general: list.length - matched };
 }
 
 /** An item already in the Library (a podcast episode, YouTube video, own audio…) as a lesson's track. */
@@ -141,7 +163,9 @@ export async function takeAssigned(item, packRaw, download, { onStep = () => {} 
   const ep = await savePassage(rec, pack.blocks);
   rec = { ...rec, passage: ep.uid || ep.id, lang: rec.lang || ep.language || "" };
   const tracks = [];
+  const uidAt = []; // (the uid each of the teacher's tracks got here, by its number; "" when it couldn't be added)
   for (const [n, t] of pack.tracks.entries()) {
+    const had = tracks.length;
     onStep({ done: n, of: pack.tracks.length, name: t.title });
     const text = t.segments ? unpackTranscript({ segments: t.segments }) : null;
     const old = rec.tracks[n];
@@ -168,9 +192,13 @@ export async function takeAssigned(item, packRaw, download, { onStep = () => {} 
         tracks.push({ uid: got.episode.uid || got.episode.id, title: t.title, kind: "podcast" });
       }
     }
+    uidAt[n] = tracks.length > had ? tracks[tracks.length - 1].uid : "";
   }
   onStep({ done: pack.tracks.length, of: pack.tracks.length });
-  rec = await saveLesson({ ...rec, tracks, from: { ...rec.from, version: item.version } });
+  // (the teacher's sound spots, pointing at this device's own copies of the tracks)
+  const spots = (pack.spots || []).map((sp) => ({ id: sp.id, name: sp.name, at: sp.at, qid: sp.qid,
+    track: sp.trackIndex >= 0 ? uidAt[sp.trackIndex] || "" : "" }));
+  rec = await saveLesson({ ...rec, tracks, spots, from: { ...rec.from, version: item.version } });
   return rec;
 }
 

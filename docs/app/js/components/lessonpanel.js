@@ -13,6 +13,8 @@ import { liveLessons } from "../lessons.js";
 import { EVENT, addStudyWords, createLesson, readState, saveLesson, takeAssigned } from "../lessonstore.js";
 import { openModal } from "./modal.js";
 import { lessonView } from "./lessonview.js";
+import { dropZone } from "../filedrop.js";
+import { feature } from "../prototype.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 const dateText = (iso) => { const d = new Date(iso); return Number.isNaN(d.getTime()) ? "" : d.toLocaleDateString(undefined, { month: "short", day: "numeric" }); };
@@ -48,7 +50,7 @@ async function importFiles(files, { onDone }) {
       const { ocrPage } = await import("../lessonocr.js");
       return ocrPage(canvas, lang);
     };
-    const read = await readLessonFiles([...docs, ...sounds], { ocr, onStep: (s) => s && s.pages && step(s.reading ? t("Reading scanned page {0}…", s.page) : t("Reading page {0} of {1}…", s.page, s.pages), 0.05 + 0.4 * (s.page / s.pages)) });
+    const read = await readLessonFiles([...docs, ...sounds], { ocr, links: feature("lesson_links"), onStep: (s) => s && s.pages && step(s.reading ? t("Reading scanned page {0}…", s.page) : t("Reading page {0} of {1}…", s.page, s.pages), 0.05 + 0.4 * (s.page / s.pages)) });
     for (const p of read.problems) toast(p.why === "big" ? t("{0} is too big (over 200 MB).", p.name) : p.why === "kind" ? t("{0} isn't a kind of file a lesson can use.", p.name)
       : p.message === "password" ? t("{0} is password-protected, so its text can't be read.", p.name) : t("{0} couldn't be read.", p.name), { error: true });
     const found = findQuestions(read.lines);
@@ -58,7 +60,9 @@ async function importFiles(files, { onDone }) {
       onStep: (s) => s.of && step(s.done < s.of ? t("Adding track {0} of {1}…", Math.floor(s.done) + 1, s.of) : t("Done."), 0.45 + 0.55 * (s.done / s.of)) });
     box.close();
     const n = rec.questions.length;
-    toast(read.scanned ? t("{0} scanned pages were read with the text reader: check the text and the questions.", read.scanned)
+    const missing = (rec.spots || []).filter((sp) => !sp.track).length;
+    if (missing) toast(t("The file links to {0} sound files that aren't in it. Add them on the lesson page: each goes to its place by its name.", missing));
+    else toast(read.scanned ? t("{0} scanned pages were read with the text reader: check the text and the questions.", read.scanned)
       : n ? t("{0} questions found. Check them with Edit questions.", n) : t("No questions were found: add them with Edit questions."));
     onDone(rec);
   } catch (e) {
@@ -91,6 +95,19 @@ export function lessonPanel(el, language) {
     input.value = "";
     if (files.length) importFiles(files, { onDone: (rec) => show(rec) });
   };
+  // Files dropped on My files (prototype drag_drop, filedrop.js): the same import as Add a lesson, which sorts the
+  // files itself (a document and its MP3s; anything else is named in a message). An open lesson has its own drop.
+  // (over the whole Library area beside the kinds, not just this list, which is short while it has few lessons)
+  const offDrop = dropZone(el.closest(".lib-main") || page, {
+    label: "Drop to make a lesson",
+    hint: "A PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+    accept: input.accept,
+    check: "some",
+    wrongKind: "Choose a PDF, a Word file (.docx) or a text file, and any MP3s that go with it.",
+    active: () => !page.hidden && page.getClientRects().length > 0, // (shown: My files is the tab, no lesson open)
+    onFiles: (files) => importFiles(files, { onDone: (rec) => show(rec) }),
+    say: toast,
+  });
 
   function show(rec) {
     if (open) open();
@@ -188,5 +205,5 @@ export function lessonPanel(el, language) {
   window.addEventListener(EVENT, redraw);
   paint();
   checkAssigned();
-  return () => { alive = false; window.removeEventListener(EVENT, redraw); if (open) open(); };
+  return () => { alive = false; offDrop(); window.removeEventListener(EVENT, redraw); if (open) open(); };
 }

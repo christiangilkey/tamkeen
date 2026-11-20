@@ -38,6 +38,7 @@ import { loadCover, saveCover, track } from "../playcover.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
+import { feature } from "../prototype.js";
 import { sentenceStart } from "../sentencestart.js";
 import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
@@ -102,6 +103,14 @@ function renderPending(view, ep) {
     panel.querySelector(".status-panel").prepend(v);
     panel.querySelector("#st").insertAdjacentHTML("afterend",
       `<p class="small muted">You can watch it now; captions and the transcript appear once it's transcribed.</p>`);
+  } else if (feature("lesson_links")) {
+    // (prototype lesson_links, the owner 2026-11-19: "Audios attached should be able to be played even if they arent
+    // transcribed yet": a lesson's track or My audio while it waits; the transcript appears once it's made)
+    const a = mediaSound(h(`<audio class="pending-audio" controls preload="metadata"></audio>`));
+    audioUrl(ep.id).then((url) => { if (url) a.src = url; }).catch(() => {});
+    panel.querySelector(".status-panel").prepend(a);
+    panel.querySelector("#st").insertAdjacentHTML("afterend",
+      `<p class="small muted">You can listen now; the transcript appears once it's transcribed.</p>`);
   }
   view.append(panel);
   const paint = () => {
@@ -291,7 +300,7 @@ export async function render(view, { id, query }) {
         </div>
         <div class="btnrow">
           <span id="loop-chip" class="chip" hidden>⟲ Looping sentence <button type="button" id="loop-off" title="Stop looping">✕</button></span>
-          <button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>
+          ${yt ? "" : `<button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>`}
           <button type="button" id="back5" title="Back 5 seconds (←)">⟲ 5s</button>
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
@@ -557,9 +566,12 @@ export async function render(view, { id, query }) {
   };
   $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : audio.pause(); };
   $("#back5").onclick = () => (dict ? dict.back() : seekTo(audio.currentTime - 5, false)); // (typing: by the piece)
-  // Back to the start of the line being heard (again within a second: the line before).
+  // Back to the start of the line being heard (again within a second: the line before). The R key everywhere; a
+  // button too, except on YouTube, whose bar keeps only the 5-second ones (the owner, 2026-11-19: "the second rewind
+  // button should be removed").
   const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
-  $("#restart").onclick = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
+  const lineAgain = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
+  if ($("#restart")) $("#restart").onclick = lineAgain;
   $("#fwd5").onclick = () => (dict ? dict.next() : seekTo(audio.currentTime + 5, false));
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
@@ -1225,7 +1237,9 @@ export async function render(view, { id, query }) {
   let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
   const dictShown = dictationOn(); // (not released yet: components/dictation.js)
-  if (dictShown) $("#font-down").before(dictBtn);
+  // YouTube: in the play bar, beside the speed, as in the reel player (the owner, 2026-11-19: up in the banner it went
+  // unseen). Elsewhere with the other switches at the top.
+  if (dictShown) (yt ? $(".btnrow").append(dictBtn) : $("#font-down").before(dictBtn));
   dictBtn.disabled = !n;
   function openDictation() {
     if (dict || !n || disposed || !dictShown) return;
@@ -1324,7 +1338,7 @@ export async function render(view, { id, query }) {
     if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : audio.pause(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
-    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else $("#restart").click(); }
+    else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else lineAgain(); }
     else if (dictShown && (e.key === "w" || e.key === "W") && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); dictBtn.click(); } // (not typed into its box)
     else if (e.key === "Escape") { if (bubble.open) bubble.hide(); else clearLoop(); }
     else if (vid && (e.key === "t" || e.key === "T")) setPanel(!playerEl.classList.contains("panel-open"));

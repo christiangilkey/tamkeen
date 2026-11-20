@@ -11,6 +11,15 @@ export const BOOK_TYPE = "text/book";
 export const isBook = (ep) => (ep && ep.audio_type) === BOOK_TYPE;
 /** What the learner can upload, for the file picker. */
 export const BOOK_FILES = ".epub,.pdf,.txt,.azw3,.azw,.mobi,.docx,.doc,.md,.htm,.html";
+/** Dropping a book file (prototype drag_drop, filedrop.js): what the drop area says, and the same check as the file chooser. */
+export const BOOK_DROP = {
+  label: "Drop to add to My books",
+  hint: "EPUB, PDF, TXT, Kindle AZW3 or Word, without DRM.",
+  accept: BOOK_FILES,
+  multiple: false,
+  many: "Drop one book at a time.",
+  wrongKind: "That isn't a book file. Drop an EPUB, PDF, TXT, Kindle AZW3 or Word file.",
+};
 
 // (A different address can be set for testing a build before the files are published.)
 function base() {

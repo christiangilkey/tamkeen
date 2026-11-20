@@ -27,6 +27,7 @@ export const MAX_QUESTIONS = 200;
 export const MAX_OPTIONS = 12;
 export const MAX_ANSWER = 4000;
 export const MAX_WORDS = 200;
+export const MAX_SPOTS = 100;
 export const GONE_DAYS = 60;
 const DAY = 86400;
 
@@ -149,6 +150,63 @@ function cleanSent(x) {
            tracks: (Array.isArray(x.tracks) ? x.tracks : []).map((u) => String(u)).filter((u) => /^[\w-]{1,64}$/.test(u)).slice(0, MAX_TRACKS) };
 }
 
+// ---------- sound spots (prototype lesson_links) ----------
+// A PDF or Word file can link to sound files on the teacher's own computer instead of carrying them ("Audio Files/1.mp3"
+// in a Launch link). Each link is a spot: the file's name, where it sits (beside question `qid`, or before passage block
+// `at`), and the track that plays it once the file is added (`track`, a uid; "" = not added yet).
+export function cleanSpot(x, k = 0) {
+  if (!x || typeof x !== "object") return null;
+  const name = line(x.name, 120);
+  if (!name) return null;
+  return { id: QID_RE.test(String(x.id || "")) ? String(x.id) : `s${k + 1}`, name, at: Math.max(0, Math.floor(num(x.at))),
+           qid: QID_RE.test(String(x.qid || "")) ? String(x.qid) : "", track: /^[\w-]{1,64}$/.test(String(x.track || "")) ? String(x.track) : "" };
+}
+
+export function cleanSpots(list, questions = null) {
+  const out = [];
+  for (const [k, x] of (Array.isArray(list) ? list : []).entries()) {
+    const sp = cleanSpot(x, k);
+    if (!sp || out.some((o) => o.id === sp.id)) continue;
+    if (questions && sp.qid && !questions.some((q) => q.id === sp.qid)) sp.qid = "";
+    out.push(sp);
+    if (out.length >= MAX_SPOTS) break;
+  }
+  return out;
+}
+
+/** A sound file's name as it is matched: no folder, no ending, small letters, spaces/dashes/underscores alike, and a
+ *  name that is only a number without its leading zeros ("01.mp3" = "1.mp3"). */
+export function spotKey(name) {
+  let s = String(name || "").split(/[\\/]/).pop().replace(/\.[a-z0-9]{2,5}$/i, "").normalize("NFKC").toLowerCase()
+    .replace(/[\s_\-.]+/g, " ").trim();
+  if (/^\d+$/.test(s)) s = String(Number(s));
+  return s;
+}
+const lastNumber = (key) => { const m = /(\d+)\D*$/.exec(key); return m ? Number(m[1]) : null; };
+
+/** Which spot each added file is for: [spot id or ""] in the files' order. Each spot takes one file: first the files with
+ *  the same name, then (when it is the only one that fits) the file whose last number is the spot's ("Track 01.mp3" for
+ *  "1.mp3"). Spots that have a track already are matched last. */
+export function matchFiles(spots, names) {
+  const keys = names.map(spotKey);
+  const out = names.map(() => "");
+  const taken = new Set();
+  const order = [...spots].sort((a, b) => (a.track ? 1 : 0) - (b.track ? 1 : 0));
+  keys.forEach((k, i) => {
+    const sp = order.find((x) => !taken.has(x.id) && spotKey(x.name) === k);
+    if (sp) { out[i] = sp.id; taken.add(sp.id); }
+  });
+  keys.forEach((k, i) => {
+    if (out[i]) return;
+    const n = lastNumber(k);
+    if (n === null) return;
+    const fits = order.filter((x) => !taken.has(x.id) && lastNumber(spotKey(x.name)) === n);
+    const rivals = keys.filter((k2, j) => !out[j] && lastNumber(k2) === n);
+    if (fits.length === 1 && rivals.length === 1) { out[i] = fits[0].id; taken.add(fits[0].id); }
+  });
+  return out;
+}
+
 /** A lesson record as kept, or null. */
 export function cleanLesson(x) {
   if (!x || typeof x !== "object" || !ID_RE.test(String(x.id || ""))) return null;
@@ -172,11 +230,12 @@ export function cleanLesson(x) {
     if (tracks.length >= MAX_TRACKS) break;
   }
   const sent = (Array.isArray(x.sent) ? x.sent : []).map(cleanSent).filter(Boolean).slice(0, 20);
+  const spots = cleanSpots(x.spots, questions);
   return {
     id, title: line(x.title, 200) || "Lesson", lang: LANG_RE.test(String(x.lang || "")) ? String(x.lang) : "",
     made: num(x.made) || updated, updated, passage: /^[\w-]{1,64}$/.test(String(x.passage || "")) ? String(x.passage) : "",
     tracks, questions, key, answers: cleanAnswers(questions, x.answers), handed: num(x.handed),
-    from: cleanFrom(x.from), sent,
+    from: cleanFrom(x.from), sent, spots,
   };
 }
 
@@ -225,23 +284,53 @@ export const fromClass = (state, lessonId) => liveLessons(state).find((r) => r.f
 export function splitItems(items) {
   const blocks = [];
   const questions = [];
-  for (const it of items || []) {
+  const spots = [];
+  const list = items || [];
+  list.forEach((it, i) => {
     if (it.type === "q") questions.push({ ...it.q, at: blocks.length });
-    else if (it.text && String(it.text).trim()) blocks.push({ kind: it.kind || "p", text: it.text, ...(it.marks ? { marks: it.marks } : {}) });
-  }
-  return { blocks, questions: cleanQuestions(questions) };
+    else if (it.type === "audio") {
+      // (a sound link straight before a question is that question's)
+      const next = list[i + 1];
+      const qid = it.qid || (next && next.type === "q" ? next.q.id : "");
+      spots.push({ id: `s${spots.length + 1}`, name: it.name, at: blocks.length, qid, track: "" });
+    } else if (it.text && String(it.text).trim()) blocks.push({ kind: it.kind || "p", text: it.text, ...(it.marks ? { marks: it.marks } : {}) });
+  });
+  const qs = cleanQuestions(questions);
+  return { blocks, questions: qs, spots: cleanSpots(spots, qs) };
 }
 
-/** The lesson in reading order again: [{type: "block", block, index} | {type: "q", q}]. */
-export function bodyOf(blocks, questions) {
+/** The lesson in reading order again: [{type: "block", block, index} | {type: "q", q} | {type: "spot", spot}]. A question's
+ *  sound spots come just before it; the other spots after the questions at their place, before the next block. */
+export function bodyOf(blocks, questions, spots = []) {
   const out = [];
   const qs = [...(questions || [])].sort((a, b) => a.at - b.at);
-  let k = 0;
+  const byQ = new Map();
+  const loose = [];
+  for (const sp of spots || []) {
+    if (sp.qid && qs.some((q) => q.id === sp.qid)) byQ.set(sp.qid, [...(byQ.get(sp.qid) || []), sp]);
+    else loose.push(sp);
+  }
+  loose.sort((a, b) => a.at - b.at);
+  let k = 0, j = 0;
+  const pushQ = (q) => { for (const sp of byQ.get(q.id) || []) out.push({ type: "spot", spot: sp }); out.push({ type: "q", q }); };
+  const upTo = (at) => {
+    while (k < qs.length && qs[k].at <= at) pushQ(qs[k++]);
+    while (j < loose.length && loose[j].at <= at) out.push({ type: "spot", spot: loose[j++] });
+  };
   (blocks || []).forEach((b, i) => {
-    while (k < qs.length && qs[k].at <= i) out.push({ type: "q", q: qs[k++] });
+    // (a sound beside a short heading, "Passage 1", plays under it rather than above it)
+    const title = /^h[1-3]/.test(String(b.kind || "")) || (String(b.text || "").length <= 40 && !/[.?!؟:;]\s*$/.test(String(b.text || "")));
+    if (title) {
+      while (k < qs.length && qs[k].at <= i) pushQ(qs[k++]);
+      while (j < loose.length && loose[j].at < i) out.push({ type: "spot", spot: loose[j++] });
+      out.push({ type: "block", block: b, index: i });
+      while (j < loose.length && loose[j].at <= i) out.push({ type: "spot", spot: loose[j++] });
+      return;
+    }
+    upTo(i);
     out.push({ type: "block", block: b, index: i });
   });
-  while (k < qs.length) out.push({ type: "q", q: qs[k++] });
+  upTo(Infinity);
   return out;
 }
 
@@ -283,6 +372,8 @@ export function packLesson(rec, blocks, tracks) {
     blocks: (blocks || []).slice(0, 20000).map((b) => ({ kind: String(b.kind || "p").slice(0, 200), text: str(b.text, 20000) })),
     questions: r.questions,
     tracks: (tracks || []).slice(0, MAX_TRACKS).map(packTrack).filter(Boolean),
+    // (each spot with the number of the track that plays it, in this list: the students' own copies have their own uids)
+    spots: r.spots.map((sp) => ({ name: sp.name, at: sp.at, qid: sp.qid, track: r.tracks.findIndex((t) => t.uid === sp.track) })),
   };
 }
 
@@ -317,6 +408,10 @@ export function unpackLesson(x) {
       .map((b) => ({ kind: String(b && b.kind || "p").slice(0, 200), text: str(b && b.text, 20000) })).filter((b) => b.text.trim()),
     questions: cleanQuestions(x.questions),
     tracks: (Array.isArray(x.tracks) ? x.tracks : []).slice(0, MAX_TRACKS).map(packTrack).filter(Boolean),
+    spots: (Array.isArray(x.spots) ? x.spots : []).slice(0, MAX_SPOTS).map((sp, k) => {
+      const c = cleanSpot({ ...sp, track: "" }, k);
+      return c && { ...c, trackIndex: Number.isInteger(sp.track) && sp.track >= 0 ? sp.track : -1 };
+    }).filter(Boolean),
   };
 }
 

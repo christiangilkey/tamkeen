@@ -210,6 +210,10 @@ export function findQuestions(lines) {
   const keyLines = [];
   let para = null; // the passage paragraph being put together {kind, text}
   let qCount = 0;
+  // links to sound files (lessonfiles.js audioLink lines, prototype lesson_links): waiting to see what follows them
+  let pending = [];
+  let carry = [];
+  const audioItem = (a, qid = "") => ({ type: "audio", name: a.name, path: a.path || "", ...(qid ? { qid } : {}) });
 
   const flushPara = () => {
     if (para && para.text.trim()) items.push({ type: "block", kind: para.kind, text: tidy(para.text) });
@@ -226,17 +230,28 @@ export function findQuestions(lines) {
     const ticked = q.options.filter((o) => o.ticked).map((o) => o.id);
     if (ticked.length && key[q.id] == null) key[q.id] = q.kind === "multi" ? ticked : ticked[0];
     for (const o of q.options) delete o.ticked;
-    const { tf, _keyRaw, _ticked, _room, ...clean } = q;
+    const { tf, _keyRaw, _ticked, _room, _audio, ...clean } = q;
     items.push({ type: "q", q: clean });
+    for (const a of _audio || []) items.push(audioItem(a, clean.id));
     q = null;
   };
 
-  const list = (lines || []).map((l) => ({ ...l, text: tidy(l.text) })).filter((l) => l.text || l.box);
+  const list = (lines || []).map((l) => ({ ...l, text: tidy(l.text) })).filter((l) => l.text || l.box || l.audioLink);
   for (let i = 0; i < list.length; i++) {
     const line = list[i];
     const next = list[i + 1];
     const text = line.text;
+    if (line.audioLink) { if (!inKey) pending.push(line.audioLink); continue; }
     if (inKey) { keyLines.push(text); continue; }
+    if (pending.length) {
+      // a link just before a question is that question's; one among a question's lines is that question's; any other is a
+      // sound of its own in the passage, where it is
+      const nextQ = questionStart(line) || (ENDS_QUESTION.test(text) && next && !questionStart(next) && optionStart(next, true));
+      if (nextQ && !line.heading) carry = pending;
+      else if (q && (optionStart(line, true) || (!q.options.length && !ENDS_SENTENCE.test(q.prompt) && !line.para))) (q._audio = q._audio || []).push(...pending);
+      else { flushPara(); closeQuestion(); for (const a of pending) items.push(audioItem(a)); }
+      pending = [];
+    }
     if (KEY_HEAD.test(text) && !line.list) { flushPara(); closeQuestion(); inKey = true; continue; }
     if (line.heading) { flushPara(); closeQuestion(); items.push({ type: "block", kind: `h${Math.min(3, line.heading)}`, text }); continue; }
 
@@ -264,6 +279,7 @@ export function findQuestions(lines) {
       flushPara();
       closeQuestion();
       q = newQuestion(start ? start.number : 0, start ? start.prompt : text);
+      if (carry.length) { q._audio = carry; carry = []; }
       if (HAS_BLANK.test(q.prompt)) q.lines = 1;
       continue;
     }
@@ -279,6 +295,7 @@ export function findQuestions(lines) {
   }
   flushPara();
   closeQuestion();
+  for (const a of [...carry, ...pending]) items.push(audioItem(a)); // (links after the last line)
 
   // the key section at the end: "1. b 2. c …", matched to the questions by their numbers (else their order)
   if (keyLines.length) {

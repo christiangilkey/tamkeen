@@ -14,6 +14,18 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.64.0 — 2026-11-19
+
+- **New:** **Drag and drop.** On a computer (the desktop app and the web app), files can be dropped onto My audio, My videos, Audiobooks and Books in the Library, My files (a new lesson) and an open lesson, the Books page, Settings → Import data, and your profile photo on Friends. Dragging shows a drop area saying what dropping does; the drop works like the button, with the same checks, and a wrong kind of file gets a message. A file dropped anywhere else no longer opens in place of the app.
+- **New:** **A handout's sound buttons become part of the lesson.** A PDF's or Word file's buttons that play sound files from the teacher's own computer (such as "Audio Files/1.mp3") now become sound spots in the lesson, beside their question (or in the passage), marked "not added yet". Add the sound files with the document, with **Add audio** (several at once), **Add a folder**, or by dropping them on the lesson, and each goes to its spot by name ("01.mp3" fills "1.mp3"). Spots go to a class with the lesson.
+- **New:** **An audio bar pinned at the top of a lesson:** one button per sound in a row that scrolls sideways and stays in view as you scroll down, with the playing one marked, play/pause and a seek line.
+- **New:** **"Which meaning?" in Add words.** When a word has several really different meanings, one screen before the cards are saved lists each such word with its meanings, **All of these** and **My own meaning**; the everyday meaning is chosen to start with. Choosing another one makes the card's sentence, translation and mnemonic again for it. Closing the screen adds nothing; words with one meaning, phrases, and meanings you typed yourself ask nothing.
+- **Improved:** A lesson's sound that hasn't been transcribed yet can already be played (play, pause, seek) on its waiting page.
+- **Improved:** **An X to leave any battle.** Every creature battle (wild, rental duel, gym leader, friend) now has an X in its top corner. It asks "Leave the battle?" first, with Carry on highlighted; leaving ends the fight with no reward and nothing lost (your answers still count for your words). On a phone the back gesture does the same, instead of changing the page hidden under the battle. Esc and the controller's Menu button still pause, with Leave the battle in the box.
+- **Improved:** **YouTube player's bar is less crowded.** **Type what you hear** (the keyboard button) now sits in the bar beside the speed, as in the reel player, instead of at the far end of the top line. The 5-second buttons are smaller, and the "start of the sentence" button is gone from YouTube's bar (the R key still does it). The play button stays in the middle.
+- **Fixed:** In Safari on a Mac, cards with no recording of their own (most DLI ICPT words) said only the first sound of the word and no sentence, because Safari cuts off speech started straight after stopping the last one. *(web app)*
+- **Fixed:** The lesson page's back button showed a round arrow that looked like Refresh; it is now the usual **← My files**.
+
 ## v0.63.0 — 2026-11-18
 
 - **New:** **One card per word.** A word you already have is kept once, in its own language, and folders only sort it. In **Add words**, typing a word you have shows a small button saying so and which folders it is in; tap it to put the same card in another folder (or a new one) instead of making a second card (**Add anyway** still can). DLI decks and the study words a teacher gives you use the card you already have, put in the chapter's or the lesson's folder, and it gets the chapter's recording if it had no sound.

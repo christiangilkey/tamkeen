@@ -5,13 +5,16 @@
 import { api, esc, h, toast } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
-import { LESSON_AUDIO_EXT } from "../lessonfiles.js";
+import { LESSON_AUDIO_EXT, isLessonAudio } from "../lessonfiles.js";
+import { feature } from "../prototype.js";
 import { bodyOf, mark, optionLabel, tally } from "../lessons.js";
-import { addTrack, episodeByUid, passageBlocks, removeLesson, saveLesson, savePassage, trackBlob, trackOfEpisode } from "../lessonstore.js";
+import { addAudioFiles, addTrack, episodeByUid, passageBlocks, removeLesson, saveLesson, savePassage, trackBlob, trackOfEpisode } from "../lessonstore.js";
 import { packTranscript } from "../sharetext.js";
 import { confirmBox, openModal } from "./modal.js";
 import { openQuestionEditor, openPassageEditor } from "./lessonedit.js";
 import { openTranscriptEditor } from "./transcripteditor.js";
+import { dropZone } from "../filedrop.js";
+import { audioBar } from "./lessonbar.js";
 
 const dir = (text) => (/[֐-ࣿ]/.test(text) ? "rtl" : "auto");
 const youTubeId = (url) => ((String(url || "").match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || [])[1] || "");
@@ -25,11 +28,14 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   let checking = false;
   let alive = true;
   let saveTimer = 0;
+  let bar = null; // the audio bar pinned at the top (prototype lesson_links, components/lessonbar.js)
+  // (a folder pick: Chrome-based windows have one, a phone's file picker doesn't)
+  const folderPicking = () => "webkitdirectory" in document.createElement("input") && !(window.matchMedia && matchMedia("(pointer: coarse)").matches);
   const own = !rec.from; // made here (not from a teacher): its questions can be changed
   const teacher = own && (roles.teacher || []).length > 0;
   el.innerHTML = "";
   const page = h(`<div class="lsn-view">
-    <div class="lsn-bar"><button type="button" class="ghost" data-a="back">${icon("back", 18)} <span>My files</span></button><span class="lsn-bar-gap"></span>
+    <div class="lsn-bar"><button type="button" class="ghost" data-a="back" title="Back">← <span>My files</span></button><span class="lsn-bar-gap"></span>
       <button type="button" class="ghost icon" data-a="more" title="More" aria-label="More">${icon("more", 20)}</button></div>
     <h2 class="lsn-title"></h2><p class="small muted lsn-meta"></p>
     <section class="lsn-tracks"></section>
@@ -72,25 +78,106 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
     if (own) {
       const add = h(`<label class="btn ghost small">${icon("plus", 16)} <span>Add audio</span><input type="file" multiple hidden accept="${esc(`audio/*,${LESSON_AUDIO_EXT.map((x) => `.${x}`).join(",")}`)}"></label>`);
       const input = add.querySelector("input");
-      input.onchange = async () => {
-        const files = [...input.files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+      input.onchange = () => {
+        const files = [...input.files];
         input.value = "";
-        for (const f of files) {
-          try {
-            toast(t("Adding {0}…", f.name));
-            const tr = await addTrack(rec, f, { title: f.name.replace(/\.[^.]+$/, "") });
-            rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: tr.uid, title: tr.title, kind: "file" }] });
-          } catch (e) { toast(e.message, { error: true }); }
-        }
-        tracks();
+        addAudio(files);
       };
       headRow.append(add);
+      // (prototype lesson_links: a whole folder of sound files at once, where the device can pick folders)
+      if (feature("lesson_links") && folderPicking()) {
+        const folder = h(`<label class="btn ghost small">${icon("folder", 16)} <span>Add a folder</span><input type="file" multiple webkitdirectory hidden></label>`);
+        const fin = folder.querySelector("input");
+        fin.onchange = () => { const files = [...fin.files]; fin.value = ""; addAudio(files); };
+        headRow.append(folder);
+      }
     }
     box.append(headRow);
+    if (bar) bar.update(rec);
+    const missing = feature("lesson_links") ? (rec.spots || []).filter((sp) => !sp.track).length : 0;
+    if (missing) {
+      const note = h(`<p class="small lsn-missing"></p>`);
+      note.textContent = own ? (folderPicking()
+        ? t("{0} of {1} sound links in the file have no sound yet. Add the files (several at once, or a folder): each goes to its place by its name.", missing, rec.spots.length)
+        : t("{0} of {1} sound links in the file have no sound yet. Add the files (you can pick several at once): each goes to its place by its name.", missing, rec.spots.length))
+        : t("{0} of {1} sounds in this lesson haven't arrived yet.", missing, rec.spots.length);
+      box.append(note);
+    }
     if (!rec.tracks.length) {
       box.append(h(`<p class="small muted">No audio in this lesson.</p>`));
       return;
     }
+    await trackRows(box);
+  }
+
+  /** Add audio files to this lesson as tracks, in file-name order (Add audio, or files dropped on the lesson). */
+  async function addAudio(picked) {
+    if (feature("lesson_links")) return addMatched(picked);
+    const files = [...picked].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    for (const f of files) {
+      try {
+        toast(t("Adding {0}…", f.name));
+        const tr = await addTrack(rec, f, { title: f.name.replace(/\.[^.]+$/, "") });
+        rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: tr.uid, title: tr.title, kind: "file" }] });
+      } catch (e) { toast(e.message, { error: true }); }
+    }
+    tracks();
+  }
+
+  /** Several sound files (Add audio, a folder, or dropped): each to the sound spot with its name, the rest as general
+   *  audio (prototype lesson_links). */
+  async function addMatched(picked) {
+    const files = [...picked].filter(isLessonAudio);
+    if (!files.length) { toast(t("Those aren't sound files."), { error: true }); return; }
+    try {
+      const out = await addAudioFiles(rec, files, { isAudio: isLessonAudio,
+        onStep: (st) => { if (st.done < st.of && Number.isInteger(st.done)) toast(t("Adding {0} of {1}…", st.done + 1, st.of)); } });
+      rec = out.rec;
+      toast(!out.general ? t("{0} added, each in its place.", out.matched)
+        : !out.matched ? t("{0} added to the lesson's audio.", out.general)
+        : t("{0} added in their places, {1} to the lesson's audio.", out.matched, out.general));
+    } catch (e) { toast(e.message, { error: true }); }
+    tracks();
+    paintBody();
+  }
+
+  /** One file for one sound spot, whatever its name (the spot's own Add button). */
+  async function addForSpot(sp, file) {
+    try {
+      toast(t("Adding {0}…", file.name));
+      const tr = await addTrack(rec, file, { title: file.name.replace(/\.[^.]+$/, "") });
+      rec = await saveLesson({ ...rec, tracks: [...rec.tracks, { uid: tr.uid, title: tr.title, kind: "file" }],
+        spots: rec.spots.map((x) => (x.id === sp.id ? { ...x, track: tr.uid } : x)) });
+    } catch (e) { toast(e.message, { error: true }); }
+    tracks();
+    paintBody();
+  }
+
+  /** A sound spot where the file linked to it sits: a play button once its file is here, else "not added yet". */
+  function spotEl(sp) {
+    const row = h(`<div class="lsn-spot"><span class="lsn-spot-ico">${icon("sound", 18)}</span><span class="lsn-spot-name"></span><span class="lsn-spot-act"></span></div>`);
+    row.querySelector(".lsn-spot-name").textContent = sp.name;
+    const act = row.querySelector(".lsn-spot-act");
+    if (!sp.track) {
+      row.classList.add("lsn-spot-missing");
+      const note = h(`<span class="small muted"></span>`);
+      note.textContent = t("not added yet");
+      act.append(note);
+      if (own) {
+        const add = h(`<label class="btn ghost small">${icon("plus", 14)} <span>Add</span><input type="file" hidden accept="${esc(`audio/*,${LESSON_AUDIO_EXT.map((x) => `.${x}`).join(",")}`)}"></label>`);
+        const input = add.querySelector("input");
+        input.onchange = () => { const f = input.files[0]; input.value = ""; if (f) addForSpot(sp, f); };
+        act.append(add);
+      }
+      return row;
+    }
+    const play = h(`<button type="button" class="primary icon small" title="Play" aria-label="Play">${icon("play", 16)}</button>`);
+    play.onclick = () => { if (bar) bar.play(sp.track, sp.name); };
+    act.append(play);
+    return row;
+  }
+
+  async function trackRows(box) {
     for (const [n, tr] of rec.tracks.entries()) {
       const row = h(`<div class="lsn-track"><span class="lsn-track-n"></span><span class="lsn-track-text"><strong></strong><span class="small muted"></span></span>
         <span class="lsn-track-acts"></span></div>`);
@@ -191,7 +278,8 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
       body.append(read);
     }
     let n = 0;
-    for (const it of bodyOf(blocks, rec.questions)) {
+    for (const it of bodyOf(blocks, rec.questions, feature("lesson_links") ? rec.spots || [] : [])) {
+      if (it.type === "spot") { body.append(spotEl(it.spot)); continue; }
       if (it.type === "block") {
         const kind = String(it.block.kind || "p").split("|")[0];
         const tag = /^h[1-3]$/.test(kind) ? (kind === "h1" ? "h3" : "h4") : kind === "li" ? "p" : kind === "q" ? "blockquote" : "p";
@@ -391,10 +479,20 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
 
   // ---------------------------------------------------------------- start
   head();
+  if (feature("lesson_links")) { bar = audioBar(rec); $(".lsn-meta").after(bar.el); }
   tracks();
   paintSent();
   passageBlocks(rec).then((p) => { if (!alive) return; blocks = p.blocks; passageEp = p.episode; paintBody(); })
     .catch(() => { if (alive) paintBody(); });
   void assigned;
-  return () => { alive = false; flush(); };
+  // Audio files dropped on a lesson made here (prototype drag_drop, filedrop.js): the same as its Add audio.
+  const offDrop = own ? dropZone(page, {
+    label: "Drop to add audio to this lesson",
+    hint: "MP3, M4A, WAV, OGG… Each file becomes a track.",
+    accept: `audio/*,${LESSON_AUDIO_EXT.map((x) => `.${x}`).join(",")}`,
+    wrongKind: "That isn't an audio file. Drop audio files here, such as MP3s.",
+    onFiles: (files) => addAudio(files),
+    say: toast,
+  }) : () => {};
+  return () => { alive = false; offDrop(); if (bar) bar.destroy(); flush(); };
 }

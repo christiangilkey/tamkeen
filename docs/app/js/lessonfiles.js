@@ -23,7 +23,7 @@ export const isLessonDoc = (file) => ["pdf", "docx", "txt", "md"].includes(extOf
 
 /** Several files chosen together: the documents read one after another into one lesson, the audio files kept as
  *  its tracks in file-name order. Resolves to {title, lines, audio: [{name, blob, from}], scanned, problems}. */
-export async function readLessonFiles(files, { onStep = () => {}, ocr = null } = {}) {
+export async function readLessonFiles(files, { onStep = () => {}, ocr = null, links = false } = {}) {
   const docs = [...files].filter(isLessonDoc);
   const audio = [...files].filter((f) => !isLessonDoc(f) && isLessonAudio(f))
     .sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }))
@@ -36,8 +36,8 @@ export async function readLessonFiles(files, { onStep = () => {}, ocr = null } =
     const ext = extOf(f.name);
     let got;
     try {
-      if (ext === "pdf" || isPdf(bytes)) got = await readPdfLesson(bytes, { onStep, ocr });
-      else if (ext === "docx") got = await readDocxLesson(bytes);
+      if (ext === "pdf" || isPdf(bytes)) got = await readPdfLesson(bytes, { onStep, ocr, links });
+      else if (ext === "docx") got = await readDocxLesson(bytes, { links });
       else got = { title: "", lines: linesOfText(new TextDecoder().decode(bytes)), audio: [] };
     } catch (e) {
       out.problems.push({ name: f.name, why: "read", message: String(e && e.message || e) });
@@ -50,6 +50,36 @@ export async function readLessonFiles(files, { onStep = () => {}, ocr = null } =
     out.scanned += got.scanned || 0;
   }
   return out;
+}
+
+// ---------------------------------------------------------------- links to sound files (prototype lesson_links)
+/** The file name a link to a sound file gives ("1.mp3" from "/C/Users/x/Audio Files/1.mp3", "file:///…/Track%202.wav",
+ *  "Audio%20Files\3.m4a"), or "" when the link isn't to a sound file (a web page, a picture…). */
+export function audioLinkName(url) {
+  let s = String(url || "").trim();
+  if (!s) return "";
+  if (/^(https?|mailto|tel|javascript):/i.test(s)) return "";
+  s = s.replace(/^file:\/*/i, "/").replace(/[?#].*$/, "");
+  try { s = decodeURIComponent(s); } catch { /* keep it as it is */ }
+  const name = s.split(/[\\/]/).filter(Boolean).pop() || "";
+  return LESSON_AUDIO_EXT.includes(extOf(name)) ? name.slice(0, 120) : "";
+}
+
+/** A page's lines with its sound links put in among them by height: a link goes just before the first line below the
+ *  top of its box (PDF heights go up the page), so a speaker icon beside a question comes just before that question.
+ *  Links on a page without placed lines come first, top to bottom. Each link is a line {text: "", audioLink: {name, path}}. */
+export function placeLinks(pageLines, links) {
+  const marks = [...(links || [])].sort((a, b) => b.top - a.top)
+    .map((l) => ({ text: "", audioLink: { name: l.name, path: l.path || "" }, top: l.top }));
+  if (!marks.length) return pageLines.map(({ y, ...rest }) => rest);
+  const out = [];
+  let k = 0;
+  for (const line of pageLines) {
+    while (k < marks.length && typeof line.y === "number" && line.y < marks[k].top) out.push(marks[k++]);
+    out.push(line);
+  }
+  while (k < marks.length) out.push(marks[k++]);
+  return out.map(({ y, top, ...rest }) => rest);
 }
 
 const isPdf = (b) => b.length > 4 && b[0] === 0x25 && b[1] === 0x50 && b[2] === 0x44 && b[3] === 0x46;
@@ -136,7 +166,7 @@ function pdfString(s) {
 }
 
 // ---------------------------------------------------------------- PDF
-async function readPdfLesson(bytes, { onStep, ocr }) {
+async function readPdfLesson(bytes, { onStep, ocr, links: withLinks = false }) {
   const pdfjs = await import("./vendor/pdfjs/pdf.min.mjs");
   pdfjs.GlobalWorkerOptions.workerSrc = new URL("./vendor/pdfjs/pdf.worker.min.mjs", import.meta.url).href;
   let task;
@@ -166,9 +196,13 @@ async function readPdfLesson(bytes, { onStep, ocr }) {
   for (let n = 1; n <= pdf.numPages; n++) {
     if (n % 5 === 1) onStep({ page: n, pages: pdf.numPages });
     const page = await pdf.getPage(n);
-    // files attached to the page (a paper-clip on it)
+    // files attached to the page (a paper-clip on it), and links that open a sound file on the teacher's own computer
+    // (Acrobat's Launch links: "/C/Users/…/Audio Files/1.mp3"): only their names and places are kept (prototype lesson_links)
+    const links = [];
     for (const an of await page.getAnnotations().catch(() => [])) {
       if (an && an.attachment && an.attachment.content) await keep(an.attachment.filename, an.attachment.content);
+      const name = withLinks && an && an.subtype === "Link" ? audioLinkName(an.unsafeUrl || an.url || "") : "";
+      if (name) links.push({ name, path: String(an.unsafeUrl || an.url || "").slice(0, 500), top: Array.isArray(an.rect) ? Number(an.rect[3]) || 0 : 0 });
     }
     const content = await page.getTextContent();
     const raw = [];
@@ -200,10 +234,13 @@ async function readPdfLesson(bytes, { onStep, ocr }) {
           const text = await ocr(canvas, n);
           const got = linesOfText(text);
           if (got.length) got[0] = { ...got[0], para: true };
-          lines.push(...got);
+          lines.push(...placeLinks([], links), ...got); // (a scan's lines have no places: its links go first)
           scanned++;
         } catch { /* left out: the teacher can type it in the editor */ }
-      } else if (kept.length === 0) scanned++;
+      } else {
+        if (kept.length === 0) scanned++;
+        lines.push(...placeLinks([], links));
+      }
       page.cleanup();
       continue;
     }
@@ -212,12 +249,13 @@ async function readPdfLesson(bytes, { onStep, ocr }) {
     const sizes = kept.map((l) => l.size).sort((a, b) => a - b);
     const textSize = sizes.length ? sizes[Math.floor(sizes.length / 2)] : 0;
     const level = (s) => (!textSize ? 0 : s >= textSize * 1.6 ? 1 : s >= textSize * 1.35 ? 2 : s >= textSize * 1.18 ? 3 : 0);
-    kept.forEach((l, k) => {
+    const pageLines = kept.map((l, k) => {
       const t = l.text.replace(/\s+/g, " ").trim();
       const prev = kept[k - 1];
       const head = t.length <= 80 ? level(l.size) : 0;
-      lines.push({ text: t, para: k === 0 || !!(usual && prev && Math.abs(prev.y - l.y) > usual * 1.45), ...(head ? { heading: head } : {}) });
+      return { text: t, y: l.y, para: k === 0 || !!(usual && prev && Math.abs(prev.y - l.y) > usual * 1.45), ...(head ? { heading: head } : {}) };
     });
+    lines.push(...placeLinks(pageLines, links));
     page.cleanup();
   }
   // sound embedded as a media clip (Acrobat's "Add sound"): only in the file's own streams
@@ -272,7 +310,7 @@ function numberText(fmt, n) {
 }
 
 /** The lines of word/document.xml (with numbering.xml's labels worked out as Word shows them). */
-export function docxLines(xml, numberingXml = "") {
+export function docxLines(xml, numberingXml = "", rels = null) {
   const numbering = docxNumbering(numberingXml);
   const counters = new Map(); // numId → [count per level]
   const lines = [];
@@ -297,6 +335,16 @@ export function docxLines(xml, numberingXml = "") {
     // (a check box drawn with ☐ / ☒ inside the content control: the character is in the text; take it out)
     if (box) text = text.replace(/^\s*[☐☒☑✓✔□■]\s*/u, "");
     text = text.replace(/\s+/g, " ").trim();
+    // links to sound files in the paragraph (prototype lesson_links): a hyperlink through the document's link list,
+    // or a HYPERLINK field; each goes in just before the paragraph's own line
+    if (rels) {
+      const targets = [...p.matchAll(/<w:hyperlink\b[^>]*\br:id="([^"]+)"/g)].map((h) => rels.get(h[1]) || "")
+        .concat([...p.matchAll(/HYPERLINK\s+(?:\\[a-z]\s+)*"([^"]+)"/gi)].map((h) => decode(h[1])));
+      for (const target of new Set(targets)) { // (a link split over several runs is one link)
+        const name = audioLinkName(target);
+        if (name) lines.push({ text: "", audioLink: { name, path: target.slice(0, 500) } });
+      }
+    }
     if (!text) continue;
     const style = attr((/<w:pStyle\b[^>]*>/.exec(pPr) || [""])[0], "w:val") || "";
     const line = { text, para: true };
@@ -325,12 +373,22 @@ export function docxLines(xml, numberingXml = "") {
   return lines;
 }
 
-async function readDocxLesson(bytes) {
+/** word/_rels/document.xml.rels: link id → where it points (external links only). */
+export function docxRels(xml) {
+  const out = new Map();
+  for (const m of String(xml || "").matchAll(/<Relationship\b[^>]*>/g)) {
+    const id = attr(m[0], "Id"), target = attr(m[0], "Target");
+    if (id && target && /TargetMode="External"/.test(m[0])) out.set(id, decode(target));
+  }
+  return out;
+}
+
+async function readDocxLesson(bytes, { links = false } = {}) {
   const files = unzipIndex(bytes);
   const text = async (name) => { const b = await unzipFile(bytes, files, name); return b ? new TextDecoder().decode(b) : ""; };
   const xml = await text("word/document.xml");
   if (!xml) throw new Error("damaged");
-  const lines = docxLines(xml, await text("word/numbering.xml"));
+  const lines = docxLines(xml, await text("word/numbering.xml"), links ? docxRels(await text("word/_rels/document.xml.rels")) : null);
   const core = await text("docProps/core.xml");
   const title = decode((/<dc:title>([\s\S]*?)<\/dc:title>/.exec(core) || [])[1] || "").trim();
   // sound files kept inside the document: word/media/*.mp3, or wrapped in an embedded object

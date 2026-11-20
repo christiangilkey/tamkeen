@@ -6,7 +6,7 @@
 // See cardvoice.js for the choice and the voices that are kept.
 
 import { platform, speechPlugin, state } from "./app.js";
-import { addVoiceHelp, deviceTag, pickDeviceVoice, readBy, spokenText, voiceOff } from "./cardvoice.js";
+import { addVoiceHelp, deviceTag, pickDeviceVoice, readBy, speakAfresh, spokenText, voiceOff } from "./cardvoice.js";
 import { langInfo } from "./languages.js";
 import { speechVolume } from "./appvolume.js";
 
@@ -66,7 +66,12 @@ let current = null; // the browser utterance being spoken
 
 /** Stop whatever the device's voice is saying. */
 export function stopDevice() {
-  try { if (speechPlugin) speechPlugin.stop(); else if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch { /* nothing to stop */ }
+  // (cancel() only when something is said or waits: Safari cuts off the next utterance after one: speakAfresh)
+  try {
+    const synth = window.speechSynthesis;
+    if (speechPlugin) speechPlugin.stop();
+    else if (synth && (synth.speaking || synth.pending)) synth.cancel();
+  } catch { /* nothing to stop */ }
   current = null;
 }
 
@@ -80,8 +85,8 @@ export async function speakDevice(text, lang) {
   if ((await deviceHasVoice(lang)) === false) {
     throw Object.assign(new Error(noVoiceText(lang)), { noVoice: true });
   }
-  stopDevice();
   if (speechPlugin) {
+    stopDevice();
     const ended = speechPlugin.speak({ text, lang: deviceTag(lang), rate: 0.95, volume: speechVolume() }).then(() => {}, (e) => {
       if (e && /NO_VOICE/.test(String(e.code || e.message))) known.set(lang, Promise.resolve(false));
     });
@@ -95,14 +100,14 @@ export async function speakDevice(text, lang) {
   if (voice) u.voice = voice;
   u.rate = 0.95;
   u.volume = speechVolume();
-  current = u;
   const ended = new Promise((done) => {
     u.onend = done;
     u.onerror = done;
     // Some browsers drop the end of a long utterance silently: a timer makes sure nothing waits forever.
     setTimeout(done, 1500 + String(text).length * 180);
   });
-  synth.speak(u);
+  current = u;  // (kept, so the browser doesn't drop the utterance while it speaks)
+  if (!(await speakAfresh(synth, u, { still: () => current === u }))) return { ended: Promise.resolve() };
   return { ended };
 }
 

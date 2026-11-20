@@ -31,7 +31,7 @@ import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardFor, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
-         fillIn, firstSense, folderNames, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
+         filled, fillIn, firstSense, folderNames, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
          wordByWord, wordKey, wordsIn } from "../addwords.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { librarySentence } from "../review/sentencefind.js";
@@ -51,6 +51,8 @@ import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, star
 import { scanPanel } from "./wordscan.js";
 import { offerFix } from "./fixit.js";
 import { appSound } from "../appvolume.js";
+import { aiSenses, dictionarySenses, distinctSenses } from "../senses.js";
+import { chooseSenses } from "./sensechoice.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
 const settings = () => (state.status && state.status.settings) || {};
@@ -359,6 +361,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       status: null,  // {kind: "busy" | "error" | "ok", text}
       audioNote: null,
       fillNotes: {},     // {meaning, memo}: a line about what Fill in put there (a phrase's meaning word by word…)
+      senses: null,      // the word's meanings that really differ (senses.js), when Fill in found several ("Which meaning?")
+      senseChosen: false, // the learner has chosen among them
       kind: "word",      // "word", "phrase" or "sentence" (addwords.js entryKind), worked out when filling in
       meaningPos: "",    // the dictionary entry's part of speech ("intj"…), for which keywords fit the meaning
       meaningFrom: "",   // "entry" (the dictionary's for the whole card), "words" (word by word), "ai"
@@ -406,7 +410,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       const input = el.querySelector(`.cb-${f}`);
       input.oninput = () => {
         row[f] = edited(input.value);  // from now on it is the learner's: never filled in over
-        if (f === "meaning") { row.meaningPos = ""; row.meaningFrom = ""; }
+        if (f === "meaning") { row.meaningPos = ""; row.meaningFrom = ""; row.senses = null; }  // (their own: nothing to ask)
         if (row.fillNotes[f]) { delete row.fillNotes[f]; paintStatus(row); }  // (a note about what was filled in)
         paintField(row, f);
         if (f === "meaning") paintSummary(row);
@@ -987,12 +991,15 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   async function dictionaryMeaning(text, { phrase = false, byWords = false } = {}) {
     const language = definerConfig().language;
     const ask = (word, several = false, quick = true) => dictionaryDefine({ word, lang, marked: "", ...(several ? { phrase: true } : {}) }, { quick, language });
+    // "Which meaning?" (prototype sense_choice): a word's whole answer, so its other meanings are there to choose from.
+    const senses = feature("sense_choice") && !phrase;
     const bare = bareText(text) || text, core = coreText(text, lang);
     const tries = phrase ? [[bare, true], ...(info.unspaced ? [[bare, false]] : [])] : [[text, false], ...(core && core !== text ? [[core, false]] : [])];
     for (const [word, several] of tries) {
       try {
-        const d = await ask(word, several);
-        if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "" };
+        const d = await ask(word, several, !senses);
+        if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "",
+          senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings)) : null };
       } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
     }
     if (phrase && byWords) {
@@ -1050,6 +1057,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           r.meaning = fillIn(r.meaning, d.meaning);
           r.meaningPos = d.pos;
           r.meaningFrom = d.from;
+          r.senses = d.senses && d.senses.length > 1 ? d.senses : null;
           // Typed without its accents ("vacio"): the card takes the dictionary's spelling (meanings.js respellings).
           if (d.spelled && d.spelled !== r.text.trim()) {
             r.text = d.spelled;
@@ -1085,7 +1093,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       });
       let answers;
       try {
-        answers = readBatch(await askAi(batchPrompt(items, { study: info.name, speaks: cfg.language || "English" })), items);
+        answers = readBatch(await askAi(batchPrompt(items, { study: info.name, speaks: cfg.language || "English", senses: feature("sense_choice") })), items);
       } catch (err) {
         if (err && err.kind === "key" && feature("key_fallback")) { refusedKey = cfg.key; refusedProvider = err.provider; refused.push(...group); return; }
         const text = err && err.message ? err.message : String(err);
@@ -1096,7 +1104,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         const a = answers[i];
         if (!a) { setStatus(r, { kind: "error", text: t("The AI sent nothing back for this word. Press Fill in to try again.") }); return; }
         const want = items[i].want;
-        if (want.meaning && a.meaning) { r.meaning = fillIn(r.meaning, a.meaning); r.meaningFrom = "ai"; r.meaningPos = ""; setNote(r, "meaning", ""); }
+        if (want.meaning && a.meaning) {
+          r.meaning = fillIn(r.meaning, a.meaning); r.meaningFrom = "ai"; r.meaningPos = ""; setNote(r, "meaning", "");
+          const several = a.senses && items[i].phrase === false ? aiSenses([a.meaning, ...a.senses]) : [];
+          r.senses = several.length > 1 ? several : null;
+        }
         if (want.sentence) r.sentence = fillIn(r.sentence, a.sentence);
         if (want.translation) r.translation = fillIn(r.translation, a.translation);
         const left = needs(r, choices);
@@ -1223,6 +1235,28 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         troubled[0].el.scrollIntoView({ block: "center", behavior: "smooth" });
         footNote(t("{0} of the cards need a look (the red notes). Press Add again to add them as they are.", troubled.length), "error");
         return;
+      }
+      // 1b. "Which meaning?" (prototype sense_choice): words whose meanings really differ ask which one the card is
+      // for, all on one screen. A choice other than the first: the sentence, its translation and the mnemonic were made
+      // for the first, so they are made again for the one chosen.
+      if (feature("sense_choice")) {
+        const asking = list.filter((r) => r.meaning.auto && Array.isArray(r.senses) && r.senses.length > 1 && !r.senseChosen);
+        if (asking.length) {
+          footNote("");
+          const picked = await chooseSenses(asking.map((r) => ({ word: r.text.trim(), senses: r.senses })), { lang });
+          if (!picked) { footNote(t("Nothing was added. Choose the meanings, then press Add again.")); return; }
+          const redo = [];
+          asking.forEach((r, i) => {
+            r.senseChosen = true;
+            const meaning = String(picked[i] || "").trim();
+            if (!meaning || meaning === r.meaning.value.trim()) return;
+            r.meaning = typed(meaning);
+            for (const f of ["sentence", "translation", "memo"]) if (r[f].auto) r[f] = filled("");
+            redo.push(r);
+            paintRow(r);
+          });
+          if (redo.length) { footNote(t("Filling in…")); await fill(redo); }
+        }
       }
       // 2. The cards themselves, all in one go.
       footNote(t("Adding…"));

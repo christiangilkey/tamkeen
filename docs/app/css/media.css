@@ -489,6 +489,28 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
   /* The narrowest phones: slimmer 5-second buttons, so the ends don't touch them. */
   .player .btnrow #back5, .player .btnrow #fwd5 { padding: 4px 6px; font-size: 12px; }
 }
+/* YouTube's bar, less crowded (the owner, 2026-11-19): no "start of the sentence" button (the R key still does it),
+   smaller 5-second buttons, and "Type what you hear" hung beside the speed chooser like the reel player's, out of the
+   row so play stays in the middle. Netflix (.nf) keeps its bar as it was. */
+.player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 {
+  height: 30px; min-height: 0; padding: 0 8px; font-size: 12px;
+}
+.player.yt:not(.nf) .btnrow .dict-btn {
+  position: absolute; left: 66px; top: 50%; transform: translateY(-50%);
+  height: 30px; min-height: 0; min-width: 0; padding: 0 7px;
+}
+.player.yt:not(.nf) .btnrow #loop-chip { left: 106px; }
+@media (max-width: 640px) {
+  .player.yt:not(.nf) .btnrow #loop-chip { left: 0; }
+  .player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 { padding: 0 6px; }
+  .player.yt:not(.nf) .btnrow .dict-btn { left: 64px; padding: 0 6px; }
+}
+@media (max-width: 350px) {
+  /* The narrowest phones: a narrower speed chooser makes room for it. */
+  .player.yt:not(.nf) .btnrow #speed { max-width: 50px; padding: 2px; font-size: 11px; }
+  .player.yt:not(.nf) .btnrow .dict-btn { left: 52px; }
+  .player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 { padding: 0 4px; }
+}
 
 /* ---------- a misheard word put right (wordbubble.js, fixword.js) ----------
    Under the headword: what the transcript said, and Undo. */
