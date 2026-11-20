@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Arrastra archivos a cualquier lugar que los acepte, en la app de escritorio y en la app web en un ordenador
+15ff6f66	Las lecciones hechas con un PDF o un Word conservan sus botones de sonido: añade los archivos de sonido y cada uno encuentra su pregunta
+a96a8956	Los sonidos de una lección en una barra arriba que se queda mientras te desplazas
+5a030b8b	Añadir palabras pregunta qué significado quieres cuando una palabra tiene varios
+7182a2f7	Una X en la esquina de cada batalla para salir de ella
+9bfe70fe	Una barra del reproductor de YouTube más ordenada, con Escribe lo que oyes junto a la velocidad
+30fa982f	Las tarjetas sin grabación ahora suenan completas en Safari en un Mac

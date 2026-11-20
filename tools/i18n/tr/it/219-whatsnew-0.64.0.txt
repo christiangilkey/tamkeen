@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Trascina i file in qualsiasi punto che li accetta, nell’app desktop e nell’app web su computer
+15ff6f66	Le lezioni fatte da un PDF o da un Word mantengono i loro pulsanti audio: aggiungi i file audio e ognuno trova la sua domanda
+a96a8956	I suoni di una lezione in una barra in alto che resta mentre scorri
+5a030b8b	Aggiungi parole chiede quale significato vuoi quando una parola ne ha diversi
+7182a2f7	Una X nell’angolo di ogni battaglia per uscirne
+9bfe70fe	Una barra del lettore YouTube più ordinata, con Scrivi quello che senti accanto alla velocità
+30fa982f	Le schede senza registrazione ora si sentono per intero in Safari su Mac

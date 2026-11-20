@@ -72,7 +72,7 @@ test("with an AI: its other meanings are asked for in the same request, only in 
 });
 
 test("Add words asks, on one screen, before the cards are saved; nothing changes without prototype mode", () => {
-  assert.equal(PROTOTYPES.sense_choice.released, false);
+  assert.equal(PROTOTYPES.sense_choice.released, true); // (released in v0.64.0, the owner, 2026-11-19)
   const b = read("web/js/components/wordbuilder.js");
   assert.match(b, /const senses = feature\("sense_choice"\) && !phrase;/, "the whole dictionary answer only in prototype mode");
   assert.match(b, /senses: feature\("sense_choice"\) \}\)\), items\);/, "the AI is asked for senses only in prototype mode");

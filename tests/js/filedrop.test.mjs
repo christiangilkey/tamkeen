@@ -122,7 +122,7 @@ test("the innermost place showing takes the drop; a hidden one leaves it to the 
   assert.deepEqual(got, ["inner", "outer"]);
 });
 
-test("with prototype mode off, places take no files (the app is as it was)", () => {
+test("released for everyone (v0.64.0, the owner, 2026-11-19): with prototype mode off, places still take files", () => {
   protoOn = false;
   const page = new El(document.body);
   let got = 0;
@@ -130,8 +130,8 @@ test("with prototype mode off, places take no files (the app is as it was)", () 
   const over = ev("dragover", [file("a.mp3")]);
   page.fire(over);
   page.fire(ev("drop", [file("a.mp3")]));
-  assert.equal(over.defaultPrevented, false);
-  assert.equal(got, 0);
+  assert.equal(over.defaultPrevented, true);
+  assert.equal(got, 1);
   protoOn = true;
 });
 
@@ -163,5 +163,5 @@ test("every place that uploads files takes dropped ones, and both versions guard
   assert.match(src("web/js/app.js"), /blockStrayDrops\(\)/);
   assert.match(src("mobile/src/js/app.js"), /blockStrayDrops\(\)/);
   assert.ok(src("mobile/scripts/build-www.mjs").includes(`"js/filedrop.js"`), "the phone and web app build carry filedrop.js");
-  assert.match(src("web/js/prototype.js"), /drag_drop: \{[^}]*released: false[^}]*since: "2026-11-19"/);
+  assert.match(src("web/js/prototype.js"), /drag_drop: \{[^}]*released: true[^}]*since: "2026-11-19"/);
 });

@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Guyda ang mga file ngadto sa bisan asang dapit nga modawat niini, sa desktop app ug sa web app sa kompyuter
+15ff6f66	Ang mga leksyon gikan sa PDF o Word file magpabilin sa mga buton sa tingog niini: idugang ang mga file sa tingog ug ang matag usa mangita sa iyang pangutana
+a96a8956	Ang mga tingog sa leksyon anaa sa usa ka bar sa ibabaw nga dili mawala samtang mag-scroll ka
+5a030b8b	Ang Add words mangutana kung unsang kahulogan ang gusto nimo kung daghan ang kahulogan sa pulong
+7182a2f7	Usa ka X sa kanto sa matag away aron mobiya niini
+9bfe70fe	Mas hapsay nga bar sa YouTube player, nga ang Isulat ang imong madungog anaa tupad sa speed
+30fa982f	Ang mga kard nga walay rekording mosulti na sa tibuok sa Safari sa Mac

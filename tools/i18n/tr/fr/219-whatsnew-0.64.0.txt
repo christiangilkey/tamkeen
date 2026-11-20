@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Glisse des fichiers sur n’importe quel endroit qui les accepte, dans l’application de bureau et l’application web sur ordinateur
+15ff6f66	Les leçons faites à partir d’un PDF ou d’un Word gardent leurs boutons de son : ajoute les fichiers son et chacun trouve sa question
+a96a8956	Les sons d’une leçon dans une barre en haut qui reste quand tu fais défiler
+5a030b8b	Ajouter des mots demande quel sens tu veux quand un mot en a plusieurs
+7182a2f7	Un X dans le coin de chaque combat pour le quitter
+9bfe70fe	Une barre du lecteur YouTube plus claire, avec Écris ce que tu entends à côté de la vitesse
+30fa982f	Les cartes sans enregistrement sont maintenant lues en entier dans Safari sur Mac

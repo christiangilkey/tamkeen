@@ -9,6 +9,20 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.64.0",
+  "Drag files onto any place that takes them, in the desktop app and the web app on a computer");
+notes("0.64.0",
+  "Lessons from a PDF or Word file keep its sound buttons: add the sound files and each one finds its question");
+notes("0.64.0",
+  "A lesson's sounds sit in a bar at the top that stays while you scroll");
+notes("0.64.0",
+  "Add words asks which meaning you want when a word has several");
+notes("0.64.0",
+  "An X in the corner of every battle to leave it");
+notes("0.64.0",
+  "A tidier YouTube player bar, with Type what you hear beside the speed");
+notes("0.64.0",
+  "Cards without a recording now play in full in Safari on a Mac");
 notes("0.63.0",
   "Type what you hear: a keyboard button in every player plays a word, a sentence or a few, and you write what you heard");
 notes("0.63.0",

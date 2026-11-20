@@ -29385,6 +29385,41 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "9e2b3180",
+  "k": "Drag files onto any place that takes them, in the desktop app and the web app on a computer",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "15ff6f66",
+  "k": "Lessons from a PDF or Word file keep its sound buttons: add the sound files and each one finds its question",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a96a8956",
+  "k": "A lesson's sounds sit in a bar at the top that stays while you scroll",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "5a030b8b",
+  "k": "Add words asks which meaning you want when a word has several",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7182a2f7",
+  "k": "An X in the corner of every battle to leave it",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "9bfe70fe",
+  "k": "A tidier YouTube player bar, with Type what you hear beside the speed",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "30fa982f",
+  "k": "Cards without a recording now play in full in Safari on a Mac",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "a983d561",
   "k": "Type what you hear: a keyboard button in every player plays a word, a sentence or a few, and you write what you heard",
   "f": "web/js/whatsnew.js"

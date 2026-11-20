@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Ziehe Dateien an jede Stelle, die sie annimmt, in der Desktop-App und der Web-App am Computer
+15ff6f66	Lektionen aus einer PDF- oder Word-Datei behalten ihre Tonknöpfe: Füge die Tondateien hinzu, und jede findet ihre Frage
+a96a8956	Die Töne einer Lektion in einer Leiste oben, die beim Scrollen stehen bleibt
+5a030b8b	Wörter hinzufügen fragt, welche Bedeutung du meinst, wenn ein Wort mehrere hat
+7182a2f7	Ein X in der Ecke jedes Kampfes, um ihn zu verlassen
+9bfe70fe	Eine aufgeräumtere Leiste im YouTube-Player, mit Schreib, was du hörst neben der Geschwindigkeit
+30fa982f	Karten ohne Aufnahme werden in Safari auf dem Mac jetzt ganz vorgelesen

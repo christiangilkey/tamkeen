@@ -116,12 +116,12 @@ test("Word hyperlinks to sound files become spots too", () => {
   </w:body></w:document>`;
   const lines = docxLines(doc, "", rels);
   assert.deepEqual(lines.filter((l) => l.audioLink).map((l) => l.audioLink.name), ["4.mp3", "5.mp3"]);
-  assert.equal(docxLines(doc, "").filter((l) => l.audioLink).length, 0, "without the prototype, nothing changes");
+  assert.equal(docxLines(doc, "").filter((l) => l.audioLink).length, 0, "without the document's links, nothing changes");
 });
 
-test("it waits in prototype mode", () => {
-  assert.equal(PROTOTYPES.lesson_links.released, false);
-  assert.equal(feature("lesson_links"), false, "off for everyone else (no prototype mode in a test)");
+test("released for everyone (released in v0.64.0, the owner, 2026-11-19)", () => {
+  assert.equal(PROTOTYPES.lesson_links.released, true);
+  assert.equal(feature("lesson_links"), true, "on without prototype mode");
   const plain = splitItems(findQuestions(linesOfText("1. Why?")).items);
   assert.deepEqual(plain.spots, []);
 });

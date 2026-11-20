@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	I-drag ang mga file sa kahit anong lugar na tumatanggap nito, sa desktop app at sa web app sa computer
+15ff6f66	Ang mga aralin mula sa PDF o Word file ay nananatili ang mga buton ng tunog nito: idagdag ang mga file ng tunog at bawat isa ay hahanapin ang tanong nito
+a96a8956	Ang mga tunog ng aralin ay nasa isang bar sa itaas na nananatili habang nag-i-scroll ka
+5a030b8b	Itinatanong ng Magdagdag ng mga salita kung aling kahulugan ang gusto mo kapag marami ang kahulugan ng salita
+7182a2f7	Isang X sa sulok ng bawat laban para umalis dito
+9bfe70fe	Mas maayos na bar ng YouTube player, na may Isulat ang naririnig mo sa tabi ng bilis
+30fa982f	Ang mga kard na walang recording ay buo nang tumutunog sa Safari sa Mac

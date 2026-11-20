@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Arrossega fitxers a qualsevol lloc que els accepti, a l’aplicació d’escriptori i a l’aplicació web en un ordinador
+15ff6f66	Les lliçons fetes amb un PDF o un Word conserven els seus botons de so: afegeix els fitxers de so i cadascun troba la seva pregunta
+a96a8956	Els sons d’una lliçó en una barra a dalt que es queda mentre et desplaces
+5a030b8b	Afegeix paraules pregunta quin significat vols quan una paraula en té diversos
+7182a2f7	Una X a la cantonada de cada batalla per sortir-ne
+9bfe70fe	Una barra del reproductor de YouTube més endreçada, amb Escriu el que sents al costat de la velocitat
+30fa982f	Les targetes sense enregistrament ara sonen senceres al Safari d’un Mac

@@ -1,0 +1,8 @@
+# What's new in v0.64.0 (web/js/whatsnew.js).
+9e2b3180	Arraste arquivos para qualquer lugar que os aceite, no app de computador e no app web num computador
+15ff6f66	Aulas feitas a partir de um PDF ou Word mantêm os botões de som: adicione os arquivos de som e cada um encontra a sua pergunta
+a96a8956	Os sons de uma aula numa barra no topo que fica enquanto você rola a página
+5a030b8b	Adicionar palavras pergunta qual significado você quer quando uma palavra tem vários
+7182a2f7	Um X no canto de cada batalha para sair dela
+9bfe70fe	Uma barra do player do YouTube mais arrumada, com Escreva o que você ouve ao lado da velocidade
+30fa982f	Cartões sem gravação agora tocam por inteiro no Safari num Mac
