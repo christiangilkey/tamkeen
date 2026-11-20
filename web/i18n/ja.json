@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0}が文字起こしではないものを返しました。",
 "{0} asks to wait {1}…":"{0}が{1}待つよう求めています…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0}で問題が起きています（エラー{1}）。しばらくしてからもう一度お試しください。",
+"Sending {0}–{1} to {2}…":"{0}–{1} を {2} に送信中…",
 "the episode's server":"エピソードのサーバー",
 "The download stopped part-way (the server answered {0}).":"ダウンロードが途中で止まりました（サーバーの応答：{0}）。",
 "This audio couldn't be read as an MP3.":"この音声をMP3として読み込めませんでした。",

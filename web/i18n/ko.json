@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0}이(가) 받아쓴 글이 아닌 것을 보냈어요.",
 "{0} asks to wait {1}…":"{0}이(가) {1} 기다려 달래요…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0}에 문제가 있어요(오류 {1}). 잠시 후 다시 해 보세요.",
+"Sending {0}–{1} to {2}…":"{0}–{1}을(를) {2}에 보내는 중…",
 "the episode's server":"에피소드 서버",
 "The download stopped part-way (the server answered {0}).":"다운로드가 중간에 멈췄어요(서버 응답 {0}).",
 "This audio couldn't be read as an MP3.":"이 오디오를 MP3로 읽을 수 없었어요.",

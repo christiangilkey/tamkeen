@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0} ha restituito qualcosa che non è una trascrizione.",
 "{0} asks to wait {1}…":"{0} chiede di aspettare {1}…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0} ha dei problemi (errore {1}). Riprova tra poco.",
+"Sending {0}–{1} to {2}…":"Invio di {0}–{1} a {2}…",
 "the episode's server":"il server dell'episodio",
 "The download stopped part-way (the server answered {0}).":"Il download si è fermato a metà (il server ha risposto {0}).",
 "This audio couldn't be read as an MP3.":"Questo audio non può essere letto come MP3.",

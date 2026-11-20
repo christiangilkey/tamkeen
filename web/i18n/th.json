@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0} ส่งกลับมาเป็นสิ่งที่ไม่ใช่บทถอดเสียง",
 "{0} asks to wait {1}…":"{0} ขอให้รอ {1}…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0} มีปัญหา (ข้อผิดพลาด {1}) ลองอีกครั้งในอีกสักพัก",
+"Sending {0}–{1} to {2}…":"กำลังส่ง {0}–{1} ไปที่ {2}…",
 "the episode's server":"เซิร์ฟเวอร์ของตอน",
 "The download stopped part-way (the server answered {0}).":"การดาวน์โหลดหยุดกลางคัน (เซิร์ฟเวอร์ตอบกลับ {0})",
 "This audio couldn't be read as an MP3.":"อ่านไฟล์เสียงนี้เป็น MP3 ไม่ได้",

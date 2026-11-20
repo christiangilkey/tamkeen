@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0} چیزی برگرداند که متن پیاده‌شده نیست.",
 "{0} asks to wait {1}…":"{0} می‌خواهد {1} صبر کنید…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0} مشکل دارد (خطای {1}). کمی بعد دوباره امتحان کنید.",
+"Sending {0}–{1} to {2}…":"در حال فرستادن {0}–{1} به {2}…",
 "the episode's server":"سرور قسمت",
 "The download stopped part-way (the server answered {0}).":"دانلود نیمه‌راه متوقف شد (سرور پاسخ داد {0}).",
 "This audio couldn't be read as an MP3.":"این صدا به‌صورت MP3 خوانده نشد.",

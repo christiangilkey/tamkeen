@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"Nagbalik si {0} ng isang bagay na hindi transcript.",
 "{0} asks to wait {1}…":"Pinapahintay ni {0} nang {1}…",
 "{0} is having trouble (error {1}). Try again in a little while.":"May problema si {0} (error {1}). Subukan ulit maya-maya.",
+"Sending {0}–{1} to {2}…":"Ipinapadala ang {0}–{1} sa {2}…",
 "the episode's server":"ang server ng episode",
 "The download stopped part-way (the server answered {0}).":"Huminto sa kalagitnaan ang download (sumagot ang server ng {0}).",
 "This audio couldn't be read as an MP3.":"Hindi mabasa ang audio na ito bilang MP3.",

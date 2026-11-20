@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"أعاد {0} شيئًا ليس تفريغًا نصيًا.",
 "{0} asks to wait {1}…":"يطلب {0} الانتظار {1}…",
 "{0} is having trouble (error {1}). Try again in a little while.":"يواجه {0} مشكلة (الخطأ {1}). حاول مرة أخرى بعد قليل.",
+"Sending {0}–{1} to {2}…":"جارٍ إرسال {0}–{1} إلى {2}…",
 "the episode's server":"خادم الحلقة",
 "The download stopped part-way (the server answered {0}).":"توقف التنزيل في منتصفه (ردّ الخادم بـ{0}).",
 "This audio couldn't be read as an MP3.":"تعذّرت قراءة هذا الصوت كملف MP3.",

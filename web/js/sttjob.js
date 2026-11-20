@@ -15,6 +15,15 @@
 //   - other drops are tried again after 5, 10, 20, 40 and 60 seconds (about two minutes);
 //   - every finished piece is kept (`keep`), so Retry carries on from where it stopped;
 //   - the message says what happened and what to do.
+// Then the owner added: "Gets stuck at 8 percent". 8% of that episode is exactly where its first
+// 8-minute piece (7.3 MB) is sent, so the very first upload failed on every try, while Groq takes that
+// size from a computer without trouble (checked: it answers, with its CORS headers, up to its 25 MB
+// limit). On a phone with a slow or patchy upload, a 7.3 MB request is what keeps dying. So:
+//   - a piece that still fails after two more tries (with the app on screen and online) is cut in half
+//     and the halves sent instead, down to 1-minute pieces; the rest of the episode goes in the smaller
+//     size, and the phone remembers it for a few days (transcribe-service.js `stt_piece_seconds`);
+//   - while a piece is going up, the Library says so ("Sending 0:00–8:00 to Groq…"), so a long upload
+//     no longer looks stuck.
 
 import { MAX_UPLOAD_BYTES, Mp3Splitter, STT_PROVIDERS, SttError, looksLikeConnection, sendFailure, sttFailure, waitText } from "./stt.js";
 
@@ -30,6 +39,9 @@ export const PATIENT_PAUSES = [5, 10, 20, 40, 60];
 export const QUICK_PAUSES = [3, 6, 9];
 const OUT_OF_SIGHT_TRIES = 40;             // drops waited out while the app was hidden or offline
 const KEEP_DAYS = 14;                      // how long a half-done episode is remembered
+export const PIECE_SECONDS = 480;          // a piece of an MP3, normally (8 minutes: 7.3 MB at 128 kbit/s)
+export const SMALLEST_PIECE = 60;          // pieces are never cut smaller than this
+export const SPLIT_AFTER = 2;              // drops (on screen, online) before a piece is cut in half
 
 /** Wait `seconds`, stopping early (with Cancelled) if the job is cancelled. */
 export async function pause(seconds, job) {
@@ -52,9 +64,11 @@ const say = (job, text) => { if (job && job.say) job.say(text); };
  * the app went out of sight or the phone went offline since then (or is now); `net.waitUntilBack(job)`
  * waits until it is on screen and online again. `isDrop(error)` says which errors are the connection.
  * Giving up, it throws the last error with `lostFor` = seconds spent trying again.
+ * With `ctx.splitAfter`, it gives up sooner, after that many drops while on screen and online, with
+ * `split` set on the error: the caller can then send the same audio in smaller pieces (streamMp3).
  */
 export async function throughDrops(attempt, ctx, isDrop = looksLikeConnection) {
-  const { job = null, net = ALWAYS_ON, sleep = pause, pauses = QUICK_PAUSES } = ctx || {};
+  const { job = null, net = ALWAYS_ON, sleep = pause, pauses = QUICK_PAUSES, splitAfter = 0 } = ctx || {};
   let counted = 0;
   let excused = 0;
   let waited = 0;
@@ -74,6 +88,7 @@ export async function throughDrops(attempt, ctx, isDrop = looksLikeConnection) {
         continue;
       }
       if (counted >= pauses.length) { e.lostFor = waited; throw e; }
+      if (splitAfter && counted >= splitAfter) { e.lostFor = waited; e.split = true; throw e; }
       const s = pauses[counted++];
       waited += s;
       if (pauses === PATIENT_PAUSES) say(job, `The connection dropped. Trying again in ${s} seconds…`);
@@ -150,29 +165,62 @@ export function clock(seconds) {
   return hh ? `${hh}:${String(mm).padStart(2, "0")}:${ss}` : `${mm}:${ss}`;
 }
 
+/** A piece of an MP3 cut again into pieces of at most `seconds`, between frames, keeping their times and
+ * where in the file each ends (the last ends where the whole did). */
+export function recut(piece, seconds) {
+  const s = new Mp3Splitter({ maxSeconds: seconds, maxBytes: Infinity, start: piece.start, offset: piece.end - piece.bytes.length });
+  s.first = false; // (a piece starts on a frame: no tag block to look for)
+  const parts = [...s.push(piece.bytes), s.finish()].filter(Boolean);
+  if (parts.length) parts[parts.length - 1].end = piece.end;
+  return parts;
+}
+
 /**
  * An MP3 episode on the web, fetched a few megabytes at a time and sent piece by piece.
  *   first      the first answer of fetchRange (the file's beginning), with `total` and `src`
  *   fetchRange (url, from, to) => {status, bytes}
- *   hear       (piece) => parsed transcription of that piece (times already counted from the file's start)
+ *   hear       (piece, extra) => parsed transcription of that piece (times already counted from the file's
+ *              start); `extra` ({splitAfter}) goes on to askProvider's ctx
  *   keep       ({byte, start, segments}) => saves what is done after each piece (may be async)
  *   saved      what an earlier try finished (canResume said yes), or null
+ *   pieceSeconds  how long a piece is to begin with; smaller(seconds) is told when it had to be made smaller
+ *   label      the provider's name, for "Sending 0:00–8:00 to Groq…"
  * Resolves to {segments, seconds}. On failure the error carries `stoppedAt` (seconds done and kept).
  */
-export async function streamMp3({ first, fetchRange, hear, keep = () => {}, saved = null, job, ctx = {}, step = STEP_BYTES }) {
+export async function streamMp3({ first, fetchRange, hear, keep = () => {}, saved = null, job, ctx = {}, step = STEP_BYTES,
+                                  pieceSeconds = PIECE_SECONDS, smaller = () => {}, label = "" }) {
   const { total, src } = first;
   const whole = first.status === 200; // a server that ignores "just this part" and sends everything
   const segments = saved ? [...saved.segments] : [];
-  const splitter = saved ? new Mp3Splitter({ start: saved.start, offset: saved.byte }) : new Mp3Splitter();
+  const maxSeconds = Math.max(SMALLEST_PIECE, pieceSeconds);
+  const splitter = saved ? new Mp3Splitter({ maxSeconds, start: saved.start, offset: saved.byte }) : new Mp3Splitter({ maxSeconds });
   let doneTo = saved ? saved.start : 0;
+  // One piece; one that keeps failing to go up is sent as two halves instead (and so on, down to a minute).
+  const sendPiece = async (p) => {
+    const canSplit = p.seconds >= 2 * SMALLEST_PIECE;
+    if (label) say(job, `Sending ${clock(p.start)}–${clock(p.start + p.seconds)} to ${label}…`);
+    let parsed;
+    try {
+      parsed = await hear(p, canSplit ? { splitAfter: SPLIT_AFTER } : {});
+    } catch (e) {
+      if (!(e && e.split && canSplit)) throw e;
+      const size = Math.max(SMALLEST_PIECE, Math.round(p.seconds / 2));
+      if (size < splitter.maxSeconds) { splitter.maxSeconds = size; smaller(size); }
+      for (const q of recut(p, size)) await sendPiece(q);
+      return;
+    }
+    segments.push(...parsed.segments);
+    doneTo = p.start + p.seconds;
+    await keep({ byte: p.end, start: doneTo, segments });
+  };
   const send = async (pieces) => {
     for (const p of pieces) {
       if (!p) continue;
-      const parsed = await hear(p);
-      segments.push(...parsed.segments);
-      doneTo = p.start + p.seconds;
-      await keep({ byte: p.end, start: doneTo, segments });
+      // (a piece cut before the size came down goes in the new size)
+      if (p.seconds > splitter.maxSeconds + 1) { for (const q of recut(p, splitter.maxSeconds)) await sendPiece(q); }
+      else await sendPiece(p);
     }
+    if (pieces.some(Boolean)) say(job, ""); // (the note was about a piece going up)
   };
   const fetchMore = (from, to) => throughDrops(async () => {
     try { return await fetchRange(src, from, to); }

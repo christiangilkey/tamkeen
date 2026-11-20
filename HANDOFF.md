@@ -9568,5 +9568,16 @@ your internet connection. (NetworkError when attempting to fetch resource.)".
   with a pretend go-between server and a pretend Groq on this computer (made-up key), the 2-hour file: stopped after
   ~2 min at 1:04:00 / 2:03:00 with the new message; Retry (with the phone "offline") waited, then downloaded from byte
   61,299,000, sent only pieces 9–16 and finished with 16 lines in order. Not tried on a real phone or with real Groq.
+- **"Gets stuck at 8 percent"** (the owner, later): 8.1% of that episode is exactly when its first piece is sent (the progress is
+  the download: 256 KB + 3 × 3 MB, and piece 1 is 7,680,000 bytes = 480 s, after a 0.9 MB cover-art tag; checked on the
+  real file through the real go-between server). So the very first upload died on every try. Groq answers uploads of 1,
+  7 and 20 MB normally and refuses 30 MB with a 413, all with its CORS header (checked with a made-up key), so the size
+  limit and a hidden refusal are ruled out; most likely the phone's upload was too slow or patchy for a 7.3 MB request
+  (not proven: no real key was used). Now `streamMp3` halves a piece that fails `SPLIT_AFTER` (2) more times on screen and
+  online (`throughDrops` `splitAfter` → `e.split`; `recut`), down to `SMALLEST_PIECE` (60 s), and the rest of the episode
+  goes in that size; transcribe-service keeps it in kv `stt_piece_seconds` for 3 days, so the next episodes start there.
+  The Library says "Sending 0:00–8:00 to Groq…" while a piece goes up. Tests: 3 more in sttjob.test.mjs (a 2-hour episode
+  whose 8-minute uploads always die goes up in 4-minute pieces). Checked in the private web app build too: the pretend Groq
+  dropped every upload over 5 MB; the episode went up in 31 pieces of 4 minutes, in order, to 2:03.
 - Not changed: the desktop (`app/transcriber/cloud.py` has its own retries and doesn't sleep) and the Android app's
   native requests in the background (Android may still stop them; the app then waits and carries on when reopened).

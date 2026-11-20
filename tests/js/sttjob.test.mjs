@@ -5,7 +5,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { Mp3Splitter, mp3Frame, parseTranscription, sendFailure } from "../../web/js/stt.js";
-import { Cancelled, PATIENT_PAUSES, QUICK_PAUSES, askProvider, canResume, clock, stopMessage, streamMp3, throughDrops } from "../../web/js/sttjob.js";
+import { Cancelled, PATIENT_PAUSES, QUICK_PAUSES, askProvider, canResume, clock, recut, stopMessage, streamMp3, throughDrops } from "../../web/js/sttjob.js";
 
 const FRAME = 417;                  // bytes in one frame of the fake MP3 (128 kbit/s, 44.1 kHz)
 const FRAME_SECONDS = 1152 / 44100; // its length in time
@@ -214,4 +214,71 @@ test("a 2-hour episode whose connection only blinks finishes in one go", async (
   assert.equal(downloadDrops, 2);
   assert.equal(done.segments.length, 16);
   assert.ok(Math.abs(done.seconds - seconds) < 1);
+});
+
+// ------------------------------------------------------ "stuck at 8 percent": the first upload never got through
+
+test("a piece cut again keeps its sound, its times and where it ends", () => {
+  const mp3 = fakeMp3(5000);
+  const s = new Mp3Splitter({ maxSeconds: 100 });
+  const [p] = s.push(mp3);
+  const halves = recut(p, p.seconds / 2);
+  assert.equal(halves.length, 2);
+  assert.deepEqual(join(halves), p.bytes, "the same sound");
+  assert.equal(halves[0].start, p.start);
+  assert.ok(Math.abs(halves[1].start - (p.start + halves[0].seconds)) < 1e-9);
+  assert.ok(Math.abs(halves[0].seconds + halves[1].seconds - p.seconds) < 1e-9);
+  assert.equal(halves[0].end, halves[0].bytes.length, "the first half ends where its bytes end in the file");
+  assert.equal(halves[1].end, p.end);
+});
+
+/** A phone whose uploads die when a request is bigger than `limit` bytes. */
+function slowPhone(limit, answer) {
+  const tries = [];
+  const hear = (p, extra = {}) => throughDrops(async () => {
+    tries.push(Math.round(p.seconds));
+    if (p.bytes.length > limit) throw sendFailure("groq", firefoxDrop());
+    return parseTranscription(answer(p), (t) => t + p.start);
+  }, { sleep: noWait, pauses: PATIENT_PAUSES, ...extra }, (e) => e.retry === true);
+  return { tries, hear };
+}
+
+test("a 2-hour episode whose 8-minute pieces never get through goes up in 4-minute pieces instead", async () => {
+  const seconds = 2 * 3600 + 3 * 60;
+  const mp3 = fakeMp3(Math.ceil(seconds / FRAME_SECONDS));
+  const { fetchRange, answer } = world(mp3);
+  const first = await fetchRange("https://cdn/ep.mp3", 0, 256 * 1024 - 1);
+  first.src = first.url;
+  const { tries, hear } = slowPhone(4 * 1024 * 1024, answer); // 4 MB: about 4 minutes at 128 kbit/s
+  const said = [];
+  const job = { ...jobFor(), say: (t) => said.push(t) };
+  let learnt = 0;
+  const done = await streamMp3({ first, fetchRange, hear, job, ctx: { sleep: noWait }, smaller: (s) => { learnt = s; }, label: "Groq" });
+  assert.deepEqual(tries.slice(0, 5), [480, 480, 480, 240, 240], "three tries of the first 8 minutes, then two halves");
+  assert.equal(tries.filter((t) => t === 480).length, 3, "no later piece is tried at 8 minutes");
+  assert.equal(learnt, 240, "the smaller size is passed on, for the next episodes");
+  assert.equal(said[0], "Sending 0:00–8:00 to Groq…");
+  assert.ok(said.includes("Sending 0:00–4:00 to Groq…") && said.includes("Sending 4:00–8:00 to Groq…"));
+  const starts = done.segments.map((s) => Math.round(s.start));
+  assert.equal(new Set(starts).size, starts.length, "nothing twice");
+  assert.deepEqual(starts, [...starts].sort((a, b) => a - b), "in order");
+  assert.equal(starts.length, Math.ceil(seconds / 240), "the whole episode in 4-minute pieces");
+  assert.ok(Math.abs(done.segments.at(-1).end - seconds) < 1);
+});
+
+test("the next episode starts at the size that went through, and a phone that can send nothing still stops", async () => {
+  const mp3 = fakeMp3(Math.ceil(1800 / FRAME_SECONDS)); // half an hour
+  const { fetchRange, answer } = world(mp3);
+  const first = await fetchRange("https://cdn/ep.mp3", 0, 256 * 1024 - 1);
+  first.src = first.url;
+  const ok = slowPhone(4 * 1024 * 1024, answer);
+  await streamMp3({ first, fetchRange, hear: ok.hear, job: jobFor(), ctx: { sleep: noWait }, pieceSeconds: 240 });
+  assert.ok(ok.tries.every((t) => t <= 240), "never tried at 8 minutes");
+  assert.equal(ok.tries.length, Math.ceil(1800 / 240), "one try a piece");
+
+  const none = slowPhone(0, answer);
+  const e = await streamMp3({ first, fetchRange, hear: none.hear, job: jobFor(), ctx: { sleep: noWait } }).then(() => null, (x) => x);
+  assert.ok(e && e.lostFor > 0, "it gives up, saying how long it tried");
+  assert.equal(e.stoppedAt, 0);
+  assert.deepEqual([...new Set(none.tries)], [480, 240, 120, 60], "halved down to one minute, no further");
 });

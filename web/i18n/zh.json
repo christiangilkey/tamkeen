@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0} 返回的内容不是转写。",
 "{0} asks to wait {1}…":"{0} 要求等待 {1}……",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0} 出现问题（错误 {1}）。请稍后再试。",
+"Sending {0}–{1} to {2}…":"正在把 {0}–{1} 发送到 {2}…",
 "the episode's server":"节目的服务器",
 "The download stopped part-way (the server answered {0}).":"下载中途停止（服务器返回 {0}）。",
 "This audio couldn't be read as an MP3.":"无法将这段音频读取为 MP3。",

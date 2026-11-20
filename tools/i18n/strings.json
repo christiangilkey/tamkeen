@@ -28810,6 +28810,11 @@
   "f": "web/js/sttjob.js"
  },
  {
+  "id": "d38c0191",
+  "k": "Sending {0}–{1} to {2}…",
+  "f": "web/js/sttjob.js"
+ },
+ {
   "id": "ed2dc627",
   "k": "the episode's server",
   "f": "web/js/sttjob.js"

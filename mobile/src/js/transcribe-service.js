@@ -16,7 +16,7 @@
 
 import { MAX_UPLOAD_BYTES, STT_PROVIDERS, SttError, addAudioUse, audioUseToday, looksLikeMp3, parseTranscription,
          silentWav, sttConfig, sttModelLabel, tidyBase64, toTranscript, transcriptionFields } from "./stt.js";
-import { Cancelled, HEAD_BYTES, PATIENT_PAUSES, QUICK_PAUSES, askProvider, canResume, fetchWhole, pause, stopMessage, streamMp3,
+import { Cancelled, HEAD_BYTES, PATIENT_PAUSES, PIECE_SECONDS, QUICK_PAUSES, askProvider, canResume, fetchWhole, pause, stopMessage, streamMp3,
          throughDrops } from "./sttjob.js";
 import { drive } from "./drive.js";
 import { NativeHttp, finalUrl, isNative, webFetch } from "./native.js";
@@ -25,6 +25,10 @@ import { driveFileId, requestSync } from "./sync.js";
 
 const USE_KEY = "sttUse";
 const PARTIAL = (uid) => `stt_partial:${uid}`; // kv: what a long episode's last try finished (sttjob.js canResume)
+// kv: a smaller piece size this phone needed lately ({seconds, at}): its uploads kept dying at 8 minutes
+// (sttjob.js streamMp3), so the next episodes start at the size that went through. Forgotten after 3 days.
+const PIECE_KEY = "stt_piece_seconds";
+const PIECE_DAYS = 3;
 export const STT_EVENT = "tamkeen:stt"; // fired on `window` when the day's total of audio sent changes
 // As on the computer (app/languages.py): simplified characters for Chinese, and Bisaya spelling for
 // Bisaya (which Whisper is asked to hear as its nearest language, Tagalog: stt.js whisperCode).
@@ -177,7 +181,7 @@ export async function fetchWholeB64(url) {
  * Without `language` the provider works out the language and says which it heard.
  * A "slow down" answer is waited out; a dropped connection is tried again.
  */
-export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = "audio.mp3", type = "audio/mpeg", language = "" }, job = null) {
+export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = "audio.mp3", type = "audio/mpeg", language = "" }, job = null, extra = {}) {
   const info = STT_PROVIDERS[cfg.provider];
   const fields = transcriptionFields({ model: cfg.model, language, prompt: PROMPTS[language] || "" });
   if (url) fields.push(["url", url]);
@@ -195,7 +199,7 @@ export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = 
     const res = await fetch(info.url, { method: "POST", headers: { Authorization: `Bearer ${cfg.key}` }, body: form });
     return { status: res.status, body: await res.text(), retryAfter: Number(res.headers.get("retry-after")) || 0 };
   };
-  return askProvider(cfg.provider, request, tryingFor(job));
+  return askProvider(cfg.provider, request, { ...tryingFor(job), ...extra });
 }
 
 /** Try a key: send one second of silence. Resolves to how long the provider took, in seconds. */
@@ -242,14 +246,20 @@ async function hearFromWeb(cfg, uid, address, language, job) {
     let saved = null;
     try { saved = await kv.get(PARTIAL(uid)); } catch { saved = null; }
     if (whole || !canResume(saved, { address, model, language, total, src })) saved = null;
-    const hear = async (p) => {
-      const data = await postAudio(cfg, { bytes: p.bytes, name: "piece.mp3", type: "audio/mpeg", language }, job);
+    const hear = async (p, extra) => {
+      const data = await postAudio(cfg, { bytes: p.bytes, name: "piece.mp3", type: "audio/mpeg", language }, job, extra);
       countUse(cfg, p.seconds);
       return parseTranscription(data, (t) => t + p.start);
     };
     const keep = (state) => kv.set(PARTIAL(uid), { address, model, language, total, src, at: Date.now(), ...state })
       .catch((e) => console.warn("Couldn't keep the transcript so far", e));
-    const heard = await streamMp3({ first, fetchRange, hear, keep, saved, job, ctx });
+    let pieceSeconds = PIECE_SECONDS;
+    try {
+      const learnt = await kv.get(PIECE_KEY);
+      if (learnt && learnt.seconds && Date.now() - learnt.at < PIECE_DAYS * 86400e3) pieceSeconds = learnt.seconds;
+    } catch { /* storage unavailable: the usual size */ }
+    const smaller = (seconds) => kv.set(PIECE_KEY, { seconds, at: Date.now() }).catch(() => {});
+    const heard = await streamMp3({ first, fetchRange, hear, keep, saved, job, ctx, pieceSeconds, smaller, label: info.label });
     await kv.set(PARTIAL(uid), null).catch(() => {});
     return heard;
   }

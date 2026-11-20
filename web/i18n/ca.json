@@ -5760,6 +5760,7 @@
 "{0} sent back something that isn't a transcript.":"{0} ha retornat una cosa que no és una transcripció.",
 "{0} asks to wait {1}…":"{0} demana esperar {1}…",
 "{0} is having trouble (error {1}). Try again in a little while.":"{0} té problemes (error {1}). Torna-ho a provar d'aquí a una estona.",
+"Sending {0}–{1} to {2}…":"S'està enviant {0}–{1} a {2}…",
 "the episode's server":"el servidor de l'episodi",
 "The download stopped part-way (the server answered {0}).":"La baixada s'ha aturat a mitges (el servidor ha respost {0}).",
 "This audio couldn't be read as an MP3.":"Aquest àudio no s'ha pogut llegir com a MP3.",
