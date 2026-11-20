@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** In Vocab, the folder bar (the folder on show, such as **All words** or **Not in a folder**) is now in the app's blue, like the Review card, so it is clear it can be tapped to change folder.
 - **Fixed:** **Type what you hear** on YouTube with a phone's keyboard up: Word · Sentence · Gist and the round ✓ button were hidden behind the video (YouTube's video can't be squeezed below 200 px, so it hung over the top of the panel). While typing, the video is now just those 200 px and the line about the captions makes room. In every player the row with the ✓ also stays at the top of the panel while what is under it scrolls, and on a short screen the gist's 2–5 sit on the same line.
 - **Better:** **Type what you hear:** once checked, the real sentence (or the gist's full text) can be tapped word by word: one tap opens the usual word popup with its meaning and Save button, as in the transcript and captions. It works in every player that has it (podcasts, audio and your own videos, YouTube, Netflix, reels and the courses), and the right / nearly right / missed marks stay on the words.
 - **Fixed:** A lesson made before v0.64.0 showed "No audio in this lesson" even when its PDF or Word file has sound buttons: it now offers **Add the file again to find its sound links**, which puts the spots where a new import would (the lesson's own text and answers stay as they are), and sounds already in the lesson fill the spots they are named for.
