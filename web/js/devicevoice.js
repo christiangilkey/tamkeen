@@ -18,6 +18,23 @@ export function deviceKind() {
   return /Mac/i.test(navigator.platform || navigator.userAgent) ? "mac" : "windows";
 }
 
+/** In the web app: the system the browser runs on, for the way to add a voice there ("windows", "mac",
+ * "android", "ios", or "" for another). An iPad asking for the desktop site says "Macintosh" but has touch. */
+export function webSystem() {
+  const ua = (typeof navigator !== "undefined" && navigator.userAgent) || "";
+  if (/Android/i.test(ua)) return "android";
+  if (/iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1)) return "ios";
+  if (/Windows/i.test(ua)) return "windows";
+  if (/Macintosh|Mac OS X/i.test(ua)) return "mac";
+  return "";
+}
+
+/** Where to look for adding a voice (cardvoice.js addVoiceHelp): the app's own device, or the web app's system. */
+export function voiceHelpPlace() {
+  const kind = deviceKind();
+  return kind === "web" && webSystem() ? `web-${webSystem()}` : kind;
+}
+
 /** The browser's voices; they may arrive a moment after the page asks. */
 function browserVoices() {
   const synth = window.speechSynthesis;
@@ -55,7 +72,7 @@ export function recheckDeviceVoices() { known.clear(); }
 
 /** The words for a device without a voice for `lang` (for Latin, without an Italian voice). */
 export function noVoiceText(lang) {
-  const help = addVoiceHelp(langInfo(readBy(lang)).name, deviceKind());
+  const help = addVoiceHelp(langInfo(readBy(lang)).name, voiceHelpPlace());
   return readBy(lang) === lang ? help : `${langInfo(lang).name} cards are read by a voice for ${langInfo(readBy(lang)).name}. ${help}`;
 }
 

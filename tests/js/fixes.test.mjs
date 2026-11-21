@@ -74,7 +74,7 @@ test("card voices: a refused Azure key, and a device with no voice for the langu
   assert.equal(causeOf(azureError(401, "eastus")), "azurerefused");
   assert.equal(causeOf(`The word is saved, but its voice couldn't be made now: ${azureError(403, "westeurope").message} It's tried again when you play the card.`), "azurerefused");
   assert.equal(causeOf(azureError(429)), "");  // too many requests for now: a message
-  for (const where of ["android", "ios", "mac", "windows", "web"]) {
+  for (const where of ["android", "ios", "mac", "windows", "web", "web-windows", "web-mac", "web-android", "web-ios"]) {
     assert.equal(causeOf(addVoiceHelp("Arabic", where)), "novoice", where);
     assert.equal(causeOf(`${addVoiceHelp("Bisaya (Cebuano)", where)} This device's own voice is used meanwhile.`), "novoice", where);
   }

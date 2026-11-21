@@ -10,7 +10,7 @@ import { LANGUAGES, studyLanguage } from "../languages.js";
 import { AZURE_FREE, AZURE_PORTAL, AZURE_PRICING, AZURE_VOICES, azureReady, azureVoices, buildSsml, azureSpeak, cleanAzureKey,
          cleanRegion, LOCAL_VOICE_LANGUAGES, needsVoice, pickedVoices, READ_BY, readBy, spokenText, voiceChars, voiceMode, voiceOff,
          voicesForLanguage, waitingForComputer, withPickedVoice } from "../cardvoice.js";
-import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice } from "../devicevoice.js";
+import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice, voiceHelpPlace } from "../devicevoice.js";
 import { azureVoiceOf, cardLanguage, voiceMaker } from "../voiceplay.js";
 import { appSound } from "../appvolume.js";
 
@@ -182,11 +182,13 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     }
     const has = await deviceHasVoice(lang);
     const android = deviceKind() === "android";
+    const winWeb = voiceHelpPlace() === "web-windows";  // a browser on Windows may open its speech settings (ms-settings:)
     box.innerHTML = `<div class="vo-device ${has === false ? "vo-missing" : ""}">
       <span class="vo-device-ico">${icon(has === false ? "close" : "check", 18)}</span>
       <span class="vo-device-text"></span>
       <span class="vo-device-do">
-        ${has === false ? (android ? `<button type="button" class="ghost" id="vo-tts-settings">Open text-to-speech settings</button>` : "")
+        ${has === false ? (android ? `<button type="button" class="ghost" id="vo-tts-settings">Open text-to-speech settings</button>`
+          : winWeb ? `<a class="btn ghost" id="vo-win-speech" href="ms-settings:speech">Open Windows speech settings</a>` : "")
           + `<button type="button" class="ghost" id="vo-recheck">Check again</button>`
           : `<button type="button" class="ghost" id="vo-device-try">${icon("sound", 16)} Play a sample</button>`}
       </span></div>`;

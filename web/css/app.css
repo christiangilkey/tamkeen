@@ -1859,6 +1859,9 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .vo-device.vo-missing .vo-device-ico { color: var(--warn); }
 .vo-device-text { flex: 1 1 220px; min-width: 0; }
 .vo-device-do { display: flex; flex-wrap: wrap; gap: 6px; }
+/* No voice: the steps to add one read across the box, and its buttons go under them. */
+.vo-device.vo-missing .vo-device-text { flex-basis: calc(100% - 40px); }
+.vo-device.vo-missing .vo-device-do { flex-basis: 100%; padding-inline-start: 28px; }
 .vo-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .vo-row select { flex: 1 1 220px; min-width: 0; }
 #vo-test-result:empty, #vo-key-note:empty, #vo-voice-note:empty, .vo-all:empty { display: none; }

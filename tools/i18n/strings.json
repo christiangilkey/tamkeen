@@ -1980,8 +1980,28 @@
   "f": "web/js/cardvoice.js"
  },
  {
-  "id": "57b8b3ab",
-  "k": "This computer has no {0} voice. To add one: Windows Settings → Time & language → Speech → Add voices → {1}. Then restart Tamkeen.",
+  "id": "8c899e64",
+  "k": "This computer has no {0} voice. To add one: Windows Settings → Time & language → Speech → Manage voices → Add voices → {1}. Then restart Tamkeen.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "da534670",
+  "k": "This browser has no {0} voice. To add one to Windows: Settings → Time & language → Speech → Manage voices → Add voices → {1} (or Time & language → Language & region → Add a language → {2}, with Text-to-speech ticked). Then close and reopen the browser and press Check again. Microsoft Edge also has many voices of its own.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "47060761",
+  "k": "This browser has no {0} voice. To add one to the Mac: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → {1}. Then close and reopen the browser and press Check again. Microsoft Edge also has many voices of its own.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "70db7577",
+  "k": "This browser has no {0} voice. To add one to the phone: open its Settings → search for “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → {1}. Then close and reopen the browser and press Check again.",
+  "f": "web/js/cardvoice.js"
+ },
+ {
+  "id": "49a8068b",
+  "k": "This browser has no {0} voice. To add one to the iPhone: Settings → Accessibility → Spoken Content → Voices → {1}. Then close and reopen the browser and press Check again.",
   "f": "web/js/cardvoice.js"
  },
  {
@@ -9937,6 +9957,11 @@
  {
   "id": "3f6cf33f",
   "k": "Open text-to-speech settings",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "74e0fa0d",
+  "k": "Open Windows speech settings",
   "f": "web/js/components/voicesetup.js"
  },
  {
