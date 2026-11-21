@@ -116,6 +116,20 @@ test("every player's bar is YouTube's (the owner, 2026-11-19 / 2026-11-20): the 
   assert.doesNotMatch(src("../../web/js/components/guideart.js"), /#restart/, "the page guide has no step for it");
 });
 
+test("a podcast's Type what you hear is YouTube's, one for one (the owner, 2026-11-20: 'it hides all the subtitles and allows you to do a specific amount at a time')", () => {
+  const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
+  const player = src("../../web/js/pages/player.js");
+  const open = player.slice(player.indexOf("function openDictation() {"), player.indexOf("tr.addEventListener(\"scroll\""));
+  assert.ok(open.length > 200, "one openDictation for every player");
+  assert.doesNotMatch(open, /\byt\b|\bvid\b|\bembed\b|\bnf\b/, "nothing in it is YouTube's alone (or a podcast's alone)");
+  assert.match(open, /dict = dictationPanel\(\{\s*words: dictWords, sentences: dictSentences, gist: true,/, "Word (where words are timed), Sentence and Gist");
+  assert.match(open, /unArrow = arrowButtons\(\$\("#back5"\), \$\("#fwd5"\)\);/, "back and forward step by the piece");
+  assert.match(open, /playerEl\.classList\.add\("dictating"\);/);
+  const css = src("../../web/css/media.css");
+  // Every word goes away in every player while typing: the transcript, its handle, the captions.
+  assert.match(css, /^\.player\.dictating \.transcript-wrap, \.player\.dictating \.panel-handle, \.player\.dictating \.captions,\s*\.player\.dictating \.back-to-current \{ display: none !important; \}/m);
+});
+
 test("the owner's secret switch for prototype mode: five taps on the version (the About heading in the web app)", () => {
   const src = (f) => readFileSync(new URL(f, import.meta.url), "utf8");
   assert.match(src("../../web/js/pages/settings.js"), /prototypeTaps\(\$\("#app-version"\), toast\)/);
