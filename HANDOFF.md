@@ -9613,3 +9613,24 @@ your internet connection. (NetworkError when attempting to fetch resource.)".
   dropped every upload over 5 MB; the episode went up in 31 pieces of 4 minutes, in order, to 2:03.
 - Not changed: the desktop (`app/transcriber/cloud.py` has its own retries and doesn't sleep) and the Android app's
   native requests in the background (Android may still stop them; the app then waits and carries on when reopened).
+
+## Creator bar: people online and every limit as used / limit (2026-11-20; "Teachers" chat; prototype `creator_bar`; database NOT applied)
+The owner: "I need to see a bar as the creator role which allows me to see current amount of users online and what my
+limits are compared to my supabase limits ... and all of my limits".
+- **Creator role**: `private.creators` (v14), seeded on first run from `private.dli_owners` (the account that typed the
+  DLI owner code), so nothing is typed and no email is in the repo. `am_creator()` answers the app; the app keeps the
+  answer a day per sign-in (`tamkeenCreator`).
+- **Figures** (`creator_stats()`, creator only, counts and sizes): online = `presence.last_seen` in the last 150 s (the
+  heartbeat Friends already sends once a minute: no new load, no Realtime Presence), seen in the last day, accounts,
+  active in 30 days (sign-in or heartbeat: an estimate of Supabase's MAU), `pg_database_size`, file sizes per bucket
+  from `storage.objects`, the eight biggest public tables.
+- **Not knowable from the database**: egress, Realtime messages, Edge Function calls. They are listed with their
+  limits and a link to Supabase's Usage page. Reading them needs the Management API and a personal access token, which
+  must never be in the app: the safe way would be an Edge Function holding the token as a secret that the owner sets
+  himself (asked in the Decisions chat; not built).
+- **App**: `web/js/creatorstats.js` (pure: LIMITS read from supabase.com/pricing on 2026-11-20, Free and Pro; cleanStats;
+  meters; level 70% / 90%), `web/js/components/creatorbar.js` (the bar on Home, the panel), a host div in
+  `pages/home.js`, SHARED in `mobile/scripts/build-www.mjs`. Other services (GitHub Pages, Cloudflare Worker, Google
+  Drive, Azure Speech) are a static list with links: the app cannot read their usage.
+- **Database**: `supabase/v14-creator.sql`, self-test `supabase/test_rls_creator.sql` (expects `bad=[ none]`). Neither
+  has been executed (no database here). Without v14 no bar shows.

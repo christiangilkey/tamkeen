@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	Impossible de joindre le service en ligne.
+33e2b405	Les chiffres n'ont pas pu être lus.
+817b79b0	Créateur
+719f56a6	Comparer avec
+36bae316	Comptes
+a85a678b	Vus ces dernières 24 heures
+28f42a1f	Supabase : ce que l'app peut mesurer
+217ee0a6	Supabase : seulement sur sa page Usage
+8660a7a9	La base de données ne peut pas compter ces éléments, et les lire d'ici demanderait une clé secrète dans l'app. Les limites sont ci-dessous ; les quantités utilisées sont sur la page Usage de Supabase.
+e1a3e266	limite {0}
+40060be5	Ouvrir la page Usage de Supabase
+6cab0e9c	Où va l'espace
+da1a5874	Fichiers dans « {0} » : 1 fichier
+938e0f71	Fichiers dans « {0} » : {1} fichiers
+f53d087b	Table « {0} »
+5bd96afa	Les autres services de Tamkeen
+32da573f	Leurs quotas gratuits tels que publiés. L'app ne peut pas lire combien est utilisé : chacun l'affiche sur sa propre page, après connexion.
+61a0ae3b	Limites
+4803ac21	Limites telles que publiées sur {0}. Les barres passent à l'orange à partir de 70 % et au rouge à partir de 90 %.
+899a96e2	1 en ligne
+80cbed25	{0} en ligne
+60ec2cef	Créateur : personnes en ligne et limites
+bbda53b4	Offre gratuite
+5f06968a	Offre Pro
+82743c9e	moins de 0,1 %
+244cfd43	Personnes en ligne maintenant
+8374196b	Chaque personne en ligne occupe une connexion en direct. La limite est le maximum au même moment.
+5906db09	Utilisateurs actifs, 30 derniers jours
+40180109	Les personnes qui se sont connectées ou ont ouvert l'app ces 30 derniers jours. Supabase compte par mois de facturation, son chiffre peut donc différer un peu.
+02b3304d	Taille de la base de données
+4fbddfd9	Stockage de fichiers
+ad63e187	Messages vocaux, photos de profil et fichiers de leçons.
+6cc82ee8	Données envoyées, par mois
+05cf07af	Messages en direct, par mois
+6d559b7c	Appels de fonctions, par mois
+aa669022	GitHub Pages (l'app web et les téléchargements)
+8d6a404f	1 GB de taille de site, 100 GB de trafic par mois (une limite souple)
+c844dfef	Cloudflare Worker (l'intermédiaire de l'app web)
+1f30412f	100 000 requêtes par jour
+ee60bc33	Google Drive (synchronisation)
+4fa868a2	1 000 000 d'unités de quota par minute pour toute l'app (une lecture en coûte 5, un téléchargement 200) ; les fichiers de chaque apprenant utilisent son propre espace Drive
+f46e2bef	Azure Speech (audio des paquets DLI)
+da7cce45	500 000 caractères de parole par mois
+14727c6d	Groq, Gemini et autres clés d'IA
+dbc4b2cf	Chaque apprenant utilise sa propre clé : ce sont donc ses limites, pas les vôtres

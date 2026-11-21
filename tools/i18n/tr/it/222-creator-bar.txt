@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	Impossibile raggiungere il servizio online.
+33e2b405	Impossibile leggere i numeri.
+817b79b0	Creatore
+719f56a6	Confronta con
+36bae316	Account
+a85a678b	Visti nell'ultimo giorno
+28f42a1f	Supabase: ciò che l'app può misurare
+217ee0a6	Supabase: solo nella sua pagina Usage
+8660a7a9	Il database non può contare queste voci, e leggerle da qui richiederebbe una chiave segreta nell'app. I limiti sono qui sotto; le quantità usate sono nella pagina Usage di Supabase.
+e1a3e266	limite {0}
+40060be5	Apri la pagina Usage di Supabase
+6cab0e9c	Dove va lo spazio
+da1a5874	File in «{0}»: 1 file
+938e0f71	File in «{0}»: {1} file
+f53d087b	Tabella «{0}»
+5bd96afa	Gli altri servizi di Tamkeen
+32da573f	Le loro quote gratuite, come pubblicate. L'app non può leggere quanto è stato usato: ogni servizio lo mostra nella propria pagina, dopo l'accesso.
+61a0ae3b	Limiti
+4803ac21	Limiti come pubblicati su {0}. Le barre diventano ambra dal 70% e rosse dal 90%.
+899a96e2	1 online
+80cbed25	{0} online
+60ec2cef	Creatore: persone online e limiti
+bbda53b4	Piano gratuito
+5f06968a	Piano Pro
+82743c9e	meno dello 0,1%
+244cfd43	Persone online ora
+8374196b	Ogni persona online tiene aperta una connessione in tempo reale. Il limite è il massimo nello stesso momento.
+5906db09	Utenti attivi, ultimi 30 giorni
+40180109	Persone che hanno effettuato l'accesso o aperto l'app negli ultimi 30 giorni. Supabase conta per mese di fatturazione, quindi il suo numero può variare un po'.
+02b3304d	Dimensione del database
+4fbddfd9	Archiviazione dei file
+ad63e187	Messaggi vocali, foto del profilo e file delle lezioni.
+6cc82ee8	Dati inviati in uscita, al mese
+05cf07af	Messaggi in tempo reale, al mese
+6d559b7c	Chiamate a funzioni, al mese
+aa669022	GitHub Pages (l'app web e i download)
+8d6a404f	1 GB di dimensione del sito, 100 GB di traffico al mese (un limite flessibile)
+c844dfef	Cloudflare Worker (l'intermediario dell'app web)
+1f30412f	100.000 richieste al giorno
+ee60bc33	Google Drive (sincronizzazione)
+4fa868a2	1.000.000 di unità di quota al minuto per tutta l'app (una lettura ne costa 5, un download 200); i file di ogni studente usano lo spazio del suo Drive
+f46e2bef	Azure Speech (audio dei mazzi DLI)
+da7cce45	500.000 caratteri di parlato al mese
+14727c6d	Groq, Gemini e altre chiavi IA
+dbc4b2cf	Ogni studente usa la propria chiave, quindi questi limiti sono suoi, non tuoi

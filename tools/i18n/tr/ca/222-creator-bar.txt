@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	No s'ha pogut connectar amb el servei en línia.
+33e2b405	No s'han pogut llegir les xifres.
+817b79b0	Creador
+719f56a6	Compara amb
+36bae316	Comptes
+a85a678b	Vistos l'últim dia
+28f42a1f	Supabase: el que l'app pot mesurar
+217ee0a6	Supabase: només a la seva pàgina Usage
+8660a7a9	La base de dades no pot comptar això, i llegir-ho des d'aquí demanaria una clau secreta a l'app. Els límits són a sota; les quantitats usades són a la pàgina Usage de Supabase.
+e1a3e266	límit {0}
+40060be5	Obre la pàgina Usage de Supabase
+6cab0e9c	On va l'espai
+da1a5874	Fitxers a «{0}»: 1 fitxer
+938e0f71	Fitxers a «{0}»: {1} fitxers
+f53d087b	Taula «{0}»
+5bd96afa	Els altres serveis de Tamkeen
+32da573f	Les seves quotes gratuïtes, tal com estan publicades. L'app no pot llegir quant se n'ha fet servir: cada servei ho mostra a la seva pàgina, després d'iniciar la sessió.
+61a0ae3b	Límits
+4803ac21	Límits tal com estan publicats a {0}. Les barres es tornen ambre a partir del 70 % i vermelles a partir del 90 %.
+899a96e2	1 en línia
+80cbed25	{0} en línia
+60ec2cef	Creador: persones en línia i límits
+bbda53b4	Pla gratuït
+5f06968a	Pla Pro
+82743c9e	menys del 0,1 %
+244cfd43	Persones en línia ara
+8374196b	Cada persona en línia manté una connexió en directe. El límit és el màxim en un mateix moment.
+5906db09	Usuaris actius, últims 30 dies
+40180109	Persones que han iniciat la sessió o han obert l'app els últims 30 dies. Supabase compta per mes de facturació, així que la seva xifra pot variar una mica.
+02b3304d	Mida de la base de dades
+4fbddfd9	Emmagatzematge de fitxers
+ad63e187	Notes de veu, fotos de perfil i fitxers de lliçons.
+6cc82ee8	Dades enviades cap a fora, al mes
+05cf07af	Missatges en directe, al mes
+6d559b7c	Crides a funcions, al mes
+aa669022	GitHub Pages (l'app web i les baixades)
+8d6a404f	1 GB de mida del lloc, 100 GB de trànsit al mes (un límit flexible)
+c844dfef	Cloudflare Worker (l'intermediari de l'app web)
+1f30412f	100.000 sol·licituds al dia
+ee60bc33	Google Drive (sincronització)
+4fa868a2	1.000.000 d'unitats de quota per minut per a tota l'app (una lectura en costa 5, una baixada 200); els fitxers de cada estudiant fan servir l'espai del seu Drive
+f46e2bef	Azure Speech (àudio de les baralles del DLI)
+da7cce45	500.000 caràcters de veu al mes
+14727c6d	Groq, Gemini i altres claus d'IA
+dbc4b2cf	Cada estudiant fa servir la seva clau, així que aquests límits són seus, no teus

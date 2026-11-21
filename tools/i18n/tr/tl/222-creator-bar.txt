@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	Hindi maabot ang online na serbisyo.
+33e2b405	Hindi mabasa ang mga bilang.
+817b79b0	Gumawa
+719f56a6	Ikumpara sa
+36bae316	Mga account
+a85a678b	Nakita sa nakaraang araw
+28f42a1f	Supabase: ang kayang sukatin ng app
+217ee0a6	Supabase: nasa Usage page lang nito
+8660a7a9	Hindi ito kayang bilangin ng database, at kakailanganin ng lihim na key sa app para mabasa ito mula rito. Nasa ibaba ang mga limit; nasa Usage page ng Supabase ang nagamit na.
+e1a3e266	limit {0}
+40060be5	Buksan ang Usage page ng Supabase
+6cab0e9c	Saan napupunta ang espasyo
+da1a5874	Mga file sa “{0}”: 1 file
+938e0f71	Mga file sa “{0}”: {1} file
+f53d087b	Table na “{0}”
+5bd96afa	Iba pang serbisyo ng Tamkeen
+32da573f	Ang mga libreng allowance nila ayon sa inilathala. Hindi mababasa ng app kung gaano na ang nagamit: ipinapakita ito ng bawat isa sa sarili nitong page, pagkatapos mong mag-sign in.
+61a0ae3b	Mga limit
+4803ac21	Mga limit ayon sa inilathala sa {0}. Nagiging amber ang mga bar mula 70% at pula mula 90%.
+899a96e2	1 online
+80cbed25	{0} online
+60ec2cef	Gumawa: mga taong online at mga limit
+bbda53b4	Free plan
+5f06968a	Pro plan
+82743c9e	wala pang 0.1%
+244cfd43	Mga taong online ngayon
+8374196b	May isang live na koneksyon ang bawat taong online. Ang limit ay ang pinakamarami sa iisang sandali.
+5906db09	Mga aktibong user, nakaraang 30 araw
+40180109	Mga taong nag-sign in o nagbukas ng app sa nakaraang 30 araw. Ayon sa buwan ng billing ang bilang ng Supabase, kaya puwedeng bahagyang maiba ang bilang nito.
+02b3304d	Laki ng database
+4fbddfd9	Storage ng mga file
+ad63e187	Mga voice note, profile photo at file ng aralin.
+6cc82ee8	Data na ipinadala palabas, bawat buwan
+05cf07af	Mga live na mensahe, bawat buwan
+6d559b7c	Mga tawag sa function, bawat buwan
+aa669022	GitHub Pages (ang web app at ang mga download)
+8d6a404f	1 GB na laki ng site, 100 GB na traffic bawat buwan (malambot na limit)
+c844dfef	Cloudflare Worker (ang tagapamagitan ng web app)
+1f30412f	100,000 request bawat araw
+ee60bc33	Google Drive (pag-sync)
+4fa868a2	1,000,000 quota unit bawat minuto para sa buong app (5 ang isang pagbasa, 200 ang isang download); ginagamit ng mga file ng bawat nag-aaral ang sarili niyang espasyo sa Drive
+f46e2bef	Azure Speech (audio ng mga DLI deck)
+da7cce45	500,000 character ng pagsasalita bawat buwan
+14727c6d	Groq, Gemini at iba pang AI key
+dbc4b2cf	Sariling key ang gamit ng bawat nag-aaral, kaya mga limit nila ito, hindi sa iyo

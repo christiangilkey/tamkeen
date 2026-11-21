@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	Der Onlinedienst ist nicht erreichbar.
+33e2b405	Die Zahlen ließen sich nicht lesen.
+817b79b0	Ersteller
+719f56a6	Vergleichen mit
+36bae316	Konten
+a85a678b	Am letzten Tag gesehen
+28f42a1f	Supabase: was die App messen kann
+217ee0a6	Supabase: nur auf der Usage-Seite
+8660a7a9	Die Datenbank kann das nicht zählen, und es von hier aus zu lesen, würde einen geheimen Schlüssel in der App erfordern. Die Limits stehen unten; die genutzten Mengen stehen auf der Usage-Seite von Supabase.
+e1a3e266	Limit {0}
+40060be5	Usage-Seite von Supabase öffnen
+6cab0e9c	Wohin der Speicherplatz geht
+da1a5874	Dateien in „{0}“: 1 Datei
+938e0f71	Dateien in „{0}“: {1} Dateien
+f53d087b	Tabelle „{0}“
+5bd96afa	Die anderen Dienste von Tamkeen
+32da573f	Ihre kostenlosen Kontingente, wie veröffentlicht. Die App kann nicht lesen, wie viel genutzt ist: Jeder Dienst zeigt es auf seiner eigenen Seite, nach deiner Anmeldung.
+61a0ae3b	Limits
+4803ac21	Limits wie auf {0} veröffentlicht. Balken werden ab 70 % gelb und ab 90 % rot.
+899a96e2	1 online
+80cbed25	{0} online
+60ec2cef	Ersteller: Personen online und Limits
+bbda53b4	Kostenloser Tarif
+5f06968a	Pro-Tarif
+82743c9e	unter 0,1 %
+244cfd43	Jetzt online
+8374196b	Jede Person, die online ist, hält eine Live-Verbindung. Das Limit ist die Höchstzahl zur selben Zeit.
+5906db09	Aktive Nutzer, letzte 30 Tage
+40180109	Personen, die sich in den letzten 30 Tagen angemeldet oder die App geöffnet haben. Supabase zählt pro Abrechnungsmonat, deshalb kann die Zahl dort etwas abweichen.
+02b3304d	Größe der Datenbank
+4fbddfd9	Dateispeicher
+ad63e187	Sprachnachrichten, Profilfotos und Lektionsdateien.
+6cc82ee8	Gesendete Daten, pro Monat
+05cf07af	Live-Nachrichten, pro Monat
+6d559b7c	Funktionsaufrufe, pro Monat
+aa669022	GitHub Pages (die Web-App und die Downloads)
+8d6a404f	1 GB Website-Größe, 100 GB Traffic pro Monat (ein weiches Limit)
+c844dfef	Cloudflare Worker (der Vermittler der Web-App)
+1f30412f	100.000 Anfragen pro Tag
+ee60bc33	Google Drive (Synchronisierung)
+4fa868a2	1.000.000 Kontingenteinheiten pro Minute für die ganze App (ein Lesen kostet 5, ein Download 200); die Dateien aller Lernenden belegen deren eigenen Drive-Speicher
+f46e2bef	Azure Speech (Audio der DLI-Stapel)
+da7cce45	500.000 Zeichen Sprache pro Monat
+14727c6d	Groq, Gemini und andere KI-Schlüssel
+dbc4b2cf	Alle Lernenden nutzen ihren eigenen Schlüssel, also sind das ihre Limits, nicht deine

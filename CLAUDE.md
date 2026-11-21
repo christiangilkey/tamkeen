@@ -68,6 +68,12 @@ functions, each of which checks who is asking (`tests/js/dliweeks.test.mjs` fail
 appears). A student must agree on a screen that lists what is shared (`web/js/components/dlishare.js` SHARE_TEXT;
 raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to the live database either.
 
+| The creator's view (`supabase/v14-creator.sql`, prototype `creator_bar`) | Creator (a row in `private.creators`) | Anyone else signed in | Signed out |
+|---|---|---|---|
+| Am I a creator? (`am_creator`) | yes | told no | no |
+| People online now, accounts, active users, database and file sizes, biggest tables (`creator_stats`: counts and sizes only, nothing about any one person) | see | no | no |
+| Who the creators are | SQL editor only | no | no |
+
 Message size, uploads and daily counts are capped in SQL. `created_at` is set by the server. Friends' game
 data is validated again on arrival (`web/js/game/remote.js`) and drawn without raw HTML.
 

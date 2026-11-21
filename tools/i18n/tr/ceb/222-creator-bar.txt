@@ -1,0 +1,46 @@
+# Creator bar: people online and the online service's limits (creatorbar.js, creatorstats.js).
+1c4e031d	Dili maabot ang online nga serbisyo.
+33e2b405	Dili mabasa ang mga numero.
+817b79b0	Tighimo
+719f56a6	Itandi sa
+36bae316	Mga account
+a85a678b	Nakita sa miaging adlaw
+28f42a1f	Supabase: ang masukod sa app
+217ee0a6	Supabase: naa ra sa Usage page niini
+8660a7a9	Dili kini maihap sa database, ug kinahanglan og sekretong key sa app aron mabasa kini gikan dinhi. Naa sa ubos ang mga limit; ang nagamit na naa sa Usage page sa Supabase.
+e1a3e266	limit {0}
+40060be5	Ablihi ang Usage page sa Supabase
+6cab0e9c	Asa moadto ang espasyo
+da1a5874	Mga file sa “{0}”: 1 ka file
+938e0f71	Mga file sa “{0}”: {1} ka file
+f53d087b	Table nga “{0}”
+5bd96afa	Ubang mga serbisyo sa Tamkeen
+32da573f	Ang ilang libreng allowance sumala sa gipatik. Dili mabasa sa app kung pila na ang nagamit: ipakita kini sa matag usa sa kaugalingon niining page, human ka mag-sign in.
+61a0ae3b	Mga limit
+4803ac21	Mga limit sumala sa gipatik sa {0}. Mahimong amber ang mga bar sukad 70% ug pula sukad 90%.
+899a96e2	1 online
+80cbed25	{0} online
+60ec2cef	Tighimo: mga tawo nga online ug mga limit
+bbda53b4	Free plan
+5f06968a	Pro plan
+82743c9e	ubos sa 0.1%
+244cfd43	Mga tawo nga online karon
+8374196b	Ang matag tawo nga online naggamit og usa ka live nga koneksyon. Ang limit mao ang labing daghan sa samang higayon.
+5906db09	Mga aktibong user, miaging 30 ka adlaw
+40180109	Mga tawo nga nag-sign in o nag-abli sa app sa miaging 30 ka adlaw. Ang Supabase nag-ihap sumala sa bulan sa billing, busa mahimong gamay nga lahi ang numero niini.
+02b3304d	Gidak-on sa database
+4fbddfd9	Storage sa mga file
+ad63e187	Mga voice note, profile photo ug file sa leksyon.
+6cc82ee8	Data nga gipadala pagawas, matag bulan
+05cf07af	Mga live nga mensahe, matag bulan
+6d559b7c	Mga tawag sa function, matag bulan
+aa669022	GitHub Pages (ang web app ug ang mga download)
+8d6a404f	1 GB nga gidak-on sa site, 100 GB nga traffic matag bulan (humok nga limit)
+c844dfef	Cloudflare Worker (ang tigpataliwala sa web app)
+1f30412f	100,000 ka request matag adlaw
+ee60bc33	Google Drive (pag-sync)
+4fa868a2	1,000,000 ka quota unit matag minuto para sa tibuok app (5 ang usa ka pagbasa, 200 ang usa ka download); ang mga file sa matag nagtuon naggamit sa iyang kaugalingong espasyo sa Drive
+f46e2bef	Azure Speech (audio sa mga DLI deck)
+da7cce45	500,000 ka character sa sinultihan matag bulan
+14727c6d	Groq, Gemini ug uban pang AI key
+dbc4b2cf	Ang matag nagtuon naggamit sa iyang kaugalingong key, busa ila kining mga limit, dili imo

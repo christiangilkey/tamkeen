@@ -4090,6 +4090,126 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
+  "id": "1c4e031d",
+  "k": "Couldn't reach the online service.",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "33e2b405",
+  "k": "The figures couldn't be read.",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "817b79b0",
+  "k": "Creator",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "33ce4174",
+  "k": "Loading…",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "719f56a6",
+  "k": "Compare with",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "36bae316",
+  "k": "Accounts",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "a85a678b",
+  "k": "Seen in the last day",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "28f42a1f",
+  "k": "Supabase: what the app can measure",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "217ee0a6",
+  "k": "Supabase: only on its Usage page",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "8660a7a9",
+  "k": "The database can't count these, and reading them from here would need a secret key in the app. The limits are below; the amounts used are on Supabase's Usage page.",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "e1a3e266",
+  "k": "limit {0}",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "40060be5",
+  "k": "Open Supabase's Usage page",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "6cab0e9c",
+  "k": "Where the space goes",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "da1a5874",
+  "k": "Files in “{0}”: 1 file",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "938e0f71",
+  "k": "Files in “{0}”: {1} files",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "f53d087b",
+  "k": "Table “{0}”",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "5bd96afa",
+  "k": "Tamkeen's other services",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "32da573f",
+  "k": "Their free allowances as published. The app can't read how much is used: each shows it on its own page, behind your sign-in.",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "61a0ae3b",
+  "k": "Limits",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "4803ac21",
+  "k": "Limits as published on {0}. Bars turn amber from 70% and red from 90%.",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "56e3badc",
+  "k": "Refresh",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "899a96e2",
+  "k": "1 online",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "80cbed25",
+  "k": "{0} online",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
+  "id": "60ec2cef",
+  "k": "Creator: people online and limits",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
   "id": "2d41f8a1",
   "k": "Back: this piece again, or the one before",
   "f": "web/js/components/dictation.js"
@@ -4362,11 +4482,6 @@
  {
   "id": "2b52679a",
   "k": "{0} kB",
-  "f": "web/js/components/dlipanel.js"
- },
- {
-  "id": "33ce4174",
-  "k": "Loading…",
   "f": "web/js/components/dlipanel.js"
  },
  {
@@ -12688,6 +12803,126 @@
   "id": "7c1e44a9",
   "k": "This word has no audio.",
   "f": "web/js/coursepacks.js"
+ },
+ {
+  "id": "bbda53b4",
+  "k": "Free plan",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "5f06968a",
+  "k": "Pro plan",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "82743c9e",
+  "k": "under 0.1%",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "49102c78",
+  "k": "{0} KB",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "244cfd43",
+  "k": "People online now",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "8374196b",
+  "k": "Each person online holds one live connection. The limit is the most at the same moment.",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "5906db09",
+  "k": "Active users, last 30 days",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "40180109",
+  "k": "People who signed in or opened the app in the last 30 days. Supabase counts by billing month, so its figure can differ a little.",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "02b3304d",
+  "k": "Database size",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "4fbddfd9",
+  "k": "File storage",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "ad63e187",
+  "k": "Voice notes, profile photos and lesson files.",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "6cc82ee8",
+  "k": "Data sent out, a month",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "05cf07af",
+  "k": "Live messages, a month",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "6d559b7c",
+  "k": "Function calls, a month",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "aa669022",
+  "k": "GitHub Pages (the web app and the downloads)",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "8d6a404f",
+  "k": "1 GB site size, 100 GB of traffic a month (a soft limit)",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "c844dfef",
+  "k": "Cloudflare Worker (the web app's go-between)",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "1f30412f",
+  "k": "100,000 requests a day",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "ee60bc33",
+  "k": "Google Drive (sync)",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "4fa868a2",
+  "k": "1,000,000 quota units a minute for the whole app (a read costs 5, a download 200); each learner's files use their own Drive space",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "f46e2bef",
+  "k": "Azure Speech (DLI deck audio)",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "da7cce45",
+  "k": "500,000 characters of speech a month",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "14727c6d",
+  "k": "Groq, Gemini and other AI keys",
+  "f": "web/js/creatorstats.js"
+ },
+ {
+  "id": "dbc4b2cf",
+  "k": "Each learner uses their own key, so these are their limits, not yours",
+  "f": "web/js/creatorstats.js"
  },
  {
   "id": "3de9e752",
@@ -22045,11 +22280,6 @@
   "f": "web/js/pages/books.js"
  },
  {
-  "id": "49102c78",
-  "k": "{0} KB",
-  "f": "web/js/pages/books.js"
- },
- {
   "id": "0122668f",
   "k": "{0} · about {1} of reading · {2}",
   "f": "web/js/pages/books.js"
@@ -22342,11 +22572,6 @@
  {
   "id": "5d588cda",
   "k": "The most listened-to podcasts in the language you're learning. Press + Add to put one in your library.",
-  "f": "web/js/pages/discover.js"
- },
- {
-  "id": "56e3badc",
-  "k": "Refresh",
   "f": "web/js/pages/discover.js"
  },
  {
