@@ -28,6 +28,7 @@ export const PROTOTYPES = {
   dict_sense_pick: { name: "Saving a word with no AI: a word with several meanings asks which one the card is for (word popup, Ask by voice)", released: false, since: "2026-11-21" },
   library_feed: { name: "The Library like YouTube: every tab in big pictures (a YouTube video in the middle of the screen plays silently), in progress first, then new, then finished, with a Filter button", released: false, since: "2026-11-21" },
   creator_bar: { name: "Creator bar on Home (the creator only): people online now and every limit as used / limit", released: true, since: "2026-11-20" },
+  prime_video: { name: "Prime Video with the Tamkeen browser extension (now \"Tamkeen for Netflix & Prime Video\"): \"Get the Tamkeen extension\" and a Prime Video note on the Library's Netflix tab and the + sheet's Netflix step", released: false, since: "2026-11-21" },
 };
 
 const KEY = "tamkeenPrototype";

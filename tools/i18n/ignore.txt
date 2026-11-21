@@ -751,3 +751,9 @@ f3c85b26  # the little words senses.js leaves out when it compares meanings (not
 f1b54c5c  # more {0} (formof.js: an English comparative inside a dictionary meaning)
 ceaaac08  # most {0} (formof.js: an English superlative inside a dictionary meaning)
 52cbe3b0  # very {0} (formof.js: an English meaning, Spanish -ísimo)
+# Prime Video, the light way (web/js/primevideo.js, extension/src/content/prime.js): the brand's own names and
+# a piece of a CSS rule in the extension's script inside Prime Video's page.
+4cbc3d8f  # Prime Video
+51cb6aa4  # Netflix & Prime Video  (the + sheet's way: two brand names)
+d2a86242  # px; right: 0; bottom:  (CSS in content/prime.js)
+d719e68e  # Tamkeen for Netflix & Prime Video  (the extension's name)

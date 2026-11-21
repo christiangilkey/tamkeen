@@ -1,4 +1,4 @@
-// Build the browser extension "Tamkeen for Netflix" (extension/): a folder you can load as it is
+// Build the browser extension "Tamkeen for Netflix & Prime Video" (extension/): a folder you can load as it is
 // (chrome://extensions -> Developer mode -> Load unpacked), and optionally its zip and install page.
 //   node extension/scripts/build.mjs                        -> extension/build/
 //   node extension/scripts/build.mjs --out DIR --zip FILE --page DIR [--version 1.2.3] [--store-zip FILE]
@@ -14,7 +14,8 @@
 //
 // FOR TESTS ONLY (never for a release): --test-netflix http://127.0.0.1:PORT makes a local stand-in
 // count as Netflix, --test-subs HOST serves its subtitle files, --test-webapp http://127.0.0.1:PORT/app/
-// is the web app. The manifest and config then name those too.
+// is the web app, --test-prime http://127.0.0.1:PORT a local stand-in for Prime Video's player page. The
+// manifest and config then name those too.
 import { execFileSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { deflateRawSync } from "node:zlib";
@@ -30,12 +31,12 @@ const LAYERS = [join(ext, "src"), join(root, "mobile", "src"), join(root, "web")
 const args = process.argv.slice(2);
 const opt = (name) => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : undefined; };
 const out = opt("out") || join(ext, "build");
-const test = { netflix: opt("test-netflix"), subs: opt("test-subs"), webapp: opt("test-webapp") };
+const test = { netflix: opt("test-netflix"), subs: opt("test-subs"), webapp: opt("test-webapp"), prime: opt("test-prime") };
 const local = (u) => /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?(\/|$)/.test(String(u || ""));
 for (const [k, v] of Object.entries(test)) {
   if (v && !(k === "subs" ? /^(127\.0\.0\.1|localhost)$/.test(v) : local(v))) throw new Error(`--test-${k} must be a local address (tests only): ${v}`);
 }
-const testing = !!(test.netflix || test.subs || test.webapp);
+const testing = !!(test.netflix || test.subs || test.webapp || test.prime);
 
 let version = opt("version") || process.env.APP_VERSION || "";
 if (!version) {
@@ -89,7 +90,7 @@ rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
 // The pages and scripts of the extension itself; the app's look, fonts, translations and icons.
-for (const rel of ["panel.html", "css/ext.css", "content/netflix.js", "content/netflix-main.js", "content/webapp.js"]) copy(rel);
+for (const rel of ["panel.html", "prime.html", "css/ext.css", "content/netflix.js", "content/netflix-main.js", "content/webapp.js", "content/prime.js"]) copy(rel);
 copy("css/app.css");
 copy("css/media.css"); // (the word popup's pause switch and the quick/detailed switch)
 copy("fonts");
@@ -97,12 +98,14 @@ copy("i18n");
 copy("icons", join(ext, "icons"));
 // The scripts that run inside Netflix's pages (plain scripts, shared with the computer's Netflix windows).
 for (const rel of ["js/netflix-common.js", "js/netflix-player.js", "js/netflix-browser.js", "js/netflix-pad.js"]) copy(rel);
+// The script that reads Prime Video's screen (subtitle line, title), in its pages (plain script too).
+copy("js/prime-common.js");
 // Word lists and dictionaries' code are loaded by name at times (import(`./wordlists/${lang}.js`)).
 copy("js/lexicon");
 copy("js/wordlists");
 // Every module the background part, the subtitle bar and the web app's part load.
 const bridge = closure(["js/extbridge.js"]);
-for (const rel of closure(["background.js", "js/ext/panel.js", "js/extbridge.js"])) copy(rel);
+for (const rel of closure(["background.js", "js/ext/panel.js", "js/ext/prime-panel.js", "js/extbridge.js"])) copy(rel);
 
 writeFileSync(join(out, "js", "ext", "config.js"),
   `// Made by extension/scripts/build.mjs.${testing ? " A TEST BUILD: it treats local stand-ins as Netflix." : ""}\nexport const CONFIG = ${JSON.stringify(config, null, 2)};\n`);
@@ -123,6 +126,11 @@ if (testing) {
     add(manifest.web_accessible_resources[0].matches, pattern);
   }
   if (test.subs) add(manifest.host_permissions, `http://${test.subs}/*`);
+  if (test.prime) { // (the Prime Video part: content_scripts[3], web_accessible_resources[2])
+    const pattern = `${new URL(test.prime).origin.replace(/:d+$/, "")}/*`;
+    add(manifest.content_scripts[3].matches, pattern);
+    add(manifest.web_accessible_resources[2].matches, pattern);
+  }
   if (test.webapp) {
     const u = new URL(config.webApp);
     add(manifest.content_scripts[2].matches, `${u.protocol}//${u.hostname}${u.pathname}*`);

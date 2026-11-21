@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Nasa browser na ito ang Tamkeen extension.
+5932c148 Buksan ang Prime Video
+cb35ecab Gumagana ang Netflix at Prime Video sa Tamkeen browser extension sa computer, sa Chrome o Edge. Nagiging mga salitang mata-tap ang kanilang subtitles, at bumabalik sa lahat ng device mo ang mga salitang sine-save mo.
+cf9c5dc4 Gumagana rin ang Tamkeen extension sa Prime Video: magbukas ng title sa primevideo.com, i-on ang subtitles sa sariling menu ng Prime Video, at lalabas ang linya sa screen sa tabi ng player bilang mga salitang mata-tap mo. Mapupunta sa Vocab mo ang mga salitang ise-save mo roon.
+d41532f7 Nasa Vocab mo na ang 1 salitang na-save mo sa Prime Video
+0b00621b Nasa Vocab mo na ang {0} salitang na-save mo sa Prime Video
+3b605f4b Itago ang panel ng Tamkeen
+92ba169f Mga linyang napanood mo
+ccde0379 Ipakita ang panel ng Tamkeen
+955576b5 Hindi makakapaghanap ang Tamkeen ng mga salita sa subtitles na ito.
+34a2d0d8 Larawan ang anyo ng subtitles na ito, kaya hindi mabasa ng Tamkeen ang mga salita. Pumili ng ibang subtitles sa menu ng Prime Video.
+e3e886ea I-on ang {0} na subtitles sa subtitle menu ng Prime Video: lalabas dito ang linya sa screen bilang mga salitang mata-tap mo.
+0ba518dc Mukhang hindi {0} ang subtitles na ito. Piliin ang {0} sa subtitle menu ng Prime Video kung mayroon.
+bdd1d8d9 Sa Prime Video, ipinapakita nito ang linya ng subtitle sa screen sa tabi ng player, bilang mga salitang maki-click mo. I-on ang subtitles sa sariling menu ng Prime Video.
+bdb89f57 Ganoon din sa Prime Video: sa sariling site ng Amazon ka magsa-sign in, at ang linya lang ng subtitle sa screen mo ang binabasa ng extension. Hindi nito kailanman kinokontrol ang player ng Prime Video o nagda-download ng kahit ano mula rito.
+4552b62f I-download ulit ito, i-unzip sa ibabaw ng lumang folder, saka i-click ang paikot na arrow sa Tamkeen for Netflix & Prime Video sa page ng mga extension.

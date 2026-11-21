@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Tamkeen 확장 프로그램이 이 브라우저에 있어요.
+5932c148 Prime Video 열기
+cb35ecab 넷플릭스와 Prime Video는 컴퓨터의 Chrome이나 Edge에서 Tamkeen 브라우저 확장 프로그램과 함께 작동해요. 자막이 탭할 수 있는 단어가 되고, 저장한 단어는 모든 기기로 돌아와요.
+cf9c5dc4 Tamkeen 확장 프로그램은 Prime Video에서도 작동해요. primevideo.com에서 작품을 열고 Prime Video 자체 메뉴에서 자막을 켜면, 화면의 자막 줄이 플레이어 옆에 탭할 수 있는 단어로 나타나요. 거기서 저장한 단어는 단어장으로 들어와요.
+d41532f7 Prime Video에서 저장한 단어 1개가 단어장에 들어왔어요
+0b00621b Prime Video에서 저장한 단어 {0}개가 단어장에 들어왔어요
+3b605f4b Tamkeen 패널 숨기기
+92ba169f 본 자막 줄
+ccde0379 Tamkeen 패널 보기
+955576b5 Tamkeen은 이 자막의 단어를 찾아볼 수 없어요.
+34a2d0d8 이 자막은 그림으로 표시되어서 Tamkeen이 단어를 읽을 수 없어요. Prime Video 메뉴에서 다른 자막을 고르세요.
+e3e886ea Prime Video의 자막 메뉴에서 {0} 자막을 켜세요. 화면의 자막 줄이 여기에 탭할 수 있는 단어로 나타나요.
+0ba518dc 이 자막은 {0}로 보이지 않아요. Prime Video의 자막 메뉴에 {0}가 있으면 고르세요.
+bdd1d8d9 Prime Video에서는 화면의 자막 줄을 플레이어 옆에 클릭할 수 있는 단어로 보여 줘요. 자막은 Prime Video 자체 메뉴에서 켜세요.
+bdb89f57 Prime Video도 마찬가지예요. 로그인은 Amazon 자체 사이트에서 하고, 확장 프로그램은 화면의 자막 줄만 읽어요. Prime Video 플레이어를 조작하거나 거기서 무엇을 내려받는 일은 절대 없어요.
+4552b62f 다시 다운로드해서 예전 폴더 위에 압축을 풀고, 확장 프로그램 페이지에서 Tamkeen for Netflix & Prime Video의 둥근 화살표를 누르세요.

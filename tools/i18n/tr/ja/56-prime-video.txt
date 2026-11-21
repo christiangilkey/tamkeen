@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Tamkeen の拡張機能はこのブラウザに入っています。
+5932c148 Prime Video を開く
+cb35ecab Netflix と Prime Video は、パソコンの Chrome または Edge で Tamkeen のブラウザ拡張機能と一緒に使えます。字幕がタップできる単語になり、保存した単語はすべての端末に戻ってきます。
+cf9c5dc4 Tamkeen の拡張機能は Prime Video でも使えます。primevideo.com で作品を開き、Prime Video 自体のメニューで字幕をオンにすると、画面の字幕の行がプレーヤーの横にタップできる単語として表示されます。そこで保存した単語は単語帳に入ります。
+d41532f7 Prime Video で保存した単語 1 個が単語帳に入りました
+0b00621b Prime Video で保存した単語 {0} 個が単語帳に入りました
+3b605f4b Tamkeen のパネルを隠す
+92ba169f 見た字幕の行
+ccde0379 Tamkeen のパネルを表示
+955576b5 Tamkeen はこの字幕の単語を調べられません。
+34a2d0d8 この字幕は画像として表示されるため、Tamkeen は単語を読み取れません。Prime Video のメニューで別の字幕を選んでください。
+e3e886ea Prime Video の字幕メニューで{0}の字幕をオンにしてください。画面の字幕の行が、タップできる単語としてここに表示されます。
+0ba518dc この字幕は{0}ではないようです。Prime Video の字幕メニューに{0}があれば選んでください。
+bdd1d8d9 Prime Video では、画面の字幕の行をプレーヤーの横に、クリックできる単語として表示します。字幕は Prime Video 自体のメニューでオンにしてください。
+bdb89f57 Prime Video でも同じです。サインインは Amazon 自身のサイトで行い、拡張機能は画面の字幕の行を読むだけです。Prime Video のプレーヤーを操作したり、そこから何かをダウンロードしたりすることはありません。
+4552b62f もう一度ダウンロードして古いフォルダーに上書きで展開し、拡張機能のページで Tamkeen for Netflix & Prime Video の丸い矢印をクリックします。

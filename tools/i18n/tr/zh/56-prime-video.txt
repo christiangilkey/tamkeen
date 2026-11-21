@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Tamkeen 扩展已在这个浏览器中。
+5932c148 打开 Prime Video
+cb35ecab Netflix 和 Prime Video 可以在电脑上的 Chrome 或 Edge 中配合 Tamkeen 浏览器扩展使用。它们的字幕会变成可以点按的词，你保存的词会回到你的所有设备。
+cf9c5dc4 Tamkeen 扩展也支持 Prime Video：在 primevideo.com 打开一部作品，在 Prime Video 自己的菜单里打开字幕，屏幕上的那行字幕就会以可点按的词显示在播放器旁边。在那里保存的词会进入你的词汇。
+d41532f7 你在 Prime Video 中保存的 1 个词已进入你的词汇
+0b00621b 你在 Prime Video 中保存的 {0} 个词已进入你的词汇
+3b605f4b 隐藏 Tamkeen 面板
+92ba169f 你看过的字幕行
+ccde0379 显示 Tamkeen 面板
+955576b5 Tamkeen 无法查这些字幕里的词。
+34a2d0d8 这些字幕以图片显示，所以 Tamkeen 读不出其中的词。请在 Prime Video 的菜单里选择其他字幕。
+e3e886ea 在 Prime Video 的字幕菜单中打开{0}字幕：屏幕上的那行字幕会以可点按的词显示在这里。
+0ba518dc 这些字幕看起来不是{0}。如果 Prime Video 的字幕菜单里有{0}，请选择它。
+bdd1d8d9 在 Prime Video 上，它会把屏幕上的那行字幕以可点击的词显示在播放器旁边。请在 Prime Video 自己的菜单里打开字幕。
+bdb89f57 Prime Video 也一样：你在亚马逊自己的网站上登录，扩展只读取你屏幕上的那行字幕。它从不控制 Prime Video 的播放器，也不从中下载任何东西。
+4552b62f 重新下载，解压覆盖旧文件夹，然后在扩展页面上点击 Tamkeen for Netflix & Prime Video 的圆形箭头。

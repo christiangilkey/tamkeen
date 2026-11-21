@@ -567,8 +567,15 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="desc small">Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows
         computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.</div></div></div>`);
       head.append(el);
-      netflixSupport().then(({ ok }) => {
-        if (!ok || !el.isConnected) return;
+      netflixSupport().then((support) => {
+        if (!el.isConnected) return;
+        // (prototype prime_video: the browser add-on for Netflix and Prime Video, components/addonlink.js)
+        if (feature("prime_video")) {
+          import("../components/addonlink.js").then(({ addOnBox, onPhone }) => {
+            if (el.isConnected) el.querySelector(".meta").append(addOnBox(onPhone(support), { compact: true }));
+          }).catch(() => {});
+        }
+        if (!support.ok) return;
         const row = h(`<div class="row" style="margin-top:8px"><button type="button">${icon("film", 16)} Open Netflix</button></div>`);
         row.querySelector("button").onclick = () => openNetflix().catch((err) => toast(err.message, { error: true }));
         el.querySelector(".meta").append(row);

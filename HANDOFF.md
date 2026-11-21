@@ -9634,3 +9634,65 @@ limits are compared to my supabase limits ... and all of my limits".
   Drive, Azure Speech) are a static list with links: the app cannot read their usage.
 - **Database**: `supabase/v14-creator.sql`, self-test `supabase/test_rls_creator.sql` (expects `bad=[ none]`). Neither
   has been executed (no database here). Without v14 no bar shows.
+
+## Prime Video, the light way, in the one browser extension "Tamkeen for Netflix & Prime Video" (2026-11-21; prototype `prime_video`)
+Owner: "yes add the light way. Also combine it with the netflix extension, add a link to get it in the tamkeen desktop
+webapp and actual app". Research and the terms check: the "Prime Video" session's notes
+(side-session-notes/…/prime-video-research.md). **The light way, strictly**: Tamkeen only READS what Prime Video already
+shows on screen (the subtitle line, the title's name and episode line, the player's time). It never controls Amazon's
+player (no play/pause/seek/speed/track/subtitle choice; the viewer turns subtitles on in Prime Video's own menu; the word
+popup has no play buttons and doesn't pause even with "pause on a tapped word"), never changes Amazon's page (its only
+element is the panel's own box, a closed shadow root), never downloads anything from Amazon (no webRequest, no fetch), and
+keeps only the lines watched (in the panel, this viewing only) and the words saved. Prime Video titles are NOT added to
+the Library: a saved word goes to the Vocab with `source` "Prime Video · Show · S1:E3 · Episode" (POST /vocab without an
+episode, as for Spotify-era sources). **Don't** add player control, subtitle-file fetching or a Library kind without
+asking the owner: that is what the light way rules out.
+- **Same extension** (manifest name "Tamkeen for Netflix & Prime Video", description ≤ 132 chars). New:
+  `content_scripts[3]` on `www.primevideo.com/*`, `primevideo.com/*` and `www.amazon.<19 countries>/gp/video/*`
+  (`js/prime-common.js` + `content/prime.js`, isolated world, no host permission needed), `web_accessible_resources[2]`
+  `prime.html` (origins only). Build (`extension/scripts/build.mjs`) copies them, follows `js/ext/prime-panel.js`;
+  `--test-prime http://localhost:PORT` for tests. Netflix's parts are untouched (indices 0–2 unchanged).
+- **Reading the screen**: `web/js/prime-common.js` (plain script, `__tamkeenPrimeLib`; ESM wrapper `web/js/primevideo.js`):
+  `readCaption` (`.atvwebplayersdk-captions-text`, then looser `[class*='captions-text']`; pictures → `image: true`),
+  `cleanCaption` (one line; `[sound]`, `(laughs)`, ♪, speaker dashes and "NAME:" out), `readTitle`
+  (`.atvwebplayersdk-title-text` / `-subtitle-text`), `playerOpen` (the player box with a `<video>`), `titleId`
+  (`/detail/<id>`, `/region/xx/detail/<id>`, `/gp/video/detail/<id>`, `/dp/<id>`). `primevideo.js` `watchedLines()`
+  builds lines from what is seen (start when shown, end when the next shows, a jump back reuses the line),
+  `primeSource`, `primeNote`. The class names come from public descriptions of Amazon's web player: **to check on the
+  owner's real account** (below).
+- **The panel** (`extension/src/prime.html`, `js/ext/prime-panel.js`, CSS "Prime Video" in `css/ext.css`): 360 px at the
+  right edge, 76 px from the top and 112 px from the bottom (clear of the player's own buttons); the line on screen big,
+  "Lines you've watched" below (tap any word; the popup stays open while the video plays on), notes (turn on {lang}
+  subtitles in Prime Video's menu / they look like another language / pictures / open Tamkeen once), saved-words foot;
+  folds to a 26 px tab. `content/prime.js` passes `{type:"screen", text, image, t, paused, title, episode, id}` on a
+  change (time once a second) over the same private MessageChannel + token as Netflix's panel.
+- **Words**: `extbridge.js` `cleanWord` takes `service: "prime"` words (`prime_id`, `source`, no times, no Netflix id);
+  `savedPrimeWord`. `mobile/src/js/web-extension.js` posts them to /vocab with `source` and `language` (toast "N words you
+  saved in Prime Video are now in your Vocab"); voice as usual (`voiceNewCard`).
+- **The link in the apps** (prototype `prime_video`): `web/js/components/addonlink.js` `addOnBox(phone)`: on a computer
+  (desktop app or browser) what it does on Prime Video + **Get the Tamkeen extension** (store page once listed, else the
+  install page: `netflix.js extensionLink`; pywebview opens `target=_blank` in the computer's browser), or, with the
+  extension in this browser, "is in this browser" + **Open Prime Video**; on a phone a plain note that it works on a
+  computer in Chrome or Edge. Shown on the Library's Netflix heading (`pages/library.js`: only the `netflixSupport()`
+  callback, now `(support)`, appends it; the Open Netflix row is as before) and the + sheet's Netflix step
+  (`components/addsheet.js`; the way is named "Netflix & Prime Video" in prototype mode; in the web app without the
+  extension only the Prime note is added, the existing Get button stays the one button).
+- **Pages**: `extension/install.html` (name, a Prime Video lead line, accounts line), `extension/privacy.html` (where it
+  runs, "What it does on Prime Video's pages", Amazon gets nothing, trademarks), `extension/store/listing.md` (name,
+  summary, description section, single purpose, the content script's justification). Translations:
+  `tools/i18n/tr/<16>/56-prime-video.txt` (16 strings); ignore.txt has the brand names and a CSS piece.
+- **Tests**: `tests/js/primevideo.test.mjs` (12: reading the saved sample markup `tests/js/fixtures/primevideo/player.html`
+  through `tests/js/fixtures/tinydom.mjs`, a tiny HTML reader; looser class names; pictures; title/episode; player open;
+  cleaning; watched lines; ids/hosts; source; Prime words through the bridge; Netflix words unchanged).
+  `extension/test/prime-e2e.mjs` (real Edge, fresh profile, `extension/test/fake-prime.mjs` built on the same sample
+  markup, the web app from docs/): name, prototype sheet with/without the extension, no panel on a title page, the line
+  on screen in the panel, title name, watched lines in order, panel placement, Amazon's page unchanged, word meaning, no
+  play buttons, popup stays open, Save → Vocab with source and no episode, the extension forgets it, **no
+  play/pause/seek/rate on the video**, panel leaves with the player, subtitles-off note, fold/unfold, **no requests by
+  Tamkeen to the Prime page's host**. Netflix's `extension/test/e2e.mjs` re-run unchanged.
+- **Needs the owner (real Prime Video, his own sign-in)**: load the extension (unpacked from `extension/build`, or the zip
+  once rebuilt), open Tamkeen's web app once, then a Prime Video title with Arabic subtitles on: check the subtitle line
+  is page text with those class names (else adjust `CAPTION_SEL`/`TITLE_SEL`/`PLAYER_SEL` in prime-common.js and the
+  sample markup), that the panel clears the player's own buttons (TOP/BOTTOM in content/prime.js), full screen, the
+  title id from the address on primevideo.com vs amazon.com/gp/video, and Arabic's language label. Release: set
+  `prime_video` released, CHANGELOG + whatis-special, and rebuild docs/extension (webapp/build-web.mjs).

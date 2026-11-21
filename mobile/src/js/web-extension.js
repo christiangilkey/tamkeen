@@ -1,5 +1,5 @@
-// The web app's side of the Tamkeen browser extension ("Tamkeen for Netflix", extension/), on a
-// computer: the extension adds Tamkeen's subtitle bar to Netflix's own tab, but it can't read the
+// The web app's side of the Tamkeen browser extension ("Tamkeen for Netflix & Prime Video", extension/), on a
+// computer: the extension adds Tamkeen's subtitle bar to Netflix's own tab (and a panel beside Prime Video's player), but it can't read the
 // web app's library (browsers keep each website's storage apart). Its small part on this page
 // (extension/src/content/webapp.js) and this file pass what each needs (web/js/extbridge.js explains
 // the messages):
@@ -7,7 +7,8 @@
 //     tapped word), whenever this page opens and whenever they change;
 //   - the words saved in Netflix and the titles watched there, which come into the library here (and
 //     then sync to Drive as usual): each title as a Netflix item with its subtitles, each word linked
-//     to it, at its place in the title.
+//     to it, at its place in the title; a word saved in Prime Video goes to the Vocab with the title's name
+//     (Prime Video titles are not kept in the library: the light way, primevideo.js).
 // Only messages from this very page's window and address, with the nonce of this visit, are taken,
 // and what arrives is cleaned to plain values first (extbridge.js).
 import { APP, EXT, checkMessage, cleanPending, cleanSettings, message } from "./extbridge.js";
@@ -91,8 +92,19 @@ async function takePending({ words, titles }) {
     const feed = await feedUid(NETFLIX_FEED);
     const done = imported();
     let added = 0;
+    let fromPrime = 0;
     for (const w of words) {
       if (done.has(w.uid)) { kept.words.push(w.uid); continue; }
+      if (w.service === "prime") { // (Prime Video: a word with where it came from; no title in the library)
+        try {
+          voiced.push(await api("/vocab", { method: "POST", body: { text: w.text, sentence: w.sentence, source: w.source,
+            language: w.language, meaning: w.meaning, notes: w.notes, translation: w.translation } }));
+          done.add(w.uid);
+          kept.words.push(w.uid);
+          fromPrime++;
+        } catch (err) { console.warn("Couldn't keep a word saved in Prime Video:", err); }
+        continue;
+      }
       try {
         const uid = await episodeUid(feed, w.netflix_id);
         if (!lib.episodes.some((e) => e.uid === uid && !e.deleted)) { // its title isn't here yet (or was removed)
@@ -109,7 +121,9 @@ async function takePending({ words, titles }) {
     if (kept.words.length || kept.titles.length) post("ack", kept);
     if (added === 1) toast("1 word you saved in Netflix is now in your Vocab");
     else if (added > 1) toast(`${added} words you saved in Netflix are now in your Vocab`);
-    if (added || kept.titles.length) refresh();
+    if (fromPrime === 1) toast("1 word you saved in Prime Video is now in your Vocab");
+    else if (fromPrime > 1) toast(`${fromPrime} words you saved in Prime Video are now in your Vocab`);
+    if (added || fromPrime || kept.titles.length) refresh();
     // Each word's voice: Azure says the word and its sentence, kept with the card (Settings → Card voices).
     if (voiced.length) {
       import("./voiceplay.js").then(({ voiceNewCard }) => {

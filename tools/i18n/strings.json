@@ -2235,6 +2235,21 @@
   "f": "web/js/components/account.js"
  },
  {
+  "id": "9d4933ef",
+  "k": "The Tamkeen extension is in this browser.",
+  "f": "web/js/components/addonlink.js"
+ },
+ {
+  "id": "5932c148",
+  "k": "Open Prime Video",
+  "f": "web/js/components/addonlink.js"
+ },
+ {
+  "id": "cc64fd13",
+  "k": "Get the Tamkeen extension",
+  "f": "web/js/components/addonlink.js"
+ },
+ {
   "id": "bafb6ef2",
   "k": "Podcast",
   "f": "web/js/components/addsheet.js"
@@ -2367,11 +2382,6 @@
  {
   "id": "d93fcbac",
   "k": "Netflix opens on its titles in {0}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its {1} subtitles as words you can click.",
-  "f": "web/js/components/addsheet.js"
- },
- {
-  "id": "cc64fd13",
-  "k": "Get the Tamkeen extension",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -27320,6 +27330,16 @@
   "f": "web/js/podcast-picks.js"
  },
  {
+  "id": "cb35ecab",
+  "k": "Netflix and Prime Video work with the Tamkeen browser extension on a computer, in Chrome or Edge. Their subtitles become words you can tap, and the words you save come back to every device.",
+  "f": "web/js/primevideo.js"
+ },
+ {
+  "id": "cf9c5dc4",
+  "k": "The Tamkeen extension also works with Prime Video: open a title on primevideo.com, turn on subtitles in Prime Video's own menu, and the line on screen shows beside the player as words you can tap. Words you save there come to your Vocab.",
+  "f": "web/js/primevideo.js"
+ },
+ {
   "id": "d9cc6b1c",
   "k": "{0}% read",
   "f": "web/js/progress.js"
@@ -32300,6 +32320,16 @@
   "f": "mobile/src/js/web-extension.js"
  },
  {
+  "id": "d41532f7",
+  "k": "1 word you saved in Prime Video is now in your Vocab",
+  "f": "mobile/src/js/web-extension.js"
+ },
+ {
+  "id": "0b00621b",
+  "k": "{0} words you saved in Prime Video are now in your Vocab",
+  "f": "mobile/src/js/web-extension.js"
+ },
+ {
   "id": "c79f28f8",
   "k": "Importing the page…",
   "f": "mobile/src/js/web-import.js"
@@ -33865,8 +33895,48 @@
   "f": "extension/src/js/ext/panel.js"
  },
  {
+  "id": "3b605f4b",
+  "k": "Hide Tamkeen's panel",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "92ba169f",
+  "k": "Lines you've watched",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "ccde0379",
+  "k": "Show Tamkeen's panel",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "955576b5",
+  "k": "Tamkeen can't look up words in these subtitles.",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "34a2d0d8",
+  "k": "These subtitles show as pictures, so Tamkeen can't read their words. Choose other subtitles in Prime Video's menu.",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "e3e886ea",
+  "k": "Turn on {0} subtitles in Prime Video's subtitle menu: the line on screen shows here as words you can tap.",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
+  "id": "0ba518dc",
+  "k": "These subtitles don't look like {0}. Choose {0} in Prime Video's subtitle menu if it has them.",
+  "f": "extension/src/js/ext/prime-panel.js"
+ },
+ {
   "id": "2374f9ce",
   "k": "A browser extension for Chrome and Edge on a computer. On Netflix it adds Tamkeen's subtitle bar: the subtitles in the language you're learning become words you can click, with the whole transcript beside the video.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "bdd1d8d9",
+  "k": "On Prime Video it shows the subtitle line on screen beside the player, as words you can click. Turn subtitles on in Prime Video's own menu.",
   "f": "extension/install.html"
  },
  {
@@ -33940,8 +34010,8 @@
   "f": "extension/install.html"
  },
  {
-  "id": "ce37f441",
-  "k": "Download it again, unzip it over the old folder, then click the round arrow on Tamkeen for Netflix on the extensions page.",
+  "id": "4552b62f",
+  "k": "Download it again, unzip it over the old folder, then click the round arrow on Tamkeen for Netflix & Prime Video on the extensions page.",
   "f": "extension/install.html"
  },
  {
@@ -33952,6 +34022,11 @@
  {
   "id": "363e30f5",
   "k": "You sign in to Netflix on Netflix's own site: the extension never sees your password. Netflix's subtitles and the words you save stay in your own Tamkeen library, and are never shared.",
+  "f": "extension/install.html"
+ },
+ {
+  "id": "bdb89f57",
+  "k": "The same goes for Prime Video: you sign in on Amazon's own site, and the extension only reads the subtitle line on your screen. It never controls Prime Video's player or downloads anything from it.",
   "f": "extension/install.html"
  },
  {

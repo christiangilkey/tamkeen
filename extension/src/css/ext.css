@@ -107,3 +107,27 @@ body { font: 14px/1.5 var(--ui-font); color: var(--text); }
   .ctl { flex-wrap: wrap; justify-content: center; }
   .ctl-side { flex: none; }
 }
+
+/* ---------- Prime Video (prime.html): a panel beside Prime Video's player, the light way ----------
+   The frame is only as big as the panel (content/prime.js sizes it to the width reported): the rest of
+   Prime Video's page, its picture, its own subtitles and buttons, stay as Amazon draws them. */
+.tk.pv { --side: 360px; }
+.pv-side { width: 360px; border: 1px solid var(--border); border-right: 0; border-radius: 14px 0 0 14px; }
+.pv-lookup { flex: none; }
+.pv-now { flex: none; min-height: calc(1.7em * 2); padding: 12px 14px; border-bottom: 1px solid var(--border); text-align: center;
+  font-family: var(--ar-font); font-size: clamp(18px, calc(var(--ar-size) * .9), 34px); line-height: 1.7; user-select: none; }
+.pv-now:empty { min-height: 0; padding: 0; border: 0; }
+.pv-now .w { cursor: pointer; border-radius: 5px; padding: 0 .05em; }
+.pv-now .w:hover { background: var(--surface-2); }
+.pv-label { flex: none; padding: 8px 14px 0; text-align: center; }
+.pv .lines { padding-bottom: 14px; }
+.pv .ln { cursor: default; }
+.pv .ln-t { float: inline-start; margin-inline-end: 8px; padding: 0 6px; color: var(--muted); font: 12px/2.4 var(--ui-font);
+  font-variant-numeric: tabular-nums; direction: ltr; }
+.pv-tab { position: fixed; top: 0; right: 0; bottom: 0; width: 26px; min-height: 0; padding: 0; margin: 0; border: 1px solid var(--border);
+  border-right: 0; border-radius: 10px 0 0 10px; background: var(--surface); color: var(--muted);
+  display: flex; align-items: center; justify-content: center; }
+.pv-tab:hover:not(:disabled) { color: var(--text); background: var(--surface-2); }
+.pv-tab .ic { transform: rotate(180deg); }
+.pv .toasts { width: 320px; }
+@media (max-width: 760px) { .pv-side { width: 360px; } }

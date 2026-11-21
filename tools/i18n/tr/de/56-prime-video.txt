@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Die Tamkeen-Erweiterung ist in diesem Browser.
+5932c148 Prime Video öffnen
+cb35ecab Netflix und Prime Video funktionieren mit der Tamkeen-Browsererweiterung auf einem Computer, in Chrome oder Edge. Ihre Untertitel werden zu Wörtern, die du antippen kannst, und gespeicherte Wörter kommen auf alle deine Geräte.
+cf9c5dc4 Die Tamkeen-Erweiterung funktioniert auch mit Prime Video: Öffne einen Titel auf primevideo.com, schalte die Untertitel in Prime Videos eigenem Menü ein, und die Zeile auf dem Bildschirm erscheint neben dem Player als Wörter, die du antippen kannst. Dort gespeicherte Wörter kommen in deine Vokabeln.
+d41532f7 1 Wort, das du auf Prime Video gespeichert hast, ist jetzt in deinen Vokabeln
+0b00621b {0} Wörter, die du auf Prime Video gespeichert hast, sind jetzt in deinen Vokabeln
+3b605f4b Tamkeens Leiste ausblenden
+92ba169f Zeilen, die du gesehen hast
+ccde0379 Tamkeens Leiste einblenden
+955576b5 Tamkeen kann in diesen Untertiteln keine Wörter nachschlagen.
+34a2d0d8 Diese Untertitel werden als Bilder angezeigt, deshalb kann Tamkeen ihre Wörter nicht lesen. Wähle im Menü von Prime Video andere Untertitel.
+e3e886ea Schalte im Untertitelmenü von Prime Video {0} Untertitel ein: Die Zeile auf dem Bildschirm erscheint hier als Wörter, die du antippen kannst.
+0ba518dc Diese Untertitel sehen nicht nach {0} aus. Wähle {0} im Untertitelmenü von Prime Video, falls es sie gibt.
+bdd1d8d9 Auf Prime Video zeigt sie die Untertitelzeile auf dem Bildschirm neben dem Player als Wörter, die du anklicken kannst. Schalte die Untertitel in Prime Videos eigenem Menü ein.
+bdb89f57 Bei Prime Video genauso: Du meldest dich auf Amazons eigener Seite an, und die Erweiterung liest nur die Untertitelzeile auf deinem Bildschirm. Sie steuert nie den Player von Prime Video und lädt nichts davon herunter.
+4552b62f Lade sie noch einmal herunter, entpacke sie über den alten Ordner und klicke dann auf der Erweiterungsseite auf den runden Pfeil bei Tamkeen for Netflix & Prime Video.

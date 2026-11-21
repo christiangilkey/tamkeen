@@ -1,4 +1,4 @@
-# Chrome Web Store listing: Tamkeen for Netflix
+# Chrome Web Store listing: Tamkeen for Netflix & Prime Video
 
 Everything to paste into the Chrome Web Store developer dashboard, field by field.
 `HOW-TO-PUBLISH.md` (same folder) says where each part goes.
@@ -15,15 +15,15 @@ file, `extension/privacy.html` and the dashboard's Privacy practices tab togethe
 Taken from the extension itself (manifest.json), so there is nothing to type:
 
 ```
-Tamkeen for Netflix
+Tamkeen for Netflix & Prime Video
 ```
 
 ### Summary (short description, 132 characters at most)
 
-Also taken from manifest.json (129 characters):
+Also taken from manifest.json (132 characters at most):
 
 ```
-Learn a language with Netflix: Tamkeen's subtitle bar shows the subtitles in the language you're learning as words you can click.
+Learn a language with Netflix and Prime Video: Tamkeen shows their subtitles in the language you're learning as words you can click.
 ```
 
 ### Description
@@ -33,7 +33,7 @@ Paste everything between the lines.
 ---
 
 ```
-Tamkeen for Netflix turns the subtitles of what you watch into a language lesson.
+Tamkeen for Netflix & Prime Video turns the subtitles of what you watch into a language lesson.
 
 Pick a film or series on Netflix with subtitles in the language you're learning. Tamkeen shows those subtitles in a bar under the video, as words you can click, and the whole transcript in a sidebar beside it.
 
@@ -43,6 +43,9 @@ WHAT YOU CAN DO
 • Replay: back or ahead 5 seconds, back to the start of the sentence, slower or faster playback.
 • Choose quick meanings, or detailed explanations with grammar and the word's dictionary form.
 • Fold the sidebar away when you just want to watch.
+
+ON PRIME VIDEO
+Turn on subtitles in the language you're learning in Prime Video's own menu. Tamkeen shows the line on screen in a panel beside the player, as words you can click, with the lines you've watched below it. Click a word for its meaning and save it to your vocabulary list. On Prime Video, Tamkeen only reads the subtitle line on your screen: it never controls Prime Video's player and downloads nothing from it.
 
 HOW WORDS ARE EXPLAINED
 • A free dictionary for your language, downloaded once and kept in your browser.
@@ -55,7 +58,7 @@ LANGUAGES
 17 languages to learn, including Arabic, Spanish, French, German, Japanese, Korean and Chinese. The app itself is available in English and 16 other languages.
 
 GOOD TO KNOW
-• You need your own Netflix subscription. The video plays in Netflix's own player; the extension never sees your Netflix password.
+• You need your own Netflix or Prime Video subscription. The video plays in Netflix's or Amazon's own player; the extension never sees your password.
 • Works in Chrome and Edge on a computer.
 • A title needs subtitles in the language you're learning; Tamkeen tells you when it has none.
 • To show the subtitles you're learning, Tamkeen switches the subtitle language in Netflix's player. Netflix remembers that choice for your profile, and you can change it back in Netflix's subtitle menu.
@@ -63,7 +66,7 @@ GOOD TO KNOW
 PRIVACY
 No ads, no analytics, no tracking. Your settings, dictionaries and saved words stay in your browser and your own Tamkeen library. Nothing is sent to the developer. Privacy policy: https://christiangilkey.github.io/tamkeen/extension/privacy.html
 
-Tamkeen is an independent, open-source project. It is not affiliated with, endorsed or sponsored by Netflix. Netflix is a trademark of Netflix, Inc.
+Tamkeen is an independent, open-source project. It is not affiliated with, endorsed or sponsored by Netflix or Amazon. Netflix is a trademark of Netflix, Inc. Prime Video and Amazon are trademarks of Amazon.com, Inc. or its affiliates.
 ```
 
 ---
@@ -113,7 +116,7 @@ original sample video, so no Netflix pictures or logo appear):
 ### Single purpose (paste)
 
 ```
-Tamkeen for Netflix has one purpose: to help people learn a language while watching Netflix. On a Netflix watch page it shows the subtitles in the language being learned as clickable words, in a bar under the video and a transcript beside it, explains a clicked word, and controls Netflix's player (play, pause, jump to a line, speed) from that bar. Words the learner saves are passed to the learner's own Tamkeen web app.
+Tamkeen for Netflix & Prime Video has one purpose: to help people learn a language while watching Netflix or Prime Video, by showing the subtitles as clickable words. On a Netflix watch page it shows the subtitles in the language being learned as clickable words, in a bar under the video and a transcript beside it, explains a clicked word, and controls Netflix's player (play, pause, jump to a line, speed) from that bar. On Prime Video, while its player is open, it reads the subtitle line shown on screen and shows it in a panel beside the player as clickable words (it does not control Prime Video's player). Words the learner saves are passed to the learner's own Tamkeen web app.
 ```
 
 ### Permission justifications (paste one into each box)
@@ -141,6 +144,7 @@ Used only to notice when Netflix's own player downloads a subtitle file from Net
 ```
 www.netflix.com: to show the subtitle bar and transcript on Netflix watch pages, to hide Netflix's own subtitles while Tamkeen's are shown, to control the player when the user presses Tamkeen's buttons, to choose the subtitle track in the language being learned, and to ask Netflix's site for the name of the title being watched.
 *.nflxvideo.net: Netflix serves subtitle files from these hosts; the extension fetches the subtitle file Netflix's player has just downloaded so it can show its lines (see webRequest).
+Prime Video (content script on www.primevideo.com and Amazon's video pages, amazon.<country>/gp/video/*, no host permission): while Prime Video's player is open, to read the subtitle line it shows on screen and the title's name, and to show Tamkeen's panel beside the player. It makes no requests to Amazon and does not control the player.
 christiangilkey.github.io/tamkeen/app/: the extension's companion, the free Tamkeen web app. A small content script there passes settings from the web app to the extension and saved words back, through messages on that page only. No other website is accessed.
 ```
 

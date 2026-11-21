@@ -14,6 +14,9 @@ import { uiLanguage } from "../i18n.js";
 import { COUNTRIES, chooseCountry, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "../youtube-home.js";
 import { openModal } from "./modal.js";
 import { audiobookStep } from "./audiobooksheet.js";
+import { addOnBox, onPhone } from "./addonlink.js";
+import { primeNote } from "../primevideo.js";
+import { feature } from "../prototype.js";
 
 const WAYS = [
   { key: "podcast", label: "Podcast", icon: "podcast", text: "What's trending in your language, or paste a feed address", step: true },
@@ -26,6 +29,9 @@ const WAYS = [
   { key: "video", label: "Video file", icon: "videofile", text: "A video of your own, from this device" },
   { key: "audio", label: "Audio file", icon: "audio", text: "A recording of your own, from this device" },
 ];
+
+/** A way's name in the sheet (prototype prime_video: Netflix's way covers Prime Video too, through the extension). */
+const labelOf = (w) => (w.key === "netflix" && feature("prime_video") ? "Netflix & Prime Video" : w.label);
 
 /** Ways that are a screen of their own. Podcast opens Trending, which starts loading at once, with
  *  the feed-address box there too (the owner: it "should automatically start loading the trending in the
@@ -68,7 +74,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
     for (const w of WAYS) {
       const b = h(`<button type="button" class="add-way" data-way="${w.key}">
         <span class="aw-ico">${icon(w.icon, 24)}</span>
-        <span class="aw-text"><strong>${w.label}</strong><span>${esc(w.text)}</span></span>
+        <span class="aw-text"><strong>${labelOf(w)}</strong><span>${esc(w.text)}</span></span>
         ${w.step ? `<span class="aw-go">${icon("chevron", 18)}</span>` : ""}</button>`);
       b.onclick = () => choose(w.key);
       box.append(b);
@@ -93,7 +99,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
   /** One way's own small form, with a way back to the list. */
   function step(key) {
     const w = WAYS.find((x) => x.key === key);
-    sheet.setTitle(w.label);
+    sheet.setTitle(labelOf(w));
     body.innerHTML = "";
     const back = h(`<button type="button" class="ghost aw-back">‹ All the ways to add</button>`);
     back.onclick = list;
@@ -178,8 +184,11 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
   function netflixStep(box) {
     const wait = h(`<p class="small muted aw-note">Checking…</p>`);
     box.append(wait);
-    netflixSupport().catch(() => ({ ok: false, reason: "" })).then(({ ok, reason, extension }) => {
+    netflixSupport().catch(() => ({ ok: false, reason: "" })).then((support) => {
+      const { ok, reason, extension } = support;
       wait.remove();
+      // (prototype prime_video: the browser add-on works with Prime Video too; components/addonlink.js)
+      const prime = feature("prime_video");
       if (ok) {
         const open = h(`<button type="button" class="primary aw-wide">${icon("film", 18)} Open Netflix</button>`);
         open.onclick = () => {
@@ -189,6 +198,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
         box.append(open, extension
           ? h(`<p class="small muted aw-note">Netflix opens in a new tab, on its titles in ${esc(langName)}. Sign in there with your own Netflix account and pick something to watch: Tamkeen's subtitle bar shows its ${esc(langName)} subtitles as words you can click. Words you save there come back here.</p>`)
           : h(`<p class="small muted aw-note">Netflix opens on its titles in ${esc(langName)}. Sign in there with your own Netflix account, then pick something to watch: it plays here, with its ${esc(langName)} subtitles as words you can click.</p>`));
+        if (prime) box.append(addOnBox(false));
         return;
       }
       if (reason === "web-computer") { // the web app on a computer: the extension is all it takes
@@ -206,6 +216,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
         if (store.url) get.querySelector("span").textContent = storeButtonText(store.browser);
         get.href = extensionLink(navigator.userAgent, uiLanguage());
         box.append(note, get, h(`<p class="small muted aw-note">Once it is added, reload this page and choose Netflix again.</p>`));
+        if (prime) { const p = h(`<p class="small muted aw-note"></p>`); p.textContent = primeNote(false); box.append(p); }
         return;
       }
       const { title, lines } = unavailableText(reason);
@@ -214,6 +225,7 @@ export function openAddSheet({ pickFile, addAudiobookFiles, start = "" }) {
       note.querySelectorAll("p")[0].textContent = lines[0];
       note.querySelectorAll("p")[1].textContent = lines[1];
       box.append(note);
+      if (prime) box.append(addOnBox(onPhone(support)));
     });
   }
 

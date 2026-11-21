@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef L'extension Tamkeen est dans ce navigateur.
+5932c148 Ouvrir Prime Video
+cb35ecab Netflix et Prime Video fonctionnent avec l'extension de navigateur Tamkeen sur un ordinateur, dans Chrome ou Edge. Leurs sous-titres deviennent des mots que vous pouvez toucher, et les mots enregistrés reviennent sur tous vos appareils.
+cf9c5dc4 L'extension Tamkeen fonctionne aussi avec Prime Video : ouvrez un titre sur primevideo.com, activez les sous-titres dans le menu de Prime Video lui-même, et la ligne à l'écran s'affiche à côté du lecteur en mots que vous pouvez toucher. Les mots que vous y enregistrez arrivent dans votre Vocabulaire.
+d41532f7 1 mot enregistré dans Prime Video est maintenant dans votre Vocabulaire
+0b00621b {0} mots enregistrés dans Prime Video sont maintenant dans votre Vocabulaire
+3b605f4b Masquer le panneau de Tamkeen
+92ba169f Lignes que vous avez vues
+ccde0379 Afficher le panneau de Tamkeen
+955576b5 Tamkeen ne peut pas chercher les mots de ces sous-titres.
+34a2d0d8 Ces sous-titres s'affichent sous forme d'images, donc Tamkeen ne peut pas lire leurs mots. Choisissez d'autres sous-titres dans le menu de Prime Video.
+e3e886ea Activez les sous-titres en {0:lower} dans le menu des sous-titres de Prime Video : la ligne à l'écran s'affiche ici en mots que vous pouvez toucher.
+0ba518dc Ces sous-titres ne semblent pas être en {0:lower}. Choisissez {0:lower} dans le menu des sous-titres de Prime Video s'il les propose.
+bdd1d8d9 Sur Prime Video, elle affiche la ligne de sous-titres à l'écran à côté du lecteur, en mots sur lesquels vous pouvez cliquer. Activez les sous-titres dans le menu de Prime Video lui-même.
+bdb89f57 Même chose pour Prime Video : vous vous connectez sur le site d'Amazon, et l'extension ne lit que la ligne de sous-titres affichée à l'écran. Elle ne contrôle jamais le lecteur de Prime Video et n'en télécharge rien.
+4552b62f Téléchargez-la de nouveau, décompressez-la par-dessus l'ancien dossier, puis cliquez sur la flèche ronde de Tamkeen for Netflix & Prime Video dans la page des extensions.

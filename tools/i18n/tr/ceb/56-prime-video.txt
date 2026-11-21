@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef Ania na ang Tamkeen extension niining browser.
+5932c148 Ablihi ang Prime Video
+cb35ecab Ang Netflix ug Prime Video mogana uban sa Tamkeen browser extension sa kompyuter, sa Chrome o Edge. Ang ilang subtitles mahimong mga pulong nga imong ma-tap, ug ang mga pulong nga imong i-save mobalik sa tanan nimong device.
+cf9c5dc4 Mogana usab ang Tamkeen extension sa Prime Video: ablihi ang usa ka title sa primevideo.com, i-on ang subtitles sa kaugalingong menu sa Prime Video, ug ang linya sa screen mogawas tupad sa player isip mga pulong nga imong ma-tap. Ang mga pulong nga imong i-save didto moadto sa imong Vocab.
+d41532f7 Ang 1 ka pulong nga imong gi-save sa Prime Video anaa na sa imong Vocab
+0b00621b Ang {0} ka pulong nga imong gi-save sa Prime Video anaa na sa imong Vocab
+3b605f4b Tagoa ang panel sa Tamkeen
+92ba169f Mga linya nga imong natan-aw
+ccde0379 Ipakita ang panel sa Tamkeen
+955576b5 Dili makapangita ang Tamkeen og mga pulong niining subtitles.
+34a2d0d8 Kini nga subtitles makita isip mga hulagway, busa dili mabasa sa Tamkeen ang mga pulong. Pagpili og laing subtitles sa menu sa Prime Video.
+e3e886ea I-on ang {0} nga subtitles sa subtitle menu sa Prime Video: ang linya sa screen mogawas dinhi isip mga pulong nga imong ma-tap.
+0ba518dc Morag dili {0} kini nga subtitles. Pilia ang {0} sa subtitle menu sa Prime Video kung naa kini.
+bdd1d8d9 Sa Prime Video, ipakita niini ang linya sa subtitle sa screen tupad sa player, isip mga pulong nga imong ma-click. I-on ang subtitles sa kaugalingong menu sa Prime Video.
+bdb89f57 Pareho usab sa Prime Video: mag-sign in ka sa kaugalingong site sa Amazon, ug ang extension mobasa ra sa linya sa subtitle sa imong screen. Dili gyud kini mokontrolar sa player sa Prime Video o mag-download og bisan unsa gikan niini.
+4552b62f I-download kini pag-usab, i-unzip ibabaw sa daang folder, dayon i-click ang lingin nga arrow sa Tamkeen for Netflix & Prime Video sa page sa mga extension.

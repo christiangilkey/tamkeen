@@ -1,4 +1,4 @@
-// How the web app and the Tamkeen browser extension ("Tamkeen for Netflix", extension/) talk.
+// How the web app and the Tamkeen browser extension ("Tamkeen for Netflix & Prime Video", extension/) talk.
 //
 // The extension can't simply read the web app's library: its own pages inside Netflix are another
 // website, and browsers keep each website's storage apart. So it has a small part on the web app's
@@ -7,7 +7,8 @@
 //   extension -> web app  "hello" {nonce}            I'm here (once, when the page opens)
 //   web app -> extension  "hello" {nonce}            the same nonce back: from now on every message carries it
 //   web app -> extension  "settings" {settings, device}   what the extension needs to look words up
-//   extension -> web app  "pending" {words, titles}  words saved and titles watched in Netflix
+//   extension -> web app  "pending" {words, titles}  words saved and titles watched in Netflix (and words
+//                                                    saved in Prime Video: words only, no titles)
 //   web app -> extension  "ack" {words, titles}      those are in the library now: forget them
 //   extension -> web app  "gone" {}                  the extension was updated or turned off since this
 //                                                    page opened: its part here can't pass anything on
@@ -90,12 +91,23 @@ export function cleanDevice(d) {
   return { lookup_mode: x.lookup_mode === "quick" ? "quick" : "detailed", word_pause: x.word_pause !== false };
 }
 
-/** A word saved in Netflix, as it waits for the web app (extension/src/js/ext/queue.js makes them). */
+/** A word saved in Netflix or in Prime Video (`service: "prime"`), as it waits for the web app. A Prime Video
+ * word has no title in the library (the light way: Prime Video titles aren't kept): it carries where it came
+ * from (`source`, "Prime Video · The Show · S1:E3") and goes to the Vocab with that. */
 export function cleanWord(w) {
   if (!plain(w)) return null;
   const uid = /^[\w-]{8,64}$/.test(String(w.uid ?? "")) ? String(w.uid) : "";
-  const netflix_id = cleanTitleId(w.netflix_id);
   const word = text(w.text, 200);
+  if (w.service === "prime") {
+    if (!uid || !word) return null;
+    const pid = String(w.prime_id ?? "").trim();
+    return {
+      uid, service: "prime", prime_id: /^[A-Za-z0-9]{8,40}$/.test(pid) ? pid : "", text: word, sentence: text(w.sentence, 2000),
+      meaning: text(w.meaning, 1000), notes: text(w.notes, 2000), translation: text(w.translation, 2000),
+      language: code(w.language), source: text(w.source, 300) || "Prime Video", created_at: stamp(w.created_at),
+    };
+  }
+  const netflix_id = cleanTitleId(w.netflix_id);
   if (!uid || !netflix_id || !word) return null;
   return {
     uid, netflix_id, text: word, sentence: text(w.sentence, 2000),
@@ -170,6 +182,13 @@ export const wordUid = (now = Date.now(), rand = Math.random) =>
 export function savedWord({ netflixId, def = null, word, lang, sentence, start, end, sentStart, sentEnd, title }, now = Date.now(), uid = wordUid(now)) {
   return cleanWord({ uid, netflix_id: netflixId, ...vocabFromDefinition(def, word, lang), sentence, start, end,
     sent_start: sentStart, sent_end: sentEnd, language: lang, title, created_at: now });
+}
+
+/** A word saved from the subtitle line Prime Video showed (def: the popup's answer, or null); `source`: the
+ * title's name for the Vocab (primevideo.js primeSource). */
+export function savedPrimeWord({ primeId = "", def = null, word, lang, sentence, source }, now = Date.now(), uid = wordUid(now)) {
+  return cleanWord({ uid, service: "prime", prime_id: primeId, ...vocabFromDefinition(def, word, lang), sentence,
+    language: lang, source, created_at: now });
 }
 
 /** A title watched, with its subtitles as lines, for the web app's library. */

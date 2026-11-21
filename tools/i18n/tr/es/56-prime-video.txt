@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef La extensión de Tamkeen está en este navegador.
+5932c148 Abrir Prime Video
+cb35ecab Netflix y Prime Video funcionan con la extensión de Tamkeen para el navegador en una computadora, en Chrome o Edge. Sus subtítulos se vuelven palabras que puedes tocar, y las palabras que guardas vuelven a todos tus dispositivos.
+cf9c5dc4 La extensión de Tamkeen también funciona con Prime Video: abre un título en primevideo.com, activa los subtítulos en el menú del propio Prime Video, y la línea en pantalla aparece junto al reproductor como palabras que puedes tocar. Las palabras que guardes allí llegan a tu Vocabulario.
+d41532f7 1 palabra que guardaste en Prime Video ya está en tu Vocabulario
+0b00621b {0} palabras que guardaste en Prime Video ya están en tu Vocabulario
+3b605f4b Ocultar el panel de Tamkeen
+92ba169f Líneas que has visto
+ccde0379 Mostrar el panel de Tamkeen
+955576b5 Tamkeen no puede buscar palabras en estos subtítulos.
+34a2d0d8 Estos subtítulos se muestran como imágenes, así que Tamkeen no puede leer sus palabras. Elige otros subtítulos en el menú de Prime Video.
+e3e886ea Activa los subtítulos en {0:lower} en el menú de subtítulos de Prime Video: la línea en pantalla aparece aquí como palabras que puedes tocar.
+0ba518dc Estos subtítulos no parecen estar en {0:lower}. Elige {0:lower} en el menú de subtítulos de Prime Video si los tiene.
+bdd1d8d9 En Prime Video muestra la línea de subtítulos de la pantalla junto al reproductor, como palabras en las que puedes hacer clic. Activa los subtítulos en el menú del propio Prime Video.
+bdb89f57 Lo mismo con Prime Video: inicias sesión en el sitio de Amazon, y la extensión solo lee la línea de subtítulos de tu pantalla. Nunca controla el reproductor de Prime Video ni descarga nada de él.
+4552b62f Descárgala otra vez, descomprímela sobre la carpeta antigua y haz clic en la flecha circular de Tamkeen for Netflix & Prime Video en la página de extensiones.

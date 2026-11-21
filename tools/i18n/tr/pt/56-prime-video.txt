@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef A extensão do Tamkeen está neste navegador.
+5932c148 Abrir o Prime Video
+cb35ecab A Netflix e o Prime Video funcionam com a extensão do Tamkeen para o navegador em um computador, no Chrome ou no Edge. As legendas deles viram palavras que você pode tocar, e as palavras que você salva voltam para todos os seus dispositivos.
+cf9c5dc4 A extensão do Tamkeen também funciona com o Prime Video: abra um título em primevideo.com, ative as legendas no menu do próprio Prime Video, e a linha na tela aparece ao lado do player como palavras que você pode tocar. As palavras que você salvar lá vão para o seu Vocabulário.
+d41532f7 1 palavra que você salvou no Prime Video já está no seu Vocabulário
+0b00621b {0} palavras que você salvou no Prime Video já estão no seu Vocabulário
+3b605f4b Esconder o painel do Tamkeen
+92ba169f Linhas que você assistiu
+ccde0379 Mostrar o painel do Tamkeen
+955576b5 O Tamkeen não consegue procurar palavras nestas legendas.
+34a2d0d8 Estas legendas aparecem como imagens, então o Tamkeen não consegue ler as palavras. Escolha outras legendas no menu do Prime Video.
+e3e886ea Ative as legendas em {0:lower} no menu de legendas do Prime Video: a linha na tela aparece aqui como palavras que você pode tocar.
+0ba518dc Estas legendas não parecem estar em {0:lower}. Escolha {0:lower} no menu de legendas do Prime Video, se houver.
+bdd1d8d9 No Prime Video, ela mostra a linha de legenda da tela ao lado do player, como palavras em que você pode clicar. Ative as legendas no menu do próprio Prime Video.
+bdb89f57 O mesmo vale para o Prime Video: você entra no próprio site da Amazon, e a extensão só lê a linha de legenda da sua tela. Ela nunca controla o player do Prime Video nem baixa nada dele.
+4552b62f Baixe de novo, descompacte por cima da pasta antiga e clique na seta circular do Tamkeen for Netflix & Prime Video na página de extensões.

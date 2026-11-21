@@ -1,0 +1,22 @@
+<!-- A sample of Prime Video's web player page while a title plays, cut down to what Tamkeen reads (the
+     subtitle line, the title, the episode line, the player's box and its <video>). Modelled on the player's
+     own class names ("atvwebplayersdk-…", with the extra hashed classes Amazon adds after them); not a copy
+     of Amazon's page. To check against the real player with the owner's own account (HANDOFF "Prime Video").
+     Used by tests/js/primevideo.test.mjs and, with a <video> and changing lines, by extension/test/fake-prime.mjs. -->
+<div id="dv-web-player" class="dv-player-fullscreen">
+  <div class="webPlayerSDKContainer">
+    <div class="webPlayerSDKUiContainer">
+      <div class="rendererContainer"><video class="tk-sample-video" playsinline></video></div>
+      <div class="atvwebplayersdk-overlays-container fpqiyer">
+        <div class="atvwebplayersdk-hideabletopbuttons-container f1ezxwc9">
+          <div class="atvwebplayersdk-title-text f1urwzk2">بيت الأحلام</div>
+          <div class="atvwebplayersdk-subtitle-text f15q7pna">Season 1, Ep. 3 العودة</div>
+        </div>
+        <div class="atvwebplayersdk-captions-overlay f1b3f5pl">
+          <div class="f35bt6a"><span class="atvwebplayersdk-captions-text fg8afi5">- مرحبا يا صديقي،</span></div>
+          <div class="f35bt6a"><span class="atvwebplayersdk-captions-text fg8afi5">[موسيقى] كيف حالك اليوم؟</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

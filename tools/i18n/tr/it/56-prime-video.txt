@@ -1,0 +1,17 @@
+# Prime Video, the light way: the Tamkeen extension's panel beside Prime Video's player (2026-11-21)
+9d4933ef L'estensione di Tamkeen è in questo browser.
+5932c148 Apri Prime Video
+cb35ecab Netflix e Prime Video funzionano con l'estensione di Tamkeen per il browser su un computer, in Chrome o Edge. I loro sottotitoli diventano parole che puoi toccare, e le parole che salvi tornano su tutti i tuoi dispositivi.
+cf9c5dc4 L'estensione di Tamkeen funziona anche con Prime Video: apri un titolo su primevideo.com, attiva i sottotitoli nel menu di Prime Video stesso, e la riga sullo schermo compare accanto al lettore come parole che puoi toccare. Le parole che salvi lì arrivano nel tuo Vocabolario.
+d41532f7 1 parola che hai salvato su Prime Video ora è nel tuo Vocabolario
+0b00621b {0} parole che hai salvato su Prime Video ora sono nel tuo Vocabolario
+3b605f4b Nascondi il pannello di Tamkeen
+92ba169f Righe che hai visto
+ccde0379 Mostra il pannello di Tamkeen
+955576b5 Tamkeen non può cercare le parole di questi sottotitoli.
+34a2d0d8 Questi sottotitoli sono mostrati come immagini, quindi Tamkeen non può leggerne le parole. Scegli altri sottotitoli nel menu di Prime Video.
+e3e886ea Attiva i sottotitoli in {0:lower} nel menu dei sottotitoli di Prime Video: la riga sullo schermo compare qui come parole che puoi toccare.
+0ba518dc Questi sottotitoli non sembrano in {0:lower}. Scegli {0:lower} nel menu dei sottotitoli di Prime Video, se ci sono.
+bdd1d8d9 Su Prime Video mostra la riga dei sottotitoli sullo schermo accanto al lettore, come parole su cui puoi fare clic. Attiva i sottotitoli nel menu di Prime Video stesso.
+bdb89f57 Lo stesso vale per Prime Video: accedi sul sito di Amazon, e l'estensione legge solo la riga dei sottotitoli sul tuo schermo. Non controlla mai il lettore di Prime Video e non ne scarica nulla.
+4552b62f Scaricala di nuovo, estraila sopra la vecchia cartella, poi fai clic sulla freccia circolare di Tamkeen for Netflix & Prime Video nella pagina delle estensioni.
