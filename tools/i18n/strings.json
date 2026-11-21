@@ -29740,6 +29740,31 @@
   "f": "web/js/watched.js"
  },
  {
+  "id": "e3c7f852",
+  "k": "Every player's bar now matches YouTube's, with Type what you hear beside the speed",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "b7c6ba67",
+  "k": "Long podcast episodes survive a dropped connection on phones and in the web app",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "298a1b30",
+  "k": "The built-in dictionary gives a translation, not a grammar description",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "e83a1edd",
+  "k": "Type what you hear shows what was said, with no marks and no score",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "98f896b7",
+  "k": "Ask by voice shows what you can say",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "c949928e",
   "k": "A spinner while a video loads, and long YouTube videos start sooner",
   "f": "web/js/whatsnew.js"

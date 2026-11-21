@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	La barra di tutti i lettori ora è come quella di YouTube, con «Scrivi quello che senti» accanto alla velocità
+b7c6ba67	Gli episodi lunghi dei podcast reggono a un'interruzione della connessione su telefono e nell'app web
+298a1b30	Il dizionario integrato dà una traduzione, non una descrizione grammaticale
+e83a1edd	«Scrivi quello che senti» mostra ciò che è stato detto, senza segni e senza punteggio
+98f896b7	«Chiedi a voce» mostra cosa puoi dire

@@ -91,13 +91,13 @@ test("the database file keeps the rules", () => {
   assert.deepEqual(risky, [], "every UPDATE and DELETE has a WHERE");
 });
 
-test("the app holds no key, asks the database who the creator is, and waits in prototype mode", () => {
+test("the app holds no key, asks the database who the creator is, and has its row in the prototype list", () => {
   const bar = read("web/js/components/creatorbar.js");
   const all = bar + read("web/js/creatorstats.js");
   assert.ok(!/sb_secret|sbp_[a-z0-9]{10}|api\.supabase\.com/.test(all), "no secret key and no Management API call in the app");
   assert.ok(bar.includes('rpc("am_creator")') && bar.includes('rpc("creator_stats")'));
   assert.ok(bar.includes('feature("creator_bar")'));
-  assert.ok(/creator_bar: \{[^}]*released: false/.test(read("web/js/prototype.js")));
+  assert.ok(/creator_bar: \{[^}]*released: (true|false)/.test(read("web/js/prototype.js")), "released for everybody in v0.66.0: the database still answers for the creator only");
   assert.ok(read("web/js/pages/home.js").includes('if (feature("creator_bar")) creatorBar('));
   assert.ok(read("mobile/scripts/build-www.mjs").includes('"js/components/creatorbar.js"'), "the phones and the web app get it too");
 });

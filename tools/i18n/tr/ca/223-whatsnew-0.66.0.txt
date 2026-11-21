@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	La barra de tots els reproductors ara és com la de YouTube, amb «Escriu el que sents» al costat de la velocitat
+b7c6ba67	Els episodis llargs de pòdcast aguanten un tall de connexió al mòbil i a l'app web
+298a1b30	El diccionari integrat dona una traducció, no una descripció gramatical
+e83a1edd	«Escriu el que sents» mostra el que s'ha dit, sense marques ni puntuació
+98f896b7	«Pregunta amb la veu» mostra el que pots dir

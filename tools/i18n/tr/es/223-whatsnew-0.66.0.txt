@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	La barra de todos los reproductores es ahora como la de YouTube, con «Escribe lo que oyes» junto a la velocidad
+b7c6ba67	Los episodios largos de pódcast aguantan un corte de conexión en el móvil y en la app web
+298a1b30	El diccionario integrado da una traducción, no una descripción gramatical
+e83a1edd	«Escribe lo que oyes» muestra lo que se dijo, sin marcas ni puntuación
+98f896b7	«Preguntar con la voz» muestra lo que puedes decir

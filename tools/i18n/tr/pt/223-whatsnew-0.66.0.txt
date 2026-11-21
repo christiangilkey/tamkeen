@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	A barra de todos os players agora é igual à do YouTube, com “Escreva o que você ouve” ao lado da velocidade
+b7c6ba67	Episódios longos de podcast resistem a uma queda de conexão no celular e no app web
+298a1b30	O dicionário integrado dá uma tradução, não uma descrição gramatical
+e83a1edd	“Escreva o que você ouve” mostra o que foi dito, sem marcas e sem pontuação
+98f896b7	“Perguntar por voz” mostra o que você pode dizer

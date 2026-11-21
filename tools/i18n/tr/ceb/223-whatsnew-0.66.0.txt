@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	Pareho na sa YouTube ang bar sa matag player, ug tapad sa kapaspas ang Isulat ang imong madungog
+b7c6ba67	Dili na maputol ang tag-as nga episode sa podcast kon kadiyot mawala ang koneksyon sa phone ug sa web app
+298a1b30	Hubad na ang ihatag sa built-in nga diksiyonaryo, dili paliwanag sa grammar
+e83a1edd	Ipakita sa Isulat ang imong madungog ang gisulti, walay marka ug walay score
+98f896b7	Ipakita sa Pangutana gamit ang tingog kung unsa ang imong masulti

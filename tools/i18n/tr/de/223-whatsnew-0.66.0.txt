@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	Die Leiste jedes Players sieht jetzt aus wie die von YouTube, mit „Schreib, was du hörst“ neben dem Tempo
+b7c6ba67	Lange Podcast-Folgen überstehen einen Verbindungsabbruch auf Handys und in der Web-App
+298a1b30	Das eingebaute Wörterbuch gibt eine Übersetzung, keine Grammatikbeschreibung
+e83a1edd	„Schreib, was du hörst“ zeigt, was gesagt wurde, ohne Markierungen und ohne Punkte
+98f896b7	„Per Stimme fragen“ zeigt, was du sagen kannst

@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	La barre de chaque lecteur ressemble maintenant à celle de YouTube, avec « Écrivez ce que vous entendez » à côté de la vitesse
+b7c6ba67	Les longs épisodes de podcast résistent à une coupure de connexion sur téléphone et dans l'app web
+298a1b30	Le dictionnaire intégré donne une traduction, pas une description grammaticale
+e83a1edd	« Écrivez ce que vous entendez » montre ce qui a été dit, sans marques ni score
+98f896b7	« Demander à voix haute » montre ce que vous pouvez dire

@@ -1,0 +1,6 @@
+# What's new in v0.66.0 (web/js/whatsnew.js).
+e3c7f852	Kapareho na ng sa YouTube ang bar ng bawat player, at katabi ng bilis ang Isulat ang naririnig mo
+b7c6ba67	Hindi na napuputol ang mahahabang episode ng podcast kapag saglit na nawala ang koneksyon sa phone at sa web app
+298a1b30	Salin na ang ibinibigay ng built-in na diksiyonaryo, hindi paliwanag sa grammar
+e83a1edd	Ipinapakita ng Isulat ang naririnig mo ang sinabi, walang marka at walang score
+98f896b7	Ipinapakita ng Magtanong gamit ang boses kung ano ang puwede mong sabihin
