@@ -1,0 +1,11 @@
+# The Library's Filter popup and cards (prototype library_feed, pages/library.js), 2026-11-21
+5cef38c0	Unsay ipakita, ug sa unsang han-ay
+d7decf1a	Salaan
+1b874cd2	Napaminaw na
+7e353efd	Ipakita ug han-ay
+a2a5bdec	Han-ay sumala sa
+7792b396	Transkripsyon
+ca66e32d	Gisugdan, dayon bag-o, dayon nahuman
+d83c6e92	Pinakabag-ong gidugang
+e701dba1	Pinakadugay nga gidugang
+da93563b	Pinakamubo

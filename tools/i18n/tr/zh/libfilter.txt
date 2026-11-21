@@ -1,0 +1,11 @@
+# The Library's Filter popup and cards (prototype library_feed, pages/library.js), 2026-11-21
+5cef38c0	显示什么、按什么顺序
+d7decf1a	筛选
+1b874cd2	已听
+7e353efd	显示和排序
+a2a5bdec	排序方式
+7792b396	转写
+ca66e32d	进行中，然后是新的，最后是已完成的
+d83c6e92	最新添加
+e701dba1	最早添加
+da93563b	最短

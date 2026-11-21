@@ -60,6 +60,7 @@ const PATHS = {
   learn: `<path class="fill" d="M2.5 9.5 12 5l9.5 4.5L12 14z"/><path d="M2.5 9.5 12 5l9.5 4.5L12 14z"/>
     <path d="M6.5 11.5v4.3c0 1.4 2.5 2.7 5.5 2.7s5.5-1.3 5.5-2.7v-4.3"/><path d="M21.5 9.5v5"/>`,
   plus: `<path d="M12 5v14M5 12h14"/>`,
+  filter: `<path d="M4 7h16M7 12h10M10 17h4"/>`, // the Library's Filter (what to show, in what order)
   refresh: `<path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4h-4"/>`,
   // A five-pointed star: save a word to the vocab list.
   star: `<path class="fill" d="M12 3.8l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/><path d="M12 3.8l2.5 5.1 5.6.8-4 3.9.9 5.6-5-2.6-5 2.6.9-5.6-4-3.9 5.6-.8z"/>`,

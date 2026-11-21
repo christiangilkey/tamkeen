@@ -96,6 +96,7 @@ const SHARED = [
   "js/applink.js",
   "js/ytmedia.js",
   "js/ytpreview.js",
+  "js/libsort.js",
   "js/netflix.js",
   "js/nfmedia.js",
   "js/netflix-ttml.js",

@@ -1,0 +1,11 @@
+# The Library's Filter popup and cards (prototype library_feed, pages/library.js), 2026-11-21
+5cef38c0	Ce qui s'affiche, et dans quel ordre
+d7decf1a	Filtrer
+1b874cd2	Écouté
+7e353efd	Afficher et trier
+a2a5bdec	Trier par
+7792b396	Transcription
+ca66e32d	En cours, puis nouveaux, puis terminés
+d83c6e92	Ajoutés récemment
+e701dba1	Ajoutés en premier
+da93563b	Les plus courts

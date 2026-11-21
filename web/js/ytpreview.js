@@ -1,4 +1,4 @@
-// The YouTube list, scrolled like YouTube (prototype `yt_feed`; the owner, 2026-11-21: scrolling the YouTube
+// The YouTube list, scrolled like YouTube (prototype `library_feed`; the owner, 2026-11-21: scrolling the YouTube
 // videos should "feel and look more like actually scrolling YouTube … thumbnails turns into a playing video").
 // The card in the middle of the screen plays a silent preview in YouTube's own embedded player, the way YouTube's
 // home feed does; scrolled away, it turns back into its picture.

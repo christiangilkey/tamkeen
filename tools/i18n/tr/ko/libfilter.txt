@@ -1,0 +1,11 @@
+# The Library's Filter popup and cards (prototype library_feed, pages/library.js), 2026-11-21
+5cef38c0	무엇을 어떤 순서로 보여 줄지
+d7decf1a	필터
+1b874cd2	들음
+7e353efd	보기 및 정렬
+a2a5bdec	정렬 기준
+7792b396	받아쓰기
+ca66e32d	진행 중, 그다음 새 항목, 그다음 끝난 항목
+d83c6e92	최근 추가순
+e701dba1	오래된 추가순
+da93563b	짧은 순

@@ -11,6 +11,7 @@ import { NETFLIX_FEED, isNetflix } from "../netflix.js";
 import { isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
 import { feature } from "../prototype.js";
 import { clock, scrollPreviews, startAt } from "../ytpreview.js";
+import { addedAt, arrange, changedCount, cleanChoice, stateOf } from "../libsort.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { WAY_FOR_KIND, openAddSheet } from "../components/addsheet.js";
 import { confirmBox, openModal } from "../components/modal.js";
@@ -70,6 +71,7 @@ const FILTERS = [
   ["failed", "Failed"],
 ];
 const PAGE = 100;
+const CARD_PAGE = 60; // cards drawn at a time (Load more draws the next ones)
 
 export const isVideo = (ep) => (ep.audio_type || "").startsWith("video/");
 export const isLocalFeed = (url) => (url || "").startsWith("local:");
@@ -245,6 +247,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           ${phone ? `<div class="feed-list kind-row" id="feed-list"></div>` : ""}
           <div class="filter-row">
             <div class="tabs" id="tabs"></div>
+            <button type="button" id="lib-filter" class="ghost lib-filter" hidden title="What to show, and in what order">${icon("filter", 18)} <span>Filter</span> <b class="n" hidden></b></button>
             <input type="search" id="title-filter" placeholder="Filter by title" aria-label="Filter by title">
           </div>
           <div class="toolbar">
@@ -753,43 +756,74 @@ export async function render(view, { feedId: routeFeed, query }) {
     return row;
   }
 
-  // The YouTube list as YouTube shows it (prototype yt_feed, ytpreview.js): a big picture with the video's length
-  // on it and a line for how far you got, the channel's round picture beside the title, and the card in the middle
-  // of the screen playing silently in YouTube's own player. The picture and the title open the video.
-  let progressNow = null;  // where each video was got to (progress.js), read once for each list drawn
-  function ytCard(ep) {
-    const id = youTubeId(ep.audio_url) || ep.guid || "";
-    const p = (progressNow || (progressNow = new Map(allProgress().map((x) => [String(x.id), x])))).get(String(ep.id));
+  // The Library as YouTube shows it (prototype library_feed; the owner, 2026-11-21: YouTube's first, then "do the same with
+  // the other pages … This should be for every tab"): a big picture (the cover, the video's frame, or the kind's icon) with
+  // its length on it and a line for how far you got (or Watched / Read / Listened to once finished), the channel's or
+  // podcast's round picture beside the title, and on YouTube the card in the middle of the screen playing silently in
+  // YouTube's own player (ytpreview.js; never Netflix, Instagram or anything else). The picture and the title open it.
+  // (The class stays "yt-card", where it began.)
+  let progressNow = null;  // where each thing was got to (progress.js), read once for each list drawn
+  const progressMap = () => progressNow || (progressNow = new Map(allProgress().map((x) => [String(x.id), x])));
+  const kindIcon = (ep) => (isYouTube(ep) ? "video" : isReel(ep) ? "reel" : isNetflix(ep) ? "film" : isPage(ep) ? "page"
+    : (ep.audio_type || "") === "text/book" ? "book" : isAudiobookFeed(ep.feed_url) ? "audiobook" : isVideo(ep) ? "videofile"
+    : isLocalFeed(ep.feed_url) ? "audio" : "podcast");
+  const KIND_OF_ICON = { video: "youtube", reel: "reels", film: "netflix", page: "pages", book: "books", audiobook: "audiobooks",
+    videofile: "videos", audio: "audio", podcast: "podcasts" };
+  /** What "finished" is called for this kind (the Filter popup, and the label on a finished one's picture). */
+  const doneWord = (k) => (["pages", "books"].includes(k) ? t("Read") : ["podcasts", "audiobooks", "audio"].includes(k) ? t("Listened to") : t("Watched"));
+  function card(ep) {
+    const yt = isYouTube(ep);
+    const id = yt ? youTubeId(ep.audio_url) || ep.guid || "" : "";
+    const p = progressMap().get(String(ep.id)) || null;
+    const state = stateOf(ep, p, watchedNow || (watchedNow = watchedIds()));
     const got = p ? fraction(p) : 0;
-    const seen = (watchedNow || (watchedNow = watchedIds())).has(String(ep.id));
-    const name = ep.description || "";
-    const c = followedChannels(follows, studyLanguage()).find((x) => x.name === name) || { name, image: "" };
-    const row = h(`<div class="ep yt-card" data-id="${ep.id}">
-      <div class="yt-pic" data-video="${esc(id)}" data-start="${startAt(p)}">
+    const reading = isPage(ep) || (ep.audio_type || "") === "text/book";
+    // Under the title: the channel, the reel's maker or the podcast, and when it was added.
+    const from = yt ? ep.description || "" : isReel(ep) ? (ep.description ? `@${ep.description}` : "")
+      : isLocalFeed(ep.feed_url) && !isAudiobookFeed(ep.feed_url) ? "" : ep.feed_title || "";
+    const c = yt ? followedChannels(follows, studyLanguage()).find((x) => x.name === from) || { name: from, image: "" } : null;
+    const round = yt && from ? `<a class="yt-chan" href="${channelHref("#/library?show=youtube", from)}" aria-label="${esc(from)}">${channelPicture(c)}</a>`
+      : !isLocalFeed(ep.feed_url) && ep.feed_image && ep.feed_id ? `<a class="yt-chan" href="#/feed/${ep.feed_id}" aria-label="${esc(from)}"><img class="round" src="${esc(ep.feed_image)}" alt="" loading="lazy" referrerpolicy="no-referrer"></a>` : "";
+    const row = h(`<div class="ep yt-card" data-id="${ep.id}" data-state="${state}">
+      <div class="yt-pic">
         <a class="yt-open" href="#/episode/${ep.id}" tabindex="-1" aria-hidden="true">
-          <img alt="" loading="lazy" referrerpolicy="no-referrer">
-          ${ep.duration ? `<span class="yt-len">${clock(ep.duration)}</span>` : ""}
-          ${seen ? watchedPill() : got > 0.02 ? `<span class="yt-got"><i style="width:${Math.round(got * 100)}%"></i></span>` : ""}
+          <span class="yt-ph">${icon(kindIcon(ep), 44)}</span>
+          ${ep.duration && !reading ? `<span class="yt-len">${clock(ep.duration)}</span>` : ""}
+          ${state === "done" ? `<span class="watched-pill"></span>` : got > 0.02 ? `<span class="yt-got"><i style="width:${Math.round(got * 100)}%"></i></span>` : ""}
         </a>
       </div>
-      <div class="yt-meta">
-        ${name ? `<a class="yt-chan" href="${channelHref("#/library?show=youtube", name)}" aria-label="${esc(name)}">${channelPicture(c)}</a>` : ""}
+      <div class="yt-meta${round ? "" : " bare"}">
+        ${round}
         <div class="info">
-          <div class="title" dir="auto" data-video="1"></div>
-          <div class="sub" dir="auto">${name ? `${esc(name)} · ` : ""}${fmtDate(ep.published)}</div>
+          <div class="title" dir="auto"></div>
+          <div class="sub" dir="auto">${from ? `${esc(from)} · ` : ""}${fmtDate(addedAt(ep))}</div>
         </div>
       </div>
       <div class="yt-actions"><input type="checkbox" class="sel" aria-label="Select episode"><div class="status"></div></div>
     </div>`);
-    const img = row.querySelector(".yt-pic img");
+    const pill = row.querySelector(".watched-pill");
+    if (pill) pill.textContent = doneWord(KIND_OF_ICON[kindIcon(ep)]);
+    const pic = row.querySelector(".yt-pic");
+    if (id) { pic.dataset.video = id; pic.dataset.start = String(startAt(p)); }
     const small = ep.image || ep.feed_image || "";
-    // YouTube's bigger picture (the list's own is the small one), the small one if YouTube has no big one.
-    img.src = id ? `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg` : small;
-    img.onerror = () => { img.onerror = null; if (small && img.src !== small) img.src = small; };
-    if (!id) delete row.querySelector(".yt-pic").dataset.video;
+    // YouTube's bigger picture (the list's own is the small one), the small one if YouTube has no big one. A square
+    // picture (a podcast's or a book's cover) is shown whole, not cut to the shape of a video.
+    const src = id ? `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg` : small;
+    if (src) {
+      const img = h(`<img alt="" loading="lazy" referrerpolicy="no-referrer">`);
+      img.onload = () => {
+        if (!id && img.naturalWidth && img.naturalWidth / img.naturalHeight < 1.3) pic.classList.add("square");
+        pic.classList.add("has-pic");
+      };
+      img.onerror = () => { if (small && img.getAttribute("src") !== small) img.src = small; else img.remove(); };
+      img.src = src;
+      row.querySelector(".yt-open").prepend(img);
+    }
     const a = h(`<a href="#/episode/${ep.id}"></a>`);
     a.textContent = ep.title;
-    row.querySelector(".title").append(a);
+    const title = row.querySelector(".title");
+    if (isVideo(ep)) title.dataset.video = "1";
+    title.append(a);
     row.querySelector(".sel").checked = selected.has(ep.id);
     row.querySelector(".sel").onchange = (e) => {
       e.target.checked ? selected.add(ep.id) : selected.delete(ep.id);
@@ -798,6 +832,83 @@ export async function render(view, { feedId: routeFeed, query }) {
     row._ep = ep;
     renderStatus(row);
     return row;
+  }
+
+  // ----- the Filter popup (prototype library_feed, libsort.js): what to show and in what order, kept for each tab -----
+  // It also holds the transcription states the pills above the list had (All, Not started, Queued, In progress, Done,
+  // Failed), with their counts, where the tab's things are transcribed. They are still the library's own, by address.
+  const choiceKey = () => `libChoice:${kind}`;
+  function readChoice() {
+    try { return cleanChoice(JSON.parse(localStorage.getItem(choiceKey()) || "null")); } catch { return cleanChoice(null); }
+  }
+  function keepChoice(c) {
+    try { localStorage.setItem(choiceKey(), JSON.stringify(c)); } catch { /* storage off: for this visit only */ }
+  }
+  let countsNow = {};
+  function paintFilterButton() {
+    const b = $("#lib-filter");
+    const n = changedCount(readChoice(), filter);
+    const badge = b.querySelector(".n");
+    badge.hidden = !n;
+    badge.textContent = String(n);
+    b.classList.toggle("on", n > 0);
+  }
+  function openFilter() {
+    const c = readChoice();
+    const transcribed = !["reels", "netflix", "pages", "books"].includes(kind);
+    const m = openModal({ title: t("Show and sort"), cls: "lib-filter-back" });
+    const tick = (v) => `<label class="lf-opt"><input type="checkbox" name="show" value="${v}"${c.show.includes(v) ? " checked" : ""}> <span class="lf-l" data-v="${v}"></span></label>`;
+    const pick = (v) => `<label class="lf-opt"><input type="radio" name="sort" value="${v}"${c.sort === v ? " checked" : ""}> <span class="lf-l" data-v="${v}"></span></label>`;
+    const n = (k) => (k === "active" ? (countsNow.downloading || 0) + (countsNow.transcribing || 0)
+      : k ? countsNow[k] || 0 : Object.values(countsNow).reduce((x, y) => x + y, 0));
+    const body = h(`<div class="lf">
+      <h3>Show</h3>
+      <div class="lf-opts">${tick("progress")}${tick("new")}${tick("done")}</div>
+      <h3>Sort by</h3>
+      <div class="lf-opts">${pick("suggested")}${pick("newest")}${pick("oldest")}${pick("shortest")}${pick("longest")}</div>
+      <div class="lf-trans"${transcribed ? "" : " hidden"}>
+        <h3>Transcription</h3>
+        <div class="lf-opts lf-status"></div>
+      </div>
+      <div class="lf-foot"><button type="button" class="ghost lf-reset">Reset</button><button type="button" class="primary lf-ok">Done</button></div>
+    </div>`);
+    const names = {
+      progress: t("In progress"), new: t("New"), done: doneWord(kind),
+      suggested: t("In progress, then new, then finished"), newest: t("Newest added"), oldest: t("Oldest added"),
+      shortest: t("Shortest"), longest: t("Longest"),
+    };
+    for (const l of body.querySelectorAll(".lf-l")) l.textContent = names[l.dataset.v];
+    for (const [v, label] of FILTERS) {
+      const o = h(`<label class="lf-opt"><input type="radio" name="status" value="${v}"${v === filter ? " checked" : ""}> <span>${label}</span> <span class="n">${n(v)}</span></label>`);
+      body.querySelector(".lf-status").append(o);
+    }
+    const save = () => {
+      const show = [...body.querySelectorAll('input[name="show"]:checked')].map((x) => x.value);
+      const sort = (body.querySelector('input[name="sort"]:checked') || {}).value;
+      keepChoice(cleanChoice({ show, sort }));
+      paintFilterButton();
+      loadEpisodes();
+    };
+    for (const x of body.querySelectorAll('input[name="show"], input[name="sort"]')) x.onchange = save;
+    const toStatus = (v) => {
+      const base = feedId ? `#/feed/${feedId}` : "#/library";
+      const keep = new URLSearchParams(feedId ? {} : { show: "podcasts" });
+      if (v) keep.set("status", v);
+      if (channel) keep.set("channel", channel);
+      m.close();
+      location.hash = keep.size ? `${base}?${keep}` : base;
+    };
+    for (const x of body.querySelectorAll('input[name="status"]')) x.onchange = () => toStatus(x.value);
+    body.querySelector(".lf-reset").onclick = () => {
+      keepChoice(cleanChoice(null));
+      for (const x of body.querySelectorAll('input[name="show"]')) x.checked = true;
+      body.querySelector('input[name="sort"][value="suggested"]').checked = true;
+      paintFilterButton();
+      if (filter) { toStatus(""); return; }
+      loadEpisodes();
+    };
+    body.querySelector(".lf-ok").onclick = () => m.close();
+    m.body.append(body);
   }
 
   function renderStatus(row) {
@@ -953,6 +1064,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (filter) params.set("status", filter);
     if (titleQuery) params.set("q", titleQuery);
     if (channel && youtubeShowing()) params.set("channel", channel);
+    if (cardsShowing()) { await loadCards(params, append); return; }
     const data = await api(`/episodes?${params}`);
     renderTabs(data.counts);
     updateSelection();
@@ -965,13 +1077,11 @@ export async function render(view, { feedId: routeFeed, query }) {
       items = [...items].sort((a, b) => last(b) - last(a));
     }
     watchedNow = watchedIds();
-    progressNow = null;
-    // The YouTube list scrolled like YouTube (prototype yt_feed): big pictures, and the one in the middle plays.
-    const asYouTube = youtubeShowing() && feature("yt_feed");
-    listEl.classList.toggle("yt-feed", asYouTube);
-    for (const ep of items) listEl.append(asYouTube ? ytCard(ep) : epRow(ep));
-    if (asYouTube && !stopPreviews) stopPreviews = scrollPreviews(listEl);
-    else if (!asYouTube && stopPreviews) { stopPreviews(); stopPreviews = null; }
+    listEl.classList.remove("yt-feed");
+    root.classList.remove("cards-kind");
+    $("#lib-filter").hidden = true;
+    if (stopPreviews) { stopPreviews(); stopPreviews = null; }
+    for (const ep of items) listEl.append(epRow(ep));
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;
     // Nothing at all (not just nothing matching a filter): the kind's empty state, which takes the
@@ -985,6 +1095,51 @@ export async function render(view, { feedId: routeFeed, query }) {
       listEl.append(h(`<div class="empty">${feeds.length ? "No episodes match this filter." : "Press + to add a podcast, a video or a web page."}</div>`));
     }
   }
+  /** Cards (prototype library_feed): every one of the list fetched (the order needs them all: what is in progress or
+   *  finished is known on this device, not to the library), put in the Filter's order, and drawn a page at a time. */
+  let arranged = [], drawn = 0;
+  async function loadCards(params, append) {
+    if (!append) {
+      const all = [];
+      let data = null;
+      params.set("limit", "500");
+      for (let at = 0; at < 5000; at += 500) {
+        params.set("offset", String(at));
+        data = await api(`/episodes?${params}`);
+        all.push(...data.items);
+        if (!data.items.length || all.length >= data.total) break;
+      }
+      countsNow = data.counts || {};
+      renderTabs(countsNow);
+      watchedNow = watchedIds();
+      progressNow = null;
+      arranged = arrange(all, readChoice(), progressMap(), watchedNow);
+      drawn = 0;
+      listEl.innerHTML = "";
+      listEl.classList.add("yt-feed");
+      root.classList.add("cards-kind");
+      $("#lib-filter").hidden = false;
+      paintFilterButton();
+      updateSelection();
+      const f = feedId ? feeds.find((x) => x.id === feedId) : null;
+      const emptyKind = data.total || filter || titleQuery || (channel && youtubeShowing()) ? null
+        : f ? KINDS.find((k) => k.feed && k.feed === f.url) : KINDS.find((k) => k.key === "podcasts");
+      showListEmpty(!!emptyKind);
+      if (emptyKind) { listEl.append(emptyState(emptyKind)); $("#more").hidden = true; return; }
+      if (!arranged.length) listEl.append(h(`<div class="empty">No episodes match this filter.</div>`));
+      if (!stopPreviews) stopPreviews = scrollPreviews(listEl); // (YouTube's cards only: no other card has data-video)
+    }
+    for (const ep of arranged.slice(drawn, drawn + CARD_PAGE)) listEl.append(card(ep));
+    drawn = Math.min(arranged.length, drawn + CARD_PAGE);
+    $("#more").hidden = drawn >= arranged.length;
+  }
+  /** Whether this list is drawn as cards: the prototype, and not an audiobook's chapters (kept in the book's order). */
+  function cardsShowing() {
+    if (!feature("library_feed")) return false;
+    const f = feedId ? feeds.find((x) => x.id === feedId) : null;
+    return !(f && isAudiobookFeed(f.url));
+  }
+
   function showListEmpty(on) {
     $(".lib-main").classList.toggle("list-empty", on);
     markEmpty("list", on);
@@ -1152,6 +1307,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (ids.length) location.hash = `#/reels/play?at=${ids[0]}&only=${ids.join(",")}`;
   };
   $("#more").onclick = () => loadEpisodes(true);
+  $("#lib-filter").onclick = openFilter;
   // The + button: the way of adding that goes with the tab showing (a book on Books, a podcast on
   // Podcasts…), with every other way one tap back; on Courses, every way.
   $("#add-fab").onclick = () => openAddSheet({

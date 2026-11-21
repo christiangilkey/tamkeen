@@ -1,4 +1,4 @@
-// The YouTube list scrolled like YouTube (prototype yt_feed, web/js/ytpreview.js): the length on the picture, where
+// The YouTube list scrolled like YouTube (prototype library_feed, web/js/ytpreview.js): the length on the picture, where
 // a preview starts, which card plays, and YouTube's rules for its embedded player kept in the code.
 import { test } from "node:test";
 import assert from "node:assert/strict";
@@ -59,10 +59,12 @@ test("YouTube's rules for its embedded player are kept by the previews", () => {
   assert.doesNotMatch(css, /\.(yt-len|yt-got|watched-pill)[^{]*\{[^}]*z-index: ([4-9]|\d\d)/);
 });
 
-test("it is a prototype, the YouTube list only, and stopped when the page goes", () => {
-  assert.equal(PROTOTYPES.yt_feed.released, false);
+test("it is a prototype, previews on YouTube cards only, and stopped when the page goes", () => {
+  assert.equal(PROTOTYPES.library_feed.released, false);
   const lib = src("web/js/pages/library.js");
-  assert.match(lib, /youtubeShowing\(\) && feature\("yt_feed"\)/);
+  assert.match(lib, /if \(!feature\("library_feed"\)\) return false;/);
+  assert.match(lib, /if \(id\) \{ pic\.dataset\.video = id;/, "only a YouTube card has a video to preview");
+  assert.match(src("web/js/ytpreview.js"), /\.yt-pic\[data-video\]/);
   assert.match(lib, /return \(\) => \{\n    if \(stopPreviews\) stopPreviews\(\);/);
   assert.match(src("mobile/scripts/build-www.mjs"), /"js\/ytpreview\.js"/);
 });

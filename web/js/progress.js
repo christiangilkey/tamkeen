@@ -6,7 +6,7 @@
 //   - a web page you've opened and scrolled LESS than 70% of the way through.
 
 const KEY = "progress";
-const MAX_ITEMS = 40;
+const MAX_ITEMS = 500; // (the Library's order reads this too, libsort.js; it was 40, for Home's Continue alone)
 export const MIN_LEFT_SECONDS = 180;
 export const PAGE_DONE_FRACTION = 0.7;
 

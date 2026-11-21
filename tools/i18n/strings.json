@@ -23505,6 +23505,16 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "5cef38c0",
+  "k": "What to show, and in what order",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "d7decf1a",
+  "k": "Filter",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "585efa75",
   "k": "Filter by title",
   "f": "web/js/pages/library.js"
@@ -23742,6 +23752,61 @@
  {
   "id": "2b8200f3",
   "k": "Select episode",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "1b874cd2",
+  "k": "Listened to",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "de9a3242",
+  "k": "Watched",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "7e353efd",
+  "k": "Show and sort",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "a2a5bdec",
+  "k": "Sort by",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "7792b396",
+  "k": "Transcription",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "44c57abd",
+  "k": "Reset",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "6403f2b7",
+  "k": "New",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "ca66e32d",
+  "k": "In progress, then new, then finished",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "d83c6e92",
+  "k": "Newest added",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "e701dba1",
+  "k": "Oldest added",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "da93563b",
+  "k": "Shortest",
   "f": "web/js/pages/library.js"
  },
  {
@@ -26155,11 +26220,6 @@
   "f": "web/js/pages/vocab.js"
  },
  {
-  "id": "44c57abd",
-  "k": "Reset",
-  "f": "web/js/pages/vocab.js"
- },
- {
   "id": "e5084bff",
   "k": "{0} selected",
   "f": "web/js/pages/vocab.js"
@@ -27732,11 +27792,6 @@
  {
   "id": "ca5a6508",
   "k": "a first guess until you have reviewed a few more",
-  "f": "web/js/review/goalbar.js"
- },
- {
-  "id": "6403f2b7",
-  "k": "New",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -29748,11 +29803,6 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
- },
- {
-  "id": "de9a3242",
-  "k": "Watched",
-  "f": "web/js/watched.js"
  },
  {
   "id": "e3c7f852",

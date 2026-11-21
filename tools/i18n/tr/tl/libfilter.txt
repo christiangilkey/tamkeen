@@ -1,0 +1,11 @@
+# The Library's Filter popup and cards (prototype library_feed, pages/library.js), 2026-11-21
+5cef38c0	Ano ang ipapakita, at sa anong ayos
+d7decf1a	Salain
+1b874cd2	Napakinggan na
+7e353efd	Ipakita at ayusin
+a2a5bdec	Ayusin ayon sa
+7792b396	Transkripsyon
+ca66e32d	Sinimulan, tapos bago, tapos tapos na
+d83c6e92	Pinakabagong idinagdag
+e701dba1	Pinakamatagal nang idinagdag
+da93563b	Pinakamaikli

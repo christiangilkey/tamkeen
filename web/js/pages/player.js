@@ -532,7 +532,9 @@ export async function render(view, { id, query }) {
     saveProgress({ id, kind: vid ? "video" : "audio", title: ep.title, sub: ep.feed_title, image: img || "",
                    pos: audio.currentTime || 0, dur: duration });
     if (cover) saveCover(`${featKind}:${featId}`, cover); // (what was really played, so it can be finished another day)
-    if (vid && atEnd(audio.currentTime || 0, duration)) markWatched(id);  // the Library's "Watched" label (watched.js)
+    // Played to the end: the Library's "Watched" label, and its order puts it last (watched.js, libsort.js). Videos and,
+    // since the Library sorts everything by it (the owner, 2026-11-21), audio too.
+    if (atEnd(audio.currentTime || 0, duration)) markWatched(id);
   };
   audio.addEventListener("timeupdate", update);
 
@@ -557,7 +559,7 @@ export async function render(view, { id, query }) {
   });
   audio.addEventListener("seeked", () => { if (!disposed) kick(); });
   audio.addEventListener("ended", () => {
-    if (vid) markWatched(id);
+    markWatched(id);
     if (!disposed) $("#play").textContent = "▶";
   });
   // Manual scrolling is detected from user input (wheel, touch, keys, scrollbar drag), never

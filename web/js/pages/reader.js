@@ -3,7 +3,8 @@
 
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz, openBrowser } from "../app.js";
 import { voiceNewCard } from "../voiceplay.js";
-import { saveProgress } from "../progress.js";
+import { PAGE_DONE_FRACTION, saveProgress } from "../progress.js";
+import { markWatched } from "../watched.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
@@ -347,6 +348,7 @@ export async function render(view, { id, data, query }) {
     const seen = tr.scrollHeight > 0 ? Math.min(1, (tr.scrollTop + tr.clientHeight) / tr.scrollHeight) : 1;
     // A page short enough to fit on screen has been seen in full.
     saveProgress({ id, kind: "page", title: ep.title, sub: host, image: "", frac: seen });
+    if (seen >= PAGE_DONE_FRACTION) markWatched(id); // read: the Library puts it with the finished ones (libsort.js)
   };
   let scrollTimer = 0;
   tr.addEventListener("scroll", () => { clearTimeout(scrollTimer); scrollTimer = setTimeout(remember, 400); }, { passive: true });
