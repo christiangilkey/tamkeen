@@ -23425,6 +23425,16 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "702141e0",
+  "k": "Tap here to add things",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "c2047afe",
+  "k": "Click here to add things",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "00d12e01",
   "k": "Downloading {0}%",
   "f": "web/js/pages/library.js"

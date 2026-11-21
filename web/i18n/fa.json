@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"با دکمهٔ + پایین صداهای خودتان را اضافه کنید.",
 "Transcripts need a transcription key":"متن‌ها کلید تبدیل گفتار به متن لازم دارند",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"این‌ها واژه‌ای برای خواندن ندارند، پس یک سرویس تبدیل گفتار به متن آن‌ها را از روی صدا می‌نویسد، با کلید خودتان (Groq سهمیهٔ رایگان دارد). برنامهٔ تمکین روی رایانه می‌تواند آن‌ها را رایگان بنویسد.",
+"Tap here to add things":"برای افزودن چیزی اینجا بزنید",
+"Click here to add things":"برای افزودن چیزی اینجا کلیک کنید",
 "Downloading {0}%":"در حال دانلود {0}٪",
 "Transcribing {0}%":"در حال پیاده کردن متن {0}٪",
 "Scanning for speech":"جست‌وجوی گفتار",

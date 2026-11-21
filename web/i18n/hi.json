@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"नीचे दिए + बटन से अपना ऑडियो जोड़ें।",
 "Transcripts need a transcription key":"ट्रांसक्रिप्ट के लिए ट्रांसक्रिप्शन कुंजी चाहिए",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"इनमें पढ़ने के लिए शब्द नहीं होते, इसलिए एक स्पीच-टू-टेक्स्ट सेवा आपकी अपनी कुंजी से आवाज़ सुनकर उन्हें लिखती है (Groq में मुफ़्त सीमा है)। कंप्यूटर पर Tamkeen ऐप इन्हें मुफ़्त में लिख सकता है।",
+"Tap here to add things":"कुछ जोड़ने के लिए यहाँ टैप करें",
+"Click here to add things":"कुछ जोड़ने के लिए यहाँ क्लिक करें",
 "Downloading {0}%":"डाउनलोड हो रहा है {0}%",
 "Transcribing {0}%":"ट्रांसक्राइब हो रहा है {0}%",
 "Scanning for speech":"बोली खोजी जा रही है",

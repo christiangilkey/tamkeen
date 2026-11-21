@@ -198,11 +198,18 @@ test("every Library kind but Courses, Conversation and Lessons says how to add t
     assert.match(e, /empty: "Add [^"]+ with the \+ button below[^"]*"/, key);
   }
   assert.match(library, /<h2 class="le-title">Nothing here yet<\/h2>/);
-  assert.match(library, /<span class="fab-hint">\$\{FAB_ARROW\}<\/span><\/button>/, "the + button carries the arrow");
+  assert.match(library, /<span class="fab-hint">\$\{FAB_NOTE\}\$\{FAB_ARROW\}<\/span><\/button>/, "the + button carries the arrow and its note");
+  assert.match(library, /<span class="fn-tap">Tap here to add things<\/span><span class="fn-click">Click here to add things<\/span>/, "the handwritten note");
   assert.match(library, /if \(k\.key === "books"\) el\.append\(bookButtons\(\)\)/, "Books keeps Free classics");
   const css = read("web/css/media.css");
   assert.match(css, /\.library\.lib-is-empty \.fab-hint \{ display: block; \}/);
   assert.match(css, /body:has\(\.modal-back\) \.library \.fab-hint/, "hidden while the + sheet is open");
+  // The note is inside the arrow's holder (so it shows, fades and hides with it), reads the right way when the arrow
+  // is flipped, says "Click" with a mouse, and is in Caveat, bundled with the app under the SIL Open Font License.
+  assert.match(css, /\.add-fab\.hint-flip \.fab-note \{ transform: [^}]*scaleX\(-1\); \}/);
+  assert.match(css, /@media \(hover: hover\) and \(pointer: fine\) \{ \.fab-note \.fn-tap \{ display: none; \}/);
+  assert.match(read("web/css/app.css"), /font-family: "Caveat";\s*src: url\("\.\.\/fonts\/Caveat-600\.woff2"\)/);
+  assert.match(read("licenses/index.json"), /"Caveat font[^"]*", "license": "SIL Open Font License 1\.1", "file": "caveat\.txt"/);
 });
 
 // ---------- the Vocab page with no words ----------

@@ -150,6 +150,9 @@ function lastKind() {
 // the button sits: media.css .fab-hint).
 const FAB_ARROW = `<svg viewBox="0 0 110 96" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
   <path d="M6 6 C 9 50, 44 80, 101 82"/><path d="M88 71 L102 82 L88 93"/></svg>`;
+// The handwritten note above the arrow (the owner: "it should say in a handwritten font click here to add
+// things"): "Tap" on a touch screen, "Click" with a mouse (media.css .fab-note picks one; both are translated).
+const FAB_NOTE = `<span class="fab-note" aria-hidden="true"><span class="fn-tap">Tap here to add things</span><span class="fn-click">Click here to add things</span></span>`;
 // Kinds made of several feeds of their own (podcasts, audiobooks) rather than one built-in list.
 const manyFeeds = (k) => k === "podcasts" || k === "audiobooks";
 // Tapping something in a strip redraws the page; this carries how far down it was scrolled.
@@ -277,7 +280,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         <div class="episodes" id="episodes"></div>
         <div class="row" style="justify-content:center;margin-top:12px"><button type="button" id="more" hidden>Load more</button></div>
       </section>
-      <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_ARROW}</span></button>
+      <button type="button" class="add-fab" id="add-fab" title="Add to your library" aria-label="Add to your library">${icon("plus", 28)}<span class="fab-hint">${FAB_NOTE}${FAB_ARROW}</span></button>
       <input type="file" id="video-file" accept="video/*,.mkv" hidden>
       <input type="file" id="audio-file" accept="${AUDIO_FILE_ACCEPT}" hidden>
     </div>`));

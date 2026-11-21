@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"أضف تسجيلاتك الصوتية الخاصة بزر + في الأسفل.",
 "Transcripts need a transcription key":"النصوص تحتاج إلى مفتاح تفريغ",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"هذه تأتي بلا كلمات تُقرأ، لذا تكتبها خدمة تحويل الكلام إلى نص من الصوت بمفتاحك الخاص (لدى Groq حصة مجانية). ويمكن لتطبيق تمكين على الحاسوب أن يكتبها مجانًا بدلًا من ذلك.",
+"Tap here to add things":"اضغط هنا لإضافة أشياء",
+"Click here to add things":"انقر هنا لإضافة أشياء",
 "Downloading {0}%":"جارٍ التنزيل {0}٪",
 "Transcribing {0}%":"جارٍ التفريغ النصي {0}٪",
 "Scanning for speech":"البحث عن الكلام",

@@ -53,6 +53,17 @@
     U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
+/* The handwritten note by the Library's + button (media.css .fab-note): Caveat (SIL Open Font License,
+   licenses/caveat.txt), one weight (600), cut to Latin-1 and the Russian alphabet and without its alternate
+   letter shapes, to keep it small (36 KB). Only downloaded when the note shows. */
+@font-face {
+  font-family: "Caveat";
+  src: url("../fonts/Caveat-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  unicode-range: U+0020-007E, U+00A0-00FF, U+0152-0153, U+0401, U+0410-044F, U+0451, U+2013-2014, U+2018-201E, U+2026;
+}
+
 :root {
   --bg: #f6f4f1;
   --surface: #ffffff;

@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"用下方的 + 按钮添加你自己的音频。",
 "Transcripts need a transcription key":"文字稿需要转写密钥",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"这些内容没有可读的文字，所以由语音转文字服务用你自己的密钥从声音写出来（Groq 有免费额度）。电脑上的 Tamkeen 应用也可以免费写出来。",
+"Tap here to add things":"点按这里添加内容",
+"Click here to add things":"点击这里添加内容",
 "Downloading {0}%":"正在下载 {0}%",
 "Transcribing {0}%":"正在转写 {0}%",
 "Scanning for speech":"正在寻找语音",

@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"Pagdugang og imong kaugalingong audio gamit ang + nga button sa ubos.",
 "Transcripts need a transcription key":"Ang mga transcript nanginahanglan og transcription key",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"Kini walay mga pulong nga mabasa, busa usa ka speech-to-text nga serbisyo ang mosulat niini gikan sa tingog, gamit ang imong kaugalingong key (ang Groq adunay libre nga allowance). Ang Tamkeen app sa kompyuter makasulat niini nga libre.",
+"Tap here to add things":"I-tap dinhi aron makadugang og mga butang",
+"Click here to add things":"I-click dinhi aron makadugang og mga butang",
 "Downloading {0}%":"Gi-download {0}%",
 "Transcribing {0}%":"Gi-transcribe {0}%",
 "Scanning for speech":"Nangita og sinultihan",

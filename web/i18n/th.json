@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"เพิ่มไฟล์เสียงของคุณเองด้วยปุ่ม + ด้านล่าง",
 "Transcripts need a transcription key":"บทถอดเสียงต้องใช้คีย์ถอดเสียง",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"สิ่งเหล่านี้ไม่มีคำให้อ่าน บริการแปลงเสียงเป็นข้อความจึงเขียนจากเสียงด้วยคีย์ของคุณเอง (Groq มีโควตาฟรี) แอป Tamkeen บนคอมพิวเตอร์เขียนให้ได้ฟรีแทน",
+"Tap here to add things":"แตะตรงนี้เพื่อเพิ่มรายการ",
+"Click here to add things":"คลิกตรงนี้เพื่อเพิ่มรายการ",
 "Downloading {0}%":"กำลังดาวน์โหลด {0}%",
 "Transcribing {0}%":"กำลังถอดเสียง {0}%",
 "Scanning for speech":"กำลังหาเสียงพูด",

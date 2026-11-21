@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"Добавляйте своё аудио кнопкой + внизу.",
 "Transcripts need a transcription key":"Для расшифровок нужен ключ распознавания речи",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"Здесь нет слов для чтения, поэтому служба распознавания речи записывает их по звуку с вашим собственным ключом (у Groq есть бесплатный лимит). Приложение Tamkeen на компьютере может делать это бесплатно.",
+"Tap here to add things":"Нажмите сюда, чтобы что-нибудь добавить",
+"Click here to add things":"Щёлкните сюда, чтобы что-нибудь добавить",
 "Downloading {0}%":"Загрузка {0}%",
 "Transcribing {0}%":"Расшифровка {0}%",
 "Scanning for speech":"Поиск речи",

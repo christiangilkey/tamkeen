@@ -1,0 +1,3 @@
+# The handwritten note above the arrow to the Library's + button (library.js FAB_NOTE).
+702141e0	Touchez ici pour ajouter des choses
+c2047afe	Cliquez ici pour ajouter des choses

@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"下の + ボタンで自分の音声を追加しましょう。",
 "Transcripts need a transcription key":"文字起こしには文字起こし用のキーが必要です",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"これらには読む文字がないため、音声認識サービスがあなた自身のキーで音声から書き起こします（Groq には無料枠があります）。パソコンの Tamkeen アプリなら無料で書き起こせます。",
+"Tap here to add things":"ここをタップして追加",
+"Click here to add things":"ここをクリックして追加",
 "Downloading {0}%":"ダウンロード中 {0}%",
 "Transcribing {0}%":"文字起こし中 {0}%",
 "Scanning for speech":"音声を探しています",

@@ -1,0 +1,3 @@
+# The handwritten note above the arrow to the Library's + button (library.js FAB_NOTE).
+702141e0	I-tap dinhi aron makadugang og mga butang
+c2047afe	I-click dinhi aron makadugang og mga butang

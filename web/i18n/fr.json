@@ -4683,6 +4683,8 @@
 "Add audio of your own with the + button below.":"Ajoutez votre propre audio avec le bouton + en bas.",
 "Transcripts need a transcription key":"Les transcriptions nécessitent une clé de transcription",
 "These come with no words to read, so a speech-to-text service writes them down from the sound, with your own key (Groq has a free allowance). The Tamkeen app on a computer can write them for free instead.":"Ces contenus n’ont pas de mots à lire : un service de reconnaissance vocale les écrit à partir du son, avec votre propre clé (Groq offre un quota gratuit). L’application Tamkeen sur un ordinateur peut les écrire gratuitement à la place.",
+"Tap here to add things":"Touchez ici pour ajouter des choses",
+"Click here to add things":"Cliquez ici pour ajouter des choses",
 "Downloading {0}%":"Téléchargement {0} %",
 "Transcribing {0}%":"Transcription {0} %",
 "Scanning for speech":"Recherche de la parole",

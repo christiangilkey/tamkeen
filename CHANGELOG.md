@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** When a Library section is empty, a handwritten note above the teal arrow now says **Tap here to add things** (**Click here to add things** with a mouse), in the arrow's colour and slightly tilted. It fades in with the arrow and turns round with it when the + button is on the left. The handwriting is Caveat (SIL Open Font License), included in the app; languages in other alphabets show the note in the app's usual letters.
+
 ## v0.66.0 — 2026-11-20
 
 - **Improved:** *(web app)* When the browser has no voice for the language you're learning, **Settings → Card voices** now says how to add one on the system you're on: on Windows, Settings → Time & language → Speech → Manage voices → Add voices (or add the language with Text-to-speech ticked), with an **Open Windows speech settings** button; on a Mac, System Settings → Accessibility → Spoken Content → System voice → Manage Voices; on Android, Install voice data in Speech Services by Google; on an iPhone, Settings → Accessibility → Spoken Content → Voices. Then reopen the browser and press **Check again**. It also says that Microsoft Edge has many voices of its own (desktop Chrome's own voices have no Arabic). The desktop app's Windows steps name the current **Manage voices** menu too.
