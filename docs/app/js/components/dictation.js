@@ -2,24 +2,25 @@
 // captions) while the learner writes down what they hear.
 //
 // Three ways, switched at the top (the choice is remembered on this device):
-//   - Word: one word plays; they type it and it is shown, marked.
-//   - Sentence: one sentence plays with nothing of its text on screen; they type it and the real sentence
-//     appears ABOVE what they typed, each word marked right, nearly right or missed, their own words that match
-//     none crossed out.
+//   - Word: one word plays; they type it, and the word is shown.
+//   - Sentence: one sentence plays with nothing of its text on screen; they type it, and the real sentence appears
+//     ABOVE what they typed.
 //   - Gist: 2–5 sentences play in a row (they choose how many); they write what they heard (the words they
-//     caught, or what it was about, in any language) and then see everything that was said, the words they
-//     caught marked.
-// The round button right of the three (a check mark, then an arrow) checks what was typed, then goes on: up there,
+//     caught, or what it was about, in any language) and then see everything that was said.
+// Nothing is marked right or wrong and there is no score (the owner, 2026-11-20: "the user can determine that on their
+// own volition"): what was said and what they typed are both shown plainly, for them to compare. Each word of what
+// was said opens the word popup when tapped (onReal).
+// The round button right of the three (a check mark, then an arrow) shows what was said, then goes on: up there,
 // a phone's keyboard never covers it. While typing, the player's own buttons (play, pause, the arrows, speed) leave
-// the box focused, so the keyboard stays up (keepTyping). Next plays the next one. The comparing is web/js/dictation.js; the player the panel sits in plays the pieces
-// (`play(unit)`), so the same panel serves every player with sound: podcasts, audiobooks, your own audio and
-// videos, YouTube, Netflix, reels and courses.
+// the box focused, so the keyboard stays up (keepTyping). Next plays the next one. The cutting into pieces is
+// web/js/dictation.js; the player the panel sits in plays the pieces (`play(unit)`), so the same panel serves every
+// player with sound: podcasts, audiobooks, your own audio and videos, YouTube, Netflix, reels and courses.
 
 import { esc, h } from "../app.js";
 import { t } from "../i18n.js";
 import { icon } from "../icons.js";
 import { langAttrs } from "../languages.js";
-import { GIST_SIZES, caughtWords, compareTyped, passages, shareRight, stepChoice } from "../dictation.js";
+import { GIST_SIZES, passages, piecesOf, stepChoice } from "../dictation.js";
 import { feature } from "../prototype.js";
 import { selectAt } from "./selectsheet.js";
 
@@ -58,11 +59,12 @@ export function dictationButton(onPress) {
   return b;
 }
 
-// `numbered`: each word gets its place among the words (data-p), for a tap on it (onReal).
-const pieceHtml = (pieces, numbered = false) => {
+/** What was said, plainly: each word a span (numbered `data-p` when `numbered`: the words with letters, in order, as
+ *  dictation.js pieceWords counts them, for a tap on one: onReal), spaces and punctuation as they are. */
+const wordsHtml = (text, lang, numbered = false) => {
   let n = 0;
-  return pieces.map((p) => (!p.state ? esc(p.text)
-    : `<span class="dw dw-${p.state}"${numbered ? ` data-p="${n++}"` : ""}>${esc(p.text)}</span>`)).join("");
+  return piecesOf(text, lang).map((p) => (!p.key ? esc(p.text)
+    : `<span class="dw"${numbered ? ` data-p="${n++}"` : ""}>${esc(p.text)}</span>`)).join("");
 };
 const lsGet = (k, d) => { try { const v = localStorage.getItem(k); return v === null ? d : v; } catch { return d; } };
 const lsSet = (k, v) => { try { localStorage.setItem(k, String(v)); } catch { /* storage off */ } };
@@ -101,7 +103,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
         <div class="dict-seg" role="radiogroup" aria-label="How much at a time" ${offered.length > 1 ? "" : "hidden"}>
           ${offered.map((m) => `<button type="button" role="radio" aria-checked="false" data-mode="${m}">${MODE_NAMES[m]}</button>`).join("")}
         </div>
-        <button type="button" class="primary dict-go" title="Check" aria-label="Check">${icon("check", 20)}</button>
+        <button type="button" class="primary dict-go" title="Show what was said" aria-label="Show what was said">${icon("check", 20)}</button>
       </div>
       <div class="dict-sizes" role="radiogroup" aria-label="Sentences at a time" hidden>
         <span class="small muted">Sentences:</span>
@@ -112,7 +114,6 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
       <div class="dict-real ar" ${attrs} translate="no" hidden></div>
       <textarea class="dict-input ar" ${boxAttrs} rows="2" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea>
       <div class="dict-yours ar" ${attrs} translate="no" hidden></div>
-      <p class="dict-score" hidden></p>
       <div class="dict-actions">
         <button type="button" class="dict-again">${icon("sound", 16)} Hear it again</button>
         ${slow ? `<button type="button" class="ghost dict-slow" aria-pressed="false" title="Play it slower">Slower</button>` : ""}
@@ -141,15 +142,15 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   let slowed = false;
   let closed = false;
   let playedAt = 0; // when the piece showing last started playing (Back: it again, or the one before)
-  const scores = { word: new Map(), sentence: new Map(), gist: new Map() }; // piece -> share right (0..1)
+  const heard = { word: new Set(), sentence: new Set(), gist: new Set() }; // the pieces shown, for "Finished: …"
   const touch = () => { used = Date.now(); };
   const timed = (list) => list.length > 0 && Number.isFinite(list[0].start);
   const firstAfter = (list, time) => Math.max(0, list.findIndex((u) => u.end > time + 0.05));   // (the one being heard)
   const firstFrom = (list, time) => Math.max(0, list.findIndex((u) => u.start >= time - 0.05));  // (word times overlap a little)
 
-  /** The round button: "check" (what was typed), "next" or "finish" (once it has been checked). */
+  /** The round button: "check" (show what was said), "next" or "finish" (once it has been shown). */
   function paintGo(face) {
-    const label = face === "check" ? t("Check") : face === "next" ? t("Next") : t("Finish");
+    const label = face === "check" ? t("Show what was said") : face === "next" ? t("Next") : t("Finish");
     go.innerHTML = icon(face === "check" ? "check" : "chevron", 20);
     go.title = label;
     go.setAttribute("aria-label", label);
@@ -195,16 +196,13 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
       : mode === "word" ? t("Type the word you heard") : t("Type what you heard");
     input.setAttribute("aria-label", t("What you heard"));
     $(".dict-hint").textContent = mode === "gist" ? t("Enter shows what was said · Shift+Enter starts a new line")
-      : t("Enter checks it · Shift+Enter plays it again");
+      : t("Enter shows what was said · Shift+Enter plays it again");
   }
 
   function paintCount() {
-    const done = [...scores[mode].values()];
-    const so = done.length && mode !== "gist"
-      ? ` · ${t("{0}% right so far", Math.round((done.reduce((a, b) => a + b, 0) / done.length) * 100))}` : "";
     const which = mode === "word" ? t("Word {0} of {1}", k + 1, units.length)
       : mode === "gist" ? t("Part {0} of {1}", k + 1, units.length) : t("Sentence {0} of {1}", k + 1, units.length);
-    $(".dict-count").textContent = which + so;
+    $(".dict-count").textContent = which;
   }
 
   /** To another way (or another gist size), carrying on from the same place. */
@@ -227,7 +225,6 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     $(".dict-done").hidden = true;
     $(".dict-real").hidden = true;
     $(".dict-yours").hidden = true;
-    $(".dict-score").hidden = true;
     input.hidden = false;
     input.value = "";
     go.hidden = false;
@@ -247,33 +244,18 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   function check() {
     const u = units[k];
     const typed = input.value.trim();
-    const gistNow = mode === "gist";
-    const r = gistNow ? caughtWords(u.text, typed, lang) : compareTyped(u.text, typed, lang);
-    scores[mode].set(k, typed ? shareRight(r) : 0);
+    heard[mode].add(k);
     checked = true;
     touch();
     const real = $(".dict-real");
-    real.innerHTML = pieceHtml(r.real, !!onReal);
+    real.innerHTML = wordsHtml(u.text, lang, !!onReal);
     real.classList.toggle("dict-tap", !!onReal);
     real.hidden = false;
     if (onReal) onReal(real, u, mode);
     const yours = $(".dict-yours");
-    yours.innerHTML = !typed ? `<span class="muted" translate="yes">${esc(t("(nothing typed)"))}</span>`
-      : gistNow ? esc(typed) : pieceHtml(r.typed);
+    yours.innerHTML = !typed ? `<span class="muted" translate="yes">${esc(t("(nothing typed)"))}</span>` : esc(typed);
     yours.hidden = false;
     input.hidden = true;
-    const score = $(".dict-score");
-    const all = r.right === r.total;
-    if (gistNow) {
-      score.textContent = r.right + r.near ? t("You caught {0} of its {1} words.", r.right + r.near, r.total) : t("Here is everything that was said.");
-    } else {
-      const got = r.letters ? t("{0} of {1} letters right", r.right, r.total) : t("{0} of {1} words right", r.right, r.total);
-      score.textContent = mode === "word" && r.total === 1 ? (all ? t("Right.") : r.near ? t("Nearly right.") : t("Not this time."))
-        : all ? (r.letters ? t("Every letter right.") : mode === "word" ? t("Right.") : t("Every word right."))
-        : [got, r.near ? t("{0} nearly right", r.near) : ""].filter(Boolean).join(" · ");
-    }
-    score.classList.toggle("all", !gistNow && all);
-    score.hidden = false;
     paintGo(k + 1 < units.length ? "next" : "finish");
     paintCount();
     go.focus({ preventScroll: true });
@@ -282,14 +264,12 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
 
   function finish() {
     stop();
-    const done = [...scores[mode].values()];
-    const avg = done.length ? Math.round((done.reduce((a, b) => a + b, 0) / done.length) * 100) : 0;
+    const done = heard[mode].size;
     $(".dict-body").hidden = true;
     $(".dict-done").hidden = false;
     go.hidden = true;
-    $(".dict-done-score").textContent = mode === "gist" ? t("Finished: {0} parts listened to.", done.length)
-      : mode === "word" ? t("Finished: {0}% right over {1} words.", avg, done.length)
-      : t("Finished: {0}% right over {1} sentences.", avg, done.length);
+    $(".dict-done-score").textContent = mode === "gist" ? t("Finished: {0} parts listened to.", done)
+      : mode === "word" ? t("Finished: {0} words listened to.", done) : t("Finished: {0} sentences listened to.", done);
     const e = $(".dict-end");
     e.hidden = !end;
     if (end) e.textContent = t(end.label);
@@ -309,7 +289,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
       if (n === size) return;
       size = n;
       lsSet("dictGist", n);
-      scores.gist.clear(); // (the parts are other parts now)
+      heard.gist.clear(); // (the parts are other parts now)
       setMode("gist");
     };
   }
@@ -392,7 +372,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
   }
   keepTyping([$(".dict-modes"), $(".dict-body .dict-actions")]); // the panel's own buttons too
 
-  $(".dict-restart").onclick = () => { scores[mode].clear(); show(0); };
+  $(".dict-restart").onclick = () => { heard[mode].clear(); show(0); };
   $(".dict-end").onclick = () => end && end.run();
   const close = () => {
     if (closed) return;

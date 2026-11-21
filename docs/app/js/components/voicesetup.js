@@ -10,9 +10,16 @@ import { LANGUAGES, studyLanguage } from "../languages.js";
 import { AZURE_FREE, AZURE_PORTAL, AZURE_PRICING, AZURE_VOICES, azureReady, azureVoices, buildSsml, azureSpeak, cleanAzureKey,
          cleanRegion, LOCAL_VOICE_LANGUAGES, needsVoice, pickedVoices, READ_BY, readBy, spokenText, voiceChars, voiceMode, voiceOff,
          voicesForLanguage, waitingForComputer, withPickedVoice } from "../cardvoice.js";
-import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice } from "../devicevoice.js";
+import { deviceHasVoice, deviceKind, noVoiceText, openVoiceSettings, recheckDeviceVoices, speakDevice, voiceHelpPlace } from "../devicevoice.js";
 import { azureVoiceOf, cardLanguage, voiceMaker } from "../voiceplay.js";
 import { appSound } from "../appvolume.js";
+
+// Phones and the web app don't make the "computer" voices themselves: the Tamkeen desktop app does, on a
+// computer signed in to the same Google Drive. In the web app on a computer "your computer" read as that very
+// browser (owner, 2026-11-20), so these words name the desktop app and link to its download: the web app's own
+// Settings → Get the app, or the releases page from a phone.
+const DESKTOP_DOWNLOAD = "https://github.com/christiangilkey/tamkeen/releases/latest";
+const isWebApp = () => typeof window !== "undefined" && window.TAMKEEN_WEB === true;
 
 /** Common Azure regions, for the region box's suggestions (any region with Speech works). */
 const REGIONS = ["eastus", "eastus2", "westus", "westus2", "westus3", "centralus", "northcentralus", "southcentralus", "canadacentral",
@@ -26,7 +33,7 @@ export function voiceSummary(s, { waiting = 0 } = {}) {
   if (mode === "azure") return azureReady(s) ? { text: "Azure voices" } : { text: "Azure needs a key", warn: true };
   if (mode === "computer") {
     return platform === "desktop" ? { text: "Voices made on this computer" }
-      : { text: waiting ? `Waiting for your computer (${waiting} cards)` : "Voices made on your computer" };
+      : { text: waiting ? `Waiting for the desktop app (${waiting} cards)` : "Voices made by the desktop app" };
   }
   return { text: "This device's voice" };
 }
@@ -42,7 +49,9 @@ export function voiceSummary(s, { waiting = 0 } = {}) {
 export function voiceSetup(section, { words = async () => [], computer = null, changed = () => {} } = {}) {
   const cur = () => state.status.settings;
   const phone = platform !== "desktop";
-  const here = phone ? "this phone" : "this computer";
+  const web = isWebApp();
+  const here = !phone ? "this computer" : web ? "this browser" : "this phone";
+  const maker = phone ? "Tamkeen desktop app" : "This computer";  // who makes the "computer" voices
   const lang = studyLanguage();
   const name = (LANGUAGES[lang] || {}).name || lang;
   const sampleText = (LANGUAGES[lang] || {}).sample || "";
@@ -64,8 +73,9 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
         <strong>Azure (your own key)</strong><span class="stt-choice-line">Natural voices, Arabic by country. Made once per card and kept.</span></label>
       <label class="stt-choice"><input type="radio" name="vo-mode" value="computer">
         <span class="stt-choice-ico">${icon("computer", 26)}</span>
-        <strong>${phone ? "My computer" : "This computer"}</strong><span class="stt-choice-line">${phone
-          ? "Free. Your computer makes them; they arrive when it syncs." : "Free, offline. Made here with a downloaded voice and kept."}</span></label>
+        <strong>${maker}</strong><span class="stt-choice-line">${!phone ? "Free, offline. Made here with a downloaded voice and kept."
+          : web ? "Free. Needs the Tamkeen app installed on a Windows, Mac or Linux computer: this browser can't make them."
+          : "Free. The Tamkeen app on your computer makes them; they arrive here when it syncs."}</span></label>
     </div>
     ${borrowed ? `<label class="check vo-borrowed" data-find="latinvoice"><input type="checkbox" id="vo-borrowed">
       <span>Italian voice reading Latin: Church pronunciation<br><span class="small muted">No voice speaks Latin, so an Italian voice
@@ -113,7 +123,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     <div class="stt-folds">
       <details class="set-info"><summary>How it works</summary><p>A card that came with a recording always plays it. For any other card,
         <strong>This device's voice</strong> speaks the word and the sentence as you press Word or Sentence. <strong>Azure</strong> and
-        <strong>${phone ? "My computer" : "This computer"}</strong> make a recording of them the first time, keep it with the card and send it
+        <strong>${maker}</strong> make a recording of them the first time, keep it with the card and send it
         to your other devices through Google Drive, so it is made only once. It also goes into an Anki export. Until a card's recording
         exists, this device's voice reads it.</p></details>
       <details class="set-info"><summary>What is sent, and where is my key kept?</summary>With Azure, only the word and its sentence go to
@@ -158,6 +168,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     if (!box) return;
     box.textContent = voiceMode(cur()) === "azure"
       ? "Arabic dialect words are read by a voice from that dialect: words from the Levantine course by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Courses, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
+      : phone ? "This device's voice and the desktop app's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure."
       : "This device's voice and the computer's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure.";
   }
 
@@ -171,11 +182,13 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     }
     const has = await deviceHasVoice(lang);
     const android = deviceKind() === "android";
+    const winWeb = voiceHelpPlace() === "web-windows";  // a browser on Windows may open its speech settings (ms-settings:)
     box.innerHTML = `<div class="vo-device ${has === false ? "vo-missing" : ""}">
       <span class="vo-device-ico">${icon(has === false ? "close" : "check", 18)}</span>
       <span class="vo-device-text"></span>
       <span class="vo-device-do">
-        ${has === false ? (android ? `<button type="button" class="ghost" id="vo-tts-settings">Open text-to-speech settings</button>` : "")
+        ${has === false ? (android ? `<button type="button" class="ghost" id="vo-tts-settings">Open text-to-speech settings</button>`
+          : winWeb ? `<a class="btn ghost" id="vo-win-speech" href="ms-settings:speech">Open Windows speech settings</a>` : "")
           + `<button type="button" class="ghost" id="vo-recheck">Check again</button>`
           : `<button type="button" class="ghost" id="vo-device-try">${icon("sound", 16)} Play a sample</button>`}
       </span></div>`;
@@ -363,11 +376,24 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     if (off()) { box.innerHTML = ""; return; }  // (hidden: the line above says it's switched off)
     if (phone) {
       const w = waitingForComputer(allWords, cardLanguage, cur());
-      box.innerHTML = `<h3>Waiting for your computer</h3><div class="vo-wait"><strong></strong><span class="small muted"></span></div>`;
+      const can = LOCAL_VOICE_LANGUAGES.includes(lang);
+      box.innerHTML = `<h3>Waiting for the desktop app</h3><div class="vo-wait"><strong></strong><span class="small muted"></span></div>
+        ${can ? `<p class="small muted vo-desk-meanwhile"></p>
+        <div class="vo-desk-get"><a class="btn" id="vo-desk-link">${icon("computer", 16)} Get the desktop app</a></div>` : ""}`;
       box.querySelector("strong").textContent = w.count ? `${w.count} card${w.count === 1 ? "" : "s"}` : "Nothing waiting";
-      box.querySelector("span").textContent = LOCAL_VOICE_LANGUAGES.includes(lang)
-        ? `Your computer makes them when Tamkeen is open there, with the ${byName} voice downloaded (Settings → Card voices on the computer). They arrive here when it syncs; until then this phone's voice reads them.`
-        : `Your computer has no ${name} voice, so these cards use this phone's voice. For natural ${name} voices choose Azure.`;
+      box.querySelector("span").textContent = can
+        ? `The Tamkeen desktop app makes them: installed on a Windows, Mac or Linux computer, signed in to the same Google Drive, and open there with the ${byName} voice downloaded (Settings → Card voices in the desktop app). They arrive when it syncs.`
+        : web ? `The Tamkeen desktop app has no ${name} voice, so this browser reads these cards with its own voice. For natural ${name} voices choose Azure.`
+        : `The Tamkeen desktop app has no ${name} voice, so this phone reads these cards with its own voice. For natural ${name} voices choose Azure.`;
+      const link = box.querySelector("#vo-desk-link");
+      if (link) {  // the web app's own download page, or the releases page from a phone
+        link.href = web ? "#/settings?s=getapp" : DESKTOP_DOWNLOAD;
+        if (!web) Object.assign(link, { target: "_blank", rel: "noopener" });
+      }
+      const meanwhile = box.querySelector(".vo-desk-meanwhile");
+      if (meanwhile) meanwhile.textContent = web
+        ? "This browser can't make them itself. Until they arrive, and if no desktop app ever syncs, this browser's own voice reads them."
+        : "Until they arrive, and if no desktop app ever syncs, this phone's own voice reads them.";
       return;
     }
     try { summary = await computer.summary(); } catch (err) { box.textContent = err.message; return; }

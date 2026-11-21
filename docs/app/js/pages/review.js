@@ -38,6 +38,7 @@ import { NEW_CHOICES, NEW_MAX, NEW_PER_DAY, cleanNewPerDay, forecast, plan, prom
 import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "../components/pronresult.js";
 import { addToNotes } from "../review/mnemonic.js";
+import { repairFormMeaning } from "../review/formrepair.js";
 import { CARD_ICONS, EDIT_LABELS, HOLD_MS, drawLitLine, learnFromNote, memoPlaceholder, partSeconds, pastedInto,
          textBox } from "../review/cardtools.js";
 import { wordTools } from "../components/wordtools.js";
@@ -239,6 +240,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-speedline" hidden>
           <span class="rv-speed" role="status" title="Speed streak: cards answered before the bar ran out">${icon("bolt", 16)}<b>0</b></span>
           <span class="rv-best"></span>
+          <span class="rv-speedmsg" role="status"></span>
           <button type="button" class="rv-boost" title="Add ${BOOST.seconds} seconds to the bar (B)" aria-label="Add ${BOOST.seconds} seconds to the bar">+${BOOST.seconds} s <i></i></button>
         </div>
         <div class="rv-card">
@@ -292,11 +294,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   function slot() {
     const wrap = $(".rv-wrap");
     if (wrap.hidden) return null;
-    // (the card's own box and layout numbers, which its entrance animation doesn't move)
+    // The card's own box: where it is laid out inside the wrap (layout numbers, which its entrance animation
+    // doesn't move), NOT the wrap's box. The wrap also holds the speed streak's line above the card, and measuring
+    // the wrap put the chips on that line and the timer bar (v0.56 to v0.65).
     const w = wrap.getBoundingClientRect(), all = el.getBoundingClientRect();
     const badge = flipped ? null : face.querySelector(".rv-kind");
     const first = flipped ? null : face.querySelector(".rv-meaning");
-    return cornerSlot({ card: { left: w.left - all.left, top: w.top - all.top, width: w.width }, host: { width: all.width },
+    return cornerSlot({ card: { left: w.left - all.left + card.offsetLeft, top: w.top - all.top + card.offsetTop, width: card.offsetWidth },
+      host: { width: all.width },
       badge: badge ? badge.offsetWidth : 0, free: first ? first.offsetTop - face.scrollTop : Infinity,
       rtl: getComputedStyle(el).direction === "rtl" });
   }
@@ -314,7 +319,11 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
    * word threw and left the answer buttons dead: v0.53.0.) */
   function sayChips(chips) {
     feed.push(...chips);
-    if (!feeding) nextChip();
+    if (feeding) return;
+    // A moment later, not at once: the card has only just been drawn, and the app's translator (i18n.js) rewrites
+    // its badge and hint right after. Measured before that, a longer badge ("NEUES WORT") ended up under the chip.
+    const waiting = feeding = Promise.resolve();
+    queueMicrotask(() => { if (feeding === waiting) nextChip(); });
   }
   /** Put every chip away, waiting or showing (the card is turned, an answer taken back). A big reveal stays. */
   function clearChips() {
@@ -442,11 +451,29 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (record.streak > 0) {
       record = timedOut(record);
       saveRecord(record);
-      shout("Time's up: the streak starts again");
+      speedSay("Time's up: the streak starts again");
     }
     paintSpeed();
   }
   const sideTicker = setInterval(() => { if (!document.hidden) watchSide(); }, 200);
+  // What the speed streak has to say is said in its own line above the card (the "Best today" words make way for
+  // a moment), never across the card, where it lay over the word (the owner: popups must "not cover anything").
+  let speedSaying = 0;
+  let speedSaid = { text: "", at: 0 };
+  function speedSay(text, pop = "") {
+    const line = $(".rv-speedline");
+    speedSaid = { text, at: Date.now() };
+    if (line.hidden) { shout(text); return; }  // (no card on the table: across the summary, as before)
+    line.querySelector(".rv-speedmsg").textContent = text;
+    line.classList.add("saying");
+    clearTimeout(speedSaying);
+    speedSaying = setTimeout(() => {
+      line.classList.remove("saying");
+      line.querySelector(".rv-speedmsg").textContent = "";
+      const b = pop && $(pop);  // (the part of the line it was about springs as it comes back)
+      if (b) { b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }
+    }, 2200);
+  }
   /** The line above the card: the speed streak, the best ones and the boosts banked. */
   function paintSpeed() {
     const line = $(".rv-speedline");
@@ -511,6 +538,14 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     </div>`;
     actions.innerHTML = `<button type="button" class="rv-show"><span>Show the word <kbd>Space</kbd></span></button>`;
     actions.querySelector(".rv-show").onclick = flip;
+    // An old card whose meaning is the dictionary's "active participle of …": the translation now (review/formrepair.js).
+    repairFormMeaning(v, studyOf(v), (change) => {
+      if (closed || todo[0] !== v) return;
+      saveCard(v, change);
+      const shown = face.querySelector(".rv-front .rv-meaning");
+      if (shown) shown.textContent = prompt(v).meaning;
+      drawMeaning(v);
+    });
   }
 
   /** Is this word a boss (missed on four different days: game/loot.js)? Its card turns gold. */
@@ -919,9 +954,10 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       const sp = speedAnswered(record, !cardOut, day);
       record = sp.rec;
       saveRecord(record);
-      if (sp.best && record.streak >= 5) shout(`New best speed streak: ${record.streak}`);
-      else if (sp.boost) shout(`+${BOOST.seconds} s boost earned`);
-      if (sp.best || sp.boost) { const b = $(sp.best ? ".rv-speed" : ".rv-boost"); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }
+      const which = sp.best ? ".rv-speed" : ".rv-boost";
+      if (sp.best && record.streak >= 5) speedSay(`New best speed streak: ${record.streak}`, which);
+      else if (sp.boost) speedSay(`+${BOOST.seconds} s boost earned`, which);
+      else if (sp.best) { const b = $(which); b.classList.remove("pop"); void b.offsetWidth; b.classList.add("pop"); }
     }
     session.answered++;
     if (!tried.has(uid)) {
@@ -982,7 +1018,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       sayChips([...(told.main ? [told.main] : []), ...told.more.map((m) => m.chip)]);
     } else {
       finish();
-      told.more.forEach((m, i) => setTimeout(() => { if (!closed) shout(m.shout); }, i * 1400));  // (over the summary, as before)
+      // (over the summary, as before; with what the speed streak's line was saying when its card went)
+      const lines = [...(Date.now() - speedSaid.at < 2200 ? [speedSaid.text] : []), ...told.more.map((m) => m.shout)];
+      lines.forEach((text, i) => setTimeout(() => { if (!closed) shout(text); }, i * 1400));
     }
   }
 

@@ -9,6 +9,7 @@ import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../language
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 import { feature } from "../prototype.js";
+import { creatorBar } from "../components/creatorbar.js";
 import { icon } from "../icons.js";
 import { firstVisitTour } from "../components/tour.js";
 import { t } from "../i18n.js";
@@ -49,6 +50,7 @@ async function existing(items, limit) {
 export async function render(view) {
   const [ar, en] = greeting();
   view.append(h(`<div class="home">
+    <div id="home-creator" class="home-creator" hidden></div>
     <section class="hero">
       <div class="hero-top">
         <img class="hero-logo" src="${new URL("../../icons/icon-256.png", import.meta.url).href}" alt="" width="56" height="56">
@@ -63,6 +65,8 @@ export async function render(view) {
     <div id="home-tavern" class="home-tavern" hidden></div>
     <div id="home-raid" class="home-raid" hidden></div>
   </div>`));
+  // Tamkeen's creator only (prototype "creator_bar"): people online and the nearest limit (components/creatorbar.js).
+  if (feature("creator_bar")) creatorBar(view.querySelector("#home-creator"));
   // The daily streak (days in a row the flashcard goal was met: review/flame.js), at the right of the
   // greeting, in its gold: the owner wanted it there, a flame icon rather than an emoji.
   import("../review/flame.js").then(({ myStreak }) => myStreak()).then(({ result }) => {

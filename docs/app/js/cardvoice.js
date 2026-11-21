@@ -539,13 +539,19 @@ export function pickDeviceVoice(voices, lang) {
 }
 
 /** How to add a voice for a language to the device, for "No <language> voice on this …". `where`:
- * "windows", "mac", "android", "ios", "web". */
+ * "windows", "mac", "android", "ios" (the apps), "web-windows", "web-mac", "web-android", "web-ios" (the web
+ * app on that system: browsers speak with the system's voices, and desktop Chrome's own Google voices have no
+ * Arabic) or "web" (another system). Menu names as Windows 11, macOS, Android and iOS show them (2026-11). */
 export function addVoiceHelp(name, where) {
   switch (where) {
     case "android": return `This phone has no ${name} voice. To add one: open the phone's Settings → search for “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → ${name}.`;
     case "ios": return `This iPhone has no ${name} voice. To add one: Settings → Accessibility → Spoken Content → Voices → ${name}.`;
     case "mac": return `This Mac has no ${name} voice. To add one: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → ${name}.`;
-    case "windows": return `This computer has no ${name} voice. To add one: Windows Settings → Time & language → Speech → Add voices → ${name}. Then restart Tamkeen.`;
+    case "windows": return `This computer has no ${name} voice. To add one: Windows Settings → Time & language → Speech → Manage voices → Add voices → ${name}. Then restart Tamkeen.`;
+    case "web-windows": return `This browser has no ${name} voice. To add one to Windows: Settings → Time & language → Speech → Manage voices → Add voices → ${name} (or Time & language → Language & region → Add a language → ${name}, with Text-to-speech ticked). Then close and reopen the browser and press Check again. Microsoft Edge also has many voices of its own.`;
+    case "web-mac": return `This browser has no ${name} voice. To add one to the Mac: System Settings → Accessibility → Spoken Content → System voice → Manage Voices → ${name}. Then close and reopen the browser and press Check again. Microsoft Edge also has many voices of its own.`;
+    case "web-android": return `This browser has no ${name} voice. To add one to the phone: open its Settings → search for “Text-to-speech” → Preferred engine (Speech Services by Google) → Settings → Install voice data → ${name}. Then close and reopen the browser and press Check again.`;
+    case "web-ios": return `This browser has no ${name} voice. To add one to the iPhone: Settings → Accessibility → Spoken Content → Voices → ${name}. Then close and reopen the browser and press Check again.`;
     default: return `This browser has no ${name} voice. Some browsers have more voices than others (Chrome and Edge have many), or add a voice to the device in its own settings.`;
   }
 }

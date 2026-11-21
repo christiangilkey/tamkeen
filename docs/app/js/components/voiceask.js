@@ -28,9 +28,8 @@ import { sayText, stopSaying } from "../saytext.js";
 import { languageName } from "../converse.js";
 import { chosenDialect } from "../voiceplay.js";
 import { isPhrase, wordKey } from "../addwords.js";
-import { askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, translationsFor } from "../voiceask.js";
+import { askExamples, askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, translationsFor } from "../voiceask.js";
 
-const EXAMPLE = "How do I say colorful in Spanish?";
 const browserRecognition = () => window.SpeechRecognition || window.webkitSpeechRecognition || null;
 
 /** A way of hearing that isn't there on this device: the next one is tried. */
@@ -49,12 +48,25 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   let busy = false;    // hearing or answering
   let answer = null;   // {lang, items: [{word, meaning, notes, added}], source}
   let closed = false;
+  // What to say (voiceask.js askExamples): in English, as the question is read in English; tapping one puts it in the box.
+  const examples = askExamples(study);
+  const EXAMPLE = examples[0].text;
+  const english = /^en\b/i.test(uiLanguage() || "en");
+  const exampleHtml = (ex, i) => {
+    const said = ex.word ? esc(ex.text).replace(esc(ex.word), `<bdi ${langAttrs(study)}>${esc(ex.word)}</bdi>`) : esc(ex.text);
+    const line = ex.after ? esc(t("After an answer: “{0}”", "\u0000")).replace("\u0000", said) : `“${said}”`;
+    return `<li><button type="button" class="vq-ex" data-i="${i}">${line}</button></li>`;
+  };
 
   const sheet = openModal({ title: t("Ask by voice"), onClose: () => { closed = true; if (active) active.stop(true); stopSaying(); } });
   sheet.el.querySelector(".modal-box").classList.add("vq-box");
   const body = h(`<div class="vq">
     <button type="button" class="vq-mic" data-state="idle" aria-label="Ask by voice"><span class="vq-level" aria-hidden="true"></span>${icon("mic", 34)}</button>
     <p class="vq-status muted" role="status"></p>
+    <div class="vq-examples">
+      <p class="vq-ex-head muted">${esc(english ? t("Things you can say") : t("Things you can say, in English"))}</p>
+      <ul class="vq-ex-list">${examples.map(exampleHtml).join("")}</ul>
+    </div>
     <form class="vq-form">
       <input type="text" class="vq-text" enterkeyhint="go" autocomplete="off" aria-label="Your question" placeholder="${esc(t("…or type it here"))}">
       <button type="submit" class="vq-go primary">Ask</button>
@@ -66,7 +78,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   const mic = $(".vq-mic"), status = $(".vq-status"), input = $(".vq-text"), out = $(".vq-answer");
 
   const say = (text, kind = "") => { status.textContent = text; status.classList.toggle("vq-err", kind === "error"); };
-  const idleHint = () => say(answer ? t("Press the microphone and say “add it”, or ask another.") : t("Press the microphone and ask: “{0}”", t(EXAMPLE)));
+  const idleHint = () => say(answer ? t("Press the microphone and say “add it”, or ask another.") : t("Press the microphone and ask."));
   const micState = (s) => { mic.dataset.state = s; mic.disabled = s === "wait"; };
 
   // ---------------------------------------------------------------- hearing
@@ -155,7 +167,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     micState("wait");
     say(t("Listening…"));
     let r;
-    try { r = await speechPlugin.recognize({ lang: ownTag(), prompt: t(EXAMPLE) }); } catch (e) { throw new Unavailable(e && e.message ? e.message : String(e)); }
+    try { r = await speechPlugin.recognize({ lang: ownTag(), prompt: EXAMPLE }); } catch (e) { throw new Unavailable(e && e.message ? e.message : String(e)); }
     return String((r && r.text) || "").trim();
   }
 
@@ -266,7 +278,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
       addItems(q.all ? answer.items : answer.items.slice(0, 1));
       return;
     }
-    if (q.kind === "none" || !q.phrase) { say(t("I didn't catch a question. Try: “{0}”", t(EXAMPLE)), "error"); return; }
+    if (q.kind === "none" || !q.phrase) { say(t("I didn't catch a question. Try: “{0}”", EXAMPLE), "error"); return; }
     const lang = q.lang && isLanguage(q.lang) ? q.lang : study;
     busy = true;
     micState("wait");
@@ -304,6 +316,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
 
   function paint() {
     out.hidden = false;
+    $(".vq-examples").hidden = true;  // (with an answer, the line above says what to say next)
     const { lang, items, source } = answer;
     const attrs = langAttrs(lang);
     const other = lang !== study;
@@ -352,6 +365,9 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   // ---------------------------------------------------------------- start
 
   mic.onclick = () => { listenOnce(); };
+  body.querySelectorAll(".vq-ex").forEach((b) => {
+    b.onclick = () => { input.value = examples[Number(b.dataset.i)].text; input.focus(); };
+  });
   $(".vq-form").onsubmit = (e) => {
     e.preventDefault();
     const text = input.value.trim();

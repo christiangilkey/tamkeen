@@ -55,6 +55,7 @@ import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../c
 import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 import { mediaSound } from "../appvolume.js";
 import { mediaWait } from "../components/mediawait.js";
+import { dubTipOff, showDubTip } from "../components/dubtip.js";
 
 const SPEEDS = [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 1, 1.1, 1.25, 1.5, 1.75, 2];
 const CAPTION_WORDS = 12; // longest caption line, in words
@@ -301,7 +302,6 @@ export async function render(view, { id, query }) {
         </div>
         <div class="btnrow">
           <span id="loop-chip" class="chip" hidden>⟲ Looping sentence <button type="button" id="loop-off" title="Stop looping">✕</button></span>
-          ${yt ? "" : `<button type="button" id="restart" class="icon" title="Back to the start of the sentence (R)" aria-label="Back to the start of the sentence">${icon("sentence-start", 16)}</button>`}
           <button type="button" id="back5" title="Back 5 seconds (←)">⟲ 5s</button>
           <button type="button" id="play" class="play primary" title="Play/Pause (Space)">▶</button>
           <button type="button" id="fwd5" title="Forward 5 seconds (→)">5s ⟳</button>
@@ -377,8 +377,15 @@ export async function render(view, { id, query }) {
   window.__apsAudio = audio; // handy for debugging from the devtools console
   // A spinner while the video loads, jumps or buffers, then Try again if it takes too long (components/mediawait.js;
   // the owner, 2026-11-20: YouTube showed a black screen until it had loaded). Netflix says "Opening Netflix…".
+  // Audio (podcasts, audiobooks, your own audio) has no picture: its line goes beside the time bar (the owner, 2026-11-20: a
+  // podcast said "Playback failed" while its audio was still loading). A load that really fails says so there, with
+  // Try again, instead of a message that goes away.
+  let wantPlay = false; // play was pressed and not since paused: played once it can be (play() turned down while loading)
+  const loadFailed = vid ? t("Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in.")
+    : t("Couldn't load the audio. If it streams from the podcast's server, check your connection.");
   const stopWait = yt ? mediaWait(audio, { screen: $("#screen"), band: $("#captions") })
-    : vid && !embed ? mediaWait(audio, { screen: $("#screen") }) : () => {};
+    : nf ? () => {}
+    : mediaWait(audio, { screen: vid ? $("#screen") : null, band: vid ? null : $(".seekrow"), wanted: () => wantPlay, errorText: loadFailed });
   let speed = lsGet("speed", 1);
   $("#speed").value = String(speed);
 
@@ -392,11 +399,10 @@ export async function render(view, { id, query }) {
     tick();
   }, { once: true });
   audio.addEventListener("error", () => {
-    if (disposed) return;
-    toast(yt ? audio.errorMessage || "YouTube couldn't play this video."
-      : nf ? audio.errorMessage || "Netflix couldn't play this title."
-      : vid ? "Couldn't load the video. It streams from your Google Drive: check your connection and that you're signed in."
-      : "Couldn't load the audio. If it streams from the podcast's server, check your connection.", { error: true });
+    // (Your own audio and videos: said in place, with Try again, by mediaWait above. A load only interrupted on its way
+    // is no failure.)
+    if (disposed || !embed) return;
+    toast(yt ? audio.errorMessage || "YouTube couldn't play this video." : audio.errorMessage || "Netflix couldn't play this title.", { error: true });
   });
 
   // ---------- highlight + follow ----------
@@ -572,7 +578,27 @@ export async function render(view, { id, query }) {
   };
 
   // ---------- transport ----------
-  const play = () => audio.play().catch((e) => toast(`Playback failed: ${e.message}`, { error: true }));
+  // A play turned down because the sound was still loading (AbortError: its load was interrupted on the way) is no
+  // failure: it plays once it can, unless paused meanwhile (the owner, 2026-11-20: "Playback failed: The fetching
+  // process for the media resource was aborted…", then it worked). Other refusals are said.
+  const play = () => {
+    wantPlay = true;
+    return audio.play().then(() => {}, (e) => {
+      if (disposed) return;
+      if (e && e.name === "AbortError") {
+        audio.addEventListener("canplay", () => { if (wantPlay && audio.paused && !disposed) audio.play().catch(() => {}); }, { once: true });
+        stopWait.paint?.();
+        return;
+      }
+      wantPlay = false;
+      // (A sound that couldn't be loaded at all is said in place, with Try again: mediaWait above.)
+      if (!embed && audio.error && audio.error.code !== 1) { stopWait.paint?.(); return; }
+      toast(`Playback failed: ${e.message}`, { error: true });
+    });
+  };
+  audio.addEventListener("playing", () => { wantPlay = false; }); // (it plays: nothing is waiting any more)
+  /** Paused by the learner (the button, Space, the phone's controls): a play still waiting for the sound is let go. */
+  const pause = () => { wantPlay = false; audio.pause(); stopWait.paint?.(); };
   const seekTo = (t, autoplay = true) => {
     clipEnd = null;
     audio.currentTime = Math.max(0, Math.min(t, duration || t));
@@ -581,14 +607,13 @@ export async function render(view, { id, query }) {
     if (autoplay && audio.paused) play();
     kick();
   };
-  $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : audio.pause(); };
+  $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : pause(); };
   $("#back5").onclick = () => (dict ? dict.back() : seekTo(audio.currentTime - 5, false)); // (typing: by the piece)
-  // Back to the start of the line being heard (again within a second: the line before). The R key everywhere; a
-  // button too, except on YouTube, whose bar keeps only the 5-second ones (the owner, 2026-11-19: "the second rewind
-  // button should be removed").
+  // Back to the start of the line being heard (again within a second: the line before): the R key. No button: every
+  // player's bar keeps only the 5-second ones (the owner, 2026-11-19 for YouTube: "the second rewind button should be
+  // removed"; 2026-11-20 the others, whose bar was cut off on a phone).
   const lineStarts = Float64Array.from(data.segments.map((s) => s.start)).sort();
   const lineAgain = () => seekTo(sentenceStart(lineStarts, audio.currentTime), false);
-  if ($("#restart")) $("#restart").onclick = lineAgain;
   $("#fwd5").onclick = () => (dict ? dict.next() : seekTo(audio.currentTime + 5, false));
   $("#speed").onchange = (e) => {
     speed = Number(e.target.value);
@@ -715,9 +740,15 @@ export async function render(view, { id, query }) {
     };
     paint();
     // A dubbed version in the language being learned (YouTube's "multi-language audio"). Tamkeen
-    // can't choose it from outside YouTube's player, so the way to it is shown.
+    // can't choose it from outside YouTube's player, so the way to it is shown: in a box (components/dubtip.js;
+    // the owner, 2026-11-20), or, once "Don't show this again" was ticked, a short note under the video.
     dubbedTrack(ep).then((track) => {
       if (!track || disposed) return;
+      if (!dubTipOff()) {
+        showDubTip({ after: $("#yt-note"), language: studyName, translated: captionKind(ep) === "translated", onClose: () => { if (!disposed) fitBubble(); } });
+        fitBubble(); // (the band under the video is taller while it is open)
+        return;
+      }
       temp = `This video can be heard in ${studyName} too: choose it under ⚙ → Audio track in the video.`;
       paint();
       // Shown for 12 seconds, fading out over the last one (media.css .yt-note-temp), then gone.
@@ -1198,7 +1229,7 @@ export async function render(view, { id, query }) {
       if (e.target.closest(".captions")) return;
       if (bubble.open) { bubble.hide(); return; }
       clipEnd = null;
-      audio.paused ? play() : audio.pause();
+      audio.paused ? play() : pause();
     });
   }
   /** On a phone the popup is a sheet that stops just above the play controls, so they stay in
@@ -1260,9 +1291,9 @@ export async function render(view, { id, query }) {
   let dictWords = null;
   const dictBtn = dictationButton(() => (dict ? dict.close() : openDictation()));
   const dictShown = dictationOn(); // (not released yet: components/dictation.js)
-  // YouTube: in the play bar, beside the speed, as in the reel player (the owner, 2026-11-19: up in the banner it went
-  // unseen). Elsewhere with the other switches at the top.
-  if (dictShown) (yt ? $(".btnrow").append(dictBtn) : $("#font-down").before(dictBtn));
+  // In the play bar, beside the speed, as in the reel player (the owner: 2026-11-19 on YouTube, where up in the banner
+  // it went unseen; 2026-11-20 in every player, "I also need podcasts to have a transcription feature").
+  if (dictShown) $(".btnrow").append(dictBtn);
   dictBtn.disabled = !n;
   function openDictation() {
     if (dict || !n || disposed || !dictShown) return;
@@ -1374,7 +1405,7 @@ export async function render(view, { id, query }) {
   const onKey = (e) => {
     if (e.target.closest("input, select, textarea, button") && e.key === " ") return;
     if (e.target.closest("input, textarea, select")) return;
-    if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : audio.pause(); }
+    if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : pause(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
     else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else lineAgain(); }
@@ -1496,7 +1527,7 @@ export async function render(view, { id, query }) {
       navigator.mediaSession.metadata = new MediaMetadata({ title: ep.title, artist: ep.feed_title,
         artwork: img ? [{ src: img }] : [] });
       navigator.mediaSession.setActionHandler("play", play);
-      navigator.mediaSession.setActionHandler("pause", () => audio.pause());
+      navigator.mediaSession.setActionHandler("pause", pause);
       navigator.mediaSession.setActionHandler("seekbackward", () => seekTo(audio.currentTime - 5, false));
       navigator.mediaSession.setActionHandler("seekforward", () => seekTo(audio.currentTime + 5, false));
     } catch { /* unsupported */ }

@@ -31,6 +31,7 @@ import { CARD_ICONS, EDIT_LABELS, copyAndSay, drawLitLine, holdWords, learnFromN
          textBox } from "../review/cardtools.js";
 import { ADDS, missingParts } from "../review/vocabedit.js";
 import { addToNotes } from "../review/mnemonic.js";
+import { repairFormMeaning } from "../review/formrepair.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "./pronresult.js";
 import { wordTools } from "./wordtools.js";
@@ -306,5 +307,11 @@ export function openWordEditor(el, v, deps) {
   body.querySelector(".vi-more").onclick = (e) => moreMenu(e.currentTarget);
   paint();
   paintQuick(true);
+  // An old card whose meaning is the dictionary's "active participle of …": the translation now (review/formrepair.js).
+  repairFormMeaning(v, studyLang(), (change) => {
+    if (closed || isEditing("meaning") || isEditing("notes")) return;
+    saveChange(change);
+    paint();
+  });
   return { close, paintQuick: () => paintQuick() };
 }

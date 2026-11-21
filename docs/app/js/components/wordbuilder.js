@@ -301,7 +301,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
             : "Azure makes each card's voice when you add them.";
         } else if (voiceMode(s) === "computer") {
           html = platform === "desktop" ? "This computer makes each card's voice, with the voices downloaded in Settings."
-            : "Your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.";
+            : "The Tamkeen desktop app on your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.";
         } else {
           html = `This device's voice reads them. Azure gives the most natural voice: <a href="${AZURE_SETTINGS}" class="cb-go">set it up</a>.`;
         }
@@ -998,8 +998,10 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     for (const [word, several] of tries) {
       try {
         const d = await ask(word, several, !senses);
+        // (`form`: what form the word is, "plural of كِتَاب", for its Grammar notes: meaningdata.js translatedForms)
         if (d && d.meaning) return { meaning: d.meaning, pos: d.pos || "", from: "entry", spelled: d.spelled || "",
-          senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings)) : null };
+          form: d.morphology && !/^also /.test(d.morphology) ? d.morphology : "",
+          senses: senses ? distinctSenses(dictionarySenses(d.meaning, d.pos, d.other_meanings), { alike: d.alike }) : null };
       } catch (err) { if (err && err.message === NO_MEANINGS) throw err; }
     }
     if (phrase && byWords) {
@@ -1058,6 +1060,12 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           r.meaningPos = d.pos;
           r.meaningFrom = d.from;
           r.senses = d.senses && d.senses.length > 1 ? d.senses : null;
+          // What form it is goes in the card's Grammar notes, when the learner wrote none (the owner, 2026-11-20).
+          if (d.form && !String(r.notes || "").trim()) {
+            r.notes = d.form;
+            const box = r.el && r.el.querySelector(".cb-notes");
+            if (box) box.value = d.form;
+          }
           // Typed without its accents ("vacio"): the card takes the dictionary's spelling (meanings.js respellings).
           if (d.spelled && d.spelled !== r.text.trim()) {
             r.text = d.spelled;

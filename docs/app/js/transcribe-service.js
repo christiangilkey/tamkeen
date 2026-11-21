@@ -14,18 +14,21 @@
 // Requests go through the phone's native code, which isn't held back by the cross-site rules for
 // web pages. In a browser (the development preview) plain fetch is used.
 
-import { MAX_UPLOAD_BYTES, Mp3Splitter, STT_PROVIDERS, SttError, addAudioUse, audioUseToday, looksLikeMp3, parseTranscription,
-         sendFailure, silentWav, sttConfig, sttFailure, sttModelLabel, tidyBase64, toTranscript, transcriptionFields, waitText } from "./stt.js";
+import { MAX_UPLOAD_BYTES, STT_PROVIDERS, SttError, addAudioUse, audioUseToday, looksLikeMp3, parseTranscription,
+         silentWav, sttConfig, sttModelLabel, tidyBase64, toTranscript, transcriptionFields } from "./stt.js";
+import { Cancelled, HEAD_BYTES, PATIENT_PAUSES, PIECE_SECONDS, QUICK_PAUSES, askProvider, canResume, fetchWhole, pause, stopMessage, streamMp3,
+         throughDrops } from "./sttjob.js";
 import { drive } from "./drive.js";
 import { NativeHttp, finalUrl, isNative, webFetch } from "./native.js";
 import { kv, lib, now, saveLibrary, settings, transcripts } from "./store.js";
 import { driveFileId, requestSync } from "./sync.js";
 
-const HEAD_BYTES = 256 * 1024;      // the first request: enough to tell what kind of file it is
-const STEP_BYTES = 3 * 1024 * 1024; // how much audio is fetched per request
-const ATTEMPTS = 4;
-const LONGEST_WAIT = 20 * 60;       // seconds a "slow down" from the provider is waited out before giving up
 const USE_KEY = "sttUse";
+const PARTIAL = (uid) => `stt_partial:${uid}`; // kv: what a long episode's last try finished (sttjob.js canResume)
+// kv: a smaller piece size this phone needed lately ({seconds, at}): its uploads kept dying at 8 minutes
+// (sttjob.js streamMp3), so the next episodes start at the size that went through. Forgotten after 3 days.
+const PIECE_KEY = "stt_piece_seconds";
+const PIECE_DAYS = 3;
 export const STT_EVENT = "tamkeen:stt"; // fired on `window` when the day's total of audio sent changes
 // As on the computer (app/languages.py): simplified characters for Chinese, and Bisaya spelling for
 // Bisaya (which Whisper is asked to hear as its nearest language, Tagalog: stt.js whisperCode).
@@ -40,7 +43,7 @@ export const cloudOn = () => sttConfig(settings).on;
 
 // ---------------------------------------------------------------------------------- small tools
 
-export class Cancelled extends Error {}
+export { Cancelled };
 
 const headerOf = (res, name) => {
   const headers = (res && res.headers) || {};
@@ -64,13 +67,55 @@ export function bytesToB64(bytes) {
   });
 }
 
-async function pause(seconds, job) {
-  const end = Date.now() + seconds * 1000;
-  while (Date.now() < end) {
-    if (job && job.cancelled) throw new Cancelled();
-    await new Promise((r) => setTimeout(r, Math.min(500, Math.max(0, end - Date.now()))));
-  }
+// ------------------------------------------------------------------- is the app on screen and online?
+// Phones cut the internet to a browser or app that is in the background or asleep (more so in battery
+// saver), so a request that fails then says nothing about the connection itself: it is waited out until
+// the app is back on screen and online (sttjob.js throughDrops), not counted as a failed try.
+
+let outOfSight = 0; // counts each time the app went out of sight or the phone said it went offline
+const hidden = () => typeof document !== "undefined" && document.visibilityState === "hidden";
+const offline = () => typeof navigator !== "undefined" && navigator.onLine === false;
+if (typeof document !== "undefined") document.addEventListener("visibilitychange", () => { if (hidden()) outOfSight++; });
+if (typeof window !== "undefined") window.addEventListener("offline", () => { outOfSight++; });
+
+export const net = {
+  mark: () => outOfSight,
+  troubleSince: (mark) => outOfSight !== mark || hidden() || offline(),
+  async waitUntilBack(job) {
+    let was = "";
+    while (hidden() || offline()) {
+      const now_ = offline() ? "Waiting for the internet to come back…"
+        : "Paused while Tamkeen is in the background. It carries on when you come back.";
+      if (now_ !== was && job && job.say) job.say(now_);
+      was = now_;
+      await pause(1, job);
+    }
+    await pause(2, job); // a moment for the connection to settle once the app is back
+  },
+};
+
+/** How a request for `job` deals with a dropped connection: an episode's job is patient (it says what
+ * it is doing and waits for the app to be back on screen); Test the key and reels try quickly, as before. */
+const tryingFor = (job) => (job && job.patient
+  ? { job, net, sleep: pause, pauses: PATIENT_PAUSES, longestWait: job.longestWait }
+  : { job, sleep: pause, pauses: QUICK_PAUSES, longestWait: job && job.longestWait });
+
+// Keeping the screen on while an episode is being transcribed, where the browser allows it (the web app
+// in Chrome, Firefox, Safari): a phone that goes to sleep cuts the app's internet.
+let screenLock = null;
+async function holdScreen() {
+  try {
+    if (screenLock || hidden() || typeof navigator === "undefined" || !navigator.wakeLock) return;
+    screenLock = await navigator.wakeLock.request("screen");
+    screenLock.addEventListener("release", () => { screenLock = null; });
+  } catch { screenLock = null; /* refused (battery saver) or not offered: fine */ }
 }
+function letScreenSleep() {
+  try { if (screenLock) screenLock.release(); } catch { /* already gone */ }
+  screenLock = null;
+}
+// (A screen lock ends when the app goes out of sight; take it again on coming back while still working.)
+if (typeof document !== "undefined") document.addEventListener("visibilitychange", () => { if (working && !hidden()) holdScreen(); });
 
 // ------------------------------------------------------------------------------ audio sent today
 
@@ -136,66 +181,25 @@ export async function fetchWholeB64(url) {
  * Without `language` the provider works out the language and says which it heard.
  * A "slow down" answer is waited out; a dropped connection is tried again.
  */
-export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = "audio.mp3", type = "audio/mpeg", language = "" }, job = null) {
+export async function postAudio(cfg, { bytes = null, b64 = "", url = "", name = "audio.mp3", type = "audio/mpeg", language = "" }, job = null, extra = {}) {
   const info = STT_PROVIDERS[cfg.provider];
   const fields = transcriptionFields({ model: cfg.model, language, prompt: PROMPTS[language] || "" });
   if (url) fields.push(["url", url]);
-  let waited = 0;
-  let problem = null;
-  for (let attempt = 0; attempt < ATTEMPTS; attempt++) {
-    if (job && job.cancelled) throw new Cancelled();
-    let status = 0;
-    let body = null;
-    let retryAfter = 0;
-    try {
-      if (isNative) {
-        const data = fields.map(([key, value]) => ({ key, value, type: "string" }));
-        if (!url) data.push({ key: "file", value: b64 ? tidyBase64(b64) : await bytesToB64(bytes), type: "base64File", contentType: type, fileName: name });
-        const res = await NativeHttp.request({ url: info.url, method: "POST", data, dataType: "formData", responseType: "text",
-          headers: { Authorization: `Bearer ${cfg.key}`, "Content-Type": "multipart/form-data" }, connectTimeout: 20000, readTimeout: 300000 });
-        status = res.status;
-        body = res.data;
-        retryAfter = Number(headerOf(res, "retry-after")) || 0;
-      } else {
-        const form = new FormData();
-        for (const [key, value] of fields) form.append(key, value);
-        if (!url) form.append("file", new Blob([bytes || b64ToBytes(b64)], { type }), name);
-        const res = await fetch(info.url, { method: "POST", headers: { Authorization: `Bearer ${cfg.key}` }, body: form });
-        status = res.status;
-        body = await res.text();
-        retryAfter = Number(res.headers.get("retry-after")) || 0;
-      }
-    } catch (e) {
-      if (e instanceof Cancelled) throw e;
-      // Not every failure here is the connection: the phone can refuse to build the request at all.
-      problem = sendFailure(cfg.provider, e);
-      console.warn(`Sending audio to ${info.label} failed`, e);
-      if (!problem.retry) throw problem;
-      await pause(3 * (attempt + 1), job);
-      continue;
+  const request = async () => {
+    if (isNative) {
+      const data = fields.map(([key, value]) => ({ key, value, type: "string" }));
+      if (!url) data.push({ key: "file", value: b64 ? tidyBase64(b64) : await bytesToB64(bytes), type: "base64File", contentType: type, fileName: name });
+      const res = await NativeHttp.request({ url: info.url, method: "POST", data, dataType: "formData", responseType: "text",
+        headers: { Authorization: `Bearer ${cfg.key}`, "Content-Type": "multipart/form-data" }, connectTimeout: 20000, readTimeout: 300000 });
+      return { status: res.status, body: res.data, retryAfter: Number(headerOf(res, "retry-after")) || 0 };
     }
-    if (status === 200) {
-      try { return typeof body === "string" ? JSON.parse(body) : body || {}; }
-      catch { throw new SttError(`${info.label} sent back something that isn't a transcript.`); }
-    }
-    if (status === 429) { // the account's limit (free accounts: so much audio an hour); the answer says how long to wait
-      const wait = retryAfter || 20;
-      // A job may set a shorter limit (`longestWait`, seconds): picking reels doesn't sit for 20 minutes.
-      if (waited + wait > ((job && job.longestWait) || LONGEST_WAIT)) throw sttFailure(cfg.provider, 429, body, wait);
-      waited += wait;
-      if (job && job.say) job.say(`${info.label} asks to wait ${waitText(wait)}…`);
-      await pause(wait + 1, job);
-      problem = sttFailure(cfg.provider, 429, body, 0);
-      continue;
-    }
-    if (status >= 500) {
-      problem = new SttError(`${info.label} is having trouble (error ${status}). Try again in a little while.`, { status });
-      await pause(4 * (attempt + 1), job);
-      continue;
-    }
-    throw sttFailure(cfg.provider, status, body, retryAfter);
-  }
-  throw problem || new SttError(`${info.label} didn't answer.`);
+    const form = new FormData();
+    for (const [key, value] of fields) form.append(key, value);
+    if (!url) form.append("file", new Blob([bytes || b64ToBytes(b64)], { type }), name);
+    const res = await fetch(info.url, { method: "POST", headers: { Authorization: `Bearer ${cfg.key}` }, body: form });
+    return { status: res.status, body: await res.text(), retryAfter: Number(res.headers.get("retry-after")) || 0 };
+  };
+  return askProvider(cfg.provider, request, { ...tryingFor(job), ...extra });
 }
 
 /** Try a key: send one second of silence. Resolves to how long the provider took, in seconds. */
@@ -220,47 +224,44 @@ export function fileKind(type, url) {
 
 const megabytes = (n) => `${Math.round(n / 1048576)} MB`;
 
-/** An episode that lives on the web: fetch it bit by bit and send it. Resolves to {segments, seconds}. */
-async function hearFromWeb(cfg, address, language, job) {
+/** An episode that lives on the web: fetch it bit by bit and send it. Resolves to {segments, seconds}.
+ * An MP3 is sent in pieces, each kept as it is done (kv `stt_partial:<uid>`), so a later try of the
+ * same file carries on after the last piece kept instead of starting again (and paying again). */
+async function hearFromWeb(cfg, uid, address, language, job) {
   const info = STT_PROVIDERS[cfg.provider];
+  const ctx = tryingFor(job);
   job.set("downloading", 0);
-  const first = await fetchRange(address, 0, HEAD_BYTES - 1);
-  if (first.status >= 400 || !first.bytes.length) throw new Error(`The audio couldn't be downloaded (the server answered ${first.status}).`);
-  const whole = first.status === 200; // a server that ignores "just this part" and sends everything
-  const total = first.total;
-  const src = first.url;
-  const segments = [];
-  const hear = async (piece, kind, start) => {
-    const data = await postAudio(cfg, { bytes: piece, ...kind, language }, job);
-    const parsed = parseTranscription(data, (t) => t + start);
-    segments.push(...parsed.segments);
-    return parsed;
-  };
+  const head = await throughDrops(async () => {
+    try { return await fetchRange(address, 0, HEAD_BYTES - 1); }
+    catch (e) { e.where = "the episode's server"; throw e; }
+  }, ctx);
+  if (head.status >= 400 || !head.bytes.length) throw new Error(`The audio couldn't be downloaded (the server answered ${head.status}).`);
+  const whole = head.status === 200; // a server that ignores "just this part" and sends everything
+  const total = head.total;
+  const src = head.url;
+  const first = { ...head, src };
 
-  if (looksLikeMp3(first.bytes)) {
-    const splitter = new Mp3Splitter();
-    const send = async (pieces) => {
-      for (const p of pieces) {
-        if (!p) continue;
-        await hear(p.bytes, { name: "piece.mp3", type: "audio/mpeg" }, p.start);
-        countUse(cfg, p.seconds);
-      }
+  if (looksLikeMp3(head.bytes)) {
+    const model = sttModelLabel(cfg);
+    let saved = null;
+    try { saved = await kv.get(PARTIAL(uid)); } catch { saved = null; }
+    if (whole || !canResume(saved, { address, model, language, total, src })) saved = null;
+    const hear = async (p, extra) => {
+      const data = await postAudio(cfg, { bytes: p.bytes, name: "piece.mp3", type: "audio/mpeg", language }, job, extra);
+      countUse(cfg, p.seconds);
+      return parseTranscription(data, (t) => t + p.start);
     };
-    job.set("transcribing", 0);
-    let got = first.bytes.length;
-    await send(splitter.push(first.bytes));
-    while (!whole && (!total || got < total)) {
-      if (job.cancelled) throw new Cancelled();
-      const r = await fetchRange(src, got, (total ? Math.min(total, got + STEP_BYTES) : got + STEP_BYTES) - 1);
-      if (r.status === 416 || (r.status === 206 && !r.bytes.length)) break; // past the end
-      if (r.status !== 206) throw new Error(`The download stopped part-way (the server answered ${r.status}).`);
-      got += r.bytes.length;
-      job.set("transcribing", total ? Math.min(99, (100 * got) / total) : 0);
-      await send(splitter.push(r.bytes));
-    }
-    await send([splitter.finish()]);
-    if (!splitter.total) throw new Error("This audio couldn't be read as an MP3.");
-    return { segments, seconds: splitter.total };
+    const keep = (state) => kv.set(PARTIAL(uid), { address, model, language, total, src, at: Date.now(), ...state })
+      .catch((e) => console.warn("Couldn't keep the transcript so far", e));
+    let pieceSeconds = PIECE_SECONDS;
+    try {
+      const learnt = await kv.get(PIECE_KEY);
+      if (learnt && learnt.seconds && Date.now() - learnt.at < PIECE_DAYS * 86400e3) pieceSeconds = learnt.seconds;
+    } catch { /* storage unavailable: the usual size */ }
+    const smaller = (seconds) => kv.set(PIECE_KEY, { seconds, at: Date.now() }).catch(() => {});
+    const heard = await streamMp3({ first, fetchRange, hear, keep, saved, job, ctx, pieceSeconds, smaller, label: info.label });
+    await kv.set(PARTIAL(uid), null).catch(() => {});
+    return heard;
   }
 
   // Not an MP3: it can only go whole.
@@ -275,22 +276,12 @@ async function hearFromWeb(cfg, address, language, job) {
     countUse(cfg, parsed.duration);
     return { segments: parsed.segments, seconds: parsed.duration };
   }
-  const parts = [first.bytes];
-  let got = first.bytes.length;
-  while (!whole && (!total || got < total)) {
-    if (job.cancelled) throw new Cancelled();
-    const r = await fetchRange(src, got, (total ? Math.min(total, got + STEP_BYTES) : got + STEP_BYTES) - 1);
-    if (r.status === 416 || (r.status === 206 && !r.bytes.length)) break;
-    if (r.status !== 206) throw new Error(`The download stopped part-way (the server answered ${r.status}).`);
-    parts.push(r.bytes);
-    got += r.bytes.length;
-    if (got > MAX_UPLOAD_BYTES) throw new Error(`This episode's audio isn't an MP3 and is too large to send in one piece. Transcribe it on your computer.`);
-    job.set("downloading", total ? Math.min(99, (100 * got) / total) : 0);
-  }
+  const parts = await fetchWhole({ first, fetchRange, job, ctx });
   job.set("transcribing", 50);
-  const parsed = await hear(new Blob(parts), fileKind(first.type, src), 0);
+  const data = await postAudio(cfg, { bytes: new Blob(parts), ...fileKind(head.type, src), language }, job);
+  const parsed = parseTranscription(data);
   countUse(cfg, parsed.duration);
-  return { segments, seconds: parsed.duration };
+  return { segments: parsed.segments, seconds: parsed.duration };
 }
 
 class LeaveToComputer extends Error {}
@@ -342,12 +333,12 @@ let working = false;
 export function onJob(fn) { hearers.add(fn); return () => hearers.delete(fn); }
 function tell(uid, more = {}) {
   const j = jobs.get(uid) || {};
-  const event = { id: uid, status: j.status || "new", progress: j.progress || 0, error: j.error || null, ...more };
+  const event = { id: uid, status: j.status || "new", progress: j.progress || 0, error: j.error || null, waiting: j.waiting || null, ...more };
   for (const fn of hearers) { try { fn(event); } catch (e) { console.error(e); } }
 }
 
 /** Where an episode's transcription has got to on this phone, or null. */
-export const jobOf = (uid) => { const j = jobs.get(uid); return j ? { status: j.status, progress: j.progress, error: j.error } : null; };
+export const jobOf = (uid) => { const j = jobs.get(uid); return j ? { status: j.status, progress: j.progress, error: j.error, waiting: j.waiting || null } : null; };
 
 /** Start transcribing these episodes here, one after another. `files`: a just-added file per episode, if in hand. */
 export function enqueue(uids, files = {}) {
@@ -355,7 +346,7 @@ export function enqueue(uids, files = {}) {
   for (const uid of uids) {
     const now_ = jobs.get(uid);
     if (now_ && now_.status !== "failed") continue;
-    jobs.set(uid, { status: "queued", progress: 0, error: null, cancelled: false, file: files[uid] || null });
+    jobs.set(uid, { status: "queued", progress: 0, error: null, waiting: null, cancelled: false, file: files[uid] || null });
     queue.push(uid);
     queued.push(uid);
     tell(uid);
@@ -379,6 +370,9 @@ async function run() {
       const job = jobs.get(uid);
       if (!job || job.cancelled || job.status !== "queued") continue;
       job.set = (status, progress) => { job.status = status; job.progress = Math.round(progress * 10) / 10; tell(uid); };
+      job.say = (text) => { job.waiting = text || null; tell(uid); }; // a wait worth knowing about, under the progress bar
+      job.patient = true;
+      holdScreen();
       const ep = lib.episodes.find((e) => e.uid === uid && !e.deleted);
       try {
         if (!ep) throw new Cancelled();
@@ -387,7 +381,7 @@ async function run() {
         const language = settings.study_language || "ar";
         const heard = String(ep.audio_url || "").startsWith("drive:") || job.file
           ? await hearOwnFile(cfg, ep, language, job)
-          : await hearFromWeb(cfg, ep.audio_url, language, job);
+          : await hearFromWeb(cfg, uid, ep.audio_url, language, job);
         if (job.cancelled) throw new Cancelled();
         const words = await storeTranscript(uid, heard.segments, sttModelLabel(cfg),
           { language, duration: ep.duration || Math.round(heard.seconds) || null });
@@ -406,12 +400,13 @@ async function run() {
           tell(uid, { status: "queued", note: "That file is too large to send from the phone, so your computer will transcribe it." });
         } else {
           console.warn("Transcribing on the phone failed", uid, e);
-          Object.assign(job, { status: "failed", error: e.message || String(e), file: null });
+          Object.assign(job, { status: "failed", error: stopMessage(e, { duration: ep && ep.duration }), waiting: null, file: null });
           tell(uid, { title: ep ? ep.title : "" });
         }
       }
     }
   } finally {
     working = false;
+    letScreenSleep();
   }
 }

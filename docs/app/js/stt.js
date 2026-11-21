@@ -241,16 +241,26 @@ export function sttFailure(provider, status, body, retryAfter = 0) {
  * passed straight from one to the other, never left the phone). */
 export const tidyBase64 = (text) => String(text ?? "").replace(/\s+/g, "");
 
+/** What the phone or browser said when a request got no answer, as one short line. */
+export const failureText = (error) => String((error && error.message) || error || "").replace(/\s+/g, " ").trim().slice(0, 160);
+
+/** Does this thrown error look like the connection (no host, a timeout, a dropped or refused line…)?
+ * Chrome and Android's web view say "Failed to fetch", Firefox "NetworkError when attempting to fetch
+ * resource.", Safari "Load failed", Android's own code "Unable to resolve host…" or "timeout". */
+export const looksLikeConnection = (error) =>
+  /resolve host|unknownhost|no address|timed? ?out|timeout|failed to connect|connect(ion)? (was )?(reset|refused|closed|aborted|lost)|unexpected end of stream|network|socket|handshake|ssl|certificate|failed to fetch|load failed|offline|unreachable|econn|enotfound/i
+    .test(failureText(error));
+
 /** A request that got no answer at all, said plainly. `error` is what the phone or browser threw.
  * `retry` is true only when it looks like the connection (worth trying again); otherwise the
  * request itself was at fault and trying again would fail the same way. */
 export function sendFailure(provider, error) {
   const name = (STT_PROVIDERS[provider] || {}).label || "The provider";
-  const detail = String((error && error.message) || error || "").replace(/\s+/g, " ").trim().slice(0, 160);
-  const connection = /resolve host|unknownhost|no address|timed? ?out|timeout|failed to connect|connect(ion)? (was )?(reset|refused|closed|aborted|lost)|unexpected end of stream|network|socket|handshake|ssl|certificate|failed to fetch|load failed|offline|unreachable|econn|enotfound/i.test(detail);
-  if (connection) {
+  const detail = failureText(error);
+  if (looksLikeConnection(error)) {
     const e = new SttError(`Couldn't reach ${name}. Check your internet connection.${detail ? ` (${detail})` : ""}`, { kind: "network", provider });
     e.retry = true;
+    e.detail = detail;
     return e;
   }
   if (/out ?of ?memory/i.test(detail)) return new SttError(`This phone ran out of memory getting the audio ready for ${name}. Try a shorter one.`);
@@ -405,28 +415,31 @@ export function looksLikeMp3(head) {
 }
 
 /** Feed it an MP3 a bit at a time with push(bytes); it hands back finished pieces
- * [{bytes, start, seconds}], each cut between frames and no longer than asked. finish() gives the rest. */
+ * [{bytes, start, seconds, end}], each cut between frames and no longer than asked. finish() gives the rest.
+ * `end` is where in the file a piece stops (a byte count), so a later try can carry on from there:
+ * new Mp3Splitter({ start: piece.start + piece.seconds, offset: piece.end }), fed the file from `end` on. */
 export class Mp3Splitter {
-  constructor({ maxSeconds = 480, maxBytes = 10 * 1024 * 1024 } = {}) {
+  constructor({ maxSeconds = 480, maxBytes = 10 * 1024 * 1024, start = 0, offset = 0 } = {}) {
     this.maxSeconds = maxSeconds;
     this.maxBytes = maxBytes;
     this.rest = new Uint8Array(0); // bytes not yet a whole frame
     this.skip = 0;                 // bytes of a tag block still to step over
-    this.first = true;
+    this.first = !offset;          // only the file's very beginning can hold a tag block
     this.synced = false;
     this.parts = [];
     this.size = 0;
     this.seconds = 0;
-    this.start = 0;                // where the piece being built begins, in seconds
-    this.total = 0;                // seconds of sound seen so far
+    this.start = start;            // where the piece being built begins, in seconds
+    this.total = start;            // seconds of sound seen so far, counted from the file's beginning
+    this.fed = offset;             // where in the file the next byte pushed comes from
   }
 
-  _cut() {
+  _cut(end) {
     if (!this.size) return null;
     const bytes = new Uint8Array(this.size);
     let at = 0;
     for (const p of this.parts) { bytes.set(p, at); at += p.length; }
-    const piece = { bytes, start: this.start, seconds: this.seconds };
+    const piece = { bytes, start: this.start, seconds: this.seconds, end };
     this.parts = [];
     this.size = 0;
     this.start += this.seconds;
@@ -436,6 +449,8 @@ export class Mp3Splitter {
 
   push(chunk) {
     const out = [];
+    const base = this.fed - this.rest.length; // where buf[0] is in the file
+    this.fed += chunk.length;
     let buf = chunk;
     if (this.rest.length) {
       buf = new Uint8Array(this.rest.length + chunk.length);
@@ -467,7 +482,7 @@ export class Mp3Splitter {
       if (this.seconds >= this.maxSeconds || this.size + (i - run) >= this.maxBytes) {
         take(i);
         run = i;
-        out.push(this._cut());
+        out.push(this._cut(base + i));
       }
     }
     take(i);
@@ -485,7 +500,7 @@ export class Mp3Splitter {
       this.total += f.seconds;
     }
     this.rest = new Uint8Array(0);
-    return this._cut();
+    return this._cut(this.fed);
   }
 }
 

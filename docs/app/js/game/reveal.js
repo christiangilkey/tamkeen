@@ -85,12 +85,13 @@ function windowLayer() {
   return el;
 }
 
-function bits(root, x, y, count, colour, reach) {
+function bits(root, x, y, count, colour, reach, down = false) {
   if (calm()) return;
   for (let i = 0; i < count; i++) {
     const b = document.createElement("i");
     b.className = "loot-bit";
-    const angle = (Math.PI * 2 * i) / count + Math.random() * 0.5;
+    // (`down`: only downwards, for a chip in a card's top corner: nothing flies up over the bar above it)
+    const angle = down ? Math.PI * (0.12 + (0.76 * (i + Math.random() * 0.6)) / count) : (Math.PI * 2 * i) / count + Math.random() * 0.5;
     const dist = reach * (0.45 + Math.random() * 0.75);
     const size = 5 + Math.round(Math.random() * 2) * 3;
     b.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${i % 4 === 3 ? "#ffffff" : colour};--dx:${Math.cos(angle) * dist}px;--dy:${Math.sin(angle) * dist}px;animation-delay:${Math.round(Math.random() * 90)}ms`;
@@ -102,7 +103,7 @@ function bits(root, x, y, count, colour, reach) {
 /**
  * Put a chip where it was asked for: centred at the host's top (the default), or with its corner `left` or
  * `right` pixels in from that edge of the host (lootview.cornerSlot: a card's empty corner). `maxWidth` keeps
- * it clear of what is beside it (longer words end in "…"); `small` is the one-line chip.
+ * it clear of what is beside it (its words are made to fit: see fit); `small` is the one-line chip.
  */
 function place(root, { top = 8, left = null, right = null, maxWidth = null, small = false } = {}) {
   const px = (n) => `${Math.max(0, Math.round(Number(n) || 0))}px`;
@@ -112,6 +113,35 @@ function place(root, { top = 8, left = null, right = null, maxWidth = null, smal
   if (maxWidth) root.style.setProperty("--loot-max", px(maxWidth));
   if (small) root.classList.add("small");
   return left != null || right != null;
+}
+
+/**
+ * Make a chip's words fit the width it was given, so that all of them show (the owner: "its text is cut off").
+ * In turn, and only as far as needed: the quieter words (the XP) go under the reward's on a line of their own;
+ * then smaller letters and a smaller tile; a chip that has grown taller than `room` becomes the one-line chip;
+ * and where even that is too narrow (a five-figure find on the narrowest phone) the quieter words are left out
+ * rather than shown as "…". Call it once the words are showing (they are measured).
+ */
+function fit(root, room = Infinity) {
+  const pill = root.querySelector(".loot-pill");
+  const words = root.querySelector(".loot-words");
+  if (!pill || !words || !root.style.getPropertyValue("--loot-max")) return;
+  // (To a fraction of a pixel: a line half a pixel too wide loses its whole last piece to "…", and whole-pixel
+  // numbers such as scrollWidth don't see that.)
+  const wide = (e) => {
+    const inner = document.createRange();
+    inner.selectNodeContents(e);
+    return inner.getBoundingClientRect().width > e.getBoundingClientRect().width + 0.25;
+  };
+  const cut = () => words.scrollWidth > words.clientWidth
+    || [...words.querySelectorAll(".loot-name, .loot-text, .loot-got, .loot-also")].some((e) => e.getClientRects().length && wide(e));
+  if (!root.classList.contains("small")) {
+    if (cut()) root.classList.add("stack");
+    if (cut()) root.classList.add("tight");
+    if (Number.isFinite(room) && pill.offsetHeight > room) { root.classList.remove("stack", "tight"); root.classList.add("small"); }
+  }
+  if (root.classList.contains("small") && cut()) root.classList.add("tight");
+  if (cut()) root.classList.add("brief");
 }
 
 /** A small square in a tier's colour with a number or a picture in it (the luck sheet, a session's finds). */
@@ -127,11 +157,12 @@ export function tierBadge(tier, inner = "") {
 
 /**
  * A chip in a reveal's place that only says something (a shield spent, an answer too quick to roll): nothing
- * turns over. `name` and `text` are shown as given (translate them first); `top`, `left`, `right`, `maxWidth` and
- * `small` place it as reveal()'s do. Returns a Promise resolved when it has gone.
+ * turns over. `name` and `text` are shown as given (translate them first); `top`, `left`, `right`, `maxWidth`,
+ * `room` and `small` place it as reveal()'s do. `art` may be an element (a line icon). Returns a Promise resolved
+ * when it has gone.
  */
 export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3", top = 8, left = null, right = null, maxWidth = null,
-  small = false, hold = 1700 } = {}) {
+  room = Infinity, small = false, hold = 1700 } = {}) {
   const where = host || windowLayer();
   for (const old of where.querySelectorAll(":scope > .loot")) if (old.lootEnd) old.lootEnd();
   const root = document.createElement("div");
@@ -150,6 +181,7 @@ export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3
     const end = () => { if (over) return; over = true; root.remove(); done(); };
     root.lootEnd = end;
     where.append(root);
+    fit(root, room);
     setTimeout(() => { root.classList.add("out"); setTimeout(end, calm() ? 0 : 200); }, hold);
   });
 }
@@ -167,7 +199,9 @@ export function notice(host, { art = "", name = "", text = "", colour = "#aab4c3
  *           left, right   put the chip's corner that many pixels in from that edge of the host, instead of
  *                   centring it (a card's empty corner: lootview.cornerSlot gives all of these); a big
  *                   reveal starts there and comes to the middle
- *           maxWidth      the widest the chip may be; small: the one-line chip, for where there is little room
+ *           maxWidth      the widest the chip may be (its words are made to fit: the XP on its own line, then
+ *                   smaller letters); room: how tall it may be (taller, it becomes the one-line chip);
+ *                   small: the one-line chip from the start, for where there is little room
  *           also    a few more words after the reward's own, quieter (the XP an answer earned)
  *           hold    how long it stays once landed, in ms
  *           sound   false for none
@@ -201,7 +235,10 @@ export function reveal(host, result, opts = {}) {
   $(".loot-back").append(picture("fx/question", 24));
   $(".loot-front").append(picture(opts.art || view.art || "icon/gift", 32));
   const text = opts.text ?? view.text;
-  $(".loot-text").textContent = text;
+  const got = document.createElement("span");  // (the reward's words and the quieter ones after them: two pieces,
+  got.className = "loot-got";                  // so that a line break, when one is needed, falls between them)
+  got.textContent = text;
+  $(".loot-text").append(got);
   if (opts.also && !big) {
     const more = document.createElement("span");
     more.className = "loot-also";
@@ -316,6 +353,7 @@ export function reveal(host, result, opts = {}) {
     if (big) breakOut();
     paint(tier);
     root.classList.add("open");
+    if (!big) fit(root, opts.room);
     if (big) $(".loot-big").hidden = false;
     landed = true;
     landedAt = performance.now();
@@ -325,7 +363,8 @@ export function reveal(host, result, opts = {}) {
     const tile = $(".loot-tile").getBoundingClientRect();
     const box = root.getBoundingClientRect();
     const count = big ? 26 + (tier - EPIC) * 10 : [0, 6, 12][tier] || 0;
-    bits(root, tile.left - box.left + tile.width / 2, tile.top - box.top + tile.height / 2, count, TIERS[tier].colour, big ? 170 + tier * 22 : 56);
+    bits(root, tile.left - box.left + tile.width / 2, tile.top - box.top + tile.height / 2, count, TIERS[tier].colour, big ? 170 + tier * 22 : 56,
+      cornered && !big);
     if (big && tier >= MYTHIC && !still) { root.classList.add("quake"); setTimeout(() => root.classList.remove("quake"), 520); }
     // It stays a while, then goes by itself; a tap (skip) ends the wait.
     hurried = false;

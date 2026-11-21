@@ -9,6 +9,7 @@ import { markedTokens } from "./words.js";
 import { persianKey } from "./persian.js";
 import { hindiCandidates, hindiKey } from "./hindi.js";
 import { latinKey, withoutEnclitic } from "./latin.js";
+import { formMeaning, readFormOf } from "./formof.js";
 
 const AR_MARKS = /[ؐ-ًؚ-ٰٟۖ-ۭـ]/g;
 
@@ -526,6 +527,222 @@ export function commonestFirst(found, files, lang, word = "") {
     if (i > 0) groups[0] = [lead[0], lead[1], [glosses[i], ...glosses.filter((_, j) => j !== i)], ...lead.slice(3)];
   }
   return { ...found, groups };
+}
+
+/** A meanings file as it came (JSON), with its tables keyed by words only: a word spelled like one of JavaScript's own
+ * names (Spanish constructor, English-looking keys "toString", "valueOf") is then no table row by accident (it made the
+ * lookup fail). Changes the file in place, and gives it back. */
+export function keyedTables(data) {
+  if (!data || typeof data !== "object") return data;
+  for (const name of ["words", "forms", "english"]) {
+    const table = data[name];
+    if (table && typeof table === "object" && Object.getPrototypeOf(table) !== null) Object.setPrototypeOf(table, null);
+  }
+  return data;
+}
+
+// ---------- a translation, not "what form it is" ----------
+// Wiktionary often says what form a word is instead of what it means: مُبْتَلّ is first "active participle of اِبْتَلَّ
+// (ibtalla)", then "wet" (the owner, 2026-11-20: "I just [want the] translation"). Such a line (formof.js readFormOf) gives
+// way to the entry's real meanings, and is turned into English where it can be: from the meaning it gives in brackets
+// (“king”), else from the other word's own meaning made into that form ("to write" -> "writing"; "book" -> "books"), else
+// from the translation tables (an English word that lists this one). What form it is goes to `formOf` (the popup's Form
+// row, the card's Grammar notes). Only a line nothing can be made of is left as it was.
+// (only from a meaning of the right kind of word: a plural from a noun's, never "thises" from este "this"; a comparative
+// from an adjective's or an adverb's, never "goods" from bon "good")
+const FORM_POS = { ing: ["verb"], ed: ["verb"], plural: ["noun"], comparative: ["adj", "adv"], superlative: ["adj", "adv"], elative: ["adj", "adv"] };
+// (Spanish, Italian, Portuguese, Catalan, French -ísimo, -issimo, -issime: "very", not "-est": libérrimo "very free")
+const VERY = new Set(["es", "it", "pt", "ca", "fr"]);
+
+/** The other word's entries (`target` as written), from the first of `files` that has it: its own ordinary ones, then
+ * those of the words it is itself a form of; else its names. */
+function entriesOf(files, target, lang) {
+  const key = matchKey(String(target || "").replace(/\s+[IVX]+$/, ""), lang);
+  if (!key) return [];
+  // (the entries spelled exactly so first: Германия "Germany", not германий "germanium" of the same key)
+  const exact = (files || []).flatMap((data) => ((data && data.words && data.words[key]) || []).filter((g) => g[0] === target));
+  if (exact.some(ordinary) || (exact.length && /^\p{Lu}/u.test(String(target)))) return exact;
+  // (both: a spelling's own entry may be only that line again, the Hindi आखरी "nuqtaless form of आख़री", whose meaning is
+  // that of the word the forms list gives, आख़िरी "last")
+  for (const data of files || []) {
+    if (!data || !data.words) continue;
+    const own = (data.words[key] || []).filter(ordinary);
+    const via = ((data.forms && data.forms[key]) || []).flatMap(([lemma]) => (lemma === key ? [] : (data.words[lemma] || []).filter(ordinary)));
+    if (own.length || via.length) return [...own, ...via];
+  }
+  // (a name's other spelling: the name, "Austria" for austria, a pre-reform spelling of Áustria)
+  for (const data of files || []) {
+    const names = (data && data.words && data.words[key]) || [];
+    if (names.length) return names;
+  }
+  return [];
+}
+
+/** English for one form-of line (readFormOf's `form`), or "". `depth`: the other word's meaning may be a form-of line too. */
+function formEnglish(form, files, lang, depth = 0) {
+  const known = (t) => entriesOf(files, t, lang).length > 0;
+  const deeper = (inner) => (depth >= 1 ? "" : formEnglish({ ...inner, kind: form.kind === "same" ? inner.kind : form.kind }, files, lang, depth + 1));
+  // (what the line says it means, unless that is a form-of line too: "…of portuguesa: feminine singular of português")
+  if (form.said && form.own && !readFormOf(form.said, known)) return form.said;
+  if (form.said) {
+    const inner = readFormOf(form.said, known);
+    const got = inner ? deeper(inner) : formMeaning(form.kind === "superlative" && VERY.has(lang) ? "very" : form.kind, form.said);
+    if (got) return got;
+  }
+  const entries = entriesOf(files, form.target, lang);
+  const fits = FORM_POS[form.kind];
+  const ordered = fits ? entries.filter((g) => fits.includes(g[1])) : entries;
+  let letter = ""; // (a letter's name, only if the other word has nothing else: phi for fi)
+  for (const g of ordered) {
+    for (const gloss of Array.isArray(g[2]) ? g[2] : []) {
+      const inner = readFormOf(gloss, known);
+      if (inner) {
+        const got = deeper(inner);
+        if (got) return got;
+        continue;
+      }
+      // (a meaning that says what grammar it is, then the word: "masculine third-person plural personal pronoun; they")
+      let plain = String(gloss);
+      if (GRAMMAR_NOTE.test(plain)) plain = plain.split(/;\s*/).slice(1).find((part) => part && !GRAMMAR_NOTE.test(part)) || "";
+      if (!plain || ONLY_IN.test(plain)) continue;
+      if (LETTER.test(plain)) { letter = letter || plain; continue; }
+      const made = formMeaning(form.kind === "superlative" && VERY.has(lang) ? "very" : form.kind, plain);
+      if (made) return made;
+      break; // (the other word's first meaning, made into this form, or nothing: never a rarer one)
+    }
+  }
+  return form.kind === "same" ? letter : "";
+}
+
+/** English words the translation tables give this word as the first or second translation of ("wet" for مبتل). */
+function tableWords(files, key, written, lang) {
+  const out = [];
+  const marked = (lang === "ar" || lang === "fa") && VOWEL_MARKS.test(String(written || ""));
+  for (const t of (files || []).map(supportOf).filter(Boolean)) {
+    for (const [en, i, w] of t.get(key) || []) {
+      if (i > 1 || (marked && VOWEL_MARKS.test(w) && w !== written)) continue;
+      if (!out.includes(en)) out.push(en);
+    }
+  }
+  return out.slice(0, 2);
+}
+
+/**
+ * `found` (after commonestFirst) with its "form-of" lines made into translations (see above). Every device's word
+ * popup and Add words (../meanings.js dictionaryDefine). A word that is only another word's form (findIn: the other
+ * word's meanings shown, `formOf` saying what form) gets that form's English first too: comiendo "eating" before
+ * comer's "to eat", casas "houses".
+ */
+export function translatedForms(found, files, lang) {
+  if (!found || found.parts || !Array.isArray(found.groups) || !found.groups.length) return found;
+  const known = (t) => entriesOf(files, t, lang).length > 0;
+  let formOf = found.formOf || "";
+  const groups = found.groups.map((g, gi) => {
+    const glosses = Array.isArray(g[2]) ? g[2] : [];
+    if (/^-|-$/.test(String(g[0] || ""))) return g; // (an affix: what it does is its meaning)
+    const forms = glosses.map((gloss) => readFormOf(gloss, known));
+    if (!forms.some(Boolean)) return g;
+    const real = glosses.filter((_, i) => !forms[i]);
+    const made = [];
+    // (the English words whose translation lists give this very word: they win over a made meaning that shares none of
+    // their words, Thai สุนัข is "dog", not the "bad, low" of the other word's line; else, with nothing else, they are it)
+    const listed = tableWords(files, matchKey(String(g[0] || ""), lang), String(g[0] || ""), lang);
+    const agrees = (english) => glossHeads(english).some((h) => listed.some((en) => sameWord(h, en) || h.split(/\s+/).includes(en)));
+    for (const form of forms.filter(Boolean)) {
+      let english = formEnglish(form, files, lang);
+      // (never over the line's own meaning, Catalan mi "me", nor for a little word, whose lists are too loose)
+      if (english && listed.length && !agrees(english) && !real.length && !form.own && !LITTLE.has(g[1])) english = listed.join(", ");
+      if (english && !real.includes(english) && !made.includes(english)) made.push(english);
+    }
+    if (!real.length && !made.length) made.push(...listed);
+    // (an Arabic participle's or verbal noun's own meaning, مبتل "wet", صيام "fast", beats one made from its verb,
+    // "becoming wet"; a plural's or a spelling's English, مياه "waters", beats the rarer senses listed after it)
+    // (and a form-of line further down goes after the meanings before it: afrontar is "to face" before "to affront")
+    const lead = forms.find(Boolean);
+    const kept = forms[0] && lead.kind !== "ing" && lead.kind !== "ed" ? [...made, ...real] : [...real, ...made];
+    if (!kept.length) return g; // (nothing found: the line stays, as the only thing known)
+    if (gi === 0 && !formOf) formOf = forms.find(Boolean).head;
+    return [g[0], g[1], kept, ...g.slice(3)];
+  });
+  // Entries of another word the forms list leads to, when this word is that word's participle or verbal noun (findIn:
+  // مبتل is also مُبْتَلٍ, a participle of اِبْتَلَى "to test, to afflict"; comiendo is comer's gerund): its meanings made into
+  // that form ("testing, afflicting", "eating"), never the bare verb ("to test, to try") as this word's meaning. One that
+  // can't be made into it is left out (its noun, say), unless nothing would be left.
+  const key = found.key || "";
+  const formsOf = new Map(); // lemma key -> its "form-of" line, read
+  for (const data of files || []) {
+    for (const [lemmaKey, line] of (data && data.forms && data.forms[key]) || []) {
+      if (lemmaKey !== key && !formsOf.has(lemmaKey)) formsOf.set(lemmaKey, readFormOf(line, known));
+    }
+  }
+  if (formsOf.size) {
+    const made = groups.map((g) => {
+      const k = matchKey(String(g[0] || "").replace(/\s+[IVX]+$/, ""), lang);
+      const form = k !== key && formsOf.get(k);
+      if (!form || (form.kind !== "ing" && form.kind !== "ed")) return g;
+      const english = [];
+      for (const gloss of Array.isArray(g[2]) ? g[2] : []) {
+        const m = readFormOf(gloss, known) ? "" : formMeaning(form.kind, gloss);
+        if (m && !english.includes(m)) english.push(m);
+      }
+      return english.length ? [g[0], g[1], english, ...g.slice(3)] : null;
+    });
+    if (made.some(Boolean)) groups.splice(0, groups.length, ...made.filter(Boolean));
+  }
+  // A word that is only another word's form: that form's English before the other word's meaning.
+  if (found.formOf && !/^also /.test(found.formOf)) {
+    const form = readFormOf(found.formOf, known);
+    const lead = groups[0];
+    if (form && form.kind !== "same" && (FORM_POS[form.kind] || []).includes(lead[1])
+      && matchKey(String(lead[0] || "").replace(/\s+[IVX]+$/, ""), lang) === matchKey(form.target, lang)) {
+      const english = formEnglish(form, files, lang);
+      if (english && !(lead[2] || []).includes(english)) groups[0] = [lead[0], lead[1], [english, ...lead[2]], ...lead.slice(3)];
+    }
+  }
+  return { ...found, groups, formOf };
+}
+
+/**
+ * What an old card (`card`: {meaning, notes}) is to be put right with, or null (../meanings.js formMeaningRepair): `raw` is
+ * what the dictionary found for its word before any meaning was moved or made, `answer` its answer now. Only a card whose
+ * meaning is, letter for letter, one of the dictionary's "form-of" lines for the word, when the answer now is something
+ * else: {meaning: the answer's, notes: the card's with what form it is at the end (unless they say it already)}.
+ */
+export function cardRepair(card, raw, answer) {
+  const meaning = String((card && card.meaning) ?? "").trim();
+  const lines = raw && Array.isArray(raw.groups) ? raw.groups.flatMap((g) => (Array.isArray(g[2]) ? g[2] : [])) : [];
+  if (!meaning || !lines.includes(meaning) || !readFormOf(meaning, () => true)) return null;
+  const now = String((answer && answer.meaning) || "").trim();
+  if (!now || now === meaning || lines.some((l) => l === now && readFormOf(l, () => true))) return null;
+  const change = { meaning: now };
+  const note = String((answer && answer.morphology) || "").trim() || meaning;
+  const notes = String((card && card.notes) || "").trim();
+  if (!/^also /.test(note) && !notes.includes(note)) change.notes = notes ? `${notes} · ${note}` : note;
+  return change;
+}
+
+// ---------- near-synonyms ----------
+const SAME = new WeakMap(); // a meanings file -> Set("enchantment|magic", ...)
+
+/** The pairs of English words, among `glosses` (a dictionary answer's meanings), that the meanings files list as one
+ * sense (their "same" list: tools/add_same_senses.py, English Wiktionary's synonyms that list each other), as
+ * "a|b" with a before b. Add words' "Which meaning?" counts two meanings made of them as one (../senses.js). */
+export function alikeIn(files, glosses) {
+  const sets = (files || []).filter((d) => d && Array.isArray(d.same) && d.same.length).map((d) => {
+    let set = SAME.get(d);
+    if (!set) { set = new Set(d.same); SAME.set(d, set); }
+    return set;
+  });
+  if (!sets.length) return [];
+  const heads = [...new Set((glosses || []).flatMap((g) => glossHeads(g)))];
+  const out = [];
+  for (let i = 0; i < heads.length; i++) {
+    for (let j = i + 1; j < heads.length; j++) {
+      const pair = heads[i] < heads[j] ? `${heads[i]}|${heads[j]}` : `${heads[j]}|${heads[i]}`;
+      if (sets.some((s) => s.has(pair)) && !out.includes(pair)) out.push(pair);
+    }
+  }
+  return out;
 }
 
 /** Every entry for a word: {groups: [[shown, pos, glosses, extra], ...], formOf: "what form it is"}.

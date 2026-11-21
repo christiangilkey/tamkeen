@@ -319,8 +319,6 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
   .player.yt.panel-open .transcript-wrap { flex: 1 1 0; height: auto; min-height: 96px; }
   .player.yt .controls { padding: 2px 10px 6px; }
-  .player.yt .btnrow { margin-top: 0; }
-  .player.yt .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
 }
 /* ---------- a video still loading (components/mediawait.js) ----------
    A plain spinner in the middle of the video; past 20 s a short message and Try again. YouTube's player may have
@@ -487,10 +485,9 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
    smaller) at the left, the quick / detailed lookup switch at the right. Anything added to
    .btnrow later must be positioned the same way, or it will push the play button off-centre. */
 .player .btnrow { position: relative; flex-wrap: nowrap; }
-/* Back to the start of the sentence sits left of Back 5 s in a column as wide as the empty one on the right, so it
-   doesn't push play off the middle either (the owner, 2026-11-18: "the play button should always stay centered"). */
+/* back 5 s, play and forward 5 s in the middle columns of three, the outer two the same width (the owner, 2026-11-18:
+   "the play button should always stay centered"). */
 .player .btnrow { display: grid; grid-template-columns: 1fr auto auto auto 1fr; }
-.player .btnrow #restart { grid-column: 1; justify-self: end; }
 .player .btnrow #back5 { grid-column: 2; }
 .player .btnrow #play { grid-column: 3; }
 .player .btnrow #fwd5 { grid-column: 4; }
@@ -499,37 +496,31 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
   width: auto; min-width: 0; height: 30px; padding: 2px 4px; font-size: 12px;
 }
 .player .btnrow .lookup-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
-/* "Looping sentence": beside the speed chooser where there is room for it ... */
-.player .btnrow #loop-chip { position: absolute; left: 72px; top: 50%; transform: translateY(-50%); white-space: nowrap; }
-@media (max-width: 640px) {
-  /* ... and on a phone, just above the bar's left corner. */
-  .player .btnrow #loop-chip { left: 0; top: auto; bottom: calc(100% + 34px); transform: none; }
-}
-@media (max-width: 350px) {
-  /* The narrowest phones: slimmer 5-second buttons, so the ends don't touch them. */
-  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 4px 6px; font-size: 12px; }
-}
-/* YouTube's bar, less crowded (the owner, 2026-11-19): no "start of the sentence" button (the R key still does it),
-   smaller 5-second buttons, and "Type what you hear" hung beside the speed chooser like the reel player's, out of the
-   row so play stays in the middle. Netflix (.nf) keeps its bar as it was. */
-.player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 {
-  height: 30px; min-height: 0; padding: 0 8px; font-size: 12px;
-}
-.player.yt:not(.nf) .btnrow .dict-btn {
+/* Every player's bar is YouTube's (the owner, 2026-11-19 for YouTube, 2026-11-20 for the rest: a podcast's bar was cut
+   off): no "start of the sentence" button (the R key still does it), smaller 5-second buttons, and "Type what you hear"
+   hung beside the speed chooser as in the reel player, out of the row so play stays in the middle. */
+.player .btnrow #back5, .player .btnrow #fwd5 { height: 30px; min-height: 0; padding: 0 8px; font-size: 12px; }
+.player .btnrow .dict-btn {
   position: absolute; left: 66px; top: 50%; transform: translateY(-50%);
   height: 30px; min-height: 0; min-width: 0; padding: 0 7px;
 }
-.player.yt:not(.nf) .btnrow #loop-chip { left: 106px; }
+/* "Looping sentence": beside them where there is room for it ... */
+.player .btnrow #loop-chip { position: absolute; left: 106px; top: 50%; transform: translateY(-50%); white-space: nowrap; }
+@media (max-width: 760px) {
+  .player .btnrow { margin-top: 0; }
+  .player .btnrow .play { width: 38px; height: 38px; font-size: 16px; }
+}
 @media (max-width: 640px) {
-  .player.yt:not(.nf) .btnrow #loop-chip { left: 0; }
-  .player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 { padding: 0 6px; }
-  .player.yt:not(.nf) .btnrow .dict-btn { left: 64px; padding: 0 6px; }
+  /* ... and on a phone, just above the bar's left corner. */
+  .player .btnrow #loop-chip { left: 0; top: auto; bottom: calc(100% + 34px); transform: none; }
+  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 6px; }
+  .player .btnrow .dict-btn { left: 64px; padding: 0 6px; }
 }
 @media (max-width: 350px) {
-  /* The narrowest phones: a narrower speed chooser makes room for it. */
-  .player.yt:not(.nf) .btnrow #speed { max-width: 50px; padding: 2px; font-size: 11px; }
-  .player.yt:not(.nf) .btnrow .dict-btn { left: 52px; }
-  .player.yt:not(.nf) .btnrow #back5, .player.yt:not(.nf) .btnrow #fwd5 { padding: 0 4px; }
+  /* The narrowest phones: a narrower speed chooser and slimmer 5-second buttons make room. */
+  .player .btnrow #speed { max-width: 50px; padding: 2px; font-size: 11px; }
+  .player .btnrow .dict-btn { left: 52px; }
+  .player .btnrow #back5, .player .btnrow #fwd5 { padding: 0 4px; }
 }
 
 /* ---------- a misheard word put right (wordbubble.js, fixword.js) ----------
@@ -595,22 +586,16 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
 .dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: 1.8; text-align: center;
   padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
 .dict-real { background: var(--surface); border: 1px solid var(--border); }
-.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--muted); padding-top: 0; }
-.dict-real[hidden], .dict-yours[hidden], .dict-input[hidden], .dict-score[hidden] { display: none; }
+/* What was said, and under it what they typed: both plain, nothing marked (the owner, 2026-11-20). */
+.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--text); padding-top: 0; }
+.dict-real[hidden], .dict-yours[hidden], .dict-input[hidden] { display: none; }
 .dict .dw { border-radius: 5px; padding: 0 .06em; }
-.dict-real .dw-right { color: var(--accent); }
-.dict-real .dw-near { color: var(--warn); text-decoration: underline dotted; text-underline-offset: .25em; }
-.dict-real .dw-missed { color: var(--danger); background: var(--danger-soft); }
-.dict-yours .dw-right, .dict-yours .dw-near { color: var(--text); }
-.dict-yours .dw-extra { color: var(--danger); text-decoration: line-through; }
 .dict-input { width: 100%; box-sizing: border-box; resize: none; min-height: 3.2em; font-family: var(--ar-font);
   font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
   border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
 .dict-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* The hint in the box: the app's own font, centred, so it fits on a phone (not the big Arabic font). */
 .dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
-.dict-score { margin: 0; text-align: center; font-weight: 600; }
-.dict-score.all { color: var(--accent); }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
@@ -681,7 +666,27 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 /* The gist: a few sentences, read as a paragraph. One word: big, on one line. */
 .dict.gist .dict-real, .dict.gist .dict-yours { text-align: start; font-size: clamp(17px, calc(var(--ar-size) * .75), 26px); line-height: 1.9; }
 .dict.gist .dict-input { text-align: start; min-height: 6.5em; }
-.dict.gist .dict-real .dw-other { color: var(--text); }
-.dict.gist .dict-real .dw-right, .dict.gist .dict-real .dw-near { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
 .dict.word .dict-real { font-size: clamp(26px, calc(var(--ar-size) * 1.2), 42px); }
 .dict.word .dict-input { min-height: 0; }
+
+/* ---------- a YouTube video with a dubbed track in the language learned: how to choose it (components/dubtip.js) ----------
+   On the black band under the video, never over YouTube's player (nothing may be): the video gets shorter meanwhile. */
+.dub-tip { flex: none; background: #111; color: #f2f1ec; border-top: 1px solid #2c2c2c; padding: 10px max(14px, calc((100% - 760px) / 2)) 12px;
+  font-size: 14px; line-height: 1.5; max-height: 55vh; overflow-y: auto;
+  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+.dub-tip-head { display: flex; align-items: center; gap: 8px; }
+.dub-tip-head h3 { flex: 1; margin: 0; font-size: 16px; }
+.dub-tip-x { width: 32px; height: 32px; min-height: 0; padding: 0; color: inherit; }
+.dub-tip-text { margin: 6px 0 6px; }
+.dub-steps { margin: 0 0 8px; padding-inline-start: 1.4em; }
+.dub-tip .dub-tr { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.dub-tip-end { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dub-off { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.dub-off input { width: 18px; height: 18px; margin: 0; }
+.dub-ok { min-width: 96px; }
+
+/* Audio still loading (components/mediawait.js): a quiet line under the time bar, in the page's own colours. */
+.controls .media-wait-line { background: none; color: var(--muted); padding: 2px 0 0; }
+.controls .media-wait-line .spinner { border-color: var(--border); border-top-color: var(--accent); }
+.controls .media-wait-line button { color: var(--text); }
+.media-wait-line.failed .media-wait-slow, .media-wait.failed .media-wait-slow { color: var(--danger); }

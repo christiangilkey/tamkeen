@@ -94,7 +94,6 @@ export function playerSteps(kind = "player") {
         text: "The switch at the top of the popup: after a word you tapped, pause so you can read, or keep playing." },
     { target: reel ? "#rc-play" : "#play", title: "Play and pause", text: reel ? "Play or pause the reel." : "Play or pause. On a computer, the space bar does it too." },
     { target: reel ? "#rc-back" : "#back5", title: "Back or forward 5 seconds", text: "Hear a bit again, or skip ahead." },
-    { target: "#restart", title: "The line again", text: "Back to the start of the line you're hearing. Twice quickly: the line before." },
     { target: "#speed", title: "Speed", text: "Slow it down while you get used to the language." },
     { target: "#toggle-panel", title: "The whole transcript", text: "Show or hide every line of the video's words beside it." },
     { target: "#toggle-cc", title: "Captions", text: "Show or hide the tappable captions over the video." },

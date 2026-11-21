@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.66.0",
+  "Every player's bar now matches YouTube's, with Type what you hear beside the speed");
+notes("0.66.0",
+  "Long podcast episodes survive a dropped connection on phones and in the web app");
+notes("0.66.0",
+  "The built-in dictionary gives a translation, not a grammar description");
+notes("0.66.0",
+  "Type what you hear shows what was said, with no marks and no score");
+notes("0.66.0",
+  "Ask by voice shows what you can say");
 notes("0.65.0",
   "A spinner while a video loads, and long YouTube videos start sooner");
 notes("0.65.0",

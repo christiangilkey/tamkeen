@@ -9,11 +9,12 @@
 
 import { api } from "./app.js";
 import { DefinerError } from "./definer.js";
-import { answerFrom, commonestFirst, commonness, findIn, germanLookUp, lookUp, matchKey, respellings, wolffSpelling, wordKeys } from "./lexicon/meaningdata.js";
+import { answerFrom, commonestFirst, commonness, findIn, germanLookUp, lookUp, matchKey, keyedTables, respellings, translatedForms, wolffSpelling, wordKeys, cardRepair, alikeIn } from "./lexicon/meaningdata.js";
 import { dictionaries } from "./lexicon/seen.js";
 import { LemmaTable } from "./lexicon/romance.js";
 import { lexemeOf } from "./lexicon/words.js";
 import { KoreanWords, koreanKeys } from "./lexicon/korean.js";
+import { readFormOf } from "./lexicon/formof.js";
 
 export const NO_MEANINGS = "NO_MEANINGS";
 export { matchKey };
@@ -33,7 +34,7 @@ function load(lang) {
         st = await api("/lexicon/download", { method: "POST", body: { lang, kind: "meanings" } });
       }
       if (!st.installed) return null;
-      return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`)));
+      return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`).then(keyedTables)));
     })().catch((e) => { console.warn("Meanings failed to load", e); return null; })
       .then((d) => { if (!d) loaded.delete(lang); return d; }));
   }
@@ -46,7 +47,7 @@ export async function installedMeanings(lang) {
   if (loaded.has(lang)) return loaded.get(lang);
   const st = await meaningsStatus(lang);
   if (!st.installed) return null;
-  return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`)));
+  return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`).then(keyedTables)));
 }
 
 /** Download a language's meanings (and its word tables, which find a word's dictionary form). */
@@ -83,7 +84,7 @@ function wolffFile() {
       }
       const st = await meaningsStatus("ceb");
       const name = (st.names || []).find((n) => n === "mean-cebw" && st.files && st.files[n] && st.files[n].installed);
-      const data = name ? await api(`/lexicon/data/${name}`) : null;
+      const data = name ? keyedTables(await api(`/lexicon/data/${name}`)) : null;
       return isWolff(data) ? data : null;
     })().catch(() => null).then((d) => { if (!d) wolffData = null; return d; });
   }
@@ -115,8 +116,9 @@ async function candidates(word, lang) {
   return { keys: wordKeys(word, lang, lemmaOf), rank: commonness(list ? list.lemmas : null) };
 }
 
-/** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. */
-export async function dictionaryDefine(ctx, { quick = false, language = "English" } = {}) {
+/** The popup's answer for ctx ({word, lang, ...}) from the built-in dictionary. (`seen`: given the entries found, as the
+ * dictionary has them, before any meaning is moved or made: formMeaningRepair.) */
+export async function dictionaryDefine(ctx, { quick = false, language = "English", seen = null } = {}) {
   const lang = ctx.lang || "ar";
   let files = await load(lang);
   if (!files) throw new DefinerError(NO_MEANINGS);
@@ -160,8 +162,36 @@ export async function dictionaryDefine(ctx, { quick = false, language = "English
   if (!found || !found.groups.length) {
     throw new DefinerError("This word isn't in the built-in dictionary. It may be a name, slang, or a form it doesn't know.");
   }
+  if (seen) seen(found);
   // The everyday meaning first, as Wiktionary's translation tables tell it (meaningdata.js commonestFirst).
   found = commonestFirst(found, files, lang, spelled || ctx.word);
+  // A translation, not "active participle of …" or "plural of …" (meaningdata.js translatedForms).
+  found = translatedForms(found, files, lang);
   const answer = answerFrom(found, spelled || ctx.word, lang, { quick, language, source: found.source });
+  // (which of its meanings are one sense said with two English words: Add words' "Which meaning?" asks nothing for them)
+  if (!quick) answer.alike = alikeIn(files, [answer.meaning, ...answer.other_meanings]);
   return spelled ? { ...answer, spelled } : answer;
+}
+
+/**
+ * A card saved before the built-in dictionary gave translations (meaningdata.js translatedForms), whose meaning is still
+ * "active participle of اِبْتَلَّ (ibtalla)": {meaning, notes?} to put it right with, or null to leave it as it is. The
+ * owner, 2026-11-20: never a meaning the learner wrote or changed. So only when the card's meaning is, letter for letter,
+ * one of the dictionary's own "form-of" lines for the card's word (no one types those, and a meaning changed in any way
+ * no longer is one), and the dictionary now has a translation for it. What form it is goes at the end of the card's
+ * Grammar notes, unless they say it already. Asks nothing of the network: a dictionary not on the device is no answer.
+ * Run when the card is shown in the reviewer and when it is opened to edit (review/formrepair.js).
+ */
+export async function formMeaningRepair(card, lang) {
+  const meaning = String((card && card.meaning) ?? "").trim();
+  const word = String((card && card.text) ?? "").trim();
+  if (!meaning || !word || !lang || meaning.length > 200 || !readFormOf(meaning, () => true)) return null;
+  let raw = null;
+  let answer;
+  try {
+    const st = loaded.has(lang) ? null : await meaningsStatus(lang);
+    if (st && !st.installed) return null;
+    answer = await dictionaryDefine({ word, lang }, { quick: true, seen: (found) => { raw = found; } });
+  } catch { return null; }
+  return cardRepair(card, raw, answer);
 }

@@ -424,6 +424,7 @@ label.check input { margin-top: 3px; }
 .ep .status { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; min-width: 190px; }
 .ep .status .row { justify-content: flex-end; }
 .ep .err { color: var(--danger); font-size: 12px; max-width: 320px; text-align: right; }
+.ep .waiting { color: var(--muted); font-size: 12px; max-width: 320px; text-align: right; }
 .ep .progress { width: 160px; }
 /* Transcribing on the computer: the scan for speech (the new-word purple) above the writing, each with
    its percentage; the whole is a button that explains them (library.js progressBars). */
@@ -1168,10 +1169,21 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
 .loot-front { transform: rotateY(180deg); background: color-mix(in srgb, var(--tier) 26%, #120e1c); }
 .loot-art { display: block; width: 32px; height: 32px; object-fit: contain; image-rendering: pixelated; image-rendering: crisp-edges; }
 .loot-back .loot-art { width: 24px; height: 24px; opacity: .8; }
-.loot-words { display: none; min-width: 0; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
-.loot-name, .loot-text { overflow: hidden; text-overflow: ellipsis; }  /* (words too long for their place end in "…") */
+.loot-words { display: none; min-width: 0; overflow: hidden; padding: 0 12px 0 10px; line-height: 1.2; text-align: start; white-space: nowrap; }
+.loot-name, .loot-text, .loot-got, .loot-also { overflow: hidden; text-overflow: ellipsis; }  /* (a last resort: reveal.js fit() makes the words fit first) */
 .loot-text:empty { display: none; }
+.loot-got, .loot-also { display: inline-block; max-width: 100%; vertical-align: top; }
 .loot-also { font-weight: 600; opacity: .62; }
+/* Words too wide for the chip's place (reveal.js fit, in this order): the quieter ones on a line of their own and
+   a notice's sentence over two lines; then smaller letters and a smaller tile. */
+.loot.stack .loot-also { display: block; }
+.loot.stack.note .loot-text, .loot.stack.note .loot-name { white-space: normal; }
+.loot.tight .loot-name { font-size: 10px; letter-spacing: .04em; }
+.loot.tight .loot-text { font-size: 13px; }
+.loot.tight .loot-words { padding: 0 9px 0 7px; }
+.loot.tight:not(.small) .loot-tile { width: 40px; height: 40px; }
+.loot.small.tight .loot-text { font-size: 12px; }
+.loot.brief .loot-also { display: none; }  /* (still too wide: the reward's own words alone, whole) */
 .loot.open .loot-words { display: block; animation: loot-words .2s ease-out both; }
 @keyframes loot-words { from { opacity: 0; transform: translateX(-6px); } }
 .loot-name { font-size: 11px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; color: var(--tier); }
@@ -1847,6 +1859,9 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .vo-device.vo-missing .vo-device-ico { color: var(--warn); }
 .vo-device-text { flex: 1 1 220px; min-width: 0; }
 .vo-device-do { display: flex; flex-wrap: wrap; gap: 6px; }
+/* No voice: the steps to add one read across the box, and its buttons go under them. */
+.vo-device.vo-missing .vo-device-text { flex-basis: calc(100% - 40px); }
+.vo-device.vo-missing .vo-device-do { flex-basis: 100%; padding-inline-start: 28px; }
 .vo-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .vo-row select { flex: 1 1 220px; min-width: 0; }
 #vo-test-result:empty, #vo-key-note:empty, #vo-voice-note:empty, .vo-all:empty { display: none; }
@@ -2162,6 +2177,13 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .vq-mic[data-state="rec"] .vq-level { display: block; position: absolute; inset: -8px; border-radius: 50%; border: 3px solid var(--danger); opacity: .5;
   transform: scale(calc(.9 + var(--level, 0) * .3)); transition: transform .06s linear; pointer-events: none; }
 .vq-status { min-height: 1.4em; margin: 0; }
+.vq-examples { width: 100%; }
+.vq-ex-head { font-size: 13px; font-weight: 600; margin: 0 0 2px; }
+.vq-ex-list { list-style: none; margin: 0; padding: 0; }
+.vq-ex { display: block; width: 100%; min-height: 40px; padding: 6px 10px; border: none; background: none; color: var(--text); font-size: 16px;
+  font-weight: 500; white-space: normal; text-align: center; cursor: pointer; }
+.vq-ex:hover:not(:disabled) { color: var(--accent); background: none; }
+.vq-ex bdi[lang="ar"], .vq-ex bdi[lang="fa"] { font-family: var(--ar-font); }
 .vq-status.vq-err { color: var(--danger); }
 .vq-form { display: flex; gap: 8px; width: 100%; }
 .vq-text { flex: 1; min-width: 0; }

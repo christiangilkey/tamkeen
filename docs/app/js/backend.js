@@ -480,7 +480,7 @@ function episodeOut(e) {
   const f = feedOf(e.feed_uid) || {};
   const job = cloud.jobOf(e.uid);
   return { ...e, id: e.uid, feed_id: e.feed_uid, status: episodeStatus(e), progress: job ? job.progress : e.transcript_rev ? 100 : 0,
-           error: job ? job.error : null, feed_title: f.title || "", feed_image: f.image || null, feed_url: f.url || "",
+           error: job ? job.error : null, waiting: job ? job.waiting : null, feed_title: f.title || "", feed_image: f.image || null, feed_url: f.url || "",
            has_audio: !!e.remote_audio, language: episodeLang(e) };
 }
 
