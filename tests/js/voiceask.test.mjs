@@ -171,3 +171,26 @@ test("a word typed without its accents finds the dictionary's spelling (the owne
   const builder = read("web/js/components/wordbuilder.js");
   assert.match(builder, /if \(d\.spelled && d\.spelled !== r\.text\.trim\(\)\) \{\s+r\.text = d\.spelled;/);
 });
+
+test("the box shows what to say, for the language studied, and readQuestion understands every example", async () => {
+  const zlib = await import("node:zlib");
+  const md = await import("../../web/js/lexicon/meaningdata.js");
+  const { LANGUAGES } = await import("../../web/js/languages.js");
+  for (const code of Object.keys(LANGUAGES)) {
+    const ex = va.askExamples(code);
+    if (code === "en") { assert.deepEqual(ex.map((e) => va.readQuestion(e.text).kind), ["mean", "add"]); continue; }
+    const [say, mean] = ex;
+    assert.deepEqual(va.readQuestion(say.text), { kind: "say", phrase: "colorful", lang: code, add: false, all: false }, say.text);
+    assert.equal(va.readQuestion(mean.text).kind, "mean", mean.text);
+    assert.equal(va.readQuestion(mean.text).phrase, mean.word);
+    assert.equal(va.readQuestion(ex[ex.length - 1].text).kind, "add");
+    const file = JSON.parse(zlib.gunzipSync(readFileSync(new URL(`../../docs/lexicon/${code}-meanings.json.gz`, import.meta.url))).toString("utf8"));
+    assert.ok(md.lookUp([file], md.wordKeys(mean.word, code, null), mean.word, code, {}), `${mean.word} is in the ${code} dictionary`);
+  }
+  assert.equal(va.askExamples("pt")[0].text, "How do I say colorful in Portuguese?");
+  assert.equal(va.askExamples("ceb")[0].text, "How do I say colorful in Bisaya?");
+  const ui = readFileSync(new URL("../../web/js/components/voiceask.js", import.meta.url), "utf8");
+  assert.match(ui, /<ul class="vq-ex-list">\$\{examples\.map\(exampleHtml\)\.join\(""\)\}<\/ul>/, "shown when the box opens");
+  assert.match(ui, /input\.value = examples\[Number\(b\.dataset\.i\)\]\.text; input\.focus\(\);/, "a tap puts it in the box");
+  assert.match(ui, /\$\("\.vq-examples"\)\.hidden = true;/, "out of the way once there is an answer");
+});

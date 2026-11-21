@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	Después de una respuesta: «{0}»
+5302976d	Cosas que puedes decir
+c8a128c8	Cosas que puedes decir, en inglés
+b6dcfb15	Pulsa el micrófono y pregunta.

@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	Després d'una resposta: «{0}»
+5302976d	Coses que pots dir
+c8a128c8	Coses que pots dir, en anglès
+b6dcfb15	Prem el micròfon i pregunta.

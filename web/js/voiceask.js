@@ -103,6 +103,35 @@ export function readQuestion(text) {
   return out;
 }
 
+// ---------------------------------------------------------------- what to say
+
+// A common word of each language, asked about in the "what does it mean" example (all of them "pretty" or "beautiful",
+// and all in the built-in dictionary: tests/js/voiceask.test.mjs).
+const EXAMPLE_WORDS = { es: "bonito", ar: "جميل", fr: "joli", ja: "きれい", zh: "漂亮", ru: "красивый", it: "bello", tl: "maganda",
+  pt: "bonito", ca: "bonic", ceb: "nindot", th: "สวย", de: "schön", fa: "زیبا", hi: "सुंदर", ko: "예쁘다", la: "pulcher", en: "gorgeous" };
+
+/** The name a question says a language by: "Spanish", "Portuguese", "Bisaya" (readQuestion knows them all). */
+export function spokenName(code) {
+  const name = String((LANGUAGES[code] && LANGUAGES[code].name) || "").replace(/\s*\(.*\)$/, "");
+  return code === "pt" ? "Portuguese" : name;
+}
+
+/**
+ * The owner, 2026-11-20: "When the user presses the speak button on the vocab page, I want the window to show example
+ * sentences so the user knows what to say." The box's examples, for the language studied (`study`): things
+ * readQuestion understands, in English (it reads English): [{text, word?, after?}]. `word`: the language's own word in
+ * it (shown in that language's letters and direction); `after`: said once there is an answer ("add it").
+ */
+export function askExamples(study) {
+  const name = spokenName(study) || "Spanish";
+  // (someone learning English asks what English words mean: "how do I say … in English" is read as that too)
+  const out = study === "en" ? [] : [{ text: `How do I say colorful in ${name}?` }];
+  const word = EXAMPLE_WORDS[study];
+  if (word) out.push({ text: `What does ${word} mean?`, word });
+  out.push({ text: "add it", after: true });
+  return out;
+}
+
 // ---------------------------------------------------------------- the built-in dictionary, the other way round
 
 /** The ways an English word may be spelled in the dictionary: colorful and colourful, realize and realise, center

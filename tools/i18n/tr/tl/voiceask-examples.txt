@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	Pagkatapos ng sagot: “{0}”
+5302976d	Mga puwede mong sabihin
+c8a128c8	Mga puwede mong sabihin, sa Ingles
+b6dcfb15	Pindutin ang mikropono at magtanong.

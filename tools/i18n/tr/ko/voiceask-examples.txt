@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	답을 들은 뒤: “{0}”
+5302976d	이렇게 말할 수 있어요
+c8a128c8	이렇게 말할 수 있어요(영어로)
+b6dcfb15	마이크를 누르고 물어보세요.

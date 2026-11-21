@@ -2174,6 +2174,13 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .vq-mic[data-state="rec"] .vq-level { display: block; position: absolute; inset: -8px; border-radius: 50%; border: 3px solid var(--danger); opacity: .5;
   transform: scale(calc(.9 + var(--level, 0) * .3)); transition: transform .06s linear; pointer-events: none; }
 .vq-status { min-height: 1.4em; margin: 0; }
+.vq-examples { width: 100%; }
+.vq-ex-head { font-size: 13px; font-weight: 600; margin: 0 0 2px; }
+.vq-ex-list { list-style: none; margin: 0; padding: 0; }
+.vq-ex { display: block; width: 100%; min-height: 40px; padding: 6px 10px; border: none; background: none; color: var(--text); font-size: 16px;
+  font-weight: 500; white-space: normal; text-align: center; cursor: pointer; }
+.vq-ex:hover:not(:disabled) { color: var(--accent); background: none; }
+.vq-ex bdi[lang="ar"], .vq-ex bdi[lang="fa"] { font-family: var(--ar-font); }
 .vq-status.vq-err { color: var(--danger); }
 .vq-form { display: flex; gap: 8px; width: 100%; }
 .vq-text { flex: 1; min-width: 0; }

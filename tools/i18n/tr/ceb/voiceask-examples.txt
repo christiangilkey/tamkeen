@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	Human sa tubag: “{0}”
+5302976d	Mga butang nga imong ikasulti
+c8a128c8	Mga butang nga imong ikasulti, sa English
+b6dcfb15	Pindota ang mikropono ug pangutana.

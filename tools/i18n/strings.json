@@ -9430,18 +9430,28 @@
   "f": "web/js/components/troubleshoot.js"
  },
  {
-  "id": "14377a8f",
-  "k": "How do I say colorful in Spanish?",
-  "f": "web/js/components/voiceask.js"
- },
- {
   "id": "955e542c",
   "k": "Tamkeen needs permission to use the microphone to hear you.",
   "f": "web/js/components/voiceask.js"
  },
  {
+  "id": "8568953d",
+  "k": "After an answer: “{0}”",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
   "id": "f79cb586",
   "k": "Ask by voice",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "5302976d",
+  "k": "Things you can say",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
+  "id": "c8a128c8",
+  "k": "Things you can say, in English",
   "f": "web/js/components/voiceask.js"
  },
  {
@@ -9465,8 +9475,8 @@
   "f": "web/js/components/voiceask.js"
  },
  {
-  "id": "d958c6cc",
-  "k": "Press the microphone and ask: “{0}”",
+  "id": "b6dcfb15",
+  "k": "Press the microphone and ask.",
   "f": "web/js/components/voiceask.js"
  },
  {

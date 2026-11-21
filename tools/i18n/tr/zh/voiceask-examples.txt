@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	得到答案后：“{0}”
+5302976d	你可以这样说
+c8a128c8	你可以这样说（用英语）
+b6dcfb15	按下麦克风提问。

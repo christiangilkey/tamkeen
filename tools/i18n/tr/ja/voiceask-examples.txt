@@ -1,0 +1,5 @@
+# Ask by voice: things you can say (components/voiceask.js), 2026-11-20
+8568953d	答えのあとで：「{0}」
+5302976d	こんなふうに言えます
+c8a128c8	こんなふうに言えます（英語で）
+b6dcfb15	マイクを押して質問してください。
