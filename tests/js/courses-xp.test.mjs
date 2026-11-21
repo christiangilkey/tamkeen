@@ -207,6 +207,10 @@ test("every Library kind but Courses, Conversation and Lessons says how to add t
   // The note is inside the arrow's holder (so it shows, fades and hides with it), reads the right way when the arrow
   // is flipped, says "Click" with a mouse, and is in Caveat, bundled with the app under the SIL Open Font License.
   assert.match(css, /\.add-fab\.hint-flip \.fab-note \{ transform: [^}]*scaleX\(-1\); \}/);
+  // Right-to-left on a computer the side list is on the right: the button goes to the bottom left (the owner), only
+  // while the list is beside the page (one column at 860 px and under), so phones keep it on the right.
+  assert.match(css, /@media \(min-width: 861px\) \{ :root\[dir="rtl"\] \.library\.desk \.add-fab \{ right: auto; left: 28px; \} \}/);
+  assert.match(read("web/css/app.css"), /@media \(max-width: 860px\) \{\s*\.library, \.library\.desk \{ grid-template-columns: 1fr;/);
   assert.match(css, /@media \(hover: hover\) and \(pointer: fine\) \{ \.fab-note \.fn-tap \{ display: none; \}/);
   assert.match(read("web/css/app.css"), /font-family: "Caveat";\s*src: url\("\.\.\/fonts\/Caveat-600\.woff2"\)/);
   assert.match(read("licenses/index.json"), /"Caveat font[^"]*", "license": "SIL Open Font License 1\.1", "file": "caveat\.txt"/);

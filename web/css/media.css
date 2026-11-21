@@ -35,6 +35,11 @@
   background: var(--accent); color: var(--accent-ink); border: 3px solid var(--bg);
 }
 .add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
+/* Right-to-left on a computer: the side list is on the right, so the button sat over it (with its arrow and note);
+   it goes to the bottom left instead (the owner, 2026-11-21). library.js aimHint then turns the arrow and the note
+   round to its other side, over the page. Only while the side list is beside the page (app.css: one column at 860 px
+   and under); phones and left-to-right languages keep it on the right. */
+@media (min-width: 861px) { :root[dir="rtl"] .library.desk .add-fab { right: auto; left: 28px; } }
 .library.courses-kind .add-fab { display: none; } /* Courses: nothing to add there (the owner) */
 .add-fab .ic { stroke-width: 2.2; }
 /* Swiping between sections on a phone (mobile/src/js/swipe.js): hidden while the page slides, then
