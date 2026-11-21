@@ -202,6 +202,7 @@ const SHARED = [
   "js/hearmic.js",
   // Vocab → Ask by voice, the microphone beside Add words (how do I say colorful in Spanish?)
   "js/voiceask.js",
+  "js/voiceask-native.js",  // (questions in the learner's own language: prototype voice_ask_native)
   "js/components/voiceask.js",
   // A pronunciation score from Azure for Say it (review/pronounce.js) and Conversation
   "js/pronscore.js",

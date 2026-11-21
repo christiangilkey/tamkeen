@@ -9660,6 +9660,11 @@
   "f": "web/js/components/voiceask.js"
  },
  {
+  "id": "3bc05a1f",
+  "k": "From the built-in dictionary (Wiktionary)",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
   "id": "a8f25f5a",
   "k": "Answer from {0}",
   "f": "web/js/components/voiceask.js"
@@ -9667,11 +9672,6 @@
  {
   "id": "60b81ac9",
   "k": "The {0} dictionary couldn't be got: check the internet connection, or add an AI in Settings → Word definitions.",
-  "f": "web/js/components/voiceask.js"
- },
- {
-  "id": "3bc05a1f",
-  "k": "From the built-in dictionary (Wiktionary)",
   "f": "web/js/components/voiceask.js"
  },
  {

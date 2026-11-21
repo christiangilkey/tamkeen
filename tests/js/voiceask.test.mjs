@@ -194,3 +194,122 @@ test("the box shows what to say, for the language studied, and readQuestion unde
   assert.match(ui, /input\.value = examples\[Number\(b\.dataset\.i\)\]\.text; input\.focus\(\);/, "a tap puts it in the box");
   assert.match(ui, /\$\("\.vq-examples"\)\.hidden = true;/, "out of the way once there is an answer");
 });
+
+// ---------------------------------------------------------------- in the learner's own language (prototype voice_ask_native)
+// The owner, 2026-11-21: Ask by voice understands questions in all the app's languages, in the learner's own (the app's)
+// language: "¿cómo se dice perro en árabe?", "ما معنى …", "add it" said in it; the examples in it too. Anything bigger
+// to download only for a learner whose own language it is.
+
+test("every app language: its examples are understood, and say the language studied by its name in that language", async () => {
+  const { NATIVE } = await import("../../web/js/voiceask-native.js");
+  const { UI_LANGUAGE_CODES } = await import("../../web/js/i18n.js");
+  const { LANGUAGES } = await import("../../web/js/languages.js");
+  assert.deepEqual(Object.keys(NATIVE).sort(), UI_LANGUAGE_CODES.filter((c) => c !== "en").sort(), "a table for every app language but English");
+  for (const ui of Object.keys(NATIVE)) {
+    assert.deepEqual(Object.keys(NATIVE[ui].names).sort(), Object.keys(LANGUAGES).sort(), `${ui} names every language studied`);
+    for (const study of Object.keys(LANGUAGES)) {
+      const ex = va.askExamples(study, ui);
+      const [say, mean] = ex;
+      if (study !== ui) {
+        assert.deepEqual(va.readQuestion(say.text, ui).kind, "say", say.text);
+        assert.equal(va.readQuestion(say.text, ui).phrase, NATIVE[ui].ex.dog, say.text);
+        assert.equal(va.readQuestion(say.text, ui).lang, study, say.text);
+        assert.equal(va.readQuestion(mean.text, ui).kind, "mean", mean.text);
+        assert.equal(va.readQuestion(mean.text, ui).phrase, mean.word, mean.text);
+      }
+      assert.equal(va.readQuestion(ex[ex.length - 1].text, ui).kind, "add", ex[ex.length - 1].text);
+    }
+  }
+  assert.equal(va.askExamples("ar", "es")[0].text, "¿Cómo se dice perro en árabe?");
+  assert.equal(va.askExamples("es", "ar")[1].text, "ما معنى bonito؟");
+  assert.equal(va.askExamples("es", "de")[0].text, "Wie sagt man Hund auf Spanisch?", "German's language names with their capital");
+  assert.deepEqual(va.askExamples("es", "es").map((e) => e.text), ["añádelo"], "nothing to translate into one's own language");
+  assert.equal(va.askExamples("es")[0].text, "How do I say colorful in Spanish?", "English as before without the app's language");
+});
+
+test("questions people say, in their own language", () => {
+  const q = (ui, s) => { const r = va.readQuestion(s, ui); return [r.kind, r.phrase, r.lang, r.add]; };
+  // the owner's examples
+  assert.deepEqual(q("es", "¿cómo se dice perro en árabe?"), ["say", "perro", "ar", false]);
+  assert.deepEqual(q("ar", "ما معنى bonito"), ["mean", "bonito", "", false]);
+  assert.deepEqual(q("es", "añádelo"), ["add", "", "", true]);
+  // more ways
+  assert.deepEqual(q("es", "como se dice perro en arabe"), ["say", "perro", "ar", false], "without the accents");
+  assert.deepEqual(q("es", "¿Cómo se dice tenedor en francés y añádelo?"), ["say", "tenedor", "fr", true]);
+  assert.deepEqual(q("es", "oye, ¿cuál es la palabra para tenedor en alemán?"), ["say", "tenedor", "de", false]);
+  assert.deepEqual(q("es", "¿qué es bonito en español?"), ["mean", "bonito", "", false], "a word of one's own language: what it means");
+  assert.deepEqual(q("es", "sí, añádelo"), ["add", "", "", true]);
+  assert.equal(va.readQuestion("agrégalos", "es").all, true);
+  assert.deepEqual(q("ar", "كيف اقول كلب بالانجليزي"), ["say", "كلب", "en", false]);
+  assert.deepEqual(q("ar", "ترجم كلب إلى الفرنسية"), ["say", "كلب", "fr", false]);
+  assert.deepEqual(q("ar", "وأضفها"), ["add", "", "", true]);
+  assert.deepEqual(q("fr", "c'est quoi chien en espagnol"), ["say", "chien", "es", false]);
+  assert.deepEqual(q("fr", "bonito ça veut dire quoi"), ["mean", "bonito", "", false]);
+  assert.deepEqual(q("de", "wie kann ich Hund auf Arabisch sagen"), ["say", "Hund", "ar", false], "the word in its own capital");
+  assert.deepEqual(q("it", "aggiungili tutti"), ["add", "", "", true]);
+  assert.equal(va.readQuestion("aggiungili tutti", "it").all, true);
+  assert.deepEqual(q("pt", "como é cachorro em inglês"), ["say", "cachorro", "en", false]);
+  assert.deepEqual(q("ca", "com es diu gos a l'anglès"), ["say", "gos", "en", false]);
+  assert.deepEqual(q("ru", "как будет собака на английском"), ["say", "собака", "en", false]);
+  assert.equal(va.readQuestion("добавь", "ru").all, false, "добавь has оба in it, but isn't “both”");
+  assert.deepEqual(q("fa", "چطور بگم سگ به انگلیسی"), ["say", "سگ", "en", false]);
+  assert.deepEqual(q("fa", "جميل یعنی چی؟"), ["mean", "جميل", "", false], "an Arabic word keeps its Arabic letters");
+  assert.deepEqual(q("hi", "कुत्ते को अंग्रेज़ी में क्या कहते हैं?"), ["say", "कुत्ते", "en", false]);
+  assert.deepEqual(q("ja", "犬って英語でなんて言うの"), ["say", "犬", "en", false]);
+  assert.deepEqual(q("zh", "狗用英語怎麼說"), ["say", "狗", "en", false], "traditional characters too");
+  assert.deepEqual(q("zh", "西班牙语怎么说狗"), ["say", "狗", "es", false]);
+  assert.deepEqual(q("ko", "개는 영어로 뭐라고 해요?"), ["say", "개", "en", false]);
+  assert.deepEqual(va.readQuestion("아이를 영어로 어떻게 말해요", "ko").phrase, "아이");
+  assert.deepEqual(va.readQuestion("개를 영어로 어떻게 말해요", "ko").alts, ["개를"], "the word with its ending kept as a second try");
+  assert.deepEqual(q("th", "หมาภาษาอังกฤษเรียกว่าอะไรครับ"), ["say", "หมา", "en", false]);
+  assert.deepEqual(q("tl", "paano po sabihin ang aso sa english"), ["say", "aso", "en", false]);
+  assert.deepEqual(q("ceb", "unsay iro sa english"), ["say", "iro", "en", false]);
+  assert.deepEqual(q("ceb", "unsa ang kahulogan sa bonito"), ["mean", "bonito", "", false]);
+  // English is still understood whatever the app's language; a bare word is the word
+  assert.deepEqual(q("es", "How do I say colorful in Spanish?"), ["say", "colorful", "es", false]);
+  assert.deepEqual(q("tl", "add it"), ["add", "", "", true]);
+  assert.deepEqual(q("es", "perro"), ["say", "perro", "", false]);
+});
+
+test("a word of one's own language in English, by that language's own dictionary", () => {
+  const es = { lang: "es", source: "Wiktionary", forms: {}, words: {
+    perro: [["perro", "noun", ["dog (the species Canis familiaris)", "clothes peg"], ""]],
+    cachorro: [["cachorro", "noun", ["puppy (a young dog)", "dog (of any age)"], ""]],
+  }, english: { dog: [["perro", "noun", "animal"], ["cachorro", "noun", "animal"]], puppy: [["cachorro", "noun", "young dog"]] } };
+  assert.equal(va.toEnglish([es], "perro", "es")[0], "dog");
+  assert.equal(va.toEnglish([es], "Perro", "es")[0], "dog");
+  assert.deepEqual(va.toEnglish([es], "cachorro", "es").slice(0, 2).sort(), ["dog", "puppy"]);
+  assert.deepEqual(va.toEnglish([es], "gato", "es"), []);
+});
+
+test("the real dictionaries: every app language's example word is found in English, and perro becomes كلب", async () => {
+  const zlib = await import("node:zlib");
+  const md = await import("../../web/js/lexicon/meaningdata.js");
+  const { NATIVE } = await import("../../web/js/voiceask-native.js");
+  const load = (code) => md.keyedTables(JSON.parse(zlib.gunzipSync(readFileSync(new URL(`../../docs/lexicon/${code}-meanings.json.gz`, import.meta.url))).toString("utf8")));
+  const ar = [load("ar")];
+  for (const ui of Object.keys(NATIVE)) {
+    const own = ui === "ar" ? ar : [load(ui)];
+    const english = va.toEnglish(own, NATIVE[ui].ex.dog, ui);
+    assert.equal(english[0], NATIVE[ui].ex.en || "dog", `${ui}: ${NATIVE[ui].ex.dog}`);
+  }
+  const es = [load("es")];
+  assert.equal(md.matchKey(va.translationsFor(ar, va.toEnglish(es, "perro", "es")[0], "ar")[0].word, "ar"), "كلب");
+  assert.equal(va.toEnglish(es, "buenos días", "es")[0], "good morning");
+});
+
+test("the box: the app's language only in prototype mode, the own-language dictionary only for its own speakers", () => {
+  const box = read("web/js/components/voiceask.js");
+  assert.match(box, /const native = own !== "en" && hasNative\(own\) && feature\("voice_ask_native"\);/, "English speakers: nothing new");
+  assert.match(box, /const examples = askExamples\(study, ui\);/);
+  assert.match(box, /const q = readQuestion\(text, ui\);/);
+  // the own language's dictionary: only in fromOwnLanguage, only when there is no AI and the question is in that language
+  assert.equal((box.match(/dictionaryFiles\(ui/g) || []).length, 1);
+  assert.match(box, /const mine = await dictionaryFiles\(ui, \{ tables: false \}\);/, "its meanings alone");
+  assert.match(box, /if \(native && lang !== ui\) \{\s+const bridged = await fromOwnLanguage\(\[phrase, \.\.\.alts\], lang\);/);
+  const howTo = box.slice(box.indexOf("async function howToSay("));
+  assert.ok(howTo.indexOf("if (aiReady())") < howTo.indexOf("fromOwnLanguage("), "an AI answers first: nothing downloaded then");
+  assert.match(read("web/js/meanings.js"), /export async function downloadMeanings\(lang, \{ tables = true \} = \{\}\) \{[\s\S]{0,200}if \(!tables\) return st;/);
+  assert.match(read("web/js/prototype.js"), /voice_ask_native: \{[^}]*released: false/);
+  assert.match(read("mobile/scripts/build-www.mjs"), /"js\/voiceask-native\.js"/);
+});

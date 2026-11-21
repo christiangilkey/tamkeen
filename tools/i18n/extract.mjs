@@ -30,6 +30,8 @@ const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js
   /web\/js\/lessonai\.js$/, /web\/js\/lessonparse\.js$/,
   // (Ask by voice: the patterns a spoken question is read with, and what the AI is told)
   /web\/js\/voiceask\.js$/,
+  // (and the same in each app language: already in that language, never translated)
+  /web\/js\/voiceask-native\.js$/,
   // (prototype mode: the features' names and the secret switch's messages are for the owner only)
   /web\/js\/prototype\.js$/];
 
