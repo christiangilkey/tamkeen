@@ -548,7 +548,11 @@ export async function render(view, { id, query }) {
     kick();
   });
   audio.addEventListener("pause", () => {
-    clipEnd = null; // any pause ends a word/sentence clip, so the next play continues normally
+    // Any pause ends a word/sentence clip, so the next play continues normally. But not one already played again:
+    // an <audio>'s "pause" arrives a moment after pause(), so a piece stopped and the next one started at once
+    // (Type what you hear's arrows, Hear it again) would lose the next one's end, and it played on past it (the owner,
+    // 2026-11-20: a podcast "isn't pausing … at the right intervals like the YouTube one", whose pause is said at once).
+    if (audio.paused) clipEnd = null;
     if (!disposed) { $("#play").textContent = "▶"; lsSet(posKey, audio.currentTime); remember(); kick(); }
   });
   audio.addEventListener("seeked", () => { if (!disposed) kick(); });

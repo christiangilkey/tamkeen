@@ -264,3 +264,27 @@ test("Type what you hear: the round button stays in sight with a phone's keyboar
   const course = src("../../web/js/components/coursepanel.js");
   assert.match(course, /onReal: \(realEl, u\) => \{\s*realEl\.classList\.remove\("tw-root"\);\s*tappable\(realEl, lang,/);
 });
+
+test("a podcast stops at the end of each piece, also when the next one starts while one is playing (the owner, 2026-11-20: 'isn't pausing the podcast at the right intervals like the YouTube one')", async () => {
+  const player = readFileSync(new URL("../../web/js/pages/player.js", import.meta.url), "utf8");
+  const m = player.match(/audio\.addEventListener\("pause", \(\) => \{([\s\S]*?)\n    if \(!disposed\)/);
+  assert.ok(m, "the player's pause listener");
+  const onPause = new Function("audio", "s", m[1].replace(/\bclipEnd\b/g, "s.clipEnd"));
+  // An <audio>: "pause" is said a moment after pause(), not inside it (YouTube's wrapper says it at once).
+  const audio = {
+    paused: false,
+    pause() { this.paused = true; setTimeout(() => onPause(this, s), 0); },
+    play() { this.paused = false; },
+  };
+  const s = { clipEnd: null };
+  // Type what you hear's arrow while a piece plays: stop() it, then the next piece (playClip) at once.
+  s.clipEnd = 301.15;
+  s.clipEnd = null; audio.pause();
+  s.clipEnd = 304.65; audio.play();
+  await new Promise((r) => setTimeout(r, 5));
+  assert.equal(s.clipEnd, 304.65, "the next piece keeps its end (it used to play on past it)");
+  // A real pause still ends a clip: the next play carries on normally.
+  audio.pause();
+  await new Promise((r) => setTimeout(r, 5));
+  assert.equal(s.clipEnd, null);
+});

@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** **Type what you hear now stops a podcast at the end of each piece, as it does on YouTube.** Pressing the forward or back arrow (or starting another piece) while one was still playing used to lose the next piece's end, so it played straight on into the rest of the episode. Now every word, sentence or gist stops right after it ends (within about a hundredth of a second, at normal speed and with Slower). The same goes for audiobooks and your own audio and videos.
 - **Improved:** When a Library section is empty, a handwritten note above the teal arrow now says **Tap here to add things** (**Click here to add things** with a mouse), in the arrow's colour and slightly tilted. It fades in with the arrow and turns round with it when the + button is on the left. The handwriting is Caveat (SIL Open Font License), included in the app; languages in other alphabets show the note in the app's usual letters.
 
 ## v0.66.0 — 2026-11-20
