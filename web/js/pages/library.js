@@ -5,10 +5,12 @@ import { sttConfig } from "../stt.js";
 import { settingsHref } from "../fixes.js";
 import { icon } from "../icons.js";
 import { studyLanguage } from "../languages.js";
-import { allProgress, isUnfinished } from "../progress.js";
+import { allProgress, fraction, isUnfinished } from "../progress.js";
 import { watchedIds, watchedPill } from "../watched.js";
 import { NETFLIX_FEED, isNetflix } from "../netflix.js";
-import { isYouTube, loadFollows, unfollowChannel } from "../youtube.js";
+import { isYouTube, loadFollows, unfollowChannel, videoId as youTubeId } from "../youtube.js";
+import { feature } from "../prototype.js";
+import { clock, scrollPreviews, startAt } from "../ytpreview.js";
 import { channelAddress, followedChannels, smallImage } from "../ytfollow.js";
 import { WAY_FOR_KIND, openAddSheet } from "../components/addsheet.js";
 import { confirmBox, openModal } from "../components/modal.js";
@@ -715,6 +717,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
   }
 
+  let stopPreviews = null; // the YouTube list's previews (ytpreview.js), while it shows
   let watchedNow = null;  // the videos watched to the end (watched.js), read once for each list drawn
   function epRow(ep) {
     const img = ep.image || ep.feed_image;
@@ -750,8 +753,56 @@ export async function render(view, { feedId: routeFeed, query }) {
     return row;
   }
 
+  // The YouTube list as YouTube shows it (prototype yt_feed, ytpreview.js): a big picture with the video's length
+  // on it and a line for how far you got, the channel's round picture beside the title, and the card in the middle
+  // of the screen playing silently in YouTube's own player. The picture and the title open the video.
+  let progressNow = null;  // where each video was got to (progress.js), read once for each list drawn
+  function ytCard(ep) {
+    const id = youTubeId(ep.audio_url) || ep.guid || "";
+    const p = (progressNow || (progressNow = new Map(allProgress().map((x) => [String(x.id), x])))).get(String(ep.id));
+    const got = p ? fraction(p) : 0;
+    const seen = (watchedNow || (watchedNow = watchedIds())).has(String(ep.id));
+    const name = ep.description || "";
+    const c = followedChannels(follows, studyLanguage()).find((x) => x.name === name) || { name, image: "" };
+    const row = h(`<div class="ep yt-card" data-id="${ep.id}">
+      <div class="yt-pic" data-video="${esc(id)}" data-start="${startAt(p)}">
+        <a class="yt-open" href="#/episode/${ep.id}" tabindex="-1" aria-hidden="true">
+          <img alt="" loading="lazy" referrerpolicy="no-referrer">
+          ${ep.duration ? `<span class="yt-len">${clock(ep.duration)}</span>` : ""}
+          ${seen ? watchedPill() : got > 0.02 ? `<span class="yt-got"><i style="width:${Math.round(got * 100)}%"></i></span>` : ""}
+        </a>
+      </div>
+      <div class="yt-meta">
+        ${name ? `<a class="yt-chan" href="${channelHref("#/library?show=youtube", name)}" aria-label="${esc(name)}">${channelPicture(c)}</a>` : ""}
+        <div class="info">
+          <div class="title" dir="auto" data-video="1"></div>
+          <div class="sub" dir="auto">${name ? `${esc(name)} · ` : ""}${fmtDate(ep.published)}</div>
+        </div>
+      </div>
+      <div class="yt-actions"><input type="checkbox" class="sel" aria-label="Select episode"><div class="status"></div></div>
+    </div>`);
+    const img = row.querySelector(".yt-pic img");
+    const small = ep.image || ep.feed_image || "";
+    // YouTube's bigger picture (the list's own is the small one), the small one if YouTube has no big one.
+    img.src = id ? `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg` : small;
+    img.onerror = () => { img.onerror = null; if (small && img.src !== small) img.src = small; };
+    if (!id) delete row.querySelector(".yt-pic").dataset.video;
+    const a = h(`<a href="#/episode/${ep.id}"></a>`);
+    a.textContent = ep.title;
+    row.querySelector(".title").append(a);
+    row.querySelector(".sel").checked = selected.has(ep.id);
+    row.querySelector(".sel").onchange = (e) => {
+      e.target.checked ? selected.add(ep.id) : selected.delete(ep.id);
+      updateSelection();
+    };
+    row._ep = ep;
+    renderStatus(row);
+    return row;
+  }
+
   function renderStatus(row) {
     const ep = row._ep;
+    const card = row.classList.contains("yt-card"); // (its picture and title open it: no Watch button)
     const st = statusInfo(ep);
     const box = row.querySelector(".status");
     box.innerHTML = "";
@@ -787,7 +838,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     switch (ep.status) {
       case "done":
-        btn(isVideo(ep) ? "Watch" : isPage(ep) ? "Read" : "Open", "primary", () => (location.hash = `#/episode/${ep.id}`));
+        if (!card) btn(isVideo(ep) ? "Watch" : isPage(ep) ? "Read" : "Open", "primary", () => (location.hash = `#/episode/${ep.id}`));
         break;
       case "failed":
         btn("Retry", "", () => transcribe([ep.id]));
@@ -800,7 +851,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       default:
         btn("Transcribe", "", () => transcribe([ep.id]));
     }
-    if (isVideo(ep) && ep.status !== "done") btn("Watch", "ghost", () => (location.hash = `#/episode/${ep.id}`));
+    if (isVideo(ep) && ep.status !== "done" && !card) btn("Watch", "ghost", () => (location.hash = `#/episode/${ep.id}`));
     // Send to a friend: every kind. The user's own files go as their words only, so once transcribed.
     const media = mediaFromEpisode(ep);
     if (media && (media.kind !== "text" || media.ready)) line.append(sendButton(() => mediaFromEpisode(row._ep)));
@@ -914,7 +965,13 @@ export async function render(view, { feedId: routeFeed, query }) {
       items = [...items].sort((a, b) => last(b) - last(a));
     }
     watchedNow = watchedIds();
-    for (const ep of items) listEl.append(epRow(ep));
+    progressNow = null;
+    // The YouTube list scrolled like YouTube (prototype yt_feed): big pictures, and the one in the middle plays.
+    const asYouTube = youtubeShowing() && feature("yt_feed");
+    listEl.classList.toggle("yt-feed", asYouTube);
+    for (const ep of items) listEl.append(asYouTube ? ytCard(ep) : epRow(ep));
+    if (asYouTube && !stopPreviews) stopPreviews = scrollPreviews(listEl);
+    else if (!asYouTube && stopPreviews) { stopPreviews(); stopPreviews = null; }
     offset += data.items.length;
     $("#more").hidden = offset >= data.total;
     // Nothing at all (not just nothing matching a filter): the kind's empty state, which takes the
@@ -1269,6 +1326,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   ]);
 
   return () => {
+    if (stopPreviews) stopPreviews();
     offDrop();
     offEp(); offFeeds(); offRe(); clearTimeout(reloadTimer); clearTimeout(countsTimer); window.removeEventListener("resize", aimHint);
     if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();

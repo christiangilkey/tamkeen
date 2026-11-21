@@ -437,6 +437,32 @@ label.check input { margin-top: 3px; }
 .ep .err { color: var(--danger); font-size: 12px; max-width: 320px; text-align: right; }
 .ep .waiting { color: var(--muted); font-size: 12px; max-width: 320px; text-align: right; }
 .ep .progress { width: 160px; }
+/* The YouTube list as YouTube shows it (prototype yt_feed, ytpreview.js): big pictures, two or more side by side on
+   a wide screen. The picture is never under 200 px tall (YouTube's smallest player), and nothing sits over the
+   playing video: .yt-live comes in front of the length and the progress line. */
+.episodes.yt-feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr)); gap: 22px 16px; }
+.yt-card { display: flex; flex-direction: column; gap: 10px; padding: 0; background: none; border: 0; border-radius: 0; }
+.yt-pic { position: relative; aspect-ratio: 16 / 9; min-height: 200px; border-radius: 12px; overflow: hidden; background: var(--surface-2); }
+.yt-pic .yt-open { display: block; width: 100%; height: 100%; }
+.yt-card .yt-pic img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0; background: none; }
+.yt-len { position: absolute; right: 8px; bottom: 8px; padding: 1px 5px; border-radius: 4px; background: rgba(0, 0, 0, .8);
+  color: #fff; font-size: 12px; font-weight: 600; line-height: 1.4; font-variant-numeric: tabular-nums; }
+.yt-got { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255, 255, 255, .45); }
+.yt-got i { display: block; height: 100%; background: #f00; }
+.yt-pic .watched-pill { top: 8px; inset-inline-end: 8px; box-shadow: none; }
+.yt-live { position: absolute; inset: 0; z-index: 3; opacity: 0; transition: opacity .25s; }
+.yt-pic.live .yt-live { opacity: 1; }
+.yt-live iframe { display: block; width: 100%; height: 100%; border: 0; }
+.yt-meta { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start; }
+.yt-meta .info { grid-column: -2; }
+.yt-card .yt-chan img, .yt-card .yt-chan .ph { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; display: grid;
+  place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.yt-card .title { font-size: 16px; line-height: 1.35; }
+.yt-card .sub { font-size: 13px; margin-top: 2px; }
+.yt-actions { display: flex; align-items: center; gap: 8px; padding-inline-start: 48px; }
+.ep.yt-card .status { flex: 1; min-width: 0; align-items: stretch; }
+.ep.yt-card .status .row { justify-content: flex-start; gap: 6px; }
+@media (max-width: 600px) { .yt-actions { padding-inline-start: 0; } }
 /* Transcribing on the computer: the scan for speech (the new-word purple) above the writing, each with
    its percentage; the whole is a button that explains them (library.js progressBars). */
 .steps-bars { display: grid; gap: 3px; width: 190px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: start; cursor: pointer; box-shadow: none; }
