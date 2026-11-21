@@ -1,0 +1,14 @@
+86b991fe	Esperant l'app d'escriptori ({0} targetes)
+5a2a0204	Veus fetes per l'app d'escriptori
+999c0190	App d'escriptori de Tamkeen
+ee06f783	Gratis. Cal l'app Tamkeen instal·lada en un ordinador amb Windows, Mac o Linux: aquest navegador no les pot fer.
+7913eaad	Gratis. L'app Tamkeen del teu ordinador les fa; arriben aquí quan se sincronitza.
+9c18e2a4	Aconsegueix l'app d'escriptori
+2c130963	Esperant l'app d'escriptori
+53bf0b98	Les fa l'app d'escriptori de Tamkeen: instal·lada en un ordinador amb Windows, Mac o Linux, amb la sessió iniciada al mateix Google Drive i oberta allà amb la veu en {0:lower} baixada (Configuració → Veus de les targetes a l'app d'escriptori). Arriben quan se sincronitza.
+70efb590	L'app d'escriptori de Tamkeen no té cap veu en {0:lower}, així que aquest navegador llegeix aquestes targetes amb la seva pròpia veu. Per a veus naturals en {1:lower}, tria Azure.
+79d58bbe	L'app d'escriptori de Tamkeen no té cap veu en {0:lower}, així que aquest telèfon llegeix aquestes targetes amb la seva pròpia veu. Per a veus naturals en {1:lower}, tria Azure.
+59e2c577	Aquest navegador no les pot fer per si mateix. Fins que arribin, i si cap app d'escriptori no se sincronitza mai, les llegeix la veu d'aquest navegador.
+ced27883	Fins que arribin, i si cap app d'escriptori no se sincronitza mai, les llegeix la veu d'aquest telèfon.
+4378f8f2	L'app d'escriptori de Tamkeen del teu ordinador farà la veu de cada targeta la propera vegada que se sincronitzi. Fins aleshores les llegeix la veu d'aquest dispositiu.
+999f63cb	La veu d'aquest dispositiu i la de l'app d'escriptori només parlen àrab estàndard, així que llegeixen les paraules dels dialectes a la manera estàndard. Per sentir les paraules llevantines, egípcies, iraquianes i del Golf com les diu la gent d'allà, tria Azure.

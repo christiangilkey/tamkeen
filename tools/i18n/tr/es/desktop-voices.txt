@@ -1,0 +1,14 @@
+86b991fe	Esperando a la app de escritorio ({0} tarjetas)
+5a2a0204	Voces hechas por la app de escritorio
+999c0190	App de escritorio de Tamkeen
+ee06f783	Gratis. Necesita la app Tamkeen instalada en un ordenador con Windows, Mac o Linux: este navegador no puede hacerlas.
+7913eaad	Gratis. La app Tamkeen de tu ordenador las hace; llegan aquí cuando se sincroniza.
+9c18e2a4	Descargar la app de escritorio
+2c130963	Esperando a la app de escritorio
+53bf0b98	Las hace la app de escritorio de Tamkeen: instalada en un ordenador con Windows, Mac o Linux, con la sesión iniciada en el mismo Google Drive y abierta allí con la voz en {0:lower} descargada (Ajustes → Voces de las tarjetas en la app de escritorio). Llegan cuando se sincroniza.
+70efb590	La app de escritorio de Tamkeen no tiene voz en {0:lower}, así que este navegador lee estas tarjetas con su propia voz. Para voces naturales en {1:lower}, elige Azure.
+79d58bbe	La app de escritorio de Tamkeen no tiene voz en {0:lower}, así que este teléfono lee estas tarjetas con su propia voz. Para voces naturales en {1:lower}, elige Azure.
+59e2c577	Este navegador no puede hacerlas por sí mismo. Hasta que lleguen, y si ninguna app de escritorio se sincroniza nunca, las lee la voz de este navegador.
+ced27883	Hasta que lleguen, y si ninguna app de escritorio se sincroniza nunca, las lee la voz de este teléfono.
+4378f8f2	La app de escritorio de Tamkeen de tu ordenador crea la voz de cada tarjeta la próxima vez que se sincronice. Hasta entonces las lee la voz de este dispositivo.
+999f63cb	La voz de este dispositivo y la de la app de escritorio solo hablan árabe estándar, así que leen las palabras de dialecto a la manera estándar. Para oír las palabras levantinas, egipcias, iraquíes y del Golfo como las dice la gente de allí, elige Azure.

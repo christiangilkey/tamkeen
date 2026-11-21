@@ -1,0 +1,14 @@
+86b991fe	Hinihintay ang desktop app ({0} card)
+5a2a0204	Mga boses na gawa ng desktop app
+999c0190	Tamkeen desktop app
+ee06f783	Libre. Kailangan ang Tamkeen app na naka-install sa Windows, Mac o Linux na computer: hindi ito kayang gawin ng browser na ito.
+7913eaad	Libre. Ang Tamkeen app sa computer mo ang gagawa; darating ang mga ito rito pag nag-sync.
+9c18e2a4	Kunin ang desktop app
+2c130963	Hinihintay ang desktop app
+53bf0b98	Ang Tamkeen desktop app ang gumagawa ng mga ito: naka-install sa Windows, Mac o Linux na computer, naka-sign in sa parehong Google Drive, at bukas doon na naka-download ang boses na {0} (Settings → Mga boses ng card sa desktop app). Darating ang mga ito pag nag-sync.
+70efb590	Walang boses na {0} ang Tamkeen desktop app, kaya binabasa ng browser na ito ang mga card gamit ang sarili nitong boses. Para sa natural na boses na {1}, piliin ang Azure.
+79d58bbe	Walang boses na {0} ang Tamkeen desktop app, kaya binabasa ng teleponong ito ang mga card gamit ang sarili nitong boses. Para sa natural na boses na {1}, piliin ang Azure.
+59e2c577	Hindi ito kayang gawin ng browser na ito mismo. Habang wala pa ang mga ito, at kung walang desktop app na mag-sync kailanman, binabasa ang mga ito ng boses ng browser na ito.
+ced27883	Habang wala pa ang mga ito, at kung walang desktop app na mag-sync kailanman, binabasa ang mga ito ng boses ng teleponong ito.
+4378f8f2	Gagawin ng Tamkeen desktop app sa computer mo ang boses ng bawat card sa susunod nitong pag-sync. Hanggang doon, binabasa ang mga ito ng boses ng device na ito.
+999f63cb	Standard Arabic lang ang kayang sabihin ng boses ng device na ito at ng boses ng desktop app, kaya binabasa nila ang mga salita ng diyalekto sa paraang Standard. Para marinig ang mga salitang Levantine, Egyptian, Iraqi at Gulf gaya ng pagsabi ng mga tao roon, piliin ang Azure.

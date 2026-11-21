@@ -1,0 +1,14 @@
+86b991fe	In attesa dell'app per computer ({0} schede)
+5a2a0204	Voci create dall'app per computer
+999c0190	App Tamkeen per computer
+ee06f783	Gratis. Serve l'app Tamkeen installata su un computer Windows, Mac o Linux: questo browser non può crearle.
+7913eaad	Gratis. Le crea l'app Tamkeen sul tuo computer; arrivano qui con la sincronizzazione.
+9c18e2a4	Scarica l'app per computer
+2c130963	In attesa dell'app per computer
+53bf0b98	Le crea l'app Tamkeen per computer: installata su un computer Windows, Mac o Linux, collegata allo stesso Google Drive e aperta lì con la voce in {0:lower} scaricata (Impostazioni → Voci delle schede nell'app per computer). Arrivano con la sincronizzazione.
+70efb590	L'app Tamkeen per computer non ha voci in {0:lower}, quindi questo browser legge queste schede con la sua voce. Per voci naturali in {1:lower} scegli Azure.
+79d58bbe	L'app Tamkeen per computer non ha voci in {0:lower}, quindi questo telefono legge queste schede con la sua voce. Per voci naturali in {1:lower} scegli Azure.
+59e2c577	Questo browser non può crearle da solo. Finché non arrivano, e se nessuna app per computer si sincronizza mai, le legge la voce di questo browser.
+ced27883	Finché non arrivano, e se nessuna app per computer si sincronizza mai, le legge la voce di questo telefono.
+4378f8f2	L'app Tamkeen sul tuo computer crea la voce di ogni scheda alla prossima sincronizzazione. Fino ad allora le legge la voce di questo dispositivo.
+999f63cb	La voce di questo dispositivo e quella dell'app per computer parlano solo l'arabo standard, quindi leggono le parole dei dialetti alla maniera standard. Per sentire le parole levantine, egiziane, irachene e del Golfo come le dice la gente del posto, scegli Azure.

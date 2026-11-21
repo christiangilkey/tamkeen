@@ -1,0 +1,14 @@
+86b991fe	En attente de l'application de bureau ({0} cartes)
+5a2a0204	Voix créées par l'application de bureau
+999c0190	Application de bureau Tamkeen
+ee06f783	Gratuit. Nécessite l'application Tamkeen installée sur un ordinateur Windows, Mac ou Linux : ce navigateur ne peut pas les créer.
+7913eaad	Gratuit. L'application Tamkeen de votre ordinateur les crée ; elles arrivent ici à la synchronisation.
+9c18e2a4	Obtenir l'application de bureau
+2c130963	En attente de l'application de bureau
+53bf0b98	C'est l'application de bureau Tamkeen qui les crée : installée sur un ordinateur Windows, Mac ou Linux, connectée au même Google Drive et ouverte, avec la voix en {0:lower} téléchargée (Réglages → Voix des cartes dans l'application de bureau). Elles arrivent à la synchronisation.
+70efb590	L'application de bureau Tamkeen n'a pas de voix en {0:lower} : ce navigateur lit donc ces cartes avec sa propre voix. Pour des voix naturelles en {1:lower}, choisissez Azure.
+79d58bbe	L'application de bureau Tamkeen n'a pas de voix en {0:lower} : ce téléphone lit donc ces cartes avec sa propre voix. Pour des voix naturelles en {1:lower}, choisissez Azure.
+59e2c577	Ce navigateur ne peut pas les créer lui-même. En attendant qu'elles arrivent, et si aucune application de bureau ne se synchronise jamais, la voix de ce navigateur les lit.
+ced27883	En attendant qu'elles arrivent, et si aucune application de bureau ne se synchronise jamais, la voix de ce téléphone les lit.
+4378f8f2	L'application de bureau Tamkeen de votre ordinateur crée la voix de chaque carte à sa prochaine synchronisation. D'ici là, la voix de cet appareil les lit.
+999f63cb	La voix de cet appareil et celle de l'application de bureau ne parlent que l'arabe standard : elles lisent donc les mots de dialecte à la manière standard. Pour entendre les mots levantins, égyptiens, irakiens et du Golfe comme les gens de là-bas les disent, choisissez Azure.

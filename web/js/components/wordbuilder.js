@@ -301,7 +301,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
             : "Azure makes each card's voice when you add them.";
         } else if (voiceMode(s) === "computer") {
           html = platform === "desktop" ? "This computer makes each card's voice, with the voices downloaded in Settings."
-            : "Your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.";
+            : "The Tamkeen desktop app on your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.";
         } else {
           html = `This device's voice reads them. Azure gives the most natural voice: <a href="${AZURE_SETTINGS}" class="cb-go">set it up</a>.`;
         }

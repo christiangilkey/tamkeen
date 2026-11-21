@@ -1,0 +1,14 @@
+86b991fe	Esperando o app para computador ({0} cartões)
+5a2a0204	Vozes feitas pelo app para computador
+999c0190	App Tamkeen para computador
+ee06f783	Grátis. Precisa do app Tamkeen instalado em um computador com Windows, Mac ou Linux: este navegador não consegue fazê-las.
+7913eaad	Grátis. O app Tamkeen do seu computador as faz; elas chegam aqui quando ele sincroniza.
+9c18e2a4	Baixar o app para computador
+2c130963	Esperando o app para computador
+53bf0b98	Quem as faz é o app Tamkeen para computador: instalado em um computador com Windows, Mac ou Linux, conectado ao mesmo Google Drive e aberto lá, com a voz em {0:lower} baixada (Configurações → Vozes dos cartões no app para computador). Elas chegam quando ele sincroniza.
+70efb590	O app Tamkeen para computador não tem voz em {0:lower}, então este navegador lê estes cartões com a própria voz. Para vozes naturais em {1:lower}, escolha o Azure.
+79d58bbe	O app Tamkeen para computador não tem voz em {0:lower}, então este celular lê estes cartões com a própria voz. Para vozes naturais em {1:lower}, escolha o Azure.
+59e2c577	Este navegador não consegue fazê-las sozinho. Até elas chegarem, e se nenhum app para computador sincronizar nunca, a voz deste navegador as lê.
+ced27883	Até elas chegarem, e se nenhum app para computador sincronizar nunca, a voz deste celular as lê.
+4378f8f2	O app Tamkeen do seu computador cria a voz de cada cartão na próxima sincronização. Até lá, a voz deste aparelho os lê.
+999f63cb	A voz deste aparelho e a do app para computador só falam árabe padrão, então leem as palavras de dialeto do jeito padrão. Para ouvir as palavras levantinas, egípcias, iraquianas e do Golfo como as pessoas de lá falam, escolha o Azure.

@@ -1,0 +1,14 @@
+86b991fe	Wartet auf die Desktop-App ({0} Karten)
+5a2a0204	Stimmen von der Desktop-App
+999c0190	Tamkeen-Desktop-App
+ee06f783	Kostenlos. Braucht die Tamkeen-App, installiert auf einem Computer mit Windows, Mac oder Linux: Dieser Browser kann sie nicht erstellen.
+7913eaad	Kostenlos. Die Tamkeen-App auf deinem Computer erstellt sie; sie kommen bei der Synchronisierung hier an.
+9c18e2a4	Die Desktop-App holen
+2c130963	Wartet auf die Desktop-App
+53bf0b98	Die Tamkeen-Desktop-App erstellt sie: installiert auf einem Computer mit Windows, Mac oder Linux, im selben Google Drive angemeldet und dort geöffnet, mit heruntergeladener Stimme auf {0} (Einstellungen → Kartenstimmen in der Desktop-App). Sie kommen bei der Synchronisierung an.
+70efb590	Die Tamkeen-Desktop-App hat keine Stimme auf {0}, deshalb liest dieser Browser diese Karten mit seiner eigenen Stimme vor. Für natürliche Stimmen auf {1} wähle Azure.
+79d58bbe	Die Tamkeen-Desktop-App hat keine Stimme auf {0}, deshalb liest dieses Handy diese Karten mit seiner eigenen Stimme vor. Für natürliche Stimmen auf {1} wähle Azure.
+59e2c577	Dieser Browser kann sie nicht selbst erstellen. Bis sie ankommen, und falls nie eine Desktop-App synchronisiert, liest die Stimme dieses Browsers sie vor.
+ced27883	Bis sie ankommen, und falls nie eine Desktop-App synchronisiert, liest die Stimme dieses Handys sie vor.
+4378f8f2	Die Tamkeen-App auf deinem Computer erstellt die Stimme jeder Karte bei der nächsten Synchronisierung. Bis dahin liest die Stimme dieses Geräts sie vor.
+999f63cb	Die Stimme dieses Geräts und die der Desktop-App sprechen nur Hocharabisch, also lesen sie Dialektwörter wie Hocharabisch. Um levantinische, ägyptische, irakische und Golf-Wörter so zu hören, wie die Leute dort sie sagen, wähle Azure.

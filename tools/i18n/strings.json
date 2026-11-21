@@ -9750,13 +9750,13 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "5717197d",
-  "k": "Waiting for your computer ({0} cards)",
+  "id": "86b991fe",
+  "k": "Waiting for the desktop app ({0} cards)",
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "4f0fe97e",
-  "k": "Voices made on your computer",
+  "id": "5a2a0204",
+  "k": "Voices made by the desktop app",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -9765,13 +9765,23 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "ebc4da0c",
-  "k": "Free. Your computer makes them; they arrive when it syncs.",
+  "id": "999c0190",
+  "k": "Tamkeen desktop app",
   "f": "web/js/components/voicesetup.js"
  },
  {
   "id": "a69ebf95",
   "k": "Free, offline. Made here with a downloaded voice and kept.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ee06f783",
+  "k": "Free. Needs the Tamkeen app installed on a Windows, Mac or Linux computer: this browser can't make them.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "7913eaad",
+  "k": "Free. The Tamkeen app on your computer makes them; they arrive here when it syncs.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -9907,6 +9917,11 @@
  {
   "id": "d5518b72",
   "k": "Arabic dialect words are read by a voice from that dialect: words from the Levantine course by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Courses, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "999f63cb",
+  "k": "This device's voice and the desktop app's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -10055,8 +10070,13 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "c3ae49bb",
-  "k": "Waiting for your computer",
+  "id": "9c18e2a4",
+  "k": "Get the desktop app",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "2c130963",
+  "k": "Waiting for the desktop app",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -10070,13 +10090,28 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "ecac64cd",
-  "k": "Your computer makes them when Tamkeen is open there, with the {0} voice downloaded (Settings → Card voices on the computer). They arrive here when it syncs; until then this phone's voice reads them.",
+  "id": "53bf0b98",
+  "k": "The Tamkeen desktop app makes them: installed on a Windows, Mac or Linux computer, signed in to the same Google Drive, and open there with the {0} voice downloaded (Settings → Card voices in the desktop app). They arrive when it syncs.",
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "d9199b9a",
-  "k": "Your computer has no {0} voice, so these cards use this phone's voice. For natural {1} voices choose Azure.",
+  "id": "70efb590",
+  "k": "The Tamkeen desktop app has no {0} voice, so this browser reads these cards with its own voice. For natural {1} voices choose Azure.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "79d58bbe",
+  "k": "The Tamkeen desktop app has no {0} voice, so this phone reads these cards with its own voice. For natural {1} voices choose Azure.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "59e2c577",
+  "k": "This browser can't make them itself. Until they arrive, and if no desktop app ever syncs, this browser's own voice reads them.",
+  "f": "web/js/components/voicesetup.js"
+ },
+ {
+  "id": "ced27883",
+  "k": "Until they arrive, and if no desktop app ever syncs, this phone's own voice reads them.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -10655,8 +10690,8 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "bb7ff7f7",
-  "k": "Your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.",
+  "id": "4378f8f2",
+  "k": "The Tamkeen desktop app on your computer makes each card's voice the next time it syncs. Until then this device's voice reads them.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -23257,6 +23292,11 @@
  {
   "id": "2457b3f7",
   "k": "They're waiting in the queue for your computer now.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "c3ae49bb",
+  "k": "Waiting for your computer",
   "f": "web/js/pages/library.js"
  },
  {

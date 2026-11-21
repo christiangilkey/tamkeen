@@ -1,0 +1,14 @@
+86b991fe	Naghulat sa desktop app ({0} ka card)
+5a2a0204	Mga tingog nga gihimo sa desktop app
+999c0190	Tamkeen desktop app
+ee06f783	Libre. Kinahanglan ang Tamkeen app nga naka-install sa Windows, Mac o Linux nga computer: dili kini mahimo niini nga browser.
+7913eaad	Libre. Ang Tamkeen app sa imong computer ang mohimo; moabot kini dinhi inig sync.
+9c18e2a4	Kuhaa ang desktop app
+2c130963	Naghulat sa desktop app
+53bf0b98	Ang Tamkeen desktop app ang mohimo niini: naka-install sa Windows, Mac o Linux nga computer, naka-sign in sa parehas nga Google Drive, ug bukas didto nga na-download ang tingog nga {0} (Settings → Mga tingog sa card sa desktop app). Moabot kini inig sync.
+70efb590	Walay tingog nga {0} ang Tamkeen desktop app, busa kini nga browser ang mobasa sa mga card gamit ang kaugalingong tingog. Para sa natural nga tingog nga {1}, pilia ang Azure.
+79d58bbe	Walay tingog nga {0} ang Tamkeen desktop app, busa kini nga telepono ang mobasa sa mga card gamit ang kaugalingong tingog. Para sa natural nga tingog nga {1}, pilia ang Azure.
+59e2c577	Dili kini mahimo niini nga browser mismo. Samtang wala pa kini moabot, ug kung walay desktop app nga mo-sync bisan kanus-a, ang tingog niini nga browser ang mobasa.
+ced27883	Samtang wala pa kini moabot, ug kung walay desktop app nga mo-sync bisan kanus-a, ang tingog niini nga telepono ang mobasa.
+4378f8f2	Ang Tamkeen desktop app sa imong computer ang mohimo sa tingog sa matag card sa sunod nga pag-sync niini. Hangtod niana, basahon kini sa tingog niini nga device.
+999f63cb	Ang tingog niining device ug ang tingog sa desktop app Standard Arabic ra ang masulti, mao nga basahon nila ang mga pulong sa diyalekto sama sa Standard. Aron madungog ang mga pulong sa Levantine, Egyptian, Iraqi ug Gulf sama sa pagsulti sa mga tawo didto, pilia ang Azure.
