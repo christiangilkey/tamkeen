@@ -1,0 +1,2 @@
+# Saving a word with no AI: which meaning (components/dictpick.js, voiceask.js), 2026-11-21
+0b37341e	没有添加任何内容。选择一个意思即可添加。

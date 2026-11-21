@@ -118,6 +118,7 @@ const SHARED = [
   // Add words → Which meaning? (prototype sense_choice)
   "js/senses.js",
   "js/components/sensechoice.js",
+  "js/components/dictpick.js",
   "js/components/wordeditor.js",
   "js/components/wordtools.js",
   "js/components/wordscan.js",

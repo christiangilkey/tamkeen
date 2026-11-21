@@ -121,3 +121,32 @@ test("near-synonyms are one sense, when English Wiktionary's synonyms say so bot
   assert.match(b, /distinctSenses\(dictionarySenses\(d\.meaning, d\.pos, d\.other_meanings\), \{ alike: d\.alike \}\)/);
   assert.match(read("web/js/meanings.js"), /if \(!quick\) answer\.alike = alikeIn\(files, \[answer\.meaning, \.\.\.answer\.other_meanings\]\);/);
 });
+
+test("saving a word with no AI asks which meaning (prototype dict_sense_pick): only for the dictionary's answer of one word", () => {
+  assert.equal(PROTOTYPES.dict_sense_pick.released, false);
+  const def = { provider: "dictionary", meaning: "time", pos: "noun", other_meanings: ["tense", "weather"], alike: [] };
+  assert.equal(se.asksForSense(def, { ai: false, word: "tiempo" }), true);
+  assert.equal(se.asksForSense(def, { ai: true, word: "tiempo" }), false, "an AI set up: as today");
+  assert.equal(se.asksForSense({ ...def, provider: "anthropic" }, { word: "tiempo" }), false, "an AI's answer fits the sentence");
+  assert.equal(se.asksForSense(def, { phrase: true, word: "a tiempo" }), false, "a phrase: as today");
+  assert.equal(se.asksForSense(null, { word: "x" }), false);
+  assert.deepEqual(se.answerSenses(def).map((s) => s.text), ["time", "tense", "weather"]);
+  assert.equal(se.answerSenses({ ...def, other_meanings: [] }).length, 1, "one meaning: nothing to ask");
+  assert.equal(se.answerSenses({ ...def, other_meanings: ["magic"], meaning: "enchantment", alike: ["enchantment|magic"] }).length, 1);
+  const pick = read("web/js/components/dictpick.js");
+  assert.match(pick, /if \(!feature\("dict_sense_pick"\)\) return def;/);
+  assert.match(pick, /ai = !noAi\(\) && !!definerConfig\(\)\.key;/, "no AI: No AI chosen, or no key (both define-service copies have these)");
+  assert.match(pick, /dictionaryDefine\(\{ \.\.\.ctx, word: def\.spelled \|\| ctx\.word \}, \{ quick: false \}\)/, "the quick answer's other meanings looked up");
+  assert.match(pick, /if \(!chosen\) return null;/, "closing the box saves nothing");
+  for (const file of ["web/js/define-service.js", "mobile/src/js/define-service.js"]) {
+    const src = read(file);
+    assert.match(src, /export function definerConfig\(\)/, file);
+    assert.match(src, /export const noAi = /, file);
+  }
+  const bubble = read("web/js/components/wordbubble.js");
+  assert.match(bubble, /const picked = await pickDictionaryMeaning\(def, ctx\);\n\s+if \(picked === null\) \{ b\.disabled = false; break; \}\n\s+await actions\.onSave\(picked\);/,
+    "the word popup's Save (transcripts, reels, books, web pages, course words, Conversation)");
+  const voice = read("web/js/components/voiceask.js");
+  assert.match(voice, /const picked = await pickDictionaryMeaning\(it\.pick\.def, it\.pick\.ctx\);/, "Ask by voice's add it");
+  assert.match(read("mobile/scripts/build-www.mjs"), /"js\/components\/dictpick\.js"/);
+});

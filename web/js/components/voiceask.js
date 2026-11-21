@@ -29,6 +29,7 @@ import { languageName } from "../converse.js";
 import { chosenDialect } from "../voiceplay.js";
 import { isPhrase, wordKey } from "../addwords.js";
 import { askExamples, askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, translationsFor } from "../voiceask.js";
+import { pickDictionaryMeaning } from "./dictpick.js";
 
 const browserRecognition = () => window.SpeechRecognition || window.webkitSpeechRecognition || null;
 
@@ -261,11 +262,13 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   /** What `phrase` (in `lang`) means: the word popup's own lookup (Settings → Word definitions). */
   async function whatItMeans(phrase, lang) {
     const word = phrase.trim();
-    const def = await getDefinition({ word, marked: `⟦${word}⟧`, lang, phrase: isPhrase(word, lang) });
+    const ctx = { word, marked: `⟦${word}⟧`, lang, phrase: isPhrase(word, lang) };
+    const def = await getDefinition(ctx);
     const card = vocabFromDefinition(def, word, lang);
     if (!card.meaning) return null;
     return {
-      items: [{ word: card.text, meaning: card.meaning, notes: card.notes, note: def.explanation || "" }],
+      // (`pick`: with no AI, adding it asks which meaning the card is for, as the word popup does: components/dictpick.js)
+      items: [{ word: card.text, meaning: card.meaning, notes: card.notes, note: def.explanation || "", pick: { def, ctx } }],
       source: def.provider === "dictionary" ? t("From the built-in dictionary ({0})", def.model || "Wiktionary") : t("Answer from {0}", aiName()),
     };
   }
@@ -347,11 +350,18 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     out.querySelectorAll(".vq-add").forEach((b) => { b.onclick = () => addItems([items[Number(b.dataset.i)]]); });
   }
 
-  function addItems(list) {
+  async function addItems(list) {
     if (!answer) return;
     if (answer.lang !== study) { say(t("Switch the language at the top to {0} to add this one.", t(langInfo(answer.lang).name)), "error"); return; }
     const todo = list.filter((it) => !it.added);
     if (!todo.length) { say(t("That's already in your cards.")); return; }
+    for (const it of todo) {
+      if (!it.pick) continue;
+      const picked = await pickDictionaryMeaning(it.pick.def, it.pick.ctx);
+      if (picked === null) { say(t("Nothing was added. Choose a meaning to add it.")); return; }
+      if (picked !== it.pick.def) { it.meaning = picked.meaning; it.pick = null; }
+    }
+    if (closed || !answer) return;
     say(t("Making the card…"));
     addCards(todo.map((it) => ({ text: it.word, meaning: it.meaning, notes: it.notes || "" })), (cards) => {
       if (closed || !answer) return;

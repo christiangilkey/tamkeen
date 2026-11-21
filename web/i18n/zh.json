@@ -1946,6 +1946,7 @@
 "Your cards are in {0} now. To add {1} words, switch the language at the top first.":"你现在的卡片是{0}。要添加{1}单词，请先切换顶部的语言。",
 "Switch the language at the top to {0} to add this one.":"把顶部的语言切换到{0}即可添加。",
 "That's already in your cards.":"这已经在你的卡片里了。",
+"Nothing was added. Choose a meaning to add it.":"没有添加任何内容。选择一个意思即可添加。",
 "Making the card…":"正在制作卡片…",
 "Added “{0}” to your cards.":"已把“{0}”加入你的卡片。",
 "Added {0} cards.":"已添加 {0} 张卡片。",

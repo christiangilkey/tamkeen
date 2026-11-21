@@ -1,0 +1,2 @@
+# Saving a word with no AI: which meaning (components/dictpick.js, voiceask.js), 2026-11-21
+0b37341e	چیزی اضافه نشد. برای افزودن، یک معنی را انتخاب کنید.

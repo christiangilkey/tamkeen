@@ -1946,6 +1946,7 @@
 "Your cards are in {0} now. To add {1} words, switch the language at the top first.":"ตอนนี้บัตรของคุณเป็นภาษา{0} หากต้องการเพิ่มคำภาษา{1} ให้เปลี่ยนภาษาด้านบนก่อน",
 "Switch the language at the top to {0} to add this one.":"เปลี่ยนภาษาด้านบนเป็น{0}เพื่อเพิ่มคำนี้",
 "That's already in your cards.":"คำนี้อยู่ในบัตรของคุณแล้ว",
+"Nothing was added. Choose a meaning to add it.":"ยังไม่ได้เพิ่มอะไร เลือกความหมายเพื่อเพิ่ม",
 "Making the card…":"กำลังสร้างบัตร…",
 "Added “{0}” to your cards.":"เพิ่ม «{0}» ในบัตรของคุณแล้ว",
 "Added {0} cards.":"เพิ่ม {0} บัตรแล้ว",

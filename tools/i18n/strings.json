@@ -9740,6 +9740,11 @@
   "f": "web/js/components/voiceask.js"
  },
  {
+  "id": "0b37341e",
+  "k": "Nothing was added. Choose a meaning to add it.",
+  "f": "web/js/components/voiceask.js"
+ },
+ {
   "id": "bf65108f",
   "k": "Making the card…",
   "f": "web/js/components/voiceask.js"
