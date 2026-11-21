@@ -59,15 +59,21 @@ function detail() {
     document.querySelector(".atvwebplayersdk-overlays-container").append(top);
     document.querySelector("#close").onclick = () => window.__close();
     const v = document.querySelector("video");
-    for (const ev of ["play", "pause", "seeking", "ratechange"]) v.addEventListener(ev, () => __videoLog.push(ev + "@" + v.currentTime.toFixed(1)));
+    // (the short sample video loops: its own jump back to the start at its end is not logged)
+    for (const ev of ["play", "pause", "seeking", "ratechange"]) v.addEventListener(ev, () => {
+      if (ev === "seeking" && v.loop && v.currentTime < 0.1) return;
+      __videoLog.push(ev + "@" + v.currentTime.toFixed(1));
+    });
     v.play().catch(() => {});
     __videoLog.length = 0; // (only what happens after it started counts)
     const overlay = document.querySelector(".atvwebplayersdk-captions-overlay");
     // The subtitle line, as Prime Video draws it: one box per line of text, changed as the video plays.
     window.__shown = -1;
-    window.__subsOn = true;
+    const t0 = performance.now();
+    if (window.__subsOn === undefined) window.__subsOn = true;
     const draw = () => {
-      const t = window.__clock !== undefined ? window.__clock : v.currentTime;
+      // (a clock of its own: the short sample video loops, and may not play at all in a headless browser)
+      const t = window.__clock !== undefined ? window.__clock : (performance.now() - t0) / 1000;
       const i = Math.floor(t / ${STEP}) % LINES.length;
       const on = window.__subsOn && (t % ${STEP}) < ${STEP - 0.4}; // (a moment with no line between two)
       const want = on ? i : -1;

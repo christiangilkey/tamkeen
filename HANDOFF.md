@@ -9664,7 +9664,8 @@ asking the owner: that is what the light way rules out.
   right edge, 76 px from the top and 112 px from the bottom (clear of the player's own buttons); the line on screen big,
   "Lines you've watched" below (tap any word; the popup stays open while the video plays on), notes (turn on {lang}
   subtitles in Prime Video's menu / they look like another language / pictures / open Tamkeen once), saved-words foot;
-  folds to a 26 px tab. `content/prime.js` passes `{type:"screen", text, image, t, paused, title, episode, id}` on a
+  folds to a 26 px tab. A tap is the panel's own click handler (phrasepick.js only handles holds and drags); the
+  watched lines are drawn once each, new ones added at the end, so a word is never redrawn under the pointer. `content/prime.js` passes `{type:"screen", text, image, t, paused, title, episode, id}` on a
   change (time once a second) over the same private MessageChannel + token as Netflix's panel.
 - **Words**: `extbridge.js` `cleanWord` takes `service: "prime"` words (`prime_id`, `source`, no times, no Netflix id);
   `savedPrimeWord`. `mobile/src/js/web-extension.js` posts them to /vocab with `source` and `language` (toast "N words you
@@ -9673,8 +9674,8 @@ asking the owner: that is what the light way rules out.
   (desktop app or browser) what it does on Prime Video + **Get the Tamkeen extension** (store page once listed, else the
   install page: `netflix.js extensionLink`; pywebview opens `target=_blank` in the computer's browser), or, with the
   extension in this browser, "is in this browser" + **Open Prime Video**; on a phone a plain note that it works on a
-  computer in Chrome or Edge. Shown on the Library's Netflix heading (`pages/library.js`: only the `netflixSupport()`
-  callback, now `(support)`, appends it; the Open Netflix row is as before) and the + sheet's Netflix step
+  computer in Chrome or Edge. Shown on the Library's Netflix tab (`pages/library.js` `addOnHere`: in its heading when
+  there are Netflix titles, the Open Netflix row as before; in its "Nothing here yet" message when there are none) and the + sheet's Netflix step
   (`components/addsheet.js`; the way is named "Netflix & Prime Video" in prototype mode; in the web app without the
   extension only the Prime note is added, the existing Get button stays the one button).
 - **Pages**: `extension/install.html` (name, a Prime Video lead line, accounts line), `extension/privacy.html` (where it
@@ -9689,7 +9690,8 @@ asking the owner: that is what the light way rules out.
   on screen in the panel, title name, watched lines in order, panel placement, Amazon's page unchanged, word meaning, no
   play buttons, popup stays open, Save → Vocab with source and no episode, the extension forgets it, **no
   play/pause/seek/rate on the video**, panel leaves with the player, subtitles-off note, fold/unfold, **no requests by
-  Tamkeen to the Prime page's host**. Netflix's `extension/test/e2e.mjs` re-run unchanged.
+  Tamkeen to the Prime page's host**: 24/24 in Edge 158. Netflix's `extension/test/e2e.mjs`: 34/34 (its + sheet step now
+  opens the sheet through `openAddSheet`, as the Library starts on Courses, which has no + button).
 - **Needs the owner (real Prime Video, his own sign-in)**: load the extension (unpacked from `extension/build`, or the zip
   once rebuilt), open Tamkeen's web app once, then a Prime Video title with Arabic subtitles on: check the subtitle line
   is page text with those class names (else adjust `CAPTION_SEL`/`TITLE_SEL`/`PLAYER_SEL` in prime-common.js and the

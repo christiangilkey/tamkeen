@@ -434,7 +434,15 @@ export async function render(view, { feedId: routeFeed, query }) {
     </div>`);
     if (k.key === "books") el.append(bookButtons());
     if (k.key === "audio") { const row = listenRow(); if (row) el.append(row); }
+    if (k.key === "netflix" && feature("prime_video")) addOnHere(el); // (no Netflix titles yet: where to get the extension)
     return el;
+  }
+  /** (prototype prime_video) The browser extension's box for Netflix and Prime Video (components/addonlink.js),
+   * at the end of `box`: where to get it on a computer, a plain note on a phone. */
+  function addOnHere(box) {
+    Promise.all([netflixSupport(), import("../components/addonlink.js")]).then(([support, { addOnBox, onPhone }]) => {
+      if (box.isConnected) box.append(addOnBox(onPhone(support), { compact: true }));
+    }).catch(() => {});
   }
   /** My audio's Listen button: record from the microphone until Stop, then it is added and transcribed
    * like an audio file of the learner's own (components/listenbox.js). None where nothing can record. */
@@ -569,12 +577,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       head.append(el);
       netflixSupport().then((support) => {
         if (!el.isConnected) return;
-        // (prototype prime_video: the browser add-on for Netflix and Prime Video, components/addonlink.js)
-        if (feature("prime_video")) {
-          import("../components/addonlink.js").then(({ addOnBox, onPhone }) => {
-            if (el.isConnected) el.querySelector(".meta").append(addOnBox(onPhone(support), { compact: true }));
-          }).catch(() => {});
-        }
+        if (feature("prime_video")) addOnHere(el.querySelector(".meta"));
         if (!support.ok) return;
         const row = h(`<div class="row" style="margin-top:8px"><button type="button">${icon("film", 16)} Open Netflix</button></div>`);
         row.querySelector("button").onclick = () => openNetflix().catch((err) => toast(err.message, { error: true }));

@@ -152,9 +152,11 @@ try {
 
   // 2. The web app's prototype box: the Library's Netflix tab and the + sheet, with the extension and without.
   async function netflixSheet(name) {
+    // (the + sheet opened as the Library's + button opens it: in prototype mode the Library looks different)
     await evaluate(app, `location.hash = "#/library"`);
-    await until("the + button", () => centre(app, "#add-fab"));
-    await evaluate(app, `document.querySelectorAll(".tour, .modal-back").forEach((x) => x.remove()); document.querySelector("#add-fab").click()`);
+    await sleep(800);
+    await evaluate(app, `document.querySelectorAll(".tour, .modal-back").forEach((x) => x.remove());
+      import("/app/js/components/addsheet.js").then((m) => { m.openAddSheet({ pickFile() {}, addAudiobookFiles() {} }); return true; })`);
     await until("the Netflix way", () => centre(app, 'button.add-way[data-way="netflix"]'));
     const label = await evaluate(app, `document.querySelector('button.add-way[data-way="netflix"] strong').innerText`);
     await evaluate(app, `document.querySelector('button.add-way[data-way="netflix"]').click()`);
@@ -173,6 +175,15 @@ try {
     const noExt = await netflixSheet("2-webapp-netflix-and-prime-without-extension");
     check("without it: Get the Tamkeen extension, and that it works with Prime Video", /Get the Tamkeen extension/.test(noExt.text) && /also works with Prime Video/.test(noExt.text),
       noExt.text.replace(/\s+/g, " ").slice(0, 200));
+    // The Library's Netflix tab: its heading has the same box.
+    await evaluate(app, `location.hash = "#/library"`);
+    await sleep(800);
+    await evaluate(app, `document.querySelectorAll(".tour, .modal-back").forEach((x) => x.remove());
+      [...document.querySelectorAll("button, a")].find((b) => b.innerText.trim() === "Netflix")?.click()`);
+    const head = await until("the Netflix tab's box (its heading, or its empty message)", () => evaluate(app, `document.querySelector("#lib-head .addon-box, .lib-main .addon-box")?.innerText || ""`), 8000);
+    check("the Library's Netflix tab: Get the Tamkeen extension, and that it works with Prime Video", /Get the Tamkeen extension/.test(head) && /Prime Video/.test(head), head.replace(/\s+/g, " ").slice(0, 160));
+    await evaluate(app, `window.scrollTo(0, 0)`);
+    await shot(app, "2b-webapp-library-netflix-tab");
     await evaluate(app, `document.documentElement.dataset.tamkeenExtension = ${JSON.stringify(mark)}`);
   } catch (e) {
     check("the web app's Netflix & Prime Video step", false, e.message);
@@ -194,6 +205,8 @@ try {
   // 4. Play: Prime Video's player opens; the panel comes beside it, and Amazon's page is left as it is.
   const htmlBefore = await evaluate(pv, `document.documentElement.className + "|" + document.documentElement.getAttribute("style")`);
   await evaluate(pv, `__open()`);
+  await sleep(1500);
+  console.log(`      (the sample video: ${JSON.stringify(await evaluate(pv, `(() => { const v = document.querySelector("video"); return { paused: v.paused, t: v.currentTime, ready: v.readyState }; })()`))})`);
   await until("Tamkeen's panel on the page", () => evaluate(pv, `!!document.querySelector("tamkeen-prime")`), 8000);
   const panelTarget = await until("the panel's page", async () => (await targets()).find((t) => t.url.startsWith(`chrome-extension://${extId}/prime.html`)), 15000);
   const panel = await attach(panelTarget.targetId);
@@ -221,7 +234,13 @@ try {
   const off = { x: pageSize.w - frame.w, y: 76 };
   const word = await until("a word in the first watched line", () => centre(panel, '#lines .ln[data-s="0"] .w'));
   await click(pv, off.x + word.x, off.y + word.y);
-  await until("the word popup in the panel", () => evaluate(panel, `!!document.querySelector("#side-pop .word-bubble:not([hidden])")`), 8000);
+  await until("the word popup in the panel", () => evaluate(panel, `!!document.querySelector("#side-pop .word-bubble:not([hidden])")`), 8000)
+    .catch(async (e) => {
+      const at = await evaluate(panel, `(() => { const el = document.elementFromPoint(${word.x}, ${word.y}); return el ? el.outerHTML.slice(0, 120) : null; })()`);
+      const pop = await evaluate(panel, `document.querySelector("#side-pop").innerHTML.slice(0, 300)`);
+      const top = await evaluate(pv, `(() => { const el = document.elementFromPoint(${off.x + word.x}, ${off.y + word.y}); return el ? el.tagName + "." + el.className : null; })()`);
+      throw new Error(`${e.message}; in the panel at the point: ${at}; on the page: ${top}; popup box: ${pop}`);
+    });
   const state = await until("a meaning, or the offer to download the dictionary", () => evaluate(panel,
     `document.querySelector("#side-pop .wb-meaning")?.innerText || (document.querySelector('#side-pop [data-act="getmeanings"]') ? "download" : "")`), 20000);
   if (state === "download") {

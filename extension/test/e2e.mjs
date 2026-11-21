@@ -157,9 +157,11 @@ try {
 
   // 3. The web app's Netflix section, with the extension and without it.
   async function netflixSheet(name) {
+    // (the + sheet opened as the Library's + button opens it: the Library now starts on Courses, which has no + button)
     await evaluate(app, `location.hash = "#/library"`);
-    await until("the + button", () => centre(app, "#add-fab"));
-    await evaluate(app, `document.querySelectorAll(".tour, .modal-back").forEach((x) => x.remove()); document.querySelector("#add-fab").click()`);
+    await sleep(800);
+    await evaluate(app, `document.querySelectorAll(".tour, .modal-back").forEach((x) => x.remove());
+      import("/app/js/components/addsheet.js").then((m) => { m.openAddSheet({ pickFile() {}, addAudiobookFiles() {} }); return true; })`);
     await until("the Netflix way", () => centre(app, 'button.add-way[data-way="netflix"]'));
     await evaluate(app, `document.querySelector('button.add-way[data-way="netflix"]').click()`);
     await sleep(800);

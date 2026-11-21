@@ -33,7 +33,7 @@ const S = {
   id: "", title: "", episode: "", screen: null, image: false,
   seen: watchedLines(), lang: "", lines: [], n: 0,
   starts: new Float64Array(0), ends: new Float64Array(0), segOf: new Int32Array(0), texts: [], segFirst: [], segLast: [],
-  drawn: -1, redraw: 0, mismatch: false,
+  drawn: 0, drawnLang: "", drawnFirst: null, redraw: 0, mismatch: false, // (the watched lines drawn so far)
 };
 const savedHere = new Set();
 
@@ -151,10 +151,24 @@ async function drawLines() {
   Object.assign(S, W);
   for (const el of [nowEl, linesEl]) setLang(el, lang);
   const cur = S.seen.current;
-  nowEl.innerHTML = cur >= 0 && S.segFirst[cur] >= 0 ? wordsHtml(S.segFirst[cur], S.segLast[cur]) : "";
-  // The watched lines, newest at the bottom (the one on screen marked), kept in view unless scrolled up.
+  const nowHtml = cur >= 0 && S.segFirst[cur] >= 0 ? wordsHtml(S.segFirst[cur], S.segLast[cur]) : "";
+  const nowKey = `${lang}|${cur}|${cur >= 0 ? seen[cur].text : ""}`;
+  if (nowEl.dataset.key !== nowKey) { nowEl.innerHTML = nowHtml; nowEl.dataset.key = nowKey; }
+  // The watched lines, newest at the bottom (the one on screen marked), kept in view unless scrolled up. Lines are
+  // only ever added at the end, so only the new ones are drawn: a word being tapped is never redrawn under the
+  // pointer. (All again for another language, or once the oldest lines are dropped.)
   const atEnd = linesEl.scrollHeight - linesEl.scrollTop - linesEl.clientHeight < 40;
-  linesEl.innerHTML = seen.map((l, si) => S.segFirst[si] < 0 ? "" : `<p class="ln${si === cur ? " cur" : ""}" data-s="${si}"><span class="ln-t">${formatTime(l.start)}</span><span class="ln-x">${wordsHtml(S.segFirst[si], S.segLast[si])}</span></p>`).join("");
+  const lineHtml = (si) => S.segFirst[si] < 0 ? "" : `<p class="ln" data-s="${si}"><span class="ln-t">${formatTime(seen[si].start)}</span><span class="ln-x">${wordsHtml(S.segFirst[si], S.segLast[si])}</span></p>`;
+  const sameList = S.drawnLang === lang && S.drawnFirst === (seen[0] && seen[0].text) && S.drawn <= seen.length;
+  if (!sameList) { linesEl.innerHTML = ""; S.drawn = 0; }
+  let add = "";
+  for (let si = S.drawn; si < seen.length; si++) add += lineHtml(si);
+  if (add) linesEl.insertAdjacentHTML("beforeend", add);
+  S.drawn = seen.length;
+  S.drawnLang = lang;
+  S.drawnFirst = seen[0] ? seen[0].text : "";
+  linesEl.querySelector(".ln.cur")?.classList.remove("cur");
+  if (cur >= 0) linesEl.querySelector(`.ln[data-s="${cur}"]`)?.classList.add("cur");
   $("#watched-label").hidden = !seen.length;
   // (The popup stays open while the video plays on: lines are only ever added at the end, so the word it
   // shows keeps its place.)
@@ -162,6 +176,13 @@ async function drawLines() {
   paintNotes();
 }
 
+// A word tapped (or clicked); words dragged across (or held and slid across) are looked up together.
+for (const el of [nowEl, linesEl]) {
+  el.addEventListener("click", (e) => {
+    const w = e.target.closest(".w");
+    if (w) defineAt(Number(w.dataset.i), w);
+  });
+}
 phrasePicker(nowEl, { blockOf: (k) => S.segOf[k], onPick: (i, j, el) => defineAt(i, el, j) });
 phrasePicker(linesEl, { blockOf: (k) => S.segOf[k], onPick: (i, j, el) => defineAt(i, el, j) });
 
