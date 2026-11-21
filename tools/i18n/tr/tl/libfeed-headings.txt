@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Ang Instagram reels mo. Pinapatugtog sila mula sa Instagram sa phone mo, sunod-sunod, nang may mga salita sa ilalim. Lagyan ng tsek ang ilan para iyon lang ang panoorin.
+1039abe1	Mga video na napanood mo mula sa channel na ito.
+36ee4756	Mga palabas na pinanood mo sa Netflix. Nagpe-play ang mga ito mula sa Netflix, sa Tamkeen sa isang Windows na computer o sa isang web browser na may Tamkeen extension; ang subtitles nila ang transcript.

@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Vos reels Instagram. Ils se lisent depuis Instagram sur votre téléphone, l'un après l'autre, avec les mots en dessous. Cochez-en quelques-uns pour ne regarder que ceux-là.
+1039abe1	Les vidéos de cette chaîne que vous avez regardées.
+36ee4756	Les titres que vous avez regardés sur Netflix. Ils se lisent depuis Netflix, dans Tamkeen sur un ordinateur Windows ou dans un navigateur web avec l'extension Tamkeen ; leurs sous-titres sont la transcription.

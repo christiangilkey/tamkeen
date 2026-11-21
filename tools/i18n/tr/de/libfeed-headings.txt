@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Deine Instagram-Reels. Sie laufen auf deinem Handy von Instagram, eins nach dem anderen, mit den Wörtern darunter. Hake einige an, um nur diese anzusehen.
+1039abe1	Videos dieses Kanals, die du angesehen hast.
+36ee4756	Titel, die du auf Netflix angesehen hast. Sie laufen über Netflix, in Tamkeen auf einem Windows-Computer oder in einem Webbrowser mit der Tamkeen-Erweiterung; ihre Untertitel sind das Transkript.

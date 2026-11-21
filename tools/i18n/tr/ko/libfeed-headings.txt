@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	내 인스타그램 릴스예요. 휴대폰에서 인스타그램으로 하나씩 이어서 재생되고, 아래에 단어가 나와요. 몇 개만 보려면 체크하세요.
+1039abe1	이 채널에서 본 영상이에요.
+36ee4756	넷플릭스에서 본 작품이에요. 넷플릭스에서 재생돼요. Windows 컴퓨터의 Tamkeen이나 Tamkeen 확장 프로그램이 있는 웹 브라우저에서 볼 수 있고, 자막이 받아쓴 글이 돼요.

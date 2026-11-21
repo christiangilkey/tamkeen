@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	I tuoi reel di Instagram. Si riproducono da Instagram sul telefono, uno dopo l'altro, con le parole sotto. Spuntane alcuni per guardare solo quelli.
+1039abe1	I video che hai guardato di questo canale.
+36ee4756	I titoli che hai guardato su Netflix. Vengono riprodotti da Netflix, in Tamkeen su un computer Windows o in un browser web con l'estensione di Tamkeen; i loro sottotitoli sono la trascrizione.

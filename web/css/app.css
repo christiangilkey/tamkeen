@@ -487,6 +487,13 @@ label.check input { margin-top: 3px; }
 .lf-opt input { width: 18px; height: 18px; margin: 0; accent-color: var(--accent); flex: none; }
 .lf-opt .n { margin-inline-start: auto; color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
 .lf-foot { display: flex; justify-content: flex-end; gap: 10px; margin-top: 16px; }
+/* The Filter popup: its list scrolls, Reset and Done below it never do (a short phone screen). dvh is the screen
+   that shows, without the browser's bars; vh is kept for a browser that doesn't know dvh. */
+.lib-filter-back .modal-body { flex: 1 1 auto; min-height: 0; padding-bottom: 8px; }
+.lib-filter-back .modal-box > .lf-foot { flex: none; margin: 0; padding: 12px 20px 16px; }
+@media (max-width: 640px) {
+  .lib-filter-back .modal-box { max-height: 94vh; max-height: 94dvh; }
+}
 /* Transcribing on the computer: the scan for speech (the new-word purple) above the writing, each with
    its percentage; the whole is a button that explains them (library.js progressBars). */
 .steps-bars { display: grid; gap: 3px; width: 190px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: start; cursor: pointer; box-shadow: none; }

@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Imong mga Instagram reel. Mag-play kini gikan sa Instagram sa imong phone, sunod-sunod, uban sa mga pulong sa ubos. I-tsek ang pipila aron kana ra ang tan-awon.
+1039abe1	Mga video nga imong gitan-aw gikan niini nga channel.
+36ee4756	Mga salida nga imong gitan-aw sa Netflix. Mo-play kini gikan sa Netflix, sa Tamkeen sa usa ka Windows nga computer o sa web browser nga adunay Tamkeen extension; ang ilang mga subtitle mao ang transcript.

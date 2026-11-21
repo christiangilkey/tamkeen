@@ -537,7 +537,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     if (f.url === REELS_FEED) {
       head.append(h(`<div class="lib-head"><div class="ph video-ph">${icon("video", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Your Instagram reels, newest first. They play from Instagram on your phone, one after another, with the
+        <div class="desc small">Your Instagram reels. They play from Instagram on your phone, one after another, with the
         words underneath. Tick some to watch just those.</div>
         <div class="row" style="margin-top:8px">
           <a class="btn ghost" href="#/reels/play" title="Play every reel, one after another">▶ Watch all</a>
@@ -551,7 +551,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         // One channel's videos, with a way to find more of them and to stop following.
         const c = followed.find((x) => x.name === channel) || { name: channel, id: "", image: "" };
         const el = h(`<div class="lib-head">${channelPicture(c).replace('class="', 'class="channel-pic ')}<div class="meta"><h1 dir="auto">${esc(c.name)}</h1>
-          <div class="desc small">Videos you've watched from this channel, newest first.</div>
+          <div class="desc small">Videos you've watched from this channel.</div>
           <div class="row" style="margin-top:8px">
             <button type="button" id="channel-more" title="Open this channel on YouTube inside the app. Tap a video there and it opens in Tamkeen's player">${icon("video", 16)} More from this channel</button>
             ${followed.includes(c) ? `<button type="button" class="ghost" id="channel-unfollow">Unfollow</button>` : ""}
@@ -572,7 +572,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     }
     if (f.url === NETFLIX_FEED) {
       const el = h(`<div class="lib-head"><div class="ph video-ph">${icon("film", 44)}</div><div class="meta"><h1>${esc(f.title)}</h1>
-        <div class="desc small">Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows
+        <div class="desc small">Titles you watched from Netflix. They play from Netflix, in Tamkeen on a Windows
         computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.</div></div></div>`);
       head.append(el);
       netflixSupport().then((support) => {
@@ -919,6 +919,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     };
     body.querySelector(".lf-ok").onclick = () => m.close();
     m.body.append(body);
+    // Reset and Done stay in sight on a short phone screen: they sit under the list, which scrolls by itself.
+    m.body.after(body.querySelector(".lf-foot"));
   }
 
   function renderStatus(row) {

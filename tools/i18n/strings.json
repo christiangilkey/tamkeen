@@ -23635,8 +23635,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "8bf58c5b",
-  "k": "Your Instagram reels, newest first. They play from Instagram on your phone, one after another, with the words underneath. Tick some to watch just those.",
+  "id": "07b7ffee",
+  "k": "Your Instagram reels. They play from Instagram on your phone, one after another, with the words underneath. Tick some to watch just those.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -23655,8 +23655,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "9905eae6",
-  "k": "Videos you've watched from this channel, newest first.",
+  "id": "1039abe1",
+  "k": "Videos you've watched from this channel.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -23675,8 +23675,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "7e79f562",
-  "k": "Titles you watched from Netflix, newest first. They play from Netflix, in Tamkeen on a Windows computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.",
+  "id": "36ee4756",
+  "k": "Titles you watched from Netflix. They play from Netflix, in Tamkeen on a Windows computer or in a web browser with the Tamkeen extension; their subtitles are the transcript.",
   "f": "web/js/pages/library.js"
  },
  {

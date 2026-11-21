@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Els teus reels d'Instagram. Es reprodueixen des d'Instagram al teu telèfon, l'un rere l'altre, amb les paraules a sota. Marca'n alguns per veure només aquests.
+1039abe1	Vídeos que has vist d'aquest canal.
+36ee4756	Títols que has mirat a Netflix. Es reprodueixen des de Netflix, a Tamkeen en un ordinador amb Windows o en un navegador web amb l'extensió de Tamkeen; els seus subtítols són la transcripció.

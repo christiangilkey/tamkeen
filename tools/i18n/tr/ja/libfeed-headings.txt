@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	あなたのInstagramのリールです。スマホのInstagramから単語を下に表示しながら次々に再生します。チェックすると、それだけを見られます。
+1039abe1	このチャンネルで見た動画。
+36ee4756	Netflix で見た作品です。Netflix から再生されます。Windows パソコンの Tamkeen か、Tamkeen の拡張機能を入れたウェブブラウザーで再生できます。字幕が文字起こしになります。

@@ -1,0 +1,4 @@
+# Library headings without "newest first" (prototype library_feed orders them its own way), 2026-11-21
+07b7ffee	Ваши рилсы Instagram. Они воспроизводятся из Instagram на телефоне один за другим, со словами внизу. Отметьте несколько, чтобы смотреть только их.
+1039abe1	Видео этого канала, которые вы смотрели.
+36ee4756	То, что вы смотрели на Netflix. Воспроизводится с Netflix — в Tamkeen на компьютере с Windows или в веб-браузере с расширением Tamkeen; субтитры служат расшифровкой.

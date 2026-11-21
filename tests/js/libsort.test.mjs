@@ -84,3 +84,14 @@ test("every tab with a list is drawn as cards with the Filter (prototype library
   // A narrow computer window: the list under the kinds, not squashed beside them.
   assert.match(src("web/css/app.css"), /\.library, \.library\.desk \{ grid-template-columns: 1fr;/);
 });
+
+test("the Filter popup keeps Reset and Done in sight on a short phone, and no heading promises newest first", () => {
+  const lib = src("web/js/pages/library.js");
+  assert.match(lib, /m\.body\.after\(body\.querySelector\("\.lf-foot"\)\);/, "the buttons sit under the scrolling list, not in it");
+  const css = src("web/css/app.css");
+  assert.match(css, /\.lib-filter-back \.modal-body \{ flex: 1 1 auto; min-height: 0;/);
+  assert.match(css, /\.lib-filter-back \.modal-box > \.lf-foot \{ flex: none;/);
+  assert.match(css, /\.lib-filter-back \.modal-box \{ max-height: 94vh; max-height: 94dvh; \}/);
+  // The library's order is in progress, then new, then finished now: no heading may say "newest first".
+  assert.doesNotMatch(lib, /newest first/);
+});
