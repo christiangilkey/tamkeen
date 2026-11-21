@@ -288,3 +288,38 @@ test("a podcast stops at the end of each piece, also when the next one starts wh
   await new Promise((r) => setTimeout(r, 5));
   assert.equal(s.clipEnd, null);
 });
+
+test("while Type what you hear is open, every player's Play does what the check mark does (the owner, 2026-11-21: 'pressing the play button should work exactly like pressing the check mark button')", () => {
+  const src = (p) => readFileSync(new URL(p, import.meta.url), "utf8");
+  // The panel: Play presses the round button, unless it has nothing to do (put away, finished).
+  const panel = src("../../web/js/components/dictation.js");
+  assert.match(panel, /pressGo: \(\) => \{\n      if \(closed \|\| !units\.length \|\| go\.hidden \|\| !\$\("\.dict-done"\)\.hidden\) return false;\n      go\.click\(\);\n      return true;/);
+  // The player (podcasts, audiobooks, your own audio and videos, YouTube, Netflix): its Play, Space, a controller
+  // (playPause clicks #play) and the media keys.
+  const player = src("../../web/js/pages/player.js");
+  const m = player.match(/const playPressed = \(\) => \{([\s\S]*?)\n  \};/);
+  assert.ok(m, "the player's Play");
+  assert.match(player, /\$\("#play"\)\.onclick = playPressed;/);
+  assert.match(player, /if \(e\.key === " " \) \{ e\.preventDefault\(\); playPressed\(\); \}/);
+  assert.match(player, /playPause: \(\) => \$\("#play"\)\.click\(\),/);
+  assert.match(player, /setActionHandler\("play", \(\) => \(dict && dict\.pressGo\(\) \? undefined : play\(\)\)\)/);
+  const run = new Function("audio", "dict", "s", "play", "pause", m[1].replace(/\bclipEnd\b/g, "s.clipEnd"));
+  const calls = [];
+  const play = () => calls.push("play"), pause = () => calls.push("pause");
+  const panelOpen = (answer = true) => ({ pressGo: () => { calls.push("check mark"); return answer; } });
+  const s = { clipEnd: null };
+  run({ paused: true }, panelOpen(), s, play, pause);
+  assert.deepEqual(calls.splice(0), ["check mark"], "paused, typing: the check mark's way, nothing played straight on");
+  run({ paused: false }, panelOpen(), s, play, pause);
+  assert.deepEqual(calls.splice(0), ["pause"], "a piece playing: Pause stays pause");
+  run({ paused: true }, panelOpen(false), s, play, pause);
+  assert.deepEqual(calls.splice(0), ["check mark", "play"], "finished: Play plays as always");
+  s.clipEnd = 12.3;
+  run({ paused: true }, null, s, play, pause);
+  assert.deepEqual(calls.splice(0), ["play"], "not typing: Play plays as always, with no stopping");
+  assert.equal(s.clipEnd, null);
+  // Reels (phones and the web app): the same, on their own Play (a controller's playPause clicks it too).
+  const reels = src("../../web/js/pages/reels.js");
+  assert.match(reels, /const playing = last && !last\.paused;\n    if \(!playing && dict && dict\.pressGo\(\)\) return;\n    clipEnd = null;\n    surface\.do\(playing \? "pause" : "play"\);/);
+  assert.match(reels, /playPause: \(\) => \$\("#rc-play"\)\.click\(\),/);
+});

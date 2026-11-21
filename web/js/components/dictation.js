@@ -401,6 +401,15 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
      *  `except`: the buttons that may take the focus (the keyboard button). Undone when the panel is put away. */
     keepTyping,
     active: () => !closed && Date.now() - used < 30000,
+    /** The player's own Play while the panel is open (the owner, 2026-11-21: "pressing the play button should work exactly
+     *  like pressing the check mark button does, where it will still pause at the right intervals"): what the round
+     *  button does, so a piece not yet checked is shown, and one shown goes on to the next, which plays to its end and
+     *  stops. False when the round button has nothing to do (put away, finished, nothing to type): Play plays as usual. */
+    pressGo: () => {
+      if (closed || !units.length || go.hidden || !$(".dict-done").hidden) return false;
+      go.click();
+      return true;
+    },
     /** The piece playing again (the player's own key for it while the panel is open). */
     again: () => { if (!closed && units.length) $(".dict-again").click(); },
     /** The player's back and forward buttons while typing (the owner, 2026-11-18): by the piece in the way chosen

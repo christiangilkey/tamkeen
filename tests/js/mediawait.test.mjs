@@ -109,7 +109,9 @@ test("audio still loading (the owner, 2026-11-20: a podcast said 'Playback faile
   assert.match(player, /if \(e && e\.name === "AbortError"\) \{\s*audio\.addEventListener\("canplay", \(\) => \{ if \(wantPlay && audio\.paused && !disposed\) audio\.play\(\)/,
     "a play turned down while loading plays once it can, unless paused meanwhile");
   assert.match(player, /const pause = \(\) => \{ wantPlay = false; audio\.pause\(\);/);
-  assert.match(player, /\$\("#play"\)\.onclick = \(\) => \{ clipEnd = null; audio\.paused \? play\(\) : pause\(\); \};/);
+  // (Play: these, unless Type what you hear is open: then the check mark's way, dictation.test.mjs)
+  assert.match(player, /const playPressed = \(\) => \{\n    if \(audio\.paused && dict && dict\.pressGo\(\)\) return;\n    clipEnd = null;\n    audio\.paused \? play\(\) : pause\(\);/);
+  assert.match(player, /\$\("#play"\)\.onclick = playPressed;/);
   assert.match(player, /if \(!embed && audio\.error && audio\.error\.code !== 1\) \{ stopWait\.paint\?\.\(\); return; \}/, "a real failure is said in place, not twice");
   assert.match(player, /if \(disposed \|\| !embed\) return;/, "your own audio and videos: no message that goes away");
   const wait = src("../../web/js/components/mediawait.js");

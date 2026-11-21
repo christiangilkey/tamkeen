@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** **While Type what you hear is open, the player's Play button works like the check mark.** Press it once to see what was said, and again to hear the next piece, which stops at its end like the others. The Space key, a controller's play button and the keyboard's or phone's play key do the same, in every player with the window (podcasts, audiobooks, YouTube, Netflix, your own audio and videos, reels). Pause still pauses; with the window closed, Play plays straight on as before. (YouTube's own play button, inside its video, is YouTube's and plays on.)
 - **Fixed:** **Type what you hear now stops a podcast at the end of each piece, as it does on YouTube.** Pressing the forward or back arrow (or starting another piece) while one was still playing used to lose the next piece's end, so it played straight on into the rest of the episode. Now every word, sentence or gist stops right after it ends (within about a hundredth of a second, at normal speed and with Slower). The same goes for audiobooks and your own audio and videos.
 - **Improved:** When a Library section is empty, a handwritten note above the teal arrow now says **Tap here to add things** (**Click here to add things** with a mouse), in the arrow's colour and slightly tilted. It fades in with the arrow and turns round with it when the + button is on the left. The handwriting is Caveat (SIL Open Font License), included in the app; languages in other alphabets show the note in the app's usual letters.
 
