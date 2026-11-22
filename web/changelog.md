@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** New words show in purple as soon as a transcript, page or reel opens, instead of after a wait. The word dictionaries are read while the app is idle after it starts, the words on screen are coloured first and the rest a piece at a time, and a YouTube video no longer holds the colours back for up to 5 seconds while its player loads. An hour-long Arabic transcript went from about half a second (plus that wait) to under 30 ms on a computer.
 - **Improved:** Library: under each tab's heading, one-tap buttons pick what to show, with how many of each: **All / Listened to / Not listened to** (Watched / Not watched for videos, Read / Not read for pages), and on the tabs that are transcribed **All / Transcribed / Not transcribed**. They do what the Filter button's popup does (which now has Not transcribed too), and the two always agree.
 - **Improved:** Add → Podcast: the box at the top of Trending now takes a podcast's name as well as its feed address. Type a name ("فنجان", "The Daily") and press Search: a list of shows with their cover, name and maker comes up, from Apple Podcasts' public directory, with shows in the language you're learning first; + Add puts one in your library just as a pasted feed does. A feed address still adds the podcast at once.
 - **Changed:** Library → Conversation no longer has a line of text at the top ("Practise speaking with someone who never tires…"): the situations start straight away.

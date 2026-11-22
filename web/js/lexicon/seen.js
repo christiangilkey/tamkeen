@@ -22,14 +22,14 @@
 
 import { api, h, saveSettings, state, toast } from "../app.js";
 import { t } from "../i18n.js";
-import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage, wordRanges } from "../languages.js";
+import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage, studyLanguage, wordRanges } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
 import { JapaneseDictionary } from "./kuromoji.js";
 import { ChineseDictionary } from "./chinese.js";
 import { KoreanWords, romanize } from "./korean.js";
 import { stressed } from "./russian.js";
-import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, usesDictionaries } from "./words.js";
+import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, pieceRanges, usesDictionaries, wholeTextOptions } from "./words.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 
@@ -348,9 +348,19 @@ export async function offerDictionaries(lang, force = false) {
 // that screen says when with the "tamkeen:onboarded" event.
 const firstRunShowing = () => !settings().onboarded && !settings().welcome_seen;
 onStudyLanguage((code) => {
-  if (!usesDictionaries(code) || typeof document === "undefined") return;
+  if (typeof document === "undefined") return;
+  warmSoon(code);
+  if (!usesDictionaries(code)) return;
   setTimeout(() => { if (!firstRunShowing()) offerDictionaries(code); }, 900);
 });
+// The list of seen words and the language's dictionaries (Arabic's four are 15 MB, about a second to read on a
+// phone) are read once the app has started and is idle, so the first thing opened is coloured at once instead
+// of after them. Nothing is downloaded here: dictionaries() reads only those already on the device.
+function warmSoon(code) {
+  const go = () => { if (studyLanguage() === code) { loadKnown(); dictionaries(code).catch(() => {}); } };
+  const idle = typeof requestIdleCallback === "function" ? (fn) => requestIdleCallback(fn, { timeout: 4000 }) : (fn) => setTimeout(fn, 1500);
+  setTimeout(() => idle(go), 1500);
+}
 if (typeof window !== "undefined") {
   window.addEventListener("tamkeen:onboarded", (e) => {
     const lang = (e.detail && e.detail.lang) || settings().study_language;
@@ -451,9 +461,10 @@ async function backfill(lang, dicts) {
  *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
  *   .onPaint             set to a function to be told whenever colours change
  *   .close()             the screen is going away
- * `wait`: a promise to wait for before starting (a YouTube player loading: player.js).
+ * `start`: the word on screen first (a player opened part way through): its piece is coloured first.
+ * `wait`: a promise (a YouTube player loading: player.js) the words off screen wait for, up to 1.5 s.
  */
-export function seenWords({ tokens, lang, els, wait = null }) {
+export function seenWords({ tokens, lang, els, wait = null, start = 0 }) {
   const view = {
     lang, lexemes: null, onPaint: null,
     isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key) && !unknown.has(view.lexemes[i].key)),
@@ -524,18 +535,41 @@ export function seenWords({ tokens, lang, els, wait = null }) {
         : { label: "↺ Mark as new", run: () => forgetLexemes(words) }];
     },
     async analyze() {
-      if (wait) { await wait; wait = null; } // (the page has something to start first: a YouTube video)
-      if (!views.has(view)) return;
-      const [dicts] = await Promise.all([dictionaries(lang), loadKnown(true)]);
+      // The owner, 2026-11-21: "it takes a long time for the purple words ... to show up". The dictionaries
+      // are usually in memory already (warmed after the app starts, below), and the list of seen words is
+      // asked for again only to catch another device's taps: with a copy here the colours don't wait for it.
+      const shown = performance.now();
+      const hadList = !!knownLoad;
+      const fresh = loadKnown(true);
+      if (hadList) fresh.then(() => { if (views.has(view) && view.lexemes) { view.paint(); if (view.onPaint) view.onPaint(); } });
+      const [dicts] = await Promise.all([dictionaries(lang), hadList ? null : fresh]);
       if (!views.has(view)) return;
       // No dictionaries yet: Arabic isn't coloured; Spanish, French and Italian go by spelling.
       const usable = dicts === null && !needsDictionaries(lang) ? [] : dicts;
-      view.lexemes = usable === null ? null : lexemesFor(tokens, lang, usable);
       view.table = (usable || []).find((d) => d instanceof LemmaTable) || null;
       if (dicts === null) offerDictionaries(lang); // (unless the learner said "not now")
-      if (usable !== null) onceReady(lang, usable);
-      view.paint();
-      if (view.onPaint) view.onPaint();
+      if (usable === null) { view.lexemes = null; return; }
+      onceReady(lang, usable);
+      // A piece at a time, the words on screen first (`start`): an hour's transcript is 7,000-12,000 words,
+      // about a quarter of a second's work on a computer, and more on a phone, in one go.
+      view.lexemes = new Array(tokens.length);
+      const whole = wholeTextOptions(tokens, lang, usable);
+      const pieces = pieceRanges(tokens, start);
+      for (let p = 0; p < pieces.length; p++) {
+        const [a, b] = pieces[p];
+        const found = lexemesFor(tokens.slice(a, b), lang, usable, whole) || [];
+        for (let k = 0; k < found.length; k++) view.lexemes[a + k] = found[k];
+        view.paint(Array.prototype.slice.call(els, a, b), a);
+        if (p === 0) {
+          view.firstPaintMs = Math.round(performance.now() - shown);
+          if (view.onPaint) view.onPaint();
+          // (a YouTube video has its player to start, ce080f83: the rest waits for it a little, never long)
+          if (wait) { await Promise.race([wait, new Promise((r) => setTimeout(r, 1500))]); wait = null; }
+        } else await new Promise((r) => setTimeout(r, 0)); // (the page stays free between pieces)
+        if (!views.has(view)) return;
+      }
+      view.allPaintMs = Math.round(performance.now() - shown);
+      if (pieces.length > 1 && view.onPaint) view.onPaint();
     },
     close: () => views.delete(view),
   };

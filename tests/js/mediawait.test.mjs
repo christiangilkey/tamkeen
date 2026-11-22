@@ -97,11 +97,22 @@ test("a long YouTube video: its player is made before the transcript is drawn, a
   const made = player.indexOf("const ytMedia = yt ? createYouTubeMedia(");
   assert.ok(made > 0 && made < player.indexOf('tr.innerHTML = parts.join("");'), "YouTube's player first, then the words");
   assert.match(player, /if \(ytMedia\) await null;/, "a moment for it to be made before the long drawing");
-  assert.match(player, /const seen = seenWords\(\{ tokens: texts, lang, els: wordEls, wait: ytLoaded \}\);/);
+  assert.match(player, /const seen = seenWords\(\{ tokens: texts, lang, els: wordEls, wait: ytLoaded, start: startWord \}\);/);
   assert.match(player, /const audio = yt \? ytMedia\s*: nf \?/);
+  // (since 2026-11-21, "it takes a long time for the purple words": the words on screen are coloured at once, and
+  // only the rest, a piece at a time, waits for YouTube's player, for 1.5 s at most)
   const seen = src("../../web/js/lexicon/seen.js");
-  assert.match(seen, /export function seenWords\(\{ tokens, lang, els, wait = null \}\)/);
-  assert.match(seen, /async analyze\(\) \{\s*if \(wait\) \{ await wait; wait = null; \}/);
+  assert.match(seen, /export function seenWords\(\{ tokens, lang, els, wait = null, start = 0 \}\)/);
+  assert.match(seen, /if \(wait\) \{ await Promise\.race\(\[wait, new Promise\(\(r\) => setTimeout\(r, 1500\)\)\]\); wait = null; \}/);
+  assert.match(seen, /else await new Promise\(\(r\) => setTimeout\(r, 0\)\); \/\/ \(the page stays free between pieces\)/);
+});
+
+test("new words: the list and dictionaries are read once the app is idle, so the first thing opened is coloured at once (the owner, 2026-11-21)", () => {
+  const seen = src("../../web/js/lexicon/seen.js");
+  assert.match(seen, /onStudyLanguage\(\(code\) => \{\s*if \(typeof document === "undefined"\) return;\s*warmSoon\(code\);/);
+  assert.match(seen, /loadKnown\(\); dictionaries\(code\)\.catch/);
+  // (a copy of the seen list in memory is used at once; the fresh one from the other devices repaints when it comes)
+  assert.match(seen, /const \[dicts\] = await Promise\.all\(\[dictionaries\(lang\), hadList \? null : fresh\]\);/);
 });
 
 test("audio still loading (the owner, 2026-11-20: a podcast said 'Playback failed … aborted' and then worked): no error, it plays once it can", () => {

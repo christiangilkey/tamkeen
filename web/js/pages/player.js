@@ -360,7 +360,11 @@ export async function render(view, { id, query }) {
   const wordEls = tr.querySelectorAll(".w");
   const segEls = [...tr.querySelectorAll(".seg")]; // one per line, in order (none while Netflix's are awaited)
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
-  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded });
+  // (coloured first: the words where it opens, a podcast reopened at its saved place)
+  let startSeg = null;
+  for (const seg of data.segments) { if (seg.start <= startAt) startSeg = seg.idx; else break; }
+  const startWord = startSeg === null ? 0 : Math.max(0, segOf.indexOf(startSeg));
+  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded, start: startWord });
 
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was
