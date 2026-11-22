@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	안 읽음
+95ac4dec	안 들음
+248c2cee	안 봄
+6f15e672	끝냈는지 여부
+01b3244f	받아쓰기 전

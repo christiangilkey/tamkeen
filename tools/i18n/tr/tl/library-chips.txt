@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	Hindi pa nababasa
+95ac4dec	Hindi pa napapakinggan
+248c2cee	Hindi pa napapanood
+6f15e672	Tapos o hindi pa
+01b3244f	Hindi pa naka-transcribe

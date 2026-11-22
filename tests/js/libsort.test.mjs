@@ -69,11 +69,11 @@ test("every tab with a list is drawn as cards with the Filter (prototype library
   const lib = src("web/js/pages/library.js");
   assert.match(lib, /if \(cardsShowing\(\)\) \{ await loadCards\(params, append\); return; \}/);
   assert.match(lib, /return !\(f && isAudiobookFeed\(f\.url\)\);/);
-  assert.match(lib, /arranged = arrange\(all, readChoice\(\), progressMap\(\), watchedNow\);/);
+  assert.match(lib, /arranged = arrange\(pool, readChoice\(\), progressMap\(\), watchedNow\);/);
   assert.match(lib, /const choiceKey = \(\) => `libChoice:\$\{kind\}`;/, "remembered for each tab");
   assert.match(lib, /\$\("#lib-filter"\)\.onclick = openFilter;/);
   // The transcription states the pills had are in the popup, with their counts, still by the library's address.
-  assert.match(lib, /for \(const \[v, label\] of FILTERS\) \{/);
+  assert.match(lib, /for \(const \[v, label\] of states\) \{/);
   assert.match(lib, /if \(v\) keep\.set\("status", v\);/);
   // Finished is remembered for everything now, not videos alone: audio to its end, a page read, a book's last page.
   assert.match(src("web/js/pages/player.js"), /if \(atEnd\(audio\.currentTime \|\| 0, duration\)\) markWatched\(id\);/);
@@ -94,4 +94,35 @@ test("the Filter popup keeps Reset and Done in sight on a short phone, and no he
   assert.match(css, /\.lib-filter-back \.modal-box \{ max-height: 94vh; max-height: 94dvh; \}/);
   // The library's order is in progress, then new, then finished now: no heading may say "newest first".
   assert.doesNotMatch(lib, /newest first/);
+});
+
+// The owner, 2026-11-21: "buttons to select transcribed only podcasts … and watched versus not watched in my library".
+test("the chips under a tab's heading: finished or not, and transcribed or not, in step with the Filter popup", () => {
+  const lib = src("web/js/pages/library.js");
+  assert.match(lib, /<div id="lib-head"><\/div>\s+<div class="lib-chips" id="lib-chips" hidden><\/div>/, "under the heading");
+  // finished or not: the Filter's own Show choice, kept for the tab as the popup keeps it
+  assert.match(lib, /chip\(doneWord\(kind\), p\.done, played === "done", \(\) => setShow\(\["done"\]\)\)/);
+  assert.match(lib, /chip\(notDoneWord\(kind\), p\.progress \+ p\.new, played === "not", \(\) => setShow\(\["progress", "new"\]\)\)/);
+  assert.match(lib, /const setShow = \(list\) => \{ keepChoice\(cleanChoice\(\{ \.\.\.c, show: list \}\)\); paintFilterButton\(\); loadEpisodes\(\); \};/);
+  // transcribed or not: the address's status, as the popup's Transcription choice; only where things are transcribed
+  assert.match(lib, /if \(transcribable\(kind\)\) \{\s+group\(t\("Transcription"\)/);
+  assert.match(lib, /chip\(t\("Not transcribed"\), statusCount\(NOT_TRANSCRIBED\), filter === NOT_TRANSCRIBED/);
+  assert.match(lib, /\[NOT_TRANSCRIBED, "Not transcribed"\]/, "the popup offers it too");
+  // the library has no "not done" state: the list doesn't ask for it, and keeps what isn't done itself
+  assert.match(lib, /if \(filter && filter !== NOT_TRANSCRIBED\) params\.set\("status", filter\);/);
+  assert.match(lib, /const pool = filter === NOT_TRANSCRIBED \? all\.filter\(\(ep\) => ep\.status !== "done"\) : all;/);
+  assert.match(lib, /arranged = arrange\(pool, readChoice\(\), progressMap\(\), watchedNow\);/);
+  // a phone: the groups wrap, and one too wide scrolls sideways
+  const css = src("web/css/app.css");
+  assert.match(css, /\.lib-chips \{ display: flex; flex-wrap: wrap;/);
+  assert.match(css, /\.lc-group \{ display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto;/);
+});
+
+test("the chips' counts: what is in progress and new is not finished", () => {
+  const items = [{ id: 1, duration: 100 }, { id: 2, duration: 100 }, { id: 3, duration: 100 }];
+  const progress = new Map([["1", { id: 1, pos: 50, dur: 100, ts: 1 }], ["2", { id: 2, pos: 100, dur: 100, ts: 2 }]]);
+  const states = items.map((ep) => stateOf(ep, progress.get(String(ep.id)) || null, new Set()));
+  assert.deepEqual(states, ["progress", "done", "new"]);
+  assert.deepEqual(arrange(items, cleanChoice({ show: ["progress", "new"] }), progress, new Set()).map((e) => e.id), [1, 3]);
+  assert.deepEqual(arrange(items, cleanChoice({ show: ["done"] }), progress, new Set()).map((e) => e.id), [2]);
 });

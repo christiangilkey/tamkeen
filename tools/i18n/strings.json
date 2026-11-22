@@ -23795,6 +23795,36 @@
   "f": "web/js/pages/library.js"
  },
  {
+  "id": "3bc4ede6",
+  "k": "Not read",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "95ac4dec",
+  "k": "Not listened to",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "248c2cee",
+  "k": "Not watched",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "6f15e672",
+  "k": "Finished or not",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "7792b396",
+  "k": "Transcription",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "01b3244f",
+  "k": "Not transcribed",
+  "f": "web/js/pages/library.js"
+ },
+ {
   "id": "7e353efd",
   "k": "Show and sort",
   "f": "web/js/pages/library.js"
@@ -23802,11 +23832,6 @@
  {
   "id": "a2a5bdec",
   "k": "Sort by",
-  "f": "web/js/pages/library.js"
- },
- {
-  "id": "7792b396",
-  "k": "Transcription",
   "f": "web/js/pages/library.js"
  },
  {

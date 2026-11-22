@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	Sin leer
+95ac4dec	Sin escuchar
+248c2cee	Sin ver
+6f15e672	Terminado o no
+01b3244f	Sin transcribir

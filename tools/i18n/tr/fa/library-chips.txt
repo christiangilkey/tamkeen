@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	خوانده‌نشده
+95ac4dec	شنیده‌نشده
+248c2cee	دیده‌نشده
+6f15e672	تمام‌شده یا نه
+01b3244f	رونویسی‌نشده

@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	Sense llegir
+95ac4dec	Sense escoltar
+248c2cee	Sense veure
+6f15e672	Acabat o no
+01b3244f	Sense transcriure

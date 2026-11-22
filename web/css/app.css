@@ -478,6 +478,15 @@ label.check input { margin-top: 3px; }
 .lib-filter .n { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px;
   background: var(--accent); color: var(--bg); font-size: 12px; }
 .lib-filter .n[hidden] { display: none; }
+/* The chips under a tab's heading (Listened to / Not listened to, Transcribed / Not transcribed, each with All): the
+   Filter popup's commonest choices in one tap, looking like the pills that were there. A group that is too wide for a
+   phone scrolls sideways; the two groups wrap onto two lines. */
+.lib-chips { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: -4px 0 12px; }
+.lib-chips[hidden] { display: none; }
+.lc-group { display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.lc-chip { flex: none; border-radius: 99px; font-size: 13px; padding: 4px 12px; min-height: 30px; white-space: nowrap; }
+.lc-chip.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+.lc-chip .n { opacity: .7; font-size: 12px; }
 .lib-filter.on { color: var(--accent); border-color: var(--accent); }
 .lf h3 { margin: 14px 0 6px; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: none; }
 .lf h3:first-child { margin-top: 0; }

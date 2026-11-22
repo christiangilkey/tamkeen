@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	Wala pa mabasa
+95ac4dec	Wala pa mapaminaw
+248c2cee	Wala pa matan-aw
+6f15e672	Nahuman o wala pa
+01b3244f	Wala pa ma-transcribe

@@ -1,0 +1,6 @@
+# Library chips under a tab's heading: finished or not, transcribed or not, 2026-11-21
+3bc4ede6	ยังไม่ได้อ่าน
+95ac4dec	ยังไม่ได้ฟัง
+248c2cee	ยังไม่ได้ดู
+6f15e672	จบแล้วหรือยัง
+01b3244f	ยังไม่ได้ถอดความ
