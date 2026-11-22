@@ -129,11 +129,8 @@ addEventListener("resize", reportLayout);
 let target = null; // {i, j, si, sj, text}
 const bubble = createWordBubble($("#side-pop"), {
   // Netflix's sound is never kept: a word saved here gets the card voice when the web app takes it in
-  // (mobile/src/js/web-extension.js). While saved words get no voice by themselves, "Add audio" opens the
-  // web app's Settings → Card voices (the web app says which: settings.card_voices, extbridge.js).
+  // (mobile/src/js/web-extension.js), when the web app's Settings → Card voices is on.
   voiceless: true,
-  audioOn: () => settings.card_voices === true,
-  onAddAudio: () => window.open(`${CONFIG.webApp}#/settings?s=voices&show=cardvoice`, "_blank", "noopener"),
   fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
   onPlayWord: () => target && playClip(S.starts[target.i], S.ends[target.j]),
   onPlaySentence: () => target && playClip(S.starts[target.si], S.ends[target.sj]),

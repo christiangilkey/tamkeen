@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	أي مجلد؟
-413da526	اتركها حيث هي
 365a1f55	أنشئ بطاقة ثانية
-e2a4976f	المرة السابقة
+9dc20740	«{0}» خارج المجلدات الآن.
+ba2dd4ad	«{0}» خارج {1} الآن.
+6beabf37	في: {0}. انقر للتغيير.
+ae2f056e	يُحفظ في: {0}. انقر للتغيير.

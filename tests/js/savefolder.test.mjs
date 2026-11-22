@@ -1,22 +1,12 @@
-// The word popup's Save asks which folder (components/savefolder.js), and New folder is at the top of every folder
-// list (the owner, 2026-11-21).
+// The word popup's folder button (components/savefolder.js) in place of its microphone, Save saving into the folder it
+// shows, and New folder at the top of every folder list (the owner, 2026-11-21).
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-import { saveChoices } from "../../web/js/review/folderpicks.js";
 import { vocabFromDefinition } from "../../web/js/languages.js";
 
 const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8");
-const FOLDERS = [{ uid: "d1", name: "Food" }, { uid: "d2", name: "Travel" }];
-
-test("the folder chosen last time comes first and is marked; then Not in a folder and the folders", () => {
-  assert.deepEqual(saveChoices(FOLDERS, "d2").map((c) => [c.key, !!c.last]), [["d2", true], ["none", false], ["d1", false]]);
-  assert.deepEqual(saveChoices(FOLDERS, "none").map((c) => [c.key, !!c.last]), [["none", true], ["d1", false], ["d2", false]]);
-  // never chosen, or a folder since deleted: the plain order, nothing marked
-  for (const last of ["", "gone"]) assert.deepEqual(saveChoices(FOLDERS, last).map((c) => [c.key, !!c.last]), [["none", false], ["d1", false], ["d2", false]]);
-  assert.deepEqual(saveChoices([], "").map((c) => c.key), ["none"]);
-});
 
 test("a card saved from the popup carries the folder it was put in; without one, nothing changes", () => {
   const def = { meaning: "book", provider: "dictionary" };
@@ -26,16 +16,28 @@ test("a card saved from the popup carries the folder it was put in; without one,
   assert.deepEqual(vocabFromDefinition({ save_folders: ["d2"] }, "libro", "es"), { text: "libro", meaning: "", notes: "", translation: "", folders: ["d2"] });
 });
 
-test("Save asks the meaning first, then the folder; a word they have already goes in another folder, not saved twice", () => {
+test("the popup has a folder button beside Save, not the microphone; Save saves into its folder with no question", () => {
   const wb = read("web/js/components/wordbubble.js");
-  const meaning = wb.indexOf("await pickDictionaryMeaning(def, ctx)"), folder = wb.indexOf("await askSaveFolder(");
-  assert.ok(meaning > 0 && folder > meaning, "meaning, then folder");
-  assert.match(wb, /if \(where === null\) \{ b\.disabled = false; break; \}/, "closing the box saves nothing");
-  assert.match(wb, /if \(!where\.filed\) await actions\.onSave\(/, "a card they had is filed, not made again");
+  assert.doesNotMatch(wb, /data-act="add-audio"|icon\("mic"/, "no microphone (Add audio) in the popup");
+  assert.match(wb, /data-act="save"[^\n]*\n\s*\$\{folderButton\(\)\}/, "the folder button right after Save");
+  assert.match(wb, /case "folder": \{[\s\S]*?await pickFolder\(/);
+  assert.doesNotMatch(wb, /askSaveFolder/, "Save asks no folder question");
+  const meaning = wb.indexOf("await pickDictionaryMeaning(def, ctx)"), save = wb.indexOf("save_folders: [into]");
+  assert.ok(meaning > 0 && save > meaning, "Which meaning? still first, then the save into the button's folder");
+  assert.match(wb, /target: lastFolder\(context\.lang \|\| "ar"\)/, "the folder is remembered for the next word");
+  // a word they have already: the button shows its folders and Save says Saved (one card per word)
+  assert.match(wb, /const haveCard = \(\) => !!shelf\.card && !shelf\.second;/);
   const sf = read("web/js/components/savefolder.js");
   assert.match(sf, /cardFor\(/, "one card per word");
   assert.match(sf, /\/vocab\/bulk-folders/);
-  assert.match(sf, /platform === "extension"/, "the extension has no folders to ask about");
+  assert.match(sf, /platform !== "extension"/, "the extension has no folders: no button");
+  assert.ok(sf.indexOf('class="sf-new"') < sf.indexOf('class="sf-list"'), "New folder at the top of its menu");
+  assert.ok(sf.indexOf('["", t("Not in a folder")]') > 0, "then Not in a folder, then the folders");
+  // a tap in the menu doesn't close the popup behind it
+  for (const p of ["web/js/pages/player.js", "web/js/pages/reels.js", "web/js/pages/book.js", "web/js/pages/reader.js"]) {
+    assert.match(read(p), /!e\.target\.closest\("\.modal-back"\)/, p);
+  }
+  for (const p of ["extension/src/js/ext/panel.js", "extension/src/js/ext/prime-panel.js"]) assert.doesNotMatch(read(p), /onAddAudio/, p);
   // every place a popup saves makes its card with vocabFromDefinition, which carries the folder
   for (const p of ["web/js/pages/player.js", "web/js/pages/reels.js", "web/js/pages/book.js", "web/js/pages/reader.js",
     "web/js/components/conversepanel.js", "web/js/components/coursewords.js"]) assert.match(read(p), /\.\.\.(vocabFromDefinition\(def|card)/, p);
@@ -56,6 +58,4 @@ test("New folder is at the top of every folder list", () => {
   const wb = read("web/js/components/wordbuilder.js");
   assert.ok(wb.indexOf('new Option(t("New folder…"), "+new")') < wb.indexOf('new Option(t("No folder"), "")'), "Add words' folder");
   assert.match(wb, /m\.body\.append\(where, ask, neu, list, buttons\)/, "Add words' “put it in another folder”");
-  const sf = read("web/js/components/savefolder.js");
-  assert.ok(sf.indexOf('class="sf-new"') < sf.indexOf('class="sf-list"'), "the popup's Which folder?");
 });

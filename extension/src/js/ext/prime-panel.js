@@ -83,8 +83,6 @@ const bubble = createWordBubble($("#side-pop"), {
   // Nothing of Prime Video's sound is ever kept or played from here (no play buttons: the light way).
   noAudio: true,
   voiceless: true,
-  audioOn: () => settings.card_voices === true,
-  onAddAudio: () => window.open(`${CONFIG.webApp}#/settings?s=voices&show=cardvoice`, "_blank", "noopener"),
   fetch: (ctx, refresh, opts) => getDefinition(ctx, refresh, opts),
   onPlayWord: () => {}, onPlaySentence: () => {}, onPlayFrom: () => {},
   onSettings: () => window.open(`${CONFIG.webApp}#/settings?s=words`, "_blank", "noopener"),

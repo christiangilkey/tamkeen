@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	کدام پوشه؟
-413da526	همان‌جا بماند
 365a1f55	ساختن کارت دوم
-e2a4976f	دفعهٔ قبل
+9dc20740	«{0}» حالا در هیچ پوشه‌ای نیست.
+ba2dd4ad	«{0}» حالا از {1} بیرون آمد.
+6beabf37	در: {0}. برای تغییر بزنید.
+ae2f056e	ذخیره در: {0}. برای تغییر بزنید.

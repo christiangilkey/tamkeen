@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	Asang folder?
-413da526	Ibilin kini diin kini karon
 365a1f55	Paghimo og ikaduhang card
-e2a4976f	Sa miaging higayon
+9dc20740	Ang “{0}” wala na sa bisan unsang folder.
+ba2dd4ad	Ang “{0}” wala na sa {1}.
+6beabf37	Anaa sa: {0}. I-tap aron usbon.
+ae2f056e	Ma-save sa: {0}. I-tap aron usbon.

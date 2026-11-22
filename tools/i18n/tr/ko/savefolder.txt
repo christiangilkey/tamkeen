@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	어느 폴더에 넣을까요?
-413da526	지금 있는 곳에 두기
 365a1f55	카드 하나 더 만들기
-e2a4976f	지난번
+9dc20740	“{0}”은(는) 이제 어느 폴더에도 없어요.
+ba2dd4ad	“{0}”을(를) {1}에서 뺐어요.
+6beabf37	폴더: {0}. 눌러서 바꾸기.
+ae2f056e	저장 위치: {0}. 눌러서 바꾸기.

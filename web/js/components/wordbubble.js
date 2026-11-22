@@ -6,13 +6,13 @@ import { FALLBACK, offerDictionary, sourceChoices, switchSource, tagLabel } from
 import { esc, buzz, h, toast, saveSettings, state } from "../app.js";
 import { langAttrs, langInfo, vocabFromDefinition } from "../languages.js";
 import { icon } from "../icons.js";
+import { t } from "../i18n.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
-import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
 import { pickDictionaryMeaning } from "./dictpick.js";
-import { askSaveFolder } from "./savefolder.js";
+import { folderState, hasFolders, lastFolder, pickFolder } from "./savefolder.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -67,11 +67,9 @@ export function pauseSwitch(onChange) {
  *   onSave: (def: object|null) => Promise<void>, onSettings: () => void,
  *   noAudio?: boolean,   // true for imported web pages: hides the play buttons
  *   noFrom?: boolean,    // no "Continue" button (there is nothing to go on playing: a course sentence)
- *   voiceless?: boolean, // a saved word gets no sound from here (YouTube, Netflix, a reel, a page, a book): while
- *                        // cards get no voice by themselves (cardvoice.js voicesOnSave), the popup shows
- *                        // "Add audio", which opens Settings → Card voices
- *   audioOn?: () => boolean,  // instead of voicesOnSave(settings) (the extension, which has no voice settings)
- *   onAddAudio?: () => void,  // instead of opening Settings → Card voices in this window
+ *   voiceless?: boolean, // a saved word gets no sound from here (YouTube, Netflix, a reel, a page, a book). It showed
+ *                        // "Add audio" (a microphone) next to Save; the folder button took its place (the owner,
+ *                        // 2026-11-21: "that doesnt need to exist"), so nothing reads it now. Card voices are in Settings.
  *   onCorrect?: (def: object) => Promise<{word: string, ctx: object}|null>,  // the lookup found the
  *                        // word misheard (def.correction): change the transcript; null if it can't
  *   onUndoCorrect?: (fix: {from: string, to: string}) => Promise<{word: string, ctx: object}>,
@@ -108,13 +106,37 @@ export function createWordBubble(host, actions) {
   xpSlot.className = "wb-xp";
   xpSlot.hidden = true;
 
-  // "Add audio": a word saved from here would have nothing to listen to, and cards don't get a voice by
-  // themselves (Settings → Card voices). Not inside another app's panel (/embed: no Settings there).
-  function addAudio() {
-    if (!actions.voiceless || document.documentElement.classList.contains("embed")) return false;
-    try {
-      return !(actions.audioOn ? actions.audioOn() : voicesOnSave((state.status && state.status.settings) || {}));
-    } catch { return false; }
+  // The folder button (components/savefolder.js): `target` the folder the next card goes in (remembered per language),
+  // `folders` this language's folders, `card` the card they have already for this word (one card per word), `second`
+  // when they chose to make a second card anyway. `asked` counts the lookups, so a late answer for another word is left.
+  const shelf = { target: { uid: "", name: "" }, folders: [], card: null, second: false, asked: 0 };
+  const haveCard = () => !!shelf.card && !shelf.second;
+
+  /** Find this word's folders and card, then draw the buttons again. */
+  function fillShelf() {
+    if (!hasFolders() || !ctx || !ctx.word) return;
+    const n = ++shelf.asked, word = ctx.word, lang = ctx.lang || "ar";
+    const text = def ? vocabFromDefinition(def, word, lang).text : word;
+    folderState(word, text, lang).then(({ folders, card }) => {
+      if (n !== shelf.asked || el.hidden) return;
+      shelf.folders = folders;
+      shelf.card = card;
+      // (a folder deleted since: "Not in a folder"; renamed: its name now)
+      const f = folders.find((x) => x.uid === shelf.target.uid);
+      shelf.target = f ? { uid: f.uid, name: f.name } : { uid: "", name: "" };
+      render(current.state, current.message);
+    }).catch(() => {});
+  }
+
+  /** The folder button: the folder the card goes in (or is in), its name cut short on a phone. */
+  function folderButton() {
+    if (!hasFolders()) return "";
+    const names = haveCard() ? shelf.folders.filter((f) => (shelf.card.folders || []).includes(f.uid)).map((f) => f.name)
+      : shelf.target.uid ? [shelf.target.name] : [];
+    const label = names.length ? `${names[0]}${names.length > 1 ? ` +${names.length - 1}` : ""}` : "";
+    const where = names.length ? names.join(", ") : t("Not in a folder");
+    return `<button type="button" class="wb-folder${names.length ? " set" : ""}" data-act="folder" title="${esc(haveCard() ? t("In: {0}. Tap to change.", where) : t("Saves into: {0}. Tap to change.", where))}"
+      aria-label="${esc(t("Folder: {0}", where))}">${icon("folder", 15)}${label ? `<span class="wb-fname" translate="no">${esc(label)}</span>` : `<span class="wb-fname wb-fnone">No folder</span>`}</button>`;
   }
 
   function position() {
@@ -350,8 +372,8 @@ export function createWordBubble(host, actions) {
         ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again" aria-label="Phrase">${icon("sound", 15)} <span class="wb-label">Phrase</span></button>` : `<button type="button" data-act="word" title="Play this word again" aria-label="Word">${icon("sound", 15)} <span class="wb-label">Word</span></button>`}
         <button type="button" data-act="sentence" title="Play the whole sentence" aria-label="Sentence">${icon("sentence", 15)} <span class="wb-label">Sentence</span></button>`}
         ${actions.noAudio || actions.noFrom || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
-        <button type="button" class="${saved ? "" : "primary"}" data-act="save" ${saved ? "disabled" : ""}>${icon(saved ? "check" : "star", 15)} ${saved ? "Saved" : "Save"}</button>
-        ${addAudio() ? `<button type="button" class="ghost wb-add-audio" data-act="add-audio" title="Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices." aria-label="Add audio">${icon("mic", 15)} <span class="wb-label">Add audio</span></button>` : ""}
+        <button type="button" class="${saved || haveCard() ? "" : "primary"}" data-act="save" ${saved || haveCard() ? "disabled" : ""}>${icon(saved || haveCard() ? "check" : "star", 15)} ${saved || haveCard() ? "Saved" : "Save"}</button>
+        ${folderButton()}
         ${unknownBtn ? unknownButton() : ""}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
@@ -382,6 +404,7 @@ export function createWordBubble(host, actions) {
         fix = { from: d.corrected_from, to: ctx.word, applied: true }; // corrected earlier
       }
       render("ready");
+      fillShelf();  // (with the answer: an Arabic card's text has its vowel marks)
     } catch (e) {
       if (my !== token) return;
       if (e && e.message === "NO_KEY") { askDict(); render("nokey"); }
@@ -444,10 +467,18 @@ export function createWordBubble(host, actions) {
         }
         break;
       }
-      case "add-audio":
-        if (actions.onAddAudio) actions.onAddAudio();
-        else { hide(); location.hash = VOICE_SETTINGS; }
+      case "folder": {
+        // Where the next card goes, or (a word they have) which folders its card is in (components/savefolder.js).
+        b.disabled = true;
+        const lang = ctx.lang || "ar";
+        const got = await pickFolder({ word: ctx.word, text: def ? vocabFromDefinition(def, ctx.word, lang).text : ctx.word, lang,
+          current: shelf.target, card: haveCard() ? shelf.card : null, folders: shelf.folders });
+        if (got && got.folder) shelf.target = got.folder;
+        else if (got && got.card) shelf.card = got.card;
+        else if (got && got.second) shelf.second = true;
+        render(current.state, current.message);
         break;
+      }
       case "unknown":
         // Only the button changes (the word's colour behind the popup shows the rest): the popup stays put.
         b.disabled = true;
@@ -465,12 +496,13 @@ export function createWordBubble(host, actions) {
         try {
           // With no AI, a word with several meanings first asks which one the card is for (components/dictpick.js).
           const picked = await pickDictionaryMeaning(def, ctx);
-          if (picked === null) { b.disabled = false; break; }
-          // Then which folder it goes in (components/savefolder.js); a word they have already can go in another.
-          const where = await askSaveFolder({ word: ctx.word, text: vocabFromDefinition(picked, ctx.word, lang()).text, lang: lang() });
-          if (where === null) { b.disabled = false; break; }
-          if (!where.filed) await actions.onSave(where.folders.length ? { ...(picked || {}), save_folders: where.folders } : picked);
+          if (def && picked === null) { b.disabled = false; break; }  // (closed: nothing saved; no answer at all still saves)
+          // Into the folder the folder button shows (components/savefolder.js), with no question.
+          const into = shelf.target.uid;
+          await actions.onSave(into ? { ...(picked || {}), save_folders: [into] } : picked);
           saved = true;
+          shelf.second = false;
+          fillShelf();  // (its card now: the folder button shows where it is and can put it in another)
           render(current.state, current.message);
           buzz("success");
           el.classList.add("just-saved");
@@ -511,6 +543,7 @@ export function createWordBubble(host, actions) {
     fixInfo = false;
     menuOpen = false;
     saved = !!opts.saved;
+    Object.assign(shelf, { target: lastFolder(context.lang || "ar"), folders: [], card: null, second: false });
     unknownBtn = !context.phrase && opts.unknown ? { ...opts.unknown } : null;
     quick = typeof opts.quick === "boolean" ? opts.quick : lookupMode() === "quick";
     xpSlot.hidden = true;
@@ -522,6 +555,7 @@ export function createWordBubble(host, actions) {
     if (!context.phrase) pronounceWord(context.word, context.lang).then((p) => {
       if (p && ctx === shownFor && !el.hidden) { ipa = p; render(current.state, current.message); }
     }).catch(() => {});
+    fillShelf();
     load();
   }
 

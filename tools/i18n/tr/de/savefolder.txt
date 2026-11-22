@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	Welcher Ordner?
-413da526	Dort lassen, wo sie ist
 365a1f55	Eine zweite Karte anlegen
-e2a4976f	Zuletzt gewählt
+9dc20740	„{0}“ ist jetzt in keinem Ordner.
+ba2dd4ad	„{0}“ ist jetzt nicht mehr in {1}.
+6beabf37	In: {0}. Tippen zum Ändern.
+ae2f056e	Wird gespeichert in: {0}. Tippen zum Ändern.

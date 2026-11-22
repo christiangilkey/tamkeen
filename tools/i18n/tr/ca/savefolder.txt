@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	Quina carpeta?
-413da526	Deixa-la on és
 365a1f55	Fes una segona targeta
-e2a4976f	L'última vegada
+9dc20740	«{0}» ja no és a cap carpeta.
+ba2dd4ad	«{0}» ja no és a {1}.
+6beabf37	A: {0}. Toca per canviar-ho.
+ae2f056e	Es desa a: {0}. Toca per canviar-ho.

@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	どのフォルダー？
-413da526	今のままにする
 365a1f55	2枚目のカードを作る
-e2a4976f	前回
+9dc20740	「{0}」はどのフォルダーにも入っていません。
+ba2dd4ad	「{0}」を{1}から外しました。
+6beabf37	フォルダー：{0}。タップで変更。
+ae2f056e	保存先：{0}。タップで変更。

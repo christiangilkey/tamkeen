@@ -8435,6 +8435,16 @@
   "f": "web/js/components/savefolder.js"
  },
  {
+  "id": "9dc20740",
+  "k": "“{0}” is in no folder now.",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "ba2dd4ad",
+  "k": "“{0}” is out of {1} now.",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
   "id": "0f594f52",
   "k": "“{0}” is in {1} now too.",
   "f": "web/js/components/savefolder.js"
@@ -8450,11 +8460,6 @@
   "f": "web/js/components/savefolder.js"
  },
  {
-  "id": "889ab689",
-  "k": "Not in a folder",
-  "f": "web/js/components/savefolder.js"
- },
- {
   "id": "b1239d7d",
   "k": "You have it already: in {0}",
   "f": "web/js/components/savefolder.js"
@@ -8465,23 +8470,13 @@
   "f": "web/js/components/savefolder.js"
  },
  {
-  "id": "086900b2",
-  "k": "Put the same card in another folder too:",
-  "f": "web/js/components/savefolder.js"
- },
- {
-  "id": "413da526",
-  "k": "Leave it where it is",
-  "f": "web/js/components/savefolder.js"
- },
- {
   "id": "365a1f55",
   "k": "Make a second card",
   "f": "web/js/components/savefolder.js"
  },
  {
-  "id": "e2a4976f",
-  "k": "Last time",
+  "id": "889ab689",
+  "k": "Not in a folder",
   "f": "web/js/components/savefolder.js"
  },
  {
@@ -10325,6 +10320,21 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "6beabf37",
+  "k": "In: {0}. Tap to change.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "ae2f056e",
+  "k": "Saves into: {0}. Tap to change.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "602b5b8d",
+  "k": "No folder",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "dc76e9f0",
   "k": "root",
   "f": "web/js/components/wordbubble.js"
@@ -10487,11 +10497,6 @@
  {
   "id": "ccfcc710",
   "k": "Continue playing from here",
-  "f": "web/js/components/wordbubble.js"
- },
- {
-  "id": "f161408b",
-  "k": "Words saved from here have no sound of their own. Choose a voice for them in Settings → Card voices.",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -10677,11 +10682,6 @@
  {
   "id": "fea7178e",
   "k": "New folder…",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "602b5b8d",
-  "k": "No folder",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -10932,6 +10932,11 @@
  {
   "id": "291dee83",
   "k": "“{0}” is in your words already, in no folder.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "086900b2",
+  "k": "Put the same card in another folder too:",
   "f": "web/js/components/wordbuilder.js"
  },
  {

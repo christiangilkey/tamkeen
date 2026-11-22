@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	放进哪个文件夹？
-413da526	留在原处
 365a1f55	再做一张卡片
-e2a4976f	上次
+9dc20740	“{0}”现在不在任何文件夹里。
+ba2dd4ad	“{0}”已移出{1}。
+6beabf37	所在文件夹：{0}。点按可更改。
+ae2f056e	保存到：{0}。点按可更改。

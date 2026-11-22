@@ -1378,7 +1378,7 @@ export async function render(view, { id, query }) {
   window.addEventListener("resize", onResize);
   const onOutside = (e) => {
     if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest("#ctxmenu")
-        && !e.target.closest("#screen")) bubble.hide();
+        && !e.target.closest("#screen") && !e.target.closest(".modal-back")) bubble.hide();  // (.modal-back: a box it opened)
   };
   document.addEventListener("pointerdown", onOutside);
 

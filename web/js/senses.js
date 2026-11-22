@@ -103,10 +103,11 @@ export function distinctSenses(list, { max = 4, alike = [] } = {}) {
  * other meanings, with its near-synonyms (`alike`) counted as one. */
 export const answerSenses = (def) => (def ? distinctSenses(dictionarySenses(def.meaning, def.pos, def.other_meanings), { alike: def.alike }) : []);
 
-/** Does saving `def` ask which meaning the card is for (components/dictpick.js, prototype dict_sense_pick)? Only for the
- * built-in dictionary's answer, with no AI (`ai`: an AI is set up and not turned off), for one word, not a phrase. */
-export const asksForSense = (def, { ai = false, phrase = false, word = "" } = {}) =>
-  !!def && def.provider === "dictionary" && !ai && !phrase && !!String(word || "").trim() && !!String(def.meaning || "").trim();
+/** Does saving `def` ask which meaning the card is for (components/dictpick.js, prototype dict_sense_pick)? For one word,
+ * not a phrase, with a meaning, from the dictionary or an AI, as Add words asks with or without an AI (it asks only when
+ * there are two or more meanings that really differ). */
+export const asksForSense = (def, { phrase = false, word = "" } = {}) =>
+  !!def && !phrase && !!String(word || "").trim() && !!String(def.meaning || "").trim();
 
 /** Show the part of speech beside each sense only when they differ ("bank (noun)" and "to bank (verb)"). */
 export const showPos = (senses) => new Set((senses || []).map((s) => s.pos || "")).size > 1;

@@ -2300,8 +2300,8 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .sc-own { width: 100%; }
 .sc-foot { display: flex; justify-content: center; }
 .sc-ok { min-width: 200px; }
-/* The word popup's Save: "Which folder?" (components/savefolder.js). New folder first, then the last folder chosen
-   (marked), "Not in a folder" and the folders, each a big row; a tap saves. */
+/* The word popup's folder button and its menu (components/savefolder.js): New folder first, then Not in a folder and
+   the folders, each a big row, the chosen one ticked; a tap picks. */
 .sf-box { max-width: 440px; }
 .sf { display: flex; flex-direction: column; gap: 10px; }
 .sf-word { font-size: 24px; font-weight: 700; line-height: 1.3; text-align: center; overflow-wrap: anywhere; }
@@ -2312,10 +2312,15 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .sf-new { border: 0; background: var(--surface-2); color: var(--accent); font-size: 16px; font-weight: 650; }
 .sf-list { display: flex; flex-direction: column; gap: 6px; }
 .sf-opt { border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 16px; font-weight: 500; cursor: pointer; }
-.sf-opt.last { border-color: var(--accent); background: var(--accent-soft); }
+.sf-opt.on { border-color: var(--accent); background: var(--accent-soft); }
 .sf-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
-.sf-tag { flex: none; font-size: 12px; color: var(--accent); font-weight: 650; }
+.sf-tick { flex: none; display: grid; place-items: center; width: 22px; color: var(--accent); }
 .sf-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+/* The folder button beside Save: the folder's name, cut short. */
+.wb-actions button.wb-folder { gap: 5px; max-width: 13em; }
+.wb-folder .wb-fname { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wb-folder .wb-fnone { color: var(--muted); }
+.wb-folder.set { color: var(--accent); border-color: var(--accent); }
 .vocab-page .vocab-item.vi-new { animation: vi-new 2.6s ease-out; }
 @keyframes vi-new { from { background: var(--accent-soft); border-color: var(--accent); } to { background: var(--surface); } }
 @media (prefers-reduced-motion: reduce) { .vocab-page .vocab-item.vi-new { animation: none; border-color: var(--accent); } }

@@ -1,5 +1,7 @@
-# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+# The word popup's folder button and its menu (components/savefolder.js, wordbubble.js), 2026-11-21
 87e3db51	Qual pasta?
-413da526	Deixar onde está
 365a1f55	Criar um segundo cartão
-e2a4976f	Da última vez
+9dc20740	“{0}” não está mais em nenhuma pasta.
+ba2dd4ad	“{0}” saiu de {1}.
+6beabf37	Em: {0}. Toque para mudar.
+ae2f056e	Salva em: {0}. Toque para mudar.
