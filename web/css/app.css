@@ -3647,7 +3647,6 @@ button.fr-boss:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .library.converse-kind .lib-courses, .library:not(.converse-kind) .lib-converse { display: none; }
 .library.lessons-kind .lib-courses, .library:not(.lessons-kind) .lib-lessons { display: none; }
 .cv { position: relative; max-width: 760px; margin: 0 auto; }
-.cv-lead { color: var(--muted); text-align: center; margin: 6px auto 14px; max-width: 52ch; font-size: 15px; }
 /* A Library tab that needs a key not added yet (library.js keyNote, conversepanel.js; the owner, 2026-11-16):
    a small note in the brand's purple, the same in both themes, with a button to the setting. */
 .key-note { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 0 12px; border-radius: var(--radius);

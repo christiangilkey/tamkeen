@@ -241,7 +241,6 @@ export function conversePanel(box, lang) {
     box.innerHTML = "";
     box.append(bubble.el);
     const page = h(`<div class="cv-list">
-      <p class="cv-lead">Practise speaking with someone who never tires. Pick a situation, get things done in it, and see what to work on.</p>
       <aside class="key-note cv-need" role="note" hidden>
         <span class="kn-ico" aria-hidden="true">${icon("lock", 18)}</span>
         <span class="kn-text"><strong>Conversation needs an AI key</strong>

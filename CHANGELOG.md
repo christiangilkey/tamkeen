@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Library → Conversation no longer has a line of text at the top ("Practise speaking with someone who never tires…"): the situations start straight away.
+
 ## v0.67.0 — 2026-11-21
 
 - **New:** *(desktop app and web app on a computer, in Chrome or Edge)* **Prime Video with clickable subtitles.** The browser extension is now called **Tamkeen for Netflix & Prime Video**. On Prime Video's website, a panel beside the player shows the subtitle line on screen as words you can tap for their meaning and save to Vocab, with where it came from ("Prime Video · the show · S1:E3"), and lists the lines already shown. It only reads the subtitle line already on the screen: it never controls Amazon's player, changes nothing on Amazon's page, asks Amazon for nothing and downloads no video, sound or subtitle files. Turn the subtitles on in Prime Video's own menu. The Library's Netflix tab and the + sheet's Netflix step now have a **Get the Tamkeen extension** button (**Open Prime Video** once it is installed); on a phone they say it works on a computer.
