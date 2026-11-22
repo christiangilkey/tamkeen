@@ -717,6 +717,10 @@ from a temporary local copy because they are not published yet). **Never run on 
   mouse 500 ms) is `seen.toggleKnown(i)`: new → known, known → new, with an Undo toast; held on until `MENU_MS`
   (1 s) it is `onMenu` (the old long-press menu). In the player (transcript and captions), reader, book and reels.
   Guide step "Hold a word you know" in `guideart.js` `playerSteps`.
+- **Unknown words: RETIRED 2026-11-21.** The owner replaced the popup's ? with an **Important** ! (the card's
+  `important` flag, 77298e72; `wordbubble.js` `importantButton`, which saves an unsaved word marked important). `seen.js`
+  no longer reads the `unknown|` rows (left stored, untouched), so those words show as new again; no amber anywhere.
+  What follows is how it worked:
 - **Unknown words** (2026-11-01, the owner: a ? in the popup that turns the word `#FFBC0A`, "won't save it as known,
   and won't save to vocab but will remember that this word is unknown"): the popup's `data-act="unknown"` button
   (`wordbubble.js`, `opts.unknown` = `seen.unknownButton(i)`; single words only). Kept as an ordinary lexeme row

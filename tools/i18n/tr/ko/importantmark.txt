@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	카드가 들어갈 폴더: 눌러서 다른 폴더 고르기
+89598601	단어를 중요로 표시: 복습에서 먼저 나와요
+bae54d7a	저장하고 중요로 표시했어요: 복습과 새 단어에서 먼저 나와요
+e69754bf	중요로 표시됨. 눌러서 표시 빼기.
+ab7d2709	중요: 복습과 새 단어에서 먼저 나와요 (아직 저장 안 한 단어는 저장해요)
+9ade563b	중요로 표시한 단어만 보기
+379e3ba0	중요한 단어만
+3d6dabf4	아직 중요로 표시한 단어가 없어요. 단어 팝업의 ! 또는 단어 도구의 ‘중요’를 누르세요.

@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	Ang folder nga adtoan sa card: i-tap aron mopili og lain
+89598601	Markahi nga importante ang pulong: mauna kini sa mga review
+bae54d7a	Na-save ug gimarkahan nga importante: mauna kini sa mga review ug sa bag-ong mga pulong
+e69754bf	Gimarkahan nga importante. I-tap aron tangtangon ang marka.
+ab7d2709	Importante: mauna kini sa mga review ug sa bag-ong mga pulong (i-save ang pulong kon wala pa ma-save)
+9ade563b	Ipakita lang ang mga pulong nga gimarkahan nga importante
+379e3ba0	Importanteng mga pulong lang
+3d6dabf4	Wala pay pulong nga gimarkahan nga importante. I-tap ang ! sa popup sa usa ka pulong, o ang Importante sa mga himan sa pulong.

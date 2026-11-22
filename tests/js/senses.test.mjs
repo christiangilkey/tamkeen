@@ -145,7 +145,7 @@ test("saving a word asks which meaning (dict_sense_pick), AI or not: one word wh
     assert.match(src, /export const noAi = /, file);
   }
   const bubble = read("web/js/components/wordbubble.js");
-  assert.match(bubble, /const picked = await pickDictionaryMeaning\(def, ctx\);\n\s+if \(def && picked === null\) \{ b\.disabled = false; break; \}[^\n]*\n[\s\S]{0,400}?await actions\.onSave\([^;]*picked/,
+  assert.match(bubble, /const picked = await pickDictionaryMeaning\(def, ctx\);\n\s+if \(def && picked === null\) return false;[^\n]*\n[\s\S]{0,400}?await actions\.onSave\([^;]*picked/,
     "the word popup's Save (transcripts, reels, books, web pages, course words, Conversation)");
   const voice = read("web/js/components/voiceask.js");
   assert.match(voice, /const picked = await pickDictionaryMeaning\(it\.pick\.def, it\.pick\.ctx\);/, "Ask by voice's add it");

@@ -3,7 +3,7 @@
 
 import { NO_MEANINGS, downloadMeanings, meaningsStatus } from "../meanings.js";
 import { FALLBACK, offerDictionary, sourceChoices, switchSource, tagLabel } from "../defsource.js";
-import { esc, buzz, h, toast, saveSettings, state } from "../app.js";
+import { api, esc, buzz, toast, saveSettings, state } from "../app.js";
 import { langAttrs, langInfo, vocabFromDefinition } from "../languages.js";
 import { icon } from "../icons.js";
 import { t } from "../i18n.js";
@@ -90,7 +90,6 @@ export function createWordBubble(host, actions) {
   let ipa = ""; // English: US pronunciation from the downloaded word table (lexicon/seen.js); Thai: how it is said
   let token = 0;
   let saved = false;
-  let unknownBtn = null; // the ? ("not known yet"): {on, toggle()} from the screen (lexicon/seen.js), or null
   // Quick lookup (see lookupmode.js): this popup shows only the meaning, with "More" to open
   // the full explanation for this one word. The Word and Sentence play buttons stay (the owner
   // wanted them in quick mode too); Continue and Ask again are left to the full view.
@@ -374,7 +373,7 @@ export function createWordBubble(host, actions) {
         ${actions.noAudio || actions.noFrom || quick ? "" : `<button type="button" data-act="from" title="Continue playing from here" aria-label="Continue">${icon("play", 15)} <span class="wb-label">Continue</span></button>`}
         <button type="button" class="${saved || haveCard() ? "" : "primary"}" data-act="save" ${saved || haveCard() ? "disabled" : ""}>${icon(saved || haveCard() ? "check" : "star", 15)} ${saved || haveCard() ? "Saved" : "Save"}</button>
         ${folderButton()}
-        ${unknownBtn ? unknownButton() : ""}
+        ${importantButton()}
         ${state === "ready" && !quick ? `<button type="button" class="ghost icon" data-act="refresh" title="Ask again" aria-label="Ask again">${icon("refresh", 15)}</button>` : ""}
         <button type="button" class="ghost icon wb-close wb-close-end" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
       </div>`;
@@ -479,53 +478,70 @@ export function createWordBubble(host, actions) {
         render(current.state, current.message);
         break;
       }
-      case "unknown":
-        // Only the button changes (the word's colour behind the popup shows the rest): the popup stays put.
+      case "important": {
+        // A word they have: the mark on or off. One not saved yet: saved, marked important (Which meaning? and the
+        // folder button's folder as Save does). (The owner, 2026-11-21: it replaced "Not known yet".)
         b.disabled = true;
-        try {
-          unknownBtn.on = await unknownBtn.toggle();
-          buzz("tick");
-        } catch (err) {
-          toast(err && err.message ? err.message : String(err), { error: true });
-        }
-        b.replaceWith(h(unknownButton()));
+        if (haveCard()) {
+          const on = !shelf.card.important;
+          try {
+            await api(`/vocab/${shelf.card.id}`, { method: "PATCH", body: { important: on } });
+            shelf.card = { ...shelf.card, important: on ? 1 : 0 };
+            buzz("tick");
+            toast(on ? t("Marked important: it comes first in reviews and new words") : t("No longer marked important"));
+          } catch (err) { toast(err && err.message ? err.message : String(err), { error: true }); }
+          render(current.state, current.message);
+        } else if (await saveCard({ important: true })) {
+          toast(t("Saved and marked important: it comes first in reviews and new words"));
+        } else b.disabled = false;
         break;
+      }
       case "save":
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;
-        try {
-          // With no AI, a word with several meanings first asks which one the card is for (components/dictpick.js).
-          const picked = await pickDictionaryMeaning(def, ctx);
-          if (def && picked === null) { b.disabled = false; break; }  // (closed: nothing saved; no answer at all still saves)
-          // Into the folder the folder button shows (components/savefolder.js), with no question.
-          const into = shelf.target.uid;
-          await actions.onSave(into ? { ...(picked || {}), save_folders: [into] } : picked);
-          saved = true;
-          shelf.second = false;
-          fillShelf();  // (its card now: the folder button shows where it is and can put it in another)
-          render(current.state, current.message);
-          buzz("success");
-          el.classList.add("just-saved");
-          setTimeout(() => el.classList.remove("just-saved"), 900);
-        } catch {
-          b.disabled = false;
-        }
+        if (!(await saveCard())) b.disabled = false;
         break;
     }
   });
   // Don't let clicks inside the bubble reach the transcript (which would seek).
   el.addEventListener("pointerdown", (e) => e.stopPropagation());
 
-  /** The ? button: amber and pressed while the word is marked unknown. */
-  function unknownButton() {
-    const on = !!(unknownBtn && unknownBtn.on);
-    return `<button type="button" class="ghost icon wb-unknown${on ? " on" : ""}" data-act="unknown" aria-pressed="${on}" aria-label="Not known yet"
-      title="${on ? "Marked as not known yet. Tap to take that off." : "Not known yet: keep this word amber, without saving it, until you know it"}">${icon("question", 15)}</button>`;
+  /**
+   * Save the card: "Which meaning?" first when the word's meanings differ (components/dictpick.js), then into the
+   * folder the folder button shows (components/savefolder.js), with no question. `important`: marked important too
+   * (the ! button on a word not saved yet). True once saved; false when "Which meaning?" was closed or saving failed.
+   */
+  async function saveCard({ important = false } = {}) {
+    try {
+      const picked = await pickDictionaryMeaning(def, ctx);
+      if (def && picked === null) return false;  // (closed: nothing saved; no answer at all still saves)
+      const into = shelf.target.uid;
+      const extra = { ...(into ? { save_folders: [into] } : {}), ...(important ? { save_important: true } : {}) };
+      await actions.onSave(Object.keys(extra).length ? { ...(picked || {}), ...extra } : picked);
+      saved = true;
+      shelf.second = false;
+      if (important && shelf.card) shelf.card = null;  // (a second card: the one just made is the one marked)
+      fillShelf();  // (its card now: the folder button shows where it is, the ! whether it is important)
+      render(current.state, current.message);
+      buzz("success");
+      el.classList.add("just-saved");
+      setTimeout(() => el.classList.remove("just-saved"), 900);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  /** The ! button: Important, yellow and pressed when the word's card is marked important (pages/vocab.js shows it
+   * yellow; review/deck.js puts it first). Not in the extension, which has no cards of its own. */
+  function importantButton() {
+    if (!hasFolders()) return "";
+    const on = haveCard() && !!shelf.card.important;
+    return `<button type="button" class="ghost icon wb-important${on ? " on" : ""}" data-act="important" aria-pressed="${on}" aria-label="Important"
+      title="${esc(on ? t("Marked important. Tap to take the mark off.") : t("Important: it comes first in reviews and new words (saves the word if it isn't saved yet)"))}">${icon("important", 15)}</button>`;
   }
 
   /** `opts.saved`: this word is already in the vocab list, so the Save button says so.
-   *  `opts.unknown`: {on, toggle()} for the ? button (a word, not a phrase, that can be marked unknown:
-   *  lexicon/seen.js unknownButton); none without it.
    *  `opts.host`: show it in this container from now on, instead of the one it was made in (a
    *  player with two transcripts shows it in the one the word was tapped in).
    *  `opts.docked`: it takes its place at the end of that container instead of floating by the
@@ -544,7 +560,6 @@ export function createWordBubble(host, actions) {
     menuOpen = false;
     saved = !!opts.saved;
     Object.assign(shelf, { target: lastFolder(context.lang || "ar"), folders: [], card: null, second: false });
-    unknownBtn = !context.phrase && opts.unknown ? { ...opts.unknown } : null;
     quick = typeof opts.quick === "boolean" ? opts.quick : lookupMode() === "quick";
     xpSlot.hidden = true;
     xpSlot.replaceChildren();

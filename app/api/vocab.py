@@ -35,8 +35,9 @@ class VocabIn(BaseModel):
     # looked up in (else the language its letters say).
     source: str = ""
     language: str = ""
-    # The folders it goes in (the word popup's Save asks which: web/js/components/savefolder.js); unknown ones are left out.
+    # The folders it goes in (the word popup's folder button: web/js/components/savefolder.js); unknown ones are left out.
     folders: list[str] = []
+    important: bool = False  # saved with the word popup's ! (Important): first in reviews and new words
 
 
 class BatchCard(BaseModel):
@@ -254,10 +255,10 @@ def add_vocab(body: VocabIn) -> dict[str, Any]:
             folders = sorted({f for f in body.folders if f in known})
         cur = conn.execute(
             "INSERT INTO vocab(uid, episode_id, episode_uid, text, norm, sentence, start, end, sent_start, sent_end, "
-            "meaning, notes, translation, episode_title, created_at, language, folders) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "meaning, notes, translation, episode_title, created_at, language, folders, important) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (ids.new_uid(), body.episode_id, episode_uid, text, arabic.normalize(text), body.sentence.strip(),
              body.start, body.end, body.sent_start, body.sent_end, body.meaning, body.notes,
-             body.translation.strip(), title, time.time(), language, json.dumps(folders)),
+             body.translation.strip(), title, time.time(), language, json.dumps(folders), 1 if body.important else 0),
         )
         row = conn.execute("SELECT * FROM vocab WHERE id = ?", (cur.lastrowid,)).fetchone()
     sync.request()

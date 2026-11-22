@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	A pasta para onde vai o cartão: toque para escolher outra
+89598601	Marcar a palavra como importante: ela vem primeiro nas revisões
+bae54d7a	Salva e marcada como importante: vem primeiro nas revisões e entre as palavras novas
+e69754bf	Marcada como importante. Toque para tirar a marca.
+ab7d2709	Importante: vem primeiro nas revisões e entre as palavras novas (salva a palavra se ainda não estiver salva)
+9ade563b	Mostrar só as palavras marcadas como importantes
+379e3ba0	Só palavras importantes
+3d6dabf4	Ainda não há palavras marcadas como importantes. Toque no ! na janela de uma palavra, ou em Importante nas ferramentas de uma palavra.

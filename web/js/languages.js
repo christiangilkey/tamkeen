@@ -282,7 +282,8 @@ export function vocabFromDefinition(def, word, code) {
   // (A misheard word is saved as the word that was said. `save_folders`: the folders the word popup's Save was told to
   // put it in, components/savefolder.js.)
   return { text: vowelled ? def.vocalized : (def.correction || word), meaning: def.meaning || "", notes, translation,
-    ...(Array.isArray(def.save_folders) && def.save_folders.length ? { folders: def.save_folders } : {}) };
+    ...(Array.isArray(def.save_folders) && def.save_folders.length ? { folders: def.save_folders } : {}),
+    ...(def.save_important ? { important: true } : {}) };  // (the word popup's !: saved marked important)
 }
 
 // ---------- words with and without spaces ----------

@@ -964,7 +964,8 @@ const routes = [
                 // Where a word without an episode came from, as given (shown on the Vocab page).
                 episode_title: e ? e.title : String(body.source || "").replace(/\s+/g, " ").trim().slice(0, 300),
                 // The folders it goes in (the word popup's Save asks which: web/js/components/savefolder.js).
-                folders: savedFolders(body.folders), deleted: 0, created_at: t, updated_at: t };
+                folders: savedFolders(body.folders), ...(body.important ? { important: 1 } : {}),  // (the word popup's !)
+                deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();
     return vocabOut(v);

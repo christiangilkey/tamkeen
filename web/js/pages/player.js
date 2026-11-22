@@ -1191,8 +1191,7 @@ export async function render(view, { id, query }) {
     // (Shown inside another app's narrow panel, /embed, there is no transcript panel: always docked.)
     const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
-    // (unknown: the popup's ? for a word, lexicon/seen.js.)
-    const opts = { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null };
+    const opts = { saved: savedHere.has(savedKey(i, j)) };
     if (where) {
       Object.assign(opts, where);
     } else if (embed && !bubbleInPanel && !phone) {

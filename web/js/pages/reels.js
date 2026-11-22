@@ -761,7 +761,7 @@ async function renderPlayer(view, { query }) {
     target = { i, j, si, sj, text: word };
     buzz("tick");
     playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
-    bubble.show(where ? where.anchor : cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j && seen ? seen.unknownButton(i) : null,
+    bubble.show(where ? where.anchor : cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)),
       host: where ? where.host : $("#reel-pop") });
     if (where) { // (a phone's popup is a sheet: it stops just above the controls, media.css)
       const top = $("#reel-controls").getBoundingClientRect().top;

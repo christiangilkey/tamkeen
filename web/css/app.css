@@ -2002,15 +2002,14 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .transcript .w, .reader-text .w, .captions .w { transition: background-color .08s, color .35s; }
 /* Unknown words: marked with the popup's ? (lexicon/seen.js), in the owner's amber #FFBC0A. On a light
    page that is too pale to read as text, so it is the same hue made deeper there, as the purple is. */
-:root { --unknown-word: #a36f00; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --unknown-word: #ffbc0a; } }
-:root[data-theme="dark"] { --unknown-word: #ffbc0a; }
-.transcript .w.unknown, .reader-text .w.unknown, .phrase-root .w.phr.unknown { color: var(--unknown-word); }
-.captions .w.unknown, .cap .w.unknown, .reel-words .w.unknown { color: #ffbc0a; } /* (always on dark) */
-.transcript .w.unknown.cur, .reader-text .w.unknown.cur, .captions .w.unknown.cur, .reel-words .w.unknown.cur { color: var(--hl-ink); }
+/* Important (the word popup's !, a word's tools, the Vocab page): yellow, readable on both themes (about 5:1 on white in
+   light, 12:1 on the dark surface). It took the place of the retired "Not known yet" amber, 2026-11-21. */
+:root { --important-word: #8a6500; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --important-word: #ffd43b; } }
+:root[data-theme="dark"] { --important-word: #ffd43b; }
 /* The popup's ? while pressed: the same amber, like the word behind it. */
-.wb-actions button.wb-unknown.on { color: var(--unknown-word); border-color: var(--unknown-word); }
-.wb-actions button.wb-unknown.on .ic .solid { fill: var(--unknown-word); }
+.wb-actions button.wb-important.on { color: var(--important-word); border-color: var(--important-word); }
+.wb-actions button.wb-important.on .ic .solid { fill: var(--important-word); }
 /* Several words looked up together (components/phrasepick.js): while a finger or the mouse drags
    over them, one soft band of the brand teal runs across the words and the spaces between them
    (each word reaches into the space beside it; the layout doesn't move). Plain and solid, no shadow. */
@@ -3225,9 +3224,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
 /* A word marked important (pages/vocab.js, components/wordtools.js): a flag in the warning colour, filled when on. */
-.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--warn); }
+.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--important-word); }
 .vi-tool[data-tool="important"][aria-pressed="true"] .ic .fill, #bulk-important[aria-pressed="true"] .ic .fill { opacity: 1; }
-.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--warn); }
+.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--important-word); }
+.vocab-item.vi-important .word { color: var(--important-word); }  /* (the word itself in yellow, the owner 2026-11-21) */
+.vocab-imp.on { color: var(--important-word); background: color-mix(in srgb, var(--important-word) 18%, var(--surface-2)); }  /* (Important words only, on) */
+.vocab-imp.on .ic .solid { fill: var(--important-word); }
 .vi-imp[hidden] { display: none; }
 .vi-imp .ic .fill { opacity: 1; }
 .vi-tool-danger { color: var(--danger); }

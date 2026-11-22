@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	卡片要放进的文件夹：点按可选择其他文件夹
+89598601	把这个词标为重要：复习时排在最前
+bae54d7a	已保存并标为重要：复习和新词中排在最前
+e69754bf	已标为重要。点按可取消标记。
+ab7d2709	重要：复习和新词中排在最前（还没保存的词会先保存）
+9ade563b	只显示标为重要的词
+379e3ba0	只看重要的词
+3d6dabf4	还没有标为重要的词。在词的弹窗中点按 !，或在词的工具中点按“重要”。

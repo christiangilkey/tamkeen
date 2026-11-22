@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	La carpeta on va la targeta: toca per triar-ne una altra
+89598601	Marca la paraula com a important: surt primer als repassos
+bae54d7a	Desada i marcada com a important: surt primer als repassos i entre les paraules noves
+e69754bf	Marcada com a important. Toca per treure la marca.
+ab7d2709	Important: surt primer als repassos i entre les paraules noves (desa la paraula si encara no ho està)
+9ade563b	Mostra només les paraules marcades com a importants
+379e3ba0	Només paraules importants
+3d6dabf4	Encara no hi ha cap paraula marcada com a important. Toca el ! a la finestra d'una paraula, o Important entre les eines d'una paraula.

@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	Ang folder na pupuntahan ng card: i-tap para pumili ng iba
+89598601	Markahang mahalaga ang salita: mauuna ito sa mga review
+bae54d7a	Na-save at minarkahang mahalaga: mauuna ito sa mga review at sa mga bagong salita
+e69754bf	Minarkahang mahalaga. I-tap para alisin ang marka.
+ab7d2709	Mahalaga: nauuna sa mga review at sa mga bagong salita (sine-save ang salita kung hindi pa naka-save)
+9ade563b	Ipakita lang ang mga salitang minarkahang mahalaga
+379e3ba0	Mahahalagang salita lang
+3d6dabf4	Wala pang salitang minarkahang mahalaga. I-tap ang ! sa popup ng salita, o ang Mahalaga sa mga tool ng salita.

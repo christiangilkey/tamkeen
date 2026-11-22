@@ -1,0 +1,9 @@
+# The word popup's ! (Important) and the Vocab page's Important words (wordbubble.js, vocab.js, guideart.js), 2026-11-21
+0c49ebd7	Der Ordner, in den die Karte kommt: tippen, um einen anderen zu wählen
+89598601	Das Wort als wichtig markieren: es kommt in Wiederholungen zuerst
+bae54d7a	Gespeichert und als wichtig markiert: es kommt in Wiederholungen und bei neuen Wörtern zuerst
+e69754bf	Als wichtig markiert. Tippen, um die Markierung zu entfernen.
+ab7d2709	Wichtig: kommt in Wiederholungen und bei neuen Wörtern zuerst (speichert das Wort, falls es noch nicht gespeichert ist)
+9ade563b	Nur die als wichtig markierten Wörter zeigen
+379e3ba0	Nur wichtige Wörter
+3d6dabf4	Noch keine Wörter als wichtig markiert. Tippe im Popup eines Wortes auf ! oder bei den Werkzeugen eines Wortes auf Wichtig.

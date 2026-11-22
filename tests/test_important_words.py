@@ -55,3 +55,19 @@ def test_important_syncs_and_survives_a_device_that_does_not_know_it(world):  # 
         with db.session() as conn:
             rows = {r["uid"]: (r["meaning"], r["important"]) for r in conn.execute("SELECT * FROM vocab")}
     assert rows == {"vword1": ("a book", 1), "vold": ("a book", 0)}
+
+
+def test_a_word_saved_from_the_popup_keeps_its_folder_and_important_mark(world):  # noqa: F811
+    """The word popup's folder button and its ! (web/js/components/wordbubble.js): POST /vocab with folders and
+    important. A folder that doesn't exist is left out."""
+    drive, a, b = world
+    with a:
+        from app.api import vocab
+
+        folder = vocab.add_folder(vocab.FolderIn(name="Food"))
+        out = vocab.add_vocab(vocab.VocabIn(text="mantequilla", meaning="butter", language="es",
+                                            folders=[folder["uid"], "dnotthere"], important=True))
+        assert out["folders"] == [folder["uid"]]
+        assert out["important"] == 1
+        plain = vocab.add_vocab(vocab.VocabIn(text="leche", meaning="milk", language="es"))
+        assert plain["folders"] == [] and not plain["important"]

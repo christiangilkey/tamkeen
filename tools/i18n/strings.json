@@ -6195,23 +6195,23 @@
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "c79957d0",
-  "k": "Add audio",
+  "id": "30baa249",
+  "k": "Folder",
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "f4d28620",
-  "k": "Choose a voice for cards saved from here",
+  "id": "0c49ebd7",
+  "k": "The folder the card goes in: tap to choose another",
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "72369ab6",
-  "k": "Not known yet",
+  "id": "4b6d6a30",
+  "k": "Important",
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "f054d8dc",
-  "k": "Keep the word amber, unsaved, until you know it",
+  "id": "89598601",
+  "k": "Mark the word important: it comes first in reviews",
   "f": "web/js/components/guideart.js"
  },
  {
@@ -7372,6 +7372,11 @@
  {
   "id": "acdac205",
   "k": "Audio",
+  "f": "web/js/components/lessonview.js"
+ },
+ {
+  "id": "c79957d0",
+  "k": "Add audio",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -10505,13 +10510,28 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "b5e1c5cd",
-  "k": "Marked as not known yet. Tap to take that off.",
+  "id": "076bfabb",
+  "k": "Marked important: it comes first in reviews and new words",
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "501bcf6c",
-  "k": "Not known yet: keep this word amber, without saving it, until you know it",
+  "id": "2be8c726",
+  "k": "No longer marked important",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "bae54d7a",
+  "k": "Saved and marked important: it comes first in reviews and new words",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "e69754bf",
+  "k": "Marked important. Tap to take the mark off.",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "ab7d2709",
+  "k": "Important: it comes first in reviews and new words (saves the word if it isn't saved yet)",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -10672,11 +10692,6 @@
  {
   "id": "3a045bb2",
   "k": "Add cards",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "30baa249",
-  "k": "Folder",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11503,16 +11518,6 @@
   "id": "26b30f90",
   "k": "Show all the text",
   "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "076bfabb",
-  "k": "Marked important: it comes first in reviews and new words",
-  "f": "web/js/components/wordtools.js"
- },
- {
-  "id": "2be8c726",
-  "k": "No longer marked important",
-  "f": "web/js/components/wordtools.js"
  },
  {
   "id": "52378927",
@@ -26145,6 +26150,16 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "9ade563b",
+  "k": "Show only the words marked important",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "379e3ba0",
+  "k": "Important words only",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "c9b34169",
   "k": "Sort and filter",
   "f": "web/js/pages/vocab.js"
@@ -26167,11 +26182,6 @@
  {
   "id": "24d51d52",
   "k": "Remove from folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "4b6d6a30",
-  "k": "Important",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -26402,6 +26412,11 @@
  {
   "id": "294ccd52",
   "k": "{0}{1} item{2}",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3d6dabf4",
+  "k": "No words are marked important yet. Tap the ! in a word's popup, or Important among a word's tools.",
   "f": "web/js/pages/vocab.js"
  },
  {
