@@ -102,9 +102,13 @@ const PATHS = {
   message: `<path class="fill" d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5z"/>
     <path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17H6.5A2.5 2.5 0 0 1 4 14.5z"/>`,
   check: `<path d="M5 12.5l4.5 4.5L19 7.5"/>`,
-  // A question mark: the word popup's "I don't know this one yet" (lexicon/seen.js unknown words).
+  // An exclamation mark: the word popup's Important (a word marked important comes first in reviews and new words).
+  important: `<path d="M12 4.6v9.6"/><circle class="solid" cx="12" cy="18.7" r="1.25"/>`,
+  // A question mark: a hint, or how something works.
   question: `<path d="M8.6 8.9a3.5 3.5 0 1 1 5.2 3.1c-1.1.6-1.8 1.4-1.8 2.6v.7"/><circle class="solid" cx="12" cy="18.6" r="1.15"/>`,
   close: `<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>`,
+  // An eye struck through: Type what you hear's Hide (what was said goes away again).
+  eyeoff: `<path d="M3 12s3.4-6 9-6 9 6 9 6-3.4 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.6"/><path d="M4.5 4.5l15 15"/>`,
   userplus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
     <path d="M18.5 8.5v6M15.5 11.5h6"/>`,
   userminus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>

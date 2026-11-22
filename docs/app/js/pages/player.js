@@ -360,7 +360,11 @@ export async function render(view, { id, query }) {
   const wordEls = tr.querySelectorAll(".w");
   const segEls = [...tr.querySelectorAll(".seg")]; // one per line, in order (none while Netflix's are awaited)
   // Words never tapped before are drawn in purple; a tap makes every form of the word "seen".
-  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded });
+  // (coloured first: the words where it opens, a podcast reopened at its saved place)
+  let startSeg = null;
+  for (const seg of data.segments) { if (seg.start <= startAt) startSeg = seg.idx; else break; }
+  const startWord = startSeg === null ? 0 : Math.max(0, segOf.indexOf(startSeg));
+  const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded, start: startWord });
 
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was
@@ -1187,8 +1191,7 @@ export async function render(view, { id, query }) {
     // (Shown inside another app's narrow panel, /embed, there is no transcript panel: always docked.)
     const phone = window.matchMedia("(max-width: 640px)").matches && !document.documentElement.classList.contains("embed");
     bubbleInPanel = !(anchor && capEl && capEl.contains(anchor));
-    // (unknown: the popup's ? for a word, lexicon/seen.js.)
-    const opts = { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null };
+    const opts = { saved: savedHere.has(savedKey(i, j)) };
     if (where) {
       Object.assign(opts, where);
     } else if (embed && !bubbleInPanel && !phone) {
@@ -1374,7 +1377,7 @@ export async function render(view, { id, query }) {
   window.addEventListener("resize", onResize);
   const onOutside = (e) => {
     if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest("#ctxmenu")
-        && !e.target.closest("#screen")) bubble.hide();
+        && !e.target.closest("#screen") && !e.target.closest(".modal-back")) bubble.hide();  // (.modal-back: a box it opened)
   };
   document.addEventListener("pointerdown", onOutside);
 

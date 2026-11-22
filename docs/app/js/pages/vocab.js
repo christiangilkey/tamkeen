@@ -154,9 +154,12 @@ export async function render(view) {
     to: prefs.to || "",
     q: "",
     filters: [],  // what the search box asks besides words: folder:, is:, added:… (review/vocabsearch.js)
+    // Only the words marked important (the ! beside the folder button; the owner, 2026-11-21: "the vocab tab will allow
+    // you to also filter by important words"). With the folder choice too: the important words of that folder.
+    important: prefs.important === true,
   };
   const savePrefs = () => lsSet("vocabView", { folder: st.folder, sort: st.sort, dateField: st.dateField,
-                                               range: st.range, from: st.from, to: st.to });
+                                               range: st.range, from: st.from, to: st.to, important: st.important });
 
   // The owner's layout (2026-10-16): the Review block first and bold, so the day's task is the first
   // thing seen; then search and the list's header; each word a short card that opens on a tap; the less
@@ -191,6 +194,7 @@ export async function render(view) {
       <button type="button" class="vocab-folder" id="folder-pick" aria-haspopup="dialog" title="Choose a folder">
         ${icon("folder", 18)}<span class="vf-name"></span><span class="vf-n"></span><span class="vf-caret" aria-hidden="true">${icon("chevron", 16)}</span>
       </button>
+      <button type="button" class="vocab-tool vocab-imp" id="imp-only" aria-pressed="false" title="Show only the words marked important" aria-label="Important words only">${icon("important", 20)}</button>
       <button type="button" class="vocab-tool" id="sort-pick" aria-haspopup="dialog" title="Sort and filter" aria-label="Sort and filter">${vocabIcon("filter", 20)}<i class="vt-dot" hidden></i></button>
       <button type="button" class="vocab-tool" id="select-mode" title="Select words" aria-label="Select words" aria-pressed="false">${vocabIcon("select", 20)}</button>
     </div>
@@ -353,9 +357,7 @@ export async function render(view) {
         r.append(h(`<span class="vf-gap" aria-hidden="true"></span>`));  // (the counts in one column with the folders')
         box.append(r);
       };
-      row("", "All words", false);
-      row("none", "Not in a folder", false);
-      for (const f of folders) row(f.uid, f.name, true);
+      // (New folder at the top, the owner 2026-11-21: "the create new folder button should be at the top")
       const add = h(`<button type="button" class="vf-new">${icon("plus", 18)}<span>New folder</span></button>`);
       add.onclick = async () => {
         const f = await newFolder();
@@ -364,6 +366,9 @@ export async function render(view) {
         chooseFolder(f.uid);
       };
       box.append(add);
+      row("", "All words", false);
+      row("none", "Not in a folder", false);
+      for (const f of folders) row(f.uid, f.name, true);
       const hint = h(`<p class="vf-hint muted">Tap one to show it. Tick several to show their words together.</p>`);
       m.body.replaceChildren(hint, box);
       if (focusKey) [...box.querySelectorAll(".vf-row")].find((x) => x.dataset.key === focusKey)?.querySelector(".vf-tick")?.focus({ preventScroll: true });
@@ -383,7 +388,7 @@ export async function render(view) {
       return { label: `${inAll ? "☑" : "☐"} ${f.name}`, run: () => applyFolder(items, f.uid, !inAll) };
     });
     if (mode !== "remove") {
-      entries.push({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) applyFolder(items, f.uid, true); } });
+      entries.unshift({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) applyFolder(items, f.uid, true); } });  // (at the top)
     }
     if (!entries.length) { toast("These words aren't in any folder."); return; }
     showMenu(x, y, items.length === 1 ? items[0].text : `${items.length} words`, entries);
@@ -583,6 +588,7 @@ export async function render(view) {
     function drawClosed() {
       const lang = langAttrs(detectLanguage(v.sentence || v.text));
       el.querySelector(".vi-imp").hidden = !v.important;  // (the flag beside the arrow: marked important)
+      el.classList.toggle("vi-important", !!v.important);  // (and the word in yellow: the owner, 2026-11-21)
       main.innerHTML = `<div class="word" ${lang}></div>
         <div class="vi-meaning" translate="no"></div>
         ${v.sentence ? `<div class="sentence" ${lang}>${highlight(cardSentence(v.sentence, v.text), v.text)}</div>` : ""}
@@ -704,6 +710,7 @@ export async function render(view) {
   function visible() {
     let items = all;
     if (st.folder) items = items.filter((v) => inPicks(v, st.folder));  // (one folder, or several: folderpicks.js)
+    if (st.important) items = items.filter((v) => v.important);  // (the ! beside the folder button)
     const [from, to] = rangeBounds(st.range, st.from, st.to);
     if (st.dateField === "reviewed" || st.dateField === "learned") {
       // (answered, or first remembered, in that time: from the answer log)
@@ -873,7 +880,9 @@ export async function render(view) {
     $("#count").textContent = `${items.length}${filtered ? ` of ${all.length}` : ""} item${items.length === 1 ? "" : "s"}`;
     list.innerHTML = "";
     if (!items.length) {
-      list.append(h(`<div class="empty">${all.length ? "No words match these filters." : st.q ? "No matches." : `No saved words yet.<p class="small">${TIP}</p>`}</div>`));
+      list.append(h(`<div class="empty">${st.important && all.length && !all.some((v) => v.important)
+        ? "No words are marked important yet. Tap the ! in a word's popup, or Important among a word's tools."
+        : all.length ? "No words match these filters." : st.q ? "No matches." : `No saved words yet.<p class="small">${TIP}</p>`}</div>`));
     }
     drawRows(items);
     if (!open) openId = null;  // (no longer listed: it stays closed)
@@ -911,6 +920,13 @@ export async function render(view) {
   // The controller's shoulder buttons (padscreens.js): the folder before or after the one on show.
   $("#folder-pick").addEventListener("folderstep", (e) => chooseFolder(stepFolder(st.folder, folders, e.detail)));
   $("#sort-pick").onclick = sortSheet;
+  const paintImportant = () => {
+    const b = $("#imp-only");
+    b.setAttribute("aria-pressed", String(st.important));
+    b.classList.toggle("on", st.important);
+  };
+  $("#imp-only").onclick = () => { st.important = !st.important; savePrefs(); paintImportant(); renderAll(); };
+  paintImportant();
   $("#select-mode").onclick = () => setSelecting(!selecting);
   $("#bulk-done").onclick = () => setSelecting(false);
   $("#bulk-add").onclick = (e) => folderMenu(...below(e), pickedItems(), "add");

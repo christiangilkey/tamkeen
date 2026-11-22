@@ -11,7 +11,7 @@
 // (./chinese.js) by its simplified spelling (學習 -> 学习), once their dictionaries are here.
 // No screen or network code here.
 
-import { analyzeArabic } from "./arabic.js";
+import { analyzeArabic, textDialect } from "./arabic.js";
 import { LemmaTable, ROMANCE, romanceLexeme } from "./romance.js";
 import { russianLexeme } from "./russian.js";
 import { analyzeEnglish } from "./english.js";
@@ -44,8 +44,8 @@ export function surfaceLexeme(token, lang) {
  * One entry per token: {key, lemma, pos, root}, or null for something that isn't a word.
  * Returns null altogether when the language needs dictionaries and none are loaded.
  */
-export function lexemesFor(tokens, lang, dicts = null) {
-  if (needsDictionaries(lang)) return dicts && dicts.length ? analyzeArabic(tokens, dicts) : null;
+export function lexemesFor(tokens, lang, dicts = null, { dialect = null } = {}) {
+  if (needsDictionaries(lang)) return dicts && dicts.length ? analyzeArabic(tokens, dicts, dialect) : null;
   const table = (dicts || []).find((d) => d instanceof LemmaTable) || null;
   if (ROMANCE.has(lang)) return tokens.map((t) => romanceLexeme(t, lang, table));
   if (lang === "ru") return tokens.map((t) => russianLexeme(t, table));
@@ -66,6 +66,31 @@ export function lexemesFor(tokens, lang, dicts = null) {
   }
   return tokens.map((t) => surfaceLexeme(t, lang));
 }
+
+// A sentence ends here: a text read a piece at a time is cut after one of these (nothing carries over them).
+const SENTENCE_END = /[.!?؟。！？…]["'»”)\]]*$/;
+
+/**
+ * A long text split into pieces of about `size` words, each ending at the end of a sentence where there is one
+ * within twice that, in the order they are worked on: the piece holding word `start` (what is on screen), then
+ * the ones after it, then the ones before. [[a, b], ...], b exclusive.
+ */
+export function pieceRanges(tokens, start = 0, size = 600) {
+  const n = tokens.length;
+  const ranges = [];
+  for (let a = 0; a < n;) {
+    let b = Math.min(n, a + size);
+    while (b < n && b < a + 2 * size && !SENTENCE_END.test(String(tokens[b - 1]))) b++;
+    ranges.push([a, b]);
+    a = b;
+  }
+  const at = Math.max(0, ranges.findIndex(([a, b]) => start >= a && start < b));
+  return [...ranges.slice(at), ...ranges.slice(0, at)];
+}
+
+/** What a text read a piece at a time needs to read like the whole: Arabic's dialect, worked out once. */
+export const wholeTextOptions = (tokens, lang, dicts) =>
+  (needsDictionaries(lang) && dicts && dicts.length ? { dialect: textDialect(tokens, dicts) } : {});
 
 /** The lexeme of one word on its own (a word in a list, not in a sentence). Arabic reads running
  * text with an eye on the neighbouring words, so list words must come through here one at a time. */

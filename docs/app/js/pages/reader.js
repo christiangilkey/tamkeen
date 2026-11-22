@@ -228,7 +228,7 @@ export async function render(view, { id, data, query }) {
     target = { i, j, si: c.si, sj: c.sj, text: c.word };
     buzz("tick");
     mark(i, j);
-    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j ? seen.unknownButton(i) : null });
+    bubble.show(wordEls[i], c.ctx, { saved: savedHere.has(savedKey(i, j)) });
     reward({ type: "word", key: `${lang}:${c.word.toLowerCase()}` }, wordEls[i]);
     seen.markSeen(i, j); // looked up: this word, in all its forms, is no longer new
   }
@@ -314,7 +314,8 @@ export async function render(view, { id, data, query }) {
   window.addEventListener("resize", onResize);
   const closeBubble = () => { bubble.hide(); mark(null); };
   const onOutside = (e) => {
-    if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest("#ctxmenu")) closeBubble();
+    if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest("#ctxmenu")
+        && !e.target.closest(".modal-back")) closeBubble();  // (.modal-back: a box the popup opened, its folder menu)
   };
   document.addEventListener("pointerdown", onOutside);
   const onKey = (e) => { if (e.key === "Escape" && bubble.open) closeBubble(); };

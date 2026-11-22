@@ -201,6 +201,9 @@ export function dialectOf(forms, dicts) {
   return best && hits[best] >= Math.max(1, total * 0.01) ? best : "";
 }
 
+/** The dialect of a whole text (its words as shown), for reading it a piece at a time. */
+export const textDialect = (tokens, dicts) => dialectOf(tokens.map((tok) => { const c = arabicCore(tok); return c ? matchForm(c) : ""; }), dicts);
+
 function readingsOf(form, dicts, cache) {
   let all = cache.get(form);
   if (!all) {
@@ -258,11 +261,12 @@ export function fallbackStem(form) {
  * fine); `dicts` the loaded dictionaries, Standard Arabic first.
  * Returns one entry per token: {key, lemma, pos, root} or null (not an Arabic word).
  */
-export function analyzeArabic(tokens, dicts) {
+export function analyzeArabic(tokens, dicts, dialect = null) {
   const cache = new Map();
   const cores = tokens.map(arabicCore);
   const forms = cores.map((c) => (c ? matchForm(c) : ""));
-  const active = dialectOf(forms, dicts);
+  // (`dialect`: the whole text's, when it is read a piece at a time: seen.js)
+  const active = dialect === null ? dialectOf(forms, dicts) : dialect;
   const out = [];
   let prev = null;
   for (let i = 0; i < tokens.length; i++) {

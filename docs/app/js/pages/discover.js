@@ -5,7 +5,7 @@ import { api, appleJson, esc, h, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { t, uiLanguage } from "../i18n.js";
 import { langInfo, studyLanguage } from "../languages.js";
-import { COUNTRY_NAMES, STOREFRONTS, feedKey, fetchTrending, groupByCategory, hasPicks } from "../trending.js";
+import { COUNTRY_NAMES, STOREFRONTS, feedAddress, feedKey, fetchTrending, groupByCategory, hasPicks, searchPodcasts } from "../trending.js";
 import { pageGuide } from "../components/tour.js";
 
 const PREVIEW = 6; // podcasts shown per category until one category is chosen
@@ -37,10 +37,11 @@ export async function render(view, { query }) {
         </div>
         <button type="button" class="ghost" id="disc-refresh" title="Load the list again">⟳ Refresh</button>
       </div>
-      <form class="aw-form disc-rss">
-        <input type="url" placeholder="Or paste a podcast's RSS feed address" required autocomplete="off" aria-label="Podcast RSS feed address">
-        <button type="submit">Add podcast</button>
+      <form class="aw-form disc-rss" role="search">
+        <input type="search" enterkeyhint="search" placeholder="Search for a podcast by name, or paste its feed address" required autocomplete="off" dir="auto" aria-label="Podcast name or RSS feed address">
+        <button type="submit">Search</button>
       </form>
+      <section class="disc-found" id="disc-found" hidden></section>
       <div class="tabs disc-cats" id="disc-cats"></div>
       <div id="disc-body"><div class="empty"><span class="spinner"></span> Loading trending podcasts…</div></div>
       <p class="small muted disc-credit">${hasPicks(lang) ? "Ratings from <strong>Spotify</strong> and <strong>Apple Podcasts</strong>." : "Charts from <strong>Apple Podcasts</strong>."}</p>
@@ -51,22 +52,71 @@ export async function render(view, { query }) {
     { target: "#disc-body", title: "Trending podcasts", text: "The most listened-to podcasts in the language you're learning. Press + Add to put one in your library." },
     { target: "#disc-refresh", title: "Refresh", text: "Load the list again." },
   ]); // the "?" in the top bar
-  // A podcast that isn't trending: its feed address (the Library's + → Podcast opens this page).
+  // A podcast that isn't trending (the Library's + → Podcast opens this page): its feed address, added at once,
+  // or its name, searched for in Apple's podcast directory (the owner, 2026-11-21); a show found is added the same way.
   const rss = $(".disc-rss");
+  const box = rss.querySelector("input");
+  const go = rss.querySelector("button");
+  const found = $("#disc-found");
+  let asked = 0; // (only the last search's answer is shown)
+  box.addEventListener("input", () => {
+    go.textContent = feedAddress(box.value) ? "Add podcast" : "Search";
+    if (!box.value.trim()) { asked += 1; found.hidden = true; found.innerHTML = ""; }
+  });
   rss.onsubmit = async (e) => {
     e.preventDefault();
-    const button = rss.querySelector("button");
-    button.disabled = true;
+    const text = box.value.trim();
+    if (!text) return;
+    const address = feedAddress(text);
+    if (address) {
+      go.disabled = true;
+      try {
+        const feed = await api("/feeds", { method: "POST", body: { url: address } });
+        toast(`Subscribed to ${feed.title}`);
+        location.hash = `#/feed/${feed.id}`;
+      } catch (err) {
+        toast(err.message, { error: true });
+      } finally {
+        go.disabled = false;
+      }
+      return;
+    }
+    const n = ++asked;
+    found.hidden = false;
+    found.innerHTML = "";
+    found.append(h(`<div class="empty"><span class="spinner"></span> Searching…</div>`));
     try {
-      const feed = await api("/feeds", { method: "POST", body: { url: rss.querySelector("input").value } });
-      toast(`Subscribed to ${feed.title}`);
-      location.hash = `#/feed/${feed.id}`;
+      const shows = await searchPodcasts(text, lang, appleJson);
+      if (n === asked) showFound(text, shows);
     } catch (err) {
-      toast(err.message, { error: true });
-    } finally {
-      button.disabled = false;
+      if (n === asked) foundMessage(err.message);
     }
   };
+
+  function foundHead(text) {
+    const head = h(`<div class="disc-found-head"><h2 dir="auto"></h2>
+      <button type="button" class="ghost disc-found-close" title="Close the results" aria-label="Close the results">${icon("close", 18)}</button></div>`);
+    head.querySelector("h2").textContent = text;
+    head.querySelector("button").onclick = () => { asked += 1; found.hidden = true; found.innerHTML = ""; box.focus(); };
+    return head;
+  }
+  function foundMessage(text) {
+    found.innerHTML = "";
+    const p = h(`<p class="muted disc-found-none" dir="auto"></p>`);
+    p.textContent = text;
+    found.append(foundHead(t("Search")), p);
+  }
+  function showFound(term, shows) {
+    if (!shows.length) {
+      foundMessage(t("No podcast called “{0}” was found. Check the spelling, or paste the podcast's feed address.", term));
+      return;
+    }
+    found.innerHTML = "";
+    const grid = h(`<div class="disc-grid"></div>`);
+    for (const feed of shows) grid.append(card(feed));
+    found.append(foundHead(t("Results for “{0}”", term)), grid,
+      h(`<p class="small muted disc-found-credit">From the <strong>Apple Podcasts</strong> directory.</p>`));
+  }
   const body = $("#disc-body");
   const chips = $("#disc-cats");
   let groups = [];
@@ -105,7 +155,7 @@ export async function render(view, { query }) {
     b.textContent = have ? "✓ Added" : adding.has(key) ? "Adding…" : "+ Add";
   }
   // One podcast can sit under several categories: repaint every card of it.
-  const repaint = (key) => body.querySelectorAll(".disc-card").forEach((el) => { if (el.dataset.key === key) paint(el); });
+  const repaint = (key) => view.querySelectorAll(".disc-card").forEach((el) => { if (el.dataset.key === key) paint(el); });
 
   async function add(feed) {
     const key = feedKey(feed.url);
@@ -176,7 +226,7 @@ export async function render(view, { query }) {
       mine.clear();
       for (const f of feeds) mine.add(feedKey(f.url));
       groups = groupByCategory(trending);
-      if (!groups.length) message(`Nothing trending in ${name} right now`, "The charts had no podcasts in this language just now. Try again later, or paste a podcast's RSS address in the Library.");
+      if (!groups.length) message(`Nothing trending in ${name} right now`, "The charts had no podcasts in this language just now. Try again later, or search for a podcast by name above.");
       else show();
     } catch (e) {
       message("Trending podcasts couldn't be loaded", e.message);

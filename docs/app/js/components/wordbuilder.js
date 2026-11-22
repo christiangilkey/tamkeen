@@ -51,7 +51,7 @@ import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, star
 import { scanPanel } from "./wordscan.js";
 import { offerFix } from "./fixit.js";
 import { appSound } from "../appvolume.js";
-import { aiSenses, dictionarySenses, distinctSenses } from "../senses.js";
+import { aiSenses, dictionarySenses, distinctSenses, plainMeaning } from "../senses.js";
 import { chooseSenses } from "./sensechoice.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
@@ -246,9 +246,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     }
     const select = $(".cb-folder");
     select.innerHTML = "";
+    select.append(new Option(t("New folder…"), "+new"));  // (at the top, as in every folder list)
     select.append(new Option(t("No folder"), ""));
     for (const f of folderList) select.append(new Option(f.name, f.uid));
-    select.append(new Option(t("New folder…"), "+new"));
     select.value = choices.folder || "";
     for (const r of rows) paintRow(r);
     countUp();
@@ -676,7 +676,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         paintStatus(row);
       } catch (err) { go.disabled = false; toast(err.message, { error: true }); }
     };
-    m.body.append(where, ask, list, neu, buttons);
+    m.body.append(where, ask, neu, list, buttons);  // (New folder above the folders, as in every folder list)
   }
 
   /** The cards that would be added now, and the button that adds them. */
@@ -1257,7 +1257,12 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           asking.forEach((r, i) => {
             r.senseChosen = true;
             const meaning = String(picked[i] || "").trim();
+            // (the sense's fuller wording, its notes in brackets, goes in the card's notes: the meaning stays short)
+            const gloss = String((picked.glosses && picked.glosses[i]) || "").trim();
+            if (gloss && !String(r.notes || "").includes(gloss)) r.notes = [String(r.notes || "").trim(), gloss].filter(Boolean).join(" · ");
             if (!meaning || meaning === r.meaning.value.trim()) return;
+            // (the same sense, only its short form: the sentence and the rest were made for it, so they stay)
+            if (meaning === plainMeaning(r.meaning.value)) { r.meaning = typed(meaning); paintRow(r); return; }
             r.meaning = typed(meaning);
             for (const f of ["sentence", "translation", "memo"]) if (r[f].auto) r[f] = filled("");
             redo.push(r);

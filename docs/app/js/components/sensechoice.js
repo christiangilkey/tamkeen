@@ -8,7 +8,7 @@ import { icon } from "../icons.js";
 import { t } from "../i18n.js";
 import { langAttrs } from "../languages.js";
 import { openModal } from "./modal.js";
-import { meaningFor, showPos } from "../senses.js";
+import { glossFor, meaningFor, showPos } from "../senses.js";
 
 // (each written out in t() so the translation tools find it)
 const posWord = (pos) => ({ noun: t("Noun"), verb: t("Verb"), adj: t("Adjective"), adv: t("Adverb"), pron: t("Pronoun"),
@@ -79,6 +79,8 @@ export function chooseSenses(items, { lang = "" } = {}) {
     body.querySelector(".sc-ok").onclick = () => {
       // (their own meaning left empty: the everyday one, as before)
       const out = items.map((it, i) => meaningFor(it.senses, choice[i], own[i]) || meaningFor(it.senses, "0"));
+      // (each choice's fuller wording, where the short meaning left its notes out: for the card's notes)
+      out.glosses = items.map((it, i) => (choice[i] === "own" || choice[i] === "all" ? "" : glossFor(it.senses, meaningFor(it.senses, choice[i], own[i]) ? choice[i] : "0")));
       finish(out);
       sheet.close();
     };

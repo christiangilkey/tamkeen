@@ -45,7 +45,9 @@ export function openModal({ title = "", canClose = true, wide = false, onClose, 
   wrap.addEventListener("click", (e) => {
     if (canClose && (e.target === wrap || e.target.closest("[data-close]"))) tryClose();
   });
-  document.body.append(wrap);
+  // (a video shown full screen hides everything else: the box goes inside it, so Save's "Which folder?" shows there)
+  const full = document.fullscreenElement;
+  (full && full !== document.documentElement && full.tagName !== "VIDEO" ? full : document.body).append(wrap);
   return { el: wrap, body: wrap.querySelector(".modal-body"), close, setTitle: (t) => { heading.textContent = t; } };
 }
 

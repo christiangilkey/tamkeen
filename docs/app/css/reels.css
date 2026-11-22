@@ -165,6 +165,11 @@
 .reel-pop .wb-actions .wb-label { display: none; }
 .reel-pop .wb-actions button:has(.wb-label) { min-width: 36px; }
 .reel-pop .wb-actions button[data-act="save"] { flex: 1.6 1 auto; }
+.reel-pop .wb-actions button.wb-folder { flex: 1.2 1 0; max-width: 7.5em; }
+.reel-pop .wb-actions button.wb-folder:not(.set) { flex: 1 1 0; min-width: 36px; }
+.reel-pop .wb-actions .wb-fnone { display: none; }
+.reel-pop .wb-actions:has(.wb-folder.set) button[data-act="save"] { flex: 1.1 1 auto; }  /* (a folder's name needs the room more than Save) */
+.reel-pop .wb-actions button.wb-folder.set { flex: 1.7 1 0; max-width: 9em; gap: 4px; }
 /* The controls: always on screen at the very bottom, also while a word's popup is open. Two
    lines: the slider with its two times, and under it the buttons. Back 5 s, play and forward 5 s
    sit exactly in the middle of the bar whatever is at the two ends (equal side columns). */

@@ -478,6 +478,15 @@ label.check input { margin-top: 3px; }
 .lib-filter .n { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 99px;
   background: var(--accent); color: var(--bg); font-size: 12px; }
 .lib-filter .n[hidden] { display: none; }
+/* The chips under a tab's heading (Listened to / Not listened to, Transcribed / Not transcribed, each with All): the
+   Filter popup's commonest choices in one tap, looking like the pills that were there. A group that is too wide for a
+   phone scrolls sideways; the two groups wrap onto two lines. */
+.lib-chips { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: -4px 0 12px; }
+.lib-chips[hidden] { display: none; }
+.lc-group { display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+.lc-chip { flex: none; border-radius: 99px; font-size: 13px; padding: 4px 12px; min-height: 30px; white-space: nowrap; }
+.lc-chip.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+.lc-chip .n { opacity: .7; font-size: 12px; }
 .lib-filter.on { color: var(--accent); border-color: var(--accent); }
 .lf h3 { margin: 14px 0 6px; font-size: 13px; font-weight: 600; color: var(--muted); text-transform: none; }
 .lf h3:first-child { margin-top: 0; }
@@ -668,6 +677,20 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
   .word-bubble:not(.sheet) > .wb-actions > .wb-close-end { display: inline-flex; }
 }
 .wb-meaning { font-size: 18px; font-weight: 600; margin: 2px 0 4px; }
+/* The meaning bubbles (wordbubble.js meaningRow): beside the definition (its left in a right-to-left page, as the
+   flex row turns round), under it when there's no room (a phone's sheet always). A tap picks the meaning Save keeps. */
+.wb-meaning-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 12px; }
+.wb-meaning-row > .wb-meaning { flex: 0 1 auto; min-width: 0; }  /* (a long one takes the whole line, the bubbles under it) */
+.wb-senses { flex: 1 1 10em; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 2px 0 4px; }
+.word-bubble.sheet .wb-senses { flex-basis: 100%; justify-content: flex-start; }
+/* (the popup itself stays left to right, its definitions being English; in a right-to-left app the bubbles still go to
+   the definition's left, the reading side's far end) */
+html[dir="rtl"] .wb-meaning-row { flex-direction: row-reverse; }
+html[dir="rtl"] .word-bubble.sheet .wb-senses { justify-content: flex-end; }  /* (under it on a phone: from the right) */
+.wb-senses .wb-sense { min-height: 30px; padding: 3px 11px; border-radius: 99px; font-size: 13px; font-weight: 500; white-space: normal;
+  text-align: start; line-height: 1.25; max-width: 100%; overflow-wrap: anywhere; }
+.wb-senses .wb-sense.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, #fff); }
+.wb-sense-pos { font-size: 11px; opacity: .75; }
 .wb-expl { color: var(--muted); margin: 0 0 8px; }
 .wb-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }
@@ -1993,15 +2016,14 @@ button.big, .btn.big { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 .transcript .w, .reader-text .w, .captions .w { transition: background-color .08s, color .35s; }
 /* Unknown words: marked with the popup's ? (lexicon/seen.js), in the owner's amber #FFBC0A. On a light
    page that is too pale to read as text, so it is the same hue made deeper there, as the purple is. */
-:root { --unknown-word: #a36f00; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --unknown-word: #ffbc0a; } }
-:root[data-theme="dark"] { --unknown-word: #ffbc0a; }
-.transcript .w.unknown, .reader-text .w.unknown, .phrase-root .w.phr.unknown { color: var(--unknown-word); }
-.captions .w.unknown, .cap .w.unknown, .reel-words .w.unknown { color: #ffbc0a; } /* (always on dark) */
-.transcript .w.unknown.cur, .reader-text .w.unknown.cur, .captions .w.unknown.cur, .reel-words .w.unknown.cur { color: var(--hl-ink); }
+/* Important (the word popup's !, a word's tools, the Vocab page): yellow, readable on both themes (about 5:1 on white in
+   light, 12:1 on the dark surface). It took the place of the retired "Not known yet" amber, 2026-11-21. */
+:root { --important-word: #8a6500; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --important-word: #ffd43b; } }
+:root[data-theme="dark"] { --important-word: #ffd43b; }
 /* The popup's ? while pressed: the same amber, like the word behind it. */
-.wb-actions button.wb-unknown.on { color: var(--unknown-word); border-color: var(--unknown-word); }
-.wb-actions button.wb-unknown.on .ic .solid { fill: var(--unknown-word); }
+.wb-actions button.wb-important.on { color: var(--important-word); border-color: var(--important-word); }
+.wb-actions button.wb-important.on .ic .solid { fill: var(--important-word); }
 /* Several words looked up together (components/phrasepick.js): while a finger or the mouse drags
    over them, one soft band of the brand teal runs across the words and the spaces between them
    (each word reaches into the space beside it; the layout doesn't move). Plain and solid, no shadow. */
@@ -2291,6 +2313,27 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .sc-own { width: 100%; }
 .sc-foot { display: flex; justify-content: center; }
 .sc-ok { min-width: 200px; }
+/* The word popup's folder button and its menu (components/savefolder.js): New folder first, then Not in a folder and
+   the folders, each a big row, the chosen one ticked; a tap picks. */
+.sf-box { max-width: 440px; }
+.sf { display: flex; flex-direction: column; gap: 10px; }
+.sf-word { font-size: 24px; font-weight: 700; line-height: 1.3; text-align: center; overflow-wrap: anywhere; }
+.sf-word[lang="ar"], .sf-word[lang="fa"] { font-family: var(--ar-font); font-weight: 600; }
+.sf-lead { margin: 0; text-align: center; }
+.sf-new, .sf-opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 52px; padding: 10px 16px; border-radius: 12px;
+  text-align: start; justify-content: flex-start; white-space: normal; }
+.sf-new { border: 0; background: var(--surface-2); color: var(--accent); font-size: 16px; font-weight: 650; }
+.sf-list { display: flex; flex-direction: column; gap: 6px; }
+.sf-opt { border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 16px; font-weight: 500; cursor: pointer; }
+.sf-opt.on { border-color: var(--accent); background: var(--accent-soft); }
+.sf-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.sf-tick { flex: none; display: grid; place-items: center; width: 22px; color: var(--accent); }
+.sf-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+/* The folder button beside Save: the folder's name, cut short. */
+.wb-actions button.wb-folder { gap: 5px; max-width: 13em; }
+.wb-folder .wb-fname { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wb-folder .wb-fnone { color: var(--muted); }
+.wb-folder.set { color: var(--accent); border-color: var(--accent); }
 .vocab-page .vocab-item.vi-new { animation: vi-new 2.6s ease-out; }
 @keyframes vi-new { from { background: var(--accent-soft); border-color: var(--accent); } to { background: var(--surface); } }
 @media (prefers-reduced-motion: reduce) { .vocab-page .vocab-item.vi-new { animation: none; border-color: var(--accent); } }
@@ -3195,9 +3238,12 @@ button.gs-row:hover:not(:disabled) { background: var(--surface); filter: brightn
 .vi-tool[aria-pressed="true"], .vi-tool[aria-pressed="true"]:hover:not(:disabled) { background: var(--accent-soft); color: var(--accent); }
 .vi-tool[aria-pressed="true"] .ic .fill { opacity: .3; }
 /* A word marked important (pages/vocab.js, components/wordtools.js): a flag in the warning colour, filled when on. */
-.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--warn); }
+.vi-tool[data-tool="important"][aria-pressed="true"], #bulk-important[aria-pressed="true"] { color: var(--important-word); }
 .vi-tool[data-tool="important"][aria-pressed="true"] .ic .fill, #bulk-important[aria-pressed="true"] .ic .fill { opacity: 1; }
-.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--warn); }
+.vi-imp { flex: none; align-self: center; display: inline-flex; color: var(--important-word); }
+.vocab-item.vi-important .word { color: var(--important-word); }  /* (the word itself in yellow, the owner 2026-11-21) */
+.vocab-imp.on { color: var(--important-word); background: color-mix(in srgb, var(--important-word) 18%, var(--surface-2)); }  /* (Important words only, on) */
+.vocab-imp.on .ic .solid { fill: var(--important-word); }
 .vi-imp[hidden] { display: none; }
 .vi-imp .ic .fill { opacity: 1; }
 .vi-tool-danger { color: var(--danger); }
@@ -3254,7 +3300,7 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .vf-gap { flex: none; width: 44px; }
 .vf-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; padding: 2px 0 8px; }
 .vf-acts .vi-btn { min-width: 0; min-height: 44px; padding: 4px 8px; font-size: 13.5px; line-height: 1.2; white-space: normal; }
-.vf-new { gap: 8px; min-height: 46px; margin-top: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
+.vf-new { gap: 8px; min-height: 46px; margin-bottom: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
 .vf-new:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
 /* The sort and filter sheet: centred choices, the chosen one in teal; a tap changes the list behind at once. */
 .vs { display: flex; flex-direction: column; gap: 18px; }
@@ -3647,7 +3693,6 @@ button.fr-boss:focus-visible { outline: 2px solid var(--accent); outline-offset:
 .library.converse-kind .lib-courses, .library:not(.converse-kind) .lib-converse { display: none; }
 .library.lessons-kind .lib-courses, .library:not(.lessons-kind) .lib-lessons { display: none; }
 .cv { position: relative; max-width: 760px; margin: 0 auto; }
-.cv-lead { color: var(--muted); text-align: center; margin: 6px auto 14px; max-width: 52ch; font-size: 15px; }
 /* A Library tab that needs a key not added yet (library.js keyNote, conversepanel.js; the owner, 2026-11-16):
    a small note in the brand's purple, the same in both themes, with a button to the setting. */
 .key-note { display: flex; align-items: center; gap: 12px; padding: 10px 14px; margin: 0 0 12px; border-radius: var(--radius);

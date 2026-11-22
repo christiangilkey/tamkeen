@@ -514,6 +514,11 @@ function folderList(language) {
   return liveFolders().filter((f) => folderShows(f, lang));
 }
 const liveFolders = () => (lib.folders || []).filter((f) => !f.deleted).sort((a, b) => a.name.localeCompare(b.name));
+/** The folders a new card was given that are real folders, once each, sorted. */
+const savedFolders = (list) => {
+  const known = new Set(liveFolders().map((f) => f.uid));
+  return [...new Set((Array.isArray(list) ? list : []).filter((f) => known.has(f)))].sort();
+};
 
 async function loadTranscript(uid) {
   let t = await transcripts.get(uid);
@@ -958,7 +963,9 @@ const routes = [
                   : (isLanguage(detectLanguage(text, studyLanguage())) ? detectLanguage(text, studyLanguage()) : studyLanguage()),
                 // Where a word without an episode came from, as given (shown on the Vocab page).
                 episode_title: e ? e.title : String(body.source || "").replace(/\s+/g, " ").trim().slice(0, 300),
-                folders: [], deleted: 0, created_at: t, updated_at: t };
+                // The folders it goes in (the word popup's Save asks which: web/js/components/savefolder.js).
+                folders: savedFolders(body.folders), ...(body.important ? { important: 1 } : {}),  // (the word popup's !)
+                deleted: 0, created_at: t, updated_at: t };
     lib.vocab.push(v);
     changed();
     return vocabOut(v);

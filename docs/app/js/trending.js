@@ -412,3 +412,70 @@ export function groupByCategory(feeds) {
     .map(([name, list]) => ({ name, feeds: list }))
     .sort((a, b) => (a.name === OTHER) - (b.name === OTHER) || b.feeds.length - a.feeds.length || a.name.localeCompare(b.name));
 }
+
+// ---------- searching Apple's podcast directory by name ----------
+// The box at the top of Trending takes a podcast's name as well as its feed address (the owner, 2026-11-21). A
+// name is looked up with Apple's public Search API (no account or key; about 20 searches a minute are allowed, and
+// the screen searches only when asked). Its answers carry each show's feed address, so a found show is added
+// exactly as a pasted feed is.
+
+const SEARCH_SIZE = 25;
+export const searchUrl = (country, term, limit = SEARCH_SIZE) =>
+  `https://itunes.apple.com/search?media=podcast&entity=podcast&term=${encodeURIComponent(term)}&country=${country}&limit=${limit}`;
+
+// (a name with a dot in it, "Dr.Death", is still a name: only these endings make it an address without https://)
+const ADDRESS_ENDINGS = /\.(?:com|net|org|fm|io|co|me|app|xyz|info|tv|audio|show|link|uk|de|fr|es|it|br|jp|ru|sa|eg|ae|ma|in|kr|ph|cn|tw|ca|au|ch|be|at|mx|ar)$/i;
+/** What was typed in the box, if it is a feed address ("https://…", "feed://…", "feeds.example.com/rss"); else "". */
+export function feedAddress(text) {
+  const s = String(text || "").trim();
+  if (!s || /\s/.test(s)) return "";
+  if (/^https?:\/\//i.test(s)) return s;
+  if (/^(?:feed|podcast|pcast|itpc):\/\//i.test(s)) return s.replace(/^[a-z]+:\/\/(?:(https?):\/\/)?/i, (all, scheme) => `${scheme || "https"}://`);
+  const m = s.match(/^([a-z0-9-]+(?:\.[a-z0-9-]+)+)(?::\d+)?(\/\S*)?$/i);
+  if (m && (m[2] || ADDRESS_ENDINGS.test(m[1]))) return `https://${s}`;
+  return "";
+}
+
+/** One Search API answer → [{id, url, title, author, description, image, category}], Apple's best first. */
+export function parseSearch(data) {
+  const out = [];
+  for (const r of data && Array.isArray(data.results) ? data.results : []) {
+    const url = String((r && r.feedUrl) || "").trim();
+    const title = squeeze(r && (r.collectionName || r.trackName), 300);
+    if (!/^https?:\/\//i.test(url) || !title) continue;
+    const image = String(r.artworkUrl600 || r.artworkUrl100 || "");
+    out.push({ id: String(r.collectionId || ""), url, title, author: squeeze(r.artistName, 200), description: "",
+      image: image.startsWith("https://") ? image : null, category: squeeze(r.primaryGenreName, 60) });
+  }
+  return out;
+}
+
+const plain = (s) => String(s || "").normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+
+/**
+ * Podcasts whose name matches `term`. Asked of the store of the language's main country (Saudi Arabia for Arabic)
+ * and of the United States' (any show can still be found by name), merged. Shown first: a show whose name is
+ * exactly what was typed, then shows in the language being studied, then the rest, each in Apple's order.
+ * @param {(url: string) => Promise<object>} getJson fetches one itunes.apple.com address
+ */
+export async function searchPodcasts(term, lang, getJson) {
+  const q = squeeze(term, 200);
+  if (!q) return [];
+  const countries = [...new Set([(STOREFRONTS[lang] || ["us"])[0], "us"])];
+  const answers = await Promise.allSettled(countries.map((c) => getJson(searchUrl(c, q))));
+  if (answers.every((a) => a.status === "rejected")) throw answers[0].reason;
+  const seen = new Set();
+  const found = [];
+  for (const a of answers) {
+    if (a.status !== "fulfilled") continue;
+    for (const item of parseSearch(a.value)) {
+      const key = feedKey(item.url);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      found.push(item);
+    }
+  }
+  const wanted = plain(q);
+  const rank = (item) => (plain(item.title) === wanted ? 0 : 2) + (inLanguage(item, lang, true) ? 0 : 1);
+  return found.map((item, i) => ({ item, i, r: rank(item) })).sort((a, b) => a.r - b.r || a.i - b.i).map((x) => x.item);
+}

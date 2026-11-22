@@ -19,7 +19,7 @@ import { primeNote } from "../primevideo.js";
 import { feature } from "../prototype.js";
 
 const WAYS = [
-  { key: "podcast", label: "Podcast", icon: "podcast", text: "What's trending in your language, or paste a feed address", step: true },
+  { key: "podcast", label: "Podcast", icon: "podcast", text: "What's trending in your language, or search for a show by name or paste its feed address", step: true },
   { key: "youtube", label: "YouTube", icon: "video", text: "Pick a topic and watch with clickable captions", step: true },
   { key: "netflix", label: "Netflix", icon: "film", text: "Watch shows and films with their subtitles as words you can click", step: true },
   { key: "page", label: "Web page", icon: "page", text: "Import an article to read with clickable words", step: true },

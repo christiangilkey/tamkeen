@@ -761,7 +761,7 @@ async function renderPlayer(view, { query }) {
     target = { i, j, si, sj, text: word };
     buzz("tick");
     playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i, j, lang: cur.lang }));
-    bubble.show(where ? where.anchor : cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)), unknown: i === j && seen ? seen.unknownButton(i) : null,
+    bubble.show(where ? where.anchor : cur.els[i], ctx, { saved: savedHere.has(savedKey(i, j)),
       host: where ? where.host : $("#reel-pop") });
     if (where) { // (a phone's popup is a sheet: it stops just above the controls, media.css)
       const top = $("#reel-controls").getBoundingClientRect().top;
@@ -963,7 +963,8 @@ async function renderPlayer(view, { query }) {
   const menuWatch = new MutationObserver(onResize); // a menu opened or closed: see stageRect
   if (menu) menuWatch.observe(menu, { attributes: true, attributeFilter: ["hidden"] });
   const stopStudy = trackStudy("listen", () => playing || !!(dict && dict.active()), null, "watch");
-  const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w")) bubble.hide(); };
+  // (.modal-back: a box the popup opened, its folder menu or "Which meaning?")
+  const onOutside = (e) => { if (bubble.open && !e.target.closest(".word-bubble") && !e.target.closest(".w") && !e.target.closest(".modal-back")) bubble.hide(); };
   document.addEventListener("pointerdown", onOutside);
 
   // ----- game controller (gamepad.js; Settings → Controller) -----

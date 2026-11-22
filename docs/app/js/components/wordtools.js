@@ -397,6 +397,10 @@ export function wordTools(row, panel, v, opts) {
     const draw = () => {
       if (!stillOpen("folders")) return;
       box.innerHTML = "";
+      // (New folder first, as in every folder list)
+      const add = h(`<button type="button" class="folder-chip ghost">${icon("plus", 15)} <span>New folder</span></button>`);
+      add.onclick = async () => { const f = await newFolder(); if (f) await setFolder(v, f.uid, true); draw(); };
+      box.append(add);
       for (const f of folders()) {
         const on = (v.folders || []).includes(f.uid);
         const b = h(`<button type="button" class="folder-chip${on ? " active" : ""}" aria-pressed="${on}">${icon(on ? "check" : "folder", 15)} <span></span></button>`);
@@ -404,9 +408,6 @@ export function wordTools(row, panel, v, opts) {
         b.onclick = async () => { b.disabled = true; await setFolder(v, f.uid, !(v.folders || []).includes(f.uid)); draw(); };
         box.append(b);
       }
-      const add = h(`<button type="button" class="folder-chip ghost">${icon("plus", 15)} <span>New folder</span></button>`);
-      add.onclick = async () => { const f = await newFolder(); if (f) await setFolder(v, f.uid, true); draw(); };
-      box.append(add);
       onLayout();
     };
     draw();

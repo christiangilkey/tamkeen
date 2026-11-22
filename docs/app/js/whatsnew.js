@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.68.0",
+  "The word popup shows a word's meanings as bubbles, and Save keeps the one you pick");
+notes("0.68.0",
+  "A folder button beside Save chooses where the word goes");
+notes("0.68.0",
+  "Mark a word Important with the ! so it comes first in reviews");
+notes("0.68.0",
+  "Find a podcast by its name in Add, Podcast");
+notes("0.68.0",
+  "Library: one-tap buttons for listened or not, transcribed or not");
+notes("0.68.0",
+  "New words turn purple straight away, and covers no longer flicker");
 notes("0.67.0",
   "Prime Video with clickable subtitles, in the Tamkeen browser extension on a computer");
 notes("0.67.0",

@@ -269,6 +269,12 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .disc-head .meta { flex: 1; min-width: 0; }
 .disc-head h1 { margin: 0 0 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .disc-rss { margin: 4px 0 8px; }
+.disc-found { margin: 4px 0 18px; }
+.disc-found-head { display: flex; align-items: center; gap: 8px; margin: 6px 0 8px; }
+.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; overflow-wrap: anywhere; }
+.disc-found-close { flex: none; padding: 6px; }
+.disc-found-none { margin: 4px 0; }
+.disc-found-credit { margin: 8px 0 0; text-align: center; }
 .disc-cats { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
 .disc-cats button { flex: none; white-space: nowrap; }
 .disc-cat { margin-bottom: 22px; }
@@ -416,11 +422,16 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   .player .word-bubble.sheet > .wb-actions { flex-wrap: nowrap; gap: 4px; margin-top: 6px; padding-top: 8px; }
   .player .word-bubble.sheet > .wb-actions button { flex: 1 1 auto; min-width: 0; padding: 4px 6px; font-size: 12px; white-space: nowrap; }
   .player .word-bubble.sheet > .wb-actions button.icon { flex: none; min-width: 28px; }
-  /* Word, Sentence, Continue and Add audio show just their icons so the row isn't crowded; their
+  /* Word, Sentence and Continue show just their icons so the row isn't crowded; their
      names stay in the tooltip and for screen readers. Save keeps its word. */
   .player .word-bubble.sheet > .wb-actions .wb-label { display: none; }
   .player .word-bubble.sheet > .wb-actions button:has(.wb-label) { flex: 1 1 0; min-width: 36px; padding: 4px 6px; }
   .player .word-bubble.sheet > .wb-actions button[data-act="save"] { flex: 1.6 1 auto; }
+  .player .word-bubble.sheet > .wb-actions button.wb-folder { flex: 1.2 1 0; max-width: 7.5em; }  /* (its name, cut short: the row stays one line) */
+  .player .word-bubble.sheet > .wb-actions button.wb-folder:not(.set) { flex: 1 1 0; min-width: 36px; }
+  .player .word-bubble.sheet > .wb-actions .wb-fnone { display: none; }  /* (no folder: just the icon; its name is in the tooltip) */
+  .player .word-bubble.sheet > .wb-actions:has(.wb-folder.set) button[data-act="save"] { flex: 1.1 1 auto; }  /* (a folder's name needs the room more than Save) */
+  .player .word-bubble.sheet > .wb-actions button.wb-folder.set { flex: 1.7 1 0; max-width: 9em; gap: 4px; }
 }
 
 /* ---------- word popup: the pause / keep-playing switch ----------
@@ -618,6 +629,12 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
 .dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
+/* Hide: at the far end of the row (the right; the left in right-to-left languages), the row on one line. */
+.dict-body .dict-actions { flex-wrap: nowrap; }
+.dict-actions .dict-hide { margin-inline-start: auto; flex: none; }
+.dict-actions .dict-hide[hidden] { display: none; }
+/* A phone: Hide is its eye alone (its name is still said to a screen reader), so the row fits in every language. */
+@media (max-width: 640px) { .dict-actions .dict-hide { padding-inline: 10px; } .dict-actions .dict-hide span { display: none; } }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
 .dict-hint { margin: 0; text-align: center; }
 @media (hover: none) { .dict-hint { display: none; } }

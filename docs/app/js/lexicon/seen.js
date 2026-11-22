@@ -11,43 +11,37 @@
 // language (offerDictionaries below). Until it is there, Arabic text is simply not coloured, and
 // in the other three each spelling of a word counts as a different word.
 //
-// Unknown words: the popup's ? marks a word "I don't know this yet" (the owner: "will turn the word
-// colored #FFBC0A which won't save it as known, and won't save to vocab but will remember that this
-// word is unknown"). It is drawn in amber, in every form, until the learner marks it known (holding it,
-// or the menu) or presses ? again; looking it up again leaves it unknown. Each one is kept in the same
-// list as a row of its own, "unknown|" + the word's key, so it syncs like the rest with nothing new on
-// the computer or the phone (a version from before reads no word into it, and shows the word as new).
+// Unknown words (retired 2026-11-21): the popup's ? used to mark a word "I don't know this yet", drawn amber. The
+// popup's ! (Important, a mark on the saved card) replaced it; see UNKNOWN below for what became of the marks.
 //
 // Shared by the desktop app and the phone.
 
 import { api, h, saveSettings, state, toast } from "../app.js";
 import { t } from "../i18n.js";
-import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage, wordRanges } from "../languages.js";
+import { LANGUAGES, detectLanguage, langAttrs, onStudyLanguage, studyLanguage, wordRanges } from "../languages.js";
 import { Dictionary, arabicCore, matchForm } from "./arabic.js";
 import { LemmaTable } from "./romance.js";
 import { JapaneseDictionary } from "./kuromoji.js";
 import { ChineseDictionary } from "./chinese.js";
 import { KoreanWords, romanize } from "./korean.js";
 import { stressed } from "./russian.js";
-import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, usesDictionaries } from "./words.js";
+import { lexemeOf, lexemesFor, markedTokens, needsDictionaries, pieceRanges, usesDictionaries, wholeTextOptions } from "./words.js";
 
 const settings = () => (state.status && state.status.settings) || {};
 
 // ---------- the list ----------
 const known = new Set();   // keys of every seen lexeme
-const unknown = new Set(); // keys of the lexemes marked unknown (the popup's ?); this wins over `known`
-const UNKNOWN = "unknown|"; // in front of a key in the list: that word is marked unknown
+// "Not known yet" (the popup's ?, drawn amber) was retired on 2026-11-21: the ! (Important, on the card) took its place.
+// The marks already made stay in the list, as rows "unknown|" + key, and are left alone: nothing reads them, so those
+// words show as new (purple) again, as they were before they were marked (marking one made it new as well).
+const UNKNOWN = "unknown|";
 const views = new Set();   // texts on screen that show it
 let knownLoad = null;
 
 async function fetchKnown() {
   const r = await api("/lexemes");
   known.clear();
-  unknown.clear();
-  for (const key of (r && r.keys) || []) {
-    if (key.startsWith(UNKNOWN)) unknown.add(key.slice(UNKNOWN.length));
-    else known.add(key);
-  }
+  for (const key of (r && r.keys) || []) if (!key.startsWith(UNKNOWN)) known.add(key);
 }
 /** The list, loaded once. `fresh` asks again (another device may have added to it). */
 function loadKnown(fresh = false) {
@@ -58,11 +52,9 @@ function repaint() {
   for (const v of views) { v.paint(); if (v.onPaint) { try { v.onPaint(); } catch { /* a screen's own repaint */ } } }
 }
 
-/** Mark lexemes (what lexemesFor / lexemeOf return) as seen. Ones marked unknown stop being unknown,
- * unless `keepUnknown` (a lookup: looking an unknown word up again leaves it unknown). */
-export async function markLexemes(items, { keepUnknown = false } = {}) {
-  items = (items || []).filter((it) => it && it.key && !(keepUnknown && unknown.has(it.key)));
-  if (!keepUnknown) setUnknown(items, false);
+/** Mark lexemes (what lexemesFor / lexemeOf return) as seen. */
+export async function markLexemes(items) {
+  items = (items || []).filter((it) => it && it.key);
   const fresh = [];
   for (const it of items) if (!known.has(it.key)) { known.add(it.key); fresh.push(it); }
   if (!fresh.length) return 0;
@@ -89,24 +81,6 @@ export async function forgetLexemes(items) {
   return keys.length;
 }
 
-/** Mark lexemes unknown (`on`), or not any more. Neither marks them seen nor saves them. */
-async function setUnknown(items, on) {
-  const list = (items || []).filter((it) => it && it.key && unknown.has(it.key) !== on);
-  if (!list.length) return 0;
-  const flip = (back) => { for (const it of list) { if (on !== back) unknown.add(it.key); else unknown.delete(it.key); } };
-  flip(false);
-  repaint();
-  try {
-    if (on) await api("/lexemes", { method: "POST", body: { items: list.map(({ key, lemma, pos, root }) => ({ key: UNKNOWN + key, lemma, pos, root })) } });
-    else await api("/lexemes/forget", { method: "POST", body: { keys: list.map((it) => UNKNOWN + it.key) } });
-  } catch (e) {
-    flip(true);
-    repaint();
-    toast(e.message, { error: true });
-    return 0;
-  }
-  return list.length;
-}
 
 // Something else changed the list (the first-run common words, a sync): read it again.
 if (typeof window !== "undefined") {
@@ -146,7 +120,7 @@ export const lexiconStatus = (lang) => api(`/lexicon/status?lang=${lang}`);
 
 /**
  * For choosing an example sentence the learner can read (examples.js, "Add words"): a function that says how
- * many words of a sentence are still new to the learner (never seen, or marked unknown), every form of a word
+ * many words of a sentence are still new to the learner (never seen), every form of a word
  * counting as that word, and `word` itself (the card's) not counted. Null when that can't be told: the
  * language's word tables aren't on the device, or nothing has been seen yet. Never downloads anything.
  */
@@ -161,7 +135,7 @@ export async function newWordCounter(lang, word) {
     let n = 0;
     for (const l of lex) {
       if (!l || (target && l.key === target.key)) continue;
-      if (!known.has(l.key) || unknown.has(l.key)) n++;
+      if (!known.has(l.key)) n++;
     }
     return n;
   };
@@ -348,9 +322,19 @@ export async function offerDictionaries(lang, force = false) {
 // that screen says when with the "tamkeen:onboarded" event.
 const firstRunShowing = () => !settings().onboarded && !settings().welcome_seen;
 onStudyLanguage((code) => {
-  if (!usesDictionaries(code) || typeof document === "undefined") return;
+  if (typeof document === "undefined") return;
+  warmSoon(code);
+  if (!usesDictionaries(code)) return;
   setTimeout(() => { if (!firstRunShowing()) offerDictionaries(code); }, 900);
 });
+// The list of seen words and the language's dictionaries (Arabic's four are 15 MB, about a second to read on a
+// phone) are read once the app has started and is idle, so the first thing opened is coloured at once instead
+// of after them. Nothing is downloaded here: dictionaries() reads only those already on the device.
+function warmSoon(code) {
+  const go = () => { if (studyLanguage() === code) { loadKnown(); dictionaries(code).catch(() => {}); } };
+  const idle = typeof requestIdleCallback === "function" ? (fn) => requestIdleCallback(fn, { timeout: 4000 }) : (fn) => setTimeout(fn, 1500);
+  setTimeout(() => idle(go), 1500);
+}
 if (typeof window !== "undefined") {
   window.addEventListener("tamkeen:onboarded", (e) => {
     const lang = (e.detail && e.detail.lang) || settings().study_language;
@@ -445,19 +429,17 @@ async function backfill(lang, dicts) {
  *   .markSeen(i, j)      words i..j were tapped: they and every form of them are now seen
  *   .markNew(i, j)       make them new again
  *   .toggleKnown(i)      word i held: known if new, new if known (with Undo); false if it can't be
- *   .isUnknown(i)        is word i marked unknown (the popup's ?; drawn in amber)?
- *   .unknownButton(i)    the popup's ? for word i: {on, toggle()}, or null
  *   .menuItems(i, j)     entries for the right-click menu ("Mark as seen" / "Mark as new")
  *   .paint(list, first)  colour other elements showing words first, first+1, ... (video captions)
  *   .onPaint             set to a function to be told whenever colours change
  *   .close()             the screen is going away
- * `wait`: a promise to wait for before starting (a YouTube player loading: player.js).
+ * `start`: the word on screen first (a player opened part way through): its piece is coloured first.
+ * `wait`: a promise (a YouTube player loading: player.js) the words off screen wait for, up to 1.5 s.
  */
-export function seenWords({ tokens, lang, els, wait = null }) {
+export function seenWords({ tokens, lang, els, wait = null, start = 0 }) {
   const view = {
     lang, lexemes: null, onPaint: null,
-    isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key) && !unknown.has(view.lexemes[i].key)),
-    isUnknown: (i) => !!(view.lexemes && view.lexemes[i] && unknown.has(view.lexemes[i].key)),
+    isNew: (i) => !!(view.lexemes && view.lexemes[i] && !known.has(view.lexemes[i].key)),
     canMark: (i) => !!(view.lexemes && view.lexemes[i]),
     paint(list = els, first = 0) {
       // Russian with its table: the words show their stress (ла́дно), unless switched off in Settings.
@@ -465,7 +447,6 @@ export function seenWords({ tokens, lang, els, wait = null }) {
       for (let k = 0; k < list.length; k++) {
         const el = list[k];
         el.classList.toggle("new", view.isNew(first + k));
-        el.classList.toggle("unknown", view.isUnknown(first + k));
         if (stress || el.dataset.stressed) {
           const text = stress ? stressed(tokens[first + k], view.table) : tokens[first + k];
           if (el.textContent !== text) el.textContent = text;
@@ -474,28 +455,11 @@ export function seenWords({ tokens, lang, els, wait = null }) {
       }
     },
     range: (i, j = i) => (view.lexemes ? view.lexemes.slice(i, j + 1).filter(Boolean) : []),
-    // (Looked up: seen, except a word marked unknown, which stays unknown.)
-    markSeen: (i, j = i) => markLexemes(view.range(i, j), { keepUnknown: true }),
+    // (Looked up: seen.)
+    markSeen: (i, j = i) => markLexemes(view.range(i, j)),
     markNew: (i, j = i) => forgetLexemes(view.range(i, j)),
     /**
-     * The word popup's ? for word i: what it shows ({on}), and pressing it. On: the word is marked
-     * unknown (amber), and not seen. Off again: it is seen, as a word looked up is. Null when word i
-     * can't be marked (not a word, or the language's dictionaries aren't ready): no ? then.
-     */
-    unknownButton(i) {
-      const words = view.range(i, i);
-      if (!words.length) return null;
-      return {
-        on: words.every((w) => unknown.has(w.key)),
-        async toggle() {
-          if (words.every((w) => unknown.has(w.key))) { await markLexemes(words); return false; }
-          await Promise.all([setUnknown(words, true), forgetLexemes(words)]);
-          return true;
-        },
-      };
-    },
-    /**
-     * Word i was held (pressed and let go, components/phrasepick.js onHold): a new (or unknown) word
+     * Word i was held (pressed and let go, components/phrasepick.js onHold): a new word
      * becomes known without the popup opening, and a known one new again, with Undo. False when it
      * can't be marked (not a word, or the language's dictionaries aren't ready), for the screen to do
      * something else.
@@ -504,11 +468,9 @@ export function seenWords({ tokens, lang, els, wait = null }) {
       const words = view.range(i, i);
       if (!words.length) return false;
       const name = String(tokens[i] || "").trim();
-      if (words.some((w) => !known.has(w.key) || unknown.has(w.key))) {
-        const wasUnknown = words.filter((w) => unknown.has(w.key));
+      if (words.some((w) => !known.has(w.key))) {
         markLexemes(words);
-        const undo = () => { forgetLexemes(words); setUnknown(wasUnknown, true); };
-        toast(t("“{0}” marked as known", name), { timeout: 3500, action: { label: t("Undo"), run: undo } });
+        toast(t("“{0}” marked as known", name), { timeout: 3500, action: { label: t("Undo"), run: () => forgetLexemes(words) } });
       } else {
         forgetLexemes(words);
         toast(t("“{0}” is new again", name), { timeout: 3500, action: { label: t("Undo"), run: () => markLexemes(words) } });
@@ -519,23 +481,46 @@ export function seenWords({ tokens, lang, els, wait = null }) {
     menuItems(i, j = i) {
       const words = view.range(i, j);
       if (!words.length) return [];
-      return [words.some((w) => !known.has(w.key) || unknown.has(w.key))
+      return [words.some((w) => !known.has(w.key))
         ? { label: "✓ Mark as seen", run: () => markLexemes(words) }
         : { label: "↺ Mark as new", run: () => forgetLexemes(words) }];
     },
     async analyze() {
-      if (wait) { await wait; wait = null; } // (the page has something to start first: a YouTube video)
-      if (!views.has(view)) return;
-      const [dicts] = await Promise.all([dictionaries(lang), loadKnown(true)]);
+      // The owner, 2026-11-21: "it takes a long time for the purple words ... to show up". The dictionaries
+      // are usually in memory already (warmed after the app starts, below), and the list of seen words is
+      // asked for again only to catch another device's taps: with a copy here the colours don't wait for it.
+      const shown = performance.now();
+      const hadList = !!knownLoad;
+      const fresh = loadKnown(true);
+      if (hadList) fresh.then(() => { if (views.has(view) && view.lexemes) { view.paint(); if (view.onPaint) view.onPaint(); } });
+      const [dicts] = await Promise.all([dictionaries(lang), hadList ? null : fresh]);
       if (!views.has(view)) return;
       // No dictionaries yet: Arabic isn't coloured; Spanish, French and Italian go by spelling.
       const usable = dicts === null && !needsDictionaries(lang) ? [] : dicts;
-      view.lexemes = usable === null ? null : lexemesFor(tokens, lang, usable);
       view.table = (usable || []).find((d) => d instanceof LemmaTable) || null;
       if (dicts === null) offerDictionaries(lang); // (unless the learner said "not now")
-      if (usable !== null) onceReady(lang, usable);
-      view.paint();
-      if (view.onPaint) view.onPaint();
+      if (usable === null) { view.lexemes = null; return; }
+      onceReady(lang, usable);
+      // A piece at a time, the words on screen first (`start`): an hour's transcript is 7,000-12,000 words,
+      // about a quarter of a second's work on a computer, and more on a phone, in one go.
+      view.lexemes = new Array(tokens.length);
+      const whole = wholeTextOptions(tokens, lang, usable);
+      const pieces = pieceRanges(tokens, start);
+      for (let p = 0; p < pieces.length; p++) {
+        const [a, b] = pieces[p];
+        const found = lexemesFor(tokens.slice(a, b), lang, usable, whole) || [];
+        for (let k = 0; k < found.length; k++) view.lexemes[a + k] = found[k];
+        view.paint(Array.prototype.slice.call(els, a, b), a);
+        if (p === 0) {
+          view.firstPaintMs = Math.round(performance.now() - shown);
+          if (view.onPaint) view.onPaint();
+          // (a YouTube video has its player to start, ce080f83: the rest waits for it a little, never long)
+          if (wait) { await Promise.race([wait, new Promise((r) => setTimeout(r, 1500))]); wait = null; }
+        } else await new Promise((r) => setTimeout(r, 0)); // (the page stays free between pieces)
+        if (!views.has(view)) return;
+      }
+      view.allPaintMs = Math.round(performance.now() - shown);
+      if (pieces.length > 1 && view.onPaint) view.onPaint();
     },
     close: () => views.delete(view),
   };
