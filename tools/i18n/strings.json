@@ -2255,8 +2255,8 @@
   "f": "web/js/components/addsheet.js"
  },
  {
-  "id": "6ae77e4a",
-  "k": "What's trending in your language, or paste a feed address",
+  "id": "5ed2b66a",
+  "k": "What's trending in your language, or search for a show by name or paste its feed address",
   "f": "web/js/components/addsheet.js"
  },
  {
@@ -22605,18 +22605,13 @@
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "effe7f77",
-  "k": "Or paste a podcast's RSS feed address",
+  "id": "e98f9877",
+  "k": "Search for a podcast by name, or paste its feed address",
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "825aa64b",
-  "k": "Podcast RSS feed address",
-  "f": "web/js/pages/discover.js"
- },
- {
-  "id": "24ba4ecf",
-  "k": "Add podcast",
+  "id": "29b1b4b2",
+  "k": "Podcast name or RSS feed address",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -22650,8 +22645,38 @@
   "f": "web/js/pages/discover.js"
  },
  {
+  "id": "24ba4ecf",
+  "k": "Add podcast",
+  "f": "web/js/pages/discover.js"
+ },
+ {
   "id": "688659c1",
   "k": "Subscribed to {0}",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "1a6a5ba8",
+  "k": "Searching…",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "55e3ea39",
+  "k": "Close the results",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "c2e2ce8b",
+  "k": "No podcast called “{0}” was found. Check the spelling, or paste the podcast's feed address.",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "fb99ba84",
+  "k": "Results for “{0}”",
+  "f": "web/js/pages/discover.js"
+ },
+ {
+  "id": "4a040745",
+  "k": "From the <0>Apple Podcasts</0> directory.",
   "f": "web/js/pages/discover.js"
  },
  {
@@ -22690,8 +22715,8 @@
   "f": "web/js/pages/discover.js"
  },
  {
-  "id": "75a6baf2",
-  "k": "The charts had no podcasts in this language just now. Try again later, or paste a podcast's RSS address in the Library.",
+  "id": "f2571a94",
+  "k": "The charts had no podcasts in this language just now. Try again later, or search for a podcast by name above.",
   "f": "web/js/pages/discover.js"
  },
  {

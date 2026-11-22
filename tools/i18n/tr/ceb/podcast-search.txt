@@ -1,0 +1,10 @@
+# Podcast search by name in the Trending box (Add → Podcast), 2026-11-21
+5ed2b66a	Ang trending sa imong pinulongan, o pangitaa ang usa ka show sa ngalan o i-paste ang address sa feed niini
+e98f9877	Pangitaa ang podcast sa ngalan, o i-paste ang address sa feed niini
+29b1b4b2	Ngalan sa podcast o address sa RSS feed
+1a6a5ba8	Nangita…
+55e3ea39	Isira ang mga resulta
+c2e2ce8b	Walay nakit-an nga podcast nga ginganlag “{0}”. Susiha ang espeling, o i-paste ang address sa feed sa podcast.
+fb99ba84	Mga resulta para sa “{0}”
+4a040745	Gikan sa direktoryo sa <0>Apple Podcasts</0>.
+f2571a94	Walay podcast niini nga pinulongan sa mga chart karon. Sulayi pag-usab unya, o pangitaa ang podcast sa ngalan sa ibabaw.

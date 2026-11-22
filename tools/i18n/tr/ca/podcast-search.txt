@@ -1,0 +1,10 @@
+# Podcast search by name in the Trending box (Add → Podcast), 2026-11-21
+5ed2b66a	El que és tendència en la teva llengua, o cerca un programa pel nom o enganxa l'adreça del seu feed
+e98f9877	Cerca un pòdcast pel nom o enganxa l'adreça del seu feed
+29b1b4b2	Nom del pòdcast o adreça del feed RSS
+1a6a5ba8	Cercant…
+55e3ea39	Tanca els resultats
+c2e2ce8b	No s'ha trobat cap pòdcast anomenat «{0}». Revisa com està escrit o enganxa l'adreça del feed del pòdcast.
+fb99ba84	Resultats per a «{0}»
+4a040745	Del directori d'<0>Apple Podcasts</0>.
+f2571a94	Ara mateix les llistes no tenien cap pòdcast en aquesta llengua. Torna-ho a provar més tard o cerca un pòdcast pel nom aquí dalt.

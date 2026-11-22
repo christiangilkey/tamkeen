@@ -269,6 +269,12 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .disc-head .meta { flex: 1; min-width: 0; }
 .disc-head h1 { margin: 0 0 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .disc-rss { margin: 4px 0 8px; }
+.disc-found { margin: 4px 0 18px; }
+.disc-found-head { display: flex; align-items: center; gap: 8px; margin: 6px 0 8px; }
+.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; overflow-wrap: anywhere; }
+.disc-found-close { flex: none; padding: 6px; }
+.disc-found-none { margin: 4px 0; }
+.disc-found-credit { margin: 8px 0 0; text-align: center; }
 .disc-cats { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
 .disc-cats button { flex: none; white-space: nowrap; }
 .disc-cat { margin-bottom: 22px; }

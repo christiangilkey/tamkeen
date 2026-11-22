@@ -1,0 +1,10 @@
+# Podcast search by name in the Trending box (Add → Podcast), 2026-11-21
+5ed2b66a	O que está em alta no seu idioma, ou pesquise um programa pelo nome ou cole o endereço do feed dele
+e98f9877	Pesquise um podcast pelo nome ou cole o endereço do feed dele
+29b1b4b2	Nome do podcast ou endereço do feed RSS
+1a6a5ba8	Pesquisando…
+55e3ea39	Fechar os resultados
+c2e2ce8b	Nenhum podcast chamado “{0}” foi encontrado. Confira a grafia ou cole o endereço do feed do podcast.
+fb99ba84	Resultados para “{0}”
+4a040745	Do diretório do <0>Apple Podcasts</0>.
+f2571a94	As paradas não tinham podcasts neste idioma agora. Tente de novo mais tarde ou pesquise um podcast pelo nome acima.

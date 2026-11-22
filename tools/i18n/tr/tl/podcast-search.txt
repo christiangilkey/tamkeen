@@ -1,0 +1,10 @@
+# Podcast search by name in the Trending box (Add → Podcast), 2026-11-21
+5ed2b66a	Ang trending sa wika mo, o maghanap ng palabas ayon sa pangalan o i-paste ang address ng feed nito
+e98f9877	Maghanap ng podcast ayon sa pangalan, o i-paste ang address ng feed nito
+29b1b4b2	Pangalan ng podcast o address ng RSS feed
+1a6a5ba8	Naghahanap…
+55e3ea39	Isara ang mga resulta
+c2e2ce8b	Walang nahanap na podcast na “{0}”. Suriin ang baybay, o i-paste ang address ng feed ng podcast.
+fb99ba84	Mga resulta para sa “{0}”
+4a040745	Mula sa direktoryo ng <0>Apple Podcasts</0>.
+f2571a94	Walang podcast sa wikang ito sa mga chart ngayon. Subukan ulit mamaya, o maghanap ng podcast ayon sa pangalan sa itaas.

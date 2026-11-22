@@ -5,7 +5,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import {
   CATEGORY_CHARTS, CATEGORY_IDS, COUNTRY_NAMES, MAIN_CATEGORIES, OTHER, STOREFRONTS, chartUrl, feedKey, fetchTrending, groupByCategory,
-  hasPicks, inLanguage, lookupUrl, mainCategory, mergeCharts, parseChart,
+  hasPicks, inLanguage, lookupUrl, mainCategory, mergeCharts, parseChart, feedAddress, parseSearch, searchPodcasts, searchUrl,
 } from "../../web/js/trending.js";
 import { PICKS } from "../../web/js/podcast-picks.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
@@ -288,4 +288,67 @@ test("Hindi is told from Marathi and Nepali (the same letters), from India's oth
   // English, and German "KI" (artificial intelligence), are no Hindi "ki"
   assert.ok(!inLanguage(item("The Ranveer Show", "India's biggest podcast about life, success and spirituality"), "hi"));
   assert.ok(!inLanguage(item("KI verstehen", "Ein Podcast über KI und die Welt, ob wir KI brauchen und wie KI die Arbeit ändert"), "hi"));
+});
+
+// ---------- searching by name (the owner, 2026-11-21: the feed box takes a podcast's name too) ----------
+
+test("the box: a feed address is added at once, anything else is a name to search for", () => {
+  assert.equal(feedAddress(" https://feeds.example.com/show.xml "), "https://feeds.example.com/show.xml");
+  assert.equal(feedAddress("http://example.org/rss"), "http://example.org/rss");
+  assert.equal(feedAddress("feed://example.com/rss"), "https://example.com/rss");
+  assert.equal(feedAddress("feed:https://example.com/rss".replace(":", "://")), "https://example.com/rss");
+  assert.equal(feedAddress("feeds.megaphone.fm/ABC123"), "https://feeds.megaphone.fm/ABC123");
+  assert.equal(feedAddress("anchor.fm"), "https://anchor.fm");
+  for (const name of ["The Daily", "فنجان", "Dr.Death", "99% Invisible", "Radiolab", "", "  ", "ラジオ"]) assert.equal(feedAddress(name), "", name);
+});
+
+const hit = (id, name, feed, { artist = "", genre = "News", art = `https://is1-ssl.mzstatic.com/${id}/600x600bb.jpg` } = {}) => ({
+  kind: "podcast", collectionId: id, collectionName: name, artistName: artist, feedUrl: feed, primaryGenreName: genre, artworkUrl600: art,
+});
+
+test("a Search API answer: name, maker, cover and feed address; nothing without a feed", () => {
+  const list = parseSearch({ resultCount: 3, results: [
+    hit(1, "فنجان مع عبدالرحمن أبومالح", "https://files.example/89/rss-feed.rss", { artist: "ثمانية", genre: "Society & Culture" }),
+    hit(2, "No feed", ""),
+    hit(3, "Plain art", "https://f.example/3", { art: "http://insecure.example/a.jpg" }),
+  ] });
+  assert.deepEqual(list[0], { id: "1", url: "https://files.example/89/rss-feed.rss", title: "فنجان مع عبدالرحمن أبومالح", author: "ثمانية",
+    description: "", image: "https://is1-ssl.mzstatic.com/1/600x600bb.jpg", category: "Society & Culture" });
+  assert.equal(list.length, 2);
+  assert.equal(list[1].image, null);
+  assert.deepEqual(parseSearch(null), []);
+  assert.equal(searchUrl("sa", "فنجان قهوة"), `https://itunes.apple.com/search?media=podcast&entity=podcast&term=${encodeURIComponent("فنجان قهوة")}&country=sa&limit=25`);
+});
+
+test("searching: the language's main country and the United States, merged; its own language and the exact name first", async () => {
+  const asked = [];
+  const answers = {
+    sa: [hit(10, "Coffee Talk", "https://a.example/coffee"), hit(11, "بودكاست فنجان قهوة", "https://a.example/fnjan", { artist: "إذاعة" }),
+      hit(12, "فنجان", "https://a.example/exact")],
+    us: [hit(20, "Fnjan English", "https://b.example/en"), hit(11, "بودكاست فنجان قهوة", "https://www.a.example/fnjan/")],
+  };
+  const getJson = async (url) => { const c = new URL(url).searchParams.get("country"); asked.push(c); return { results: answers[c] }; };
+  const list = await searchPodcasts("فنجان", "ar", getJson);
+  assert.deepEqual(asked.sort(), ["sa", "us"]);
+  assert.deepEqual(list.map((x) => x.title), ["فنجان", "بودكاست فنجان قهوة", "Coffee Talk", "Fnjan English"], "one copy of a show both stores have");
+  // learning English: the United States alone, asked once
+  asked.length = 0;
+  await searchPodcasts("the daily", "en", getJson);
+  assert.deepEqual(asked, ["us"]);
+  // one store failing is fine; both failing says why
+  const half = async (url) => { if (url.includes("country=us")) throw new Error("down"); return { results: answers.sa }; };
+  assert.equal((await searchPodcasts("x", "ar", half)).length, 3);
+  await assert.rejects(searchPodcasts("x", "ar", async () => { throw new Error("Couldn't reach Apple's podcast directory."); }), /Couldn't reach/);
+  assert.deepEqual(await searchPodcasts("   ", "ar", getJson), []);
+});
+
+test("the Trending page: one box for a name or a feed address, found shows added like the trending ones", async () => {
+  const { readFileSync } = await import("node:fs");
+  const page = readFileSync(new URL("../../web/js/pages/discover.js", import.meta.url), "utf8");
+  assert.match(page, /placeholder="Search for a podcast by name, or paste its feed address"/);
+  assert.match(page, /const address = feedAddress\(text\);\s+if \(address\) \{/);
+  assert.match(page, /body: \{ url: address \}/, "a pasted feed is added as before");
+  assert.match(page, /await searchPodcasts\(text, lang, appleJson\)/, "through the same Apple go-between as the charts");
+  assert.match(page, /for \(const feed of shows\) grid\.append\(card\(feed\)\);/, "a found show's + Add is the trending card's");
+  assert.match(readFileSync(new URL("../../web/js/components/addsheet.js", import.meta.url), "utf8"), /search for a show by name/);
 });
