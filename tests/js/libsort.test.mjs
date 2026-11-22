@@ -136,3 +136,20 @@ test("“Read” for a finished page or book is its own key, not the Read button
     assert.equal(d["Read (finished)"], word, code);
   }
 });
+
+// The owner, 2026-11-21: "seems to be a problem with thumbnails flickering in podcasts".
+test("covers don't flicker: a transcription's progress isn't a change, a redraw keeps the cards and pictures it already showed", () => {
+  const lib = src("web/js/pages/library.js");
+  // every progress tick carries the episode's state: it is compared with the last one heard, also for an episode not drawn
+  assert.match(lib, /const prev = row \? row\._ep\.status : lastStatus\.has\(id\) \? lastStatus\.get\(id\) : listed\.get\(id\);/);
+  assert.match(lib, /if \(e\.status\) lastStatus\.set\(id, e\.status\);/);
+  assert.doesNotMatch(lib, /if \(filter \|\| !row\) scheduleReload\(\);/, "an episode not drawn no longer redraws the list");
+  assert.match(lib, /if \(filter\) scheduleReload\(\);\s+else scheduleCounts\(\);/);
+  // a card that would look the same is the same element (its picture already loaded)
+  assert.match(lib, /reusable = new Map\(\[\.\.\.listEl\.querySelectorAll\("\.yt-card\[data-sig\]"\)\]\.map\(\(el\) => \[el\.dataset\.id, el\]\)\);/);
+  assert.match(lib, /if \(kept && kept\.dataset\.sig === sig\) \{/);
+  assert.match(lib, /row\.dataset\.sig = sig;/);
+  // the heading's and the side lists' pictures, when the same, are put back rather than loaded again
+  assert.match(lib, /keepPictures\(before, view\.querySelectorAll\(PICS\)\);/);
+  assert.match(lib, /if \(!img\.complete \|\| !img\.naturalWidth\) continue;/);
+});

@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Library: the covers flickered while something was being transcribed. Each progress update of a transcription (of another podcast's episode, or one further down the list) redrew the whole list about once a second, and every picture loaded again. Now only a real change of state counts, and a redraw keeps the cards and pictures already showing.
 - **Fixed:** Library: a web page or book read to the end said the command "Read" in other languages (Spanish "Leer", Arabic "اقرأ", German "Lesen") in the Filter, the buttons under the heading and its label; it now says it was read ("Leído", "تمت القراءة", "Gelesen").
 - **Improved:** Type what you hear (every player and the courses): once what was said is shown, a **Hide** button at the end of the Hear it again / Slower row puts it away again, with what you typed back in the box to listen again and change it; the check mark shows it again. On a phone it is an eye struck through, so the row stays on one line in every language.
 - **Improved:** New words show in purple as soon as a transcript, page or reel opens, instead of after a wait. The word dictionaries are read while the app is idle after it starts, the words on screen are coloured first and the rest a piece at a time, and a YouTube video no longer holds the colours back for up to 5 seconds while its player loads. An hour-long Arabic transcript went from about half a second (plus that wait) to under 30 ms on a computer.

@@ -75,6 +75,23 @@ const FILTERS = [
 const NOT_TRANSCRIBED = "notdone";
 /** Whether a tab's things are transcribed here (reels, Netflix, web pages and books come with their words). */
 const transcribable = (kind) => !["reels", "netflix", "pages", "books"].includes(kind);
+/** Puts the pictures of `before` (shown, now taken out by a redraw) back in place of the same pictures in `after`, so
+ *  none is loaded again: a fresh <img> is blank until it loads, and a redraw made the covers flicker. "The same" is
+ *  the same markup (address, class, size), so nothing else about the redrawn part changes. */
+function keepPictures(before, after) {
+  const shown = new Map();
+  for (const img of before) {
+    if (!img.complete || !img.naturalWidth) continue;
+    const key = img.outerHTML;
+    if (!shown.has(key)) shown.set(key, []);
+    shown.get(key).push(img);
+  }
+  if (!shown.size) return;
+  for (const img of after) {
+    const same = shown.get(img.outerHTML);
+    if (same && same.length) img.replaceWith(same.shift());
+  }
+}
 const PAGE = 100;
 const CARD_PAGE = 60; // cards drawn at a time (Load more draws the next ones)
 
@@ -426,8 +443,11 @@ export async function render(view, { feedId: routeFeed, query }) {
 
   async function loadFeeds() {
     [feeds, follows] = await Promise.all([api("/feeds"), loadFollows().catch(() => [])]);
+    const PICS = "#lib-head img, #feed-list img, #podcast-list img";
+    const before = [...view.querySelectorAll(PICS)];
     renderStrips();
     renderHead();
+    keepPictures(before, view.querySelectorAll(PICS)); // (the heading's and the lists' pictures: not loaded again)
   }
 
   /** A kind with nothing in it: "Nothing here yet", how to add some with the + button, and the arrow
@@ -803,6 +823,18 @@ export async function render(view, { feedId: routeFeed, query }) {
     const c = yt ? followedChannels(follows, studyLanguage()).find((x) => x.name === from) || { name: from, image: "" } : null;
     const round = yt && from ? `<a class="yt-chan" href="${channelHref("#/library?show=youtube", from)}" aria-label="${esc(from)}">${channelPicture(c)}</a>`
       : !isLocalFeed(ep.feed_url) && ep.feed_image && ep.feed_id ? `<a class="yt-chan" href="#/feed/${ep.feed_id}" aria-label="${esc(from)}"><img class="round" src="${esc(ep.feed_image)}" alt="" loading="lazy" referrerpolicy="no-referrer"></a>` : "";
+    // A card drawn before that would look the same is kept as it is, its picture already showing: drawing it again
+    // loaded every cover afresh, and they flickered (the owner, 2026-11-21: "thumbnails flickering in podcasts").
+    const sig = JSON.stringify([ep.title, ep.image, ep.feed_image, ep.feed_id, ep.feed_url, ep.duration, ep.audio_type, ep.audio_url,
+      ep.published, ep.created_at, from, c && c.image, state, Math.round(got * 100), doneWord(KIND_OF_ICON[kindIcon(ep)])]);
+    const kept = reusable.get(String(ep.id));
+    if (kept && kept.dataset.sig === sig) {
+      reusable.delete(String(ep.id));
+      kept._ep = ep;
+      kept.querySelector(".sel").checked = selected.has(ep.id);
+      renderStatus(kept);
+      return kept;
+    }
     const row = h(`<div class="ep yt-card" data-id="${ep.id}" data-state="${state}">
       <div class="yt-pic">
         <a class="yt-open" href="#/episode/${ep.id}" tabindex="-1" aria-hidden="true">
@@ -849,6 +881,7 @@ export async function render(view, { feedId: routeFeed, query }) {
       updateSelection();
     };
     row._ep = ep;
+    row.dataset.sig = sig;
     renderStatus(row);
     return row;
   }
@@ -1142,6 +1175,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     updateSelection();
     if (!append) listEl.innerHTML = "";
     let items = filter === NOT_TRANSCRIBED ? data.items.filter((ep) => ep.status !== "done") : data.items;
+    if (!append) listed = new Map();
+    for (const ep of items) listed.set(String(ep.id), ep.status);
     if (youtubeShowing() && !channel) {
       // "Recently watched": the video opened last comes first (a video never opened here counts from when it was added).
       const opened = new Map(allProgress().map((p) => [String(p.id), (p.ts || 0) / 1000]));
@@ -1170,6 +1205,8 @@ export async function render(view, { feedId: routeFeed, query }) {
   /** Cards (prototype library_feed): every one of the list fetched (the order needs them all: what is in progress or
    *  finished is known on this device, not to the library), put in the Filter's order, and drawn a page at a time. */
   let arranged = [], drawn = 0;
+  let reusable = new Map(); // id -> the card drawn last time, kept if it would look the same (card())
+  let listed = new Map();   // id -> state of everything in the list (drawn or not), for the live updates below
   async function loadCards(params, append) {
     if (!append) {
       const all = [];
@@ -1190,6 +1227,8 @@ export async function render(view, { feedId: routeFeed, query }) {
       for (const ep of pool) playedNow[stateOf(ep, progressMap().get(String(ep.id)) || null, watchedNow)] += 1;
       arranged = arrange(pool, readChoice(), progressMap(), watchedNow);
       drawn = 0;
+      reusable = new Map([...listEl.querySelectorAll(".yt-card[data-sig]")].map((el) => [el.dataset.id, el]));
+      listed = new Map(pool.map((ep) => [String(ep.id), ep.status]));
       listEl.innerHTML = "";
       listEl.classList.add("yt-feed");
       root.classList.add("cards-kind");
@@ -1517,20 +1556,31 @@ export async function render(view, { feedId: routeFeed, query }) {
       const params = new URLSearchParams({ limit: 1 });
       if (feedId) params.set("feed_id", feedId);
       else params.set("scope", "podcasts");
-      renderTabs((await api(`/episodes?${params}`)).counts);
+      countsNow = (await api(`/episodes?${params}`)).counts || {};
+      renderTabs(countsNow);
+      if (!$("#lib-chips").hidden) paintChips();
       loadFeeds();
     }, 400);
   };
+  // The last state heard of each episode not drawn here (another podcast's, or past the cards drawn so far). Every
+  // progress tick of a transcription carries its state too: compared with nothing, each tick looked like a change and
+  // redrew the whole list about once a second, every cover loading again (the owner, 2026-11-21: "thumbnails
+  // flickering in podcasts").
+  const lastStatus = new Map();
   const offEp = on("episode", (e) => {
     const row = listEl.querySelector(`.ep[data-id="${e.id}"]`);
-    const prev = row ? row._ep.status : null;
+    const id = String(e.id);
+    const prev = row ? row._ep.status : lastStatus.has(id) ? lastStatus.get(id) : listed.get(id);
+    if (e.status) lastStatus.set(id, e.status);
     if (row) {
       Object.assign(row._ep, e);
       renderStatus(row);
     }
     // Counts/filters only change on status transitions, not on progress ticks.
     if (e.status && e.status !== prev) {
-      if (filter || !row) scheduleReload();
+      if (listed.has(id)) listed.set(id, e.status);
+      // (what the list holds changes only with a filter on; new episodes come with a "feeds" event)
+      if (filter) scheduleReload();
       else scheduleCounts();
     }
   });
