@@ -126,3 +126,13 @@ test("the chips' counts: what is in progress and new is not finished", () => {
   assert.deepEqual(arrange(items, cleanChoice({ show: ["progress", "new"] }), progress, new Set()).map((e) => e.id), [1, 3]);
   assert.deepEqual(arrange(items, cleanChoice({ show: ["done"] }), progress, new Set()).map((e) => e.id), [2]);
 });
+
+test("“Read” for a finished page or book is its own key, not the Read button's command (es Leído, not Leer)", () => {
+  const lib = src("web/js/pages/library.js");
+  assert.match(lib, /const readDone = \(\) => \{ const s = t\("Read \(finished\)"\); return s === "Read \(finished\)" \? "Read" : s; \};/);
+  assert.match(lib, /const doneWord = \(k\) => \(\["pages", "books"\]\.includes\(k\) \? readDone\(\) :/);
+  for (const [code, word] of [["es", "Leído"], ["ar", "تمت القراءة"], ["de", "Gelesen"], ["fr", "Lu"]]) {
+    const d = JSON.parse(src(`web/i18n/${code}.json`));
+    assert.equal(d["Read (finished)"], word, code);
+  }
+});

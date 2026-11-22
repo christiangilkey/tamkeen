@@ -786,7 +786,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   const KIND_OF_ICON = { video: "youtube", reel: "reels", film: "netflix", page: "pages", book: "books", audiobook: "audiobooks",
     videofile: "videos", audio: "audio", podcast: "podcasts" };
   /** What "finished" is called for this kind (the Filter popup, and the label on a finished one's picture). */
-  const doneWord = (k) => (["pages", "books"].includes(k) ? t("Read") : ["podcasts", "audiobooks", "audio"].includes(k) ? t("Listened to") : t("Watched"));
+  // "Read" as in finished, not the button that opens a page ("Leído", not "Leer"): its own key, shown as "Read" in English.
+  const readDone = () => { const s = t("Read (finished)"); return s === "Read (finished)" ? "Read" : s; };
+  const doneWord = (k) => (["pages", "books"].includes(k) ? readDone() :["podcasts", "audiobooks", "audio"].includes(k) ? t("Listened to") : t("Watched"));
   const notDoneWord = (k) => (["pages", "books"].includes(k) ? t("Not read") : ["podcasts", "audiobooks", "audio"].includes(k) ? t("Not listened to") : t("Not watched"));
   function card(ep) {
     const yt = isYouTube(ep);
