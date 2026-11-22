@@ -183,17 +183,22 @@ export async function render(view, { query }) {
   if (!videos.length) { list.innerHTML = `<p class="muted">No videos found.</p>`; return; }
   list.innerHTML = "";
   const cards = [];
+  // A title in another script still starts beside the picture (an English title in the Arabic app, say), not at the far edge.
+  const side = getComputedStyle(list).direction === "rtl" ? "right" : "left";
   for (const v of videos) {
     const card = document.createElement("button");
     card.type = "button";
     card.className = "card web-yt-card";
-    card.style.cssText = "display:flex;gap:12px;align-items:flex-start;text-align:start;padding:10px;width:100%";
-    card.innerHTML = `<span style="position:relative;flex:0 0 40%;max-width:220px">
+    // The picture at the start of the row (the left; the right in right-to-left languages) at one width, the text in
+    // the rest: a button centres what it holds, so each row's picture sat wherever its title's length put it (the
+    // owner, 2026-11-21: "the thumbnail should be at the far left").
+    card.style.cssText = "display:flex;justify-content:flex-start;gap:12px;align-items:flex-start;text-align:start;padding:10px;width:100%";
+    card.innerHTML = `<span style="position:relative;flex:0 0 min(40%, 220px)">
         <img src="${esc(v.thumb)}" alt="" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;display:block">
         ${v.length ? `<span class="small" style="position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.75);color:#fff;border-radius:6px;padding:0 6px">${esc(v.length)}</span>` : ""}</span>
-      <span class="stack" style="display:flex;flex-direction:column;gap:4px;min-width:0;white-space:normal">
-        <strong dir="auto" style="overflow-wrap:anywhere">${esc(v.title)}</strong>
-        <span class="small muted" dir="auto">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
+      <span class="stack" style="display:flex;flex-direction:column;gap:4px;flex:1 1 0;min-width:0;white-space:normal">
+        <strong dir="auto" style="overflow-wrap:anywhere;text-align:${side}">${esc(v.title)}</strong>
+        <span class="small muted" dir="auto" style="text-align:${side}">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
         <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span>
         <span class="tag web-yt-dub" hidden style="align-self:flex-start" dir="auto"></span></span>`;
     cards.push([card, v.id, card.querySelector(".web-yt-tag"), card.querySelector(".web-yt-dub")]);

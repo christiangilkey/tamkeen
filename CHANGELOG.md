@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** Web app → YouTube: each video's picture sat wherever the length of its title put it, so no two rows lined up. The picture is now at the start of the row (the right in right-to-left languages) at one width, with the title and channel beside it.
 - **Fixed:** Library: the covers flickered while something was being transcribed. Each progress update of a transcription (of another podcast's episode, or one further down the list) redrew the whole list about once a second, and every picture loaded again. Now only a real change of state counts, and a redraw keeps the cards and pictures already showing.
 - **Fixed:** Library: a web page or book read to the end said the command "Read" in other languages (Spanish "Leer", Arabic "اقرأ", German "Lesen") in the Filter, the buttons under the heading and its label; it now says it was read ("Leído", "تمت القراءة", "Gelesen").
 - **Improved:** Type what you hear (every player and the courses): once what was said is shown, a **Hide** button at the end of the Hear it again / Slower row puts it away again, with what you typed back in the box to listen again and change it; the check mark shows it again. On a phone it is an eye struck through, so the row stays on one line in every language.
