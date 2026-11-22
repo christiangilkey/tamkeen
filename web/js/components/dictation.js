@@ -117,6 +117,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
       <div class="dict-actions">
         <button type="button" class="dict-again">${icon("sound", 16)} Hear it again</button>
         ${slow ? `<button type="button" class="ghost dict-slow" aria-pressed="false" title="Play it slower">Slower</button>` : ""}
+        <button type="button" class="ghost dict-hide" title="Hide what was said" aria-label="Hide what was said" hidden>${icon("eyeoff", 16)} <span>Hide</span></button>
       </div>
       <p class="dict-hint small muted"></p>
     </div>
@@ -227,6 +228,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     $(".dict-yours").hidden = true;
     input.hidden = false;
     input.value = "";
+    $(".dict-hide").hidden = true;
     go.hidden = false;
     paintGo("check");
     paintCount();
@@ -256,6 +258,7 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     yours.innerHTML = !typed ? `<span class="muted" translate="yes">${esc(t("(nothing typed)"))}</span>` : esc(typed);
     yours.hidden = false;
     input.hidden = true;
+    $(".dict-hide").hidden = false;
     paintGo(k + 1 < units.length ? "next" : "finish");
     paintCount();
     go.focus({ preventScroll: true });
@@ -280,6 +283,20 @@ export function dictationPanel({ words = null, sentences = null, gist = false, l
     if (!checked) check();
     else if (k + 1 < units.length) show(k + 1);
     else finish();
+  };
+  // Hide (the owner, 2026-11-21: "once the user shows the transcripts, there should be a button at the bottom right to
+  // hide it again on the same line as the hear it again or slower options"): what was said goes away, and the box
+  // comes back with what they typed in it, to listen again and change it; the round button shows it again.
+  $(".dict-hide").onclick = () => {
+    checked = false;
+    touch();
+    $(".dict-real").hidden = true;
+    $(".dict-yours").hidden = true;
+    $(".dict-hide").hidden = true;
+    input.hidden = false;
+    paintGo("check");
+    input.focus({ preventScroll: true });
+    reveal(input);
   };
   $(".dict-again").onclick = () => { touch(); playNow(); if (!checked) input.focus({ preventScroll: true }); };
   for (const b of el.querySelectorAll(".dict-seg [data-mode]")) b.onclick = () => { if (b.dataset.mode !== mode) setMode(b.dataset.mode); };

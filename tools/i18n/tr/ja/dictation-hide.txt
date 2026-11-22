@@ -1,0 +1,2 @@
+# Type what you hear: the Hide button's name (what was said goes away again), 2026-11-21
+501e7eba	話された内容を隠す

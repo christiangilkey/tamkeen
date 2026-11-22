@@ -4295,6 +4295,11 @@
   "f": "web/js/components/dictation.js"
  },
  {
+  "id": "501e7eba",
+  "k": "Hide what was said",
+  "f": "web/js/components/dictation.js"
+ },
+ {
   "id": "b6fffc5a",
   "k": "Start again",
   "f": "web/js/components/dictation.js"

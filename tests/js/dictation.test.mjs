@@ -323,3 +323,21 @@ test("while Type what you hear is open, every player's Play does what the check 
   assert.match(reels, /const playing = last && !last\.paused;\n    if \(!playing && dict && dict\.pressGo\(\)\) return;\n    clipEnd = null;\n    surface\.do\(playing \? "pause" : "play"\);/);
   assert.match(reels, /playPause: \(\) => \$\("#rc-play"\)\.click\(\),/);
 });
+
+test("Type what you hear: once what was said is shown, Hide sits at the end of the Hear it again / Slower row and puts it away again (the owner, 2026-11-21)", () => {
+  const src = readFileSync(new URL("../../web/js/components/dictation.js", import.meta.url), "utf8");
+  // in the same row as Hear it again and Slower, after them; hidden until what was said is shown
+  assert.match(src, /dict-slow[^\n]*\n\s*<button type="button" class="ghost dict-hide" title="Hide what was said" aria-label="Hide what was said" hidden>\$\{icon\("eyeoff", 16\)\} <span>Hide<\/span><\/button>\n\s*<\/div>/);
+  assert.match(src, /input\.hidden = true;\n\s*\$\("\.dict-hide"\)\.hidden = false;/, "shown with what was said");
+  assert.match(src, /input\.value = "";\n\s*\$\("\.dict-hide"\)\.hidden = true;/, "gone again for the next piece");
+  // Hide: what was said and what was typed go, the box comes back with the typing in it, the round button is a check again
+  const hide = src.slice(src.indexOf('$(".dict-hide").onclick'), src.indexOf('$(".dict-again").onclick'));
+  for (const bit of ["checked = false;", '$(".dict-real").hidden = true;', '$(".dict-yours").hidden = true;', "input.hidden = false;", 'paintGo("check");'])
+    assert.ok(hide.includes(bit), bit);
+  assert.doesNotMatch(hide, /input\.value =/, "what they typed stays, to change it");
+  const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
+  assert.match(css, /\.dict-body \.dict-actions \{ flex-wrap: nowrap; \}/, "one line, also on a phone");
+  assert.match(css, /\.dict-actions \.dict-hide \{ margin-inline-start: auto;/, "at the far end (the left in right-to-left languages)");
+  assert.match(css, /@media \(max-width: 640px\) \{ \.dict-actions \.dict-hide \{ padding-inline: 10px; \} \.dict-actions \.dict-hide span \{ display: none; \} \}/,
+    "a phone: the eye alone (German, Spanish, Portuguese, Russian and Bisaya don't fit with the word at 375 px)");
+});

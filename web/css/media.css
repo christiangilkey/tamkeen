@@ -624,6 +624,12 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
 .dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .dict-actions button { display: inline-flex; align-items: center; gap: 6px; }
+/* Hide: at the far end of the row (the right; the left in right-to-left languages), the row on one line. */
+.dict-body .dict-actions { flex-wrap: nowrap; }
+.dict-actions .dict-hide { margin-inline-start: auto; flex: none; }
+.dict-actions .dict-hide[hidden] { display: none; }
+/* A phone: Hide is its eye alone (its name is still said to a screen reader), so the row fits in every language. */
+@media (max-width: 640px) { .dict-actions .dict-hide { padding-inline: 10px; } .dict-actions .dict-hide span { display: none; } }
 button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
 .dict-hint { margin: 0; text-align: center; }
 @media (hover: none) { .dict-hint { display: none; } }

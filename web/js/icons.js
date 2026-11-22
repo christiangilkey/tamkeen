@@ -105,6 +105,8 @@ const PATHS = {
   // A question mark: the word popup's "I don't know this one yet" (lexicon/seen.js unknown words).
   question: `<path d="M8.6 8.9a3.5 3.5 0 1 1 5.2 3.1c-1.1.6-1.8 1.4-1.8 2.6v.7"/><circle class="solid" cx="12" cy="18.6" r="1.15"/>`,
   close: `<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>`,
+  // An eye struck through: Type what you hear's Hide (what was said goes away again).
+  eyeoff: `<path d="M3 12s3.4-6 9-6 9 6 9 6-3.4 6-9 6-9-6-9-6z"/><circle cx="12" cy="12" r="2.6"/><path d="M4.5 4.5l15 15"/>`,
   userplus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
     <path d="M18.5 8.5v6M15.5 11.5h6"/>`,
   userminus: `<circle class="fill" cx="9" cy="8.4" r="3.2"/><circle cx="9" cy="8.4" r="3.2"/><path d="M3 19.6a6 6 0 0 1 12 0"/>
