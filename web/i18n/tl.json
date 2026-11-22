@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"Ituloy ang pag-play pagkatapos ng pinindot na salita",
 "After a tapped word plays, it pauses. Switch to keep playing.":"Pagkatapos i-play ang pinindot na salita, nagpo-pause ito. Palitan para ituloy ang pag-play.",
 "After a tapped word plays, it keeps playing. Switch to pause.":"Pagkatapos i-play ang pinindot na salita, tuloy-tuloy ang pag-play. Palitan para mag-pause.",
+"Meanings":"Mga kahulugan",
 "In: {0}. Tap to change.":"Nasa: {0}. I-tap para baguhin.",
 "Saves into: {0}. Tap to change.":"Mase-save sa: {0}. I-tap para baguhin.",
 "No folder":"Walang folder",

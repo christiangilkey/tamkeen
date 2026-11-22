@@ -11,7 +11,8 @@ import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
-import { pickDictionaryMeaning } from "./dictpick.js";
+import { meaningSenses, withSense } from "./dictpick.js";
+import { showPos } from "../senses.js";
 import { folderState, hasFolders, lastFolder, pickFolder } from "./savefolder.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
@@ -110,6 +111,40 @@ export function createWordBubble(host, actions) {
   // when they chose to make a second card anyway. `asked` counts the lookups, so a late answer for another word is left.
   const shelf = { target: { uid: "", name: "" }, folders: [], card: null, second: false, asked: 0 };
   const haveCard = () => !!shelf.card && !shelf.second;
+
+  // The meaning bubbles beside the definition (the owner, 2026-11-21: "clickable bubbles showing other potential
+  // translations ... it should save the definition that is currently selected"): the word's meanings that really
+  // differ (components/dictpick.js meaningSenses, as Add words lists them), the first (the AI's for this sentence, or
+  // the dictionary's first) chosen to start with. `of` is the answer they belong to; none for one meaning.
+  const senses = { of: null, list: [], at: 0 };
+  const sensesNow = () => (senses.of === def && senses.list.length > 1 ? senses.list : null);
+
+  /** Find the word's meanings for the bubbles, then draw the popup again. */
+  function fillSenses() {
+    const forDef = def, forCtx = ctx;
+    if (!forDef || !forCtx || forCtx.phrase) return;
+    meaningSenses(forDef, forCtx).then((list) => {
+      if (def !== forDef || el.hidden) return;
+      Object.assign(senses, { of: forDef, list: list || [], at: 0 });
+      if (sensesNow()) render(current.state, current.message);
+    }).catch(() => {});
+  }
+
+  /** The definition, and the bubbles beside it (to its right, to its left in a right-to-left language, under it on a
+   * phone): a tap shows that meaning and makes it the one Save keeps. */
+  function meaningRow(meaning) {
+    const list = sensesNow();
+    if (!list) return `<div class="wb-meaning">${esc(meaning)}</div>`;
+    const pos = showPos(list);
+    const shown = list[senses.at] || list[0];
+    return `<div class="wb-meaning-row">
+      <div class="wb-meaning">${esc(shown.full || shown.text)}</div>
+      <div class="wb-senses" role="radiogroup" aria-label="${esc(t("Meanings"))}" translate="no">
+        ${list.map((s, i) => `<button type="button" class="wb-sense${i === senses.at ? " on" : ""}" role="radio" aria-checked="${i === senses.at}" data-act="sense" data-i="${i}"
+          title="${esc(s.full || s.text)}">${esc(s.text)}${pos && s.pos ? ` <span class="wb-sense-pos">${esc(s.pos)}</span>` : ""}</button>`).join("")}
+      </div>
+    </div>`;
+  }
 
   /** Find this word's folders and card, then draw the buttons again. */
   function fillShelf() {
@@ -331,7 +366,7 @@ export function createWordBubble(host, actions) {
     } else if (quick) {
       // The dictionary's grammar comes along even here: it is already on the device, and short.
       const extras = (def.grammar && def.grammar.length) || (def.forms && def.forms.length) || (def.root && L().root === "Root");
-      body = `<div class="wb-meaning">${esc(def.meaning)}</div>
+      body = `${meaningRow(def.meaning)}
         ${extras ? `<div class="wb-chips">${chips(def)}</div>${formRows(def)}` : ""}${downloadingNote()}`;
     } else {
       const d = def;
@@ -339,7 +374,7 @@ export function createWordBubble(host, actions) {
       // word itself with its marks (Arabic vowels, Russian stress) it replaces the headword instead.
       const reading = L().reading === "below" ? d.vocalized : "";
       body = `
-        <div class="wb-meaning">${esc(d.meaning)}</div>
+        ${meaningRow(d.meaning)}
         ${d.explanation ? `<p class="wb-expl">${esc(d.explanation)}</p>` : ""}
         <div class="wb-chips">${chips(d)}</div>
         ${reading ? `<div class="wb-reading" ${attrs()}>${esc(reading)}</div>` : ""}
@@ -404,6 +439,7 @@ export function createWordBubble(host, actions) {
       }
       render("ready");
       fillShelf();  // (with the answer: an Arabic card's text has its vowel marks)
+      fillSenses();  // (its meanings, for the bubbles beside the definition)
     } catch (e) {
       if (my !== token) return;
       if (e && e.message === "NO_KEY") { askDict(); render("nokey"); }
@@ -417,6 +453,12 @@ export function createWordBubble(host, actions) {
     if (!b) return;
     switch (b.dataset.act) {
       case "close": hide(); break;
+      case "sense": {
+        // A meaning bubble: that meaning is shown, and it is the one Save keeps.
+        const i = Number(b.dataset.i);
+        if (Number.isInteger(i) && sensesNow() && i !== senses.at) { senses.at = i; buzz("tick"); render(current.state, current.message); }
+        break;
+      }
       case "mode": {
         const pause = !pauseAfterWord();
         setPauseAfterWord(pause);
@@ -479,7 +521,7 @@ export function createWordBubble(host, actions) {
         break;
       }
       case "important": {
-        // A word they have: the mark on or off. One not saved yet: saved, marked important (Which meaning? and the
+        // A word they have: the mark on or off. One not saved yet: saved, marked important (the chosen bubble and the
         // folder button's folder as Save does). (The owner, 2026-11-21: it replaced "Not known yet".)
         b.disabled = true;
         if (haveCard()) {
@@ -507,14 +549,15 @@ export function createWordBubble(host, actions) {
   el.addEventListener("pointerdown", (e) => e.stopPropagation());
 
   /**
-   * Save the card: "Which meaning?" first when the word's meanings differ (components/dictpick.js), then into the
-   * folder the folder button shows (components/savefolder.js), with no question. `important`: marked important too
-   * (the ! button on a word not saved yet). True once saved; false when "Which meaning?" was closed or saving failed.
+   * Save the card: the meaning chosen among the bubbles (short: its fuller wording goes in the card's notes,
+   * components/dictpick.js withSense), into the folder the folder button shows (components/savefolder.js), with no
+   * question (the owner, 2026-11-21: no "Which meaning?" on Save from here). `important`: marked important too (the !
+   * button on a word not saved yet). True once saved; false when saving failed.
    */
   async function saveCard({ important = false } = {}) {
     try {
-      const picked = await pickDictionaryMeaning(def, ctx);
-      if (def && picked === null) return false;  // (closed: nothing saved; no answer at all still saves)
+      const list = sensesNow();
+      const picked = withSense(def, list ? list[senses.at] || list[0] : null);
       const into = shelf.target.uid;
       const extra = { ...(into ? { save_folders: [into] } : {}), ...(important ? { save_important: true } : {}) };
       await actions.onSave(Object.keys(extra).length ? { ...(picked || {}), ...extra } : picked);

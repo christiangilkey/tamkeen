@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"เล่นต่อหลังจากแตะคำ",
 "After a tapped word plays, it pauses. Switch to keep playing.":"หลังจากเล่นคำที่แตะแล้ว จะหยุดชั่วคราว เปิดสวิตช์เพื่อให้เล่นต่อ",
 "After a tapped word plays, it keeps playing. Switch to pause.":"หลังจากเล่นคำที่แตะแล้ว จะเล่นต่อ ปิดสวิตช์เพื่อให้หยุดชั่วคราว",
+"Meanings":"ความหมาย",
 "In: {0}. Tap to change.":"อยู่ใน: {0} แตะเพื่อเปลี่ยน",
 "Saves into: {0}. Tap to change.":"บันทึกลงใน: {0} แตะเพื่อเปลี่ยน",
 "No folder":"ไม่ใส่โฟลเดอร์",

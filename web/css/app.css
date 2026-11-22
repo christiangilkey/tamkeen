@@ -677,6 +677,20 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
   .word-bubble:not(.sheet) > .wb-actions > .wb-close-end { display: inline-flex; }
 }
 .wb-meaning { font-size: 18px; font-weight: 600; margin: 2px 0 4px; }
+/* The meaning bubbles (wordbubble.js meaningRow): beside the definition (its left in a right-to-left page, as the
+   flex row turns round), under it when there's no room (a phone's sheet always). A tap picks the meaning Save keeps. */
+.wb-meaning-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 12px; }
+.wb-meaning-row > .wb-meaning { flex: 0 1 auto; min-width: 0; }  /* (a long one takes the whole line, the bubbles under it) */
+.wb-senses { flex: 1 1 10em; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; margin: 2px 0 4px; }
+.word-bubble.sheet .wb-senses { flex-basis: 100%; justify-content: flex-start; }
+/* (the popup itself stays left to right, its definitions being English; in a right-to-left app the bubbles still go to
+   the definition's left, the reading side's far end) */
+html[dir="rtl"] .wb-meaning-row { flex-direction: row-reverse; }
+html[dir="rtl"] .word-bubble.sheet .wb-senses { justify-content: flex-end; }  /* (under it on a phone: from the right) */
+.wb-senses .wb-sense { min-height: 30px; padding: 3px 11px; border-radius: 99px; font-size: 13px; font-weight: 500; white-space: normal;
+  text-align: start; line-height: 1.25; max-width: 100%; overflow-wrap: anywhere; }
+.wb-senses .wb-sense.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, #fff); }
+.wb-sense-pos { font-size: 11px; opacity: .75; }
 .wb-expl { color: var(--muted); margin: 0 0 8px; }
 .wb-chips { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
 .wb-chip { font-size: 12px; padding: 1px 8px; border-radius: 99px; background: var(--surface-2); color: var(--muted); }

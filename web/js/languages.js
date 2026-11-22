@@ -275,6 +275,9 @@ export function vocabFromDefinition(def, word, code) {
     // translation: meaningdata.js translatedForms)
     def.provider === "dictionary" && def.morphology && !/^also /.test(def.morphology) && def.morphology,
     def.root && `${L.root || "Root"}: ${def.root}`,
+    // (the meaning's fuller wording, its notes in brackets, when the card's meaning is the short one: the word popup's
+    // bubbles, "Which meaning?")
+    def.save_gloss && def.save_gloss !== def.meaning && def.save_gloss,
     def.pos, def.dialect_note,
   ].filter(Boolean).join(" · ");
   const plain = def.sentence_translation || "";

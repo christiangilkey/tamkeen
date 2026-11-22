@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"点按单词后继续播放",
 "After a tapped word plays, it pauses. Switch to keep playing.":"点按的单词播放后会暂停。切换后改为继续播放。",
 "After a tapped word plays, it keeps playing. Switch to pause.":"点按的单词播放后会继续播放。切换后改为暂停。",
+"Meanings":"意思",
 "In: {0}. Tap to change.":"所在文件夹：{0}。点按可更改。",
 "Saves into: {0}. Tap to change.":"保存到：{0}。点按可更改。",
 "No folder":"不放入文件夹",

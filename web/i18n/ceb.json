@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"Padayon sa pag-play human sa pulong nga gi-tap",
 "After a tapped word plays, it pauses. Switch to keep playing.":"Human ma-play ang pulong nga gi-tap, mohunong kini. I-switch aron magpadayon sa pag-play.",
 "After a tapped word plays, it keeps playing. Switch to pause.":"Human ma-play ang pulong nga gi-tap, magpadayon kini sa pag-play. I-switch aron mohunong.",
+"Meanings":"Mga kahulogan",
 "In: {0}. Tap to change.":"Anaa sa: {0}. I-tap aron usbon.",
 "Saves into: {0}. Tap to change.":"Ma-save sa: {0}. I-tap aron usbon.",
 "No folder":"Walay folder",

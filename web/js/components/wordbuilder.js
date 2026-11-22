@@ -51,7 +51,7 @@ import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, star
 import { scanPanel } from "./wordscan.js";
 import { offerFix } from "./fixit.js";
 import { appSound } from "../appvolume.js";
-import { aiSenses, dictionarySenses, distinctSenses } from "../senses.js";
+import { aiSenses, dictionarySenses, distinctSenses, plainMeaning } from "../senses.js";
 import { chooseSenses } from "./sensechoice.js";
 
 const CHOICES_KEY = "tk_addwords";  // this device's choices for "For these cards"
@@ -1257,7 +1257,12 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
           asking.forEach((r, i) => {
             r.senseChosen = true;
             const meaning = String(picked[i] || "").trim();
+            // (the sense's fuller wording, its notes in brackets, goes in the card's notes: the meaning stays short)
+            const gloss = String((picked.glosses && picked.glosses[i]) || "").trim();
+            if (gloss && !String(r.notes || "").includes(gloss)) r.notes = [String(r.notes || "").trim(), gloss].filter(Boolean).join(" · ");
             if (!meaning || meaning === r.meaning.value.trim()) return;
+            // (the same sense, only its short form: the sentence and the rest were made for it, so they stay)
+            if (meaning === plainMeaning(r.meaning.value)) { r.meaning = typed(meaning); paintRow(r); return; }
             r.meaning = typed(meaning);
             for (const f of ["sentence", "translation", "memo"]) if (r[f].auto) r[f] = filled("");
             redo.push(r);

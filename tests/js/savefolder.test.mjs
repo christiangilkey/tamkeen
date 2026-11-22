@@ -22,8 +22,8 @@ test("the popup has a folder button beside Save, not the microphone; Save saves 
   assert.match(wb, /data-act="save"[^\n]*\n\s*\$\{folderButton\(\)\}/, "the folder button right after Save");
   assert.match(wb, /case "folder": \{[\s\S]*?await pickFolder\(/);
   assert.doesNotMatch(wb, /askSaveFolder/, "Save asks no folder question");
-  const meaning = wb.indexOf("await pickDictionaryMeaning(def, ctx)"), save = wb.indexOf("save_folders: [into]");
-  assert.ok(meaning > 0 && save > meaning, "Which meaning? still first, then the save into the button's folder");
+  const meaning = wb.indexOf("const picked = withSense(def"), save = wb.indexOf("save_folders: [into]");
+  assert.ok(meaning > 0 && save > meaning, "the chosen bubble's meaning, saved into the button's folder");
   assert.match(wb, /target: lastFolder\(context\.lang \|\| "ar"\)/, "the folder is remembered for the next word");
   // a word they have already: the button shows its folders and Save says Saved (one card per word)
   assert.match(wb, /const haveCard = \(\) => !!shelf\.card && !shelf\.second;/);

@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"タップした単語のあとも再生を続ける",
 "After a tapped word plays, it pauses. Switch to keep playing.":"タップした単語の再生後、一時停止します。切り替えると再生を続けます。",
 "After a tapped word plays, it keeps playing. Switch to pause.":"タップした単語の再生後も再生を続けます。切り替えると一時停止します。",
+"Meanings":"意味",
 "In: {0}. Tap to change.":"フォルダー：{0}。タップで変更。",
 "Saves into: {0}. Tap to change.":"保存先：{0}。タップで変更。",
 "No folder":"フォルダーなし",

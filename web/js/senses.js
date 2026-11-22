@@ -6,7 +6,8 @@
 // meaning becomes for each choice. Shared by the desktop app, the phone and the web app (tests/js/senses.test.mjs).
 
 // Meanings that say nothing a card can use: a letter's name, a pointer elsewhere, a grammar note.
-const NOT_A_SENSE = /\bname of the\b.*\bletter\b|^(?:the )?letter\b|^(?:an? )?(?:alternative|obsolete|archaic|dated|rare|misspelling)\b.*\b(?:form|spelling) of\b|^(?:abbreviation|initialism|acronym|contraction) of\b|^used other than\b|^see\b|^only used in\b/i;
+// (A letter of the alphabet, "the letter B", is no sense; "letter (document)", carta's first meaning, is one.)
+const NOT_A_SENSE = /\bname of the\b.*\bletter\b|^(?:the )?letter\s+["“']?[^\s(]{1,3}["”']?(?=$|[\s,;.])|^(?:an? )?(?:alternative|obsolete|archaic|dated|rare|misspelling)\b.*\b(?:form|spelling) of\b|^(?:abbreviation|initialism|acronym|contraction) of\b|^used other than\b|^see\b|^only used in\b/i;
 const GRAMMAR = /^(?:used|forms?|makes?|marks?|denotes?|indicates?|expresses|precedes|introduces)\b|\b(?:form|plural|singular|participle|tense|gerund|infinitive|imperative|feminine|masculine) of\b/i;
 // Words that say nothing about which sense it is ("to be able to", "a kind of thing").
 const STOP = new Set(("a an the to of in on at by for from with into onto out up down off over as and or but not no is are be "
@@ -112,14 +113,30 @@ export const asksForSense = (def, { phrase = false, word = "" } = {}) =>
 /** Show the part of speech beside each sense only when they differ ("bank (noun)" and "to bank (verb)"). */
 export const showPos = (senses) => new Set((senses || []).map((s) => s.pos || "")).size > 1;
 
-/** The card's meaning for a choice: one sense's text, "all" (every sense, ";"-joined, the first first), or the
- * learner's own words. */
+/** A meaning as a card keeps it: without its notes in brackets, never cut short ("dog (the species Canis familiaris
+ * …), domesticated …" -> "dog, domesticated …"; the owner, 2026-11-21: save the short meaning). */
+export function plainMeaning(text) {
+  const s = unbracketed(text).replace(/\s+/g, " ").replace(/[.;,:\s]+$/, "").trim();
+  return s || String(text ?? "").trim();
+}
+
+/** The card's meaning for a choice: one sense's short meaning (plainMeaning), "all" (every sense, ";"-joined, the
+ * first first), or the learner's own words. */
 export function meaningFor(senses, choice, own = "") {
   if (choice === "own") return String(own ?? "").trim();
   if (choice === "all") return (senses || []).map((s) => s.text).join("; ");
   const i = Number(choice);
-  // (one sense: its whole wording, as the dictionary or the AI gave it; the list shows it shortened)
-  return Number.isInteger(i) && senses && senses[i] ? senses[i].full || senses[i].text : "";
+  return Number.isInteger(i) && senses && senses[i] ? plainMeaning(senses[i].full || senses[i].text) : "";
+}
+
+/** The fuller wording of a chosen sense, for the card's notes, when the short meaning left something out (its notes in
+ * brackets); "" otherwise. */
+export function glossFor(senses, choice) {
+  const i = Number(choice);
+  const s = Number.isInteger(i) && senses ? senses[i] : null;
+  if (!s) return "";
+  const full = String(s.full || s.text || "").trim();
+  return full && full !== plainMeaning(full) ? full : "";
 }
 
 /** The senses the AI listed for a word (addwords.js readBatch `senses`), tidied: short, distinct, at most four. */

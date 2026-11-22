@@ -11,7 +11,7 @@
 
 import { feature } from "../prototype.js";
 import { dictionaryDefine } from "../meanings.js";
-import { answerSenses, asksForSense, dictionarySenses, distinctSenses } from "../senses.js";
+import { answerSenses, asksForSense, dictionarySenses, distinctSenses, glossFor, plainMeaning } from "../senses.js";
 import { chooseSenses } from "./sensechoice.js";
 
 /**
@@ -21,8 +21,24 @@ import { chooseSenses } from "./sensechoice.js";
  * it doesn't seem like it's asking me"; until then it asked only with no AI).
  */
 export async function pickDictionaryMeaning(def, ctx) {
-  if (!feature("dict_sense_pick")) return def;
-  if (!asksForSense(def, { phrase: !!(ctx && ctx.phrase), word: ctx && ctx.word })) return def;
+  const senses = await meaningSenses(def, ctx);
+  if (senses.length < 2) return def;
+  const chosen = await chooseSenses([{ word: def.vocalized || def.spelled || ctx.word, senses }], { lang: ctx.lang || "" });
+  if (!chosen) return null;
+  const meaning = String(chosen[0] || "").trim();
+  const gloss = chosen.glosses ? chosen.glosses[0] : "";
+  return meaning && meaning !== def.meaning ? { ...def, meaning, ...(gloss ? { save_gloss: gloss } : {}) } : def;
+}
+
+/**
+ * The meanings of `def`'s word that really differ (senses.js distinctSenses, as Add words lists them), the one shown
+ * first: the word popup's bubbles (components/wordbubble.js) and "Which meaning?" above. A dictionary answer: its own
+ * meanings (the quick answer's whole list, from the dictionary already here). An AI's answer: its meaning for this
+ * sentence first, then its other meanings and the built-in dictionary's (when it is on this device). [] for a phrase.
+ */
+export async function meaningSenses(def, ctx) {
+  if (!feature("dict_sense_pick")) return [];
+  if (!asksForSense(def, { phrase: !!(ctx && ctx.phrase), word: ctx && ctx.word })) return [];
   const look = () => dictionaryDefine({ ...ctx, word: def.spelled || ctx.word }, { quick: false });
   let senses;
   if (def.provider === "dictionary") {
@@ -40,9 +56,16 @@ export async function pickDictionaryMeaning(def, ctx) {
     const more = dict && typeof dict.meaning === "string" ? [dict.meaning, ...(dict.other_meanings || [])] : [];
     senses = distinctSenses(dictionarySenses(def.meaning, def.pos, [...(def.other_meanings || []), ...more]), { alike: dict && dict.alike });
   }
-  if (senses.length < 2) return def;
-  const chosen = await chooseSenses([{ word: def.vocalized || def.spelled || ctx.word, senses }], { lang: ctx.lang || "" });
-  if (!chosen) return null;
-  const meaning = String(chosen[0] || "").trim();
-  return meaning && meaning !== def.meaning ? { ...def, meaning } : def;
+  return senses;
+}
+
+/** `def` with sense `s` (one of meaningSenses) as the card's meaning: short (plainMeaning), its fuller wording kept for
+ * the card's notes (save_gloss, languages.js vocabFromDefinition). With no sense, a dictionary answer's own meaning is
+ * made short the same way. */
+export function withSense(def, s) {
+  if (!def) return def;
+  const list = s ? [s] : def.provider === "dictionary" ? [{ text: def.meaning, full: def.meaning }] : [];
+  if (!list.length) return def;
+  const meaning = plainMeaning(list[0].full || list[0].text), gloss = glossFor(list, 0);
+  return meaning === def.meaning && !gloss ? def : { ...def, meaning, ...(gloss ? { save_gloss: gloss } : {}) };
 }

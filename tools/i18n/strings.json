@@ -10325,6 +10325,11 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
+  "id": "47dcdec6",
+  "k": "Meanings",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
   "id": "6beabf37",
   "k": "In: {0}. Tap to change.",
   "f": "web/js/components/wordbubble.js"

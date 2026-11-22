@@ -2063,6 +2063,7 @@
 "Keep playing after a tapped word":"누른 단어 뒤에 계속 재생",
 "After a tapped word plays, it pauses. Switch to keep playing.":"누른 단어가 재생되면 멈춰요. 바꾸면 계속 재생돼요.",
 "After a tapped word plays, it keeps playing. Switch to pause.":"누른 단어가 재생된 뒤 계속 재생돼요. 바꾸면 멈춰요.",
+"Meanings":"뜻",
 "In: {0}. Tap to change.":"폴더: {0}. 눌러서 바꾸기.",
 "Saves into: {0}. Tap to change.":"저장 위치: {0}. 눌러서 바꾸기.",
 "No folder":"폴더 없음",
