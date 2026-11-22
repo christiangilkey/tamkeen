@@ -4,7 +4,7 @@
 import { NO_MEANINGS, downloadMeanings, meaningsStatus } from "../meanings.js";
 import { FALLBACK, offerDictionary, sourceChoices, switchSource, tagLabel } from "../defsource.js";
 import { esc, buzz, h, toast, saveSettings, state } from "../app.js";
-import { langAttrs, langInfo } from "../languages.js";
+import { langAttrs, langInfo, vocabFromDefinition } from "../languages.js";
 import { icon } from "../icons.js";
 import { LOOKUP_EVENT, lookupMode } from "./lookupmode.js";
 import { showTroubleshoot } from "./troubleshoot.js";
@@ -12,6 +12,7 @@ import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
 import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
 import { pickDictionaryMeaning } from "./dictpick.js";
+import { askSaveFolder } from "./savefolder.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -465,7 +466,10 @@ export function createWordBubble(host, actions) {
           // With no AI, a word with several meanings first asks which one the card is for (components/dictpick.js).
           const picked = await pickDictionaryMeaning(def, ctx);
           if (picked === null) { b.disabled = false; break; }
-          await actions.onSave(picked);
+          // Then which folder it goes in (components/savefolder.js); a word they have already can go in another.
+          const where = await askSaveFolder({ word: ctx.word, text: vocabFromDefinition(picked, ctx.word, lang()).text, lang: lang() });
+          if (where === null) { b.disabled = false; break; }
+          if (!where.filed) await actions.onSave(where.folders.length ? { ...(picked || {}), save_folders: where.folders } : picked);
           saved = true;
           render(current.state, current.message);
           buzz("success");

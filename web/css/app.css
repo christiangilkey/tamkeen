@@ -2300,6 +2300,22 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .sc-own { width: 100%; }
 .sc-foot { display: flex; justify-content: center; }
 .sc-ok { min-width: 200px; }
+/* The word popup's Save: "Which folder?" (components/savefolder.js). New folder first, then the last folder chosen
+   (marked), "Not in a folder" and the folders, each a big row; a tap saves. */
+.sf-box { max-width: 440px; }
+.sf { display: flex; flex-direction: column; gap: 10px; }
+.sf-word { font-size: 24px; font-weight: 700; line-height: 1.3; text-align: center; overflow-wrap: anywhere; }
+.sf-word[lang="ar"], .sf-word[lang="fa"] { font-family: var(--ar-font); font-weight: 600; }
+.sf-lead { margin: 0; text-align: center; }
+.sf-new, .sf-opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 52px; padding: 10px 16px; border-radius: 12px;
+  text-align: start; justify-content: flex-start; white-space: normal; }
+.sf-new { border: 0; background: var(--surface-2); color: var(--accent); font-size: 16px; font-weight: 650; }
+.sf-list { display: flex; flex-direction: column; gap: 6px; }
+.sf-opt { border: 2px solid var(--border); background: var(--surface); color: var(--text); font-size: 16px; font-weight: 500; cursor: pointer; }
+.sf-opt.last { border-color: var(--accent); background: var(--accent-soft); }
+.sf-name { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.sf-tag { flex: none; font-size: 12px; color: var(--accent); font-weight: 650; }
+.sf-foot { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .vocab-page .vocab-item.vi-new { animation: vi-new 2.6s ease-out; }
 @keyframes vi-new { from { background: var(--accent-soft); border-color: var(--accent); } to { background: var(--surface); } }
 @media (prefers-reduced-motion: reduce) { .vocab-page .vocab-item.vi-new { animation: none; border-color: var(--accent); } }
@@ -3263,7 +3279,7 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .vf-gap { flex: none; width: 44px; }
 .vf-acts { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; padding: 2px 0 8px; }
 .vf-acts .vi-btn { min-width: 0; min-height: 44px; padding: 4px 8px; font-size: 13.5px; line-height: 1.2; white-space: normal; }
-.vf-new { gap: 8px; min-height: 46px; margin-top: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
+.vf-new { gap: 8px; min-height: 46px; margin-bottom: 6px; border: 0; border-radius: 12px; background: var(--surface-2); color: var(--accent); font-weight: 650; }
 .vf-new:hover:not(:disabled) { background: var(--surface-2); filter: brightness(1.04); }
 /* The sort and filter sheet: centred choices, the chosen one in teal; a tap changes the list behind at once. */
 .vs { display: flex; flex-direction: column; gap: 18px; }

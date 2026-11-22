@@ -1,0 +1,5 @@
+# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+87e3db51	أي مجلد؟
+413da526	اتركها حيث هي
+365a1f55	أنشئ بطاقة ثانية
+e2a4976f	المرة السابقة

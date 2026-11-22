@@ -59,3 +59,16 @@ export const hasFolder = (key) => pickList(key).some((p) => p !== NONE);
 export function picksName(key, nameOf, noneName = "Not in a folder") {
   return pickList(key).map((p) => (p === NONE ? noneName : nameOf(p))).filter(Boolean).join(", ");
 }
+
+/**
+ * The word popup's "Which folder?" (components/savefolder.js), in the order shown: the one chosen last time first
+ * (marked `last`), then "Not in a folder" (`noneName`), then the folders. `folders` [{uid, name}], `last` a uid or
+ * NONE ("" or a folder that's gone: nothing is marked). Each is {key: uid or NONE, name, folder?, last?}.
+ */
+export function saveChoices(folders, last, noneName = "Not in a folder") {
+  const list = [{ key: NONE, name: noneName }, ...(folders || []).map((f) => ({ key: f.uid, name: f.name, folder: true }))];
+  const i = last ? list.findIndex((c) => c.key === last) : -1;
+  if (i > 0) list.unshift(list.splice(i, 1)[0]);
+  if (i >= 0) list[0] = { ...list[0], last: true };
+  return list;
+}

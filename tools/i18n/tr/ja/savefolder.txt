@@ -1,0 +1,5 @@
+# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+87e3db51	どのフォルダー？
+413da526	今のままにする
+365a1f55	2枚目のカードを作る
+e2a4976f	前回

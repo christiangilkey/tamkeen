@@ -353,9 +353,7 @@ export async function render(view) {
         r.append(h(`<span class="vf-gap" aria-hidden="true"></span>`));  // (the counts in one column with the folders')
         box.append(r);
       };
-      row("", "All words", false);
-      row("none", "Not in a folder", false);
-      for (const f of folders) row(f.uid, f.name, true);
+      // (New folder at the top, the owner 2026-11-21: "the create new folder button should be at the top")
       const add = h(`<button type="button" class="vf-new">${icon("plus", 18)}<span>New folder</span></button>`);
       add.onclick = async () => {
         const f = await newFolder();
@@ -364,6 +362,9 @@ export async function render(view) {
         chooseFolder(f.uid);
       };
       box.append(add);
+      row("", "All words", false);
+      row("none", "Not in a folder", false);
+      for (const f of folders) row(f.uid, f.name, true);
       const hint = h(`<p class="vf-hint muted">Tap one to show it. Tick several to show their words together.</p>`);
       m.body.replaceChildren(hint, box);
       if (focusKey) [...box.querySelectorAll(".vf-row")].find((x) => x.dataset.key === focusKey)?.querySelector(".vf-tick")?.focus({ preventScroll: true });
@@ -383,7 +384,7 @@ export async function render(view) {
       return { label: `${inAll ? "☑" : "☐"} ${f.name}`, run: () => applyFolder(items, f.uid, !inAll) };
     });
     if (mode !== "remove") {
-      entries.push({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) applyFolder(items, f.uid, true); } });
+      entries.unshift({ label: "＋ New folder…", run: async () => { const f = await newFolder(); if (f) applyFolder(items, f.uid, true); } });  // (at the top)
     }
     if (!entries.length) { toast("These words aren't in any folder."); return; }
     showMenu(x, y, items.length === 1 ? items[0].text : `${items.length} words`, entries);

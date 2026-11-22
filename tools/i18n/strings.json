@@ -8430,6 +8430,61 @@
   "f": "web/js/components/safetyui.js"
  },
  {
+  "id": "87e3db51",
+  "k": "Which folder?",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "0f594f52",
+  "k": "“{0}” is in {1} now too.",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "a711999b",
+  "k": "New folder",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "cc5030b7",
+  "k": "Name for the new folder",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "b1239d7d",
+  "k": "You have it already: in {0}",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "470fb0d3",
+  "k": "You have it already: not in a folder",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "086900b2",
+  "k": "Put the same card in another folder too:",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "413da526",
+  "k": "Leave it where it is",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "365a1f55",
+  "k": "Make a second card",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
+  "id": "e2a4976f",
+  "k": "Last time",
+  "f": "web/js/components/savefolder.js"
+ },
+ {
   "id": "94331dff",
   "k": "YouTube video",
   "f": "web/js/components/sendmedia.js"
@@ -10620,23 +10675,13 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "a711999b",
-  "k": "New folder",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "cc5030b7",
-  "k": "Name for the new folder",
+  "id": "fea7178e",
+  "k": "New folder…",
   "f": "web/js/components/wordbuilder.js"
  },
  {
   "id": "602b5b8d",
   "k": "No folder",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "fea7178e",
-  "k": "New folder…",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -10870,16 +10915,6 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "b1239d7d",
-  "k": "You have it already: in {0}",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "470fb0d3",
-  "k": "You have it already: not in a folder",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
   "id": "a14be316",
   "k": "Put it in another folder",
   "f": "web/js/components/wordbuilder.js"
@@ -10900,11 +10935,6 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
-  "id": "086900b2",
-  "k": "Put the same card in another folder too:",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
   "id": "173801b6",
   "k": "No folders yet.",
   "f": "web/js/components/wordbuilder.js"
@@ -10912,11 +10942,6 @@
  {
   "id": "a22fa8d8",
   "k": "Put it there",
-  "f": "web/js/components/wordbuilder.js"
- },
- {
-  "id": "0f594f52",
-  "k": "“{0}” is in {1} now too.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -13707,11 +13732,6 @@
  {
   "id": "3254a11b",
   "k": "Newest {0}",
-  "f": "web/js/game/battle-ui.js"
- },
- {
-  "id": "889ab689",
-  "k": "Not in a folder",
   "f": "web/js/game/battle-ui.js"
  },
  {

@@ -246,9 +246,9 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     }
     const select = $(".cb-folder");
     select.innerHTML = "";
+    select.append(new Option(t("New folder…"), "+new"));  // (at the top, as in every folder list)
     select.append(new Option(t("No folder"), ""));
     for (const f of folderList) select.append(new Option(f.name, f.uid));
-    select.append(new Option(t("New folder…"), "+new"));
     select.value = choices.folder || "";
     for (const r of rows) paintRow(r);
     countUp();
@@ -676,7 +676,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         paintStatus(row);
       } catch (err) { go.disabled = false; toast(err.message, { error: true }); }
     };
-    m.body.append(where, ask, list, neu, buttons);
+    m.body.append(where, ask, neu, list, buttons);  // (New folder above the folders, as in every folder list)
   }
 
   /** The cards that would be added now, and the button that adds them. */

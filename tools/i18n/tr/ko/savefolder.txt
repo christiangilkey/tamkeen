@@ -1,0 +1,5 @@
+# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+87e3db51	어느 폴더에 넣을까요?
+413da526	지금 있는 곳에 두기
+365a1f55	카드 하나 더 만들기
+e2a4976f	지난번

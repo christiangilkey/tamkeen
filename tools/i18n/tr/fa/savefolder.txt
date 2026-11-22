@@ -1,0 +1,5 @@
+# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+87e3db51	کدام پوشه؟
+413da526	همان‌جا بماند
+365a1f55	ساختن کارت دوم
+e2a4976f	دفعهٔ قبل

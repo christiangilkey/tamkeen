@@ -1,0 +1,5 @@
+# The word popup's Save: which folder (components/savefolder.js), 2026-11-21
+87e3db51	¿Qué carpeta?
+413da526	Dejarla donde está
+365a1f55	Crear una segunda tarjeta
+e2a4976f	La última vez

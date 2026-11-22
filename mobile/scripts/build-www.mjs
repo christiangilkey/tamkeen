@@ -124,6 +124,7 @@ const SHARED = [
   "js/senses.js",
   "js/components/sensechoice.js",
   "js/components/dictpick.js",
+  "js/components/savefolder.js",
   "js/components/wordeditor.js",
   "js/components/wordtools.js",
   "js/components/wordscan.js",
