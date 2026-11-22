@@ -50,10 +50,12 @@ export async function installedMeanings(lang) {
   return Promise.all(st.names.map((name) => api(`/lexicon/data/${name}`).then(keyedTables)));
 }
 
-/** Download a language's meanings (and its word tables, which find a word's dictionary form). */
-export async function downloadMeanings(lang) {
+/** Download a language's meanings (and its word tables, which find a word's dictionary form; `tables: false` leaves
+ * them, for Ask by voice's own-language dictionary, which only reads the meanings: components/voiceask.js). */
+export async function downloadMeanings(lang, { tables = true } = {}) {
   const st = await api("/lexicon/download", { method: "POST", body: { lang, kind: "meanings" } });
   loaded.delete(lang);
+  if (!tables) return st;
   try {
     const { downloadDictionaries, lexiconStatus } = await import("./lexicon/seen.js");
     const words = await lexiconStatus(lang);

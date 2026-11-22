@@ -28,7 +28,10 @@ import { sayText, stopSaying } from "../saytext.js";
 import { languageName } from "../converse.js";
 import { chosenDialect } from "../voiceplay.js";
 import { isPhrase, wordKey } from "../addwords.js";
-import { askExamples, askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, translationsFor } from "../voiceask.js";
+import { askExamples, askPrompt, cleanAsk, hearingTag, hearingWays, readQuestion, toEnglish, translationsFor } from "../voiceask.js";
+import { hasNative, quoteMarks } from "../voiceask-native.js";
+import { feature } from "../prototype.js";
+import { pickDictionaryMeaning } from "./dictpick.js";
 
 const browserRecognition = () => window.SpeechRecognition || window.webkitSpeechRecognition || null;
 
@@ -48,13 +51,19 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   let busy = false;    // hearing or answering
   let answer = null;   // {lang, items: [{word, meaning, notes, added}], source}
   let closed = false;
-  // What to say (voiceask.js askExamples): in English, as the question is read in English; tapping one puts it in the box.
-  const examples = askExamples(study);
+  // The learner's own language (the app's), when questions can be read in it (prototype voice_ask_native, the owner,
+  // 2026-11-21: "¿cómo se dice perro en árabe?"); otherwise "en": questions are read in English, as before.
+  const own = String(uiLanguage() || "en").split("-")[0];
+  const native = own !== "en" && hasNative(own) && feature("voice_ask_native");
+  const ui = native ? own : "en";
+  // What to say (voiceask.js askExamples): in the language questions are read in; tapping one puts it in the box.
+  const examples = askExamples(study, ui);
   const EXAMPLE = examples[0].text;
-  const english = /^en\b/i.test(uiLanguage() || "en");
+  const english = /^en\b/i.test(uiLanguage() || "en") || native;
+  const [open, close] = quoteMarks(ui);  // (the language's own marks round what is said: «…» in Arabic)
   const exampleHtml = (ex, i) => {
     const said = ex.word ? esc(ex.text).replace(esc(ex.word), `<bdi ${langAttrs(study)}>${esc(ex.word)}</bdi>`) : esc(ex.text);
-    const line = ex.after ? esc(t("After an answer: “{0}”", "\u0000")).replace("\u0000", said) : `“${said}”`;
+    const line = ex.after ? esc(t("After an answer: “{0}”", "\u0000")).replace("\u0000", said) : `${open}<bdi>${said}</bdi>${close}`;
     return `<li><button type="button" class="vq-ex" data-i="${i}">${line}</button></li>`;
   };
 
@@ -214,16 +223,49 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   const aiName = () => { const c = definerConfig(); return (PROVIDERS[c.provider] && (PROVIDERS[c.provider].short || PROVIDERS[c.provider].label)) || c.provider; };
   const saved = () => new Set((existing() || []).map((v) => wordKey(v && v.text)));
 
-  async function dictionaryFiles(lang) {
+  async function dictionaryFiles(lang, { tables = true } = {}) {
     let files = await installedMeanings(lang).catch(() => null);
     if (files) return files;
     say(t("Getting the {0} dictionary (once only)…", t(langInfo(lang).name)));
-    try { await downloadMeanings(lang); } catch { return null; }  // (none for this language, or no connection)
+    try { await downloadMeanings(lang, { tables }); } catch { return null; }  // (none for this language, or no connection)
     return installedMeanings(lang).catch(() => null);
   }
 
-  /** How to say `phrase` in `lang`: {items, source}. */
-  async function howToSay(phrase, heard, lang) {
+  /**
+   * How to say a word of the learner's own language in `lang` with no AI ("¿cómo se dice perro en árabe?"): the word
+   * in English by their own language's dictionary (perro: dog), then the dictionary of `lang` (dog: كلب). That
+   * dictionary is got here once, the first time, and only for a learner whose own language it is (the owner,
+   * 2026-11-21: a bigger download only for those who chose that language as their own). `tries`: the word, then other
+   * ways to take it (개를). {items, source} or null.
+   */
+  async function fromOwnLanguage(tries, lang) {
+    const mine = await dictionaryFiles(ui, { tables: false });  // (its meanings alone: no word tables)
+    if (!mine) return null;
+    const files = lang === "en" ? null : await dictionaryFiles(lang);
+    if (lang !== "en" && !files) return null;
+    const common = lang === "en" ? [] : await commonWords(lang).catch(() => []);
+    for (const word of tries) {
+      const inEnglish = toEnglish(mine, word, ui);
+      if (!inEnglish.length) continue;
+      // (the card's front is the word as they asked it; the English it went through is shown under the answer)
+      if (lang === "en") return { items: inEnglish.map((e) => ({ word: e, meaning: word, note: "", notes: "" })), source: t("From the built-in dictionary (Wiktionary)") };
+      for (const e of inEnglish) {
+        const found = translationsFor(files, e, lang, { common });
+        if (!found.length) continue;
+        return {
+          items: found.map((f) => ({
+            word: f.word, reading: f.reading, meaning: word, note: [e, f.sense].filter(Boolean).join(" · "),
+            notes: [f.reading && lang !== "ar" ? `Reading: ${f.reading}` : "", f.pos].filter(Boolean).join(" · "),
+          })),
+          source: t("From the built-in dictionary (Wiktionary)"),
+        };
+      }
+    }
+    return null;
+  }
+
+  /** How to say `phrase` in `lang`: {items, source}. `alts`: other ways to take the word (개를). */
+  async function howToSay(phrase, heard, lang, alts = []) {
     if (aiReady()) {
       try {
         const got = cleanAsk(await askAi(askPrompt({
@@ -241,6 +283,10 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
       } catch (e) {
         console.warn("Ask by voice: the AI couldn't answer", e);  // (the dictionary is asked instead)
       }
+    }
+    if (native && lang !== ui) {
+      const bridged = await fromOwnLanguage([phrase, ...alts], lang);
+      if (bridged) return bridged;
     }
     const files = await dictionaryFiles(lang);
     if (!files) throw new Error(t("The {0} dictionary couldn't be got: check the internet connection, or add an AI in Settings → Word definitions.", t(langInfo(lang).name)));
@@ -261,18 +307,20 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
   /** What `phrase` (in `lang`) means: the word popup's own lookup (Settings → Word definitions). */
   async function whatItMeans(phrase, lang) {
     const word = phrase.trim();
-    const def = await getDefinition({ word, marked: `⟦${word}⟧`, lang, phrase: isPhrase(word, lang) });
+    const ctx = { word, marked: `⟦${word}⟧`, lang, phrase: isPhrase(word, lang) };
+    const def = await getDefinition(ctx);
     const card = vocabFromDefinition(def, word, lang);
     if (!card.meaning) return null;
     return {
-      items: [{ word: card.text, meaning: card.meaning, notes: card.notes, note: def.explanation || "" }],
+      // (`pick`: with no AI, adding it asks which meaning the card is for, as the word popup does: components/dictpick.js)
+      items: [{ word: card.text, meaning: card.meaning, notes: card.notes, note: def.explanation || "", pick: { def, ctx } }],
       source: def.provider === "dictionary" ? t("From the built-in dictionary ({0})", def.model || "Wiktionary") : t("Answer from {0}", aiName()),
     };
   }
 
   async function ask(text) {
     stopSaying();
-    const q = readQuestion(text);
+    const q = readQuestion(text, ui);
     if (q.kind === "add") {
       if (!answer) { say(t("Ask for a word first, then say “add it”.")); return; }
       addItems(q.all ? answer.items : answer.items.slice(0, 1));
@@ -286,7 +334,7 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     let got = null;
     try {
       if (q.kind === "mean") got = await whatItMeans(q.phrase, lang).catch(() => null);
-      if (!got) got = await howToSay(q.phrase, text, lang);
+      if (!got) got = await howToSay(q.phrase, text, lang, q.alts || []);
       // A bare word the dictionary has no English meaning for may be a word of the language itself ("bonito").
       if (!got && q.kind === "say" && !aiReady()) got = await whatItMeans(q.phrase, lang).catch(() => null);
     } catch (e) {
@@ -347,11 +395,18 @@ export function openVoiceAsk({ existing = () => [], addCards = () => {} } = {}) 
     out.querySelectorAll(".vq-add").forEach((b) => { b.onclick = () => addItems([items[Number(b.dataset.i)]]); });
   }
 
-  function addItems(list) {
+  async function addItems(list) {
     if (!answer) return;
     if (answer.lang !== study) { say(t("Switch the language at the top to {0} to add this one.", t(langInfo(answer.lang).name)), "error"); return; }
     const todo = list.filter((it) => !it.added);
     if (!todo.length) { say(t("That's already in your cards.")); return; }
+    for (const it of todo) {
+      if (!it.pick) continue;
+      const picked = await pickDictionaryMeaning(it.pick.def, it.pick.ctx);
+      if (picked === null) { say(t("Nothing was added. Choose a meaning to add it.")); return; }
+      if (picked !== it.pick.def) { it.meaning = picked.meaning; it.pick = null; }
+    }
+    if (closed || !answer) return;
     say(t("Making the card…"));
     addCards(todo.map((it) => ({ text: it.word, meaning: it.meaning, notes: it.notes || "" })), (cards) => {
       if (closed || !answer) return;

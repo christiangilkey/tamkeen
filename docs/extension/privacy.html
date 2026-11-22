@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- The privacy policy of the browser extension "Tamkeen for Netflix", linked from its Chrome Web Store
+<!-- The privacy policy of the browser extension "Tamkeen for Netflix & Prime Video", linked from its Chrome Web Store
      listing. This is its source: extension/scripts/build.mjs copies it to docs/extension/privacy.html at
      every web app build (served at https://christiangilkey.github.io/tamkeen/extension/privacy.html).
      Edit this file, not the copy. Keep it true to what the code does: extension/src, and the shared
@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy – Tamkeen for Netflix</title>
+<title>Privacy Policy – Tamkeen for Netflix &amp; Prime Video</title>
 <link rel="icon" href="icon-128.png">
 <link rel="stylesheet" href="../style.css">
 <style>
@@ -22,12 +22,13 @@
 <main>
   <header>
     <img src="icon-128.png" alt="">
-    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen for Netflix (browser extension) · Last updated October 24, 2026</div></div>
+    <div><h1>Privacy Policy</h1><div class="muted">Tamkeen for Netflix &amp; Prime Video (browser extension) · Last updated November 21, 2026</div></div>
   </header>
 
-  <p>"Tamkeen for Netflix" is a free browser extension for learning a language. On Netflix's website it shows the
-  subtitles in the language you are learning as words you can click, with the whole transcript beside the video and
-  the meaning of any word you click. It works together with the free Tamkeen web app
+  <p>"Tamkeen for Netflix &amp; Prime Video" is a free browser extension for learning a language. On Netflix's
+  website it shows the subtitles in the language you are learning as words you can click, with the whole transcript
+  beside the video and the meaning of any word you click. On Prime Video's website it shows the subtitle line Prime
+  Video is showing on your screen, beside the player, as words you can click. It works together with the free Tamkeen web app
   (<a href="https://christiangilkey.github.io/tamkeen/app/">christiangilkey.github.io/tamkeen/app</a>), where your
   library and saved words live.</p>
 
@@ -35,8 +36,9 @@
   has no analytics, no advertising and no tracking, and never sells or shares your data. The only things that leave
   your browser are listed below, and each one is needed for a feature you use.</p>
 
-  <p>Tamkeen and this extension are not made, endorsed or sponsored by Netflix. "Netflix" is a trademark of
-  Netflix, Inc.; it is named here only to say which website the extension works with.</p>
+  <p>Tamkeen and this extension are not made, endorsed or sponsored by Netflix or Amazon. "Netflix" is a trademark
+  of Netflix, Inc., and "Prime Video" and "Amazon" are trademarks of Amazon.com, Inc. or its affiliates; they are named
+  here only to say which websites the extension works with.</p>
 
   <h2>Where the extension runs</h2>
   <ul>
@@ -44,6 +46,8 @@
       account.</li>
     <li><strong>Netflix's video servers</strong> (<code>*.nflxvideo.net</code>), only to recognise and read the
       subtitle files Netflix's player downloads.</li>
+    <li><strong>Prime Video's website</strong> (<code>www.primevideo.com</code>, and Amazon's video pages,
+      <code>amazon.&lt;country&gt;/gp/video/</code>), where you watch with your own Amazon account.</li>
     <li><strong>The Tamkeen web app's own pages</strong> (<code>christiangilkey.github.io/tamkeen/app/</code>), to
       pass your settings and saved words between the web app and the extension.</li>
   </ul>
@@ -69,6 +73,19 @@
   viewing history. It does not download or copy videos, and it does not get around Netflix's sign-in, subscription
   or copy protection: you need your own Netflix subscription, and the video plays in Netflix's own player.</p>
 
+  <h2>What it does on Prime Video's pages</h2>
+  <p>On Prime Video the extension only reads what Prime Video already shows on your screen, while its player is open:</p>
+  <ul>
+    <li><strong>The subtitle line on screen</strong>, the title's name and episode line from the player, the title's
+      number in the page's address, and the player's time.</li>
+  </ul>
+  <p>It does not control Prime Video's player: it never plays, pauses, jumps, changes the speed or chooses the
+    soundtrack or subtitles (you turn subtitles on in Prime Video's own menu). It does not change Prime Video's page:
+    its panel is a separate box at the edge of the window. It makes no requests to Amazon at all: it downloads no
+    video, sound or subtitle files, and it does not get around Amazon's sign-in, subscription or copy protection. It
+    keeps the lines you watched only while that title is open in the tab, and keeps only the words you save (with
+    their sentence and the title's name) until the Tamkeen web app takes them into your vocabulary list.</p>
+
   <h2>What it keeps in your browser</h2>
   <p>All of this stays in your browser's storage for the extension, on your computer. Removing the extension deletes
   it.</p>
@@ -86,7 +103,8 @@
       open Netflix tab (the latter only until the browser closes).</td><td>So the transcript appears at once when you
       watch a title again.</td></tr>
     <tr><td>The words you save and the titles you watch (the Netflix title number and name, its subtitle lines,
-      and when), until the Tamkeen web app has taken them. The extension then deletes them.</td><td>So they reach your
+      and when; for Prime Video, only the words you save, with their sentence and the title's name), until the
+      Tamkeen web app has taken them. The extension then deletes them.</td><td>So they reach your
       Tamkeen library and vocabulary list.</td></tr>
     <tr><td>Small choices: whether the transcript sidebar is open, and that you have seen a one-time
       note.</td><td>To remember your layout.</td></tr>
@@ -105,7 +123,7 @@
     <li><strong>The AI provider you chose, only if you use AI explanations.</strong> When you click a word and
       Tamkeen asks an AI to explain it, the extension sends, straight from your browser to that provider (Anthropic
       Claude, Google Gemini, OpenAI or xAI Grok) with your own key: the word, its subtitle sentence and the sentences
-      before and after it, the name of the title and that it is from Netflix, and the language you want the
+      before and after it, the name of the title and that it is from Netflix or Prime Video, and the language you want the
       explanation in. Nothing else about you is sent. That provider's privacy policy applies to these requests. With
       "No AI" chosen in Tamkeen's settings, words are explained from the downloaded dictionary and nothing is sent
       to any AI provider.</li>
@@ -115,12 +133,14 @@
       sees your IP address (see <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>).</li>
     <li><strong>Netflix.</strong> Only the requests described above: the title's name, and the subtitle file
       downloaded again. Netflix's own privacy policy covers your use of Netflix.</li>
+    <li><strong>Amazon.</strong> Nothing: on Prime Video the extension only reads your screen. Amazon's own privacy
+      notice covers your use of Prime Video.</li>
   </ul>
   <p>The extension itself never contacts the developer, Tamkeen's go-between server, the Friends service (Supabase)
   or Google Drive. Those are features of the Tamkeen web app, used only if you turn them on there, and are covered by
   <a href="../privacy.html">Tamkeen's privacy policy</a>.</p>
 
-  <h2>Netflix's subtitles</h2>
+  <h2>Netflix's and Prime Video's subtitles</h2>
   <p>Subtitles are read only to show them to you as words to click and to keep the transcript in your own Tamkeen
   library, for your own study. They are never published, never sent to the developer and cannot be sent to friends
   from Tamkeen.</p>
@@ -130,7 +150,7 @@
     <li>No selling or renting of your data, to anyone.</li>
     <li>No advertising, analytics, tracking or crash reporting.</li>
     <li>No use of your data for anything other than the extension's purpose (clickable subtitles for learning a
-      language on Netflix), and no use or transfer of it to decide creditworthiness or for lending.</li>
+      language on Netflix and Prime Video), and no use or transfer of it to decide creditworthiness or for lending.</li>
     <li>No code loaded from the internet: everything the extension runs is inside the extension you install.</li>
   </ul>
   <p>The use of information received by this extension complies with the
@@ -152,7 +172,7 @@
   <a href="https://github.com/christiangilkey/tamkeen/issues">github.com/christiangilkey/tamkeen/issues</a>. The
   extension's code is public in the same place.</p>
 
-  <footer><a href="./">← Tamkeen for Netflix</a> · <a href="../privacy.html">Tamkeen's privacy policy</a></footer>
+  <footer><a href="./">← Tamkeen for Netflix &amp; Prime Video</a> · <a href="../privacy.html">Tamkeen's privacy policy</a></footer>
 </main>
 </body>
 </html>

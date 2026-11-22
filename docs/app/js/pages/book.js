@@ -6,6 +6,7 @@
 import { api, esc, h, toast, showMenu, hideMenu, saveSettings, state, buzz } from "../app.js";
 import { voiceNewCard } from "../voiceplay.js";
 import { saveProgress } from "../progress.js";
+import { markWatched } from "../watched.js";
 import { sentenceBounds, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
 import { createWordBubble } from "../components/wordbubble.js";
@@ -449,6 +450,7 @@ export async function render(view, { id, data, query }) {
   function keep() {
     try { localStorage.setItem(posKey, String(pages[page][0])); } catch { /* storage unavailable */ }
     saveProgress({ id, kind: "page", title: ep.title, sub: ep.description || "", image: "", frac: (page + 1) / pages.length });
+    if (page + 1 >= pages.length) markWatched(id); // its last page: the Library puts it with the finished ones (libsort.js)
   }
   let start = 0;
   try { start = Number(localStorage.getItem(posKey)) || 0; } catch { /* storage unavailable */ }

@@ -16,10 +16,18 @@ const STOP = new Set(("a an the to of in on at by for from with into onto out up
 const POS = new Set(["noun", "verb", "adj", "adv", "pron", "det", "prep", "conj", "intj", "particle", "phrase", "num", "name",
   "article", "postp", "prefix", "suffix", "affix", "counter", "classifier", "character", "contraction", "proverb"]);
 
+/** A meaning without its notes in brackets, brackets inside brackets too ("dog (the species Canis familiaris (sometimes
+ * designated …)), domesticated …" -> "dog, domesticated …"); each note leaves `gap` in its place. */
+function unbracketed(text, gap = "") {
+  let s = String(text ?? ""), before;
+  do { before = s; s = s.replace(/\s*\([^()]*\)|\s*\[[^[\]]*\]/g, gap); } while (s !== before);
+  return s;
+}
+
 /** A meaning's own words, lower case, a plural or verb ending off: "pile, stack, heap" -> {pile, stack, heap}. */
 export function senseWords(text) {
   const out = new Set();
-  for (const w of String(text ?? "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").toLowerCase().match(/\p{L}[\p{L}'-]*/gu) || []) {
+  for (const w of unbracketed(text, " ").toLowerCase().match(/\p{L}[\p{L}'-]*/gu) || []) {
     if (STOP.has(w) || w.length < 2) continue;
     out.add(w.replace(/(?:ies)$/, "y").replace(/(?:ing|ed|es|s)$/, (m, i, s) => (s.length - m.length >= 3 ? "" : m)));
   }
@@ -28,7 +36,7 @@ export function senseWords(text) {
 
 /** A meaning short enough to choose by: its notes in brackets off, its first few words (at most `max` letters). */
 export function shortSense(text, max = 60) {
-  const s = String(text ?? "").replace(/\s*\([^)]*\)|\s*\[[^\]]*\]/g, "").replace(/\s+/g, " ").replace(/[.;,:\s]+$/, "").trim();
+  const s = unbracketed(text).replace(/\s+/g, " ").replace(/[.;,:\s]+$/, "").trim();
   if (s.length <= max) return s;
   const cut = s.slice(0, max);
   const at = Math.max(cut.lastIndexOf(";"), cut.lastIndexOf(","));
@@ -55,7 +63,7 @@ export function dictionarySenses(meaning, pos = "", others = []) {
  * "to take, catch (a ball)" -> ["take", "catch"]. */
 function headsOf(text) {
   const out = [];
-  for (const part of String(text ?? "").replace(/\([^)]*\)|\[[^\]]*\]/g, " ").split(/[;,/]/)) {
+  for (const part of unbracketed(text, " ").split(/[;,/]/)) {
     const h = part.trim().toLowerCase().replace(/^(?:to|a|an|the)\s+/, "").replace(/[.!?]+$/, "").trim();
     if (h && h.split(/\s+/).length <= 3) out.push(h);
   }
@@ -90,6 +98,15 @@ export function distinctSenses(list, { max = 4, alike = [] } = {}) {
   }
   return kept.map(({ text, full, pos }) => ({ text, full, pos }));
 }
+
+/** A dictionary answer's (meanings.js dictionaryDefine) meanings to choose from: distinctSenses of its meaning and
+ * other meanings, with its near-synonyms (`alike`) counted as one. */
+export const answerSenses = (def) => (def ? distinctSenses(dictionarySenses(def.meaning, def.pos, def.other_meanings), { alike: def.alike }) : []);
+
+/** Does saving `def` ask which meaning the card is for (components/dictpick.js, prototype dict_sense_pick)? Only for the
+ * built-in dictionary's answer, with no AI (`ai`: an AI is set up and not turned off), for one word, not a phrase. */
+export const asksForSense = (def, { ai = false, phrase = false, word = "" } = {}) =>
+  !!def && def.provider === "dictionary" && !ai && !phrase && !!String(word || "").trim() && !!String(def.meaning || "").trim();
 
 /** Show the part of speech beside each sense only when they differ ("bank (noun)" and "to bank (verb)"). */
 export const showPos = (senses) => new Set((senses || []).map((s) => s.pos || "")).size > 1;

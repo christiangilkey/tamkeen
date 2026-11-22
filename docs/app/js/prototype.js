@@ -25,7 +25,11 @@ export const PROTOTYPES = {
   sense_choice: { name: "Add words asks which meaning a word with several meanings is for (one screen for all the words)", released: true, since: "2026-11-19" },
   drag_drop: { name: "Drag and drop files onto My audio, My videos, My files, Books, Audiobooks, a lesson, Import data and your profile photo", released: true, since: "2026-11-19" },
   lesson_links: { name: "Lessons: a PDF's or Word file's links to sound files (\"Audio Files/1.mp3\") become sound spots, filled by adding the files (several, a folder, or dropped), matched by name", released: true, since: "2026-11-19" },
+  dict_sense_pick: { name: "Saving a word with no AI: a word with several meanings asks which one the card is for (word popup, Ask by voice)", released: true, since: "2026-11-21" },
+  library_feed: { name: "The Library like YouTube: every tab in big pictures (a YouTube video in the middle of the screen plays silently), in progress first, then new, then finished, with a Filter button", released: true, since: "2026-11-21" },
   creator_bar: { name: "Creator bar on Home (the creator only): people online now and every limit as used / limit", released: true, since: "2026-11-20" },
+  voice_ask_native: { name: "Ask by voice in your own language: questions (\"¿cómo se dice perro en árabe?\"), \"add it\" and the examples in the app's language; with no AI, your own language's dictionary is downloaded once (only yours)", released: true, since: "2026-11-21" },
+  prime_video: { name: "Prime Video with the Tamkeen browser extension (now \"Tamkeen for Netflix & Prime Video\"): \"Get the Tamkeen extension\" and a Prime Video note on the Library's Netflix tab and the + sheet's Netflix step", released: true, since: "2026-11-21" },
 };
 
 const KEY = "tamkeenPrototype";

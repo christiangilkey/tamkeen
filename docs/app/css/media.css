@@ -35,6 +35,11 @@
   background: var(--accent); color: var(--accent-ink); border: 3px solid var(--bg);
 }
 .add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
+/* Right-to-left on a computer: the side list is on the right, so the button sat over it (with its arrow and note);
+   it goes to the bottom left instead (the owner, 2026-11-21). library.js aimHint then turns the arrow and the note
+   round to its other side, over the page. Only while the side list is beside the page (app.css: one column at 860 px
+   and under); phones and left-to-right languages keep it on the right. */
+@media (min-width: 861px) { :root[dir="rtl"] .library.desk .add-fab { right: auto; left: 28px; } }
 .library.courses-kind .add-fab { display: none; } /* Courses: nothing to add there (the owner) */
 .add-fab .ic { stroke-width: 2.2; }
 /* Swiping between sections on a phone (mobile/src/js/swipe.js): hidden while the page slides, then
@@ -96,6 +101,21 @@ body:has(.add-fab) .toasts { bottom: 100px; }
 .add-fab.roll-in .fab-hint, .add-fab.fade-in .fab-hint { opacity: 0; transition: none; }
 body:has(.modal-back) .library .fab-hint, body:has(.tour) .library .fab-hint { display: none; }
 @media (max-width: 640px) { .fab-hint { width: 88px; height: 77px; bottom: calc(50% - 11px); } }
+/* The handwritten note above the arrow's tail ("Tap here to add things", library.js FAB_NOTE), in the arrow's teal and
+   slightly tilted. It is inside .fab-hint, so it shows, fades in and hides with the arrow; when the arrow is flipped
+   (button on the left) it sits over the arrow's other end and is turned back to read the right way, tilted the mirror
+   way. Caveat (app.css) has Latin and Russian letters; other alphabets use the app's own fonts, a little smaller. */
+.fab-note {
+  position: absolute; left: 5%; bottom: calc(100% + 2px); width: max-content; max-width: 10em;
+  transform: translateX(-50%) rotate(-6deg); text-align: center; white-space: normal;
+  font: 600 24px/1.05 "Caveat", var(--ui-font); letter-spacing: 0; text-transform: none;
+}
+.add-fab.hint-flip .fab-note { transform: translateX(-50%) rotate(-6deg) scaleX(-1); }
+.fab-note .fn-click { display: none; }
+@media (hover: hover) and (pointer: fine) { .fab-note .fn-tap { display: none; } .fab-note .fn-click { display: inline; } }
+:root:lang(ar) .fab-note { font-family: "Caveat", "Noto Naskh Arabic", var(--ui-font); }
+:root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 17px; line-height: 1.35; max-width: 9em; }
+@media (max-width: 640px) { .fab-note { font-size: 21px; } :root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 15px; } }
 button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon beside its words) */
 .gx-say.fx-pop { display: inline-grid; }
 

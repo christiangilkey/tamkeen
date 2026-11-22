@@ -532,7 +532,9 @@ export async function render(view, { id, query }) {
     saveProgress({ id, kind: vid ? "video" : "audio", title: ep.title, sub: ep.feed_title, image: img || "",
                    pos: audio.currentTime || 0, dur: duration });
     if (cover) saveCover(`${featKind}:${featId}`, cover); // (what was really played, so it can be finished another day)
-    if (vid && atEnd(audio.currentTime || 0, duration)) markWatched(id);  // the Library's "Watched" label (watched.js)
+    // Played to the end: the Library's "Watched" label, and its order puts it last (watched.js, libsort.js). Videos and,
+    // since the Library sorts everything by it (the owner, 2026-11-21), audio too.
+    if (atEnd(audio.currentTime || 0, duration)) markWatched(id);
   };
   audio.addEventListener("timeupdate", update);
 
@@ -548,12 +550,16 @@ export async function render(view, { id, query }) {
     kick();
   });
   audio.addEventListener("pause", () => {
-    clipEnd = null; // any pause ends a word/sentence clip, so the next play continues normally
+    // Any pause ends a word/sentence clip, so the next play continues normally. But not one already played again:
+    // an <audio>'s "pause" arrives a moment after pause(), so a piece stopped and the next one started at once
+    // (Type what you hear's arrows, Hear it again) would lose the next one's end, and it played on past it (the owner,
+    // 2026-11-20: a podcast "isn't pausing … at the right intervals like the YouTube one", whose pause is said at once).
+    if (audio.paused) clipEnd = null;
     if (!disposed) { $("#play").textContent = "▶"; lsSet(posKey, audio.currentTime); remember(); kick(); }
   });
   audio.addEventListener("seeked", () => { if (!disposed) kick(); });
   audio.addEventListener("ended", () => {
-    if (vid) markWatched(id);
+    markWatched(id);
     if (!disposed) $("#play").textContent = "▶";
   });
   // Manual scrolling is detected from user input (wheel, touch, keys, scrollbar drag), never
@@ -607,7 +613,16 @@ export async function render(view, { id, query }) {
     if (autoplay && audio.paused) play();
     kick();
   };
-  $("#play").onclick = () => { clipEnd = null; audio.paused ? play() : pause(); };
+  // Play while Type what you hear is open does what its round button (the check mark) does: the piece is shown, or the
+  // next one plays and stops at its end (the owner, 2026-11-21: "pressing the play button should work exactly like
+  // pressing the check mark button"). The same for Space, a controller and the phone's or keyboard's media keys. Pause
+  // stays pause. With the panel put away (or finished), Play plays on as always.
+  const playPressed = () => {
+    if (audio.paused && dict && dict.pressGo()) return;
+    clipEnd = null;
+    audio.paused ? play() : pause();
+  };
+  $("#play").onclick = playPressed;
   $("#back5").onclick = () => (dict ? dict.back() : seekTo(audio.currentTime - 5, false)); // (typing: by the piece)
   // Back to the start of the line being heard (again within a second: the line before): the R key. No button: every
   // player's bar keeps only the 5-second ones (the owner, 2026-11-19 for YouTube: "the second rewind button should be
@@ -1405,7 +1420,7 @@ export async function render(view, { id, query }) {
   const onKey = (e) => {
     if (e.target.closest("input, select, textarea, button") && e.key === " ") return;
     if (e.target.closest("input, textarea, select")) return;
-    if (e.key === " " ) { e.preventDefault(); audio.paused ? play() : pause(); }
+    if (e.key === " " ) { e.preventDefault(); playPressed(); }
     else if (e.key === "ArrowLeft") { e.preventDefault(); seekTo(audio.currentTime - 5, false); }
     else if (e.key === "ArrowRight") { e.preventDefault(); seekTo(audio.currentTime + 5, false); }
     else if ((e.key === "r" || e.key === "R") && !e.ctrlKey && !e.metaKey) { if (dict) dict.again(); else lineAgain(); }
@@ -1526,7 +1541,7 @@ export async function render(view, { id, query }) {
     try {
       navigator.mediaSession.metadata = new MediaMetadata({ title: ep.title, artist: ep.feed_title,
         artwork: img ? [{ src: img }] : [] });
-      navigator.mediaSession.setActionHandler("play", play);
+      navigator.mediaSession.setActionHandler("play", () => (dict && dict.pressGo() ? undefined : play())); // (typing: the check mark's way)
       navigator.mediaSession.setActionHandler("pause", pause);
       navigator.mediaSession.setActionHandler("seekbackward", () => seekTo(audio.currentTime - 5, false));
       navigator.mediaSession.setActionHandler("seekforward", () => seekTo(audio.currentTime + 5, false));

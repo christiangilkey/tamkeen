@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.67.0",
+  "Prime Video with clickable subtitles, in the Tamkeen browser extension on a computer");
+notes("0.67.0",
+  "Every Library tab looks like YouTube, with a Filter button");
+notes("0.67.0",
+  "Ask by voice understands questions in your own language");
+notes("0.67.0",
+  "Saving a word with no AI asks which meaning the card is for");
+notes("0.67.0",
+  "While Type what you hear is open, Play works like the check mark");
 notes("0.66.0",
   "Every player's bar now matches YouTube's, with Type what you hear beside the speed");
 notes("0.66.0",

@@ -710,7 +710,15 @@ async function renderPlayer(view, { query }) {
     clipEnd = null;
     surface.do("seek", Math.max(0, Math.min(t, Math.max(0, (last.d || t) - 0.3))));
   };
-  $("#rc-play").onclick = () => { if (surface) { clipEnd = null; surface.do(last && !last.paused ? "pause" : "play"); } };
+  // Play while Type what you hear is open does what its round button (the check mark) does, as in the other players
+  // (the owner, 2026-11-21): the piece is shown, or the next one plays and stops at its end. Pause stays pause.
+  $("#rc-play").onclick = () => {
+    if (!surface) return;
+    const playing = last && !last.paused;
+    if (!playing && dict && dict.pressGo()) return;
+    clipEnd = null;
+    surface.do(playing ? "pause" : "play");
+  };
   $("#rc-back").onclick = () => (dict ? dict.back() : last && jumpTo(last.t - 5));
   $("#rc-fwd").onclick = () => (dict ? dict.next() : last && jumpTo(last.t + 5));
   $("#rc-seek").addEventListener("input", (e) => { dragging = true; $("#rc-cur").textContent = formatTime(Number(e.target.value)); });

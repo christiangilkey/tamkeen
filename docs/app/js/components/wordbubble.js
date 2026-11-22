@@ -11,6 +11,7 @@ import { showTroubleshoot } from "./troubleshoot.js";
 import { kindOf } from "../trouble.js";
 import { pronounceWord } from "../lexicon/seen.js";
 import { VOICE_SETTINGS, voicesOnSave } from "../cardvoice.js";
+import { pickDictionaryMeaning } from "./dictpick.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -461,7 +462,10 @@ export function createWordBubble(host, actions) {
         // Works with or without a definition (no key, or the lookup failed).
         b.disabled = true;
         try {
-          await actions.onSave(def);
+          // With no AI, a word with several meanings first asks which one the card is for (components/dictpick.js).
+          const picked = await pickDictionaryMeaning(def, ctx);
+          if (picked === null) { b.disabled = false; break; }
+          await actions.onSave(picked);
           saved = true;
           render(current.state, current.message);
           buzz("success");

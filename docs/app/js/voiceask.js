@@ -6,7 +6,8 @@
 // Shared by the desktop app, the phone and the web app (tested in tests/js/voiceask.test.mjs).
 
 import { LANGUAGES } from "./languages.js";
-import { matchKey, ordinary } from "./lexicon/meaningdata.js";
+import { lookUp, matchKey, ordinary, wordKeys } from "./lexicon/meaningdata.js";
+import { hasNative, nativeExamples, readNative } from "./voiceask-native.js";
 
 // ---------------------------------------------------------------- reading the question
 
@@ -50,26 +51,39 @@ function bareWords(s) {
  * studied) means; "add" only "add it". `lang` is the language named in the question ("" when none: the one
  * being studied). `add` is true when the question also says to add it ("…and add it"); `all` when it says to
  * add them all. A bare word or phrase is "say" (the dictionary also tries it the other way round).
+ *
+ * `ui` is the learner's own language (the app's): a question is read in it first (voiceask-native.js: "¿cómo se dice
+ * perro en árabe?", "añádelo"), then in English; `alts` (when there) are other ways to take the word (개를: 개, 개를).
  */
-export function readQuestion(text) {
+export function readQuestion(text, ui = "en") {
+  if (ui === "en" || !hasNative(ui)) return readEnglish(text).out;
+  const { matched, ...own } = readNative(text, ui);
+  if (matched) return own;
+  const english = readEnglish(text);
+  return english.matched ? english.out : own;
+}
+
+/** The question read as English: {out, matched}, `matched` false when only the bare words were left. */
+function readEnglish(text) {
   let s = tidy(String(text ?? "").toLowerCase().replace(/[’‘]/g, "'").replace(/[“”«»„]/g, '"'));
   s = s.replace(/[?!.]+$/, "").replace(FILLERS, "").trim();
   const out = { kind: "none", phrase: "", lang: "", add: false, all: false };
-  if (!s) return out;
+  const done = (matched) => ({ out, matched });
+  if (!s) return done(false);
   // "…, and add it" / "add it": the adding is taken off whatever is left.
   const add = ADD_RE.exec(s);
   if (add) {
     out.add = true;
     out.all = ALL_RE.test(add[0]);
     s = tidy(s.slice(0, add.index) + " " + s.slice(add.index + add[0].length)).replace(/(?:^|\s)(?:and|then|also|please)\s*$/, "").replace(/^(?:and|then|also|please)\s+/, "").replace(/[,;]+$/, "").trim();
-    if (!s || /^(?:yes|yeah|yep|sure|ok|okay|please|now|too|as well|as a card|a card)$/.test(s)) { out.kind = "add"; return out; }
+    if (!s || /^(?:yes|yeah|yep|sure|ok|okay|please|now|too|as well|as a card|a card)$/.test(s)) { out.kind = "add"; return done(true); }
   }
   // The language named: "in Spanish", "into French", "the Spanish word for", "Spanish for".
   const named = (m) => { if (m) out.lang = NAMES[m]; return m; };
   let m;
   if ((m = new RegExp(`\\s+(?:in|into|to)\\s+(${NAME_RE})(?:\\s+language)?$`).exec(s))) { named(m[1]); s = s.slice(0, m.index).trim(); }
   else if ((m = new RegExp(`^(?:what(?:'s| is| are)?\\s+)?(?:the\\s+)?(${NAME_RE})\\s+(?:word|words|way to say|for)\\s+(?:for\\s+|of\\s+)?`).exec(s))) {
-    named(m[1]); out.kind = "say"; out.phrase = bareWords(s.slice(m[0].length)); return out;
+    named(m[1]); out.kind = "say"; out.phrase = bareWords(s.slice(m[0].length)); return done(true);
   }
   // What it means: "what does X mean", "what's the meaning of X", "define X", "what is X in English".
   const mean = [
@@ -79,9 +93,9 @@ export function readQuestion(text) {
     /^what\s+is\s+the\s+english\s+(?:for|of)\s+(.+)$/,
   ];
   for (const re of mean) {
-    if ((m = re.exec(s))) { out.kind = "mean"; out.phrase = bareWords(m[1]); return out; }
+    if ((m = re.exec(s))) { out.kind = "mean"; out.phrase = bareWords(m[1]); return done(true); }
   }
-  if (out.lang === "en") { out.kind = "mean"; out.lang = ""; out.phrase = bareWords(s.replace(/^(?:what(?:'s| is| are)|how do (?:i|you) say|translate)\s+/, "")); return out; }
+  if (out.lang === "en") { out.kind = "mean"; out.lang = ""; out.phrase = bareWords(s.replace(/^(?:what(?:'s| is| are)|how do (?:i|you) say|translate)\s+/, "")); return done(true); }
   // How to say it: "how do I say X", "how is X said", "what's the word for X", "translate X", "say X".
   const say = [
     /^how\s+(?:do|would|can|could|should|does|did)\s+(?:i|you|we|one|someone|people|they)\s+(?:say|write|spell|express|ask|tell someone)\s+(.+)$/,
@@ -94,13 +108,13 @@ export function readQuestion(text) {
   for (const re of say) {
     if ((m = re.exec(s))) {
       if (re === say[say.length - 1] && !out.lang) break;  // ("what is love" with no language: the whole of it)
-      out.kind = "say"; out.phrase = bareWords(m[1]); return out;
+      out.kind = "say"; out.phrase = bareWords(m[1]); return done(true);
     }
   }
   out.kind = "say";
   out.phrase = bareWords(s);
   if (!out.phrase) out.kind = out.add ? "add" : "none";
-  return out;
+  return done(!!out.lang || out.add);
 }
 
 // ---------------------------------------------------------------- what to say
@@ -121,8 +135,11 @@ export function spokenName(code) {
  * sentences so the user knows what to say." The box's examples, for the language studied (`study`): things
  * readQuestion understands, in English (it reads English): [{text, word?, after?}]. `word`: the language's own word in
  * it (shown in that language's letters and direction); `after`: said once there is an answer ("add it").
+ * With `ui`, the learner's own language (prototype voice_ask_native), they are in that language instead:
+ * "¿Cómo se dice perro en árabe?", "¿Qué significa جميل?", "añádelo".
  */
-export function askExamples(study) {
+export function askExamples(study, ui = "en") {
+  if (ui !== "en" && hasNative(ui)) return nativeExamples(study, ui, study === ui ? "" : EXAMPLE_WORDS[study]);
   const name = spokenName(study) || "Spanish";
   // (someone learning English asks what English words mean: "how do I say … in English" is read as that too)
   const out = study === "en" ? [] : [{ text: `How do I say colorful in ${name}?` }];
@@ -159,6 +176,55 @@ export function spellings(phrase) {
     if (o !== w) for (const s of [...out]) { const ws = s.split(" "); ws[i] = o; out.add(ws.join(" ")); }
   });
   return [...out];
+}
+
+/**
+ * A word or phrase of the learner's own language (`lang`) in English, best first, from that language's own dictionary
+ * (`files`: its meanings files): Wiktionary's translation tables read backwards (perro is in the row for "dog"), then
+ * the word's own meanings. For "¿cómo se dice perro en árabe?" with no AI: perro -> dog -> كلب. At most `max`.
+ */
+export function toEnglish(files, phrase, lang, { max = 3 } = {}) {
+  const word = tidy(phrase);
+  if (!word) return [];
+  const want = matchKey(word, lang);
+  const score = new Map();
+  const add = (english, points) => {
+    const e = tidy(String(english || "").toLowerCase().replace(/[.!?]+$/, ""));
+    if (!e || e.split(" ").length > 4 || /\d/.test(e)) return;
+    score.set(e, (score.get(e) || 0) + points);
+  };
+  for (const data of files || []) {
+    for (const [english, place] of backwards(data, lang).get(want) || []) add(english, 60 - place * 12);
+  }
+  const hit = lookUp((files || []).filter(Boolean), wordKeys(word, lang, null), word, lang, {});
+  if (hit && Array.isArray(hit.groups)) {
+    hit.groups.filter((g) => Array.isArray(g) && ordinary(g)).slice(0, 3).forEach((g, gi) => {
+      (Array.isArray(g[2]) ? g[2] : []).slice(0, 3).forEach((gloss, li) => {
+        senses(String(gloss || "").replace(/:.*$/, "")).slice(0, 3).forEach((sense, si) => add(sense, 50 - gi * 12 - li * 8 - si * 4));
+      });
+    });
+  }
+  return [...score.entries()].sort((a, b) => b[1] - a[1]).slice(0, max).map(([e]) => e);
+}
+
+// Each meanings file's translation table backwards, made once: the language's word (its key) -> [[english, place in the row]].
+const BACKWARDS = new WeakMap();
+function backwards(data, lang) {
+  if (!data || typeof data !== "object") return new Map();
+  if (BACKWARDS.has(data)) return BACKWARDS.get(data);
+  const index = new Map();
+  const table = data.english && typeof data.english === "object" ? data.english : {};
+  for (const [english, rows] of Object.entries(table)) {
+    if (!Array.isArray(rows)) continue;
+    rows.forEach((r, i) => {
+      if (!Array.isArray(r) || typeof r[0] !== "string") return;
+      const k = matchKey(r[0], lang);
+      if (!index.has(k)) index.set(k, []);
+      index.get(k).push([english, i]);
+    });
+  }
+  BACKWARDS.set(data, index);
+  return index;
 }
 
 const ARTICLE = /^(?:a|an|the|some)\s+/;

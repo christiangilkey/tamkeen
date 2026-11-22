@@ -123,6 +123,11 @@
   "file": "rubik.txt"
  },
  {
+  "name": "Caveat font (the handwritten note by the Library's + button)",
+  "license": "SIL Open Font License 1.1",
+  "file": "caveat.txt"
+ },
+ {
   "name": "Korean word list and common words, from Wiktionary and OpenSubtitles counts (optional download)",
   "license": "CC BY-SA 4.0",
   "file": "korean-sources.txt"

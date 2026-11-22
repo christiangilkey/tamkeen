@@ -24,8 +24,8 @@ const MAX_AHEAD = 0.6;      // seconds the estimate may run ahead of YouTube's l
 const SEEK_SETTLE_MS = 2000; // after a jump, trust the target until YouTube catches up (or this passes)
 
 let apiReady = null;
-/** Load YouTube's IFrame Player API once. */
-function loadApi() {
+/** Load YouTube's IFrame Player API once (also used by ytpreview.js, the YouTube list's previews). */
+export function loadApi() {
   if (apiReady) return apiReady;
   apiReady = new Promise((resolve, reject) => {
     if (window.YT && window.YT.Player) { resolve(window.YT); return; }
