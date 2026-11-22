@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	Prime Video con sottotitoli di cui puoi toccare le parole, con l'estensione di Tamkeen per il browser su un computer
+49dccf2a	Ogni scheda della Libreria ora sembra YouTube, con un pulsante Filtra
+2c75dcaa	«Chiedi a voce» capisce le domande nella tua lingua
+f68aac61	Salvando una parola senza IA, viene chiesto a quale significato si riferisce la scheda
+3ca3b2d4	Con «Scrivi quello che senti» aperto, il tasto di riproduzione funziona come il segno di spunta

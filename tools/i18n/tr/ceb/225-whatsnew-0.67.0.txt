@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	Prime Video nga adunay subtitle nga matandog ang mga pulong, gamit ang extension sa Tamkeen sa browser sa kompyuter
+49dccf2a	Ang matag tab sa Library morag YouTube na, nga adunay butones nga Salaan
+2c75dcaa	Masabtan na sa Pangutana gamit ang tingog ang mga pangutana sa imong kaugalingong pinulongan
+f68aac61	Sa pag-save og pulong nga walay AI, pangutan-on ka kung unsang kahulogan ang para sa card
+3ca3b2d4	Samtang abli ang Isulat ang imong madungog, ang butones sa pagpatokar molihok sama sa check mark

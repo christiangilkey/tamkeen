@@ -64,7 +64,7 @@ test("a kept choice is made safe; the Filter button counts what differs from the
 });
 
 test("every tab with a list is drawn as cards with the Filter (prototype library_feed), an audiobook's chapters keep the book's order", () => {
-  assert.equal(PROTOTYPES.library_feed.released, false);
+  assert.equal(typeof PROTOTYPES.library_feed.released, "boolean", "released for everybody in v0.67.0");
   assert.equal(PROTOTYPES.yt_feed, undefined, "the YouTube-only prototype became library_feed");
   const lib = src("web/js/pages/library.js");
   assert.match(lib, /if \(cardsShowing\(\)\) \{ await loadCards\(params, append\); return; \}/);

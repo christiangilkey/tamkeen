@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	Prime Video amb subtítols on pots tocar les paraules, amb l'extensió de Tamkeen per al navegador en un ordinador
+49dccf2a	Totes les pestanyes de la Biblioteca semblen YouTube, amb un botó Filtre
+2c75dcaa	«Pregunta amb la veu» entén preguntes en la teva pròpia llengua
+f68aac61	En desar una paraula sense IA, es pregunta per a quin significat és la targeta
+3ca3b2d4	Amb «Escriu el que sents» obert, el botó de reproduir funciona com la marca de validació

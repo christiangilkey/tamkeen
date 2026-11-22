@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	在电脑上用 Tamkeen 浏览器扩展，Prime Video 的字幕可以点词查看
+49dccf2a	资料库的每个标签页都像 YouTube 了，还有筛选按钮
+2c75dcaa	“语音提问”能听懂你用自己的语言提的问题
+f68aac61	不用 AI 保存单词时，会问卡片是哪个意思
+3ca3b2d4	“听写”窗口打开时，播放按钮的作用和对勾一样

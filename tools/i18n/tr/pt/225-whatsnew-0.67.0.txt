@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	Prime Video com legendas em que você pode tocar nas palavras, com a extensão do Tamkeen para o navegador no computador
+49dccf2a	Todas as abas da Biblioteca agora parecem o YouTube, com um botão Filtrar
+2c75dcaa	“Perguntar por voz” entende perguntas no seu próprio idioma
+f68aac61	Ao salvar uma palavra sem IA, ele pergunta para qual significado é o cartão
+3ca3b2d4	Com “Escreva o que você ouve” aberto, o botão de reproduzir funciona como a marca de verificação

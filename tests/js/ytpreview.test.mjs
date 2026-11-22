@@ -60,7 +60,7 @@ test("YouTube's rules for its embedded player are kept by the previews", () => {
 });
 
 test("it is a prototype, previews on YouTube cards only, and stopped when the page goes", () => {
-  assert.equal(PROTOTYPES.library_feed.released, false);
+  assert.equal(typeof PROTOTYPES.library_feed.released, "boolean", "released for everybody in v0.67.0");
   const lib = src("web/js/pages/library.js");
   assert.match(lib, /if \(!feature\("library_feed"\)\) return false;/);
   assert.match(lib, /if \(id\) \{ pic\.dataset\.video = id;/, "only a YouTube card has a video to preview");

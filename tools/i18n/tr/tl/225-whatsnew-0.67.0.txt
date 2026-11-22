@@ -1,0 +1,6 @@
+# What's new in v0.67.0 (web/js/whatsnew.js).
+f53e3b8e	Prime Video na may subtitle na puwedeng i-tap ang mga salita, gamit ang browser extension ng Tamkeen sa computer
+49dccf2a	Mukha nang YouTube ang bawat tab ng Library, may button na Salain
+2c75dcaa	Naiintindihan na ng Magtanong gamit ang boses ang mga tanong sa sarili mong wika
+f68aac61	Sa pag-save ng salita nang walang AI, itinatanong kung aling kahulugan ang para sa card
+3ca3b2d4	Habang bukas ang Isulat ang naririnig mo, gumagana ang button na pag-play na parang check mark

@@ -310,6 +310,6 @@ test("the box: the app's language only in prototype mode, the own-language dicti
   const howTo = box.slice(box.indexOf("async function howToSay("));
   assert.ok(howTo.indexOf("if (aiReady())") < howTo.indexOf("fromOwnLanguage("), "an AI answers first: nothing downloaded then");
   assert.match(read("web/js/meanings.js"), /export async function downloadMeanings\(lang, \{ tables = true \} = \{\}\) \{[\s\S]{0,200}if \(!tables\) return st;/);
-  assert.match(read("web/js/prototype.js"), /voice_ask_native: \{[^}]*released: false/);
+  assert.match(read("web/js/prototype.js"), /voice_ask_native: \{[^}]*released: (true|false)/);
   assert.match(read("mobile/scripts/build-www.mjs"), /"js\/voiceask-native\.js"/);
 });

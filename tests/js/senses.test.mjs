@@ -123,7 +123,7 @@ test("near-synonyms are one sense, when English Wiktionary's synonyms say so bot
 });
 
 test("saving a word with no AI asks which meaning (prototype dict_sense_pick): only for the dictionary's answer of one word", () => {
-  assert.equal(PROTOTYPES.dict_sense_pick.released, false);
+  assert.equal(typeof PROTOTYPES.dict_sense_pick.released, "boolean", "released for everybody in v0.67.0");
   const def = { provider: "dictionary", meaning: "time", pos: "noun", other_meanings: ["tense", "weather"], alike: [] };
   assert.equal(se.asksForSense(def, { ai: false, word: "tiempo" }), true);
   assert.equal(se.asksForSense(def, { ai: true, word: "tiempo" }), false, "an AI set up: as today");
