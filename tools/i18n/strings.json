@@ -29925,6 +29925,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "d3f7a665",
+  "k": "The word popup shows a word's meanings as bubbles, and Save keeps the one you pick",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ba75321e",
+  "k": "A folder button beside Save chooses where the word goes",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "39332fe2",
+  "k": "Mark a word Important with the ! so it comes first in reviews",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "a236f874",
+  "k": "Find a podcast by its name in Add, Podcast",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ee0d4612",
+  "k": "Library: one-tap buttons for listened or not, transcribed or not",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ef460323",
+  "k": "New words turn purple straight away, and covers no longer flicker",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "f53e3b8e",
   "k": "Prime Video with clickable subtitles, in the Tamkeen browser extension on a computer",
   "f": "web/js/whatsnew.js"

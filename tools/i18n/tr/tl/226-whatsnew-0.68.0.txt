@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	Ipinapakita ng popup ng salita ang mga kahulugan nito bilang mga bula, at itinatago ng Save ang pinili mo
+ba75321e	Isang button ng folder sa tabi ng Save ang pumipili kung saan mapupunta ang salita
+39332fe2	Markahan ang salita na Mahalaga gamit ang ! para mauna ito sa mga review
+a236f874	Hanapin ang podcast sa pangalan nito sa Idagdag, Podcast
+ee0d4612	Library: mga button na isang tap para sa napakinggan o hindi, na-transcribe o hindi
+ef460323	Agad nang nagiging lila ang mga bagong salita, at hindi na kumukurap ang mga cover

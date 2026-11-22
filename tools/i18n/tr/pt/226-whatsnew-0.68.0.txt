@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	A janela da palavra mostra os significados em bolhas, e Salvar guarda o que você escolher
+ba75321e	Um botão de pasta ao lado de Salvar escolhe para onde vai a palavra
+39332fe2	Marque uma palavra como Importante com o ! para ela vir primeiro nas revisões
+a236f874	Encontre um podcast pelo nome em Adicionar, Podcast
+ee0d4612	Biblioteca: botões de um toque para ouvido ou não, transcrito ou não
+ef460323	As palavras novas ficam roxas na hora, e as capas não piscam mais

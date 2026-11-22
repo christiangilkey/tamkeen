@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	La finestra de la paraula mostra els seus significats en bombolles, i Desa guarda el que triïs
+ba75321e	Un botó de carpeta al costat de Desa tria on va la paraula
+39332fe2	Marca una paraula com a Important amb el ! perquè surti primer als repassos
+a236f874	Troba un pòdcast pel seu nom a Afegeix, Pòdcast
+ee0d4612	Biblioteca: botons d'un toc per a escoltat o no, transcrit o no
+ef460323	Les paraules noves es tornen liles de seguida, i les portades ja no parpellegen

@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	La finestra della parola mostra i suoi significati in bolle, e Salva tiene quello che scegli
+ba75321e	Un pulsante cartella accanto a Salva sceglie dove va la parola
+39332fe2	Segna una parola come Importante con il ! perché venga prima nei ripassi
+a236f874	Trova un podcast dal suo nome in Aggiungi, Podcast
+ee0d4612	Libreria: pulsanti con un tocco per ascoltato o no, trascritto o no
+ef460323	Le parole nuove diventano viola subito, e le copertine non sfarfallano più

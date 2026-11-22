@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	Ang popup sa pulong nagpakita sa mga kahulogan niini isip mga bula, ug ang Save magtipig sa imong gipili
+ba75321e	Usa ka butones sa folder tupad sa Save ang mopili kung asa moadto ang pulong
+39332fe2	Markahi ang pulong nga Importante gamit ang ! aron mauna kini sa mga pagbalik-tan-aw
+a236f874	Pangitaa ang podcast pinaagi sa ngalan niini sa Idugang, Podcast
+ee0d4612	Library: mga butones nga usa ka tandog para sa napaminaw o wala, na-transcribe o wala
+ef460323	Ang bag-ong mga pulong mahimong purpura dayon, ug ang mga hulagway dili na mokidlap

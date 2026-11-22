@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	La ventana de la palabra muestra sus significados en burbujas, y Guardar guarda el que elijas
+ba75321e	Un botón de carpeta junto a Guardar elige adónde va la palabra
+39332fe2	Marca una palabra como Importante con el ! para que salga primero en los repasos
+a236f874	Busca un pódcast por su nombre en Añadir, Pódcast
+ee0d4612	Biblioteca: botones de un toque para escuchado o no, transcrito o no
+ef460323	Las palabras nuevas se ponen moradas al instante, y las portadas ya no parpadean

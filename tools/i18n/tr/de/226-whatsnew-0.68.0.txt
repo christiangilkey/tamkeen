@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	Das Wort-Popup zeigt die Bedeutungen eines Wortes als Blasen, und Speichern behält die, die du wählst
+ba75321e	Eine Ordner-Schaltfläche neben Speichern wählt, wohin das Wort kommt
+39332fe2	Markiere ein Wort mit dem ! als wichtig, damit es in den Wiederholungen zuerst kommt
+a236f874	Finde einen Podcast über seinen Namen unter Hinzufügen, Podcast
+ee0d4612	Bibliothek: Schaltflächen mit einem Tipp für gehört oder nicht, transkribiert oder nicht
+ef460323	Neue Wörter werden sofort lila, und die Bilder flackern nicht mehr

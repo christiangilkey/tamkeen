@@ -1,0 +1,7 @@
+# What's new in v0.68.0 (web/js/whatsnew.js).
+d3f7a665	La fenêtre du mot montre ses sens sous forme de bulles, et Enregistrer garde celui que vous choisissez
+ba75321e	Un bouton dossier à côté d'Enregistrer choisit où va le mot
+39332fe2	Marquez un mot comme Important avec le ! pour qu'il passe en premier dans les révisions
+a236f874	Trouvez un podcast par son nom dans Ajouter, Podcast
+ee0d4612	Bibliothèque : des boutons en un geste pour écouté ou non, transcrit ou non
+ef460323	Les mots nouveaux passent en violet tout de suite, et les couvertures ne clignotent plus
