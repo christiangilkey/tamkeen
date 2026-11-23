@@ -13,7 +13,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { t } from "../i18n.js";
 import { MOVE_STYLES, TYPES, moveById, moveIcon } from "./data.js";
 import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuestion } from "./rules.js";
-import { FRAME, animAt, composeCreature, drawLiving, drawingOf, icon, iconEl, loadImage } from "./render.js";
+import { FRAME, animAt, composeCreature, drawLiving, drawingOf, FORGET_MS, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
 import * as social from "../social.js";
@@ -193,7 +193,8 @@ export function runLiveBattle(setup, vocab) {
 
   // ----- art -----
   const art = new Map(); // file -> image (or null: missing)
-  const want = (file) => { if (!art.has(file)) { art.set(file, undefined); loadImage(file).then((img) => { art.set(file, img); if (file.includes("/terrain/")) groundDirty = true; }); } return art.get(file) || null; };
+  // (a picture that failed every try is asked for again later: loadImage retries it then)
+  const want = (file) => { if (!art.has(file)) { art.set(file, undefined); loadImage(file).then((img) => { if (!img) { setTimeout(() => art.delete(file), FORGET_MS + 100); return; } art.set(file, img); if (file.includes("/terrain/")) groundDirty = true; }); } return art.get(file) || null; };
   /** An effect's picture: the new art when it is there, else the older one; with its frame count. */
   const fx = (kind, element = "plain") => {
     const el2 = element && TYPES[element] ? element : "spark";
