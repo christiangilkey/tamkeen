@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Retrouver une partie plus ancienne : récupérez la progression perdue du jeu de créatures
+5596d73b	Votre partie sur deux appareils est fusionnée : une copie plus ancienne ne fait plus perdre de progression
+022b8e45	Les images du jeu se chargent même avec une connexion lente, surtout pendant les combats
+0628e531	Un bouton Toucher les mots transforme les mots en texte simple à sélectionner et copier
+7b734662	Les reels déjà vus passent en bas de la liste

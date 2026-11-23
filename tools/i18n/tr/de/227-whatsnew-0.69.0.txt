@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Ein älteres Spiel finden: verlorenen Fortschritt im Kreaturenspiel zurückholen
+5596d73b	Dein Spiel auf zwei Geräten wird zusammengeführt, so geht kein Fortschritt mehr durch eine ältere Kopie verloren
+022b8e45	Spielbilder laden auch bei langsamer Verbindung, besonders in Kämpfen
+0628e531	Eine Schaltfläche „Wörter antippen“ macht die Wörter zu normalem Text zum Markieren und Kopieren
+7b734662	Angesehene Reels rutschen ans Ende der Liste

@@ -51,18 +51,13 @@ const tap = await import("../../web/js/components/tapswitch.js");
 const { ICON_NAMES } = await import("../../web/js/icons.js");
 const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8");
 
-test("a prototype: hidden, and words always tappable, until prototype mode is on", () => {
+test("released for everybody in v0.69.0: the choice works without prototype mode, and starts on", () => {
   store.clear();
-  assert.equal(proto.PROTOTYPES.tap_switch.released, false);
-  store.set("tapWords", "off"); // (chosen while prototype mode was on)
-  assert.equal(tap.tapWordsOn(), true, "with the prototype off the old choice does nothing");
-  assert.equal(tap.tapSwitch(), null, "no button");
-  const el = new FakeEl();
-  const stop = tap.plainWhenOff([el]);
-  assert.equal(el.classList.contains(tap.PLAIN_CLASS), false);
-  assert.equal(el.listeners.length, 0, "nothing listens");
-  assert.equal(el.click(), true);
-  stop();
+  assert.equal(proto.PROTOTYPES.tap_switch.released, true);
+  assert.equal(tap.tapWordsOn(), true, "on to start with");
+  store.set("tapWords", "off");
+  assert.equal(tap.tapWordsOn(), false, "the learner's choice is kept");
+  store.clear();
 });
 
 test("on by default; one choice for the whole app, kept on the device, announced when it changes", () => {

@@ -30090,6 +30090,31 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "ebe6fdf2",
+  "k": "Find an older game: bring back creature game progress that went missing",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "5596d73b",
+  "k": "Your game on two devices is combined, so progress is never lost to an older copy",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "022b8e45",
+  "k": "Game pictures load even on a slow connection, in battles especially",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "0628e531",
+  "k": "A Tap words button turns words into plain text to select and copy",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "7b734662",
+  "k": "Watched reels move to the bottom of the list",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "d3f7a665",
   "k": "The word popup shows a word's meanings as bubbles, and Save keeps the one you pick",
   "f": "web/js/whatsnew.js"

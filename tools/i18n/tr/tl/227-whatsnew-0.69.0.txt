@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Maghanap ng mas lumang laro: ibalik ang nawalang progreso sa laro ng mga nilalang
+5596d73b	Pinagsasama ang laro mo sa dalawang device, kaya hindi na nawawala ang progreso dahil sa lumang kopya
+022b8e45	Naglo-load ang mga larawan ng laro kahit mabagal ang koneksyon, lalo na sa mga laban
+0628e531	Ginagawang simpleng teksto ng button na Pindutin ang mga salita ang mga salita para mapili at makopya
+7b734662	Napupunta sa ibaba ng listahan ang mga reel na napanood mo na

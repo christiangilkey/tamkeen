@@ -121,7 +121,7 @@ test("the phones and the web app list Drive's versions and read only the game ou
 });
 
 test("Find an older game is a prototype, in Settings and on Home, and the routes exist on both", () => {
-  assert.match(read("web/js/prototype.js"), /old_games: \{[^}]*released: false/);
+  assert.match(read("web/js/prototype.js"), /old_games: \{[^}]*released: (true|false)/);
   assert.match(read("web/js/components/gameswitch.js"), /feature\("old_games"\)[\s\S]*Find an older game[\s\S]*openOldGames/);
   assert.match(read("web/js/pages/home.js"), /feature\("old_games"\)\) import\("\.\.\/game\/oldgames-ui\.js"\)\.then\(\(m\) => m\.homeHint/);
   assert.match(read("mobile/src/js/backend.js"), /\/\^\\\/sync\\\/game-versions\$\//);

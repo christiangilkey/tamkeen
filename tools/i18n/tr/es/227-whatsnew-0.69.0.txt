@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Buscar una partida anterior: recupera el progreso del juego de criaturas que desapareció
+5596d73b	Tu partida en dos dispositivos se combina, así que el progreso ya no se pierde por una copia antigua
+022b8e45	Las imágenes del juego cargan incluso con una conexión lenta, sobre todo en las batallas
+0628e531	Un botón Tocar palabras convierte las palabras en texto normal para seleccionarlo y copiarlo
+7b734662	Los reels que ya viste pasan al final de la lista

@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Pangitaa ang mas karaan nga dula: ibalik ang nawala nga progreso sa dula sa mga binuhat
+5596d73b	Ang imong dula sa duha ka device gihiusa, busa dili na mawala ang progreso tungod sa karaan nga kopya
+022b8e45	Ang mga hulagway sa dula moload bisan hinay ang koneksyon, labi na sa mga away
+0628e531	Ang butones nga Tandog sa mga pulong maghimo sa mga pulong nga yano nga teksto aron mapili ug makopya
+7b734662	Ang mga reel nga imong natan-aw mobalhin sa ubos sa lista

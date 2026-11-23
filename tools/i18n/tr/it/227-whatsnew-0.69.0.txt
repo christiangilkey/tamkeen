@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Trova una partita precedente: recupera i progressi persi del gioco delle creature
+5596d73b	La tua partita su due dispositivi viene unita, così i progressi non si perdono più per una copia vecchia
+022b8e45	Le immagini del gioco si caricano anche con una connessione lenta, soprattutto nelle battaglie
+0628e531	Un pulsante Tocca parole trasforma le parole in testo semplice da selezionare e copiare
+7b734662	I reel già visti finiscono in fondo alla lista

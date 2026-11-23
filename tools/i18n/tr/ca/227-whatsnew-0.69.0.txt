@@ -1,0 +1,6 @@
+# What's new in v0.69.0 (web/js/whatsnew.js).
+ebe6fdf2	Troba una partida anterior: recupera el progrés del joc de criatures que havia desaparegut
+5596d73b	La teva partida en dos dispositius es combina, així que el progrés no es perd mai per una còpia antiga
+022b8e45	Les imatges del joc es carreguen fins i tot amb una connexió lenta, sobretot a les batalles
+0628e531	Un botó Toca paraules converteix les paraules en text normal per seleccionar-lo i copiar-lo
+7b734662	Els reels que has vist passen al final de la llista
