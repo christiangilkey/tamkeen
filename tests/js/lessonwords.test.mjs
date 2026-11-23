@@ -38,20 +38,19 @@ test("Arabic text keeps its words and their order", () => {
   assert.deepEqual(tok.text, ["ذهب", "الرجل", "إلى", "البيت", "س١:", "أين", "ذهب؟"]);
 });
 
-test("behind its own prototype: off for everyone until the owner releases it", () => {
+test("released for everyone (the owner, 2026-11-23: \"release it to live version now\")", () => {
   assert.ok(PROTOTYPES.lesson_words, "a PROTOTYPES row");
-  assert.equal(PROTOTYPES.lesson_words.released, false);
-  assert.equal(feature("lesson_words"), false, "(no prototype mode in the tests)");
+  assert.equal(PROTOTYPES.lesson_words.released, true);
+  assert.equal(feature("lesson_words"), true, "on without prototype mode");
 });
 
-test("the lesson page draws every passage block, question and option as words, and keeps the old reader link without the prototype", () => {
+test("the lesson page draws every passage block, question and option as words, every time the page is drawn", () => {
   const src = read("components/lessonview.js");
   assert.match(src, /slots\.push\(\{ el: p, text: it\.block\.text \}\)/, "passage paragraphs, headings and list items");
   assert.match(src, /slots\.push\(\{ el: prompt, text: q\.prompt \}\)/, "question text");
   assert.match(src, /slots\.push\(\{ el: opt\.querySelector\("\.lsn-ot"\), text: o\.text \}\)/, "options");
   assert.match(src, /if \(words\) words\.paint\(slots\)/, "drawn every time the body is");
   assert.match(src, /feature\("lesson_words"\)/);
-  assert.match(src, /Read with word help/, "the old link, while the prototype is off");
   assert.match(src, /if \(words\) words\.close\(\)/, "let go when the page closes");
   // the Tap words switch is on the page itself
   assert.match(src, /const sw = tapSwitch\(\)/);

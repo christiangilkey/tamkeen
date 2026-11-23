@@ -9445,7 +9445,7 @@ nothing changes (links aren't read, no spots, no bar, the waiting page as before
   gets an `<audio controls>` (play, pause, seek) on its waiting page, with "You can listen now; the transcript appears once it's
   transcribed." (videos already had one). Every audio kind: lesson tracks, My audio, podcasts not yet transcribed.
 
-**A lesson's words on its own page** (prototype `lesson_words`, 2026-11-23; the owner: "The read with word help shouldn't take you to a
+**A lesson's words on its own page** (`lesson_words`, released for everyone the same day it was built, 2026-11-23; the owner: "The read with word help shouldn't take you to a
 new screen, and right now it only encompasses the first passage of my document"): `components/lessonwords.js lessonWords(page, body, {lang,
 title, episodeId})` draws every passage block, question prompt and option text that `lessonview.js paintBody` lists in `slots` as `.w`
 words (`lessonwordlist.js lessonTokens`: split at spaces like a book, `regroupWords` for ja/zh/th; `wordsHtml`), numbered across the whole
