@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ 母音モデルはこのパソコンにあります（{0} MB）。{1}",
 "Downloading the vowel model… {0}%":"母音モデルをダウンロード中… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"アラビア語の母音記号には母音モデルが必要です（{0} MB、標準アラビア語）。{1}",
+"Fishing goes through every word of your folder, and remembers where it was":"釣りはフォルダのすべての単語を順に出し、どこまで進んだかを覚えています",
 "My files: every word of your document can be tapped right where it is":"マイファイル：文書のどの単語もその場でタップできます",
 "Find an older game: bring back creature game progress that went missing":"以前のゲームを探す：消えてしまったクリーチャーゲームの進み具合を取り戻せます",
 "Your game on two devices is combined, so progress is never lost to an older copy":"2台の端末のゲームはまとめられるので、古いコピーで進み具合が消えることはもうありません",

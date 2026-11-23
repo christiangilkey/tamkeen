@@ -30275,6 +30275,11 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "c0940097",
+  "k": "Fishing goes through every word of your folder, and remembers where it was",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "d8a1cb1e",
   "k": "My files: every word of your document can be tapped right where it is",
   "f": "web/js/whatsnew.js"

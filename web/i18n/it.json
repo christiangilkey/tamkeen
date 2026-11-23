@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Il modello delle vocali è su questo computer ({0} MB). {1}",
 "Downloading the vowel model… {0}%":"Download del modello delle vocali… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Le vocali dell'arabo richiedono un modello delle vocali ({0} MB, arabo standard). {1}",
+"Fishing goes through every word of your folder, and remembers where it was":"La pesca passa per tutte le parole della cartella e ricorda dov’eri",
 "My files: every word of your document can be tapped right where it is":"I miei file: puoi toccare ogni parola del documento proprio dov’è",
 "Find an older game: bring back creature game progress that went missing":"Trova una partita precedente: recupera i progressi persi del gioco delle creature",
 "Your game on two devices is combined, so progress is never lost to an older copy":"La tua partita su due dispositivi viene unita, così i progressi non si perdono più per una copia vecchia",

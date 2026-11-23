@@ -1,0 +1,2 @@
+# What is new in v0.71.0 (web/js/whatsnew.js).
+c0940097	La pêche passe par tous les mots de votre dossier et se souvient où vous en étiez

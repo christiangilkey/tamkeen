@@ -1,0 +1,2 @@
+# What is new in v0.71.0 (web/js/whatsnew.js).
+c0940097	La pesca recorre todas las palabras de tu carpeta y recuerda dónde ibas

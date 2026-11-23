@@ -14,8 +14,11 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
-- **Fixed:** Fishing kept showing the same words on a loop, even with a folder picked. The pond now goes through every word of your word choice before any word you answered right comes back, and it remembers where it was when you leave the pond, close the app or pick up another device (until the day changes). A missed word still comes back ahead of new ones, after a few other fish and a little later each time, and at most three missed words swim at once, so they can't crowd the others out. A picked folder is fished whatever its size (it needs four different meanings to ask; battles still need 20 words), and practice fishing goes through the whole set too, not the same six words.
 - **New:** **Pictures on flashcards.** The back of a card can show a picture, found with Openverse by the card's short meaning ("dog"), with a small credit under it ("Photo: name · CC BY") that links to where it came from. Tap the picture, or **Add picture** on a card without one, to pick another from Openverse (with a search box to try other words), use your own photo (the camera on a phone) or remove it. Settings → Card voices → **Pictures on cards** has a switch that gives every card you save from then on a picture, and **Add pictures to my cards** (also in the Vocab page's ⋯ menu, for the cards shown) does the cards you already have, a few seconds apart and up to 150 a day per device, so Openverse isn't overloaded. Only pictures anyone may use, with credit, even in a paid app (CC0, public domain, CC BY, CC BY-SA). Each picture is a small copy (about 25 KB) kept on every device and in your Google Drive, so it shows offline; **Export for Anki** puts it in the card's image field with its credit. (For now only in prototype mode.)
+
+## v0.71.0 — 2026-11-23
+
+- **Fixed:** Fishing kept showing the same words on a loop, even with a folder picked. The pond now goes through every word of your word choice before any word you answered right comes back, and it remembers where it was when you leave the pond, close the app or pick up another device (until the day changes). A missed word still comes back ahead of new ones, after a few other fish and a little later each time, and at most three missed words swim at once, so they can't crowd the others out. A picked folder is fished whatever its size (it needs four different meanings to ask; battles still need 20 words), and practice fishing goes through the whole set too, not the same six words.
 
 ## v0.70.0 — 2026-11-23
 

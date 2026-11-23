@@ -1,0 +1,2 @@
+# What is new in v0.71.0 (web/js/whatsnew.js).
+c0940097	Ang pagpangisda moagi sa matag pulong sa imong folder, ug mahinumdom kung asa ka na

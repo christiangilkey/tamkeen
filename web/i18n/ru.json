@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Модель огласовок есть на этом компьютере ({0} МБ). {1}",
 "Downloading the vowel model… {0}%":"Скачивается модель огласовок… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Для арабских огласовок нужна модель огласовок ({0} МБ, литературный арабский). {1}",
+"Fishing goes through every word of your folder, and remembers where it was":"Рыбалка проходит все слова вашей папки и помнит, где вы остановились",
 "My files: every word of your document can be tapped right where it is":"Мои файлы: на любое слово документа можно нажать прямо на месте",
 "Find an older game: bring back creature game progress that went missing":"Найти старую игру: верните пропавший прогресс игры с существами",
 "Your game on two devices is combined, so progress is never lost to an older copy":"Игра на двух устройствах объединяется, и прогресс больше не теряется из-за старой копии",
