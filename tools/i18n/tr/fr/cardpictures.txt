@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Impossible d'enregistrer cette image.
+56e83243	Images trouvées avec Openverse. Tamkeen n'est ni approuvé ni certifié par Openverse.
+48448986	Impossible de joindre Openverse. Vérifiez la connexion Internet et réessayez.
+fc3e8ba2	Openverse demande à Tamkeen de ralentir : réessayez dans un moment.
+4adf4dc6	Openverse n'a pas répondu ({0}). Réessayez plus tard.
+ca7353e9	Impossible d'ouvrir cette image ici. Choisissez un JPEG ou un PNG.
+10882173	Cette image est trop grande.
+5ee3f726	Impossible de récupérer cette image. Essayez-en une autre.
+a7854ff2	Ajouter une image
+874bda22	Changer ou retirer l'image
+34e0d446	Cette image n'est pas encore sur cet appareil. Synchronisez et réessayez.
+c99d4d93	Image pour « {0} »
+09d078cc	Utiliser ma propre image
+2ebb22b3	Retirer l'image
+ee1e36f1	Chercher des images (en anglais)
+249f1a71	Mots pour chercher des images
+6bc9fdca	Plus d'images
+542cf292	Tapez un ou deux mots à chercher.
+564a6acb	Recherche sur Openverse…
+e97c323f	Aucune image trouvée. Essayez d'autres mots, en anglais.
+14cc5698	Ajout de l'image…
+1e8ba650	Images sur les cartes
+1b9b1741	Une image au dos d'une carte, trouvée d'après son sens (en anglais). Touchez l'image d'une carte pour la changer, prendre votre propre photo ou la retirer.
+1a8d428f	Ajouter une image aux nouvelles cartes<0/><1>Chaque carte enregistrée à partir de maintenant reçoit la première image qu'Openverse trouve pour son sens.</1>
+3097938b	Ajouter des images à mes cartes
+732cc173	Uniquement des images que tout le monde peut utiliser, en citant leur auteur : CC0, domaine public, CC BY et CC BY-SA. Les cartes les reçoivent à quelques secondes d'intervalle, jusqu'à 150 par jour sur cet appareil.
+7e963177	Toutes les cartes qui ont un sens ont déjà une image (ou aucune n'a été trouvée).
+e94cd9d6	({0} sans image)
+f7be8df1	Ajout des images : {0} sur {1}
+6a56d52c	C'est tout pour aujourd'hui sur cet appareil (la limite quotidienne d'Openverse). Appuyez à nouveau demain pour le reste ({0} restantes).
+a1fa75d3	Openverse a demandé à Tamkeen de ralentir. Appuyez à nouveau dans un moment pour le reste ({0} restantes).
+6343fb76	Impossible de joindre Openverse. Vérifiez la connexion Internet et appuyez à nouveau ({0} restantes).
+969e60ac	Images ajoutées à {0} cartes.
+dd5685e5	Ajout d'images à {0} cartes, à quelques secondes d'intervalle. Réglages → Voix des cartes montre où ça en est.
+3e1fc241	Toutes les cartes affichées ont déjà une image (ou aucune n'a été trouvée).
+2eba7ce1	Ajouter des images
+672671fb	Impossible d'afficher l'image de cette carte.
+97521bea	L'image de cette carte n'est pas encore sur cet appareil. Synchronisez et réessayez.
+a0d61401	Cette image est vide ou trop grande.
+4e3f8ef2	Les informations de cette image ne sont pas correctes.
+90ccdac0	Cette image est vide, trop grande ou n'est pas une image.
+537563c6	Cette carte n'a pas d'image.
+5b3ee7da	L'image de cette carte n'est pas encore sur cet ordinateur.
+a2873681	Openverse ne répond pas pour le moment. Réessayez plus tard.

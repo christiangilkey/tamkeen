@@ -253,6 +253,11 @@ const SHARED = [
   "js/wordlists",
   "js/i18n.js",
   "i18n",
+  // Pictures on the backs of cards (prototype card_pictures)
+  "js/cardpicture.js",
+  "js/picturebatch.js",
+  "js/components/cardpic.js",
+  "js/components/picturesettings.js",
 ];
 
 rmSync(out, { recursive: true, force: true });

@@ -3,6 +3,7 @@
 //   t_<episode>.json.gz   transcripts, downloaded for offline reading and search
 //   a_<episode>.ogg       audio copies, fetched when an episode is first played
 //   v_<episode>.<ext>     the user's own videos, streamed from Drive (DriveMediaWebViewClient.java)
+//   p_<word>_<v>.jpg      the picture on the back of a card (cardpicture.js), fetched for offline use
 // The phone asks the desktop to transcribe (episode.transcribe_requested_at), unless cloud
 // transcription is on: then it writes transcripts itself (transcribe-service.js) and uploads them here.
 
@@ -18,6 +19,7 @@ import { cleanSetting as cleanController, settingWins as controllerWins } from "
 import { cleanGoals, cleanSetting as cleanGoal, mergeGoals, settingWins as goalWins } from "./review/goalsetting.js";
 import { cleanKeys, keysFromSettings, takeKeys } from "./aikeys.js";
 import { keepVoice } from "./cardvoice.js";
+import { pictureFile, pictureOf } from "./cardpicture.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
 import { setStudyLanguage } from "./languages.js";
 import { SyncTimer, canSkip, hashText, libraryFingerprint, nudgeKey } from "./syncpace.js";
@@ -73,6 +75,7 @@ export function merge(remote) {
       // A card's voice is never taken away by a copy without one (keepVoice).
       vocab.set(r.uid, { ...keepVoice(r, l), translation: r.translation ?? l.translation ?? "", memo: r.memo ?? l.memo ?? "",
                          important: r.important ?? l.important ?? 0,  // (an older app's copy has no important mark)
+                         picture: r.picture ?? l.picture ?? "",  // (nor a picture: the one known here is kept)
                          language: r.language || l.language || null });
       changed++;
     }
@@ -245,7 +248,8 @@ export function snapshot() {
     feeds: [...lib.feeds].sort(byUid),
     episodes: lib.episodes.filter((e) => live.has(e.feed_uid)).sort(byUid),
     // Words saved before translations (or memos, or card voices) were kept have none; the desktop writes those as "".
-    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "", voice: v.voice || "", important: v.important ? 1 : 0 })).sort(byUid),
+    vocab: lib.vocab.map((v) => ({ ...v, translation: v.translation || "", memo: v.memo || "", voice: v.voice || "", important: v.important ? 1 : 0,
+                                   picture: v.picture || "" })).sort(byUid),
     folders: [...(lib.folders || [])].sort(byUid),
     definitions: [...lib.definitions].sort((a, b) => (a.key < b.key ? -1 : 1)),
     lexemes: [...(lib.lexemes || [])].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0)),
@@ -334,7 +338,8 @@ async function doSync() {
   Object.assign(syncState, { state: "syncing", error: null });
   try {
     let files = Object.fromEntries((await drive.list()).map((f) => [f.name, f]));
-    const waiting = ((await kv.get("pending_transcripts")) || []).length + ((await kv.get("pending_clips")) || []).length;
+    const waiting = ((await kv.get("pending_transcripts")) || []).length + ((await kv.get("pending_clips")) || []).length
+      + ((await kv.get("pending_pictures")) || []).length;
     const fp = libraryFingerprint(files[LIBRARY]);
     if (!waiting && memo && memo.fp === fp && canSkip(memo, fp, hashText(content(snapshot())), Date.now())) {
       // Nothing new in Drive and nothing new here: that was the whole check, one request.
@@ -346,6 +351,7 @@ async function doSync() {
     publish({ state: "syncing", error: null });
     let uploaded = (await uploadPendingTranscripts(files)) > 0;
     await uploadPendingClips(files);
+    await uploadPendingPictures(files);
     let received = 0;
     for (let attempt = 0; attempt < 3; attempt++) {
       const meta = files[LIBRARY];
@@ -365,7 +371,8 @@ async function doSync() {
     saveLibrary();
     await kv.set("drive_files", files);
     await forgetDeleted();
-    const { n: downloaded, failed } = await prefetchTranscripts(files);
+    const { n: downloaded, failed: notAll } = await prefetchTranscripts(files);
+    const failed = notAll + (await prefetchPictures(files));
     const left = ((await kv.get("pending_transcripts")) || []).length;
     memo = { fp: libraryFingerprint(files[LIBRARY]), hash: hashText(content(snapshot())), complete: !failed && !left, fullAt: Date.now() };
     const key = files[LIBRARY] ? await nudgeKey(files[LIBRARY].id).catch(() => "") : "";
@@ -418,6 +425,47 @@ async function uploadPendingClips(files) {
     }
   }
   await kv.set("pending_clips", left);
+}
+
+/** Upload the pictures put on cards on this device (cardpicture.js), so the other devices get them. */
+async function uploadPendingPictures(files) {
+  const pending = (await kv.get("pending_pictures")) || [];
+  if (!pending.length) return;
+  const wanted = new Set(lib.vocab.filter((v) => !v.deleted).map((v) => pictureFile(v.uid, pictureOf(v))).filter(Boolean));
+  const left = [];
+  for (const name of pending) {
+    if (!wanted.has(name) || files[name]) continue;  // (replaced or removed since: nothing to send)
+    const blob = await audio.get(`pic:${name}`);
+    if (!blob) continue;
+    try {
+      files[name] = await drive.upload(name, blob, "image/jpeg");
+    } catch (e) {
+      console.warn("Picture upload failed", name, e);
+      left.push(name);
+    }
+  }
+  await kv.set("pending_pictures", left);
+}
+
+const PICTURES_PER_SYNC = 100;  // pictures fetched in one sync at most (each ~25 KB); the rest come with the next
+/** Fetch the cards' pictures this device hasn't got yet, so they show offline. Returns how many are still to come. */
+async function prefetchPictures(files) {
+  let got = 0, left = 0;
+  for (const v of lib.vocab) {
+    if (v.deleted) continue;
+    const name = pictureFile(v.uid, pictureOf(v));
+    if (!name || !files[name]) continue;
+    if (await audio.get(`pic:${name}`)) continue;
+    if (got >= PICTURES_PER_SYNC) { left++; continue; }
+    try {
+      await audio.put(`pic:${name}`, await drive.downloadBlob(files[name].id));
+      got++;
+    } catch (e) {
+      console.warn("Picture download failed", name, e);
+      left++;
+    }
+  }
+  return left;
 }
 
 /** Free phone storage held by videos deleted on any device. */

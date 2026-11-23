@@ -34,6 +34,7 @@ import { openWordBuilder } from "../components/wordbuilder.js";
 import { openVoiceAsk } from "../components/voiceask.js";
 import { openWordEditor, vocabIcon } from "../components/wordeditor.js";
 import { offerFix } from "../components/fixit.js";
+import { picturesOn } from "../components/cardpic.js";
 
 const DAY = 86400;
 const SORTS = {
@@ -1073,6 +1074,12 @@ export async function render(view) {
     existing: () => all,
     addCards: (start, added) => openAdd("one", { start, addNow: true, added }),
   });
+  async function addShownPictures() {
+    const { addPictures } = await import("../picturebatch.js");
+    const n = addPictures(visible());
+    toast(n ? t("Adding pictures to {0} cards, a few seconds apart. Settings → Card voices shows how it's going.", n)
+      : t("Every card shown already has a picture (or none was found for it)."));
+  }
   // The ⋯ menu: the things used now and then.
   $("#more").onclick = (e) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -1081,6 +1088,8 @@ export async function render(view) {
       { label: "Scan words", icon: icon("camera", 16), run: () => openAdd("scan") },
       { label: "Export CSV", icon: icon("page", 16), run: () => download(exportUrl("csv"), "tamkeen-vocab.csv") },
       { label: "Export for Anki", icon: icon("send", 16), run: exportAnki },
+      // Pictures for the cards shown (a folder, or all): picturebatch.js, a few seconds apart (prototype card_pictures)
+      ...(picturesOn() ? [{ label: "Add pictures", icon: icon("image", 16), run: addShownPictures }] : []),
       ...(ankiSyncHere() ? [ // (no Anki sync on the iPhone or in the web app: only the export)
         { label: ankiSettingsLabel(), icon: icon("settings", 16), run: () => { location.hash = ANKI_SETTINGS; } },  // Settings, at its Anki part
         { label: MOVE_LABEL, icon: icon("folder", 16), run: moveToLanguageDecks },

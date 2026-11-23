@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Dili ma-save kining hulagway.
+56e83243	Mga hulagway nga nakit-an pinaagi sa Openverse. Ang Tamkeen dili gi-endorso o gi-sertipikahan sa Openverse.
+48448986	Dili maabot ang Openverse. Susiha ang koneksyon sa internet ug sulayi pag-usab.
+fc3e8ba2	Gihangyo sa Openverse nga mohinay ang Tamkeen: sulayi pag-usab human sa makadiyot.
+4adf4dc6	Wala motubag ang Openverse ({0}). Sulayi pag-usab unya.
+ca7353e9	Dili maablihan dinhi kining hulagway. Pagpili og JPEG o PNG.
+10882173	Dako kaayo kining hulagway.
+5ee3f726	Dili makuha kanang hulagway. Sulayi ang lain.
+a7854ff2	Pagdugang og hulagway
+874bda22	Ilisi o tangtanga ang hulagway
+34e0d446	Wala pa sa kini nga device kining hulagway. Pag-sync ug sulayi pag-usab.
+c99d4d93	Hulagway para sa “{0}”
+09d078cc	Gamita ang akong kaugalingong hulagway
+2ebb22b3	Tangtanga ang hulagway
+ee1e36f1	Pangitag hulagway (sa Iningles)
+249f1a71	Mga pulong nga ipangita og hulagway
+6bc9fdca	Dugang hulagway
+542cf292	Pag-type og usa o duha ka pulong nga pangitaon.
+564a6acb	Nangita sa Openverse…
+e97c323f	Walay nakit-ang hulagway. Sulayi ang ubang pulong, sa Iningles.
+14cc5698	Gidugang ang hulagway…
+1e8ba650	Mga hulagway sa card
+1b9b1741	Usa ka hulagway sa likod sa flashcard, gipangita sumala sa kahulogan niini (sa Iningles). I-tap ang hulagway sa card aron ilisan, mokuha og kaugalingong litrato, o tangtangon kini.
+1a8d428f	Butangi og hulagway ang mga bag-ong card<0/><1>Matag card nga imong i-save gikan karon makakuha sa unang hulagway nga makit-an sa Openverse para sa kahulogan niini.</1>
+3097938b	Butangi og hulagway ang akong mga card
+732cc173	Mga hulagway lang nga magamit sa bisan kinsa basta hisgutan ang naghimo: CC0, public domain, CC BY ug CC BY-SA. Butangan ang mga card nga pipila ka segundo ang gilay-on, hangtod 150 kada adlaw niini nga device.
+7e963177	Ang matag card nga may kahulogan aduna nay hulagway (o walay nakit-an para niini).
+e94cd9d6	({0} ang wala)
+f7be8df1	Nagbutang og hulagway: {0} sa {1}
+6a56d52c	Hangtod na lang ani karong adlawa niini nga device (ang adlaw-adlaw nga limitasyon sa Openverse). Pindota pag-usab ugma para sa uban pa ({0} ang nahibilin).
+a1fa75d3	Gihangyo sa Openverse nga mohinay ang Tamkeen. Pindota pag-usab human sa makadiyot para sa uban pa ({0} ang nahibilin).
+6343fb76	Dili maabot ang Openverse. Susiha ang koneksyon sa internet ug pindota pag-usab ({0} ang nahibilin).
+969e60ac	Nabutangan og hulagway ang {0} ka card.
+dd5685e5	Gibutangan og hulagway ang {0} ka card, pipila ka segundo ang gilay-on. Makita ang dagan niini sa Settings → Mga tingog sa card.
+3e1fc241	Ang matag card nga gipakita aduna nay hulagway (o walay nakit-an para niini).
+2eba7ce1	Pagbutang og hulagway
+672671fb	Dili maipakita ang hulagway niini nga card.
+97521bea	Wala pa sa kini nga device ang hulagway niini nga card. Pag-sync ug sulayi pag-usab.
+a0d61401	Walay sulod o dako kaayo kanang hulagway.
+4e3f8ef2	Sayop ang mga detalye niana nga hulagway.
+90ccdac0	Walay sulod, dako kaayo, o dili hulagway kanang hulagway.
+537563c6	Kini nga card walay hulagway.
+5b3ee7da	Wala pa sa kini nga computer ang hulagway niini nga card.
+a2873681	Wala motubag ang Openverse karon. Sulayi pag-usab unya.

@@ -38,6 +38,8 @@ export function cutClips(bytes, words) {
  * `source.review` is each word's learning progress by uid (the game's `review` records), if any.
  * `source.reviewed(uid, today)` is what the vocab reviewer's answers come to for a word, if any.
  * `progress(done, total)` is called as each audio file is finished.
+ * `source.pictureFor(word)` (optional) resolves to the card's picture for the note's image field:
+ *   { name, bytes, field }, or null.
  */
 export async function vocabDeck(items, source, progress = () => {}) {
   const groups = new Map();
@@ -65,6 +67,12 @@ export async function vocabDeck(items, source, progress = () => {}) {
     text("anki-card/front.html"), text("anki-card/back.html"), text("anki-card/style.css"),
     source.asset("fonts/NotoNaskhArabic.woff2").then((r) => r.arrayBuffer()),
   ]);
+  const pictures = {};
+  if (source.pictureFor) {
+    for (const v of items) {
+      try { const p = await source.pictureFor(v); if (p) pictures[v.uid] = p; } catch { /* that card goes without its picture */ }
+    }
+  }
   return buildDeck(items, clips, { front, back, css }, new Uint8Array(font), Date.now() / 1000, source.review || {}, undefined, source.reviewed || (() => null),
-    source.decks || null, source.language || "");
+    source.decks || null, source.language || "", pictures);
 }

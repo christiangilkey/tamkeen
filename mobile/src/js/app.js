@@ -37,6 +37,7 @@ import { mountLanguageSwitch, withLearningList } from "./components/langswitch.j
 import { loadParked, maybeRestore, parked } from "./reset.js";
 import { App, AppBadge, AppUpdater, Filesystem, GoogleDriveAuth, NativeHttp, Share, TamkeenClipboard, TamkeenSpeech, GOOGLE_WEB_CLIENT_ID, finalUrl, isIOS, isNative, isWeb, webFetch } from "./native.js";
 import { audio as audioStore, kv, lib, loadLibrary, loadSettings, saveLibrary, saveSettingsPatch, settings } from "./store.js";
+import { MAX_BYTES as PICTURE_MAX_BYTES, ankiImageField, ankiName, cleanMeta, pictureFile, pictureOf } from "./cardpicture.js";
 import { audioCopy, driveFileId, flushSync, onSync, requestSync, syncFresh, syncNow } from "./sync.js";
 import { checkEvery, checkOnReturn, refreshMessage, shouldRedraw } from "./syncpace.js";
 import { sendNudge, setNudgeKey, startNudges } from "./syncnudge.js";
@@ -145,7 +146,14 @@ function previewReelSurface() {
 
 // ---------- API (answered on the phone) ----------
 export async function api(path, { method = "GET", body } = {}) {
-  return handle(path, method, body);
+  const data = await handle(path, method, body);
+  if (method === "POST" && (path === "/vocab" || path === "/vocab/batch")) cardsSaved(data);
+  return data;
+}
+
+/** New cards saved (any screen): with "Add a picture to new cards" on, they get one (picturebatch.js, loaded only then). */
+function cardsSaved(data) {
+  import("./picturebatch.js").then((m) => m.cardsSaved(data)).catch(() => {});
 }
 
 // ---------- helpers (identical to desktop) ----------
@@ -591,6 +599,69 @@ export async function clipUrl(word) {
   const url = URL.createObjectURL(await typedClip(blob));
   clipUrls.set(word.id, url);
   return url;
+}
+
+// ---------- pictures on the backs of cards (cardpicture.js, components/cardpic.js) ----------
+// Kept here like clips (in the "audio" store, as pic:<file>), sent to Drive as p_<uid>_<v>.jpg by the next sync
+// (sync.js uploadPendingPictures), and fetched from Drive the first time a card made elsewhere shows it.
+const picKey = (name) => `pic:${name}`;
+const pictureUrls = new Map();  // file name -> its blob address
+/** The address a card's picture is shown from. */
+export async function pictureUrl(word, meta) {
+  const name = pictureFile(word.uid || word.id, meta);
+  if (!name) throw new Error("This card's picture can't be shown.");
+  if (pictureUrls.has(name)) return pictureUrls.get(name);
+  let blob = await audioStore.get(picKey(name));
+  if (!blob && settings.signed_in) {
+    const id = await driveFileId(name).catch(() => null);
+    if (id) {
+      blob = await drive.downloadBlob(id);
+      await audioStore.put(picKey(name), blob);
+    }
+  }
+  if (!blob) throw new Error("This card's picture isn't on this device yet. Sync and try again.");
+  const url = URL.createObjectURL(blob.type && blob.type.startsWith("image/") ? blob : new Blob([blob], { type: "image/jpeg" }));
+  pictureUrls.set(name, url);
+  return url;
+}
+
+/** Put a picture (a small JPEG blob) on a card, with its details (cardpicture.js pictureMeta). Returns the card. */
+export async function savePicture(uid, blob, meta) {
+  const v = lib.vocab.find((x) => x.uid === uid && !x.deleted);
+  const clean = cleanMeta(meta);
+  if (!v || !clean) throw new Error("Couldn't keep this picture.");
+  if (!blob || blob.size > PICTURE_MAX_BYTES) throw new Error("That picture is empty or too large.");
+  const name = pictureFile(uid, clean);
+  await audioStore.put(picKey(name), blob);
+  const before = pictureOf(v);
+  Object.assign(v, { picture: JSON.stringify(clean), updated_at: Date.now() / 1000 });
+  const pending = new Set((await kv.get("pending_pictures")) || []);
+  pending.add(name);
+  await kv.set("pending_pictures", [...pending]);
+  if (before && before.v !== clean.v) forgetPicture(uid, before);
+  saveLibrary();
+  requestSync();
+  return { ...v, id: v.uid };
+}
+
+/** Take the picture off a card. Returns the card. */
+export async function removePicture(uid) {
+  const v = lib.vocab.find((x) => x.uid === uid && !x.deleted);
+  if (!v) throw new Error("Not found.");
+  const before = pictureOf(v);
+  Object.assign(v, { picture: "", updated_at: Date.now() / 1000 });
+  if (before) forgetPicture(uid, before);
+  saveLibrary();
+  requestSync();
+  return { ...v, id: v.uid };
+}
+
+function forgetPicture(uid, meta) {
+  const name = pictureFile(uid, meta);
+  if (!name) return;
+  audioStore.delete(picKey(name)).catch(() => {});
+  const url = pictureUrls.get(name);
+  if (url) { URL.revokeObjectURL(url); pictureUrls.delete(name); }
 }
 
 // ---------- card voices (cardvoice.js, devicevoice.js) ----------
@@ -1064,7 +1135,19 @@ function exportDeck(url) {
     // The audio a word's times refer to: its own clip (a word a friend shared), or the synced
     // copy of its episode. Other episodes (streamed originals, videos, pages) give no audio.
     audioFor: wordAudio,
+    pictureFor: ankiPicture,
   });
+}
+
+/** A card's picture for the Anki deck (cardpicture.js): the copy on this device, else none. */
+async function ankiPicture(v) {
+  const meta = pictureOf(v);
+  const file = pictureFile(v.uid, meta);
+  if (!file) return null;
+  const blob = await audioStore.get(picKey(file));
+  if (!blob) return null;
+  const name = ankiName(v.uid, meta);
+  return { name, bytes: new Uint8Array(await blob.arrayBuffer()), field: ankiImageField(meta, name) };
 }
 
 /** The audio a word's times refer to, for the Anki deck and new AnkiDroid cards: its own clip (a word

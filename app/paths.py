@@ -69,6 +69,11 @@ def clips_dir() -> Path:
     return _sub("clips")
 
 
+def pictures_dir() -> Path:
+    """The pictures on the backs of flashcards (web/js/cardpicture.js): <uid>_<version>.jpg, small JPEGs."""
+    return _sub("pictures")
+
+
 def anki_clips_dir() -> Path:
     """Word and sentence clips already cut for an Anki export, kept so the next export is quick."""
     return _sub("anki-clips")

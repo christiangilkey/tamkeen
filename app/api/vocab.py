@@ -13,7 +13,7 @@ from fastapi import APIRouter, HTTPException, Query, Request
 from fastapi.responses import FileResponse, Response
 from pydantic import BaseModel
 
-from .. import anki_deck, arabic, audio, db, exporters, ids, languages, paths, sync
+from .. import anki_deck, arabic, audio, db, exporters, ids, languages, paths, pictures, sync
 from ..sync import engine
 from . import reviews
 
@@ -426,6 +426,66 @@ def get_clip(vocab_id: int) -> Response:
     return FileResponse(path, media_type=_media_type(path))
 
 
+@router.put("/{vocab_id}/picture")
+async def save_picture(vocab_id: int, request: Request, meta: str = "") -> dict[str, Any]:
+    """Put a picture on the back of a card (web/js/cardpicture.js; raw request body = the small JPEG the page
+    made, `meta` = its version and credit as JSON). A picture it had before is let go of."""
+    row = _vocab_row(vocab_id)
+    info = pictures.clean(meta)
+    if info is None:
+        raise HTTPException(400, "That picture's details aren't right.")
+    data = await request.body()
+    if not data or len(data) > pictures.MAX_BYTES or not pictures.is_picture(data):
+        raise HTTPException(400, "That picture is empty, too large, or not a picture.")
+    dest = pictures.local_path(row["uid"], info)
+    if dest is None:
+        raise HTTPException(400, "That picture's details aren't right.")
+    dest.write_bytes(data)
+    old = pictures.clean(row["picture"])
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET picture = ? WHERE id = ?", (pictures.stored(meta), vocab_id))
+        out = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
+    _forget_picture(row["uid"], old, keep=info)
+    sync.request(20)
+    return _out(out)
+
+
+def _forget_picture(uid: str, meta: dict[str, Any] | None, keep: dict[str, Any] | None = None) -> None:
+    """Remove a card's old picture from this computer (Drive's copy goes at a later sync: engine.remove_old_pictures)."""
+    path = pictures.local_path(uid, meta)
+    if path is not None and (keep is None or meta.get("v") != keep.get("v")):
+        path.unlink(missing_ok=True)
+
+
+@router.get("/{vocab_id}/picture")
+def get_picture(vocab_id: int) -> Response:
+    """The picture on a card's back (fetched from Drive the first time when it was put there on another device)."""
+    row = _vocab_row(vocab_id)
+    info = pictures.clean(row["picture"])
+    path = pictures.local_path(row["uid"], info)
+    if path is None:
+        raise HTTPException(404, "This card has no picture.")
+    if not path.exists():
+        path = sync.vocab_picture(row["uid"], info) or path
+    if not path.exists():
+        raise HTTPException(404, "This card's picture isn't on this computer yet.")
+    data = path.read_bytes()
+    # (the version is in the address the page uses, so the picture can be kept by the browser a long time)
+    return Response(data, media_type=pictures.media_type(data), headers={"Cache-Control": "private, max-age=31536000"})
+
+
+@router.delete("/{vocab_id}/picture")
+def delete_picture(vocab_id: int) -> dict[str, Any]:
+    """Take the picture off a card."""
+    row = _vocab_row(vocab_id)
+    with db.session() as conn:
+        conn.execute("UPDATE vocab SET picture = '' WHERE id = ?", (vocab_id,))
+        out = conn.execute("SELECT * FROM vocab WHERE id = ?", (vocab_id,)).fetchone()
+    _forget_picture(row["uid"], pictures.clean(row["picture"]))
+    sync.request(20)
+    return _out(out)
+
+
 @router.put("/{vocab_id}/voice")
 async def save_voice(vocab_id: int, request: Request, start: float, end: float,
                      sent_start: float | None = None, sent_end: float | None = None) -> dict[str, Any]:
@@ -560,6 +620,16 @@ def _anki_clip(src: Path, uid: str, part: str, start: float, end: float) -> byte
     return path.read_bytes()
 
 
+def _anki_pictures(items: list[dict[str, Any]]) -> dict[str, bytes]:
+    """The pictures on these cards that are on this computer, by uid (a sync fetches them all)."""
+    out: dict[str, bytes] = {}
+    for v in items:
+        path = pictures.local_path(v["uid"], pictures.clean(v.get("picture")))
+        if path is not None and path.exists():
+            out[v["uid"]] = path.read_bytes()
+    return out
+
+
 def _anki_clips(items: list[dict[str, Any]]) -> dict[str, dict[str, bytes]]:
     """The audio for these words, by uid: {"word": mp3, "sentence": mp3} (whichever exist)."""
     out: dict[str, dict[str, bytes]] = {}
@@ -615,7 +685,8 @@ def export_vocab(fmt: str, folder: list[str] | None = Query(None), ids: str | No
         from .. import anki_bridge  # each word goes to its language's deck, the same one the sync uses
 
         deck = anki_deck.build(items, _anki_clips(items), review=review if isinstance(review, dict) else None,
-                               reviews=answers, decks=anki_bridge.deck_names(), language=languages.study())
+                               reviews=answers, decks=anki_bridge.deck_names(), language=languages.study(),
+                               pictures=_anki_pictures(items))
         return Response(deck, media_type="application/octet-stream",
                         headers={"Content-Disposition": 'attachment; filename="tamkeen-vocab.apkg"'})
     raise HTTPException(400, "Format must be csv, anki or apkg.")

@@ -510,6 +510,11 @@
   "f": "web/js/app.js"
  },
  {
+  "id": "641194dc",
+  "k": "Couldn't keep this picture.",
+  "f": "web/js/app.js"
+ },
+ {
   "id": "2619fa36",
   "k": "Couldn't keep this card's voice.",
   "f": "web/js/app.js"
@@ -1915,6 +1920,31 @@
   "f": "web/js/cardaudio.js"
  },
  {
+  "id": "a2873681",
+  "k": "Openverse isn't answering right now. Try again later.",
+  "f": "web/js/cardpicture.js"
+ },
+ {
+  "id": "56e83243",
+  "k": "Pictures found with Openverse. Tamkeen isn't endorsed or certified by Openverse.",
+  "f": "web/js/cardpicture.js"
+ },
+ {
+  "id": "48448986",
+  "k": "Couldn't reach Openverse. Check the internet connection and try again.",
+  "f": "web/js/cardpicture.js"
+ },
+ {
+  "id": "fc3e8ba2",
+  "k": "Openverse asks Tamkeen to slow down: try again in a while.",
+  "f": "web/js/cardpicture.js"
+ },
+ {
+  "id": "4adf4dc6",
+  "k": "Openverse didn't answer ({0}). Try again later.",
+  "f": "web/js/cardpicture.js"
+ },
+ {
   "id": "863892c6",
   "k": "Couldn't load this word's audio.",
   "f": "web/js/cardvoice.js"
@@ -3303,6 +3333,101 @@
   "id": "e01fa717",
   "k": "Offline",
   "f": "web/js/components/avatar.js"
+ },
+ {
+  "id": "ca7353e9",
+  "k": "This picture can't be opened here. Choose a JPEG or PNG.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "fe5b5324",
+  "k": "This picture is empty.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "10882173",
+  "k": "This picture is too large.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "5ee3f726",
+  "k": "That picture couldn't be fetched. Try another one.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "a7854ff2",
+  "k": "Add picture",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "874bda22",
+  "k": "Change or remove the picture",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "34e0d446",
+  "k": "This picture isn't on this device yet. Sync and try again.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "c99d4d93",
+  "k": "Picture for “{0}”",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "2298471c",
+  "k": "Take a photo",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "90bd2810",
+  "k": "Choose a photo",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "09d078cc",
+  "k": "Use my own picture",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "2ebb22b3",
+  "k": "Remove picture",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "ee1e36f1",
+  "k": "Search pictures (in English)",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "249f1a71",
+  "k": "Words to search pictures for",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "6bc9fdca",
+  "k": "More pictures",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "542cf292",
+  "k": "Type a word or two to search for.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "564a6acb",
+  "k": "Searching Openverse…",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "e97c323f",
+  "k": "No pictures found. Try other words, in English.",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "14cc5698",
+  "k": "Adding the picture…",
+  "f": "web/js/components/cardpic.js"
  },
  {
   "id": "164b3d48",
@@ -8155,6 +8280,66 @@
   "f": "web/js/components/paddiagram.js"
  },
  {
+  "id": "1e8ba650",
+  "k": "Pictures on cards",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "1b9b1741",
+  "k": "A picture on the back of a flashcard, found by its meaning (in English). Tap a card's picture to change it, take your own, or remove it.",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "1a8d428f",
+  "k": "Add a picture to new cards<0/><1>Each card you save from now on gets the first picture Openverse finds for its meaning.</1>",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "3097938b",
+  "k": "Add pictures to my cards",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "732cc173",
+  "k": "Only pictures anyone may use, with credit to their maker: CC0, public domain, CC BY and CC BY-SA. Cards get them a few seconds apart, up to 150 a day on this device.",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "7e963177",
+  "k": "Every card with a meaning already has a picture (or none was found for it).",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "e94cd9d6",
+  "k": "({0} had none)",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "f7be8df1",
+  "k": "Adding pictures: {0} of {1}",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "6a56d52c",
+  "k": "That's all for today on this device (Openverse's daily limit). Press again tomorrow for the rest ({0} left).",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "a1fa75d3",
+  "k": "Openverse asked Tamkeen to slow down. Press again in a while for the rest ({0} left).",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "6343fb76",
+  "k": "Couldn't reach Openverse. Check the internet connection and press again ({0} left).",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
+  "id": "969e60ac",
+  "k": "Pictures added to {0} cards.",
+  "f": "web/js/components/picturesettings.js"
+ },
+ {
   "id": "b1d884e7",
   "k": "Left out.",
   "f": "web/js/components/pronresult.js"
@@ -11412,16 +11597,6 @@
  {
   "id": "8d7d91ba",
   "k": "Choose a picture of a page, a list of words or a single word: its {0} text comes into a box, ready to make cards from.",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "2298471c",
-  "k": "Take a photo",
-  "f": "web/js/components/wordscan.js"
- },
- {
-  "id": "90bd2810",
-  "k": "Choose a photo",
   "f": "web/js/components/wordscan.js"
  },
  {
@@ -26705,6 +26880,16 @@
   "f": "web/js/pages/vocab.js"
  },
  {
+  "id": "dd5685e5",
+  "k": "Adding pictures to {0} cards, a few seconds apart. Settings → Card voices shows how it's going.",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "3e1fc241",
+  "k": "Every card shown already has a picture (or none was found for it).",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
   "id": "8591e078",
   "k": "Scan words",
   "f": "web/js/pages/vocab.js"
@@ -26717,6 +26902,11 @@
  {
   "id": "3e28846b",
   "k": "Export for Anki",
+  "f": "web/js/pages/vocab.js"
+ },
+ {
+  "id": "2eba7ce1",
+  "k": "Add pictures",
   "f": "web/js/pages/vocab.js"
  },
  {
@@ -28982,11 +29172,6 @@
  {
   "id": "2fbc84ce",
   "k": "This picture can't be opened here (it may be in a format this device doesn't read, such as HEIC). Take or choose it as a JPEG or PNG.",
-  "f": "web/js/scanread.js"
- },
- {
-  "id": "fe5b5324",
-  "k": "This picture is empty.",
   "f": "web/js/scanread.js"
  },
  {
@@ -31635,6 +31820,26 @@
   "f": "mobile/src/js/app.js"
  },
  {
+  "id": "672671fb",
+  "k": "This card's picture can't be shown.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "97521bea",
+  "k": "This card's picture isn't on this device yet. Sync and try again.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "a0d61401",
+  "k": "That picture is empty or too large.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
+  "id": "f1124044",
+  "k": "Not found.",
+  "f": "mobile/src/js/app.js"
+ },
+ {
   "id": "01dae1d6",
   "k": "Couldn't reach that site. Check the address and your connection.",
   "f": "mobile/src/js/app.js"
@@ -31972,11 +32177,6 @@
  {
   "id": "1d6b4183",
   "k": "That video isn't in the library yet.",
-  "f": "mobile/src/js/backend.js"
- },
- {
-  "id": "f1124044",
-  "k": "Not found.",
   "f": "mobile/src/js/backend.js"
  },
  {
@@ -33177,6 +33377,26 @@
  {
   "id": "3e4be3a5",
   "k": "This word's audio isn't available.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "4e3f8ef2",
+  "k": "That picture's details aren't right.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "90ccdac0",
+  "k": "That picture is empty, too large, or not a picture.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "537563c6",
+  "k": "This card has no picture.",
+  "f": "app/api/vocab.py"
+ },
+ {
+  "id": "5b3ee7da",
+  "k": "This card's picture isn't on this computer yet.",
   "f": "app/api/vocab.py"
  },
  {

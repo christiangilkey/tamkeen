@@ -13,6 +13,7 @@ import { dliCard, dliSummary } from "../components/dlicard.js";
 import { teachCard } from "../components/dliteach.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
+import { pictureSettings } from "../components/picturesettings.js";
 import { STT_PROVIDERS, sttConfig } from "../stt.js";
 import { PROVIDERS, definerModeOf } from "../definer.js";
 import { commonWordsButton } from "../commonwords.js";
@@ -222,7 +223,8 @@ function listening(body, status) {
 // also its own voice models (app/voices.py).
 function voices(body) {
   body.append(h(`<section class="card" id="voices"></section>`));
-  return [voiceSetup(body.querySelector("#voices"), {
+  const pictures = pictureSettings(body);  // (Pictures on cards: components/picturesettings.js, prototype card_pictures)
+  return [pictures, voiceSetup(body.querySelector("#voices"), {
     words: () => api("/vocab"),
     changed: () => loadStatus(),
     computer: {

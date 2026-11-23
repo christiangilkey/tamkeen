@@ -35,6 +35,7 @@ import { repairFormMeaning } from "../review/formrepair.js";
 import { practise, practiseButton } from "../review/pronounce.js";
 import { cardScoring } from "./pronresult.js";
 import { wordTools } from "./wordtools.js";
+import { cardPicture } from "./cardpic.js";
 
 /** The notes, typed over as a whole (several lines). */
 const NOTES = new Set(["notes", "memo"]);
@@ -77,6 +78,7 @@ export function openWordEditor(el, v, deps) {
     <div class="vi-trans vi-edit" data-f="translation" role="button" tabindex="0" translate="no"></div>
     <div class="vi-quick" hidden></div>`;
   const body = h(`<div class="vi-body">
+    <div class="vi-pic" hidden></div>
     <div class="vi-adds" hidden></div>
     <div class="vi-note" data-note="notes" hidden><span class="vi-note-label">Grammar notes</span><div class="vi-note-text vi-edit" data-f="notes" role="button" tabindex="0" translate="no"></div></div>
     <div class="vi-note" data-note="memo" hidden><span class="vi-note-label">Memorization notes</span><div class="vi-note-text vi-edit" data-f="memo" role="button" tabindex="0" translate="no"></div></div>
@@ -108,6 +110,8 @@ export function openWordEditor(el, v, deps) {
     folders, setFolder, newFolder,
   });
   for (const f of Object.keys(lines)) lines[f].setAttribute("aria-label", t(EDIT_LABELS[f]));
+  // The picture on the card's back (components/cardpic.js, prototype card_pictures): a tap changes it.
+  cardPicture(body.querySelector(".vi-pic"), v, { onChange: (card) => changed(v, { picture: card.picture || "" }) });
   const isEditing = (field) => !!editing && editing.field === field;
 
   // ----- drawing -----

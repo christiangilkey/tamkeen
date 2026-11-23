@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Não foi possível guardar esta imagem.
+56e83243	Imagens encontradas com o Openverse. O Tamkeen não é endossado nem certificado pelo Openverse.
+48448986	Não foi possível acessar o Openverse. Verifique a conexão com a internet e tente de novo.
+fc3e8ba2	O Openverse pede ao Tamkeen que vá mais devagar: tente de novo daqui a pouco.
+4adf4dc6	O Openverse não respondeu ({0}). Tente mais tarde.
+ca7353e9	Esta imagem não pode ser aberta aqui. Escolha um JPEG ou PNG.
+10882173	Esta imagem é grande demais.
+5ee3f726	Não foi possível baixar essa imagem. Tente outra.
+a7854ff2	Adicionar imagem
+874bda22	Trocar ou remover a imagem
+34e0d446	Esta imagem ainda não está neste dispositivo. Sincronize e tente de novo.
+c99d4d93	Imagem para “{0}”
+09d078cc	Usar minha própria imagem
+2ebb22b3	Remover imagem
+ee1e36f1	Buscar imagens (em inglês)
+249f1a71	Palavras para buscar imagens
+6bc9fdca	Mais imagens
+542cf292	Digite uma ou duas palavras para buscar.
+564a6acb	Buscando no Openverse…
+e97c323f	Nenhuma imagem encontrada. Tente outras palavras, em inglês.
+14cc5698	Adicionando a imagem…
+1e8ba650	Imagens nos cartões
+1b9b1741	Uma imagem no verso de um cartão, encontrada pelo significado (em inglês). Toque na imagem de um cartão para trocá-la, tirar sua própria foto ou removê-la.
+1a8d428f	Adicionar uma imagem aos cartões novos<0/><1>Cada cartão que você salvar a partir de agora recebe a primeira imagem que o Openverse encontrar para o significado.</1>
+3097938b	Adicionar imagens aos meus cartões
+732cc173	Só imagens que qualquer pessoa pode usar, com crédito ao autor: CC0, domínio público, CC BY e CC BY-SA. Os cartões as recebem com alguns segundos de intervalo, até 150 por dia neste dispositivo.
+7e963177	Todos os cartões com significado já têm imagem (ou nenhuma foi encontrada).
+e94cd9d6	({0} sem nenhuma)
+f7be8df1	Adicionando imagens: {0} de {1}
+6a56d52c	Por hoje é só neste dispositivo (o limite diário do Openverse). Toque de novo amanhã para o resto (faltam {0}).
+a1fa75d3	O Openverse pediu ao Tamkeen que fosse mais devagar. Toque de novo daqui a pouco para o resto (faltam {0}).
+6343fb76	Não foi possível acessar o Openverse. Verifique a conexão com a internet e toque de novo (faltam {0}).
+969e60ac	Imagens adicionadas a {0} cartões.
+dd5685e5	Adicionando imagens a {0} cartões, com alguns segundos de intervalo. Configurações → Vozes dos cartões mostra o andamento.
+3e1fc241	Todos os cartões mostrados já têm imagem (ou nenhuma foi encontrada).
+2eba7ce1	Adicionar imagens
+672671fb	Não é possível mostrar a imagem deste cartão.
+97521bea	A imagem deste cartão ainda não está neste dispositivo. Sincronize e tente de novo.
+a0d61401	Essa imagem está vazia ou é grande demais.
+4e3f8ef2	Os dados dessa imagem não estão corretos.
+90ccdac0	Essa imagem está vazia, é grande demais ou não é uma imagem.
+537563c6	Este cartão não tem imagem.
+5b3ee7da	A imagem deste cartão ainda não está neste computador.
+a2873681	O Openverse não está respondendo agora. Tente mais tarde.

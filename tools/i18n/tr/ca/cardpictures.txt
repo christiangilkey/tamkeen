@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	No s'ha pogut desar aquesta imatge.
+56e83243	Imatges trobades amb Openverse. Tamkeen no està avalat ni certificat per Openverse.
+48448986	No s'ha pogut connectar amb Openverse. Comprova la connexió a internet i torna-ho a provar.
+fc3e8ba2	Openverse demana a Tamkeen que vagi més a poc a poc: torna-ho a provar d'aquí a una estona.
+4adf4dc6	Openverse no ha respost ({0}). Torna-ho a provar més tard.
+ca7353e9	Aquesta imatge no es pot obrir aquí. Tria un JPEG o un PNG.
+10882173	Aquesta imatge és massa gran.
+5ee3f726	No s'ha pogut baixar aquesta imatge. Prova'n una altra.
+a7854ff2	Afegeix una imatge
+874bda22	Canvia o treu la imatge
+34e0d446	Aquesta imatge encara no és en aquest dispositiu. Sincronitza i torna-ho a provar.
+c99d4d93	Imatge per a «{0}»
+09d078cc	Fes servir la meva imatge
+2ebb22b3	Treu la imatge
+ee1e36f1	Cerca imatges (en anglès)
+249f1a71	Paraules per cercar imatges
+6bc9fdca	Més imatges
+542cf292	Escriu una o dues paraules per cercar.
+564a6acb	Cercant a Openverse…
+e97c323f	No s'ha trobat cap imatge. Prova altres paraules, en anglès.
+14cc5698	Afegint la imatge…
+1e8ba650	Imatges a les targetes
+1b9b1741	Una imatge al revers d'una targeta, trobada pel seu significat (en anglès). Toca la imatge d'una targeta per canviar-la, fer la teva pròpia foto o treure-la.
+1a8d428f	Afegeix una imatge a les targetes noves<0/><1>Cada targeta que desis a partir d'ara rep la primera imatge que Openverse trobi per al seu significat.</1>
+3097938b	Afegeix imatges a les meves targetes
+732cc173	Només imatges que tothom pot fer servir, citant-ne l'autor: CC0, domini públic, CC BY i CC BY-SA. Les targetes les reben amb uns segons de diferència, fins a 150 al dia en aquest dispositiu.
+7e963177	Totes les targetes amb significat ja tenen imatge (o no se n'ha trobat cap).
+e94cd9d6	({0} sense cap)
+f7be8df1	Afegint imatges: {0} de {1}
+6a56d52c	Això és tot per avui en aquest dispositiu (el límit diari d'Openverse). Torna a prémer demà per a la resta (en queden {0}).
+a1fa75d3	Openverse ha demanat a Tamkeen que vagi més a poc a poc. Torna a prémer d'aquí a una estona per a la resta (en queden {0}).
+6343fb76	No s'ha pogut connectar amb Openverse. Comprova la connexió a internet i torna a prémer (en queden {0}).
+969e60ac	S'han afegit imatges a {0} targetes.
+dd5685e5	Afegint imatges a {0} targetes, amb uns segons de diferència. Configuració → Veus de les targetes mostra com va.
+3e1fc241	Totes les targetes que es mostren ja tenen imatge (o no se n'ha trobat cap).
+2eba7ce1	Afegeix imatges
+672671fb	No es pot mostrar la imatge d'aquesta targeta.
+97521bea	La imatge d'aquesta targeta encara no és en aquest dispositiu. Sincronitza i torna-ho a provar.
+a0d61401	Aquesta imatge és buida o massa gran.
+4e3f8ef2	Les dades d'aquesta imatge no són correctes.
+90ccdac0	Aquesta imatge és buida, massa gran o no és una imatge.
+537563c6	Aquesta targeta no té imatge.
+5b3ee7da	La imatge d'aquesta targeta encara no és en aquest ordinador.
+a2873681	Openverse no respon ara mateix. Torna-ho a provar més tard.

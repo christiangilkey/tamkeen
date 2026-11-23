@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Hindi ma-save ang larawang ito.
+56e83243	Mga larawang nakita gamit ang Openverse. Ang Tamkeen ay hindi ineendorso o sinertipika ng Openverse.
+48448986	Hindi maabot ang Openverse. Tingnan ang koneksyon sa internet at subukan ulit.
+fc3e8ba2	Hinihiling ng Openverse na bumagal ang Tamkeen: subukan ulit mamaya.
+4adf4dc6	Hindi sumagot ang Openverse ({0}). Subukan ulit mamaya.
+ca7353e9	Hindi mabubuksan dito ang larawang ito. Pumili ng JPEG o PNG.
+10882173	Masyadong malaki ang larawang ito.
+5ee3f726	Hindi makuha ang larawang iyon. Subukan ang iba.
+a7854ff2	Magdagdag ng larawan
+874bda22	Palitan o alisin ang larawan
+34e0d446	Wala pa sa device na ito ang larawang ito. Mag-sync at subukan ulit.
+c99d4d93	Larawan para sa “{0}”
+09d078cc	Gamitin ang sarili kong larawan
+2ebb22b3	Alisin ang larawan
+ee1e36f1	Maghanap ng larawan (sa Ingles)
+249f1a71	Mga salitang ihahanap ng larawan
+6bc9fdca	Iba pang larawan
+542cf292	Mag-type ng isa o dalawang salitang hahanapin.
+564a6acb	Naghahanap sa Openverse…
+e97c323f	Walang nakitang larawan. Sumubok ng ibang salita, sa Ingles.
+14cc5698	Idinadagdag ang larawan…
+1e8ba650	Mga larawan sa card
+1b9b1741	Isang larawan sa likod ng flashcard, hinanap ayon sa kahulugan nito (sa Ingles). I-tap ang larawan ng card para palitan ito, kumuha ng sarili mong litrato, o alisin ito.
+1a8d428f	Lagyan ng larawan ang mga bagong card<0/><1>Bawat card na ise-save mo mula ngayon ay makakakuha ng unang larawang mahahanap ng Openverse para sa kahulugan nito.</1>
+3097938b	Lagyan ng larawan ang mga card ko
+732cc173	Mga larawan lang na puwedeng gamitin ng kahit sino basta banggitin ang gumawa: CC0, public domain, CC BY at CC BY-SA. Nilalagyan ang mga card nang ilang segundo ang pagitan, hanggang 150 sa isang araw sa device na ito.
+7e963177	May larawan na ang bawat card na may kahulugan (o walang nakita para rito).
+e94cd9d6	({0} ang wala)
+f7be8df1	Naglalagay ng larawan: {0} sa {1}
+6a56d52c	Hanggang dito na lang muna ngayong araw sa device na ito (ang pang-araw-araw na limitasyon ng Openverse). Pindutin ulit bukas para sa iba pa ({0} ang natitira).
+a1fa75d3	Hiniling ng Openverse na bumagal ang Tamkeen. Pindutin ulit mamaya para sa iba pa ({0} ang natitira).
+6343fb76	Hindi maabot ang Openverse. Tingnan ang koneksyon sa internet at pindutin ulit ({0} ang natitira).
+969e60ac	Nalagyan ng larawan ang {0} card.
+dd5685e5	Nilalagyan ng larawan ang {0} card, ilang segundo ang pagitan. Makikita ang takbo nito sa Settings → Mga boses ng card.
+3e1fc241	May larawan na ang bawat card na ipinapakita (o walang nakita para rito).
+2eba7ce1	Maglagay ng larawan
+672671fb	Hindi maipakita ang larawan ng card na ito.
+97521bea	Wala pa sa device na ito ang larawan ng card na ito. Mag-sync at subukan ulit.
+a0d61401	Walang laman o masyadong malaki ang larawang iyon.
+4e3f8ef2	Mali ang mga detalye ng larawang iyon.
+90ccdac0	Walang laman, masyadong malaki, o hindi larawan ang larawang iyon.
+537563c6	Walang larawan ang card na ito.
+5b3ee7da	Wala pa sa computer na ito ang larawan ng card na ito.
+a2873681	Hindi sumasagot ang Openverse ngayon. Subukan ulit mamaya.

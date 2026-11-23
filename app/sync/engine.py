@@ -6,6 +6,7 @@ Drive layout (hidden app folder, shared by desktop and Android):
     a_<episode>.ogg      compressed copy of the exact audio that was transcribed
     v_<episode>.<ext>    the user's own video files ("My videos"; see app/videos.py)
     c_<vocab word>.ogg   audio clips of vocab words received from friends
+    p_<vocab word>_<v>.jpg  the picture on the back of a card (app/pictures.py), a small JPEG
 
 Merge rule: per record, the newest `updated_at` wins. Deletions are kept as tombstones so
 they propagate instead of being resurrected by another device.
@@ -13,6 +14,7 @@ they propagate instead of being resurrected by another device.
 
 from __future__ import annotations
 
+import datetime
 import gzip
 import hashlib
 import json
@@ -22,7 +24,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, reels, studygoal, tashkeel, videos, youtube
+from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, pictures, reels, studygoal, tashkeel, videos, youtube
 from ..lessons import clean_state as clean_lessons, merge_state as merge_lessons
 from . import gamemerge
 from .drive import Drive
@@ -110,7 +112,7 @@ def snapshot(device_id: str) -> dict[str, Any]:
             "FROM episodes e JOIN feeds f ON f.id = e.feed_id WHERE f.deleted = 0 ORDER BY e.uid")]
         vocab = [{**dict(r), "folders": _folder_list(r["folders"])} for r in conn.execute(
             "SELECT uid, episode_uid, text, sentence, start, end, sent_start, sent_end, meaning, notes, translation, memo, important, "
-            "episode_title, folders, clip, language, voice, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
+            "episode_title, folders, clip, language, voice, picture, deleted, created_at, updated_at FROM vocab ORDER BY uid")]
         folders = [dict(r) for r in conn.execute(
             "SELECT uid, name, language, deleted, created_at, updated_at FROM vocab_folders ORDER BY uid")]
         defs = [{**dict(r), "data": json.loads(r["data"])} for r in conn.execute(
@@ -253,22 +255,25 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
             r = keep_voice(r, local)
             # A device with an older version sends no translation, memo, important mark or voice: keep the ones already known.
             important = None if r.get("important") is None else (1 if r.get("important") else 0)
+            # (a picture with a licence or version that isn't allowed is dropped; an older app sends none: kept)
+            picture = None if r.get("picture") is None else pictures.stored(r.get("picture"))
             values = (r["text"], arabic.normalize(r["text"]), r["sentence"], r["start"], r["end"], r["sent_start"],
                       r["sent_end"], r["meaning"], r["notes"], r.get("translation"), r.get("memo"), important, r["episode_title"], r["deleted"],
                       r["episode_uid"], ep_ids.get(r["episode_uid"]), json.dumps(_folder_list(r.get("folders") or [])),
-                      1 if r.get("clip") else 0, _language(r), r.get("voice"), r["updated_at"])
+                      1 if r.get("clip") else 0, _language(r), r.get("voice"), picture, r["updated_at"])
             if local is None:
                 conn.execute(
                     "INSERT INTO vocab(text, norm, sentence, start, end, sent_start, sent_end, meaning, notes, "
-                    "translation, memo, important, episode_title, deleted, episode_uid, episode_id, folders, clip, language, voice, updated_at, "
-                    "uid, created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),COALESCE(?, 0),?,?,?,?,?,?,?,COALESCE(?, ''),?,?,?)",
+                    "translation, memo, important, episode_title, deleted, episode_uid, episode_id, folders, clip, language, voice, picture, updated_at, "
+                    "uid, created_at) VALUES(?,?,?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),COALESCE(?, 0),?,?,?,?,?,?,?,COALESCE(?, ''),COALESCE(?, ''),?,?,?)",
                     (*values, r["uid"], r["created_at"]))
                 result.merged["vocab"] += 1
             elif _newer(r, local):
                 conn.execute(
                     "UPDATE vocab SET text=?, norm=?, sentence=?, start=?, end=?, sent_start=?, sent_end=?, meaning=?, "
                     "notes=?, translation=COALESCE(?, translation), memo=COALESCE(?, memo), important=COALESCE(?, important), episode_title=?, deleted=?, episode_uid=?, "
-                    "episode_id=?, folders=?, clip=?, language=COALESCE(?, language), voice=COALESCE(?, voice), updated_at=? WHERE id=?",
+                    "episode_id=?, folders=?, clip=?, language=COALESCE(?, language), voice=COALESCE(?, voice), "
+                    "picture=COALESCE(?, picture), updated_at=? WHERE id=?",
                     (*values, local["id"]))
                 result.merged["vocab"] += 1
 
@@ -569,6 +574,7 @@ def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool,
     # 2. Publish the user's own videos (always: Drive is where they're kept), then audio copies.
     upload_videos(drive, files, result)
     upload_clips(drive, files)
+    upload_pictures(drive, files)
     if sync_audio:
         upload_audio_copies(drive, files, result)
 
@@ -605,8 +611,12 @@ def run(drive: Drive, device_id: str, sync_audio: bool, can_transcribe: bool,
     else:
         incomplete = True  # Drive kept changing under us: the next sync tries again in full
 
-    # 6. Free Drive space used by deleted videos (any device may do this; it's idempotent).
+    # 6. Free Drive space used by deleted videos (any device may do this; it's idempotent), get the cards' pictures
+    #    made on other devices and let go of pictures no card shows any more.
     remove_deleted_media(drive, files)
+    if not fetch_pictures(drive, files):
+        incomplete = True
+    remove_old_pictures(drive, files)
 
     # 7. Transcription requests from other devices (e.g. the phone).
     if can_transcribe:
@@ -677,6 +687,90 @@ def upload_clips(drive: Drive, files: dict[str, dict[str, Any]]) -> None:
         src = clip_path(v["uid"])
         if name not in files and src.exists():
             files[name] = drive.upload(name, src, "audio/ogg")
+
+
+def _card_pictures() -> list[tuple[str, dict[str, Any]]]:
+    """(uid, picture) of every card that has a picture and isn't deleted."""
+    with db.session() as conn:
+        rows = conn.execute("SELECT uid, picture FROM vocab WHERE picture <> '' AND deleted = 0").fetchall()
+    out = []
+    for r in rows:
+        meta = pictures.clean(r["picture"])
+        if meta and pictures.file_stem(r["uid"], meta):
+            out.append((r["uid"], meta))
+    return out
+
+
+def upload_pictures(drive: Drive, files: dict[str, dict[str, Any]]) -> None:
+    """Publish the pictures put on cards here (before the library mentions them), so the other devices get them."""
+    for uid, meta in _card_pictures():
+        name, src = pictures.drive_name(uid, meta), pictures.local_path(uid, meta)
+        if name not in files and src is not None and src.exists():
+            files[name] = drive.upload(name, src, "image/jpeg")
+
+
+PICTURES_PER_SYNC = 300  # pictures fetched in one sync at most (each ~25 KB); the rest come with the next
+
+
+def fetch_pictures(drive: Drive, files: dict[str, dict[str, Any]]) -> bool:
+    """Download the cards' pictures this computer hasn't got yet, so they show offline. False if some are left."""
+    got = 0
+    for uid, meta in _card_pictures():
+        dest = pictures.local_path(uid, meta)
+        name = pictures.drive_name(uid, meta)
+        if dest is None or dest.exists() or name not in files:
+            continue
+        if got >= PICTURES_PER_SYNC:
+            return False
+        try:
+            drive.download_to(files[name]["id"], dest)
+            got += 1
+        except Exception as exc:
+            log.info("Couldn't fetch the picture %s: %s", name, exc)
+    return True
+
+
+def fetch_picture(drive: Drive, uid: str, meta: dict[str, Any]) -> Path | None:
+    """Download one card's picture now (shown before a sync has fetched it)."""
+    name, dest = pictures.drive_name(uid, meta), pictures.local_path(uid, meta)
+    match = [f for f in drive.list() if f["name"] == name]
+    if not match or dest is None:
+        return None
+    drive.download_to(match[0]["id"], dest)
+    return dest
+
+
+PICTURE_GRACE = 24 * 3600  # a Drive picture no card names is left a day (another device may be about to name it)
+
+
+def remove_old_pictures(drive: Drive, files: dict[str, dict[str, Any]], now: float | None = None) -> None:
+    """Free Drive and this computer of pictures no card shows any more (replaced, removed, or the card deleted)."""
+    now = time.time() if now is None else now
+    keep = {pictures.drive_name(uid, meta) for uid, meta in _card_pictures()}
+    for name in [n for n in files if n.startswith("p_") and n.endswith(".jpg") and n not in keep]:
+        meta = files[name]
+        if now - _drive_time(meta.get("modifiedTime")) < PICTURE_GRACE:
+            continue
+        try:
+            drive.delete(meta["id"])
+            files.pop(name, None)
+        except Exception as exc:
+            log.info("Couldn't delete %s from Drive: %s", name, exc)
+    folder = paths.pictures_dir()
+    for f in folder.glob("*.jpg"):
+        try:
+            if f"p_{f.name}" not in keep and now - f.stat().st_mtime > 3600:
+                f.unlink()
+        except OSError:
+            pass
+
+
+def _drive_time(text: Any) -> float:
+    """Drive's modifiedTime ("2026-11-23T18:15:58.123Z") in seconds; 0 when unknown (counted as old)."""
+    try:
+        return datetime.datetime.fromisoformat(str(text).replace("Z", "+00:00")).timestamp()
+    except ValueError:
+        return 0.0
 
 
 def fetch_clip(drive: Drive, uid: str) -> Path | None:

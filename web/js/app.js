@@ -63,7 +63,13 @@ export async function api(path, { method = "GET", body, raw, bytes } = {}) {
     if (Array.isArray(detail)) detail = detail.map((d) => d.msg).join("; ");
     throw new Error(typeof detail === "string" ? detail : `Request failed (${res.status})`);
   }
+  if (method === "POST" && (path === "/vocab" || path === "/vocab/batch")) cardsSaved(data);
   return data;
+}
+
+/** New cards saved (any screen): with "Add a picture to new cards" on, they get one (picturebatch.js, loaded only then). */
+function cardsSaved(data) {
+  import("./picturebatch.js").then((m) => m.cardsSaved(data)).catch(() => {});
 }
 
 // ---------- helpers ----------
@@ -236,6 +242,32 @@ export async function saveClip(vocabId, blob, times) {
 export async function clipUrl(word) {
   return `/api/vocab/${word.id}/clip`;
 }
+
+// ---------- pictures on the backs of cards (cardpicture.js, components/cardpic.js, app/pictures.py) ----------
+/** The address a card's picture is shown from (its version in it, so a new picture is never an old one kept). */
+export async function pictureUrl(word, meta) {
+  return `/api/vocab/${word.id}/picture?v=${encodeURIComponent(meta.v)}`;
+}
+
+/** Put a picture (a small JPEG blob) on a card, with its details (cardpicture.js pictureMeta). Returns the card. */
+export async function savePicture(vocabId, blob, meta) {
+  let res;
+  try {
+    res = await fetch(`/api/vocab/${vocabId}/picture?meta=${encodeURIComponent(JSON.stringify(meta))}`,
+                      { method: "PUT", body: blob, headers: sessionHeaders({ "Content-Type": "image/jpeg" }) });
+  } catch {
+    throw new Error("Lost connection to the app's local server.");
+  }
+  if (!res.ok) {
+    let detail = "";
+    try { detail = (await res.json()).detail; } catch { /* no words with it */ }
+    throw new Error(typeof detail === "string" && detail ? detail : "Couldn't keep this picture.");
+  }
+  return res.json();
+}
+
+/** Take the picture off a card. Returns the card. */
+export const removePicture = (vocabId) => api(`/vocab/${vocabId}/picture`, { method: "DELETE" });
 
 // ---------- card voices (cardvoice.js, devicevoice.js, app/voices.py) ----------
 /** Keep a card's voice made with Azure (Ogg Opus) and where its word and sentence are in it. */

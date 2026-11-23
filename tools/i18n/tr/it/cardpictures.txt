@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Impossibile salvare questa immagine.
+56e83243	Immagini trovate con Openverse. Tamkeen non è approvato né certificato da Openverse.
+48448986	Impossibile raggiungere Openverse. Controlla la connessione a internet e riprova.
+fc3e8ba2	Openverse chiede a Tamkeen di rallentare: riprova tra un po'.
+4adf4dc6	Openverse non ha risposto ({0}). Riprova più tardi.
+ca7353e9	Questa immagine non si può aprire qui. Scegli un JPEG o un PNG.
+10882173	Questa immagine è troppo grande.
+5ee3f726	Impossibile scaricare quell'immagine. Provane un'altra.
+a7854ff2	Aggiungi immagine
+874bda22	Cambia o togli l'immagine
+34e0d446	Questa immagine non è ancora su questo dispositivo. Sincronizza e riprova.
+c99d4d93	Immagine per «{0}»
+09d078cc	Usa una mia immagine
+2ebb22b3	Togli immagine
+ee1e36f1	Cerca immagini (in inglese)
+249f1a71	Parole per cercare immagini
+6bc9fdca	Altre immagini
+542cf292	Scrivi una o due parole da cercare.
+564a6acb	Ricerca su Openverse…
+e97c323f	Nessuna immagine trovata. Prova altre parole, in inglese.
+14cc5698	Aggiunta dell'immagine…
+1e8ba650	Immagini sulle schede
+1b9b1741	Un'immagine sul retro di una scheda, trovata in base al significato (in inglese). Tocca l'immagine di una scheda per cambiarla, scattare una tua foto o toglierla.
+1a8d428f	Aggiungi un'immagine alle schede nuove<0/><1>Ogni scheda che salvi da ora in poi riceve la prima immagine che Openverse trova per il suo significato.</1>
+3097938b	Aggiungi immagini alle mie schede
+732cc173	Solo immagini che chiunque può usare, citandone l'autore: CC0, pubblico dominio, CC BY e CC BY-SA. Le schede le ricevono a qualche secondo di distanza, fino a 150 al giorno su questo dispositivo.
+7e963177	Tutte le schede con un significato hanno già un'immagine (o non ne è stata trovata nessuna).
+e94cd9d6	({0} senza nessuna)
+f7be8df1	Aggiunta immagini: {0} di {1}
+6a56d52c	Per oggi è tutto su questo dispositivo (il limite giornaliero di Openverse). Premi di nuovo domani per il resto (ne restano {0}).
+a1fa75d3	Openverse ha chiesto a Tamkeen di rallentare. Premi di nuovo tra un po' per il resto (ne restano {0}).
+6343fb76	Impossibile raggiungere Openverse. Controlla la connessione a internet e premi di nuovo (ne restano {0}).
+969e60ac	Immagini aggiunte a {0} schede.
+dd5685e5	Aggiunta di immagini a {0} schede, a qualche secondo di distanza. Impostazioni → Voci delle schede mostra a che punto è.
+3e1fc241	Tutte le schede mostrate hanno già un'immagine (o non ne è stata trovata nessuna).
+2eba7ce1	Aggiungi immagini
+672671fb	Impossibile mostrare l'immagine di questa scheda.
+97521bea	L'immagine di questa scheda non è ancora su questo dispositivo. Sincronizza e riprova.
+a0d61401	Quell'immagine è vuota o troppo grande.
+4e3f8ef2	I dati di quell'immagine non sono corretti.
+90ccdac0	Quell'immagine è vuota, troppo grande o non è un'immagine.
+537563c6	Questa scheda non ha un'immagine.
+5b3ee7da	L'immagine di questa scheda non è ancora su questo computer.
+a2873681	Openverse non risponde in questo momento. Riprova più tardi.

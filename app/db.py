@@ -244,7 +244,10 @@ _SYNC_COLUMNS = {
               # A card's voice (web/js/cardvoice.js, app/voices.py), for a word with no recording it can
               # play: JSON {"start", "end", "sent_start", "sent_end"} inside clips/<uid>.ogg (the same file
               # and Drive name as a friend's clip, c_<uid>.ogg; a word never has both). '' = none yet.
-              ("voice", "TEXT NOT NULL DEFAULT ''")],
+              ("voice", "TEXT NOT NULL DEFAULT ''"),
+              # A picture on the back of the card (web/js/cardpicture.js): JSON {"v": version, "src": "openverse" | "own",
+              # and an Openverse picture's credit}; the file is pictures/<uid>_<v>.jpg, in Drive p_<uid>_<v>.jpg. '' = none.
+              ("picture", "TEXT NOT NULL DEFAULT ''")],
     # The language a folder was made in: the Vocab page lists only the language being learned's folders.
     # '' = not known (an empty folder from before): shown in every language.
     "vocab_folders": [("language", "TEXT NOT NULL DEFAULT ''")],
@@ -282,7 +285,8 @@ CREATE TRIGGER IF NOT EXISTS vocab_upd AFTER UPDATE ON vocab
 WHEN NEW.updated_at IS OLD.updated_at AND NOT EXISTS (SELECT 1 FROM sync_guard) AND (NEW.text IS NOT OLD.text OR NEW.meaning IS NOT OLD.meaning
   OR NEW.notes IS NOT OLD.notes OR NEW.deleted IS NOT OLD.deleted OR NEW.folders IS NOT OLD.folders
   OR NEW.clip IS NOT OLD.clip OR NEW.translation IS NOT OLD.translation OR NEW.memo IS NOT OLD.memo
-  OR NEW.voice IS NOT OLD.voice OR NEW.sentence IS NOT OLD.sentence OR NEW.important IS NOT OLD.important)
+  OR NEW.voice IS NOT OLD.voice OR NEW.sentence IS NOT OLD.sentence OR NEW.important IS NOT OLD.important
+  OR NEW.picture IS NOT OLD.picture)
 BEGIN UPDATE vocab SET updated_at = {NOW_SQL} WHERE id = NEW.id; END;
 
 CREATE TRIGGER IF NOT EXISTS folders_ins AFTER INSERT ON vocab_folders WHEN NEW.updated_at IS NULL AND NOT EXISTS (SELECT 1 FROM sync_guard)

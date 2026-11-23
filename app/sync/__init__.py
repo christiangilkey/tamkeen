@@ -291,6 +291,20 @@ def vocab_clip(uid: str) -> Path | None:
         drive.close()
 
 
+def vocab_picture(uid: str, meta: dict) -> Path | None:
+    """Fetch a card's picture from Drive (it was put on the card on another device)."""
+    if not oauth.signed_in():
+        return None
+    drive = GoogleDrive(lambda force: oauth.access_token(force))
+    try:
+        return engine.fetch_picture(drive, uid, meta)
+    except Exception as exc:
+        log.warning("Couldn't fetch the picture for word %s: %s", uid, exc)
+        return None
+    finally:
+        drive.close()
+
+
 def audio_copy(episode_id: int) -> Path | None:
     """Fetch the synced audio copy for an episode (used by the player)."""
     if not oauth.signed_in():

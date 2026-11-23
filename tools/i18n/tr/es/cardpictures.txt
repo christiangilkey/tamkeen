@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	No se pudo guardar esta imagen.
+56e83243	Imágenes encontradas con Openverse. Tamkeen no está respaldado ni certificado por Openverse.
+48448986	No se pudo conectar con Openverse. Revisa la conexión a internet y vuelve a intentarlo.
+fc3e8ba2	Openverse pide a Tamkeen que vaya más despacio: vuelve a intentarlo dentro de un rato.
+4adf4dc6	Openverse no respondió ({0}). Inténtalo más tarde.
+ca7353e9	Esta imagen no se puede abrir aquí. Elige un JPEG o un PNG.
+10882173	Esta imagen es demasiado grande.
+5ee3f726	No se pudo descargar esa imagen. Prueba con otra.
+a7854ff2	Añadir imagen
+874bda22	Cambiar o quitar la imagen
+34e0d446	Esta imagen aún no está en este dispositivo. Sincroniza y vuelve a intentarlo.
+c99d4d93	Imagen para «{0}»
+09d078cc	Usar mi propia imagen
+2ebb22b3	Quitar imagen
+ee1e36f1	Buscar imágenes (en inglés)
+249f1a71	Palabras para buscar imágenes
+6bc9fdca	Más imágenes
+542cf292	Escribe una o dos palabras para buscar.
+564a6acb	Buscando en Openverse…
+e97c323f	No se encontraron imágenes. Prueba con otras palabras, en inglés.
+14cc5698	Añadiendo la imagen…
+1e8ba650	Imágenes en las tarjetas
+1b9b1741	Una imagen en el reverso de una tarjeta, encontrada por su significado (en inglés). Toca la imagen de una tarjeta para cambiarla, hacer tu propia foto o quitarla.
+1a8d428f	Añadir una imagen a las tarjetas nuevas<0/><1>Cada tarjeta que guardes a partir de ahora recibe la primera imagen que Openverse encuentre para su significado.</1>
+3097938b	Añadir imágenes a mis tarjetas
+732cc173	Solo imágenes que cualquiera puede usar, citando a su autor: CC0, dominio público, CC BY y CC BY-SA. Las tarjetas las reciben con unos segundos de diferencia, hasta 150 al día en este dispositivo.
+7e963177	Todas las tarjetas con significado ya tienen imagen (o no se encontró ninguna).
+e94cd9d6	({0} sin ninguna)
+f7be8df1	Añadiendo imágenes: {0} de {1}
+6a56d52c	Eso es todo por hoy en este dispositivo (el límite diario de Openverse). Vuelve a pulsar mañana para el resto (quedan {0}).
+a1fa75d3	Openverse pidió a Tamkeen que fuera más despacio. Vuelve a pulsar dentro de un rato para el resto (quedan {0}).
+6343fb76	No se pudo conectar con Openverse. Revisa la conexión a internet y vuelve a pulsar (quedan {0}).
+969e60ac	Imágenes añadidas a {0} tarjetas.
+dd5685e5	Añadiendo imágenes a {0} tarjetas, con unos segundos de diferencia. Ajustes → Voces de las tarjetas muestra cómo va.
+3e1fc241	Todas las tarjetas mostradas ya tienen imagen (o no se encontró ninguna).
+2eba7ce1	Añadir imágenes
+672671fb	No se puede mostrar la imagen de esta tarjeta.
+97521bea	La imagen de esta tarjeta aún no está en este dispositivo. Sincroniza y vuelve a intentarlo.
+a0d61401	Esa imagen está vacía o es demasiado grande.
+4e3f8ef2	Los datos de esa imagen no son correctos.
+90ccdac0	Esa imagen está vacía, es demasiado grande o no es una imagen.
+537563c6	Esta tarjeta no tiene imagen.
+5b3ee7da	La imagen de esta tarjeta aún no está en este ordenador.
+a2873681	Openverse no responde ahora mismo. Inténtalo más tarde.

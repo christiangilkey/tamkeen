@@ -25,7 +25,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-from . import exporters, fsrs, paths
+from . import exporters, fsrs, paths, pictures as card_pictures
 
 # Fixed ids, so every export lands in the same card layout and deck instead of adding copies.
 MODEL_ID = 1791700000001
@@ -147,7 +147,7 @@ def card_schedule(progress: Any, today: int, position: int) -> tuple[int, int, i
 def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, bytes]] | None = None,
           now: float | None = None, review: Mapping[str, Any] | None = None, today: int | None = None,
           reviews: Mapping[str, Any] | None = None, decks: Mapping[str, str] | None = None,
-          language: str | None = None) -> bytes:
+          language: str | None = None, pictures: Mapping[str, bytes] | None = None) -> bytes:
     """The .apkg for these words. ``clips`` gives a word's audio by its uid:
     ``{"word": mp3 bytes, "sentence": mp3 bytes}``, either or both. ``review`` gives a word's
     learning progress by its uid (the game's ``review`` records); ``today`` is the day number
@@ -155,7 +155,8 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
     reviewer's answers by uid (``[[t, rating, day, ms], ...]``). ``decks`` gives each language's deck
     name (anki_bridge.deck_names): a word goes to the deck of its language (``language`` for a word
     that does not say). Without it every word goes to one deck called "Tamkeen". Anki files the
-    cards by the deck's name, so they land in the same deck as the sync's."""
+    cards by the deck's name, so they land in the same deck as the sync's. ``pictures`` gives a card's picture
+    (app/pictures.py) by its uid: it goes in the note's image field with its credit."""
     clips, review, reviews = clips or {}, review or {}, reviews or {}
     stamp = int(time.time() if now is None else now)
     today = day_number(stamp) if today is None else today
@@ -173,12 +174,18 @@ def build(items: Sequence[dict[str, Any]], clips: Mapping[str, Mapping[str, byte
         mine = {names[part]: data for part, data in clips.get(v["uid"], {}).items() if part in names and data}
         media.update(mine)
         sound = "".join(f"[sound:{names[part]}]" for part in ("word", "sentence") if names[part] in mine)
+        image = ""
+        pic = card_pictures.clean(v.get("picture"))
+        if pic and (pictures or {}).get(v["uid"]):
+            pic_name = card_pictures.anki_name(v["uid"], pic)
+            media[pic_name] = pictures[v["uid"]]
+            image = card_pictures.anki_field(pic, pic_name)
         saved = int(v.get("created_at") or stamp)
         note_id = stamp * 1000 + n
         sort_text = _plain(front)
         checksum = int(hashlib.sha1(sort_text.encode("utf-8")).hexdigest()[:8], 16)
         notes.append((note_id, exporters.anki_guid(v), MODEL_ID, saved, -1, f" {exporters.ANKI_TAG} ",
-                      "\x1f".join((front, back, "", sound)), sort_text, checksum, 0, ""))
+                      "\x1f".join((front, back, image, sound)), sort_text, checksum, 0, ""))
         state = fsrs.replay(reviews.get(v["uid"]))
         if state is None:
             cards.append((note_id, note_id, deck_of(v), 0, saved, -1, *card_schedule(review.get(v["uid"]), today, n + 1),

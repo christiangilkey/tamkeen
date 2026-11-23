@@ -50,6 +50,7 @@ import { BACK_CHOICES, BACK_MAX, BACK_MIN, BOOST, answered as speedAnswered, bar
          todayBest, useBoost } from "../review/speedstreak.js";
 import { icon } from "../icons.js";
 import { appOut } from "../appvolume.js";
+import { cardPicture } from "../components/cardpic.js";
 
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
@@ -783,6 +784,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
         <div class="rv-ans-meaning" translate="no" hidden></div>
         <div class="rv-ans-sentence" ${lang} hidden></div>
         <div class="rv-ans-trans" translate="no" hidden></div>
+        <div class="rv-pic" hidden></div>
         <div class="rv-listen"></div>
       </div>
       <div class="rv-details">
@@ -843,6 +845,8 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     }
     drawAnswer(v);
     paintListen(v);
+    // The picture on the back (components/cardpic.js, prototype card_pictures): a tap changes it.
+    cardPicture(face.querySelector(".rv-pic"), v, { onChange: () => more() });
 
     const wait = nextWait(cards.get(uidOf(v)) || null, dayNumber());
     actions.innerHTML = `
@@ -1439,6 +1443,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   const onKey = (e) => {
     if (document.querySelector(".tour")) return;  // the first-time hint is showing: its buttons take the keys
     if (document.querySelector(".game-sheet-wrap")) return;  // the Luck sheet is open over the cards: Esc is its own
+    if (document.querySelector(".modal-back")) return;  // a box over the card (the picture picker): its keys are its own
     if (asking) {  // the "delete this word?" box is open: Esc keeps the word; its buttons take every other key
       if (e.key === "Escape") { e.preventDefault(); asking(); }
       return;

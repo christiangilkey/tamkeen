@@ -1,0 +1,45 @@
+# Pictures on the backs of cards (components/cardpic.js, picturebatch.js, prototype card_pictures), 2026-11-23
+641194dc	Dieses Bild konnte nicht gespeichert werden.
+56e83243	Bilder gefunden mit Openverse. Tamkeen wird von Openverse weder unterstützt noch zertifiziert.
+48448986	Openverse ist nicht erreichbar. Prüfe die Internetverbindung und versuche es noch einmal.
+fc3e8ba2	Openverse bittet Tamkeen, langsamer zu machen: Versuche es in einer Weile noch einmal.
+4adf4dc6	Openverse hat nicht geantwortet ({0}). Versuche es später noch einmal.
+ca7353e9	Dieses Bild lässt sich hier nicht öffnen. Wähle ein JPEG oder PNG.
+10882173	Dieses Bild ist zu groß.
+5ee3f726	Dieses Bild konnte nicht geladen werden. Versuche ein anderes.
+a7854ff2	Bild hinzufügen
+874bda22	Bild ändern oder entfernen
+34e0d446	Dieses Bild ist noch nicht auf diesem Gerät. Synchronisiere und versuche es noch einmal.
+c99d4d93	Bild für „{0}“
+09d078cc	Eigenes Bild verwenden
+2ebb22b3	Bild entfernen
+ee1e36f1	Bilder suchen (auf Englisch)
+249f1a71	Wörter für die Bildersuche
+6bc9fdca	Mehr Bilder
+542cf292	Gib ein oder zwei Wörter für die Suche ein.
+564a6acb	Suche auf Openverse …
+e97c323f	Keine Bilder gefunden. Versuche andere Wörter, auf Englisch.
+14cc5698	Bild wird hinzugefügt …
+1e8ba650	Bilder auf Karten
+1b9b1741	Ein Bild auf der Rückseite einer Karteikarte, gefunden über ihre Bedeutung (auf Englisch). Tippe auf das Bild einer Karte, um es zu ändern, ein eigenes Foto zu machen oder es zu entfernen.
+1a8d428f	Neuen Karten ein Bild hinzufügen<0/><1>Jede Karte, die du ab jetzt speicherst, bekommt das erste Bild, das Openverse für ihre Bedeutung findet.</1>
+3097938b	Meinen Karten Bilder hinzufügen
+732cc173	Nur Bilder, die jeder mit Nennung des Urhebers verwenden darf: CC0, gemeinfrei, CC BY und CC BY-SA. Die Karten bekommen sie im Abstand von ein paar Sekunden, bis zu 150 am Tag auf diesem Gerät.
+7e963177	Jede Karte mit Bedeutung hat schon ein Bild (oder es wurde keins gefunden).
+e94cd9d6	({0} ohne Bild)
+f7be8df1	Bilder werden hinzugefügt: {0} von {1}
+6a56d52c	Das war's für heute auf diesem Gerät (das Tageslimit von Openverse). Drücke morgen noch einmal für den Rest ({0} übrig).
+a1fa75d3	Openverse hat Tamkeen gebeten, langsamer zu machen. Drücke in einer Weile noch einmal für den Rest ({0} übrig).
+6343fb76	Openverse ist nicht erreichbar. Prüfe die Internetverbindung und drücke noch einmal ({0} übrig).
+969e60ac	Bilder zu {0} Karten hinzugefügt.
+dd5685e5	Bilder werden zu {0} Karten hinzugefügt, im Abstand von ein paar Sekunden. Einstellungen → Kartenstimmen zeigt, wie weit es ist.
+3e1fc241	Jede angezeigte Karte hat schon ein Bild (oder es wurde keins gefunden).
+2eba7ce1	Bilder hinzufügen
+672671fb	Das Bild dieser Karte kann nicht angezeigt werden.
+97521bea	Das Bild dieser Karte ist noch nicht auf diesem Gerät. Synchronisiere und versuche es noch einmal.
+a0d61401	Dieses Bild ist leer oder zu groß.
+4e3f8ef2	Die Angaben zu diesem Bild stimmen nicht.
+90ccdac0	Dieses Bild ist leer, zu groß oder kein Bild.
+537563c6	Diese Karte hat kein Bild.
+5b3ee7da	Das Bild dieser Karte ist noch nicht auf diesem Computer.
+a2873681	Openverse antwortet gerade nicht. Versuche es später noch einmal.
