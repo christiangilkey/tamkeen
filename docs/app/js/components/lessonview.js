@@ -16,6 +16,9 @@ import { openQuestionEditor, openPassageEditor } from "./lessonedit.js";
 import { openTranscriptEditor } from "./transcripteditor.js";
 import { dropZone } from "../filedrop.js";
 import { audioBar } from "./lessonbar.js";
+import { lessonWords } from "./lessonwords.js";
+import { tapSwitch } from "./tapswitch.js";
+import { episodeLanguage, studyLanguage } from "../languages.js";
 
 const dir = (text) => (/[֐-ࣿ]/.test(text) ? "rtl" : "auto");
 const youTubeId = (url) => ((String(url || "").match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/) || [])[1] || "");
@@ -30,6 +33,8 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   let alive = true;
   let saveTimer = 0;
   let bar = null; // the audio bar pinned at the top (prototype lesson_links, components/lessonbar.js)
+  let words = null; // the page's own words, tappable (prototype lesson_words, components/lessonwords.js)
+  let slots = [];   // the texts drawn as words, in the page's order (filled while the body is drawn)
   // (a folder pick: Chrome-based windows have one, a phone's file picker doesn't)
   const folderPicking = () => "webkitdirectory" in document.createElement("input") && !(window.matchMedia && matchMedia("(pointer: coarse)").matches);
   const own = !rec.from; // made here (not from a teacher): its questions can be changed
@@ -254,6 +259,7 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
     wrap.querySelector(".lsn-qn").textContent = `${q.number || n + 1}.`;
     const prompt = wrap.querySelector(".lsn-qp");
     prompt.textContent = q.prompt;
+    slots.push({ el: prompt, text: q.prompt });
     prompt.dir = dir(q.prompt);
     const area = wrap.querySelector(".lsn-qa");
     const name = `lsn-${rec.id}-${q.id}`;
@@ -280,6 +286,7 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
           <span class="lsn-ol"></span><span class="lsn-ot"></span></label>`);
         opt.querySelector(".lsn-ol").textContent = optionLabel(o.label);
         opt.querySelector(".lsn-ot").textContent = o.text;
+        slots.push({ el: opt.querySelector(".lsn-ot"), text: o.text });
         opt.querySelector(".lsn-ot").dir = dir(o.text);
         opt.querySelector("input").onchange = () => {
           const picked = [...area.querySelectorAll("input:checked")].map((i) => i.value);
@@ -303,7 +310,15 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   function paintBody() {
     const body = $(".lsn-body");
     body.innerHTML = "";
-    if (blocks.length && passageEp) {
+    slots = [];
+    if (words && (blocks.length || rec.questions.length)) {
+      // (prototype lesson_words: the words are tappable right here, so no separate reader; the Tap words switch sits
+      // where its button was)
+      const row = h(`<div class="lsn-sec lsn-words-sec">${blocks.length ? "<h3>Passage</h3>" : "<span></span>"}</div>`);
+      const sw = tapSwitch();
+      if (sw) row.append(sw);
+      body.append(row);
+    } else if (blocks.length && passageEp) {
       const read = h(`<div class="lsn-sec"><h3>Passage</h3><a class="btn ghost small" href="#/episode/${esc(passageEp.id)}">${icon("book", 16)} <span>Read with word help</span></a></div>`);
       body.append(read);
     }
@@ -317,12 +332,14 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
         p.className = `lsn-p${kind === "li" ? " lsn-li" : ""}`;
         p.textContent = it.block.text;
         p.dir = dir(it.block.text);
+        slots.push({ el: p, text: it.block.text });
         // (the lesson's language on its own text only, not on an English instruction: its font and line height follow)
         if (rec.lang && /[^\u0000-\u024f\u2000-\u206f]/u.test(it.block.text)) p.lang = rec.lang;
         body.append(p);
       } else body.append(questionEl(it.q, n++));
     }
     if (!rec.questions.length && !blocks.length) body.append(h(`<p class="small muted">This lesson has no text. Add questions with Edit questions.</p>`));
+    if (words) words.paint(slots);
     foot();
   }
 
@@ -510,6 +527,14 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
   // ---------------------------------------------------------------- start
   head();
   if (feature("lesson_links")) { bar = audioBar(rec); $(".lsn-meta").after(bar.el); }
+  if (feature("lesson_words")) {
+    page.classList.add("lsn-words");
+    words = lessonWords(page, $(".lsn-body"), {
+      lang: () => rec.lang || (passageEp && passageEp.language ? episodeLanguage(passageEp) : "") || studyLanguage(),
+      title: () => rec.title,
+      episodeId: () => (passageEp ? passageEp.id : ""),
+    });
+  }
   tracks();
   paintSent();
   passageBlocks(rec).then((p) => { if (!alive) return; blocks = p.blocks; passageEp = p.episode; paintBody(); })
@@ -524,5 +549,5 @@ export function lessonView(el, recIn, { roles = { teacher: [] }, back, assigned 
     onFiles: (files) => addAudio(files),
     say: toast,
   }) : () => {};
-  return () => { alive = false; offDrop(); if (bar) bar.destroy(); flush(); };
+  return () => { alive = false; offDrop(); if (bar) bar.destroy(); if (words) words.close(); flush(); };
 }

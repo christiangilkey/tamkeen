@@ -12,6 +12,7 @@ import { dliCard, dliSummary } from "../components/dlicard.js";
 import { teachCard } from "../components/dliteach.js";
 import { sttSetup } from "../components/sttsetup.js";
 import { voiceSetup, voiceSummary } from "../components/voicesetup.js";
+import { pictureSettings } from "../components/picturesettings.js";
 import { waitingForComputer } from "../cardvoice.js";
 import { cardLanguage } from "../voiceplay.js";
 import { STT_EVENT, testKey, usageToday } from "../transcribe-service.js";
@@ -201,7 +202,8 @@ function listening(body) {
 // voice models live on the computer; here only how many cards wait for it.
 function voices(body) {
   body.append(h(`<section class="card" id="voices"></section>`));
-  return [voiceSetup(body.querySelector("#voices"), { words: () => api("/vocab") })];
+  const pictures = pictureSettings(body);  // (Pictures on cards: components/picturesettings.js, prototype card_pictures)
+  return [pictures, voiceSetup(body.querySelector("#voices"), { words: () => api("/vocab") })];
 }
 
 function look(body) {

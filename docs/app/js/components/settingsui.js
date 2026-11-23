@@ -12,6 +12,7 @@ import { t } from "../i18n.js";
 import { openModal } from "./modal.js";
 import { pageGuide } from "./tour.js";
 import { soundVolume } from "./soundvolume.js";
+import { feature } from "../prototype.js";
 
 /** The sections, in the order a learner thinks of them. */
 export const SECTIONS = [
@@ -37,7 +38,7 @@ export const sectionInfo = (id) => SECTIONS.find((x) => x.id === id) || null;
  * What the search box finds: each setting's section, its place on that screen (an element with
  * data-find="<id>"), its name, and other words people may type (lower case, English).
  * `on` limits one to some devices: "desktop", "phone" (Android, iPhone and the web app),
- * "android", "ios", "web", "vibrates" (a phone that can vibrate); `langs` to some languages being learned.
+ * "android", "ios", "web", "vibrates" (a phone that can vibrate); `langs` to some languages being learned; `prototype` to where that prototype (prototype.js) is on.
  * tests/js/parity.test.mjs checks each one against the Settings pages of the devices it names.
  */
 export const FINDS = [
@@ -70,6 +71,7 @@ export const FINDS = [
   { s: "voices", id: "cardvoice", label: "Voice for cards without audio", words: "tts speech read aloud pronunciation flashcards device" },
   { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
   { s: "voices", id: "voiceonsave", label: "Add the voice when a word is saved", words: "azure audio automatic netflix youtube save word sentence add audio" },
+  { s: "voices", id: "pictures", label: "Pictures on cards", words: "picture image photo openverse flashcard back add pictures camera", prototype: "card_pictures" },
   { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
   { s: "voices", id: "dialectvoices", label: "Arabic dialect voices", words: "levantine egyptian iraqi gulf dialect accent azure pronunciation", langs: ["ar"] },
   { s: "voices", id: "latinvoice", label: "Italian voice reading Latin", words: "church ecclesiastical pronunciation italian latin", langs: ["la"] },
@@ -104,7 +106,8 @@ export const FINDS = [
 
 /** The search entries for this device (`where`: { desktop, phone, android, ios, web }) and study language. */
 export function findsFor(where, lang) {
-  return FINDS.filter((f) => (!f.on || f.on.some((o) => where[o])) && (!f.langs || f.langs.includes(lang)));
+  return FINDS.filter((f) => (!f.on || f.on.some((o) => where[o])) && (!f.langs || f.langs.includes(lang))
+    && (!f.prototype || feature(f.prototype)));  // (a prototype's setting: found only where it is on, prototype.js)
 }
 
 /** The section that holds a setting found by `show` (a data-find id), or "". */

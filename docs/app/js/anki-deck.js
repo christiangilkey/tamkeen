@@ -160,7 +160,7 @@ export function cardSchedule(progress, today, position) {
  * Anki files the cards by the deck's name, so they land in the same deck as the sync's.
  */
 export async function buildDeck(items, clips, layout, font, now = Date.now() / 1000, review = {}, today = dayNumber(new Date(now * 1000)), reviewed = () => null,
-  decks = null, language = "") {
+  decks = null, language = "", pictures = {}) {
   const stamp = Math.floor(now), media = [[FONT_NAME, font]], notes = [], cards = [], log = [];
   const deckIds = {};  // deck name -> its id in this file
   const deckOf = (v) => {
@@ -177,9 +177,17 @@ export async function buildDeck(items, clips, layout, font, now = Date.now() / 1
       media.push([names[part], mine[part]]);
       sound += `[sound:${names[part]}]`;
     }
+    // The card's picture with its credit, in the note's image field (as app/anki_deck.py): `pictures` gives
+    // { name, bytes, field } by uid (made by the caller with cardpicture.js ankiName / ankiImageField).
+    let image = "";
+    const pic = (pictures || {})[v.uid];
+    if (pic && pic.name && pic.bytes && pic.bytes.length) {
+      media.push([pic.name, pic.bytes]);
+      image = pic.field || "";
+    }
     const saved = Math.floor(v.created_at || stamp), id = stamp * 1000 + n, sortText = plain(front);
     notes.push({ id, values: [null, `tk-${v.uid || ""}`, MODEL_ID, saved, -1, ` ${TAG} `,
-      [front, back, "", sound].join("\x1f"), sortText, await checksum(sortText), 0, ""] });
+      [front, back, image, sound].join("\x1f"), sortText, await checksum(sortText), 0, ""] });
     const done = reviewed(v.uid, today);
     if (!done) cards.push({ id, values: [null, id, deckOf(v), 0, saved, -1, ...cardSchedule((review || {})[v.uid], today, n + 1), 0, 0, 0, 0, ""] });
     else {
