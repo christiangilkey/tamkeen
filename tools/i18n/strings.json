@@ -5790,6 +5790,16 @@
   "f": "web/js/components/gameswitch.js"
  },
  {
+  "id": "354e119e",
+  "k": "Find an older game",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
+  "id": "5465e5a4",
+  "k": "Garden or gym leaders gone? Google Drive keeps older copies of your game for about 30 days: bring one back without losing anything you've earned since.",
+  "f": "web/js/components/gameswitch.js"
+ },
+ {
   "id": "79bce962",
   "k": "No captions on YouTube",
   "f": "web/js/components/geminicaptions.js"
@@ -20260,6 +20270,151 @@
   "f": "web/js/game/movesui.js"
  },
  {
+  "id": "892f636b",
+  "k": "No game in this copy",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "8051c09f",
+  "k": "Level {0}",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "a5a9ca38",
+  "k": "{0} of {1} gym leaders beaten",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "c7df33d8",
+  "k": "1 garden building",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "8b8ffa8e",
+  "k": "{0} garden buildings",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "ac2e0c64",
+  "k": "1 creature",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "25058467",
+  "k": "{0} creatures",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "a0f8635e",
+  "k": "Google Drive keeps older copies of what Tamkeen syncs, for about 30 days. If your garden, gym leaders or creatures went missing, bring back a copy that still has them: it is added to your game as it is now, so nothing you've earned since is lost. Your words and library stay as they are.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "b6d6296c",
+  "k": "Your game now",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "5c459ef0",
+  "k": "Looking in your Google Drive…",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "8875e4ec",
+  "k": "Google Drive isn't answering. Try again in a moment.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "3337131b",
+  "k": "Sign in with Google in Settings first: the older copies are in your Google Drive.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "94b65beb",
+  "k": "No older copies are left. Google Drive keeps them for about 30 days.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "16ec2e86",
+  "k": "More than now",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "52dbf6d5",
+  "k": "Bring back",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "a4074c83",
+  "k": "Couldn't read this copy.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "d3525f5b",
+  "k": "Bring back the game from {0}?",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "8c6c31e7",
+  "k": "Its gym leaders beaten, garden, creatures and items are added to your game as it is now. Nothing you've earned since is lost, and your words aren't changed.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "a6642b04",
+  "k": "Bring it back",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "683d9e8f",
+  "k": "Couldn't bring it back",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "a1cbe550",
+  "k": "Your game is back",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "b79d533c",
+  "k": "Nothing to bring back",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "1af334ee",
+  "k": "Your game already has everything that copy had.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "adae806b",
+  "k": "Added to your game from {0}:",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "523c770f",
+  "k": "Its items and progress were added to your game.",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "952c7bd4",
+  "k": "An older copy of your game has more progress",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "c49aa582",
+  "k": "See older copies",
+  "f": "web/js/game/oldgames-ui.js"
+ },
+ {
+  "id": "c73b61dc",
+  "k": "Garden buildings",
+  "f": "web/js/game/oldgames.js"
+ },
+ {
+  "id": "7c7f5d04",
+  "k": "Level",
+  "f": "web/js/game/oldgames.js"
+ },
+ {
   "id": "c7664f2f",
   "k": "Luck was overdue",
   "f": "web/js/game/reveal.js"
@@ -20667,11 +20822,6 @@
  {
   "id": "0ad2c237",
   "k": "Your level",
-  "f": "web/js/game/xpbadge.js"
- },
- {
-  "id": "7c7f5d04",
-  "k": "Level",
   "f": "web/js/game/xpbadge.js"
  },
  {
@@ -31923,6 +32073,16 @@
   "id": "a09450db",
   "k": "A dictionary arrived damaged. Try again.",
   "f": "mobile/src/js/lexicon-store.js"
+ },
+ {
+  "id": "af9783d6",
+  "k": "That isn't a version of your game.",
+  "f": "mobile/src/js/oldgames-drive.js"
+ },
+ {
+  "id": "2d31ff45",
+  "k": "Your game isn't in Google Drive yet.",
+  "f": "mobile/src/js/oldgames-drive.js"
  },
  {
   "id": "38c02660",

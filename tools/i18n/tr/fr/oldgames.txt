@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Retrouver une partie plus ancienne
+5465e5a4	Le jardin ou les chefs d'arène ont disparu ? Google Drive garde des copies plus anciennes de votre partie pendant environ 30 jours : récupérez-en une sans rien perdre de ce que vous avez gagné depuis.
+892f636b	Aucune partie dans cette copie
+8051c09f	Niveau {0}
+a5a9ca38	{0} chefs d'arène battus sur {1}
+c7df33d8	1 bâtiment dans le jardin
+8b8ffa8e	{0} bâtiments dans le jardin
+a0f8635e	Google Drive garde des copies plus anciennes de ce que Tamkeen synchronise, pendant environ 30 jours. Si votre jardin, vos chefs d'arène ou vos créatures ont disparu, récupérez une copie qui les a encore : elle s'ajoute à votre partie telle qu'elle est maintenant, vous ne perdez donc rien de ce que vous avez gagné depuis. Vos mots et votre bibliothèque restent comme ils sont.
+b6d6296c	Votre partie maintenant
+5c459ef0	Recherche dans votre Google Drive…
+8875e4ec	Google Drive ne répond pas. Réessayez dans un instant.
+3337131b	Connectez-vous d'abord avec Google dans les Réglages : les copies plus anciennes sont dans votre Google Drive.
+94b65beb	Il ne reste aucune copie plus ancienne. Google Drive les garde pendant environ 30 jours.
+16ec2e86	Plus que maintenant
+52dbf6d5	Récupérer
+a4074c83	Impossible de lire cette copie.
+d3525f5b	Récupérer la partie du {0} ?
+8c6c31e7	Ses chefs d'arène battus, son jardin, ses créatures et ses objets s'ajoutent à votre partie telle qu'elle est maintenant. Vous ne perdez rien de ce que vous avez gagné depuis, et vos mots ne changent pas.
+a6642b04	La récupérer
+683d9e8f	Impossible de la récupérer
+a1cbe550	Votre partie est de retour
+b79d533c	Rien à récupérer
+1af334ee	Votre partie a déjà tout ce que cette copie avait.
+adae806b	Ajouté à votre partie depuis le {0} :
+523c770f	Ses objets et sa progression ont été ajoutés à votre partie.
+952c7bd4	Une copie plus ancienne de votre partie a plus de progression
+c49aa582	Voir les copies plus anciennes
+c73b61dc	Bâtiments du jardin
+af9783d6	Ce n'est pas une version de votre partie.
+2d31ff45	Votre partie n'est pas encore dans Google Drive.

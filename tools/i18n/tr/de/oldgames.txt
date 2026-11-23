@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Älteren Spielstand finden
+5465e5a4	Garten oder Arenaleiter weg? Google Drive behält ältere Kopien deines Spiels etwa 30 Tage lang: Hol eine zurück, ohne etwas zu verlieren, das du seitdem verdient hast.
+892f636b	Kein Spiel in dieser Kopie
+8051c09f	Level {0}
+a5a9ca38	{0} von {1} Arenaleitern besiegt
+c7df33d8	1 Gebäude im Garten
+8b8ffa8e	{0} Gebäude im Garten
+a0f8635e	Google Drive behält ältere Kopien von dem, was Tamkeen synchronisiert, etwa 30 Tage lang. Wenn dein Garten, deine Arenaleiter oder deine Wesen verschwunden sind, hol eine Kopie zurück, die sie noch hat: Sie wird zu deinem Spiel, wie es jetzt ist, hinzugefügt, du verlierst also nichts, was du seitdem verdient hast. Deine Wörter und deine Bibliothek bleiben, wie sie sind.
+b6d6296c	Dein Spiel jetzt
+5c459ef0	Suche in deinem Google Drive…
+8875e4ec	Google Drive antwortet nicht. Versuch es gleich noch einmal.
+3337131b	Melde dich zuerst in den Einstellungen mit Google an: Die älteren Kopien sind in deinem Google Drive.
+94b65beb	Es sind keine älteren Kopien mehr da. Google Drive behält sie etwa 30 Tage lang.
+16ec2e86	Mehr als jetzt
+52dbf6d5	Zurückholen
+a4074c83	Diese Kopie konnte nicht gelesen werden.
+d3525f5b	Das Spiel vom {0} zurückholen?
+8c6c31e7	Seine besiegten Arenaleiter, sein Garten, seine Wesen und Gegenstände werden zu deinem Spiel, wie es jetzt ist, hinzugefügt. Du verlierst nichts, was du seitdem verdient hast, und deine Wörter ändern sich nicht.
+a6642b04	Zurückholen
+683d9e8f	Konnte nicht zurückgeholt werden
+a1cbe550	Dein Spiel ist wieder da
+b79d533c	Nichts zurückzuholen
+1af334ee	Dein Spiel hat schon alles, was diese Kopie hatte.
+adae806b	Zu deinem Spiel hinzugefügt, vom {0}:
+523c770f	Seine Gegenstände und sein Fortschritt wurden zu deinem Spiel hinzugefügt.
+952c7bd4	Eine ältere Kopie deines Spiels hat mehr Fortschritt
+c49aa582	Ältere Kopien ansehen
+c73b61dc	Gebäude im Garten
+af9783d6	Das ist keine Version deines Spiels.
+2d31ff45	Dein Spiel ist noch nicht in Google Drive.

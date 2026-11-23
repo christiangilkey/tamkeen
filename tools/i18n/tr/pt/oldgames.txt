@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Procurar um jogo anterior
+5465e5a4	O jardim ou os líderes de ginásio sumiram? O Google Drive guarda cópias anteriores do seu jogo por cerca de 30 dias: recupere uma sem perder nada do que você ganhou desde então.
+892f636b	Não há jogo nesta cópia
+8051c09f	Nível {0}
+a5a9ca38	{0} de {1} líderes de ginásio vencidos
+c7df33d8	1 construção no jardim
+8b8ffa8e	{0} construções no jardim
+a0f8635e	O Google Drive guarda cópias anteriores do que o Tamkeen sincroniza, por cerca de 30 dias. Se o seu jardim, os seus líderes de ginásio ou as suas criaturas sumiram, recupere uma cópia que ainda os tenha: ela é somada ao seu jogo como está agora, então você não perde nada do que ganhou desde então. Suas palavras e sua biblioteca continuam como estão.
+b6d6296c	Seu jogo agora
+5c459ef0	Procurando no seu Google Drive…
+8875e4ec	O Google Drive não está respondendo. Tente de novo daqui a pouco.
+3337131b	Primeiro entre com o Google em Configurações: as cópias anteriores estão no seu Google Drive.
+94b65beb	Não sobrou nenhuma cópia anterior. O Google Drive as guarda por cerca de 30 dias.
+16ec2e86	Mais que agora
+52dbf6d5	Recuperar
+a4074c83	Não foi possível ler esta cópia.
+d3525f5b	Recuperar o jogo de {0}?
+8c6c31e7	Os líderes de ginásio vencidos, o jardim, as criaturas e os itens dela são somados ao seu jogo como está agora. Você não perde nada do que ganhou desde então, e suas palavras não mudam.
+a6642b04	Recuperar
+683d9e8f	Não foi possível recuperar
+a1cbe550	Seu jogo voltou
+b79d533c	Nada para recuperar
+1af334ee	Seu jogo já tem tudo o que aquela cópia tinha.
+adae806b	Somado ao seu jogo, de {0}:
+523c770f	Os itens e o progresso dela foram somados ao seu jogo.
+952c7bd4	Uma cópia anterior do seu jogo tem mais progresso
+c49aa582	Ver cópias anteriores
+c73b61dc	Construções do jardim
+af9783d6	Isso não é uma versão do seu jogo.
+2d31ff45	Seu jogo ainda não está no Google Drive.

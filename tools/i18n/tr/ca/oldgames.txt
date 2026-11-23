@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Cerca una partida anterior
+5465e5a4	Han desaparegut el jardí o els líders de gimnàs? Google Drive guarda còpies anteriors de la teva partida durant uns 30 dies: recupera'n una sense perdre res del que has guanyat des de llavors.
+892f636b	No hi ha cap partida en aquesta còpia
+8051c09f	Nivell {0}
+a5a9ca38	{0} de {1} líders de gimnàs derrotats
+c7df33d8	1 edifici al jardí
+8b8ffa8e	{0} edificis al jardí
+a0f8635e	Google Drive guarda còpies anteriors del que Tamkeen sincronitza, durant uns 30 dies. Si el teu jardí, els teus líders de gimnàs o les teves criatures han desaparegut, recupera una còpia que encara els tingui: s'afegeix a la teva partida tal com és ara, així que no perds res del que has guanyat des de llavors. Les teves paraules i la teva biblioteca no canvien.
+b6d6296c	La teva partida ara
+5c459ef0	S'està buscant al teu Google Drive…
+8875e4ec	Google Drive no respon. Torna-ho a provar d'aquí a un moment.
+3337131b	Primer inicia la sessió amb Google a Configuració: les còpies anteriors són al teu Google Drive.
+94b65beb	No queda cap còpia anterior. Google Drive les guarda durant uns 30 dies.
+16ec2e86	Més que ara
+52dbf6d5	Recupera
+a4074c83	No s'ha pogut llegir aquesta còpia.
+d3525f5b	Vols recuperar la partida del {0}?
+8c6c31e7	Els seus líders de gimnàs derrotats, el jardí, les criatures i els objectes s'afegeixen a la teva partida tal com és ara. No perds res del que has guanyat des de llavors i les teves paraules no canvien.
+a6642b04	Recupera-la
+683d9e8f	No s'ha pogut recuperar
+a1cbe550	La teva partida ha tornat
+b79d533c	No hi ha res a recuperar
+1af334ee	La teva partida ja té tot el que tenia aquella còpia.
+adae806b	S'ha afegit a la teva partida des del {0}:
+523c770f	Els seus objectes i el seu progrés s'han afegit a la teva partida.
+952c7bd4	Una còpia anterior de la teva partida té més progrés
+c49aa582	Mostra les còpies anteriors
+c73b61dc	Edificis del jardí
+af9783d6	Això no és una versió de la teva partida.
+2d31ff45	La teva partida encara no és a Google Drive.

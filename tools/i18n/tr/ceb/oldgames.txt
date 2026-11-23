@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Pangitaa ang kanhing dula
+5465e5a4	Nawala ang tanaman o ang mga gym leader? Gitipigan sa Google Drive ang mga kanhing kopya sa imong dula sulod sa mga 30 ka adlaw: ibalik ang usa nga walay mawala sa imong nakuha sukad niadto.
+892f636b	Walay dula niining kopyaha
+8051c09f	Level {0}
+a5a9ca38	{0} sa {1} ka gym leader ang napildi
+c7df33d8	1 ka balay sa tanaman
+8b8ffa8e	{0} ka balay sa tanaman
+a0f8635e	Gitipigan sa Google Drive ang mga kanhing kopya sa gi-sync sa Tamkeen sulod sa mga 30 ka adlaw. Kung nawala ang imong tanaman, mga gym leader o mga linalang, ibalik ang kopya nga aduna pa niini: idugang kini sa imong dula sama sa karon, busa walay mawala sa imong nakuha sukad niadto. Dili mausab ang imong mga pulong ug library.
+b6d6296c	Ang imong dula karon
+5c459ef0	Nangita sa imong Google Drive…
+8875e4ec	Wala motubag ang Google Drive. Sulayi pag-usab sa makadiyot.
+3337131b	Pag-sign in una gamit ang Google sa Settings: anaa sa imong Google Drive ang mga kanhing kopya.
+94b65beb	Wala nay nahibiling kanhing kopya. Gitipigan kini sa Google Drive sulod sa mga 30 ka adlaw.
+16ec2e86	Labaw pa kaysa karon
+52dbf6d5	Ibalik
+a4074c83	Dili mabasa kining kopyaha.
+d3525f5b	Ibalik ang dula gikan sa {0}?
+8c6c31e7	Idugang sa imong dula sama sa karon ang mga napildi niini nga gym leader, tanaman, linalang ug butang. Walay mawala sa imong nakuha sukad niadto, ug dili mausab ang imong mga pulong.
+a6642b04	Ibalik kini
+683d9e8f	Dili kini maibalik
+a1cbe550	Nibalik na ang imong dula
+b79d533c	Walay maibalik
+1af334ee	Naa na sa imong dula ang tanan nga naa niadtong kopyaha.
+adae806b	Gidugang sa imong dula gikan sa {0}:
+523c770f	Nadugang sa imong dula ang mga butang ug pag-uswag niini.
+952c7bd4	Mas layo ang naabot sa usa ka kanhing kopya sa imong dula
+c49aa582	Tan-awa ang mga kanhing kopya
+c73b61dc	Mga balay sa tanaman
+af9783d6	Dili kana bersyon sa imong dula.
+2d31ff45	Wala pa sa Google Drive ang imong dula.

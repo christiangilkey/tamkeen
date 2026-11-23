@@ -92,6 +92,18 @@ export function resolve(mine, theirs) {
   return { keep: "merged", state: combine(mine, theirs) };
 }
 
+/** Do two games hold the same things (whatever their clocks, tallies and save times say)? */
+export function sameGame(a, b) {
+  const skip = new Set(["clock", "tally", "updated_at"]);
+  const stable = (v, top) => {
+    if (Array.isArray(v)) return `[${v.map((x) => stable(x, false)).join(",")}]`;
+    if (!obj(v)) return JSON.stringify(v === undefined ? null : v);
+    return `{${Object.keys(v).filter((k) => !(top && skip.has(k)) && v[k] !== undefined).sort()
+      .map((k) => `${JSON.stringify(k)}:${stable(v[k], false)}`).join(",")}}`;
+  };
+  return stable(a, true) === stable(b, true);
+}
+
 const rosterOf = (s) => (Array.isArray(s.roster) ? s.roster : obj(s.creature) ? [s.creature] : []).filter((c) => obj(c));
 const seedOf = (c) => (obj(c) && typeof c.seed === "number" ? c.seed : null);
 const union = (a, b) => {
@@ -150,9 +162,9 @@ export function combine(mine, theirs) {
         plots.push({ ...p, open: !!((x && x.open) || (y && y.open)) });
       }
       ga.plots = plots;
-      for (const k of ["stardust", "badgesPaid", "raidsPaid", "leaguePaid"]) ga[k] = Math.max(num(ga[k]), num(gb[k]));
+      for (const k of ["stardust", "badgesPaid", "raidsPaid", "leaguePaid"]) if (k in ga || k in gb) ga[k] = Math.max(num(ga[k]), num(gb[k]));
       for (const k of ["goalDay", "cardsDay"]) if (typeof gb[k] === "string" && !(typeof ga[k] === "string" && ga[k] >= gb[k])) ga[k] = gb[k];
-      ga.bloom = !!(ga.bloom || gb.bloom);
+      if ("bloom" in ga || "bloom" in gb) ga.bloom = !!(ga.bloom || gb.bloom);
     }
     out.idle.released = released;
   }

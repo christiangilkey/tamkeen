@@ -61,6 +61,7 @@ export async function render(view) {
     </section>
     <div class="home-more" id="more"></div>
     <div class="home-today" id="today"></div>
+    <div id="home-oldgame" class="home-oldgame" hidden></div>
     <div id="habitat"></div>
     <div id="home-tavern" class="home-tavern" hidden></div>
     <div id="home-raid" class="home-raid" hidden></div>
@@ -83,6 +84,9 @@ export async function render(view) {
   }).catch(() => {});
   // The creature's habitat lives at the bottom of Home (unless the game is switched off in Settings).
   if (gameOn()) view.querySelector("#habitat").append(habitat().el);
+  // Above it, once: an older copy of the game in Google Drive has clearly more progress (lost before the sync
+  // combined copies): a note offering to bring it back (game/oldgames-ui.js; a prototype).
+  if (gameOn() && feature("old_games")) import("../game/oldgames-ui.js").then((m) => m.homeHint(view.querySelector("#home-oldgame"))).catch(() => {});
   // Under it, in a guild: the guild raid (game/friends-game.js), loaded on its own so Home never waits for it.
   if (gameOn()) import("../game/friends-game.js").then((m) => m.homeRaids(view.querySelector("#home-raid"))).catch(() => {});
   // In a guild: its tavern, with the members' favourite creatures (a prototype: game/tavern.js).

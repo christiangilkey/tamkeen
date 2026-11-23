@@ -149,6 +149,22 @@ export const drive = {
   async download(id) {
     return (await request(`${API}/files/${id}?alt=media`)).arrayBuffer();
   },
+  /** The older versions Drive keeps of a file (about 30 days of them): [{id, modifiedTime, size}]. */
+  async revisions(id) {
+    const out = [];
+    let pageToken = "";
+    do {
+      const q = new URLSearchParams({ pageSize: "200", fields: "nextPageToken,revisions(id,modifiedTime,size)" });
+      if (pageToken) q.set("pageToken", pageToken);
+      const data = await (await request(`${API}/files/${id}/revisions?${q}`)).json();
+      out.push(...(data.revisions || []));
+      pageToken = data.nextPageToken || "";
+    } while (pageToken);
+    return out;
+  },
+  async downloadRevision(id, rev) {
+    return (await request(`${API}/files/${id}/revisions/${encodeURIComponent(rev)}?alt=media`)).arrayBuffer();
+  },
   async downloadBlob(id) {
     return (await request(`${API}/files/${id}?alt=media`)).blob();
   },

@@ -171,11 +171,13 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
                 plots.append({**p, "open": bool((x and x.get("open")) or (y and y.get("open")))})
             ga["plots"] = plots
             for k in ("stardust", "badgesPaid", "raidsPaid", "leaguePaid"):
-                ga[k] = max(_num(ga.get(k)), _num(gb.get(k)))
+                if k in ga or k in gb:
+                    ga[k] = max(_num(ga.get(k)), _num(gb.get(k)))
             for k in ("goalDay", "cardsDay"):
                 if isinstance(gb.get(k), str) and not (isinstance(ga.get(k), str) and ga[k] >= gb[k]):
                     ga[k] = gb[k]
-            ga["bloom"] = bool(ga.get("bloom") or gb.get("bloom"))
+            if "bloom" in ga or "bloom" in gb:
+                ga["bloom"] = bool(ga.get("bloom") or gb.get("bloom"))
         out["idle"]["released"] = released
 
     roster: list[dict[str, Any]] = []

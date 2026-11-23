@@ -252,6 +252,17 @@ once real art arrives). Real art replaces files one for one, same name and size.
   wins or joins. **Adding a field to the game state? Decide how two copies of it combine, in both files.** Devices hear
   of another copy through the `tamkeen:game` event; open tabs through BroadcastChannel `tamkeen-game`; a window coming
   back on screen re-reads the stored copy. The web app asks for persistent storage (`keepGame` in mobile app.js).
+- **Find an older game** (prototype `old_games`, 2026-11-23; for users who lost progress before the fix): Settings →
+  Game features → "Find an older game", and a one-time note above the Home game card. Lists Drive's older versions of
+  `library.json.gz` (Drive keeps ~30 days), one a day, each shown by its game (level, gyms, buildings, creatures);
+  "Bring back" asks, then `game.js restoreGame` combines it with the current game through merge.js (never replaces
+  it; says "Nothing to bring back" when it adds nothing). Only the `game` part of a version is read. Routes
+  `GET /sync/game-versions` and `/sync/game-versions/<rev>`: desktop `app/sync/oldgames.py` (+ `drive.py`
+  `revisions`/`download_revision`), phones and web app `mobile/src/js/oldgames-drive.js` (+ `drive.js`), in
+  `backend.js`. Rules `web/js/game/oldgames.js`, screens `oldgames-ui.js`. Each version read is remembered by id
+  in localStorage `tamkeenOldGames`; the Home note reads at most 4 (newest, ~2 days, ~7 days, oldest), compares with the
+  game now AND the newest version (so a device that hasn't synced yet isn't told it lost anything), and is never shown
+  again after "Not now", a bring-back, or a check that finds nothing (`tamkeenOldGameHint` = "done").
 - Slice 2 (same day): **shop + wardrobe** (`shop.js`; `ITEMS`/`DECOR` in data.js; `buy/equip/placeDecor/
   shopStock` in rules.js). Six items a day, seeded by day + creature, weighted by traits; some need tags
   (`night_owl`, `early_bird`, `streak_7`). Hats/glasses/neckwear/held items ride on sockets; decorations

@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Hanapin ang dating laro
+5465e5a4	Nawala ang hardin o ang mga gym leader? Itinatago ng Google Drive ang mga dating kopya ng laro mo nang mga 30 araw: ibalik ang isa nang walang nawawala sa mga nakuha mo mula noon.
+892f636b	Walang laro sa kopyang ito
+8051c09f	Level {0}
+a5a9ca38	{0} sa {1} gym leader ang natalo
+c7df33d8	1 gusali sa hardin
+8b8ffa8e	{0} gusali sa hardin
+a0f8635e	Itinatago ng Google Drive ang mga dating kopya ng sini-sync ng Tamkeen nang mga 30 araw. Kung nawala ang hardin mo, ang mga gym leader o ang mga nilalang mo, ibalik ang kopyang mayroon pa ng mga iyon: idinadagdag ito sa laro mo kung ano ito ngayon, kaya walang nawawala sa mga nakuha mo mula noon. Hindi nagbabago ang mga salita at library mo.
+b6d6296c	Ang laro mo ngayon
+5c459ef0	Naghahanap sa Google Drive mo…
+8875e4ec	Hindi sumasagot ang Google Drive. Subukan ulit maya-maya.
+3337131b	Mag-sign in muna gamit ang Google sa Settings: nasa Google Drive mo ang mga dating kopya.
+94b65beb	Wala nang natitirang dating kopya. Itinatago ito ng Google Drive nang mga 30 araw.
+16ec2e86	Higit kaysa ngayon
+52dbf6d5	Ibalik
+a4074c83	Hindi mabasa ang kopyang ito.
+d3525f5b	Ibalik ang laro mula {0}?
+8c6c31e7	Idinadagdag sa laro mo kung ano ito ngayon ang mga natalong gym leader, hardin, nilalang at item nito. Walang nawawala sa mga nakuha mo mula noon, at hindi nagbabago ang mga salita mo.
+a6642b04	Ibalik ito
+683d9e8f	Hindi ito maibalik
+a1cbe550	Bumalik na ang laro mo
+b79d533c	Walang maibabalik
+1af334ee	Nasa laro mo na ang lahat ng nasa kopyang iyon.
+adae806b	Idinagdag sa laro mo mula {0}:
+523c770f	Naidagdag sa laro mo ang mga item at progreso nito.
+952c7bd4	Mas malayo ang narating ng isang dating kopya ng laro mo
+c49aa582	Tingnan ang mga dating kopya
+c73b61dc	Mga gusali sa hardin
+af9783d6	Hindi iyan bersyon ng laro mo.
+2d31ff45	Wala pa ang laro mo sa Google Drive.

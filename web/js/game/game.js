@@ -11,7 +11,7 @@ import { restore, rollAnswer, snapshot } from "./loot.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
 import { deviceId, noteStudy } from "../dlitime.js";
-import { resolve, stamp } from "./merge.js";
+import { resolve, sameGame, stamp } from "./merge.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
 import { appOut } from "../appvolume.js";
 
@@ -63,6 +63,24 @@ function adopt(remote) {
   for (const fn of listeners) { try { fn({ type: "sync" }, game); } catch { /* ignore */ } }
 }
 if (typeof window !== "undefined") window.addEventListener("tamkeen:game", (e) => adopt(e.detail));
+/** Bring back an older copy of the game (Settings → Find an older game: game/oldgames-ui.js): it is combined with
+ * the game as it is now, so nothing earned since is lost. Returns {changed}: false when the game already had
+ * everything in that copy. */
+export function restoreGame(old) {
+  const g = getGame();
+  const { keep, state } = resolve(g, old);
+  if (keep === "mine") return { changed: false };
+  const next = normalize(JSON.parse(JSON.stringify(state)));
+  rollDay(next);
+  if (sameGame(next, JSON.parse(JSON.stringify(g)))) return { changed: false }; // (it brought nothing new)
+  for (const k of Object.keys(g)) delete g[k];
+  Object.assign(g, next);
+  rollDay(g);
+  saveGame();
+  for (const fn of listeners) { try { fn({ type: "sync" }, g); } catch { /* ignore */ } }
+  return { changed: true };
+}
+
 // Other tabs of the app in this browser hear each save at once, so two open tabs never play two copies apart.
 let tabs = null;
 try {

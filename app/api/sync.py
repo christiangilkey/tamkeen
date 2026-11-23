@@ -21,6 +21,32 @@ def status() -> dict[str, Any]:
     return sync.status()
 
 
+@router.get("/game-versions")
+def game_versions() -> dict[str, Any]:
+    """Older versions of the synced library in Drive, for "Find an older game" (app/sync/oldgames.py)."""
+    from ..sync import oldgames
+    from ..sync.drive import DriveError
+
+    try:
+        return oldgames.list_for_page()
+    except (DriveError, oauth.AuthError) as exc:
+        raise HTTPException(502, str(exc)) from exc
+
+
+@router.get("/game-versions/{rev}")
+def game_version(rev: str) -> dict[str, Any]:
+    """The creature game kept in one older version (only the game: its words and library are left out)."""
+    from ..sync import oldgames
+    from ..sync.drive import DriveError
+
+    try:
+        return oldgames.get_for_page(rev)
+    except ValueError as exc:
+        raise HTTPException(400, str(exc)) from exc
+    except (DriveError, oauth.AuthError) as exc:
+        raise HTTPException(502, str(exc)) from exc
+
+
 @router.post("/login")
 def login(request: Request, tasks: bool = False) -> dict[str, Any]:
     # Google requires the system browser for sign-in (embedded webviews are blocked); it

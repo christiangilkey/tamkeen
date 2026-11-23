@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Trova una partita precedente
+5465e5a4	Il giardino o i capipalestra sono spariti? Google Drive conserva copie precedenti della tua partita per circa 30 giorni: recuperane una senza perdere nulla di ciò che hai guadagnato da allora.
+892f636b	Nessuna partita in questa copia
+8051c09f	Livello {0}
+a5a9ca38	{0} capipalestra battuti su {1}
+c7df33d8	1 edificio nel giardino
+8b8ffa8e	{0} edifici nel giardino
+a0f8635e	Google Drive conserva copie precedenti di ciò che Tamkeen sincronizza, per circa 30 giorni. Se il tuo giardino, i tuoi capipalestra o le tue creature sono spariti, recupera una copia che li ha ancora: si aggiunge alla tua partita così com'è ora, quindi non perdi nulla di ciò che hai guadagnato da allora. Le tue parole e la tua libreria restano come sono.
+b6d6296c	La tua partita ora
+5c459ef0	Cerco nel tuo Google Drive…
+8875e4ec	Google Drive non risponde. Riprova tra un momento.
+3337131b	Prima accedi con Google nelle Impostazioni: le copie precedenti sono nel tuo Google Drive.
+94b65beb	Non è rimasta nessuna copia precedente. Google Drive le conserva per circa 30 giorni.
+16ec2e86	Più di ora
+52dbf6d5	Recupera
+a4074c83	Impossibile leggere questa copia.
+d3525f5b	Recuperare la partita del {0}?
+8c6c31e7	I suoi capipalestra battuti, il giardino, le creature e gli oggetti si aggiungono alla tua partita così com'è ora. Non perdi nulla di ciò che hai guadagnato da allora e le tue parole non cambiano.
+a6642b04	Recuperala
+683d9e8f	Impossibile recuperarla
+a1cbe550	La tua partita è tornata
+b79d533c	Niente da recuperare
+1af334ee	La tua partita ha già tutto ciò che aveva quella copia.
+adae806b	Aggiunto alla tua partita dal {0}:
+523c770f	I suoi oggetti e i suoi progressi sono stati aggiunti alla tua partita.
+952c7bd4	Una copia precedente della tua partita ha più progressi
+c49aa582	Vedi le copie precedenti
+c73b61dc	Edifici del giardino
+af9783d6	Questa non è una versione della tua partita.
+2d31ff45	La tua partita non è ancora su Google Drive.

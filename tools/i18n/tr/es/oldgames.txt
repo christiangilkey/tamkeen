@@ -1,0 +1,31 @@
+# Find an older game (game/oldgames-ui.js, components/gameswitch.js, app/sync/oldgames.py), 2026-11-23
+354e119e	Buscar una partida anterior
+5465e5a4	¿Han desaparecido el jardín o los líderes de gimnasio? Google Drive guarda copias anteriores de tu partida durante unos 30 días: recupera una sin perder nada de lo que has ganado desde entonces.
+892f636b	No hay partida en esta copia
+8051c09f	Nivel {0}
+a5a9ca38	{0} de {1} líderes de gimnasio vencidos
+c7df33d8	1 edificio en el jardín
+8b8ffa8e	{0} edificios en el jardín
+a0f8635e	Google Drive guarda copias anteriores de lo que Tamkeen sincroniza, durante unos 30 días. Si tu jardín, tus líderes de gimnasio o tus criaturas han desaparecido, recupera una copia que aún los tenga: se añade a tu partida tal como está ahora, así que no pierdes nada de lo que has ganado desde entonces. Tus palabras y tu biblioteca no cambian.
+b6d6296c	Tu partida ahora
+5c459ef0	Buscando en tu Google Drive…
+8875e4ec	Google Drive no responde. Inténtalo de nuevo en un momento.
+3337131b	Primero inicia sesión con Google en Ajustes: las copias anteriores están en tu Google Drive.
+94b65beb	No queda ninguna copia anterior. Google Drive las guarda durante unos 30 días.
+16ec2e86	Más que ahora
+52dbf6d5	Recuperar
+a4074c83	No se pudo leer esta copia.
+d3525f5b	¿Recuperar la partida del {0}?
+8c6c31e7	Sus líderes de gimnasio vencidos, su jardín, sus criaturas y sus objetos se añaden a tu partida tal como está ahora. No pierdes nada de lo que has ganado desde entonces y tus palabras no cambian.
+a6642b04	Recuperarla
+683d9e8f	No se pudo recuperar
+a1cbe550	Tu partida ha vuelto
+b79d533c	No hay nada que recuperar
+1af334ee	Tu partida ya tiene todo lo que tenía esa copia.
+adae806b	Añadido a tu partida desde el {0}:
+523c770f	Sus objetos y su progreso se han añadido a tu partida.
+952c7bd4	Una copia anterior de tu partida tiene más progreso
+c49aa582	Ver copias anteriores
+c73b61dc	Edificios del jardín
+af9783d6	Eso no es una versión de tu partida.
+2d31ff45	Tu partida aún no está en Google Drive.

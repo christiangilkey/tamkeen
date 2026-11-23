@@ -68,6 +68,23 @@ class GoogleDrive:
     def download(self, file_id: str) -> bytes:
         return self._request("GET", f"{API}/files/{file_id}", params={"alt": "media"}).content
 
+    def revisions(self, file_id: str) -> list[dict[str, Any]]:
+        """The older versions Drive keeps of a file (about 30 days of them): [{id, modifiedTime, size}]."""
+        out: list[dict[str, Any]] = []
+        token = None
+        while True:
+            params = {"pageSize": 200, "fields": "nextPageToken,revisions(id,modifiedTime,size)"}
+            if token:
+                params["pageToken"] = token
+            data = self._request("GET", f"{API}/files/{file_id}/revisions", params=params).json()
+            out.extend(data.get("revisions", []))
+            token = data.get("nextPageToken")
+            if not token:
+                return out
+
+    def download_revision(self, file_id: str, rev: str) -> bytes:
+        return self._request("GET", f"{API}/files/{file_id}/revisions/{rev}", params={"alt": "media"}).content
+
     def download_to(self, file_id: str, dest: Path,
                     progress: Callable[[int, int | None], None] | None = None) -> None:
         tmp = dest.with_name(dest.name + ".part")
