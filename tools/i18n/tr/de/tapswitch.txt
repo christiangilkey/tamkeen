@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Wörter antippen
+99979f7f	Wörter antippen ist an: Tippe auf ein Wort, um seine Bedeutung zu sehen. Tippe hier für normalen Text, den du markieren und kopieren kannst.
+ed9f5315	Wörter antippen ist aus: Der Text ist normal, zum Markieren und Kopieren. Tippe hier, um Wörter wieder anzutippen.

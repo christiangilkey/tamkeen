@@ -12,6 +12,7 @@ import { episodeLanguage, gap, joinWords, langAttrs, langInfo, regroupWords, voc
 import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
+import { plainWhenOff, tapSwitch } from "../components/tapswitch.js";
 import { markWord } from "../definer.js";
 import { featBookPage, reward, trackStudy } from "../game/game.js";
 import { pageNeeds } from "../game/rules.js";
@@ -78,6 +79,8 @@ export async function render(view, { id, data, query }) {
     </div>`));
   const $ = (sel) => view.querySelector(sel);
   $("#font-down").before(lookupToggle()); // quick or detailed lookup
+  const tapBtn = tapSwitch(); // Tap words on or off (prototype tap_switch), at the end of the page bar
+  if (tapBtn) $("#next").after(tapBtn);
   const tr = $("#text");
   pageGuide("book", view.querySelector(".book-reader"), playerSteps("reader")); // the "?" in the top bar
   const wordEls = new Array(n); // only the words on the page shown have an element
@@ -408,6 +411,8 @@ export async function render(view, { id, data, query }) {
     else if (e.key === "ArrowLeft" || e.key === "PageUp") { e.preventDefault(); turn(rtlBook() && e.key === "ArrowLeft" ? 1 : -1); }
   };
   document.addEventListener("keydown", onKey);
+  // "Tap words" off: the words are plain text to select and copy; swiping still turns the page (components/tapswitch.js).
+  const stopPlain = plainWhenOff([tr], { onPlain: closeBubble });
   // The page's size changes (window resized, phone turned, the reader first shown): lay the pages out again.
   let resizeTimer = 0;
   let lastSize = "";
@@ -547,6 +552,7 @@ export async function render(view, { id, data, query }) {
   }, 500);
   return () => {
     offPad();
+    stopPlain();
     clearInterval(readTimer);
     stopStudy();
     stopVowels();

@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Tocar paraules
+99979f7f	Tocar paraules està activat: toca una paraula per veure'n el significat. Toca aquí per tenir text normal que pots seleccionar i copiar.
+ed9f5315	Tocar paraules està desactivat: el text és normal, per seleccionar-lo i copiar-lo. Toca aquí per tornar a tocar paraules.

@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Tocar nas palavras
+99979f7f	Tocar nas palavras está ligado: toque em uma palavra para ver o significado. Toque aqui para ter texto simples que você pode selecionar e copiar.
+ed9f5315	Tocar nas palavras está desligado: o texto é simples, para selecionar e copiar. Toque aqui para voltar a tocar nas palavras.

@@ -9485,6 +9485,21 @@
   "f": "web/js/components/studycard.js"
  },
  {
+  "id": "99979f7f",
+  "k": "Tap words is on: tap a word for its meaning. Tap here for plain text you can select and copy.",
+  "f": "web/js/components/tapswitch.js"
+ },
+ {
+  "id": "ed9f5315",
+  "k": "Tap words is off: the text is plain, to select and copy. Tap here to tap words again.",
+  "f": "web/js/components/tapswitch.js"
+ },
+ {
+  "id": "49683fe7",
+  "k": "Tap words",
+  "f": "web/js/components/tapswitch.js"
+ },
+ {
   "id": "7e3312af",
   "k": "The Review tab's button sends the rest of today's review, with the time it should take, to:",
   "f": "web/js/components/tasktarget.js"

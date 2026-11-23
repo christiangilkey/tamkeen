@@ -127,6 +127,8 @@ export function phrasePicker(root, opts) {
   function onDown(e) {
     if (g) end();
     if (!e.isPrimary) return;
+    // "Tap words" off (components/tapswitch.js): the text is plain, and the system's own selection takes the press.
+    if (root.classList.contains("plain-words")) return;
     const touch = e.pointerType !== "mouse";
     if (!touch && (e.button !== 0 || e.shiftKey || e.altKey || e.ctrlKey || e.metaKey)) return;
     const el = e.target && e.target.closest ? e.target.closest(".w") : null;

@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Tuplok sa mga pulong
+99979f7f	Naka-on ang Tuplok sa mga pulong: tuploka ang usa ka pulong aron makita ang kahulogan niini. Tuploka dinhi aron mahimong yanong teksto nga imong mapili ug makopya.
+ed9f5315	Naka-off ang Tuplok sa mga pulong: yano ra ang teksto, aron mapili ug makopya. Tuploka dinhi aron matuplok na usab ang mga pulong.

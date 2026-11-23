@@ -49,6 +49,7 @@ const SHARED = [
   "js/meanings.js",
   "js/components/wordbubble.js",
   "js/components/lookupmode.js",
+  "js/components/tapswitch.js",
   "js/components/account.js",
   "js/components/safetyui.js",
   "js/components/ankisync.js",

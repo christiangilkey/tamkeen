@@ -11,6 +11,7 @@ import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
+import { plainWhenOff, tapSwitch } from "../components/tapswitch.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
 import { reward, trackStudy } from "../game/game.js";
@@ -91,6 +92,13 @@ export async function render(view, { id, data, query }) {
         <div class="reader-text" id="text" ${langAttrs(lang)} tabindex="0"></div>
       </div>
     </div>`));
+  // Tap words on or off (prototype tap_switch): in a slim bar under the text, like a book's page bar.
+  const tapBtn = tapSwitch();
+  if (tapBtn) {
+    const foot = h(`<div class="book-foot reader-foot"></div>`);
+    foot.append(tapBtn);
+    view.querySelector(".reader").append(foot);
+  }
   const $ = (sel) => view.querySelector(sel);
   if (source) {
     const original = $("#original");
@@ -320,6 +328,8 @@ export async function render(view, { id, data, query }) {
   document.addEventListener("pointerdown", onOutside);
   const onKey = (e) => { if (e.key === "Escape" && bubble.open) closeBubble(); };
   document.addEventListener("keydown", onKey);
+  // "Tap words" off: the words are plain text to select and copy (components/tapswitch.js).
+  const stopPlain = plainWhenOff([tr], { onPlain: closeBubble });
 
   // ---------- text size ----------
   let fontTimer;
@@ -424,6 +434,7 @@ export async function render(view, { id, data, query }) {
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
   return () => {
     offPad();
+    stopPlain();
     stopStudy();
     stopVowels();
     seen.close();

@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	点按单词
+99979f7f	点按单词已开启：点按一个单词即可查看词义。点按这里可变为能选择和复制的普通文本。
+ed9f5315	点按单词已关闭：文本为普通文字，可选择和复制。点按这里可重新点按单词。

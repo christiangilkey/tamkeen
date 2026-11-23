@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Toucher les mots
+99979f7f	Toucher les mots est activé : touchez un mot pour voir son sens. Touchez ici pour un texte simple que vous pouvez sélectionner et copier.
+ed9f5315	Toucher les mots est désactivé : le texte est simple, à sélectionner et copier. Touchez ici pour toucher les mots à nouveau.

@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Pindutin ang mga salita
+99979f7f	Naka-on ang Pindutin ang mga salita: pindutin ang isang salita para makita ang kahulugan nito. Pindutin dito para maging simpleng teksto na mapipili at makokopya mo.
+ed9f5315	Naka-off ang Pindutin ang mga salita: simpleng teksto ito, para piliin at kopyahin. Pindutin dito para muling mapindot ang mga salita.

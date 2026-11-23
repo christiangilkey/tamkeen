@@ -757,3 +757,4 @@ ceaaac08  # most {0} (formof.js: an English superlative inside a dictionary mean
 51cb6aa4  # Netflix & Prime Video  (the + sheet's way: two brand names)
 d2a86242  # px; right: 0; bottom:  (CSS in content/prime.js)
 d719e68e  # Tamkeen for Netflix & Prime Video  (the extension's name)
+9ad3d400  # not signed in  (an error thrown and caught inside game/oldgames-ui.js findBetter, never shown)

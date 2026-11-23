@@ -1,0 +1,4 @@
+# Tap words on or off (components/tapswitch.js, prototype tap_switch), 2026-11-23
+49683fe7	Tocca le parole
+99979f7f	Tocca le parole è attivo: tocca una parola per vederne il significato. Tocca qui per avere testo semplice da selezionare e copiare.
+ed9f5315	Tocca le parole è disattivato: il testo è semplice, da selezionare e copiare. Tocca qui per tornare a toccare le parole.
