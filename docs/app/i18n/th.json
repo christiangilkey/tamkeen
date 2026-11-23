@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ โมเดลสระอยู่ในคอมพิวเตอร์เครื่องนี้แล้ว ({0} MB){1}",
 "Downloading the vowel model… {0}%":"กำลังดาวน์โหลดโมเดลสระ… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"เครื่องหมายสระภาษาอาหรับต้องใช้โมเดลสระ ({0} MB ภาษาอาหรับมาตรฐาน){1}",
+"Fishing goes through every word of your folder, and remembers where it was":"การตกปลาจะวนครบทุกคำในโฟลเดอร์ และจำได้ว่าคุณถึงไหนแล้ว",
 "My files: every word of your document can be tapped right where it is":"ไฟล์ของฉัน: แตะคำไหนในเอกสารก็ได้ตรงที่มันอยู่",
 "Find an older game: bring back creature game progress that went missing":"ค้นหาเกมเก่า: นำความคืบหน้าของเกมสัตว์ที่หายไปกลับมา",
 "Your game on two devices is combined, so progress is never lost to an older copy":"เกมของคุณบนสองอุปกรณ์จะถูกรวมกัน ความคืบหน้าจึงไม่หายเพราะสำเนาเก่าอีกต่อไป",

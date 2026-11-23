@@ -120,6 +120,23 @@ const eachKey = (a, b, better) => {
 };
 const maxNumbers = (a, b) => eachKey(a, b, (x, y) => (typeof x === "number" && typeof y === "number" ? Math.max(x, y) : x));
 
+/** Fishing's round (fishing.js roundOf: today's turns in the pond) from two copies: the later day's; the same day's
+ * are joined, so a word answered right on either has had its turn, and one missed on either still waits (missed
+ * wins over answered: it comes back once more rather than being skipped). */
+function joinRounds(x, y) {
+  if (!x || !y) return x || y;
+  const dx = typeof x.day === "string" ? x.day : "";
+  const dy = typeof y.day === "string" ? y.day : "";
+  if (dx !== dy) return dy > dx ? y : x;
+  const miss = new Map();
+  for (const m of [...(Array.isArray(x.miss) ? x.miss : []), ...(Array.isArray(y.miss) ? y.miss : [])]) {
+    if (!obj(m) || typeof m.u !== "string") continue;
+    const had = miss.get(m.u);
+    miss.set(m.u, { u: m.u, c: Math.max(num(had && had.c), num(m.c)), at: Math.max(num(had && had.at), num(m.at)) });
+  }
+  return { day: dx, n: Math.max(num(x.n), num(y.n)), done: union(x.done, y.done).filter((u) => typeof u === "string" && !miss.has(u)), miss: [...miss.values()] };
+}
+
 /** Two copies played apart, made into one. The one further along (more XP) is the base; the other adds to it. */
 export function combine(mine, theirs) {
   mine = settle(clone(mine));
@@ -210,6 +227,13 @@ export function combine(mine, theirs) {
   const fb = obj(b.finished) || {};
   out.finished = { ...fa };
   for (const k of new Set([...Object.keys(fa), ...Object.keys(fb)])) out.finished[k] = union(fa[k], fb[k]);
+  // Fishing: which words have had their turn in the pond today, joined (the rest of fishing is the base copy's).
+  const fishA = obj(a.fishing);
+  const fishB = obj(b.fishing);
+  if (fishA && fishB) {
+    const round = joinRounds(obj(fishA.round), obj(fishB.round));
+    if (round) fishA.round = round;
+  }
   out.updated_at = Math.max(num(a.updated_at), num(b.updated_at));
   return out;
 }

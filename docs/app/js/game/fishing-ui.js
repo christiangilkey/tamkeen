@@ -25,7 +25,7 @@ import { cardSayer, stopDevice } from "../voiceplay.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { HABITAT, TYPES } from "./data.js";
 import { describe } from "./genome.js";
-import { battleWordsFor, dayNumber, markDue, pickQuestion } from "./rules.js";
+import { dayNumber, markDue, pickQuestion } from "./rules.js";
 import { FRAME, animAt, beastHeight, beastOrigin, composeCreature, drawLiving, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { getGame, saveGame, sfx, trackStudy } from "./game.js";
 import { battleDictionary } from "./battle-ui.js";
@@ -33,8 +33,8 @@ import { EPIC, TIERS, golden, isBoss } from "./loot.js";
 import { reveal } from "./reveal.js";
 import { RODS, SHADOWS } from "./fishdata.js";
 import {
-  canFish, classify, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, pondById, pondNeed, pondShadows, questionFor, record,
-  tierOfRoll, PONDS,
+  canFish, classify, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pondById, pondNeed, pondShadows, pondWords,
+  questionFor, record, roundOf, tierOfRoll, turnTaken, PONDS,
 } from "./fishing.js";
 import { SPRITE, fishPicture, fishSprite, fishTile } from "./fishart.js";
 
@@ -57,9 +57,9 @@ const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 const uidOf = (v) => String(v.uid || v.id);
 
-/** The words the pond asks: the game's word choice, the same one battles use (rules.battleWordsFor: the newest 100,
- * all-time, the words due for review or the folders picked; the owner: "if you set the current vocab list, that it
- * sets the vocab for all games"), and which of the saved words the flashcards have due now (a Set of word ids).
+/** The words the pond asks: the game's word choice, the same one battles use (fishing.pondWords: the newest 100,
+ * all-time, the words due for review or the folders picked, a folder of any size; the owner: "if you set the current
+ * vocab list, that it sets the vocab for all games"), and which of the saved words the flashcards have due now.
  * `all`: every saved word, with the due ones marked (markDue), for the word choice itself. */
 async function loadWords(game = getGame()) {
   let vocab = [];
@@ -69,7 +69,7 @@ async function loadWords(game = getGame()) {
   let flashDue = new Set();
   try { flashDue = new Set(plan(vocab, states(log), reviewDay(), 0).due.map(uidOf)); } catch { /* as above */ }
   markDue(vocab, flashDue);
-  return { vocab: battleWordsFor(vocab, game), all: vocab, flashDue };
+  return { vocab: pondWords(vocab, game), all: vocab, flashDue };
 }
 
 /** How many fish are waiting: the words due for review (what the Home tile shows). Resolves to a number. */
@@ -150,9 +150,8 @@ export function openPond(opts = {}) {
   let flashDue = new Set();
   let dict = null;
   let info = { due: 0, practice: false, shadows: [] };
-  const gone = new Set();      // words answered in this visit: out of the water
-  const later = [];            // missed words come back after a few more bites: {uid, at}
-  let bites = 0;
+  // (which words have had their turn, and which missed ones wait to come back, is in the saved game: fishing.roundOf.
+  // Leaving the pond and coming back carries on where it was.)
   let closed = false;
   let busy = false;            // a bite is being played out (cards, the fight, the catch)
   let lastAnswer = 0;          // (time fishing counts as study time while answers keep coming)
@@ -238,10 +237,8 @@ export function openPond(opts = {}) {
   }
   /** Put in the water what the rules say swims now (fishing.pondShadows), keeping the ones already there. */
   function refresh(first = false) {
-    for (let i = later.length - 1; i >= 0; i--) if (later[i].at <= bites) { gone.delete(later[i].uid); later.splice(i, 1); }
-    info = pondShadows(game, vocab, { pond: pondId, flashDue, boss: (uid) => isBoss(game, uid), skip: gone });
-    // (a missed word waiting its turn still counts as a fish to come: the pond isn't empty while one is)
-    if (!info.shadows.length && later.length) { gone.delete(later[0].uid); later.shift(); info = pondShadows(game, vocab, { pond: pondId, flashDue, boss: (uid) => isBoss(game, uid), skip: gone }); }
+    info = nextShadows(game, vocab, { pond: pondId, flashDue, boss: (uid) => isBoss(game, uid) });
+    if (info.newLap) saveGame(); // (every word has had its turn: the round starts again)
     const have = new Map(sc.shadows.map((s) => [s.uid, s]));
     const next = info.shadows.map((s) => (have.has(s.uid) ? Object.assign(have.get(s.uid), s) : spawn(s, first)));
     for (const s of sc.shadows) if (!next.includes(s) && s.mode !== "gone") { if (s.mode === "swim") { s.mode = "leave"; } next.push(s); }
@@ -648,17 +645,19 @@ export function openPond(opts = {}) {
     if (review.graduated) toast(t("That word is now well known.")).prepend(h(icon("star")), " ");
     if (review.retentionBonus) toast(t("Accurate all week: +60 XP and 5 coins")).prepend(h(icon("goal")), " ");
   }
-  /** Mark a word answered: out of the water (a missed one comes back after a few more bites). */
+  /** A word has had its turn (kept in the saved game: fishing.turnTaken): right, it is out of the water until every
+   * word has had one; wrong, it comes back after a few more fish. */
   function answered(uid, correct) {
-    gone.add(uid);
-    if (!correct) later.push({ uid, at: bites + 3 });
+    turnTaken(game, uid, correct);
+    saveGame();
   }
+  /** Has this word had its turn already this round (answered right, or missed and waiting)? */
+  const hadTurn = (uid) => { const r = roundOf(game); return r.done.includes(uid) || r.miss.some((m) => m.u === uid); };
 
   // ----- a bite, played out -----
   async function bite(sh) {
     if (busy || closed) return;
     busy = true;
-    bites++;
     sh.mode = "hooked";
     setMode("card");
     sc.emote = { id: "exclaim", until: performance.now() + 900 };
@@ -667,7 +666,7 @@ export function openPond(opts = {}) {
     hint();
     try {
       const q = questionFor(game, vocab, sh.uid, { dict });
-      if (!q) { gone.add(sh.uid); await away(sh, ""); return; } // (a word that can't be asked after all)
+      if (!q) { answered(sh.uid, true); await away(sh, ""); return; } // (a word that can't be asked after all: it has had its turn)
       const a = await askCard(q, t("A bite!"));
       if (closed) return;
       const r = record(game, { uid: q.uid, correct: a.correct, ms: a.ms, due: sh.due, extra: sh.extra, luck: sh.luck });
@@ -746,7 +745,7 @@ export function openPond(opts = {}) {
   /** Another word for a fight: a shadow still in the water (a due one first), else any word that can be asked. */
   function fightWord(asked) {
     const now = new Date();
-    for (const s of info.shadows.filter((x) => !asked.includes(x.uid) && !gone.has(x.uid))) {
+    for (const s of info.shadows.filter((x) => !asked.includes(x.uid) && !hadTurn(x.uid))) {
       const q = questionFor(game, vocab, s.uid, { dict, now });
       if (q) return { q, due: s.due, extra: s.extra, luck: s.luck };
     }
@@ -962,6 +961,7 @@ export function openPond(opts = {}) {
       const c = card;
       c.done = true;
       record(game, { uid: c.q.uid, correct: false, ms: performance.now() - c.shownAt, due: true, extra: false, luck: 1 });
+      turnTaken(game, c.q.uid, false);
       saveGame();
     }
     if (fighting) { escape(game, { pond: pondId, sp: fighting.sp, tier: fighting.tier }); fighting = null; saveGame(); }

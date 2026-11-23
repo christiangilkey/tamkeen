@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ نموذج الحركات موجود على هذا الحاسوب ({0} ميغابايت). {1}",
 "Downloading the vowel model… {0}%":"جارٍ تنزيل نموذج الحركات… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"تحتاج حركات العربية إلى نموذج حركات ({0} ميغابايت، العربية الفصحى). {1}",
+"Fishing goes through every word of your folder, and remembers where it was":"الصيد يمر على كل كلمات مجلدك، ويتذكر أين توقفت",
 "My files: every word of your document can be tapped right where it is":"ملفاتي: كل كلمة في مستندك يمكن لمسها في مكانها",
 "Find an older game: bring back creature game progress that went missing":"ابحث عن لعبة أقدم: استعد تقدّم لعبة المخلوقات الذي اختفى",
 "Your game on two devices is combined, so progress is never lost to an older copy":"لعبتك على جهازين تُدمج معاً، فلا يضيع تقدمك بسبب نسخة أقدم",

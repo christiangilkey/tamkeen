@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ Ang vowel model naa na niini nga computer ({0} MB).{1}",
 "Downloading the vowel model… {0}%":"Gi-download ang vowel model… {0}%",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Ang mga marka sa bokal sa Arabiko nanginahanglan og vowel model ({0} MB, Sumbanan nga Arabiko).{1}",
+"Fishing goes through every word of your folder, and remembers where it was":"Ang pagpangisda moagi sa matag pulong sa imong folder, ug mahinumdom kung asa ka na",
 "My files: every word of your document can be tapped right where it is":"Akong mga file: matandog ang matag pulong sa imong dokumento diha mismo",
 "Find an older game: bring back creature game progress that went missing":"Pangitaa ang mas karaan nga dula: ibalik ang nawala nga progreso sa dula sa mga binuhat",
 "Your game on two devices is combined, so progress is never lost to an older copy":"Ang imong dula sa duha ka device gihiusa, busa dili na mawala ang progreso tungod sa karaan nga kopya",

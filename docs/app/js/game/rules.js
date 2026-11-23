@@ -839,13 +839,14 @@ export function setBattlePicks(state, picks) {
 /** The words a battle asks from: the LAST_WORDS most recently saved words that have a meaning
  * ("last100": the same size of pool for everyone), every one of them ("unlimited"), the words the flashcards
  * have due for review ("due") or the picked folders' ("folder"; see setWords). A "due" or "folder" choice with fewer
- * than MIN_SET words that can be asked asks the newest words instead. */
-export function battleWords(vocab, mode = "last100", { due = null, folder = "" } = {}) {
+ * than MIN_SET words that can be asked asks the newest words instead (`min`: fishing takes a smaller folder, see
+ * fishing.pondWords; battles keep MIN_SET). */
+export function battleWords(vocab, mode = "last100", { due = null, folder = "", min = MIN_SET } = {}) {
   const pool = quizzable(vocab).slice().sort((a, b) => (Number(b.created_at) || 0) - (Number(a.created_at) || 0));
   if (mode === "unlimited") return pool;
   if (mode === "due" || mode === "folder") {
     const set = setWords(vocab, mode, { due, folder });
-    if (set.length >= MIN_SET) return set;
+    if (set.length >= Math.max(1, min)) return set;
   }
   return pool.slice(0, LAST_WORDS);
 }
@@ -858,8 +859,8 @@ export function markDue(vocab, ids) {
 }
 
 /** The words a battle asks, by the owner's choice (`state.battleMode`, the folders picked: battlePicks). */
-export const battleWordsFor = (vocab, state) =>
-  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: battlePicks(state) });
+export const battleWordsFor = (vocab, state, { min = MIN_SET } = {}) =>
+  battleWords(vocab, state.battleMode, { due: (vocab && vocab.reviewDue) || null, folder: battlePicks(state), min });
 
 /** How many of these words the owner knows: remembered at least once in the flashcards (`learned`,
  * a Set of word ids, as the Review page counts them) or well known from battles. */

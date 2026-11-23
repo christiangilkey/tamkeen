@@ -6053,6 +6053,7 @@
 "✓ The vowel model is on this computer ({0} MB).{1}":"✓ El model de vocals és en aquest ordinador ({0} MB).{1}",
 "Downloading the vowel model… {0}%":"Baixant el model de vocals… {0} %",
 "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}":"Les vocals de l'àrab necessiten un model de vocals ({0} MB, àrab estàndard).{1}",
+"Fishing goes through every word of your folder, and remembers where it was":"La pesca passa per totes les paraules de la carpeta i recorda on era",
 "My files: every word of your document can be tapped right where it is":"Els meus fitxers: pots tocar cada paraula del document allà on és",
 "Find an older game: bring back creature game progress that went missing":"Troba una partida anterior: recupera el progrés del joc de criatures que havia desaparegut",
 "Your game on two devices is combined, so progress is never lost to an older copy":"La teva partida en dos dispositius es combina, així que el progrés no es perd mai per una còpia antiga",
