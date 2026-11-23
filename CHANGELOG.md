@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** The creature game could lose progress: the garden started over and gym leaders already beaten showed as unbeaten again. A copy of the game that was behind (a browser tab left open for days, a phone not synced for a while, or the web app after the browser had cleared its stored data and started a new egg) only had to earn a little XP to count as the newest save, and then replaced the whole game on every device. Now two copies that were played apart are combined instead: every gym leader beaten, building, creature, item and badge from either is kept, and XP, coins and gems add up what was earned and spent on each, counted once. A copy that has really seen everything the other has still replaces it, so spending and releasing carry over. Open tabs of the web app now pass each save to one another at once, a tab that comes back on screen takes the latest saved game before it saves, and the web app asks the browser to keep its stored data.
 - **Fixed:** A reel you've watched now goes to the bottom of the list on the Reels page too, as it already did in the Library's Reels tab. A reel also counts as watched once it plays into its last moments, so one you leave with Next in its final second, or that Instagram starts over by itself, moves down as well.
 
 ## v0.68.0 — 2026-11-22

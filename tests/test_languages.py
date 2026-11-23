@@ -9,7 +9,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app import db, jobs, languages, pages
-from app.sync import engine
+from app.sync import engine, gamemerge
 from app.transcriber import Segment, Word
 
 from test_sync import world  # noqa: F401  (pytest fixture)
@@ -190,9 +190,11 @@ def test_creature_game_state_syncs_and_an_unplayed_egg_never_wins(world):
     a.sync(drive)
     with a:
         assert db.get_setting("game_state")["xp"] == 450, "the newer save wins"
-    assert engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 0, "updated_at": 9})
-    assert not engine.game_wins({"xp": 0, "updated_at": 9}, {"xp": 5, "updated_at": 1})
-    assert not engine.game_wins({"xp": 5, "updated_at": 1}, {"xp": 5, "updated_at": 1})
+    # (Which copy is kept: app/sync/gamemerge.py, tested in tests/test_gamemerge.py.)
+    egg, game = {"xp": 0, "updated_at": 9, "roster": []}, {"xp": 5, "updated_at": 1, "roster": []}
+    assert gamemerge.resolve(egg, game)[0] == "theirs"
+    assert gamemerge.resolve(game, egg)[0] == "mine"
+    assert gamemerge.resolve(game, dict(game))[0] == "mine"
 
 
 def test_german_is_taught_and_whisper_hears_it_as_german():

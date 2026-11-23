@@ -1,0 +1,139 @@
+{
+  "about": "Two copies of the creature game meeting. Run through web/js/game/merge.js (tests/js/gamemerge.test.mjs) and app/sync/gamemerge.py (tests/test_gamemerge.py): both must give `keep` and every value in `expect` (a dotted path; `roster#seed` is the creatures' seeds in order).",
+  "cases": [
+    {
+      "name": "the reported bug: a phone with a copy from days ago earns a little and must not wipe out the garden and the gyms",
+      "mine": {
+        "v": 2, "xp": 3000, "coins": 200, "gems": 12, "active": 0, "updated_at": 2000,
+        "roster": [{"seed": 7, "growth": 0.4}],
+        "gyms": {"beaten": 4, "wins": {"pip": 2, "marin": 1, "tor": 1, "volta": 1}},
+        "idle": {"glow": 500, "stardust": 0, "plots": [{"open": true, "id": "well", "tier": 3, "stored": 0}, {"open": true, "id": "lamp", "tier": 2, "stored": 0}, {"open": true, "id": null, "tier": 0, "stored": 0}], "released": [], "badgesPaid": 3},
+        "owned": ["hat_red", "scarf"], "badges": ["first_word", "streak_7", "gym_1"], "stats": {"lookups": 900, "battles": 30, "wins": 20},
+        "best_streak": 12, "streak": 12, "last_complete": "2026-11-21",
+        "clock": {"desk": 40},
+        "tally": {"xp": {"_": [1000, 0], "desk": [2000, 0]}, "coins": {"_": [50, 0], "desk": [250, 100]}, "gems": {"_": [2, 0], "desk": [10, 0]}}
+      },
+      "theirs": {
+        "v": 2, "xp": 1030, "coins": 52, "gems": 2, "active": 0, "updated_at": 5000,
+        "roster": [{"seed": 7, "growth": 0.1}],
+        "gyms": {"beaten": 1, "wins": {"pip": 1}},
+        "idle": {"glow": 90, "stardust": 0, "plots": [{"open": true, "id": "well", "tier": 1, "stored": 3}, {"open": true, "id": null, "tier": 0, "stored": 0}, {"open": false, "id": null, "tier": 0, "stored": 0}], "released": [], "badgesPaid": 1},
+        "owned": ["hat_red"], "badges": ["first_word"], "stats": {"lookups": 210, "battles": 6, "wins": 3},
+        "best_streak": 5, "streak": 1, "last_complete": "2026-11-23",
+        "clock": {"phone": 3},
+        "tally": {"xp": {"_": [1000, 0], "phone": [30, 0]}, "coins": {"_": [50, 0], "phone": [2, 0]}, "gems": {"_": [2, 0]}}
+      },
+      "keep": "merged",
+      "expect": {
+        "gyms.beaten": 4, "gyms.wins.pip": 2, "gyms.wins.volta": 1,
+        "idle.plots.0.tier": 3, "idle.plots.1.tier": 2, "idle.plots.1.id": "lamp", "idle.glow": 500, "idle.badgesPaid": 3,
+        "xp": 3030, "coins": 202, "gems": 12,
+        "roster#seed": [7], "roster.0.growth": 0.4,
+        "badges": ["first_word", "streak_7", "gym_1"], "owned": ["hat_red", "scarf"],
+        "stats.lookups": 900, "best_streak": 12, "last_complete": "2026-11-23", "streak": 1,
+        "clock.desk": 40, "clock.phone": 3, "clock._": 1
+      }
+    },
+    {
+      "name": "the web app's browser wiped its storage: a new egg played a little must join the saved game, not replace it",
+      "mine": {
+        "v": 2, "xp": 5000, "coins": 300, "active": 1, "updated_at": 1700000000,
+        "roster": [{"seed": 3, "growth": 1, "grown": true}, {"seed": 7, "growth": 0.5}],
+        "gyms": {"beaten": 6, "wins": {"pip": 1, "marin": 1, "tor": 1, "volta": 1, "sola": 1, "umbra": 1}},
+        "idle": {"glow": 1200, "stardust": 2, "plots": [{"open": true, "id": "well", "tier": 3, "stored": 0}, {"open": true, "id": "lamp", "tier": 3, "stored": 0}], "released": [{"seed": 1, "type": "fire"}]}
+      },
+      "theirs": {
+        "v": 2, "xp": 40, "coins": 1, "gems": 0, "active": 0, "updated_at": 1700090000,
+        "roster": [{"seed": 99, "growth": 0.01}],
+        "gyms": {"beaten": 0, "wins": {}},
+        "idle": {"glow": 40, "stardust": 0, "plots": [{"open": false, "id": null, "tier": 0, "stored": 0}, {"open": false, "id": null, "tier": 0, "stored": 0}], "released": []},
+        "clock": {"web": 6},
+        "tally": {"xp": {"web": [40, 0]}, "coins": {"web": [1, 0]}, "gems": {}}
+      },
+      "keep": "merged",
+      "expect": {
+        "gyms.beaten": 6, "idle.plots.0.tier": 3, "idle.plots.1.tier": 3, "idle.stardust": 2, "idle.glow": 1200,
+        "xp": 5040, "coins": 301, "roster#seed": [3, 7, 99], "active": 1, "clock.web": 6, "clock._": 1
+      }
+    },
+    {
+      "name": "a copy that has seen everything this one has replaces it, spending and all",
+      "mine": {
+        "xp": 500, "coins": 80, "updated_at": 9000, "roster": [{"seed": 7, "growth": 0.2}],
+        "idle": {"plots": [{"open": true, "id": "well", "tier": 2, "stored": 0}], "released": []},
+        "clock": {"desk": 10, "phone": 4}
+      },
+      "theirs": {
+        "xp": 520, "coins": 30, "updated_at": 100, "roster": [{"seed": 7, "growth": 0.21}],
+        "idle": {"plots": [{"open": true, "id": "well", "tier": 3, "stored": 0}], "released": []},
+        "clock": {"desk": 10, "phone": 6}
+      },
+      "keep": "theirs",
+      "expect": {"coins": 30, "idle.plots.0.tier": 3, "clock.phone": 6}
+    },
+    {
+      "name": "a copy this one has already seen changes nothing, however late it says it was saved",
+      "mine": {"xp": 520, "coins": 30, "updated_at": 100, "roster": [{"seed": 7}], "gyms": {"beaten": 3}, "clock": {"desk": 10, "phone": 6}},
+      "theirs": {"xp": 500, "coins": 80, "updated_at": 99999, "roster": [{"seed": 7}], "gyms": {"beaten": 1}, "clock": {"desk": 9, "phone": 6}},
+      "keep": "mine",
+      "expect": {"gyms.beaten": 3, "coins": 30}
+    },
+    {
+      "name": "an egg nobody has played never replaces or joins a game with progress",
+      "mine": {"xp": 300, "coins": 12, "updated_at": 1000, "roster": [{"seed": 7, "growth": 0.05}]},
+      "theirs": {"xp": 0, "updated_at": 5000, "roster": [{"seed": 99, "growth": 0}], "clock": {"new": 2}},
+      "keep": "mine",
+      "expect": {"roster#seed": [7], "xp": 300}
+    },
+    {
+      "name": "a release on one copy starts its garden over: that later garden is kept, and the creature released stays gone",
+      "mine": {
+        "xp": 9000, "coins": 50, "updated_at": 10, "active": 0,
+        "roster": [{"seed": 3, "growth": 1}, {"seed": 7, "growth": 0.6}],
+        "idle": {"glow": 2000, "stardust": 1, "plots": [{"open": true, "id": "well", "tier": 3}, {"open": true, "id": "lamp", "tier": 3}], "released": []},
+        "clock": {"desk": 50}
+      },
+      "theirs": {
+        "xp": 8800, "coins": 50, "updated_at": 20, "active": 0,
+        "roster": [{"seed": 7, "growth": 0.55}],
+        "idle": {"glow": 40, "stardust": 3, "plots": [{"open": true, "id": null, "tier": 0}, {"open": true, "id": null, "tier": 0}], "released": [{"seed": 3, "type": "fire", "variant": null, "name": "", "day": "2026-11-20"}]},
+        "clock": {"desk": 45, "phone": 9}
+      },
+      "keep": "merged",
+      "expect": {"roster#seed": [7], "roster.0.growth": 0.6, "idle.stardust": 3, "idle.plots.0.tier": 0, "idle.glow": 40, "active": 0}
+    },
+    {
+      "name": "coins spent on both copies apart are both spent; coins earned on both are both earned",
+      "mine": {"xp": 100, "coins": 70, "updated_at": 1, "roster": [{"seed": 7}], "clock": {"a": 5, "b": 2},
+               "tally": {"xp": {"_": [50, 0], "a": [50, 0]}, "coins": {"_": [100, 0], "a": [10, 40]}, "gems": {}}},
+      "theirs": {"xp": 90, "coins": 95, "updated_at": 2, "roster": [{"seed": 7}], "clock": {"a": 3, "b": 4},
+                 "tally": {"xp": {"_": [50, 0], "a": [20, 0], "b": [20, 0]}, "coins": {"_": [100, 0], "a": [10, 20], "b": [5, 0]}, "gems": {}}},
+      "keep": "merged",
+      "expect": {"xp": 120, "coins": 75, "tally.coins.a": [10, 40], "tally.coins.b": [5, 0], "clock.a": 5, "clock.b": 4}
+    },
+    {
+      "name": "two saves from before the clocks, played apart: combined (the gyms, plots and creatures of both kept)",
+      "mine": {"xp": 450, "coins": 12, "updated_at": 2000, "roster": [{"seed": 7, "growth": 0.08}], "gyms": {"beaten": 1, "wins": {"pip": 1}},
+               "idle": {"plots": [{"open": true, "id": "well", "tier": 1}, {"open": true, "id": "lamp", "tier": 2}], "released": []}},
+      "theirs": {"xp": 300, "coins": 12, "updated_at": 3000, "roster": [{"seed": 7, "growth": 0.05}, {"seed": 11, "growth": 0}], "gyms": {"beaten": 2, "wins": {"pip": 1, "marin": 1}},
+                 "idle": {"plots": [{"open": true, "id": "well", "tier": 2}, {"open": false, "id": null, "tier": 0}], "released": []}},
+      "keep": "merged",
+      "expect": {"xp": 450, "gyms.beaten": 2, "gyms.wins.marin": 1, "idle.plots.0.tier": 2, "idle.plots.1.tier": 2, "idle.plots.1.open": true,
+                 "roster#seed": [7, 11], "roster.0.growth": 0.08, "updated_at": 3000, "clock._": 1}
+    },
+    {
+      "name": "the very same copy: nothing to do",
+      "mine": {"xp": 10, "updated_at": 5, "roster": [{"seed": 1}], "clock": {"a": 1}},
+      "theirs": {"xp": 10, "updated_at": 5, "roster": [{"seed": 1}], "clock": {"a": 1}},
+      "keep": "mine",
+      "expect": {"xp": 10}
+    },
+    {
+      "name": "nothing saved here yet: the other copy is taken",
+      "mine": null,
+      "theirs": {"xp": 10, "updated_at": 5, "roster": [{"seed": 1}]},
+      "keep": "theirs",
+      "expect": {"xp": 10}
+    }
+  ]
+}

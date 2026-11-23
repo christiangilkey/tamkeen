@@ -24,6 +24,7 @@ from typing import Any
 
 from .. import aikeys, arabic, audio, controller, db, events, grammar, languages, learning, pages, paths, reels, studygoal, tashkeel, videos, youtube
 from ..lessons import clean_state as clean_lessons, merge_state as merge_lessons
+from . import gamemerge
 from .drive import Drive
 
 log = logging.getLogger(__name__)
@@ -95,15 +96,6 @@ def _language(record: dict[str, Any]) -> str | None:
     """A record's language (episode, podcast or word), if it names one the app knows (older devices send none)."""
     code = record.get("language")
     return code if languages.valid(code) else None
-
-
-def game_wins(theirs: dict[str, Any], mine: dict[str, Any]) -> bool:
-    """Should another device's saved game replace this one? The newer save wins, except that a
-    game nobody has played yet (a fresh install's egg) never replaces one with progress."""
-    their_xp, my_xp = theirs.get("xp") or 0, mine.get("xp") or 0
-    if (their_xp > 0) != (my_xp > 0):
-        return their_xp > 0
-    return (theirs.get("updated_at") or 0) > (mine.get("updated_at") or 0)
 
 
 def snapshot(device_id: str) -> dict[str, Any]:
@@ -334,18 +326,21 @@ def merge(remote: dict[str, Any], result: Result) -> list[tuple[int, str, float]
                     (str(uid), e[0], e[1], e[2], e[3] if len(e) > 3 else 0))
                 result.merged["reviews"] = result.merged.get("reviews", 0) + cur.rowcount
 
-        # The creature game: one saved state for the whole account; the most recently saved wins.
+        # The creature game: one saved state for the whole account. A copy that has seen everything this one has
+        # replaces it; two played apart are combined (gamemerge.py). Until v0.68.0 the copy saved last won, and a
+        # copy that was behind wiped out the garden and the gyms beaten.
         game = remote.get("game")
-        if isinstance(game, dict) and (isinstance(game.get("roster"), list) or isinstance(game.get("creature"), dict)):
+        if gamemerge.is_game(game):
             row = conn.execute("SELECT value FROM settings WHERE key = 'game_state'").fetchone()
             try:
                 mine = json.loads(row["value"]) if row else None
             except json.JSONDecodeError:
                 mine = None
-            if not isinstance(mine, dict) or game_wins(game, mine):
+            keep, state = gamemerge.resolve(mine, game)
+            if keep != "mine":
                 conn.execute("INSERT INTO settings(key, value) VALUES('game_state', ?) "
                              "ON CONFLICT(key) DO UPDATE SET value = excluded.value",
-                             (json.dumps(game, ensure_ascii=False),))
+                             (json.dumps(state, ensure_ascii=False),))
                 result.merged["game"] = 1
 
         # Followed YouTube channels: for each channel, the copy that changed last wins.

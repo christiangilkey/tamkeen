@@ -747,6 +747,10 @@ async function boot() {
       window.dispatchEvent(new CustomEvent("tamkeen:goal"));
     }
   }).catch(() => {}));
+  // ...and when the window comes back on screen, in case another window saved since (game/merge.js decides).
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) api("/settings").then((s) => window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: s.game_state }))).catch(() => {});
+  });
   if (state.status && state.status.desktop) startAppBadge();
   // A newer version? Tell the user once per start; a packaged build can install it in place.
   setTimeout(() => {

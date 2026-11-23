@@ -133,6 +133,15 @@ def _patch_settings(values: dict[str, Any]) -> dict[str, Any]:
         # (merged lesson by lesson with what is kept: a page that read the setting before the sync brought another
         # device's lessons can't drop them; a removal is a newer record, so it still wins)
         clean["lesson_state"] = lessons.merge_state(db.get_settings().get("lesson_state"), clean["lesson_state"])
+    if "game_state" in clean:
+        from ..sync import gamemerge
+
+        # (resolved with what is kept, as a sync would: a page that still holds an older copy of the game, from before
+        # a sync brought another device's, can't save over it; two copies played apart are combined. The page takes
+        # the answer, web/js/game/game.js saveGame.)
+        kept = db.get_settings().get("game_state")
+        if gamemerge.is_game(kept) and gamemerge.is_game(clean["game_state"]):
+            clean["game_state"] = gamemerge.resolve(kept, clean["game_state"])[1]
     # The languages being learned: when each was ticked or unticked, by this computer's clock
     # (app/learning.py), so the newer change wins on the user's other devices.
     clean.pop("learning_times", None)

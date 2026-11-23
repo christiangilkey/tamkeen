@@ -16,6 +16,7 @@ import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RUL
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
+import { settle } from "./merge.js";
 import { inPicks, pickList } from "../review/folderpicks.js";
 
 export const VERSION = 2;
@@ -108,6 +109,8 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     reading: {},  // books being read, for the Storybook colouring: book id -> {r: parts read, by: who was out, done} (readPage)
     finished: { netflix: [], podcast: [] }, // episodes already counted as watched or heard to the end (finishedEpisode)
     badges: [],
+    clock: {},   // device -> how many times it has saved this game (merge.js: which of two copies is newer)
+    tally: {},   // xp/coins/gems -> device -> [earned, spent] (merge.js: two copies played apart add up)
     updated_at: 0,
   });
 }
@@ -188,6 +191,12 @@ export function normalize(state) {
   const done = s.finished && typeof s.finished === "object" ? s.finished : {};
   s.finished = Object.fromEntries(["netflix", "podcast"].map((k) =>
     [k, (Array.isArray(done[k]) ? done[k] : []).filter((id) => typeof id === "string" && id.length <= 80).slice(-FINISHED_KEPT)]));
+  // Which of two copies is newer, and who earned what (merge.js): XP, coins and gems from before the tally, or
+  // changed by a version that doesn't keep it, become its unclaimed share.
+  const clock = s.clock && typeof s.clock === "object" && !Array.isArray(s.clock) ? s.clock : {};
+  s.clock = Object.fromEntries(Object.entries(clock).filter(([k, n]) => k.length <= 40 && Number.isInteger(n) && n >= 0).slice(0, 500));
+  if (!Number.isFinite(s.gems)) s.gems = 0;
+  settle(s);
   s.v = VERSION;
   return s;
 }

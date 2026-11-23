@@ -238,9 +238,20 @@ once real art arrives). Real art replaces files one for one, same name and size.
 - Rules chosen on purpose: a word pays once a day; rewards fade fast within a day; the daily goal pays the
   same whatever its size. Combo window is 30 s, not the 5 s in the owner's doc (5 s is too short to read a
   definition and would reward mashing); the owner was told and can change `COMBO_WINDOW_MS`.
-- State is saved in the `game_state` setting and **syncs through library.json** (`game` field): the newer
-  save wins, except an unplayed egg never replaces a game with XP (`engine.game_wins`, `sync.js gameWins`,
-  `game.js adopt`). Devices hear about a newer save through the `tamkeen:game` window event.
+- State is saved in the `game_state` setting and **syncs through library.json** (`game` field). Since 2026-11-23 it
+  is **not** "the newer save wins" (that lost users' gardens and gyms: a copy that was behind, from a stale tab, a
+  phone not synced, or a web app whose browser wiped its storage and started a new egg, earned 1 XP and replaced
+  everything). Two copies are resolved by `web/js/game/merge.js` (page, phones, web app: game.js `adopt`, sync.js) and
+  its twin `app/sync/gamemerge.py` (desktop sync and the PATCH /settings route), checked against each other by
+  `tests/fixtures/game_merge.json`. Each save `stamp`s `clock[device]` (dlitime `deviceId()`) and claims what changed in
+  `tally` (xp/coins/gems -> device -> [earned, spent]). A copy whose clock has seen all of the other's replaces it;
+  otherwise (played apart, or either has no clock: saves from before) they are **combined**: base = more XP; gyms
+  beaten/wins max; roster union by seed (more grown copy; released seeds stay gone); garden: more releases wins
+  whole, else per plot the higher tier; owned/attacks/badges/tags union; stats max; review/rivals per key the one
+  answered/fought more; XP/coins/gems = sum of the per-device tallies (no double counting). An unplayed egg never
+  wins or joins. **Adding a field to the game state? Decide how two copies of it combine, in both files.** Devices hear
+  of another copy through the `tamkeen:game` event; open tabs through BroadcastChannel `tamkeen-game`; a window coming
+  back on screen re-reads the stored copy. The web app asks for persistent storage (`keepGame` in mobile app.js).
 - Slice 2 (same day): **shop + wardrobe** (`shop.js`; `ITEMS`/`DECOR` in data.js; `buy/equip/placeDecor/
   shopStock` in rules.js). Six items a day, seeded by day + creature, weighted by traits; some need tags
   (`night_owl`, `early_bird`, `streak_7`). Hats/glasses/neckwear/held items ride on sockets; decorations

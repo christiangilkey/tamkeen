@@ -1415,6 +1415,22 @@ function startAppBadge() {
   refresh();
 }
 
+/** Two ways the web app lost a learner's game (garden reset, gym leaders unbeaten). A browser may wipe a site's
+ * storage (Safari after a week away, Chrome when the disk is full) unless asked to keep it: then the app started a
+ * new egg, and once that earned anything it was "saved last" and replaced the game in Google Drive. So ask to keep
+ * it. And a tab left open keeps its own copy of the game in memory: when it comes back on screen it takes the copy
+ * saved since (by another tab, or a sync) before it saves over it. (The sync now combines two copies instead of
+ * keeping the last saved: web/js/game/merge.js.) */
+function keepGame() {
+  if (isWeb) { try { navigator.storage.persist().catch(() => {}); } catch { /* not offered by this browser */ } }
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) return;
+    kv.get("settings").then((stored) => {
+      if (stored && stored.game_state) window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: stored.game_state }));
+    }).catch(() => {});
+  });
+}
+
 // ---------- boot ----------
 async function boot() {
   // Drop-down menus open Tamkeen's own list, not the system's (on phones and touch screens; components/selectsheet.js).
@@ -1424,6 +1440,7 @@ async function boot() {
   await loadSettings();
   await loadLibrary();
   applySettings(settings);
+  keepGame();
   fillLanguages(); // every podcast and word knows its language (only the one being learned is shown)
   await startTranslating(settings.ui_language); // the app's own words in the user's language
   // The web app, back from Google's sign-in page (see finishWebSignIn).
