@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Fixed:** A reel you've watched now goes to the bottom of the list on the Reels page too, as it already did in the Library's Reels tab. A reel also counts as watched once it plays into its last moments, so one you leave with Next in its final second, or that Instagram starts over by itself, moves down as well.
+
 ## v0.68.0 — 2026-11-22
 
 - **Changed:** The word popup's **?** ("Not known yet", which kept a word amber without saving it) is now **Important**, an exclamation mark **!**. Tapping it marks the word's card important, so it comes first in reviews and among new words; on a word not saved yet it saves it (with the meaning chosen among the bubbles and the folder button's folder, as Save does) and marks it. Tapping it again takes the mark off. "Not known yet" is gone everywhere: words marked that way before are no longer amber and show as new (purple) words again; the old marks are left stored, untouched.
