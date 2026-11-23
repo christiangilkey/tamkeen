@@ -9,6 +9,8 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.70.0",
+  "My files: every word of your document can be tapped right where it is");
 notes("0.69.0",
   "Find an older game: bring back creature game progress that went missing");
 notes("0.69.0",

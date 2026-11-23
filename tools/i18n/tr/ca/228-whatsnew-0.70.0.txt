@@ -1,0 +1,2 @@
+# What is new in v0.70.0 (web/js/whatsnew.js).
+d8a1cb1e	Els meus fitxers: pots tocar cada paraula del document allà on és

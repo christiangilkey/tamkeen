@@ -1,0 +1,2 @@
+# What is new in v0.70.0 (web/js/whatsnew.js).
+d8a1cb1e	Meus arquivos: toque em qualquer palavra do documento ali mesmo

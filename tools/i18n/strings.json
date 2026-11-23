@@ -30275,6 +30275,11 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "d8a1cb1e",
+  "k": "My files: every word of your document can be tapped right where it is",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "ebe6fdf2",
   "k": "Find an older game: bring back creature game progress that went missing",
   "f": "web/js/whatsnew.js"

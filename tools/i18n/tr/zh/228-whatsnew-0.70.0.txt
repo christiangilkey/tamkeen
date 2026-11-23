@@ -1,0 +1,2 @@
+# What is new in v0.70.0 (web/js/whatsnew.js).
+d8a1cb1e	我的文件：文档里的每个词都能就地点按
