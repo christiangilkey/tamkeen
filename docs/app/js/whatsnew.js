@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.69.0",
+  "Find an older game: bring back creature game progress that went missing");
+notes("0.69.0",
+  "Your game on two devices is combined, so progress is never lost to an older copy");
+notes("0.69.0",
+  "Game pictures load even on a slow connection, in battles especially");
+notes("0.69.0",
+  "A Tap words button turns words into plain text to select and copy");
+notes("0.69.0",
+  "Watched reels move to the bottom of the list");
 notes("0.68.0",
   "The word popup shows a word's meanings as bubbles, and Save keeps the one you pick");
 notes("0.68.0",

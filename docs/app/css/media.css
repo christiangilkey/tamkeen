@@ -504,6 +504,29 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 .reel-top div.lookup-toggle button[data-mode]:not(.on) { color: #aaa8a0; }
 .reel-controls div.lookup-toggle button[data-mode] { width: 30px; height: 26px; min-height: 0; padding: 0; }
 .reel-controls div.lookup-toggle button[data-mode].on { background: var(--accent); border: 0; color: var(--accent-ink); }
+/* ---------- Tap words on or off (components/tapswitch.js, prototype tap_switch) ----------
+   One small round-ended button beside the other controls at the bottom: filled with the action colour while words can
+   be tapped, plain with the icon struck through while the text is plain. Solid, no shadow. */
+button.tap-switch { display: inline-grid; place-items: center; flex: none; width: 36px; height: 30px; min-width: 0; min-height: 0;
+  padding: 0; border-radius: 99px; border: 1px solid var(--border); background: var(--surface-2); color: var(--muted);
+  vertical-align: middle; cursor: pointer; }
+button.tap-switch:hover:not(.on) { background: var(--surface-2); color: var(--text); filter: none; }
+button.tap-switch.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+button.tap-switch.on:hover { background: var(--accent); filter: brightness(1.08); }
+button.tap-switch.on .ic .fill { opacity: .28; }
+button.tap-switch .ic { vertical-align: 0; }
+/* The bar under a page's text (My webpages, a lesson's passage): the book's page bar, with only the switch. */
+.reader-foot { justify-content: center; }
+/* While it is off the words are plain text: the ordinary colour and pointer, no hover band or press, and the
+   system's own selection and long-press menu (which the word gestures keep away otherwise). The word being
+   spoken stays lit, so a transcript still follows the sound. */
+.plain-words .w { cursor: text; }
+.plain-words .w:not(.cur):not(.loop) { color: inherit; background: none; }
+.plain-words .w:active { display: inline; transform: none; }
+.plain-words, .plain-words.phrase-root { -webkit-touch-callout: default; }
+.plain-words.phrase-root .w, .transcript.plain-words .w, .reader-text.plain-words .w { -webkit-user-select: text; user-select: text; }
+.captions.plain-words .w { cursor: default; }
+
 /* The quick popup: the word, its meaning, and two buttons. */
 .word-bubble.quick:not(.sheet) { width: min(300px, calc(100% - 16px)); }
 .word-bubble.quick .wb-meaning { margin-bottom: 0; }

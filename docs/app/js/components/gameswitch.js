@@ -3,6 +3,7 @@
 // creature and its progress are kept, so switching back on carries on where it was.
 
 import { h, saveSettings, state } from "../app.js";
+import { feature } from "../prototype.js";
 
 /** Whether the game is on (the setting `game_enabled`; on unless switched off). */
 export function gameOn() {
@@ -31,6 +32,16 @@ export function gameSwitch(box) {
       <div class="small muted">The chimes and jingles for answers, rewards and battles. Off: everything works the same, silently.</div>
     </div>
   </div>`));
+  // Lost progress (a garden reset, gym leaders unbeaten again, before the sync combined copies): bring back an
+  // older copy from Google Drive (game/oldgames-ui.js; a prototype until the owner releases it).
+  if (feature("old_games")) {
+    const older = h(`<div class="stack">
+      <div><button type="button" class="og-open">Find an older game</button></div>
+      <div class="small muted">Garden or gym leaders gone? Google Drive keeps older copies of your game for about 30 days: bring one back without losing anything you've earned since.</div>
+    </div>`);
+    older.querySelector(".og-open").onclick = () => import("../game/oldgames-ui.js").then((m) => m.openOldGames());
+    box.firstElementChild.append(older);
+  }
   const sound = box.querySelector(".game-sound");
   sound.disabled = !gameOn();
   box.querySelector(".game-on").onchange = (e) => { sound.disabled = !e.target.checked; saveSettings({ game_enabled: e.target.checked }); };

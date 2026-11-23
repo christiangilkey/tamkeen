@@ -29,6 +29,8 @@ export const PROTOTYPES = {
   library_feed: { name: "The Library like YouTube: every tab in big pictures (a YouTube video in the middle of the screen plays silently), in progress first, then new, then finished, with a Filter button", released: true, since: "2026-11-21" },
   creator_bar: { name: "Creator bar on Home (the creator only): people online now and every limit as used / limit", released: true, since: "2026-11-20" },
   voice_ask_native: { name: "Ask by voice in your own language: questions (\"¿cómo se dice perro en árabe?\"), \"add it\" and the examples in the app's language; with no AI, your own language's dictionary is downloaded once (only yours)", released: true, since: "2026-11-21" },
+  old_games: { name: "Find an older game: bring back a creature game lost before the sync combined copies, from Google Drive's older versions (Settings → Game features, and a note on Home)", released: true, since: "2026-11-23" },
+  tap_switch: { name: "Tap words on or off: a button at the bottom of transcripts, books, webpages and My files makes the words plain text (no popup, no purple) to select and copy", released: true, since: "2026-11-23" },
   prime_video: { name: "Prime Video with the Tamkeen browser extension (now \"Tamkeen for Netflix & Prime Video\"): \"Get the Tamkeen extension\" and a Prime Video note on the Library's Netflix tab and the + sheet's Netflix step", released: true, since: "2026-11-21" },
 };
 

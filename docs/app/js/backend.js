@@ -562,6 +562,15 @@ async function addFeed(body, language = studyLanguage()) {
 }
 
 const routes = [
+  // ----- older copies of the creature game, from Google Drive's older versions (Settings → Find an older game) -----
+  ["GET", /^\/sync\/game-versions$/, async () => {
+    const [{ drive }, { listVersions }] = await Promise.all([import("./drive.js"), import("./oldgames-drive.js")]);
+    return listVersions(drive, !!settings.signed_in);
+  }],
+  ["GET", /^\/sync\/game-versions\/([\w.~%-]+)$/, async (m) => {
+    const [{ drive, gunzipJson }, { loadVersion }] = await Promise.all([import("./drive.js"), import("./oldgames-drive.js")]);
+    return loadVersion(drive, gunzipJson, decodeURIComponent(m[1]));
+  }],
   // ----- feeds -----
   ["GET", /^\/feeds$/, () => lib.feeds.filter((f) => !f.deleted && podcastShown(f)).map(feedOut)
     .sort((a, b) => a.title.localeCompare(b.title))],

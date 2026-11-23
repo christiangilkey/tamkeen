@@ -30,7 +30,9 @@ import { actionHeld, buttonsMenu, controllerArea } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
 import { pageGuide } from "../components/tour.js";
 import { playerSteps } from "../components/guideart.js";
-import { markWatched, watchedIds, watchedPill } from "../watched.js";
+import { atEnd, markWatched, watchedIds, watchedPill } from "../watched.js";
+import { DEFAULT_CHOICE, arrange } from "../libsort.js";
+import { allProgress } from "../progress.js";
 import { arrowButtons, dictationButton, dictationOn, dictationPanel } from "../components/dictation.js";
 import { pieceWords, sentencesFromWords, wordNear, wordUnits } from "../dictation.js";
 
@@ -157,7 +159,10 @@ async function renderList(view) {
         : "No reels yet. Choose which reels you want above and press “Get reels”."}</div>`));
       return;
     }
-    for (const ep of [...reels].reverse()) { // newest at the top of the list
+    // In the Library's order (libsort.js): reels not watched yet first, newest first, and the watched ones at the bottom
+    // (the owner: "after watching a reel, it should be sent to the bottom of the list").
+    const progress = new Map(allProgress().map((p) => [String(p.id), p]));
+    for (const ep of arrange(reels, DEFAULT_CHOICE, progress, seen)) {
       const pic = ep.image ? `<img src="${esc(ep.image)}" alt="" loading="lazy" referrerpolicy="no-referrer">` : `<div class="ph">${icon("video", 22)}</div>`;
       // Watched to the end: "Watched" in the brand's purple at the top right of its picture.
       const row = h(`<div class="ep reel-row">
@@ -545,6 +550,7 @@ async function renderPlayer(view, { query }) {
   let clipEnd = null;
   let clip = { from: 0, end: 0, at: 0, there: false }; // the word or sentence being played (wordclip.js clipEnded)
   let seenEnds = 0;
+  const watchedNow = new Set(); // the reels marked watched while this player is open
   let seenNav = "";
   let loadedAt = 0;
   let skipping = false;
@@ -945,8 +951,16 @@ async function renderPlayer(view, { query }) {
       if (clipEnd !== null && clipEnded(clip, s.t)) { clipEnd = null; surface.do("pause"); }
       setActive(activeWordIndex(cur.starts, cur.ends, s.t, 1.5));
     }
+    // Watched (the "Watched" label, and the bottom of the reel lists) once it has played into its last moments
+    // (watched.js atEnd), not only when the video ends: a reel left with Next in its last second was watched, and
+    // Instagram's ordinary reel page starts a reel over by itself, so its video may never end.
+    if (!s.paused && atEnd(Number(s.t) || 0, Number(s.d) || 0) && !watchedNow.has(String(ep.id))) {
+      watchedNow.add(String(ep.id));
+      markWatched(ep.id);
+    }
     if (s.ends > seenEnds) {
       seenEnds = s.ends;
+      watchedNow.add(String(ep.id));
       markWatched(ep.id);
       // A reel that ended because a word was being replayed stays; otherwise the next one starts.
       if (clipEnd === null && !bubble.open && !dict && !menuOpen() && Date.now() - loadedAt > 1500) show(index + 1);

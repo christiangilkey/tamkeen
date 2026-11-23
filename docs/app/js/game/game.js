@@ -10,7 +10,8 @@ import { cardsGlow } from "./idle.js";
 import { restore, rollAnswer, snapshot } from "./loot.js";
 import { icon } from "./render.js";
 import { times, working } from "./xpline.js";
-import { noteStudy } from "../dlitime.js";
+import { deviceId, noteStudy } from "../dlitime.js";
+import { resolve, sameGame, stamp } from "./merge.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
 import { appOut } from "../appvolume.js";
 
@@ -46,25 +47,65 @@ export function getGame() {
   return game;
 }
 
-/** Another device saved a newer game: adopt it (in place, so screens holding the state see it). */
+/** Another copy of the game has come (another device's, through sync; the copy stored by another tab; the desktop
+ * server's answer to a save): if it has seen everything this one has, it replaces this one; if each has something
+ * the other hasn't, the two are combined and saved (merge.js). In place, so screens holding the state see it.
+ * Never "saved last wins": a copy that was behind wiped out the garden and the gyms beaten (fixed after v0.68.0). */
 function adopt(remote) {
-  if (!remote || !(remote.roster || remote.creature) || !game) return;
-  const theirs = (remote.xp || 0) > 0;
-  const mine = (game.xp || 0) > 0;
-  // The newer save wins, but an unplayed egg never replaces a game with progress.
-  if (theirs !== mine ? !theirs : (remote.updated_at || 0) <= (game.updated_at || 0)) return;
-  const next = normalize(JSON.parse(JSON.stringify(remote)));
+  if (!game || !remote) return;
+  const { keep, state } = resolve(game, remote);
+  if (keep === "mine") return;
+  const next = normalize(JSON.parse(JSON.stringify(state)));
   for (const k of Object.keys(game)) delete game[k];
   Object.assign(game, next);
   rollDay(game);
+  if (keep === "merged") saveGame();
   for (const fn of listeners) { try { fn({ type: "sync" }, game); } catch { /* ignore */ } }
 }
 if (typeof window !== "undefined") window.addEventListener("tamkeen:game", (e) => adopt(e.detail));
+/** Bring back an older copy of the game (Settings → Find an older game: game/oldgames-ui.js): it is combined with
+ * the game as it is now, so nothing earned since is lost. Returns {changed}: false when the game already had
+ * everything in that copy. */
+export function restoreGame(old) {
+  const g = getGame();
+  const { keep, state } = resolve(g, old);
+  if (keep === "mine") return { changed: false };
+  const next = normalize(JSON.parse(JSON.stringify(state)));
+  rollDay(next);
+  if (sameGame(next, JSON.parse(JSON.stringify(g)))) return { changed: false }; // (it brought nothing new)
+  for (const k of Object.keys(g)) delete g[k];
+  Object.assign(g, next);
+  rollDay(g);
+  saveGame();
+  for (const fn of listeners) { try { fn({ type: "sync" }, g); } catch { /* ignore */ } }
+  return { changed: true };
+}
+
+// Other tabs of the app in this browser hear each save at once, so two open tabs never play two copies apart.
+let tabs = null;
+try {
+  tabs = new BroadcastChannel("tamkeen-game");
+  tabs.onmessage = (e) => adopt(e.data);
+  if (tabs.unref) tabs.unref(); // (under Node, in the tests: an open channel must not keep the run from ending)
+} catch { /* no other tabs to tell */ }
+
+function store() {
+  clearTimeout(saveTimer);
+  saveTimer = 0;
+  saveSettings({ game_state: game })
+    // The desktop server merges what it is sent with what it already has (app/sync/gamemerge.py): take its answer.
+    .then((s) => { if (s && s.game_state) adopt(s.game_state); })
+    .catch(() => {});
+}
+// (A tab put away saves at once, so the tab or device used next starts from what was just played.)
+if (typeof document !== "undefined") document.addEventListener("visibilitychange", () => { if (document.hidden && saveTimer) store(); });
 
 export function saveGame() {
   game.updated_at = Date.now() / 1000;
+  stamp(game, deviceId()); // (what changed since the last save is this device's, and its count of saves moves on)
+  try { if (tabs) tabs.postMessage(JSON.parse(JSON.stringify(game))); } catch { /* the other tabs catch up when shown */ }
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(() => saveSettings({ game_state: game }).catch(() => {}), 1200);
+  saveTimer = setTimeout(store, 1200);
 }
 
 /** Be told whenever something is earned: fn(result, state). Returns a function that stops it. */

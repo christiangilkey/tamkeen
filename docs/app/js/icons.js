@@ -68,6 +68,11 @@ const PATHS = {
   bolt: `<path class="fill" d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/><path d="M13.2 3 5.5 13.6h5.3L9.9 21l7.6-10.6h-5.2z"/>`,
   target: `<circle class="fill" cx="10.5" cy="13.5" r="7.5"/><path d="M14.6 7.2a7.5 7.5 0 1 0 2.2 2.2"/><path d="M12.3 10.4a3.6 3.6 0 1 0 1.3 1.3"/>
     <path d="M10.5 13.5 17.6 6.4"/><path d="M17.6 6.4V3.5l2.9 2.9z"/>`,
+  // Tap words (components/tapswitch.js): a word in its box with the pointer on it; off, the same struck through.
+  tapword: `<rect class="fill" x="3" y="4.5" width="13.5" height="8" rx="2.4"/><rect x="3" y="4.5" width="13.5" height="8" rx="2.4"/>
+    <path d="M6.6 8.5h6.3"/><path d="M13.2 11.2l7 2.6-3 1.2-1.2 3z"/><path d="M17.2 15l2.8 2.8"/>`,
+  tapwordoff: `<rect x="3" y="4.5" width="13.5" height="8" rx="2.4"/>
+    <path d="M6.6 8.5h6.3"/><path d="M13.2 11.2l7 2.6-3 1.2-1.2 3z"/><path d="M3.5 3.5l17 17"/>`,
   // A day on the calendar ("Send to Google Calendar").
   calendar: `<rect class="fill" x="3.5" y="5" width="17" height="15.5" rx="2.6"/>
     <rect x="3.5" y="5" width="17" height="15.5" rx="2.6"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/>

@@ -9,16 +9,68 @@ import { FORM_KINDS, formFinish, formParticles, formPixels, formRows, formSweep,
 const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
 
-export function loadImage(file) {
-  if (!images.has(file)) {
-    images.set(file, new Promise((resolve) => {
+// Pictures that fail to load are tried again: on a phone's network, or when a battle asks for hundreds at once, a
+// few downloads can fail for a moment, and each used to stay blank until the app was reopened (the owner saw it on
+// learntamkeen.com, "especially with battles"). Waits between the tries (ms); the last goes round any cached failure.
+export const RETRY_MS = [600, 2000, 6000];
+export const AT_ONCE = 12;      // pictures downloading at the same time (the rest wait their turn)
+export const FORGET_MS = 20000; // a picture that failed every try is asked for afresh after this long
+let busy = 0;
+const waiting = [];
+const failedAt = new Map(); // file -> when it last failed every try
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/** One download of a picture, waiting its turn so only AT_ONCE run at a time. Resolves to the image or null. */
+function fetchImage(src) {
+  return new Promise((resolve) => {
+    const go = () => {
+      busy++;
       const img = new Image();
-      img.onload = () => resolve(img);
-      img.onerror = () => resolve(null); // a missing file leaves a gap rather than breaking the scene
-      img.src = ART + file;
-    }));
-  }
-  return images.get(file);
+      const done = (ok) => {
+        img.onload = img.onerror = null;
+        busy--;
+        if (waiting.length) waiting.shift()();
+        resolve(ok ? img : null);
+      };
+      img.onload = () => done(true);
+      img.onerror = () => done(false);
+      img.src = src;
+    };
+    if (busy < AT_ONCE) go(); else waiting.push(go);
+  });
+}
+
+/** A picture from game-art/ (cached: the same promise for the same file). Resolves to null only when every try
+ * failed, so a missing file leaves a gap rather than breaking the scene; it is tried afresh FORGET_MS later. */
+export function loadImage(file) {
+  const failed = failedAt.get(file);
+  if (images.has(file) && !(failed && Date.now() - failed > FORGET_MS)) return images.get(file);
+  failedAt.delete(file);
+  const p = (async () => {
+    for (let i = 0; i <= RETRY_MS.length; i++) {
+      if (i) await wait(RETRY_MS[i - 1]);
+      const img = await fetchImage(ART + file + (i === RETRY_MS.length ? `?retry=${Date.now()}` : ""));
+      if (img) return img;
+    }
+    failedAt.set(file, Date.now());
+    return null;
+  })();
+  images.set(file, p);
+  return p;
+}
+
+// The small pictures written straight into the page (icon(), move buttons, shop items) get the same tries: a
+// picture from game-art/ that fails to load is set to load again after a wait, up to RETRY_MS.length times.
+if (typeof document !== "undefined") {
+  document.addEventListener("error", (e) => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.src.startsWith(ART)) return;
+    const n = Number(img.dataset.artRetry || 0);
+    if (n >= RETRY_MS.length) return;
+    img.dataset.artRetry = String(n + 1);
+    const base = img.src.replace(/[?&]retry=\d+$/, "");
+    setTimeout(() => { if (img.isConnected) img.src = `${base}?retry=${Date.now()}`; }, RETRY_MS[n]);
+  }, true); // (error events don't bubble: caught on the way down)
 }
 
 /** The HTML for a small pixel-art picture from game-art/: icon("coin"), or a path such as icon("ui/pip_on", 8).

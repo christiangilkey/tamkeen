@@ -21,6 +21,7 @@ import { keepVoice } from "./cardvoice.js";
 import { cleanPayload, learningPayload, takeLearning } from "./learnlist.js";
 import { setStudyLanguage } from "./languages.js";
 import { SyncTimer, canSkip, hashText, libraryFingerprint, nudgeKey } from "./syncpace.js";
+import { resolve as resolveGame } from "./game/merge.js";
 
 const LIBRARY = "library.json.gz";
 const listeners = new Set();
@@ -37,14 +38,6 @@ function publish(patch) {
 // ---------- merge ----------
 const newer = (r, l) => (r.updated_at || 0) > (l.updated_at || 0);
 
-/** Should another device's saved game replace this one? The newer save wins, except that a game
- * nobody has played yet (a fresh install's egg) never replaces one with progress. */
-export function gameWins(theirs, mine) {
-  const a = (theirs.xp || 0) > 0;
-  const b = (mine.xp || 0) > 0;
-  if (a !== b) return a;
-  return (theirs.updated_at || 0) > (mine.updated_at || 0);
-}
 
 export function merge(remote) {
   let changed = 0;
@@ -121,13 +114,15 @@ export function merge(remote) {
     if (grew) mine.sort((a, b) => a[0] - b[0]);
   }
 
-  // The creature game: one saved state for the whole account; the most recently saved wins.
-  const game = remote.game;
-  const mine = settings.game_state;
-  if (game && (game.roster || game.creature) && (!mine || gameWins(game, mine))) {
-    settings.game_state = game;
+  // The creature game: one saved state for the whole account. A copy that has seen everything this one has
+  // replaces it; two copies played apart are combined, so a copy that was behind (a browser that wiped the web
+  // app's storage and started a new egg, a tab left open for days) never wipes out the garden or the gyms beaten
+  // (web/js/game/merge.js; until v0.68.0 the copy saved last won).
+  const game = resolveGame(settings.game_state, remote.game);
+  if (game.keep !== "mine") {
+    settings.game_state = game.state;
     kv.set("settings", { ...settings }).catch(console.error);
-    window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game }));
+    window.dispatchEvent(new CustomEvent("tamkeen:game", { detail: game.state }));
     changed++;
   }
 

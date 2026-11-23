@@ -4074,3 +4074,16 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .lsn-relink { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 4px 0 8px; }
 .lsn-relink p { margin: 0; flex: 1 1 260px; }
 .pending-audio { width: 100%; margin-bottom: 8px; }
+
+/* ---------- Find an older game (game/oldgames-ui.js): older copies of the creature game from Google Drive ---------- */
+.oldgames .og-row { display: grid; grid-template-columns: minmax(7em, auto) 1fr auto auto; align-items: center; gap: 6px 12px;
+  padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.oldgames .og-now { background: var(--surface-2); }
+.oldgames .og-row.more { border-color: var(--accent); }
+.oldgames .og-when { font-weight: 600; }
+.oldgames .og-more { color: var(--accent); font-size: 0.85em; font-weight: 600; }
+@media (max-width: 560px) { .oldgames .og-row { grid-template-columns: 1fr auto; } .oldgames .og-facts { grid-column: 1 / -1; grid-row: 2; } }
+.og-back { margin: 0; padding-inline-start: 1.2em; }
+.home-oldgame .og-hint { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; }
+.home-oldgame .og-hint-text { display: flex; flex-direction: column; gap: 2px; flex: 1 1 260px; }
+.home-oldgame .og-hint .row { display: flex; gap: 8px; }
