@@ -7895,6 +7895,31 @@
   "f": "web/js/components/lessonview.js"
  },
  {
+  "id": "51d15ed7",
+  "k": "✓ Saved to vocab",
+  "f": "web/js/components/lessonwords.js"
+ },
+ {
+  "id": "7031bbea",
+  "k": "★ Save to vocab",
+  "f": "web/js/components/lessonwords.js"
+ },
+ {
+  "id": "b32f1eb3",
+  "k": "📖 Define",
+  "f": "web/js/components/lessonwords.js"
+ },
+ {
+  "id": "010f9005",
+  "k": "⧉ Copy",
+  "f": "web/js/components/lessonwords.js"
+ },
+ {
+  "id": "8e3df45a",
+  "k": "Copied",
+  "f": "web/js/components/lessonwords.js"
+ },
+ {
   "id": "30dced67",
   "k": "Open-source licenses",
   "f": "web/js/components/licenses.js"
@@ -22625,11 +22650,6 @@
   "f": "web/js/pages/about.js"
  },
  {
-  "id": "8e3df45a",
-  "k": "Copied",
-  "f": "web/js/pages/book.js"
- },
- {
   "id": "40137935",
   "k": "Back to My books",
   "f": "web/js/pages/book.js"
@@ -22642,26 +22662,6 @@
  {
   "id": "118f9b2b",
   "k": "Larger text",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "51d15ed7",
-  "k": "✓ Saved to vocab",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "7031bbea",
-  "k": "★ Save to vocab",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "b32f1eb3",
-  "k": "📖 Define",
-  "f": "web/js/pages/book.js"
- },
- {
-  "id": "010f9005",
-  "k": "⧉ Copy",
   "f": "web/js/pages/book.js"
  },
  {

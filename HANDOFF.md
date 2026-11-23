@@ -9445,6 +9445,21 @@ nothing changes (links aren't read, no spots, no bar, the waiting page as before
   gets an `<audio controls>` (play, pause, seek) on its waiting page, with "You can listen now; the transcript appears once it's
   transcribed." (videos already had one). Every audio kind: lesson tracks, My audio, podcasts not yet transcribed.
 
+**A lesson's words on its own page** (prototype `lesson_words`, 2026-11-23; the owner: "The read with word help shouldn't take you to a
+new screen, and right now it only encompasses the first passage of my document"): `components/lessonwords.js lessonWords(page, body, {lang,
+title, episodeId})` draws every passage block, question prompt and option text that `lessonview.js paintBody` lists in `slots` as `.w`
+words (`lessonwordlist.js lessonTokens`: split at spaces like a book, `regroupWords` for ja/zh/th; `wordsHtml`), numbered across the whole
+lesson, and gives them the reader's gestures (tap = popup, drag/hold = phrase, hold = known, right click = menu), `seenWords` purple (a piece
+at a time) and saving with `episode_id` = the passage episode and `source` = the lesson's title. `paint(slots)` runs on every paintBody (answers
+checked, text edited); the popup lives in `.lsn-view` (position: relative). The "Read with word help" link is gone with the prototype on; the
+Tap words switch sits in the Passage row instead. Tap words off toggles `plain-words` on `.lsn-body` itself and the handlers check it, NOT
+`plainWhenOff` (that stops every click in the root, so a sound spot's Play button would die). A word inside an option `preventDefault`s the
+label so it opens its popup instead of choosing (circle, letter and padding still choose; with Tap words off the whole option chooses). Old
+lessons need nothing: their passage episode is where the blocks are read from, and it stays. Not done: the game controller's word cursor on this
+page. Checked in the browser pane on fresh data (`words-desktop`, `words-phone` at 375 px): a three-passage lesson, a passage-3 word's popup,
+save (source kept), option word vs circle, Tap words off; the 100 Passages docx: 4,034 words on screen 134 ms after the import.
+Tests: `tests/js/lessonwords.test.mjs` (8).
+
 **Lessons made before v0.64.0** (2026-11-20, the owner's phone: "No audio in this lesson" on U9): spots are only made at import and
 the original file isn't kept (only its passage blocks), so an own lesson with no spots and no `linked` flag shows **Add the file
 again to find its sound links** (`lessonview.js relink`): the file is read again (links only, no OCR), and `lessons.js respot(rec,

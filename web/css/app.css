@@ -4073,6 +4073,14 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .lsn-missing { margin: 0; color: var(--warn); }
 .lsn-relink { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 4px 0 8px; }
 .lsn-relink p { margin: 0; flex: 1 1 260px; }
+/* A lesson's own words, tappable on its page (prototype lesson_words, components/lessonwords.js): like a page in the reader. */
+.lsn-view.lsn-words { position: relative; } /* (the word popup is placed in it) */
+.lsn-words .lsn-body .w { border-radius: 5px; cursor: pointer; padding: 0 .04em; transition: background-color .08s, color .35s; }
+.lsn-words .lsn-body .w:hover { background: var(--surface-2); }
+.lsn-words .lsn-body .w.cur { background: var(--hl); color: var(--hl-ink); }
+.lsn-words .lsn-body .w.new { color: var(--new-word); }
+.lsn-words .lsn-body .w.new.cur { color: var(--hl-ink); }
+.lsn-words .lsn-body.plain-words .w { cursor: text; }
 .pending-audio { width: 100%; margin-bottom: 8px; }
 
 /* ---------- Find an older game (game/oldgames-ui.js): older copies of the creature game from Google Drive ---------- */
