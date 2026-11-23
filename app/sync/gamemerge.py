@@ -134,6 +134,26 @@ def _max_numbers(a: Any, b: Any) -> dict[str, Any]:
     return _each(a, b, better)
 
 
+def _join_rounds(x: Any, y: Any) -> Any:
+    """Fishing's round (today's turns in the pond) from two copies: the later day's; the same day's are joined, so
+    a word answered right on either has had its turn, and one missed on either still waits (as merge.js joinRounds)."""
+    if x is None or y is None:
+        return x if x is not None else y
+    dx = x.get("day") if isinstance(x.get("day"), str) else ""
+    dy = y.get("day") if isinstance(y.get("day"), str) else ""
+    if dx != dy:
+        return y if dy > dx else x
+    miss: dict[str, dict[str, Any]] = {}
+    for m in (x.get("miss") if isinstance(x.get("miss"), list) else []) + (y.get("miss") if isinstance(y.get("miss"), list) else []):
+        if not isinstance(m, dict) or not isinstance(m.get("u"), str):
+            continue
+        had = miss.get(m["u"]) or {}
+        miss[m["u"]] = {"u": m["u"], "c": _clean(max(_num(had.get("c")), _num(m.get("c")))),
+                        "at": _clean(max(_num(had.get("at")), _num(m.get("at"))))}
+    done = [u for u in _union(x.get("done"), y.get("done")) if isinstance(u, str) and u not in miss]
+    return {"day": dx, "n": _clean(max(_num(x.get("n")), _num(y.get("n")))), "done": done, "miss": list(miss.values())}
+
+
 def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     mine, theirs = settle(copy.deepcopy(mine)), settle(copy.deepcopy(theirs))
     theirs_first = _num(theirs.get("xp")) > _num(mine.get("xp")) or (
@@ -226,5 +246,10 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     out["reading"] = _each(a.get("reading"), b.get("reading"), lambda x, y: x)
     fa, fb = _obj(a.get("finished")) or {}, _obj(b.get("finished")) or {}
     out["finished"] = {**fa, **{k: _union(fa.get(k), fb.get(k)) for k in set(fa) | set(fb)}}
+    fish_a, fish_b = _obj(a.get("fishing")), _obj(b.get("fishing"))
+    if fish_a is not None and fish_b is not None:
+        rnd = _join_rounds(_obj(fish_a.get("round")), _obj(fish_b.get("round")))
+        if rnd is not None:
+            fish_a["round"] = rnd
     out["updated_at"] = max(_num(a.get("updated_at")), _num(b.get("updated_at")))
     return out

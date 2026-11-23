@@ -9783,3 +9783,27 @@ pics of the words card from openverse which the user can change at any time".
   picker's results grid wasn't seen live (its code path is tested in tests/js/cardpicture.test.mjs with a stand-in).
 - **Release**: `released: true`, add a whatis-special.md bullet; the FINDS entry has `prototype: "card_pictures"`
   (settingsui.js findsFor now hides a prototype's setting from Settings' search) and can drop it.
+
+## Fishing: every word gets its turn (2026-11-23; the fishing chat, a bug fix)
+The owner: "the pond shows the same words on a loop even with a folder picked. It should go through all the words in
+the folder." Three causes: only 12 shadows in one fixed order (boss, often missed, ...), with a missed word due again
+the same day, so the same hard words led for ever; the pond kept who had been answered in memory only, so leaving it
+started again; and a folder under 20 words was dropped for the newest 100.
+- **The round** (`fishing.js`, saved as `state.fishing.round = {day, n, done: [ids], miss: [{u, c, at}]}`): `done` =
+  answered right today (out of the water until every word of the set has had a turn), `miss` = answered wrong, with
+  the turn it may come back at (`MISS_WAIT` 3 other fish, doubling each further miss up to 24). `roundOf` (a new day
+  starts a new round), `turnTaken`, `pondShadows(..., {round})` (ready missed words first, at most `MISSED_AT_ONCE` 3,
+  then words with no turn yet, due ones before the rest; only missed left: they come at once) and `nextShadows`,
+  which starts the round again for the set's words once all have had a turn. The pond screen keeps no list of its
+  own now. The due count and the luck of due and hard words are unchanged. Practice (nothing due) goes through the
+  whole set the same way.
+- **A folder of any size**: `fishing.pondWords` asks `rules.battleWordsFor(vocab, state, {min: 1})` for a folder
+  choice (battles keep `MIN_SET` 20), falling back to the usual words when the folder can't make a question (four
+  different meanings).
+- **Two devices**: `merge.js joinRounds` / `gamemerge.py _join_rounds`: the later day's round; the same day's are
+  joined (done from both, a word missed on either still waits). Two cases in `tests/fixtures/game_merge.json`, run
+  through both. The rest of `fishing` is still the base copy's when two copies are combined.
+- Tests: `tests/js/fishing.test.mjs` (8 new: the loop, leaving and coming back, missed words first but not for
+  ever, a small folder, practice). Played in a real window on a new data folder never signed in: a 7-word folder,
+  3 caught, app reloaded, 4 left, a miss that came back, then a new round. Picture:
+  `../tamkeen-shots/fishing/pond-round-fix.png`.

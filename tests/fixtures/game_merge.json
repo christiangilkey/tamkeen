@@ -134,6 +134,25 @@
       "theirs": {"xp": 10, "updated_at": 5, "roster": [{"seed": 1}]},
       "keep": "theirs",
       "expect": {"xp": 10}
+    },
+    {
+      "name": "fishing on two devices the same day: a word answered on either has had its turn, a missed one still waits",
+      "mine": {"xp": 50, "updated_at": 50, "clock": {"a": 3}, "roster": [{"seed": 1, "growth": 0.3}],
+        "fishing": {"caught": 4, "round": {"day": "2026-11-23", "n": 5, "done": ["w1", "w2", "w3"], "miss": [{"u": "w9", "c": 1, "at": 8}]}}},
+      "theirs": {"xp": 20, "updated_at": 20, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.3}],
+        "fishing": {"caught": 2, "round": {"day": "2026-11-23", "n": 3, "done": ["w3", "w4", "w9"], "miss": [{"u": "w2", "c": 2, "at": 4}]}}},
+      "keep": "merged",
+      "expect": {"fishing.round.day": "2026-11-23", "fishing.round.n": 5, "fishing.round.done": ["w1", "w3", "w4"],
+        "fishing.round.miss": [{"u": "w9", "c": 1, "at": 8}, {"u": "w2", "c": 2, "at": 4}], "fishing.caught": 4}
+    },
+    {
+      "name": "fishing on two devices on different days: the later day's round is the one kept",
+      "mine": {"xp": 50, "updated_at": 50, "clock": {"a": 3}, "roster": [{"seed": 1, "growth": 0.3}],
+        "fishing": {"caught": 4, "round": {"day": "2026-11-22", "n": 9, "done": ["w1", "w2"], "miss": []}}},
+      "theirs": {"xp": 20, "updated_at": 20, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.3}],
+        "fishing": {"caught": 2, "round": {"day": "2026-11-23", "n": 2, "done": ["w7"], "miss": [{"u": "w8", "c": 1, "at": 5}]}}},
+      "keep": "merged",
+      "expect": {"fishing.round.day": "2026-11-23", "fishing.round.done": ["w7"], "fishing.round.miss": [{"u": "w8", "c": 1, "at": 5}]}
     }
   ]
 }

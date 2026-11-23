@@ -14,7 +14,7 @@ import { TIER_COUNT, PEARLS } from "../../web/js/game/fishdata.js";
 import { existsSync, readFileSync } from "node:fs";
 import {
   BAG_SIZE, CATCH_FULL, DEX_TOTAL, TANK_SIZE, buyRod, canFish, catchBoard, classify, cleanFishing, dexCount, dexHas, escape, escapedIn,
-  feedFish, fightLength, fishingOf, fromTank, hook, land, lengthOf, luckOf, pondNeed, pondShadows, publicAquarium, questionFor, record, sell,
+  MISSED_AT_ONCE, MISS_WAIT, cleanRound, nextShadows, pondWords, roundOf, turnTaken, feedFish, fightLength, fishingOf, fromTank, hook, land, lengthOf, luckOf, pondNeed, pondShadows, publicAquarium, questionFor, record, sell,
   sellCommon, tierOfRoll, toTank,
 } from "../../web/js/game/fishing.js";
 
@@ -402,7 +402,8 @@ test("the pond fishes the game's word choice, the same words as battles", async 
   assert.ok(fish.every((uid) => Number(uid.slice(1)) < 22), "only the folder's words swim");
   const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
   const ui = src("fishing-ui.js");
-  assert.match(ui, /vocab: battleWordsFor\(vocab, game\)/, "loadWords hands the pond the game's word choice");
+  assert.match(ui, /vocab: pondWords\(vocab, game\)/, "the pond's words are the game's word choice");
+  assert.match(src("fishing.js"), /battleWordsFor\(vocab, state/, "which is the battles' own");
   assert.match(ui, /loadWords\(game\), battleDictionary\(\)/);
   // One place to choose them (the owner, 2026-11-17: "the words folder picker should be here as a button"): the Words
   // tile on the games home, not a copy in the Battle and Fishing screens.
@@ -415,4 +416,138 @@ test("the pond fishes the game's word choice, the same words as battles", async 
   const battleUi = src("battle-ui.js");
   assert.doesNotMatch(battleUi, /wordsBlock/, "nor the Battle screen");
   assert.match(battleUi, /export function openWordChoice[\s\S]*?wordModePicker\(game, changed/, "the box holds the one picker");
+});
+
+// ---------- every word gets its turn (the owner: "the pond shows the same words on a loop even with a folder picked") ----------
+
+/** `n` words, all in folder "f1" unless `folder` says otherwise. */
+const wordList = (n, folder = () => ["f1"]) => Array.from({ length: n }, (_, i) => ({ uid: `m${i}`, text: `كلمة${i}`, meaning: `meaning ${i}`, created_at: i, folders: folder(i) }));
+/** Fish the pond the way the screen does: take the first shadow, answer it (`right(uid)`), record it, and again. */
+function fishOn(s, words, right, turns, now = T0, seen = []) {
+  for (let i = 0; i < turns; i++) {
+    const res = nextShadows(s, words, { now });
+    if (!res.shadows.length) break;
+    const uid = res.shadows[0].uid;
+    const ok = right(uid);
+    record(s, { uid, correct: ok, ms: 3000, due: res.shadows[0].due, extra: res.shadows[0].extra, luck: 1 }, () => 0.9, now, () => ({ rolled: false }));
+    turnTaken(s, uid, ok, now);
+    seen.push(uid);
+  }
+  return seen;
+}
+
+test("the loop is gone: 40 words, 12 shadows, and every word has its turn before any answered right comes back", () => {
+  const s = hatched();
+  const words = wordList(40);
+  const seen = fishOn(s, words, () => true, 40);
+  assert.equal(new Set(seen).size, 40, "40 casts, 40 different words");
+  // (before the fix the first shadow was the same word for ever once it was missed, and the same dozen otherwise)
+  const again = fishOn(s, words, () => true, 5);
+  assert.equal(again.length, 5, "then the round starts again: the pond is never empty");
+});
+
+test("leaving the pond and coming back carries on: the round is in the saved game, for the day", () => {
+  const s = hatched();
+  const words = wordList(30);
+  const first = fishOn(s, words, () => true, 10);
+  // closing the pond, the app, another device: only the saved game survives
+  const back = normalize(JSON.parse(JSON.stringify(s)));
+  assert.deepEqual(roundOf(back, T0).done, first);
+  const next = fishOn(back, words, () => true, 20);
+  assert.equal(new Set([...first, ...next]).size, 30, "the 20 that hadn't had their turn, none of the 10 that had");
+  // a new day starts a new round
+  assert.deepEqual(roundOf(back, new Date("2026-11-11T09:00:00")).done, []);
+});
+
+test("a missed word comes back ahead of new ones, after a few other fish, and can't keep the rest from their turn", () => {
+  const s = hatched();
+  const words = wordList(30);
+  const bad = new Set(["m3", "m7"]); // two words this learner always misses
+  const seen = fishOn(s, words, (uid) => !bad.has(uid), 60);
+  // every other word had its turn...
+  assert.equal(new Set(seen.filter((u) => !bad.has(u))).size, 28);
+  // ...and while other words were still waiting for theirs, a missed one came back only after other fish
+  const others = new Set();
+  const allSeenAt = seen.findIndex((u) => { if (!bad.has(u)) others.add(u); return others.size === 28; });
+  assert.ok(allSeenAt > 0 && allSeenAt <= 40, `the 28 others had their turn within 40 casts (${allSeenAt + 1})`);
+  for (const u of bad) {
+    const at = seen.map((x, i) => (x === u ? i : -1)).filter((i) => i >= 0);
+    assert.ok(at.length >= 2, `${u} came back`);
+    for (let i = 1; i < at.length && at[i] <= allSeenAt; i++) assert.ok(at[i] - at[i - 1] > MISS_WAIT, `${u} waited for other fish: ${at}`);
+    assert.ok(at[1] <= allSeenAt, `${u} came back before the new words ran out`);
+  }
+  // a missed word whose wait is over swims ahead of words never asked
+  const t = hatched();
+  turnTaken(t, "m5", false, T0);
+  record(t, { uid: "m5", correct: false, ms: 3000, due: true, luck: 1 }, () => 0.9, T0, () => ({ rolled: false }));
+  for (const u of ["m0", "m1", "m2"]) turnTaken(t, u, true, T0);
+  assert.equal(nextShadows(t, words, { now: T0 }).shadows[0].uid, "m5");
+  // and at most MISSED_AT_ONCE missed words are in the water at once
+  const many = hatched();
+  for (let i = 0; i < 10; i++) turnTaken(many, `m${i}`, false, T0);
+  for (let i = 0; i < 40; i++) turnTaken(many, "x", true, T0); // (time passes: all ten may come back)
+  const water = nextShadows(many, words, { now: T0 }).shadows.map((x) => x.uid);
+  assert.equal(water.filter((u) => Number(u.slice(1)) < 10).length, MISSED_AT_ONCE);
+  assert.ok(water.length > MISSED_AT_ONCE, "the rest of the water is words that haven't had their turn");
+});
+
+test("only missed words left: they come without more waiting, and a round of nothing but misses never empties the pond", () => {
+  const s = hatched();
+  const words = wordList(6);
+  const seen = fishOn(s, words, () => false, 20);
+  assert.equal(seen.length, 20);
+  assert.equal(new Set(seen).size, 6);
+});
+
+test("practice (nothing due) goes through the whole set too, not the same six", () => {
+  const s = hatched();
+  const words = wordList(25);
+  for (let i = 0; i < 25; i++) s.review[`m${i}`] = [3, TODAY + 3 + i, 3, 0];
+  assert.equal(nextShadows(s, words, { now: T0 }).practice, true);
+  const seen = fishOn(s, words, () => true, 25);
+  assert.equal(new Set(seen).size, 25);
+});
+
+test("a picked folder is fished whatever its size (battles still need 20); too few meanings to ask: the usual words", async () => {
+  const { battleWordsFor, setBattlePicks, MIN_SET } = await import("../../web/js/game/rules.js");
+  const s = hatched();
+  const words = wordList(40, (i) => (i < 7 ? ["f1"] : i < 9 ? ["tiny"] : []));
+  s.battleMode = "folder";
+  setBattlePicks(s, ["f1"]);
+  assert.equal(MIN_SET, 20);
+  assert.equal(battleWordsFor(words, s).length, 40, "a battle falls back to the newest words");
+  const pond = pondWords(words, s);
+  assert.deepEqual(pond.map((v) => v.uid).sort(), ["m0", "m1", "m2", "m3", "m4", "m5", "m6"], "the pond fishes the folder's seven");
+  const seen = fishOn(s, pond, () => true, 14);
+  assert.equal(new Set(seen).size, 7, "all seven, then round again");
+  assert.ok(seen.every((u) => Number(u.slice(1)) < 7));
+  // every question can be asked from the folder alone
+  assert.ok(questionFor(s, pond, "m2", { rand: rng(4), now: T0 }));
+  // two words can't make four choices: the usual words instead
+  setBattlePicks(s, ["tiny"]);
+  assert.equal(pondWords(words, s).length, 40);
+  // and other word choices are the battles' own
+  s.battleMode = "last100";
+  assert.deepEqual(pondWords(words, s), battleWordsFor(words, s));
+});
+
+test("the due count and the luck of due and hard words are as they were", () => {
+  const s = hatched();
+  const words = wordList(30);
+  s.review.m1 = [0, TODAY - 2, 1, 3];
+  for (let i = 20; i < 30; i++) s.review[`m${i}`] = [3, TODAY + 5, 3, 0];
+  const plain = pondShadows(s, words, { now: T0 });
+  const round = nextShadows(s, words, { now: T0 });
+  assert.equal(round.due, plain.due);
+  assert.equal(round.due, 20);
+  assert.deepEqual(round.shadows.map((x) => [x.uid, x.cls, x.luck]), plain.shadows.map((x) => [x.uid, x.cls, x.luck]), "an untouched round is the old order");
+  assert.equal(round.shadows[0].uid, "m1");
+  assert.equal(round.shadows[0].cls, "l");
+});
+
+test("a saved round is checked: only word ids, a missed word is not also done", () => {
+  const r = cleanRound({ day: "2026-11-10T00", n: "7", done: ["a", 5, "", "b", "a", "x".repeat(99)], miss: [{ u: "b", c: 2, at: 9 }, { u: 3 }, null, "z"] });
+  assert.deepEqual(r, { day: "2026-11-10", n: 7, done: ["a"], miss: [{ u: "b", c: 2, at: 9 }] });
+  assert.deepEqual(cleanRound("nope"), { day: "", n: 0, done: [], miss: [] });
+  assert.deepEqual(cleanFishing({}).round, { day: "", n: 0, done: [], miss: [] });
 });

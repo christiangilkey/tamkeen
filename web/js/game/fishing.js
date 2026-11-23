@@ -18,7 +18,7 @@
 // been read doesn't roll (loot.js decides: a Common is all it lands), and a wrong one makes the creature re-bait.
 
 import { FISH, FISH_ART, HARD_LUCK, HOME_LUCK, PEARLS, PONDS, RODS, SELL, SHADOWS, TANKS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
-import { answerQuestion, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
+import { answerQuestion, battleWordsFor, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
 import { rng } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { feed } from "./idle.js";
@@ -54,6 +54,7 @@ const blank = () => ({
   week: { n: 0, best: null },   // this week's biggest catch {sp, t, cm}
   escaped: null,         // the big one that got away today: {day, pond, sp, t}
   day: { key: "", n: 0 },       // catches today (selling price fades after CATCH_FULL)
+  round: { day: "", n: 0, done: [], miss: [] }, // today's turns in the pond: who has had one, who was missed (roundOf)
 });
 
 /** A fish as saved: {sp, t, cm} (and `w` in the basket), or null when it isn't one the game has. */
@@ -83,7 +84,61 @@ export function cleanFishing(v) {
     f.escaped = { day: v.escaped.day.slice(0, 10), pond: pondById(v.escaped.pond).id, sp: v.escaped.sp, t: int(v.escaped.t, 0, TIERS_N - 1, 0) };
   }
   if (isObj(v.day) && typeof v.day.key === "string") f.day = { key: v.day.key.slice(0, 10), n: int(v.day.n, 0, 1e6, 0) };
+  f.round = cleanRound(v.round);
   return f;
+}
+
+// ---------- the round: every word gets its turn ----------
+// The pond used to forget who had been asked as soon as it was closed, and always put the same words first (boss,
+// then often missed...), so with more words than shadows the same dozen came round for ever. Now the saved game
+// remembers, for the day: `done`, the words answered right (out of the water until every word of the set has had its
+// turn), and `miss`, the words answered wrong, each with the turn it may come back at. A missed word comes back ahead
+// of words never asked, after MISS_WAIT other fish (twice as many each time it is missed again), and only
+// MISSED_AT_ONCE of them swim at once, so they can't crowd the rest out. It is saved with the game, so leaving the
+// pond, closing the app or picking up another device carries on where it was (merge.js joins two devices' rounds).
+export const ROUND_KEPT = 3000;     // words remembered as having had their turn
+export const MISS_WAIT = 3;         // a missed word comes back after this many other fish...
+export const MISS_WAIT_MAX = 24;    // ...twice as many each time it is missed again, up to this
+export const MISSED_AT_ONCE = 3;    // missed words back in the water at once
+
+/** state.fishing.round made safe: {day, n (turns taken today), done: [word ids], miss: [{u, c (times), at (turn)}]}. */
+export function cleanRound(v) {
+  const r = { day: "", n: 0, done: [], miss: [] };
+  if (!isObj(v)) return r;
+  const id = (u) => typeof u === "string" && u.length > 0 && u.length <= 64;
+  r.day = typeof v.day === "string" ? v.day.slice(0, 10) : "";
+  r.n = int(v.n, 0, 1e7, 0);
+  const miss = new Map();
+  for (const m of Array.isArray(v.miss) ? v.miss : []) if (isObj(m) && id(m.u)) miss.set(m.u, { u: m.u, c: int(m.c, 1, 99, 1), at: int(m.at, 0, 1e7, 0) });
+  r.miss = [...miss.values()].slice(-ROUND_KEPT);
+  r.done = [...new Set((Array.isArray(v.done) ? v.done : []).filter(id))].filter((u) => !miss.has(u)).slice(-ROUND_KEPT);
+  return r;
+}
+
+/** Today's round (a new day starts a new one). */
+export function roundOf(state, now = new Date()) {
+  const f = fishingOf(state);
+  if (!isObj(f.round) || !Array.isArray(f.round.done) || !Array.isArray(f.round.miss)) f.round = cleanRound(f.round);
+  if (f.round.day !== dayKey(now)) f.round = { day: dayKey(now), n: 0, done: [], miss: [] };
+  return f.round;
+}
+
+/** Word `uid` has had a turn: answered right, it is out of the water for the rest of the round; answered wrong, it
+ * waits and comes back after a few other fish (longer each time). Returns the round. */
+export function turnTaken(state, uid, correct, now = new Date()) {
+  const r = roundOf(state, now);
+  uid = String(uid);
+  r.n++;
+  const i = r.miss.findIndex((m) => m.u === uid);
+  const times = i >= 0 ? r.miss[i].c : 0;
+  if (i >= 0) r.miss.splice(i, 1);
+  r.done = r.done.filter((u) => u !== uid);
+  if (correct) r.done.push(uid);
+  else r.miss.push({ u: uid, c: times + 1, at: r.n + Math.min(MISS_WAIT_MAX, MISS_WAIT * 2 ** times) });
+  if (r.done.length > ROUND_KEPT) r.done.splice(0, r.done.length - ROUND_KEPT);
+  if (r.miss.length > ROUND_KEPT) r.miss.splice(0, r.miss.length - ROUND_KEPT);
+  state.updated_at = now.getTime() / 1000;
+  return r;
 }
 
 const cleaned = new WeakSet();
@@ -158,8 +213,13 @@ const ORDER = { boss: 0, l: 1, m: 2, s: 3 };
  * MAX_SHADOWS; among equals the longest overdue, then words never asked), or once nothing is due PRACTICE_SHADOWS
  * practice ones (the words that come due soonest). Each shadow:
  * {uid, cls, due, extra, hard, sp (its fish), luck}. `skip`: word ids not to put in the water (already out of it).
+ *
+ * With `round` (the saved round: roundOf) every word gets its turn: missed words whose wait is over come first (at
+ * most MISSED_AT_ONCE of them), then the words that haven't had a turn this round, the due ones before the rest, in
+ * the order above; words answered right stay out. With nothing left but missed words still waiting, they come now.
+ * `lap` is true when every word of the set has had its turn (nextShadows then starts the round again).
  */
-export function pondShadows(state, vocab, { pond = "tide", now = new Date(), flashDue = null, boss = () => false, skip = null } = {}) {
+export function pondShadows(state, vocab, { pond = "tide", now = new Date(), flashDue = null, boss = () => false, skip = null, round = null } = {}) {
   const today = dayNumber(now);
   const words = quizzable(vocab).filter(askable);
   const base = luckOf(state, pond);
@@ -171,6 +231,23 @@ export function pondShadows(state, vocab, { pond = "tide", now = new Date(), fla
              luck: Math.round(base * (w.hard ? HARD_LUCK : 1) * 1000) / 1000 };
   };
   const free = (w) => !(skip && skip.has(uidOf(w.v)));
+  if (round) {
+    const done = new Set(round.done);
+    const waiting = new Map(round.miss.map((m) => [m.u, m]));
+    const inSet = all.filter(free);
+    const byTurn = (a, b) => waiting.get(uidOf(a.v)).at - waiting.get(uidOf(b.v)).at;
+    const missed = inSet.filter((w) => waiting.has(uidOf(w.v))).sort(byTurn);
+    const back = missed.filter((w) => waiting.get(uidOf(w.v)).at <= round.n);
+    const fresh = inSet.filter((w) => !done.has(uidOf(w.v)) && !waiting.has(uidOf(w.v)));
+    const freshDue = fresh.filter((w) => w.due).sort((a, b) => ORDER[a.cls] - ORDER[b.cls] || a.rank - b.rank || dueSince(state, a.v) - dueSince(state, b.v)
+      || seedOf(uidOf(a.v), today) - seedOf(uidOf(b.v), today));
+    const rest = fresh.filter((w) => !w.due).sort((a, b) => dueSince(state, a.v) - dueSince(state, b.v) || (seedOf(uidOf(a.v), today) - seedOf(uidOf(b.v), today)));
+    const pool = freshDue.length ? freshDue : rest;
+    const room = freshDue.length ? MAX_SHADOWS : PRACTICE_SHADOWS;
+    let pick = [...back.slice(0, MISSED_AT_ONCE), ...pool].slice(0, room);
+    if (!pick.length) pick = missed.slice(0, MISSED_AT_ONCE); // (only missed words are left: no more waiting)
+    return { due: due.length, practice: !due.length, shadows: pick.map(out), lap: !pick.length && inSet.length > 0, left: fresh.length + missed.length };
+  }
   if (due.length) {
     const list = due.filter(free).sort((a, b) => ORDER[a.cls] - ORDER[b.cls] || a.rank - b.rank || dueSince(state, a.v) - dueSince(state, b.v)
       || seedOf(uidOf(a.v), today) - seedOf(uidOf(b.v), today));
@@ -185,6 +262,34 @@ const dueSince = (state, v) => { const r = state.review && state.review[uidOf(v)
 
 /** Can the pond ask questions at all (pickQuestion needs four different meanings)? */
 export const canFish = (state, vocab) => quizzable(vocab).some(askable) && !!pickQuestion(state, vocab, () => 0.5);
+
+/**
+ * What swims now, by today's saved round (roundOf): pondShadows with the round, and when every word of the set has
+ * had its turn the round starts again for those words (the ones answered right may come back). Changes the saved
+ * round only then; `newLap` says so.
+ */
+export function nextShadows(state, vocab, opts = {}) {
+  const now = opts.now || new Date();
+  const round = roundOf(state, now);
+  let res = pondShadows(state, vocab, { ...opts, now, round });
+  if (res.lap) {
+    const set = new Set(quizzable(vocab).map(uidOf));
+    round.done = round.done.filter((u) => !set.has(u));
+    res = { ...pondShadows(state, vocab, { ...opts, now, round }), newLap: true };
+  }
+  return res;
+}
+
+/**
+ * The words the pond asks: the game's word choice, as battles (rules.battleWordsFor), except that picked folders are
+ * used whatever their size (the owner: "It should go through all the words in the folder"; battles need MIN_SET), as
+ * long as they can be asked at all (four different meanings); if not, the usual words.
+ */
+export function pondWords(vocab, state) {
+  if (state.battleMode !== "folder") return battleWordsFor(vocab, state);
+  const set = battleWordsFor(vocab, state, { min: 1 });
+  return canFish(state, set) ? set : battleWordsFor(vocab, state);
+}
 
 /**
  * The card for shadow `uid`: the meaning, and four words to choose from (rules.pickQuestion, exactly as battles ask),
