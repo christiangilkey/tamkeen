@@ -9724,3 +9724,47 @@ asking the owner: that is what the light way rules out.
   sample markup), that the panel clears the player's own buttons (TOP/BOTTOM in content/prime.js), full screen, the
   title id from the address on primevideo.com vs amazon.com/gp/video, and Arabic's language label. Release: set
   `prime_video` released, CHANGELOG + whatis-special, and rebuild docs/extension (webapp/build-web.mjs).
+
+## Pictures on the backs of flashcards (2026-11-23; prototype `card_pictures`, commit 1d42a393)
+Owner: "add the ability for users to add images to the back of their cards … a clickable option to automatically add
+pics of the words card from openverse which the user can change at any time".
+- **Where**: the back of a review card (`.rv-pic`, pages/review.js) and a word opened on the Vocab page (`.vi-pic`,
+  components/wordeditor.js), both drawn by `components/cardpic.js cardPicture` (a picture + "Photo: name · CC BY 2.0"
+  linked to the source; or a small "Add picture"). A tap opens `openPicturePicker`: Openverse results for
+  `searchQuery(meaning)` (first sense, no "to"/"a"), a search box, More pictures, Take a photo / Choose a photo
+  (touch devices, `capture="environment"`) or Use my own picture (computer), Remove picture. Settings → Card voices →
+  "Pictures on cards" (`components/picturesettings.js`): "Add a picture to new cards" (localStorage `tk_pic_auto`,
+  per device; both shells' `api()` hand every POST /vocab and /vocab/batch answer to `picturebatch.js cardsSaved`)
+  and "Add pictures to my cards"; the Vocab ⋯ menu has "Add pictures" (the cards shown).
+- **Openverse terms** (docs.openverse.org/terms_of_service.html, read 2026-11-23): anonymous use allowed within its
+  limits (headers: 20 searches/min, 200/day, 1000 thumbnails/day per requester); a key ("standard" tier) is optional
+  and would be no secret in an app, so none. Each device asks Openverse itself: it sends
+  `Access-Control-Allow-Origin: *` (checked), so the web app needs no Cloudflare go-between (that would also pool every
+  web user on a few addresses, which the terms' "multiple machines" rule is about). No scraping: one search per card's
+  meaning, one thumbnail downloaded for the picture chosen. Credit kept and shown (CC BY). The terms ask apps to say
+  "made using Openverse but not endorsed or certified by Openverse": `NOTICE`, in the picker and Settings. **Section 5:
+  Openverse reserves the right to charge fees for commercial use**: nothing to pay now; worth asking them before
+  Tamkeen becomes paid. Only cc0, pdm, by, by-sa (the search sends `license=` exactly: `license_type=commercial` lets
+  ND through), checked again on every result and every synced picture (`cardpicture.js cleanMeta`, `app/pictures.py clean`).
+- **Gently**: "Add pictures" goes one card every 4 s (`BATCH_GAP_MS`), at most 150 searches a day per device
+  (`BATCH_DAY_CAP`, localStorage `tk_openverse_day`), and stops on 429, offline or Openverse down (5xx / 20 s timeout /
+  a refused request while online: Openverse's error pages carry no CORS header, so a page sees them as failures). A card
+  searched with nothing found isn't searched again on that device (`tk_pic_tried`).
+- **Storage/sync**: a small JPEG made on the page (`shrinkPicture`, 360 px, q 0.75, ~5-25 KB). The card keeps only
+  `picture` (JSON: `v` version + credit; new vocab column, in the snapshot, merged with COALESCE so an older app keeps it,
+  `pictures.stored` keeps another device's text exactly so libraries compare equal). The file: desktop
+  `pictures/<uid>_<v>.jpg`, phone/web IndexedDB "audio" store `pic:p_<uid>_<v>.jpg`, Drive `p_<uid>_<v>.jpg`
+  (engine.py `upload_pictures` / `fetch_pictures` (300 a sync) / `remove_old_pictures` (unreferenced and over a day old);
+  sync.js `uploadPendingPictures` (`pending_pictures`) / `prefetchPictures` (100 a sync)). The phone never deletes
+  Drive files (its drive.js has no delete): a phone-only user's replaced pictures stay in Drive (~20 KB each).
+- **Anki**: the .apkg puts `<img src="tk-<uid>-p-<v>.jpg">` + the credit in the note type's `image` field (the field
+  was always written empty; Anki keeps its own copy of notes it already has, so only new notes get it). The two-way
+  Anki / AnkiDroid syncs don't touch it (they'd overwrite what the learner typed there).
+- **Checked**: 2147 JS, 768 pytest. Browser pane on a fresh, never-signed-in data folder (launch `cardpics-desktop`,
+  port 8981) and the phone build (`cardpics-phone`, 8982): Openverse thumbnail fetched, shrunk (15 KB) and shown with
+  its credit on the Vocab card and the review back; picker over the review card (keys 1/2 don't answer under it:
+  review.js now ignores keys while a `.modal-back` is open); Remove; own picture (2.5 MB PNG → 4.7 KB); Settings batch
+  stops politely with Openverse down. Openverse's search endpoint was down (504/500) during the whole test, so the
+  picker's results grid wasn't seen live (its code path is tested in tests/js/cardpicture.test.mjs with a stand-in).
+- **Release**: `released: true`, add a whatis-special.md bullet; the FINDS entry has `prototype: "card_pictures"`
+  (settingsui.js findsFor now hides a prototype's setting from Settings' search) and can drop it.
