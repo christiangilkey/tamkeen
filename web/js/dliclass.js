@@ -23,8 +23,9 @@ import * as social from "./social.js";
 import { onlineStatus } from "./agegate.js";
 import { dliState } from "./dli.js";
 import { hasStudyLanguage, studyLanguage } from "./languages.js";
+import { feature } from "./prototype.js";
 import { dayNumber } from "./review/fsrs.js";
-import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanAdded, cleanStudents, cleanTeachers, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanAdded, cleanAnswer, cleanInvited, cleanInvites, cleanPeople, cleanPosts, cleanStudents, cleanTeachers, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
 import { dayMask, deviceId, timeLog, weekTime } from "./dlitime.js";
 
 export { CLASS_NAME_MAX, NAME_MAX, spaced } from "./dliweeks.js";
@@ -85,6 +86,9 @@ const MESSAGES = {
   dli_not_teacher: "Enter your teacher code first.",
   dli_not_your_class: "That isn't one of your classes.",
   dli_cannot_drop: "Only a teacher who was in the class before them can take a teacher out.",
+  dli_agree_first: "Agree to show yourself to classmates first.",
+  dli_bad_post: "That couldn't be sent to the class.",
+  dli_post_limit: "You've sent 30 things today. Try again tomorrow.",
   dli_not_owner: "Only Tamkeen's owner can do that.",
   dli_class_limit: "You have 20 classes already. Delete one first.",
   dli_bad_week: "That week couldn't be saved.",
@@ -102,7 +106,7 @@ function problem(error) {
   const code = String((error && error.code) || "");
   const known = Object.keys(MESSAGES).find((k) => msg.includes(k));
   let out;
-  if (known) out = new Error(MESSAGES[known]);
+  if (known) { out = new Error(MESSAGES[known]); out.code = known; }
   else if (code === "PGRST202" || code === "42883" || /could not find the function/i.test(msg)) {
     out = new Error("DLI classes aren't switched on yet. Try again later.");
     out.notReady = true;
@@ -166,6 +170,7 @@ export async function refresh() {
     try { me = await agree(st.language); } catch { /* next time */ }
   }
   keepShare(me.student && user && me.student.agreed_version >= WORDING ? { user: user.id, ...me.student } : null);
+  keepRole(me);
   return { signedIn: true, me };
 }
 
@@ -209,6 +214,91 @@ export const renameClass = (id, name) => rpc("dli_rename_class", { class: id, na
 export const deleteClass = (id) => rpc("dli_delete_class", { class: id });
 export const removeStudent = (id, student) => rpc("dli_remove_student", { class: id, student });
 export const newCodes = async (id) => cleanCodes(await rpc("dli_new_codes", { class: id }));
+
+// The Class tab (supabase/v15-dli-class-tab.sql; prototype "class_tab"). Against a database without v15 these
+// throw an error whose `notReady` is true.
+/** The wording a student agrees to before classmates see them (their username and activity level). Not the app's
+ *  WORDING: agreeing to this one is a choice made in the Class tab, and nothing locks without it. */
+export const CLASSMATES_WORDING = 3;
+/** Invite a DLI student to one of my classes by username: { status, username }. */
+export const inviteStudent = async (id, username) => cleanAnswer(await rpc("dli_invite_student", { class: id, username: String(username || "").slice(0, 40) }));
+/** Who I invited and has not answered: [{ id, username, invited_at }]. */
+export const classInvited = async (id) => cleanInvited(await rpc("dli_class_invited", { class: id }));
+export const cancelInvite = (id, student) => rpc("dli_cancel_invite", { class: id, student });
+/** The invitations waiting for me: [{ class, name, teachers, invited_at }]. */
+export const myInvites = async () => cleanInvites(await rpc("dli_my_invites"));
+/** Accept or turn down an invitation: { status, id, name }. */
+export const answerInvite = async (id, accept) => cleanAnswer(await rpc("dli_answer_invite", { class: id, accept: !!accept }));
+/** A class's teachers and students as a classmate sees them: { teachers, students: [{ username, level, me }] }. */
+export const classmates = async (id) => cleanPeople(await rpc("dli_classmates", { class: id }));
+/** Agree that classmates see my username and activity level (my language and everything else stay as they are). */
+export async function agreeToClassmates() {
+  const share = shareInfo();
+  if (!share) throw new Error("Finish the sharing step in Settings → DLI students first.");
+  const me = cleanMe(await rpc("dli_agree", { language: share.language, wording: CLASSMATES_WORDING }));
+  const user = await social.currentUser();
+  if (me.student && user) keepShare({ user: user.id, ...me.student });
+  return me;
+}
+/** What was sent to a class, newest first. */
+export const classPosts = async (id) => cleanPosts(await rpc("dli_class_posts", { class: id }));
+const CLASS_BUCKET = "dli-class";
+/** Send one thing to a class. `item`: its fields (cleanPostItem's); `file`: its words, gzipped, or null.
+ *  Resolves to { id, withWords }. The files of posts that just expired are removed along the way. */
+export async function postToClass(id, item, file = null) {
+  const store = (await social.sb()).storage.from(CLASS_BUCKET);
+  let path = null;
+  if (file) {
+    path = `${id}/${crypto.randomUUID()}.gz`;
+    const up = await store.upload(path, file, { contentType: "application/gzip" });
+    if (up.error) path = null; // (sent without its words: each student's app can still fetch or make them)
+  }
+  let r;
+  try { r = (await rpc("dli_post", { class: id, item, path })) || {}; } catch (e) {
+    if (path) store.remove([path]).catch(() => {});
+    throw e;
+  }
+  const old = (Array.isArray(r.old) ? r.old : []).filter((p) => /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/.test(String(p)));
+  if (old.length) store.remove(old).catch(() => {});
+  return { id: String(r.id || ""), withWords: !!path };
+}
+/** The words that came with a post (a Blob, gzipped), or null. */
+export async function postFile(path) {
+  if (!path) return null;
+  const { data, error } = await (await social.sb()).storage.from(CLASS_BUCKET).download(path);
+  return error ? null : data;
+}
+/** A teacher takes a post back (its file goes too). */
+export async function deletePost(postId) {
+  const path = await rpc("dli_delete_post", { post: postId });
+  if (path) (await social.sb()).storage.from(CLASS_BUCKET).remove([String(path)]).catch(() => {});
+}
+
+// Who gets the Class tab on this device: a student who shares, or a teacher (kept from the last answer of the
+// online service, so the tab is there at once on opening the app). `tamkeenDliRole`: "teacher" or "".
+const ROLE_KEY = "tamkeenDliRole";
+const CLASSES_KEY = "tamkeenDliTeaches"; // [{ id, name }]: my classes as a teacher, for "Send to a class"
+export const isTeacherHere = () => read(ROLE_KEY) === "teacher";
+/** My classes as a teacher, as last heard: [{ id, name }]. */
+export function teacherClasses() {
+  try { const v = JSON.parse(read(CLASSES_KEY) || "[]"); return Array.isArray(v) ? v.filter((c) => c && c.id && c.name).slice(0, 40) : []; } catch { return []; }
+}
+function keepRole(me) {
+  if (!me) return;
+  write(ROLE_KEY, me.teacher || me.owner ? "teacher" : null);
+  write(CLASSES_KEY, JSON.stringify(me.classes.filter((c) => c.role === "teacher").map((c) => ({ id: c.id, name: c.name }))));
+  syncClassNav();
+}
+/** Show or hide the Class tab (an element with data-nav="class" in each version's page). */
+export function syncClassNav() {
+  if (typeof document === "undefined") return;
+  const on = feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());
+  for (const a of document.querySelectorAll('[data-nav="class"]')) a.hidden = !on;
+}
+if (typeof window !== "undefined") {
+  window.addEventListener(SHARE_EVENT, syncClassNav);
+  if (typeof document !== "undefined") setTimeout(syncClassNav, 0);
+}
 
 // A class's teachers (supabase/v13-dli-class-teachers.sql; prototype "class_teachers"). Against a database
 // without v13 these throw an error whose `notReady` is true.

@@ -9814,3 +9814,35 @@ started again; and a folder under 20 words was dropped for the newest 100.
   ever, a small folder, practice). Played in a real window on a new data folder never signed in: a 7-word folder,
   3 caught, app reloaded, 4 left, a miss that came back, then a new round. Picture:
   `../tamkeen-shots/fishing/pond-round-fix.png`.
+
+## DLI Class tab (2026-11-24; "Teachers" chat; prototype `class_tab`; database NOT applied)
+
+The owner's words: teachers add students under them, students are placed in a class, the teacher shares finished
+scripts "from literally anything" with the class; anyone with a teacher or student role gets a Class tab where
+teachers see their students and classes, set classes and send media, and students see classmates and teachers.
+His answers: DLI only; the student must accept an invitation; classmates see usernames and an activity level; sending
+follows the same kinds and rules as Send to a friend (Netflix is never sent).
+
+- **Tab**: `web/js/pages/class.js`, route `#/class`, a hidden nav link `[data-nav="class"]` in `web/index.html` and
+  `mobile/src/index.html` that `dliclass.js` `syncClassNav()` shows when `feature("class_tab")`, the service is on
+  and the person is a DLI student who shares or a teacher (role remembered in `tamkeenDliRole`, kept by `refresh()`).
+  A student sees invitations (Accept / No thanks), a class picker, teachers, classmates and what was sent ("Add to my
+  library"). A teacher sees "Students and progress" (opens `openClass` of `dliteach.js`), "Invite a student" by
+  username, invitations waiting (Cancel), the people, what was sent (Remove) and "New class".
+- **Sending**: `components/sendmedia.js` `pickAndSend` lists "Class: <name>" above friends for a teacher's classes;
+  `sendToClass` packs the transcript as for a friend and calls `dliclass.js` `postToClass` (file to bucket
+  `dli-class` at `<class>/<uuid>.gz`, then `dli_post`). A student's "Add to my library" fetches the file
+  (`postFile`), unpacks it (`gunzipText`) and calls `acceptMedia(item, { ...item, transcript })`.
+- **Classmates consent**: `dli_classmates` refuses a student whose `agreed_version` is under 3 (`dli_agree_first`,
+  the error carries `code`) and lists only students at 3 or more. The Class tab's card "Agree and show classmates"
+  calls `agreeToClassmates()` (`dli_agree` with wording 3). The app's global `WORDING` stays 2 on purpose, so
+  nobody is locked out of the DLI content by this; don't raise it for this feature. Privacy policy: `#dli-class`.
+- **Database**: `supabase/v15-dli-class-tab.sql` (tables `dli_class_invites`, `dli_class_posts`, no table rules;
+  helpers `private.dli_member`, `dli_class_of`, `dli_level` (the server's copy of `activity()` in dliweeks.js: keep
+  the two in step); nine functions; bucket `dli-class` with three file rules). Run after v10 and v11. Self-test
+  `supabase/test_rls_dli_class_tab.sql` (expects `bad=[ none]`). **Neither has ever been run**: there is no database
+  on this PC, so expect a typo or two on first run; the owner pastes the error and it gets fixed. Without v15 the
+  tab still opens: each part says it "isn't switched on yet".
+- **Not done**: a teacher choosing which class a student is in beyond inviting/removing ("set classes" is New class,
+  rename and remove in the progress box); a notice or badge for a new invitation or post (the student has to open the
+  tab); posts to one student rather than the class; never tried against the real database or with a real second account.

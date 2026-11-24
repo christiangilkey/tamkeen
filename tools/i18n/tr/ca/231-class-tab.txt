@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Això no es pot enviar a una classe.
+aa82dc9d	Enviat a la classe {0}, amb el seu text.
+01c7f9c2	Enviat a la classe {0}, sense el seu text: és massa llarg per enviar-lo.
+7d7914ae	Enviat a la classe {0}.
+c0f102f5	Obre Classe
+5b62b7b7	Primer accepta mostrar-te als companys de classe.
+15fea226	No s'ha pogut enviar a la classe.
+4352b154	Avui ja has enviat 30 coses. Torna-ho a provar demà.
+9560706d	Primer acaba el pas de compartir a Configuració → Estudiants del DLI.
+06659926	Les classes encara no estan activades.
+ebc3f166	Inicia la sessió a Configuració → Estudiants del DLI per veure la teva classe.
+dc930353	Obre Estudiants del DLI
+b7b6c968	La pestanya Classe és per a estudiants i professors del DLI. Configura-ho a Configuració → Estudiants del DLI.
+ea070c51	Encara no tens cap classe. Crea'n una i després convida els teus estudiants o dona'ls el seu codi.
+3eed34a4	Encara no ets a cap classe. El teu professor et pot convidar pel teu nom d'usuari, o donar-te un codi de classe per escriure'l a Configuració → Estudiants del DLI.
+5fd6cf8c	Si acceptes, els seus professors veuen el teu nom d'usuari i les teves xifres d'estudi setmanals a partir d'aquesta setmana.
+6d745b30	No, gràcies
+d1e2c9ef	T'han convidat a {0}
+b37554f6	Persones
+31bad423	Enviat a la classe
+9d5d760b	Ets professor d'aquesta classe
+873c3717	Per enviar alguna cosa, prem el botó de l'avió de paper a qualsevol reproductor o fila de la Biblioteca i tria aquesta classe. El seu text també s'envia quan la teva app el té.
+a279ecff	El que han enviat els teus professors. Afegeix-ne un a la teva biblioteca i s'obre amb el seu text ja inclòs.
+66f8242b	Estudiants i progrés
+05a0ea89	Codi de classe {0}: els estudiants també el poden escriure a Configuració → Estudiants del DLI.
+5e956343	Invitació enviada a {0}, encara no ha respost
+500931e1	Nom d'usuari d'un estudiant
+b136609f	Convida
+0c706716	Convidar per nom d'usuari encara no està activat. Dona el codi de classe a l'estudiant.
+a89b20b0	{0} té la teva invitació. S'hi uneix quan premi Accepta a la seva pestanya Classe.
+2c3aeb52	{0} ja té una invitació.
+772bb9a8	{0} ja és a aquesta classe.
+29f0e3c7	Aquesta classe és plena, o aquest estudiant ja és a 10 classes.
+01cad89f	Cap estudiant del DLI té aquest nom d'usuari. Primer ha d'acabar el pas de compartir a Configuració → Estudiants del DLI.
+c5587594	Convida un estudiant
+a0b63510	Veure els companys de classe encara no està activat.
+6bd7fa66	Aquí encara ningú ha acceptat que el vegin els companys.
+62bef47e	{0} (tu)
+e3a2a6b2	Un estudiant apareix aquí quan accepta que el vegin els companys. Tots els teus estudiants són a Estudiants i progrés.
+a78ad2a8	L'activitat són els dies d'estudi per setmana: Actiu 4 o més, Una mica 2 o 3, Poc menys de 2, Aturat si no hi ha hagut res aquesta setmana ni la passada. Els companys veuen aquesta paraula, mai les teves xifres.
+c421246a	Veure els teus companys de classe
+41a1887a	Si acceptes, els altres estudiants de les teves classes veuen el teu nom d'usuari i el teu nivell d'activitat (una paraula, com ara Actiu o Aturat), i tu veus els seus. Mai veuen les teves xifres d'estudi, les teves paraules ni la teva biblioteca. Els estudiants que no han acceptat no surten a la llista.
+3d0f312b	Accepta i veu els companys
+839018c7	Enviar a una classe encara no està activat.
+ea08c4eb	Encara no s'ha enviat res.
+df90dfda	Afegeix a la meva biblioteca
+4f1d9323	«{0}» és a la teva biblioteca.

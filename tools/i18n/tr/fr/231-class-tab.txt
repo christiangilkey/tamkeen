@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Impossible d'envoyer ceci à une classe.
+aa82dc9d	Envoyé à la classe {0}, avec sa transcription.
+01c7f9c2	Envoyé à la classe {0}, sans sa transcription : elle est trop longue pour être envoyée.
+7d7914ae	Envoyé à la classe {0}.
+c0f102f5	Ouvrir Classe
+5b62b7b7	Acceptez d'abord d'être visible par vos camarades.
+15fea226	L'envoi à la classe n'a pas marché.
+4352b154	Vous avez envoyé 30 choses aujourd'hui. Réessayez demain.
+9560706d	Terminez d'abord l'étape de partage dans Réglages → Étudiants du DLI.
+06659926	Les classes ne sont pas encore activées.
+ebc3f166	Connectez-vous dans Réglages → Étudiants du DLI pour voir votre classe.
+dc930353	Ouvrir Étudiants du DLI
+b7b6c968	L'onglet Classe est destiné aux étudiants et aux enseignants du DLI. Configurez cela dans Réglages → Étudiants du DLI.
+ea070c51	Vous n'avez pas encore de classe. Créez-en une, puis invitez vos étudiants ou donnez-leur son code.
+3eed34a4	Vous n'êtes encore dans aucune classe. Votre enseignant peut vous inviter par votre nom d'utilisateur, ou vous donner un code de classe à saisir dans Réglages → Étudiants du DLI.
+5fd6cf8c	Si vous acceptez, ses enseignants voient votre nom d'utilisateur et vos chiffres d'étude de la semaine, à partir de cette semaine.
+6d745b30	Non merci
+d1e2c9ef	Vous êtes invité à rejoindre {0}
+b37554f6	Personnes
+31bad423	Envoyé à la classe
+9d5d760b	Vous enseignez dans cette classe
+873c3717	Pour envoyer quelque chose, appuyez sur le bouton avion en papier d'un lecteur ou d'une ligne de la Bibliothèque, puis choisissez cette classe. La transcription est envoyée avec, si votre application l'a.
+a279ecff	Ce que vos enseignants ont envoyé. Ajoutez un élément à votre bibliothèque : il s'ouvre avec sa transcription déjà en place.
+66f8242b	Étudiants et progrès
+05a0ea89	Code de classe {0} : les étudiants peuvent aussi le saisir dans Réglages → Étudiants du DLI.
+5e956343	Invité le {0}, n'a pas encore répondu
+500931e1	Nom d'utilisateur d'un étudiant
+b136609f	Inviter
+0c706716	L'invitation par nom d'utilisateur n'est pas encore activée. Donnez le code de classe à l'étudiant.
+a89b20b0	{0} est invité. Il rejoint la classe en appuyant sur Accepter dans son onglet Classe.
+2c3aeb52	{0} est déjà invité.
+772bb9a8	{0} est déjà dans cette classe.
+29f0e3c7	Cette classe est complète, ou cet étudiant est déjà dans 10 classes.
+01cad89f	Aucun étudiant du DLI n'a ce nom d'utilisateur. Il doit d'abord terminer l'étape de partage dans Réglages → Étudiants du DLI.
+c5587594	Inviter un étudiant
+a0b63510	Voir ses camarades n'est pas encore activé.
+6bd7fa66	Personne ici n'a encore accepté d'être visible par ses camarades.
+62bef47e	{0} (vous)
+e3a2a6b2	Un étudiant apparaît ici une fois qu'il a accepté d'être visible par ses camarades. Tous vos étudiants sont dans Étudiants et progrès.
+a78ad2a8	L'activité, ce sont les jours d'étude par semaine : Actif 4 ou plus, Un peu 2 ou 3, Peu moins de 2, Arrêté quand il n'y a rien cette semaine ni la précédente. Vos camarades voient ce mot, jamais vos chiffres.
+c421246a	Voir vos camarades
+41a1887a	Si vous acceptez, les autres étudiants de vos classes voient votre nom d'utilisateur et votre niveau d'activité (un mot, comme Actif ou Arrêté), et vous voyez les leurs. Ils ne voient jamais vos chiffres d'étude, vos mots ni votre bibliothèque. Les étudiants qui n'ont pas accepté ne sont pas listés.
+3d0f312b	Accepter et voir mes camarades
+839018c7	L'envoi à une classe n'est pas encore activé.
+ea08c4eb	Rien n'a encore été envoyé.
+df90dfda	Ajouter à ma bibliothèque
+4f1d9323	« {0} » est dans votre bibliothèque.

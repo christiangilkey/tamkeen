@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Das lässt sich nicht an eine Klasse senden.
+aa82dc9d	An die Klasse {0} gesendet, mit Transkript.
+01c7f9c2	An die Klasse {0} gesendet, ohne Transkript: Es ist zu lang zum Senden.
+7d7914ae	An die Klasse {0} gesendet.
+c0f102f5	Klasse öffnen
+5b62b7b7	Stimme zuerst zu, dass deine Mitstudierenden dich sehen.
+15fea226	Das konnte nicht an die Klasse gesendet werden.
+4352b154	Du hast heute 30 Sachen gesendet. Versuch es morgen noch einmal.
+9560706d	Schließe zuerst den Schritt zum Teilen unter Einstellungen → DLI-Studierende ab.
+06659926	Klassen sind noch nicht eingeschaltet.
+ebc3f166	Melde dich unter Einstellungen → DLI-Studierende an, um deine Klasse zu sehen.
+dc930353	DLI-Studierende öffnen
+b7b6c968	Der Tab „Klasse“ ist für Studierende und Lehrkräfte des DLI. Richte das unter Einstellungen → DLI-Studierende ein.
+ea070c51	Du hast noch keine Klassen. Erstelle eine und lade dann deine Studierenden ein oder gib ihnen den Code.
+3eed34a4	Du bist noch in keiner Klasse. Deine Lehrkraft kann dich über deinen Benutzernamen einladen oder dir einen Klassencode geben, den du unter Einstellungen → DLI-Studierende eingibst.
+5fd6cf8c	Wenn du annimmst, sehen die Lehrkräfte der Klasse ab dieser Woche deinen Benutzernamen und deine wöchentlichen Lernzahlen.
+6d745b30	Nein danke
+d1e2c9ef	Du bist zu {0} eingeladen
+b37554f6	Personen
+31bad423	An die Klasse gesendet
+9d5d760b	Du unterrichtest diese Klasse
+873c3717	Um etwas zu senden, tippe bei einem Player oder einer Zeile in der Bibliothek auf die Papierflieger-Schaltfläche und wähle diese Klasse. Das Transkript wird mitgesendet, wenn deine App es hat.
+a279ecff	Was deine Lehrkräfte gesendet haben. Füge etwas zu deiner Bibliothek hinzu, und es öffnet sich gleich mit Transkript.
+66f8242b	Studierende und Fortschritt
+05a0ea89	Klassencode {0}: Studierende können ihn auch unter Einstellungen → DLI-Studierende eingeben.
+5e956343	Eingeladen am {0}, noch keine Antwort
+500931e1	Benutzername einer oder eines Studierenden
+b136609f	Einladen
+0c706716	Das Einladen per Benutzername ist noch nicht eingeschaltet. Gib der Person den Klassencode.
+a89b20b0	{0} ist eingeladen. Der Beitritt erfolgt, sobald im eigenen Tab „Klasse“ auf Annehmen getippt wird.
+2c3aeb52	{0} ist schon eingeladen.
+772bb9a8	{0} ist schon in dieser Klasse.
+29f0e3c7	Diese Klasse ist voll, oder die Person ist schon in 10 Klassen.
+01cad89f	Niemand unter den DLI-Studierenden hat diesen Benutzernamen. Die Person muss zuerst den Schritt zum Teilen unter Einstellungen → DLI-Studierende abschließen.
+c5587594	Studierende einladen
+a0b63510	Mitstudierende zu sehen ist noch nicht eingeschaltet.
+6bd7fa66	Hier hat noch niemand zugestimmt, von Mitstudierenden gesehen zu werden.
+62bef47e	{0} (du)
+e3a2a6b2	Studierende erscheinen hier, sobald sie zugestimmt haben, von Mitstudierenden gesehen zu werden. Alle deine Studierenden findest du unter Studierende und Fortschritt.
+a78ad2a8	Die Aktivität sind die Lerntage pro Woche: Aktiv 4 oder mehr, Etwas 2 oder 3, Wenig unter 2, Aufgehört, wenn diese und letzte Woche nichts war. Mitstudierende sehen dieses Wort, nie deine Zahlen.
+c421246a	Deine Mitstudierenden sehen
+41a1887a	Wenn du zustimmst, sehen die anderen Studierenden deiner Klassen deinen Benutzernamen und deine Aktivitätsstufe (ein Wort, zum Beispiel Aktiv oder Aufgehört), und du siehst ihre. Deine Lernzahlen, deine Wörter und deine Bibliothek sehen sie nie. Studierende, die nicht zugestimmt haben, werden nicht aufgeführt.
+3d0f312b	Zustimmen und Mitstudierende sehen
+839018c7	Das Senden an eine Klasse ist noch nicht eingeschaltet.
+ea08c4eb	Es wurde noch nichts gesendet.
+df90dfda	Zu meiner Bibliothek hinzufügen
+4f1d9323	„{0}“ ist in deiner Bibliothek.

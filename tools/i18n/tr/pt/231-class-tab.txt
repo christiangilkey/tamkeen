@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Isso não pode ser enviado para uma turma.
+aa82dc9d	Enviado para a turma {0}, com o texto.
+01c7f9c2	Enviado para a turma {0}, sem o texto: ele é longo demais para enviar.
+7d7914ae	Enviado para a turma {0}.
+c0f102f5	Abrir Turma
+5b62b7b7	Primeiro concorde em aparecer para os colegas de turma.
+15fea226	Não foi possível enviar para a turma.
+4352b154	Você já enviou 30 coisas hoje. Tente de novo amanhã.
+9560706d	Primeiro conclua a etapa de compartilhamento em Configurações → Alunos do DLI.
+06659926	As turmas ainda não estão ativadas.
+ebc3f166	Entre na sua conta em Configurações → Alunos do DLI para ver sua turma.
+dc930353	Abrir Alunos do DLI
+b7b6c968	A aba Turma é para alunos e professores do DLI. Configure isso em Configurações → Alunos do DLI.
+ea070c51	Você ainda não tem turmas. Crie uma e depois convide seus alunos ou passe o código dela para eles.
+3eed34a4	Você ainda não está em nenhuma turma. Seu professor pode convidar você pelo seu nome de usuário ou passar um código de turma para você digitar em Configurações → Alunos do DLI.
+5fd6cf8c	Se você aceitar, os professores dela veem seu nome de usuário e seus números de estudo da semana a partir desta semana.
+6d745b30	Não, obrigado
+d1e2c9ef	Você recebeu um convite para {0}
+b37554f6	Pessoas
+31bad423	Enviado para a turma
+9d5d760b	Você é professor desta turma
+873c3717	Para enviar algo, toque no botão do aviãozinho de papel em qualquer player ou linha da Biblioteca e escolha esta turma. O texto vai junto quando seu app já o tem.
+a279ecff	O que seus professores enviaram. Adicione algo à sua biblioteca e ele abre já com o texto.
+66f8242b	Alunos e progresso
+05a0ea89	Código da turma {0}: os alunos também podem digitá-lo em Configurações → Alunos do DLI.
+5e956343	Convite enviado para {0}, ainda sem resposta
+500931e1	Nome de usuário de um aluno
+b136609f	Convidar
+0c706716	Convidar pelo nome de usuário ainda não está ativado. Passe o código da turma para o aluno.
+a89b20b0	{0} recebeu o convite. A entrada na turma acontece ao tocar em Aceitar na aba Turma.
+2c3aeb52	{0} já recebeu um convite.
+772bb9a8	{0} já está nesta turma.
+29f0e3c7	Esta turma está cheia, ou esse aluno já está em 10 turmas.
+01cad89f	Nenhum aluno do DLI tem esse nome de usuário. Primeiro ele precisa concluir a etapa de compartilhamento em Configurações → Alunos do DLI.
+c5587594	Convidar um aluno
+a0b63510	Ver os colegas de turma ainda não está ativado.
+6bd7fa66	Ninguém aqui concordou ainda em aparecer para os colegas.
+62bef47e	{0} (você)
+e3a2a6b2	Um aluno aparece aqui quando concorda em aparecer para os colegas. Todos os seus alunos estão em Alunos e progresso.
+a78ad2a8	A atividade são os dias de estudo por semana: Ativo 4 ou mais, Um pouco 2 ou 3, Pouco menos de 2, Parou se nada nesta semana nem na passada. Os colegas veem essa palavra, nunca seus números.
+c421246a	Ver seus colegas de turma
+41a1887a	Se você concordar, os outros alunos das suas turmas veem seu nome de usuário e seu nível de atividade (uma palavra, como Ativo ou Parou), e você vê os deles. Eles nunca veem seus números de estudo, suas palavras nem sua biblioteca. Os alunos que não concordaram não aparecem na lista.
+3d0f312b	Concordar e ver os colegas
+839018c7	Enviar para uma turma ainda não está ativado.
+ea08c4eb	Nada foi enviado ainda.
+df90dfda	Adicionar à minha biblioteca
+4f1d9323	“{0}” está na sua biblioteca.

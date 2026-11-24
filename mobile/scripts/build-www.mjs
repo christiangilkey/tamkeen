@@ -234,6 +234,7 @@ const SHARED = [
   // DLI classes: the sharing step, the teacher's and the owner's screens, the weekly numbers
   "js/dliweeks.js",
   // the creator's bar on Home: people online and the online service's limits
+  "js/pages/class.js",
   "js/creatorstats.js",
   "js/components/creatorbar.js",
   "js/dliclass.js",

@@ -8735,6 +8735,31 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
+  "id": "8a836fa9",
+  "k": "This can't be sent to a class.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "aa82dc9d",
+  "k": "Sent to the class {0}, with its words.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "01c7f9c2",
+  "k": "Sent to the class {0}, without its words: they are too long to send.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "7d7914ae",
+  "k": "Sent to the class {0}.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "c0f102f5",
+  "k": "Open Class",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
   "id": "d7485673",
   "k": "Send “{0}” to…",
   "f": "web/js/components/sendmedia.js"
@@ -13500,6 +13525,21 @@
   "f": "web/js/dliclass.js"
  },
  {
+  "id": "5b62b7b7",
+  "k": "Agree to show yourself to classmates first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "15fea226",
+  "k": "That couldn't be sent to the class.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "4352b154",
+  "k": "You've sent 30 things today. Try again tomorrow.",
+  "f": "web/js/dliclass.js"
+ },
+ {
   "id": "bcfb2123",
   "k": "Only Tamkeen's owner can do that.",
   "f": "web/js/dliclass.js"
@@ -13542,6 +13582,11 @@
  {
   "id": "6a3e65a6",
   "k": "Sign in first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "9560706d",
+  "k": "Finish the sharing step in Settings → DLI students first.",
   "f": "web/js/dliclass.js"
  },
  {
@@ -22938,6 +22983,196 @@
   "id": "2b73aff6",
   "k": "Sending voice note…",
   "f": "web/js/pages/chat.js"
+ },
+ {
+  "id": "06659926",
+  "k": "Classes aren't switched on yet.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "ebc3f166",
+  "k": "Sign in under Settings → DLI students to see your class.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "dc930353",
+  "k": "Open DLI students",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "b7b6c968",
+  "k": "The Class tab is for DLI students and teachers. Set that up under Settings → DLI students.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "ea070c51",
+  "k": "You have no classes yet. Make one, then invite your students or give them its code.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "3eed34a4",
+  "k": "You aren't in a class yet. Your teacher can invite you by your username, or give you a class code to type under Settings → DLI students.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "5fd6cf8c",
+  "k": "If you accept, its teachers see your username and weekly study numbers from this week on.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "6d745b30",
+  "k": "No thanks",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "d1e2c9ef",
+  "k": "You're invited to {0}",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "b37554f6",
+  "k": "People",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "31bad423",
+  "k": "Sent to the class",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "9d5d760b",
+  "k": "You teach this class",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "873c3717",
+  "k": "To send something, press the paper-airplane button on any player or Library row and pick this class. Its words go along when your app has them.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "a279ecff",
+  "k": "What your teachers sent. Add one to your library and it opens with its words already there.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "66f8242b",
+  "k": "Students and progress",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "05a0ea89",
+  "k": "Class code {0}: students can also type it under Settings → DLI students.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "5e956343",
+  "k": "Invited {0}, hasn't answered yet",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "500931e1",
+  "k": "A student's username",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "b136609f",
+  "k": "Invite",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "0c706716",
+  "k": "Inviting by username isn't switched on yet. Give the student the class code.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "a89b20b0",
+  "k": "{0} is invited. They join when they press Accept in their Class tab.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "2c3aeb52",
+  "k": "{0} is invited already.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "772bb9a8",
+  "k": "{0} is in this class already.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "29f0e3c7",
+  "k": "This class is full, or that student is in 10 classes already.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "01cad89f",
+  "k": "No DLI student has that username. They finish the sharing step under Settings → DLI students first.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "c5587594",
+  "k": "Invite a student",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "a0b63510",
+  "k": "Seeing classmates isn't switched on yet.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "6bd7fa66",
+  "k": "Nobody here yet has agreed to be seen by classmates.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "62bef47e",
+  "k": "{0} (you)",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "e3a2a6b2",
+  "k": "A student shows here once they agree to be seen by classmates. All your students are under Students and progress.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "a78ad2a8",
+  "k": "Activity is by days studied a week: Active 4 or more, Some 2 or 3, A little under 2, Stopped when nothing this week or last. Classmates see this word, never your numbers.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "c421246a",
+  "k": "See your classmates",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "41a1887a",
+  "k": "If you agree, the other students of your classes see your username and your activity level (one word, such as Active or Stopped), and you see theirs. They never see your study numbers, your words or your library. Students who haven't agreed are not listed.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "3d0f312b",
+  "k": "Agree and show classmates",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "839018c7",
+  "k": "Sending to a class isn't switched on yet.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "ea08c4eb",
+  "k": "Nothing has been sent yet.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "df90dfda",
+  "k": "Add to my library",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "4f1d9323",
+  "k": "“{0}” is in your library.",
+  "f": "web/js/pages/class.js"
  },
  {
   "id": "e79e9cf5",

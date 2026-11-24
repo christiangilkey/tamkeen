@@ -28,6 +28,8 @@ import * as social from "../social.js";
 import { MAX_FILE_BYTES, MAX_INLINE_CHARS, TEXT_KINDS, acceptInto, gunzipText, gzipText, packTranscript, unpackTranscript } from "../sharetext.js";
 import { openItem } from "./studycard.js";
 import { offerFix } from "./fixit.js";
+import { feature } from "../prototype.js";
+import { postToClass, teacherClasses } from "../dliclass.js";
 
 export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page",
                              book: "Book", text: "Transcript of a recording" };
@@ -138,6 +140,38 @@ export async function sendMedia(friendId, media) {
   return { withWords, tooLarge: !!packed && !withWords };
 }
 
+/** Send `media` to a whole class (a teacher's; dliclass.js postToClass): the same item and the same words a friend
+ *  would get. Resolves to {withWords, tooLarge}. */
+export async function sendToClass(classId, media) {
+  const item = normalizeMedia(media);
+  if (!item) throw new Error("This can't be sent to a class.");
+  const packed = await textFor(item);
+  if (item.kind === "text" && !packed) throw new Error("Transcribe it first: only its words are sent, the file itself stays on your devices.");
+  let file = null;
+  if (packed) { const z = await gzipText(packed); if (z.size <= MAX_FILE_BYTES) file = z; }
+  if (item.kind === "text" && !file) throw new Error("Its transcript is too long to send.");
+  const { episode_id: _mine, ready: _ready, at: _at, ...shared } = item; // (my own copy's id and my place in it mean nothing to a class)
+  const r = await postToClass(classId, shared, file);
+  return { withWords: r.withWords, tooLarge: !!packed && !r.withWords };
+}
+
+/** My classes as menu lines (a teacher, with the Class tab on), before the friends. */
+function classLines(item, media) {
+  if (!feature("class_tab")) return [];
+  return teacherClasses().map((c) => ({
+    label: `Class: ${c.name}`,
+    run: async () => {
+      try {
+        toast("Sending…", { timeout: 1500 });
+        const r = await sendToClass(c.id, media);
+        toast(r.withWords ? `Sent to the class ${c.name}, with its words.`
+                : r.tooLarge ? `Sent to the class ${c.name}, without its words: they are too long to send.` : `Sent to the class ${c.name}.`,
+              { action: { label: "Open Class", run: () => (location.hash = "#/class") } });
+      } catch (e) { toast(e.message, { error: true }); }
+    },
+  }));
+}
+
 /** Ask which friend, then send.
  * The list is the app's ordinary menu (showMenu: the #ctxmenu element, shown and hidden through
  * its `hidden` attribute). The phone's reel player counts on exactly that: its video is a native
@@ -147,17 +181,19 @@ async function pickAndSend(x, y, media) {
   const item = normalizeMedia(media);
   if (!item) { toast("This can't be sent to a friend."); return; }
   if (item.kind === "text" && !item.ready) { toast("Transcribe it first: only its words are sent, the file itself stays on your devices."); return; }
+  const classes = classLines(item, media);
   let st;
-  try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
-  if (!st || !st.me.username) {
+  try { st = await social.friendsState(); } catch (e) { if (!classes.length) { toast(e.message, { error: true }); return; } st = null; }
+  if (!classes.length && (!st || !st.me.username)) {
     offerFix("friends");  // (the fix popup: Settings → Friends & sharing)
     return;
   }
-  if (!st.friends.length) {
+  if (!classes.length && !st.friends.length) {
     offerFix("nofriends");  // (the fix popup: the Friends page)
     return;
   }
-  showMenu(x, y, `Send “${item.title.slice(0, 40)}” to…`, st.friends.map((f) => ({
+  const friendList = st && st.me.username ? st.friends : [];
+  showMenu(x, y, `Send “${item.title.slice(0, 40)}” to…`, [...classes, ...friendList.map((f) => ({
     label: `@${f.user.username}`,
     run: async () => {
       try {
@@ -170,7 +206,7 @@ async function pickAndSend(x, y, media) {
         toast(e.message, { error: true });
       }
     },
-  })));
+  }))]);
 }
 
 /** The paper-airplane button. `media` is an item or a function returning the current one (for

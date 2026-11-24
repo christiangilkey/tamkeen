@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Dili kini mapadala sa usa ka klase.
+aa82dc9d	Napadala sa klase nga {0}, uban ang transcript niini.
+01c7f9c2	Napadala sa klase nga {0}, nga walay transcript: taas ra kaayo kini aron ipadala.
+7d7914ae	Napadala sa klase nga {0}.
+c0f102f5	Ablihi ang Klase
+5b62b7b7	Pag-uyon una nga ipakita ang imong kaugalingon sa mga klasmeyt.
+15fea226	Wala kana mapadala sa klase.
+4352b154	Nakapadala na ka og 30 karong adlawa. Sulayi pag-usab ugma.
+9560706d	Humana una ang lakang sa pagpaambit sa Settings → Mga estudyante sa DLI.
+06659926	Wala pa ma-on ang mga klase.
+ebc3f166	Pag-sign in sa Settings → Mga estudyante sa DLI aron makita ang imong klase.
+dc930353	Ablihi ang Mga estudyante sa DLI
+b7b6c968	Ang tab nga Klase para sa mga estudyante ug magtutudlo sa DLI. I-set up kana sa Settings → Mga estudyante sa DLI.
+ea070c51	Wala pa kay klase. Paghimo og usa, unya imbitaha ang imong mga estudyante o ihatag kanila ang code niini.
+3eed34a4	Wala pa ka sa usa ka klase. Mahimo kang imbitahon sa imong magtutudlo pinaagi sa imong username, o hatagan ka og code sa klase nga imong i-type sa Settings → Mga estudyante sa DLI.
+5fd6cf8c	Kung dawaton nimo, makita sa mga magtutudlo niini ang imong username ug ang imong senemanang numero sa pagtuon sukad karong semanaha.
+6d745b30	Ayaw na lang, salamat
+d1e2c9ef	Giimbitar ka sa {0}
+b37554f6	Mga tawo
+31bad423	Gipadala sa klase
+9d5d760b	Ikaw ang magtutudlo niini nga klase
+873c3717	Aron magpadala, pindota ang button nga eroplanong papel sa bisan asang player o laray sa Library ug pilia kini nga klase. Mouban ang transcript niini kung naa kini sa imong app.
+a279ecff	Ang gipadala sa imong mga magtutudlo. Idugang ang usa sa imong library ug moabli kini nga naa na ang transcript niini.
+66f8242b	Mga estudyante ug pag-uswag
+05a0ea89	Code sa klase {0}: mahimo usab kining i-type sa mga estudyante sa Settings → Mga estudyante sa DLI.
+5e956343	Giimbitar sa {0}, wala pa motubag
+500931e1	Username sa usa ka estudyante
+b136609f	Imbitaha
+0c706716	Wala pa ma-on ang pag-imbitar pinaagi sa username. Ihatag sa estudyante ang code sa klase.
+a89b20b0	Giimbitar na si {0}. Moapil siya kung pindoton niya ang Dawata sa iyang tab nga Klase.
+2c3aeb52	Giimbitar na si {0} kaniadto pa.
+772bb9a8	Naa na si {0} niini nga klase.
+29f0e3c7	Puno na kini nga klase, o naa na sa 10 ka klase kana nga estudyante.
+01cad89f	Walay estudyante sa DLI nga adunay ingon nga username. Kinahanglan una niyang humanon ang lakang sa pagpaambit sa Settings → Mga estudyante sa DLI.
+c5587594	Pag-imbitar og estudyante
+a0b63510	Wala pa ma-on ang pagtan-aw sa mga klasmeyt.
+6bd7fa66	Wala pay miuyon dinhi nga makita sa mga klasmeyt.
+62bef47e	{0} (ikaw)
+e3a2a6b2	Mogawas dinhi ang estudyante kung mouyon na siya nga makita sa mga klasmeyt. Ang tanan nimong estudyante naa sa Mga estudyante ug pag-uswag.
+a78ad2a8	Ang kalihokan gibase sa mga adlaw sa pagtuon kada semana: Aktibo kung 4 o labaw pa, Pipila kung 2 o 3, Gamay kung ubos sa 2, Mihunong kung wala karong semanaha ni sa miaging semana. Kini ra nga pulong ang makita sa mga klasmeyt, dili gyud ang imong mga numero.
+c421246a	Tan-awa ang imong mga klasmeyt
+41a1887a	Kung mouyon ka, makita sa ubang estudyante sa imong mga klase ang imong username ug ang imong lebel sa kalihokan (usa ka pulong, sama sa Aktibo o Mihunong), ug makita usab nimo ang ila. Dili gyud nila makita ang imong mga numero sa pagtuon, ang imong mga pulong o ang imong library. Dili malista ang mga estudyante nga wala pa mouyon.
+3d0f312b	Pag-uyon ug pagpakita sa mga klasmeyt
+839018c7	Wala pa ma-on ang pagpadala sa klase.
+ea08c4eb	Wala pay napadala.
+df90dfda	Idugang sa akong library
+4f1d9323	Naa na sa imong library ang “{0}”.

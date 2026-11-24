@@ -174,12 +174,13 @@ test("the database file and the app agree on names and limits", () => {
   const sql = readFileSync(new URL("../../supabase/v10-dli-classes.sql", import.meta.url), "utf8");
   const v11 = readFileSync(new URL("../../supabase/v11-dli-activity.sql", import.meta.url), "utf8");
   const v13 = readFileSync(new URL("../../supabase/v13-dli-class-teachers.sql", import.meta.url), "utf8");
+  const v15 = readFileSync(new URL("../../supabase/v15-dli-class-tab.sql", import.meta.url), "utf8");
   const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
   // every database function the app calls exists in the files, and is open to signed-in people only
   const called = [...app.matchAll(/rpc\("(dli_[a-z_]+)"/g)].map((m) => m[1]);
   assert.ok(called.length >= 16, "the app's calls were found");
   for (const name of new Set(called)) {
-    const file = [sql, v11, v13].find((f) => f.includes(`create or replace function public.${name}(`)) || sql;
+    const file = [sql, v11, v13, v15].find((f) => f.includes(`create or replace function public.${name}(`)) || sql;
     assert.ok(file.includes(`create or replace function public.${name}(`), `${name} is in a SQL file`);
     assert.ok(new RegExp(`grant execute on function[^;]*public\\.${name}\\(`).test(file), `${name} may be run by signed-in people`);
     assert.ok(new RegExp(`revoke all on function[^;]*public\\.${name}\\(`).test(file), `${name} is closed to everyone else`);
@@ -280,4 +281,89 @@ test("a class's teachers (v13): the list and the answer to adding one are checke
   assert.ok(/class_teachers: \{[^}]*released: true/.test(proto));
   const screen = readFileSync(new URL("../../web/js/components/dliteach.js", import.meta.url), "utf8");
   assert.ok(screen.includes('if (feature("class_teachers"))'));
+});
+
+test("the Class tab (v15): what arrives is checked, and the file keeps the rules", async () => {
+  const { cleanInvites, cleanInvited, cleanPeople, cleanPostItem, cleanPosts, cleanAnswer } = await import("../../web/js/dliweeks.js");
+  // invitations
+  const inv = cleanInvites([{ class: ID, name: "<b>Arabic 1</b>", teachers: ["ms.rivera", "<i>"], invited_at: "2026-11-24T00:00:00Z" }, { name: "no id" }, null]);
+  assert.equal(inv.length, 1);
+  assert.equal(inv[0].class, ID);
+  assert.ok(!/[<>]/.test(inv[0].name + inv[0].teachers.join("")), "no markup in a class name or a username");
+  assert.deepEqual(cleanInvites("nope"), []);
+  const waiting = cleanInvited([{ id: ID, username: "sam_k", invited_at: "2026-11-24T00:00:00Z" }, { username: "no id" }]);
+  assert.equal(waiting.length, 1);
+  assert.equal(waiting[0].username, "sam_k");
+  assert.equal(cleanAnswer({ status: "joined", class: ID, name: "Arabic 1" }).status, "joined");
+  assert.equal(cleanAnswer({ status: "<img>" }).status, "no");
+  assert.equal(cleanAnswer(null).status, "no");
+  // classmates: a username and one of five words, nothing else
+  const people = cleanPeople({ teachers: ["ms.rivera"], students: [{ username: "sam_k", level: "active", me: true, minutes: 99 },
+    { username: "lee.p", level: "hacked" }, { username: "<b>", level: "active" }, null] });
+  assert.deepEqual(people.teachers, ["ms.rivera"]);
+  assert.deepEqual(people.students[0], { username: "sam_k", level: "active", me: true });
+  assert.ok(["active", "some", "little", "stopped", "none"].includes(people.students[1].level), "an unknown level is never shown");
+  assert.equal(people.students.length, 2, "markup is never a username");
+  assert.deepEqual(cleanPeople(null), { teachers: [], students: [] });
+  // posts: the kinds Send to a friend sends, never Netflix, and only a file of this shape
+  assert.equal(cleanPostItem({ kind: "netflix", title: "x" }), null);
+  assert.equal(cleanPostItem({ kind: "page" }), null, "a post needs a title or a link");
+  const posts = cleanPosts([{ id: ID, item: { kind: "podcast", title: "Ep <1>", url: "https://example.org/a.mp3" }, path: `${ID}/${ID}.gz`, sender: "ms.rivera", created_at: "2026-11-24T00:00:00Z" },
+    { id: ID, item: { kind: "page", title: "No file" }, path: "../../etc/passwd" }, { id: ID, item: { kind: "netflix", title: "x" } }, null]);
+  assert.equal(posts.length, 2, "a post of a kind that isn't sent is dropped");
+  assert.equal(posts[0].path, `${ID}/${ID}.gz`);
+  assert.equal(posts[1].path, "", "an odd file path is never fetched");
+
+  const sql = readFileSync(new URL("../../supabase/v15-dli-class-tab.sql", import.meta.url), "utf8");
+  const bare = sql.replace(/--[^\n]*/g, "");
+  assert.equal(sql.split("$$").length % 2, 1, "every function body is opened and closed");
+  const tables = [...sql.matchAll(/create table if not exists public\.(dli_\w+)/g)].map((m) => m[1]);
+  assert.deepEqual(tables, ["dli_class_invites", "dli_class_posts"]);
+  for (const name of tables) assert.ok(sql.includes(`alter table public.${name} enable row level security;`), `${name} is closed`);
+  assert.ok(!/create policy[^;]* on public\./i.test(bare), "no rule on a table: everything goes through the functions");
+  assert.equal((bare.match(/create policy/gi) || []).length, 3, "three file rules, on the class's own storage only");
+  for (const m of bare.matchAll(/create policy[^;]*;/gi)) assert.ok(m[0].includes("bucket_id = 'dli-class'"), "a file rule reaches no other storage");
+  const fns = ["dli_invite_student", "dli_class_invited", "dli_cancel_invite", "dli_my_invites", "dli_answer_invite", "dli_classmates", "dli_post", "dli_class_posts", "dli_delete_post"];
+  for (const name of fns) {
+    const body = sql.slice(sql.indexOf(`create or replace function public.${name}(`));
+    const fn = body.slice(0, body.indexOf("end $$;"));
+    assert.ok(/security definer set search_path = ''/.test(fn), `${name} pins its search path`);
+    assert.ok(/(me|auth\.uid\(\)) is null then raise exception 'Not signed in'/.test(fn), `${name} refuses a signed-out caller`);
+  }
+  for (const name of ["dli_invite_student", "dli_class_invited", "dli_cancel_invite", "dli_post", "dli_delete_post"]) {
+    const body = sql.slice(sql.indexOf(`create or replace function public.${name}(`));
+    assert.ok(/if not private\.dli_teaches\(/.test(body.slice(0, body.indexOf("end $$;"))), `${name} is for a teacher of that class`);
+  }
+  // classmates: only those who agreed to wording 3, and no number leaves
+  const mates = sql.slice(sql.indexOf("create or replace function public.dli_classmates("));
+  const matesFn = mates.slice(0, mates.indexOf("end $$;"));
+  assert.ok(matesFn.includes("raise exception 'dli_agree_first'"));
+  assert.equal((matesFn.match(/agreed_version >= 3/g) || []).length, 2, "who may look, and who is listed");
+  assert.ok(!/minutes|reviews|remembered|words|known|'id'/.test(matesFn), "a level, never the numbers or an id");
+  // one answer for every name that can't be invited, and wrong names are counted
+  assert.equal((bare.match(/'status', 'no'/g) || []).length, 1);
+  assert.ok(bare.includes("insert into private.dli_tries (user_id) values (me);"));
+  // every UPDATE and DELETE has a WHERE (the API refuses one without)
+  const risky = bare.split(";").map((s) => s.replace(/\s+/g, " ").trim())
+    .filter((s) => /(^|\s)(update [\w.]+( \w+)? set|delete from) /i.test(s) && !/ where /i.test(s));
+  assert.deepEqual(risky, []);
+  // the self-test is there, and ends by rolling everything back
+  const selftest = readFileSync(new URL("../../supabase/test_rls_dli_class_tab.sql", import.meta.url), "utf8");
+  assert.ok(/raise exception 'RESULTS ok=% bad=\[%\]/.test(selftest));
+  for (const name of fns) assert.ok(selftest.includes(`'${name}'`), `the self-test checks ${name} is closed to the signed-out`);
+  // a prototype: only the owner's devices show it, and the phones and the web app get the page too
+  const proto = readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8");
+  assert.ok(/class_tab: \{[^}]*released: false/.test(proto));
+  const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
+  assert.ok(app.includes('feature("class_tab")'));
+  assert.ok(/export const WORDING = 2;/.test(app), "the sharing step's wording is unchanged: agreeing to classmates is its own choice");
+  assert.ok(/CLASSMATES_WORDING = 3/.test(app));
+  const build = readFileSync(new URL("../../mobile/scripts/build-www.mjs", import.meta.url), "utf8");
+  assert.ok(build.includes('"js/pages/class.js"'));
+  for (const shell of ["../../web/js/app.js", "../../mobile/src/js/app.js"]) {
+    assert.ok(readFileSync(new URL(shell, import.meta.url), "utf8").includes("/^class$/"), `${shell} has the Class page`);
+  }
+  for (const page of ["../../web/index.html", "../../mobile/src/index.html"]) {
+    assert.ok(/data-nav="class"[^>]* hidden/.test(readFileSync(new URL(page, import.meta.url), "utf8")), `${page}: the tab is hidden until a DLI role shows it`);
+  }
 });

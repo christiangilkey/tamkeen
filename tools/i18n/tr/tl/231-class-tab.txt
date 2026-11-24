@@ -1,0 +1,48 @@
+# The Class tab for DLI students and teachers (web/js/pages/class.js).
+8a836fa9	Hindi ito maipapadala sa isang klase.
+aa82dc9d	Naipadala sa klaseng {0}, kasama ang transcript nito.
+01c7f9c2	Naipadala sa klaseng {0}, nang walang transcript: masyado itong mahaba para ipadala.
+7d7914ae	Naipadala sa klaseng {0}.
+c0f102f5	Buksan ang Klase
+5b62b7b7	Pumayag ka munang ipakita ang sarili mo sa mga kaklase.
+15fea226	Hindi iyon naipadala sa klase.
+4352b154	Nakapagpadala ka na ng 30 ngayong araw. Subukan ulit bukas.
+9560706d	Tapusin muna ang hakbang ng pagbabahagi sa Settings → Mga estudyante ng DLI.
+06659926	Hindi pa naka-on ang mga klase.
+ebc3f166	Mag-sign in sa Settings → Mga estudyante ng DLI para makita ang klase mo.
+dc930353	Buksan ang Mga estudyante ng DLI
+b7b6c968	Ang tab na Klase ay para sa mga estudyante at guro ng DLI. I-set up iyon sa Settings → Mga estudyante ng DLI.
+ea070c51	Wala ka pang klase. Gumawa ng isa, tapos imbitahan ang mga estudyante mo o ibigay sa kanila ang code nito.
+3eed34a4	Wala ka pa sa isang klase. Puwede kang imbitahan ng guro mo gamit ang username mo, o bigyan ka ng code ng klase na ita-type mo sa Settings → Mga estudyante ng DLI.
+5fd6cf8c	Kapag tinanggap mo, makikita ng mga guro nito ang username mo at ang lingguhang bilang ng pag-aaral mo mula ngayong linggo.
+6d745b30	Huwag na, salamat
+d1e2c9ef	Iniimbitahan ka sa {0}
+b37554f6	Mga tao
+31bad423	Ipinadala sa klase
+9d5d760b	Ikaw ang guro ng klaseng ito
+873c3717	Para magpadala, pindutin ang button na eroplanong papel sa alinmang player o hilera sa Library at piliin ang klaseng ito. Kasama ang transcript nito kapag mayroon nito ang app mo.
+a279ecff	Ang mga ipinadala ng mga guro mo. Idagdag ang isa sa library mo at bubukas ito nang nandoon na ang transcript nito.
+66f8242b	Mga estudyante at pag-usad
+05a0ea89	Code ng klase {0}: puwede rin itong i-type ng mga estudyante sa Settings → Mga estudyante ng DLI.
+5e956343	Inimbitahan sa {0}, hindi pa sumasagot
+500931e1	Username ng isang estudyante
+b136609f	Imbitahan
+0c706716	Hindi pa naka-on ang pag-imbita gamit ang username. Ibigay sa estudyante ang code ng klase.
+a89b20b0	Naimbitahan na si {0}. Sasali siya kapag pinindot niya ang Tanggapin sa tab na Klase niya.
+2c3aeb52	Naimbitahan na si {0} dati pa.
+772bb9a8	Nasa klaseng ito na si {0}.
+29f0e3c7	Puno na ang klaseng ito, o nasa 10 klase na ang estudyanteng iyon.
+01cad89f	Walang estudyante ng DLI na may ganyang username. Kailangan muna niyang tapusin ang hakbang ng pagbabahagi sa Settings → Mga estudyante ng DLI.
+c5587594	Mag-imbita ng estudyante
+a0b63510	Hindi pa naka-on ang pagtingin sa mga kaklase.
+6bd7fa66	Wala pang pumapayag dito na makita ng mga kaklase.
+62bef47e	{0} (ikaw)
+e3a2a6b2	Lalabas dito ang estudyante kapag pumayag siyang makita ng mga kaklase. Nasa Mga estudyante at pag-usad ang lahat ng estudyante mo.
+a78ad2a8	Ang aktibidad ay ayon sa mga araw ng pag-aaral bawat linggo: Aktibo kapag 4 o higit pa, Medyo kapag 2 o 3, Kaunti kapag wala pang 2, Huminto kapag wala ngayong linggo o noong nakaraan. Ang salitang ito lang ang nakikita ng mga kaklase, hindi kailanman ang mga numero mo.
+c421246a	Tingnan ang mga kaklase mo
+41a1887a	Kapag pumayag ka, makikita ng ibang estudyante sa mga klase mo ang username mo at ang antas ng aktibidad mo (isang salita, gaya ng Aktibo o Huminto), at makikita mo rin ang sa kanila. Hindi nila kailanman makikita ang mga numero ng pag-aaral mo, ang mga salita mo o ang library mo. Hindi nakalista ang mga estudyanteng hindi pa pumapayag.
+3d0f312b	Pumayag at magpakita sa mga kaklase
+839018c7	Hindi pa naka-on ang pagpapadala sa klase.
+ea08c4eb	Wala pang naipapadala.
+df90dfda	Idagdag sa library ko
+4f1d9323	Nasa library mo na ang “{0}”.
