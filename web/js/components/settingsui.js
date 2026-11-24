@@ -71,7 +71,7 @@ export const FINDS = [
   { s: "voices", id: "cardvoice", label: "Voice for cards without audio", words: "tts speech read aloud pronunciation flashcards device" },
   { s: "voices", id: "azurekey", label: "Azure Speech key and region", words: "microsoft azure neural voices dialect egyptian key test" },
   { s: "voices", id: "voiceonsave", label: "Add the voice when a word is saved", words: "azure audio automatic netflix youtube save word sentence add audio" },
-  { s: "voices", id: "pictures", label: "Pictures on cards", words: "picture image photo openverse flashcard back add pictures camera", prototype: "card_pictures" },
+  { s: "voices", id: "pictures", label: "Pictures on cards", words: "picture image photo openverse flashcard back add pictures camera", prototype: "card_pictures_openverse" },
   { s: "voices", id: "localvoice", label: "Voices on this computer", words: "piper offline download model computer queue" },
   { s: "voices", id: "dialectvoices", label: "Arabic dialect voices", words: "levantine egyptian iraqi gulf dialect accent azure pronunciation", langs: ["ar"] },
   { s: "voices", id: "latinvoice", label: "Italian voice reading Latin", words: "church ecclesiastical pronunciation italian latin", langs: ["la"] },

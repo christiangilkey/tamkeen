@@ -1,4 +1,4 @@
-// Pictures for many cards at once (prototype "card_pictures"): Settings → Flashcards' switch "Add a picture to new
+// Pictures for many cards at once (prototype "card_pictures_openverse": nothing here runs without it): Settings → Flashcards' switch "Add a picture to new
 // cards" (cards saved from then on get one, on any screen: the app's api() tells cardsSaved), and "Add pictures to
 // my cards" there and in the Vocab page's ⋯ menu (the cards shown: a folder, or all of them).
 //
@@ -18,7 +18,8 @@ const store = () => { try { return localStorage; } catch { return null; } };
 const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-export const autoOn = () => feature("card_pictures") && (store() || { getItem: () => null }).getItem(AUTO_KEY) === "1";
+const openverseOn = () => feature("card_pictures") && feature("card_pictures_openverse");
+export const autoOn = () => openverseOn() && (store() || { getItem: () => null }).getItem(AUTO_KEY) === "1";
 export function setAuto(on) {
   try { on ? localStorage.setItem(AUTO_KEY, "1") : localStorage.removeItem(AUTO_KEY); } catch { /* no storage: stays off */ }
 }
@@ -49,7 +50,7 @@ export function onProgress(fn) {
 
 /** Queue these cards for a picture (the ones without one, with a meaning). Returns how many were queued. */
 export function addPictures(cards) {
-  if (!feature("card_pictures")) return 0;
+  if (!openverseOn()) return 0;
   const want = cardsWanting(cards, tried()).filter((v) => !seen.has(v.uid || v.id));
   for (const v of want) { seen.add(v.uid || v.id); queue.push(v); }
   if (want.length) {

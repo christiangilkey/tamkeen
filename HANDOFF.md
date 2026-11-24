@@ -9781,8 +9781,15 @@ pics of the words card from openverse which the user can change at any time".
   review.js now ignores keys while a `.modal-back` is open); Remove; own picture (2.5 MB PNG → 4.7 KB); Settings batch
   stops politely with Openverse down. Openverse's search endpoint was down (504/500) during the whole test, so the
   picker's results grid wasn't seen live (its code path is tested in tests/js/cardpicture.test.mjs with a stand-in).
-- **Release**: `released: true`, add a whatis-special.md bullet; the FINDS entry has `prototype: "card_pictures"`
-  (settingsui.js findsFor now hides a prototype's setting from Settings' search) and can drop it.
+- **Split and released (2026-11-23, the owner: "release allowing users to set their own … the openverse thing … ignore
+  that for now")**: `card_pictures` is released (the picture on the back, "Add picture", the picker with only Take a
+  photo / Choose a photo / Use my own picture and Remove picture, sync, offline, Anki; an Openverse picture already on a
+  card keeps its credit). Everything that asks Openverse is the prototype `card_pictures_openverse` (`openverseOn()` in
+  cardpic.js; picturebatch.js checks it too): the picker's search, grid and notice, Settings → Pictures on cards (not
+  shown without it: there is nothing to set for your own pictures), the Vocab ⋯ "Add pictures", and the switch for new
+  cards. With it off nothing is ever sent to Openverse. Its FINDS entry has `prototype: "card_pictures_openverse"`
+  (settingsui.js findsFor hides a prototype's setting from Settings' search). To release Openverse later: set it
+  released, and ask Openverse about its fees for commercial use first.
 
 ## Fishing: every word gets its turn (2026-11-23; the fishing chat, a bug fix)
 The owner: "the pond shows the same words on a loop even with a folder picked. It should go through all the words in

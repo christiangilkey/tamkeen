@@ -23,8 +23,29 @@ const RESULT = {
   mature: false, width: 500, height: 375, thumbnail: "https://api.openverse.org/v1/images/dcef0b54-2338-4141-9be0-1b5bb50fa729/thumb/",
 };
 
-test("the prototype row is there and not released", () => {
-  assert.equal(PROTOTYPES.card_pictures.released, false);
+test("your own picture is released; everything that asks Openverse waits in prototype mode", () => {
+  assert.equal(PROTOTYPES.card_pictures.released, true);
+  assert.equal(PROTOTYPES.card_pictures_openverse.released, false);
+  // (the owner, 2026-11-23: release your own pictures, leave Openverse out until its search works)
+  const picker = read("web/js/components/cardpic.js");
+  assert.match(picker, /export const openverseOn = \(\) => picturesOn\(\) && feature\("card_pictures_openverse"\)/);
+  assert.match(picker, /const online = openverseOn\(\);/);
+  assert.match(picker, /if \(online\) \{\n    if \(box\.value\) search\(box\.value\);/, "the picker searches only with Openverse on");
+  assert.match(read("web/js/components/picturesettings.js"), /if \(!openverseOn\(\)\) return/, "Settings' card only with Openverse on");
+  assert.match(read("web/js/pages/vocab.js"), /\.\.\.\(openverseOn\(\) \? \[\{ label: "Add pictures"/, "the Vocab menu's Add pictures too");
+  assert.match(read("web/js/components/settingsui.js"), /id: "pictures"[^}]*prototype: "card_pictures_openverse"/);
+});
+
+test("with Openverse's prototype off, nothing is queued and no new card asks for a picture", async () => {
+  localStorage.removeItem("tamkeenPrototype");
+  batch._reset();
+  batch.setAuto(true);
+  assert.equal(batch.autoOn(), false);
+  assert.equal(batch.addPictures([{ id: 1, uid: "x", meaning: "dog" }]), 0);
+  batch.cardsSaved({ id: 2, uid: "y", meaning: "cat" });
+  assert.equal(batch.progress.total, 0);
+  batch.setAuto(false);
+  localStorage.setItem("tamkeenPrototype", "1");
 });
 
 test("the search is the card's short meaning, its first sense", () => {
