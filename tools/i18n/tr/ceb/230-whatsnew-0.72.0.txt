@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Mga hulagway sa mga kard: idugang ang imong kaugalingong litrato sa likod sa kard
+4e29366e	Ang mga reel nagpakita og duha ka linya sa mga pulong, aron adunay panahon sa pag-tap og usa
+f36a8453	Ang pag-tap sa usa ka pulong sa reel mohunong sa reel niana nga pulong

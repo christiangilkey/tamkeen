@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Immagini sulle schede: aggiungi una tua foto al retro di una scheda
+4e29366e	I reel mostrano due righe di parole, così c'è tempo per toccarne una
+f36a8453	Toccare una parola in un reel ferma il reel su quella parola

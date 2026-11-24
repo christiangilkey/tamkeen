@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Bilder auf Karten: Füge der Rückseite einer Karte dein eigenes Foto hinzu
+4e29366e	Reels zeigen zwei Zeilen Wörter, so bleibt Zeit, eines anzutippen
+f36a8453	Tippst du in einem Reel auf ein Wort, hält das Reel bei diesem Wort an

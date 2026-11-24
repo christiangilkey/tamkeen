@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.72.0 — 2026-11-24
+
 - **New:** **Pictures on flashcards.** The back of a card can show a picture of your own: tap **Add picture** on a card's back (in reviews, or on a word opened on the Vocab page) to take a photo (on a phone) or choose one, and tap the picture later to change or remove it. Each picture is kept as a small copy that syncs to your other devices through your Google Drive, shows without internet, and goes into **Export for Anki** with the card.
 - **Improved:** The reel player shows two lines of words instead of one line that slid along with the reel too fast to tap a word. The line being said is on top with the next one already under it, and when the reel reaches the second line the words move up by one line, so every line stays on screen for about two lines' worth of speech. *(phones and web app)*
 - **Fixed:** Tapping a word in a reel now stops the reel at that word: it plays the word once and stays stopped, with the word lit, until you press **Continue** in the popup or **Play**. Before, the reel could play on through the rest of the sentence, because the stop came from the app a moment too late on a phone, or not at all with the keep-playing switch beside its controls on. The reel now stops itself on time, and that switch is gone from the reel player (it stays in the other players' popups). *(phones and web app)*

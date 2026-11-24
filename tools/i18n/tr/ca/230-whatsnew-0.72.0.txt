@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Imatges a les targetes: afegeix la teva pròpia foto al dors d'una targeta
+4e29366e	Els reels mostren dues línies de paraules, així hi ha temps per tocar-ne una
+f36a8453	Tocar una paraula en un reel atura el reel en aquella paraula

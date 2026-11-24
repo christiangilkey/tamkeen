@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Images sur les cartes : ajoutez votre propre photo au dos d'une carte
+4e29366e	Les reels affichent deux lignes de mots, pour avoir le temps d'en toucher un
+f36a8453	Toucher un mot dans un reel arrête le reel sur ce mot

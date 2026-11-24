@@ -1,0 +1,4 @@
+# What is new in v0.72.0 (web/js/whatsnew.js).
+ce540c40	Imágenes en las tarjetas: añade tu propia foto al reverso de una tarjeta
+4e29366e	Los reels muestran dos líneas de palabras, así hay tiempo para tocar una
+f36a8453	Tocar una palabra en un reel detiene el reel en esa palabra

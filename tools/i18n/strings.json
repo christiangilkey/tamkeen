@@ -3375,6 +3375,21 @@
   "f": "web/js/components/cardpic.js"
  },
  {
+  "id": "ee1e36f1",
+  "k": "Search pictures (in English)",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "249f1a71",
+  "k": "Words to search pictures for",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
+  "id": "6bc9fdca",
+  "k": "More pictures",
+  "f": "web/js/components/cardpic.js"
+ },
+ {
   "id": "2298471c",
   "k": "Take a photo",
   "f": "web/js/components/cardpic.js"
@@ -3392,21 +3407,6 @@
  {
   "id": "2ebb22b3",
   "k": "Remove picture",
-  "f": "web/js/components/cardpic.js"
- },
- {
-  "id": "ee1e36f1",
-  "k": "Search pictures (in English)",
-  "f": "web/js/components/cardpic.js"
- },
- {
-  "id": "249f1a71",
-  "k": "Words to search pictures for",
-  "f": "web/js/components/cardpic.js"
- },
- {
-  "id": "6bc9fdca",
-  "k": "More pictures",
   "f": "web/js/components/cardpic.js"
  },
  {
@@ -6527,11 +6527,6 @@
  {
   "id": "a31c2897",
   "k": "Pause or keep playing",
-  "f": "web/js/components/guideart.js"
- },
- {
-  "id": "773cb349",
-  "k": "After a word you tapped, the reel pauses so you can read, or keeps playing. Flip this to choose.",
   "f": "web/js/components/guideart.js"
  },
  {
@@ -30273,6 +30268,21 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
+ },
+ {
+  "id": "ce540c40",
+  "k": "Pictures on cards: add your own photo to the back of a card",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "4e29366e",
+  "k": "Reels show two lines of words, so there is time to tap one",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "f36a8453",
+  "k": "Tapping a word in a reel stops the reel at that word",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "c0940097",
