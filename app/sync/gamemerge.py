@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import copy
 import json
+import re
 from typing import Any
 
 COUNTERS = ("xp", "coins", "gems")
@@ -29,6 +30,18 @@ def _obj(v: Any) -> dict[str, Any] | None:
 def _clean(n: float) -> int | float:
     """Numbers as JSON has them on the page: 3.0 is 3."""
     return int(n) if float(n).is_integer() else n
+
+
+_GIFT_ID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+
+
+def clean_gifts(v: Any) -> dict[str, Any]:
+    """The game's record of the creator's gifts it has had (web/js/game/gifts.js): gift id -> the glow it added."""
+    out: dict[str, Any] = {}
+    for gift, glow in list((_obj(v) or {}).items())[:2000]:
+        if isinstance(gift, str) and _GIFT_ID.match(gift):
+            out[gift] = _clean(_num(glow))
+    return out
 
 
 def is_game(s: Any) -> bool:
@@ -78,7 +91,8 @@ def resolve(mine: Any, theirs: Any) -> tuple[str, Any]:
         return "theirs", theirs
 
     def played(s: dict[str, Any]) -> bool:
-        return _num(s.get("xp")) > 0
+        # (a game that has had a gift from the creator counts as played: see merge.js)
+        return _num(s.get("xp")) > 0 or bool(clean_gifts(s.get("gifts")))
 
     # An egg nobody has played (a fresh install) never replaces a game with progress, and never joins it.
     if played(theirs) != played(mine):
@@ -173,13 +187,16 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     ga, gb = _obj(a.get("idle")), _obj(b.get("idle"))
     released = _union(ga and ga.get("released"), gb and gb.get("released"))
     gone = {s for s in (_seed(r) for r in released) if s is not None}
+    garden_of_b = False  # whose garden (and so whose glow) the combined game keeps
     if gb is not None and ga is None:
         out["idle"] = gb
+        garden_of_b = True
     elif ga is not None and gb is not None:
         ra = len(ga["released"]) if isinstance(ga.get("released"), list) else 0
         rb = len(gb["released"]) if isinstance(gb.get("released"), list) else 0
         if rb > ra:
             out["idle"] = gb
+            garden_of_b = True
         elif ra == rb:
             pa = ga["plots"] if isinstance(ga.get("plots"), list) else []
             pb = gb["plots"] if isinstance(gb.get("plots"), list) else []
@@ -199,6 +216,16 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
             if "bloom" in ga or "bloom" in gb:
                 ga["bloom"] = bool(ga.get("bloom") or gb.get("bloom"))
         out["idle"]["released"] = released
+
+    # Gifts from the creator: every one either copy has had; glow isn't tallied, so the glow of a gift that the
+    # copy whose garden was kept had not had yet is added here (web/js/game/merge.js says why).
+    gifts_a, gifts_b = clean_gifts(a.get("gifts")), clean_gifts(b.get("gifts"))
+    if gifts_a or gifts_b:
+        kept, other = (gifts_b, gifts_a) if garden_of_b else (gifts_a, gifts_b)
+        glow = sum(_num(n) for gift, n in other.items() if gift not in kept)
+        if glow and _obj(out.get("idle")) is not None:
+            out["idle"]["glow"] = _clean(max(0, _num(out["idle"].get("glow")) + glow))
+        out["gifts"] = {**other, **kept}
 
     roster: list[dict[str, Any]] = []
     at: dict[Any, int] = {}

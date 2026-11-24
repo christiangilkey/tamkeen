@@ -9,7 +9,8 @@ import { combine, order, resolve, settle, stamp } from "../../web/js/game/merge.
 import { newState, normalize } from "../../web/js/game/rules.js";
 import { garden } from "../../web/js/game/idle.js";
 
-const { cases } = JSON.parse(readFileSync(new URL("../fixtures/game_merge.json", import.meta.url), "utf8"));
+const cases = ["game_merge.json", "game_merge_gifts.json"] // (the second: gifts from the creator, tests/js/gifts.test.mjs)
+  .flatMap((name) => JSON.parse(readFileSync(new URL(`../fixtures/${name}`, import.meta.url), "utf8")).cases);
 const clone = (v) => JSON.parse(JSON.stringify(v));
 const at = (state, path) => {
   if (path === "roster#seed") return state.roster.map((c) => c.seed);

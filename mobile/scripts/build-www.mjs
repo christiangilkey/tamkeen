@@ -236,6 +236,9 @@ const SHARED = [
   // the creator's bar on Home: people online and the online service's limits
   "js/pages/class.js",
   "js/creatorstats.js",
+  // gifts from the creator to a chosen user (game/gifts.js is with the game)
+  "js/giftsync.js",
+  "js/components/giftpanel.js",
   "js/components/creatorbar.js",
   "js/dliclass.js",
   "js/dlitime.js",

@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Offrir à un utilisateur
+38520f0d	En œuf
+0b2aa4ba	Déjà éclose
+b9af86b8	Le cadeau attend en ligne jusqu'à ce que l'application de cette personne le récupère. Il est ajouté à son jeu une seule fois, sur le premier appareil qui s'ouvre, et elle est informée de ce qui est arrivé. Vous ne pouvez pas voir ses quantités (son jeu est conservé dans son propre Google Drive) : les nombres sont donc ajoutés ou retirés, jamais fixés.
+2eb436d3	Son nom d'utilisateur Tamkeen
+91d9d61b	Pièces, gemmes, XP et lueur
+8760dc6d	Un nombre négatif en retire autant (jamais en dessous de zéro).
+5a536cc9	Choses à porter et décorations
+aecf18a9	Déblocages
+95a8b7f1	Chacun ouvre ses articles dans la boutique et ses colorations spéciales.
+328d2aba	Un petit mot pour cette personne (facultatif)
+8793754c	Merci d'avoir testé !
+5377b2d6	Déjà offert
+fac7a3c0	C'est le maximum qu'un cadeau peut contenir.
+25e5a0dd	Choisissez une chose…
+4109df04	Choisissez une attaque…
+32856b01	Choisissez une créature…
+138debbb	Saisissez d'abord son nom d'utilisateur.
+b97517e6	Choisissez d'abord quelque chose à offrir.
+0da81693	Offrir ceci à {0} ?
+9ede6c00	Personne n'a ce nom d'utilisateur.
+1d688142	Offert à {0}. Le cadeau arrivera à la prochaine ouverture de son application.
+00ed543d	Rien d'offert pour l'instant.
+45992207	(rien que cette version connaisse)
+7ad96c6a	récupéré {0}
+2ebf2f96	pas encore récupéré
+1140d140	Il a été récupéré il y a un instant, il ne peut donc plus être repris.
+1cfad2d7	{0} pièces
+b8ae137e	{0} gemmes
+4ac9dac4	{0} de lueur
+5f2f2693	L'attaque {0}
+b4a5bc5a	Seul le créateur de Tamkeen peut faire cela.
+a2c487ce	Ce cadeau n'a pas pu être envoyé : il est vide ou trop gros.
+621f6ccb	Les cadeaux ne sont pas encore activés.
+e8d2a0c4	De la part de l'équipe Tamkeen
+67172ed4	Il a été ajouté à votre jeu.

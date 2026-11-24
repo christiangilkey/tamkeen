@@ -17,7 +17,8 @@ from app.api import system
 from app.sync import gamemerge
 from test_sync import world  # noqa: F401  (pytest fixture)
 
-CASES = json.loads((Path(__file__).parent / "fixtures" / "game_merge.json").read_text(encoding="utf-8"))["cases"]
+CASES = [case for name in ("game_merge.json", "game_merge_gifts.json")  # (the second: gifts from the creator)
+         for case in json.loads((Path(__file__).parent / "fixtures" / name).read_text(encoding="utf-8"))["cases"]]
 
 
 def at(state, path):

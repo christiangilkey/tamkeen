@@ -135,6 +135,12 @@ export function openCreatorPanel(first = null) {
     foot.textContent = t("Limits as published on {0}. Bars turn amber from 70% and red from 90%.", LIMITS_READ);
     const again = h(`<div class="set-actions crb-acts"><button type="button">Refresh</button></div>`);
     again.querySelector("button").onclick = load;
+    // Give a user coins, items, creatures and the like (prototype "owner_gifts": components/giftpanel.js).
+    if (feature("owner_gifts")) {
+      const giveBtn = h(`<button type="button" class="primary">Give to a user</button>`);
+      giveBtn.onclick = () => import("./giftpanel.js").then(({ openGiftPanel }) => openGiftPanel());
+      again.prepend(giveBtn);
+    }
     view.append(foot, again);
   }
 

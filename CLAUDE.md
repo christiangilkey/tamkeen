@@ -76,6 +76,8 @@ raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to 
 | Am I a creator? (`am_creator`) | yes | told no | no |
 | People online now, accounts, active users, database and file sizes, biggest tables (`creator_stats`: counts and sizes only, nothing about any one person) | see | no | no |
 | Who the creators are | SQL editor only | no | no |
+| A gift to a user's game (`supabase/v16-owner-gifts.sql`, prototype `owner_gifts`): coins, gems, XP, glow (added or taken away), items, moves, unlocks, creatures | give to anyone by username, see the record of all gifts, take back one not yet collected | see and collect only their own (never who gave it); the app adds it to their game once | no |
+| Anyone's game itself (kept on their devices and in their own Google Drive) | cannot see or change it | their own only | no |
 
 Message size, uploads and daily counts are capped in SQL. `created_at` is set by the server. Friends' game
 data is validated again on arrival (`web/js/game/remote.js`) and drawn without raw HTML.

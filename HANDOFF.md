@@ -9846,3 +9846,40 @@ follows the same kinds and rules as Send to a friend (Netflix is never sent).
 - **Not done**: a teacher choosing which class a student is in beyond inviting/removing ("set classes" is New class,
   rename and remove in the progress box); a notice or badge for a new invitation or post (the student has to open the
   tab); posts to one student rather than the class; never tried against the real database or with a real second account.
+
+## Gifts from the creator (2026-11-24; "Teachers" chat; prototype `owner_gifts`; database NOT applied)
+
+The owner's words: "as the Owner I also want the ability to give selected users (even those I dont have as friends)
+selected items and also change their amount of glow gems coins xpp ect.... Manually as well as unlock certain things
+for them, give them creatures, give them items ect..."
+
+- **The catch that shapes it**: a user's game is in their own Google Drive, so the creator can neither see nor write
+  it. A gift is a row online ("add this to your game") that the user's own app collects. Amounts are therefore added
+  or taken away, never set (the creator can't see the current amount); nothing goes below zero.
+- **Database**: `supabase/v16-owner-gifts.sql` (run after v14): table `public.game_gifts` (no table rules),
+  `creator_give(username, what, note)`, `creator_gifts(most)`, `creator_take_back(gift)` (all three check
+  `private.is_creator`), `my_gifts()`, `gifts_got(ids)`. Collected gifts are kept a year as the record. Self-test
+  `supabase/test_rls_gifts.sql` (expects `bad=[ none]`). **Neither has been run** (no database on this PC).
+- **What a gift holds** (`web/js/game/gifts.js`, pure, `tests/js/gifts.test.mjs`): `coins`, `gems`, `xp`, `glow`
+  (±1,000,000), `items` (data.CATALOG ids), `moves` (shop moves), `tags` (data.TAGS: they unlock shop things and
+  colourings), `creatures` `[{beast, stage}]` (egg, hatchling, juvenile, grown). `cleanGift` drops anything the game
+  doesn't know, both when the creator writes it and when it arrives. Giving a wearable never puts it on, so the
+  dress-up rules (`rules.wearProblem`) still decide.
+- **Once, whatever the devices do** (`applyGift` + `merge.js` / `app/sync/gamemerge.py`, cases in
+  `tests/fixtures/game_merge_gifts.json`, remade by re-running the scenarios in gifts.test.mjs if the rules change):
+  the game keeps `gifts` (gift id → glow it added); coins/gems/XP go in the merge tally under `g:<gift id>`, not the
+  device, so two devices that each collected it count it once; a creature's seed comes from the gift id
+  (`giftSeed`), so both copies hold the same creature; glow is the garden's (one copy's), so `combine` adds the glow
+  of gifts the kept garden hadn't had; a game with a gift counts as "played", so a new egg that collected one is
+  merged into the real game, not discarded.
+- **Collecting** (`web/js/giftsync.js` `collectGifts`, called by `pages/home.js`): at most every 5 minutes, signed in,
+  game on; applies, saves, shows "From the Tamkeen team" with the lines and the sentence, marks collected 4 s later
+  (after the save). A gift already in the game is only marked.
+- **The creator's screen** (`components/giftpanel.js`): "Give to a user" button in the creator panel
+  (`creatorbar.js`): username, four numbers, pickers for things, moves, creatures, unlock ticks, a sentence, a
+  confirm box, and the record ("Given so far") with Take back for gifts not collected yet.
+- **Limits / not done**: the receiving side is behind the same prototype switch, so until release only devices in
+  prototype mode collect gifts (release = flip `owner_gifts` to released). Not giftable: streak freezes, badges,
+  garden buildings and plots, levels of creatures already owned, fish. A user who never signs in online gets nothing.
+  The notice lists what was sent, not what was really taken (taking 5 gems from someone with 0 still says −5).
+  Never tried against the real database.

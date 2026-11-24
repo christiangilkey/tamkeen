@@ -4345,6 +4345,11 @@
   "f": "web/js/components/creatorbar.js"
  },
  {
+  "id": "fcf68b8d",
+  "k": "Give to a user",
+  "f": "web/js/components/creatorbar.js"
+ },
+ {
   "id": "899a96e2",
   "k": "1 online",
   "f": "web/js/components/creatorbar.js"
@@ -5978,6 +5983,186 @@
   "id": "6588286e",
   "k": "Gemini couldn't make captions. Try again.",
   "f": "web/js/components/geminicaptions.js"
+ },
+ {
+  "id": "2bef474e",
+  "k": "Coins",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "02904156",
+  "k": "Gems",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "d5545dea",
+  "k": "Glow",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "38520f0d",
+  "k": "As an egg",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "0b2aa4ba",
+  "k": "Hatched",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "0d67c71d",
+  "k": "Juvenile",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "50645793",
+  "k": "Fully grown",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "b9af86b8",
+  "k": "The gift waits online until that person's app collects it. It is added to their game once, on whichever device opens first, and they are told what arrived. You can't see their amounts (their game is kept in their own Google Drive), so numbers are added or taken away, never set.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "2eb436d3",
+  "k": "Their Tamkeen username",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "91d9d61b",
+  "k": "Coins, gems, XP and glow",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "8760dc6d",
+  "k": "A minus number takes that many away (never below zero).",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "5a536cc9",
+  "k": "Things to wear and decorations",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "fa0d260b",
+  "k": "Battle moves",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "48f77eb7",
+  "k": "Creatures",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "aecf18a9",
+  "k": "Unlocks",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "95a8b7f1",
+  "k": "Each one opens its things in the shop and its special colourings.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "328d2aba",
+  "k": "A sentence for them (optional)",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "8793754c",
+  "k": "Thanks for testing!",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "fbefae1e",
+  "k": "Give",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "5377b2d6",
+  "k": "Given so far",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "fac7a3c0",
+  "k": "That is the most one gift can hold.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "899db74e",
+  "k": "Decorations",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "25e5a0dd",
+  "k": "Choose a thing…",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "4109df04",
+  "k": "Choose a move…",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "32856b01",
+  "k": "Choose a creature…",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "138debbb",
+  "k": "Type their username first.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "b97517e6",
+  "k": "Choose something to give first.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "0da81693",
+  "k": "Give this to {0}?",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "9ede6c00",
+  "k": "Nobody has that username.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "1d688142",
+  "k": "Given to {0}. It arrives when their app next opens.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "00ed543d",
+  "k": "Nothing given yet.",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "45992207",
+  "k": "(nothing this version knows)",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "7ad96c6a",
+  "k": "collected {0}",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "2ebf2f96",
+  "k": "not collected yet",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "c950d1f7",
+  "k": "Take back",
+  "f": "web/js/components/giftpanel.js"
+ },
+ {
+  "id": "1140d140",
+  "k": "It was collected a moment ago, so it can't be taken back.",
+  "f": "web/js/components/giftpanel.js"
  },
  {
   "id": "a3cec11b",
@@ -7757,11 +7942,6 @@
  {
   "id": "78fec7bb",
   "k": "Send the corrected copy",
-  "f": "web/js/components/lessonview.js"
- },
- {
-  "id": "c950d1f7",
-  "k": "Take back",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -14960,11 +15140,6 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "0d67c71d",
-  "k": "Juvenile",
-  "f": "web/js/game/creatures.js"
- },
- {
   "id": "3703cd21",
   "k": "Health",
   "f": "web/js/game/creatures.js"
@@ -15017,11 +15192,6 @@
  {
   "id": "f3b21e04",
   "k": "Growth",
-  "f": "web/js/game/creatures.js"
- },
- {
-  "id": "50645793",
-  "k": "Fully grown",
   "f": "web/js/game/creatures.js"
  },
  {
@@ -18525,11 +18695,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "d5545dea",
-  "k": "Glow",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "799c9f2a",
   "k": "You have",
   "f": "web/js/game/garden.js"
@@ -18845,6 +19010,36 @@
   "f": "web/js/game/garden.js"
  },
  {
+  "id": "1cfad2d7",
+  "k": "{0} coins",
+  "f": "web/js/game/gifts.js"
+ },
+ {
+  "id": "b8ae137e",
+  "k": "{0} gems",
+  "f": "web/js/game/gifts.js"
+ },
+ {
+  "id": "b89502e9",
+  "k": "{0} XP",
+  "f": "web/js/game/gifts.js"
+ },
+ {
+  "id": "4ac9dac4",
+  "k": "{0} glow",
+  "f": "web/js/game/gifts.js"
+ },
+ {
+  "id": "5f2f2693",
+  "k": "The move {0}",
+  "f": "web/js/game/gifts.js"
+ },
+ {
+  "id": "669ac373",
+  "k": "{0} egg",
+  "f": "web/js/game/gifts.js"
+ },
+ {
   "id": "fb278703",
   "k": "Beaten",
   "f": "web/js/game/gyms-ui.js"
@@ -18877,11 +19072,6 @@
  {
   "id": "a563972e",
   "k": "Elements",
-  "f": "web/js/game/gyms-ui.js"
- },
- {
-  "id": "48f77eb7",
-  "k": "Creatures",
   "f": "web/js/game/gyms-ui.js"
  },
  {
@@ -19077,11 +19267,6 @@
  {
   "id": "98f011af",
   "k": "Goal streak: days in a row you reached your daily goal",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "669ac373",
-  "k": "{0} egg",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -19400,11 +19585,6 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "2bef474e",
-  "k": "Coins",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "647952d2",
   "k": "You have {0}.",
   "f": "web/js/game/info.js"
@@ -19580,11 +19760,6 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "02904156",
-  "k": "Gems",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "38414bff",
   "k": "Earn a badge: 2 each.",
   "f": "web/js/game/info.js"
@@ -19702,11 +19877,6 @@
  {
   "id": "3e768824",
   "k": "{0} is a {1}. Creatures stay young and cute: they grow up to juveniles and never become adults.",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "b89502e9",
-  "k": "{0} XP",
   "f": "web/js/game/info.js"
  },
  {
@@ -20825,16 +20995,6 @@
   "f": "web/js/game/sections.js"
  },
  {
-  "id": "899db74e",
-  "k": "Decorations",
-  "f": "web/js/game/sections.js"
- },
- {
-  "id": "fa0d260b",
-  "k": "Battle moves",
-  "f": "web/js/game/sections.js"
- },
- {
   "id": "807f8ba7",
   "k": "To wear",
   "f": "web/js/game/sections.js"
@@ -20972,11 +21132,6 @@
  {
   "id": "3b6edbb0",
   "k": "Eggs only wear hats and things on the back. Your creature can wear this once it hatches.",
-  "f": "web/js/game/shop.js"
- },
- {
-  "id": "fbefae1e",
-  "k": "Give",
   "f": "web/js/game/shop.js"
  },
  {
@@ -21138,6 +21293,31 @@
   "id": "2dcd9603",
   "k": "Show the button guide",
   "f": "web/js/gamepad.js"
+ },
+ {
+  "id": "b4a5bc5a",
+  "k": "Only Tamkeen's creator can do that.",
+  "f": "web/js/giftsync.js"
+ },
+ {
+  "id": "a2c487ce",
+  "k": "That gift couldn't be sent: it is empty or too big.",
+  "f": "web/js/giftsync.js"
+ },
+ {
+  "id": "621f6ccb",
+  "k": "Gifts aren't switched on yet.",
+  "f": "web/js/giftsync.js"
+ },
+ {
+  "id": "e8d2a0c4",
+  "k": "From the Tamkeen team",
+  "f": "web/js/giftsync.js"
+ },
+ {
+  "id": "67172ed4",
+  "k": "It has been added to your game.",
+  "f": "web/js/giftsync.js"
  },
  {
   "id": "d0673c80",

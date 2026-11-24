@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Ihatag sa usa ka user
+38520f0d	Isip itlog
+0b2aa4ba	Napusa na
+b9af86b8	Maghulat online ang regalo hangtod kuhaon kini sa app sa maong tawo. Kausa ra kini idugang sa iyang dula, sa bisan asang device nga unang moabli, ug sultihan siya kon unsay niabot. Dili nimo makita ang iyang mga kantidad (ang iyang dula gitipigan sa iyang kaugalingong Google Drive), busa ang mga numero dugangan o kuhaan lang, dili gyud itakda.
+2eb436d3	Ang iyang Tamkeen username
+91d9d61b	Coin, mutya, XP ug sanag
+8760dc6d	Ang numero nga may minus mokuha og ingon niana kadaghan (dili gyud ubos sa zero).
+5a536cc9	Mga isul-ob ug dekorasyon
+aecf18a9	Mga i-unlock
+95a8b7f1	Ang matag usa moabli sa mga butang niini sa tindahan ug sa mga espesyal nga kolor niini.
+328d2aba	Usa ka pulong para kaniya (opsyonal)
+8793754c	Salamat sa pag-test!
+5377b2d6	Mga nahatag na
+fac7a3c0	Mao na kana ang pinakadaghan para sa usa ka regalo.
+25e5a0dd	Pagpili og butang…
+4109df04	Pagpili og lihok…
+32856b01	Pagpili og linalang…
+138debbb	I-type una ang iyang username.
+b97517e6	Pagpili una og ihatag.
+0da81693	Ihatag kini kang {0}?
+9ede6c00	Walay tawo nga may ingon niana nga username.
+1d688142	Nahatag na kang {0}. Moabot kini sa sunod nga pag-abli sa iyang app.
+00ed543d	Wala pay nahatag.
+45992207	(walay nailhan kining bersyona)
+7ad96c6a	nakuha niadtong {0}
+2ebf2f96	wala pa makuha
+1140d140	Bag-o lang kining nakuha, busa dili na mabawi.
+1cfad2d7	{0} ka coin
+b8ae137e	{0} ka mutya
+4ac9dac4	{0} ka sanag
+5f2f2693	Ang lihok nga {0}
+b4a5bc5a	Ang tighimo sa Tamkeen ra ang makahimo niana.
+a2c487ce	Dili mapadala kanang regaloha: walay sulod o dako ra kaayo.
+621f6ccb	Wala pa ma-on ang mga regalo.
+e8d2a0c4	Gikan sa team sa Tamkeen
+67172ed4	Nadugang na kini sa imong dula.

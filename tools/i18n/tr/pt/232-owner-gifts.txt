@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Dar a um usuário
+38520f0d	Como ovo
+0b2aa4ba	Já nascida
+b9af86b8	O presente fica esperando online até o app dessa pessoa buscá-lo. Ele é adicionado ao jogo dela uma única vez, no primeiro aparelho que abrir, e ela é avisada do que chegou. Você não vê as quantidades dela (o jogo fica guardado no Google Drive dela), então os números são somados ou tirados, nunca definidos.
+2eb436d3	O nome de usuário da pessoa no Tamkeen
+91d9d61b	Moedas, gemas, XP e brilho
+8760dc6d	Um número negativo tira essa quantidade (nunca abaixo de zero).
+5a536cc9	Coisas para usar e decorações
+aecf18a9	Desbloqueios
+95a8b7f1	Cada um abre suas coisas na loja e suas colorações especiais.
+328d2aba	Uma frase para a pessoa (opcional)
+8793754c	Obrigado por testar!
+5377b2d6	Dado até agora
+fac7a3c0	Isso é o máximo que cabe em um presente.
+25e5a0dd	Escolha uma coisa…
+4109df04	Escolha um golpe…
+32856b01	Escolha uma criatura…
+138debbb	Primeiro digite o nome de usuário da pessoa.
+b97517e6	Primeiro escolha algo para dar.
+0da81693	Dar isto a {0}?
+9ede6c00	Ninguém tem esse nome de usuário.
+1d688142	Dado a {0}. Chega na próxima vez que o app da pessoa abrir.
+00ed543d	Nada foi dado ainda.
+45992207	(nada que esta versão conheça)
+7ad96c6a	recebido em {0}
+2ebf2f96	ainda não recebido
+1140d140	Foi recebido agora há pouco, então não dá mais para pegar de volta.
+1cfad2d7	{0} moedas
+b8ae137e	{0} gemas
+4ac9dac4	{0} de brilho
+5f2f2693	O golpe {0}
+b4a5bc5a	Só o criador do Tamkeen pode fazer isso.
+a2c487ce	Não foi possível enviar esse presente: ele está vazio ou é grande demais.
+621f6ccb	Os presentes ainda não estão ativados.
+e8d2a0c4	Da equipe do Tamkeen
+67172ed4	Foi adicionado ao seu jogo.

@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Dona a un usuari
+38520f0d	Com a ou
+0b2aa4ba	Ja sortida de l'ou
+b9af86b8	El regal espera en línia fins que l'app d'aquesta persona el reculli. S'afegeix al seu joc una sola vegada, al primer dispositiu que s'obri, i se li diu què ha arribat. No pots veure les seves quantitats (el seu joc es guarda al seu propi Google Drive), així que els números se sumen o es resten, mai es fixen.
+2eb436d3	El seu nom d'usuari de Tamkeen
+91d9d61b	Monedes, gemmes, XP i brill
+8760dc6d	Un número negatiu en treu aquesta quantitat (mai per sota de zero).
+5a536cc9	Coses per posar-se i decoracions
+aecf18a9	Desbloquejos
+95a8b7f1	Cadascun obre les seves coses a la botiga i les seves coloracions especials.
+328d2aba	Una frase per a aquesta persona (opcional)
+8793754c	Gràcies per provar l'app!
+5377b2d6	Regalat fins ara
+fac7a3c0	És el màxim que hi cap en un regal.
+25e5a0dd	Tria una cosa…
+4109df04	Tria un moviment…
+32856b01	Tria una criatura…
+138debbb	Primer escriu el seu nom d'usuari.
+b97517e6	Primer tria alguna cosa per regalar.
+0da81693	Vols donar això a {0}?
+9ede6c00	Ningú té aquest nom d'usuari.
+1d688142	Regalat a {0}. Arribarà la pròxima vegada que s'obri la seva app.
+00ed543d	Encara no s'ha regalat res.
+45992207	(res que aquesta versió conegui)
+7ad96c6a	recollit el {0}
+2ebf2f96	encara no recollit
+1140d140	S'ha recollit fa un moment, així que ja no es pot retirar.
+1cfad2d7	{0} monedes
+b8ae137e	{0} gemmes
+4ac9dac4	{0} de brill
+5f2f2693	El moviment {0}
+b4a5bc5a	Només el creador de Tamkeen pot fer això.
+a2c487ce	No s'ha pogut enviar aquest regal: és buit o massa gros.
+621f6ccb	Els regals encara no estan activats.
+e8d2a0c4	De l'equip de Tamkeen
+67172ed4	S'ha afegit al teu joc.

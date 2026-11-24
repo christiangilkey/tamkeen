@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Magbigay sa isang user
+38520f0d	Bilang itlog
+0b2aa4ba	Napisa na
+b9af86b8	Naghihintay online ang regalo hanggang kunin ito ng app ng taong iyon. Isang beses lang itong idinadagdag sa laro niya, sa alinmang device na unang magbukas, at sinasabi sa kanya kung ano ang dumating. Hindi mo makikita ang mga bilang niya (nakatago ang laro niya sa sarili niyang Google Drive), kaya dinadagdagan o binabawasan lang ang mga numero, hindi kailanman itinatakda.
+2eb436d3	Ang Tamkeen username niya
+91d9d61b	Barya, hiyas, XP at liwanag
+8760dc6d	Ang numerong may minus ay nagbabawas ng ganoong karami (hindi bababa sa zero).
+5a536cc9	Mga maisusuot at dekorasyon
+aecf18a9	Mga ia-unlock
+95a8b7f1	Binubuksan ng bawat isa ang mga gamit nito sa tindahan at ang mga espesyal na kulay nito.
+328d2aba	Isang pangungusap para sa kanya (opsyonal)
+8793754c	Salamat sa pag-test!
+5377b2d6	Mga naibigay na
+fac7a3c0	Iyan na ang pinakamarami para sa isang regalo.
+25e5a0dd	Pumili ng gamit…
+4109df04	Pumili ng galaw…
+32856b01	Pumili ng nilalang…
+138debbb	I-type muna ang username niya.
+b97517e6	Pumili muna ng ibibigay.
+0da81693	Ibigay ito kay {0}?
+9ede6c00	Walang may ganyang username.
+1d688142	Naibigay kay {0}. Darating ito sa susunod na pagbukas ng app niya.
+00ed543d	Wala pang naibibigay.
+45992207	(walang kilala ang bersyong ito)
+7ad96c6a	nakuha noong {0}
+2ebf2f96	hindi pa nakukuha
+1140d140	Kakakuha lang nito, kaya hindi na ito mababawi.
+1cfad2d7	{0} barya
+b8ae137e	{0} hiyas
+4ac9dac4	{0} liwanag
+5f2f2693	Ang galaw na {0}
+b4a5bc5a	Ang gumawa ng Tamkeen lang ang makakagawa niyan.
+a2c487ce	Hindi naipadala ang regalong iyon: walang laman ito o masyadong malaki.
+621f6ccb	Hindi pa naka-on ang mga regalo.
+e8d2a0c4	Mula sa team ng Tamkeen
+67172ed4	Naidagdag na ito sa laro mo.

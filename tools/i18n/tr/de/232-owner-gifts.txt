@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	An einen Nutzer verschenken
+38520f0d	Als Ei
+0b2aa4ba	Geschlüpft
+b9af86b8	Das Geschenk wartet online, bis die App dieser Person es abholt. Es wird ihrem Spiel einmal hinzugefügt, auf dem Gerät, das zuerst geöffnet wird, und sie erfährt, was angekommen ist. Du kannst ihre Mengen nicht sehen (ihr Spiel liegt in ihrem eigenen Google Drive), deshalb werden Zahlen hinzugefügt oder abgezogen, nie festgelegt.
+2eb436d3	Ihr Tamkeen-Benutzername
+91d9d61b	Münzen, Edelsteine, XP und Glimmer
+8760dc6d	Eine Minuszahl zieht so viele ab (nie unter null).
+5a536cc9	Dinge zum Anziehen und Dekorationen
+aecf18a9	Freischaltungen
+95a8b7f1	Jede öffnet ihre Sachen im Laden und ihre besonderen Färbungen.
+328d2aba	Ein Satz für die Person (optional)
+8793754c	Danke fürs Testen!
+5377b2d6	Bisher verschenkt
+fac7a3c0	Mehr passt nicht in ein Geschenk.
+25e5a0dd	Wähle ein Ding…
+4109df04	Wähle einen Zug…
+32856b01	Wähle ein Wesen…
+138debbb	Gib zuerst den Benutzernamen ein.
+b97517e6	Wähle zuerst etwas zum Verschenken.
+0da81693	Das an {0} verschenken?
+9ede6c00	Niemand hat diesen Benutzernamen.
+1d688142	An {0} verschenkt. Es kommt an, wenn die App dort das nächste Mal geöffnet wird.
+00ed543d	Noch nichts verschenkt.
+45992207	(nichts, was diese Version kennt)
+7ad96c6a	abgeholt {0}
+2ebf2f96	noch nicht abgeholt
+1140d140	Es wurde gerade eben abgeholt und kann deshalb nicht zurückgenommen werden.
+1cfad2d7	{0} Münzen
+b8ae137e	{0} Edelsteine
+4ac9dac4	{0} Glimmer
+5f2f2693	Der Zug {0}
+b4a5bc5a	Das kann nur der Schöpfer von Tamkeen.
+a2c487ce	Dieses Geschenk konnte nicht gesendet werden: Es ist leer oder zu groß.
+621f6ccb	Geschenke sind noch nicht eingeschaltet.
+e8d2a0c4	Vom Tamkeen-Team
+67172ed4	Es wurde deinem Spiel hinzugefügt.

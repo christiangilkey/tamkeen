@@ -1,0 +1,1366 @@
+{
+ "about": "Gifts from the creator (web/js/game/gifts.js) meeting the merge: made by applying a gift to copies of one game, then run through merge.js and gamemerge.py like game_merge.json.",
+ "cases": [
+  {
+   "name": "gift: two devices each collected it before syncing, counted once",
+   "mine": {
+    "v": 2,
+    "xp": 800,
+    "coins": 157,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 7,
+      "type": "dusk",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     },
+     {
+      "seed": 2429821111,
+      "type": "ember",
+      "growth": 0.04,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [
+     "hat/cap"
+    ],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "desk": 2
+    },
+    "tally": {
+     "xp": {
+      "desk": [
+       500,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       300,
+       0
+      ]
+     },
+     "coins": {
+      "desk": [
+       107,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       50,
+       0
+      ]
+     },
+     "gems": {
+      "desk": [
+       10,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       5,
+       0
+      ]
+     }
+    },
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 25
+    },
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 15,
+    "idle": {
+     "plots": [
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      }
+     ],
+     "glow": 65,
+     "stardust": 0,
+     "at": 0,
+     "badgesPaid": 0,
+     "raidsPaid": 0,
+     "leaguePaid": 0,
+     "released": []
+    }
+   },
+   "theirs": {
+    "v": 2,
+    "xp": 820,
+    "coins": 150,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 7,
+      "type": "dusk",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     },
+     {
+      "seed": 2429821111,
+      "type": "ember",
+      "growth": 0.04,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [
+     "hat/cap"
+    ],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "desk": 1,
+     "phone": 1
+    },
+    "tally": {
+     "xp": {
+      "desk": [
+       500,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       300,
+       0
+      ],
+      "phone": [
+       20,
+       0
+      ]
+     },
+     "coins": {
+      "desk": [
+       100,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       50,
+       0
+      ]
+     },
+     "gems": {
+      "desk": [
+       10,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       5,
+       0
+      ]
+     }
+    },
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 25
+    },
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 15,
+    "idle": {
+     "plots": [
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      }
+     ],
+     "glow": 65,
+     "stardust": 0,
+     "at": 0,
+     "badgesPaid": 0,
+     "raidsPaid": 0,
+     "leaguePaid": 0,
+     "released": []
+    }
+   },
+   "keep": "merged",
+   "expect": {
+    "coins": 157,
+    "gems": 15,
+    "xp": 820,
+    "idle.glow": 65,
+    "roster#seed": [
+     7,
+     2429821111
+    ],
+    "owned": [
+     "hat/cap"
+    ],
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 25
+    }
+   }
+  },
+  {
+   "name": "gift: the copy further along had not collected it, and cannot undo it",
+   "mine": {
+    "v": 2,
+    "xp": 2500,
+    "coins": 100,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 7,
+      "type": "dusk",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "desk": 1,
+     "phone": 1
+    },
+    "tally": {
+     "xp": {
+      "desk": [
+       500,
+       0
+      ],
+      "phone": [
+       2000,
+       0
+      ]
+     },
+     "coins": {
+      "desk": [
+       100,
+       0
+      ]
+     },
+     "gems": {
+      "desk": [
+       10,
+       0
+      ]
+     }
+    },
+    "gifts": {},
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 10,
+    "idle": {
+     "plots": [
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      }
+     ],
+     "glow": 40,
+     "stardust": 0,
+     "at": 0,
+     "badgesPaid": 0,
+     "raidsPaid": 0,
+     "leaguePaid": 0,
+     "released": []
+    }
+   },
+   "theirs": {
+    "v": 2,
+    "xp": 800,
+    "coins": 150,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 7,
+      "type": "dusk",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     },
+     {
+      "seed": 2429821111,
+      "type": "ember",
+      "growth": 0.04,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [
+     "hat/cap"
+    ],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "desk": 2
+    },
+    "tally": {
+     "xp": {
+      "desk": [
+       500,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       300,
+       0
+      ]
+     },
+     "coins": {
+      "desk": [
+       100,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       50,
+       0
+      ]
+     },
+     "gems": {
+      "desk": [
+       10,
+       0
+      ],
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       5,
+       0
+      ]
+     }
+    },
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 25
+    },
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 15,
+    "idle": {
+     "plots": [
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      }
+     ],
+     "glow": 65,
+     "stardust": 0,
+     "at": 0,
+     "badgesPaid": 0,
+     "raidsPaid": 0,
+     "leaguePaid": 0,
+     "released": []
+    }
+   },
+   "keep": "merged",
+   "expect": {
+    "coins": 150,
+    "gems": 15,
+    "xp": 2800,
+    "idle.glow": 65,
+    "roster#seed": [
+     7,
+     2429821111
+    ],
+    "owned": [
+     "hat/cap"
+    ],
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 25
+    }
+   }
+  },
+  {
+   "name": "gift: a new egg that collected one joins the real game",
+   "mine": {
+    "v": 2,
+    "xp": 500,
+    "coins": 100,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 7,
+      "type": "dusk",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "desk": 1
+    },
+    "tally": {
+     "xp": {
+      "desk": [
+       500,
+       0
+      ]
+     },
+     "coins": {
+      "desk": [
+       100,
+       0
+      ]
+     },
+     "gems": {
+      "desk": [
+       10,
+       0
+      ]
+     }
+    },
+    "gifts": {},
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 10,
+    "idle": {
+     "plots": [
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      },
+      {
+       "open": false,
+       "id": null,
+       "tier": 0,
+       "stored": 0
+      }
+     ],
+     "glow": 40,
+     "stardust": 0,
+     "at": 0,
+     "badgesPaid": 0,
+     "raidsPaid": 0,
+     "leaguePaid": 0,
+     "released": []
+    }
+   },
+   "theirs": {
+    "v": 2,
+    "xp": 0,
+    "coins": 0,
+    "goal": 10,
+    "roster": [
+     {
+      "seed": 99,
+      "type": "stone",
+      "growth": 0,
+      "traits": {
+       "listener": 0,
+       "reader": 0,
+       "collector": 0,
+       "curious": 0
+      },
+      "grown": false,
+      "variant": null,
+      "show": null,
+      "moves": [],
+      "equipped": {},
+      "name": "",
+      "feats": {}
+     }
+    ],
+    "active": 0,
+    "items": {
+     "freeze": 1,
+     "hint": 0
+    },
+    "streak": 0,
+    "best_streak": 0,
+    "last_complete": "",
+    "day": {
+     "key": "",
+     "seconds": 0,
+     "done": false,
+     "taps": 0,
+     "saves": 0,
+     "xp": 0,
+     "words": [],
+     "reviews": 0,
+     "battles": 0,
+     "cards": 0,
+     "cardsCleared": false,
+     "both": false,
+     "grammar": [],
+     "heard": [],
+     "basics": [],
+     "date": "2026-11-24"
+    },
+    "owned": [
+     "hat/cap"
+    ],
+    "attacks": [],
+    "battleMode": "last100",
+    "battleFolder": "",
+    "battleFolders": [],
+    "known": 0,
+    "decor": [],
+    "scene": "meadow",
+    "tags": [],
+    "review": {},
+    "stats": {
+     "lookups": 0,
+     "goals": 0,
+     "reviews": 0,
+     "right": 0,
+     "battles": 0,
+     "wins": 0,
+     "friend_battles": 0,
+     "raids": 0,
+     "words": 0,
+     "cards": 0,
+     "grammar": 0,
+     "heard": 0,
+     "basics": 0
+    },
+    "week": {
+     "n": 0,
+     "right": 0,
+     "total": 0,
+     "paid": false
+    },
+    "league": 0,
+    "goalWeek": {
+     "n": 0,
+     "days": 0
+    },
+    "raid": 0,
+    "rating": 1000,
+    "rivals": {},
+    "gyms": {
+     "beaten": 0,
+     "wins": {}
+    },
+    "showcase": null,
+    "curious20": true,
+    "reading": {},
+    "finished": {
+     "netflix": [],
+     "podcast": []
+    },
+    "badges": [],
+    "clock": {
+     "web": 1
+    },
+    "tally": {
+     "xp": {},
+     "coins": {},
+     "gems": {
+      "g:0f8fad5b-d9cb-469f-a165-70867728950e": [
+       5,
+       0
+      ]
+     }
+    },
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 0
+    },
+    "updated_at": 0,
+    "loot": {
+     "streak": 0,
+     "best": 0,
+     "rolls": 0,
+     "since": {
+      "epic": 0,
+      "legendary": 0
+     },
+     "found": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "golden": 0,
+     "goldenDay": "",
+     "miss": {},
+     "day": {
+      "key": "",
+      "rolled": [],
+      "extra": 0,
+      "bosses": 0
+     },
+     "log": []
+    },
+    "gems": 5
+   },
+   "keep": "merged",
+   "expect": {
+    "coins": 100,
+    "gems": 15,
+    "xp": 500,
+    "idle.glow": 40,
+    "roster#seed": [
+     7,
+     99
+    ],
+    "owned": [
+     "hat/cap"
+    ],
+    "gifts": {
+     "0f8fad5b-d9cb-469f-a165-70867728950e": 0
+    }
+   }
+  }
+ ]
+}

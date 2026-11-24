@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Regala a un utente
+38520f0d	Come uovo
+0b2aa4ba	Già schiusa
+b9af86b8	Il regalo aspetta online finché l'app di quella persona non lo ritira. Viene aggiunto al suo gioco una sola volta, sul primo dispositivo che si apre, e la persona viene avvisata di ciò che è arrivato. Non puoi vedere le sue quantità (il suo gioco è salvato nel suo Google Drive), quindi i numeri vengono aggiunti o tolti, mai impostati.
+2eb436d3	Il suo nome utente Tamkeen
+91d9d61b	Monete, gemme, XP e bagliore
+8760dc6d	Un numero negativo ne toglie altrettanti (mai sotto zero).
+5a536cc9	Cose da indossare e decorazioni
+aecf18a9	Sblocchi
+95a8b7f1	Ognuno apre le sue cose nel negozio e le sue colorazioni speciali.
+328d2aba	Una frase per questa persona (facoltativa)
+8793754c	Grazie per aver provato l'app!
+5377b2d6	Regalato finora
+fac7a3c0	È il massimo che un regalo può contenere.
+25e5a0dd	Scegli una cosa…
+4109df04	Scegli una mossa…
+32856b01	Scegli una creatura…
+138debbb	Prima scrivi il suo nome utente.
+b97517e6	Prima scegli qualcosa da regalare.
+0da81693	Regalare questo a {0}?
+9ede6c00	Nessuno ha questo nome utente.
+1d688142	Regalato a {0}. Arriverà alla prossima apertura della sua app.
+00ed543d	Ancora nessun regalo.
+45992207	(niente che questa versione conosca)
+7ad96c6a	ritirato il {0}
+2ebf2f96	non ancora ritirato
+1140d140	È stato ritirato un attimo fa, quindi non si può più riprendere.
+1cfad2d7	{0} monete
+b8ae137e	{0} gemme
+4ac9dac4	{0} di bagliore
+5f2f2693	La mossa {0}
+b4a5bc5a	Solo il creatore di Tamkeen può farlo.
+a2c487ce	Non è stato possibile inviare il regalo: è vuoto o troppo grande.
+621f6ccb	I regali non sono ancora attivi.
+e8d2a0c4	Dal team di Tamkeen
+67172ed4	È stato aggiunto al tuo gioco.

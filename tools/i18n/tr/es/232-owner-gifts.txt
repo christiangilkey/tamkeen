@@ -1,0 +1,37 @@
+# Gifts from Tamkeen's creator to a chosen user (web/js/components/giftpanel.js, web/js/giftsync.js).
+fcf68b8d	Dar a un usuario
+38520f0d	Como huevo
+0b2aa4ba	Ya eclosionada
+b9af86b8	El regalo espera en línea hasta que la app de esa persona lo recoja. Se añade a su juego una sola vez, en el primer dispositivo que se abra, y se le avisa de lo que ha llegado. No puedes ver sus cantidades (su juego se guarda en su propio Google Drive), así que los números se suman o se restan, nunca se fijan.
+2eb436d3	Su nombre de usuario de Tamkeen
+91d9d61b	Monedas, gemas, XP y brillo
+8760dc6d	Un número negativo quita esa cantidad (nunca por debajo de cero).
+5a536cc9	Cosas para ponerse y decoraciones
+aecf18a9	Desbloqueos
+95a8b7f1	Cada uno abre sus cosas en la tienda y sus coloraciones especiales.
+328d2aba	Una frase para esa persona (opcional)
+8793754c	¡Gracias por probar la app!
+5377b2d6	Regalado hasta ahora
+fac7a3c0	Es lo máximo que cabe en un regalo.
+25e5a0dd	Elige una cosa…
+4109df04	Elige un movimiento…
+32856b01	Elige una criatura…
+138debbb	Primero escribe su nombre de usuario.
+b97517e6	Primero elige algo para regalar.
+0da81693	¿Dar esto a {0}?
+9ede6c00	Nadie tiene ese nombre de usuario.
+1d688142	Regalado a {0}. Llegará la próxima vez que se abra su app.
+00ed543d	Aún no se ha regalado nada.
+45992207	(nada que esta versión conozca)
+7ad96c6a	recogido el {0}
+2ebf2f96	aún sin recoger
+1140d140	Se recogió hace un momento, así que ya no se puede retirar.
+1cfad2d7	{0} monedas
+b8ae137e	{0} gemas
+4ac9dac4	{0} de brillo
+5f2f2693	El movimiento {0}
+b4a5bc5a	Solo el creador de Tamkeen puede hacer eso.
+a2c487ce	No se pudo enviar ese regalo: está vacío o es demasiado grande.
+621f6ccb	Los regalos aún no están activados.
+e8d2a0c4	Del equipo de Tamkeen
+67172ed4	Se ha añadido a tu juego.
