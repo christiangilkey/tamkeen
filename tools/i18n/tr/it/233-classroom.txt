@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Aula
+0d4f19db	Accedi in Impostazioni → Studenti del DLI per vedere la tua aula.
+ec9e1f32	Non hai ancora nessuna classe. Creane una nella scheda Classe, poi aggiungi qui del materiale per i tuoi studenti.
+e318332d	Non sei ancora in nessuna classe. Il tuo insegnante può invitarti con il tuo nome utente, oppure darti un codice classe.
+7676b640	Apri la scheda Classe
+77302510	Ciò che aggiungi qui lo vedono i tuoi studenti di {0}: la sua trascrizione come l'hai corretta, le parole che hai segnato come importanti, i tuoi significati e le tue note.
+d9a0aac4	Ciò che i tuoi insegnanti di {0} hanno aggiunto per te. Aprine uno e va nella tua Libreria con la loro trascrizione e le loro note sulle parole.
+c2eeb319	L'aula non è ancora attiva.
+58d6bf85	Aggiungi dalla mia libreria
+b69c7dcc	Dai un nome alla cartella
+7af97886	Qui non c'è ancora niente. Aggiungi qualcosa dalla tua Libreria, oppure premi il pulsante con l'aeroplanino di carta su qualsiasi player o riga della Libreria e scegli questa classe.
+7f8ef211	I tuoi insegnanti non hanno ancora aggiunto niente.
+4a66d148	Tutto
+fda175dd	1 elemento
+cfdfdd45	{0} elementi
+b406972d	Rinomina la cartella
+fa368edc	Rimuovere la cartella {0}?
+93a877bb	Ciò che contiene resta nell'aula, fuori dalle cartelle.
+da95cc74	Vuota.
+030e010a	aggiornato il {0}
+2e3275fb	{0} parole dell'insegnante, {1} importanti
+b2f6c4d1	1 parola dell'insegnante
+82e01534	{0} parole dell'insegnante
+7c5f254e	Invia di nuovo la tua trascrizione e le tue note sulle sue parole
+fb91e24f	Aggiorna
+2088d294	Prima aprilo nella tua Libreria su questo dispositivo, poi aggiornalo.
+1787d5d7	Non è stato possibile leggere la tua copia su questo dispositivo.
+e28b9792	Aggiornato: la sua trascrizione e {0} delle tue parole.
+f7bd1253	Aggiornato: la sua trascrizione. Non hai ancora sue schede con un significato, una nota o il segno di importante.
+577dbf21	Rimuovere «{0}» dall'aula?
+dde69eef	Gli studenti che l'hanno aperto conservano la propria copia.
+dc51fd22	Ricevi l'aggiornamento
+ef6d50dd	Aggiungi la parola importante alle mie schede
+24a8800c	Aggiungi le {0} parole importanti alle mie schede
+6a9ab904	1 scheda creata, nella cartella {0}.
+768fa64d	{0} schede create, nella cartella {1}.
+cb1a00b7	Hai già queste parole. Ora sono nella cartella {0}.
+e97a3584	La sua trascrizione viene inviata così com'è ora, con le tue note sulle sue parole: le tue schede segnate come importanti, con un significato scritto da te o con note di grammatica.
+4b07d7e6	Cerca nella tua libreria…
+51c01c83	Nessun risultato. Si possono condividere: podcast, video di YouTube, reel, pagine web, libri, e i tuoi audio e video una volta trascritti.
+2e2c33a3	Aggiunto, con le sue parole e {0} delle tue note.
+299988cc	Aggiunto, con le sue parole.
+fe2fe6aa	Aggiunto.
+33fb207b	Apri l'aula
+da33ddcb	Insegnante
+59963c9a	Nota dell'insegnante
+b4c836da	Hai inviato tutto quello che si può inviare in un giorno. Riprova domani.
+94a2dab0	L'aula è piena (300 elementi, 40 cartelle). Prima rimuovi qualcosa.
+b94519dd	Quella cartella non c'è più.
+efd34fb8	È stato rimosso dall'aula.
+2453bc49	Ciò che aggiungi per questa classe è nella Libreria, sotto Aula: cartelle, la tua trascrizione, le tue parole importanti, significati e note.
+56fb8eb7	Ciò che i tuoi insegnanti hanno aggiunto per questa classe è nella Libreria, sotto Aula.

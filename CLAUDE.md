@@ -57,7 +57,8 @@ service role or the Supabase SQL editor.
 | A class's teachers (`supabase/v13-dli-class-teachers.sql`, prototype `class_teachers`) | see their usernames under the class | list; add another DLI teacher by username; take out one who joined after them | no | as before | no | no |
 | An invitation to a class (`supabase/v15-dli-class-tab.sql`, prototype `class_tab`) | see mine; accept or decline | send by username (wrong names capped at 20 a day), see who hasn't answered, take back; sees nothing of the student until they accept | no | no | no | no |
 | Classmates: username and activity level (one word, never the numbers) | see, and be seen, only after agreeing to it in the Class tab (wording 3) | see those who agreed | no | no | no | no |
-| Something sent to a class: title, kind, link, its words as a file (bucket `dli-class`), 60 days / newest 50 | see, add to my library | send (30 a day), remove | no | no | no | no |
+| Something sent to a class: title, kind, link, its words as a file (bucket `dli-class`); with v17 kept until removed (300 a class) | see, add to my library | send (100 a day; 30 before v17), remove | no | no | no | no |
+| The Classroom (`supabase/v17-dli-classroom.sql`, prototype `classroom`): a class's folders; on each item the teacher's notes on its words (important, the teacher's meaning, a note, the sentence) | see; the notes show in my word popup; adding the important words to my cards happens on my device only | make, rename and remove folders; move, change in place (transcript, notes), remove items | no | no | no | no |
 | A class's codes | no | see | no | no | no | no |
 | Teacher code | no | no | no | see, replace | no | no |
 | Becoming a teacher / the owner | no | by the teacher code | by the teacher code | by the one-time owner code (shown when the SQL file is first run) | wrong codes capped at 20 a day | no |

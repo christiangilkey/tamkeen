@@ -40,6 +40,7 @@ import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
 import { icon } from "../icons.js";
 import { feature } from "../prototype.js";
+import { importantKeys, keptNotes, noteKey } from "../classnotes.js";
 import { sentenceStart } from "../sentencestart.js";
 import { actionHeld, controllerArea, focusMenu, padMenu } from "../gamepad.js";
 import { wordCursor } from "../padcursor.js";
@@ -366,6 +367,11 @@ export async function render(view, { id, query }) {
   for (const seg of data.segments) { if (seg.start <= startAt) startSeg = seg.idx; else break; }
   const startWord = startSeg === null ? 0 : Math.max(0, segOf.indexOf(startSeg));
   const seen = seenWords({ tokens: texts, lang, els: wordEls, wait: ytLoaded, start: startWord });
+  // From the Classroom (prototype "classroom"): the words the teacher marked important are underlined (classnotes.js).
+  if (feature("classroom")) {
+    const marked = importantKeys(keptNotes(id));
+    if (marked.size) wordEls.forEach((el, i) => { if (marked.has(noteKey(texts[i]))) el.classList.add("tw-important"); });
+  }
 
   // A Netflix title plays in Netflix's own player, in a window laid over the stage (nfmedia.js);
   // its subtitles and soundtrack are switched to the language being learned now (not the one it was

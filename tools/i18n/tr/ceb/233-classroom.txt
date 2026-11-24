@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Klasehanan
+0d4f19db	Pag-sign in sa Settings → Mga estudyante sa DLI aron makita ang imong klasehanan.
+ec9e1f32	Wala pa kay klase. Paghimo og usa sa tab nga Klase, unya pagdugang dinhi og mga butang para sa imong mga estudyante.
+e318332d	Wala pa ka sa usa ka klase. Mahimo kang imbitahon sa imong magtutudlo pinaagi sa imong username, o hatagan ka og code sa klase.
+7676b640	Ablihi ang tab nga Klase
+77302510	Ang imong idugang dinhi makita sa imong mga estudyante sa {0}: ang transcript niini sumala sa imong pagtul-id, ang mga pulong nga imong gimarkahan nga importante, ang imong mga kahulogan ug ang imong mga nota.
+d9a0aac4	Ang gidugang para kanimo sa imong mga magtutudlo sa {0}. Ablihi ang usa ug moadto kini sa imong Library uban ang ilang transcript ug ang ilang mga nota sa mga pulong niini.
+c2eeb319	Wala pa ma-on ang klasehanan.
+58d6bf85	Pagdugang gikan sa akong library
+b69c7dcc	Ngalani ang folder
+7af97886	Wala pay sulod dinhi. Pagdugang gikan sa imong Library, o pindota ang button nga eroplanong papel sa bisan asang player o laray sa Library ug pilia kini nga klase.
+7f8ef211	Wala pay gidugang ang imong mga magtutudlo.
+4a66d148	Tanan
+fda175dd	1 ka butang
+cfdfdd45	{0} ka butang
+b406972d	Usba ang ngalan sa folder
+fa368edc	Tangtangon ang folder nga {0}?
+93a877bb	Ang sulod niini magpabilin sa klasehanan, gawas sa bisan unsang folder.
+da95cc74	Walay sulod.
+030e010a	gi-update niadtong {0}
+2e3275fb	{0} ka pulong sa magtutudlo, {1} importante
+b2f6c4d1	1 ka pulong sa magtutudlo
+82e01534	{0} ka pulong sa magtutudlo
+7c5f254e	Ipadala pag-usab ang imong transcript ug ang imong mga nota sa mga pulong niini
+fb91e24f	I-update
+2088d294	Ablihi una kini sa imong Library niini nga device, unya i-update.
+1787d5d7	Dili mabasa ang imong kopya niini sa kini nga device.
+e28b9792	Na-update: ang transcript niini ug {0} sa imong mga pulong.
+f7bd1253	Na-update: ang transcript niini. Wala pa kay flashcard niini nga may kahulogan, nota o marka nga importante.
+577dbf21	Tangtangon ang “{0}” sa klasehanan?
+dde69eef	Ang mga estudyante nga nakaabli niini magpabilin nga adunay ilang kaugalingong kopya.
+dc51fd22	Kuhaa ang update
+ef6d50dd	Idugang ang importanteng pulong sa akong mga card
+24a8800c	Idugang ang {0} ka importanteng pulong sa akong mga card
+6a9ab904	1 ka card ang nahimo, sa folder nga {0}.
+768fa64d	{0} ka card ang nahimo, sa folder nga {1}.
+cb1a00b7	Naa na nimo kadtong mga pulong. Naa na sila karon sa folder nga {0}.
+e97a3584	Mouban ang transcript niini sumala sa kahimtang niini karon, uban ang imong mga nota sa mga pulong niini: ang imong mga flashcard niini nga gimarkahan nga importante, adunay kahulogan nga imong gisulat, o adunay mga nota sa gramatika.
+4b07d7e6	Pangitaa sa imong library…
+51c01c83	Walay nakit-an. Mga butang nga mapaambit: mga podcast, video sa YouTube, reel, web page, libro, ug ang imong kaugalingong mga audio ug video kung naa na silay transcript.
+2e2c33a3	Nadugang, uban ang mga pulong niini ug {0} sa imong mga nota.
+299988cc	Nadugang, uban ang mga pulong niini.
+fe2fe6aa	Nadugang.
+33fb207b	Ablihi ang klasehanan
+da33ddcb	Magtutudlo
+59963c9a	Nota sa magtutudlo
+b4c836da	Naabot na nimo ang gidaghanon nga mapadala sa usa ka adlaw. Sulayi pag-usab ugma.
+94a2dab0	Puno na ang klasehanan (300 ka butang, 40 ka folder). Pagtangtang una og usa.
+b94519dd	Wala na kana nga folder.
+efd34fb8	Gitangtang na kana sa klasehanan.
+2453bc49	Ang imong idugang para niini nga klase naa sa Library, ubos sa Klasehanan: mga folder, ang imong transcript, ang imong mga importanteng pulong, mga kahulogan ug mga nota.
+56fb8eb7	Ang gidugang sa imong mga magtutudlo para niini nga klase naa sa Library, ubos sa Klasehanan.

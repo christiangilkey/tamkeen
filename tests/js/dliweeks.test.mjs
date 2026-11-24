@@ -175,12 +175,13 @@ test("the database file and the app agree on names and limits", () => {
   const v11 = readFileSync(new URL("../../supabase/v11-dli-activity.sql", import.meta.url), "utf8");
   const v13 = readFileSync(new URL("../../supabase/v13-dli-class-teachers.sql", import.meta.url), "utf8");
   const v15 = readFileSync(new URL("../../supabase/v15-dli-class-tab.sql", import.meta.url), "utf8");
+  const v17 = readFileSync(new URL("../../supabase/v17-dli-classroom.sql", import.meta.url), "utf8");
   const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
   // every database function the app calls exists in the files, and is open to signed-in people only
   const called = [...app.matchAll(/rpc\("(dli_[a-z_]+)"/g)].map((m) => m[1]);
   assert.ok(called.length >= 16, "the app's calls were found");
   for (const name of new Set(called)) {
-    const file = [sql, v11, v13, v15].find((f) => f.includes(`create or replace function public.${name}(`)) || sql;
+    const file = [sql, v11, v13, v17, v15].find((f) => f.includes(`create or replace function public.${name}(`)) || sql;
     assert.ok(file.includes(`create or replace function public.${name}(`), `${name} is in a SQL file`);
     assert.ok(new RegExp(`grant execute on function[^;]*public\\.${name}\\(`).test(file), `${name} may be run by signed-in people`);
     assert.ok(new RegExp(`revoke all on function[^;]*public\\.${name}\\(`).test(file), `${name} is closed to everyone else`);

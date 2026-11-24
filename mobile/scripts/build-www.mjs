@@ -235,6 +235,9 @@ const SHARED = [
   "js/dliweeks.js",
   // the creator's bar on Home: people online and the online service's limits
   "js/pages/class.js",
+  // the Classroom in the Library: a class's shared material and the teacher's notes on its words
+  "js/classnotes.js",
+  "js/components/classroompanel.js",
   "js/creatorstats.js",
   // gifts from the creator to a chosen user (game/gifts.js is with the game)
   "js/giftsync.js",

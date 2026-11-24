@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Aula
+0d4f19db	Inicia la sessió a Configuració → Estudiants del DLI per veure la teva aula.
+ec9e1f32	Encara no tens cap classe. Crea'n una a la pestanya Classe i després afegeix coses aquí per als teus estudiants.
+e318332d	Encara no ets a cap classe. El teu professor et pot convidar pel teu nom d'usuari, o donar-te un codi de classe.
+7676b640	Obre la pestanya Classe
+77302510	El que afegeixes aquí ho veuen els teus estudiants de {0}: la seva transcripció tal com la vas corregir, les paraules que vas marcar com a importants, els teus significats i les teves notes.
+d9a0aac4	El que els teus professors de {0} han afegit per a tu. Obre'n un i passa a la teva Biblioteca amb la seva transcripció i les seves notes sobre les paraules.
+c2eeb319	L'aula encara no està activada.
+58d6bf85	Afegeix des de la meva biblioteca
+b69c7dcc	Posa nom a la carpeta
+7af97886	Aquí encara no hi ha res. Afegeix alguna cosa des de la teva Biblioteca, o prem el botó de l'avió de paper a qualsevol reproductor o fila de la Biblioteca i tria aquesta classe.
+7f8ef211	Els teus professors encara no han afegit res.
+4a66d148	Tot
+fda175dd	1 cosa
+cfdfdd45	{0} coses
+b406972d	Canvia el nom de la carpeta
+fa368edc	Vols treure la carpeta {0}?
+93a877bb	El que hi ha dins es queda a l'aula, fora de les carpetes.
+da95cc74	Buida.
+030e010a	actualitzat el {0}
+2e3275fb	{0} paraules del professor, {1} importants
+b2f6c4d1	1 paraula del professor
+82e01534	{0} paraules del professor
+7c5f254e	Torna a enviar la teva transcripció i les teves notes sobre les seves paraules
+fb91e24f	Actualitza
+2088d294	Primer obre-ho a la teva Biblioteca en aquest dispositiu i després actualitza-ho.
+1787d5d7	No s'ha pogut llegir la teva còpia en aquest dispositiu.
+e28b9792	Actualitzat: la seva transcripció i {0} de les teves paraules.
+f7bd1253	Actualitzat: la seva transcripció. Encara no en tens cap targeta amb un significat, una nota o la marca d'important.
+577dbf21	Vols treure «{0}» de l'aula?
+dde69eef	Els estudiants que l'han obert conserven la seva pròpia còpia.
+dc51fd22	Rep l'actualització
+ef6d50dd	Afegeix la paraula important a les meves targetes
+24a8800c	Afegeix les {0} paraules importants a les meves targetes
+6a9ab904	1 targeta creada, a la carpeta {0}.
+768fa64d	{0} targetes creades, a la carpeta {1}.
+cb1a00b7	Ja tens aquestes paraules. Ara són a la carpeta {0}.
+e97a3584	La seva transcripció s'envia tal com està ara, amb les teves notes sobre les seves paraules: les teves targetes que estan marcades com a importants, tenen un significat que has escrit o notes de gramàtica.
+4b07d7e6	Cerca a la teva biblioteca…
+51c01c83	No s'ha trobat res. El que es pot compartir: pòdcasts, vídeos de YouTube, reels, pàgines web, llibres, i els teus propis àudios i vídeos un cop transcrits.
+2e2c33a3	Afegit, amb les seves paraules i {0} de les teves notes.
+299988cc	Afegit, amb les seves paraules.
+fe2fe6aa	Afegit.
+33fb207b	Obre l'aula
+da33ddcb	Professor
+59963c9a	Nota del professor
+b4c836da	Has enviat totes les coses que es permeten en un dia. Torna-ho a provar demà.
+94a2dab0	L'aula és plena (300 coses, 40 carpetes). Primer treu-ne alguna cosa.
+b94519dd	Aquesta carpeta ja no existeix.
+efd34fb8	Això s'ha tret de l'aula.
+2453bc49	El que afegeixes per a aquesta classe és a la Biblioteca, a Aula: carpetes, la teva transcripció, les teves paraules importants, significats i notes.
+56fb8eb7	El que els teus professors han afegit per a aquesta classe és a la Biblioteca, a Aula.

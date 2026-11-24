@@ -18,6 +18,7 @@
 // tests/js/dliweeks.test.mjs.
 
 import { DLI_CODES } from "./dli.js";
+import { cleanNotes } from "./classnotes.js";
 import { GOOD, history } from "./review/fsrs.js";
 
 const LOOK_CAP = 60000;
@@ -292,6 +293,22 @@ export function cleanPosts(list) {
     if (!id || !item) return null;
     return { id, item, path: codeText(p.path, /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/), sender: handle(p.sender), mine: p.mine === true, created_at: when(p.created_at) };
   }).filter(Boolean).slice(0, 50);
+}
+/** A classroom (v17), made safe: { folders: [{ id, name }], items: [{ id, item, path, notes, folder, sender, mine,
+ *  created_at, updated_at }] }. An item in a folder that is gone shows at the top (folder ""). */
+export function cleanRoom(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  const folders = (Array.isArray(r.folders) ? r.folders : []).map((f) => ({ id: uuid(f && f.id), name: text(f && f.name, CLASS_NAME_MAX) }))
+    .filter((f) => f.id && f.name).slice(0, 40);
+  const known = new Set(folders.map((f) => f.id));
+  const items = (Array.isArray(r.items) ? r.items : []).map((p) => {
+    const id = uuid(p && p.id), item = cleanPostItem(p && p.item);
+    if (!id || !item) return null;
+    const folder = uuid(p.folder);
+    return { id, item, path: codeText(p.path, /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/), notes: cleanNotes(p.notes), folder: known.has(folder) ? folder : "",
+      sender: handle(p.sender), mine: p.mine === true, created_at: when(p.created_at), updated_at: when(p.updated_at) || when(p.created_at) };
+  }).filter(Boolean).slice(0, 300);
+  return { folders, items };
 }
 /** An answer with a status and, sometimes, a username or a class: { status, username, id, name }. */
 export function cleanAnswer(raw) {

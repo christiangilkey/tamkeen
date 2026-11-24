@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Sala de aula
+0d4f19db	Entre na sua conta em Configurações → Alunos do DLI para ver sua sala de aula.
+ec9e1f32	Você ainda não tem turmas. Crie uma na aba Turma e depois adicione coisas aqui para seus alunos.
+e318332d	Você ainda não está em nenhuma turma. Seu professor pode convidar você pelo seu nome de usuário ou passar um código de turma.
+7676b640	Abrir a aba Turma
+77302510	O que você adiciona aqui, seus alunos de {0} veem: a transcrição como você a corrigiu, as palavras que você marcou como importantes, seus significados e suas notas.
+d9a0aac4	O que seus professores de {0} adicionaram para você. Abra um item e ele vai para a sua Biblioteca com a transcrição deles e as notas deles sobre as palavras.
+c2eeb319	A sala de aula ainda não está ativada.
+58d6bf85	Adicionar da minha biblioteca
+b69c7dcc	Dê um nome à pasta
+7af97886	Ainda não há nada aqui. Adicione algo da sua Biblioteca, ou toque no botão do aviãozinho de papel em qualquer player ou linha da Biblioteca e escolha esta turma.
+7f8ef211	Seus professores ainda não adicionaram nada.
+4a66d148	Tudo
+fda175dd	1 coisa
+cfdfdd45	{0} coisas
+b406972d	Renomear a pasta
+fa368edc	Remover a pasta {0}?
+93a877bb	O que está nela continua na sala de aula, fora de qualquer pasta.
+da95cc74	Vazia.
+030e010a	atualizado em {0}
+2e3275fb	{0} palavras do professor, {1} importantes
+b2f6c4d1	1 palavra do professor
+82e01534	{0} palavras do professor
+7c5f254e	Enviar de novo sua transcrição e suas notas sobre as palavras
+fb91e24f	Atualizar
+2088d294	Primeiro abra na sua Biblioteca neste dispositivo e depois atualize.
+1787d5d7	Não foi possível ler a sua cópia neste dispositivo.
+e28b9792	Atualizado: a transcrição e {0} das suas palavras.
+f7bd1253	Atualizado: a transcrição. Você ainda não tem cartões dele com um significado, uma nota ou a marca de importante.
+577dbf21	Remover “{0}” da sala de aula?
+dde69eef	Os alunos que abriram ficam com a própria cópia.
+dc51fd22	Receber a atualização
+ef6d50dd	Adicionar a palavra importante aos meus cartões
+24a8800c	Adicionar as {0} palavras importantes aos meus cartões
+6a9ab904	1 cartão criado, na pasta {0}.
+768fa64d	{0} cartões criados, na pasta {1}.
+cb1a00b7	Você já tem essas palavras. Agora elas estão na pasta {0}.
+e97a3584	A transcrição vai junto como está agora, com suas notas sobre as palavras: seus cartões dele que estão marcados como importantes, têm um significado que você escreveu ou notas de gramática.
+4b07d7e6	Busque na sua biblioteca…
+51c01c83	Nada encontrado. O que pode ser compartilhado: podcasts, vídeos do YouTube, reels, páginas da web, livros, e seus próprios áudios e vídeos depois de transcritos.
+2e2c33a3	Adicionado, com as palavras e {0} das suas notas.
+299988cc	Adicionado, com as palavras.
+fe2fe6aa	Adicionado.
+33fb207b	Abrir a sala de aula
+da33ddcb	Professor
+59963c9a	Nota do professor
+b4c836da	Você já enviou tudo o que um dia permite. Tente de novo amanhã.
+94a2dab0	A sala de aula está cheia (300 coisas, 40 pastas). Remova algo primeiro.
+b94519dd	Essa pasta não existe mais.
+efd34fb8	Isso foi removido da sala de aula.
+2453bc49	O que você adiciona para esta turma fica na Biblioteca, em Sala de aula: pastas, sua transcrição, suas palavras importantes, significados e notas.
+56fb8eb7	O que seus professores adicionaram para esta turma fica na Biblioteca, em Sala de aula.

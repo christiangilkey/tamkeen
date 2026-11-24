@@ -9883,3 +9883,53 @@ for them, give them creatures, give them items ect..."
   garden buildings and plots, levels of creatures already owned, fish. A user who never signs in online gets nothing.
   The notice lists what was sent, not what was really taken (taking 5 gems from someone with 0 still says −5).
   Never tried against the real database.
+
+## DLI Classroom in the Library (2026-11-24; "Teachers" chat; prototype `classroom`; database NOT applied)
+
+The owner's words: "can Teachers put notes on words yet or change the definition of a word and all of these notes
+selections and changes get sent over to the student? ... from Library They can have a classroom tab, there they can
+import any media that they have from any of the other tabs and share it with their students, students and teacher will
+have a shared classroom tab, all of the teachers notes edits important marked words, edited transcript and generated
+transcripts will be able to be seen by students after the teacher has added it to the classroom tab, I want there to
+also be folders in this tab so the teacher can easily organize materials".
+
+- **One place, not three.** The Classroom is the Class tab's "sent to the class" list grown up: the same rows
+  (`dli_class_posts`), now kept until removed, in folders, with notes. With `feature("classroom")` the Class tab
+  shows a card linking to it instead of its own list. Lessons with questions (v12, "My files") stay their own thing.
+- **Where**: Library kind "Classroom" (`pages/library.js` KINDS, last; shown by `dliclass.js` `classroomShown()`,
+  decided when the app opens from the role last heard) → `components/classroompanel.js`. Class picker, folders as
+  sections, rows. Teacher: "Add from my library" (a search over `GET /episodes`), "New folder", per row Update,
+  a folder drop-down, Remove; a folder's Rename / Remove. Student: "Add to my library" / "Open" / "Get the update"
+  (when `updated_at` changed since they took it), "Add the N important words to my cards", and a chip listing the
+  teacher's words. The paper-airplane button's "Class: …" lines add to the classroom too (`sendToClass`).
+- **The teacher's notes are the teacher's own flashcards of that item** (`classnotes.js` `notesFromCards`, called by
+  `sendmedia.js` `classPayload`): a card marked "!" = important, its meaning = the teacher's definition, its
+  grammar notes = the note, its sentence. Only cards with one of those are sent. So a teacher works as any learner
+  does (word popup, "!", edit the card, the transcript editor), then presses **Update** on the row: the transcript
+  and the notes are read again from their copy and replace the item's (`dli_room_update`; the old file is deleted).
+  Which local episode a row was made from is remembered per device (`tamkeenRoomMine`); on another device Update
+  finds the copy by accepting the item into the Library first.
+- **Notes go by the word, not its place** (`noteKey`: no vowel marks, no punctuation, small letters), so editing the
+  transcript moves nothing and every occurrence shows the note.
+- **Student side**: `take()` puts the item in the Library through `acceptMediaInfo` (the friends' route), replaces
+  an older transcript with the teacher's (`PUT /episodes/<id>/transcript`, model "teacher") when they had one, and
+  keeps the notes on the device (`classnotes.js` `keepNotes`, localStorage `tamkeenRoomNotes:<episode id>`; which
+  item at which version in `tamkeenRoomTaken`). The word popup (`wordbubble.js` `teacherRows`) asks
+  `teacherNote(word)`, which reads the episode from the address (`#/episode/<id>`), so it works in the player, the
+  page reader and the book reader without each passing anything. The player underlines important words
+  (`.w.tw-important`). Important words reach a student's cards only when they press the button (the owner's
+  earlier rule against adding words unasked): into a folder named after the item, marked important, with the
+  teacher's meaning; words they have already are put in that folder, not made twice.
+- **Database**: `supabase/v17-dli-classroom.sql` (run after v15): table `dli_class_folders`; columns `folder_id`,
+  `notes`, `updated_at` on `dli_class_posts`; `dli_classroom`, `dli_room_add`, `dli_room_update`, `dli_room_move`,
+  `dli_folder_save`, `dli_folder_remove`; `dli_post` and `dli_class_posts` redefined (no 60-day expiry; 300 a
+  class, 100 a day, 40 folders). Self-test `supabase/test_rls_dli_classroom.sql` (expects `bad=[ none]`). **Neither
+  has been run.** Without v17 the panel shows v15's plain list and sending works the v15 way, without notes.
+- **Asked in the Decisions chat (2026-11-24), built with the recommended answers**: important words by a button, not
+  automatically; the teacher's definition above the dictionary's, not instead; a teacher's own audio/video goes as
+  its transcript only (no sound file).
+- **Not done**: notes kept per device (a student's second device shows them after opening the item there);
+  underlining of important words in the page and book readers and in reels; the teacher's line in the reel player's
+  popup; a notice when something new is added; folders inside folders; reordering; picking a folder from the
+  paper-airplane menu (it lands outside any folder, then the row's drop-down moves it). Never tried against the
+  real database.

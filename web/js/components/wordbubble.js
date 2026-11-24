@@ -14,6 +14,8 @@ import { pronounceWord } from "../lexicon/seen.js";
 import { meaningSenses, withSense } from "./dictpick.js";
 import { showPos } from "../senses.js";
 import { folderState, hasFolders, lastFolder, pickFolder } from "./savefolder.js";
+import { feature } from "../prototype.js";
+import { teacherNote } from "../classnotes.js";
 
 // ----- what happens after a tapped word has played: pause there, or keep playing -----
 // One choice for the whole app, remembered on this device. Pausing is how it has always worked.
@@ -341,6 +343,17 @@ export function createWordBubble(host, actions) {
     load(again);
   }
 
+  /** The teacher's own meaning and note for this word, when the item on screen came from the Classroom
+   * (classnotes.js: kept on this device when it was opened there). Above the dictionary's answer, in every state. */
+  function teacherRows() {
+    if (!feature("classroom")) return "";
+    const n = teacherNote(fix ? fix.to : ctx.word);
+    if (!n) return "";
+    return `<div class="wb-teacher">${n.important ? `<span class="wb-teacher-imp">Important</span>` : ""}
+      ${n.meaning ? `<div class="wb-row"><span class="wb-label">Teacher</span> <span class="wb-teacher-meaning">${esc(n.meaning)}</span></div>` : ""}
+      ${n.note ? `<div class="wb-row"><span class="wb-label">Teacher's note</span> <span class="wb-teacher-note">${esc(n.note)}</span></div>` : ""}</div>`;
+  }
+
   function render(state, message = "") {
     current = { state, message };
     const word = fix ? fix.to : ctx.word;
@@ -400,7 +413,7 @@ export function createWordBubble(host, actions) {
       </div>
       ${sourceMenu()}
       ${fix ? fixPill() : ""}
-      <div class="wb-body">${body}</div>
+      <div class="wb-body">${teacherRows()}${body}</div>
       <div class="wb-actions">
         ${quick ? `<button type="button" data-act="more" title="${phrase() ? "Show the full explanation of this phrase" : "Show the full explanation of this word"}">${icon("target", 15)} <span class="wb-label">More</span></button>` : ""}
         ${actions.noAudio ? "" : `${phrase() ? `<button type="button" data-act="word" title="Play this phrase again" aria-label="Phrase">${icon("sound", 15)} <span class="wb-label">Phrase</span></button>` : `<button type="button" data-act="word" title="Play this word again" aria-label="Word">${icon("sound", 15)} <span class="wb-label">Word</span></button>`}
@@ -634,4 +647,18 @@ export function createWordBubble(host, actions) {
   }
 
   return { show, hide, position, get open() { return !el.hidden; }, el };
+}
+
+// The teacher's line (prototype "classroom"): plain, above the dictionary's answer.
+if (typeof document !== "undefined" && !document.getElementById("wb-teacher-css")) {
+  const style = document.createElement("style");
+  style.id = "wb-teacher-css";
+  style.textContent = `
+    .wb-teacher { border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
+    .wb-teacher-imp { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: 1px 10px; margin-bottom: 4px; }
+    .wb-teacher-meaning { font-weight: 600; font-size: 1.05em; }
+    .wb-teacher-note { white-space: pre-wrap; }
+    .w.tw-important { border-bottom: 2px solid var(--accent); }
+  `;
+  document.head.append(style);
 }

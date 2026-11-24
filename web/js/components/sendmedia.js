@@ -29,7 +29,8 @@ import { MAX_FILE_BYTES, MAX_INLINE_CHARS, TEXT_KINDS, acceptInto, gunzipText, g
 import { openItem } from "./studycard.js";
 import { offerFix } from "./fixit.js";
 import { feature } from "../prototype.js";
-import { postToClass, teacherClasses } from "../dliclass.js";
+import { postToClass, roomAdd, teacherClasses } from "../dliclass.js";
+import { notesFromCards } from "../classnotes.js";
 
 export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page",
                              book: "Book", text: "Transcript of a recording" };
@@ -142,7 +143,23 @@ export async function sendMedia(friendId, media) {
 
 /** Send `media` to a whole class (a teacher's; dliclass.js postToClass): the same item and the same words a friend
  *  would get. Resolves to {withWords, tooLarge}. */
-export async function sendToClass(classId, media) {
+export async function sendToClass(classId, media, { folder = null } = {}) {
+  const p = await classPayload(media);
+  let r;
+  // The Classroom (prototype "classroom", supabase/v17): the item goes with the teacher's notes on its words, into
+  // a folder. On a database without v17 it is sent the v15 way, without them.
+  if (feature("classroom")) {
+    try { r = await roomAdd(classId, p.item, { file: p.file, notes: p.notes, folder }); } catch (e) { if (!e.notReady) throw e; }
+    if (r && r.id && p.episodeId) rememberMine(r.id, p.episodeId);
+  }
+  if (!r) r = await postToClass(classId, p.item, p.file);
+  return { id: r.id || "", withWords: r.withWords, tooLarge: p.hadWords && !r.withWords, notes: feature("classroom") ? p.notes.length : 0 };
+}
+
+/** What goes to a class for `media` (one of my own library items): { item, file, notes, hadWords, episodeId }.
+ *  `file` is its transcript, gzipped (null when it has none or it is too long); `notes` the teacher's work on its
+ *  words, from the teacher's own flashcards of it (classnotes.js: important, meaning, grammar notes). */
+export async function classPayload(media) {
   const item = normalizeMedia(media);
   if (!item) throw new Error("This can't be sent to a class.");
   const packed = await textFor(item);
@@ -150,10 +167,28 @@ export async function sendToClass(classId, media) {
   let file = null;
   if (packed) { const z = await gzipText(packed); if (z.size <= MAX_FILE_BYTES) file = z; }
   if (item.kind === "text" && !file) throw new Error("Its transcript is too long to send.");
-  const { episode_id: _mine, ready: _ready, at: _at, ...shared } = item; // (my own copy's id and my place in it mean nothing to a class)
-  const r = await postToClass(classId, shared, file);
-  return { withWords: r.withWords, tooLarge: !!packed && !r.withWords };
+  let notes = [];
+  if (item.episode_id && feature("classroom")) {
+    try {
+      const v = await api("/vocab");
+      notes = notesFromCards((Array.isArray(v) ? v : (v && v.items) || []).filter((c) => c.episode_id === item.episode_id));
+    } catch { /* sent without notes */ }
+  }
+  const { episode_id: episodeId, ready: _ready, at: _at, ...shared } = item; // (my own copy's id and my place in it mean nothing to a class)
+  return { item: shared, file, notes, hadWords: !!packed, episodeId: episodeId || 0 };
 }
+
+// Which of my own library items each classroom item was made from, on this device: the teacher's "Update" reads
+// the transcript and the notes from there again.
+const MINE_KEY = "tamkeenRoomMine";
+const mineMap = () => { try { const v = JSON.parse(localStorage.getItem(MINE_KEY) || "{}"); return v && typeof v === "object" ? v : {}; } catch { return {}; } };
+export function rememberMine(postId, episodeId) {
+  const m = mineMap();
+  m[postId] = episodeId;
+  try { localStorage.setItem(MINE_KEY, JSON.stringify(Object.fromEntries(Object.entries(m).slice(-600)))); } catch { /* storage off */ }
+}
+/** My own library item a classroom item was made from on this device (its episode id), or 0. */
+export const mineOf = (postId) => Number(mineMap()[postId]) || 0;
 
 /** My classes as menu lines (a teacher, with the Class tab on), before the friends. */
 function classLines(item, media) {
@@ -166,7 +201,8 @@ function classLines(item, media) {
         const r = await sendToClass(c.id, media);
         toast(r.withWords ? `Sent to the class ${c.name}, with its words.`
                 : r.tooLarge ? `Sent to the class ${c.name}, without its words: they are too long to send.` : `Sent to the class ${c.name}.`,
-              { action: { label: "Open Class", run: () => (location.hash = "#/class") } });
+              feature("classroom") ? { action: { label: "Open the classroom", run: () => (location.hash = "#/library?show=classroom") } }
+                : { action: { label: "Open Class", run: () => (location.hash = "#/class") } });
       } catch (e) { toast(e.message, { error: true }); }
     },
   }));
@@ -245,6 +281,10 @@ export async function receivedText(raw) {
  * message what didn't go as planned. Resolves to a hash to open it with, or "" when opening is left
  * to the ordinary route (openItem). */
 export async function acceptMedia(item, raw = item) {
+  return (await acceptMediaInfo(item, raw)).hash;
+}
+/** The same, answering everything about it: { episode, hash, withText, keptOwn, text } (`text`: the words that came). */
+export async function acceptMediaInfo(item, raw = item) {
   const { text, lost } = await receivedText(raw);
   const books = TEXT_KINDS.has(item.kind) ? await import("../books.js") : null;
   const { videoId } = item.kind === "youtube" ? await import("../youtube.js") : { videoId: undefined };
@@ -263,7 +303,7 @@ export async function acceptMedia(item, raw = item) {
   if (notes.length) toast(notes.join(" "), { timeout: 9000 });
   // Kept on this device now (or turned down): the file online is no longer needed.
   social.removeShareClips({ media: raw }).catch(() => {});
-  return r.hash;
+  return { ...r, text };
 }
 
 /** Open an accepted item in its player. */

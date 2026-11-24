@@ -25,7 +25,7 @@ import { dliState } from "./dli.js";
 import { hasStudyLanguage, studyLanguage } from "./languages.js";
 import { feature } from "./prototype.js";
 import { dayNumber } from "./review/fsrs.js";
-import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanAdded, cleanAnswer, cleanInvited, cleanInvites, cleanPeople, cleanPosts, cleanStudents, cleanTeachers, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
+import { answerDays, cleanClass, cleanCodes, cleanMe, cleanOwner, cleanAdded, cleanAnswer, cleanInvited, cleanInvites, cleanPeople, cleanPosts, cleanRoom, cleanStudents, cleanTeachers, cleanUse, dayDate, teacherCode, weekNumbers, weekStart } from "./dliweeks.js";
 import { dayMask, deviceId, timeLog, weekTime } from "./dlitime.js";
 
 export { CLASS_NAME_MAX, NAME_MAX, spaced } from "./dliweeks.js";
@@ -88,7 +88,10 @@ const MESSAGES = {
   dli_cannot_drop: "Only a teacher who was in the class before them can take a teacher out.",
   dli_agree_first: "Agree to show yourself to classmates first.",
   dli_bad_post: "That couldn't be sent to the class.",
-  dli_post_limit: "You've sent 30 things today. Try again tomorrow.",
+  dli_post_limit: "You've sent as many things as one day allows. Try again tomorrow.",
+  dli_room_full: "The classroom is full (300 things, 40 folders). Remove something first.",
+  dli_no_folder: "That folder is gone.",
+  dli_no_post: "That was removed from the classroom.",
   dli_not_owner: "Only Tamkeen's owner can do that.",
   dli_class_limit: "You have 20 classes already. Delete one first.",
   dli_bad_week: "That week couldn't be saved.",
@@ -262,6 +265,48 @@ export async function postToClass(id, item, file = null) {
   if (old.length) store.remove(old).catch(() => {});
   return { id: String(r.id || ""), withWords: !!path };
 }
+// ---------- the Classroom (v17: supabase/v17-dli-classroom.sql; components/classroompanel.js) ----------
+// A class's shared material: what was sent to it, in folders, with the teacher's notes on its words. On a database
+// without v17 these throw an error whose `notReady` is true (the panel then shows v15's plain list).
+const fileOf = async (id, file) => {
+  if (!file) return null;
+  const path = `${id}/${crypto.randomUUID()}.gz`;
+  const up = await (await social.sb()).storage.from(CLASS_BUCKET).upload(path, file, { contentType: "application/gzip" });
+  return up.error ? null : path;
+};
+const dropFiles = async (paths) => {
+  const list = paths.filter((p) => /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/.test(String(p || "")));
+  if (list.length) (await social.sb()).storage.from(CLASS_BUCKET).remove(list).catch(() => {});
+};
+/** A class's classroom: { folders, items } (dliweeks.js cleanRoom). */
+export const classroom = async (id) => cleanRoom(await rpc("dli_classroom", { class: id }));
+/** Add something to a classroom. `file`: its words, gzipped, or null. Resolves to { id, withWords }. */
+export async function roomAdd(id, item, { file = null, notes = [], folder = null } = {}) {
+  const path = await fileOf(id, file);
+  let r;
+  try { r = (await rpc("dli_room_add", { class: id, item, path, notes, folder: folder || null })) || {}; } catch (e) {
+    if (path) dropFiles([path]);
+    throw e;
+  }
+  return { id: String(r.id || ""), withWords: !!path };
+}
+/** Change a classroom item in place: its words (`file`: a new gzipped transcript; leave it out to keep the old
+ *  one) and the teacher's notes. Resolves to { withWords }. */
+export async function roomUpdate(classId, postId, { item = null, file = null, notes = null } = {}) {
+  const path = await fileOf(classId, file);
+  let old;
+  try { old = await rpc("dli_room_update", { post: postId, item, path, notes }); } catch (e) {
+    if (path) dropFiles([path]);
+    throw e;
+  }
+  if (old) dropFiles([old]);
+  return { withWords: !!path };
+}
+export const roomMove = (postId, folder) => rpc("dli_room_move", { post: postId, folder: folder || null });
+/** Make a folder (no `folder`) or rename one. Resolves to its id. */
+export const folderSave = (classId, name, folder = null) => rpc("dli_folder_save", { class: classId, name: String(name || "").slice(0, 60), folder });
+export const folderRemove = (folder) => rpc("dli_folder_remove", { folder });
+
 /** The words that came with a post (a Blob, gzipped), or null. */
 export async function postFile(path) {
   if (!path) return null;
@@ -289,6 +334,8 @@ function keepRole(me) {
   write(CLASSES_KEY, JSON.stringify(me.classes.filter((c) => c.role === "teacher").map((c) => ({ id: c.id, name: c.name }))));
   syncClassNav();
 }
+/** Does this device show the Classroom in the Library (prototype "classroom")? The same people as the Class tab. */
+export const classroomShown = () => feature("classroom") && serviceOn() && (!!shareInfo() || isTeacherHere());
 /** Show or hide the Class tab (an element with data-nav="class" in each version's page). */
 export function syncClassNav() {
   if (typeof document === "undefined") return;

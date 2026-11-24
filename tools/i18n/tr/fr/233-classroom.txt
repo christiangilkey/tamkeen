@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Salle de classe
+0d4f19db	Connectez-vous dans Réglages → Étudiants du DLI pour voir votre salle de classe.
+ec9e1f32	Vous n'avez pas encore de classe. Créez-en une dans l'onglet Classe, puis ajoutez ici des choses pour vos étudiants.
+e318332d	Vous n'êtes encore dans aucune classe. Votre enseignant peut vous inviter par votre nom d'utilisateur, ou vous donner un code de classe.
+7676b640	Ouvrir l'onglet Classe
+77302510	Ce que vous ajoutez ici, vos étudiants de {0} le voient : sa transcription telle que vous l'avez corrigée, les mots que vous avez marqués comme importants, vos sens et vos notes.
+d9a0aac4	Ce que vos enseignants de {0} ont ajouté pour vous. Ouvrez un élément : il va dans votre Bibliothèque avec leur transcription et leurs notes sur ses mots.
+c2eeb319	La salle de classe n'est pas encore activée.
+58d6bf85	Ajouter depuis ma bibliothèque
+b69c7dcc	Nommez le dossier
+7af97886	Rien ici pour l'instant. Ajoutez quelque chose depuis votre Bibliothèque, ou appuyez sur le bouton avion en papier d'un lecteur ou d'une ligne de la Bibliothèque, puis choisissez cette classe.
+7f8ef211	Vos enseignants n'ont encore rien ajouté.
+4a66d148	Tout
+fda175dd	1 élément
+cfdfdd45	{0} éléments
+b406972d	Renommer le dossier
+fa368edc	Supprimer le dossier {0} ?
+93a877bb	Son contenu reste dans la salle de classe, hors de tout dossier.
+da95cc74	Vide.
+030e010a	mis à jour le {0}
+2e3275fb	{0} mots de l'enseignant, dont {1} importants
+b2f6c4d1	1 mot de l'enseignant
+82e01534	{0} mots de l'enseignant
+7c5f254e	Envoyer de nouveau votre transcription et vos notes sur ses mots
+fb91e24f	Mettre à jour
+2088d294	Ouvrez-le d'abord dans votre Bibliothèque sur cet appareil, puis mettez-le à jour.
+1787d5d7	Votre copie n'a pas pu être lue sur cet appareil.
+e28b9792	Mis à jour : sa transcription et {0} de vos mots.
+f7bd1253	Mis à jour : sa transcription. Vous n'avez encore aucune carte de cet élément avec un sens, une note ou la marque « important ».
+577dbf21	Retirer « {0} » de la salle de classe ?
+dde69eef	Les étudiants qui l'ont ouvert gardent leur propre copie.
+dc51fd22	Obtenir la mise à jour
+ef6d50dd	Ajouter le mot important à mes cartes
+24a8800c	Ajouter les {0} mots importants à mes cartes
+6a9ab904	1 carte créée, dans le dossier {0}.
+768fa64d	{0} cartes créées, dans le dossier {1}.
+cb1a00b7	Vous avez déjà ces mots. Ils sont maintenant dans le dossier {0}.
+e97a3584	Sa transcription est envoyée telle qu'elle est maintenant, avec vos notes sur ses mots : vos cartes de cet élément qui sont marquées comme importantes, qui ont un sens écrit par vous, ou des notes de grammaire.
+4b07d7e6	Chercher dans votre bibliothèque…
+51c01c83	Rien trouvé. Ce qui peut être partagé : les podcasts, les vidéos YouTube, les reels, les pages web, les livres, ainsi que vos propres audios et vidéos une fois transcrits.
+2e2c33a3	Ajouté, avec ses mots et {0} de vos notes.
+299988cc	Ajouté, avec ses mots.
+fe2fe6aa	Ajouté.
+33fb207b	Ouvrir la salle de classe
+da33ddcb	Enseignant
+59963c9a	Note de l'enseignant
+b4c836da	Vous avez envoyé autant de choses qu'une journée le permet. Réessayez demain.
+94a2dab0	La salle de classe est pleine (300 éléments, 40 dossiers). Retirez d'abord quelque chose.
+b94519dd	Ce dossier n'existe plus.
+efd34fb8	Cela a été retiré de la salle de classe.
+2453bc49	Ce que vous ajoutez pour cette classe se trouve dans la Bibliothèque, sous Salle de classe : dossiers, votre transcription, vos mots importants, les sens et les notes.
+56fb8eb7	Ce que vos enseignants ont ajouté pour cette classe se trouve dans la Bibliothèque, sous Salle de classe.

@@ -25,6 +25,8 @@ import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice
 import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
+import { classroomPanel } from "../components/classroompanel.js";
+import { classroomShown } from "../dliclass.js";
 import { AUDIBLE_MESSAGE, AUDIO_FILE_ACCEPT, LIBRIVOX, guessBookTitle, inNameOrder, isAudibleFile, isAudioFileName, isAudiobookFeed,
   isLibrivoxFeed, isOwnBookFeed, splitTitle } from "../audiobooks.js";
 import { askBookTitle } from "../components/audiobooksheet.js";
@@ -143,6 +145,9 @@ const KINDS = [
   // Lesson bundles: a teacher's PDF or Word file with its audio, as a passage, tracks and questions (components/lessonpanel.js).
   // Called "My files" and last, with My videos and My audio (the owner, 2026-11-17); its key stays "lessons".
   { key: "lessons", label: "My files", icon: "list", href: "#/library?show=lessons" },
+  // The Classroom a DLI teacher and their students share (prototype "classroom"): for them only, as the Class tab is.
+  // (Decided when the app opens, from what the online service last said: a new teacher or student sees it next time.)
+  ...(classroomShown() ? [{ key: "classroom", label: "Classroom", icon: "folder", href: "#/library?show=classroom" }] : []),
 ];
 // The kinds whose things come with no words to read: a transcript is written from the sound. The computer
 // does that itself (Whisper); the phones and the web app need a transcription key (or the computer).
@@ -163,7 +168,7 @@ function keyNote(kind) {
 }
 
 /** Kinds with a panel of their own instead of a list of episodes. */
-const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons";
+const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons" || k === "classroom";
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
@@ -299,6 +304,7 @@ export async function render(view, { feedId: routeFeed, query }) {
         </div>
         <div class="lib-converse" id="lib-converse" hidden></div>
         <div class="lib-lessons" id="lib-lessons" hidden></div>
+        <div class="lib-classroom" id="lib-classroom" hidden></div>
         <div id="lib-head"></div>
         <div class="lib-chips" id="lib-chips" hidden></div>
         <div class="upload-status" id="upload-status" hidden>
@@ -519,6 +525,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     root.classList.toggle("courses-kind", panelKind(kind)); // (no list, no + button: the kind's own panel instead)
     root.classList.toggle("converse-kind", kind === "conversation");
     root.classList.toggle("lessons-kind", kind === "lessons");
+    root.classList.toggle("classroom-kind", kind === "classroom");
     root.classList.toggle("shelf-kind", kind === "audiobooks" && !feedId);
     try { localStorage.setItem(LAST_KIND_KEY, kind); } catch { /* storage off */ }
     // A kind with nothing in it yet (say, no YouTube videos) has no list of its own.
@@ -528,6 +535,7 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (kind === "courses") { showCourses(); return; }
     if (kind === "conversation") { showConversation(); return; }
     if (kind === "lessons") { showLessons(); return; }
+    if (kind === "classroom") { showClassroom(); return; }
     const note = keyNote(kind);
     if (note) head.append(note);
     $(".lib-main").classList.toggle("empty-kind", !!emptyKind);
@@ -1300,6 +1308,12 @@ export async function render(view, { feedId: routeFeed, query }) {
     $("#lib-lessons").hidden = false;
     if (!closeLessons) closeLessons = lessonPanel($("#lib-lessons"), courseLang);
   }
+  // ----- the Classroom a DLI teacher and their students share (components/classroompanel.js, prototype "classroom") -----
+  let closeClassroom = null;
+  function showClassroom() {
+    $("#lib-classroom").hidden = false;
+    if (!closeClassroom) closeClassroom = classroomPanel($("#lib-classroom"), courseLang);
+  }
   function showConversation() {
     $("#lib-converse").hidden = false;
     if (!closeConverse) closeConverse = conversePanel($("#lib-converse"), courseLang);
@@ -1614,5 +1628,6 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (closeCourse) closeCourse(); if (closeGrammar) closeGrammar(); if (closeDli) closeDli();
     if (closeConverse) closeConverse();
     if (closeLessons) closeLessons();
+    if (closeClassroom) closeClassroom();
   };
 }

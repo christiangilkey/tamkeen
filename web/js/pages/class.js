@@ -17,6 +17,7 @@ import { MEDIA_KINDS, acceptMedia, openMedia } from "../components/sendmedia.js"
 import { gunzipText } from "../sharetext.js";
 import { codeBox, dayLabel } from "../components/dlishare.js";
 import { openClass } from "../components/dliteach.js";
+import { feature } from "../prototype.js";
 import { askName, confirmBox } from "../components/modal.js";
 
 const PICK_KEY = "tamkeenClassPick"; // the class last looked at, on this device
@@ -149,7 +150,16 @@ export async function render(view) {
       part.querySelector(".cls-teach").append(leave);
     }
     people(part.querySelector(".cls-people"), c);
-    posts(part.querySelector(".cls-posts"), c);
+    if (feature("classroom")) {
+      // The class's material lives in the Library's Classroom (folders, the teacher's notes): one place, linked here.
+      const card = part.querySelector(".cls-posts").closest(".cls-card");
+      card.innerHTML = "";
+      card.append(h(`<h3>Classroom</h3>`), Object.assign(h(`<p class="small muted"></p>`), { textContent: teaching
+        ? t("What you add for this class is in the Library, under Classroom: folders, your transcript, your important words, meanings and notes.")
+        : t("What your teachers added for this class is in the Library, under Classroom.") }),
+        h(`<div class="set-actions"><a class="btn primary" href="#/library?show=classroom">Open the classroom</a></div>`));
+      write("tamkeenClassPick", `${c.role}:${c.id}`);
+    } else posts(part.querySelector(".cls-posts"), c);
     return part;
   }
 

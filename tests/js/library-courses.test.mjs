@@ -17,7 +17,9 @@ test("Courses is the Library's first kind", () => {
   assert.equal(keys[2], "podcasts");
   // Lesson bundles (a panel of its own too, lessonpanel.js) are "My files", the last kind, after My videos and My audio
   // (the owner, 2026-11-17: "Lessons should be My Files and should be at the far right with my videos and my audios").
-  assert.deepEqual(keys.slice(-3), ["videos", "audio", "lessons"]);
+  // (After them, for DLI teachers and students only, the Classroom they share: prototype "classroom".)
+  assert.deepEqual(keys.filter((k) => k !== "classroom").slice(-3), ["videos", "audio", "lessons"]);
+  assert.ok(kinds.includes('...(classroomShown() ? [{ key: "classroom"'), "the Classroom shows only to the people it is for");
   assert.match(kinds, /key: "lessons", label: "My files"/);
   assert.match(kinds, /key: "courses"[^}]*href: "#\/library\?show=courses"/);
   assert.match(kinds, /key: "conversation"[^}]*href: "#\/library\?show=conversation"/);
@@ -43,7 +45,7 @@ test("links meant for the podcasts say so (plain #/library is now Courses)", () 
 test("Courses shows the basics and grammar panels, and no episodes", () => {
   assert.match(library, /import \{ courseIndex, coursePanel \} from "\.\.\/components\/coursepanel\.js";/);
   assert.match(library, /import \{ grammarFor, grammarIndex, grammarPanel \} from "\.\.\/components\/grammarpanel\.js";/);
-  assert.match(library, /const panelKind = \(k\) => k === "courses" \|\| k === "conversation" \|\| k === "lessons";/);
+  assert.match(library, /const panelKind = \(k\) => k === "courses" \|\| k === "conversation" \|\| k === "lessons" \|\| k === "classroom";/);
   assert.match(library, /if \(panelKind\(kind\)\) return; \/\/ no episodes/);
   assert.match(library, /root\.classList\.toggle\("courses-kind", panelKind\(kind\)\)/, "no list and no + button for either");
   assert.match(library, /if \(kind === "conversation"\) \{ showConversation\(\); return; \}/);

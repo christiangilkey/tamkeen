@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Aula
+0d4f19db	Inicia sesión en Ajustes → Estudiantes del DLI para ver tu aula.
+ec9e1f32	Aún no tienes clases. Crea una en la pestaña Clase y luego añade cosas aquí para tus estudiantes.
+e318332d	Aún no estás en ninguna clase. Tu profesor puede invitarte por tu nombre de usuario, o darte un código de clase.
+7676b640	Abrir la pestaña Clase
+77302510	Lo que añades aquí lo ven tus estudiantes de {0}: su transcripción tal como la corregiste, las palabras que marcaste como importantes, tus significados y tus notas.
+d9a0aac4	Lo que tus profesores de {0} añadieron para ti. Abre algo y pasa a tu Biblioteca con su transcripción y sus notas sobre las palabras.
+c2eeb319	El aula aún no está activada.
+58d6bf85	Añadir desde mi biblioteca
+b69c7dcc	Ponle nombre a la carpeta
+7af97886	Aquí aún no hay nada. Añade algo desde tu Biblioteca, o pulsa el botón del avión de papel en cualquier reproductor o fila de la Biblioteca y elige esta clase.
+7f8ef211	Tus profesores aún no han añadido nada.
+4a66d148	Todo
+fda175dd	1 cosa
+cfdfdd45	{0} cosas
+b406972d	Cambiar el nombre de la carpeta
+fa368edc	¿Quitar la carpeta {0}?
+93a877bb	Lo que contiene se queda en el aula, fuera de las carpetas.
+da95cc74	Vacía.
+030e010a	actualizado el {0}
+2e3275fb	{0} palabras del profesor, {1} importantes
+b2f6c4d1	1 palabra del profesor
+82e01534	{0} palabras del profesor
+7c5f254e	Enviar otra vez tu transcripción y tus notas sobre sus palabras
+fb91e24f	Actualizar
+2088d294	Primero ábrelo en tu Biblioteca en este dispositivo y luego actualízalo.
+1787d5d7	No se pudo leer tu copia en este dispositivo.
+e28b9792	Actualizado: su transcripción y {0} de tus palabras.
+f7bd1253	Actualizado: su transcripción. Aún no tienes tarjetas suyas con un significado, una nota o la marca de importante.
+577dbf21	¿Quitar «{0}» del aula?
+dde69eef	Los estudiantes que lo abrieron conservan su propia copia.
+dc51fd22	Recibir la actualización
+ef6d50dd	Añadir la palabra importante a mis tarjetas
+24a8800c	Añadir las {0} palabras importantes a mis tarjetas
+6a9ab904	1 tarjeta creada, en la carpeta {0}.
+768fa64d	{0} tarjetas creadas, en la carpeta {1}.
+cb1a00b7	Ya tienes esas palabras. Ahora están en la carpeta {0}.
+e97a3584	Su transcripción se envía tal como está ahora, con tus notas sobre sus palabras: tus tarjetas suyas que están marcadas como importantes, tienen un significado que escribiste o notas de gramática.
+4b07d7e6	Busca en tu biblioteca…
+51c01c83	No se encontró nada. Lo que se puede compartir: pódcasts, vídeos de YouTube, reels, páginas web, libros, y tus propios audios y vídeos una vez transcritos.
+2e2c33a3	Añadido, con sus palabras y {0} de tus notas.
+299988cc	Añadido, con sus palabras.
+fe2fe6aa	Añadido.
+33fb207b	Abrir el aula
+da33ddcb	Profesor
+59963c9a	Nota del profesor
+b4c836da	Has enviado todas las cosas que se permiten en un día. Inténtalo de nuevo mañana.
+94a2dab0	El aula está llena (300 cosas, 40 carpetas). Primero quita algo.
+b94519dd	Esa carpeta ya no existe.
+efd34fb8	Eso se quitó del aula.
+2453bc49	Lo que añades para esta clase está en la Biblioteca, en Aula: carpetas, tu transcripción, tus palabras importantes, significados y notas.
+56fb8eb7	Lo que tus profesores añadieron para esta clase está en la Biblioteca, en Aula.

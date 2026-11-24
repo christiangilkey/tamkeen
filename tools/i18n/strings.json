@@ -3440,6 +3440,301 @@
   "f": "web/js/components/changelog.js"
  },
  {
+  "id": "4b6d6a30",
+  "k": "Important",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "958c43ff",
+  "k": "Classroom",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "33ce4174",
+  "k": "Loading…",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "06659926",
+  "k": "Classes aren't switched on yet.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "1c4e031d",
+  "k": "Couldn't reach the online service.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "0d4f19db",
+  "k": "Sign in under Settings → DLI students to see your classroom.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "dc930353",
+  "k": "Open DLI students",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "ec9e1f32",
+  "k": "You have no classes yet. Make one in the Class tab, then add things here for your students.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "e318332d",
+  "k": "You aren't in a class yet. Your teacher can invite you by your username, or give you a class code.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "7676b640",
+  "k": "Open the Class tab",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "77302510",
+  "k": "What you add here, your students of {0} see: its transcript as you corrected it, the words you marked important, your meanings and your notes.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "d9a0aac4",
+  "k": "What your teachers of {0} added for you. Open one and it goes into your Library with their transcript and their notes on its words.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "c2eeb319",
+  "k": "The classroom isn't switched on yet.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "58d6bf85",
+  "k": "Add from my library",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "a711999b",
+  "k": "New folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "b69c7dcc",
+  "k": "Name the folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "b2ce023b",
+  "k": "Folder name",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "66f4e3b0",
+  "k": "Make the folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "7af97886",
+  "k": "Nothing here yet. Add something from your Library, or press the paper-airplane button on any player or Library row and pick this class.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "7f8ef211",
+  "k": "Your teachers haven't added anything yet.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "889ab689",
+  "k": "Not in a folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "4a66d148",
+  "k": "Everything",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "fda175dd",
+  "k": "1 thing",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "cfdfdd45",
+  "k": "{0} things",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "d3f4cb89",
+  "k": "Rename",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "b406972d",
+  "k": "Rename the folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "fa368edc",
+  "k": "Remove the folder {0}?",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "93a877bb",
+  "k": "What is in it stays in the classroom, outside any folder.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "da95cc74",
+  "k": "Empty.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "030e010a",
+  "k": "updated {0}",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "05da9368",
+  "k": "with its words",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "2e3275fb",
+  "k": "{0} teacher's words, {1} important",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "b2f6c4d1",
+  "k": "1 teacher's word",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "82e01534",
+  "k": "{0} teacher's words",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "7c5f254e",
+  "k": "Send your transcript and your notes on its words again",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "fb91e24f",
+  "k": "Update",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "2088d294",
+  "k": "Open it in your Library on this device first, then update it.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "1787d5d7",
+  "k": "Your copy of it couldn't be read on this device.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "e28b9792",
+  "k": "Updated: its transcript and {0} of your words.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "f7bd1253",
+  "k": "Updated: its transcript. You have no flashcards of it with a meaning, a note or the important mark yet.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "30baa249",
+  "k": "Folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "602b5b8d",
+  "k": "No folder",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "577dbf21",
+  "k": "Remove “{0}” from the classroom?",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "dde69eef",
+  "k": "Students who opened it keep their own copy.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "dc51fd22",
+  "k": "Get the update",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "df90dfda",
+  "k": "Add to my library",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "4f1d9323",
+  "k": "“{0}” is in your library.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "ef6d50dd",
+  "k": "Add the important word to my cards",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "24a8800c",
+  "k": "Add the {0} important words to my cards",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "6a9ab904",
+  "k": "1 card made, in the folder {0}.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "768fa64d",
+  "k": "{0} cards made, in the folder {1}.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "cb1a00b7",
+  "k": "You have those words already. They are in the folder {0} now.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "e97a3584",
+  "k": "Its transcript goes along as it is now, with your notes on its words: your flashcards of it that are marked important, have a meaning you wrote, or grammar notes.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "4b07d7e6",
+  "k": "Search your library…",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "51c01c83",
+  "k": "Nothing found. Things that can be shared: podcasts, YouTube videos, reels, web pages, books, and your own audio and videos once they are transcribed.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "b68734c2",
+  "k": "Added",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "2e2c33a3",
+  "k": "Added, with its words and {0} of your notes.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "299988cc",
+  "k": "Added, with its words.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
+  "id": "fe2fe6aa",
+  "k": "Added.",
+  "f": "web/js/components/classroompanel.js"
+ },
+ {
   "id": "b37456c4",
   "k": "Contact",
   "f": "web/js/components/contact.js"
@@ -4240,11 +4535,6 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "1c4e031d",
-  "k": "Couldn't reach the online service.",
-  "f": "web/js/components/creatorbar.js"
- },
- {
   "id": "33e2b405",
   "k": "The figures couldn't be read.",
   "f": "web/js/components/creatorbar.js"
@@ -4252,11 +4542,6 @@
  {
   "id": "817b79b0",
   "k": "Creator",
-  "f": "web/js/components/creatorbar.js"
- },
- {
-  "id": "33ce4174",
-  "k": "Loading…",
   "f": "web/js/components/creatorbar.js"
  },
  {
@@ -5282,11 +5567,6 @@
  {
   "id": "c04152a0",
   "k": "Tap a student for their weeks; tap a heading to sort.",
-  "f": "web/js/components/dliteach.js"
- },
- {
-  "id": "d3f4cb89",
-  "k": "Rename",
   "f": "web/js/components/dliteach.js"
  },
  {
@@ -6515,18 +6795,8 @@
   "f": "web/js/components/guideart.js"
  },
  {
-  "id": "30baa249",
-  "k": "Folder",
-  "f": "web/js/components/guideart.js"
- },
- {
   "id": "0c49ebd7",
   "k": "The folder the card goes in: tap to choose another",
-  "f": "web/js/components/guideart.js"
- },
- {
-  "id": "4b6d6a30",
-  "k": "Important",
   "f": "web/js/components/guideart.js"
  },
  {
@@ -8205,11 +8475,6 @@
   "f": "web/js/components/modal.js"
  },
  {
-  "id": "66f4e3b0",
-  "k": "Make the folder",
-  "f": "web/js/components/modal.js"
- },
- {
   "id": "f0fbfe6e",
   "k": "Fastest. Good for clear speech; more mistakes on dialects, accents and fast talk.",
   "f": "web/js/components/models.js"
@@ -8850,11 +9115,6 @@
   "f": "web/js/components/savefolder.js"
  },
  {
-  "id": "a711999b",
-  "k": "New folder",
-  "f": "web/js/components/savefolder.js"
- },
- {
   "id": "cc5030b7",
   "k": "Name for the new folder",
   "f": "web/js/components/savefolder.js"
@@ -8872,11 +9132,6 @@
  {
   "id": "365a1f55",
   "k": "Make a second card",
-  "f": "web/js/components/savefolder.js"
- },
- {
-  "id": "889ab689",
-  "k": "Not in a folder",
   "f": "web/js/components/savefolder.js"
  },
  {
@@ -8932,6 +9187,11 @@
  {
   "id": "7d7914ae",
   "k": "Sent to the class {0}.",
+  "f": "web/js/components/sendmedia.js"
+ },
+ {
+  "id": "33fb207b",
+  "k": "Open the classroom",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -10205,11 +10465,6 @@
   "f": "web/js/components/voiceask.js"
  },
  {
-  "id": "b68734c2",
-  "k": "Added",
-  "f": "web/js/components/voiceask.js"
- },
- {
   "id": "fc475678",
   "k": "Add as a card",
   "f": "web/js/components/voiceask.js"
@@ -10775,11 +11030,6 @@
   "f": "web/js/components/wordbubble.js"
  },
  {
-  "id": "602b5b8d",
-  "k": "No folder",
-  "f": "web/js/components/wordbubble.js"
- },
- {
   "id": "dc76e9f0",
   "k": "root",
   "f": "web/js/components/wordbubble.js"
@@ -10847,6 +11097,16 @@
  {
   "id": "8a351555",
   "k": "Downloading the dictionary…",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "da33ddcb",
+  "k": "Teacher",
+  "f": "web/js/components/wordbubble.js"
+ },
+ {
+  "id": "59963c9a",
+  "k": "Teacher's note",
   "f": "web/js/components/wordbubble.js"
  },
  {
@@ -13715,8 +13975,23 @@
   "f": "web/js/dliclass.js"
  },
  {
-  "id": "4352b154",
-  "k": "You've sent 30 things today. Try again tomorrow.",
+  "id": "b4c836da",
+  "k": "You've sent as many things as one day allows. Try again tomorrow.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "94a2dab0",
+  "k": "The classroom is full (300 things, 40 folders). Remove something first.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "b94519dd",
+  "k": "That folder is gone.",
+  "f": "web/js/dliclass.js"
+ },
+ {
+  "id": "efd34fb8",
+  "k": "That was removed from the classroom.",
   "f": "web/js/dliclass.js"
  },
  {
@@ -23040,11 +23315,6 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "05da9368",
-  "k": "with its words",
-  "f": "web/js/pages/chat.js"
- },
- {
   "id": "ebefd2aa",
   "k": "Sent{0}",
   "f": "web/js/pages/chat.js"
@@ -23165,18 +23435,8 @@
   "f": "web/js/pages/chat.js"
  },
  {
-  "id": "06659926",
-  "k": "Classes aren't switched on yet.",
-  "f": "web/js/pages/class.js"
- },
- {
   "id": "ebc3f166",
   "k": "Sign in under Settings → DLI students to see your class.",
-  "f": "web/js/pages/class.js"
- },
- {
-  "id": "dc930353",
-  "k": "Open DLI students",
   "f": "web/js/pages/class.js"
  },
  {
@@ -23232,6 +23492,16 @@
  {
   "id": "a279ecff",
   "k": "What your teachers sent. Add one to your library and it opens with its words already there.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "2453bc49",
+  "k": "What you add for this class is in the Library, under Classroom: folders, your transcript, your important words, meanings and notes.",
+  "f": "web/js/pages/class.js"
+ },
+ {
+  "id": "56fb8eb7",
+  "k": "What your teachers added for this class is in the Library, under Classroom.",
   "f": "web/js/pages/class.js"
  },
  {
@@ -23342,16 +23612,6 @@
  {
   "id": "ea08c4eb",
   "k": "Nothing has been sent yet.",
-  "f": "web/js/pages/class.js"
- },
- {
-  "id": "df90dfda",
-  "k": "Add to my library",
-  "f": "web/js/pages/class.js"
- },
- {
-  "id": "4f1d9323",
-  "k": "“{0}” is in your library.",
   "f": "web/js/pages/class.js"
  },
  {
@@ -26942,11 +27202,6 @@
  {
   "id": "ebe08b9e",
   "k": "Rename folder",
-  "f": "web/js/pages/vocab.js"
- },
- {
-  "id": "b2ce023b",
-  "k": "Folder name",
   "f": "web/js/pages/vocab.js"
  },
  {

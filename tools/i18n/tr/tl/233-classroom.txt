@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Silid-aralan
+0d4f19db	Mag-sign in sa Settings → Mga estudyante ng DLI para makita ang silid-aralan mo.
+ec9e1f32	Wala ka pang klase. Gumawa ng isa sa tab na Klase, tapos magdagdag dito ng mga bagay para sa mga estudyante mo.
+e318332d	Wala ka pa sa isang klase. Puwede kang imbitahan ng guro mo gamit ang username mo, o bigyan ka ng code ng klase.
+7676b640	Buksan ang tab na Klase
+77302510	Ang idinadagdag mo rito ay nakikita ng mga estudyante mo sa {0}: ang transcript nito ayon sa pagwawasto mo, ang mga salitang minarkahan mong mahalaga, ang mga kahulugan mo at ang mga tala mo.
+d9a0aac4	Ang mga idinagdag para sa iyo ng mga guro mo sa {0}. Buksan ang isa at mapupunta ito sa Library mo kasama ang transcript nila at ang mga tala nila sa mga salita nito.
+c2eeb319	Hindi pa naka-on ang silid-aralan.
+58d6bf85	Magdagdag mula sa library ko
+b69c7dcc	Pangalanan ang folder
+7af97886	Wala pa rito. Magdagdag mula sa Library mo, o pindutin ang button na eroplanong papel sa alinmang player o hilera sa Library at piliin ang klaseng ito.
+7f8ef211	Wala pang naidaragdag ang mga guro mo.
+4a66d148	Lahat
+fda175dd	1 bagay
+cfdfdd45	{0} bagay
+b406972d	Palitan ang pangalan ng folder
+fa368edc	Alisin ang folder na {0}?
+93a877bb	Mananatili sa silid-aralan ang laman nito, sa labas ng anumang folder.
+da95cc74	Walang laman.
+030e010a	na-update noong {0}
+2e3275fb	{0} salita ng guro, {1} mahalaga
+b2f6c4d1	1 salita ng guro
+82e01534	{0} salita ng guro
+7c5f254e	Ipadala ulit ang transcript mo at ang mga tala mo sa mga salita nito
+fb91e24f	I-update
+2088d294	Buksan muna ito sa Library mo sa device na ito, tapos i-update.
+1787d5d7	Hindi mabasa ang kopya mo nito sa device na ito.
+e28b9792	Na-update: ang transcript nito at {0} sa mga salita mo.
+f7bd1253	Na-update: ang transcript nito. Wala ka pang flashcard nito na may kahulugan, tala o markang mahalaga.
+577dbf21	Alisin ang “{0}” sa silid-aralan?
+dde69eef	Mananatili sa mga estudyanteng nagbukas nito ang sarili nilang kopya.
+dc51fd22	Kunin ang update
+ef6d50dd	Idagdag ang mahalagang salita sa mga card ko
+24a8800c	Idagdag ang {0} mahahalagang salita sa mga card ko
+6a9ab904	1 card ang nagawa, sa folder na {0}.
+768fa64d	{0} card ang nagawa, sa folder na {1}.
+cb1a00b7	Mayroon ka na ng mga salitang iyon. Nasa folder na {0} na sila ngayon.
+e97a3584	Kasama ang transcript nito ayon sa lagay nito ngayon, pati ang mga tala mo sa mga salita nito: ang mga flashcard mo nito na minarkahang mahalaga, may kahulugang isinulat mo, o may mga tala sa gramatika.
+4b07d7e6	Maghanap sa library mo…
+51c01c83	Walang nahanap. Mga puwedeng ibahagi: mga podcast, video sa YouTube, reel, web page, libro, at sarili mong mga audio at video kapag may transcript na ang mga ito.
+2e2c33a3	Naidagdag, kasama ang mga salita nito at {0} sa mga tala mo.
+299988cc	Naidagdag, kasama ang mga salita nito.
+fe2fe6aa	Naidagdag.
+33fb207b	Buksan ang silid-aralan
+da33ddcb	Guro
+59963c9a	Tala ng guro
+b4c836da	Naabot mo na ang dami ng puwedeng ipadala sa isang araw. Subukan ulit bukas.
+94a2dab0	Puno na ang silid-aralan (300 bagay, 40 folder). Mag-alis muna ng isa.
+b94519dd	Wala na ang folder na iyon.
+efd34fb8	Inalis na iyon sa silid-aralan.
+2453bc49	Ang idinadagdag mo para sa klaseng ito ay nasa Library, sa ilalim ng Silid-aralan: mga folder, ang transcript mo, ang mahahalagang salita mo, mga kahulugan at mga tala.
+56fb8eb7	Ang idinagdag ng mga guro mo para sa klaseng ito ay nasa Library, sa ilalim ng Silid-aralan.

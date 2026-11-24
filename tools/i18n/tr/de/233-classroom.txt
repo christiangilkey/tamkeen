@@ -1,0 +1,53 @@
+# The Classroom a DLI teacher and their students share (web/js/components/classroompanel.js).
+958c43ff	Klassenzimmer
+0d4f19db	Melde dich unter Einstellungen → DLI-Studierende an, um dein Klassenzimmer zu sehen.
+ec9e1f32	Du hast noch keine Klassen. Erstelle eine im Tab „Klasse“ und füge dann hier Sachen für deine Studierenden hinzu.
+e318332d	Du bist noch in keiner Klasse. Deine Lehrkraft kann dich über deinen Benutzernamen einladen oder dir einen Klassencode geben.
+7676b640	Tab „Klasse“ öffnen
+77302510	Was du hier hinzufügst, sehen deine Studierenden von {0}: das Transkript, so wie du es korrigiert hast, die Wörter, die du als wichtig markiert hast, deine Bedeutungen und deine Notizen.
+d9a0aac4	Was deine Lehrkräfte von {0} für dich hinzugefügt haben. Öffne etwas, und es kommt in deine Bibliothek, mit ihrem Transkript und ihren Notizen zu den Wörtern.
+c2eeb319	Das Klassenzimmer ist noch nicht eingeschaltet.
+58d6bf85	Aus meiner Bibliothek hinzufügen
+b69c7dcc	Gib dem Ordner einen Namen
+7af97886	Hier ist noch nichts. Füge etwas aus deiner Bibliothek hinzu, oder tippe bei einem Player oder einer Zeile in der Bibliothek auf die Papierflieger-Schaltfläche und wähle diese Klasse.
+7f8ef211	Deine Lehrkräfte haben noch nichts hinzugefügt.
+4a66d148	Alles
+fda175dd	1 Sache
+cfdfdd45	{0} Sachen
+b406972d	Ordner umbenennen
+fa368edc	Den Ordner {0} entfernen?
+93a877bb	Der Inhalt bleibt im Klassenzimmer, außerhalb aller Ordner.
+da95cc74	Leer.
+030e010a	aktualisiert am {0}
+2e3275fb	{0} Wörter der Lehrkraft, {1} wichtig
+b2f6c4d1	1 Wort der Lehrkraft
+82e01534	{0} Wörter der Lehrkraft
+7c5f254e	Dein Transkript und deine Notizen zu den Wörtern noch einmal senden
+fb91e24f	Aktualisieren
+2088d294	Öffne es zuerst in deiner Bibliothek auf diesem Gerät und aktualisiere es dann.
+1787d5d7	Deine Kopie konnte auf diesem Gerät nicht gelesen werden.
+e28b9792	Aktualisiert: das Transkript und {0} deiner Wörter.
+f7bd1253	Aktualisiert: das Transkript. Du hast dazu noch keine Karteikarten mit einer Bedeutung, einer Notiz oder der Markierung „wichtig“.
+577dbf21	„{0}“ aus dem Klassenzimmer entfernen?
+dde69eef	Studierende, die es geöffnet haben, behalten ihre eigene Kopie.
+dc51fd22	Aktualisierung holen
+ef6d50dd	Das wichtige Wort zu meinen Karten hinzufügen
+24a8800c	Die {0} wichtigen Wörter zu meinen Karten hinzufügen
+6a9ab904	1 Karte angelegt, im Ordner {0}.
+768fa64d	{0} Karten angelegt, im Ordner {1}.
+cb1a00b7	Diese Wörter hast du schon. Sie sind jetzt im Ordner {0}.
+e97a3584	Das Transkript wird so mitgesendet, wie es jetzt ist, zusammen mit deinen Notizen zu den Wörtern: deinen Karteikarten dazu, die als wichtig markiert sind, eine von dir geschriebene Bedeutung haben oder Grammatiknotizen enthalten.
+4b07d7e6	In deiner Bibliothek suchen…
+51c01c83	Nichts gefunden. Teilen lassen sich: Podcasts, YouTube-Videos, Reels, Webseiten, Bücher und deine eigenen Audios und Videos, sobald sie transkribiert sind.
+2e2c33a3	Hinzugefügt, mit den Wörtern und {0} deiner Notizen.
+299988cc	Hinzugefügt, mit den Wörtern.
+fe2fe6aa	Hinzugefügt.
+33fb207b	Klassenzimmer öffnen
+da33ddcb	Lehrkraft
+59963c9a	Notiz der Lehrkraft
+b4c836da	Du hast so viele Sachen gesendet, wie an einem Tag möglich sind. Versuch es morgen noch einmal.
+94a2dab0	Das Klassenzimmer ist voll (300 Sachen, 40 Ordner). Entferne zuerst etwas.
+b94519dd	Diesen Ordner gibt es nicht mehr.
+efd34fb8	Das wurde aus dem Klassenzimmer entfernt.
+2453bc49	Was du für diese Klasse hinzufügst, steht in der Bibliothek unter Klassenzimmer: Ordner, dein Transkript, deine wichtigen Wörter, Bedeutungen und Notizen.
+56fb8eb7	Was deine Lehrkräfte für diese Klasse hinzugefügt haben, steht in der Bibliothek unter Klassenzimmer.
