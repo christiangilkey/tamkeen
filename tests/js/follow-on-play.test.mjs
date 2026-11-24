@@ -16,7 +16,8 @@ test("a reel's words follow the word being said again when it plays again", () =
   const reels = read("web/js/pages/reels.js");
   assert.match(reels, /const resumed = !playing && !s\.paused;/);
   assert.match(reels, /if \(resumed && cur && curIdx >= 0 && cur\.els\[curIdx\]\) \{ slidAt = 0; keepInView\(cur\.els\[curIdx\]\); \}/);
-  assert.match(reels, /if \(bubble\.open && pauseAfterWord\(\) && !playing\) return;/);
+  // (With a word's popup open and the reel stopped at it, or playing it again, the words hold still while it is in sight.)
+  assert.match(reels, /if \(bubble\.open && \(clipEnd !== null \|\| !playing\) && inSight\(el\)\) return;/);
 });
 
 test("the word popup's source menu keeps its height", () => {

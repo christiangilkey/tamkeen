@@ -13,6 +13,12 @@
   var error = "";
   var started = Date.now();
   var wired = null;
+  // A tapped word: the app asks the reel to pause by itself at the word's end (stopAtTime below). The app hears where
+  // the reel is only a few times a second, and a moment late, so a pause sent from there came after the next words had
+  // started. `stopArmed`: the reel has been seen before that time since (an old, later place mustn't end it at once).
+  var stopAt = 0;
+  var stopArmed = false;
+  var stopTimer = 0;
 
   function video() { return document.querySelector("video"); }
   // Instagram's "The link to this photo or video may be broken" page: what its embed page shows for
@@ -24,7 +30,7 @@
     if (wired === v) return;
     wired = v;
     v.loop = false;
-    v.addEventListener("ended", function () { ends++; });
+    v.addEventListener("ended", function () { ends++; stopWatching(); });
     v.addEventListener("error", function () { error = "video"; });
     // Tapping the picture pauses and plays.
     v.addEventListener("click", function (e) { e.preventDefault(); e.stopPropagation(); if (v.paused) v.play().catch(function () {}); else v.pause(); }, true);
@@ -68,6 +74,25 @@
     else if (!error && Date.now() - started > 12000) error = "novideo"; // this reel can't be shown outside Instagram
   }, 300);
 
+  function stopWatching() {
+    stopAt = 0;
+    if (stopTimer) clearInterval(stopTimer);
+    stopTimer = 0;
+  }
+  /** Pause the reel once it has played up to `at` seconds (0: don't). Checked every few milliseconds, only meanwhile. */
+  function stopAtTime(at) {
+    stopWatching();
+    stopAt = Math.max(0, Number(at) || 0);
+    stopArmed = false;
+    if (!stopAt) return;
+    stopTimer = setInterval(function () {
+      var v = video();
+      if (!v) { stopWatching(); return; }
+      if (v.currentTime < stopAt) stopArmed = true;
+      else if (stopArmed && !v.paused) { stopWatching(); v.pause(); }
+    }, 15);
+  }
+
   /** Where the reel is, as JSON text. The app asks a few times a second. */
   window.__tkReelState = function () {
     var v = video();
@@ -76,8 +101,10 @@
       paused: v ? v.paused : true, ends: ends, nav: nav, error: error, page: location.pathname
     });
   };
-  /** What the app tells the reel to do: "play", "pause", or "seek" to a time in seconds. */
+  /** What the app tells the reel to do: "play", "pause", "seek" to a time in seconds, or "stopAt" a time (pause by
+   * itself once it gets there, the end of a tapped word; 0: not any more). */
   window.__tkReelDo = function (what, time) {
+    if (what === "stopAt") { stopAtTime(time); return; }
     var v = video();
     if (!v) return;
     if (what === "pause") v.pause();

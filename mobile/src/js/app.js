@@ -110,6 +110,7 @@ function previewReelSurface() {
   let box = null;
   let timer = 0;
   let s = null;
+  let stopAt = 0; // "stopAt": the clock pauses by itself there (the end of a tapped word), as the real reel window does
   // A reel's ordinary page (not its embed page) "asks for a sign-in" the first time it is opened,
   // like a phone that isn't signed in to Instagram yet, and plays when it is tried again.
   const asked = new Set();
@@ -132,12 +133,21 @@ function previewReelSurface() {
       el.append(box);
       start(url);
       timer = setInterval(() => {
-        if (!s.paused) { s.t += 0.12; if (s.t >= s.d) { s.t = 0; s.paused = true; s.ends++; } }
+        if (!s.paused) {
+          s.t += 0.12;
+          if (stopAt && s.t >= stopAt) { s.t = stopAt; s.paused = true; stopAt = 0; }
+          if (s.t >= s.d) { s.t = 0; s.paused = true; s.ends++; }
+        }
         for (const fn of hearers) fn({ ...s });
       }, 120);
     },
     async load(url) { start(url); },
-    do(what, time = 0) { if (what === "pause") s.paused = true; else if (what === "play") s.paused = false; else if (what === "seek") s.t = time; },
+    do(what, time = 0) {
+      if (what === "pause") s.paused = true;
+      else if (what === "play") s.paused = false;
+      else if (what === "seek") s.t = time;
+      else if (what === "stopAt") stopAt = Number(time) || 0;
+    },
     layout() {},
     close() { clearInterval(timer); if (box) box.remove(); },
     onState(fn) { hearers.add(fn); return () => hearers.delete(fn); },

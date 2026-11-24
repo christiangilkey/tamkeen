@@ -12,7 +12,7 @@ import { voiceNewCard } from "../voiceplay.js";
 import { icon } from "../icons.js";
 import { activeWordIndex, sentenceBounds, formatTime, EDGE_PUNCT } from "../wordlookup.js";
 import { episodeLanguage, gap, joinWords, langInfo, regroupWords, vocabFromDefinition } from "../languages.js";
-import { createWordBubble, pauseAfterWord, pauseSwitch } from "../components/wordbubble.js";
+import { createWordBubble } from "../components/wordbubble.js";
 import { getDefinition } from "../define-service.js";
 import { wordFixer } from "../fixword.js";
 import { lookupToggle } from "../components/lookupmode.js";
@@ -593,7 +593,7 @@ async function renderPlayer(view, { query }) {
     },
     onPlayWord: () => target && playClip(...wordClip({ starts: cur.starts, ends: cur.ends, texts: cur.texts, i: target.i, j: target.j, lang: cur.lang })),
     onPlaySentence: () => target && playClip(cur.starts[target.si], cur.ends[target.sj]),
-    onPlayFrom: () => { if (target && surface) { clipEnd = null; surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
+    onPlayFrom: () => { if (target && surface) { noClip(); surface.do("seek", cur.starts[target.i]); surface.do("play"); } },
     onSettings: () => (location.hash = "#/settings?s=words"),
     onSave: async (def) => {
       const t = target;
@@ -644,7 +644,7 @@ async function renderPlayer(view, { query }) {
       play: (u, mode) => (mode === "word"
         ? playClip(...wordClip({ starts: reel.starts, ends: reel.ends, texts: reel.texts, i: u.i, lang: reel.lang }), { always: true })
         : playClip(u.start, u.end, { always: true })),
-      stop: () => { clipEnd = null; if (last && !last.paused) surface.do("pause"); },
+      stop: () => { noClip(); if (last && !last.paused) surface.do("pause"); },
       end: reels.length > 1 ? { label: "Next reel", run: () => show(index + 1) } : null,
       // What was said, once checked: a tap on one of its words opens the popup (the owner, 2026-11-20), on the reel's
       // page, since the words bar it lives in is put away while typing.
@@ -702,18 +702,12 @@ async function renderPlayer(view, { query }) {
   // ----- the controls under the bar: always on screen, also while a word's popup is open -----
   let last = null;      // what the reel last said about itself
   let dragging = false; // a finger is on the slider
-  // The last control is the switch the other player has in its popup: after a tapped word has
-  // played, pause there or keep playing (one choice for the whole app). Flipping it while a popup
-  // is open acts straight away, as a pause / play button would.
-  $("#rc-right").append(pauseSwitch((pause) => {
-    clipEnd = null;
-    if (!surface || !last || !bubble.open) return;
-    if (pause && !last.paused) surface.do("pause");
-    else if (!pause && last.paused) surface.do("play");
-  }));
+  // (A tapped word always stops the reel at its end, until Continue in its popup or Play here: the owner, 2026-11-23,
+  // "It should just stop at the word when I click it, unless I press the continue playing button on the pop-up". So
+  // the pause / keep-playing switch the other players have in their popup is no longer among these controls.)
   const jumpTo = (t) => {
     if (!surface || !last) return;
-    clipEnd = null;
+    noClip();
     surface.do("seek", Math.max(0, Math.min(t, Math.max(0, (last.d || t) - 0.3))));
   };
   // Play while Type what you hear is open does what its round button (the check mark) does, as in the other players
@@ -722,7 +716,7 @@ async function renderPlayer(view, { query }) {
     if (!surface) return;
     const playing = last && !last.paused;
     if (!playing && dict && dict.pressGo()) return;
-    clipEnd = null;
+    noClip();
     surface.do(playing ? "pause" : "play");
   };
   $("#rc-back").onclick = () => (dict ? dict.back() : last && jumpTo(last.t - 5));
@@ -736,15 +730,23 @@ async function renderPlayer(view, { query }) {
     if (!dragging) { $("#rc-seek").value = String(s.t); $("#rc-cur").textContent = formatTime(s.t); }
   }
 
-  // Play a word or a sentence, then pause right after it (or keep playing from there, if that is
-  // what the switch says).
+  // Play a word or a sentence, then stop right after it. The reel's window stops it there itself ("stopAt", watched
+  // closely inside it: reel-embed.js, reel-page.js, web-reels.js): the times the reel reports reach this page a moment
+  // late, so a pause sent from here let the next words play (the owner: "It continues to play the whole sentence").
+  // Those reports are still the backup (onState).
   function playClip(start, end, { always = false } = {}) {
     if (!surface) return;
     const after = always ? 0.15 : 0.08;
-    clipEnd = always || pauseAfterWord() ? end + after : null;
-    clip = { from: Math.max(0, start - (always ? 0.08 : 0.05)), end: end + after, at: Date.now(), there: false };
+    clipEnd = end + after;
+    clip = { from: Math.max(0, start - (always ? 0.08 : 0.05)), end: clipEnd, at: Date.now(), there: false };
     surface.do("seek", clip.from);
+    surface.do("stopAt", clip.end);
     surface.do("play");
+  }
+  /** No word or sentence is being played any more: the reel does what it is told next (Play, Continue, a jump). */
+  function noClip() {
+    clipEnd = null;
+    if (surface) surface.do("stopAt", 0);
   }
 
   /** Word i of the current reel, with its sentence: what a lookup is asked about. */
@@ -796,23 +798,37 @@ async function renderPlayer(view, { query }) {
     if (idx < 0) return;
     const el = cur.els[idx];
     el.classList.add("cur");
-    // Keep the tapped word in view while its popup is open and the reel is paused (once it plays
-    // again, or when the choice is to keep playing, the words follow the reel), and leave the words
-    // alone for a moment after a finger has slid them.
-    if (bubble.open && pauseAfterWord() && !playing) return;
+    // While a word's popup is open and the reel is stopped at it (or playing the word again), the words hold still as
+    // long as the word is on screen: the tapped word stays where the finger left it. Otherwise they follow the reel,
+    // and are left alone for a moment after a finger has slid them.
+    if (bubble.open && (clipEnd !== null || !playing) && inSight(el)) return;
     if (Date.now() - slidAt < 3000) return;
     if (cursor && cursor.on) return;  // the controller's highlight is out: the words stay with it
     keepInView(el);
   }
-  /** Scroll the words so `el` (a word) is in view. */
+  /** Scroll the words so `el` (a word) is in view. Where reels play (the phones, the web app) the words show two lines
+   *  (reels.css): `el`'s line is brought to the top, with the next line already under it, so the words move up one line
+   *  at a time as the reel goes on (the owner: one line sliding along "is too fast"). */
   function keepInView(el) {
     const box = wordsEl.getBoundingClientRect();
     const r = el.getBoundingClientRect();
-    if (surface) { // the phone: one line, the current word kept in the middle
-      wordsEl.scrollBy({ left: r.left + r.width / 2 - (box.left + box.width / 2), behavior: "smooth" });
+    if (surface) {
+      const cs = getComputedStyle(wordsEl);
+      const line = parseFloat(cs.lineHeight) || r.height;
+      // The top of el's line, from the top of the words: its line's room above the word's own box (half the leading).
+      const top = wordsEl.scrollTop + r.top - box.top - wordsEl.clientTop - (parseFloat(cs.paddingTop) || 0) - (line - r.height) / 2;
+      const to = Math.round(Math.max(0, Math.min(top, wordsEl.scrollHeight - wordsEl.clientHeight)));
+      if (Math.abs(to - wordsEl.scrollTop) > line / 3) wordsEl.scrollTo({ top: to, behavior: "smooth" });
       return;
     }
     if (r.top < box.top + 4 || r.bottom > box.bottom - 4) wordsEl.scrollTo({ top: wordsEl.scrollTop + r.top - box.top - box.height * 0.3, behavior: "smooth" });
+  }
+  /** Is word `el` on screen among the words? */
+  function inSight(el) {
+    const box = wordsEl.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    const mid = (r.top + r.bottom) / 2;
+    return mid > box.top && mid < box.bottom;
   }
   let slidAt = 0;
   let cursor = null;  // the controller's highlight in the words (made with the controller's buttons, below)
@@ -827,7 +843,7 @@ async function renderPlayer(view, { query }) {
     const again = !!cur && cur.ep === ep;
     if (dict && !again) { dict.close(); dictOn = true; } // (opened again below, on this reel's sentences)
     bubble.hide();
-    clipEnd = null;
+    noClip();
     target = null;
     $("#reel-n").textContent = `${index + 1} / ${reels.length}`;
     $("#reel-who").textContent = `@${ep.description || ""}`;
@@ -949,7 +965,9 @@ async function renderPlayer(view, { query }) {
       // must not end it before it has played (the owner: tapping a word should "play the sound of that word
       // and stop it"). wordclip.js clipEnded waits for a report from inside the clip.
       if (clipEnd !== null && clipEnded(clip, s.t)) { clipEnd = null; surface.do("pause"); }
-      setActive(activeWordIndex(cur.starts, cur.ends, s.t, 1.5));
+      // Stopped with a word's popup open: that word stays lit. Its sound runs on a moment into the next word's time
+      // (wordclip.js leaves a little room), and lighting the next word then looked as if the reel hadn't stopped at it.
+      setActive(bubble.open && target && s.paused ? target.i : activeWordIndex(cur.starts, cur.ends, s.t, 1.5));
     }
     // Watched (the "Watched" label, and the bottom of the reel lists) once it has played into its last moments
     // (watched.js atEnd), not only when the video ends: a reel left with Next in its last second was watched, and

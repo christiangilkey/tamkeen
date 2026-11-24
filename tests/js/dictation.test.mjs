@@ -320,7 +320,7 @@ test("while Type what you hear is open, every player's Play does what the check 
   assert.equal(s.clipEnd, null);
   // Reels (phones and the web app): the same, on their own Play (a controller's playPause clicks it too).
   const reels = src("../../web/js/pages/reels.js");
-  assert.match(reels, /const playing = last && !last\.paused;\n    if \(!playing && dict && dict\.pressGo\(\)\) return;\n    clipEnd = null;\n    surface\.do\(playing \? "pause" : "play"\);/);
+  assert.match(reels, /const playing = last && !last\.paused;\n    if \(!playing && dict && dict\.pressGo\(\)\) return;\n    noClip\(\);\n    surface\.do\(playing \? "pause" : "play"\);/);
   assert.match(reels, /playPause: \(\) => \$\("#rc-play"\)\.click\(\),/);
 });
 
