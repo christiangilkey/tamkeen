@@ -1,6 +1,7 @@
-// Settings → Card voices → "Pictures on cards" (prototype "card_pictures"; picturebatch.js does the work, the rules
-// are in cardpicture.js). The same card on every version: pages/settings.js on the computer, the phone's
-// mobile/src/js/pages/settings.js.
+// Settings → Card voices → "Pictures on cards" (prototype "card_pictures_openverse"; picturebatch.js does the work,
+// the rules are in cardpicture.js). Without Openverse there is nothing to set: your own picture is added on the card
+// itself ("Add picture" on its back), so the section isn't shown. The same card on every version: pages/settings.js
+// on the computer, the phone's mobile/src/js/pages/settings.js.
 //   - "Add a picture to new cards": cards saved from now on get Openverse's first picture for their meaning.
 //   - "Add pictures to my cards": the same for every card of the language being learned that has none, one every
 //     few seconds, up to 150 a day on this device; it can be stopped, and pressed again another day for the rest.
@@ -9,11 +10,11 @@ import { api, h } from "../app.js";
 import { t } from "../i18n.js";
 import { NOTICE } from "../cardpicture.js";
 import { addPictures, autoOn, onProgress, setAuto, stopPictures } from "../picturebatch.js";
-import { picturesOn } from "./cardpic.js";
+import { openverseOn } from "./cardpic.js";
 
 /** Put the card in `body` (nothing outside prototype mode). Returns a clean-up. */
 export function pictureSettings(body) {
-  if (!picturesOn()) return () => {};
+  if (!openverseOn()) return () => {};
   const card = h(`<section class="card set-card" data-find="pictures">
     <h2>Pictures on cards</h2>
     <p class="set-hint">A picture on the back of a flashcard, found by its meaning (in English). Tap a card's picture to change it, take your own, or remove it.</p>

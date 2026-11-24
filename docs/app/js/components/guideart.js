@@ -88,10 +88,9 @@ export function playerSteps(kind = "player") {
       text: "AI explains every word in context. The built-in dictionary (Wiktionary) is free and works offline. Your choice is kept for every language." },
     { target: ".lookup-toggle", art: lookupArt, title: "Quick or detailed",
       text: "Choose how much a tapped word shows: just its meaning, or the full explanation." },
-    reader ? null : reel ? { target: ".wb-mode", title: "Pause or keep playing",
-      text: "After a word you tapped, the reel pauses so you can read, or keeps playing. Flip this to choose." }
-      : { art: switchArt, title: "Pause or keep playing",
-        text: "The switch at the top of the popup: after a word you tapped, pause so you can read, or keep playing." },
+    // (A reel always stops at a tapped word, until Continue or Play: it has no pause / keep-playing switch.)
+    reader || reel ? null : { art: switchArt, title: "Pause or keep playing",
+      text: "The switch at the top of the popup: after a word you tapped, pause so you can read, or keep playing." },
     { target: reel ? "#rc-play" : "#play", title: "Play and pause", text: reel ? "Play or pause the reel." : "Play or pause. On a computer, the space bar does it too." },
     { target: reel ? "#rc-back" : "#back5", title: "Back or forward 5 seconds", text: "Hear a bit again, or skip ahead." },
     { target: "#speed", title: "Speed", text: "Slow it down while you get used to the language." },

@@ -14,7 +14,11 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
-- **New:** **Pictures on flashcards.** The back of a card can show a picture, found with Openverse by the card's short meaning ("dog"), with a small credit under it ("Photo: name · CC BY") that links to where it came from. Tap the picture, or **Add picture** on a card without one, to pick another from Openverse (with a search box to try other words), use your own photo (the camera on a phone) or remove it. Settings → Card voices → **Pictures on cards** has a switch that gives every card you save from then on a picture, and **Add pictures to my cards** (also in the Vocab page's ⋯ menu, for the cards shown) does the cards you already have, a few seconds apart and up to 150 a day per device, so Openverse isn't overloaded. Only pictures anyone may use, with credit, even in a paid app (CC0, public domain, CC BY, CC BY-SA). Each picture is a small copy (about 25 KB) kept on every device and in your Google Drive, so it shows offline; **Export for Anki** puts it in the card's image field with its credit. (For now only in prototype mode.)
+## v0.72.0 — 2026-11-24
+
+- **New:** **Pictures on flashcards.** The back of a card can show a picture of your own: tap **Add picture** on a card's back (in reviews, or on a word opened on the Vocab page) to take a photo (on a phone) or choose one, and tap the picture later to change or remove it. Each picture is kept as a small copy that syncs to your other devices through your Google Drive, shows without internet, and goes into **Export for Anki** with the card.
+- **Improved:** The reel player shows two lines of words instead of one line that slid along with the reel too fast to tap a word. The line being said is on top with the next one already under it, and when the reel reaches the second line the words move up by one line, so every line stays on screen for about two lines' worth of speech. *(phones and web app)*
+- **Fixed:** Tapping a word in a reel now stops the reel at that word: it plays the word once and stays stopped, with the word lit, until you press **Continue** in the popup or **Play**. Before, the reel could play on through the rest of the sentence, because the stop came from the app a moment too late on a phone, or not at all with the keep-playing switch beside its controls on. The reel now stops itself on time, and that switch is gone from the reel player (it stays in the other players' popups). *(phones and web app)*
 
 ## v0.71.0 — 2026-11-23
 

@@ -1,13 +1,14 @@
-// The picture on the back of a flashcard, and the picker that chooses it (prototype "card_pictures"; the rules and
-// Openverse's terms are in cardpicture.js). Shown on the back of a review card (pages/review.js) and on a word
+// The picture on the back of a flashcard, and the picker that chooses it ("card_pictures", released 2026-11-23: your
+// own picture; Openverse's part is the prototype "card_pictures_openverse", its rules and terms in cardpicture.js). Shown on the back of a review card (pages/review.js) and on a word
 // opened on the Vocab page (components/wordeditor.js). Shared by the desktop app, the phone and the web app.
 //
 //   - A card with a picture shows it, with its credit under it ("Photo: Jane Doe · CC BY 2.0", a link to where it
 //     came from, as CC BY asks). A tap on the picture opens the picker.
 //   - A card without one shows a small "Add picture" button (no room taken otherwise), which opens the picker.
-//   - The picker: pictures from Openverse for the card's short meaning (a search box to try other words, "More
-//     pictures"), "Use my own picture" (the camera or the photos on a phone, a file on a computer) and
-//     "Remove picture". The chosen picture is made small here (cardpicture.js PICTURE_SIDE) and kept on the card.
+//   - The picker: "Use my own picture" (the camera or the photos on a phone, a file on a computer) and "Remove
+//     picture"; with card_pictures_openverse on, also pictures from Openverse for the card's short meaning (a search
+//     box to try other words, "More pictures"). With it off nothing is ever asked of Openverse (the owner, 2026-11-23:
+//     its search kept failing). The chosen picture is made small here (cardpicture.js PICTURE_SIDE) and kept on the card.
 
 import { esc, h, pictureUrl, removePicture, savePicture, toast } from "../app.js";
 import { icon } from "../icons.js";
@@ -24,8 +25,10 @@ const touchDevice = () => {
 const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
 const storage = () => { try { return localStorage; } catch { return { getItem: () => null, setItem() {} }; } };
 
-/** Is the picture feature on (prototype mode, until the owner releases it)? */
+/** Pictures on cards: your own (released for everyone). */
 export const picturesOn = () => feature("card_pictures");
+/** Pictures found with Openverse (prototype mode only): the picker's search, and adding pictures to many cards. */
+export const openverseOn = () => picturesOn() && feature("card_pictures_openverse");
 
 // ---------------------------------------------------------------- making a picture small
 
@@ -149,27 +152,28 @@ export function cardPicture(host, v, { onChange = () => {} } = {}) {
 export function openPicturePicker(v, { onChange = () => {} } = {}) {
   const has = !!pictureOf(v);
   const phone = touchDevice();
-  const modal = openModal({ title: t("Picture for “{0}”", v.text || ""), wide: true, cls: "cp-back" });
+  const online = openverseOn();
+  const modal = openModal({ title: t("Picture for “{0}”", v.text || ""), wide: online, cls: `cp-back${online ? "" : " cp-own-only"}` });
   const body = modal.body;
   body.innerHTML = `
-    <form class="cp-search" role="search">
+    ${online ? `<form class="cp-search" role="search">
       <input type="search" class="cp-q" enterkeyhint="search" aria-label="Words to search pictures for" placeholder="Search pictures (in English)">
       <button type="submit" class="primary">${icon("search", 16)} <span>Search</span></button>
-    </form>
+    </form>` : ""}
     <div class="cp-status muted" role="status"></div>
-    <div class="cp-grid"></div>
-    <div class="cp-more-row" hidden><button type="button" class="cp-more">More pictures</button></div>
+    ${online ? `<div class="cp-grid"></div>
+    <div class="cp-more-row" hidden><button type="button" class="cp-more">More pictures</button></div>` : ""}
     <div class="cp-own">
       ${phone ? `<button type="button" class="cp-camera">${icon("camera", 16)} <span>Take a photo</span></button>
                  <button type="button" class="cp-file">${icon("image", 16)} <span>Choose a photo</span></button>`
               : `<button type="button" class="cp-file">${icon("upload", 16)} <span>Use my own picture</span></button>`}
       ${has ? `<button type="button" class="cp-remove danger">${icon("trash", 16)} <span>Remove picture</span></button>` : ""}
     </div>
-    <p class="cp-notice muted"></p>`;
+    ${online ? `<p class="cp-notice muted"></p>` : ""}`;
   const $ = (s) => body.querySelector(s);
-  $(".cp-notice").textContent = t(NOTICE);
+  if (online) $(".cp-notice").textContent = t(NOTICE);
   const box = $(".cp-q"), grid = $(".cp-grid"), status = $(".cp-status"), moreRow = $(".cp-more-row");
-  box.value = searchQuery(v.meaning) || "";
+  if (box) box.value = searchQuery(v.meaning) || "";
   let query = "", page = 1, pages = 0, busy = false, run = 0;
 
   const say = (text, error = false) => { status.textContent = text ? t(text) : ""; status.classList.toggle("cp-error", error); };
@@ -240,8 +244,10 @@ export function openPicturePicker(v, { onChange = () => {} } = {}) {
     input.click();  // (still inside the tap, so a phone lets it open)
   }
 
-  $(".cp-search").onsubmit = (e) => { e.preventDefault(); search(box.value); };
-  $(".cp-more").onclick = () => { page++; search(query, true); };
+  if (online) {
+    $(".cp-search").onsubmit = (e) => { e.preventDefault(); search(box.value); };
+    $(".cp-more").onclick = () => { page++; search(query, true); };
+  }
   $(".cp-file").onclick = () => choose(false);
   if ($(".cp-camera")) $(".cp-camera").onclick = () => choose(true);
   if ($(".cp-remove")) {
@@ -249,8 +255,10 @@ export function openPicturePicker(v, { onChange = () => {} } = {}) {
       try { done(await removePicture(v.id)); } catch (e) { toast(e.message, { error: true }); }
     };
   }
-  if (box.value) search(box.value);
-  else say("Type a word or two to search for.");
-  if (!phone) box.focus();
+  if (online) {
+    if (box.value) search(box.value);
+    else say("Type a word or two to search for.");
+    if (!phone) box.focus();
+  } else if (!phone) $(".cp-file").focus();
   return modal;
 }

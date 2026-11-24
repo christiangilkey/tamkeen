@@ -68,6 +68,23 @@ export function webReelSurface() {
   let error = "";
   let ends = 0;
   let turn = 0;
+  // "stopAt": pause by itself at the end of a tapped word, watched closely here (the screen hears the time only on
+  // the video's own time updates, a few a second). `armed`: the video has been seen before that time since.
+  let stopAt = 0;
+  let armed = false;
+  let stopTimer = 0;
+  const stopWatching = () => { stopAt = 0; clearInterval(stopTimer); stopTimer = 0; };
+  function stopAtTime(at) {
+    stopWatching();
+    stopAt = Math.max(0, Number(at) || 0);
+    armed = false;
+    if (!stopAt) return;
+    stopTimer = setInterval(() => {
+      if (!video) { stopWatching(); return; }
+      if (video.currentTime < stopAt) armed = true;
+      else if (armed && !video.paused) { stopWatching(); video.pause(); }
+    }, 15);
+  }
   const tell = () => {
     const s = { ready: !!video && video.readyState >= 1 && !error, t: video ? video.currentTime : 0, d: video && Number.isFinite(video.duration) ? video.duration : 0,
                 paused: !video || video.paused, ends, nav: "", error, page };
@@ -78,6 +95,7 @@ export function webReelSurface() {
     page = new URL(url).pathname;
     error = "";
     ends = 0;
+    stopWatching();
     video.removeAttribute("src");
     video.load();
     tell();
@@ -109,9 +127,10 @@ export function webReelSurface() {
       if (what === "pause") video.pause();
       else if (what === "play") video.play().catch(() => {});
       else if (what === "seek") video.currentTime = Math.max(0, Number(time) || 0);
+      else if (what === "stopAt") stopAtTime(time);
     },
     layout() {},
-    close() { turn++; if (video) { video.pause(); video.remove(); video = null; } hearers.clear(); },
+    close() { turn++; stopWatching(); if (video) { video.pause(); video.remove(); video = null; } hearers.clear(); },
     onState(fn) { hearers.add(fn); return () => hearers.delete(fn); },
   };
 }

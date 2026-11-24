@@ -4129,9 +4129,10 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cp-tile.busy { opacity: .55; pointer-events: none; }
 .cp-more-row { display: flex; justify-content: center; }
 .cp-more-row[hidden] { display: none; }
-.cp-own { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding-top: 4px; border-top: 1px solid var(--border); padding-top: 12px; }
+.cp-own { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; border-top: 1px solid var(--border); padding-top: 12px; }
 .cp-own button { display: inline-flex; align-items: center; gap: 6px; }
 .cp-own .danger { color: var(--danger); }
+.cp-own-only .cp-own { border-top: 0; padding-top: 0; }
 .cp-notice { margin: 0; font-size: 11.5px; text-align: center; }
 @media (max-width: 560px) {
   .cp-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }

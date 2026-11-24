@@ -9,6 +9,12 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.72.0",
+  "Pictures on cards: add your own photo to the back of a card");
+notes("0.72.0",
+  "Reels show two lines of words, so there is time to tap one");
+notes("0.72.0",
+  "Tapping a word in a reel stops the reel at that word");
 notes("0.71.0",
   "Fishing goes through every word of your folder, and remembers where it was");
 notes("0.70.0",
