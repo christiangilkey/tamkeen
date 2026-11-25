@@ -14,6 +14,8 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Improved:** Looking up several words by dragging across them (mouse) or holding a word and sliding on (touch): when the pointer or finger reaches the top or bottom edge of a transcript, a webpage, a file in My files or a reel's lines, the text now scrolls slowly that way, faster the nearer the edge, and the highlight keeps growing as the text moves, even while you rest at the edge. It stops when you move away from the edge, let go, or reach the most words one lookup takes (30). A transcript that was following the sound stops following, as it does when you scroll by hand. (A book's pages and the captions over a video don't scroll, so they work as before.)
+
 ## v0.73.0 — 2026-11-24
 
 - **Improved:** Groundwork for coming DLI class features: a Class tab, a shared Classroom with folders and a teacher's notes on words, and gifts from the Tamkeen team. Nothing changes for you yet; they are switched on in a later version.

@@ -991,6 +991,7 @@ export async function render(view, { id, query }) {
     blockOf: (k) => segOf[k],
     elOf: (k) => wordEls[k] || null,
     onPick: (i, j) => defineAt(i, j),
+    onScroll: userScrolled, // (a drag that reached the edge scrolled the words: they stop following the sound)
     onHold: (i, x, y, el) => { if (!seen.toggleKnown(i)) openMenu(x, y, el); },
     onMenu: (i, x, y, el) => openMenu(x, y, el),
   });
