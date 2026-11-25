@@ -497,7 +497,8 @@ function popupMove(dir) {
 }
 function popupScroll(dir) {
   const b = bubbleEl();
-  const body = b && (b.querySelector(".wb-body") || b);
+  // (whichever scrolls: the whole popup now, its heading and buttons staying put; a popup styled otherwise, its text)
+  const body = b && ([b, b.querySelector(".wb-body")].find((x) => x && x.scrollHeight > x.clientHeight + 1) || b);
   if (body) body.scrollBy({ top: dir * 0.6 * (body.clientHeight || 200), behavior: "smooth" });
 }
 

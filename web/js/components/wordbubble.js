@@ -100,6 +100,8 @@ export function createWordBubble(host, actions) {
   // A misheard word put right (see fixword.js): {from: what the transcript said, to: the word
   // said, applied: the transcript was changed (so Undo is offered)}.
   let fix = null;
+  // A long selection's heading is cut to two lines (app.css); a tap on it shows it all, until the next word.
+  let phraseOpen = false;
   // Docked (see show): part of its container's layout, below what is already in it, not floating.
   let docked = false;
   // The creature game's line about what this lookup earned, just above the buttons (game/xpbadge.js fills it;
@@ -406,7 +408,7 @@ export function createWordBubble(host, actions) {
     el.innerHTML = `
       <div class="wb-head">
         ${actions.onPauseMode && !actions.noAudio ? modeSwitch() : ""}
-        <div class="wb-word ar${phrase() ? " wb-phrase" : ""}" ${attrs()}>${esc(shown)}</div>
+        <div class="wb-word ar${phrase() ? ` wb-phrase${phraseOpen ? " open" : ""}` : ""}" ${attrs()}>${esc(shown)}</div>
         ${ipa ? `<span class="wb-ipa" translate="no" title="${ctx.lang === "th" ? "How it is said (Paiboon romanization, from Wiktionary)" : ctx.lang === "ko" ? "How it is said (Revised Romanization of Korean)" : "US pronunciation (CMU Pronouncing Dictionary)"}">${esc(ipa)}</span>` : ""}
         ${sourceTag(state === "ready" ? def : null)}
         <button type="button" class="ghost icon wb-close" data-act="close" title="Close (Esc)" aria-label="Close">${icon("close", 18)}</button>
@@ -462,6 +464,8 @@ export function createWordBubble(host, actions) {
   }
 
   el.addEventListener("click", async (e) => {
+    const whole = e.target.closest(".wb-phrase");
+    if (whole) { phraseOpen = !phraseOpen; whole.classList.toggle("open", phraseOpen); return; }
     const b = e.target.closest("button[data-act]");
     if (!b) return;
     switch (b.dataset.act) {
@@ -614,6 +618,7 @@ export function createWordBubble(host, actions) {
     fix = null;
     fixInfo = false;
     menuOpen = false;
+    phraseOpen = false;
     saved = !!opts.saved;
     Object.assign(shelf, { target: lastFolder(context.lang || "ar"), folders: [], card: null, second: false });
     quick = typeof opts.quick === "boolean" ? opts.quick : lookupMode() === "quick";

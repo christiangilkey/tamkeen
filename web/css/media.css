@@ -404,14 +404,22 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
 }
 
-/* ---------- word popup: buttons row pinned, the rest scrolls ----------
-   The popup's heading stays at its top and its row of buttons (Word, Sentence, Continue, Save)
-   at its bottom; only the definition between them scrolls. */
-.word-bubble { display: flex; flex-direction: column; overflow: hidden; }
+/* ---------- word popup: heading and buttons row pinned, everything between them scrolls ----------
+   The whole popup scrolls as one card (the owner, 2026-11-25: "just have the entire pop-up card scrollable"), while its
+   heading (the word, where the meaning came from, ✕) stays at the top and its row of buttons (Word, Sentence,
+   Continue, Save) at the bottom. Everything between them (the misheard-word pill, the definition, what the lookup
+   earned) scrolls together and is never squeezed away: before, only the definition scrolled, and in a short popup (a
+   reel's, a phone's under a YouTube video) a long selection's heading and the line of points took all the room, so no
+   definition showed at all. A long selection's heading is cut to two lines (app.css). */
+.word-bubble { display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
 .word-bubble[hidden] { display: none; }
-.word-bubble > .wb-head, .word-bubble > .wb-actions { flex: none; }
-.word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
-.word-bubble > .wb-actions { margin-top: auto; }
+.word-bubble > .wb-head, .word-bubble > .wb-actions { flex: none; position: sticky; z-index: 1; background: var(--surface); }
+/* (held at the popup's inner edge: its own colour painted over the popup's padding beyond them, so no text shows
+   through there as it scrolls by) */
+.word-bubble > .wb-head { top: 0; box-shadow: 0 -16px 0 var(--surface); }
+.word-bubble > .wb-head:has(.wb-phrase.open) { position: static; } /* (a whole long selection: it scrolls away) */
+.word-bubble > .wb-body { flex: 1 0 auto; }  /* (as tall as it is: the popup scrolls, not the definition alone) */
+.word-bubble > .wb-actions { bottom: 0; margin-top: auto; box-shadow: 0 16px 0 var(--surface); }
 /* The "Explain words with" menu keeps its full height (the definition under it gives way), so a short
    popup on a phone doesn't squash it down to its first choice; a very short one scrolls the menu. */
 .word-bubble > .wb-srcmenu { flex: 0 0 auto; max-height: 75%; overflow-y: auto; overscroll-behavior: contain; }
