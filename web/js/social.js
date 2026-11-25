@@ -607,14 +607,7 @@ export function sendShare(friendId, { folder = null, words, challenge = null }) 
   })).filter((w) => w.text);
   if (!clean.length) throw new Error("There's nothing to share.");
   return insertMessage(friendId, { kind: "share", payload: { folder: folder ? String(folder).slice(0, 80) : null, words: clean,
-    ...(challenge ? { challenge: { v: 1, language: String(challenge.language || "").slice(0, 12) } } : {}) } })
-    .then((sent) => {
-      // Delivered: with the content rewards on, a folder (or these words) shared with this friend counts once in the
-      // creature game (game/content.js).
-      const what = folder ? `folder:${String(folder).slice(0, 80)}` : `words:${clean.map((w) => w.text).sort().join("|")}`;
-      import("./game/game.js").then((m) => m.contentShared(what, friendId)).catch(() => {});
-      return sent;
-    });
+    ...(challenge ? { challenge: { v: 1, language: String(challenge.language || "").slice(0, 12) } } : {}) } });
 }
 
 /** Challenge a friend to battles on one of my folders (game/challenge.js): its words go as a shared folder marked as a

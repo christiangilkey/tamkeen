@@ -14,9 +14,7 @@ import { lookupToggle } from "../components/lookupmode.js";
 import { plainWhenOff, tapSwitch } from "../components/tapswitch.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
 import { markWord } from "../definer.js";
-import { contentFinished, reward, trackStudy } from "../game/game.js";
-import { pageNeeds } from "../game/rules.js";
-import { feature } from "../prototype.js";
+import { reward, trackStudy } from "../game/game.js";
 import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
 import { displayWords, paintWords, vowelsButton, watchVowels } from "../vowels.js";
@@ -434,25 +432,7 @@ export async function render(view, { id, data, query }) {
   tr.addEventListener("scroll", touch, { passive: true });
   tr.addEventListener("pointerdown", touch, { passive: true });
   const stopStudy = trackStudy("read", () => Date.now() - lastActive < 60000);
-  // With the content rewards on (game/content.js): the page read to its end counts as something new finished, once.
-  // Its end must be scrolled to after at least as long as its words take to read fast (rules.pageNeeds), with the
-  // reader in use, so a flick to the bottom counts nothing.
-  let readSecs = 0;
-  let readAt = Date.now();
-  let readDone = !feature("content_rewards");
-  const readTimer = readDone ? 0 : setInterval(() => {
-    const now = Date.now();
-    const dt = Math.min(2, (now - readAt) / 1000);
-    readAt = now;
-    if (readDone || document.hidden || now - lastActive > 60000) return;
-    readSecs += dt;
-    if (readSecs >= pageNeeds(wordEls.length) && tr.scrollTop + tr.clientHeight >= tr.scrollHeight - 80) {
-      readDone = true;
-      contentFinished(ep, String(ep.uid || id));
-    }
-  }, 1000);
   return () => {
-    clearInterval(readTimer);
     offPad();
     stopPlain();
     stopStudy();

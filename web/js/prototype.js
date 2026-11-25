@@ -44,7 +44,6 @@ export const PROTOTYPES = {
   legend_feast: { name: "Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better", released: false, since: "2026-11-25" },
   goal_rate: { name: "Long-term goal set per day, week or month (\"20 new words a day\"), worked out over the goal's time; shown again as typed, and scaled when the time changes", released: false, since: "2026-11-25" },
   hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: false, since: "2026-11-25" },
-  content_rewards: { name: "New things in the Library pay in the game: adding (+10 XP, 1 coin), finishing to the end (+50 XP, 5 coins; a reel or web page +10, 1) and sharing (+15 XP, 2 coins), each once per item and a few a day; a weekly goal (finish 3 new things: +150 XP, 20 coins) on Home; 7 badges", released: false, since: "2026-11-25" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 

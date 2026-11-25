@@ -12,10 +12,8 @@
 // XP, coins and gems add up what each device earned and spent (`tally`: per device, [earned, spent]), so nothing is
 // counted twice and nothing earned is dropped.
 //
-// Pure (its one import, contentjoin.js, is pure too): app/sync/gamemerge.py does exactly the same on the desktop (tests/fixtures/game-merge.json
+// Pure, with no imports: app/sync/gamemerge.py does exactly the same on the desktop (tests/fixtures/game-merge.json
 // is run through both).
-
-import { join as joinContent } from "./contentjoin.js";
 
 /** The numbers kept per device: the value shown is the sum of what every device earned minus what it spent. */
 export const COUNTERS = ["xp", "coins", "gems"];
@@ -271,9 +269,6 @@ export function combine(mine, theirs) {
     const round = joinRounds(obj(fishA.round), obj(fishB.round));
     if (round) fishA.round = round;
   }
-  // New things in the Library (content.js): every item that counted on either copy has counted, so none pays twice.
-  const content = joinContent(a.content, b.content);
-  if (content) out.content = content;
   out.updated_at = Math.max(num(a.updated_at), num(b.updated_at));
   return out;
 }

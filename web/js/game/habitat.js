@@ -16,7 +16,6 @@ import * as social from "../social.js";
 import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById } from "./data.js";
 import { automated, collect, garden, hearts, isHungry, tick as gardenTick } from "./idle.js";
 import { hungryButton, wantedFood } from "./hunger-ui.js";
-import { openWeekly, paintWeekChip, weekChipHtml } from "./content-ui.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
@@ -93,7 +92,6 @@ export function habitat() {
         <button type="button" class="hud-count cur-gem" id="g-gems" title="Gems: tap to see how to get them, hold to learn more">${icon("gem")}<b></b></button>
         <button type="button" class="hud-count cur-streak" id="g-streak" title="Goal streak: days in a row you reached your daily goal">
           <span class="streak-pic">${icon("streak")}<span class="freeze-badge" hidden>${icon("freeze_badge", 9)}</span></span><b></b></button>
-        ${weekChipHtml()}
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
@@ -225,7 +223,6 @@ export function habitat() {
     const s = (n) => (n === 1 ? "" : "s"); // (an English plural; other languages leave it out)
     streak.setAttribute("aria-label", freezes ? t("Goal streak: {0} day{1}, {2} streak freeze{3}", game.streak, s(game.streak), freezes, s(freezes))
       : t("Goal streak: {0} day{1}", game.streak, s(game.streak)));
-    paintWeekChip($("#g-week"), game); // (the weekly goal for new things in the Library: prototype content_rewards)
     things = collectables(game, { gifts: online.gifts });
     const dots = tileDots(game, { online: { gifts: online.gifts.length, battles: online.battles }, seen: store.get(SHOP_SEEN_KEY) });
     for (const [id, on] of Object.entries(dots)) $(`#g-${id} .tile-dot`).hidden = !on;
@@ -255,7 +252,6 @@ export function habitat() {
   holdable($("#g-gems"), () => openCurrency("gems", game, go), () => openEarned("gem", game, go));
   currencyTaps(getGame, go);
   holdable($("#g-streak"), () => openEarned("streak", game, go), () => openEarned("freeze", game, go));
-  if ($("#g-week")) $("#g-week").onclick = () => openWeekly(game);
   $("#g-shop").onclick = () => go("shop");
   $("#g-creatures").onclick = () => go("creatures");
   $("#g-garden").onclick = () => go("garden");

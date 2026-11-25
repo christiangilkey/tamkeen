@@ -17,7 +17,6 @@ import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
 import { cleanGifts, settle } from "./merge.js";
-import { contentBadges } from "./content.js";
 import { inPicks, pickList } from "../review/folderpicks.js";
 
 export const VERSION = 2;
@@ -306,7 +305,7 @@ function grant(state, tag) {
 /** Give XP to the player and the creature in the habitat. Returns the stage it reached, if it
  * changed: "hatchling", "juvenile", or "grown" (fully grown: it pays FULLY_GROWN_COINS and leaves
  * a new egg, once). */
-export function grow(state, xp, trait) {
+function grow(state, xp, trait) {
   const c = state.creature;
   state.xp += xp;
   state.day.xp += xp;
@@ -1198,7 +1197,6 @@ export function checkBadges(state, extra = {}) {
     friend_battle: s.friend_battles > 0, raid_win: s.raids > 0,
     // (fishing.feedFish counts the meals; a meal eaten before the badge is released earns it once it is)
     legend_feast: feature("legend_feast") && (s.legend_fed || 0) > 0,
-    ...contentBadges(state), // (new things in the Library, with prototype content_rewards on: content.js)
   };
   const fresh = BADGES.map((b) => b.id).filter((id) => earned[id] && !state.badges.includes(id));
   state.badges.push(...fresh);

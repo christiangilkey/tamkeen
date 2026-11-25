@@ -64,24 +64,12 @@ export async function api(path, { method = "GET", body, raw, bytes } = {}) {
     throw new Error(typeof detail === "string" ? detail : `Request failed (${res.status})`);
   }
   if (method === "POST" && (path === "/vocab" || path === "/vocab/batch")) cardsSaved(data);
-  if (method === "POST" && ADDS.has(path)) libraryAdded(path, body);
   return data;
 }
 
 /** New cards saved (any screen): with "Add a picture to new cards" on, they get one (picturebatch.js, loaded only then). */
 function cardsSaved(data) {
   import("./picturebatch.js").then((m) => m.cardsSaved(data)).catch(() => {});
-}
-
-// Paths that add to the Library: with the content rewards on (game/content.js, prototype "content_rewards"), what
-// they added counts in the creature game. (Loaded only after such a call: game.js is there already when it matters.)
-const ADDS = new Set(["/feeds", "/shared/podcast", "/shared/reel", "/reels/saved/send", "/pages", "/netflix", "/books"]);
-function libraryAdded(path, body) {
-  import("./game/game.js").then((m) => m.contentAdded(path, body)).catch(() => {});
-}
-/** One of the learner's own files was added (uploadVideo): it counts the same way. */
-function libraryUploaded(file, opts) {
-  import("./game/game.js").then((m) => m.contentUploaded(file, opts)).catch(() => {});
 }
 
 // ---------- helpers ----------
@@ -517,7 +505,7 @@ export function uploadVideo(file, onProgress, { book = null, transcribe = true, 
     xhr.onload = () => {
       let data = null;
       try { data = JSON.parse(xhr.responseText); } catch { /* not JSON */ }
-      if (xhr.status < 300) { resolve(data); libraryUploaded(file, { book, transcribe, recording, lesson }); }
+      if (xhr.status < 300) resolve(data);
       else reject(new Error((data && data.detail) || `Upload failed (${xhr.status}).`));
     };
     xhr.onerror = () => reject(new Error("Upload failed: the app's server didn't respond."));

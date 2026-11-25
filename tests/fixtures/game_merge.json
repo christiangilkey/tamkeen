@@ -177,30 +177,6 @@
       "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5, "fedAt": 3000}, {"seed": 2, "growth": 0.5}]},
       "keep": "merged",
       "expect": {"roster.0.fedAt": 3000, "roster.0.growth": 0.6, "roster.1.fedAt": 5000}
-    },
-    {
-      "name": "new things in the Library (content.js): what counted on either copy has counted, so it never pays twice; today's and this week's counts joined",
-      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.6}],
-        "content": {"add": ["a1.b1", "a2.b2"], "done": ["d1.e1"], "sent": [], "kinds": ["podcast"], "n": {"add": 2, "done": 1, "sent": 0},
-          "day": {"key": "2026-11-25", "add": 2, "done": 1, "short": 0, "sent": 0}, "week": {"n": 2917, "done": ["d1.e1"], "paid": false}}},
-      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}],
-        "content": {"add": ["a2.b2", "a3.b3"], "done": ["d2.e2", "d3.e3"], "sent": ["s1.t1"], "kinds": ["book", "podcast"], "n": {"add": 2, "done": 2, "sent": 1},
-          "day": {"key": "2026-11-25", "add": 1, "done": 2, "short": 1, "sent": 1}, "week": {"n": 2917, "done": ["d2.e2", "d3.e3"], "paid": true}}},
-      "keep": "merged",
-      "expect": {"content.add": ["a1.b1", "a2.b2", "a3.b3"], "content.done": ["d1.e1", "d2.e2", "d3.e3"], "content.sent": ["s1.t1"],
-        "content.kinds": ["podcast", "book"], "content.n.add": 3, "content.n.done": 3, "content.n.sent": 1,
-        "content.day.add": 2, "content.day.done": 2, "content.day.short": 1, "content.week.done": ["d1.e1", "d2.e2", "d3.e3"], "content.week.paid": true}
-    },
-    {
-      "name": "new things in the Library: a copy from a later week and day keeps its own counts",
-      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.6}],
-        "content": {"add": ["a1.b1"], "done": [], "sent": [], "kinds": [], "n": {"add": 1, "done": 0, "sent": 0},
-          "day": {"key": "2026-11-24", "add": 5, "done": 0, "short": 0, "sent": 0}, "week": {"n": 2916, "done": ["x.y"], "paid": true}}},
-      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}],
-        "content": {"add": ["a9.b9"], "done": [], "sent": [], "kinds": [], "n": {"add": 1, "done": 0, "sent": 0},
-          "day": {"key": "2026-11-25", "add": 1, "done": 0, "short": 0, "sent": 0}, "week": {"n": 2917, "done": [], "paid": false}}},
-      "keep": "merged",
-      "expect": {"content.add": ["a1.b1", "a9.b9"], "content.n.add": 2, "content.day.key": "2026-11-25", "content.day.add": 1, "content.week.n": 2917, "content.week.paid": false}
     }
   ]
 }

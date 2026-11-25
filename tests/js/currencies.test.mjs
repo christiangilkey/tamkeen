@@ -6,9 +6,6 @@ import { readFileSync } from "node:fs";
 import { CURRENCIES, CURRENCY_KINDS, currencyOf } from "../../web/js/game/currencies.js";
 import { SUPPLIES } from "../../web/js/game/data.js";
 import { REWARDS } from "../../web/js/game/loot.js";
-import { PAY, WEEK_PAY } from "../../web/js/game/content.js";
-
-const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8");
 
 const src = (file) => readFileSync(new URL(`../../web/js/game/${file}`, import.meta.url), "utf8");
 
@@ -16,10 +13,7 @@ test("the five currencies, each brief: an icon, two or three ways to get it, one
   assert.deepEqual(CURRENCY_KINDS, ["coins", "gems", "glow", "pearls", "stardust"]);
   for (const [kind, c] of Object.entries(CURRENCIES)) {
     assert.ok(c.name && c.icon, kind);
-    // (a line for a prototype, shown only where it is on, comes on top: at most one per currency)
-    const always = c.get.filter((l) => !l.proto);
-    assert.ok(always.length >= 1 && always.length <= 3, `${kind}: how to get it`);
-    assert.ok(c.get.length - always.length <= 1, `${kind}: one prototype line at most`);
+    assert.ok(c.get.length >= 1 && c.get.length <= 3, `${kind}: how to get it`);
     assert.ok(c.use.length >= 1 && c.use.length <= 2, `${kind}: what it's for`);
     for (const l of [...c.get, ...c.use]) assert.ok(l.text.length <= 160, `${kind}: "${l.text}" is short`);
     assert.equal(currencyOf(c.icon), c, `${kind} is found by its icon's name too`);
@@ -52,11 +46,6 @@ test("the lines match what the code pays and sells", () => {
   assert.match(idle, /raidsPaid/);
   assert.match(idle, /leaguePaid/);
   assert.match(idle, /out\.gems \+= 10/, "full bloom pays 10 gems, as the popup says");
-  // coins: new things in the Library (prototype content_rewards) pay what the line says
-  const coinsNew = CURRENCIES.coins.get.find((l) => l.proto === "content_rewards");
-  assert.ok(coinsNew, "the coins popup says new things in the Library pay");
-  for (const n of [PAY.add.coins, PAY.done.coins, PAY.sent.coins, WEEK_PAY.coins]) assert.ok(coinsNew.text.includes(`+${n})`), `it names +${n}`);
-  assert.match(read("web/js/game/info.js"), /c.get.filter((l) => !l.proto || feature(l.proto))/, "and shows it only with the prototype on");
   // coins: the daily goal pays 10
   assert.match(src("rules.js"), /function reachGoal[\s\S]{0,200}state\.coins \+= 10;/, "the daily goal pays 10 coins, as the popup says");
   // pearls buy rods and aquariums, and come from catches

@@ -113,15 +113,6 @@ export async function textFor(item) {
   return packTranscript(t, { asText: TEXT_KINDS.has(item.kind) });
 }
 
-/** Something sent has arrived (a friend's message, a class's item): with the content rewards on it counts in the
- * creature game, once per item and person or class (game/content.js). A YouTube video never does: YouTube pays
- * nothing in the game (game/rules.js UNPAID_TIME). */
-function sharedOut(item, to) {
-  if (!item || item.kind === "youtube") return;
-  const what = `${item.kind}:${item.guid || item.url || item.feed_url || item.title || ""}`;
-  import("../game/game.js").then((m) => m.contentShared(what, to)).catch(() => {});
-}
-
 /** Send `media` to one friend. Resolves to {withWords, tooLarge}. */
 export async function sendMedia(friendId, media) {
   const item = normalizeMedia(media);
@@ -147,7 +138,6 @@ export async function sendMedia(friendId, media) {
     if (extra.transcript_path) social.removeShareClips({ media: extra }).catch(() => {});
     throw e;
   }
-  sharedOut(item, friendId);
   return { withWords, tooLarge: !!packed && !withWords };
 }
 
@@ -163,7 +153,6 @@ export async function sendToClass(classId, media, { folder = null } = {}) {
     if (r && r.id && p.episodeId) rememberMine(r.id, p.episodeId);
   }
   if (!r) r = await postToClass(classId, p.item, p.file);
-  sharedOut(p.item, `class:${classId}`);
   return { id: r.id || "", withWords: r.withWords, tooLarge: p.hadWords && !r.withWords, notes: feature("classroom") ? p.notes.length : 0 };
 }
 

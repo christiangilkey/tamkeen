@@ -34,7 +34,7 @@ import { selectedSubtitles } from "../netflix-ttml.js";
 import { createNetflixMedia } from "../nfmedia.js";
 import { t } from "../i18n.js";
 import { mediaFromEpisode, sendButton } from "../components/sendmedia.js";
-import { contentFinished, featEpisode, reward, trackStudy } from "../game/game.js";
+import { featEpisode, reward, trackStudy } from "../game/game.js";
 import { loadCover, saveCover, track } from "../playcover.js";
 import { seenWords } from "../lexicon/seen.js";
 import { readingsReady } from "../lexicon/readings.js";
@@ -501,22 +501,17 @@ export async function render(view, { id, query }) {
   // learner's own files: only episodes from a podcast's feed.
   const featKind = nf ? "netflix" : !yt && !isAudiobookFeed(ep.feed_url) && /^https?:/i.test(String(ep.feed_url || "")) ? "podcast" : null;
   const featId = nf ? String(ep.guid) : String(ep.uid || id);
-  // With the content rewards on (game/content.js), anything played through like that counts as something new
-  // finished, once: an episode, an audiobook's chapter, a film or sound file of your own. Never a YouTube video.
-  const doneKind = !yt && feature("content_rewards");
-  const coverKey = featKind ? `${featKind}:${featId}` : `content:${ep.uid || id}`;
   let cover = null;
   let coverAt = 0;
   function trackCover(t) {
-    if (!(featKind || doneKind) || !(duration > 0)) return;
+    if (!featKind || !(duration > 0)) return;
     const now = Date.now();
     if (now - coverAt < 250) return;
     coverAt = now;
-    if (!cover || Math.abs(cover.d - duration) >= 2) cover = loadCover(coverKey, duration);
+    if (!cover || Math.abs(cover.d - duration) >= 2) cover = loadCover(`${featKind}:${featId}`, duration);
     if (track(cover, t, !audio.paused, Number(audio.playbackRate) || 1, now)) {
-      saveCover(coverKey, cover);
-      if (featKind) featEpisode(featKind, featId);
-      if (doneKind) contentFinished(ep, featKind ? featId : String(ep.uid || id));
+      saveCover(`${featKind}:${featId}`, cover);
+      featEpisode(featKind, featId);
     }
   }
   function update() {
