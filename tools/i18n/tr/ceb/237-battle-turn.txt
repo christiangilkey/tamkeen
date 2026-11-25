@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	Imong kaatbang
+a228db41	Ikaw ang moatake
+afbe7a75	Moatake si {0}: depensa!
+dd014910	Tubaga sa husto aron moigo.
+2c4e565e	Tubaga sa husto ug una aron katunga ra ang samad.

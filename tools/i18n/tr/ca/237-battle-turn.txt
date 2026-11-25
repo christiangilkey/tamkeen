@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	El teu rival
+a228db41	Ataques tu
+afbe7a75	{0} ataca: defensa't!
+dd014910	Respon bé per encertar el cop.
+2c4e565e	Respon bé i primer per rebre només la meitat del mal.

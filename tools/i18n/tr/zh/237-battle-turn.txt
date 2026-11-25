@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	你的对手
+a228db41	你来攻击
+afbe7a75	{0} 发动攻击：防御！
+dd014910	答对就能命中。
+2c4e565e	抢先答对，只受一半伤害。

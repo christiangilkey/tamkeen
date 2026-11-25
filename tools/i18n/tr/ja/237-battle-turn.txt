@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	相手
+a228db41	あなたの攻撃
+afbe7a75	{0}の攻撃：防御しよう！
+dd014910	正解すると攻撃が当たります。
+2c4e565e	先に正解すると、ダメージが半分になります。

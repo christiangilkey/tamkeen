@@ -35,7 +35,7 @@ import { sheet as helpSheet } from "./info.js";
 import { elementBadge } from "./movesui.js";
 import { gymsBlock } from "./gyms-ui.js";
 import { block, details, fact, fmt, switcher, tile } from "./screenparts.js";
-import { battleGate, rentalLeft, teamOf, teamSlots, toggleRental, wordChoice } from "./battlescreen.js";
+import { battleGate, rentalLeft, teamOf, teamSlots, toggleRental, wildSetup, wordChoice } from "./battlescreen.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const MODE_NAME = { last100: `Last ${LAST_WORDS} words`, unlimited: "All-time", due: "Due for review", folder: "A folder" };
@@ -471,7 +471,7 @@ function wildBattle(game, vocab, close) {
   const rand = Math.random;
   const mine = fighters(game, teamOf(game).map((i) => game.roster[i]), { wild: true });
   const theirs = fighters(null, wildTeam(rand, mine.length));
-  runLiveBattle({ mine, theirs, mode: "wild", foeForm: 0.55 + rand() * 0.25, cards: { me: vocab.length } }, vocab);
+  runLiveBattle({ ...wildSetup(rand), mode: "wild", mine, theirs, cards: { me: vocab.length } }, vocab);
 }
 
 /** A rental duel: the week's six shared creatures in a box; choose three (a tap chooses or puts back), and your rival

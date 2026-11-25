@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { rng } from "../../web/js/game/genome.js";
-import { COMBO, DODGE, FAST_S, RIVAL, TILE, answer, input, newLiveBattle, step, view } from "../../web/js/game/livebattle.js";
+import { COMBO, DODGE, RIVAL, RIVAL_FAST, TILE, answer, input, newLiveBattle, step, view } from "../../web/js/game/livebattle.js";
 
 const DT = 1 / 60;
 const at = (c, r) => ({ x: c * TILE + 8, y: r * TILE + 8 });
@@ -49,8 +49,9 @@ test("without the race (everyone else): the rival never answers and its attacks 
 test("the player's attack: right before the rival, it goes off in full", () => {
   const b = duel();
   pressTackle(b);
-  assert.ok(Math.abs(b.quiz.rivalAt - 1.4) < 1e-9, "the rival would answer after 1.4 s (a fast answer)");
-  assert.ok(b.quiz.rivalAt <= FAST_S);
+  // (a fast rival answer comes within RIVAL_FAST: 1.5-2.5 s since the owner found the AI too hard; it was 0.8-2 s)
+  assert.ok(Math.abs(b.quiz.rivalAt - (RIVAL_FAST[0] + 0.5 * (RIVAL_FAST[1] - RIVAL_FAST[0]))) < 1e-9, "the rival would answer after 2 s (a fast answer)");
+  assert.ok(b.quiz.rivalAt <= RIVAL_FAST[1]);
   runUntil(b, () => false, 0.5);
   assert.ok(b.quiz, "still open at 0.5 s");
   const ev = answer(b, 0);

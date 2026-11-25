@@ -1169,7 +1169,13 @@ export function runLiveBattle(setup, vocab) {
     const m = moveById(quiz.move);
     const box = $(".lb-quiz");
     box.innerHTML = "";
+    // Who is attacking, at the top (the owner: "when answering it should show who is attacking, the player or the
+    // opponent"): your creature and "You attack", or theirs and "… attacks: defend!", so a right answer is clearly a
+    // hit or a block.
+    const attacker = quiz.side === "foe" ? "foe" : "me";
     const panel = h(`<div class="lbq">
+      <div class="lbq-turn ${attacker}"><canvas class="lbq-pic" width="${FRAME}" height="${FRAME}" aria-hidden="true"></canvas>
+        <span class="lbq-turn-text"><strong class="lbq-who"></strong><span class="lbq-why"></span></span></div>
       <div class="lbq-head"><span class="lbq-move"></span><span class="lbq-left" translate="no"></span></div>
       <div class="lbq-bar"><i></i></div>
       <div class="lbq-ask"></div>
@@ -1179,6 +1185,20 @@ export function runLiveBattle(setup, vocab) {
     </div>`);
     panel.querySelector(".lbq-move").innerHTML = icon(moveIcon(m), 16);
     panel.querySelector(".lbq-move").append(" ", quiz.side === "foe" ? t("Dodge {0}: answer before your rival", m.name) : m.name);
+    const fighterNow = view(b)[attacker];
+    const whoName = ($(`.lb-card.${attacker} .lb-who`)?.textContent || "").trim() || t("Your rival");
+    panel.querySelector(".lbq-who").textContent = attacker === "me" ? t("You attack") : t("{0} attacks: defend!", whoName);
+    panel.querySelector(".lbq-why").textContent = attacker === "me" ? t("Answer right to hit.") : t("Answer right first to take half the damage.");
+    const pic = panel.querySelector(".lbq-pic");
+    if (fighterNow && fighterNow.look) composeCreature(fighterNow.look, { eyes: "open", mouth: attacker === "me" ? "smile" : "open" }).then((frame) => {
+      if (!frame || !pic.isConnected) return;
+      const ctx = pic.getContext("2d");
+      ctx.imageSmoothingEnabled = false;
+      ctx.save();
+      if (attacker === "foe") { ctx.translate(FRAME, 0); ctx.scale(-1, 1); } // facing the player's side, as on the arena
+      ctx.drawImage(frame, 0, 0);
+      ctx.restore();
+    });
     panel.querySelector(".lbq-ask").textContent = q.reverse ? t("Which of your words means this?") : t("What does this mean?");
     const prompt = panel.querySelector(".lbq-prompt");
     prompt.textContent = q.prompt;

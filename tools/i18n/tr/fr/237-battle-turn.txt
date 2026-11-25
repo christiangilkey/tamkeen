@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	Votre adversaire
+a228db41	Vous attaquez
+afbe7a75	{0} attaque : défendez-vous !
+dd014910	Bonne réponse : votre attaque touche.
+2c4e565e	Répondez juste et le premier pour ne subir que la moitié des dégâts.

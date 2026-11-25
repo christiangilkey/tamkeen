@@ -8,7 +8,7 @@ import { describe as describeGenome } from "../../web/js/game/genome.js";
 import { GYM_COUNT, LEADERS, gymSetup, gymStatus, leaderTeam } from "../../web/js/game/gyms.js";
 import { brainOf, newLiveBattle, step, current } from "../../web/js/game/livebattle.js";
 import { beatGym, finishBattle, newState, normalize } from "../../web/js/game/rules.js";
-import { gymTrials } from "../../tools/game_sim/gym-trials.mjs";
+import { gymBattle, gymTrials, wildTrials } from "../../tools/game_sim/gym-trials.mjs";
 
 test("ten leaders, each with a real team, arena and reward", () => {
   assert.equal(GYM_COUNT, 10);
@@ -124,4 +124,17 @@ test("trials: the computer playing the player wins less against each leader in t
   const avg = (a) => a.reduce((x, y) => x + y, 0) / a.length;
   assert.ok(avg(rate.slice(0, 5)) > avg(rate.slice(5)) + 0.3, `the first five are easier than the last five (${rate.map((r) => r.toFixed(2)).join(" ")})`);
   for (let i = 2; i < 10; i++) assert.ok(rate[i] <= rate[i - 2] + 0.05, `${rows[i].name} is no easier than two before (${rate.map((r) => r.toFixed(2)).join(" ")})`);
+});
+
+test("an ordinary player usually wins wild encounters and the first gyms (the owner: \"the AI is too hard\")", () => {
+  // 75% right, answering in 1.5-3.5 s, moving and dodging less well than the engine's sharp test player (skill 0.4),
+  // with the answer race on as in the live game.
+  const ordinary = { right: 0.75, skill: 0.4 };
+  const wild = wildTrials(30, ordinary);
+  assert.ok(wild.rate >= 0.85, `wild encounters won ${Math.round(wild.rate * 100)}%`);
+  for (const leader of LEADERS.slice(0, 3)) {
+    let wins = 0;
+    for (let i = 0; i < 12; i++) wins += gymBattle(leader, 9001 + i * 7, ordinary).won ? 1 : 0;
+    assert.ok(wins >= 11, `${leader.name} beaten ${wins} times out of 12`);
+  }
 });

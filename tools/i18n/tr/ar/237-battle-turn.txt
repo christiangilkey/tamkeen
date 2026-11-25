@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	خصمك
+a228db41	أنت تهاجم
+afbe7a75	{0} يهاجم: دافع!
+dd014910	أجب إجابة صحيحة لتصيب.
+2c4e565e	أجب إجابة صحيحة وأسرع لتتلقى نصف الضرر فقط.

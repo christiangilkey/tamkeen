@@ -20555,6 +20555,31 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "3df57032",
+  "k": "Your rival",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "a228db41",
+  "k": "You attack",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "afbe7a75",
+  "k": "{0} attacks: defend!",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "dd014910",
+  "k": "Answer right to hit.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "2c4e565e",
+  "k": "Answer right first to take half the damage.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "5fb65141",
   "k": "What does this mean?",
   "f": "web/js/game/livebattle-ui.js"

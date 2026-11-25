@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	Ang kalaban mo
+a228db41	Ikaw ang aatake
+afbe7a75	Aatake si {0}: depensa!
+dd014910	Sumagot nang tama para tumama.
+2c4e565e	Sumagot nang tama at mas mabilis para kalahati lang ang tama sa iyo.

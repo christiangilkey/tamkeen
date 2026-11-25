@@ -14,6 +14,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+- **Changed:** Battles against the computer are easier. The rival now takes about as long as a learner to answer (its quick answers come after 1.5 to 2.5 seconds instead of 0.8 to 2), so you win the answer race more often; wild creatures get their moves right less often; and gym leaders 4 to 10 are a little weaker. In trials, a player who answers 3 in 4 questions right now wins about 97% of wild encounters (was 79%), and against the gym leaders it rises gently from 98% at Volta to 34% at Zenith the champion (was 90% down to 6%). The first three gyms stay as easy as before.
+- **Improved:** In a battle, the question now says who is attacking: "You attack" with your creature's picture, or "(rival) attacks: defend!" with theirs, in red, so you always know whether a right answer hits or blocks.
+
 ## v0.74.0 — 2026-11-25
 
 - **New:** **Class** for DLI teachers and students, a tab inside **Friends**. A teacher invites a student by username (the student presses Accept; the teacher sees nothing of them before that), makes classes and sees who hasn't answered an invitation. A student sees their classes, their teachers and, after agreeing to it separately, their classmates by username with one word for how active they are. Usernames only, never real names.

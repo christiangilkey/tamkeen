@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	상대
+a228db41	내 공격
+afbe7a75	{0}의 공격: 막아요!
+dd014910	맞히면 공격이 들어가요.
+2c4e565e	먼저 맞히면 피해가 절반만 들어와요.

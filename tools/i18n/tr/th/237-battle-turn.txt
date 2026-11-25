@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	คู่แข่งของคุณ
+a228db41	คุณโจมตี
+afbe7a75	{0} โจมตี: ป้องกัน!
+dd014910	ตอบถูกเพื่อโจมตีให้โดน
+2c4e565e	ตอบถูกก่อนเพื่อรับความเสียหายแค่ครึ่งเดียว

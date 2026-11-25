@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	Dein Gegner
+a228db41	Du greifst an
+afbe7a75	{0} greift an: verteidige dich!
+dd014910	Richtig antworten, um zu treffen.
+2c4e565e	Antworte richtig und zuerst, dann bekommst du nur den halben Schaden.

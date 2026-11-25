@@ -193,7 +193,7 @@ export function brainOf(skill = 0.7, over = null) {
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
   foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
-  brain = null, quizSeconds = QUIZ_S, aim = false, race = false } = {}) {
+  brain = null, quizSeconds = QUIZ_S, aim = false, race = false, autoDodge = false } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
@@ -203,7 +203,7 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, aimMode: !!aim, aiming: null, race: !!race, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    quiz: null, aimMode: !!aim, aiming: null, race: !!race, autoDodge: !!autoDodge, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
     hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
     ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
@@ -484,10 +484,14 @@ export function fire(b) {
   return events;
 }
 
-/** When a side's simulated answer comes, in seconds after its question opened: within FAST_S for a fast one. */
+/** When the rival's simulated answer comes, in seconds after a question opened: a fast one RIVAL_FAST, the others from
+ * RIVAL_SLOW to nine tenths of the time allowed. (It was 0.8-2 s and 2 s on: quicker than most learners can read a word
+ * in another language and pick its meaning, so the rival won most races; the owner: "the AI is too hard".) */
+export const RIVAL_FAST = [1.5, 2.5];
+export const RIVAL_SLOW = 2.5;
 function rivalTime(b, side, fast) {
   const r = b.rand();
-  return fast ? 0.8 + r * (FAST_S - 0.8) : FAST_S + r * Math.max(0.2, b.quizS * 0.9 - FAST_S);
+  return fast ? RIVAL_FAST[0] + r * (RIVAL_FAST[1] - RIVAL_FAST[0]) : RIVAL_SLOW + r * Math.max(0.2, b.quizS * 0.9 - RIVAL_SLOW);
 }
 
 /** The player's answer to a dodge question (the rival is attacking): right before the rival, its attack does half
@@ -534,7 +538,8 @@ function rivalUse(b, side, moveId, events) {
   const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
   b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
   // The answer race: the player (not the computer playing for them) gets a dodge question about the attack.
-  const q = b.race && side === "foe" && !b.ai.me && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
+  // (`autoDodge`: the computer playing for the player gets them too: trials, tools/game_sim/gym-trials.mjs)
+  const q = b.race && side === "foe" && (!b.ai.me || b.autoDodge) && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
   if (q && Array.isArray(q.options) && q.options.length) {
     b.quiz = { side: "foe", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt: rivalTime(b, side, fast), power };
     faceToward(f, current(b, "me"));

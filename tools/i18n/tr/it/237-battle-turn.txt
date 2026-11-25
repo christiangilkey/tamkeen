@@ -1,0 +1,6 @@
+# Who is attacking, on a battle's question (livebattle-ui.js showQuiz).
+3df57032	Il tuo rivale
+a228db41	Attacchi tu
+afbe7a75	{0} attacca: difenditi!
+dd014910	Rispondi giusto per colpire.
+2c4e565e	Rispondi giusto e per primo per subire solo metà del danno.
