@@ -1,0 +1,3 @@
+# Inviting a student to a class: what the teacher is told (web/js/pages/class.js).
+cbed9ab2	Giimbitar na si {0}. Moapil siya kung pindoton niya ang Dawata sa Mga higala → Klase; sultihan siya sa iyang app sa sunod nga pag-abli niini.
+412bd828	Walay estudyante sa DLI nga adunay username nga {0}. Susiha ang spelling. Kinahanglan una siyang mo-sign in ug mouyon nga mopaambit sa Settings → Mga estudyante sa DLI; samtang wala pa, ihatag kaniya ang code sa klase.

@@ -14200,6 +14200,11 @@
   "f": "web/js/dliclass.js"
  },
  {
+  "id": "d1e2c9ef",
+  "k": "You're invited to {0}",
+  "f": "web/js/dliclass.js"
+ },
+ {
   "id": "ea5a129e",
   "k": "The DLI file couldn't be read (HTTP {0}).",
   "f": "web/js/dlicontent.js"
@@ -23655,11 +23660,6 @@
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "d1e2c9ef",
-  "k": "You're invited to {0}",
-  "f": "web/js/pages/class.js"
- },
- {
   "id": "b37554f6",
   "k": "People",
   "f": "web/js/pages/class.js"
@@ -23725,8 +23725,8 @@
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "a89b20b0",
-  "k": "{0} is invited. They join when they press Accept in their Class tab.",
+  "id": "cbed9ab2",
+  "k": "{0} is invited. They join when they press Accept under Friends → Class; their app tells them when it next opens.",
   "f": "web/js/pages/class.js"
  },
  {
@@ -23745,8 +23745,8 @@
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "01cad89f",
-  "k": "No DLI student has that username. They finish the sharing step under Settings → DLI students first.",
+  "id": "412bd828",
+  "k": "No DLI student has the username {0}. Check the spelling. They must first sign in and agree to share under Settings → DLI students; until then, give them the class code.",
   "f": "web/js/pages/class.js"
  },
  {
