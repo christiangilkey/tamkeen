@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	前へ
+bb4c848f	後ろへ
+a0f6754f	1番目に出るのは？
+65daa935	2番目に出るのは？
+0bf1b965	3番目に出るのは？
+2592811b	クリーチャーを選ぶ
+fb4771d6	技を選ぶ
+ad0985d5	出る順番に3体選んでください。相手は残りの3体で戦います。

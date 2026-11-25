@@ -250,6 +250,11 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     out["gyms"] = {**gym_a, "beaten": _clean(max(_num(gym_a.get("beaten")), _num(gym_b.get("beaten")))),
                    "wins": _max_numbers(gym_a.get("wins"), gym_b.get("wins"))}
 
+    # The battle party (battle.js partySeeds): the one chosen later.
+    party_a, party_b = _obj(a.get("party")), _obj(b.get("party"))
+    if party_b is not None and (party_a is None or _num(party_b.get("at")) > _num(party_a.get("at"))):
+        out["party"] = party_b
+
     for k in ("owned", "attacks", "badges", "tags"):
         out[k] = _union(a.get(k), b.get(k))
     out["stats"] = _max_numbers(a.get("stats"), b.get("stats"))

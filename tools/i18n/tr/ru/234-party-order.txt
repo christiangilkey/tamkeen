@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Раньше
+bb4c848f	Позже
+a0f6754f	Кто выходит первым?
+65daa935	Кто выходит вторым?
+0bf1b965	Кто выходит третьим?
+2592811b	Выберите существо
+fb4771d6	Выбрать приёмы
+ad0985d5	Выберите троих в том порядке, в котором они выйдут. Соперник сражается остальными тремя.

@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	انقل إلى الأمام
+bb4c848f	انقل إلى الخلف
+a0f6754f	من يخرج أولًا؟
+65daa935	من يخرج ثانيًا؟
+0bf1b965	من يخرج ثالثًا؟
+2592811b	اختر مخلوقًا
+fb4771d6	اختر الحركات
+ad0985d5	اختر ثلاثة بالترتيب الذي سيخرجون به. يقاتل خصمك بالثلاثة الأخرى.

@@ -390,6 +390,16 @@
   "f": "tools/i18n/extra.txt"
  },
  {
+  "id": "3ad20b9d",
+  "k": ", with full vowel marks",
+  "f": "web/js/addwords.js"
+ },
+ {
+  "id": "ef8f7f92",
+  "k": "{0}. meaning: {1}",
+  "f": "web/js/addwords.js"
+ },
+ {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"
@@ -11350,6 +11360,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "a4687645",
+  "k": "Know only the meaning? Leave the word empty, open the card and type its meaning: Tamkeen finds the word for you.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "bfc0a1bd",
   "k": "At most 100 cards can be added at a time.",
   "f": "web/js/components/wordbuilder.js"
@@ -11362,6 +11377,11 @@
  {
   "id": "e371c445",
   "k": "One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<0/>), or paste columns from a spreadsheet: word, meaning, sentence, translation.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "7900a362",
+  "k": "A line with only a meaning (<0/>) makes a card whose word Tamkeen finds for you.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11552,6 +11572,11 @@
  {
   "id": "79476a70",
   "k": "Take this card out",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "35220eab",
+  "k": "The word will be found for this meaning when you press Fill in or Add.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11835,6 +11860,36 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "712ec48c",
+  "k": "Finding the word…",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "3870184d",
+  "k": "Finding the word from a meaning in {0} needs AI: set one up in Settings → Word definitions, or type the word.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "324e4b9b",
+  "k": "The built-in dictionary isn't on this device yet. Download it, or type the word.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "9ba7b9db",
+  "k": "No word was found for this meaning. Type the word, or say the meaning another way.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "d0d7ab33",
+  "k": "The built-in dictionary has no word for this meaning. Type the word, say the meaning another way, or set up AI in Settings → Word definitions.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "2d51f6ea",
+  "k": "Nothing was filled in. Choose the words, then press Fill in again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "829ddbe9",
   "k": "{0} of the cards need a look: see the red notes.",
   "f": "web/js/components/wordbuilder.js"
@@ -11842,6 +11897,16 @@
  {
   "id": "c314ddb6",
   "k": "Filled in. Look them over, then add them.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "03032b84",
+  "k": "Nothing was added. Choose the words, then press Add again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c47a00fe",
+  "k": "No word was found for these meanings: see the red notes.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11928,6 +11993,36 @@
   "id": "20d80651",
   "k": "What you typed here isn't saved yet, and will be lost.",
   "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "b27a5eed",
+  "k": "Which word?",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "a3e67ee0",
+  "k": "More than one word fits this meaning. Which one is the card for?",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "3e230c0f",
+  "k": "More than one word fits these meanings. Which one is each card for?",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "408679e9",
+  "k": "Words for {0}",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "a2d73e52",
+  "k": "Use this word",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "a32972eb",
+  "k": "Use these words",
+  "f": "web/js/components/wordchoice.js"
  },
  {
   "id": "c420e532",
@@ -14605,6 +14700,46 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
+  "id": "210dd62a",
+  "k": "Swap",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "07dd6f32",
+  "k": "Move earlier",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "bb4c848f",
+  "k": "Move later",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "a0f6754f",
+  "k": "Who comes out first?",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "65daa935",
+  "k": "Who comes out second?",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "0bf1b965",
+  "k": "Who comes out third?",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "2592811b",
+  "k": "Choose a creature",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
+  "id": "fb4771d6",
+  "k": "Choose moves",
+  "f": "web/js/game/battle-ui.js"
+ },
+ {
   "id": "3cda3a1b",
   "k": "Quick battles",
   "f": "web/js/game/battle-ui.js"
@@ -14625,8 +14760,8 @@
   "f": "web/js/game/battle-ui.js"
  },
  {
-  "id": "57b02151",
-  "k": "Choose three. Your rival fights with the other three.",
+  "id": "ad0985d5",
+  "k": "Choose three, in the order they come out. Your rival fights with the other three.",
   "f": "web/js/game/battle-ui.js"
  },
  {
@@ -20927,11 +21062,6 @@
  {
   "id": "9981290a",
   "k": "It knows no other moves yet.",
-  "f": "web/js/game/movesui.js"
- },
- {
-  "id": "210dd62a",
-  "k": "Swap",
   "f": "web/js/game/movesui.js"
  },
  {

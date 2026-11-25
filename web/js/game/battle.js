@@ -125,7 +125,40 @@ export function fighter(state, g, { wild = false, rule = null, scale = 1 } = {})
            pos: { c: 0, r: 0 }, next: 0, charging: null };
 }
 
-/** Which of the owner's creatures may fight under this week's rule (indexes into the roster). */
+/** The party the owner chose (the owner: "switching party creatures is really cumbersome and doesn't allow you to
+ * choose which order they come out"): `state.party = {seeds, at}`, creatures by seed in the order they come out,
+ * and when it was chosen (the newer choice wins when two devices' games are joined: merge.js). Only hatched
+ * creatures still in the roster, each once, at most a full team. */
+export function partySeeds(state) {
+  const p = state && state.party;
+  const seeds = p && Array.isArray(p.seeds) ? p.seeds : [];
+  const here = new Set((state && Array.isArray(state.roster) ? state.roster : [])
+    .filter((g) => g && stageOf(g.growth || 0).id !== "egg").map((g) => g.seed));
+  return [...new Set(seeds.filter((s) => here.has(s)))].slice(0, TEAM_SIZE);
+}
+
+/** Choose the party: creatures by seed, first to come out first. */
+export function setParty(state, seeds, now = Date.now()) {
+  state.party = { seeds: [], at: now };
+  state.party.seeds = partySeeds({ roster: state.roster, party: { seeds } });
+  return state.party.seeds;
+}
+
+/** The team with one place changed: put the creature `seed` in place `k` (0 = comes out first). A creature already
+ * in the team swaps places with the one there; a place past the end is the next free one. Returns the new seeds. */
+export function placeInParty(team, k, seed) {
+  const out = team.slice();
+  const j = out.indexOf(seed);
+  const at = Math.max(0, Math.min(k, out.length - (j >= 0 ? 1 : 0)));
+  if (j >= 0) { out[j] = out[at]; out[at] = seed; }
+  else if (at < out.length) out[at] = seed;
+  else out.push(seed);
+  return out.slice(0, TEAM_SIZE);
+}
+
+/** Which of the owner's creatures may fight under this week's rule (indexes into the roster), in the order they come
+ * out: the chosen party first, in its order; then the creature in the habitat; then the rest in roster order. A party
+ * member the rule leaves out simply isn't there, and the next one takes its place. */
 export function eligible(state, rule = null) {
   const out = [];
   state.roster.forEach((g, i) => {
@@ -133,8 +166,9 @@ export function eligible(state, rule = null) {
     if (rule && rule.types && !rule.types.includes(g.type)) return;
     out.push(i);
   });
-  // The creature in the habitat leads.
-  return out.sort((a, b) => (b === state.active) - (a === state.active));
+  const rank = new Map(partySeeds(state).map((s, k) => [s, k]));
+  const key = (i) => (rank.has(state.roster[i].seed) ? rank.get(state.roster[i].seed) : i === state.active ? TEAM_SIZE : TEAM_SIZE + 1 + i);
+  return out.sort((a, b) => key(a) - key(b));
 }
 
 export const teamSize = (rule) => (rule && rule.team) || TEAM_SIZE;

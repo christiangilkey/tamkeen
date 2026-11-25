@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Nach vorn
+bb4c848f	Nach hinten
+a0f6754f	Wer kommt als Erstes?
+65daa935	Wer kommt als Zweites?
+0bf1b965	Wer kommt als Drittes?
+2592811b	Wähle ein Wesen
+fb4771d6	Züge wählen
+ad0985d5	Wähle drei, in der Reihenfolge, in der sie antreten. Dein Gegner kämpft mit den anderen drei.

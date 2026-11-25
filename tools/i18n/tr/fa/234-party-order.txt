@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	جلوتر
+bb4c848f	عقب‌تر
+a0f6754f	چه کسی اول وارد می‌شود؟
+65daa935	چه کسی دوم وارد می‌شود؟
+0bf1b965	چه کسی سوم وارد می‌شود؟
+2592811b	یک موجود انتخاب کنید
+fb4771d6	انتخاب حرکت‌ها
+ad0985d5	سه تا انتخاب کنید، به ترتیبی که وارد می‌شوند. حریف با سه تای دیگر می‌جنگد.

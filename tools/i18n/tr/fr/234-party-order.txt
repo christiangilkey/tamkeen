@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Avancer
+bb4c848f	Reculer
+a0f6754f	Qui entre en premier ?
+65daa935	Qui entre en deuxième ?
+0bf1b965	Qui entre en troisième ?
+2592811b	Choisissez une créature
+fb4771d6	Choisir les attaques
+ad0985d5	Choisissez-en trois, dans l'ordre où elles entreront. Votre adversaire combat avec les trois autres.

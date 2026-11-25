@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Mover antes
+bb4c848f	Mover después
+a0f6754f	¿Quién sale primero?
+65daa935	¿Quién sale segundo?
+0bf1b965	¿Quién sale tercero?
+2592811b	Elige una criatura
+fb4771d6	Elegir movimientos
+ad0985d5	Elige tres, en el orden en que saldrán. Tu rival lucha con las otras tres.

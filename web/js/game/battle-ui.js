@@ -17,13 +17,13 @@ import { sortFolders } from "../review/vocabedit.js";
 import { NONE, livePicks, pickList, picksName } from "../review/folderpicks.js";
 import { openModal } from "../components/modal.js";
 import { BADGES, BATTLE_UNLOCK_WORDS, LIVE_FORMS, LIVE_STYLE_TEXT, MOVE_STYLES, TYPES, beastById, liveMove } from "./data.js";
-import { describe } from "./genome.js";
+import { describe, stageOf } from "./genome.js";
 import { t } from "../i18n.js";
 import {
   LAST_WORDS, MIN_SET, battlePicks, battleWordsFor, checkBadges, knownWords, markDue, pickQuestion, quizzable, retention, reviewSummary, setBattlePicks, setWords,
   weekNumber, weeklyRule,
 } from "./rules.js";
-import { WORD_MODES, fighters, friendTeam, rentalPool, wildTeam } from "./battle.js";
+import { WORD_MODES, fighters, friendTeam, placeInParty, rentalPool, setParty, wildTeam } from "./battle.js";
 import { cardScale } from "./livebattle.js";
 import { CHALLENGE_MIN, challengeWords, folderWords } from "./challenge.js";
 import { LIMITS, cleanName, cleanProfile } from "./remote.js";
@@ -372,25 +372,82 @@ function gateBlock(game, gate) {
 
 const nameOf = (g) => g.name || beastById(describe(g).beast).name;
 
-/** The creatures that fight for you, in a row like a party: picture, name, element; an empty place for each one
- * still to come. A tap opens the Creatures screen (moves are chosen there). */
+/** The creatures that fight for you, in a row like a party, numbered in the order they come out (the owner: switching
+ * them was "really cumbersome and doesn't allow you to choose which order they come out"). Tap one to swap another
+ * creature into its place (or to add one to an empty place); the arrows under it move it earlier or later. The choice
+ * is saved (battle.js setParty) and every battle uses it: wild, gyms, friends' challenges (and what friends see). */
 function teamBlock(game, go) {
   const b = block("Your team");
   const row = h(`<div class="bt-team"></div>`);
-  for (const i of teamSlots(game)) {
-    if (i === null) { row.append(h(`<div class="bt-member empty"><span>Empty</span></div>`)); continue; }
+  const slots = teamSlots(game);
+  const team = slots.filter((i) => i !== null).map((i) => game.roster[i].seed);
+  const hatched = game.roster.filter((g) => stageOf(g.growth || 0).id !== "egg");
+  const save = (seeds) => { setParty(game, seeds); saveGame(); b.replaceWith(teamBlock(game, go)); };
+  slots.forEach((i, k) => {
+    const cell = h(`<div class="bt-slot"></div>`);
+    if (i === null) {
+      if (hatched.length > team.length) {
+        const add = h(`<button type="button" class="bt-member empty"><span class="bt-order">${k + 1}</span>${lineIcon("plus", 22)}<span>Add</span></button>`);
+        add.onclick = () => partyPicker(game, team, k, save, go);
+        cell.append(add);
+      } else cell.append(h(`<div class="bt-member empty"><span class="bt-order">${k + 1}</span><span>Empty</span></div>`));
+      row.append(cell);
+      return;
+    }
     const g = game.roster[i];
-    const m = h(`<button type="button" class="cr-tile bt-member"><span class="cr-tile-pic"></span><strong></strong></button>`);
+    const m = h(`<button type="button" class="cr-tile bt-member"><span class="bt-order">${k + 1}</span><span class="cr-tile-pic"></span><strong></strong></button>`);
     m.querySelector(".cr-tile-pic").append(portrait(g, 72));
     const name = m.querySelector("strong");
     name.textContent = nameOf(g);
     if (g.name) name.setAttribute("translate", "no"); // a name its owner gave it
     m.append(elementBadge(g.type));
-    m.onclick = () => go("creatures");
-    row.append(m);
-  }
+    m.title = t("Swap");
+    m.onclick = () => partyPicker(game, team, k, save, go);
+    cell.append(m);
+    if (team.length > 1) {
+      const arrows = h(`<div class="bt-move">
+        <button type="button" class="ghost icon" data-dir="-1" title="Move earlier" aria-label="Move earlier">${lineIcon("chevronLeft", 18)}</button>
+        <button type="button" class="ghost icon" data-dir="1" title="Move later" aria-label="Move later">${lineIcon("chevron", 18)}</button></div>`);
+      for (const a of arrows.querySelectorAll("button")) {
+        const to = k + Number(a.dataset.dir);
+        a.disabled = to < 0 || to >= team.length;
+        a.onclick = () => save(placeInParty(team, to, team[k]));
+      }
+      cell.append(arrows);
+    }
+    row.append(cell);
+  });
   b.append(row);
   return b;
+}
+
+/** Choose who goes in place `k` of the team: every hatched creature, those in the team with their number. A creature
+ * already in the team swaps places with the one there. Moves are chosen on the Creatures screen. */
+function partyPicker(game, team, k, save, go) {
+  const grid = h(`<div class="bt-rentals"></div>`);
+  for (const g of game.roster) {
+    if (stageOf(g.growth || 0).id === "egg") continue;
+    const at = team.indexOf(g.seed);
+    const c = h(`<button type="button" class="cr-tile bt-rental"><span class="cr-tile-pic"></span><strong></strong></button>`);
+    if (at >= 0) c.prepend(h(`<span class="bt-order">${at + 1}</span>`));
+    c.classList.toggle("on", at === k);
+    c.querySelector(".cr-tile-pic").append(portrait(g, 64));
+    const name = c.querySelector("strong");
+    name.textContent = nameOf(g);
+    if (g.name) name.setAttribute("translate", "no");
+    c.append(elementBadge(g.type));
+    c.onclick = () => { d.close(); if (at !== k) save(placeInParty(team, k, g.seed)); };
+    grid.append(c);
+  }
+  const d = details(() => ({
+    title: [t("Who comes out first?"), t("Who comes out second?"), t("Who comes out third?")][k] || t("Choose a creature"),
+    more: grid,
+    buttons: [
+      { word: "Choose moves", run: () => { d.close(); go("creatures"); } },
+      { word: "Close", primary: true, run: () => d.close() },
+    ],
+  }));
+  setTimeout(() => grid.querySelector(".on, button")?.focus({ preventScroll: true }), 0); // (for the controller)
 }
 
 // ---------- quick battles ----------
@@ -436,12 +493,14 @@ function rentalBox(game, vocab, close) {
     cards.forEach((c, i) => {
       c.classList.toggle("on", chosen.has(i));
       c.setAttribute("aria-pressed", chosen.has(i) ? "true" : "false");
-      c.querySelector(".bt-pick").hidden = !chosen.has(i);
+      const pick = c.querySelector(".bt-pick");
+      pick.hidden = !chosen.has(i);
+      pick.textContent = chosen.has(i) ? String([...chosen].indexOf(i) + 1) : ""; // the order they come out: the order chosen
     });
     const left = rentalLeft(chosen);
     return {
       title: "Rental duel",
-      text: "Choose three. Your rival fights with the other three.",
+      text: "Choose three, in the order they come out. Your rival fights with the other three.",
       more: grid,
       note: left ? t("Choose {0} more", left) : "",
       buttons: [
@@ -449,7 +508,7 @@ function rentalBox(game, vocab, close) {
         { word: "Start the duel", primary: true, disabled: left > 0, run: () => {
           d.close();
           close();
-          const mine = fighters(null, pool.filter((_, i) => chosen.has(i)));
+          const mine = fighters(null, [...chosen].map((i) => pool[i])); // (in the order they were chosen)
           const theirs = fighters(null, pool.filter((_, i) => !chosen.has(i)));
           runLiveBattle({ mine, theirs, mode: "rental", foeForm: 0.7, rival: { id: null, name: "Rival", rating: game.rating } }, vocab);
         } },

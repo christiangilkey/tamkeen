@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	앞으로
+bb4c848f	뒤로
+a0f6754f	누가 첫 번째로 나갈까요?
+65daa935	누가 두 번째로 나갈까요?
+0bf1b965	누가 세 번째로 나갈까요?
+2592811b	크리처를 고르세요
+fb4771d6	기술 고르기
+ad0985d5	나갈 순서대로 세 마리를 고르세요. 상대는 나머지 세 마리로 싸워요.

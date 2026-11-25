@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Sposta prima
+bb4c848f	Sposta dopo
+a0f6754f	Chi scende in campo per primo?
+65daa935	Chi scende in campo per secondo?
+0bf1b965	Chi scende in campo per terzo?
+2592811b	Scegli una creatura
+fb4771d6	Scegli le mosse
+ad0985d5	Scegline tre, nell'ordine in cui scenderanno in campo. Il tuo rivale combatte con le altre tre.

@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	पहले करें
+bb4c848f	बाद में करें
+a0f6754f	पहले कौन आएगा?
+65daa935	दूसरे नंबर पर कौन आएगा?
+0bf1b965	तीसरे नंबर पर कौन आएगा?
+2592811b	एक जीव चुनें
+fb4771d6	चालें चुनें
+ad0985d5	तीन चुनें, उसी क्रम में जिसमें वे मैदान में आएँगे। आपका प्रतिद्वंद्वी बाक़ी तीन से लड़ेगा।

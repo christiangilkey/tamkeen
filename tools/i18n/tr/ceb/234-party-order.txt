@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Iuna
+bb4c848f	Iulahi
+a0f6754f	Kinsa ang unang mogawas?
+65daa935	Kinsa ang ikaduhang mogawas?
+0bf1b965	Kinsa ang ikatulong mogawas?
+2592811b	Pili og linalang
+fb4771d6	Pili og mga lihok
+ad0985d5	Pili og tulo, sumala sa han-ay sa ilang paggawas. Ang imong kaatbang moaway gamit ang laing tulo.

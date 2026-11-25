@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Iusog paharap
+bb4c848f	Iusog palikod
+a0f6754f	Sino ang unang lalabas?
+65daa935	Sino ang ikalawang lalabas?
+0bf1b965	Sino ang ikatlong lalabas?
+2592811b	Pumili ng nilalang
+fb4771d6	Pumili ng mga galaw
+ad0985d5	Pumili ng tatlo, ayon sa pagkakasunod ng kanilang paglabas. Lalaban ang kalaban gamit ang natitirang tatlo.

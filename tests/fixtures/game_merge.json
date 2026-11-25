@@ -153,6 +153,23 @@
         "fishing": {"caught": 2, "round": {"day": "2026-11-23", "n": 2, "done": ["w7"], "miss": [{"u": "w8", "c": 1, "at": 5}]}}},
       "keep": "merged",
       "expect": {"fishing.round.day": "2026-11-23", "fishing.round.done": ["w7"], "fishing.round.miss": [{"u": "w8", "c": 1, "at": 5}]}
+    },
+    {
+      "name": "the battle party chosen later is kept, even from the copy that isn't the base",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}, {"seed": 2, "growth": 0.5}, {"seed": 3, "growth": 0.5}],
+        "party": {"seeds": [1, 2, 3], "at": 1000}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}, {"seed": 2, "growth": 0.5}, {"seed": 3, "growth": 0.5}],
+        "party": {"seeds": [3, 1, 2], "at": 2000}},
+      "keep": "merged",
+      "expect": {"party.seeds": [3, 1, 2], "party.at": 2000}
+    },
+    {
+      "name": "a battle party chosen on the copy with less XP only is kept",
+      "mine": {"xp": 10, "updated_at": 10, "clock": {"a": 1}, "roster": [{"seed": 1, "growth": 0.5}, {"seed": 2, "growth": 0.5}],
+        "party": {"seeds": [2, 1], "at": 500}},
+      "theirs": {"xp": 40, "updated_at": 40, "clock": {"b": 1}, "roster": [{"seed": 1, "growth": 0.5}, {"seed": 2, "growth": 0.5}]},
+      "keep": "merged",
+      "expect": {"party.seeds": [2, 1]}
     }
   ]
 }

@@ -3456,6 +3456,17 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .bt-team .cr-tile-pic { width: 72px; height: 72px; }
 .bt-member.empty { display: grid; place-items: center; min-height: 0; padding: 10px 6px; border: 2px solid color-mix(in srgb, var(--muted) 35%, transparent);
   border-radius: 14px; color: var(--muted); font-size: 13px; font-weight: 600; }
+/* Each place: the creature (its number in the corner: the order they come out; a tap swaps it), then arrows to move it
+   earlier or later. An empty place with a creature to spare says Add. The arrows point the way the row runs. */
+.bt-slot { display: grid; gap: 4px; min-width: 0; }
+.bt-slot > .bt-member { position: relative; width: 100%; min-width: 0; }
+button.bt-member.empty { gap: 2px; background: none; cursor: pointer; }
+.bt-order { position: absolute; top: 6px; inset-inline-start: 6px; min-width: 20px; height: 20px; padding: 0 5px; box-sizing: border-box;
+  display: grid; place-items: center; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; line-height: 1; }
+.bt-member.empty .bt-order { background: color-mix(in srgb, var(--muted) 35%, transparent); color: var(--text); }
+.bt-move { display: flex; justify-content: center; gap: 4px; }
+.bt-move button { width: 36px; height: 32px; }
+[dir="rtl"] .bt-move svg { transform: scaleX(-1); }
 /* Two big tiles side by side (quick battles). */
 .gs-grid.bt-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bt-two .gs-tile { padding-top: 12px; }

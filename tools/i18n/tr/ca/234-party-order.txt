@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Moure abans
+bb4c848f	Moure després
+a0f6754f	Qui surt primer?
+65daa935	Qui surt segon?
+0bf1b965	Qui surt tercer?
+2592811b	Tria una criatura
+fb4771d6	Tria els moviments
+ad0985d5	Tria'n tres, en l'ordre en què sortiran. El teu rival lluita amb les altres tres.

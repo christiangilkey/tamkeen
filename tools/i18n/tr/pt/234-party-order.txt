@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	Mover para antes
+bb4c848f	Mover para depois
+a0f6754f	Quem entra primeiro?
+65daa935	Quem entra em segundo?
+0bf1b965	Quem entra em terceiro?
+2592811b	Escolha uma criatura
+fb4771d6	Escolher golpes
+ad0985d5	Escolha três, na ordem em que vão entrar. Seu rival luta com as outras três.

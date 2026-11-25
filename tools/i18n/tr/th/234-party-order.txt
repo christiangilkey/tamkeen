@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	เลื่อนขึ้นก่อน
+bb4c848f	เลื่อนไปทีหลัง
+a0f6754f	ใครออกเป็นตัวแรก?
+65daa935	ใครออกเป็นตัวที่สอง?
+0bf1b965	ใครออกเป็นตัวที่สาม?
+2592811b	เลือกสัตว์หนึ่งตัว
+fb4771d6	เลือกท่า
+ad0985d5	เลือกสามตัวตามลำดับที่จะออกสู้ คู่แข่งจะต่อสู้ด้วยอีกสามตัว

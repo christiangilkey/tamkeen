@@ -1,0 +1,9 @@
+# Choosing the battle party and its order (battle-ui.js teamBlock, partyPicker; the rental duel's order).
+07dd6f32	往前移
+bb4c848f	往后移
+a0f6754f	谁第一个出场？
+65daa935	谁第二个出场？
+0bf1b965	谁第三个出场？
+2592811b	选择一只生物
+fb4771d6	选择招式
+ad0985d5	按出场顺序选三只。对手用另外三只战斗。
