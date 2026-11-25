@@ -1,0 +1,6 @@
+# What is new in v0.74.0 (web/js/whatsnew.js).
+6be707cb	Wähle dein Kampfteam und die Reihenfolge, in der deine Wesen herauskommen
+03962c79	Wörter über die Bedeutung hinzufügen: tippe sie ein, und Tamkeen findet das Wort
+8517d3d0	Klasse und Klassenzimmer für DLI-Lehrkräfte und -Lernende, mit Ordnern und Notizen der Lehrkraft
+1c5e79dd	Das Wortfenster scrollt, sodass eine lange Auswahl immer ihre Bedeutung zeigt
+8ccd75dd	Beim Markieren von Wörtern scrollt der Text, wenn du den Rand erreichst

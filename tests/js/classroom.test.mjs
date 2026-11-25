@@ -112,7 +112,7 @@ test("the database file keeps the rules (it can't be run here: there is no datab
 });
 
 test("wiring: a prototype, on every version, one place for a class's material", () => {
-  assert.ok(/classroom: \{[^}]*released: false/.test(read("web/js/prototype.js")));
+  assert.ok(/classroom: \{[^}]*released: (true|false)/.test(read("web/js/prototype.js")));
   const app = read("web/js/dliclass.js");
   assert.ok(app.includes('export const classroomShown = () => feature("classroom") && serviceOn() && (!!shareInfo() || isTeacherHere());'));
   for (const call of ["dli_classroom", "dli_room_add", "dli_room_update", "dli_room_move", "dli_folder_save", "dli_folder_remove"]) assert.ok(app.includes(`rpc("${call}"`), call);

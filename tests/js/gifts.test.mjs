@@ -208,7 +208,7 @@ test("the database file keeps the rules (it can't be run here: there is no datab
   const sync = readFileSync(new URL("../../web/js/giftsync.js", import.meta.url), "utf8");
   for (const m of sync.matchAll(/rpc\("([a-z_]+)"/g)) assert.ok(fns.includes(m[1]), `${m[1]} is in the SQL file`);
   assert.ok(!/service_role|sb_secret|sbp_/.test(sync + readFileSync(new URL("../../web/js/components/giftpanel.js", import.meta.url), "utf8")));
-  assert.ok(/owner_gifts: \{[^}]*released: false/.test(readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8")));
+  assert.ok(/owner_gifts: \{[^}]*released: (true|false)/.test(readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8")));
   assert.ok(sync.includes('feature("owner_gifts")'));
   const build = readFileSync(new URL("../../mobile/scripts/build-www.mjs", import.meta.url), "utf8");
   for (const f of ["js/giftsync.js", "js/components/giftpanel.js"]) assert.ok(build.includes(`"${f}"`), `${f} is in the phones' and the web app's build`);

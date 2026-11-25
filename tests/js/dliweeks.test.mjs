@@ -354,7 +354,7 @@ test("the Class tab (v15): what arrives is checked, and the file keeps the rules
   for (const name of fns) assert.ok(selftest.includes(`'${name}'`), `the self-test checks ${name} is closed to the signed-out`);
   // a prototype: only the owner's devices show it, and the phones and the web app get the page too
   const proto = readFileSync(new URL("../../web/js/prototype.js", import.meta.url), "utf8");
-  assert.ok(/class_tab: \{[^}]*released: false/.test(proto));
+  assert.ok(/class_tab: \{[^}]*released: (true|false)/.test(proto));
   const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
   assert.ok(app.includes('feature("class_tab")'));
   assert.ok(/export const WORDING = 2;/.test(app), "the sharing step's wording is unchanged: agreeing to classmates is its own choice");

@@ -1,0 +1,6 @@
+# What is new in v0.74.0 (web/js/whatsnew.js).
+6be707cb	Escolha sua equipe de batalha e a ordem em que suas criaturas saem
+03962c79	Adicione palavras pelo significado: digite-o e o Tamkeen encontra a palavra
+8517d3d0	Turma e Sala de aula para professores e alunos do DLI, com pastas e notas do professor
+1c5e79dd	A janela da palavra rola, então uma seleção longa sempre mostra o significado
+8ccd75dd	Ao selecionar palavras, o texto rola quando você chega à borda

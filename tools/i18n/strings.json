@@ -31060,6 +31060,31 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "6be707cb",
+  "k": "Choose your battle team and the order your creatures come out",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "03962c79",
+  "k": "Add words from the meaning: type it, and Tamkeen finds the word",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "8517d3d0",
+  "k": "Class and Classroom for DLI teachers and students, with folders and teacher's notes",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "1c5e79dd",
+  "k": "The word popup scrolls, so a long selection always shows its meaning",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "8ccd75dd",
+  "k": "Selecting words scrolls the text when you reach the edge",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "ce540c40",
   "k": "Pictures on cards: add your own photo to the back of a card",
   "f": "web/js/whatsnew.js"

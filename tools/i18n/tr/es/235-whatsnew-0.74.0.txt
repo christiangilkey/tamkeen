@@ -1,0 +1,6 @@
+# What is new in v0.74.0 (web/js/whatsnew.js).
+6be707cb	Elige tu equipo de combate y el orden en que salen tus criaturas
+03962c79	Añade palabras desde el significado: escríbelo y Tamkeen encuentra la palabra
+8517d3d0	Clase y Aula para profesores y alumnos del DLI, con carpetas y notas del profesor
+1c5e79dd	La ventana de la palabra se desplaza, así una selección larga siempre muestra su significado
+8ccd75dd	Al seleccionar palabras, el texto se desplaza cuando llegas al borde

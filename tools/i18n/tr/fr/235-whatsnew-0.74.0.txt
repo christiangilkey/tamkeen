@@ -1,0 +1,6 @@
+# What is new in v0.74.0 (web/js/whatsnew.js).
+6be707cb	Choisissez votre équipe de combat et l'ordre de sortie de vos créatures
+03962c79	Ajouter des mots à partir du sens : tapez-le, Tamkeen trouve le mot
+8517d3d0	Classe et Salle de classe pour les enseignants et élèves du DLI, avec dossiers et notes de l'enseignant
+1c5e79dd	La fenêtre du mot défile : une longue sélection montre toujours son sens
+8ccd75dd	En sélectionnant des mots, le texte défile quand vous atteignez le bord

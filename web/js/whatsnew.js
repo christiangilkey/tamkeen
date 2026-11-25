@@ -9,6 +9,16 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.74.0",
+  "Choose your battle team and the order your creatures come out");
+notes("0.74.0",
+  "Add words from the meaning: type it, and Tamkeen finds the word");
+notes("0.74.0",
+  "Class and Classroom for DLI teachers and students, with folders and teacher's notes");
+notes("0.74.0",
+  "The word popup scrolls, so a long selection always shows its meaning");
+notes("0.74.0",
+  "Selecting words scrolls the text when you reach the edge");
 notes("0.72.0",
   "Pictures on cards: add your own photo to the back of a card");
 notes("0.72.0",

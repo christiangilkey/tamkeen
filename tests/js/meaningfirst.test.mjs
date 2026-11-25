@@ -19,7 +19,7 @@ test("a card with no word and the learner's own meaning starts from the meaning;
   assert.equal(fromMeaning({ text: "", meaning: typed("  ") }), false);
   assert.equal(addable([card], [{}]).length, 0, "without the prototype, a card with no word isn't added");
   assert.equal(addable([card], [{}], { meaningFirst: true }).length, 1);
-  assert.equal(PROTOTYPES.meaning_first.released, false, "a prototype");
+  assert.equal(PROTOTYPES.meaning_first.released, true, "released for everybody in v0.74.0");
 });
 
 test("a pasted line with only a meaning is a card started from it (\"= library\", a row with no word)", () => {
