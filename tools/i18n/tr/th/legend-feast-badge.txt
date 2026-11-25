@@ -1,0 +1,3 @@
+# Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better (web/js/game/data.js BADGES).
+a7fa5a9e	งานเลี้ยงระดับตำนาน
+cc8df657	ป้อนปลาที่มีความหายากระดับตำนานขึ้นไปให้สัตว์ของคุณ

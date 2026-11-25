@@ -22,6 +22,7 @@ import {
 import { fishPicture, fishShape } from "./fishart.js";
 import { aquariumView } from "./aquarium.js";
 import { fishWaiting, openPond } from "./fishing-ui.js";
+import { badgeToast } from "./battle-ui.js";
 import { cleanName, cleanProfiles } from "./remote.js";
 
 /** A tier's name with a dot of its colour (the colours alone don't all read on a light panel). */
@@ -299,6 +300,7 @@ function fishBox(game, fish, again) {
           const r = feedFish(game, F.bag.indexOf(fish));
           if (typeof r === "string") { toast(r, { error: true }); return; }
           toast(r.loved ? t("It loved that! {0} of 5 hearts", hearts(game.creature)) : t("Yum. {0} of 5 hearts", hearts(game.creature)));
+          for (const id of r.badges || []) badgeToast(id);
           done("", "pet");
         } },
         { word: full ? "Swap in" : "Aquarium", primary: true,

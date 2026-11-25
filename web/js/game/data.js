@@ -607,6 +607,8 @@ export const BADGES = [
   { id: "grown", name: "Fully grown", text: "Raise a creature until it is fully grown", art: "adult_sage" },
   { id: "friend_battle", name: "Friendly rival", text: "Finish a battle with a friend" },
   { id: "raid_win", name: "Raid", text: "Help defeat a weekly boss" },
+  // (`proto`: shown and earned only where that prototype is on, until it is released: prototype.js)
+  { id: "legend_feast", name: "Legendary feast", text: "Feed your creature a fish of Legendary rarity or better", proto: "legend_feast" },
 ];
 
 // ---------- habitat ----------

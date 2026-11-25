@@ -18005,6 +18005,16 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "a7fa5a9e",
+  "k": "Legendary feast",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "cc8df657",
+  "k": "Feed your creature a fish of Legendary rarity or better",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "90b952f5",
   "k": "City park",
   "f": "web/js/game/data.js"

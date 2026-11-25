@@ -9,6 +9,7 @@ import { progressText } from "./screenparts.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter } from "./battle.js";
+import { feature } from "../prototype.js";
 import { portrait } from "./battle-ui.js";
 import { eggPicture, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -239,10 +240,12 @@ function infoBox(title, pic, text, earned, status) {
 /** The badge case: every badge in its slot, earned ones in colour and the rest as dim outlines. A tap says what it is for. */
 export function badgesPanel(body, game) {
   body.innerHTML = "";
-  const got = BADGES.filter((b) => game.badges.includes(b.id)).length;
+  // (a badge still in prototype is in the case only where its prototype is on, or once it has been earned)
+  const shown = BADGES.filter((b) => !b.proto || feature(b.proto) || game.badges.includes(b.id));
+  const got = shown.filter((b) => game.badges.includes(b.id)).length;
   const block = h(`<div class="gs-block"><div class="gs-label"></div><div class="badge-case"></div></div>`);
-  block.querySelector(".gs-label").textContent = t("{0} of {1} earned", String(got), String(BADGES.length));
-  for (const b of BADGES) {
+  block.querySelector(".gs-label").textContent = t("{0} of {1} earned", String(got), String(shown.length));
+  for (const b of shown) {
     const have = game.badges.includes(b.id);
     const src = `${ART}badge/${b.art || b.id}.png`;
     const slot = h(`<button type="button" class="badge-slot${have ? " got" : ""}"><span class="badge-pic"><img alt="" width="48" height="48" src="${src}"></span>

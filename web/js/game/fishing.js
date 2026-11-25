@@ -18,7 +18,7 @@
 // been read doesn't roll (loot.js decides: a Common is all it lands), and a wrong one makes the creature re-bait.
 
 import { FISH, FISH_ART, GUARDIAN_ODDS, HARD_LUCK, HOME_LUCK, KIND_WEIGHT, PEARLS, PONDS, RODS, SELL, SHADOWS, TANKS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
-import { answerQuestion, battleWordsFor, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
+import { answerQuestion, battleWordsFor, checkBadges, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
 import { rng } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { feed } from "./idle.js";
@@ -450,15 +450,18 @@ export function sellCommon(state) {
 }
 
 /** Feed the basket's fish at `index` to the creature out in the habitat (a meal: up to idle.FEEDS_PER_DAY a day, and
- * a tide creature loves fish). Returns idle.feed's {bond, loved}, or an error message (the fish stays). */
+ * a tide creature loves fish). Returns idle.feed's {bond, loved} with `badges` (any just earned), or an error message
+ * (the fish stays). */
 export function feedFish(state, index, now = new Date()) {
   const f = fishingOf(state);
   if (!(index >= 0 && index < f.bag.length)) return "That fish isn't in your basket.";
   state.items.food_fish = (state.items.food_fish || 0) + 1;
   const r = feed(state, "food_fish", now);
   if (typeof r === "string") { state.items.food_fish--; return r; }
-  f.bag.splice(index, 1);
-  return r;
+  const [fish] = f.bag.splice(index, 1);
+  // A fish of Legendary rarity or better, eaten: counted for the "Legendary feast" badge (rules.checkBadges).
+  if (fish.t >= LEGENDARY) state.stats.legend_fed = (state.stats.legend_fed || 0) + 1;
+  return { ...r, badges: checkBadges(state) };
 }
 
 // ---------- the aquarium ----------

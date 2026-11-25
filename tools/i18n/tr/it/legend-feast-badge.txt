@@ -1,0 +1,3 @@
+# Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better (web/js/game/data.js BADGES).
+a7fa5a9e	Banchetto leggendario
+cc8df657	Dai da mangiare alla tua creatura un pesce di rarità Leggendario o superiore

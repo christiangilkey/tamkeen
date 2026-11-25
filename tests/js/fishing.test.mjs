@@ -628,3 +628,81 @@ test("every fish has its picture, 24 x 16, and the guardian's own moment waits b
   const aq = readFileSync(new URL("../../web/js/game/aquarium.js", import.meta.url), "utf8");
   assert.match(aq, /if \(feature\("fish_guardians"\)\) for \(const s of list\)/);
 });
+
+// ---------- the "Legendary feast" badge (prototype legend_feast, 2026-11-25) ----------
+
+/** Run `fn` with prototype mode on (prototype.js reads the device's storage). */
+function withPrototype(fn) {
+  const had = globalThis.localStorage;
+  globalThis.localStorage = { getItem: (k) => (k === "tamkeenPrototype" ? "1" : null), setItem() {}, removeItem() {} };
+  try { return fn(); } finally { if (had === undefined) delete globalThis.localStorage; else globalThis.localStorage = had; }
+}
+const DAY = 86400000;
+/** A game with fish of these tiers in the basket, fed one a day (three meals a day is the limit). */
+const withFish = (tiers) => { const s = hatched(); s.xp = 100; s.badges.push("first_hatch"); for (const tier of tiers) land(s, { pond: "tide", sp: "ray", tier }, () => 0.5, T0); return s; };
+const feedOn = (s, day) => feedFish(s, 0, new Date(T0.getTime() + day * DAY));
+
+test("Legendary feast: feeding a fish of Legendary rarity or better earns the badge, once", async () => {
+  const { checkBadges } = await import("../../web/js/game/rules.js");
+  const { BADGES } = await import("../../web/js/game/data.js");
+  const { tick } = await import("../../web/js/game/idle.js");
+  const badge = BADGES.find((b) => b.id === "legend_feast");
+  assert.ok(badge && badge.proto === "legend_feast" && badge.name && badge.text);
+  assert.equal(PROTOTYPES.legend_feast.released, false);
+  const png = readFileSync(new URL("../../web/game-art/badge/legend_feast.png", import.meta.url));
+  assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [24, 24]);
+  withPrototype(() => {
+    const s = withFish([3, 4, 5, 9]);                    // Epic, Legendary, Mythic, Eternal
+    assert.deepEqual(feedOn(s, 0).badges, [], "an Epic fish is not enough");
+    assert.ok(!s.stats.legend_fed);
+    assert.deepEqual(feedOn(s, 1).badges, ["legend_feast"], "a Legendary one earns it, and the meal says so");
+    assert.deepEqual(feedOn(s, 2).badges, [], "a second one doesn't earn it again");
+    assert.deepEqual(feedOn(s, 3).badges, []);
+    assert.equal(s.stats.legend_fed, 3);
+    assert.equal(s.badges.filter((b) => b === "legend_feast").length, 1);
+    assert.deepEqual(checkBadges(s), []);
+    // it pays what every badge pays: 2 gems, once (idle.tick counts badges against badgesPaid)
+    const before = s.badges.length;
+    s.badges = s.badges.filter((b) => b !== "legend_feast");
+    tick(s, T0);
+    const gems = s.gems;
+    s.badges.push("legend_feast");
+    assert.equal(s.badges.length, before);
+    tick(s, T0);
+    assert.equal(s.gems - gems, 2);
+    tick(s, T0);
+    assert.equal(s.gems - gems, 2);
+  });
+});
+
+test("Legendary feast waits for its prototype: the meal is counted, and the badge comes once it is switched on", async () => {
+  const { checkBadges } = await import("../../web/js/game/rules.js");
+  const s = withFish([4]);
+  const fed = feedOn(s, 0);
+  assert.ok(fed.bond >= 1 && Array.isArray(fed.badges));
+  assert.ok(!fed.badges.includes("legend_feast") && !s.badges.includes("legend_feast"));
+  assert.equal(s.stats.legend_fed, 1);
+  withPrototype(() => {
+    assert.ok(checkBadges(s).includes("legend_feast"));
+    assert.ok(!checkBadges(s).includes("legend_feast"));
+  });
+  // a fish that isn't eaten (an egg can't eat) counts for nothing
+  const egg = newState(9);
+  land(egg, { pond: "tide", sp: "ray", tier: 6 }, () => 0.5, T0);
+  assert.equal(typeof feedFish(egg, 0, T0), "string");
+  assert.ok(!egg.stats.legend_fed);
+});
+
+test("Legendary feast syncs like the other badges: two devices' games combine to one badge and the bigger count", async () => {
+  const { resolve, stamp } = await import("../../web/js/game/merge.js");
+  const a = withFish([4]);
+  const b = JSON.parse(JSON.stringify(a));
+  withPrototype(() => { feedOn(a, 0); const c = withFish([5, 5]); feedOn(c, 0); feedOn(c, 1); b.stats.legend_fed = c.stats.legend_fed; b.badges = [...c.badges]; });
+  assert.ok(a.badges.includes("legend_feast") && b.badges.includes("legend_feast"));
+  stamp(a, "desk");
+  stamp(b, "phone");
+  const { keep, state: both } = resolve(a, b);
+  assert.equal(keep, "merged");
+  assert.equal(both.badges.filter((x) => x === "legend_feast").length, 1);
+  assert.equal(both.stats.legend_fed, 2);
+});

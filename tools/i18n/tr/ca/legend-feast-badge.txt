@@ -1,0 +1,3 @@
+# Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better (web/js/game/data.js BADGES).
+a7fa5a9e	Festí llegendari
+cc8df657	Dona de menjar a la teva criatura un peix de raresa Llegendari o millor

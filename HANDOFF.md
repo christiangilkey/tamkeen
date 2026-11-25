@@ -9855,6 +9855,24 @@ The owner: "I think we should have lots more types of fish, a few being much mor
 - **Not done**: a guardian has no animation frames of its own (its lights are drawn in code); the creatures' own
   fishing frames are still not drawn; `supabase/v9-fishing.sql` is still not applied (it needs no change for this).
 
+## Badge "Legendary feast" (2026-11-25; the fishing chat; prototype `legend_feast`)
+
+The owner: "I want an achievement for feeding a legendary fish to your creature".
+
+- **The badge** `legend_feast` in `data.js` `BADGES` ("Feed your creature a fish of Legendary rarity or better"), icon
+  `web/game-art/badge/legend_feast.png` (24 x 24, drawn in Aseprite through the MCP from
+  `game/art-src/badge/grids/legend_feast.txt`: the gold ring of the other badges, a gold fish, a heart, a sparkle).
+- **Earned** the first time a fish of tier Legendary or higher is fed through `fishing.feedFish`: it counts the meal
+  in `state.stats.legend_fed` and returns `badges: checkBadges(state)`; the Basket's Feed button shows the usual
+  "Badge earned" toast. `rules.checkBadges` awards it when `feature("legend_feast") && stats.legend_fed > 0`, so a meal
+  eaten before the release is counted and the badge arrives at the first check after it.
+- **Once, paid and synced like every badge**: `state.badges` holds an id once (checkBadges skips ids already there),
+  2 gems through `idle.tick` (`badgesPaid`), `merge.js` unions badges and keeps the bigger of each stat.
+- **A badge row may carry `proto`**: `creatures.badgesPanel` shows such a badge only where that prototype is on (or
+  once it has been earned), so everyone else's badge case and its "x of y earned" are as before. On release: set
+  `released: true` in `prototype.js` and take `proto` off the row (or leave it: a released prototype is always on).
+- Translations: `tools/i18n/tr/<code>/legend-feast-badge.txt`. Tests in `tests/js/fishing.test.mjs`.
+
 ## DLI Class tab (2026-11-24; "Teachers" chat; prototype `class_tab`; database NOT applied)
 
 The owner's words: teachers add students under them, students are placed in a class, the teacher shares finished

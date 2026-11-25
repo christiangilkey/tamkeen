@@ -1195,6 +1195,8 @@ export function checkBadges(state, extra = {}) {
     listener: anyTrait("listener"), reader: anyTrait("reader"), collector: anyTrait("collector"),
     grown: state.roster.some((g) => g.grown) || ((state.idle && state.idle.released) || []).length > 0,
     friend_battle: s.friend_battles > 0, raid_win: s.raids > 0,
+    // (fishing.feedFish counts the meals; a meal eaten before the badge is released earns it once it is)
+    legend_feast: feature("legend_feast") && (s.legend_fed || 0) > 0,
   };
   const fresh = BADGES.map((b) => b.id).filter((id) => earned[id] && !state.badges.includes(id));
   state.badges.push(...fresh);
