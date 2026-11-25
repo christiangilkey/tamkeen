@@ -9,7 +9,6 @@ import * as settings from "./pages/settings.js";
 import * as about from "./pages/about.js";
 import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
-import * as classPage from "./pages/class.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as websites from "./pages/websites.js";
@@ -582,7 +581,7 @@ const routes = [
   [/^settings$/, settings, () => ({})],
   [/^about$/, about, () => ({})],
   [/^friends$/, friends, () => ({})],
-  [/^class$/, classPage, () => ({})], // DLI students and teachers (pages/class.js; the tab shows for them only)
+  [/^class$/, friends, () => ({ tab: "class" })], // DLI students and teachers: the Class part of Friends (pages/friends.js; the old address still works)
   [/^chat\/([\w-]+)$/, chat, (m) => ({ friendId: m[1] })],
   [/^welcome$/, welcome, () => ({ step: "welcome" })],
   [/^setup$/, welcome, () => ({ step: "setup" })],
@@ -620,7 +619,7 @@ async function route() {
     view.scrollTop = 0;
   }
   const navKey = mod === home ? "home" : mod === library || mod === discover || mod === websites || mod === reels || mod === books ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
-    : mod === about ? "about" : mod === friends || mod === chat ? "friends" : mod === classPage ? "class" : "";
+    : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
   const turn = ++routeTurn;
   try {

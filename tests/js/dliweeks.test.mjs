@@ -362,9 +362,13 @@ test("the Class tab (v15): what arrives is checked, and the file keeps the rules
   const build = readFileSync(new URL("../../mobile/scripts/build-www.mjs", import.meta.url), "utf8");
   assert.ok(build.includes('"js/pages/class.js"'));
   for (const shell of ["../../web/js/app.js", "../../mobile/src/js/app.js"]) {
-    assert.ok(readFileSync(new URL(shell, import.meta.url), "utf8").includes("/^class$/"), `${shell} has the Class page`);
+    // Class is a part of the Friends page (the owner, 2026-11-25), and its old address opens Friends on it.
+    assert.ok(readFileSync(new URL(shell, import.meta.url), "utf8").includes('[/^class$/, friends, () => ({ tab: "class" })]'), `${shell}: #/class opens Friends on Class`);
   }
   for (const page of ["../../web/index.html", "../../mobile/src/index.html"]) {
-    assert.ok(/data-nav="class"[^>]* hidden/.test(readFileSync(new URL(page, import.meta.url), "utf8")), `${page}: the tab is hidden until a DLI role shows it`);
+    assert.ok(!/data-nav="class"/.test(readFileSync(new URL(page, import.meta.url), "utf8")), `${page}: Class is no tab of its own in the app's bar`);
   }
+  const friendsPage = readFileSync(new URL("../../web/js/pages/friends.js", import.meta.url), "utf8");
+  assert.ok(friendsPage.includes('const SEGMENTS = withClass ? [...BASE_SEGMENTS, ["class", "Class"]] : BASE_SEGMENTS;'), "only DLI teachers and students get the Class part");
+  assert.ok(app.includes('export const classTabShown = () => feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());'));
 });

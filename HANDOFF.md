@@ -9933,3 +9933,14 @@ also be folders in this tab so the teacher can easily organize materials".
   popup; a notice when something new is added; folders inside folders; reordering; picking a folder from the
   paper-airplane menu (it lands outside any folder, then the row's drop-down moves it). Never tried against the
   real database.
+
+## Class is a part of the Friends page (2026-11-25; "Teachers" chat; still prototype `class_tab`)
+
+The owner: "The class tab should be a tab inside the Friends tab, not its own separate thing on the bottom bar."
+Class is now a fourth part of Friends (Activity, Friends, Guilds, Class) in `web/js/pages/friends.js`, added only
+when `dliclass.js` `classTabShown()` says so (a DLI student who shares, or a teacher); everyone else sees Friends as
+before. The link in the app's bar is gone from `web/index.html` and `mobile/src/index.html`. `#/class` still works:
+both `app.js` route it to the Friends page with `tab: "class"`, so the Classroom panel's "Open the Class tab" and
+"Open Class" links need no change. `pages/class.js` is drawn inside the part once (`showClass`) and kept across
+the Friends page's minute-by-minute redraws, so a username being typed is not lost. A signed-out or username-less
+person sees Friends' own sign-in card, not Class.

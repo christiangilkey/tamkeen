@@ -336,11 +336,13 @@ function keepRole(me) {
 }
 /** Does this device show the Classroom in the Library (prototype "classroom")? The same people as the Class tab. */
 export const classroomShown = () => feature("classroom") && serviceOn() && (!!shareInfo() || isTeacherHere());
-/** Show or hide the Class tab (an element with data-nav="class" in each version's page). */
+/** Does this device show the Class part of the Friends page (pages/friends.js; prototype "class_tab")? A DLI
+ *  student who shares, or a teacher, as the online service last said. */
+export const classTabShown = () => feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());
+/** (Until 2026-11-25 Class was a tab of its own in the app's bar; a page that still has that link keeps it hidden.) */
 export function syncClassNav() {
   if (typeof document === "undefined") return;
-  const on = feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());
-  for (const a of document.querySelectorAll('[data-nav="class"]')) a.hidden = !on;
+  for (const a of document.querySelectorAll('[data-nav="class"]')) a.hidden = true;
 }
 if (typeof window !== "undefined") {
   window.addEventListener(SHARE_EVENT, syncClassNav);
