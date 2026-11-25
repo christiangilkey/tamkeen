@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Vous ne connaissez que le sens ? Laissez le mot vide, ouvrez la carte et tapez son sens : Tamkeen trouve le mot pour vous.
+7900a362	Une ligne avec seulement un sens (<0/>) crée une carte dont Tamkeen trouve le mot.
+35220eab	Le mot de ce sens sera cherché quand vous appuierez sur Remplir ou Ajouter.
+712ec48c	Recherche du mot…
+3870184d	Trouver le mot à partir d'un sens en {0} demande l'IA : configurez-la dans Réglages → Définitions des mots, ou tapez le mot.
+324e4b9b	Le dictionnaire intégré n'est pas encore sur cet appareil. Téléchargez-le, ou tapez le mot.
+9ba7b9db	Aucun mot n'a été trouvé pour ce sens. Tapez le mot, ou dites le sens autrement.
+d0d7ab33	Le dictionnaire intégré n'a aucun mot pour ce sens. Tapez le mot, dites le sens autrement, ou configurez l'IA dans Réglages → Définitions des mots.
+2d51f6ea	Rien n'a été rempli. Choisissez les mots, puis appuyez de nouveau sur Remplir.
+03032b84	Rien n'a été ajouté. Choisissez les mots, puis appuyez de nouveau sur Ajouter.
+c47a00fe	Aucun mot n'a été trouvé pour ces sens : voyez les notes en rouge.
+b27a5eed	Quel mot ?
+a3e67ee0	Plusieurs mots correspondent à ce sens. Pour lequel est la carte ?
+3e230c0f	Plusieurs mots correspondent à ces sens. Pour lequel est chaque carte ?
+408679e9	Mots pour {0}
+a2d73e52	Utiliser ce mot
+a32972eb	Utiliser ces mots

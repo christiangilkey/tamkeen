@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Só sabe o significado? Deixe a palavra vazia, abra o cartão e escreva o significado: o Tamkeen encontra a palavra para você.
+7900a362	Uma linha só com um significado (<0/>) cria um cartão cuja palavra o Tamkeen encontra.
+35220eab	A palavra deste significado será procurada quando você tocar em Preencher ou Adicionar.
+712ec48c	Procurando a palavra…
+3870184d	Encontrar a palavra a partir de um significado em {0} precisa de IA: configure em Configurações → Definições de palavras, ou escreva a palavra.
+324e4b9b	O dicionário integrado ainda não está neste dispositivo. Baixe-o, ou escreva a palavra.
+9ba7b9db	Nenhuma palavra foi encontrada para este significado. Escreva a palavra, ou diga o significado de outro jeito.
+d0d7ab33	O dicionário integrado não tem palavra para este significado. Escreva a palavra, diga o significado de outro jeito, ou configure a IA em Configurações → Definições de palavras.
+2d51f6ea	Nada foi preenchido. Escolha as palavras e toque em Preencher de novo.
+03032b84	Nada foi adicionado. Escolha as palavras e toque em Adicionar de novo.
+c47a00fe	Nenhuma palavra foi encontrada para estes significados: veja as notas em vermelho.
+b27a5eed	Qual palavra?
+a3e67ee0	Mais de uma palavra combina com este significado. Para qual é o cartão?
+3e230c0f	Mais de uma palavra combina com estes significados. Para qual é cada cartão?
+408679e9	Palavras para {0}
+a2d73e52	Usar esta palavra
+a32972eb	Usar estas palavras

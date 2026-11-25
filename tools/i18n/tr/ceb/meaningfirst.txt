@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Kahulogan ra ang imong nahibal-an? Biyai nga blangko ang pulong, ablihi ang card ug isulat ang kahulogan: pangitaon sa Tamkeen ang pulong para nimo.
+7900a362	Ang linya nga kahulogan ra ang sulod (<0/>) maghimo og card nga pangitaan sa Tamkeen og pulong.
+35220eab	Pangitaon ang pulong para niini nga kahulogan inig pislit nimo sa Pun-a o Idugang.
+712ec48c	Nangita sa pulong…
+3870184d	Kinahanglan og AI aron makit-an ang pulong gikan sa kahulogan nga anaa sa {0}: i-set up kini sa Settings → Kahulogan sa pulong, o isulat ang pulong.
+324e4b9b	Wala pa sa kini nga device ang built-in nga diksiyonaryo. I-download kini, o isulat ang pulong.
+9ba7b9db	Walay nakit-ang pulong para niini nga kahulogan. Isulat ang pulong, o isulti ang kahulogan sa laing paagi.
+d0d7ab33	Walay pulong ang built-in nga diksiyonaryo para niini nga kahulogan. Isulat ang pulong, isulti ang kahulogan sa laing paagi, o i-set up ang AI sa Settings → Kahulogan sa pulong.
+2d51f6ea	Walay napun-an. Pilia ang mga pulong, dayon pislita pag-usab ang Pun-a.
+03032b84	Walay nadugang. Pilia ang mga pulong, dayon pislita pag-usab ang Idugang.
+c47a00fe	Walay nakit-ang pulong para niini nga mga kahulogan: tan-awa ang pula nga mga nota.
+b27a5eed	Asang pulonga?
+a3e67ee0	Kapin sa usa ka pulong ang mohaum niini nga kahulogan. Asa niini ang card?
+3e230c0f	Kapin sa usa ka pulong ang mohaum niini nga mga kahulogan. Asa niini ang matag card?
+408679e9	Mga pulong para sa {0}
+a2d73e52	Gamita kini nga pulong
+a32972eb	Gamita kini nga mga pulong

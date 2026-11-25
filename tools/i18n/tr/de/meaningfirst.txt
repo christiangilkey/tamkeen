@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Du kennst nur die Bedeutung? Lass das Wort leer, öffne die Karte und tippe die Bedeutung: Tamkeen findet das Wort für dich.
+7900a362	Eine Zeile nur mit einer Bedeutung (<0/>) ergibt eine Karte, deren Wort Tamkeen findet.
+35220eab	Das Wort für diese Bedeutung wird gesucht, wenn du auf Ausfüllen oder Hinzufügen tippst.
+712ec48c	Wort wird gesucht…
+3870184d	Das Wort aus einer Bedeutung auf {0} zu finden, braucht KI: richte sie unter Einstellungen → Worterklärungen ein, oder tippe das Wort.
+324e4b9b	Das eingebaute Wörterbuch ist noch nicht auf diesem Gerät. Lade es herunter, oder tippe das Wort.
+9ba7b9db	Für diese Bedeutung wurde kein Wort gefunden. Tippe das Wort, oder sag die Bedeutung anders.
+d0d7ab33	Das eingebaute Wörterbuch hat kein Wort für diese Bedeutung. Tippe das Wort, sag die Bedeutung anders, oder richte KI unter Einstellungen → Worterklärungen ein.
+2d51f6ea	Nichts wurde ausgefüllt. Wähle die Wörter, dann tippe noch einmal auf Ausfüllen.
+03032b84	Nichts wurde hinzugefügt. Wähle die Wörter, dann tippe noch einmal auf Hinzufügen.
+c47a00fe	Für diese Bedeutungen wurde kein Wort gefunden: siehe die roten Hinweise.
+b27a5eed	Welches Wort?
+a3e67ee0	Mehr als ein Wort passt zu dieser Bedeutung. Für welches ist die Karte?
+3e230c0f	Mehr als ein Wort passt zu diesen Bedeutungen. Für welches ist jede Karte?
+408679e9	Wörter für {0}
+a2d73e52	Dieses Wort nehmen
+a32972eb	Diese Wörter nehmen

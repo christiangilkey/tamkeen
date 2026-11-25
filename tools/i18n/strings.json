@@ -390,16 +390,6 @@
   "f": "tools/i18n/extra.txt"
  },
  {
-  "id": "3ad20b9d",
-  "k": ", with full vowel marks",
-  "f": "web/js/addwords.js"
- },
- {
-  "id": "ef8f7f92",
-  "k": "{0}. meaning: {1}",
-  "f": "web/js/addwords.js"
- },
- {
   "id": "ce6bd09c",
   "k": "Friends, chat and guilds open when you turn {0}{1}. Everything else in Tamkeen works as usual.",
   "f": "web/js/agegate.js"

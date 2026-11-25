@@ -38,6 +38,7 @@ export const PROTOTYPES = {
   class_tab: { name: "Class tab for DLI students and teachers: invite by username, classmates with activity levels, send to a class", released: false, since: "2026-11-24" },
   classroom: { name: "Classroom in the Library for DLI teachers and students: folders, the teacher's transcript, important words, meanings and notes", released: false, since: "2026-11-24" },
   owner_gifts: { name: "Gifts from the creator: give a chosen user coins, gems, XP, glow, items, moves, unlocks and creatures", released: false, since: "2026-11-24" },
+  meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: false, since: "2026-11-25" },
 };
 
 const KEY = "tamkeenPrototype";

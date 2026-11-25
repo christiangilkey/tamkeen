@@ -208,11 +208,16 @@ export function isList(text) {
   return lines.length > 1 || (lines.length === 1 && /\t/.test(lines[0].trim()));
 }
 
-export function parseList(text, { lang = "", max = MAX_ROWS } = {}) {
+export function parseList(text, { lang = "", max = MAX_ROWS, meaningFirst = false } = {}) {
   const script = SCRIPTS[lang];
   const cards = [];
   for (const line of String(text ?? "").split("\n")) {
     let [word, meaning, sentence, translation] = splitLine(line);
+    // ("= library", or a spreadsheet row with no word: a card started from its meaning, prototype meaning_first)
+    if (meaningFirst && !word && meaning) {
+      cards.push({ text: "", meaning: meaning.slice(0, 500), sentence: sentence.slice(0, 1000), translation: translation.slice(0, 1000) });
+      continue;
+    }
     if (!word && meaning) [word, meaning] = [meaning, ""];
     if (!word) continue;
     if (script && meaning && !script.test(word) && script.test(meaning)) [word, meaning] = [meaning, word];
@@ -490,9 +495,90 @@ export function cardOf(row, { choices = DEFAULT_CHOICES, folder = "" } = {}) {
 
 /** The rows that will become cards: a word, and not a repeat unless "Add anyway" is ticked. `dups`
  * comes from duplicates(). */
-export function addable(rows, dups) {
-  return (rows || []).filter((r, i) => wordKey(r.text && typeof r.text === "object" ? r.text.value : r.text)
+export function addable(rows, dups, { meaningFirst = false } = {}) {
+  return (rows || []).filter((r, i) => (wordKey(r.text && typeof r.text === "object" ? r.text.value : r.text) || (meaningFirst && fromMeaning(r)))
     && (r.anyway || !(dups[i] && (dups[i].saved || dups[i].sameAs !== undefined))));
+}
+
+// ---------------------------------------------------------------- from the meaning (prototype meaning_first)
+// The owner, 2026-11-25: "There should be an option when adding a new word to just type in the definition on the back
+// card as well, and it will automatically fill the rest, including the translation to the language you're learning."
+// A card whose word box is empty and whose Meaning the learner typed starts from that meaning: Add words finds the word
+// (the AI, or the built-in dictionary turned round: voiceask.js translationsFor), asks "Which word?" when several fit,
+// then fills in the rest as for any word. Whatever the learner typed stays theirs.
+
+/** Was this card started from its meaning: no word, a meaning the learner typed? */
+export function fromMeaning(row) {
+  const text = row && (row.text && typeof row.text === "object" ? row.text.value : row.text);
+  return !!row && !wordKey(text) && hasValue(row.meaning) && row.meaning.auto === false;
+}
+
+export const REVERSE_SCHEMA = {
+  type: "object",
+  properties: {
+    cards: {
+      type: "array",
+      description: "One entry per meaning, in the order given.",
+      items: {
+        type: "object",
+        properties: {
+          meaning: { type: "string", description: "The meaning exactly as given." },
+          words: {
+            type: "array",
+            description: "The words for it, the most common first.",
+            items: {
+              type: "object",
+              properties: {
+                word: { type: "string" },
+                reading: { type: "string" },
+                meaning: { type: "string", description: "How this word differs from the others, in a few words; \"\" when it is the only one." },
+              },
+              required: ["word", "reading", "meaning"],
+              additionalProperties: false,
+            },
+          },
+        },
+        required: ["meaning", "words"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["cards"],
+  additionalProperties: false,
+};
+
+/**
+ * The question for one request: the words of `study` for each of `items` ([{meaning}], in `speaks`). `vowels`: Arabic
+ * with its vowel marks; `variety`: the kind of the language the learner learns ("Egyptian Arabic"), when it matters.
+ */
+export function reversePrompt(items, { study = "Arabic", speaks = "English", vowels = false, variety = "" } = {}) {
+  const system = `You help a language learner make flashcards for ${variety || study}. For each meaning in ${speaks} you get, give the ${study} word or phrase a native speaker would really use for it in everyday life: the most common one first, then at most 3 others, only ones that are also common and really used for that meaning (fewer is fine, and one is often best).
+For each: "word" written as natives write it${vowels ? ", with full vowel marks" : ""} (a noun without an article unless the language always writes one; a verb in its dictionary form); "reading": how it is read in Latin letters when ${study} isn't written in Latin letters, else ""; "meaning": a few ${speaks} words that tell it apart from the others ("" when it is the only one).
+Answer with JSON only: {"cards": [{"meaning": "...", "words": [...]}]}, one entry per meaning, in the same order, with "meaning" exactly as given.`;
+  const user = (items || []).map((it, i) => `${i + 1}. meaning: ${tidy(it.meaning, 300)}`).join("\n");
+  return { system, user, schema: REVERSE_SCHEMA, maxTokens: 300 + 160 * (items || []).length };
+}
+
+/** The AI's answer to reversePrompt: for each of `items`, its words [{word, reading, meaning}] (at most four, each word
+ * once, the most common first), [] when it gave none. Matched by the meaning, else by the order. */
+export function readReverse(answer, items) {
+  let data = typeof answer === "string" ? jsonIn(answer) : answer;
+  if (data && !Array.isArray(data) && typeof data === "object") data = Array.isArray(data.cards) ? data.cards : null;
+  const list = Array.isArray(data) ? data.filter((x) => x && typeof x === "object") : [];
+  const key = (s) => tidy(s, 300).toLowerCase();
+  const used = new Set();
+  return (items || []).map((it, i) => {
+    let at = list.findIndex((e, j) => !used.has(j) && key(e.meaning) === key(it.meaning));
+    if (at < 0 && i < list.length && !used.has(i)) at = i;
+    if (at < 0) return [];
+    used.add(at);
+    const seen = new Set();
+    return (Array.isArray(list[at].words) ? list[at].words : [])
+      .map((w) => (typeof w === "string" ? { word: w } : w || {}))
+      .map((w) => ({ word: tidy(w.word, 200), reading: tidy(w.reading, 200), meaning: tidy(w.meaning, 200) }))
+      .filter((w) => w.word && !seen.has(wordKey(w.word)) && seen.add(wordKey(w.word)))
+      .slice(0, 4);
+  });
 }
 
 /** Run `work(item, i)` over `items`, at most `limit` at a time; resolves to each one's result or

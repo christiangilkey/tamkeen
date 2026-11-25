@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Kahulugan lang ang alam mo? Iwang blangko ang salita, buksan ang card at i-type ang kahulugan: hahanapin ng Tamkeen ang salita para sa iyo.
+7900a362	Ang linyang may kahulugan lang (<0/>) ay gagawa ng card na hahanapan ng salita ng Tamkeen.
+35220eab	Hahanapin ang salita para sa kahulugang ito kapag pinindot mo ang Punan o Idagdag.
+712ec48c	Hinahanap ang salita…
+3870184d	Kailangan ng AI para mahanap ang salita mula sa kahulugang nasa {0}: i-set up ito sa Settings → Kahulugan ng mga salita, o i-type ang salita.
+324e4b9b	Wala pa sa device na ito ang built-in na diksiyonaryo. I-download ito, o i-type ang salita.
+9ba7b9db	Walang nahanap na salita para sa kahulugang ito. I-type ang salita, o sabihin ang kahulugan sa ibang paraan.
+d0d7ab33	Walang salita ang built-in na diksiyonaryo para sa kahulugang ito. I-type ang salita, sabihin ang kahulugan sa ibang paraan, o i-set up ang AI sa Settings → Kahulugan ng mga salita.
+2d51f6ea	Walang napunan. Piliin ang mga salita, saka pindutin ulit ang Punan.
+03032b84	Walang naidagdag. Piliin ang mga salita, saka pindutin ulit ang Idagdag.
+c47a00fe	Walang nahanap na salita para sa mga kahulugang ito: tingnan ang mga pulang tala.
+b27a5eed	Aling salita?
+a3e67ee0	Higit sa isang salita ang bagay sa kahulugang ito. Para saan ang card?
+3e230c0f	Higit sa isang salita ang bagay sa mga kahulugang ito. Para saan ang bawat card?
+408679e9	Mga salita para sa {0}
+a2d73e52	Gamitin ang salitang ito
+a32972eb	Gamitin ang mga salitang ito

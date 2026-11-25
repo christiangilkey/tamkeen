@@ -1,0 +1,18 @@
+# Add words from the meaning (prototype meaning_first: wordbuilder.js, wordchoice.js), 2026-11-25
+a4687645	Conosci solo il significato? Lascia vuota la parola, apri la scheda e scrivi il significato: Tamkeen trova la parola per te.
+7900a362	Una riga con solo un significato (<0/>) crea una scheda di cui Tamkeen trova la parola.
+35220eab	La parola per questo significato verrà cercata quando premi Compila o Aggiungi.
+712ec48c	Ricerca della parola…
+3870184d	Trovare la parola da un significato in {0} richiede l'IA: impostala in Impostazioni → Definizioni delle parole, o scrivi la parola.
+324e4b9b	Il dizionario integrato non è ancora su questo dispositivo. Scaricalo, o scrivi la parola.
+9ba7b9db	Nessuna parola trovata per questo significato. Scrivi la parola, o di' il significato in un altro modo.
+d0d7ab33	Il dizionario integrato non ha nessuna parola per questo significato. Scrivi la parola, di' il significato in un altro modo, o imposta l'IA in Impostazioni → Definizioni delle parole.
+2d51f6ea	Non è stato compilato niente. Scegli le parole, poi premi di nuovo Compila.
+03032b84	Non è stato aggiunto niente. Scegli le parole, poi premi di nuovo Aggiungi.
+c47a00fe	Nessuna parola trovata per questi significati: vedi le note in rosso.
+b27a5eed	Quale parola?
+a3e67ee0	Più di una parola corrisponde a questo significato. Per quale è la scheda?
+3e230c0f	Più di una parola corrisponde a questi significati. Per quale è ogni scheda?
+408679e9	Parole per {0}
+a2d73e52	Usa questa parola
+a32972eb	Usa queste parole
