@@ -14,6 +14,10 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 
+## v0.73.0 — 2026-11-24
+
+- **Improved:** Groundwork for coming DLI class features: a Class tab, a shared Classroom with folders and a teacher's notes on words, and gifts from the Tamkeen team. Nothing changes for you yet; they are switched on in a later version.
+
 ## v0.72.0 — 2026-11-24
 
 - **New:** **Pictures on flashcards.** The back of a card can show a picture of your own: tap **Add picture** on a card's back (in reviews, or on a word opened on the Vocab page) to take a photo (on a phone) or choose one, and tap the picture later to change or remove it. Each picture is kept as a small copy that syncs to your other devices through your Google Drive, shows without internet, and goes into **Export for Anki** with the card.

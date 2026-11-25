@@ -24,6 +24,16 @@ const num = (v) => (typeof v === "number" && Number.isFinite(v) ? v : 0);
 const obj = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v : null);
 const clone = (v) => JSON.parse(JSON.stringify(v));
 
+/** The game's record of the creator's gifts it has had (gifts.js), made safe: gift id -> the glow it added. */
+export function cleanGifts(v) {
+  const out = {};
+  if (!obj(v)) return out;
+  for (const [id, glow] of Object.entries(v).slice(0, 2000)) {
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(id)) out[id] = num(glow);
+  }
+  return out;
+}
+
 /** Is this a saved game at all (and not a blank or broken value)? */
 export const isGame = (s) => !!obj(s) && (Array.isArray(s.roster) || !!obj(s.creature));
 
@@ -80,7 +90,9 @@ export function resolve(mine, theirs) {
   if (!isGame(theirs)) return { keep: "mine", state: mine };
   if (!isGame(mine)) return { keep: "theirs", state: theirs };
   // An egg nobody has played (a fresh install) never replaces a game with progress, and never joins it.
-  const played = (s) => num(s.xp) > 0;
+  // (A game that has had a gift from the creator counts as played: a new egg that collected one is combined
+  // with the real game when it arrives, never thrown away with the gift in it.)
+  const played = (s) => num(s.xp) > 0 || Object.keys(cleanGifts(s.gifts)).length > 0;
   if (played(theirs) !== played(mine)) return played(theirs) ? { keep: "theirs", state: theirs } : { keep: "mine", state: mine };
   const o = order(theirs.clock, mine.clock);
   // (A copy saved before the clocks has a history nobody knows: no other copy can be shown to have seen it all,
@@ -163,11 +175,12 @@ export function combine(mine, theirs) {
   const gb = obj(b.idle);
   const released = union(ga && ga.released, gb && gb.released);
   const gone = new Set(released.map(seedOf).filter((s) => s !== null));
-  if (gb && !ga) out.idle = gb;
+  let gardenOfB = false; // whose garden (and so whose glow) the combined game keeps
+  if (gb && !ga) { out.idle = gb; gardenOfB = true; }
   else if (ga && gb) {
     const ra = Array.isArray(ga.released) ? ga.released.length : 0;
     const rb = Array.isArray(gb.released) ? gb.released.length : 0;
-    if (rb > ra) out.idle = gb;
+    if (rb > ra) { out.idle = gb; gardenOfB = true; }
     else if (ra === rb) {
       const pa = Array.isArray(ga.plots) ? ga.plots : [];
       const pb = Array.isArray(gb.plots) ? gb.plots : [];
@@ -184,6 +197,20 @@ export function combine(mine, theirs) {
       if ("bloom" in ga || "bloom" in gb) ga.bloom = !!(ga.bloom || gb.bloom);
     }
     out.idle.released = released;
+  }
+
+  // Gifts from the creator (gifts.js): every one either copy has had. Their coins, gems and XP are in the tally
+  // under the gift's own key, their items and creatures in the lists joined below; glow is the garden's, so the
+  // glow of a gift that the copy whose garden was kept had not had yet is added here.
+  const giftsA = cleanGifts(a.gifts);
+  const giftsB = cleanGifts(b.gifts);
+  if (Object.keys(giftsA).length || Object.keys(giftsB).length) {
+    const kept = gardenOfB ? giftsB : giftsA;
+    const other = gardenOfB ? giftsA : giftsB;
+    let glow = 0;
+    for (const [id, n] of Object.entries(other)) if (!(id in kept)) glow += n;
+    if (glow && obj(out.idle)) out.idle.glow = Math.max(0, num(out.idle.glow) + glow);
+    out.gifts = { ...other, ...kept };
   }
 
   // Creatures: every one hatched on either copy, the more grown copy of each, none that was released.

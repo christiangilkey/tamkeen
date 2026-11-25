@@ -18,6 +18,7 @@
 // tests/js/dliweeks.test.mjs.
 
 import { DLI_CODES } from "./dli.js";
+import { cleanNotes } from "./classnotes.js";
 import { GOOD, history } from "./review/fsrs.js";
 
 const LOOK_CAP = 60000;
@@ -251,6 +252,71 @@ export function cleanAdded(raw) {
   const r = raw && typeof raw === "object" ? raw : {};
   return { status: /^[a-z_]{1,20}$/.test(String(r.status || "")) ? String(r.status) : "no", username: handle(r.username) };
 }
+// ---------- the Class tab (v15) ----------
+/** Invitations waiting for me, made safe: [{ class, name, teachers, invited_at }]. */
+export function cleanInvites(list) {
+  return (Array.isArray(list) ? list : []).map((x) => ({ class: uuid(x && x.class), name: text(x && x.name, CLASS_NAME_MAX) || "Class",
+    teachers: names(x && x.teachers), invited_at: when(x && x.invited_at) })).filter((x) => x.class).slice(0, 20);
+}
+/** Who a teacher invited and has not answered yet: [{ id, username, invited_at }]. */
+export function cleanInvited(list) {
+  return (Array.isArray(list) ? list : []).map((x) => ({ id: uuid(x && x.id), username: handle(x && x.username) || "?",
+    invited_at: when(x && x.invited_at) })).filter((x) => x.id).slice(0, 60);
+}
+/** The people of a class as a classmate sees them: { teachers: [username], students: [{ username, level, me }] }.
+ *  A level is one of LEVELS; anything else reads as "none". Never a number. */
+export function cleanPeople(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  return { teachers: names(r.teachers),
+    students: (Array.isArray(r.students) ? r.students : []).map((s) => ({ username: handle(s && s.username),
+      level: LEVELS.includes(s && s.level) ? s.level : "none", me: !!s && s.me === true })).filter((s) => s.username).slice(0, 60) };
+}
+const POST_KINDS = ["youtube", "reel", "podcast", "page", "book", "text"];
+const link = (v) => { const s = String(v || "").trim(); return /^https?:\/\/[^\s<>"']+$/i.test(s) && s.length <= 600 ? s : ""; };
+/** One thing sent to a class, made safe: the fields "Send to a friend" sends (sendmedia.js), cut to size, links
+ *  that are links, a kind the app knows (never Netflix: it is not a kind). Null when it isn't one. */
+export function cleanPostItem(raw) {
+  if (!raw || typeof raw !== "object" || !POST_KINDS.includes(raw.kind)) return null;
+  if (!text(raw.title, 200) && !link(raw.url)) return null; // (nothing to show and nothing to open)
+  const out = { kind: raw.kind, title: text(raw.title, 200) || "Untitled", url: link(raw.url), subtitle: text(raw.subtitle, 120), image: link(raw.image) };
+  if (/^[a-z]{2,3}$/.test(String(raw.language || ""))) out.language = raw.language;
+  const n = Number(raw.duration);
+  if (Number.isFinite(n) && n > 0 && n < 1e6) out.duration = Math.round(n);
+  for (const k of ["feed_url", "audio_url"]) if (link(raw[k])) out[k] = link(raw[k]);
+  for (const k of ["guid", "source"]) if (raw[k]) out[k] = text(raw[k], 200);
+  return out;
+}
+/** A class's posts, newest first: [{ id, item, path, sender, mine, created_at }]. */
+export function cleanPosts(list) {
+  return (Array.isArray(list) ? list : []).map((p) => {
+    const id = uuid(p && p.id), item = cleanPostItem(p && p.item);
+    if (!id || !item) return null;
+    return { id, item, path: codeText(p.path, /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/), sender: handle(p.sender), mine: p.mine === true, created_at: when(p.created_at) };
+  }).filter(Boolean).slice(0, 50);
+}
+/** A classroom (v17), made safe: { folders: [{ id, name }], items: [{ id, item, path, notes, folder, sender, mine,
+ *  created_at, updated_at }] }. An item in a folder that is gone shows at the top (folder ""). */
+export function cleanRoom(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  const folders = (Array.isArray(r.folders) ? r.folders : []).map((f) => ({ id: uuid(f && f.id), name: text(f && f.name, CLASS_NAME_MAX) }))
+    .filter((f) => f.id && f.name).slice(0, 40);
+  const known = new Set(folders.map((f) => f.id));
+  const items = (Array.isArray(r.items) ? r.items : []).map((p) => {
+    const id = uuid(p && p.id), item = cleanPostItem(p && p.item);
+    if (!id || !item) return null;
+    const folder = uuid(p.folder);
+    return { id, item, path: codeText(p.path, /^[0-9a-f-]{36}\/[0-9a-f-]{36}\.gz$/), notes: cleanNotes(p.notes), folder: known.has(folder) ? folder : "",
+      sender: handle(p.sender), mine: p.mine === true, created_at: when(p.created_at), updated_at: when(p.updated_at) || when(p.created_at) };
+  }).filter(Boolean).slice(0, 300);
+  return { folders, items };
+}
+/** An answer with a status and, sometimes, a username or a class: { status, username, id, name }. */
+export function cleanAnswer(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  return { status: /^[a-z_]{1,20}$/.test(String(r.status || "")) ? String(r.status) : "no", username: handle(r.username),
+    id: uuid(r.class), name: text(r.name, CLASS_NAME_MAX) };
+}
+
 /** A teacher code as the owner reads it, or "". */
 export const teacherCode = (v) => codeText(v, /^TCH[A-Z2-9]{12}$/);
 /** What dli_use_code answered: { status, id, name }. */

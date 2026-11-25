@@ -68,6 +68,8 @@ export async function render(view) {
   </div>`));
   // Tamkeen's creator only (prototype "creator_bar"): people online and the nearest limit (components/creatorbar.js).
   if (feature("creator_bar")) creatorBar(view.querySelector("#home-creator"));
+  // Gifts from Tamkeen's creator waiting for me are added to my game (prototype "owner_gifts": giftsync.js).
+  if (feature("owner_gifts")) import("../giftsync.js").then(({ collectGifts }) => collectGifts()).catch(() => {});
   // The daily streak (days in a row the flashcard goal was met: review/flame.js), at the right of the
   // greeting, in its gold: the owner wanted it there, a flame icon rather than an emoji.
   import("../review/flame.js").then(({ myStreak }) => myStreak()).then(({ result }) => {

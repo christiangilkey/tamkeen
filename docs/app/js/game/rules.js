@@ -16,7 +16,7 @@ import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RUL
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
-import { settle } from "./merge.js";
+import { cleanGifts, settle } from "./merge.js";
 import { inPicks, pickList } from "../review/folderpicks.js";
 
 export const VERSION = 2;
@@ -111,6 +111,7 @@ export function newState(seed = (Math.random() * 2 ** 32) >>> 0) {
     badges: [],
     clock: {},   // device -> how many times it has saved this game (merge.js: which of two copies is newer)
     tally: {},   // xp/coins/gems -> device -> [earned, spent] (merge.js: two copies played apart add up)
+    gifts: {},   // gifts from Tamkeen's creator this game has had: gift id -> the glow it added (gifts.js)
     updated_at: 0,
   });
 }
@@ -196,6 +197,7 @@ export function normalize(state) {
   const clock = s.clock && typeof s.clock === "object" && !Array.isArray(s.clock) ? s.clock : {};
   s.clock = Object.fromEntries(Object.entries(clock).filter(([k, n]) => k.length <= 40 && Number.isInteger(n) && n >= 0).slice(0, 500));
   if (!Number.isFinite(s.gems)) s.gems = 0;
+  s.gifts = cleanGifts(s.gifts);
   settle(s);
   s.v = VERSION;
   return s;

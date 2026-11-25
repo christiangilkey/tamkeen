@@ -28,6 +28,9 @@ import * as social from "../social.js";
 import { MAX_FILE_BYTES, MAX_INLINE_CHARS, TEXT_KINDS, acceptInto, gunzipText, gzipText, packTranscript, unpackTranscript } from "../sharetext.js";
 import { openItem } from "./studycard.js";
 import { offerFix } from "./fixit.js";
+import { feature } from "../prototype.js";
+import { postToClass, roomAdd, teacherClasses } from "../dliclass.js";
+import { notesFromCards } from "../classnotes.js";
 
 export const MEDIA_KINDS = { youtube: "YouTube video", reel: "Instagram reel", podcast: "Podcast episode", page: "Web page",
                              book: "Book", text: "Transcript of a recording" };
@@ -138,6 +141,73 @@ export async function sendMedia(friendId, media) {
   return { withWords, tooLarge: !!packed && !withWords };
 }
 
+/** Send `media` to a whole class (a teacher's; dliclass.js postToClass): the same item and the same words a friend
+ *  would get. Resolves to {withWords, tooLarge}. */
+export async function sendToClass(classId, media, { folder = null } = {}) {
+  const p = await classPayload(media);
+  let r;
+  // The Classroom (prototype "classroom", supabase/v17): the item goes with the teacher's notes on its words, into
+  // a folder. On a database without v17 it is sent the v15 way, without them.
+  if (feature("classroom")) {
+    try { r = await roomAdd(classId, p.item, { file: p.file, notes: p.notes, folder }); } catch (e) { if (!e.notReady) throw e; }
+    if (r && r.id && p.episodeId) rememberMine(r.id, p.episodeId);
+  }
+  if (!r) r = await postToClass(classId, p.item, p.file);
+  return { id: r.id || "", withWords: r.withWords, tooLarge: p.hadWords && !r.withWords, notes: feature("classroom") ? p.notes.length : 0 };
+}
+
+/** What goes to a class for `media` (one of my own library items): { item, file, notes, hadWords, episodeId }.
+ *  `file` is its transcript, gzipped (null when it has none or it is too long); `notes` the teacher's work on its
+ *  words, from the teacher's own flashcards of it (classnotes.js: important, meaning, grammar notes). */
+export async function classPayload(media) {
+  const item = normalizeMedia(media);
+  if (!item) throw new Error("This can't be sent to a class.");
+  const packed = await textFor(item);
+  if (item.kind === "text" && !packed) throw new Error("Transcribe it first: only its words are sent, the file itself stays on your devices.");
+  let file = null;
+  if (packed) { const z = await gzipText(packed); if (z.size <= MAX_FILE_BYTES) file = z; }
+  if (item.kind === "text" && !file) throw new Error("Its transcript is too long to send.");
+  let notes = [];
+  if (item.episode_id && feature("classroom")) {
+    try {
+      const v = await api("/vocab");
+      notes = notesFromCards((Array.isArray(v) ? v : (v && v.items) || []).filter((c) => c.episode_id === item.episode_id));
+    } catch { /* sent without notes */ }
+  }
+  const { episode_id: episodeId, ready: _ready, at: _at, ...shared } = item; // (my own copy's id and my place in it mean nothing to a class)
+  return { item: shared, file, notes, hadWords: !!packed, episodeId: episodeId || 0 };
+}
+
+// Which of my own library items each classroom item was made from, on this device: the teacher's "Update" reads
+// the transcript and the notes from there again.
+const MINE_KEY = "tamkeenRoomMine";
+const mineMap = () => { try { const v = JSON.parse(localStorage.getItem(MINE_KEY) || "{}"); return v && typeof v === "object" ? v : {}; } catch { return {}; } };
+export function rememberMine(postId, episodeId) {
+  const m = mineMap();
+  m[postId] = episodeId;
+  try { localStorage.setItem(MINE_KEY, JSON.stringify(Object.fromEntries(Object.entries(m).slice(-600)))); } catch { /* storage off */ }
+}
+/** My own library item a classroom item was made from on this device (its episode id), or 0. */
+export const mineOf = (postId) => Number(mineMap()[postId]) || 0;
+
+/** My classes as menu lines (a teacher, with the Class tab on), before the friends. */
+function classLines(item, media) {
+  if (!feature("class_tab")) return [];
+  return teacherClasses().map((c) => ({
+    label: `Class: ${c.name}`,
+    run: async () => {
+      try {
+        toast("Sending…", { timeout: 1500 });
+        const r = await sendToClass(c.id, media);
+        toast(r.withWords ? `Sent to the class ${c.name}, with its words.`
+                : r.tooLarge ? `Sent to the class ${c.name}, without its words: they are too long to send.` : `Sent to the class ${c.name}.`,
+              feature("classroom") ? { action: { label: "Open the classroom", run: () => (location.hash = "#/library?show=classroom") } }
+                : { action: { label: "Open Class", run: () => (location.hash = "#/class") } });
+      } catch (e) { toast(e.message, { error: true }); }
+    },
+  }));
+}
+
 /** Ask which friend, then send.
  * The list is the app's ordinary menu (showMenu: the #ctxmenu element, shown and hidden through
  * its `hidden` attribute). The phone's reel player counts on exactly that: its video is a native
@@ -147,17 +217,19 @@ async function pickAndSend(x, y, media) {
   const item = normalizeMedia(media);
   if (!item) { toast("This can't be sent to a friend."); return; }
   if (item.kind === "text" && !item.ready) { toast("Transcribe it first: only its words are sent, the file itself stays on your devices."); return; }
+  const classes = classLines(item, media);
   let st;
-  try { st = await social.friendsState(); } catch (e) { toast(e.message, { error: true }); return; }
-  if (!st || !st.me.username) {
+  try { st = await social.friendsState(); } catch (e) { if (!classes.length) { toast(e.message, { error: true }); return; } st = null; }
+  if (!classes.length && (!st || !st.me.username)) {
     offerFix("friends");  // (the fix popup: Settings → Friends & sharing)
     return;
   }
-  if (!st.friends.length) {
+  if (!classes.length && !st.friends.length) {
     offerFix("nofriends");  // (the fix popup: the Friends page)
     return;
   }
-  showMenu(x, y, `Send “${item.title.slice(0, 40)}” to…`, st.friends.map((f) => ({
+  const friendList = st && st.me.username ? st.friends : [];
+  showMenu(x, y, `Send “${item.title.slice(0, 40)}” to…`, [...classes, ...friendList.map((f) => ({
     label: `@${f.user.username}`,
     run: async () => {
       try {
@@ -170,7 +242,7 @@ async function pickAndSend(x, y, media) {
         toast(e.message, { error: true });
       }
     },
-  })));
+  }))]);
 }
 
 /** The paper-airplane button. `media` is an item or a function returning the current one (for
@@ -209,6 +281,10 @@ export async function receivedText(raw) {
  * message what didn't go as planned. Resolves to a hash to open it with, or "" when opening is left
  * to the ordinary route (openItem). */
 export async function acceptMedia(item, raw = item) {
+  return (await acceptMediaInfo(item, raw)).hash;
+}
+/** The same, answering everything about it: { episode, hash, withText, keptOwn, text } (`text`: the words that came). */
+export async function acceptMediaInfo(item, raw = item) {
   const { text, lost } = await receivedText(raw);
   const books = TEXT_KINDS.has(item.kind) ? await import("../books.js") : null;
   const { videoId } = item.kind === "youtube" ? await import("../youtube.js") : { videoId: undefined };
@@ -227,7 +303,7 @@ export async function acceptMedia(item, raw = item) {
   if (notes.length) toast(notes.join(" "), { timeout: 9000 });
   // Kept on this device now (or turned down): the file online is no longer needed.
   social.removeShareClips({ media: raw }).catch(() => {});
-  return r.hash;
+  return { ...r, text };
 }
 
 /** Open an accepted item in its player. */
