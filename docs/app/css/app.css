@@ -663,10 +663,13 @@ mark { background: var(--hl); color: var(--hl-ink); border-radius: 3px; padding:
 .wb-head { display: flex; align-items: flex-start; gap: 8px; }
 .wb-word { flex: 1; font-family: var(--ar-font); font-size: 30px; line-height: 1.5; text-align: start; }
 .wb-word.wb-phrase { font-size: 24px; min-width: 0; overflow-wrap: anywhere; } /* several words looked up together */
-/* A long run of words shows at most three lines and scrolls by itself, so the explanation under it always
-   has room (the owner: a long selection "will cover the entire screen"). */
-.wb-word.wb-phrase { font-size: 21px; line-height: 1.35; max-height: calc(3 * 1.35em + 4px); overflow-y: auto;
-  overscroll-behavior: contain; scrollbar-width: thin; }
+/* A long run of words shows at most two lines, cut short with "…", so the explanation under it starts high enough to
+   be seen (the owner: a long selection "will cover the entire screen", and later, in a reel, "it often will not allow
+   me to see any of the definition"). A tap on it shows it all (and a tap again folds it): then it no longer stays at
+   the top, it scrolls away with the rest of the popup (media.css). */
+.wb-word.wb-phrase { font-size: 21px; line-height: 1.35; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+  line-clamp: 2; overflow: hidden; cursor: pointer; }
+.wb-word.wb-phrase.open { display: block; -webkit-line-clamp: none; line-clamp: none; overflow: visible; }
 .wb-reading { font-family: var(--ar-font); font-size: 17px; color: var(--muted); margin: -2px 0 6px; unicode-bidi: plaintext; }
 .wb-close { flex: none; }
 /* With a mouse, the close button sits at the end of the bottom row (the owner: easier to reach
@@ -2245,18 +2248,18 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .top-refresh + .top-help { margin-inline-start: 6px; }
 
 /* ---------- Vocab page: "Send to …" and "Add words" side by side under the goal (pages/vocab.js) ---------- */
-/* Two small text links in one centred row; the Send one gives way (its words end in "…") so the row
-   never breaks into two on a phone. */
-.vocab-actions { display: flex; align-items: center; justify-content: center; gap: 4px 14px; margin-top: 8px; min-width: 0; }
-.va-send { display: flex; min-width: 0; flex: 0 1 auto; }
-.va-send[hidden] { display: none; }
-.vocab-actions .goal-send { margin: 0; min-width: 0; max-width: 100%; }
-.vocab-actions .goal-send span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.va-add { flex: none; font-size: 13px; font-weight: 650; color: var(--accent); gap: 4px; }
-.va-add:hover:not(:disabled) { color: var(--accent); }
-/* Ask by voice (components/voiceask.js): the microphone beside Add words, and its box */
-.va-mic { flex: none; width: 38px; height: 38px; min-height: 38px; padding: 0; border-radius: 50%; display: grid; place-items: center; color: var(--accent); }
-.va-mic:hover:not(:disabled) { color: var(--accent); }
+/* Two clear buttons side by side, each with its own label (the owner, 2026-11-25: "add words and tap to speak should
+   be more obvious and distinct"): Add words in solid teal, Ask by voice (components/voiceask.js) a plain panel with a
+   teal microphone. Plain solid surfaces, no shadow. */
+.vocab-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.va-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 48px; padding: 0 12px;
+  border-radius: 14px; font-size: 15px; font-weight: 650; }
+.va-btn span { min-width: 0; white-space: normal; text-align: center; line-height: 1.2; overflow-wrap: anywhere; }  /* (a long translation wraps, never cut) */
+.va-btn .ic { flex: none; }
+.va-add, .va-add:hover:not(:disabled) { background: var(--accent); border: 1px solid var(--accent); color: var(--accent-ink); }
+.va-mic { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+.va-mic:hover:not(:disabled) { background: var(--surface); border-color: var(--muted); color: var(--text); }
+.va-mic .ic { color: var(--accent); }
 .vq-box { max-width: 460px; }
 .vq { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .vq-mic { position: relative; width: 84px; height: 84px; min-height: 84px; padding: 0; border: none; border-radius: 50%; display: grid; place-items: center;
@@ -3456,6 +3459,17 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .bt-team .cr-tile-pic { width: 72px; height: 72px; }
 .bt-member.empty { display: grid; place-items: center; min-height: 0; padding: 10px 6px; border: 2px solid color-mix(in srgb, var(--muted) 35%, transparent);
   border-radius: 14px; color: var(--muted); font-size: 13px; font-weight: 600; }
+/* Each place: the creature (its number in the corner: the order they come out; a tap swaps it), then arrows to move it
+   earlier or later. An empty place with a creature to spare says Add. The arrows point the way the row runs. */
+.bt-slot { display: grid; gap: 4px; min-width: 0; }
+.bt-slot > .bt-member { position: relative; width: 100%; min-width: 0; }
+button.bt-member.empty { gap: 2px; background: none; cursor: pointer; }
+.bt-order { position: absolute; top: 6px; inset-inline-start: 6px; min-width: 20px; height: 20px; padding: 0 5px; box-sizing: border-box;
+  display: grid; place-items: center; border-radius: 10px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; line-height: 1; }
+.bt-member.empty .bt-order { background: color-mix(in srgb, var(--muted) 35%, transparent); color: var(--text); }
+.bt-move { display: flex; justify-content: center; gap: 4px; }
+.bt-move button { width: 36px; height: 32px; }
+[dir="rtl"] .bt-move svg { transform: scaleX(-1); }
 /* Two big tiles side by side (quick battles). */
 .gs-grid.bt-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .bt-two .gs-tile { padding-top: 12px; }

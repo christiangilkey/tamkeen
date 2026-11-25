@@ -35,9 +35,10 @@ export const PROTOTYPES = {
   lesson_words: { name: "My files: every word of a lesson (all its passages, headings, questions and options) can be tapped right on the lesson page, with the usual popup and purple new words; no separate reader", released: true, since: "2026-11-23" },
   tap_switch: { name: "Tap words on or off: a button at the bottom of transcripts, books, webpages and My files makes the words plain text (no popup, no purple) to select and copy", released: true, since: "2026-11-23" },
   prime_video: { name: "Prime Video with the Tamkeen browser extension (now \"Tamkeen for Netflix & Prime Video\"): \"Get the Tamkeen extension\" and a Prime Video note on the Library's Netflix tab and the + sheet's Netflix step", released: true, since: "2026-11-21" },
-  class_tab: { name: "Class tab for DLI students and teachers: invite by username, classmates with activity levels, send to a class", released: false, since: "2026-11-24" },
-  classroom: { name: "Classroom in the Library for DLI teachers and students: folders, the teacher's transcript, important words, meanings and notes", released: false, since: "2026-11-24" },
-  owner_gifts: { name: "Gifts from the creator: give a chosen user coins, gems, XP, glow, items, moves, unlocks and creatures", released: false, since: "2026-11-24" },
+  class_tab: { name: "Class tab for DLI students and teachers: invite by username, classmates with activity levels, send to a class", released: true, since: "2026-11-24" },
+  classroom: { name: "Classroom in the Library for DLI teachers and students: folders, the teacher's transcript, important words, meanings and notes", released: true, since: "2026-11-24" },
+  owner_gifts: { name: "Gifts from the creator: give a chosen user coins, gems, XP, glow, items, moves, unlocks and creatures", released: true, since: "2026-11-24" },
+  meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 
 const KEY = "tamkeenPrototype";

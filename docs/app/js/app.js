@@ -10,7 +10,6 @@ import * as search from "./pages/search.js";
 import * as settingsPage from "./pages/settings.js";
 import * as welcome from "./pages/welcome.js";
 import * as friends from "./pages/friends.js";
-import * as classPage from "./pages/class.js";
 import * as chat from "./pages/chat.js";
 import * as discover from "./pages/discover.js";
 import * as reels from "./pages/reels.js";
@@ -1293,7 +1292,7 @@ const routes = [
   [/^settings$/, settingsPage, () => ({})],
   [/^welcome$/, welcome, () => ({})],
   [/^friends$/, friends, () => ({})],
-  [/^class$/, classPage, () => ({})], // DLI students and teachers (pages/class.js; the tab shows for them only)
+  [/^class$/, friends, () => ({ tab: "class" })], // DLI students and teachers: the Class part of Friends (pages/friends.js; the old address still works)
   [/^chat\/([\w-]+)$/, chat, (m) => ({ friendId: m[1] })],
 ];
 let cleanup = null;
@@ -1311,7 +1310,7 @@ async function route() {
   if (!hit) { location.hash = "#/"; return; }
   const [re, mod, params] = hit;
   const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites || mod === books ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
-    : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : mod === classPage ? "class" : "";
+    : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
   // The tab highlight and swipe animation move as soon as the section changes, not after its data loads.

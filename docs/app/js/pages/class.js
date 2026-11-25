@@ -305,6 +305,8 @@ if (typeof document !== "undefined" && !document.getElementById("cls-css")) {
   style.textContent = `
     .cls-page { max-width: 720px; margin: 0 auto; padding: 8px 0 24px; display: flex; flex-direction: column; gap: 12px; }
     .cls-page h1 { text-align: center; margin: 8px 0 4px; }
+    .friends-class .cls-page { padding-top: 0; }
+    .friends-class .cls-page h1 { display: none; } /* (Friends has the heading and the tab says Class) */
     .cls-body, .cls-class { display: flex; flex-direction: column; gap: 12px; }
     .cls-card h2, .cls-card h3, .cls-card p { margin: 0; }
     .cls-card h3 { font-size: 16px; }

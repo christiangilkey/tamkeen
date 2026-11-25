@@ -180,9 +180,8 @@ export async function render(view) {
       </button>
       <div id="goal" hidden></div>
       <div class="vocab-actions">
-        <span class="va-send" id="send-slot"></span>
-        <button type="button" class="ghost va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 18)} Add words</button>
-        <button type="button" class="ghost va-mic" id="ask-voice" title="Ask by voice: “How do I say colorful in Spanish?”, then “add it”" aria-label="Ask by voice">${icon("mic", 20)}</button>
+        <button type="button" class="va-btn va-add" id="add-words" title="Type, paste or scan new words: Tamkeen can fill in their meanings, example sentences and audio">${icon("plus", 20)}<span>Add words</span></button>
+        <button type="button" class="va-btn va-mic" id="ask-voice" title="Ask by voice: “How do I say colorful in Spanish?”, then “add it”">${icon("mic", 20)}<span>Ask by voice</span></button>
       </div>
       <div class="progress-block" id="progress" hidden>
         <div id="longgoal"></div>
@@ -746,7 +745,7 @@ export async function render(view) {
     const none = !reviewWords().length;
     banner.disabled = none;
     if (banner.hidden || none) {
-      goal.close(); $("#goal").hidden = true; $("#send-slot").hidden = true;
+      goal.close(); $("#goal").hidden = true;
       if (banner.hidden) return;
       banner.classList.remove("idle", "out");
       getWords = false;
@@ -766,7 +765,6 @@ export async function render(view) {
     // ...and when it wants some but none are waiting, the card says so (the goal card offers where to get them).
     const noneLeft = Boolean(offer && offer.none);
     $("#goal").hidden = !o.askable;
-    $("#send-slot").hidden = !o.askable;  // ("Send to …" goes with the goal; "Add words" beside it is always there)
     goal.update(all, log);  // the whole day's goal, whichever folder is open
     const scope = st.folder && st.folder !== "none" ? folderName(st.folder) : "";
     const ready = o.due + o.fresh + extra > 0;
@@ -806,14 +804,16 @@ export async function render(view) {
   reviewRoom.observe($("#review"));
   // The day's goal under the banner; changing its new words a day changes the banner's "new" count too.
   // Its "Send to …" link sits in the row under it, beside "Add words".
-  const goal = goalBar($("#goal"), { sendSlot: $("#send-slot") });
+  // (the review calendar first: the day's "Send to Google Calendar" button sits in its head, as an icon; the owner,
+  // 2026-11-25: "make it an icon on the actual calendar … where it's already tracking the days")
+  const calendar = heatmap($("#heatmap"));
+  const goal = goalBar($("#goal"), { sendSlot: $("#heatmap .hm-send") });
   $("#goal").addEventListener("goalchange", renderReview);
 
   // The long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js): over every
   // answer on record, whichever folder is open; hidden while searching (the list is then narrowed).
   // (a "new words" goal can open the reviewer with the extra new words today's part needs)
   const longgoal = longGoal($("#longgoal"), { onLearn: (extra) => startReview(extra) });
-  const calendar = heatmap($("#heatmap"));
   function renderProgress() {
     const box = $("#progress");
     box.hidden = Boolean(st.q) || (!all.length && !Object.keys(log || {}).length);

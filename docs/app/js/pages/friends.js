@@ -22,11 +22,12 @@ import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
 import { moreButton } from "../components/safetyui.js";
 import { dropZone } from "../filedrop.js";
+import { classTabShown } from "../dliclass.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
 const SEGMENT = "friends:segment";
 const ME_COLLAPSED = "friends:me-collapsed";
-const SEGMENTS = [["feed", "Activity"], ["friends", "Friends"], ["guilds", "Guilds"]];  // ("Activity", not "Feed": that word is the game's feeding a creature, and shares its translations)
+const BASE_SEGMENTS = [["feed", "Activity"], ["friends", "Friends"], ["guilds", "Guilds"]];  // ("Activity", not "Feed": that word is the game's feeding a creature, and shares its translations)
 const remembered = (key, fallback) => { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } };
 const remember = (key, value) => { try { localStorage.setItem(key, value); } catch { /* storage unavailable: it still works for now */ } };
 
@@ -59,9 +60,26 @@ function confirmBox(title, text, { ok = "OK", danger = false } = {}) {
   });
 }
 
-export async function render(view) {
-  let segment = remembered(SEGMENT, "feed");
+export async function render(view, { tab = "" } = {}) {
+  // DLI students and teachers have one more part, Class (pages/class.js; prototype "class_tab"): the owner,
+  // 2026-11-25, "The class tab should be a tab inside the Friends tab". Everyone else sees Friends as before.
+  // The old address #/class opens Friends on it (`tab`: the app's routes).
+  const withClass = classTabShown();
+  const SEGMENTS = withClass ? [...BASE_SEGMENTS, ["class", "Class"]] : BASE_SEGMENTS;
+  let segment = tab === "class" && withClass ? "class" : remembered(SEGMENT, "feed");
   if (!SEGMENTS.some(([id]) => id === segment)) segment = "feed";
+  // The Class part is built once and kept while the page is open: the lists round it are redrawn every minute
+  // and on every live update, and that must not throw away an invitation being typed.
+  let classEl = null;
+  let closeClass = null;
+  function showClass(pane) {
+    if (!classEl) {
+      classEl = h(`<div class="friends-class"></div>`);
+      import("./class.js").then((m) => m.render(classEl)).then((close) => { if (disposed) { if (close) close(); } else closeClass = close; })
+        .catch((e) => toast(e.message, { error: true }));
+    }
+    pane.append(classEl);
+  }
   view.append(h(`<div class="page friends-page">
     <h1 class="friends-title">Friends</h1>
     <div class="segmented" role="tablist" aria-label="Friends sections" hidden></div>
@@ -275,6 +293,7 @@ export async function render(view) {
     drawFriends();
     out = panes.guilds;
     drawGuilds();
+    if (panes.class) showClass(panes.class);
     showSegment();
     firstVisitTour("friends", view.querySelector(".friends-page"), [
       { target: '.seg-btn[data-seg="feed"]', title: "Activity", text: "What your friends and guild-mates are studying right now, newest first." },
@@ -665,5 +684,5 @@ export async function render(view) {
   let timer;
   const off = await social.onActivity(() => { clearTimeout(timer); timer = setTimeout(load, 300); });
   const tick = setInterval(load, 60000);
-  return () => { disposed = true; offPhotoDrop(); off(); clearTimeout(timer); clearInterval(tick); };
+  return () => { disposed = true; offPhotoDrop(); off(); clearTimeout(timer); clearInterval(tick); if (closeClass) closeClass(); };
 }

@@ -31,8 +31,11 @@ import { langAttrs, langInfo, studyLanguage } from "../languages.js";
 import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardFor, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
-         filled, fillIn, firstSense, folderNames, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch, typed, usableSense,
-         wordByWord, wordKey, wordsIn } from "../addwords.js";
+         filled, fillIn, firstSense, folderNames, fromMeaning, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch,
+         readReverse, reversePrompt, typed, usableSense, wordByWord, wordKey, wordsIn } from "../addwords.js";
+import { translationsFor } from "../voiceask.js";
+import { commonWords } from "../commonwords.js";
+import { chooseWords } from "./wordchoice.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { librarySentence } from "../review/sentencefind.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
@@ -44,7 +47,7 @@ import { aiMakes, chosenSource } from "../helpersource.js";
 import { pickedCountry } from "../youtube-home.js";
 import { PROVIDERS, definerModeOf } from "../definer.js";
 import { feature } from "../prototype.js";
-import { NO_MEANINGS, dictionaryDefine, downloadMeanings, meaningsStatus } from "../meanings.js";
+import { NO_MEANINGS, dictionaryDefine, downloadMeanings, installedMeanings, meaningsStatus } from "../meanings.js";
 import { azureReady, voiceChars, voiceMode } from "../cardvoice.js";
 import { voiceMaker } from "../voiceplay.js";
 import { MAX_SECONDS, canRecord, cardAudio, partFrom, previewBlob, seconds, startRecording } from "../cardaudio.js";
@@ -150,12 +153,14 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     <div class="cb-one">
       <div class="cb-rows"></div>
       <button type="button" class="ghost cb-another">${icon("plus", 18)} Another word</button>
+      <p class="small muted cb-mf-hint" hidden>Know only the meaning? Leave the word empty, open the card and type its meaning: Tamkeen finds the word for you.</p>
       <p class="small muted cb-limit" hidden>At most 100 cards can be added at a time.</p>
     </div>
     <div class="cb-paste" hidden>
       <textarea class="cb-paste-box" rows="7" dir="auto" spellcheck="false" aria-label="Your list, one card per line"></textarea>
       <p class="small muted cb-paste-help">One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<span translate="no">word – meaning</span>), or paste columns from a spreadsheet: word, meaning, sentence, translation.</p>
       <div class="cb-preview" aria-live="polite"></div>
+      <p class="small muted cb-mf-paste" hidden>A line with only a meaning (<span translate="no">= library</span>) makes a card whose word Tamkeen finds for you.</p>
       <p class="small muted cb-paste-wait">Nothing is added until you press the button: fix the list here first if you need to. The choices under "For these cards" are used for every card in it.</p>
       <div class="cb-paste-go"><button type="button" class="primary cb-use" disabled>Use these</button></div>
     </div>
@@ -413,7 +418,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         if (f === "meaning") { row.meaningPos = ""; row.meaningFrom = ""; row.senses = null; }  // (their own: nothing to ask)
         if (row.fillNotes[f]) { delete row.fillNotes[f]; paintStatus(row); }  // (a note about what was filled in)
         paintField(row, f);
-        if (f === "meaning") paintSummary(row);
+        if (f === "meaning") { paintSummary(row); meaningHint(row); }
         if (input.tagName === "TEXTAREA") grow(input);
         if (row.status && row.status.kind === "error") setStatus(row, null);
         dirtied();
@@ -432,6 +437,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       grow(word);
       row.text = word.value;
       if (row.status && row.status.kind === "error") setStatus(row, null);
+      meaningHint(row);
       dirtied();
       checkRepeats();
     };
@@ -451,6 +457,19 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   }
 
   const grow = (ta) => { ta.style.height = "auto"; ta.style.height = `${Math.min(220, ta.scrollHeight + 2)}px`; };
+
+  // ----- from the meaning (prototype meaning_first, addwords.js fromMeaning) -----
+  const meaningFirst = feature("meaning_first");
+  /** The cards to add or fill in: those with a word, and (prototype) those started from their meaning. */
+  const addableNow = () => addable(rows, repeats, { meaningFirst });
+  /** A card with no word and a meaning typed: a line saying the word will be found; gone once a word is typed. */
+  function meaningHint(row) {
+    if (!meaningFirst) return;
+    const hint = row.status && row.status.hint;
+    if (fromMeaning(row)) { if (!row.status) setStatus(row, { kind: "note", hint: true, text: t("The word will be found for this meaning when you press Fill in or Add.") }); }
+    else if (hint) setStatus(row, null);
+  }
+  $(".cb-mf-hint").hidden = $(".cb-mf-paste").hidden = !meaningFirst;
 
   /** One field as it stands: the learner's own words, or the app's (lighter, marked "auto"). */
   function paintField(row, f) {
@@ -681,11 +700,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   /** The cards that would be added now, and the button that adds them. */
   function countUp() {
-    const n = addable(rows, repeats).length;
+    const n = addableNow().length;
     const add = $(".cb-add");
     add.textContent = n ? `Add ${n} card${n === 1 ? "" : "s"}` : "Add cards";
     add.disabled = busy || !n;
-    $(".cb-fill").disabled = busy || !n || !addable(rows, repeats).some((r) => needsAny(r, choices));
+    $(".cb-fill").disabled = busy || !n || !addableNow().some((r) => needsAny(r, choices) || fromMeaning(r));
     const audioRow = $(`.cb-opt[data-opt="audio"]`);
     if (audioRow && choices.audio === "auto" && azureReady(settings())) note(audioRow, "audio");  // (the characters it will use)
   }
@@ -823,7 +842,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
    * its box of text from the photo): {cards, total, cut} (addwords.js parseList). `doubt(card)` says a
    * card's line was hard to read on this device ("Check it"). */
   function showPreview(el, text, { doubt = () => false } = {}) {
-    const parsed = parseList(text, { lang, max: MAX_ROWS });
+    const parsed = parseList(text, { lang, max: MAX_ROWS, meaningFirst });
     el.innerHTML = "";
     if (!parsed.cards.length) return parsed;
     const saved = duplicates(parsed.cards.map((c) => c.text), existing().map((v) => v.text));
@@ -834,7 +853,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     const list = h(`<ol class="cb-pv"></ol>`);
     parsed.cards.forEach((c, i) => {
       const li = h(`<li><span class="cb-pv-word ar" ${langAttrs(lang)}></span><span class="cb-pv-rest" dir="auto"></span></li>`);
-      li.querySelector(".cb-pv-word").textContent = c.text;
+      li.querySelector(".cb-pv-word").textContent = c.text || "…";  // (a card started from its meaning: its word is found)
       li.querySelector(".cb-pv-rest").textContent = [c.meaning, c.sentence, clean(c.translation)].filter(Boolean).join(" · ");
       if (saved[i].saved || saved[i].sameAs !== undefined) {
         const tag = h(`<span class="cb-pv-tag"></span>`);
@@ -1025,6 +1044,10 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
    * (by the lookup setting), then one AI request per AI_CHUNK words for the rest. Each row shows how
    * it went. Resolves when all is done. */
   async function fill(list) {
+    if (meaningFirst) {
+      if (!(await findWords(list))) return false;  // ("Which word?" closed: nothing more is done)
+      list = list.filter((r) => wordKey(r.text));  // (one whose word wasn't found says so, and waits)
+    }
     const cfg = definerConfig();
     const ai = aiReady();                  // meanings: the AI, by the lookup setting
     const aiSentences = makes("sentence");  // sentences: the AI's, unless Free was chosen (else found below)
@@ -1207,13 +1230,88 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   }
   let refusedProvider = "";
 
+  /**
+   * The words of the cards in `list` started from their meaning (prototype meaning_first): the AI's, one request for
+   * them all, the most common first; with no AI (or none from it), the built-in dictionary turned round (voiceask.js
+   * translationsFor, as Ask by voice's "How do I say …"), which reads English meanings. Several words for a meaning:
+   * "Which word?" (components/wordchoice.js), the most common chosen to start with. The card's meaning stays the
+   * learner's; its word box gets the word, and the rest is filled in as for any word. False when "Which word?" was closed.
+   */
+  let finding = null;  // the words being found now: a second Fill in (the download button's, say) waits for it
+  async function findWords(list) {
+    while (finding) await finding.catch(() => true);
+    const run = findNow(list);
+    finding = run;
+    try { return await run; } finally { if (finding === run) finding = null; }
+  }
+  async function findNow(list) {
+    const todo = list.filter((r) => fromMeaning(r));
+    if (!todo.length) return true;
+    for (const r of todo) setStatus(r, { kind: "busy", text: t("Finding the word…") });
+    const found = new Map();
+    const speaks = definerConfig().language || "English";
+    if (aiReady()) {
+      const items = todo.map((r) => ({ meaning: r.meaning.value.trim() }));
+      try {
+        const got = readReverse(await askAi(reversePrompt(items, { study: info.name, speaks, vowels: lang === "ar",
+          variety: varietyOf(lang, pickedCountry(lang), info.name) })), items);
+        todo.forEach((r, i) => { if (got[i] && got[i].length) found.set(r, got[i]); });
+      } catch (err) {
+        console.warn("Add words: the AI couldn't find the words", err);  // (the dictionary is tried instead)
+      }
+    }
+    const left = todo.filter((r) => !found.has(r));
+    if (left.length) {
+      const english = /^english$/i.test(speaks);
+      let files = null;
+      if (english) { try { files = await installedMeanings(lang); } catch { files = null; } }
+      const common = files ? await commonWords(lang).catch(() => []) : [];
+      for (const r of left) {
+        const words = files ? translationsFor(files, r.meaning.value.trim(), lang, { common }) : [];
+        if (words.length) { found.set(r, words.map((w) => ({ word: w.word, reading: w.reading, meaning: w.sense }))); continue; }
+        setStatus(r, !english && !aiReady()
+          ? { kind: "error", text: t("Finding the word from a meaning in {0} needs AI: set one up in Settings → Word definitions, or type the word.", t(speaks)) }
+          : english && !files && lang !== "en"
+            ? { kind: "error", text: t("The built-in dictionary isn't on this device yet. Download it, or type the word."), getDict: true }
+            : { kind: "error", text: aiReady() ? t("No word was found for this meaning. Type the word, or say the meaning another way.")
+              : t("The built-in dictionary has no word for this meaning. Type the word, say the meaning another way, or set up AI in Settings → Word definitions.") });
+      }
+    }
+    const several = todo.filter((r) => (found.get(r) || []).length > 1);
+    if (several.length) {
+      const picked = await chooseWords(several.map((r) => ({ meaning: r.meaning.value.trim(), words: found.get(r) })), { lang });
+      if (!picked) {
+        for (const r of todo) if (r.status && r.status.kind === "busy") { setStatus(r, null); meaningHint(r); }
+        return false;
+      }
+      several.forEach((r, i) => found.set(r, [found.get(r)[picked[i]] || found.get(r)[0]]));
+    }
+    for (const r of todo) {
+      const w = (found.get(r) || [])[0];
+      if (!w) continue;
+      r.text = w.word;
+      const box = r.el && r.el.querySelector(".cb-word");
+      if (box) { box.value = w.word; grow(box); }
+      // (how it is read, for a language not written in Latin letters: in its notes, as a looked-up word's are)
+      if (w.reading && w.reading !== w.word && lang !== "ar" && !String(r.notes || "").trim()) {
+        r.notes = `Reading: ${w.reading}`;
+        const notes = r.el && r.el.querySelector(".cb-notes");
+        if (notes) notes.value = r.notes;
+      }
+      setStatus(r, null);
+      paintRow(r);
+    }
+    checkRepeats();
+    return true;
+  }
+
   $(".cb-fill").onclick = async () => {
     if (busy) return;
     busy = true;
     countUp();
     footNote(t("Filling in…"));
     try {
-      await fill(addable(rows, repeats));
+      if ((await fill(addableNow())) === false) { footNote(t("Nothing was filled in. Choose the words, then press Fill in again.")); return; }
       const bad = rows.filter((r) => r.status && r.status.kind === "error").length;
       footNote(bad ? t("{0} of the cards need a look: see the red notes.", bad) : t("Filled in. Look them over, then add them."), bad ? "error" : "");
     } finally {
@@ -1226,16 +1324,20 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   $(".cb-add").onclick = async () => {
     if (busy) return;
-    const list = addable(rows, repeats);
+    let list = addableNow();
     if (!list.length) return;
     busy = true;
     countUp();
     try {
-      // 1. Whatever is still the app's to fill and empty.
-      if (list.some((r) => needsAny(r, choices) || needsMemo(r, choices))) {
+      // 1. Whatever is still the app's to fill and empty (and, prototype meaning_first, the words of cards started
+      // from their meaning).
+      if (list.some((r) => needsAny(r, choices) || needsMemo(r, choices) || fromMeaning(r))) {
         footNote(t("Filling in…"));
-        await fill(list);
+        if ((await fill(list)) === false) { footNote(t("Nothing was added. Choose the words, then press Add again.")); return; }
       }
+      // (a card whose word wasn't found waits, its note saying why; one whose word they have already isn't added twice)
+      if (meaningFirst) { const now = addableNow(); list = list.filter((r) => wordKey(r.text) && now.includes(r)); }
+      if (!list.length) { footNote(t("No word was found for these meanings: see the red notes."), "error"); return; }
       const troubled = list.filter((r) => r.status && r.status.kind === "error");
       if (troubled.length && !warned) {
         warned = true;

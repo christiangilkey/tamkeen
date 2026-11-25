@@ -47,7 +47,7 @@ import { cardGoal, deviceTimes, forgetAnswer, model, noteAnswer } from "../revie
 import { GOAL_CHOICES, GOAL_MAX, GOAL_MIN, clockText, goalSeconds, setTimer, stopwatch, timerSettings } from "../review/cardtimer.js";
 import { customChip } from "../review/customchip.js";
 import { BACK_CHOICES, BACK_MAX, BACK_MIN, BOOST, answered as speedAnswered, barState, loadRecord, saveRecord, setSpeed, speedSettings, timedOut,
-         todayBest, useBoost } from "../review/speedstreak.js";
+         shouldHold, todayBest, useBoost } from "../review/speedstreak.js";
 import { icon } from "../icons.js";
 import { appOut } from "../appvolume.js";
 import { cardPicture } from "../components/cardpic.js";
@@ -270,7 +270,9 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // Time with the reviewer in front (review/cardtimer.js): the card on the table, and the session.
   const cardWatch = stopwatch(), sessionWatch = stopwatch();
   // The countdown (review/speedstreak.js): each side of the card has its own time; it waits while a text box
-  // on the card is open, the settings are open or any box is over the cards (`held`), as well as while the app is hidden.
+  // on the card is open, a text box has the keyboard, a tool under the back (the Mnemonic maker…) is open or scrolled
+  // to, the settings are open or any box is over the cards (`held`, speedstreak.js shouldHold), as well as while the
+  // app is hidden. The card's own clock (cardWatch) waits at the same moments.
   const sideWatch = stopwatch();
   let held = false;         // the countdown is waiting
   let sideExtra = 0;        // seconds a boost added to this side
@@ -432,17 +434,37 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     if (held || document.hidden) sideWatch.pause();
     startBar();
   }
-  /** Several times a second: hold the countdown while something else has the learner's attention, colour it
-   * as it runs low, and end the streak when it runs out (nothing else happens: the card stays). */
+  /** What holds the learner's attention right now, for review/speedstreak.js shouldHold. */
+  const TYPED = "input:not([type=checkbox]):not([type=radio]):not([type=button]):not([type=range]), textarea, select, [contenteditable]:not([contenteditable=false])";
+  function holdFacts() {
+    const f = document.activeElement;
+    const toolPanel = flipped ? face.querySelector(".rv-tool-panel") : null;
+    const line = flipped ? face.querySelector(".rv-details") : null;
+    return {
+      overlay: !settings.hidden || Boolean(asking) || Boolean(document.querySelector(".tour, .game-sheet-wrap, .modal-back, [role=\"alertdialog\"]")),
+      editing: Boolean(editing),
+      typing: Boolean(f && f !== el && el.contains(f) && f.matches(TYPED)),
+      flipped,
+      toolOpen: Boolean(toolPanel && !toolPanel.hidden),
+      scrollTop: face.scrollTop,
+      lineTop: line ? line.getBoundingClientRect().top - face.getBoundingClientRect().top : Infinity,
+      viewHeight: face.clientHeight,
+      atEnd: face.scrollTop + face.clientHeight >= face.scrollHeight - 8,
+    };
+  }
+  /** Several times a second: hold the countdown, and the card's own clock (the answer's time, which feeds the time
+   * estimates), while something else has the learner's attention (typing, the Mnemonic maker, the tools scrolled
+   * to, a box over the cards); colour the countdown as it runs low, and end the streak when it runs out (nothing
+   * else happens: the card stays). */
   function watchSide() {
-    if (!counting() || bar.hidden || sideOut) return;
-    const hold = Boolean(editing) || !settings.hidden || Boolean(asking) || Boolean(document.querySelector(".tour, .game-sheet-wrap, .modal-back, [role=\"alertdialog\"]"));
+    const hold = shouldHold(holdFacts());
     if (hold !== held) {
       held = hold;
-      if (hold) sideWatch.pause(); else if (!document.hidden) sideWatch.resume();
+      for (const w of [sideWatch, cardWatch]) { if (hold) w.pause(); else if (!document.hidden) w.resume(); }
       bar.classList.toggle("held", hold);
       if (!hold) startBar();
     }
+    if (!counting() || bar.hidden || sideOut) return;
     const st = barState(sideWatch.ms(), sideSeconds());
     for (const c of ["warn", "low", "out"]) bar.classList.toggle(c, st.step === c);
     if (st.step !== "out") return;
@@ -514,7 +536,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
   // The app hidden (another window in front, the phone showing another app): every clock stops.
   const onVisible = () => {
     const away = document.hidden;
-    for (const w of [cardWatch, sessionWatch, ...(held ? [] : [sideWatch])]) away ? w.pause() : w.resume();
+    for (const w of [sessionWatch, ...(held ? [] : [cardWatch, sideWatch])]) away ? w.pause() : w.resume();
     if (!away) startBar();  // (the countdown drawn again from where it really is)
     el.classList.toggle("away", away);
     if (!away) tick();

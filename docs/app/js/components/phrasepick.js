@@ -16,6 +16,10 @@
 // Which words a drag covers (in the text's order, across lines and sentences, at most PHRASE_MAX) is
 // worked out by ../phrase.js. (A phrase used to stop at the end of its line; the owner: "allow me to
 // highlight any section or sections together".)
+// Near the top or bottom edge of the box the words scroll in (or past it), a hold or a drag scrolls that box slowly
+// that way, faster the nearer the edge, and the phrase keeps growing to the word under the finger as the text moves,
+// also while the finger rests at the edge (the owner, 2026-11-25: "it should continue to scroll slowly up or down,
+// allowing the user to select a larger area"). It stops when the pointer leaves the edge or is lifted.
 
 import { buzz } from "../app.js";
 import { PHRASE_MAX, phraseRange } from "../phrase.js";
@@ -26,6 +30,32 @@ export const MENU_MS = 1000;      // from the press: holding on this long, witho
 const MOVE_PX = 10;    // touch: moving further than this before then is a scroll
 const MOUSE_PX = 4;    // mouse: how far it must move before a drag counts
 const QUIET_MS = 450;  // after a phrase: the click (and long-press menu) the browser may still send are ignored
+export const EDGE_PX = 48;    // how near the top or bottom of the words' box the pointer scrolls it (a quarter of a small box)
+export const EDGE_SPEED = 6;  // the most it scrolls in one frame (px), about 360 px a second: at the edge itself or past it
+
+/** How far to scroll in one frame for a pointer at `y` in a box from `top` to `bottom` (on screen): up (< 0) near the
+ *  top, down (> 0) near the bottom, 0 elsewhere. Faster the nearer the edge; full speed at it and beyond. Pure (tested). */
+export function edgeStep(y, top, bottom, zone = EDGE_PX, speed = EDGE_SPEED) {
+  if (!(bottom > top) || !Number.isFinite(y)) return 0;
+  const z = Math.max(1, Math.min(zone, (bottom - top) / 4));
+  const depth = y < top + z ? (top + z - y) / z : y > bottom - z ? (y - (bottom - z)) / z : 0;
+  if (depth <= 0) return 0;
+  const d = Math.min(1, depth);
+  const step = Math.max(1, Math.round(speed * d * d));
+  return y < top + z ? -step : step;
+}
+
+/** The box the words in `el` scroll in: `el` itself (a transcript, a page, a reel's lines) or the box right around it,
+ *  when it can scroll up and down; else null. (Never the page itself or something further out: captions over a video,
+ *  or a book's page, don't scroll, and dragging over them must not move the screen.) */
+function scrollerOf(el) {
+  for (const n of [el, el && el.parentElement]) {
+    if (!n || n === document.body || n === document.documentElement) continue;
+    const oy = getComputedStyle(n).overflowY;
+    if ((oy === "auto" || oy === "scroll") && n.scrollHeight > n.clientHeight + 1) return n;
+  }
+  return null;
+}
 
 /**
  * Let words in `root` be dragged across to look several up together.
@@ -38,6 +68,7 @@ const QUIET_MS = 450;  // after a phrase: the click (and long-press menu) the br
  *   blockOf?: (i: number) => any,   // which line or paragraph word i is in (no longer limits a phrase)
  *   elOf?: (i: number) => HTMLElement|null,  // word i's element in root (default: looked up)
  *   onStart?: () => void, onEnd?: () => void,  // a press on a word began / the gesture is over
+ *   onScroll?: () => void,  // the words were scrolled to reach more of them (a player then stops following the sound)
  *   max?: number,
  * }} opts
  * @returns {{ destroy: () => void, readonly busy: boolean }}
@@ -76,6 +107,7 @@ export function phrasePicker(root, opts) {
   function end() {
     if (!g) return;
     clearTimeout(g.timer);
+    if (g.raf) cancelAnimationFrame(g.raf);
     g = null;
     paint(null);
     root.classList.remove("phrase-picking");
@@ -90,6 +122,7 @@ export function phrasePicker(root, opts) {
   function startHold() {
     if (!g || g.phase !== "press") return;
     g.phase = "hold";
+    g.hx = g.lx; g.hy = g.ly; // (where the hold began: sliding on from here may scroll the words)
     g.range = [g.start, g.start];
     root.classList.add("phrase-picking");
     paint(g.range);
@@ -124,6 +157,42 @@ export function phrasePicker(root, opts) {
     }
   }
 
+  // ---------- scrolling at the edge ----------
+  /** The scrolling box's visible part on screen. */
+  function boxOf(sc) {
+    const r = sc.getBoundingClientRect();
+    return { top: Math.max(0, r.top), bottom: Math.min(window.innerHeight, r.bottom), left: Math.max(0, r.left), right: Math.min(window.innerWidth, r.right) };
+  }
+  /** One frame of scrolling while the pointer is at an edge; it asks for the next frame itself until it leaves. */
+  function edgeTick() {
+    if (!g) return;
+    g.raf = 0;
+    if (g.phase !== "hold" && g.phase !== "drag") return;
+    // A finger that rests on a word near the edge is holding it (for its menu): only a slide from there scrolls.
+    if (g.phase === "hold" && Math.hypot(g.lx - g.hx, g.ly - g.hy) <= MOVE_PX) return;
+    if (g.scroller === undefined) g.scroller = scrollerOf(root);
+    const sc = g.scroller;
+    if (!sc) return;
+    const box = boxOf(sc);
+    const step = edgeStep(g.ly, box.top, box.bottom);
+    if (!step) return;
+    const before = sc.scrollTop;
+    sc.scrollTop = before + step;
+    if (sc.scrollTop === before) return; // the end of the text: nothing more to scroll
+    clearTimeout(g.timer); // (no menu once the words have moved)
+    if (opts.onScroll) opts.onScroll();
+    // The word under the pointer now, looked for just inside the box when the pointer is past its edge.
+    extend(Math.min(box.right - 4, Math.max(box.left + 4, g.lx)), Math.min(box.bottom - 4, Math.max(box.top + 4, g.ly)));
+    if (!g) return;
+    // The phrase is as long as it can be (PHRASE_MAX words): scrolling on would only carry the text away from it.
+    const r = g.range;
+    if (r && r[1] - r[0] + 1 >= max && (step > 0 ? r[0] === g.start : r[1] === g.start)) return;
+    g.raf = requestAnimationFrame(edgeTick);
+  }
+  function edgeWatch() {
+    if (g && !g.raf && (g.phase === "hold" || g.phase === "drag")) g.raf = requestAnimationFrame(edgeTick);
+  }
+
   function onDown(e) {
     if (g) end();
     if (!e.isPrimary) return;
@@ -134,7 +203,7 @@ export function phrasePicker(root, opts) {
     const el = e.target && e.target.closest ? e.target.closest(".w") : null;
     if (!el || !root.contains(el) || el.dataset.i == null) return;
     g = { id: e.pointerId, touch, start: Number(el.dataset.i), el, x: e.clientX, y: e.clientY, lx: e.clientX, ly: e.clientY,
-          phase: "press", range: null, timer: 0 };
+          phase: "press", range: null, timer: 0, raf: 0, scroller: undefined, hx: e.clientX, hy: e.clientY };
     if (touch) g.timer = setTimeout(startHold, HOLD_MS);
     else if (opts.onHold) g.timer = setTimeout(startHold, MOUSE_HOLD_MS);
     window.addEventListener("pointermove", onMove, true);
@@ -157,6 +226,7 @@ export function phrasePicker(root, opts) {
     }
     extend(e.clientX, e.clientY);
     if (g && g.phase === "drag") clearTimeout(g.timer); // sliding on: no menu
+    edgeWatch(); // at the top or bottom edge: the words scroll on
   }
 
   function onUp(e) {

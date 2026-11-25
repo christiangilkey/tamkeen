@@ -441,7 +441,7 @@ body.rv-open { overflow: hidden; }
    and counts keep their room so nothing jumps when a number changes. */
 .goal-wrap { position: relative; margin: -4px 0 14px; }
 .goal-wrap[hidden] { display: none; }
-.goal-send { display: flex; align-items: center; gap: 6px; margin: 8px auto 0; font-size: 13px; }
+.goal-send { display: flex; align-items: center; justify-content: center; margin: 8px auto 0; }
 .goal-send[hidden] { display: none; }
 .goal {
   display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; padding: 12px 16px;
@@ -565,7 +565,7 @@ body.rv-open { overflow: hidden; }
 /* ---------- the long-term goal and the review calendar (review/longgoalview.js, review/heatmapview.js) ---------- */
 /* Two plain solid panels under the day's goal, centred, no shadow. Teal = what was done (the new-words
    colour of the day's goal), purple faded = cards that fall due on the days to come (the reviews colour). */
-.progress-block { display: flex; flex-direction: column; gap: 12px; margin: 0 0 18px; }
+.progress-block { display: flex; flex-direction: column; gap: 12px; margin: 14px 0 18px; }
 .progress-block[hidden] { display: none; }
 .lg { display: flex; justify-content: center; }
 .lg-set { display: flex; align-items: center; gap: 6px; font-size: 14px; }
@@ -599,7 +599,10 @@ body.rv-open { overflow: hidden; }
 .lg-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
 
 .hm { display: flex; flex-direction: column; gap: 8px; }
-.hm-head { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.hm-head { position: relative; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; }
+/* The day's "Send to Google Calendar / Tasks / Onyx" (review/goalbar.js), an icon at the head's end. */
+.hm-send { position: absolute; inset-inline-end: 0; top: 50%; transform: translateY(-50%); display: flex; }
+.hm-send .goal-send { margin: 0; width: 40px; height: 40px; color: var(--accent); }
 .hm-prev .ic, [dir="rtl"] .hm-next .ic { transform: scaleX(-1); }
 [dir="rtl"] .hm-prev .ic { transform: none; }
 .hm-year { margin: 0; min-width: 4ch; font-size: 15px; font-variant-numeric: tabular-nums; }

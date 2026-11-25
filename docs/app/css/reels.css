@@ -116,17 +116,20 @@
 .reel-words .seg-tr { font-size: .6em; line-height: 1.4; color: #c9c8c2; font-family: var(--ui-font); margin: .05em 0 .1em;
   user-select: none; -webkit-user-select: none; }
 .reel-pop { border-left: 1px solid #383838; padding: 0; display: flex; flex-direction: column; overflow: hidden; }
-/* The word popup is part of the bar here, not a floating card or a sheet. It fills its half of the
-   bar: the heading stays at the top and only the explanation under it scrolls. */
+/* The word popup is part of the bar here, not a floating card or a sheet. It fills its part of the bar, which is short
+   (under the two lines of words), so the whole of it scrolls as one card, heading and all (the owner, 2026-11-25: "just
+   have the entire pop-up card scrollable"); only its buttons strip stays, across the bar's bottom (below). A heading
+   held at the top as in the other popups (media.css) left too little room here on a small phone. */
 .reel-pop .word-bubble, .reel-pop .word-bubble.sheet {
   position: static !important; width: auto; max-width: none; height: auto; max-height: none; min-height: 0; flex: 1 1 auto;
-  display: flex; flex-direction: column; overflow: hidden;
+  display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain;
   border: 0; border-radius: 0; box-shadow: none; padding: 0; background: transparent; color: #f2f1ec; animation: none;
   visibility: visible !important;
 }
 .reel-pop .word-bubble[hidden] { display: none; }
-.reel-pop .word-bubble > .wb-head { flex: none; padding: 6px 10px 2px; }
+.reel-pop .word-bubble > .wb-head { flex: none; padding: 6px 10px 2px; position: static; box-shadow: none; }
 .reel-pop .wb-word { min-width: 0; overflow-wrap: anywhere; } /* a long word wraps instead of pushing ✕ off the edge */
+.reel-pop .wb-word.wb-phrase { font-size: 18px; } /* (a long selection: its two lines a little smaller in this short popup) */
 .reel-pop .word-bubble > .wb-fix { flex: none; margin: 0 0 6px; padding: 0 10px; } /* the purple "misheard" pill */
 .reel-pop .word-bubble > .wb-fix-why { flex: none; margin: 0 0 6px; padding: 0 10px; color: #b9b6ad; }
 /* Where reels play (the phones, the web app) the words are TWO lines across the top of the bar (the owner, 2026-11-23:
@@ -153,8 +156,7 @@
 /* What a lookup earned in the creature game: a line under the explanation, above the buttons strip
    (game/xpbadge.js; nothing floats over the reel's top line any more). */
 .reel-pop .word-bubble > .wb-xp { flex: none; margin: 4px 0 6px; padding: 0 10px; color: #b9b6ad; }
-.reel-pop .word-bubble > .wb-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch; padding: 0 10px 8px; }
+.reel-pop .word-bubble > .wb-body { flex: 1 0 auto; padding: 0 10px 8px; }
 /* The popup's buttons row (Word, Sentence, Continue, Save) does not scroll away. While a popup is
    open it is a strip across the whole bar, fixed at its bottom edge: directly above the controls. */
 .reel-bar { position: relative; }
@@ -163,6 +165,7 @@
   position: absolute; left: 0; right: 0; bottom: 0; height: var(--reel-actions, 44px); box-sizing: border-box; margin: 0;
   display: flex; flex-wrap: nowrap; align-items: center; gap: 6px; padding: 5px 8px;
   background: #1a1a1a; border-top: 1px solid #383838;
+  box-shadow: none; /* (not media.css's band under a popup's buttons: here it would lie over the reel's controls) */
 }
 .reel-pop .wb-actions button { flex: 1 1 0; min-width: 0; min-height: 32px; padding: 2px 4px; font-size: 12px; white-space: nowrap;
   overflow: hidden; text-overflow: ellipsis; }

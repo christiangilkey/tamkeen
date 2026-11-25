@@ -235,6 +235,11 @@ export function combine(mine, theirs) {
   const gymB = obj(b.gyms) || {};
   out.gyms = { ...gymA, beaten: Math.max(num(gymA.beaten), num(gymB.beaten)), wins: maxNumbers(gymA.wins, gymB.wins) };
 
+  // The battle party (battle.js partySeeds): the one chosen later. (Seeds of creatures not there are skipped on use.)
+  const partyA = obj(a.party);
+  const partyB = obj(b.party);
+  if (partyB && (!partyA || num(partyB.at) > num(partyA.at))) out.party = partyB;
+
   // Things owned or earned once: kept from both.
   for (const k of ["owned", "attacks", "badges", "tags"]) out[k] = union(a[k], b[k]);
   out.stats = maxNumbers(a.stats, b.stats);

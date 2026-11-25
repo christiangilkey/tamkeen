@@ -804,6 +804,7 @@ async function renderPlayer(view, { query }) {
     if (bubble.open && (clipEnd !== null || !playing) && inSight(el)) return;
     if (Date.now() - slidAt < 3000) return;
     if (cursor && cursor.on) return;  // the controller's highlight is out: the words stay with it
+    if (picker.busy) return;  // a hold or a drag is going on (and may be scrolling the words itself)
     keepInView(el);
   }
   /** Scroll the words so `el` (a word) is in view. Where reels play (the phones, the web app) the words show two lines
