@@ -372,3 +372,18 @@ test("the Class tab (v15): what arrives is checked, and the file keeps the rules
   assert.ok(friendsPage.includes('const SEGMENTS = withClass ? [...BASE_SEGMENTS, ["class", "Class"]] : BASE_SEGMENTS;'), "only DLI teachers and students get the Class part");
   assert.ok(app.includes('export const classTabShown = () => feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());'));
 });
+
+test("an invitation never waits or fails quietly (the owner, 2026-11-25: \"I added a student to my class and it didn't work\")", () => {
+  const app = readFileSync(new URL("../../web/js/dliclass.js", import.meta.url), "utf8");
+  // the student's app asks when Home opens, learns its role first on a device that doesn't know it, and says so with a way to open it
+  assert.ok(readFileSync(new URL("../../web/js/pages/home.js", import.meta.url), "utf8").includes("noticeInvites()"));
+  assert.ok(app.includes("if (!shareInfo() && !isTeacherHere()) await refresh();"));
+  assert.ok(/toast\(t\("You're invited to \{0\}", inv\.name\), \{ timeout: 12000, action: \{ label: t\("Open"\), run: \(\) => \(location\.hash = "#\/class"\) \} \}\);/.test(app));
+  // the Class part of Friends carries the number waiting
+  assert.ok(readFileSync(new URL("../../web/js/pages/friends.js", import.meta.url), "utf8").includes("class: withClass ? invitesCount() : 0"));
+  // the teacher is told what happened in words that stay on the screen, with what the online service said when it failed
+  const page = readFileSync(new URL("../../web/js/pages/class.js", import.meta.url), "utf8");
+  assert.ok(page.includes('const result = h(`<p class="small cls-result" role="status" hidden></p>`);'));
+  assert.ok(page.includes("{ error: true, detail: e.detail || \"\" }"));
+  assert.ok(app.includes("out.detail = [code, msg].filter(Boolean).join(\" \")"));
+});

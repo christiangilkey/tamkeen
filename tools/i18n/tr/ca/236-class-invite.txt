@@ -1,0 +1,3 @@
+# Inviting a student to a class: what the teacher is told (web/js/pages/class.js).
+cbed9ab2	{0} té la teva invitació. S'hi uneix quan premi Accepta a Amics → Classe; la seva app l'avisarà la propera vegada que s'obri.
+412bd828	Cap estudiant del DLI té el nom d'usuari {0}. Revisa com està escrit. Primer ha d'iniciar la sessió i acceptar compartir a Configuració → Estudiants del DLI; fins aleshores, dona-li el codi de classe.

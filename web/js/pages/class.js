@@ -185,24 +185,33 @@ export async function render(view) {
       }
     }
     const invite = codeBox({ label: t("A student's username"), placeholder: t("A student's username"), button: t("Invite"), go: async (name) => {
+      // What happened stays written under the box (a message that flashes by was easy to miss: the owner,
+      // 2026-11-25, "I added a student to my class and it didn't work"), and is said as well.
+      const say = (words, { error = false, detail = "" } = {}) => {
+        result.hidden = false;
+        result.classList.toggle("cls-bad", error);
+        result.textContent = detail ? `${words} (${detail})` : words;
+        toast(words, { error });
+        return !error;
+      };
       let r;
       try { r = await cls.inviteStudent(c.id, name); } catch (e) {
-        toast(e.notReady ? t("Inviting by username isn't switched on yet. Give the student the class code.") : e.message, { error: true });
-        return false;
+        return say(e.notReady ? t("Inviting by username isn't switched on yet. Give the student the class code.") : e.message, { error: true, detail: e.detail || "" });
       }
-      if (r.status === "invited") { toast(t("{0} is invited. They join when they press Accept in their Class tab.", r.username)); pending(); return true; }
-      if (r.status === "already") { toast(t("{0} is invited already.", r.username)); return true; }
-      if (r.status === "in_class") { toast(t("{0} is in this class already.", r.username)); return true; }
-      toast(r.status === "full" ? t("This class is full, or that student is in 10 classes already.")
+      if (r.status === "invited") { pending(); return say(t("{0} is invited. They join when they press Accept under Friends → Class; their app tells them when it next opens.", r.username)); }
+      if (r.status === "already") return say(t("{0} is invited already.", r.username));
+      if (r.status === "in_class") return say(t("{0} is in this class already.", r.username));
+      return say(r.status === "full" ? t("This class is full, or that student is in 10 classes already.")
         : r.status === "wait" ? t("Too many names that didn't work today. Try again tomorrow.")
-        : t("No DLI student has that username. They finish the sharing step under Settings → DLI students first."), { error: true });
-      return false;
+        : t("No DLI student has the username {0}. Check the spelling. They must first sign in and agree to share under Settings → DLI students; until then, give them the class code.", String(name).trim().replace(/^@/, "").slice(0, 20)),
+        { error: true });
     } });
+    const result = h(`<p class="small cls-result" role="status" hidden></p>`);
     const input = invite.querySelector("input");
     input.style.textTransform = "none"; // (a username, not a code)
     input.style.letterSpacing = "0";
     input.setAttribute("autocapitalize", "none");
-    el.append(row, h(`<h3>Invite a student</h3>`), invite, code, waiting);
+    el.append(row, h(`<h3>Invite a student</h3>`), invite, result, code, waiting);
     pending();
   }
 
@@ -328,6 +337,8 @@ if (typeof document !== "undefined" && !document.getElementById("cls-css")) {
     .cls-post-ico { display: inline-flex; color: var(--accent); flex: none; }
     .cls-post button { flex: none; }
     .cls-invite { text-align: center; }
+    .cls-result { margin: 0; }
+    .cls-result.cls-bad { color: var(--danger); }
   `;
   document.head.append(style);
 }

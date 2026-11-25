@@ -1,0 +1,3 @@
+# Inviting a student to a class: what the teacher is told (web/js/pages/class.js).
+cbed9ab2	{0} 님을 초대했어요. 학생이 친구 → 반에서 수락을 누르면 가입돼요. 학생의 앱이 다음에 열릴 때 초대를 알려 줘요.
+412bd828	사용자 이름이 {0}인 DLI 학생이 없어요. 철자를 확인하세요. 학생이 먼저 로그인하고 설정 → DLI 학생에서 공유에 동의해야 해요. 그때까지는 반 코드를 알려 주세요.

@@ -22,7 +22,7 @@ import { streakNow } from "../review/streak.js";
 import { firstVisitTour } from "../components/tour.js";
 import { moreButton } from "../components/safetyui.js";
 import { dropZone } from "../filedrop.js";
-import { classTabShown } from "../dliclass.js";
+import { classTabShown, invitesCount, noticeInvites } from "../dliclass.js";
 
 // Remembered between sessions, per device: which part is showing, and whether my profile is folded.
 const SEGMENT = "friends:segment";
@@ -72,6 +72,13 @@ export async function render(view, { tab = "" } = {}) {
   // and on every live update, and that must not throw away an invitation being typed.
   let classEl = null;
   let closeClass = null;
+  // (Asked once here too: a device that didn't know I am a DLI student learns it and shows the Class part; an
+  // invitation that is waiting gets its number on the Class button at the next redraw.)
+  noticeInvites().then((n) => {
+    if (disposed) return;
+    if (!withClass && classTabShown()) window.dispatchEvent(new HashChangeEvent("hashchange")); // (draw the page again, with Class)
+    else if (n && withClass) load();
+  }).catch(() => {});
   function showClass(pane) {
     if (!classEl) {
       classEl = h(`<div class="friends-class"></div>`);
@@ -262,7 +269,7 @@ export async function render(view, { tab = "" } = {}) {
     const moreAct = (user) => moreButton(user, () => ({ blocked: blockedIds.has(user.id), onChange: load }));
 
     // ----- the segmented control (with a count of what is waiting in each part) -----
-    const waiting = { feed: 0, friends: st.incoming.length, guilds: gs.invites.length };
+    const waiting = { feed: 0, friends: st.incoming.length, guilds: gs.invites.length, class: withClass ? invitesCount() : 0 };
     segBar.hidden = false;
     segBar.innerHTML = "";
     for (const [id, label] of SEGMENTS) {

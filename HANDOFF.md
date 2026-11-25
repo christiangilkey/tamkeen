@@ -9944,3 +9944,17 @@ both `app.js` route it to the Friends page with `tab: "class"`, so the Classroom
 "Open Class" links need no change. `pages/class.js` is drawn inside the part once (`showClass`) and kept across
 the Friends page's minute-by-minute redraws, so a username being typed is not lost. A signed-out or username-less
 person sees Friends' own sign-in card, not Class.
+
+## Class invitations: nothing waits or fails quietly (2026-11-25; "Teachers" chat)
+
+The owner: "I added a student to my class and it didn't work". Going through the path found no step that breaks,
+but three that were silent: (1) a student was never told of an invitation: it sat in Friends → Class until they
+looked; (2) a device where the student had not opened DLI settings didn't know it was a DLI student's, so it had no
+Class part at all; (3) the teacher's result was a message that flashed by. Now `dliclass.js` `noticeInvites()`
+(called by `pages/home.js` and `pages/friends.js`, at most every 5 minutes) first runs `refresh()` on a device that
+doesn't know its role, then asks `dli_my_invites` and shows "You're invited to …" with Open; the Class button in
+Friends carries the count. In `pages/class.js` the result of inviting stays written under the box (red when it
+failed, with the online service's own code and words in brackets: `problem()` keeps them in `detail`), and the
+"no such student" message names the username typed and says what the student must do first (sign in and agree to
+share under Settings → DLI students) or to use the class code. By design the database gives one answer for "no such
+user" and "not a DLI student who shares", so the app cannot say which. No SQL change.

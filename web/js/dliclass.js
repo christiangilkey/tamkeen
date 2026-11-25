@@ -18,7 +18,8 @@
 //   tamkeenDliTime, tamkeenDliDevice   this device's listening, watching and reading time (dlitime.js)
 // Being offline never closes the material: only signing out, or stopping sharing, does.
 
-import { api, state } from "./app.js";
+import { api, state, toast } from "./app.js";
+import { t } from "./i18n.js";
 import * as social from "./social.js";
 import { onlineStatus } from "./agegate.js";
 import { dliState } from "./dli.js";
@@ -118,6 +119,8 @@ function problem(error) {
     out.offline = true;
   } else if (/not signed in|jwt/i.test(msg)) out = new Error("Sign in first.");
   else out = new Error("That didn't work. Try again in a moment.");
+  // (what the online service really said: shown small under an invitation that failed, so it can be reported)
+  out.detail = [code, msg].filter(Boolean).join(" ").replace(/[<>]/g, "").slice(0, 160);
   return out;
 }
 
@@ -336,6 +339,39 @@ function keepRole(me) {
 }
 /** Does this device show the Classroom in the Library (prototype "classroom")? The same people as the Class tab. */
 export const classroomShown = () => feature("classroom") && serviceOn() && (!!shareInfo() || isTeacherHere());
+// ---------- invitations waiting for me: said out loud ----------
+// A teacher's invitation used to wait silently in Friends → Class until the student happened to look there
+// (found 2026-11-25: "I added a student to my class and it didn't work"). Now Home asks when it opens, and says so.
+let invitesAsked = 0;
+let invitesWaiting = 0;
+const toldInvites = new Set();
+/** How many invitations were waiting for me when last asked (the Friends page's Class part shows it). */
+export const invitesCount = () => invitesWaiting;
+/**
+ * Ask whether a class invitation is waiting for me, and say so with a way to open it. Safe to call often (Home
+ * does, each time it opens): at most every five minutes, only on a device where DLI classes are in use, never
+ * throws. It also brings this device's role up to date first, so a student who agreed to share on another device
+ * gets the Class part here too. Resolves to how many are waiting.
+ */
+export async function noticeInvites({ force = false } = {}) {
+  if (!feature("class_tab") || !serviceOn()) return 0;
+  if (!force && Date.now() - invitesAsked < 5 * 60000) return invitesWaiting;
+  invitesAsked = Date.now();
+  try {
+    if ((await sessionState()) !== "in") return 0;
+    if (!shareInfo() && !isTeacherHere()) await refresh(); // (this device doesn't know yet what I am)
+    if (!shareInfo()) { invitesWaiting = 0; return 0; }
+    const list = cleanInvites(await rpc("dli_my_invites"));
+    invitesWaiting = list.length;
+    for (const inv of list) {
+      if (toldInvites.has(inv.class)) continue;
+      toldInvites.add(inv.class);
+      toast(t("You're invited to {0}", inv.name), { timeout: 12000, action: { label: t("Open"), run: () => (location.hash = "#/class") } });
+    }
+    return list.length;
+  } catch { return invitesWaiting; }
+}
+
 /** Does this device show the Class part of the Friends page (pages/friends.js; prototype "class_tab")? A DLI
  *  student who shares, or a teacher, as the online service last said. */
 export const classTabShown = () => feature("class_tab") && serviceOn() && (!!shareInfo() || isTeacherHere());

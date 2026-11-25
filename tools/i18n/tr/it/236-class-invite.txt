@@ -1,0 +1,3 @@
+# Inviting a student to a class: what the teacher is told (web/js/pages/class.js).
+cbed9ab2	{0} ha ricevuto l'invito. Entra nella classe quando preme Accetta in Amici → Classe; la sua app glielo segnala alla prossima apertura.
+412bd828	Nessuno studente del DLI ha il nome utente {0}. Controlla come è scritto. Prima deve accedere e accettare la condivisione in Impostazioni → Studenti del DLI; fino ad allora, dagli il codice classe.
