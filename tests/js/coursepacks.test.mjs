@@ -166,7 +166,7 @@ test("the screens use the packs, every version has them, and the web app's servi
   assert.match(panel, /packs\(\)\.warm\(unit\.words, audioUrl\)/);
   assert.doesNotMatch(panel, /w\.audio/, "no word's own file asked for directly");
   assert.match(text("mobile/scripts/build-www.mjs"), /"js\/coursepacks\.js"/);
-  const web = text("webapp/build-web.mjs");
+  const web = text("webapp/sw.js"); // (the web app's service worker, copied into the build by build-web.mjs)
   assert.match(web, /if \(key !== CACHE && !key\.startsWith\("tamkeen-keep-"\)\) await caches\.delete\(key\);/);
   assert.ok(KEEP_CACHE.startsWith("tamkeen-keep-"));
   // The computer's server lets the packs through and keeps them (tests/test_course.py tries it).

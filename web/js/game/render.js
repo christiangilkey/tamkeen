@@ -6,7 +6,7 @@
 import { SLOTS, TYPES, beastById, canWear, eggCanWear, itemById } from "./data.js";
 import { FORM_KINDS, formFinish, formParticles, formPixels, formRows, formSweep, seedOf } from "./forms.js";
 
-const ART = new URL("../../game-art/", import.meta.url).href;
+export const ART = new URL("../../game-art/", import.meta.url).href;
 const images = new Map();   // file -> Promise<HTMLImageElement | null>
 
 // Pictures that fail to load are tried again: on a phone's network, or when a battle asks for hundreds at once, a
@@ -14,11 +14,52 @@ const images = new Map();   // file -> Promise<HTMLImageElement | null>
 // learntamkeen.com, "especially with battles"). Waits between the tries (ms); the last goes round any cached failure.
 export const RETRY_MS = [600, 2000, 6000];
 export const AT_ONCE = 12;      // pictures downloading at the same time (the rest wait their turn)
-export const FORGET_MS = 20000; // a picture that failed every try is asked for afresh after this long
+export const FORGET_MS = 20000; // a picture the server says is missing is asked for afresh after this long
+// A picture that failed for want of a network (the server never said it was missing) isn't given up on: it is asked
+// for again whenever the connection, the tab or the window comes back (healArt), and every PATIENCE.ms meanwhile, up
+// to PATIENCE.tries times. The owner, desktop Chrome on learntamkeen.com (2026-11-25): every picture new to the
+// Creatures screen failed at once (the element icons, the egg, two creatures' bodies) and stayed blank for good,
+// while those loaded before showed.
+export const PATIENCE = { ms: 15000, tries: 40 };
 let busy = 0;
 const waiting = [];
 const failedAt = new Map(); // file -> when it last failed every try
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+const fresh = (url) => `${url.replace(/[?&]retry=\d+$/, "")}?retry=${Date.now()}`;
+
+/** Is the picture at `url` really missing (the server answers 404 or 410)? False when the server couldn't be asked:
+ * then it is only late, and is asked for again. */
+export async function isMissing(url) {
+  try {
+    const res = await fetch(url.replace(/[?&]retry=\d+$/, ""), { method: "HEAD", cache: "no-store" });
+    return res.status === 404 || res.status === 410;
+  } catch {
+    return false;
+  }
+}
+
+let healWaiters = []; // loadImage rounds waiting for the network to come back
+const stuck = new Set(); // pictures in the page (<img>) waiting for the network to come back
+let stuckTimer = null;
+/** The next chance to ask again: the network, the tab or the window coming back (healArt), or PATIENCE.ms. */
+const healed = () => new Promise((resolve) => {
+  const done = () => { clearTimeout(timer); healWaiters = healWaiters.filter((f) => f !== done); resolve(); };
+  const timer = setTimeout(done, PATIENCE.ms);
+  healWaiters.push(done);
+});
+function askStuckAgain() {
+  for (const img of [...stuck]) {
+    stuck.delete(img);
+    if (img.isConnected && !(img.complete && img.naturalWidth)) img.src = fresh(img.src);
+  }
+  if (!stuck.size && stuckTimer) { clearInterval(stuckTimer); stuckTimer = null; }
+}
+/** Ask again, now, for every picture still waiting for the network (the browser is back online, the tab is shown
+ * again, the window has the focus). */
+export function healArt() {
+  for (const done of healWaiters) done();
+  askStuckAgain();
+}
 
 /** One download of a picture, waiting its turn so only AT_ONCE run at a time. Resolves to the image or null. */
 function fetchImage(src) {
@@ -40,8 +81,9 @@ function fetchImage(src) {
   });
 }
 
-/** A picture from game-art/ (cached: the same promise for the same file). Resolves to null only when every try
- * failed, so a missing file leaves a gap rather than breaking the scene; it is tried afresh FORGET_MS later. */
+/** A picture from game-art/ (cached: the same promise for the same file). Resolves to null only when the server
+ * says the file is missing (a gap rather than a broken scene; asked for afresh FORGET_MS later) or after
+ * PATIENCE.tries more tries for want of a network; until then the drawing waiting for it waits. */
 export function loadImage(file) {
   const failed = failedAt.get(file);
   if (images.has(file) && !(failed && Date.now() - failed > FORGET_MS)) return images.get(file);
@@ -52,6 +94,11 @@ export function loadImage(file) {
       const img = await fetchImage(ART + file + (i === RETRY_MS.length ? `?retry=${Date.now()}` : ""));
       if (img) return img;
     }
+    for (let round = 0; round < PATIENCE.tries && !(await isMissing(ART + file)); round++) {
+      await healed();
+      const img = await fetchImage(fresh(ART + file));
+      if (img) return img;
+    }
     failedAt.set(file, Date.now());
     return null;
   })();
@@ -59,18 +106,35 @@ export function loadImage(file) {
   return p;
 }
 
-// The small pictures written straight into the page (icon(), move buttons, shop items) get the same tries: a
-// picture from game-art/ that fails to load is set to load again after a wait, up to RETRY_MS.length times.
-if (typeof document !== "undefined") {
-  document.addEventListener("error", (e) => {
-    const img = e.target;
-    if (!(img instanceof HTMLImageElement) || !img.src.startsWith(ART)) return;
-    const n = Number(img.dataset.artRetry || 0);
-    if (n >= RETRY_MS.length) return;
+/** A picture from game-art/ written straight into the page (icon(), the egg, move buttons, shop items) failed to
+ * load: it is set to load again after RETRY_MS, then, unless the server says it is missing, whenever the network or
+ * the tab comes back and every PATIENCE.ms, up to PATIENCE.tries times. */
+export function artImageFailed(img) {
+  if (!img || !String(img.src || "").startsWith(ART)) return;
+  const n = Number(img.dataset.artRetry || 0);
+  if (n < RETRY_MS.length) {
     img.dataset.artRetry = String(n + 1);
-    const base = img.src.replace(/[?&]retry=\d+$/, "");
-    setTimeout(() => { if (img.isConnected) img.src = `${base}?retry=${Date.now()}`; }, RETRY_MS[n]);
-  }, true); // (error events don't bubble: caught on the way down)
+    setTimeout(() => { if (img.isConnected) img.src = fresh(img.src); }, RETRY_MS[n]);
+    return;
+  }
+  const rounds = Number(img.dataset.artRounds || 0);
+  if (rounds >= PATIENCE.tries) return;
+  img.dataset.artRounds = String(rounds + 1);
+  isMissing(img.src).then((gone) => {
+    if (gone) return;
+    stuck.add(img);
+    if (!stuckTimer) stuckTimer = setInterval(askStuckAgain, PATIENCE.ms);
+  });
+}
+
+if (typeof document !== "undefined") {
+  document.addEventListener("error", (e) => { if (e.target instanceof HTMLImageElement) artImageFailed(e.target); }, true); // (error events don't bubble: caught on the way down)
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") healArt(); });
+}
+if (typeof window !== "undefined" && typeof window.addEventListener === "function") {
+  window.addEventListener("online", healArt);
+  window.addEventListener("focus", healArt);
+  window.addEventListener("pageshow", healArt);
 }
 
 /** The HTML for a small pixel-art picture from game-art/: icon("coin"), or a path such as icon("ui/pip_on", 8).

@@ -10,7 +10,7 @@ test("the player gets a ./_drive/ address the helper streams, with the player's 
   const app = read("mobile/src/js/app.js");
   assert.match(app, /if \(navigator\.serviceWorker && navigator\.serviceWorker\.controller\) \{\s+await accessToken\(\);[^\n]*\n\s+return new URL\(`_drive\/\$\{encodeURIComponent\(id\)\}`, document\.baseURI\)\.href;/);
   assert.match(app, /e\.data\.tamkeen !== "drive-token"/, "the page hands the helper its Google sign-in");
-  const build = read("webapp/build-web.mjs");
+  const build = read("webapp/sw.js"); // (the service worker's code; build-web.mjs copies it into the build)
   assert.match(build, /const range = e\.request\.headers\.get\("Range"\);/);
   assert.match(build, /range \? \{ Range: range \} : \{\}/);
   assert.match(build, /if \(drive && e\.request\.method === "GET"\) \{ e\.respondWith\(fromDrive\(e, drive\[1\]\)\); return; \}/);
