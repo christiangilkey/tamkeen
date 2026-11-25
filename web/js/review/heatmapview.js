@@ -25,6 +25,7 @@ export function heatmap(root) {
       <button type="button" class="ghost icon hm-prev" aria-label="Previous year" title="Previous year">${icon("chevron", 18)}</button>
       <h3 class="hm-year"></h3>
       <button type="button" class="ghost icon hm-next" aria-label="Next year" title="Next year">${icon("chevron", 18)}</button>
+      <span class="hm-send"></span>
     </div>
     <div class="hm-scroll"><div class="hm-grid" tabindex="0" role="grid" aria-label="Reviews each day"></div></div>
     <p class="hm-day" role="status" aria-live="polite"></p>

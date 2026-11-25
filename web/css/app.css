@@ -2245,18 +2245,18 @@ button.trouble-btn { min-height: 0; padding: 3px 12px; font-size: 13px; font-wei
 .top-refresh + .top-help { margin-inline-start: 6px; }
 
 /* ---------- Vocab page: "Send to …" and "Add words" side by side under the goal (pages/vocab.js) ---------- */
-/* Two small text links in one centred row; the Send one gives way (its words end in "…") so the row
-   never breaks into two on a phone. */
-.vocab-actions { display: flex; align-items: center; justify-content: center; gap: 4px 14px; margin-top: 8px; min-width: 0; }
-.va-send { display: flex; min-width: 0; flex: 0 1 auto; }
-.va-send[hidden] { display: none; }
-.vocab-actions .goal-send { margin: 0; min-width: 0; max-width: 100%; }
-.vocab-actions .goal-send span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.va-add { flex: none; font-size: 13px; font-weight: 650; color: var(--accent); gap: 4px; }
-.va-add:hover:not(:disabled) { color: var(--accent); }
-/* Ask by voice (components/voiceask.js): the microphone beside Add words, and its box */
-.va-mic { flex: none; width: 38px; height: 38px; min-height: 38px; padding: 0; border-radius: 50%; display: grid; place-items: center; color: var(--accent); }
-.va-mic:hover:not(:disabled) { color: var(--accent); }
+/* Two clear buttons side by side, each with its own label (the owner, 2026-11-25: "add words and tap to speak should
+   be more obvious and distinct"): Add words in solid teal, Ask by voice (components/voiceask.js) a plain panel with a
+   teal microphone. Plain solid surfaces, no shadow. */
+.vocab-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.va-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; min-height: 48px; padding: 0 12px;
+  border-radius: 14px; font-size: 15px; font-weight: 650; }
+.va-btn span { min-width: 0; white-space: normal; text-align: center; line-height: 1.2; overflow-wrap: anywhere; }  /* (a long translation wraps, never cut) */
+.va-btn .ic { flex: none; }
+.va-add, .va-add:hover:not(:disabled) { background: var(--accent); border: 1px solid var(--accent); color: var(--accent-ink); }
+.va-mic { background: var(--surface); border: 1px solid var(--border); color: var(--text); }
+.va-mic:hover:not(:disabled) { background: var(--surface); border-color: var(--muted); color: var(--text); }
+.va-mic .ic { color: var(--accent); }
 .vq-box { max-width: 460px; }
 .vq { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
 .vq-mic { position: relative; width: 84px; height: 84px; min-height: 84px; padding: 0; border: none; border-radius: 50%; display: grid; place-items: center;

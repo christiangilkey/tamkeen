@@ -25,8 +25,8 @@ const FROM = {
   guess: "a first guess until you have reviewed a few more",
 };
 
-/** Draw the bar into `root` (an empty element). `sendSlot` (optional): where the "Send to …" link goes
- * instead of under the bar (the Vocab page puts it in a row with its "Add words" button). Returns
+/** Draw the bar into `root` (an empty element). `sendSlot` (optional): where the "Send to …" button goes
+ * instead of under the bar (the Vocab page puts it, as an icon, in the review calendar's head). Returns
  * {update(words, log), close()}. */
 export function goalBar(root, { sendSlot = null } = {}) {
   root.classList.add("goal-wrap");
@@ -36,7 +36,7 @@ export function goalBar(root, { sendSlot = null } = {}) {
       <span class="goal-counts"><span class="goal-key new">New <b></b></span><span class="goal-key rev">Reviews <b></b></span></span>
       <span class="goal-time"></span>
     </button>
-    <button type="button" class="ghost goal-send" hidden>${icon("send", 15)} <span></span></button>
+    <button type="button" class="ghost icon goal-send" hidden></button>
     <div class="goal-pop" role="dialog" aria-label="Today's goal" hidden>
       <h3>${icon("target", 18)} New words a day</h3>
       <div class="goal-chips">${NEW_CHOICES.map((n) => `<button type="button" data-n="${n}">${n}</button>`).join("")}</div>
@@ -75,7 +75,10 @@ export function goalBar(root, { sendSlot = null } = {}) {
       : t.newDone + t.revDone ? "All done for today" : "Nothing due today";
     plan = left.ms ? reviewTask(t, left) : null;
     send.hidden = !plan;
-    send.querySelector("span").textContent = `Send to ${TARGET_NAMES[taskTarget()]}`;
+    // An icon only (a calendar for Google Calendar, the send arrow for a to-do list), named in full for a screen
+    // reader and on hover.
+    send.innerHTML = icon(taskTarget() === "calendar" ? "calendar" : "send", 20);
+    send.setAttribute("aria-label", `Send to ${TARGET_NAMES[taskTarget()]}`);
     send.title = !plan ? "" : taskTarget() === "calendar"
       ? `Add “${plan.title}” to Google Calendar today, at a time you choose (choose where in Settings)`
       : `Add “${plan.title}” to ${TARGET_NAMES[taskTarget()]} for today (choose where in Settings)`;
