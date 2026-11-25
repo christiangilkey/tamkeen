@@ -34,6 +34,8 @@ import { aquariumView, drawTinyFish } from "./aquarium.js";
 import { TANK_SIZE } from "./fishdata.js";
 import { TIERS } from "./loot.js";
 import { TANK_X } from "./homecard.js";
+import { feature } from "../prototype.js";
+import { ROOM, YARD_DOOR, blockedCells, clampToFloor, depthScale, findPath, isIndoor, roomLayout, savedView, saveView, tapIn } from "./room.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -385,12 +387,14 @@ export function habitat() {
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
   files.tank = "fish/tank.png";
+  files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png"; // (prototype "habitat_room")
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
   const plotArt = {}; // building picture by file name
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
 
   const pet = { x: W / 2, dir: 1, target: W / 2, wait: 2, mood: "", moodT: 0, hop: 0, emote: "", emoteT: 0, idleT: 6,
-                walkMs: 0, fly: false, air: 0, stand: 0 }; // (walkMs: how far its walk or wing beat has got; fly: this trip is flown; air: 0 on the ground .. 1 up; stand: 0 lying .. 1 up, for one that gets up to walk)
+                walkMs: 0, fly: false, air: 0, stand: 0, // (walkMs: how far its walk or wing beat has got; fly: this trip is flown; air: 0 on the ground .. 1 up; stand: 0 lying .. 1 up, for one that gets up to walk)
+                y: 120, path: [], after: null, moving: false, leaving: 0 }; // (the room, prototype "habitat_room": its feet's depth, the way it is walking, what it does on arriving: "out" or "in")
   const FLY_UP = 9; // about how high its fly frames hold it (anim.py `lift`): it rises to that and sinks back from it
   const canFly = (look) => { const f = drawingOf(look); return !!(f.anims && f.anims.fly); };
   // A creature that rests lying down (the forest stag) gets up before it walks and lies back down when it stops: its
@@ -400,6 +404,62 @@ export function habitat() {
   // It rains on about one day in four (the same days for everyone, so it is weather and not a glitch).
   const rainy = () => { const d = new Date(); return (d.getDate() * 7 + d.getMonth()) % 4 === 0; };
   const decorArt = {}; // decoration id -> image
+  // The room (prototype "habitat_room", room.js): the habitat window is the creature's room, and its door leads out to
+  // the outdoor scene (the village to come). `view` is which side of the door it is on (this device only).
+  const roomOn = () => feature("habitat_room");
+  let view = savedView();
+  const inRoom = () => roomOn() && view === "room";
+  let doorT = 0; // how long the door stays open (it opens as the creature goes through)
+  const furniture = () => roomLayout(game.decor);
+  const blocked = () => blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32);
+  /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
+  const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : HABITAT.ground);
+  /** Walk to a spot in the room, round the furniture; `after`: "out" goes through the door on arriving. */
+  function walkTo(spot, after = null) {
+    pet.path = findPath({ x: pet.x, y: pet.y }, spot, blocked());
+    pet.after = after;
+    pet.moodT = Math.max(pet.moodT, 4); // (a tap wakes it: it was asked to come)
+  }
+  function goThrough(to) {
+    view = to;
+    saveView(to);
+    doorT = 0.7;
+    pet.path = [];
+    pet.after = null;
+    if (to === "yard") { pet.x = YARD_DOOR.x; pet.target = YARD_DOOR.x + 46; pet.dir = 1; pet.wait = 0; }
+    else { pet.x = ROOM.doorSpot.x; pet.y = ROOM.doorSpot.y; walkTo({ x: ROOM.doorSpot.x - 50, y: 116 }); }
+  }
+  /** One step of walking in the room: along its way, or (with nowhere to go) a wander now and then. */
+  function roomWalk(dt, look, asleep) {
+    pet.moving = false;
+    if (look.stage === "egg") return;
+    if (pet.leaving > 0) { if ((pet.leaving -= dt) <= 0) goThrough("yard"); return; }
+    if (pet.path.length) {
+      const rise = riseMs(look);
+      if (rise && pet.stand < 1) { pet.stand = Math.min(1, pet.stand + (dt * 1000) / rise); return; } // (getting up first)
+      const p = pet.path[0];
+      const dx = p.x - pet.x, dy = p.y - pet.y, d = Math.hypot(dx, dy);
+      if (d < 0.8) {
+        pet.path.shift();
+        if (!pet.path.length) {
+          pet.wait = 2 + Math.random() * 5;
+          if (pet.after === "out") { pet.after = null; doorT = 0.9; pet.leaving = 0.45; }
+        }
+        return;
+      }
+      const step = Math.min(d, (look.size === "s" ? 15 : 22) * dt);
+      pet.x += (dx / d) * step;
+      pet.y += (dy / d) * step;
+      if (Math.abs(dx) > 0.4) pet.dir = dx > 0 ? 1 : -1;
+      pet.walkMs += dt * 1000;
+      pet.moving = true;
+      return;
+    }
+    if (asleep) return;
+    if (pet.wait > 0) { pet.wait -= dt; return; }
+    const w = ROOM.walk;
+    pet.path = findPath({ x: pet.x, y: pet.y }, { x: w.x0 + Math.random() * (w.x1 - w.x0), y: w.y0 + Math.random() * (w.y1 - w.y0) }, blocked());
+  }
   const foodArt = {}; // food id -> image (a hungry creature's thought bubble)
   const bursts = [];   // {id, x, y, t}
   const floats = [];   // {img, x, y, t}
@@ -434,7 +494,7 @@ export function habitat() {
     const top = look.stage === "egg" ? 36 : beastHeight(look) - 4;
     const x = look.stage === "egg" ? W / 2 : pet.x;
     say.style.left = `${(Math.max(sayHalf + 2, Math.min(W - sayHalf - 2, x)) / W) * 100}%`;
-    say.style.bottom = `${(Math.min(H - sayTall - 2, H - HABITAT.ground + top + pet.hop) / H) * 100}%`;
+    say.style.bottom = `${(Math.min(H - sayTall - 2, H - feetNow() + top + pet.hop) / H) * 100}%`;
   }
   async function sayWord() {
     if (vocab === null) await vocabReady;
@@ -537,9 +597,11 @@ export function habitat() {
     const hour = new Date().getHours() + new Date().getMinutes() / 60;
     const night = hour < 6 || hour >= 20;
     const asleep = night && !pet.moodT;
-    // Wander: walk to a spot, wait, pick another. Eggs just wobble.
-    if (look.stage !== "egg" && !asleep) {
-      if (pet.wait > 0) pet.wait -= dt;
+    // Wander: walk to a spot, wait, pick another. Eggs just wobble. (In the room it walks round the furniture.)
+    if (inRoom()) roomWalk(dt, look, asleep);
+    else if (look.stage !== "egg" && (!asleep || pet.after)) {
+      if (pet.after === "in" && Math.abs(pet.target - pet.x) < 1) goThrough("room"); // (at the house's door: in it goes)
+      else if (pet.wait > 0) pet.wait -= dt;
       else if (Math.abs(pet.target - pet.x) < 1) {
         pet.wait = 1.5 + Math.random() * 4;
         pet.target = 40 + Math.random() * (W - 80);
@@ -583,17 +645,26 @@ export function habitat() {
     if (orb) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
     if (art.cloud1) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
     if (art.cloud2) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
-    for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
+    // (in the room only the far view shows, through the window and the doorway, then the room over it)
+    for (const layer of inRoom() ? ["far", "mid"] : ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
     if (art.rain && rainy()) {
       const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
       for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
     }
     if (dark) { ctx.fillStyle = `rgba(20, 12, 48, ${dark})`; ctx.fillRect(0, 0, W, H); }
+    if (doorT > 0) doorT -= dt;
+    if (inRoom() && art.room) {
+      ctx.drawImage(art.room, 0, 0);
+      const open = doorT > 0 || (pet.after === "out" && Math.hypot(pet.x - ROOM.doorSpot.x, pet.y - ROOM.doorSpot.y) < 26);
+      const leaf = open ? art.doorOpen : art.door;
+      if (leaf) ctx.drawImage(leaf, ROOM.door.x0, ROOM.door.y0);
+      if (dark) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.45})`; ctx.fillRect(0, 0, W, H); } // (indoors, lamps: less dark)
+    }
 
     const groundY = HABITAT.ground;
     const sparkle = Math.floor(now / 170) % FX_FRAMES.ready; // the "ready" twinkle over things to collect
-    // Decorations stand on the ground, behind the creature.
-    for (const d of game.decor) {
+    // Decorations stand on the ground, behind the creature. (With the room, only the outdoor ones, and not indoors.)
+    for (const d of inRoom() ? [] : roomOn() ? game.decor.filter((x) => !isIndoor(x.id)) : game.decor) {
       if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
       const img = decorArt[d.id];
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), groundY - img.height + 2);
@@ -604,7 +675,7 @@ export function habitat() {
     const glowing = [];
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
-      if (!p.open) continue;
+      if (!p.open || inRoom()) continue; // (the garden is outside the room)
       const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
       if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
       const img = plotArt[file];
@@ -625,13 +696,14 @@ export function habitat() {
       if (art.glowIcon) ctx.drawImage(art.glowIcon, PLOTS[b.i].x - 8, b.y - 14 + Math.round(Math.sin(now / 300 + b.i) * 2));
     }
     // The aquarium stands between two plots once a fish has been caught, the fish kept in it swimming (very small).
-    if (art.tank && fishingOf(game).caught > 0) {
+    if (art.tank && fishingOf(game).caught > 0 && !inRoom()) {
       const tx = TANK_X - art.tank.width / 2, ty = groundY - art.tank.height + 2;
       ctx.drawImage(art.tank, tx, ty);
       drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
     }
     // A friend's gift and an egg from the incubator wait on the ground, between the plots.
     for (const th of things) {
+      if (inRoom()) break; // (they wait outside the room)
       if (th.kind === "gift" && art.gift) {
         const jump = Math.floor(now / 1400) % 2 ? 0 : Math.round(Math.abs(Math.sin(now / 120)) * 3); // a little hop now and then
         ctx.drawImage(art.gift, th.x - 8, groundY - 15 - jump);
@@ -651,14 +723,27 @@ export function habitat() {
       }
     }
 
+    // Outside, with the room: the house's door by the left edge (tap it: the creature goes in).
+    if (roomOn() && !inRoom() && art.door) ctx.drawImage(doorT > 0 && art.doorOpen ? art.doorOpen : art.door, YARD_DOOR.x - YARD_DOOR.w / 2, groundY - YARD_DOOR.h + 2);
+    // The room's furniture: what stands behind the creature now, then (after it) what stands in front.
+    const feet = feetNow();
+    const pieces = inRoom() ? furniture() : [];
+    const drawPiece = (d) => {
+      if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
+      const img = decorArt[d.id];
+      if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), Math.round(d.y - img.height + 2));
+    };
+    for (const d of pieces) if (d.y <= feet) drawPiece(d);
+    const scale = inRoom() ? depthScale(feet) : 1;
+
     // The goal ring round the creature's feet: its back half behind the creature, its front half in front.
-    const cx = look.stage === "egg" ? W / 2 : pet.x;
+    const cx = look.stage === "egg" ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x;
     const ring = goalRing(game);
     ringShown += (ring.frac - ringShown) * Math.min(1, dt * 3);
     if (Math.abs(ring.frac - ringShown) < 0.002) ringShown = ring.frac;
     const ringPic = ringArt(ringShown, ring.done && ringShown >= 0.999);
     const rx0 = Math.round(cx) - RING.rx - 1;
-    const ry0 = groundY + RING.dy - RING.ry - 1;
+    const ry0 = feet + RING.dy - RING.ry - 1;
     ctx.drawImage(ringPic.back, rx0, ry0);
 
     if (look.stage === "egg") {
@@ -667,18 +752,18 @@ export function habitat() {
       const wobble = Math.sin(now / (near ? 90 : 260)) * (pet.mood ? 3 : near ? 2 : 1);
       if (egg) {
         ctx.save();
-        ctx.translate(Math.round(W / 2 + wobble), groundY);
+        ctx.translate(Math.round(cx + wobble), feet);
         ctx.drawImage(egg, -egg.width / 2, -egg.height - Math.round(pet.hop)); // (a dressed egg is bigger: hat and wings)
         // Cracks spread as the egg nears hatching.
         const n = Math.min(2, Math.floor((game.creature.growth / STAGES[1].from) * 4) - 1);
         if (n >= 0 && cracks[n]) ctx.drawImage(cracks[n], -16, -32 - Math.round(pet.hop));
         ctx.restore();
-        if (near && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, W / 2, groundY - 18);
+        if (near && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet - 18);
       }
     } else {
       // Its frame: flying (taking off and landing too), walking, or still (breathing, now and then a blink;
       // slower asleep).
-      const moving = pet.wait <= 0 && !asleep && Math.abs(pet.target - pet.x) >= 1;
+      const moving = inRoom() ? pet.moving : pet.wait <= 0 && (!asleep || pet.after) && Math.abs(pet.target - pet.x) >= 1;
       const rise = drawingOf(look).anims.rise;
       const pose = pet.air > 0 ? animAt(look, "fly", pet.walkMs)
         : rise && pet.stand > 0 && pet.stand < 1 ? { anim: "rise", frame: Math.min(rise.frames - 1, Math.floor(pet.stand * rise.frames)), eyes: "open" }
@@ -690,16 +775,17 @@ export function habitat() {
       const sink = pose.anim === "fly" ? Math.round((1 - pet.air) * FLY_UP) : 0; // (its fly frames hold it up: from the ground at take-off)
       const body = pet.x - pet.dir * 3; // the body sits 3px behind the middle of its frame (the head leans forward)
       const shadow = art.shadow_m; // (the creatures are all one size now)
-      if (frame && shadow) ctx.drawImage(shadow, Math.round(body - shadow.width / 2), groundY - Math.floor(shadow.height / 2)); // stays on the ground through a hop
+      if (frame && shadow) ctx.drawImage(shadow, Math.round(body - shadow.width / 2), feet - Math.floor(shadow.height / 2)); // stays on the ground through a hop
       if (frame) {
         ctx.save();
-        ctx.translate(Math.round(pet.x), groundY - Math.round(pet.hop) + sink);
+        ctx.translate(Math.round(pet.x), feet - Math.round(pet.hop) + sink);
         if (pet.dir < 0) ctx.scale(-1, 1);
+        if (scale !== 1) ctx.scale(scale, scale); // (smaller at the back of the room)
         drawLiving(ctx, frame, look, now); // (as drawImage(frame, -FRAME / 2, -FRAME), with a colouring's particles)
         ctx.restore();
       }
       // (higher while it stands up to walk; a flight rises by its own reckoning: FLY_UP)
-      const top = groundY - beastHeight(look, pose.anim === "fly" ? null : pose.anim) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
+      const top = feet - Math.round(beastHeight(look, pose.anim === "fly" ? null : pose.anim) * scale) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), top);
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), top + 4 - (Math.floor(now / 300) % 3));
@@ -726,9 +812,10 @@ export function habitat() {
       }
     }
     ctx.drawImage(ringPic.front, rx0, ry0);
-    if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, groundY + 2);
+    for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
+    if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
-    const at = `${((cx / W) * 100).toFixed(2)}|${(((groundY + RING.dy + 6) / H) * 100).toFixed(2)}`;
+    const at = `${((cx / W) * 100).toFixed(2)}|${(((feet + RING.dy + 6) / H) * 100).toFixed(2)}`;
     if (at !== labelAt) {
       labelAt = at;
       const [lx, ly] = at.split("|");
@@ -776,8 +863,8 @@ export function habitat() {
   function cheer(kind) {
     pet.mood = "happy";
     pet.moodT = kind === "jackpot" ? 3 : 1.4;
-    const y = HABITAT.ground - (isEgg() ? 36 : 50);
-    const x = isEgg() ? W / 2 : pet.x;
+    const y = feetNow() - (isEgg() ? 36 : 50);
+    const x = isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x;
     const img = kind === "pet" ? art.heart : art.star;
     for (let i = 0; i < (kind === "jackpot" ? 6 : 3); i++) floats.push({ img, x: x - 12 + Math.random() * 24, y: y + Math.random() * 10, t: -i * 0.12 });
     if (kind === "jackpot") bursts.push({ id: "burst_jackpot", x, y: y + 16, t: 0 });
@@ -818,13 +905,19 @@ export function habitat() {
   // Pressed rather than tapped (Enter or Space on the keyboard, A on a game controller, which come with no
   // place on the picture): the creature itself is tapped.
   canvas.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); canvas.click(); }
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); canvas.click(); return; }
+    // Arrow keys (and a controller's stick or pad, which arrive as them) walk it, with the room (prototype "habitat_room").
+    const step = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key];
+    if (!step || !roomOn() || isEgg()) return;
+    e.preventDefault();
+    if (inRoom()) walkTo(clampToFloor({ x: pet.x + step[0] * 26, y: pet.y + step[1] * 12 }));
+    else if (step[0]) { pet.target = Math.max(YARD_DOOR.x, Math.min(W - 30, pet.x + step[0] * 30)); pet.wait = 0; pet.after = pet.target === YARD_DOOR.x && step[0] < 0 ? "in" : null; }
   });
   const scenePoint = (e) => {
     const r = canvas.getBoundingClientRect();
     return { x: ((e.clientX - r.left) / r.width) * W, y: ((e.clientY - r.top) / r.height) * H };
   };
-  const onCreature = (x, y) => Math.abs(x - (isEgg() ? W / 2 : pet.x)) < 30 && y <= HABITAT.ground + 2;
+  const onCreature = (x, y) => Math.abs(x - (isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x)) < 30 && y <= feetNow() + 2 && (!inRoom() || y >= feetNow() - 70);
   // Held on the creature: how it grows (the evolution page).
   let holdTimer = 0;
   let heldDown = false;
@@ -840,21 +933,31 @@ export function habitat() {
   canvas.addEventListener("click", (e) => {
     if (heldDown) { heldDown = false; return; }
     const pressed = e.detail === 0 && !e.clientX && !e.clientY;
-    const p = pressed ? { x: isEgg() ? W / 2 : pet.x, y: 0 } : scenePoint(e);
+    const p = pressed ? { x: isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x, y: 0 } : scenePoint(e);
     const { x, y } = p;
-    const cx = isEgg() ? W / 2 : pet.x;
+    const cx = isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x;
     // The ring's front, below the feet: the goal.
-    const ry = (y - (HABITAT.ground + RING.dy)) / RING.ry;
-    if (!pressed && y > HABITAT.ground + 2 && ((x - cx) / RING.rx) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    const ry = (y - (feetNow() + RING.dy)) / RING.ry;
+    if (!pressed && y > feetNow() + 2 && ((x - cx) / RING.rx) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    // The room (prototype "habitat_room"): a tap on the floor walks it there, on the door takes it out; on it, a pet.
+    if (inRoom() && !pressed && !onCreature(x, y)) {
+      if (!isEgg()) { const where = tapIn(x, y); walkTo(where === "door" ? ROOM.doorSpot : { x, y: where === "floor" ? y : ROOM.walk.y0 }, where === "door" ? "out" : null); }
+      return;
+    }
+    // Outside, the house's door: it walks there and goes in.
+    if (roomOn() && !inRoom() && !pressed && !isEgg() && Math.abs(x - YARD_DOOR.x) < YARD_DOOR.w / 2 && y > HABITAT.ground - YARD_DOOR.h) {
+      pet.target = YARD_DOOR.x; pet.wait = 0; pet.after = "in"; pet.moodT = Math.max(pet.moodT, 4);
+      return;
+    }
     // A gift or an egg on the ground.
-    const th = !pressed && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > HABITAT.ground - 34 && y < HABITAT.ground + 6);
+    const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > HABITAT.ground - 34 && y < HABITAT.ground + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
     if (th && th.kind === "egg") { if (th.ready) hatchAway(th); else go("creatures"); return; }
     // The aquarium: your basket and the fish you keep.
-    if (!pressed && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
+    if (!pressed && !inRoom() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
-    const hit = pressed ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);
+    const hit = pressed || inRoom() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);
     if (hit >= 0 && plots[hit].stored >= 1) {
       collect(game, hit);
       for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: HABITAT.ground - 40 + Math.random() * 8, t: -i * 0.1 });
@@ -872,7 +975,7 @@ export function habitat() {
       sayWord();
       showAbout();
     }
-    else if (!isEgg()) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; } // "come here"
+    else if (!isEgg()) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; pet.after = null; } // "come here"
   });
 
   const stop = onGame((result) => {

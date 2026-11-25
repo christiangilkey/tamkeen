@@ -43,6 +43,7 @@ export const PROTOTYPES = {
   fish_guardians: { name: "Fishing: a pond guardian's own moment (its shadow glows, sparkles and a big reveal when caught, a glow in the aquarium, a mark in the Fishdex)", released: false, since: "2026-11-25" },
   legend_feast: { name: "Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better", released: false, since: "2026-11-25" },
   goal_rate: { name: "Long-term goal set per day, week or month (\"20 new words a day\"), worked out over the goal's time; shown again as typed, and scaled when the time changes", released: false, since: "2026-11-25" },
+  habitat_room: { name: "The habitat is the creature's room: tap the floor and it walks there (round the furniture), indoor decorations inside, its door out to the garden and outdoor decorations", released: false, since: "2026-11-25" },
   hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: false, since: "2026-11-25" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
