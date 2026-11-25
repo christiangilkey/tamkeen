@@ -3,6 +3,8 @@
 // Drawing only: which fish are in it is fishing.js (state.fishing.tank).
 
 import { SPRITE, fishSprite } from "./fishart.js";
+import { fishById, pondById } from "./fishdata.js";
+import { feature } from "../prototype.js";
 
 const WATER = ["#0b2440", "#0f3558", "#3fb6d8"]; // deep, middle, the surface line
 const SAND = ["#8a7350", "#6b5638"];
@@ -29,6 +31,8 @@ export function aquariumView(fish, { w = 160, h = 64, scale = 2 } = {}) {
     dir: scatter(i, 3) < 0.5 ? -1 : 1, speed: 5 + scatter(i, 4) * 8, phase: scatter(i, 5) * 6, pause: 0,
   }));
   for (const s of list) fishSprite(s.f.sp, s.f.t).then((img) => { s.sprite = img; });
+  // A pond guardian stands out: a soft light round it in its pond's colour, and little lights that follow it.
+  if (feature("fish_guardians")) for (const s of list) { const k = fishById(s.f.sp); if (k && k.guardian) s.glow = pondById(k.pond).water[3]; }
   let seen = false;
   let last = performance.now();
   function frame(now) {
@@ -67,6 +71,23 @@ export function aquariumView(fish, { w = 160, h = 64, scale = 2 } = {}) {
       }
       if (!s.sprite) continue;
       const y = Math.round(s.y + Math.sin(now / 700 + s.phase) * 2);
+      if (s.glow) {
+        const cx = Math.round(s.x) + SPRITE[0] / 2, cy = y + SPRITE[1] / 2;
+        ctx.fillStyle = s.glow;
+        for (const [rx, ry, a] of [[17, 12, 0.1], [14, 10, 0.12], [11, 8, 0.14]]) {
+          ctx.globalAlpha = a * (0.75 + 0.25 * Math.sin(now / 450 + s.phase));
+          for (let dy = -ry; dy <= ry; dy++) {
+            const half = Math.round(rx * Math.sqrt(1 - (dy / ry) ** 2));
+            ctx.fillRect(Math.round(cx - half), Math.round(cy + dy), half * 2, 1);
+          }
+        }
+        for (let i = 0; i < 5; i++) {
+          const a = now / 600 + i * 1.26 + s.phase;
+          ctx.globalAlpha = 0.5 + 0.5 * Math.sin(now / 150 + i * 2);
+          ctx.fillRect(Math.round(cx + Math.cos(a) * 16), Math.round(cy + Math.sin(a * 1.3) * 10), 1, 1);
+        }
+        ctx.globalAlpha = 1;
+      }
       ctx.save();
       ctx.translate(Math.round(s.x) + (s.dir < 0 ? SPRITE[0] : 0), y);
       if (s.dir < 0) ctx.scale(-1, 1);

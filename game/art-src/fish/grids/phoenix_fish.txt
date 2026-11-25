@@ -1,0 +1,26 @@
+# Phoenix fish (Hot spring, guardian): a graceful golden fish with a raised three-feather wing fin, a red flame crest, a small beak, and two long red-orange tail plumes that sweep back to glowing feather-eye tips like a phoenix tail
+K #1b1420
+R #d9342b
+o #ff6a1e
+n #ffb35c
+y #ffd24a
+g #e39a22
+w #fff4d6
+h #ffffff
+--
+........K...............
+.KK....KyK..K...........
+KyyK...KnyKKyK.K....K...
+nwyoKK..KonKonKnK..KoK..
+onooooK..KonKonKnK.KRoK.
+KKRRRooK..KoRooRooKKRoK.
+..KKKRRoKKKKKKKKKKKKKK..
+.....KRRooKKKyyyyyyyyK..
+......KKRRoKyyywygyKhyK.
+.......KRRRKyywwygyyyynK
+......KKooRKgyynngyyyKK.
+....KKooRRK.KggyyyygKK..
+.KKKooRRKK...KKKKKKK....
+KnwyoRKK................
+KonoKK..................
+.KKK....................

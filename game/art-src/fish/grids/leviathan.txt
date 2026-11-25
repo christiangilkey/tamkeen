@@ -1,0 +1,28 @@
+# Tide leviathan (Neon lagoon, guardian): a sea dragon bust with one thick arching coil, two golden horns, ear fin, spiked sail, fanged jaw, pale segmented belly with neon cyan lights
+K #1b1420
+d #12506a
+m #1f8a96
+l #4fd9c0
+w #d6f7ee
+s #8fd6cf
+n #5ce1ff
+v #7a5cf0
+y #ffd86b
+h #ffffff
+--
+.....K.K.K...KK..K......
+....KnKnKnK.KyyKKyK.....
+....KvvvvvK.KKKyKKyKKK..
+....KdddddKKnvKKdlllllK.
+...KdmmmmmdKnvKdllKhlllK
+..KdmmmmmmmdKvKdmmKKmmmK
+.KdmmmmmhmmmdKKmmmmmmmmK
+.KdmmmswnwsmmdKmmmmKwKwK
+KdmmmwKKKKKwmdKmmwwwwwK.
+KdmmsK....KsmmmKmmwwwKK.
+KdmnK.....KwmmmmmmmswK..
+KdmwKKK...KnmmmmmmmwK...
+KdmmvvnK..KsmmmmmhnsK...
+.KmmvvK....KwswnwswK....
+..KKvnK.....KKKKKKK.....
+....KK..................

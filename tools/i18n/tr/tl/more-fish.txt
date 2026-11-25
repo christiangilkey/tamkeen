@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Kabayong-dagat na neon
+98f8474c	Biya ng perlas
+9c85b60c	Labahita ng daluyong
+fde057c9	Lionfish ng korales
+ff7b0300	Marlin ng hampas-alon
+32bcf1a9	Leviathan ng alon
+d0c8ee9f	Betta ng talulot
+85e3ba0e	Uluulo ng usbong
+1c58328e	Perch ng tambo
+1114f624	Hito ng pako
+44494f55	Sturgeon ng willow
+2b433db1	Dragong namumulaklak
+09eab9fe	Biya ng abo
+10226f7e	Betta ng apoy
+33158330	Maya-mayang nagbabaga
+1e9eb23e	Hito ng usok
+b673fb3b	Arowana ng pugon
+1212460f	Isdang phoenix
+df568916	Hipon ng static
+d0113ec9	Killifish na kumikislap
+c9f5159c	Perch ng kulog
+2c29599d	Lionfish ng plasma
+23ec5d69	Swordfish ng bagyo
+01bb0d1e	Kirin ng boltahe
+0b971d41	Alimango ng quartz
+5767dbdc	Tetra na opal
+65674176	Hito ng slate
+6b688745	Cichlid na amatista
+ea8d630b	Sturgeon na bakal
+6c06406c	Balyenang geode
+5819220c	Tetra ng takipsilim
+31cbbad4	Dikya ng santelmo
+90f8fc50	Betta ng anino
+5ec26708	Discus ng eklipse
+f487866e	Pating ng nebula
+496ff931	Serapin ng buwan
+a91da703	Bantay ng lawa: {0}
+791f0e98	Bantay ng lawa
+1a655287	Alinman sa dalawa ang magbubukas sa lawang ito: talunin ang {0} gym leader, o humuli ng {1} isda. Tubig ng {2} ito at may siyam na sariling isda.
+f4fc6e7d	May siyam na sariling isda ang bawat lawa: ang ilan ay lumilitaw paminsan-minsan, ang iilan ay bihira, at ang isa, ang bantay ng lawa, ay halos hindi kailanman. Mas maraming lawa ang bubukas habang tumatalo ka ng mga gym leader o nakakahuli ng mas maraming isda.

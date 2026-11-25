@@ -4,7 +4,8 @@
 // aquarium, rods, the Fishdex and what friends see.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { FISH, FISH_ART, PONDS, RODS, SELL, SHADOWS, fishOf } from "../../web/js/game/fishdata.js";
+import { FISH, FISH_ART, GUARDIAN_ODDS, KIND_WEIGHT, PONDS, RODS, SELL, SHADOWS, fishOf, isGuardian } from "../../web/js/game/fishdata.js";
+import { PROTOTYPES } from "../../web/js/prototype.js";
 import { TYPE_IDS } from "../../web/js/game/data.js";
 import { newState, dayNumber, normalize } from "../../web/js/game/rules.js";
 import { rng } from "../../web/js/game/genome.js";
@@ -15,7 +16,7 @@ import { existsSync, readFileSync } from "node:fs";
 import {
   BAG_SIZE, CATCH_FULL, DEX_TOTAL, TANK_SIZE, buyRod, canFish, catchBoard, classify, cleanFishing, dexCount, dexHas, escape, escapedIn,
   MISSED_AT_ONCE, MISS_WAIT, cleanRound, nextShadows, pondWords, roundOf, turnTaken, feedFish, fightLength, fishingOf, fromTank, hook, land, lengthOf, luckOf, pondNeed, pondShadows, publicAquarium, questionFor, record, sell,
-  sellCommon, tierOfRoll, toTank,
+  sellCommon, tierOfRoll, toTank, kindOdds, pickKind,
 } from "../../web/js/game/fishing.js";
 
 const T0 = new Date("2026-11-10T09:00:00");
@@ -25,17 +26,20 @@ const MEANINGS = ["book", "pen", "house", "door", "sun", "moon", "water", "bread
 const vocab = () => WORDS.map((text, i) => ({ uid: `w${i}`, text, meaning: MEANINGS[i], created_at: i }));
 const hatched = (seed = 7) => { const s = newState(seed); s.creature.growth = 0.2; return s; };
 
-test("six ponds, one per element, three fish in each, every fish's numbers sane", () => {
+test("six ponds, one per element, nine fish in each (one of them its guardian), every fish's numbers sane", () => {
   assert.deepEqual(PONDS.map((p) => p.id).sort(), [...TYPE_IDS].sort());
-  assert.equal(FISH.length, 18);
+  assert.equal(FISH.length, 54);
   for (const p of PONDS) {
-    assert.deepEqual(fishOf(p.id).map((f) => f.size), [1, 2, 3], p.id);
+    const kinds = fishOf(p.id);
+    assert.deepEqual(kinds.filter((f) => !f.guardian).map((f) => `${f.size}${f.rare || 0}`), ["10", "11", "12", "20", "21", "22", "30", "31"], p.id);
+    assert.equal(kinds.filter((f) => f.guardian).length, 1, p.id);
+    assert.ok(kinds[8].guardian, "the guardian is listed last");
     assert.equal(p.water.length, 4);
   }
   assert.equal(new Set(FISH.map((f) => f.id)).size, FISH.length);
   for (const f of FISH) assert.ok(f.cm[0] > 0 && f.cm[1] > f.cm[0], f.id);
   assert.equal(SELL.length, 10);
-  assert.equal(DEX_TOTAL, 180);
+  assert.equal(DEX_TOTAL, 540);
   for (const s of Object.values(SHADOWS)) assert.equal(s.kinds.length, 3);
   assert.deepEqual(RODS.map((r) => r.pearls), [...RODS.map((r) => r.pearls)].sort((a, b) => a - b));
 });
@@ -81,7 +85,7 @@ test("the pond shows what's due: due words are shadows, often-missed ones bigger
   assert.deepEqual(p.shadows.map((x) => [x.uid, x.cls]), [["w3", "boss"], ["w1", "l"], ["w4", "m"], ["w0", "m"], ["w5", "m"]]);
   const big = p.shadows.find((x) => x.uid === "w1");
   assert.ok(big.luck > p.shadows.find((x) => x.uid === "w0").luck, "an often-missed word is luckier");
-  assert.equal(p.shadows.find((x) => x.uid === "w3").sp, fishOf("tide")[2].id, "a boss word is the pond's big fish");
+  assert.ok(fishOf("tide").filter((f) => f.size === 3).some((f) => f.id === p.shadows.find((x) => x.uid === "w3").sp), "a boss word is one of the pond's big fish");
   // the same word is the same fish all day
   const again = pondShadows(s, vocab(), { pond: "tide", now: new Date("2026-11-10T18:00:00"), flashDue, boss });
   assert.deepEqual(again.shadows.map((x) => x.sp), p.shadows.map((x) => x.sp));
@@ -298,7 +302,7 @@ test("a friend's aquarium is checked on arrival: only fish the game has, sane ti
   assert.deepEqual(a.tank[0], { sp: "ray", t: 4, cm: 80.3 });
   assert.deepEqual(a.tank[1], { sp: "koi", t: 9, cm: 999 }, "a made-up tier and length are brought into range");
   assert.ok(a.tank.every((f) => FISH.some((k) => k.id === f.sp)));
-  assert.equal(a.dex, 180);
+  assert.equal(a.dex, 540);
   assert.deepEqual(a.best, { sp: "pike", t: 3, cm: 77 });
   assert.equal(cleanFish({ sp: "__proto__", t: 0, cm: 3 }), null);
   assert.equal(cleanAquarium({ week: -4, best: { sp: "nope" } }).week, null);
@@ -550,4 +554,77 @@ test("a saved round is checked: only word ids, a missed word is not also done", 
   assert.deepEqual(r, { day: "2026-11-10", n: 7, done: ["a"], miss: [{ u: "b", c: 2, at: 9 }] });
   assert.deepEqual(cleanRound("nope"), { day: "", n: 0, done: [], miss: [] });
   assert.deepEqual(cleanFishing({}).round, { day: "", n: 0, done: [], miss: [] });
+});
+
+// ---------- more kinds of fish (2026-11-25): which fish a shadow is ----------
+
+const OLD_FISH = ["guppy", "clownfish", "ray", "minnow", "koi", "pike", "tetra", "puffer", "gar", "danio", "angelfish", "eel", "loach", "trout",
+  "coelacanth", "moonfish", "angler", "ghost_koi"];
+
+test("the fish there were before are still there, and are still the usual catch", () => {
+  for (const id of OLD_FISH) {
+    const f = FISH.find((x) => x.id === id);
+    assert.ok(f && !f.rare && !f.guardian, id);
+  }
+  assert.deepEqual(FISH.filter((f) => !f.rare && !f.guardian).map((f) => f.id).sort(), [...OLD_FISH].sort(), "no new fish is a usual one");
+  for (const p of PONDS) {
+    for (const cls of Object.keys(SHADOWS)) {
+      const odds = kindOdds(p.id, cls);
+      assert.equal(Object.keys(odds).length, 9);
+      assert.ok(Math.abs(Object.values(odds).reduce((a, b) => a + b, 0) - 1) < 1e-9, `${p.id} ${cls}: the chances add up to 1`);
+      const usual = fishOf(p.id).filter((f) => !f.rare && !f.guardian).reduce((a, f) => a + odds[f.id], 0);
+      assert.ok(usual >= 0.69, `${p.id} ${cls}: the usual fish are ${usual} of the catches`);
+      const seldom = fishOf(p.id).filter((f) => f.rare === 2).reduce((a, f) => a + odds[f.id], 0);
+      assert.ok(seldom <= 0.065, `${p.id} ${cls}: the seldom ones are ${seldom}`);
+    }
+  }
+  assert.ok(KIND_WEIGHT[0] > KIND_WEIGHT[1] && KIND_WEIGHT[1] > KIND_WEIGHT[2]);
+});
+
+test("a pond's guardian is hardly ever there: 1 in 400 for a due word, never likelier than 1 in 50", () => {
+  assert.equal(FISH.filter((f) => f.guardian).length, 6);
+  assert.deepEqual(FISH.filter((f) => f.guardian).map((f) => f.pond).sort(), PONDS.map((p) => p.id).sort());
+  assert.deepEqual(GUARDIAN_ODDS, { s: 1 / 800, m: 1 / 400, l: 1 / 200, boss: 1 / 50 });
+  for (const p of PONDS) {
+    const g = fishOf(p.id).find((f) => f.guardian);
+    assert.ok(isGuardian(g.id) && !isGuardian(fishOf(p.id)[0].id) && !isGuardian("nothing"));
+    for (const cls of Object.keys(SHADOWS)) assert.equal(kindOdds(p.id, cls)[g.id], GUARDIAN_ODDS[cls]);
+    // the very start of the roll is the guardian; everything after is an ordinary fish
+    assert.equal(pickKind(p.id, "m", () => 0), g.id);
+    assert.ok(!isGuardian(pickKind(p.id, "m", () => 0.003)));
+    assert.ok(!isGuardian(pickKind(p.id, "boss", () => 0.9999)));
+  }
+  // over many casts it comes out as often as the table says
+  const r = rng(99);
+  const n = 200000;
+  const seen = {};
+  for (let i = 0; i < n; i++) { const id = pickKind("tide", "m", r); seen[id] = (seen[id] || 0) + 1; }
+  const odds = kindOdds("tide", "m");
+  for (const [id, p] of Object.entries(odds)) assert.ok(Math.abs((seen[id] || 0) / n - p) < 0.004, `${id}: ${(seen[id] || 0) / n} for ${p}`);
+});
+
+test("a rare kind or a guardian pays what the usual fish of its tier pays: coins and pearls come from the tier alone", () => {
+  for (const tier of [0, 3, 6]) {
+    const worth = (sp) => { const s = hatched(); const got = land(s, { pond: "tide", sp, tier }, () => 0.5, T0); return [got.fish.w, got.pearls]; };
+    const usual = worth("guppy");
+    for (const sp of ["goby", "marlin", "leviathan"]) assert.deepEqual(worth(sp), usual, `${sp} at tier ${tier}`);
+  }
+  // and a kind changes nothing about luck: the roll's luck never looks at which fish it is
+  const src = readFileSync(new URL("../../web/js/game/fishing.js", import.meta.url), "utf8");
+  assert.doesNotMatch(src.slice(src.indexOf("export function luckOf")).split("\n}")[0], /guardian|rare/);
+});
+
+test("every fish has its picture, 24 x 16, and the guardian's own moment waits behind the prototype", () => {
+  for (const f of FISH) {
+    const png = new URL(`../../web/game-art/fish/${f.id}.png`, import.meta.url);
+    assert.ok(existsSync(png), `${f.id}.png`);
+    const b = readFileSync(png);
+    assert.deepEqual([b.readUInt32BE(16), b.readUInt32BE(20)], FISH_ART, f.id);
+  }
+  assert.equal(PROTOTYPES.fish_guardians.released, false);
+  const ui = readFileSync(new URL("../../web/js/game/fishing-ui.js", import.meta.url), "utf8");
+  assert.match(ui, /const guardShow = feature\("fish_guardians"\)/);
+  for (const m of ui.matchAll(/isGuardian\(/g)) assert.match(ui.slice(Math.max(0, m.index - 40), m.index), /guardShow && $/, "every guardian effect in the pond asks the prototype first");
+  const aq = readFileSync(new URL("../../web/js/game/aquarium.js", import.meta.url), "utf8");
+  assert.match(aq, /if \(feature\("fish_guardians"\)\) for \(const s of list\)/);
 });

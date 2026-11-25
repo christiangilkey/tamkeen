@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Kabayo-kabayo nga neon
+98f8474c	Goby nga perlas
+9c85b60c	Tang nga balud
+fde057c9	Lionfish nga korales
+ff7b0300	Marlin sa bawod
+32bcf1a9	Leviathan sa taob
+d0c8ee9f	Betta nga gihay
+85e3ba0e	Tadpole nga turok
+1c58328e	Perch nga tangbo
+1114f624	Hito nga pako
+44494f55	Sturgeon nga willow
+2b433db1	Dragon nga bulak
+09eab9fe	Goby nga abo
+10226f7e	Betta nga dilaab
+33158330	Maya-maya nga paso
+1e9eb23e	Hito nga aso
+b673fb3b	Arowana nga hudno
+1212460f	Isda nga phoenix
+df568916	Pasayan nga istatik
+d0113ec9	Killifish nga sidlak
+c9f5159c	Perch nga dalugdog
+2c29599d	Lionfish nga plasma
+23ec5d69	Swordfish sa bagyo
+01bb0d1e	Kirin nga boltahe
+0b971d41	Kasag nga quartz
+5767dbdc	Tetra nga opal
+65674176	Hito nga slate
+6b688745	Cichlid nga amethyst
+ea8d630b	Sturgeon nga puthaw
+6c06406c	Balyena nga geode
+5819220c	Tetra nga kilumkilom
+31cbbad4	Bukya nga santilmo
+90f8fc50	Betta nga anino
+5ec26708	Discus nga eklipse
+f487866e	Iho nga nebula
+496ff931	Serapin sa bulan
+a91da703	Tigbantay sa linaw: {0}
+791f0e98	Tigbantay sa linaw
+1a655287	Bisan asa sa duha ang moabli niining linaw: pildiha ang {0} ka gym leader, o pagdakop og {1} ka isda. Tubig nga {2} kini ug naay siyam ka kaugalingong isda.
+f4fc6e7d	Matag linaw naay siyam ka kaugalingong isda: ang uban panagsa mogawas, pipila talagsa ra, ug usa, ang tigbantay sa linaw, halos dili gyud. Mas daghang linaw ang maablihan samtang mopildi ka og mga gym leader o makadakop og dugang isda.

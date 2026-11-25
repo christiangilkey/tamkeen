@@ -1,0 +1,28 @@
+# Bloom dragon (Lily pond, guardian): an S-curved jade dragon, gold antlers tipped with blossom, lotus flowers on its back, a lotus-petal tail, long neon whiskers
+K #1b1420
+D #1f6b4f
+j #2fae7a
+l #8ee6a8
+b #f4f0c8
+p #ff6fae
+f #ffd3e2
+n #7dffb8
+a #ffd98a
+h #ffffff
+--
+.............p...pp...p.
+.K............a.a..a.a..
+KpK............a....a...
+KpfK.......p.p.aKKKKaK..
+KpfK...p.p.pfpKlllllllK.
+KppKK..pfp.pppljjjhKjjlK
+.KpllK.ppp.KKKjjDjKKjjjK
+..KjjlKKKKKllljjDjjjKKKn
+..KbjjllllljjjjjjbbbbbKn
+...KbjnjjjjjnjjbKKKKKKKn
+....KbjjjnjjjjbK...n..n.
+.....KbjjjjjbbK...n...n.
+......KbbbbbKK..nn...n..
+.......KKpKK........n...
+.......KfpK.............
+........KK..............

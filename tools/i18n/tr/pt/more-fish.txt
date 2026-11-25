@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Cavalo-marinho neon
+98f8474c	Góbio pérola
+9c85b60c	Peixe-cirurgião da onda
+fde057c9	Peixe-leão de coral
+ff7b0300	Marlim da arrebentação
+32bcf1a9	Leviatã da maré
+d0c8ee9f	Betta pétala
+85e3ba0e	Girino broto
+1c58328e	Perca do junco
+1114f624	Bagre samambaia
+44494f55	Esturjão do salgueiro
+2b433db1	Dragão florido
+09eab9fe	Góbio de cinzas
+10226f7e	Betta chama
+33158330	Pargo abrasador
+1e9eb23e	Bagre de fumaça
+b673fb3b	Aruanã da fornalha
+1212460f	Peixe-fênix
+df568916	Camarão estático
+d0113ec9	Killifish cintilante
+c9f5159c	Perca do trovão
+2c29599d	Peixe-leão de plasma
+23ec5d69	Espadarte da tempestade
+01bb0d1e	Kirin volt
+0b971d41	Caranguejo de quartzo
+5767dbdc	Tetra opala
+65674176	Bagre de ardósia
+6b688745	Ciclídeo ametista
+ea8d630b	Esturjão de ferro
+6c06406c	Baleia geodo
+5819220c	Tetra do crepúsculo
+31cbbad4	Água-viva fogo-fátuo
+90f8fc50	Betta sombra
+5ec26708	Acará-disco eclipse
+f487866e	Tubarão nebulosa
+496ff931	Serafim da lua
+a91da703	Guardião do lago: {0}
+791f0e98	Guardião do lago
+1a655287	Qualquer um dos dois abre este lago: vencer {0} dos líderes de ginásio ou pescar {1} peixes. Ele tem água de {2} e nove peixes só dele.
+f4fc6e7d	Cada lago tem nove peixes só dele: alguns aparecem de vez em quando, uns poucos raramente, e um, o guardião do lago, quase nunca. Mais lagos abrem conforme você vence líderes de ginásio ou pesca mais peixes.

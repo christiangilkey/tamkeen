@@ -1,0 +1,27 @@
+# Volt kirin (Storm lake, guardian): a violet horse-dragon, head held high with a lightning-bolt horn, a mane of yellow spark-flames down an arched neck, a yellow-edged fan fin, a strong pale chest and a spiral seahorse tail with a glowing tip
+K #1b1420
+v #5a2aa8
+l #9a7be8
+p #e8dcff
+n #c07bff
+y #ffe466
+Y #fff6a6
+o #e39a1c
+h #ffffff
+--
+....................yY..
+...................yY...
+..............y...yYYyo.
+...........y...Yy....yo.
+............Yy..yo..yo..
+........y....yoKKKKKKKK.
+.........Yy..KKlllllllK.
+..KKKKK...yoKllvlllhKllK
+.KlllllK....KlvvlllKKllK
+KlKKKKKvK.YyKlvvvlllllK.
+KlK...KvK..oKlnnvpKKKK..
+KvK...KvK.KKlnnnvppK....
+KvK.KYyK.KlvynnvpppK....
+KvKKKKKKKvvvyyvpppK.....
+.KvvvvvvvvvpppppKK......
+..KKKKKKKKKKKKKK........

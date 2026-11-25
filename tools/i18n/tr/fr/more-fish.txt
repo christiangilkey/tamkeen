@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Hippocampe néon
+98f8474c	Gobie perle
+9c85b60c	Chirurgien des vagues
+fde057c9	Poisson-lion corail
+ff7b0300	Marlin du ressac
+32bcf1a9	Léviathan des marées
+d0c8ee9f	Betta pétale
+85e3ba0e	Têtard pousse
+1c58328e	Perche des roseaux
+1114f624	Poisson-chat fougère
+44494f55	Esturgeon saule
+2b433db1	Dragon en fleur
+09eab9fe	Gobie cendre
+10226f7e	Betta flamme
+33158330	Vivaneau ardent
+1e9eb23e	Poisson-chat fumée
+b673fb3b	Arowana fournaise
+1212460f	Poisson phénix
+df568916	Crevette statique
+d0113ec9	Killi scintillant
+c9f5159c	Perche tonnerre
+2c29599d	Poisson-lion plasma
+23ec5d69	Espadon d'orage
+01bb0d1e	Kirin volt
+0b971d41	Crabe quartz
+5767dbdc	Tétra opale
+65674176	Poisson-chat ardoise
+6b688745	Cichlidé améthyste
+ea8d630b	Esturgeon de fer
+6c06406c	Baleine géode
+5819220c	Tétra crépuscule
+31cbbad4	Méduse feu follet
+90f8fc50	Betta ombre
+5ec26708	Discus éclipse
+f487866e	Requin nébuleuse
+496ff931	Séraphin de lune
+a91da703	Gardien de la mare : {0}
+791f0e98	Gardien de la mare
+1a655287	L'un ou l'autre ouvre cette mare : battez {0} des chefs d'arène, ou attrapez {1} poissons. Son eau est de l'élément {2}, et elle a neuf poissons bien à elle.
+f4fc6e7d	Chaque mare a neuf poissons bien à elle : certains se montrent de temps en temps, quelques-uns rarement, et un seul, le gardien de la mare, presque jamais. D'autres mares s'ouvrent à mesure que vous battez des chefs d'arène ou attrapez plus de poissons.

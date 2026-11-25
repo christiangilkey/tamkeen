@@ -1,0 +1,28 @@
+# Geode whale (Crystal cave, guardian): a small friendly whale whose back is a cracked-open geode, ice and amethyst crystals glowing
+K #1b1420
+R #7f8fb0
+r #55648a
+d #343c5c
+b #e4eef7
+g #a9bcd4
+P #b78cff
+p #6a3fc0
+c #a6f0ff
+w #ffffff
+--
+.........KK.............
+........KwcK.KK.........
+.KK...KKKwcKKcPKK.......
+KRRK.KcPKwcKKcPKcK......
+KrRRKRcPKwcKpcPKcRKKKK..
+.KrRKRcPpwcppcPpPRRRRRK.
+KrrrrRRdpcppPpcpdRRRRRRK
+KddrrrRRRddpppddRRRRRRRK
+.KKKdrrRRRRRcRRRRRKwRRRK
+....KdrrrrrprrrrrrKKrrrK
+.....KdbbbbbbbbbrrrKrrrK
+......KgbbbbbKrrKbbbKKK.
+.......KKggggKdrKgbbbbK.
+.........KKKKKdrKKKKKK..
+..............KK........
+........................

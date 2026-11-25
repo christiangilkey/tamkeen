@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Caballito de mar neón
+98f8474c	Gobio perla
+9c85b60c	Pez cirujano de olas
+fde057c9	Pez león de coral
+ff7b0300	Marlín de oleaje
+32bcf1a9	Leviatán de marea
+d0c8ee9f	Betta pétalo
+85e3ba0e	Renacuajo brote
+1c58328e	Perca de junco
+1114f624	Bagre de helecho
+44494f55	Esturión de sauce
+2b433db1	Dragón en flor
+09eab9fe	Gobio ceniza
+10226f7e	Betta llama
+33158330	Pargo abrasador
+1e9eb23e	Bagre de humo
+b673fb3b	Arowana de fragua
+1212460f	Pez fénix
+df568916	Camarón estático
+d0113ec9	Killi destello
+c9f5159c	Perca trueno
+2c29599d	Pez león de plasma
+23ec5d69	Pez espada de tormenta
+01bb0d1e	Kirin voltio
+0b971d41	Cangrejo de cuarzo
+5767dbdc	Tetra ópalo
+65674176	Bagre de pizarra
+6b688745	Cíclido amatista
+ea8d630b	Esturión de hierro
+6c06406c	Ballena geoda
+5819220c	Tetra crepúsculo
+31cbbad4	Medusa fuego fatuo
+90f8fc50	Betta sombra
+5ec26708	Pez disco eclipse
+f487866e	Tiburón nebulosa
+496ff931	Serafín lunar
+a91da703	Guardián del estanque: {0}
+791f0e98	Guardián del estanque
+1a655287	Cualquiera de las dos cosas abre este estanque: vencer a {0} de los líderes de gimnasio o pescar {1} peces. Tiene agua de {2} y nueve peces propios.
+f4fc6e7d	Cada estanque tiene nueve peces propios: algunos aparecen de vez en cuando, unos pocos rara vez, y uno, el guardián del estanque, casi nunca. Se abren más estanques a medida que vences a líderes de gimnasio o pescas más peces.

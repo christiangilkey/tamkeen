@@ -9821,6 +9821,40 @@ started again; and a folder under 20 words was dropped for the newest 100.
   3 caught, app reloaded, 4 left, a miss that came back, then a new round. Picture:
   `../tamkeen-shots/fishing/pond-round-fix.png`.
 
+## Fishing: 54 kinds of fish and the pond guardians (2026-11-25; the fishing chat; prototype `fish_guardians`)
+
+The owner: "I think we should have lots more types of fish, a few being much more rare than others and cooler".
+
+- **54 fish, nine per pond** (`fishdata.js` `FISH`; was 18). The 18 old ones are unchanged and are the *usual* fish
+  of their size. New: per pond two more small, two more middling and one more big fish with `rare: 1` (now and then)
+  or `rare: 2` (seldom), and one `guardian: true` (Tide leviathan, Bloom dragon, Phoenix fish, Volt kirin, Geode
+  whale, Moon seraph). `fishOf(pond)` lists small to big, usual before rarer, the guardian last. The Fishdex is
+  54 x 10 = 540 (`DEX_TOTAL` follows `FISH`; the database rule allows up to 1000).
+- **Which fish a shadow is** (`fishing.kindOdds(pond, cls)` gives every chance, `pickKind` rolls it; still seeded by
+  word and day): first the guardian (`GUARDIAN_ODDS`: 1/800 practice, 1/400 due, 1/200 often missed, 1/50 boss), else
+  a size by the shadow's class (`SHADOWS.kinds`, unchanged), then which fish of that size by `KIND_WEIGHT` 70 / 24 / 6
+  (two big fish: 70 / 24). So the usual fish are 69.9% to 74.5% of catches whatever the shadow.
+- **The tier odds did not change** (they are loot.js's, shared with the flashcards). A kind is only which fish it is:
+  coins (`SELL`), pearls (`PEARLS`) and the roll's luck never look at it (a test checks a guardian pays what a guppy
+  of the same tier pays). Nothing here gives money, battle strength or anything for tapping.
+- **Guardians are in the game for everyone; their show is the prototype `fish_guardians`** (5 taps on the version):
+  a guardian's shadow glows in the pond's colour with little lights over it; when it is landed, lights burst from it,
+  it gets the big reveal whatever its tier ("Pond guardian: Tide leviathan") and a "Pond guardian" tag on the catch
+  card; in an aquarium (yours, a friend's) it has a soft pulsing light and lights that follow it; the Fishdex marks
+  its row. Without the prototype a guardian is caught and shown like any fish. All of it is drawn in code
+  (`fishing-ui.js` `guardShow`, `aquarium.js`): no CSS was added.
+- **Art**: 36 new 24 x 16 sprites drawn in Aseprite through the MCP from text grids, as before
+  (`game/art-src/fish/grids/*.txt`, `.aseprite` beside them, `web/game-art/fish/*.png`; `tools/game_art/fish_grids.py
+  check` compares them). Guardians fill the canvas; they are not a bigger size (every fish picture is still
+  `FISH_ART` 24 x 16, which the pond, the aquarium and the Fishdex all assume).
+- **Translations**: `tools/i18n/tr/<code>/more-fish.txt` (38 names and labels, and the two help sentences that said
+  "three fish of its own", now "nine").
+- **Known limits.** A device still on an older version doesn't know the new fish: it drops them from a basket or
+  aquarium it loads (as with any new content), so update every device. The weekly biggest-catch board is by length,
+  and the new big fish and guardians are long (Geode whale up to 800 cm).
+- **Not done**: a guardian has no animation frames of its own (its lights are drawn in code); the creatures' own
+  fishing frames are still not drawn; `supabase/v9-fishing.sql` is still not applied (it needs no change for this).
+
 ## DLI Class tab (2026-11-24; "Teachers" chat; prototype `class_tab`; database NOT applied)
 
 The owner's words: teachers add students under them, students are placed in a class, the teacher shares finished

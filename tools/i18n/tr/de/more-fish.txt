@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Neon-Seepferdchen
+98f8474c	Perlgrundel
+9c85b60c	Wellen-Doktorfisch
+fde057c9	Korallen-Feuerfisch
+ff7b0300	Brandungsmarlin
+32bcf1a9	Gezeiten-Leviathan
+d0c8ee9f	Blütenblatt-Kampffisch
+85e3ba0e	Spross-Kaulquappe
+1c58328e	Schilfbarsch
+1114f624	Farnwels
+44494f55	Weidenstör
+2b433db1	Blütendrache
+09eab9fe	Aschegrundel
+10226f7e	Flammen-Kampffisch
+33158330	Sengschnapper
+1e9eb23e	Rauchwels
+b673fb3b	Schmelzofen-Arowana
+1212460f	Phönixfisch
+df568916	Statik-Garnele
+d0113ec9	Glitzer-Killifisch
+c9f5159c	Donnerbarsch
+2c29599d	Plasma-Feuerfisch
+23ec5d69	Sturm-Schwertfisch
+01bb0d1e	Volt-Kirin
+0b971d41	Quarzkrabbe
+5767dbdc	Opalsalmler
+65674176	Schieferwels
+6b688745	Amethyst-Buntbarsch
+ea8d630b	Eisenstör
+6c06406c	Geodenwal
+5819220c	Dämmerungssalmler
+31cbbad4	Irrlicht-Qualle
+90f8fc50	Schatten-Kampffisch
+5ec26708	Finsternis-Diskus
+f487866e	Sternennebel-Hai
+496ff931	Mondseraph
+a91da703	Teichwächter: {0}
+791f0e98	Teichwächter
+1a655287	Eins von beiden öffnet diesen Teich: Besiege {0} Arenaleiter oder fange {1} Fische. Er hat {2}-Wasser und neun eigene Fische.
+f4fc6e7d	Jeder Teich hat neun eigene Fische: Manche tauchen ab und zu auf, ein paar selten, und einer, der Teichwächter, so gut wie nie. Weitere Teiche öffnen sich, wenn du Arenaleiter besiegst oder mehr Fische fängst.

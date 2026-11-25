@@ -1,0 +1,27 @@
+# Moon seraph (Moon pool, guardian): an angelic white fish with a feathered wing, a crescent-moon crest and long ribbon tails tipped in neon pink
+K #241a44
+w #ffffff
+l #efe6ff
+s #b9a8ea
+f #7a69c4
+n #ff9cf0
+M #ff5ccf
+y #ffe9a0
+g #ffc94a
+--
+....KKKK......K.....K...
+..KKwwwwKK...KyK...KyK..
+.KwwwwwwwlK..KyyKKKyyK..
+KnwwlswwlslK..KwyyyyK...
+.KKnwlsnwlslK..KgggK....
+...KKKKnwlslKKKKlllKKK..
+.......KKnslsllwwwwlllK.
+.........KKsllllllllllK.
+.KK......KslllnlllsKwllK
+KnsKKKKKKsslllllllsKKllK
+.KnnssssssssllnllllllMK.
+..KKKKKsssssssllllsllKK.
+....KKssKKKKsswwsssKK...
+.KKKsnnfK..KnwwlKKK.....
+KnnnsfKK...KnwlK........
+.KKKKK......KKK.........

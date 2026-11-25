@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Cavallet de mar neó
+98f8474c	Gòbit perla
+9c85b60c	Peix cirurgià d'onada
+fde057c9	Peix lleó de corall
+ff7b0300	Marlí d'onatge
+32bcf1a9	Leviatan de marea
+d0c8ee9f	Betta pètal
+85e3ba0e	Capgròs brot
+1c58328e	Perca de canyís
+1114f624	Peix gat de falguera
+44494f55	Esturió de salze
+2b433db1	Drac en flor
+09eab9fe	Gòbit cendra
+10226f7e	Betta flama
+33158330	Pagre abrusador
+1e9eb23e	Peix gat de fum
+b673fb3b	Arowana de farga
+1212460f	Peix fènix
+df568916	Gamba estàtica
+d0113ec9	Kil·li lluentor
+c9f5159c	Perca tro
+2c29599d	Peix lleó de plasma
+23ec5d69	Peix espasa de tempesta
+01bb0d1e	Kirin volt
+0b971d41	Cranc de quars
+5767dbdc	Tetra òpal
+65674176	Peix gat de pissarra
+6b688745	Cíclid ametista
+ea8d630b	Esturió de ferro
+6c06406c	Balena geoda
+5819220c	Tetra crepuscle
+31cbbad4	Medusa foc follet
+90f8fc50	Betta ombra
+5ec26708	Peix disc eclipsi
+f487866e	Tauró nebulosa
+496ff931	Serafí lunar
+a91da703	Guardià de l'estany: {0}
+791f0e98	Guardià de l'estany
+1a655287	Qualsevol de les dues coses obre aquest estany: derrotar {0} dels líders de gimnàs o pescar {1} peixos. Té aigua {2} i nou peixos propis.
+f4fc6e7d	Cada estany té nou peixos propis: alguns apareixen de tant en tant, uns quants rarament, i un, el guardià de l'estany, gairebé mai. S'obren més estanys a mesura que derrotes líders de gimnàs o pesques més peixos.

@@ -1,0 +1,41 @@
+# Fishing: 36 more kinds of fish and the pond guardians (web/js/game/fishdata.js, fishing-ui.js, fishscreen.js).
+7300bb5f	Cavalluccio marino al neon
+98f8474c	Ghiozzo perla
+9c85b60c	Pesce chirurgo dell'onda
+fde057c9	Pesce leone del corallo
+ff7b0300	Marlin della risacca
+32bcf1a9	Leviatano della marea
+d0c8ee9f	Betta petalo
+85e3ba0e	Girino germoglio
+1c58328e	Persico del canneto
+1114f624	Pesce gatto felce
+44494f55	Storione del salice
+2b433db1	Drago in fiore
+09eab9fe	Ghiozzo cenere
+10226f7e	Betta fiamma
+33158330	Dentice rovente
+1e9eb23e	Pesce gatto di fumo
+b673fb3b	Arowana della fornace
+1212460f	Pesce fenice
+df568916	Gamberetto statico
+d0113ec9	Killifish scintilla
+c9f5159c	Persico del tuono
+2c29599d	Pesce leone al plasma
+23ec5d69	Pesce spada della tempesta
+01bb0d1e	Kirin volt
+0b971d41	Granchio di quarzo
+5767dbdc	Tetra opale
+65674176	Pesce gatto d'ardesia
+6b688745	Ciclide ametista
+ea8d630b	Storione di ferro
+6c06406c	Balena geode
+5819220c	Tetra del crepuscolo
+31cbbad4	Medusa fuoco fatuo
+90f8fc50	Betta ombra
+5ec26708	Discus eclissi
+f487866e	Squalo nebulosa
+496ff931	Serafino di luna
+a91da703	Guardiano del laghetto: {0}
+791f0e98	Guardiano del laghetto
+1a655287	Basta una delle due cose per aprire questo laghetto: batti {0} dei capipalestra, oppure pesca {1} pesci. La sua acqua è dell'elemento {2}, e ha nove pesci tutti suoi.
+f4fc6e7d	Ogni laghetto ha nove pesci tutti suoi: alcuni si fanno vedere ogni tanto, pochi di rado, e uno, il guardiano del laghetto, quasi mai. Altri laghetti si aprono man mano che batti i capipalestra o peschi altri pesci.

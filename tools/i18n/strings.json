@@ -18060,6 +18060,36 @@
   "f": "web/js/game/fishdata.js"
  },
  {
+  "id": "7300bb5f",
+  "k": "Neon seahorse",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "98f8474c",
+  "k": "Pearl goby",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "9c85b60c",
+  "k": "Wave tang",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "fde057c9",
+  "k": "Coral lionfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "ff7b0300",
+  "k": "Surf marlin",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "32bcf1a9",
+  "k": "Tide leviathan",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
   "id": "727cda3e",
   "k": "Leaf minnow",
   "f": "web/js/game/fishdata.js"
@@ -18072,6 +18102,36 @@
  {
   "id": "2eb0ea04",
   "k": "Moss pike",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "d0c8ee9f",
+  "k": "Petal betta",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "85e3ba0e",
+  "k": "Sprout tadpole",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "1c58328e",
+  "k": "Reed perch",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "1114f624",
+  "k": "Fern catfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "44494f55",
+  "k": "Willow sturgeon",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "2b433db1",
+  "k": "Bloom dragon",
   "f": "web/js/game/fishdata.js"
  },
  {
@@ -18090,6 +18150,36 @@
   "f": "web/js/game/fishdata.js"
  },
  {
+  "id": "09eab9fe",
+  "k": "Cinder goby",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "10226f7e",
+  "k": "Flame betta",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "33158330",
+  "k": "Scorch snapper",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "1e9eb23e",
+  "k": "Smoke catfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "b673fb3b",
+  "k": "Furnace arowana",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "1212460f",
+  "k": "Phoenix fish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
   "id": "b5f0ba84",
   "k": "Zap danio",
   "f": "web/js/game/fishdata.js"
@@ -18102,6 +18192,36 @@
  {
   "id": "460a42db",
   "k": "Volt eel",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "df568916",
+  "k": "Static shrimp",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "d0113ec9",
+  "k": "Glint killifish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "c9f5159c",
+  "k": "Thunder perch",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "2c29599d",
+  "k": "Plasma lionfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "23ec5d69",
+  "k": "Storm swordfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "01bb0d1e",
+  "k": "Volt kirin",
   "f": "web/js/game/fishdata.js"
  },
  {
@@ -18120,6 +18240,36 @@
   "f": "web/js/game/fishdata.js"
  },
  {
+  "id": "0b971d41",
+  "k": "Quartz crab",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "5767dbdc",
+  "k": "Opal tetra",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "65674176",
+  "k": "Slate catfish",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "6b688745",
+  "k": "Amethyst cichlid",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "ea8d630b",
+  "k": "Iron sturgeon",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "6c06406c",
+  "k": "Geode whale",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
   "id": "9d7fd5d5",
   "k": "Moonfish",
   "f": "web/js/game/fishdata.js"
@@ -18132,6 +18282,36 @@
  {
   "id": "621ac06c",
   "k": "Ghost koi",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "5819220c",
+  "k": "Twilight tetra",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "31cbbad4",
+  "k": "Wisp jelly",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "90f8fc50",
+  "k": "Shadow betta",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "5ec26708",
+  "k": "Eclipse discus",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "f487866e",
+  "k": "Nebula shark",
+  "f": "web/js/game/fishdata.js"
+ },
+ {
+  "id": "496ff931",
+  "k": "Moon seraph",
   "f": "web/js/game/fishdata.js"
  },
  {
@@ -18315,8 +18495,18 @@
   "f": "web/js/game/fishing-ui.js"
  },
  {
+  "id": "a91da703",
+  "k": "Pond guardian: {0}",
+  "f": "web/js/game/fishing-ui.js"
+ },
+ {
   "id": "f636ca14",
   "k": "Keep fishing",
+  "f": "web/js/game/fishing-ui.js"
+ },
+ {
+  "id": "791f0e98",
+  "k": "Pond guardian",
   "f": "web/js/game/fishing-ui.js"
  },
  {
@@ -18525,8 +18715,8 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "f1433030",
-  "k": "Either one opens this pond: beat {0} gym leaders, or catch {1} fish. It has {2} water and three fish of its own.",
+  "id": "1a655287",
+  "k": "Either one opens this pond: beat {0} gym leaders, or catch {1} fish. It has {2} water and nine fish of its own.",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -18795,8 +18985,8 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "7c271a13",
-  "k": "Each pond has three fish of its own. More ponds open as you beat gym leaders or catch more fish.",
+  "id": "f4fc6e7d",
+  "k": "Each pond has nine fish of its own: some turn up now and then, a few seldom, and one, the pond's guardian, hardly ever. More ponds open as you beat gym leaders or catch more fish.",
   "f": "web/js/game/fishscreen.js"
  },
  {
