@@ -1,0 +1,4 @@
+# The web app's YouTube list scrolling on (endless scroll), 2026-11-25
+713bdc01	در حال بارگیری بیشتر…
+3f86a0cb	فعلاً همین است.
+f9e1c44b	بارگیری بیشتر ممکن نشد. دوباره امتحان کنید

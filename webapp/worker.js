@@ -6,6 +6,8 @@
 //   - web pages to import                        GET  any public http(s) address
 //   - YouTube captions and channel pages         GET  youtube.com addresses
 //   - YouTube's video information                POST https://www.youtube.com/youtubei/v1/player
+//   - the next page of a YouTube list             POST https://m.youtube.com/youtubei/v1/search and /browse
+//     (the web app's YouTube list scrolling on, as YouTube's own page asks for it; the owner chose it 2026-11-25)
 //   - Instagram reels' public embed pages and video files   GET
 // Nothing else: only Tamkeen's own web addresses may use it, no other POST, no addresses inside
 // private networks, no cookies passed either way.
@@ -17,7 +19,8 @@ const ALLOWED_ORIGINS = [
   "https://christiangilkey.github.io", // the web app on GitHub Pages (the old address, still working)
   "http://localhost:8791",             // testing on the computer
 ];
-const POST_ALLOWED = ["https://www.youtube.com/youtubei/v1/player"];
+const POST_ALLOWED = ["https://www.youtube.com/youtubei/v1/player",
+  "https://m.youtube.com/youtubei/v1/search?", "https://m.youtube.com/youtubei/v1/browse?"];
 const PASS_REQUEST_HEADERS = ["accept", "accept-language", "content-type", "range"];
 const PASS_RESPONSE_HEADERS = ["content-type", "content-length", "content-range", "accept-ranges",
   "etag", "last-modified", "cache-control"];

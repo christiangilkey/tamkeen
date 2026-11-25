@@ -15,6 +15,7 @@ import { lib, settings } from "./store.js";
 import { checkCaptions } from "./ytcaptions.js";
 import { DUB_TEXT, captionChecker, tagText } from "./ytcaptiontag.js";
 import { t } from "./i18n.js";
+import { MAX_PAGES, moreRequest, nextPage, pageSettings } from "./ytmore.js";
 import { THIS_YEAR, TOPICS, TOPIC_WITHIN, chosenCountry, handmadeOnly, searchAddress, setHandmadeOnly, topicAddress, topicsFor } from "./youtube-home.js";
 
 // ---------- the "No captions · Gemini required" tag ----------
@@ -124,13 +125,27 @@ export function videosIn(data) {
   return [...out.values()];
 }
 
+const askIn = () => ({ "Accept-Language": `${settings.study_language || "en"},en;q=0.5` });
+
+/** The first page: {videos, settings, next}: its videos, and what is needed to ask for the next ones (ytmore.js). */
 async function fetchVideos(address) {
-  const res = await webFetch(address, { headers: { "Accept-Language": `${settings.study_language || "en"},en;q=0.5` } });
+  const res = await webFetch(address, { headers: askIn() });
   if (res.status === 502 || res.status === 503 || res.status === 504) throw new Error("Couldn't reach YouTube just now. Try again in a minute.");
   if (!res.ok) throw new Error(`YouTube answered with an error (${res.status}). Try again in a minute.`);
-  const data = initialData(await res.text());
+  const html = await res.text();
+  const data = initialData(html);
   if (!data) throw new Error("YouTube's page couldn't be read. Try again in a minute.");
-  return videosIn(data);
+  return { videos: videosIn(data), settings: pageSettings(html), next: nextPage(data) };
+}
+
+/** The next page after `next`, as YouTube's own page asks for it while scrolling: {videos, next}. */
+async function fetchMore(address, pageSet, next) {
+  const ask = moreRequest(address, pageSet, next);
+  if (!ask) return { videos: [], next: null };
+  const res = await webFetch(ask.url, { method: "POST", headers: { ...askIn(), "Content-Type": "application/json" }, body: ask.body });
+  if (!res.ok) throw new Error(String(res.status)); // (never shown: the list offers Try again)
+  const data = await res.json();
+  return { videos: videosIn(data), next: nextPage(data) };
 }
 
 const SITE = "https://m.youtube.com";
@@ -173,19 +188,20 @@ export async function render(view, { query }) {
   };
   view.querySelector(".web-yt-handmade").onchange = (e) => { setHandmadeOnly(e.target.checked); render(view, { query }); };
   const list = view.querySelector(".web-yt-list");
-  let videos;
-  try { videos = await fetchVideos(address); } catch (e) {
+  let first;
+  try { first = await fetchVideos(address); } catch (e) {
     list.innerHTML = `<p class="muted"></p><button type="button">Try again</button>`;
     list.querySelector("p").textContent = e.message;
     list.querySelector("button").onclick = () => render(view, { query });
     return;
   }
-  if (!videos.length) { list.innerHTML = `<p class="muted">No videos found.</p>`; return; }
+  if (!first.videos.length) { list.innerHTML = `<p class="muted">No videos found.</p>`; return; }
   list.innerHTML = "";
-  const cards = [];
   // A title in another script still starts beside the picture (an English title in the Arabic app, say), not at the far edge.
   const side = getComputedStyle(list).direction === "rtl" ? "right" : "left";
-  for (const v of videos) {
+  const shown = new Set();
+  /** One video's card (its picture, title, channel and when; the caption and dub tags filled in as it comes in sight). */
+  function makeCard(v) {
     const card = document.createElement("button");
     card.type = "button";
     card.className = "card web-yt-card";
@@ -201,7 +217,6 @@ export async function render(view, { query }) {
         <span class="small muted" dir="auto" style="text-align:${side}">${esc([v.channel, v.when].filter(Boolean).join(" · "))}</span>
         <span class="tag web-yt-tag" hidden style="align-self:flex-start"></span>
         <span class="tag web-yt-dub" hidden style="align-self:flex-start" dir="auto"></span></span>`;
-    cards.push([card, v.id, card.querySelector(".web-yt-tag"), card.querySelector(".web-yt-dub")]);
     card.onclick = async () => {
       if (card.disabled) return;
       card.disabled = true;
@@ -219,7 +234,59 @@ export async function render(view, { query }) {
         card.disabled = false;
       }
     };
-    list.append(card);
+    return [card, v.id, card.querySelector(".web-yt-tag"), card.querySelector(".web-yt-dub")];
   }
-  if (lang) tagCards(cards, lang);
+  /** Adds the videos not shown yet, at the end of the list, and starts their caption checks. How many were new. */
+  function addVideos(videos) {
+    const cards = [];
+    for (const v of videos) {
+      if (shown.has(v.id)) continue;
+      shown.add(v.id);
+      const made = makeCard(v);
+      list.insertBefore(made[0], more);
+      cards.push(made);
+    }
+    if (lang && cards.length) tagCards(cards, lang);
+    return cards.length;
+  }
+
+  // Endless scroll (the owner, 2026-11-25): near the end of the list the next page comes by itself, with "Loading
+  // more…" while it does; when YouTube has no more, the list just ends with a quiet line.
+  const more = document.createElement("p");
+  more.className = "small muted web-yt-more";
+  more.style.cssText = "text-align:center;margin:8px 0 16px";
+  list.append(more);
+  addVideos(first.videos);
+  let next = first.next, pages = 0, busy = false;
+  const end = () => { more.textContent = t("That's all for now."); watch.disconnect(); };
+  async function loadMore() {
+    if (busy || !list.isConnected) return;
+    if (!next || pages >= MAX_PAGES) { end(); return; }
+    busy = true;
+    more.textContent = t("Loading more…");
+    try {
+      const page = await fetchMore(address, first.settings, next);
+      pages += 1;
+      next = page.next;
+      // (a page of only videos already shown, or none: YouTube has nothing new to give)
+      if (!addVideos(page.videos)) next = null;
+      if (!next) end();
+      else more.textContent = "";
+    } catch {
+      more.textContent = "";
+      const again = document.createElement("button");
+      again.type = "button";
+      again.textContent = t("Couldn't load more. Try again");
+      again.onclick = () => { again.remove(); loadMore(); };
+      more.append(again);
+    } finally {
+      busy = false;
+    }
+    // (still near the end, on a tall screen: the next one at once)
+    if (next && list.isConnected && more.getBoundingClientRect().top < innerHeight + 600) loadMore();
+  }
+  const watch = typeof IntersectionObserver === "undefined" ? { disconnect() {} }
+    : new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) loadMore(); }, { rootMargin: "600px 0px" });
+  if (next) watch.observe && watch.observe(more);
+  else end();
 }

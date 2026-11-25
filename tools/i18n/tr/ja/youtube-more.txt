@@ -1,0 +1,4 @@
+# The web app's YouTube list scrolling on (endless scroll), 2026-11-25
+713bdc01	さらに読み込み中…
+3f86a0cb	今はここまでです。
+f9e1c44b	続きを読み込めませんでした。もう一度試す

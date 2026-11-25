@@ -33950,6 +33950,21 @@
   "f": "mobile/src/js/web-youtube.js"
  },
  {
+  "id": "3f86a0cb",
+  "k": "That's all for now.",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "713bdc01",
+  "k": "Loading more…",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
+  "id": "f9e1c44b",
+  "k": "Couldn't load more. Try again",
+  "f": "mobile/src/js/web-youtube.js"
+ },
+ {
   "id": "0ab8077d",
   "k": "Wrong companion token. Download the add-on again from Tamkeen's settings.",
   "f": "app/api/anki.py"

@@ -1,0 +1,4 @@
+# The web app's YouTube list scrolling on (endless scroll), 2026-11-25
+713bdc01	Carregant-ne més…
+3f86a0cb	Això és tot de moment.
+f9e1c44b	No se n'han pogut carregar més. Torna-ho a provar
