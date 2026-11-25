@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Erreiche dein Tagesziel (10), gewinne Kämpfe und speichere Wörter.
+bf937925	Verkaufe die Fische, die du fängst.
+8289ac33	Extras: ein neues Level, der Raid-Sieg deiner Gilde, ein ausgewachsenes Wesen ({0}) und ein Kampf plus deine Karteikarten am selben Tag ({1}).
+0ddfc35b	Der Laden: Sachen zum Anziehen, Deko und Kampfzüge.
+fdfd8182	Verdiene ein Abzeichen, steig in eine höhere Liga auf oder hilf deiner Gilde, den Wochenboss zu besiegen.
+eeab1699	Volle Blüte: auf jedem Gartenbeet ein voll ausgebautes Gebäude (10).
+ad353dcf	Ab und zu ein seltener Wurf, wenn du eine Karte weißt.
+cf6254cc	Vorräte: ein XP-Boost, ein Brutkasten, ein Beet-Schlüssel oder ein Überraschungsei.
+9e64bbea	Edelsteine werden nie für Geld verkauft.
+310acda3	Die Gebäude in deinem Garten erzeugen es, auch wenn die App geschlossen ist.
+7f960d9d	Die Karten des Tages schaffen, dein Tagesziel erreichen und Würfe bei den Karten bringen auf einmal mehr.
+10ad9a2d	Neue Gebäude, und sie ausbauen, damit sie mehr erzeugen.
+0dd6dde7	Futter für dein Wesen (je {0}) und Tränke für Kämpfe in der Wildnis.
+399d4237	Stecken in den Fischen, die du fängst, öfter in den selteneren.
+034f9ebe	Bessere Angeln (mehr Glück bei jedem Wurf) und größere Aquarien.
+e41aa6b0	Lass ein ausgewachsenes Wesen im Garten frei: 1, und 1 mehr für je 2 voll ausgebaute Gebäude.
+68fd44bf	Er wird nie ausgegeben: jeder macht deinen Garten für immer {0} % schneller.
+7b6f42ca	Perlen: tippen, um zu sehen, wie man sie bekommt
+e1d03827	Münzen: tippen, um zu sehen, wie man sie bekommt; halten für mehr
+87dfd706	Edelsteine: tippen, um zu sehen, wie man sie bekommt; halten für mehr
+6d597cef	So bekommst du es
+25b83941	Wofür es ist
+fb7345b8	Mehr dazu

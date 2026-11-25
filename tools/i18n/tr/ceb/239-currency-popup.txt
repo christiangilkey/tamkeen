@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Abta ang imong tumong karong adlawa (10), pildi sa mga away, ug i-save ang mga pulong.
+bf937925	Ibaligya ang mga isda nga imong nakuha.
+8289ac33	Dugang: bag-ong level, ang kadaogan sa imong guild sa raid, usa ka linalang nga hingpit na nga dako ({0}), ug usa ka away ug imong mga flashcard sa samang adlaw ({1}).
+0ddfc35b	Ang Shop: mga isul-ob, dekorasyon ug mga lihok sa away.
+fdfd8182	Pagkuha og badge, mosaka og liga, o tabangi ang imong guild sa pagpildi sa boss sa semana.
+eeab1699	Hingpit nga pagpamulak: matag lote sa tanaman adunay hingpit nga bilding (10).
+ad353dcf	Usahay, usa ka talagsaong roll kung mahinumdoman nimo ang usa ka flashcard.
+cf6254cc	Mga supply: usa ka XP boost, usa ka incubator, usa ka yawe sa lote o usa ka mystery egg.
+9e64bbea	Ang mga gem dili gyud ibaligya sa kwarta.
+310acda3	Ang mga bilding sa imong tanaman ang mohimo niini, bisan sirado ang app.
+7f960d9d	Ang pagtapos sa mga flashcard sa adlaw, pag-abot sa imong tumong ug mga roll sa flashcard magpadala og dugang dungan.
+10ad9a2d	Bag-ong mga bilding, ug pagpadako niini aron mohimo og mas daghan.
+0dd6dde7	Pagkaon para sa imong linalang ({0} matag usa) ug mga potion para sa mga ihalas nga away.
+399d4237	Makita sulod sa mga isda nga imong nakuha, mas kanunay sa mga talagsaon.
+034f9ebe	Mas maayong mga bingwit (mas swerte sa matag labay) ug mas dagkong aquarium.
+e41aa6b0	Buhii ang usa ka hingpit nga dako nga linalang sa tanaman: 1, ug 1 pa sa matag 2 ka hingpit nga bilding.
+68fd44bf	Dili gyud kini magasto: ang matag usa mopaspas sa imong tanaman og {0}%, hangtod sa hangtod.
+7b6f42ca	Mga perlas: i-tap aron makita unsaon pagkuha
+e1d03827	Mga sensilyo: i-tap aron makita unsaon pagkuha, pindota og dugay para sa dugang
+87dfd706	Mga gem: i-tap aron makita unsaon pagkuha, pindota og dugay para sa dugang
+6d597cef	Unsaon pagkuha
+25b83941	Para asa kini
+fb7345b8	Isulti pa

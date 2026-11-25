@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Raggiungi l'obiettivo del giorno (10), vinci battaglie e salva parole.
+bf937925	Vendi i pesci che peschi.
+8289ac33	Extra: un nuovo livello, la vittoria della tua gilda nel raid, una creatura adulta ({0}) e una battaglia più le tue schede nello stesso giorno ({1}).
+0ddfc35b	Il negozio: cose da indossare, decorazioni e mosse di battaglia.
+fdfd8182	Ottieni un distintivo, sali di lega o aiuta la tua gilda a battere il boss della settimana.
+eeab1699	Piena fioritura: ogni lotto del giardino con un edificio completo (10).
+ad353dcf	Ogni tanto un tiro raro quando ricordi una scheda.
+cf6254cc	Provviste: un potenziamento XP, un'incubatrice, una chiave del lotto o un uovo misterioso.
+9e64bbea	Le gemme non si vendono mai per soldi.
+310acda3	Gli edifici del tuo giardino la producono, anche ad app chiusa.
+7f960d9d	Finire le schede del giorno, raggiungere l'obiettivo e i tiri delle schede ne portano altra in un colpo.
+10ad9a2d	Nuovi edifici, e farli crescere perché producano di più.
+0dd6dde7	Cibo per la tua creatura ({0} ciascuno) e pozioni per le battaglie selvatiche.
+399d4237	Si trovano nei pesci che peschi, più spesso in quelli rari.
+034f9ebe	Canne migliori (più fortuna a ogni lancio) e acquari più grandi.
+e41aa6b0	Libera una creatura adulta nel giardino: 1, e 1 in più ogni 2 edifici completi.
+68fd44bf	Non si spende mai: ognuna rende il tuo giardino più veloce del {0}%, per sempre.
+7b6f42ca	Perle: tocca per vedere come ottenerle
+e1d03827	Monete: tocca per vedere come ottenerle, tieni premuto per saperne di più
+87dfd706	Gemme: tocca per vedere come ottenerle, tieni premuto per saperne di più
+6d597cef	Come ottenerlo
+25b83941	A cosa serve
+fb7345b8	Dimmi di più

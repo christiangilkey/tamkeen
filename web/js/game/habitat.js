@@ -23,7 +23,7 @@ import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./r
 import { FRAME, animAt, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
-import { openEarned, openEvolution } from "./info.js";
+import { currencyTaps, openCurrency, openEarned, openEvolution } from "./info.js";
 import { cleanName } from "./remote.js";
 import { KINDS, SHOP_SEEN_KEY, collectables, gains, goalRing, nextScene, ringPixels, tileDots, wallet } from "./homecard.js";
 import { fly } from "./fly.js";
@@ -87,8 +87,8 @@ export function habitat() {
       <button type="button" class="hud-lv" id="g-lv" title="Your level: tap to see how XP works"><span class="hud-lv-n">Lv <b id="g-level"></b></span>
         <span class="hud-bar thin"><i id="g-xpbar"></i></span></button>
       <div class="hud-wallet">
-        <button type="button" class="hud-count cur-coin" id="g-coins" title="Coins: tap for the shop, hold to learn more">${icon("coin")}<b></b></button>
-        <button type="button" class="hud-count cur-gem" id="g-gems" title="Gems: tap for supplies, hold to learn more">${icon("gem")}<b></b></button>
+        <button type="button" class="hud-count cur-coin" id="g-coins" title="Coins: tap to see how to get them, hold to learn more">${icon("coin")}<b></b></button>
+        <button type="button" class="hud-count cur-gem" id="g-gems" title="Gems: tap to see how to get them, hold to learn more">${icon("gem")}<b></b></button>
         <button type="button" class="hud-count cur-streak" id="g-streak" title="Goal streak: days in a row you reached your daily goal">
           <span class="streak-pic">${icon("streak")}<span class="freeze-badge" hidden>${icon("freeze_badge", 9)}</span></span><b></b></button>
       </div>
@@ -236,10 +236,12 @@ export function habitat() {
   const loadVocab = () => api("/vocab").then((words) => { vocab = words; return words; });
   const vocabReady = loadVocab().then((words) => { checkBadges(game, { words: words.length }); gardenBeat(); }).catch(() => {});
 
-  // The level bar explains XP; coins and gems open where they are spent, and explain themselves when held.
+  // The level bar explains XP; coins and gems say in brief how to get them and what they're for (with a button to
+  // where they're spent), and explain themselves in full when held. Any other counter marked data-cur does the same.
   $("#g-lv").onclick = () => openEarned("xp", game, go);
-  holdable($("#g-coins"), () => go("shop"), () => openEarned("coin", game, go));
-  holdable($("#g-gems"), () => go("supplies"), () => openEarned("gem", game, go));
+  holdable($("#g-coins"), () => openCurrency("coins", game, go), () => openEarned("coin", game, go));
+  holdable($("#g-gems"), () => openCurrency("gems", game, go), () => openEarned("gem", game, go));
+  currencyTaps(getGame, go);
   holdable($("#g-streak"), () => openEarned("streak", game, go), () => openEarned("freeze", game, go));
   $("#g-shop").onclick = () => go("shop");
   $("#g-creatures").onclick = () => go("creatures");

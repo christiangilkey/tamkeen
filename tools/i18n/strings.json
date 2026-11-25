@@ -15750,6 +15750,116 @@
   "f": "web/js/game/creatures.js"
  },
  {
+  "id": "447d62d9",
+  "k": "Reach your daily goal (10), win battles, and save words.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "bf937925",
+  "k": "Sell the fish you catch.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "8289ac33",
+  "k": "Extras: a new level, your guild's raid win, a fully grown creature ({0}), and a battle plus your flashcards on one day ({1}).",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "0ddfc35b",
+  "k": "The Shop: things to wear, decorations and battle moves.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "4906011f",
+  "k": "Open the shop",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "fdfd8182",
+  "k": "Earn a badge, rise a league, or help your guild beat the weekly raid boss.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "eeab1699",
+  "k": "Full bloom: every garden plot holding a fully grown building (10).",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "ad353dcf",
+  "k": "Now and then a rare roll when you remember a flashcard.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "cf6254cc",
+  "k": "Supplies: an XP boost, an incubator, a plot key or a mystery egg.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "9e64bbea",
+  "k": "Gems are never sold for money.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "3e321c9f",
+  "k": "Open supplies",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "310acda3",
+  "k": "The buildings in your garden make it, even while the app is closed.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "7f960d9d",
+  "k": "Clearing the day's flashcards, reaching your daily goal and flashcard rolls send more at once.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "10ad9a2d",
+  "k": "New buildings, and growing them so they make more.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "0dd6dde7",
+  "k": "Food for your creature ({0} each) and potions for wild battles.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "37de88de",
+  "k": "Open the garden",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "b0e7db56",
+  "k": "Pearls",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "399d4237",
+  "k": "Found inside the fish you catch, more often in the rarer ones.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "034f9ebe",
+  "k": "Better rods (more luck on each cast) and bigger aquariums.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "53cb1f45",
+  "k": "Stardust",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "e41aa6b0",
+  "k": "Release a fully grown creature in the garden: 1, and 1 more for every 2 fully grown buildings.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "68fd44bf",
+  "k": "It is never spent: each one makes your garden {0}% faster, for good.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
   "id": "20632bc3",
   "k": "Ember",
   "f": "web/js/game/data.js"
@@ -18085,8 +18195,8 @@
   "f": "web/js/game/fishing-ui.js"
  },
  {
-  "id": "b0e7db56",
-  "k": "Pearls",
+  "id": "7b6f42ca",
+  "k": "Pearls: tap to see how to get them",
   "f": "web/js/game/fishing-ui.js"
  },
  {
@@ -19185,11 +19295,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "53cb1f45",
-  "k": "Stardust",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "fe26b106",
   "k": "Glow collects itself",
   "f": "web/js/game/garden.js"
@@ -19730,13 +19835,13 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "b02f5611",
-  "k": "Coins: tap for the shop, hold to learn more",
+  "id": "e1d03827",
+  "k": "Coins: tap to see how to get them, hold to learn more",
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "1ebd4eff",
-  "k": "Gems: tap for supplies, hold to learn more",
+  "id": "87dfd706",
+  "k": "Gems: tap to see how to get them, hold to learn more",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -20130,11 +20235,6 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "4906011f",
-  "k": "Open the shop",
-  "f": "web/js/game/info.js"
- },
- {
   "id": "b72da5f2",
   "k": "Streak freeze",
   "f": "web/js/game/info.js"
@@ -20222,16 +20322,6 @@
  {
   "id": "38ccf266",
   "k": "Buildings are on the Garden page. Food and potions are on the Supplies page.",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "37de88de",
-  "k": "Open the garden",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "3e321c9f",
-  "k": "Open supplies",
   "f": "web/js/game/info.js"
  },
  {
@@ -20332,6 +20422,21 @@
  {
   "id": "525f61b6",
   "k": "Where",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "6d597cef",
+  "k": "How to get it",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "25b83941",
+  "k": "What it's for",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "fb7345b8",
+  "k": "Tell me more",
   "f": "web/js/game/info.js"
  },
  {

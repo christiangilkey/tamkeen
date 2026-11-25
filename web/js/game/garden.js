@@ -52,7 +52,7 @@ export function gardenPanel(body, game, changed, go = () => {}) {
   const facts = h(`<div class="gs-facts"></div>`);
   const cells = [counted("You have", "glow", f.glow), counted("An hour", "glow", f.rate)];
   if (!f.auto) cells.push(counted("Waiting", "glow", f.waiting));
-  if (f.stardust) cells.push(fact("Stardust", `${icon("stardust")}${fmt(f.stardust)}`));
+  if (f.stardust) cells.push(fact("Stardust", `<button type="button" class="cur-tap" data-cur="stardust" data-cur-here="garden" title="Stardust">${icon("stardust")}${fmt(f.stardust)}</button>`));
   for (const [k, v] of cells) {
     const c = h(`<div class="gs-fact"><span class="gs-label"></span><span class="gs-fact-v">${v}</span></div>`);
     c.querySelector(".gs-label").textContent = k;

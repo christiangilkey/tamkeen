@@ -16,6 +16,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 - **Changed:** Battles against the computer are easier. The rival now takes about as long as a learner to answer (its quick answers come after 1.5 to 2.5 seconds instead of 0.8 to 2), so you win the answer race more often; wild creatures get their moves right less often; and gym leaders 4 to 10 are a little weaker. In trials, a player who answers 3 in 4 questions right now wins about 97% of wild encounters (was 79%), and against the gym leaders it rises gently from 98% at Volta to 34% at Zenith the champion (was 90% down to 6%). The first three gyms stay as easy as before.
 - **Improved:** In a battle, the question now says who is attacking: "You attack" with your creature's picture, or "(rival) attacks: defend!" with theirs, in red, so you always know whether a right answer hits or blocks.
+- **Improved:** In the creature game, tapping a currency's counter (coins, gems, glow, pearls, stardust: on Home, at the top of every game screen, in the garden and at the pond) opens a small card that says in a few words how to get it and what it's for, with a button to where it's spent and **Tell me more** for the full details. On Home, tapping coins or gems used to jump straight to the shop or supplies; holding them still opens the full explanation.
 
 ## v0.74.0 — 2026-11-25
 

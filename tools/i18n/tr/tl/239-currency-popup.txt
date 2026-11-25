@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Abutin ang layunin mo sa araw (10), manalo sa mga laban, at mag-save ng mga salita.
+bf937925	Ibenta ang mga isdang nahuli mo.
+8289ac33	Dagdag: bagong level, ang panalo ng guild mo sa raid, isang nilalang na ganap nang lumaki ({0}), at isang laban kasama ang mga flashcard mo sa iisang araw ({1}).
+0ddfc35b	Ang Shop: mga isusuot, dekorasyon at mga galaw sa laban.
+fdfd8182	Makakuha ng badge, umakyat ng liga, o tulungan ang guild mo na talunin ang boss ng linggo.
+eeab1699	Ganap na pamumulaklak: may ganap na gusali sa bawat lote ng hardin (10).
+ad353dcf	Paminsan-minsan, isang bihirang roll kapag naaalala mo ang isang flashcard.
+cf6254cc	Mga supply: isang XP boost, isang incubator, isang susi ng lote o isang mystery egg.
+9e64bbea	Hindi kailanman ibinebenta ang mga gem para sa pera.
+310acda3	Ginagawa ito ng mga gusali sa hardin mo, kahit nakasara ang app.
+7f960d9d	Ang pagtapos sa mga flashcard ng araw, pag-abot sa layunin mo, at mga roll sa flashcard ay nagpapadala ng higit nang sabay-sabay.
+10ad9a2d	Mga bagong gusali, at pagpapalaki sa mga ito para mas marami ang gawin.
+0dd6dde7	Pagkain para sa nilalang mo ({0} bawat isa) at mga potion para sa mga ligaw na laban.
+399d4237	Nasa loob ng mga isdang nahuhuli mo, mas madalas sa mga bihira.
+034f9ebe	Mas magagandang pamingwit (mas suwerte sa bawat hagis) at mas malalaking aquarium.
+e41aa6b0	Pakawalan ang isang ganap nang lumaking nilalang sa hardin: 1, at 1 pa sa bawat 2 ganap na gusali.
+68fd44bf	Hindi ito kailanman nagagastos: bawat isa ay nagpapabilis sa hardin mo nang {0}%, habambuhay.
+7b6f42ca	Mga perlas: i-tap para makita kung paano makakuha
+e1d03827	Mga barya: i-tap para makita kung paano makakuha, pindutin nang matagal para sa higit pa
+87dfd706	Mga gem: i-tap para makita kung paano makakuha, pindutin nang matagal para sa higit pa
+6d597cef	Paano ito makukuha
+25b83941	Para saan ito
+fb7345b8	Sabihin pa

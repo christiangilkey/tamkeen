@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Arriba a l'objectiu del dia (10), guanya batalles i desa paraules.
+bf937925	Ven els peixos que pesques.
+8289ac33	Extres: un nivell nou, la victòria del teu gremi a la incursió, una criatura adulta ({0}) i una batalla més les teves targetes el mateix dia ({1}).
+0ddfc35b	La botiga: coses per posar-se, decoracions i moviments de batalla.
+fdfd8182	Guanya una insígnia, puja de lliga o ajuda el teu gremi a vèncer el cap de la setmana.
+eeab1699	Floració plena: cada parcel·la del jardí amb un edifici complet (10).
+ad353dcf	De tant en tant, una tirada rara quan recordes una targeta.
+cf6254cc	Subministraments: un impuls d'XP, una incubadora, una clau de parcel·la o un ou misteriós.
+9e64bbea	Les gemmes mai no es venen per diners.
+310acda3	Els edificis del teu jardí en fan, fins i tot amb l'app tancada.
+7f960d9d	Acabar les targetes del dia, arribar a l'objectiu i les tirades de targetes n'envien més de cop.
+10ad9a2d	Edificis nous, i fer-los créixer perquè en facin més.
+0dd6dde7	Menjar per a la teva criatura ({0} cadascun) i pocions per a batalles salvatges.
+399d4237	Es troben dins dels peixos que pesques, més sovint en els més rars.
+034f9ebe	Canyes millors (més sort a cada llançament) i aquaris més grans.
+e41aa6b0	Allibera una criatura adulta al jardí: 1, i 1 més per cada 2 edificis complets.
+68fd44bf	Mai no es gasta: cadascuna fa el teu jardí un {0}% més ràpid, per sempre.
+7b6f42ca	Perles: toca per veure com aconseguir-les
+e1d03827	Monedes: toca per veure com aconseguir-les, mantén premut per saber-ne més
+87dfd706	Gemmes: toca per veure com aconseguir-les, mantén premut per saber-ne més
+6d597cef	Com aconseguir-ho
+25b83941	Per a què serveix
+fb7345b8	Explica-me'n més

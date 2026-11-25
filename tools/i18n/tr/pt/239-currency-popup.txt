@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Alcance sua meta diária (10), vença batalhas e salve palavras.
+bf937925	Venda os peixes que você pesca.
+8289ac33	Extras: um novo nível, a vitória da sua guilda na incursão, uma criatura adulta ({0}) e uma batalha mais seus cartões no mesmo dia ({1}).
+0ddfc35b	A loja: coisas para vestir, decorações e golpes de batalha.
+fdfd8182	Ganhe uma insígnia, suba de liga ou ajude sua guilda a vencer o chefe da semana.
+eeab1699	Florada total: cada lote do jardim com um prédio completo (10).
+ad353dcf	De vez em quando, uma rolagem rara ao lembrar um cartão.
+cf6254cc	Suprimentos: um bônus de XP, uma incubadora, uma chave de lote ou um ovo misterioso.
+9e64bbea	Gemas nunca são vendidas por dinheiro.
+310acda3	Os prédios do seu jardim a produzem, mesmo com o app fechado.
+7f960d9d	Terminar os cartões do dia, alcançar a meta diária e as rolagens dos cartões trazem mais de uma vez.
+10ad9a2d	Prédios novos, e fazê-los crescer para produzirem mais.
+0dd6dde7	Comida para sua criatura ({0} cada) e poções para batalhas selvagens.
+399d4237	Encontradas dentro dos peixes que você pesca, mais vezes nos mais raros.
+034f9ebe	Varas melhores (mais sorte a cada lançamento) e aquários maiores.
+e41aa6b0	Liberte uma criatura adulta no jardim: 1, e mais 1 a cada 2 prédios completos.
+68fd44bf	Nunca é gasta: cada uma deixa seu jardim {0}% mais rápido, para sempre.
+7b6f42ca	Pérolas: toque para ver como conseguir
+e1d03827	Moedas: toque para ver como conseguir, segure para saber mais
+87dfd706	Gemas: toque para ver como conseguir, segure para saber mais
+6d597cef	Como conseguir
+25b83941	Para que serve
+fb7345b8	Saiba mais

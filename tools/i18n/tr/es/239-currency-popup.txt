@@ -1,0 +1,24 @@
+# A currency's brief popup: how to get it and what it's for (currencies.js, info.js openCurrency).
+447d62d9	Alcanza tu meta diaria (10), gana batallas y guarda palabras.
+bf937925	Vende los peces que pescas.
+8289ac33	Extras: un nivel nuevo, la victoria de tu gremio en la incursión, una criatura adulta ({0}) y una batalla más tus tarjetas en el mismo día ({1}).
+0ddfc35b	La tienda: cosas para vestir, decoraciones y movimientos de batalla.
+fdfd8182	Gana una insignia, sube de liga o ayuda a tu gremio a vencer al jefe semanal.
+eeab1699	Plena floración: cada parcela del jardín con un edificio completo (10).
+ad353dcf	De vez en cuando, una tirada rara al recordar una tarjeta.
+cf6254cc	Suministros: un potenciador de XP, una incubadora, una llave de parcela o un huevo misterioso.
+9e64bbea	Las gemas nunca se venden por dinero.
+310acda3	Los edificios de tu jardín lo producen, incluso con la app cerrada.
+7f960d9d	Terminar las tarjetas del día, alcanzar tu meta diaria y las tiradas de tarjetas traen más de golpe.
+10ad9a2d	Edificios nuevos, y hacerlos crecer para que produzcan más.
+0dd6dde7	Comida para tu criatura ({0} cada una) y pociones para batallas salvajes.
+399d4237	Se encuentran dentro de los peces que pescas, más a menudo en los más raros.
+034f9ebe	Mejores cañas (más suerte en cada lanzamiento) y acuarios más grandes.
+e41aa6b0	Libera una criatura adulta en el jardín: 1, y 1 más por cada 2 edificios completos.
+68fd44bf	Nunca se gasta: cada una hace tu jardín un {0}% más rápido, para siempre.
+7b6f42ca	Perlas: toca para ver cómo conseguirlas
+e1d03827	Monedas: toca para ver cómo conseguirlas, mantén pulsado para saber más
+87dfd706	Gemas: toca para ver cómo conseguirlas, mantén pulsado para saber más
+6d597cef	Cómo conseguirlo
+25b83941	Para qué sirve
+fb7345b8	Cuéntame más

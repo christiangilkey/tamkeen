@@ -48,8 +48,10 @@ test("Shop and My things share one switch, and so do Garden and Supplies, and Cr
 test("every section can still be reached: from the home card's buttons, then a switch", () => {
   // The home card's buttons (habitat.js) open these directly.
   const home = [...src("habitat.js").matchAll(/\bgo\("(\w+)"\)/g)].map((m) => m[1]);
-  for (const id of ["shop", "creatures", "garden", "supplies"]) assert.ok(home.includes(id), `the home card opens ${id}`);
+  for (const id of ["shop", "creatures", "garden"]) assert.ok(home.includes(id), `the home card opens ${id}`);
   const reached = new Set(home);
+  // Supplies: Garden's switch (below), and the gems counter's popup has a button to it (currencies.js open.tab).
+  assert.match(src("currencies.js"), /open: \{ tab: "supplies"/);
   // The Battle tile opens the battle menu, which is the "battle" section (battle-ui.js openBattleMenu).
   assert.match(src("habitat.js"), /#g-battle"\)\.onclick = \(\) => openBattleMenu\(/);
   assert.match(src("battle-ui.js"), /openShop\("battle", /);
@@ -64,7 +66,7 @@ test("every section can still be reached: from the home card's buttons, then a s
 
 test("no button anywhere opens a section that doesn't exist", () => {
   const asked = new Set();
-  for (const file of ["habitat.js", "info.js", "shop.js", "garden.js", "creatures.js", "movesui.js", "friends-game.js", "battle-ui.js"]) {
+  for (const file of ["habitat.js", "info.js", "currencies.js", "shop.js", "garden.js", "creatures.js", "movesui.js", "friends-game.js", "battle-ui.js"]) {
     if (!existsSync(new URL(`../../web/js/game/${file}`, import.meta.url))) continue;
     const text = src(file);
     for (const m of text.matchAll(/\bgo\("(\w+)"\)|\btab: "(\w+)"|openShop\("(\w+)"/g)) asked.add(m[1] || m[2] || m[3]);
