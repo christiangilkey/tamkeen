@@ -86,8 +86,8 @@ test("Add words asks, on one screen, before the cards are saved; nothing changes
   const b = read("web/js/components/wordbuilder.js");
   assert.match(b, /const senses = feature\("sense_choice"\) && !phrase;/, "the whole dictionary answer only in prototype mode");
   assert.match(b, /senses: feature\("sense_choice"\) \}\)\), items\);/, "the AI is asked for senses only in prototype mode");
-  const ask = b.indexOf('if (feature("sense_choice")) {'), save = b.indexOf("// 2. The cards themselves, all in one go.");
-  assert.ok(ask > 0 && ask < save, "asked before the cards are saved");
+  const ask = b.indexOf('if (feature("sense_choice") && !(await askMeanings(list)))'), save = b.indexOf("// 2. The cards themselves, all in one go.");
+  assert.ok(ask > 0 && ask < save, "asked before the cards are saved (askMeanings: also right after Fill in, prototype list_kinds)");
   assert.match(b, /await chooseSenses\(asking\.map\(\(r\) => \(\{ word: r\.text\.trim\(\), senses: r\.senses \}\)\), \{ lang \}\)/, "one screen for all the words");
   assert.match(b, /r\.meaning\.auto && Array\.isArray\(r\.senses\) && r\.senses\.length > 1 && !r\.senseChosen/, "only filled-in meanings with several senses");
   assert.match(b, /row\.senses = null; \}/, "a meaning the learner typed asks nothing");

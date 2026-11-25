@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Image
+c1cdd057	Une liste de mots dans une seule langue marche aussi : pour des mots en {0}, leurs mots en {1} sont trouvés ; pour des mots en {1}, leurs sens sont remplis, et vous choisissez quand un mot en a plusieurs.
+0627a8d4	Une autre image
+6b0a0983	Ajouter une image
+f48d1be6	Quelle langue ?
+1f3145c2	Tamkeen demandera dans quelle langue sont ces lignes.
+1df5996b	Choisissez les sens quand vous voulez : Ajouter redemande.
+71b14844	Ajoutée, mais son image n'a pas pu être gardée : {0}
+a3354215	Dans quelle langue sont ces mots ?
+554b989e	Tamkeen ne sait pas dans quelle langue est une ligne de la liste.
+bff94ef4	Tamkeen ne sait pas dans quelle langue sont {0} lignes de la liste.
+16f1aa1d	Ce sont des mots en :
+8391d314	Leurs mots en {0} sont trouvés
+6f987c62	Leurs sens sont remplis

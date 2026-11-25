@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Hulagway
+c1cdd057	Mahimo usab ang lista sa mga pulong sa usa ra ka pinulongan: sa mga pulong nga {0}, pangitaon ang mga pulong nga {1}; sa mga pulong nga {1}, pun-on ang mga kahulogan, ug ikaw ang mopili kon daghan ang kahulogan sa pulong.
+0627a8d4	Laing hulagway
+6b0a0983	Pagdugang og hulagway
+f48d1be6	Asang pinulongan?
+1f3145c2	Pangutan-on sa Tamkeen kon unsang pinulongan kini nga mga linya.
+1df5996b	Pilia ang mga kahulogan kon andam na ka: mangutana pag-usab ang Idugang.
+71b14844	Nadugang, apan wala matipigi ang hulagway niini: {0}
+a3354215	Unsang pinulongan kini nga mga pulong?
+554b989e	Dili mahibal-an sa Tamkeen kon unsang pinulongan ang usa ka linya sa lista.
+bff94ef4	Dili mahibal-an sa Tamkeen kon unsang pinulongan ang {0} ka linya sa lista.
+16f1aa1d	Mga pulong kini sa:
+8391d314	Pangitaon ang mga pulong nga {0}
+6f987c62	Pun-on ang mga kahulogan

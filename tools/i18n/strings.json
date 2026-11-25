@@ -11550,6 +11550,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "61852524",
+  "k": "Picture",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "52cfc778",
   "k": "Word or phrase",
   "f": "web/js/components/wordbuilder.js"
@@ -11567,6 +11572,11 @@
  {
   "id": "35220eab",
   "k": "The word will be found for this meaning when you press Fill in or Add.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "c1cdd057",
+  "k": "A list of words in one language works too: for words in {0}, their {1} words are found; for {1} words, their meanings are filled in, and you choose when a word has several.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11685,6 +11695,16 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "0627a8d4",
+  "k": "Another picture",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "6b0a0983",
+  "k": "Add a picture",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "e620d3a2",
   "k": "Recording the word…",
   "f": "web/js/components/wordbuilder.js"
@@ -11752,6 +11772,16 @@
  {
   "id": "054563bc",
   "k": "Twice in the list",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "f48d1be6",
+  "k": "Which language?",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "1f3145c2",
+  "k": "Tamkeen will ask which language these lines are in.",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -11880,6 +11910,11 @@
   "f": "web/js/components/wordbuilder.js"
  },
  {
+  "id": "1df5996b",
+  "k": "Choose the meanings when you're ready: Add asks again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
   "id": "829ddbe9",
   "k": "{0} of the cards need a look: see the red notes.",
   "f": "web/js/components/wordbuilder.js"
@@ -11907,6 +11942,11 @@
  {
   "id": "8dbef4a2",
   "k": "Nothing was added. Choose the meanings, then press Add again.",
+  "f": "web/js/components/wordbuilder.js"
+ },
+ {
+  "id": "71b14844",
+  "k": "Added, but its picture couldn't be kept: {0}",
   "f": "web/js/components/wordbuilder.js"
  },
  {
@@ -12012,6 +12052,36 @@
  {
   "id": "a32972eb",
   "k": "Use these words",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "a3354215",
+  "k": "Which language are these words in?",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "554b989e",
+  "k": "Tamkeen can't tell which language one line of the list is in.",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "bff94ef4",
+  "k": "Tamkeen can't tell which language {0} lines of the list are in.",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "16f1aa1d",
+  "k": "These are words in:",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "8391d314",
+  "k": "Their {0} words are found for you",
+  "f": "web/js/components/wordchoice.js"
+ },
+ {
+  "id": "6f987c62",
+  "k": "Their meanings are filled in for you",
   "f": "web/js/components/wordchoice.js"
  },
  {

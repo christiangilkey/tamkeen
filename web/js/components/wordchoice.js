@@ -54,3 +54,31 @@ export function chooseWords(items, { lang = "" } = {}) {
     body.querySelector(".sc-ok").onclick = () => { finish([...choice]); sheet.close(); };
   });
 }
+
+/**
+ * A pasted list whose lines can't all be told apart (prototype list_kinds): asked once, "These are words in: English /
+ * Spanish". `own` and `study` are the two languages' names (as shown); `count` how many lines it is about. Resolves to
+ * "native", "foreign", or null when the box was closed.
+ */
+export function askListLanguage({ own = "English", study = "", count = 0 } = {}) {
+  return new Promise((resolve) => {
+    let done = false;
+    const finish = (value) => { if (done) return; done = true; resolve(value); };
+    const sheet = openModal({ title: t("Which language are these words in?"), onClose: () => finish(null) });
+    sheet.el.querySelector(".modal-box").classList.add("sc-box", "wc-box");
+    const body = h(`<div class="sc">
+      <p class="sc-lead muted">${esc(count === 1 ? t("Tamkeen can't tell which language one line of the list is in.")
+        : t("Tamkeen can't tell which language {0} lines of the list are in.", count))}</p>
+      <div class="sc-word"><div class="sc-head">${esc(t("These are words in:"))}</div>
+        <div class="sc-opts">
+          <button type="button" class="sc-opt" data-v="native"><span class="sc-text"><span style="font-size:18px;font-weight:600">${esc(own)}</span>
+            <span class="muted" style="display:block;font-size:13px">${esc(t("Their {0} words are found for you", study))}</span></span></button>
+          <button type="button" class="sc-opt" data-v="foreign"><span class="sc-text"><span style="font-size:18px;font-weight:600">${esc(study)}</span>
+            <span class="muted" style="display:block;font-size:13px">${esc(t("Their meanings are filled in for you"))}</span></span></button>
+        </div>
+      </div>
+    </div>`);
+    sheet.body.append(body);
+    for (const b of body.querySelectorAll(".sc-opt")) b.onclick = () => { finish(b.dataset.v); sheet.close(); };
+  });
+}

@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Imagen
+c1cdd057	También sirve una lista de palabras en un solo idioma: para palabras en {0}, se buscan sus palabras en {1}; para palabras en {1}, se rellenan sus significados y tú eliges cuando una palabra tiene varios.
+0627a8d4	Otra imagen
+6b0a0983	Añadir una imagen
+f48d1be6	¿Qué idioma?
+1f3145c2	Tamkeen preguntará en qué idioma están estas líneas.
+1df5996b	Elige los significados cuando quieras: Añadir vuelve a preguntar.
+71b14844	Añadida, pero no se pudo guardar su imagen: {0}
+a3354215	¿En qué idioma están estas palabras?
+554b989e	Tamkeen no sabe en qué idioma está una línea de la lista.
+bff94ef4	Tamkeen no sabe en qué idioma están {0} líneas de la lista.
+16f1aa1d	Son palabras en:
+8391d314	Se buscan sus palabras en {0}
+6f987c62	Se rellenan sus significados

@@ -4146,6 +4146,11 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cp-own { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; border-top: 1px solid var(--border); padding-top: 12px; }
 .cp-own button { display: inline-flex; align-items: center; gap: 6px; }
 .cp-own .danger { color: var(--danger); }
+/* Add words: a card's own picture (wordbuilder.js paintPicture, prototype add_word_picture), small, its buttons beside it. */
+.cb-pic { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.cb-pic-img { width: 96px; height: 96px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+.cb-pic-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.cb-pic-buttons button { display: inline-flex; align-items: center; gap: 6px; }
 .cp-own-only .cp-own { border-top: 0; padding-top: 0; }
 .cp-notice { margin: 0; font-size: 11.5px; text-align: center; }
 @media (max-width: 560px) {

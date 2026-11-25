@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Imatge
+c1cdd057	També serveix una llista de paraules en una sola llengua: per a paraules en {0}, es troben les paraules en {1}; per a paraules en {1}, s'omplen els significats, i tries tu quan una paraula en té més d'un.
+0627a8d4	Una altra imatge
+6b0a0983	Afegeix una imatge
+f48d1be6	Quina llengua?
+1f3145c2	Tamkeen preguntarà en quina llengua són aquestes línies.
+1df5996b	Tria els significats quan vulguis: Afegeix ho torna a preguntar.
+71b14844	Afegida, però no se n'ha pogut desar la imatge: {0}
+a3354215	En quina llengua són aquestes paraules?
+554b989e	Tamkeen no sap en quina llengua és una línia de la llista.
+bff94ef4	Tamkeen no sap en quina llengua són {0} línies de la llista.
+16f1aa1d	Són paraules en:
+8391d314	Es troben les paraules en {0}
+6f987c62	S'omplen els significats

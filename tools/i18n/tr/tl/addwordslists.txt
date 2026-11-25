@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Larawan
+c1cdd057	Puwede rin ang listahan ng mga salita sa iisang wika: sa mga salitang {0}, hahanapin ang mga salitang {1}; sa mga salitang {1}, pupunan ang mga kahulugan, at ikaw ang pipili kapag marami ang kahulugan ng salita.
+0627a8d4	Ibang larawan
+6b0a0983	Magdagdag ng larawan
+f48d1be6	Aling wika?
+1f3145c2	Itatanong ng Tamkeen kung anong wika ang mga linyang ito.
+1df5996b	Piliin ang mga kahulugan kapag handa ka na: magtatanong ulit ang Idagdag.
+71b14844	Naidagdag, pero hindi naitabi ang larawan nito: {0}
+a3354215	Anong wika ang mga salitang ito?
+554b989e	Hindi matukoy ng Tamkeen kung anong wika ang isang linya ng listahan.
+bff94ef4	Hindi matukoy ng Tamkeen kung anong wika ang {0} linya ng listahan.
+16f1aa1d	Mga salita ito sa:
+8391d314	Hahanapin ang mga salitang {0}
+6f987c62	Pupunan ang mga kahulugan

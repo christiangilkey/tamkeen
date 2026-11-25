@@ -1,0 +1,15 @@
+# Add words: a card's own picture, a list in one language (prototypes add_word_picture, list_kinds), 2026-11-25
+61852524	Bild
+c1cdd057	Eine Liste mit Wörtern in nur einer Sprache geht auch: für Wörter auf {0} werden ihre Wörter auf {1} gefunden; für Wörter auf {1} werden ihre Bedeutungen ausgefüllt, und du wählst, wenn ein Wort mehrere hat.
+0627a8d4	Ein anderes Bild
+6b0a0983	Ein Bild hinzufügen
+f48d1be6	Welche Sprache?
+1f3145c2	Tamkeen fragt, in welcher Sprache diese Zeilen sind.
+1df5996b	Wähle die Bedeutungen, wann du willst: Hinzufügen fragt noch einmal.
+71b14844	Hinzugefügt, aber ihr Bild konnte nicht behalten werden: {0}
+a3354215	In welcher Sprache sind diese Wörter?
+554b989e	Tamkeen kann nicht sagen, in welcher Sprache eine Zeile der Liste ist.
+bff94ef4	Tamkeen kann nicht sagen, in welcher Sprache {0} Zeilen der Liste sind.
+16f1aa1d	Das sind Wörter auf:
+8391d314	Ihre Wörter auf {0} werden gefunden
+6f987c62	Ihre Bedeutungen werden ausgefüllt
