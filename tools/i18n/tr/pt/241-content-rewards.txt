@@ -1,0 +1,40 @@
+# New things in the Library pay in the game (prototype content_rewards): web/js/game/content-ui.js, content.js, game.js contentNote, data.js BADGES, currencies.js, info.js.
+abc96ce8 Meta semanal: coisas novas concluídas esta semana
+3fb5a992 Meta semanal cumprida: {0} coisas novas concluídas
+49a5e426 Meta semanal: {0} de {1} coisas novas concluídas
+23bc835a Coisas novas
+a35983b2 Meta semanal cumprida: +{0} XP e {1} moedas. A nova semana começa na segunda-feira.
+9d5bddbb Esta semana: {0} de {1} coisas novas concluídas. Hoje é o último dia.
+4cbdb45d Esta semana: {0} de {1} coisas novas concluídas, faltam {2} dias.
+f15240a8 Adicione algo novo à sua Biblioteca: +{0} XP e {1} moeda ({2} por dia).
+b84e0fff Conclua algo novo até o fim (um episódio, um capítulo, um livro, um filme): +{0} XP e {1} moedas ({2} por dia).
+df766ec7 Um reel ou uma página da web lida até o fim: +{0} XP e {1} moeda ({2} por dia).
+3f5ef953 Compartilhe palavras, uma pasta ou algo da sua Biblioteca com um amigo ou sua turma: +{0} XP e {1} moedas, uma vez por coisa e pessoa ({2} por dia).
+54eaec69 Conclua {0} coisas novas em uma semana (reels não contam): +{1} XP e {2} moedas.
+65a37eef O que as coisas novas rendem
+0eef714f Cada coisa conta uma vez só: adicionar o mesmo link ou arquivo de novo, ou concluí-lo de novo, não é novo.
+e98bbac9 Concluir é ouvir, assistir ou ler de verdade até o fim: pular até lá não conta.
+2b34ec2b Vídeos do YouTube e suas próprias gravações não contam.
+41e5251c Coisas novas na sua Biblioteca: adicionar uma (+{0}), concluir uma (+{1}), compartilhar uma (+{2}); concluir {3} em uma semana (+{4}).
+f83cb41c Primeira descoberta
+74bc81dc Adicione algo novo à sua Biblioteca
+75937f75 Dez coisas novas
+cc8fe805 Conclua 10 coisas novas até o fim
+49badc94 Cinquenta coisas novas
+7d133440 Conclua 50 coisas novas até o fim
+f0badf67 Duzentas coisas novas
+f87416de Conclua 200 coisas novas até o fim
+8b3ee457 Explorador
+a34ca83d Conclua coisas de 5 tipos diferentes (podcasts, livros, filmes…)
+9094f248 Primeiro compartilhamento
+b1a12845 Compartilhe algo com um amigo ou sua turma
+638d7465 Generoso
+a76e0a34 Compartilhe 25 vezes
+78471b85 Meta semanal cumprida: {0} coisas novas concluídas · +{1} XP, +{2} moedas
+ed700f3f Algo novo na sua Biblioteca
+50d0d8dd Compartilhado
+de225dde Você concluiu algo novo
+716506e7 {0}: +{1} XP e {2} moeda
+61daf4c5 {0}: +{1} XP e {2} moedas
+87063395 esta semana {0}/{1}
+321fdff5 Algo novo na sua Biblioteca: {0} por adicionar, {1} por concluir até o fim (um reel ou página da web {2}), {3} por compartilhar com um amigo ou sua turma. Cada coisa conta uma vez, algumas por dia. Conclua {4} coisas novas em uma semana: {5}.

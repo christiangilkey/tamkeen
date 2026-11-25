@@ -2997,6 +2997,14 @@ html.sel-sheets select { pointer-events: none; }
 .hud-count.cur-gem { color: var(--gem); }
 .hud-count.cur-streak { color: var(--streak); }
 .hud-count.cur-streak.cold { color: var(--muted); }
+/* The weekly goal for new things in the Library (prototype content_rewards: game/content-ui.js): a fourth counter. */
+.hud-wallet:has(#g-week) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hud-count.cur-week { color: var(--accent); }
+.hud-count.cur-week.done { color: var(--coin); }
+.week-badges { list-style: none; padding: 0; margin: 6px 0 0; display: grid; gap: 8px; }
+.week-badge { display: flex; align-items: center; gap: 10px; }
+.week-badge:not(.got) .px-icon { filter: grayscale(1); opacity: 0.55; }
+.week-badge small { color: var(--muted); }
 .cur-streak.cold .streak-pic > .px-icon { filter: grayscale(1); opacity: .5; }
 .streak-pic { position: relative; display: inline-flex; line-height: 0; }
 .freeze-badge { position: absolute; inset-inline-end: -5px; bottom: -4px; line-height: 0; }

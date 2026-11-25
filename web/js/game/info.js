@@ -11,6 +11,8 @@ import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BATTLE_XP_FLOOR, BOTH_COINS, BOTH_
 import { icon } from "./render.js";
 import { progressText } from "./screenparts.js";
 import { currencyOf } from "./currencies.js";
+import { feature } from "../prototype.js";
+import { PAY, WEEK_GOAL, WEEK_PAY } from "./content.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
 const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
@@ -116,6 +118,7 @@ const EARNED = {
         "Your guild beats the weekly raid boss: 20.",
         `Finish a battle and clear your flashcards on the same day: ${BOTH_COINS}, once a day. Flashcards by themselves pay glow, not coins.`,
         `A creature becomes fully grown: ${FULLY_GROWN_COINS}, once for each creature.`,
+        ...(feature("content_rewards") ? [`Something new in your Library: ${PAY.add.coins} for adding it, ${PAY.done.coins} for finishing it to the end (a reel or web page ${PAY.short.coins}), ${PAY.sent.coins} for sharing it with a friend or your class. Each thing counts once, a few a day. Finish ${WEEK_GOAL} new things in a week: ${WEEK_PAY.coins}.`] : []),
       ],
       use: [
         `Things for your creature to wear and for its habitat: hats, glasses, neckwear, things to hold, capes and wings, shirts, and decorations. They cost ${Math.min(...prices)} to ${Math.max(...prices)} coins.`,
@@ -230,7 +233,7 @@ export function openCurrency(kind, game, go = null, { here = null } = {}) {
   if (!c) return null;
   const { body, close } = sheet(c.name, c.icon, { over: true });
   body.closest(".game-sheet").classList.add("cur-sheet");
-  body.append(h(`<div><strong>How to get it</strong>${list(c.get.map((l) => esc(l.text)))}</div>`));
+  body.append(h(`<div><strong>How to get it</strong>${list(c.get.filter((l) => !l.proto || feature(l.proto)).map((l) => esc(l.text)))}</div>`));
   body.append(h(`<div><strong>What it's for</strong>${list(c.use.map((l) => esc(l.text)))}</div>`));
   const more = [];
   if (c.open && go && c.open.tab !== here) more.push({ label: c.open.word, pic: c.icon, run: () => go(c.open.tab) });

@@ -1,0 +1,40 @@
+# New things in the Library pay in the game (prototype content_rewards): web/js/game/content-ui.js, content.js, game.js contentNote, data.js BADGES, currencies.js, info.js.
+abc96ce8 Wochenziel: neue Dinge, die du diese Woche beendet hast
+3fb5a992 Wochenziel erreicht: {0} neue Dinge beendet
+49a5e426 Wochenziel: {0} von {1} neuen Dingen beendet
+23bc835a Neue Dinge
+a35983b2 Wochenziel erreicht: +{0} EP und {1} Münzen. Am Montag beginnt eine neue Woche.
+9d5bddbb Diese Woche: {0} von {1} neuen Dingen beendet. Heute ist der letzte Tag.
+4cbdb45d Diese Woche: {0} von {1} neuen Dingen beendet, noch {2} Tage.
+f15240a8 Füge deiner Bibliothek etwas Neues hinzu: +{0} EP und {1} Münze ({2} pro Tag).
+b84e0fff Beende etwas Neues bis zum Schluss (eine Folge, ein Kapitel, ein Buch, einen Film): +{0} EP und {1} Münzen ({2} pro Tag).
+df766ec7 Ein Reel oder eine Webseite bis zum Ende gelesen: +{0} EP und {1} Münze ({2} pro Tag).
+3f5ef953 Teile Wörter, einen Ordner oder etwas aus deiner Bibliothek mit einem Freund oder deiner Klasse: +{0} EP und {1} Münzen, einmal pro Sache und Person ({2} pro Tag).
+54eaec69 Beende {0} neue Dinge in einer Woche (Reels zählen nicht): +{1} EP und {2} Münzen.
+65a37eef Was neue Dinge bringen
+0eef714f Jede Sache zählt nur einmal: denselben Link oder dieselbe Datei noch einmal hinzuzufügen oder noch einmal zu beenden, ist nicht neu.
+e98bbac9 Beenden heißt, wirklich bis zum Ende zu hören, zu schauen oder zu lesen: dorthin springen zählt nicht.
+2b34ec2b YouTube-Videos und deine eigenen Aufnahmen zählen nicht.
+41e5251c Neue Dinge in deiner Bibliothek: eins hinzufügen (+{0}), eins beenden (+{1}), eins teilen (+{2}); {3} in einer Woche beenden (+{4}).
+f83cb41c Erster Fund
+74bc81dc Füge deiner Bibliothek etwas Neues hinzu
+75937f75 Zehn neue Dinge
+cc8fe805 Beende 10 neue Dinge bis zum Schluss
+49badc94 Fünfzig neue Dinge
+7d133440 Beende 50 neue Dinge bis zum Schluss
+f0badf67 Zweihundert neue Dinge
+f87416de Beende 200 neue Dinge bis zum Schluss
+8b3ee457 Entdecker
+a34ca83d Beende Dinge von 5 verschiedenen Arten (Podcasts, Bücher, Filme…)
+9094f248 Erstes Teilen
+b1a12845 Teile etwas mit einem Freund oder deiner Klasse
+638d7465 Großzügig
+a76e0a34 Teile 25 Mal
+78471b85 Wochenziel erreicht: {0} neue Dinge beendet · +{1} EP, +{2} Münzen
+ed700f3f Etwas Neues in deiner Bibliothek
+50d0d8dd Geteilt
+de225dde Etwas Neues beendet
+716506e7 {0}: +{1} EP und {2} Münze
+61daf4c5 {0}: +{1} EP und {2} Münzen
+87063395 diese Woche {0}/{1}
+321fdff5 Etwas Neues in deiner Bibliothek: {0} fürs Hinzufügen, {1} fürs Beenden bis zum Schluss (ein Reel oder eine Webseite {2}), {3} fürs Teilen mit einem Freund oder deiner Klasse. Jede Sache zählt einmal, ein paar pro Tag. Beende {4} neue Dinge in einer Woche: {5}.

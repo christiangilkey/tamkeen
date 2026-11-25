@@ -609,6 +609,14 @@ export const BADGES = [
   { id: "raid_win", name: "Raid", text: "Help defeat a weekly boss" },
   // (`proto`: shown and earned only where that prototype is on, until it is released: prototype.js)
   { id: "legend_feast", name: "Legendary feast", text: "Feed your creature a fish of Legendary rarity or better", proto: "legend_feast" },
+  // New things in the Library (content.js: content.BADGE_RULES says when each is earned)
+  { id: "content_first", name: "First find", text: "Add something new to your Library", proto: "content_rewards" },
+  { id: "content_done_10", name: "Ten new things", text: "Finish 10 new things to the end", proto: "content_rewards" },
+  { id: "content_done_50", name: "Fifty new things", text: "Finish 50 new things to the end", proto: "content_rewards" },
+  { id: "content_done_200", name: "Two hundred new things", text: "Finish 200 new things to the end", proto: "content_rewards" },
+  { id: "content_kinds_5", name: "Explorer", text: "Finish things of 5 different kinds (podcasts, books, films…)", proto: "content_rewards" },
+  { id: "content_share_1", name: "First share", text: "Share something with a friend or your class", proto: "content_rewards" },
+  { id: "content_share_25", name: "Generous", text: "Share 25 times", proto: "content_rewards" },
 ];
 
 // ---------- habitat ----------

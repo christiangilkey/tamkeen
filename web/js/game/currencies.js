@@ -9,10 +9,12 @@
 import { FOODS, SUPPLIES } from "./data.js";
 import { STARDUST_BOOST } from "./idle.js";
 import { BOTH_COINS, FULLY_GROWN_COINS } from "./rules.js";
+import { PAY, WEEK_GOAL, WEEK_PAY } from "./content.js";
 
 const gemSupplies = SUPPLIES.filter((s) => s.gems);
 
-/** {kind: {name, icon, get: [{text, from}], use: [{text, from}], more, open}}. `more`: the long explanation in info.js
+/** {kind: {name, icon, get: [{text, from, proto?}], use: [{text, from}], more, open}}. A line with `proto` shows only
+ * where that prototype is on (info.openCurrency). `more`: the long explanation in info.js
  * (EARNED), if there is one. `open`: the game sheet's page where it is spent, with the button's word. */
 export const CURRENCIES = {
   coins: {
@@ -22,6 +24,9 @@ export const CURRENCIES = {
       { text: "Sell the fish you catch.", from: [["fishing.js", "sell"]] },
       { text: `Extras: a new level, your guild's raid win, a fully grown creature (${FULLY_GROWN_COINS}), and a battle plus your flashcards on one day (${BOTH_COINS}).`,
         from: [["rules.js", "claimRaid"], ["rules.js", "grow"], ["rules.js", "payBoth"]] },
+      // (`proto`: shown only where that prototype is on: prototype.js)
+      { text: `New things in your Library: add one (+${PAY.add.coins}), finish one (+${PAY.done.coins}), share one (+${PAY.sent.coins}); finish ${WEEK_GOAL} in a week (+${WEEK_PAY.coins}).`,
+        from: [["content.js", "contentEvent"]], proto: "content_rewards" },
     ],
     use: [
       { text: "The Shop: things to wear, decorations and battle moves.", from: [["rules.js", "buy"], ["rules.js", "buyMove"]] },

@@ -1,0 +1,40 @@
+# New things in the Library pay in the game (prototype content_rewards): web/js/game/content-ui.js, content.js, game.js contentNote, data.js BADGES, currencies.js, info.js.
+abc96ce8 Sinemana nga tumong: mga bag-o nga nahuman karong semanaha
+3fb5a992 Naabot ang sinemana nga tumong: {0} ka bag-o nga nahuman
+49a5e426 Sinemana nga tumong: {0} sa {1} ka bag-o nga nahuman
+23bc835a Mga bag-o
+a35983b2 Naabot ang sinemana nga tumong: +{0} XP ug {1} ka coin. Magsugod ang bag-ong semana sa Lunes.
+9d5bddbb Karong semanaha: {0} sa {1} ka bag-o nga nahuman. Kini ang katapusang adlaw.
+4cbdb45d Karong semanaha: {0} sa {1} ka bag-o nga nahuman, {2} ka adlaw pa.
+f15240a8 Pagdugang og bag-o sa imong Library: +{0} XP ug {1} ka coin ({2} kada adlaw).
+b84e0fff Humana ang usa ka bag-o hangtod sa katapusan (usa ka episode, kapitulo, libro, pelikula): +{0} XP ug {1} ka coin ({2} kada adlaw).
+df766ec7 Usa ka reel o web page nga nabasa hangtod sa katapusan: +{0} XP ug {1} ka coin ({2} kada adlaw).
+3f5ef953 Ipaambit ang mga pulong, usa ka folder o usa ka butang gikan sa imong Library sa usa ka higala o sa imong klase: +{0} XP ug {1} ka coin, kausa kada butang ug tawo ({2} kada adlaw).
+54eaec69 Humana ang {0} ka bag-o sulod sa usa ka semana (dili maihap ang mga reel): +{1} XP ug {2} ka coin.
+65a37eef Unsay mahatag sa mga bag-o
+0eef714f Kausa ra maihap ang matag usa: ang pagdugang pag-usab sa samang link o file, o ang paghuman niini pag-usab, dili bag-o.
+e98bbac9 Ang paghuman nagpasabot nga tinuod nga naminaw, nagtan-aw o nagbasa hangtod sa katapusan: ang paglaktaw didto dili maihap.
+2b34ec2b Dili maihap ang mga video sa YouTube ug ang imong kaugalingong mga recording.
+41e5251c Mga bag-o sa imong Library: pagdugang og usa (+{0}), paghuman og usa (+{1}), pagpaambit og usa (+{2}); paghuman og {3} sulod sa usa ka semana (+{4}).
+f83cb41c Unang nakaplagan
+74bc81dc Pagdugang og bag-o sa imong Library
+75937f75 Napulo ka bag-o
+cc8fe805 Humana ang 10 ka bag-o hangtod sa katapusan
+49badc94 Kalim-an ka bag-o
+7d133440 Humana ang 50 ka bag-o hangtod sa katapusan
+f0badf67 Duha ka gatos ka bag-o
+f87416de Humana ang 200 ka bag-o hangtod sa katapusan
+8b3ee457 Eksplorador
+a34ca83d Humana ang mga butang nga 5 ka lain-laing klase (podcast, libro, pelikula…)
+9094f248 Unang pagpaambit
+b1a12845 Ipaambit ang usa ka butang sa usa ka higala o sa imong klase
+638d7465 Manggihatagon
+a76e0a34 Ipaambit og 25 ka higayon
+78471b85 Naabot ang sinemana nga tumong: {0} ka bag-o nga nahuman · +{1} XP, +{2} ka coin
+ed700f3f Adunay bag-o sa imong Library
+50d0d8dd Napaambit
+de225dde Nahuman nimo ang usa ka bag-o
+716506e7 {0}: +{1} XP ug {2} ka coin
+61daf4c5 {0}: +{1} XP ug {2} ka coin
+87063395 karong semanaha {0}/{1}
+321fdff5 Adunay bag-o sa imong Library: {0} sa pagdugang niini, {1} sa paghuman niini hangtod sa katapusan (reel o web page {2}), {3} sa pagpaambit niini sa usa ka higala o sa imong klase. Kausa ra maihap ang matag usa, pipila ra kada adlaw. Humana ang {4} ka bag-o sulod sa usa ka semana: {5}.

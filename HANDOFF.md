@@ -10016,3 +10016,36 @@ failed, with the online service's own code and words in brackets: `problem()` ke
 "no such student" message names the username typed and says what the student must do first (sign in and agree to
 share under Settings → DLI students) or to use the class code. By design the database gives one answer for "no such
 user" and "not a DLI student who shares", so the app cannot say which. No SQL change.
+
+## New things in the Library pay in the game (2026-11-25; side session "Content rewards"; prototype `content_rewards`)
+
+The owner asked for "a system that incentivizes adding new content" and chose: adding Library items, finishing them,
+and sharing; small game rewards, milestone badges and a weekly goal. Rules in `web/js/game/content.js` (no screen
+code), the record two devices join in `web/js/game/contentjoin.js` (pure; `merge.js` combine and
+`app/sync/gamemerge.py` `join_content` do the same; two cases in `tests/fixtures/game_merge.json`), the Home chip and
+its sheet in `web/js/game/content-ui.js`, the glue in `game.js` (`contentReward`, `contentAdded`, `contentUploaded`,
+`contentFinished`, `contentShared`). Tests: `tests/js/content.test.mjs`.
+
+- **Pay** (`PAY`, coins and XP only, through `rules.grow`, so the tally adds devices up without double counting):
+  add +10 XP 1 coin (5 a day); finish +50 XP 5 coins (5 a day); a reel or web page finished +10 XP 1 coin (10 a
+  day); share +15 XP 2 coins (5 a day). Past a cap things still count for badges and the week. Weekly goal
+  (`WEEK_GOAL` 3 finished, reels excluded, Monday to Sunday): +150 XP 20 coins once. Badges pay the usual 2 gems
+  each (idle.tick), nothing else pays gems.
+- **Once ever**: each item is kept as a short fingerprint (`fp`: no links or titles in the save) per action, so the
+  same link or file again, or finishing again, pays nothing; a share counts once per item and person or class.
+- **Where it hears**: `app.js` `api()` (both copies, desktop and phone) after a POST to an adding path (`ADDS`:
+  feeds, shared podcast/reel, saved reels, pages, netflix, books) and `uploadVideo` (own files; an audiobook by its
+  first chapter; not recordings or lesson tracks); `pages/player.js` (played through, `playcover.js`: podcasts,
+  Netflix, audiobooks, own audio/video), `pages/book.js` (a book read to its end, `readPage` done), `pages/reader.js`
+  (a web page scrolled to its end after `pageNeeds` seconds of use); `social.js` `sendShare` and
+  `sendmedia.js` `sendMedia` / `sendToClass` after they are delivered.
+- **Never counts**: YouTube (its policy, as `rules.UNPAID_TIME`), the random reels of "Get random reels",
+  Tamkeen's own lists, DLI course content pushed in, your own recordings.
+- **Shows**: the fly-to-counter (`landXp`) and a short toast; badge toasts; a fourth counter on Home (calendar icon,
+  "2/3") opens a sheet with the week, what pays, and each badge's progress. 7 badges in `data.js` BADGES with
+  `proto: "content_rewards"` (`content.BADGE_RULES`), drawn in Aseprite through the MCP: `game/art-src/badge/content_*`
+  (grids in `grids/`), icon `game/art-src/icon/week_goal.aseprite`. The coins popup line (`currencies.js`, `proto`) and
+  info.js's long coin text show only with the prototype on.
+- **Not done**: reels played to the end in the reel player don't count yet (only adding them does); guilds have no
+  way to receive a share, so none counts; two devices finishing the same item while apart before they sync each pay
+  once (rare; the record joins after).

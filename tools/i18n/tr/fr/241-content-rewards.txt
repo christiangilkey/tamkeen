@@ -1,0 +1,40 @@
+# New things in the Library pay in the game (prototype content_rewards): web/js/game/content-ui.js, content.js, game.js contentNote, data.js BADGES, currencies.js, info.js.
+abc96ce8 Objectif de la semaine : nouveautés terminées cette semaine
+3fb5a992 Objectif de la semaine atteint : {0} nouveautés terminées
+49a5e426 Objectif de la semaine : {0} sur {1} nouveautés terminées
+23bc835a Nouveautés
+a35983b2 Objectif de la semaine atteint : +{0} XP et {1} pièces. Une nouvelle semaine commence lundi.
+9d5bddbb Cette semaine : {0} sur {1} nouveautés terminées. C'est le dernier jour.
+4cbdb45d Cette semaine : {0} sur {1} nouveautés terminées, encore {2} jours.
+f15240a8 Ajoutez quelque chose de nouveau à votre Bibliothèque : +{0} XP et {1} pièce ({2} par jour).
+b84e0fff Terminez quelque chose de nouveau jusqu'au bout (un épisode, un chapitre, un livre, un film) : +{0} XP et {1} pièces ({2} par jour).
+df766ec7 Un reel ou une page web lue jusqu'au bout : +{0} XP et {1} pièce ({2} par jour).
+3f5ef953 Partagez des mots, un dossier ou un élément de votre Bibliothèque avec un ami ou votre classe : +{0} XP et {1} pièces, une fois par élément et par personne ({2} par jour).
+54eaec69 Terminez {0} nouveautés en une semaine (les reels ne comptent pas) : +{1} XP et {2} pièces.
+65a37eef Ce que rapportent les nouveautés
+0eef714f Chaque chose ne compte qu'une fois : ajouter de nouveau le même lien ou fichier, ou le terminer de nouveau, n'est pas nouveau.
+e98bbac9 Terminer, c'est vraiment écouter, regarder ou lire jusqu'au bout : y sauter ne compte pas.
+2b34ec2b Les vidéos YouTube et vos propres enregistrements ne comptent pas.
+41e5251c Nouveautés dans votre Bibliothèque : en ajouter une (+{0}), en terminer une (+{1}), en partager une (+{2}) ; en terminer {3} en une semaine (+{4}).
+f83cb41c Première trouvaille
+74bc81dc Ajoutez quelque chose de nouveau à votre Bibliothèque
+75937f75 Dix nouveautés
+cc8fe805 Terminez 10 nouveautés jusqu'au bout
+49badc94 Cinquante nouveautés
+7d133440 Terminez 50 nouveautés jusqu'au bout
+f0badf67 Deux cents nouveautés
+f87416de Terminez 200 nouveautés jusqu'au bout
+8b3ee457 Explorateur
+a34ca83d Terminez des choses de 5 types différents (podcasts, livres, films…)
+9094f248 Premier partage
+b1a12845 Partagez quelque chose avec un ami ou votre classe
+638d7465 Généreux
+a76e0a34 Partagez 25 fois
+78471b85 Objectif de la semaine atteint : {0} nouveautés terminées · +{1} XP, +{2} pièces
+ed700f3f Du nouveau dans votre Bibliothèque
+50d0d8dd Partagé
+de225dde Vous avez terminé une nouveauté
+716506e7 {0} : +{1} XP et {2} pièce
+61daf4c5 {0} : +{1} XP et {2} pièces
+87063395 cette semaine {0}/{1}
+321fdff5 Du nouveau dans votre Bibliothèque : {0} pour l'ajouter, {1} pour le terminer jusqu'au bout (un reel ou une page web {2}), {3} pour le partager avec un ami ou votre classe. Chaque chose compte une fois, quelques-unes par jour. Terminez {4} nouveautés en une semaine : {5}.

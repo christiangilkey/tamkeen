@@ -288,5 +288,57 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
         rnd = _join_rounds(_obj(fish_a.get("round")), _obj(fish_b.get("round")))
         if rnd is not None:
             fish_a["round"] = rnd
+    # New things in the Library (join_content): every item that counted on either copy has counted.
+    content = join_content(a.get("content"), b.get("content"))
+    if content is not None:
+        out["content"] = content
     out["updated_at"] = max(_num(a.get("updated_at")), _num(b.get("updated_at")))
+    return out
+
+
+# ---------- new things in the Library (web/js/game/contentjoin.js: the same rules) ----------
+
+CONTENT_KEPT = 5000
+CONTENT_ACTIONS = ("add", "done", "short", "sent")
+
+
+def _ulist(a: Any, b: Any) -> list[Any]:
+    """Both lists' entries, each once, in order (contentjoin.js unionList)."""
+    out: dict[Any, None] = {}
+    for x in (a if isinstance(a, list) else []) + (b if isinstance(b, list) else []):
+        if isinstance(x, (str, int, float)) and not isinstance(x, bool):
+            out.setdefault(x, None)
+    return list(out)
+
+
+def _n0(v: Any) -> Any:
+    n = _num(v)
+    return n if n > 0 else 0
+
+
+def join_content(a: Any, b: Any) -> dict[str, Any] | None:
+    """Two copies' records of new things in the Library made into one (contentjoin.js join): every item that counted
+    on either has counted, so none pays twice."""
+    x, y = _obj(a), _obj(b)
+    if x is None or y is None:
+        return copy.deepcopy(x if x is not None else y) if (x is not None or y is not None) else None
+    out: dict[str, Any] = {}
+    for k in ("add", "done", "sent"):
+        out[k] = _ulist(x.get(k), y.get(k))[-CONTENT_KEPT:]
+    out["kinds"] = _ulist(x.get("kinds"), y.get("kinds"))
+    xn, yn = _obj(x.get("n")) or {}, _obj(y.get("n")) or {}
+    out["n"] = {k: max(_n0(xn.get(k)), _n0(yn.get(k)), len(out[k])) for k in ("add", "done", "sent")}
+    xd, yd = _obj(x.get("day")) or {}, _obj(y.get("day")) or {}
+    dx = xd.get("key") if isinstance(xd.get("key"), str) else ""
+    dy = yd.get("key") if isinstance(yd.get("key"), str) else ""
+    if dx != dy:
+        out["day"] = dict(yd if dy > dx else xd)
+    else:
+        out["day"] = {"key": dx, **{k: max(_n0(xd.get(k)), _n0(yd.get(k))) for k in CONTENT_ACTIONS}}
+    xw, yw = _obj(x.get("week")) or {}, _obj(y.get("week")) or {}
+    if _n0(xw.get("n")) != _n0(yw.get("n")):
+        out["week"] = copy.deepcopy(yw if _n0(yw.get("n")) > _n0(xw.get("n")) else xw)
+    else:
+        out["week"] = {"n": _n0(xw.get("n")), "done": _ulist(xw.get("done"), yw.get("done"))[-50:],
+                       "paid": xw.get("paid") is True or yw.get("paid") is True}
     return out

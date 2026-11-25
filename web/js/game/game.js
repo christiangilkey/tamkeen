@@ -1,10 +1,10 @@
 // The game's saved state, and the one function the study screens call: reward().
 // Also the "juice": the pop, particles, sounds and rolling numbers that make a reward feel good.
 
-import { api, on, saveSettings, state as app, toast } from "../app.js";
+import { api, h, on, saveSettings, state as app, toast } from "../app.js";
 import { gameOn } from "../components/gameswitch.js";
 import { SESSION_GAP_MS, UNPAID_TIME, earn, earnAnki, finishedEpisode, hearMultiplier, normalize, newState, readPage, rollDay, wordMultiplier } from "./rules.js";
-import { VARIANTS, prizeOf } from "./data.js";
+import { BADGES, VARIANTS, prizeOf } from "./data.js";
 import { t } from "../i18n.js";
 import { cardsGlow } from "./idle.js";
 import { restore, rollAnswer, snapshot } from "./loot.js";
@@ -14,6 +14,8 @@ import { deviceId, noteStudy } from "../dlitime.js";
 import { resolve, sameGame, stamp } from "./merge.js";
 import { badgePoint, landXp, paintBadge } from "./xpbadge.js";
 import { appOut } from "../appvolume.js";
+import { PROTO as CONTENT, addedBy, contentEvent, kindOf, uploadedBy } from "./content.js";
+import { feature } from "../prototype.js";
 
 let game = null;
 let saveTimer = 0;
@@ -251,6 +253,73 @@ export function featBookPage(key, from, to, total) {
   if (!res) return null;
   saveGame();
   return res.colouring ? featDone(res) : res;
+}
+
+// ---------- new things in the Library (content.js, prototype "content_rewards") ----------
+
+/**
+ * Something new in the Library: `action` "add" (added), "done" (finished) or "sent" (shared, once delivered); `kind`
+ * and `key` say what it is (content.js contentEvent). It pays once ever per item (per item and person for a share),
+ * up to a few a day; what it earned flies to the level badge (on Home, to the counters) with a short note.
+ */
+export function contentReward(action, kind, key) {
+  if (!gameOn() || !feature(CONTENT)) return null;
+  const g = getGame();
+  rollDay(g);
+  const result = contentEvent(g, { action, kind, key });
+  if (!result) return null;
+  saveGame();
+  const out = { type: "content", tier: result.weekPay ? "jackpot" : "common", ...result };
+  const home = !!document.querySelector(".habitat");
+  if (out.xp) {
+    if (!home) celebrate(out, null);
+    landXp(out, { loud: !home });
+  }
+  const said = contentNote(out);
+  if (said) try { toast(said, { timeout: out.weekPay ? 6000 : 3500 }).prepend(h(icon(out.weekPay ? "trophy" : "coin")), " "); } catch { /* no toasts here */ }
+  if (!home) for (const id of out.badges) {
+    const b = BADGES.find((x) => x.id === id);
+    if (b) try { toast(t("Badge earned: {0}", t(b.name))).prepend(h(icon("badge")), " "); } catch { /* no toasts here */ }
+  }
+  for (const fn of listeners) { try { fn(out, g); } catch { /* a listener must not break the Library */ } }
+  return out;
+}
+
+/** The short note for what a new thing earned ("" when it earned nothing to speak of). */
+function contentNote(r) {
+  if (r.weekPay) return t("Weekly goal reached: {0} new things finished · +{1} XP, +{2} coins", r.week.goal, r.xp, r.coins);
+  if (!r.xp) return "";
+  const what = r.action === "add" ? t("Something new in your Library") : r.action === "sent" ? t("Shared")
+    : t("Finished something new");
+  const said = [r.coins === 1 ? t("{0}: +{1} XP and {2} coin", what, r.xp, r.coins) : t("{0}: +{1} XP and {2} coins", what, r.xp, r.coins)];
+  if (r.week && !r.week.reached && r.week.done < r.week.goal) said.push(t("this week {0}/{1}", r.week.done, r.week.goal));
+  return said.join(" · ");
+}
+
+/** Something was shared and has arrived: `item` says what (a Library item, a folder, some words), `to` the friend or
+ * class it went to. It counts once per item and person. */
+export function contentShared(item, to) {
+  if (!item || !to) return null;
+  return contentReward("sent", "share", `${item}|${to}`);
+}
+
+/** A POST to the app's server succeeded (app.js api): whatever it added to the Library counts (content.addedBy). */
+export function contentAdded(path, body) {
+  if (!gameOn() || !feature(CONTENT)) return;
+  for (const { kind, key } of addedBy(path, body)) contentReward("add", kind, key);
+}
+
+/** One of the learner's own files was uploaded (app.js uploadVideo): it counts as added (content.uploadedBy). */
+export function contentUploaded(file, opts) {
+  if (!gameOn() || !feature(CONTENT)) return;
+  for (const { kind, key } of uploadedBy(file, opts)) contentReward("add", kind, key);
+}
+
+/** A Library item (`ep`, as the app lists it) has been listened to, watched or read to the end. */
+export function contentFinished(ep, key = ep && (ep.uid || ep.guid || ep.id)) {
+  const kind = kindOf(ep);
+  if (!kind || !key) return null;
+  return contentReward("done", kind, String(key));
 }
 
 /** Count study time while `active()` is true. Returns a function that stops counting. `source` "youtube":

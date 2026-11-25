@@ -1,0 +1,40 @@
+# New things in the Library pay in the game (prototype content_rewards): web/js/game/content-ui.js, content.js, game.js contentNote, data.js BADGES, currencies.js, info.js.
+abc96ce8 Obiettivo settimanale: cose nuove finite questa settimana
+3fb5a992 Obiettivo settimanale raggiunto: {0} cose nuove finite
+49a5e426 Obiettivo settimanale: {0} di {1} cose nuove finite
+23bc835a Cose nuove
+a35983b2 Obiettivo settimanale raggiunto: +{0} XP e {1} monete. La nuova settimana inizia lunedì.
+9d5bddbb Questa settimana: {0} di {1} cose nuove finite. Oggi è l'ultimo giorno.
+4cbdb45d Questa settimana: {0} di {1} cose nuove finite, mancano {2} giorni.
+f15240a8 Aggiungi qualcosa di nuovo alla Libreria: +{0} XP e {1} moneta ({2} al giorno).
+b84e0fff Finisci qualcosa di nuovo fino alla fine (un episodio, un capitolo, un libro, un film): +{0} XP e {1} monete ({2} al giorno).
+df766ec7 Un reel o una pagina web letta fino alla fine: +{0} XP e {1} moneta ({2} al giorno).
+3f5ef953 Condividi parole, una cartella o qualcosa della Libreria con un amico o la tua classe: +{0} XP e {1} monete, una volta per cosa e persona ({2} al giorno).
+54eaec69 Finisci {0} cose nuove in una settimana (i reel non contano): +{1} XP e {2} monete.
+65a37eef Cosa danno le cose nuove
+0eef714f Ogni cosa conta una volta sola: aggiungere di nuovo lo stesso link o file, o finirlo di nuovo, non è nuovo.
+e98bbac9 Finire vuol dire ascoltare, guardare o leggere davvero fino alla fine: saltarci non conta.
+2b34ec2b I video di YouTube e le tue registrazioni non contano.
+41e5251c Cose nuove nella Libreria: aggiungerne una (+{0}), finirne una (+{1}), condividerne una (+{2}); finirne {3} in una settimana (+{4}).
+f83cb41c Prima scoperta
+74bc81dc Aggiungi qualcosa di nuovo alla Libreria
+75937f75 Dieci cose nuove
+cc8fe805 Finisci 10 cose nuove fino alla fine
+49badc94 Cinquanta cose nuove
+7d133440 Finisci 50 cose nuove fino alla fine
+f0badf67 Duecento cose nuove
+f87416de Finisci 200 cose nuove fino alla fine
+8b3ee457 Esploratore
+a34ca83d Finisci cose di 5 tipi diversi (podcast, libri, film…)
+9094f248 Prima condivisione
+b1a12845 Condividi qualcosa con un amico o la tua classe
+638d7465 Generoso
+a76e0a34 Condividi 25 volte
+78471b85 Obiettivo settimanale raggiunto: {0} cose nuove finite · +{1} XP, +{2} monete
+ed700f3f Qualcosa di nuovo nella Libreria
+50d0d8dd Condiviso
+de225dde Hai finito qualcosa di nuovo
+716506e7 {0}: +{1} XP e {2} moneta
+61daf4c5 {0}: +{1} XP e {2} monete
+87063395 questa settimana {0}/{1}
+321fdff5 Qualcosa di nuovo nella Libreria: {0} per aggiungerlo, {1} per finirlo fino alla fine (un reel o una pagina web {2}), {3} per condividerlo con un amico o la tua classe. Ogni cosa conta una volta, poche al giorno. Finisci {4} cose nuove in una settimana: {5}.

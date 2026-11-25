@@ -15605,6 +15605,101 @@
   "f": "web/js/game/beasts.js"
  },
  {
+  "id": "abc96ce8",
+  "k": "Weekly goal: new things finished this week",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "3fb5a992",
+  "k": "Weekly goal reached: {0} new things finished",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "49a5e426",
+  "k": "Weekly goal: {0} of {1} new things finished",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "23bc835a",
+  "k": "New things",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "a35983b2",
+  "k": "Weekly goal reached: +{0} XP and {1} coins. A new week starts on Monday.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "9d5bddbb",
+  "k": "This week: {0} of {1} new things finished. Today is the last day.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "4cbdb45d",
+  "k": "This week: {0} of {1} new things finished, {2} days left.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "f15240a8",
+  "k": "Add something new to your Library: +{0} XP and {1} coin ({2} a day).",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "b84e0fff",
+  "k": "Finish something new to the end (an episode, a chapter, a book, a film): +{0} XP and {1} coins ({2} a day).",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "df766ec7",
+  "k": "A reel or a web page read to the end: +{0} XP and {1} coin ({2} a day).",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "3f5ef953",
+  "k": "Share words, a folder or something from your Library with a friend or your class: +{0} XP and {1} coins, once per thing and person ({2} a day).",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "54eaec69",
+  "k": "Finish {0} new things in a week (reels don't count): +{1} XP and {2} coins.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "65a37eef",
+  "k": "What new things pay",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "c81f6577",
+  "k": "What counts",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "0eef714f",
+  "k": "Each thing counts once: adding the same link or file again, or finishing it again, isn't new.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "e98bbac9",
+  "k": "Finishing means really listening, watching or reading to the end: skipping there counts nothing.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "2b34ec2b",
+  "k": "YouTube videos and your own recordings don't count.",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "257f305b",
+  "k": "Earned",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
+  "id": "2c578dc8",
+  "k": "Badges",
+  "f": "web/js/game/content-ui.js"
+ },
+ {
   "id": "32c9bcb1",
   "k": "Egg",
   "f": "web/js/game/creatures.js"
@@ -15745,11 +15840,6 @@
   "f": "web/js/game/creatures.js"
  },
  {
-  "id": "257f305b",
-  "k": "Earned",
-  "f": "web/js/game/creatures.js"
- },
- {
   "id": "447d62d9",
   "k": "Reach your daily goal (10), win battles, and save words.",
   "f": "web/js/game/currencies.js"
@@ -15762,6 +15852,11 @@
  {
   "id": "8289ac33",
   "k": "Extras: a new level, your guild's raid win, a fully grown creature ({0}), and a battle plus your flashcards on one day ({1}).",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "41e5251c",
+  "k": "New things in your Library: add one (+{0}), finish one (+{1}), share one (+{2}); finish {3} in a week (+{4}).",
   "f": "web/js/game/currencies.js"
  },
  {
@@ -18015,6 +18110,76 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "f83cb41c",
+  "k": "First find",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "74bc81dc",
+  "k": "Add something new to your Library",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "75937f75",
+  "k": "Ten new things",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "cc8fe805",
+  "k": "Finish 10 new things to the end",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "49badc94",
+  "k": "Fifty new things",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "7d133440",
+  "k": "Finish 50 new things to the end",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "f0badf67",
+  "k": "Two hundred new things",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "f87416de",
+  "k": "Finish 200 new things to the end",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "8b3ee457",
+  "k": "Explorer",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a34ca83d",
+  "k": "Finish things of 5 different kinds (podcasts, books, films…)",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "9094f248",
+  "k": "First share",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "b1a12845",
+  "k": "Share something with a friend or your class",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "638d7465",
+  "k": "Generous",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "a76e0a34",
+  "k": "Share 25 times",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "90b952f5",
   "k": "City park",
   "f": "web/js/game/data.js"
@@ -19470,6 +19635,41 @@
   "f": "web/js/game/game.js"
  },
  {
+  "id": "78471b85",
+  "k": "Weekly goal reached: {0} new things finished · +{1} XP, +{2} coins",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "ed700f3f",
+  "k": "Something new in your Library",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "50d0d8dd",
+  "k": "Shared",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "de225dde",
+  "k": "Finished something new",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "716506e7",
+  "k": "{0}: +{1} XP and {2} coin",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "61daf4c5",
+  "k": "{0}: +{1} XP and {2} coins",
+  "f": "web/js/game/game.js"
+ },
+ {
+  "id": "87063395",
+  "k": "this week {0}/{1}",
+  "f": "web/js/game/game.js"
+ },
+ {
   "id": "da3d3c4e",
   "k": "Tier {0} of 3",
   "f": "web/js/game/garden.js"
@@ -20492,6 +20692,11 @@
  {
   "id": "6e8cf3b3",
   "k": "A creature becomes fully grown: {0}, once for each creature.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "321fdff5",
+  "k": "Something new in your Library: {0} for adding it, {1} for finishing it to the end (a reel or web page {2}), {3} for sharing it with a friend or your class. Each thing counts once, a few a day. Finish {4} new things in a week: {5}.",
   "f": "web/js/game/info.js"
  },
  {
@@ -21827,11 +22032,6 @@
  {
   "id": "0ee5c43c",
   "k": "My things",
-  "f": "web/js/game/sections.js"
- },
- {
-  "id": "2c578dc8",
-  "k": "Badges",
   "f": "web/js/game/sections.js"
  },
  {
@@ -29932,11 +30132,6 @@
  {
   "id": "42033f3d",
   "k": "Goals of 1 to 3 months are the ones people finish most often. Missed days never break it: the rest is spread over the days left.",
-  "f": "web/js/review/longgoalview.js"
- },
- {
-  "id": "c81f6577",
-  "k": "What counts",
   "f": "web/js/review/longgoalview.js"
  },
  {

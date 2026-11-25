@@ -14,7 +14,7 @@ import { getDefinition } from "../define-service.js";
 import { lookupToggle } from "../components/lookupmode.js";
 import { plainWhenOff, tapSwitch } from "../components/tapswitch.js";
 import { markWord } from "../definer.js";
-import { featBookPage, reward, trackStudy } from "../game/game.js";
+import { contentFinished, featBookPage, reward, trackStudy } from "../game/game.js";
 import { pageNeeds } from "../game/rules.js";
 import { seenWords } from "../lexicon/seen.js";
 import { wordHtml } from "../wordface.js";
@@ -547,7 +547,10 @@ export async function render(view, { id, data, query }) {
     onPage.secs += dt;
     if (onPage.secs >= pageNeeds(onPage.b - onPage.a)) {
       onPage.done = true;
-      featBookPage(bookKey, onPage.a, onPage.b, n);
+      const read = featBookPage(bookKey, onPage.a, onPage.b, n);
+      // Read to the end like that (its last page, most of it): with the content rewards on, something new finished
+      // (a book, a PDF, a web page, a lesson: game/content.js), once.
+      if (read && read.done) contentFinished(ep, bookKey);
     }
   }, 500);
   return () => {
