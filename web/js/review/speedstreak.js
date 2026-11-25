@@ -93,3 +93,27 @@ export function setSpeed(name, value) {
 }
 export const loadRecord = () => cleanRecord(pref(KEYS.record, null));
 export const saveRecord = (rec) => setPref(KEYS.record, cleanRecord(rec));
+
+/**
+ * Should the countdown (and the card's own clock, which times the answer) wait? Only while recalling the word
+ * holds the learner's attention does time count. `s`, gathered by pages/review.js:
+ *   overlay    a box, a question, a tour or the Luck sheet over the cards, or the reviewer's settings open
+ *   editing    a text of the card open for typing (a tap on it)
+ *   typing     the keyboard's focus in any text box in the reviewer (meaning, notes, memo, a tool's box): on a
+ *              phone that is when its keyboard is up
+ *   flipped    the back is showing
+ *   toolOpen   a tool open under the back: the Mnemonic maker (from asking for mnemonics until one is chosen
+ *              or it is closed), a sentence, a recording, the folders
+ *   scrollTop  how far the back is scrolled down; lineTop: where the line over its notes and tools is, from the
+ *              top of the card's view; viewHeight: the view's height; atEnd: scrolled to the bottom
+ * Scrolled down so that line is in the top quarter of the card, or scrolled right down to the end, means the notes
+ * and tools, not the answer, are what is being looked at: choosing a mnemonic below. The owner, 2026-11-25: "when typing in a box or when waiting on mnemonics to
+ * load or scrolling below that line to choose a mnemonic, the streak timer should freeze."
+ */
+export function shouldHold(s) {
+  if (s.overlay || s.editing || s.typing) return true;
+  if (!s.flipped) return false;
+  if (s.toolOpen) return true;
+  if (!(s.scrollTop > 8)) return false;
+  return Boolean(s.atEnd && s.scrollTop > 40) || (s.viewHeight > 0 && s.lineTop <= s.viewHeight * 0.25);
+}

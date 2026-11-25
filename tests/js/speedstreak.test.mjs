@@ -72,3 +72,20 @@ test("the back's time: a chip's, or one typed in from 3 to 120 seconds", () => {
     delete globalThis.localStorage;
   }
 });
+
+test("the countdown waits while typing, while a tool such as the Mnemonic maker is open, and when scrolled down to the tools", async () => {
+  const { shouldHold } = await import("../../web/js/review/speedstreak.js");
+  const back = { flipped: true, scrollTop: 0, lineTop: 300, viewHeight: 600 };
+  assert.equal(shouldHold(back), false);  // reading the answer: time counts
+  assert.equal(shouldHold({ ...back, typing: true }), true);  // a box has the keyboard (memo, notes, meaning…)
+  assert.equal(shouldHold({ flipped: false, typing: true }), true);  // on the front too
+  assert.equal(shouldHold({ ...back, editing: true }), true);
+  assert.equal(shouldHold({ ...back, overlay: true }), true);
+  assert.equal(shouldHold({ ...back, toolOpen: true }), true);  // mnemonics loading or shown to choose from
+  assert.equal(shouldHold({ flipped: false, toolOpen: true }), false);  // (the front has no tools)
+  assert.equal(shouldHold({ ...back, scrollTop: 260, lineTop: 40 }), true);  // scrolled down to the tools
+  assert.equal(shouldHold({ ...back, scrollTop: 60, lineTop: 240 }), false);  // a little way down: still the answer
+  assert.equal(shouldHold({ ...back, scrollTop: 0, lineTop: 100 }), false);  // a short answer, not scrolled
+  assert.equal(shouldHold({ ...back, scrollTop: 83, lineTop: 195, atEnd: true }), true);  // a short back scrolled right down to its tools
+  assert.equal(shouldHold({ ...back, scrollTop: 20, lineTop: 260, atEnd: true }), false);  // (a nudge at the end isn't looking for the tools)
+});
