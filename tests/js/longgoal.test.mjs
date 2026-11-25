@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { AGAIN, GOOD } from "../../web/js/review/fsrs.js";
 import { cleanGoals, cleanSetting, goalOf, mergeGoals, migrateGoal, settingWins, withGoal } from "../../web/js/review/goalsetting.js";
+import { DAYS_PER, rateFrom, rateTotal } from "../../web/js/review/longgoal.js";
 import { checkIn, dailyAmounts, friendly, goalNewWords, langLog, monday, newMilestone, niceTarget, progress, suggestTarget, sumDays } from "../../web/js/review/longgoal.js";
 import { dailyCounts, stepper, streaks, weekday, yearEnd, yearOf, yearStart, yearStats, yearWeeks, years } from "../../web/js/review/heatmap.js";
 
@@ -266,4 +267,22 @@ test("the goal from before goals had a language becomes the language being learn
   const again = migrateGoal(moved, { at: 90, goal: goal({ target: 600, made: 80 }) }, "es");
   assert.equal(goalOf(again, "es").target, 600);
   assert.equal(goalOf(again, "ar").target, 300);
+});
+
+// ----- a goal typed as a rate (prototype goal_rate): "20 a day" over the goal's time -----
+
+test("a rate a day, week or month comes to a total over the goal's whole time, and back", () => {
+  assert.equal(rateTotal(20, "day", 90), 1800);           // 20 new words a day for 3 months
+  assert.equal(rateTotal(100, "week", 30), 429);          // 100 a week for a month
+  assert.equal(rateTotal(600, "month", 61), 1202);        // 600 a month for two months (an average month: 30.44 days)
+  assert.equal(rateTotal(600, "month", 365), 7195);
+  assert.equal(rateTotal(0, "day", 30), 1);               // never nothing
+  assert.equal(rateTotal(50000, "day", 366), 1000000);    // never past the most a goal can be
+  assert.ok(Math.abs(DAYS_PER.month - 30.4375) < 1e-9);
+  // Switching the box's unit keeps about the same total
+  assert.equal(rateFrom(1800, "day", 90), 20);
+  assert.equal(rateFrom(1800, "month", 90), 609);
+  assert.equal(rateFrom(5, "day", 90), 1);
+  // A new end date scales a goal typed as a rate: 20 a day for 2 months instead of 3
+  assert.equal(rateTotal(20, "day", 61), 1220);
 });

@@ -595,6 +595,9 @@ body.rv-open { overflow: hidden; }
 .lg-edit-box h4 { margin: 8px 0 0; font-size: 14px; }
 .lg-edit-box .rv-chips { justify-content: center; margin-top: 0; }
 .lg-target { align-self: center; width: 9em; text-align: center; font-size: 18px; font-variant-numeric: tabular-nums; }
+.lg-units { justify-content: center; margin-top: 0; }
+.lg-total { margin: 0; font-variant-numeric: tabular-nums; }
+.lg-total[hidden] { display: none; }
 .lg-about { margin: 0; min-height: 1.4em; font-weight: 600; }
 .lg-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 8px; }
 

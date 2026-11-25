@@ -8902,6 +8902,12 @@ the desktop, Android, iPhone and web app all have it; the only per-side code is 
   (longgoal.js `langLog` over the Vocab page's words). **The old `study_goal` / `goal` is left untouched** for older versions; the
   page gives it once to the language being learned (`legacy` = its `made`). Daily settings (new words a day, the card times, the
   timer mode) are per device in localStorage and NOT per language.
+- **Goal per day / week / month** (prototype `goal_rate`, 2026-11-25; the owner: "Goals should be able to be set also per
+  month and per day and this will then scale to the full selected time"): the goal box's "How many" has In total / A day /
+  A week / A month; a rate is worked out over the goal's whole time (longgoal.js `rateTotal`, a month = 365.25/12 days) and
+  kept with the total as `goal.rate = {per, n}` (goalsetting.js `cleanGoal`, app/studygoal.py `clean_goal`; older versions drop
+  it and keep the total). Reopening shows it as typed; a new end date scales it; switching units keeps the total (`rateFrom`).
+  Everything else counts against `target` as before. Also fixed for everyone: changing a goal opened "How many" empty.
 - **Goal sync**: setting `study_goal` = `{at, goal}` in app/db.py and mobile store.js defaults; library.json key
   `goal`; newer `at` wins (app/studygoal.py ↔ goalsetting.js, both run against tests/fixtures/studygoal_cases.json);
   in both `content` checks; desktop PATCH cleans it and `sync.request(30)`; phone `requestSync(30000)`.

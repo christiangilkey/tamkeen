@@ -9,6 +9,9 @@
 //       start:   day number (review/fsrs.js dayNumber)  the first day that counts
 //       end:     day number, start … start + 366       the last day that counts
 //       made:    <ms>                                   when it was set (tells one goal from the next)
+//       rate:    { per: "day" | "week" | "month", n }   (optional, prototype goal_rate) how it was typed: "20 a
+//                                                       day"; target is that worked out over start … end, and is
+//                                                       what everything counts against. Older versions drop it.
 //   } }
 //
 // No imports: the phone's sync reads it too.
@@ -16,6 +19,8 @@
 export const MEASURES = ["learned", "reviews", "minutes"];
 export const MAX_TARGET = 1000000;
 export const MAX_DAYS = 366;
+export const RATE_PERS = ["day", "week", "month"];
+export const MAX_RATE = 100000;
 
 const whole = (x) => (typeof x === "number" && Number.isFinite(x) ? Math.floor(x) : NaN);
 
@@ -27,7 +32,11 @@ export function cleanGoal(raw) {
   const made = whole(raw.made);
   if (!measure || !(target >= 1 && target <= MAX_TARGET)) return null;
   if (!(start > 0) || !(end >= start) || end - start > MAX_DAYS) return null;
-  return { measure, target, start, end, made: made > 0 ? made : 0 };
+  const out = { measure, target, start, end, made: made > 0 ? made : 0 };
+  const rate = raw.rate && typeof raw.rate === "object" ? raw.rate : null;
+  const n = rate ? whole(rate.n) : NaN;
+  if (rate && RATE_PERS.includes(rate.per) && n >= 1 && n <= MAX_RATE) out.rate = { per: rate.per, n };
+  return out;
 }
 
 /** The setting as stored and synced. */

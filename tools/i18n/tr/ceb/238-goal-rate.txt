@@ -1,0 +1,4 @@
+29a05c13	Sa kinatibuk-an
+4286c1f8	Matag adlaw
+51e2a8b0	Matag semana
+6d17c384	Matag bulan

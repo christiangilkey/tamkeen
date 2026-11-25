@@ -29470,6 +29470,26 @@
   "f": "web/js/review/longgoalview.js"
  },
  {
+  "id": "29a05c13",
+  "k": "In total",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "4286c1f8",
+  "k": "A day",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "51e2a8b0",
+  "k": "A week",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
+  "id": "6d17c384",
+  "k": "A month",
+  "f": "web/js/review/longgoalview.js"
+ },
+ {
   "id": "8c8660be",
   "k": "2 weeks",
   "f": "web/js/review/longgoalview.js"

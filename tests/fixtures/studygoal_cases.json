@@ -200,6 +200,167 @@
         "at": 0,
         "goal": null
       }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "day",
+            "n": 20.7
+          }
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "day",
+            "n": 20
+          }
+        }
+      }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "month",
+            "n": 600
+          }
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "month",
+            "n": 600
+          }
+        }
+      }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "year",
+            "n": 5
+          }
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3
+        }
+      }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "day",
+            "n": 0
+          }
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3
+        }
+      }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": {
+            "per": "week",
+            "n": 100001
+          }
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3
+        }
+      }
+    },
+    {
+      "in": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3,
+          "rate": "20 a day"
+        }
+      },
+      "out": {
+        "at": 2,
+        "goal": {
+          "measure": "learned",
+          "target": 1800,
+          "start": 20400,
+          "end": 20489,
+          "made": 3
+        }
+      }
     }
   ],
   "wins": [

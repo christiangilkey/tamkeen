@@ -17,6 +17,8 @@ from typing import Any
 MEASURES = ("learned", "reviews", "minutes")
 MAX_TARGET = 1_000_000
 MAX_DAYS = 366
+RATE_PERS = ("day", "week", "month")
+MAX_RATE = 100_000
 
 
 def _whole(x: Any) -> int | None:
@@ -35,7 +37,13 @@ def clean_goal(raw: Any) -> dict[str, Any] | None:
         return None
     if start is None or end is None or start <= 0 or end < start or end - start > MAX_DAYS:
         return None
-    return {"measure": measure, "target": target, "start": start, "end": end, "made": made if made and made > 0 else 0}
+    out: dict[str, Any] = {"measure": measure, "target": target, "start": start, "end": end, "made": made if made and made > 0 else 0}
+    # How it was typed (prototype goal_rate): "20 a day"; the target is that worked out over start … end.
+    rate = raw.get("rate") if isinstance(raw.get("rate"), dict) else None
+    n = _whole(rate.get("n")) if rate else None
+    if rate and rate.get("per") in RATE_PERS and n is not None and 1 <= n <= MAX_RATE:
+        out["rate"] = {"per": rate["per"], "n": n}
+    return out
 
 
 def clean(raw: Any) -> dict[str, Any]:

@@ -1,0 +1,4 @@
+29a05c13	Kabuuan
+4286c1f8	Bawat araw
+51e2a8b0	Bawat linggo
+6d17c384	Bawat buwan

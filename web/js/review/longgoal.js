@@ -188,3 +188,21 @@ export function goalNewWords(goal, p, waiting, started, perDay) {
 
 /** A milestone passed since `seen` (the last one celebrated), or 0. */
 export const newMilestone = (p, seen) => (p.milestone > (seen || 0) ? p.milestone : 0);
+
+// ----- a goal typed as a rate (prototype goal_rate): "20 new words a day" over the goal's time -----
+// The owner, 2026-11-25: "Goals should be able to be set also per month and per day and this will then scale to the
+// full selected time." The goal keeps its total (`target`), which everything counts against; the rate is how it was
+// typed, kept with it (goalsetting.js `rate`) so the goal box shows "20 a day" again, and a new end date scales it.
+
+/** Days in each unit (a month: an average one, 365.25 / 12 days). */
+export const DAYS_PER = { day: 1, week: 7, month: 365.25 / 12 };
+
+/** The total that `n` a `per` comes to over `days` days (whole, at least 1, at most `most`). */
+export function rateTotal(n, per, days, most = 1000000) {
+  const total = Math.round((Math.max(0, n) * Math.max(1, days)) / (DAYS_PER[per] || 1));
+  return Math.min(most, Math.max(1, total));
+}
+
+/** The other way: about how many a `per` a `total` over `days` days is (whole, at least 1): the number the goal box
+ * shows when the unit is switched, so the total stays about the same. */
+export const rateFrom = (total, per, days) => Math.max(1, Math.round((Math.max(0, total) * (DAYS_PER[per] || 1)) / Math.max(1, days)));

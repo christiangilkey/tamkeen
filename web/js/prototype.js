@@ -40,6 +40,8 @@ export const PROTOTYPES = {
   owner_gifts: { name: "Gifts from the creator: give a chosen user coins, gems, XP, glow, items, moves, unlocks and creatures", released: true, since: "2026-11-24" },
   add_word_picture: { name: "Add words: a Picture field on each card (take or choose a photo), kept on the card when it is added", released: false, since: "2026-11-25" },
   list_kinds: { name: "Add words, Paste a list: a list of words in your own language finds their words in the one you learn; a list of words in that language fills in the rest and asks which meaning when a word has several (Fill in asks too)", released: false, since: "2026-11-25" },
+  fish_guardians: { name: "Fishing: a pond guardian's own moment (its shadow glows, sparkles and a big reveal when caught, a glow in the aquarium, a mark in the Fishdex)", released: false, since: "2026-11-25" },
+  goal_rate: { name: "Long-term goal set per day, week or month (\"20 new words a day\"), worked out over the goal's time; shown again as typed, and scaled when the time changes", released: false, since: "2026-11-25" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 

@@ -1,0 +1,4 @@
+29a05c13	No total
+4286c1f8	Por dia
+51e2a8b0	Por semana
+6d17c384	Por mês
