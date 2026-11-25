@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Affamé
+3ab11b1d	Affamé : touchez pour le nourrir
+151d5e4b	Vous n'avez pas de nourriture. Achetez-en sur la page Fournitures.
+aa9f7bf9	Affamé : nourrissez-le pour lui rendre toute sa force.
+0fec4faf	Il se bat avec {0} % de son attaque et de sa défense jusqu'à ce qu'il mange. Il ne perd jamais de santé, de croissance ni de cœurs, et peut toujours combattre.
+9eeec135	Le nourrir : {0}
+061e456b	Vous n'avez pas de nourriture. Elle coûte {0} d'éclat sur la page Fournitures.
+d2c6a977	Les nourrir d'abord ?
+eca928df	{0} a faim
+bc87384c	Ils ont faim : {0}
+97a0f395	Une créature affamée se bat avec {0} % de son attaque et de sa défense.
+cefbf5cb	Les nourrir
+8c6ba8c7	Pas assez de nourriture pour tous. Les autres se battront affamés.
+0b87f77f	Vous n'avez pas de nourriture. Elle est sur la page Fournitures.
+6b8a384f	Combattre quand même
+a703b560	Cette créature n'est pas dans votre collection.
+3a0e2f39	Affamé : −{0} %

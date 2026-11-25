@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Com fome
+3ab11b1d	Com fome: toque para alimentar
+151d5e4b	Você não tem comida. Compre na página de Suprimentos.
+aa9f7bf9	Com fome: alimente-o para recuperar toda a força.
+0fec4faf	Ele luta com {0}% do ataque e da defesa até comer. Nunca perde vida, crescimento nem corações, e ainda pode batalhar.
+9eeec135	Alimentar: {0}
+061e456b	Você não tem comida. Comida custa {0} de brilho na página de Suprimentos.
+d2c6a977	Alimentar antes?
+eca928df	{0} está com fome
+bc87384c	Estão com fome: {0}
+97a0f395	Uma criatura com fome luta com {0}% do ataque e da defesa.
+cefbf5cb	Alimentar
+8c6ba8c7	Não há comida para todos. Os outros lutam com fome.
+0b87f77f	Você não tem comida. Ela está na página de Suprimentos.
+6b8a384f	Lutar mesmo assim
+a703b560	Essa criatura não está na sua coleção.
+3a0e2f39	Fome: −{0}%

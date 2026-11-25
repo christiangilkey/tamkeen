@@ -170,6 +170,13 @@
       "theirs": {"xp": 40, "updated_at": 40, "clock": {"b": 1}, "roster": [{"seed": 1, "growth": 0.5}, {"seed": 2, "growth": 0.5}]},
       "keep": "merged",
       "expect": {"party.seeds": [2, 1]}
+    },
+    {
+      "name": "a creature fed on either copy has eaten: its later meal is kept, whichever copy of it is",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.6, "fedAt": 1000}, {"seed": 2, "growth": 0.5, "fedAt": 5000}]},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5, "fedAt": 3000}, {"seed": 2, "growth": 0.5}]},
+      "keep": "merged",
+      "expect": {"roster.0.fedAt": 3000, "roster.0.growth": 0.6, "roster.1.fedAt": 5000}
     }
   ]
 }

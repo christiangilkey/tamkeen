@@ -10,6 +10,7 @@ import { fighters } from "./battle.js";
 import { generateMap } from "./battlemap.js";
 import { GYM_COUNT, LEADERS, gymProgress, gymSetup, leaderElement, leaderTeam } from "./gyms.js";
 import { getGame } from "./game.js";
+import { feedFirst } from "./hunger-ui.js";
 import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { openBattleMenu, portrait } from "./battle-ui.js";
@@ -97,12 +98,14 @@ function leaderBox(game, index, vocab, close) {
 
 /** Start a battle against a leader: the owner's team (as in a rental or friend battle, no wild edge) against its team.
  * `close` closes the game sheet first. */
-export function fightLeader(leader, vocab, close = () => document.querySelector(".game-sheet-wrap")?.remove()) {
+export async function fightLeader(leader, vocab, close = () => document.querySelector(".game-sheet-wrap")?.remove()) {
   const game = getGame();
   const team = teamOf(game);
   if (!team.length) return;
+  // (hungry ones, prototype "hunger": fed first if the owner wants, else they fight at less strength)
+  if (!(await feedFirst(game, team.map((i) => game.roster[i])))) return;
   close();
-  const mine = fighters(game, team.map((i) => game.roster[i]));
+  const mine = fighters(game, team.map((i) => game.roster[i]), { fed: new Date() });
   const theirs = fighters(null, leaderTeam(leader), { scale: leader.scale });
   const map = generateMap((Math.random() * 2 ** 32) >>> 0, leader.theme ? { theme: leader.theme } : {});
   // In an all-time battle the leader is as strong as the player's cards make the player: the words are harder, the fight as even as ever.

@@ -16,6 +16,7 @@ import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuesti
 import { FRAME, animAt, composeCreature, drawLiving, drawingOf, FORGET_MS, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
+import { HUNGRY_PERCENT, wantedFood } from "./hunger-ui.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
@@ -166,7 +167,7 @@ export function runLiveBattle(setup, vocab) {
   document.querySelector(".live-wrap")?.remove();
   const el = h(`<div class="live-wrap"><div class="lb">
     <div class="lb-top">
-      <div class="lb-card me"><div class="lb-name"><span class="lb-el"></span><span class="lb-who"></span></div>
+      <div class="lb-card me"><div class="lb-name"><span class="lb-el"></span><span class="lb-who"></span><span class="lb-hungry" hidden></span></div>
         <div class="hud-bar"><i></i></div><div class="lb-pips"></div></div>
       <button type="button" class="ghost icon lb-pause" title="Pause">${lineIcon("pause")}</button>
       <div class="lb-card foe"><div class="lb-name"><span class="lb-who"></span><span class="lb-el"></span></div>
@@ -1024,6 +1025,16 @@ export function runLiveBattle(setup, vocab) {
           const img = iconEl(`type_${c.type}`, 16);
           img.title = t(TYPES[c.type].name);
           elBox.append(img);
+        }
+        // A hungry creature of the owner's fights weaker (prototype "hunger", battle.js fighter): said on its card.
+        const hungry = card.querySelector(".lb-hungry");
+        if (hungry) {
+          hungry.hidden = !f.hungry;
+          if (f.hungry) {
+            hungry.innerHTML = icon(wantedFood(c).id, 16);
+            hungry.append(t("Hungry: −{0}%", HUNGRY_PERCENT));
+            hungry.title = t("Hungry: feed it to bring back its full strength.");
+          }
         }
       }
       const pips = card.querySelector(".lb-pips");

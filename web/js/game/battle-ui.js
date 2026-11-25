@@ -32,6 +32,8 @@ import { icon as lineIcon } from "../icons.js";
 import { getGame, saveGame } from "./game.js";
 import { runLiveBattle } from "./livebattle-ui.js";
 import { sheet as helpSheet } from "./info.js";
+import { feedFirst, hungryButton, hungrySignHtml } from "./hunger-ui.js";
+import { isHungry } from "./idle.js";
 import { elementBadge } from "./movesui.js";
 import { gymsBlock } from "./gyms-ui.js";
 import { block, details, fact, fmt, switcher, tile } from "./screenparts.js";
@@ -404,6 +406,7 @@ function teamBlock(game, go) {
     m.title = t("Swap");
     m.onclick = () => partyPicker(game, team, k, save, go);
     cell.append(m);
+    if (isHungry(g)) cell.append(hungryButton(game, g, () => b.replaceWith(teamBlock(game, go)), { word: false })); // (prototype "hunger")
     if (team.length > 1) {
       const arrows = h(`<div class="bt-move">
         <button type="button" class="ghost icon" data-dir="-1" title="Move earlier" aria-label="Move earlier">${lineIcon("chevronLeft", 18)}</button>
@@ -436,6 +439,7 @@ function partyPicker(game, team, k, save, go) {
     name.textContent = nameOf(g);
     if (g.name) name.setAttribute("translate", "no");
     c.append(elementBadge(g.type));
+    if (isHungry(g)) c.append(h(hungrySignHtml(g))); // (prototype "hunger")
     c.onclick = () => { d.close(); if (at !== k) save(placeInParty(team, k, g.seed)); };
     grid.append(c);
   }
@@ -469,7 +473,7 @@ function quickBlock(game, vocab, close) {
 function wildBattle(game, vocab, close) {
   close();
   const rand = Math.random;
-  const mine = fighters(game, teamOf(game).map((i) => game.roster[i]), { wild: true });
+  const mine = fighters(game, teamOf(game).map((i) => game.roster[i]), { wild: true, fed: new Date() });
   const theirs = fighters(null, wildTeam(rand, mine.length));
   runLiveBattle({ ...wildSetup(rand), mode: "wild", mine, theirs, cards: { me: vocab.length } }, vocab);
 }
@@ -589,7 +593,9 @@ export async function startFriendBattle(friend, row, { words = null, folder = nu
   if (!mineIdx.length) { toast(`None of your creatures fit this week's rule (${rule.name}).`); return; }
   const theirTeam = friendTeam(profile, rule);
   if (!theirTeam.length) { toast(`${rivalName} has no creatures that fit this week's rule (${rule.name}).`); return; }
-  const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule });
+  // (hungry ones, prototype "hunger": fed first if the owner wants, else they fight at less strength)
+  if (!(await feedFirst(game, mineIdx.map((i) => game.roster[i])))) return;
+  const mine = fighters(game, mineIdx.map((i) => game.roster[i]), { rule, fed: new Date() });
   const theirs = fighters(null, theirTeam, { rule });
   // (a friend on an older version shares how many words they know, not their cards: those count instead)
   const theirCards = Number(theirTeam[0].cards ?? theirTeam[0].known) || 0;

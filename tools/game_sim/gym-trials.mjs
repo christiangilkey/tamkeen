@@ -2,7 +2,7 @@
 // and prints the win rates: against each gym leader, and against wild creatures. Battles are played as the live game
 // plays them (the answer race on: the rival answers too, and the player answers "defend" questions when attacked).
 //
-//   node tools/game_sim/gym-trials.mjs [battles a row = 60] [share answered right = 0.8] [leader id | "fast" | "-"] [skill = 0.7]
+//   node tools/game_sim/gym-trials.mjs [battles a row = 60] [share answered right = 0.8] [leader id | "fast" | "-"] [skill = 0.7] [hungry = 0]
 //
 // With a leader id, every leader fights with that leader's team, stats and arena: only how it plays (its brain, how
 // often and how quickly it answers, the seconds a question) differs, so the AI alone shows. "fast" is a quick player.
@@ -13,6 +13,8 @@
 //   ordinary  1.5 to 3.5 s, one answer in five up to 2 s more (thinking about a word in another language)
 //   fast      1 to 2.5 s, one in five up to 1.5 s more
 // An answer slower than the time limit fails, and one slower than the rival's loses the race, as it would for a person.
+// `hungry` (0 to 3): how many of the player's three creatures are hungry (prototype "hunger": they fight at
+// idle.HUNGRY_STRENGTH of their attack and defence), so the trials show what not feeding them costs.
 
 import { fighters, wildTeam } from "../../web/js/game/battle.js";
 import { generateMap } from "../../web/js/game/battlemap.js";
@@ -43,12 +45,15 @@ function play(b, rand, right, pace) {
   return { won: !!b.won, time: b.time, over: b.over };
 }
 
-const playerTeam = (rand, opts) => fighters({ tags: [], attacks: [] }, wildTeam(rand, 3).map((g) => ({ ...g, growth: 0.9 })), opts);
+const T_NOW = new Date("2026-11-25T12:00:00");
+const playerTeam = (rand, opts = {}, hungry = 0) => fighters({ tags: [], attacks: [] },
+  wildTeam(rand, 3).map((g, i) => ({ ...g, growth: 0.9, fedAt: T_NOW.getTime() / 1000 - (i < hungry ? 48 : 1) * 3600 })),
+  { ...opts, fed: T_NOW, hunger: hungry > 0 });
 
 /** One battle against a leader. */
-export function gymBattle(leader, seed, { right = 0.8, pace = "ordinary", skill = 0.7, cols = 90, rows = 54, same = null } = {}) {
+export function gymBattle(leader, seed, { right = 0.8, pace = "ordinary", skill = 0.7, cols = 90, rows = 54, same = null, hungry = 0 } = {}) {
   const rand = rng(seed);
-  const mine = playerTeam(rand);
+  const mine = playerTeam(rand, {}, hungry);
   // `same`: every leader fights with this one leader's team, stats and arena, so only how it plays differs
   const body = same || leader;
   const theirs = fighters(null, leaderTeam(body), { scale: body.scale });
@@ -58,9 +63,9 @@ export function gymBattle(leader, seed, { right = 0.8, pace = "ordinary", skill 
 }
 
 /** One wild encounter, as the Battle screen starts it (battlescreen.js wildSetup). */
-export function wildBattle(seed, { right = 0.8, pace = "ordinary", skill = 0.7, cols = 90, rows = 54 } = {}) {
+export function wildBattle(seed, { right = 0.8, pace = "ordinary", skill = 0.7, cols = 90, rows = 54, hungry = 0 } = {}) {
   const rand = rng(seed);
-  const mine = playerTeam(rand, { wild: true });
+  const mine = playerTeam(rand, { wild: true }, hungry);
   const theirs = fighters(null, wildTeam(rand, mine.length));
   const map = generateMap(seed, { cols, rows });
   const b = newLiveBattle({ ...wildSetup(rand), mine, theirs, map, rand, auto: true, autoSkill: skill, race: true, autoDodge: true, ask: () => QUESTION });
@@ -88,12 +93,13 @@ if (process.argv[1] && process.argv[1].endsWith("gym-trials.mjs")) {
   const right = Number(process.argv[3]) || 0.8;
   const arg = process.argv[4] || "";
   const skill = Number(process.argv[5]) || 0.7;
+  const hungry = Number(process.argv[6]) || 0;
   const pace = arg === "fast" ? "fast" : "ordinary";
   const same = arg && arg !== "fast" && arg !== "-" ? LEADERS.find((l) => l.id === arg) : null;
   const t0 = Date.now();
   console.log(`${n} battles a row, ${Math.round(right * 100)}% answered right, ${pace} answers, moving skill ${skill}, answer race on` +
-    (same ? `; every leader with ${same.name}'s team, stats and arena` : ""));
-  for (const r of [wildTrials(n, { right, pace, skill }), ...gymTrials(n, { right, pace, skill, same })]) {
+    (same ? `; every leader with ${same.name}'s team, stats and arena` : "") + (hungry ? `; ${hungry} of 3 creatures hungry` : ""));
+  for (const r of [wildTrials(n, { right, pace, skill, hungry }), ...gymTrials(n, { right, pace, skill, same, hungry })]) {
     console.log(`${r.name.padEnd(8)} won ${String(Math.round(r.rate * 100)).padStart(3)}%   ~${r.time.toFixed(0)} s a battle${r.stuck ? `   ${r.stuck} didn't end` : ""}`);
   }
   console.log(`(${((Date.now() - t0) / 1000).toFixed(0)} s)`);

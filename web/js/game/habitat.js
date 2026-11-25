@@ -14,7 +14,8 @@ import { openModal } from "../components/modal.js";
 import { icon as lineIcon } from "../icons.js";
 import * as social from "../social.js";
 import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById } from "./data.js";
-import { automated, collect, garden, hearts, tick as gardenTick } from "./idle.js";
+import { automated, collect, garden, hearts, isHungry, tick as gardenTick } from "./idle.js";
+import { hungryButton, wantedFood } from "./hunger-ui.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
@@ -82,7 +83,7 @@ export function habitat() {
       <button type="button" class="scene-arrow next" title="Another habitat" aria-label="Next habitat">${lineIcon("chevron", 18)}</button>
       <span class="scene-label" hidden></span>
       <button type="button" class="goal-ring" id="g-goal" title="Today's goal: tap to change it"></button>
-      <div class="pet-word" hidden><b></b><span></span></div></div>
+      <div class="pet-word" hidden><b></b><span></span></div><span class="hab-hungry" hidden></span></div>
     <div class="habitat-hud">
       <button type="button" class="hud-lv" id="g-lv" title="Your level: tap to see how XP works"><span class="hud-lv-n">Lv <b id="g-level"></b></span>
         <span class="hud-bar thin"><i id="g-xpbar"></i></span></button>
@@ -202,6 +203,14 @@ export function habitat() {
     if (ring.done) { label.innerHTML = lineIcon("check", 12); label.append(` ${t("{0} min", ring.goal)}`); }
     else label.textContent = t("{0} / {1} min", ring.mins, ring.goal);
     label.setAttribute("aria-label", ring.done ? t("Daily goal reached: {0} minutes", ring.goal) : t("Daily goal: {0} of {1} minutes", ring.mins, ring.goal));
+    // Hungry (prototype "hunger"): a tag in the scene that says so and feeds it; the bubble over its head is drawn.
+    const hungryNow = isHungry(game.creature);
+    const hungryTag = $(".hab-hungry");
+    if (hungryTag.hidden === hungryNow || hungryTag.dataset.seed !== String(game.creature.seed)) {
+      hungryTag.hidden = !hungryNow;
+      hungryTag.dataset.seed = String(game.creature.seed);
+      hungryTag.replaceChildren(...(hungryNow ? [hungryButton(game, game.creature, () => paintHud(), {})] : []));
+    }
     const stage = formOf(game.creature);
     const name = $(".habitat-name");
     name.textContent = game.creature.name || (stage.id === "egg" ? "Your egg" : "Name me ");
@@ -391,6 +400,7 @@ export function habitat() {
   // It rains on about one day in four (the same days for everyone, so it is weather and not a glitch).
   const rainy = () => { const d = new Date(); return (d.getDate() * 7 + d.getMonth()) % 4 === 0; };
   const decorArt = {}; // decoration id -> image
+  const foodArt = {}; // food id -> image (a hungry creature's thought bubble)
   const bursts = [];   // {id, x, y, t}
   const floats = [];   // {img, x, y, t}
   let frames = {};     // pose key -> canvas (composed creature)
@@ -693,7 +703,18 @@ export function habitat() {
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), top);
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), top + 4 - (Math.floor(now / 300) % 3));
-      else if (say.hidden && art.heart) {
+      else if (say.hidden && isHungry(game.creature)) {
+        // Hungry (prototype "hunger"): a thought bubble with its favourite food, bobbing, in place of its hearts.
+        const food = wantedFood(game.creature).id;
+        if (!(food in foodArt)) { foodArt[food] = null; loadImage(`icon/${food}.png`).then((img) => { foodArt[food] = img; }); }
+        const y = top - 24 + Math.round(Math.sin(now / 500));
+        const x = Math.round(pet.x + pet.dir * 10 - 11);
+        ctx.fillStyle = "#1a1030";
+        ctx.fillRect(x - 1, y - 1, 24, 22); ctx.fillRect(x + (pet.dir < 0 ? 15 : 3), y + 21, 5, 4); ctx.fillRect(x + (pet.dir < 0 ? 18 : 1), y + 26, 3, 3);
+        ctx.fillStyle = "#fff";
+        ctx.fillRect(x, y, 22, 20); ctx.fillRect(x + (pet.dir < 0 ? 16 : 4), y + 21, 3, 2); ctx.fillRect(x + (pet.dir < 0 ? 19 : 2), y + 27, 1, 1);
+        if (foodArt[food]) ctx.drawImage(foodArt[food], x + 3, y + 2);
+      } else if (say.hidden && art.heart) {
         // Its hearts float over its head, like a mood: filled as far as it has been fed and cared for.
         const n = hearts(game.creature);
         const y = top - 10 + Math.round(Math.sin(now / 600));

@@ -20135,6 +20135,81 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "229099a9",
+  "k": "Hungry",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "3ab11b1d",
+  "k": "Hungry: tap to feed it",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "151d5e4b",
+  "k": "You have no food. Buy some on the Supplies page.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "aa9f7bf9",
+  "k": "Hungry: feed it to bring back its full strength.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "0fec4faf",
+  "k": "It fights at {0}% of its attack and defence until it eats. It never loses health, growth or hearts, and can still battle.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "9eeec135",
+  "k": "Feed it: {0}",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "061e456b",
+  "k": "You have no food. Food costs {0} glow on the Supplies page.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "d2c6a977",
+  "k": "Feed first?",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "eca928df",
+  "k": "{0} is hungry",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "bc87384c",
+  "k": "These are hungry: {0}",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "97a0f395",
+  "k": "A hungry creature fights at {0}% of its attack and defence.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "cefbf5cb",
+  "k": "Feed them",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "8c6ba8c7",
+  "k": "Not enough food for all of them. The rest fight hungry.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "0b87f77f",
+  "k": "You have no food. It is on the Supplies page.",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
+  "id": "6b8a384f",
+  "k": "Fight anyway",
+  "f": "web/js/game/hunger-ui.js"
+ },
+ {
   "id": "b2facb1b",
   "k": "That plot isn't open yet.",
   "f": "web/js/game/idle.js"
@@ -20187,6 +20262,11 @@
  {
   "id": "36602b9e",
   "k": "Your roster is full.",
+  "f": "web/js/game/idle.js"
+ },
+ {
+  "id": "a703b560",
+  "k": "That creature isn't in your roster.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -20782,6 +20862,11 @@
  {
   "id": "c308020b",
   "k": "Wild creature",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "3a0e2f39",
+  "k": "Hungry: −{0}%",
   "f": "web/js/game/livebattle-ui.js"
  },
  {

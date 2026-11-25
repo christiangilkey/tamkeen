@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Gutom
+3ab11b1d	Gutom: i-tap para pakainin
+151d5e4b	Wala kang pagkain. Bumili sa pahina ng Mga supply.
+aa9f7bf9	Gutom: pakainin ito para bumalik ang buong lakas nito.
+0fec4faf	Lumalaban ito nang {0}% ng atake at depensa nito hanggang makakain. Hindi ito nawawalan ng buhay, paglaki o puso, at makakalaban pa rin.
+9eeec135	Pakainin: {0}
+061e456b	Wala kang pagkain. {0} glow ang pagkain sa pahina ng Mga supply.
+d2c6a977	Pakainin muna?
+eca928df	Gutom si {0}
+bc87384c	Gutom sila: {0}
+97a0f395	Ang gutom na nilalang ay lumalaban nang {0}% ng atake at depensa nito.
+cefbf5cb	Pakainin sila
+8c6ba8c7	Kulang ang pagkain para sa lahat. Lalaban nang gutom ang iba.
+0b87f77f	Wala kang pagkain. Nasa pahina ito ng Mga supply.
+6b8a384f	Lumaban pa rin
+a703b560	Wala sa koleksyon mo ang nilalang na iyon.
+3a0e2f39	Gutom: −{0}%

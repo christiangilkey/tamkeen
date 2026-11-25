@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Afamat
+3ab11b1d	Té gana: toca per donar-li menjar
+151d5e4b	No tens menjar. Compra'n a la pàgina de Subministraments.
+aa9f7bf9	Té gana: dona-li menjar perquè recuperi tota la força.
+0fec4faf	Lluita amb el {0}% del seu atac i defensa fins que mengi. Mai no perd salut, creixement ni cors, i pot seguir lluitant.
+9eeec135	Dona-li menjar: {0}
+061e456b	No tens menjar. El menjar costa {0} de resplendor a la pàgina de Subministraments.
+d2c6a977	Donar-los menjar abans?
+eca928df	{0} té gana
+bc87384c	Tenen gana: {0}
+97a0f395	Una criatura afamada lluita amb el {0}% del seu atac i defensa.
+cefbf5cb	Dona'ls menjar
+8c6ba8c7	No hi ha menjar per a totes. Les altres lluitaran amb gana.
+0b87f77f	No tens menjar. És a la pàgina de Subministraments.
+6b8a384f	Lluitar igualment
+a703b560	Aquesta criatura no és a la teva col·lecció.
+3a0e2f39	Gana: −{0}%

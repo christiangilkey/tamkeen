@@ -144,7 +144,7 @@ function liveFighter(f, side, index, scale) {
   const moves = (Array.isArray(f.moves) ? f.moves : []).filter((id) => MOVES.some((m) => m.id === id)).slice(0, 4);
   return { side, index, name: f.name || "", look, type: f.type, species: look.species || f.species || null, max,
            hp: f.hp < f.max ? Math.max(1, Math.round(f.hp * k)) : max, atk: (f.atk || 20) * k, def: (f.def || 20) * k, spd: f.spd || 20,
-           moves: moves.length ? moves : ["tackle"], heals: Number.isFinite(f.heals) ? f.heals : 2,
+           moves: moves.length ? moves : ["tackle"], heals: Number.isFinite(f.heals) ? f.heals : 2, hungry: !!f.hungry,
            x: 0, y: 0, vx: 0, vy: 0, face: side === "me" ? 1 : -1, cd: {}, recover: 0, guard: 0, guardLeft: 0, boost: 0, boostMult: 1, boostLeft: 0,
            haste: 0, slow: 0, stun: 0, grace: 0, charging: null, dash: null, act: null, stride: 0, tick: 0, speed: 0, groundHealed: 0, fainted: false };
 }

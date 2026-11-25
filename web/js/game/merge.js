@@ -221,7 +221,10 @@ export function combine(mine, theirs) {
     if (seed === null || gone.has(seed)) continue;
     if (!at.has(seed)) { at.set(seed, roster.length); roster.push(c); continue; }
     const i = at.get(seed);
+    // (its last meal, idle.js hunger: the later of the two, whichever copy is kept)
+    const fed = Math.max(num(c.fedAt), num(roster[i].fedAt));
     if (num(c.growth) > num(roster[i].growth)) roster[i] = c;
+    if (fed > 0) roster[i] = { ...roster[i], fedAt: fed };
   }
   if (roster.length) {
     const was = seedOf(rosterOf(a)[num(a.active)] || rosterOf(a)[0]);

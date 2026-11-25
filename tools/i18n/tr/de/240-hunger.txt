@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Hungrig
+3ab11b1d	Hungrig: tippen zum Füttern
+151d5e4b	Du hast kein Futter. Kauf welches auf der Seite Vorräte.
+aa9f7bf9	Hungrig: Füttere es, damit es wieder seine volle Stärke hat.
+0fec4faf	Es kämpft mit {0} % seines Angriffs und seiner Verteidigung, bis es frisst. Es verliert nie Gesundheit, Wachstum oder Herzen und kann weiter kämpfen.
+9eeec135	Füttern: {0}
+061e456b	Du hast kein Futter. Futter kostet {0} Glanz auf der Seite Vorräte.
+d2c6a977	Erst füttern?
+eca928df	{0} ist hungrig
+bc87384c	Hungrig sind: {0}
+97a0f395	Ein hungriges Wesen kämpft mit {0} % seines Angriffs und seiner Verteidigung.
+cefbf5cb	Füttern
+8c6ba8c7	Nicht genug Futter für alle. Die anderen kämpfen hungrig.
+0b87f77f	Du hast kein Futter. Es gibt welches auf der Seite Vorräte.
+6b8a384f	Trotzdem kämpfen
+a703b560	Dieses Wesen ist nicht in deiner Sammlung.
+3a0e2f39	Hungrig: −{0} %

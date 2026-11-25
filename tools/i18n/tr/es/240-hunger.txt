@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Hambriento
+3ab11b1d	Tiene hambre: toca para darle de comer
+151d5e4b	No tienes comida. Compra en la página de Suministros.
+aa9f7bf9	Tiene hambre: dale de comer para que recupere toda su fuerza.
+0fec4faf	Lucha con el {0}% de su ataque y defensa hasta que coma. Nunca pierde salud, crecimiento ni corazones, y puede seguir luchando.
+9eeec135	Darle de comer: {0}
+061e456b	No tienes comida. La comida cuesta {0} de brillo en la página de Suministros.
+d2c6a977	¿Darles de comer antes?
+eca928df	{0} tiene hambre
+bc87384c	Tienen hambre: {0}
+97a0f395	Una criatura hambrienta lucha con el {0}% de su ataque y defensa.
+cefbf5cb	Darles de comer
+8c6ba8c7	No hay comida para todas. Las demás lucharán con hambre.
+0b87f77f	No tienes comida. Está en la página de Suministros.
+6b8a384f	Luchar igualmente
+a703b560	Esa criatura no está en tu colección.
+3a0e2f39	Hambre: −{0}%

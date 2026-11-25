@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Gigutom
+3ab11b1d	Gigutom: i-tap aron pakaonon
+151d5e4b	Wala kay pagkaon. Palit sa panid sa Mga supply.
+aa9f7bf9	Gigutom: pakaona kini aron mobalik ang tibuok kusog niini.
+0fec4faf	Moaway kini nga {0}% sa atake ug depensa niini hangtod makakaon. Dili gyud kini mawad-an og kinabuhi, pagdako o kasingkasing, ug makaaway gihapon.
+9eeec135	Pakaona: {0}
+061e456b	Wala kay pagkaon. {0} ka glow ang pagkaon sa panid sa Mga supply.
+d2c6a977	Pakaonon una?
+eca928df	Gigutom si {0}
+bc87384c	Gigutom sila: {0}
+97a0f395	Ang gigutom nga linalang moaway nga {0}% sa atake ug depensa niini.
+cefbf5cb	Pakaona sila
+8c6ba8c7	Kulang ang pagkaon para sa tanan. Ang uban moaway nga gigutom.
+0b87f77f	Wala kay pagkaon. Naa kini sa panid sa Mga supply.
+6b8a384f	Away gihapon
+a703b560	Wala sa imong koleksyon kana nga linalang.
+3a0e2f39	Gigutom: −{0}%

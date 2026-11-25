@@ -236,8 +236,13 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
         if seed not in at:
             at[seed] = len(roster)
             roster.append(c)
-        elif _num(c.get("growth")) > _num(roster[at[seed]].get("growth")):
-            roster[at[seed]] = c
+        else:
+            # (its last meal, web/js/game/idle.js hunger: the later of the two, whichever copy is kept)
+            fed = max(_num(c.get("fedAt")), _num(roster[at[seed]].get("fedAt")))
+            if _num(c.get("growth")) > _num(roster[at[seed]].get("growth")):
+                roster[at[seed]] = c
+            if fed > 0:
+                roster[at[seed]] = {**roster[at[seed]], "fedAt": _clean(fed)}
     if roster:
         ra_ = _roster(a)
         i = int(_num(a.get("active")))

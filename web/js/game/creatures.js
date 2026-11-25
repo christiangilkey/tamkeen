@@ -18,6 +18,8 @@ import { gift, publishNow } from "./friends-game.js";
 import { openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
 import { elementBadge, movesBlocks } from "./movesui.js";
+import { isHungry } from "./idle.js";
+import { hungryButton, hungrySignHtml } from "./hunger-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -62,6 +64,7 @@ function list(body, game, changed) {
     name.textContent = titleOf(g);
     if (g.name) name.setAttribute("translate", "no"); // a name its owner gave it
     tile.append(elementBadge(g.type));
+    if (isHungry(g)) tile.append(h(hungrySignHtml(g))); // (prototype "hunger")
     if (i === game.active) {
       tile.append(h(`<span class="cr-here" title="In the habitat">${lineIcon("home", 16)}</span>`));
       tile.setAttribute("aria-label", `${titleOf(g)}, ${t("In the habitat")}`);
@@ -117,6 +120,7 @@ function hero(body, game, changed, g, i, repaint) {
   tags.append(elementBadge(g.type));
   const what = [g.name && !egg ? beastById(describe(g).beast).name : "", egg && !g.name ? "" : STAGE_NAME[stageOf(g.growth).id]].filter(Boolean);
   for (const w of what) tags.append(Object.assign(h(`<span class="cr-tag"></span>`), { textContent: w }));
+  if (isHungry(g)) tags.append(hungryButton(game, g, repaint)); // (prototype "hunger": a tap says so, and feeds it)
   // Growing: an egg towards hatching, a creature towards fully grown.
   const share = egg ? g.growth / HATCH_AT : g.growth / GROWN;
   const grown = !egg && isGrown(g);

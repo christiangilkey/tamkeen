@@ -1,0 +1,18 @@
+# Hungry creatures (prototype hunger): hunger-ui.js, idle.js feed, the battle card.
+229099a9	Affamato
+3ab11b1d	Affamato: tocca per dargli da mangiare
+151d5e4b	Non hai cibo. Compralo nella pagina Provviste.
+aa9f7bf9	Affamato: dagli da mangiare per riportarlo alla piena forza.
+0fec4faf	Combatte con il {0}% del suo attacco e della sua difesa finché non mangia. Non perde mai salute, crescita o cuori, e può sempre combattere.
+9eeec135	Dagli da mangiare: {0}
+061e456b	Non hai cibo. Il cibo costa {0} di bagliore nella pagina Provviste.
+d2c6a977	Prima dargli da mangiare?
+eca928df	{0} ha fame
+bc87384c	Hanno fame: {0}
+97a0f395	Una creatura affamata combatte con il {0}% del suo attacco e della sua difesa.
+cefbf5cb	Dagli da mangiare
+8c6ba8c7	Non c'è cibo per tutti. Gli altri combatteranno affamati.
+0b87f77f	Non hai cibo. Si trova nella pagina Provviste.
+6b8a384f	Combatti comunque
+a703b560	Quella creatura non è nella tua collezione.
+3a0e2f39	Fame: −{0}%
