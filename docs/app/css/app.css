@@ -1616,6 +1616,15 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   background: #1d1830; color: #fff; text-align: center; }
 .lbq-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-weight: 700; }
 .lbq-move { display: inline-flex; align-items: center; gap: 6px; }
+/* Who is attacking: the attacker's picture and "You attack" (teal) or "… attacks: defend!" (red), and what a right
+   answer does. */
+.lbq-turn { display: flex; align-items: center; justify-content: center; gap: 10px; margin: -6px -6px 0; padding: 6px 12px; border-radius: 12px; }
+.lbq-turn.me { background: #145a5e; }
+.lbq-turn.foe { background: #6e1f2a; }
+.lbq-pic { width: 56px; height: 56px; flex: none; image-rendering: pixelated; margin: -8px 0 -4px; }
+.lbq-turn-text { display: flex; flex-direction: column; align-items: flex-start; min-width: 0; text-align: start; }
+.lbq-who { font-size: 20px; line-height: 1.2; }
+.lbq-why { font-size: 13px; opacity: .85; }
 .lbq-left { min-width: 1.5em; font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; text-align: end; }
 .lbq-bar { height: 10px; border-radius: 99px; background: rgba(255, 255, 255, .14); overflow: hidden; }
 .lbq-bar i { display: block; height: 100%; width: 100%; border-radius: inherit; background: var(--accent); }
@@ -1667,6 +1676,10 @@ input[type="text"], input[type="url"], input[type="search"], input[type="passwor
   .lb-help { display: none; }
   .lb-quiz, .lb-end { place-items: center; }
   .lbq { gap: 6px; padding: 12px; }
+  .lbq-turn { padding: 2px 10px; }
+  .lbq-pic { width: 40px; height: 40px; margin: -6px 0 -2px; }
+  .lbq-who { font-size: 17px; }
+  .lbq-why { display: none; }
   .lbq-prompt { font-size: 26px; }
   .lbq-opt { min-height: 52px; font-size: 16px; }
 }
@@ -1739,6 +1752,12 @@ button.today-chip { cursor: pointer; font: inherit; }
 .hud-chips button.today-chip:hover:not(:disabled) { filter: brightness(1.06); }
 #g-stage { white-space: normal; text-align: start; justify-content: flex-start; }
 .info-sheet { width: min(480px, 100%); }
+/* A currency's popup (info.openCurrency): a few lines, so narrower; and the counters that open it */
+.info-sheet.cur-sheet { width: min(380px, 100%); }
+.cur-sheet .game-sheet-body { gap: 10px; }
+.cur-tap { display: inline-flex; align-items: center; gap: 4px; min-height: 0; padding: 2px 8px; margin: -2px -8px; border: 0; border-radius: 99px;
+  background: transparent; color: inherit; font: inherit; cursor: pointer; }
+.cur-tap:hover { background: var(--surface-2); }
 .info-title { display: flex; align-items: center; gap: 8px; font-size: 17px; }
 .info-now { margin: 0; padding: 8px 12px; border-radius: 12px; background: var(--hl); color: var(--hl-ink); font-weight: 600; }
 .info-list { margin: 4px 0 0; padding-inline-start: 20px; font-size: 14px; }
@@ -3016,6 +3035,17 @@ html.sel-sheets select { pointer-events: none; }
 .goal-ring.done { background: #5cf2b0; color: #03140c; }
 .goal-ring.done:hover:not(:disabled) { background: #5cf2b0; }
 .habitat-scene .pet-word { z-index: 2; }
+/* A Muffle's words (prototype habitat_room, muffles.js): the words you know in your language, the rest in their
+   forgotten script (game-art/muffle/glyphs.png: 12 letters, 7 x 9, drawn at 2x). */
+.muffle-say { max-width: min(260px, 84%); }
+.muffle-say b { font-size: 16px; display: flex; flex-wrap: wrap; gap: 3px 6px; justify-content: center; align-items: center; }
+.muffle-say .mw-lost { display: inline-flex; gap: 1px; }
+.muffle-say b.unspaced { gap: 3px 2px; }
+.muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
+.muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
+  background: url("../game-art/muffle/glyphs.png") 0 0 / 192px 18px no-repeat; }
+.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; }
+.muffle-say.show { animation: pet-word 6s ease-out both; }
 /* The daily goal box (tap the ring) and the name box (tap the name tag). */
 .goal-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .goal-opt { min-height: 64px; border-radius: 14px; font-size: 20px; font-weight: 800; }
@@ -3049,7 +3079,9 @@ html.sel-sheets select { pointer-events: none; }
 .gs-title-pic { flex: none; display: grid; place-items: center; line-height: 0; }
 .gs-title-word { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .gs-pills { flex: none; display: flex; gap: 6px; margin-inline-end: 4px; }
-.gs-pill { display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border-radius: 99px; background: var(--surface-2); }
+.gs-pill { display: inline-flex; align-items: center; height: 30px; padding: 0 10px; border: 0; border-radius: 99px; background: var(--surface-2);
+  color: inherit; font: inherit; cursor: pointer; min-height: 0; }
+.gs-pill:hover { filter: brightness(1.08); }
 /* A price or an amount in its own colour (gold coins, blue gems, teal glow); muted when there isn't enough. */
 .cur-glow { color: var(--glow); }
 .gs-amount { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
@@ -4146,6 +4178,11 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .cp-own { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; border-top: 1px solid var(--border); padding-top: 12px; }
 .cp-own button { display: inline-flex; align-items: center; gap: 6px; }
 .cp-own .danger { color: var(--danger); }
+/* Add words: a card's own picture (wordbuilder.js paintPicture, prototype add_word_picture), small, its buttons beside it. */
+.cb-pic { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.cb-pic-img { width: 96px; height: 96px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border); }
+.cb-pic-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
+.cb-pic-buttons button { display: inline-flex; align-items: center; gap: 6px; }
 .cp-own-only .cp-own { border-top: 0; padding-top: 0; }
 .cp-notice { margin: 0; font-size: 11.5px; text-align: center; }
 @media (max-width: 560px) {
@@ -4153,3 +4190,42 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 }
 .pic-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .pic-row [hidden] { display: none; }
+
+/* Hungry creatures (prototype "hunger", hunger-ui.js): a thought bubble with its favourite food on its tile, a tag
+   that says so (and feeds it) on its page, Home's scene and the battle team, and a note on its battle card. */
+.hungry-sign { position: absolute; top: 6px; inset-inline-start: 6px; display: inline-grid; place-items: center; width: 26px; height: 24px;
+  border-radius: 9px; background: #fff; line-height: 0; }
+.hungry-chip { display: inline-flex; align-items: center; gap: 5px; min-height: 0; padding: 3px 9px; border: 0; border-radius: 99px;
+  background: #fff; color: #5a2a00; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.hungry-chip:hover { filter: brightness(0.95); }
+.bt-slot { position: relative; }
+.bt-slot > .hungry-chip { position: absolute; top: 4px; inset-inline-end: 4px; padding: 3px 5px; z-index: 1; }
+.bt-rental .hungry-sign { inset-inline-start: auto; inset-inline-end: 6px; }
+.hab-hungry { position: absolute; left: 50%; top: 4%; transform: translateX(-50%); z-index: 2; }
+.hab-hungry[hidden] { display: none; }
+.lb-hungry { display: inline-flex; align-items: center; gap: 3px; padding: 1px 6px; border-radius: 99px; background: #fff; color: #5a2a00;
+  font-size: 12px; font-weight: 700; white-space: nowrap; }
+.lb-hungry[hidden] { display: none; }
+
+/* ---------- creature game: ranked battles (prototype "ranked", game/ranked-ui.js) ---------- */
+.rk-body { display: flex; flex-direction: column; gap: 12px; }
+.rk-card { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+.rk-big { display: flex; align-items: baseline; gap: 10px; font-size: 28px; }
+.rk-rating { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.rk-rating .px-icon { width: 20px; height: 20px; }
+.rk-tier { font-size: 16px; font-weight: 700; color: var(--muted); }
+.rk-buttons { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.rk-buttons button { display: inline-flex; align-items: center; gap: 6px; }
+.rk-search { display: flex; justify-content: center; padding: 8px; animation: rk-pulse 1.4s ease-in-out infinite; }
+@keyframes rk-pulse { 50% { transform: scale(1.12); } }
+.rk-vs { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 8px 0; }
+.rk-side { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.rk-side strong { overflow-wrap: anywhere; }
+.rk-vs-word { font-weight: 800; color: var(--muted); }
+.rk-stakes { text-align: center; font-weight: 700; margin: 0; font-variant-numeric: tabular-nums; }
+.rk-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.rk-row { display: flex; align-items: center; gap: 10px; padding: 6px 10px; border-radius: 8px; background: var(--surface-2); }
+.rk-row.me { outline: 2px solid var(--accent); }
+.rk-n { width: 24px; text-align: right; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
+.rk-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .rk-search { animation: none; } }

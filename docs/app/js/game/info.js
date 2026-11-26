@@ -3,12 +3,15 @@
 // Words only: the rules themselves are in rules.js and idle.js, and the numbers here are read from them.
 
 import { esc, h } from "../app.js";
+import { icon as lineIcon } from "../icons.js";
 import { CATALOG, FOODS, GROWN, SHOP_MOVES, STAGES, SUPPLIES, TRAITS, TYPES, VARIANTS, beastById } from "./data.js";
 import { describe, isGrown, stageOf } from "./genome.js";
 import { AUTO_GOALS, CARDS_GLOW_MIN, FEEDS_PER_DAY, OFFLINE_HOURS, garden, hearts, totalRate } from "./idle.js";
 import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BATTLE_XP_FLOOR, BOTH_COINS, BOTH_XP, DAILY_COMPLETE_XP, FULLY_GROWN_COINS, HABIT_XP, MOVE_SHOP_SIZE, REVIEW_CLEAR_CARDS, SHOP_SIZE, WELL_KNOWN_XP, levelOf, variantOptions } from "./rules.js";
 import { icon } from "./render.js";
 import { progressText } from "./screenparts.js";
+import { currencyOf } from "./currencies.js";
+import { feature } from "../prototype.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
 const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
@@ -216,6 +219,28 @@ export function openEarned(id, game, go, opts = {}) {
     run: () => (l.info ? openEarned(l.info, game, go, opts) : l.tab === "evolve" ? openEvolution(game, go, opts) : go(l.tab)) }))));
 }
 
+// ---------- a currency, in brief ----------
+
+/** The small popup a currency's counter opens when tapped: its name, how to get it and what it is for, in a few
+ * lines (currencies.js), with a button to where it is spent and one to the longer explanation above. `kind`:
+ * "coins", "gems", "glow", "pearls" or "stardust" (or the icon's name: "coin"). `go(tab)` opens a page of the game
+ * sheet; `here`: the page already showing, which gets no button. It opens on top of whatever is showing (the game
+ * sheet, the fishing pond) and closing it goes back there. */
+export function openCurrency(kind, game, go = null, { here = null } = {}) {
+  const c = currencyOf(kind);
+  if (!c) return null;
+  const { body, close } = sheet(c.name, c.icon, { over: true });
+  body.closest(".game-sheet").classList.add("cur-sheet");
+  const shown = (l) => !l.prototype || feature(l.prototype); // (a prototype's line only while it is on)
+  body.append(h(`<div><strong>How to get it</strong>${list(c.get.filter(shown).map((l) => esc(l.text)))}</div>`));
+  body.append(h(`<div><strong>What it's for</strong>${list(c.use.filter(shown).map((l) => esc(l.text)))}</div>`));
+  const more = [];
+  if (c.open && go && c.open.tab !== here) more.push({ label: c.open.word, pic: c.icon, run: () => go(c.open.tab) });
+  if (c.more && EARNED[c.more]) more.push({ label: "Tell me more", pic: lineIcon("question", 18), run: () => openEarned(c.more, game, go || (() => {}), { over: true }) });
+  if (more.length) body.append(links(close, more));
+  return close;
+}
+
 // ---------- how a creature grows ----------
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile", grown: "Fully grown" };
 const HABIT = {
@@ -282,4 +307,17 @@ export function openEvolution(game, go, opts = {}) {
   ])}</div>`));
 
   body.append(links(close, [{ label: "Open your creatures", pic: "nav_roster", run: () => go("creatures") }]));
+}
+
+/** Any counter marked data-cur="<kind>" (a button) opens the brief popup above when tapped, from anywhere in the game
+ * (the garden's stardust, the pond's pearls). `game()` gives the game state, `go(tab)` a game sheet's page. */
+export function currencyTaps(game, go) {
+  if (currencyTaps.on) return;
+  currencyTaps.on = true;
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest && e.target.closest("[data-cur]");
+    if (!b || b.dataset.curOwn != null) return; // (one with its own handler: the head's counters, shop.js)
+    e.preventDefault();
+    openCurrency(b.dataset.cur, game(), go, { here: b.dataset.curHere || null });
+  });
 }

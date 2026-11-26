@@ -16,6 +16,7 @@ import { WELL_KNOWN_XP, answerQuestion, battleWordsFor, finishBattle, pickQuesti
 import { FRAME, animAt, composeCreature, drawLiving, drawingOf, FORGET_MS, icon, iconEl, loadImage } from "./render.js";
 import { isType } from "./remote.js";
 import { announce, getGame, saveGame, sfx } from "./game.js";
+import { HUNGRY_PERCENT, wantedFood } from "./hunger-ui.js";
 import * as social from "../social.js";
 import { badgeToast, battleDictionary, moveHelp, moveLine, openBattleMenu } from "./battle-ui.js";
 import * as arena from "./battlemap.js";
@@ -125,7 +126,8 @@ const elementOf = (m, f) => (m.own ? f.type : m.element || null);
 /**
  * A battle against `theirs`, live. `setup` = { mine, theirs, mode, rule, foeForm, rival } (the fighters
  * from battle.js), `vocab` the learner's words (the questions come from them). A gym battle (gyms-ui.js) also
- * gives `brain` and `quizSeconds` (livebattle.js) and `again`, what "Battle again" opens.
+ * gives `brain` and `quizSeconds` (livebattle.js) and `again`, what "Battle again" opens. A ranked battle between
+ * two people (rankedlive.js) gives `net`: the battle comes from it, and so do its steps, answers and controls.
  */
 export function runLiveBattle(setup, vocab) {
   const game = getGame();
@@ -152,10 +154,20 @@ export function runLiveBattle(setup, vocab) {
   // Prototype "battle_aim" (the owner: aim and fire after the right answer; aim with a second finger, the mouse or the
   // right stick, and walk with W A S D or the left stick): the player points their own attacks.
   const AIMING = feature("battle_aim");
+  // Smaller creatures (prototype "small_battlers"; the owner: "our creatures should be a bit smaller compared to the over
+  // world ... this might be good to reflect in battles as well"). The canvas is then as sharp as the screen (`zoom`
+  // device pixels per game pixel) and a creature is drawn at a whole number of them per pixel, about two thirds of the
+  // zoom, so it stays crisp. Only the drawing: the battle itself (livebattle.js) is the same, on both ranked devices.
+  const SMALL = feature("small_battlers");
+  const RES = () => (SMALL ? viewport.s || 1 : 1);       // canvas pixels per game pixel
+  const BODY = () => (SMALL ? Math.max(1, Math.round((viewport.s || 1) * 2 / 3)) / (viewport.s || 1) : 1); // a creature's size
   // Prototype "battle_race" (the owner: the other side answers too; whoever is first wins; "(rival's name) answered
   // quicker" closes the question at once with the right answer shown and said; out-answered attacks do half damage).
   const RACING = feature("battle_race");
-  const b = newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING, race: RACING });
+  const NET = setup.net || null; // (a ranked battle against a person on another device)
+  const b = NET ? NET.start({ ask, aim: AIMING })
+    : newLiveBattle({ ...setup, map: setup.map || generateMap((Math.random() * 2 ** 32) >>> 0), wordMode: game.battleMode, rand: Math.random, ask, aim: AIMING, race: RACING });
+  const E = NET ? NET.engine : { step, answer, input, fire };
   const map = b.map; // the battle's own copy: terrain moves repaint its tiles
   const W = b.width;
   const H = b.height;
@@ -166,7 +178,7 @@ export function runLiveBattle(setup, vocab) {
   document.querySelector(".live-wrap")?.remove();
   const el = h(`<div class="live-wrap"><div class="lb">
     <div class="lb-top">
-      <div class="lb-card me"><div class="lb-name"><span class="lb-el"></span><span class="lb-who"></span></div>
+      <div class="lb-card me"><div class="lb-name"><span class="lb-el"></span><span class="lb-who"></span><span class="lb-hungry" hidden></span></div>
         <div class="hud-bar"><i></i></div><div class="lb-pips"></div></div>
       <button type="button" class="ghost icon lb-pause" title="Pause">${lineIcon("pause")}</button>
       <div class="lb-card foe"><div class="lb-name"><span class="lb-who"></span><span class="lb-el"></span></div>
@@ -560,7 +572,7 @@ export function runLiveBattle(setup, vocab) {
   let v = view(b);
   function draw(now, dt) {
     if (groundDirty) paintGround(now);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(RES(), 0, 0, RES(), 0, 0);
     ctx.fillStyle = "#0e0b16"; // beyond the arena's edges
     ctx.fillRect(0, 0, viewport.w, viewport.h);
     const sx = shake > 0 ? Math.round((Math.random() - 0.5) * 3) : 0;
@@ -680,7 +692,7 @@ export function runLiveBattle(setup, vocab) {
       else { ctx.font = "bold 10px monospace"; ctx.textAlign = "center"; ctx.fillStyle = n.color; ctx.fillText(n.text, n.x, ly + 9); }
       ctx.globalAlpha = 1;
     }
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(RES(), 0, 0, RES(), 0, 0);
     drawRivalPointer(now);
   }
 
@@ -912,6 +924,8 @@ export function runLiveBattle(setup, vocab) {
     ctx.save();
     if (c.grace) ctx.globalAlpha = Math.floor(now / 90) % 2 ? 0.45 : 1; // just stepped in: it can't be hit yet
     ctx.translate(Math.round(c.x), Math.round(c.y));
+    const k = BODY();
+    if (k !== 1) ctx.scale(k, k); // (smaller creatures: its shadow, body and lift with it)
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
     if (lift) ctx.translate(0, -Math.round(lift));
     if (spin) { ctx.translate(0, -BODY_UP); ctx.rotate(spin); ctx.translate(0, BODY_UP); }
@@ -920,17 +934,18 @@ export function runLiveBattle(setup, vocab) {
     ctx.restore();
     const orbing = c.charging && c.charging.form === "orb" && fx("orb", moveById(c.charging.move).own ? c.type : moveById(c.charging.move).element || c.type);
     const charge = !orbing && c.charging && fx("charge", c.type);
-    if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);
+    const up = BODY_UP * k; // its body's middle, at its size
+    if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - up);
     if (orbing) { // an energy orb gathering in front of it
       ctx.globalAlpha = 0.35 + 0.65 * (c.charging.t || 0);
-      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16, c.y - BODY_UP);
+      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16 * k, c.y - up);
       ctx.globalAlpha = 1;
     }
     const has = (id) => c.statuses.some((s) => s.id === id);
     const guard = has("guard") && fx("guard");
-    if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - BODY_UP); // the bubble holds while the guard lasts
+    if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - up); // the bubble holds while the guard lasts
     const slow = has("slow") && fx("delay");
-    if (slow) drawFx(slow, "delay", loopFrame("delay", slow, now), c.x, c.y - 70);
+    if (slow) drawFx(slow, "delay", loopFrame("delay", slow, now), c.x, c.y - 70 * k);
     if (c.dashing && Math.random() < 0.5) play("dust", null, c.x - c.face * 8, c.y);
     // what the ground is doing to it (wet, burning...): two of its particles drifting round the upper body
     for (const s of c.statuses) {
@@ -939,7 +954,7 @@ export function runLiveBattle(setup, vocab) {
       const f2 = { img: img2, frames: Math.max(1, Math.round(img2.width / img2.height)) };
       for (let k = 0; k < 2; k++) {
         const a = now / 700 + k * Math.PI + (side === "me" ? 0 : 1);
-        drawFx(f2, "status", loopFrame("status", f2, now + k * 240), c.x + Math.cos(a) * 13, c.y - 30 + Math.sin(a * 1.3) * 8);
+        drawFx(f2, "status", loopFrame("status", f2, now + k * 240), c.x + Math.cos(a) * 13 * k, c.y - (30 + Math.sin(a * 1.3) * 8) * k);
       }
     }
   }
@@ -1024,6 +1039,16 @@ export function runLiveBattle(setup, vocab) {
           const img = iconEl(`type_${c.type}`, 16);
           img.title = t(TYPES[c.type].name);
           elBox.append(img);
+        }
+        // A hungry creature of the owner's fights weaker (prototype "hunger", battle.js fighter): said on its card.
+        const hungry = card.querySelector(".lb-hungry");
+        if (hungry) {
+          hungry.hidden = !f.hungry;
+          if (f.hungry) {
+            hungry.innerHTML = icon(wantedFood(c).id, 16);
+            hungry.append(t("Hungry: −{0}%", HUNGRY_PERCENT));
+            hungry.title = t("Hungry: feed it to bring back its full strength.");
+          }
         }
       }
       const pips = card.querySelector(".lb-pips");
@@ -1150,7 +1175,8 @@ export function runLiveBattle(setup, vocab) {
   function paintKeys() {
     for (const m of moveEls) m.btn.querySelector(".lb-key").innerHTML = keyLabel(m.place);
     for (const [i, btn] of quizButtons.entries()) btn.querySelector(".lb-key").innerHTML = keyLabel(PLACES[i]);
-    $(".lb-help").textContent = AIMING ? (device === "touch" ? t("Drag on the arena to move; a second finger aims. Tap a move to use it, answer, then tap where to fire.")
+    $(".lb-help").textContent = NET ? t("Walk, aim and use your moves as in any battle. When either of you attacks, you both get a question: the first right answer wins.")
+      : AIMING ? (device === "touch" ? t("Drag on the arena to move; a second finger aims. Tap a move to use it, answer, then tap where to fire.")
       : device === "pad" ? t("Left stick: walk. Right stick: aim. The buttons use your moves; after a right answer, any of them fires.")
         : t("Walk with W A S D or the arrow keys; the mouse aims. Moves: U I J K (or 1 2 3 4). After a right answer, click where to fire (or press Space)."))
       : device === "touch" ? t("Drag on the arena to move. Tap a move to use it.")
@@ -1169,7 +1195,13 @@ export function runLiveBattle(setup, vocab) {
     const m = moveById(quiz.move);
     const box = $(".lb-quiz");
     box.innerHTML = "";
+    // Who is attacking, at the top (the owner: "when answering it should show who is attacking, the player or the
+    // opponent"): your creature and "You attack", or theirs and "… attacks: defend!", so a right answer is clearly a
+    // hit or a block.
+    const attacker = quiz.side === "foe" ? "foe" : "me";
     const panel = h(`<div class="lbq">
+      <div class="lbq-turn ${attacker}"><canvas class="lbq-pic" width="${FRAME}" height="${FRAME}" aria-hidden="true"></canvas>
+        <span class="lbq-turn-text"><strong class="lbq-who"></strong><span class="lbq-why"></span></span></div>
       <div class="lbq-head"><span class="lbq-move"></span><span class="lbq-left" translate="no"></span></div>
       <div class="lbq-bar"><i></i></div>
       <div class="lbq-ask"></div>
@@ -1179,6 +1211,20 @@ export function runLiveBattle(setup, vocab) {
     </div>`);
     panel.querySelector(".lbq-move").innerHTML = icon(moveIcon(m), 16);
     panel.querySelector(".lbq-move").append(" ", quiz.side === "foe" ? t("Dodge {0}: answer before your rival", m.name) : m.name);
+    const fighterNow = view(b)[attacker];
+    const whoName = ($(`.lb-card.${attacker} .lb-who`)?.textContent || "").trim() || t("Your rival");
+    panel.querySelector(".lbq-who").textContent = attacker === "me" ? t("You attack") : t("{0} attacks: defend!", whoName);
+    panel.querySelector(".lbq-why").textContent = attacker === "me" ? t("Answer right to hit.") : t("Answer right first to take half the damage.");
+    const pic = panel.querySelector(".lbq-pic");
+    if (fighterNow && fighterNow.look) composeCreature(fighterNow.look, { eyes: "open", mouth: attacker === "me" ? "smile" : "open" }).then((frame) => {
+      if (!frame || !pic.isConnected) return;
+      const ctx = pic.getContext("2d");
+      ctx.imageSmoothingEnabled = false;
+      ctx.save();
+      if (attacker === "foe") { ctx.translate(FRAME, 0); ctx.scale(-1, 1); } // facing the player's side, as on the arena
+      ctx.drawImage(frame, 0, 0);
+      ctx.restore();
+    });
     panel.querySelector(".lbq-ask").textContent = q.reverse ? t("Which of your words means this?") : t("What does this mean?");
     const prompt = panel.querySelector(".lbq-prompt");
     prompt.textContent = q.prompt;
@@ -1224,7 +1270,7 @@ export function runLiveBattle(setup, vocab) {
   }
   function choose(i) {
     if (!b.quiz || !quizShown || quizButtons[i]?.disabled) return;
-    settle(answer(b, i), i);
+    settle(E.answer(b, i), i);
   }
   /** The question is over (answered, or out of time): show how it went, then carry on. */
   /** Who the rival is, for "... answered quicker": its owner's name in a friend, gym or rental battle, else the creature. */
@@ -1238,7 +1284,9 @@ export function runLiveBattle(setup, vocab) {
     const dodging = quizShown.side === "foe";
     quizShown = null;
     const ans = (events || []).find((e) => e.kind === "answer");
-    const rival = !!(ans && ans.rival); // the rival answered first: the right answer is shown and said, nothing is marked
+    const missed = !!(ans && ans.missed); // (ranked) the person attacking got theirs wrong: nothing to dodge, nothing marked
+    const rival = !!(ans && ans.rival) || missed; // the rival answered first: the right answer is shown and said, nothing is marked
+    const plain = !!(ans && (ans.plain || ans.waiting)); // (ranked) only how my own answer went: the race is settled elsewhere
     const correct = choice !== null && choice === q.answer;
     if (choice !== null || rival) sayAnswer(q);
     for (const btn of quizButtons) btn.disabled = true;
@@ -1247,7 +1295,9 @@ export function runLiveBattle(setup, vocab) {
     const verdict = $(".lbq-verdict");
     verdict.hidden = false;
     verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
-    verdict.textContent = rival ? (dodging ? t("{0} answered quicker: full damage", rivalName()) : t("{0} answered quicker: half damage", rivalName()))
+    verdict.textContent = missed ? t("{0} got it wrong: no damage", rivalName())
+      : plain && !rival ? (correct ? t("Right!") : choice === null ? t("Too slow") : t("Wrong answer"))
+      : rival ? (dodging ? t("{0} answered quicker: full damage", rivalName()) : t("{0} answered quicker: half damage", rivalName()))
       : dodging ? (correct ? t("Dodged: half damage") : choice === null ? t("Too slow: full damage") : t("Wrong answer: full damage"))
         : correct ? t("Right!") : choice === null ? t("Too slow: failed") : t("Wrong answer: failed");
     $(".lbq-bar i").style.width = correct ? $(".lbq-bar i").style.width : "0%";
@@ -1399,7 +1449,7 @@ export function runLiveBattle(setup, vocab) {
   let stickAim = null;     // {x, y, tilt}
   function shoot() {
     if (!b.aiming) return;
-    const events = fire(b);
+    const events = E.fire(b);
     stickAim = null;
     aimPointer = null;
     show(events);
@@ -1417,7 +1467,7 @@ export function runLiveBattle(setup, vocab) {
     setDevice(e.pointerType === "touch" || e.pointerType === "pen" ? "touch" : device === "pad" ? "keys" : device);
     if (AIMING && e.pointerType === "mouse") { // the mouse aims, the keys walk: a click only breaks open a cracked wall
       const p = clampWorld(toWorld(e));
-      if (crackAt(b, p.x, p.y)) { target = p; input(b, { open: p }); }
+      if (crackAt(b, p.x, p.y)) { target = p; E.input(b, { open: p }); }
       e.preventDefault();
       return;
     }
@@ -1430,8 +1480,8 @@ export function runLiveBattle(setup, vocab) {
     pointer = { id: e.pointerId, cx: e.clientX, cy: e.clientY };
     try { canvas.setPointerCapture(e.pointerId); } catch { /* the drag still ends on pointerup */ }
     target = clampWorld(toWorld(e));
-    if (crackAt(b, target.x, target.y)) { pointer.crack = true; input(b, { open: target }); } // a cracked wall: go and break it open
-    else input(b, { goTo: target });
+    if (crackAt(b, target.x, target.y)) { pointer.crack = true; E.input(b, { open: target }); } // a cracked wall: go and break it open
+    else E.input(b, { goTo: target });
     e.preventDefault();
   });
   canvas.addEventListener("pointermove", (e) => {
@@ -1444,7 +1494,7 @@ export function runLiveBattle(setup, vocab) {
     const to = clampWorld(toWorld(e));
     if (target && Math.hypot(to.x - target.x, to.y - target.y) < 4) return; // a finger's small wobble: the same place
     target = to;
-    input(b, { goTo: target });
+    E.input(b, { goTo: target });
   });
   const lift = (e) => {
     if (aimPointer && aimPointer.id === e.pointerId) { // the aim's finger (or button) let go: in the aim moment, it fires
@@ -1469,7 +1519,7 @@ export function runLiveBattle(setup, vocab) {
     if (aimPointer) p = clampWorld(toWorld({ clientX: aimPointer.cx, clientY: aimPointer.cy }));
     else if (stickAim && device === "pad") { const reach = 40 + 190 * stickAim.tilt; p = { x: me.x + stickAim.x * reach, y: me.y + stickAim.y * reach }; }
     else if (mouseAim && device !== "touch") p = clampWorld(toWorld({ clientX: mouseAim.cx, clientY: mouseAim.cy }));
-    input(b, { aim: p });
+    E.input(b, { aim: p });
     return p;
   }
 
@@ -1484,7 +1534,7 @@ export function runLiveBattle(setup, vocab) {
     if (!id) return;
     const s = v.moves.find((x) => x.id === id);
     if (s && !s.ready) { nope(id); return; }
-    input(b, { attack: id });
+    E.input(b, { attack: id });
   }
   const onKey = (e) => {
     if (closed || document.querySelector(".modal-back")) return;
@@ -1570,6 +1620,7 @@ export function runLiveBattle(setup, vocab) {
   const paused = () => pausedBy > 0 || document.hidden;
   async function pause(help = false) {
     if (b.over || closed || pausedBy || b.quiz) return; // (a question can't be paused: its seconds are the point)
+    if (NET) { if (!help) leave(); return; } // (a battle against a person can't be paused: Escape asks about leaving)
     pausedBy++;
     held.clear();
     const within = b.quizS === 5 ? t("Use a move with its button: a question about one of your words comes up and the battle waits. Answer within 5 seconds or the move fails.")
@@ -1600,6 +1651,7 @@ export function runLiveBattle(setup, vocab) {
     });
   }
   $(".lb-pause").onclick = () => pause();
+  if (NET) $(".lb-pause").hidden = true; // (two people: nobody can stop the other's battle)
 
   // ----- leaving (the X in the corner; the phone's back gesture presses it, gamepad.js closeTopBox) -----
   // It asks first, with Carry on highlighted, and leaving ends the fight as "Leave the battle" in the pause box always
@@ -1610,10 +1662,12 @@ export function runLiveBattle(setup, vocab) {
     if (closed || pausedBy) return;
     if (b.over) { if ($(".lb-end").innerHTML) close(); return; }
     if (quizShown) return; // (a question waiting to come up never does if the player leaves: nothing is marked)
-    pausedBy++;
+    if (!NET) pausedBy++; // (against a person the battle carries on while the box is up)
     held.clear();
-    const go = await pauseBox(t("Leave the battle?"), t("The battle ends here, with no reward and nothing lost. The answers you gave still count for your words."));
-    pausedBy--;
+    const go = NET ? await pauseBox(t("Leave the battle?"), t("Leaving a ranked battle counts as a loss. The answers you gave still count for your words."))
+      : await pauseBox(t("Leave the battle?"), t("The battle ends here, with no reward and nothing lost. The answers you gave still count for your words."));
+    if (!NET) pausedBy--;
+    if (NET && go && !closed && !b.over) NET.quit(); // (ranked: leaving is a loss, told to the other player and the server)
     if (!go || closed) return;
     saveGame();
     close();
@@ -1621,7 +1675,7 @@ export function runLiveBattle(setup, vocab) {
   $(".lb-exit").onclick = () => leave();
   // Going to another app or tab with a question open counts as running out of time (else the word could be
   // looked up meanwhile); without one, the battle simply waits (the frames stop while it can't be seen).
-  const onHide = () => { if (document.hidden && b.quiz && quizShown) settle(answer(b, null), null); };
+  const onHide = () => { if (document.hidden && b.quiz && quizShown) settle(E.answer(b, null), null); };
   document.addEventListener("visibilitychange", onHide);
 
   // ----- the end -----
@@ -1659,6 +1713,7 @@ export function runLiveBattle(setup, vocab) {
     card.querySelector("#lb-done").onclick = close;
     card.querySelector("#lb-again").onclick = () => { close(); (setup.again || openBattleMenu)(); };
     card.querySelector("#lb-again").focus({ preventScroll: true });
+    if (NET) NET.finish(result.won, card.querySelector(".lb-end-lines"));
   }
 
   // ----- fitting the arena to the screen -----
@@ -1687,15 +1742,15 @@ export function runLiveBattle(setup, vocab) {
     // never more than the arena (and the strip above it): then it all shows, centred
     const w = Math.min(fullW, W), h = Math.min(fullH, H + TOP);
     const resized = w !== viewport.w || h !== viewport.h;
-    if (resized) {
-      canvas.width = w;
-      canvas.height = h;
+    Object.assign(viewport, { w, h, s: zoom });
+    if (resized || canvas.width !== w * RES()) {
+      canvas.width = w * RES(); // (smaller creatures: as sharp as the screen; else one canvas pixel per game pixel)
+      canvas.height = h * RES();
       ctx.imageSmoothingEnabled = false;
     }
-    Object.assign(viewport, { w, h, s: zoom });
     // the rival attacks only from inside what the player can see (livebattle.js `sight`)
     const sight = { w: fullW, h: fullH };
-    if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) input(b, { sight });
+    if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) E.input(b, { sight });
     canvas.style.width = `${(w * zoom) / dpr}px`;
     canvas.style.height = `${(h * zoom) / dpr}px`;
     mini.style.width = `${Math.round(Math.max(72, Math.min(128, sw * 0.24)))}px`;
@@ -1713,13 +1768,13 @@ export function runLiveBattle(setup, vocab) {
     if (!el.isConnected) { close(); return; } // its screen was taken away without closing it (another battle opened): stop
     const dt = last ? Math.min(0.05, (now - last) / 1000) : 0;
     last = now;
-    if (!paused() && now >= holdUntil) {
+    if (!paused() && (now >= holdUntil || (NET && NET.guest))) {
       if (pending) { show(pending); pending = null; }
       const s = b.quiz ? null : steer();
-      if (s) { target = null; input(b, { move: s }); } else input(b, { move: null });
+      if (s) { target = null; E.input(b, { move: s }); } else E.input(b, { move: null });
       if (AIMING && !b.quiz) aimNow();
-      const events = step(b, dt);
-      if (b.quiz && !quizShown) { held.clear(); showQuiz(b.quiz); }
+      const events = E.step(b, dt);
+      if (b.quiz && !quizShown && b.quiz.q && !b.quiz.done) { held.clear(); showQuiz(b.quiz); }
       else if (!b.quiz && quizShown) settle(events, null); // the time ran out
       else show(events);
     }
@@ -1729,7 +1784,7 @@ export function runLiveBattle(setup, vocab) {
     // a mouse button or finger held on the arena: what is under it changes as the camera follows, so it keeps steering
     if (pointer && !b.quiz && !paused()) {
       const to = clampWorld(toWorld({ clientX: pointer.cx, clientY: pointer.cy }));
-      if (!target || Math.hypot(to.x - target.x, to.y - target.y) >= 4) { target = to; input(b, { goTo: target }); }
+      if (!target || Math.hypot(to.x - target.x, to.y - target.y) >= 4) { target = to; E.input(b, { goTo: target }); }
     }
     paintQuizTimer();
     draw(now, paused() ? 0 : dt);
@@ -1754,8 +1809,13 @@ export function runLiveBattle(setup, vocab) {
     document.removeEventListener("visibilitychange", onHide);
     if (AIMING) claimRightStick(false);
     el.remove();
+    if (NET) NET.stop();
   }
 
+  if (NET) NET.attach({
+    banner: () => banner(t("Waiting for {0}…", rivalName()), 1400),
+    close: () => { if (closed) return; toast(t("The connection to {0} was lost. A dropped connection changes no points (only someone who keeps vanishing mid-battle loses them).", rivalName())); saveGame(); close(); },
+  });
   warmUp("me", 0);
   warmUp("foe", 0);
   buildMoves();

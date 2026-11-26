@@ -13,7 +13,8 @@ import { sheet as helpSheet } from "./info.js";
 import { TIERS } from "./loot.js";
 import { hearts } from "./idle.js";
 import { amount, block, details, fact, fmt, grid, row, tile } from "./screenparts.js";
-import { RODS, SELL, fishOf } from "./fishdata.js";
+import { RODS, SELL, fishOf, isGuardian } from "./fishdata.js";
+import { feature } from "../prototype.js";
 import {
   BAG_SIZE, DEX_TOTAL, PONDS, TANK_SIZE, buyRod, buyTank, catchBoard, dexCount, dexRow, feedFish, fishById, fishingOf, fromTank, luckOf, nextTank,
   pondById, pondNeed, publicAquarium, sell, sellCommon, swapTank, tankSize, toTank,
@@ -21,6 +22,7 @@ import {
 import { fishPicture, fishShape } from "./fishart.js";
 import { aquariumView } from "./aquarium.js";
 import { fishWaiting, openPond } from "./fishing-ui.js";
+import { badgeToast } from "./battle-ui.js";
 import { cleanName, cleanProfiles } from "./remote.js";
 
 /** A tier's name with a dot of its colour (the colours alone don't all read on a light panel). */
@@ -42,7 +44,7 @@ function factCells(list) {
 function pondPic(pond, open) {
   const box = h(`<span class="fish-pond-pic"></span>`);
   pond.water.slice(0, 3).forEach((colour, i) => box.style.setProperty(`--w${i}`, colour)); // (app.css bands them)
-  const big = fishOf(pond.id)[2];
+  const big = fishOf(pond.id).find((f) => f.size === 3); // (the usual big one: the first of its size)
   box.append(open ? fishPicture(big.id, 0, 2) : fishShape(big.id, 2));
   return box;
 }
@@ -94,7 +96,7 @@ export function fishingPanel(body, game, changed, go, close, reopen) {
   body.append(ponds);
 
   // Rods: bought with pearls, each one luckier.
-  const rods = block("Rods", h(`<span class="gs-block-end">${amount("pearls", F.pearls)}</span>`));
+  const rods = block("Rods", h(`<button type="button" class="gs-block-end cur-tap" data-cur="pearls" title="Pearls">${amount("pearls", F.pearls)}</button>`));
   RODS.forEach((rod, i) => {
     const mine = F.rods.includes(i);
     const using = F.rod === i;
@@ -134,7 +136,7 @@ function lockedPond(game, pond) {
         fact("Gym leaders beaten", `<span translate="no">${Math.min(need.haveGyms, need.gyms)} / ${need.gyms}</span>`),
         fact("Fish caught", `<span translate="no">${fmt(Math.min(need.haveCaught, need.caught))} / ${fmt(need.caught)}</span>`),
       ],
-      text: t("Either one opens this pond: beat {0} gym leaders, or catch {1} fish. It has {2} water and three fish of its own.", need.gyms, fmt(need.caught), t(TYPES[pond.id].name)),
+      text: t("Either one opens this pond: beat {0} gym leaders, or catch {1} fish. It has {2} water and nine fish of its own.", need.gyms, fmt(need.caught), t(TYPES[pond.id].name)),
       buttons: [{ word: "Close", run: () => d.close() }],
     };
   });
@@ -298,6 +300,7 @@ function fishBox(game, fish, again) {
           const r = feedFish(game, F.bag.indexOf(fish));
           if (typeof r === "string") { toast(r, { error: true }); return; }
           toast(r.loved ? t("It loved that! {0} of 5 hearts", hearts(game.creature)) : t("Yum. {0} of 5 hearts", hearts(game.creature)));
+          for (const id of r.badges || []) badgeToast(id);
           done("", "pet");
         } },
         { word: full ? "Swap in" : "Aquarium", primary: true,
@@ -403,7 +406,7 @@ export function fishdexPanel(body, game) {
       const pips = k.tiers.map((got, tier) => `<i class="fish-pip${got ? " on" : ""}" style="--tier:${TIERS[tier].colour}" title="${TIERS[tier].name}"></i>`).join("");
       const el = row({
         pic: "", name: k.n ? k.name : "???", dim: !k.n,
-        sub: `<span class="fish-pips">${pips}</span>`,
+        sub: `<span class="fish-pips">${pips}</span>${feature("fish_guardians") && isGuardian(k.id) ? ` <span class="fish-tag" style="--tier:${pond.water[3]}">${t("Pond guardian")}</span>` : ""}`,
         end: k.best ? `<span translate="no">${cm(k.best)}</span>` : "",
         open: k.n ? () => dexBox(game, k) : null,
       });
@@ -462,7 +465,7 @@ export function fishingHelp(game, go, opts = {}) {
       t("Rarer fish hold pearls. Pearls buy better rods, which make every cast luckier, and bigger aquariums, which hold more fish."),
       t("The Fishdex keeps every fish at every tier you have caught.")),
     helpPart(t("Ponds"),
-      t("Each pond has three fish of its own. More ponds open as you beat gym leaders or catch more fish.")),
+      t("Each pond has nine fish of its own: some turn up now and then, a few seldom, and one, the pond's guardian, hardly ever. More ponds open as you beat gym leaders or catch more fish.")),
     helpPart(t("Fair play"),
       t("Nothing here is bought with money, and nothing here makes a creature stronger in battles.")),
   );

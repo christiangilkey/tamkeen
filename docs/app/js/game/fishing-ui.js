@@ -31,7 +31,8 @@ import { getGame, saveGame, sfx, trackStudy } from "./game.js";
 import { battleDictionary } from "./battle-ui.js";
 import { EPIC, TIERS, golden, isBoss } from "./loot.js";
 import { reveal } from "./reveal.js";
-import { RODS, SHADOWS } from "./fishdata.js";
+import { RODS, SHADOWS, isGuardian } from "./fishdata.js";
+import { feature } from "../prototype.js";
 import {
   canFish, classify, escape, escapedIn, fightLength, fishById, fishingOf, hook, land, luckOf, nextShadows, pondById, pondNeed, pondShadows, pondWords,
   questionFor, record, roundOf, tierOfRoll, turnTaken, PONDS,
@@ -121,7 +122,7 @@ export function openPond(opts = {}) {
       <span class="fish-chips">
         <span class="fish-chip fish-due" title="Words due for review: each one is a fish">${icon("fish_shadow")}<b></b></span>
         <button type="button" class="fish-chip fish-luck" title="How lucky a cast is here">${icon("luck")}<b translate="no"></b></button>
-        <span class="fish-chip fish-pearls" title="Pearls">${icon("pearl")}<b translate="no"></b></span>
+        <button type="button" class="fish-chip fish-pearls" data-cur="pearls" title="Pearls: tap to see how to get them">${icon("pearl")}<b translate="no"></b></button>
         <span class="fish-chip fish-golden" hidden title="Golden hour: triple luck">${icon("star")}<b translate="no"></b></span>
       </span>
       <button type="button" class="fish-basket" title="Your basket">${icon("basket")}<b translate="no"></b></button>
@@ -153,6 +154,7 @@ export function openPond(opts = {}) {
   // (which words have had their turn, and which missed ones wait to come back, is in the saved game: fishing.roundOf.
   // Leaving the pond and coming back carries on where it was.)
   let closed = false;
+  const guardShow = feature("fish_guardians"); // (a pond guardian's own moment: prototype)
   let busy = false;            // a bite is being played out (cards, the fight, the catch)
   let lastAnswer = 0;          // (time fishing counts as study time while answers keep coming)
   const sc = { mode: "idle", t0: performance.now(), bob: null, cast: null, shadows: [], target: null, drops: [], rings: [], fish: null, emote: null, aura: null };
@@ -298,13 +300,21 @@ export function openPond(opts = {}) {
         ctx.fillRect(head - s.dir * (body + j) - (s.dir > 0 ? 1 : 0), cy - half + off, 1, half * 2);
       }
     };
-    const aura = s === sc.target && sc.aura ? sc.aura : s.cls === "boss" ? pond.water[3] : null;
+    const guard = guardShow && isGuardian(s.sp);
+    const aura = s === sc.target && sc.aura ? sc.aura : s.cls === "boss" || guard ? pond.water[3] : null;
     if (aura) {
       ctx.globalAlpha = s.alpha * (0.3 + 0.2 * Math.sin(now / 160));
       shape(2, aura);
     }
     ctx.globalAlpha = s.alpha * 0.72;
     shape(0, "#02040f");
+    if (guard) { // (little lights over a guardian's shadow)
+      ctx.fillStyle = pond.water[3];
+      for (let i = 0; i < 4; i++) {
+        ctx.globalAlpha = s.alpha * (0.5 + 0.5 * Math.sin(now / 140 + i * 1.7 + s.phase));
+        ctx.fillRect(Math.round(s.x + Math.sin(now / 500 + i * 2.1) * len * 0.5), Math.round(s.y - hgt * 0.5 - 2 + Math.cos(now / 430 + i * 1.3) * 3), 1, 1);
+      }
+    }
     ctx.globalAlpha = 1;
   }
 
@@ -400,6 +410,13 @@ export function openPond(opts = {}) {
     ctx.fillStyle = "#ffffff"; ctx.fillRect(bx + 1, by + 1, 4, 2);
     if (dip < 3) { ctx.fillStyle = "#ff4f6d"; ctx.fillRect(bx + 1, by + 3, 4, 2 - Math.max(0, dip - 1)); }
   }
+  /** A burst of little lights in `colour` (a guardian is out of the water). */
+  const sparkle = (x, y, n, colour) => {
+    for (let i = 0; i < n; i++) {
+      const a = rand() * Math.PI * 2, v = 20 + rand() * 70;
+      sc.drops.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 30, life: 0.7 + rand() * 0.8, c: rand() < 0.3 ? "#ffffff" : colour });
+    }
+  };
   const splash = (x, y, n = 6, force = 1) => {
     for (let i = 0; i < n; i++) sc.drops.push({ x, y, vx: (rand() - 0.5) * 46 * force, vy: -(20 + rand() * 46) * force, life: 0.5 + rand() * 0.3 });
     sc.rings.push({ x, y, r: 2, life: 0.9 });
@@ -517,9 +534,18 @@ export function openPond(opts = {}) {
         if (sc.mode === "leap") ctx.rotate(-0.5 + clamp(p / 0.55, 0, 1) * 0.5);
         ctx.drawImage(f.sprite, -SPRITE[0] / 2, -SPRITE[1] / 2);
         ctx.restore();
+        if (f.guard) {
+          ctx.fillStyle = pond.water[3];
+          for (let i = 0; i < 6; i++) {
+            const a = now / 380 + (i * Math.PI) / 3;
+            ctx.globalAlpha = 0.5 + 0.5 * Math.sin(now / 120 + i);
+            ctx.fillRect(Math.round(x + SPRITE[0] / 2 + Math.cos(a) * 17), Math.round(y + SPRITE[1] / 2 + Math.sin(a) * 11), 1, 1);
+          }
+          ctx.globalAlpha = 1;
+        }
       }
     }
-    for (const d of sc.drops) { ctx.globalAlpha = clamp(d.life * 2.5, 0, 1); ctx.fillStyle = "#e8f6ff"; ctx.fillRect(Math.round(d.x), Math.round(d.y), 1, 1); }
+    for (const d of sc.drops) { ctx.globalAlpha = clamp(d.life * 2.5, 0, 1); ctx.fillStyle = d.c || "#e8f6ff"; ctx.fillRect(Math.round(d.x), Math.round(d.y), 1, 1); }
     ctx.globalAlpha = 1;
     // how it feels: "!" at a bite, a sweat drop when one gets away
     if (sc.emote && now < sc.emote.until && art[sc.emote.id]) {
@@ -721,13 +747,24 @@ export function openPond(opts = {}) {
       if (closed) return;
       // Its tier, told by the shared reveal: a chip over the scene for the common ones, the whole scene for Epic and up.
       const fish = fishById(got.fish.sp);
+      // A pond guardian has its own moment whatever its tier: lights burst from it, and it gets the big reveal.
+      const guard = guardShow && isGuardian(got.fish.sp);
+      if (guard && sc.fish) {
+        sc.fish.guard = true;
+        sparkle(CX + 4, FEET_Y - 40, 70, pond.water[3]);
+        sfx("lucky");
+        await wait(700);
+        if (closed) return;
+      }
+      const whole = guard || got.fish.t >= EPIC;
       // (a big one takes the whole pond, bar and all: on a phone the scene alone is too small for it)
-      const shown = reveal($(got.fish.t >= EPIC ? ".fish" : ".fish-stage"), { ...(roll && roll.rolled ? roll : {}), rolled: true, tier: got.fish.t, reward: null },
-        { art: fishTile(got.fish.sp, got.fish.t), title: t(fish.name), text: [got.fish.cm.toLocaleString(), "cm"].join(" "), top: 10 });
+      const shown = reveal($(whole ? ".fish" : ".fish-stage"), { ...(roll && roll.rolled ? roll : {}), rolled: true, tier: got.fish.t, reward: null },
+        { art: fishTile(got.fish.sp, got.fish.t), title: guard ? t("Pond guardian: {0}", t(fish.name)) : t(fish.name), text: [got.fish.cm.toLocaleString(), "cm"].join(" "), top: 10,
+          ...(guard ? { mode: "show" } : {}) });
       lootOpen = shown;
       await shown.landed;
       fishSprite(got.fish.sp, got.fish.t).then((s) => { if (sc.fish) sc.fish.sprite = s; }); // (now in its tier's colours)
-      if (got.fish.t >= EPIC) await shown; // (a big one holds the scene until it is tapped away)
+      if (whole) await shown; // (a big one holds the scene until it is tapped away)
       lootOpen = null;
       if (closed) return;
       paintHud();
@@ -816,6 +853,7 @@ export function openPond(opts = {}) {
       box.querySelector(".fish-catch-cm").textContent = [got.fish.cm.toLocaleString(), "cm"].join(" "); // (a unit's symbol)
       const tags = box.querySelector(".fish-catch-tags");
       const tag = (text) => { const el = h(`<span class="fish-tag"></span>`); el.textContent = text; tags.append(el); };
+      if (guardShow && isGuardian(got.fish.sp)) tag(t("Pond guardian"));
       if (back) tag(t("The one that got away"));
       if (got.newKind) tag(t("New fish!"));
       else if (got.newTier) tag(t("New in your Fishdex"));

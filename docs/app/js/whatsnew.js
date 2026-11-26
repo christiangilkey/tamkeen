@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.75.0",
+  "Hungry creatures: feed yours every day, or it fights weaker");
+notes("0.75.0",
+  "Buy gems with glow in Supplies");
+notes("0.75.0",
+  "Set a long-term goal per day, week or month");
+notes("0.75.0",
+  "Add words: a picture on each card, and lists in just one language");
+notes("0.75.0",
+  "Easier battles, and the question says who is attacking");
+notes("0.75.0",
+  "36 more kinds of fish, and a badge for feeding a Legendary one");
 notes("0.74.0",
   "Choose your battle team and the order your creatures come out");
 notes("0.74.0",

@@ -9,6 +9,7 @@ import { progressText } from "./screenparts.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { reshape, setActive, setShowcase, showcaseOf, variantOptions } from "./rules.js";
 import { fighter } from "./battle.js";
+import { feature } from "../prototype.js";
 import { portrait } from "./battle-ui.js";
 import { eggPicture, icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -17,6 +18,8 @@ import { gift, publishNow } from "./friends-game.js";
 import { openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
 import { elementBadge, movesBlocks } from "./movesui.js";
+import { isHungry } from "./idle.js";
+import { hungryButton, hungrySignHtml } from "./hunger-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -61,6 +64,7 @@ function list(body, game, changed) {
     name.textContent = titleOf(g);
     if (g.name) name.setAttribute("translate", "no"); // a name its owner gave it
     tile.append(elementBadge(g.type));
+    if (isHungry(g)) tile.append(h(hungrySignHtml(g))); // (prototype "hunger")
     if (i === game.active) {
       tile.append(h(`<span class="cr-here" title="In the habitat">${lineIcon("home", 16)}</span>`));
       tile.setAttribute("aria-label", `${titleOf(g)}, ${t("In the habitat")}`);
@@ -116,6 +120,7 @@ function hero(body, game, changed, g, i, repaint) {
   tags.append(elementBadge(g.type));
   const what = [g.name && !egg ? beastById(describe(g).beast).name : "", egg && !g.name ? "" : STAGE_NAME[stageOf(g.growth).id]].filter(Boolean);
   for (const w of what) tags.append(Object.assign(h(`<span class="cr-tag"></span>`), { textContent: w }));
+  if (isHungry(g)) tags.append(hungryButton(game, g, repaint)); // (prototype "hunger": a tap says so, and feeds it)
   // Growing: an egg towards hatching, a creature towards fully grown.
   const share = egg ? g.growth / HATCH_AT : g.growth / GROWN;
   const grown = !egg && isGrown(g);
@@ -239,10 +244,12 @@ function infoBox(title, pic, text, earned, status) {
 /** The badge case: every badge in its slot, earned ones in colour and the rest as dim outlines. A tap says what it is for. */
 export function badgesPanel(body, game) {
   body.innerHTML = "";
-  const got = BADGES.filter((b) => game.badges.includes(b.id)).length;
+  // (a badge still in prototype is in the case only where its prototype is on, or once it has been earned)
+  const shown = BADGES.filter((b) => !b.proto || feature(b.proto) || game.badges.includes(b.id));
+  const got = shown.filter((b) => game.badges.includes(b.id)).length;
   const block = h(`<div class="gs-block"><div class="gs-label"></div><div class="badge-case"></div></div>`);
-  block.querySelector(".gs-label").textContent = t("{0} of {1} earned", String(got), String(BADGES.length));
-  for (const b of BADGES) {
+  block.querySelector(".gs-label").textContent = t("{0} of {1} earned", String(got), String(shown.length));
+  for (const b of shown) {
     const have = game.badges.includes(b.id);
     const src = `${ART}badge/${b.art || b.id}.png`;
     const slot = h(`<button type="button" class="badge-slot${have ? " got" : ""}"><span class="badge-pic"><img alt="" width="48" height="48" src="${src}"></span>

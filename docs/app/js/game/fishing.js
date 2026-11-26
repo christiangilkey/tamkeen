@@ -17,8 +17,8 @@
 // which only fishing finds); nothing adds strength in battles between people; an answer given too fast to have
 // been read doesn't roll (loot.js decides: a Common is all it lands), and a wrong one makes the creature re-bait.
 
-import { FISH, FISH_ART, HARD_LUCK, HOME_LUCK, PEARLS, PONDS, RODS, SELL, SHADOWS, TANKS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
-import { answerQuestion, battleWordsFor, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
+import { FISH, FISH_ART, GUARDIAN_ODDS, HARD_LUCK, HOME_LUCK, KIND_WEIGHT, PEARLS, PONDS, RODS, SELL, SHADOWS, TANKS, TANK_SIZE, TIER_GROWTH, fishById, fishOf, pondById } from "./fishdata.js";
+import { answerQuestion, battleWordsFor, checkBadges, dayKey, dayNumber, fade, pickQuestion, quizzable, weekNumber } from "./rules.js";
 import { rng } from "./genome.js";
 import { hideAnswer } from "../review/deck.js";
 import { feed } from "./idle.js";
@@ -189,13 +189,33 @@ export function classify(state, v, { today, flashDue = null, boss = () => false 
   return { cls: boss(uid) ? "boss" : hard ? "l" : "m", due: true, extra: false, hard, rank: r ? 0 : flashDue && flashDue.has(uid) ? 1 : 2 };
 }
 
-/** Which of the pond's three fish a shadow of class `cls` is (rand: 0..1). */
-export function pickKind(pond, cls, rand) {
+/**
+ * The chance of each of the pond's fish for a shadow of class `cls`: {id: 0..1}, adding up to 1. First whether it is
+ * the guardian (GUARDIAN_ODDS); if not, a size by the shadow's class (SHADOWS.kinds), then which fish of that size
+ * (KIND_WEIGHT: the usual one most of the time).
+ */
+export function kindOdds(pond, cls) {
   const kinds = fishOf(pond);
-  const w = SHADOWS[cls].kinds;
-  let roll = rand() * w.reduce((a, b) => a + b, 0);
-  for (let i = 0; i < kinds.length; i++) { roll -= w[i]; if (roll < 0) return kinds[i].id; }
-  return kinds[kinds.length - 1].id;
+  const guardian = kinds.find((f) => f.guardian);
+  const g = guardian ? GUARDIAN_ODDS[cls] || 0 : 0;
+  const sizes = SHADOWS[cls].kinds;
+  const all = sizes.reduce((a, b) => a + b, 0);
+  const odds = {};
+  if (guardian) odds[guardian.id] = g;
+  sizes.forEach((w, i) => {
+    const of = kinds.filter((f) => !f.guardian && f.size === i + 1);
+    const sum = of.reduce((a, f) => a + KIND_WEIGHT[f.rare || 0], 0);
+    for (const f of of) odds[f.id] = (1 - g) * (w / all) * (KIND_WEIGHT[f.rare || 0] / sum);
+  });
+  return odds;
+}
+
+/** Which of the pond's fish a shadow of class `cls` is (rand: 0..1). */
+export function pickKind(pond, cls, rand) {
+  const odds = Object.entries(kindOdds(pond, cls));
+  let roll = rand();
+  for (const [id, p] of odds) { roll -= p; if (roll < 0) return id; }
+  return odds[odds.length - 1][0];
 }
 
 /** A number from a word id and the day, so a word's fish stays the same kind all day. */
@@ -430,15 +450,18 @@ export function sellCommon(state) {
 }
 
 /** Feed the basket's fish at `index` to the creature out in the habitat (a meal: up to idle.FEEDS_PER_DAY a day, and
- * a tide creature loves fish). Returns idle.feed's {bond, loved}, or an error message (the fish stays). */
+ * a tide creature loves fish). Returns idle.feed's {bond, loved} with `badges` (any just earned), or an error message
+ * (the fish stays). */
 export function feedFish(state, index, now = new Date()) {
   const f = fishingOf(state);
   if (!(index >= 0 && index < f.bag.length)) return "That fish isn't in your basket.";
   state.items.food_fish = (state.items.food_fish || 0) + 1;
   const r = feed(state, "food_fish", now);
   if (typeof r === "string") { state.items.food_fish--; return r; }
-  f.bag.splice(index, 1);
-  return r;
+  const [fish] = f.bag.splice(index, 1);
+  // A fish of Legendary rarity or better, eaten: counted for the "Legendary feast" badge (rules.checkBadges).
+  if (fish.t >= LEGENDARY) state.stats.legend_fed = (state.stats.legend_fed || 0) + 1;
+  return { ...r, badges: checkBadges(state) };
 }
 
 // ---------- the aquarium ----------

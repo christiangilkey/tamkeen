@@ -23,7 +23,8 @@ import { plan, states } from "./deck.js";
 import { newPerDay } from "../pages/review.js";
 import { studyLanguage } from "../languages.js";
 import { goalOf, migrateGoal, withGoal } from "./goalsetting.js";
-import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, goalNewWords, langLog, progress, suggestTarget } from "./longgoal.js";
+import { LENGTHS, MILESTONES, checkIn, dailyAmounts, friendly, goalNewWords, langLog, progress, rateFrom, rateTotal, suggestTarget } from "./longgoal.js";
+import { feature } from "../prototype.js";
 
 const TITLE = {
   learned: (n, date) => `${n} new words by ${date}`,
@@ -42,6 +43,8 @@ const TO_GO = {
   minutes: (n) => (n === 1 ? "1 minute to go today" : `${n} minutes to go today`),
 };
 const MEASURE_NAME = { learned: "New words learned", reviews: "Reviews", minutes: "Minutes on flashcards" };
+/** How "How many" is meant (prototype goal_rate): in all, or so many a day, a week or a month. */
+const UNITS = [["total", "In total"], ["day", "A day"], ["week", "A week"], ["month", "A month"]];
 const LENGTH_NAME = { 14: "2 weeks", 30: "1 month", 60: "2 months", 90: "3 months" };
 const LINE = {
   reached: "Goal reached! Well done.",
@@ -195,6 +198,10 @@ export function openGoalEditor(goal, log) {
   let length = editing ? null : 30;  // a new goal: a month (the length people finish most)
   let end = editing ? goal.end : today + 29;
   let touched = editing;  // the target typed by the learner is kept when the measure or length changes
+  // (prototype goal_rate) "How many" in all, or a day / week / month, worked out over the goal's whole time; a goal
+  // typed as a rate opens as it was typed ("20 a day"), and a new end date scales it.
+  const rates = feature("goal_rate");
+  let unit = rates && editing && goal.rate ? goal.rate.per : "total";
   const m = openModal({ title: editing ? "Change your goal" : "Set a long-term goal" });
   m.body.append(h(`<div class="lg-edit-box">
     <p class="muted small">Goals of 1 to 3 months are the ones people finish most often. Missed days never break it: the rest is spread over the days left.</p>
@@ -205,6 +212,8 @@ export function openGoalEditor(goal, log) {
     <p class="muted small lg-ends"></p>
     <h4><label for="lg-target">How many</label></h4>
     <input type="number" id="lg-target" class="lg-target" min="1" max="1000000" step="1" inputmode="numeric">
+    ${rates ? `<div class="rv-chips lg-units">${UNITS.map(([u, label]) => `<button type="button" data-u="${u}">${label}</button>`).join("")}</div>
+    <p class="lg-total" hidden><span aria-hidden="true">= </span><span class="lg-total-text"></span></p>` : ""}
     <p class="lg-about"></p>
     <div class="lg-buttons">
       ${editing ? `<button type="button" class="ghost lg-remove">Remove goal</button>` : ""}
@@ -215,6 +224,13 @@ export function openGoalEditor(goal, log) {
   const input = $("#lg-target");
   const amounts = () => dailyAmounts(log, measure);
   const start = () => (editing ? goal.start : today);
+  const span = () => Math.max(1, end - start() + 1);  // the goal's whole time, in days
+  const typed = () => Math.max(0, Math.round(Number(input.value) || 0));
+  /** The goal's total: the number typed, or that rate over the goal's whole time. */
+  const total = () => (unit === "total" ? typed() : rateTotal(typed(), unit, span()));
+  const fmt = (n) => { try { return n.toLocaleString(uiLanguage() || undefined); } catch { return String(n); } };
+  // (changing a goal: its number as it was typed; before 2026-11-25 the box opened empty)
+  if (editing) input.value = String(unit !== "total" ? goal.rate.n : goal.target);
 
   function refresh() {
     for (const b of m.body.querySelectorAll(".lg-measures button")) b.classList.toggle("on", b.dataset.m === measure);
@@ -222,18 +238,39 @@ export function openGoalEditor(goal, log) {
     if (length) end = start() + length - 1;
     if (end < today) end = today;
     $(".lg-ends").textContent = `Ends ${dateText(end)}`;
-    if (!touched) input.value = String(suggestTarget(amounts(), measure, today, end - start() + 1));
-    const n = Math.max(0, Math.round(Number(input.value) || 0));
+    if (!touched) {
+      const suggested = suggestTarget(amounts(), measure, today, end - start() + 1);
+      input.value = String(unit === "total" ? suggested : rateFrom(suggested, unit, span()));
+    }
+    const n = total();
     const days = Math.max(1, end - Math.max(today, start()) + 1);
     $(".lg-about").textContent = n ? PACE[measure](friendly(n / days)) : "";
-    $(".lg-save").disabled = !(n >= 1 && n <= 1000000);
+    if (rates) {
+      for (const b of m.body.querySelectorAll(".lg-units button")) b.classList.toggle("on", b.dataset.u === unit);
+      // "= 1,800 new words by 15 Feb", as it is worked out while typing
+      $(".lg-total").hidden = unit === "total" || !typed();
+      $(".lg-total-text").textContent = TITLE[measure](fmt(n), dateText(end));
+      input.max = unit === "total" ? "1000000" : "100000";
+    }
+    $(".lg-save").disabled = !(typed() >= 1 && n >= 1 && n <= 1000000 && (unit === "total" || typed() <= 100000));
   }
   m.body.querySelector(".lg-measures").onclick = (e) => { const b = e.target.closest("button"); if (b) { measure = b.dataset.m; touched = false; refresh(); } };
   m.body.querySelector(".lg-lengths").onclick = (e) => { const b = e.target.closest("button"); if (b) { length = Number(b.dataset.d); if (!editing) touched = false; refresh(); } };
   input.oninput = () => { touched = true; refresh(); };
+  // Another unit: the number changes with it, so the total stays about the same ("1800 in total" → "20 a day").
+  const units = $(".lg-units");
+  if (units) units.onclick = (e) => {
+    const b = e.target.closest("button");
+    if (!b || b.dataset.u === unit) return;
+    const was = total();
+    unit = b.dataset.u;
+    if (typed()) input.value = String(unit === "total" ? was : rateFrom(was, unit, span()));
+    refresh();
+  };
   $(".lg-save").onclick = async () => {
-    const target = Math.round(Number(input.value));
+    const target = total();
     const next = { measure, target, start: start(), end, made: editing ? goal.made : Date.now() };
+    if (unit !== "total") next.rate = { per: unit, n: typed() };  // (kept with the total, to show it as typed)
     try { await saveGoal(next); } catch { toast("Couldn't save the goal.", { error: true }); return; }
     m.close();
     window.dispatchEvent(new CustomEvent("tamkeen:goal"));

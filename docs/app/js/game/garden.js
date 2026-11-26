@@ -10,9 +10,10 @@ import { FOODS, STRUCTURES, TYPES } from "./data.js";
 import { formOf, isGrown } from "./genome.js";
 import { dayKey } from "./rules.js";
 import {
-  BOOST_MINUTES, FEEDS_PER_DAY, STARDUST_BOOST, build, buySupply, collect, feed, garden, hearts, incubate, release, stardustGain, tick,
-  upgrade, useBoost, useKey,
+  BOOST_MINUTES, FEEDS_PER_DAY, STARDUST_BOOST, build, buyGemWithGlow, buySupply, collect, feed, garden, gemGlowPrice, gemsBoughtToday,
+  hearts, incubate, release, stardustGain, tick, upgrade, useBoost, useKey,
 } from "./idle.js";
+import { feature } from "../prototype.js";
 import { announce, saveGame, sfx } from "./game.js";
 import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
@@ -52,7 +53,7 @@ export function gardenPanel(body, game, changed, go = () => {}) {
   const facts = h(`<div class="gs-facts"></div>`);
   const cells = [counted("You have", "glow", f.glow), counted("An hour", "glow", f.rate)];
   if (!f.auto) cells.push(counted("Waiting", "glow", f.waiting));
-  if (f.stardust) cells.push(fact("Stardust", `${icon("stardust")}${fmt(f.stardust)}`));
+  if (f.stardust) cells.push(fact("Stardust", `<button type="button" class="cur-tap" data-cur="stardust" data-cur-here="garden" title="Stardust">${icon("stardust")}${fmt(f.stardust)}</button>`));
   for (const [k, v] of cells) {
     const c = h(`<div class="gs-fact"><span class="gs-label"></span><span class="gs-fact-v">${v}</span></div>`);
     c.querySelector(".gs-label").textContent = k;
@@ -240,6 +241,44 @@ export function suppliesPanel(body, game, changed, go = () => {}) {
     b.append(g);
     body.append(b);
   }
+
+  // Gems for glow (prototype "gem_glow", idle.buyGemWithGlow): the day's first for 5,000 glow, each more that day double.
+  if (feature("gem_glow")) {
+    const b = block("Gems");
+    const g = grid();
+    const price = gemGlowPrice(game);
+    g.append(tile({ pic: art(GEM_PIC, 48), name: "Gem", sub: amount("glow", price, garden(game).glow < price), open: () => gemDetails(game, again) }));
+    b.append(g);
+    body.append(b);
+  }
+}
+
+const GEM_PIC = { file: "icon/gem.png", w: 16, h: 16 };
+/** A gem bought with glow: the price now, and under it what the next one today will cost. */
+function gemDetails(game, again) {
+  details((d) => {
+    const glow = garden(game).glow;
+    const price = gemGlowPrice(game);
+    const next = t("Next one today: {0}", fmt(gemGlowPrice(game, new Date(), 1)));
+    return {
+      title: "Gem", pic: art(GEM_PIC, 96),
+      facts: [fact("You have", amount("gems", game.gems)), fact("Price", amount("glow", price)),
+        fact("Bought today", `<span>${gemsBoughtToday(game)}</span>`)],
+      text: "Gems buy supplies. Each gem you buy in a day costs twice the one before; tomorrow it starts again at 5,000 glow.",
+      note: [glow < price ? needGlow(game, price) : "", next].filter(Boolean).join(" "),
+      buttons: [
+        { word: "Close", run: () => d.close() },
+        { word: "Buy", extra: amount("glow", price), primary: true, disabled: glow < price, run: () => {
+          const p = buyGemWithGlow(game);
+          if (p) { toast(p, { error: true }); return; }
+          sfx("lucky");
+          toast(t("You bought a gem. Next one today: {0}", fmt(gemGlowPrice(game))));
+          d.close();
+          again();
+        } },
+      ],
+    };
+  });
 }
 
 const minutesLeft = (game) => Math.ceil((game.boostUntil - Date.now() / 1000) / 60);

@@ -139,13 +139,29 @@ async function fetchVideos(address) {
 }
 
 /** The next page after `next`, as YouTube's own page asks for it while scrolling: {videos, next}. */
+/** How long one "more" may take, the go-between's own retries included, before the list offers Try again. */
+export const MORE_TIMEOUT_MS = 15000;
 async function fetchMore(address, pageSet, next) {
   const ask = moreRequest(address, pageSet, next);
   if (!ask) return { videos: [], next: null };
-  const res = await webFetch(ask.url, { method: "POST", headers: { ...askIn(), "Content-Type": "application/json" }, body: ask.body });
-  if (!res.ok) throw new Error(String(res.status)); // (never shown: the list offers Try again)
-  const data = await res.json();
-  return { videos: videosIn(data), next: nextPage(data) };
+  const stop = typeof AbortController === "undefined" ? null : new AbortController();
+  const timer = stop ? setTimeout(() => stop.abort(), MORE_TIMEOUT_MS) : 0;
+  try {
+    const res = await webFetch(ask.url, { method: "POST", headers: { ...askIn(), "Content-Type": "application/json" }, body: ask.body,
+      signal: stop ? stop.signal : undefined });
+    const text = await res.text();
+    if (!res.ok) {
+      const e = new Error(String(res.status));
+      // The go-between (webapp/worker.js) turns the address away until its new code is pasted into Cloudflare.
+      e.helper = res.status === 403 && /can't be sent to/i.test(text);
+      throw e;
+    }
+    const data = JSON.parse(text); // (an HTML page or anything but YouTube's JSON: a failure like any other)
+    if (!data || typeof data !== "object") throw new TypeError(); // (no message: the list offers Try again)
+    return { videos: videosIn(data), next: nextPage(data) };
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 const SITE = "https://m.youtube.com";
@@ -257,10 +273,13 @@ export async function render(view, { query }) {
   more.style.cssText = "text-align:center;margin:8px 0 16px";
   list.append(more);
   addVideos(first.videos);
-  let next = first.next, pages = 0, busy = false;
+  // `stuck`: the last try failed. Nothing more is asked for until Try again is pressed: going on by itself (the end is
+  // still in sight) put "Loading more…" back over Try again, again and again (the owner, 2026-11-25: "not loading new
+  // videos", the list stuck on Loading more…, while the go-between was turning every try away).
+  let next = first.next, pages = 0, busy = false, stuck = false;
   const end = () => { more.textContent = t("That's all for now."); watch.disconnect(); };
   async function loadMore() {
-    if (busy || !list.isConnected) return;
+    if (busy || stuck || !list.isConnected) return;
     if (!next || pages >= MAX_PAGES) { end(); return; }
     busy = true;
     more.textContent = t("Loading more…");
@@ -272,18 +291,25 @@ export async function render(view, { query }) {
       if (!addVideos(page.videos)) next = null;
       if (!next) end();
       else more.textContent = "";
-    } catch {
+    } catch (e) {
+      stuck = true;
       more.textContent = "";
+      if (e && e.helper) {
+        const why = document.createElement("span");
+        why.style.cssText = "display:block;margin-bottom:6px";
+        why.textContent = t("Tamkeen's online helper needs an update before more videos can load.");
+        more.append(why);
+      }
       const again = document.createElement("button");
       again.type = "button";
       again.textContent = t("Couldn't load more. Try again");
-      again.onclick = () => { again.remove(); loadMore(); };
+      again.onclick = () => { stuck = false; more.textContent = ""; loadMore(); };
       more.append(again);
     } finally {
       busy = false;
     }
-    // (still near the end, on a tall screen: the next one at once)
-    if (next && list.isConnected && more.getBoundingClientRect().top < innerHeight + 600) loadMore();
+    // (still near the end, on a tall screen: the next one at once; never after a failure)
+    if (!stuck && next && list.isConnected && more.getBoundingClientRect().top < innerHeight + 600) loadMore();
   }
   const watch = typeof IntersectionObserver === "undefined" ? { disconnect() {} }
     : new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) loadMore(); }, { rootMargin: "600px 0px" });

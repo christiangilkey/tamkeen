@@ -24,7 +24,7 @@
 // Looks: plain solid surfaces, one centred column; on a phone a full-height sheet, on a computer a
 // centred box (app.css "Add words").
 
-import { api, esc, h, platform, saveRecording, saveSettings, showMenu, state, toast } from "../app.js";
+import { api, esc, h, platform, savePicture, saveRecording, saveSettings, showMenu, state, toast } from "../app.js";
 import { icon } from "../icons.js";
 import { UI_LANGUAGES, t, uiLanguage } from "../i18n.js";
 import { langAttrs, langInfo, studyLanguage } from "../languages.js";
@@ -32,10 +32,13 @@ import { askName, openModal } from "./modal.js";
 import { confirmBox } from "./settingsui.js";
 import { AI_CHUNK, MAX_ROWS, addable, bareText, batchPrompt, cardFor, cardOf, chunks, cleanChoices, coreText, duplicates, edited, entryKind,
          filled, fillIn, firstSense, folderNames, fromMeaning, hasValue, isList, mnemonicFits, needs, needsAny, needsMemo, parseList, pool, readBatch,
-         readReverse, reversePrompt, typed, usableSense, wordByWord, wordKey, wordsIn } from "../addwords.js";
-import { translationsFor } from "../voiceask.js";
+         readReverse, reversePrompt, typed, usableSense, wordByWord, wordKey, wordsIn, SCRIPTS, applyKinds, bareLine, lineLanguage,
+         listKinds } from "../addwords.js";
+import { toEnglish, translationsFor } from "../voiceask.js";
+import { picturesOn, shrinkPicture } from "./cardpic.js";
+import { cleanMeta, pictureMeta } from "../cardpicture.js";
 import { commonWords } from "../commonwords.js";
-import { chooseWords } from "./wordchoice.js";
+import { askListLanguage, chooseWords } from "./wordchoice.js";
 import { NO_EXAMPLES, OWN_KEYWORDS, examplesOf, freeExample, freeMnemonics } from "../examples.js";
 import { librarySentence } from "../review/sentencefind.js";
 import { makeMnemonics, noteText, varietyOf } from "../review/mnemonic.js";
@@ -161,6 +164,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       <p class="small muted cb-paste-help">One card per line: a word or a phrase. After it you can add its meaning with a dash, an equals sign or a semicolon (<span translate="no">word – meaning</span>), or paste columns from a spreadsheet: word, meaning, sentence, translation.</p>
       <div class="cb-preview" aria-live="polite"></div>
       <p class="small muted cb-mf-paste" hidden>A line with only a meaning (<span translate="no">= library</span>) makes a card whose word Tamkeen finds for you.</p>
+      <p class="small muted cb-lk-paste" hidden></p>
       <p class="small muted cb-paste-wait">Nothing is added until you press the button: fix the list here first if you need to. The choices under "For these cards" are used for every card in it.</p>
       <div class="cb-paste-go"><button type="button" class="primary cb-use" disabled>Use these</button></div>
     </div>
@@ -361,6 +365,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       notes: String(card.notes || ""),
       memo: typed(card.memo || ""),
       audio: { word: null, sentence: null },
+      picture: null,     // the learner's own picture for the card ({blob, url}, made small), kept on it once added (prototype add_word_picture)
       open,
       anyway: false,
       status: null,  // {kind: "busy" | "error" | "ok", text}
@@ -399,6 +404,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         <label class="cb-field" data-f="memo"><span class="cb-label">Memorization notes</span>
           <span class="cb-in"><textarea class="cb-memo" rows="1" dir="auto" maxlength="2000"></textarea><i class="cb-auto" aria-hidden="true">auto</i></span></label>
         <div class="cb-field cb-audio-field"><span class="cb-label">Audio</span><div class="cb-audio"></div></div>
+        <div class="cb-field cb-pic-field" hidden><span class="cb-label">Picture</span><div class="cb-pic"></div></div>
       </div>
       <div class="cb-status" hidden></div>
     </div>`);
@@ -470,6 +476,12 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     else if (hint) setStatus(row, null);
   }
   $(".cb-mf-hint").hidden = $(".cb-mf-paste").hidden = !meaningFirst;
+  if (feature("list_kinds") && meaningFirst) {
+    const help = $(".cb-lk-paste");
+    help.hidden = false;
+    help.textContent = t("A list of words in one language works too: for words in {0}, their {1} words are found; for {1} words, their meanings are filled in, and you choose when a word has several.",
+      t(definerConfig().language || "English"), t(info.name));
+  }
 
   /** One field as it stands: the learner's own words, or the app's (lighter, marked "auto"). */
   function paintField(row, f) {
@@ -511,6 +523,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     for (const s of el.querySelectorAll(".cb-sent")) s.hidden = choices.sentence === "none";
     el.querySelector(".cb-audio-field").hidden = choices.audio === "none";
     paintAudio(row);
+    paintPicture(row);
     paintSummary(row);
     paintStatus(row);
   }
@@ -711,8 +724,59 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
 
   let dirty = false;
   const dirtied = () => { dirty = true; warned = false; footNote(""); countUp(); };
-  const hasInput = () => !done && (dirty || rows.some((r) => !r.filed && r.text.trim() || hasValue(r.meaning) || r.audio.word)
+  const hasInput = () => !done && (dirty || rows.some((r) => !r.filed && r.text.trim() || hasValue(r.meaning) || r.audio.word || r.picture)
     || pasteBox.value.trim() || (scan && scan.hasInput()));
+
+  // ---------------------------------------------------------------- the card's own picture (prototype add_word_picture)
+  // The owner, 2026-11-25: "Doesn't seem to have an option to add image in card creator." The picture the learner takes
+  // or chooses is made small here (components/cardpic.js shrinkPicture, as the card's own picker does) and kept with the
+  // row; once the card is added it goes on it (app.js savePicture), as one added from the card's own "Add picture".
+  const pictureField = picturesOn() && feature("add_word_picture");
+  const touch = (() => { try { return matchMedia("(pointer: coarse)").matches || /Android|iPhone|iPad/i.test(navigator.userAgent); } catch { return false; } })();
+
+  function paintPicture(row) {
+    const field = row.el.querySelector(".cb-pic-field");
+    field.hidden = !pictureField;
+    if (!pictureField) return;
+    const box = row.el.querySelector(".cb-pic");
+    box.innerHTML = `${row.picture ? `<img class="cb-pic-img" alt="">` : ""}
+      <div class="cb-pic-buttons">
+        ${touch ? `<button type="button" class="ghost cb-pic-camera">${icon("camera", 16)} <span>Take a photo</span></button>
+                   <button type="button" class="ghost cb-pic-file">${icon("image", 16)} <span>Choose a photo</span></button>`
+                : `<button type="button" class="ghost cb-pic-file">${icon("upload", 16)} <span>${row.picture ? "Another picture" : "Add a picture"}</span></button>`}
+        ${row.picture ? `<button type="button" class="ghost cb-pic-remove">${icon("trash", 16)} <span>Remove</span></button>` : ""}
+      </div>`;
+    if (row.picture) box.querySelector(".cb-pic-img").src = row.picture.url;
+    box.querySelector(".cb-pic-file").onclick = () => choosePicture(row, false);
+    const camera = box.querySelector(".cb-pic-camera");
+    if (camera) camera.onclick = () => choosePicture(row, true);
+    const remove = box.querySelector(".cb-pic-remove");
+    if (remove) remove.onclick = () => { dropPicture(row); paintPicture(row); dirtied(); };
+  }
+  function dropPicture(row) {
+    if (row.picture) { try { URL.revokeObjectURL(row.picture.url); } catch { /* gone */ } }
+    row.picture = null;
+  }
+  /** The camera (`camera`), or the photos / files, through the browser's own file box (still inside the tap, so a phone
+   * lets it open). */
+  function choosePicture(row, camera) {
+    const input = h(`<input type="file" accept="image/*" hidden>`);
+    if (camera) input.setAttribute("capture", "environment");
+    input.onchange = async () => {
+      const file = (input.files || [])[0];
+      input.remove();
+      if (!file) return;
+      try {
+        const blob = await shrinkPicture(file);
+        dropPicture(row);
+        row.picture = { blob, url: URL.createObjectURL(blob) };
+        paintPicture(row);
+        dirtied();
+      } catch (err) { toast(t(err && err.message ? err.message : String(err)), { error: true }); }
+    };
+    document.body.append(input);
+    input.click();
+  }
 
   // ---------------------------------------------------------------- the card's own audio
 
@@ -838,26 +902,52 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
   pasteBox.placeholder = [`${info.word} – ${meaningWord}`, `${info.word} = ${meaningWord}`, `${info.word}; ${meaningWord}; ${t("a sentence")}`,
     info.wordOrPhrase || info.word].join("\n");
   let pasted = { cards: [], total: 0, cut: false };
+  // A list in one language (prototype list_kinds, addwords.js lineLanguage): which language each line alone is in, worked
+  // out for the list in the box (`text`); shown in the preview, and asked once on "Use these" for lines it can't tell.
+  const listKindsOn = feature("list_kinds") && meaningFirst;
+  const speaks = () => definerConfig().language || "English";
+  let pasteKinds = { text: null, kinds: null, ask: false };
+  async function lineKinds(cards) {
+    const bare = cards.map(bareLine);
+    if (!bare.some(Boolean)) return { kinds: cards.map(() => ""), ask: false };
+    const english = /^english$/i.test(speaks());
+    const files = SCRIPTS[lang] ? null : await installedMeanings(lang).catch(() => null);
+    const raw = cards.map((c, i) => (!bare[i] ? "" : lineLanguage(c.text, {
+      lang,
+      study: files ? toEnglish(files, c.text.trim(), lang).length > 0 : null,
+      native: files && english ? translationsFor(files, c.text.trim(), lang).length > 0 : null,
+    })));
+    const told = listKinds(raw.filter(Boolean));
+    let j = 0;
+    return { kinds: raw.map((k) => (k ? told.kinds[j++] : "")), ask: told.ask };
+  }
   /** The cards each line of `text` would make, shown in `el` (the paste box's preview, and Scan's under
    * its box of text from the photo): {cards, total, cut} (addwords.js parseList). `doubt(card)` says a
    * card's line was hard to read on this device ("Check it"). */
-  function showPreview(el, text, { doubt = () => false } = {}) {
+  function showPreview(el, text, { doubt = () => false, kinds = null } = {}) {
     const parsed = parseList(text, { lang, max: MAX_ROWS, meaningFirst });
     el.innerHTML = "";
     if (!parsed.cards.length) return parsed;
-    const saved = duplicates(parsed.cards.map((c) => c.text), existing().map((v) => v.text));
+    // (a list in one language: a line in the learner's own is shown as the meaning whose word is found)
+    const shown = kinds ? applyKinds(parsed.cards, kinds, "?") : parsed.cards;
+    const saved = duplicates(shown.map((c) => c.text), existing().map((v) => v.text));
     const head = h(`<p class="cb-pv-count"><strong></strong></p>`);
     head.querySelector("strong").textContent = `${parsed.cards.length} card${parsed.cards.length === 1 ? "" : "s"}`;
     if (parsed.cut) head.append(" ", h(`<span class="muted">Only the first 100 are used: at most 100 cards can be added at a time.</span>`));
     el.append(head);
     const list = h(`<ol class="cb-pv"></ol>`);
-    parsed.cards.forEach((c, i) => {
+    shown.forEach((c, i) => {
       const li = h(`<li><span class="cb-pv-word ar" ${langAttrs(lang)}></span><span class="cb-pv-rest" dir="auto"></span></li>`);
       li.querySelector(".cb-pv-word").textContent = c.text || "…";  // (a card started from its meaning: its word is found)
       li.querySelector(".cb-pv-rest").textContent = [c.meaning, c.sentence, clean(c.translation)].filter(Boolean).join(" · ");
       if (saved[i].saved || saved[i].sameAs !== undefined) {
         const tag = h(`<span class="cb-pv-tag"></span>`);
         tag.textContent = saved[i].saved ? t("Already saved") : t("Twice in the list");
+        li.append(tag);
+      } else if (kinds && kinds[i] === "?") {
+        const tag = h(`<span class="cb-pv-tag"></span>`);
+        tag.textContent = t("Which language?");
+        tag.title = t("Tamkeen will ask which language these lines are in.");
         li.append(tag);
       } else if (doubt(c)) {
         const tag = h(`<span class="cb-pv-tag"></span>`);
@@ -871,8 +961,18 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     return parsed;
   }
   function preview() {
-    pasted = showPreview($(".cb-paste .cb-preview"), pasteBox.value);
+    const text = pasteBox.value;
+    const known = listKindsOn && pasteKinds.text === text ? pasteKinds.kinds : null;
+    pasted = showPreview($(".cb-paste .cb-preview"), text, { kinds: known });
     $(".cb-use").disabled = !pasted.cards.length;
+    if (listKindsOn && !known && pasted.cards.length) {
+      const cards = pasted.cards;
+      lineKinds(cards).then((k) => {
+        if (pasteBox.value !== text) return;  // (typed on since: worked out again then)
+        pasteKinds = { text, ...k };
+        preview();
+      }).catch(() => {});
+    }
   }
   pasteBox.oninput = () => { preview(); dirty = true; };
   /** Cards from a pasted list or a photo become rows (typed = the learner's own), after the others. */
@@ -886,9 +986,22 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     dirty = true;
     checkRepeats();
   }
-  $(".cb-use").onclick = () => {
+  $(".cb-use").onclick = async () => {
     if (!pasted.cards.length) return;
-    const cards = pasted.cards;
+    let cards = pasted.cards;
+    if (listKindsOn) {
+      // Each line alone in the learner's own language becomes a card started from its meaning; lines it can't tell are
+      // asked about once, for the whole list.
+      const text = pasteBox.value;
+      const k = pasteKinds.text === text ? pasteKinds : await lineKinds(cards).catch(() => ({ kinds: cards.map(() => ""), ask: false }));
+      let rest = "foreign";
+      if (k.ask) {
+        const got = await askListLanguage({ own: t(speaks()), study: t(info.name), count: k.kinds.filter((x) => x === "?").length });
+        if (!got) return;
+        rest = got;
+      }
+      cards = applyKinds(cards, k.kinds, rest);
+    }
     pasteBox.value = "";
     preview();
     useCards(cards);
@@ -1237,6 +1350,42 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
    * "Which word?" (components/wordchoice.js), the most common chosen to start with. The card's meaning stays the
    * learner's; its word box gets the word, and the rest is filled in as for any word. False when "Which word?" was closed.
    */
+  /**
+   * "Which meaning?" (prototype sense_choice): the cards in `list` whose filled-in meaning has others that really differ
+   * ask which one each card is for, all on one screen, the commonest chosen to start with. A choice other than the
+   * first: the sentence, its translation and the mnemonic were made for the first, so they are made again for the one
+   * chosen. Asked on Add, and (prototype list_kinds) right after Fill in, so a word's meaning is chosen, not guessed.
+   * False when the box was closed.
+   */
+  async function askMeanings(list) {
+    const asking = list.filter((r) => r.meaning.auto && Array.isArray(r.senses) && r.senses.length > 1 && !r.senseChosen);
+    if (!asking.length) return true;
+    footNote("");
+    const picked = await chooseSenses(asking.map((r) => ({ word: r.text.trim(), senses: r.senses })), { lang });
+    if (!picked) return false;
+    const redo = [];
+    asking.forEach((r, i) => {
+      r.senseChosen = true;
+      const meaning = String(picked[i] || "").trim();
+      // (the sense's fuller wording, its notes in brackets, goes in the card's notes: the meaning stays short)
+      const gloss = String((picked.glosses && picked.glosses[i]) || "").trim();
+      if (gloss && !String(r.notes || "").includes(gloss)) {
+        r.notes = [String(r.notes || "").trim(), gloss].filter(Boolean).join(" · ");
+        const box = r.el && r.el.querySelector(".cb-notes");
+        if (box) box.value = r.notes;
+      }
+      if (!meaning || meaning === r.meaning.value.trim()) return;
+      // (the same sense, only its short form: the sentence and the rest were made for it, so they stay)
+      if (meaning === plainMeaning(r.meaning.value)) { r.meaning = typed(meaning); paintRow(r); return; }
+      r.meaning = typed(meaning);
+      for (const f of ["sentence", "translation", "memo"]) if (r[f].auto) r[f] = filled("");
+      redo.push(r);
+      paintRow(r);
+    });
+    if (redo.length) { footNote(t("Filling in…")); await fill(redo); }
+    return true;
+  }
+
   let finding = null;  // the words being found now: a second Fill in (the download button's, say) waits for it
   async function findWords(list) {
     while (finding) await finding.catch(() => true);
@@ -1312,6 +1461,11 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     footNote(t("Filling in…"));
     try {
       if ((await fill(addableNow())) === false) { footNote(t("Nothing was filled in. Choose the words, then press Fill in again.")); return; }
+      // (prototype list_kinds: a word with several meanings is chosen now, not guessed and looked over)
+      if (listKindsOn && feature("sense_choice") && !(await askMeanings(addableNow()))) {
+        footNote(t("Choose the meanings when you're ready: Add asks again."));
+        return;
+      }
       const bad = rows.filter((r) => r.status && r.status.kind === "error").length;
       footNote(bad ? t("{0} of the cards need a look: see the red notes.", bad) : t("Filled in. Look them over, then add them."), bad ? "error" : "");
     } finally {
@@ -1346,33 +1500,8 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
         footNote(t("{0} of the cards need a look (the red notes). Press Add again to add them as they are.", troubled.length), "error");
         return;
       }
-      // 1b. "Which meaning?" (prototype sense_choice): words whose meanings really differ ask which one the card is
-      // for, all on one screen. A choice other than the first: the sentence, its translation and the mnemonic were made
-      // for the first, so they are made again for the one chosen.
-      if (feature("sense_choice")) {
-        const asking = list.filter((r) => r.meaning.auto && Array.isArray(r.senses) && r.senses.length > 1 && !r.senseChosen);
-        if (asking.length) {
-          footNote("");
-          const picked = await chooseSenses(asking.map((r) => ({ word: r.text.trim(), senses: r.senses })), { lang });
-          if (!picked) { footNote(t("Nothing was added. Choose the meanings, then press Add again.")); return; }
-          const redo = [];
-          asking.forEach((r, i) => {
-            r.senseChosen = true;
-            const meaning = String(picked[i] || "").trim();
-            // (the sense's fuller wording, its notes in brackets, goes in the card's notes: the meaning stays short)
-            const gloss = String((picked.glosses && picked.glosses[i]) || "").trim();
-            if (gloss && !String(r.notes || "").includes(gloss)) r.notes = [String(r.notes || "").trim(), gloss].filter(Boolean).join(" · ");
-            if (!meaning || meaning === r.meaning.value.trim()) return;
-            // (the same sense, only its short form: the sentence and the rest were made for it, so they stay)
-            if (meaning === plainMeaning(r.meaning.value)) { r.meaning = typed(meaning); paintRow(r); return; }
-            r.meaning = typed(meaning);
-            for (const f of ["sentence", "translation", "memo"]) if (r[f].auto) r[f] = filled("");
-            redo.push(r);
-            paintRow(r);
-          });
-          if (redo.length) { footNote(t("Filling in…")); await fill(redo); }
-        }
-      }
+      // 1b. "Which meaning?" (prototype sense_choice): see askMeanings.
+      if (feature("sense_choice") && !(await askMeanings(list))) { footNote(t("Nothing was added. Choose the meanings, then press Add again.")); return; }
       // 2. The cards themselves, all in one go.
       footNote(t("Adding…"));
       for (const r of list) setStatus(r, { kind: "busy", text: t("Adding…") });
@@ -1384,6 +1513,16 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
       learnFromRows(list.filter((r) => r.saved && !r.memo.auto && hasValue(r.memo)));
       // 3. Their audio: the learner's own recordings, then voices made now (Azure). A few at a time.
       const problems = [];
+      // (first their pictures, prototype add_word_picture: each on its card, as its own "Add picture" puts it)
+      await pool(list.filter((r) => r.saved && r.picture), 2, async (r) => {
+        try {
+          const card = await savePicture(r.saved.id, r.picture.blob, cleanMeta(pictureMeta(null)));
+          if (card && card.picture) r.saved.picture = card.picture;
+        } catch (err) {
+          problems.push(r);
+          setStatus(r, { kind: "error", text: t("Added, but its picture couldn't be kept: {0}", t(err && err.message ? err.message : String(err))) });
+        }
+      });
       const own = choices.audio !== "none" ? list.filter((r) => r.saved && r.audio.word) : [];
       const voiced = choices.audio === "auto" && azureReady(settings()) ? list.filter((r) => r.saved && !r.audio.word) : [];
       if (own.length || voiced.length) footNote(t("Keeping their audio…"));
@@ -1480,6 +1619,7 @@ export function openWordBuilder({ existing = () => [], folders = [], folder = ""
     if (scan) scan.close();  // (the photos and their copies are let go of: nothing is kept)
     if (recording) { try { recording.ctl.stop(); } catch { /* gone */ } recording = null; }
     if (player) { player.pause(); try { URL.revokeObjectURL(player.src); } catch { /* gone */ } }
+    for (const r of rows) dropPicture(r);  // (the pictures' copies are let go of: the added cards keep their own)
   }
 
   // ---------------------------------------------------------------- start

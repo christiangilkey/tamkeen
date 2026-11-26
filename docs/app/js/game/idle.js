@@ -17,6 +17,7 @@
 import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TIER_COST, TIER_RATE } from "./data.js";
 import { formOf, isGrown } from "./genome.js";
 import { MATURE_BOX, MAX_CREATURES, dayKey, layEgg } from "./rules.js";
+import { feature } from "../prototype.js";
 
 export const OFFLINE_HOURS = 8;        // how much glow can pile up while you are away
 export const AUTO_GOALS = 10;          // daily goals reached before glow collects itself
@@ -26,6 +27,8 @@ export const MAX_BOND = 10;            // two points per heart, five hearts
 export const BOOST_MINUTES = 20;
 export const CARDS_GLOW_HOURS = 1;     // clearing the day's flashcards sends this many hours of glow at once...
 export const CARDS_GLOW_MIN = 20;      // ...and never less than this, so it counts before anything is built
+export const HUNGRY_HOURS = 24;        // a creature that hasn't eaten for this long is hungry (prototype "hunger")...
+export const HUNGRY_STRENGTH = 0.85;   // ...and fights at this share of its attack and defence until it eats
 
 const structure = (id) => STRUCTURES.find((s) => s.id === id) || null;
 
@@ -79,6 +82,7 @@ export function tick(state, now = new Date()) {
   const g = garden(state);
   const t = now.getTime() / 1000;
   const out = { made: 0, burst: 0, gems: 0 };
+  startMeals(state, now);
   for (let i = 0; i < PLOTS.length; i++) if (!g.plots[i].open && meets(state, PLOTS[i].need)) g.plots[i].open = true;
   const hours = g.at ? Math.max(0, Math.min(OFFLINE_HOURS, (t - g.at) / 3600)) : 0;
   g.at = t;
@@ -222,11 +226,75 @@ export function buySupply(state, id, rand = Math.random) {
   return "";
 }
 
-/** Feed the creature in the habitat. Its element's favourite food counts double. Returns
- * {bond, loved} or an error message string. */
-export function feed(state, foodId, now = new Date()) {
+// ---------- gems for glow (prototype "gem_glow") ----------
+// The owner (2026-11-25, answering "B"): a gem can be bought with glow at a price that doubles with each one bought that
+// day (5,000, 10,000, 20,000 ...) and starts again at 5,000 the next day; no cap (the doubling is the limit: a garden in
+// full bloom with three stardust makes about 170,000 glow a day, five gems' worth). `idle.gemBuys` = {day, n}: today's
+// count, kept from both copies of a game when they meet (merge.js, app/sync/gamemerge.py: the later day; the same day,
+// the higher count), so two devices can't each buy the day's cheap first gem.
+export const GEM_GLOW = 5000;
+
+/** How many gems have been bought with glow today. */
+export function gemsBoughtToday(state, now = new Date()) {
+  const b = garden(state).gemBuys;
+  return b && typeof b === "object" && b.day === dayKey(now) && Number.isFinite(b.n) && b.n > 0 ? Math.floor(b.n) : 0;
+}
+
+/** The glow price of the next gem today (`later` = 1: of the one after it). */
+export const gemGlowPrice = (state, now = new Date(), later = 0) => GEM_GLOW * 2 ** (gemsBoughtToday(state, now) + later);
+
+/** Buy one gem with glow. Returns an error message, or "". */
+export function buyGemWithGlow(state, now = new Date()) {
+  const g = garden(state);
+  const n = gemsBoughtToday(state, now);
+  const price = GEM_GLOW * 2 ** n;
+  if (g.glow < price) return `You need ${Math.ceil(price - g.glow)} more glow.`;
+  g.glow -= price;
+  state.gems += 1;
+  g.gemBuys = { day: dayKey(now), n: n + 1 };
+  return "";
+}
+
+// ---------- hunger (prototype "hunger") ----------
+// A creature's last meal is `fedAt` (seconds) on it in the roster, kept from both copies of a game when they meet
+// (merge.js, app/sync/gamemerge.py: the later meal). After HUNGRY_HOURS without one it is hungry: a sign on it
+// wherever it is shown, and HUNGRY_STRENGTH of its attack and defence in the owner's battles (battle.js fighter) until
+// any meal. Nothing else: it never loses health, growth, hearts or a place in battles. Eggs don't eat.
+
+/** Give every hatched creature that has never had a meal counted one now, so nobody turns hungry the moment hunger
+ * starts (an old save, a creature just hatched): a day's grace. Returns whether anything changed. */
+export function startMeals(state, now = new Date()) {
+  let changed = false;
+  for (const c of Array.isArray(state.roster) ? state.roster : []) {
+    if (c && !Number.isFinite(c.fedAt) && formOf(c).id !== "egg") { c.fedAt = Math.floor(now.getTime() / 1000); changed = true; }
+  }
+  return changed;
+}
+
+/** Is this creature hungry? (`on`: hunger is switched on: the prototype.) */
+export function isHungry(c, now = new Date(), on = feature("hunger")) {
+  if (!on || !c || !Number.isFinite(c.fedAt) || formOf(c).id === "egg") return false;
+  return now.getTime() / 1000 - c.fedAt >= HUNGRY_HOURS * 3600;
+}
+
+/** Hours until this creature gets hungry (0 when it is). */
+export const hoursToHungry = (c, now = new Date()) =>
+  Math.max(0, HUNGRY_HOURS - (now.getTime() / 1000 - (Number.isFinite(c && c.fedAt) ? c.fedAt : now.getTime() / 1000)) / 3600);
+
+/** The food to give a creature when the owner just says "feed it": its favourite if there is any, else whatever
+ * food there is the most of. Null when there is none. */
+export function foodFor(state, c) {
+  const have = FOODS.filter((f) => state.items[f.id] > 0);
+  return have.find((f) => f.loves === c.type) || have.sort((a, b) => state.items[b.id] - state.items[a.id])[0] || null;
+}
+
+/** Feed a creature: the one in the habitat, or the hatched one with seed `seed` (hunger lets any be fed, from the
+ * battle team or its page). Its element's favourite food counts double. Returns {bond, loved} or an error message
+ * string. */
+export function feed(state, foodId, now = new Date(), seed = null) {
   const food = FOODS.find((f) => f.id === foodId);
-  const c = state.creature;
+  const c = seed == null ? state.creature : state.roster.find((g) => g.seed === seed);
+  if (!c) return "That creature isn't in your roster.";
   if (!food || !(state.items[foodId] > 0)) return "You have none of that.";
   if (formOf(c).id === "egg") return "Eggs don't eat. Hatch it first.";
   const today = dayKey(now);
@@ -236,6 +304,7 @@ export function feed(state, foodId, now = new Date()) {
   c.fed.n++;
   const loved = food.loves === c.type;
   c.bond = Math.min(MAX_BOND, (c.bond || 0) + (loved ? 2 : 1));
+  c.fedAt = Math.floor(now.getTime() / 1000);
   return { bond: c.bond, loved };
 }
 

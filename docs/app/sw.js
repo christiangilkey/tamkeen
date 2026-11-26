@@ -1,8 +1,18 @@
-// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.74.0-mwwa8r67
-const CACHE = "tamkeen-0.74.0-mwwa8r67";
+// Tamkeen web app: keep a copy of the app's own files so it opens offline. Build 0.75.0-mwxx8c2a
+// (This file is the service worker's source: webapp/build-web.mjs copies it to docs/app/sw.js with the build's own
+// name in the placeholder above, so each build is a new service worker. tests/js/websw.test.mjs runs it.)
+const CACHE = "tamkeen-0.75.0-mwxx8c2a";
+// The pictures (the game's art, the app's icons) and fonts: a copy is kept across builds, so a picture shows even
+// when the network fails to bring it (the owner, desktop Chrome on learntamkeen.com, 2026-11-25: creatures, egg and
+// element icons blank on the Creatures screen). Still asked of the network first, so new art shows at once.
+const KEEP_ART = "tamkeen-keep-art";
+const ART_WAIT_MS = 4000; // a picture the network hasn't brought by then comes from the kept copy, if there is one
+const RETRY_GAP_MS = 500; // a request that failed outright is sent once more after this long (on a new connection)
+const SCOPE = new URL("./", location).pathname;
+const isArt = (url) => /^(game-art|icons|fonts)\//.test(url.pathname.slice(SCOPE.length));
 self.addEventListener("install", () => self.skipWaiting());
-// (a cache named "tamkeen-keep-…" isn't the app's files but what the learner downloaded, kept across builds:
-// the courses' audio packs, web/js/coursepacks.js)
+// (a cache named "tamkeen-keep-…" isn't this build's files but kept across builds: the pictures above, and what the
+// learner downloaded, the courses' audio packs, web/js/coursepacks.js)
 self.addEventListener("activate", (e) => e.waitUntil((async () => {
   for (const key of await caches.keys()) if (key !== CACHE && !key.startsWith("tamkeen-keep-")) await caches.delete(key);
   await self.clients.claim();
@@ -50,20 +60,42 @@ async function fromDrive(e, id) {
   }
   return res;
 }
+/** The network's answer; a request that failed outright (a dropped or stale connection) is sent once more. */
+async function network(request) {
+  try { return await fetch(request); } catch {
+    await new Promise((r) => setTimeout(r, RETRY_GAP_MS));
+    return fetch(request);
+  }
+}
 self.addEventListener("fetch", (e) => {
   const url = new URL(e.request.url);
   const drive = url.origin === location.origin && /\/_drive\/([\w-]+)$/.exec(url.pathname);
   if (drive && e.request.method === "GET") { e.respondWith(fromDrive(e, drive[1])); return; }
-  if (e.request.method !== "GET" || url.origin !== location.origin || !url.pathname.startsWith(new URL("./", location).pathname)) return;
+  if (e.request.method !== "GET" || url.origin !== location.origin || !url.pathname.startsWith(SCOPE)) return;
+  const art = isArt(url);
+  const shared = url.searchParams.has("share_url") || url.searchParams.has("share_text"); // not each shared page's address
   e.respondWith((async () => {
-    const cache = await caches.open(CACHE);
-    try {
-      const res = await fetch(e.request);
-      if (res.ok && !url.searchParams.has("share_url") && !url.searchParams.has("share_text")) cache.put(e.request, res.clone()); // not each shared page's address
+    const fresh = network(e.request).then(async (res) => {
+      if (res.ok && !shared) {
+        // (a picture is kept by its address without the page's "?retry=…", so one copy whatever was asked)
+        try { await (await caches.open(art ? KEEP_ART : CACHE)).put(art ? url.origin + url.pathname : e.request, res.clone()); } catch { /* full: still shown */ }
+      }
       return res;
+    });
+    const saved = () => caches.match(e.request, { ignoreSearch: true });
+    if (art) {
+      fresh.catch(() => {}); // (answered from the copy below, its failure is no one's business)
+      const first = await Promise.race([fresh.catch(() => null), new Promise((r) => setTimeout(r, ART_WAIT_MS, "slow"))]);
+      if (first && first !== "slow") return first; // (a 404 too: a missing picture is missing)
+      const kept = await saved();
+      if (kept) return kept;
+      return fresh; // no copy yet: wait for the network after all
+    }
+    try {
+      return await fresh;
     } catch (err) {
-      const saved = await cache.match(e.request, { ignoreSearch: true });
-      if (saved) return saved;
+      const kept = await saved();
+      if (kept) return kept;
       throw err;
     }
   })());

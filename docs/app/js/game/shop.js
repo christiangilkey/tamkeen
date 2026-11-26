@@ -23,7 +23,7 @@ import { gardenPanel, suppliesPanel } from "./garden.js";
 import { battleHelp, battlePanel, moveHelp, portrait, startFriendBattle } from "./battle-ui.js";
 import { moveRow, moveView } from "./movesui.js";
 import { SHOP_SEEN_KEY, shopSeen } from "./homecard.js";
-import { openEarned, openEvolution } from "./info.js";
+import { openCurrency, openEarned, openEvolution } from "./info.js";
 import { basketPanel, fishdexPanel, fishingHelp, fishingPanel } from "./fishscreen.js";
 import {
   KIND, POCKETS, isOn, lockedShelf, pillsOf, pocketBlocks, pocketCounts, pocketOf, screenOf, sectionOf, shelves, wearing,
@@ -77,8 +77,10 @@ export function openShop(tab, changed = () => {}, opts = {}) {
     $(".game-sheet").setAttribute("aria-label", s.title);
     const pills = $(".gs-pills");
     pills.replaceChildren(...pillsOf(current, game).map((p) => {
-      const el = h(`<span class="gs-pill">${amount(p.kind, p.n)}</span>`);
+      // (a tap says in brief how to get it and what it's for: info.openCurrency)
+      const el = h(`<button type="button" class="gs-pill" data-cur="${p.kind}" data-cur-own>${amount(p.kind, p.n)}</button>`);
       el.title = PILL_WORD[p.kind];
+      el.onclick = () => openCurrency(p.kind, game, go, { here: current });
       return el;
     }));
     const help = $(".sheet-help");

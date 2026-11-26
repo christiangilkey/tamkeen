@@ -12,6 +12,10 @@ import { raidShare } from "./remote.js";
 /** How many creatures a rental duel's team has (of the week's six). */
 export const RENTAL_PICK = 3;
 
+/** How a wild encounter's rival plays (what newLiveBattle needs besides the teams): how often its moves come off, and
+ * (the answer race) answers right. The trials play the same (tools/game_sim/gym-trials.mjs). */
+export const wildSetup = (rand = Math.random) => ({ mode: "wild", foeForm: 0.45 + rand() * 0.2 }); // (was 0.55-0.8: the owner found battles too hard)
+
 /**
  * What keeps battles closed, or null once they are open: {id, have, need}.
  *   "words"     fewer saved words than battles need (have: saved, need: BATTLE_UNLOCK_WORDS)

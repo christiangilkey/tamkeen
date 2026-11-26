@@ -144,7 +144,7 @@ function liveFighter(f, side, index, scale) {
   const moves = (Array.isArray(f.moves) ? f.moves : []).filter((id) => MOVES.some((m) => m.id === id)).slice(0, 4);
   return { side, index, name: f.name || "", look, type: f.type, species: look.species || f.species || null, max,
            hp: f.hp < f.max ? Math.max(1, Math.round(f.hp * k)) : max, atk: (f.atk || 20) * k, def: (f.def || 20) * k, spd: f.spd || 20,
-           moves: moves.length ? moves : ["tackle"], heals: Number.isFinite(f.heals) ? f.heals : 2,
+           moves: moves.length ? moves : ["tackle"], heals: Number.isFinite(f.heals) ? f.heals : 2, hungry: !!f.hungry,
            x: 0, y: 0, vx: 0, vy: 0, face: side === "me" ? 1 : -1, cd: {}, recover: 0, guard: 0, guardLeft: 0, boost: 0, boostMult: 1, boostLeft: 0,
            haste: 0, slow: 0, stun: 0, grace: 0, charging: null, dash: null, act: null, stride: 0, tick: 0, speed: 0, groundHealed: 0, fainted: false };
 }
@@ -190,10 +190,13 @@ export function brainOf(skill = 0.7, over = null) {
  *                 moves still open questions. `autoSkill` 0..1 is how well it plays.
  *   brain         how the rival plays, number by number (brainOf); the ones not given follow foeForm
  *   quizSeconds   how long the player has to answer each question (QUIZ_S unless given; 2..10)
+ *   remote        the rival is a person on another device (rankedlive.js): no computer plays it; its controls come
+ *                 through input(b, cmd, "foe") and its answers through remoteAnswer
+ *   aimMoment     false: no aim moment after a right answer (aiming still points the moves)
  */
 export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMode = "last100", cards = {}, ask = null, words = null, game = null,
   foeForm = 0.7, rival = null, rule = null, rand = Math.random, ground = DEFAULT_GROUND, auto = false, autoSkill = 0.7, sight = SIGHT,
-  brain = null, quizSeconds = QUIZ_S, aim = false, race = false } = {}) {
+  brain = null, quizSeconds = QUIZ_S, aim = false, race = false, autoDodge = false, remote = false, aimMoment = true } = {}) {
   const wm = wordModeOf(wordMode);
   const scale = (side) => (wm === "alltime" && cards && cards[side] != null ? cardScale(cards[side]) : 1);
   const arena = map || ground.generateMap((rand() * 2 ** 32) >>> 0);
@@ -203,16 +206,16 @@ export function newLiveBattle({ mine, theirs, map = null, mode = "wild", wordMod
     map: { ...arena, tiles: arena.tiles.slice(), under: Array.isArray(arena.under) ? arena.under.slice() : arena.under }, // terrain moves repaint the copy
     mine: mine.map((f, i) => liveFighter(f, "me", i, scale("me"))), theirs: theirs.map((f, i) => liveFighter(f, "foe", i, scale("foe"))),
     me: 0, foe: 0, time: 0, over: false, won: null, brink: false, combo: 0, foeCombo: 0, answers: { right: 0, wrong: 0, fast: 0 },
-    quiz: null, aimMode: !!aim, aiming: null, race: !!race, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
+    quiz: null, aimMode: !!aim, aimMoment: aimMoment !== false, aiming: null, race: !!race, autoDodge: !!autoDodge, remote: !!remote, fx: [], nextId: 1, swap: { me: null, foe: null }, potionUsed: false, asked: [], spikesUp: true,
     hints: 0, pickups: [], nextHint: 0, // hint cards held (this battle only) and lying on the ground
     traps: (arena.hazards || []).filter((h) => h && h.kind === "axe").map((h) => ({ ...h, hit: { me: -9, foe: -9 } })),
-    ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: newAi() }, ask: null,
+    ctl: { me: newControl(), foe: newControl() }, ai: { me: auto ? newAi() : null, foe: remote ? null : newAi() }, ask: null,
   };
   b.brain = { me: brainOf(autoSkill), foe: brainOf(b.foeForm, brain) };
   // Hint cards have dice of their own, so they never change how the fight itself rolls (a seeded battle in a test or a
   // trial plays out as it always did); in a real battle (Math.random) they differ every time, even on a gym's fixed map.
   b.hintRand = rng(rand === Math.random ? (Math.random() * 2 ** 32) >>> 0 : ((Number(arena.seed) || 1) ^ 0x5bd1e995) >>> 0);
-  b.nextHint = HINT_FIRST[0] + b.hintRand() * (HINT_FIRST[1] - HINT_FIRST[0]);
+  b.nextHint = remote ? Infinity : HINT_FIRST[0] + b.hintRand() * (HINT_FIRST[1] - HINT_FIRST[0]); // (remote: no hint cards, rankedlive.js)
   b.width = arena.width || arena.cols * TILE;
   b.height = arena.height || arena.rows * TILE;
   b.starts = arena.starts || { me: { x: 3 * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 }, foe: { x: (arena.cols - 4) * TILE + 8, y: Math.floor(arena.rows / 2) * TILE + 8 } };
@@ -272,8 +275,9 @@ function enter(b, side, atStart = false) {
  *   attack a move id: if it is ready, the next step opens its question (b.quiz)
  *   sight  {w, h}: the camera's view in world px, when it changes (a phone turned round)
  */
-export function input(b, cmd = {}) {
-  const c = b.ctl.me;
+export function input(b, cmd = {}, side = "me") {
+  if (side !== "me" && !b.remote) return;
+  const c = b.ctl[side];
   if ("move" in cmd) {
     const m = cmd.move;
     const len = m ? Math.hypot(m.x || 0, m.y || 0) : 0;
@@ -282,9 +286,9 @@ export function input(b, cmd = {}) {
   }
   if ("goTo" in cmd) {
     c.open = null;
-    if (cmd.goTo) { c.move = null; setDest(b, "me", cmd.goTo); } else { c.dest = null; c.path = null; }
+    if (cmd.goTo) { c.move = null; setDest(b, side, cmd.goTo); } else { c.dest = null; c.path = null; }
   }
-  if (cmd.open) {
+  if (cmd.open && side === "me") {
     // a cracked wall: walk up to it and break it open (on the next steps, when close enough)
     const tiles = crackAt(b, cmd.open.x, cmd.open.y);
     if (tiles) { c.open = { tiles, walking: false }; c.move = null; }
@@ -294,7 +298,7 @@ export function input(b, cmd = {}) {
     const p = cmd.aim;
     c.aim = p && Number.isFinite(p.x) && Number.isFinite(p.y) ? { x: p.x, y: p.y } : null;
   }
-  if (cmd.sight) b.sight = sightOf(cmd.sight);
+  if (cmd.sight && side === "me") b.sight = sightOf(cmd.sight);
 }
 
 function setDest(b, side, to, retry = false) {
@@ -442,7 +446,7 @@ function pressAttack(b, moveId, events) {
  */
 export function answer(b, choice) {
   const qz = b.quiz;
-  if (!qz) return [];
+  if (!qz || qz.done) return [];
   if (qz.side === "foe") return dodgeAnswer(b, choice);
   b.quiz = null;
   const f = current(b, "me");
@@ -451,7 +455,7 @@ export function answer(b, choice) {
     const power = COMBO[Math.min(b.combo, COMBO.length - 1)] * DODGE;
     b.combo = 0;
     const events = [{ kind: "answer", side: "me", move: m.id, uid: qz.q.uid, correct: false, rival: true, fast: false, choice: null, right: qz.q.answer, x: f.x, y: f.y }];
-    if (b.aimMode && m.kind === "attack") {
+    if (b.aimMode && b.aimMoment && m.kind === "attack") {
       b.aiming = { move: m.id, power, surged: false, half: true, timeLeft: AIM_S, total: AIM_S };
       events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
     } else use(b, "me", m.id, power, events, { half: true });
@@ -466,7 +470,7 @@ export function answer(b, choice) {
   const power = correct ? (fast ? 1.1 : 1) * COMBO[Math.min(b.combo, COMBO.length - 1)] : 0;
   const surged = correct && b.combo >= COMBO.length - 1;
   b.combo = fast ? Math.min(COMBO.length - 1, b.combo + 1) : 0;
-  if (correct && b.aimMode && m.kind === "attack") { // the player aims it now: the world keeps waiting
+  if (correct && b.aimMode && b.aimMoment && m.kind === "attack") { // the player aims it now: the world keeps waiting
     b.aiming = { move: m.id, power, surged, timeLeft: AIM_S, total: AIM_S };
     events.push({ kind: "aim", side: "me", move: m.id, x: f.x, y: f.y });
   } else if (correct) use(b, "me", m.id, power, events, { surged });
@@ -484,10 +488,14 @@ export function fire(b) {
   return events;
 }
 
-/** When a side's simulated answer comes, in seconds after its question opened: within FAST_S for a fast one. */
+/** When the rival's simulated answer comes, in seconds after a question opened: a fast one RIVAL_FAST, the others from
+ * RIVAL_SLOW to nine tenths of the time allowed. (It was 0.8-2 s and 2 s on: quicker than most learners can read a word
+ * in another language and pick its meaning, so the rival won most races; the owner: "the AI is too hard".) */
+export const RIVAL_FAST = [1.5, 2.5];
+export const RIVAL_SLOW = 2.5;
 function rivalTime(b, side, fast) {
   const r = b.rand();
-  return fast ? 0.8 + r * (FAST_S - 0.8) : FAST_S + r * Math.max(0.2, b.quizS * 0.9 - FAST_S);
+  return fast ? RIVAL_FAST[0] + r * (RIVAL_FAST[1] - RIVAL_FAST[0]) : RIVAL_SLOW + r * Math.max(0.2, b.quizS * 0.9 - RIVAL_SLOW);
 }
 
 /** The player's answer to a dodge question (the rival is attacking): right before the rival, its attack does half
@@ -500,10 +508,62 @@ function dodgeAnswer(b, choice) {
   const rival = choice === RIVAL;
   const picked = Number.isInteger(choice) && choice >= 0 ? choice : null;
   const correct = picked !== null && picked === qz.q.answer;
+  if (qz.remote && !rival && !correct) { // a person attacks: nothing lands until they have answered (remoteAnswer)
+    b.quiz = qz;
+    qz.done = true;
+    b.answers.wrong++;
+    return [{ kind: "answer", side: "me", dodge: true, waiting: true, move: m.id, uid: qz.q.uid, correct: false, rival: false, fast: false, choice: picked, right: qz.q.answer, x: f.x, y: f.y }];
+  }
+  if (qz.remote && correct) b.foeCombo = 0;
   const events = [{ kind: "answer", side: "me", dodge: true, move: m.id, uid: qz.q.uid, correct, rival, fast: false, choice: picked, right: qz.q.answer, x: f.x, y: f.y }];
   if (!rival) { if (correct) b.answers.right++; else b.answers.wrong++; }
   const why = whyNot(b, "foe", m.id);
   if (!why) use(b, "foe", m.id, correct ? qz.power * DODGE : qz.power, events, { half: correct });
+  return events;
+}
+
+/** The rival on another device pressed a move (b.remote): if it can go, the race opens, my dodge question against
+ * their own question on their device. Returns whether a question opened (the world then waits). */
+export const REMOTE_LAG_S = 0.5;
+function pressRemote(b, moveId, events) {
+  const f = current(b, "foe");
+  const why = whyNot(b, "foe", moveId) || (b.quiz || b.aiming ? "busy" : null);
+  if (why) { events.push({ kind: "refused", side: "foe", move: moveId, why, x: f.x, y: f.y }); return false; }
+  const m = moveById(moveId);
+  const q = m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
+  const ok = !!(q && Array.isArray(q.options) && q.options.length);
+  // (nothing for me to dodge, or no word to ask me: only their answer counts)
+  b.quiz = { side: "foe", move: moveId, q: ok ? q : null, timeLeft: b.quizS, total: b.quizS, rivalAt: null,
+             power: COMBO[Math.min(b.foeCombo, COMBO.length - 1)], remote: true, done: !ok, lag: REMOTE_LAG_S };
+  faceToward(f, current(b, "me"));
+  events.push({ kind: "quiz", side: "foe", move: moveId, x: f.x, y: f.y });
+  return true;
+}
+
+/**
+ * The rival on another device answered (b.remote): `correct` true, false, or null (out of time). When I attack, their
+ * right answer first dodges half of it (as answer(b, RIVAL)); a wrong one changes nothing. When they attack, a right
+ * answer lands in full (stronger when `fast`, and their chain grows), a wrong one or none fails it; if I answered
+ * right first it already went at half (dodgeAnswer). Returns the events.
+ */
+export function remoteAnswer(b, correct, fast = false) {
+  const qz = b.quiz;
+  if (!b.remote || !qz) return [];
+  if (qz.side === "me") return correct === true && !qz.done ? answer(b, RIVAL) : [];
+  const f = current(b, "foe"), me = current(b, "me");
+  const m = moveById(qz.move);
+  b.quiz = null;
+  const shown = !qz.done && qz.q; // my question is still up: it closes now, saying why
+  const events = shown ? [{ kind: "answer", side: "me", dodge: true, move: m.id, uid: qz.q.uid, correct: false, fast: false, choice: null, right: qz.q.answer,
+                            rival: correct === true, missed: correct !== true, x: me.x, y: me.y }] : [];
+  if (correct === true) {
+    const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
+    b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
+    if (!whyNot(b, "foe", m.id)) use(b, "foe", m.id, power, events);
+  } else {
+    b.foeCombo = 0;
+    fail(b, f, m, correct === false ? "wrong" : "time", events);
+  }
   return events;
 }
 
@@ -534,7 +594,8 @@ function rivalUse(b, side, moveId, events) {
   const power = (fast ? 1.1 : 1) * COMBO[Math.min(b.foeCombo, COMBO.length - 1)];
   b.foeCombo = fast ? Math.min(COMBO.length - 1, b.foeCombo + 1) : 0;
   // The answer race: the player (not the computer playing for them) gets a dodge question about the attack.
-  const q = b.race && side === "foe" && !b.ai.me && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
+  // (`autoDodge`: the computer playing for the player gets them too: trials, tools/game_sim/gym-trials.mjs)
+  const q = b.race && side === "foe" && (!b.ai.me || b.autoDodge) && m.kind === "attack" && b.ask ? b.ask(moveId, b) : null;
   if (q && Array.isArray(q.options) && q.options.length) {
     b.quiz = { side: "foe", move: moveId, q, timeLeft: b.quizS, total: b.quizS, rivalAt: rivalTime(b, side, fast), power };
     faceToward(f, current(b, "me"));
@@ -555,7 +616,7 @@ function aimFor(b, f, rival, lm) { return aimTo(b, f, ahead(b, f, rival, lm), lm
 
 /** The player's own aim, when they are aiming (`aim: true` and a point given), else null. */
 function playerAim(b, f) {
-  const p = f.side === "me" && b.aimMode ? b.ctl.me.aim : null;
+  const p = b.aimMode && (f.side === "me" || b.remote) ? b.ctl[f.side].aim : null;
   return p && dist(f, p) >= 2 ? p : null;
 }
 
@@ -774,6 +835,11 @@ export function step(b, dt) {
   const events = [];
   const time = Math.max(0, Math.min(MAX_STEP, Number(dt) || 0));
   if (b.over) { for (const side of SIDES) acts(current(b, side), time); return events; }
+  if (b.quiz && b.quiz.done) { // a person's attack, my part over: theirs has until the time is up (and a moment for the network)
+    b.quiz.timeLeft = Math.max(0, b.quiz.timeLeft - time);
+    if (b.quiz.timeLeft <= 0 && (b.quiz.lag -= time) <= 0) events.push(...remoteAnswer(b, null));
+    return events;
+  }
   if (b.quiz) {
     b.quiz.timeLeft = Math.max(0, b.quiz.timeLeft - time);
     if (b.quiz.rivalAt != null && b.quiz.total - b.quiz.timeLeft >= b.quiz.rivalAt) events.push(...answer(b, RIVAL)); // the rival was quicker
@@ -792,6 +858,8 @@ export function step(b, dt) {
 function tick(b, h, events) {
   const press = b.ctl.me.attack;
   if (press) { b.ctl.me.attack = null; if (pressAttack(b, press, events)) return; }
+  const far = b.remote && b.ctl.foe.attack; // (the rival on another device pressed a move)
+  if (far) { b.ctl.foe.attack = null; if (pressRemote(b, far, events)) return; }
   b.time += h;
   for (const side of SIDES) if (b.swap[side] != null && b.time >= b.swap[side]) swapIn(b, side, events);
   for (const side of SIDES) if (b.ai[side]) think(b, side, h, events);

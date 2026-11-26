@@ -38,6 +38,16 @@ export const PROTOTYPES = {
   class_tab: { name: "Class tab for DLI students and teachers: invite by username, classmates with activity levels, send to a class", released: true, since: "2026-11-24" },
   classroom: { name: "Classroom in the Library for DLI teachers and students: folders, the teacher's transcript, important words, meanings and notes", released: true, since: "2026-11-24" },
   owner_gifts: { name: "Gifts from the creator: give a chosen user coins, gems, XP, glow, items, moves, unlocks and creatures", released: true, since: "2026-11-24" },
+  add_word_picture: { name: "Add words: a Picture field on each card (take or choose a photo), kept on the card when it is added", released: true, since: "2026-11-25" },
+  list_kinds: { name: "Add words, Paste a list: a list of words in your own language finds their words in the one you learn; a list of words in that language fills in the rest and asks which meaning when a word has several (Fill in asks too)", released: true, since: "2026-11-25" },
+  fish_guardians: { name: "Fishing: a pond guardian's own moment (its shadow glows, sparkles and a big reveal when caught, a glow in the aquarium, a mark in the Fishdex)", released: false, since: "2026-11-25" },
+  legend_feast: { name: "Badge: Legendary feast, for feeding your creature a fish of Legendary rarity or better", released: true, since: "2026-11-25" },
+  goal_rate: { name: "Long-term goal set per day, week or month (\"20 new words a day\"), worked out over the goal's time; shown again as typed, and scaled when the time changes", released: true, since: "2026-11-25" },
+  habitat_room: { name: "The habitat is the creature's cozy cottage: tap the floor and it walks there (round the furniture), indoor decorations inside; out its door, a yard seen from above like the battle arenas, where it walks anywhere among the outdoor decorations and the garden", released: false, since: "2026-11-25" },
+  gem_glow: { name: "Gems for glow in Supplies: the day's first gem 5,000 glow, each more that day twice the price before; it starts again each day", released: true, since: "2026-11-25" },
+  small_battlers: { name: "Smaller creatures in live battles: drawn at about two thirds of their size next to the arena's houses, trees and props (the battle plays the same)", released: true, since: "2026-11-25" },
+  hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: true, since: "2026-11-25" },
+  ranked: { name: "Ranked battles: live against another player online, a rating from 0, matched with players of a similar rating, a leaderboard and tiers (needs supabase/v18-ranked.sql)", released: false, since: "2026-11-25" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 

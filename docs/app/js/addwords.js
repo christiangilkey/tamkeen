@@ -513,6 +513,53 @@ export function fromMeaning(row) {
   return !!row && !wordKey(text) && hasValue(row.meaning) && row.meaning.auto === false;
 }
 
+// ---------------------------------------------------------------- a list in one language (prototype list_kinds)
+// The owner, 2026-11-25: a pasted list "should also allow just native language words and it will find the rest and also
+// just foreign words and it will fill in the rest". A line that is a word alone (no "=", dash or columns) is in one of
+// the two languages: the learner's own (a meaning: its word is found, as a card started from its meaning) or the one
+// being learned (a word: the rest filled in). Each line says which where it can; the rest follow the list, or the
+// learner is asked once.
+
+/** Is a pasted card a word alone (nothing after it)? */
+export const bareLine = (c) => !!(c && String(c.text || "").trim() && !c.meaning && !c.sentence && !c.translation);
+
+/**
+ * Which language a line alone is in: "foreign" (the one being learned), "native" (the learner's own) or "?" (can't
+ * tell). A language with a script of its own (SCRIPTS: Arabic, Russian, Japanese…) says it by its letters. Otherwise
+ * the dictionaries: `study` whether the language's dictionary has it as a word, `native` whether its English tables
+ * have it as an English word (null: not known, no dictionary here). Both, or neither: "?" ("pan", "table").
+ */
+export function lineLanguage(text, { lang = "", study = null, native = null } = {}) {
+  const s = String(text ?? "").trim();
+  if (!/\p{L}/u.test(s)) return "?";
+  const script = SCRIPTS[lang];
+  if (script) return script.test(s) ? "foreign" : "native";
+  if (study === true && native !== true) return "foreign";
+  if (native === true && study !== true) return "native";
+  return "?";
+}
+
+/**
+ * The whole list's lines, each "foreign", "native" or "?" (lineLanguage): those it can't tell follow the others when
+ * the others all agree; when they don't (a mixed list) or none can be told, {ask: true}: ask the learner once.
+ * {kinds, ask}.
+ */
+export function listKinds(lines) {
+  const told = (lines || []).filter((k) => k === "foreign" || k === "native");
+  const one = told.length && told.every((k) => k === told[0]) ? told[0] : "";
+  const kinds = (lines || []).map((k) => (k === "?" && one ? one : k));
+  return { kinds, ask: kinds.includes("?") };
+}
+
+/** The cards with each line alone in the learner's own language made a card started from its meaning. `kinds` as
+ * listKinds gives them, one per card ("" for a card that isn't a line alone); `rest` what a "?" is taken as. */
+export function applyKinds(cards, kinds, rest = "foreign") {
+  return (cards || []).map((c, i) => {
+    const k = kinds[i] === "?" ? rest : kinds[i];
+    return k === "native" && bareLine(c) ? { ...c, text: "", meaning: String(c.text).trim().slice(0, 500) } : c;
+  });
+}
+
 export const REVERSE_SCHEMA = {
   type: "object",
   properties: {
