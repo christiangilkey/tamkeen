@@ -82,7 +82,7 @@ test("the list: more near the end with Loading more…, a quiet end, the caption
   const src = read("mobile/src/js/web-youtube.js");
   assert.match(src, /return \{ videos: videosIn\(data\), settings: pageSettings\(html\), next: nextPage\(data\) \};/);
   assert.match(src, /const ask = moreRequest\(address, pageSet, next\);/);
-  assert.match(src, /webFetch\(ask\.url, \{ method: "POST", headers: \{ \.\.\.askIn\(\), "Content-Type": "application\/json" \}, body: ask\.body \}\)/);
+  assert.match(src, /webFetch\(ask\.url, \{ method: "POST", headers: \{ \.\.\.askIn\(\), "Content-Type": "application\/json" \}, body: ask\.body,/);
   assert.match(src, /new IntersectionObserver\(\(entries\) => \{ if \(entries\.some\(\(e\) => e\.isIntersecting\)\) loadMore\(\); \}, \{ rootMargin: "600px 0px" \}\)/);
   assert.match(src, /more\.textContent = t\("Loading more…"\);/);
   assert.match(src, /const end = \(\) => \{ more\.textContent = t\("That's all for now\."\); watch\.disconnect\(\); \};/);
@@ -90,4 +90,25 @@ test("the list: more near the end with Loading more…, a quiet end, the caption
   assert.match(src, /if \(shown\.has\(v\.id\)\) continue;/, "a video already listed isn't listed twice");
   assert.match(src, /if \(!next \|\| pages >= MAX_PAGES\) \{ end\(\); return; \}/);
   assert.ok(MAX_PAGES >= 10 && MAX_PAGES <= 50);
+});
+
+// The owner, 2026-11-25: "YOUTUBE STUFF NOT loading new videos": the list sat on "Loading more…". The go-between had
+// not yet been given the two addresses, so every try was turned away, and after each failure the list tried again by
+// itself (the end still in sight), putting "Loading more…" back over Try again, without end.
+test("a failed “more” never hangs: a time limit, every failure caught, no trying again by itself, and the go-between's refusal said plainly", () => {
+  const src = read("mobile/src/js/web-youtube.js");
+  const fetchMore = src.slice(src.indexOf("async function fetchMore("), src.indexOf("const SITE ="));
+  assert.match(src, /export const MORE_TIMEOUT_MS = 15000;/);
+  assert.match(fetchMore, /setTimeout\(\(\) => stop\.abort\(\), MORE_TIMEOUT_MS\)/);
+  assert.match(fetchMore, /signal: stop \? stop\.signal : undefined/);
+  assert.match(fetchMore, /clearTimeout\(timer\);/);
+  assert.match(fetchMore, /e\.helper = res\.status === 403 && \/can't be sent to\/i\.test\(text\);/, "the go-between's own words for a refused address");
+  assert.match(fetchMore, /const data = JSON\.parse\(text\);/, "an HTML page instead of JSON fails like any other answer");
+  assert.match(read("webapp/worker.js"), /refuse\(403, "That address can't be sent to\.", origin\)/, "…which the go-between says");
+  // after a failure: Try again, and nothing more asked for until it is pressed
+  assert.match(src, /if \(busy \|\| stuck \|\| !list\.isConnected\) return;/);
+  assert.match(src, /\} catch \(e\) \{\s+stuck = true;/);
+  assert.match(src, /again\.onclick = \(\) => \{ stuck = false; more\.textContent = ""; loadMore\(\); \};/);
+  assert.match(src, /if \(!stuck && next && list\.isConnected && more\.getBoundingClientRect\(\)\.top < innerHeight \+ 600\) loadMore\(\);/);
+  assert.match(src, /why\.textContent = t\("Tamkeen's online helper needs an update before more videos can load\."\);/);
 });
