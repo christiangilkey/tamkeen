@@ -119,7 +119,7 @@ test("the room's art matches the numbers the game uses", () => {
 test("the owner's taps: a door goes straight through; outside, a tap on the creature walks it (no boxes)", () => {
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.ok(h.includes('if (inRoom() && !pressed && tapIn(x, y) === "door") { sfx("tick"); goThrough("yard"); return; }'));
-  assert.ok(h.includes('if (outside() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }'));
+  assert.ok(h.includes('if (inYard() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }'));
   assert.ok(h.includes("if (pressed || (!outside() && Math.abs(x - cx) < 30)) {"), "no pat (word, name box) outside");
   assert.ok(h.includes("if (!pressed && !outside() && y > feetNow() + 2"), "no goal box outside");
   for (const f of ["fire", "sky_sun", "sky_moon", "sky_cloud_1", "sky_cloud_2"]) assert.ok(h.includes(f.startsWith("sky") ? `room/sky_` : "room/fire.png"), f);

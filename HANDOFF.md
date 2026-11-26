@@ -10098,4 +10098,16 @@ Chat's side-session notes, `habitat-revamp-plan.md`.
   **The Muffles' bubbles are small** (13 px words; on a phone 12 px and the glyphs at their own 7 x 9).
 - **The big tiles send the creature to their place** (`teleportTo`, no walking): Shop the tailor's cloth stall, Garden
   the fruit stall, Fishing the pier, Battle the hall (the gyms), Creatures home to the middle of its room. The page
-  opens as before (they are sheets over Home); the creature stays there 30 s, so it is still there when it is closed.
+  opens as before (Battle: inside the hall, at the counter) (they are sheets over Home); the creature stays there 30 s, so it is still there when it is closed.
+- **The Muffles move properly and the market is busy** (the owner, 2026-11-26). Every Muffle's picture is now a strip
+  of 17 frames of 40 x 40 (`tools/game_art/muffles.py` POSES, placed in Aseprite): front, side and back, each standing
+  and with two walking steps, then sitting and eating, stirring a pot, playing a lute and dancing. `muffles.js`
+  `poseOf` picks the frame: a walker faces the way it goes (side on, away, towards you), a busy one loops its two
+  frames (`ACT_MS`). New in the market: two eating on a bench (a battle `bench` prop at 22, 6), a cook at her pot
+  (`muffle/pot.png`, 2 frames), a musician by the well (gold notes, no sound: "not audible to player"), two dancers.
+- **Inside the championship hall** (`web/js/game/hall.js`, view `"hall"`, saved like "room" and "yard"): a 20 x 9 map
+  drawn as the yard is (stone floor, the hall's walls, a carpet from the door to the counter; banners, knights,
+  braziers, an armour stand, a weapon rack, a bookshelf, a chest). Tapping the hall in the village walks the creature to
+  its door and in. The custodian (a Muffle, `scene: "hall"`, cap and spectacles) stands behind the counter: tap the
+  counter or the custodian and the creature walks up, the custodian says a line (place "hall"), and the gym register
+  opens (`gyms-ui.js openGyms`). The door at the bottom goes back out, in front of the hall. No rain indoors.

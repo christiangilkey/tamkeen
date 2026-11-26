@@ -10,7 +10,8 @@
 
 import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
-import { FOLK, knownKeys, lineFor, readLine } from "./muffles.js";
+import { FOLK, knownKeys, lineFor, poseOf, readLine } from "./muffles.js";
+import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
 import { states as reviewStates } from "../review/deck.js";
 import { openModal } from "../components/modal.js";
 import { icon as lineIcon } from "../icons.js";
@@ -154,7 +155,7 @@ export function habitat() {
   const toScreen = (x, y) => { const r = canvas.getBoundingClientRect(); return { x: r.left + ((x - cam()) / W) * r.width, y: r.top + (y / H) * r.height }; };
   // Outside, the window is a camera on a field longer than it (yard.js: the yard and the village), following the creature.
   let camX = 0, camReady = false;
-  const cam = () => (outside() ? Math.round(camX) : 0);
+  const cam = () => (outside() && !inHall() ? Math.round(camX) : 0); // (the hall is one window wide)
   const creaturePoint = () => (isEgg() ? toScreen(W / 2, feetNow() - 18) : toScreen(pet.x, feetNow() - beastHeight(describe(game.creature)) / 2));
   /** "+12" rising from a tile that has no number of its own (glow lands on the Garden tile). */
   function plusOn(target, text) {
@@ -435,7 +436,10 @@ export function habitat() {
   // Outside its door, with the room: the yard seen from above like the battles' arenas (yard.js; the owner, 2026-11-25:
   // "I want outside the house to look like the over head battles where they walk around a playing field").
   const outside = () => roomOn() && view !== "room";
-  const walkArea = () => (inRoom() ? ROOM.walk : YARD_WALK);
+  // Outside is the yard and the village, or (hall.js) inside the championship hall, drawn the same way from above.
+  const inHall = () => roomOn() && view === "hall";
+  const inYard = () => roomOn() && view === "yard";
+  const walkArea = () => (inRoom() ? ROOM.walk : inHall() ? HALL_WALK : YARD_WALK);
   const outdoorDecor = () => game.decor.filter((x) => !isIndoor(x.id));
   /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
   const yardStanding = () => [
@@ -459,6 +463,7 @@ export function habitat() {
   let rolling = null; // the ball, kicked: {id, from, to, t}
   const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
+    : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
@@ -477,25 +482,30 @@ export function habitat() {
   function goThrough(to) {
     // whatever it was carrying is put down where it stood, on this side of the door
     if (carry) { if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); } carry = null; }
+    const from = view;
     view = to;
     saveView(to);
     doorT = 0.7;
     pet.path = [];
     pet.after = null;
-    if (to === "yard") { pet.x = YARD_DOOR_SPOT.x; pet.y = YARD_DOOR_SPOT.y; walkTo({ x: YARD_DOOR_SPOT.x + 40, y: YARD_DOOR_SPOT.y + 30 }); }
+    camReady = false; // (the camera starts where it comes out)
+    const hallDoor = stationById("hall");
+    if (to === "hall") { pet.x = HALL_DOOR_SPOT.x; pet.y = HALL_DOOR_SPOT.y; walkTo({ x: HALL_DOOR_SPOT.x, y: HALL_DOOR_SPOT.y - 26 }); }
+    else if (to === "yard" && from === "hall" && hallDoor) { pet.x = hallDoor.x; pet.y = hallDoor.y + 2; walkTo({ x: hallDoor.x, y: hallDoor.y + 24 }); }
+    else if (to === "yard") { pet.x = YARD_DOOR_SPOT.x; pet.y = YARD_DOOR_SPOT.y; walkTo({ x: YARD_DOOR_SPOT.x + 40, y: YARD_DOOR_SPOT.y + 30 }); }
     else { pet.x = ROOM.doorSpot.x; pet.y = ROOM.doorSpot.y; walkTo({ x: ROOM.doorSpot.x - 50, y: 116 }); }
   }
   /** Straight to a place, no walking (the big tiles): "room" (the middle of its room), or a village station's spot. */
   function teleportTo(where) {
     if (!roomOn()) return;
     if (carry) { if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); } carry = null; }
-    const st = where === "room" ? null : stationById(where);
-    if (where !== "room" && !st) return;
-    view = st ? "yard" : "room";
+    const st = where === "room" || where === "hall" ? null : stationById(where);
+    if (where !== "room" && where !== "hall" && !st) return;
+    view = st ? "yard" : where;
     saveView(view);
     pet.path = []; pet.after = null; pet.leaving = 0; pet.napUntil = 0;
     pet.wait = 30; // (it stays there a while: still there when the page is closed)
-    if (st) { pet.x = st.x; pet.y = st.y; pet.dir = 1; } else { pet.x = W / 2; pet.y = 118; }
+    if (st) { pet.x = st.x; pet.y = st.y; pet.dir = 1; } else if (where === "hall") { pet.x = COUNTER_SPOT.x; pet.y = COUNTER_SPOT.y; } else { pet.x = W / 2; pet.y = 118; }
     camReady = false; // (the camera jumps there with it)
   }
   /** One step of walking in the room: along its way, or (with nowhere to go) a wander now and then. */
@@ -582,15 +592,18 @@ export function habitat() {
   }
   /** The ground: its still layers drawn once into their own canvas (again when a picture arrives), the water over them
    * every frame, only where the window shows. */
+  let groundOf = "";
   function drawYard(now = performance.now()) {
+    const which = inHall() ? "hall" : "yard";
+    if (which !== groundOf) { groundOf = which; yardDirty = true; yardGround = null; }
     if (yardDirty) {
       yardDirty = false;
       yardMoving = [];
-      const m = yardMap();
+      const m = inHall() ? hallMap() : yardMap();
       if (!yardGround) { yardGround = document.createElement("canvas"); yardGround.width = m.width; yardGround.height = H; }
       const g = yardGround.getContext("2d");
       g.imageSmoothingEnabled = false;
-      g.fillStyle = "#3f7a34";
+      g.fillStyle = inHall() ? "#3a3440" : "#3f7a34";
       g.fillRect(0, 0, m.width, H);
       for (let cy = 0; cy <= m.rows; cy++) for (let cx = 0; cx <= m.cols; cx++) {
         const layers = drawCorners(m, cx, cy);
@@ -640,7 +653,7 @@ export function habitat() {
   /** Everything standing on the yard's field, each with its depth (the y of its foot) and how to draw it. */
   function yardScene(now, sparkle) {
     const out = [];
-    const m = yardMap();
+    const m = inHall() ? hallMap() : yardMap();
     for (const p of m.props) {
       const img = PROPS[p.id] && yimg(PROPS[p.id].art);
       if (!img) continue;
@@ -678,20 +691,36 @@ export function habitat() {
       }
     } });
     // The Muffles: at their stalls and doors, two walking about; drawn at the creature's outdoor size, bobbing a little
-    for (const f of folk) {
+    // (each picture is a strip of frames, muffles.js POSE: busy at something, walking side on, away or towards you)
+    for (const f of folkHere()) {
       const img = yimg(`muffle/${f.id}.png`);
       if (!img) continue;
+      const pose = poseOf(f, now, f.mv);
+      const frame = img.width >= 80 ? pose.frame : 0;
+      const sit = f.act === "eat";
       out.push({ y: f.y, draw: () => {
         const k = creatureScale();
         ctx.save();
         ctx.translate(Math.round(f.x), Math.round(f.y));
-        ctx.scale(k * f.dir, k);
-        if (art.shadow_m) ctx.drawImage(art.shadow_m, -Math.round(art.shadow_m.width / 2), -Math.floor(art.shadow_m.height / 2));
-        ctx.drawImage(img, -20, -37 - (Math.floor(now / 520 + f.phase) % 2));
+        ctx.scale(k * pose.dir * (f.act ? 1 : f.mv ? 1 : f.dir), k);
+        if (art.shadow_m && !sit) ctx.drawImage(art.shadow_m, -Math.round(art.shadow_m.width / 2), -Math.floor(art.shadow_m.height / 2));
+        const bob = f.act || f.mv ? 0 : Math.floor(now / 520 + f.phase) % 2; // (standing: a little breath; the frames move by themselves)
+        ctx.drawImage(img, frame * 40, 0, 40, 40, -20, -37 - bob, 40, 40);
         ctx.restore();
       } });
+      if (f.act === "cook") { // her pot over its fire, the steam curling (muffle/pot.png: 2 frames of 24 x 24)
+        const pot = yimg("muffle/pot.png");
+        if (pot) out.push({ y: f.y + 1, draw: () => {
+          const k = creatureScale();
+          ctx.save();
+          ctx.translate(Math.round(f.x + 11), Math.round(f.y + 2));
+          ctx.scale(k, k);
+          ctx.drawImage(pot, (Math.floor(now / 300) % 2) * 24, 0, 24, 24, -12, -23, 24, 24);
+          ctx.restore();
+        } });
+      }
     }
-    for (const at of yardDecor()) {
+    for (const at of inHall() ? [] : yardDecor()) {
       if (!(at.id in decorArt)) { decorArt[at.id] = null; loadImage(`${at.id}.png`).then((img) => { decorArt[at.id] = img; }); }
       const img = decorArt[at.id];
       if (img) out.push({ y: at.y, draw: () => ctx.drawImage(img, Math.round(at.x - img.width / 2), at.y - img.height + 2) });
@@ -699,7 +728,7 @@ export function habitat() {
     const plots = garden(game).plots;
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
-      if (!p.open) continue;
+      if (!p.open || inHall()) continue;
       const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
       if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
       const img = plotArt[file];
@@ -721,7 +750,7 @@ export function habitat() {
     // the mailbox: its flag up when a friend's gift has come (tap it: the creature fetches it)
     const mail = things.some((it) => it.kind === "gift");
     const box = mail ? art.mailboxFlag : art.mailbox;
-    if (box) out.push({ y: MAILBOX.y, draw: () => {
+    if (box && inYard()) out.push({ y: MAILBOX.y, draw: () => {
       ctx.drawImage(box, MAILBOX.x - Math.floor(box.width / 2), MAILBOX.y - box.height + 2);
       if (mail && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, MAILBOX.x + 6, MAILBOX.y - 22);
     } });
@@ -733,7 +762,7 @@ export function habitat() {
         drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
       } });
     }
-    for (const th of things) {
+    for (const th of inHall() ? [] : things) {
       const at = thingSpot(th.x);
       if (th.kind === "gift") continue; // (in the mailbox)
       if (th.kind === "gift" && art.gift) {
@@ -782,7 +811,9 @@ export function habitat() {
     for (let x = 0; x < W; x++) { const y = 70 + Math.round(Math.sin(x / 17 + 1) * 3); ctx.fillRect(x, y, 1, H - y); }
   }
   // ----- the Muffles (muffles.js): where each is, and what it says -----
-  const folk = FOLK.map((f, i) => ({ ...f, dir: 1, phase: i * 0.37, said: 0, spoke: 0, to: null, rest: 2 + i }));
+  const folk = FOLK.map((f, i) => ({ ...f, dir: 1, phase: f.phase ?? i * 0.37, said: 0, spoke: 0, to: null, mv: null, rest: 2 + i }));
+  /** The Muffles where the creature is: the village's, or the hall's custodian. */
+  const folkHere = () => folk.filter((f) => (f.scene || "yard") === (inHall() ? "hall" : "yard"));
   let learned = null; // the uids of the words remembered in the flashcards (for which of a Muffle's words show)
   const loadLearned = () => {
     if (learned) return;
@@ -792,7 +823,7 @@ export function habitat() {
   const msay = $(".muffle-say");
   let msayFor = null, msayUntil = 0;
   /** The Muffle at a point outside, or null. */
-  const muffleAt = (x, y) => folk.find((f) => Math.abs(x - f.x) < 11 && y <= f.y + 3 && y >= f.y - 28) || null;
+  const muffleAt = (x, y) => folkHere().find((f) => Math.abs(x - f.x) < 11 && y <= f.y + 3 && y >= f.y - 28) || null;
   /** A Muffle says something: its words you know show, the rest in its forgotten script (the owner's rule). */
   function muffleSpeak(f) {
     loadLearned();
@@ -825,18 +856,19 @@ export function habitat() {
   }
   /** The Muffles' moment: the two who walk about, a word as the creature passes, the bubble kept over its speaker. */
   function folkTick(dt) {
-    for (const f of folk) {
+    for (const f of folkHere()) {
       if (!f.walk) continue;
-      if (!f.to) { if ((f.rest -= dt) > 0) continue; const [x0, y0, x1, y1] = f.walk; f.to = { x: x0 + Math.random() * (x1 - x0), y: y0 + Math.random() * (y1 - y0) }; }
+      if (!f.to) { f.mv = null; if ((f.rest -= dt) > 0) continue; const [x0, y0, x1, y1] = f.walk; f.to = { x: x0 + Math.random() * (x1 - x0), y: y0 + Math.random() * (y1 - y0) }; }
       const dx = f.to.x - f.x, dy = f.to.y - f.y, d = Math.hypot(dx, dy);
-      if (d < 1) { f.to = null; f.rest = 3 + Math.random() * 6; continue; }
+      if (d < 1) { f.to = null; f.mv = null; f.rest = 3 + Math.random() * 6; continue; }
+      f.mv = { dx, dy }; // (which way it walks: which frames, muffles.js poseOf)
       const step = Math.min(d, 9 * dt);
       f.x += (dx / d) * step; f.y += (dy / d) * step;
       if (Math.abs(dx) > 0.5) f.dir = dx > 0 ? 1 : -1;
     }
     const nowMs = performance.now();
     if (!isEgg() && msay.hidden) {
-      const near = folk.find((f) => Math.hypot(f.x - pet.x, (f.y - pet.y) * 1.5) < 30 && nowMs - f.spoke > 25000);
+      const near = folkHere().find((f) => Math.hypot(f.x - pet.x, (f.y - pet.y) * 1.5) < 30 && nowMs - f.spoke > 25000);
       if (near) muffleSpeak(near);
     }
     if (msayFor) {
@@ -1027,7 +1059,7 @@ export function habitat() {
     // Sky: day and night, with a little dusk.
     const dark = night ? 0.55 : hour > 18 ? (hour - 18) * 0.22 : hour < 7.5 ? (7.5 - hour) * 0.3 : 0;
     if (outside()) { // the camera glides after the creature (straight onto it when it comes out)
-      const want = cameraFor(pet.x);
+      const want = inHall() ? 0 : cameraFor(pet.x);
       camX = camReady ? camX + (want - camX) * Math.min(1, dt * 5) : want;
       camReady = true;
     } else camReady = false;
@@ -1053,7 +1085,7 @@ export function habitat() {
     // (in the room only the far view shows, through the window and the doorway, then the room over it)
     if (inRoom()) drawHillsFront();
     else if (!outside()) for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
-    if (art.rain && rainy()) {
+    if (art.rain && rainy() && !inHall()) { // (not indoors)
       const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
       for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
     }
@@ -1341,6 +1373,13 @@ export function habitat() {
   /** The creature uses something it has walked to (slice 4). Nothing here pays anything: it is for fun and for
    * looking after it (the owner's rules: no money, no battle strength, no pay for tapping). */
   function useThing(what) {
+    if (what === "register") { // at the hall's counter: the custodian says something, and the gym register opens
+      const c = folk.find((f) => f.id === "custodian");
+      if (c) muffleSpeak(c);
+      sfx("tick");
+      setTimeout(() => import("./gyms-ui.js").then((m) => m.openGyms()).catch(() => {}), 700);
+      return;
+    }
     const thing = furniture().find((d) => d.id.replace(/^decor\//, "") === what);
     if (what === "bed" && thing) { // a nap on its bed: lies on it, eyes shut, for a while (a tap or a walk wakes it)
       pet.x = thing.x; pet.y = thing.y + 1;
@@ -1374,6 +1413,7 @@ export function habitat() {
   function openStation(st) {
     sfx("tick");
     if (st.opens === "pond") openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
+    else if (st.opens === "gyms" && roomOn()) goThrough("hall"); // (in through its door: the custodian keeps the register)
     else if (st.opens === "gyms") import("./gyms-ui.js").then((m) => m.openGyms()).catch(() => {});
     else if (st.opens === "tavern") {
       const tav = document.querySelector("#home-tavern");
@@ -1383,7 +1423,7 @@ export function habitat() {
   }
   /** The decoration at a point in the room or the yard (the front one first), or null. */
   function decorAt(x, y) {
-    const list = inRoom() ? furniture() : outside() ? yardDecor() : [];
+    const list = inRoom() ? furniture() : inYard() ? yardDecor() : [];
     const hit = list.filter((d) => {
       const img = decorArt[d.id];
       if (!img) return false;
@@ -1459,11 +1499,20 @@ export function habitat() {
     if (piece) { decorMenu(piece); return; }
     // A Muffle tapped: it says something (muffles.js).
     const mf = outside() && !pressed ? muffleAt(x, y) : null;
+    if (mf && mf.id === "custodian") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; } // (the hall's: sign up)
     if (mf) { muffleSpeak(mf); return; }
     // The ring's front, below the feet: the goal (not outside, where a tap by the creature is for walking).
     const rk = creatureScale();
     const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);
     if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    // Inside the hall (hall.js): its door goes back out, the counter is where it signs up, the floor is walked on.
+    if (inHall() && !pressed) {
+      const w = tapHall(x, y);
+      if (w === "door") { sfx("tick"); goThrough("yard"); return; }
+      if (w === "counter") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; }
+      if (!isEgg()) walkTo(clampToFloor({ x, y }, HALL_WALK));
+      return;
+    }
     // The room (prototype "habitat_room"): a tap on the floor walks it there, on the door takes it out; on it, a pet.
     if (inRoom() && !pressed && tapIn(x, y) === "door") { sfx("tick"); goThrough("yard"); return; } // (even with the creature in front of it)
     if (inRoom() && !pressed && !onCreature(x, y)) {
@@ -1479,7 +1528,7 @@ export function habitat() {
       return;
     }
     // Outside, the cottage's door: straight in (even with the creature standing in front of it).
-    if (outside() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }
+    if (inYard() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }
     // A gift or an egg on the ground.
     const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && !(outside() && it.kind === "gift") && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
