@@ -10089,3 +10089,10 @@ Chat's side-session notes, `habitat-revamp-plan.md`.
   glyphs, the same ones for the same word. The lines are left out of the i18n extraction.
 - Creatures are drawn at two thirds of their size outside (the scene at 3 screen pixels per pixel, the creature at 2);
   in live battles behind the separate prototype `small_battlers`.
+- The owner's fixes of 2026-11-26: **a tap on a door goes straight through** (from anywhere, even with the creature in
+  front of it; no walking to it first), both ways (`goThrough`, which also puts down whatever it was carrying).
+  **Outside, a tap on the creature just walks it there**: no word bubble, no name-and-type box, no goal box from the
+  ring (those stay in the room). **The window's sky is the room's own** (`room/sky_*.png`: a plain sun crossing the
+  window by day, a pale moon at night, white clouds by day; the old neon sun and clouds stay for the old scenes).
+  **The hearth's fire flickers** (`room/fire.png`, 4 frames of the firebox, `FIRE_BOX` in room.py, 140 ms a frame).
+  **The Muffles' bubbles are small** (13 px words; on a phone 12 px and the glyphs at their own 7 x 9).

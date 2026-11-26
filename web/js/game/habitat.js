@@ -402,7 +402,10 @@ export function habitat() {
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
   files.tank = "fish/tank.png";
-  files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png";
+  files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png"; files.fire = "room/fire.png";
+  // the room's own sky, seen through its window and doorway: a plain sun and moon and white clouds (the owner: "normal
+  // clouds and sun", not the old neon ones, which the other scenes keep)
+  for (const k of ["sun", "moon", "cloud_1", "cloud_2"]) files[`room_${k}`] = `room/sky_${k}.png`;
   files.mailbox = "room/mailbox.png"; files.mailboxFlag = "room/mailbox_flag.png"; // (slice 4) // (prototype "habitat_room")
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
   const plotArt = {}; // building picture by file name
@@ -468,6 +471,8 @@ export function habitat() {
     pet.moodT = Math.max(pet.moodT, 4); // (a tap wakes it: it was asked to come)
   }
   function goThrough(to) {
+    // whatever it was carrying is put down where it stood, on this side of the door
+    if (carry) { if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); } carry = null; }
     view = to;
     saveView(to);
     doorT = 0.7;
@@ -784,7 +789,7 @@ export function habitat() {
     for (const w of read.words) {
       if (w.known) { const s = h(`<span class="mw"></span>`); s.textContent = w.text; b.append(s); continue; }
       const lost = h(`<span class="mw-lost" aria-hidden="true"></span>`);
-      for (const g of w.glyphs) lost.append(h(`<i class="mg" style="background-position:${-g * 16}px 0"></i>`));
+      for (const g of w.glyphs) lost.append(h(`<i class="mg" style="--g:${g}"></i>`));
       b.append(lost);
     }
     setLang(b, lang);
@@ -1015,10 +1020,19 @@ export function habitat() {
     else if (inRoom()) drawHills(hour);
     else if (art[`${here}_sky`]) ctx.drawImage(art[`${here}_sky`], 0, 0);
     const arc = (hour >= 6 && hour < 20 ? (hour - 6) / 14 : ((hour + 4) % 24) / 10);
-    const orb = night ? art.moon : art.sun;
-    if (orb && !outside()) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
-    if (art.cloud1 && !outside()) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
-    if (art.cloud2 && !outside()) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
+    if (inRoom()) { // through the window (x 116-198) and the doorway: the sun by day, the moon by night, clouds by day
+      const orb = night ? art.room_moon : art.room_sun;
+      if (orb) ctx.drawImage(orb, Math.round(118 + arc * 60), Math.round(40 - Math.sin(arc * Math.PI) * 16)); // (it crosses the window)
+      if (!night) {
+        if (art.room_cloud_1) ctx.drawImage(art.room_cloud_1, Math.round(((now / 120) % 200) + 76), 22);
+        if (art.room_cloud_2) ctx.drawImage(art.room_cloud_2, Math.round(((now / 170 + 90) % 170) + 90), 38);
+      }
+    } else if (!outside()) {
+      const orb = night ? art.moon : art.sun;
+      if (orb) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
+      if (art.cloud1) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
+      if (art.cloud2) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
+    }
     // (in the room only the far view shows, through the window and the doorway, then the room over it)
     if (inRoom()) drawHillsFront();
     else if (!outside()) for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
@@ -1030,6 +1044,10 @@ export function habitat() {
     if (doorT > 0) doorT -= dt;
     if (inRoom() && art.room) {
       ctx.drawImage(art.room, 0, 0);
+      if (art.fire) { // the hearth's fire flickers (room.py FIRE_BOX: 36 x 32 at 28, 52; 4 frames)
+        const fw = art.fire.width / 4, ff = Math.floor(now / 140) % 4;
+        ctx.drawImage(art.fire, ff * fw, 0, fw, art.fire.height, 28, 52, fw, art.fire.height);
+      }
       const open = doorT > 0 || (pet.after === "out" && Math.hypot(pet.x - ROOM.doorSpot.x, pet.y - ROOM.doorSpot.y) < 26);
       const leaf = open ? art.doorOpen : art.door;
       if (leaf) ctx.drawImage(leaf, ROOM.door.x0, ROOM.door.y0);
@@ -1425,20 +1443,26 @@ export function habitat() {
     // A Muffle tapped: it says something (muffles.js).
     const mf = outside() && !pressed ? muffleAt(x, y) : null;
     if (mf) { muffleSpeak(mf); return; }
-    // The ring's front, below the feet: the goal.
+    // The ring's front, below the feet: the goal (not outside, where a tap by the creature is for walking).
     const rk = creatureScale();
     const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);
-    if (!pressed && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // The room (prototype "habitat_room"): a tap on the floor walks it there, on the door takes it out; on it, a pet.
+    if (inRoom() && !pressed && tapIn(x, y) === "door") { sfx("tick"); goThrough("yard"); return; } // (even with the creature in front of it)
     if (inRoom() && !pressed && !onCreature(x, y)) {
       // the aquarium: it walks over and watches the fish, then your basket opens
       if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30) {
         if (isEgg()) go("basket"); else walkTo({ x: TANK_IN.x, y: TANK_IN.y + 8 }, "use:tank");
         return;
       }
-      if (!isEgg()) { const where = tapIn(x, y); walkTo(where === "door" ? ROOM.doorSpot : { x, y: where === "floor" ? y : ROOM.walk.y0 }, where === "door" ? "out" : null); }
+      // (the door, above: straight out from anywhere in the room, the owner: "Clicking on the door once should just
+      // bring the creature straight outside"); anywhere else, it walks there
+      const where = tapIn(x, y);
+      if (!isEgg()) walkTo({ x, y: where === "floor" ? y : ROOM.walk.y0 });
       return;
     }
+    // Outside, the cottage's door: straight in (even with the creature standing in front of it).
+    if (outside() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }
     // A gift or an egg on the ground.
     const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && !(outside() && it.kind === "gift") && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
@@ -1459,7 +1483,9 @@ export function habitat() {
       return;
     }
     if (hit >= 0 && !plots[hit].tier && Math.abs(x - pet.x) > 24) { go("garden"); return; }
-    if (pressed || (outside() ? onCreature(x, y) : Math.abs(x - cx) < 30)) {
+    // a pat (in the room and the old scenes; outside a tap on it just walks there: the owner, "clicking the creature
+    // shouldnt give you word popup boxes once it leaves the house")
+    if (pressed || (!outside() && Math.abs(x - cx) < 30)) {
       pet.napUntil = 0; // (a pat wakes it from a nap)
       cheer("pet");
       sfx("pet");
@@ -1473,10 +1499,7 @@ export function habitat() {
       const st = stationAt(x, y);
       if (isEgg()) openStation(st); else walkTo({ x: st.x, y: st.y }, `go:${st.id}`);
     }
-    else if (outside() && !isEgg()) { // the yard: the cottage's door takes it in; anywhere else, it walks there
-      const door = tapYard(x, y) === "door";
-      walkTo(door ? YARD_DOOR_SPOT : clampToFloor({ x, y }, YARD_WALK), door ? "in" : null);
-    }
+    else if (outside() && !isEgg()) walkTo(clampToFloor({ x, y }, YARD_WALK)); // anywhere else outside: it walks there
     else if (!isEgg()) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; pet.after = null; } // "come here"
   });
 

@@ -16,6 +16,8 @@ Files (web/game-art/room/, sources in game/art-src/room/):
                               weather, the theme chosen).
     door.png       DOOR size  the door, shut (drawn over the doorway; its round top's corners are see-through)
     door_open.png  DOOR size  the door swung open against the wall (the doorway shows outside)
+    fire.png       36 x 32 x 4 the hearth's fire, 4 frames side by side (FIRE_BOX of the room), played over the room
+    sky_*.png                 the sky seen through the window and the doorway: a plain sun and moon, white clouds
 The numbers the game needs (the floor, the window, the door) are below and kept the same in web/js/game/room.js.
 """
 
@@ -229,11 +231,24 @@ def hearth(cv: Canvas) -> None:
         cv.ellipse(lx, ly, 3, 2.2, WOOD[3]); cv.put(lx, ly, WOOD[5]); cv.put(lx - 1, ly, WOOD[4])
 
 
-def fire_glow(cv: Canvas) -> None:
+# The fire's flames, frame by frame (the game plays them over the room: fire.png): (middle, base, height, width) of
+# its three tongues, and where a spark is flying up.
+FLAMES = [
+    ([(41, 79, 9, 4), (46, 80, 14, 5), (51, 79, 8, 3.5)], None),
+    ([(41, 79, 11, 3.6), (46, 80, 12, 5.5), (51, 79, 9, 3.4)], (44, 62)),
+    ([(40, 79, 8, 4.4), (46, 80, 15, 4.6), (52, 79, 10, 3)], (49, 59)),
+    ([(42, 79, 10, 3.6), (46, 80, 13, 5.2), (50, 79, 7, 4)], (47, 64)),
+]
+FIRE_BOX = (28, 52, 64, 84)  # the part of the room the frames cover: x0, y0, x1, y1 (exclusive)
+
+
+def fire_glow(cv: Canvas, frame: int = 0) -> None:
     """The flames themselves and their light (drawn after the room is dimmed, so they stay bright)."""
-    flame(cv, 41, 79, 9, 4)
-    flame(cv, 46, 80, 14, 5)
-    flame(cv, 51, 79, 8, 3.5)
+    tongues, spark = FLAMES[frame]
+    for (cx, base, tall, wide) in tongues:
+        flame(cv, cx, base, tall, wide)
+    if spark:
+        cv.put(spark[0], spark[1], FIRE[4]); cv.put(spark[0], spark[1] + 1, FIRE[2])
     for x in (17, 75):
         flame(cv, x, 34 if x == 17 else 35, 4, 1.4)
 
@@ -487,7 +502,7 @@ def glow(cv: Canvas, cx, cy, radius, strength, colour=(255, 160, 80)) -> None:
             cv.px[x, y] = tuple(round(p[i] * (1 - a) + colour[i] * a) for i in range(3)) + (p[3],)
 
 
-def room() -> Image.Image:
+def room(frame: int = 0) -> Image.Image:
     cv = Canvas(W, H, seed=11)
     wash(cv, 0, 15, W - 1, 65)
     bare_stones(cv, 207, 24, 6, 4, seed=8)  # one patch where the plaster has come away
@@ -514,7 +529,69 @@ def room() -> Image.Image:
     dim(cv)
     glow(cv, HEARTH[0], HEARTH[1], 120, 0.42)
     glow(cv, HEARTH[0], HEARTH[1] + 6, 40, 0.35, (255, 190, 110))
-    fire_glow(cv)
+    fire_glow(cv, frame)
+    return cv.im
+
+
+def fire_strip() -> Image.Image:
+    """The hearth's fire, its frames side by side: the room's firebox with the flames of each frame (FLAMES)."""
+    x0, y0, x1, y1 = FIRE_BOX
+    w, h = x1 - x0, y1 - y0
+    strip = Image.new("RGBA", (w * len(FLAMES), h), CLEAR)
+    for i in range(len(FLAMES)):
+        strip.alpha_composite(room(i).crop(FIRE_BOX), (i * w, 0))
+    return strip
+
+
+# ---------- the sky seen through the window and the doorway (no neon: "normal clouds and sun") ----------
+SUNNY = [hexc("f0a030"), hexc("f8c848"), hexc("fde480"), hexc("fff4c0")]
+CLOUD = [hexc("a8bcd4"), hexc("cfdcea"), hexc("eef4fa"), hexc("ffffff")]
+
+
+def sky_sun() -> Image.Image:
+    """A plain round sun, warm yellow, lighter in the middle, with a faint ring of light."""
+    cv = Canvas(18, 18, seed=31)
+    for y in range(18):
+        for x in range(18):
+            d = math.hypot(x - 8.5, y - 8.5)
+            if d < 5.6:
+                cv.put(x, y, SUNNY[3] if d < 2.4 and x <= 8 and y <= 8 else SUNNY[2] if d < 4.2 else SUNNY[1])
+            elif d < 6.4:
+                cv.put(x, y, SUNNY[0])
+            elif d < 8.4 and (x + y) % 2 == 0:
+                cv.put(x, y, SUNNY[2][:3] + (110,))
+    return cv.im
+
+
+def sky_moon() -> Image.Image:
+    """A plain pale crescent moon."""
+    cv = Canvas(14, 14, seed=32)
+    for y in range(14):
+        for x in range(14):
+            if math.hypot(x - 6.5, y - 6.5) < 5.6 and math.hypot(x - 9.2, y - 5) >= 4.6:
+                cv.put(x, y, hexc("fff6d8") if x < 5 else hexc("e8dcb4"))
+    return cv.im
+
+
+def sky_cloud(w: int, h: int, seed: int) -> Image.Image:
+    """A soft white cumulus cloud: round puffs on a flat base, lit from above, a little grey-blue underneath."""
+    r = random.Random(seed)
+    puffs = []
+    n = max(3, w // 9)
+    for i in range(n):
+        cx = 3 + (i + 0.5) * (w - 6) / n
+        rad = h * (0.38 + 0.3 * math.sin(i / max(1, n - 1) * math.pi)) + r.uniform(-0.6, 0.6)
+        puffs.append((cx, h - 2 - rad * 0.9, rad))
+    cv = Canvas(w, h, seed=seed)
+    inside = lambda x, y: y <= h - 2 and any(math.hypot(x + 0.5 - cx, (y + 0.5 - cy) * 1.15) < rad for cx, cy, rad in puffs)
+    for y in range(h):
+        for x in range(w):
+            if not inside(x, y):
+                continue
+            up = not inside(x, y - 1) or not inside(x, y - 2)
+            low = y >= h - 3 or not inside(x, y + 2)
+            c = CLOUD[3] if up else CLOUD[0] if y >= h - 2 else CLOUD[1] if low else CLOUD[2]
+            cv.put(x, y, c)
     return cv.im
 
 
@@ -551,7 +628,8 @@ def mailbox_piece(flag_up: bool) -> Image.Image:
     return cv.im
 
 
-PIECES = {"room": room, "door": lambda: door_piece(False), "door_open": lambda: door_piece(True),
+PIECES = {"room": room, "fire": fire_strip, "sky_sun": sky_sun, "sky_moon": sky_moon,
+          "sky_cloud_1": lambda: sky_cloud(40, 14, 41), "sky_cloud_2": lambda: sky_cloud(26, 10, 42), "door": lambda: door_piece(False), "door_open": lambda: door_piece(True),
           "mailbox": lambda: mailbox_piece(False), "mailbox_flag": lambda: mailbox_piece(True)}
 
 
