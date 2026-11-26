@@ -2,7 +2,7 @@
 // from above like the battle arenas, the creature walking anywhere on the field and in at the cottage's door.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { DECALS, PROPS, TERRAIN, drawCorners } from "../../web/js/game/battlemap.js";
 import { cellKey, findPath } from "../../web/js/game/room.js";
 import { COTTAGE, STATIONS, WORLD_COLS, YARD_COLS, YARD_DOOR_SPOT, YARD_ROWS, YARD_WALK, cameraFor, stationAt, tapYard, yardBlocked, yardMap } from "../../web/js/game/yard.js";
@@ -57,7 +57,7 @@ test("taps outside: the cottage's door, or the ground to walk to", () => {
 test("habitat.js: the yard only with the prototype, outside the door; no neon city behind the room's window", () => {
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.match(h, /const outside = \(\) => roomOn\(\) && view !== "room"/);
-  assert.match(h, /if \(outside\(\)\) drawYard\(\);/);
+  assert.match(h, /if \(outside\(\)\) drawYard\(now\);/);
   assert.match(h, /else if \(inRoom\(\)\) drawHills\(hour\);/);
   assert.doesNotMatch(h, /YARD_DOOR\b/);
 });
@@ -88,4 +88,14 @@ test("the village's stations: each can be walked to from the cottage's door, and
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.ok(h.includes("walkTo({ x: st.x, y: st.y }, `go:${st.id}`)"), "a tap on a station walks it there");
   assert.ok(h.includes("ctx.translate(-cam(), 0);"), "the camera follows it along the field");
+});
+
+test("the water moves: its cells drawn every frame from the terrain's _anim sheets, only where the window shows", () => {
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.ok(h.includes('const k = layers.findIndex((l) => SHEETS[l.terrain] && SHEETS[l.terrain].anim);'));
+  assert.ok(h.includes('.replace(".png", "_anim.png")'));
+  assert.ok(h.includes("if (c.x + TILE < left || c.x > left + W) continue;"));
+  for (const t of ["shallows", "deep_water"]) {
+    for (const f of [`${t}_anim.png`, `${t}_fill_anim.png`]) assert.ok(existsSync(new URL(`../../web/game-art/battle/terrain/${f}`, import.meta.url)), f);
+  }
 });

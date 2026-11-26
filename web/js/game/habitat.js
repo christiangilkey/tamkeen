@@ -536,10 +536,34 @@ export function habitat() {
     if (!(p in yardImgs)) { yardImgs[p] = null; loadImage(p).then((im) => { yardImgs[p] = im; yardDirty = true; }).catch(() => {}); }
     return yardImgs[p];
   };
-  /** The ground: drawn once into its own canvas (again when a picture arrives). */
-  function drawYard() {
+  let yardMoving = []; // [{x, y, layers}]: the cells with moving ground (water), from that layer up, drawn every frame
+  const ANIM_MS = 200; // a frame of the moving water (the battles' pace)
+  /** One layer of a dual-grid cell whose top left is at (x, y): its edge tile (mask) or a middle tile (mask 15); moving
+   * ground from its _anim sheet at frame `f` (livebattle-ui's drawLayer, and battle/terrain/README.md). */
+  function yardTile(g, l, x, y, f = -1) {
+    const sh = SHEETS[l.terrain];
+    if (!sh) return true;
+    const full = l.mask === 15;
+    if (sh.anim && f >= 0) {
+      const moving = yimg((full ? sh.fill : sh.edges).replace(".png", "_anim.png"));
+      if (moving) {
+        if (full) g.drawImage(moving, f * TILE, (l.fill % Math.max(1, Math.round(moving.height / TILE))) * TILE, TILE, TILE, x, y, TILE, TILE);
+        else g.drawImage(moving, f * 4 * TILE + (l.mask % 4) * TILE, Math.floor(l.mask / 4) * TILE, TILE, TILE, x, y, TILE, TILE);
+        return true;
+      }
+    }
+    const img = yimg(full ? sh.fill : sh.edges);
+    if (!img) return false;
+    if (full) g.drawImage(img, (l.fill % Math.max(1, Math.round(img.width / TILE))) * TILE, 0, TILE, TILE, x, y, TILE, TILE);
+    else g.drawImage(img, (l.mask % 4) * TILE, Math.floor(l.mask / 4) * TILE, TILE, TILE, x, y, TILE, TILE);
+    return true;
+  }
+  /** The ground: its still layers drawn once into their own canvas (again when a picture arrives), the water over them
+   * every frame, only where the window shows. */
+  function drawYard(now = performance.now()) {
     if (yardDirty) {
       yardDirty = false;
+      yardMoving = [];
       const m = yardMap();
       if (!yardGround) { yardGround = document.createElement("canvas"); yardGround.width = m.width; yardGround.height = H; }
       const g = yardGround.getContext("2d");
@@ -547,16 +571,11 @@ export function habitat() {
       g.fillStyle = "#3f7a34";
       g.fillRect(0, 0, m.width, H);
       for (let cy = 0; cy <= m.rows; cy++) for (let cx = 0; cx <= m.cols; cx++) {
-        for (const l of drawCorners(m, cx, cy)) {
-          const sh = SHEETS[l.terrain];
-          if (!sh) continue;
-          const full = l.mask === 15;
-          const img = yimg(full ? sh.fill : sh.edges);
-          if (!img) continue;
-          const x = cx * TILE - TILE / 2, y = cy * TILE - TILE / 2;
-          if (full) g.drawImage(img, (l.fill % Math.max(1, Math.round(img.width / TILE))) * TILE, 0, TILE, TILE, x, y, TILE, TILE);
-          else g.drawImage(img, (l.mask % 4) * TILE, Math.floor(l.mask / 4) * TILE, TILE, TILE, x, y, TILE, TILE);
-        }
+        const layers = drawCorners(m, cx, cy);
+        const x = cx * TILE - TILE / 2, y = cy * TILE - TILE / 2;
+        const k = layers.findIndex((l) => SHEETS[l.terrain] && SHEETS[l.terrain].anim);
+        for (const l of k < 0 ? layers : layers.slice(0, k)) yardTile(g, l, x, y);
+        if (k >= 0) yardMoving.push({ x, y, layers: layers.slice(k) });
       }
       for (const d of m.decals) {
         const info = DECALS[d.id];
@@ -567,6 +586,11 @@ export function habitat() {
       }
     }
     ctx.drawImage(yardGround, -cam(), 0);
+    const f = Math.floor(now / ANIM_MS) % 4, left = cam();
+    for (const c of yardMoving) {
+      if (c.x + TILE < left || c.x > left + W) continue;
+      for (const l of c.layers) yardTile(ctx, l, c.x - left, c.y, f);
+    }
   }
   /** A roof (the cottage's thatch, the tavern's, the hall's), put together once from its 16x16 pieces (as livebattle-ui's
    * roofImage). */
@@ -987,7 +1011,7 @@ export function habitat() {
     } else camReady = false;
     ctx.clearRect(0, 0, W, H);
     const here = scene();
-    if (outside()) drawYard();
+    if (outside()) drawYard(now);
     else if (inRoom()) drawHills(hour);
     else if (art[`${here}_sky`]) ctx.drawImage(art[`${here}_sky`], 0, 0);
     const arc = (hour >= 6 && hour < 20 ? (hour - 6) / 14 : ((hour + 4) % 24) / 10);
