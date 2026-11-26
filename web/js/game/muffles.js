@@ -10,6 +10,8 @@
 // every time for the same word.
 
 import { wordKey } from "../coursedata.js";
+import { wordRanges } from "../languages.js";
+import { LINES } from "./muffle-lines.js";
 
 /** Who lives where: each keeps its station (yard.js STATIONS) or walks about. x, y: where it stands (its feet, world
  * px); `walk`: the box it wanders in instead. `place`: what it talks about. */
@@ -25,35 +27,9 @@ export const FOLK = [
   { id: "villager2", x: 40 * 16, y: 96, place: "square", walk: [33 * 16, 88, 48 * 16, 100] },
 ];
 
-// What they say, by place and by the language being learned. Short, everyday lines a learner meets early. A language
-// with none yet: the Muffles speak only their own forgotten words (the whole line in glyphs).
-export const LINES = {
-  ar: {
-    market: ["أهلًا! عندي فاكهة طازجة اليوم.", "التفاح أحمر والموز أصفر.", "هل تريد خبزًا؟ الخبز ساخن.", "هذا القميص جميل وليس غاليًا.",
-      "السوق مزدحم في الصباح.", "شكرًا لك، تعال مرة أخرى!", "هذه الزهور لبيتك.", "كم كلمة تعلمت اليوم؟"],
-    tavern: ["مرحبًا بك! اجلس واشرب شايًا.", "الشاي ساخن والقهوة قوية.", "أصدقاؤك هنا كل مساء.", "هل أنت جائع؟ عندنا حساء.",
-      "الموسيقى جميلة الليلة.", "قل لي قصة من رحلتك."],
-    hall: ["هذه قاعة الأبطال.", "هل أنت مستعد للمعركة؟", "كل بطل بدأ بكلمة واحدة.", "قائد القاعة قوي جدًا.",
-      "تدرب كل يوم وستفوز.", "الشجاعة أهم من القوة."],
-    pier: ["البحر هادئ اليوم.", "السمك كثير في الصباح.", "انظر! سمكة كبيرة!", "الماء بارد لكنه جميل.",
-      "أحب صوت الأمواج.", "اصبر، والسمكة ستأتي."],
-    square: ["صباح الخير يا صديقي!", "الجو جميل اليوم.", "أين تسكن؟ أنا أسكن هنا.", "كانت لنا كلمات كثيرة. ساعدنا!",
-      "كل كلمة تتعلمها توقظ كلمة منا.", "مخلوقك لطيف جدًا!"],
-  },
-  es: {
-    market: ["¡Hola! Hoy tengo fruta fresca.", "La manzana es roja y el plátano es amarillo.", "¿Quieres pan? El pan está caliente.",
-      "Esta camisa es bonita y no es cara.", "El mercado está lleno por la mañana.", "¡Gracias, vuelve otra vez!",
-      "Estas flores son para tu casa.", "¿Cuántas palabras aprendiste hoy?"],
-    tavern: ["¡Bienvenido! Siéntate y toma un té.", "El té está caliente y el café es fuerte.", "Tus amigos están aquí cada noche.",
-      "¿Tienes hambre? Tenemos sopa.", "La música es bonita esta noche.", "Cuéntame una historia de tu viaje."],
-    hall: ["Esta es la sala de los campeones.", "¿Estás listo para la batalla?", "Cada campeón empezó con una palabra.",
-      "El líder de la sala es muy fuerte.", "Entrena cada día y vas a ganar.", "El valor es más importante que la fuerza."],
-    pier: ["El mar está tranquilo hoy.", "Hay muchos peces por la mañana.", "¡Mira! ¡Un pez grande!", "El agua está fría pero es bonita.",
-      "Me gusta el sonido de las olas.", "Paciencia, el pez va a venir."],
-    square: ["¡Buenos días, amigo!", "Hace buen tiempo hoy.", "¿Dónde vives? Yo vivo aquí.", "Teníamos muchas palabras. ¡Ayúdanos!",
-      "Cada palabra que aprendes despierta una de las nuestras.", "¡Tu criatura es muy bonita!"],
-  },
-};
+// What they say, by place and by the language being learned: muffle-lines.js (every language Tamkeen teaches). A
+// language with none: the Muffles speak only their own forgotten words (the whole line in glyphs).
+export { LINES };
 
 /** How many letters the forgotten script has (glyphs.png, 7 x 9 each, 1 apart). */
 export const GLYPH_COUNT = 12;
@@ -71,14 +47,19 @@ export function glyphsFor(word) {
   return out;
 }
 
-/** The forms a word in a line may be saved as: itself, and for Arabic without "و" (and), "ال" (the) and the like in
- * front ("والسوق" is "سوق" saved). */
+// What may be written onto a word, so the word saved on its own is still found: Arabic's "و" (and), "ال" (the) and the
+// like in front ("والسوق" is "سوق" saved); French, Italian and Catalan's l', d', qu'... in front ("l'eau" is "eau");
+// Korean's particles behind ("사과는" is "사과").
+const AR_FRONT = ["وال", "بال", "فال", "كال", "لل", "ال", "و", "ف", "ب", "ل"];
+const ELIDED = /^(?:l|d|j|m|n|s|t|c|qu|lorsqu|puisqu|dell|dall|nell|sull|all|un)['’]/;
+const KO_BACK = ["에서", "으로", "하고", "은", "는", "이", "가", "을", "를", "에", "의", "도", "로", "와", "과", "요"];
+/** The forms a word in a line may be saved as: itself, and without what is written onto it. */
 function formsOf(word, lang) {
   const k = wordKey(String(word).replace(PUNCT, ""), lang);
   const out = new Set([k]);
-  if (lang === "ar") {
-    for (const p of ["وال", "بال", "فال", "كال", "لل", "ال", "و", "ف", "ب", "ل"]) if (k.startsWith(p) && k.length - p.length >= 2) out.add(k.slice(p.length));
-  }
+  if (lang === "ar") for (const p of AR_FRONT) if (k.startsWith(p) && k.length - p.length >= 2) out.add(k.slice(p.length));
+  if (lang === "fr" || lang === "it" || lang === "ca") { const m = ELIDED.exec(k); if (m && k.length > m[0].length + 1) out.add(k.slice(m[0].length)); }
+  if (lang === "ko") for (const p of KO_BACK) if (k.endsWith(p) && k.length - p.length >= 1) out.add(k.slice(0, -p.length));
   return [...out];
 }
 
@@ -94,13 +75,17 @@ export function knownKeys(vocab, learned, review, lang, mature = 4) {
   return out;
 }
 
-/** A line as the bubble shows it: [{text, known, glyphs}] word by word (`text` with its punctuation), and how many of
- * its words are known. */
+/** A line as the bubble shows it: [{text, known, glyphs}] word by word (`text` with the punctuation after it), and how
+ * many of its words are known. Its words are found as the app's word popups find them (languages.wordRanges: at the
+ * spaces, or for Japanese, Chinese and Thai by the word breaker). */
 export function readLine(line, known, lang) {
-  const words = String(line).split(/\s+/).filter(Boolean);
-  const out = words.map((w) => {
-    const ok = formsOf(w, lang).some((k) => known.has(k));
-    return { text: w, known: ok, glyphs: ok ? null : glyphsFor(w) };
+  line = String(line);
+  const ranges = wordRanges(line, lang);
+  const out = ranges.map(([from, to], i) => {
+    const word = line.slice(from, to);
+    const text = line.slice(i ? from : 0, i + 1 < ranges.length ? ranges[i + 1][0] : line.length).trim();
+    const ok = formsOf(word, lang).some((k) => known.has(k));
+    return { text, known: ok, glyphs: ok ? null : glyphsFor(word) };
   });
   return { words: out, known: out.filter((w) => w.known).length, total: out.length };
 }

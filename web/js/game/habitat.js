@@ -765,6 +765,7 @@ export function habitat() {
     }
     setLang(b, lang);
     b.dir = lang === "ar" || lang === "fa" ? "rtl" : "ltr";
+    b.classList.toggle("unspaced", ["ja", "zh", "th"].includes(lang)); // (written without spaces: its words close together)
     // who is talking (the owner's name for them: "Muffles", one is a Muffle), and how many of its words are awake
     small.textContent = read.total ? `${t("Muffle")} · ${t("Words you know: {0} of {1}", read.known, read.total)}` : t("Muffle");
     small.hidden = false;

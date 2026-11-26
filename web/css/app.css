@@ -3040,6 +3040,7 @@ html.sel-sheets select { pointer-events: none; }
 .muffle-say { max-width: min(260px, 84%); }
 .muffle-say b { font-size: 16px; display: flex; flex-wrap: wrap; gap: 3px 6px; justify-content: center; align-items: center; }
 .muffle-say .mw-lost { display: inline-flex; gap: 1px; }
+.muffle-say b.unspaced { gap: 3px 2px; }
 .muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
 .muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
   background: url("../game-art/muffle/glyphs.png") 0 0 / 192px 18px no-repeat; }

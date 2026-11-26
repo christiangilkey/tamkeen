@@ -10070,3 +10070,22 @@ in a day (the app just says "No one found"), and the self-test's section 6 repor
 - Known gaps: the guest can't break open cracked walls (host-only, as before); the guest's answers reach the host
   ~0.1 s late in a close race; a changed app could lie about its own answers (as with any client-trusted game; both
   reports must agree for points to move).
+
+## Habitat as a home and a village (prototype `habitat_room`, 2026-11-25/26; on main, not released)
+
+The owner's design: Home's habitat window is the creature's room (a cozy cottage), its door leads out to a yard seen
+from above like the battle arenas, and the path goes east into a village. Plan and the owner's words: the Temkeen Main
+Chat's side-session notes, `habitat-revamp-plan.md`.
+- Room: `web/js/game/room.js`, art `tools/game_art/room.py` (also the mailbox). Yard and village: `web/js/game/yard.js`
+  (a 56 x 9 tile field drawn with `battlemap.drawCorners` and the battle terrain art; the window is a camera on it;
+  STATIONS: stalls, tavern, hall, pier). Where decorations stand: `home.js` (`state.home`, later layout wins in
+  merge.js and app/sync/gamemerge.py). Everything is drawn and walked in `habitat.js`.
+- The Muffles (the owner's villagers; one is a Muffle): `web/js/game/muffles.js`, art `tools/game_art/muffles.py`
+  (three hooded bodies, job outfits, the forgotten-script glyphs). What they say: `web/js/game/muffle-lines.js`, 6-8
+  lines a place in every language Tamkeen teaches. **All of them are machine-made (written by Claude, Arabic and
+  Spanish on 2026-11-25, the other 16 languages on 2026-11-26)**: the same meanings, simple sentences; worth a native
+  speaker's look before release.
+  A word shows only when the owner knows it (remembered in the flashcards or well known from battles); the rest are
+  glyphs, the same ones for the same word. The lines are left out of the i18n extraction.
+- Creatures are drawn at two thirds of their size outside (the scene at 3 screen pixels per pixel, the creature at 2);
+  in live battles behind the separate prototype `small_battlers`.
