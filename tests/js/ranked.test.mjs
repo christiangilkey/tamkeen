@@ -79,6 +79,31 @@ test("the SQL file's numbers are the app's numbers", () => {
   assert.ok(/rating\s+integer not null default 0 check \(rating >= 0/.test(bare), "starts at 0, never below");
 });
 
+// v19 (the owner had already run v18): the same two functions as v18 now has, so a database made either way agrees
+test("v19: replaces only ranked_settle and ranked_poll, exactly as v18 now has them, and deletes nothing", () => {
+  const V19 = readFileSync(new URL("../../supabase/v19-ranked-no-pair-limit.sql", import.meta.url), "utf8");
+  // a function's whole text, from "create or replace function <name>(" to its "end $$;"
+  const fn = (sql, name) => {
+    const at = sql.indexOf(`create or replace function ${name}(`);
+    if (at < 0) return null;
+    const stop = sql.indexOf("\nend $$;", at);
+    return stop < 0 ? null : sql.slice(at, stop + "\nend $$;".length);
+  };
+  for (const name of ["private.ranked_settle", "public.ranked_poll"]) {
+    assert.ok(fn(V19, name), `v19 has ${name}`);
+    assert.equal(fn(V19, name), fn(SQL, name), `${name}: v19 and v18 agree`);
+  }
+  const b19 = V19.replace(/--[^\n]*/g, "");
+  assert.deepEqual([...b19.matchAll(/create or replace function (\S+)\(/g)].map((m) => m[1]).sort(), ["private.ranked_settle", "public.ranked_poll"]);
+  assert.ok(!/\b(drop|truncate|alter table)\b/i.test(b19), "nothing dropped, emptied or changed in a table");
+  for (const m of b19.matchAll(/\b(update|delete from)\s+public\.\w+[^;]*;/gi)) assert.ok(/\bwhere\b/i.test(m[0]), `needs a where: ${m[0].slice(0, 80)}`);
+  for (const m of b19.matchAll(/do update set[^;]*;/gi)) assert.ok(/\bwhere\b/i.test(m[0]));
+  assert.ok(!/pair_count\(|v_counted/.test(b19), "no daily limit for the same two players");
+  assert.ok(b19.includes("to_regprocedure('private.ranked_settle(uuid)') is null"), "it asks for v18 first");
+  assert.ok(b19.includes("grant execute on function public.ranked_poll() to authenticated;"), "the same rights as before");
+  assert.ok(b19.includes("revoke all on function private.ranked_settle(uuid) from public, anon, authenticated;"));
+});
+
 // ---------- the online calls, against a stand-in ----------
 import * as S from "../../web/js/rankedsync.js";
 

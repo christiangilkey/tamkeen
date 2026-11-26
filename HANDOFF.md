@@ -10026,7 +10026,12 @@ battles, always in All-time mode (every saved card; each side scaled by its own 
 
 **Needs `supabase/v18-ranked.sql`** (after v8: it uses `private.blocked_between` and `private.note_use`); the owner
 runs it, plus the self-test `supabase/test_rls_ranked.sql` (ends with `RESULTS ok=… bad=[]`). Until then the
-Ranked block says "Ranked isn't switched on yet." Neither file has been run anywhere (no Postgres on the dev machine).
+Ranked block says "Ranked isn't switched on yet." The owner ran v18 and the self-test on the live database on
+2026-11-25, before the per-pair limit was dropped, so the live database also needs
+**`supabase/v19-ranked-no-pair-limit.sql`** (replaces `private.ranked_settle` and `public.ranked_poll` with today's
+v18 bodies; deletes nothing; `tests/js/ranked.test.mjs` checks the two files agree). A fresh database needs only
+today's v18 (v19 on top changes nothing). Until v19 is run the live queue still won't pair the same two a 4th time
+in a day (the app just says "No one found"), and the self-test's section 6 reports `fourth-pairing-refused`.
 
 - **Rating** (`web/js/game/ranked.js` shows, the SQL decides): starts at 0, never below 0; Elo with spread 400;
   K 40 for the first 10 ranked battles, then 24; a win is at least +1, a loss at least −1. Equal ratings ±20 new,

@@ -80,7 +80,7 @@ raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to 
 | A gift to a user's game (`supabase/v16-owner-gifts.sql`, prototype `owner_gifts`): coins, gems, XP, glow (added or taken away), items, moves, unlocks, creatures | give to anyone by username, see the record of all gifts, take back one not yet collected | see and collect only their own (never who gave it); the app adds it to their game once | no |
 | Anyone's game itself (kept on their devices and in their own Google Drive) | cannot see or change it | their own only | no |
 
-| Ranked battles (`supabase/v18-ranked.sql`, prototype `ranked`) | Me | The player I'm matched with | Anyone else signed in | Blocked (either way) | Under 16 / signed out | Admin |
+| Ranked battles (`supabase/v18-ranked.sql` + `v19-ranked-no-pair-limit.sql`, prototype `ranked`) | Me | The player I'm matched with | Anyone else signed in | Blocked (either way) | Under 16 / signed out | Admin |
 |---|---|---|---|---|---|---|
 | My rating, ranked battles, wins, place (`ranked_me`) | see | my rating and games, during the match | the rating, on the leaderboard if in the top 50 | not on their leaderboard | no | all |
 | The queue (`ranked_join`, `ranked_poll`, `ranked_leave`) | join, stay (polled), leave | is paired with me only when within the window and not blocked (as often as we like) | never sees who is waiting | never paired | no | all |
