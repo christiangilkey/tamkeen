@@ -177,6 +177,20 @@
       "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5, "fedAt": 3000}, {"seed": 2, "growth": 0.5}]},
       "keep": "merged",
       "expect": {"roster.0.fedAt": 3000, "roster.0.growth": 0.6, "roster.1.fedAt": 5000}
+    },
+    {
+      "name": "gems bought with glow on the same day on two devices: the higher count is kept, so the next gem stays at the doubled price",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 100, "plots": [], "released": [], "gemBuys": {"day": "2026-11-25", "n": 1}}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 100, "plots": [], "released": [], "gemBuys": {"day": "2026-11-25", "n": 2}}},
+      "keep": "merged",
+      "expect": {"idle.gemBuys.day": "2026-11-25", "idle.gemBuys.n": 2}
+    },
+    {
+      "name": "gems bought with glow: a later day's count wins over an older day's (the price starts again each day)",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 100, "plots": [], "released": [], "gemBuys": {"day": "2026-11-24", "n": 3}}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 100, "plots": [], "released": [], "gemBuys": {"day": "2026-11-25", "n": 1}}},
+      "keep": "merged",
+      "expect": {"idle.gemBuys.day": "2026-11-25", "idle.gemBuys.n": 1}
     }
   ]
 }

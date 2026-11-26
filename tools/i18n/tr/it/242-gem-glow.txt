@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Comprane una con il bagliore nei Rifornimenti: 5.000 per la prima del giorno, poi il doppio per ognuna in più quel giorno.
+682e2909	Gemme, nei Rifornimenti: 5.000 di bagliore per la prima del giorno, il doppio per ognuna in più quel giorno.
+ae634fdf	Gemma
+0e930739	La prossima oggi: {0}
+1ce32a6f	Comprate oggi
+63f93d3a	Le gemme comprano rifornimenti. Ogni gemma che compri in un giorno costa il doppio della precedente; domani si riparte da 5.000 di bagliore.
+8e6a20ff	Hai comprato una gemma. La prossima oggi: {0}

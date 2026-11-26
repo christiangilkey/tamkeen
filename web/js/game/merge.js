@@ -149,6 +149,18 @@ function joinRounds(x, y) {
   return { day: dx, n: Math.max(num(x.n), num(y.n)), done: union(x.done, y.done).filter((u) => typeof u === "string" && !miss.has(u)), miss: [...miss.values()] };
 }
 
+/** Today's count of something (idle.gemBuys: gems bought with glow today) from two copies: the later day's; the same
+ * day's, the higher (so a gem bought on either device keeps the next one at the doubled price). */
+function joinDayCount(x, y) {
+  x = obj(x);
+  y = obj(y);
+  if (!x || !y) return x || y;
+  const dx = typeof x.day === "string" ? x.day : "";
+  const dy = typeof y.day === "string" ? y.day : "";
+  if (dx !== dy) return dy > dx ? y : x;
+  return { day: dx, n: Math.max(num(x.n), num(y.n)) };
+}
+
 /** Two copies played apart, made into one. The one further along (more XP) is the base; the other adds to it. */
 export function combine(mine, theirs) {
   mine = settle(clone(mine));
@@ -197,6 +209,8 @@ export function combine(mine, theirs) {
       if ("bloom" in ga || "bloom" in gb) ga.bloom = !!(ga.bloom || gb.bloom);
     }
     out.idle.released = released;
+    const buys = joinDayCount(ga.gemBuys, gb.gemBuys);
+    if (buys) out.idle.gemBuys = buys;
   }
 
   // Gifts from the creator (gifts.js): every one either copy has had. Their coins, gems and XP are in the tally

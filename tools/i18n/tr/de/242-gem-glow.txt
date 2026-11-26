@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Kauf einen mit Glimmer bei den Vorräten: 5.000 für den ersten des Tages, dann den doppelten Preis für jeden weiteren an diesem Tag.
+682e2909	Edelsteine, bei den Vorräten: 5.000 Glimmer für den ersten des Tages, den doppelten Preis für jeden weiteren an diesem Tag.
+ae634fdf	Edelstein
+0e930739	Der nächste heute: {0}
+1ce32a6f	Heute gekauft
+63f93d3a	Mit Edelsteinen kaufst du Vorräte. Jeder Edelstein, den du an einem Tag kaufst, kostet das Doppelte des vorigen; morgen geht es wieder bei 5.000 Glimmer los.
+8e6a20ff	Du hast einen Edelstein gekauft. Der nächste heute: {0}

@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Compre uma com brilho em Suprimentos: 5.000 pela primeira do dia, depois o dobro por cada uma a mais naquele dia.
+682e2909	Gemas, em Suprimentos: 5.000 de brilho pela primeira do dia, o dobro por cada uma a mais naquele dia.
+ae634fdf	Gema
+0e930739	A próxima hoje: {0}
+1ce32a6f	Compradas hoje
+63f93d3a	As gemas compram suprimentos. Cada gema que você compra num dia custa o dobro da anterior; amanhã volta a começar em 5.000 de brilho.
+8e6a20ff	Você comprou uma gema. A próxima hoje: {0}

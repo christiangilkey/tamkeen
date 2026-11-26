@@ -13,8 +13,9 @@ test("the five currencies, each brief: an icon, two or three ways to get it, one
   assert.deepEqual(CURRENCY_KINDS, ["coins", "gems", "glow", "pearls", "stardust"]);
   for (const [kind, c] of Object.entries(CURRENCIES)) {
     assert.ok(c.name && c.icon, kind);
-    assert.ok(c.get.length >= 1 && c.get.length <= 3, `${kind}: how to get it`);
-    assert.ok(c.use.length >= 1 && c.use.length <= 2, `${kind}: what it's for`);
+    const plain = (ls) => ls.filter((l) => !l.prototype); // (a prototype's line may be one more, while it is tried)
+    assert.ok(plain(c.get).length >= 1 && plain(c.get).length <= 3 && c.get.length <= 4, `${kind}: how to get it`);
+    assert.ok(plain(c.use).length >= 1 && plain(c.use).length <= 2 && c.use.length <= 3, `${kind}: what it's for`);
     for (const l of [...c.get, ...c.use]) assert.ok(l.text.length <= 160, `${kind}: "${l.text}" is short`);
     assert.equal(currencyOf(c.icon), c, `${kind} is found by its icon's name too`);
   }

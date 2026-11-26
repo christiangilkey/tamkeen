@@ -15790,6 +15790,11 @@
   "f": "web/js/game/currencies.js"
  },
  {
+  "id": "ea515eab",
+  "k": "Buy one with glow in Supplies: 5,000 for the day's first, then twice the price for each more that day.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
   "id": "cf6254cc",
   "k": "Supplies: an XP boost, an incubator, a plot key or a mystery egg.",
   "f": "web/js/game/currencies.js"
@@ -15822,6 +15827,11 @@
  {
   "id": "0dd6dde7",
   "k": "Food for your creature ({0} each) and potions for wild battles.",
+  "f": "web/js/game/currencies.js"
+ },
+ {
+  "id": "682e2909",
+  "k": "Gems, in Supplies: 5,000 glow for the day's first, twice the price for each more that day.",
   "f": "web/js/game/currencies.js"
  },
  {
@@ -19697,6 +19707,31 @@
  {
   "id": "64ce4b08",
   "k": "Warming",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "ae634fdf",
+  "k": "Gem",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "0e930739",
+  "k": "Next one today: {0}",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "1ce32a6f",
+  "k": "Bought today",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "63f93d3a",
+  "k": "Gems buy supplies. Each gem you buy in a day costs twice the one before; tomorrow it starts again at 5,000 glow.",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "8e6a20ff",
+  "k": "You bought a gem. Next one today: {0}",
   "f": "web/js/game/garden.js"
  },
  {

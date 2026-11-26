@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Achetez-en une avec de la lueur dans Fournitures : 5 000 pour la première du jour, puis le double pour chaque autre ce jour-là.
+682e2909	Gemmes, dans Fournitures : 5 000 de lueur pour la première du jour, le double pour chaque autre ce jour-là.
+ae634fdf	Gemme
+0e930739	La suivante aujourd'hui : {0}
+1ce32a6f	Achetées aujourd'hui
+63f93d3a	Les gemmes achètent des fournitures. Chaque gemme achetée dans la journée coûte le double de la précédente ; demain, le prix repart de 5 000 de lueur.
+8e6a20ff	Vous avez acheté une gemme. La suivante aujourd'hui : {0}

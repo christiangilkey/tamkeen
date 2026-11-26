@@ -226,6 +226,35 @@ export function buySupply(state, id, rand = Math.random) {
   return "";
 }
 
+// ---------- gems for glow (prototype "gem_glow") ----------
+// The owner (2026-11-25, answering "B"): a gem can be bought with glow at a price that doubles with each one bought that
+// day (5,000, 10,000, 20,000 ...) and starts again at 5,000 the next day; no cap (the doubling is the limit: a garden in
+// full bloom with three stardust makes about 170,000 glow a day, five gems' worth). `idle.gemBuys` = {day, n}: today's
+// count, kept from both copies of a game when they meet (merge.js, app/sync/gamemerge.py: the later day; the same day,
+// the higher count), so two devices can't each buy the day's cheap first gem.
+export const GEM_GLOW = 5000;
+
+/** How many gems have been bought with glow today. */
+export function gemsBoughtToday(state, now = new Date()) {
+  const b = garden(state).gemBuys;
+  return b && typeof b === "object" && b.day === dayKey(now) && Number.isFinite(b.n) && b.n > 0 ? Math.floor(b.n) : 0;
+}
+
+/** The glow price of the next gem today (`later` = 1: of the one after it). */
+export const gemGlowPrice = (state, now = new Date(), later = 0) => GEM_GLOW * 2 ** (gemsBoughtToday(state, now) + later);
+
+/** Buy one gem with glow. Returns an error message, or "". */
+export function buyGemWithGlow(state, now = new Date()) {
+  const g = garden(state);
+  const n = gemsBoughtToday(state, now);
+  const price = GEM_GLOW * 2 ** n;
+  if (g.glow < price) return `You need ${Math.ceil(price - g.glow)} more glow.`;
+  g.glow -= price;
+  state.gems += 1;
+  g.gemBuys = { day: dayKey(now), n: n + 1 };
+  return "";
+}
+
 // ---------- hunger (prototype "hunger") ----------
 // A creature's last meal is `fedAt` (seconds) on it in the roster, kept from both copies of a game when they meet
 // (merge.js, app/sync/gamemerge.py: the later meal). After HUNGRY_HOURS without one it is hungry: a sign on it

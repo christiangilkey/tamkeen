@@ -168,6 +168,19 @@ def _join_rounds(x: Any, y: Any) -> Any:
     return {"day": dx, "n": _clean(max(_num(x.get("n")), _num(y.get("n")))), "done": done, "miss": list(miss.values())}
 
 
+def _join_day_count(x: Any, y: Any) -> Any:
+    """Today's count of something (idle.gemBuys: gems bought with glow today) from two copies: the later day's; the
+    same day's, the higher (as merge.js joinDayCount)."""
+    x, y = _obj(x), _obj(y)
+    if x is None or y is None:
+        return x if x is not None else y
+    dx = x.get("day") if isinstance(x.get("day"), str) else ""
+    dy = y.get("day") if isinstance(y.get("day"), str) else ""
+    if dx != dy:
+        return y if dy > dx else x
+    return {"day": dx, "n": _clean(max(_num(x.get("n")), _num(y.get("n"))))}
+
+
 def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     mine, theirs = settle(copy.deepcopy(mine)), settle(copy.deepcopy(theirs))
     theirs_first = _num(theirs.get("xp")) > _num(mine.get("xp")) or (
@@ -216,6 +229,9 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
             if "bloom" in ga or "bloom" in gb:
                 ga["bloom"] = bool(ga.get("bloom") or gb.get("bloom"))
         out["idle"]["released"] = released
+        buys = _join_day_count(ga.get("gemBuys"), gb.get("gemBuys"))
+        if buys is not None:
+            out["idle"]["gemBuys"] = buys
 
     # Gifts from the creator: every one either copy has had; glow isn't tallied, so the glow of a gift that the
     # copy whose garden was kept had not had yet is added here (web/js/game/merge.js says why).

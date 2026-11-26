@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Bumili ng isa gamit ang liwanag sa Mga gamit: 5,000 para sa una sa araw, tapos doble ang presyo sa bawat isa pa sa araw na iyon.
+682e2909	Mga hiyas, sa Mga gamit: 5,000 liwanag para sa una sa araw, doble ang presyo sa bawat isa pa sa araw na iyon.
+ae634fdf	Hiyas
+0e930739	Ang susunod ngayong araw: {0}
+1ce32a6f	Nabili ngayong araw
+63f93d3a	Pambili ng mga gamit ang mga hiyas. Ang bawat hiyas na bibilhin mo sa isang araw ay doble ang halaga kaysa sa nauna; bukas, magsisimula ulit sa 5,000 liwanag.
+8e6a20ff	Bumili ka ng hiyas. Ang susunod ngayong araw: {0}

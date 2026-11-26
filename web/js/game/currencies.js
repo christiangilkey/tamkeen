@@ -12,7 +12,8 @@ import { BOTH_COINS, FULLY_GROWN_COINS } from "./rules.js";
 
 const gemSupplies = SUPPLIES.filter((s) => s.gems);
 
-/** {kind: {name, icon, get: [{text, from}], use: [{text, from}], more, open}}. `more`: the long explanation in info.js
+/** {kind: {name, icon, get: [{text, from, prototype}], use: [{text, from, prototype}], more, open}}. A line with
+ * `prototype` shows only while that prototype is on (prototype.js feature()). `more`: the long explanation in info.js
  * (EARNED), if there is one. `open`: the game sheet's page where it is spent, with the button's word. */
 export const CURRENCIES = {
   coins: {
@@ -34,6 +35,8 @@ export const CURRENCIES = {
       { text: "Earn a badge, rise a league, or help your guild beat the weekly raid boss.", from: [["idle.js", "tick"]] },
       { text: "Full bloom: every garden plot holding a fully grown building (10).", from: [["idle.js", "tick"]] },
       { text: "Now and then a rare roll when you remember a flashcard.", from: [["loot.js", "rewardFor"], ["loot.js", "payReward"]] },
+      { text: "Buy one with glow in Supplies: 5,000 for the day's first, then twice the price for each more that day.",
+        from: [["idle.js", "buyGemWithGlow"]], prototype: "gem_glow" },
     ],
     use: [
       { text: "Supplies: an XP boost, an incubator, a plot key or a mystery egg.", from: [["idle.js", "buySupply"]], supplies: gemSupplies.map((s) => s.id) },
@@ -50,6 +53,8 @@ export const CURRENCIES = {
     use: [
       { text: "New buildings, and growing them so they make more.", from: [["idle.js", "build"], ["idle.js", "upgrade"]] },
       { text: `Food for your creature (${FOODS[0].glow} each) and potions for wild battles.`, from: [["idle.js", "feed"], ["idle.js", "buySupply"]] },
+      { text: "Gems, in Supplies: 5,000 glow for the day's first, twice the price for each more that day.",
+        from: [["idle.js", "buyGemWithGlow"]], prototype: "gem_glow" },
     ],
     more: "glow", open: { tab: "garden", word: "Open the garden" },
   },

@@ -1,0 +1,8 @@
+# Gems for glow (prototype gem_glow): garden.js Supplies' Gems block and popup, currencies.js lines.
+ea515eab	Pagpalit og usa gamit ang sanag sa Suplay: 5,000 alang sa una sa adlaw, unya doble ang presyo sa matag dugang nianang adlawa.
+682e2909	Mga mutya, sa Suplay: 5,000 ka sanag alang sa una sa adlaw, doble ang presyo sa matag dugang nianang adlawa.
+ae634fdf	Mutya
+0e930739	Ang sunod karong adlawa: {0}
+1ce32a6f	Napalit karong adlawa
+63f93d3a	Ang mga mutya ipalit og suplay. Ang matag mutya nga imong paliton sa usa ka adlaw doble ang bili kaysa sa nauna; ugma magsugod na usab sa 5,000 ka sanag.
+8e6a20ff	Nakapalit ka og mutya. Ang sunod karong adlawa: {0}

@@ -11,6 +11,7 @@ import { ADULT_XP, BASICS_DAY_CAP, BASICS_XP, BATTLE_XP_FLOOR, BOTH_COINS, BOTH_
 import { icon } from "./render.js";
 import { progressText } from "./screenparts.js";
 import { currencyOf } from "./currencies.js";
+import { feature } from "../prototype.js";
 
 const fmt = (n) => Math.floor(n).toLocaleString();
 const plural = (n, word) => `${fmt(n)} ${word}${n === 1 ? "" : "s"}`;
@@ -230,8 +231,9 @@ export function openCurrency(kind, game, go = null, { here = null } = {}) {
   if (!c) return null;
   const { body, close } = sheet(c.name, c.icon, { over: true });
   body.closest(".game-sheet").classList.add("cur-sheet");
-  body.append(h(`<div><strong>How to get it</strong>${list(c.get.map((l) => esc(l.text)))}</div>`));
-  body.append(h(`<div><strong>What it's for</strong>${list(c.use.map((l) => esc(l.text)))}</div>`));
+  const shown = (l) => !l.prototype || feature(l.prototype); // (a prototype's line only while it is on)
+  body.append(h(`<div><strong>How to get it</strong>${list(c.get.filter(shown).map((l) => esc(l.text)))}</div>`));
+  body.append(h(`<div><strong>What it's for</strong>${list(c.use.filter(shown).map((l) => esc(l.text)))}</div>`));
   const more = [];
   if (c.open && go && c.open.tab !== here) more.push({ label: c.open.word, pic: c.icon, run: () => go(c.open.tab) });
   if (c.more && EARNED[c.more]) more.push({ label: "Tell me more", pic: lineIcon("question", 18), run: () => openEarned(c.more, game, go || (() => {}), { over: true }) });
