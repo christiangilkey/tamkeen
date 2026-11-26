@@ -10033,8 +10033,8 @@ Ranked block says "Ranked isn't switched on yet." Neither file has been run anyw
   ±12 after; beating someone 200 higher +18, losing to someone 200 lower −18. Tiers Bronze 0, Silver 200, Gold 400,
   Platinum 600, Diamond 800, Champion 1000. Leaderboard: top 20 by username only, blocked people left out.
 - **Queue** (`ranked_join` / `ranked_poll` every 3 s / `ranked_leave`): ±100, ±200 after 15 s, ±400 after 30 s,
-  anyone after 45 s, "No one found" at 60 s; someone not seen for 12 s is offline. Never blocked people, never a 4th
-  point-moving battle of the same pair in 24 h. The server picks the host (`a`) and the arena seed.
+  anyone after 45 s, "No one found" at 60 s; someone not seen for 12 s is offline. Never blocked people; no limit on how
+  often the same two play (the owner: "make it infinite", 2026-11-25). The server picks the host (`a`) and the arena seed.
 - **Results**: both report (`ranked_report`: won/lost/quit/broken); won+lost settles; quit is a loss at once;
   contradictions or "broken" are void. One report after 10 min is void, except that from someone's 3rd vanishing in a
   day while the other claims a win it is their loss. The old on-device skill rating (rules.finishBattle) leaves

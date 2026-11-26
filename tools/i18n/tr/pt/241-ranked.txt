@@ -37,7 +37,6 @@ dd2adb4e	Contra alguém com a mesma pontuação: +{0} ou −{0} nas suas primeir
 1fc645b0	As batalhas ranqueadas sempre usam todas as suas palavras salvas (Todas as palavras).
 a09ffe10	A busca começa com jogadores até 100 pontos de você e se amplia quanto mais você espera.
 429487cc	Sair de uma batalha ranqueada conta como derrota. Se a conexão cair, nada muda.
-38129de5	Os mesmos dois jogadores podem mudar a pontuação um do outro em {0} batalhas ranqueadas por dia.
 0d527f77	Níveis: Bronze a partir de 0, Prata 200, Ouro 400, Platina 600, Diamante 800, Campeão 1000.
 aa6a3beb	Preparando
 d7a72a41	Conectando com {0}…

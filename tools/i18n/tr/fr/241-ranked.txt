@@ -37,7 +37,6 @@ dd2adb4e	Contre quelqu'un du même score : +{0} ou −{0} pour tes {1} premiers 
 1fc645b0	Les combats classés utilisent toujours tous tes mots enregistrés (Tous les mots).
 a09ffe10	La recherche commence avec les joueurs à moins de 100 points de toi et s'élargit plus tu attends.
 429487cc	Quitter un combat classé compte comme une défaite. Si la connexion coupe, rien ne change.
-38129de5	Les deux mêmes joueurs peuvent modifier le score l'un de l'autre dans {0} combats classés par jour.
 0d527f77	Rangs : Bronze dès 0, Argent 200, Or 400, Platine 600, Diamant 800, Champion 1000.
 aa6a3beb	Préparation
 d7a72a41	Connexion à {0}…

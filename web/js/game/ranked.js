@@ -26,7 +26,6 @@ export const K_NEW = 40;          // K for a player's first NEW_GAMES ranked bat
 export const K = 24;              // K after that
 export const NEW_GAMES = 10;
 export const SPREAD = 400;        // rating points that make a win ten times as likely
-export const PAIR_PER_DAY = 3;    // ranked battles the same two players may have in 24 hours
 export const WINDOW_STEPS = [[0, 100], [15, 200], [30, 400], [45, Infinity]]; // [seconds waited, +- points]
 export const GIVE_UP_S = 60;      // seconds in the queue before "No one found"
 

@@ -37,7 +37,6 @@ dd2adb4e	Laban sa kaparehong rating: +{0} o −{0} sa una mong {1} ranked na lab
 1fc645b0	Laging ginagamit ng mga ranked na laban ang lahat ng na-save mong salita (Lahat ng salita).
 a09ffe10	Nagsisimula ang paghahanap sa mga manlalarong hanggang 100 puntos mula sa iyo at lumalawak habang naghihintay ka.
 429487cc	Ang pag-alis sa ranked na laban ay bilang na talo. Kapag naputol ang koneksyon, walang nagbabago.
-38129de5	Ang parehong dalawang manlalaro ay makakapagbago ng rating ng isa't isa sa {0} ranked na laban bawat araw.
 0d527f77	Mga antas: Tanso mula 0, Pilak 200, Ginto 400, Platinum 600, Diyamante 800, Kampeon 1000.
 aa6a3beb	Naghahanda
 d7a72a41	Kumokonekta kay {0}…

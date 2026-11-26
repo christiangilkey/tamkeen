@@ -37,7 +37,6 @@ dd2adb4e	Gegen jemanden mit gleicher Wertung: +{0} oder −{0} in deinen ersten 
 1fc645b0	Ranglistenkämpfe nutzen immer alle deine gespeicherten Wörter (Alle Wörter).
 a09ffe10	Die Suche beginnt mit Spielern bis zu 100 Punkte von dir entfernt und wird breiter, je länger du wartest.
 429487cc	Einen Ranglistenkampf zu verlassen zählt als Niederlage. Bricht die Verbindung ab, ändert sich nichts.
-38129de5	Dieselben zwei Spieler können ihre Wertungen in {0} Ranglistenkämpfen am Tag verändern.
 0d527f77	Stufen: Bronze ab 0, Silber 200, Gold 400, Platin 600, Diamant 800, Champion 1000.
 aa6a3beb	Wird vorbereitet
 d7a72a41	Verbinde mit {0} …

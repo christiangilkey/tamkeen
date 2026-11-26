@@ -83,7 +83,7 @@ raise `WORDING` in `dliclass.js` if what is shared changes). Not yet applied to 
 | Ranked battles (`supabase/v18-ranked.sql`, prototype `ranked`) | Me | The player I'm matched with | Anyone else signed in | Blocked (either way) | Under 16 / signed out | Admin |
 |---|---|---|---|---|---|---|
 | My rating, ranked battles, wins, place (`ranked_me`) | see | my rating and games, during the match | the rating, on the leaderboard if in the top 50 | not on their leaderboard | no | all |
-| The queue (`ranked_join`, `ranked_poll`, `ranked_leave`) | join, stay (polled), leave | is paired with me only when within the window, not blocked, under 3 battles together in 24 h | never sees who is waiting | never paired | no | all |
+| The queue (`ranked_join`, `ranked_poll`, `ranked_leave`) | join, stay (polled), leave | is paired with me only when within the window and not blocked (as often as we like) | never sees who is waiting | never paired | no | all |
 | A match: our usernames, ratings, arena seed | see (only my own matches) | see | no | never made | no | all |
 | A match's result (`ranked_report`, `ranked_result`) | report once (won, lost, quit, broken); the server decides from both reports | reports once too | no | no | no | all |
 | The live battle itself (Realtime broadcast channel `ranked-<match id>`, `web/js/game/rankedlive.js`): my team (as sent to friends), my card count, my moves, whether each answer was right and fast (never the words) | send, and see the other's | sends theirs, sees mine; whatever arrives is checked before use (team as a friend's, moves it has, numbers in range) | only with the match id, which is never shown to them | never matched | no | not stored anywhere |

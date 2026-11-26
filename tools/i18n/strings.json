@@ -21915,11 +21915,6 @@
   "f": "web/js/game/ranked-ui.js"
  },
  {
-  "id": "38129de5",
-  "k": "The same two players can move each other's ratings in {0} ranked battles a day.",
-  "f": "web/js/game/ranked-ui.js"
- },
- {
   "id": "0d527f77",
   "k": "Tiers: Bronze from 0, Silver 200, Gold 400, Platinum 600, Diamond 800, Champion 1000.",
   "f": "web/js/game/ranked-ui.js"

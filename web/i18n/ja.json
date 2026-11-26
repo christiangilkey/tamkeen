@@ -4381,7 +4381,6 @@
 "Ranked battles always use all your saved words (All-time).":"ランクバトルでは常に保存したすべての単語を使います（すべての単語）。",
 "The search starts with players within 100 points of you and widens the longer you wait.":"探すのは最初はあなたから100ポイント以内のプレイヤーで、待つほど範囲が広がります。",
 "Leaving a ranked battle counts as a loss. If the connection drops, nothing changes.":"ランクバトルを抜けると負けになります。接続が切れた場合は何も変わりません。",
-"The same two players can move each other's ratings in {0} ranked battles a day.":"同じ二人がお互いのレートを動かせるのは、1日{0}回のランクバトルまでです。",
 "Tiers: Bronze from 0, Silver 200, Gold 400, Platinum 600, Diamond 800, Champion 1000.":"ランク帯：ブロンズ 0〜、シルバー 200、ゴールド 400、プラチナ 600、ダイヤモンド 800、チャンピオン 1000。",
 "Getting ready":"準備中",
 "Connecting to {0}…":"{0}に接続中…",

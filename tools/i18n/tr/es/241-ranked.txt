@@ -37,7 +37,6 @@ dd2adb4e	Contra alguien con la misma puntuación: +{0} o −{0} en tus primeras 
 1fc645b0	Las batallas clasificatorias usan siempre todas tus palabras guardadas (Todas las palabras).
 a09ffe10	La búsqueda empieza con jugadores a menos de 100 puntos de ti y se amplía cuanto más esperas.
 429487cc	Salir de una batalla clasificatoria cuenta como derrota. Si se cae la conexión, no cambia nada.
-38129de5	Los mismos dos jugadores pueden cambiar la puntuación del otro en {0} batallas clasificatorias al día.
 0d527f77	Niveles: Bronce desde 0, Plata 200, Oro 400, Platino 600, Diamante 800, Campeón 1000.
 aa6a3beb	Preparando
 d7a72a41	Conectando con {0}…

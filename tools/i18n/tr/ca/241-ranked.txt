@@ -37,7 +37,6 @@ dd2adb4e	Contra algú amb la mateixa puntuació: +{0} o −{0} en les teves prim
 1fc645b0	Les batalles classificatòries sempre fan servir totes les teves paraules desades (Totes les paraules).
 a09ffe10	La cerca comença amb jugadors a menys de 100 punts de tu i s'amplia com més esperes.
 429487cc	Sortir d'una batalla classificatòria compta com a derrota. Si cau la connexió, no canvia res.
-38129de5	Els mateixos dos jugadors poden canviar la puntuació de l'altre en {0} batalles classificatòries al dia.
 0d527f77	Nivells: Bronze des de 0, Plata 200, Or 400, Platí 600, Diamant 800, Campió 1000.
 aa6a3beb	Preparant
 d7a72a41	Connectant amb {0}…

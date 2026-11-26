@@ -25,7 +25,7 @@
 --     - only one report after 10 minutes     -> nothing changes, but the silent one is noted; from their third
 --                                               silence in a day while the other claimed a win, it counts as a loss
 --                                               (so closing the app to dodge a loss doesn't work for long)
---   Points only move for the first 3 ranked battles of the same two players in 24 hours.
+--   The same two players may battle each other as often as they like (the owner: "make it infinite").
 --
 -- WHAT IT ADDS (row-level security on, no reading or writing rule: everything goes through the functions)
 --   public.ranked_ratings   rating, ranked battles, wins, per player
@@ -117,15 +117,6 @@ language sql immutable set search_path = '' as $$
   select case when waited >= 45 then null when waited >= 30 then 400 when waited >= 15 then 200 else 100 end;
 $$;
 
--- Ranked battles between these two that moved points in the last 24 hours (or are still being played).
-create or replace function private.ranked_pair_count(x uuid, y uuid) returns integer
-language sql stable security definer set search_path = '' as $$
-  select count(*)::integer from public.ranked_matches m
-  where ((m.a = x and m.b = y) or (m.a = y and m.b = x))
-    and m.created_at > now() - interval '24 hours'
-    and (m.settled_at is null or m.outcome in ('a', 'b'));
-$$;
-
 create or replace function private.ranked_rating(person uuid) returns public.ranked_ratings
 language sql stable security definer set search_path = '' as $$
   select coalesce((select r from public.ranked_ratings r where r.user_id = person),
@@ -144,7 +135,6 @@ declare
   v_silent uuid;
   v_ca integer := 0;
   v_cb integer := 0;
-  v_counted integer;
   v_claim text;
 begin
   select * into m from public.ranked_matches x where x.id = match for update;
@@ -176,14 +166,8 @@ begin
   end if;
 
   if v_outcome in ('a', 'b') then
-    -- (the 4th and later battles of this pair in a day move nothing)
-    select count(*) into v_counted from public.ranked_matches x
-    where ((x.a = m.a and x.b = m.b) or (x.a = m.b and x.b = m.a))
-      and x.id <> m.id and x.outcome in ('a', 'b') and x.settled_at > now() - interval '24 hours';
-    if v_counted < 3 then                                    -- PAIR_PER_DAY 3
-      v_ca := private.ranked_change(m.a_rating, m.b_rating, v_outcome = 'a', m.a_games);
-      v_cb := private.ranked_change(m.b_rating, m.a_rating, v_outcome = 'b', m.b_games);
-    end if;
+    v_ca := private.ranked_change(m.a_rating, m.b_rating, v_outcome = 'a', m.a_games);
+    v_cb := private.ranked_change(m.b_rating, m.a_rating, v_outcome = 'b', m.b_games);
   end if;
 
   update public.ranked_matches x set outcome = v_outcome, silent = v_silent, a_change = v_ca, b_change = v_cb,
@@ -270,13 +254,12 @@ begin
   if q.match_id is null then
     v_waited := extract(epoch from now() - q.joined_at);
     v_window := private.ranked_window(v_waited);
-    -- Someone else online now, unpaired, near enough (by the wider of our two windows), not blocked, not had 3 times.
+    -- Someone else online now, unpaired, near enough (by the wider of our two windows), not blocked.
     select * into o from public.ranked_queue x
     where x.user_id <> me and x.match_id is null and x.seen_at > now() - interval '12 seconds'
       and (v_window is null or private.ranked_window(extract(epoch from now() - x.joined_at)) is null
            or abs(x.rating - q.rating) <= greatest(v_window, private.ranked_window(extract(epoch from now() - x.joined_at))))
       and not private.blocked_between(me, x.user_id)
-      and private.ranked_pair_count(me, x.user_id) < 3
     order by abs(x.rating - q.rating), x.joined_at
     limit 1
     for update skip locked;
@@ -391,7 +374,7 @@ end $$;
 
 -- ======================================================================= 5. who may run what
 revoke all on function private.ranked_k(integer), private.ranked_change(integer, integer, boolean, integer),
-  private.ranked_window(double precision), private.ranked_pair_count(uuid, uuid), private.ranked_rating(uuid),
+  private.ranked_window(double precision), private.ranked_rating(uuid),
   private.ranked_settle(uuid), private.ranked_tidy(uuid) from public, anon, authenticated;
 revoke all on function public.ranked_me(), public.ranked_join(), public.ranked_poll(), public.ranked_leave(),
   public.ranked_report(uuid, text), public.ranked_result(uuid), public.ranked_top(integer) from public, anon;

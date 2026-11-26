@@ -37,7 +37,6 @@ dd2adb4e	Batok sa parehas og rating: +{0} o −{0} sa imong unang {1} ka ranked 
 1fc645b0	Ang ranked nga mga away kanunay mogamit sa tanan nimong natipig nga pulong (Tanang pulong).
 a09ffe10	Ang pagpangita magsugod sa mga magdudula nga sulod sa 100 ka puntos gikan nimo ug molapad samtang maghulat ka.
 429487cc	Ang pagbiya sa ranked nga away maihap nga kapildihan. Kon maputol ang koneksyon, walay mausab.
-38129de5	Ang samang duha ka magdudula makausab sa rating sa usag usa sa {0} ka ranked nga away kada adlaw.
 0d527f77	Mga ang-ang: Bronse gikan sa 0, Pilak 200, Bulawan 400, Platinum 600, Diamante 800, Kampiyon 1000.
 aa6a3beb	Nangandam
 d7a72a41	Nagkonektar kang {0}…

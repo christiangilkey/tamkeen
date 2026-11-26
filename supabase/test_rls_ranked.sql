@@ -101,21 +101,23 @@ begin
   got := public.ranked_report(m2::uuid, 'quit');
   if got->>'outcome' = 'lost' and (got->>'change')::int < 0 then ok := ok + 1; else bad := bad || ' quit-not-a-loss:' || got::text; end if;
 
-  -- ---------------------------------------------------------------- 6. three counted battles a day per pair
+  -- ---------------------------------------------------------------- 6. no daily limit for the same two players
   got := public.ranked_join();
   perform set_config('request.jwt.claims', json_build_object('sub', ub, 'role', 'authenticated')::text, true);
   got := public.ranked_join();
   m2 := got->>'match';
   got := public.ranked_report(m2::uuid, 'won');
   perform set_config('request.jwt.claims', json_build_object('sub', ua, 'role', 'authenticated')::text, true);
-  got := public.ranked_report(m2::uuid, 'lost');                -- (the third that counts)
+  got := public.ranked_report(m2::uuid, 'lost');                -- (their third that moved points today)
   got := public.ranked_join();
   perform set_config('request.jwt.claims', json_build_object('sub', ub, 'role', 'authenticated')::text, true);
   got := public.ranked_join();
-  if got->>'status' = 'waiting' then ok := ok + 1; else bad := bad || ' fourth-pairing-the-same-day:' || got::text; end if;
-  perform public.ranked_leave();
+  if got->>'status' = 'matched' then ok := ok + 1; else bad := bad || ' fourth-pairing-refused:' || got::text; end if;
+  m2 := got->>'match';
+  got := public.ranked_report(m2::uuid, 'won');
   perform set_config('request.jwt.claims', json_build_object('sub', ua, 'role', 'authenticated')::text, true);
-  perform public.ranked_leave();
+  got := public.ranked_report(m2::uuid, 'lost');
+  if got->>'outcome' = 'lost' and (got->>'change')::int < 0 then ok := ok + 1; else bad := bad || ' fourth-battle-moved-nothing:' || got::text; end if;
 
   -- ---------------------------------------------------------------- 7. blocked people are never paired
   execute 'reset role';

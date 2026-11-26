@@ -10,7 +10,7 @@ import { feature } from "../prototype.js";
 import { onlineStatus } from "../agegate.js";
 import { icon } from "./render.js";
 import { block, details, fmt } from "./screenparts.js";
-import { GIVE_UP_S, K, K_NEW, NEW_GAMES, PAIR_PER_DAY, TIERS, signed, stakes, tierOf } from "./ranked.js";
+import { GIVE_UP_S, K, K_NEW, NEW_GAMES, TIERS, signed, stakes, tierOf } from "./ranked.js";
 import * as ranked from "../rankedsync.js";
 import { BATTLE_UNLOCK_WORDS } from "./data.js";
 import { publicProfile } from "./battle.js";
@@ -221,7 +221,6 @@ export function rankedHelp() {
   add(t("Ranked battles always use all your saved words (All-time)."));
   add(t("The search starts with players within 100 points of you and widens the longer you wait."));
   add(t("Leaving a ranked battle counts as a loss. If the connection drops, nothing changes."));
-  add(t("The same two players can move each other's ratings in {0} ranked battles a day.", PAIR_PER_DAY));
   add(t("Tiers: Bronze from 0, Silver 200, Gold 400, Platinum 600, Diamond 800, Champion 1000."));
   const d = details(() => ({ title: "How ranked works", more: ul, buttons: [{ word: "OK", primary: true, run: () => d.close() }] }));
   return d;

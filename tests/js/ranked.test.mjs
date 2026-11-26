@@ -75,7 +75,7 @@ test("the SQL file's numbers are the app's numbers", () => {
   assert.ok(bare.includes(`waited >= 45 then null when waited >= 30 then 400 when waited >= 15 then 200 else 100`));
   assert.deepEqual(R.WINDOW_STEPS.map(([s, w]) => [s, w]), [[0, 100], [15, 200], [30, 400], [45, Infinity]]);
   assert.ok(bare.includes(`v_waited >= ${R.GIVE_UP_S}`));
-  assert.ok(bare.includes(`v_counted < ${R.PAIR_PER_DAY}`) && bare.includes(`ranked_pair_count(me, x.user_id) < ${R.PAIR_PER_DAY}`));
+  assert.ok(!/pair_count|v_counted|PAIR_PER_DAY/.test(bare) && !("PAIR_PER_DAY" in R), "no daily limit for the same two players (the owner: \"make it infinite\")");
   assert.ok(/rating\s+integer not null default 0 check \(rating >= 0/.test(bare), "starts at 0, never below");
 });
 
