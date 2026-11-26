@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Criaturas com fome: alimente a sua todos os dias, ou ela luta mais fraca
+22ac6cb7	Compre gemas com brilho em Suprimentos
+f611a8f3	Defina uma meta de longo prazo por dia, semana ou mês
+fa605429	Adicionar palavras: uma imagem em cada cartão e listas em um só idioma
+ca89b150	Batalhas mais fáceis, e a pergunta diz quem está atacando
+d48727eb	36 novos tipos de peixe e um emblema por dar um lendário à sua criatura

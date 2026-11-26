@@ -20,11 +20,11 @@ function prototypeMode(fn) {
   try { return fn(); } finally { if (had === undefined) delete globalThis.localStorage; else globalThis.localStorage = had; }
 }
 
-test("hunger is a prototype, off for everyone else", () => {
-  assert.equal(PROTOTYPES.hunger.released, false);
+test("hunger is released: everyone's creatures get hungry, with or without prototype mode", () => {
+  assert.equal(PROTOTYPES.hunger.released, true, "released for everybody in v0.75.0");
   const s = hatched();
   startMeals(s, T0);
-  assert.equal(isHungry(s.creature, later(100)), false, "without prototype mode nobody is ever hungry");
+  assert.equal(isHungry(s.creature, later(100)), true, "without prototype mode too, since v0.75.0");
   prototypeMode(() => assert.equal(isHungry(s.creature, later(100)), true));
 });
 

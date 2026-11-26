@@ -72,7 +72,7 @@ test("smaller creatures outside and in battles, drawn crisp (whole screen pixels
   // only the drawing: the battle engine knows nothing of it
   assert.doesNotMatch(readFileSync(new URL("../../web/js/game/livebattle.js", import.meta.url), "utf8"), /small_battlers/);
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
-  assert.equal(PROTOTYPES.small_battlers.released, false);
+  assert.equal(PROTOTYPES.small_battlers.released, true, "released for everybody in v0.75.0");
 });
 
 test("the village's stations: each can be walked to from the cottage's door, and a tap finds it", () => {

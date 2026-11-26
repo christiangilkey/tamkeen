@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Creature affamate: dai da mangiare alla tua ogni giorno, o combatterà più debole
+22ac6cb7	Compra gemme con il bagliore nei Rifornimenti
+f611a8f3	Imposta un obiettivo a lungo termine al giorno, alla settimana o al mese
+fa605429	Aggiungi parole: un'immagine su ogni carta e liste in una sola lingua
+ca89b150	Battaglie più facili, e la domanda dice chi attacca
+d48727eb	36 nuove specie di pesci e un distintivo per darne uno leggendario alla tua creatura

@@ -14,8 +14,8 @@ const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8")
 const dict = (lang) => [keyedTables(JSON.parse(zlib.gunzipSync(readFileSync(new URL(`../../docs/lexicon/${lang}-meanings.json.gz`, import.meta.url))).toString("utf8")))];
 
 test("both are prototypes", () => {
-  assert.equal(PROTOTYPES.add_word_picture.released, false);
-  assert.equal(PROTOTYPES.list_kinds.released, false);
+  assert.equal(PROTOTYPES.add_word_picture.released, true, "released for everybody in v0.75.0");
+  assert.equal(PROTOTYPES.list_kinds.released, true, "released for everybody in v0.75.0");
 });
 
 test("a line alone says its language by its letters, or by the dictionaries; both or neither: can't tell", () => {

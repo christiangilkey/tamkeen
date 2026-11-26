@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Criatures amb gana: alimenta la teva cada dia, o lluitarà més fluixa
+22ac6cb7	Compra gemmes amb brill a Provisions
+f611a8f3	Fixa un objectiu a llarg termini per dia, setmana o mes
+fa605429	Afegeix paraules: una imatge a cada targeta, i llistes en una sola llengua
+ca89b150	Batalles més fàcils, i la pregunta diu qui ataca
+d48727eb	36 tipus de peix més, i una insígnia per alimentar-ne un de llegendari

@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Gigutom nga mga linalang: pakan-a ang imo matag adlaw, kay kon dili mas huyang kini moaway
+22ac6cb7	Pagpalit og mga mutya gamit ang sanag sa Suplay
+f611a8f3	Pagbutang og dugay nga tumong matag adlaw, semana o bulan
+fa605429	Pagdugang og mga pulong: hulagway sa matag kard, ug mga lista sa usa lang ka pinulongan
+ca89b150	Mas sayon nga mga away, ug ang pangutana moingon kinsa ang moatake
+d48727eb	36 pa ka matang sa isda, ug badge sa pagpakaon og Legendaryo nga isda

@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Créatures affamées : nourris la tienne chaque jour, sinon elle se bat moins bien
+22ac6cb7	Achète des gemmes avec de la lueur dans Fournitures
+f611a8f3	Fixe un objectif à long terme par jour, par semaine ou par mois
+fa605429	Ajouter des mots : une image sur chaque carte, et des listes dans une seule langue
+ca89b150	Des combats plus faciles, et la question dit qui attaque
+d48727eb	36 nouvelles espèces de poissons, et un badge pour en donner un légendaire à ta créature

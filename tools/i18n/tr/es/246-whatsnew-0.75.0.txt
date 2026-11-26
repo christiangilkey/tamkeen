@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Criaturas con hambre: alimenta a la tuya cada día o luchará más débil
+22ac6cb7	Compra gemas con brillo en Provisiones
+f611a8f3	Fija una meta a largo plazo por día, semana o mes
+fa605429	Añadir palabras: una imagen en cada tarjeta y listas en un solo idioma
+ca89b150	Batallas más fáciles, y la pregunta dice quién ataca
+d48727eb	36 tipos de peces más y una insignia por darle a tu criatura uno legendario

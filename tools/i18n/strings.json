@@ -31885,6 +31885,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "c0bf87e1",
+  "k": "Hungry creatures: feed yours every day, or it fights weaker",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "22ac6cb7",
+  "k": "Buy gems with glow in Supplies",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "f611a8f3",
+  "k": "Set a long-term goal per day, week or month",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "fa605429",
+  "k": "Add words: a picture on each card, and lists in just one language",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "ca89b150",
+  "k": "Easier battles, and the question says who is attacking",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "d48727eb",
+  "k": "36 more kinds of fish, and a badge for feeding a Legendary one",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "6be707cb",
   "k": "Choose your battle team and the order your creatures come out",
   "f": "web/js/whatsnew.js"

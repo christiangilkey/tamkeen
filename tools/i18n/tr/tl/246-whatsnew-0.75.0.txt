@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Gutom na mga nilalang: pakainin ang iyo araw-araw, kundi mas mahina itong lalaban
+22ac6cb7	Bumili ng mga hiyas gamit ang liwanag sa Mga gamit
+f611a8f3	Magtakda ng pangmatagalang layunin kada araw, linggo o buwan
+fa605429	Magdagdag ng mga salita: larawan sa bawat card, at mga listahan sa iisang wika lang
+ca89b150	Mas madaling mga laban, at sinasabi ng tanong kung sino ang umaatake
+d48727eb	36 pang uri ng isda, at badge sa pagpapakain ng isdang Maalamat

@@ -1,0 +1,7 @@
+# What is new in v0.75.0 (web/js/whatsnew.js).
+c0bf87e1	Hungrige Wesen: Füttere deins jeden Tag, sonst kämpft es schwächer
+22ac6cb7	Kaufe Edelsteine mit Glimmer in den Vorräten
+f611a8f3	Lege ein langfristiges Ziel pro Tag, Woche oder Monat fest
+fa605429	Wörter hinzufügen: ein Bild auf jeder Karte und Listen in nur einer Sprache
+ca89b150	Leichtere Kämpfe, und die Frage sagt, wer angreift
+d48727eb	36 weitere Fischarten und ein Abzeichen fürs Füttern eines legendären Fischs

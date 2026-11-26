@@ -41,7 +41,7 @@ test("not enough glow: nothing is spent; the next day the price starts again", (
 });
 
 test("a prototype; the Gems block and the popups' lines only show while it is on", () => {
-  assert.equal(PROTOTYPES.gem_glow.released, false);
+  assert.equal(PROTOTYPES.gem_glow.released, true, "released for everybody in v0.75.0");
   const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
   assert.match(src("garden.js"), /if \(feature\("gem_glow"\)\) \{\s*const b = block\("Gems"\);/);
   assert.match(src("garden.js"), /t\("Next one today: \{0\}"/);

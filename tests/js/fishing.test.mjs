@@ -648,7 +648,7 @@ test("Legendary feast: feeding a fish of Legendary rarity or better earns the ba
   const { tick } = await import("../../web/js/game/idle.js");
   const badge = BADGES.find((b) => b.id === "legend_feast");
   assert.ok(badge && badge.proto === "legend_feast" && badge.name && badge.text);
-  assert.equal(PROTOTYPES.legend_feast.released, false);
+  assert.equal(PROTOTYPES.legend_feast.released, true, "released for everybody in v0.75.0");
   const png = readFileSync(new URL("../../web/game-art/badge/legend_feast.png", import.meta.url));
   assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [24, 24]);
   withPrototype(() => {
@@ -675,17 +675,14 @@ test("Legendary feast: feeding a fish of Legendary rarity or better earns the ba
   });
 });
 
-test("Legendary feast waits for its prototype: the meal is counted, and the badge comes once it is switched on", async () => {
+test("Legendary feast is released: without prototype mode the meal is counted and earns the badge at once", async () => {
   const { checkBadges } = await import("../../web/js/game/rules.js");
   const s = withFish([4]);
   const fed = feedOn(s, 0);
   assert.ok(fed.bond >= 1 && Array.isArray(fed.badges));
-  assert.ok(!fed.badges.includes("legend_feast") && !s.badges.includes("legend_feast"));
+  assert.ok(fed.badges.includes("legend_feast") && s.badges.includes("legend_feast"));
   assert.equal(s.stats.legend_fed, 1);
-  withPrototype(() => {
-    assert.ok(checkBadges(s).includes("legend_feast"));
-    assert.ok(!checkBadges(s).includes("legend_feast"));
-  });
+  assert.ok(!checkBadges(s).includes("legend_feast"), "not earned twice");
   // a fish that isn't eaten (an egg can't eat) counts for nothing
   const egg = newState(9);
   land(egg, { pond: "tide", sp: "ray", tier: 6 }, () => 0.5, T0);
