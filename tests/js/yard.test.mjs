@@ -58,3 +58,16 @@ test("habitat.js: the yard only with the prototype, outside the door; no neon ci
   assert.match(h, /else if \(inRoom\(\)\) drawHills\(hour\);/);
   assert.doesNotMatch(h, /YARD_DOOR\b/);
 });
+
+test("smaller creatures outside and in battles, drawn crisp (whole screen pixels per pixel), only as prototypes", async () => {
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.match(h, /const RES = feature\("habitat_room"\) \? 3 : 1;/);
+  assert.match(h, /const creatureScale = \(\) => \(RES === 3 && outside\(\) \? 2 \/ 3 : 1\);/);
+  const lb = readFileSync(new URL("../../web/js/game/livebattle-ui.js", import.meta.url), "utf8");
+  assert.match(lb, /const SMALL = feature\("small_battlers"\);/);
+  assert.match(lb, /Math\.max\(1, Math\.round\(\(viewport\.s \|\| 1\) \* 2 \/ 3\)\) \/ \(viewport\.s \|\| 1\)/);
+  // only the drawing: the battle engine knows nothing of it
+  assert.doesNotMatch(readFileSync(new URL("../../web/js/game/livebattle.js", import.meta.url), "utf8"), /small_battlers/);
+  const { PROTOTYPES } = await import("../../web/js/prototype.js");
+  assert.equal(PROTOTYPES.small_battlers.released, false);
+});

@@ -154,6 +154,13 @@ export function runLiveBattle(setup, vocab) {
   // Prototype "battle_aim" (the owner: aim and fire after the right answer; aim with a second finger, the mouse or the
   // right stick, and walk with W A S D or the left stick): the player points their own attacks.
   const AIMING = feature("battle_aim");
+  // Smaller creatures (prototype "small_battlers"; the owner: "our creatures should be a bit smaller compared to the over
+  // world ... this might be good to reflect in battles as well"). The canvas is then as sharp as the screen (`zoom`
+  // device pixels per game pixel) and a creature is drawn at a whole number of them per pixel, about two thirds of the
+  // zoom, so it stays crisp. Only the drawing: the battle itself (livebattle.js) is the same, on both ranked devices.
+  const SMALL = feature("small_battlers");
+  const RES = () => (SMALL ? viewport.s || 1 : 1);       // canvas pixels per game pixel
+  const BODY = () => (SMALL ? Math.max(1, Math.round((viewport.s || 1) * 2 / 3)) / (viewport.s || 1) : 1); // a creature's size
   // Prototype "battle_race" (the owner: the other side answers too; whoever is first wins; "(rival's name) answered
   // quicker" closes the question at once with the right answer shown and said; out-answered attacks do half damage).
   const RACING = feature("battle_race");
@@ -565,7 +572,7 @@ export function runLiveBattle(setup, vocab) {
   let v = view(b);
   function draw(now, dt) {
     if (groundDirty) paintGround(now);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(RES(), 0, 0, RES(), 0, 0);
     ctx.fillStyle = "#0e0b16"; // beyond the arena's edges
     ctx.fillRect(0, 0, viewport.w, viewport.h);
     const sx = shake > 0 ? Math.round((Math.random() - 0.5) * 3) : 0;
@@ -685,7 +692,7 @@ export function runLiveBattle(setup, vocab) {
       else { ctx.font = "bold 10px monospace"; ctx.textAlign = "center"; ctx.fillStyle = n.color; ctx.fillText(n.text, n.x, ly + 9); }
       ctx.globalAlpha = 1;
     }
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.setTransform(RES(), 0, 0, RES(), 0, 0);
     drawRivalPointer(now);
   }
 
@@ -917,6 +924,8 @@ export function runLiveBattle(setup, vocab) {
     ctx.save();
     if (c.grace) ctx.globalAlpha = Math.floor(now / 90) % 2 ? 0.45 : 1; // just stepped in: it can't be hit yet
     ctx.translate(Math.round(c.x), Math.round(c.y));
+    const k = BODY();
+    if (k !== 1) ctx.scale(k, k); // (smaller creatures: its shadow, body and lift with it)
     if (shadow && !(c.act && c.act.kind === "faint")) ctx.drawImage(shadow, -Math.round(shadow.width / 2), -Math.floor(shadow.height / 2));
     if (lift) ctx.translate(0, -Math.round(lift));
     if (spin) { ctx.translate(0, -BODY_UP); ctx.rotate(spin); ctx.translate(0, BODY_UP); }
@@ -925,17 +934,18 @@ export function runLiveBattle(setup, vocab) {
     ctx.restore();
     const orbing = c.charging && c.charging.form === "orb" && fx("orb", moveById(c.charging.move).own ? c.type : moveById(c.charging.move).element || c.type);
     const charge = !orbing && c.charging && fx("charge", c.type);
-    if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - BODY_UP);
+    const up = BODY_UP * k; // its body's middle, at its size
+    if (charge) drawFx(charge, "charge", loopFrame("charge", charge, now), c.x, c.y - up);
     if (orbing) { // an energy orb gathering in front of it
       ctx.globalAlpha = 0.35 + 0.65 * (c.charging.t || 0);
-      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16, c.y - BODY_UP);
+      drawFx(orbing, "orb", loopFrame("orb", orbing, now), c.x + c.face * 16 * k, c.y - up);
       ctx.globalAlpha = 1;
     }
     const has = (id) => c.statuses.some((s) => s.id === id);
     const guard = has("guard") && fx("guard");
-    if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - BODY_UP); // the bubble holds while the guard lasts
+    if (guard) drawFx(guard, "guard", loopFrame("guard", guard, now, 2, 3), c.x, c.y - up); // the bubble holds while the guard lasts
     const slow = has("slow") && fx("delay");
-    if (slow) drawFx(slow, "delay", loopFrame("delay", slow, now), c.x, c.y - 70);
+    if (slow) drawFx(slow, "delay", loopFrame("delay", slow, now), c.x, c.y - 70 * k);
     if (c.dashing && Math.random() < 0.5) play("dust", null, c.x - c.face * 8, c.y);
     // what the ground is doing to it (wet, burning...): two of its particles drifting round the upper body
     for (const s of c.statuses) {
@@ -944,7 +954,7 @@ export function runLiveBattle(setup, vocab) {
       const f2 = { img: img2, frames: Math.max(1, Math.round(img2.width / img2.height)) };
       for (let k = 0; k < 2; k++) {
         const a = now / 700 + k * Math.PI + (side === "me" ? 0 : 1);
-        drawFx(f2, "status", loopFrame("status", f2, now + k * 240), c.x + Math.cos(a) * 13, c.y - 30 + Math.sin(a * 1.3) * 8);
+        drawFx(f2, "status", loopFrame("status", f2, now + k * 240), c.x + Math.cos(a) * 13 * k, c.y - (30 + Math.sin(a * 1.3) * 8) * k);
       }
     }
   }
@@ -1732,12 +1742,12 @@ export function runLiveBattle(setup, vocab) {
     // never more than the arena (and the strip above it): then it all shows, centred
     const w = Math.min(fullW, W), h = Math.min(fullH, H + TOP);
     const resized = w !== viewport.w || h !== viewport.h;
-    if (resized) {
-      canvas.width = w;
-      canvas.height = h;
+    Object.assign(viewport, { w, h, s: zoom });
+    if (resized || canvas.width !== w * RES()) {
+      canvas.width = w * RES(); // (smaller creatures: as sharp as the screen; else one canvas pixel per game pixel)
+      canvas.height = h * RES();
       ctx.imageSmoothingEnabled = false;
     }
-    Object.assign(viewport, { w, h, s: zoom });
     // the rival attacks only from inside what the player can see (livebattle.js `sight`)
     const sight = { w: fullW, h: fullH };
     if (!b.sight || b.sight.w !== sight.w || b.sight.h !== sight.h) E.input(b, { sight });

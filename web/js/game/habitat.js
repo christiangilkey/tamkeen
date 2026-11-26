@@ -80,8 +80,12 @@ const subTile = (id, pic, word) => `<button type="button" class="hud-tile has-su
 /** Build the habitat section. Returns {el, dispose}. */
 export function habitat() {
   const game = getGame();
+  // With the room (prototype "habitat_room") the scene is drawn at 3 screen pixels per pixel, so the creature can be drawn
+  // smaller outside and still crisp: 2 per pixel there, two thirds of its size (the owner: "our creatures should be a bit
+  // smaller compared to the over world, it seems like they are huge compared to houses"). Without it, as before.
+  const RES = feature("habitat_room") ? 3 : 1;
   const el = h(`<section class="habitat card">
-    <div class="habitat-scene"><canvas width="${W}" height="${H}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
+    <div class="habitat-scene"><canvas width="${W * RES}" height="${H * RES}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
       <button type="button" class="habitat-name" title="Its name and how it grows"></button>
       <span class="habitat-about" hidden></span>
       <button type="button" class="scene-arrow prev" title="Another habitat" aria-label="Previous habitat">${lineIcon("chevron", 18)}</button>
@@ -113,6 +117,9 @@ export function habitat() {
   const canvas = $("canvas");
   const ctx = canvas.getContext("2d");
   ctx.imageSmoothingEnabled = false;
+  ctx.scale(RES, RES); // (scene pixels from here on)
+  /** How big the creature is drawn: two thirds outside (2 screen pixels per pixel against the world's 3), else 1. */
+  const creatureScale = () => (RES === 3 && outside() ? 2 / 3 : 1);
 
   const scene = () => (HABITAT.themes.includes(game.scene) ? game.scene : HABITAT.themes[0]);
   const isEgg = () => stageOf(game.creature.growth).id === "egg";
@@ -979,6 +986,9 @@ export function habitat() {
     const ringPic = ringArt(ringShown, ring.done && ringShown >= 0.999);
     const rx0 = Math.round(cx) - RING.rx - 1;
     const ry0 = feet + RING.dy - RING.ry - 1;
+    const k = creatureScale(); // the creature and everything on it (ring, shadow, things worn, bubbles, hearts) at its size
+    ctx.save();
+    if (k !== 1) { ctx.translate(Math.round(cx), feet); ctx.scale(k, k); ctx.translate(-Math.round(cx), -feet); }
     ctx.drawImage(ringPic.back, rx0, ry0);
 
     if (look.stage === "egg") {
@@ -1054,11 +1064,12 @@ export function habitat() {
       }
     }
     ctx.drawImage(ringPic.front, rx0, ry0);
+    ctx.restore();
     for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
     for (const it of yardItems) if (it.y > feet) it.draw(); // (and on the field)
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
-    const at = `${((cx / W) * 100).toFixed(2)}|${(((feet + RING.dy + 6) / H) * 100).toFixed(2)}`;
+    const at = `${((cx / W) * 100).toFixed(2)}|${(((feet + (RING.dy + 6) * k) / H) * 100).toFixed(2)}`;
     if (at !== labelAt) {
       labelAt = at;
       const [lx, ly] = at.split("|");
@@ -1220,8 +1231,9 @@ export function habitat() {
     const piece = roomOn() && !pressed && !onCreature(x, y) ? decorAt(x, y) : null;
     if (piece) { decorMenu(piece); return; }
     // The ring's front, below the feet: the goal.
-    const ry = (y - (feetNow() + RING.dy)) / RING.ry;
-    if (!pressed && y > feetNow() + 2 && ((x - cx) / RING.rx) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    const rk = creatureScale();
+    const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);
+    if (!pressed && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // The room (prototype "habitat_room"): a tap on the floor walks it there, on the door takes it out; on it, a pet.
     if (inRoom() && !pressed && !onCreature(x, y)) {
       if (!isEgg()) { const where = tapIn(x, y); walkTo(where === "door" ? ROOM.doorSpot : { x, y: where === "floor" ? y : ROOM.walk.y0 }, where === "door" ? "out" : null); }
