@@ -40,10 +40,10 @@ export const depthScale = (y) => {
 };
 
 // Where indoor decorations stand until the owner places them (slice 2 lets the creature carry them anywhere): against
-// the back wall first, then out on the floor, never in front of the door.
+// the back wall first (clear of the hearth, x 12-80), then out on the floor, never in front of the door.
 const SLOTS = [
-  { x: 34, y: 96 }, { x: 88, y: 94 }, { x: 226, y: 94 }, { x: 60, y: 126 }, { x: 246, y: 128 }, { x: 150, y: 136 },
-  { x: 196, y: 120 }, { x: 110, y: 116 },
+  { x: 104, y: 95 }, { x: 226, y: 94 }, { x: 60, y: 128 }, { x: 246, y: 128 }, { x: 150, y: 136 }, { x: 22, y: 132 },
+  { x: 196, y: 120 }, { x: 88, y: 116 },
 ];
 
 /** The indoor decorations out in the habitat, each with its spot: [{id, x, y}] (`y` is where it stands: its base). */
