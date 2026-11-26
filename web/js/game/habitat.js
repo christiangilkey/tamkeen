@@ -18,7 +18,7 @@ import * as social from "../social.js";
 import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById, itemById } from "./data.js";
 import { homeOf, isSmall, putAway, setSpot, spotOf } from "./home.js";
 import { automated, collect, garden, hearts, isHungry, tick as gardenTick } from "./idle.js";
-import { hungryButton, wantedFood } from "./hunger-ui.js";
+import { feedBest, hungryButton, wantedFood } from "./hunger-ui.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
@@ -402,7 +402,8 @@ export function habitat() {
   files.glowIcon = "icon/glow.png";
   files.gift = "icon/gift.png";
   files.tank = "fish/tank.png";
-  files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png"; // (prototype "habitat_room")
+  files.room = "room/room.png"; files.door = "room/door.png"; files.doorOpen = "room/door_open.png";
+  files.mailbox = "room/mailbox.png"; files.mailboxFlag = "room/mailbox_flag.png"; // (slice 4) // (prototype "habitat_room")
   for (const [k, f] of Object.entries(files)) loadImage(f).then((img) => { art[k] = img; });
   const plotArt = {}; // building picture by file name
   const eggArt = {};  // egg picture by element (a spare egg in the incubator)
@@ -444,13 +445,19 @@ export function habitat() {
   let doorT = 0; // how long the door stays open (it opens as the creature goes through)
   // Carrying a decoration (slice 2, home.js): {id, to, held, auto}: what it is fetching or holding, where it goes.
   let carry = null;
-  const furniture = () => roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id));
+  // Using things (slice 4): the aquarium stands in the room once a fish is caught; the mailbox by the cottage's path.
+  const TANK_IN = { x: 184, y: 93 };
+  const MAILBOX = { x: 92, y: 76 };
+  const roomTank = () => (fishingOf(game).caught > 0 ? [{ id: "tank", x: TANK_IN.x, y: TANK_IN.y }] : []);
+  let rolling = null; // the ball, kicked: {id, from, to, t}
+  const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
   /** Walk to a spot in the room, round the furniture; `after`: "out" goes through the door on arriving. */
   function walkTo(spot, after = null) {
+    pet.napUntil = 0; // (sent somewhere: up from its nap)
     // asked to go somewhere else while carrying: it puts the thing down where it stands
     if (carry && after !== "pickup" && after !== "drop") {
       if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); }
@@ -484,6 +491,7 @@ export function habitat() {
         if (!pet.path.length) {
           pet.wait = 2 + Math.random() * 5;
           if (pet.after === "out" || pet.after === "in") { pet.after = null; doorT = 0.9; pet.leaving = 0.45; }
+          else if (String(pet.after).startsWith("use:")) { const what = pet.after.slice(4); pet.after = null; useThing(what); }
           else if (String(pet.after).startsWith("go:")) { const st = stationById(pet.after.slice(3)); pet.after = null; if (st) openStation(st); }
           else if (pet.after === "pickup" && carry) { carry.held = true; pet.wait = 0; sfx("tick"); walkTo(carry.to, "drop"); } // picked up: off to its new spot
           else if (pet.after === "drop" && carry) { // put down
@@ -664,7 +672,14 @@ export function habitat() {
         if (art.glowIcon) ctx.drawImage(art.glowIcon, at.x - 8, y - 14 + Math.round(Math.sin(now / 300 + i) * 2));
       } });
     }
-    if (art.tank && fishingOf(game).caught > 0) {
+    // the mailbox: its flag up when a friend's gift has come (tap it: the creature fetches it)
+    const mail = things.some((it) => it.kind === "gift");
+    const box = mail ? art.mailboxFlag : art.mailbox;
+    if (box) out.push({ y: MAILBOX.y, draw: () => {
+      ctx.drawImage(box, MAILBOX.x - Math.floor(box.width / 2), MAILBOX.y - box.height + 2);
+      if (mail && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, MAILBOX.x + 6, MAILBOX.y - 22);
+    } });
+    if (false) { // (the aquarium stands in the room now: roomTank)
       const at = tankSpot(TANK_X);
       out.push({ y: at.y, draw: () => {
         const tx = at.x - art.tank.width / 2, ty = at.y - art.tank.height + 2;
@@ -674,6 +689,7 @@ export function habitat() {
     }
     for (const th of things) {
       const at = thingSpot(th.x);
+      if (th.kind === "gift") continue; // (in the mailbox)
       if (th.kind === "gift" && art.gift) {
         out.push({ y: at.y, draw: () => {
           const jump = Math.floor(now / 1400) % 2 ? 0 : Math.round(Math.abs(Math.sin(now / 120)) * 3);
@@ -920,7 +936,8 @@ export function habitat() {
     const look = refreshLook();
     const hour = new Date().getHours() + new Date().getMinutes() / 60;
     const night = hour < 6 || hour >= 20;
-    const asleep = night && !pet.moodT;
+    const asleep = (night && !pet.moodT) || pet.napUntil > performance.now(); // (or napping on its bed: slice 4)
+    if (rolling && (rolling.t += dt / 0.7) >= 1) rolling = null;
     // Wander: walk to a spot, wait, pick another. Eggs just wobble. (In the room it walks round the furniture.)
     if (inRoom() || outside()) roomWalk(dt, look, asleep);
     if (outside()) folkTick(dt); else if (msayFor) { msay.hidden = true; msayFor = null; }
@@ -1062,6 +1079,17 @@ export function habitat() {
     const feet = feetNow();
     const pieces = inRoom() ? furniture() : [];
     const drawPiece = (d) => {
+      if (d.id === "tank") { // the aquarium, its fish swimming (very small)
+        if (!art.tank) return;
+        const tx = d.x - art.tank.width / 2, ty = d.y - art.tank.height + 2;
+        ctx.drawImage(art.tank, tx, ty);
+        drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
+        return;
+      }
+      if (rolling && rolling.id === d.id) { // the ball, rolling and bouncing to where it was kicked
+        const k = Math.min(1, rolling.t), e = 1 - (1 - k) ** 2;
+        d = { ...d, x: rolling.from.x + (rolling.to.x - rolling.from.x) * e, y: rolling.from.y + (rolling.to.y - rolling.from.y) * e - Math.abs(Math.sin(k * Math.PI * 2)) * 6 * (1 - k) };
+      }
       if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
       const img = decorArt[d.id];
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), Math.round(d.y - img.height + 2));
@@ -1250,6 +1278,38 @@ export function habitat() {
     toast(t("It hatched! Bring it out on the Creatures page.")).prepend(h(icon("egg")), " ");
     paintHud();
   }
+  /** The creature uses something it has walked to (slice 4). Nothing here pays anything: it is for fun and for
+   * looking after it (the owner's rules: no money, no battle strength, no pay for tapping). */
+  function useThing(what) {
+    const thing = furniture().find((d) => d.id.replace(/^decor\//, "") === what);
+    if (what === "bed" && thing) { // a nap on its bed: lies on it, eyes shut, for a while (a tap or a walk wakes it)
+      pet.x = thing.x; pet.y = thing.y + 1;
+      pet.napUntil = performance.now() + 20000;
+      emote("sleepy", 2);
+    } else if (what === "food_bowl") { // a meal from its bowl: its best food (its favourite first), as Supplies feeds it
+      const why = feedBest(game, game.creature);
+      if (why) { toast(t(why)); emote("question", 1.6); return; }
+      saveGame();
+      paintHud();
+      cheer("pet");
+      emote("love", 2);
+    } else if (what === "toy_ball" && thing) { // a kick: the ball rolls off somewhere, and it runs after it
+      const r = ROOM.walk;
+      const to = clampToFloor({ x: thing.x + (Math.random() < 0.5 ? -1 : 1) * (50 + Math.random() * 50), y: r.y0 + 6 + Math.random() * (r.y1 - r.y0 - 12) });
+      rolling = { id: thing.id, from: { x: thing.x, y: thing.y }, to, t: 0 };
+      setSpot(game, thing.id, to);
+      saveGame();
+      sfx("tick");
+      pet.mood = "happy"; pet.moodT = 3;
+      setTimeout(() => { if (!disposed && inRoom()) walkTo({ x: to.x + 14, y: to.y }); }, 650);
+    } else if (what === "tank") { // it watches the fish a moment, then your basket opens
+      emote("love", 1.2);
+      setTimeout(() => { if (!disposed) go("basket"); }, 700);
+    } else if (what === "mail") { // a friend's gift from the mailbox, or nothing today
+      const gift = things.find((it) => it.kind === "gift");
+      if (gift) openGift(gift.gift, MAILBOX.x); else { toast(t("No mail today.")); emote("question", 1.4); }
+    }
+  }
   /** What a station in the village opens (yard.js STATIONS): a page of the game sheet, the pond, the gyms, the tavern. */
   function openStation(st) {
     sfx("tick");
@@ -1286,7 +1346,9 @@ export function habitat() {
       row.append(b);
     };
     button(t("Put away"), false, () => { putAway(game, d.id); saveGame(); toast(t("{0} is back in My things.", t(name))); });
-    button(t("Move it"), true, () => { carry = { id: d.id, to: null, held: false, auto: false }; toast(t("Tap where it should go.")); });
+    const use = { bed: "Nap", food_bowl: "Eat", toy_ball: "Play" }[d.id.replace(/^decor\//, "")];
+    button(t("Move it"), !use, () => { carry = { id: d.id, to: null, held: false, auto: false }; toast(t("Tap where it should go.")); });
+    if (use && !isEgg()) button(t(use), true, () => walkTo({ x: d.x, y: d.y }, `use:${d.id.replace(/^decor\//, "")}`));
     box.body.replaceChildren(body);
   }
   // Pressed rather than tapped (Enter or Space on the keyboard, A on a game controller, which come with no
@@ -1344,15 +1406,20 @@ export function habitat() {
     if (!pressed && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // The room (prototype "habitat_room"): a tap on the floor walks it there, on the door takes it out; on it, a pet.
     if (inRoom() && !pressed && !onCreature(x, y)) {
+      // the aquarium: it walks over and watches the fish, then your basket opens
+      if (roomTank().length && Math.abs(x - TANK_IN.x) < 18 && y < TANK_IN.y + 3 && y > TANK_IN.y - 30) {
+        if (isEgg()) go("basket"); else walkTo({ x: TANK_IN.x, y: TANK_IN.y + 8 }, "use:tank");
+        return;
+      }
       if (!isEgg()) { const where = tapIn(x, y); walkTo(where === "door" ? ROOM.doorSpot : { x, y: where === "floor" ? y : ROOM.walk.y0 }, where === "door" ? "out" : null); }
       return;
     }
     // A gift or an egg on the ground.
-    const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);
+    const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && !(outside() && it.kind === "gift") && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
     if (th && th.kind === "egg") { if (th.ready) hatchAway(th); else go("creatures"); return; }
     // The aquarium: your basket and the fish you keep.
-    if (!pressed && !inRoom() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > baseY("tank", TANK_X) - 24 && y < baseY("tank", TANK_X) + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
+    if (!pressed && !roomOn() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > baseY("tank", TANK_X) - 24 && y < baseY("tank", TANK_X) + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
     const hit = pressed || inRoom() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > baseY("plot", spot.x) - 50 && y < baseY("plot", spot.x) + 6);
@@ -1368,10 +1435,14 @@ export function habitat() {
     }
     if (hit >= 0 && !plots[hit].tier && Math.abs(x - pet.x) > 24) { go("garden"); return; }
     if (pressed || (outside() ? onCreature(x, y) : Math.abs(x - cx) < 30)) {
+      pet.napUntil = 0; // (a pat wakes it from a nap)
       cheer("pet");
       sfx("pet");
       sayWord();
       showAbout();
+    }
+    else if (outside() && Math.abs(x - MAILBOX.x) < 10 && y > MAILBOX.y - 26 && y < MAILBOX.y + 4) { // the mailbox
+      if (isEgg()) useThing("mail"); else walkTo({ x: MAILBOX.x + 12, y: MAILBOX.y + 6 }, "use:mail");
     }
     else if (outside() && stationAt(x, y)) { // the village: a stall, a door or the pier; it walks there and it opens
       const st = stationAt(x, y);

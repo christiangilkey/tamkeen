@@ -49,9 +49,23 @@ test("the small things it moves by itself are indoor ones", () => {
 test("habitat.js: a tap on a decoration opens Move it / Put away; it fetches, carries and puts down", () => {
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   assert.match(h, /if \(piece\) \{ decorMenu\(piece\); return; \}/);
-  assert.match(h, /button\(t\("Move it"\), true/);
+  assert.match(h, /button\(t\("Move it"\), !use/);
   assert.match(h, /button\(t\("Put away"\), false/);
   assert.match(h, /pet\.after === "pickup" && carry\) \{ carry\.held = true;/);
   assert.match(h, /setSpot\(game, carry\.id, carry\.to\);/);
   assert.match(h, /inRoom\(\) && !carry && Math\.random\(\) < 0\.12/);
+});
+
+test("using things (slice 4): a nap on the bed, a meal from the bowl, the ball kicked; the aquarium indoors; the mailbox", () => {
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.ok(h.includes('const use = { bed: "Nap", food_bowl: "Eat", toy_ball: "Play" }'));
+  assert.ok(h.includes("pet.napUntil = performance.now() + 20000;"));
+  assert.ok(h.includes("const why = feedBest(game, game.creature);"), "the bowl feeds as Supplies does (a real meal, food used up)");
+  assert.ok(h.includes("rolling = { id: thing.id, from:"), "the ball rolls to its new spot");
+  assert.ok(h.includes('const roomTank = () => (fishingOf(game).caught > 0 ? [{ id: "tank"'), "the aquarium stands in the room");
+  assert.ok(h.includes('if (th.kind === "gift") continue; // (in the mailbox)'), "gifts come in the mailbox, not on the grass");
+  assert.ok(h.includes('walkTo({ x: MAILBOX.x + 12, y: MAILBOX.y + 6 }, "use:mail")'));
+  // nothing here pays: no coins, gems, glow or XP handed out by using things
+  const use = h.slice(h.indexOf("function useThing(what)"), h.indexOf("/** What a station in the village opens"));
+  assert.doesNotMatch(use, /coins|gems|\.glow|xp|earn\(/i);
 });

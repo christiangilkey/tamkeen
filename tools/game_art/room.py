@@ -525,7 +525,34 @@ def door_piece(open_: bool) -> Image.Image:
     return cv.im
 
 
-PIECES = {"room": room, "door": lambda: door_piece(False), "door_open": lambda: door_piece(True)}
+def mailbox_piece(flag_up: bool) -> Image.Image:
+    """The mailbox by the cottage's path in the yard (slice 4): a little wooden box with a round top on a post, its red
+    flag raised when a friend's gift has come (the game raises it; tap it and the creature fetches the gift)."""
+    cv = Canvas(18, 26, seed=13)
+    cv.rect(7, 12, 9, 25, WOOD[3]); cv.vline(7, 12, 25, WOOD[4]); cv.vline(9, 12, 25, WOOD[1])  # the post
+    cv.rect(5, 24, 11, 25, STONE[2]); cv.hline(5, 11, 24, STONE[3])  # its stone foot
+    for y in range(3, 13):  # the box: a round top
+        for x in range(2, 15):
+            top = 3 + (1 if x in (2, 14) else 0) + (1 if x in (3, 13) else 0)
+            if y < top:
+                continue
+            c = hexc("3e6a8a") if x > 3 else hexc("5a8ab0")
+            if y == top or x == 2:
+                c = hexc("7aaad0")
+            if x == 14 or y == 12:
+                c = hexc("2a4a66")
+            cv.put(x, y, c)
+    cv.rect(3, 6, 4, 10, hexc("2a4a66")); cv.put(3, 7, IRON[2])  # the little door and its latch
+    cv.hline(5, 12, 7, hexc("2a4a66"))
+    if flag_up:
+        cv.vline(15, 1, 8, IRON[1]); cv.rect(16, 1, 17, 3, hexc("e04848")); cv.put(16, 1, hexc("ff8a8a"))
+    else:
+        cv.hline(15, 17, 8, IRON[1]); cv.rect(16, 9, 17, 10, hexc("a83030"))
+    return cv.im
+
+
+PIECES = {"room": room, "door": lambda: door_piece(False), "door_open": lambda: door_piece(True),
+          "mailbox": lambda: mailbox_piece(False), "mailbox_flag": lambda: mailbox_piece(True)}
 
 
 def lua_for(name: str, im: Image.Image) -> str:

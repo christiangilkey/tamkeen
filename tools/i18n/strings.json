@@ -20175,6 +20175,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "fc37a7ab",
+  "k": "No mail today.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "2db87a01",
   "k": "Decoration",
   "f": "web/js/game/habitat.js"
@@ -20197,6 +20202,16 @@
  {
   "id": "0c4690f3",
   "k": "{0} is back in My things.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "f197b585",
+  "k": "Nap",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "280b1cb3",
+  "k": "Eat",
   "f": "web/js/game/habitat.js"
  },
  {

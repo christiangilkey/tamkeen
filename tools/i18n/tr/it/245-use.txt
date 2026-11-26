@@ -1,0 +1,4 @@
+# Using things in the home (prototype habitat_room, slice 4): habitat.js's decoration menu and the mailbox.
+fc37a7ab	Oggi niente posta.
+f197b585	Pisolino
+280b1cb3	Mangia

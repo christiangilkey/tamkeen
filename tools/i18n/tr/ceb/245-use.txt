@@ -1,0 +1,4 @@
+# Using things in the home (prototype habitat_room, slice 4): habitat.js's decoration menu and the mailbox.
+fc37a7ab	Walay sulat karong adlawa.
+f197b585	Pahulay
+280b1cb3	Kaon
