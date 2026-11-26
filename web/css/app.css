@@ -3035,6 +3035,16 @@ html.sel-sheets select { pointer-events: none; }
 .goal-ring.done { background: #5cf2b0; color: #03140c; }
 .goal-ring.done:hover:not(:disabled) { background: #5cf2b0; }
 .habitat-scene .pet-word { z-index: 2; }
+/* A Muffle's words (prototype habitat_room, muffles.js): the words you know in your language, the rest in their
+   forgotten script (game-art/muffle/glyphs.png: 12 letters, 7 x 9, drawn at 2x). */
+.muffle-say { max-width: min(260px, 84%); }
+.muffle-say b { font-size: 16px; display: flex; flex-wrap: wrap; gap: 3px 6px; justify-content: center; align-items: center; }
+.muffle-say .mw-lost { display: inline-flex; gap: 1px; }
+.muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
+.muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
+  background: url("../game-art/muffle/glyphs.png") 0 0 / 192px 18px no-repeat; }
+.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; }
+.muffle-say.show { animation: pet-word 6s ease-out both; }
 /* The daily goal box (tap the ring) and the name box (tap the name tag). */
 .goal-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .goal-opt { min-height: 64px; border-radius: 14px; font-size: 20px; font-weight: 800; }

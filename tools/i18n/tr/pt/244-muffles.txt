@@ -1,0 +1,3 @@
+# The Muffles (prototype habitat_room): habitat.js's Muffle speech bubble. The name stays the owner's "Muffle", in each language's letters.
+d4b83e87	Muffle
+1e4df96a	Palavras que você conhece: {0} de {1}

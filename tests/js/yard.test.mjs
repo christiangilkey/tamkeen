@@ -5,14 +5,17 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { DECALS, PROPS, TERRAIN, drawCorners } from "../../web/js/game/battlemap.js";
 import { cellKey, findPath } from "../../web/js/game/room.js";
-import { COTTAGE, YARD_COLS, YARD_DOOR_SPOT, YARD_ROWS, YARD_WALK, tapYard, yardBlocked, yardMap } from "../../web/js/game/yard.js";
+import { COTTAGE, STATIONS, WORLD_COLS, YARD_COLS, YARD_DOOR_SPOT, YARD_ROWS, YARD_WALK, cameraFor, stationAt, tapYard, yardBlocked, yardMap } from "../../web/js/game/yard.js";
 
 const key = (p) => cellKey(p, YARD_WALK);
 
-test("the yard is one battle-map field the size of the habitat window, made of the arenas' own terrain and props", () => {
+test("the yard and the village are one battle-map field, the window a camera on it, made of the arenas' own terrain and props", () => {
   const m = yardMap();
-  assert.deepEqual([m.cols, m.rows, YARD_COLS, YARD_ROWS], [20, 9, 20, 9]);
-  assert.equal(m.tiles.length, 20 * 9);
+  assert.deepEqual([m.cols, m.rows, YARD_COLS, YARD_ROWS, WORLD_COLS], [56, 9, 20, 9, 56]);
+  assert.equal(m.tiles.length, 56 * 9);
+  assert.equal(m.roofs.length, 3, "the cottage, the tavern, the championship hall");
+  assert.equal(cameraFor(0), 0);
+  assert.equal(cameraFor(5000), m.width - 320);
   for (const t of m.tiles) assert.ok(TERRAIN[t], `${t} is a terrain`);
   for (const p of m.props) assert.ok(PROPS[p.id], `${p.id} is a prop`);
   for (const d of m.decals) assert.ok(DECALS[d.id], `${d.id} is a decal`);
@@ -20,8 +23,8 @@ test("the yard is one battle-map field the size of the habitat window, made of t
   // the battle drawing works on it: every dual-grid cell starts with the grass
   for (let cy = 0; cy <= m.rows; cy++) for (let cx = 0; cx <= m.cols; cx++) assert.equal(drawCorners(m, cx, cy)[0].terrain, "grass");
   // the cottage's door is a gap in its front wall
-  assert.equal(m.tiles[COTTAGE.door.ty * 20 + COTTAGE.door.tx], "wood_floor");
-  assert.equal(m.tiles[COTTAGE.door.ty * 20 + COTTAGE.door.tx - 1], "house_wall");
+  assert.equal(m.tiles[COTTAGE.door.ty * 56 + COTTAGE.door.tx], "wood_floor");
+  assert.equal(m.tiles[COTTAGE.door.ty * 56 + COTTAGE.door.tx - 1], "house_wall");
 });
 
 test("the creature walks round the cottage, the pond and the trees, and reaches the door from anywhere", () => {
@@ -70,4 +73,19 @@ test("smaller creatures outside and in battles, drawn crisp (whole screen pixels
   assert.doesNotMatch(readFileSync(new URL("../../web/js/game/livebattle.js", import.meta.url), "utf8"), /small_battlers/);
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
   assert.equal(PROTOTYPES.small_battlers.released, false);
+});
+
+test("the village's stations: each can be walked to from the cottage's door, and a tap finds it", () => {
+  const blocked = yardBlocked(key);
+  assert.deepEqual(STATIONS.map((s) => s.opens), ["garden", "shop", "supplies", "mine", "tavern", "gyms", "pond"]);
+  for (const st of STATIONS) {
+    assert.ok(!blocked.has(key(st)), `${st.id}: it can stand there`);
+    const path = findPath(YARD_DOOR_SPOT, st, blocked, YARD_WALK);
+    assert.deepEqual(path.at(-1), { x: st.x, y: st.y }, `${st.id} is reached`);
+    assert.equal(stationAt((st.rect[0] + st.rect[2]) / 2, (st.rect[1] + st.rect[3]) / 2), st);
+  }
+  assert.equal(stationAt(160, 110), null, "the yard has none");
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.ok(h.includes("walkTo({ x: st.x, y: st.y }, `go:${st.id}`)"), "a tap on a station walks it there");
+  assert.ok(h.includes("ctx.translate(-cam(), 0);"), "the camera follows it along the field");
 });

@@ -33,7 +33,9 @@ const EXCLUDE = [/\/vendor\//, /\/wordlists\//, /lexicon\/arabic\.js$/, /web\/js
   // (and the same in each app language: already in that language, never translated)
   /web\/js\/voiceask-native\.js$/,
   // (prototype mode: the features' names and the secret switch's messages are for the owner only)
-  /web\/js\/prototype\.js$/];
+  /web\/js\/prototype\.js$/,
+  // (the Muffles' lines: in the language being learned, never translated; web/js/game/muffles.js)
+  /web\/js\/game\/muffles\.js$/];
 
 function files(p) {
   const full = join(root, p);
