@@ -35,7 +35,9 @@ import { TANK_SIZE } from "./fishdata.js";
 import { TIERS } from "./loot.js";
 import { TANK_X } from "./homecard.js";
 import { feature } from "../prototype.js";
-import { ROOM, YARD_DOOR, blockedCells, clampToFloor, depthScale, findPath, isIndoor, roomLayout, savedView, saveView, tapIn } from "./room.js";
+import { ROOM, blockedCells, cellKey, clampToFloor, depthScale, findPath, isIndoor, roomLayout, savedView, saveView, tapIn } from "./room.js";
+import { COTTAGE, YARD_DOOR_SPOT, YARD_EGG, YARD_WALK, decorSpot, plotSpot, tankSpot, tapYard, thingSpot, yardBlocked, yardMap } from "./yard.js";
+import { DECALS, PROPS, ROOFS, ROOF_EXTRAS, SHEETS, TILE, drawCorners, roofRows } from "./battlemap.js";
 
 const [W, H] = HABITAT.size;
 const STAGE_LABEL = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -140,7 +142,7 @@ export function habitat() {
     }
   }
   const toScreen = (x, y) => { const r = canvas.getBoundingClientRect(); return { x: r.left + (x / W) * r.width, y: r.top + (y / H) * r.height }; };
-  const creaturePoint = () => (isEgg() ? toScreen(W / 2, HABITAT.ground - 18) : toScreen(pet.x, HABITAT.ground - beastHeight(describe(game.creature)) / 2));
+  const creaturePoint = () => (isEgg() ? toScreen(W / 2, feetNow() - 18) : toScreen(pet.x, feetNow() - beastHeight(describe(game.creature)) / 2));
   /** "+12" rising from a tile that has no number of its own (glow lands on the Garden tile). */
   function plusOn(target, text) {
     const p = target && target.querySelector(".tile-plus");
@@ -409,14 +411,28 @@ export function habitat() {
   const roomOn = () => feature("habitat_room");
   let view = savedView();
   const inRoom = () => roomOn() && view === "room";
+  // Outside its door, with the room: the yard seen from above like the battles' arenas (yard.js; the owner, 2026-11-25:
+  // "I want outside the house to look like the over head battles where they walk around a playing field").
+  const outside = () => roomOn() && view !== "room";
+  const walkArea = () => (inRoom() ? ROOM.walk : YARD_WALK);
+  const outdoorDecor = () => game.decor.filter((x) => !isIndoor(x.id));
+  /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
+  const yardStanding = () => [
+    ...outdoorDecor().map((d, k) => ({ id: d.id, ...decorSpot(d.x, k) })),
+    ...garden(game).plots.flatMap((p, i) => (p.open ? [{ id: `plot${i}`, ...plotSpot(PLOTS[i].x) }] : [])),
+  ];
+  const standWidth = (id) => (decorArt[id] && decorArt[id].width) || (String(id).startsWith("plot") ? 30 : 24);
+  /** Where a thing outside stands: on the field in the yard, on the ground line in the side-on scene. */
+  const baseY = (kind, x) => (!outside() ? HABITAT.ground : kind === "thing" ? thingSpot(x).y : kind === "tank" ? tankSpot(x).y : plotSpot(x).y);
   let doorT = 0; // how long the door stays open (it opens as the creature goes through)
   const furniture = () => roomLayout(game.decor);
-  const blocked = () => blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32);
+  const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
+    : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
-  const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : HABITAT.ground);
+  const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
   /** Walk to a spot in the room, round the furniture; `after`: "out" goes through the door on arriving. */
   function walkTo(spot, after = null) {
-    pet.path = findPath({ x: pet.x, y: pet.y }, spot, blocked());
+    pet.path = findPath({ x: pet.x, y: pet.y }, spot, blocked(), walkArea());
     pet.after = after;
     pet.moodT = Math.max(pet.moodT, 4); // (a tap wakes it: it was asked to come)
   }
@@ -426,14 +442,14 @@ export function habitat() {
     doorT = 0.7;
     pet.path = [];
     pet.after = null;
-    if (to === "yard") { pet.x = YARD_DOOR.x; pet.target = YARD_DOOR.x + 46; pet.dir = 1; pet.wait = 0; }
+    if (to === "yard") { pet.x = YARD_DOOR_SPOT.x; pet.y = YARD_DOOR_SPOT.y; walkTo({ x: YARD_DOOR_SPOT.x + 40, y: YARD_DOOR_SPOT.y + 30 }); }
     else { pet.x = ROOM.doorSpot.x; pet.y = ROOM.doorSpot.y; walkTo({ x: ROOM.doorSpot.x - 50, y: 116 }); }
   }
   /** One step of walking in the room: along its way, or (with nowhere to go) a wander now and then. */
   function roomWalk(dt, look, asleep) {
     pet.moving = false;
     if (look.stage === "egg") return;
-    if (pet.leaving > 0) { if ((pet.leaving -= dt) <= 0) goThrough("yard"); return; }
+    if (pet.leaving > 0) { if ((pet.leaving -= dt) <= 0) goThrough(inRoom() ? "yard" : "room"); return; }
     if (pet.path.length) {
       const rise = riseMs(look);
       if (rise && pet.stand < 1) { pet.stand = Math.min(1, pet.stand + (dt * 1000) / rise); return; } // (getting up first)
@@ -443,7 +459,7 @@ export function habitat() {
         pet.path.shift();
         if (!pet.path.length) {
           pet.wait = 2 + Math.random() * 5;
-          if (pet.after === "out") { pet.after = null; doorT = 0.9; pet.leaving = 0.45; }
+          if (pet.after === "out" || pet.after === "in") { pet.after = null; doorT = 0.9; pet.leaving = 0.45; }
         }
         return;
       }
@@ -457,8 +473,193 @@ export function habitat() {
     }
     if (asleep) return;
     if (pet.wait > 0) { pet.wait -= dt; return; }
-    const w = ROOM.walk;
-    pet.path = findPath({ x: pet.x, y: pet.y }, { x: w.x0 + Math.random() * (w.x1 - w.x0), y: w.y0 + Math.random() * (w.y1 - w.y0) }, blocked());
+    const w = walkArea();
+    pet.path = findPath({ x: pet.x, y: pet.y }, { x: w.x0 + Math.random() * (w.x1 - w.x0), y: w.y0 + Math.random() * (w.y1 - w.y0) }, blocked(), w);
+  }
+  // ----- the yard (prototype "habitat_room"): the battle terrain's own art, put together as the arenas are -----
+  const yardImgs = {};
+  let yardGround = null, yardDirty = true, roofPic = null;
+  const yimg = (p) => {
+    if (!(p in yardImgs)) { yardImgs[p] = null; loadImage(p).then((im) => { yardImgs[p] = im; yardDirty = true; }).catch(() => {}); }
+    return yardImgs[p];
+  };
+  /** The ground: drawn once into its own canvas (again when a picture arrives). */
+  function drawYard() {
+    if (yardDirty) {
+      yardDirty = false;
+      const m = yardMap();
+      if (!yardGround) { yardGround = document.createElement("canvas"); yardGround.width = W; yardGround.height = H; }
+      const g = yardGround.getContext("2d");
+      g.imageSmoothingEnabled = false;
+      g.fillStyle = "#3f7a34";
+      g.fillRect(0, 0, W, H);
+      for (let cy = 0; cy <= m.rows; cy++) for (let cx = 0; cx <= m.cols; cx++) {
+        for (const l of drawCorners(m, cx, cy)) {
+          const sh = SHEETS[l.terrain];
+          if (!sh) continue;
+          const full = l.mask === 15;
+          const img = yimg(full ? sh.fill : sh.edges);
+          if (!img) continue;
+          const x = cx * TILE - TILE / 2, y = cy * TILE - TILE / 2;
+          if (full) g.drawImage(img, (l.fill % Math.max(1, Math.round(img.width / TILE))) * TILE, 0, TILE, TILE, x, y, TILE, TILE);
+          else g.drawImage(img, (l.mask % 4) * TILE, Math.floor(l.mask / 4) * TILE, TILE, TILE, x, y, TILE, TILE);
+        }
+      }
+      for (const d of m.decals) {
+        const info = DECALS[d.id];
+        const img = info && yimg(info.art);
+        if (!img) continue;
+        const [w, hgt] = info.size || [16, 16];
+        g.drawImage(img, (d.v || 0) * w, 0, w, hgt, d.x, d.y, w, hgt);
+      }
+    }
+    ctx.drawImage(yardGround, 0, 0);
+  }
+  /** The cottage's thatched roof, put together once from its 16x16 pieces (as livebattle-ui's roofImage). */
+  function yardRoof(r) {
+    if (roofPic) return roofPic;
+    const sheet = yimg(ROOFS[r.style].sheet);
+    if (!sheet) return null;
+    const c = document.createElement("canvas");
+    const w = r.w * TILE + 6;
+    c.width = w;
+    const { back, front } = roofRows(r.h);
+    const rows = [0, ...Array(back).fill(1), 2, ...Array(front).fill(3), 4];
+    c.height = rows.length * TILE;
+    const g = c.getContext("2d");
+    g.imageSmoothingEnabled = false;
+    rows.forEach((row, k) => {
+      const y = k * TILE, sy = row * TILE;
+      g.drawImage(sheet, 0, sy, TILE, TILE, 0, y, TILE, TILE);
+      for (let x = TILE; x < w - TILE; x += TILE) { const cw = Math.min(TILE, w - TILE - x); g.drawImage(sheet, TILE, sy, cw, TILE, x, y, cw, TILE); }
+      g.drawImage(sheet, 2 * TILE, sy, TILE, TILE, w - TILE, y, TILE, TILE);
+    });
+    roofPic = c;
+    return c;
+  }
+  /** Everything standing on the yard's field, each with its depth (the y of its foot) and how to draw it. */
+  function yardScene(now, sparkle) {
+    const out = [];
+    const m = yardMap();
+    for (const p of m.props) {
+      const img = PROPS[p.id] && yimg(PROPS[p.id].art);
+      if (!img) continue;
+      const cx = p.x * TILE + (p.w * TILE) / 2, bottom = (p.y + 1) * TILE;
+      out.push({ y: bottom - 1, draw: () => {
+        ctx.save();
+        ctx.translate(Math.round(cx), bottom);
+        if (p.flip) ctx.scale(-1, 1);
+        ctx.drawImage(img, -Math.round(img.width / 2), -img.height);
+        ctx.restore();
+      } });
+    }
+    const r = m.roofs[0];
+    out.push({ y: (COTTAGE.y0 + COTTAGE.h) * TILE - 1, draw: () => {
+      const pic = yardRoof(r);
+      if (!pic) return;
+      const top = r.y0 * TILE - 10;
+      ctx.drawImage(pic, r.x0 * TILE - 3, top);
+      const ridge = top + (1 + roofRows(r.h).back) * TILE;
+      for (const e of r.extras) {
+        const info = ROOF_EXTRAS[e.id];
+        const im = info && yimg(info.art);
+        if (im) ctx.drawImage(im, Math.round(r.x0 * TILE + e.x * TILE - im.width / 2 + (info.dx || 0)), ridge + info.sit - im.height);
+      }
+      // a thread of smoke from the chimney
+      const chim = r.extras.find((e) => e.id === "chimney");
+      if (chim) {
+        const sx = r.x0 * TILE + chim.x * TILE, sy = ridge + ROOF_EXTRAS.chimney.sit - 31;
+        for (let i = 0; i < 4; i++) {
+          const k = ((now / 2600) + i / 4) % 1;
+          ctx.fillStyle = `rgba(230, 226, 236, ${(0.55 * (1 - k)).toFixed(2)})`;
+          const px = Math.round(sx + Math.sin(k * 5 + i) * 2 + k * 8), py = Math.round(sy - k * 26), n = 2 + Math.round(k * 3);
+          ctx.fillRect(px - n, py - n + 1, n * 2, n * 2 - 2);
+          ctx.fillRect(px - n + 1, py - n, n * 2 - 2, n * 2);
+        }
+      }
+    } });
+    outdoorDecor().forEach((d, k) => {
+      if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
+      const img = decorArt[d.id];
+      const at = decorSpot(d.x, k);
+      if (img) out.push({ y: at.y, draw: () => ctx.drawImage(img, Math.round(at.x - img.width / 2), at.y - img.height + 2) });
+    });
+    const plots = garden(game).plots;
+    for (let i = 0; i < PLOTS.length; i++) {
+      const p = plots[i];
+      if (!p.open) continue;
+      const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
+      if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
+      const img = plotArt[file];
+      if (!img) continue;
+      const at = plotSpot(PLOTS[i].x);
+      const x = Math.round(at.x - img.width / 2), y = at.y - img.height + 3;
+      out.push({ y: at.y, draw: () => {
+        ctx.drawImage(img, x, y);
+        if (!(p.tier && p.stored >= 1)) return;
+        ctx.save();
+        ctx.globalCompositeOperation = "lighter";
+        ctx.globalAlpha = 0.22 + 0.16 * Math.sin(now / 320 + i);
+        ctx.drawImage(img, x, y);
+        ctx.restore();
+        if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (sparkle + i) % FX_FRAMES.ready, at.x, y + img.height / 2);
+        if (art.glowIcon) ctx.drawImage(art.glowIcon, at.x - 8, y - 14 + Math.round(Math.sin(now / 300 + i) * 2));
+      } });
+    }
+    if (art.tank && fishingOf(game).caught > 0) {
+      const at = tankSpot(TANK_X);
+      out.push({ y: at.y, draw: () => {
+        const tx = at.x - art.tank.width / 2, ty = at.y - art.tank.height + 2;
+        ctx.drawImage(art.tank, tx, ty);
+        drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
+      } });
+    }
+    for (const th of things) {
+      const at = thingSpot(th.x);
+      if (th.kind === "gift" && art.gift) {
+        out.push({ y: at.y, draw: () => {
+          const jump = Math.floor(now / 1400) % 2 ? 0 : Math.round(Math.abs(Math.sin(now / 120)) * 3);
+          ctx.drawImage(art.gift, th.x - 8, at.y - 15 - jump);
+          if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, th.x, at.y - 10);
+        } });
+      } else if (th.kind === "egg") {
+        const spare = game.roster[th.index];
+        const img = spare && eggOf(spare.type);
+        if (!img) continue;
+        out.push({ y: at.y, draw: () => {
+          const shake = th.ready ? Math.sin(now / 70) * 2 : Math.sin(now / 260) * (th.progress > 0.8 ? 2 : 0.6);
+          ctx.save();
+          ctx.translate(Math.round(th.x + shake), at.y);
+          ctx.drawImage(img, -16, -32);
+          const n = th.ready ? 2 : Math.min(2, Math.floor(th.progress * 4) - 1);
+          if (n >= 0 && cracks[n]) ctx.drawImage(cracks[n], -16, -32);
+          ctx.restore();
+          if (th.ready && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, th.x, at.y - 16);
+        } });
+      }
+    }
+    return out.sort((a, b) => a.y - b.y);
+  }
+  /** The view from the room's window and doorway: a sky by the hour and green hills (no town: "more fantasy"). */
+  function drawHills(hour) {
+    const day = hour >= 7 && hour < 18, dusk = !day && hour >= 5 && hour < 20;
+    const sky = ctx.createLinearGradient(0, 0, 0, 84);
+    sky.addColorStop(0, day ? "#6fb4e8" : dusk ? "#5a4a8a" : "#141a40");
+    sky.addColorStop(1, day ? "#cfeaff" : dusk ? "#f0a070" : "#2c3466");
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, W, H);
+  }
+  function drawHillsFront() {
+    ctx.fillStyle = "#6a9a4a";
+    for (let x = 0; x < W; x++) { const y = 44 + Math.round(Math.sin(x / 23) * 4 + Math.sin(x / 9) * 1.5); ctx.fillRect(x, y, 1, H - y); }
+    for (const tx of [146, 168, 182, 274, 288]) {
+      ctx.fillStyle = "#5a3a20"; ctx.fillRect(tx - 1, 46, 2, 6);
+      ctx.fillStyle = "#2f5e2a"; ctx.fillRect(tx - 5, 38, 10, 9); ctx.fillRect(tx - 3, 35, 6, 3);
+    }
+    ctx.fillStyle = "#4f8a3c";
+    for (let x = 0; x < W; x++) { const y = 54 + Math.round(Math.sin(x / 31 + 2) * 5); ctx.fillRect(x, y, 1, H - y); }
+    ctx.fillStyle = "#3d7230";
+    for (let x = 0; x < W; x++) { const y = 70 + Math.round(Math.sin(x / 17 + 1) * 3); ctx.fillRect(x, y, 1, H - y); }
   }
   const foodArt = {}; // food id -> image (a hungry creature's thought bubble)
   const bursts = [];   // {id, x, y, t}
@@ -598,7 +799,7 @@ export function habitat() {
     const night = hour < 6 || hour >= 20;
     const asleep = night && !pet.moodT;
     // Wander: walk to a spot, wait, pick another. Eggs just wobble. (In the room it walks round the furniture.)
-    if (inRoom()) roomWalk(dt, look, asleep);
+    if (inRoom() || outside()) roomWalk(dt, look, asleep);
     else if (look.stage !== "egg" && (!asleep || pet.after)) {
       if (pet.after === "in" && Math.abs(pet.target - pet.x) < 1) goThrough("room"); // (at the house's door: in it goes)
       else if (pet.wait > 0) pet.wait -= dt;
@@ -639,14 +840,17 @@ export function habitat() {
     const dark = night ? 0.55 : hour > 18 ? (hour - 18) * 0.22 : hour < 7.5 ? (7.5 - hour) * 0.3 : 0;
     ctx.clearRect(0, 0, W, H);
     const here = scene();
-    if (art[`${here}_sky`]) ctx.drawImage(art[`${here}_sky`], 0, 0);
+    if (outside()) drawYard();
+    else if (inRoom()) drawHills(hour);
+    else if (art[`${here}_sky`]) ctx.drawImage(art[`${here}_sky`], 0, 0);
     const arc = (hour >= 6 && hour < 20 ? (hour - 6) / 14 : ((hour + 4) % 24) / 10);
     const orb = night ? art.moon : art.sun;
-    if (orb) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
-    if (art.cloud1) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
-    if (art.cloud2) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
+    if (orb && !outside()) ctx.drawImage(orb, Math.round(20 + arc * (W - 64)), Math.round(34 - Math.sin(arc * Math.PI) * 26));
+    if (art.cloud1 && !outside()) ctx.drawImage(art.cloud1, Math.round(((now / 90) % (W + 60)) - 50), 16);
+    if (art.cloud2 && !outside()) ctx.drawImage(art.cloud2, Math.round(((now / 140 + 150) % (W + 40)) - 36), 34);
     // (in the room only the far view shows, through the window and the doorway, then the room over it)
-    for (const layer of inRoom() ? ["far", "mid"] : ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
+    if (inRoom()) drawHillsFront();
+    else if (!outside()) for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
     if (art.rain && rainy()) {
       const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
       for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
@@ -664,7 +868,7 @@ export function habitat() {
     const groundY = HABITAT.ground;
     const sparkle = Math.floor(now / 170) % FX_FRAMES.ready; // the "ready" twinkle over things to collect
     // Decorations stand on the ground, behind the creature. (With the room, only the outdoor ones, and not indoors.)
-    for (const d of inRoom() ? [] : roomOn() ? game.decor.filter((x) => !isIndoor(x.id)) : game.decor) {
+    for (const d of roomOn() ? [] : game.decor) {
       if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
       const img = decorArt[d.id];
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), groundY - img.height + 2);
@@ -675,7 +879,7 @@ export function habitat() {
     const glowing = [];
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
-      if (!p.open || inRoom()) continue; // (the garden is outside the room)
+      if (!p.open || roomOn()) continue; // (with the room, the garden is in the yard: yardScene)
       const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
       if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
       const img = plotArt[file];
@@ -685,7 +889,7 @@ export function habitat() {
       ctx.drawImage(img, x, y);
       if (p.tier && p.stored >= 1) glowing.push({ img, x, y, i });
     }
-    if (dark && (game.decor.length || plots.some((p) => p.open))) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.6})`; ctx.fillRect(0, groundY - 48, W, 50); }
+    if (dark && !roomOn() && (game.decor.length || plots.some((p) => p.open))) { ctx.fillStyle = `rgba(20, 12, 48, ${dark * 0.6})`; ctx.fillRect(0, groundY - 48, W, 50); }
     for (const b of glowing) { // (over the night's shade: a ready building lights up the dark)
       ctx.save();
       ctx.globalCompositeOperation = "lighter";
@@ -696,14 +900,14 @@ export function habitat() {
       if (art.glowIcon) ctx.drawImage(art.glowIcon, PLOTS[b.i].x - 8, b.y - 14 + Math.round(Math.sin(now / 300 + b.i) * 2));
     }
     // The aquarium stands between two plots once a fish has been caught, the fish kept in it swimming (very small).
-    if (art.tank && fishingOf(game).caught > 0 && !inRoom()) {
+    if (art.tank && fishingOf(game).caught > 0 && !roomOn()) {
       const tx = TANK_X - art.tank.width / 2, ty = groundY - art.tank.height + 2;
       ctx.drawImage(art.tank, tx, ty);
       drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
     }
     // A friend's gift and an egg from the incubator wait on the ground, between the plots.
     for (const th of things) {
-      if (inRoom()) break; // (they wait outside the room)
+      if (roomOn()) break; // (with the room they wait in the yard: yardScene)
       if (th.kind === "gift" && art.gift) {
         const jump = Math.floor(now / 1400) % 2 ? 0 : Math.round(Math.abs(Math.sin(now / 120)) * 3); // a little hop now and then
         ctx.drawImage(art.gift, th.x - 8, groundY - 15 - jump);
@@ -723,8 +927,6 @@ export function habitat() {
       }
     }
 
-    // Outside, with the room: the house's door by the left edge (tap it: the creature goes in).
-    if (roomOn() && !inRoom() && art.door) ctx.drawImage(doorT > 0 && art.doorOpen ? art.doorOpen : art.door, YARD_DOOR.x - YARD_DOOR.w / 2, groundY - YARD_DOOR.h + 2);
     // The room's furniture: what stands behind the creature now, then (after it) what stands in front.
     const feet = feetNow();
     const pieces = inRoom() ? furniture() : [];
@@ -734,6 +936,8 @@ export function habitat() {
       if (img) ctx.drawImage(img, Math.round(d.x - img.width / 2), Math.round(d.y - img.height + 2));
     };
     for (const d of pieces) if (d.y <= feet) drawPiece(d);
+    const yardItems = outside() ? yardScene(now, sparkle) : [];
+    for (const it of yardItems) if (it.y <= feet) it.draw(); // (what stands behind it on the field)
     const scale = inRoom() ? depthScale(feet) : 1;
 
     // The goal ring round the creature's feet: its back half behind the creature, its front half in front.
@@ -763,7 +967,7 @@ export function habitat() {
     } else {
       // Its frame: flying (taking off and landing too), walking, or still (breathing, now and then a blink;
       // slower asleep).
-      const moving = inRoom() ? pet.moving : pet.wait <= 0 && (!asleep || pet.after) && Math.abs(pet.target - pet.x) >= 1;
+      const moving = inRoom() || outside() ? pet.moving : pet.wait <= 0 && (!asleep || pet.after) && Math.abs(pet.target - pet.x) >= 1;
       const rise = drawingOf(look).anims.rise;
       const pose = pet.air > 0 ? animAt(look, "fly", pet.walkMs)
         : rise && pet.stand > 0 && pet.stand < 1 ? { anim: "rise", frame: Math.min(rise.frames - 1, Math.floor(pet.stand * rise.frames)), eyes: "open" }
@@ -813,6 +1017,7 @@ export function habitat() {
     }
     ctx.drawImage(ringPic.front, rx0, ry0);
     for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
+    for (const it of yardItems) if (it.y > feet) it.draw(); // (and on the field)
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
     const at = `${((cx / W) * 100).toFixed(2)}|${(((feet + RING.dy + 6) / H) * 100).toFixed(2)}`;
@@ -882,9 +1087,9 @@ export function habitat() {
       online.gifts = online.gifts.filter((g) => g !== gift);
       saveGame();
       sfx("jackpot");
-      bursts.push({ id: "burst_lucky", x, y: HABITAT.ground - 10, t: 0 });
+      bursts.push({ id: "burst_lucky", x, y: baseY("thing", x) - 10, t: 0 });
       // What came out flies to where it is kept: an egg to Creatures, a thing to wear to the Shop's My things.
-      fly(got && got.kind === "egg" ? "egg" : "gift", toScreen(x, HABITAT.ground - 8), $(got && got.kind === "egg" ? "#g-creatures .px-icon" : "#g-shop .px-icon"));
+      fly(got && got.kind === "egg" ? "egg" : "gift", toScreen(x, baseY("thing", x) - 8), $(got && got.kind === "egg" ? "#g-creatures .px-icon" : "#g-shop .px-icon"));
       toast(t("From {0}: {1}", gift.from, t(message))).prepend(h(icon("gift")), " "); // (what came out, in the reader's language too)
       paintHud();
     } catch (err) {
@@ -897,8 +1102,8 @@ export function habitat() {
     delete c.hatchedAway;
     saveGame();
     sfx("jackpot");
-    bursts.push({ id: "hatch", x: th.x, y: HABITAT.ground - 16, t: 0 });
-    fly("nav_roster", toScreen(th.x, HABITAT.ground - 16), $("#g-creatures .px-icon"));
+    bursts.push({ id: "hatch", x: th.x, y: baseY("thing", th.x) - 16, t: 0 });
+    fly("nav_roster", toScreen(th.x, baseY("thing", th.x) - 16), $("#g-creatures .px-icon"));
     toast(t("It hatched! Bring it out on the Creatures page.")).prepend(h(icon("egg")), " ");
     paintHud();
   }
@@ -911,7 +1116,7 @@ export function habitat() {
     if (!step || !roomOn() || isEgg()) return;
     e.preventDefault();
     if (inRoom()) walkTo(clampToFloor({ x: pet.x + step[0] * 26, y: pet.y + step[1] * 12 }));
-    else if (step[0]) { pet.target = Math.max(YARD_DOOR.x, Math.min(W - 30, pet.x + step[0] * 30)); pet.wait = 0; pet.after = pet.target === YARD_DOOR.x && step[0] < 0 ? "in" : null; }
+    else walkTo(clampToFloor({ x: pet.x + step[0] * 26, y: pet.y + step[1] * 14 }, YARD_WALK));
   });
   const scenePoint = (e) => {
     const r = canvas.getBoundingClientRect();
@@ -944,36 +1149,35 @@ export function habitat() {
       if (!isEgg()) { const where = tapIn(x, y); walkTo(where === "door" ? ROOM.doorSpot : { x, y: where === "floor" ? y : ROOM.walk.y0 }, where === "door" ? "out" : null); }
       return;
     }
-    // Outside, the house's door: it walks there and goes in.
-    if (roomOn() && !inRoom() && !pressed && !isEgg() && Math.abs(x - YARD_DOOR.x) < YARD_DOOR.w / 2 && y > HABITAT.ground - YARD_DOOR.h) {
-      pet.target = YARD_DOOR.x; pet.wait = 0; pet.after = "in"; pet.moodT = Math.max(pet.moodT, 4);
-      return;
-    }
     // A gift or an egg on the ground.
-    const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > HABITAT.ground - 34 && y < HABITAT.ground + 6);
+    const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);
     if (th && th.kind === "gift") { openGift(th.gift, th.x); return; }
     if (th && th.kind === "egg") { if (th.ready) hatchAway(th); else go("creatures"); return; }
     // The aquarium: your basket and the fish you keep.
-    if (!pressed && !inRoom() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > HABITAT.ground - 24 && y < HABITAT.ground + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
+    if (!pressed && !inRoom() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > baseY("tank", TANK_X) - 24 && y < baseY("tank", TANK_X) + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
-    const hit = pressed || inRoom() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > HABITAT.ground - 50);
+    const hit = pressed || inRoom() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > baseY("plot", spot.x) - 50 && y < baseY("plot", spot.x) + 6);
     if (hit >= 0 && plots[hit].stored >= 1) {
       collect(game, hit);
-      for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: HABITAT.ground - 40 + Math.random() * 8, t: -i * 0.1 });
+      for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: baseY("plot", PLOTS[hit].x) - 40 + Math.random() * 8, t: -i * 0.1 });
       sfx("lucky");
       saveGame();
       things = collectables(game, { gifts: online.gifts });
-      settle(toScreen(PLOTS[hit].x, HABITAT.ground - 30)); // the glow flies from the building to the Garden tile
+      settle(toScreen(PLOTS[hit].x, baseY("plot", PLOTS[hit].x) - 30)); // the glow flies from the building to the Garden tile
       paintHud();
       return;
     }
     if (hit >= 0 && !plots[hit].tier && Math.abs(x - pet.x) > 24) { go("garden"); return; }
-    if (pressed || Math.abs(x - cx) < 30) {
+    if (pressed || (outside() ? onCreature(x, y) : Math.abs(x - cx) < 30)) {
       cheer("pet");
       sfx("pet");
       sayWord();
       showAbout();
+    }
+    else if (outside() && !isEgg()) { // the yard: the cottage's door takes it in; anywhere else, it walks there
+      const door = tapYard(x, y) === "door";
+      walkTo(door ? YARD_DOOR_SPOT : clampToFloor({ x, y }, YARD_WALK), door ? "in" : null);
     }
     else if (!isEgg()) { pet.target = Math.max(30, Math.min(W - 30, x)); pet.wait = 0; pet.after = null; } // "come here"
   });

@@ -53,24 +53,27 @@ export function roomLayout(decor) {
 }
 
 // ---------- walking: the shortest way round the furniture ----------
+// Every function takes the walking area last (the room's floor unless said: the yard outside has its own, yard.js).
 const CELL = 6;
-const cols = () => Math.floor((ROOM.walk.x1 - ROOM.walk.x0) / CELL) + 1;
-const rows = () => Math.floor((ROOM.walk.y1 - ROOM.walk.y0) / CELL) + 1;
-const cellOf = (p) => ({
-  c: Math.max(0, Math.min(cols() - 1, Math.round((p.x - ROOM.walk.x0) / CELL))),
-  r: Math.max(0, Math.min(rows() - 1, Math.round((p.y - ROOM.walk.y0) / CELL))),
+const cols = (A) => Math.floor((A.x1 - A.x0) / CELL) + 1;
+const rows = (A) => Math.floor((A.y1 - A.y0) / CELL) + 1;
+const cellOf = (p, A) => ({
+  c: Math.max(0, Math.min(cols(A) - 1, Math.round((p.x - A.x0) / CELL))),
+  r: Math.max(0, Math.min(rows(A) - 1, Math.round((p.y - A.y0) / CELL))),
 });
-const pointOf = (c, r) => ({ x: ROOM.walk.x0 + c * CELL, y: ROOM.walk.y0 + r * CELL });
+const pointOf = (c, r, A) => ({ x: A.x0 + c * CELL, y: A.y0 + r * CELL });
+/** The grid square a point is in, as the blocked sets name them ("c,r"). */
+export const cellKey = (p, A = ROOM.walk) => { const { c, r } = cellOf(p, A); return `${c},${r}`; };
 
 /** The squares furniture stands on: a piece `w` wide blocks a strip at its base, about a third as deep as it is wide. */
-export function blockedCells(items, sizeOf = () => 32) {
+export function blockedCells(items, sizeOf = () => 32, A = ROOM.walk) {
   const out = new Set();
   for (const it of items) {
     const w = sizeOf(it.id);
     const depth = Math.max(6, Math.round(w / 3));
-    for (let r = 0; r < rows(); r++) {
-      for (let c = 0; c < cols(); c++) {
-        const p = pointOf(c, r);
+    for (let r = 0; r < rows(A); r++) {
+      for (let c = 0; c < cols(A); c++) {
+        const p = pointOf(c, r, A);
         if (Math.abs(p.x - it.x) < w / 2 - 2 && p.y <= it.y + 2 && p.y >= it.y - depth) out.add(`${c},${r}`);
       }
     }
@@ -79,25 +82,25 @@ export function blockedCells(items, sizeOf = () => 32) {
 }
 
 /** The nearest free spot to `p` on the floor (itself when it is free). */
-export function freeSpot(p, blocked) {
-  const start = cellOf(p);
-  if (!blocked.has(`${start.c},${start.r}`)) return pointOf(start.c, start.r);
+export function freeSpot(p, blocked, A = ROOM.walk) {
+  const start = cellOf(p, A);
+  if (!blocked.has(`${start.c},${start.r}`)) return pointOf(start.c, start.r, A);
   let best = null;
-  for (let r = 0; r < rows(); r++) {
-    for (let c = 0; c < cols(); c++) {
+  for (let r = 0; r < rows(A); r++) {
+    for (let c = 0; c < cols(A); c++) {
       if (blocked.has(`${c},${r}`)) continue;
       const d = (c - start.c) ** 2 + ((r - start.r) * 1.5) ** 2;
       if (!best || d < best.d) best = { c, r, d };
     }
   }
-  return best ? pointOf(best.c, best.r) : pointOf(start.c, start.r);
+  return best ? pointOf(best.c, best.r, A) : pointOf(start.c, start.r, A);
 }
 
 /** The way from `a` to `b` round the furniture: a list of points ending at `b` (or at the nearest free spot to it).
  * Steps go along rows, columns and diagonals; the list is thinned to its corners. */
-export function findPath(a, b, blocked) {
-  const goal = cellOf(freeSpot(b, blocked));
-  const from = cellOf(a);
+export function findPath(a, b, blocked, A = ROOM.walk) {
+  const goal = cellOf(freeSpot(b, blocked, A), A);
+  const from = cellOf(a, A);
   const key = (c, r) => `${c},${r}`;
   const open = [{ c: from.c, r: from.r, g: 0, f: 0 }];
   const came = new Map();
@@ -113,9 +116,9 @@ export function findPath(a, b, blocked) {
       const pts = [];
       for (let i = 1; i < cells.length; i++) {
         const prev = cells[i - 1], here = cells[i], next = cells[i + 1];
-        if (!next || next.c - here.c !== here.c - prev.c || next.r - here.r !== here.r - prev.r) pts.push(pointOf(here.c, here.r));
+        if (!next || next.c - here.c !== here.c - prev.c || next.r - here.r !== here.r - prev.r) pts.push(pointOf(here.c, here.r, A));
       }
-      const end = blocked.has(key(cellOf(b).c, cellOf(b).r)) ? freeSpot(b, blocked) : clampToFloor(b);
+      const end = blocked.has(key(cellOf(b, A).c, cellOf(b, A).r)) ? freeSpot(b, blocked, A) : clampToFloor(b, A);
       if (pts.length) pts[pts.length - 1] = end; else pts.push(end);
       return pts;
     }
@@ -123,7 +126,7 @@ export function findPath(a, b, blocked) {
       for (let dr = -1; dr <= 1; dr++) {
         if (!dc && !dr) continue;
         const c = cur.c + dc, r = cur.r + dr;
-        if (c < 0 || r < 0 || c >= cols() || r >= rows() || blocked.has(key(c, r))) continue;
+        if (c < 0 || r < 0 || c >= cols(A) || r >= rows(A) || blocked.has(key(c, r))) continue;
         if (dc && dr && (blocked.has(key(cur.c + dc, cur.r)) || blocked.has(key(cur.c, cur.r + dr)))) continue; // no cutting corners
         const g = cur.g + (dc && dr ? 1.414 : 1);
         if (g >= (cost.get(key(c, r)) ?? Infinity)) continue;
@@ -133,13 +136,13 @@ export function findPath(a, b, blocked) {
       }
     }
   }
-  return [clampToFloor(b)]; // (walled in: it just goes)
+  return [clampToFloor(b, A)]; // (walled in: it just goes)
 }
 
 /** A point kept on the floor. */
-export const clampToFloor = (p) => ({
-  x: Math.max(ROOM.walk.x0, Math.min(ROOM.walk.x1, p.x)),
-  y: Math.max(ROOM.walk.y0, Math.min(ROOM.walk.y1, p.y)),
+export const clampToFloor = (p, A = ROOM.walk) => ({
+  x: Math.max(A.x0, Math.min(A.x1, p.x)),
+  y: Math.max(A.y0, Math.min(A.y1, p.y)),
 });
 
 /** What a tap at (x, y) in the room means: "door", "floor" (walk there) or "wall" (walk to the floor below it). */
