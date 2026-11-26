@@ -20910,6 +20910,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "265ba99f",
+  "k": "Walk, aim and use your moves as in any battle. When either of you attacks, you both get a question: the first right answer wins.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "414c5fa6",
   "k": "Drag on the arena to move; a second finger aims. Tap a move to use it, answer, then tap where to fire.",
   "f": "web/js/game/livebattle-ui.js"
@@ -20972,6 +20977,21 @@
  {
   "id": "5fb65141",
   "k": "What does this mean?",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "3a33aabc",
+  "k": "{0} got it wrong: no damage",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "8ace904b",
+  "k": "Too slow",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "5e6c2844",
+  "k": "Wrong answer",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -21170,6 +21190,11 @@
   "f": "web/js/game/livebattle-ui.js"
  },
  {
+  "id": "3f6d3dd6",
+  "k": "Leaving a ranked battle counts as a loss. The answers you gave still count for your words.",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
   "id": "6050ab40",
   "k": "The battle ends here, with no reward and nothing lost. The answers you gave still count for your words.",
   "f": "web/js/game/livebattle-ui.js"
@@ -21237,6 +21262,16 @@
  {
   "id": "8f651398",
   "k": "Battle again",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "f3bfb408",
+  "k": "Waiting for {0}…",
+  "f": "web/js/game/livebattle-ui.js"
+ },
+ {
+  "id": "db055f03",
+  "k": "The connection to {0} was lost. A dropped connection changes no points (only someone who keeps vanishing mid-battle loses them).",
   "f": "web/js/game/livebattle-ui.js"
  },
  {
@@ -21723,6 +21758,201 @@
   "id": "7c7f5d04",
   "k": "Level",
   "f": "web/js/game/oldgames.js"
+ },
+ {
+  "id": "28f05b16",
+  "k": "You need a hatched creature in your team to battle.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "c21ef301",
+  "k": "How ranked works",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "09257947",
+  "k": "Ranked",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "33209d3d",
+  "k": "Loading your rating…",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "dc3851b6",
+  "k": "Ranked battles are online: they open with Friends.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "05eb7b24",
+  "k": "Sign in to Friends first to play ranked battles.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "e2376b80",
+  "k": "{0} wins in {1} ranked battles",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "bf72d032",
+  "k": "Everyone starts at 0. Win ranked battles to climb.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "28eb5810",
+  "k": "Find a ranked match",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "0381247a",
+  "k": "Leaderboard",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "b5be8604",
+  "k": "No one found",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "9e5531b4",
+  "k": "No one near your rating is looking for a ranked match right now. Try again in a little while.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "ce8ada40",
+  "k": "within {0} points of yours",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "fceb8678",
+  "k": "Finding a ranked match",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "1e35df16",
+  "k": "Looking for a player online now, {0}.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "6acaefd2",
+  "k": "{0} of {1} seconds",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "691a77cd",
+  "k": "vs",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "09266408",
+  "k": "Match found!",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "987fde61",
+  "k": "All-time words: every card you have saved.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "97a8ea95",
+  "k": "Ranked: waiting for the other player's result. Your rating changes once it arrives.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "ba82b7de",
+  "k": "Ranked: no change (the battle didn't finish properly)",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "07b960c8",
+  "k": "Ranked {0}",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "5c841596",
+  "k": "No ranked battles yet. Be the first!",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "659ad92d",
+  "k": "Ranked battles are live: you and another player online now.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "e12a4920",
+  "k": "When either of you attacks, you both get a question about your own words at the same moment: the first right answer wins.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "1b27734c",
+  "k": "Everyone starts at 0, and your rating never goes below 0.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "caf728be",
+  "k": "Beat someone rated higher and you win more points; lose to someone rated lower and you lose more.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "dd2adb4e",
+  "k": "Against someone rated the same: +{0} or −{0} for your first {1} ranked battles, then +{2} or −{2}.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "1fc645b0",
+  "k": "Ranked battles always use all your saved words (All-time).",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "a09ffe10",
+  "k": "The search starts with players within 100 points of you and widens the longer you wait.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "429487cc",
+  "k": "Leaving a ranked battle counts as a loss. If the connection drops, nothing changes.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "38129de5",
+  "k": "The same two players can move each other's ratings in {0} ranked battles a day.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "0d527f77",
+  "k": "Tiers: Bronze from 0, Silver 200, Gold 400, Platinum 600, Diamond 800, Champion 1000.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "aa6a3beb",
+  "k": "Getting ready",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "d7a72a41",
+  "k": "Connecting to {0}…",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "e00788aa",
+  "k": "Ranked: sending the result…",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "80bf3913",
+  "k": "{0} has a different version of Tamkeen. Both of you need the newest one for ranked battles.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "71cd5660",
+  "k": "Couldn't connect to {0}. No points changed.",
+  "f": "web/js/game/ranked-ui.js"
+ },
+ {
+  "id": "c93fa0a5",
+  "k": "Platinum",
+  "f": "web/js/game/ranked.js"
  },
  {
   "id": "c7664f2f",
@@ -29083,6 +29313,21 @@
   "id": "b0c6aade",
   "k": "Azure sent back something that isn't a score. Try again in a moment.",
   "f": "web/js/pronscore.js"
+ },
+ {
+  "id": "1040a68b",
+  "k": "Ranked isn't switched on yet.",
+  "f": "web/js/rankedsync.js"
+ },
+ {
+  "id": "e3bb14ef",
+  "k": "That's enough ranked searching for today. Try again tomorrow.",
+  "f": "web/js/rankedsync.js"
+ },
+ {
+  "id": "9e63da7d",
+  "k": "That match has ended.",
+  "f": "web/js/rankedsync.js"
  },
  {
   "id": "b5072f7e",

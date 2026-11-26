@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Ande, mire e use seus golpes como em qualquer batalha. Quando um de vocês ataca, os dois recebem uma pergunta: a primeira resposta certa vence.
+3a33aabc	{0} errou: nenhum dano
+8ace904b	Lento demais
+5e6c2844	Resposta errada
+3f6d3dd6	Sair de uma batalha ranqueada conta como derrota. As respostas que você deu ainda contam para as suas palavras.
+f3bfb408	Esperando {0}…
+db055f03	A conexão com {0} caiu. Uma conexão perdida não muda pontos (só perde pontos quem some no meio da batalha várias vezes).
+28f05b16	Você precisa de uma criatura chocada na sua equipe para lutar.
+c21ef301	Como funciona o ranking
+09257947	Ranqueada
+33209d3d	Carregando sua pontuação…
+dc3851b6	As batalhas ranqueadas são online: elas abrem com Amigos.
+05eb7b24	Entre em Amigos primeiro para jogar batalhas ranqueadas.
+e2376b80	{0} vitórias em {1} batalhas ranqueadas
+bf72d032	Todos começam em 0. Vença batalhas ranqueadas para subir.
+28eb5810	Procurar uma batalha ranqueada
+0381247a	Ranking
+b5be8604	Ninguém encontrado
+9e5531b4	Ninguém perto da sua pontuação está procurando uma batalha ranqueada agora. Tente de novo daqui a pouco.
+ce8ada40	até {0} pontos da sua
+fceb8678	Procurando uma batalha ranqueada
+1e35df16	Procurando um jogador online agora, {0}.
+6acaefd2	{0} de {1} segundos
+691a77cd	contra
+09266408	Adversário encontrado!
+987fde61	Todas as palavras: cada cartão que você salvou.
+97a8ea95	Ranqueada: esperando o resultado do outro jogador. Sua pontuação muda quando ele chegar.
+ba82b7de	Ranqueada: sem mudança (a batalha não terminou direito)
+07b960c8	Ranqueada {0}
+5c841596	Ainda não há batalhas ranqueadas. Seja o primeiro!
+659ad92d	As batalhas ranqueadas são ao vivo: você e outro jogador online agora.
+e12a4920	Quando um de vocês ataca, os dois recebem ao mesmo tempo uma pergunta sobre as próprias palavras: a primeira resposta certa vence.
+1b27734c	Todos começam em 0, e sua pontuação nunca fica abaixo de 0.
+caf728be	Vença alguém com pontuação maior e você ganha mais pontos; perca para alguém com pontuação menor e você perde mais.
+dd2adb4e	Contra alguém com a mesma pontuação: +{0} ou −{0} nas suas primeiras {1} batalhas ranqueadas, depois +{2} ou −{2}.
+1fc645b0	As batalhas ranqueadas sempre usam todas as suas palavras salvas (Todas as palavras).
+a09ffe10	A busca começa com jogadores até 100 pontos de você e se amplia quanto mais você espera.
+429487cc	Sair de uma batalha ranqueada conta como derrota. Se a conexão cair, nada muda.
+38129de5	Os mesmos dois jogadores podem mudar a pontuação um do outro em {0} batalhas ranqueadas por dia.
+0d527f77	Níveis: Bronze a partir de 0, Prata 200, Ouro 400, Platina 600, Diamante 800, Campeão 1000.
+aa6a3beb	Preparando
+d7a72a41	Conectando com {0}…
+e00788aa	Ranqueada: enviando o resultado…
+80bf3913	{0} tem outra versão do Tamkeen. Vocês dois precisam da mais nova para batalhas ranqueadas.
+71cd5660	Não foi possível conectar com {0}. Nenhum ponto mudou.
+c93fa0a5	Platina
+1040a68b	O ranking ainda não está ativado.
+e3bb14ef	Chega de procurar batalhas ranqueadas por hoje. Tente de novo amanhã.
+9e63da7d	Essa batalha já terminou.

@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Camina, apunta y usa tus movimientos como en cualquier batalla. Cuando uno de los dos ataca, ambos reciben una pregunta: gana la primera respuesta correcta.
+3a33aabc	{0} se equivocó: sin daño
+8ace904b	Demasiado lento
+5e6c2844	Respuesta incorrecta
+3f6d3dd6	Salir de una batalla clasificatoria cuenta como derrota. Tus respuestas siguen contando para tus palabras.
+f3bfb408	Esperando a {0}…
+db055f03	Se perdió la conexión con {0}. Una conexión caída no cambia puntos (solo pierde puntos quien desaparece una y otra vez en mitad de la batalla).
+28f05b16	Necesitas una criatura ya nacida en tu equipo para luchar.
+c21ef301	Cómo funciona la clasificación
+09257947	Clasificatoria
+33209d3d	Cargando tu puntuación…
+dc3851b6	Las batallas clasificatorias son en línea: se abren con Amigos.
+05eb7b24	Inicia sesión en Amigos para jugar batallas clasificatorias.
+e2376b80	{0} victorias en {1} batallas clasificatorias
+bf72d032	Todos empiezan en 0. Gana batallas clasificatorias para subir.
+28eb5810	Buscar una batalla clasificatoria
+0381247a	Clasificación
+b5be8604	No se encontró a nadie
+9e5531b4	Ahora mismo nadie cerca de tu puntuación busca una batalla clasificatoria. Vuelve a intentarlo en un rato.
+ce8ada40	a menos de {0} puntos de la tuya
+fceb8678	Buscando una batalla clasificatoria
+1e35df16	Buscando a un jugador en línea ahora, {0}.
+6acaefd2	{0} de {1} segundos
+691a77cd	contra
+09266408	¡Rival encontrado!
+987fde61	Todas las palabras: cada tarjeta que has guardado.
+97a8ea95	Clasificatoria: esperando el resultado del otro jugador. Tu puntuación cambia cuando llegue.
+ba82b7de	Clasificatoria: sin cambios (la batalla no terminó bien)
+07b960c8	Clasificatoria {0}
+5c841596	Aún no hay batallas clasificatorias. ¡Sé el primero!
+659ad92d	Las batallas clasificatorias son en vivo: tú y otro jugador en línea ahora.
+e12a4920	Cuando uno de los dos ataca, ambos reciben al mismo tiempo una pregunta sobre sus propias palabras: gana la primera respuesta correcta.
+1b27734c	Todos empiezan en 0 y tu puntuación nunca baja de 0.
+caf728be	Si vences a alguien con más puntuación ganas más puntos; si pierdes contra alguien con menos, pierdes más.
+dd2adb4e	Contra alguien con la misma puntuación: +{0} o −{0} en tus primeras {1} batallas clasificatorias, después +{2} o −{2}.
+1fc645b0	Las batallas clasificatorias usan siempre todas tus palabras guardadas (Todas las palabras).
+a09ffe10	La búsqueda empieza con jugadores a menos de 100 puntos de ti y se amplía cuanto más esperas.
+429487cc	Salir de una batalla clasificatoria cuenta como derrota. Si se cae la conexión, no cambia nada.
+38129de5	Los mismos dos jugadores pueden cambiar la puntuación del otro en {0} batallas clasificatorias al día.
+0d527f77	Niveles: Bronce desde 0, Plata 200, Oro 400, Platino 600, Diamante 800, Campeón 1000.
+aa6a3beb	Preparando
+d7a72a41	Conectando con {0}…
+e00788aa	Clasificatoria: enviando el resultado…
+80bf3913	{0} tiene otra versión de Tamkeen. Los dos necesitáis la más reciente para las batallas clasificatorias.
+71cd5660	No se pudo conectar con {0}. No cambiaron los puntos.
+c93fa0a5	Platino
+1040a68b	La clasificación aún no está activada.
+e3bb14ef	Ya has buscado bastantes batallas clasificatorias hoy. Vuelve a intentarlo mañana.
+9e63da7d	Esa batalla ya terminó.

@@ -36,6 +36,7 @@ import { feedFirst, hungryButton, hungrySignHtml } from "./hunger-ui.js";
 import { isHungry } from "./idle.js";
 import { elementBadge } from "./movesui.js";
 import { gymsBlock } from "./gyms-ui.js";
+import { rankedBlock, startRankedBattle } from "./ranked-ui.js";
 import { block, details, fact, fmt, switcher, tile } from "./screenparts.js";
 import { battleGate, rentalLeft, teamOf, teamSlots, toggleRental, wildSetup, wordChoice } from "./battlescreen.js";
 
@@ -338,8 +339,9 @@ function battleBlocks(game, vocab, ctx) {
     teamBlock(game, ctx.go),
     quickBlock(game, vocab, ctx.close),
     gymsBlock(game, vocab, ctx.close),
+    rankedBlock(game, vocab, ctx.close, (match, refresh) => startRankedBattle(match, vocab, refresh)), // (prototype "ranked": null without it)
     recordBlock(game),
-  ];
+  ].filter(Boolean);
 }
 
 // ---------- when battles are still closed ----------

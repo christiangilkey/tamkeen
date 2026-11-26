@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Maglakad, tumutok at gamitin ang mga galaw mo gaya ng sa anumang laban. Kapag umatake ang isa sa inyo, pareho kayong makakakuha ng tanong: ang unang tamang sagot ang panalo.
+3a33aabc	Mali si {0}: walang pinsala
+8ace904b	Masyadong mabagal
+5e6c2844	Maling sagot
+3f6d3dd6	Ang pag-alis sa ranked na laban ay bilang na talo. Bilang pa rin ang mga sagot mo para sa mga salita mo.
+f3bfb408	Hinihintay si {0}…
+db055f03	Naputol ang koneksyon kay {0}. Walang nagbabagong puntos kapag naputol ang koneksyon (ang paulit-ulit lang na nawawala sa gitna ng laban ang nababawasan).
+28f05b16	Kailangan mo ng napisang nilalang sa team mo para lumaban.
+c21ef301	Paano gumagana ang ranked
+09257947	Ranked
+33209d3d	Nilo-load ang rating mo…
+dc3851b6	Online ang mga ranked na laban: nagbubukas ang mga ito kasama ng Friends.
+05eb7b24	Mag-sign in muna sa Friends para makapaglaro ng ranked na laban.
+e2376b80	{0} panalo sa {1} ranked na laban
+bf72d032	Lahat ay nagsisimula sa 0. Manalo sa mga ranked na laban para umakyat.
+28eb5810	Maghanap ng ranked na laban
+0381247a	Leaderboard
+b5be8604	Walang nahanap
+9e5531b4	Walang malapit sa rating mo ang naghahanap ng ranked na laban ngayon. Subukan ulit mamaya.
+ce8ada40	hanggang {0} puntos mula sa iyo
+fceb8678	Naghahanap ng ranked na laban
+1e35df16	Naghahanap ng manlalarong online ngayon, {0}.
+6acaefd2	{0} sa {1} segundo
+691a77cd	laban
+09266408	May nahanap na kalaban!
+987fde61	Lahat ng salita: bawat card na na-save mo.
+97a8ea95	Ranked: hinihintay ang resulta ng kabilang manlalaro. Magbabago ang rating mo pagdating nito.
+ba82b7de	Ranked: walang pagbabago (hindi natapos nang maayos ang laban)
+07b960c8	Ranked {0}
+5c841596	Wala pang ranked na laban. Ikaw ang mauna!
+659ad92d	Live ang mga ranked na laban: ikaw at isa pang manlalarong online ngayon.
+e12a4920	Kapag umatake ang isa sa inyo, sabay kayong makakakuha ng tanong tungkol sa sarili ninyong mga salita: ang unang tamang sagot ang panalo.
+1b27734c	Lahat ay nagsisimula sa 0, at hindi bababa sa 0 ang rating mo.
+caf728be	Talunin ang mas mataas ang rating at mas maraming puntos ang makukuha mo; matalo sa mas mababa ang rating at mas marami ang mawawala.
+dd2adb4e	Laban sa kaparehong rating: +{0} o −{0} sa una mong {1} ranked na laban, pagkatapos +{2} o −{2}.
+1fc645b0	Laging ginagamit ng mga ranked na laban ang lahat ng na-save mong salita (Lahat ng salita).
+a09ffe10	Nagsisimula ang paghahanap sa mga manlalarong hanggang 100 puntos mula sa iyo at lumalawak habang naghihintay ka.
+429487cc	Ang pag-alis sa ranked na laban ay bilang na talo. Kapag naputol ang koneksyon, walang nagbabago.
+38129de5	Ang parehong dalawang manlalaro ay makakapagbago ng rating ng isa't isa sa {0} ranked na laban bawat araw.
+0d527f77	Mga antas: Tanso mula 0, Pilak 200, Ginto 400, Platinum 600, Diyamante 800, Kampeon 1000.
+aa6a3beb	Naghahanda
+d7a72a41	Kumokonekta kay {0}…
+e00788aa	Ranked: ipinapadala ang resulta…
+80bf3913	Iba ang bersyon ng Tamkeen ni {0}. Kailangan ninyong dalawa ang pinakabago para sa mga ranked na laban.
+71cd5660	Hindi makakonekta kay {0}. Walang nagbagong puntos.
+c93fa0a5	Platinum
+1040a68b	Hindi pa naka-on ang ranked.
+e3bb14ef	Sapat na ang paghahanap ng ranked ngayong araw. Subukan ulit bukas.
+9e63da7d	Tapos na ang labang iyon.

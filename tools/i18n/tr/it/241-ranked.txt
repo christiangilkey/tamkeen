@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Cammina, mira e usa le tue mosse come in ogni battaglia. Quando uno di voi attacca, ricevete entrambi una domanda: vince la prima risposta giusta.
+3a33aabc	{0} ha sbagliato: nessun danno
+8ace904b	Troppo lento
+5e6c2844	Risposta sbagliata
+3f6d3dd6	Lasciare una battaglia classificata conta come sconfitta. Le risposte date contano comunque per le tue parole.
+f3bfb408	In attesa di {0}…
+db055f03	La connessione con {0} si è interrotta. Una connessione caduta non cambia i punti (li perde solo chi sparisce di continuo a metà battaglia).
+28f05b16	Ti serve una creatura schiusa nella tua squadra per combattere.
+c21ef301	Come funziona la classifica
+09257947	Classificata
+33209d3d	Caricamento del tuo punteggio…
+dc3851b6	Le battaglie classificate sono online: si aprono con Amici.
+05eb7b24	Accedi prima ad Amici per giocare battaglie classificate.
+e2376b80	{0} vittorie in {1} battaglie classificate
+bf72d032	Tutti partono da 0. Vinci battaglie classificate per salire.
+28eb5810	Cerca una battaglia classificata
+0381247a	Classifica
+b5be8604	Nessuno trovato
+9e5531b4	Nessuno vicino al tuo punteggio cerca una battaglia classificata in questo momento. Riprova tra poco.
+ce8ada40	entro {0} punti dal tuo
+fceb8678	Ricerca di una battaglia classificata
+1e35df16	Cerco un giocatore online adesso, {0}.
+6acaefd2	{0} di {1} secondi
+691a77cd	contro
+09266408	Avversario trovato!
+987fde61	Tutte le parole: ogni carta che hai salvato.
+97a8ea95	Classificata: in attesa del risultato dell'altro giocatore. Il tuo punteggio cambia appena arriva.
+ba82b7de	Classificata: nessun cambiamento (la battaglia non è finita bene)
+07b960c8	Classificata {0}
+5c841596	Ancora nessuna battaglia classificata. Sii il primo!
+659ad92d	Le battaglie classificate sono dal vivo: tu e un altro giocatore online adesso.
+e12a4920	Quando uno di voi attacca, ricevete entrambi nello stesso momento una domanda sulle vostre parole: vince la prima risposta giusta.
+1b27734c	Tutti partono da 0, e il tuo punteggio non scende mai sotto 0.
+caf728be	Batti qualcuno con un punteggio più alto e vinci più punti; perdi contro qualcuno con un punteggio più basso e ne perdi di più.
+dd2adb4e	Contro qualcuno con lo stesso punteggio: +{0} o −{0} nelle tue prime {1} battaglie classificate, poi +{2} o −{2}.
+1fc645b0	Le battaglie classificate usano sempre tutte le tue parole salvate (Tutte le parole).
+a09ffe10	La ricerca parte dai giocatori entro 100 punti da te e si allarga più aspetti.
+429487cc	Lasciare una battaglia classificata conta come sconfitta. Se cade la connessione, non cambia niente.
+38129de5	Gli stessi due giocatori possono cambiare il punteggio l'uno dell'altro in {0} battaglie classificate al giorno.
+0d527f77	Livelli: Bronzo da 0, Argento 200, Oro 400, Platino 600, Diamante 800, Campione 1000.
+aa6a3beb	Preparazione
+d7a72a41	Connessione a {0}…
+e00788aa	Classificata: invio del risultato…
+80bf3913	{0} ha un'altra versione di Tamkeen. Per le battaglie classificate vi serve a entrambi la più recente.
+71cd5660	Impossibile connettersi a {0}. Nessun punto è cambiato.
+c93fa0a5	Platino
+1040a68b	La classifica non è ancora attiva.
+e3bb14ef	Basta ricerche di battaglie classificate per oggi. Riprova domani.
+9e63da7d	Quella battaglia è finita.

@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Marche, vise et utilise tes attaques comme dans n'importe quel combat. Quand l'un de vous attaque, vous recevez tous les deux une question : la première bonne réponse gagne.
+3a33aabc	{0} s'est trompé : aucun dégât
+8ace904b	Trop lent
+5e6c2844	Mauvaise réponse
+3f6d3dd6	Quitter un combat classé compte comme une défaite. Tes réponses comptent quand même pour tes mots.
+f3bfb408	En attente de {0}…
+db055f03	La connexion avec {0} a été perdue. Une connexion coupée ne change aucun point (seul celui qui disparaît sans cesse en plein combat en perd).
+28f05b16	Il te faut une créature éclose dans ton équipe pour combattre.
+c21ef301	Comment marche le classement
+09257947	Classé
+33209d3d	Chargement de ton score…
+dc3851b6	Les combats classés sont en ligne : ils s'ouvrent avec Amis.
+05eb7b24	Connecte-toi d'abord à Amis pour jouer des combats classés.
+e2376b80	{0} victoires en {1} combats classés
+bf72d032	Tout le monde commence à 0. Gagne des combats classés pour monter.
+28eb5810	Chercher un combat classé
+0381247a	Classement
+b5be8604	Personne trouvé
+9e5531b4	Personne proche de ton score ne cherche de combat classé en ce moment. Réessaie dans un petit moment.
+ce8ada40	à moins de {0} points du tien
+fceb8678	Recherche d'un combat classé
+1e35df16	Recherche d'un joueur en ligne maintenant, {0}.
+6acaefd2	{0} sur {1} secondes
+691a77cd	contre
+09266408	Adversaire trouvé !
+987fde61	Tous les mots : chaque carte que tu as enregistrée.
+97a8ea95	Classé : en attente du résultat de l'autre joueur. Ton score change dès qu'il arrive.
+ba82b7de	Classé : aucun changement (le combat ne s'est pas bien terminé)
+07b960c8	Classé {0}
+5c841596	Pas encore de combat classé. Sois le premier !
+659ad92d	Les combats classés sont en direct : toi et un autre joueur en ligne maintenant.
+e12a4920	Quand l'un de vous attaque, vous recevez tous les deux au même moment une question sur vos propres mots : la première bonne réponse gagne.
+1b27734c	Tout le monde commence à 0, et ton score ne descend jamais sous 0.
+caf728be	Bats quelqu'un mieux classé et tu gagnes plus de points ; perds contre quelqu'un moins bien classé et tu en perds plus.
+dd2adb4e	Contre quelqu'un du même score : +{0} ou −{0} pour tes {1} premiers combats classés, puis +{2} ou −{2}.
+1fc645b0	Les combats classés utilisent toujours tous tes mots enregistrés (Tous les mots).
+a09ffe10	La recherche commence avec les joueurs à moins de 100 points de toi et s'élargit plus tu attends.
+429487cc	Quitter un combat classé compte comme une défaite. Si la connexion coupe, rien ne change.
+38129de5	Les deux mêmes joueurs peuvent modifier le score l'un de l'autre dans {0} combats classés par jour.
+0d527f77	Rangs : Bronze dès 0, Argent 200, Or 400, Platine 600, Diamant 800, Champion 1000.
+aa6a3beb	Préparation
+d7a72a41	Connexion à {0}…
+e00788aa	Classé : envoi du résultat…
+80bf3913	{0} a une autre version de Tamkeen. Vous avez besoin tous les deux de la plus récente pour les combats classés.
+71cd5660	Impossible de se connecter à {0}. Aucun point n'a changé.
+c93fa0a5	Platine
+1040a68b	Le classement n'est pas encore activé.
+e3bb14ef	Assez de recherches de combats classés pour aujourd'hui. Réessaie demain.
+9e63da7d	Ce combat est terminé.

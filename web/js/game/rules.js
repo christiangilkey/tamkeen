@@ -1040,7 +1040,7 @@ export function finishBattle(state, result, ctx = {}) {
     if (result.mode === "wild" && state.roster.length < 6 && rand() < 0.15) out.egg = !!layEgg(state, rand);
   }
   if (result.mode === "gym") out.gym = beatGym(state, result, out);
-  if (result.mode !== "wild" && result.mode !== "gym") {
+  if (result.mode !== "wild" && result.mode !== "gym" && result.mode !== "ranked") { // (ranked: the server's rating, v18-ranked.sql)
     // (a rival's rating comes from their own device: a number in range, else the starting 1000)
     const sent = result.rival && Number(result.rival.rating);
     const theirs = sent && Number.isFinite(sent) ? Math.max(0, Math.min(5000, sent)) : 1000;

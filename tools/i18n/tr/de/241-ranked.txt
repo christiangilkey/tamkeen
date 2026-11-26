@@ -1,0 +1,50 @@
+# Ranked battles (prototype ranked): ranked-ui.js, rankedsync.js, the live battle between two people (rankedlive.js, livebattle-ui.js).
+265ba99f	Laufen, zielen und Attacken einsetzen wie in jedem Kampf. Wenn einer von euch angreift, bekommt ihr beide eine Frage: Die erste richtige Antwort gewinnt.
+3a33aabc	{0} lag falsch: kein Schaden
+8ace904b	Zu langsam
+5e6c2844	Falsche Antwort
+3f6d3dd6	Einen Ranglistenkampf zu verlassen zählt als Niederlage. Deine Antworten zählen trotzdem für deine Wörter.
+f3bfb408	Warte auf {0} …
+db055f03	Die Verbindung zu {0} ist abgebrochen. Ein Verbindungsabbruch ändert keine Punkte (nur wer immer wieder mitten im Kampf verschwindet, verliert welche).
+28f05b16	Du brauchst ein geschlüpftes Wesen in deinem Team, um zu kämpfen.
+c21ef301	So funktioniert die Rangliste
+09257947	Rangliste
+33209d3d	Deine Wertung wird geladen …
+dc3851b6	Ranglistenkämpfe sind online: Sie öffnen sich mit Freunde.
+05eb7b24	Melde dich zuerst bei Freunde an, um Ranglistenkämpfe zu spielen.
+e2376b80	{0} Siege in {1} Ranglistenkämpfen
+bf72d032	Alle starten bei 0. Gewinne Ranglistenkämpfe, um aufzusteigen.
+28eb5810	Ranglistenkampf suchen
+0381247a	Bestenliste
+b5be8604	Niemand gefunden
+9e5531b4	Gerade sucht niemand mit ähnlicher Wertung einen Ranglistenkampf. Versuch es gleich noch einmal.
+ce8ada40	bis zu {0} Punkte von deiner entfernt
+fceb8678	Ranglistenkampf wird gesucht
+1e35df16	Suche einen Spieler, der gerade online ist, {0}.
+6acaefd2	{0} von {1} Sekunden
+691a77cd	gegen
+09266408	Gegner gefunden!
+987fde61	Alle Wörter: jede Karte, die du gespeichert hast.
+97a8ea95	Rangliste: Warte auf das Ergebnis des anderen Spielers. Deine Wertung ändert sich, sobald es da ist.
+ba82b7de	Rangliste: keine Änderung (der Kampf wurde nicht richtig beendet)
+07b960c8	Rangliste {0}
+5c841596	Noch keine Ranglistenkämpfe. Sei der Erste!
+659ad92d	Ranglistenkämpfe sind live: du und ein anderer Spieler, der gerade online ist.
+e12a4920	Wenn einer von euch angreift, bekommt ihr beide im selben Moment eine Frage zu euren eigenen Wörtern: Die erste richtige Antwort gewinnt.
+1b27734c	Alle starten bei 0, und deine Wertung fällt nie unter 0.
+caf728be	Besiege jemanden mit höherer Wertung und du gewinnst mehr Punkte; verlierst du gegen jemanden mit niedrigerer, verlierst du mehr.
+dd2adb4e	Gegen jemanden mit gleicher Wertung: +{0} oder −{0} in deinen ersten {1} Ranglistenkämpfen, danach +{2} oder −{2}.
+1fc645b0	Ranglistenkämpfe nutzen immer alle deine gespeicherten Wörter (Alle Wörter).
+a09ffe10	Die Suche beginnt mit Spielern bis zu 100 Punkte von dir entfernt und wird breiter, je länger du wartest.
+429487cc	Einen Ranglistenkampf zu verlassen zählt als Niederlage. Bricht die Verbindung ab, ändert sich nichts.
+38129de5	Dieselben zwei Spieler können ihre Wertungen in {0} Ranglistenkämpfen am Tag verändern.
+0d527f77	Stufen: Bronze ab 0, Silber 200, Gold 400, Platin 600, Diamant 800, Champion 1000.
+aa6a3beb	Wird vorbereitet
+d7a72a41	Verbinde mit {0} …
+e00788aa	Rangliste: Ergebnis wird gesendet …
+80bf3913	{0} hat eine andere Version von Tamkeen. Für Ranglistenkämpfe braucht ihr beide die neueste.
+71cd5660	Keine Verbindung zu {0}. Keine Punkte geändert.
+c93fa0a5	Platin
+1040a68b	Die Rangliste ist noch nicht eingeschaltet.
+e3bb14ef	Genug Ranglistensuche für heute. Versuch es morgen wieder.
+9e63da7d	Dieser Kampf ist schon vorbei.

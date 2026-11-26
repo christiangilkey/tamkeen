@@ -243,6 +243,8 @@ const SHARED = [
   // gifts from the creator to a chosen user (game/gifts.js is with the game)
   "js/giftsync.js",
   "js/components/giftpanel.js",
+  // ranked battles: the rating, the queue, the leaderboard (game/ranked.js and ranked-ui.js are with the game)
+  "js/rankedsync.js",
   "js/components/creatorbar.js",
   "js/dliclass.js",
   "js/dlitime.js",

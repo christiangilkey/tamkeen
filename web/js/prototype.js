@@ -45,6 +45,7 @@ export const PROTOTYPES = {
   goal_rate: { name: "Long-term goal set per day, week or month (\"20 new words a day\"), worked out over the goal's time; shown again as typed, and scaled when the time changes", released: false, since: "2026-11-25" },
   habitat_room: { name: "The habitat is the creature's cozy cottage: tap the floor and it walks there (round the furniture), indoor decorations inside; out its door, a yard seen from above like the battle arenas, where it walks anywhere among the outdoor decorations and the garden", released: false, since: "2026-11-25" },
   hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: false, since: "2026-11-25" },
+  ranked: { name: "Ranked battles: live against another player online, a rating from 0, matched with players of a similar rating, a leaderboard and tiers (needs supabase/v18-ranked.sql)", released: false, since: "2026-11-25" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 

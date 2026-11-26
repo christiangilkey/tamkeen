@@ -10016,3 +10016,52 @@ failed, with the online service's own code and words in brackets: `problem()` ke
 "no such student" message names the username typed and says what the student must do first (sign in and agree to
 share under Settings → DLI students) or to use the class code. By design the database gives one answer for "no such
 user" and "not a DLI student who shares", so the app cannot say which. No SQL change.
+
+## Ranked battles: a rating from 0, matchmaking, and live battles between two people (prototype `ranked`, 2026-11-25, "Ranked matchmaking" chat)
+
+The owner: "matchmaking with an elo system, players start at zero ... tries to match players up with simlar elo
+players ... these battles with the elo system should be all time only", then "I want live now, by all time mode I
+mean the mode we had already built that scales with the amount of cards the player has". So: real two-person live
+battles, always in All-time mode (every saved card; each side scaled by its own card count, `cardScale`).
+
+**Needs `supabase/v18-ranked.sql`** (after v8: it uses `private.blocked_between` and `private.note_use`); the owner
+runs it, plus the self-test `supabase/test_rls_ranked.sql` (ends with `RESULTS ok=… bad=[]`). Until then the
+Ranked block says "Ranked isn't switched on yet." Neither file has been run anywhere (no Postgres on the dev machine).
+
+- **Rating** (`web/js/game/ranked.js` shows, the SQL decides): starts at 0, never below 0; Elo with spread 400;
+  K 40 for the first 10 ranked battles, then 24; a win is at least +1, a loss at least −1. Equal ratings ±20 new,
+  ±12 after; beating someone 200 higher +18, losing to someone 200 lower −18. Tiers Bronze 0, Silver 200, Gold 400,
+  Platinum 600, Diamond 800, Champion 1000. Leaderboard: top 20 by username only, blocked people left out.
+- **Queue** (`ranked_join` / `ranked_poll` every 3 s / `ranked_leave`): ±100, ±200 after 15 s, ±400 after 30 s,
+  anyone after 45 s, "No one found" at 60 s; someone not seen for 12 s is offline. Never blocked people, never a 4th
+  point-moving battle of the same pair in 24 h. The server picks the host (`a`) and the arena seed.
+- **Results**: both report (`ranked_report`: won/lost/quit/broken); won+lost settles; quit is a loss at once;
+  contradictions or "broken" are void. One report after 10 min is void, except that from someone's 3rd vanishing in a
+  day while the other claims a win it is their loss. The old on-device skill rating (rules.finishBattle) leaves
+  ranked alone.
+- **The battle** (`web/js/game/rankedlive.js`): the two devices meet on a Supabase Realtime broadcast channel
+  `ranked-<match id>` (an id only the two are given; no SQL needed for it), swap teams (checked as a friend's:
+  remote.cleanTeam + battle.fighters, so numbers come from the creature's kind and growth, never from what was
+  sent; no week's rule), then the **host** runs livebattle.js with `remote: true` (no computer plays the rival; its
+  controls come through `input(b, cmd, "foe")`) and sends 8 pictures a second; the **guest** runs no battle, draws
+  the host's (its creature as "me", gliding between pictures) and sends its controls (only changes, ≤ 8/s).
+- **Questions = the answer race**: when either attacks, the world stands still for both; the attacker answers from
+  THEIR OWN words, the defender a dodge question from THEIR OWN words, at the same moment, 5 seconds as in any
+  live battle. Only right/wrong and "fast" cross the network. Attacker right first: full; defender right first:
+  half; attacker wrong (or out of time, plus 0.5 s for the network): misses. A defender's wrong answer waits for the
+  attacker's. Engine: `pressRemote`, `remoteAnswer`, `qz.done` in livebattle.js. No aim moment in ranked
+  (`aimMoment: false`; the mouse / second finger / right stick still points the moves), no hint cards, no pause.
+- **Breaks**: nothing heard for 1.5 s and the world waits ("Waiting for …"); 10 s and the battle stops: each side
+  reports "won" if it is still online itself, else "broken" (so it is void unless someone keeps vanishing). Leaving
+  ("Leaving a ranked battle counts as a loss") reports quit; the other's screen ends as a win.
+- **Tests**: `tests/js/ranked.test.mjs` (sums; the SQL agrees with the JS; every UPDATE/DELETE has a WHERE),
+  `tests/js/rankedlive.test.mjs` (two links on a stand-in channel: meeting, walking, both races both ways, misses,
+  time-outs, checked input, the end, quitting, a drop, a short break). Seen working in two headless Edges with a
+  stand-in channel (70 ms each way): questions on both screens, verdicts, the waiting banner, the end card's line.
+- **Not yet checked with two real devices** (needs v18 run and two signed-in accounts): the real channel, real
+  phone networks, a phone locked mid-battle, the guest's feel (its controls answer ~0.1–0.3 s later than the host's),
+  and Supabase's Realtime limits (free plan: about 2 million messages a month, ~100 a second across the project; a
+  3-minute ranked battle is roughly 2,000–2,500 messages, so very roughly 800 battles a month on the free plan).
+- Known gaps: the guest can't break open cracked walls (host-only, as before); the guest's answers reach the host
+  ~0.1 s late in a close race; a changed app could lie about its own answers (as with any client-trusted game; both
+  reports must agree for points to move).
