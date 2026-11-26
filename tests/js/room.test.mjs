@@ -124,3 +124,11 @@ test("the owner's taps: a door goes straight through; outside, a tap on the crea
   assert.ok(h.includes("if (!pressed && !outside() && y > feetNow() + 2"), "no goal box outside");
   for (const f of ["fire", "sky_sun", "sky_moon", "sky_cloud_1", "sky_cloud_2"]) assert.ok(h.includes(f.startsWith("sky") ? `room/sky_` : "room/fire.png"), f);
 });
+
+test("the big tiles send the creature to their place in the village (or home)", () => {
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  for (const [tile, spot] of [["shop", "cloth"], ["creatures", "room"], ["garden", "fruit"], ["battle", "hall"], ["fishing", "pier"]]) {
+    const line = h.split(/\r?\n/).find((l) => l.includes(`$("#g-${tile}").onclick = `)) || "";
+    assert.ok(line.includes(`teleportTo("${spot}")`), tile);
+  }
+});

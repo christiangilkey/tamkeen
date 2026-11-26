@@ -53,11 +53,11 @@ test("every section can still be reached: from the home card's buttons, then a s
   // Supplies: Garden's switch (below), and the gems counter's popup has a button to it (currencies.js open.tab).
   assert.match(src("currencies.js"), /open: \{ tab: "supplies"/);
   // The Battle tile opens the battle menu, which is the "battle" section (battle-ui.js openBattleMenu).
-  assert.match(src("habitat.js"), /#g-battle"\)\.onclick = \(\) => openBattleMenu\(/);
+  assert.match(src("habitat.js"), /#g-battle"\)\.onclick = \(\) => (?:teleportTo\("hall"\) \|\| )?openBattleMenu\(/); // (the creature goes to the hall first: room.test)
   assert.match(src("battle-ui.js"), /openShop\("battle", /);
   reached.add("battle");
   // The Fishing tile opens the pond (fishing-ui.js), whose basket button opens the Basket section of the sheet.
-  assert.match(src("habitat.js"), /#g-fishing"\)\.onclick = \(\) => openPond\(\{[^}]*sheet: go/);
+  assert.match(src("habitat.js"), /#g-fishing"\)\.onclick = \(\) => (?:teleportTo\("pier"\) \|\| )?openPond\(\{[^}]*sheet: go/);
   assert.match(src("fishing-ui.js"), /opts\.sheet\("basket"\)/);
   reached.add("basket");
   for (const pair of Object.values(PAIRS)) if (pair.some((id) => reached.has(id))) pair.forEach((id) => reached.add(id));

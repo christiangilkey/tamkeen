@@ -10096,3 +10096,6 @@ Chat's side-session notes, `habitat-revamp-plan.md`.
   window by day, a pale moon at night, white clouds by day; the old neon sun and clouds stay for the old scenes).
   **The hearth's fire flickers** (`room/fire.png`, 4 frames of the firebox, `FIRE_BOX` in room.py, 140 ms a frame).
   **The Muffles' bubbles are small** (13 px words; on a phone 12 px and the glyphs at their own 7 x 9).
+- **The big tiles send the creature to their place** (`teleportTo`, no walking): Shop the tailor's cloth stall, Garden
+  the fruit stall, Fishing the pier, Battle the hall (the gyms), Creatures home to the middle of its room. The page
+  opens as before (they are sheets over Home); the creature stays there 30 s, so it is still there when it is closed.

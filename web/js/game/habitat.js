@@ -269,10 +269,14 @@ export function habitat() {
   holdable($("#g-gems"), () => openCurrency("gems", game, go), () => openEarned("gem", game, go));
   currencyTaps(getGame, go);
   holdable($("#g-streak"), () => openEarned("streak", game, go), () => openEarned("freeze", game, go));
-  $("#g-shop").onclick = () => go("shop");
-  $("#g-creatures").onclick = () => go("creatures");
-  $("#g-garden").onclick = () => go("garden");
-  $("#g-battle").onclick = () => openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
+  // Each big tile also sends the creature to its place (prototype "habitat_room", the owner: "each of the buttons ...
+  // should automatically teleport the creature to specific spots in the viewer screen ... corresponding to what part
+  // they are"): Shop the tailor's stall, Garden the fruit stall, Fishing the pier, Battle the hall (the gyms),
+  // Creatures home to its room. The page opens as before; closed, there it stands.
+  $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
+  $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
+  $("#g-garden").onclick = () => { teleportTo("fruit"); go("garden"); };
+  $("#g-battle").onclick = () => teleportTo("hall") || openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
   // The aquarium, under the Fishing tile once a fish has been caught: the fish kept in it, swimming. A tap opens the
   // Basket, where fish go in and out. It is drawn again only when what is in the tank has changed.
   let tankShown = null;
@@ -298,7 +302,7 @@ export function habitat() {
       sub.textContent = n === 1 ? t("1 fish waiting") : t("{0} fish waiting", n > 99 ? "99+" : String(n));
     }).catch(() => {});
   }
-  $("#g-fishing").onclick = () => openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
+  $("#g-fishing").onclick = () => teleportTo("pier") || openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
   setTimeout(paintFishing, 600);
   // Words: the one choice of words for battles and fishing (the newest, all, the ones due, or folders). Its tile says
   // what is chosen now; a change there changes how many fish are waiting too.
@@ -480,6 +484,19 @@ export function habitat() {
     pet.after = null;
     if (to === "yard") { pet.x = YARD_DOOR_SPOT.x; pet.y = YARD_DOOR_SPOT.y; walkTo({ x: YARD_DOOR_SPOT.x + 40, y: YARD_DOOR_SPOT.y + 30 }); }
     else { pet.x = ROOM.doorSpot.x; pet.y = ROOM.doorSpot.y; walkTo({ x: ROOM.doorSpot.x - 50, y: 116 }); }
+  }
+  /** Straight to a place, no walking (the big tiles): "room" (the middle of its room), or a village station's spot. */
+  function teleportTo(where) {
+    if (!roomOn()) return;
+    if (carry) { if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); } carry = null; }
+    const st = where === "room" ? null : stationById(where);
+    if (where !== "room" && !st) return;
+    view = st ? "yard" : "room";
+    saveView(view);
+    pet.path = []; pet.after = null; pet.leaving = 0; pet.napUntil = 0;
+    pet.wait = 30; // (it stays there a while: still there when the page is closed)
+    if (st) { pet.x = st.x; pet.y = st.y; pet.dir = 1; } else { pet.x = W / 2; pet.y = 118; }
+    camReady = false; // (the camera jumps there with it)
   }
   /** One step of walking in the room: along its way, or (with nowhere to go) a wander now and then. */
   function roomWalk(dt, look, asleep) {
