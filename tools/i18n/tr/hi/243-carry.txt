@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	जहाँ इसे रखना है, वहाँ टैप करें।
+494a1906	जहाँ इसे रखना है, वहाँ टैप करें, और आपका जीव इसे वहाँ ले जाएगा।
+0c4690f3	{0} वापस मेरी चीज़ें में है।
+42478baf	हटाएँ

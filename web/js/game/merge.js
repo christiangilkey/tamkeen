@@ -149,6 +149,14 @@ function joinRounds(x, y) {
   return { day: dx, n: Math.max(num(x.n), num(y.n)), done: union(x.done, y.done).filter((u) => typeof u === "string" && !miss.has(u)), miss: [...miss.values()] };
 }
 
+/** The home's layout (home.js: where the creature has put the decorations): the one changed later, whole. */
+function joinHome(x, y) {
+  x = obj(x);
+  y = obj(y);
+  if (!x || !y) return x || y;
+  return num(y.at) > num(x.at) ? y : x;
+}
+
 /** Today's count of something (idle.gemBuys: gems bought with glow today) from two copies: the later day's; the same
  * day's, the higher (so a gem bought on either device keeps the next one at the doubled price). */
 function joinDayCount(x, y) {
@@ -283,6 +291,8 @@ export function combine(mine, theirs) {
     const round = joinRounds(obj(fishA.round), obj(fishB.round));
     if (round) fishA.round = round;
   }
+  const home = joinHome(a.home, b.home);
+  if (home) out.home = home;
   out.updated_at = Math.max(num(a.updated_at), num(b.updated_at));
   return out;
 }

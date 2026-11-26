@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	Нажмите, куда это поставить.
+494a1906	Нажмите, куда это поставить, и ваше существо отнесёт это туда.
+0c4690f3	{0} снова в «Мои вещи».
+42478baf	Переставить

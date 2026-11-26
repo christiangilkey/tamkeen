@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	Toque onde deve ficar.
+494a1906	Toque onde deve ficar, e sua criatura leva para lá.
+0c4690f3	{0} voltou para Minhas coisas.
+42478baf	Mover

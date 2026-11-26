@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	놓을 곳을 탭하세요.
+494a1906	놓을 곳을 탭하면 크리처가 그곳으로 옮겨요.
+0c4690f3	{0}이(가) 내 물건으로 돌아갔어요.
+42478baf	옮기기

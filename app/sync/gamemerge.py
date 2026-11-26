@@ -168,6 +168,15 @@ def _join_rounds(x: Any, y: Any) -> Any:
     return {"day": dx, "n": _clean(max(_num(x.get("n")), _num(y.get("n")))), "done": done, "miss": list(miss.values())}
 
 
+def _join_home(x: Any, y: Any) -> Any:
+    """The home's layout (home.js: where the creature has put the decorations): the one changed later, whole (as
+    merge.js joinHome)."""
+    x, y = _obj(x), _obj(y)
+    if x is None or y is None:
+        return x if x is not None else y
+    return y if _num(y.get("at")) > _num(x.get("at")) else x
+
+
 def _join_day_count(x: Any, y: Any) -> Any:
     """Today's count of something (idle.gemBuys: gems bought with glow today) from two copies: the later day's; the
     same day's, the higher (as merge.js joinDayCount)."""
@@ -304,5 +313,8 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
         rnd = _join_rounds(_obj(fish_a.get("round")), _obj(fish_b.get("round")))
         if rnd is not None:
             fish_a["round"] = rnd
+    home = _join_home(a.get("home"), b.get("home"))
+    if home is not None:
+        out["home"] = home
     out["updated_at"] = max(_num(a.get("updated_at")), _num(b.get("updated_at")))
     return out

@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	جایی را که باید برود لمس کنید.
+494a1906	جایی را که باید برود لمس کنید، و موجودتان آن را به آنجا می‌برد.
+0c4690f3	{0} به چیزهای من برگشت.
+42478baf	جابه‌جا کن

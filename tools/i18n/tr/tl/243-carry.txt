@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	I-tap kung saan ito ilalagay.
+494a1906	I-tap kung saan ito ilalagay, at dadalhin ito roon ng iyong nilalang.
+0c4690f3	Bumalik na ang {0} sa Mga gamit ko.
+42478baf	Ilipat

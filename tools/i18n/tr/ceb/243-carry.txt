@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	I-tap kung asa kini ibutang.
+494a1906	I-tap kung asa kini ibutang, ug dad-on kini sa imong binuhat didto.
+0c4690f3	Ang {0} nabalik na sa Akong mga butang.
+42478baf	Ibalhin

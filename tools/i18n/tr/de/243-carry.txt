@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	Tippe, wo es hin soll.
+494a1906	Tippe, wo es hin soll, und dein Wesen trägt es dorthin.
+0c4690f3	{0} ist wieder in Meine Sachen.
+42478baf	Umstellen

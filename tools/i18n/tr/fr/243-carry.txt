@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	Touchez l'endroit où le mettre.
+494a1906	Touchez l'endroit où le mettre, et votre créature l'y portera.
+0c4690f3	{0} est de retour dans Mes affaires.
+42478baf	Déplacer

@@ -13,7 +13,8 @@ import { detectLanguage, setLang } from "../languages.js";
 import { openModal } from "../components/modal.js";
 import { icon as lineIcon } from "../icons.js";
 import * as social from "../social.js";
-import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById } from "./data.js";
+import { EMOTES, FX_FRAMES, GROWN, HABITAT, PLOTS, SCENES, SHADOW, STAGES, TYPES, beastById, itemById } from "./data.js";
+import { homeOf, isSmall, putAway, setSpot, spotOf } from "./home.js";
 import { automated, collect, garden, hearts, isHungry, tick as gardenTick } from "./idle.js";
 import { hungryButton, wantedFood } from "./hunger-ui.js";
 import { describe, formOf, isGrown, stageOf } from "./genome.js";
@@ -418,20 +419,31 @@ export function habitat() {
   const outdoorDecor = () => game.decor.filter((x) => !isIndoor(x.id));
   /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
   const yardStanding = () => [
-    ...outdoorDecor().map((d, k) => ({ id: d.id, ...decorSpot(d.x, k) })),
+    ...yardDecor(),
     ...garden(game).plots.flatMap((p, i) => (p.open ? [{ id: `plot${i}`, ...plotSpot(PLOTS[i].x) }] : [])),
   ];
+  /** The outdoor decorations on the yard's field, each at its spot (not one being carried). */
+  function yardDecor() {
+    return outdoorDecor().map((d, k) => ({ id: d.id, ...decorSpot(d.x, k, spotOf(game, d.id)) })).filter((d) => !(carry && carry.held && carry.id === d.id));
+  }
   const standWidth = (id) => (decorArt[id] && decorArt[id].width) || (String(id).startsWith("plot") ? 30 : 24);
   /** Where a thing outside stands: on the field in the yard, on the ground line in the side-on scene. */
   const baseY = (kind, x) => (!outside() ? HABITAT.ground : kind === "thing" ? thingSpot(x).y : kind === "tank" ? tankSpot(x).y : plotSpot(x).y);
   let doorT = 0; // how long the door stays open (it opens as the creature goes through)
-  const furniture = () => roomLayout(game.decor);
+  // Carrying a decoration (slice 2, home.js): {id, to, held, auto}: what it is fetching or holding, where it goes.
+  let carry = null;
+  const furniture = () => roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id));
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
   /** Walk to a spot in the room, round the furniture; `after`: "out" goes through the door on arriving. */
   function walkTo(spot, after = null) {
+    // asked to go somewhere else while carrying: it puts the thing down where it stands
+    if (carry && after !== "pickup" && after !== "drop") {
+      if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); }
+      carry = null;
+    }
     pet.path = findPath({ x: pet.x, y: pet.y }, spot, blocked(), walkArea());
     pet.after = after;
     pet.moodT = Math.max(pet.moodT, 4); // (a tap wakes it: it was asked to come)
@@ -460,6 +472,15 @@ export function habitat() {
         if (!pet.path.length) {
           pet.wait = 2 + Math.random() * 5;
           if (pet.after === "out" || pet.after === "in") { pet.after = null; doorT = 0.9; pet.leaving = 0.45; }
+          else if (pet.after === "pickup" && carry) { carry.held = true; pet.wait = 0; sfx("tick"); walkTo(carry.to, "drop"); } // picked up: off to its new spot
+          else if (pet.after === "drop" && carry) { // put down
+            pet.after = null;
+            setSpot(game, carry.id, carry.to);
+            saveGame();
+            carry = null;
+            sfx("common");
+            emote("idea", 1.2);
+          }
         }
         return;
       }
@@ -473,6 +494,17 @@ export function habitat() {
     }
     if (asleep) return;
     if (pet.wait > 0) { pet.wait -= dt; return; }
+    // Now and then, in its room, it moves one of its small things somewhere else by itself.
+    if (inRoom() && !carry && Math.random() < 0.12) {
+      const small = furniture().filter((d) => isSmall(d.id));
+      if (small.length) {
+        const d = small[Math.floor(Math.random() * small.length)];
+        const r = ROOM.walk;
+        carry = { id: d.id, to: { x: r.x0 + 20 + Math.random() * (r.x1 - r.x0 - 40), y: r.y0 + 6 + Math.random() * (r.y1 - r.y0 - 12) }, held: false, auto: true };
+        walkTo({ x: d.x, y: d.y }, "pickup");
+        return;
+      }
+    }
     const w = walkArea();
     pet.path = findPath({ x: pet.x, y: pet.y }, { x: w.x0 + Math.random() * (w.x1 - w.x0), y: w.y0 + Math.random() * (w.y1 - w.y0) }, blocked(), w);
   }
@@ -578,12 +610,11 @@ export function habitat() {
         }
       }
     } });
-    outdoorDecor().forEach((d, k) => {
-      if (!(d.id in decorArt)) { decorArt[d.id] = null; loadImage(`${d.id}.png`).then((img) => { decorArt[d.id] = img; }); }
-      const img = decorArt[d.id];
-      const at = decorSpot(d.x, k);
+    for (const at of yardDecor()) {
+      if (!(at.id in decorArt)) { decorArt[at.id] = null; loadImage(`${at.id}.png`).then((img) => { decorArt[at.id] = img; }); }
+      const img = decorArt[at.id];
       if (img) out.push({ y: at.y, draw: () => ctx.drawImage(img, Math.round(at.x - img.width / 2), at.y - img.height + 2) });
-    });
+    }
     const plots = garden(game).plots;
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
@@ -989,7 +1020,14 @@ export function habitat() {
         ctx.restore();
       }
       // (higher while it stands up to walk; a flight rises by its own reckoning: FLY_UP)
-      const top = feet - Math.round(beastHeight(look, pose.anim === "fly" ? null : pose.anim) * scale) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
+      let top = feet - Math.round(beastHeight(look, pose.anim === "fly" ? null : pose.anim) * scale) - Math.round(pet.hop) - Math.round(pet.air * FLY_UP);
+      const held = carry && carry.held && decorArt[carry.id];
+      if (held) { // carried over its head (slice 2), a little bob with each step
+        const s = Math.min(1, 26 / Math.max(held.width, held.height));
+        const w = Math.round(held.width * s), hh = Math.round(held.height * s);
+        ctx.drawImage(held, Math.round(pet.x - w / 2), Math.round(top - hh + 6 + Math.abs(Math.sin(pet.walkMs / 140)) * 2), w, hh);
+        top -= hh - 4;
+      }
       const bubble = pet.emoteT > 0 && art[`emote_${pet.emote}`];
       if (bubble) ctx.drawImage(bubble, Math.round(pet.x + pet.dir * 12 - 6), top);
       else if (asleep && art.zzz && Math.floor(now / 900) % 2) ctx.drawImage(art.zzz, Math.round(pet.x + 10), top + 4 - (Math.floor(now / 300) % 3));
@@ -1107,6 +1145,34 @@ export function habitat() {
     toast(t("It hatched! Bring it out on the Creatures page.")).prepend(h(icon("egg")), " ");
     paintHud();
   }
+  /** The decoration at a point in the room or the yard (the front one first), or null. */
+  function decorAt(x, y) {
+    const list = inRoom() ? furniture() : outside() ? yardDecor() : [];
+    const hit = list.filter((d) => {
+      const img = decorArt[d.id];
+      if (!img) return false;
+      return Math.abs(x - d.x) <= img.width / 2 && y <= d.y + 3 && y >= d.y - img.height;
+    });
+    return hit.sort((a, b) => b.y - a.y)[0] || null;
+  }
+  /** A decoration's little menu: Move it (tap where, and the creature carries it there) or Put away (My things). */
+  function decorMenu(d) {
+    const it = itemById(d.id);
+    const name = (it && it.name) || "Decoration";
+    const box = openModal({ title: t(name), cls: "decor-menu" });
+    const body = h(`<div class="decor-menu-body"><p></p><div class="confirm-buttons"></div></div>`);
+    body.querySelector("p").textContent = isEgg() ? t("Tap where it should go.") : t("Tap where it should go, and your creature carries it there.");
+    const row = body.querySelector(".confirm-buttons");
+    const button = (word, primary, run) => {
+      const b = h(`<button type="button" class="${primary ? "primary" : "ghost"}"></button>`);
+      b.textContent = word;
+      b.onclick = () => { box.close(); run(); };
+      row.append(b);
+    };
+    button(t("Put away"), false, () => { putAway(game, d.id); saveGame(); toast(t("{0} is back in My things.", t(name))); });
+    button(t("Move it"), true, () => { carry = { id: d.id, to: null, held: false, auto: false }; toast(t("Tap where it should go.")); });
+    box.body.replaceChildren(body);
+  }
   // Pressed rather than tapped (Enter or Space on the keyboard, A on a game controller, which come with no
   // place on the picture): the creature itself is tapped.
   canvas.addEventListener("keydown", (e) => {
@@ -1141,6 +1207,18 @@ export function habitat() {
     const p = pressed ? { x: isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x, y: 0 } : scenePoint(e);
     const { x, y } = p;
     const cx = isEgg() ? (inRoom() ? ROOM.egg.x : W / 2) : pet.x;
+    // Moving a decoration (slice 2): after "Move it", the next tap says where it goes.
+    if (roomOn() && !pressed && carry && !carry.to) {
+      const to = inRoom() ? clampToFloor({ x, y: Math.max(y, ROOM.walk.y0) }) : clampToFloor({ x, y: Math.max(y, YARD_WALK.y0 + 30) }, YARD_WALK);
+      carry.to = to;
+      if (isEgg()) { setSpot(game, carry.id, to); saveGame(); carry = null; return; } // (an egg can't carry: it just goes there)
+      const from = (inRoom() ? furniture() : yardDecor()).find((d) => d.id === carry.id);
+      if (from) walkTo({ x: from.x, y: from.y }, "pickup"); else carry = null;
+      return;
+    }
+    // A decoration tapped: move it (the creature carries it) or put it away.
+    const piece = roomOn() && !pressed && !onCreature(x, y) ? decorAt(x, y) : null;
+    if (piece) { decorMenu(piece); return; }
     // The ring's front, below the feet: the goal.
     const ry = (y - (feetNow() + RING.dy)) / RING.ry;
     if (!pressed && y > feetNow() + 2 && ((x - cx) / RING.rx) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }

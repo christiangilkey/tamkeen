@@ -47,9 +47,14 @@ const SLOTS = [
 ];
 
 /** The indoor decorations out in the habitat, each with its spot: [{id, x, y}] (`y` is where it stands: its base). */
-export function roomLayout(decor) {
+export function roomLayout(decor, spots = {}) {
   const inside = (Array.isArray(decor) ? decor : []).filter((d) => d && isIndoor(d.id));
-  return inside.slice(0, SLOTS.length).map((d, i) => ({ id: d.id, x: SLOTS[i].x, y: SLOTS[i].y }));
+  return inside.slice(0, SLOTS.length).map((d, i) => {
+    // where the creature put it down (home.js), kept on the floor; or its own spot
+    const s = spots && spots[d.id];
+    const at = s && Number.isFinite(s.x) && Number.isFinite(s.y) ? clampToFloor(s) : SLOTS[i];
+    return { id: d.id, x: at.x, y: at.y };
+  });
 }
 
 // ---------- walking: the shortest way round the furniture ----------

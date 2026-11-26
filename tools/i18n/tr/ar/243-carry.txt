@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	اضغط حيث يجب أن توضع.
+494a1906	اضغط حيث يجب أن توضع، وسيحملها مخلوقك إلى هناك.
+0c4690f3	{0} عاد إلى أغراضي.
+42478baf	انقلها

@@ -92,7 +92,9 @@ export function yardBlocked(cellKeyOf, extra = new Set()) {
 /** A garden plot's building: along the front of the field. */
 export const plotSpot = (x) => ({ x, y: H - 6 });
 /** An outdoor decoration (the k-th): in two rows across the middle, so neighbours don't hide each other. */
-export const decorSpot = (x, k) => ({ x, y: k % 2 ? 112 : 94 });
+export const decorSpot = (x, k, spot = null) => (spot && Number.isFinite(spot.x) && Number.isFinite(spot.y)
+  ? { x: Math.max(YARD_WALK.x0, Math.min(YARD_WALK.x1, spot.x)), y: Math.max(YARD_WALK.y0 + 30, Math.min(YARD_WALK.y1, spot.y)) } // (where the creature put it down)
+  : { x, y: k % 2 ? 112 : 94 });
 /** A gift or an egg waiting: on the grass in front of the path. */
 export const thingSpot = (x) => ({ x, y: 124 });
 /** The aquarium. */

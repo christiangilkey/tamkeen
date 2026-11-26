@@ -20165,6 +20165,36 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "2db87a01",
+  "k": "Decoration",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "d6b925a1",
+  "k": "Tap where it should go.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "494a1906",
+  "k": "Tap where it should go, and your creature carries it there.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "4f3e6209",
+  "k": "Put away",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "0c4690f3",
+  "k": "{0} is back in My things.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "42478baf",
+  "k": "Move it",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "bc39d8bf",
   "k": "Your creature is fully grown! It left you a new egg and {0} coins.",
   "f": "web/js/game/habitat.js"
@@ -22130,11 +22160,6 @@
   "f": "web/js/game/sections.js"
  },
  {
-  "id": "2db87a01",
-  "k": "Decoration",
-  "f": "web/js/game/sections.js"
- },
- {
   "id": "68121261",
   "k": "Things to wear",
   "f": "web/js/game/sections.js"
@@ -22147,11 +22172,6 @@
  {
   "id": "fa6095d9",
   "k": "Out in the habitat",
-  "f": "web/js/game/sections.js"
- },
- {
-  "id": "4f3e6209",
-  "k": "Put away",
   "f": "web/js/game/sections.js"
  },
  {

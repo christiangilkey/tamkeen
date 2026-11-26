@@ -1,0 +1,5 @@
+# Carrying decorations (prototype habitat_room, slice 2): habitat.js decorMenu.
+d6b925a1	Toca on ha d'anar.
+494a1906	Toca on ha d'anar i la teva criatura la hi portarà.
+0c4690f3	{0} torna a ser a Les meves coses.
+42478baf	Mou-la
