@@ -103,9 +103,9 @@ test("the open word has every tool of the review card's back, from the same code
   assert.doesNotMatch(review, /function mnemonicMaker|function copyText|const HOLD_MS/, "no second copy left in the reviewer");
   assert.ok(read("mobile/scripts/build-www.mjs").includes('"js/components/wordtools.js"'), "the phone and web app carry the tools");
   // in the reviewer's own colours (the owner: light blue on the brand's dark teal, like its other buttons)
-  assert.match(read("web/css/review.css"), /\.rv \.vi-tool \{[^}]*background: var\(--accent-soft\); color: var\(--accent\);/);
+  assert.match(read("web/css/review.css"), /\.rv \.vi-tool \{[^}]*background: var\(--teal-tint\); color: var\(--teal\);/);
   // the Vocab page lends the reviewer its folders
   assert.match(read("web/js/pages/vocab.js"), /setFolder: \(w, uid, on\) => applyFolder\(\[w\], uid, on, \{ redraw: false \}\),\s+newFolder,\s+onClose:/);
   const css = read("web/css/app.css");
-  assert.match(css, /\.vocab-page \.vocab-item\.open \{ border-color: var\(--accent\); box-shadow: 0 0 0 1px var\(--accent\); \}/, "the brand-teal outline");
+  assert.match(css, /\.vocab-page \.vocab-item\.open \{ border-color: var\(--teal\); box-shadow: 0 0 0 1px var\(--teal\); \}/, "the brand-teal outline");
 });

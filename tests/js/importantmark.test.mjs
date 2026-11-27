@@ -47,7 +47,7 @@ test("Important words are yellow on the Vocab page, with a one-tap filter that w
   assert.match(vocab, /important: st\.important \}\)/, "the filter is remembered");
   const css = read("web/css/app.css");
   assert.match(css, /\.vocab-item\.vi-important \.word \{ color: var\(--important-word\); \}/);
-  assert.match(css, /:root \{ --important-word: #8a6500; \}/, "dark yellow on the light theme");
+  assert.match(css, /--important-word: #8a6500;/, "dark yellow on the light theme");
   assert.match(css, /--important-word: #ffd43b;/, "bright yellow on the dark theme");
 });
 

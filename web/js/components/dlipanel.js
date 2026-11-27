@@ -237,22 +237,22 @@ if (typeof document !== "undefined" && !document.getElementById("dli-panel-css")
     .dli-head h2 { margin: 0; font-size: 20px; }
     .dli-head p { margin: 2px 0 0; }
     .dli-head-ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none;
-      background: var(--accent-soft); color: var(--accent); }
-    .dli-soon { text-align: center; padding: 28px 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border);
+      background: var(--teal-tint); color: var(--teal); }
+    .dli-soon { text-align: center; padding: 28px 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
       display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .dli-soon p { margin: 0; color: var(--muted); font-size: 15px; max-width: 420px; }
+    .dli-soon p { margin: 0; color: var(--ink-2); font-size: 15px; max-width: 420px; }
     .dli-step { text-align: start; align-items: stretch; }
     .dli-step-part { width: 100%; max-width: 460px; margin: 0 auto; }
-    .dli-step .dls-terms p { color: var(--text); font-size: 14px; max-width: none; }
+    .dli-step .dls-terms p { color: var(--ink); font-size: 14px; max-width: none; }
     .dli-step .set-hint { max-width: none; font-size: 14px; }
     .dli-sec { margin-bottom: 16px; }
-    .dli-sec h3 { font-size: 15px; margin: 0 0 8px; color: var(--muted); }
-    .dli-list { border-radius: 16px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; }
+    .dli-sec h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink-2); }
+    .dli-list { border-radius: 16px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
     .dli-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; min-height: 64px; width: 100%; text-align: start;
-      border: 0; border-radius: 0; background: none; color: var(--text); font: inherit; }
-    .dli-row + .dli-row { border-top: 1px solid var(--border); }
+      border: 0; border-radius: 0; background: none; color: var(--ink); font: inherit; }
+    .dli-row + .dli-row { border-top: 1px solid var(--line); }
     button.dli-row:hover:not(:disabled) { background: var(--surface-2); }
-    .dli-row-ico { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none; background: var(--accent-soft); color: var(--accent); }
+    .dli-row-ico { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none; background: var(--teal-tint); color: var(--teal); }
     .dli-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; white-space: normal; }
     .dli-row-text strong { overflow-wrap: anywhere; }
     .dli-row-act { flex: none; }

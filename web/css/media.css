@@ -16,7 +16,7 @@
 
 /* One header row that stays at the top while the list scrolls: the kinds (phone), the status pills
    and the title filter, then ticking several at once. The same on every kind. */
-.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--bg); padding: 4px 0 2px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--paper); padding: 4px 0 2px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
 .lib-bar .filter-row { display: flex; align-items: center; gap: 10px; }
 .lib-bar .tabs { flex: 1 1 auto; min-width: 0; margin: 6px 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .lib-bar .tabs::-webkit-scrollbar { display: none; }
@@ -30,11 +30,11 @@
 /* The round + button: every way of adding something (components/addsheet.js). */
 .add-fab {
   position: fixed; right: 28px; bottom: 28px; z-index: 30;
-  width: 58px; height: 58px; min-height: 0; padding: 0; border-radius: 50%;
+  width: 58px; height: 58px; min-height: 0; padding: 0; border-radius: 50%; corner-shape: round;
   display: grid; place-items: center;
-  background: var(--accent); color: var(--accent-ink); border: 3px solid var(--bg);
+  background: var(--teal); color: var(--teal-ink); border: 3px solid var(--paper);
 }
-.add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--accent); }
+.add-fab:hover:not(:disabled) { filter: brightness(1.08); background: var(--teal); }
 /* Right-to-left on a computer: the side list is on the right, so the button sat over it (with its arrow and note);
    it goes to the bottom left instead (the owner, 2026-11-21). library.js aimHint then turns the arrow and the note
    round to its other side, over the page. Only while the side list is beside the page (app.css: one column at 860 px
@@ -58,7 +58,7 @@
 @keyframes fab-fade-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .add-fab.roll-in { animation: fab-fade-in .3s ease-out both; } }
 /* The computer's list of kinds: the chosen one's icon stays the text colour too (its row is highlighted). */
-.library.desk #feed-list .feed-item.active .ph.all { color: var(--text); }
+.library.desk #feed-list .feed-item.active .ph.all { color: var(--ink); }
 /* Messages pop up just above the + button instead of over it. */
 body:has(.add-fab) .toasts { bottom: 100px; }
 
@@ -68,21 +68,21 @@ body:has(.add-fab) .toasts { bottom: 100px; }
    when the button is on the left half of the screen, and the arrow then comes from its other side.
    It is hidden while a box is open over the page (the + sheet itself) or a page guide is showing. */
 .lib-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 440px; margin: 40px auto 24px; padding: 0 16px; text-align: center; }
-.lib-empty .le-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px; background: var(--surface-2); color: var(--muted); }
+.lib-empty .le-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px; background: var(--surface-2); color: var(--ink-2); }
 .lib-empty .le-title { margin: 0; font-size: 22px; }
-.lib-empty .le-text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--muted); }
+.lib-empty .le-text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
 .lib-empty .row { justify-content: center; }
 /* My audio → Listen (components/listenbox.js): the button, and the box while it records: a big clock, a red dot
    that swells with the sound, Stop and Cancel. Plain, centred, no shadow. */
 .lr-row { margin-top: 10px; }
-.lr-listen { border-radius: 99px; font-weight: 650; padding-inline: 18px; }
+.lr-listen { border-radius: 99px; corner-shape: round; font-weight: 650; padding-inline: 18px; }
 .lr-back .modal-box { width: min(420px, 100%); box-shadow: none; }
 .lr-box { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 6px 0 4px; }
 .lr-meter { display: flex; align-items: center; gap: 14px; }
-.lr-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--danger); transform: scale(calc(.8 + var(--level, 0) * .8)); transition: transform .06s linear; }
-.lr-dot.is-still { background: var(--muted); transform: none; }
+.lr-dot { width: 18px; height: 18px; border-radius: 50%; corner-shape: round; background: var(--danger); transform: scale(calc(.8 + var(--level, 0) * .8)); transition: transform .06s linear; }
+.lr-dot.is-still { background: var(--ink-2); transform: none; }
 .lr-time { font-size: 44px; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.lr-box .lr-note { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.45; }
+.lr-box .lr-note { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.45; }
 .lr-box .lr-error { margin: 0; color: var(--danger); font-size: 15px; line-height: 1.45; }
 .lr-name { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; }
 .lr-name input { width: 100%; }
@@ -90,7 +90,7 @@ body:has(.add-fab) .toasts { bottom: 100px; }
 .lib-main.list-empty #lib-head { display: none; } /* (the empty state below says it all) */
 .fab-hint {
   position: absolute; right: calc(100% + 6px); bottom: calc(50% - 14px); /* the arrow's tip, 82/96 down it, level with the button's middle */
-  width: 110px; height: 96px; color: var(--accent); pointer-events: none; display: none; transition: opacity .3s;
+  width: 110px; height: 96px; color: var(--teal); pointer-events: none; display: none; transition: opacity .3s;
 }
 .fab-hint svg { display: block; width: 100%; height: 100%; }
 .library.lib-is-empty .fab-hint { display: block; }
@@ -126,25 +126,25 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; min-height: 64px;
   text-align: start; white-space: normal; border-radius: 14px; background: var(--surface-2); border: 1px solid transparent;
 }
-.add-way:hover { border-color: var(--accent); }
+.add-way:hover { border-color: var(--teal); }
 /* The same plain line icons as the tab bar: the text colour (white in dark mode), no coloured tile. */
-.aw-ico { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: var(--text); }
+.aw-ico { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: var(--ink); }
 .aw-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
 .aw-text strong { font-size: 16px; }
-.aw-text span { font-size: 13px; color: var(--muted); font-weight: 400; }
-.aw-go { flex: none; color: var(--muted); display: inline-flex; }
+.aw-text span { font-size: 13px; color: var(--ink-2); font-weight: 400; }
+.aw-go { flex: none; color: var(--ink-2); display: inline-flex; }
 .aw-back { margin: 0 0 10px -6px; padding-left: 6px; padding-right: 10px; }
 .aw-step { display: flex; flex-direction: column; gap: 12px; }
 .aw-form { display: flex; gap: 8px; }
 .aw-form input { flex: 1; min-width: 0; }
 .aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
-.aw-or { text-align: center; color: var(--muted); font-size: 13px; }
+.aw-or { text-align: center; color: var(--ink-2); font-size: 13px; }
 .aw-note { margin: 0; text-align: center; }
 /* Books (pages/books.js): a book of your own first, the free shelf under it. */
 .books-own { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 18px; }
 .books-about { margin: 0 0 10px; }
 /* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
-.aw-unavailable { padding: 14px 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-2); text-align: center; }
+.aw-unavailable { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); text-align: center; }
 .aw-unavailable p { margin: 8px 0 0; }
 .aw-country { display: flex; align-items: center; gap: 8px; }
 .aw-country select { flex: 1; min-width: 0; }
@@ -153,9 +153,9 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .yt-topic {
   display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
   text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
-  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--text);
+  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--ink);
 }
-.yt-topic:hover:not(:disabled) { border-color: var(--accent); background: var(--surface-2); }
+.yt-topic:hover:not(:disabled) { border-color: var(--teal); background: var(--surface-2); }
 .yt-topic span { min-width: 0; overflow-wrap: anywhere; }
 .yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
 
@@ -179,7 +179,7 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   border-radius: 14px; background: var(--surface-2);
 }
 .ab-cover { width: 56px; height: 56px; flex: none; border-radius: 8px; object-fit: cover; background: var(--surface); }
-.ab-cover.ph { display: grid; place-items: center; color: var(--muted); }
+.ab-cover.ph { display: grid; place-items: center; color: var(--ink-2); }
 .ab-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .ab-title { font-weight: 600; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
 .ab-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -188,9 +188,9 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .ab-credit { margin: 4px 0 0; text-align: center; }
 .ab-shelf { max-width: 760px; margin: 8px auto 0; }
 .ab-shelf .ab-credit { margin-top: 10px; }
-.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; }
+.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
 .ab-mine-open:hover { text-decoration: none; }
-.ab-mine-open:hover .ab-title { color: var(--accent); }
+.ab-mine-open:hover .ab-title { color: var(--teal); }
 .ab-mine > .btn { flex: none; display: inline-flex; align-items: center; gap: 6px; }
 .ab-head .ab-author { margin: 2px 0 6px; }
 .ab-head .ab-go .btn { display: inline-flex; align-items: center; gap: 6px; }
@@ -218,27 +218,27 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .site-tile { position: relative; min-width: 0; }
 .site-tile a {
   display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 64px; padding: 12px;
-  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: inherit; text-decoration: none;
+  border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); color: inherit; text-decoration: none;
 }
-.site-tile a:hover, .site-tile a:focus-visible { border-color: var(--accent); outline: none; }
+.site-tile a:hover, .site-tile a:focus-visible { border-color: var(--teal); outline: none; }
 .site-tile a:active { transform: scale(.98); }
 .site-tile.saved a { padding-inline-end: 50px; }
 .site-ico {
   position: relative; width: 40px; height: 40px; flex: none; border-radius: 10px; overflow: hidden;
-  display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: 18px;
+  display: grid; place-items: center; background: var(--teal-tint); color: var(--teal); font-weight: 700; font-size: 18px;
 }
 .site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 6px; background: var(--surface); opacity: 0; transition: opacity .2s; }
 .site-ico img.on { opacity: 1; }
 .site-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .site-name, .site-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .site-name { font-weight: 600; font-size: 16px; line-height: 1.3; }
-.site-note { color: var(--muted); font-size: 13px; }
-.site-easy { display: inline-block; margin-inline-end: 4px; padding: 0 7px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 700; }
+.site-note { color: var(--ink-2); font-size: 13px; }
+.site-easy { display: inline-block; margin-inline-end: 4px; padding: 0 7px; border-radius: 99px; corner-shape: round; background: var(--teal-tint); color: var(--teal); font-size: 11px; font-weight: 700; }
 .site-rm {
   position: absolute; top: 50%; inset-inline-end: 8px; transform: translateY(-50%);
-  width: 36px; height: 36px; min-height: 0; padding: 0; border-radius: 50%; display: grid; place-items: center; color: var(--muted);
+  width: 36px; height: 36px; min-height: 0; padding: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; color: var(--ink-2);
 }
-.site-rm:hover:not(:disabled) { color: var(--text); }
+.site-rm:hover:not(:disabled) { color: var(--ink); }
 .sites-add-form { display: flex; flex-direction: column; gap: 14px; }
 .sites-add-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
 .sites-add-form input { font-weight: 400; }
@@ -255,13 +255,13 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
   .site-rm { width: 32px; height: 32px; inset-inline-end: 4px; }
 }
 /* Followed YouTube channels: round pictures in the phone's bar, chips on the computer. */
-.feed-item img.round, .feed-item .ph.round, .lib-head .channel-pic { border-radius: 50%; }
-.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: 20px; color: var(--accent); background: var(--accent-soft); }
+.feed-item img.round, .feed-item .ph.round, .lib-head .channel-pic { border-radius: 50%; corner-shape: round; }
+.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: 20px; color: var(--teal); background: var(--teal-tint); }
 .lib-head .channel-pic { width: 72px; height: 72px; object-fit: cover; flex: none; }
 .yt-channels { align-items: center; margin: 0 0 4px; }
 .yt-channels button { display: inline-flex; align-items: center; gap: 6px; max-width: 240px; }
 .yt-channels button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; flex: none; font-size: 11px; display: inline-grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; corner-shape: round; object-fit: cover; flex: none; font-size: 11px; display: inline-grid; place-items: center; background: var(--teal-tint); color: var(--teal); }
 
 /* ---------- trending podcasts ---------- */
 .discover { max-width: 1200px; }
@@ -275,22 +275,22 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .disc-found-close { flex: none; padding: 6px; }
 .disc-found-none { margin: 4px 0; }
 .disc-found-credit { margin: 8px 0 0; text-align: center; }
-.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--paper); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
 .disc-cats button { flex: none; white-space: nowrap; }
 .disc-cat { margin-bottom: 22px; }
 .disc-cat h2 { margin: 10px 0 8px; font-size: 18px; }
-.disc-cat h2 .n { font-size: 13px; font-weight: 500; color: var(--muted); }
+.disc-cat h2 .n { font-size: 13px; font-weight: 500; color: var(--ink-2); }
 .disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
-.disc-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); min-width: 0; }
+.disc-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); min-width: 0; }
 .disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--surface-2); }
-.disc-card .ph { display: grid; place-items: center; color: var(--muted); }
+.disc-card .ph { display: grid; place-items: center; color: var(--ink-2); }
 .disc-card .info { flex: 1; min-width: 0; }
 .disc-card .t { font-weight: 600; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .disc-card .a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .disc-card .a:empty, .disc-card .d:empty { display: none; }
 .disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: 2px; }
 .disc-card .add { flex: none; min-width: 84px; }
-.disc-card .add.done { color: var(--accent); background: var(--accent-soft); border-color: transparent; opacity: 1; }
+.disc-card .add.done { color: var(--teal); background: var(--teal-tint); border-color: transparent; opacity: 1; }
 .disc-more { margin-top: 8px; }
 .disc-msg { max-width: 560px; margin: 32px auto; text-align: center; }
 .disc-credit { margin-top: 24px; text-align: center; }
@@ -353,7 +353,7 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .media-wait { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; align-items: center;
   justify-content: center; gap: 10px; padding: 16px; text-align: center; color: #c9c8c2; pointer-events: none; }
 .media-wait[hidden], .media-wait-line[hidden], .media-wait [hidden], .media-wait-line [hidden] { display: none; }
-.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait .spinner { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
 .media-wait .media-wait-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } /* (said, not shown) */
 .media-wait .media-wait-slow { margin: 0; max-width: 30em; font-size: 15px; line-height: 1.5; }
 .media-wait button { pointer-events: auto; }
@@ -362,9 +362,9 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .player.yt .screen.media-loading iframe { visibility: hidden; }
 .media-wait-line { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 8px; background: #111;
   color: #a8a8a8; font-size: 13px; line-height: 1.4; padding: .3em .8em; }
-.media-wait-line .spinner { width: 13px; height: 13px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.media-wait-line .spinner { width: 13px; height: 13px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
 .media-wait-line button { background: none; border: 0; min-height: 0; padding: 0; color: #fff; font: inherit; text-decoration: underline; cursor: pointer; }
-.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--accent); }
+.player.nf .nf-frame .nf-spin { width: 34px; height: 34px; border-width: 3px; border-color: rgba(255, 255, 255, .22); border-top-color: var(--teal); }
 
 /* Netflix: its player is a window of the app laid exactly over .screen (nfmedia.js); underneath,
    the stage says what is happening while there is no picture (opening, a sign-in needed). */
@@ -376,7 +376,7 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 .player.nf .nf-frame .nf-msg:empty { display: none; }
 .player.nf .nf-frame button { min-width: 10em; }
 .player.nf .transcript .nf-wait {
-  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--muted); text-align: center; margin: 2em 1em;
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; color: var(--ink-2); text-align: center; margin: 2em 1em;
 }
 
 /* In the phone app the YouTube player has its own banner (with the way back), so the app's
@@ -390,7 +390,7 @@ body.in-player:has(.player.yt) .topbar { display: none; }
     top: var(--dock-top, auto) !important; max-height: none;
     border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
     padding: 8px 14px 10px; background: #111; color: #f2f1ec;
-    --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+    --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
   }
 }
 
@@ -401,7 +401,7 @@ body.in-player:has(.player.yt) .topbar { display: none; }
   position: static; width: auto; flex: none; max-height: min(40vh, 360px);
   border: 0; border-top: 1px solid #2c2c2c; border-radius: 0; box-shadow: none; animation: none;
   padding: 8px 16px 10px; background: #111; color: #f2f1ec;
-  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
+  --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
 }
 
 /* ---------- word popup: heading and buttons row pinned, everything between them scrolls ----------
@@ -448,14 +448,14 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    are the two ends of the logo's gradient. */
 .word-bubble .wb-mode {
   flex: none; align-self: center; position: relative; width: 44px; height: 24px; min-height: 0; min-width: 0; padding: 0;
-  border: 0; border-radius: 99px; cursor: pointer;
+  border: 0; border-radius: 99px; corner-shape: round; cursor: pointer;
   background: linear-gradient(45deg, #4a0b47, #86308f); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
 }
 .word-bubble .wb-mode.on { background: linear-gradient(45deg, #1b526d, #0b8693); }
 .word-bubble .wb-mode:hover:not(:disabled) { background: linear-gradient(45deg, #4a0b47, #86308f); filter: brightness(1.12); }
 .word-bubble .wb-mode.on:hover:not(:disabled) { background: linear-gradient(45deg, #1b526d, #0b8693); }
 .wb-mode .wb-knob {
-  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: #6a1f72;
+  position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; corner-shape: round; background: #fff; color: #6a1f72;
   display: grid; place-items: center; box-shadow: 0 1px 3px rgba(0, 0, 0, .35); transition: left .16s ease, color .16s ease;
 }
 .wb-mode.on .wb-knob { left: 22px; color: #0b7783; }
@@ -468,16 +468,16 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    colour until followed, filled once followed; the "Following" bubble drops below it for a moment. */
 .follow-wrap { position: relative; display: inline-flex; flex: none; }
 .follow-btn {
-  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 16px; border-radius: 99px;
-  border: 1.5px solid var(--accent); background: transparent; color: var(--accent); font-weight: 600; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 16px; border-radius: 99px; corner-shape: round;
+  border: 1.5px solid var(--teal); background: transparent; color: var(--teal); font-weight: 600; white-space: nowrap;
 }
-.follow-btn:hover:not(:disabled) { background: var(--accent-soft); border-color: var(--accent); }
-.follow-btn.on, .follow-btn.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.follow-btn:hover:not(:disabled) { background: var(--teal-tint); border-color: var(--teal); }
+.follow-btn.on, .follow-btn.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); }
 .follow-btn.on:hover:not(:disabled) { filter: brightness(1.08); }
 .follow-btn .mark { font-weight: 700; }
 .follow-pop {
-  position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; padding: 4px 12px; border-radius: 99px;
-  background: var(--accent); color: var(--accent-ink); font-size: 12.5px; font-weight: 600; white-space: nowrap;
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 30; padding: 4px 12px; border-radius: 99px; corner-shape: round;
+  background: var(--teal); color: var(--teal-ink); font-size: 12.5px; font-weight: 600; white-space: nowrap;
   box-shadow: 0 4px 14px rgba(0, 0, 0, .28); pointer-events: none; animation: follow-pop 1.3s ease forwards;
 }
 .follow-pop[hidden] { display: none; }
@@ -497,12 +497,12 @@ body.in-player:has(.player.yt) .topbar { display: none; }
    The switch: two small round-ended buttons in one pill, a lightning bolt (quick: just the
    meaning) and a target with an arrow (detailed: the full popup). The chosen one is filled with
    the app's action colour. */
-.lookup-toggle { display: inline-flex; flex: none; align-items: center; gap: 2px; padding: 2px; border-radius: 99px;
-  background: var(--surface-2); border: 1px solid var(--border); vertical-align: middle; }
+.lookup-toggle { display: inline-flex; flex: none; align-items: center; gap: 2px; padding: 2px; border-radius: 99px; corner-shape: round;
+  background: var(--surface-2); border: 1px solid var(--line); vertical-align: middle; }
 div.lookup-toggle button[data-mode] { display: grid; place-items: center; width: 30px; height: 26px; min-width: 0; min-height: 0;
-  padding: 0; border: 0; border-radius: 99px; background: transparent; color: var(--muted); cursor: pointer; }
-div.lookup-toggle button[data-mode]:hover:not(.on) { background: transparent; color: var(--text); filter: none; }
-div.lookup-toggle button[data-mode].on { background: var(--accent); color: var(--accent-ink); }
+  padding: 0; border: 0; border-radius: 99px; corner-shape: round; background: transparent; color: var(--ink-2); cursor: pointer; }
+div.lookup-toggle button[data-mode]:hover:not(.on) { background: transparent; color: var(--ink); filter: none; }
+div.lookup-toggle button[data-mode].on { background: var(--teal); color: var(--teal-ink); }
 div.lookup-toggle button[data-mode].on .ic .fill { opacity: .28; }
 div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 /* Compact: only the chosen mode shows; a tap changes to the other. */
@@ -511,16 +511,16 @@ div.lookup-toggle button[data-mode] .ic { vertical-align: 0; }
 .reel-top .lookup-toggle, .reel-controls .lookup-toggle { background: #1d1d1d; border-color: #383838; }
 .reel-top div.lookup-toggle button[data-mode]:not(.on) { color: #aaa8a0; }
 .reel-controls div.lookup-toggle button[data-mode] { width: 30px; height: 26px; min-height: 0; padding: 0; }
-.reel-controls div.lookup-toggle button[data-mode].on { background: var(--accent); border: 0; color: var(--accent-ink); }
+.reel-controls div.lookup-toggle button[data-mode].on { background: var(--teal); border: 0; color: var(--teal-ink); }
 /* ---------- Tap words on or off (components/tapswitch.js, prototype tap_switch) ----------
    One small round-ended button beside the other controls at the bottom: filled with the action colour while words can
    be tapped, plain with the icon struck through while the text is plain. Solid, no shadow. */
 button.tap-switch { display: inline-grid; place-items: center; flex: none; width: 36px; height: 30px; min-width: 0; min-height: 0;
-  padding: 0; border-radius: 99px; border: 1px solid var(--border); background: var(--surface-2); color: var(--muted);
+  padding: 0; border-radius: 99px; corner-shape: round; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink-2);
   vertical-align: middle; cursor: pointer; }
-button.tap-switch:hover:not(.on) { background: var(--surface-2); color: var(--text); filter: none; }
-button.tap-switch.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
-button.tap-switch.on:hover { background: var(--accent); filter: brightness(1.08); }
+button.tap-switch:hover:not(.on) { background: var(--surface-2); color: var(--ink); filter: none; }
+button.tap-switch.on { background: var(--teal); border-color: var(--teal); color: var(--teal-ink); }
+button.tap-switch.on:hover { background: var(--teal); filter: brightness(1.08); }
 button.tap-switch.on .ic .fill { opacity: .28; }
 button.tap-switch .ic { vertical-align: 0; }
 /* The bar under a page's text (My webpages, a lesson's passage): the book's page bar, with only the switch. */
@@ -589,7 +589,7 @@ button.tap-switch .ic { vertical-align: 0; }
    Under the headword: what the transcript said, and Undo. */
 /* A misheard word put right (wordbubble.js): one purple pill on one line, "said → right ✕". */
 .word-bubble .wb-fix { display: flex; min-width: 0; margin: -2px 0 6px; }
-.wb-pill { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: 99px; background: #6a3d8f; color: #fff; overflow: hidden; }
+.wb-pill { display: inline-flex; align-items: center; max-width: 100%; min-width: 0; border-radius: 99px; corner-shape: round; background: #6a3d8f; color: #fff; overflow: hidden; }
 .word-bubble .wb-pill button { min-height: 0; border: 0; border-radius: 0; background: transparent; color: inherit; box-shadow: none; }
 .wb-pill .wb-pill-text { display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; padding: 2px 6px 2px 11px; font-size: 13px; line-height: 1.5; white-space: nowrap; }
 .wb-pill .wb-pill-text:only-child { padding-right: 11px; }
@@ -602,7 +602,7 @@ button.tap-switch .ic { vertical-align: 0; }
 .wb-pill .wb-pill-text span[aria-hidden] { opacity: .75; flex: none; }
 .wb-pill .wb-pill-x { flex: none; display: grid; place-items: center; width: 26px; padding: 4px 8px 4px 2px; opacity: .85; }
 .wb-pill .wb-pill-x:hover, .wb-pill .wb-pill-text:hover { background: rgba(255, 255, 255, .12); }
-.word-bubble .wb-fix-why { margin: -2px 0 8px; font-size: 13px; color: var(--muted); }
+.word-bubble .wb-fix-why { margin: -2px 0 8px; font-size: 13px; color: var(--ink-2); }
 
 /* ---------- player top row on a phone: icon-only buttons ----------
    The video's title needs the room, so a button that has a line icon shows just the icon there
@@ -618,10 +618,10 @@ button.tap-switch .ic { vertical-align: 0; }
 .vowels-btn { font-family: var(--ar-font); font-size: 18px; line-height: 1; min-width: 34px; }
 /* The "translation under each line" switch (components/dualline.js): filled like the vowels switch while on. */
 .dual-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
-button.ghost.dual-btn.on, button.ghost.dual-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+button.ghost.dual-btn.on, button.ghost.dual-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 .reel-controls .dual-btn { height: 26px; min-height: 0; padding: 0 8px; }
-button.ghost.vowels-btn.on, button.ghost.vowels-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
-button.ghost.vowels-btn.on.held { background: transparent; color: var(--accent); border: 1px dashed var(--accent); }
+button.ghost.vowels-btn.on, button.ghost.vowels-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
+button.ghost.vowels-btn.on.held { background: transparent; color: var(--teal); border: 1px dashed var(--teal); }
 .reel-controls .vowels-btn { height: 26px; min-height: 0; padding: 0 8px; }
 .vowels-row label { display: inline-flex; align-items: center; gap: 6px; flex-basis: 100%; }
 /* Add words: a row whose meaning needs the dictionary offers to download it right there (wordbuilder.js dictButton). */
@@ -631,31 +631,31 @@ button.ghost.vowels-btn.on.held { background: transparent; color: var(--accent);
    The panel takes the place of the words: in a player the transcript, the captions and the transcript's handle
    go while it is open (the video stays), in a reel the words bar, in a course the unit's list. */
 .dict-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 34px; }
-button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 .reel-controls .dict-btn { height: 26px; min-height: 0; padding: 0 8px; }
 .player.dictating .transcript-wrap, .player.dictating .panel-handle, .player.dictating .captions,
 .player.dictating .back-to-current { display: none !important; }
 .player.dictating .stage { flex: 1 1 42%; min-height: 150px; }
-.player .dict { flex: 1 1 58%; min-height: 0; overflow-y: auto; border-top: 1px solid var(--border); background: var(--bg); }
+.player .dict { flex: 1 1 58%; min-height: 0; overflow-y: auto; border-top: 1px solid var(--line); background: var(--paper); }
 .player:not(.video):not(.yt) .dict { flex: 1 1 auto; border-top: 0; }
 .dict { display: flex; flex-direction: column; align-items: stretch; padding: 14px max(16px, calc((100% - 760px) / 2)) 20px; gap: 12px; }
 .dict-head { display: flex; align-items: center; gap: 10px; }
-.dict-icon { color: var(--accent); display: grid; place-items: center; }
+.dict-icon { color: var(--teal); display: grid; place-items: center; }
 .dict-headtext { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
-.dict-close { width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; }
+.dict-close { width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; corner-shape: round; }
 .dict-body, .dict-done { display: flex; flex-direction: column; gap: 12px; }
 .dict-body[hidden], .dict-done[hidden] { display: none; }
 .dict-real, .dict-yours { font-family: var(--ar-font); font-size: clamp(20px, var(--ar-size), 34px); line-height: 1.8; text-align: center;
   padding: 10px 14px; border-radius: 12px; overflow-wrap: anywhere; }
-.dict-real { background: var(--surface); border: 1px solid var(--border); }
+.dict-real { background: var(--surface); border: 1px solid var(--line); }
 /* What was said, and under it what they typed: both plain, nothing marked (the owner, 2026-11-20). */
-.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--text); padding-top: 0; }
+.dict-yours { font-size: clamp(17px, calc(var(--ar-size) * .8), 28px); color: var(--ink); padding-top: 0; }
 .dict-real[hidden], .dict-yours[hidden], .dict-input[hidden] { display: none; }
 .dict .dw { border-radius: 5px; padding: 0 .06em; }
 .dict-input { width: 100%; box-sizing: border-box; resize: none; min-height: 3.2em; font-family: var(--ar-font);
   font-size: clamp(19px, calc(var(--ar-size) * .85), 30px); line-height: 1.6; text-align: center; padding: 10px 14px;
-  border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
-.dict-input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+.dict-input:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
 /* The hint in the box: the app's own font, centred, so it fits on a phone (not the big Arabic font). */
 .dict-input::placeholder { font-family: var(--ui-font); font-size: 15px; line-height: 1.5; text-align: center; }
 .dict-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
@@ -666,7 +666,7 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--acc
 .dict-actions .dict-hide[hidden] { display: none; }
 /* A phone: Hide is its eye alone (its name is still said to a screen reader), so the row fits in every language. */
 @media (max-width: 640px) { .dict-actions .dict-hide { padding-inline: 10px; } .dict-actions .dict-hide span { display: none; } }
-button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 .dict-hint { margin: 0; text-align: center; }
 @media (hover: none) { .dict-hint { display: none; } }
 .dict-done { align-items: center; text-align: center; padding: 18px 0; }
@@ -688,7 +688,7 @@ button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--a
 /* The switches row (with the round button) stays at the top of the panel while what is under it scrolls, so a
    phone's keyboard never hides it (dictation.js keeps what it scrolls to just below it). A course's panel is part of
    its page and scrolls with it. */
-.player .dict-modes, .reelplay .dict-modes { position: sticky; top: -10px; z-index: 2; background: var(--bg);
+.player .dict-modes, .reelplay .dict-modes { position: sticky; top: -10px; z-index: 2; background: var(--paper);
   margin: -10px 0 0; padding: 10px 0 4px; }
 /* A short screen (a phone with its keyboard up): the gist's box is two lines high and scrolls inside. */
 @media (max-height: 600px) {
@@ -704,17 +704,17 @@ button.ghost.dict-slow.on, button.ghost.dict-slow.on:hover { background: var(--a
 .dict-real.dict-tap [data-p]:hover { text-decoration: underline; text-underline-offset: .25em; }
 /* A reel: the popup for such a word sits on the reel's page (its words bar is put away), dark like the bar, and on
    a phone just above the controls (reels.js sets --dock-bottom). */
-.reelplay > .word-bubble { --surface: #1c1c1c; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838;
-  color: var(--text); }
+.reelplay > .word-bubble { --surface: #1c1c1c; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838;
+  color: var(--ink); }
 .reelplay > .word-bubble.sheet { bottom: var(--dock-bottom, 0px); }
 /* A reel: the panel in place of the words bar (the reel itself stays). A course: in place of the unit's list. */
 .reelplay.dictating .reel-bar { display: none !important; } /* (reels.css lays the bar out with a rule as strong) */
 .reelplay .dict { flex: none; height: 46%; min-height: 210px; overflow-y: auto; padding: 8px 12px 10px; gap: 8px;
   background: #111; border-top: 1px solid #2c2c2c; color: #f2f1ec;
-  --bg: #111; --surface: #1c1c1c; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+  --paper: #111; --surface: #1c1c1c; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838; }
 .cu-dict .dict { padding-left: 0; padding-right: 0; }
 .cu-dict-btn { display: inline-flex; align-items: center; gap: 6px; }
-button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var(--teal); color: var(--teal-ink); border-color: transparent; }
 .cu-dict { margin: 0 0 16px; }
 .dict-yours .muted { font-family: var(--ui-font); font-size: 15px; }
 /* Word · Sentence · Gist, and the gist's 2–5 sentences: a row of pill switches under the title. */
@@ -723,11 +723,11 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 /* The round button right of them: a check mark, then an arrow for the next one. Up here a phone's keyboard never
    covers it. */
 .dict-line { display: inline-flex; align-items: center; gap: 8px; }
-.dict-go { flex: none; width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; }
-.dict-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 99px; background: var(--surface-2); }
-.dict-seg button, .dict-sizes button { min-height: 0; border: 0; box-shadow: none; background: transparent; color: var(--muted);
-  border-radius: 99px; padding: 5px 14px; font-size: 14px; }
-.dict-seg button.on, .dict-sizes button.on { background: var(--accent); color: var(--accent-ink); }
+.dict-go { flex: none; width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; border-radius: 50%; corner-shape: round; }
+.dict-seg { display: inline-flex; padding: 3px; gap: 2px; border-radius: 99px; corner-shape: round; background: var(--surface-2); }
+.dict-seg button, .dict-sizes button { min-height: 0; border: 0; box-shadow: none; background: transparent; color: var(--ink-2);
+  border-radius: 99px; corner-shape: round; padding: 5px 14px; font-size: 14px; }
+.dict-seg button.on, .dict-sizes button.on { background: var(--teal); color: var(--teal-ink); }
 .dict-sizes { display: inline-flex; align-items: center; gap: 2px; }
 .dict-sizes button { padding: 4px 11px; }
 .dict-sizes .muted { margin-inline-end: 4px; }
@@ -741,20 +741,20 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
    On the black band under the video, never over YouTube's player (nothing may be): the video gets shorter meanwhile. */
 .dub-tip { flex: none; background: #111; color: #f2f1ec; border-top: 1px solid #2c2c2c; padding: 10px max(14px, calc((100% - 760px) / 2)) 12px;
   font-size: 14px; line-height: 1.5; max-height: 55vh; overflow-y: auto;
-  --surface: #111; --surface-2: #242424; --text: #f2f1ec; --muted: #aaa8a0; --border: #383838; }
+  --surface: #111; --surface-2: #242424; --ink: #f2f1ec; --ink-2: #aaa8a0; --line: #383838; }
 .dub-tip-head { display: flex; align-items: center; gap: 8px; }
 .dub-tip-head h3 { flex: 1; margin: 0; font-size: 16px; }
 .dub-tip-x { width: 32px; height: 32px; min-height: 0; padding: 0; color: inherit; }
 .dub-tip-text { margin: 6px 0 6px; }
 .dub-steps { margin: 0 0 8px; padding-inline-start: 1.4em; }
-.dub-tip .dub-tr { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.dub-tip .dub-tr { margin: 0 0 8px; color: var(--ink-2); font-size: 13px; }
 .dub-tip-end { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .dub-off { display: flex; align-items: center; gap: 8px; cursor: pointer; }
 .dub-off input { width: 18px; height: 18px; margin: 0; }
 .dub-ok { min-width: 96px; }
 
 /* Audio still loading (components/mediawait.js): a quiet line under the time bar, in the page's own colours. */
-.controls .media-wait-line { background: none; color: var(--muted); padding: 2px 0 0; }
-.controls .media-wait-line .spinner { border-color: var(--border); border-top-color: var(--accent); }
-.controls .media-wait-line button { color: var(--text); }
+.controls .media-wait-line { background: none; color: var(--ink-2); padding: 2px 0 0; }
+.controls .media-wait-line .spinner { border-color: var(--line); border-top-color: var(--teal); }
+.controls .media-wait-line button { color: var(--ink); }
 .media-wait-line.failed .media-wait-slow, .media-wait.failed .media-wait-slow { color: var(--danger); }

@@ -325,16 +325,16 @@ if (typeof document !== "undefined" && !document.getElementById("cls-css")) {
     .cls-card .set-actions .primary { min-height: 44px; min-width: 200px; justify-content: center; }
     .cls-picker { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .cls-picker button { min-height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 6px 14px; font-weight: 600; }
-    .cls-picker button .small { font-weight: 400; color: var(--muted); }
-    .cls-picker button.on, .cls-picker button.on:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
-    .cls-picker button.on .small { color: var(--accent-ink); }
+    .cls-picker button .small { font-weight: 400; color: var(--ink-2); }
+    .cls-picker button.on, .cls-picker button.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
+    .cls-picker button.on .small { color: var(--teal-ink); }
     .cls-new { justify-content: center; }
     .cls-people { display: flex; flex-direction: column; gap: 10px; }
     .cls-group { display: flex; flex-direction: column; gap: 6px; }
     .cls-names { display: flex; gap: 6px; flex-wrap: wrap; }
-    .cls-name { border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; background: var(--surface-2); font-weight: 600; }
+    .cls-name { border: 1px solid var(--line); border-radius: 999px; corner-shape: round; padding: 4px 12px; background: var(--surface-2); font-weight: 600; }
     .cls-agree { display: flex; flex-direction: column; gap: 8px; text-align: center; }
-    .cls-post-ico { display: inline-flex; color: var(--accent); flex: none; }
+    .cls-post-ico { display: inline-flex; color: var(--teal); flex: none; }
     .cls-post button { flex: none; }
     .cls-invite { text-align: center; }
     .cls-result { margin: 0; }

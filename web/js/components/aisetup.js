@@ -322,7 +322,7 @@ export function aiSetup(section, { transport }) {
       const said = syllableLine(got.pron);
       const words = [...got.items, ...got.parts].map((s) => s.keyword);
       out.textContent = `✓ ${((performance.now() - t0) / 1000).toFixed(1)} s, ${modelName(prov(), used)}: ${lang.test.word}${said ? ` (${said})` : ""} → ${words.join(" · ") || "–"}`;
-      out.style.color = "var(--accent)";
+      out.style.color = "var(--teal)";
     } catch (err) {
       out.textContent = err.message === "NO_KEY" ? "Add your API key above first." : err.message;
       out.style.color = "var(--danger)";
@@ -358,7 +358,7 @@ export function aiSetup(section, { transport }) {
         paintKey();
         note.textContent = key ? "Saved. Press “Test with an example” to check it." : "Key removed.";
       }
-      note.style.color = "var(--accent)";
+      note.style.color = "var(--teal)";
     } catch (err) {
       note.textContent = `The key couldn't be saved: ${err.message}`;
       note.style.color = "var(--danger)";
@@ -393,7 +393,7 @@ export function aiSetup(section, { transport }) {
                                language: $("#def-lang").value.trim() || "English" },
                              { ...sample, lang: studyLanguage() }, transport);
       out.textContent = `✓ Works (${((performance.now() - t0) / 1000).toFixed(1)} s): ${sample.word} = “${d.meaning}”`;
-      out.style.color = "var(--accent)";
+      out.style.color = "var(--teal)";
     } catch (err) {
       out.textContent = err.message;
       out.style.color = "var(--danger)";

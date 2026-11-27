@@ -83,10 +83,12 @@ its sprites). Each has one job.
 **The scale. No other sizes:** `12` captions · `14` supporting text · `16` body · `20` section heading ·
 `26` page title · `34` the hero word or number · `48` a celebrated number (level up, streak).
 **Weights:** 400, 600, 700. **Line height:** 1.5 for text, 1.2 for headings. Sentence case everywhere.
+In code: `--fs-12` … `--fs-48`, `--lh-text`, `--lh-head`, and `--flair-head` / `--flair-num` for the flair axis
+(`font-variation-settings: "FLAR" var(--flair-head)`).
 
 ## 5. Spacing
 
-**The scale. No other values:** `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64`.
+**The scale. No other values:** `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64`. In code: `--s-4` … `--s-64`.
 
 Spacing does the grouping that boxes used to do: things that belong together sit **close** (4–8), separate groups sit
 **far** apart (24–48). A wider gap is the first tool for separating, then a 1px `--line` divider, and only then a surface.

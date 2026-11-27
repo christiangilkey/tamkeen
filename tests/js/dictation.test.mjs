@@ -27,7 +27,7 @@ test("nothing is marked right or wrong, and there is no score (the owner, 2026-1
   assert.match(panel, /t\("Finished: \{0\} sentences listened to\.", done\)/);
   const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
   assert.doesNotMatch(css, /dw-right|dw-near|dw-missed|dw-extra|dict-score/);
-  assert.match(css, /\.dict-yours \{[^}]*color: var\(--text\);/, "what was typed in the normal text colour");
+  assert.match(css, /\.dict-yours \{[^}]*color: var\(--ink\);/, "what was typed in the normal text colour");
 });
 
 test("sentences: cut at full stops, kept whole when short, cut when long", () => {

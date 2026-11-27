@@ -6,7 +6,7 @@ body { padding-top: env(safe-area-inset-top); }
 .tabbar {
   flex: none;
   display: flex;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--line);
   background: var(--surface);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -18,10 +18,10 @@ body { padding-top: env(safe-area-inset-top); }
   gap: 2px;
   padding: 6px 0 8px;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--ink-2);
 }
 .tabbar a:hover { text-decoration: none; }
-.tabbar a.active { color: var(--accent); font-weight: 600; }
+.tabbar a.active { color: var(--teal); font-weight: 600; }
 .tabbar .ico { font-size: 18px; line-height: 1.2; }
 /* The player has its own controls bar at the bottom; hide the tabs there. */
 body.in-player .tabbar { display: none; }
@@ -30,7 +30,7 @@ body.in-player .tabbar { display: none; }
    the episodes would be squeezed into a sliver under everything else). The side list becomes
    strips that scroll sideways: the kinds of thing, then (under "Podcasts") the podcasts. */
 .library { display: block; height: auto; min-height: 100%; }
-.sidebar { border-right: none; border-bottom: 1px solid var(--border); max-height: none; padding: 8px 12px; gap: 8px; overflow: visible; }
+.sidebar { border-right: none; border-bottom: 1px solid var(--line); max-height: none; padding: 8px 12px; gap: 8px; overflow: visible; }
 .lib-main { overflow: visible; }
 #podcast-list { padding-top: 2px; margin-bottom: 4px; }
 /* The header row that stays at the top (web/css/media.css): here it starts with the kinds, as
@@ -38,9 +38,9 @@ body.in-player .tabbar { display: none; }
 .lib-bar { top: 0; margin: 0 -12px 8px; padding: 6px 12px 2px; }
 .lib-bar .kind-row { flex-direction: row; overflow-x: auto; gap: 6px; padding: 0 0 2px; scrollbar-width: none; }
 .lib-bar .kind-row::-webkit-scrollbar { display: none; }
-.lib-bar .kind-row .feed-item { flex: none; flex-direction: row; width: auto; gap: 6px; padding: 6px 12px 6px 10px; border-radius: 99px; background: var(--surface-2); }
+.lib-bar .kind-row .feed-item { flex: none; flex-direction: row; width: auto; gap: 6px; padding: 6px 12px 6px 10px; border-radius: 99px; corner-shape: round; background: var(--surface-2); }
 /* The chosen kind: a dark teal pill with a teal edge, so its white icon and label read as well as the others'. */
-.lib-bar .kind-row .feed-item.active { background: var(--accent-soft); color: var(--text); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.lib-bar .kind-row .feed-item.active { background: var(--teal-tint); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--teal); }
 .lib-bar .kind-row .feed-item .ph.all { width: 20px; height: 20px; background: transparent; color: inherit; }
 .lib-bar .kind-row .feed-item .ph.all svg { width: 20px; height: 20px; }
 .lib-bar .kind-row .feed-item .t { font-size: 13px; font-weight: 600; white-space: nowrap; -webkit-line-clamp: 1; }
@@ -70,7 +70,7 @@ body:has(.add-fab) .toasts { bottom: calc(144px + env(safe-area-inset-bottom)); 
 
 .page { padding: 12px 12px 24px; }
 .settings select, .settings input[type=text], .settings input[type=password] { width: 100%; }
-.stack-label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.stack-label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink-2); }
 .vocab-item { grid-template-columns: 1fr; }
 /* Messages: the width of a phone's screen less its margins; in a wider window (the web app on a
    computer, a tablet) a box at the bottom right as on the desktop, never a bar across the window. */
@@ -86,14 +86,14 @@ button, .btn { min-height: 38px; }
 /* ---------- Tamkeen: labelled bottom tabs, easy to reach and read ---------- */
 .tabbar { box-shadow: 0 -6px 20px rgba(0, 0, 0, .08); border-top: none; }
 .tabbar a { padding: 8px 0 9px; font-size: 11.5px; transition: transform .08s ease, color .12s ease; }
-.tabbar .ico { font-size: 20px; width: 52px; height: 28px; border-radius: 99px; display: grid; place-items: center; transition: background-color .15s ease; }
-.tabbar a.active .ico { background: var(--accent-soft); }
+.tabbar .ico { font-size: 20px; width: 52px; height: 28px; border-radius: 99px; corner-shape: round; display: grid; place-items: center; transition: background-color .15s ease; }
+.tabbar a.active .ico { background: var(--teal-tint); }
 .tabbar .nav-count { top: 3px; margin-left: 22px; }
 .brand span { font-size: 17px; }
 
 /* ---------- swipe between sections: the highlight blob slides between tabs ---------- */
 .tabbar { position: relative; }
-.tab-blob { position: absolute; left: 0; top: 0; width: 52px; height: 28px; border-radius: 99px; background: var(--accent-soft);
+.tab-blob { position: absolute; left: 0; top: 0; width: 52px; height: 28px; border-radius: 99px; corner-shape: round; background: var(--teal-tint);
   pointer-events: none; opacity: 0; will-change: transform; }
 .tabbar.has-blob a { position: relative; z-index: 1; }
 .tabbar.has-blob a.active .ico { background: transparent; }
@@ -103,10 +103,10 @@ button, .btn { min-height: 38px; }
 .update-notice { left: 12px; right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); max-width: none; }
 
 /* ---------- tab bar icons: the app's own line icons (web/js/icons.js) ---------- */
-.tabbar a { color: var(--muted); }
+.tabbar a { color: var(--ink-2); }
 .tabbar .ico { color: inherit; }
 .tabbar .ico svg { display: block; transition: transform .18s cubic-bezier(.3, 1.6, .5, 1), stroke-width .15s ease; }
-.tabbar a.active { color: var(--accent); }
+.tabbar a.active { color: var(--teal); }
 .tabbar a.active .ico svg { transform: translateY(-1px) scale(1.08); stroke-width: 2.1; }
 .tabbar a.active .ic .fill { opacity: .22; }
 .tabbar a:active .ico svg { transform: scale(.9); }
@@ -114,9 +114,9 @@ button, .btn { min-height: 38px; }
 .top-ico { display: inline-flex; }
 
 /* The web app's "add to home screen" button and its steps (web-install.js) */
-.top-install { margin-inline-start: auto; color: #fff; padding: 0; width: 36px; height: 36px; min-width: 0; display: inline-grid; place-items: center; position: relative; border-radius: 50%; isolation: isolate; }
+.top-install { margin-inline-start: auto; color: #fff; padding: 0; width: 36px; height: 36px; min-width: 0; display: inline-grid; place-items: center; position: relative; border-radius: 50%; corner-shape: round; isolation: isolate; }
 /* A purple ring travelling round the button, so it is noticed (only shown in a browser tab, see web-install.js) */
-.top-install::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; z-index: -1; padding: 2px;
+.top-install::before { content: ""; position: absolute; inset: -3px; border-radius: 50%; corner-shape: round; z-index: -1; padding: 2px;
   background: conic-gradient(from var(--ring-turn, 0deg), transparent 0deg, #e08ade 90deg, #8e2b8c 180deg, transparent 270deg);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0); animation: top-install-ring 2.4s linear infinite; }
@@ -129,7 +129,7 @@ button, .btn { min-height: 38px; }
 
 /* The web app's "Reconnect Google" (app.js boot): a small pill in the top bar while Google's hour-long pass has run out. */
 .top-reconnect { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 6px; padding: 6px 11px; min-height: 0;
-  border: 0; border-radius: 99px; background: #8f1d84; color: #fff; font-size: 13px; } /* (the brand purple, as on new words) */
+  border: 0; border-radius: 99px; corner-shape: round; background: #8f1d84; color: #fff; font-size: 13px; } /* (the brand purple, as on new words) */
 .top-reconnect[hidden] { display: none; }
 .top-install + .top-reconnect { margin-inline-start: 4px; }
 .top-reconnect:not([hidden]) + .top-search { margin-inline-start: 4px; }
@@ -143,13 +143,13 @@ button, .btn { min-height: 38px; }
 /* A narrow phone: tighter gaps; with the web app's install button there too, Search is its icon alone. */
 @media (max-width: 420px) {
   .topbar { gap: 8px; }
-  .top-install ~ .top-search { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: 50%; }
+  .top-install ~ .top-search { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: 50%; corner-shape: round; }
   .top-install ~ .top-search span:not(.top-ico) { display: none; }
 }
 
 /* The web app's "Updated to version …" (app.js versionBanner): a small brand-teal pill at the top left, for a few seconds. */
 .version-banner { position: fixed; left: 12px; z-index: 75; display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 24px);
-  padding: 6px 6px 6px 14px; border-radius: 99px; background: #0b8693; color: #fff; font-size: 13px; font-weight: 600;
+  padding: 6px 6px 6px 14px; border-radius: 99px; corner-shape: round; background: #0b8693; color: #fff; font-size: 13px; font-weight: 600;
   animation: version-in .3s ease-out both; }
 .version-banner a { color: #fff; text-decoration: underline; font-weight: 500; white-space: nowrap; }
 /* "What's new": a button that opens the list of new features under the banner (app.js versionBanner) */
@@ -162,7 +162,7 @@ button, .btn { min-height: 38px; }
 .version-banner-list { margin: 0; padding: 0 4px 2px 20px; max-width: 360px; font-size: 13px; line-height: 1.45; }
 .version-banner-list li { margin: 3px 0; }
 .version-banner-list[hidden] { display: none; }
-.version-banner-close { background: transparent; border: 0; color: #fff; padding: 4px; min-height: 0; border-radius: 50%; display: grid; place-items: center; }
+.version-banner-close { background: transparent; border: 0; color: #fff; padding: 4px; min-height: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; }
 .version-banner-close:hover:not(:disabled) { background: rgba(255, 255, 255, .18); }
 .version-banner.leaving { opacity: 0; transform: translateY(-6px); transition: opacity .35s, transform .35s; }
 @keyframes version-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
@@ -176,6 +176,6 @@ button, .btn { min-height: 38px; }
 .top-help { width: 32px; height: 32px; }
 .xp-badge { width: 32px; height: 32px; } /* the game's level badge (game/xpbadge.js), just before the "?" */
 @media (max-width: 420px) {
-  .top-search { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: 50%; }
+  .top-search { width: 32px; height: 32px; padding: 0; justify-content: center; border-radius: 50%; corner-shape: round; }
   .top-search span:not(.top-ico) { display: none; }
 }

@@ -659,11 +659,11 @@ if (typeof document !== "undefined" && !document.getElementById("wb-teacher-css"
   const style = document.createElement("style");
   style.id = "wb-teacher-css";
   style.textContent = `
-    .wb-teacher { border: 1px solid var(--border); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
-    .wb-teacher-imp { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent-ink); background: var(--accent); border-radius: 999px; padding: 1px 10px; margin-bottom: 4px; }
+    .wb-teacher { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
+    .wb-teacher-imp { display: inline-block; font-size: 12px; font-weight: 700; color: var(--teal-ink); background: var(--teal); border-radius: 999px; corner-shape: round; padding: 1px 10px; margin-bottom: 4px; }
     .wb-teacher-meaning { font-weight: 600; font-size: 1.05em; }
     .wb-teacher-note { white-space: pre-wrap; }
-    .w.tw-important { border-bottom: 2px solid var(--accent); }
+    .w.tw-important { border-bottom: 2px solid var(--teal); }
   `;
   document.head.append(style);
 }

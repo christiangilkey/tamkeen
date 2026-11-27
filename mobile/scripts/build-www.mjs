@@ -27,6 +27,7 @@ const SHARED = [
   "js/wordface.js",
   "js/lexicon",
   "js/icons.js",
+  "js/squircle.js",
   "js/scrollhint.js",
   "js/vowels.js",
   "js/wordclip.js",

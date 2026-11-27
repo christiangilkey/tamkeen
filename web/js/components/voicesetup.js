@@ -239,7 +239,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     try {
       await save({ tts_key_azure: key, tts_region_azure: region });
       note.textContent = key && region ? "Saved. Press “Test the key” to check it." : key ? "Saved. Now the region, as Azure shows it next to the key." : "Key removed.";
-      note.style.color = "var(--accent)";
+      note.style.color = "var(--teal)";
     } catch (err) {
       note.textContent = `The key couldn't be saved: ${err.message}`;
       note.style.color = "var(--danger)";
@@ -322,7 +322,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
       refused = false;
       out.textContent = `✓ Works (Azure answered in ${((Date.now() - began) / 1000).toFixed(1)} s). ${offered.length
         ? `${offered.length} ${byName} voices in this region.` : `Azure has no ${byName} voice in this region.`} Testing uses none of your characters.`;
-      out.style.color = "var(--accent)";
+      out.style.color = "var(--teal)";
       paintVoices();
     } catch (err) {
       refused = !!err.keyRejected;

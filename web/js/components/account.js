@@ -92,7 +92,7 @@ export function accountSection() {
           const free = await social.usernameFree(name);
           if (input.value.trim() !== name) return;
           hint.textContent = free ? "✓ Available" : "Taken";
-          hint.style.color = free ? "var(--accent)" : "var(--danger)";
+          hint.style.color = free ? "var(--teal)" : "var(--danger)";
         } catch { /* offline: the save will report it */ }
       }, 350);
     };

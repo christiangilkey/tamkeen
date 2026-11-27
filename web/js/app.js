@@ -32,6 +32,9 @@ import { mountXpBadge } from "./game/xpbadge.js";
 import { offerFix } from "./components/fixit.js";
 import { placeToast } from "./toaster.js";
 import { startGamepad } from "./gamepad.js";
+import { startSquircles } from "./squircle.js";
+
+startSquircles(); // squircle corners where the browser can't draw them (DESIGN.md; app.css does it where it can)
 
 // ---------- API ----------
 // This run's session token: the app's server writes it into its own page (app/guard.py), and it refuses
