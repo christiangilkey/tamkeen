@@ -78,7 +78,7 @@ export async function render(view) {
     shelf = books;
     mine = new Map((list.episodes || list.items || []).map((ep) => [ep.guid, ep]));
   } catch (err) {
-    grid.innerHTML = `<div class="card"><p class="muted"></p></div>`;
+    grid.innerHTML = `<p class="muted"></p>`;
     grid.querySelector("p").textContent = err.message;
     return;
   }
@@ -89,7 +89,7 @@ export async function render(view) {
     // Reading time at a learner's pace: about 600 letters a minute (250 characters in Japanese and Chinese).
     const mins = Math.max(1, Math.round(row.chars / (lang === "ja" || lang === "zh" ? 250 : 600)));
     const size = row.bytes >= 1e6 ? `${(row.bytes / 1e6).toFixed(1)} MB` : `${Math.max(1, Math.round(row.bytes / 1e3))} KB`;
-    const card = h(`<div class="card book-card">
+    const card = h(`<div class="book-card">
       <div class="book-cover" aria-hidden="true">${icon("book", 28)}</div>
       <div class="book-info">
         <div class="book-title" ${langInfo(lang).dir === "rtl" ? 'dir="rtl"' : 'dir="auto"'}></div>

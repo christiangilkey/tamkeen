@@ -28,8 +28,8 @@ html.embed .player .controls { background: var(--surface); }
 /* "Getting captions…", "No captions available for this video." and the like. */
 html.embed .embed-note {
   height: 100%; display: flex; align-items: center; justify-content: center;
-  padding: 24px; box-sizing: border-box; text-align: center;
-  color: #e8e8e8; font-size: 15px; line-height: 1.5;
+  padding: var(--s-24); box-sizing: border-box; text-align: center;
+  color: #e8e8e8; font-size: var(--fs-16); line-height: var(--lh-text);
 }
 html.embed .embed-note.error p { color: #ffb4a8; }
 html.embed #toasts { left: 8px; right: 8px; bottom: 8px; }

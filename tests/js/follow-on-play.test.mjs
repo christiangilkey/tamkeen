@@ -26,5 +26,5 @@ test("the word popup's source menu keeps its height", () => {
 
 test("a long run of words in the popup is cut to two lines, so its explanation always has room", () => {
   // (tests/js/popup-scroll.test.mjs has the rest: a tap shows it all, and the whole popup scrolls)
-  assert.match(read("web/css/app.css"), /\.wb-word\.wb-phrase \{ font-size: 21px; line-height: 1\.35; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;/);
+  assert.match(read("web/css/app.css"), /\.wb-word\.wb-phrase \{ font-size: var\(--fs-20\); line-height: var\(--lh-head\); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;/);
 });

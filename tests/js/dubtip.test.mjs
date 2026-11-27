@@ -28,7 +28,7 @@ test("the box: under the video (nothing over YouTube's player), Don't show this 
   assert.match(player, /if \(!dubTipOff\(\)\) \{\s*showDubTip\(\{ after: \$\("#yt-note"\), language: studyName, translated: captionKind\(ep\) === "translated"/);
   assert.match(player, /temp = `This video can be heard in \$\{studyName\} too: choose it under ⚙ → Audio track in the video\.`;/, "ticked: the short note, as before");
   const css = src("../../web/css/media.css");
-  assert.match(css, /\.dub-tip \{ flex: none; background: #111;/);
+  assert.match(css, /\.dub-tip \{ flex: none; background: var\(--media-1\);/);
   const de = JSON.parse(src("../../web/i18n/de.json"));
   assert.equal(de["Tap Audio track."], "Tippe auf Audiospur.", "YouTube's own name for the menu");
 });

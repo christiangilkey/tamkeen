@@ -24,16 +24,16 @@ test("the whole popup scrolls, its heading held at the top and its buttons at th
 test("a reel's popup, short under the words, scrolls as a whole card, heading and all; its buttons strip stays", () => {
   const css = read("web/css/reels.css");
   assert.match(css, /\.reel-pop \.word-bubble, \.reel-pop \.word-bubble\.sheet \{[^}]*display: flex; flex-direction: column; overflow-x: hidden; overflow-y: auto;/);
-  assert.match(css, /\.reel-pop \.word-bubble > \.wb-head \{ flex: none; padding: 6px 10px 2px; position: static; box-shadow: none; \}/);
-  assert.match(css, /background: #1a1a1a; border-top: 1px solid #383838;\n\s*box-shadow: none;/, "nothing painted over the reel's controls under the strip");
-  assert.match(css, /\.reel-pop \.word-bubble > \.wb-body \{ flex: 1 0 auto; padding: 0 10px 8px; \}/);
-  assert.match(css, /\.reel-pop \.wb-word\.wb-phrase \{ font-size: 18px; \}/, "a long selection's two lines a little smaller there");
+  assert.match(css, /\.reel-pop \.word-bubble > \.wb-head \{ flex: none; padding: var\(--s-8\) var\(--s-12\) var\(--s-4\); position: static; box-shadow: none; \}/);
+  assert.match(css, /background: var\(--media-2\); border-top: 1px solid var\(--media-line\);\n\s*box-shadow: none;/, "nothing painted over the reel's controls under the strip");
+  assert.match(css, /\.reel-pop \.word-bubble > \.wb-body \{ flex: 1 0 auto; padding: 0 var\(--s-12\) var\(--s-8\); \}/);
+  assert.match(css, /\.reel-pop \.wb-word\.wb-phrase \{ font-size: var\(--fs-16\); \}/, "a long selection's two lines a little smaller there");
   assert.match(css, /\.reel-pop \.word-bubble > \.wb-actions \{\n\s*position: absolute; left: 0; right: 0; bottom: 0;/);
 });
 
 test("a long selection's heading is two lines at most, and a tap shows it all until the next word", () => {
   const css = read("web/css/app.css");
-  assert.match(css, /\.wb-word\.wb-phrase \{ font-size: 21px; line-height: 1\.35; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;\n\s*line-clamp: 2; overflow: hidden; cursor: pointer; \}/);
+  assert.match(css, /\.wb-word\.wb-phrase \{ font-size: var\(--fs-20\); line-height: var\(--lh-head\); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;\n\s*line-clamp: 2; overflow: hidden; cursor: pointer; \}/);
   assert.match(css, /\.wb-word\.wb-phrase\.open \{ display: block; -webkit-line-clamp: none; line-clamp: none; overflow: visible; \}/);
   const bubble = read("web/js/components/wordbubble.js");
   assert.match(bubble, /class="wb-word ar\$\{phrase\(\) \? ` wb-phrase\$\{phraseOpen \? " open" : ""\}` : ""\}"/, "drawn again (the answer came) as it was");

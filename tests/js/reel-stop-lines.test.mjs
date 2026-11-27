@@ -120,7 +120,7 @@ test("in the reel player a tapped word always stops the reel at its end, and onl
 
 test("where reels play the words are two lines, the one being said on top, moving up one line at a time", () => {
   const css = read("web/css/reels.css");
-  assert.match(css, /\.reelplay:not\(\.no-video\) \.reel-words \{ flex: none; box-sizing: content-box; height: 3\.2em; \/\* two lines of 1\.6 \*\/\n\s*overflow-x: hidden; overflow-y: auto;[^\n]*\n\s*padding: 0 12px; line-height: 1\.6;/);
+  assert.match(css, /\.reelplay:not\(\.no-video\) \.reel-words \{ flex: none; box-sizing: content-box; height: 3\.2em; \/\* two lines of 1\.6 \*\/\n\s*overflow-x: hidden; overflow-y: auto;[^\n]*\n\s*padding: 0 var\(--s-12\); line-height: 1\.6;/);
   assert.match(css, /\.reelplay:not\(\.no-video\) \.reel-words \.seg \{ display: inline; margin: 0; unicode-bidi: isolate; \}/, "sentences wrap like a paragraph");
   assert.doesNotMatch(css, /\.reelplay:not\(\.no-video\) \.reel-words \{[^}]*white-space: nowrap/, "no longer one line sliding sideways");
   const page = read("web/js/pages/reels.js");

@@ -338,6 +338,6 @@ test("Type what you hear: once what was said is shown, Hide sits at the end of t
   const css = readFileSync(new URL("../../web/css/media.css", import.meta.url), "utf8");
   assert.match(css, /\.dict-body \.dict-actions \{ flex-wrap: nowrap; \}/, "one line, also on a phone");
   assert.match(css, /\.dict-actions \.dict-hide \{ margin-inline-start: auto;/, "at the far end (the left in right-to-left languages)");
-  assert.match(css, /@media \(max-width: 640px\) \{ \.dict-actions \.dict-hide \{ padding-inline: 10px; \} \.dict-actions \.dict-hide span \{ display: none; \} \}/,
+  assert.match(css, /@media \(max-width: 640px\) \{ \.dict-actions \.dict-hide \{ padding-inline: var\(--s-12\); \} \.dict-actions \.dict-hide span \{ display: none; \} \}/,
     "a phone: the eye alone (German, Spanish, Portuguese, Russian and Bisaya don't fit with the word at 375 px)");
 });

@@ -80,7 +80,7 @@ test("the spinner: in the video's place while YouTube's player loads (hidden und
   assert.match(wait, /media\.load\(\);/, "a video of your own is loaded again, from where it was");
   const css = src("../../web/css/media.css");
   // Nothing in front of YouTube's player: the spinner is under it, and the player is hidden only until it has loaded.
-  assert.match(css, /\.player\.yt \.media-wait \{ z-index: 0; background: #000; \}/);
+  assert.match(css, /\.player\.yt \.media-wait \{ z-index: 0; background: var\(--media-black\); \}/);
   assert.match(css, /\.player\.yt \.screen iframe \{ position: relative; z-index: 1; \}/);
   assert.match(css, /\.player\.yt \.screen\.media-loading iframe \{ visibility: hidden; \}/);
   assert.match(css, /\.media-wait \{[^}]*pointer-events: none;/, "a tap on the video still plays or pauses it");
