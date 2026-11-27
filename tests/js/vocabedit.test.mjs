@@ -107,5 +107,5 @@ test("the open word has every tool of the review card's back, from the same code
   // the Vocab page lends the reviewer its folders
   assert.match(read("web/js/pages/vocab.js"), /setFolder: \(w, uid, on\) => applyFolder\(\[w\], uid, on, \{ redraw: false \}\),\s+newFolder,\s+onClose:/);
   const css = read("web/css/app.css");
-  assert.match(css, /\.vocab-page \.vocab-item\.open \{ border-color: var\(--teal\); box-shadow: 0 0 0 1px var\(--teal\); \}/, "the brand-teal outline");
+  assert.match(css, /\.vocab-page \.vocab-item\.open \{ background: var\(--surface\); border: 1px solid var\(--teal\); border-radius: var\(--r-s\);/, "the brand-teal outline: an opened word is a word card");
 });

@@ -7,15 +7,16 @@ import { readFileSync } from "node:fs";
 
 const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8");
 
-test("no new words left for the goal: a purple Review banner with a Get words button to the Library", () => {
+test("no new words left for the goal: the Review banner with a Get words button to the Library", () => {
   const vocab = read("web/js/pages/vocab.js");
   assert.match(vocab, /getWords = !ready && o\.askable && noneLeft;/);
   assert.match(vocab, /banner\.classList\.toggle\("out", getWords\)/);
   assert.match(vocab, /getWords \? "Get words"/);
   assert.match(vocab, /if \(getWords\) location\.hash = "#\/library\?tab=basics"; else startReview\(\);/);
   const css = read("web/css/review.css");
-  assert.match(css, /\.review-banner\.out[^{]*\{ background: #8f1d84; color: #fff;/);
-  assert.match(css, /\.review-banner\.out \.rb-go \{ background: #22c7d6;/);
+  // (DESIGN.md, 2026-11-27: no purple banner; the same plain surface, its Get words button the screen's main, teal button)
+  assert.match(css, /\.review-banner\.out[^{]*\{ border-color: var\(--line\); \}/);
+  assert.match(css, /\.review-banner \.rb-go \{[^}]*background: var\(--teal\); color: var\(--teal-ink\);/);
   const goal = read("web/js/review/longgoalview.js");
   assert.doesNotMatch(goal, /No new words are waiting|lg-course|lg-add/, "the goal card leaves it to the banner");
 });
