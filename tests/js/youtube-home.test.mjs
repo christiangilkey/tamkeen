@@ -188,7 +188,7 @@ test("the web app's YouTube list: every row's picture at the start of the row at
   // (a <button> centres what it holds: without these the picture sat wherever the title's length put it)
   assert.match(src, /card\.style\.cssText = "display:flex;justify-content:flex-start;/);
   assert.match(src, /<span style="position:relative;flex:0 0 min\(40%, 220px\)">/, "one width: 220 px, or 40% on a phone");
-  assert.match(src, /<span class="stack" style="display:flex;flex-direction:column;gap:4px;flex:1 1 0;min-width:0;/, "the text takes the rest");
+  assert.match(src, /<span class="stack" style="display:flex;flex-direction:column;gap:var\(--s-4\);flex:1 1 0;min-width:0;/, "the text takes the rest");
   // a title in another script (English in the Arabic app) still starts beside the picture
   assert.match(src, /const side = getComputedStyle\(list\)\.direction === "rtl" \? "right" : "left";/);
   assert.match(src, /<strong dir="auto" style="overflow-wrap:anywhere;text-align:\$\{side\}">/);

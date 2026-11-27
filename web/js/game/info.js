@@ -219,7 +219,7 @@ export function openEarned(id, game, go, opts = {}) {
   body.append(h(`<div><strong>How you get it</strong>${list(c.get)}</div>`));
   body.append(h(`<div><strong>What it does</strong>${list(c.use)}</div>`));
   if (c.where) body.append(h(`<div><strong>Where</strong><p class="info-where">${c.where}</p></div>`));
-  if (c.details) body.append(h(`<details class="info-details" style="font-size:14px"><summary style="cursor:pointer;font-weight:600">All the numbers</summary>${list(c.details)}</details>`));
+  if (c.details) body.append(h(`<details class="info-details" style="font-size: var(--fs-14)"><summary style="cursor:pointer;font-weight: 600">All the numbers</summary>${list(c.details)}</details>`));
   if (c.go.length) body.append(links(close, c.go.map((l) => ({ ...l,
     run: () => (l.info ? openEarned(l.info, game, go, opts) : l.tab === "evolve" ? openEvolution(game, go, opts) : go(l.tab)) }))));
 }

@@ -69,7 +69,7 @@ body.rv-open { overflow: hidden; }
 .rv-fx { position: absolute; inset: 0; pointer-events: none; overflow: hidden; overflow: clip; z-index: 5; }
 
 /* ----- top bar ----- */
-.rv-top { position: relative; z-index: 2; display: flex; align-items: center; gap: var(--s-12); padding: calc(10px + env(safe-area-inset-top)) 14px 6px; }
+.rv-top { position: relative; z-index: 2; display: flex; align-items: center; gap: var(--s-12); padding: calc(var(--s-12) + env(safe-area-inset-top)) var(--s-16) var(--s-8); }
 .rv-top button { flex: none; width: 38px; height: 38px; min-height: 0; padding: 0; border: 0; background: transparent; color: var(--ink); display: grid; place-items: center; }
 .rv-top button:hover:not(:disabled) { background: var(--surface-2); }
 /* A phone (or large system text, which Android applies to the app): a tighter top bar so all of it fits. */
@@ -317,7 +317,7 @@ body.rv-open { overflow: hidden; }
 .rv-stamp.no { right: 18px; color: var(--ink-2); transform: rotate(12deg); }
 
 /* ----- the two answers ----- */
-.rv-actions { position: relative; z-index: 2; display: flex; gap: var(--s-12); justify-content: center; padding: 10px 16px calc(18px + env(safe-area-inset-bottom)); min-height: 92px; }
+.rv-actions { position: relative; z-index: 2; display: flex; gap: var(--s-12); justify-content: center; padding: var(--s-12) var(--s-16) calc(var(--s-16) + env(safe-area-inset-bottom)); min-height: 92px; }
 .rv-actions button {
   flex: 1 1 0; min-width: 0; max-width: 284px; min-height: 62px; padding-inline: var(--s-8); border-radius: var(--r-l); border: 0;
   font-size: clamp(14px, 4.1vw, 17px); font-weight: 700;
@@ -461,22 +461,22 @@ body.rv-open { overflow: hidden; }
    screen, one plain surface, no shadow; the time is the big thing. */
 .modal-back.cal-back { place-items: center; padding: var(--s-16); }
 .cal-back .modal-box, .cal-back .modal-box.wide { width: min(380px, 100%); border-radius: var(--r-l); box-shadow: none; padding-bottom: 0; }
-.cal-back .modal-head h2 { text-align: center; padding-inline-start: 36px; }
-.cal-body { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
-.cal-label { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; color: var(--ink-2); }
+.cal-back .modal-head h2 { text-align: center; padding-inline-start: var(--s-32); }
+.cal-body { display: flex; flex-direction: column; align-items: center; gap: var(--s-12); text-align: center; }
+.cal-label { display: inline-flex; align-items: center; gap: var(--s-8); font-size: var(--fs-16); color: var(--ink-2); }
 .cal-body .cal-time {
-  width: min(240px, 100%); min-height: 64px; padding: 8px 14px; border-radius: 16px; text-align: center;
-  font-family: inherit; font-size: 34px; font-weight: 700; font-variant-numeric: tabular-nums;
+  width: min(240px, 100%); min-height: 64px; padding: var(--s-8) var(--s-16); border-radius: var(--r-s); text-align: center;
+  font-family: inherit; font-size: var(--fs-34); font-weight: 700; font-variant-numeric: tabular-nums;
 }
-.cal-length { font-size: 16px; font-weight: 600; }
-.cal-note { margin: 0; font-size: 13px; line-height: 1.45; color: var(--ink-2); }
+.cal-length { font-size: var(--fs-16); font-weight: 600; }
+.cal-note { margin: 0; font-size: var(--fs-14); line-height: var(--lh-text); color: var(--ink-2); }
 .cal-note[hidden] { display: none; }
-.cal-body .confirm-buttons { align-self: stretch; margin-top: 8px; }
-.cal-body .confirm-buttons button { flex: 1 1 0; min-width: 0; white-space: normal; line-height: 1.25; padding-inline: 10px; } /* the same width, side by side */
+.cal-body .confirm-buttons { align-self: stretch; margin-top: var(--s-8); }
+.cal-body .confirm-buttons button { flex: 1 1 0; min-width: 0; white-space: normal; line-height: var(--lh-head); padding-inline: var(--s-12); } /* the same width, side by side */
 
 /* ----- the back: the meaning and the translation small under the answer; tap to edit, hold to light up -----
    (review.js drawAnswer / openEditor / holdWord) */
-.rv-ans-meaning { margin-top: -4px; font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: 1.35; color: var(--ink-2); max-width: 26em; overflow-wrap: anywhere; }
+.rv-ans-meaning { margin-top: calc(-1 * var(--s-4)); font-size: clamp(16px, 4.4vw, 19px); font-weight: 600; line-height: var(--lh-text); color: var(--ink-2); max-width: 26em; overflow-wrap: anywhere; }
 .rv-ans-trans { margin-top: calc(-1 * var(--s-4)); font-size: clamp(14px, 3.8vw, 16px); line-height: var(--lh-text); color: var(--ink-2); opacity: .85; max-width: 30em; overflow-wrap: anywhere; }
 .rv-back .rv-word, .rv-back .rv-ans-meaning, .rv-back .rv-ans-sentence, .rv-back .rv-ans-trans {
   cursor: text; border-radius: var(--r-s); -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none;

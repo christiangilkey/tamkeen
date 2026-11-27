@@ -7,7 +7,7 @@ export async function render(view) {
   const a = await api("/about");
   view.append(h(`<div class="page">
     <div class="card stack">
-      <div class="row"><img src="/icons/icon-256.png" alt="" width="72" height="72" style="border-radius:16px">
+      <div class="row"><img src="/icons/icon-256.png" alt="" width="72" height="72" style="border-radius:var(--r-s)">
         <div><h1 style="margin:0">${esc(a.app_name)}</h1><div class="muted">Version ${esc(a.version)}</div></div></div>
       <p>An app for learning a language from real material: subscribe to podcasts, add your own videos and web pages,
         transcribe locally with Whisper, read along with word-level highlighting, and build a vocabulary list.</p>
@@ -18,7 +18,7 @@ export async function render(view) {
       </dl>
       <div class="row"><button type="button" id="upd">Check for updates</button><span id="upd-res" class="small"></span></div>
     </div>
-    <div class="card licenses" style="margin-top:12px">
+    <div class="card licenses" style="margin-top:var(--s-12)">
       <h2>Open-source licenses</h2>
       <p class="small muted">This app is built on these projects. Click one to read its license.</p>
       <div id="lic"></div>

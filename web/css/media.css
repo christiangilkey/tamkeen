@@ -649,7 +649,7 @@ button.ghost.dict-btn.on, button.ghost.dict-btn.on:hover { background: var(--tea
 .player.dictating .stage { flex: 1 1 42%; min-height: 150px; }
 .player .dict { flex: 1 1 58%; min-height: 0; overflow-y: auto; border-top: 1px solid var(--line); background: var(--paper); }
 .player:not(.video):not(.yt) .dict { flex: 1 1 auto; border-top: 0; }
-.dict { display: flex; flex-direction: column; align-items: stretch; padding: 14px max(16px, calc((100% - 760px) / 2)) 20px; gap: var(--s-12); }
+.dict { display: flex; flex-direction: column; align-items: stretch; padding: var(--s-16) max(var(--s-16), calc((100% - 760px) / 2)) var(--s-24); gap: var(--s-12); }
 .dict-head { display: flex; align-items: center; gap: var(--s-12); }
 .dict-icon { color: var(--teal); display: grid; place-items: center; }
 .dict-headtext { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: var(--lh-head); }
@@ -750,7 +750,7 @@ button.ghost.cu-dict-btn.on, button.ghost.cu-dict-btn.on:hover { background: var
 
 /* ---------- a YouTube video with a dubbed track in the language learned: how to choose it (components/dubtip.js) ----------
    On the black band under the video, never over YouTube's player (nothing may be): the video gets shorter meanwhile. */
-.dub-tip { flex: none; background: var(--media-1); color: var(--media-ink); border-top: 1px solid var(--media-line-2); padding: 10px max(14px, calc((100% - 760px) / 2)) 12px;
+.dub-tip { flex: none; background: var(--media-1); color: var(--media-ink); border-top: 1px solid var(--media-line-2); padding: var(--s-12) max(var(--s-16), calc((100% - 760px) / 2)) var(--s-12);
   font-size: var(--fs-14); line-height: var(--lh-text); max-height: 55vh; overflow-y: auto;
   --surface: var(--media-1); --surface-2: var(--media-3); --ink: var(--media-ink); --ink-2: var(--media-ink-2); --line: var(--media-line); }
 .dub-tip-head { display: flex; align-items: center; gap: var(--s-8); }

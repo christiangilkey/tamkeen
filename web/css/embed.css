@@ -9,9 +9,9 @@ html.embed .player .transcript-wrap,
 html.embed .player .panel-handle,
 html.embed .lex-offer-back { display: none !important; }
 
-html.embed body { background: #000; }
+html.embed body { background: var(--media-black); }
 html.embed #view { overflow: hidden; }
-html.embed .player { height: 100%; background: #000; }
+html.embed .player { height: 100%; background: var(--media-black); }
 html.embed .player.yt .stage { flex-direction: column; justify-content: flex-start; }
 html.embed .player.yt .yt-col { flex: none; }
 html.embed .player.yt .screen { flex: 0 1 auto; width: 100%; aspect-ratio: 16 / 9; min-height: 200px; }
@@ -22,14 +22,14 @@ html.embed .player.yt .captions {
   font-size: clamp(18px, calc(var(--ar-size) * .85), 30px);
   padding: .5em .8em;
 }
-html.embed .player.yt .stage { flex: 1 1 auto; min-height: 0; background: #000; }
+html.embed .player.yt .stage { flex: 1 1 auto; min-height: 0; background: var(--media-black); }
 html.embed .player .controls { background: var(--surface); }
 
 /* "Getting captions…", "No captions available for this video." and the like. */
 html.embed .embed-note {
   height: 100%; display: flex; align-items: center; justify-content: center;
   padding: var(--s-24); box-sizing: border-box; text-align: center;
-  color: #e8e8e8; font-size: var(--fs-16); line-height: var(--lh-text);
+  color: var(--media-ink); font-size: var(--fs-16); line-height: var(--lh-text);
 }
-html.embed .embed-note.error p { color: #ffb4a8; }
+html.embed .embed-note.error p { color: var(--alert); }
 html.embed #toasts { left: 8px; right: 8px; bottom: 8px; }

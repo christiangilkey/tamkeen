@@ -141,7 +141,7 @@
 .reelplay:not(.no-video) .reel-bar { display: flex; flex-direction: column; }
 .reelplay:not(.no-video) .reel-words { flex: none; box-sizing: content-box; height: 3.2em; /* two lines of 1.6 */
   overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none;
-  padding: 0 var(--s-12); line-height: 1.6; font-size: clamp(21px, calc(var(--ar-size) * .95), 28px); border-bottom: 1px solid var(--media-line-2); /* (1.6: the box is two of these lines) */
+  padding: 0 var(--s-12); line-height: 1.6; font-size: clamp(21px, calc(var(--ar-size) * .95), 28px); border-bottom: 1px solid var(--media-line-2); /* (exact 1.6: the box is two of these lines) */
   unicode-bidi: isolate; }
 /* (No room above or below the two lines: it showed a sliver of the lines either side. unicode-bidi: the lines run the
    language's way, its dir, not decided again by their first letters.) */
@@ -182,7 +182,7 @@
 /* The controls: always on screen at the very bottom, also while a word's popup is open. Two
    lines: the slider with its two times, and under it the buttons. Back 5 s, play and forward 5 s
    sit exactly in the middle of the bar whatever is at the two ends (equal side columns). */
-.reel-controls { flex: none; display: flex; flex-direction: column; gap: var(--s-4); padding: 4px 8px calc(6px + env(safe-area-inset-bottom));
+.reel-controls { flex: none; display: flex; flex-direction: column; gap: var(--s-4); padding: var(--s-4) var(--s-8) calc(var(--s-8) + env(safe-area-inset-bottom));
   background: var(--media-0); border-top: 1px solid var(--media-line-2); color: var(--media-ink); }
 .rc-seekrow { display: flex; align-items: center; gap: var(--s-8); }
 /* Play always sits in the exact middle of the bar, whatever the ends hold (the owner, 2026-11-18: "the play button

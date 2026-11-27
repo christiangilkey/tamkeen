@@ -659,8 +659,8 @@ if (typeof document !== "undefined" && !document.getElementById("wb-teacher-css"
   const style = document.createElement("style");
   style.id = "wb-teacher-css";
   style.textContent = `
-    .wb-teacher { border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; margin-bottom: 8px; background: var(--surface-2); }
-    .wb-teacher-imp { display: inline-block; font-size: 12px; font-weight: 700; color: var(--teal-ink); background: var(--teal); border-radius: 999px; corner-shape: round; padding: 1px 10px; margin-bottom: 4px; }
+    .wb-teacher { border: 1px solid var(--line); border-radius: var(--r-s); padding: var(--s-8) var(--s-12); margin-bottom: var(--s-8); background: var(--surface-2); }
+    .wb-teacher-imp { display: inline-block; font-size: var(--fs-12); font-weight: 700; color: var(--teal-ink); background: var(--teal); border-radius: var(--r-pill); corner-shape: round; padding: 1px var(--s-12); margin-bottom: var(--s-4); }
     .wb-teacher-meaning { font-weight: 600; font-size: 1.05em; }
     .wb-teacher-note { white-space: pre-wrap; }
     .w.tw-important { border-bottom: 2px solid var(--teal); }

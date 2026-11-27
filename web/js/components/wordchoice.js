@@ -30,8 +30,8 @@ export function chooseWords(items, { lang = "" } = {}) {
           <div class="sc-opts" role="radiogroup" aria-label="${esc(t("Words for {0}", it.meaning))}">
             ${it.words.map((w, j) => `<button type="button" class="sc-opt" role="radio" data-v="${j}">
               <span class="sc-tick" aria-hidden="true">${icon("check", 18)}</span>
-              <span class="sc-text"><span class="wc-word ar" ${attrs} style="font-size:19px;font-weight:600">${esc(w.word)}</span>${w.reading && w.reading !== w.word ? ` <span class="sc-pos muted" translate="no">${esc(w.reading)}</span>` : ""}${
-                w.meaning ? `<span class="wc-gloss muted" dir="auto" translate="no" style="display:block;font-size:13px">${esc(w.meaning)}</span>` : ""}</span>
+              <span class="sc-text"><span class="wc-word ar" ${attrs} style="font-size: var(--fs-20);font-weight: 600">${esc(w.word)}</span>${w.reading && w.reading !== w.word ? ` <span class="sc-pos muted" translate="no">${esc(w.reading)}</span>` : ""}${
+                w.meaning ? `<span class="wc-gloss muted" dir="auto" translate="no" style="display:block;font-size: var(--fs-14)">${esc(w.meaning)}</span>` : ""}</span>
             </button>`).join("")}
           </div>
         </section>`).join("")}
@@ -71,10 +71,10 @@ export function askListLanguage({ own = "English", study = "", count = 0 } = {})
         : t("Tamkeen can't tell which language {0} lines of the list are in.", count))}</p>
       <div class="sc-word"><div class="sc-head">${esc(t("These are words in:"))}</div>
         <div class="sc-opts">
-          <button type="button" class="sc-opt" data-v="native"><span class="sc-text"><span style="font-size:18px;font-weight:600">${esc(own)}</span>
-            <span class="muted" style="display:block;font-size:13px">${esc(t("Their {0} words are found for you", study))}</span></span></button>
-          <button type="button" class="sc-opt" data-v="foreign"><span class="sc-text"><span style="font-size:18px;font-weight:600">${esc(study)}</span>
-            <span class="muted" style="display:block;font-size:13px">${esc(t("Their meanings are filled in for you"))}</span></span></button>
+          <button type="button" class="sc-opt" data-v="native"><span class="sc-text"><span style="font-size: var(--fs-20);font-weight: 600">${esc(own)}</span>
+            <span class="muted" style="display:block;font-size: var(--fs-14)">${esc(t("Their {0} words are found for you", study))}</span></span></button>
+          <button type="button" class="sc-opt" data-v="foreign"><span class="sc-text"><span style="font-size: var(--fs-20);font-weight: 600">${esc(study)}</span>
+            <span class="muted" style="display:block;font-size: var(--fs-14)">${esc(t("Their meanings are filled in for you"))}</span></span></button>
         </div>
       </div>
     </div>`);

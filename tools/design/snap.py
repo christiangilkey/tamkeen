@@ -10,6 +10,7 @@ Within the chosen part of the file (all of it by default), inside CSS declaratio
   font-weight -> 400 | 600 | 700
   line-height between 1.05 and 1.8 -> var(--lh-head) (under 1.35) or var(--lh-text)
 Colours and shadows are not touched: they need a person's judgement (which job does this colour do?).
+A declaration with "exact" in the comment right after it is left alone (code measures it).
 It prints how many values it changed. Look at the screen afterwards.
 """
 import re
@@ -94,6 +95,11 @@ def snap(text, counts):
         prop, colon, value = m.group(1), m.group(2), m.group(3)
         if prop.startswith("--"):
             return m.group(0)
+        end = text.find("\n", m.end())
+        rest = text[m.end():end if end >= 0 else len(text)]  # (the rest of the line after the value)
+        comment = rest.split(";", 1)[1][:200] if ";" in rest else ""
+        if "exact" in comment.split("{", 1)[0]:
+            return m.group(0)  # (a value marked "exact" in the comment after it: code depends on it)
         return prop + colon + snap_decl(prop, value, counts)
     return DECL.sub(rep, text)
 
