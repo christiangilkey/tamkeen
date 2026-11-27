@@ -159,10 +159,11 @@ export function tapIn(x, y) {
 
 // ---------- where the creature is (this device only: which side of its door, and where it stands) ----------
 const KEY = "tamkeen.game.roomView";
-/** "room" or "yard" (outside), remembered on this device. */
+const VIEWS = ["room", "yard", "hall", "farm"];
+/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), remembered on this device. */
 export function savedView() {
-  try { return localStorage.getItem(KEY) === "yard" ? "yard" : "room"; } catch { return "room"; }
+  try { const v = localStorage.getItem(KEY); return VIEWS.includes(v) ? v : "room"; } catch { return "room"; }
 }
 export function saveView(view) {
-  try { localStorage.setItem(KEY, view === "yard" ? "yard" : "room"); } catch { /* not kept: it starts in its room */ }
+  try { localStorage.setItem(KEY, VIEWS.includes(view) ? view : "room"); } catch { /* not kept: it starts in its room */ }
 }

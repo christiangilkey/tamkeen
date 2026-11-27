@@ -3037,14 +3037,20 @@ html.sel-sheets select { pointer-events: none; }
 .habitat-scene .pet-word { z-index: 2; }
 /* A Muffle's words (prototype habitat_room, muffles.js): the words you know in your language, the rest in their
    forgotten script (game-art/muffle/glyphs.png: 12 letters, 7 x 9, drawn at 2x). */
-.muffle-say { max-width: min(260px, 84%); }
-.muffle-say b { font-size: 16px; display: flex; flex-wrap: wrap; gap: 3px 6px; justify-content: center; align-items: center; }
+.muffle-say { max-width: min(200px, 62%); padding: 2px 6px; border-width: 1px; }  /* (small: the owner, on a phone) */
+.muffle-say b { font-size: 13px; display: flex; flex-wrap: wrap; gap: 2px 4px; justify-content: center; align-items: center; }
 .muffle-say .mw-lost { display: inline-flex; gap: 1px; }
-.muffle-say b.unspaced { gap: 3px 2px; }
+.muffle-say b.unspaced { gap: 2px 1px; }
 .muffle-say .mw { font-size: inherit; display: inline; overflow: visible; -webkit-line-clamp: unset; line-clamp: none; }
 .muffle-say .mg { display: inline-block; width: 14px; height: 18px; image-rendering: pixelated;
-  background: url("../game-art/muffle/glyphs.png") 0 0 / 192px 18px no-repeat; }
-.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; }
+  background: url("../game-art/muffle/glyphs.png") calc(var(--g, 0) * -16px) 0 / 192px 18px no-repeat; }
+.muffle-say span:not(.mw):not(.mw-lost) { -webkit-line-clamp: 1; line-clamp: 1; opacity: .8; font-size: 10px; }
+/* On a phone: the forgotten script at its own size (7 x 9), the words smaller still. */
+@media (max-width: 600px) {
+  .muffle-say { max-width: min(176px, 62%); padding: 1px 5px; }
+  .muffle-say b { font-size: 12px; gap: 1px 3px; }
+  .muffle-say .mg { width: 7px; height: 9px; background-position: calc(var(--g, 0) * -8px) 0; background-size: 96px 9px; }
+}
 .muffle-say.show { animation: pet-word 6s ease-out both; }
 /* The daily goal box (tap the ring) and the name box (tap the name tag). */
 .goal-pick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
@@ -3399,6 +3405,42 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .cr-ri { line-height: 0; }
 .cr-rl { font-size: 14px; font-weight: 600; }
 .cr-rn { min-width: 3ch; font-size: 14px; font-variant-numeric: tabular-nums; text-align: end; }
+/* Talents on the creature card (prototype "talents", look C "Element card", talents-ui.js): the whole card in its
+   element's colour with the creature walking on it, stats with the talent in blue and badges on dark panels. No stars.
+   The card is dark in both themes, so its words are white. Plain solid colours. */
+:root { --talent: #4aa3ff; --talent-soft: rgba(74, 163, 255, .18); }
+.cr-hero.tl-card { background: color-mix(in srgb, var(--el) 42%, #14121a); color: #fff; }
+.tl-card .cr-stage { height: auto; padding: 0; background: none; }
+.tl-living { display: block; width: 100%; max-width: 352px; aspect-ratio: 176 / 92; image-rendering: pixelated; image-rendering: crisp-edges; }
+.tl-card .cr-no, .tl-card .cr-grow .muted, .tl-card .cr-about { color: rgba(255, 255, 255, .72); }
+.tl-card .cr-tag { background: rgba(10, 8, 16, .45); color: #fff; }
+.tl-card .cr-bar { background: rgba(255, 255, 255, .14); }
+.tl-card .cr-acts button:not(.primary) { background: rgba(10, 8, 16, .45); border-color: transparent; color: #fff; }
+.tl-panel { width: 100%; padding: 10px 12px; border-radius: 14px; background: rgba(10, 8, 16, .45); }
+.tl-rows { display: grid; gap: 2px; }
+.tl-stat { display: grid; grid-template-columns: 16px 64px 36px minmax(0, 1fr) 26px; align-items: center; gap: 10px; min-height: 0; width: 100%;
+  padding: 5px 0; border: 0; background: none; color: #fff; text-align: start; white-space: nowrap; }
+.tl-stat:hover:not(:disabled) { background: none; }
+.tl-ic { line-height: 0; }
+.tl-l { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.tl-n { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.tl-n b { font-size: 14px; }
+.tl-n small { font-size: 11px; font-weight: 700; color: var(--talent); }
+.tl-bar { display: flex; height: 10px; min-width: 40px; border-radius: 99px; background: rgba(255, 255, 255, .12); overflow: hidden; }
+.tl-base { display: block; height: 100%; background: rgba(255, 255, 255, .6); }
+.tl-plus { display: block; height: 100%; background: var(--talent); }
+.tl-grade { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--talent-soft); color: var(--talent);
+  font-weight: 800; font-size: 15px; }
+.tl-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.tl-badge { flex-direction: column; gap: 2px; width: 72px; min-height: 0; padding: 4px 2px; border: 0; background: none; color: rgba(255, 255, 255, .78);
+  font-size: 11px; line-height: 1.2; white-space: normal; text-align: center; }
+.tl-badge:hover:not(:disabled) { background: none; }
+.tl-badge img { image-rendering: pixelated; image-rendering: crisp-edges; }
+.tl-egg { font-size: 13px; color: var(--muted); white-space: normal; }
+.tl-explain { display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.tl-explain p { margin: 0; }
+.tl-explain .confirm-buttons { margin-top: 6px; }
+
 /* Looks and colourings as pictures; a locked colouring dimmed, with a lock. */
 .cr-looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .cr-look { position: relative; flex-direction: column; gap: 4px; min-height: 0; padding: 6px 4px 8px; border: 2px solid transparent; border-radius: 12px;
@@ -4229,3 +4271,18 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .rk-n { width: 24px; text-align: right; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
 .rk-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .rk-search { animation: none; } }
+/* The farm (prototype "farm", farm-ui.js): a crop's picture (game-art/farm/icons.png, the strip placed inline), the seed
+   stand's and seed picker's rows, the barn's harvests (a rarer one's edge in its tier's colour). */
+.farm-ico { display: inline-block; flex: none; image-rendering: pixelated; background-repeat: no-repeat; vertical-align: middle; }
+.farm-list { display: grid; gap: 10px; }
+.farm-list .gs-block { display: grid; gap: 8px; }
+.farm-buy { min-width: 76px; }
+.farm-plant { font-weight: 700; color: var(--accent); }
+.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+.farm-barn-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px;
+  background: var(--surface); border: 2px solid color-mix(in srgb, var(--tier) 55%, transparent); }
+.farm-barn-n { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.farm-empty { grid-column: 1 / -1; margin: 6px 0; text-align: center; color: var(--muted); }
+.farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }
+/* The Cropdex (prototype "farm"): a crop not grown yet, faint. */
+.farm-dex-none { opacity: .35; }

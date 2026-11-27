@@ -475,7 +475,7 @@ function quickBlock(game, vocab, close) {
 function wildBattle(game, vocab, close) {
   close();
   const rand = Math.random;
-  const mine = fighters(game, teamOf(game).map((i) => game.roster[i]), { wild: true, fed: new Date() });
+  const mine = fighters(game, teamOf(game).map((i) => game.roster[i]), { wild: true, fed: new Date(), vsGame: true });
   const theirs = fighters(null, wildTeam(rand, mine.length));
   runLiveBattle({ ...wildSetup(rand), mode: "wild", mine, theirs, cards: { me: vocab.length } }, vocab);
 }

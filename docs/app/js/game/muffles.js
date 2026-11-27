@@ -25,7 +25,41 @@ export const FOLK = [
   { id: "fisher", x: 54 * 16 + 10, y: 104, place: "pier" },
   { id: "villager1", x: 25 * 16, y: 100, place: "square", walk: [23 * 16, 88, 31 * 16, 118] },
   { id: "villager2", x: 40 * 16, y: 96, place: "square", walk: [33 * 16, 88, 48 * 16, 100] },
+  // The market, alive (the owner, 2026-11-26: "muffles eating things on benches, cooking things, playing music (not
+  // audible to player), dancing"): `act` is what each is busy with (POSE), at the bench, the pot, by the well.
+  { id: "diner1", x: 22 * 16 + 9, y: 104, place: "market", act: "eat" },
+  { id: "diner2", x: 23 * 16 + 9, y: 104, place: "square", act: "eat", phase: 0.5 },
+  { id: "cook", x: 24 * 16 + 10, y: 124, place: "market", act: "cook" },
+  { id: "musician", x: 28 * 16 + 6, y: 92, place: "square", act: "lute" },
+  { id: "dancer1", x: 27 * 16 + 12, y: 112, place: "square", act: "dance" },
+  { id: "dancer2", x: 29 * 16, y: 106, place: "square", act: "dance", phase: 0.5 },
+  // Inside the championship hall (hall.js): the custodian behind the counter, who keeps the gym register.
+  { id: "custodian", x: 9 * 16 + 8, y: 44, place: "hall", scene: "hall" },
 ];
+
+/** Which frame of a Muffle's strip (tools/game_art/muffles.py POSES, 40 x 40 each) shows what. */
+export const POSE = {
+  front: 0, frontWalk: [1, 2], side: 3, sideWalk: [4, 5], back: 6, backWalk: [7, 8],
+  eat: [9, 10], cook: [11, 12], lute: [13, 14], dance: [15, 16],
+};
+/** How long each frame of a busy Muffle lasts (ms). */
+export const ACT_MS = { eat: 900, cook: 380, lute: 320, dance: 420 };
+/** The frame a Muffle shows at time `now` (ms) and which way it faces (1 right, -1 left): busy with its `act`; walking
+ * (`move`: {dx, dy}, the way it is going) side on, away or towards you, a step every 180 ms; else standing, facing you. */
+export function poseOf(f, now, move = null) {
+  const t = now + (f.phase || 0) * 1000;
+  if (f.act && POSE[f.act]) {
+    const k = Math.floor(t / ACT_MS[f.act]);
+    if (f.act === "dance") return { frame: POSE.dance[k % 2], dir: k % 4 === 3 ? -1 : 1 }; // (it turns as it dances)
+    return { frame: POSE[f.act][k % 2], dir: 1 };
+  }
+  if (move && (move.dx || move.dy)) {
+    const step = Math.floor(t / 180) % 2;
+    if (Math.abs(move.dx) >= Math.abs(move.dy) * 0.8) return { frame: POSE.sideWalk[step], dir: move.dx < 0 ? -1 : 1 };
+    return { frame: (move.dy < 0 ? POSE.backWalk : POSE.frontWalk)[step], dir: 1 };
+  }
+  return { frame: POSE.front, dir: 1 };
+}
 
 // What they say, by place and by the language being learned: muffle-lines.js (every language Tamkeen teaches). A
 // language with none: the Muffles speak only their own forgotten words (the whole line in glyphs).
@@ -84,8 +118,9 @@ export function readLine(line, known, lang) {
   const out = ranges.map(([from, to], i) => {
     const word = line.slice(from, to);
     const text = line.slice(i ? from : 0, i + 1 < ranges.length ? ranges[i + 1][0] : line.length).trim();
-    const ok = formsOf(word, lang).some((k) => known.has(k));
-    return { text, known: ok, glyphs: ok ? null : glyphsFor(word) };
+    const forms = formsOf(word, lang);
+    const ok = forms.some((k) => known.has(k));
+    return { text, known: ok, glyphs: ok ? null : glyphsFor(word), key: forms[0] }; // (key: how a woken word is kept, farmuses.wake)
   });
   return { words: out, known: out.filter((w) => w.known).length, total: out.length };
 }

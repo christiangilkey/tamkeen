@@ -10,7 +10,7 @@ import { FOODS, STRUCTURES, TYPES } from "./data.js";
 import { formOf, isGrown } from "./genome.js";
 import { dayKey } from "./rules.js";
 import {
-  BOOST_MINUTES, FEEDS_PER_DAY, STARDUST_BOOST, build, buyGemWithGlow, buySupply, collect, feed, garden, gemGlowPrice, gemsBoughtToday,
+  BOOST_MINUTES, FEEDS_PER_DAY, build, buyGemWithGlow, buySupply, collect, feed, garden, gemGlowPrice, gemsBoughtToday,
   hearts, incubate, release, stardustGain, tick, upgrade, useBoost, useKey,
 } from "./idle.js";
 import { feature } from "../prototype.js";
@@ -19,7 +19,8 @@ import { icon } from "./render.js";
 import { icon as lineIcon } from "../icons.js";
 import { openEarned } from "./info.js";
 import { portrait } from "./battle-ui.js";
-import { buildOptions, gardenFacts, plotRows, structureArt, supplyBlocks } from "./sections.js";
+import { FARM_JOBS, buildOptions, buildingName, gardenFacts, plotRows, structureArt, supplyBlocks } from "./sections.js";
+import { stardustBoost } from "./idle.js";
 import { amount, art, block, details, fact, fmt, grid, row, tile } from "./screenparts.js";
 
 const structure = (id) => STRUCTURES.find((s) => s.id === id);
@@ -73,25 +74,17 @@ export function gardenPanel(body, game, changed, go = () => {}) {
   body.append(top);
 
   // Buildings: one row per plot.
-  const plots = block("Buildings", `${f.open} / ${f.plots}`);
-  plots.querySelector(".gs-block-end").title = "Plots open";
+  const plots = block("Buildings on your farm", `${plotRows(game).filter((p) => p.kind === "built").length} / ${f.plots}`);
+  plots.querySelector(".gs-block-end").title = "Buildings";
   for (const p of plotRows(game)) {
-    if (p.kind === "closed") {
-      let end = "";
-      if (p.key) {
-        end = h(`<button type="button" class="gs-row-btn">${icon("key")}<span>Use a key</span></button>`);
-        end.onclick = () => act(useKey(game));
-      }
-      plots.append(row({ pic: art(structureArt(null, 0), 48), name: t("Plot {0}", p.i + 1), sub: `<span class="gs-need-line">${icon("lock")}<span class="gs-need"></span></span>`, end, dim: true }));
-      plots.lastElementChild.querySelector(".gs-need").textContent = p.need;
-    } else if (p.kind === "empty") {
-      plots.append(row({ pic: art(structureArt(null, 0), 48), name: t("Plot {0}", p.i + 1), sub: "Empty: choose something to build",
+    if (p.kind === "empty") {
+      plots.append(row({ pic: art(structureArt(null, 0), 48), name: t("Room for a building"), sub: "Build something to stand on your farm",
         end: `<span class="gs-row-go">${lineIcon("plus", 18)}<span>Build</span></span>`, open: () => buildPicker(game, p.i, act) }));
     } else {
       const s = structure(p.id);
       const sub = `${tierPips(p.tier)}<span class="gs-amount cur-glow">${icon("glow")}${fmt(p.rate)}</span><span>an hour</span>`;
       const end = p.stored >= 1 && !f.auto ? `${amount("glow", p.stored)}${chevron()}` : chevron();
-      plots.append(row({ pic: art(structureArt(p.id, p.tier), 48), name: s.name, sub, end, open: () => buildingDetails(game, p.i, act) }));
+      plots.append(row({ pic: art(structureArt(p.id, p.tier), 48), name: buildingName(s), sub, end, open: () => buildingDetails(game, p.i, act) }));
     }
   }
   body.append(plots);
@@ -135,7 +128,7 @@ export function gardenPanel(body, game, changed, go = () => {}) {
 function releaseHelp(game) {
   details((d) => ({
     title: "Release a creature", pic: art({ file: "icon/stardust.png", w: 16, h: 16 }, 96),
-    facts: [fact("Stardust now", `${icon("stardust")}${fmt(garden(game).stardust)}`), fact("Each one", `+${Math.round(STARDUST_BOOST * 100)}%`)],
+    facts: [fact("Stardust now", `${icon("stardust")}${fmt(garden(game).stardust)}`), fact("Each one", `+${Math.round(stardustBoost() * 100)}%`)],
     text: "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep stardust: each one makes every building faster for good, so the next garden grows much quicker. More fully grown buildings at the time means more stardust.",
     buttons: [{ word: "Close", run: () => d.close() }],
   }));
@@ -155,6 +148,9 @@ function buildPicker(game, i, act) {
         end = h(`<button type="button" class="${o.can ? "primary " : ""}gs-row-btn"><span>Build</span></button>`);
         end.disabled = !o.can;
         end.onclick = () => { if (act(build(game, i, o.id))) d.close(); };
+      } else if (o.key) { // (the farm: a key skips this building's milestone)
+        end = h(`<button type="button" class="gs-row-btn">${icon("key")}<span>Use a key</span></button>`);
+        end.onclick = () => { if (act(useKey(game, o.id))) d.redraw(); };
       }
       const r = row({ pic: art(structureArt(o.id, 1), 32), name: o.name, sub, end, dim: !o.open });
       if (!o.open) r.querySelector(".gs-need").textContent = o.need;
@@ -162,11 +158,17 @@ function buildPicker(game, i, act) {
       list.append(r);
     }
     return {
-      title: t("Build on plot {0}", i + 1),
+      title: t("Build on your farm"),
       facts: [counted("You have", "glow", garden(game).glow)], more: list,
       buttons: [{ word: "Close", run: () => d.close() }],
     };
   });
+}
+
+/** A building's details opened from the farm (prototype "farm": a building tapped where it stands). */
+export function openBuilding(game, i, changed = () => {}) {
+  const act = (problem, sound = "lucky") => { if (problem) { toast(problem, { error: true }); return false; } sfx(sound); saveGame(); changed(); return true; };
+  buildingDetails(game, i, act);
 }
 
 /** A building's details: its picture, tier, glow an hour, what waits in it, the habit it likes; Collect and Grow. */
@@ -186,8 +188,10 @@ function buildingDetails(game, i, act) {
     if (p.cost === null) buttons.push({ word: "Fully grown", pic: icon("check"), disabled: true, run: () => {} });
     else buttons.push({ word: "Grow", extra: amount("glow", p.cost), primary: true, disabled: !p.can, run: () => redo(upgrade(game, i)) });
     const short = p.cost !== null && !p.can ? Math.ceil(p.cost - garden(game).glow) : 0;
+    const job = FARM_JOBS[p.id]; // (its farm job, and moving it on the farm)
+    if (job) buttons.unshift({ word: "Move it", run: () => { d.close(); window.dispatchEvent(new CustomEvent("tamkeen-farm-move", { detail: { i } })); } });
     return {
-      title: s.name, pic: art(structureArt(p.id, p.tier), 128), facts, text: s.text, buttons,
+      title: buildingName(s), pic: art(structureArt(p.id, p.tier), 128), facts, text: job ? `${t(s.text)} ${t(job)}` : s.text, buttons,
       note: short > 0 ? t("You need {0} more glow.", short) : "",
     };
   });

@@ -29,7 +29,7 @@ const YARD = [
   "gHooooHggffggggsswsg",
   "gHHoHHHgggggggggsssg",
   "gggdggggggggggggggfg",
-  "tggddddddddddggggggg",
+  "dddddddddddddggggggg",
   "tfggggggggggdddddddd",
   "gggggggggggggggggggt",
   "fgggggggggggggggggtt",
@@ -56,7 +56,7 @@ const PROPS_HERE = [
   { id: "bush_flower", x: 7, y: 3 }, { id: "bush", x: 14, y: 4 }, { id: "stump", x: 0, y: 7 }, { id: "boulder_mossy", x: 19, y: 5 },
   // the village: the market's stalls and its well, the tavern's sign, the hall's banners, lamps, a barrel, a crate, a tree
   { id: "tree_round", x: 21, y: 1 }, { id: "stall", x: 22, y: 3 }, { id: "stall_cloth", x: 25, y: 3 }, { id: "stall_bread", x: 28, y: 3 },
-  { id: "well", x: 26, y: 5 }, { id: "vendor_cart_flowers", x: 30, y: 7 }, { id: "lamp_post", x: 32, y: 7 },
+  { id: "well", x: 26, y: 5 }, { id: "bench", x: 22, y: 6 }, { id: "vendor_cart_flowers", x: 30, y: 7 }, { id: "lamp_post", x: 32, y: 7 },
   { id: "sign_tavern", x: 37, y: 4 }, { id: "barrel", x: 39, y: 2 }, { id: "banner", x: 40, y: 4 }, { id: "banner", x: 47, y: 4 },
   { id: "crate", x: 48, y: 7 }, { id: "lamp_post", x: 48, y: 4 },
 ];
@@ -90,6 +90,8 @@ export const STATIONS = [
 export const stationById = (id) => STATIONS.find((s) => s.id === id) || null;
 /** Where the creature stands to go in at the door, and where it comes out to. */
 export const YARD_DOOR_SPOT = { x: COTTAGE.door.tx * TILE + TILE / 2, y: (COTTAGE.door.ty + 1) * TILE + 6 };
+/** The Star Shrine (prototype "farm", farm-ui.js openShrine): by the cottage, once there is stardust; its foot's middle. */
+export const SHRINE = { x: 9 * TILE + 8, y: 4 * TILE + 10 };
 /** Where its feet may be outside. */
 export const YARD_WALK = { x0: 8, x1: WORLD_W - 8, y0: 10, y1: H - 4 };
 /** Where an egg sits outside. */
@@ -113,7 +115,7 @@ export function yardMap() {
   return made;
 }
 const FOOT = { tree_fruit: 2, tree_round: 2, tree_poplar: 1, bush_flower: 1, bush: 1, stump: 1, boulder_mossy: 1,
-  stall: 2, stall_cloth: 2, stall_bread: 2, well: 2, vendor_cart_flowers: 2 };
+  stall: 2, stall_cloth: 2, stall_bread: 2, well: 2, vendor_cart_flowers: 2, bench: 2 };
 const footOf = (id) => FOOT[id] || 1;
 
 const WALKABLE = new Set(["grass", "dirt", "cobbles", "flowers", "tall_grass", "shallows", "bridge"]);

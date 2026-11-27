@@ -149,6 +149,15 @@ function joinRounds(x, y) {
   return { day: dx, n: Math.max(num(x.n), num(y.n)), done: union(x.done, y.done).filter((u) => typeof u === "string" && !miss.has(u)), miss: [...miss.values()] };
 }
 
+/** The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole, as the home's
+ * layout (each change to it stamps `at`). */
+function joinFarm(x, y) {
+  x = obj(x);
+  y = obj(y);
+  if (!x || !y) return x || y;
+  return num(y.at) > num(x.at) ? y : x;
+}
+
 /** The home's layout (home.js: where the creature has put the decorations): the one changed later, whole. */
 function joinHome(x, y) {
   x = obj(x);
@@ -217,6 +226,8 @@ export function combine(mine, theirs) {
       if ("bloom" in ga || "bloom" in gb) ga.bloom = !!(ga.bloom || gb.bloom);
     }
     out.idle.released = released;
+    const keyed = union(ga.keyed, gb.keyed); // (the farm: building kinds opened with a key, kept from both)
+    if (keyed.length) out.idle.keyed = keyed;
     const buys = joinDayCount(ga.gemBuys, gb.gemBuys);
     if (buys) out.idle.gemBuys = buys;
   }
@@ -245,8 +256,10 @@ export function combine(mine, theirs) {
     const i = at.get(seed);
     // (its last meal, idle.js hunger: the later of the two, whichever copy is kept)
     const fed = Math.max(num(c.fedAt), num(roster[i].fedAt));
+    const tf = Math.max(num(c.tf), num(roster[i].tf)); // (talents.js: an egg's lowest roll, raised on either copy)
     if (num(c.growth) > num(roster[i].growth)) roster[i] = c;
     if (fed > 0) roster[i] = { ...roster[i], fedAt: fed };
+    if (tf > 0) roster[i] = { ...roster[i], tf };
   }
   if (roster.length) {
     const was = seedOf(rosterOf(a)[num(a.active)] || rosterOf(a)[0]);
@@ -293,6 +306,8 @@ export function combine(mine, theirs) {
   }
   const home = joinHome(a.home, b.home);
   if (home) out.home = home;
+  const farm = joinFarm(a.farm, b.farm);
+  if (farm) out.farm = farm;
   out.updated_at = Math.max(num(a.updated_at), num(b.updated_at));
   return out;
 }

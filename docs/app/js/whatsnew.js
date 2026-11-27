@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.76.0",
+  "A cozy cottage and a village to explore, with the Muffles");
+notes("0.76.0",
+  "Your own farm: water the crops by answering your words");
+notes("0.76.0",
+  "Cook 15 dishes, fill the Muffles' orders, sell at the fruit stall");
+notes("0.76.0",
+  "Creature talents and a new creature card");
+notes("0.76.0",
+  "Ranked battles against players online");
+notes("0.76.0",
+  "Pond guardians, and pictures for your cards from Openverse");
 notes("0.75.0",
   "Hungry creatures: feed yours every day, or it fights weaker");
 notes("0.75.0",

@@ -16,6 +16,7 @@ import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RUL
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
+import { perfect, prepareEgg } from "./talents.js";
 import { cleanGifts, settle } from "./merge.js";
 import { inPicks, pickList } from "../review/folderpicks.js";
 
@@ -310,7 +311,8 @@ function grow(state, xp, trait) {
   state.xp += xp;
   state.day.xp += xp;
   const before = formOf(c).id;
-  c.growth = Math.min(1, c.growth + xp / ADULT_XP);
+  const stew = state.farm && state.farm.buffs && state.farm.buffs.stew === dayKey() ? 1.5 : 1; // (a Growing stew today: the farm's Cookbook)
+  c.growth = Math.min(1, c.growth + (xp * stew) / ADULT_XP);
   // An egg in the incubator grows at half speed alongside, until it hatches.
   if (state.incubating != null) {
     const egg = state.roster.find((g) => g.seed === state.incubating && g !== c);
@@ -470,6 +472,7 @@ export function earn(state, event, ctx = {}) {
     if (event.mode === "listen") out.colouring = featUp(state, "listen", seconds);
     const before = day.seconds;
     day.seconds += seconds;
+    if (event.mode === "listen" || event.mode === "read") day[event.mode] = (Number(day[event.mode]) || 0) + seconds; // (the farm's Echo Shell and Page Lantern)
     if (now.getHours() >= 22) grant(state, "night_owl");
     if (now.getHours() < 7 && now.getHours() >= 4) grant(state, "early_bird");
     const goal = state.goal * 60;
@@ -750,7 +753,11 @@ export function layEgg(state, rand = Math.random) {
     { id: "ember", weight_by: { curious: 2 } }, { id: "tide", weight_by: { listener: 2 } }, { id: "grove", weight_by: { collector: 2 } },
     { id: "stone", weight_by: { reader: 2 } }, { id: "spark", weight_by: { early_bird: 2 } }, { id: "dusk", weight_by: { night_owl: 2 } },
   ], rand, traits).id;
-  const egg = newGenome((rand() * 2 ** 32) >>> 0, type);
+  const buffs = state.farm && state.farm.buffs;
+  const lean = buffs && TYPES[buffs.lean] ? buffs.lean : null; // (an element pie from the farm's Cookbook: this egg is that element)
+  if (lean) delete buffs.lean;
+  const egg = newGenome((rand() * 2 ** 32) >>> 0, lean || type);
+  prepareEgg(state, egg); // (talents.js: stardust's lowest roll, and the talent a release passed down)
   state.roster.push(egg);
   return egg;
 }
@@ -1197,6 +1204,7 @@ export function checkBadges(state, extra = {}) {
     friend_battle: s.friend_battles > 0, raid_win: s.raids > 0,
     // (fishing.feedFish counts the meals; a meal eaten before the badge is released earns it once it is)
     legend_feast: feature("legend_feast") && (s.legend_fed || 0) > 0,
+    five_star: feature("talents") && state.roster.some(perfect), // (talents.js: top talents in everything, "Perfect talent")
   };
   const fresh = BADGES.map((b) => b.id).filter((id) => earned[id] && !state.badges.includes(id));
   state.badges.push(...fresh);

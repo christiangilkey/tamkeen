@@ -1,27 +1,30 @@
 // The garden: the slow half of the game, with no screen code.
 //
-// Buildings stand on plots in the habitat and make "glow" while you are away. It follows what the
+// Buildings stand on the farm (farm.js, farmmap.js) and make "glow" while you are away. It follows what the
 // owner's notes on incremental games ask for:
 //   - costs rise faster than output, so there is always a next thing to save for;
-//   - it unfolds: plots and buildings open with study milestones, not all at once;
-//   - there are real choices: six plots, six kinds of building, and each kind does best for a
+//   - it unfolds: buildings open with their own study milestones, not all at once (a key skips one);
+//   - there are real choices: six building slots, five kinds of building, and each kind does best for a
 //     different study habit, so what to build depends on how you study;
 //   - being away is worth something (up to eight hours of glow waits for you, so there is no
 //     reason to check every five minutes) and so is studying (reaching the day's goal speeds
 //     everything up and pays a burst);
 //   - collecting by hand is replaced by automation you EARN (ten daily goals), not buy;
 //   - releasing a grown creature starts the garden over with a lasting boost (stardust);
-//   - there is an end: every plot holding a fully grown building is "full bloom".
+//   - there is an end: every slot holding a fully grown building is "full bloom".
 // Nothing here is sold for money, and nothing here adds strength in battles between people.
 
 import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TIER_COST, TIER_RATE } from "./data.js";
 import { formOf, isGrown } from "./genome.js";
 import { MATURE_BOX, MAX_CREATURES, dayKey, layEgg } from "./rules.js";
 import { feature } from "../prototype.js";
+import { liftEggs, releaseRecord } from "./talents.js";
 
 export const OFFLINE_HOURS = 8;        // how much glow can pile up while you are away
 export const AUTO_GOALS = 10;          // daily goals reached before glow collects itself
-export const STARDUST_BOOST = 0.5;     // each stardust: +50% glow, for good
+export const STARDUST_BOOST = 0.2;     // each stardust: +20% glow, for good (+50% before the farm and its Star Shrine)
+/** What each stardust adds to glow. */
+export const stardustBoost = () => STARDUST_BOOST;
 export const FEEDS_PER_DAY = 3;
 export const MAX_BOND = 10;            // two points per heart, five hearts
 export const BOOST_MINUTES = 20;
@@ -40,9 +43,20 @@ export function garden(state) {
   while (g.plots.length < PLOTS.length) g.plots.push({ open: false, id: null, tier: 0, stored: 0 });
   for (const k of ["glow", "stardust", "at", "badgesPaid", "raidsPaid", "leaguePaid"]) if (!Number.isFinite(g[k])) g[k] = k === "glow" ? 40 : 0;
   if (!Array.isArray(g.released)) g.released = [];
+  if (!Array.isArray(g.keyed)) g.keyed = []; // (the farm: building kinds opened with a key)
   if (!Number.isFinite(state.gems)) state.gems = 0;
   return g;
 }
+
+// ---------- the buildings on the farm (farm.js; the owner's plan, tamkeen-plans/farming-plan.md slice 2) ----------
+// No plots: each building keeps its own milestone and, once it is open, stands anywhere on the farm (its slot's `at`;
+// six slots, `idle.plots`). A key (data.SUPPLIES "key", once the Plot key) skips one building's milestone: `idle.keyed`,
+// the kinds opened with one. The Ink Well is the Spelling Bee Hive; the Star Loom folds into the Star Shrine, so it
+// isn't built any more. Old saves keep their buildings, at their tiers, in their slots.
+/** Is building kind `id` open to build: its milestone reached, or a key used on it. */
+export const buildingOpen = (state, s) => meets(state, s.need) || garden(state).keyed.includes(s.id);
+/** The building kinds that can be built on the farm (all but the Star Loom). */
+export const FARM_KINDS = STRUCTURES.filter((s) => s.id !== "star_loom").map((s) => s.id);
 
 /** Has the owner done what a plot or a building asks for? `need` is one of data.js's requirements. */
 export function meets(state, need) {
@@ -66,10 +80,33 @@ export function rateOf(state, plot, now = new Date()) {
   const c = state.creature;
   const habit = s.trait ? 1 + Math.min(1, c.traits[s.trait] || 0) : 1.5;          // the habit this building likes
   const goal = state.day.done && state.day.key === dayKey(now) ? 1.5 : 1;         // today's goal reached
-  return s.rate * TIER_RATE[plot.tier] * habit * goal * (1 + STARDUST_BOOST * g.stardust) * (1 + 0.04 * hearts(c));
+  if (s.id === "star_loom") return 0; // (its glow is the Star Shrine's now: shrineRate)
+  return s.rate * TIER_RATE[plot.tier] * habit * goal * (1 + stardustBoost() * g.stardust) * (1 + 0.04 * hearts(c));
 }
 
-export const totalRate = (state, now = new Date()) => garden(state).plots.reduce((sum, p) => sum + rateOf(state, p, now), 0);
+// ---------- the Star Shrine (prototype "farm", the plan's slice 3) ----------
+// By the cottage, once there is stardust. The Star Loom folds into it: the shrine makes the Loom's steady glow,
+// grander as stardust grows (tier 1 at 1 stardust, 2 at 3, 3 at 6), never lower than the best Star Loom the garden
+// has had (`idle.loomTier`, so an old save's Loom carries into it). Its glow goes straight to the bank (nothing to
+// gather). A release resets the buildings and glow, never the farm or the shrine (stardust is kept).
+export const SHRINE_AT = [0, 1, 3, 6];
+/** The shrine's tier (0: no shrine yet). */
+export function shrineTier(state) {
+  const g = garden(state);
+  const dust = SHRINE_AT.reduce((t, need, i) => (i && g.stardust >= need ? i : t), 0);
+  return dust ? Math.max(dust, Math.min(3, Number(g.loomTier) || 0)) : 0;
+}
+/** Glow per hour the shrine makes (the Star Loom's rate at the shrine's tier, everyone's steady glow). */
+export function shrineRate(state, now = new Date()) {
+  const tier = shrineTier(state);
+  if (!tier) return 0;
+  const loom = STRUCTURES.find((s) => s.id === "star_loom");
+  const g = garden(state);
+  const goal = state.day.done && state.day.key === dayKey(now) ? 1.5 : 1;
+  return loom.rate * TIER_RATE[tier] * 1.5 * goal * (1 + stardustBoost() * g.stardust) * (1 + 0.04 * hearts(state.creature));
+}
+
+export const totalRate = (state, now = new Date()) => garden(state).plots.reduce((sum, p) => sum + rateOf(state, p, now), 0) + shrineRate(state, now);
 export const automated = (state) => (state.stats.goals || 0) >= AUTO_GOALS;
 
 /**
@@ -83,10 +120,14 @@ export function tick(state, now = new Date()) {
   const t = now.getTime() / 1000;
   const out = { made: 0, burst: 0, gems: 0 };
   startMeals(state, now);
-  for (let i = 0; i < PLOTS.length; i++) if (!g.plots[i].open && meets(state, PLOTS[i].need)) g.plots[i].open = true;
   const hours = g.at ? Math.max(0, Math.min(OFFLINE_HOURS, (t - g.at) / 3600)) : 0;
   g.at = t;
   const auto = automated(state);
+  // the Star Shrine: an old Star Loom's tier carries into it; its glow goes straight to the bank
+  g.loomTier = Math.max(Number(g.loomTier) || 0, ...g.plots.filter((p) => p.id === "star_loom").map((p) => p.tier || 0));
+  const shrine = shrineRate(state, now) * hours;
+  g.glow += shrine;
+  out.made += shrine;
   for (const p of g.plots) {
     const rate = rateOf(state, p, now);
     if (!rate) continue;
@@ -149,10 +190,10 @@ export function build(state, index, id) {
   const g = garden(state);
   const p = g.plots[index];
   const s = structure(id);
-  if (!p || !p.open) return "That plot isn't open yet.";
+  if (!p) return "There's no room for that.";
   if (p.tier) return "Something is already built there.";
-  if (!s) return "That building doesn't exist.";
-  if (!meets(state, s.need)) return `Not yet: ${s.need.text}.`;
+  if (!s || !FARM_KINDS.includes(id)) return "That building doesn't exist.";
+  if (!buildingOpen(state, s)) return `Not yet: ${s.need.text}.`;
   const cost = costOf(state, index, id);
   if (g.glow < cost) return `You need ${Math.ceil(cost - g.glow)} more glow.`;
   g.glow -= cost;
@@ -173,17 +214,17 @@ export function upgrade(state, index) {
   return "";
 }
 
-/** Open the next closed plot with a key instead of waiting for its milestone. */
-export function useKey(state) {
+/** Skip building kind `id`'s milestone with a key. Returns an error message, or "". */
+export function useKey(state, id = null) {
   const g = garden(state);
-  const i = g.plots.findIndex((p) => !p.open);
-  if (i < 0) return "Every plot is already open.";
+  const s = STRUCTURES.find((x) => x.id === id);
+  if (!s || !FARM_KINDS.includes(id)) return "Choose a building to open with the key.";
+  if (buildingOpen(state, s)) return "That building is open already.";
   if (!(state.items.key > 0)) return "You have no key.";
   state.items.key--;
-  g.plots[i].open = true;
+  g.keyed.push(id);
   return "";
 }
-
 /** The stardust a release would leave now: one, and one more for every two fully grown buildings. */
 export const stardustGain = (state) => 1 + Math.floor(garden(state).plots.filter((p) => p.tier === 3).length / 2);
 
@@ -197,13 +238,15 @@ export function release(state, rosterIndex, rand = Math.random) {
   const c = state.roster[rosterIndex];
   if (!c || !isGrown(c)) return "Only a fully grown creature can be released.";
   const gained = stardustGain(state);
-  g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey() });
+  // (its best talent goes in the record: talents.js passes it down to the next egg laid)
+  g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey(), ...releaseRecord(c) });
   if (state.roster.length === 1) layEgg(state, rand); // you are never left without a creature
   state.roster.splice(rosterIndex, 1);
   if (state.active > rosterIndex) state.active--;
   if (state.active >= state.roster.length) state.active = 0;
   if (state.incubating === c.seed) state.incubating = null;
   g.stardust += gained;
+  liftEggs(state); // (talents.js: more stardust raises the lowest talent roll of every egg not hatched yet)
   g.glow = 40;
   for (const p of g.plots) Object.assign(p, { id: null, tier: 0, stored: 0 });
   g.bloom = false;

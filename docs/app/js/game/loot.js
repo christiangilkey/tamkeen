@@ -344,7 +344,10 @@ export function rollAnswer(state, ctx = {}, rand = Math.random, now = new Date()
   }
   L.streak++;
   L.best = Math.max(L.best, L.streak);
-  const { luck, parts } = luckFor(state, { due: ctx.due && !extra, extra, luck: ctx.luck, streak: L.streak }, now);
+  // (a Focus tea from the farm's Cookbook, farmuses.js: the next 20 flashcards roll with half again the luck)
+  const tea = ctx.source === "cards" && state.farm && state.farm.buffs && state.farm.buffs.focus > 0;
+  if (tea) state.farm.buffs.focus--;
+  const { luck, parts } = luckFor(state, { due: ctx.due && !extra, extra, luck: (Number(ctx.luck) || 1) * (tea ? 1.5 : 1), streak: L.streak }, now);
   const boss = !extra && isBoss(state, ctx.uid);
   const bossPays = boss && L.day.bosses < BOSS_DAY;
   const r = roll(state, luck, rand, { floor: bossPays ? BOSS_TIER : 0, pity: !extra });

@@ -609,6 +609,7 @@ export const BADGES = [
   { id: "raid_win", name: "Raid", text: "Help defeat a weekly boss" },
   // (`proto`: shown and earned only where that prototype is on, until it is released: prototype.js)
   { id: "legend_feast", name: "Legendary feast", text: "Feed your creature a fish of Legendary rarity or better", proto: "legend_feast" },
+  { id: "five_star", name: "Perfect talent", text: "Hatch a creature born with top talents in everything", proto: "talents" },
 ];
 
 // ---------- habitat ----------
