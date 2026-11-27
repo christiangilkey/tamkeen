@@ -692,6 +692,8 @@ mark { background: var(--hl); color: var(--gold-ink); border-radius: var(--r-s);
 .welcome .hero { display: flex; gap: var(--s-16); align-items: center; margin-bottom: var(--s-24); }
 .welcome .hero img { width: 72px; height: 72px; border-radius: var(--r-s); }
 .welcome ol li { margin-bottom: var(--s-8); }
+/* The welcome and the first setup: their parts are sections on the page (a line and space), not stacked cards. */
+.welcome .card { background: transparent; border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: var(--s-24) 0; margin-top: 0 !important; }
 .welcome .ar-sample { font-family: var(--ar-font); font-size: var(--fs-26); text-align: center; margin: var(--s-12) 0; min-height: 1.6em; }
 .licenses details { border-bottom: 1px solid var(--line); padding: var(--s-8) 0; }
 .licenses summary { cursor: pointer; }
@@ -1913,20 +1915,20 @@ button.big, .btn.big { min-height: 44px; padding: var(--s-12) var(--s-24); font-
 .lang-grid + .row button, #basics button { white-space: normal; text-align: start; height: auto; } /* long labels wrap */
 
 /* the three first-run boxes (components/onboarding.js) */
-.ob-nav { margin-top: 4px; }
-.ob-speak { display: grid; gap: 2px; text-align: center; margin-top: -6px; }
-.ob-speak p { margin: 0; font-size: 16px; line-height: 1.45; font-weight: 600; }
-.ob-steps { display: flex; gap: 6px; }
+.ob-nav { margin-top: var(--s-4); }
+.ob-speak { display: grid; gap: var(--s-4); text-align: center; margin-top: calc(-1 * var(--s-8)); }
+.ob-speak p { margin: 0; font-size: var(--fs-16); line-height: var(--lh-text); font-weight: 600; }
+.ob-steps { display: flex; gap: var(--s-8); }
 .ob-steps i { width: 8px; height: 8px; border-radius: 50%; corner-shape: round; background: var(--line); }
 .ob-steps i.done { background: var(--teal-tint); }
-.ob-steps i.on { background: var(--teal); width: 22px; border-radius: 99px; corner-shape: round; }
-.ob-choices { display: grid; gap: 10px; }
-.ob-choice { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: start; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--line); background: var(--surface); white-space: normal; height: auto; }
-.ob-choice strong { font-size: 16px; }
+.ob-steps i.on { background: var(--teal); width: 22px; border-radius: var(--r-pill); corner-shape: round; }
+.ob-choices { display: grid; gap: var(--s-12); }
+.ob-choice { display: flex; flex-direction: column; align-items: flex-start; gap: var(--s-4); text-align: start; padding: var(--s-16) var(--s-16); border-radius: var(--r-s); border: 2px solid var(--line); background: var(--surface); white-space: normal; height: auto; }
+.ob-choice strong { font-size: var(--fs-16); }
 .ob-choice .small { color: var(--ink-2); font-weight: 400; }
 .ob-choice[aria-checked="true"] { border-color: var(--teal); background: var(--teal-tint); }
-.ob-sample { font-size: 15px; color: var(--ink-2); min-height: 1.4em; }
-.ob-where { padding: 10px 14px; border-radius: 12px; background: var(--teal-tint); }
+.ob-sample { font-size: var(--fs-16); color: var(--ink-2); min-height: 1.4em; }
+.ob-where { padding: var(--s-12) var(--s-16); border-radius: var(--r-s); background: var(--surface-2); } /* (a quiet note, not a selected state) */
 
 /* Settings → Word definitions (components/aisetup.js): first on the page, compact, "Required" until
    there is a key, and the way to a key is loud until then */
