@@ -310,6 +310,9 @@ export function dishIcon(r, px = 32) {
   const i = RECIPES.indexOf(r);
   return `<span class="farm-ico" style="width:${px}px;height:${px}px;background-image:url('${DISH_ART}');background-size:${RECIPES.length * px}px ${px}px;background-position:${-i * px}px 0"></span>`;
 }
+/** A dish's name and what it does, translated (an element's pie: its element's name put in). */
+const recipeName = (r) => (r.type ? t("{0} pie", t(TYPES[r.type].name)) : t(r.name));
+const recipeText = (r) => (r.type ? t("Your next egg leans to {0}.", t(TYPES[r.type].name)) : t(r.text));
 const needLine = (r) => r.needs.map(([w, n]) => `${n} × ${w === "honey" ? t("Honey") : w.startsWith("fav_") ? t("{0}'s favourite crops", t(TYPES[w.slice(4)].name)) : cropById(w) ? t(cropById(w).name) : t(GROUP_NAME[w])}`).join(", ");
 
 /** One harvest in the barn: feed it to the creature out (a favourite makes it Well fed), or make bait of it. */
@@ -353,7 +356,7 @@ export function openCookbook({ changed = () => {} } = {}) {
     const more = h(`<div class="farm-list"></div>`);
     for (const r of RECIPES) {
       const ok = canCook(game, r);
-      more.append(row({ pic: dishIcon(r, 32), name: t(r.name), sub: needLine(r), dim: !ok, end: ok ? `<span class="farm-plant">${t("Cook")}</span>` : "",
+      more.append(row({ pic: dishIcon(r, 32), name: recipeName(r), sub: needLine(r), dim: !ok, end: ok ? `<span class="farm-plant">${t("Cook")}</span>` : "",
         open: () => recipeCard(r, { changed, again: () => d.redraw() }) }));
     }
     const f = farmOf(game);
@@ -375,7 +378,7 @@ function recipeCard(r, { changed = () => {}, again = () => {} } = {}) {
     const ok = canCook(game, r);
     const note = r.when === "festival" && !festivalDay() ? t("Only on a festival day (Sundays).") : ok ? "" : t("You don't have everything it needs yet.");
     return {
-      title: r.name, pic: dishIcon(r, 64), facts, text: r.text, note,
+      title: recipeName(r), pic: dishIcon(r, 64), facts, text: recipeText(r), note,
       buttons: [{ word: "Close", run: () => d.close() }, { word: "Cook", primary: true, disabled: !ok, run: () => {
         if (r.egg) { d.close(); pickEgg((i) => doCook(r, { egg: i })); return; }
         if (doCook(r)) { d.close(); again(); }
@@ -387,7 +390,7 @@ function recipeCard(r, { changed = () => {}, again = () => {} } = {}) {
     if (typeof res === "string") { toast(t(res), { error: true }); return false; }
     sfx("lucky");
     if (rr.id === "feast") wakeWords(game, 3).then((w) => toast(w.length ? t("Words woke up: {0}", w.join(", ")) : t("The Muffles feast with you.")));
-    else toast(t("You cooked: {0}", t(rr.name)));
+    else toast(t("You cooked: {0}", recipeName(rr)));
     saveGame();
     changed();
     return true;
