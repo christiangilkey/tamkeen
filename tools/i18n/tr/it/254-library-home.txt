@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	La tua libreria
+cec9480a	Serve la tua chiave
+63a020b5	Serve l’estensione del browser
+039122fa	Serve l’app per computer
+2149fe13	{0} parla con la tua IA, quindi serve la tua chiave IA. Aggiungila in Impostazioni.
+5065fa8c	Non hanno parole da leggere: un servizio di trascrizione le scrive con la tua chiave, oppure l’app Tamkeen per computer lo fa gratis. Aggiungi una chiave in Impostazioni.
+e9a3005c	Scarica l’app per computer
+1145e170	Apri {0}

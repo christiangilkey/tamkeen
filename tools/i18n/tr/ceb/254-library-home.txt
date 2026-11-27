@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	Imong library
+cec9480a	Nanginahanglan sa imong kaugalingong key
+63a020b5	Nanginahanglan sa browser extension
+039122fa	Nanginahanglan sa app sa kompyuter
+2149fe13	Ang {0} makigsulti sa imong kaugalingong AI, mao nga nanginahanglan kini sa imong AI key. Idugang kini sa Settings.
+5065fa8c	Walay mga pulong nga mabasa niini: usa ka speech-to-text nga serbisyo ang mosulat niini gamit ang imong kaugalingong key, o ang Tamkeen app sa kompyuter mohimo niini nga libre. Pagdugang og key sa Settings.
+e9a3005c	Kuhaa ang app sa kompyuter
+1145e170	Ablihi ang {0}

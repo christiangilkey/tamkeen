@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	Sua biblioteca
+cec9480a	Precisa da sua própria chave
+63a020b5	Precisa da extensão do navegador
+039122fa	Precisa do app para computador
+2149fe13	{0} conversa com a sua própria IA, então precisa da sua chave de IA. Adicione-a em Configurações.
+5065fa8c	Estes não vêm com palavras para ler: um serviço de fala para texto as escreve com a sua própria chave, ou o app do Tamkeen para computador faz isso de graça. Adicione uma chave em Configurações.
+e9a3005c	Baixar o app para computador
+1145e170	Abrir {0}

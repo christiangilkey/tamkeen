@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	내 라이브러리
+cec9480a	내 키가 필요함
+63a020b5	브라우저 확장 프로그램 필요
+039122fa	컴퓨터 앱 필요
+2149fe13	{0}는 내 AI와 대화하므로 AI 키가 필요합니다. 설정에서 추가하세요.
+5065fa8c	이것들에는 읽을 글자가 없습니다. 음성 텍스트 변환 서비스가 내 키로 받아 적거나, Tamkeen 컴퓨터 앱이 무료로 해 줍니다. 설정에서 키를 추가하세요.
+e9a3005c	컴퓨터 앱 받기
+1145e170	{0} 열기

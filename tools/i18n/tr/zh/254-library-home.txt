@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	你的资料库
+cec9480a	需要你自己的密钥
+63a020b5	需要浏览器扩展
+039122fa	需要电脑版应用
+2149fe13	{0}与你自己的 AI 对话，所以需要你的 AI 密钥。请在设置中添加。
+5065fa8c	这些没有可读的文字：语音转文字服务会用你自己的密钥把它们写下来，或者 Tamkeen 电脑版应用免费完成。请在设置中添加密钥。
+e9a3005c	获取电脑版应用
+1145e170	打开{0}

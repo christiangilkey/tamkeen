@@ -191,10 +191,10 @@ test("every Library kind but Basics, Conversation, Lessons and DLI says how to a
   const library = read("web/js/pages/library.js");
   const kinds = library.slice(library.indexOf("const KINDS = ["), library.indexOf("];", library.indexOf("const KINDS = [")));
   const entries = kinds.split(/\n\s*\{ key: /).slice(1);
-  assert.equal(entries.length, 13); // (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh; Lessons, with its own Add button, the twelfth; DLI, a DLI student's own material, the thirteenth)
+  assert.equal(entries.length, 14); // (Home, the bubble map, a fourteenth: nothing to add there either) (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh; Lessons, with its own Add button, the twelfth; DLI, a DLI student's own material, the thirteenth)
   for (const e of entries) {
     const key = /^"(\w+)"/.exec(e)[1];
-    if (key === "courses" || key === "conversation" || key === "lessons" || key === "dli") { assert.doesNotMatch(e, /empty:/); continue; }
+    if (key === "home" || key === "courses" || key === "conversation" || key === "lessons" || key === "dli") { assert.doesNotMatch(e, /empty:/); continue; }
     assert.match(e, /empty: "Add [^"]+ with the \+ button below[^"]*"/, key);
   }
   assert.match(library, /<h2 class="le-title">Nothing here yet<\/h2>/);

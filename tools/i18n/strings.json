@@ -7095,6 +7095,51 @@
   "f": "web/js/components/helpbutton.js"
  },
  {
+  "id": "63a020b5",
+  "k": "Needs the browser extension",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "039122fa",
+  "k": "Needs the computer app",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "cec9480a",
+  "k": "Needs your own key",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "2149fe13",
+  "k": "{0} talks with your own AI, so it needs your AI key. Add it in Settings.",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "730531ca",
+  "k": "Add a key",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "5065fa8c",
+  "k": "These come with no words to read: a speech-to-text service writes them with your own key, or the Tamkeen computer app does it for free. Add a key in Settings.",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "e9a3005c",
+  "k": "Get the computer app",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "1145e170",
+  "k": "Open {0}",
+  "f": "web/js/components/homemap.js"
+ },
+ {
+  "id": "41bb0474",
+  "k": "Your library",
+  "f": "web/js/components/homemap.js"
+ },
+ {
   "id": "7fab27b4",
   "k": "the Claude Console",
   "f": "web/js/components/keyhelp.js"
@@ -14282,11 +14327,6 @@
  {
   "id": "174bac74",
   "k": "This needs your own AI key: add one in Settings → Word definitions.",
-  "f": "web/js/fixes.js"
- },
- {
-  "id": "730531ca",
-  "k": "Add a key",
   "f": "web/js/fixes.js"
  },
  {

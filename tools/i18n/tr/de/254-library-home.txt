@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	Deine Bibliothek
+cec9480a	Braucht deinen eigenen Schlüssel
+63a020b5	Braucht die Browser-Erweiterung
+039122fa	Braucht die Computer-App
+2149fe13	{0} spricht mit deiner eigenen KI und braucht deshalb deinen KI-Schlüssel. Füge ihn in den Einstellungen hinzu.
+5065fa8c	Diese haben keine Wörter zum Lesen: Ein Sprache-zu-Text-Dienst schreibt sie mit deinem eigenen Schlüssel auf, oder die Tamkeen-App am Computer macht es kostenlos. Füge in den Einstellungen einen Schlüssel hinzu.
+e9a3005c	Computer-App holen
+1145e170	{0} öffnen

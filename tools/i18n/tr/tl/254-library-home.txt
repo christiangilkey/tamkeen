@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	Iyong library
+cec9480a	Kailangan ng sarili mong key
+63a020b5	Kailangan ng browser extension
+039122fa	Kailangan ng app sa computer
+2149fe13	Nakikipag-usap ang {0} sa sarili mong AI, kaya kailangan nito ang iyong AI key. Idagdag ito sa Settings.
+5065fa8c	Walang mga salitang mababasa ang mga ito: isinusulat ito ng isang speech-to-text na serbisyo gamit ang sarili mong key, o ginagawa ito nang libre ng Tamkeen app sa computer. Magdagdag ng key sa Settings.
+e9a3005c	Kunin ang app sa computer
+1145e170	Buksan ang {0}

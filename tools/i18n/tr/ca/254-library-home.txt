@@ -1,0 +1,9 @@
+# The Library's Home as a bubble map (prototype library_home, components/homemap.js).
+41bb0474	La teva biblioteca
+cec9480a	Necessita la teva pròpia clau
+63a020b5	Necessita l’extensió del navegador
+039122fa	Necessita l’app d’ordinador
+2149fe13	{0} parla amb la teva pròpia IA, així que necessita la teva clau d’IA. Afegeix-la a Configuració.
+5065fa8c	Aquests no tenen paraules per llegir: un servei de veu a text les escriu amb la teva pròpia clau, o l’app de Tamkeen per a ordinador ho fa gratis. Afegeix una clau a Configuració.
+e9a3005c	Obtén l’app d’ordinador
+1145e170	Obre {0}

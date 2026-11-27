@@ -13,6 +13,7 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
+  library_home: { name: "Library home: a bubble map of everything in the Library, bigger the more you use it, a plum ring on what needs your own key", released: false, since: "2026-11-27" },
   dli_basics: { name: "DLI students: no Basics, except the Arabic dialects for a DLI Arabic student", released: false, since: "2026-11-27" },
   dictation: { name: "Type what you hear", released: true, since: "2026-11-17" },
   open_weeks: { name: "Weekly battle rules without the element-only weeks", released: true, since: "2026-11-18" },
