@@ -4355,8 +4355,8 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .farmp-today { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-8); flex: none; }
 .farmp-tag { display: inline-flex; align-items: center; gap: var(--s-4); font-size: 14px; font-weight: 600; color: var(--ink-2); }
 .farmp-tag.water, .farmp-tag.ripe { color: var(--ink); }
-.farmp-field { flex: none; overflow-x: auto; overflow-y: hidden; display: flex; justify-content: center; scrollbar-width: thin; }
-.farmp-field canvas { display: block; flex: none; image-rendering: pixelated; image-rendering: crisp-edges; cursor: pointer; touch-action: pan-x; }
+.farmp-field { flex: none; overflow-x: auto; overflow-y: hidden; display: flex; scrollbar-width: thin; }
+.farmp-field canvas { display: block; flex: none; margin-inline: auto; /* (centred when it fits; a wider field scrolls to every column, both ways) */ image-rendering: pixelated; image-rendering: crisp-edges; cursor: pointer; touch-action: pan-x; }
 .farmp-chain { display: flex; align-items: center; justify-content: center; gap: var(--s-4); flex: none; font-size: 13px; font-weight: 700; color: var(--ink-2); }
 .farmp-chain span { margin-inline-end: var(--s-4); }
 .farmp-chain i { width: 16px; height: 6px; background: var(--surface-2); }

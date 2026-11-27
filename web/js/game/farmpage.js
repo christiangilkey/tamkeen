@@ -325,7 +325,9 @@ export function openFarm({ changed = () => {} } = {}) {
   pet = { ...pet, x: start.x + 12, y: start.y + 22, tx: start.x + 12, ty: start.y + 22 };
   paint();
   requestAnimationFrame(draw);
-  $(".farmp-field").scrollLeft = $(".farmp-field").scrollWidth; // (the field's right edge first: where it starts)
+  // the field's right edge first (where it starts, by the gate); right to left the scroll runs the other way
+  const field = $(".farmp-field");
+  field.scrollLeft = getComputedStyle(field).direction === "rtl" ? 0 : field.scrollWidth;
   return close;
 }
 
