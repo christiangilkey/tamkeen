@@ -184,3 +184,9 @@ no "successfully". The owner's rule for every chat applies to the app too: expla
 8. Works right to left (try Arabic) and at 390px wide (a phone), in light and dark.
 9. The studied words are the hero where they appear, in their word-state colours.
 10. Checked in the real app, with a picture to the owner for anything he will notice.
+
+**A test guards this list:** `tests/js/design.test.mjs` counts what this document forbids in the stylesheets and the
+scripts' styles (typed colours, off-list corners, shadows, off-scale sizes and spacing, a card inside a card) and fails
+if any count rises above `tests/fixtures/design-baseline.json`. The counts may only go down: lower the baseline in the
+same commit when you fix something (`node tests/js/design.test.mjs --write-baseline`). `python tools/design/audit.py`
+lists where things are.

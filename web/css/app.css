@@ -3062,7 +3062,7 @@ html.sel-sheets select { pointer-events: none; }
 .habitat-hud .hud-bar.thin { height: 6px; border: 0; border-image: none; border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); overflow: hidden; }
 .habitat-hud .hud-bar.thin i { background: var(--gold); border-radius: var(--r-pill); corner-shape: round; filter: none; }
 /* Coins, gems and the goal streak: a pixel icon and its number on one line (the icon carries the colour). */
-.hud-wallet { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-8) var(--s-24); }
+.hud-wallet { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s-8) var(--s-32); } /* (centred: the owner, 2026-11-27) */
 .hud-count { gap: var(--s-8); min-height: 36px; padding: 0 var(--s-8); margin-inline: calc(-1 * var(--s-8)); border: 0; background: transparent;
   font-family: var(--display-font); font-size: var(--fs-20); font-weight: 700; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
 .hud-count:hover:not(:disabled) { background: var(--surface-2); }
@@ -3076,10 +3076,10 @@ html.sel-sheets select { pointer-events: none; }
 /* The game's places: pixel icons with one word each, in a row; no box behind them. A red dot when something waits. */
 .habitat .hud-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-8); }
 @media (min-width: 600px) { .habitat .hud-tiles { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-.habitat .hud-tile { position: relative; flex-direction: column; gap: var(--s-4); min-height: 76px; padding: var(--s-8) var(--s-4); border: 0;
+.habitat .hud-tile { position: relative; display: grid; grid-template-rows: 48px auto; justify-items: center; align-content: start; min-height: 76px; padding: var(--s-8) var(--s-4); border: 0;
   background: transparent; color: var(--ink); font-size: var(--fs-14); font-weight: 600; white-space: normal; }
 .habitat .hud-tile:hover:not(:disabled) { background: var(--surface-2); }
-.tile-dot { position: absolute; top: var(--s-8); inset-inline-end: calc(50% - 26px); width: 8px; height: 8px; border-radius: 50%; corner-shape: round; background: var(--alert); }
+.tile-dot { position: absolute; top: var(--s-16); inset-inline-end: calc(50% - 26px); width: 8px; height: 8px; border-radius: 50%; corner-shape: round; background: var(--alert); }
 .tile-dot[hidden], .tile-plus[hidden] { display: none; }
 /* (beside the tile's picture, not over it) */
 .tile-plus { position: absolute; top: var(--s-12); inset-inline-start: calc(50% + 22px); font-size: var(--fs-14); font-weight: 700; color: var(--glow); pointer-events: none; }
@@ -3782,6 +3782,10 @@ button.fr-boss:focus-visible { outline: 2px solid var(--teal); outline-offset: 4
 /* The Home card: Fishing and Words, side by side under the four and the same size, with a short line under the word
    (how many fish wait; which words the games ask). Less padding, so the line fits in the same height. */
 .habitat .hud-tile.has-sub { gap: var(--s-4); }
+/* Every tile's picture sits at the bottom of the same 48px slot, so the words line up across a row whatever the
+   picture's size, and a line under a word (12 fish waiting) only adds below (the owner, 2026-11-27). */
+.habitat .hud-tile { gap: var(--s-4); }
+.habitat .hud-tile > .px-icon, .habitat .hud-tile > img, .habitat .hud-tile > svg { align-self: end; }
 .tile-text { display: flex; flex-direction: column; align-items: center; gap: 0; max-width: 100%; }
 .has-sub .tile-sub { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-2); font-size: var(--fs-12); font-weight: 600; }
 .has-sub .tile-sub[hidden] { display: none; }

@@ -343,7 +343,7 @@ async function getapp(body) {
         <li>On a computer: transcripts written for free with no key, Arabic vowel marks, voices that work offline, and backups of your whole library</li>
         <li>A light theme</li>
       </ul>
-      <nav class="card set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
+      <nav class="set-list" aria-label="Downloads">${DOWNLOADS.map((d) => `
         <a class="set-row" href="${esc(href(d))}" target="_blank" rel="noopener">
           <span class="set-ico">${icon(d.phone ? "link" : "computer", 22)}</span>
           <span class="set-text"><span class="set-name">${esc(d.name)}</span><span class="set-sum">${esc(d.how)}</span></span>
