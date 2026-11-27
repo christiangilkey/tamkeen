@@ -1,10 +1,10 @@
 {
   "about": "DESIGN.md's ratchet (tests/js/design.test.mjs): counts may only go down. Lower them when you fix things.",
-  "colour": 10,
+  "colour": 0,
   "radius": 0,
   "shadow": 12,
   "fontSize": 44,
-  "spacing": 6,
+  "spacing": 5,
   "inline": 2,
   "nestedCard": 0
 }

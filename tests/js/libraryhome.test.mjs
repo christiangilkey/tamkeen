@@ -75,7 +75,8 @@ test("the map follows DESIGN.md: circles, no tinted backing, the dark stage only
   assert.match(css, /\.lh-b \{[^}]*border-radius: 50%; corner-shape: round;/);
   assert.match(css, /\.lh-b\.ring \{ border: 2px solid var\(--plum-600\); \}/);
   assert.doesNotMatch(css, /lh-legend/, "no legend (the owner)");
-  assert.match(css, /\.lh-stage \{\s*--paper: #131116;/, "the dark theme's values, on the stage only");
+  assert.match(css, /\.lh-stage \{\s*--paper: var\(--media-1\);/, "the always-dark --media-* tokens, on the stage only");
+  assert.doesNotMatch(css.replace(/\/\*[\s\S]*?\*\//g, ""), /#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(/i, "no colour typed in (DESIGN.md 3)");
   assert.doesNotMatch(css, /box-shadow/);
   assert.match(css, /prefers-reduced-motion: reduce/);
 });

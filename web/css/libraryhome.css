@@ -3,11 +3,12 @@
    while something the learner can set up is missing (a key, or for Netflix the computer app), no legend, a calm
    settle of about 200ms and only a fade with reduce motion. */
 
-/* The stage keeps the dark look in either theme (the owner chose the dark picture, 2026-11-27): the dark theme's own
-   token values (app.css), set on the stage only, so the rest of the page keeps its theme. */
+/* The stage keeps the dark look in either theme (the owner chose the dark picture, 2026-11-27): the always-dark
+   --media-* tokens (app.css, the ones under videos), set as the page's own token names on the stage only, so the rest
+   of the page keeps its theme and nothing here is a colour typed in (DESIGN.md 3). */
 .lh-stage {
-  --paper: #131116; --surface: #1c1a20; --surface-2: #27242c; --line: #37323f; --ink: #efebf3; --ink-2: #a39cae;
-  --teal: #2bb8c6; --teal-ink: #03262b; --teal-tint: #123b42; --plum-600: #dc84d4;
+  --paper: var(--media-1); --surface: var(--media-2); --surface-2: var(--media-3); --line: var(--media-line);
+  --ink: var(--media-ink); --ink-2: var(--media-ink-2); --plum-600: var(--media-new); --teal: var(--media-ink);
   background: var(--paper); color: var(--ink); padding: var(--s-16) var(--s-16) var(--s-24);
   margin-inline: calc(-1 * var(--s-16)); /* a full-width band on the phone: no corners (DESIGN.md 6) */
 }
@@ -30,7 +31,7 @@
 .lh-b.ring { border: 2px solid var(--plum-600); }
 .lh-b:hover { background: var(--surface-2); }
 .lh-b:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.lh-n { display: grid; justify-items: center; gap: 2px; padding-inline: var(--s-4); line-height: var(--lh-head); }
+.lh-n { display: grid; justify-items: center; gap: var(--s-4); padding-inline: var(--s-4); line-height: var(--lh-head); }
 .lh-name { font-size: var(--fs-14); font-weight: 600; }
 .lh-b.big .lh-name { font-size: var(--fs-16); }
 /* What a ringed bubble needs (Netflix: the computer app), in a short line under its name. */
