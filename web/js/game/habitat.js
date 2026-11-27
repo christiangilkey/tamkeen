@@ -12,7 +12,9 @@ import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { FOLK, knownKeys, lineFor, poseOf, readLine } from "./muffles.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
-import { CROPS, farmOf, fieldSize, harvest as harvestPlant, plantState, seasonOf, spots as fieldSpots } from "./farm.js";
+import { CROPS, beesToday, buildingsOn, cropById as cropOf, farmJobs, farmOf, fieldSize, harvest as harvestPlant, placeBuilding, plantState, seasonOf, spots as fieldSpots } from "./farm.js";
+import { openBuilding } from "./garden.js";
+import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, farmBlocked, farmCamera, farmMap, spotXY, tapFarm } from "./farmmap.js";
 import { askToWater, harvestLine, openBarn, openFence, openSeedStand, pickSeed, plantCard } from "./farm-ui.js";
 import { states as reviewStates } from "../review/deck.js";
@@ -259,6 +261,13 @@ export function habitat() {
     if (!r.burst && automated(game)) shown.glow = Math.max(shown.glow, wallet(game).glow);
     if (r.bloom) toast("Full bloom: every plot holds a fully grown building.");
     if (r.burst || r.gems) saveGame();
+    if (farmOn()) { // (prototype "farm": the buildings' farm jobs)
+      const j = farmJobs(game);
+      if (j.seeds.length) toast(t("The Word Sprout dropped seeds: {0}", j.seeds.map((id) => t(cropOf(id).name)).join(", ")));
+      if (j.watered.length) toast(j.watered.length === 1 ? t("The Echo Shell watered a plant.") : t("The Echo Shell watered {0} plants.", j.watered.length));
+      if (j.honey) toast(t("The bees made honey."));
+      if (j.seeds.length || j.watered.length || j.honey) saveGame();
+    }
     paintHud();
   }
   const go = (tab) => openShop(tab, () => paintHud());
@@ -279,7 +288,7 @@ export function habitat() {
   // Creatures home to its room. The page opens as before; closed, there it stands.
   $("#g-shop").onclick = () => { teleportTo("cloth"); go("shop"); };
   $("#g-creatures").onclick = () => { teleportTo("room"); go("creatures"); };
-  $("#g-garden").onclick = () => { teleportTo("fruit"); go("garden"); };
+  $("#g-garden").onclick = () => { teleportTo(feature("farm") ? "farm" : "fruit"); go("garden"); }; // (the farm, with its buildings: prototype "farm")
   $("#g-battle").onclick = () => teleportTo("hall") || openBattleMenu({ changed: () => paintHud(), waiting: online.gifts.length + online.battles });
   // The aquarium, under the Fishing tile once a fish has been caught: the fish kept in it, swimming. A tap opens the
   // Basket, where fish go in and out. It is drawn again only when what is in the tank has changed.
@@ -455,7 +464,7 @@ export function habitat() {
   /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
   const yardStanding = () => [
     ...yardDecor(),
-    ...garden(game).plots.flatMap((p, i) => (p.open ? [{ id: `plot${i}`, ...plotSpot(PLOTS[i].x) }] : [])),
+    ...(farmOn() ? [] : garden(game).plots.flatMap((p, i) => (p.open ? [{ id: `plot${i}`, ...plotSpot(PLOTS[i].x) }] : []))), // (prototype "farm": on the farm)
   ];
   /** The outdoor decorations on the yard's field, each at its spot (not one being carried). */
   function yardDecor() {
@@ -475,7 +484,7 @@ export function habitat() {
   const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
-    : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK))
+    : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells(buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), () => 30, FARM_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
@@ -513,13 +522,13 @@ export function habitat() {
   function teleportTo(where) {
     if (!roomOn()) return;
     if (carry) { if (carry.held) { setSpot(game, carry.id, { x: pet.x, y: pet.y }); saveGame(); } carry = null; }
-    const st = where === "room" || where === "hall" ? null : stationById(where);
-    if (where !== "room" && where !== "hall" && !st) return;
+    const st = where === "room" || where === "hall" || where === "farm" ? null : stationById(where);
+    if (where !== "room" && where !== "hall" && where !== "farm" && !st) return;
     view = st ? "yard" : where;
     saveView(view);
     pet.path = []; pet.after = null; pet.leaving = 0; pet.napUntil = 0;
     pet.wait = 30; // (it stays there a while: still there when the page is closed)
-    if (st) { pet.x = st.x; pet.y = st.y; pet.dir = 1; } else if (where === "hall") { pet.x = COUNTER_SPOT.x; pet.y = COUNTER_SPOT.y; } else { pet.x = W / 2; pet.y = 118; }
+    if (st) { pet.x = st.x; pet.y = st.y; pet.dir = 1; } else if (where === "farm") { pet.x = FARM_IN.x - 40; pet.y = FARM_IN.y - 4; } else if (where === "hall") { pet.x = COUNTER_SPOT.x; pet.y = COUNTER_SPOT.y; } else { pet.x = W / 2; pet.y = 118; }
     camReady = false; // (the camera jumps there with it)
   }
   /** One step of walking in the room: along its way, or (with nowhere to go) a wander now and then. */
@@ -747,7 +756,7 @@ export function habitat() {
     const plots = garden(game).plots;
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
-      if (!p.open || !inYard()) continue;
+      if (!p.open || !inYard() || farmOn()) continue;
       const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
       if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
       const img = plotArt[file];
@@ -1445,6 +1454,14 @@ export function habitat() {
       else location.hash = "#/friends"; // (no guild yet: the Guilds page, where one is joined)
     } else go(st.opens);
   }
+  let moving = null; // a building being moved on the farm (its slot), until a tap says where it stands
+  const onMove = (e) => {
+    if (!farmOn() || !e.detail) return;
+    if (!inFarm()) teleportTo("farm");
+    moving = e.detail.i;
+    toast(t("Tap where it should stand on your farm."));
+  };
+  window.addEventListener("tamkeen-farm-move", onMove);
   /** The farm's field: each spot tilled (dark once watered today), its plant at its stage (wilted when a day was
    * missed), a drop over a thirsty one, a twinkle over a ripe one; the seed stand and the gate back. */
   function farmScene(out, now, sparkle) {
@@ -1468,6 +1485,39 @@ export function habitat() {
           ctx.fillStyle = st.half ? "#8ab8e8" : "#4a9ae8";
           ctx.fillRect(at.x - 1, by, 3, 4); ctx.fillRect(at.x, by - 2, 1, 2);
           ctx.fillStyle = "#c8e8ff"; ctx.fillRect(at.x - 1, by, 1, 1);
+        }
+      } });
+    }
+    // the garden's buildings where they stand (slice 2): glow waiting glows and twinkles; bees round the hive
+    const auto = automated(game);
+    for (const b of buildingsOn(game)) {
+      const a = structureArt(b.id, b.tier);
+      const img = yimg(a.file);
+      if (!img) continue;
+      const p = garden(game).plots[b.i];
+      const x = Math.round(b.x - img.width / 2), y = b.y - img.height + 3;
+      out.push({ y: b.y, draw: () => {
+        if (moving === b.i) ctx.globalAlpha = 0.55 + 0.25 * Math.sin(now / 160);
+        ctx.drawImage(img, x, y);
+        ctx.globalAlpha = 1;
+        if (!auto && p && p.stored >= 1) {
+          ctx.save();
+          ctx.globalCompositeOperation = "lighter";
+          ctx.globalAlpha = 0.22 + 0.16 * Math.sin(now / 320 + b.i);
+          ctx.drawImage(img, x, y);
+          ctx.restore();
+          if (art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, (sparkle + b.i) % FX_FRAMES.ready, b.x, y + img.height / 2);
+          if (art.glowIcon) ctx.drawImage(art.glowIcon, b.x - 8, y - 14 + Math.round(Math.sin(now / 300 + b.i) * 2));
+        }
+        if (b.kind === "hive") { // a bee for each word saved today (three a tier at most), buzzing round it
+          const n = beesToday(game);
+          for (let k = 0; k < n; k++) {
+            const a2 = now / (420 + k * 37) + k * 2.1;
+            const bx = Math.round(b.x + Math.cos(a2) * (10 + (k % 3) * 5)), by = Math.round(y + 8 + Math.sin(a2 * 1.7) * 6 - (k % 2) * 4);
+            ctx.fillStyle = "#2a1a0a"; ctx.fillRect(bx - 1, by, 3, 2);
+            ctx.fillStyle = "#ffd24a"; ctx.fillRect(bx, by, 1, 2);
+            ctx.fillStyle = "rgba(232, 244, 255, 0.9)"; ctx.fillRect(bx, by - 1, 1, 1);
+          }
         }
       } });
     }
@@ -1601,7 +1651,28 @@ export function habitat() {
     if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // On the farm (farmmap.js): a spot of the field (the creature walks there, then plant, water or harvest), the barn,
     // the seed stand, the fence (how big the field is, and growing it), the gate back to the yard.
+    if (inFarm() && !pressed && moving !== null) { // (a building's "Move it": this tap says where it stands)
+      const err = placeBuilding(game, moving, x, y);
+      if (err) { toast(t(err), { error: true }); return; }
+      moving = null;
+      sfx("common");
+      saveGame();
+      return;
+    }
     if (inFarm() && !pressed) {
+      const bt = buildingsOn(game).find((b) => { const im = yimg(structureArt(b.id, b.tier).file); const w = im ? im.width : 32, hh = im ? im.height : 32; return Math.abs(x - b.x) < w / 2 && y > b.y - hh && y < b.y + 4; });
+      if (bt) {
+        const p = garden(game).plots[bt.i];
+        if (!automated(game) && p.stored >= 1) { // glow waiting: gathered with a tap, as on the old plots
+          collect(game, bt.i);
+          for (let k = 0; k < 4; k++) floats.push({ img: art.glowIcon, x: bt.x - 12 + Math.random() * 16, y: bt.y - 40 + Math.random() * 8, t: -k * 0.1 });
+          sfx("lucky");
+          saveGame();
+          settle(toScreen(bt.x, bt.y - 30));
+          paintHud();
+        } else openBuilding(game, bt.i, () => paintHud());
+        return;
+      }
       const [fw, fh] = fieldSize(game);
       const w = tapFarm(x, y, fw, fh);
       if (w.kind === "plot") { const key = `${w.c},${w.r}`; const at = spotXY(w.c, w.r); if (isEgg()) useSpot(key); else walkTo({ x: at.x, y: at.y + 2 }, `use:spot:${key}`); return; }
@@ -1648,7 +1719,7 @@ export function habitat() {
     if (!pressed && !roomOn() && fishingOf(game).caught > 0 && Math.abs(x - TANK_X) < 16 && y > baseY("tank", TANK_X) - 24 && y < baseY("tank", TANK_X) + 4 && Math.abs(x - cx) > 14) { go("basket"); return; }
     // A building with glow waiting is gathered with a tap; an empty plot opens the garden.
     const plots = garden(game).plots;
-    const hit = pressed || inRoom() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > baseY("plot", spot.x) - 50 && y < baseY("plot", spot.x) + 6);
+    const hit = pressed || inRoom() || farmOn() ? -1 : PLOTS.findIndex((spot, i) => plots[i].open && Math.abs(x - spot.x) < 16 && y > baseY("plot", spot.x) - 50 && y < baseY("plot", spot.x) + 6);
     if (hit >= 0 && plots[hit].stored >= 1) {
       collect(game, hit);
       for (let i = 0; i < 4; i++) floats.push({ img: art.glowIcon, x: PLOTS[hit].x - 12 + Math.random() * 16, y: baseY("plot", PLOTS[hit].x) - 40 + Math.random() * 8, t: -i * 0.1 });
@@ -1699,6 +1770,7 @@ export function habitat() {
 
   function dispose() {
     disposed = true;
+    window.removeEventListener("tamkeen-farm-move", onMove);
     cancelAnimationFrame(raf);
     clearInterval(timer);
     clearInterval(gardenTimer);

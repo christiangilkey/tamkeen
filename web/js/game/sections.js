@@ -5,7 +5,7 @@
 import {
   CATALOG, DECOR, ITEMS, MOVES, PLOTS, SLOTS, STRUCTURES, SUPPLIES, TAGS, itemById, moveIcon,
 } from "./data.js";
-import { AUTO_GOALS, automated, costOf, garden, meets, rateOf, totalRate } from "./idle.js";
+import { AUTO_GOALS, FARM_KINDS, automated, buildingOpen, costOf, farmBuildings, garden, meets, rateOf, totalRate } from "./idle.js";
 
 /**
  * Every section of the game sheet, each its own screen.
@@ -66,10 +66,21 @@ export function artOf(thing) {
   if (thing.style) return { file: `${moveIcon(thing)}.png`, w: 16, h: 16 };
   return { file: `icon/${thing.icon || thing.id}.png`, w: 16, h: 16 };
 }
-/** A building's picture at a tier (0: the empty plot). Fully grown buildings are drawn larger. */
+/** A building's picture at a tier (0: the empty plot). Fully grown buildings are drawn larger. On the farm (prototype
+ * "farm") the Ink Well is the Spelling Bee Hive (game-art/farm/bee_hive_<tier>.png). */
 export const structureArt = (id, tier) => (tier
-  ? { file: `structure/${id}_${tier}.png`, w: tier === 3 ? 48 : 32, h: tier === 3 ? 48 : 32 }
+  ? { file: farmBuildings() && id === "ink_well" ? `farm/bee_hive_${tier}.png` : `structure/${id}_${tier}.png`, w: tier === 3 ? 48 : 32, h: tier === 3 ? 48 : 32 }
   : { file: "structure/plot.png", w: 32, h: 32 });
+/** A building's name: the Ink Well is the Spelling Bee Hive on the farm (the owner's name for it). */
+export const buildingName = (s) => (farmBuildings() && s.id === "ink_well" ? "Spelling Bee Hive" : s.name);
+/** What each building does on the farm (prototype "farm"; farm.js farmJobs), for its details box. */
+export const FARM_JOBS = {
+  word_sprout: "On the farm it is a seed tree: words you look up make it drop free seeds.",
+  echo_shell: "On the farm it is a rain chime: time spent listening waters your thirsty plants.",
+  page_lantern: "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow two days for one watering.",
+  ink_well: "Each word you save brings a bee. With bees about, crops near the hive give more, and saved words make honey.",
+  memory_stone: "Words you know well make better harvests: rarer crops all over the farm.",
+};
 /** The largest whole-number scale that fits a w x h picture in a square box, so its pixels stay square (at least 1). */
 export const fitScale = (w, h, box) => Math.max(1, Math.floor(box / Math.max(w, h, 1)));
 
@@ -179,7 +190,7 @@ export function gardenFacts(state, now = new Date()) {
   return {
     glow: Math.floor(g.glow), rate: Math.floor(totalRate(state, now)), waiting: Math.floor(g.plots.reduce((n, p) => n + p.stored, 0)),
     stardust: g.stardust, auto: automated(state), goalsLeft: Math.max(0, AUTO_GOALS - goals), bloom: !!g.bloom,
-    open: g.plots.filter((p) => p.open).length, plots: g.plots.length,
+    open: farmBuildings() ? g.plots.length : g.plots.filter((p) => p.open).length, plots: g.plots.length,
   };
 }
 
@@ -194,7 +205,7 @@ export function plotRows(state, now = new Date()) {
   const firstClosed = g.plots.findIndex((p) => !p.open);
   const keys = (state.items && state.items.key) || 0;
   return g.plots.map((p, i) => {
-    if (!p.open) return { i, kind: "closed", need: PLOTS[i].need.text, key: i === firstClosed && keys > 0 };
+    if (!p.open && !farmBuildings()) return { i, kind: "closed", need: PLOTS[i].need.text, key: i === firstClosed && keys > 0 };
     if (!p.tier) return { i, kind: "empty" };
     const cost = costOf(state, i);
     return { i, kind: "built", id: p.id, tier: p.tier, rate: Math.floor(rateOf(state, p, now)), stored: Math.floor(p.stored),
@@ -206,10 +217,12 @@ export function plotRows(state, now = new Date()) {
  * milestone is reached; `can`: open, and there is glow enough. */
 export function buildOptions(state, i) {
   const glow = garden(state).glow;
-  return STRUCTURES.map((s) => {
+  const farm = farmBuildings(); // (on the farm: each kind opens by its own milestone, or a key; no Star Loom)
+  const keys = (state.items && state.items.key) || 0;
+  return STRUCTURES.filter((s) => !farm || FARM_KINDS.includes(s.id)).map((s) => {
     const cost = costOf(state, i, s.id);
-    const open = meets(state, s.need);
-    return { id: s.id, name: s.name, text: s.text, trait: s.trait, rate: s.rate, cost, open, need: s.need ? s.need.text : "",
-      can: open && cost !== null && glow >= cost };
+    const open = farm ? buildingOpen(state, s) : meets(state, s.need);
+    return { id: s.id, name: buildingName(s), text: s.text, trait: s.trait, rate: s.rate, cost, open, need: s.need ? s.need.text : "",
+      can: open && cost !== null && glow >= cost, key: farm && !open && keys > 0 };
   });
 }

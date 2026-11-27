@@ -40,9 +40,21 @@ export function garden(state) {
   while (g.plots.length < PLOTS.length) g.plots.push({ open: false, id: null, tier: 0, stored: 0 });
   for (const k of ["glow", "stardust", "at", "badgesPaid", "raidsPaid", "leaguePaid"]) if (!Number.isFinite(g[k])) g[k] = k === "glow" ? 40 : 0;
   if (!Array.isArray(g.released)) g.released = [];
+  if (!Array.isArray(g.keyed)) g.keyed = []; // (the farm: building kinds opened with a key)
   if (!Number.isFinite(state.gems)) state.gems = 0;
   return g;
 }
+
+// ---------- the farm (prototype "farm", farm.js; the owner's plan, tamkeen-plans/farming-plan.md slice 2) ----------
+// The six plots go away: each building keeps its own milestone and, once it is open, stands anywhere on the farm (its
+// slot's `at`). A key (data.SUPPLIES "key", once the Plot key) now skips one building's milestone: `idle.keyed`, the
+// kinds opened with one. The Ink Well is the Spelling Bee Hive there; the Star Loom folds into the Star Shrine (slice 3),
+// so it isn't built on the farm. Old saves keep their buildings, at their tiers, in their slots.
+export const farmBuildings = () => feature("farm");
+/** Is building kind `id` open to build: its milestone reached, or a key used on it (on the farm). */
+export const buildingOpen = (state, s) => meets(state, s.need) || (farmBuildings() && garden(state).keyed.includes(s.id));
+/** The building kinds that can be built on the farm (all but the Star Loom). */
+export const FARM_KINDS = STRUCTURES.filter((s) => s.id !== "star_loom").map((s) => s.id);
 
 /** Has the owner done what a plot or a building asks for? `need` is one of data.js's requirements. */
 export function meets(state, need) {
@@ -149,10 +161,11 @@ export function build(state, index, id) {
   const g = garden(state);
   const p = g.plots[index];
   const s = structure(id);
-  if (!p || !p.open) return "That plot isn't open yet.";
+  const farm = farmBuildings(); // (on the farm: no plots to open, every slot can take a building)
+  if (!p || (!p.open && !farm)) return "That plot isn't open yet.";
   if (p.tier) return "Something is already built there.";
-  if (!s) return "That building doesn't exist.";
-  if (!meets(state, s.need)) return `Not yet: ${s.need.text}.`;
+  if (!s || (farm && !FARM_KINDS.includes(id))) return "That building doesn't exist.";
+  if (!buildingOpen(state, s)) return `Not yet: ${s.need.text}.`;
   const cost = costOf(state, index, id);
   if (g.glow < cost) return `You need ${Math.ceil(cost - g.glow)} more glow.`;
   g.glow -= cost;
@@ -173,9 +186,19 @@ export function upgrade(state, index) {
   return "";
 }
 
-/** Open the next closed plot with a key instead of waiting for its milestone. */
-export function useKey(state) {
+/** Open the next closed plot with a key instead of waiting for its milestone; on the farm (prototype "farm"), skip
+ * building kind `id`'s milestone instead. */
+export function useKey(state, id = null) {
   const g = garden(state);
+  if (farmBuildings()) {
+    const s = STRUCTURES.find((x) => x.id === id);
+    if (!s || !FARM_KINDS.includes(id)) return "Choose a building to open with the key.";
+    if (buildingOpen(state, s)) return "That building is open already.";
+    if (!(state.items.key > 0)) return "You have no key.";
+    state.items.key--;
+    g.keyed.push(id);
+    return "";
+  }
   const i = g.plots.findIndex((p) => !p.open);
   if (i < 0) return "Every plot is already open.";
   if (!(state.items.key > 0)) return "You have no key.";

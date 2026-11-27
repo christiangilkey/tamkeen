@@ -129,6 +129,6 @@ test("the big tiles send the creature to their place in the village (or home)", 
   const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
   for (const [tile, spot] of [["shop", "cloth"], ["creatures", "room"], ["garden", "fruit"], ["battle", "hall"], ["fishing", "pier"]]) {
     const line = h.split(/\r?\n/).find((l) => l.includes(`$("#g-${tile}").onclick = `)) || "";
-    assert.ok(line.includes(`teleportTo("${spot}")`), tile);
+    assert.ok(line.includes(`teleportTo("${spot}")`) || line.includes(`: "${spot}")`), tile); // (Garden: the farm with prototype "farm", else the fruit stall)
   }
 });

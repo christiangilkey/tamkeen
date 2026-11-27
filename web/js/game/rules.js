@@ -470,6 +470,7 @@ export function earn(state, event, ctx = {}) {
     if (event.mode === "listen") out.colouring = featUp(state, "listen", seconds);
     const before = day.seconds;
     day.seconds += seconds;
+    if (event.mode === "listen" || event.mode === "read") day[event.mode] = (Number(day[event.mode]) || 0) + seconds; // (the farm's Echo Shell and Page Lantern)
     if (now.getHours() >= 22) grant(state, "night_owl");
     if (now.getHours() < 7 && now.getHours() >= 4) grant(state, "early_bird");
     const goal = state.goal * 60;

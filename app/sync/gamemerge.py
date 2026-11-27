@@ -247,6 +247,9 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
             if "bloom" in ga or "bloom" in gb:
                 ga["bloom"] = bool(ga.get("bloom") or gb.get("bloom"))
         out["idle"]["released"] = released
+        keyed = _union(ga.get("keyed"), gb.get("keyed"))  # (the farm: building kinds opened with a key, kept from both)
+        if keyed:
+            out["idle"]["keyed"] = keyed
         buys = _join_day_count(ga.get("gemBuys"), gb.get("gemBuys"))
         if buys is not None:
             out["idle"]["gemBuys"] = buys

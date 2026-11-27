@@ -18,6 +18,7 @@
 
 import { LEGENDARY, TIERS, chances } from "./loot.js";
 import { dayNumber, weekNumber } from "./rules.js";
+import { BUILD_SPOTS, canPlace, spotXY } from "./farmmap.js";
 
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
@@ -211,11 +212,13 @@ export function water(state, key, correct, now = new Date()) {
   touch(f, now);
   if (p.wet.n < 2) return { grew: false, ripe: false, revived: false };
   const revived = s.wilted;
-  p.days++;
+  const need = cropById(p.crop).days;
+  const lit = lanternLit(state, now) && nearTier(state, "lantern", key) > 0; // (the Page Lantern: a reading day)
+  p.days = Math.min(need, p.days + (lit ? 2 : 1));
   p.last = today;
   p.lastWater = today;
   delete p.wet;
-  return { grew: true, ripe: p.days >= cropById(p.crop).days, revived };
+  return { grew: true, ripe: p.days >= need, revived, lantern: lit };
 }
 
 /** A harvest's rarity: the flashcards' odds at this luck (loot.js chances), Legendary at most. Not counted in the
@@ -250,13 +253,127 @@ export function harvest(state, key, rand = Math.random, now = new Date()) {
   if (!s) return "Nothing is growing there.";
   if (!s.ripe) return "It isn't ripe yet.";
   const c = s.crop;
-  const tier = rollTier(1 + c.days / 10, rand);
+  const tier = rollTier((1 + c.days / 10) * stoneLuck(state), rand); // (the Memory Stone: luck)
   const [lo, hi] = c.give;
-  const n = lo + Math.floor(rand() * (hi - lo + 1));
+  const bees = beesToday(state, now) ? nearTier(state, "hive", key) : 0; // (bees about: one more, two near a big hive)
+  const n = lo + Math.floor(rand() * (hi - lo + 1)) + (bees ? (bees >= 3 ? 2 : 1) : 0);
   f.barn[barnKey(c.id, tier)] = (f.barn[barnKey(c.id, tier)] || 0) + n;
   delete f.plots[key];
   f.dex = f.dex && typeof f.dex === "object" ? f.dex : {};
   f.dex[c.id] = Math.max(f.dex[c.id] || 0, tier + 1); // (the Cropdex: the rarest of each crop grown)
   touch(f, now);
   return { crop: c, tier, n };
+}
+
+// ---------- the garden's buildings on the farm, and their farm jobs (slice 2) ----------
+// Each building does a farm job matched to its study habit (the owner's plan):
+//   Word Sprout (looking words up): a seed tree; looked-up words drop free seeds (one each `SPROUT_EVERY[tier]`
+//     lookups, at most 2 + tier a day, of this week's crops).
+//   Echo Shell (listening): a rain chime; each `ECHO_EVERY[tier]` seconds of listening today waters one thirsty plant.
+//   Page Lantern (reading): on a day with 10 minutes of reading, a plant near it grows two days for one watering.
+//   Spelling Bee Hive (saving words; the Ink Well's place): each word saved today brings a bee (3 a tier at most);
+//     with bees about, crops near it give one more (two near a big hive); every few words saved make honey (recipes).
+//   Memory Stone (knowing words well): well-known words make better harvests everywhere (more luck on the roll).
+// Minutes and saved words count, taps don't (the owner's rule); nothing here is bought.
+export const SPROUT_EVERY = [0, 10, 7, 5];
+export const ECHO_EVERY = [0, 600, 480, 360];
+export const LANTERN_READ = 600;
+export const HONEY_EVERY = [0, 6, 5, 4];
+const MATURE = 4; // (rules.MATURE_BOX: a word well known)
+export const FARM_KIND = { word_sprout: "sprout", echo_shell: "echo", page_lantern: "lantern", ink_well: "hive", memory_stone: "stone" };
+
+/** The garden's buildings standing on the farm: [{i (its slot), id, kind, tier, x, y}] (not the Star Loom). */
+export function buildingsOn(state) {
+  const plots = state.idle && Array.isArray(state.idle.plots) ? state.idle.plots : [];
+  const out = [];
+  plots.forEach((p, i) => {
+    if (!p || !p.tier || !FARM_KIND[p.id]) return;
+    const at = p.at && Number.isFinite(p.at.x) && Number.isFinite(p.at.y) ? p.at : BUILD_SPOTS[i] || BUILD_SPOTS[0];
+    out.push({ i, id: p.id, kind: FARM_KIND[p.id], tier: p.tier, x: at.x, y: at.y });
+  });
+  return out;
+}
+/** The best tier of a farm job's building (0: none built). */
+const tierOf = (state, kind) => buildingsOn(state).filter((b) => b.kind === kind).reduce((m, b) => Math.max(m, b.tier), 0);
+/** The tier of the biggest building doing `kind` within reach of field spot `key` ((3 + tier) tiles; 0: none near). */
+export function nearTier(state, kind, key) {
+  const [c, r] = String(key).split(",").map(Number);
+  const at = spotXY(c, r);
+  return buildingsOn(state).filter((b) => b.kind === kind && Math.hypot(b.x - at.x, b.y - at.y) <= (3 + b.tier) * 16)
+    .reduce((m, b) => Math.max(m, b.tier), 0);
+}
+const dayKeyOf = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+const isToday = (state, now) => !!(state.day && state.day.key === dayKeyOf(now));
+/** Bees out today around the Spelling Bee Hive: one a word saved today, three a tier at most. */
+export const beesToday = (state, now = new Date()) => { const t = tierOf(state, "hive"); return t && isToday(state, now) ? Math.min(3 * t, Number(state.day.saves) || 0) : 0; };
+const matureCount = (state) => Object.values(state.review || {}).filter((r) => Array.isArray(r) && r[0] >= MATURE).length;
+/** The harvest luck the Memory Stone gives: 1 without one; with one, more for its tier and for words known well. */
+export const stoneLuck = (state) => { const t = tierOf(state, "stone"); return t ? 1 + 0.2 * t + Math.min(0.9, matureCount(state) / 200) : 1; };
+/** Is today a reading day for the Page Lantern? */
+export const lanternLit = (state, now = new Date()) => isToday(state, now) && (Number(state.day.read) || 0) >= LANTERN_READ;
+
+/**
+ * Let the farm jobs happen: the Word Sprout's seeds for lookups, the Echo Shell's waterings for listening, the hive's
+ * honey for saved words. Safe to call often (it counts only what is new). Returns {seeds: [crop ids], watered: [keys],
+ * honey: n} for the screen to show.
+ */
+export function farmJobs(state, rand = Math.random, now = new Date()) {
+  const f = farmOf(state);
+  const day = dayKeyOf(now);
+  const j = f.jobs && typeof f.jobs === "object" ? f.jobs : (f.jobs = {});
+  if (j.day !== day) { j.day = day; j.seeds = 0; j.echo = 0; }
+  const out = { seeds: [], watered: [], honey: 0 };
+  // the Word Sprout: lookups since last time (only counted once one stands)
+  const lookups = Number((state.stats || {}).lookups) || 0;
+  const sprout = tierOf(state, "sprout");
+  if (!Number.isFinite(j.lookups) || !sprout) j.lookups = lookups;
+  if (sprout) {
+    j.acc = (Number(j.acc) || 0) + Math.max(0, lookups - j.lookups);
+    j.lookups = lookups;
+    const sale = seedsOnSale(now);
+    while (j.acc >= SPROUT_EVERY[sprout] && j.seeds < 2 + sprout && sale.length) {
+      j.acc -= SPROUT_EVERY[sprout];
+      j.seeds++;
+      const c = sale[Math.floor(rand() * sale.length)];
+      f.seeds[c.id] = (f.seeds[c.id] || 0) + 1;
+      out.seeds.push(c.id);
+    }
+    if (j.seeds >= 2 + sprout) j.acc = 0; // (the day's seeds are all dropped: nothing banks for tomorrow)
+  }
+  // the Echo Shell: today's listening waters the thirstiest plants (wilted ones first)
+  const echo = tierOf(state, "echo");
+  if (echo && isToday(state, now)) {
+    const due = Math.floor((Number(state.day.listen) || 0) / ECHO_EVERY[echo]);
+    while (j.echo < due) {
+      const thirsty = spots(state).map((s) => ({ s, st: plantState(state, s.key, now) })).filter((x) => x.st && x.st.thirsty)
+        .sort((a, b) => Number(b.st.wilted) - Number(a.st.wilted) || a.st.days - b.st.days);
+      if (!thirsty.length) break;
+      j.echo++;
+      water(state, thirsty[0].s.key, true, now);
+      out.watered.push(thirsty[0].s.key);
+    }
+  }
+  // the hive's honey: a jar every few words saved today
+  const hive = tierOf(state, "hive");
+  const saves = isToday(state, now) ? Number(state.day.saves) || 0 : 0;
+  if (j.savesDay !== day) { j.savesDay = day; j.saves = 0; }
+  if (hive && saves > j.saves) {
+    const before = Math.floor(j.saves / HONEY_EVERY[hive]);
+    j.saves = saves;
+    out.honey = Math.floor(saves / HONEY_EVERY[hive]) - before;
+    f.honey = Math.min(99, (Number(f.honey) || 0) + out.honey);
+  } else if (!hive) j.saves = saves;
+  if (out.seeds.length || out.watered.length || out.honey) touch(f, now);
+  return out;
+}
+
+/** Move building slot `i` on the farm to (x, y), if it can stand there. Returns an error message, or "". */
+export function placeBuilding(state, i, x, y, now = new Date()) {
+  const p = state.idle && state.idle.plots && state.idle.plots[i];
+  if (!p || !p.tier || !FARM_KIND[p.id]) return "There's no building there.";
+  const others = buildingsOn(state).filter((b) => b.i !== i);
+  if (!canPlace(x, y, others)) return "It can't stand there. Try an open patch of grass.";
+  p.at = { x: Math.round(x), y: Math.round(y) };
+  touch(farmOf(state), now);
+  return "";
 }

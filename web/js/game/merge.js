@@ -226,6 +226,8 @@ export function combine(mine, theirs) {
       if ("bloom" in ga || "bloom" in gb) ga.bloom = !!(ga.bloom || gb.bloom);
     }
     out.idle.released = released;
+    const keyed = union(ga.keyed, gb.keyed); // (the farm: building kinds opened with a key, kept from both)
+    if (keyed.length) out.idle.keyed = keyed;
     const buys = joinDayCount(ga.gemBuys, gb.gemBuys);
     if (buys) out.idle.gemBuys = buys;
   }

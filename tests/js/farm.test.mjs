@@ -65,7 +65,7 @@ test("a crop ripens only with water on different days: one watering a day, wrong
   assert.match(water(s, "0,0", true, day(0)), /had its water today/, "never twice in one day");
   assert.equal(water(s, "0,0", true, day(1)).grew, true);
   const last = water(s, "0,0", true, day(2));
-  assert.deepEqual(last, { grew: true, ripe: true, revived: false });
+  assert.deepEqual(last, { grew: true, ripe: true, revived: false, lantern: false });
   st = plantState(s, "0,0", day(2));
   assert.ok(st.ripe && st.stage === 3 && !st.thirsty);
 });
@@ -76,7 +76,7 @@ test("nothing dies: a plant missed for a day wilts and waits; one answer revives
   assert.equal(plantState(s, "0,0", day(1)).wilted, false, "the next day it's only thirsty");
   const st = plantState(s, "0,0", day(5));
   assert.ok(st.wilted && st.days === 1, "days later: wilted, its progress kept");
-  assert.deepEqual(water(s, "0,0", true, day(5)), { grew: true, ripe: false, revived: true });
+  assert.deepEqual(water(s, "0,0", true, day(5)), { grew: true, ripe: false, revived: true, lantern: false });
   assert.equal(plantState(s, "0,0", day(5)).wilted, false);
 });
 

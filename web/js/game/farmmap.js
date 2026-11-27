@@ -48,8 +48,8 @@ export function farmMap(w, h) {
   for (let y = y1 + 1; y < ROWS; y++) set(gap, y, "dirt");
   for (let x = BARN.x0; x < BARN.x0 + BARN.w; x++) for (let y = BARN.y0; y < BARN.y0 + BARN.h; y++) set(x, y, "house_wall");
   const props = [
-    { id: "haystack", x: 0, y: 6, w: 2 }, { id: "barrel", x: 0, y: 4, w: 1 }, { id: "scarecrow", x: Math.min(FIELD.x + w + 2, 30), y: 3, w: 1 },
-    { id: "tree_round", x: 25, y: 1, w: 2 }, { id: "bush_flower", x: 29, y: 3, w: 1 }, { id: "tree_poplar", x: 31, y: 2, w: 1 },
+    { id: "haystack", x: 0, y: 6, w: 2 }, { id: "barrel", x: 0, y: 4, w: 1 }, { id: "scarecrow", x: 6, y: 7, w: 1 },
+    { id: "bush_flower", x: 27, y: 1, w: 1 }, { id: "bush_flower", x: 31, y: 1, w: 1 }, { id: "bush", x: 21, y: 1, w: 1 },
   ].filter((p) => p.x > x1 || p.y > y1 || p.x + p.w <= x0 || p.y < y0); // (never inside the fence, however big)
   const propTiles = tiles.map(() => null);
   for (const p of props) for (let k = 0; k < p.w; k++) propTiles[p.y * FARM_COLS + p.x + k] = p.id;
@@ -92,4 +92,22 @@ export function tapFarm(x, y, w, h) {
   const x0 = FIELD.x - 1, y0 = FIELD.y - 1, x1 = FIELD.x + w, y1 = FIELD.y + h;
   if (tx >= x0 && tx <= x1 && ty >= y0 && ty <= y1) return { kind: "fence" };
   return { kind: "ground" };
+}
+
+// ---------- the garden's buildings on the farm (slice 2) ----------
+/** Where each of the six building slots stands until it is moved: right of the field, two rows of three. */
+export const BUILD_SPOTS = [
+  { x: 22 * TILE, y: 4 * TILE }, { x: 25 * TILE + 8, y: 4 * TILE }, { x: 29 * TILE, y: 4 * TILE },
+  { x: 22 * TILE, y: 7 * TILE + 8 }, { x: 25 * TILE + 8, y: 7 * TILE + 8 }, { x: 29 * TILE, y: 7 * TILE + 8 },
+];
+const FIELD_MAX_BOX = { x0: (FIELD.x - 1) * TILE - 8, y0: 0, x1: (FIELD.x + 12 + 1) * TILE + 8, y1: (FIELD.y + 6 + 1) * TILE + 6 };
+/** Can a building stand with its foot's middle at (x, y)? On the farm, clear of the field (as big as it can grow), the
+ * barn, the seed stand and the gate, and not on top of another building (`others`: [{x, y}]). */
+export function canPlace(x, y, others = []) {
+  if (!(x >= 18 && x <= FARM_W - 18 && y >= 40 && y <= H - 14)) return false;
+  if (x > FIELD_MAX_BOX.x0 && x < FIELD_MAX_BOX.x1 && y > FIELD_MAX_BOX.y0 && y < FIELD_MAX_BOX.y1) return false;
+  if (x < (BARN.x0 + BARN.w) * TILE + 12 && y < (BARN.y0 + BARN.h + 1) * TILE + 4) return false;
+  if (Math.abs(x - SEED_STAND.x) < 30 && Math.abs(y - SEED_STAND.y) < 24) return false;
+  if (Math.abs(x - FARM_GATE.x) < 30 && y > FARM_GATE.y - 26) return false;
+  return others.every((o) => Math.hypot(o.x - x, (o.y - y) * 1.4) >= 30);
 }

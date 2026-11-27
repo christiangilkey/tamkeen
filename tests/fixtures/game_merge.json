@@ -205,6 +205,13 @@
       "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "farm": {"at": 300, "fence": 2, "plots": {}, "seeds": {"tomato": 2}, "barn": {"carrot:0": 5}}},
       "keep": "merged",
       "expect": {"farm.at": 300, "farm.fence": 2, "farm.barn.carrot:0": 5, "farm.seeds.tomato": 2}
+    },
+    {
+      "name": "the farm's buildings: a building kind opened with a key on either copy stays open; a building keeps where it was put with the bigger one",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 10, "stardust": 0, "released": [], "keyed": ["echo_shell"], "plots": [{"open": true, "id": "word_sprout", "tier": 2, "stored": 0, "at": {"x": 400, "y": 70}}]}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "idle": {"glow": 10, "stardust": 0, "released": [], "keyed": ["memory_stone"], "plots": [{"open": true, "id": "word_sprout", "tier": 1, "stored": 0}]}},
+      "keep": "merged",
+      "expect": {"idle.keyed": ["echo_shell", "memory_stone"], "idle.plots.0.tier": 2, "idle.plots.0.at.x": 400}
     }
   ]
 }

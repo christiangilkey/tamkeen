@@ -12,6 +12,7 @@ Files (web/game-art/farm/, sources in game/art-src/farm/):
     soil.png       32 x 16             a tilled spot: dry, then watered
     gate.png       32 x 32             the farm's gate in the yard (a wooden gate, a little sign with a sprout)
     seedstand.png  32 x 32             the seed stand by the barn
+    bee_hive_N.png 32 x 32 (48 x 48 at tier 3)  the Spelling Bee Hive, tiers 1-3 (the Ink Well's place, plan slice 2)
 """
 
 from __future__ import annotations
@@ -453,6 +454,60 @@ def seedstand() -> Image.Image:
     return cv.im
 
 
+STRAW = [hexc("7a5a1e"), hexc("b08a34"), hexc("d8b452"), hexc("f0d684")]
+HONEY = [hexc("a8600a"), hexc("e8a020"), hexc("ffd24a")]
+
+
+def skep(cv: C, cx, base, rx, ry):
+    """A straw bee skep: a dome of coiled straw bands, a dark little door at its foot."""
+    top = base - ry * 2
+    for y in range(int(top), base + 1):
+        t = (y - top) / (ry * 2)
+        half = rx * (0.35 + 0.65 * min(1, (t * 1.6) ** 0.5))
+        for x in range(int(cx - half), int(cx + half) + 1):
+            band = int((y - top) / 2.2) % 2
+            d = (x + 0.5 - (cx - half)) / max(1, 2 * half)
+            k = 3 if d < 0.2 and band == 0 else 2 if d < 0.55 else 1
+            if band and k > 1:
+                k -= 1
+            cv.put(x, y, STRAW[k])
+    cv.ell(cx + 0.5, base - 2, 1.8, 2, hexc("2a1a0a"))
+
+
+def beehive(tier: int) -> Image.Image:
+    """The Spelling Bee Hive (the owner's name; it takes the Ink Well's place on the farm): tier 1 a skep on a stump,
+    tier 2 a bigger one on a little stand with flowers, tier 3 two skeps under a shingled roof, a honey pot by them."""
+    size = 48 if tier == 3 else 32
+    cv = C(size, size)
+    b = size - 2
+    if tier == 1:
+        cv.rect(10, b - 5, 21, b, BARK[1]); cv.rect(10, b - 5, 21, b - 5, BARK[2]); cv.rect(21, b - 5, 21, b, BARK[0])
+        skep(cv, 16, b - 6, 8, 7)
+    elif tier == 2:
+        for x in (7, 24):
+            cv.rect(x, b - 7, x + 1, b, BARK[1])
+        cv.rect(5, b - 9, 26, b - 7, BARK[2]); cv.rect(5, b - 7, 26, b - 7, BARK[0])
+        skep(cv, 16, b - 10, 10, 9)
+        for (x, c) in ((3, "ff7ab0"), (28, "ffe680"), (12, "8ac0ff")):
+            cv.line(x, b, x, b - 3, LEAF[1]); cv.ell(x + 0.5, b - 4, 1.3, 1.3, hexc(c))
+    else:
+        cv.rect(6, b - 9, 41, b - 7, BARK[2]); cv.rect(6, b - 7, 41, b - 7, BARK[0])
+        for x in (8, 39):
+            cv.rect(x, b - 7, x + 1, b, BARK[1])
+        for x in (6, 41):
+            cv.rect(x, b - 30, x + 1, b - 9, BARK[1])
+        for i in range(10):  # the little roof
+            y = b - 31 - i // 2
+            cv.rect(3 + i, y, 44 - i, y, hexc("8a3a2a") if i % 2 else hexc("b04a32"))
+        skep(cv, 16, b - 10, 8, 8)
+        skep(cv, 31, b - 10, 8, 8)
+        cv.ell(24, b - 2, 3.4, 2.6, HONEY[1]); cv.ell(23, b - 3, 1.2, 0.8, HONEY[2]); cv.rect(22, b - 5, 26, b - 5, BARK[1])
+    for (x, y) in ([(25, b - 15)], [(26, b - 22), (6, b - 16)], [(12, b - 26), (36, b - 24), (24, b - 18)])[tier - 1]:
+        cv.put(x, y, hexc("ffd24a")); cv.put(x + 1, y, hexc("2a1a0a")); cv.put(x, y - 1, hexc("e8f4ff"))  # bees
+    cv.outline()
+    return cv.im
+
+
 def sheet() -> tuple[Image.Image, Image.Image]:
     crops = Image.new("RGBA", (FW * 5, FH * len(CROPS)), (0, 0, 0, 0))
     icons = Image.new("RGBA", (16 * len(CROPS), 16), (0, 0, 0, 0))
@@ -466,7 +521,8 @@ def sheet() -> tuple[Image.Image, Image.Image]:
 
 def made() -> dict[str, Image.Image]:
     crops, icons = sheet()
-    return {"crops": crops, "icons": icons, "soil": soil(), "gate": gate(), "seedstand": seedstand()}
+    return {"crops": crops, "icons": icons, "soil": soil(), "gate": gate(), "seedstand": seedstand(),
+            "bee_hive_1": beehive(1), "bee_hive_2": beehive(2), "bee_hive_3": beehive(3)}
 
 
 def build(aseprite: bool) -> None:
@@ -512,7 +568,7 @@ def preview(out: str) -> None:
         sheet_im.alpha_composite(icons.crop((i * 16, 0, i * 16 + 16, 16)).resize((16 * sc, 16 * sc), Image.NEAREST), (x0 + (FW * 5 + 4) * sc, y0 + 4 * sc))
     y = half * FH * sc
     x = 0
-    for n in ("soil", "gate", "seedstand"):
+    for n in ("soil", "gate", "seedstand", "bee_hive_1", "bee_hive_2", "bee_hive_3"):
         im = pics[n]
         sheet_im.alpha_composite(im.resize((im.width * sc, im.height * sc), Image.NEAREST), (x, y + 4))
         x += im.width * sc + 20
