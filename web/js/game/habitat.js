@@ -15,7 +15,7 @@ import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall 
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
-import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
 import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
@@ -1362,6 +1362,7 @@ export function habitat() {
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
     const at = `${(((cx - cam()) / W) * 100).toFixed(2)}|${(((feet + (RING.dy + 6) * k) / H) * 100).toFixed(2)}`;
+    goalLabel.classList.toggle("no-tap", outside()); // (outside, taps are for the world: the owner, "keeps bringing up the daily goal box")
     if (at !== labelAt) {
       labelAt = at;
       const [lx, ly] = at.split("|");
@@ -1532,7 +1533,14 @@ export function habitat() {
     for (const sp of fieldSpots(game)) {
       const at = spotXY(sp.c, sp.r);
       const st = plantState(game, sp.key);
-      if (soil) out.push({ y: at.y - 9, draw: () => ctx.drawImage(soil, st && st.watered ? 16 : 0, 0, 16, 16, at.x - 8, at.y - 8, 16, 16) });
+      if (soil) out.push({ y: at.y - 9, draw: () => {
+        ctx.drawImage(soil, st && st.watered ? 16 : 0, 0, 16, 16, at.x - 8, at.y - 8, 16, 16);
+        if (spotFlash && spotFlash.key === sp.key && performance.now() < spotFlash.until) { // (just tapped: outlined)
+          ctx.fillStyle = "#fff8d0";
+          ctx.fillRect(at.x - 8, at.y - 8, 16, 1); ctx.fillRect(at.x - 8, at.y + 7, 16, 1);
+          ctx.fillRect(at.x - 8, at.y - 8, 1, 16); ctx.fillRect(at.x + 7, at.y - 8, 1, 16);
+        }
+      } });
       if (underGlass(game, sp.key)) { const gl = yimg("farm/glass.png"); if (gl) out.push({ y: at.y + 6, draw: () => ctx.drawImage(gl, at.x - 8, at.y - 16) }); } // (slice 5: the greenhouse)
       if (!st || !crops) continue;
       const row = CROPS.indexOf(st.crop);
@@ -1625,6 +1633,15 @@ export function habitat() {
     }
   }
   /** A spot of the field tapped (the creature has walked there): plant, water, harvest, or how it is doing. */
+  let spotFlash = null; // {key, until}: the spot just tapped, outlined for a moment
+  /** A field spot tapped: it lights up, its card opens now, and the creature (not an egg) walks over to it. */
+  function tapSpot(c, r) {
+    const key = `${c},${r}`, at = spotXY(c, r);
+    spotFlash = { key, until: performance.now() + 420 };
+    sfx("tick");
+    if (!isEgg() && Math.hypot(pet.x - at.x, pet.y - (at.y + 2)) > 14) walkTo({ x: at.x, y: at.y + 2 });
+    useSpot(key);
+  }
   async function useSpot(key) {
     const st = plantState(game, key);
     const at = (() => { const [c, r] = key.split(",").map(Number); return spotXY(c, r); })();
@@ -1721,6 +1738,13 @@ export function habitat() {
       if (from) walkTo({ x: from.x, y: from.y }, "pickup"); else carry = null;
       return;
     }
+    // On the farm, the field comes first: a tap in it (or a near miss) is for its nearest spot, whatever wanders or
+    // stands over it; the spot lights up and its card opens straight away, the creature walking over meanwhile.
+    if (inFarm() && !pressed && moving === null) {
+      const [fw, fh] = fieldSize(game);
+      const sp = plotAt(x, y, fw, fh);
+      if (sp) { tapSpot(sp.c, sp.r); return; }
+    }
     // A decoration tapped: move it (the creature carries it) or put it away.
     const piece = roomOn() && !pressed && !onCreature(x, y) ? decorAt(x, y) : null;
     if (piece) { decorMenu(piece); return; }
@@ -1773,7 +1797,7 @@ export function habitat() {
       }
       const [fw, fh] = fieldSize(game);
       const w = tapFarm(x, y, fw, fh);
-      if (w.kind === "plot") { const key = `${w.c},${w.r}`; const at = spotXY(w.c, w.r); if (isEgg()) useSpot(key); else walkTo({ x: at.x, y: at.y + 2 }, `use:spot:${key}`); return; }
+      if (w.kind === "plot") { tapSpot(w.c, w.r); return; }
       if (w.kind === "gate" || x > FARM_WALK.x1 + 8 - FARM_EDGE) { if (isEgg()) useThing("yardgate"); else walkTo(FARM_IN, "use:yardgate"); return; } // (back to the yard: its gate, or anywhere along the right edge)
       if (w.kind === "barn") { const door = { x: BARN.door.tx * 16 + 8, y: (BARN.y0 + BARN.h) * 16 + 6 }; if (isEgg()) useThing("barn"); else walkTo(door, "use:barn"); return; }
       if (w.kind === "seeds") { if (isEgg()) useThing("seeds"); else walkTo({ x: SEED_STAND.x, y: SEED_STAND.y + 6 }, "use:seeds"); return; }

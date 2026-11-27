@@ -81,11 +81,25 @@ export function farmBlocked(w, h, cellKeyOf, extra = new Set()) {
 /** Where the camera stands (its left edge) for the creature at x. */
 export const farmCamera = (x) => Math.max(0, Math.min(FARM_W - W, x - W / 2));
 
-/** What a tap on the farm means: {kind: "plot", c, r} (a spot of the field), "fence", "barn", "seeds", "gate" or
- * "ground". */
+/** How far outside the field (world px) a tap still counts for its nearest spot: a spot is 16 px, about 18 screen px
+ * on a phone, far less than a finger, so a near miss counts (the fence and a little beyond). */
+export const PLOT_SLACK = 8; // (half the fence: its outer half still opens the fence card)
+/** The field spot nearest a tap at (x, y), for a field `w` x `h`: {c, r}, or null when the tap is not in the field
+ * nor within PLOT_SLACK of it. */
+export function plotAt(x, y, w, h) {
+  const x0 = FIELD.x * TILE, y0 = FIELD.y * TILE, x1 = (FIELD.x + w) * TILE, y1 = (FIELD.y + h) * TILE;
+  if (x < x0 - PLOT_SLACK || x >= x1 + PLOT_SLACK || y < y0 - PLOT_SLACK || y >= y1 + PLOT_SLACK) return null;
+  const c = Math.max(0, Math.min(w - 1, Math.floor((x - x0) / TILE)));
+  const r = Math.max(0, Math.min(h - 1, Math.floor((y - y0) / TILE)));
+  return { c, r };
+}
+
+/** What a tap on the farm means: {kind: "plot", c, r} (a spot of the field, or the nearest one to a near miss),
+ * "fence", "barn", "seeds", "gate" or "ground". */
 export function tapFarm(x, y, w, h) {
   const tx = Math.floor(x / TILE), ty = Math.floor(y / TILE);
-  if (tx >= FIELD.x && tx < FIELD.x + w && ty >= FIELD.y && ty < FIELD.y + h) return { kind: "plot", c: tx - FIELD.x, r: ty - FIELD.y };
+  const spot = plotAt(x, y, w, h);
+  if (spot) return { kind: "plot", ...spot };
   if (Math.abs(x - FARM_GATE.x) < 18 && y > FARM_GATE.y - 30 && y < FARM_GATE.y + 6) return { kind: "gate" };
   if (Math.abs(x - SEED_STAND.x) < 16 && y > SEED_STAND.y - 30 && y < SEED_STAND.y + 4) return { kind: "seeds" };
   if (tx >= BARN.x0 && tx < BARN.x0 + BARN.w && ty >= BARN.y0 && ty < BARN.y0 + BARN.h) return { kind: "barn" };

@@ -8,13 +8,14 @@ import {
   CROPS, FENCE_MAX, MAX_SIZE, RARE_CROPS, SEASONS, barnList, buySeeds, cropById, farmOf, fenceCost, fieldSize, growFence,
   harvest, inSeason, plant, plantState, rareSeedOf, rollTier, seasonOf, seedsOnSale, sizeAfter, spots, water,
 } from "../../web/js/game/farm.js";
-import { FARM_COLS, FIELD, farmBlocked, farmMap, gapCol, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
+import { FARM_COLS, FIELD, PLOT_SLACK, farmBlocked, farmMap, gapCol, plotAt, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
 import { LEGENDARY } from "../../web/js/game/loot.js";
 import { PROTOTYPES } from "../../web/js/prototype.js";
 
 const day = (n) => new Date(2026, 10, 23 + n, 12); // Monday 23 November 2026, then the days after it
 const fresh = () => ({ review: {}, stats: {}, day: {}, idle: { glow: 10000 } });
 const glow = (s) => s.idle;
+const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
 /** A game with tomato seeds planted at 0,0 on Monday (a summer week: 23 November 2026). */
 function planted(id = "tomato") {
   const s = fresh();
@@ -133,7 +134,7 @@ test("the farm's map: the fence round the field with a gap, the path to the gate
     const blocked = farmBlocked(w, h, (p) => `${Math.round(p.x)},${Math.round(p.y)}`);
     assert.ok(blocked.size > 0);
   }
-  assert.equal(tapFarm(FIELD.x * 16 - 8, 40, 3, 3).kind, "fence");
+  assert.equal(tapFarm(FIELD.x * 16 - 12, 40, 3, 3).kind, "fence");
 });
 
 test("the art: a row of five frames for every crop and an icon each, in farm.js's order (farmart.py's CROPS)", () => {
@@ -145,4 +146,31 @@ test("the art: a row of five frames for every crop and an icon each, in farm.js'
   const list = py.slice(py.indexOf("CROPS = ["));
   const order = [...list.slice(0, list.indexOf("\n]")).matchAll(/\("(\w+)", "\w+"\)/g)].map((m) => m[1]);
   assert.deepEqual(order, CROPS.map((c) => c.id));
+});
+
+test("every spot of a 3 x 3 and a 12 x 6 field takes a tap anywhere on it, and a near miss goes to the nearest spot", () => {
+  for (const [w, h] of [[3, 3], [12, 6]]) {
+    for (let r = 0; r < h; r++) for (let c = 0; c < w; c++) {
+      const at = spotXY(c, r);
+      for (const [dx, dy] of [[0, 0], [-8, -8], [7, 7], [-8, 7], [7, -8]]) { // its middle and its four corners
+        assert.deepEqual(plotAt(at.x + dx, at.y + dy, w, h), { c, r }, `${w}x${h} spot ${c},${r} at ${dx},${dy}`);
+        assert.equal(tapFarm(at.x + dx, at.y + dy, w, h).kind, "plot");
+      }
+    }
+    const left = spotXY(0, 0), right = spotXY(w - 1, h - 1);
+    assert.deepEqual(plotAt(left.x - 8 - PLOT_SLACK + 1, left.y, w, h), { c: 0, r: 0 }, "just left of the field: its first spot");
+    assert.deepEqual(plotAt(right.x + 8 + PLOT_SLACK - 1, right.y + 8 + PLOT_SLACK - 1, w, h), { c: w - 1, r: h - 1 }, "just past its far corner");
+    assert.equal(plotAt(left.x - 8 - PLOT_SLACK - 2, left.y, w, h), null, "further off: not the field");
+    assert.equal(tapFarm(right.x + 8 + PLOT_SLACK + 4, right.y + 30, w, h).kind === "plot", false);
+  }
+});
+
+test("a tap in the field is the field's before anything standing or wandering over it, and opens the spot at once", () => {
+  const h = src("habitat.js");
+  const tap = h.slice(h.indexOf('canvas.addEventListener("click"'));
+  assert.ok(tap.indexOf("plotAt(x, y, fw, fh)") < tap.indexOf("decorAt(x, y)"), "before decorations");
+  assert.ok(tap.indexOf("plotAt(x, y, fw, fh)") < tap.indexOf("muffleAt(x, y)"), "before the Muffles");
+  const fn = h.slice(h.indexOf("function tapSpot("), h.indexOf("async function useSpot("));
+  assert.match(fn, /useSpot\(key\)/, "its card opens on the tap");
+  assert.doesNotMatch(fn, /use:spot/, "not only when the creature arrives");
 });
