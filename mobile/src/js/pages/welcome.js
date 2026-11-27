@@ -17,7 +17,7 @@ export async function render(view) {
     <div class="ar-sample" id="hello"></div>
     <div class="card stack">
       <ol>
-        <li><strong>Find something to learn from.</strong> In the Library, start a course, or press <strong>+</strong> for
+        <li><strong>Find something to learn from.</strong> In the Library, start with Basics if you're new to the language, or press <strong>+</strong> for
           YouTube videos, podcasts, web pages and books.</li>
         <li><strong>Tap any word</strong> to hear it and see what it means. Long-press for more options.</li>
         <li><strong>Using Tamkeen on another device too?</strong> Sign in with the same Google account on each: your library,

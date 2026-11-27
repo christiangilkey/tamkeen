@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	El Bàsic de {0} és en camí. Mentrestant, afegeix paraules amb «Afegeix paraules» a la pàgina de Vocabulari.
+61c2864d	No s’ha pogut carregar. Comprova la connexió i torna-ho a provar.
+2ce76731	Aquestes paraules no tenen àudio: encara cap veu d’ordinador no les diu prou bé. De moment, els significats i les traduccions són en anglès.
+6ba220e2	El teu contingut del DLI apareix a Biblioteca → Bàsic mentre estudies {0:lower}. Canvies d’idioma a la part de dalt de la pantalla.
+d2b4fa63	El teu contingut del DLI és a Biblioteca → Bàsic → DLI.
+74ab6a8b	El teu contingut del DLI és a Biblioteca → Bàsic → DLI, mentre estudies {0:lower}.
+4eb616bd	Si aprens àrab amb un dialecte triat a Biblioteca → Bàsic, les frases surten d’aquell dialecte quan n’hi ha.
+f23039b8	No s’han pogut carregar les lliçons de gramàtica. Comprova la connexió i torna-ho a provar.
+98dabde3	Totes les lliçons costen menys d’un cèntim de dòlar.
+af8ab26b	Totes les lliçons costen uns {0} cèntims de dòlar.
+8fda55f1	Les paraules dels dialectes àrabs les llegeix una veu d’aquell dialecte: les llevantines del Bàsic, l’Amany (Síria); les egípcies, la Salma (Egipte); les iraquianes, en Bassel (Iraq), que diu la g i la ch iraquianes; i les del Golf, en Hamed (Aràbia Saudita). Les altres paraules segueixen el dialecte triat a Biblioteca → Bàsic, o la veu de sota per a l’àrab estàndard. Les paraules marroquines es queden amb la veu de sota: encara cap veu d’Azure no diu bé l’àrab marroquí.
+2f50b579	Bàsic, pòdcasts, YouTube, reels, llibres i pàgines web.
+ebff1d66	Lliçons del Bàsic
+9642b2fa	Una unitat de paraules o una lliçó de gramàtica del Bàsic, amb els seus exercicis.
+24b660a5	El tipus anterior (Bàsic, Pòdcasts, YouTube…)
+0cf9eb7f	Nou en l’idioma? Comença pel Bàsic
+03bbbf30	Les primeres paraules i una mica de gramàtica, per preparar-te per al contingut real
+182d4211	Primeres 1000 paraules
+41e62198	Encara no hi ha res al Bàsic per a aquest idioma.
+b2e5a26a	Primeres {0} paraules
+e27e6d2d	Canvia entre Bàsic, pòdcasts, vídeos de YouTube, pàgines web, llibres, audiollibres, reels i els teus propis vídeos.
+59bb7f18	Bàsic, per començar
+e3f39610	Nou en l’idioma? Primeres 1000 paraules ensenya les paraules més corrents, de 50 en 50, i Gramàtica té lliçons curtes per fer frases teves: prou per començar amb pòdcasts, vídeos i llibres de debò.
+16581b09	<0>Troba alguna cosa per aprendre.</0> A la Biblioteca, comença pel Bàsic si ets nou en l’idioma, o prem <1>+</1> per afegir un vídeo de YouTube, un pòdcast (tria'n un de popular o enganxa'n l'adreça), una pàgina web, un llibre o el teu propi àudio i vídeo.
+a715a2a4	Només ho necessiten els pòdcasts i els teus enregistraments. Els vídeos amb subtítols, el Bàsic i els llibres funcionen sense.
+2512db08	No hi ha cap paraula nova esperant: afegeix-ne amb Afegeix paraules, o des de Biblioteca → Bàsic → Primeres 1000 paraules.
+0acfa2c8	Àrab iraquià: tria iraquià al Bàsic per a la seva gramàtica i les seves paraules, amb la g i la ch de Bagdad
+59c84217	Dialectes àrabs: tria llevantí, egipci, del Golf o marroquí al Bàsic per a la seva gramàtica i les seves paraules
+aa3e32e7	El Bàsic s’obre primer a Gramàtica
+6c492f38	Bàsic a la Biblioteca: les 1000 paraules més corrents del teu idioma, amb frases i àudio natural
+a1a1e907	<0>Troba alguna cosa per aprendre.</0> A la Biblioteca, comença pel Bàsic si ets nou en l’idioma, o prem <1>+</1> per a vídeos de YouTube, pòdcasts, pàgines web i llibres.

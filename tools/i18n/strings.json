@@ -4370,18 +4370,13 @@
   "f": "web/js/components/conversepanel.js"
  },
  {
-  "id": "b5ffacdb",
-  "k": "Loading the course…",
+  "id": "15bf6e8a",
+  "k": "Basics for {0} is on its way. Until then, add words with “Add words” on the Vocab page.",
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "6dd47c9e",
-  "k": "A basics course for {0} is on its way. Until then, add words with “Add words” on the Vocab page.",
-  "f": "web/js/components/coursepanel.js"
- },
- {
-  "id": "3284ffc7",
-  "k": "The course couldn't be loaded. Check your connection and try again.",
+  "id": "61c2864d",
+  "k": "This couldn't be loaded. Check your connection and try again.",
   "f": "web/js/components/coursepanel.js"
  },
  {
@@ -4435,8 +4430,8 @@
   "f": "web/js/components/coursepanel.js"
  },
  {
-  "id": "8a3ab34e",
-  "k": "This course has no audio: no computer voice says it well enough yet. Meanings and translations are in English for now.",
+  "id": "2ce76731",
+  "k": "These words have no audio: no computer voice says them well enough yet. Meanings and translations are in English for now.",
   "f": "web/js/components/coursepanel.js"
  },
  {
@@ -4800,8 +4795,8 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "a8d0289a",
-  "k": "Your DLI content shows in Library → Courses while you study {0}. You switch languages at the top of the screen.",
+  "id": "6ba220e2",
+  "k": "Your DLI content shows in Library → Basics while you study {0}. You switch languages at the top of the screen.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -4900,13 +4895,13 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "554f5c45",
-  "k": "Your DLI content is in Library → Courses → DLI.",
+  "id": "d2b4fa63",
+  "k": "Your DLI content is in Library → Basics → DLI.",
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "1095a575",
-  "k": "Your DLI content is in Library → Courses → DLI, while you're studying {0}.",
+  "id": "74ab6a8b",
+  "k": "Your DLI content is in Library → Basics → DLI, while you're studying {0}.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -6000,8 +5995,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "77955144",
-  "k": "Learning Arabic with a dialect course chosen in Library → Courses, the sentences come from that dialect where there are any.",
+  "id": "4eb616bd",
+  "k": "Learning Arabic with a dialect chosen in Library → Basics, the sentences come from that dialect where there are any.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -6445,8 +6440,8 @@
   "f": "web/js/components/giftpanel.js"
  },
  {
-  "id": "a3cec11b",
-  "k": "The grammar course couldn't be loaded. Check your connection and try again.",
+  "id": "f23039b8",
+  "k": "The grammar lessons couldn't be loaded. Check your connection and try again.",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -6510,13 +6505,13 @@
   "f": "web/js/components/grammarpanel.js"
  },
  {
-  "id": "ec2877bb",
-  "k": "It costs less than 1 US cent for the whole course.",
+  "id": "98dabde3",
+  "k": "It costs less than 1 US cent for all the lessons.",
   "f": "web/js/components/grammarpanel.js"
  },
  {
-  "id": "6281eb38",
-  "k": "It costs about {0} US cents for the whole course.",
+  "id": "af8ab26b",
+  "k": "It costs about {0} US cents for all the lessons.",
   "f": "web/js/components/grammarpanel.js"
  },
  {
@@ -10695,8 +10690,8 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "d5518b72",
-  "k": "Arabic dialect words are read by a voice from that dialect: words from the Levantine course by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Courses, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet.",
+  "id": "8fda55f1",
+  "k": "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -24415,18 +24410,18 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "a4c1b51e",
-  "k": "Courses, podcasts, YouTube, reels, books and web pages.",
+  "id": "2f50b579",
+  "k": "Basics, podcasts, YouTube, reels, books and web pages.",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "481250ea",
-  "k": "Course lessons",
+  "id": "ebff1d66",
+  "k": "Basics lessons",
   "f": "web/js/padmap.js"
  },
  {
-  "id": "31f558ee",
-  "k": "A basics unit or a grammar lesson, with its exercises.",
+  "id": "9642b2fa",
+  "k": "A unit of words or a grammar lesson in Basics, with its exercises.",
   "f": "web/js/padmap.js"
  },
  {
@@ -24845,8 +24840,8 @@
   "f": "web/js/padmap.js"
  },
  {
-  "id": "23cd1bd1",
-  "k": "The kind before (Courses, Podcasts, YouTube…)",
+  "id": "24b660a5",
+  "k": "The kind before (Basics, Podcasts, YouTube…)",
   "f": "web/js/padmap.js"
  },
  {
@@ -26475,13 +26470,13 @@
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "57ab68c9",
-  "k": "Start with a lesson",
+  "id": "0cf9eb7f",
+  "k": "New to the language? Start with Basics",
   "f": "web/js/pages/home.js"
  },
  {
-  "id": "a15f8298",
-  "k": "Short lessons that teach the basics",
+  "id": "03bbbf30",
+  "k": "The first words and a little grammar, to get you ready for real content",
   "f": "web/js/pages/home.js"
  },
  {
@@ -26635,8 +26630,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "a16536d7",
-  "k": "Courses",
+  "id": "5fcebeef",
+  "k": "Basics",
   "f": "web/js/pages/library.js"
  },
  {
@@ -26832,6 +26827,11 @@
  {
   "id": "8e053003",
   "k": "Which Arabic to learn",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "182d4211",
+  "k": "First 1000 words",
   "f": "web/js/pages/library.js"
  },
  {
@@ -27215,8 +27215,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "92d695b2",
-  "k": "There are no courses for this language yet.",
+  "id": "41e62198",
+  "k": "There is nothing in Basics for this language yet.",
+  "f": "web/js/pages/library.js"
+ },
+ {
+  "id": "b2e5a26a",
+  "k": "First {0} words",
   "f": "web/js/pages/library.js"
  },
  {
@@ -27330,18 +27335,18 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "f3cc502f",
-  "k": "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos.",
+  "id": "e27e6d2d",
+  "k": "Switch between Basics, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos.",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "f07664bf",
-  "k": "Your courses",
+  "id": "59bb7f18",
+  "k": "Basics, for a start",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "0c848101",
-  "k": "Words teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own.",
+  "id": "e3f39610",
+  "k": "New to the language? First 1000 words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -29980,8 +29985,8 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "42977af6",
-  "k": "<0>Find something to learn from.</0> In the Library, start a course, or press <1>+</1> to add a YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.",
+  "id": "16581b09",
+  "k": "<0>Find something to learn from.</0> In the Library, start with Basics if you're new to the language, or press <1>+</1> to add a YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.",
   "f": "web/js/pages/welcome.js"
  },
  {
@@ -30060,8 +30065,8 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "134e6bf6",
-  "k": "Only podcasts and your own recordings need this. Videos with captions, courses and books work without it.",
+  "id": "a715a2a4",
+  "k": "Only podcasts and your own recordings need this. Videos with captions, Basics and books work without it.",
   "f": "web/js/pages/welcome.js"
  },
  {
@@ -31205,8 +31210,8 @@
   "f": "web/js/review/goalbar.js"
  },
  {
-  "id": "017ad219",
-  "k": "No new words are waiting to be learned: add some with Add words, or from Library → Courses → Words.",
+  "id": "2512db08",
+  "k": "No new words are waiting to be learned: add some with Add words, or from Library → Basics → First 1000 words.",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -33950,8 +33955,8 @@
   "f": "web/js/whatsnew.js"
  },
  {
-  "id": "a067042e",
-  "k": "Iraqi Arabic course: pick Iraqi in Courses for its own Grammar and Basics, with the Baghdad g and ch",
+  "id": "0acfa2c8",
+  "k": "Iraqi Arabic: pick Iraqi in Basics for its own grammar and words, with the Baghdad g and ch",
   "f": "web/js/whatsnew.js"
  },
  {
@@ -34015,8 +34020,8 @@
   "f": "web/js/whatsnew.js"
  },
  {
-  "id": "299fd793",
-  "k": "Arabic dialect courses: pick Levantine, Egyptian, Gulf or Moroccan in Courses for their own Grammar and Basics",
+  "id": "59c84217",
+  "k": "Arabic dialects: pick Levantine, Egyptian, Gulf or Moroccan in Basics for their own grammar and words",
   "f": "web/js/whatsnew.js"
  },
  {
@@ -34145,13 +34150,13 @@
   "f": "web/js/whatsnew.js"
  },
  {
-  "id": "43782e22",
-  "k": "Courses open on Grammar first",
+  "id": "aa3e32e7",
+  "k": "Basics opens on Grammar first",
   "f": "web/js/whatsnew.js"
  },
  {
-  "id": "47815188",
-  "k": "Courses in the Library: the 1000 most common words of your language, with sentences and natural audio",
+  "id": "6c492f38",
+  "k": "Basics in the Library: the 1000 most common words of your language, with sentences and natural audio",
   "f": "web/js/whatsnew.js"
  },
  {
@@ -35545,8 +35550,8 @@
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "5bea5568",
-  "k": "<0>Find something to learn from.</0> In the Library, start a course, or press <1>+</1> for YouTube videos, podcasts, web pages and books.",
+  "id": "a1a1e907",
+  "k": "<0>Find something to learn from.</0> In the Library, start with Basics if you're new to the language, or press <1>+</1> for YouTube videos, podcasts, web pages and books.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {

@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	La Base per {0} è in arrivo. Nel frattempo, aggiungi parole con «Aggiungi parole» nella pagina Vocabolario.
+61c2864d	Non è stato possibile caricarlo. Controlla la connessione e riprova.
+2ce76731	Queste parole non hanno audio: nessuna voce sintetica le pronuncia ancora abbastanza bene. Significati e traduzioni per ora sono in inglese.
+6ba220e2	I tuoi contenuti DLI compaiono in Libreria → Base mentre studi {0:lower}. Cambi lingua in alto sullo schermo.
+d2b4fa63	I tuoi contenuti DLI sono in Libreria → Base → DLI.
+74ab6a8b	I tuoi contenuti DLI sono in Libreria → Base → DLI, mentre studi {0:lower}.
+4eb616bd	Se impari l’arabo con un dialetto scelto in Libreria → Base, le frasi vengono da quel dialetto quando ce ne sono.
+f23039b8	Non è stato possibile caricare le lezioni di grammatica. Controlla la connessione e riprova.
+98dabde3	Tutte le lezioni costano meno di 1 centesimo di dollaro.
+af8ab26b	Tutte le lezioni costano circa {0} centesimi di dollaro.
+8fda55f1	Le parole dei dialetti arabi sono lette da una voce di quel dialetto: quelle levantine della Base da Amany (Siria), le egiziane da Salma (Egitto), le irachene da Bassel (Iraq), che pronuncia la g e la ch irachene, e quelle del Golfo da Hamed (Arabia Saudita). Le altre parole seguono il dialetto scelto in Libreria → Base, o la voce qui sotto per l’arabo standard. Le parole marocchine restano con la voce qui sotto: nessuna voce Azure pronuncia ancora bene l’arabo marocchino.
+2f50b579	Base, podcast, YouTube, reel, libri e pagine web.
+ebff1d66	Lezioni della Base
+9642b2fa	Un’unità di parole o una lezione di grammatica della Base, con i suoi esercizi.
+24b660a5	Il tipo precedente (Base, Podcast, YouTube…)
+0cf9eb7f	Nuovo alla lingua? Comincia dalla Base
+03bbbf30	Le prime parole e un po’ di grammatica, per prepararti ai contenuti veri
+182d4211	Prime 1000 parole
+41e62198	Nella Base non c’è ancora niente per questa lingua.
+b2e5a26a	Prime {0} parole
+e27e6d2d	Passa tra Base, podcast, video di YouTube, pagine web, libri, audiolibri, reel e i tuoi video.
+59bb7f18	Base, per cominciare
+e3f39610	Nuovo alla lingua? Prime 1000 parole insegna le parole più comuni, 50 alla volta, e Grammatica ha brevi lezioni per costruire frasi tue: abbastanza per iniziare con podcast, video e libri veri.
+16581b09	<0>Trova qualcosa da cui imparare.</0> Nella Libreria, comincia dalla Base se la lingua è nuova per te, o premi <1>+</1> per aggiungere un video di YouTube, un podcast (scegline uno popolare o incolla il suo indirizzo), una pagina web, un libro o i tuoi audio e video.
+a715a2a4	Serve solo ai podcast e alle tue registrazioni. I video con sottotitoli, la Base e i libri funzionano senza.
+2512db08	Non ci sono parole nuove in attesa: aggiungine con Aggiungi parole, o da Libreria → Base → Prime 1000 parole.
+0acfa2c8	Arabo iracheno: scegli iracheno nella Base per la sua grammatica e le sue parole, con la g e la ch di Baghdad
+59c84217	Dialetti arabi: scegli levantino, egiziano, del Golfo o marocchino nella Base per la loro grammatica e le loro parole
+aa3e32e7	La Base si apre prima su Grammatica
+6c492f38	La Base nella Libreria: le 1000 parole più comuni della tua lingua, con frasi e audio naturale
+a1a1e907	<0>Trova qualcosa da cui imparare.</0> Nella Libreria, comincia dalla Base se la lingua è nuova per te, o premi <1>+</1> per video di YouTube, podcast, pagine web e libri.

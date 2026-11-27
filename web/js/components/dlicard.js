@@ -26,7 +26,7 @@ const settings = () => (state.status && state.status.settings) || {};
 async function offerLanguage(code) {
   const name = t(dliLanguageName(code));
   if (!(await confirmBox(t("Add {0} to the languages you're learning?", name),
-    t("Your DLI content shows in Library → Courses while you study {0}. You switch languages at the top of the screen.", name),
+    t("Your DLI content shows in Library → Basics while you study {0}. You switch languages at the top of the screen.", name),
     { ok: t("Add {0}", name) }))) return false;
   await setLearning(code, true);
   return true;
@@ -103,8 +103,8 @@ export function dliCard(body) {
     if (st.unlocked) {
       $(".dli-where").textContent = !st.language ? t("Choose your DLI language above to see its content.")
         : step ? t("One more step below, then your DLI content opens.")
-        : studyLanguage() === st.language ? t("Your DLI content is in Library → Courses → DLI.")
-        : t("Your DLI content is in Library → Courses → DLI, while you're studying {0}.", name);
+        : studyLanguage() === st.language ? t("Your DLI content is in Library → Basics → DLI.")
+        : t("Your DLI content is in Library → Basics → DLI, while you're studying {0}.", name);
       $(".dli-go").hidden = !st.language || missing || step;
     }
     const sharing = $(".dli-sharing");

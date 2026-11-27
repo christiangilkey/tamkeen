@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	Ang Batakan sa {0} padulong na. Samtang wala pa, pagdugang og mga pulong gamit ang “Pagdugang og mga pulong” sa Vocab nga panid.
+61c2864d	Dili ma-load. Susiha ang imong koneksyon ug sulayi pag-usab.
+2ce76731	Walay audio kini nga mga pulong: wala pay tingog sa kompyuter nga makaingon niini og maayo. Sa pagkakaron, Iningles ang mga kahulogan ug hubad.
+6ba220e2	Makita ang imong DLI nga sulod sa Library → Batakan samtang nagtuon ka og {0}. Ilisan ang pinulongan sa ibabaw sa screen.
+d2b4fa63	Ang imong DLI nga sulod naa sa Library → Batakan → DLI.
+74ab6a8b	Ang imong DLI nga sulod naa sa Library → Batakan → DLI, samtang nagtuon ka og {0}.
+4eb616bd	Kung nagtuon ka og Arabic nga may diyalekto nga gipili sa Library → Batakan, gikan sa maong diyalekto ang mga sentence kon aduna.
+f23039b8	Dili ma-load ang mga leksyon sa grammar. Susiha ang imong koneksyon ug sulayi pag-usab.
+98dabde3	Ubos pa sa 1 ka US cent ang tanang leksyon.
+af8ab26b	Mga {0} ka US cent ang tanang leksyon.
+8fda55f1	Ang mga pulong sa diyalekto sa Arabic gibasa sa tingog gikan sa maong diyalekto: ang Levantine nga mga pulong gikan sa Batakan ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), nga moingon sa Iraqi nga g ug ch, ug ang Gulf ni Hamed (Saudi Arabia). Ang ubang mga pulong mosunod sa diyalekto nga gipili sa Library → Batakan, o sa tingog sa ubos para sa Standard Arabic. Ang Moroccan nga mga pulong magpabilin sa tingog sa ubos: wala pay Azure nga tingog nga maayong moingon og Moroccan Arabic.
+2f50b579	Batakan, mga podcast, YouTube, reels, libro ug web page.
+ebff1d66	Mga leksyon sa Batakan
+9642b2fa	Usa ka yunit sa mga pulong o leksyon sa grammar sa Batakan, uban ang mga ehersisyo niini.
+24b660a5	Ang klase sa wala pa (Batakan, Podcast, YouTube…)
+0cf9eb7f	Bag-o pa sa pinulongan? Sugdi sa Batakan
+03bbbf30	Ang unang mga pulong ug gamay nga grammar, aron andam ka sa tinuod nga sulod
+182d4211	Unang 1000 ka pulong
+41e62198	Wala pay sulod ang Batakan para niini nga pinulongan.
+b2e5a26a	Unang {0} ka pulong
+e27e6d2d	Ilisan tali sa Batakan, mga podcast, YouTube video, web page, libro, audiobook, reels ug imong kaugalingong mga video.
+59bb7f18	Batakan, para sa sinugdanan
+e3f39610	Bag-o pa sa pinulongan? Ang Unang 1000 ka pulong nagtudlo sa labing komon nga mga pulong, 50 matag higayon, ug ang Grammar adunay mubo nga mga leksyon aron makahimo ka og kaugalingong sentence: igo na aron magsugod sa tinuod nga mga podcast, video ug libro.
+16581b09	<0>Pangitag butang nga tun-an.</0> Sa Library, sugdi sa Batakan kon bag-o ka pa sa pinulongan, o pindota ang <1>+</1> aron magdugang og YouTube video, podcast (pili og popular o i-paste ang address niini), web page, libro, o imong kaugalingong audio ug video.
+a715a2a4	Ang mga podcast ug imong kaugalingong recording ra ang nanginahanglan niini. Ang mga video nga may caption, ang Batakan ug mga libro molihok bisan wala niini.
+2512db08	Walay bag-ong mga pulong nga naghulat nga tun-an: pagdugang gamit ang Pagdugang og mga pulong, o gikan sa Library → Batakan → Unang 1000 ka pulong.
+0acfa2c8	Iraqi nga Arabic: pilia ang Iraqi sa Batakan para sa kaugalingon niining grammar ug mga pulong, uban ang g ug ch sa Baghdad
+59c84217	Mga diyalekto sa Arabic: pilia ang Levantine, Egyptian, Gulf o Moroccan sa Batakan para sa ilang kaugalingong grammar ug mga pulong
+aa3e32e7	Ang Batakan moabli una sa Grammar
+6c492f38	Batakan sa Library: ang 1000 ka labing komon nga mga pulong sa imong pinulongan, uban ang mga sentence ug natural nga audio
+a1a1e907	<0>Pangitag butang nga tun-an.</0> Sa Library, sugdi sa Batakan kon bag-o ka pa sa pinulongan, o pindota ang <1>+</1> para sa mga YouTube video, podcast, web page ug libro.

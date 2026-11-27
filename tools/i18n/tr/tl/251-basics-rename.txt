@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	Paparating na ang Batayan para sa {0}. Habang wala pa, magdagdag ng mga salita gamit ang “Magdagdag ng mga salita” sa Vocab na pahina.
+61c2864d	Hindi ito ma-load. Tingnan ang iyong koneksyon at subukan ulit.
+2ce76731	Walang audio ang mga salitang ito: wala pang boses ng computer na nakapagbibigkas nito nang maayos. Sa ngayon, Ingles ang mga kahulugan at salin.
+6ba220e2	Lumalabas ang iyong DLI na nilalaman sa Library → Batayan habang nag-aaral ka ng {0}. Nagpapalit ka ng wika sa itaas ng screen.
+d2b4fa63	Nasa Library → Batayan → DLI ang iyong DLI na nilalaman.
+74ab6a8b	Nasa Library → Batayan → DLI ang iyong DLI na nilalaman, habang nag-aaral ka ng {0}.
+4eb616bd	Kung nag-aaral ka ng Arabic na may diyalektong pinili sa Library → Batayan, galing sa diyalektong iyon ang mga pangungusap kung mayroon.
+f23039b8	Hindi ma-load ang mga aralin sa grammar. Tingnan ang iyong koneksyon at subukan ulit.
+98dabde3	Mas mababa sa 1 US cent ang lahat ng aralin.
+af8ab26b	Mga {0} US cent ang lahat ng aralin.
+8fda55f1	Ang mga salita sa mga diyalekto ng Arabic ay binabasa ng boses mula sa diyalektong iyon: ang Levantine na salita mula sa Batayan ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), na bumibigkas ng Iraqi na g at ch, at ang Gulf ni Hamed (Saudi Arabia). Ang ibang salita ay sumusunod sa diyalektong pinili sa Library → Batayan, o sa boses sa ibaba para sa Standard Arabic. Nananatili sa boses sa ibaba ang Moroccan na salita: wala pang Azure na boses na mahusay bumigkas ng Moroccan Arabic.
+2f50b579	Batayan, mga podcast, YouTube, reels, libro at web page.
+ebff1d66	Mga aralin sa Batayan
+9642b2fa	Isang yunit ng mga salita o aralin sa grammar sa Batayan, kasama ang mga pagsasanay nito.
+24b660a5	Ang naunang uri (Batayan, Podcast, YouTube…)
+0cf9eb7f	Bago sa wika? Magsimula sa Batayan
+03bbbf30	Ang mga unang salita at kaunting grammar, para handa ka sa totoong nilalaman
+182d4211	Unang 1000 salita
+41e62198	Wala pang laman ang Batayan para sa wikang ito.
+b2e5a26a	Unang {0} salita
+e27e6d2d	Lumipat sa pagitan ng Batayan, mga podcast, video sa YouTube, web page, libro, audiobook, reels at sarili mong mga video.
+59bb7f18	Batayan, para sa simula
+e3f39610	Bago sa wika? Itinuturo ng Unang 1000 salita ang pinakakaraniwang mga salita, 50 bawat pagkakataon, at may maiikling aralin ang Grammar para makabuo ka ng sarili mong pangungusap: sapat na para magsimula sa totoong mga podcast, video at libro.
+16581b09	<0>Humanap ng pag-aaralan.</0> Sa Library, magsimula sa Batayan kung bago ka sa wika, o pindutin ang <1>+</1> para magdagdag ng video sa YouTube, podcast (pumili ng sikat o i-paste ang address nito), web page, libro, o sarili mong audio at video.
+a715a2a4	Ang mga podcast at sarili mong recording lang ang nangangailangan nito. Gumagana ang mga video na may caption, ang Batayan at mga libro kahit wala nito.
+2512db08	Walang bagong salitang naghihintay na matutunan: magdagdag gamit ang Magdagdag ng mga salita, o mula sa Library → Batayan → Unang 1000 salita.
+0acfa2c8	Iraqi na Arabic: piliin ang Iraqi sa Batayan para sa sarili nitong grammar at mga salita, kasama ang g at ch ng Baghdad
+59c84217	Mga diyalekto ng Arabic: piliin ang Levantine, Egyptian, Gulf o Moroccan sa Batayan para sa sarili nilang grammar at mga salita
+aa3e32e7	Bubukas muna ang Batayan sa Grammar
+6c492f38	Batayan sa Library: ang 1000 pinakakaraniwang salita ng iyong wika, may mga pangungusap at natural na audio
+a1a1e907	<0>Humanap ng pag-aaralan.</0> Sa Library, magsimula sa Batayan kung bago ka sa wika, o pindutin ang <1>+</1> para sa mga video sa YouTube, podcast, web page at libro.

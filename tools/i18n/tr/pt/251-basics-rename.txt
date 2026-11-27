@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	O Básico de {0} está a caminho. Enquanto isso, adicione palavras com “Adicionar palavras” na página Vocabulário.
+61c2864d	Não foi possível carregar. Verifique sua conexão e tente de novo.
+2ce76731	Estas palavras não têm áudio: nenhuma voz de computador as diz bem o bastante ainda. Por enquanto, os significados e as traduções estão em inglês.
+6ba220e2	Seu conteúdo do DLI aparece em Biblioteca → Básico enquanto você estuda {0:lower}. Você troca de idioma no topo da tela.
+d2b4fa63	Seu conteúdo do DLI está em Biblioteca → Básico → DLI.
+74ab6a8b	Seu conteúdo do DLI está em Biblioteca → Básico → DLI, enquanto você estuda {0:lower}.
+4eb616bd	Se você aprende árabe com um dialeto escolhido em Biblioteca → Básico, as frases vêm desse dialeto quando houver.
+f23039b8	Não foi possível carregar as lições de gramática. Verifique sua conexão e tente de novo.
+98dabde3	Todas as lições custam menos de 1 centavo de dólar.
+af8ab26b	Todas as lições custam cerca de {0} centavos de dólar.
+8fda55f1	Palavras de dialetos árabes são lidas por uma voz daquele dialeto: as levantinas do Básico pela Amany (Síria), as egípcias pela Salma (Egito), as iraquianas pelo Bassel (Iraque), que diz o g e o ch iraquianos, e as do Golfo pelo Hamed (Arábia Saudita). As outras palavras seguem o dialeto escolhido em Biblioteca → Básico, ou a voz abaixo para o árabe padrão. As palavras marroquinas ficam com a voz abaixo: nenhuma voz do Azure fala bem o árabe marroquino ainda.
+2f50b579	Básico, podcasts, YouTube, reels, livros e páginas da web.
+ebff1d66	Lições do Básico
+9642b2fa	Uma unidade de palavras ou uma lição de gramática do Básico, com seus exercícios.
+24b660a5	O tipo anterior (Básico, Podcasts, YouTube…)
+0cf9eb7f	Novo no idioma? Comece pelo Básico
+03bbbf30	As primeiras palavras e um pouco de gramática, para você se preparar para conteúdo de verdade
+182d4211	Primeiras 1000 palavras
+41e62198	Ainda não há nada no Básico para este idioma.
+b2e5a26a	Primeiras {0} palavras
+e27e6d2d	Alterne entre Básico, podcasts, vídeos do YouTube, páginas da web, livros, audiolivros, reels e seus próprios vídeos.
+59bb7f18	Básico, para começar
+e3f39610	Novo no idioma? Primeiras 1000 palavras ensina as palavras mais comuns, 50 por vez, e Gramática tem lições curtas para você montar suas próprias frases: o bastante para começar com podcasts, vídeos e livros de verdade.
+16581b09	<0>Encontre algo para aprender.</0> Na Biblioteca, comece pelo Básico se o idioma for novo para você, ou aperte <1>+</1> para adicionar um vídeo do YouTube, um podcast (escolha um popular ou cole o endereço dele), uma página da web, um livro ou seus próprios áudios e vídeos.
+a715a2a4	Só os podcasts e suas próprias gravações precisam disso. Vídeos com legendas, o Básico e os livros funcionam sem.
+2512db08	Não há palavras novas esperando: adicione algumas com Adicionar palavras, ou em Biblioteca → Básico → Primeiras 1000 palavras.
+0acfa2c8	Árabe iraquiano: escolha iraquiano no Básico para a gramática e as palavras dele, com o g e o ch de Bagdá
+59c84217	Dialetos árabes: escolha levantino, egípcio, do Golfo ou marroquino no Básico para a gramática e as palavras deles
+aa3e32e7	O Básico abre primeiro em Gramática
+6c492f38	Básico na Biblioteca: as 1000 palavras mais comuns do seu idioma, com frases e áudio natural
+a1a1e907	<0>Encontre algo para aprender.</0> Na Biblioteca, comece pelo Básico se o idioma for novo para você, ou aperte <1>+</1> para vídeos do YouTube, podcasts, páginas da web e livros.

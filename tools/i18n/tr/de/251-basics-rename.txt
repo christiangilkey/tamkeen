@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	Die Grundlagen für {0} sind unterwegs. Bis dahin kannst du auf der Vokabelseite mit „Wörter hinzufügen“ Wörter hinzufügen.
+61c2864d	Das konnte nicht geladen werden. Prüfe deine Verbindung und versuche es noch einmal.
+2ce76731	Diese Wörter haben keine Tonaufnahme: Noch spricht keine Computerstimme sie gut genug. Bedeutungen und Übersetzungen sind vorerst auf Englisch.
+6ba220e2	Deine DLI-Inhalte erscheinen unter Bibliothek → Grundlagen, solange du {0} lernst. Die Sprache wechselst du oben auf dem Bildschirm.
+d2b4fa63	Deine DLI-Inhalte findest du unter Bibliothek → Grundlagen → DLI.
+74ab6a8b	Deine DLI-Inhalte findest du unter Bibliothek → Grundlagen → DLI, solange du {0} lernst.
+4eb616bd	Lernst du Arabisch mit einem Dialekt, der unter Bibliothek → Grundlagen gewählt ist, kommen die Sätze aus diesem Dialekt, wo es welche gibt.
+f23039b8	Die Grammatiklektionen konnten nicht geladen werden. Prüfe deine Verbindung und versuche es noch einmal.
+98dabde3	Alle Lektionen zusammen kosten weniger als 1 US-Cent.
+af8ab26b	Alle Lektionen zusammen kosten etwa {0} US-Cent.
+8fda55f1	Wörter aus arabischen Dialekten liest eine Stimme aus diesem Dialekt: levantinische Wörter aus den Grundlagen Amany (Syrien), ägyptische Salma (Ägypten), irakische Bassel (Irak), der das irakische g und tsch spricht, und Golf-Wörter Hamed (Saudi-Arabien). Andere Wörter folgen dem Dialekt, der unter Bibliothek → Grundlagen gewählt ist, oder der Stimme unten für Hocharabisch. Marokkanische Wörter behalten die Stimme unten: Noch spricht keine Azure-Stimme marokkanisches Arabisch gut.
+2f50b579	Grundlagen, Podcasts, YouTube, Reels, Bücher und Webseiten.
+ebff1d66	Lektionen der Grundlagen
+9642b2fa	Eine Worteinheit oder eine Grammatiklektion der Grundlagen, mit ihren Übungen.
+24b660a5	Die Art davor (Grundlagen, Podcasts, YouTube …)
+0cf9eb7f	Neu in der Sprache? Fang mit den Grundlagen an
+03bbbf30	Die ersten Wörter und ein wenig Grammatik, damit du bereit für echte Inhalte bist
+182d4211	Erste 1000 Wörter
+41e62198	In den Grundlagen gibt es für diese Sprache noch nichts.
+b2e5a26a	Erste {0} Wörter
+e27e6d2d	Wechsle zwischen Grundlagen, Podcasts, YouTube-Videos, Webseiten, Büchern, Hörbüchern, Reels und deinen eigenen Videos.
+59bb7f18	Grundlagen, für den Anfang
+e3f39610	Neu in der Sprache? Erste 1000 Wörter bringt dir die häufigsten Wörter bei, 50 auf einmal, und Grammatik hat kurze Lektionen, mit denen du eigene Sätze bildest: genug, um mit echten Podcasts, Videos und Büchern anzufangen.
+16581b09	<0>Finde etwas zum Lernen.</0> Fang in der Bibliothek mit den Grundlagen an, wenn die Sprache neu für dich ist, oder tippe auf <1>+</1>, um ein YouTube-Video, einen Podcast (wähle einen beliebten oder füge seine Adresse ein), eine Webseite, ein Buch oder deine eigenen Audios und Videos hinzuzufügen.
+a715a2a4	Das brauchen nur Podcasts und deine eigenen Aufnahmen. Videos mit Untertiteln, die Grundlagen und Bücher funktionieren ohne.
+2512db08	Es warten keine neuen Wörter: Füge welche mit Wörter hinzufügen hinzu oder aus Bibliothek → Grundlagen → Erste 1000 Wörter.
+0acfa2c8	Irakisches Arabisch: Wähle Irakisch in den Grundlagen für eigene Grammatik und Wörter, mit dem g und tsch aus Bagdad
+59c84217	Arabische Dialekte: Wähle Levantinisch, Ägyptisch, Golf-Arabisch oder Marokkanisch in den Grundlagen für eigene Grammatik und Wörter
+aa3e32e7	Die Grundlagen öffnen zuerst Grammatik
+6c492f38	Grundlagen in der Bibliothek: die 1000 häufigsten Wörter deiner Sprache, mit Sätzen und natürlicher Tonaufnahme
+a1a1e907	<0>Finde etwas zum Lernen.</0> Fang in der Bibliothek mit den Grundlagen an, wenn die Sprache neu für dich ist, oder tippe auf <1>+</1> für YouTube-Videos, Podcasts, Webseiten und Bücher.

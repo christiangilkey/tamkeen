@@ -113,14 +113,15 @@ const BOOKS_FEED = "local:books";
 // (or channels, or books). An audiobook is a podcast whose address is a LibriVox chapter feed, or a list
 // of the learner's own audiobook files (audiobooks.js), so "Podcasts" leaves those out and "Audiobooks" has
 // only them.
-// "Courses" comes first, and the Library opens on it until another kind is chosen (lastKind): the courses of the language being learned
-// (the 1000-word basics course, components/coursepanel.js, and the grammar course, grammarpanel.js).
+// "Basics" (key "courses", kept so links and saved choices still work) comes first, and the Library opens on it until another kind
+// is chosen (lastKind): a total beginner's first step before native content, never "the app's course" (the owner, 2026-11-27):
+// the language's first 1000 words (components/coursepanel.js) and short grammar lessons (grammarpanel.js).
 // "Conversation" is next: speaking practice with the learner's AI (components/conversepanel.js). Like
-// Courses it has no episodes: its own panel takes the place of the list.
+// Basics it has no episodes: its own panel takes the place of the list.
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
-// + button. Courses and Conversation are never empty.
+// + button. Basics and Conversation are never empty.
 const KINDS = [
-  { key: "courses", label: "Courses", icon: "learn", href: "#/library?show=courses" },
+  { key: "courses", label: "Basics", icon: "learn", href: "#/library?show=courses" },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
@@ -294,7 +295,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           </label>
           <div class="vocab-tabs" role="tablist" id="course-tabs" hidden>
             <button type="button" role="tab" data-tab="grammar" hidden>${icon("book", 18)} <span>Grammar</span></button>
-            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span>Words</span></button>
+            <button type="button" role="tab" data-tab="basics" hidden>${icon("learn", 18)} <span class="words-label">First 1000 words</span></button>
             <button type="button" role="tab" data-tab="dli" hidden>${icon("lock", 18)} <span>DLI</span></button>
           </div>
           <div class="course" id="course" hidden></div>
@@ -1361,10 +1362,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     note.hidden = !!(basics || choice || dli);
     if (!basics && !choice && !dli) {
       $("#course-tabs").hidden = true;
-      note.textContent = "There are no courses for this language yet.";
+      note.textContent = "There is nothing in Basics for this language yet.";
       return;
     }
     root.querySelector('#course-tabs [data-tab="basics"]').hidden = !basics;
+    // "First 1000 words", or as many as the list has (a dialect's is 300).
+    const planned = basics ? Number(courses.courses[basicsCourse].planned) || 1000 : 1000;
+    root.querySelector('#course-tabs [data-tab="basics"] .words-label').textContent = t("First {0} words", planned);
     root.querySelector('#course-tabs [data-tab="grammar"]').hidden = !choice;
     root.querySelector('#course-tabs [data-tab="dli"]').hidden = !dli;
     $("#course-tabs").hidden = false;
@@ -1609,9 +1613,9 @@ export async function render(view, { feedId: routeFeed, query }) {
   }
   firstVisitTour("library", root, [
     { target: "#feed-list", title: "What to show",
-      text: "Switch between your courses, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
-    { target: "#course-tabs", title: "Your courses",
-      text: "Words teaches the 1000 most common words, 50 at a time. Grammar has short lessons that get you making sentences of your own." },
+      text: "Switch between Basics, podcasts, YouTube videos, webpages, books, audiobooks, reels and your own videos." },
+    { target: "#course-tabs", title: "Basics, for a start",
+      text: "New to the language? First 1000 words teaches the most common words, 50 at a time, and Grammar has short lessons for making sentences of your own: enough to start on real podcasts, videos and books." },
     { target: "#podcast-list", title: "Your podcasts and channels", text: "Tap one to see only its episodes or videos." },
     { target: "#tabs", title: "Filter by progress",
       text: "Show everything, or only what's not started, waiting, being transcribed, done or failed. The numbers count each." },

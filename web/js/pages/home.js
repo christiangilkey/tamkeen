@@ -133,8 +133,8 @@ export async function render(view) {
       <div class="caught-up-sub">Pick something to learn from, then tap any word in it to see what it means.</div>
     </div>`));
     more.append(h(`<div class="home-choices">
-      <a class="choice card" href="#/library?show=courses"><span class="choice-ico">${icon("learn", 24)}</span><span><strong>Start with a lesson</strong>
-        <span class="small muted">Short lessons that teach the basics</span></span></a>
+      <a class="choice card" href="#/library?show=courses"><span class="choice-ico">${icon("learn", 24)}</span><span><strong>New to the language? Start with Basics</strong>
+        <span class="small muted">The first words and a little grammar, to get you ready for real content</span></span></a>
       <a class="choice card" href="#/library?show=youtube"><span class="choice-ico">${icon("video", 24)}</span><span><strong>Watch a video</strong>
         <span class="small muted">YouTube videos with captions you can tap</span></span></a>
       <a class="choice card" href="#/discover"><span class="choice-ico">${icon("podcast", 24)}</span><span><strong>Listen to a podcast</strong>

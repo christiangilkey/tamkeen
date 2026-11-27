@@ -164,7 +164,7 @@ test("a basics course without audio shows no Word / Sentence buttons and saves n
   assert.match(panel, /const hasAudio = \(w\) => !!clipOf\(w\);/); // (coursepacks.js: no clip and no own file, no audio)
   assert.match(panel, /\$\{hasAudio\(w\) \? `<button type="button" class="ghost cw-play" data-part="word">/);
   assert.match(panel, /const voiced = made\.filter\(\(\[, w\]\) => hasAudio\(w\)\);/);
-  assert.match(panel, /This course has no audio/);
+  assert.match(panel, /These words have no audio/);
 });
 
 test("the Library's Courses has the picker, and opens the chosen kind's courses in the usual panels", () => {

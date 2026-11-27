@@ -17,7 +17,7 @@ export async function render(view, { step }) {
       <div class="card stack">
         <h2>How it works</h2>
         <ol>
-          <li><strong>Find something to learn from.</strong> In the Library, start a course, or press <strong>+</strong> to add a
+          <li><strong>Find something to learn from.</strong> In the Library, start with Basics if you're new to the language, or press <strong>+</strong> to add a
             YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.</li>
           <li><strong>Tap any word</strong> to hear it and see what it means. The word being spoken is highlighted as you listen,
             and you can slow the sound down or repeat a sentence.</li>
@@ -68,7 +68,7 @@ export async function render(view, { step }) {
     </details>
     <div class="row" style="margin-top:16px">
       <span class="spacer"></span>
-      <span class="small muted" id="hint">Only podcasts and your own recordings need this. Videos with captions, courses and books work without it.</span>
+      <span class="small muted" id="hint">Only podcasts and your own recordings need this. Videos with captions, Basics and books work without it.</span>
       <button class="ghost" type="button" id="later">Skip for now</button>
       <button class="primary" type="button" id="done" disabled>Start using the app →</button>
     </div>

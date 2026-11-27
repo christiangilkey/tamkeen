@@ -1,4 +1,5 @@
-// The courses live in the Library, under "Courses", the first kind and the one the Library opens on
+// Basics (the 1000 words and the grammar lessons) lives in the Library, under "Basics" (key "courses", so old links and
+// saved choices still work: renamed from "Courses" on 2026-11-27), the first kind and the one the Library opens on
 // (pages/library.js); the Vocab page is the learner's own words only. The pages need a browser, so
 // these read their source.
 import { test } from "node:test";
@@ -58,11 +59,17 @@ test("the Vocab page no longer hosts the courses", () => {
   assert.doesNotMatch(vocab, /coursepanel|grammarpanel|id="vtabs"|data-tab="basics"/);
 });
 
-test("Courses is translated into every language the app speaks", () => {
+test("the kind is called Basics, never Courses (the owner: \"I don't want people thinking this is a 'course' app\")", () => {
+  assert.match(library, /{ key: "courses", label: "Basics", icon: "learn"/);
+  assert.doesNotMatch(library, /label: "Courses"|"Your courses"|There are no courses/);
+  assert.ok(library.includes('t("First {0} words", planned)'), "the word list's tab says how many words it has");
+});
+
+test("Basics and its tab names are translated into every language the app speaks", () => {
   const strings = JSON.parse(read("tools/i18n/strings.json"));
-  assert.ok(strings.some((s) => s.k === "Courses"), "extracted");
+  for (const k of ["Basics", "First {0} words", "First 1000 words"]) assert.ok(strings.some((s) => s.k === k), `extracted: ${k}`);
   for (const code of ["ar", "ca", "ceb", "de", "es", "fa", "fr", "hi", "it", "ja", "ko", "pt", "ru", "th", "tl", "zh"]) {
     const dict = JSON.parse(read(`web/i18n/${code}.json`));
-    assert.ok(dict.Courses, code);
+    for (const k of ["Basics", "First {0} words"]) assert.ok(dict[k], `${code}: ${k}`);
   }
 });

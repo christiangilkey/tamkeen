@@ -1,0 +1,32 @@
+# Library → Courses renamed Basics (the owner, 2026-11-27): a beginner's first step, never "the app's course".
+15bf6e8a	Les Bases pour le {0} arrivent bientôt. D’ici là, ajoutez des mots avec « Ajouter des mots » sur la page Vocabulaire.
+61c2864d	Impossible de charger ceci. Vérifiez votre connexion et réessayez.
+2ce76731	Ces mots n’ont pas d’audio : aucune voix de synthèse ne les prononce encore assez bien. Les sens et les traductions sont en anglais pour l’instant.
+6ba220e2	Votre contenu DLI s’affiche dans Bibliothèque → Bases pendant que vous étudiez le {0:lower}. Vous changez de langue en haut de l’écran.
+d2b4fa63	Votre contenu DLI se trouve dans Bibliothèque → Bases → DLI.
+74ab6a8b	Votre contenu DLI se trouve dans Bibliothèque → Bases → DLI, quand vous étudiez le {0:lower}.
+4eb616bd	Si vous apprenez l’arabe avec un dialecte choisi dans Bibliothèque → Bases, les phrases viennent de ce dialecte quand il y en a.
+f23039b8	Impossible de charger les leçons de grammaire. Vérifiez votre connexion et réessayez.
+98dabde3	Toutes les leçons coûtent moins de 1 cent américain.
+af8ab26b	Toutes les leçons coûtent environ {0} cents américains.
+8fda55f1	Les mots des dialectes arabes sont lus par une voix de ce dialecte : les mots levantins des Bases par Amany (Syrie), les égyptiens par Salma (Égypte), les irakiens par Bassel (Irak), qui prononce le g et le tch irakiens, et ceux du Golfe par Hamed (Arabie saoudite). Les autres mots suivent le dialecte choisi dans Bibliothèque → Bases, ou la voix ci-dessous pour l’arabe standard. Les mots marocains gardent la voix ci-dessous : aucune voix Azure ne prononce encore bien l’arabe marocain.
+2f50b579	Bases, podcasts, YouTube, reels, livres et pages web.
+ebff1d66	Leçons des Bases
+9642b2fa	Une unité de mots ou une leçon de grammaire des Bases, avec ses exercices.
+24b660a5	Le type précédent (Bases, Podcasts, YouTube…)
+0cf9eb7f	Débutant dans la langue ? Commencez par les Bases
+03bbbf30	Les premiers mots et un peu de grammaire, pour vous préparer aux vrais contenus
+182d4211	1000 premiers mots
+41e62198	Il n’y a encore rien dans les Bases pour cette langue.
+b2e5a26a	{0} premiers mots
+e27e6d2d	Passez des Bases aux podcasts, vidéos YouTube, pages web, livres, livres audio, reels et à vos propres vidéos.
+59bb7f18	Les Bases, pour commencer
+e3f39610	Débutant dans la langue ? 1000 premiers mots vous apprend les mots les plus courants, 50 à la fois, et Grammaire propose de courtes leçons pour former vos propres phrases : assez pour commencer avec de vrais podcasts, vidéos et livres.
+16581b09	<0>Trouvez de quoi apprendre.</0> Dans la Bibliothèque, commencez par les Bases si la langue est nouvelle pour vous, ou appuyez sur <1>+</1> pour ajouter une vidéo YouTube, un podcast (choisissez-en un populaire ou collez son adresse), une page web, un livre, ou vos propres fichiers audio et vidéo.
+a715a2a4	Seuls les podcasts et vos propres enregistrements en ont besoin. Les vidéos sous-titrées, les Bases et les livres fonctionnent sans.
+2512db08	Aucun nouveau mot n’attend d’être appris : ajoutez-en avec Ajouter des mots, ou depuis Bibliothèque → Bases → 1000 premiers mots.
+0acfa2c8	Arabe irakien : choisissez irakien dans les Bases pour sa propre grammaire et ses mots, avec le g et le tch de Bagdad
+59c84217	Dialectes arabes : choisissez levantin, égyptien, du Golfe ou marocain dans les Bases pour leur propre grammaire et leurs mots
+aa3e32e7	Les Bases s’ouvrent d’abord sur Grammaire
+6c492f38	Les Bases dans la Bibliothèque : les 1000 mots les plus courants de votre langue, avec des phrases et un audio naturel
+a1a1e907	<0>Trouvez de quoi apprendre.</0> Dans la Bibliothèque, commencez par les Bases si la langue est nouvelle pour vous, ou appuyez sur <1>+</1> pour des vidéos YouTube, des podcasts, des pages web et des livres.
