@@ -58,8 +58,8 @@ test("moving a building: never into the field (as big as it can grow), the barn,
   assert.match(placeBuilding(s, 0, field.x, field.y), /can't stand/);
   assert.match(placeBuilding(s, 0, 40, 30), /can't stand/, "the barn");
   assert.match(placeBuilding(s, 0, BUILD_SPOTS[1].x + 5, BUILD_SPOTS[1].y), /can't stand/, "on top of the other");
-  assert.equal(placeBuilding(s, 0, 440, 110), "");
-  assert.deepEqual(s.idle.plots[0].at, { x: 440, y: 110 });
+  assert.equal(placeBuilding(s, 0, 520, 110), "");
+  assert.deepEqual(s.idle.plots[0].at, { x: 520, y: 110 });
   assert.match(placeBuilding(s, 5, 400, 100), /no building/);
 });
 
@@ -132,4 +132,20 @@ test("an old save's building or decoration standing where the new layout puts th
   assert.ok(Math.hypot(b.x - spotXY(1, 1).x, b.y - spotXY(1, 1).y) < 260, "near where it was");
   const fine = game([slot("word_sprout", 2, BUILD_SPOTS[2])]);
   assert.deepEqual(buildingsOn(fine).map((x) => [x.x, x.y]), [[BUILD_SPOTS[2].x, BUILD_SPOTS[2].y]], "one standing where it can stays put");
+});
+
+test("nothing on the farm overlaps: six fully grown buildings in their spots, the upgrades, the seed stand, the barn, the pen as big as it grows", async () => {
+  const { BUILD_SPOTS: SPOTS, FIXED, UPGRADE_SPOTS, boxOf, buildingSize, overlaps } = await import("../../web/js/game/farmmap.js");
+  const things = [
+    ...SPOTS.map((p, i) => ({ id: `building${i}`, ...boxOf(p.x, p.y, buildingSize(3).w, buildingSize(3).h) })),
+    ...UPGRADE_SPOTS.map((u, i) => ({ id: `upgrade${i}`, ...boxOf(u.x, u.y, u.w, u.h) })),
+  ];
+  const all = [...things, ...FIXED];
+  for (let i = 0; i < all.length; i++) for (let j = i + 1; j < all.length; j++) {
+    if (i >= things.length && j >= things.length) continue; // (the fixed ones are laid out together: the stand at the pen's gap)
+    assert.ok(!overlaps(all[i], all[j]), `${all[i].id} and ${all[j].id} overlap`);
+  }
+  const s = game([slot("word_sprout", 3), slot("echo_shell", 3), slot("page_lantern", 3), slot("ink_well", 3), slot("memory_stone", 3), slot("word_sprout", 2)]);
+  const on = buildingsOn(s);
+  assert.deepEqual(on.map((b) => [b.x, b.y]), SPOTS.map((p) => [p.x, p.y]), "a farm of grown buildings stands in its spots as laid out");
 });

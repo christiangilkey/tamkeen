@@ -10120,9 +10120,12 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
 - **Where:** the yard's left edge (its gate, or any tap or arrow key near the edge) leads west to the farm, a view of
   its own (`view = "farm"`, for the visit only; every launch starts in the cottage), and the farm's right edge leads
   back. `web/js/game/farmmap.js`: 36 x 9 tiles, the camera follows the creature. Laid out by its entrance (the owner,
-  2026-11-27: "less space the player needs to walk"): the barn at the top right (tap it, the creature walks to its
-  door), the seed stand beside it, the buildings' six spots below them, the fenced field just west (fence terrain
-  round it, a gap at the bottom middle) growing WEST as the fence grows (`FIELD.right` fixed, `fieldLeft(w)`; spot
+  2026-11-27: "less space the player needs to walk", then "nothing overlapping ... the seed stand right in front of the
+  farm"): the fenced field (fence terrain round it, its entrance a gap in the EAST fence at `GAP_ROW`) with the seed stand
+  right in front of that gap; the buildings' six spots east of it, two rows of three spaced for fully grown (48 px)
+  buildings; the barn at the far west end (the farm page opens it too). Placement checks each thing's picture box
+  (`farmmap.canPlace(x, y, others, w, h)`, `FIXED`, `buildingSize`; the nearness jobs reach (5 + tier) tiles). The
+  field grows WEST as the fence grows (`FIELD.right` fixed, `fieldLeft(w)`; spot
   "c,r" counts c from the field's right edge, so planted spots stay put as it grows; old saves' plantings show
   mirrored, the same size). The upgrades stand west of the biggest field. A building or decoration whose saved spot
   the layout now covers is shown at the nearest open spot (`farmmap.nearestFree`, in `buildingsOn` / `decorOn`).

@@ -8,7 +8,7 @@ import {
   CROPS, FENCE_MAX, MAX_SIZE, RARE_CROPS, SEASONS, barnList, buySeeds, cropById, farmOf, fenceCost, fieldSize, growFence,
   harvest, inSeason, plant, plantState, rareSeedOf, rollTier, seasonOf, seedsOnSale, sizeAfter, spots, water,
 } from "../../web/js/game/farm.js";
-import { BARN, BUILD_SPOTS, FARM_COLS, FARM_IN, FIELD, PLOT_SLACK, SEED_STAND, farmBlocked, farmMap, fieldLeft, gapCol, plotAt, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
+import { BARN, BUILD_SPOTS, FARM_COLS, FARM_IN, FIELD, GAP_ROW, PLOT_SLACK, SEED_STAND, farmBlocked, farmMap, fieldLeft, gapCol, plotAt, spotXY, tapFarm } from "../../web/js/game/farmmap.js";
 import { LEGENDARY } from "../../web/js/game/loot.js";
 import { PROTOTYPES } from "../../web/js/prototype.js";
 
@@ -126,7 +126,7 @@ test("the farm's map: the fence round the field with a gap, the path to the gate
   for (const [w, h] of [[3, 3], [12, 6]]) {
     const m = farmMap(w, h);
     assert.equal(m.tiles.length, FARM_COLS * 9);
-    assert.equal(m.tiles[(FIELD.y + h) * FARM_COLS + gapCol(w)], "dirt", "the gap in the fence");
+    assert.equal(m.tiles[GAP_ROW * FARM_COLS + FIELD.right + 1], "dirt", "the pen's entrance: a gap in its east fence");
     assert.equal(m.tiles[(FIELD.y - 1) * FARM_COLS + FIELD.right], "fence");
     for (const p of m.props) assert.ok(p.x > FIELD.right + 1 || p.y > FIELD.y + h || p.x + p.w <= fieldLeft(w) - 1 || p.y < FIELD.y - 1, `${p.id} outside the fence`);
     const at = spotXY(0, 0);
@@ -191,9 +191,9 @@ test("planting asks one word on the farm's question card; right or wrong it is p
 
 test("the farm by its entrance: the field just west of the barn and the buildings, growing west, its spots staying put", () => {
   assert.ok(FARM_IN.x >= BARN.x0 * 16, "you come in at the right, below the barn");
-  for (const b of BUILD_SPOTS) assert.ok(b.x > (FIELD.right + 1) * 16 && FARM_IN.x - b.x < 100, "the buildings' spots are by the entrance");
-  assert.ok(SEED_STAND.x > (FIELD.right + 1) * 16 && FARM_IN.x - SEED_STAND.x < 100, "and the seed stand");
-  assert.ok(FARM_IN.x - (FIELD.right + 1) * 16 < 160, "the field starts within ten tiles of the entrance");
+  for (const b of BUILD_SPOTS) assert.ok(b.x > (FIELD.right + 1) * 16 && FARM_IN.x - b.x < 160, "the buildings' spots are between the pen and the way in");
+  assert.ok(Math.abs(SEED_STAND.x - (FIELD.right + 1) * 16) < 40 && Math.abs(SEED_STAND.y - GAP_ROW * 16) < 56, "the seed stand right in front of the pen's entrance");
+  assert.ok(FARM_IN.x - (FIELD.right + 1) * 16 < 320 - 32, "the field is in view as you come in (the window is 320 across)");
   assert.ok(fieldLeft(12) < fieldLeft(3), "a bigger field reaches further west");
   assert.deepEqual(spotXY(0, 0), { x: FIELD.right * 16 + 8, y: FIELD.y * 16 + 8 }, "spot 0,0 is the field's top right whatever its size");
 });

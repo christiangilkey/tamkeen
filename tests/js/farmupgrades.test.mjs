@@ -90,8 +90,8 @@ test("decorations: bought with glow, placed on open grass, moved, put away for h
   for (const d of DECOR) assert.ok(d.cost > 0 && (d.prop || d.art), d.id);
   assert.equal(buyDecor(s, s.idle, "bench"), "");
   const [d] = decorOn(s);
-  assert.match(placeDecor(s, d.i, 25 * 16 + 8, 40), /can't stand/, "not in the field");
-  assert.equal(placeDecor(s, d.i, 60, 120), "");
+  assert.match(placeDecor(s, d.i, 17 * 16 + 8, 48), /can't stand/, "not in the field");
+  assert.equal(placeDecor(s, d.i, 440, 128), "");
   const glow = s.idle.glow;
   assert.equal(removeDecor(s, s.idle, d.i), 75);
   assert.equal(s.idle.glow, glow + 75);

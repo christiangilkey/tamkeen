@@ -13,7 +13,7 @@ import { FEEDS_PER_DAY, garden, shrineRate, shrineTier, stardustBoost } from "./
 import { SHRINE_LINES } from "./shrinelines.js";
 import { TYPES } from "./data.js";
 import { describe, formOf } from "./genome.js";
-import { composeCreature } from "./render.js";
+import { artCache, composeCreature } from "./render.js";
 import { LINES, knownKeys, readLine } from "./muffles.js";
 import { warmPorridge } from "./talents.js";
 import * as social from "../social.js";
@@ -208,11 +208,7 @@ export async function farmWords(game) {
 // ---------- the farm's question card: a little scene, one word, then the action's own moment ----------
 const CARD_W = 96, CARD_H = 48;          // the scene, in pixels (drawn three times over, crisp)
 const PLOT_AT = { x: 58, y: 24 };        // the plot's soil, top left
-const pics = {};
-const pic = (file) => {
-  if (!(file in pics)) { pics[file] = null; const im = new Image(); im.onload = () => { pics[file] = im; }; im.src = new URL(`../../game-art/${file}`, import.meta.url).href; }
-  return pics[file];
-};
+const pic = artCache(); // (the card's pictures; asks again after a failed load)
 let creatureFrame = null, creatureFor = ""; // (your creature, composed once per look)
 
 /**

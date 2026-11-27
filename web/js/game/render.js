@@ -106,6 +106,27 @@ export function loadImage(file) {
   return p;
 }
 
+/**
+ * A cache of game-art pictures for a scene drawn every frame: `get(file)` gives the picture once it has loaded (null
+ * until then) and, after a load that failed (a network blip outlasting loadImage's own tries), asks for it again a
+ * little after loadImage forgets the failure, so nothing stays missing until a reload. `loaded(file, img)` runs as
+ * each arrives (to redraw what was drawn without it).
+ */
+export function artCache(loaded = () => {}) {
+  const got = new Map(), failed = new Map(); // file -> picture; file -> when it failed (0: being asked for)
+  return (file) => {
+    const img = got.get(file);
+    if (img) return img;
+    const when = failed.get(file);
+    if (when === undefined || (when > 0 && Date.now() - when > FORGET_MS + 1000)) {
+      failed.set(file, 0);
+      loadImage(file).then((im) => { if (im) { got.set(file, im); failed.delete(file); loaded(file, im); } else failed.set(file, Date.now()); })
+        .catch(() => failed.set(file, Date.now()));
+    }
+    return null;
+  };
+}
+
 /** A picture from game-art/ written straight into the page (icon(), the egg, move buttons, shop items) failed to
  * load: it is set to load again after RETRY_MS, then, unless the server says it is missing, whenever the network or
  * the tab comes back and every PATIENCE.ms, up to PATIENCE.tries times. */

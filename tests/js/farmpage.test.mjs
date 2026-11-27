@@ -50,3 +50,15 @@ test("in the village, a tap anywhere in the farm's pen (plots, paths, its fence)
   assert.ok(h.indexOf('if (feature("farm_page") && inPen(x, y, fw, fh))') < h.indexOf("const sp = plotAt(x, y, fw, fh);"), "the pen is asked first");
   assert.match(src("farmpage.js"), /openFence\(\{ changed: \(\) => \{ fit\(\); paint\(\); \} \}\)/, "the fence is on the farm page: growing the field");
 });
+
+test("outdoor pictures never stay missing after a failed load: the scenes' caches ask again (render.artCache)", () => {
+  const r = src("render.js");
+  const fn = r.slice(r.indexOf("export function artCache("), r.indexOf("/** A picture from game-art/ written straight into the page"));
+  assert.match(fn, /else failed\.set\(file, Date\.now\(\)\)/, "a failed load is remembered with its time");
+  assert.match(fn, /Date\.now\(\) - when > FORGET_MS \+ 1000/, "and asked for again once loadImage forgets the failure");
+  const h = src("habitat.js");
+  assert.doesNotMatch(h, /in decorArt\)\) \{ decorArt\[[^\]]+\] = null; loadImage/, "decorations: no ask-once cache");
+  assert.doesNotMatch(h, /if \(!\(p in yardImgs\)\)/, "the yard's and farm's pictures: no ask-once cache");
+  assert.match(h, /else setTimeout\(\(\) => \{ if \(!disposed\) loadArt\(k, f\); \}, 21000\)/, "the scene's own art asks again too");
+  assert.doesNotMatch(src("farmpage.js") + src("farm-ui.js"), /const pics = \{\};/, "the farm page and its card too");
+});

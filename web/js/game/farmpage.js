@@ -16,7 +16,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { describe, formOf } from "./genome.js";
 import { garden } from "./idle.js";
-import { composeCreature, icon, loadImage } from "./render.js";
+import { artCache, composeCreature, icon } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
 import { CROPS, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
@@ -26,11 +26,7 @@ const SEASON_NAME = { spring: "Spring", summer: "Summer", autumn: "Autumn", wint
 const CELL = 26;            // a plot's square in the scene, in pixels (its soil 22 across)
 const EDGE = 8;             // grass round the field
 const CHAIN_MAX = 5;        // pips on the watering chain
-const pics = {};
-const pic = (file) => {
-  if (!(file in pics)) { pics[file] = null; loadImage(file).then((im) => { pics[file] = im; }).catch(() => {}); }
-  return pics[file];
-};
+const pic = artCache(); // (asks again after a failed load)
 
 /** Open the farm page. `changed()` runs after anything changes (for the Home screen's numbers). Returns close(). */
 export function openFarm({ changed = () => {} } = {}) {
@@ -122,8 +118,8 @@ export function openFarm({ changed = () => {} } = {}) {
     if (!seed) { const first = have.find((c) => inSeason(c)); seed = first ? first.id : null; }
     for (const c of have) {
       const ok = inSeason(c);
-      const b = h(`<button type="button" class="farmp-seed${c.id === seed ? " on" : ""}" role="option" aria-selected="${c.id === seed}">${cropIcon(c, 32)}<span></span><b translate="no"></b></button>`);
-      b.querySelector("span").textContent = t(c.name);
+      const b = h(`<button type="button" class="farmp-seed${c.id === seed ? " on" : ""}" role="option" aria-selected="${c.id === seed}">${cropIcon(c, 32)}<span class="farmp-seed-name"></span><b translate="no"></b></button>`);
+      b.querySelector(".farmp-seed-name").textContent = t(c.name); // (its own class: the crop's picture is a span too)
       b.querySelector("b").textContent = `×${f.seeds[c.id]}`;
       if (!ok) { b.classList.add("off"); b.title = t("Out of season"); }
       b.onclick = () => { seed = c.id; sfx("tick"); paint(); };
