@@ -14,6 +14,7 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 
 ## Unreleased
 - **Changed** Library: "Courses" is now **Basics**, a first step for total beginners on the way to real podcasts, videos and books; its word list is now called "First 1000 words" ("First 300 words" for an Arabic dialect). Old links and the last tab you chose still open it.
+- **Changed** Library: DLI students' material (their DLI language's chapters and ICPT decks) has its own **DLI** entry in the Library, beside the Classroom, instead of a tab inside Basics. Old links to it still work.
 - Farm: planting a seed now asks one of your words, as watering does (right or wrong, it is planted). Planting and watering each have their own little scene and sound on a new question card.
 - Farm: tapping a spot in the field opens it straight away, and a near miss counts for the nearest spot.
 - Muffle orders in the market now pay 5 coins each (three a day) instead of glow, and still wake a word.

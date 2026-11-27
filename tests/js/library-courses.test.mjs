@@ -19,7 +19,7 @@ test("Courses is the Library's first kind", () => {
   // Lesson bundles (a panel of its own too, lessonpanel.js) are "My files", the last kind, after My videos and My audio
   // (the owner, 2026-11-17: "Lessons should be My Files and should be at the far right with my videos and my audios").
   // (After them, for DLI teachers and students only, the Classroom they share: prototype "classroom".)
-  assert.deepEqual(keys.filter((k) => k !== "classroom").slice(-3), ["videos", "audio", "lessons"]);
+  assert.deepEqual(keys.filter((k) => k !== "classroom" && k !== "dli").slice(-3), ["videos", "audio", "lessons"]);
   assert.ok(kinds.includes('...(classroomShown() ? [{ key: "classroom"'), "the Classroom shows only to the people it is for");
   assert.match(kinds, /key: "lessons", label: "My files"/);
   assert.match(kinds, /key: "courses"[^}]*href: "#\/library\?show=courses"/);
@@ -30,7 +30,9 @@ test("Courses is the Library's first kind", () => {
 
 test("the Library tab opens on the kind chosen last time (Courses at first); a podcast's own page still counts as Podcasts", () => {
   assert.match(library, /let kind = [^;]*: feedId \? "podcasts"\s*: \[\.\.\.query\.keys\(\)\]\.length \? "courses" : lastKind\(\);/);
-  assert.match(library, /return KINDS\.some\(\(x\) => x\.key === k\) \? k : "courses";/);
+  assert.match(library, /return isKind\(k\) \? k : "courses";/);
+  // (a kind this learner can't see, the DLI entry without DLI material, doesn't count: `when`)
+  assert.match(library, /const isKind = \(key\) => KINDS\.some\(\(x\) => x\.key === key && \(!x\.when \|\| x\.when\(\)\)\);/);
   assert.match(library, /localStorage\.setItem\(LAST_KIND_KEY, kind\)/);
   assert.match(library, /\|\| \{ key: "podcasts" \}\)\.key/);
 });
@@ -46,7 +48,7 @@ test("links meant for the podcasts say so (plain #/library is now Courses)", () 
 test("Courses shows the basics and grammar panels, and no episodes", () => {
   assert.match(library, /import \{ courseIndex, coursePanel \} from "\.\.\/components\/coursepanel\.js";/);
   assert.match(library, /import \{ grammarFor, grammarIndex, grammarPanel \} from "\.\.\/components\/grammarpanel\.js";/);
-  assert.match(library, /const panelKind = \(k\) => k === "courses" \|\| k === "conversation" \|\| k === "lessons" \|\| k === "classroom";/);
+  assert.match(library, /const panelKind = \(k\) => k === "courses" \|\| k === "conversation" \|\| k === "lessons" \|\| k === "classroom" \|\| k === "dli";/);
   assert.match(library, /if \(panelKind\(kind\)\) return; \/\/ no episodes/);
   assert.match(library, /root\.classList\.toggle\("courses-kind", panelKind\(kind\)\)/, "no list and no + button for either");
   assert.match(library, /if \(kind === "conversation"\) \{ showConversation\(\); return; \}/);

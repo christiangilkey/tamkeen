@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	Deine DLI-Inhalte erscheinen unter Bibliothek → DLI, solange du {0} lernst. Die Sprache wechselst du oben auf dem Bildschirm.
+574f8bab	Deine DLI-Inhalte findest du unter Bibliothek → DLI.
+212b3813	Deine DLI-Inhalte findest du unter Bibliothek → DLI, solange du {0} lernst.

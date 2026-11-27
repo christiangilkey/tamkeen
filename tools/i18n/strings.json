@@ -4795,8 +4795,8 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "6ba220e2",
-  "k": "Your DLI content shows in Library → Basics while you study {0}. You switch languages at the top of the screen.",
+  "id": "e26efa8e",
+  "k": "Your DLI content shows in Library → DLI while you study {0}. You switch languages at the top of the screen.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -4895,13 +4895,13 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "d2b4fa63",
-  "k": "Your DLI content is in Library → Basics → DLI.",
+  "id": "574f8bab",
+  "k": "Your DLI content is in Library → DLI.",
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "74ab6a8b",
-  "k": "Your DLI content is in Library → Basics → DLI, while you're studying {0}.",
+  "id": "212b3813",
+  "k": "Your DLI content is in Library → DLI, while you're studying {0}.",
   "f": "web/js/components/dlicard.js"
  },
  {

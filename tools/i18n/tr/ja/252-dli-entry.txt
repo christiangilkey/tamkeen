@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	{0}を学習している間、DLIの教材はライブラリ → DLIに表示されます。言語は画面の上で切り替えます。
+574f8bab	DLIの教材はライブラリ → DLIにあります。
+212b3813	{0}を学習している間、DLIの教材はライブラリ → DLIにあります。

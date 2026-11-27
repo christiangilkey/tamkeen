@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	Lumalabas ang iyong DLI na nilalaman sa Library → DLI habang nag-aaral ka ng {0}. Nagpapalit ka ng wika sa itaas ng screen.
+574f8bab	Nasa Library → DLI ang iyong DLI na nilalaman.
+212b3813	Nasa Library → DLI ang iyong DLI na nilalaman, habang nag-aaral ka ng {0}.

@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	学习{0}时，你的 DLI 资料会显示在资料库 → DLI 中。在屏幕顶部切换语言。
+574f8bab	你的 DLI 资料在资料库 → DLI 中。
+212b3813	学习{0}时，你的 DLI 资料在资料库 → DLI 中。

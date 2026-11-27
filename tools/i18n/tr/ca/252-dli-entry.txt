@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	El teu contingut del DLI apareix a Biblioteca → DLI mentre estudies {0:lower}. Canvies d’idioma a la part de dalt de la pantalla.
+574f8bab	El teu contingut del DLI és a Biblioteca → DLI.
+212b3813	El teu contingut del DLI és a Biblioteca → DLI, mentre estudies {0:lower}.

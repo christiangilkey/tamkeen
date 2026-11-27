@@ -1,0 +1,4 @@
+# DLI is the Library's own entry now, out of Basics (the owner, 2026-11-27: "Its own DLI entry").
+e26efa8e	I tuoi contenuti DLI compaiono in Libreria → DLI mentre studi {0:lower}. Cambi lingua in alto sullo schermo.
+574f8bab	I tuoi contenuti DLI sono in Libreria → DLI.
+212b3813	I tuoi contenuti DLI sono in Libreria → DLI, mentre studi {0:lower}.

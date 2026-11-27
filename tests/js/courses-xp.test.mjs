@@ -180,21 +180,21 @@ test("the Library puts Grammar first and keeps a chosen tab for this visit only"
   const library = read("web/js/pages/library.js");
   assert.ok(library.indexOf('data-tab="grammar"') < library.indexOf('data-tab="basics"'), "Grammar on the left");
   assert.match(library, /sessionStorage\.setItem\("courseTab", b\.dataset\.tab\)/);
-  // (dli: the DLI students' tab, components/dlipanel.js; opened only when a link asks for it or it was chosen)
-  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, dli, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
+  // (DLI was a third tab here until 2026-11-27; it is the Library's own DLI entry now: dli.test.mjs)
+  assert.match(library, /courseTabChoice\(\{ basics, grammar: !!choice, asked: query\.get\("tab"\) \|\| "", chosen \}\)/);
   assert.doesNotMatch(library, /localStorage\.(get|set)Item\("courseTab"/);
 });
 
 // ---------- the Library's empty kinds ----------
 
-test("every Library kind but Courses, Conversation and Lessons says how to add things with the + button", () => {
+test("every Library kind but Basics, Conversation, Lessons and DLI says how to add things with the + button", () => {
   const library = read("web/js/pages/library.js");
   const kinds = library.slice(library.indexOf("const KINDS = ["), library.indexOf("];", library.indexOf("const KINDS = [")));
   const entries = kinds.split(/\n\s*\{ key: /).slice(1);
-  assert.equal(entries.length, 12); // (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh; Lessons, with its own Add button, the twelfth)
+  assert.equal(entries.length, 13); // (Audiobooks was the tenth; Conversation, which has nothing to add, the eleventh; Lessons, with its own Add button, the twelfth; DLI, a DLI student's own material, the thirteenth)
   for (const e of entries) {
     const key = /^"(\w+)"/.exec(e)[1];
-    if (key === "courses" || key === "conversation" || key === "lessons") { assert.doesNotMatch(e, /empty:/); continue; }
+    if (key === "courses" || key === "conversation" || key === "lessons" || key === "dli") { assert.doesNotMatch(e, /empty:/); continue; }
     assert.match(e, /empty: "Add [^"]+ with the \+ button below[^"]*"/, key);
   }
   assert.match(library, /<h2 class="le-title">Nothing here yet<\/h2>/);

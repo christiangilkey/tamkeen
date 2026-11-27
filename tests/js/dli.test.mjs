@@ -83,12 +83,17 @@ test("the settings: student, language, key; ready only with all three", () => {
   for (const k of ["dli_student", "dli_language", "dli_key", "dli_added"]) assert.ok(KEYS.includes(k), `${k} follows the learner to their other devices`);
 });
 
-test("the Library's DLI tab opens when asked for, else Grammar first as before", () => {
-  assert.equal(courseTabChoice({ basics: true, grammar: true, dli: true }), "grammar");
-  assert.equal(courseTabChoice({ basics: true, grammar: true, dli: true, asked: "dli" }), "dli");
-  assert.equal(courseTabChoice({ basics: true, grammar: true, dli: false, asked: "dli" }), "grammar", "no DLI tab: not opened");
-  assert.equal(courseTabChoice({ dli: true }), "dli", "a language with only DLI material");
+test("DLI is the Library's own entry, not a Basics tab; its old address still leads there", () => {
+  // (the owner, 2026-11-27: "Its own DLI entry", for DLI students and teachers, beside the Classroom)
+  assert.equal(courseTabChoice({ basics: true, grammar: true, asked: "dli" }), "grammar", "Basics has no DLI tab");
   assert.equal(courseTabChoice({}), "");
+  const library = readFileSync(new URL("../../web/js/pages/library.js", import.meta.url), "utf8");
+  assert.ok(library.includes('{ key: "dli", label: "DLI", icon: "lock", href: "#/library?show=dli", when: () => dliShown(studyLanguage()) }'));
+  assert.ok(library.includes('if (query.get("show") === "courses" && query.get("tab") === "dli" && isKind("dli")) query.set("show", "dli");'));
+  assert.ok(!library.includes('data-tab="dli"'), "no DLI tab inside Basics");
+  assert.ok(library.includes("if (k.when && !k.when()) continue;"), "the entry shows only for learners with DLI material");
+  const card = readFileSync(new URL("../../web/js/components/dlicard.js", import.meta.url), "utf8");
+  assert.ok(card.includes('export const DLI_PLACE = "#/library?show=dli";'), "Settings → DLI students points there");
 });
 
 // A transcript in the sync's own format (app/sync/engine.py transcript_payload).
