@@ -10,6 +10,7 @@ import { detectLanguage, setLang } from "../languages.js";
 import { plan, states } from "../review/deck.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
 import { garden, shrineRate, shrineTier, stardustBoost } from "./idle.js";
+import { SHRINE_LINES } from "./shrinelines.js";
 import { answerQuestion, markDue, pickQuestion, weekNumber } from "./rules.js";
 import { pondWords } from "./fishing.js";
 import { TIERS } from "./loot.js";
@@ -252,18 +253,16 @@ export async function askToWater(key) {
 }
 
 /** The Star Shrine's card (slice 3): what stardust does now, the glow it makes (the Star Loom's), how a release
- * works, and the talents it helps (talents.js SHRINE_TALENT_LINES, the talents session's, when it is there). */
+ * works, and what else stardust does (shrinelines.js: the talents' lines, added by talents.js). */
 export function openShrine() {
   const game = getGame();
-  let talentLines = [];
-  import("./talents.js").then((m) => { talentLines = Array.isArray(m.SHRINE_TALENT_LINES) ? m.SHRINE_TALENT_LINES : []; d.redraw(); }).catch(() => {});
   const d = details(() => {
     const g = garden(game);
     const tier = Math.max(1, shrineTier(game));
     const more = h(`<div class="farm-list"></div>`);
     for (const line of ["Stardust is never spent. You gain it by releasing a fully grown creature.",
       "The shrine also weaves the Star Loom's steady glow, straight into your glow.",
-      "A release starts your buildings and glow over. It never touches your farm: its land, crops, barn and seeds stay.", ...talentLines]) {
+      "A release starts your buildings and glow over. It never touches your farm: its land, crops, barn and seeds stay.", ...SHRINE_LINES]) {
       const li = h(`<p class="gs-detail-text"></p>`);
       li.textContent = t(line);
       more.append(li);

@@ -72,5 +72,5 @@ test("habitat.js and farm-ui.js: the shrine by the cottage once there is stardus
   assert.ok(h.includes("if (inYard() && shrineTier(game)) {"));
   const ui = readFileSync(new URL("../../web/js/game/farm-ui.js", import.meta.url), "utf8");
   assert.ok(ui.includes("A release starts your buildings and glow over. It never touches your farm"));
-  assert.ok(ui.includes('import("./talents.js")'), "the talents' lines, when that work is there");
+  assert.ok(ui.includes("...SHRINE_LINES]"), "and what else stardust does (shrinelines.js: the talents' lines)");
 });
