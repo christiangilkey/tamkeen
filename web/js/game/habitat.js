@@ -10,7 +10,8 @@
 
 import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
-import { FOLK, knownKeys, lineFor, poseOf, readLine } from "./muffles.js";
+import { FOLK, knownKeys, lineFor, lineWords, poseOf, readLine } from "./muffles.js";
+import { seenOf } from "../lexicon/seen.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
@@ -875,26 +876,37 @@ export function habitat() {
   const folk = FOLK.map((f, i) => ({ ...f, dir: 1, phase: f.phase ?? i * 0.37, said: 0, spoke: 0, to: null, mv: null, rest: 2 + i }));
   /** The Muffles where the creature is: the village's, or the hall's custodian. */
   const folkHere = () => folk.filter((f) => (f.scene || "yard") === (inHall() ? "hall" : inFarm() ? "farm" : "yard"));
-  let learned = null; // the uids of the words remembered in the flashcards (for which of a Muffle's words show)
+  let learned = null, learnedReady = null; // the uids of the words remembered in the flashcards (for which of a Muffle's words show)
   const loadLearned = () => {
-    if (learned) return;
-    learned = new Set();
-    api("/reviews").then((r) => { learned = new Set([...reviewStates((r && r.reviews) || {})].filter(([, c]) => c && c.known).map(([uid]) => uid)); }).catch(() => {});
+    if (!learnedReady) learnedReady = api("/reviews").then((r) => { learned = new Set([...reviewStates((r && r.reviews) || {})].filter(([, c]) => c && c.known).map(([uid]) => uid)); })
+      .catch(() => { learned = new Set(); });
+    return learnedReady;
   };
+  loadLearned(); // (up front: the first line after launch knows your words too)
+  let speaking = false;
   const msay = $(".muffle-say");
   let msayFor = null, msayUntil = 0;
   /** The Muffle at a point outside, or null. */
   const muffleAt = (x, y) => folkHere().find((f) => Math.abs(x - f.x) < 8 && y <= f.y + 2 && y >= f.y - 24) || null;
   let pressedMuffle = null; // (the Muffle under the finger when the press began: only it can answer the tap)
   /** A Muffle says something: its words you know show, the rest in its forgotten script (the owner's rule). */
-  function muffleSpeak(f) {
-    loadLearned();
+  async function muffleSpeak(f) {
+    if (speaking) return;
+    speaking = true;
     const lang = studyLanguage();
     const line = lineFor(f, lang, f.said++);
     f.spoke = performance.now();
-    const known = knownKeys(vocab || [], learned, game.review, lang);
+    // which of its words you know: saved and remembered, well known from battles, woken by orders, or SEEN in a text
+    // (white, not purple, in the player and reader: the owner's rule); waited for, so the first line knows them too
+    let seen = null;
+    try {
+      await Promise.race([Promise.all([loadLearned(), vocabReady]), new Promise((ok) => setTimeout(ok, 2500))]);
+      seen = line ? await Promise.race([seenOf(lineWords(line, lang), lang), new Promise((ok) => setTimeout(() => ok(null), 2500))]) : null;
+    } catch { /* what is known so far */ } finally { speaking = false; }
+    if (disposed || !outside()) return;
+    const known = knownKeys(vocab || [], learned || new Set(), game.review, lang);
     if (farmOn()) for (const k of wokenKeys(game, lang)) known.add(k); // (slice 4: words woken by orders and the feast)
-    const read = line ? readLine(line, known, lang) : { words: [0, 1, 2, 3].slice(0, 2 + (f.said % 3)).map((i) => ({ text: f.id + i + f.said, known: false, glyphs: [((i * 5 + f.said) % 12), ((i * 7 + 3) % 12), ((i + f.said * 2) % 12)] })), known: 0, total: 0 };
+    const read = line ? readLine(line, known, lang, seen) : { words: [0, 1, 2, 3].slice(0, 2 + (f.said % 3)).map((i) => ({ text: f.id + i + f.said, known: false, glyphs: [((i * 5 + f.said) % 12), ((i * 7 + 3) % 12), ((i + f.said * 2) % 12)] })), known: 0, total: 0 };
     const [b, small] = msay.children;
     b.replaceChildren();
     for (const w of read.words) {

@@ -4,7 +4,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
-import { FOLK, GLYPH_COUNT, LINES, glyphsFor, knownKeys, lineFor, readLine } from "../../web/js/game/muffles.js";
+import { FOLK, GLYPH_COUNT, LINES, glyphsFor, knownKeys, lineFor, lineWords, readLine } from "../../web/js/game/muffles.js";
 import { STATIONS } from "../../web/js/game/yard.js";
 import { LANGUAGE_CODES } from "../../web/js/languages.js";
 
@@ -64,4 +64,21 @@ test("habitat.js: tap a Muffle and it speaks; it speaks as the creature passes; 
   assert.ok(h.includes("Math.hypot(f.x - pet.x, (f.y - pet.y) * 1.5) < 30"));
   const css = readFileSync(new URL("../../web/css/app.css", import.meta.url), "utf8");
   assert.ok(css.includes('url("../game-art/muffle/glyphs.png")'));
+});
+
+test("a word SEEN in a text counts as known in a Muffle's line, not only a saved one; the first line waits for what's known", () => {
+  const line = "Hola amigo, vendo pan";
+  const words = lineWords(line, "es");
+  assert.deepEqual(words, ["Hola", "amigo", "vendo", "pan"]);
+  const none = readLine(line, new Set(), "es");
+  assert.equal(none.known, 0);
+  const seen = readLine(line, new Set(), "es", new Set([2, 3])); // (seen.seenOf: vendo and pan seen in the player or reader)
+  assert.deepEqual(seen.words.map((w) => w.known), [false, false, true, true]);
+  assert.equal(seen.words[2].glyphs, null, "a seen word shows as itself");
+  const h = readFileSync(new URL("../../web/js/game/habitat.js", import.meta.url), "utf8");
+  assert.match(h, /seenOf\(lineWords\(line, lang\), lang\)/, "the habitat asks which words were seen");
+  assert.match(h, /await Promise\.race\(\[Promise\.all\(\[loadLearned\(\), vocabReady\]\)/, "and waits for the words before the line (the first after launch too)");
+  const s = readFileSync(new URL("../../web/js/lexicon/seen.js", import.meta.url), "utf8");
+  assert.match(s, /export async function seenOf\(words, lang\)/);
+  assert.match(s.slice(s.indexOf("export async function seenOf")), /lexemesFor\(words, lang, dicts\)/, "matched as the texts match words (other forms count)");
 });

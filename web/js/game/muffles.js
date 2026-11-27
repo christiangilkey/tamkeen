@@ -112,18 +112,21 @@ export function knownKeys(vocab, learned, review, lang, mature = 4) {
 /** A line as the bubble shows it: [{text, known, glyphs}] word by word (`text` with the punctuation after it), and how
  * many of its words are known. Its words are found as the app's word popups find them (languages.wordRanges: at the
  * spaces, or for Japanese, Chinese and Thai by the word breaker). */
-export function readLine(line, known, lang) {
+export function readLine(line, known, lang, seen = null) {
   line = String(line);
   const ranges = wordRanges(line, lang);
   const out = ranges.map(([from, to], i) => {
     const word = line.slice(from, to);
     const text = line.slice(i ? from : 0, i + 1 < ranges.length ? ranges[i + 1][0] : line.length).trim();
     const forms = formsOf(word, lang);
-    const ok = forms.some((k) => known.has(k));
+    const ok = forms.some((k) => known.has(k)) || !!(seen && seen.has(i)); // (or seen in a text: seen.seenOf, by index)
     return { text, known: ok, glyphs: ok ? null : glyphsFor(word), key: forms[0] }; // (key: how a woken word is kept, farmuses.wake)
   });
   return { words: out, known: out.filter((w) => w.known).length, total: out.length };
 }
+
+/** A line's words, as readLine cuts them (for seen.seenOf, whose indexes readLine's `seen` takes). */
+export const lineWords = (line, lang) => wordRanges(String(line), lang).map(([from, to]) => String(line).slice(from, to));
 
 /** A Muffle's next line for this language (by place), or null when there are none in it yet. `n`: how many it has said. */
 export function lineFor(folk, lang, n = 0) {
