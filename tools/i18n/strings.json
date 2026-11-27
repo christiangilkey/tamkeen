@@ -15755,8 +15755,8 @@
   "f": "web/js/game/currencies.js"
  },
  {
-  "id": "bf937925",
-  "k": "Sell the fish you catch.",
+  "id": "82f6dc31",
+  "k": "Sell the fish you catch, and fill the Muffles' orders in the market ({0} each, three a day).",
   "f": "web/js/game/currencies.js"
  },
  {
@@ -21160,11 +21160,6 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "bc1dd8bb",
-  "k": "Today's goal: tap to change it",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "29cdd5c4",
   "k": "Your level: tap to see how XP works",
   "f": "web/js/game/habitat.js"
@@ -21172,6 +21167,11 @@
  {
   "id": "1aa6e8ca",
   "k": "Lv",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "bc1dd8bb",
+  "k": "Today's goal: tap to change it",
   "f": "web/js/game/habitat.js"
  },
  {

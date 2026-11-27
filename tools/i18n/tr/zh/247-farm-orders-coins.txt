@@ -1,0 +1,2 @@
+# Muffle orders pay coins (the owner, 2026-11-27).
+82f6dc31	卖掉你钓到的鱼，并在集市完成马弗们的订单（每单 {0}，每天三单）。

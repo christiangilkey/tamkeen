@@ -1,0 +1,2 @@
+# Muffle orders pay coins (the owner, 2026-11-27).
+82f6dc31	Ibenta ang mga isdang mahuhuli mo, at tuparin ang mga order ng mga Muffle sa palengke ({0} bawat isa, tatlo bawat araw).

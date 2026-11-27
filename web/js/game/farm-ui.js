@@ -566,7 +566,7 @@ export function openOrder(order, folkName, { changed = () => {} } = {}) {
       title: t("{0}'s order", folkName),
       pic: cropIcon(order.crop, 64),
       facts: [fact("Wants", `<span>${order.n} × ${t(order.crop.name)}</span>`), fact("You have", `<span>${fmt(have(game, order.crop.id))}</span>`),
-        fact("Pays", amount("glow", order.glow))],
+        fact("Pays", amount("coins", order.coins))],
       text: "Fill a Muffle's order and one of their forgotten words wakes up: it shows in their speech from now on.",
       note: can ? "" : t("Grow some more first: the order waits until tomorrow."),
       buttons: [{ word: "Close", run: () => d.close() }, { word: "Give", primary: true, disabled: !can, run: () => {

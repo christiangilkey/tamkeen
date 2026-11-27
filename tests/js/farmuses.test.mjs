@@ -106,10 +106,11 @@ test("selling and orders: glow for harvests; three orders a day, the same for ev
   assert.ok(a.length >= 1 && a.length <= 3 && !a.some((o) => o.folk === "cook"));
   const o = a[0];
   s.farm.barn[`${o.crop.id}:0`] = o.n;
-  const glow = s.idle.glow;
-  assert.deepEqual(fillOrder(s, s.idle, o.i, day), { glow: o.glow });
-  assert.equal(s.idle.glow, glow + o.glow);
-  assert.ok(o.glow > sellPrice(o.crop) * o.n, "an order pays more than selling");
+  const glow = s.idle.glow, coins = Number(s.coins) || 0;
+  assert.deepEqual(fillOrder(s, s.idle, o.i, day), { coins: 5 }, "an order pays 5 coins (the owner: orders pay gold)");
+  assert.equal(s.coins, coins + 5);
+  assert.equal(s.idle.glow, glow, "and no glow");
+  assert.ok(ordersToday(s, day).length <= 3, "three a day at most: 15 coins a day at most");
   assert.match(fillOrder(s, s.idle, o.i, day), /filled/);
   wake(s, "ar", ["سوق"]);
   assert.ok(wokenKeys(s, "ar").has("سوق"));

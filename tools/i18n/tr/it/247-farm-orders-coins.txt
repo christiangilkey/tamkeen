@@ -1,0 +1,2 @@
+# Muffle orders pay coins (the owner, 2026-11-27).
+82f6dc31	Vendi i pesci che peschi e completa gli ordini dei Muffle al mercato ({0} ciascuno, tre al giorno).

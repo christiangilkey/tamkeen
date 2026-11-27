@@ -5,7 +5,7 @@
 //     creature "Well fed" for a day: +5% attack and defence ONLY in battles against the game (battle.fighter vsGame);
 //   - fishing bait: a crop makes bait; with bait the pond's luck is a quarter more, one bait a fish landed;
 //   - the Cookbook at the cook's pot in the market: dishes cooked from crops and honey, each with one effect;
-//   - Muffle orders: three a day in the market ("5 carrots"); filling one pays glow and wakes a forgotten word;
+//   - Muffle orders: three a day in the market ("5 carrots"); filling one pays coins (ORDER_COINS) and wakes a forgotten word;
 //   - selling at the fruit stall for glow.
 // The owner's rules hold: no money, nothing adds strength between people, nothing dies or spoils, no pay for tapping
 // (everything here is grown with answered words first).
@@ -220,8 +220,12 @@ export function wake(state, lang, keys, now = new Date()) {
 // ---------- Muffle orders ----------
 export const ORDER_FOLK = ["grocer", "baker", "barkeep", "florist", "tailor", "fisher"]; // (not the cook: a tap on her opens the Cookbook)
 const hash = (s) => { let h = 2166136261; for (const ch of String(s)) h = Math.imul(h ^ ch.codePointAt(0), 16777619) >>> 0; return h; };
-/** Today's three orders (the same for everyone on a day): [{i, folk, crop, n, glow, done}]. A Muffle asks for crops of
- * this week, a few of one kind; filling it pays glow (more than selling them) and wakes one of their words. */
+/** What a filled order pays, in coins (the owner, 2026-11-27: "I feel like muffle orders should pay you gold"): in line
+ * with a battle win (4) and the daily goal (10); three orders a day at most, so 15 a day at most. This bends the old
+ * "flashcards pay glow, battles pay coins" rule for orders only. */
+export const ORDER_COINS = 5;
+/** Today's three orders (the same for everyone on a day): [{i, folk, crop, n, coins, done}]. A Muffle asks for crops
+ * of this week, a few of one kind; filling it pays ORDER_COINS and wakes one of their words. */
 export function ordersToday(state, now = new Date()) {
   const f = farmOf(state);
   const day = dayKey(now);
@@ -232,20 +236,21 @@ export function ordersToday(state, now = new Date()) {
     const h = hash(`${day}:${i}`);
     const c = crops[h % crops.length];
     const n = 2 + ((h >>> 8) % 4);
-    out.push({ i, folk: ORDER_FOLK[(h >>> 4) % ORDER_FOLK.length], crop: c, n, glow: Math.round(sellPrice(c) * n * 1.6), done: f.orders.done.includes(i) });
+    out.push({ i, folk: ORDER_FOLK[(h >>> 4) % ORDER_FOLK.length], crop: c, n, coins: ORDER_COINS, done: f.orders.done.includes(i) });
   }
   // (two orders from one Muffle: the later one waits for another day)
   return out.filter((o, k) => out.findIndex((p) => p.folk === o.folk) === k);
 }
-/** Fill order `i` from the barn. Returns {glow} or an error message string (the caller wakes a word). */
-export function fillOrder(state, glow, i, now = new Date()) {
+/** Fill order `i` from the barn: its coins go to `state.coins`. Returns {coins} or an error message string (the
+ * caller wakes a word). (`_glow`: kept for the callers; orders paid glow before 2026-11-27.) */
+export function fillOrder(state, _glow, i, now = new Date()) {
   const o = ordersToday(state, now).find((x) => x.i === i);
   if (!o) return "There's no such order today.";
   if (o.done) return "You've filled that order.";
   const f = farmOf(state);
   if (!take(f, o.crop.id, o.n)) return "You don't have enough in your barn.";
   f.orders.done.push(i);
-  glow.glow += o.glow;
+  state.coins = (Number(state.coins) || 0) + o.coins;
   touch(f, now);
-  return { glow: o.glow };
+  return { coins: o.coins };
 }

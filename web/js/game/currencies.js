@@ -9,6 +9,7 @@
 import { FOODS, SUPPLIES } from "./data.js";
 import { stardustBoost } from "./idle.js";
 import { BOTH_COINS, FULLY_GROWN_COINS } from "./rules.js";
+import { ORDER_COINS } from "./farmuses.js";
 
 const gemSupplies = SUPPLIES.filter((s) => s.gems);
 
@@ -20,7 +21,7 @@ export const CURRENCIES = {
     name: "Coins", icon: "coin",
     get: [
       { text: "Reach your daily goal (10), win battles, and save words.", from: [["rules.js", "reachGoal"], ["rules.js", "finishBattle"], ["rules.js", "earn"]] },
-      { text: "Sell the fish you catch.", from: [["fishing.js", "sell"]] },
+      { text: `Sell the fish you catch, and fill the Muffles' orders in the market (${ORDER_COINS} each, three a day).`, from: [["fishing.js", "sell"], ["farmuses.js", "fillOrder"]] },
       { text: `Extras: a new level, your guild's raid win, a fully grown creature (${FULLY_GROWN_COINS}), and a battle plus your flashcards on one day (${BOTH_COINS}).`,
         from: [["rules.js", "claimRaid"], ["rules.js", "grow"], ["rules.js", "payBoth"]] },
     ],
