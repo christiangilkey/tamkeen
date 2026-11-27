@@ -47,6 +47,11 @@ const files = (dir, ext) => {
   return out.sort();
 };
 
+// The owner's one exception (DESIGN.md section 1, 2026-11-27: "I really like the vocab review screens, do not change
+// these"): the flashcard reviewer's own rules in review.css keep their look and are not counted. Only rules all of
+// whose selectors are the reviewer's (.rv, .rv-*, its "Say it" dot, its learned-mnemonic line).
+const REVIEWER = /\.rv\b|\.rv-|^\s*\.say-it \.say-dot\s*$|^\s*\.mn-learned\s*$/;
+const ownersException = (where, selector) => where === "web/css/review.css" && selector.split(",").every((s) => REVIEWER.test(s));
 const COLOUR = /#[0-9a-fA-F]{3,8}\b|\b(?:rgba?|hsla?)\(/;
 const RADIUS_OK = new Set(["0", "0px", "var(--r-s)", "var(--r-l)", "var(--r-pill)", "50%", "inherit", "/"]);
 
@@ -58,6 +63,7 @@ export function countCss(css, counts, where) {
     const selector = m[1].trim();
     const line = text.slice(0, m.index + m[1].length).split("\n").length;
     if (selector.startsWith("@font-face") || /^(from|to|\d+%)/.test(selector)) continue; // (fonts; keyframe steps)
+    if (ownersException(where, selector)) continue;
     for (const decl of m[2].split(";")) {
       const i = decl.indexOf(":");
       if (i < 0) continue;

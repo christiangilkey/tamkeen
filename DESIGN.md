@@ -26,6 +26,12 @@ wherever a reward shows, and rewards **fly to their counter**.
   `margin-inline-start`, not `margin-left`), not patched afterwards.
 - **The Muffles' glyph script** can texture empty states and loading screens.
 
+**One exception, the owner's choice (2026-11-27): the flashcard reviewer keeps its own look.** "I really like the vocab
+review screens, do not change these." Its dark brand gradient, the plum "Not remembered" and teal "Remembered"
+buttons, the white "Show the word" button and its sizes stay as they are (`web/css/review.css`, the `.rv-*` rules). Its
+typed colours are allowed in the guard's baseline. Don't restyle it in a sweep: any improvement goes to the owner
+first, one change at a time.
+
 **The logo-swap test** (the owner's): cover the logo and the words. Could this screen belong to any other language app?
 If yes, it is the average AI answer, not Tamkeen's. Redo it.
 
