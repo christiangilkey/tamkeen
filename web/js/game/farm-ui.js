@@ -6,11 +6,19 @@
 import { api, h, toast } from "../app.js";
 import { openModal } from "../components/modal.js";
 import { t } from "../i18n.js";
-import { detectLanguage, setLang } from "../languages.js";
+import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { plan, states } from "../review/deck.js";
 import { dayNumber as reviewDay } from "../review/fsrs.js";
-import { garden, shrineRate, shrineTier, stardustBoost } from "./idle.js";
+import { FEEDS_PER_DAY, garden, shrineRate, shrineTier, stardustBoost } from "./idle.js";
 import { SHRINE_LINES } from "./shrinelines.js";
+import { TYPES } from "./data.js";
+import { formOf } from "./genome.js";
+import { LINES, knownKeys, readLine } from "./muffles.js";
+import { warmPorridge } from "./talents.js";
+import {
+  FAVOURITES, GROUP_NAME, RECIPES, canCook, cook, feedCrop, festivalDay, fillOrder, have, isFavourite, makeBait, sell, sellPrice,
+  wake, wokenKeys,
+} from "./farmuses.js";
 import { answerQuestion, markDue, pickQuestion, weekNumber } from "./rules.js";
 import { pondWords } from "./fishing.js";
 import { TIERS } from "./loot.js";
@@ -84,14 +92,16 @@ export function openBarn() {
     const more = h(`<div class="farm-barn"></div>`);
     for (const it of list) {
       const tier = TIERS[it.tier];
-      const cell = h(`<div class="farm-barn-item" style="--tier:${tier.colour}">${cropIcon(it.crop, 32)}<span class="farm-barn-n">×${fmt(it.n)}</span></div>`);
+      const cell = h(`<button type="button" class="farm-barn-item" style="--tier:${tier.colour}">${cropIcon(it.crop, 32)}<span class="farm-barn-n">×${fmt(it.n)}</span></button>`);
       cell.title = `${t(it.crop.name)} · ${t(tier.name)}`;
+      cell.onclick = () => barnItem(`${it.crop.id}:${it.tier}`, { changed: () => d.redraw() }); // (slice 4: feed it, or make bait)
       more.append(cell);
     }
     if (!list.length) more.append(h(`<p class="farm-empty">${t("Nothing yet. Ripe crops you harvest wait here.")}</p>`));
     return {
       title: "Barn",
-      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest.",
+      text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
+      facts: [fact("Honey", `<span>${fmt(farmOf(game).honey || 0)}</span>`), fact("Bait", `<span>${fmt(farmOf(game).bait || 0)}</span>`)],
       more,
       buttons: [{ word: "Close", run: () => d.close() }],
     };
@@ -285,3 +295,178 @@ export function harvestLine(got) {
   return got.tier ? t("{0} × {1} ({2}) to the barn", t(got.crop.name), got.n, t(tier.name)) : t("{0} × {1} to the barn", t(got.crop.name), got.n);
 }
 export { cropById };
+
+// ---------- slice 4: what harvests are for (farmuses.js) ----------
+const DISH_ART = `${ART}dishes.png`;
+/** A dish's picture (game-art/farm/dishes.png), `px` square. */
+export function dishIcon(r, px = 32) {
+  const i = RECIPES.indexOf(r);
+  return `<span class="farm-ico" style="width:${px}px;height:${px}px;background-image:url('${DISH_ART}');background-size:${RECIPES.length * px}px ${px}px;background-position:${-i * px}px 0"></span>`;
+}
+const needLine = (r) => r.needs.map(([w, n]) => `${n} × ${w === "honey" ? t("Honey") : w.startsWith("fav_") ? t("{0}'s favourite crops", t(TYPES[w.slice(4)].name)) : cropById(w) ? t(cropById(w).name) : t(GROUP_NAME[w])}`).join(", ");
+
+/** One harvest in the barn: feed it to the creature out (a favourite makes it Well fed), or make bait of it. */
+function barnItem(key, { changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const f = farmOf(game);
+    const n = f.barn[key] || 0;
+    if (!n) return null;
+    const [id, tier] = key.split(":");
+    const c = cropById(id);
+    const who = game.creature;
+    const fav = who && isFavourite(who.type, id);
+    const favs = Object.entries(FAVOURITES).filter(([, list]) => list.includes(id)).map(([type]) => t(TYPES[type].name));
+    return {
+      title: c.name,
+      pic: cropIcon(c, 64),
+      facts: [fact("You have", `<span>${fmt(n)}</span>`), fact("Rarity", `<span style="color:${TIERS[tier].colour}">${t(TIERS[tier].name)}</span>`),
+        fact("Favourite of", `<span>${favs.length ? favs.join(", ") : t("Nobody")}</span>`), fact("Bait", `<span>${fmt(f.bait || 0)}</span>`)],
+      text: fav ? "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only)."
+        : "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
+      buttons: [
+        { word: "Make bait", run: () => { const err = makeBait(game, key); if (err) { toast(t(err), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
+        { word: "Feed", primary: true, run: () => {
+          const r = feedCrop(game, key, null, new Date(), FEEDS_PER_DAY);
+          if (typeof r === "string") { toast(t(r), { error: true }); return; }
+          sfx(r.loved ? "lucky" : "pet");
+          toast(r.loved ? t("Its favourite! It's Well fed for a day.") : t("Yum."));
+          saveGame(); changed(); d.redraw();
+        } },
+      ],
+    };
+  });
+}
+
+/** The Cookbook at the cook's pot: every dish, what it does, what goes in it; Cook. */
+export function openCookbook({ changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const more = h(`<div class="farm-list"></div>`);
+    for (const r of RECIPES) {
+      const ok = canCook(game, r);
+      more.append(row({ pic: dishIcon(r, 32), name: t(r.name), sub: needLine(r), dim: !ok, end: ok ? `<span class="farm-plant">${t("Cook")}</span>` : "",
+        open: () => recipeCard(r, { changed, again: () => d.redraw() }) }));
+    }
+    const f = farmOf(game);
+    return {
+      title: "Cookbook",
+      text: "Dishes cooked from your harvests and honey. Each does one thing; tap one to see what.",
+      facts: [fact("Honey", `<span>${fmt(f.honey || 0)}</span>`), fact("Festival", `<span>${festivalDay() ? t("Today!") : t("Sundays")}</span>`)],
+      more,
+      buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
+}
+
+/** A dish: its picture, what it does, what goes in it (and how many you have); Cook. */
+function recipeCard(r, { changed = () => {}, again = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const facts = r.needs.map(([w, n]) => fact(needLine({ needs: [[w, n]] }).replace(/^\d+ × /, ""), `<span>${fmt(Math.min(have(game, w), 999))} / ${n}</span>`));
+    const ok = canCook(game, r);
+    const note = r.when === "festival" && !festivalDay() ? t("Only on a festival day (Sundays).") : ok ? "" : t("You don't have everything it needs yet.");
+    return {
+      title: r.name, pic: dishIcon(r, 64), facts, text: r.text, note,
+      buttons: [{ word: "Close", run: () => d.close() }, { word: "Cook", primary: true, disabled: !ok, run: () => {
+        if (r.egg) { d.close(); pickEgg((i) => doCook(r, { egg: i })); return; }
+        if (doCook(r)) { d.close(); again(); }
+      } }],
+    };
+  });
+  function doCook(rr, opts = {}) {
+    const res = cook(game, rr.id, { ...opts, porridge: warmPorridge });
+    if (typeof res === "string") { toast(t(res), { error: true }); return false; }
+    sfx("lucky");
+    if (rr.id === "feast") wakeWords(game, 3).then((w) => toast(w.length ? t("Words woke up: {0}", w.join(", ")) : t("The Muffles feast with you.")));
+    else toast(t("You cooked: {0}", t(rr.name)));
+    saveGame();
+    changed();
+    return true;
+  }
+}
+
+/** Choose one of your eggs (for Warm porridge). */
+function pickEgg(then) {
+  const game = getGame();
+  details((d) => {
+    const more = h(`<div class="farm-list"></div>`);
+    game.roster.forEach((c, i) => {
+      if (formOf(c).id !== "egg") return;
+      more.append(row({ pic: "", name: c.name || t("Egg"), sub: t(TYPES[c.type].name), open: () => { d.close(); then(i); } }));
+    });
+    return {
+      title: "Which egg?",
+      text: more.childElementCount ? "Warm porridge is for an egg: choose which." : "You have no egg to feed it to.",
+      more, buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
+}
+
+/** The fruit stall: sell harvests for glow. */
+export function openFruitStall({ changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const g = garden(game);
+    const more = h(`<div class="farm-list"></div>`);
+    const list = barnList(game);
+    for (const it of list) {
+      const key = `${it.crop.id}:${it.tier}`;
+      const price = sellPrice(it.crop, it.tier);
+      const btn = h(`<button type="button" class="primary farm-buy"></button>`);
+      btn.innerHTML = `${t("Sell")} ${amount("glow", price)}`;
+      btn.onclick = () => { const got = sell(game, g, key, 1); if (typeof got === "string") { toast(t(got), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); };
+      more.append(row({ pic: cropIcon(it.crop, 32), name: t(it.crop.name), sub: `×${fmt(it.n)}${it.tier ? ` · ${t(TIERS[it.tier].name)}` : ""}`, end: btn }));
+    }
+    return {
+      title: "Fruit stall",
+      text: list.length ? "The grocer buys your harvests for glow. Rarer ones fetch more." : "Nothing to sell yet: harvests from your farm can be sold here for glow.",
+      facts: [fact("You have", amount("glow", g.glow))],
+      more,
+      buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
+}
+
+/** A Muffle's order: "5 carrots, please". Give them from the barn: glow, and one of their words wakes. */
+export function openOrder(order, folkName, { changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const g = garden(game);
+    const can = have(game, order.crop.id) >= order.n;
+    return {
+      title: t("{0}'s order", folkName),
+      pic: cropIcon(order.crop, 64),
+      facts: [fact("Wants", `<span>${order.n} × ${t(order.crop.name)}</span>`), fact("You have", `<span>${fmt(have(game, order.crop.id))}</span>`),
+        fact("Pays", amount("glow", order.glow))],
+      text: "Fill a Muffle's order and one of their forgotten words wakes up: it shows in their speech from now on.",
+      note: can ? "" : t("Grow some more first: the order waits until tomorrow."),
+      buttons: [{ word: "Close", run: () => d.close() }, { word: "Give", primary: true, disabled: !can, run: () => {
+        const r = fillOrder(game, g, order.i);
+        if (typeof r === "string") { toast(t(r), { error: true }); return; }
+        sfx("lucky");
+        wakeWords(game, 1).then((w) => toast(w.length ? t("Thank you! A word woke up: {0}", w[0]) : t("Thank you!")));
+        saveGame();
+        changed();
+        d.close();
+      } }],
+    };
+  });
+}
+
+/** Wake `n` of the Muffles' forgotten words in the language being learned: words of their lines you don't know yet,
+ * which from now on show in their speech. Resolves to the words woken (as written). */
+export async function wakeWords(game, n) {
+  const lang = studyLanguage();
+  let vocab = [];
+  try { vocab = await api("/vocab"); } catch { /* none known: any word may wake */ }
+  const known = new Set([...knownKeys(vocab, new Set(), game.review, lang), ...wokenKeys(game, lang)]);
+  const pool = [];
+  for (const lines of Object.values(LINES[lang] || {})) {
+    for (const line of lines) for (const w of readLine(line, known, lang).words) if (!w.known && w.key && !pool.some((p) => p.key === w.key)) pool.push(w);
+  }
+  const picked = [];
+  while (picked.length < n && pool.length) picked.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+  if (picked.length) { wake(game, lang, picked.map((w) => w.key)); saveGame(); }
+  return picked.map((w) => w.text.replace(/[.,!?¡¿،؛؟:;"'«»()…]/g, ""));
+}

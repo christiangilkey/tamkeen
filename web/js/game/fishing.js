@@ -167,7 +167,8 @@ export const pondOpen = (state, id) => pondNeed(state, id).open;
 export function luckOf(state, id) {
   const f = fishingOf(state);
   const home = state.creature && state.creature.type === pondById(id).id;
-  return Math.round(RODS[f.rod].luck * (home ? HOME_LUCK : 1) * 1000) / 1000;
+  const bait = state.farm && state.farm.bait > 0 ? 1.25 : 1; // (bait from the farm's crops, farmuses.js)
+  return Math.round(RODS[f.rod].luck * (home ? HOME_LUCK : 1) * bait * 1000) / 1000;
 }
 
 // ---------- the shadows: which words swim in the pond ----------
@@ -398,6 +399,7 @@ export function land(state, { pond, sp, tier, back = false }, rand = Math.random
   if (f.day.key !== key) f.day = { key, n: 0 };
   const worth = Math.round(SELL[tier] * fade(f.day.n, CATCH_FULL, CATCH_FLOOR));
   f.day.n++;
+  if (state.farm && state.farm.bait > 0) { state.farm.bait--; state.farm.at = Math.floor(now.getTime() / 1000); } // (one bait a fish)
   const fish = { sp, t: tier, cm: lengthOf(sp, tier, rand), w: worth };
   const mask = f.dex[sp] || 0;
   const newKind = !mask;

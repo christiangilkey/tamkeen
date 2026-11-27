@@ -14,6 +14,7 @@ Files (web/game-art/farm/, sources in game/art-src/farm/):
     seedstand.png  32 x 32             the seed stand by the barn
     bee_hive_N.png 32 x 32 (48 x 48 at tier 3)  the Spelling Bee Hive, tiers 1-3 (the Ink Well's place, plan slice 2)
     shrine_N.png   48 x 48             the Star Shrine by the cottage, grander with stardust (plan slice 3)
+    dishes.png     16 per dish x 16    the Cookbook's dishes (farmuses.js RECIPES order; plan slice 4)
 """
 
 from __future__ import annotations
@@ -569,6 +570,86 @@ def shrine(tier: int) -> Image.Image:
     return cv.im
 
 
+# The Cookbook's dishes (plan slice 4; farmuses.js RECIPES order), 16 x 16 each, side by side in dishes.png.
+DISHES = ["picnic", "focus_tea", "stew", "pie_ember", "pie_tide", "pie_grove", "pie_spark", "pie_stone", "pie_dusk",
+          "berry_tart", "moon_jelly", "lantern_soup", "feast", "champion", "porridge"]
+PIE_FILL = {"ember": "e05a2a", "tide": "3a8ad8", "grove": "4ea83a", "spark": "e8c020", "stone": "9a8a6a", "dusk": "7a4ab0"}
+BOWL = [hexc("6a4428"), hexc("9a6a3a"), hexc("c8945a")]
+PLATE = [hexc("a8a8b8"), hexc("d8d8e4"), hexc("f4f4fa")]
+
+
+def bowl(cv: C, fill, top=8):
+    """A wooden bowl, its filling showing over the rim."""
+    cv.ell(8, top + 1, 6.5, 2.2, fill[1]); cv.ell(7, top + 0.6, 3, 1, fill[2])
+    for y in range(top + 2, 14):
+        half = 6.5 - (y - top - 2) * 0.55
+        for x in range(int(8 - half), int(8 + half) + 1):
+            cv.put(x, y, BOWL[2] if x < 6 else BOWL[0] if x > 10 else BOWL[1])
+    cv.rect(5, 14, 11, 14, BOWL[0])
+
+
+def dish(did: str) -> Image.Image:
+    cv = C(16, 16)
+    if did == "picnic":  # a basket with a checked cloth, bread and an apple peeping out
+        cv.rect(2, 8, 13, 14, BARK[2]); cv.rect(2, 8, 13, 8, BARK[1])
+        for x in range(2, 14, 2):
+            cv.line(x, 9, x, 14, BARK[1])
+        cv.line(4, 8, 8, 3, BARK[1]); cv.line(8, 3, 12, 8, BARK[1])
+        cv.ell(5, 7.5, 2.4, 1.6, hexc("d8a050")); cv.ell(11, 7, 1.8, 1.8, hexc("d82a2a"))
+        for x in range(6, 10):
+            cv.put(x, 8, hexc("e04848") if x % 2 else hexc("f4f0e6"))
+    elif did == "focus_tea":  # a cup of tea, a leaf, steam
+        cv.rect(3, 7, 11, 13, hexc("e8e0d0")); cv.rect(3, 13, 11, 13, hexc("b8b0a0")); cv.rect(4, 7, 10, 8, hexc("7aa84a"))
+        cv.ell(12.5, 10, 1.8, 2, hexc("e8e0d0")); cv.put(12, 10, (0, 0, 0, 0))
+        cv.rect(2, 14, 12, 14, hexc("c8c0b0"))
+        for (x, y) in ((5, 4), (6, 3), (8, 5), (9, 4)):
+            cv.put(x, y, (236, 236, 244, 190))
+    elif did == "stew":
+        bowl(cv, [hexc("8a4a20"), hexc("c0702a"), hexc("e8a050")])
+        cv.put(6, 8, hexc("e8782a")); cv.put(9, 9, hexc("6aa84a")); cv.put(11, 8, hexc("f0d060"))
+    elif did.startswith("pie_"):  # a pie in its dish, lattice on top, its element's colour through the gaps
+        col = hexc(PIE_FILL[did[4:]])
+        cv.ell(8, 10, 7, 4, hexc("c88a4a")); cv.ell(8, 9.5, 6, 3, col)
+        for x in range(3, 14, 3):
+            cv.line(x, 7, x, 12, hexc("e8b070"))
+        cv.line(2, 9, 14, 9, hexc("e8b070")); cv.rect(2, 12, 14, 13, hexc("8a5a2a"))
+    elif did == "berry_tart":
+        cv.ell(8, 10, 6.5, 3.4, hexc("d8a050")); cv.ell(8, 9.5, 5.4, 2.4, hexc("e04870"))
+        for (x, y) in ((5, 9), (8, 8), (11, 9), (7, 10), (10, 10)):
+            cv.put(x, y, hexc("8a1a3a"))
+        cv.rect(2, 12, 14, 13, hexc("b07a3a"))
+    elif did == "moon_jelly":  # a wobbly pale blue jelly on a plate, a crescent on top
+        cv.ell(8, 13, 7, 1.6, PLATE[1])
+        for y in range(4, 13):
+            half = 4 + (y - 4) * 0.25
+            for x in range(int(8 - half), int(8 + half) + 1):
+                cv.put(x, y, hexc("b8d8f8") if x < 7 else hexc("7aa8e0"))
+        cv.put(9, 5, hexc("fff6d8")); cv.put(10, 6, hexc("fff6d8")); cv.put(6, 7, (255, 255, 255, 255))
+    elif did == "lantern_soup":  # a bowl of pumpkin soup with a little lantern glow over it
+        bowl(cv, [hexc("a8500a"), hexc("e8781a"), hexc("f8b048")], top=9)
+        cv.rect(7, 2, 9, 6, hexc("f8d050")); cv.rect(7, 1, 9, 1, BARK[0]); cv.rect(7, 7, 9, 7, BARK[0]); cv.put(8, 4, hexc("fff8c8"))
+    elif did == "feast":  # a big platter: bread, fruit, vegetables
+        cv.ell(8, 11, 7.4, 3.4, PLATE[1]); cv.ell(8, 10.6, 6.4, 2.6, PLATE[2])
+        cv.ell(5, 9, 2.4, 1.8, hexc("d8a050")); cv.ell(9, 8.5, 1.8, 1.8, hexc("d82a2a")); cv.ell(12, 9.5, 1.6, 1.6, hexc("6aa84a"))
+        cv.put(7, 10, hexc("e8782a")); cv.put(10, 11, hexc("f0d060")); cv.put(3, 4, hexc("ffd24a")); cv.put(13, 3, hexc("ffd24a"))
+    elif did == "champion":  # a hero's plate: bread, vegetables, a little flag
+        cv.ell(8, 11, 7, 3, PLATE[1]); cv.ell(8, 10.6, 6, 2.2, PLATE[2])
+        cv.ell(6, 9.5, 2.6, 1.6, hexc("d8a050")); cv.ell(10.5, 9.6, 2, 1.4, hexc("e8782a")); cv.put(9, 10, hexc("6aa84a"))
+        cv.line(11, 2, 11, 8, BARK[1]); cv.rect(12, 2, 14, 4, hexc("e04848"))
+    elif did == "porridge":
+        bowl(cv, [hexc("c8b088"), hexc("e8d8b0"), hexc("fff4d8")])
+        cv.put(7, 8, hexc("f8c040")); cv.put(8, 8, hexc("f8c040")); cv.put(9, 9, hexc("e8a020"))  # honey
+    cv.outline()
+    return cv.im
+
+
+def dishes() -> Image.Image:
+    out = Image.new("RGBA", (16 * len(DISHES), 16), (0, 0, 0, 0))
+    for i, d in enumerate(DISHES):
+        out.alpha_composite(dish(d), (i * 16, 0))
+    return out
+
+
 def sheet() -> tuple[Image.Image, Image.Image]:
     crops = Image.new("RGBA", (FW * 5, FH * len(CROPS)), (0, 0, 0, 0))
     icons = Image.new("RGBA", (16 * len(CROPS), 16), (0, 0, 0, 0))
@@ -584,7 +665,7 @@ def made() -> dict[str, Image.Image]:
     crops, icons = sheet()
     return {"crops": crops, "icons": icons, "soil": soil(), "gate": gate(), "seedstand": seedstand(),
             "bee_hive_1": beehive(1), "bee_hive_2": beehive(2), "bee_hive_3": beehive(3),
-            "shrine_1": shrine(1), "shrine_2": shrine(2), "shrine_3": shrine(3)}
+            "shrine_1": shrine(1), "shrine_2": shrine(2), "shrine_3": shrine(3), "dishes": dishes()}
 
 
 def build(aseprite: bool) -> None:
@@ -630,7 +711,7 @@ def preview(out: str) -> None:
         sheet_im.alpha_composite(icons.crop((i * 16, 0, i * 16 + 16, 16)).resize((16 * sc, 16 * sc), Image.NEAREST), (x0 + (FW * 5 + 4) * sc, y0 + 4 * sc))
     y = half * FH * sc
     x = 0
-    for n in ("soil", "gate", "seedstand", "bee_hive_1", "bee_hive_2", "bee_hive_3", "shrine_1", "shrine_2", "shrine_3"):
+    for n in ("soil", "gate", "seedstand", "bee_hive_1", "bee_hive_2", "bee_hive_3", "shrine_1", "shrine_2", "shrine_3", "dishes"):
         im = pics[n]
         sheet_im.alpha_composite(im.resize((im.width * sc, im.height * sc), Image.NEAREST), (x, y + 4))
         x += im.width * sc + 20

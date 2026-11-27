@@ -16,7 +16,8 @@ import { CROPS, beesToday, buildingsOn, cropById as cropOf, farmJobs, farmOf, fi
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
 import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, farmBlocked, farmCamera, farmMap, spotXY, tapFarm } from "./farmmap.js";
-import { askToWater, harvestLine, openBarn, openFence, openSeedStand, openShrine, pickSeed, plantCard } from "./farm-ui.js";
+import { askToWater, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard } from "./farm-ui.js";
+import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
 import { states as reviewStates } from "../review/deck.js";
 import { openModal } from "../components/modal.js";
@@ -30,7 +31,7 @@ import { describe, formOf, isGrown, stageOf } from "./genome.js";
 import { t, uiLanguage } from "../i18n.js";
 import { badgeToast, openBattleMenu, openWordChoice, wordChoiceLine } from "./battle-ui.js";
 import { publishNow } from "./friends-game.js";
-import { FULLY_GROWN_COINS, GOALS, checkBadges, levelOf, receiveGift } from "./rules.js";
+import { FULLY_GROWN_COINS, GOALS, checkBadges, dayKey, levelOf, receiveGift } from "./rules.js";
 import { FRAME, animAt, beastHeight, composeCreature, drawLiving, drawSheet, drawingOf, dressEgg, icon, loadImage } from "./render.js";
 import { checkAnki, getGame, onGame, rollNumber, saveGame, sfx } from "./game.js";
 import { openShop } from "./shop.js";
@@ -734,6 +735,12 @@ export function habitat() {
         ctx.drawImage(img, frame * 40, 0, 40, 40, -20, -37 - bob, 40, 40);
         ctx.restore();
       } });
+      if (farmOn() && ordersToday(game).some((o) => o.folk === f.id && !o.done)) out.push({ y: f.y + 0.5, draw: () => { // (slice 4: an order)
+        const bx = Math.round(f.x), by = Math.round(f.y - 30 + Math.sin(now / 300) * 1.5);
+        ctx.fillStyle = "#1e1a2c"; ctx.fillRect(bx - 4, by - 7, 9, 10);
+        ctx.fillStyle = "#fff4c0"; ctx.fillRect(bx - 3, by - 6, 7, 8);
+        ctx.fillStyle = "#c86010"; ctx.fillRect(bx, by - 5, 1, 4); ctx.fillRect(bx, by, 1, 1);
+      } });
       if (f.act === "cook") { // her pot over its fire, the steam curling (muffle/pot.png: 2 frames of 24 x 24)
         const pot = yimg("muffle/pot.png");
         if (pot) out.push({ y: f.y + 1, draw: () => {
@@ -849,6 +856,7 @@ export function habitat() {
     for (let x = 0; x < W; x++) { const y = 70 + Math.round(Math.sin(x / 17 + 1) * 3); ctx.fillRect(x, y, 1, H - y); }
   }
   // ----- the Muffles (muffles.js): where each is, and what it says -----
+  const MUFFLE_NAMES = { grocer: "The grocer", baker: "The baker", barkeep: "The barkeep", florist: "The florist", tailor: "The tailor", fisher: "The fisher" };
   const folk = FOLK.map((f, i) => ({ ...f, dir: 1, phase: f.phase ?? i * 0.37, said: 0, spoke: 0, to: null, mv: null, rest: 2 + i }));
   /** The Muffles where the creature is: the village's, or the hall's custodian. */
   const folkHere = () => folk.filter((f) => (f.scene || "yard") === (inHall() ? "hall" : inFarm() ? "farm" : "yard"));
@@ -869,6 +877,7 @@ export function habitat() {
     const line = lineFor(f, lang, f.said++);
     f.spoke = performance.now();
     const known = knownKeys(vocab || [], learned, game.review, lang);
+    if (farmOn()) for (const k of wokenKeys(game, lang)) known.add(k); // (slice 4: words woken by orders and the feast)
     const read = line ? readLine(line, known, lang) : { words: [0, 1, 2, 3].slice(0, 2 + (f.said % 3)).map((i) => ({ text: f.id + i + f.said, known: false, glyphs: [((i * 5 + f.said) % 12), ((i * 7 + 3) % 12), ((i + f.said * 2) % 12)] })), known: 0, total: 0 };
     const [b, small] = msay.children;
     b.replaceChildren();
@@ -1277,7 +1286,10 @@ export function habitat() {
         ctx.translate(Math.round(pet.x), feet - Math.round(pet.hop) + sink);
         if (pet.dir < 0) ctx.scale(-1, 1);
         if (scale !== 1) ctx.scale(scale, scale); // (smaller at the back of the room)
+        const tint = farmOn() && game.creature && game.creature.tint && game.creature.tint.until > Date.now() / 1000 ? game.creature.tint.hue : 0;
+        if (tint) ctx.filter = `hue-rotate(${tint}deg)`; // (slice 4: a Berry tart or a Moon jelly, for a day)
         drawLiving(ctx, frame, look, now); // (as drawImage(frame, -FRAME / 2, -FRAME), with a colouring's particles)
+        ctx.filter = "none";
         ctx.restore();
       }
       // (higher while it stands up to walk; a flight rises by its own reckoning: FLY_UP)
@@ -1319,6 +1331,15 @@ export function habitat() {
     for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
     for (const it of yardItems) if (it.y > feet) it.draw(); // (and on the field)
     if (outside() && !inHall() && farmOn()) { ctx.save(); ctx.translate(cam(), 0); seasonOverlay(now); ctx.restore(); } // (prototype "farm")
+    if (lanternNight()) { // (Lantern soup: the glow, and now and then a Muffle comes to say a word)
+      const g2 = ctx.createRadialGradient(pet.x, feet - 10, 2, pet.x, feet - 10, 34);
+      g2.addColorStop(0, "rgba(255, 214, 120, 0.45)"); g2.addColorStop(1, "rgba(255, 214, 120, 0)");
+      ctx.fillStyle = g2; ctx.fillRect(pet.x - 34, feet - 44, 68, 68);
+      if (inYard() && now - lanternTalk > 20000 && msay.hidden) {
+        const near = folkHere().filter((x) => !x.act).sort((a, b) => Math.abs(a.x - pet.x) - Math.abs(b.x - pet.x))[0];
+        if (near && Math.abs(near.x - pet.x) < 200) { lanternTalk = now; muffleSpeak(near); }
+      }
+    }
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
     const at = `${(((cx - cam()) / W) * 100).toFixed(2)}|${(((feet + (RING.dy + 6) * k) / H) * 100).toFixed(2)}`;
@@ -1457,6 +1478,7 @@ export function habitat() {
   function openStation(st) {
     sfx("tick");
     if (st.opens === "pond") openPond({ changed: () => paintHud(), closed: () => paintFishing(), sheet: go });
+    else if (st.opens === "garden" && farmOn()) openFruitStall({ changed: () => paintHud() }); // (slice 4: selling harvests)
     else if (st.opens === "gyms" && roomOn()) goThrough("hall"); // (in through its door: the custodian keeps the register)
     else if (st.opens === "gyms") import("./gyms-ui.js").then((m) => m.openGyms()).catch(() => {});
     else if (st.opens === "tavern") {
@@ -1539,6 +1561,9 @@ export function habitat() {
   }
   /** The season, shown outside (the owner: the village's look follows the season): blossom drifting in spring, a
    * few bright motes in summer, falling leaves in autumn, snow (and a paler ground) in winter. */
+  /** Lantern soup tonight (slice 4): a warm glow round the creature outside after dark. */
+  const lanternNight = () => farmOn() && outside() && !inHall() && buffsOf(game).lantern === dayKey() && (new Date().getHours() >= 18 || new Date().getHours() < 6);
+  let lanternTalk = 0;
   function seasonOverlay(now) {
     const season = seasonOf();
     if (season === "winter") { ctx.fillStyle = "rgba(235, 242, 255, 0.16)"; ctx.fillRect(0, 0, W, H); }
@@ -1655,7 +1680,13 @@ export function habitat() {
     // A Muffle tapped: it says something (muffles.js).
     const mf = outside() && !pressed ? muffleAt(x, y) : null;
     if (mf && mf.id === "custodian") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; } // (the hall's: sign up)
+    if (mf && farmOn() && mf.id === "cook") { sfx("tick"); openCookbook({ changed: () => paintHud() }); return; } // (slice 4: the Cookbook)
+    const order = mf && farmOn() ? ordersToday(game).find((o) => o.folk === mf.id && !o.done) : null;
+    if (order) { sfx("tick"); openOrder(order, t(MUFFLE_NAMES[mf.id] || "Muffle"), { changed: () => paintHud() }); return; }
     if (mf) { muffleSpeak(mf); return; }
+    // (the cook's pot: her Cookbook too)
+    const cookF = farmOn() && outside() && !inHall() && !inFarm() ? folk.find((x) => x.id === "cook") : null;
+    if (cookF && !pressed && Math.abs(x - (cookF.x + 11)) < 9 && y > cookF.y - 14 && y < cookF.y + 4) { sfx("tick"); openCookbook({ changed: () => paintHud() }); return; }
     // The ring's front, below the feet: the goal (not outside, where a tap by the creature is for walking).
     const rk = creatureScale();
     const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);

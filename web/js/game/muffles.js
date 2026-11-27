@@ -118,8 +118,9 @@ export function readLine(line, known, lang) {
   const out = ranges.map(([from, to], i) => {
     const word = line.slice(from, to);
     const text = line.slice(i ? from : 0, i + 1 < ranges.length ? ranges[i + 1][0] : line.length).trim();
-    const ok = formsOf(word, lang).some((k) => known.has(k));
-    return { text, known: ok, glyphs: ok ? null : glyphsFor(word) };
+    const forms = formsOf(word, lang);
+    const ok = forms.some((k) => known.has(k));
+    return { text, known: ok, glyphs: ok ? null : glyphsFor(word), key: forms[0] }; // (key: how a woken word is kept, farmuses.wake)
   });
   return { words: out, known: out.filter((w) => w.known).length, total: out.length };
 }
