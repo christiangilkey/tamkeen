@@ -52,6 +52,10 @@ import { icon } from "../icons.js";
 import { appOut } from "../appvolume.js";
 import { cardPicture } from "../components/cardpic.js";
 
+/** A colour token's value (DESIGN.md: no colour typed into a script): the rewards' confetti and notes use the theme's
+ *  gold and the game's own palette, so they read on the light table and the dark one alike. */
+const tok = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+
 const MORE_NEW = 10;      // "Learn 10 more new words" at the end of a session
 const KEY_GUARD_MS = 250; // a key held down while the card turns must not answer it too
 // (HOLD_MS, how long a word of the sentence is held to light it up, and EDIT_LABELS, what a screen reader
@@ -1054,7 +1058,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
    * so in words is one of chipsFor's). */
   function goldenHour() {
     const r = el.getBoundingClientRect();
-    burst(r.width / 2, r.height * 0.3, 60, ["#ffb11f", "#ffe9a8", "#ffd54a", "#ffffff"], 320);
+    burst(r.width / 2, r.height * 0.3, 60, [tok("--coin"), tok("--gold"), tok("--streak"), tok("--teal")], 320);
     SOUND.cheer();
     paintLuck();
   }
@@ -1072,27 +1076,27 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     const out = { big: !!(lucky && lucky.rolled && lucky.tier >= EPIC), main: null, more: [] };
     if (lucky && lucky.rolled) {
       if (!out.big) out.main = (place) => reveal(lootHost, lucky, { ...place, also: xp });
-    } else if (lucky && lucky.shielded) out.main = note("icon/streak_shield", t("Streak shield used"), t("{0} in a row kept", lucky.streak), "#4fd17a");
-    else if (lucky && lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) out.main = note("icon/combo", t("Run ended"), t("{0} in a row", lucky.lost), "#aab4c3");
-    else if (lucky && lucky.why === "fast") out.main = note("icon/clock", t("Too fast"), t("No roll for that one"), "#aab4c3");
-    else if (lucky && lucky.why === "spent") out.main = note("icon/clock", t("Extra rolls used up"), t("More tomorrow"), "#aab4c3");
-    else if (xp) out.main = (place) => notice(lootHost, { art: "icon/xp", text: xp, colour: "#aab4c3", hold: 1200, ...place, small: true });
+    } else if (lucky && lucky.shielded) out.main = note("icon/streak_shield", t("Streak shield used"), t("{0} in a row kept", lucky.streak), tok("--goal"));
+    else if (lucky && lucky.why === "wrong" && lucky.lost >= STREAK_STEPS[0][0]) out.main = note("icon/combo", t("Run ended"), t("{0} in a row", lucky.lost), tok("--ink-2"));
+    else if (lucky && lucky.why === "fast") out.main = note("icon/clock", t("Too fast"), t("No roll for that one"), tok("--ink-2"));
+    else if (lucky && lucky.why === "spent") out.main = note("icon/clock", t("Extra rolls used up"), t("More tomorrow"), tok("--ink-2"));
+    else if (xp) out.main = (place) => notice(lootHost, { art: "icon/xp", text: xp, colour: tok("--ink-2"), hold: 1200, ...place, small: true });
     if (remembered) {
       // The run of right answers: the game's own count when it is on (it raises the luck at 10, 25 and 50).
       const run = lucky ? lucky.streak : session.streak;
       const step = lucky && lucky.rolled ? STREAK_STEPS.find(([n]) => n === run) : null;
-      if (step) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), `${t("Luck")} ×${step[1]}`, "#ff8a3d"), shout: `${run} in a row! Luck ×${step[1]}` });
-      else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), "", "#ff8a3d"), shout: `${run} in a row!` });
+      if (step) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), `${t("Luck")} ×${step[1]}`, tok("--streak")), shout: `${run} in a row! Luck ×${step[1]}` });
+      else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) out.more.push({ chip: note("icon/combo", t("{0} in a row!", run), "", tok("--streak")), shout: `${run} in a row!` });
     }
     if (lucky && lucky.golden) {
       const minutes = Math.round(GOLDEN_MS / 60000);
-      out.more.push({ chip: note("icon/luck", t("Golden hour"), `${t("Luck")} ×${GOLDEN_LUCK} · ${luckClock(GOLDEN_MS)}`, "#ffb11f", { hold: 2600 }),
+      out.more.push({ chip: note("icon/luck", t("Golden hour"), `${t("Luck")} ×${GOLDEN_LUCK} · ${luckClock(GOLDEN_MS)}`, tok("--coin"), { hold: 2600 }),
         shout: `Golden hour! Luck ×${GOLDEN_LUCK} for ${minutes} minutes` });
     }
     if (earned && earned.cleared) {
       const got = [earned.glow ? t("+{0} glow", earned.glow.toLocaleString()) : "", earned.both ? t("+{0} XP", earned.both.xp) : "",
         earned.both ? t("+{0} coins", earned.both.coins) : ""].filter(Boolean).join(" · ");
-      out.more.push({ chip: note("icon/glow", t("Today's cards cleared!"), got, "#f1cf7b", { hold: 2600 }),
+      out.more.push({ chip: note("icon/glow", t("Today's cards cleared!"), got, tok("--gold"), { hold: 2600 }),
         shout: earned.glow ? `Today's cards cleared! +${earned.glow.toLocaleString()} glow` : "Today's cards cleared!" });
       if (earned.both) out.more.push({ chip: null, shout: `Battle and cards both done today: +${earned.both.xp} XP, +${earned.both.coins} coins` });
     }
@@ -1230,17 +1234,17 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
     } else {
       SOUND.yes(session.streak - 1);
       buzz("tick");
-      burst(x, y, 14 + Math.min(session.streak, 10) * 2, ["#f1cf7b", "#2ed597", "#7fe0ea", "#ffffff"]);
+      burst(x, y, 14 + Math.min(session.streak, 10) * 2, [tok("--gold"), tok("--goal"), tok("--glow"), tok("--teal")]);
       const streak = $(".rv-streak");
       streak.classList.remove("pop"); void streak.offsetWidth; streak.classList.add("pop");
       // The run of right answers: the game's own count when it is on (it raises the luck at 10, 25 and 50).
       const run = lucky ? lucky.streak : session.streak;
       const step = lucky && lucky.rolled ? STREAK_STEPS.find(([n]) => n === run) : null;
       if (step) {
-        burst(x, y, 60, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 260);
+        burst(x, y, 60, [tok("--gold"), tok("--coin"), tok("--streak"), tok("--goal"), tok("--gem")], 260);
         SOUND.cheer();
       } else if (run >= 5 && run % 5 === 0 && (!lucky || lucky.rolled)) {
-        burst(x, y, 44, ["#f1cf7b", "#ffe9a8", "#ff8a3d", "#2ed597", "#d59bff"], 230);
+        burst(x, y, 44, [tok("--gold"), tok("--coin"), tok("--streak"), tok("--goal"), tok("--gem")], 230);
         SOUND.cheer();
       }
     }
@@ -1315,7 +1319,7 @@ export function openReview({ words, allWords = words, log, scope = "", playSnipp
       SOUND.cheer();
       buzz("tick");
       const r = el.getBoundingClientRect();
-      burst(r.width / 2, r.height * 0.3, 60, ["#f1cf7b", "#ffe9a8", "#2ed597", "#7fe0ea", "#d59bff", "#ffffff"], 300);
+      burst(r.width / 2, r.height * 0.3, 60, [tok("--gold"), tok("--coin"), tok("--goal"), tok("--glow"), tok("--gem"), tok("--teal")], 300);
     }
   }
 
