@@ -382,19 +382,19 @@ def pot() -> Image.Image:
 
 # The Muffles' forgotten script: 12 letters, 7 x 9 each, in a strip (glyphs.png). An unknown word in a Muffle's line is
 # shown as a few of these (muffles.js glyphsFor), the same ones every time for the same word.
-GLYPHS = [
+GLYPHS = [  # (no real letter of any script: the owner, 2026-11-27, a glyph read as Japanese; 1, 2, 3, 5, 7, 8, 10 and 11 redrawn, same places)
     ["..xxx..", ".x...x.", "x..x..x", "x.x.x.x", "x..x..x", ".x...x.", "..xxx..", ".......", "...x..."],
-    ["x.....x", "x.....x", ".x...x.", "..x.x..", "...x...", "...x...", "..xxx..", ".......", "x.....x"],
-    ["xxxxxx.", ".....x.", "....x..", "...x...", "..xxx..", ".x...x.", "xxxxxxx", ".......", "..x.x.."],
-    ["...x...", "..x.x..", ".x...x.", "xxxxxxx", "x.....x", "x..x..x", "x.....x", ".......", "...x..."],
+    [".xxx...", "x...x..", "x.x.x..", "x...xxx", ".xxx..x", "......x", "...xxx.", ".......", "x.....x"],
+    ["xxxxxxx", "x.x.x.x", "x.x.x.x", ".......", "..xxx..", ".x...x.", "..xxx..", ".......", "..x.x.."],
+    ["..x.x..", ".xx.xx.", "x.....x", ".x...x.", "x.....x", ".xx.xx.", "..x.x..", ".......", "...x..."],
     [".xx.xx.", "x..x..x", "x.....x", ".x...x.", "..x.x..", "...x...", "...x...", ".......", "..xxx.."],
-    ["x......", "x.xxx..", "xx...x.", "x....x.", "x...x..", "x..x...", "xxxxxxx", ".......", "......x"],
+    ["xxx....", "x.x....", "xxxxxxx", "....x.x", "....xxx", "..x....", "..x....", ".......", "......x"],
     ["..xxxx.", ".x.....", "x..xx..", "x.x..x.", "x..xx..", ".x.....", "..xxxx.", ".......", ".x...x."],
-    ["xxx.xxx", "..x.x..", "..x.x..", "...x...", "..x.x..", "..x.x..", "xxx.xxx", ".......", "...x..."],
-    ["...x...", "...x...", "xxxxxxx", "...x...", "..x.x..", ".x...x.", "x.....x", ".......", "x.x.x.x"],
+    [".x...x.", "xxx.xxx", ".x...x.", "...x...", ".x...x.", "xxx.xxx", ".x...x.", ".......", "...x..."],
+    ["..x.x..", "..x.x..", "xx...xx", "...x...", "xx...xx", "..x.x..", "..x.x..", ".......", "x.x.x.x"],
     [".xxxxx.", "x.....x", "x.xxx.x", "x.x...x", "x.xxxxx", "x......", ".xxxxx.", ".......", "...x..."],
-    ["x..x..x", "x..x..x", ".x.x.x.", "..xxx..", "...x...", "..x.x..", ".x...x.", ".......", ".x.x.x."],
-    ["..x....", ".xxx...", "x.x.x..", "..x..x.", "..x...x", "..x..x.", "..xxx..", ".......", "....x.."],
+    ["xxxxxxx", "x.....x", "x.xxx.x", "x.x.x.x", "x.x...x", "x.xxxxx", "x......", ".......", ".x.x.x."],
+    [".x...x.", "x.x.x.x", ".x...x.", "...x...", "..x.x..", ".x...x.", "..xxx..", ".......", "....x.."],
 ]
 GW, GH = 7, 9
 
