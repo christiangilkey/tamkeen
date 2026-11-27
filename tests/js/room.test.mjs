@@ -134,3 +134,12 @@ test("the big tiles send the creature to their place in the village (or home)", 
     assert.ok(line.includes(`teleportTo("${spot}")`) || line.includes(`: "${spot}")`), tile); // (Garden: the farm with prototype "farm", else the fruit stall)
   }
 });
+
+test("the weather falls on everything outside alike: the night's tint and the rain's grey sky come after every building, prop, Muffle and the creature", () => {
+  const h = src("habitat.js");
+  const front = h.indexOf("for (const it of yardItems) if (it.y > feet) it.draw();");
+  assert.ok(front > 0);
+  for (const step of ["if (dark && outside()) { ctx.fillStyle", "if (outside() && !inHall() && rainy()) {", "if (outside() && !inHall() && rainy() && art.rain) {"])
+    assert.ok(h.indexOf(step) > front, `after everything on the field: ${step}`);
+  assert.ok(h.indexOf("if (outside() && !inHall() && rainy() && art.rain) {") > h.indexOf("nightLights(dark); //"), "the rain over the lamps' glow too");
+});

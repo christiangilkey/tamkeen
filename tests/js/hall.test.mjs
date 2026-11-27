@@ -67,5 +67,6 @@ test("habitat.js: the hall's door from the village, the register at the counter,
   assert.ok(h.includes('else if (st.opens === "gyms" && roomOn()) goThrough("hall");'));
   assert.ok(h.includes('if (w === "counter") { if (isEgg()) useThing("register"); else walkTo(COUNTER_SPOT, "use:register"); return; }'));
   assert.ok(h.includes('import("./gyms-ui.js").then((m) => m.openGyms())'));
-  assert.ok(h.includes("rainy() && !inHall()"));
+  assert.ok(h.includes("outside() && !inHall() && rainy()"), "rain outside, never inside the hall");
+  assert.ok(h.includes("rainy() && !outside()"), "in the room only through its window");
 });

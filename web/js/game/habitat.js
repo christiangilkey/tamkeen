@@ -16,7 +16,7 @@ import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall 
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
-import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
 import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
@@ -779,7 +779,8 @@ export function habitat() {
     }
     if (inYard() && farmOn()) { // the gate to the farm, at the yard's left edge
       const gate = yimg("farm/gate.png");
-      if (gate) out.push({ y: FARM_DOOR.y - 6, draw: () => ctx.drawImage(gate, FARM_DOOR.x - 16, FARM_DOOR.y - 6 - gate.height) });
+      // (in the gap of the fence line along the yard's left edge, on the path: farm_buildings.py gate_open)
+      if (gate) out.push({ y: 97, draw: () => ctx.drawImage(gate, 0, 80 - 24) });
     }
     for (const at of inYard() ? yardDecor() : []) {
       if (!(at.id in decorArt)) { decorArt[at.id] = null; loadImage(`${at.id}.png`).then((img) => { decorArt[at.id] = img; }); }
@@ -1159,7 +1160,7 @@ export function habitat() {
     // (in the room only the far view shows, through the window and the doorway, then the room over it)
     if (inRoom()) drawHillsFront();
     else if (!outside()) for (const layer of ["far", "mid", "ground"]) if (art[`${here}_${layer}`]) ctx.drawImage(art[`${here}_${layer}`], 0, 0);
-    if (art.rain && rainy() && !inHall()) { // (not indoors)
+    if (art.rain && rainy() && !outside()) { // (not indoors; outside it falls over everything, below)
       const fall = Math.floor(now / 14) % 32; // the tile repeats, sliding down and a little to the left
       for (let x = 0; x < W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
     }
@@ -1360,7 +1361,17 @@ export function habitat() {
     // Night outside falls on everything on the field alike (the ground, the buildings, the props, the Muffles, the
     // creature), as in the battles; inside the hall the lamps are lit (less dark).
     if (dark && outside()) { ctx.fillStyle = `rgba(20, 12, 48, ${inHall() ? dark * 0.45 : dark})`; ctx.fillRect(cam(), 0, W, H); }
+    if (outside() && !inHall() && rainy()) { // the rain: a grey sky over the whole scene, as the night is (every building, prop,
+      // Muffle and the creature alike: the owner, "the shading of the day night or weather cycles dont seem to effect the
+      // new assets"), then the drops over it all
+      ctx.fillStyle = "rgba(44, 54, 74, 0.24)"; ctx.fillRect(cam(), 0, W, H);
+    }
     if (dark && outside() && !inHall()) nightLights(dark); // (then the lights on top, so they stay bright)
+    if (outside() && !inHall() && rainy() && art.rain) {
+      const fall = Math.floor(now / 14) % 32;
+      const x0 = Math.floor(cam() / 32) * 32;
+      for (let x = x0; x < cam() + W + 32; x += 32) for (let y = -32; y < H; y += 32) ctx.drawImage(art.rain, x - Math.floor(fall / 2), y + fall);
+    }
     if (outside() && !inHall() && farmOn()) { ctx.save(); ctx.translate(cam(), 0); seasonOverlay(now); ctx.restore(); } // (prototype "farm")
     if (lanternNight()) { // (Lantern soup: the glow, and now and then a Muffle comes to say a word)
       const g2 = ctx.createRadialGradient(pet.x, feet - 10, 2, pet.x, feet - 10, 34);
@@ -1615,7 +1626,9 @@ export function habitat() {
     const stand = yimg("farm/seedstand.png");
     if (stand) out.push({ y: SEED_STAND.y, draw: () => ctx.drawImage(stand, SEED_STAND.x - 16, SEED_STAND.y - stand.height + 2) });
     const gate = yimg("farm/gate.png");
-    if (gate) out.push({ y: FARM_GATE.y, draw: () => ctx.drawImage(gate, FARM_GATE.x - 16, FARM_GATE.y - gate.height + 2) });
+    if (gate) out.push({ y: FARM_GATE.y, draw: () => { // (the same gate, facing the farm, in its fence line's gap at the path)
+      ctx.save(); ctx.translate(FARM_W, 0); ctx.scale(-1, 1); ctx.drawImage(gate, 0, (FARM_GATE.y - 12) - 24); ctx.restore();
+    } });
   }
   /** The season, shown outside (the owner: the village's look follows the season): blossom drifting in spring, a
    * few bright motes in summer, falling leaves in autumn, snow (and a paler ground) in winter. */

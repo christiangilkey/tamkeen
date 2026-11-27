@@ -41,6 +41,7 @@ export function farmMap(w, h) {
   const tiles = new Array(FARM_COLS * ROWS).fill("grass");
   const set = (x, y, t) => { if (x >= 0 && y >= 0 && x < FARM_COLS && y < ROWS) tiles[y * FARM_COLS + x] = t; };
   for (let x = 0; x < FARM_COLS; x++) set(x, ROWS - 1, "dirt"); // the path along the bottom
+  for (let y = 0; y < ROWS - 1; y++) set(FARM_COLS - 1, y, "fence"); // the fence line along its edge with the yard (its gap: the path, and the gate)
   for (let y = BARN.y0 + BARN.h; y < ROWS; y++) set(BARN.door.tx, y, "dirt"); // from the barn's door down to it
   // the fence ring round the field (a gap at the bottom middle), the field itself tilled
   const x0 = fieldLeft(w) - 1, y0 = FIELD.y - 1, x1 = FIELD.right + 1, y1 = FIELD.y + h;
@@ -53,7 +54,7 @@ export function farmMap(w, h) {
   for (let y = y1 + 1; y < ROWS; y++) set(gap, y, "dirt");
   for (let x = BARN.x0; x < BARN.x0 + BARN.w; x++) for (let y = BARN.y0; y < BARN.y0 + BARN.h; y++) set(x, y, "house_wall");
   const props = [
-    { id: "barrel", x: 35, y: 3, w: 1 },
+    { id: "barrel", x: 34, y: 7, w: 1 },
     { id: "bush_flower", x: 2, y: 1, w: 1 }, { id: "bush_flower", x: 7, y: 1, w: 1 }, { id: "bush", x: 4, y: 6, w: 1 },
   ].filter((p) => p.x > x1 || p.y > y1 || p.x + p.w <= x0 || p.y < y0); // (never inside the fence, however big)
   const propTiles = tiles.map(() => null);

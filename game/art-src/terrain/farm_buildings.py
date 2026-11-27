@@ -202,6 +202,60 @@ def sprout_c(tier):
     return finish(sp)
 
 
+
+def gate_open():
+    """The farm's gate (the owner chose "A) Fence with a gate"), standing in the gap of the fence line that runs along
+    the edge between the yard and the farm (the battle terrain's own fence tiles): two posts, the gate leaf swung open
+    on its hinge. 24 x 44; the top post's foot at y 24, the bottom post's at y 41 (the gap is one tile)."""
+    sp = Sprite(24, 44, "farm_gate")
+    sp.ground_shadow(8, 41.5, 5, 1.6)
+    for (y0, y1) in ((4, 24), (22, 41)):  # the posts, capped
+        post(sp, 3, y0, y1, PLANK, 1)
+        rect(sp, 2, y0 - 1, 5, y0, PLANK[7], 1)
+    for k, y in enumerate((11, 16, 21)):  # the leaf, swung open into the yard: rails and an upright at its far end
+        line(sp, [(5, y), (21, y + 3)], PLANK[5], part=2)
+        line(sp, [(5, y + 1), (21, y + 4)], PLANK[3], part=2)
+    post(sp, 20, 13, 25, PLANK, 2)
+    line(sp, [(6, 22), (20, 14)], PLANK[4], part=2)  # its brace
+    for x in range(6, 21):  # a little worn grass under its swing
+        sp.shadow[min(43, 27 + (x - 6) // 5), x] = (*hx("#2a3a1c")[:3], 90)
+    return finish(sp)
+
+
+OUTPUTS = {"structure/word_sprout_1": lambda: sprout_a(1), "structure/word_sprout_2": lambda: sprout_a(2),
+           "structure/word_sprout_3": lambda: sprout_a(3), "farm/gate": gate_open}
+
+
+def build(aseprite=False):
+    """The chosen new art into web/game-art (the Glyph Tree as the Word Sprout, the open gate), with layered .aseprite
+    sources (shadow, then the thing) in game/art-src/terrain/aseprite/ (placed by Aseprite itself, in batch mode)."""
+    import subprocess
+    import tempfile
+    import props as P
+    tmp = Path(tempfile.mkdtemp(prefix="farmb_"))
+    lua = []
+    for name, fn in OUTPUTS.items():
+        arr = fn()
+        Image.fromarray(arr).save(ROOT / "web/game-art" / f"{name}.png")
+        print("built", name, arr.shape[1], "x", arr.shape[0])
+        if aseprite:
+            shadow, obj = P.LAST["layers"]
+            h, w = obj.shape[:2]
+            key = name.replace("/", "_")
+            fs, fo = tmp / f"{key}_s.png", tmp / f"{key}_o.png"
+            Image.fromarray(shadow).save(fs)
+            Image.fromarray(obj).save(fo)
+            target = (Path(__file__).resolve().parent / "aseprite" / f"{key}.aseprite").as_posix()
+            lua += [f"do local spr = Sprite({w}, {h}, ColorMode.RGB)", "local L = spr.layers[1] L.name = 'shadow'",
+                    f"spr:newCel(L, 1, Image{{ fromFile = '{fs.as_posix()}' }}, Point(0, 0))",
+                    "local O = spr:newLayer() O.name = 'object'", f"spr:newCel(O, 1, Image{{ fromFile = '{fo.as_posix()}' }}, Point(0, 0))",
+                    f"spr:saveAs('{target}') spr:close() end"]
+    if lua:
+        (tmp / "b.lua").write_text("\n".join(lua), encoding="utf-8")
+        subprocess.run(["C:/Program Files (x86)/Steam/steamapps/common/Aseprite/Aseprite.exe", "-b", "--script", str(tmp / "b.lua")], check=True)
+        print(len(OUTPUTS), "sources saved")
+
+
 WORD_SPROUT_IDEAS = {"A: Glyph Tree": sprout_a, "B: Scroll Fern": sprout_b, "C: Letter Bulbs": sprout_c}
 
 
@@ -600,6 +654,9 @@ def preview(out: str) -> None:
 
 
 if __name__ == "__main__":
+    if len(sys.argv) > 1 and sys.argv[1] == "build":
+        build("--aseprite" in sys.argv)
+        raise SystemExit
     if len(sys.argv) > 2 and sys.argv[1] == "sprouts":
         sprout_preview(sys.argv[2])
         raise SystemExit

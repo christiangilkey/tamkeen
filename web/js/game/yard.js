@@ -22,17 +22,18 @@ export const WORLD_COLS = 56;        // the yard and the village
 export const WORLD_W = WORLD_COLS * TILE;
 
 // One letter per tile. g grass, d dirt, c cobbles, f flowers, t tall grass, s shallows, w deep water, b bridge (the
-// pier), H house wall, o wooden floor (inside; a doorway in a front wall), L the hall's stone wall, S stone floor.
+// pier), H house wall, o wooden floor (inside; a doorway in a front wall), L the hall's stone wall, S stone floor,
+// F fence (the line along the farm's edge, its gap on the path: the owner, "A) Fence with a gate").
 const YARD = [
-  "gtggggggggfggttgsssg",
-  "gHHHHHHgggfggggswwsg",
-  "gHooooHggffggggsswsg",
-  "gHHoHHHgggggggggsssg",
-  "gggdggggggggggggggfg",
+  "Ftggggggggfggttgsssg",
+  "FHHHHHHgggfggggswwsg",
+  "FHooooHggffggggsswsg",
+  "FHHoHHHgggggggggsssg",
+  "Fggdggggggggggggggfg",
   "dddddddddddddggggggg",
-  "tfggggggggggdddddddd",
-  "gggggggggggggggggggt",
-  "fgggggggggggggggggtt",
+  "Ffggggggggggdddddddd",
+  "Fggggggggggggggggggt",
+  "Fgggggggggggggggggtt",
 ];
 // the village, columns 20-55
 const VILLAGE = [
@@ -47,7 +48,7 @@ const VILLAGE = [
   "ggggggggggggggggggggggggggggggswwwww",
 ];
 const LAYOUT = YARD.map((row, i) => row + VILLAGE[i]);
-const LETTERS = { g: "grass", d: "dirt", c: "cobbles", f: "flowers", t: "tall_grass", s: "shallows", w: "deep_water", b: "bridge",
+const LETTERS = { g: "grass", d: "dirt", c: "cobbles", f: "flowers", t: "tall_grass", F: "fence", s: "shallows", w: "deep_water", b: "bridge",
   H: "house_wall", o: "wood_floor", L: "hall_wall", S: "stone_floor" };
 
 // What stands on the field (battlemap.PROPS ids): x, y = the left tile of its foot and its row.
