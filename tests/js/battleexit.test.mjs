@@ -37,7 +37,7 @@ test("the live battle has an X in its top bar, after the rival's card, with a na
   assert.ok(top.indexOf("lb-pause") > 0, "the pause button stays too");
   const css = read("web/css/app.css");
   assert.match(css, /\.lb-top \{ display: grid; grid-template-columns: 1fr auto 1fr auto;/, "a place for it in the bar");
-  assert.match(css, /\.lb-pause, \.lb-exit \{ color: #fff; \}/);
+  assert.match(css, /\.lb-pause, \.lb-exit \{ color: var\(--game-on\); \}/);
 });
 
 test("the X asks first (Carry on highlighted), and leaving pays nothing and costs nothing", () => {

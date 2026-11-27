@@ -471,7 +471,7 @@ test("a chip's words are made to fit before any are cut: the XP under the reward
   assert.match(js, /got\.className = "loot-got"/);
   const app = readFileSync(new URL("../../web/css/app.css", import.meta.url), "utf8");
   assert.match(app, /\.loot\.stack \.loot-also \{ display: block; \}/);
-  assert.match(app, /\.loot\.tight \.loot-text \{ font-size: 13px; \}/);
+  assert.match(app, /\.loot\.tight \.loot-text \{ font-size: var\(--fs-12\); \}/);
   assert.match(app, /\.loot-got, \.loot-also \{ display: inline-block; max-width: 100%;/);
 });
 
