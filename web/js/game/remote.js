@@ -116,6 +116,23 @@ export function cleanAquarium(v) {
   };
 }
 
+/**
+ * A friend's farm for the weekly harvest board (farm.publicFarm; prototype "farm"), checked: {week, n: this week's
+ * harvests, best: {c, t} the rarest of them or null, size: [w, h], dex}. null when it isn't one. Never words.
+ */
+export function cleanFarm(v) {
+  if (!isObject(v)) return null;
+  const best = isObject(v.best) && typeof v.best.c === "string" && /^[a-z_]{1,24}$/.test(v.best.c) ? { c: v.best.c, t: clampInt(v.best.t, 0, TIER_COUNT - 1, 0) } : null;
+  const size = Array.isArray(v.size) ? [clampInt(v.size[0], 1, 12, 3), clampInt(v.size[1], 1, 6, 3)] : [3, 3];
+  return {
+    week: Number.isInteger(v.week) && v.week >= 0 && v.week < 1e6 ? v.week : null,
+    n: clampInt(v.n, 0, 100000, 0),
+    best,
+    size,
+    dex: clampInt(v.dex, 0, 100, 0),
+  };
+}
+
 /** A friend's team: up to three checked creatures. */
 export function cleanTeam(team) {
   if (!Array.isArray(team)) return [];
@@ -141,6 +158,7 @@ export function cleanProfile(row) {
     xp_today: clampInt(row.xp_today, 0, LIMITS.xpToday, 0),
     showcase: cleanGenome(row.showcase),
     aquarium: cleanAquarium(row.aquarium), // (fishing: their aquarium and this week's biggest catch; null from an older app)
+    farm: cleanFarm(row.farm), // (the farm: this week's harvests, for the friends' harvest board; null from an older app)
     updated_at: cleanDate(row.updated_at),
   };
   if (typeof row.user_id === "string" && row.user_id.length <= 64) out.user_id = row.user_id;

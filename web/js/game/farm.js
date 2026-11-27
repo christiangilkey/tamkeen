@@ -18,7 +18,7 @@
 
 import { LEGENDARY, TIERS, chances } from "./loot.js";
 import { dayNumber, weekNumber } from "./rules.js";
-import { BUILD_SPOTS, canPlace, spotXY } from "./farmmap.js";
+import { BUILD_SPOTS, UPGRADE_SPOTS, canPlace, spotXY } from "./farmmap.js";
 
 export const SEASONS = ["spring", "summer", "autumn", "winter"];
 /** This week's season: the same for everyone, turning on Mondays. */
@@ -163,6 +163,7 @@ export function plant(state, key, id, now = new Date()) {
   if (!onField(state, key)) return "That isn't part of your field.";
   if (f.plots[key]) return "Something is growing there already.";
   if (!c || !(f.seeds[id] > 0)) return "You have none of those seeds.";
+  if (!inSeason(c, now) && !underGlass(state, key)) return "Those seeds are out of season: plant them under the greenhouse's glass, or wait for their season.";
   f.seeds[id]--;
   if (!f.seeds[id]) delete f.seeds[id];
   const today = dayNumber(now);
@@ -182,13 +183,13 @@ export function plantState(state, key, now = new Date()) {
   if (!c) return null;
   const today = dayNumber(now);
   const ripe = p.days >= c.days;
-  const resting = !ripe && !inSeason(c, now);
+  const resting = !ripe && !inSeason(c, now) && !underGlass(state, key); // (slice 5: the greenhouse's row grows any season)
   const watered = p.lastWater === today; // (`last`: the day it was planted or last watered, for wilting)
   const stage = ripe ? 3 : p.days === 0 ? 0 : p.days * 2 >= c.days ? 2 : 1;
   return {
     crop: c, stage, ripe, resting, watered, days: p.days, need: c.days,
     thirsty: !ripe && !resting && !watered,
-    wilted: !ripe && !resting && !watered && today - p.last >= 2,
+    wilted: !ripe && !resting && !watered && today - p.last >= 2 && !sprinklerOn(state), // (slice 5: the sprinkler keeps them fresh)
     half: !!(p.wet && p.wet.d === today && p.wet.n > 0 && !watered), // (one wrong answer: a little water)
   };
 }
@@ -218,6 +219,7 @@ export function water(state, key, correct, now = new Date()) {
   p.last = today;
   p.lastWater = today;
   delete p.wet;
+  if (f.lastFarmDay !== today) { f.lastFarmDay = today; f.farmDays = (Number(f.farmDays) || 0) + 1; } // (days watered: the sprinkler is earned)
   return { grew: true, ripe: p.days >= need, revived, lantern: lit };
 }
 
@@ -252,15 +254,20 @@ export function harvest(state, key, rand = Math.random, now = new Date()) {
   const s = plantState(state, key, now);
   if (!s) return "Nothing is growing there.";
   if (!s.ripe) return "It isn't ripe yet.";
+  if (barnCount(state) >= barnCap(state)) return "Your barn is full. Sell, cook or feed some first, or build a bigger barn: the crop waits, ripe.";
   const c = s.crop;
-  const tier = rollTier((1 + c.days / 10) * stoneLuck(state), rand); // (the Memory Stone: luck)
+  const tier = rollTier((1 + c.days / 10) * stoneLuck(state) * (level(state, "scarecrow") ? 1.25 : 1), rand); // (the Memory Stone, the scarecrow: luck)
   const [lo, hi] = c.give;
   const bees = beesToday(state, now) ? nearTier(state, "hive", key) : 0; // (bees about: one more, two near a big hive)
-  const n = lo + Math.floor(rand() * (hi - lo + 1)) + (bees ? (bees >= 3 ? 2 : 1) : 0);
+  const n = lo + Math.floor(rand() * (hi - lo + 1)) + (bees ? (bees >= 3 ? 2 : 1) : 0) + (level(state, "compost") && rand() < 0.5 ? 1 : 0); // (the compost bin)
   f.barn[barnKey(c.id, tier)] = (f.barn[barnKey(c.id, tier)] || 0) + n;
   delete f.plots[key];
   f.dex = f.dex && typeof f.dex === "object" ? f.dex : {};
   f.dex[c.id] = Math.max(f.dex[c.id] || 0, tier + 1); // (the Cropdex: the rarest of each crop grown)
+  const wk = weekNumber(now); // (this week's harvests, for the friends' harvest board: publicFarm)
+  if (!f.week || f.week.n !== wk) f.week = { n: wk, count: 0, best: null };
+  f.week.count += n;
+  if (!f.week.best || tier > f.week.best.t) f.week.best = { c: c.id, t: tier };
   touch(f, now);
   return { crop: c, tier, n };
 }
@@ -353,6 +360,16 @@ export function farmJobs(state, rand = Math.random, now = new Date()) {
       out.watered.push(thirsty[0].s.key);
     }
   }
+  // the sprinkler (earned): two thirsty plants watered each day
+  if (sprinklerOn(state) && j.sprinkled !== day) {
+    j.sprinkled = day;
+    let left = 2;
+    for (const s of spots(state)) {
+      if (!left) break;
+      const st = plantState(state, s.key, now);
+      if (st && st.thirsty && typeof water(state, s.key, true, now) === "object") { out.watered.push(s.key); left--; }
+    }
+  }
   // the hive's honey: a jar every few words saved today
   const hive = tierOf(state, "hive");
   const saves = isToday(state, now) ? Number(state.day.saves) || 0 : 0;
@@ -376,4 +393,143 @@ export function placeBuilding(state, i, x, y, now = new Date()) {
   p.at = { x: Math.round(x), y: Math.round(y) };
   touch(farmOf(state), now);
   return "";
+}
+
+// ---------- slice 5: upgrades, the earned sprinkler, decorations, the week's harvests ----------
+// Bought with glow (the owner's plan), except the sprinkler, which is EARNED: SPRINKLER_DAYS farm days (days a plant was
+// watered). Nothing here adds strength in battles, and none of it is for sale for money.
+export const UPGRADES = [
+  { id: "can", name: "Watering can", cost: [300, 1200], text: "One right answer also waters a thirsty plant next to it (two at the second level)." },
+  { id: "greenhouse", name: "Greenhouse", cost: [2500], text: "Glass over the top row of your field: anything grows there in any season." },
+  { id: "scarecrow", name: "Scarecrow", cost: [600], text: "It keeps the birds off: your harvests come out rarer more often." },
+  { id: "compost", name: "Compost bin", cost: [800], text: "Richer soil: a harvest sometimes gives one more." },
+  { id: "windmill", name: "Windmill", cost: [3000], text: "Grinds wheat into flour. In the Cookbook, one flour counts as two grain." },
+  { id: "barn", name: "Bigger barn", cost: [500, 2000, 6000], text: "Room for more harvests in your barn." },
+];
+export const BARN_CAP = [80, 200, 500, 1500];
+export const SPRINKLER_DAYS = 10;
+export const upgradeById = (id) => UPGRADES.find((u) => u.id === id) || null;
+/** An upgrade's level (0: not built). */
+export function level(state, id) {
+  const f = farmOf(state);
+  return f.up && Number.isFinite(f.up[id]) ? f.up[id] : 0;
+}
+/** What the next level of an upgrade costs (null when it is as built as it gets). */
+export const upgradeCost = (state, id) => { const u = upgradeById(id); const l = level(state, id); return u && l < u.cost.length ? u.cost[l] : null; };
+/** Build an upgrade's next level. Returns an error message, or "". */
+export function buyUpgrade(state, glow, id, now = new Date()) {
+  const cost = upgradeCost(state, id);
+  if (cost === null) return upgradeById(id) ? "It's built as far as it goes." : "There's no such upgrade.";
+  if (glow.glow < cost) return `You need ${Math.ceil(cost - glow.glow)} more glow.`;
+  glow.glow -= cost;
+  const f = farmOf(state);
+  if (!f.up || typeof f.up !== "object") f.up = {};
+  f.up[id] = level(state, id) + 1;
+  touch(f, now);
+  return "";
+}
+/** How much the barn holds, and how much is in it. */
+export const barnCap = (state) => BARN_CAP[Math.min(BARN_CAP.length - 1, level(state, "barn"))];
+export const barnCount = (state) => Object.values(farmOf(state).barn).reduce((n, k) => n + (Number(k) || 0), 0);
+/** Is the sprinkler earned (SPRINKLER_DAYS days a plant was watered)? */
+export const sprinklerOn = (state) => (Number(farmOf(state).farmDays) || 0) >= SPRINKLER_DAYS;
+/** Is field spot `key` under the greenhouse's glass (its top row, once built)? */
+export const underGlass = (state, key) => level(state, "greenhouse") > 0 && String(key).split(",")[1] === "0";
+
+/** The watering can: after a right answer, water up to its level's thirsty neighbours of `key`. Returns their keys. */
+export function waterAround(state, key, now = new Date()) {
+  const n = level(state, "can");
+  if (!n) return [];
+  const [c, r] = String(key).split(",").map(Number);
+  const near = [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, -1], [1, -1], [-1, 1]].map(([dc, dr]) => `${c + dc},${r + dr}`);
+  const out = [];
+  for (const k of near) {
+    if (out.length >= n) break;
+    const st = plantState(state, k, now);
+    if (st && st.thirsty && typeof water(state, k, true, now) === "object") out.push(k);
+  }
+  return out;
+}
+
+/** The windmill: grind wheat from the barn (commonest first) into flour. Returns how many were ground, or an error. */
+export function grind(state, n = 1, now = new Date()) {
+  if (!level(state, "windmill")) return "Build the windmill first.";
+  const f = farmOf(state);
+  let done = 0;
+  for (const key of Object.keys(f.barn).filter((k) => k.startsWith("wheat:")).sort()) {
+    while (done < n && f.barn[key] > 0) { f.barn[key]--; done++; }
+    if (!f.barn[key]) delete f.barn[key];
+  }
+  if (!done) return "You have no wheat to grind.";
+  f.flour = (Number(f.flour) || 0) + done;
+  touch(f, now);
+  return done;
+}
+
+// Decorations with no power at all (the owner's plan): bought with glow, placed anywhere on the farm, moved, put away.
+export const DECOR = [
+  { id: "flowerbed", name: "Flower bed", cost: 120, prop: "bush_flower" },
+  { id: "stones", name: "Stepping stones", cost: 60, art: "farm/stones.png" },
+  { id: "bench", name: "Bench", cost: 150, prop: "bench" },
+  { id: "picnic", name: "Picnic table", cost: 250, prop: "table" },
+  { id: "lamp", name: "Lamp post", cost: 200, prop: "lamp_post" },
+  { id: "weathervane", name: "Weathervane", cost: 300, art: "farm/weathervane.png" },
+  { id: "haystack", name: "Haystack", cost: 100, prop: "haystack" },
+  { id: "cart", name: "Cart", cost: 250, prop: "cart" },
+];
+export const DECOR_MAX = 24;
+export const decorById = (id) => DECOR.find((d) => d.id === id) || null;
+/** The farm's decorations: [{i, id, x, y}]. */
+export function decorOn(state) {
+  const f = farmOf(state);
+  return (Array.isArray(f.decor) ? f.decor : []).map((d, i) => ({ i, ...d })).filter((d) => decorById(d.id));
+}
+/** Everything standing on the farm a new thing mustn't stand on: buildings, decorations, the upgrades. */
+const standing = (state, skip = null) => [...buildingsOn(state).map((b) => ({ x: b.x, y: b.y })),
+  ...decorOn(state).filter((d) => d.i !== skip).map((d) => ({ x: d.x, y: d.y })), ...UPGRADE_SPOTS];
+/** Buy a decoration: it stands on the first open patch of grass (move it after). Returns an error message, or "". */
+export function buyDecor(state, glow, id, now = new Date()) {
+  const d = decorById(id);
+  const f = farmOf(state);
+  if (!d) return "There's no such decoration.";
+  if (decorOn(state).length >= DECOR_MAX) return "Your farm has all the decorations it can hold.";
+  if (glow.glow < d.cost) return `You need ${Math.ceil(d.cost - glow.glow)} more glow.`;
+  const others = standing(state);
+  let at = null;
+  for (let y = 136; y >= 40 && !at; y -= 12) for (let x = 24; x <= 560 && !at; x += 16) if (canPlace(x, y, others)) at = { x, y };
+  if (!at) return "There's no open patch of grass left. Move something first.";
+  glow.glow -= d.cost;
+  if (!Array.isArray(f.decor)) f.decor = [];
+  f.decor.push({ id, x: at.x, y: at.y });
+  touch(f, now);
+  return "";
+}
+/** Move decoration `i` to (x, y). Returns an error message, or "". */
+export function placeDecor(state, i, x, y, now = new Date()) {
+  const f = farmOf(state);
+  if (!Array.isArray(f.decor) || !f.decor[i]) return "There's no decoration there.";
+  if (!canPlace(x, y, standing(state, i))) return "It can't stand there. Try an open patch of grass.";
+  f.decor[i] = { ...f.decor[i], x: Math.round(x), y: Math.round(y) };
+  touch(f, now);
+  return "";
+}
+/** Put decoration `i` away for good: half its glow back. Returns the glow, or an error message string. */
+export function removeDecor(state, glow, i, now = new Date()) {
+  const f = farmOf(state);
+  const d = Array.isArray(f.decor) && f.decor[i] && decorById(f.decor[i].id);
+  if (!d) return "There's no decoration there.";
+  f.decor.splice(i, 1);
+  const back = Math.floor(d.cost / 2);
+  glow.glow += back;
+  touch(f, now);
+  return back;
+}
+
+/** What friends may see of the farm (the weekly harvest board, friends only; supabase/v20-farm.sql): this week's
+ * harvests and the rarest of them, the field's size, how much of the Cropdex is filled. Never words. */
+export function publicFarm(state, now = new Date()) {
+  const f = farmOf(state);
+  const wk = weekNumber(now);
+  const w = f.week && f.week.n === wk ? f.week : { n: wk, count: 0, best: null };
+  return { week: wk, n: Math.min(100000, Number(w.count) || 0), best: w.best || null, size: fieldSize(state), dex: Object.keys(f.dex || {}).length };
 }

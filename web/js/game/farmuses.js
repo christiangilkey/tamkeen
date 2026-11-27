@@ -55,13 +55,15 @@ function stock(f, test) {
 export function have(state, want) {
   const f = farmOf(state);
   if (want === "honey") return Number(f.honey) || 0;
-  return stock(f, (id) => fits(id, want)).reduce((n, [, k]) => n + k, 0);
+  const flour = want === "grain" ? 2 * (Number(f.flour) || 0) : 0; // (the windmill's flour: two grain each)
+  return stock(f, (id) => fits(id, want)).reduce((n, [, k]) => n + k, 0) + flour;
 }
 /** Take `n` of an ingredient from the barn, commonest first (honey: jars). False (nothing taken) when there isn't enough. */
 function take(f, want, n) {
   if (want === "honey") { if ((Number(f.honey) || 0) < n) return false; f.honey -= n; return true; }
   const list = stock(f, (id) => fits(id, want));
-  if (list.reduce((s, [, k]) => s + k, 0) < n) return false;
+  const flour = want === "grain" ? Number(f.flour) || 0 : 0;
+  if (list.reduce((s, [, k]) => s + k, 0) + 2 * flour < n) return false;
   for (const [key, k] of list) {
     const use = Math.min(k, n);
     f.barn[key] -= use;
@@ -69,6 +71,7 @@ function take(f, want, n) {
     n -= use;
     if (!n) break;
   }
+  if (n > 0) f.flour = flour - Math.ceil(n / 2); // (the rest from flour, two grain each)
   return true;
 }
 

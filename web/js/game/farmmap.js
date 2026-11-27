@@ -10,7 +10,7 @@ import { TILE } from "./battlemap.js";
 import { HABITAT } from "./data.js";
 
 const [W, H] = HABITAT.size;
-export const FARM_COLS = 32;
+export const FARM_COLS = 36; // (32 until slice 5: the windmill and the compost bin stand at the far end)
 export const FARM_W = FARM_COLS * TILE;
 const ROWS = H / TILE; // 9
 /** The field's top left tile (its first plant), and where the fence ring around it starts. */
@@ -48,7 +48,7 @@ export function farmMap(w, h) {
   for (let y = y1 + 1; y < ROWS; y++) set(gap, y, "dirt");
   for (let x = BARN.x0; x < BARN.x0 + BARN.w; x++) for (let y = BARN.y0; y < BARN.y0 + BARN.h; y++) set(x, y, "house_wall");
   const props = [
-    { id: "haystack", x: 0, y: 6, w: 2 }, { id: "barrel", x: 0, y: 4, w: 1 }, { id: "scarecrow", x: 6, y: 7, w: 1 },
+    { id: "barrel", x: 0, y: 4, w: 1 },
     { id: "bush_flower", x: 27, y: 1, w: 1 }, { id: "bush_flower", x: 31, y: 1, w: 1 }, { id: "bush", x: 21, y: 1, w: 1 },
   ].filter((p) => p.x > x1 || p.y > y1 || p.x + p.w <= x0 || p.y < y0); // (never inside the fence, however big)
   const propTiles = tiles.map(() => null);
@@ -93,6 +93,14 @@ export function tapFarm(x, y, w, h) {
   if (tx >= x0 && tx <= x1 && ty >= y0 && ty <= y1) return { kind: "fence" };
   return { kind: "ground" };
 }
+
+// ---------- the farm's upgrades (slice 5): where each stands once built ----------
+export const UPGRADE_AT = {
+  windmill: { x: 33 * TILE + 8, y: 4 * TILE + 4 }, compost: { x: 34 * TILE, y: 7 * TILE + 4 }, scarecrow: { x: 6 * TILE + 8, y: 7 * TILE + 12 },
+};
+/** The sprinkler (earned): beside the gap in the fence, below the field. */
+export const sprinklerAt = (w, h) => ({ x: gapCol(w) * TILE + 30, y: (FIELD.y + h + 1) * TILE + 6 });
+export const UPGRADE_SPOTS = Object.values(UPGRADE_AT);
 
 // ---------- the garden's buildings on the farm (slice 2) ----------
 /** Where each of the six building slots stands until it is moved: right of the field, two rows of three. */

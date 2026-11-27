@@ -4284,3 +4284,5 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .farm-barn-n { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .farm-empty { grid-column: 1 / -1; margin: 6px 0; text-align: center; color: var(--muted); }
 .farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }
+/* The Cropdex (prototype "farm"): a crop not grown yet, faint. */
+.farm-dex-none { opacity: .35; }

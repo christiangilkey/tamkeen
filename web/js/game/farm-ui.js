@@ -15,6 +15,8 @@ import { TYPES } from "./data.js";
 import { formOf } from "./genome.js";
 import { LINES, knownKeys, readLine } from "./muffles.js";
 import { warmPorridge } from "./talents.js";
+import * as social from "../social.js";
+import { cleanName, cleanProfiles } from "./remote.js";
 import {
   FAVOURITES, GROUP_NAME, RECIPES, canCook, cook, feedCrop, festivalDay, fillOrder, have, isFavourite, makeBait, sell, sellPrice,
   wake, wokenKeys,
@@ -25,8 +27,10 @@ import { TIERS } from "./loot.js";
 import { getGame, saveGame, sfx } from "./game.js";
 import { amount, block, details, fact, fmt, row } from "./screenparts.js";
 import {
-  CROPS, barnList, buySeeds, cropById, daysToNextSeason, farmOf, fenceCost, fieldSize, growFence, inSeason, plant,
-  plantState, rareSeedOf, seasonOf, seedPrice, seedsOnSale, water,
+  CROPS, DECOR, DECOR_MAX, SPRINKLER_DAYS, UPGRADES, barnCap, barnCount, barnList, buyDecor, buySeeds, buyUpgrade, cropById,
+  daysToNextSeason, decorById, decorOn, farmOf, fenceCost, fieldSize, grind, growFence, inSeason, level, plant, plantState,
+  publicFarm, rareSeedOf, removeDecor, seasonOf, seedPrice, seedsOnSale, sprinklerOn, underGlass, upgradeById, upgradeCost,
+  water, waterAround,
 } from "./farm.js";
 
 const ART = new URL("../../game-art/farm/", import.meta.url).href;
@@ -62,7 +66,7 @@ export function openSeedStand({ changed = () => {} } = {}) {
       text: "Seeds for your field, bought with glow. Each season has its own crops; all-year ones grow any week.",
       more,
       note: t("You have {0} glow.", fmt(g.glow)),
-      buttons: [{ word: "Close", run: () => d.close() }],
+      buttons: [{ word: "Close", run: () => d.close() }, { word: "Upgrades", primary: true, run: () => { d.close(); openFarmShop({ changed }); } }],
     };
     function seedRow(c, had = false) {
       const price = seedPrice(c);
@@ -101,9 +105,10 @@ export function openBarn() {
     return {
       title: "Barn",
       text: "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
-      facts: [fact("Honey", `<span>${fmt(farmOf(game).honey || 0)}</span>`), fact("Bait", `<span>${fmt(farmOf(game).bait || 0)}</span>`)],
+      facts: [fact("In the barn", `<span>${fmt(barnCount(game))} / ${fmt(barnCap(game))}</span>`), fact("Honey", `<span>${fmt(farmOf(game).honey || 0)}</span>`),
+        fact("Bait", `<span>${fmt(farmOf(game).bait || 0)}</span>`), fact("Flour", `<span>${fmt(farmOf(game).flour || 0)}</span>`)],
       more,
-      buttons: [{ word: "Close", run: () => d.close() }],
+      buttons: [{ word: "Cropdex", run: () => openCropdex() }, { word: "Harvest board", primary: true, run: () => openHarvestBoard() }],
     };
   });
 }
@@ -143,7 +148,7 @@ export function pickSeed(key, { changed = () => {}, planted = () => {} } = {}) {
     const have = CROPS.filter((c) => f.seeds[c.id] > 0);
     const more = h(`<div class="farm-list"></div>`);
     for (const c of have) {
-      const ok = inSeason(c);
+      const ok = inSeason(c) || underGlass(game, key); // (slice 5: the greenhouse's row grows any season)
       more.append(row({
         pic: cropIcon(c, 32), name: t(c.name), dim: !ok,
         sub: ok ? `${daysLine(c)} · ${t("You have {0}", f.seeds[c.id])}` : t("Its season: {0}", t(SEASON_NAME[c.season])),
@@ -251,11 +256,13 @@ export async function askToWater(key) {
       if (!correct) buttons[i].classList.add("wrong");
       answerQuestion(game, q.uid, correct);
       const r = water(game, key, correct);
+      const more = correct && typeof r === "object" ? waterAround(game, key) : []; // (slice 5: the watering can)
       saveGame();
       const verdict = panel.querySelector(".lbq-verdict");
       verdict.hidden = false;
       verdict.className = `lbq-verdict ${correct ? "ok" : "no"}`;
-      verdict.textContent = correct ? t("Right! It has its water for today.") : t("Not quite: a little water. One more answer waters it.");
+      verdict.textContent = correct ? (more.length ? t("Right! It and {0} more have their water for today.", more.length) : t("Right! It has its water for today."))
+        : t("Not quite: a little water. One more answer waters it.");
       sfx(correct ? "common" : "surprise");
       setTimeout(() => { m.close(); resolve(typeof r === "string" ? null : { correct, ...r }); }, correct ? 900 : 2200);
     }
@@ -325,6 +332,7 @@ function barnItem(key, { changed = () => {} } = {}) {
       text: fav ? "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only)."
         : "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
       buttons: [
+        ...(id === "wheat" && level(game, "windmill") ? [{ word: "Grind", run: () => { const r = grind(game, n); if (typeof r === "string") { toast(t(r), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } }] : []),
         { word: "Make bait", run: () => { const err = makeBait(game, key); if (err) { toast(t(err), { error: true }); return; } sfx("tick"); saveGame(); changed(); d.redraw(); } },
         { word: "Feed", primary: true, run: () => {
           const r = feedCrop(game, key, null, new Date(), FEEDS_PER_DAY);
@@ -469,4 +477,150 @@ export async function wakeWords(game, n) {
   while (picked.length < n && pool.length) picked.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
   if (picked.length) { wake(game, lang, picked.map((w) => w.key)); saveGame(); }
   return picked.map((w) => w.text.replace(/[.,!?¡¿،؛؟:;"'«»()…]/g, ""));
+}
+
+// ---------- slice 5: upgrades, decorations, the Cropdex, the friends' harvest board ----------
+const UP_ICON = (i, px = 32) => `<span class="farm-ico" style="width:${px}px;height:${px}px;background-image:url('${ART}upgrades.png');background-size:${7 * px}px ${px}px;background-position:${-i * px}px 0"></span>`;
+const decorPic = (d, px = 32) => {
+  const src = d.art ? `${ART.replace(/farm\/$/, "")}${d.art}` : `${ART.replace(/farm\/$/, "")}battle/terrain/prop_${d.prop}.png`;
+  return `<img class="px-icon" alt="" style="max-width:${px}px;max-height:${px}px;image-rendering:pixelated" src="${src}">`;
+};
+
+/** Upgrades (bought with glow; the sprinkler earned) and decorations (no power at all) for the farm. */
+export function openFarmShop({ changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const g = garden(game);
+    const f = farmOf(game);
+    const more = h(`<div class="farm-list"></div>`);
+    const ub = block("Upgrades");
+    UPGRADES.forEach((u, i) => {
+      const l = level(game, u.id);
+      const cost = upgradeCost(game, u.id);
+      const btn = h(`<button type="button" class="primary farm-buy"></button>`);
+      if (cost === null) { btn.textContent = t("Built"); btn.disabled = true; } else { btn.innerHTML = amount("glow", cost, g.glow < cost); btn.disabled = g.glow < cost; }
+      btn.onclick = () => { const err = buyUpgrade(game, g, u.id); if (err) { toast(t(err), { error: true }); return; } sfx("lucky"); saveGame(); changed(); d.redraw(); };
+      ub.append(row({ pic: UP_ICON(i), name: u.cost.length > 1 ? `${t(u.name)} · ${l} / ${u.cost.length}` : t(u.name), sub: t(u.text), end: btn }));
+    });
+    const days = Math.min(SPRINKLER_DAYS, Number(f.farmDays) || 0);
+    ub.append(row({ pic: UP_ICON(6), name: t("Sprinkler"), sub: sprinklerOn(game) ? t("Earned: plants never wilt, and it waters two of them each day.")
+      : t("Earned, not bought: water plants on {0} different days ({1} so far). Then plants never wilt, and it waters two each day.", SPRINKLER_DAYS, days), end: sprinklerOn(game) ? `<span class="farm-plant">${t("Earned")}</span>` : "" }));
+    more.append(ub);
+    const db = block("Decorations", `${decorOn(game).length} / ${DECOR_MAX}`);
+    for (const dd of DECOR) {
+      const btn = h(`<button type="button" class="primary farm-buy"></button>`);
+      btn.innerHTML = amount("glow", dd.cost, g.glow < dd.cost);
+      btn.disabled = g.glow < dd.cost;
+      btn.onclick = () => { const err = buyDecor(game, g, dd.id); if (err) { toast(t(err), { error: true }); return; } sfx("tick"); toast(t("It's on your farm. Tap it there to move it.")); saveGame(); changed(); d.redraw(); };
+      db.append(row({ pic: decorPic(dd), name: t(dd.name), sub: t("Just for looks"), end: btn }));
+    }
+    more.append(db);
+    return {
+      title: "Upgrades and decorations",
+      text: "Upgrades help your farm; decorations are just for looks. Both are bought with glow.",
+      facts: [fact("You have", amount("glow", g.glow))],
+      more,
+      buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
+}
+
+/** A decoration tapped on the farm: move it, or put it away (half its glow back). */
+export function decorCard(i, { changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const it = decorOn(game).find((x) => x.i === i);
+    const dd = it && decorById(it.id);
+    if (!dd) return null;
+    return {
+      title: dd.name, pic: decorPic(dd, 96), text: "Just for looks: put it wherever you like on your farm.",
+      buttons: [
+        { word: "Put away", run: () => { const r = removeDecor(game, garden(game), i); if (typeof r === "string") { toast(t(r), { error: true }); return; } toast(t("Put away: {0} glow back.", r)); saveGame(); changed(); d.close(); } },
+        { word: "Move it", primary: true, run: () => { d.close(); window.dispatchEvent(new CustomEvent("tamkeen-farm-move", { detail: { decor: i } })); } },
+      ],
+    };
+  });
+}
+
+/** The windmill: grind wheat into flour. */
+export function windmillCard({ changed = () => {} } = {}) {
+  const game = getGame();
+  details((d) => {
+    const f = farmOf(game);
+    const wheat = Object.entries(f.barn).filter(([k]) => k.startsWith("wheat:")).reduce((n, [, k]) => n + k, 0);
+    return {
+      title: "Windmill", pic: `<img class="px-icon gs-art" alt="" width="96" height="128" src="${ART}windmill.png">`,
+      facts: [fact("Wheat", `<span>${fmt(wheat)}</span>`), fact("Flour", `<span>${fmt(f.flour || 0)}</span>`)],
+      text: "It grinds wheat into flour. In the Cookbook one flour counts as two grain.",
+      buttons: [{ word: "Close", run: () => d.close() }, { word: "Grind all", primary: true, disabled: !wheat, run: () => {
+        const r = grind(game, wheat);
+        if (typeof r === "string") { toast(t(r), { error: true }); return; }
+        sfx("tick"); saveGame(); changed(); d.redraw();
+      } }],
+    };
+  });
+}
+
+/** An upgrade standing on the farm, tapped: what it does. */
+export function upgradeCard(id) {
+  const u = upgradeById(id);
+  const i = UPGRADES.indexOf(u);
+  details((d) => ({ title: u ? u.name : "Sprinkler", pic: UP_ICON(i < 0 ? 6 : i, 64),
+    text: u ? u.text : "Earned by watering on many days: plants never wilt, and it waters two of them each day.",
+    buttons: [{ word: "Close", run: () => d.close() }] }));
+}
+
+/** The Cropdex: every crop, the rarest of it grown (the ones not grown yet shown faintly). */
+export function openCropdex() {
+  const game = getGame();
+  details((d) => {
+    const dex = farmOf(game).dex || {};
+    const grid = h(`<div class="farm-barn"></div>`);
+    for (const c of CROPS) {
+      const best = dex[c.id] ? TIERS[dex[c.id] - 1] : null;
+      const cell = h(`<div class="farm-barn-item${best ? "" : " farm-dex-none"}" style="--tier:${best ? best.colour : "transparent"}">${cropIcon(c, 32)}<span class="farm-barn-n"></span></div>`);
+      cell.querySelector(".farm-barn-n").textContent = best ? t(best.name) : "?";
+      cell.title = best ? `${t(c.name)} · ${t(best.name)}` : `${t(c.name)} · ${t(SEASON_NAME[c.season])}`;
+      grid.append(cell);
+    }
+    return {
+      title: "Cropdex", text: "Every crop there is. The edge shows the rarest of it you've grown; faint ones are still to grow.",
+      facts: [fact("Grown", `<span>${Object.keys(dex).length} / ${CROPS.length}</span>`)], more: grid,
+      buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
+}
+
+/** The harvest board: you and your friends, this week's harvests (friends only, as the aquarium is; needs
+ * supabase/v20-farm.sql on the online database, else only you are on it). */
+export async function openHarvestBoard() {
+  const game = getGame();
+  const rows = [{ name: t("You"), farm: publicFarm(game), me: true }];
+  try {
+    const me = await social.currentUser();
+    const friends = me ? await social.friendsState() : null;
+    if (friends && friends.friends.length) {
+      const profiles = cleanProfiles(await social.gameProfiles(friends.friends.map((x) => x.user.id)));
+      for (const fr of friends.friends) {
+        const p = profiles.get(fr.user.id);
+        if (p && p.farm) rows.push({ name: cleanName(fr.user.username, 40) || t("A friend"), farm: p.farm });
+      }
+    }
+  } catch { /* offline or signed out: just you */ }
+  const wk = publicFarm(game).week;
+  const list = rows.filter((r) => r.farm && r.farm.week === wk).sort((a, b) => b.farm.n - a.farm.n);
+  details((d) => {
+    const more = h(`<div class="farm-list"></div>`);
+    list.forEach((r, i) => {
+      const best = r.farm.best && cropById(r.farm.best.c);
+      more.append(row({ pic: best ? cropIcon(best, 32) : "", name: `${i + 1}. ${r.name}`,
+        sub: best ? `${t("Rarest: {0}", t(best.name))} · <span style="color:${TIERS[r.farm.best.t].colour}">${t(TIERS[r.farm.best.t].name)}</span>` : t("Nothing harvested yet"),
+        end: `<span class="farm-plant" translate="no">${fmt(r.farm.n)}</span>` }));
+    });
+    return {
+      title: "Harvest board",
+      text: "You and your friends, by what you've harvested this week. Only friends see it.",
+      more, buttons: [{ word: "Close", run: () => d.close() }],
+    };
+  });
 }

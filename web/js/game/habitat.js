@@ -12,11 +12,11 @@ import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { FOLK, knownKeys, lineFor, poseOf, readLine } from "./muffles.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
-import { CROPS, beesToday, buildingsOn, cropById as cropOf, farmJobs, farmOf, fieldSize, harvest as harvestPlant, placeBuilding, plantState, seasonOf, spots as fieldSpots } from "./farm.js";
+import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
-import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, farmBlocked, farmCamera, farmMap, spotXY, tapFarm } from "./farmmap.js";
-import { askToWater, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard } from "./farm-ui.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
 import { shrineTier } from "./idle.js";
 import { states as reviewStates } from "../review/deck.js";
@@ -488,7 +488,7 @@ export function habitat() {
   const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
-    : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells(buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), () => 30, FARM_WALK))
+    : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK), blockedCells([...buildingsOn(game).map((b) => ({ id: b.id, x: b.x, y: b.y })), ...farmStanding().map(([id, at]) => ({ id, x: at.x, y: at.y }))], () => 26, FARM_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
@@ -1487,11 +1487,21 @@ export function habitat() {
       else location.hash = "#/friends"; // (no guild yet: the Guilds page, where one is joined)
     } else go(st.opens);
   }
+/** What stands on the farm besides the field and the buildings (slice 5): [[id, {x, y, i}]]: the upgrades once built
+   * ("windmill", "compost", "scarecrow", the earned "sprinkler"), the decorations ("decor:<id>"). */
+  function farmStanding() {
+    const out = [];
+    for (const id of ["windmill", "compost", "scarecrow"]) if (upLevel(game, id)) out.push([id, UPGRADE_AT[id]]);
+    if (sprinklerOn(game)) out.push(["sprinkler", sprinklerAt(...fieldSize(game))]);
+    for (const d of decorOn(game)) out.push([`decor:${d.id}`, { x: d.x, y: d.y, i: d.i }]);
+    return out;
+  }
+  const decorPic = (id) => { const d = decorById(id); return d && yimg(d.art || PROPS[d.prop].art); };
   let moving = null; // a building being moved on the farm (its slot), until a tap says where it stands
   const onMove = (e) => {
     if (!farmOn() || !e.detail) return;
     if (!inFarm()) teleportTo("farm");
-    moving = e.detail.i;
+    moving = Number.isInteger(e.detail.decor) ? { decor: e.detail.decor } : e.detail.i;
     toast(t("Tap where it should stand on your farm."));
   };
   window.addEventListener("tamkeen-farm-move", onMove);
@@ -1503,6 +1513,7 @@ export function habitat() {
       const at = spotXY(sp.c, sp.r);
       const st = plantState(game, sp.key);
       if (soil) out.push({ y: at.y - 9, draw: () => ctx.drawImage(soil, st && st.watered ? 16 : 0, 0, 16, 16, at.x - 8, at.y - 8, 16, 16) });
+      if (underGlass(game, sp.key)) { const gl = yimg("farm/glass.png"); if (gl) out.push({ y: at.y + 6, draw: () => ctx.drawImage(gl, at.x - 8, at.y - 16) }); } // (slice 5: the greenhouse)
       if (!st || !crops) continue;
       const row = CROPS.indexOf(st.crop);
       const frame = st.wilted ? 4 : st.stage;
@@ -1551,6 +1562,20 @@ export function habitat() {
             ctx.fillStyle = "#ffd24a"; ctx.fillRect(bx, by, 1, 2);
             ctx.fillStyle = "rgba(232, 244, 255, 0.9)"; ctx.fillRect(bx, by - 1, 1, 1);
           }
+        }
+      } });
+    }
+    // the upgrades, once built (slice 5), and the decorations (just for looks)
+    for (const [id, at] of farmStanding()) {
+      const pic = id.startsWith("decor:") ? decorPic(id.slice(6)) : id === "scarecrow" ? yimg(PROPS.scarecrow.art) : yimg(`farm/${id}.png`);
+      if (!pic) continue;
+      out.push({ y: at.y, draw: () => {
+        if (moving && moving.decor === at.i && id.startsWith("decor:")) ctx.globalAlpha = 0.55 + 0.25 * Math.sin(now / 160);
+        ctx.drawImage(pic, Math.round(at.x - pic.width / 2), Math.round(at.y - pic.height + 2));
+        ctx.globalAlpha = 1;
+        if (id === "sprinkler" && Math.floor(now / 900) % 3 === 0) { // its fan of drops, now and then
+          ctx.fillStyle = "#8ac8f0";
+          for (let k = 0; k < 6; k++) ctx.fillRect(Math.round(at.x + Math.cos(k + now / 300) * 10), Math.round(at.y - 18 + Math.sin(k * 2) * 4), 1, 2);
         }
       } });
     }
@@ -1693,8 +1718,8 @@ export function habitat() {
     if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
     // On the farm (farmmap.js): a spot of the field (the creature walks there, then plant, water or harvest), the barn,
     // the seed stand, the fence (how big the field is, and growing it), the gate back to the yard.
-    if (inFarm() && !pressed && moving !== null) { // (a building's "Move it": this tap says where it stands)
-      const err = placeBuilding(game, moving, x, y);
+    if (inFarm() && !pressed && moving !== null) { // (a building's or a decoration's "Move it": this tap says where it stands)
+      const err = typeof moving === "object" ? placeDecor(game, moving.decor, x, y) : placeBuilding(game, moving, x, y);
       if (err) { toast(t(err), { error: true }); return; }
       moving = null;
       sfx("common");
@@ -1703,6 +1728,15 @@ export function habitat() {
     }
     if (inFarm() && !pressed) {
       const bt = buildingsOn(game).find((b) => { const im = yimg(structureArt(b.id, b.tier).file); const w = im ? im.width : 32, hh = im ? im.height : 32; return Math.abs(x - b.x) < w / 2 && y > b.y - hh && y < b.y + 4; });
+      const stood = !bt && farmStanding().find(([id, at]) => { const pic = id.startsWith("decor:") ? decorPic(id.slice(6)) : id === "scarecrow" ? yimg(PROPS.scarecrow.art) : yimg(`farm/${id}.png`); const w2 = pic ? pic.width : 16, h2 = pic ? pic.height : 16; return Math.abs(x - at.x) < w2 / 2 && y > at.y - h2 && y < at.y + 4; });
+      if (stood) { // (slice 5: the windmill grinds; a decoration moves or goes away; the rest say what they do)
+        const [id, at] = stood;
+        sfx("tick");
+        if (id.startsWith("decor:")) decorCard(at.i, { changed: () => paintHud() });
+        else if (id === "windmill") windmillCard({ changed: () => paintHud() });
+        else upgradeCard(id);
+        return;
+      }
       if (bt) {
         const p = garden(game).plots[bt.i];
         if (!automated(game) && p.stored >= 1) { // glow waiting: gathered with a tap, as on the old plots
