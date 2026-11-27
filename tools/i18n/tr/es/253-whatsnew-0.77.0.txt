@@ -1,0 +1,7 @@
+# What is new in v0.77.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+095e0224	Un aspecto más tranquilo y claro, con una letra nueva
+77051f57	Biblioteca: los Cursos ahora son Básico, y DLI tiene su propio lugar
+2dbaa972	Granja: plantar también pregunta una palabra, y los toques funcionan a la primera
+c0389f8a	Tu criatura camina el doble de rápido y empieza en casa
+764086ff	Los Muffle muestran las palabras que has buscado, y sus pedidos pagan monedas
+33d35f82	Un nuevo Brote de palabras, una valla con puerta y un muelle más largo

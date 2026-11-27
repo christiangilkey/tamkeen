@@ -1,0 +1,7 @@
+# What is new in v0.77.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+095e0224	Mas kalmado ug klaro nga hitsura, nga adunay bag-ong font
+77051f57	Librarya: ang mga Kurso karon Batakan na, ug ang DLI adunay kaugalingong lugar
+2dbaa972	Umahan: ang pagtanom mangutana usab og pulong, ug ang pag-tap mogana dayon
+c0389f8a	Ang imong linalang molakaw sa doble nga kakusog, ug magsugod sa balay
+764086ff	Ang mga Muffle magpakita sa mga pulong nga imong gipangita, ug ang ilang mga order mobayad og sensilyo
+33d35f82	Bag-ong Word Sprout, koral nga adunay ganghaan, ug mas taas nga pantalan

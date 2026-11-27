@@ -1,0 +1,7 @@
+# What is new in v0.77.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+095e0224	Un style plus calme et plus clair, avec une nouvelle police
+77051f57	Bibliothèque : les Cours deviennent les Bases, et DLI a sa propre place
+2dbaa972	Ferme : planter demande aussi un mot, et les touchers marchent du premier coup
+c0389f8a	Ta créature marche deux fois plus vite et commence à la maison
+764086ff	Les Muffles montrent les mots que tu as cherchés, et leurs commandes paient des pièces
+33d35f82	Une nouvelle Pousse de mots, une clôture avec portail et un ponton plus long

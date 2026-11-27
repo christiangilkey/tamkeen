@@ -9,6 +9,18 @@ const WHATS_NEW = new Map();
 // (A version named twice gets both lists, in order: a feature can add its line before the release notes are written.)
 const notes = (version, ...lines) => WHATS_NEW.set(version, [...(WHATS_NEW.get(version) || []), ...lines]);
 
+notes("0.77.0",
+  "A calmer, clearer look, with a new font");
+notes("0.77.0",
+  "Library: Courses is now Basics, and DLI has its own place");
+notes("0.77.0",
+  "Farm: planting asks a word too, and taps work first time");
+notes("0.77.0",
+  "Your creature walks twice as fast, and starts at home");
+notes("0.77.0",
+  "Muffles show words you've looked up, and their orders pay coins");
+notes("0.77.0",
+  "A new Word Sprout, a fence with a gate, and a longer pier");
 notes("0.76.0",
   "A cozy cottage and a village to explore, with the Muffles");
 notes("0.76.0",

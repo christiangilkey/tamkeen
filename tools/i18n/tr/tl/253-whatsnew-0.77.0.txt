@@ -1,0 +1,7 @@
+# What is new in v0.77.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+095e0224	Mas kalmado at malinaw na itsura, may bagong font
+77051f57	Library: ang Mga Kurso ay Batayan na ngayon, at may sariling lugar ang DLI
+2dbaa972	Bukid: nagtatanong din ng salita ang pagtatanim, at gumagana ang tap sa unang beses
+c0389f8a	Doble ang bilis ng lakad ng iyong nilalang, at nagsisimula sa bahay
+764086ff	Ipinapakita ng mga Muffle ang mga salitang hinanap mo, at barya ang bayad ng kanilang mga order
+33d35f82	Bagong Word Sprout, bakod na may tarangkahan, at mas mahabang daungan

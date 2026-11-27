@@ -33185,6 +33185,36 @@
   "f": "web/js/vowels.js"
  },
  {
+  "id": "095e0224",
+  "k": "A calmer, clearer look, with a new font",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "77051f57",
+  "k": "Library: Courses is now Basics, and DLI has its own place",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2dbaa972",
+  "k": "Farm: planting asks a word too, and taps work first time",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c0389f8a",
+  "k": "Your creature walks twice as fast, and starts at home",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "764086ff",
+  "k": "Muffles show words you've looked up, and their orders pay coins",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "33d35f82",
+  "k": "A new Word Sprout, a fence with a gate, and a longer pier",
+  "f": "web/js/whatsnew.js"
+ },
+ {
   "id": "1736d577",
   "k": "A cozy cottage and a village to explore, with the Muffles",
   "f": "web/js/whatsnew.js"
