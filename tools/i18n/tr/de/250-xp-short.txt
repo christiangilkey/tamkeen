@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	Schlage Wörter nach und speichere sie, wiederhole deine Karten und mache Grammatiklektionen.
+6b90a445	Erreiche dein Tagesziel: {0}, die größte Belohnung des Tages.
+421500d6	Kämpfe: richtige Antworten und ein Sieg.
+d7ff0e64	Ein bisschen jeden Tag bringt mehr als eine lange Sitzung.
+fe4f9ee6	Es füllt deine Levelleiste (jedes Level bringt 5 Münzen) und lässt dein Wesen wachsen. Es wird nie ausgegeben.
+07664747	Jedes Level braucht mehr XP als das vorige (dieses braucht {0}).
+52309a9e	Alle Zahlen

@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	Pangitaa ug i-save ang mga pulong, i-review ang imong mga kard, ug buhata ang mga leksyon sa gramatika.
+6b90a445	Abta ang imong adlaw-adlaw nga tumong: {0}, ang pinakadakong ganti sa adlaw.
+421500d6	Mga away: husto nga tubag, ug pagdaog.
+d7ff0e64	Gamay matag adlaw mas daghan ang ganti kaysa usa ka taas nga sesyon.
+fe4f9ee6	Pun-on niini ang imong level bar (matag level mohatag og 5 ka sensilyo) ug padakuon ang imong linalang. Dili gyud kini magasto.
+07664747	Matag level nagkinahanglan og mas daghang XP kaysa sa nauna (kini nagkinahanglan og {0}).
+52309a9e	Tanang numero

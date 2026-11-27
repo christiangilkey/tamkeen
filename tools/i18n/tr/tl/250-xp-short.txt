@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	Maghanap at mag-save ng mga salita, i-review ang iyong mga card, at gumawa ng mga aralin sa gramatika.
+6b90a445	Abutin ang iyong pang-araw-araw na layunin: {0}, ang pinakamalaking gantimpala sa araw.
+421500d6	Mga laban: tamang sagot, at panalo.
+d7ff0e64	Kaunti araw-araw ay mas malaki ang bigay kaysa isang mahabang sesyon.
+fe4f9ee6	Pinupuno nito ang iyong level bar (bawat level ay nagbibigay ng 5 barya) at pinalalaki ang iyong nilalang. Hindi ito nagagastos.
+07664747	Bawat level ay nangangailangan ng mas maraming XP kaysa sa nauna (ito ay nangangailangan ng {0}).
+52309a9e	Lahat ng numero

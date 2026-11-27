@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	查词并保存单词，复习卡片，完成语法课。
+6b90a445	完成每日目标：{0}，一天中最大的奖励。
+421500d6	战斗：答对题目，以及获胜。
+d7ff0e64	每天一点比一次学很久得到的更多。
+fe4f9ee6	它会填满你的等级条（每升一级得 5 枚金币）并让你的生物成长。它永远不会被花掉。
+07664747	每一级需要的经验比上一级多（这一级需要 {0}）。
+52309a9e	所有数字

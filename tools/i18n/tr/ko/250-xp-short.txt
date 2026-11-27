@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	단어를 찾아 저장하고, 카드를 복습하고, 문법 레슨을 하세요.
+6b90a445	하루 목표 달성: {0}, 하루 중 가장 큰 보상.
+421500d6	배틀: 정답, 그리고 승리.
+d7ff0e64	한 번에 오래 하는 것보다 매일 조금씩이 더 많이 줘요.
+fe4f9ee6	레벨 바를 채우고(레벨마다 코인 5개) 생물을 키워요. 절대 쓰이지 않아요.
+07664747	레벨마다 이전보다 더 많은 XP가 필요해요(이번 레벨은 {0}).
+52309a9e	모든 수치

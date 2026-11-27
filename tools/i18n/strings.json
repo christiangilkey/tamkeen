@@ -21135,21 +21135,6 @@
   "f": "web/js/game/habitat.js"
  },
  {
-  "id": "dde98287",
-  "k": "Another habitat",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "0f8a93bf",
-  "k": "Previous habitat",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "4284a81e",
-  "k": "Next habitat",
-  "f": "web/js/game/habitat.js"
- },
- {
   "id": "bc1dd8bb",
   "k": "Today's goal: tap to change it",
   "f": "web/js/game/habitat.js"
@@ -21535,6 +21520,31 @@
   "f": "web/js/game/info.js"
  },
  {
+  "id": "4aea9bfb",
+  "k": "Look up and save words, review your flashcards, and do grammar lessons.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "6b90a445",
+  "k": "Reach your daily goal: {0}, the biggest reward of the day.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "421500d6",
+  "k": "Battles: right answers, and a win.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "d7ff0e64",
+  "k": "A little every day pays more than one long session.",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "fe4f9ee6",
+  "k": "It fills your level bar (each level pays 5 coins) and grows your creature. It is never spent.",
+  "f": "web/js/game/info.js"
+ },
+ {
   "id": "1a7a8dc0",
   "k": "Look up a word: usually 5 to 15, sometimes 30 to 50, now and then 100 to 200. A word pays once a day, and each word you look up in the same study session builds a combo of up to double, with no hurry: the session ends only when you've been away from the app for 10 minutes, or at midnight.",
   "f": "web/js/game/info.js"
@@ -21590,23 +21600,8 @@
   "f": "web/js/game/info.js"
  },
  {
-  "id": "ebd10589",
-  "k": "It fills your level bar. Each new level pays 5 coins, and each level needs more XP than the last (this one needs {0}).",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "c2117ebd",
-  "k": "It grows the creature in your habitat: it hatches, grows into a juvenile and then becomes fully grown.",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "4e3ef7b7",
-  "k": "XP is never spent. It only goes up.",
-  "f": "web/js/game/info.js"
- },
- {
-  "id": "27bb53b6",
-  "k": "Nowhere to spend it: it works by itself.",
+  "id": "07664747",
+  "k": "Each level needs more XP than the last (this one needs {0}).",
   "f": "web/js/game/info.js"
  },
  {
@@ -21932,6 +21927,11 @@
  {
   "id": "525f61b6",
   "k": "Where",
+  "f": "web/js/game/info.js"
+ },
+ {
+  "id": "52309a9e",
+  "k": "All the numbers",
   "f": "web/js/game/info.js"
  },
  {

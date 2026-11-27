@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	Cerca e salva parole, ripassa le tue carte e fai lezioni di grammatica.
+6b90a445	Raggiungi il tuo obiettivo giornaliero: {0}, la ricompensa più grande della giornata.
+421500d6	Battaglie: risposte giuste e una vittoria.
+d7ff0e64	Un po' ogni giorno rende più di una lunga sessione.
+fe4f9ee6	Riempie la tua barra di livello (ogni livello dà 5 monete) e fa crescere la tua creatura. Non si spende mai.
+07664747	Ogni livello richiede più XP del precedente (questo ne richiede {0}).
+52309a9e	Tutti i numeri

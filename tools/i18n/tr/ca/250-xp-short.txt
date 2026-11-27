@@ -1,0 +1,8 @@
+# The short XP explainer (web/js/game/info.js EARNED.xp; the owner: the long one was too long).
+4aea9bfb	Cerca i desa paraules, repassa les targetes i fes lliçons de gramàtica.
+6b90a445	Arriba al teu objectiu diari: {0}, la recompensa més gran del dia.
+421500d6	Batalles: respostes correctes i una victòria.
+d7ff0e64	Una mica cada dia dona més que una sessió llarga.
+fe4f9ee6	Omple la barra de nivell (cada nivell dona 5 monedes) i fa créixer la teva criatura. No es gasta mai.
+07664747	Cada nivell necessita més XP que l'anterior (aquest en necessita {0}).
+52309a9e	Tots els números
