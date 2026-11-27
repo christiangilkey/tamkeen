@@ -492,6 +492,7 @@ export function habitat() {
       carry = null;
     }
     pet.path = findPath({ x: pet.x, y: pet.y }, spot, blocked(), walkArea());
+    if (pet.path.length === 1 && Math.hypot(pet.path[0].x - pet.x, pet.path[0].y - pet.y) < 1.5) { pet.path[0] = { x: pet.x, y: pet.y }; } // (there already: no shuffle)
     pet.after = after;
     pet.moodT = Math.max(pet.moodT, 4); // (a tap wakes it: it was asked to come)
   }
@@ -560,7 +561,7 @@ export function habitat() {
       const step = Math.min(d, (look.size === "s" ? 15 : 22) * WALK_PACE * dt);
       pet.x += (dx / d) * step;
       pet.y += (dy / d) * step;
-      if (Math.abs(dx) > 0.4) pet.dir = dx > 0 ? 1 : -1;
+      if (Math.abs(dx) > 2 || (Math.abs(dx) > 0.4 && Math.abs(dx) >= Math.abs(dy))) pet.dir = dx > 0 ? 1 : -1; // (walking up or down it keeps facing the way it was: no flip-flopping)
       pet.walkMs += dt * 1000 * WALK_PACE;
       pet.moving = true;
       return;
