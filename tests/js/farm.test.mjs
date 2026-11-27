@@ -174,3 +174,17 @@ test("a tap in the field is the field's before anything standing or wandering ov
   assert.match(fn, /useSpot\(key\)/, "its card opens on the tap");
   assert.doesNotMatch(fn, /use:spot/, "not only when the creature arrives");
 });
+
+test("planting asks one word on the farm's question card; right or wrong it is planted, and with no word it plants at once", () => {
+  const ui = src("farm-ui.js");
+  const pick = ui.slice(ui.indexOf("export function pickSeed("), ui.indexOf("export function plantCard("));
+  assert.match(pick, /askToPlant\(key, c\)/, "the seed picker's Plant asks the word");
+  assert.doesNotMatch(pick, /plant\(game, key, c\.id\)/, "it no longer plants straight from the picker");
+  const ask = ui.slice(ui.indexOf("export async function askToPlant("));
+  assert.match(ask, /if \(!q\) \{ const r = sow\(\)/, "no word to ask: planted straight away");
+  assert.match(ask, /act: \(\) => sow\(\)/, "planted whatever the answer: the seed is never lost");
+  const card = ui.slice(ui.indexOf("function farmCard("), ui.indexOf("export async function askToWater("));
+  assert.match(card, /answerQuestion\(game, q\.uid, correct\)/, "the answer counts for the word, as watering's does");
+  assert.doesNotMatch(card, /coins|gems|glow/, "no pay for answering (the owner's farm rules)");
+  for (const k of ['"plant"', '"water"', '"drizzle"']) assert.ok(card.includes(`kind: ${k}`), `its own moment: ${k}`);
+});

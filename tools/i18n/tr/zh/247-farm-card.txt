@@ -1,0 +1,7 @@
+# The farm's question card: planting asks a word (the owner, 2026-11-27), the crop's water days.
+a1a1fcfa	为这个地方选一颗种子：用一个单词种下它，每天用一个单词给它浇水，它就会成熟。
+269deb0d	种下{0}
+6a8e479c	浇水第 {0} 天，共 {1} 天
+60c86633	答对了！已经种下。
+8f17ada1	不太对，不过还是种下了。
+55761dd7	浇水第 {0} 天，共 {1} 天 · 明天再来

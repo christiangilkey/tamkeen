@@ -1,0 +1,7 @@
+# The farm's question card: planting asks a word (the owner, 2026-11-27), the crop's water days.
+a1a1fcfa	Pumili ng buto para sa lugar na ito: itanim ito gamit ang isang salita, diligan ito araw-araw gamit ang isang salita, at mahihinog ito.
+269deb0d	Itanim ang {0}
+6a8e479c	Araw ng pagdidilig {0} sa {1}
+60c86633	Tama! Naitanim na.
+8f17ada1	Hindi masyado, pero naitanim pa rin.
+55761dd7	Araw ng pagdidilig {0} sa {1} · bumalik bukas

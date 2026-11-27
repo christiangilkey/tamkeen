@@ -10130,10 +10130,19 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   Watering: one due word (rules.pickQuestion over fishing.pondWords, recorded with answerQuestion); right = the day's
   water, wrong = half (two make a watering, and the right answer is shown); one watering a day; a crop ripens after
   water on `days` DIFFERENT days. A day missed: wilted (its progress kept); one watering revives it. Out of season it
-  rests (no water asked, no wilting). Harvest: rarity from loot.js `chances` (Common .. Legendary, `rollTier`; never
+  rests (no water asked, no wilting). Planting asks one word too (farm-ui `askToPlant`, the owner 2026-11-27): right or
+  wrong it is planted (a wrong answer shows the right word; the seed is never lost), and with no word to ask it plants
+  at once. Harvest: rarity from loot.js `chances` (Common .. Legendary, `rollTier`; never
   counted in the flashcards' luck record), 1-6 of it into the barn; `dex` keeps the rarest of each crop grown.
 - **Screens:** `web/js/game/farm-ui.js` (the game's details boxes, screenparts.js): seed stand, barn, the field's
-  fence, seed picker, a plant's card, the watering card (the battles' `.lbq` question card in a box).
+  fence, seed picker, a plant's card, and the farm's question card (`farmCard`, for planting and watering: the box is
+  the card, its × in its corner; a little scene at the top (the spot, its crop at its stage, your creature, drawn 3x
+  on a canvas) with each job's own moment from `web/game-art/farm/card.png` (game/art-src/terrain/farm_card.py,
+  Aseprite source in game/art-src/terrain/aseprite/farm_card.aseprite): planting digs, drops the seed, pats the earth
+  and a sprout pops up (sfx "plant"); watering pours the can, the soil darkens and the plant perks up or grows a
+  stage (sfx "water"); a wrong watering answer drizzles. Under the scene the crop's water days.)
+  A tap on the field (habitat.js `tapSpot`, farmmap `plotAt`) goes to the nearest spot, before anything over it, and
+  opens its card at once while the creature walks over.
 - **Look:** `tools/game_art/farmart.py`, placed in Aseprite (sources `game/art-src/farm/`): `web/game-art/farm/`
   crops.png (5 frames a crop: seed, sprout, growing, ripe, wilted), icons.png, soil.png (dry, watered), gate.png,
   seedstand.png. habitat.js `farmScene` draws soil, crops, a water drop over a thirsty plant, a twinkle over a ripe

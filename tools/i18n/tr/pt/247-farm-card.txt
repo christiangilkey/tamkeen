@@ -1,0 +1,7 @@
+# The farm's question card: planting asks a word (the owner, 2026-11-27), the crop's water days.
+a1a1fcfa	Escolhe uma semente para este lugar: planta-a com uma palavra, rega-a todos os dias com uma palavra e ela amadurece.
+269deb0d	Plantar: {0}
+6a8e479c	Dia de rega {0} de {1}
+60c86633	Certo! Está plantada.
+8f17ada1	Não exatamente, mas foi plantada na mesma.
+55761dd7	Dia de rega {0} de {1} · volta amanhã

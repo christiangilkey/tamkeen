@@ -18220,8 +18220,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "65f6b54b",
-  "k": "Pick a seed for this spot. Water it each day with a word, and it ripens.",
+  "id": "a1a1fcfa",
+  "k": "Pick a seed for this spot: plant it with a word, water it each day with a word, and it ripens.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18265,8 +18265,8 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "1591bd33",
-  "k": "Save a few more words first: watering asks one of them.",
+  "id": "269deb0d",
+  "k": "Plant the {0}",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18275,13 +18275,23 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "02646771",
-  "k": "Water it",
+  "id": "6a8e479c",
+  "k": "Water day {0} of {1}",
   "f": "web/js/game/farm-ui.js"
  },
  {
   "id": "bfd6bf51",
   "k": "Which of your words means this?",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "60c86633",
+  "k": "Right! It's planted.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "8f17ada1",
+  "k": "Not quite, but it's planted all the same.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18295,8 +18305,23 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "22ee2f8e",
+  "k": "Ripe! Tap it to harvest.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "55761dd7",
+  "k": "Water day {0} of {1} · come back tomorrow",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "02ce020c",
   "k": "Not quite: a little water. One more answer waters it.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "1591bd33",
+  "k": "Save a few more words first: watering asks one of them.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -21317,11 +21342,6 @@
  {
   "id": "bdcb00b8",
   "k": "It perked up again.",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "22ee2f8e",
-  "k": "Ripe! Tap it to harvest.",
   "f": "web/js/game/habitat.js"
  },
  {

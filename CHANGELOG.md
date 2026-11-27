@@ -13,6 +13,9 @@ The app was called **Arabic Podcast Studio** until v0.8.0.
 ---
 
 ## Unreleased
+- Farm: planting a seed now asks one of your words, as watering does (right or wrong, it is planted). Planting and watering each have their own little scene and sound on a new question card.
+- Farm: tapping a spot in the field opens it straight away, and a near miss counts for the nearest spot.
+- The creature walks twice as fast, straight to where you tap, without walking on the spot when it gets there.
 
 ## v0.76.0 — 2026-11-26
 

@@ -1,0 +1,7 @@
+# The farm's question card: planting asks a word (the owner, 2026-11-27), the crop's water days.
+a1a1fcfa	Pagpili og liso para niini nga dapit: itanom kini gamit ang usa ka pulong, bisbisi kini matag adlaw gamit ang usa ka pulong, ug mahinog kini.
+269deb0d	Itanom ang {0}
+6a8e479c	Adlaw sa pagbisbis {0} sa {1}
+60c86633	Sakto! Natanom na.
+8f17ada1	Dili kaayo, apan natanom gihapon.
+55761dd7	Adlaw sa pagbisbis {0} sa {1} · balik ugma

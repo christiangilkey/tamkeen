@@ -4281,5 +4281,23 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .farm-barn-n { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .farm-empty { grid-column: 1 / -1; margin: 6px 0; text-align: center; color: var(--muted); }
 .farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }
+/* The farm's question card (farm-ui.js farmCard): the card is the whole box, its × in its own corner, sized to what
+   is in it; the scene at the top, then the crop's progress, the word and the answers. */
+.farm-q-back .modal-box { width: min(440px, 100%); max-height: none; background: none; box-shadow: none; }
+.farm-q-back .modal-head { display: none; }
+.farm-q-back .modal-body { padding: 0; overflow: visible; }
+.farm-q { position: relative; width: 100%; gap: 8px; padding: 14px; }
+.farm-q-x { position: absolute; top: 8px; inset-inline-end: 8px; z-index: 1; width: 36px; height: 36px; min-height: 0; padding: 0; color: #fff; }
+.farm-q-scene { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; image-rendering: pixelated; image-rendering: crisp-edges; border-radius: 10px; }
+.farm-q-title { font-size: 19px; font-weight: 700; }
+.farm-q-progress { margin-top: -6px; font-size: 13px; color: rgba(255, 255, 255, .65); }
+.farm-q .lbq-prompt { font-size: clamp(24px, 6.5vw, 34px); }
+.farm-q .lbq-opt { min-height: 60px; }
+.farm-q .lbq-verdict { font-size: 17px; }
+.farm-q .lbq-verdict[hidden] { display: none; }
+@media (max-width: 640px) { /* (a phone: the card is the sheet along the bottom, its corners rounded at the top only) */
+  .farm-q-back .modal-box { padding-bottom: 0; border-radius: 20px 20px 0 0; }
+  .farm-q { border-radius: 20px 20px 0 0; padding-bottom: calc(14px + env(safe-area-inset-bottom)); }
+}
 /* The Cropdex (prototype "farm"): a crop not grown yet, faint. */
 .farm-dex-none { opacity: .35; }
