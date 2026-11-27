@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Usa ka komportableng payag ug baryo nga susihon, uban sa mga Muffle
+2b05714a	Imong kaugalingong umahan: bisbisi ang mga tanom pinaagi sa pagtubag sa imong mga pulong
+649f70c1	Pagluto og 15 ka putahe, tumana ang mga order sa mga Muffle, ibaligya sa tindahan sa prutas
+4d4cd711	Mga talento sa linalang ug bag-ong kard sa linalang
+6e4e99eb	Mga ranked nga away batok sa mga magdudula online
+c86a4c78	Mga tigbantay sa linaw, ug mga hulagway para sa imong mga kard gikan sa Openverse

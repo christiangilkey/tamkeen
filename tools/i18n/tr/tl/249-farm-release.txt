@@ -1,0 +1,2 @@
+# The farm's release (idle.js build: no free slot for another building).
+efe012b2	Wala nang lugar para riyan.

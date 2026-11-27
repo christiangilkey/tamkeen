@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Una casetta accogliente e un villaggio da esplorare, con i Muffle
+2b05714a	La tua fattoria: annaffia le colture rispondendo alle tue parole
+649f70c1	Cucina 15 piatti, completa gli ordini dei Muffle, vendi alla bancarella della frutta
+4d4cd711	I talenti delle creature e una nuova carta della creatura
+6e4e99eb	Battaglie classificate contro giocatori online
+c86a4c78	I guardiani degli stagni e immagini per le tue carte da Openverse

@@ -23,10 +23,10 @@ const RESULT = {
   mature: false, width: 500, height: 375, thumbnail: "https://api.openverse.org/v1/images/dcef0b54-2338-4141-9be0-1b5bb50fa729/thumb/",
 };
 
-test("your own picture is released; everything that asks Openverse waits in prototype mode", () => {
+test("your own picture is released, and since v0.76.0 Openverse too; everything that asks Openverse still goes through openverseOn", () => {
   assert.equal(PROTOTYPES.card_pictures.released, true);
-  assert.equal(PROTOTYPES.card_pictures_openverse.released, false);
-  // (the owner, 2026-11-23: release your own pictures, leave Openverse out until its search works)
+  assert.equal(PROTOTYPES.card_pictures_openverse.released, true, "released for everybody in v0.76.0");
+  // (the owner, 2026-11-23: release your own pictures first; 2026-11-27: release Openverse too)
   const picker = read("web/js/components/cardpic.js");
   assert.match(picker, /export const openverseOn = \(\) => picturesOn\(\) && feature\("card_pictures_openverse"\)/);
   assert.match(picker, /const online = openverseOn\(\);/);
@@ -36,15 +36,14 @@ test("your own picture is released; everything that asks Openverse waits in prot
   assert.match(read("web/js/components/settingsui.js"), /id: "pictures"[^}]*prototype: "card_pictures_openverse"/);
 });
 
-test("with Openverse's prototype off, nothing is queued and no new card asks for a picture", async () => {
+test("Openverse is released: without prototype mode the Settings switch for new cards works for everyone", async () => {
   localStorage.removeItem("tamkeenPrototype");
   batch._reset();
   batch.setAuto(true);
-  assert.equal(batch.autoOn(), false);
-  assert.equal(batch.addPictures([{ id: 1, uid: "x", meaning: "dog" }]), 0);
-  batch.cardsSaved({ id: 2, uid: "y", meaning: "cat" });
-  assert.equal(batch.progress.total, 0);
+  assert.equal(batch.autoOn(), true, "since v0.76.0, without prototype mode too");
   batch.setAuto(false);
+  assert.equal(batch.autoOn(), false);
+  batch._reset();
   localStorage.setItem("tamkeenPrototype", "1");
 });
 

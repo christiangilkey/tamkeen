@@ -20660,21 +20660,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "5209c504",
-  "k": "Plots open",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "5e50e7d0",
-  "k": "Use a key",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "c9d9f62d",
-  "k": "Plot {0}",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "3c74541f",
   "k": "Room for a building",
   "f": "web/js/game/garden.js"
@@ -20682,11 +20667,6 @@
  {
   "id": "3e8d4bb2",
   "k": "Build something to stand on your farm",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "f096bcd2",
-  "k": "Empty: choose something to build",
   "f": "web/js/game/garden.js"
  },
  {
@@ -20760,13 +20740,13 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "96d19121",
-  "k": "Build on your farm",
+  "id": "5e50e7d0",
+  "k": "Use a key",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "c5e4d0d9",
-  "k": "Build on plot {0}",
+  "id": "96d19121",
+  "k": "Build on your farm",
   "f": "web/js/game/garden.js"
  },
  {
@@ -21470,8 +21450,8 @@
   "f": "web/js/game/hunger-ui.js"
  },
  {
-  "id": "b2facb1b",
-  "k": "That plot isn't open yet.",
+  "id": "efe012b2",
+  "k": "There's no room for that.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -21512,11 +21492,6 @@
  {
   "id": "9af0e879",
   "k": "You have no key.",
-  "f": "web/js/game/idle.js"
- },
- {
-  "id": "579f1557",
-  "k": "Every plot is already open.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -33183,6 +33158,36 @@
   "id": "2820e9e6",
   "k": "Arabic vowel marks need a vowel model ({0} MB, Standard Arabic).{1}",
   "f": "web/js/vowels.js"
+ },
+ {
+  "id": "1736d577",
+  "k": "A cozy cottage and a village to explore, with the Muffles",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "2b05714a",
+  "k": "Your own farm: water the crops by answering your words",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "649f70c1",
+  "k": "Cook 15 dishes, fill the Muffles' orders, sell at the fruit stall",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "4d4cd711",
+  "k": "Creature talents and a new creature card",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "6e4e99eb",
+  "k": "Ranked battles against players online",
+  "f": "web/js/whatsnew.js"
+ },
+ {
+  "id": "c86a4c78",
+  "k": "Pond guardians, and pictures for your cards from Openverse",
+  "f": "web/js/whatsnew.js"
  },
  {
   "id": "c0bf87e1",

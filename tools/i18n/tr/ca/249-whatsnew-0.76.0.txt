@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Una caseta acollidora i un poble per explorar, amb els Muffle
+2b05714a	La teva pròpia granja: rega els cultius responent les teves paraules
+649f70c1	Cuina 15 plats, completa les comandes dels Muffle, ven a la parada de fruita
+4d4cd711	Talents de les criatures i una nova targeta de criatura
+6e4e99eb	Batalles classificatòries contra jugadors en línia
+c86a4c78	Guardians dels estanys, i imatges per a les teves targetes d'Openverse

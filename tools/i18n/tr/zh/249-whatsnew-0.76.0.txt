@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	温馨的小屋和可以探索的村庄，还有马弗们
+2b05714a	你自己的农场：回答单词来给作物浇水
+649f70c1	烹饪 15 道菜，完成马弗的订单，在水果摊出售
+4d4cd711	生物天赋和全新的生物卡片
+6e4e99eb	与在线玩家进行排位战
+c86a4c78	池塘守护者，以及来自 Openverse 的卡片图片

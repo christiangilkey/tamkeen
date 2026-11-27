@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Uma casinha aconchegante e uma vila para explorar, com os Muffle
+2b05714a	Sua própria fazenda: regue as plantações respondendo às suas palavras
+649f70c1	Cozinhe 15 pratos, atenda os pedidos dos Muffle, venda na banca de frutas
+4d4cd711	Talentos das criaturas e um novo cartão de criatura
+6e4e99eb	Batalhas ranqueadas contra jogadores online
+c86a4c78	Guardiões dos lagos e imagens para seus cartões do Openverse

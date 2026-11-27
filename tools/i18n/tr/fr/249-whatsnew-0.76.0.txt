@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Une chaumière douillette et un village à explorer, avec les Muffles
+2b05714a	Ta propre ferme : arrose les cultures en répondant à tes mots
+649f70c1	Cuisine 15 plats, remplis les commandes des Muffles, vends à l'étal de fruits
+4d4cd711	Les talents des créatures et une nouvelle carte de créature
+6e4e99eb	Des combats classés contre des joueurs en ligne
+c86a4c78	Les gardiens des étangs, et des images pour tes cartes depuis Openverse

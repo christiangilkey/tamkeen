@@ -1,0 +1,2 @@
+# The farm's release (idle.js build: no free slot for another building).
+efe012b2	그걸 둘 자리가 없어요.

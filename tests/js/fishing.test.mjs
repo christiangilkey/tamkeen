@@ -614,14 +614,14 @@ test("a rare kind or a guardian pays what the usual fish of its tier pays: coins
   assert.doesNotMatch(src.slice(src.indexOf("export function luckOf")).split("\n}")[0], /guardian|rare/);
 });
 
-test("every fish has its picture, 24 x 16, and the guardian's own moment waits behind the prototype", () => {
+test("every fish has its picture, 24 x 16, and the guardian's own moment (released in v0.76.0) still goes through its switch", () => {
   for (const f of FISH) {
     const png = new URL(`../../web/game-art/fish/${f.id}.png`, import.meta.url);
     assert.ok(existsSync(png), `${f.id}.png`);
     const b = readFileSync(png);
     assert.deepEqual([b.readUInt32BE(16), b.readUInt32BE(20)], FISH_ART, f.id);
   }
-  assert.equal(PROTOTYPES.fish_guardians.released, false);
+  assert.equal(PROTOTYPES.fish_guardians.released, true, "released for everybody in v0.76.0");
   const ui = readFileSync(new URL("../../web/js/game/fishing-ui.js", import.meta.url), "utf8");
   assert.match(ui, /const guardShow = feature\("fish_guardians"\)/);
   for (const m of ui.matchAll(/isGuardian\(/g)) assert.match(ui.slice(Math.max(0, m.index - 40), m.index), /guardShow && $/, "every guardian effect in the pond asks the prototype first");

@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Isang maaliwalas na kubo at isang nayon na lilibutin, kasama ang mga Muffle
+2b05714a	Sarili mong bukid: diligan ang mga pananim sa pagsagot sa iyong mga salita
+649f70c1	Magluto ng 15 putahe, tuparin ang mga order ng mga Muffle, magbenta sa puwesto ng prutas
+4d4cd711	Mga talento ng nilalang at bagong card ng nilalang
+6e4e99eb	Mga ranked na laban sa mga manlalaro online
+c86a4c78	Mga tagapagbantay ng lawa, at mga larawan para sa iyong mga card mula sa Openverse

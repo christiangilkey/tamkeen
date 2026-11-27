@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	Ein gemütliches Häuschen und ein Dorf zum Erkunden, mit den Muffles
+2b05714a	Dein eigener Hof: Gieße die Pflanzen, indem du deine Wörter beantwortest
+649f70c1	Koche 15 Gerichte, erfülle die Aufträge der Muffles, verkaufe am Obststand
+4d4cd711	Talente der Wesen und eine neue Wesenskarte
+6e4e99eb	Ranglistenkämpfe gegen Spieler online
+c86a4c78	Teichwächter und Bilder für deine Karten von Openverse

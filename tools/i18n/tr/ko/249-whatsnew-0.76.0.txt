@@ -1,0 +1,7 @@
+# What is new in v0.76.0 (web/js/whatsnew.js). The Muffles' name as in 244-muffles.txt.
+1736d577	아늑한 오두막과 둘러볼 마을, 그리고 머플들
+2b05714a	나만의 농장: 단어에 답해서 작물에 물 주기
+649f70c1	요리 15가지, 머플의 주문, 과일 가판대에서 판매
+4d4cd711	생물의 재능과 새로운 생물 카드
+6e4e99eb	온라인 플레이어와 겨루는 랭크 배틀
+c86a4c78	연못의 수호자, 그리고 Openverse에서 가져온 카드 사진
