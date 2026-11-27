@@ -10,7 +10,7 @@ const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.ur
 test("a prototype, off for everyone else", () => {
   assert.equal(PROTOTYPES.farm_page.released, false);
   const h = src("habitat.js");
-  assert.match(h, /feature\("farm_page"\) \? tile\("garden", "farm\/seedstand", "Farm"\)/, "Home's Garden tile is Farm with it");
+  assert.match(h, /feature\("farm_page"\) \? tile\("garden", "farm\/seedstand", "Farming"\)/, "Home's Garden tile is Farming with it (the owner's word)");
   assert.match(h, /if \(feature\("farm_page"\)\) openFarm\(/, "and opens the farm page");
   assert.match(h, /if \(feature\("farm_page"\) && inPen\(x, y, fw, fh\)\) \{ sfx\("tick"\); openFarm\(/, "so does a tap anywhere in the village's farm pen");
 });
@@ -61,4 +61,14 @@ test("outdoor pictures never stay missing after a failed load: the scenes' cache
   assert.doesNotMatch(h, /if \(!\(p in yardImgs\)\)/, "the yard's and farm's pictures: no ask-once cache");
   assert.match(h, /else setTimeout\(\(\) => \{ if \(!disposed\) loadArt\(k, f\); \}, 21000\)/, "the scene's own art asks again too");
   assert.doesNotMatch(src("farmpage.js") + src("farm-ui.js"), /const pics = \{\};/, "the farm page and its card too");
+});
+
+test("after an answer, the right word is said (as battles and the pond say it), on the farm page and the farm's card", () => {
+  const ui = src("farm-ui.js");
+  const fn = ui.slice(ui.indexOf("export function sayAnswer("), ui.indexOf("// ---------- the farm's question card"));
+  assert.match(fn, /s\.game_sound === false\) return;/, "game sound off: not said");
+  assert.match(fn, /cardSayer\(snippetPlayer\(\)\.playSnippet\)/, "the shared sayer: the card's recording, the voice settings, the device");
+  assert.match(fn, /farmPlayer\.said\(v, "word"\)/);
+  assert.match(src("farmpage.js"), /answerQuestion\(game, q\.uid, correct\);\n {6}sayAnswer\(q, vocab\);/);
+  assert.match(ui, /answerQuestion\(game, q\.uid, correct\);\n {6}sayAnswer\(q, vocab\);/);
 });

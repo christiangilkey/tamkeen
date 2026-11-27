@@ -20,7 +20,7 @@ import { artCache, composeCreature, icon } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
 import { CROPS, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
-import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand } from "./farm-ui.js";
+import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand, sayAnswer } from "./farm-ui.js";
 
 const SEASON_NAME = { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter", all: "All year" };
 const CELL = 26;            // a plot's square in the scene, in pixels (its soil 22 across)
@@ -259,6 +259,7 @@ export function openFarm({ changed = () => {} } = {}) {
       buttons[q.answer].classList.add("right");
       if (!correct) buttons[chosen].classList.add("wrong");
       answerQuestion(game, q.uid, correct);
+      sayAnswer(q, vocab); // (the right word, said, as in battles and at the pond)
       const r = act(correct);
       verdict.hidden = false;
       verdict.className = `farmp-verdict ${correct ? "ok" : "no"}`;

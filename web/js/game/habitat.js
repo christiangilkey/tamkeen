@@ -117,7 +117,7 @@ export function habitat() {
       </div>
       <div class="hud-actions hud-tiles">
         ${tile("battle", "battle", "Battle")}${tile("creatures", "nav_roster", "Creatures")}
-        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farm") : tile("garden", "structure/word_sprout_2", "Garden")}
+        ${tile("shop", "nav_shop", "Shop")}${feature("farm_page") ? tile("garden", "farm/seedstand", "Farming") : tile("garden", "structure/word_sprout_2", "Garden")}
         ${subTile("fishing", "fishing", "Fishing")}${subTile("words", "words", "Words")}
         <button type="button" class="hud-aq" id="g-aquarium" hidden>
           <span class="hud-aq-head"><span class="hud-aq-word">Aquarium</span><span class="hud-aq-n" translate="no"></span></span>
