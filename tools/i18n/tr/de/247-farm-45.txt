@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Ausbauten
+34422d5c	Deine Ernten warten hier, so lange du willst: In der Scheune verdirbt nichts. Ein farbiger Rand zeigt eine seltenere Ernte. Tippe auf eine, um sie deinem Wesen zu füttern oder Köder daraus zu machen.
+7ff2c88c	In der Scheune
+4c3e3ab8	Honig
+03e94974	Köder
+53545d83	Mehl
+cf72dbf6	Cropdex
+e19d99b7	Erntetafel
+422bc307	Richtig! Diese Pflanze und {0} weitere haben ihr Wasser für heute.
+7af742b2	{0}-Kuchen
+90d8b9d6	Dein nächstes Ei neigt zu {0}.
+c2cf2485	Lieblingspflanzen von {0}
+f30c72e6	Liebling von
+148ba2d2	Niemand
+9b33c28f	Dein Wesen liebt diese hier: Wenn du sie ihm fütterst, ist es einen Tag lang Gut genährt (5 % stärker, nur gegen das Spiel).
+a8b536fb	Füttere sie deinem Wesen (eine Mahlzeit wie jedes Essen) oder mach Köder daraus: Jede Ernte gibt 3, und Köder bringen am Teich ein bisschen mehr Glück.
+5cf0249c	Mahlen
+4d94313b	Köder machen
+ad8c5f39	Sein Lieblingsessen! Es ist einen Tag lang Gut genährt.
+de24a2eb	Kochen
+ae28e153	Kochbuch
+a1c3b40d	Gerichte, gekocht aus deinen Ernten und deinem Honig. Jedes bewirkt eine Sache; tippe auf eins, um zu sehen, welche.
+9f8f3e5f	Fest
+bc99becb	Heute!
+d258491f	Sonntags
+79b6cec3	Nur an einem Festtag (sonntags).
+a3b2bcb8	Du hast noch nicht alles, was dafür nötig ist.
+3bab8441	Wörter sind aufgewacht: {0}
+222b9eed	Die Muffles feiern mit dir ein Festmahl.
+4bf0a471	Du hast gekocht: {0}
+5c6f2949	Welches Ei?
+08a197c3	Warmer Brei ist für ein Ei: Wähle, für welches.
+ae29a856	Du hast kein Ei, dem du es füttern kannst.
+e6e244e5	Obststand
+75ae0610	Der Gemüsehändler kauft deine Ernten für Glimmer. Seltenere bringen mehr.
+a5ad62ad	Noch nichts zu verkaufen: Ernten von deinem Hof kannst du hier für Glimmer verkaufen.
+282b1d21	Bestellung von {0}
+ed4f3cdb	Möchte
+2a78f0e9	Zahlt
+35864625	Erfülle die Bestellung eines Muffles, und eines seiner vergessenen Wörter wacht auf: Ab jetzt kommt es in seiner Rede vor.
+243a0db8	Bau erst noch mehr an: Die Bestellung wartet bis morgen.
+f2c752a4	Danke! Ein Wort ist aufgewacht: {0}
+184eb63a	Danke!
+a6ad3f82	Gebaut
+b74dd64f	Sprinkler
+970cc152	Verdient: Pflanzen welken nie, und er gießt jeden Tag zwei von ihnen.
+660f617a	Verdient, nicht gekauft: Gieß Pflanzen an verschiedenen Tagen, insgesamt {0} (bisher {1}). Dann welken Pflanzen nie, und er gießt jeden Tag zwei.
+79982bb6	Es steht auf deinem Hof. Tippe dort darauf, um es zu verschieben.
+b3a65967	Nur für den Look
+6d57d571	Ausbauten und Deko
+720a3f5c	Ausbauten helfen deinem Hof; Deko ist nur für den Look. Beides kaufst du mit Glimmer.
+c01ff8c7	Nur für den Look: Stell es auf deinem Hof hin, wo du willst.
+0b1fd986	Weggeräumt: {0} Glimmer zurück.
+45cc86f2	Windmühle
+f1bfb73f	Sie mahlt Weizen zu Mehl. Im Kochbuch zählt ein Mehl wie zwei Getreide.
+b9825beb	Alles mahlen
+e57b3ef7	Verdient durch Gießen an vielen Tagen: Pflanzen welken nie, und er gießt jeden Tag zwei von ihnen.
+6b736b91	Jede Pflanze, die es gibt. Der Rand zeigt die seltenste Ernte, die du davon gezogen hast; blasse musst du noch anbauen.
+6e58e607	Angebaut
+f119000c	Noch nichts geerntet
+48f35c53	Du und deine Freunde, nach dem, was ihr diese Woche geerntet habt. Nur Freunde sehen das.
+62392e1f	Diese Samen haben gerade keine Saison: Pflanze sie unter dem Glas des Gewächshauses, oder warte auf ihre Jahreszeit.
+fe421197	Deine Scheune ist voll. Verkaufe, koche oder verfüttere erst etwas, oder bau eine größere Scheune: Die Ernte wartet, reif.
+116d6514	Gießkanne
+f93b25e7	Eine richtige Antwort gießt auch eine durstige Pflanze daneben (zwei auf der zweiten Stufe).
+c1286dff	Gewächshaus
+d0162451	Glas über der obersten Reihe deines Felds: Dort wächst alles in jeder Jahreszeit.
+0ab037c0	Sie hält die Vögel fern: Deine Ernten fallen öfter seltener aus.
+ce27c125	Komposttonne
+c141884b	Reichere Erde: Eine Ernte gibt manchmal eins mehr.
+92d64b1e	Mahlt Weizen zu Mehl. Im Kochbuch zählt ein Mehl wie zwei Getreide.
+e67e759f	Größere Scheune
+6cfabbae	Platz für mehr Ernten in deiner Scheune.
+6b16516f	Es ist so weit ausgebaut, wie es geht.
+254d9371	Diesen Ausbau gibt es nicht.
+26519e20	Bau zuerst die Windmühle.
+5d899996	Du hast keinen Weizen zum Mahlen.
+711122c5	Blumenbeet
+292c8b1e	Trittsteine
+8d34461c	Picknicktisch
+6f6c7c3f	Wetterfahne
+375bee5a	Diese Deko gibt es nicht.
+8963aa26	Dein Hof hat so viel Deko, wie er fassen kann.
+88ca69ec	Es ist kein freies Stück Wiese mehr übrig. Verschieb zuerst etwas.
+805a700d	Dort steht keine Deko.
+16d82f9f	Getreide
+62ee7744	Obst
+bd629b84	Kräuter
+94e334bd	Kürbis
+2a4dba76	Gemüse
+e6649ddd	So viele hast du nicht.
+298534a2	Picknickkorb
+0447dd62	Deine Wesen werden 3 Tage lang nicht hungrig.
+bda12d6f	Fokustee
+14b3b0c2	Mehr Glück bei deinen nächsten 20 Karteikarten.
+67ce6155	Wachstumseintopf
+64a6a2ee	Durch das heutige Lernen wächst dein Wesen anderthalbmal so schnell.
+d677bf60	Beerentarte
+ebc7afa5	Dein Wesen bekommt einen Tag lang eine warme Beerenfarbe. Nur sein Aussehen ändert sich.
+4c7983b6	Mondgelee
+cb659dc3	Dein Wesen bekommt einen Tag lang eine kühle Mondscheinfarbe. Nur sein Aussehen ändert sich.
+bd6fc54a	Laternensuppe
+d51b1364	Heute Abend leuchtet dein Wesen im Dorf, und Muffles kommen vorbei, um ein Wort zu sagen.
+a56cac35	Muffle-Festmahl
+6ee60d09	Nur an einem Festtag. Die Muffles feiern mit dir ein Festmahl, und 3 ihrer vergessenen Wörter wachen auf einmal auf.
+340e3209	Champion-Mahl
+6961470c	Ein Schub für deinen nächsten Arenakampf: 10 % mehr Angriff und Verteidigung. Nur gegen das Spiel.
+bd0eef28	Warmer Brei
+db375c6c	An ein Ei verfüttert, hebt er das niedrigste Talent an, das das Ei bekommen kann.
+b56e84e9	Dieses Gericht gibt es nicht.
+65fe6b2e	Das Muffle-Festmahl wird nur an einem Festtag gekocht (sonntags).
+1c85a03c	Du hast nicht alles, was dafür nötig ist.
+3a22cd89	Warmer Brei ist noch nicht fertig.
+5080c647	Diese Bestellung gibt es heute nicht.
+7fef8ede	Du hast diese Bestellung erfüllt.
+ba1e8eab	Du hast nicht genug in deiner Scheune.
+c9065713	Der Gemüsehändler
+1ed92cba	Die Bäckerin
+91aa11ad	Der Wirt
+53b7002c	Die Floristin
+8759d86b	Der Schneider
+a0b25834	Die Fischerin

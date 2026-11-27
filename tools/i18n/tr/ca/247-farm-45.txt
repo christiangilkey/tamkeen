@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Millores
+34422d5c	Les teves collites t'esperen aquí tant de temps com vulguis: al graner no es fa malbé res. Una vora de color indica una collita més rara. Toca'n una per donar-la a la teva criatura o fer-ne esquer.
+7ff2c88c	Al graner
+4c3e3ab8	Mel
+03e94974	Esquer
+53545d83	Farina
+cf72dbf6	Cropdex
+e19d99b7	Tauler de collites
+422bc307	Correcte! Aquesta planta i {0} més ja tenen l'aigua d'avui.
+7af742b2	Pastís amb {0}
+90d8b9d6	El teu proper ou tendeix cap a: {0}.
+c2cf2485	Cultius preferits de {0}
+f30c72e6	Preferit de
+148ba2d2	Ningú
+9b33c28f	A la teva criatura li encanta: si l'hi dones, estarà Ben alimentada durant un dia (un 5% més forta, només contra el joc).
+a8b536fb	Dona-la a la teva criatura (un àpat, com qualsevol menjar), o fes-ne esquer: cada collita en fa 3, i l'esquer porta una mica més de sort a l'estany.
+5cf0249c	Mol
+4d94313b	Fes esquer
+ad8c5f39	El seu preferit! Està Ben alimentada durant un dia.
+de24a2eb	Cuina
+ae28e153	Receptari
+a1c3b40d	Plats cuinats amb les teves collites i la teva mel. Cadascun fa una cosa; toca'n un per veure què.
+9f8f3e5f	Festa
+bc99becb	Avui!
+d258491f	Diumenges
+79b6cec3	Només en un dia de festa (els diumenges).
+a3b2bcb8	Encara no tens tot el que cal.
+3bab8441	Han despertat paraules: {0}
+222b9eed	Els Muffles fan un festí amb tu.
+4bf0a471	Has cuinat: {0}
+5c6f2949	Quin ou?
+08a197c3	Les farinetes calentes són per a un ou: tria quin.
+ae29a856	No tens cap ou per donar-l'hi.
+e6e244e5	Parada de fruita
+75ae0610	El verduler et compra les collites per brill. Les més rares valen més.
+a5ad62ad	Encara no tens res per vendre: aquí pots vendre per brill les collites de la teva granja.
+282b1d21	Comanda de {0}
+ed4f3cdb	Vol
+2a78f0e9	Paga
+35864625	Completa la comanda d'un Muffle i una de les seves paraules oblidades es desperta: a partir d'ara apareix quan parla.
+243a0db8	Primer fes créixer més coses: la comanda espera fins demà.
+f2c752a4	Gràcies! S'ha despertat una paraula: {0}
+184eb63a	Gràcies!
+a6ad3f82	Construït
+b74dd64f	Aspersor
+970cc152	Guanyat: les plantes no es marceixen mai, i cada dia en rega dues.
+660f617a	Es guanya, no es compra: rega plantes en dies diferents, {0} en total ({1} fins ara). Llavors les plantes no es marceixen mai, i cada dia en rega dues.
+79982bb6	És a la teva granja. Toca'l allà per moure'l.
+b3a65967	Només per a l'aspecte
+6d57d571	Millores i decoracions
+720a3f5c	Les millores ajuden la teva granja; les decoracions són només per a l'aspecte. Totes dues es compren amb brill.
+c01ff8c7	Només per a l'aspecte: posa-la on vulguis de la teva granja.
+0b1fd986	Desat: et tornen {0} de brill.
+45cc86f2	Molí de vent
+f1bfb73f	Mol el blat i en fa farina. Al Receptari, una farina compta com dos grans.
+b9825beb	Mol-ho tot
+e57b3ef7	Es guanya regant molts dies: les plantes no es marceixen mai, i cada dia en rega dues.
+6b736b91	Tots els cultius que hi ha. La vora mostra la collita més rara que n'has fet; els pàl·lids encara els has de cultivar.
+6e58e607	Cultivat
+f119000c	Encara no has collit res
+48f35c53	Tu i els teus amics, segons el que heu collit aquesta setmana. Només ho veuen els amics.
+62392e1f	Aquestes llavors no són de temporada: planta-les sota el vidre de l'hivernacle, o espera la seva estació.
+fe421197	El teu graner és ple. Primer ven, cuina o dona de menjar alguna cosa, o construeix un graner més gran: la collita espera, madura.
+116d6514	Regadora
+f93b25e7	Una resposta correcta també rega una planta assedegada del costat (dues al segon nivell).
+c1286dff	Hivernacle
+d0162451	Vidre sobre la fila de dalt del teu camp: allà hi creix de tot en qualsevol estació.
+0ab037c0	Allunya els ocells: les teves collites surten rares més sovint.
+ce27c125	Compostador
+c141884b	Terra més rica: de vegades una collita en dona una més.
+92d64b1e	Mol el blat i en fa farina. Al Receptari, una farina compta com dos grans.
+e67e759f	Graner més gran
+6cfabbae	Lloc per a més collites al teu graner.
+6b16516f	Ja està construït del tot.
+254d9371	Aquesta millora no existeix.
+26519e20	Primer construeix el molí de vent.
+5d899996	No tens blat per moldre.
+711122c5	Parterre de flors
+292c8b1e	Pedres de pas
+8d34461c	Taula de pícnic
+6f6c7c3f	Penell
+375bee5a	Aquesta decoració no existeix.
+8963aa26	La teva granja ja té totes les decoracions que hi caben.
+88ca69ec	No queda cap tros d'herba lliure. Primer mou alguna cosa.
+805a700d	Aquí no hi ha cap decoració.
+16d82f9f	Gra
+62ee7744	Fruita
+bd629b84	Herbes
+94e334bd	Carabassa o carbassó
+2a4dba76	Verdures
+e6649ddd	No en tens tantes.
+298534a2	Cistella de pícnic
+0447dd62	Les teves criatures no tindran gana durant 3 dies.
+bda12d6f	Te de concentració
+14b3b0c2	Més sort a les teves 20 targetes següents.
+67ce6155	Estofat de creixement
+64a6a2ee	L'estudi d'avui fa créixer la teva criatura una vegada i mitja més de pressa.
+d677bf60	Tarta de baies
+ebc7afa5	La teva criatura agafa un color càlid de baies durant un dia. Només canvia el seu aspecte.
+4c7983b6	Gelatina de lluna
+cb659dc3	La teva criatura agafa un color fresc de llum de lluna durant un dia. Només canvia el seu aspecte.
+bd6fc54a	Sopa de fanal
+d51b1364	Aquesta nit la teva criatura brilla al poble, i els Muffles s'hi acosten a dir una paraula.
+a56cac35	Festí dels Muffles
+6ee60d09	Només en un dia de festa. Els Muffles fan un festí amb tu, i 3 de les seves paraules oblidades es desperten de cop.
+340e3209	Àpat del campió
+6961470c	Un impuls per al teu proper combat de gimnàs: un 10% més d'atac i de defensa. Només contra el joc.
+bd0eef28	Farinetes calentes
+db375c6c	Si les dones a un ou, apugen el talent més baix que pot sortir a l'ou.
+b56e84e9	Aquest plat no existeix.
+65fe6b2e	El Festí dels Muffles només es cuina en un dia de festa (els diumenges).
+1c85a03c	No tens tot el que cal.
+3a22cd89	Les farinetes calentes encara no estan a punt.
+5080c647	Avui no hi ha aquesta comanda.
+7fef8ede	Ja has completat aquesta comanda.
+ba1e8eab	No en tens prou al graner.
+c9065713	El verduler
+1ed92cba	La fornera
+91aa11ad	El taverner
+53b7002c	La florista
+8759d86b	El sastre
+a0b25834	La pescadora

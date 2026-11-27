@@ -18110,6 +18110,11 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "fc7c9106",
+  "k": "Upgrades",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "93ccce4c",
   "k": "You have {0}",
   "f": "web/js/game/farm-ui.js"
@@ -18130,8 +18135,38 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
-  "id": "34ed6aeb",
-  "k": "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest.",
+  "id": "34422d5c",
+  "k": "Your harvests wait here, as long as you like: nothing in the barn spoils. A coloured edge is a rarer harvest. Tap one to feed it to your creature or make bait.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "7ff2c88c",
+  "k": "In the barn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "4c3e3ab8",
+  "k": "Honey",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "03e94974",
+  "k": "Bait",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "53545d83",
+  "k": "Flour",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "cf72dbf6",
+  "k": "Cropdex",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "e19d99b7",
+  "k": "Harvest board",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18250,6 +18285,11 @@
   "f": "web/js/game/farm-ui.js"
  },
  {
+  "id": "422bc307",
+  "k": "Right! It and {0} more have their water for today.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
   "id": "c987038f",
   "k": "Right! It has its water for today.",
   "f": "web/js/game/farm-ui.js"
@@ -18302,6 +18342,301 @@
  {
   "id": "2b6b12b0",
   "k": "{0} × {1} to the barn",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "7af742b2",
+  "k": "{0} pie",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "90d8b9d6",
+  "k": "Your next egg leans to {0}.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "c2cf2485",
+  "k": "{0}'s favourite crops",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "799c9f2a",
+  "k": "You have",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a3e1e99f",
+  "k": "Rarity",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "f30c72e6",
+  "k": "Favourite of",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "148ba2d2",
+  "k": "Nobody",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "9b33c28f",
+  "k": "Your creature loves this one: feeding it makes it Well fed for a day (5% stronger, against the game only).",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a8b536fb",
+  "k": "Feed it to your creature (a meal, like any food), or make it into bait: each crop makes 3, and bait brings a little more luck at the pond.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "5cf0249c",
+  "k": "Grind",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "4d94313b",
+  "k": "Make bait",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ff1928e5",
+  "k": "Feed",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ad8c5f39",
+  "k": "Its favourite! It's Well fed for a day.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "df139e6c",
+  "k": "Yum.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "de24a2eb",
+  "k": "Cook",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ae28e153",
+  "k": "Cookbook",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a1c3b40d",
+  "k": "Dishes cooked from your harvests and honey. Each does one thing; tap one to see what.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "9f8f3e5f",
+  "k": "Festival",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "bc99becb",
+  "k": "Today!",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "d258491f",
+  "k": "Sundays",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "79b6cec3",
+  "k": "Only on a festival day (Sundays).",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a3b2bcb8",
+  "k": "You don't have everything it needs yet.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "3bab8441",
+  "k": "Words woke up: {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "222b9eed",
+  "k": "The Muffles feast with you.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "4bf0a471",
+  "k": "You cooked: {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "5c6f2949",
+  "k": "Which egg?",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "08a197c3",
+  "k": "Warm porridge is for an egg: choose which.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ae29a856",
+  "k": "You have no egg to feed it to.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "fa3cf2ad",
+  "k": "Sell",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "e6e244e5",
+  "k": "Fruit stall",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "75ae0610",
+  "k": "The grocer buys your harvests for glow. Rarer ones fetch more.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a5ad62ad",
+  "k": "Nothing to sell yet: harvests from your farm can be sold here for glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "282b1d21",
+  "k": "{0}'s order",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "ed4f3cdb",
+  "k": "Wants",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "2a78f0e9",
+  "k": "Pays",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "35864625",
+  "k": "Fill a Muffle's order and one of their forgotten words wakes up: it shows in their speech from now on.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "243a0db8",
+  "k": "Grow some more first: the order waits until tomorrow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "f2c752a4",
+  "k": "Thank you! A word woke up: {0}",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "184eb63a",
+  "k": "Thank you!",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "a6ad3f82",
+  "k": "Built",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b74dd64f",
+  "k": "Sprinkler",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "970cc152",
+  "k": "Earned: plants never wilt, and it waters two of them each day.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "660f617a",
+  "k": "Earned, not bought: water plants on {0} different days ({1} so far). Then plants never wilt, and it waters two each day.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "79982bb6",
+  "k": "It's on your farm. Tap it there to move it.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b3a65967",
+  "k": "Just for looks",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6d57d571",
+  "k": "Upgrades and decorations",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "720a3f5c",
+  "k": "Upgrades help your farm; decorations are just for looks. Both are bought with glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "c01ff8c7",
+  "k": "Just for looks: put it wherever you like on your farm.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "4f3e6209",
+  "k": "Put away",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "0b1fd986",
+  "k": "Put away: {0} glow back.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "42478baf",
+  "k": "Move it",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "45cc86f2",
+  "k": "Windmill",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "f1bfb73f",
+  "k": "It grinds wheat into flour. In the Cookbook one flour counts as two grain.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "b9825beb",
+  "k": "Grind all",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "e57b3ef7",
+  "k": "Earned by watering on many days: plants never wilt, and it waters two of them each day.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6b736b91",
+  "k": "Every crop there is. The edge shows the rarest of it you've grown; faint ones are still to grow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6e58e607",
+  "k": "Grown",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "f119000c",
+  "k": "Nothing harvested yet",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "48f35c53",
+  "k": "You and your friends, by what you've harvested this week. Only friends see it.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18520,6 +18855,11 @@
   "f": "web/js/game/farm.js"
  },
  {
+  "id": "62392e1f",
+  "k": "Those seeds are out of season: plant them under the greenhouse's glass, or wait for their season.",
+  "f": "web/js/game/farm.js"
+ },
+ {
   "id": "dea37270",
   "k": "Nothing is growing there.",
   "f": "web/js/game/farm.js"
@@ -18545,6 +18885,11 @@
   "f": "web/js/game/farm.js"
  },
  {
+  "id": "fe421197",
+  "k": "Your barn is full. Sell, cook or feed some first, or build a bigger barn: the crop waits, ripe.",
+  "f": "web/js/game/farm.js"
+ },
+ {
   "id": "5b1737e7",
   "k": "There's no building there.",
   "f": "web/js/game/farm.js"
@@ -18553,6 +18898,291 @@
   "id": "16c46312",
   "k": "It can't stand there. Try an open patch of grass.",
   "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "116d6514",
+  "k": "Watering can",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "f93b25e7",
+  "k": "One right answer also waters a thirsty plant next to it (two at the second level).",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "c1286dff",
+  "k": "Greenhouse",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "d0162451",
+  "k": "Glass over the top row of your field: anything grows there in any season.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "0ab037c0",
+  "k": "It keeps the birds off: your harvests come out rarer more often.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "ce27c125",
+  "k": "Compost bin",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "c141884b",
+  "k": "Richer soil: a harvest sometimes gives one more.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "92d64b1e",
+  "k": "Grinds wheat into flour. In the Cookbook, one flour counts as two grain.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "e67e759f",
+  "k": "Bigger barn",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "6cfabbae",
+  "k": "Room for more harvests in your barn.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "6b16516f",
+  "k": "It's built as far as it goes.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "254d9371",
+  "k": "There's no such upgrade.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "26519e20",
+  "k": "Build the windmill first.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "5d899996",
+  "k": "You have no wheat to grind.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "711122c5",
+  "k": "Flower bed",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "292c8b1e",
+  "k": "Stepping stones",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "8d34461c",
+  "k": "Picnic table",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "6f6c7c3f",
+  "k": "Weathervane",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "375bee5a",
+  "k": "There's no such decoration.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "8963aa26",
+  "k": "Your farm has all the decorations it can hold.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "88ca69ec",
+  "k": "There's no open patch of grass left. Move something first.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "805a700d",
+  "k": "There's no decoration there.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "16d82f9f",
+  "k": "Grain",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "62ee7744",
+  "k": "Fruit",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "bd629b84",
+  "k": "Herbs",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "94e334bd",
+  "k": "Pumpkin or squash",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "2a4dba76",
+  "k": "Vegetables",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "a703b560",
+  "k": "That creature isn't in your roster.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "6c27e5e8",
+  "k": "You have none of that.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "6156ebc8",
+  "k": "Eggs don't eat. Hatch it first.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "a66174fd",
+  "k": "It is full for today.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "e6649ddd",
+  "k": "You don't have that many.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "298534a2",
+  "k": "Picnic basket",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "0447dd62",
+  "k": "Your creatures won't get hungry for 3 days.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "bda12d6f",
+  "k": "Focus tea",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "14b3b0c2",
+  "k": "Better luck on your next 20 flashcards.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "67ce6155",
+  "k": "Growing stew",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "64a6a2ee",
+  "k": "Today's studying grows your creature half again as fast.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "d677bf60",
+  "k": "Berry tart",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "ebc7afa5",
+  "k": "Your creature turns a warm berry colour for a day. Only its look changes.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "4c7983b6",
+  "k": "Moon jelly",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "cb659dc3",
+  "k": "Your creature turns a cool moonlit colour for a day. Only its look changes.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "bd6fc54a",
+  "k": "Lantern soup",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "d51b1364",
+  "k": "Tonight your creature glows in the village, and Muffles come over to say a word.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "a56cac35",
+  "k": "Muffle feast",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "6ee60d09",
+  "k": "Only on a festival day. The Muffles feast with you, and 3 of their forgotten words wake at once.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "340e3209",
+  "k": "Champion's meal",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "6961470c",
+  "k": "A boost for your next gym fight: 10% more attack and defence. Only against the game.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "bd0eef28",
+  "k": "Warm porridge",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "db375c6c",
+  "k": "Fed to an egg, it raises the lowest talent the egg can roll.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "b56e84e9",
+  "k": "There's no such dish.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "65fe6b2e",
+  "k": "The Muffle feast is only cooked on a festival day (Sundays).",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "1c85a03c",
+  "k": "You don't have everything it needs.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "3a22cd89",
+  "k": "Warm porridge isn't ready yet.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "5080c647",
+  "k": "There's no such order today.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "7fef8ede",
+  "k": "You've filled that order.",
+  "f": "web/js/game/farmuses.js"
+ },
+ {
+  "id": "ba1e8eab",
+  "k": "You don't have enough in your barn.",
+  "f": "web/js/game/farmuses.js"
  },
  {
   "id": "94627c74",
@@ -19340,11 +19970,6 @@
   "f": "web/js/game/fishscreen.js"
  },
  {
-  "id": "a3e1e99f",
-  "k": "Rarity",
-  "f": "web/js/game/fishscreen.js"
- },
- {
   "id": "3bade34e",
   "k": "Length",
   "f": "web/js/game/fishscreen.js"
@@ -19357,16 +19982,6 @@
  {
   "id": "cbdae7e8",
   "k": "The aquarium is full: swap a fish out, or get a bigger tank.",
-  "f": "web/js/game/fishscreen.js"
- },
- {
-  "id": "fa3cf2ad",
-  "k": "Sell",
-  "f": "web/js/game/fishscreen.js"
- },
- {
-  "id": "ff1928e5",
-  "k": "Feed",
   "f": "web/js/game/fishscreen.js"
  },
  {
@@ -20000,11 +20615,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "799c9f2a",
-  "k": "You have",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "33d30632",
   "k": "Waiting",
   "f": "web/js/game/garden.js"
@@ -20185,11 +20795,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "42478baf",
-  "k": "Move it",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "b9305778",
   "k": "How hearts work",
   "f": "web/js/game/garden.js"
@@ -20260,11 +20865,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "a66174fd",
-  "k": "It is full for today.",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "38da057b",
   "k": "Buy one to feed it.",
   "f": "web/js/game/garden.js"
@@ -20287,11 +20887,6 @@
  {
   "id": "c266a25e",
   "k": "It loves that!",
-  "f": "web/js/game/garden.js"
- },
- {
-  "id": "df139e6c",
-  "k": "Yum.",
   "f": "web/js/game/garden.js"
  },
  {
@@ -20690,6 +21285,36 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "c9065713",
+  "k": "The grocer",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "1ed92cba",
+  "k": "The baker",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "91aa11ad",
+  "k": "The barkeep",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "53b7002c",
+  "k": "The florist",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "8759d86b",
+  "k": "The tailor",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "a0b25834",
+  "k": "The fisher",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "d4b83e87",
   "k": "Muffle",
   "f": "web/js/game/habitat.js"
@@ -20747,11 +21372,6 @@
  {
   "id": "494a1906",
   "k": "Tap where it should go, and your creature carries it there.",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "4f3e6209",
-  "k": "Put away",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -20912,21 +21532,6 @@
  {
   "id": "36602b9e",
   "k": "Your roster is full.",
-  "f": "web/js/game/idle.js"
- },
- {
-  "id": "a703b560",
-  "k": "That creature isn't in your roster.",
-  "f": "web/js/game/idle.js"
- },
- {
-  "id": "6c27e5e8",
-  "k": "You have none of that.",
-  "f": "web/js/game/idle.js"
- },
- {
-  "id": "6156ebc8",
-  "k": "Eggs don't eat. Hatch it first.",
   "f": "web/js/game/idle.js"
  },
  {

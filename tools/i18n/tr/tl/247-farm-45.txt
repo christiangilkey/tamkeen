@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Mga upgrade
+34422d5c	Dito naghihintay ang mga ani mo, gaano man katagal: walang nasisira sa kamalig. Ang may kulay na gilid ay mas bihirang ani. I-tap ang isa para ipakain sa nilalang mo o gawing pain.
+7ff2c88c	Sa kamalig
+4c3e3ab8	Pulot
+03e94974	Pain
+53545d83	Harina
+cf72dbf6	Cropdex
+e19d99b7	Board ng ani
+422bc307	Tama! Ito at {0} pa ang nadiligan na para ngayong araw.
+7af742b2	Pie na {0}
+90d8b9d6	Kumikiling sa {0} ang susunod mong itlog.
+c2cf2485	Mga paboritong pananim ni {0}
+f30c72e6	Paborito ni
+148ba2d2	Wala
+9b33c28f	Gustong-gusto ito ng nilalang mo: kapag ipinakain, Busog ito nang isang araw (5% mas malakas, kontra sa laro lang).
+a8b536fb	Ipakain ito sa nilalang mo (isang kain, gaya ng anumang pagkain), o gawin itong pain: 3 ang nagagawa ng bawat pananim, at nagdadala ang pain ng kaunting dagdag na suwerte sa lawa.
+5cf0249c	Gilingin
+4d94313b	Gumawa ng pain
+ad8c5f39	Paborito nito! Busog ito nang isang araw.
+de24a2eb	Lutuin
+ae28e153	Aklat ng Lutuin
+a1c3b40d	Mga putaheng niluto mula sa mga ani at pulot mo. May isang gamit ang bawat isa; i-tap ang isa para makita kung ano.
+9f8f3e5f	Pista
+bc99becb	Ngayon!
+d258491f	Tuwing Linggo
+79b6cec3	Sa araw lang ng pista (tuwing Linggo).
+a3b2bcb8	Wala ka pa ng lahat ng kailangan nito.
+3bab8441	Nagising ang mga salita: {0}
+222b9eed	Nakikipagpiging sa iyo ang mga Muffle.
+4bf0a471	Niluto mo: {0}
+5c6f2949	Aling itlog?
+08a197c3	Para sa itlog ang mainit na lugaw: pumili kung alin.
+ae29a856	Wala kang itlog na mapapakain nito.
+e6e244e5	Puwesto ng prutas
+75ae0610	Binibili ng tindero ang mga ani mo kapalit ng liwanag. Mas mahal ang mas bihira.
+a5ad62ad	Wala pang maibebenta: puwedeng ibenta rito ang mga ani mula sa bukid mo kapalit ng liwanag.
+282b1d21	Order ni {0}
+ed4f3cdb	Gusto
+2a78f0e9	Bayad
+35864625	Tuparin ang order ng isang Muffle at magigising ang isa sa mga nakalimutan niyang salita: makikita na ito sa pananalita niya mula ngayon.
+243a0db8	Magpatubo muna ng higit pa: maghihintay ang order hanggang bukas.
+f2c752a4	Salamat! May salitang nagising: {0}
+184eb63a	Salamat!
+a6ad3f82	Naitayo na
+b74dd64f	Sprinkler
+970cc152	Nakamit: hindi kailanman nalalanta ang mga halaman, at dinidiligan nito ang dalawa sa kanila araw-araw.
+660f617a	Nakakamit, hindi nabibili: diligan ang mga halaman sa {0} magkakaibang araw ({1} sa ngayon). Pagkatapos, hindi na kailanman malalanta ang mga halaman, at dinidiligan nito ang dalawa araw-araw.
+79982bb6	Nasa bukid mo ito. I-tap ito roon para ilipat.
+b3a65967	Pampaganda lang
+6d57d571	Mga upgrade at dekorasyon
+720a3f5c	Tumutulong sa bukid mo ang mga upgrade; pampaganda lang ang mga dekorasyon. Parehong binibili gamit ang liwanag.
+c01ff8c7	Pampaganda lang: ilagay ito kahit saan mo gusto sa bukid mo.
+0b1fd986	Itinabi: {0} liwanag ang naibalik.
+45cc86f2	Gilingang-hangin
+f1bfb73f	Ginigiling nito ang trigo para maging harina. Sa Aklat ng Lutuin, ang isang harina ay katumbas ng dalawang butil.
+b9825beb	Gilingin lahat
+e57b3ef7	Nakakamit sa pagdidilig sa maraming araw: hindi kailanman nalalanta ang mga halaman, at dinidiligan nito ang dalawa sa kanila araw-araw.
+6b736b91	Lahat ng pananim na mayroon. Ipinapakita ng gilid ang pinakabihirang naitanim mo nito; ang malalabo ay hindi mo pa naitatanim.
+6e58e607	Naitanim
+f119000c	Wala pang naaani
+48f35c53	Ikaw at ang mga kaibigan mo, ayon sa naani ninyo ngayong linggo. Mga kaibigan lang ang nakakakita nito.
+62392e1f	Hindi panahon ngayon ng mga binhing iyan: itanim sila sa ilalim ng salamin ng greenhouse, o hintayin ang panahon nila.
+fe421197	Puno na ang kamalig mo. Magbenta, magluto o magpakain muna, o magtayo ng mas malaking kamalig: maghihintay ang hinog na pananim.
+116d6514	Pandilig
+f93b25e7	Ang isang tamang sagot ay nagdidilig din sa uhaw na halamang katabi nito (dalawa sa ikalawang antas).
+c1286dff	Greenhouse
+d0162451	Salamin sa ibabaw ng pinakaitaas na hanay ng taniman mo: kahit ano ay tumutubo roon kahit anong panahon.
+0ab037c0	Inilalayo nito ang mga ibon: mas madalas na mas bihira ang lumalabas na ani mo.
+ce27c125	Compost bin
+c141884b	Mas matabang lupa: minsan, may isang dagdag ang ani.
+92d64b1e	Ginigiling ang trigo para maging harina. Sa Aklat ng Lutuin, ang isang harina ay katumbas ng dalawang butil.
+e67e759f	Mas malaking kamalig
+6cfabbae	Puwang para sa mas maraming ani sa kamalig mo.
+6b16516f	Naitayo na ito hanggang sa pinakamataas.
+254d9371	Walang ganyang upgrade.
+26519e20	Itayo muna ang gilingang-hangin.
+5d899996	Wala kang trigong gigilingin.
+711122c5	Taniman ng bulaklak
+292c8b1e	Mga batong tuntungan
+8d34461c	Mesa ng piknik
+6f6c7c3f	Pabiling-hangin
+375bee5a	Walang ganyang dekorasyon.
+8963aa26	Nasa bukid mo na ang lahat ng dekorasyong kasya rito.
+88ca69ec	Wala nang bakanteng bahagi ng damuhan. Maglipat muna ng isang bagay.
+805a700d	Walang dekorasyon diyan.
+16d82f9f	Butil
+62ee7744	Prutas
+bd629b84	Mga halamang-gamot at pampalasa
+94e334bd	Kalabasa o squash
+2a4dba76	Mga gulay
+e6649ddd	Wala kang ganoon karami.
+298534a2	Basket ng piknik
+0447dd62	Hindi magugutom ang mga nilalang mo sa loob ng 3 araw.
+bda12d6f	Tsaa ng pokus
+14b3b0c2	Mas magandang suwerte sa susunod mong 20 flashcard.
+67ce6155	Nilagang pampalaki
+64a6a2ee	Pinapalaki ng pag-aaral mo ngayong araw ang nilalang mo nang kalahating beses na mas mabilis.
+d677bf60	Berry tart
+ebc7afa5	Nagiging mainit na kulay-berry ang nilalang mo nang isang araw. Ang itsura lang nito ang nagbabago.
+4c7983b6	Jelly ng buwan
+cb659dc3	Nagiging malamig na kulay ng liwanag ng buwan ang nilalang mo nang isang araw. Ang itsura lang nito ang nagbabago.
+bd6fc54a	Sopas ng parol
+d51b1364	Ngayong gabi, nagliliwanag ang nilalang mo sa nayon, at lumalapit ang mga Muffle para magsabi ng isang salita.
+a56cac35	Piging ng Muffle
+6ee60d09	Sa araw lang ng pista. Nakikipagpiging sa iyo ang mga Muffle, at sabay-sabay na nagigising ang 3 sa mga nakalimutan nilang salita.
+340e3209	Pagkain ng kampeon
+6961470c	Dagdag-lakas para sa susunod mong laban sa gym: 10% dagdag na atake at depensa. Kontra sa laro lang.
+bd0eef28	Mainit na lugaw
+db375c6c	Kapag ipinakain sa itlog, itinataas nito ang pinakamababang talentong makukuha ng itlog.
+b56e84e9	Walang ganyang putahe.
+65fe6b2e	Sa araw lang ng pista niluluto ang Piging ng Muffle (tuwing Linggo).
+1c85a03c	Wala ka ng lahat ng kailangan nito.
+3a22cd89	Hindi pa handa ang mainit na lugaw.
+5080c647	Walang ganyang order ngayong araw.
+7fef8ede	Natupad mo na ang order na iyan.
+ba1e8eab	Kulang ang laman ng kamalig mo.
+c9065713	Ang tindero
+1ed92cba	Ang panadero
+91aa11ad	Ang bartender
+53b7002c	Ang tindera ng bulaklak
+8759d86b	Ang mananahi
+a0b25834	Ang mangingisda

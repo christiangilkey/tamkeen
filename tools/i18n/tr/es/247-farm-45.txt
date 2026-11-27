@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Mejoras
+34422d5c	Tus cosechas esperan aquí todo el tiempo que quieras: en el granero nada se estropea. Un borde de color indica una cosecha más rara. Toca una para dársela de comer a tu criatura o para hacer cebo.
+7ff2c88c	En el granero
+4c3e3ab8	Miel
+03e94974	Cebo
+53545d83	Harina
+cf72dbf6	Cultivodex
+e19d99b7	Tabla de cosechas
+422bc307	¡Correcto! Ella y {0} más ya tienen su agua de hoy.
+7af742b2	Tarta de {0}
+90d8b9d6	Tu próximo huevo tiende a {0}.
+c2cf2485	Cultivos favoritos de {0}
+f30c72e6	Favorito de
+148ba2d2	Nadie
+9b33c28f	A tu criatura le encanta este: dárselo de comer la deja Bien alimentada durante un día (5 % más fuerte, solo contra el juego).
+a8b536fb	Dáselo de comer a tu criatura (una comida, como cualquier alimento) o conviértelo en cebo: cada cultivo da 3, y el cebo trae un poco más de suerte en el estanque.
+5cf0249c	Moler
+4d94313b	Hacer cebo
+ad8c5f39	¡Su favorito! Está Bien alimentada durante un día.
+de24a2eb	Cocinar
+ae28e153	Recetario
+a1c3b40d	Platos cocinados con tus cosechas y tu miel. Cada uno hace una cosa; toca uno para ver cuál.
+9f8f3e5f	Fiesta
+bc99becb	¡Hoy!
+d258491f	Los domingos
+79b6cec3	Solo en un día de fiesta (los domingos).
+a3b2bcb8	Aún no tienes todo lo que necesita.
+3bab8441	Despertaron palabras: {0}
+222b9eed	Los Muffles celebran un festín contigo.
+4bf0a471	Has cocinado: {0}
+5c6f2949	¿Qué huevo?
+08a197c3	Las gachas calientes son para un huevo: elige cuál.
+ae29a856	No tienes ningún huevo al que dárselas.
+e6e244e5	Puesto de frutas
+75ae0610	El tendero te compra las cosechas por brillo. Las más raras valen más.
+a5ad62ad	Nada que vender todavía: aquí puedes vender por brillo las cosechas de tu granja.
+282b1d21	Pedido de {0}
+ed4f3cdb	Quiere
+2a78f0e9	Paga
+35864625	Completa el pedido de un Muffle y una de sus palabras olvidadas despierta: desde entonces aparece en lo que dice.
+243a0db8	Cultiva un poco más primero: el pedido espera hasta mañana.
+f2c752a4	¡Gracias! Despertó una palabra: {0}
+184eb63a	¡Gracias!
+a6ad3f82	Construido
+b74dd64f	Aspersor
+970cc152	Ganado: las plantas nunca se marchitan, y riega dos de ellas cada día.
+660f617a	Se gana, no se compra: riega plantas en {0} días distintos ({1} hasta ahora). Entonces las plantas nunca se marchitan, y riega dos cada día.
+79982bb6	Está en tu granja. Tócalo allí para moverlo.
+b3a65967	Solo decorativo
+6d57d571	Mejoras y decoraciones
+720a3f5c	Las mejoras ayudan a tu granja; las decoraciones son solo decorativas. Las dos se compran con brillo.
+c01ff8c7	Solo decorativo: ponlo donde quieras en tu granja.
+0b1fd986	Guardado: te devuelve {0} de brillo.
+45cc86f2	Molino de viento
+f1bfb73f	Muele el trigo y lo convierte en harina. En el recetario, una harina cuenta como dos de grano.
+b9825beb	Moler todo
+e57b3ef7	Se gana regando muchos días: las plantas nunca se marchitan, y riega dos de ellas cada día.
+6b736b91	Todos los cultivos que existen. El borde muestra lo más raro que has cultivado de cada uno; los tenues aún están por cultivar.
+6e58e607	Cultivado
+f119000c	Nada cosechado todavía
+48f35c53	Tú y tus amigos, según lo que han cosechado esta semana. Solo lo ven tus amigos.
+62392e1f	Esas semillas están fuera de temporada: plántalas bajo el cristal del invernadero o espera a su estación.
+fe421197	Tu granero está lleno. Primero vende, cocina o da de comer algo, o construye un granero más grande: el cultivo espera, maduro.
+116d6514	Regadera
+f93b25e7	Una respuesta correcta también riega una planta sedienta de al lado (dos en el segundo nivel).
+c1286dff	Invernadero
+d0162451	Cristal sobre la fila de arriba de tu campo: ahí crece cualquier cosa en cualquier estación.
+0ab037c0	Mantiene alejados a los pájaros: tus cosechas salen raras más a menudo.
+ce27c125	Compostador
+c141884b	Tierra más rica: a veces una cosecha da una más.
+92d64b1e	Muele el trigo y lo convierte en harina. En el recetario, una harina cuenta como dos de grano.
+e67e759f	Granero más grande
+6cfabbae	Sitio para más cosechas en tu granero.
+6b16516f	Ya está construido al máximo.
+254d9371	No existe esa mejora.
+26519e20	Construye primero el molino de viento.
+5d899996	No tienes trigo para moler.
+711122c5	Parterre de flores
+292c8b1e	Camino de piedras
+8d34461c	Mesa de pícnic
+6f6c7c3f	Veleta
+375bee5a	No existe esa decoración.
+8963aa26	Tu granja ya tiene todas las decoraciones que le caben.
+88ca69ec	No queda ningún trozo de hierba libre. Mueve algo primero.
+805a700d	Ahí no hay ninguna decoración.
+16d82f9f	Grano
+62ee7744	Fruta
+bd629b84	Hierbas
+94e334bd	Calabaza o calabacín
+2a4dba76	Verduras
+e6649ddd	No tienes tantos.
+298534a2	Cesta de pícnic
+0447dd62	Tus criaturas no tendrán hambre durante 3 días.
+bda12d6f	Té de concentración
+14b3b0c2	Más suerte en tus próximas 20 tarjetas.
+67ce6155	Guiso de crecimiento
+64a6a2ee	Lo que estudies hoy hace crecer a tu criatura la mitad más rápido.
+d677bf60	Tarta de bayas
+ebc7afa5	Tu criatura se vuelve de un cálido color baya durante un día. Solo cambia su aspecto.
+4c7983b6	Gelatina de luna
+cb659dc3	Tu criatura se vuelve de un fresco color de luz de luna durante un día. Solo cambia su aspecto.
+bd6fc54a	Sopa de farolillo
+d51b1364	Esta noche tu criatura brilla en el pueblo, y los Muffles se acercan a decir una palabra.
+a56cac35	Festín de los Muffles
+6ee60d09	Solo en un día de fiesta. Los Muffles celebran un festín contigo, y 3 de sus palabras olvidadas despiertan a la vez.
+340e3209	Comida de campeón
+6961470c	Un impulso para tu próximo combate de gimnasio: 10 % más de ataque y defensa. Solo contra el juego.
+bd0eef28	Gachas calientes
+db375c6c	Dadas a un huevo, suben el talento más bajo que puede salirle al huevo.
+b56e84e9	No existe ese plato.
+65fe6b2e	El festín de los Muffles solo se cocina en un día de fiesta (los domingos).
+1c85a03c	No tienes todo lo que necesita.
+3a22cd89	Las gachas calientes aún no están listas.
+5080c647	Hoy no hay ningún pedido así.
+7fef8ede	Ya has completado ese pedido.
+ba1e8eab	No tienes suficiente en tu granero.
+c9065713	El tendero
+1ed92cba	El panadero
+91aa11ad	El tabernero
+53b7002c	El florista
+8759d86b	El sastre
+a0b25834	El pescador

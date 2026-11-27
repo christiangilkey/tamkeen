@@ -10165,8 +10165,35 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   (true by construction: release() changes `state.idle` and the roster, never `state.farm`), and any lines other work
   adds (`shrinelines.js addShrineLines`: talents.js's). Tests: `tests/js/shrine.test.mjs`.
 - Translations for slices 2 and 3: `247-farm-2.txt`, `247-farm-3.txt` (machine-made).
-- Not yet (later slices of the plan): neighbour help, watering-can tiers, greenhouse, scarecrow luck, barn sizes, the
-  sprinkler, food/bait/recipes/orders/selling, the Cropdex screen, friends' harvest board.
+- **Slice 4, what harvests are for** (`web/js/game/farmuses.js`, pure; screens in farm-ui.js):
+  food (a barn crop is a meal: `feedCrop`, three a day like idle.feed; each element's `FAVOURITES`, one a season, make
+  it Well fed for a day: `c.wellFed`; battle.fighter multiplies attack and defence by 1.05 ONLY with `vsGame`, the
+  talents' switch, so never in friend or ranked battles); bait (`makeBait`: 3 a crop; fishing.luckOf x1.25 while
+  `farm.bait`, one used per fish landed); the Cookbook (tap the cook or her pot; `RECIPES`, 15 dishes from groups of
+  crops and honey, commonest harvests used first; effects in `farm.buffs` read where the game decides: loot.rollAnswer
+  Focus tea x1.5 on 20 cards, rules.grow Growing stew x1.5 today, rules.layEgg an element pie's `lean`, gyms-ui the
+  Champion's meal x1.1 for one gym fight (vsGame), Picnic basket pushes fedAt 2 days ahead, Berry tart / Moon jelly a
+  hue for a day (habitat's ctx.filter, looks only), Lantern soup a glow outside at night and Muffles coming to talk, the
+  Muffle feast on Sundays wakes 3 words, Warm porridge calls talents.js warmPorridge); three Muffle orders a day
+  (`ordersToday`, the same for everyone; a "!" over the Muffle; `fillOrder` pays 1.6x selling and wakes one of their
+  words: `farm.woken[lang]`, read by habitat's muffleSpeak through muffles.readLine's new `key`); the fruit stall
+  sells harvests (`sellPrice`: half a seed's price, more for rarer). Tests: `tests/js/farmuses.test.mjs`.
+- **Slice 5** (farm.js `UPGRADES`, `DECOR`; farm-ui `openFarmShop` from the seed stand's "Upgrades"): watering can
+  (`waterAround`: 1, then 2 thirsty neighbours of a right answer), greenhouse (`underGlass`: the field's top row never
+  rests; out-of-season seeds plant only there), scarecrow (harvest luck x1.25), compost bin (+1 half the time),
+  windmill (`grind`: wheat to `farm.flour`, two grain each in the Cookbook), bigger barns (`BARN_CAP` 80/200/500/1500: a
+  full barn refuses the harvest and the crop waits ripe); the sprinkler is EARNED (`farm.farmDays` >= 10: no wilting,
+  2 plants watered a day in farmJobs). Decorations, no power (`buyDecor` on the first open grass, "Move it", "Put
+  away" for half back). The Cropdex and the harvest board from the barn. The board is friends only like the aquarium:
+  `publicFarm` goes in the shared game profile (friends-game myPublicRow, with the prototype), checked on arrival
+  (remote.cleanFarm), social.js sends and reads it with a fallback for an older database; **it needs
+  `supabase/v20-farm.sql` run by the owner** (one column `farm`, a check; until then only you are on the board). The
+  farm is 36 tiles long (farmmap `UPGRADE_AT`: the windmill and compost bin at the far end). The Word Sprout, Echo Shell,
+  Page Lantern and Memory Stone are redrawn in the cozy look for everyone (farmart.py `COZY`; sources
+  `game/art-src/structure/`). Tests: `tests/js/farmupgrades.test.mjs`.
+- Translations for slices 4 and 5: `247-farm-45.txt` (machine-made).
+- Not yet: neighbour help between crops, farm animals (the plan's "later"), visiting a friend's farm (the board shows
+  their numbers only).
 
 ## Creature talents and the Element card (prototype `talents`, 2026-11-26, "Creature talents" side session)
 

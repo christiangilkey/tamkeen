@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Melhorias
+34422d5c	Suas colheitas esperam aqui pelo tempo que você quiser: nada estraga no celeiro. Uma borda colorida indica uma colheita mais rara. Toque em uma para dar de comer à sua criatura ou fazer isca.
+7ff2c88c	No celeiro
+4c3e3ab8	Mel
+03e94974	Isca
+53545d83	Farinha
+cf72dbf6	Colheitadex
+e19d99b7	Placar de colheitas
+422bc307	Certo! Ela e mais {0} já têm sua água de hoje.
+7af742b2	Torta de {0}
+90d8b9d6	Seu próximo ovo tende a {0}.
+c2cf2485	Plantações favoritas de {0}
+f30c72e6	Favorita de
+148ba2d2	Ninguém
+9b33c28f	Sua criatura adora esta: dar de comer a ela a deixa Bem alimentada por um dia (5% mais forte, só contra o jogo).
+a8b536fb	Dê de comer à sua criatura (uma refeição, como qualquer comida) ou transforme em isca: cada planta rende 3, e a isca traz um pouco mais de sorte no lago.
+5cf0249c	Moer
+4d94313b	Fazer isca
+ad8c5f39	A favorita dela! Está Bem alimentada por um dia.
+de24a2eb	Cozinhar
+ae28e153	Livro de receitas
+a1c3b40d	Pratos feitos com suas colheitas e seu mel. Cada um faz uma coisa; toque em um para ver qual.
+9f8f3e5f	Festa
+bc99becb	Hoje!
+d258491f	Aos domingos
+79b6cec3	Só em dia de festa (aos domingos).
+a3b2bcb8	Você ainda não tem tudo de que precisa.
+3bab8441	Palavras despertaram: {0}
+222b9eed	Os Muffles fazem um banquete com você.
+4bf0a471	Você cozinhou: {0}
+5c6f2949	Qual ovo?
+08a197c3	O mingau quente é para um ovo: escolha qual.
+ae29a856	Você não tem nenhum ovo para dar.
+e6e244e5	Barraca de frutas
+75ae0610	O verdureiro compra suas colheitas por brilho. As mais raras valem mais.
+a5ad62ad	Nada para vender ainda: as colheitas da sua fazenda podem ser vendidas aqui por brilho.
+282b1d21	Pedido de {0}
+ed4f3cdb	Quer
+2a78f0e9	Paga
+35864625	Atenda ao pedido de um Muffle e uma das palavras esquecidas dele desperta: a partir daí ela aparece na fala dele.
+243a0db8	Plante um pouco mais primeiro: o pedido espera até amanhã.
+f2c752a4	Obrigado! Uma palavra despertou: {0}
+184eb63a	Obrigado!
+a6ad3f82	Construído
+b74dd64f	Aspersor
+970cc152	Conquistado: as plantas nunca murcham, e ele rega duas delas por dia.
+660f617a	Conquistado, não comprado: regue plantas em {0} dias diferentes ({1} até agora). Depois as plantas nunca murcham, e ele rega duas por dia.
+79982bb6	Está na sua fazenda. Toque nele lá para mudá-lo de lugar.
+b3a65967	Só decorativo
+6d57d571	Melhorias e decorações
+720a3f5c	Melhorias ajudam sua fazenda; decorações são só decorativas. As duas são compradas com brilho.
+c01ff8c7	Só decorativo: coloque onde quiser na sua fazenda.
+0b1fd986	Guardado: {0} de brilho de volta.
+45cc86f2	Moinho de vento
+f1bfb73f	Ele mói trigo e transforma em farinha. No livro de receitas, uma farinha conta como dois grãos.
+b9825beb	Moer tudo
+e57b3ef7	Conquistado regando em muitos dias: as plantas nunca murcham, e ele rega duas delas por dia.
+6b736b91	Todas as plantações que existem. A borda mostra a mais rara que você já colheu de cada uma; as apagadas ainda estão por plantar.
+6e58e607	Plantada
+f119000c	Nada colhido ainda
+48f35c53	Você e seus amigos, pelo que colheram esta semana. Só seus amigos veem.
+62392e1f	Essas sementes estão fora de estação: plante-as sob o vidro da estufa ou espere a estação delas.
+fe421197	Seu celeiro está cheio. Venda, cozinhe ou dê de comer algo primeiro, ou construa um celeiro maior: a colheita espera, madura.
+116d6514	Regador
+f93b25e7	Uma resposta certa também rega uma planta com sede ao lado (duas no segundo nível).
+c1286dff	Estufa
+d0162451	Vidro sobre a fileira de cima do seu campo: ali tudo cresce em qualquer estação.
+0ab037c0	Mantém os pássaros longe: suas colheitas saem raras com mais frequência.
+ce27c125	Composteira
+c141884b	Terra mais rica: às vezes uma colheita rende uma a mais.
+92d64b1e	Mói trigo e transforma em farinha. No livro de receitas, uma farinha conta como dois grãos.
+e67e759f	Celeiro maior
+6cfabbae	Espaço para mais colheitas no seu celeiro.
+6b16516f	Já está construído até o máximo.
+254d9371	Essa melhoria não existe.
+26519e20	Construa o moinho de vento primeiro.
+5d899996	Você não tem trigo para moer.
+711122c5	Canteiro de flores
+292c8b1e	Trilha de pedras
+8d34461c	Mesa de piquenique
+6f6c7c3f	Cata-vento
+375bee5a	Essa decoração não existe.
+8963aa26	Sua fazenda já tem todas as decorações que cabem nela.
+88ca69ec	Não sobrou nenhum pedaço de grama livre. Mude algo de lugar primeiro.
+805a700d	Não há nenhuma decoração aí.
+16d82f9f	Grãos
+62ee7744	Frutas
+bd629b84	Ervas
+94e334bd	Abóbora ou abobrinha
+2a4dba76	Legumes
+e6649ddd	Você não tem tantos.
+298534a2	Cesta de piquenique
+0447dd62	Suas criaturas não vão sentir fome por 3 dias.
+bda12d6f	Chá do foco
+14b3b0c2	Mais sorte nos seus próximos 20 cartões.
+67ce6155	Ensopado do crescimento
+64a6a2ee	O estudo de hoje faz sua criatura crescer uma vez e meia mais rápido.
+d677bf60	Torta de frutas vermelhas
+ebc7afa5	Sua criatura fica com uma cor quente de frutas vermelhas por um dia. Só a aparência muda.
+4c7983b6	Gelatina de lua
+cb659dc3	Sua criatura fica com uma cor fria de luar por um dia. Só a aparência muda.
+bd6fc54a	Sopa lanterna
+d51b1364	Esta noite sua criatura brilha na vila, e os Muffles vêm dizer uma palavra.
+a56cac35	Banquete dos Muffles
+6ee60d09	Só em dia de festa. Os Muffles fazem um banquete com você, e 3 das palavras esquecidas deles despertam de uma vez.
+340e3209	Refeição de campeão
+6961470c	Um reforço para sua próxima luta de ginásio: 10% mais ataque e defesa. Só contra o jogo.
+bd0eef28	Mingau quente
+db375c6c	Dado a um ovo, ele aumenta o talento mais baixo que o ovo pode tirar.
+b56e84e9	Esse prato não existe.
+65fe6b2e	O banquete dos Muffles só é preparado em dia de festa (aos domingos).
+1c85a03c	Você não tem tudo de que precisa.
+3a22cd89	O mingau quente ainda não está pronto.
+5080c647	Não há esse pedido hoje.
+7fef8ede	Você já atendeu esse pedido.
+ba1e8eab	Você não tem o suficiente no seu celeiro.
+c9065713	O verdureiro
+1ed92cba	O padeiro
+91aa11ad	O taberneiro
+53b7002c	O florista
+8759d86b	O alfaiate
+a0b25834	O pescador

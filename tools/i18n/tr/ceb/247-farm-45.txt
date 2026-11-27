@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Mga pag-upgrade
+34422d5c	Ang imong mga ani maghulat dinhi, bisan unsa ka dugay: walay madunot sa kamalig. Ang kolor nga ngilit nagpasabot og mas talagsaong ani. I-tap ang usa aron ipakaon sa imong linalang o himoong paon.
+7ff2c88c	Sa kamalig
+4c3e3ab8	Dugos
+03e94974	Paon
+53545d83	Harina
+cf72dbf6	Cropdex
+e19d99b7	Board sa ani
+422bc307	Sakto! Kini ug {0} pa ang nabisibisan na karong adlawa.
+7af742b2	Pie nga {0}
+90d8b9d6	Ang imong sunod nga itlog mohilig ngadto sa {0}.
+c2cf2485	Paboritong mga tanom ni {0}
+f30c72e6	Paborito ni
+148ba2d2	Walay usa
+9b33c28f	Ganahan kaayo niini ang imong linalang: ang pagpakaon niini mohimo kaniya nga Busog sulod sa usa ka adlaw (5% mas kusgan, batok lang sa dula).
+a8b536fb	Ipakaon kini sa imong linalang (usa ka kan-anan, sama sa bisan unsang pagkaon), o himoa kining paon: ang matag tanom mohimo og 3, ug ang paon magdala og gamay nga dugang swerte sa linaw.
+5cf0249c	Galingon
+4d94313b	Paghimo og paon
+ad8c5f39	Paborito niini! Busog kini sulod sa usa ka adlaw.
+de24a2eb	Lutoa
+ae28e153	Libro sa Pagluto
+a1c3b40d	Mga putahe nga giluto gikan sa imong mga ani ug dugos. Ang matag usa adunay usa ka buhat; i-tap ang usa aron makita kung unsa.
+9f8f3e5f	Pista
+bc99becb	Karon!
+d258491f	Matag Domingo
+79b6cec3	Sa adlaw lang sa pista (matag Domingo).
+a3b2bcb8	Wala pa nimo ang tanan nga gikinahanglan niini.
+3bab8441	Nahigmata ang mga pulong: {0}
+222b9eed	Nagkombira uban kanimo ang mga Muffle.
+4bf0a471	Imong giluto: {0}
+5c6f2949	Unsang itlog?
+08a197c3	Ang init nga lugaw para sa itlog: pilia kung asa.
+ae29a856	Wala kay itlog nga pakan-on niini.
+e6e244e5	Tindahan sa prutas
+75ae0610	Paliton sa tindero ang imong mga ani baylo sa sanag. Mas mahal ang mas talagsaon.
+a5ad62ad	Wala pay ikabaligya: ang mga ani gikan sa imong uma mahimong ibaligya dinhi baylo sa sanag.
+282b1d21	Order ni {0}
+ed4f3cdb	Gusto
+2a78f0e9	Mobayad
+35864625	Tumana ang order sa usa ka Muffle ug usa sa iyang nakalimtang mga pulong mahigmata: makita na kini sa iyang sinultihan sukad karon.
+243a0db8	Pagtanom usa og dugang: maghulat ang order hangtod ugma.
+f2c752a4	Salamat! Usa ka pulong ang nahigmata: {0}
+184eb63a	Salamat!
+a6ad3f82	Natukod na
+b74dd64f	Sprinkler
+970cc152	Nakuha: dili gyud malaya ang mga tanom, ug mobisibis kini sa duha niini matag adlaw.
+660f617a	Makuha, dili mapalit: bisibisi ang mga tanom sa {0} ka lainlaing adlaw ({1} sa pagkakaron). Unya dili na gyud malaya ang mga tanom, ug mobisibis kini sa duha matag adlaw.
+79982bb6	Anaa kini sa imong uma. I-tap kini didto aron ibalhin.
+b3a65967	Pang-dekorasyon lang
+6d57d571	Mga pag-upgrade ug dekorasyon
+720a3f5c	Ang mga pag-upgrade motabang sa imong uma; ang mga dekorasyon pang-tan-aw lang. Parehong paliton gamit ang sanag.
+c01ff8c7	Pang-dekorasyon lang: ibutang kini bisan asa nimo gusto sa imong uma.
+0b1fd986	Gitipigan: {0} ka sanag ang nabalik.
+45cc86f2	Galingan sa hangin
+f1bfb73f	Galingon niini ang trigo aron mahimong harina. Sa Libro sa Pagluto, ang usa ka harina giisip nga duha ka lugas.
+b9825beb	Galingon tanan
+e57b3ef7	Makuha pinaagi sa pagbisibis sa daghang adlaw: dili gyud malaya ang mga tanom, ug mobisibis kini sa duha niini matag adlaw.
+6b736b91	Ang matag tanom nga anaa. Ang ngilit nagpakita sa pinakatalagsaon niini nga imong natanom; ang mga luspad wala pa matanom.
+6e58e607	Natanom
+f119000c	Wala pay naani
+48f35c53	Ikaw ug ang imong mga higala, sumala sa imong naani karong semanaha. Ang mga higala lang ang makakita niini.
+62392e1f	Dili panahon karon sa maong mga liso: itanom kini ilalom sa bildo sa greenhouse, o hulata ang ilang panahon.
+fe421197	Puno na ang imong kamalig. Ibaligya, lutoa o ipakaon usa ang uban, o pagtukod og mas dakong kamalig: maghulat ang hinog nga tanom.
+116d6514	Regadera
+f93b25e7	Ang usa ka saktong tubag mobisibis usab sa giuhaw nga tanom tupad niini (duha sa ikaduhang lebel).
+c1286dff	Greenhouse
+d0162451	Bildo ibabaw sa pinakataas nga laray sa imong umahan: bisan unsa motubo didto bisan unsang panahon.
+0ab037c0	Gipalayo niini ang mga langgam: mas kanunay nga mas talagsaon ang imong mga ani.
+ce27c125	Kompost
+c141884b	Mas tabunok nga yuta: usahay ang ani mohatag og usa pa.
+92d64b1e	Galingon ang trigo aron mahimong harina. Sa Libro sa Pagluto, ang usa ka harina giisip nga duha ka lugas.
+e67e759f	Mas dakong kamalig
+6cfabbae	Lugar para sa dugang ani sa imong kamalig.
+6b16516f	Natukod na kini hangtod sa kinatas-an.
+254d9371	Walay ingon niana nga pag-upgrade.
+26519e20	Tukora una ang galingan sa hangin.
+5d899996	Wala kay trigo nga galingon.
+711122c5	Tanaman sa bulak
+292c8b1e	Mga tamakanan nga bato
+8d34461c	Lamesa sa piknik
+6f6c7c3f	Timon sa hangin
+375bee5a	Walay ingon niana nga dekorasyon.
+8963aa26	Ang imong uma aduna na sa tanang dekorasyon nga masudlan niini.
+88ca69ec	Wala nay hawan nga bahin sa sagbot. Ibalhin usa ang usa ka butang.
+805a700d	Walay dekorasyon diha.
+16d82f9f	Lugas
+62ee7744	Prutas
+bd629b84	Mga tanom nga panakot
+94e334bd	Kalabasa o squash
+2a4dba76	Mga utanon
+e6649ddd	Wala kay ingon ana ka daghan.
+298534a2	Basket sa piknik
+0447dd62	Dili gutomon ang imong mga linalang sulod sa 3 ka adlaw.
+bda12d6f	Tsa sa pagtutok
+14b3b0c2	Mas maayong swerte sa imong sunod nga 20 ka flashcard.
+67ce6155	Sabaw sa pagdako
+64a6a2ee	Ang pagtuon karong adlawa mopadako sa imong linalang og tunga pa ka paspas.
+d677bf60	Berry tart
+ebc7afa5	Ang imong linalang mahimong init nga kolor sa berry sulod sa usa ka adlaw. Ang hitsura lang niini ang mausab.
+4c7983b6	Jelly sa bulan
+cb659dc3	Ang imong linalang mahimong bugnaw nga kolor sa kahayag sa bulan sulod sa usa ka adlaw. Ang hitsura lang niini ang mausab.
+bd6fc54a	Sabaw sa parol
+d51b1364	Karong gabhiona mosiga ang imong linalang sa baryo, ug moduol ang mga Muffle aron mosulti og usa ka pulong.
+a56cac35	Kombira sa Muffle
+6ee60d09	Sa adlaw lang sa pista. Nagkombira uban kanimo ang mga Muffle, ug 3 sa ilang nakalimtang mga pulong mahigmata dungan.
+340e3209	Kan-anan sa kampeon
+6961470c	Dugang kusog para sa imong sunod nga away sa gym: 10% dugang atake ug depensa. Batok lang sa dula.
+bd0eef28	Init nga lugaw
+db375c6c	Kung ipakaon sa itlog, mopataas kini sa pinakaubos nga talento nga mahimong makuha sa itlog.
+b56e84e9	Walay ingon niana nga putahe.
+65fe6b2e	Ang Kombira sa Muffle lutoon lang sa adlaw sa pista (matag Domingo).
+1c85a03c	Wala nimo ang tanan nga gikinahanglan niini.
+3a22cd89	Dili pa andam ang init nga lugaw.
+5080c647	Walay ingon niana nga order karong adlawa.
+7fef8ede	Natuman na nimo kana nga order.
+ba1e8eab	Kulang ang anaa sa imong kamalig.
+c9065713	Ang tindero
+1ed92cba	Ang panadero
+91aa11ad	Ang tigbantay sa bar
+53b7002c	Ang tigbaligya og bulak
+8759d86b	Ang mananahi
+a0b25834	Ang mangingisda

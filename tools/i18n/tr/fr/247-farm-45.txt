@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Améliorations
+34422d5c	Vos récoltes attendent ici aussi longtemps que vous voulez : rien ne s'abîme dans la grange. Un bord coloré indique une récolte plus rare. Touchez-en une pour la donner à manger à votre créature ou en faire des appâts.
+7ff2c88c	Dans la grange
+4c3e3ab8	Miel
+03e94974	Appâts
+53545d83	Farine
+cf72dbf6	Récoltedex
+e19d99b7	Classement des récoltes
+422bc307	Bravo ! Elle et {0} autres ont leur eau pour aujourd'hui.
+7af742b2	Tarte de {0}
+90d8b9d6	Votre prochain œuf penche vers {0}.
+c2cf2485	Cultures préférées de {0}
+f30c72e6	Préférée de
+148ba2d2	Personne
+9b33c28f	Votre créature adore celle-ci : la lui donner la rend Bien nourrie pendant un jour (5 % plus forte, seulement contre le jeu).
+a8b536fb	Donnez-la à manger à votre créature (un repas, comme n'importe quelle nourriture), ou faites-en des appâts : chaque culture en donne 3, et les appâts apportent un peu plus de chance à l'étang.
+5cf0249c	Moudre
+4d94313b	Faire des appâts
+ad8c5f39	Sa préférée ! Elle est Bien nourrie pendant un jour.
+de24a2eb	Cuisiner
+ae28e153	Livre de recettes
+a1c3b40d	Des plats cuisinés avec vos récoltes et votre miel. Chacun fait une chose ; touchez-en un pour voir laquelle.
+9f8f3e5f	Fête
+bc99becb	Aujourd'hui !
+d258491f	Le dimanche
+79b6cec3	Seulement un jour de fête (le dimanche).
+a3b2bcb8	Vous n'avez pas encore tout ce qu'il faut.
+3bab8441	Des mots se sont réveillés : {0}
+222b9eed	Les Muffles festoient avec vous.
+4bf0a471	Vous avez cuisiné : {0}
+5c6f2949	Quel œuf ?
+08a197c3	Le porridge chaud est pour un œuf : choisissez lequel.
+ae29a856	Vous n'avez pas d'œuf à qui le donner.
+e6e244e5	Stand de fruits
+75ae0610	L'épicier vous achète vos récoltes contre de la lueur. Les plus rares rapportent plus.
+a5ad62ad	Rien à vendre pour l'instant : les récoltes de votre ferme peuvent se vendre ici contre de la lueur.
+282b1d21	Commande de {0}
+ed4f3cdb	Demande
+2a78f0e9	Paie
+35864625	Remplissez la commande d'un Muffle, et l'un de ses mots oubliés se réveille : il apparaît désormais dans ce qu'il dit.
+243a0db8	Faites d'abord pousser un peu plus : la commande attend jusqu'à demain.
+f2c752a4	Merci ! Un mot s'est réveillé : {0}
+184eb63a	Merci !
+a6ad3f82	Construit
+b74dd64f	Arroseur
+970cc152	Gagné : les plantes ne flétrissent jamais, et il en arrose deux chaque jour.
+660f617a	Gagné, pas acheté : arrosez des plantes sur {0} jours différents ({1} jusqu'ici). Ensuite, les plantes ne flétrissent jamais, et il en arrose deux chaque jour.
+79982bb6	Il est sur votre ferme. Touchez-le là-bas pour le déplacer.
+b3a65967	Purement décoratif
+6d57d571	Améliorations et décorations
+720a3f5c	Les améliorations aident votre ferme ; les décorations sont purement décoratives. Les deux s'achètent avec de la lueur.
+c01ff8c7	Purement décoratif : placez-le où vous voulez sur votre ferme.
+0b1fd986	Rangé : {0} de lueur rendue.
+45cc86f2	Moulin à vent
+f1bfb73f	Il moud le blé en farine. Dans le livre de recettes, une farine compte pour deux céréales.
+b9825beb	Tout moudre
+e57b3ef7	Gagné en arrosant de nombreux jours : les plantes ne flétrissent jamais, et il en arrose deux chaque jour.
+6b736b91	Toutes les cultures qui existent. Le bord montre la plus rare que vous en avez fait pousser ; les pâles restent à faire pousser.
+6e58e607	Cultivée
+f119000c	Rien de récolté pour l'instant
+48f35c53	Vous et vos amis, selon ce que vous avez récolté cette semaine. Seuls vos amis le voient.
+62392e1f	Ces graines ne sont pas de saison : plantez-les sous le verre de la serre, ou attendez leur saison.
+fe421197	Votre grange est pleine. Vendez, cuisinez ou donnez à manger d'abord, ou construisez une grange plus grande : la culture attend, mûre.
+116d6514	Arrosoir
+f93b25e7	Une bonne réponse arrose aussi une plante assoiffée voisine (deux au deuxième niveau).
+c1286dff	Serre
+d0162451	Du verre sur la rangée du haut de votre champ : tout y pousse en toute saison.
+0ab037c0	Il éloigne les oiseaux : vos récoltes sont plus souvent rares.
+ce27c125	Composteur
+c141884b	Une terre plus riche : une récolte en donne parfois une de plus.
+92d64b1e	Moud le blé en farine. Dans le livre de recettes, une farine compte pour deux céréales.
+e67e759f	Grange plus grande
+6cfabbae	De la place pour plus de récoltes dans votre grange.
+6b16516f	Il est construit au maximum.
+254d9371	Cette amélioration n'existe pas.
+26519e20	Construisez d'abord le moulin à vent.
+5d899996	Vous n'avez pas de blé à moudre.
+711122c5	Massif de fleurs
+292c8b1e	Pas japonais
+8d34461c	Table de pique-nique
+6f6c7c3f	Girouette
+375bee5a	Cette décoration n'existe pas.
+8963aa26	Votre ferme a déjà toutes les décorations qu'elle peut contenir.
+88ca69ec	Il ne reste aucun coin d'herbe libre. Déplacez d'abord quelque chose.
+805a700d	Il n'y a pas de décoration ici.
+16d82f9f	Céréales
+62ee7744	Fruits
+bd629b84	Herbes
+94e334bd	Citrouille ou courge
+2a4dba76	Légumes
+e6649ddd	Vous n'en avez pas autant.
+298534a2	Panier de pique-nique
+0447dd62	Vos créatures n'auront pas faim pendant 3 jours.
+bda12d6f	Thé de concentration
+14b3b0c2	Plus de chance sur vos 20 prochaines cartes.
+67ce6155	Ragoût de croissance
+64a6a2ee	Vos révisions du jour font grandir votre créature moitié plus vite.
+d677bf60	Tarte aux baies
+ebc7afa5	Votre créature prend une chaude couleur de baie pendant un jour. Seule son apparence change.
+4c7983b6	Gelée de lune
+cb659dc3	Votre créature prend une fraîche couleur de clair de lune pendant un jour. Seule son apparence change.
+bd6fc54a	Soupe lanterne
+d51b1364	Ce soir, votre créature brille dans le village, et les Muffles viennent dire un mot.
+a56cac35	Festin des Muffles
+6ee60d09	Seulement un jour de fête. Les Muffles festoient avec vous, et 3 de leurs mots oubliés se réveillent d'un coup.
+340e3209	Repas du champion
+6961470c	Un coup de pouce pour votre prochain combat d'arène : 10 % d'attaque et de défense en plus. Seulement contre le jeu.
+bd0eef28	Porridge chaud
+db375c6c	Donné à un œuf, il relève le talent le plus bas que l'œuf peut obtenir.
+b56e84e9	Ce plat n'existe pas.
+65fe6b2e	Le festin des Muffles ne se cuisine qu'un jour de fête (le dimanche).
+1c85a03c	Vous n'avez pas tout ce qu'il faut.
+3a22cd89	Le porridge chaud n'est pas encore prêt.
+5080c647	Il n'y a pas de telle commande aujourd'hui.
+7fef8ede	Vous avez déjà rempli cette commande.
+ba1e8eab	Vous n'en avez pas assez dans votre grange.
+c9065713	L'épicier
+1ed92cba	Le boulanger
+91aa11ad	Le tavernier
+53b7002c	Le fleuriste
+8759d86b	Le tailleur
+a0b25834	Le pêcheur

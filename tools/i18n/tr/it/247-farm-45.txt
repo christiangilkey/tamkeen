@@ -1,0 +1,123 @@
+# The farm, slices 4 and 5 (prototype farm): the Cookbook, food, bait, orders, selling; upgrades, decorations, the Cropdex, the harvest board.
+fc7c9106	Migliorie
+34422d5c	I tuoi raccolti aspettano qui per tutto il tempo che vuoi: nel fienile non si rovina niente. Un bordo colorato indica un raccolto più raro. Toccane uno per darlo da mangiare alla tua creatura o per farne esche.
+7ff2c88c	Nel fienile
+4c3e3ab8	Miele
+03e94974	Esche
+53545d83	Farina
+cf72dbf6	Raccoltadex
+e19d99b7	Classifica dei raccolti
+422bc307	Giusto! Lui e altri {0} hanno la loro acqua per oggi.
+7af742b2	Torta di {0}
+90d8b9d6	Il tuo prossimo uovo tende verso {0}.
+c2cf2485	Colture preferite di {0}
+f30c72e6	Preferito di
+148ba2d2	Nessuno
+9b33c28f	La tua creatura lo adora: darglielo da mangiare la rende Ben nutrita per un giorno (5% più forte, solo contro il gioco).
+a8b536fb	Dallo da mangiare alla tua creatura (un pasto, come qualsiasi cibo), oppure fanne esche: ogni coltura ne dà 3, e le esche portano un po' più di fortuna allo stagno.
+5cf0249c	Macina
+4d94313b	Fai esche
+ad8c5f39	Il suo preferito! È Ben nutrita per un giorno.
+de24a2eb	Cucina
+ae28e153	Ricettario
+a1c3b40d	Piatti cucinati con i tuoi raccolti e il tuo miele. Ognuno fa una cosa; toccane uno per vedere quale.
+9f8f3e5f	Festa
+bc99becb	Oggi!
+d258491f	La domenica
+79b6cec3	Solo in un giorno di festa (la domenica).
+a3b2bcb8	Non hai ancora tutto quello che serve.
+3bab8441	Si sono risvegliate delle parole: {0}
+222b9eed	I Muffle banchettano con te.
+4bf0a471	Hai cucinato: {0}
+5c6f2949	Quale uovo?
+08a197c3	Il porridge caldo è per un uovo: scegli quale.
+ae29a856	Non hai nessun uovo a cui darlo.
+e6e244e5	Bancarella della frutta
+75ae0610	Il fruttivendolo compra i tuoi raccolti per bagliore. Quelli più rari valgono di più.
+a5ad62ad	Ancora niente da vendere: qui puoi vendere per bagliore i raccolti della tua fattoria.
+282b1d21	Ordine di {0}
+ed4f3cdb	Vuole
+2a78f0e9	Paga
+35864625	Completa l'ordine di un Muffle e una delle sue parole dimenticate si risveglia: da quel momento compare in quello che dice.
+243a0db8	Prima fai crescere ancora qualcosa: l'ordine aspetta fino a domani.
+f2c752a4	Grazie! Si è risvegliata una parola: {0}
+184eb63a	Grazie!
+a6ad3f82	Costruito
+b74dd64f	Irrigatore
+970cc152	Guadagnato: le piante non appassiscono mai, e ogni giorno ne annaffia due.
+660f617a	Si guadagna, non si compra: annaffia le piante in {0} giorni diversi ({1} finora). Poi le piante non appassiscono mai, e ogni giorno ne annaffia due.
+79982bb6	È nella tua fattoria. Toccalo lì per spostarlo.
+b3a65967	Solo decorativo
+6d57d571	Migliorie e decorazioni
+720a3f5c	Le migliorie aiutano la tua fattoria; le decorazioni sono solo decorative. Entrambe si comprano con il bagliore.
+c01ff8c7	Solo decorativo: mettilo dove vuoi nella tua fattoria.
+0b1fd986	Messo via: ti tornano {0} di bagliore.
+45cc86f2	Mulino a vento
+f1bfb73f	Macina il grano e lo trasforma in farina. Nel ricettario una farina vale due cereali.
+b9825beb	Macina tutto
+e57b3ef7	Si guadagna annaffiando in molti giorni: le piante non appassiscono mai, e ogni giorno ne annaffia due.
+6b736b91	Tutte le colture che esistono. Il bordo mostra il raccolto più raro che ne hai ottenuto; quelle sbiadite sono ancora da coltivare.
+6e58e607	Coltivato
+f119000c	Ancora niente di raccolto
+48f35c53	Tu e i tuoi amici, in base a quanto avete raccolto questa settimana. Lo vedono solo i tuoi amici.
+62392e1f	Quei semi sono fuori stagione: piantali sotto il vetro della serra, o aspetta la loro stagione.
+fe421197	Il tuo fienile è pieno. Prima vendi, cucina o dai da mangiare qualcosa, oppure costruisci un fienile più grande: il raccolto aspetta, maturo.
+116d6514	Annaffiatoio
+f93b25e7	Una risposta giusta annaffia anche una pianta assetata lì accanto (due al secondo livello).
+c1286dff	Serra
+d0162451	Vetro sopra la fila in alto del tuo campo: lì cresce di tutto in ogni stagione.
+0ab037c0	Tiene lontani gli uccelli: i tuoi raccolti escono rari più spesso.
+ce27c125	Compostiera
+c141884b	Terra più ricca: a volte un raccolto ne dà uno in più.
+92d64b1e	Macina il grano e lo trasforma in farina. Nel ricettario, una farina vale due cereali.
+e67e759f	Fienile più grande
+6cfabbae	Spazio per più raccolti nel tuo fienile.
+6b16516f	È già costruito al massimo.
+254d9371	Questa miglioria non esiste.
+26519e20	Prima costruisci il mulino a vento.
+5d899996	Non hai grano da macinare.
+711122c5	Aiuola fiorita
+292c8b1e	Sentiero di pietre
+8d34461c	Tavolo da picnic
+6f6c7c3f	Banderuola
+375bee5a	Questa decorazione non esiste.
+8963aa26	La tua fattoria ha già tutte le decorazioni che può contenere.
+88ca69ec	Non è rimasto nessun pezzo d'erba libero. Prima sposta qualcosa.
+805a700d	Lì non c'è nessuna decorazione.
+16d82f9f	Cereali
+62ee7744	Frutta
+bd629b84	Erbe
+94e334bd	Zucca o zucchina
+2a4dba76	Verdure
+e6649ddd	Non ne hai così tanti.
+298534a2	Cestino da picnic
+0447dd62	Le tue creature non avranno fame per 3 giorni.
+bda12d6f	Tè della concentrazione
+14b3b0c2	Più fortuna nelle tue prossime 20 schede.
+67ce6155	Stufato della crescita
+64a6a2ee	Lo studio di oggi fa crescere la tua creatura una volta e mezza più in fretta.
+d677bf60	Crostata di bacche
+ebc7afa5	La tua creatura prende un caldo colore di bacca per un giorno. Cambia solo il suo aspetto.
+4c7983b6	Gelatina di luna
+cb659dc3	La tua creatura prende un fresco colore di luna per un giorno. Cambia solo il suo aspetto.
+bd6fc54a	Zuppa lanterna
+d51b1364	Stanotte la tua creatura brilla nel villaggio, e i Muffle vengono a dire una parola.
+a56cac35	Banchetto dei Muffle
+6ee60d09	Solo in un giorno di festa. I Muffle banchettano con te, e 3 delle loro parole dimenticate si risvegliano insieme.
+340e3209	Pasto del campione
+6961470c	Una spinta per la tua prossima sfida in palestra: 10% in più di attacco e difesa. Solo contro il gioco.
+bd0eef28	Porridge caldo
+db375c6c	Dato a un uovo, alza il talento più basso che l'uovo può ottenere.
+b56e84e9	Questo piatto non esiste.
+65fe6b2e	Il banchetto dei Muffle si cucina solo in un giorno di festa (la domenica).
+1c85a03c	Non hai tutto quello che serve.
+3a22cd89	Il porridge caldo non è ancora pronto.
+5080c647	Oggi non c'è un ordine così.
+7fef8ede	Hai già completato quell'ordine.
+ba1e8eab	Non ne hai abbastanza nel fienile.
+c9065713	Il fruttivendolo
+1ed92cba	Il fornaio
+91aa11ad	L'oste
+53b7002c	Il fioraio
+8759d86b	Il sarto
+a0b25834	Il pescatore
