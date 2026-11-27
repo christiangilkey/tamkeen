@@ -12,6 +12,9 @@ import { api, h, toast } from "../app.js";
 import { detectLanguage, setLang, studyLanguage } from "../languages.js";
 import { FOLK, knownKeys, lineFor, poseOf, readLine } from "./muffles.js";
 import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall } from "./hall.js";
+import { CROPS, farmOf, fieldSize, harvest as harvestPlant, plantState, seasonOf, spots as fieldSpots } from "./farm.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_WALK, SEED_STAND, farmBlocked, farmCamera, farmMap, spotXY, tapFarm } from "./farmmap.js";
+import { askToWater, harvestLine, openBarn, openFence, openSeedStand, pickSeed, plantCard } from "./farm-ui.js";
 import { states as reviewStates } from "../review/deck.js";
 import { openModal } from "../components/modal.js";
 import { icon as lineIcon } from "../icons.js";
@@ -438,8 +441,16 @@ export function habitat() {
   const outside = () => roomOn() && view !== "room";
   // Outside is the yard and the village, or (hall.js) inside the championship hall, drawn the same way from above.
   const inHall = () => roomOn() && view === "hall";
+  // (prototype "farm", farm.js and farmmap.js: the fenced farm west of the cottage, through the gate at the yard's edge)
+  const farmOn = () => roomOn() && feature("farm");
+  const inFarm = () => farmOn() && view === "farm";
+  if (view === "farm" && !farmOn()) view = "yard";
   const inYard = () => roomOn() && view === "yard";
-  const walkArea = () => (inRoom() ? ROOM.walk : inHall() ? HALL_WALK : YARD_WALK);
+  const walkArea = () => (inRoom() ? ROOM.walk : inHall() ? HALL_WALK : inFarm() ? FARM_WALK : YARD_WALK);
+  /** The map of the place outside it is in: the yard and village, the hall's inside, or the farm. */
+  const sceneMap = () => (inHall() ? hallMap() : inFarm() ? farmMap(...fieldSize(game)) : yardMap());
+  /** The yard's gate to the farm (at its left edge, on the path): where it stands. */
+  const FARM_DOOR = { x: 18, y: 94 };
   const outdoorDecor = () => game.decor.filter((x) => !isIndoor(x.id));
   /** What stands on the yard's field and is walked round: the outdoor decorations and the garden's open plots. */
   const yardStanding = () => [
@@ -464,6 +475,7 @@ export function habitat() {
   const furniture = () => [...roomLayout(game.decor, homeOf(game).spots).filter((d) => !(carry && carry.held && carry.id === d.id)), ...roomTank()];
   const blocked = () => (inRoom() ? blockedCells(furniture(), (id) => (decorArt[id] && decorArt[id].width) || 32)
     : inHall() ? hallBlocked((p) => cellKey(p, HALL_WALK))
+    : inFarm() ? farmBlocked(...fieldSize(game), (p) => cellKey(p, FARM_WALK))
     : yardBlocked((p) => cellKey(p, YARD_WALK), blockedCells(yardStanding(), standWidth, YARD_WALK)));
   /** Where the creature's feet are now: on the room's floor, or on the outdoor ground. */
   const feetNow = () => (inRoom() ? (isEgg() ? ROOM.egg.y : pet.y) : outside() ? (isEgg() ? YARD_EGG.y : pet.y) : HABITAT.ground);
@@ -490,7 +502,9 @@ export function habitat() {
     pet.after = null;
     camReady = false; // (the camera starts where it comes out)
     const hallDoor = stationById("hall");
-    if (to === "hall") { pet.x = HALL_DOOR_SPOT.x; pet.y = HALL_DOOR_SPOT.y; walkTo({ x: HALL_DOOR_SPOT.x, y: HALL_DOOR_SPOT.y - 26 }); }
+    if (to === "farm") { pet.x = FARM_IN.x; pet.y = FARM_IN.y; walkTo({ x: FARM_IN.x - 40, y: FARM_IN.y - 4 }); }
+    else if (to === "yard" && from === "farm") { pet.x = FARM_DOOR.x + 4; pet.y = FARM_DOOR.y; walkTo({ x: FARM_DOOR.x + 44, y: FARM_DOOR.y + 4 }); }
+    else if (to === "hall") { pet.x = HALL_DOOR_SPOT.x; pet.y = HALL_DOOR_SPOT.y; walkTo({ x: HALL_DOOR_SPOT.x, y: HALL_DOOR_SPOT.y - 26 }); }
     else if (to === "yard" && from === "hall" && hallDoor) { pet.x = hallDoor.x; pet.y = hallDoor.y + 2; walkTo({ x: hallDoor.x, y: hallDoor.y + 24 }); }
     else if (to === "yard") { pet.x = YARD_DOOR_SPOT.x; pet.y = YARD_DOOR_SPOT.y; walkTo({ x: YARD_DOOR_SPOT.x + 40, y: YARD_DOOR_SPOT.y + 30 }); }
     else { pet.x = ROOM.doorSpot.x; pet.y = ROOM.doorSpot.y; walkTo({ x: ROOM.doorSpot.x - 50, y: 116 }); }
@@ -594,12 +608,12 @@ export function habitat() {
    * every frame, only where the window shows. */
   let groundOf = "";
   function drawYard(now = performance.now()) {
-    const which = inHall() ? "hall" : "yard";
+    const which = inHall() ? "hall" : inFarm() ? `farm${fieldSize(game).join("x")}` : "yard";
     if (which !== groundOf) { groundOf = which; yardDirty = true; yardGround = null; }
     if (yardDirty) {
       yardDirty = false;
       yardMoving = [];
-      const m = inHall() ? hallMap() : yardMap();
+      const m = sceneMap();
       if (!yardGround) { yardGround = document.createElement("canvas"); yardGround.width = m.width; yardGround.height = H; }
       const g = yardGround.getContext("2d");
       g.imageSmoothingEnabled = false;
@@ -653,7 +667,7 @@ export function habitat() {
   /** Everything standing on the yard's field, each with its depth (the y of its foot) and how to draw it. */
   function yardScene(now, sparkle) {
     const out = [];
-    const m = inHall() ? hallMap() : yardMap();
+    const m = sceneMap();
     for (const p of m.props) {
       const img = PROPS[p.id] && yimg(PROPS[p.id].art);
       if (!img) continue;
@@ -720,7 +734,12 @@ export function habitat() {
         } });
       }
     }
-    for (const at of inHall() ? [] : yardDecor()) {
+    if (inFarm()) farmScene(out, now, sparkle);
+    if (inYard() && farmOn()) { // the gate to the farm, at the yard's left edge
+      const gate = yimg("farm/gate.png");
+      if (gate) out.push({ y: FARM_DOOR.y - 6, draw: () => ctx.drawImage(gate, FARM_DOOR.x - 16, FARM_DOOR.y - 6 - gate.height) });
+    }
+    for (const at of inYard() ? yardDecor() : []) {
       if (!(at.id in decorArt)) { decorArt[at.id] = null; loadImage(`${at.id}.png`).then((img) => { decorArt[at.id] = img; }); }
       const img = decorArt[at.id];
       if (img) out.push({ y: at.y, draw: () => ctx.drawImage(img, Math.round(at.x - img.width / 2), at.y - img.height + 2) });
@@ -728,7 +747,7 @@ export function habitat() {
     const plots = garden(game).plots;
     for (let i = 0; i < PLOTS.length; i++) {
       const p = plots[i];
-      if (!p.open || inHall()) continue;
+      if (!p.open || !inYard()) continue;
       const file = p.tier ? `structure/${p.id}_${p.tier}.png` : "structure/plot.png";
       if (!(file in plotArt)) { plotArt[file] = null; loadImage(file).then((img) => { plotArt[file] = img; }); }
       const img = plotArt[file];
@@ -762,7 +781,7 @@ export function habitat() {
         drawTinyFish(ctx, fishingOf(game).tank, TIERS.map((tier) => tier.colour), tx + 8, ty + 8, 20, 7, now);
       } });
     }
-    for (const th of inHall() ? [] : things) {
+    for (const th of inYard() ? things : []) {
       const at = thingSpot(th.x);
       if (th.kind === "gift") continue; // (in the mailbox)
       if (th.kind === "gift" && art.gift) {
@@ -813,7 +832,7 @@ export function habitat() {
   // ----- the Muffles (muffles.js): where each is, and what it says -----
   const folk = FOLK.map((f, i) => ({ ...f, dir: 1, phase: f.phase ?? i * 0.37, said: 0, spoke: 0, to: null, mv: null, rest: 2 + i }));
   /** The Muffles where the creature is: the village's, or the hall's custodian. */
-  const folkHere = () => folk.filter((f) => (f.scene || "yard") === (inHall() ? "hall" : "yard"));
+  const folkHere = () => folk.filter((f) => (f.scene || "yard") === (inHall() ? "hall" : inFarm() ? "farm" : "yard"));
   let learned = null; // the uids of the words remembered in the flashcards (for which of a Muffle's words show)
   const loadLearned = () => {
     if (learned) return;
@@ -1059,7 +1078,7 @@ export function habitat() {
     // Sky: day and night, with a little dusk.
     const dark = night ? 0.55 : hour > 18 ? (hour - 18) * 0.22 : hour < 7.5 ? (7.5 - hour) * 0.3 : 0;
     if (outside()) { // the camera glides after the creature (straight onto it when it comes out)
-      const want = inHall() ? 0 : cameraFor(pet.x);
+      const want = inHall() ? 0 : inFarm() ? farmCamera(pet.x) : cameraFor(pet.x);
       camX = camReady ? camX + (want - camX) * Math.min(1, dt * 5) : want;
       camReady = true;
     } else camReady = false;
@@ -1280,6 +1299,7 @@ export function habitat() {
     ctx.restore();
     for (const d of pieces) if (d.y > feet) drawPiece(d); // (the furniture in front of it)
     for (const it of yardItems) if (it.y > feet) it.draw(); // (and on the field)
+    if (outside() && !inHall() && farmOn()) { ctx.save(); ctx.translate(cam(), 0); seasonOverlay(now); ctx.restore(); } // (prototype "farm")
     if (ring.done && art.ready && ringShown >= 0.999 && Math.floor(now / 2400) % 3 === 0) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, cx, feet + 2);
     // The ring's "4 / 10 min" sits inside its front half (a button over the picture).
     const at = `${(((cx - cam()) / W) * 100).toFixed(2)}|${(((feet + (RING.dy + 6) * k) / H) * 100).toFixed(2)}`;
@@ -1373,6 +1393,10 @@ export function habitat() {
   /** The creature uses something it has walked to (slice 4). Nothing here pays anything: it is for fun and for
    * looking after it (the owner's rules: no money, no battle strength, no pay for tapping). */
   function useThing(what) {
+    if (what.startsWith("spot:")) { useSpot(what.slice(5)); return; }
+    if (what === "barn") { sfx("tick"); openBarn(); return; }
+    if (what === "seeds") { sfx("tick"); openSeedStand({ changed: () => paintHud() }); return; }
+    if (what === "farmgate") { sfx("tick"); goThrough("farm"); return; }
     if (what === "register") { // at the hall's counter: the custodian says something, and the gym register opens
       const c = folk.find((f) => f.id === "custodian");
       if (c) muffleSpeak(c);
@@ -1420,6 +1444,76 @@ export function habitat() {
       if (tav && tav.childElementCount) tav.scrollIntoView({ behavior: "smooth", block: "center" }); // (the guild tavern, on Home)
       else location.hash = "#/friends"; // (no guild yet: the Guilds page, where one is joined)
     } else go(st.opens);
+  }
+  /** The farm's field: each spot tilled (dark once watered today), its plant at its stage (wilted when a day was
+   * missed), a drop over a thirsty one, a twinkle over a ripe one; the seed stand and the gate back. */
+  function farmScene(out, now, sparkle) {
+    const soil = yimg("farm/soil.png"), crops = yimg("farm/crops.png");
+    for (const sp of fieldSpots(game)) {
+      const at = spotXY(sp.c, sp.r);
+      const st = plantState(game, sp.key);
+      if (soil) out.push({ y: at.y - 9, draw: () => ctx.drawImage(soil, st && st.watered ? 16 : 0, 0, 16, 16, at.x - 8, at.y - 8, 16, 16) });
+      if (!st || !crops) continue;
+      const row = CROPS.indexOf(st.crop);
+      const frame = st.wilted ? 4 : st.stage;
+      out.push({ y: at.y + 5, draw: () => {
+        if (st.resting) ctx.globalAlpha = 0.6;
+        ctx.drawImage(crops, frame * 16, row * 24, 16, 24, at.x - 8, at.y + 5 - 21, 16, 24);
+        ctx.globalAlpha = 1;
+        if (st.ripe && art.ready) drawSheet(ctx, art.ready, FX_FRAMES.ready, sparkle, at.x, at.y - 8);
+        if (st.thirsty) { // a drop of water over it, bobbing: it wants its word today
+          const by = at.y - 20 + Math.round(Math.sin(now / 260 + sp.c + sp.r) * 1.5);
+          ctx.fillStyle = "#1e2a44";
+          ctx.fillRect(at.x - 2, by - 1, 5, 6); ctx.fillRect(at.x - 1, by - 3, 3, 2);
+          ctx.fillStyle = st.half ? "#8ab8e8" : "#4a9ae8";
+          ctx.fillRect(at.x - 1, by, 3, 4); ctx.fillRect(at.x, by - 2, 1, 2);
+          ctx.fillStyle = "#c8e8ff"; ctx.fillRect(at.x - 1, by, 1, 1);
+        }
+      } });
+    }
+    const stand = yimg("farm/seedstand.png");
+    if (stand) out.push({ y: SEED_STAND.y, draw: () => ctx.drawImage(stand, SEED_STAND.x - 16, SEED_STAND.y - stand.height + 2) });
+    const gate = yimg("farm/gate.png");
+    if (gate) out.push({ y: FARM_GATE.y, draw: () => ctx.drawImage(gate, FARM_GATE.x - 16, FARM_GATE.y - gate.height + 2) });
+  }
+  /** The season, shown outside (the owner: the village's look follows the season): blossom drifting in spring, a
+   * few bright motes in summer, falling leaves in autumn, snow (and a paler ground) in winter. */
+  function seasonOverlay(now) {
+    const season = seasonOf();
+    if (season === "winter") { ctx.fillStyle = "rgba(235, 242, 255, 0.16)"; ctx.fillRect(0, 0, W, H); }
+    const look = { spring: [18, ["#ffc8dc", "#ffe0ea", "#f8a8c8"], 0.6], summer: [7, ["#fff4b0", "#ffe680"], 0.25],
+      autumn: [16, ["#e8782a", "#c8501a", "#f0a838"], 0.8], winter: [30, ["#ffffff", "#e8f0ff"], 0.5] }[season];
+    const [n, colours, sway] = look;
+    for (let i = 0; i < n; i++) {
+      const speed = 9 + (i * 7) % 11;
+      const y = ((now / 1000) * speed + i * 37) % (H + 10) - 5;
+      const x = ((i * 61 + Math.sin(now / 900 + i) * 12 * sway + (now / 1000) * (season === "autumn" ? 6 : 2)) % (W + 10) + W + 10) % (W + 10) - 5;
+      ctx.fillStyle = colours[i % colours.length];
+      ctx.fillRect(Math.round(x), Math.round(y), season === "summer" ? 1 : 2, season === "autumn" ? 1 : 2);
+      if (season === "autumn") ctx.fillRect(Math.round(x) + 1, Math.round(y) + 1, 1, 1);
+    }
+  }
+  /** A spot of the field tapped (the creature has walked there): plant, water, harvest, or how it is doing. */
+  async function useSpot(key) {
+    const st = plantState(game, key);
+    const at = (() => { const [c, r] = key.split(",").map(Number); return spotXY(c, r); })();
+    if (!st) { pickSeed(key, { changed: () => paintHud(), planted: () => emote("idea", 1.2) }); return; }
+    if (st.ripe) { reap(key, at); return; }
+    if (!st.thirsty) { plantCard(key, { harvest: () => reap(key, at) }); return; }
+    const r = await askToWater(key);
+    if (!r) return;
+    if (r.correct || r.grew) bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
+    if (r.revived) toast(t("It perked up again."));
+    if (r.ripe) { emote("love", 1.5); toast(t("Ripe! Tap it to harvest.")); }
+  }
+  function reap(key, at) {
+    const got = harvestPlant(game, key);
+    if (typeof got === "string") { toast(t(got), { error: true }); return; }
+    saveGame();
+    sfx(got.tier >= 3 ? "lucky" : "common");
+    emote("love", 1.2);
+    bursts.push({ id: "sparkle", x: at.x, y: at.y - 6, t: 0 });
+    toast(harvestLine(got));
   }
   /** The decoration at a point in the room or the yard (the front one first), or null. */
   function decorAt(x, y) {
@@ -1505,6 +1599,19 @@ export function habitat() {
     const rk = creatureScale();
     const ry = (y - (feetNow() + RING.dy * rk)) / (RING.ry * rk);
     if (!pressed && !outside() && y > feetNow() + 2 && ((x - cx) / (RING.rx * rk)) ** 2 + ry ** 2 <= 1.4) { goalBox(); return; }
+    // On the farm (farmmap.js): a spot of the field (the creature walks there, then plant, water or harvest), the barn,
+    // the seed stand, the fence (how big the field is, and growing it), the gate back to the yard.
+    if (inFarm() && !pressed) {
+      const [fw, fh] = fieldSize(game);
+      const w = tapFarm(x, y, fw, fh);
+      if (w.kind === "plot") { const key = `${w.c},${w.r}`; const at = spotXY(w.c, w.r); if (isEgg()) useSpot(key); else walkTo({ x: at.x, y: at.y + 2 }, `use:spot:${key}`); return; }
+      if (w.kind === "gate") { sfx("tick"); goThrough("yard"); return; }
+      if (w.kind === "barn") { const door = { x: BARN.door.tx * 16 + 8, y: (BARN.y0 + BARN.h) * 16 + 6 }; if (isEgg()) useThing("barn"); else walkTo(door, "use:barn"); return; }
+      if (w.kind === "seeds") { if (isEgg()) useThing("seeds"); else walkTo({ x: SEED_STAND.x, y: SEED_STAND.y + 6 }, "use:seeds"); return; }
+      if (w.kind === "fence") { sfx("tick"); openFence({ changed: () => { yardDirty = true; paintHud(); } }); return; }
+      if (!isEgg()) walkTo(clampToFloor({ x, y }, FARM_WALK));
+      return;
+    }
     // Inside the hall (hall.js): its door goes back out, the counter is where it signs up, the floor is walked on.
     if (inHall() && !pressed) {
       const w = tapHall(x, y);
@@ -1528,6 +1635,10 @@ export function habitat() {
       return;
     }
     // Outside, the cottage's door: straight in (even with the creature standing in front of it).
+    if (inYard() && farmOn() && !pressed && Math.abs(x - FARM_DOOR.x) < 18 && y > FARM_DOOR.y - 38 && y < FARM_DOOR.y + 6) { // the farm's gate
+      if (isEgg()) useThing("farmgate"); else walkTo(FARM_DOOR, "use:farmgate");
+      return;
+    }
     if (inYard() && !pressed && tapYard(x, y) === "door") { sfx("tick"); goThrough("room"); return; }
     // A gift or an egg on the ground.
     const th = !pressed && !inRoom() && things.find((it) => it.kind !== "glow" && !(outside() && it.kind === "gift") && Math.abs(x - it.x) < 13 && y > baseY("thing", it.x) - 34 && y < baseY("thing", it.x) + 6);

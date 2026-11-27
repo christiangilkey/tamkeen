@@ -198,6 +198,13 @@
       "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "home": {"at": 200, "spots": {"decor/bed": {"x": 200, "y": 110}}}},
       "keep": "merged",
       "expect": {"home.at": 200, "home.spots.decor/bed.x": 200}
+    },
+    {
+      "name": "the farm (its field, plants, seeds and barn): the copy changed later is kept whole, even from the copy with less XP",
+      "mine": {"xp": 90, "updated_at": 90, "clock": {"a": 4}, "roster": [{"seed": 1, "growth": 0.5}], "farm": {"at": 100, "fence": 1, "plots": {"0,0": {"crop": "carrot", "days": 1, "last": 20000, "planted": 19999}}, "seeds": {}, "barn": {"carrot:0": 3}}},
+      "theirs": {"xp": 30, "updated_at": 30, "clock": {"b": 2}, "roster": [{"seed": 1, "growth": 0.5}], "farm": {"at": 300, "fence": 2, "plots": {}, "seeds": {"tomato": 2}, "barn": {"carrot:0": 5}}},
+      "keep": "merged",
+      "expect": {"farm.at": 300, "farm.fence": 2, "farm.barn.carrot:0": 5, "farm.seeds.tomato": 2}
     }
   ]
 }

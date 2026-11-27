@@ -159,8 +159,8 @@ export function tapIn(x, y) {
 
 // ---------- where the creature is (this device only: which side of its door, and where it stands) ----------
 const KEY = "tamkeen.game.roomView";
-const VIEWS = ["room", "yard", "hall"];
-/** "room", "yard" (outside) or "hall" (inside the championship hall, hall.js), remembered on this device. */
+const VIEWS = ["room", "yard", "hall", "farm"];
+/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), remembered on this device. */
 export function savedView() {
   try { const v = localStorage.getItem(KEY); return VIEWS.includes(v) ? v : "room"; } catch { return "room"; }
 }

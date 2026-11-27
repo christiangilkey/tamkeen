@@ -29,7 +29,7 @@ const YARD = [
   "gHooooHggffggggsswsg",
   "gHHoHHHgggggggggsssg",
   "gggdggggggggggggggfg",
-  "tggddddddddddggggggg",
+  "dddddddddddddggggggg",
   "tfggggggggggdddddddd",
   "gggggggggggggggggggt",
   "fgggggggggggggggggtt",

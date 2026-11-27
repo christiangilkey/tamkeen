@@ -4235,3 +4235,16 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .rk-n { width: 24px; text-align: right; font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; }
 .rk-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-weight: 600; }
 @media (prefers-reduced-motion: reduce) { .rk-search { animation: none; } }
+/* The farm (prototype "farm", farm-ui.js): a crop's picture (game-art/farm/icons.png, the strip placed inline), the seed
+   stand's and seed picker's rows, the barn's harvests (a rarer one's edge in its tier's colour). */
+.farm-ico { display: inline-block; flex: none; image-rendering: pixelated; background-repeat: no-repeat; vertical-align: middle; }
+.farm-list { display: grid; gap: 10px; }
+.farm-list .gs-block { display: grid; gap: 8px; }
+.farm-buy { min-width: 76px; }
+.farm-plant { font-weight: 700; color: var(--accent); }
+.farm-barn { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; }
+.farm-barn-item { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 4px; border-radius: 12px;
+  background: var(--surface); border: 2px solid color-mix(in srgb, var(--tier) 55%, transparent); }
+.farm-barn-n { font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.farm-empty { grid-column: 1 / -1; margin: 6px 0; text-align: center; color: var(--muted); }
+.farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }

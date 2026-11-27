@@ -177,6 +177,15 @@ def _join_home(x: Any, y: Any) -> Any:
     return y if _num(y.get("at")) > _num(x.get("at")) else x
 
 
+def _join_farm(x: Any, y: Any) -> Any:
+    """The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole (as merge.js
+    joinFarm)."""
+    x, y = _obj(x), _obj(y)
+    if x is None or y is None:
+        return x if x is not None else y
+    return y if _num(y.get("at")) > _num(x.get("at")) else x
+
+
 def _join_day_count(x: Any, y: Any) -> Any:
     """Today's count of something (idle.gemBuys: gems bought with glow today) from two copies: the later day's; the
     same day's, the higher (as merge.js joinDayCount)."""
@@ -316,5 +325,8 @@ def combine(mine: dict[str, Any], theirs: dict[str, Any]) -> dict[str, Any]:
     home = _join_home(a.get("home"), b.get("home"))
     if home is not None:
         out["home"] = home
+    farm = _join_farm(a.get("farm"), b.get("farm"))
+    if farm is not None:
+        out["farm"] = farm
     out["updated_at"] = max(_num(a.get("updated_at")), _num(b.get("updated_at")))
     return out

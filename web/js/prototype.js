@@ -48,6 +48,7 @@ export const PROTOTYPES = {
   small_battlers: { name: "Smaller creatures in live battles: drawn at about two thirds of their size next to the arena's houses, trees and props (the battle plays the same)", released: true, since: "2026-11-25" },
   hunger: { name: "Hungry creatures: a creature that hasn't eaten for a day shows it is hungry and fights at 85% attack and defence until fed (Feed first? before a battle)", released: true, since: "2026-11-25" },
   ranked: { name: "Ranked battles: live against another player online, a rating from 0, matched with players of a similar rating, a leaderboard and tiers (needs supabase/v18-ranked.sql)", released: false, since: "2026-11-25" },
+  farm: { name: "The farm: a fenced field west of the cottage; plant seeds bought with glow, water each plant by answering a due word, crops ripen after water on different days, wilt (never die) when a day is missed, harvests by rarity into the barn; the seasons turn weekly", released: false, since: "2026-11-26" },
   meaning_first: { name: "Add words from the meaning: leave the word empty and type its meaning (or paste \"= library\"), and Tamkeen finds the word in the language you're learning, then fills in the rest", released: true, since: "2026-11-25" },
 };
 

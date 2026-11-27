@@ -149,6 +149,15 @@ function joinRounds(x, y) {
   return { day: dx, n: Math.max(num(x.n), num(y.n)), done: union(x.done, y.done).filter((u) => typeof u === "string" && !miss.has(u)), miss: [...miss.values()] };
 }
 
+/** The farm (farm.js, prototype "farm": its field, plants, seeds and barn): the one changed later, whole, as the home's
+ * layout (each change to it stamps `at`). */
+function joinFarm(x, y) {
+  x = obj(x);
+  y = obj(y);
+  if (!x || !y) return x || y;
+  return num(y.at) > num(x.at) ? y : x;
+}
+
 /** The home's layout (home.js: where the creature has put the decorations): the one changed later, whole. */
 function joinHome(x, y) {
   x = obj(x);
@@ -293,6 +302,8 @@ export function combine(mine, theirs) {
   }
   const home = joinHome(a.home, b.home);
   if (home) out.home = home;
+  const farm = joinFarm(a.farm, b.farm);
+  if (farm) out.farm = farm;
   out.updated_at = Math.max(num(a.updated_at), num(b.updated_at));
   return out;
 }
