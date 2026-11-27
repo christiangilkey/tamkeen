@@ -157,13 +157,14 @@ export function tapIn(x, y) {
   return y >= ROOM.floorTop ? "floor" : "wall";
 }
 
-// ---------- where the creature is (this device only: which side of its door, and where it stands) ----------
-const KEY = "tamkeen.game.roomView";
+// ---------- where the creature is (this visit only: which side of its door) ----------
 const VIEWS = ["room", "yard", "hall", "farm"];
-/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), remembered on this device. */
+let here = "room"; // (every launch starts in its room, in the cottage: the owner, "When starting the game the creature
+// should always start inside the cottage"; going back to Home in the same visit finds it where it was)
+/** "room", "yard" (outside), "hall" (inside the championship hall, hall.js) or "farm" (farmmap.js), for this visit. */
 export function savedView() {
-  try { const v = localStorage.getItem(KEY); return VIEWS.includes(v) ? v : "room"; } catch { return "room"; }
+  return here;
 }
 export function saveView(view) {
-  try { localStorage.setItem(KEY, VIEWS.includes(view) ? view : "room"); } catch { /* not kept: it starts in its room */ }
+  here = VIEWS.includes(view) ? view : "room";
 }

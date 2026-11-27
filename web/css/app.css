@@ -323,6 +323,13 @@ label.check input { margin-top: 3px; }
   .brand span { display: none; }
   .global-search input { width: 150px; }
 }
+/* A phone: the top bar's buttons always fit (its search box gives way), so the page is never wider than the screen
+   (the owner's Android, about 390px: the XP badge stuck out and the whole Home page slid sideways). */
+@media (max-width: 480px) {
+  .topbar { gap: 8px; padding-inline: 12px; }
+  .global-search { flex: 0 1 150px; min-width: 56px; }
+  .global-search input { width: 100%; min-width: 0; }
+}
 
 /* ---------- toasts / menu ---------- */
 /* The messages stack at the bottom right, always inside the window: as wide as their words up to
@@ -3018,17 +3025,6 @@ html.sel-sheets select { pointer-events: none; }
 .habitat-about { position: absolute; left: 8px; top: 50px; max-width: calc(100% - 60px); padding: 2px 8px; background: #000; color: #fff;
   font-size: 12px; line-height: 1.3; pointer-events: none; }
 .habitat-about[hidden] { display: none; }
-.scene-arrow { position: absolute; top: 8px; width: 34px; height: 34px; min-height: 0; padding: 0; border: 2px solid #fff; border-radius: 0;
-  background: #000; color: #fff; }
-.scene-arrow:hover:not(:disabled) { background: #000; filter: brightness(1.4); }
-.scene-arrow.prev { right: 46px; }
-.scene-arrow.next { right: 8px; }
-.scene-arrow.prev .ic { transform: scaleX(-1); }
-.scene-label { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); padding: 3px 10px; background: #000; color: #fff;
-  font-size: 13px; font-weight: 600; white-space: nowrap; pointer-events: none; }
-.scene-label[hidden] { display: none; }
-.scene-label.show { animation: scene-label 1.6s ease-out both; }
-@keyframes scene-label { from { opacity: 0; } 12% { opacity: 1; } 75% { opacity: 1; } to { opacity: 0; } }
 .goal-ring { position: absolute; left: 50%; top: 91%; transform: translate(-50%, -50%); min-height: 0; gap: 3px; padding: 1px 6px; border: 0; border-radius: 3px;
   background: #000; color: #5cf2b0; font-size: clamp(10px, 3.1cqw, 15px); font-weight: 700; line-height: 1.3; font-variant-numeric: tabular-nums; z-index: 1; }
 .goal-ring:hover:not(:disabled) { background: #000; filter: brightness(1.2); }
@@ -3065,7 +3061,7 @@ html.sel-sheets select { pointer-events: none; }
 .fly-icon { position: absolute; left: 0; top: 0; line-height: 0; pointer-events: none; will-change: transform; }
 .hud-pop { animation: hud-pop .34s cubic-bezier(.3, 1.8, .5, 1); }
 @keyframes hud-pop { from { transform: scale(.86); } 55% { transform: scale(1.14); } to { transform: none; } }
-@media (prefers-reduced-motion: reduce) { .hud-pop, .tile-plus.show, .scene-label.show { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .hud-pop, .tile-plus.show { animation: none; } }
 /* The "?" in a game sheet's head (the explanation behind that page), and the sheet it opens on top. */
 .game-sheet-wrap.over { z-index: 70; }
 .sheet-help[hidden] { display: none; }
@@ -4286,4 +4282,3 @@ button.cv-chip.fix { color: var(--text); cursor: pointer; }
 .farm-q .lbq-move .farm-ico { margin-inline-end: 6px; }
 /* The Cropdex (prototype "farm"): a crop not grown yet, faint. */
 .farm-dex-none { opacity: .35; }
-.scene-arrow[hidden] { display: none; } /* (the cottage and village: no other habitats to switch to) */
