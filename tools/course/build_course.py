@@ -478,8 +478,7 @@ def main() -> None:
             ogg, times = make_audio(w["word"], unmarked(w["sentence"]), lang, engine, w.get("say"))
             path.write_bytes(ogg)  # (at once: a build stopped half way keeps what it made)
             made[name] = fp
-            made_list.write_text(json.dumps(made, indent=0), encoding="utf-8", newline="
-")
+            made_list.write_text(json.dumps(made, indent=0), encoding="utf-8", newline="\n")
         clips[w["n"]] = ogg
         items.append({**item, "times": times})
     if clips:  # one pack per unit; each word's "clip" says where its audio is in it

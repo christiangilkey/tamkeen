@@ -100,7 +100,7 @@ export function habitat() {
   // smaller outside and still crisp: 2 per pixel there, two thirds of its size (the owner: "our creatures should be a bit
   // smaller compared to the over world, it seems like they are huge compared to houses"). Without it, as before.
   const RES = feature("habitat_room") ? 3 : 1;
-  const el = h(`<section class="habitat card">
+  const el = h(`<section class="habitat">
     <div class="habitat-scene"><canvas width="${W * RES}" height="${H * RES}" aria-label="Your creature's habitat" role="button" tabindex="0"></canvas>
       <button type="button" class="habitat-name" title="Its name and how it grows"></button>
       <span class="habitat-about" hidden></span>
