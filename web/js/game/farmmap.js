@@ -100,6 +100,13 @@ export function plotAt(x, y, w, h) {
   return { c, r };
 }
 
+/** Is (x, y) anywhere in the farm's pen: the field, the paths between its plots, or its fence ring (the owner: "clicking
+ * anywhere within the farming pen should open up a whole pop-up")? For a field `w` x `h`. */
+export function inPen(x, y, w, h) { // (half a tile of slack all round: the terrain's fence is drawn on the tiles' corners)
+  const half = TILE / 2;
+  return x >= (fieldLeft(w) - 1) * TILE - half && x < (FIELD.right + 2) * TILE + half && y >= (FIELD.y - 1) * TILE - half && y < (FIELD.y + h + 1) * TILE + half;
+}
+
 /** What a tap on the farm means: {kind: "plot", c, r} (a spot of the field, or the nearest one to a near miss),
  * "fence", "barn", "seeds", "gate" or "ground". */
 export function tapFarm(x, y, w, h) {

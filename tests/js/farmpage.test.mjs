@@ -12,7 +12,7 @@ test("a prototype, off for everyone else", () => {
   const h = src("habitat.js");
   assert.match(h, /feature\("farm_page"\) \? tile\("garden", "farm\/seedstand", "Farm"\)/, "Home's Garden tile is Farm with it");
   assert.match(h, /if \(feature\("farm_page"\)\) openFarm\(/, "and opens the farm page");
-  assert.match(h, /if \(sp && feature\("farm_page"\)\) \{ sfx\("tick"\); openFarm\(/, "so does a tap on the village's field");
+  assert.match(h, /if \(feature\("farm_page"\) && inPen\(x, y, fw, fh\)\) \{ sfx\("tick"\); openFarm\(/, "so does a tap anywhere in the village's farm pen");
 });
 
 test("every planting, watering and harvest asks one of your words first, and a wrong answer never loses the seed or the crop", () => {
@@ -36,4 +36,17 @@ test("big plots: at most about four columns across a phone, never under a finger
   const p = src("farmpage.js");
   assert.match(p, /Math\.max\(44, Math\.min\(box\.width \/ Math\.min\(w, 4\.2\)/);
   assert.match(p, /return bd < CELL \? best : null;/);
+});
+
+test("in the village, a tap anywhere in the farm's pen (plots, paths, its fence) opens the farm page; no plot's sheet opens there", async () => {
+  const { FIELD, fieldLeft, inPen, spotXY } = await import("../../web/js/game/farmmap.js");
+  for (const [w, hh] of [[3, 3], [12, 6]]) {
+    for (let r = 0; r < hh; r++) for (let c = 0; c < w; c++) assert.ok(inPen(spotXY(c, r).x, spotXY(c, r).y, w, hh), `plot ${c},${r}`);
+    assert.ok(inPen((fieldLeft(w) - 1) * 16 + 4, (FIELD.y + 1) * 16, w, hh), "the fence on its west side");
+    assert.ok(inPen((FIELD.right + 1) * 16 + 12, (FIELD.y + hh) * 16 + 8, w, hh), "the fence's corner by the gap");
+    assert.ok(!inPen((FIELD.right + 3) * 16, (FIELD.y + 1) * 16, w, hh), "the grass beyond it walks");
+  }
+  const h = src("habitat.js");
+  assert.ok(h.indexOf('if (feature("farm_page") && inPen(x, y, fw, fh))') < h.indexOf("const sp = plotAt(x, y, fw, fh);"), "the pen is asked first");
+  assert.match(src("farmpage.js"), /openFence\(\{ changed: \(\) => \{ fit\(\); paint\(\); \} \}\)/, "the fence is on the farm page: growing the field");
 });

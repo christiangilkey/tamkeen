@@ -16,7 +16,7 @@ import { COUNTER_SPOT, HALL_DOOR_SPOT, HALL_WALK, hallBlocked, hallMap, tapHall 
 import { CROPS, beesToday, buildingsOn, cropById as cropOf, decorById, decorOn, farmJobs, farmOf, fieldSize, harvest as harvestPlant, level as upLevel, placeBuilding, placeDecor, plantState, seasonOf, spots as fieldSpots, sprinklerOn, underGlass } from "./farm.js";
 import { openBuilding } from "./garden.js";
 import { structureArt } from "./sections.js";
-import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
+import { BARN, FARM_GATE, FARM_IN, FARM_W, FARM_WALK, SEED_STAND, UPGRADE_AT, farmBlocked, farmCamera, farmMap, inPen, plotAt, spotXY, sprinklerAt, tapFarm } from "./farmmap.js";
 import { openFarm } from "./farmpage.js";
 import { askToWater, decorCard, harvestLine, openBarn, openCookbook, openFence, openFruitStall, openOrder, openSeedStand, openShrine, pickSeed, plantCard, upgradeCard, windmillCard } from "./farm-ui.js";
 import { buffsOf, ordersToday, wokenKeys } from "./farmuses.js";
@@ -1658,8 +1658,10 @@ export function habitat() {
     // stands over it; the spot lights up and its card opens straight away, the creature walking over meanwhile.
     if (inFarm() && !pressed && moving === null) {
       const [fw, fh] = fieldSize(game);
+      // (with the farm page, a tap anywhere in the pen, plots, paths or fence, opens it: every plot is tended there, never
+      // from a sheet over the village; the owner, "clicking anywhere within the farming pen should open up a whole pop-up")
+      if (feature("farm_page") && inPen(x, y, fw, fh)) { sfx("tick"); openFarm({ changed: () => paintHud() }); return; }
       const sp = plotAt(x, y, fw, fh);
-      if (sp && feature("farm_page")) { sfx("tick"); openFarm({ changed: () => paintHud() }); return; } // (the field: the farm page, where it is all done)
       if (sp) { tapSpot(sp.c, sp.r); return; }
     }
     // A decoration tapped: move it (the creature carries it) or put it away.

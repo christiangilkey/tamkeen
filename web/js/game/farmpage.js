@@ -20,7 +20,7 @@ import { composeCreature, icon, loadImage } from "./render.js";
 import { answerQuestion, pickQuestion } from "./rules.js";
 import { reveal } from "./reveal.js";
 import { CROPS, barnCount, farmOf, fieldSize, harvest, inSeason, plant, plantState, seasonOf, underGlass, water, waterAround } from "./farm.js";
-import { cropIcon, farmWords, harvestLine, openBarn, openSeedStand } from "./farm-ui.js";
+import { cropIcon, farmWords, harvestLine, openBarn, openFence, openSeedStand } from "./farm-ui.js";
 
 const SEASON_NAME = { spring: "Spring", summer: "Summer", autumn: "Autumn", winter: "Winter", all: "All year" };
 const CELL = 26;            // a plot's square in the scene, in pixels (its soil 22 across)
@@ -202,7 +202,11 @@ export function openFarm({ changed = () => {} } = {}) {
     for (let r2 = 0; r2 < hh; r2++) for (let c = 0; c < w; c++) { const p = plotXY(c, r2); const d = Math.hypot(p.x - x, p.y - y); if (d < bd) { bd = d; best = `${c},${r2}`; } }
     return bd < CELL ? best : null; // (the nearest plot, a near miss included)
   }
-  canvas.addEventListener("click", (e) => { const key = plotAtPoint(e); if (key) tapPlot(key); });
+  canvas.addEventListener("click", (e) => {
+    const key = plotAtPoint(e);
+    if (key) { tapPlot(key); return; }
+    if (!busy) { sfx("tick"); openFence({ changed: () => { fit(); paint(); } }); } // (the fence and the grass round it: how big the field is, and growing it)
+  });
 
   async function tapPlot(key) {
     if (busy) return;
