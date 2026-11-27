@@ -3405,6 +3405,42 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
 .cr-ri { line-height: 0; }
 .cr-rl { font-size: 14px; font-weight: 600; }
 .cr-rn { min-width: 3ch; font-size: 14px; font-variant-numeric: tabular-nums; text-align: end; }
+/* Talents on the creature card (prototype "talents", look C "Element card", talents-ui.js): the whole card in its
+   element's colour with the creature walking on it, stats with the talent in blue and badges on dark panels. No stars.
+   The card is dark in both themes, so its words are white. Plain solid colours. */
+:root { --talent: #4aa3ff; --talent-soft: rgba(74, 163, 255, .18); }
+.cr-hero.tl-card { background: color-mix(in srgb, var(--el) 42%, #14121a); color: #fff; }
+.tl-card .cr-stage { height: auto; padding: 0; background: none; }
+.tl-living { display: block; width: 100%; max-width: 352px; aspect-ratio: 176 / 92; image-rendering: pixelated; image-rendering: crisp-edges; }
+.tl-card .cr-no, .tl-card .cr-grow .muted, .tl-card .cr-about { color: rgba(255, 255, 255, .72); }
+.tl-card .cr-tag { background: rgba(10, 8, 16, .45); color: #fff; }
+.tl-card .cr-bar { background: rgba(255, 255, 255, .14); }
+.tl-card .cr-acts button:not(.primary) { background: rgba(10, 8, 16, .45); border-color: transparent; color: #fff; }
+.tl-panel { width: 100%; padding: 10px 12px; border-radius: 14px; background: rgba(10, 8, 16, .45); }
+.tl-rows { display: grid; gap: 2px; }
+.tl-stat { display: grid; grid-template-columns: 16px 64px 36px minmax(0, 1fr) 26px; align-items: center; gap: 10px; min-height: 0; width: 100%;
+  padding: 5px 0; border: 0; background: none; color: #fff; text-align: start; white-space: nowrap; }
+.tl-stat:hover:not(:disabled) { background: none; }
+.tl-ic { line-height: 0; }
+.tl-l { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+.tl-n { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.tl-n b { font-size: 14px; }
+.tl-n small { font-size: 11px; font-weight: 700; color: var(--talent); }
+.tl-bar { display: flex; height: 10px; min-width: 40px; border-radius: 99px; background: rgba(255, 255, 255, .12); overflow: hidden; }
+.tl-base { display: block; height: 100%; background: rgba(255, 255, 255, .6); }
+.tl-plus { display: block; height: 100%; background: var(--talent); }
+.tl-grade { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--talent-soft); color: var(--talent);
+  font-weight: 800; font-size: 15px; }
+.tl-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.tl-badge { flex-direction: column; gap: 2px; width: 72px; min-height: 0; padding: 4px 2px; border: 0; background: none; color: rgba(255, 255, 255, .78);
+  font-size: 11px; line-height: 1.2; white-space: normal; text-align: center; }
+.tl-badge:hover:not(:disabled) { background: none; }
+.tl-badge img { image-rendering: pixelated; image-rendering: crisp-edges; }
+.tl-egg { font-size: 13px; color: var(--muted); white-space: normal; }
+.tl-explain { display: flex; flex-direction: column; gap: 8px; text-align: center; }
+.tl-explain p { margin: 0; }
+.tl-explain .confirm-buttons { margin-top: 6px; }
+
 /* Looks and colourings as pictures; a locked colouring dimmed, with a lock. */
 .cr-looks { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
 .cr-look { position: relative; flex-direction: column; gap: 4px; min-height: 0; padding: 6px 4px 8px; border: 2px solid transparent; border-radius: 12px;

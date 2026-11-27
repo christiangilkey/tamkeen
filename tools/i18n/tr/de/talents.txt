@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} von {1} Talentpunkten.
+e253d3e4	In Kämpfen gegen das Spiel ist das {0} % höher: der blaue Teil.
+c4970a10	Großgezogen, bis es ausgewachsen war.
+57f1d789	Erbe
+85971808	Es hat das beste Talent eines Wesens bekommen, das du freigelassen hast: {0} {1}.
+cc997c62	Seine Talente zeigen sich beim Schlüpfen. Seine Chancen wurden verbessert.
+0f4f61d9	Seine Talente zeigen sich beim Schlüpfen.
+5089fe9f	Talente
+9ac697dd	Dieses Ei ist nicht bei deinen Wesen.
+f692337b	Nur ein Ei kann Warmen Brei bekommen.
+e6a9e4d0	Wärmer geht es für dieses Ei nicht.
+e13953fa	S ist das Beste, womit ein Wesen geboren werden kann.
+d6af2194	A ist ein starkes Talent.
+9f663be2	B ist ein gutes, alltägliches Talent.
+46d072da	Jedes Wesen wird mit einem Talent für Gesundheit, Angriff, Verteidigung und Tempo geboren.
+35247d6a	Talente zählen nur in Kämpfen gegen das Spiel: wilde Kämpfe und Arenen, bis zu 15 % mehr.
+ed88d9a9	In Kämpfen mit Freunden und in Ranglistenkämpfen werden alle gleichgestellt, dort bringen Talente nichts.
+14631e95	Sternenstaub hebt das niedrigste Talent an, das deine neuen Eier würfeln können.
+802da678	Lässt du ein Wesen frei, geht sein bestes Talent an dein nächstes Ei.
+c485ba85	Warmer Brei vom Hof hebt den niedrigsten Wurf eines Eis an.
+f3e404bb	Perfektes Talent
+9247d8c8	Lass ein Wesen schlüpfen, das in allem die besten Talente hat
+0e55d028	In allem mit den besten Talenten geboren. Ein seltener Schlupf.
+a99a7f54	C ist ein sanftes Talent. In Kämpfen mit Freunden ändert es nichts, und jedes Wesen kann einem genauso ans Herz wachsen.

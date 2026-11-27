@@ -20,6 +20,7 @@ import { t } from "../i18n.js";
 import { elementBadge, movesBlocks } from "./movesui.js";
 import { isHungry } from "./idle.js";
 import { hungryButton, hungrySignHtml } from "./hunger-ui.js";
+import { creatureBadges, eggTalentLine, livingStage, talentCard, talentRows } from "./talents-ui.js";
 
 const ART = new URL("../../game-art/", import.meta.url).href;
 const STAGE_NAME = { egg: "Egg", hatchling: "Hatchling", juvenile: "Juvenile" };
@@ -94,7 +95,9 @@ function entry(body, game, changed, g, back) {
   if (isEgg(g)) return;
   // Battle things together (its numbers, then its moves), then its look, then the record of how it was raised.
   const toShop = () => import("./shop.js").then((m) => m.openShop("shop", changed));
-  body.append(statsBlock(game, g), ...movesBlocks(game, g, () => { repaint(); publishSoon(); }, toShop));
+  // (prototype "talents": the stats are on the card itself, with the talents in blue)
+  if (!talentCard(g)) body.append(statsBlock(game, g));
+  body.append(...movesBlocks(game, g, () => { repaint(); publishSoon(); }, toShop));
   const looks = lookBlock(game, g, i, repaint);
   if (looks) body.append(looks);
   body.append(raisedBlock(g));
@@ -128,6 +131,21 @@ function hero(body, game, changed, g, i, repaint) {
   block.querySelector(".cr-bar i").style.width = `${Math.round(Math.min(1, Math.max(0, share)) * 100)}%`;
   block.querySelector(".cr-pct").textContent = grown ? "Fully grown" : `${Math.min(99, Math.floor(share * 100))}%`;
   if (grown) block.querySelector(".cr-grow").classList.add("done");
+
+  // Talents (prototype "talents", look C "Element card", no stars): the card in its element's colour with the creature
+  // walking and idling on it, its stats with the talent in blue on a dark panel, its badges on another; an egg says its
+  // talents come at hatching.
+  const growRow = block.querySelector(".cr-grow");
+  if (talentCard(g)) {
+    block.classList.add("tl-card", `tint-${g.type}`);
+    block.querySelector(".cr-stage").replaceChildren(livingStage(g));
+    block.insertBefore(talentRows(game, g), growRow);
+    const badges = creatureBadges(game, g);
+    if (badges) block.insertBefore(badges, growRow);
+  } else {
+    const line = eggTalentLine(g);
+    if (line) block.insertBefore(line, growRow);
+  }
 
   // Two buttons of one width: bring it out, and show it to friends (an egg: give it to a friend).
   const acts = block.querySelector(".cr-acts");

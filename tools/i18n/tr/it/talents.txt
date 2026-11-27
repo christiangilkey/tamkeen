@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} punti talento su {1}.
+e253d3e4	Nelle battaglie contro il gioco è il {0}% in più: la parte blu.
+c4970a10	Cresciuta fino in fondo.
+57f1d789	Erede
+85971808	Ha ricevuto il talento migliore di una creatura che hai liberato: {0} {1}.
+cc997c62	I suoi talenti si vedono alla schiusa. Le sue probabilità sono migliorate.
+0f4f61d9	I suoi talenti si vedono alla schiusa.
+5089fe9f	Talenti
+9ac697dd	Quell'uovo non è tra le tue creature.
+f692337b	Solo un uovo può avere il Porridge caldo.
+e6a9e4d0	Quest'uovo non può stare più al caldo.
+e13953fa	S è il meglio con cui una creatura possa nascere.
+d6af2194	A è un talento forte.
+9f663be2	B è un talento buono, di tutti i giorni.
+46d072da	Ogni creatura nasce con un talento per salute, attacco, difesa e velocità.
+35247d6a	I talenti contano solo nelle battaglie contro il gioco: battaglie selvatiche e palestre, fino al 15% in più.
+ed88d9a9	Nelle battaglie con gli amici e in quelle classificate tutti sono pareggiati, quindi lì i talenti non aggiungono nulla.
+14631e95	La polvere di stelle alza il talento più basso che le tue nuove uova possono ottenere.
+802da678	Liberare una creatura passa il suo talento migliore al tuo prossimo uovo.
+c485ba85	Il Porridge caldo della fattoria alza il tiro più basso di un uovo.
+f3e404bb	Talento perfetto
+9247d8c8	Fai schiudere una creatura nata con i talenti migliori in tutto
+0e55d028	Nata con i talenti migliori in tutto. Una schiusa rara.
+a99a7f54	C è un talento gentile. Non cambia nulla nelle battaglie con gli amici, e ogni creatura può diventare altrettanto cara.

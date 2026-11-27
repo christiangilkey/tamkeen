@@ -16,6 +16,7 @@ import { BADGES, BOSSES, CATALOG, FEATS, SHOP_MOVES, TYPES, VARIANTS, WEEKLY_RUL
 import { LEADERS } from "./gyms.js";
 import { cleanName, isType } from "./remote.js";
 import { cleanLoot } from "./loot.js";
+import { perfect, prepareEgg } from "./talents.js";
 import { cleanGifts, settle } from "./merge.js";
 import { inPicks, pickList } from "../review/folderpicks.js";
 
@@ -752,6 +753,7 @@ export function layEgg(state, rand = Math.random) {
     { id: "stone", weight_by: { reader: 2 } }, { id: "spark", weight_by: { early_bird: 2 } }, { id: "dusk", weight_by: { night_owl: 2 } },
   ], rand, traits).id;
   const egg = newGenome((rand() * 2 ** 32) >>> 0, type);
+  prepareEgg(state, egg); // (talents.js: stardust's lowest roll, and the talent a release passed down)
   state.roster.push(egg);
   return egg;
 }
@@ -1198,6 +1200,7 @@ export function checkBadges(state, extra = {}) {
     friend_battle: s.friend_battles > 0, raid_win: s.raids > 0,
     // (fishing.feedFish counts the meals; a meal eaten before the badge is released earns it once it is)
     legend_feast: feature("legend_feast") && (s.legend_fed || 0) > 0,
+    five_star: feature("talents") && state.roster.some(perfect), // (talents.js: top talents in everything, "Perfect talent")
   };
   const fresh = BADGES.map((b) => b.id).filter((id) => earned[id] && !state.badges.includes(id));
   state.badges.push(...fresh);

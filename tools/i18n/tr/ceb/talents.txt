@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} sa {1} ka puntos sa talento.
+e253d3e4	Sa mga away batok sa dula, {0}% nga mas taas kini: ang asul nga bahin.
+c4970a10	Gialagaan hangtod hingpit nga midako.
+57f1d789	Manununod
+85971808	Nadawat niini ang labing maayong talento sa linalang nga imong gibuhian: {0} {1}.
+cc997c62	Makita ang mga talento niini inig pusa. Misaka na ang tsansa niini.
+0f4f61d9	Makita ang mga talento niini inig pusa.
+5089fe9f	Mga talento
+9ac697dd	Wala kanang itlog sa imong mga linalang.
+f692337b	Itlog ra ang mahatagan og Init nga lugaw.
+e6a9e4d0	Dili na mas moinit pa kining itlog.
+e13953fa	Ang S mao ang labing maayo nga matawhan sa linalang.
+d6af2194	Kusgan nga talento ang A.
+9f663be2	Maayo ug kasagarang talento ang B.
+46d072da	Matag linalang matawo nga may talento sa kusog sa lawas, atake, depensa ug kapaspas.
+35247d6a	Moihap lang ang mga talento sa mga away batok sa dula: ihalas nga away ug gym, hangtod 15% pa.
+ed88d9a9	Sa away uban sa higala ug sa ranked, managsama ang tanan, busa walay madugang ang talento didto.
+14631e95	Ang abog sa bituon mopataas sa labing ubos nga talento nga makuha sa imong bag-ong mga itlog.
+802da678	Kon buhian nimo ang usa ka linalang, mapunta ang labing maayo niining talento sa imong sunod nga itlog.
+c485ba85	Ang Init nga lugaw gikan sa uma mopataas sa labing ubos nga tsamba sa usa ka itlog.
+f3e404bb	Hingpit nga talento
+9247d8c8	Pagpusa og linalang nga natawo nga may labing maayong talento sa tanan
+0e55d028	Natawo nga may labing maayong talento sa tanan. Talagsaon nga pagpusa.
+a99a7f54	Malumo nga talento ang C. Walay mausab niini sa mga away uban sa higala, ug ang matag linalang mahimong ingon ka minahal.

@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} de {1} pontos de talento.
+e253d3e4	Nas batalhas contra o jogo isto é {0}% maior: a parte azul.
+c4970a10	Criada até crescer totalmente.
+57f1d789	Herdeira
+85971808	Recebeu o melhor talento de uma criatura que você libertou: {0} {1}.
+cc997c62	Os talentos aparecem quando ela nasce. As chances dela melhoraram.
+0f4f61d9	Os talentos aparecem quando ela nasce.
+5089fe9f	Talentos
+9ac697dd	Esse ovo não está entre as suas criaturas.
+f692337b	Só um ovo pode comer Mingau quentinho.
+e6a9e4d0	Este ovo não pode ficar mais quentinho.
+e13953fa	S é o melhor com que uma criatura pode nascer.
+d6af2194	A é um talento forte.
+9f663be2	B é um talento bom, do dia a dia.
+46d072da	Toda criatura nasce com um talento para saúde, ataque, defesa e velocidade.
+35247d6a	Os talentos só contam nas batalhas contra o jogo: batalhas selvagens e ginásios, até 15% a mais.
+ed88d9a9	Nas batalhas com amigos e nas ranqueadas todos ficam iguais, então lá os talentos não somam nada.
+14631e95	A poeira estelar aumenta o menor talento que seus ovos novos podem tirar.
+802da678	Libertar uma criatura passa o melhor talento dela para o seu próximo ovo.
+c485ba85	O Mingau quentinho da fazenda aumenta a menor rolagem de um ovo.
+f3e404bb	Talento perfeito
+9247d8c8	Choque uma criatura nascida com os melhores talentos em tudo
+0e55d028	Nasceu com os melhores talentos em tudo. Uma eclosão rara.
+a99a7f54	C é um talento suave. Não muda nada nas batalhas com amigos, e toda criatura pode ser igualmente querida.

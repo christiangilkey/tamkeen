@@ -18025,6 +18025,16 @@
   "f": "web/js/game/data.js"
  },
  {
+  "id": "f3e404bb",
+  "k": "Perfect talent",
+  "f": "web/js/game/data.js"
+ },
+ {
+  "id": "9247d8c8",
+  "k": "Hatch a creature born with top talents in everything",
+  "f": "web/js/game/data.js"
+ },
+ {
   "id": "90b952f5",
   "k": "City park",
   "f": "web/js/game/data.js"
@@ -18247,6 +18257,41 @@
  {
   "id": "02ce020c",
   "k": "Not quite: a little water. One more answer waters it.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "6f83f86a",
+  "k": "Stardust is never spent. You gain it by releasing a fully grown creature.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "5ee99f65",
+  "k": "The shrine also weaves the Star Loom's steady glow, straight into your glow.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "573e0b0e",
+  "k": "A release starts your buildings and glow over. It never touches your farm: its land, crops, barn and seeds stay.",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "9f174c71",
+  "k": "Star Shrine",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "8490bae0",
+  "k": "Each one",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "1e1c72c2",
+  "k": "An hour",
+  "f": "web/js/game/farm-ui.js"
+ },
+ {
+  "id": "e2bade3b",
+  "k": "Your stardust lives here. Each one makes all your glow faster, for good, and the shrine grows grander as you gather more.",
   "f": "web/js/game/farm-ui.js"
  },
  {
@@ -18497,6 +18542,16 @@
  {
   "id": "ebcb609c",
   "k": "It isn't ripe yet.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "5b1737e7",
+  "k": "There's no building there.",
+  "f": "web/js/game/farm.js"
+ },
+ {
+  "id": "16c46312",
+  "k": "It can't stand there. Try an open patch of grass.",
   "f": "web/js/game/farm.js"
  },
  {
@@ -19950,11 +20005,6 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "1e1c72c2",
-  "k": "An hour",
-  "f": "web/js/game/garden.js"
- },
- {
   "id": "33d30632",
   "k": "Waiting",
   "f": "web/js/game/garden.js"
@@ -19990,6 +20040,11 @@
   "f": "web/js/game/garden.js"
  },
  {
+  "id": "acb9a39a",
+  "k": "Buildings on your farm",
+  "f": "web/js/game/garden.js"
+ },
+ {
   "id": "a6fe4bd7",
   "k": "Buildings",
   "f": "web/js/game/garden.js"
@@ -20007,6 +20062,16 @@
  {
   "id": "c9d9f62d",
   "k": "Plot {0}",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "3c74541f",
+  "k": "Room for a building",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "3e8d4bb2",
+  "k": "Build something to stand on your farm",
   "f": "web/js/game/garden.js"
  },
  {
@@ -20080,13 +20145,13 @@
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "8490bae0",
-  "k": "Each one",
+  "id": "d40e4bd3",
+  "k": "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep stardust: each one makes every building faster for good, so the next garden grows much quicker. More fully grown buildings at the time means more stardust.",
   "f": "web/js/game/garden.js"
  },
  {
-  "id": "d40e4bd3",
-  "k": "A fully grown creature can be set free. It leaves your roster and is remembered here. Your buildings and glow start over, and you keep stardust: each one makes every building faster for good, so the next garden grows much quicker. More fully grown buildings at the time means more stardust.",
+  "id": "96d19121",
+  "k": "Build on your farm",
   "f": "web/js/game/garden.js"
  },
  {
@@ -20117,6 +20182,11 @@
  {
   "id": "7e2299a8",
   "k": "Grow",
+  "f": "web/js/game/garden.js"
+ },
+ {
+  "id": "42478baf",
+  "k": "Move it",
   "f": "web/js/game/garden.js"
  },
  {
@@ -20580,6 +20650,26 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "c79689b0",
+  "k": "The Word Sprout dropped seeds: {0}",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "a8044474",
+  "k": "The Echo Shell watered a plant.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "8d38f9b3",
+  "k": "The Echo Shell watered {0} plants.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
+  "id": "09580216",
+  "k": "The bees made honey.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "0d4de321",
   "k": "1 fish waiting",
   "f": "web/js/game/habitat.js"
@@ -20630,6 +20720,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "f7a15a2c",
+  "k": "Tap where it should stand on your farm.",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "bdcb00b8",
   "k": "It perked up again.",
   "f": "web/js/game/habitat.js"
@@ -20672,11 +20767,6 @@
  {
   "id": "280b1cb3",
   "k": "Eat",
-  "f": "web/js/game/habitat.js"
- },
- {
-  "id": "42478baf",
-  "k": "Move it",
   "f": "web/js/game/habitat.js"
  },
  {
@@ -20790,13 +20880,23 @@
   "f": "web/js/game/idle.js"
  },
  {
-  "id": "579f1557",
-  "k": "Every plot is already open.",
+  "id": "faf59763",
+  "k": "Choose a building to open with the key.",
+  "f": "web/js/game/idle.js"
+ },
+ {
+  "id": "aa8dd697",
+  "k": "That building is open already.",
   "f": "web/js/game/idle.js"
  },
  {
   "id": "9af0e879",
   "k": "You have no key.",
+  "f": "web/js/game/idle.js"
+ },
+ {
+  "id": "579f1557",
+  "k": "Every plot is already open.",
   "f": "web/js/game/idle.js"
  },
  {
@@ -22620,6 +22720,36 @@
   "f": "web/js/game/sections.js"
  },
  {
+  "id": "c54b7b6a",
+  "k": "Spelling Bee Hive",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "ffcda93b",
+  "k": "On the farm it is a seed tree: words you look up make it drop free seeds.",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "634c07b8",
+  "k": "On the farm it is a rain chime: time spent listening waters your thirsty plants.",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "a38a431d",
+  "k": "On the farm it lights the field: on a day you read for 10 minutes, plants near it grow two days for one watering.",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "77b9b961",
+  "k": "Each word you save brings a bee. With bees about, crops near the hive give more, and saved words make honey.",
+  "f": "web/js/game/sections.js"
+ },
+ {
+  "id": "32338632",
+  "k": "Words you know well make better harvests: rarer crops all over the farm.",
+  "f": "web/js/game/sections.js"
+ },
+ {
   "id": "0b5ad7f0",
   "k": "Hat",
   "f": "web/js/game/sections.js"
@@ -22798,6 +22928,116 @@
   "id": "94433a7e",
   "k": "Wear",
   "f": "web/js/game/shop.js"
+ },
+ {
+  "id": "fee0843a",
+  "k": "{0} of {1} talent points.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "e253d3e4",
+  "k": "In battles against the game this is {0}% higher: the blue part.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "0e55d028",
+  "k": "Born with top talents in everything. A rare hatch.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "c4970a10",
+  "k": "Raised until it was fully grown.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "57f1d789",
+  "k": "Heir",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "85971808",
+  "k": "It was given the best talent of a creature you released: {0} {1}.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "cc997c62",
+  "k": "Its talents show when it hatches. Its odds have been raised.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "0f4f61d9",
+  "k": "Its talents show when it hatches.",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "5089fe9f",
+  "k": "Talents",
+  "f": "web/js/game/talents-ui.js"
+ },
+ {
+  "id": "9ac697dd",
+  "k": "That egg isn't in your roster.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "f692337b",
+  "k": "Only an egg can have Warm porridge.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "e6a9e4d0",
+  "k": "This egg can't get any warmer.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "e13953fa",
+  "k": "S is the best a creature can be born with.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "d6af2194",
+  "k": "A is a strong talent.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "9f663be2",
+  "k": "B is a good, everyday talent.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "a99a7f54",
+  "k": "C is a gentle talent. It changes nothing in battles with friends, and every creature can grow just as dear.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "46d072da",
+  "k": "Every creature is born with a talent for health, attack, defence and speed.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "35247d6a",
+  "k": "Talents count only in battles against the game: wild battles and gyms, up to 15% more.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "ed88d9a9",
+  "k": "In battles with friends and in ranked battles everyone is evened out, so talents add nothing there.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "14631e95",
+  "k": "Stardust raises the lowest talent your new eggs can roll.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "802da678",
+  "k": "Releasing a creature passes its best talent down to your next egg.",
+  "f": "web/js/game/talents.js"
+ },
+ {
+  "id": "c485ba85",
+  "k": "Warm porridge from the farm raises one egg's lowest roll.",
+  "f": "web/js/game/talents.js"
  },
  {
   "id": "4deb4e1c",

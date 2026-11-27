@@ -256,8 +256,10 @@ export function combine(mine, theirs) {
     const i = at.get(seed);
     // (its last meal, idle.js hunger: the later of the two, whichever copy is kept)
     const fed = Math.max(num(c.fedAt), num(roster[i].fedAt));
+    const tf = Math.max(num(c.tf), num(roster[i].tf)); // (talents.js: an egg's lowest roll, raised on either copy)
     if (num(c.growth) > num(roster[i].growth)) roster[i] = c;
     if (fed > 0) roster[i] = { ...roster[i], fedAt: fed };
+    if (tf > 0) roster[i] = { ...roster[i], tf };
   }
   if (roster.length) {
     const was = seedOf(rosterOf(a)[num(a.active)] || rosterOf(a)[0]);

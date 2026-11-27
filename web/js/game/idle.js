@@ -18,6 +18,7 @@ import { FOODS, PLOTS, STRUCTURES, SUPPLIES, TIER_COST, TIER_RATE } from "./data
 import { formOf, isGrown } from "./genome.js";
 import { MATURE_BOX, MAX_CREATURES, dayKey, layEgg } from "./rules.js";
 import { feature } from "../prototype.js";
+import { liftEggs, releaseRecord } from "./talents.js";
 
 export const OFFLINE_HOURS = 8;        // how much glow can pile up while you are away
 export const AUTO_GOALS = 10;          // daily goals reached before glow collects itself
@@ -253,13 +254,15 @@ export function release(state, rosterIndex, rand = Math.random) {
   const c = state.roster[rosterIndex];
   if (!c || !isGrown(c)) return "Only a fully grown creature can be released.";
   const gained = stardustGain(state);
-  g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey() });
+  // (its best talent goes in the record: talents.js passes it down to the next egg laid)
+  g.released.push({ seed: c.seed, type: c.type, variant: c.variant || null, name: c.name || "", day: dayKey(), ...releaseRecord(c) });
   if (state.roster.length === 1) layEgg(state, rand); // you are never left without a creature
   state.roster.splice(rosterIndex, 1);
   if (state.active > rosterIndex) state.active--;
   if (state.active >= state.roster.length) state.active = 0;
   if (state.incubating === c.seed) state.incubating = null;
   g.stardust += gained;
+  liftEggs(state); // (talents.js: more stardust raises the lowest talent roll of every egg not hatched yet)
   g.glow = 40;
   for (const p of g.plots) Object.assign(p, { id: null, tier: 0, stored: 0 });
   g.bloom = false;

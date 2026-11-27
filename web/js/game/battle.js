@@ -12,6 +12,7 @@ import { describe, newGenome, rng, stageOf } from "./genome.js";
 import { retention, wildBonus, weekNumber, raidDamage, dayKey, showcaseOf } from "./rules.js";
 import { cleanGenome, isType } from "./remote.js";
 import { HUNGRY_STRENGTH, isHungry } from "./idle.js";
+import { battleBoost } from "./talents.js";
 
 export const FAST_MS = 5000;       // answer correctly within this and the combo chain grows
 export const QUESTION_MS = 12000;  // after this the question counts as missed
@@ -117,16 +118,20 @@ export function showcaseGenome(profile) {
  * `scale` multiplies its health, attack and defence (an Unlimited battle: see knownScale). `fed`: the time to judge
  * hunger at (a Date), for the owner's own creatures only: a hungry one (idle.isHungry, prototype "hunger") has
  * HUNGRY_STRENGTH of its attack and defence, and `hungry` set so the battle can show it. Never a friend's or a
- * rental creature, which fight as sent. (`hunger`: true or false in place of the prototype's switch, for trials.) */
-export function fighter(state, g, { wild = false, rule = null, scale = 1, fed = null, hunger = undefined } = {}) {
+ * rental creature, which fight as sent. (`hunger`: true or false in place of the prototype's switch, for trials.)
+ * `vsGame`: a battle against the game (wild battles, gyms), the owner's own creatures only: its talents count
+ * (talents.js, prototype "talents": up to +15% on each strength). Never set for battles between people (friends,
+ * ranked), where everyone is evened out. (`talents`: true or false in place of the prototype's switch, for trials.) */
+export function fighter(state, g, { wild = false, rule = null, scale = 1, fed = null, hunger = undefined, vsGame = false, talents = undefined } = {}) {
   const look = describe(g);
   const base = BASE_STATS[look.species];
   const k = (wild ? wildBonus(g) : 1) * (Number.isFinite(scale) && scale > 0 ? Math.min(2, scale) : 1);
   const hungry = fed instanceof Date && isHungry(g, fed, hunger);
   const h = hungry ? HUNGRY_STRENGTH : 1;
-  const hp = Math.round(base.hp * k);
+  const tb = battleBoost(g, { vsGame: vsGame && !!state, on: talents }); // (all 1 unless against the game)
+  const hp = Math.round(base.hp * k * tb.hp);
   // (a friend's creature is checked as it arrives, remote.js; an element the game doesn't have never gets this far)
-  return { name: g.name || "", look, type: isType(g.type) ? g.type : TYPE_IDS[0], max: hp, hp, atk: base.atk * k * h, def: base.def * k * h, spd: base.spd, hungry,
+  return { name: g.name || "", look, type: isType(g.type) ? g.type : TYPE_IDS[0], max: hp, hp, atk: base.atk * k * h * tb.atk, def: base.def * k * h * tb.def, spd: base.spd * tb.spd, hungry,
            moves: Array.isArray(g.loadout) ? checkedMoves(g.loadout, rule) : loadout(state, g, rule), boost: 0, guard: 0, haste: 0, heals: 2,
            pos: { c: 0, r: 0 }, next: 0, charging: null };
 }

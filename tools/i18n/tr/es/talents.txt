@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} de {1} puntos de talento.
+e253d3e4	En las batallas contra el juego esto es un {0}% más alto: la parte azul.
+c4970a10	Criada hasta crecer del todo.
+57f1d789	Heredera
+85971808	Recibió el mejor talento de una criatura que liberaste: {0} {1}.
+cc997c62	Sus talentos se ven cuando eclosiona. Sus probabilidades han mejorado.
+0f4f61d9	Sus talentos se ven cuando eclosiona.
+5089fe9f	Talentos
+9ac697dd	Ese huevo no está entre tus criaturas.
+f692337b	Solo un huevo puede tomar Gachas calientes.
+e6a9e4d0	Este huevo no puede estar más calentito.
+e13953fa	S es lo mejor con lo que puede nacer una criatura.
+d6af2194	A es un talento fuerte.
+9f663be2	B es un talento bueno, de todos los días.
+46d072da	Cada criatura nace con un talento para la salud, el ataque, la defensa y la velocidad.
+35247d6a	Los talentos solo cuentan en las batallas contra el juego: batallas salvajes y gimnasios, hasta un 15% más.
+ed88d9a9	En las batallas con amigos y en las clasificatorias todos quedan igualados, así que ahí los talentos no suman nada.
+14631e95	El polvo de estrellas sube el talento más bajo que pueden sacar tus huevos nuevos.
+802da678	Liberar una criatura pasa su mejor talento a tu próximo huevo.
+c485ba85	Las Gachas calientes de la granja suben la tirada más baja de un huevo.
+f3e404bb	Talento perfecto
+9247d8c8	Haz eclosionar una criatura nacida con los mejores talentos en todo
+0e55d028	Nació con los mejores talentos en todo. Una eclosión rara.
+a99a7f54	C es un talento suave. No cambia nada en las batallas con amigos, y cualquier criatura puede ser igual de querida.

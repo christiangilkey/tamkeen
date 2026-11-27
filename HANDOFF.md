@@ -10142,3 +10142,34 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
 - Tests: `tests/js/farm.test.mjs`. Translations: `tools/i18n/tr/<code>/247-farm.txt` (all machine-made).
 - Not yet (later slices of the plan): neighbour help, watering-can tiers, greenhouse, scarecrow luck, barn sizes, the
   sprinkler, food/bait/recipes/orders/selling, the Cropdex screen, friends' harvest board.
+
+## Creature talents and the Element card (prototype `talents`, 2026-11-26, "Creature talents" side session)
+
+The owner's plan: `tamkeen-plans/farming-plan.md` sections 4 and 5. Rules in `web/js/game/talents.js`, the card in
+`web/js/game/talents-ui.js` (used by `creatures.js`), tests `tests/js/talents.test.mjs`.
+- **Talents**: 0-15 points each for health, attack, defence, speed, from the seed (its own rng stream, `seed ^
+  0x5bd1e995`), so old creatures have them and every device agrees. Grades C 0-5, B 6-9, A 10-13, S 14-15.
+- **No stars shown** (the owner, 2026-11-26: "I dont want people who are attached to their pets to think that they
+  have a subpar pet ... the stat changes should be more for really in depth players"). A 1-5 star total (`starsOf`,
+  5 = 52+ of 60, about 1 hatch in 135) is kept only to award the quiet badge **Perfect talent** (`five_star`, owner's
+  card and badge case only). Nothing about talents is sent to friends (`publicProfile` sends no `tf`/`tg`).
+- **Battles**: `battle.fighter(..., { vsGame: true })` adds up to +15% per strength (1% a point), and only for the
+  owner's own creatures (a fighter made with no state never gets it). Passed only by wild battles (`battle-ui.js
+  wildBattle`) and gyms (`gyms-ui.js fightLeader`). Friend battles and ranked never pass it, so everyone is evened out;
+  a ranked team arrives through `remote.cleanGenome`, which reads field by field, so faked talent fields never arrive.
+  Raids are not battles (right answers), so nothing there.
+- **Better odds, all earned**: an egg's lowest roll `tf` (0..0.4 of the range). Stardust gives new eggs `0.05` a
+  stardust up to `0.25` (`prepareEgg`, called by `rules.layEgg`; `liftEggs` after a release raises eggs not yet
+  hatched). A release stores the creature's best talent on its `idle.released` entry (`releaseRecord`) and the next egg
+  laid gets it as `tg` = {s, p, from} (`waitingGift`: only the latest release, only once). **Warm porridge**: the farm
+  calls `talents.warmPorridge(state, rosterIndex)` (+0.1 to one egg, refuses hatched creatures; returns "" or an error);
+  using up the dish is the farm's part. The Star Shrine shows `SHRINE_TALENT_LINES` (added to `shrinelines.js`).
+- **Sync**: merge.js / gamemerge.py keep an egg's higher `tf` (a fixture case).
+- **The card** (the owner picked look C, "Element card", from three mock-ups): the creature's hero block in its element's
+  colour (`.tl-card`), the creature walking and idling on it (`livingStage`: idle 2.5-6 s, then walks to a new spot,
+  facing the way it goes; still with reduced motion), its four stats on a dark panel with the talent in blue (the bar's
+  blue end, "+N", the grade letter), badges on another panel (Perfect talent, Fully grown, Heir, earned feat
+  colourings). Every stat, badge and an egg's talents line opens a short popup. Without the prototype the card is as
+  before. Badge art in Aseprite: `game/art-src/badge/five_star.aseprite`, `heir.aseprite` (grids beside them).
+- Translations: `tools/i18n/tr/<code>/talents.txt` (machine-made, 16 languages).
+- Study-habit training (EV-like) was scrapped by the owner: not built.

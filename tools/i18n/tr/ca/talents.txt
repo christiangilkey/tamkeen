@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} de {1} punts de talent.
+e253d3e4	En les batalles contra el joc això és un {0}% més alt: la part blava.
+c4970a10	Criada fins que va créixer del tot.
+57f1d789	Hereva
+85971808	Va rebre el millor talent d'una criatura que vas alliberar: {0} {1}.
+cc997c62	Els seus talents es veuen quan eclosiona. Les seves probabilitats han millorat.
+0f4f61d9	Els seus talents es veuen quan eclosiona.
+5089fe9f	Talents
+9ac697dd	Aquest ou no és entre les teves criatures.
+f692337b	Només un ou pot prendre Farinetes calentes.
+e6a9e4d0	Aquest ou no pot estar més calentó.
+e13953fa	S és el millor amb què pot néixer una criatura.
+d6af2194	A és un talent fort.
+9f663be2	B és un talent bo, de cada dia.
+46d072da	Cada criatura neix amb un talent per a la salut, l'atac, la defensa i la velocitat.
+35247d6a	Els talents només compten en les batalles contra el joc: batalles salvatges i gimnasos, fins a un 15% més.
+ed88d9a9	En les batalles amb amics i en les classificatòries tothom queda igualat, així que allà els talents no sumen res.
+14631e95	La pols d'estels apuja el talent més baix que poden treure els teus ous nous.
+802da678	Alliberar una criatura passa el seu millor talent al teu proper ou.
+c485ba85	Les Farinetes calentes de la granja apugen la tirada més baixa d'un ou.
+f3e404bb	Talent perfecte
+9247d8c8	Fes eclosionar una criatura nascuda amb els millors talents en tot
+0e55d028	Va néixer amb els millors talents en tot. Un eclosió rar.
+a99a7f54	C és un talent suau. No canvia res en les batalles amb amics, i qualsevol criatura pot ser igual d'estimada.

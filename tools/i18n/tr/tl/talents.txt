@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} sa {1} puntos ng talento.
+e253d3e4	Sa mga laban kontra sa laro, {0}% na mas mataas ito: ang asul na bahagi.
+c4970a10	Inalagaan hanggang ganap na lumaki.
+57f1d789	Tagapagmana
+85971808	Natanggap nito ang pinakamahusay na talento ng nilalang na pinakawalan mo: {0} {1}.
+cc997c62	Makikita ang mga talento nito kapag napisa. Tumaas na ang tsansa nito.
+0f4f61d9	Makikita ang mga talento nito kapag napisa.
+5089fe9f	Mga talento
+9ac697dd	Wala ang itlog na iyon sa mga nilalang mo.
+f692337b	Itlog lang ang puwedeng bigyan ng Mainit na lugaw.
+e6a9e4d0	Hindi na puwedeng mas uminit pa ang itlog na ito.
+e13953fa	S ang pinakamahusay na maaaring ipanganak sa isang nilalang.
+d6af2194	Malakas na talento ang A.
+9f663be2	Mahusay at karaniwang talento ang B.
+46d072da	Bawat nilalang ay ipinanganak na may talento sa buhay, atake, depensa at bilis.
+35247d6a	Bilang lang ang mga talento sa mga laban kontra sa laro: mga ligaw na laban at gym, hanggang 15% pa.
+ed88d9a9	Sa mga laban sa kaibigan at sa ranked, pantay-pantay ang lahat, kaya walang naidadagdag ang talento roon.
+14631e95	Itinataas ng stardust ang pinakamababang talentong makukuha ng mga bago mong itlog.
+802da678	Kapag pinakawalan mo ang isang nilalang, mapupunta ang pinakamahusay nitong talento sa susunod mong itlog.
+c485ba85	Itinataas ng Mainit na lugaw mula sa bukid ang pinakamababang tsamba ng isang itlog.
+f3e404bb	Perpektong talento
+9247d8c8	Mapisa ang isang nilalang na ipinanganak na may pinakamahusay na talento sa lahat
+0e55d028	Ipinanganak na may pinakamahusay na talento sa lahat. Bihirang pagpisa.
+a99a7f54	Banayad na talento ang C. Walang binabago ito sa mga laban sa kaibigan, at puwedeng maging kasing-mahal ang bawat nilalang.

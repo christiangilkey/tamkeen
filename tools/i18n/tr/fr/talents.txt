@@ -1,0 +1,25 @@
+# Creature talents and the trading-card creature card (prototype talents), 2026-11-26
+fee0843a	{0} points de talent sur {1}.
+e253d3e4	Dans les combats contre le jeu, c'est {0} % de plus : la partie bleue.
+c4970a10	Élevée jusqu'à être entièrement développée.
+57f1d789	Héritière
+85971808	Elle a reçu le meilleur talent d'une créature que tu as libérée : {0} {1}.
+cc997c62	Ses talents apparaissent à l'éclosion. Ses chances ont été améliorées.
+0f4f61d9	Ses talents apparaissent à l'éclosion.
+5089fe9f	Talents
+9ac697dd	Cet œuf n'est pas parmi tes créatures.
+f692337b	Seul un œuf peut recevoir du Porridge chaud.
+e6a9e4d0	Cet œuf ne peut pas être plus au chaud.
+e13953fa	S est le mieux qu'une créature puisse avoir à la naissance.
+d6af2194	A est un talent fort.
+9f663be2	B est un bon talent, de tous les jours.
+46d072da	Chaque créature naît avec un talent pour la santé, l'attaque, la défense et la vitesse.
+35247d6a	Les talents ne comptent que dans les combats contre le jeu : combats sauvages et arènes, jusqu'à 15 % de plus.
+ed88d9a9	Dans les combats entre amis et en classé, tout le monde est mis à égalité : les talents n'y ajoutent rien.
+14631e95	La poussière d'étoile relève le talent le plus bas que tes nouveaux œufs peuvent tirer.
+802da678	Libérer une créature transmet son meilleur talent à ton prochain œuf.
+c485ba85	Le Porridge chaud de la ferme relève le tirage le plus bas d'un œuf.
+f3e404bb	Talent parfait
+9247d8c8	Fais éclore une créature née avec les meilleurs talents en tout
+0e55d028	Née avec les meilleurs talents en tout. Une éclosion rare.
+a99a7f54	C est un talent doux. Il ne change rien aux combats entre amis, et chaque créature peut devenir tout aussi chère.
