@@ -14,6 +14,9 @@ Settings (the About heading in the web app) switch prototype mode on. Ordinary u
 owner says to release ("merge it to live"), set `released: true`, and only then add its CHANGELOG line and its
 `whatis-special.md` bullet. Bug fixes don't need this.
 
+**Before any visual change, read `DESIGN.md`** (the owner's design rules, 2026-11-27: colours, type, spacing,
+squircle corners, no box inside a box, one main thing per screen) and run its checklist before you say you're done.
+
 **When a feature is released or a clever workaround lands, add it to `web/whatis-special.md`** ("What makes Tamkeen
 special" in Settings; the owner wants it kept up to date). One bullet in the right section, in the page's style:
 a bold title, the problem in *italics*, then how Tamkeen solves it in plain words, with real numbers where there
