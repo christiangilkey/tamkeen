@@ -72,6 +72,6 @@ test("the label, and the pages that mark and show it", () => {
   assert.match(reels, /from "\.\.\/watched\.js"/);
   assert.match(reels, /watchedPill\(\)/);
   assert.doesNotMatch(reels, /"reels:watched"|· watched/);   // one list, and the label instead of the words
-  assert.match(read("web/css/app.css"), /\.watched-pill \{[^}]*background: #8f1d84/);
+  assert.match(read("web/css/app.css"), /\.watched-pill \{[^}]*background: var\(--ink\); color: var\(--paper\);/, "a badge in the text colours turned round (DESIGN.md)");
   assert.match(read("mobile/scripts/build-www.mjs"), /"js\/watched\.js"/);  // the phone has it too
 });

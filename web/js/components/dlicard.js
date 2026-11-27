@@ -210,24 +210,24 @@ if (typeof document !== "undefined" && !document.getElementById("dli-css")) {
   const style = document.createElement("style");
   style.id = "dli-css";
   style.textContent = `
-    .dli-sub { display: block; margin-top: 2px; }
+    .dli-sub { display: block; margin-top: var(--s-4); }
     .dli-student-title { font-weight: 600; }
     .dli-student input { accent-color: var(--teal); width: 18px; height: 18px; flex: none; }
     .dli-more[hidden], .dli-part[hidden], .dli-card [hidden] { display: none; }
-    .dli-part { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .dli-part { border-top: 1px solid var(--line); padding-top: var(--s-16); display: flex; flex-direction: column; gap: var(--s-8); }
     .dli-part h3, .dli-part .set-hint { margin: 0; }
-    .dli-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
-    .dli-chip { min-height: 44px; border-radius: 12px; font-weight: 600; }
+    .dli-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: var(--s-8); }
+    .dli-chip { min-height: 44px; border-radius: var(--r-s); font-weight: 600; }
     .dli-chip.on, .dli-chip.on:hover:not(:disabled) { background: var(--teal); color: var(--teal-ink); border-color: var(--teal); }
-    .dli-card button.link { display: inline; min-height: 0; padding: 0; border: 0; background: none; color: var(--teal); font: inherit; font-weight: 650; white-space: normal; }
+    .dli-card button.link { display: inline; min-height: 0; padding: 0; border: 0; background: none; color: var(--teal); font: inherit; font-weight: 600; white-space: normal; }
     .dli-card button.link:hover:not(:disabled) { background: none; text-decoration: underline; }
-    .dli-pw-row { display: flex; gap: 8px; }
-    .dli-pw-row input { flex: 1; min-width: 0; min-height: 44px; font-size: 16px; }
+    .dli-pw-row { display: flex; gap: var(--s-8); }
+    .dli-pw-row input { flex: 1; min-width: 0; min-height: 44px; font-size: var(--fs-16); }
     .dli-pw-row button { min-height: 44px; flex: none; }
     .dli-wrong { color: var(--danger); margin: 0; }
     .dli-lock { display: inline-flex; color: var(--teal); }
-    .dli-where { flex: 1 1 100%; color: var(--ink-2); font-size: 14px; }
-    .dli-open .set-actions { margin-top: 2px; justify-content: center; }
+    .dli-where { flex: 1 1 100%; color: var(--ink-2); font-size: var(--fs-14); }
+    .dli-open .set-actions { margin-top: var(--s-4); justify-content: center; }
     .dli-open .dli-go { min-width: 220px; justify-content: center; }
   `;
   document.head.append(style);

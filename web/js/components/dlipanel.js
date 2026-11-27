@@ -233,32 +233,31 @@ if (typeof document !== "undefined" && !document.getElementById("dli-panel-css")
   style.id = "dli-panel-css";
   style.textContent = `
     .dli-panel { max-width: 680px; margin: 0 auto; }
-    .dli-head { display: flex; align-items: center; justify-content: center; gap: 12px; text-align: start; margin: 6px 0 14px; }
-    .dli-head h2 { margin: 0; font-size: 20px; }
-    .dli-head p { margin: 2px 0 0; }
-    .dli-head-ico { width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; flex: none;
-      background: var(--teal-tint); color: var(--teal); }
-    .dli-soon { text-align: center; padding: 28px 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line);
-      display: flex; flex-direction: column; align-items: center; gap: 12px; }
-    .dli-soon p { margin: 0; color: var(--ink-2); font-size: 15px; max-width: 420px; }
+    .dli-head { display: flex; align-items: center; justify-content: center; gap: var(--s-12); text-align: start; margin: var(--s-8) 0 var(--s-16); }
+    .dli-head h2 { margin: 0; font-size: var(--fs-20); }
+    .dli-head p { margin: var(--s-4) 0 0; }
+    .dli-head-ico { display: grid; place-items: center; flex: none; color: var(--ink-2); }
+    .dli-soon { text-align: center; padding: var(--s-32) var(--s-12); border-radius: var(--r-s); background: var(--surface); border: 1px solid var(--line);
+      display: flex; flex-direction: column; align-items: center; gap: var(--s-12); }
+    .dli-soon p { margin: 0; color: var(--ink-2); font-size: var(--fs-16); max-width: 420px; }
     .dli-step { text-align: start; align-items: stretch; }
     .dli-step-part { width: 100%; max-width: 460px; margin: 0 auto; }
-    .dli-step .dls-terms p { color: var(--ink); font-size: 14px; max-width: none; }
-    .dli-step .set-hint { max-width: none; font-size: 14px; }
-    .dli-sec { margin-bottom: 16px; }
-    .dli-sec h3 { font-size: 15px; margin: 0 0 8px; color: var(--ink-2); }
-    .dli-list { border-radius: 16px; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
-    .dli-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; min-height: 64px; width: 100%; text-align: start;
+    .dli-step .dls-terms p { color: var(--ink); font-size: var(--fs-14); max-width: none; }
+    .dli-step .set-hint { max-width: none; font-size: var(--fs-14); }
+    .dli-sec { margin-bottom: var(--s-16); }
+    .dli-sec h3 { font-size: var(--fs-16); margin: 0 0 var(--s-8); color: var(--ink-2); }
+    .dli-list { border-radius: var(--r-s); background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
+    .dli-row { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) var(--s-16); min-height: 64px; width: 100%; text-align: start;
       border: 0; border-radius: 0; background: none; color: var(--ink); font: inherit; }
     .dli-row + .dli-row { border-top: 1px solid var(--line); }
     button.dli-row:hover:not(:disabled) { background: var(--surface-2); }
-    .dli-row-ico { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; flex: none; background: var(--teal-tint); color: var(--teal); }
-    .dli-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; white-space: normal; }
+    .dli-row-ico { width: 24px; display: grid; place-items: center; flex: none; color: var(--ink-2); }
+    .dli-row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); white-space: normal; }
     .dli-row-text strong { overflow-wrap: anywhere; }
     .dli-row-act { flex: none; }
     .dli-view audio, .dli-view video, .dli-view img { width: 100%; max-height: 70vh; object-fit: contain; display: block; }
-    .dli-view .dli-pdf { width: 100%; height: 70vh; border: 0; border-radius: 10px; background: #fff; }
-    .dli-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 60vh; overflow: auto; margin: 0; padding: 12px; border-radius: 10px;
+    .dli-view .dli-pdf { width: 100%; height: 70vh; border: 0; border-radius: var(--r-s); background: var(--surface); }
+    .dli-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 60vh; overflow: auto; margin: 0; padding: var(--s-12); border-radius: var(--r-s);
       background: var(--surface-2); font: inherit; }
   `;
   document.head.append(style);

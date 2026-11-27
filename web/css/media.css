@@ -16,16 +16,16 @@
 
 /* One header row that stays at the top while the list scrolls: the kinds (phone), the status pills
    and the title filter, then ticking several at once. The same on every kind. */
-.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--paper); padding: 4px 0 2px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
-.lib-bar .filter-row { display: flex; align-items: center; gap: 10px; }
-.lib-bar .tabs { flex: 1 1 auto; min-width: 0; margin: 6px 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+.lib-bar { position: sticky; top: -16px; z-index: 5; background: var(--paper); padding: var(--s-4) 0 var(--s-4); margin-bottom: var(--s-8); border-bottom: 1px solid var(--line); }
+.lib-bar .filter-row { display: flex; align-items: center; gap: var(--s-12); }
+.lib-bar .tabs { flex: 1 1 auto; min-width: 0; margin: var(--s-8) 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
 .lib-bar .tabs::-webkit-scrollbar { display: none; }
 .lib-bar .tabs button { flex: none; white-space: nowrap; }
 .lib-bar #title-filter { flex: 0 1 220px; min-width: 120px; }
-.lib-bar .toolbar { position: static; padding: 4px 0 6px; background: none; }
+.lib-bar .toolbar { position: static; padding: var(--s-4) 0 var(--s-8); background: none; }
 .library.desk .lib-bar .tabs { flex-wrap: wrap; overflow: visible; } /* the computer has room for every pill */
 .library .lib-main.empty-kind .lib-bar .tabs, .library .lib-main.empty-kind .lib-bar .toolbar { display: flex; }
-.lib-main { padding-bottom: 104px; } /* the last row never sits under the + button */
+.lib-main { padding-bottom: var(--s-64); } /* the last row never sits under the + button */
 
 /* The round + button: every way of adding something (components/addsheet.js). */
 .add-fab {
@@ -67,24 +67,24 @@ body:has(.add-fab) .toasts { bottom: 100px; }
    it wherever it sits (computer, phone above the tab bar, any window size); library.js adds hint-flip
    when the button is on the left half of the screen, and the arrow then comes from its other side.
    It is hidden while a box is open over the page (the + sheet itself) or a page guide is showing. */
-.lib-empty { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 440px; margin: 40px auto 24px; padding: 0 16px; text-align: center; }
-.lib-empty .le-icon { display: grid; place-items: center; width: 64px; height: 64px; margin-bottom: 6px; border-radius: 20px; background: var(--surface-2); color: var(--ink-2); }
-.lib-empty .le-title { margin: 0; font-size: 22px; }
-.lib-empty .le-text { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
+.lib-empty { display: flex; flex-direction: column; align-items: center; gap: var(--s-8); max-width: 440px; margin: var(--s-48) auto var(--s-24); padding: 0 var(--s-16); text-align: center; }
+.lib-empty .le-icon { display: grid; place-items: center; margin-bottom: var(--s-8); color: var(--ink-2); }
+.lib-empty .le-title { margin: 0; font-size: var(--fs-20); }
+.lib-empty .le-text { margin: 0; font-size: var(--fs-16); line-height: var(--lh-text); color: var(--ink-2); }
 .lib-empty .row { justify-content: center; }
 /* My audio → Listen (components/listenbox.js): the button, and the box while it records: a big clock, a red dot
    that swells with the sound, Stop and Cancel. Plain, centred, no shadow. */
-.lr-row { margin-top: 10px; }
-.lr-listen { border-radius: 99px; corner-shape: round; font-weight: 650; padding-inline: 18px; }
+.lr-row { margin-top: var(--s-12); }
+.lr-listen { border-radius: var(--r-pill); corner-shape: round; font-weight: 600; padding-inline: var(--s-16); }
 .lr-back .modal-box { width: min(420px, 100%); box-shadow: none; }
-.lr-box { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; padding: 6px 0 4px; }
-.lr-meter { display: flex; align-items: center; gap: 14px; }
+.lr-box { display: flex; flex-direction: column; align-items: center; gap: var(--s-8); text-align: center; padding: var(--s-8) 0 var(--s-4); }
+.lr-meter { display: flex; align-items: center; gap: var(--s-16); }
 .lr-dot { width: 18px; height: 18px; border-radius: 50%; corner-shape: round; background: var(--danger); transform: scale(calc(.8 + var(--level, 0) * .8)); transition: transform .06s linear; }
 .lr-dot.is-still { background: var(--ink-2); transform: none; }
-.lr-time { font-size: 44px; font-weight: 650; font-variant-numeric: tabular-nums; line-height: 1.1; }
-.lr-box .lr-note { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.45; }
-.lr-box .lr-error { margin: 0; color: var(--danger); font-size: 15px; line-height: 1.45; }
-.lr-name { display: flex; flex-direction: column; gap: 4px; margin-top: 14px; }
+.lr-time { font-size: var(--fs-48); font-weight: 600; font-variant-numeric: tabular-nums; line-height: var(--lh-head); }
+.lr-box .lr-note { margin: 0; color: var(--ink-2); font-size: var(--fs-16); line-height: var(--lh-text); }
+.lr-box .lr-error { margin: 0; color: var(--danger); font-size: var(--fs-16); line-height: var(--lh-text); }
+.lr-name { display: flex; flex-direction: column; gap: var(--s-4); margin-top: var(--s-16); }
 .lr-name input { width: 100%; }
 .lr-stop .ic { vertical-align: -3px; }
 .lib-main.list-empty #lib-head { display: none; } /* (the empty state below says it all) */
@@ -108,93 +108,96 @@ body:has(.modal-back) .library .fab-hint, body:has(.tour) .library .fab-hint { d
 .fab-note {
   position: absolute; left: 5%; bottom: calc(100% + 2px); width: max-content; max-width: 10em;
   transform: translateX(-50%) rotate(-6deg); text-align: center; white-space: normal;
-  font: 600 24px/1.05 "Caveat", var(--ui-font); letter-spacing: 0; text-transform: none;
+  font: 600 var(--fs-26)/1.05 "Caveat", var(--ui-font); letter-spacing: 0; text-transform: none;
 }
 .add-fab.hint-flip .fab-note { transform: translateX(-50%) rotate(-6deg) scaleX(-1); }
 .fab-note .fn-click { display: none; }
 @media (hover: hover) and (pointer: fine) { .fab-note .fn-tap { display: none; } .fab-note .fn-click { display: inline; } }
 :root:lang(ar) .fab-note { font-family: "Caveat", "Noto Naskh Arabic", var(--ui-font); }
-:root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 17px; line-height: 1.35; max-width: 9em; }
-@media (max-width: 640px) { .fab-note { font-size: 21px; } :root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: 15px; } }
+:root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: var(--fs-16); line-height: var(--lh-text); max-width: 9em; }
+@media (max-width: 640px) { .fab-note { font-size: var(--fs-20); } :root:is(:lang(ar), :lang(fa), :lang(hi), :lang(th), :lang(ja), :lang(zh), :lang(ko)) .fab-note { font-size: var(--fs-16); } }
 button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon beside its words) */
 .gx-say.fx-pop { display: inline-grid; }
 
 /* The sheet the + button opens: a plain list of the ways, then each way's own small form. */
-.add-sheet .modal-body { padding-top: 10px; }
-.add-ways { display: flex; flex-direction: column; gap: 8px; }
+.add-sheet .modal-body { padding-top: var(--s-12); }
+/* The ways: rows with a line between them (no tiles inside the sheet). */
+.add-ways { display: flex; flex-direction: column; }
 .add-way {
-  display: flex; align-items: center; gap: 14px; width: 100%; padding: 12px 14px; min-height: 64px;
-  text-align: start; white-space: normal; border-radius: 14px; background: var(--surface-2); border: 1px solid transparent;
+  display: flex; align-items: center; gap: var(--s-16); width: 100%; padding: var(--s-12) 0; min-height: 64px;
+  text-align: start; white-space: normal; border-radius: 0; background: transparent; border: 0; border-bottom: 1px solid var(--line); font-weight: 400;
 }
-.add-way:hover { border-color: var(--teal); }
+.add-way:last-child { border-bottom: 0; }
+.add-way:hover:not(:disabled) { background: transparent; }
+.add-way:hover strong { color: var(--teal); }
 /* The same plain line icons as the tab bar: the text colour (white in dark mode), no coloured tile. */
 .aw-ico { width: 36px; height: 36px; flex: none; display: grid; place-items: center; color: var(--ink); }
-.aw-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
-.aw-text strong { font-size: 16px; }
-.aw-text span { font-size: 13px; color: var(--ink-2); font-weight: 400; }
+.aw-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); overflow-wrap: anywhere; }
+.aw-text strong { font-size: var(--fs-16); }
+.aw-text span { font-size: var(--fs-14); color: var(--ink-2); font-weight: 400; }
 .aw-go { flex: none; color: var(--ink-2); display: inline-flex; }
-.aw-back { margin: 0 0 10px -6px; padding-left: 6px; padding-right: 10px; }
-.aw-step { display: flex; flex-direction: column; gap: 12px; }
-.aw-form { display: flex; gap: 8px; }
+.aw-back { margin: 0 0 var(--s-12) calc(-1 * var(--s-8)); padding-left: var(--s-8); padding-right: var(--s-12); }
+.aw-step { display: flex; flex-direction: column; gap: var(--s-12); }
+.aw-form { display: flex; gap: var(--s-8); }
 .aw-form input { flex: 1; min-width: 0; }
-.aw-wide { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; font-weight: 600; }
-.aw-or { text-align: center; color: var(--ink-2); font-size: 13px; }
+.aw-wide { display: flex; align-items: center; justify-content: center; gap: var(--s-8); width: 100%; font-weight: 600; }
+.aw-or { text-align: center; color: var(--ink-2); font-size: var(--fs-14); }
 .aw-note { margin: 0; text-align: center; }
 /* Books (pages/books.js): a book of your own first, the free shelf under it. */
-.books-own { display: flex; flex-direction: column; gap: 6px; margin: 4px 0 18px; }
-.books-about { margin: 0 0 10px; }
+.books-own { display: flex; flex-direction: column; gap: var(--s-8); margin: var(--s-4) 0 var(--s-16); }
+.books-about { margin: 0 0 var(--s-12); }
 /* Netflix where it can't play (the phones, the web app): why, on one plain surface. */
-.aw-unavailable { padding: 14px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface-2); text-align: center; }
-.aw-unavailable p { margin: 8px 0 0; }
-.aw-country { display: flex; align-items: center; gap: 8px; }
+.aw-unavailable { padding: var(--s-16) 0; text-align: center; color: var(--ink-2); }
+.aw-unavailable p { margin: var(--s-8) 0 0; }
+.aw-country { display: flex; align-items: center; gap: var(--s-8); }
 .aw-country select { flex: 1; min-width: 0; }
 /* YouTube's topics (youtube-home.js TOPICS): plain tiles like the ways above, two or three across. */
-.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+.yt-topics { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--s-8); }
 .yt-topic {
-  display: flex; align-items: center; gap: 10px; min-height: 54px; padding: 8px 12px; min-width: 0;
-  text-align: start; white-space: normal; line-height: 1.25; font-weight: 600; font-size: 14px;
-  border-radius: 14px; background: var(--surface-2); border: 1px solid transparent; color: var(--ink);
-}
-.yt-topic:hover:not(:disabled) { border-color: var(--teal); background: var(--surface-2); }
+  display: flex; align-items: center; gap: var(--s-8); min-height: 48px; padding: var(--s-8) var(--s-12); min-width: 0;
+  text-align: start; white-space: normal; line-height: var(--lh-head); font-weight: 600; font-size: var(--fs-14);
+  border-radius: var(--r-s); background: transparent; border: 1px solid var(--line); color: var(--ink);
+} /* (outlined buttons: no filled tiles inside the sheet) */
+.yt-topic:hover:not(:disabled) { border-color: var(--teal); background: transparent; }
 .yt-topic span { min-width: 0; overflow-wrap: anywhere; }
 .yt-topic[data-topic="popular"] { grid-column: 1 / -1; justify-content: center; } /* the usual start, across the top; twelve topics fill the rows under it */
 
 /* ---------- audiobooks (audiobooks.js) ----------
    The + sheet's Audiobook step: your own files (one plain card, with the Libro.fm line under it), then
    LibriVox's books (cover, title, author, length, Add); and the Library's own shelf of them. */
-.ab-own { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; background: var(--surface-2); }
-.ab-own-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; overflow-wrap: anywhere; }
-.ab-own > button { flex: none; display: inline-flex; align-items: center; gap: 6px; }
-.ab-shop { margin-top: -4px; }
-.ab-free { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
-.ab-head2 { margin: 0; font-size: 16px; }
+.ab-own { display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) 0; border-bottom: 1px solid var(--line); }
+.ab-own-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); overflow-wrap: anywhere; }
+.ab-own > button { flex: none; display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-shop { margin-top: calc(-1 * var(--s-4)); }
+.ab-free { display: flex; flex-direction: column; gap: var(--s-12); margin-top: var(--s-8); }
+.ab-head2 { margin: 0; font-size: var(--fs-16); }
 .ab-free > .aw-note:not(.ab-credit) { text-align: start; }
 @media (max-width: 480px) { .ab-own { flex-wrap: wrap; } .ab-own > button { width: 100%; justify-content: center; } }
 .ab-count { margin: 0; text-align: center; }
-.ab-name label { display: flex; flex-direction: column; gap: 6px; }
+.ab-name label { display: flex; flex-direction: column; gap: var(--s-8); }
 .ab-name input { width: 100%; }
-.ab-list, .ab-shelf { display: flex; flex-direction: column; gap: 8px; }
+.ab-list, .ab-shelf { display: flex; flex-direction: column; }
 .ab-book, .ab-mine {
-  display: flex; align-items: center; gap: 12px; padding: 8px 10px; min-width: 0;
-  border-radius: 14px; background: var(--surface-2);
+  display: flex; align-items: center; gap: var(--s-12); padding: var(--s-12) 0; min-width: 0;
+  border-bottom: 1px solid var(--line);
 }
-.ab-cover { width: 56px; height: 56px; flex: none; border-radius: 8px; object-fit: cover; background: var(--surface); }
+.ab-cover { width: 56px; height: 56px; flex: none; border-radius: var(--r-s); object-fit: cover; background: var(--surface); }
 .ab-cover.ph { display: grid; place-items: center; color: var(--ink-2); }
-.ab-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
-.ab-title { font-weight: 600; font-size: 15px; line-height: 1.3; overflow-wrap: anywhere; }
+.ab-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--s-4); }
+.ab-title { font-weight: 600; font-size: var(--fs-16); line-height: var(--lh-head); overflow-wrap: anywhere; }
 .ab-author { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ab-act { flex: none; }
 .ab-more[hidden] { display: none; }
-.ab-credit { margin: 4px 0 0; text-align: center; }
-.ab-shelf { max-width: 760px; margin: 8px auto 0; }
-.ab-shelf .ab-credit { margin-top: 10px; }
-.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.ab-credit { margin: var(--s-4) 0 0; text-align: center; }
+.ab-shelf { max-width: 760px; margin: var(--s-8) auto 0; }
+.ab-shelf .ab-credit { margin-top: var(--s-12); }
+.ab-mine-open { flex: 1; min-width: 0; display: flex; align-items: center; gap: var(--s-12); color: var(--ink); text-decoration: none; }
 .ab-mine-open:hover { text-decoration: none; }
 .ab-mine-open:hover .ab-title { color: var(--teal); }
-.ab-mine > .btn { flex: none; display: inline-flex; align-items: center; gap: 6px; }
-.ab-head .ab-author { margin: 2px 0 6px; }
-.ab-head .ab-go .btn { display: inline-flex; align-items: center; gap: 6px; }
-.ab-head .ab-credit { text-align: start; margin-top: 8px; }
+.ab-mine > .btn { flex: none; display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-head .ab-author { margin: var(--s-4) 0 var(--s-8); }
+.ab-head .ab-go .btn { display: inline-flex; align-items: center; gap: var(--s-8); }
+.ab-head .ab-credit { text-align: start; margin-top: var(--s-8); }
 .ab-head .desc { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 /* The shelf of your audiobooks has no episode tools (each book's own page has them). */
 .library.shelf-kind .filter-row, .library.shelf-kind .toolbar, .library.shelf-kind #episodes, .library.shelf-kind #more { display: none; }
@@ -203,97 +206,98 @@ button.fx-pop { display: inline-flex; } /* (an XP pop on a button keeps its icon
 /* The Web page screen (pages/websites.js, #/sites): paste an address, your saved sites, news. One
    plain surface per tile, no shadows; the column is centred. */
 .sites-page { max-width: 1040px; }
-.sites-page.with-fab { padding-bottom: 104px; } /* the web app's round import button never covers the last sites */
-.sites-import { display: flex; gap: 8px; padding: 12px; margin: 8px 0 10px; }
+.sites-page.with-fab { padding-bottom: var(--s-64); } /* the web app's round import button never covers the last sites */
+.sites-import { display: flex; gap: var(--s-8); padding: var(--s-12); margin: var(--s-8) 0 var(--s-12); }
 .sites-import input, .sites-search input { flex: 1; min-width: 0; }
-.sites-search { display: flex; gap: 8px; }
-.sites-search button { display: inline-flex; align-items: center; gap: 6px; }
-.sites-sec { margin-top: 22px; }
-.sites-sec-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; min-height: 40px; }
-.sites-sec-head h2 { margin: 0; font-size: 18px; }
-.sites-add { display: inline-flex; align-items: center; gap: 6px; flex: none; }
+.sites-search { display: flex; gap: var(--s-8); }
+.sites-search button { display: inline-flex; align-items: center; gap: var(--s-8); }
+.sites-sec { margin-top: var(--s-24); }
+.sites-sec-head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-12); margin-bottom: var(--s-12); min-height: 40px; }
+.sites-sec-head h2 { margin: 0; font-size: var(--fs-20); }
+.sites-add { display: inline-flex; align-items: center; gap: var(--s-8); flex: none; }
 .sites-empty { margin: 0; }
-.sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--s-12); }
 .sites-grid:empty { display: none; }
 .site-tile { position: relative; min-width: 0; }
 .site-tile a {
-  display: flex; align-items: center; gap: 12px; min-width: 0; min-height: 64px; padding: 12px;
+  display: flex; align-items: center; gap: var(--s-12); min-width: 0; min-height: 64px; padding: var(--s-12);
   border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); color: inherit; text-decoration: none;
 }
 .site-tile a:hover, .site-tile a:focus-visible { border-color: var(--teal); outline: none; }
 .site-tile a:active { transform: scale(.98); }
-.site-tile.saved a { padding-inline-end: 50px; }
+.site-tile.saved a { padding-inline-end: var(--s-48); }
 .site-ico {
-  position: relative; width: 40px; height: 40px; flex: none; border-radius: 10px; overflow: hidden;
-  display: grid; place-items: center; background: var(--teal-tint); color: var(--teal); font-weight: 700; font-size: 18px;
+  position: relative; width: 40px; height: 40px; flex: none; border-radius: var(--r-s); overflow: hidden;
+  display: grid; place-items: center; background: var(--surface-2); color: var(--ink-2); font-weight: 700; font-size: var(--fs-20);
 }
-.site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: 6px; background: var(--surface); opacity: 0; transition: opacity .2s; }
+.site-ico img { position: absolute; inset: 0; width: 100%; height: 100%; padding: var(--s-8); background: var(--surface); opacity: 0; transition: opacity .2s; }
 .site-ico img.on { opacity: 1; }
 .site-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .site-name, .site-note { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.site-name { font-weight: 600; font-size: 16px; line-height: 1.3; }
-.site-note { color: var(--ink-2); font-size: 13px; }
-.site-easy { display: inline-block; margin-inline-end: 4px; padding: 0 7px; border-radius: 99px; corner-shape: round; background: var(--teal-tint); color: var(--teal); font-size: 11px; font-weight: 700; }
+.site-name { font-weight: 600; font-size: var(--fs-16); line-height: var(--lh-head); }
+.site-note { color: var(--ink-2); font-size: var(--fs-14); }
+.site-easy { display: inline-block; margin-inline-end: var(--s-4); padding: 0 var(--s-8); border-radius: var(--r-pill); corner-shape: round; background: var(--surface-2); color: var(--ink); font-size: var(--fs-12); font-weight: 700; }
 .site-rm {
   position: absolute; top: 50%; inset-inline-end: 8px; transform: translateY(-50%);
   width: 36px; height: 36px; min-height: 0; padding: 0; border-radius: 50%; corner-shape: round; display: grid; place-items: center; color: var(--ink-2);
 }
 .site-rm:hover:not(:disabled) { color: var(--ink); }
-.sites-add-form { display: flex; flex-direction: column; gap: 14px; }
-.sites-add-form label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 14px; }
+.sites-add-form { display: flex; flex-direction: column; gap: var(--s-16); }
+.sites-add-form label { display: flex; flex-direction: column; gap: var(--s-8); font-weight: 600; font-size: var(--fs-14); }
 .sites-add-form input { font-weight: 400; }
 .sites-add-error { margin: 0; color: var(--danger); }
-.sites-add-form .confirm-buttons { margin-top: 4px; }
-.sites-add-form .confirm-buttons button { flex: 1 1 0; min-width: 0; padding-left: 12px; padding-right: 12px; } /* the pair exactly as wide */
+.sites-add-form .confirm-buttons { margin-top: var(--s-4); }
+.sites-add-form .confirm-buttons button { flex: 1 1 0; min-width: 0; padding-left: var(--s-12); padding-right: var(--s-12); } /* the pair exactly as wide */
 @media (max-width: 520px) {
-  .sites-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .site-tile a { gap: 8px; padding: 10px; min-height: 58px; }
-  .site-tile.saved a { padding-inline-end: 40px; }
-  .site-ico { width: 32px; height: 32px; font-size: 15px; }
-  .site-ico img { padding: 4px; }
-  .site-name { font-size: 15px; }
+  .sites-grid { grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+  .site-tile a { gap: var(--s-8); padding: var(--s-12); min-height: 58px; }
+  .site-tile.saved a { padding-inline-end: var(--s-48); }
+  .site-ico { width: 32px; height: 32px; font-size: var(--fs-16); }
+  .site-ico img { padding: var(--s-4); }
+  .site-name { font-size: var(--fs-16); }
   .site-rm { width: 32px; height: 32px; inset-inline-end: 4px; }
 }
 /* Followed YouTube channels: round pictures in the phone's bar, chips on the computer. */
 .feed-item img.round, .feed-item .ph.round, .lib-head .channel-pic { border-radius: 50%; corner-shape: round; }
-.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: 20px; color: var(--teal); background: var(--teal-tint); }
+.feed-item .ph.round, .lib-head .ph.channel-pic { display: grid; place-items: center; font-weight: 700; font-size: var(--fs-20); color: var(--ink-2); background: var(--surface-2); }
 .lib-head .channel-pic { width: 72px; height: 72px; object-fit: cover; flex: none; }
-.yt-channels { align-items: center; margin: 0 0 4px; }
-.yt-channels button { display: inline-flex; align-items: center; gap: 6px; max-width: 240px; }
+.yt-channels { align-items: center; margin: 0 0 var(--s-4); }
+.yt-channels button { display: inline-flex; align-items: center; gap: var(--s-8); max-width: 240px; }
 .yt-channels button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; corner-shape: round; object-fit: cover; flex: none; font-size: 11px; display: inline-grid; place-items: center; background: var(--teal-tint); color: var(--teal); }
+.yt-channels button img.round, .yt-channels button .ph.round { width: 20px; height: 20px; border-radius: 50%; corner-shape: round; object-fit: cover; flex: none; font-size: var(--fs-12); display: inline-grid; place-items: center; background: var(--surface-2); color: var(--ink-2); }
 
 /* ---------- trending podcasts ---------- */
 .discover { max-width: 1200px; }
-.disc-head { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 8px; }
+.disc-head { display: flex; gap: var(--s-12); align-items: flex-start; margin-bottom: var(--s-8); }
 .disc-head .meta { flex: 1; min-width: 0; }
-.disc-head h1 { margin: 0 0 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.disc-rss { margin: 4px 0 8px; }
-.disc-found { margin: 4px 0 18px; }
-.disc-found-head { display: flex; align-items: center; gap: 8px; margin: 6px 0 8px; }
-.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; overflow-wrap: anywhere; }
-.disc-found-close { flex: none; padding: 6px; }
-.disc-found-none { margin: 4px 0; }
-.disc-found-credit { margin: 8px 0 0; text-align: center; }
-.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--paper); padding: 8px 0; margin: 0 0 4px; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+.disc-head h1 { margin: 0 0 var(--s-4); display: flex; align-items: center; gap: var(--s-8); flex-wrap: wrap; }
+.disc-rss { margin: var(--s-4) 0 var(--s-8); }
+.disc-found { margin: var(--s-4) 0 var(--s-16); }
+.disc-found-head { display: flex; align-items: center; gap: var(--s-8); margin: var(--s-8) 0 var(--s-8); }
+.disc-found-head h2 { flex: 1; min-width: 0; margin: 0; font-size: var(--fs-20); overflow-wrap: anywhere; }
+.disc-found-close { flex: none; padding: var(--s-8); }
+.disc-found-none { margin: var(--s-4) 0; }
+.disc-found-credit { margin: var(--s-8) 0 0; text-align: center; }
+.disc-cats { position: sticky; top: 0; z-index: 3; background: var(--paper); padding: var(--s-8) 0; margin: 0 0 var(--s-4); flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
 .disc-cats button { flex: none; white-space: nowrap; }
-.disc-cat { margin-bottom: 22px; }
-.disc-cat h2 { margin: 10px 0 8px; font-size: 18px; }
-.disc-cat h2 .n { font-size: 13px; font-weight: 500; color: var(--ink-2); }
-.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 10px; }
-.disc-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid var(--line); border-radius: var(--r-s); background: var(--surface); min-width: 0; }
-.disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: 10px; object-fit: cover; flex: none; background: var(--surface-2); }
+.disc-cat { margin-bottom: var(--s-24); }
+.disc-cat h2 { margin: var(--s-12) 0 var(--s-8); font-size: var(--fs-20); }
+.disc-cat h2 .n { font-size: var(--fs-14); font-weight: 600; color: var(--ink-2); }
+.disc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0 var(--s-24); }
+/* A podcast to add: a row with a line under it (two or three columns of rows on a wide screen). */
+.disc-card { display: flex; gap: var(--s-12); align-items: center; padding: var(--s-12) 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.disc-card img, .disc-card .ph { width: 64px; height: 64px; border-radius: var(--r-s); object-fit: cover; flex: none; background: var(--surface-2); }
 .disc-card .ph { display: grid; place-items: center; color: var(--ink-2); }
 .disc-card .info { flex: 1; min-width: 0; }
-.disc-card .t { font-weight: 600; line-height: 1.3; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.disc-card .t { font-weight: 600; line-height: var(--lh-head); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .disc-card .a { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .disc-card .a:empty, .disc-card .d:empty { display: none; }
-.disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: 2px; }
+.disc-card .d { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; margin-top: var(--s-4); }
 .disc-card .add { flex: none; min-width: 84px; }
 .disc-card .add.done { color: var(--teal); background: var(--teal-tint); border-color: transparent; opacity: 1; }
-.disc-more { margin-top: 8px; }
-.disc-msg { max-width: 560px; margin: 32px auto; text-align: center; }
-.disc-credit { margin-top: 24px; text-align: center; }
+.disc-more { margin-top: var(--s-8); }
+.disc-msg { max-width: 560px; margin: var(--s-32) auto; text-align: center; }
+.disc-credit { margin-top: var(--s-24); text-align: center; }
 @media (max-width: 640px) {
   .disc-head { flex-wrap: wrap; }
   .disc-grid { grid-template-columns: 1fr; }

@@ -25,7 +25,7 @@ test("Conversation's AI key note is the same purple note, shown only without a k
   assert.match(cv, /href="#\/settings\?s=words&amp;show=key"/);
   assert.match(cv, /querySelector\("\.cv-need"\)\.hidden = aiReady\(\)/);
   const css = read("web/css/app.css");
-  assert.match(css, /\.key-note \{[^}]*background: #8f1d84; color: #fff;/);
+  assert.match(css, /\.key-note \{[^}]*border: 1px solid var\(--line\); background: var\(--surface\); color: var\(--ink\);/, "a plain note (DESIGN.md: purple is for new words only)");
   assert.match(css, /\.key-note\[hidden\] \{ display: none; \}/);
 });
 

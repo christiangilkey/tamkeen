@@ -115,7 +115,7 @@ test("the chips under a tab's heading: finished or not, and transcribed or not, 
   // a phone: the groups wrap, and one too wide scrolls sideways
   const css = src("web/css/app.css");
   assert.match(css, /\.lib-chips \{ display: flex; flex-wrap: wrap;/);
-  assert.match(css, /\.lc-group \{ display: flex; gap: 4px; flex-wrap: nowrap; overflow-x: auto;/);
+  assert.match(css, /\.lc-group \{ display: flex; gap: var\(--s-4\); flex-wrap: nowrap; overflow-x: auto;/);
 });
 
 test("the chips' counts: what is in progress and new is not finished", () => {
