@@ -9,6 +9,7 @@ import { episodeLanguage, langAttrs, langInfo, studyLanguage } from "../language
 import { habitat } from "../game/habitat.js";
 import { gameOn } from "../components/gameswitch.js";
 import { feature } from "../prototype.js";
+import { dliShown } from "../components/dlipanel.js";
 import { creatorBar } from "../components/creatorbar.js";
 import { icon } from "../icons.js";
 import { firstVisitTour } from "../components/tour.js";
@@ -140,6 +141,8 @@ export async function render(view) {
         <span class="small muted"></span></span></a>
     </div>`));
     more.querySelector('a[href="#/discover"] .muted').textContent = t("Popular {0} podcasts", t(name));
+    // A DLI student has their DLI course and no Basics (prototype "dli_basics", pages/library.js), so no Basics card either.
+    if (feature("dli_basics") && dliShown(studyLanguage())) more.querySelector('a[href="#/library?show=courses"]').remove();
   } else {
     main.append(h(`<div class="caught-up">
       <div class="caught-up-mark">✓</div>

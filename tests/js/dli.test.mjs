@@ -313,3 +313,9 @@ test("a DLI student's Basics keeps only the Arabic dialects (prototype dli_basic
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
   assert.equal(PROTOTYPES.dli_basics.released, false, "a prototype until the owner releases it");
 });
+
+test("a DLI student's Home has no Basics card either (prototype dli_basics)", () => {
+  const home = readFileSync(new URL("../../web/js/pages/home.js", import.meta.url), "utf8");
+  assert.ok(home.includes('import { dliShown } from "../components/dlipanel.js";'));
+  assert.ok(home.includes(`if (feature("dli_basics") && dliShown(studyLanguage())) more.querySelector('a[href="#/library?show=courses"]').remove();`));
+});
