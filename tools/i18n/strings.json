@@ -3770,26 +3770,6 @@
   "f": "web/js/components/contact.js"
  },
  {
-  "id": "bb72b60d",
-  "k": "Continue listening",
-  "f": "web/js/components/continuecard.js"
- },
- {
-  "id": "8fca30f7",
-  "k": "Continue watching",
-  "f": "web/js/components/continuecard.js"
- },
- {
-  "id": "4f4840a8",
-  "k": "Continue reading",
-  "f": "web/js/components/continuecard.js"
- },
- {
-  "id": "4e34d263",
-  "k": "Also in progress",
-  "f": "web/js/components/continuecard.js"
- },
- {
   "id": "b0827a06",
   "k": "No controller connected",
   "f": "web/js/components/controllerpanel.js"
@@ -21285,6 +21265,11 @@
   "f": "web/js/game/habitat.js"
  },
  {
+  "id": "f6814e19",
+  "k": "Farming",
+  "f": "web/js/game/habitat.js"
+ },
+ {
   "id": "714d913b",
   "k": "Garden",
   "f": "web/js/game/habitat.js"
@@ -26565,6 +26550,21 @@
   "f": "web/js/pages/friends.js"
  },
  {
+  "id": "bb72b60d",
+  "k": "Continue listening",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "8fca30f7",
+  "k": "Continue watching",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "4f4840a8",
+  "k": "Continue reading",
+  "f": "web/js/pages/home.js"
+ },
+ {
   "id": "6a4f54ef",
   "k": "Good evening",
   "f": "web/js/pages/home.js"
@@ -26587,6 +26587,11 @@
  {
   "id": "4dd40cd0",
   "k": "{0}. Each day you meet your flashcard goal, new words and reviews, adds a day.{1}",
+  "f": "web/js/pages/home.js"
+ },
+ {
+  "id": "4e34d263",
+  "k": "Also in progress",
   "f": "web/js/pages/home.js"
  },
  {
@@ -32738,16 +32743,6 @@
   "id": "f7a589f3",
   "k": "Got {0} changes from your other devices",
   "f": "web/js/syncpace.js"
- },
- {
-  "id": "398ed329",
-  "k": "Games",
-  "f": "web/js/tabnames.js"
- },
- {
-  "id": "4f9be057",
-  "k": "Content",
-  "f": "web/js/tabnames.js"
  },
  {
   "id": "0118d341",
