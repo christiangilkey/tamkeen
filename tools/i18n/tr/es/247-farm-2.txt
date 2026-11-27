@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Ahí no hay ningún edificio.
+16c46312	No puede ir ahí. Prueba en un trozo de hierba libre.
+acb9a39a	Edificios de tu granja
+3c74541f	Hueco para un edificio
+3e8d4bb2	Construye algo para tu granja
+96d19121	Construir en tu granja
+c79689b0	El Brote de Palabras soltó semillas: {0}
+a8044474	La Concha del Eco regó una planta.
+8d38f9b3	La Concha del Eco regó plantas: {0}
+09580216	Las abejas hicieron miel.
+f7a15a2c	Toca dónde debe ir en tu granja.
+faf59763	Elige un edificio para abrirlo con la llave.
+aa8dd697	Ese edificio ya está abierto.
+c54b7b6a	Colmena de Letras
+ffcda93b	En la granja es un árbol de semillas: las palabras que buscas le hacen soltar semillas gratis.
+634c07b8	En la granja es un carillón de lluvia: el tiempo que pasas escuchando riega tus plantas sedientas.
+a38a431d	En la granja ilumina el campo: el día que lees 10 minutos, las plantas cercanas crecen dos días con un solo riego.
+77b9b961	Cada palabra que guardas trae una abeja. Con abejas cerca, los cultivos junto a la colmena dan más, y las palabras guardadas hacen miel.
+32338632	Las palabras que conoces bien dan mejores cosechas: cultivos más raros por toda la granja.

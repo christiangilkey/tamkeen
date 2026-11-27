@@ -10140,6 +10140,31 @@ from the same chat; 4 and 5 (uses, upgrades, Cropdex screen, talents, creature c
   one; `seasonOverlay` shows the season outside (blossom, motes, leaves, snow) with the prototype.
 - **Sync:** merge.js `joinFarm` / gamemerge.py `_join_farm`: the copy changed later wins, whole (a fixture case).
 - Tests: `tests/js/farm.test.mjs`. Translations: `tools/i18n/tr/<code>/247-farm.txt` (all machine-made).
+- **Slice 2, the garden's buildings on the farm** (with the prototype; without it the garden is as before). No plots:
+  `idle.build` takes any slot, each kind opens by its own milestone or a key (`useKey(state, id)` with the farm;
+  `idle.keyed` = kinds opened with one, the union of both copies in merge.js / gamemerge.py), and stands anywhere on
+  the farm: the slot's `at` (default `farmmap.BUILD_SPOTS`, right of the field; "Move it" on its card, then a tap,
+  `farm.placeBuilding` / `farmmap.canPlace`: never in the field as big as it can grow, the barn, the stand, the gate,
+  or on another). Old saves keep every building at its tier in its slot. The Ink Well shows as the **Spelling Bee
+  Hive** (sections.buildingName / structureArt: `game-art/farm/bee_hive_<tier>.png`); the Star Loom isn't built on the
+  farm. Tap a building: its glow if any waits (not automated), else its card (garden.openBuilding) with its farm job
+  (sections.FARM_JOBS). The yard's plots are hidden with the farm; the Garden tile goes to the farm.
+  Farm jobs (`farm.farmJobs`, every 5 s from habitat's gardenBeat, counting only what is new): Word Sprout, a seed
+  per 10/7/5 lookups (2 + tier a day, this week's crops); Echo Shell, a watering per 10/8/6 minutes of listening today
+  (`state.day.listen`, added in rules.earn with `day.read`), wilted plants first; Page Lantern, on a day with 10
+  minutes of reading a plant within (3 + tier) tiles grows two days for one watering; Spelling Bee Hive, a bee per word
+  saved today (3 a tier at most, drawn buzzing), crops near it give 1 more (2 near a tier 3), and a jar of honey per
+  6/5/4 words saved (`farm.honey`, for slice 4's recipes); Memory Stone, harvest luck x(1 + 0.2 tier + up to 0.9 for
+  well-known words). Tests: `tests/js/farmbuildings.test.mjs`.
+- **Slice 3, the Star Shrine** (idle.js `shrineTier` / `shrineRate`; farm-ui `openShrine`; art `farm/shrine_1-3`): by
+  the cottage (yard.js `SHRINE`) once there is stardust; tier 1 at 1 stardust, 2 at 3, 3 at 6, never below the best
+  Star Loom the garden has had (`idle.loomTier`). It makes the Star Loom's glow (its rate at the shrine's tier), straight
+  into the bank, counted in `totalRate` (so the flashcards' glow, worked out from it, keeps its size); a Star Loom
+  makes nothing with the farm. Each stardust is +20% glow with the prototype (`stardustBoost()`; `STARDUST_BOOST_FARM`;
+  +50% without it, until the release). Its card explains stardust, the Loom, that a release never touches the farm
+  (true by construction: release() changes `state.idle` and the roster, never `state.farm`), and any lines other work
+  adds (`shrinelines.js addShrineLines`: talents.js's). Tests: `tests/js/shrine.test.mjs`.
+- Translations for slices 2 and 3: `247-farm-2.txt`, `247-farm-3.txt` (machine-made).
 - Not yet (later slices of the plan): neighbour help, watering-can tiers, greenhouse, scarecrow luck, barn sizes, the
   sprinkler, food/bait/recipes/orders/selling, the Cropdex screen, friends' harvest board.
 

@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	La pols d'estels mai no es gasta. La guanyes alliberant una criatura adulta.
+5ee99f65	El santuari també teixeix el brill constant del Teler d'Estrelles, directament al teu brill.
+573e0b0e	Alliberar torna a començar els teus edificis i el teu brill. Mai no toca la teva granja: la terra, els conreus, el graner i les llavors es queden.
+9f174c71	Santuari Estel·lar
+e2bade3b	Aquí viu la teva pols d'estels. Cadascuna fa tot el teu brill més ràpid, per sempre, i el santuari es fa més esplèndid com més en reuneixes.

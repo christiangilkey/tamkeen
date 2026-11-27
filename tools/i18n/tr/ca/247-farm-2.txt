@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Aquí no hi ha cap edifici.
+16c46312	No pot anar aquí. Prova en un tros d'herba lliure.
+acb9a39a	Edificis de la teva granja
+3c74541f	Lloc per a un edifici
+3e8d4bb2	Construeix alguna cosa per a la teva granja
+96d19121	Construeix a la granja
+c79689b0	El Brot de Paraules ha deixat caure llavors: {0}
+a8044474	La Petxina de l'Eco ha regat una planta.
+8d38f9b3	La Petxina de l'Eco ha regat plantes: {0}
+09580216	Les abelles han fet mel.
+f7a15a2c	Toca on ha d'anar a la teva granja.
+faf59763	Tria un edifici per obrir-lo amb la clau.
+aa8dd697	Aquest edifici ja està obert.
+c54b7b6a	Rusc de Lletres
+ffcda93b	A la granja és un arbre de llavors: les paraules que busques li fan deixar caure llavors gratuïtes.
+634c07b8	A la granja és un carilló de pluja: el temps que passes escoltant rega les teves plantes assedegades.
+a38a431d	A la granja il·lumina el camp: el dia que llegeixes 10 minuts, les plantes properes creixen dos dies amb un sol reg.
+77b9b961	Cada paraula que deses porta una abella. Amb abelles a prop, els cultius vora el rusc donen més, i les paraules desades fan mel.
+32338632	Les paraules que coneixes bé donen millors collites: cultius més rars per tota la granja.

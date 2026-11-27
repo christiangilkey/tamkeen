@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	A poeira estelar nunca é gasta. Você a ganha ao libertar uma criatura adulta.
+5ee99f65	O santuário também tece o brilho constante do Tear de Estrelas, direto para o seu brilho.
+573e0b0e	Libertar recomeça seus edifícios e seu brilho. Nunca mexe na sua fazenda: a terra, as plantações, o celeiro e as sementes ficam.
+9f174c71	Santuário Estelar
+e2bade3b	Sua poeira estelar mora aqui. Cada uma deixa todo o seu brilho mais rápido, para sempre, e o santuário fica mais grandioso conforme você junta mais.

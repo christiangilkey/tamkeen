@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Não há nenhum edifício aí.
+16c46312	Não pode ficar aí. Tente um pedaço de grama livre.
+acb9a39a	Edifícios da sua fazenda
+3c74541f	Espaço para um edifício
+3e8d4bb2	Construa algo para a sua fazenda
+96d19121	Construir na sua fazenda
+c79689b0	O Broto de Palavras soltou sementes: {0}
+a8044474	A Concha do Eco regou uma planta.
+8d38f9b3	A Concha do Eco regou plantas: {0}
+09580216	As abelhas fizeram mel.
+f7a15a2c	Toque onde ele deve ficar na sua fazenda.
+faf59763	Escolha um edifício para abrir com a chave.
+aa8dd697	Esse edifício já está aberto.
+c54b7b6a	Colmeia de Letras
+ffcda93b	Na fazenda, é uma árvore de sementes: as palavras que você procura fazem cair sementes grátis.
+634c07b8	Na fazenda, é um sino de chuva: o tempo que você passa ouvindo rega suas plantas com sede.
+a38a431d	Na fazenda, ilumina o campo: num dia em que você lê por 10 minutos, as plantas perto dela crescem dois dias com uma só rega.
+77b9b961	Cada palavra que você salva traz uma abelha. Com abelhas por perto, as plantações perto da colmeia rendem mais, e as palavras salvas fazem mel.
+32338632	Palavras que você conhece bem dão colheitas melhores: plantações mais raras por toda a fazenda.

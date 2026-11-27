@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	La polvere di stelle non si spende mai. La ottieni liberando una creatura adulta.
+5ee99f65	Il santuario tesse anche il bagliore costante del Telaio delle Stelle, direttamente nel tuo bagliore.
+573e0b0e	Liberare fa ripartire da zero i tuoi edifici e il tuo bagliore. Non tocca mai la tua fattoria: terra, raccolti, fienile e semi restano.
+9f174c71	Santuario delle Stelle
+e2bade3b	Qui vive la tua polvere di stelle. Ognuna rende tutto il tuo bagliore più veloce, per sempre, e il santuario diventa più grandioso man mano che ne raccogli.

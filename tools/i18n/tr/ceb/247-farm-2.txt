@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Walay building diha.
+16c46312	Dili kini makatindog diha. Sulayi ang hawan nga bahin sa sagbot.
+acb9a39a	Mga building sa imong uma
+3c74541f	Lugar para sa usa ka building
+3e8d4bb2	Pagtukod og butang nga motindog sa imong uma
+96d19121	Pagtukod sa imong uma
+c79689b0	Nagpahulog og mga liso ang Turok sa Pulong: {0}
+a8044474	Gibisibisan sa Kinhason sa Lanog ang usa ka tanom.
+8d38f9b3	Gibisibisan sa Kinhason sa Lanog ang {0} ka tanom.
+09580216	Naghimo og dugos ang mga putyokan.
+f7a15a2c	I-tap kung asa kini motindog sa imong uma.
+faf59763	Pilia ang building nga ablihan gamit ang yawe.
+aa8dd697	Abli na kana nga building.
+c54b7b6a	Balay-Putyokan sa Baybay
+ffcda93b	Sa uma, kini usa ka kahoy sa liso: ang mga pulong nga imong pangitaon mopahulog og libreng liso.
+634c07b8	Sa uma, kini usa ka lingganay sa ulan: ang oras nga imong ipaminaw mobisibis sa imong giuhaw nga mga tanom.
+a38a431d	Sa uma, kini mosiga sa umahan: sa adlaw nga mobasa ka og 10 minutos, ang mga tanom duol niini motubo og duha ka adlaw sa usa ka bisibis.
+77b9b961	Matag pulong nga imong i-save magdala og putyokan. Kung adunay mga putyokan, mas daghan ang ihatag sa mga tanom duol sa balay-putyokan, ug ang mga na-save nga pulong mohimo og dugos.
+32338632	Ang mga pulong nga imong nahibal-an pag-ayo mohatag og mas maayong ani: mas talagsaong mga tanom sa tibuok uma.

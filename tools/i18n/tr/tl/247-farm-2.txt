@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Walang gusali riyan.
+16c46312	Hindi ito puwedeng tumayo riyan. Subukan ang bakanteng bahagi ng damuhan.
+acb9a39a	Mga gusali sa bukid mo
+3c74541f	Puwesto para sa isang gusali
+3e8d4bb2	Magtayo ng tatayo sa bukid mo
+96d19121	Magtayo sa bukid mo
+c79689b0	Naghulog ng mga binhi ang Usbong ng Salita: {0}
+a8044474	Dinilig ng Kabibe ng Alingawngaw ang isang halaman.
+8d38f9b3	Dinilig ng Kabibe ng Alingawngaw ang {0} halaman.
+09580216	Gumawa ng pulot ang mga pukyutan.
+f7a15a2c	I-tap kung saan ito tatayo sa bukid mo.
+faf59763	Pumili ng gusaling bubuksan gamit ang susi.
+aa8dd697	Bukas na ang gusaling iyan.
+c54b7b6a	Bahay-Pukyutan ng Baybay
+ffcda93b	Sa bukid, isa itong puno ng binhi: ang mga salitang hinahanap mo ay nagpapahulog dito ng libreng binhi.
+634c07b8	Sa bukid, isa itong kampanilya ng ulan: ang oras na ginugugol mo sa pakikinig ay nagdidilig sa mga uhaw mong halaman.
+a38a431d	Sa bukid, iniilawan nito ang taniman: sa araw na nagbasa ka nang 10 minuto, ang mga halamang malapit dito ay lumalaki nang dalawang araw sa isang dilig.
+77b9b961	Bawat salitang sine-save mo ay nagdadala ng pukyutan. Kapag may mga pukyutan, mas marami ang ibinibigay ng mga pananim na malapit sa bahay-pukyutan, at gumagawa ng pulot ang mga na-save na salita.
+32338632	Mas magandang ani ang dala ng mga salitang alam na alam mo: mas bihirang pananim sa buong bukid.

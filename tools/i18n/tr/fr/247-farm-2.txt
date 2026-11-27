@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Il n'y a pas de bâtiment ici.
+16c46312	Il ne peut pas aller ici. Essayez un coin d'herbe libre.
+acb9a39a	Bâtiments de votre ferme
+3c74541f	Place pour un bâtiment
+3e8d4bb2	Construisez quelque chose pour votre ferme
+96d19121	Construire sur votre ferme
+c79689b0	La Pousse de Mots a laissé tomber des graines : {0}
+a8044474	La Coquille d'Écho a arrosé une plante.
+8d38f9b3	La Coquille d'Écho a arrosé des plantes : {0}
+09580216	Les abeilles ont fait du miel.
+f7a15a2c	Touchez l'endroit de votre ferme où le placer.
+faf59763	Choisissez un bâtiment à ouvrir avec la clé.
+aa8dd697	Ce bâtiment est déjà ouvert.
+c54b7b6a	Ruche à Lettres
+ffcda93b	À la ferme, c'est un arbre à graines : les mots que vous cherchez lui font tomber des graines gratuites.
+634c07b8	À la ferme, c'est un carillon de pluie : le temps passé à écouter arrose vos plantes assoiffées.
+a38a431d	À la ferme, elle éclaire le champ : un jour où vous lisez 10 minutes, les plantes proches poussent de deux jours pour un seul arrosage.
+77b9b961	Chaque mot que vous enregistrez amène une abeille. Avec des abeilles autour, les cultures près de la ruche donnent plus, et les mots enregistrés font du miel.
+32338632	Les mots que vous connaissez bien donnent de meilleures récoltes : des cultures plus rares dans toute la ferme.

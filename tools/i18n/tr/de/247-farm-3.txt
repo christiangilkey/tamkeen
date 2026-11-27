@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	Sternenstaub wird nie ausgegeben. Du bekommst ihn, wenn du ein ausgewachsenes Wesen freilässt.
+5ee99f65	Der Schrein webt auch den stetigen Glimmer des Sternenwebstuhls, direkt in deinen Glimmer.
+573e0b0e	Ein Freilassen setzt deine Gebäude und deinen Glimmer zurück. Deinen Hof berührt es nie: Land, Pflanzen, Scheune und Samen bleiben.
+9f174c71	Sternenschrein
+e2bade3b	Hier wohnt dein Sternenstaub. Jeder macht deinen ganzen Glimmer schneller, für immer, und der Schrein wird prächtiger, je mehr du sammelst.

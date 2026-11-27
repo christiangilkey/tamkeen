@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Dort steht kein Gebäude.
+16c46312	Dort kann es nicht stehen. Versuch es auf einem freien Stück Wiese.
+acb9a39a	Gebäude auf deinem Hof
+3c74541f	Platz für ein Gebäude
+3e8d4bb2	Bau etwas für deinen Hof
+96d19121	Auf dem Hof bauen
+c79689b0	Der Wortspross hat Samen fallen lassen: {0}
+a8044474	Die Echomuschel hat eine Pflanze gegossen.
+8d38f9b3	Die Echomuschel hat Pflanzen gegossen: {0}
+09580216	Die Bienen haben Honig gemacht.
+f7a15a2c	Tippe auf die Stelle deines Hofs, wo es stehen soll.
+faf59763	Wähle ein Gebäude, das du mit dem Schlüssel öffnest.
+aa8dd697	Dieses Gebäude ist schon offen.
+c54b7b6a	Buchstaben-Bienenstock
+ffcda93b	Auf dem Hof ist es ein Samenbaum: Wörter, die du nachschlägst, lassen ihn kostenlose Samen fallen.
+634c07b8	Auf dem Hof ist es ein Regenspiel: Zeit, die du mit Zuhören verbringst, gießt deine durstigen Pflanzen.
+a38a431d	Auf dem Hof beleuchtet sie das Feld: An einem Tag, an dem du 10 Minuten liest, wachsen Pflanzen in ihrer Nähe mit einmal Gießen zwei Tage.
+77b9b961	Jedes Wort, das du speicherst, bringt eine Biene. Mit Bienen in der Nähe tragen Pflanzen nahe am Bienenstock mehr, und gespeicherte Wörter werden zu Honig.
+32338632	Wörter, die du gut kennst, bringen bessere Ernten: seltenere Pflanzen auf dem ganzen Hof.

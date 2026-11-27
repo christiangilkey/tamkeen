@@ -1,0 +1,20 @@
+# The farm, slice 2 (prototype farm): the garden's buildings on the farm, their farm jobs.
+5b1737e7	Lì non c'è nessun edificio.
+16c46312	Non può stare lì. Prova su un pezzo d'erba libero.
+acb9a39a	Edifici della tua fattoria
+3c74541f	Spazio per un edificio
+3e8d4bb2	Costruisci qualcosa per la tua fattoria
+96d19121	Costruisci nella fattoria
+c79689b0	Il Germoglio di Parole ha lasciato cadere dei semi: {0}
+a8044474	La Conchiglia dell'Eco ha annaffiato una pianta.
+8d38f9b3	La Conchiglia dell'Eco ha annaffiato delle piante: {0}
+09580216	Le api hanno fatto il miele.
+f7a15a2c	Tocca il punto della fattoria dove metterlo.
+faf59763	Scegli un edificio da aprire con la chiave.
+aa8dd697	Quell'edificio è già aperto.
+c54b7b6a	Alveare delle Lettere
+ffcda93b	Nella fattoria è un albero dei semi: le parole che cerchi gli fanno cadere semi gratis.
+634c07b8	Nella fattoria è un campanello della pioggia: il tempo passato ad ascoltare annaffia le tue piante assetate.
+a38a431d	Nella fattoria illumina il campo: nei giorni in cui leggi per 10 minuti, le piante vicine crescono di due giorni con una sola annaffiatura.
+77b9b961	Ogni parola che salvi porta un'ape. Con le api in giro, i raccolti vicino all'alveare rendono di più, e le parole salvate fanno il miele.
+32338632	Le parole che conosci bene danno raccolti migliori: colture più rare in tutta la fattoria.

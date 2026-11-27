@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	La poussière d'étoile ne se dépense jamais. Vous en gagnez en libérant une créature adulte.
+5ee99f65	Le sanctuaire tisse aussi la lueur régulière du Métier à Étoiles, directement dans votre lueur.
+573e0b0e	Une libération remet vos bâtiments et votre lueur à zéro. Elle ne touche jamais votre ferme : sa terre, ses cultures, sa grange et ses graines restent.
+9f174c71	Sanctuaire Étoilé
+e2bade3b	Votre poussière d'étoile vit ici. Chacune rend toute votre lueur plus rapide, pour de bon, et le sanctuaire grandit à mesure que vous en rassemblez.

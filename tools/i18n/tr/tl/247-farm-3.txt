@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	Hindi kailanman nagagastos ang stardust. Nakukuha mo ito kapag nagpakawala ka ng ganap na lumaking nilalang.
+5ee99f65	Hinahabi rin ng dambana ang tuloy-tuloy na liwanag ng Habihan ng Bituin, diretso sa iyong liwanag.
+573e0b0e	Ang pagpapakawala ay nagsisimula muli ng iyong mga gusali at liwanag. Hindi nito kailanman ginagalaw ang iyong bukid: nananatili ang lupa, pananim, kamalig at binhi.
+9f174c71	Dambana ng Bituin
+e2bade3b	Dito nakatira ang iyong stardust. Bawat isa ay nagpapabilis sa lahat ng iyong liwanag, magpakailanman, at lalong dumarakila ang dambana habang dumarami ang naiipon mo.

@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	Ang abog sa bituon dili gyud magasto. Makuha nimo kini pinaagi sa pagbuhi sa hingkod nga linalang.
+5ee99f65	Ang shrine naghabol usab sa padayong sanag sa Habolan sa Bituon, diretso sa imong sanag.
+573e0b0e	Ang pagbuhi magsugod pag-usab sa imong mga building ug sanag. Dili gyud kini mohikap sa imong uma: ang yuta, tanom, kamalig ug binhi magpabilin.
+9f174c71	Shrine sa Bituon
+e2bade3b	Dinhi nagpuyo ang imong abog sa bituon. Matag usa mopaspas sa tanan nimong sanag, hangtod sa hangtod, ug mosamot ka-dako ang shrine samtang nagtigom ka og daghan.

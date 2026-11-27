@@ -1,0 +1,6 @@
+# The farm, slice 3 (prototype farm): the Star Shrine's card.
+6f83f86a	El polvo de estrellas nunca se gasta. Lo consigues al liberar una criatura adulta.
+5ee99f65	El santuario también teje el brillo constante del Telar de Estrellas, directo a tu brillo.
+573e0b0e	Liberar reinicia tus edificios y tu brillo. Nunca toca tu granja: su tierra, cultivos, granero y semillas se quedan.
+9f174c71	Santuario Estelar
+e2bade3b	Aquí vive tu polvo de estrellas. Cada uno hace todo tu brillo más rápido, para siempre, y el santuario se vuelve más grandioso cuanto más reúnes.
