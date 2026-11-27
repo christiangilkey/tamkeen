@@ -220,7 +220,9 @@ test("the screens without a page area of their own (Home, Library, lessons, Voca
   const src = read("web/js/padscreens.js");
   for (const area of ["home", "library", "lesson", "vocab", "friends", "settings"]) assert.match(src, new RegExp(`area: "${area}"`), area);
   // what they press is on those screens
-  assert.match(read("web/js/pages/home.js"), /class="continue-btn"/);
+  // (Home's "Continue" button is drawn by components/continuecard.js, which Home and the Library's Home share)
+  assert.match(read("web/js/components/continuecard.js"), /class="continue-btn"/);
+  assert.match(read("web/js/pages/home.js"), /continueInto\(main, more, 3\)/);
   assert.match(read("web/js/pages/vocab.js"), /id="review"/);
   assert.match(read("web/js/pages/library.js"), /id="feed-list"/);
   assert.match(read("web/js/pages/library.js"), /id="add-fab"/);

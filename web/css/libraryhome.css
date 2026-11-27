@@ -53,3 +53,7 @@
 }
 /* On the computer the stage sits in the page's column, not edge to edge. */
 .library.desk .lh-stage { margin-inline: 0; }
+
+/* "Continue" above the map (moved from Home, components/continuecard.js): in the page's own theme, space below it. */
+.lh-continue { display: flex; flex-direction: column; gap: var(--s-24); margin-bottom: var(--s-24); } /* (as on Home: .hero) */
+.lh-continue[hidden] { display: none; }

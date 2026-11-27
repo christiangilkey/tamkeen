@@ -20,6 +20,7 @@ import { showUpdateNotice } from "./updatenotice.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating } from "./i18n.js";
+import { applyTabNames } from "./tabnames.js";
 import { applyPageSize, isAbsurdPageSize, PAGE_SIZE_DEFAULT } from "./textsize.js";
 import { initScrollHints } from "./scrollhint.js";
 import { installSelectSheets } from "./components/selectsheet.js";
@@ -624,6 +625,7 @@ async function route() {
   const navKey = mod === home ? "home" : mod === library || mod === discover || mod === websites || mod === reels || mod === books ? "library" : mod === vocab ? "vocab" : mod === settings ? "settings"
     : mod === about ? "about" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === navKey));
+  applyTabNames(); // (Home → Games, Library → Content with the prototype "games_content": tabnames.js)
   const turn = ++routeTurn;
   try {
     const undo = (await mod.render(target, params)) || null;

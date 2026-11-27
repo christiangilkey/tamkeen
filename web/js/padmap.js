@@ -9,6 +9,8 @@
 // The setting "controller_map" keeps only what the learner changed: { at, map: { <area>: { <action>: input | "" } } }
 // ("" = cleared on purpose). Anything not in it is the default, so actions added later get theirs.
 
+import { tabName } from "./tabnames.js";
+
 /**
  * The screens a controller works on, each with its own buttons. A screen's buttons win over
  * "Everywhere" ("general"), which is what is left for the buttons a screen doesn't use. Some layers
@@ -27,8 +29,9 @@ export const AREAS = [
   { id: "popup", title: "The word popup", about: "While a word's popup is open, on any screen." },
   { id: "review", title: "Studying cards", about: "The review cards." },
   { id: "reader", title: "Books and pages", about: "Reading a book or a saved web page." },
-  { id: "home", title: "Home", about: "The first screen." },
-  { id: "library", title: "Library", about: "Basics, podcasts, YouTube, reels, books and web pages." },
+  // (their names follow the tabs': Games and Content with the prototype "games_content", tabnames.js)
+  { id: "home", get title() { return tabName("home", "Home"); }, about: "The first screen." },
+  { id: "library", get title() { return tabName("library", "Library"); }, about: "Basics, podcasts, YouTube, reels, books and web pages." },
   { id: "lesson", title: "Basics lessons", about: "A unit of words or a grammar lesson in Basics, with its exercises." },
   { id: "vocab", title: "Vocab", about: "Your saved words." },
   { id: "friends", title: "Friends and chat", about: "Friends, guilds and messages." },

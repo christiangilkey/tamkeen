@@ -27,6 +27,7 @@ import { icon } from "./icons.js";
 import { detectLanguage, setLang, setStudyLanguage, studyLanguage } from "./languages.js";
 import { chosenCountry, handmadeOnly, youtubeHome } from "./youtube-home.js";
 import { startTranslating, translateHtml } from "./i18n.js";
+import { applyTabNames } from "./tabnames.js";
 import { isSaved, savedSites, setSite } from "./browser-sites.js";
 import { addUploadedVideo, checkFeeds, fillLanguages, handle, wordLang } from "./backend.js";
 import { onJob } from "./transcribe-service.js";
@@ -1315,6 +1316,7 @@ async function route() {
   const key = mod === home ? "home" : mod === library || mod === discover || mod === reels || mod === webYouTube || mod === webSites || mod === books ? "library" : mod === vocab ? "vocab" : mod === search ? "search"
     : mod === settingsPage ? "settings" : mod === friends || mod === chat ? "friends" : "";
   document.querySelectorAll("[data-nav]").forEach((a) => a.classList.toggle("active", a.dataset.nav === key));
+  applyTabNames(); // (Home → Games, Library → Content with the prototype "games_content": tabnames.js)
   document.body.classList.toggle("in-player", mod === player || mod === chat || (mod === reels && path.startsWith("reels/play")));
   // The tab highlight and swipe animation move as soon as the section changes, not after its data loads.
   window.dispatchEvent(new Event("routed"));

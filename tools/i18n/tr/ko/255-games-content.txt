@@ -1,0 +1,3 @@
+# Home is Games and Library is Content, the tabs' names (prototype games_content, tabnames.js).
+398ed329	게임
+4f9be057	콘텐츠

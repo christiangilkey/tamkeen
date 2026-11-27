@@ -27,6 +27,7 @@ import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
 import { classroomPanel } from "../components/classroompanel.js";
 import { homeMap } from "../components/homemap.js";
+import { continueInto } from "../components/continuecard.js";
 import { RECENT_DAYS, ringOf, usage } from "../libraryhome.js";
 import { definerConfig } from "../define-service.js";
 import { cleanProgress } from "../grammardata.js";
@@ -1362,7 +1363,13 @@ export async function render(view, { feedId: routeFeed, query }) {
     const rings = {};
     for (const k of kinds) { const r = ringOf(k.key, { platform, aiKey, stt, netflix }); if (r) rings[k.key] = r; }
     if (closeHome) closeHome();
-    closeHome = homeMap($("#lib-home"), { kinds, uses: homeUsage(), rings, lang: courseLang });
+    // At the top, what was played or read last and isn't finished (moved here from Home: components/continuecard.js),
+    // then the map.
+    const box = $("#lib-home");
+    box.innerHTML = `<section class="lh-continue" hidden><div class="lh-cmain"></div><div class="home-more lh-cmore"></div></section><div class="lh-mapbox"></div>`;
+    continueInto(box.querySelector(".lh-cmain"), box.querySelector(".lh-cmore"), 3)
+      .then((n) => { if (n && root.isConnected) box.querySelector(".lh-continue").hidden = false; }).catch(() => {});
+    closeHome = homeMap(box.querySelector(".lh-mapbox"), { kinds, uses: homeUsage(), rings, lang: courseLang });
   }
   /** How much each kind is used, from what this device knows: the things kept in each (episodes, books, pages…), the
    *  ones opened in the last RECENT_DAYS (progress.js, matched to their feed by its title), the grammar lessons finished
