@@ -9,8 +9,8 @@ import { PROTOTYPES } from "../../web/js/prototype.js";
 const library = readFileSync(new URL("../../web/js/pages/library.js", import.meta.url), "utf8");
 const block = library.slice(library.indexOf('if (feature("library_chips")) {'), library.indexOf('group(t("Finished or not"), ['));
 
-test("a prototype, off for everyone else, who keep the two rows as before", () => {
-  assert.equal(PROTOTYPES.library_chips.released, false);
+test("released for everybody in v0.78.0; the old two rows remain only behind the switch", () => {
+  assert.equal(PROTOTYPES.library_chips.released, true, "released for everybody in v0.78.0");
   assert.ok(block.length > 0 && block.includes("return;"), "with it on, the old rows aren't drawn");
   assert.match(library, /group\(t\("Finished or not"\), \[\s*chip\(t\("All"\)/, "the old rows stay for everyone else");
 });

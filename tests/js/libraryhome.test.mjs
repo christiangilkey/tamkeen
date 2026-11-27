@@ -67,7 +67,7 @@ test("the Library's Home entry: first, only with the prototype, and the Library 
   assert.ok(library.includes('if (kind === "home") { showHome(); return; }'));
   for (const f of ["web/index.html", "mobile/src/index.html", "mobile/scripts/build-www.mjs"]) assert.match(read(f), /css\/libraryhome\.css/, f);
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
-  assert.equal(PROTOTYPES.library_home.released, false, "a prototype until the owner releases it");
+  assert.equal(PROTOTYPES.library_home.released, true, "released for everybody in v0.78.0");
 });
 
 test("the map follows DESIGN.md: circles, no tinted backing, the dark stage only on the map", () => {

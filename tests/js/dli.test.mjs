@@ -311,7 +311,7 @@ test("a DLI student's Basics keeps only the Arabic dialects (prototype dli_basic
   assert.ok(library.includes('href: "#/library?show=courses", when: () => !noBasics() }'), "and goes for other DLI students");
   assert.ok(library.includes("const offered = dliStudent() ? dialectsOnly(all) : all;"));
   const { PROTOTYPES } = await import("../../web/js/prototype.js");
-  assert.equal(PROTOTYPES.dli_basics.released, false, "a prototype until the owner releases it");
+  assert.equal(PROTOTYPES.dli_basics.released, true, "released for everybody in v0.78.0");
 });
 
 test("a DLI student's Home has no Basics card either (prototype dli_basics)", () => {

@@ -10,10 +10,10 @@ import { tabName } from "../../web/js/tabnames.js";
 
 const read = (p) => readFileSync(new URL(`../../${p}`, import.meta.url), "utf8");
 
-test("a prototype: everyone else keeps Home and Library", () => {
-  assert.equal(PROTOTYPES.games_content.released, false);
-  assert.equal(tabName("home", "Home"), "Home");
-  assert.equal(tabName("library", "Library"), "Library");
+test("released for everybody in v0.78.0: Home is Games and Library is Content", () => {
+  assert.equal(PROTOTYPES.games_content.released, true, "released for everybody in v0.78.0");
+  assert.equal(tabName("home", "Home"), "Games");
+  assert.equal(tabName("library", "Library"), "Content");
   assert.equal(tabName("vocab", "Vocab"), "Vocab");
   const tabs = read("web/js/tabnames.js");
   assert.match(tabs, /key === "home" \? t\("Games"\) : key === "library" \? t\("Content"\) : name/);
