@@ -78,16 +78,17 @@ its sprites). Each has one job.
 
 ## 4. Type
 
-Two voices (the owner, 2026-11-27: "a fun font and a serious font separation"; no pixel font):
+Two voices (the owner, 2026-11-27: "a fun font and a serious font separation"; for the fun one he then picked the pixel
+font, Pixelify Sans, to match the game):
 
 | Role | Font | Notes |
 |---|---|---|
 | **Serious:** the app's text | **Commissioner** (SIL OFL; Latin, Latin-ext, Cyrillic) | Replaced Figtree, which has no Cyrillic and is the common AI default. `--ui-font` |
 | **Serious:** headings and headwords | **Literata** (SIL OFL; Latin, Latin-ext, Cyrillic), the owner's pick | Page titles and section headings; replaced Rubik. `--display-font` |
 | Studied text | Each script's own font: Literata for Latin and Cyrillic letters, Noto Naskh Arabic, Vazirmatn for Persian, the system CJK, Thai and Devanagari fonts | Always one step larger than the UI text around it. `--ar-font` (set per language) |
-| **Fun:** the game's numbers, rewards and celebrations | **To be chosen** from a specimen (Commissioner at full flair, Unbounded, Exo 2; all OFL with Cyrillic) | Only on the game side and on rewards, never on study screens. `--fun-font` (Commissioner at flair 100 until he picks) |
+| **Fun:** the game's numbers, rewards and celebrations | **Pixelify Sans** (SIL OFL; Latin, Latin-ext, Cyrillic), the owner's pick | The game's counts (coins, gems, glow, XP, streaks), creature names, game panel titles, reward pop-ups. Only on the game side and on rewards, never on study screens (study numbers use Commissioner at full flair). `--fun-font` |
 
-Commissioner's **flair** axis is its playful side: 0 for small text, 100 where the fun font is Commissioner.
+Commissioner's **flair** axis is its playful side: 0 for small text, 100 for numbers on the study side.
 
 **The scale. No other sizes:** `12` captions · `14` supporting text · `16` body · `20` section heading ·
 `26` page title · `34` the hero word or number · `48` a celebrated number (level up, streak).
@@ -156,7 +157,7 @@ the sheet's own corner. No empty bands: the sheet fits its content. On a phone i
 **Words.** A word shown for study is in its script's font, one step larger than the text around it, in its word-state
 colour. Its meaning sits under or after it in `--ink-2`.
 
-**Rewards.** A pixel icon + the number, in the pixel font once chosen. Earned rewards fly to their counter. Gold only
+**Rewards.** A pixel icon + the number, in the pixel font (Pixelify Sans). Earned rewards fly to their counter. Gold only
 here.
 
 **Empty states.** An invitation, not an apology: what goes here and one button to add it. A Muffle glyph texture is

@@ -70,6 +70,32 @@
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
+/* The game's numbers, rewards and celebrations: Pixelify Sans (SIL Open Font License, licenses/pixelify-sans.txt),
+   the owner's pick (2026-11-27), a pixel font to match the game's pixel art; weights 400-700. */
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../fonts/PixelifySans-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../fonts/PixelifySans-latin-ext.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF,
+    U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url("../fonts/PixelifySans-cyrillic.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
 /* The handwritten note by the Library's + button (media.css .fab-note): Caveat (SIL Open Font License,
    licenses/caveat.txt), one weight (600), cut to Latin-1 and the Russian alphabet and without its alternate
    letter shapes, to keep it small (36 KB). Only downloaded when the note shows. */
@@ -140,12 +166,12 @@
 
   /* Fonts (DESIGN.md section 4, the owner 2026-11-27: a serious voice and a fun one). Serious: Commissioner for the app's
      text, Literata for headings and the studied words in Latin and Cyrillic letters. Fun: --fun-font, for the game's
-     panels, rewards and celebrated numbers (Commissioner at full flair until the owner picks one). The studied text in
+     panels, rewards and celebrated numbers: Pixelify Sans, the owner's pick (2026-11-27). The studied text in
      other scripts: its own script's font (--ar-font, set per language below). */
   --ui-font: "Commissioner", "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
     Roboto, "Helvetica Neue", Arial, sans-serif;
   --display-font: "Literata", Georgia, "Times New Roman", serif;
-  --fun-font: var(--ui-font);
+  --fun-font: "Pixelify Sans", var(--ui-font);
   --ar-size: 26px;
   --ar-font: "Literata", Georgia, "Times New Roman", serif;
 
@@ -227,11 +253,16 @@ img { display: block; }
 h1, h2, h3 { margin: 0 0 var(--s-8); line-height: var(--lh-head); }
 /* Page titles and section headings: Literata (the serious voice). Smaller headings and labels are in Commissioner. */
 h1, h2, .display-font, .review-banner strong, .caught-up-title { font-family: var(--display-font); }
-/* The numbers worth celebrating and the game's counts: the fun voice, at full flair. Numbers keep a fixed width so a
-   changing count doesn't jiggle. */
-.fun-font, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .xp-num, .xp-pop-ring b, .xp-pop-total, .caught-up-mark,
-.rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
-  font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-variant-numeric: tabular-nums;
+/* The game's counts, rewards and celebrations: the fun voice, the pixel font (DESIGN.md section 4). Numbers keep a
+   fixed width so a changing count doesn't jiggle. */
+.fun-font, .hud-lv-n, .hero-streak, .name-streak, .hud-xp, .gb-xp b, .xp-num, .xp-pop-ring b, .xp-pop-total,
+.game-sheet-head .info-title, .loot-rank, .loot-title {
+  font-family: var(--fun-font); font-variant-numeric: tabular-nums;
+}
+/* Numbers on the study side (the flashcards, the day's goal, the tab bar's counts) stay in the app's font at full
+   flair: the pixel font is for the game only, and the flashcards keep their look (the owner's exception). */
+.caught-up-mark, .rv-ring b, .rv-stats b, .rv-left, .rv-streak, .goal-counts, .nav-count {
+  font-family: var(--ui-font); font-variation-settings: "FLAR" var(--flair-num); font-variant-numeric: tabular-nums;
 }
 h1, h2 { font-weight: 600; letter-spacing: -.005em; }
 h1 { font-size: var(--fs-26); }
@@ -2696,7 +2727,7 @@ html.sel-sheets select { pointer-events: none; }
 .cu-tile { position: relative; display: grid; gap: var(--s-4); text-align: start; padding: var(--s-16) var(--s-16) var(--s-16); border-radius: var(--r-s); border: 1px solid var(--line);
   background: var(--surface); color: var(--ink); cursor: pointer; overflow: hidden; }
 .cu-tile:hover:not(:disabled) { border-color: var(--teal); }
-.cu-n { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-26); font-weight: 700; line-height: var(--lh-head); color: var(--ink); }
+.cu-n { font-family: var(--ui-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-26); font-weight: 700; line-height: var(--lh-head); color: var(--ink); }
 .cu-range { font-weight: 600; font-size: var(--fs-14); }
 .cu-state { display: inline-flex; align-items: center; gap: var(--s-4); font-size: var(--fs-12); color: var(--ink-2); }
 .cu-meter { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--surface-2); }
@@ -3078,7 +3109,7 @@ html.sel-sheets select { pointer-events: none; }
 /* Coins, gems and the goal streak: a pixel icon and its number on one line (the icon carries the colour). */
 .hud-wallet { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s-8) var(--s-32); } /* (centred: the owner, 2026-11-27) */
 .hud-count { gap: var(--s-8); min-height: 36px; padding: 0 var(--s-8); margin-inline: calc(-1 * var(--s-8)); border: 0; background: transparent;
-  font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-20); font-weight: 700; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
+  font-family: var(--fun-font); font-size: var(--fs-20); font-weight: 700; font-variant-numeric: tabular-nums; -webkit-touch-callout: none; user-select: none; }
 .hud-count:hover:not(:disabled) { background: var(--surface-2); }
 .hud-count b { font-weight: 700; }
 .hud-count.cur-coin, .hud-count.cur-gem, .hud-count.cur-streak { color: var(--ink); }
@@ -3465,7 +3496,7 @@ button.vf-tick:hover:not(:disabled) { background: var(--surface-2); }
   background: color-mix(in srgb, var(--el) 22%, var(--surface)); }
 .cr-stage .cr-egg { align-self: center; }
 .cr-name { display: flex; flex-direction: column; align-items: center; }
-.cr-name strong { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-26); line-height: var(--lh-head); max-width: 100%; overflow-wrap: anywhere; }
+.cr-name strong { font-family: var(--fun-font); font-size: var(--fs-26); line-height: var(--lh-head); max-width: 100%; overflow-wrap: anywhere; }
 .cr-no { font-variant-numeric: tabular-nums; }
 .cr-tags { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--s-8); }
 .cr-tag { padding: var(--s-4) var(--s-12); border-radius: var(--r-pill); corner-shape: round; background: var(--surface); font-size: var(--fs-12); font-weight: 600; line-height: var(--lh-text); }
@@ -3972,7 +4003,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .cv-result { display: grid; gap: var(--s-12); justify-items: center; padding: var(--s-16); border-radius: var(--r-s); background: var(--surface);
   border: 1px solid var(--line); margin-bottom: var(--s-16); }
 .cv-result-n { display: grid; justify-items: center; }
-.cv-result-n b { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-48); line-height: var(--lh-head); color: var(--teal); font-variant-numeric: tabular-nums; }
+.cv-result-n b { font-family: var(--ui-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-48); line-height: var(--lh-head); color: var(--teal); font-variant-numeric: tabular-nums; }
 .cv-result-n span { color: var(--ink-2); }
 .cv-result .cv-goals { justify-self: center; width: min(100%, 440px); }
 .cv-wait { text-align: center; color: var(--ink-2); padding: var(--s-16); }
@@ -4043,7 +4074,7 @@ button.cv-chip.fix { color: var(--ink); cursor: pointer; }
 .pron-none { color: var(--ink-2); }
 .pron-head { display: flex; align-items: center; gap: var(--s-16); flex-wrap: wrap; }
 .pron-big { display: grid; justify-items: center; min-width: 76px; }
-.pron-big b { font-family: var(--fun-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-34); line-height: var(--lh-head); font-variant-numeric: tabular-nums; }
+.pron-big b { font-family: var(--ui-font); font-variation-settings: "FLAR" var(--flair-num); font-size: var(--fs-34); line-height: var(--lh-head); font-variant-numeric: tabular-nums; }
 .pron-big span { font-size: var(--fs-12); color: var(--ink-2); }
 .pron-big.good b { color: var(--teal); }
 .pron-big.fair b { color: var(--warn); }
