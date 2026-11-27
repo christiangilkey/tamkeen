@@ -772,3 +772,6 @@ dff5fd31  # Fggdggggggggggggggfg  (yard.js map row)
 d1b4d2e5  # Ffggggggggggdddddddd  (yard.js map row)
 5a16ca4f  # Fggggggggggggggggggt  (yard.js map row)
 90834bae  # Fgggggggggggggggggtt  (yard.js map row)
+# squircle.js: a clip-path outline and a media query, not text.
+2e6c9258  # path("M0 0L1 0L1 1Z")  (squircle.js clip path)
+4d588e32  # (prefers-color-scheme: dark)  (squircle.js media query)

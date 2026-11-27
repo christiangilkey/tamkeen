@@ -147,9 +147,22 @@ export function varietiesOffered(lang, courses, grammar) {
   return out.length > 1 ? out : [];
 }
 
-/** The kind of Arabic shown: the one chosen before (`remembered`) while it is still offered, else MSA (""). */
+/** The kind of Arabic shown: the one chosen before (`remembered`) while it is still offered, else MSA (""), or the
+ * first dialect when MSA isn't offered (a DLI student's Basics: dialectsOnly). */
 export function varietyChoice(offered, remembered) {
-  return (offered || []).some((v) => v.id && v.id === remembered) ? remembered : "";
+  const list = offered || [];
+  if (list.some((v) => v.id && v.id === remembered)) return remembered;
+  return list.length && !list.some((v) => !v.id) ? list[0].id : "";
+}
+
+/**
+ * A DLI student's Basics (prototype "dli_basics"; the owner, 2026-11-27: "if a student is a dli student it should get
+ * rid of courses except for the dialects in arabic"): their DLI course already teaches the standard language, so Basics
+ * keeps only the Arabic dialects (Levantine, Egyptian…). `offered` is varietiesOffered's list; [] when no dialect is
+ * published, and then Basics has nothing for them.
+ */
+export function dialectsOnly(offered) {
+  return (offered || []).filter((v) => v.id);
 }
 
 /**

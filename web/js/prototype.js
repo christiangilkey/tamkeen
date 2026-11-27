@@ -13,6 +13,7 @@
 // No screen code here (the game's rules import it, and the tests run it without a browser).
 
 export const PROTOTYPES = {
+  dli_basics: { name: "DLI students: no Basics, except the Arabic dialects for a DLI Arabic student", released: false, since: "2026-11-27" },
   dictation: { name: "Type what you hear", released: true, since: "2026-11-17" },
   open_weeks: { name: "Weekly battle rules without the element-only weeks", released: true, since: "2026-11-18" },
   move_variety: { name: "More kinds of battle moves: slams, sky dives, burrows, throws, waves, orbs, slashes, strikes from above", released: true, since: "2026-11-17" },

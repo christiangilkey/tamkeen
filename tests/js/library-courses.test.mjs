@@ -28,9 +28,11 @@ test("Courses is the Library's first kind", () => {
   assert.match(kinds, /key: "podcasts"[^}]*href: "#\/library\?show=podcasts"/);
 });
 
-test("the Library tab opens on the kind chosen last time (Courses at first); a podcast's own page still counts as Podcasts", () => {
-  assert.match(library, /let kind = [^;]*: feedId \? "podcasts"\s*: \[\.\.\.query\.keys\(\)\]\.length \? "courses" : lastKind\(\);/);
-  assert.match(library, /return isKind\(k\) \? k : "courses";/);
+test("the Library tab opens on the kind chosen last time (Basics at first); a podcast's own page still counts as Podcasts", () => {
+  assert.match(library, /let kind = [^;]*: feedId \? "podcasts"\s*: \[\.\.\.query\.keys\(\)\]\.length \? firstKind\(\) : lastKind\(\);/);
+  // (Basics first, or Podcasts for a DLI student who has no Basics: prototype dli_basics)
+  assert.ok(library.includes('const firstKind = () => (isKind("courses") ? "courses" : "podcasts");'));
+  assert.match(library, /return isKind\(k\) \? k : firstKind\(\);/);
   // (a kind this learner can't see, the DLI entry without DLI material, doesn't count: `when`)
   assert.match(library, /const isKind = \(key\) => KINDS\.some\(\(x\) => x\.key === key && \(!x\.when \|\| x\.when\(\)\)\);/);
   assert.match(library, /localStorage\.setItem\(LAST_KIND_KEY, kind\)/);

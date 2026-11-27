@@ -21,7 +21,7 @@ import { troubleshootButton } from "../components/troubleshoot.js";
 import { firstVisitTour } from "../components/tour.js";
 import { courseIndex, coursePanel } from "../components/coursepanel.js";
 import { grammarFor, grammarIndex, grammarPanel } from "../components/grammarpanel.js";
-import { VARIETY_KEY, basicsId, courseTabChoice, varietiesOffered, varietyChoice } from "../coursedata.js";
+import { VARIETY_KEY, basicsId, courseTabChoice, dialectsOnly, varietiesOffered, varietyChoice } from "../coursedata.js";
 import { dliPanel, dliShown } from "../components/dlipanel.js";
 import { conversePanel } from "../components/conversepanel.js";
 import { lessonPanel } from "../components/lessonpanel.js";
@@ -121,7 +121,7 @@ const BOOKS_FEED = "local:books";
 // `empty`: what a kind with nothing in it says under "Nothing here yet" (emptyState), with an arrow to the
 // + button. Basics and Conversation are never empty.
 const KINDS = [
-  { key: "courses", label: "Basics", icon: "learn", href: "#/library?show=courses" },
+  { key: "courses", label: "Basics", icon: "learn", href: "#/library?show=courses", when: () => !noBasics() },
   { key: "conversation", label: "Conversation", icon: "speak", href: "#/library?show=conversation" },
   { key: "podcasts", label: "Podcasts", icon: "podcast", href: "#/library?show=podcasts",
     empty: "Add podcasts with the + button below." },
@@ -174,14 +174,20 @@ function keyNote(kind) {
 
 /** Kinds with a panel of their own instead of a list of episodes. */
 const panelKind = (k) => k === "courses" || k === "conversation" || k === "lessons" || k === "classroom" || k === "dli";
+/** A DLI student has their DLI course for the language itself, so Basics goes (prototype "dli_basics"), except that a
+ *  DLI Arabic student keeps it for the dialects (showCourses: dialectsOnly). */
+const dliStudent = () => feature("dli_basics") && dliShown(studyLanguage());
+const noBasics = () => dliStudent() && studyLanguage() !== "ar";
 /** Is `key` a kind this learner has (the DLI entry is only for those with DLI material)? */
 const isKind = (key) => KINDS.some((x) => x.key === key && (!x.when || x.when()));
+/** Where the Library opens with nothing chosen: Basics, or Podcasts for someone without Basics. */
+const firstKind = () => (isKind("courses") ? "courses" : "podcasts");
 // The kind showing last time, kept on this device, for the Library tab to open on again.
 const LAST_KIND_KEY = "libraryKind";
 function lastKind() {
   let k = null;
   try { k = localStorage.getItem(LAST_KIND_KEY); } catch { /* storage off */ }
-  return isKind(k) ? k : "courses";
+  return isKind(k) ? k : firstKind();
 }
 // The arrow from an empty kind's message to the + button: one line in the line icons' style, a gentle
 // curve that ends going sideways into the button (the button carries it, so it is beside it wherever
@@ -258,7 +264,7 @@ export async function render(view, { feedId: routeFeed, query }) {
   // (DLI was a tab of Basics until 2026-11-27: its old address, ?show=courses&tab=dli, opens the DLI entry.)
   if (query.get("show") === "courses" && query.get("tab") === "dli" && isKind("dli")) query.set("show", "dli");
   let kind = isKind(query.get("show")) ? query.get("show") : feedId ? "podcasts"
-    : [...query.keys()].length ? "courses" : lastKind();
+    : [...query.keys()].length ? firstKind() : lastKind();
   const filter = query.get("status") || "";
   // YouTube: the followed channel whose videos are showing ("" = all of them, recently watched first).
   const channel = query.get("channel") || "";
@@ -1337,7 +1343,14 @@ export async function render(view, { feedId: routeFeed, query }) {
     coursesAsked = true;
     Promise.all([courseIndex(), grammarIndex()]).then(([courses, grammar]) => {
       if (!root.isConnected) return;
-      const offered = varietiesOffered(courseLang, courses, grammar);
+      const all = varietiesOffered(courseLang, courses, grammar);
+      const offered = dliStudent() ? dialectsOnly(all) : all;
+      if (dliStudent() && !offered.length) { // (no dialect published: nothing in Basics for a DLI student)
+        const note = $("#no-courses");
+        note.hidden = false;
+        note.textContent = "There is nothing in Basics for this language yet.";
+        return;
+      }
       const pick = $("#variety-pick");
       pick.innerHTML = offered.map((v) => `<option value="${esc(v.id)}">${esc(v.name)}</option>`).join("");
       $("#course-variety").hidden = !offered.length;

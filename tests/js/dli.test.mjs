@@ -294,3 +294,22 @@ test("the real password is in no file of the repository", async () => {
   }
   assert.deepEqual(hits, [], "files that contain the password");
 });
+
+test("a DLI student's Basics keeps only the Arabic dialects (prototype dli_basics)", async () => {
+  // (the owner, 2026-11-27: "if a student is a dli student it should get rid of courses except for the dialects in arabic")
+  const { dialectsOnly, varietyChoice } = await import("../../web/js/coursedata.js");
+  const offered = [{ id: "", name: "Standard Arabic (MSA)" }, { id: "lev", name: "Levantine" }, { id: "egy", name: "Egyptian" }];
+  assert.deepEqual(dialectsOnly(offered).map((v) => v.id), ["lev", "egy"]);
+  assert.deepEqual(dialectsOnly([]), []);
+  assert.equal(varietyChoice(offered, "egy"), "egy");
+  assert.equal(varietyChoice(offered, "glf"), "", "with MSA offered, MSA is the default as before");
+  assert.equal(varietyChoice(dialectsOnly(offered), ""), "lev", "without MSA, the first dialect");
+  assert.equal(varietyChoice(dialectsOnly(offered), "egy"), "egy");
+  const library = readFileSync(new URL("../../web/js/pages/library.js", import.meta.url), "utf8");
+  assert.ok(library.includes('const dliStudent = () => feature("dli_basics") && dliShown(studyLanguage());'));
+  assert.ok(library.includes('const noBasics = () => dliStudent() && studyLanguage() !== "ar";'), "Basics stays for a DLI Arabic student");
+  assert.ok(library.includes('href: "#/library?show=courses", when: () => !noBasics() }'), "and goes for other DLI students");
+  assert.ok(library.includes("const offered = dliStudent() ? dialectsOnly(all) : all;"));
+  const { PROTOTYPES } = await import("../../web/js/prototype.js");
+  assert.equal(PROTOTYPES.dli_basics.released, false, "a prototype until the owner releases it");
+});
