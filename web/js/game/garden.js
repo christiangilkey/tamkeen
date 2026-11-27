@@ -20,7 +20,7 @@ import { icon as lineIcon } from "../icons.js";
 import { openEarned } from "./info.js";
 import { portrait } from "./battle-ui.js";
 import { FARM_JOBS, buildOptions, buildingName, gardenFacts, plotRows, structureArt, supplyBlocks } from "./sections.js";
-import { farmBuildings, stardustBoost } from "./idle.js";
+import { stardustBoost } from "./idle.js";
 import { amount, art, block, details, fact, fmt, grid, row, tile } from "./screenparts.js";
 
 const structure = (id) => STRUCTURES.find((s) => s.id === id);
@@ -74,20 +74,11 @@ export function gardenPanel(body, game, changed, go = () => {}) {
   body.append(top);
 
   // Buildings: one row per plot.
-  const farm = farmBuildings(); // (prototype "farm": the buildings stand on the farm, no plots)
-  const plots = block(farm ? "Buildings on your farm" : "Buildings", farm ? `${plotRows(game).filter((p) => p.kind === "built").length} / ${f.plots}` : `${f.open} / ${f.plots}`);
-  plots.querySelector(".gs-block-end").title = farm ? "Buildings" : "Plots open";
+  const plots = block("Buildings on your farm", `${plotRows(game).filter((p) => p.kind === "built").length} / ${f.plots}`);
+  plots.querySelector(".gs-block-end").title = "Buildings";
   for (const p of plotRows(game)) {
-    if (p.kind === "closed") {
-      let end = "";
-      if (p.key) {
-        end = h(`<button type="button" class="gs-row-btn">${icon("key")}<span>Use a key</span></button>`);
-        end.onclick = () => act(useKey(game));
-      }
-      plots.append(row({ pic: art(structureArt(null, 0), 48), name: t("Plot {0}", p.i + 1), sub: `<span class="gs-need-line">${icon("lock")}<span class="gs-need"></span></span>`, end, dim: true }));
-      plots.lastElementChild.querySelector(".gs-need").textContent = p.need;
-    } else if (p.kind === "empty") {
-      plots.append(row({ pic: art(structureArt(null, 0), 48), name: farm ? t("Room for a building") : t("Plot {0}", p.i + 1), sub: farm ? "Build something to stand on your farm" : "Empty: choose something to build",
+    if (p.kind === "empty") {
+      plots.append(row({ pic: art(structureArt(null, 0), 48), name: t("Room for a building"), sub: "Build something to stand on your farm",
         end: `<span class="gs-row-go">${lineIcon("plus", 18)}<span>Build</span></span>`, open: () => buildPicker(game, p.i, act) }));
     } else {
       const s = structure(p.id);
@@ -167,7 +158,7 @@ function buildPicker(game, i, act) {
       list.append(r);
     }
     return {
-      title: farmBuildings() ? t("Build on your farm") : t("Build on plot {0}", i + 1),
+      title: t("Build on your farm"),
       facts: [counted("You have", "glow", garden(game).glow)], more: list,
       buttons: [{ word: "Close", run: () => d.close() }],
     };
@@ -197,7 +188,7 @@ function buildingDetails(game, i, act) {
     if (p.cost === null) buttons.push({ word: "Fully grown", pic: icon("check"), disabled: true, run: () => {} });
     else buttons.push({ word: "Grow", extra: amount("glow", p.cost), primary: true, disabled: !p.can, run: () => redo(upgrade(game, i)) });
     const short = p.cost !== null && !p.can ? Math.ceil(p.cost - garden(game).glow) : 0;
-    const job = farmBuildings() && FARM_JOBS[p.id]; // (prototype "farm": its farm job, and moving it on the farm)
+    const job = FARM_JOBS[p.id]; // (its farm job, and moving it on the farm)
     if (job) buttons.unshift({ word: "Move it", run: () => { d.close(); window.dispatchEvent(new CustomEvent("tamkeen-farm-move", { detail: { i } })); } });
     return {
       title: buildingName(s), pic: art(structureArt(p.id, p.tier), 128), facts, text: job ? `${t(s.text)} ${t(job)}` : s.text, buttons,

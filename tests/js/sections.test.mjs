@@ -174,7 +174,7 @@ test("supplies sit in blocks by what they are for, every one of them exactly onc
   assert.deepEqual(blocks.map((b) => b.id), ["battle", "grow", "garden"]);
 });
 
-test("the garden screen: its numbers, and a row for every plot (closed, empty or built)", () => {
+test("the garden screen: its numbers, and a row for every building slot (empty or built)", () => {
   const s = hatched();
   const g = garden(s);
   g.glow = 500;
@@ -186,35 +186,34 @@ test("the garden screen: its numbers, and a row for every plot (closed, empty or
   const f = gardenFacts(s, T0);
   assert.equal(f.glow, 500);
   assert.equal(f.waiting, 12);
-  assert.equal(f.open, 3);
+  assert.equal(f.open, PLOTS.length, "every slot can take a building (no plots to open)");
   assert.equal(f.plots, PLOTS.length);
   assert.equal(f.goalsLeft, 7);
   assert.equal(f.auto, false);
   const rows = plotRows(s, T0);
-  assert.deepEqual(rows.map((r) => r.kind), ["built", "empty", "built", "closed", "closed", "closed"]);
+  assert.deepEqual(rows.map((r) => r.kind), ["built", "empty", "built", "empty", "empty", "empty"]);
   assert.equal(rows[0].cost, costOf(s, 0));
   assert.equal(rows[0].can, 500 >= rows[0].cost);
   assert.equal(rows[0].stored, 12);
   assert.equal(rows[2].cost, null, "fully grown: nothing more to grow");
-  assert.equal(rows[3].key, true, "a key opens the first closed plot");
-  assert.equal(rows[4].key, false);
-  assert.equal(rows[3].need, PLOTS[3].need.text);
-  s.items.key = 0;
-  assert.equal(plotRows(s, T0)[3].key, false, "no key, no button");
 });
 
-test("what can be built: what each costs and makes, and what opens the ones not yet open", () => {
+test("what can be built: what each costs and makes, what opens the ones not yet open, and a key that would", () => {
   const s = hatched();
   garden(s).glow = 100;
   const opts = buildOptions(s, 0);
-  assert.deepEqual(opts.map((o) => o.id), STRUCTURES.map((x) => x.id));
+  assert.deepEqual(opts.map((o) => o.id), STRUCTURES.map((x) => x.id).filter((id) => id !== "star_loom"), "not the Star Loom: the shrine's");
   const sprout = opts.find((o) => o.id === "word_sprout");
   assert.equal(sprout.open, true);
   assert.equal(sprout.can, 100 >= sprout.cost);
-  const loom = opts.find((o) => o.id === "star_loom");
-  assert.equal(loom.open, false);
-  assert.equal(loom.can, false);
-  assert.ok(loom.need);
+  const stone = opts.find((o) => o.id === "memory_stone");
+  assert.equal(stone.open, false);
+  assert.equal(stone.can, false);
+  assert.ok(stone.need);
+  assert.equal(stone.key, false, "no key held");
+  s.items.key = 1;
+  assert.equal(buildOptions(s, 0).find((o) => o.id === "memory_stone").key, true, "a key would skip its milestone");
+  assert.equal(opts.find((o) => o.id === "ink_well").name, "Spelling Bee Hive");
 });
 
 test("a release leaves the stardust the Release block shows", () => {

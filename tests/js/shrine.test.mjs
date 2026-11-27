@@ -20,11 +20,9 @@ function game(stardust = 0, plots = []) {
   return s;
 }
 
-test("each stardust: +20% glow with the farm, +50% without it (the change waits for the prototype's release)", () => {
+test("each stardust: +20% glow (it was +50% before the farm and its shrine)", () => {
   assert.equal(idle.stardustBoost(), 0.2);
-  proto = null;
-  assert.equal(idle.stardustBoost(), 0.5);
-  proto = "1";
+  assert.equal(idle.STARDUST_BOOST, 0.2);
 });
 
 test("the shrine appears with the first stardust and grows grander at 3 and 6; an old Star Loom's tier carries into it", () => {
@@ -36,9 +34,6 @@ test("the shrine appears with the first stardust and grows grander at 3 and 6; a
   idle.tick(s, day);
   assert.equal(idle.shrineTier(s), 3, "the Loom's tier 3");
   assert.equal(idle.rateOf(s, s.idle.plots[0], day), 0, "the Loom itself makes nothing on the farm: the shrine does");
-  proto = null;
-  assert.equal(idle.shrineTier(game(5)), 0, "no shrine without the prototype");
-  proto = "1";
 });
 
 test("the shrine's glow goes straight to the bank, and counts in the garden's rate (what the flashcards pay from)", () => {

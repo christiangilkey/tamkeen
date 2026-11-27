@@ -23,8 +23,8 @@ function planted(id = "tomato") {
   return s;
 }
 
-test("the farm is a prototype; about 30 crops: 8 a season, a few all year, a rare seed packet in turn", () => {
-  assert.equal(PROTOTYPES.farm.released, false);
+test("the farm (released in v0.76.0): about 30 crops: 8 a season, a few all year, a rare seed packet in turn", () => {
+  assert.ok(PROTOTYPES.farm);
   for (const season of SEASONS) assert.equal(CROPS.filter((c) => c.season === season).length, 8, season);
   assert.ok(CROPS.length >= 30 && CROPS.length <= 40);
   assert.equal(new Set(CROPS.map((c) => c.id)).size, CROPS.length);

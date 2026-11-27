@@ -3,9 +3,9 @@
 // screen are sorted into blocks. Pure, so tests/js/sections.test.mjs can check it.
 
 import {
-  CATALOG, DECOR, ITEMS, MOVES, PLOTS, SLOTS, STRUCTURES, SUPPLIES, TAGS, itemById, moveIcon,
+  CATALOG, DECOR, ITEMS, MOVES, SLOTS, STRUCTURES, SUPPLIES, TAGS, itemById, moveIcon,
 } from "./data.js";
-import { AUTO_GOALS, FARM_KINDS, automated, buildingOpen, costOf, farmBuildings, garden, meets, rateOf, totalRate } from "./idle.js";
+import { AUTO_GOALS, FARM_KINDS, automated, buildingOpen, costOf, garden, rateOf, totalRate } from "./idle.js";
 
 /**
  * Every section of the game sheet, each its own screen.
@@ -66,13 +66,13 @@ export function artOf(thing) {
   if (thing.style) return { file: `${moveIcon(thing)}.png`, w: 16, h: 16 };
   return { file: `icon/${thing.icon || thing.id}.png`, w: 16, h: 16 };
 }
-/** A building's picture at a tier (0: the empty plot). Fully grown buildings are drawn larger. On the farm (prototype
- * "farm") the Ink Well is the Spelling Bee Hive (game-art/farm/bee_hive_<tier>.png). */
+/** A building's picture at a tier (0: an empty slot). Fully grown buildings are drawn larger. The Ink Well is the
+ * Spelling Bee Hive (game-art/farm/bee_hive_<tier>.png). */
 export const structureArt = (id, tier) => (tier
-  ? { file: farmBuildings() && id === "ink_well" ? `farm/bee_hive_${tier}.png` : `structure/${id}_${tier}.png`, w: tier === 3 ? 48 : 32, h: tier === 3 ? 48 : 32 }
+  ? { file: id === "ink_well" ? `farm/bee_hive_${tier}.png` : `structure/${id}_${tier}.png`, w: tier === 3 ? 48 : 32, h: tier === 3 ? 48 : 32 }
   : { file: "structure/plot.png", w: 32, h: 32 });
-/** A building's name: the Ink Well is the Spelling Bee Hive on the farm (the owner's name for it). */
-export const buildingName = (s) => (farmBuildings() && s.id === "ink_well" ? "Spelling Bee Hive" : s.name);
+/** A building's name: the Ink Well is the Spelling Bee Hive (the owner's name for it, on the farm). */
+export const buildingName = (s) => (s.id === "ink_well" ? "Spelling Bee Hive" : s.name);
 /** What each building does on the farm (prototype "farm"; farm.js farmJobs), for its details box. */
 export const FARM_JOBS = {
   word_sprout: "On the farm it is a seed tree: words you look up make it drop free seeds.",
@@ -190,22 +190,17 @@ export function gardenFacts(state, now = new Date()) {
   return {
     glow: Math.floor(g.glow), rate: Math.floor(totalRate(state, now)), waiting: Math.floor(g.plots.reduce((n, p) => n + p.stored, 0)),
     stardust: g.stardust, auto: automated(state), goalsLeft: Math.max(0, AUTO_GOALS - goals), bloom: !!g.bloom,
-    open: farmBuildings() ? g.plots.length : g.plots.filter((p) => p.open).length, plots: g.plots.length,
+    open: g.plots.length, plots: g.plots.length,
   };
 }
 
-/** One row per plot, for the Buildings block:
- *   closed  {i, kind, need, key}: what opens it, and whether a key the owner holds would open this one (keys open
- *           the first closed plot)
+/** One row per building slot, for the Buildings block:
  *   empty   {i, kind}
  *   built   {i, kind, id, tier, rate, stored, cost, can}: `cost` of growing it a tier, null once fully grown;
  *           `can`: there is glow enough */
 export function plotRows(state, now = new Date()) {
   const g = garden(state);
-  const firstClosed = g.plots.findIndex((p) => !p.open);
-  const keys = (state.items && state.items.key) || 0;
   return g.plots.map((p, i) => {
-    if (!p.open && !farmBuildings()) return { i, kind: "closed", need: PLOTS[i].need.text, key: i === firstClosed && keys > 0 };
     if (!p.tier) return { i, kind: "empty" };
     const cost = costOf(state, i);
     return { i, kind: "built", id: p.id, tier: p.tier, rate: Math.floor(rateOf(state, p, now)), stored: Math.floor(p.stored),
@@ -213,16 +208,16 @@ export function plotRows(state, now = new Date()) {
   });
 }
 
-/** What could be built on empty plot `i`: [{id, name, text, trait, rate, cost, open, need, can}]. `open`: its
- * milestone is reached; `can`: open, and there is glow enough. */
+/** What could be built in empty slot `i`: [{id, name, text, trait, rate, cost, open, need, can, key}]. `open`: its
+ * milestone is reached (or a key skipped it); `can`: open, and there is glow enough; `key`: closed, and a key the
+ * owner holds would open it. (Not the Star Loom: its glow is the Star Shrine's.) */
 export function buildOptions(state, i) {
   const glow = garden(state).glow;
-  const farm = farmBuildings(); // (on the farm: each kind opens by its own milestone, or a key; no Star Loom)
   const keys = (state.items && state.items.key) || 0;
-  return STRUCTURES.filter((s) => !farm || FARM_KINDS.includes(s.id)).map((s) => {
+  return STRUCTURES.filter((s) => FARM_KINDS.includes(s.id)).map((s) => {
     const cost = costOf(state, i, s.id);
-    const open = farm ? buildingOpen(state, s) : meets(state, s.need);
+    const open = buildingOpen(state, s);
     return { id: s.id, name: buildingName(s), text: s.text, trait: s.trait, rate: s.rate, cost, open, need: s.need ? s.need.text : "",
-      can: open && cost !== null && glow >= cost, key: farm && !open && keys > 0 };
+      can: open && cost !== null && glow >= cost, key: !open && keys > 0 };
   });
 }

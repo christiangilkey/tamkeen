@@ -30,22 +30,20 @@ test("every building, plot, food and supply has its picture", () => {
   assert.equal(new Set(FOODS.map((f) => f.loves)).size, 6, "one favourite food for each element");
 });
 
-test("plots open with study milestones, in turn; a key opens the next one early", () => {
-  const egg = newState(62);
-  tick(egg, T0);
-  assert.deepEqual(garden(egg).plots.map((p) => p.open), [false, false, false, false, false, false], "nothing before the egg hatches");
+test("buildings open with their own study milestones; a key skips one building's milestone (no plots: the farm)", () => {
   const s = hatched();
   tick(s, T0);
-  assert.deepEqual(garden(s).plots.map((p) => p.open), [true, false, false, false, false, false]);
-  s.stats.goals = 3;
-  s.stats.words = 30;
-  tick(s, T0);
-  assert.equal(garden(s).plots.filter((p) => p.open).length, 3);
-  assert.match(useKey(s), /no key/);
+  assert.equal(garden(s).plots.length, PLOTS.length, "six building slots");
+  assert.match(build(s, 3, "echo_shell"), /Reach your daily goal twice/);
+  assert.match(useKey(s, "echo_shell"), /no key/);
   s.items.key = 1;
-  assert.equal(useKey(s), "");
-  assert.equal(garden(s).plots.filter((p) => p.open).length, 4);
+  assert.match(useKey(s, "star_loom"), /Choose a building/, "the Star Loom isn't built any more (the Star Shrine makes its glow)");
+  assert.equal(useKey(s, "echo_shell"), "");
+  assert.deepEqual(garden(s).keyed, ["echo_shell"]);
   assert.equal(s.items.key, 0);
+  garden(s).glow = 1000;
+  assert.equal(build(s, 3, "echo_shell"), "", "any empty slot");
+  assert.match(useKey(s, "echo_shell"), /open already/);
   assert.ok(meets(s, null) && !meets(s, { streak: 5 }) && !meets(s, { mature: 1 }) && !meets(s, { stardust: 1 }));
   s.review = { a: [4, 0, 4, 0], b: [2, 0, 2, 0] };
   assert.ok(meets(s, { mature: 1 }) && !meets(s, { mature: 2 }));
@@ -56,7 +54,6 @@ test("building and growing: costs rise faster than output, and a second of a kin
   tick(s, T0);
   const g = garden(s);
   assert.equal(g.glow, 40, "enough to plant the first building");
-  assert.match(build(s, 1, "word_sprout"), /isn't open/);
   assert.match(build(s, 0, "echo_shell"), /Reach your daily goal twice/);
   assert.equal(build(s, 0, "word_sprout"), "");
   assert.equal(g.glow, 0);
@@ -69,7 +66,6 @@ test("building and growing: costs rise faster than output, and a second of a kin
   assert.match(upgrade(s, 0), /fully grown/);
   assert.equal(costOf(s, 0), null);
   for (let t = 1; t < 3; t++) assert.ok(TIER_COST[t + 1] / TIER_COST[t] > TIER_RATE[t + 1] / TIER_RATE[t], "each tier costs more than it adds");
-  g.plots[1].open = true;
   assert.equal(costOf(s, 1, "word_sprout"), Math.round(40 * 1.6), "a second sprout costs more than the first did");
 });
 
@@ -130,7 +126,7 @@ test("releasing a fully grown creature starts the garden over, faster for good; 
   assert.ok(bloom.bloom && g.bloom, "every plot fully grown is full bloom");
   assert.equal(bloom.gems, 10);
   assert.equal(tick(s, T0).gems, 0);
-  const slow = totalRate(s, T0);
+  const slow = rateOf(s, g.plots[0], T0);
   s.owned.push("hat/cap");
   const r = release(s, 0, () => 0.5);
   assert.deepEqual(r, { stardust: 4 }, "one, plus one for every two fully grown buildings");
@@ -141,7 +137,8 @@ test("releasing a fully grown creature starts the garden over, faster for good; 
   assert.equal(s.roster.length, 1, "you are never left without a creature");
   assert.ok(s.owned.includes("hat/cap"), "what you own is kept");
   for (const p of g.plots) Object.assign(p, { id: "word_sprout", tier: 3 });
-  assert.equal(totalRate(s, T0), slow * 3, "four stardust: three times as fast as last time");
+  assert.ok(Math.abs(rateOf(s, g.plots[0], T0) - slow * 1.8) < 1e-9, "four stardust: +20% each, so 1.8 times as fast as last time");
+  assert.ok(totalRate(s, T0) > 6 * slow * 1.8, "and the Star Shrine's glow on top");
   assert.ok(meets(s, { stardust: 1 }));
 });
 

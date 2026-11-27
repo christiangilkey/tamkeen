@@ -36,8 +36,8 @@ function PNG(url) {
 }
 const src = (f) => readFileSync(new URL(`../../web/js/game/${f}`, import.meta.url), "utf8");
 
-test("a prototype, off for everyone else", () => {
-  assert.equal(PROTOTYPES.habitat_room.released, false);
+test("the room behind its feature switch (released in v0.76.0)", () => {
+  assert.ok(PROTOTYPES.habitat_room);
   const h = src("habitat.js");
   assert.match(h, /const roomOn = \(\) => feature\("habitat_room"\)/);
   assert.match(h, /const inRoom = \(\) => roomOn\(\) && view === "room"/);
