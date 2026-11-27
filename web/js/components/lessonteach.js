@@ -151,7 +151,7 @@ export function classLessonsPart(classId) {
   import("../dlilessons.js").then((dl) => dl.classLessons(classId)).then((items) => {
     listEl.innerHTML = "";
     if (!items.length) {
-      listEl.append(h(`<p class="small muted">No lessons sent yet. Add one in Library → My files, then press Send to a class.</p>`));
+      listEl.append(h(`<p class="small muted">No lessons sent yet. Add one in Content → My files, then press Send to a class.</p>`));
       return;
     }
     for (const it of items) {

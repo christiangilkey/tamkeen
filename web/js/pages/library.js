@@ -305,7 +305,7 @@ export async function render(view, { feedId: routeFeed, query }) {
           <div class="toolbar">
             <label class="switch"><input type="checkbox" id="select-all"> Select all</label>
             <button type="button" id="transcribe-selected" class="primary" disabled>Transcribe selected</button>
-            <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from your Library for good, on every device">Delete selected</button>
+            <button type="button" id="delete-selected" class="ghost danger" hidden title="Remove the ticked episodes from Content for good, on every device">Delete selected</button>
             <button type="button" id="watch-selected" class="primary" hidden>Watch these reels</button>
             <span class="spacer"></span>
             ${phone ? `<button type="button" id="refresh" class="ghost icon" title="Check for new episodes and sync with Google Drive" aria-label="Refresh and sync">${icon("refresh", 20)}</button>` : ""}
@@ -1511,8 +1511,8 @@ export async function render(view, { feedId: routeFeed, query }) {
     if (!n) return;
     const ask = n === 1 ? t("Delete this episode?") : t("Delete these {0} episodes?", n);
     const more = n === 1
-      ? "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
-      : "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
+      ? "This removes it from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone."
+      : "This removes them from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.";
     if (!(await confirmBox(ask, more, { ok: "Delete", danger: true }))) return;
     e.target.disabled = true;
     try {

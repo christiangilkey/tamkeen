@@ -167,7 +167,7 @@ export function voiceSetup(section, { words = async () => [], computer = null, c
     const box = $("#vo-dialects");
     if (!box) return;
     box.textContent = voiceMode(cur()) === "azure"
-      ? "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
+      ? "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Content → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet."
       : phone ? "This device's voice and the desktop app's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure."
       : "This device's voice and the computer's voice speak Standard Arabic only, so they read dialect words the Standard way. To hear Levantine, Egyptian, Iraqi and Gulf words as people there say them, choose Azure.";
   }

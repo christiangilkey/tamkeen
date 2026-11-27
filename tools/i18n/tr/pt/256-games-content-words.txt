@@ -1,0 +1,32 @@
+71ba397e	Remover de Conteúdo os episódios marcados, para sempre, em todos os dispositivos
+a5464594	Isso o remove de Conteúdo em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido. Isso não pode ser desfeito.
+e645e81e	Seu conteúdo do DLI aparece em Conteúdo → DLI enquanto você estuda {0:lower}. Você troca de idioma no topo da tela.
+e85ca8c7	Seu conteúdo do DLI está em Conteúdo → DLI.
+39d156a7	Seu conteúdo do DLI está em Conteúdo → DLI, enquanto você estuda {0:lower}.
+acf55a49	Se você aprende árabe com um dialeto escolhido em Conteúdo → Básico, as frases vêm desse dialeto quando houver.
+5e188cd2	Nenhuma lição enviada ainda. Adicione uma em Conteúdo → Meus arquivos e depois toque em Enviar para uma turma.
+c3ce2425	Nenhum reel ainda. Eles são buscados no seu computador: abra o Tamkeen lá, vá em Conteúdo → Reels e toque em “Obter 10 reels”. Eles chegam aqui na próxima vez que os dois sincronizarem.
+a4b0671e	Não há palavras novas esperando: adicione algumas com Adicionar palavras, ou em Conteúdo → Básico → Primeiras 1000 palavras.
+013893c0	Reels em bisaya não podem ser transcritos no celular. Pegue-os no Tamkeen do seu computador (Conteúdo → Reels), com o modelo de transcrição Bisaya baixado lá (Configurações → Escuta e transcrições). Eles aparecem aqui na próxima vez que os dois sincronizarem.
+41fd6aee	Palavras de dialetos árabes são lidas por uma voz daquele dialeto: as levantinas do Básico pela Amany (Síria), as egípcias pela Salma (Egito), as iraquianas pelo Bassel (Iraque), que diz o g e o ch iraquianos, e as do Golfo pelo Hamed (Arábia Saudita). As outras palavras seguem o dialeto escolhido em Conteúdo → Básico, ou a voz abaixo para o árabe padrão. As palavras marroquinas ficam com a voz abaixo: nenhuma voz do Azure fala bem o árabe marroquino ainda.
+deae1ec1	O que seus professores de {0} adicionaram para você. Abra um item e ele vai para Conteúdo com a transcrição deles e as notas deles sobre as palavras.
+060e2501	Ainda não há nada aqui. Adicione algo de Conteúdo, ou toque no botão do aviãozinho de papel em qualquer player ou linha de Conteúdo e escolha esta turma.
+fcf7c44f	Primeiro abra em Conteúdo neste dispositivo e depois atualize.
+115628ae	Para alunos de árabe do DLI: podcasts são adicionados a Conteúdo com todos os episódios já transcritos.
+5be89fbd	Ela continua em Conteúdo.
+b819313b	Está em {0:lower}, então aparece em Conteúdo enquanto você aprende {1:lower}.
+def5d3a5	Troque com o seletor de idioma no topo da tela. Os outros números aqui são do idioma que você está aprendendo agora.
+a64de99f	É o idioma que a pessoa escolheu no próprio app.
+afd91900	Revisões de cartões não contam: lute ou vá pescar a partir de Jogos para acertar o chefe.
+c32df6d1	Os títulos que você assiste e as palavras que você salva lá voltam para cá, para Conteúdo e o seu Vocabulário.
+e21c60cf	Para enviar algo, toque no botão do aviãozinho de papel em qualquer player ou linha de Conteúdo e escolha esta turma. O texto vai junto quando seu app já o tem.
+1e8c2b6f	O que você adiciona para esta turma fica em Conteúdo, em Sala de aula: pastas, sua transcrição, suas palavras importantes, significados e notas.
+1faf1d62	O que seus professores adicionaram para esta turma fica em Conteúdo, em Sala de aula.
+849845d3	Isso os remove de Conteúdo em todos os dispositivos, junto com o áudio e a transcrição. Um episódio de podcast excluído não volta quando o podcast é atualizado. O vocabulário salvo é mantido. Isso não pode ser desfeito.
+094f8161	Seguir {0}: ele aparece em Conteúdo, em YouTube
+ef1560a2	Siga este canal no Tamkeen: ele aparece em Conteúdo, em YouTube
+dbe21458	Seguindo {0}. Está em Conteúdo, em YouTube.
+169e71f6	Na primeira vez que você abre Jogos, Conteúdo, Vocabulário e Amigos, um guia curto mostra para que serve cada botão. O ? no alto de qualquer tela mostra o guia dela quando você quiser.
+b3845314	<0>Encontre algo para aprender.</0> Em Conteúdo, comece pelo Básico se o idioma for novo para você, ou aperte <1>+</1> para adicionar um vídeo do YouTube, um podcast (escolha um popular ou cole o endereço dele), uma página da web, um livro ou seus próprios áudios e vídeos.
+ea563131	<0>Encontre algo para aprender.</0> Em Conteúdo, comece pelo Básico se o idioma for novo para você, ou aperte <1>+</1> para vídeos do YouTube, podcasts, páginas da web e livros.
+88b69ace	A Netflix funciona no Tamkeen em um computador com Windows: escolha a Netflix lá, e as legendas viram palavras clicáveis, como as de um vídeo do YouTube. O que você assiste lá aparece aqui, em Conteúdo.

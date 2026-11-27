@@ -1,0 +1,32 @@
+71ba397e	Die angehakten Folgen endgültig aus Inhalte entfernen, auf jedem Gerät
+a5464594	Das entfernt sie auf jedem Gerät aus Inhalte, zusammen mit Audio und Transkript. Eine gelöschte Podcastfolge kommt nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten. Das kann nicht rückgängig gemacht werden.
+e645e81e	Deine DLI-Inhalte erscheinen unter Inhalte → DLI, solange du {0} lernst. Die Sprache wechselst du oben auf dem Bildschirm.
+e85ca8c7	Deine DLI-Inhalte findest du unter Inhalte → DLI.
+39d156a7	Deine DLI-Inhalte findest du unter Inhalte → DLI, solange du {0} lernst.
+acf55a49	Lernst du Arabisch mit einem Dialekt, der unter Inhalte → Grundlagen gewählt ist, kommen die Sätze aus diesem Dialekt, wo es welche gibt.
+5e188cd2	Noch keine Lektionen gesendet. Füge eine unter Inhalte → Meine Dateien hinzu und tippe dann auf „An eine Klasse senden“.
+c3ce2425	Noch keine Reels. Sie werden auf deinem Computer gesucht: Öffne dort Tamkeen, geh zu Inhalte → Reels und tippe auf „10 Reels holen“. Sie kommen hierher, sobald beide das nächste Mal synchronisieren.
+a4b0671e	Es warten keine neuen Wörter: Füge welche mit Wörter hinzufügen hinzu oder aus Inhalte → Grundlagen → Erste 1000 Wörter.
+013893c0	Bisaya-Reels können nicht auf einem Handy transkribiert werden. Hol sie in Tamkeen auf deinem Computer (Inhalte → Reels), mit dem dort heruntergeladenen Bisaya-Transkriptionsmodell (Einstellungen → Hören & Transkripte). Sie erscheinen hier, sobald beide das nächste Mal synchronisieren.
+41fd6aee	Wörter aus arabischen Dialekten liest eine Stimme aus diesem Dialekt: levantinische Wörter aus den Grundlagen Amany (Syrien), ägyptische Salma (Ägypten), irakische Bassel (Irak), der das irakische g und tsch spricht, und Golf-Wörter Hamed (Saudi-Arabien). Andere Wörter folgen dem Dialekt, der unter Inhalte → Grundlagen gewählt ist, oder der Stimme unten für Hocharabisch. Marokkanische Wörter behalten die Stimme unten: Noch spricht keine Azure-Stimme marokkanisches Arabisch gut.
+deae1ec1	Was deine Lehrkräfte von {0} für dich hinzugefügt haben. Öffne etwas, und es kommt unter Inhalte, mit ihrem Transkript und ihren Notizen zu den Wörtern.
+060e2501	Hier ist noch nichts. Füge etwas aus Inhalte hinzu, oder tippe bei einem Player oder einer Zeile unter Inhalte auf die Papierflieger-Schaltfläche und wähle diese Klasse.
+fcf7c44f	Öffne es zuerst unter Inhalte auf diesem Gerät und aktualisiere es dann.
+115628ae	Für DLI-Studierende mit Arabisch: Podcasts kommen unter Inhalte, jede Folge schon transkribiert.
+5be89fbd	Es bleibt unter Inhalte.
+b819313b	Es ist auf {0}, daher erscheint es unter Inhalte, solange du {1} lernst.
+def5d3a5	Ändere es mit dem Sprachumschalter oben auf dem Bildschirm. Die anderen Zahlen hier gelten für die Sprache, die du gerade lernst.
+a64de99f	Das ist die Sprache, die die Person in ihrer eigenen App gewählt hat.
+afd91900	Karteikarten-Wiederholungen zählen nicht: Kämpfe oder geh angeln (über Spiele), um den Boss zu treffen.
+c32df6d1	Die Titel, die du dort schaust, und die Wörter, die du dort speicherst, kommen hierher zurück, unter Inhalte und in deine Vokabeln.
+e21c60cf	Um etwas zu senden, tippe bei einem Player oder einer Zeile unter Inhalte auf die Papierflieger-Schaltfläche und wähle diese Klasse. Das Transkript wird mitgesendet, wenn deine App es hat.
+1e8c2b6f	Was du für diese Klasse hinzufügst, steht unter Inhalte → Klassenzimmer: Ordner, dein Transkript, deine wichtigen Wörter, Bedeutungen und Notizen.
+1faf1d62	Was deine Lehrkräfte für diese Klasse hinzugefügt haben, steht unter Inhalte → Klassenzimmer.
+849845d3	Das entfernt sie auf jedem Gerät aus Inhalte, zusammen mit Audio und Transkript. Gelöschte Podcastfolgen kommen nicht zurück, wenn der Podcast aktualisiert wird. Gespeicherte Vokabeln bleiben erhalten. Das kann nicht rückgängig gemacht werden.
+094f8161	{0} folgen: erscheint unter Inhalte → YouTube
+ef1560a2	Diesem Kanal in Tamkeen folgen: Er erscheint unter Inhalte → YouTube
+dbe21458	Du folgst {0}. Es ist unter Inhalte → YouTube.
+169e71f6	Wenn du Spiele, Inhalte, Vokabeln und Freunde zum ersten Mal öffnest, zeigt eine kurze Anleitung, was jeder Knopf tut. Das ? oben auf jedem Bildschirm zeigt seine Anleitung, wann immer du willst.
+b3845314	<0>Finde etwas zum Lernen.</0> Fang unter Inhalte mit den Grundlagen an, wenn die Sprache neu für dich ist, oder tippe auf <1>+</1>, um ein YouTube-Video, einen Podcast (wähle einen beliebten oder füge seine Adresse ein), eine Webseite, ein Buch oder deine eigenen Audios und Videos hinzuzufügen.
+ea563131	<0>Finde etwas zum Lernen.</0> Fang unter Inhalte mit den Grundlagen an, wenn die Sprache neu für dich ist, oder tippe auf <1>+</1> für YouTube-Videos, Podcasts, Webseiten und Bücher.
+88b69ace	Netflix funktioniert in Tamkeen auf einem Windows-Computer: Wähle dort Netflix, und seine Untertitel werden zu anklickbaren Wörtern, wie bei einem YouTube-Video. Was du dort ansiehst, erscheint hier unter Inhalte.

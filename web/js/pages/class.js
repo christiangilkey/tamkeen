@@ -136,7 +136,7 @@ export async function render(view) {
     part.querySelector("h2").textContent = c.name;
     part.querySelector(".cls-head span").textContent = teaching ? t("You teach this class") : (c.teachers.length ? t("With {0}", c.teachers.join(", ")) : "");
     part.querySelector(".cls-posts-hint").textContent = teaching
-      ? t("To send something, press the paper-airplane button on any player or Library row and pick this class. Its words go along when your app has them.")
+      ? t("To send something, press the paper-airplane button on any player or row in Content and pick this class. Its words go along when your app has them.")
       : t("What your teachers sent. Add one to your library and it opens with its words already there.");
     if (teaching) teacherTools(part.querySelector(".cls-teach"), c);
     else {
@@ -155,8 +155,8 @@ export async function render(view) {
       const card = part.querySelector(".cls-posts").closest(".cls-card");
       card.innerHTML = "";
       card.append(h(`<h3>Classroom</h3>`), Object.assign(h(`<p class="small muted"></p>`), { textContent: teaching
-        ? t("What you add for this class is in the Library, under Classroom: folders, your transcript, your important words, meanings and notes.")
-        : t("What your teachers added for this class is in the Library, under Classroom.") }),
+        ? t("What you add for this class is in Content, under Classroom: folders, your transcript, your important words, meanings and notes.")
+        : t("What your teachers added for this class is in Content, under Classroom.") }),
         h(`<div class="set-actions"><a class="btn primary" href="#/library?show=classroom">Open the classroom</a></div>`));
       write("tamkeenClassPick", `${c.role}:${c.id}`);
     } else posts(part.querySelector(".cls-posts"), c);

@@ -1,0 +1,32 @@
+71ba397e	Tuluyang alisin sa Nilalaman ang mga may tsek na episode, sa bawat device
+a5464594	Aalisin ito sa Nilalaman sa bawat device, kasama ang audio at transcript. Hindi na bumabalik ang binurang episode ng podcast kapag ni-refresh ang podcast. Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+e645e81e	Lumalabas ang iyong DLI na nilalaman sa Nilalaman → DLI habang nag-aaral ka ng {0}. Nagpapalit ka ng wika sa itaas ng screen.
+e85ca8c7	Nasa Nilalaman → DLI ang iyong DLI na nilalaman.
+39d156a7	Nasa Nilalaman → DLI ang iyong DLI na nilalaman, habang nag-aaral ka ng {0}.
+acf55a49	Kung nag-aaral ka ng Arabic na may diyalektong pinili sa Nilalaman → Batayan, galing sa diyalektong iyon ang mga pangungusap kung mayroon.
+5e188cd2	Wala pang naipadalang aralin. Magdagdag ng isa sa Nilalaman → Mga file ko, saka pindutin ang Ipadala sa klase.
+c3ce2425	Wala pang reels. Sa computer mo sila hinahanap: buksan doon ang Tamkeen, pumunta sa Nilalaman → Reels at pindutin ang “Kumuha ng 10 reels”. Darating sila rito sa susunod na pag-sync ng dalawa.
+a4b0671e	Walang bagong salitang naghihintay na matutunan: magdagdag gamit ang Magdagdag ng mga salita, o mula sa Nilalaman → Batayan → Unang 1000 salita.
+013893c0	Hindi ma-transcribe sa telepono ang mga Bisaya reel. Kunin sila sa Tamkeen sa computer mo (Nilalaman → Reels), na naka-download doon ang Bisaya transcription model (Settings → Pakikinig at mga transcript). Lalabas sila rito sa susunod na mag-sync ang dalawa.
+41fd6aee	Ang mga salita sa mga diyalekto ng Arabic ay binabasa ng boses mula sa diyalektong iyon: ang Levantine na salita mula sa Batayan ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), na bumibigkas ng Iraqi na g at ch, at ang Gulf ni Hamed (Saudi Arabia). Ang ibang salita ay sumusunod sa diyalektong pinili sa Nilalaman → Batayan, o sa boses sa ibaba para sa Standard Arabic. Nananatili sa boses sa ibaba ang Moroccan na salita: wala pang Azure na boses na mahusay bumigkas ng Moroccan Arabic.
+deae1ec1	Ang mga idinagdag para sa iyo ng mga guro mo sa {0}. Buksan ang isa at mapupunta ito sa Nilalaman kasama ang transcript nila at ang mga tala nila sa mga salita nito.
+060e2501	Wala pa rito. Magdagdag mula sa Nilalaman, o pindutin ang button na eroplanong papel sa alinmang player o hilera sa Nilalaman at piliin ang klaseng ito.
+fcf7c44f	Buksan muna ito sa Nilalaman sa device na ito, tapos i-update.
+115628ae	Para sa mga estudyante ng Arabe sa DLI: may mga podcast na idinadagdag sa Nilalaman, naka-transcribe na ang bawat episode.
+5be89fbd	Mananatili ito sa Nilalaman.
+b819313b	Nasa {0} ito, kaya lalabas ito sa Nilalaman habang nag-aaral ka ng {1}.
+def5d3a5	Palitan ito gamit ang language switch sa itaas ng screen. Ang ibang mga numero rito ay para sa wikang pinag-aaralan mo ngayon.
+a64de99f	Ito ang wikang pinili nila sa sarili nilang app.
+afd91900	Hindi bilang ang pagrepaso ng flashcard: lumaban o mangisda mula sa Mga laro para tamaan ang boss.
+c32df6d1	Ang mga palabas na pinanood mo at ang mga salitang ise-save mo roon ay babalik dito, sa Nilalaman at Vocab mo.
+e21c60cf	Para magpadala, pindutin ang button na eroplanong papel sa alinmang player o hilera sa Nilalaman at piliin ang klaseng ito. Kasama ang transcript nito kapag mayroon nito ang app mo.
+1e8c2b6f	Ang idinadagdag mo para sa klaseng ito ay nasa Nilalaman, sa ilalim ng Silid-aralan: mga folder, ang transcript mo, ang mahahalagang salita mo, mga kahulugan at mga tala.
+1faf1d62	Ang idinagdag ng mga guro mo para sa klaseng ito ay nasa Nilalaman, sa ilalim ng Silid-aralan.
+849845d3	Aalisin ang mga ito sa Nilalaman sa bawat device, kasama ang audio at transcript. Hindi na bumabalik ang binurang episode ng podcast kapag ni-refresh ang podcast. Mananatili ang na-save na vocab. Hindi na ito maibabalik.
+094f8161	Sundan ang {0}: lalabas ito sa Nilalaman sa ilalim ng YouTube
+ef1560a2	Sundan ang channel na ito sa Tamkeen: lalabas ito sa Nilalaman sa ilalim ng YouTube
+dbe21458	Sinusundan na ang {0}. Nasa Nilalaman ito sa ilalim ng YouTube.
+169e71f6	Sa unang pagbukas mo ng Mga laro, ng Nilalaman, ng Vocab at ng Friends, ipinapakita ng maikling gabay kung ano ang ginagawa ng bawat button. Ang ? sa itaas ng kahit anong screen ay nagpapakita ng gabay nito kahit kailan mo gusto.
+b3845314	<0>Humanap ng pag-aaralan.</0> Sa Nilalaman, magsimula sa Batayan kung bago ka sa wika, o pindutin ang <1>+</1> para magdagdag ng video sa YouTube, podcast (pumili ng sikat o i-paste ang address nito), web page, libro, o sarili mong audio at video.
+ea563131	<0>Humanap ng pag-aaralan.</0> Sa Nilalaman, magsimula sa Batayan kung bago ka sa wika, o pindutin ang <1>+</1> para sa mga video sa YouTube, podcast, web page at libro.
+88b69ace	Gumagana ang Netflix sa Tamkeen sa isang Windows na computer: piliin doon ang Netflix, at ang subtitles nito ay magiging mga salitang puwedeng i-click, gaya ng sa isang YouTube video. Ang pinapanood mo roon ay lalabas dito sa Nilalaman.

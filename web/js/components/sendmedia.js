@@ -298,7 +298,7 @@ export async function acceptMediaInfo(item, raw = item) {
   const lang = (r.episode && r.episode.language) || item.language;
   if (isLanguage(lang) && lang !== studyLanguage()) {
     const name = langInfo(lang).name;
-    notes.push(`It's in ${name}, so it shows in your Library while you're learning ${name}.`);
+    notes.push(`It's in ${name}, so it shows in Content while you're learning ${name}.`);
   }
   if (notes.length) toast(notes.join(" "), { timeout: 9000 });
   // Kept on this device now (or turned down): the file online is no longer needed.

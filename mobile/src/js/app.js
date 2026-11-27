@@ -974,7 +974,7 @@ export async function openBrowser(url = "", { instagramSignIn = false, reading =
         await saveSettings({ youtube_follows: setFollow(settings.youtube_follows,
           { name, id: q.get("id") || "", image: q.get("image") || "", lang: studyLanguage() }, on, Math.floor(Date.now() / 1000)) });
         emit("feeds", { refreshed: true });
-        GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in your Library under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
+        GoogleDriveAuth.browserToast({ text: on ? `Following ${name}. It's in Content under YouTube.` : `Stopped following ${name}.` }).catch(() => {});
       } catch (e) {
         GoogleDriveAuth.browserToast({ text: e.message || "Couldn't follow this channel." }).catch(() => {});
       }

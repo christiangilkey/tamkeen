@@ -3495,8 +3495,8 @@
   "f": "web/js/components/classroompanel.js"
  },
  {
-  "id": "d9a0aac4",
-  "k": "What your teachers of {0} added for you. Open one and it goes into your Library with their transcript and their notes on its words.",
+  "id": "deae1ec1",
+  "k": "What your teachers of {0} added for you. Open one and it goes into Content with their transcript and their notes on its words.",
   "f": "web/js/components/classroompanel.js"
  },
  {
@@ -3530,8 +3530,8 @@
   "f": "web/js/components/classroompanel.js"
  },
  {
-  "id": "7af97886",
-  "k": "Nothing here yet. Add something from your Library, or press the paper-airplane button on any player or Library row and pick this class.",
+  "id": "060e2501",
+  "k": "Nothing here yet. Add something from Content, or press the paper-airplane button on any player or row in Content and pick this class.",
   "f": "web/js/components/classroompanel.js"
  },
  {
@@ -3620,8 +3620,8 @@
   "f": "web/js/components/classroompanel.js"
  },
  {
-  "id": "2088d294",
-  "k": "Open it in your Library on this device first, then update it.",
+  "id": "fcf7c44f",
+  "k": "Open it in Content on this device first, then update it.",
   "f": "web/js/components/classroompanel.js"
  },
  {
@@ -4815,8 +4815,8 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "e26efa8e",
-  "k": "Your DLI content shows in Library → DLI while you study {0}. You switch languages at the top of the screen.",
+  "id": "e645e81e",
+  "k": "Your DLI material shows in Content → DLI while you study {0}. You switch languages at the top of the screen.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -4875,8 +4875,8 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "e7e224bf",
-  "k": "For DLI Arabic students: podcasts are added to your Library with every episode already transcribed.",
+  "id": "115628ae",
+  "k": "For DLI Arabic students: podcasts are added to Content with every episode already transcribed.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -4915,13 +4915,13 @@
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "574f8bab",
-  "k": "Your DLI content is in Library → DLI.",
+  "id": "e85ca8c7",
+  "k": "Your DLI material is in Content → DLI.",
   "f": "web/js/components/dlicard.js"
  },
  {
-  "id": "212b3813",
-  "k": "Your DLI content is in Library → DLI, while you're studying {0}.",
+  "id": "39d156a7",
+  "k": "Your DLI material is in Content → DLI, while you're studying {0}.",
   "f": "web/js/components/dlicard.js"
  },
  {
@@ -6015,8 +6015,8 @@
   "f": "web/js/components/freehelpers.js"
  },
  {
-  "id": "4eb616bd",
-  "k": "Learning Arabic with a dialect chosen in Library → Basics, the sentences come from that dialect where there are any.",
+  "id": "acf55a49",
+  "k": "Learning Arabic with a dialect chosen in Content → Basics, the sentences come from that dialect where there are any.",
   "f": "web/js/components/freehelpers.js"
  },
  {
@@ -7995,8 +7995,8 @@
   "f": "web/js/components/lessonteach.js"
  },
  {
-  "id": "0e563e29",
-  "k": "No lessons sent yet. Add one in Library → My files, then press Send to a class.",
+  "id": "5e188cd2",
+  "k": "No lessons sent yet. Add one in Content → My files, then press Send to a class.",
   "f": "web/js/components/lessonteach.js"
  },
  {
@@ -8175,8 +8175,8 @@
   "f": "web/js/components/lessonview.js"
  },
  {
-  "id": "b1af1869",
-  "k": "It stays in your Library.",
+  "id": "5be89fbd",
+  "k": "It stays in Content.",
   "f": "web/js/components/lessonview.js"
  },
  {
@@ -9300,8 +9300,8 @@
   "f": "web/js/components/sendmedia.js"
  },
  {
-  "id": "eec7a905",
-  "k": "It's in {0}, so it shows in your Library while you're learning {1}.",
+  "id": "b819313b",
+  "k": "It's in {0}, so it shows in Content while you're learning {1}.",
   "f": "web/js/components/sendmedia.js"
  },
  {
@@ -10755,8 +10755,8 @@
   "f": "web/js/components/voicesetup.js"
  },
  {
-  "id": "8fda55f1",
-  "k": "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Library → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet.",
+  "id": "41fd6aee",
+  "k": "Arabic dialect words are read by a voice from that dialect: Levantine words from Basics by Amany (Syria), Egyptian by Salma (Egypt), Iraqi by Bassel (Iraq), who says the Iraqi g and ch, and Gulf by Hamed (Saudi Arabia). Other words follow the dialect chosen in Content → Basics, or the voice below for Standard Arabic. Moroccan words keep the voice below: no Azure voice says Moroccan Arabic well yet.",
   "f": "web/js/components/voicesetup.js"
  },
  {
@@ -20330,13 +20330,13 @@
   "f": "web/js/game/friend-bar.js"
  },
  {
-  "id": "eda670b7",
-  "k": "Change it with the language switch on Home. The other numbers here are for the language you are learning now.",
+  "id": "def5d3a5",
+  "k": "Change it with the language switch at the top of the screen. The other numbers here are for the language you are learning now.",
   "f": "web/js/game/friend-bar.js"
  },
  {
-  "id": "91b32dbf",
-  "k": "It is the language they chose on their own Home page.",
+  "id": "a64de99f",
+  "k": "It is the language they chose in their own app.",
   "f": "web/js/game/friend-bar.js"
  },
  {
@@ -20660,8 +20660,8 @@
   "f": "web/js/game/friends-game.js"
  },
  {
-  "id": "eb52b135",
-  "k": "Flashcard reviews don't count: battle or go fishing from Home to hit the boss.",
+  "id": "afd91900",
+  "k": "Flashcard reviews don't count: battle or go fishing from Games to hit the boss.",
   "f": "web/js/game/friends-game.js"
  },
  {
@@ -24415,13 +24415,13 @@
   "f": "web/js/netflix.js"
  },
  {
-  "id": "570bcf28",
-  "k": "The titles you watch and the words you save there come back here, to your Library and Vocab.",
+  "id": "c32df6d1",
+  "k": "The titles you watch and the words you save there come back here, to Content and Vocab.",
   "f": "web/js/netflix.js"
  },
  {
-  "id": "48f90157",
-  "k": "Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in your Library.",
+  "id": "88b69ace",
+  "k": "Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in Content.",
   "f": "web/js/netflix.js"
  },
  {
@@ -25840,8 +25840,8 @@
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "873c3717",
-  "k": "To send something, press the paper-airplane button on any player or Library row and pick this class. Its words go along when your app has them.",
+  "id": "e21c60cf",
+  "k": "To send something, press the paper-airplane button on any player or row in Content and pick this class. Its words go along when your app has them.",
   "f": "web/js/pages/class.js"
  },
  {
@@ -25850,13 +25850,13 @@
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "2453bc49",
-  "k": "What you add for this class is in the Library, under Classroom: folders, your transcript, your important words, meanings and notes.",
+  "id": "1e8c2b6f",
+  "k": "What you add for this class is in Content, under Classroom: folders, your transcript, your important words, meanings and notes.",
   "f": "web/js/pages/class.js"
  },
  {
-  "id": "56fb8eb7",
-  "k": "What your teachers added for this class is in the Library, under Classroom.",
+  "id": "1faf1d62",
+  "k": "What your teachers added for this class is in Content, under Classroom.",
   "f": "web/js/pages/class.js"
  },
  {
@@ -26945,8 +26945,8 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "54971873",
-  "k": "Remove the ticked episodes from your Library for good, on every device",
+  "id": "71ba397e",
+  "k": "Remove the ticked episodes from Content for good, on every device",
   "f": "web/js/pages/library.js"
  },
  {
@@ -27400,13 +27400,13 @@
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "85964243",
-  "k": "This removes it from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
+  "id": "a5464594",
+  "k": "This removes it from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
   "f": "web/js/pages/library.js"
  },
  {
-  "id": "8858b914",
-  "k": "This removes them from your Library on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
+  "id": "849845d3",
+  "k": "This removes them from Content on every device, together with the audio and transcript. A deleted podcast episode does not come back when the podcast is refreshed. Saved vocab is kept. This can't be undone.",
   "f": "web/js/pages/library.js"
  },
  {
@@ -27725,8 +27725,8 @@
   "f": "web/js/pages/player.js"
  },
  {
-  "id": "bf020dbf",
-  "k": "Follow {0}: it appears in your Library under YouTube",
+  "id": "094f8161",
+  "k": "Follow {0}: it appears in Content under YouTube",
   "f": "web/js/pages/player.js"
  },
  {
@@ -28005,8 +28005,8 @@
   "f": "web/js/pages/reels.js"
  },
  {
-  "id": "e2f3a685",
-  "k": "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync.",
+  "id": "c3ce2425",
+  "k": "No reels yet. They are found on your computer: open Tamkeen there, go to Content → Reels and press “Get 10 reels”. They arrive here the next time both sync.",
   "f": "web/js/pages/reels.js"
  },
  {
@@ -28490,6 +28490,11 @@
   "f": "web/js/pages/review.js"
  },
  {
+  "id": "57e2a7ce",
+  "k": "What it means",
+  "f": "web/js/pages/review.js"
+ },
+ {
   "id": "751a4b16",
   "k": "{0} Word",
   "f": "web/js/pages/review.js"
@@ -28497,11 +28502,6 @@
  {
   "id": "b142c204",
   "k": "{0} Sentence",
-  "f": "web/js/pages/review.js"
- },
- {
-  "id": "57e2a7ce",
-  "k": "What it means",
   "f": "web/js/pages/review.js"
  },
  {
@@ -29080,8 +29080,8 @@
   "f": "web/js/pages/settings.js"
  },
  {
-  "id": "3409d591",
-  "k": "The first time you open Home, the Library, Vocab and Friends, a short guide shows what each button does. The ? at the top of any screen shows its guide whenever you like.",
+  "id": "169e71f6",
+  "k": "The first time you open Games, Content, Vocab and Friends, a short guide shows what each button does. The ? at the top of any screen shows its guide whenever you like.",
   "f": "web/js/pages/settings.js"
  },
  {
@@ -30120,8 +30120,8 @@
   "f": "web/js/pages/welcome.js"
  },
  {
-  "id": "16581b09",
-  "k": "<0>Find something to learn from.</0> In the Library, start with Basics if you're new to the language, or press <1>+</1> to add a YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.",
+  "id": "b3845314",
+  "k": "<0>Find something to learn from.</0> In Content, start with Basics if you're new to the language, or press <1>+</1> to add a YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.",
   "f": "web/js/pages/welcome.js"
  },
  {
@@ -31345,8 +31345,8 @@
   "f": "web/js/review/goalbar.js"
  },
  {
-  "id": "2512db08",
-  "k": "No new words are waiting to be learned: add some with Add words, or from Library → Basics → First 1000 words.",
+  "id": "a4b0671e",
+  "k": "No new words are waiting to be learned: add some with Add words, or from Content → Basics → First 1000 words.",
   "f": "web/js/review/goalbar.js"
  },
  {
@@ -34460,8 +34460,8 @@
   "f": "web/js/youtube-browser.js"
  },
  {
-  "id": "e80a9596",
-  "k": "Follow this channel in Tamkeen: it appears in your Library under YouTube",
+  "id": "ef1560a2",
+  "k": "Follow this channel in Tamkeen: it appears in Content under YouTube",
   "f": "web/js/youtube-browser.js"
  },
  {
@@ -35085,8 +35085,8 @@
   "f": "mobile/src/js/app.js"
  },
  {
-  "id": "7b230e38",
-  "k": "Following {0}. It's in your Library under YouTube.",
+  "id": "dbe21458",
+  "k": "Following {0}. It's in Content under YouTube.",
   "f": "mobile/src/js/app.js"
  },
  {
@@ -35725,8 +35725,8 @@
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
-  "id": "a1a1e907",
-  "k": "<0>Find something to learn from.</0> In the Library, start with Basics if you're new to the language, or press <1>+</1> for YouTube videos, podcasts, web pages and books.",
+  "id": "ea563131",
+  "k": "<0>Find something to learn from.</0> In Content, start with Basics if you're new to the language, or press <1>+</1> for YouTube videos, podcasts, web pages and books.",
   "f": "mobile/src/js/pages/welcome.js"
  },
  {
@@ -35790,8 +35790,8 @@
   "f": "mobile/src/js/reels-phone.js"
  },
  {
-  "id": "28d0566e",
-  "k": "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Library → Reels), with the Bisaya transcription model downloaded there (Settings → Listening & transcripts). They show up here the next time both sync.",
+  "id": "013893c0",
+  "k": "Bisaya reels can't be transcribed on a phone. Get them in Tamkeen on your computer (Content → Reels), with the Bisaya transcription model downloaded there (Settings → Listening & transcripts). They show up here the next time both sync.",
   "f": "mobile/src/js/reels-phone.js"
  },
  {

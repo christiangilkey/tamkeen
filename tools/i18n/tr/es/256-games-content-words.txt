@@ -1,0 +1,32 @@
+71ba397e	Eliminar de Contenido los episodios marcados para siempre, en todos los dispositivos
+a5464594	Esto lo quita de Contenido en todos los dispositivos, junto con el audio y la transcripción. Un episodio de pódcast borrado no vuelve cuando se actualiza el pódcast. El vocabulario guardado se conserva. No se puede deshacer.
+e645e81e	Tu contenido del DLI aparece en Contenido → DLI mientras estudias {0:lower}. Cambias de idioma en la parte de arriba de la pantalla.
+e85ca8c7	Tu contenido del DLI está en Contenido → DLI.
+39d156a7	Tu contenido del DLI está en Contenido → DLI, mientras estudias {0:lower}.
+acf55a49	Si aprendes árabe con un dialecto elegido en Contenido → Básico, las frases salen de ese dialecto cuando las hay.
+5e188cd2	Aún no has enviado ninguna lección. Añade una en Contenido → Mis archivos y luego pulsa Enviar a una clase.
+c3ce2425	Aún no hay reels. Se buscan en tu ordenador: abre Tamkeen allí, ve a Contenido → Reels y pulsa «Conseguir 10 reels». Llegarán aquí la próxima vez que ambos se sincronicen.
+a4b0671e	No hay palabras nuevas esperando: añade algunas con Añadir palabras, o desde Contenido → Básico → Primeras 1000 palabras.
+013893c0	Los reels en bisaya no se pueden transcribir en un teléfono. Consíguelos en Tamkeen en tu ordenador (Contenido → Reels), con el modelo de transcripción Bisaya descargado allí (Ajustes → Escucha y transcripciones). Aparecerán aquí la próxima vez que ambos se sincronicen.
+41fd6aee	Las palabras de dialectos árabes las lee una voz de ese dialecto: las levantinas del Básico, Amany (Siria); las egipcias, Salma (Egipto); las iraquíes, Bassel (Irak), que dice la g y la ch iraquíes; y las del Golfo, Hamed (Arabia Saudí). Las demás palabras siguen el dialecto elegido en Contenido → Básico, o la voz de abajo para el árabe estándar. Las palabras marroquíes se quedan con la voz de abajo: todavía ninguna voz de Azure dice bien el árabe marroquí.
+deae1ec1	Lo que tus profesores de {0} añadieron para ti. Abre algo y pasa a Contenido con su transcripción y sus notas sobre las palabras.
+060e2501	Aquí aún no hay nada. Añade algo desde Contenido, o pulsa el botón del avión de papel en cualquier reproductor o fila de Contenido y elige esta clase.
+fcf7c44f	Primero ábrelo en Contenido en este dispositivo y luego actualízalo.
+115628ae	Para estudiantes de árabe del DLI: se añaden pódcasts a Contenido con todos los episodios ya transcritos.
+5be89fbd	Se queda en Contenido.
+b819313b	Está en {0:lower}, así que aparece en Contenido mientras aprendes {1:lower}.
+def5d3a5	Cámbialo con el selector de idioma de la parte de arriba de la pantalla. Los demás números de aquí son del idioma que estás aprendiendo ahora.
+a64de99f	Es el idioma que eligió en su propia app.
+afd91900	Los repasos de tarjetas no cuentan: lucha o ve a pescar desde Juegos para golpear al jefe.
+c32df6d1	Los títulos que veas y las palabras que guardes allí vuelven aquí, a Contenido y a tu Vocabulario.
+e21c60cf	Para enviar algo, pulsa el botón del avión de papel en cualquier reproductor o fila de Contenido y elige esta clase. Su texto se envía también cuando tu app lo tiene.
+1e8c2b6f	Lo que añades para esta clase está en Contenido, en Aula: carpetas, tu transcripción, tus palabras importantes, significados y notas.
+1faf1d62	Lo que tus profesores añadieron para esta clase está en Contenido, en Aula.
+849845d3	Esto los quita de Contenido en todos los dispositivos, junto con el audio y la transcripción. Un episodio de pódcast borrado no vuelve cuando se actualiza el pódcast. El vocabulario guardado se conserva. No se puede deshacer.
+094f8161	Seguir a {0}: aparecerá en Contenido, en YouTube
+ef1560a2	Sigue este canal en Tamkeen: aparecerá en Contenido, en YouTube
+dbe21458	Siguiendo a {0}. Está en Contenido, en YouTube.
+169e71f6	La primera vez que abres Juegos, Contenido, Vocabulario y Amigos, una guía corta muestra para qué sirve cada botón. El ? de arriba de cualquier pantalla muestra su guía cuando quieras.
+b3845314	<0>Encuentra algo con lo que aprender.</0> En Contenido, empieza por el Básico si eres nuevo en el idioma, o pulsa <1>+</1> para añadir un vídeo de YouTube, un pódcast (elige uno popular o pega su dirección), una página web, un libro o tu propio audio y vídeo.
+ea563131	<0>Encuentra algo con lo que aprender.</0> En Contenido, empieza por el Básico si eres nuevo en el idioma, o pulsa <1>+</1> para vídeos de YouTube, pódcasts, páginas web y libros.
+88b69ace	Netflix funciona en Tamkeen en un ordenador con Windows: elige Netflix allí y sus subtítulos se convierten en palabras en las que puedes hacer clic, como los de un vídeo de YouTube. Lo que veas allí aparece aquí, en Contenido.

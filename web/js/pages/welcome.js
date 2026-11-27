@@ -17,7 +17,7 @@ export async function render(view, { step }) {
       <div class="card stack">
         <h2>How it works</h2>
         <ol>
-          <li><strong>Find something to learn from.</strong> In the Library, start with Basics if you're new to the language, or press <strong>+</strong> to add a
+          <li><strong>Find something to learn from.</strong> In Content, start with Basics if you're new to the language, or press <strong>+</strong> to add a
             YouTube video, a podcast (pick a popular one or paste its address), a web page, a book, or your own audio and video.</li>
           <li><strong>Tap any word</strong> to hear it and see what it means. The word being spoken is highlighted as you listen,
             and you can slow the sound down or repeat a sentence.</li>

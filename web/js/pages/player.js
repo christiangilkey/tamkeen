@@ -702,7 +702,7 @@ export async function render(view, { id, query }) {
       followBtn.setAttribute("aria-pressed", String(following));
       followBtn.querySelector(".mark").textContent = following ? "✓" : "+";
       followBtn.querySelector(".label").textContent = following ? "Following" : "Follow";
-      followBtn.title = following ? `You follow ${channelName}. Press to stop following.` : `Follow ${channelName}: it appears in your Library under YouTube`;
+      followBtn.title = following ? `You follow ${channelName}. Press to stop following.` : `Follow ${channelName}: it appears in Content under YouTube`;
     };
     paintFollow();
     isFollowing(ep).then((yes) => {

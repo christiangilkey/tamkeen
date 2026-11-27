@@ -1,0 +1,32 @@
+71ba397e	Elimina per sempre de Contingut els episodis marcats, en tots els dispositius
+a5464594	Això l'elimina de Contingut en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast esborrat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva. No es pot desfer.
+e645e81e	El teu contingut del DLI apareix a Contingut → DLI mentre estudies {0:lower}. Canvies d’idioma a la part de dalt de la pantalla.
+e85ca8c7	El teu contingut del DLI és a Contingut → DLI.
+39d156a7	El teu contingut del DLI és a Contingut → DLI, mentre estudies {0:lower}.
+acf55a49	Si aprens àrab amb un dialecte triat a Contingut → Bàsic, les frases surten d’aquell dialecte quan n’hi ha.
+5e188cd2	Encara no has enviat cap lliçó. Afegeix-ne una a Contingut → Els meus fitxers i després prem Envia a una classe.
+c3ce2425	Encara no hi ha reels. Es busquen al teu ordinador: obre-hi Tamkeen, ves a Contingut → Reels i prem «Aconsegueix 10 reels». Arribaran aquí la propera vegada que tots dos se sincronitzin.
+a4b0671e	No hi ha cap paraula nova esperant: afegeix-ne amb Afegeix paraules, o des de Contingut → Bàsic → Primeres 1000 paraules.
+013893c0	Els reels en bisaia no es poden transcriure en un mòbil. Aconsegueix-los a Tamkeen a l'ordinador (Contingut → Reels), amb el model de transcripció Bisaya baixat allà (Configuració → Escolta i transcripcions). Apareixeran aquí la propera vegada que tots dos se sincronitzin.
+41fd6aee	Les paraules dels dialectes àrabs les llegeix una veu d’aquell dialecte: les llevantines del Bàsic, l’Amany (Síria); les egípcies, la Salma (Egipte); les iraquianes, en Bassel (Iraq), que diu la g i la ch iraquianes; i les del Golf, en Hamed (Aràbia Saudita). Les altres paraules segueixen el dialecte triat a Contingut → Bàsic, o la veu de sota per a l’àrab estàndard. Les paraules marroquines es queden amb la veu de sota: encara cap veu d’Azure no diu bé l’àrab marroquí.
+deae1ec1	El que els teus professors de {0} han afegit per a tu. Obre'n un i passa a Contingut amb la seva transcripció i les seves notes sobre les paraules.
+060e2501	Aquí encara no hi ha res. Afegeix alguna cosa des de Contingut, o prem el botó de l'avió de paper a qualsevol reproductor o fila de Contingut i tria aquesta classe.
+fcf7c44f	Primer obre-ho a Contingut en aquest dispositiu i després actualitza-ho.
+115628ae	Per a estudiants d'àrab del DLI: s'afegeixen pòdcasts a Contingut amb tots els episodis ja transcrits.
+5be89fbd	Es queda a Contingut.
+b819313b	És en {0:lower}, així que apareix a Contingut mentre aprens {1:lower}.
+def5d3a5	Canvia-la amb el selector de llengua a la part de dalt de la pantalla. Els altres números d'aquí són de la llengua que aprens ara.
+a64de99f	És la llengua que ha triat a la seva pròpia app.
+afd91900	Els repassos de targetes no compten: lluita o ves a pescar des de Jocs per colpejar el cap.
+c32df6d1	Els títols que hi miris i les paraules que hi desis tornen aquí, a Contingut i al teu Vocabulari.
+e21c60cf	Per enviar alguna cosa, prem el botó de l'avió de paper a qualsevol reproductor o fila de Contingut i tria aquesta classe. El seu text també s'envia quan la teva app el té.
+1e8c2b6f	El que afegeixes per a aquesta classe és a Contingut, a Aula: carpetes, la teva transcripció, les teves paraules importants, significats i notes.
+1faf1d62	El que els teus professors han afegit per a aquesta classe és a Contingut, a Aula.
+849845d3	Això els elimina de Contingut en tots els dispositius, juntament amb l'àudio i la transcripció. Un episodi de pòdcast esborrat no torna quan s'actualitza el pòdcast. El vocabulari desat es conserva. No es pot desfer.
+094f8161	Segueix {0}: apareixerà a Contingut, a YouTube
+ef1560a2	Segueix aquest canal a Tamkeen: apareixerà a Contingut, a YouTube
+dbe21458	Segueixes {0}. És a Contingut, a YouTube.
+169e71f6	La primera vegada que obres Jocs, Contingut, Vocabulari i Amics, una guia curta mostra per a què serveix cada botó. El ? de dalt de qualsevol pantalla en mostra la guia quan vulguis.
+b3845314	<0>Troba alguna cosa per aprendre.</0> A Contingut, comença pel Bàsic si ets nou en l’idioma, o prem <1>+</1> per afegir un vídeo de YouTube, un pòdcast (tria'n un de popular o enganxa'n l'adreça), una pàgina web, un llibre o el teu propi àudio i vídeo.
+ea563131	<0>Troba alguna cosa per aprendre.</0> A Contingut, comença pel Bàsic si ets nou en l’idioma, o prem <1>+</1> per a vídeos de YouTube, pòdcasts, pàgines web i llibres.
+88b69ace	Netflix funciona a Tamkeen en un ordinador amb Windows: tria-hi Netflix, i els seus subtítols es converteixen en paraules clicables, com els d'un vídeo de YouTube. El que hi mires apareix aquí, a Contingut.

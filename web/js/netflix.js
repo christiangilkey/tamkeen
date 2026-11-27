@@ -152,11 +152,11 @@ export function unavailableText(reason) {
       title: t("Netflix needs the Tamkeen extension"),
       lines: [
         t("Netflix only lets a browser extension add Tamkeen to its player. With the Tamkeen extension in Chrome or Edge, Netflix plays in its own tab with Tamkeen's subtitle bar, and its subtitles become words you can click."),
-        t("The titles you watch and the words you save there come back here, to your Library and Vocab."),
+        t("The titles you watch and the words you save there come back here, to Content and Vocab."),
       ],
     };
   }
-  const elsewhere = t("Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in your Library.");
+  const elsewhere = t("Netflix works in Tamkeen on a Windows computer: choose Netflix there, and its subtitles become words you can click, like a YouTube video's. What you watch there shows up here in Content.");
   const why = {
     android: t("Netflix doesn't let its videos play inside other apps on most phones, so it isn't in Tamkeen's phone app yet."),
     iphone: t("Netflix doesn't let its videos play inside other apps on an iPhone, so Tamkeen can't show them here."),

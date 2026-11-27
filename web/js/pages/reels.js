@@ -155,7 +155,7 @@ async function renderList(view) {
         : phone && info && info.available
         ? "No reels yet. Save reels you like on Instagram, then choose that collection above and tick the reels you want."
         : phone
-        ? "No reels yet. They are found on your computer: open Tamkeen there, go to Library → Reels and press “Get 10 reels”. They arrive here the next time both sync."
+        ? "No reels yet. They are found on your computer: open Tamkeen there, go to Content → Reels and press “Get 10 reels”. They arrive here the next time both sync."
         : "No reels yet. Choose which reels you want above and press “Get reels”."}</div>`));
       return;
     }

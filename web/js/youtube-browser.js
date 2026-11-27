@@ -170,7 +170,7 @@
     if (!followBtn || !channel) return;
     var name = channel.name.length > 26 ? channel.name.slice(0, 25) + "…" : channel.name;
     followBtn.textContent = (following ? "✓ Following " : "+ Follow ") + name;
-    followBtn.title = following ? "You follow this channel in Tamkeen. Press to stop following." : "Follow this channel in Tamkeen: it appears in your Library under YouTube";
+    followBtn.title = following ? "You follow this channel in Tamkeen. Press to stop following." : "Follow this channel in Tamkeen: it appears in Content under YouTube";
     followBtn.style.cssText = "font:600 15px/1.2 system-ui,-apple-system,'Segoe UI',sans-serif;box-sizing:border-box;max-width:78vw;" +
       "padding:10px 18px;border-radius:999px;border:2px solid " + ACCENT + ";cursor:pointer;white-space:nowrap;overflow:hidden;" +
       "text-overflow:ellipsis;box-shadow:0 6px 24px rgba(0,0,0,.45);direction:ltr;" +
@@ -228,7 +228,7 @@
       if (r && r.ok) {
         if (channel === info) { following = !!r.following; paintFollow(); }
         remember(info.name, !!r.following);
-        say(r.following ? "Following " + info.name + ". It's in your Library under YouTube." : "Stopped following " + info.name + ".", true);
+        say(r.following ? "Following " + info.name + ". It's in Content under YouTube." : "Stopped following " + info.name + ".", true);
       } else {
         say((r && r.error) || "Couldn't follow this channel.", false);
       }

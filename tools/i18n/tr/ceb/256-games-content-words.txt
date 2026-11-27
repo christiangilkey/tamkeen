@@ -1,0 +1,32 @@
+71ba397e	Tangtanga hangtod sa hangtod ang mga episode nga gi-tsek sa Sulod, sa matag device
+a5464594	Matangtang kini sa Sulod sa matag device, uban ang audio ug transcript. Ang natangtang nga episode sa podcast dili mobalik kon i-refresh ang podcast. Magpabilin ang na-save nga vocab. Dili na kini ma-undo.
+e645e81e	Makita ang imong DLI nga sulod sa Sulod → DLI samtang nagtuon ka og {0}. Ilisan ang pinulongan sa ibabaw sa screen.
+e85ca8c7	Ang imong DLI nga sulod naa sa Sulod → DLI.
+39d156a7	Ang imong DLI nga sulod naa sa Sulod → DLI, samtang nagtuon ka og {0}.
+acf55a49	Kung nagtuon ka og Arabic nga may diyalekto nga gipili sa Sulod → Batakan, gikan sa maong diyalekto ang mga sentence kon aduna.
+5e188cd2	Wala pay leksyon nga napadala. Pagdugang og usa sa Sulod → Akong mga file, dayon pindota ang Ipadala sa klase.
+c3ce2425	Wala pay reel. Makit-an kini sa imong computer: ablihi ang Tamkeen didto, adto sa Sulod → Reels ug pindota ang “Kuhaa ang 10 ka reel”. Moabot kini dinhi sa sunod nga pag-sync sa duha.
+a4b0671e	Walay bag-ong mga pulong nga naghulat nga tun-an: pagdugang gamit ang Pagdugang og mga pulong, o gikan sa Sulod → Batakan → Unang 1000 ka pulong.
+013893c0	Dili ma-transcribe sa telepono ang mga Bisaya nga reel. Kuhaa sila sa Tamkeen sa imong computer (Sulod → Reels), nga na-download didto ang Bisaya nga transcription model (Settings → Pagpaminaw ug mga transcript). Mogawas sila dinhi sunod nga mag-sync ang duha.
+41fd6aee	Ang mga pulong sa diyalekto sa Arabic gibasa sa tingog gikan sa maong diyalekto: ang Levantine nga mga pulong gikan sa Batakan ni Amany (Syria), ang Egyptian ni Salma (Egypt), ang Iraqi ni Bassel (Iraq), nga moingon sa Iraqi nga g ug ch, ug ang Gulf ni Hamed (Saudi Arabia). Ang ubang mga pulong mosunod sa diyalekto nga gipili sa Sulod → Batakan, o sa tingog sa ubos para sa Standard Arabic. Ang Moroccan nga mga pulong magpabilin sa tingog sa ubos: wala pay Azure nga tingog nga maayong moingon og Moroccan Arabic.
+deae1ec1	Ang gidugang para kanimo sa imong mga magtutudlo sa {0}. Ablihi ang usa ug moadto kini sa Sulod uban ang ilang transcript ug ang ilang mga nota sa mga pulong niini.
+060e2501	Wala pay sulod dinhi. Pagdugang gikan sa Sulod, o pindota ang button nga eroplanong papel sa bisan asang player o laray sa Sulod ug pilia kini nga klase.
+fcf7c44f	Ablihi una kini sa Sulod niini nga device, unya i-update.
+115628ae	Para sa mga estudyante sa Arabiko sa DLI: may mga podcast nga idugang sa Sulod, na-transcribe na ang matag episode.
+5be89fbd	Magpabilin kini sa Sulod.
+b819313b	Naa kini sa {0}, busa makita kini sa Sulod samtang nagtuon ka og {1}.
+def5d3a5	Ilisi kini gamit ang pagpili og pinulongan sa ibabaw sa screen. Ang ubang mga numero dinhi para sa pinulongan nga imong gitun-an karon.
+a64de99f	Kini ang pinulongan nga ilang gipili sa ilang kaugalingong app.
+afd91900	Ang pagrepaso sa flashcard dili maihap: pakig-away o pangisda gikan sa Mga dula aron maigo ang boss.
+c32df6d1	Ang mga salida nga imong tan-awon ug ang mga pulong nga imong i-save didto mobalik dinhi, sa Sulod ug Vocab.
+e21c60cf	Aron magpadala, pindota ang button nga eroplanong papel sa bisan asang player o laray sa Sulod ug pilia kini nga klase. Mouban ang transcript niini kung naa kini sa imong app.
+1e8c2b6f	Ang imong idugang para niini nga klase naa sa Sulod, ubos sa Klasehanan: mga folder, ang imong transcript, ang imong mga importanteng pulong, mga kahulogan ug mga nota.
+1faf1d62	Ang gidugang sa imong mga magtutudlo para niini nga klase naa sa Sulod, ubos sa Klasehanan.
+849845d3	Matangtang sila sa Sulod sa matag device, uban ang audio ug transcript. Ang natangtang nga episode sa podcast dili mobalik kon i-refresh ang podcast. Magpabilin ang na-save nga vocab. Dili na kini ma-undo.
+094f8161	I-follow ang {0}: makita kini sa Sulod ubos sa YouTube
+ef1560a2	I-follow kini nga channel sa Tamkeen: makita kini sa Sulod ubos sa YouTube
+dbe21458	Gi-follow ang {0}. Naa kini sa Sulod ubos sa YouTube.
+169e71f6	Sa unang pag-abli nimo sa Mga dula, Sulod, Vocab ug Friends, usa ka mubong giya ang nagpakita kon unsa ang buhat sa matag button. Ang ? sa ibabaw sa bisan unsang screen nagpakita sa giya niini bisan kanus-a nimo gusto.
+b3845314	<0>Pangitag butang nga tun-an.</0> Sa Sulod, sugdi sa Batakan kon bag-o ka pa sa pinulongan, o pindota ang <1>+</1> aron magdugang og YouTube video, podcast (pili og popular o i-paste ang address niini), web page, libro, o imong kaugalingong audio ug video.
+ea563131	<0>Pangitag butang nga tun-an.</0> Sa Sulod, sugdi sa Batakan kon bag-o ka pa sa pinulongan, o pindota ang <1>+</1> para sa mga YouTube video, podcast, web page ug libro.
+88b69ace	Molihok ang Netflix sa Tamkeen sa usa ka Windows nga computer: pilia didto ang Netflix, ug ang mga subtitle niini mahimong mga pulong nga ma-click, sama sa usa ka YouTube video. Ang imong gitan-aw didto makita dinhi sa Sulod.

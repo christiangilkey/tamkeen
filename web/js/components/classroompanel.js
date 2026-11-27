@@ -146,7 +146,7 @@ export function classroomPanel(el, language) {
     }
     page.querySelector(".crm-sub").textContent = c.role === "teacher"
       ? t("What you add here, your students of {0} see: its transcript as you corrected it, the words you marked important, your meanings and your notes.", c.name)
-      : t("What your teachers of {0} added for you. Open one and it goes into your Library with their transcript and their notes on its words.", c.name);
+      : t("What your teachers of {0} added for you. Open one and it goes into Content with their transcript and their notes on its words.", c.name);
     await room(c);
   }
 
@@ -182,7 +182,7 @@ export function classroomPanel(el, language) {
     }
     if (!data.items.length && !data.folders.length) {
       const p = h(`<p class="muted crm-say"></p>`);
-      p.textContent = teaching ? t("Nothing here yet. Add something from your Library, or press the paper-airplane button on any player or Library row and pick this class.")
+      p.textContent = teaching ? t("Nothing here yet. Add something from Content, or press the paper-airplane button on any player or row in Content and pick this class.")
         : t("Your teachers haven't added anything yet.");
       body.append(p);
       return;
@@ -244,7 +244,7 @@ export function classroomPanel(el, language) {
           try {
             let ep = mineOf(p.id);
             if (!ep) { const r = await acceptMediaInfo(p.item, p.item); ep = r.episode && r.episode.id; if (ep) rememberMine(p.id, ep); } // (added from another device: my copy here is found by what it is)
-            if (!ep) throw new Error(t("Open it in your Library on this device first, then update it."));
+            if (!ep) throw new Error(t("Open it in Content on this device first, then update it."));
             const full = await api(`/episodes/${ep}`);
             const media = mediaFromEpisode(full && full.episode ? full.episode : full);
             if (!media) throw new Error(t("Your copy of it couldn't be read on this device."));
