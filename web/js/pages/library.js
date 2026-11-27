@@ -975,6 +975,18 @@ export async function render(view, { feedId: routeFeed, query }) {
       : show.size === 2 && !show.has("done") ? "not" : "other";
     const setShow = (list) => { keepChoice(cleanChoice({ ...c, show: list })); paintFilterButton(); loadEpisodes(); };
     const p = playedNow;
+    // One row of on/off chips, no "All" (prototype "library_chips"; the owner, 2026-11-27: "Why is this bar doubled in
+    // podcast?"): "Not listened to" (or Not watched / Not read) and, where things are transcribed, "Transcribed". With
+    // neither on, everything shows; both on, only what is both. The same choices as before underneath: what to show is
+    // kept for each tab (readChoice), the transcription state is in the address (goStatus), so Back undoes it.
+    if (feature("library_chips")) {
+      const notDone = played === "not", done = filter === "done";
+      const chips = [chip(notDoneWord(kind), p.progress + p.new, notDone, () => setShow(notDone ? [...STATES] : ["progress", "new"]))];
+      if (transcribable(kind)) chips.push(chip(t("Transcribed"), statusCount("done"), done, () => goStatus(done ? "" : "done")));
+      group(t("Show only"), chips);
+      box.hidden = false;
+      return;
+    }
     group(t("Finished or not"), [
       chip(t("All"), p.progress + p.new + p.done, played === "", () => setShow([...STATES])),
       chip(doneWord(kind), p.done, played === "done", () => setShow(["done"])),
